@@ -15,15 +15,42 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx9transposeENS_12basic_mdspanIKfNS_7extentsIJLl3ELl3EEEENS_12layout_rightENS_14accessor_basicIS1_EEEE(ptr dead_on_unwind noalias writable sret(%"class.gmx::MultiDimArray") align 8 %0, ptr nocapture readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr i8, ptr %1, i64 32
-  %4 = load float, ptr %3, align 4
-  %5 = load <8 x float>, ptr %1, align 4
-  %6 = shufflevector <8 x float> %5, <8 x float> poison, <8 x i32> <i32 0, i32 3, i32 6, i32 1, i32 4, i32 7, i32 2, i32 5>
-  store <8 x float> %6, ptr %0, align 8
+  %3 = load float, ptr %1, align 4
+  %4 = getelementptr i8, ptr %1, i64 12
+  %5 = load float, ptr %4, align 4
+  %6 = getelementptr i8, ptr %1, i64 24
+  %7 = load float, ptr %6, align 4
+  %8 = getelementptr i8, ptr %1, i64 4
+  %9 = load float, ptr %8, align 4
+  %10 = getelementptr i8, ptr %1, i64 16
+  %11 = load float, ptr %10, align 4
+  %12 = getelementptr i8, ptr %1, i64 28
+  %13 = load float, ptr %12, align 4
+  %14 = getelementptr i8, ptr %1, i64 8
+  %15 = load float, ptr %14, align 4
+  %16 = getelementptr i8, ptr %1, i64 20
+  %17 = load float, ptr %16, align 4
+  %18 = getelementptr i8, ptr %1, i64 32
+  %19 = load float, ptr %18, align 4
+  store float %3, ptr %0, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  store float %5, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store float %7, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  store float %9, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store float %11, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  store float %13, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store float %15, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
+  store float %17, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store float %4, ptr %.sroa.9.0..sroa_idx, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %0, ptr %7, align 8
+  store float %19, ptr %.sroa.9.0..sroa_idx, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %0, ptr %20, align 8
   ret void
 }
 

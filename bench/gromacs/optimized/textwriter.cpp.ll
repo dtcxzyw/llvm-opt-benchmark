@@ -875,50 +875,52 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx10TextWriterC2ERKSt10shared_ptrINS_16TextOutputStreamEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %6, ptr %3, align 8
-  %.not.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i, label %7
+  %4 = load ptr, ptr %1, align 8
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %5, align 8
+  %.not.i.i.i.i = icmp eq ptr %7, null
+  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i, label %8
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %9, 0
-  br i1 %.not.i.i.i.i.i, label %13, label %10
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %10, 0
+  br i1 %.not.i.i.i.i.i, label %14, label %11
 
-10:                                               ; preds = %7
-  %11 = load i32, ptr %8, align 4
-  %12 = add nsw i32 %11, 1
-  store i32 %12, ptr %8, align 4
+11:                                               ; preds = %8
+  %12 = load i32, ptr %9, align 4
+  %13 = add nsw i32 %12, 1
+  store i32 %13, ptr %9, align 4
   br label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
 
-13:                                               ; preds = %7
-  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
+14:                                               ; preds = %8
+  %15 = atomicrmw volatile add ptr %9, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
 
-_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %13, %10, %2
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %15)
-          to label %17 unwind label %.body
+_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %14, %11, %2
+  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %16)
+          to label %18 unwind label %.body
 
 .body:                                            ; preds = %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   tail call void @_ZdlPv(ptr noundef nonnull %3) #15
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %17
 
-17:                                               ; preds = %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
-  store i32 2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 36
-  store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %3, i64 40
-  store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 28
-  store i8 1, ptr %21, align 4
+18:                                               ; preds = %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
+  %19 = getelementptr inbounds i8, ptr %3, i64 32
+  store i32 2, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %3, i64 40
+  store i8 0, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %3, i64 28
+  store i8 1, ptr %22, align 4
   store ptr %3, ptr %0, align 8
   ret void
 }

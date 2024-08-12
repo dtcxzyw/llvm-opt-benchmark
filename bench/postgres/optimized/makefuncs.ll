@@ -341,18 +341,24 @@ declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnam
 define dso_local noundef ptr @makeBoolConst(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = zext i1 %0 to i64
   %4 = tail call noundef ptr @palloc0(i64 noundef 40) #6
+  store i32 7, ptr %4, align 4
   %5 = zext i1 %1 to i8
-  store <4 x i32> <i32 7, i32 16, i32 -1, i32 0>, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
-  store i8 %5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 33
-  store i8 1, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %4, i64 36
-  store i32 -1, ptr %10, align 4
+  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 16, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 -1, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 %3, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  store i8 %5, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 33
+  store i8 1, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %4, i64 36
+  store i32 -1, ptr %13, align 4
   ret ptr %4
 }
 
@@ -488,17 +494,23 @@ define dso_local noundef ptr @makeColumnDef(ptr noundef %0, i32 noundef %1, i32 
   %13 = getelementptr inbounds i8, ptr %5, i64 32
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 36
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 48
-  %16 = getelementptr inbounds i8, ptr %5, i64 88
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store i32 %3, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 104
-  %19 = getelementptr inbounds i8, ptr %5, i64 120
+  store i8 1, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %5, i64 37
+  store i8 0, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %5, i64 38
+  store i8 0, ptr %16, align 2
+  %17 = getelementptr inbounds i8, ptr %5, i64 39
+  store i8 0, ptr %17, align 1
+  %18 = getelementptr inbounds i8, ptr %5, i64 48
+  %19 = getelementptr inbounds i8, ptr %5, i64 88
+  store ptr null, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %19, align 8
+  store i32 %3, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %5, i64 104
+  %22 = getelementptr inbounds i8, ptr %5, i64 120
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  store i32 -1, ptr %22, align 8
   ret ptr %5
 }
 
@@ -690,44 +702,50 @@ define dso_local ptr @make_ands_explicit(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = tail call noundef ptr @palloc0(i64 noundef 40) #6
-  store <4 x i32> <i32 7, i32 16, i32 -1, i32 0>, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
-  store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 33
-  store i8 1, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 36
-  store i32 -1, ptr %9, align 4
-  br label %21
+  store i32 7, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 16, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 -1, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 1, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  store i8 0, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 33
+  store i8 1, ptr %11, align 1
+  %12 = getelementptr inbounds i8, ptr %4, i64 36
+  store i32 -1, ptr %12, align 4
+  br label %24
 
 list_length.exit:                                 ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp eq i32 %11, 1
-  br i1 %12, label %13, label %16
-
-13:                                               ; preds = %list_length.exit
-  %14 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %14, align 8
-  %15 = load ptr, ptr %.val, align 8
-  br label %21
+  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp eq i32 %14, 1
+  br i1 %15, label %16, label %19
 
 16:                                               ; preds = %list_length.exit
-  %17 = tail call noundef ptr @palloc0(i64 noundef 24) #6
-  store i32 19, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
-  store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr %0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
-  store i32 -1, ptr %20, align 8
-  br label %21
+  %17 = getelementptr i8, ptr %0, i64 16
+  %.val = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %.val, align 8
+  br label %24
 
-21:                                               ; preds = %16, %13, %3
-  %.0 = phi ptr [ %4, %3 ], [ %15, %13 ], [ %17, %16 ]
+19:                                               ; preds = %list_length.exit
+  %20 = tail call noundef ptr @palloc0(i64 noundef 24) #6
+  store i32 19, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  store i32 0, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr %0, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  store i32 -1, ptr %23, align 8
+  br label %24
+
+24:                                               ; preds = %19, %16, %3
+  %.0 = phi ptr [ %4, %3 ], [ %18, %16 ], [ %20, %19 ]
   ret ptr %.0
 }
 

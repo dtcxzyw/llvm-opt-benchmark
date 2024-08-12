@@ -597,7 +597,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %.lr.ph, %48
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_coll_base_allgather_intra_neighborexchange(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readnone %7) local_unnamed_addr #0 {
   %9 = alloca [2 x i32], align 4
-  %10 = alloca [2 x i32], align 8
+  %10 = alloca [2 x i32], align 4
   %11 = alloca [2 x i32], align 4
   %12 = getelementptr i8, ptr %6, i64 248
   %.val = load ptr, ptr %12, align 8
@@ -655,15 +655,18 @@ define i32 @ompi_coll_base_allgather_intra_neighborexchange(ptr noundef %0, i32 
   %.sink108 = phi i32 [ %35, %33 ], [ %41, %38 ]
   %.pn = phi i32 [ %37, %33 ], [ %42, %38 ]
   %44 = phi i32 [ %.val96, %33 ], [ %41, %38 ]
-  %45 = phi <2 x i32> [ <i32 2, i32 -2>, %33 ], [ <i32 -2, i32 2>, %38 ]
+  %.sink104 = phi i32 [ 2, %33 ], [ -2, %38 ]
+  %.sink = phi i32 [ -2, %33 ], [ 2, %38 ]
   %.sink107 = srem i32 %.pn, %.val.val
   store i32 %.sink108, ptr %9, align 4
-  %46 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %.sink107, ptr %46, align 4
+  %45 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %.sink107, ptr %45, align 4
   store i32 %44, ptr %11, align 4
-  %47 = getelementptr inbounds i8, ptr %11, i64 4
-  store i32 %44, ptr %47, align 4
-  store <2 x i32> %45, ptr %10, align 8
+  %46 = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 %44, ptr %46, align 4
+  store i32 %.sink104, ptr %10, align 4
+  %47 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 %.sink, ptr %47, align 4
   %48 = sext i32 %.sink108 to i64
   %49 = mul i64 %23, %25
   %50 = mul i64 %49, %48

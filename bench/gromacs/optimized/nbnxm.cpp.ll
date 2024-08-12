@@ -161,52 +161,60 @@ declare void @_ZN5Nbnxm7GridSet9putOnGridEPA3_KfiPS1_S4_PKN3gmx15UpdateGroupsCog
 define void @_Z26nbnxn_put_on_grid_nonlocalP18nonbonded_verlet_tPK18gmx_domdec_zones_tN3gmx8ArrayRefIKlEENS5_IKNS4_11BasicVectorIfEEEE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr %2, ptr %3, ptr %4, ptr %5) local_unnamed_addr #0 {
   %7 = alloca %"class.gmx::ArrayRef", align 8
   %8 = alloca %"class.gmx::ArrayRef.0", align 8
-  %9 = alloca %"class.gmx::BasicVector", align 8
-  %10 = alloca %"class.gmx::BasicVector", align 8
+  %9 = alloca %"class.gmx::BasicVector", align 4
+  %10 = alloca %"class.gmx::BasicVector", align 4
   %11 = load i32, ptr %1, align 8
   %12 = icmp sgt i32 %11, 1
   br i1 %12, label %.preheader.lr.ph, label %._crit_edge
 
 .preheader.lr.ph:                                 ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 100
-  %16 = ptrtoint ptr %3 to i64
-  %17 = ptrtoint ptr %2 to i64
-  %18 = sub i64 %16, %17
-  %19 = getelementptr inbounds i8, ptr %2, i64 %18
-  %20 = ptrtoint ptr %5 to i64
-  %21 = ptrtoint ptr %4 to i64
-  %22 = sub i64 %20, %21
-  %23 = getelementptr inbounds i8, ptr %4, i64 %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 4
+  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds i8, ptr %10, i64 4
+  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 100
+  %18 = ptrtoint ptr %3 to i64
+  %19 = ptrtoint ptr %2 to i64
+  %20 = sub i64 %18, %19
+  %21 = getelementptr inbounds i8, ptr %2, i64 %20
+  %22 = ptrtoint ptr %5 to i64
+  %23 = ptrtoint ptr %4 to i64
+  %24 = sub i64 %22, %23
+  %25 = getelementptr inbounds i8, ptr %4, i64 %24
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds i8, ptr %8, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %_ZN3gmx5RangeIiEC2Eii.exit
   %indvars.iv = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next, %_ZN3gmx5RangeIiEC2Eii.exit ]
   %indvar = phi i64 [ 0, %.preheader.lr.ph ], [ %indvar.next, %_ZN3gmx5RangeIiEC2Eii.exit ]
-  %28 = mul nuw nsw i64 %indvar, 48
-  %29 = getelementptr i8, ptr %1, i64 %28
-  %scevgep32 = getelementptr i8, ptr %29, i64 244
-  %30 = getelementptr i8, ptr %1, i64 %28
-  %scevgep = getelementptr i8, ptr %30, i64 232
-  %.sroa.337.0.scevgep.sroa_idx = getelementptr i8, ptr %30, i64 240
+  %30 = mul nuw nsw i64 %indvar, 48
+  %31 = getelementptr i8, ptr %1, i64 %30
+  %scevgep32 = getelementptr i8, ptr %31, i64 244
+  %32 = getelementptr i8, ptr %1, i64 %30
+  %scevgep = getelementptr i8, ptr %32, i64 232
+  %.sroa.035.0.copyload = load float, ptr %scevgep, align 4
+  %.sroa.236.0.scevgep.sroa_idx = getelementptr i8, ptr %32, i64 236
+  %.sroa.236.0.copyload = load float, ptr %.sroa.236.0.scevgep.sroa_idx, align 4
+  %.sroa.337.0.scevgep.sroa_idx = getelementptr i8, ptr %32, i64 240
   %.sroa.337.0.copyload = load float, ptr %.sroa.337.0.scevgep.sroa_idx, align 4
-  %.sroa.3.0.scevgep32.sroa_idx = getelementptr i8, ptr %29, i64 252
+  %.sroa.0.0.copyload = load float, ptr %scevgep32, align 4
+  %.sroa.2.0.scevgep32.sroa_idx = getelementptr i8, ptr %31, i64 248
+  %.sroa.2.0.copyload = load float, ptr %.sroa.2.0.scevgep32.sroa_idx, align 4
+  %.sroa.3.0.scevgep32.sroa_idx = getelementptr i8, ptr %31, i64 252
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0.scevgep32.sroa_idx, align 4
-  %31 = load <2 x float>, ptr %scevgep, align 4
-  store <2 x float> %31, ptr %9, align 8
-  store float %.sroa.337.0.copyload, ptr %13, align 8
-  %32 = load <2 x float>, ptr %scevgep32, align 4
-  store <2 x float> %32, ptr %10, align 8
-  store float %.sroa.3.0.copyload, ptr %14, align 8
-  %33 = getelementptr inbounds [9 x i32], ptr %15, i64 0, i64 %indvars.iv
+  store float %.sroa.035.0.copyload, ptr %9, align 4
+  store float %.sroa.236.0.copyload, ptr %13, align 4
+  store float %.sroa.337.0.copyload, ptr %14, align 4
+  store float %.sroa.0.0.copyload, ptr %10, align 4
+  store float %.sroa.2.0.copyload, ptr %15, align 4
+  store float %.sroa.3.0.copyload, ptr %16, align 4
+  %33 = getelementptr inbounds [9 x i32], ptr %17, i64 0, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds [9 x i32], ptr %15, i64 0, i64 %indvars.iv.next
+  %35 = getelementptr inbounds [9 x i32], ptr %17, i64 0, i64 %indvars.iv.next
   %36 = load i32, ptr %35, align 4
   %.not.i = icmp sgt i32 %34, %36
   br i1 %.not.i, label %37, label %_ZN3gmx5RangeIiEC2Eii.exit
@@ -220,8 +228,8 @@ _ZN3gmx5RangeIiEC2Eii.exit:                       ; preds = %.preheader
   %.sroa.222.0.insert.shift = shl nuw i64 %.sroa.222.0.insert.ext, 32
   %.sroa.021.0.insert.ext = zext i32 %34 to i64
   %.sroa.021.0.insert.insert = or disjoint i64 %.sroa.222.0.insert.shift, %.sroa.021.0.insert.ext
-  %38 = load ptr, ptr %24, align 8
-  %39 = load ptr, ptr %25, align 8
+  %38 = load ptr, ptr %26, align 8
+  %39 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %40 = getelementptr inbounds i8, ptr %38, i64 224
@@ -235,9 +243,9 @@ _ZN3gmx5RangeIiEC2Eii.exit:                       ; preds = %.preheader
   %48 = getelementptr inbounds i8, ptr %38, i64 240
   store i64 %47, ptr %48, align 8
   store ptr %2, ptr %7, align 8
-  store ptr %19, ptr %26, align 8
+  store ptr %21, ptr %28, align 8
   store ptr %4, ptr %8, align 8
-  store ptr %23, ptr %27, align 8
+  store ptr %25, ptr %29, align 8
   %49 = trunc nuw nsw i64 %indvars.iv to i32
   call void @_ZN5Nbnxm7GridSet9putOnGridEPA3_KfiPS1_S4_PKN3gmx15UpdateGroupsCogENS5_5RangeIiEEfNS5_8ArrayRefIKlEENSB_IKNS5_11BasicVectorIfEEEEiPKiP16nbnxn_atomdata_t(ptr noundef nonnull align 8 dereferenceable(188) %38, ptr noundef null, i32 noundef %49, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null, i64 %.sroa.021.0.insert.insert, float noundef -1.000000e+00, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.0") align 8 %8, i32 noundef 0, ptr noundef null, ptr noundef %39)
   %50 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
@@ -928,10 +936,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %0, align 8
   ret void

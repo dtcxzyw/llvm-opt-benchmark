@@ -297,7 +297,13 @@ entry:
   %clock_scale = getelementptr inbounds i8, ptr %call.i11, i64 2884
   %timer1_preload = getelementptr inbounds i8, ptr %call.i11, i64 2912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %clock_scale, i8 0, i64 20, i1 false)
-  store <4 x i32> <i32 1048575, i32 1048575, i32 1, i32 0>, ptr %timer1_preload, align 16
+  store i32 1048575, ptr %timer1_preload, align 16
+  %timer2_preload = getelementptr inbounds i8, ptr %call.i11, i64 2916
+  store i32 1048575, ptr %timer2_preload, align 4
+  %stage = getelementptr inbounds i8, ptr %call.i11, i64 2920
+  store i32 1, ptr %stage, align 8
+  %unlock_state = getelementptr inbounds i8, ptr %call.i11, i64 2924
+  store i32 0, ptr %unlock_state, align 4
   ret void
 }
 
@@ -368,7 +374,13 @@ if.then3:                                         ; preds = %if.else
   %clock_scale.i9 = getelementptr inbounds i8, ptr %call.i11.i, i64 2884
   %timer1_preload.i = getelementptr inbounds i8, ptr %call.i11.i, i64 2912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %clock_scale.i9, i8 0, i64 20, i1 false)
-  store <4 x i32> <i32 1048575, i32 1048575, i32 1, i32 0>, ptr %timer1_preload.i, align 16
+  store i32 1048575, ptr %timer1_preload.i, align 16
+  %timer2_preload.i = getelementptr inbounds i8, ptr %call.i11.i, i64 2916
+  store i32 1048575, ptr %timer2_preload.i, align 4
+  %stage.i = getelementptr inbounds i8, ptr %call.i11.i, i64 2920
+  store i32 1, ptr %stage.i, align 8
+  %unlock_state.i = getelementptr inbounds i8, ptr %call.i11.i, i64 2924
+  store i32 0, ptr %unlock_state.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.else

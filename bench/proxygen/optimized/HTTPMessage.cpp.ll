@@ -5347,9 +5347,9 @@ entry:
   %res = alloca %"class.proxygen::ParseURL", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp15 = alloca %"class.folly::Range", align 16
+  %agg.tmp15 = alloca %"class.folly::Range", align 8
   %agg.tmp20 = alloca %"class.folly::Range", align 8
-  %agg.tmp22 = alloca %"class.folly::Range", align 16
+  %agg.tmp22 = alloca %"class.folly::Range", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
   %url_ = getelementptr inbounds i8, ptr %call, i64 168
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %url_) #21
@@ -5382,8 +5382,12 @@ invoke.cont12:                                    ; preds = %invoke.cont10
 
 invoke.cont16:                                    ; preds = %invoke.cont12
   %path_.i = getelementptr inbounds i8, ptr %u, i64 96
-  %2 = load <2 x ptr>, ptr %path_.i, align 8
-  store <2 x ptr> %2, ptr %agg.tmp15, align 16
+  %retval.sroa.0.0.copyload.i22 = load ptr, ptr %path_.i, align 8
+  %retval.sroa.2.0.path_.sroa_idx.i = getelementptr inbounds i8, ptr %u, i64 104
+  %retval.sroa.2.0.copyload.i23 = load ptr, ptr %retval.sroa.2.0.path_.sroa_idx.i, align 8
+  store ptr %retval.sroa.0.0.copyload.i22, ptr %agg.tmp15, align 8
+  %2 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
+  store ptr %retval.sroa.2.0.copyload.i23, ptr %2, align 8
   %call.i26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %query) #21
   store ptr %call.i26, ptr %agg.tmp20, align 8
   %e_.i27 = getelementptr inbounds i8, ptr %agg.tmp20, i64 8
@@ -5412,8 +5416,12 @@ if.end.i.i.i32.cont:                              ; preds = %if.end.i.i.i32.invo
 
 invoke.cont23:                                    ; preds = %invoke.cont16
   %fragment_.i = getelementptr inbounds i8, ptr %u, i64 128
-  %4 = load <2 x ptr>, ptr %fragment_.i, align 8
-  store <2 x ptr> %4, ptr %agg.tmp22, align 16
+  %retval.sroa.0.0.copyload.i36 = load ptr, ptr %fragment_.i, align 8
+  %retval.sroa.2.0.fragment_.sroa_idx.i = getelementptr inbounds i8, ptr %u, i64 136
+  %retval.sroa.2.0.copyload.i37 = load ptr, ptr %retval.sroa.2.0.fragment_.sroa_idx.i, align 8
+  store ptr %retval.sroa.0.0.copyload.i36, ptr %agg.tmp22, align 8
+  %4 = getelementptr inbounds i8, ptr %agg.tmp22, i64 8
+  store ptr %retval.sroa.2.0.copyload.i37, ptr %4, align 8
   invoke void @_ZN8proxygen11HTTPMessage9createUrlB5cxx11EN5folly5RangeIPKcEES5_S5_S5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, ptr %call.i12, ptr %add.ptr.i15, ptr noundef nonnull byval(%"class.folly::Range") align 8 %agg.tmp15, ptr noundef nonnull byval(%"class.folly::Range") align 8 %agg.tmp20, ptr noundef nonnull byval(%"class.folly::Range") align 8 %agg.tmp22)
           to label %invoke.cont27 unwind label %lpad13
 
@@ -7577,14 +7585,17 @@ if.then:                                          ; preds = %entry
   %path_.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   %retval.sroa.0.0.copyload.i = load ptr, ptr %path_.i, align 8
   %retval.sroa.2.0.path_.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 104
+  %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.path_.sroa_idx.i, align 8
   %path_ = getelementptr inbounds i8, ptr %call, i64 120
   store ptr %retval.sroa.0.0.copyload.i, ptr %path_, align 8
   %ref.tmp.sroa.2.0.path_.sroa_idx = getelementptr inbounds i8, ptr %call, i64 128
+  store ptr %retval.sroa.2.0.copyload.i, ptr %ref.tmp.sroa.2.0.path_.sroa_idx, align 8
+  %query_.i = getelementptr inbounds i8, ptr %agg.result, i64 112
+  %retval.sroa.0.0.copyload.i9 = load ptr, ptr %query_.i, align 8
   %retval.sroa.2.0.query_.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 120
   %retval.sroa.2.0.copyload.i10 = load ptr, ptr %retval.sroa.2.0.query_.sroa_idx.i, align 8
-  %1 = load <2 x ptr>, ptr %retval.sroa.2.0.path_.sroa_idx.i, align 8
-  %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.path_.sroa_idx.i, align 8
-  store <2 x ptr> %1, ptr %ref.tmp.sroa.2.0.path_.sroa_idx, align 8
+  %query_ = getelementptr inbounds i8, ptr %call, i64 136
+  store ptr %retval.sroa.0.0.copyload.i9, ptr %query_, align 8
   %ref.tmp6.sroa.2.0.query_.sroa_idx = getelementptr inbounds i8, ptr %call, i64 144
   store ptr %retval.sroa.2.0.copyload.i10, ptr %ref.tmp6.sroa.2.0.query_.sroa_idx, align 8
   %cmp.i = icmp eq ptr %retval.sroa.0.0.copyload.i, %retval.sroa.2.0.copyload.i
@@ -7602,26 +7613,26 @@ if.else:                                          ; preds = %entry
 
 if.end19:                                         ; preds = %if.then, %if.then12, %if.else
   %pathStr_ = getelementptr inbounds i8, ptr %call, i64 152
-  %2 = load ptr, ptr %pathStr_, align 8
+  %1 = load ptr, ptr %pathStr_, align 8
   store ptr null, ptr %pathStr_, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE5resetEPS5_.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %if.end19
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #33
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #33
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE5resetEPS5_.exit
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE5resetEPS5_.exit: ; preds = %if.end19, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   %queryStr_ = getelementptr inbounds i8, ptr %call, i64 160
-  %3 = load ptr, ptr %queryStr_, align 8
+  %2 = load ptr, ptr %queryStr_, align 8
   store ptr null, ptr %queryStr_, align 8
-  %tobool.not.i.i15 = icmp eq ptr %3, null
+  %tobool.not.i.i15 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i15, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE5resetEPS5_.exit17, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i16
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i16: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE5resetEPS5_.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #33
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #33
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE5resetEPS5_.exit17
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE5resetEPS5_.exit17: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE5resetEPS5_.exit, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i16
@@ -7630,15 +7641,15 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 if.then21:                                        ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE5resetEPS5_.exit17
   %queryParams_.i = getelementptr inbounds i8, ptr %this, i64 432
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
-  %4 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %queryParams_.i, ptr noundef %4)
+  %3 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %queryParams_.i, ptr noundef %3)
           to label %_ZN8proxygen11HTTPMessage18unparseQueryParamsEv.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then21
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #34
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #34
   unreachable
 
 _ZN8proxygen11HTTPMessage18unparseQueryParamsEv.exit: ; preds = %if.then21
@@ -12859,15 +12870,23 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENSt9en
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvN5folly5RangeIPKcEES4_EZZNK8proxygen11HTTPMessage12parseCookiesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS4_S4_E_E9_M_invokeERKSt9_Any_dataOS4_SM_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__args1) #2 align 2 {
 entry:
-  %cookieName.i.i.i = alloca %"class.folly::Range", align 16
-  %cookieValue.i.i.i = alloca %"class.folly::Range", align 16
+  %cookieName.i.i.i = alloca %"class.folly::Range", align 8
+  %cookieValue.i.i.i = alloca %"class.folly::Range", align 8
   %call.val = load ptr, ptr %__functor, align 8
+  %__args.val = load ptr, ptr %__args, align 8
+  %0 = getelementptr inbounds i8, ptr %__args, i64 8
+  %__args.val1 = load ptr, ptr %0, align 8
+  %__args1.val = load ptr, ptr %__args1, align 8
+  %1 = getelementptr inbounds i8, ptr %__args1, i64 8
+  %__args1.val2 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cookieName.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cookieValue.i.i.i)
-  %0 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %0, ptr %cookieName.i.i.i, align 16
-  %1 = load <2 x ptr>, ptr %__args1, align 8
-  store <2 x ptr> %1, ptr %cookieValue.i.i.i, align 16
+  store ptr %__args.val, ptr %cookieName.i.i.i, align 8
+  %2 = getelementptr inbounds i8, ptr %cookieName.i.i.i, i64 8
+  store ptr %__args.val1, ptr %2, align 8
+  store ptr %__args1.val, ptr %cookieValue.i.i.i, align 8
+  %3 = getelementptr inbounds i8, ptr %cookieValue.i.i.i, i64 8
+  store ptr %__args1.val2, ptr %3, align 8
   %cookies_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 384
   %call.i.i.i = call { ptr, i8 } @_ZNSt3mapIN5folly5RangeIPKcEES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE7emplaceIJRS4_SD_EEES7_ISt17_Rb_tree_iteratorIS9_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %cookies_.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %cookieName.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %cookieValue.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cookieName.i.i.i)

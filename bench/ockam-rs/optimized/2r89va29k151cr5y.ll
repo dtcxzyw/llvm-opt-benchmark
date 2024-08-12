@@ -935,14 +935,17 @@ define hidden void @"_ZN5alloc11collections5btree4node139Handle$LT$alloc..collec
 define hidden void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h26b3cfb8172af38fE.llvm.4387265947332733882"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !nonnull !28, !noundef !28
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load <2 x i64>, ptr %4, align 8
-  %8 = load i64, ptr %4, align 8, !noundef !28
-  %.not = icmp ne i64 %8, 0
+  %5 = load i64, ptr %4, align 8, !noundef !28
+  %.not = icmp ne i64 %5, 0
   %spec.select = zext i1 %.not to i64
-  store <2 x i64> %7, ptr %6, align 8
+  %.sink.in = getelementptr inbounds i8, ptr %1, i64 16
+  %.sink = load i64, ptr %.sink.in, align 8, !noundef !28
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %5, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sink, ptr %8, align 8
   store i64 %spec.select, ptr %0, align 8
   ret void
 }
@@ -951,14 +954,17 @@ define hidden void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collec
 define hidden void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h88a42d101be1b457E.llvm.4387265947332733882"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !nonnull !28, !noundef !28
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load <2 x i64>, ptr %4, align 8
-  %8 = load i64, ptr %4, align 8, !noundef !28
-  %.not = icmp ne i64 %8, 0
+  %5 = load i64, ptr %4, align 8, !noundef !28
+  %.not = icmp ne i64 %5, 0
   %spec.select = zext i1 %.not to i64
-  store <2 x i64> %7, ptr %6, align 8
+  %.sink.in = getelementptr inbounds i8, ptr %1, i64 16
+  %.sink = load i64, ptr %.sink.in, align 8, !noundef !28
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %5, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sink, ptr %8, align 8
   store i64 %spec.select, ptr %0, align 8
   ret void
 }
@@ -967,14 +973,17 @@ define hidden void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collec
 define hidden void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h8a423500c8b86ae2E.llvm.4387265947332733882"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !nonnull !28, !noundef !28
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load <2 x i64>, ptr %4, align 8
-  %8 = load i64, ptr %4, align 8, !noundef !28
-  %.not = icmp ne i64 %8, 0
+  %5 = load i64, ptr %4, align 8, !noundef !28
+  %.not = icmp ne i64 %5, 0
   %spec.select = zext i1 %.not to i64
-  store <2 x i64> %7, ptr %6, align 8
+  %.sink.in = getelementptr inbounds i8, ptr %1, i64 16
+  %.sink = load i64, ptr %.sink.in, align 8, !noundef !28
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %5, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sink, ptr %8, align 8
   store i64 %spec.select, ptr %0, align 8
   ret void
 }
@@ -983,14 +992,17 @@ define hidden void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collec
 define hidden void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17ha0da75f9430f7958E.llvm.4387265947332733882"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !nonnull !28, !noundef !28
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load <2 x i64>, ptr %4, align 8
-  %8 = load i64, ptr %4, align 8, !noundef !28
-  %.not = icmp ne i64 %8, 0
+  %5 = load i64, ptr %4, align 8, !noundef !28
+  %.not = icmp ne i64 %5, 0
   %spec.select = zext i1 %.not to i64
-  store <2 x i64> %7, ptr %6, align 8
+  %.sink.in = getelementptr inbounds i8, ptr %1, i64 16
+  %.sink = load i64, ptr %.sink.in, align 8, !noundef !28
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %5, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sink, ptr %8, align 8
   store i64 %spec.select, ptr %0, align 8
   ret void
 }
@@ -999,14 +1011,17 @@ define hidden void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collec
 define hidden void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17hccec880db79fd9ffE.llvm.4387265947332733882"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !nonnull !28, !noundef !28
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load <2 x i64>, ptr %4, align 8
-  %8 = load i64, ptr %4, align 8, !noundef !28
-  %.not = icmp ne i64 %8, 0
+  %5 = load i64, ptr %4, align 8, !noundef !28
+  %.not = icmp ne i64 %5, 0
   %spec.select = zext i1 %.not to i64
-  store <2 x i64> %7, ptr %6, align 8
+  %.sink.in = getelementptr inbounds i8, ptr %1, i64 16
+  %.sink = load i64, ptr %.sink.in, align 8, !noundef !28
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %5, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sink, ptr %8, align 8
   store i64 %spec.select, ptr %0, align 8
   ret void
 }

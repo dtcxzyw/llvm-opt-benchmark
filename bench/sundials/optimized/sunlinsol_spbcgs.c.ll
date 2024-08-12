@@ -260,7 +260,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 24
   store i32 -9998, ptr %47, align 8
-  br label %242
+  br label %239
 
 48:                                               ; preds = %5
   br i1 %.not290, label %49, label %.thread
@@ -284,7 +284,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 24
   %58 = load i32, ptr %57, align 8
-  br label %242
+  br label %239
 
 59:                                               ; preds = %49
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %3, double noundef -1.000000e+00, ptr noundef %11, ptr noundef %11) #10
@@ -311,7 +311,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 24
   %70 = load i32, ptr %69, align 8
-  br label %242
+  br label %239
 
 71:                                               ; preds = %60
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %11, ptr noundef %13) #10
@@ -351,7 +351,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   %86 = load ptr, ptr %0, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 24
   %88 = load i32, ptr %87, align 8
-  br label %242
+  br label %239
 
 89:                                               ; preds = %80
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %11, ptr noundef %13) #10
@@ -379,9 +379,9 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   br label %99
 
 99:                                               ; preds = %.lr.ph, %204
-  %100 = phi i1 [ true, %.lr.ph ], [ %215, %204 ]
+  %100 = phi i1 [ true, %.lr.ph ], [ %212, %204 ]
   %.0263341 = phi double [ %76, %.lr.ph ], [ %205, %204 ]
-  %.0266340 = phi i32 [ 0, %.lr.ph ], [ %214, %204 ]
+  %.0266340 = phi i32 [ 0, %.lr.ph ], [ %211, %204 ]
   %101 = load i32, ptr %37, align 4
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %37, align 4
@@ -414,7 +414,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   %113 = load ptr, ptr %0, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 24
   %115 = load i32, ptr %114, align 8
-  br label %242
+  br label %239
 
 116:                                              ; preds = %105, %106
   %117 = call i32 %33(ptr noundef %29, ptr noundef %23, ptr noundef %21) #10
@@ -431,7 +431,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   %123 = load ptr, ptr %0, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 24
   %125 = load i32, ptr %124, align 8
-  br label %242
+  br label %239
 
 126:                                              ; preds = %116
   switch i32 %41, label %137 [
@@ -454,7 +454,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   %134 = load ptr, ptr %0, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 24
   %136 = load i32, ptr %135, align 8
-  br label %242
+  br label %239
 
 137:                                              ; preds = %126
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %21, ptr noundef %23) #10
@@ -505,7 +505,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   %155 = load ptr, ptr %0, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 24
   %157 = load i32, ptr %156, align 8
-  br label %242
+  br label %239
 
 158:                                              ; preds = %147, %148
   %159 = call i32 %33(ptr noundef %29, ptr noundef %23, ptr noundef %19) #10
@@ -522,7 +522,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   %165 = load ptr, ptr %0, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 24
   %167 = load i32, ptr %166, align 8
-  br label %242
+  br label %239
 
 168:                                              ; preds = %158
   switch i32 %41, label %179 [
@@ -545,7 +545,7 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   %176 = load ptr, ptr %0, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 24
   %178 = load i32, ptr %177, align 8
-  br label %242
+  br label %239
 
 179:                                              ; preds = %168
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %19, ptr noundef %23) #10
@@ -612,84 +612,82 @@ define i32 @SUNLinSolSolve_SPBCGS(ptr nocapture noundef readonly %0, ptr nocaptu
   %205 = call double @N_VDotProd(ptr noundef %13, ptr noundef %11) #10
   %206 = fdiv double %205, %.0263341
   %207 = fdiv double %143, %187
+  %208 = fmul double %207, %206
+  store double %208, ptr %6, align 16
   store ptr %15, ptr %7, align 16
-  %208 = insertelement <2 x double> poison, double %206, i64 0
-  %209 = shufflevector <2 x double> %208, <2 x double> poison, <2 x i32> zeroinitializer
-  %210 = insertelement <2 x double> poison, double %207, i64 0
-  %211 = insertelement <2 x double> %210, double %144, i64 1
-  %212 = fmul <2 x double> %209, %211
-  store <2 x double> %212, ptr %6, align 16
+  %209 = fmul double %206, %144
+  store double %209, ptr %95, align 8
   store ptr %21, ptr %96, align 8
   store double 1.000000e+00, ptr %97, align 16
   store ptr %13, ptr %98, align 16
-  %213 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %15) #10
-  %214 = add nuw nsw i32 %.0266340, 1
-  %215 = icmp slt i32 %214, %9
-  %exitcond.not = icmp eq i32 %214, %9
+  %210 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %15) #10
+  %211 = add nuw nsw i32 %.0266340, 1
+  %212 = icmp slt i32 %211, %9
+  %exitcond.not = icmp eq i32 %211, %9
   br i1 %exitcond.not, label %._crit_edge, label %99
 
 ._crit_edge:                                      ; preds = %204
-  %216 = fcmp olt double %202, %81
-  br i1 %216, label %.thread310, label %._crit_edge.thread
+  %213 = fcmp olt double %202, %81
+  br i1 %213, label %.thread310, label %._crit_edge.thread
 
 .thread310.loopexit:                              ; preds = %201
-  %217 = select i1 %100, i32 0, i32 801
+  %214 = select i1 %100, i32 0, i32 801
   br label %.thread310
 
 .thread310:                                       ; preds = %.thread310.loopexit, %._crit_edge
-  %. = phi i32 [ 801, %._crit_edge ], [ %217, %.thread310.loopexit ]
-  br i1 %.not, label %219, label %218
+  %. = phi i32 [ 801, %._crit_edge ], [ %214, %.thread310.loopexit ]
+  br i1 %.not, label %216, label %215
 
-218:                                              ; preds = %.thread310
+215:                                              ; preds = %.thread310
   call void @N_VDiv(ptr noundef %2, ptr noundef nonnull %27, ptr noundef %2) #10
-  br label %219
+  br label %216
 
-219:                                              ; preds = %218, %.thread310
-  br i1 %switch308, label %220, label %231
+216:                                              ; preds = %215, %.thread310
+  br i1 %switch308, label %217, label %228
 
-220:                                              ; preds = %219
-  %221 = call i32 %35(ptr noundef %31, ptr noundef %2, ptr noundef %23, double noundef %4, i32 noundef 2) #10
-  %.not302 = icmp eq i32 %221, 0
-  br i1 %.not302, label %230, label %222
+217:                                              ; preds = %216
+  %218 = call i32 %35(ptr noundef %31, ptr noundef %2, ptr noundef %23, double noundef %4, i32 noundef 2) #10
+  %.not302 = icmp eq i32 %218, 0
+  br i1 %.not302, label %227, label %219
 
-222:                                              ; preds = %220
+219:                                              ; preds = %217
   store i32 0, ptr %36, align 4
-  %223 = icmp slt i32 %221, 0
-  %224 = select i1 %223, i32 -808, i32 805
-  %225 = load ptr, ptr %0, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 24
-  store i32 %224, ptr %226, align 8
-  %227 = load ptr, ptr %0, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 24
-  %229 = load i32, ptr %228, align 8
-  br label %242
+  %220 = icmp slt i32 %218, 0
+  %221 = select i1 %220, i32 -808, i32 805
+  %222 = load ptr, ptr %0, align 8
+  %223 = getelementptr inbounds i8, ptr %222, i64 24
+  store i32 %221, ptr %223, align 8
+  %224 = load ptr, ptr %0, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 24
+  %226 = load i32, ptr %225, align 8
+  br label %239
 
-230:                                              ; preds = %220
+227:                                              ; preds = %217
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %23, ptr noundef %2) #10
-  br label %231
+  br label %228
 
-231:                                              ; preds = %219, %230
+228:                                              ; preds = %216, %227
   store i32 0, ptr %36, align 4
-  %232 = load ptr, ptr %0, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 24
-  store i32 %., ptr %233, align 8
-  %234 = load ptr, ptr %0, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 24
-  %236 = load i32, ptr %235, align 8
-  br label %242
+  %229 = load ptr, ptr %0, align 8
+  %230 = getelementptr inbounds i8, ptr %229, i64 24
+  store i32 %., ptr %230, align 8
+  %231 = load ptr, ptr %0, align 8
+  %232 = getelementptr inbounds i8, ptr %231, i64 24
+  %233 = load i32, ptr %232, align 8
+  br label %239
 
 ._crit_edge.thread:                               ; preds = %93, %._crit_edge
   store i32 0, ptr %36, align 4
-  %237 = load ptr, ptr %0, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 24
-  store i32 802, ptr %238, align 8
-  %239 = load ptr, ptr %0, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 24
-  %241 = load i32, ptr %240, align 8
-  br label %242
+  %234 = load ptr, ptr %0, align 8
+  %235 = getelementptr inbounds i8, ptr %234, i64 24
+  store i32 802, ptr %235, align 8
+  %236 = load ptr, ptr %0, align 8
+  %237 = getelementptr inbounds i8, ptr %236, i64 24
+  %238 = load i32, ptr %237, align 8
+  br label %239
 
-242:                                              ; preds = %._crit_edge.thread, %231, %222, %171, %160, %150, %129, %118, %108, %83, %63, %51, %45
-  %.0 = phi i32 [ %70, %63 ], [ %88, %83 ], [ %115, %108 ], [ %125, %118 ], [ %136, %129 ], [ %157, %150 ], [ %167, %160 ], [ %178, %171 ], [ %229, %222 ], [ %236, %231 ], [ %241, %._crit_edge.thread ], [ %58, %51 ], [ -9998, %45 ]
+239:                                              ; preds = %._crit_edge.thread, %228, %219, %171, %160, %150, %129, %118, %108, %83, %63, %51, %45
+  %.0 = phi i32 [ %70, %63 ], [ %88, %83 ], [ %115, %108 ], [ %125, %118 ], [ %136, %129 ], [ %157, %150 ], [ %167, %160 ], [ %178, %171 ], [ %226, %219 ], [ %233, %228 ], [ %238, %._crit_edge.thread ], [ %58, %51 ], [ -9998, %45 ]
   ret i32 %.0
 }
 

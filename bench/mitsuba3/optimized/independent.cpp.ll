@@ -149,36 +149,40 @@ define weak_odr void @_ZN7mitsuba18IndependentSamplerIfN5drjit6MatrixINS_8Spectr
   %3 = alloca %"class.mitsuba::Properties", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
   invoke void @_ZN7mitsuba10PropertiesC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %5 unwind label %12
+          to label %5 unwind label %15
 
 5:                                                ; preds = %2
   invoke void @_ZN7mitsuba18IndependentSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %6 unwind label %14
+          to label %6 unwind label %17
 
 6:                                                ; preds = %5
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  %7 = getelementptr inbounds i8, ptr %1, i64 12
-  %8 = getelementptr inbounds i8, ptr %4, i64 12
-  %9 = load <2 x i32>, ptr %7, align 4
-  store <2 x i32> %9, ptr %8, align 4
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = load i32, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 %8, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %11, ptr %12, align 4
   store ptr %4, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %11 = atomicrmw add ptr %10, i32 1 seq_cst, align 4
+  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = atomicrmw add ptr %13, i32 1 seq_cst, align 4
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
           cleanup
-  br label %16
+  br label %19
 
-14:                                               ; preds = %5
-  %15 = landingpad { ptr, i32 }
+17:                                               ; preds = %5
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  br label %16
+  br label %19
 
-16:                                               ; preds = %12, %14
-  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ]
+19:                                               ; preds = %15, %17
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZdlPv(ptr noundef nonnull %4) #15
   resume { ptr, i32 } %.pn
 }
@@ -262,20 +266,31 @@ define weak_odr <2 x float> @_ZN7mitsuba18IndependentSamplerIfN5drjit6MatrixINS_
 
 _ZN7mitsuba18IndependentSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7next_1dEb.exit2: ; preds = %2, %5
   %12 = phi i64 [ %9, %5 ], [ %4, %2 ]
-  %13 = insertelement <2 x i64> poison, i64 %4, i64 0
-  %14 = insertelement <2 x i64> %13, i64 %12, i64 1
-  %15 = lshr <2 x i64> %14, <i64 45, i64 27>
-  %16 = lshr <2 x i64> %14, <i64 27, i64 45>
-  %17 = lshr <2 x i64> %14, <i64 59, i64 59>
-  %18 = xor <2 x i64> %16, %15
-  %19 = trunc <2 x i64> %18 to <2 x i32>
-  %20 = trunc nuw nsw <2 x i64> %17 to <2 x i32>
-  %21 = tail call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %19, <2 x i32> %19, <2 x i32> %20)
-  %22 = lshr <2 x i32> %21, <i32 9, i32 9>
-  %23 = or disjoint <2 x i32> %22, <i32 1065353216, i32 1065353216>
-  %24 = bitcast <2 x i32> %23 to <2 x float>
-  %25 = fadd contract <2 x float> %24, <float -1.000000e+00, float -1.000000e+00>
-  ret <2 x float> %25
+  %13 = lshr i64 %4, 45
+  %14 = lshr i64 %4, 27
+  %15 = xor i64 %13, %14
+  %16 = trunc i64 %15 to i32
+  %17 = lshr i64 %4, 59
+  %18 = trunc nuw nsw i64 %17 to i32
+  %19 = tail call i32 @llvm.fshr.i32(i32 %16, i32 %16, i32 %18)
+  %20 = lshr i32 %19, 9
+  %21 = or disjoint i32 %20, 1065353216
+  %22 = bitcast i32 %21 to float
+  %23 = fadd contract float %22, -1.000000e+00
+  %24 = lshr i64 %12, 45
+  %25 = lshr i64 %12, 27
+  %26 = xor i64 %24, %25
+  %27 = trunc i64 %26 to i32
+  %28 = lshr i64 %12, 59
+  %29 = trunc nuw nsw i64 %28 to i32
+  %30 = tail call i32 @llvm.fshr.i32(i32 %27, i32 %27, i32 %29)
+  %31 = lshr i32 %30, 9
+  %32 = or disjoint i32 %31, 1065353216
+  %33 = bitcast i32 %32 to float
+  %34 = fadd contract float %33, -1.000000e+00
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %23, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %34, i64 1
+  ret <2 x float> %.sroa.0.4.vec.insert
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1192,9 +1207,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.fshr.v2i32(<2 x i32>, <2 x i32>, <2 x i32>) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

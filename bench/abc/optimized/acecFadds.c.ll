@@ -3861,11 +3861,12 @@ define noalias noundef ptr @Gia_ManGenerateDelayTableFloat(i32 noundef %0, i32 n
   %6 = shl nsw i64 %5, 2
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #28
   store float 0.000000e+00, ptr %7, align 4
-  %8 = insertelement <2 x i32> poison, i32 %0, i64 0
-  %9 = insertelement <2 x i32> %8, i32 %1, i64 1
-  %10 = sitofp <2 x i32> %9 to <2 x float>
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
-  store <2 x float> %10, ptr %11, align 4
+  %8 = sitofp i32 %0 to float
+  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  store float %8, ptr %9, align 4
+  %10 = sitofp i32 %1 to float
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  store float %10, ptr %11, align 4
   %invariant.gep = getelementptr inbounds i8, ptr %7, i64 12
   %12 = icmp sgt i32 %3, 0
   br i1 %12, label %.lr.ph.preheader, label %._crit_edge
@@ -3909,11 +3910,12 @@ define noundef ptr @Gia_ManGenerateTim(i32 noundef %0, i32 noundef %1, i32 nound
   %13 = shl nsw i64 %12, 2
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #28
   store float 0.000000e+00, ptr %14, align 4
-  %15 = insertelement <2 x i32> poison, i32 %3, i64 0
-  %16 = insertelement <2 x i32> %15, i32 %4, i64 1
-  %17 = sitofp <2 x i32> %16 to <2 x float>
-  %18 = getelementptr inbounds i8, ptr %14, i64 4
-  store <2 x float> %17, ptr %18, align 4
+  %15 = sitofp i32 %3 to float
+  %16 = getelementptr inbounds i8, ptr %14, i64 4
+  store float %15, ptr %16, align 4
+  %17 = sitofp i32 %4 to float
+  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  store float %17, ptr %18, align 4
   %invariant.gep.i = getelementptr inbounds i8, ptr %14, i64 12
   %19 = icmp sgt i32 %10, 0
   br i1 %19, label %.lr.ph.preheader.i, label %Vec_PtrPush.exit

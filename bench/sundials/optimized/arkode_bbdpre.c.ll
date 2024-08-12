@@ -26,7 +26,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   %15 = alloca i64, align 8
   %16 = call i32 @arkLs_AccessLMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKBBDPrecInit, ptr noundef nonnull %10, ptr noundef nonnull %11) #8
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %253
+  br i1 %.not, label %17, label %254
 
 17:                                               ; preds = %9
   %18 = load ptr, ptr %10, align 8
@@ -41,7 +41,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 26:                                               ; preds = %17
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %18, i32 noundef -3, i32 noundef 70, ptr noundef nonnull @__func__.ARKBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
-  br label %253
+  br label %254
 
 27:                                               ; preds = %17
   %28 = call noalias dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #9
@@ -50,7 +50,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 30:                                               ; preds = %27
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %18, i32 noundef -4, i32 noundef 80, ptr noundef nonnull @__func__.ARKBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %253
+  br label %254
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %28, i64 152
@@ -90,7 +90,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   call void @free(ptr noundef nonnull %28) #8
   %51 = load ptr, ptr %10, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %51, i32 noundef -4, i32 noundef 102, ptr noundef nonnull @__func__.ARKBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %253
+  br label %254
 
 52:                                               ; preds = %31
   %53 = add nsw i64 %43, %41
@@ -111,7 +111,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   call void @free(ptr noundef nonnull %28) #8
   %61 = load ptr, ptr %10, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %61, i32 noundef -4, i32 noundef 117, ptr noundef nonnull @__func__.ARKBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %253
+  br label %254
 
 62:                                               ; preds = %52
   %63 = getelementptr inbounds i8, ptr %28, i64 104
@@ -131,7 +131,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   call void @free(ptr noundef nonnull %28) #8
   %71 = load ptr, ptr %10, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %71, i32 noundef -4, i32 noundef 132, ptr noundef nonnull @__func__.ARKBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %253
+  br label %254
 
 72:                                               ; preds = %62
   %73 = getelementptr inbounds i8, ptr %28, i64 112
@@ -153,7 +153,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   call void @free(ptr noundef nonnull %28) #8
   %82 = load ptr, ptr %10, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %82, i32 noundef -4, i32 noundef 146, ptr noundef nonnull @__func__.ARKBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %253
+  br label %254
 
 83:                                               ; preds = %72
   %84 = getelementptr inbounds i8, ptr %28, i64 80
@@ -177,7 +177,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   call void @free(ptr noundef nonnull %28) #8
   %94 = load ptr, ptr %10, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %94, i32 noundef -4, i32 noundef 160, ptr noundef nonnull @__func__.ARKBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %253
+  br label %254
 
 95:                                               ; preds = %83
   %96 = getelementptr inbounds i8, ptr %28, i64 88
@@ -203,7 +203,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   call void @free(ptr noundef nonnull %28) #8
   %107 = load ptr, ptr %10, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %107, i32 noundef -4, i32 noundef 175, ptr noundef nonnull @__func__.ARKBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %253
+  br label %254
 
 108:                                              ; preds = %95
   %109 = getelementptr inbounds i8, ptr %28, i64 96
@@ -231,7 +231,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   call void @free(ptr noundef nonnull %28) #8
   %121 = load ptr, ptr %10, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %121, i32 noundef -4, i32 noundef 191, ptr noundef nonnull @__func__.ARKBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %253
+  br label %254
 
 122:                                              ; preds = %108
   %123 = getelementptr inbounds i8, ptr %28, i64 72
@@ -263,7 +263,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   call void @free(ptr noundef nonnull %28) #8
   %138 = load ptr, ptr %10, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %138, i32 noundef -4, i32 noundef 210, ptr noundef nonnull @__func__.ARKBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %253
+  br label %254
 
 139:                                              ; preds = %122
   %140 = call i32 @SUNLinSolInitialize(ptr noundef nonnull %128) #8
@@ -291,7 +291,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   call void @free(ptr noundef nonnull %28) #8
   %153 = load ptr, ptr %10, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %153, i32 noundef -12, i32 noundef 229, ptr noundef nonnull @__func__.ARKBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %253
+  br label %254
 
 154:                                              ; preds = %139
   %155 = fcmp ogt double %6, 0.000000e+00
@@ -349,109 +349,111 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   %188 = getelementptr inbounds i8, ptr %187, i64 32
   %189 = load ptr, ptr %188, align 8
   %.not175 = icmp eq ptr %189, null
-  br i1 %.not175, label %198, label %190
+  br i1 %.not175, label %199, label %190
 
 190:                                              ; preds = %184
   call void @N_VSpace(ptr noundef nonnull %185, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
   %191 = load i64, ptr %12, align 8
-  %192 = load i64, ptr %13, align 8
-  %193 = insertelement <2 x i64> poison, i64 %191, i64 0
-  %194 = insertelement <2 x i64> %193, i64 %192, i64 1
-  %195 = shl nsw <2 x i64> %194, <i64 1, i64 1>
-  %196 = load <2 x i64>, ptr %167, align 8
-  %197 = add nsw <2 x i64> %196, %195
-  store <2 x i64> %197, ptr %167, align 8
-  br label %198
+  %192 = shl nsw i64 %191, 1
+  %193 = load i64, ptr %167, align 8
+  %194 = add nsw i64 %193, %192
+  store i64 %194, ptr %167, align 8
+  %195 = load i64, ptr %13, align 8
+  %196 = shl nsw i64 %195, 1
+  %197 = load i64, ptr %168, align 8
+  %198 = add nsw i64 %197, %196
+  store i64 %198, ptr %168, align 8
+  br label %199
 
-198:                                              ; preds = %190, %184
-  %199 = load ptr, ptr %48, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 8
-  %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 72
-  %203 = load ptr, ptr %202, align 8
-  %.not176 = icmp eq ptr %203, null
-  br i1 %.not176, label %212, label %204
+199:                                              ; preds = %190, %184
+  %200 = load ptr, ptr %48, align 8
+  %201 = getelementptr inbounds i8, ptr %200, i64 8
+  %202 = load ptr, ptr %201, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 72
+  %204 = load ptr, ptr %203, align 8
+  %.not176 = icmp eq ptr %204, null
+  br i1 %.not176, label %213, label %205
 
-204:                                              ; preds = %198
-  %205 = call i32 @SUNMatSpace(ptr noundef nonnull %199, ptr noundef nonnull %14, ptr noundef nonnull %15) #8
-  %206 = load i64, ptr %14, align 8
-  %207 = load i64, ptr %167, align 8
-  %208 = add nsw i64 %207, %206
-  store i64 %208, ptr %167, align 8
-  %209 = load i64, ptr %15, align 8
-  %210 = load i64, ptr %168, align 8
-  %211 = add nsw i64 %210, %209
-  store i64 %211, ptr %168, align 8
-  br label %212
+205:                                              ; preds = %199
+  %206 = call i32 @SUNMatSpace(ptr noundef nonnull %200, ptr noundef nonnull %14, ptr noundef nonnull %15) #8
+  %207 = load i64, ptr %14, align 8
+  %208 = load i64, ptr %167, align 8
+  %209 = add nsw i64 %208, %207
+  store i64 %209, ptr %167, align 8
+  %210 = load i64, ptr %15, align 8
+  %211 = load i64, ptr %168, align 8
+  %212 = add nsw i64 %211, %210
+  store i64 %212, ptr %168, align 8
+  br label %213
 
-212:                                              ; preds = %204, %198
-  %213 = load ptr, ptr %54, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 8
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 72
-  %217 = load ptr, ptr %216, align 8
-  %.not177 = icmp eq ptr %217, null
-  br i1 %.not177, label %226, label %218
+213:                                              ; preds = %205, %199
+  %214 = load ptr, ptr %54, align 8
+  %215 = getelementptr inbounds i8, ptr %214, i64 8
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds i8, ptr %216, i64 72
+  %218 = load ptr, ptr %217, align 8
+  %.not177 = icmp eq ptr %218, null
+  br i1 %.not177, label %227, label %219
 
-218:                                              ; preds = %212
-  %219 = call i32 @SUNMatSpace(ptr noundef nonnull %213, ptr noundef nonnull %14, ptr noundef nonnull %15) #8
-  %220 = load i64, ptr %14, align 8
-  %221 = load i64, ptr %167, align 8
-  %222 = add nsw i64 %221, %220
-  store i64 %222, ptr %167, align 8
-  %223 = load i64, ptr %15, align 8
-  %224 = load i64, ptr %168, align 8
-  %225 = add nsw i64 %224, %223
-  store i64 %225, ptr %168, align 8
-  br label %226
+219:                                              ; preds = %213
+  %220 = call i32 @SUNMatSpace(ptr noundef nonnull %214, ptr noundef nonnull %14, ptr noundef nonnull %15) #8
+  %221 = load i64, ptr %14, align 8
+  %222 = load i64, ptr %167, align 8
+  %223 = add nsw i64 %222, %221
+  store i64 %223, ptr %167, align 8
+  %224 = load i64, ptr %15, align 8
+  %225 = load i64, ptr %168, align 8
+  %226 = add nsw i64 %225, %224
+  store i64 %226, ptr %168, align 8
+  br label %227
 
-226:                                              ; preds = %218, %212
-  %227 = load ptr, ptr %123, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 8
-  %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 96
-  %231 = load ptr, ptr %230, align 8
-  %.not178 = icmp eq ptr %231, null
-  br i1 %.not178, label %240, label %232
+227:                                              ; preds = %219, %213
+  %228 = load ptr, ptr %123, align 8
+  %229 = getelementptr inbounds i8, ptr %228, i64 8
+  %230 = load ptr, ptr %229, align 8
+  %231 = getelementptr inbounds i8, ptr %230, i64 96
+  %232 = load ptr, ptr %231, align 8
+  %.not178 = icmp eq ptr %232, null
+  br i1 %.not178, label %241, label %233
 
-232:                                              ; preds = %226
-  %233 = call i32 @SUNLinSolSpace(ptr noundef nonnull %227, ptr noundef nonnull %14, ptr noundef nonnull %15) #8
-  %234 = load i64, ptr %14, align 8
-  %235 = load i64, ptr %167, align 8
-  %236 = add nsw i64 %235, %234
-  store i64 %236, ptr %167, align 8
-  %237 = load i64, ptr %15, align 8
-  %238 = load i64, ptr %168, align 8
-  %239 = add nsw i64 %238, %237
-  store i64 %239, ptr %168, align 8
-  br label %240
+233:                                              ; preds = %227
+  %234 = call i32 @SUNLinSolSpace(ptr noundef nonnull %228, ptr noundef nonnull %14, ptr noundef nonnull %15) #8
+  %235 = load i64, ptr %14, align 8
+  %236 = load i64, ptr %167, align 8
+  %237 = add nsw i64 %236, %235
+  store i64 %237, ptr %167, align 8
+  %238 = load i64, ptr %15, align 8
+  %239 = load i64, ptr %168, align 8
+  %240 = add nsw i64 %239, %238
+  store i64 %240, ptr %168, align 8
+  br label %241
 
-240:                                              ; preds = %232, %226
-  %241 = getelementptr inbounds i8, ptr %28, i64 144
-  store i64 0, ptr %241, align 8
-  %242 = load ptr, ptr %11, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 224
-  %244 = load ptr, ptr %243, align 8
-  %.not179 = icmp eq ptr %244, null
-  br i1 %.not179, label %248, label %245
+241:                                              ; preds = %233, %227
+  %242 = getelementptr inbounds i8, ptr %28, i64 144
+  store i64 0, ptr %242, align 8
+  %243 = load ptr, ptr %11, align 8
+  %244 = getelementptr inbounds i8, ptr %243, i64 224
+  %245 = load ptr, ptr %244, align 8
+  %.not179 = icmp eq ptr %245, null
+  br i1 %.not179, label %249, label %246
 
-245:                                              ; preds = %240
-  %246 = load ptr, ptr %10, align 8
-  %247 = call i32 %244(ptr noundef %246) #8
+246:                                              ; preds = %241
+  %247 = load ptr, ptr %10, align 8
+  %248 = call i32 %245(ptr noundef %247) #8
   %.pre182 = load ptr, ptr %11, align 8
-  br label %248
+  br label %249
 
-248:                                              ; preds = %245, %240
-  %249 = phi ptr [ %.pre182, %245 ], [ %242, %240 ]
-  %250 = getelementptr inbounds i8, ptr %249, i64 232
-  store ptr %28, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %249, i64 224
-  store ptr @ARKBBDPrecFree, ptr %251, align 8
-  %252 = call i32 @arkLSSetPreconditioner(ptr noundef %0, ptr noundef nonnull @ARKBBDPrecSetup, ptr noundef nonnull @ARKBBDPrecSolve) #8
-  br label %253
+249:                                              ; preds = %246, %241
+  %250 = phi ptr [ %.pre182, %246 ], [ %243, %241 ]
+  %251 = getelementptr inbounds i8, ptr %250, i64 232
+  store ptr %28, ptr %251, align 8
+  %252 = getelementptr inbounds i8, ptr %250, i64 224
+  store ptr @ARKBBDPrecFree, ptr %252, align 8
+  %253 = call i32 @arkLSSetPreconditioner(ptr noundef %0, ptr noundef nonnull @ARKBBDPrecSetup, ptr noundef nonnull @ARKBBDPrecSolve) #8
+  br label %254
 
-253:                                              ; preds = %9, %248, %143, %130, %114, %101, %89, %78, %68, %59, %50, %30, %26
-  %.0 = phi i32 [ -3, %26 ], [ -4, %30 ], [ -4, %50 ], [ -4, %59 ], [ -4, %68 ], [ -4, %78 ], [ -4, %130 ], [ -12, %143 ], [ %252, %248 ], [ -4, %114 ], [ -4, %101 ], [ -4, %89 ], [ %16, %9 ]
+254:                                              ; preds = %9, %249, %143, %130, %114, %101, %89, %78, %68, %59, %50, %30, %26
+  %.0 = phi i32 [ -3, %26 ], [ -4, %30 ], [ -4, %50 ], [ -4, %59 ], [ -4, %68 ], [ -4, %78 ], [ -4, %130 ], [ -12, %143 ], [ %253, %249 ], [ -4, %114 ], [ -4, %101 ], [ -4, %89 ], [ %16, %9 ]
   ret i32 %.0
 }
 

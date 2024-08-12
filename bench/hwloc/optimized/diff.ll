@@ -1056,24 +1056,28 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hwloc_diff_trees(ptr nound
 
 196:                                              ; preds = %.loopexit
   store i32 1, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %195, i64 16
-  %198 = load <2 x i32>, ptr %6, align 8
-  store <2 x i32> %198, ptr %197, align 8
-  %199 = load ptr, ptr %3, align 8
-  %.not.i.i = icmp eq ptr %199, null
-  br i1 %.not.i.i, label %hwloc_append_diff.exit.i, label %200
+  %197 = load i32, ptr %6, align 8
+  %198 = getelementptr inbounds i8, ptr %195, i64 16
+  store i32 %197, ptr %198, align 8
+  %199 = getelementptr inbounds i8, ptr %1, i64 52
+  %200 = load i32, ptr %199, align 4
+  %201 = getelementptr inbounds i8, ptr %195, i64 20
+  store i32 %200, ptr %201, align 4
+  %202 = load ptr, ptr %3, align 8
+  %.not.i.i = icmp eq ptr %202, null
+  br i1 %.not.i.i, label %hwloc_append_diff.exit.i, label %203
 
-200:                                              ; preds = %196
-  %201 = load ptr, ptr %4, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 8
+203:                                              ; preds = %196
+  %204 = load ptr, ptr %4, align 8
+  %205 = getelementptr inbounds i8, ptr %204, i64 8
   br label %hwloc_append_diff.exit.i
 
-hwloc_append_diff.exit.i:                         ; preds = %200, %196
-  %.sink.i.i = phi ptr [ %202, %200 ], [ %3, %196 ]
+hwloc_append_diff.exit.i:                         ; preds = %203, %196
+  %.sink.i.i = phi ptr [ %205, %203 ], [ %3, %196 ]
   store ptr %195, ptr %.sink.i.i, align 8
   store ptr %195, ptr %4, align 8
-  %203 = getelementptr inbounds i8, ptr %195, i64 8
-  store ptr null, ptr %203, align 8
+  %206 = getelementptr inbounds i8, ptr %195, i64 8
+  store ptr null, ptr %206, align 8
   br label %hwloc_append_diff_too_complex.exit
 
 hwloc_append_diff_too_complex.exit:               ; preds = %133, %.lr.ph30, %.lr.ph38, %.lr.ph47, %.lr.ph56, %hwloc_append_diff.exit.i, %.loopexit, %._crit_edge57, %84, %72
@@ -1414,40 +1418,44 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
 define internal fastcc range(i32 -1, 1) i32 @hwloc_append_diff_obj_attr_uint64(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #8 {
   %6 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #15
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %20, label %7
+  br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %5
   store i32 0, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 48
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
-  %10 = load <2 x i32>, ptr %8, align 8
-  store <2 x i32> %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
-  store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 40
-  store i64 %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 48
-  store i64 %2, ptr %14, align 8
-  %15 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %hwloc_append_diff.exit, label %16
+  %9 = load i32, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 %9, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 52
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %6, i64 20
+  store i32 %12, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  store i32 0, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  store i64 0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %6, i64 40
+  store i64 %1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %6, i64 48
+  store i64 %2, ptr %17, align 8
+  %18 = load ptr, ptr %3, align 8
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %hwloc_append_diff.exit, label %19
 
-16:                                               ; preds = %7
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+19:                                               ; preds = %7
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
   br label %hwloc_append_diff.exit
 
-hwloc_append_diff.exit:                           ; preds = %7, %16
-  %.sink.i = phi ptr [ %18, %16 ], [ %3, %7 ]
+hwloc_append_diff.exit:                           ; preds = %7, %19
+  %.sink.i = phi ptr [ %21, %19 ], [ %3, %7 ]
   store ptr %6, ptr %.sink.i, align 8
   store ptr %6, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr null, ptr %19, align 8
-  br label %20
+  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr null, ptr %22, align 8
+  br label %23
 
-20:                                               ; preds = %5, %hwloc_append_diff.exit
+23:                                               ; preds = %5, %hwloc_append_diff.exit
   %.0 = phi i32 [ 0, %hwloc_append_diff.exit ], [ -1, %5 ]
   ret i32 %.0
 }

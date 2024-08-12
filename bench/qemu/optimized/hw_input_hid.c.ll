@@ -1134,23 +1134,28 @@ if.else42:                                        ; preds = %if.end, %if.then19
   br i1 %cmp44, label %if.end53, label %if.else48
 
 if.else48:                                        ; preds = %if.else42
-  %13 = load <2 x i32>, ptr %arrayidx8, align 4
+  %13 = load i32, ptr %arrayidx8, align 4
+  %ydy51 = getelementptr inbounds i8, ptr %arrayidx8, i64 4
+  %14 = load i32, ptr %ydy51, align 4
   br label %if.end53
 
 if.end53:                                         ; preds = %if.else42, %if.else48
-  %14 = phi <2 x i32> [ %13, %if.else48 ], [ zeroinitializer, %if.else42 ]
-  store <2 x i32> %14, ptr %arrayidx16, align 4
+  %.sink37 = phi i32 [ %13, %if.else48 ], [ 0, %if.else42 ]
+  %.sink = phi i32 [ %14, %if.else48 ], [ 0, %if.else42 ]
+  store i32 %.sink37, ptr %arrayidx16, align 4
+  %15 = getelementptr inbounds i8, ptr %arrayidx16, i64 4
+  store i32 %.sink, ptr %15, align 4
   %dz54 = getelementptr inbounds i8, ptr %arrayidx16, i64 8
   store i32 0, ptr %dz54, align 4
   %buttons_state55 = getelementptr inbounds i8, ptr %arrayidx8, i64 12
-  %15 = load i32, ptr %buttons_state55, align 4
+  %16 = load i32, ptr %buttons_state55, align 4
   %buttons_state56 = getelementptr inbounds i8, ptr %arrayidx16, i64 12
-  store i32 %15, ptr %buttons_state56, align 4
+  store i32 %16, ptr %buttons_state56, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr %n, align 8
   %event = getelementptr inbounds i8, ptr %dev, i64 288
-  %16 = load ptr, ptr %event, align 8
-  tail call void %16(ptr noundef nonnull %dev) #11
+  %17 = load ptr, ptr %event, align 8
+  tail call void %17(ptr noundef nonnull %dev) #11
   br label %if.end58
 
 if.end58:                                         ; preds = %entry, %if.end53, %if.end38

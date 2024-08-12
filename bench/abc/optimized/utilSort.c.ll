@@ -1026,7 +1026,7 @@ define void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 20:                                               ; preds = %3
   %21 = icmp slt i32 %9, 8
-  br i1 %21, label %.preheader, label %42
+  br i1 %21, label %.preheader, label %50
 
 .preheader:                                       ; preds = %20
   %22 = icmp sgt i32 %9, 1
@@ -1065,132 +1065,141 @@ define void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.idx = shl nsw i64 %indvars.iv80, 3
-  %36 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %37 = shl nsw i32 %spec.select, 1
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %0, i64 %38
-  %40 = load <2 x i32>, ptr %36, align 4
-  %41 = load <2 x i32>, ptr %39, align 4
-  store <2 x i32> %41, ptr %36, align 4
-  store <2 x i32> %40, ptr %39, align 4
+  %36 = shl nuw nsw i64 %indvars.iv80, 1
+  %37 = getelementptr inbounds i32, ptr %0, i64 %36
+  %38 = load i32, ptr %37, align 4
+  %39 = shl nsw i32 %spec.select, 1
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %0, i64 %40
+  %42 = load i32, ptr %41, align 4
+  store i32 %42, ptr %37, align 4
+  store i32 %38, ptr %41, align 4
+  %43 = or disjoint i64 %36, 1
+  %44 = getelementptr inbounds i32, ptr %0, i64 %43
+  %45 = load i32, ptr %44, align 4
+  %46 = or disjoint i32 %39, 1
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %0, i64 %47
+  %49 = load i32, ptr %48, align 4
+  store i32 %49, ptr %44, align 4
+  store i32 %45, ptr %48, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %.loopexit, label %.lr.ph.preheader, !llvm.loop !24
 
-42:                                               ; preds = %20
-  %43 = and i64 %8, 2147483646
-  %44 = getelementptr inbounds i32, ptr %0, i64 %43
-  tail call void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %44, ptr noundef %2)
-  %45 = getelementptr inbounds i32, ptr %2, i64 %43
-  tail call void @Abc_MergeSortCost_rec(ptr noundef %44, ptr noundef %1, ptr noundef %45)
-  %46 = icmp ne i64 %43, 0
-  %47 = icmp ult ptr %44, %1
-  %48 = and i1 %46, %47
-  br i1 %48, label %.lr.ph.i, label %.preheader49.i
+50:                                               ; preds = %20
+  %51 = and i64 %8, 2147483646
+  %52 = getelementptr inbounds i32, ptr %0, i64 %51
+  tail call void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %52, ptr noundef %2)
+  %53 = getelementptr inbounds i32, ptr %2, i64 %51
+  tail call void @Abc_MergeSortCost_rec(ptr noundef %52, ptr noundef %1, ptr noundef %53)
+  %54 = icmp ne i64 %51, 0
+  %55 = icmp ult ptr %52, %1
+  %56 = and i1 %54, %55
+  br i1 %56, label %.lr.ph.i, label %.preheader49.i
 
-.preheader49.i:                                   ; preds = %77, %42
-  %.044.lcssa.i = phi ptr [ %2, %42 ], [ %.145.i, %77 ]
-  %.041.lcssa.i = phi ptr [ %44, %42 ], [ %.142.i, %77 ]
-  %.0.lcssa.i = phi ptr [ %0, %42 ], [ %.1.i, %77 ]
-  %49 = icmp ult ptr %.0.lcssa.i, %44
-  br i1 %49, label %.lr.ph57.i, label %.preheader.i
+.preheader49.i:                                   ; preds = %85, %50
+  %.044.lcssa.i = phi ptr [ %2, %50 ], [ %.145.i, %85 ]
+  %.041.lcssa.i = phi ptr [ %52, %50 ], [ %.142.i, %85 ]
+  %.0.lcssa.i = phi ptr [ %0, %50 ], [ %.1.i, %85 ]
+  %57 = icmp ult ptr %.0.lcssa.i, %52
+  br i1 %57, label %.lr.ph57.i, label %.preheader.i
 
-.lr.ph.i:                                         ; preds = %42, %77
-  %.052.i = phi ptr [ %.1.i, %77 ], [ %0, %42 ]
-  %.04151.i = phi ptr [ %.142.i, %77 ], [ %44, %42 ]
-  %.04450.i = phi ptr [ %.145.i, %77 ], [ %2, %42 ]
-  %50 = getelementptr inbounds i8, ptr %.052.i, i64 4
-  %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %.04151.i, i64 4
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp eq i32 %51, %53
-  %55 = getelementptr inbounds i8, ptr %.04450.i, i64 4
-  br i1 %54, label %56, label %66
+.lr.ph.i:                                         ; preds = %50, %85
+  %.052.i = phi ptr [ %.1.i, %85 ], [ %0, %50 ]
+  %.04151.i = phi ptr [ %.142.i, %85 ], [ %52, %50 ]
+  %.04450.i = phi ptr [ %.145.i, %85 ], [ %2, %50 ]
+  %58 = getelementptr inbounds i8, ptr %.052.i, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds i8, ptr %.04151.i, i64 4
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp eq i32 %59, %61
+  %63 = getelementptr inbounds i8, ptr %.04450.i, i64 4
+  br i1 %62, label %64, label %74
 
-56:                                               ; preds = %.lr.ph.i
-  %57 = load i32, ptr %.052.i, align 4
-  store i32 %57, ptr %.04450.i, align 4
-  %58 = getelementptr inbounds i8, ptr %.052.i, i64 8
-  %59 = load i32, ptr %50, align 4
-  %60 = getelementptr inbounds i8, ptr %.04450.i, i64 8
-  store i32 %59, ptr %55, align 4
-  %61 = load i32, ptr %.04151.i, align 4
-  %62 = getelementptr inbounds i8, ptr %.04450.i, i64 12
-  store i32 %61, ptr %60, align 4
-  %63 = getelementptr inbounds i8, ptr %.04151.i, i64 8
-  %64 = load i32, ptr %52, align 4
-  %65 = getelementptr inbounds i8, ptr %.04450.i, i64 16
-  store i32 %64, ptr %62, align 4
-  br label %77
-
-66:                                               ; preds = %.lr.ph.i
-  %67 = icmp slt i32 %51, %53
+64:                                               ; preds = %.lr.ph.i
+  %65 = load i32, ptr %.052.i, align 4
+  store i32 %65, ptr %.04450.i, align 4
+  %66 = getelementptr inbounds i8, ptr %.052.i, i64 8
+  %67 = load i32, ptr %58, align 4
   %68 = getelementptr inbounds i8, ptr %.04450.i, i64 8
-  br i1 %67, label %69, label %73
+  store i32 %67, ptr %63, align 4
+  %69 = load i32, ptr %.04151.i, align 4
+  %70 = getelementptr inbounds i8, ptr %.04450.i, i64 12
+  store i32 %69, ptr %68, align 4
+  %71 = getelementptr inbounds i8, ptr %.04151.i, i64 8
+  %72 = load i32, ptr %60, align 4
+  %73 = getelementptr inbounds i8, ptr %.04450.i, i64 16
+  store i32 %72, ptr %70, align 4
+  br label %85
 
-69:                                               ; preds = %66
-  %70 = load i32, ptr %.052.i, align 4
-  store i32 %70, ptr %.04450.i, align 4
-  %71 = getelementptr inbounds i8, ptr %.052.i, i64 8
-  %72 = load i32, ptr %50, align 4
-  store i32 %72, ptr %55, align 4
-  br label %77
+74:                                               ; preds = %.lr.ph.i
+  %75 = icmp slt i32 %59, %61
+  %76 = getelementptr inbounds i8, ptr %.04450.i, i64 8
+  br i1 %75, label %77, label %81
 
-73:                                               ; preds = %66
-  %74 = load i32, ptr %.04151.i, align 4
-  store i32 %74, ptr %.04450.i, align 4
-  %75 = getelementptr inbounds i8, ptr %.04151.i, i64 8
-  %76 = load i32, ptr %52, align 4
-  store i32 %76, ptr %55, align 4
-  br label %77
+77:                                               ; preds = %74
+  %78 = load i32, ptr %.052.i, align 4
+  store i32 %78, ptr %.04450.i, align 4
+  %79 = getelementptr inbounds i8, ptr %.052.i, i64 8
+  %80 = load i32, ptr %58, align 4
+  store i32 %80, ptr %63, align 4
+  br label %85
 
-77:                                               ; preds = %73, %69, %56
-  %.145.i = phi ptr [ %65, %56 ], [ %68, %69 ], [ %68, %73 ]
-  %.142.i = phi ptr [ %63, %56 ], [ %.04151.i, %69 ], [ %75, %73 ]
-  %.1.i = phi ptr [ %58, %56 ], [ %71, %69 ], [ %.052.i, %73 ]
-  %78 = icmp ult ptr %.1.i, %44
-  %79 = icmp ult ptr %.142.i, %1
-  %80 = select i1 %78, i1 %79, i1 false
-  br i1 %80, label %.lr.ph.i, label %.preheader49.i, !llvm.loop !20
+81:                                               ; preds = %74
+  %82 = load i32, ptr %.04151.i, align 4
+  store i32 %82, ptr %.04450.i, align 4
+  %83 = getelementptr inbounds i8, ptr %.04151.i, i64 8
+  %84 = load i32, ptr %60, align 4
+  store i32 %84, ptr %63, align 4
+  br label %85
+
+85:                                               ; preds = %81, %77, %64
+  %.145.i = phi ptr [ %73, %64 ], [ %76, %77 ], [ %76, %81 ]
+  %.142.i = phi ptr [ %71, %64 ], [ %.04151.i, %77 ], [ %83, %81 ]
+  %.1.i = phi ptr [ %66, %64 ], [ %79, %77 ], [ %.052.i, %81 ]
+  %86 = icmp ult ptr %.1.i, %52
+  %87 = icmp ult ptr %.142.i, %1
+  %88 = select i1 %86, i1 %87, i1 false
+  br i1 %88, label %.lr.ph.i, label %.preheader49.i, !llvm.loop !20
 
 .preheader.i:                                     ; preds = %.lr.ph57.i, %.preheader49.i
-  %.246.lcssa.i = phi ptr [ %.044.lcssa.i, %.preheader49.i ], [ %87, %.lr.ph57.i ]
-  %81 = icmp ult ptr %.041.lcssa.i, %1
-  br i1 %81, label %.lr.ph61.i, label %Abc_MergeSortCostMerge.exit
+  %.246.lcssa.i = phi ptr [ %.044.lcssa.i, %.preheader49.i ], [ %95, %.lr.ph57.i ]
+  %89 = icmp ult ptr %.041.lcssa.i, %1
+  br i1 %89, label %.lr.ph61.i, label %Abc_MergeSortCostMerge.exit
 
 .lr.ph57.i:                                       ; preds = %.preheader49.i, %.lr.ph57.i
-  %.256.i = phi ptr [ %85, %.lr.ph57.i ], [ %.0.lcssa.i, %.preheader49.i ]
-  %.24655.i = phi ptr [ %87, %.lr.ph57.i ], [ %.044.lcssa.i, %.preheader49.i ]
-  %82 = getelementptr inbounds i8, ptr %.256.i, i64 4
-  %83 = load i32, ptr %.256.i, align 4
-  %84 = getelementptr inbounds i8, ptr %.24655.i, i64 4
-  store i32 %83, ptr %.24655.i, align 4
-  %85 = getelementptr inbounds i8, ptr %.256.i, i64 8
-  %86 = load i32, ptr %82, align 4
-  %87 = getelementptr inbounds i8, ptr %.24655.i, i64 8
-  store i32 %86, ptr %84, align 4
-  %88 = icmp ult ptr %85, %44
-  br i1 %88, label %.lr.ph57.i, label %.preheader.i, !llvm.loop !21
+  %.256.i = phi ptr [ %93, %.lr.ph57.i ], [ %.0.lcssa.i, %.preheader49.i ]
+  %.24655.i = phi ptr [ %95, %.lr.ph57.i ], [ %.044.lcssa.i, %.preheader49.i ]
+  %90 = getelementptr inbounds i8, ptr %.256.i, i64 4
+  %91 = load i32, ptr %.256.i, align 4
+  %92 = getelementptr inbounds i8, ptr %.24655.i, i64 4
+  store i32 %91, ptr %.24655.i, align 4
+  %93 = getelementptr inbounds i8, ptr %.256.i, i64 8
+  %94 = load i32, ptr %90, align 4
+  %95 = getelementptr inbounds i8, ptr %.24655.i, i64 8
+  store i32 %94, ptr %92, align 4
+  %96 = icmp ult ptr %93, %52
+  br i1 %96, label %.lr.ph57.i, label %.preheader.i, !llvm.loop !21
 
 .lr.ph61.i:                                       ; preds = %.preheader.i, %.lr.ph61.i
-  %.24360.i = phi ptr [ %92, %.lr.ph61.i ], [ %.041.lcssa.i, %.preheader.i ]
-  %.359.i = phi ptr [ %94, %.lr.ph61.i ], [ %.246.lcssa.i, %.preheader.i ]
-  %89 = getelementptr inbounds i8, ptr %.24360.i, i64 4
-  %90 = load i32, ptr %.24360.i, align 4
-  %91 = getelementptr inbounds i8, ptr %.359.i, i64 4
-  store i32 %90, ptr %.359.i, align 4
-  %92 = getelementptr inbounds i8, ptr %.24360.i, i64 8
-  %93 = load i32, ptr %89, align 4
-  %94 = getelementptr inbounds i8, ptr %.359.i, i64 8
-  store i32 %93, ptr %91, align 4
-  %95 = icmp ult ptr %92, %1
-  br i1 %95, label %.lr.ph61.i, label %Abc_MergeSortCostMerge.exit, !llvm.loop !22
+  %.24360.i = phi ptr [ %100, %.lr.ph61.i ], [ %.041.lcssa.i, %.preheader.i ]
+  %.359.i = phi ptr [ %102, %.lr.ph61.i ], [ %.246.lcssa.i, %.preheader.i ]
+  %97 = getelementptr inbounds i8, ptr %.24360.i, i64 4
+  %98 = load i32, ptr %.24360.i, align 4
+  %99 = getelementptr inbounds i8, ptr %.359.i, i64 4
+  store i32 %98, ptr %.359.i, align 4
+  %100 = getelementptr inbounds i8, ptr %.24360.i, i64 8
+  %101 = load i32, ptr %97, align 4
+  %102 = getelementptr inbounds i8, ptr %.359.i, i64 8
+  store i32 %101, ptr %99, align 4
+  %103 = icmp ult ptr %100, %1
+  br i1 %103, label %.lr.ph61.i, label %Abc_MergeSortCostMerge.exit, !llvm.loop !22
 
 Abc_MergeSortCostMerge.exit:                      ; preds = %.lr.ph61.i, %.preheader.i
-  %96 = shl nsw i64 %8, 3
-  %97 = and i64 %96, 17179869176
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %2, i64 %97, i1 false)
+  %104 = shl nsw i64 %8, 3
+  %105 = and i64 %104, 17179869176
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %2, i64 %105, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %3, %Abc_MergeSortCostMerge.exit, %10, %16

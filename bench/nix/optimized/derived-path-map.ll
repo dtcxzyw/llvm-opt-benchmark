@@ -2488,27 +2488,31 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt17_Function_handlerIFPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEZNSD_8findSlotESI_EUlRKT_E_E9_M_invokeERKSt9_Any_dataSI_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) #2 comdat align 2 {
-  %3 = alloca %"struct.nix::overloaded.57", align 16
+  %3 = alloca %"struct.nix::overloaded.57", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %4 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %4, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
-  %6 = load i8, ptr %5, align 8
-  %.not.i.i.i.i.i = icmp eq i8 %6, -1
-  br i1 %.not.i.i.i.i.i, label %7, label %_ZSt10__invoke_rIPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERZNSD_8findSlotERKNS0_17SingleDerivedPathEEUlRKT_E_JSI_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.exit
+  %4 = load ptr, ptr %0, align 8
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = load i8, ptr %8, align 8
+  %.not.i.i.i.i.i = icmp eq i8 %9, -1
+  br i1 %.not.i.i.i.i.i, label %10, label %_ZSt10__invoke_rIPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERZNSD_8findSlotERKNS0_17SingleDerivedPathEEUlRKT_E_JSI_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.exit
 
-7:                                                ; preds = %2
-  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr @.str, ptr %9, align 8
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #18
+10:                                               ; preds = %2
+  %11 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr @.str, ptr %12, align 8
+  tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #18
   unreachable
 
 _ZSt10__invoke_rIPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERZNSD_8findSlotERKNS0_17SingleDerivedPathEEUlRKT_E_JSI_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.exit: ; preds = %2
-  %10 = call noundef ptr @_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEE9ChildNodeEEENS3_10overloadedIJZZNSG_8findSlotERKNS3_17SingleDerivedPathEENKUlRKT_E_clISL_EEDaSQ_EUlRKNS3_17DerivedPathOpaqueEE_ZZNSG_8findSlotESN_ENKSS_ISL_EEDaSQ_EUlRKNS3_22SingleDerivedPathBuiltEE_EEEJRKSt7variantIJST_SX_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(49) %1)
+  %13 = call noundef ptr @_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIPN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEE9ChildNodeEEENS3_10overloadedIJZZNSG_8findSlotERKNS3_17SingleDerivedPathEENKUlRKT_E_clISL_EEDaSQ_EUlRKNS3_17DerivedPathOpaqueEE_ZZNSG_8findSlotESN_ENKSS_ISL_EEDaSQ_EUlRKNS3_22SingleDerivedPathBuiltEE_EEEJRKSt7variantIJST_SX_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(49) %1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  ret ptr %10
+  ret ptr %13
 }
 
 ; Function Attrs: mustprogress uwtable

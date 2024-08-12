@@ -2544,7 +2544,13 @@ lpad244:                                          ; preds = %if.end287, %if.end2
   br label %ehcleanup
 
 if.end249:                                        ; preds = %invoke.cont245
-  store <4 x i16> <i16 120, i16 110, i16 45, i16 45>, ptr %call246, align 2
+  store i16 120, ptr %call246, align 2
+  %arrayidx251 = getelementptr inbounds i8, ptr %call246, i64 2
+  store i16 110, ptr %arrayidx251, align 2
+  %arrayidx252 = getelementptr inbounds i8, ptr %call246, i64 4
+  store i16 45, ptr %arrayidx252, align 2
+  %arrayidx253 = getelementptr inbounds i8, ptr %call246, i64 6
+  store i16 45, ptr %arrayidx253, align 2
   %add.ptr254 = getelementptr inbounds i8, ptr %call246, i64 8
   %66 = load i16, ptr %fUnion2.i201, align 8
   %67 = and i16 %66, 2

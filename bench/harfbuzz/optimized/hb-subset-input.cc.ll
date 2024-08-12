@@ -1971,10 +1971,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   %bf.shl = shl nuw i32 %and, 2
   %bf.set.i34 = or disjoint i32 %bf.shl, 3
   store i32 %bf.set.i34, ptr %is_used_.i21, align 4
+  %16 = load i32, ptr %occupancy, align 8
+  %inc39 = add i32 %16, 1
+  store i32 %inc39, ptr %occupancy, align 8
   %population40 = getelementptr inbounds i8, ptr %this, i64 20
-  %16 = load <2 x i32>, ptr %population40, align 4
-  %17 = add <2 x i32> %16, <i32 1, i32 1>
-  store <2 x i32> %17, ptr %population40, align 4
+  %17 = load i32, ptr %population40, align 4
+  %inc41 = add i32 %17, 1
+  store i32 %inc41, ptr %population40, align 4
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %18 = load i16, ptr %max_chain_length, align 2
   %conv42 = zext i16 %18 to i32
@@ -1982,14 +1985,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   br i1 %cmp43, label %land.lhs.true44, label %return
 
 land.lhs.true44:                                  ; preds = %if.end34
-  %19 = extractelement <2 x i32> %17, i64 1
-  %mul = shl i32 %19, 3
-  %20 = load i32, ptr %mask, align 4
-  %cmp47 = icmp ugt i32 %mul, %20
+  %mul = shl i32 %inc39, 3
+  %19 = load i32, ptr %mask, align 4
+  %cmp47 = icmp ugt i32 %mul, %19
   br i1 %cmp47, label %if.then48, label %return
 
 if.then48:                                        ; preds = %land.lhs.true44
-  %sub50 = add i32 %20, -8
+  %sub50 = add i32 %19, -8
   %call51 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0EE5allocEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %sub50)
   br label %return
 
@@ -2228,10 +2230,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   %bf.shl = shl nuw i32 %and, 2
   %bf.set.i34 = or disjoint i32 %bf.shl, 3
   store i32 %bf.set.i34, ptr %is_used_.i21, align 4
+  %16 = load i32, ptr %occupancy, align 8
+  %inc39 = add i32 %16, 1
+  store i32 %inc39, ptr %occupancy, align 8
   %population40 = getelementptr inbounds i8, ptr %this, i64 20
-  %16 = load <2 x i32>, ptr %population40, align 4
-  %17 = add <2 x i32> %16, <i32 1, i32 1>
-  store <2 x i32> %17, ptr %population40, align 4
+  %17 = load i32, ptr %population40, align 4
+  %inc41 = add i32 %17, 1
+  store i32 %inc41, ptr %population40, align 4
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %18 = load i16, ptr %max_chain_length, align 2
   %conv42 = zext i16 %18 to i32
@@ -2239,14 +2244,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   br i1 %cmp43, label %land.lhs.true44, label %return
 
 land.lhs.true44:                                  ; preds = %if.end34
-  %19 = extractelement <2 x i32> %17, i64 1
-  %mul = shl i32 %19, 3
-  %20 = load i32, ptr %mask, align 4
-  %cmp47 = icmp ugt i32 %mul, %20
+  %mul = shl i32 %inc39, 3
+  %19 = load i32, ptr %mask, align 4
+  %cmp47 = icmp ugt i32 %mul, %19
   br i1 %cmp47, label %if.then48, label %return
 
 if.then48:                                        ; preds = %land.lhs.true44
-  %sub50 = add i32 %20, -8
+  %sub50 = add i32 %19, -8
   %call51 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0EE5allocEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %sub50)
   br label %return
 

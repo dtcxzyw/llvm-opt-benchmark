@@ -116,182 +116,188 @@ define noundef i32 @_ZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcR
   %4 = alloca %class.anon, align 8
   %5 = alloca %"class.std::function.0", align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %8 = load ptr, ptr %7, align 8
-  %.not.i.i.not.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.not.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit, label %9
+  %9 = load ptr, ptr %8, align 8
+  %.not.i.i.not.i = icmp eq ptr %9, null
+  br i1 %.not.i.i.not.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit, label %10
 
-9:                                                ; preds = %3
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
-          to label %11 unwind label %14
+10:                                               ; preds = %3
+  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+          to label %12 unwind label %16
 
-11:                                               ; preds = %9
-  %12 = load <2 x ptr>, ptr %7, align 8
-  %13 = load ptr, ptr %7, align 8
-  store <2 x ptr> %12, ptr %6, align 8
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %7, align 8
+  %15 = load ptr, ptr %8, align 8
+  store ptr %15, ptr %6, align 8
   br label %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit
 
-14:                                               ; preds = %9
-  %15 = landingpad { ptr, i32 }
+16:                                               ; preds = %10
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %16 = load ptr, ptr %6, align 8
-  %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %common.resume, label %17
+  %18 = load ptr, ptr %6, align 8
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %common.resume, label %19
 
-17:                                               ; preds = %14
-  %18 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %common.resume unwind label %19
+19:                                               ; preds = %16
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %common.resume unwind label %21
 
-19:                                               ; preds = %17
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #13
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #13
   unreachable
 
-common.resume:                                    ; preds = %70, %.body, %14, %17
-  %common.resume.op = phi { ptr, i32 } [ %15, %17 ], [ %15, %14 ], [ %.pn, %.body ], [ %.pn, %70 ]
+common.resume:                                    ; preds = %74, %.body, %16, %19
+  %common.resume.op = phi { ptr, i32 } [ %17, %19 ], [ %17, %16 ], [ %.pn, %.body ], [ %.pn, %74 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit: ; preds = %3, %11
-  %22 = phi ptr [ null, %3 ], [ %13, %11 ]
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit: ; preds = %3, %12
+  %24 = phi ptr [ null, %3 ], [ %15, %12 ]
+  %25 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %24 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-          to label %.noexc unwind label %59
+  %26 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
+          to label %.noexc unwind label %63
 
 .noexc:                                           ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
-  %.not.i.i.not.i.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.not.i.i.i.i.i, label %43, label %26
+  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = getelementptr inbounds i8, ptr %26, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
+  %.not.i.i.not.i.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.not.i.i.i.i.i, label %47, label %29
 
-26:                                               ; preds = %.noexc
-  %27 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
-          to label %28 unwind label %30
+29:                                               ; preds = %.noexc
+  %30 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
+          to label %31 unwind label %34
 
-28:                                               ; preds = %26
-  %29 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %29, ptr %25, align 8
-  br label %43
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %7, align 8
+  store ptr %32, ptr %28, align 8
+  %33 = load ptr, ptr %6, align 8
+  store ptr %33, ptr %27, align 8
+  br label %47
 
-30:                                               ; preds = %26
-  %31 = landingpad { ptr, i32 }
+34:                                               ; preds = %29
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %32 = load ptr, ptr %25, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i.i, label %.body.i, label %33
+  %36 = load ptr, ptr %27, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i.i.i, label %.body.i, label %37
 
-33:                                               ; preds = %30
-  %34 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef 3)
-          to label %.body.i unwind label %35
+37:                                               ; preds = %34
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %26, i32 noundef 3)
+          to label %.body.i unwind label %39
 
-35:                                               ; preds = %33
-  %36 = landingpad { ptr, i32 }
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #13
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #13
   unreachable
 
-.body.i:                                          ; preds = %33, %30
-  call void @_ZdlPv(ptr noundef nonnull %24) #15
-  %.pr.i = load ptr, ptr %23, align 8
+.body.i:                                          ; preds = %37, %34
+  call void @_ZdlPv(ptr noundef nonnull %26) #15
+  %.pr.i = load ptr, ptr %25, align 8
   %.not.i.i6 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i6, label %.body, label %38
+  br i1 %.not.i.i6, label %.body, label %42
 
-38:                                               ; preds = %.body.i
-  %39 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %.body unwind label %40
+42:                                               ; preds = %.body.i
+  %43 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %.body unwind label %44
 
-40:                                               ; preds = %38
-  %41 = landingpad { ptr, i32 }
+44:                                               ; preds = %42
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #13
+  %46 = extractvalue { ptr, i32 } %45, 0
+  call void @__clang_call_terminate(ptr %46) #13
   unreachable
 
-43:                                               ; preds = %28, %.noexc
-  %44 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %24, ptr %5, align 8
-  store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEZNS1_35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFS0_INS1_24TrajectoryAnalysisModuleES3_ISB_EEvEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %44, align 8
-  store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEZNS1_35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFS0_INS1_24TrajectoryAnalysisModuleES3_ISB_EEvEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %23, align 8
-  %45 = invoke noundef i32 @_ZN3gmx25ICommandLineOptionsModule9runAsMainEiPPcPKcS4_St8functionIFSt10unique_ptrIS0_St14default_deleteIS0_EEvEE(i32 noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %5)
-          to label %46 unwind label %61
+47:                                               ; preds = %31, %.noexc
+  %48 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %26, ptr %5, align 8
+  store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEZNS1_35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFS0_INS1_24TrajectoryAnalysisModuleES3_ISB_EEvEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %48, align 8
+  store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEZNS1_35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFS0_INS1_24TrajectoryAnalysisModuleES3_ISB_EEvEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %25, align 8
+  %49 = invoke noundef i32 @_ZN3gmx25ICommandLineOptionsModule9runAsMainEiPPcPKcS4_St8functionIFSt10unique_ptrIS0_St14default_deleteIS0_EEvEE(i32 noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %5)
+          to label %50 unwind label %65
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %23, align 8
-  %.not.i.i8 = icmp eq ptr %47, null
-  br i1 %.not.i.i8, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, label %48
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %25, align 8
+  %.not.i.i8 = icmp eq ptr %51, null
+  br i1 %.not.i.i8, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, label %52
 
-48:                                               ; preds = %46
-  %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit unwind label %50
+52:                                               ; preds = %50
+  %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit unwind label %54
 
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+54:                                               ; preds = %52
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #13
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #13
   unreachable
 
-_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit: ; preds = %46, %48
-  %53 = load ptr, ptr %6, align 8
-  %.not.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i.i, label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS5_EEvEEEN3$_0D2Ev.exit", label %54
+_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit: ; preds = %50, %52
+  %57 = load ptr, ptr %6, align 8
+  %.not.i.i.i = icmp eq ptr %57, null
+  br i1 %.not.i.i.i, label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS5_EEvEEEN3$_0D2Ev.exit", label %58
 
-54:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS5_EEvEEEN3$_0D2Ev.exit" unwind label %56
+58:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit
+  %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS5_EEvEEEN3$_0D2Ev.exit" unwind label %60
 
-56:                                               ; preds = %54
-  %57 = landingpad { ptr, i32 }
+60:                                               ; preds = %58
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #13
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #13
   unreachable
 
-"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS5_EEvEEEN3$_0D2Ev.exit": ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, %54
-  ret i32 %45
+"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcRKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS5_EEvEEEN3$_0D2Ev.exit": ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, %58
+  ret i32 %49
 
-59:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit
-  %60 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit
+  %64 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-61:                                               ; preds = %43
-  %62 = landingpad { ptr, i32 }
+65:                                               ; preds = %47
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %63 = load ptr, ptr %23, align 8
-  %.not.i.i10 = icmp eq ptr %63, null
-  br i1 %.not.i.i10, label %.body, label %64
+  %67 = load ptr, ptr %25, align 8
+  %.not.i.i10 = icmp eq ptr %67, null
+  br i1 %.not.i.i10, label %.body, label %68
 
-64:                                               ; preds = %61
-  %65 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %.body unwind label %66
+68:                                               ; preds = %65
+  %69 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %.body unwind label %70
 
-66:                                               ; preds = %64
-  %67 = landingpad { ptr, i32 }
+70:                                               ; preds = %68
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #13
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #13
   unreachable
 
-.body:                                            ; preds = %64, %61, %59, %38, %.body.i
-  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %31, %38 ], [ %31, %.body.i ], [ %62, %61 ], [ %62, %64 ]
-  %69 = load ptr, ptr %6, align 8
-  %.not.i.i.i13 = icmp eq ptr %69, null
-  br i1 %.not.i.i.i13, label %common.resume, label %70
+.body:                                            ; preds = %68, %65, %63, %42, %.body.i
+  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %35, %42 ], [ %35, %.body.i ], [ %66, %65 ], [ %66, %68 ]
+  %73 = load ptr, ptr %6, align 8
+  %.not.i.i.i13 = icmp eq ptr %73, null
+  br i1 %.not.i.i.i13, label %common.resume, label %74
 
-70:                                               ; preds = %.body
-  %71 = invoke noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %common.resume unwind label %72
+74:                                               ; preds = %.body
+  %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %common.resume unwind label %76
 
-72:                                               ; preds = %70
-  %73 = landingpad { ptr, i32 }
+76:                                               ; preds = %74
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #13
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #13
   unreachable
 }
 
@@ -550,182 +556,188 @@ define void @_ZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24
   %5 = alloca %class.anon.20, align 8
   %6 = alloca %"class.std::function.0", align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %9 = load ptr, ptr %8, align 8
-  %.not.i.i.not.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.not.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit, label %10
+  %10 = load ptr, ptr %9, align 8
+  %.not.i.i.not.i = icmp eq ptr %10, null
+  br i1 %.not.i.i.not.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit, label %11
 
-10:                                               ; preds = %4
-  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
-          to label %12 unwind label %15
+11:                                               ; preds = %4
+  %12 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+          to label %13 unwind label %17
 
-12:                                               ; preds = %10
-  %13 = load <2 x ptr>, ptr %8, align 8
-  %14 = load ptr, ptr %8, align 8
-  store <2 x ptr> %13, ptr %7, align 8
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %8, align 8
+  %16 = load ptr, ptr %9, align 8
+  store ptr %16, ptr %7, align 8
   br label %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit
 
-15:                                               ; preds = %10
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %11
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %17 = load ptr, ptr %7, align 8
-  %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %common.resume, label %18
+  %19 = load ptr, ptr %7, align 8
+  %.not.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i, label %common.resume, label %20
 
-18:                                               ; preds = %15
-  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %common.resume unwind label %20
+20:                                               ; preds = %17
+  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %common.resume unwind label %22
 
-20:                                               ; preds = %18
-  %21 = landingpad { ptr, i32 }
+22:                                               ; preds = %20
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #13
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #13
   unreachable
 
-common.resume:                                    ; preds = %70, %.body, %15, %18
-  %common.resume.op = phi { ptr, i32 } [ %16, %18 ], [ %16, %15 ], [ %.pn, %.body ], [ %.pn, %70 ]
+common.resume:                                    ; preds = %74, %.body, %17, %20
+  %common.resume.op = phi { ptr, i32 } [ %18, %20 ], [ %18, %17 ], [ %.pn, %.body ], [ %.pn, %74 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit: ; preds = %4, %12
-  %23 = phi ptr [ null, %4 ], [ %14, %12 ]
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit: ; preds = %4, %13
+  %25 = phi ptr [ null, %4 ], [ %16, %13 ]
+  %26 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %25 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-          to label %.noexc unwind label %59
+  %27 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
+          to label %.noexc unwind label %63
 
 .noexc:                                           ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
-  %.not.i.i.not.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.not.i.i.i.i.i, label %44, label %27
+  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = getelementptr inbounds i8, ptr %27, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
+  %.not.i.i.not.i.i.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.not.i.i.i.i.i, label %48, label %30
 
-27:                                               ; preds = %.noexc
-  %28 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2)
-          to label %29 unwind label %31
+30:                                               ; preds = %.noexc
+  %31 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2)
+          to label %32 unwind label %35
 
-29:                                               ; preds = %27
-  %30 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %30, ptr %26, align 8
-  br label %44
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %8, align 8
+  store ptr %33, ptr %29, align 8
+  %34 = load ptr, ptr %7, align 8
+  store ptr %34, ptr %28, align 8
+  br label %48
 
-31:                                               ; preds = %27
-  %32 = landingpad { ptr, i32 }
+35:                                               ; preds = %30
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %33 = load ptr, ptr %26, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i.i.i.i, label %.body.i, label %34
+  %37 = load ptr, ptr %28, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i.i.i.i.i, label %.body.i, label %38
 
-34:                                               ; preds = %31
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef 3)
-          to label %.body.i unwind label %36
+38:                                               ; preds = %35
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+          to label %.body.i unwind label %40
 
-36:                                               ; preds = %34
-  %37 = landingpad { ptr, i32 }
+40:                                               ; preds = %38
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #13
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #13
   unreachable
 
-.body.i:                                          ; preds = %34, %31
-  call void @_ZdlPv(ptr noundef nonnull %25) #15
-  %.pr.i = load ptr, ptr %24, align 8
+.body.i:                                          ; preds = %38, %35
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
+  %.pr.i = load ptr, ptr %26, align 8
   %.not.i.i7 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i7, label %.body, label %39
+  br i1 %.not.i.i7, label %.body, label %43
 
-39:                                               ; preds = %.body.i
-  %40 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %.body unwind label %41
+43:                                               ; preds = %.body.i
+  %44 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %.body unwind label %45
 
-41:                                               ; preds = %39
-  %42 = landingpad { ptr, i32 }
+45:                                               ; preds = %43
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #13
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #13
   unreachable
 
-44:                                               ; preds = %29, %.noexc
-  %45 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %25, ptr %6, align 8
-  store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEZNS1_35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS1_24CommandLineModuleManagerEPKcSB_RKSt8functionIFS0_INS1_24TrajectoryAnalysisModuleES3_ISD_EEvEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %45, align 8
-  store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEZNS1_35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS1_24CommandLineModuleManagerEPKcSB_RKSt8functionIFS0_INS1_24TrajectoryAnalysisModuleES3_ISD_EEvEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %24, align 8
+48:                                               ; preds = %32, %.noexc
+  %49 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %27, ptr %6, align 8
+  store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEZNS1_35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS1_24CommandLineModuleManagerEPKcSB_RKSt8functionIFS0_INS1_24TrajectoryAnalysisModuleES3_ISD_EEvEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %49, align 8
+  store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEZNS1_35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS1_24CommandLineModuleManagerEPKcSB_RKSt8functionIFS0_INS1_24TrajectoryAnalysisModuleES3_ISD_EEvEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %26, align 8
   invoke void @_ZN3gmx25ICommandLineOptionsModule21registerModuleFactoryEPNS_24CommandLineModuleManagerEPKcS4_St8functionIFSt10unique_ptrIS0_St14default_deleteIS0_EEvEE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
-          to label %46 unwind label %61
-
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %24, align 8
-  %.not.i.i9 = icmp eq ptr %47, null
-  br i1 %.not.i.i9, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, label %48
-
-48:                                               ; preds = %46
-  %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit unwind label %50
+          to label %50 unwind label %65
 
 50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+  %51 = load ptr, ptr %26, align 8
+  %.not.i.i9 = icmp eq ptr %51, null
+  br i1 %.not.i.i9, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, label %52
+
+52:                                               ; preds = %50
+  %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit unwind label %54
+
+54:                                               ; preds = %52
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #13
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #13
   unreachable
 
-_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit: ; preds = %46, %48
-  %53 = load ptr, ptr %7, align 8
-  %.not.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i.i, label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEEEN3$_0D2Ev.exit", label %54
+_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit: ; preds = %50, %52
+  %57 = load ptr, ptr %7, align 8
+  %.not.i.i.i = icmp eq ptr %57, null
+  br i1 %.not.i.i.i, label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEEEN3$_0D2Ev.exit", label %58
 
-54:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEEEN3$_0D2Ev.exit" unwind label %56
+58:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit
+  %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEEEN3$_0D2Ev.exit" unwind label %60
 
-56:                                               ; preds = %54
-  %57 = landingpad { ptr, i32 }
+60:                                               ; preds = %58
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #13
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #13
   unreachable
 
-"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEEEN3$_0D2Ev.exit": ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, %54
+"_ZZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24CommandLineModuleManagerEPKcS4_RKSt8functionIFSt10unique_ptrINS_24TrajectoryAnalysisModuleESt14default_deleteIS7_EEvEEEN3$_0D2Ev.exit": ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, %58
   ret void
 
-59:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit
-  %60 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit
+  %64 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-61:                                               ; preds = %44
-  %62 = landingpad { ptr, i32 }
+65:                                               ; preds = %48
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %63 = load ptr, ptr %24, align 8
-  %.not.i.i11 = icmp eq ptr %63, null
-  br i1 %.not.i.i11, label %.body, label %64
+  %67 = load ptr, ptr %26, align 8
+  %.not.i.i11 = icmp eq ptr %67, null
+  br i1 %.not.i.i11, label %.body, label %68
 
-64:                                               ; preds = %61
-  %65 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %.body unwind label %66
+68:                                               ; preds = %65
+  %69 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %.body unwind label %70
 
-66:                                               ; preds = %64
-  %67 = landingpad { ptr, i32 }
+70:                                               ; preds = %68
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #13
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #13
   unreachable
 
-.body:                                            ; preds = %64, %61, %59, %39, %.body.i
-  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %32, %39 ], [ %32, %.body.i ], [ %62, %61 ], [ %62, %64 ]
-  %69 = load ptr, ptr %7, align 8
-  %.not.i.i.i14 = icmp eq ptr %69, null
-  br i1 %.not.i.i.i14, label %common.resume, label %70
+.body:                                            ; preds = %68, %65, %63, %43, %.body.i
+  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %36, %43 ], [ %36, %.body.i ], [ %66, %65 ], [ %66, %68 ]
+  %73 = load ptr, ptr %7, align 8
+  %.not.i.i.i14 = icmp eq ptr %73, null
+  br i1 %.not.i.i.i14, label %common.resume, label %74
 
-70:                                               ; preds = %.body
-  %71 = invoke noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %common.resume unwind label %72
+74:                                               ; preds = %.body
+  %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %common.resume unwind label %76
 
-72:                                               ; preds = %70
-  %73 = landingpad { ptr, i32 }
+76:                                               ; preds = %74
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #13
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #13
   unreachable
 }
 
@@ -965,9 +977,9 @@ define internal void @_ZN3gmx12_GLOBAL__N_112RunnerModule4initEPNS_25CommandLine
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_112RunnerModule11initOptionsEPNS_17IOptionsContainerEPNS_33ICommandLineOptionsModuleSettingsE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
-  %5 = alloca %"class.std::shared_ptr.45", align 16
+  %5 = alloca %"class.std::shared_ptr.45", align 8
   %6 = alloca %"class.std::shared_ptr.56", align 8
-  %7 = alloca %"class.std::shared_ptr.56", align 16
+  %7 = alloca %"class.std::shared_ptr.56", align 8
   %8 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   invoke void @_ZN3gmx16TimeUnitBehaviorC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %9 unwind label %241
@@ -1033,7 +1045,7 @@ _ZNSt10shared_ptrIN3gmx16TimeUnitBehaviorEEC2IS1_vEEPT_.exit: ; preds = %9
           to label %34 unwind label %245
 
 34:                                               ; preds = %32
-  store ptr %28, ptr %5, align 16
+  store ptr %28, ptr %5, align 8
   %35 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr null, ptr %35, align 8
   %36 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
@@ -1174,15 +1186,16 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN3gmx16IOptionsBehaviorEED2Ev.exit
 
 _ZNSt10shared_ptrIN3gmx16IOptionsBehaviorEED2Ev.exit: ; preds = %64, %82, %95, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %100 = getelementptr inbounds i8, ptr %7, i64 8
-  %101 = load ptr, ptr %35, align 8
-  %102 = load <2 x ptr>, ptr %5, align 16
-  store <2 x ptr> %102, ptr %7, align 16
-  %.not.i.i.i18 = icmp eq ptr %101, null
+  %100 = load ptr, ptr %5, align 8
+  store ptr %100, ptr %7, align 8
+  %101 = getelementptr inbounds i8, ptr %7, i64 8
+  %102 = load ptr, ptr %35, align 8
+  store ptr %102, ptr %101, align 8
+  %.not.i.i.i18 = icmp eq ptr %102, null
   br i1 %.not.i.i.i18, label %_ZNSt10shared_ptrIN3gmx16IOptionsBehaviorEEC2INS0_23SelectionOptionBehaviorEvEERKS_IT_E.exit, label %103
 
 103:                                              ; preds = %_ZNSt10shared_ptrIN3gmx16IOptionsBehaviorEED2Ev.exit
-  %104 = getelementptr inbounds i8, ptr %101, i64 8
+  %104 = getelementptr inbounds i8, ptr %102, i64 8
   %105 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i19 = icmp eq i8 %105, 0
   br i1 %.not.i.i.i.i19, label %109, label %106
@@ -1205,7 +1218,7 @@ _ZNSt10shared_ptrIN3gmx16IOptionsBehaviorEEC2INS0_23SelectionOptionBehaviorEvEER
           to label %114 unwind label %249
 
 114:                                              ; preds = %_ZNSt10shared_ptrIN3gmx16IOptionsBehaviorEEC2INS0_23SelectionOptionBehaviorEvEERKS_IT_E.exit
-  %115 = load ptr, ptr %100, align 8
+  %115 = load ptr, ptr %101, align 8
   %.not.i.i.i20 = icmp eq ptr %115, null
   br i1 %.not.i.i.i20, label %_ZNSt10shared_ptrIN3gmx16IOptionsBehaviorEED2Ev.exit26, label %116
 
@@ -1313,7 +1326,7 @@ _ZNSt10shared_ptrIN3gmx16IOptionsBehaviorEED2Ev.exit26: ; preds = %114, %132, %1
           to label %168 unwind label %251
 
 168:                                              ; preds = %166
-  %169 = load ptr, ptr %5, align 16
+  %169 = load ptr, ptr %5, align 8
   invoke void @_ZN3gmx23SelectionOptionBehavior11initOptionsEPNS_17IOptionsContainerE(ptr noundef nonnull align 8 dereferenceable(16) %169, ptr noundef nonnull %152)
           to label %170 unwind label %251
 

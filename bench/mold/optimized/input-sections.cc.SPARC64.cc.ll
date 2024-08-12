@@ -796,7 +796,13 @@ entry:
   %reldyn_offset = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %reldyn_offset, align 8
   %uncompressed = getelementptr inbounds i8, ptr %this, i64 68
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %uncompressed, align 4
+  store i8 0, ptr %uncompressed, align 4
+  %is_alive = getelementptr inbounds i8, ptr %this, i64 69
+  store i8 1, ptr %is_alive, align 1
+  %p2align = getelementptr inbounds i8, ptr %this, i64 70
+  store i8 0, ptr %p2align, align 2
+  %address_taken = getelementptr inbounds i8, ptr %this, i64 71
+  store i8 0, ptr %address_taken, align 1
   %is_visited = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %is_visited, align 8
   %leader = getelementptr inbounds i8, ptr %this, i64 80
@@ -880,7 +886,6 @@ if.else:                                          ; preds = %if.end
 
 if.end30:                                         ; preds = %if.else, %if.then12
   %sh_addralign.sink = phi ptr [ %sh_addralign, %if.else ], [ %ch_addralign, %if.then12 ]
-  %p2align = getelementptr inbounds i8, ptr %this, i64 70
   %x.0.copyload.i48 = load i64, ptr %sh_addralign.sink, align 1
   %14 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i48)
   %cmp.i49 = icmp eq i64 %x.0.copyload.i48, 0
@@ -3322,7 +3327,13 @@ _ZNK4mold3elf6SymbolINS0_7SPARC64EE14get_dynsym_idxERNS0_7ContextIS2_EE.exit.i: 
   %ref.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 8
   store i32 %18, ptr %ref.tmp.sroa.2.0..sroa_idx.i, align 1
   %ref.tmp.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 12
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 32>, ptr %ref.tmp.sroa.3.0..sroa_idx.i, align 1
+  store i8 0, ptr %ref.tmp.sroa.3.0..sroa_idx.i, align 1
+  %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 13
+  store i8 0, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 1
+  %ref.tmp.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 14
+  store i8 0, ptr %ref.tmp.sroa.5.0..sroa_idx.i, align 1
+  %ref.tmp.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 15
+  store i8 32, ptr %ref.tmp.sroa.6.0..sroa_idx.i, align 1
   %ref.tmp.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 16
   store i64 %19, ptr %ref.tmp.sroa.7.0..sroa_idx.i, align 1
   %apply_dynamic_relocs.i = getelementptr inbounds i8, ptr %ctx, i64 87
@@ -3364,7 +3375,13 @@ _ZNK4mold3elf6SymbolINS0_7SPARC64EE14get_dynsym_idxERNS0_7ContextIS2_EE.exit.i27
   %ref.tmp.sroa.2.0..sroa_idx.i30 = getelementptr inbounds i8, ptr %29, i64 8
   store i32 %27, ptr %ref.tmp.sroa.2.0..sroa_idx.i30, align 1
   %ref.tmp.sroa.3.0..sroa_idx.i31 = getelementptr inbounds i8, ptr %29, i64 12
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 32>, ptr %ref.tmp.sroa.3.0..sroa_idx.i31, align 1
+  store i8 0, ptr %ref.tmp.sroa.3.0..sroa_idx.i31, align 1
+  %ref.tmp.sroa.4.0..sroa_idx.i32 = getelementptr inbounds i8, ptr %29, i64 13
+  store i8 0, ptr %ref.tmp.sroa.4.0..sroa_idx.i32, align 1
+  %ref.tmp.sroa.5.0..sroa_idx.i33 = getelementptr inbounds i8, ptr %29, i64 14
+  store i8 0, ptr %ref.tmp.sroa.5.0..sroa_idx.i33, align 1
+  %ref.tmp.sroa.6.0..sroa_idx.i34 = getelementptr inbounds i8, ptr %29, i64 15
+  store i8 32, ptr %ref.tmp.sroa.6.0..sroa_idx.i34, align 1
   %ref.tmp.sroa.7.0..sroa_idx.i35 = getelementptr inbounds i8, ptr %29, i64 16
   store i64 %28, ptr %ref.tmp.sroa.7.0..sroa_idx.i35, align 1
   %apply_dynamic_relocs.i36 = getelementptr inbounds i8, ptr %ctx, i64 87
@@ -3403,7 +3420,13 @@ _ZNK4mold3elf6SymbolINS0_7SPARC64EE14get_dynsym_idxERNS0_7ContextIS2_EE.exit.i46
   %ref.tmp.sroa.2.0..sroa_idx.i49 = getelementptr inbounds i8, ptr %38, i64 8
   store i32 %36, ptr %ref.tmp.sroa.2.0..sroa_idx.i49, align 1
   %ref.tmp.sroa.3.0..sroa_idx.i50 = getelementptr inbounds i8, ptr %38, i64 12
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 32>, ptr %ref.tmp.sroa.3.0..sroa_idx.i50, align 1
+  store i8 0, ptr %ref.tmp.sroa.3.0..sroa_idx.i50, align 1
+  %ref.tmp.sroa.4.0..sroa_idx.i51 = getelementptr inbounds i8, ptr %38, i64 13
+  store i8 0, ptr %ref.tmp.sroa.4.0..sroa_idx.i51, align 1
+  %ref.tmp.sroa.5.0..sroa_idx.i52 = getelementptr inbounds i8, ptr %38, i64 14
+  store i8 0, ptr %ref.tmp.sroa.5.0..sroa_idx.i52, align 1
+  %ref.tmp.sroa.6.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %38, i64 15
+  store i8 32, ptr %ref.tmp.sroa.6.0..sroa_idx.i53, align 1
   %ref.tmp.sroa.7.0..sroa_idx.i54 = getelementptr inbounds i8, ptr %38, i64 16
   store i64 %37, ptr %ref.tmp.sroa.7.0..sroa_idx.i54, align 1
   %apply_dynamic_relocs.i55 = getelementptr inbounds i8, ptr %ctx, i64 87

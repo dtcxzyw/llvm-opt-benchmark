@@ -1240,33 +1240,37 @@ define linkonce_odr noundef i32 @_ZN5ZXing4OneD9RowReader20NarrowWideBitPatternE
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.5)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 2
-  %7 = load <2 x i16>, ptr %5, align 2
-  store <2 x i16> %7, ptr %2, align 4
-  store <2 x i16> %7, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8
-  %10 = icmp sgt i32 %9, 2
+  %6 = load i16, ptr %5, align 2
+  store i16 %6, ptr %2, align 4
+  %7 = getelementptr inbounds i8, ptr %2, i64 2
+  %8 = getelementptr inbounds i8, ptr %5, i64 2
+  %9 = load i16, ptr %8, align 2
+  store i16 %9, ptr %7, align 2
+  %10 = load i32, ptr %2, align 4
+  store i32 %10, ptr %3, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp sgt i32 %12, 2
   %indvars.iv27.i.sroa.gep14 = getelementptr inbounds i8, ptr %3, i64 2
-  br i1 %10, label %.lr.ph.preheader.i, label %._crit_edge.i
+  br i1 %13, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %1
-  %wide.trip.count.i = zext nneg i32 %9 to i64
+  %wide.trip.count.i = zext nneg i32 %12 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %11 = and i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds i16, ptr %2, i64 %11
-  %13 = getelementptr inbounds i16, ptr %3, i64 %11
-  %14 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv.i
-  %15 = load i16, ptr %14, align 2
-  %16 = load i16, ptr %12, align 2
-  %.sroa.speculated8.i.i = tail call i16 @llvm.umin.i16(i16 %16, i16 %15)
-  store i16 %.sroa.speculated8.i.i, ptr %12, align 2
-  %17 = load i16, ptr %13, align 2
-  %.sroa.speculated.i.i = tail call i16 @llvm.umax.i16(i16 %17, i16 %15)
-  store i16 %.sroa.speculated.i.i, ptr %13, align 2
+  %14 = and i64 %indvars.iv.i, 1
+  %15 = getelementptr inbounds i16, ptr %2, i64 %14
+  %16 = getelementptr inbounds i16, ptr %3, i64 %14
+  %17 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv.i
+  %18 = load i16, ptr %17, align 2
+  %19 = load i16, ptr %15, align 2
+  %.sroa.speculated8.i.i = tail call i16 @llvm.umin.i16(i16 %19, i16 %18)
+  store i16 %.sroa.speculated8.i.i, ptr %15, align 2
+  %20 = load i16, ptr %16, align 2
+  %.sroa.speculated.i.i = tail call i16 @llvm.umax.i16(i16 %20, i16 %18)
+  store i16 %.sroa.speculated.i.i, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
@@ -1274,57 +1278,57 @@ define linkonce_odr noundef i32 @_ZN5ZXing4OneD9RowReader20NarrowWideBitPatternE
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
   store i16 0, ptr %.sroa.0, align 2
   store i16 0, ptr %.sroa.5, align 2
-  br label %18
+  br label %21
 
-18:                                               ; preds = %38, %._crit_edge.i
-  %19 = phi i1 [ true, %._crit_edge.i ], [ false, %38 ]
-  %indvars.iv27.i.sroa.phi = phi ptr [ %.sroa.0, %._crit_edge.i ], [ %.sroa.5, %38 ]
-  %indvars.iv27.i.sroa.phi13 = phi ptr [ %3, %._crit_edge.i ], [ %indvars.iv27.i.sroa.gep14, %38 ]
-  %indvars.iv27.i.sroa.phi15 = phi ptr [ %2, %._crit_edge.i ], [ %6, %38 ]
-  %indvars.iv27.i.sroa.phi24 = phi ptr [ %indvars.iv27.i.sroa.gep14, %._crit_edge.i ], [ %3, %38 ]
-  %indvars.iv27.i.sroa.phi26 = phi ptr [ %6, %._crit_edge.i ], [ %2, %38 ]
-  %20 = load i16, ptr %indvars.iv27.i.sroa.phi13, align 2
-  %21 = zext i16 %20 to i32
-  %22 = load i16, ptr %indvars.iv27.i.sroa.phi15, align 2
-  %23 = zext i16 %22 to i32
-  %24 = shl nuw nsw i32 %23, 2
-  %25 = add nuw nsw i32 %24, 4
-  %26 = icmp ult i32 %25, %21
-  br i1 %26, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread, label %27
+21:                                               ; preds = %41, %._crit_edge.i
+  %22 = phi i1 [ true, %._crit_edge.i ], [ false, %41 ]
+  %indvars.iv27.i.sroa.phi = phi ptr [ %.sroa.0, %._crit_edge.i ], [ %.sroa.5, %41 ]
+  %indvars.iv27.i.sroa.phi13 = phi ptr [ %3, %._crit_edge.i ], [ %indvars.iv27.i.sroa.gep14, %41 ]
+  %indvars.iv27.i.sroa.phi15 = phi ptr [ %2, %._crit_edge.i ], [ %7, %41 ]
+  %indvars.iv27.i.sroa.phi24 = phi ptr [ %indvars.iv27.i.sroa.gep14, %._crit_edge.i ], [ %3, %41 ]
+  %indvars.iv27.i.sroa.phi26 = phi ptr [ %7, %._crit_edge.i ], [ %2, %41 ]
+  %23 = load i16, ptr %indvars.iv27.i.sroa.phi13, align 2
+  %24 = zext i16 %23 to i32
+  %25 = load i16, ptr %indvars.iv27.i.sroa.phi15, align 2
+  %26 = zext i16 %25 to i32
+  %27 = shl nuw nsw i32 %26, 2
+  %28 = add nuw nsw i32 %27, 4
+  %29 = icmp ult i32 %28, %24
+  br i1 %29, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread, label %30
 
-27:                                               ; preds = %18
-  %28 = load i16, ptr %indvars.iv27.i.sroa.phi24, align 2
-  %29 = zext i16 %28 to i32
-  %30 = mul nuw nsw i32 %29, 3
-  %31 = icmp ult i32 %30, %21
-  br i1 %31, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread, label %32
+30:                                               ; preds = %21
+  %31 = load i16, ptr %indvars.iv27.i.sroa.phi24, align 2
+  %32 = zext i16 %31 to i32
+  %33 = mul nuw nsw i32 %32, 3
+  %34 = icmp ult i32 %33, %24
+  br i1 %34, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread, label %35
 
-32:                                               ; preds = %27
-  %33 = load i16, ptr %indvars.iv27.i.sroa.phi26, align 2
-  %34 = zext i16 %33 to i32
-  %35 = shl nuw nsw i32 %34, 1
-  %36 = add nuw nsw i32 %35, 2
-  %37 = icmp ult i32 %36, %23
-  br i1 %37, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread, label %38
+35:                                               ; preds = %30
+  %36 = load i16, ptr %indvars.iv27.i.sroa.phi26, align 2
+  %37 = zext i16 %36 to i32
+  %38 = shl nuw nsw i32 %37, 1
+  %39 = add nuw nsw i32 %38, 2
+  %40 = icmp ult i32 %39, %26
+  br i1 %40, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread, label %41
 
-38:                                               ; preds = %32
-  %39 = add nuw nsw i32 %23, %21
-  %40 = lshr i32 %39, 1
-  %41 = lshr i32 %23, 1
-  %42 = add nuw nsw i32 %41, %23
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %40, i32 %42)
-  %43 = trunc i32 %.sroa.speculated.i to i16
-  store i16 %43, ptr %indvars.iv27.i.sroa.phi, align 2
-  br i1 %19, label %18, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit, !llvm.loop !18
+41:                                               ; preds = %35
+  %42 = add nuw nsw i32 %26, %24
+  %43 = lshr i32 %42, 1
+  %44 = lshr i32 %26, 1
+  %45 = add nuw nsw i32 %44, %26
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %43, i32 %45)
+  %46 = trunc i32 %.sroa.speculated.i to i16
+  store i16 %46, ptr %indvars.iv27.i.sroa.phi, align 2
+  br i1 %22, label %21, label %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit, !llvm.loop !18
 
-_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread: ; preds = %32, %27, %18
+_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread: ; preds = %35, %30, %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.5)
   br label %.loopexit
 
-_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit: ; preds = %38
+_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit: ; preds = %41
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i = load i16, ptr %.sroa.0, align 2
   %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0..sroa.0.0.copyload.i = load i16, ptr %.sroa.5, align 2
   %.sroa.5.0.insert.ext = zext i16 %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0..sroa.0.0.copyload.i to i32
@@ -1337,43 +1341,43 @@ _ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.5)
   store i32 %.sroa.0.0.insert.insert, ptr %4, align 4
   %.not.i = icmp ne i16 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i, 0
-  %44 = icmp ne i16 %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0..sroa.0.0.copyload.i, 0
-  %45 = and i1 %.not.i, %44
-  br i1 %45, label %.preheader, label %.loopexit
+  %47 = icmp ne i16 %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0..sroa.0.0.copyload.i, 0
+  %48 = and i1 %.not.i, %47
+  br i1 %48, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit
-  %46 = icmp sgt i32 %9, 0
-  br i1 %46, label %.lr.ph.preheader, label %.loopexit
+  %49 = icmp sgt i32 %12, 0
+  br i1 %49, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %9 to i64
+  %wide.trip.count = zext nneg i32 %12 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %56
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %56 ]
-  %.01819 = phi i32 [ 0, %.lr.ph.preheader ], [ %60, %56 ]
-  %47 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv
-  %48 = load i16, ptr %47, align 2
-  %49 = zext i16 %48 to i32
-  %50 = and i64 %indvars.iv, 1
-  %51 = getelementptr inbounds i16, ptr %4, i64 %50
-  %52 = load i16, ptr %51, align 2
-  %53 = zext i16 %52 to i32
-  %54 = shl nuw nsw i32 %53, 1
-  %55 = icmp ult i32 %54, %49
-  br i1 %55, label %.loopexit, label %56
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %59
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
+  %.01819 = phi i32 [ 0, %.lr.ph.preheader ], [ %63, %59 ]
+  %50 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv
+  %51 = load i16, ptr %50, align 2
+  %52 = zext i16 %51 to i32
+  %53 = and i64 %indvars.iv, 1
+  %54 = getelementptr inbounds i16, ptr %4, i64 %53
+  %55 = load i16, ptr %54, align 2
+  %56 = zext i16 %55 to i32
+  %57 = shl nuw nsw i32 %56, 1
+  %58 = icmp ult i32 %57, %52
+  br i1 %58, label %.loopexit, label %59
 
-56:                                               ; preds = %.lr.ph
-  %57 = icmp ugt i16 %48, %52
-  %58 = zext i1 %57 to i32
-  %59 = shl i32 %.01819, 1
-  %60 = or disjoint i32 %59, %58
+59:                                               ; preds = %.lr.ph
+  %60 = icmp ugt i16 %51, %55
+  %61 = zext i1 %60 to i32
+  %62 = shl i32 %.01819, 1
+  %63 = or disjoint i32 %62, %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
-.loopexit:                                        ; preds = %.lr.ph, %56, %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread, %.preheader, %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit
-  %.010 = phi i32 [ -1, %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit ], [ 0, %.preheader ], [ -1, %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread ], [ -1, %.lr.ph ], [ %60, %56 ]
+.loopexit:                                        ; preds = %.lr.ph, %59, %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread, %.preheader, %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit
+  %.010 = phi i32 [ -1, %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit ], [ 0, %.preheader ], [ -1, %_ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit.thread ], [ -1, %.lr.ph ], [ %63, %59 ]
   ret i32 %.010
 }
 

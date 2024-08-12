@@ -53,10 +53,14 @@ define void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT
   %3 = alloca { i64, { i64, [1 x i64] } }, align 8
   call void @"_ZN86_$LT$id_arena..Iter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h83ad8fd3b1c3c85fE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %3, ptr align 8 %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = load i64, ptr %4, align 8, !range !3, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = load i64, ptr %6, align 8
   store i64 0, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load <2 x i64>, ptr %4, align 8
-  store <2 x i64> %6, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %7, ptr %9, align 8
   ret void
 }
 
@@ -65,10 +69,14 @@ define void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT
   %3 = alloca { i64, { i64, [1 x i64] } }, align 8
   call void @"_ZN99_$LT$indexmap..map..iter..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf3cd47a91291d132E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %3, ptr align 8 %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = load i64, ptr %4, align 8, !range !3, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = load i64, ptr %6, align 8
   store i64 0, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load <2 x i64>, ptr %4, align 8
-  store <2 x i64> %6, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %7, ptr %9, align 8
   ret void
 }
 
@@ -77,10 +85,14 @@ define void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT
   %3 = alloca { i64, { i64, [1 x i64] } }, align 8
   call void @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9435d174b6a70cffE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %3, ptr align 8 %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = load i64, ptr %4, align 8, !range !3, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = load i64, ptr %6, align 8
   store i64 0, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load <2 x i64>, ptr %4, align 8
-  store <2 x i64> %6, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %7, ptr %9, align 8
   ret void
 }
 
@@ -89,10 +101,14 @@ define void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT
   %3 = alloca { i64, { i64, [1 x i64] } }, align 8
   call void @"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3409dfc48da2c15fE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %3, ptr align 8 %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = load i64, ptr %4, align 8, !range !3, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = load i64, ptr %6, align 8
   store i64 0, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load <2 x i64>, ptr %4, align 8
-  store <2 x i64> %6, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %7, ptr %9, align 8
   ret void
 }
 
@@ -199,3 +215,5 @@ attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
+!3 = !{i64 0, i64 2}
+!4 = !{}

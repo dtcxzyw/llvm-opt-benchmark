@@ -1561,17 +1561,21 @@ if.then6:                                         ; preds = %_ZNK6hermes3hbc14BC
   %loc.sroa.1.0.call7.sroa_idx = getelementptr inbounds i8, ptr %locOpt, i64 4
   %loc.sroa.1.0.copyload = load i32, ptr %loc.sroa.1.0.call7.sroa_idx, align 4
   %loc.sroa.21.0.call7.sroa_idx = getelementptr inbounds i8, ptr %locOpt, i64 12
-  %line = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %7 = load <2 x i32>, ptr %loc.sroa.21.0.call7.sroa_idx, align 4
+  %loc.sroa.21.0.copyload = load i32, ptr %loc.sroa.21.0.call7.sroa_idx, align 4
+  %loc.sroa.3.0.call7.sroa_idx = getelementptr inbounds i8, ptr %locOpt, i64 16
+  %loc.sroa.3.0.copyload = load i32, ptr %loc.sroa.3.0.call7.sroa_idx, align 4
   call void @_ZNK6hermes3hbc9DebugInfo15getFilenameByIDB5cxx11Ej(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %fileName, ptr noundef nonnull align 8 dereferenceable(136) %5, i32 noundef %loc.sroa.1.0.copyload)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %fileName) #19
-  store <2 x i32> %7, ptr %line, align 8
+  %line = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  store i32 %loc.sroa.21.0.copyload, ptr %line, align 8
+  %column = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  store i32 %loc.sroa.3.0.copyload, ptr %column, align 4
   %hasVal.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i8 1, ptr %hasVal.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   %line.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %8 = load i64, ptr %line, align 8
-  store i64 %8, ptr %line.i.i.i, align 8
+  %7 = load i64, ptr %line, align 8
+  store i64 %7, ptr %line.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fileName) #19
   br label %return
@@ -2213,12 +2217,14 @@ _ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit:  ; preds = %_ZNSt6vectorIhSaIhE
   %ref.tmp8.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %call5.i.i.i.i.i.i24, %if.then.i.i.i.i.i.i.i.i.i.i.i23 ]
   %add.ptr.i.i.sink.i25 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i23 ]
   %scopeDescDataOffset = getelementptr inbounds i8, ptr %add.ptr, i64 12
-  %13 = load <2 x i32>, ptr %scopeDescDataOffset, align 1
+  %13 = load i32, ptr %scopeDescDataOffset, align 1
+  %textifiedCalleeOffset = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %14 = load i32, ptr %textifiedCalleeOffset, align 1
   %stringTableOffset = getelementptr inbounds i8, ptr %add.ptr, i64 20
-  %14 = load i32, ptr %stringTableOffset, align 1
+  %15 = load i32, ptr %stringTableOffset, align 1
   %debugDataSize = getelementptr inbounds i8, ptr %add.ptr, i64 24
-  %15 = load i32, ptr %debugDataSize, align 1
-  %conv10 = zext i32 %15 to i64
+  %16 = load i32, ptr %debugDataSize, align 1
+  %conv10 = zext i32 %16 to i64
   store ptr %ref.tmp.sroa.0.0, ptr %call7, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %call7, i64 8
   store ptr %add.ptr.i.i.sink.i, ptr %_M_finish.i.i.i.i.i, align 8
@@ -2248,8 +2254,8 @@ if.then.i.i:                                      ; preds = %_ZNK4llvh8ArrayRefI
 if.end8.i:                                        ; preds = %if.then.i.i
   store ptr %.pre56, ptr %files_.i, align 8
   store i32 %12, ptr %Size.i.i.i.i.i.i, align 8
-  %16 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  store i32 %16, ptr %Capacity2.i.i.i.i.i.i, align 4
+  %17 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
+  store i32 %17, ptr %Capacity2.i.i.i.i.i.i, align 4
   store ptr %add.ptr.i.i.i.i.i, ptr %files, align 8
   store i32 0, ptr %Capacity2.i.i.i.i.i, align 4
   br label %_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit
@@ -2270,9 +2276,9 @@ if.end37.i:                                       ; preds = %if.end24.i
 if.then.i.i.i40:                                  ; preds = %if.end24.i, %if.end37.i
   %.pre55.pre.pre5866 = phi ptr [ %.pre55.pre.pre58.pre, %if.end37.i ], [ %.pre56, %if.end24.i ]
   %conv.i51.i.pre-phi65 = phi i64 [ %.pre61, %if.end37.i ], [ 1, %if.end24.i ]
-  %17 = load ptr, ptr %files_.i, align 8
+  %18 = load ptr, ptr %files_.i, align 8
   %gepdiff.i = mul nuw nsw i64 %conv.i51.i.pre-phi65, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %.pre55.pre.pre5866, i64 %gepdiff.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %.pre55.pre.pre5866, i64 %gepdiff.i, i1 false)
   %.pre55.pre.pre = load ptr, ptr %files, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
 
@@ -2287,11 +2293,13 @@ _ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit: ; preds =
   br label %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit: ; preds = %_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit
-  %18 = phi ptr [ %.pre55, %_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit ], [ %.pre56, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit ]
+  %19 = phi ptr [ %.pre55, %_ZN4llvh15SmallVectorImplIN6hermes3hbc15DebugFileRegionEEaSEOS4_.exit ], [ %.pre56, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit ]
   %scopeDescDataOffset_.i = getelementptr inbounds i8, ptr %call7, i64 80
-  store <2 x i32> %13, ptr %scopeDescDataOffset_.i, align 8
+  store i32 %13, ptr %scopeDescDataOffset_.i, align 8
+  %textifiedCalleeOffset_.i = getelementptr inbounds i8, ptr %call7, i64 84
+  store i32 %14, ptr %textifiedCalleeOffset_.i, align 4
   %stringTableOffset_.i = getelementptr inbounds i8, ptr %call7, i64 88
-  store i32 %14, ptr %stringTableOffset_.i, align 8
+  store i32 %15, ptr %stringTableOffset_.i, align 8
   %data_.i = getelementptr inbounds i8, ptr %call7, i64 96
   %ref_.i.i28 = getelementptr inbounds i8, ptr %call7, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
@@ -2300,11 +2308,11 @@ _ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit: ; preds = %_ZN4llvh15
   store i64 %conv10, ptr %ref.tmp9.sroa.8.24.ref_.i.i28.sroa_idx, align 8
   %debugInfo_ = getelementptr inbounds i8, ptr %this, i64 240
   store ptr %call7, ptr %debugInfo_, align 8
-  %cmp.i.i.i = icmp eq ptr %18, %add.ptr.i.i.i.i.i
+  %cmp.i.i.i = icmp eq ptr %19, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit, label %if.then.i.i34
 
 if.then.i.i34:                                    ; preds = %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit
-  call void @free(ptr noundef %18) #19
+  call void @free(ptr noundef %19) #19
   br label %_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit
 
 _ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit: ; preds = %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit, %if.then.i.i34

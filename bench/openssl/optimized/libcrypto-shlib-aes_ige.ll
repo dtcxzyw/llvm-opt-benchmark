@@ -13,22 +13,22 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @AES_ige_encrypt(ptr noundef readonly %in, ptr noundef %out, i64 noundef %length, ptr noundef %key, ptr noundef %ivec, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
-  %tmp2 = alloca %struct.aes_block_t, align 16
-  %tmp99 = alloca %struct.aes_block_t, align 16
-  %tmp140 = alloca %struct.aes_block_t, align 16
+  %tmp2 = alloca %struct.aes_block_t, align 8
+  %tmp99 = alloca %struct.aes_block_t, align 8
+  %tmp140 = alloca %struct.aes_block_t, align 8
   %div101 = lshr i64 %length, 4
   %cmp = icmp eq i64 %length, 0
   br i1 %cmp, label %if.end184, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = insertelement <4 x ptr> poison, ptr %in, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %out, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %key, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %ivec, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp eq i4 %5, 0
-  br i1 %6, label %cond.end, label %cond.false
+  %tobool = icmp ne ptr %in, null
+  %tobool1 = icmp ne ptr %out, null
+  %or.cond = and i1 %tobool, %tobool1
+  %tobool3 = icmp ne ptr %key, null
+  %or.cond1 = and i1 %or.cond, %tobool3
+  %tobool5 = icmp ne ptr %ivec, null
+  %or.cond2 = and i1 %or.cond1, %tobool5
+  br i1 %or.cond2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
   tail call void @OPENSSL_die(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 58) #4
@@ -69,27 +69,27 @@ for.cond.preheader:                               ; preds = %for.cond.preheader.
   %len.0122 = phi i64 [ %dec, %for.cond.preheader ], [ %div101, %for.cond.preheader.preheader ]
   %iv2p.0121 = phi ptr [ %in.addr.0124, %for.cond.preheader ], [ %add.ptr, %for.cond.preheader.preheader ]
   %ivp.0120 = phi ptr [ %out.addr.0123, %for.cond.preheader ], [ %ivec, %for.cond.preheader.preheader ]
-  %7 = load i64, ptr %in.addr.0124, align 1
-  %8 = load i64, ptr %ivp.0120, align 1
-  %xor = xor i64 %8, %7
+  %0 = load i64, ptr %in.addr.0124, align 1
+  %1 = load i64, ptr %ivp.0120, align 1
+  %xor = xor i64 %1, %0
   store i64 %xor, ptr %out.addr.0123, align 1
   %arrayidx.c = getelementptr inbounds i8, ptr %in.addr.0124, i64 8
-  %9 = load i64, ptr %arrayidx.c, align 1
+  %2 = load i64, ptr %arrayidx.c, align 1
   %arrayidx24.c = getelementptr inbounds i8, ptr %ivp.0120, i64 8
-  %10 = load i64, ptr %arrayidx24.c, align 1
-  %xor.c = xor i64 %10, %9
+  %3 = load i64, ptr %arrayidx24.c, align 1
+  %xor.c = xor i64 %3, %2
   %arrayidx26.c = getelementptr inbounds i8, ptr %out.addr.0123, i64 8
   store i64 %xor.c, ptr %arrayidx26.c, align 1
   tail call void @AES_encrypt(ptr noundef nonnull %out.addr.0123, ptr noundef nonnull %out.addr.0123, ptr noundef nonnull %key) #5
-  %11 = load i64, ptr %iv2p.0121, align 1
-  %12 = load i64, ptr %out.addr.0123, align 1
-  %xor37 = xor i64 %12, %11
+  %4 = load i64, ptr %iv2p.0121, align 1
+  %5 = load i64, ptr %out.addr.0123, align 1
+  %xor37 = xor i64 %5, %4
   store i64 %xor37, ptr %out.addr.0123, align 1
   %arrayidx34.c = getelementptr inbounds i8, ptr %iv2p.0121, i64 8
-  %13 = load i64, ptr %arrayidx34.c, align 1
+  %6 = load i64, ptr %arrayidx34.c, align 1
   %arrayidx36.c = getelementptr inbounds i8, ptr %out.addr.0123, i64 8
-  %14 = load i64, ptr %arrayidx36.c, align 1
-  %xor37.c = xor i64 %14, %13
+  %7 = load i64, ptr %arrayidx36.c, align 1
+  %xor37.c = xor i64 %7, %6
   store i64 %xor37.c, ptr %arrayidx36.c, align 1
   %dec = add nsw i64 %len.0122, -1
   %add.ptr41 = getelementptr inbounds i8, ptr %in.addr.0124, i64 16
@@ -103,25 +103,40 @@ while.end:                                        ; preds = %for.cond.preheader
   br label %if.end184
 
 while.body51.preheader:                           ; preds = %if.then18
+  %iv.sroa.3.0.ivec.sroa_idx = getelementptr inbounds i8, ptr %ivec, i64 8
+  %iv.sroa.3.0.copyload = load i64, ptr %iv.sroa.3.0.ivec.sroa_idx, align 1
   %add.ptr48 = getelementptr inbounds i8, ptr %ivec, i64 16
-  %iv2.sroa.0.0.copyload = load <2 x i64>, ptr %add.ptr48, align 1
+  %iv2.sroa.0.0.copyload = load i64, ptr %add.ptr48, align 1
+  %iv2.sroa.3.0.add.ptr48.sroa_idx = getelementptr inbounds i8, ptr %ivec, i64 24
+  %iv2.sroa.3.0.copyload = load i64, ptr %iv2.sroa.3.0.add.ptr48.sroa_idx, align 1
+  %arrayidx61.c = getelementptr inbounds i8, ptr %tmp2, i64 8
+  %arrayidx75.c = getelementptr inbounds i8, ptr %tmp2, i64 8
   br label %while.body51
 
 while.body51:                                     ; preds = %while.body51.preheader, %while.body51
-  %iv2.sroa.0.0 = phi <2 x i64> [ %iv2.sroa.0.0.copyload, %while.body51.preheader ], [ %tmp.sroa.0.0.copyload, %while.body51 ]
+  %iv2.sroa.3.0 = phi i64 [ %iv2.sroa.3.0.copyload, %while.body51.preheader ], [ %tmp.sroa.4.0.copyload, %while.body51 ]
+  %iv2.sroa.0.0 = phi i64 [ %iv2.sroa.0.0.copyload, %while.body51.preheader ], [ %tmp.sroa.0.0.copyload, %while.body51 ]
   %iv.sroa.0.0.in = phi ptr [ %ivec, %while.body51.preheader ], [ %tmp2, %while.body51 ]
+  %iv.sroa.3.0 = phi i64 [ %iv.sroa.3.0.copyload, %while.body51.preheader ], [ %xor76.c, %while.body51 ]
   %in.addr.1132 = phi ptr [ %in, %while.body51.preheader ], [ %add.ptr81, %while.body51 ]
   %out.addr.1131 = phi ptr [ %out, %while.body51.preheader ], [ %add.ptr82, %while.body51 ]
   %len.1130 = phi i64 [ %div101, %while.body51.preheader ], [ %dec80, %while.body51 ]
-  %iv.sroa.0.0 = load <2 x i64>, ptr %iv.sroa.0.0.in, align 1
-  %tmp.sroa.0.0.copyload = load <2 x i64>, ptr %in.addr.1132, align 1
-  %15 = xor <2 x i64> %iv.sroa.0.0, %tmp.sroa.0.0.copyload
-  store <2 x i64> %15, ptr %tmp2, align 16
+  %iv.sroa.0.0 = load i64, ptr %iv.sroa.0.0.in, align 1
+  %tmp.sroa.0.0.copyload = load i64, ptr %in.addr.1132, align 1
+  %tmp.sroa.4.0.in.addr.1132.sroa_idx = getelementptr inbounds i8, ptr %in.addr.1132, i64 8
+  %tmp.sroa.4.0.copyload = load i64, ptr %tmp.sroa.4.0.in.addr.1132.sroa_idx, align 1
+  %xor59 = xor i64 %iv.sroa.0.0, %tmp.sroa.0.0.copyload
+  store i64 %xor59, ptr %tmp2, align 8
+  %xor59.c = xor i64 %iv.sroa.3.0, %tmp.sroa.4.0.copyload
+  store i64 %xor59.c, ptr %arrayidx61.c, align 8
   call void @AES_encrypt(ptr noundef nonnull %tmp2, ptr noundef nonnull %tmp2, ptr noundef nonnull %key) #5
-  %16 = load <2 x i64>, ptr %tmp2, align 16
-  %17 = xor <2 x i64> %16, %iv2.sroa.0.0
-  store <2 x i64> %17, ptr %tmp2, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.1131, ptr noundef nonnull align 16 dereferenceable(16) %tmp2, i64 16, i1 false)
+  %8 = load i64, ptr %tmp2, align 8
+  %xor76 = xor i64 %8, %iv2.sroa.0.0
+  store i64 %xor76, ptr %tmp2, align 8
+  %9 = load i64, ptr %arrayidx75.c, align 8
+  %xor76.c = xor i64 %9, %iv2.sroa.3.0
+  store i64 %xor76.c, ptr %arrayidx75.c, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.1131, ptr noundef nonnull align 8 dereferenceable(16) %tmp2, i64 16, i1 false)
   %dec80 = add nsw i64 %len.1130, -1
   %add.ptr81 = getelementptr inbounds i8, ptr %in.addr.1132, i64 16
   %add.ptr82 = getelementptr inbounds i8, ptr %out.addr.1131, i64 16
@@ -129,8 +144,10 @@ while.body51:                                     ; preds = %while.body51.prehea
   br i1 %tobool50.not, label %while.end83, label %while.body51, !llvm.loop !6
 
 while.end83:                                      ; preds = %while.body51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ivec, ptr noundef nonnull align 16 dereferenceable(16) %tmp2, i64 16, i1 false)
-  store <2 x i64> %tmp.sroa.0.0.copyload, ptr %add.ptr48, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ivec, ptr noundef nonnull align 8 dereferenceable(16) %tmp2, i64 16, i1 false)
+  store i64 %tmp.sroa.0.0.copyload, ptr %add.ptr48, align 1
+  %tmp.sroa.4.0.add.ptr48.sroa_idx = getelementptr inbounds i8, ptr %ivec, i64 24
+  store i64 %tmp.sroa.4.0.copyload, ptr %tmp.sroa.4.0.add.ptr48.sroa_idx, align 1
   br label %if.end184
 
 if.else90:                                        ; preds = %cond.end15
@@ -138,6 +155,7 @@ if.else90:                                        ; preds = %cond.end15
 
 for.cond102.preheader.preheader:                  ; preds = %if.else90
   %add.ptr95 = getelementptr inbounds i8, ptr %ivec, i64 16
+  %arrayidx111.c = getelementptr inbounds i8, ptr %tmp99, i64 8
   br label %for.cond102.preheader
 
 for.cond102.preheader:                            ; preds = %for.cond102.preheader.preheader, %for.cond102.preheader
@@ -146,20 +164,26 @@ for.cond102.preheader:                            ; preds = %for.cond102.prehead
   %iv2p94.0107 = phi ptr [ %out.addr.2108, %for.cond102.preheader ], [ %add.ptr95, %for.cond102.preheader.preheader ]
   %ivp93.0106 = phi ptr [ %in.addr.2109, %for.cond102.preheader ], [ %ivec, %for.cond102.preheader.preheader ]
   %len.2105 = phi i64 [ %dec130, %for.cond102.preheader ], [ %div101, %for.cond102.preheader.preheader ]
-  %18 = load <2 x i64>, ptr %in.addr.2109, align 1
-  %19 = load <2 x i64>, ptr %iv2p94.0107, align 1
-  %20 = xor <2 x i64> %19, %18
-  store <2 x i64> %20, ptr %tmp99, align 16
+  %10 = load i64, ptr %in.addr.2109, align 1
+  %11 = load i64, ptr %iv2p94.0107, align 1
+  %xor109 = xor i64 %11, %10
+  store i64 %xor109, ptr %tmp99, align 8
+  %arrayidx106.c = getelementptr inbounds i8, ptr %in.addr.2109, i64 8
+  %12 = load i64, ptr %arrayidx106.c, align 1
+  %arrayidx108.c = getelementptr inbounds i8, ptr %iv2p94.0107, i64 8
+  %13 = load i64, ptr %arrayidx108.c, align 1
+  %xor109.c = xor i64 %13, %12
+  store i64 %xor109.c, ptr %arrayidx111.c, align 8
   call void @AES_decrypt(ptr noundef nonnull %tmp99, ptr noundef nonnull %out.addr.2108, ptr noundef nonnull %key) #5
-  %21 = load i64, ptr %ivp93.0106, align 1
-  %22 = load i64, ptr %out.addr.2108, align 1
-  %xor126 = xor i64 %22, %21
+  %14 = load i64, ptr %ivp93.0106, align 1
+  %15 = load i64, ptr %out.addr.2108, align 1
+  %xor126 = xor i64 %15, %14
   store i64 %xor126, ptr %out.addr.2108, align 1
   %arrayidx123.c = getelementptr inbounds i8, ptr %ivp93.0106, i64 8
-  %23 = load i64, ptr %arrayidx123.c, align 1
+  %16 = load i64, ptr %arrayidx123.c, align 1
   %arrayidx125.c = getelementptr inbounds i8, ptr %out.addr.2108, i64 8
-  %24 = load i64, ptr %arrayidx125.c, align 1
-  %xor126.c = xor i64 %24, %23
+  %17 = load i64, ptr %arrayidx125.c, align 1
+  %xor126.c = xor i64 %17, %16
   store i64 %xor126.c, ptr %arrayidx125.c, align 1
   %dec130 = add nsw i64 %len.2105, -1
   %add.ptr131 = getelementptr inbounds i8, ptr %in.addr.2109, i64 16
@@ -173,27 +197,43 @@ while.end133:                                     ; preds = %for.cond102.prehead
   br label %if.end184
 
 while.body147.preheader:                          ; preds = %if.else90
-  %iv142.sroa.0.0.copyload = load <2 x i64>, ptr %ivec, align 1
+  %iv142.sroa.0.0.copyload = load i64, ptr %ivec, align 1
+  %iv142.sroa.3.0.ivec.sroa_idx = getelementptr inbounds i8, ptr %ivec, i64 8
+  %iv142.sroa.3.0.copyload = load i64, ptr %iv142.sroa.3.0.ivec.sroa_idx, align 1
   %add.ptr144 = getelementptr inbounds i8, ptr %ivec, i64 16
+  %iv2143.sroa.3.0.add.ptr144.sroa_idx = getelementptr inbounds i8, ptr %ivec, i64 24
+  %iv2143.sroa.3.0.copyload = load i64, ptr %iv2143.sroa.3.0.add.ptr144.sroa_idx, align 1
+  %arrayidx154.c = getelementptr inbounds i8, ptr %tmp140, i64 8
+  %arrayidx169.c = getelementptr inbounds i8, ptr %tmp140, i64 8
   br label %while.body147
 
 while.body147:                                    ; preds = %while.body147.preheader, %while.body147
-  %iv142.sroa.0.0 = phi <2 x i64> [ %iv142.sroa.0.0.copyload, %while.body147.preheader ], [ %tmp2141.sroa.0.sroa.0.0.copyload, %while.body147 ]
+  %iv142.sroa.3.0 = phi i64 [ %iv142.sroa.3.0.copyload, %while.body147.preheader ], [ %tmp2141.sroa.0.sroa.3.0.copyload, %while.body147 ]
+  %iv142.sroa.0.0 = phi i64 [ %iv142.sroa.0.0.copyload, %while.body147.preheader ], [ %tmp2141.sroa.0.sroa.0.0.copyload, %while.body147 ]
+  %iv2143.sroa.3.0 = phi i64 [ %iv2143.sroa.3.0.copyload, %while.body147.preheader ], [ %xor170.c, %while.body147 ]
   %iv2143.sroa.0.0.in = phi ptr [ %add.ptr144, %while.body147.preheader ], [ %tmp140, %while.body147 ]
   %in.addr.3116 = phi ptr [ %in, %while.body147.preheader ], [ %add.ptr175, %while.body147 ]
   %out.addr.3115 = phi ptr [ %out, %while.body147.preheader ], [ %add.ptr176, %while.body147 ]
   %len.3114 = phi i64 [ %div101, %while.body147.preheader ], [ %dec174, %while.body147 ]
-  %iv2143.sroa.0.0 = load <2 x i64>, ptr %iv2143.sroa.0.0.in, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp140, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.3116, i64 16, i1 false)
-  %tmp2141.sroa.0.sroa.0.0.copyload = load <2 x i64>, ptr %in.addr.3116, align 1
-  %25 = load <2 x i64>, ptr %tmp140, align 16
-  %26 = xor <2 x i64> %25, %iv2143.sroa.0.0
-  store <2 x i64> %26, ptr %tmp140, align 16
+  %iv2143.sroa.0.0 = load i64, ptr %iv2143.sroa.0.0.in, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp140, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.3116, i64 16, i1 false)
+  %tmp2141.sroa.0.sroa.0.0.copyload = load i64, ptr %in.addr.3116, align 1
+  %tmp2141.sroa.0.sroa.3.0.in.addr.3116.sroa_idx = getelementptr inbounds i8, ptr %in.addr.3116, i64 8
+  %tmp2141.sroa.0.sroa.3.0.copyload = load i64, ptr %tmp2141.sroa.0.sroa.3.0.in.addr.3116.sroa_idx, align 1
+  %18 = load i64, ptr %tmp140, align 8
+  %xor155 = xor i64 %18, %iv2143.sroa.0.0
+  store i64 %xor155, ptr %tmp140, align 8
+  %19 = load i64, ptr %arrayidx154.c, align 8
+  %xor155.c = xor i64 %19, %iv2143.sroa.3.0
+  store i64 %xor155.c, ptr %arrayidx154.c, align 8
   call void @AES_decrypt(ptr noundef nonnull %tmp140, ptr noundef nonnull %tmp140, ptr noundef nonnull %key) #5
-  %27 = load <2 x i64>, ptr %tmp140, align 16
-  %28 = xor <2 x i64> %27, %iv142.sroa.0.0
-  store <2 x i64> %28, ptr %tmp140, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.3115, ptr noundef nonnull align 16 dereferenceable(16) %tmp140, i64 16, i1 false)
+  %20 = load i64, ptr %tmp140, align 8
+  %xor170 = xor i64 %20, %iv142.sroa.0.0
+  store i64 %xor170, ptr %tmp140, align 8
+  %21 = load i64, ptr %arrayidx169.c, align 8
+  %xor170.c = xor i64 %21, %iv142.sroa.3.0
+  store i64 %xor170.c, ptr %arrayidx169.c, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.3115, ptr noundef nonnull align 8 dereferenceable(16) %tmp140, i64 16, i1 false)
   %dec174 = add nsw i64 %len.3114, -1
   %add.ptr175 = getelementptr inbounds i8, ptr %in.addr.3116, i64 16
   %add.ptr176 = getelementptr inbounds i8, ptr %out.addr.3115, i64 16
@@ -201,8 +241,10 @@ while.body147:                                    ; preds = %while.body147.prehe
   br i1 %tobool146.not, label %while.end177, label %while.body147, !llvm.loop !8
 
 while.end177:                                     ; preds = %while.body147
-  store <2 x i64> %tmp2141.sroa.0.sroa.0.0.copyload, ptr %ivec, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr144, ptr noundef nonnull align 16 dereferenceable(16) %tmp140, i64 16, i1 false)
+  store i64 %tmp2141.sroa.0.sroa.0.0.copyload, ptr %ivec, align 1
+  %tmp2141.sroa.0.sroa.3.0.ivec.sroa_idx = getelementptr inbounds i8, ptr %ivec, i64 8
+  store i64 %tmp2141.sroa.0.sroa.3.0.copyload, ptr %tmp2141.sroa.0.sroa.3.0.ivec.sroa_idx, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr144, ptr noundef nonnull align 8 dereferenceable(16) %tmp140, i64 16, i1 false)
   br label %if.end184
 
 if.end184:                                        ; preds = %while.end133, %while.end177, %while.end, %while.end83, %entry
@@ -226,14 +268,14 @@ entry:
   %tmp2 = alloca [16 x i8], align 16
   %tmp3 = alloca [16 x i8], align 16
   %prev = alloca [16 x i8], align 16
-  %0 = insertelement <4 x ptr> poison, ptr %in, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %out, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %key, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %ivec, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp eq i4 %5, 0
-  br i1 %6, label %cond.end, label %cond.false
+  %tobool = icmp ne ptr %in, null
+  %tobool1 = icmp ne ptr %out, null
+  %or.cond = and i1 %tobool, %tobool1
+  %tobool3 = icmp ne ptr %key, null
+  %or.cond1 = and i1 %or.cond, %tobool3
+  %tobool5 = icmp ne ptr %ivec, null
+  %or.cond2 = and i1 %or.cond1, %tobool5
+  br i1 %or.cond2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
   tail call void @OPENSSL_die(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 200) #4
@@ -279,10 +321,10 @@ for.cond.preheader:                               ; preds = %for.cond.preheader.
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %n.0124 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.body ]
   %arrayidx = getelementptr inbounds i8, ptr %in.addr.0128, i64 %n.0124
-  %7 = load i8, ptr %arrayidx, align 1
+  %0 = load i8, ptr %arrayidx, align 1
   %arrayidx19 = getelementptr inbounds i8, ptr %iv.0130, i64 %n.0124
-  %8 = load i8, ptr %arrayidx19, align 1
-  %xor107 = xor i8 %8, %7
+  %1 = load i8, ptr %arrayidx19, align 1
+  %xor107 = xor i8 %1, %0
   %arrayidx22 = getelementptr inbounds i8, ptr %out.addr.0127, i64 %n.0124
   store i8 %xor107, ptr %arrayidx22, align 1
   %inc = add nuw nsw i64 %n.0124, 1
@@ -296,10 +338,10 @@ for.end:                                          ; preds = %for.body
 for.body26:                                       ; preds = %for.end, %for.body26
   %n.1125 = phi i64 [ 0, %for.end ], [ %inc34, %for.body26 ]
   %arrayidx27 = getelementptr inbounds i8, ptr %iv2.0131, i64 %n.1125
-  %9 = load i8, ptr %arrayidx27, align 1
+  %2 = load i8, ptr %arrayidx27, align 1
   %arrayidx29 = getelementptr inbounds i8, ptr %out.addr.0127, i64 %n.1125
-  %10 = load i8, ptr %arrayidx29, align 1
-  %xor31106 = xor i8 %10, %9
+  %3 = load i8, ptr %arrayidx29, align 1
+  %xor31106 = xor i8 %3, %2
   store i8 %xor31106, ptr %arrayidx29, align 1
   %inc34 = add nuw nsw i64 %n.1125, 1
   %exitcond145.not = icmp eq i64 %inc34, 16
@@ -333,10 +375,10 @@ while.body44:                                     ; preds = %while.body44.prehea
 for.body50:                                       ; preds = %while.body44, %for.body50
   %n.2133 = phi i64 [ 0, %while.body44 ], [ %inc58, %for.body50 ]
   %arrayidx51 = getelementptr inbounds i8, ptr %iv.1138, i64 %n.2133
-  %11 = load i8, ptr %arrayidx51, align 1
+  %4 = load i8, ptr %arrayidx51, align 1
   %arrayidx53 = getelementptr inbounds i8, ptr %add.ptr45, i64 %n.2133
-  %12 = load i8, ptr %arrayidx53, align 1
-  %xor55105 = xor i8 %12, %11
+  %5 = load i8, ptr %arrayidx53, align 1
+  %xor55105 = xor i8 %5, %4
   store i8 %xor55105, ptr %arrayidx53, align 1
   %inc58 = add nuw nsw i64 %n.2133, 1
   %exitcond146.not = icmp eq i64 %inc58, 16
@@ -349,10 +391,10 @@ for.end59:                                        ; preds = %for.body50
 for.body63:                                       ; preds = %for.end59, %for.body63
   %n.3134 = phi i64 [ 0, %for.end59 ], [ %inc71, %for.body63 ]
   %arrayidx64 = getelementptr inbounds i8, ptr %iv2.1139, i64 %n.3134
-  %13 = load i8, ptr %arrayidx64, align 1
+  %6 = load i8, ptr %arrayidx64, align 1
   %arrayidx66 = getelementptr inbounds i8, ptr %add.ptr45, i64 %n.3134
-  %14 = load i8, ptr %arrayidx66, align 1
-  %xor68104 = xor i8 %14, %13
+  %7 = load i8, ptr %arrayidx66, align 1
+  %xor68104 = xor i8 %7, %6
   store i8 %xor68104, ptr %arrayidx66, align 1
   %inc71 = add nuw nsw i64 %n.3134, 1
   %exitcond147.not = icmp eq i64 %inc71, 16
@@ -388,10 +430,10 @@ while.body85:                                     ; preds = %while.body85.prehea
 for.body93:                                       ; preds = %while.body85, %for.body93
   %n.4109 = phi i64 [ 0, %while.body85 ], [ %inc101, %for.body93 ]
   %arrayidx94 = getelementptr inbounds i8, ptr %iv2.2116, i64 %n.4109
-  %15 = load i8, ptr %arrayidx94, align 1
+  %8 = load i8, ptr %arrayidx94, align 1
   %arrayidx96 = getelementptr inbounds [16 x i8], ptr %tmp, i64 0, i64 %n.4109
-  %16 = load i8, ptr %arrayidx96, align 1
-  %xor98103 = xor i8 %16, %15
+  %9 = load i8, ptr %arrayidx96, align 1
+  %xor98103 = xor i8 %9, %8
   store i8 %xor98103, ptr %arrayidx96, align 1
   %inc101 = add nuw nsw i64 %n.4109, 1
   %exitcond.not = icmp eq i64 %inc101, 16
@@ -405,10 +447,10 @@ for.end102:                                       ; preds = %for.body93
 for.body107:                                      ; preds = %for.end102, %for.body107
   %n.5110 = phi i64 [ 0, %for.end102 ], [ %inc115, %for.body107 ]
   %arrayidx108 = getelementptr inbounds i8, ptr %iv.2115, i64 %n.5110
-  %17 = load i8, ptr %arrayidx108, align 1
+  %10 = load i8, ptr %arrayidx108, align 1
   %arrayidx110 = getelementptr inbounds i8, ptr %add.ptr87, i64 %n.5110
-  %18 = load i8, ptr %arrayidx110, align 1
-  %xor112102 = xor i8 %18, %17
+  %11 = load i8, ptr %arrayidx110, align 1
+  %xor112102 = xor i8 %11, %10
   store i8 %xor112102, ptr %arrayidx110, align 1
   %inc115 = add nuw nsw i64 %n.5110, 1
   %exitcond141.not = icmp eq i64 %inc115, 16
@@ -439,10 +481,10 @@ while.body126:                                    ; preds = %while.body126.prehe
 for.body132:                                      ; preds = %while.body126, %for.body132
   %n.6117 = phi i64 [ 0, %while.body126 ], [ %inc140, %for.body132 ]
   %arrayidx133 = getelementptr inbounds i8, ptr %iv2.3123, i64 %n.6117
-  %19 = load i8, ptr %arrayidx133, align 1
+  %12 = load i8, ptr %arrayidx133, align 1
   %arrayidx135 = getelementptr inbounds [16 x i8], ptr %tmp, i64 0, i64 %n.6117
-  %20 = load i8, ptr %arrayidx135, align 1
-  %xor137101 = xor i8 %20, %19
+  %13 = load i8, ptr %arrayidx135, align 1
+  %xor137101 = xor i8 %13, %12
   store i8 %xor137101, ptr %arrayidx135, align 1
   %inc140 = add nuw nsw i64 %n.6117, 1
   %exitcond142.not = icmp eq i64 %inc140, 16
@@ -455,10 +497,10 @@ for.end141:                                       ; preds = %for.body132
 for.body146:                                      ; preds = %for.end141, %for.body146
   %n.7118 = phi i64 [ 0, %for.end141 ], [ %inc154, %for.body146 ]
   %arrayidx147 = getelementptr inbounds i8, ptr %iv.3122, i64 %n.7118
-  %21 = load i8, ptr %arrayidx147, align 1
+  %14 = load i8, ptr %arrayidx147, align 1
   %arrayidx149 = getelementptr inbounds i8, ptr %out.addr.3120, i64 %n.7118
-  %22 = load i8, ptr %arrayidx149, align 1
-  %xor151100 = xor i8 %22, %21
+  %15 = load i8, ptr %arrayidx149, align 1
+  %xor151100 = xor i8 %15, %14
   store i8 %xor151100, ptr %arrayidx149, align 1
   %inc154 = add nuw nsw i64 %n.7118, 1
   %exitcond143.not = icmp eq i64 %inc154, 16

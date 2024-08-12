@@ -235,7 +235,13 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
 16:                                               ; preds = %8, %13
   %.sink40 = phi ptr [ %12, %8 ], [ %15, %13 ]
   %.sroa.99.0..sroa_idx.sink = getelementptr inbounds i8, ptr %.sink40, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %.sroa.99.0..sroa_idx.sink, align 8
+  store i32 -1, ptr %.sroa.99.0..sroa_idx.sink, align 8
+  %.sroa.1010.0..sroa_idx = getelementptr inbounds i8, ptr %.sink40, i64 60
+  store i32 0, ptr %.sroa.1010.0..sroa_idx, align 4
+  %.sroa.1111.0..sroa_idx = getelementptr inbounds i8, ptr %.sink40, i64 64
+  store i32 0, ptr %.sroa.1111.0..sroa_idx, align 16
+  %.sroa.1212.0..sroa_idx = getelementptr inbounds i8, ptr %.sink40, i64 68
+  store i32 -1, ptr %.sroa.1212.0..sroa_idx, align 4
   %.sroa.1313.0..sroa_idx = getelementptr inbounds i8, ptr %.sink40, i64 72
   store ptr null, ptr %.sroa.1313.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

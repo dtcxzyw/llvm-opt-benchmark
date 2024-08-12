@@ -177,9 +177,12 @@ _ZN15MetadataHandles10get_handleEv.exit:          ; preds = %30
   %85 = getelementptr inbounds i8, ptr %84, i64 264
   %86 = load ptr, ptr %85, align 8
   store ptr %86, ptr %3, align 8
-  %87 = load <2 x i32>, ptr %6, align 8
-  %88 = add nsw <2 x i32> %87, <i32 -1, i32 1>
-  store <2 x i32> %88, ptr %6, align 8
+  %87 = load i32, ptr %6, align 8
+  %88 = add nsw i32 %87, -1
+  store i32 %88, ptr %6, align 8
+  %89 = load i32, ptr %4, align 4
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %4, align 4
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %78, %._crit_edge27.i, %75, %43

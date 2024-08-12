@@ -2281,9 +2281,11 @@ entry:
   store i8 %frombool2.i, ptr %m_lower_open, align 8
   store i8 %frombool.i, ptr %m_upper_open, align 1
   %m_lower_dep = getelementptr inbounds i8, ptr %this, i64 96
-  %2 = load <2 x ptr>, ptr %m_lower_dep, align 8
-  %3 = shufflevector <2 x ptr> %2, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %3, ptr %m_lower_dep, align 8
+  %m_upper_dep = getelementptr inbounds i8, ptr %this, i64 104
+  %2 = load ptr, ptr %m_lower_dep, align 8
+  %3 = load ptr, ptr %m_upper_dep, align 8
+  store ptr %3, ptr %m_lower_dep, align 8
+  store ptr %2, ptr %m_upper_dep, align 8
   %4 = load i32, ptr %m_lower, align 8
   switch i32 %4, label %_ZN11ext_numeral3negEv.exit [
     i32 0, label %sw.bb.i
@@ -2482,9 +2484,11 @@ entry:
   store i8 %frombool2.i.i, ptr %m_lower_open.i, align 8
   store i8 %frombool.i.i, ptr %m_upper_open.i, align 1
   %m_lower_dep.i = getelementptr inbounds i8, ptr %tmp, i64 96
-  %2 = load <2 x ptr>, ptr %m_lower_dep.i, align 8
-  %3 = shufflevector <2 x ptr> %2, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %3, ptr %m_lower_dep.i, align 8
+  %m_upper_dep.i = getelementptr inbounds i8, ptr %tmp, i64 104
+  %2 = load ptr, ptr %m_lower_dep.i, align 8
+  %3 = load ptr, ptr %m_upper_dep.i, align 8
+  store ptr %3, ptr %m_lower_dep.i, align 8
+  store ptr %2, ptr %m_upper_dep.i, align 8
   %4 = load i32, ptr %m_lower.i, align 8
   switch i32 %4, label %_ZN11ext_numeral3negEv.exit.i [
     i32 0, label %_ZN11ext_numeral3negEv.exit.i.sink.split
@@ -6453,9 +6457,10 @@ if.then12:                                        ; preds = %if.else, %_ZNK11ext
   store i8 %frombool.i, ptr %m_upper_open, align 1
   %m_lower_dep15 = getelementptr inbounds i8, ptr %this, i64 96
   %m_upper_dep16 = getelementptr inbounds i8, ptr %this, i64 104
-  %11 = load <2 x ptr>, ptr %m_lower_dep15, align 8
-  %12 = shufflevector <2 x ptr> %11, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %12, ptr %m_lower_dep15, align 8
+  %11 = load ptr, ptr %m_lower_dep15, align 8
+  %12 = load ptr, ptr %m_upper_dep16, align 8
+  store ptr %12, ptr %m_lower_dep15, align 8
+  store ptr %11, ptr %m_upper_dep16, align 8
   tail call void @_ZN11ext_numeral4exptEj(ptr noundef nonnull align 8 dereferenceable(40) %m_lower, i32 noundef %n)
   tail call void @_ZN11ext_numeral4exptEj(ptr noundef nonnull align 8 dereferenceable(40) %m_upper10, i32 noundef %n)
   %13 = load i32, ptr %m_upper10, align 8

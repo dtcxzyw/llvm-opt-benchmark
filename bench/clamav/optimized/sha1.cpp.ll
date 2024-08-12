@@ -1044,13 +1044,18 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %1019 = add i32 %1018, %1008
   %1020 = add i32 %1019, %1013
   store i32 %1020, ptr %0, align 4
-  %1021 = load <4 x i32>, ptr %8, align 4
-  %1022 = insertelement <4 x i32> poison, i32 %1005, i64 0
-  %1023 = insertelement <4 x i32> %1022, i32 %1014, i64 1
-  %1024 = insertelement <4 x i32> %1023, i32 %1006, i64 2
-  %1025 = insertelement <4 x i32> %1024, i32 %994, i64 3
-  %1026 = add <4 x i32> %1025, %1021
-  store <4 x i32> %1026, ptr %8, align 4
+  %1021 = load i32, ptr %8, align 4
+  %1022 = add i32 %1005, %1021
+  store i32 %1022, ptr %8, align 4
+  %1023 = load i32, ptr %10, align 4
+  %1024 = add i32 %1014, %1023
+  store i32 %1024, ptr %10, align 4
+  %1025 = load i32, ptr %12, align 4
+  %1026 = add i32 %1006, %1025
+  store i32 %1026, ptr %12, align 4
+  %1027 = load i32, ptr %14, align 4
+  %1028 = add i32 %994, %1027
+  store i32 %1028, ptr %14, align 4
   ret void
 }
 
@@ -1061,9 +1066,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_Z9sha1_initP12sha1_context(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %2, align 8
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1009589776, ptr %3, align 8
+  store i32 1732584193, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -271733879, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1732584194, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 271733878, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1009589776, ptr %6, align 8
   ret void
 }
 
@@ -1237,9 +1248,15 @@ define void @_Z9sha1_doneP12sha1_contextPj(ptr nocapture noundef %0, ptr nocaptu
 
 35:                                               ; preds = %31
   store i64 0, ptr %4, align 8
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1009589776, ptr %36, align 8
+  store i32 1732584193, ptr %0, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -271733879, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1732584194, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 271733878, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1009589776, ptr %39, align 8
   ret void
 }
 

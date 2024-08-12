@@ -1219,24 +1219,28 @@ define void @"_ZN76_$LT$ockam_multiaddr..proto..Worker$u20$as$u20$ockam_multiadd
   %.sroa.013.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %24, ptr %.sroa.013.sroa.5.0..sroa_idx, align 8
   store i8 8, ptr %0, align 8
-  br label %28
+  br label %27
 
 26:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !168
   %.sroa.0.i.i.i.sroa.0.0.copyload = load ptr, ptr %6, align 8, !noalias !179
+  %.sroa.0.i.i.i.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !179
+  %.sroa.0.i.i.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.0.i.i.i.sroa.5.0.copyload = load i64, ptr %.sroa.0.i.i.i.sroa.5.0..sroa_idx, align 8, !noalias !179
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !168
-  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load <2 x i64>, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !179
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !168
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !167
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   store i8 4, ptr %0, align 8
+  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.i.i.i.sroa.0.0.copyload, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x i64> %27, ptr %.sroa.425.0..sroa_idx, align 8
-  br label %28
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.0.i.i.i.sroa.4.0.copyload, ptr %.sroa.425.0..sroa_idx, align 8
+  %.sroa.526.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.0.i.i.i.sroa.5.0.copyload, ptr %.sroa.526.0..sroa_idx, align 8
+  br label %27
 
-28:                                               ; preds = %26, %21
+27:                                               ; preds = %26, %21
   ret void
 }
 
@@ -1449,24 +1453,28 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..DnsAddr$u20$as$u20$ockam_multiad
   %.sroa.013.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %24, ptr %.sroa.013.sroa.5.0..sroa_idx, align 8
   store i8 8, ptr %0, align 8
-  br label %28
+  br label %27
 
 26:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !207
   %.sroa.0.i.i.i.sroa.0.0.copyload = load ptr, ptr %6, align 8, !noalias !218
+  %.sroa.0.i.i.i.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !218
+  %.sroa.0.i.i.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.0.i.i.i.sroa.5.0.copyload = load i64, ptr %.sroa.0.i.i.i.sroa.5.0..sroa_idx, align 8, !noalias !218
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !207
-  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load <2 x i64>, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !218
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !206
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   store i8 4, ptr %0, align 8
+  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.i.i.i.sroa.0.0.copyload, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x i64> %27, ptr %.sroa.425.0..sroa_idx, align 8
-  br label %28
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.0.i.i.i.sroa.4.0.copyload, ptr %.sroa.425.0..sroa_idx, align 8
+  %.sroa.526.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.0.i.i.i.sroa.5.0.copyload, ptr %.sroa.526.0..sroa_idx, align 8
+  br label %27
 
-28:                                               ; preds = %26, %21
+27:                                               ; preds = %26, %21
   ret void
 }
 
@@ -1664,24 +1672,28 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..Service$u20$as$u20$ockam_multiad
   %.sroa.013.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %24, ptr %.sroa.013.sroa.5.0..sroa_idx, align 8
   store i8 8, ptr %0, align 8
-  br label %28
+  br label %27
 
 26:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !246
   %.sroa.0.i.i.i.sroa.0.0.copyload = load ptr, ptr %6, align 8, !noalias !257
+  %.sroa.0.i.i.i.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !257
+  %.sroa.0.i.i.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.0.i.i.i.sroa.5.0.copyload = load i64, ptr %.sroa.0.i.i.i.sroa.5.0..sroa_idx, align 8, !noalias !257
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !246
-  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load <2 x i64>, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !257
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !246
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !245
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   store i8 4, ptr %0, align 8
+  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.i.i.i.sroa.0.0.copyload, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x i64> %27, ptr %.sroa.425.0..sroa_idx, align 8
-  br label %28
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.0.i.i.i.sroa.4.0.copyload, ptr %.sroa.425.0..sroa_idx, align 8
+  %.sroa.526.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.0.i.i.i.sroa.5.0.copyload, ptr %.sroa.526.0..sroa_idx, align 8
+  br label %27
 
-28:                                               ; preds = %26, %21
+27:                                               ; preds = %26, %21
   ret void
 }
 
@@ -1894,24 +1906,28 @@ define void @"_ZN74_$LT$ockam_multiaddr..proto..Node$u20$as$u20$ockam_multiaddr.
   %.sroa.013.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %24, ptr %.sroa.013.sroa.5.0..sroa_idx, align 8
   store i8 8, ptr %0, align 8
-  br label %28
+  br label %27
 
 26:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !285
   %.sroa.0.i.i.i.sroa.0.0.copyload = load ptr, ptr %6, align 8, !noalias !296
+  %.sroa.0.i.i.i.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !296
+  %.sroa.0.i.i.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.0.i.i.i.sroa.5.0.copyload = load i64, ptr %.sroa.0.i.i.i.sroa.5.0..sroa_idx, align 8, !noalias !296
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !285
-  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load <2 x i64>, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !296
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !285
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !284
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   store i8 4, ptr %0, align 8
+  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.i.i.i.sroa.0.0.copyload, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x i64> %27, ptr %.sroa.425.0..sroa_idx, align 8
-  br label %28
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.0.i.i.i.sroa.4.0.copyload, ptr %.sroa.425.0..sroa_idx, align 8
+  %.sroa.526.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.0.i.i.i.sroa.5.0.copyload, ptr %.sroa.526.0..sroa_idx, align 8
+  br label %27
 
-28:                                               ; preds = %26, %21
+27:                                               ; preds = %26, %21
   ret void
 }
 
@@ -2124,24 +2140,28 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..Project$u20$as$u20$ockam_multiad
   %.sroa.013.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %24, ptr %.sroa.013.sroa.5.0..sroa_idx, align 8
   store i8 8, ptr %0, align 8
-  br label %28
+  br label %27
 
 26:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !324
   %.sroa.0.i.i.i.sroa.0.0.copyload = load ptr, ptr %6, align 8, !noalias !335
+  %.sroa.0.i.i.i.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !335
+  %.sroa.0.i.i.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.0.i.i.i.sroa.5.0.copyload = load i64, ptr %.sroa.0.i.i.i.sroa.5.0..sroa_idx, align 8, !noalias !335
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !324
-  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load <2 x i64>, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !335
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !324
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !323
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   store i8 4, ptr %0, align 8
+  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.i.i.i.sroa.0.0.copyload, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x i64> %27, ptr %.sroa.425.0..sroa_idx, align 8
-  br label %28
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.0.i.i.i.sroa.4.0.copyload, ptr %.sroa.425.0..sroa_idx, align 8
+  %.sroa.526.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.0.i.i.i.sroa.5.0.copyload, ptr %.sroa.526.0..sroa_idx, align 8
+  br label %27
 
-28:                                               ; preds = %26, %21
+27:                                               ; preds = %26, %21
   ret void
 }
 
@@ -2354,24 +2374,28 @@ define void @"_ZN75_$LT$ockam_multiaddr..proto..Space$u20$as$u20$ockam_multiaddr
   %.sroa.013.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %24, ptr %.sroa.013.sroa.5.0..sroa_idx, align 8
   store i8 8, ptr %0, align 8
-  br label %28
+  br label %27
 
 26:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !363
   %.sroa.0.i.i.i.sroa.0.0.copyload = load ptr, ptr %6, align 8, !noalias !374
+  %.sroa.0.i.i.i.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !374
+  %.sroa.0.i.i.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.0.i.i.i.sroa.5.0.copyload = load i64, ptr %.sroa.0.i.i.i.sroa.5.0..sroa_idx, align 8, !noalias !374
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !363
-  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load <2 x i64>, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !374
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !363
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !362
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   store i8 4, ptr %0, align 8
+  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.i.i.i.sroa.0.0.copyload, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x i64> %27, ptr %.sroa.425.0..sroa_idx, align 8
-  br label %28
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.0.i.i.i.sroa.4.0.copyload, ptr %.sroa.425.0..sroa_idx, align 8
+  %.sroa.526.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.0.i.i.i.sroa.5.0.copyload, ptr %.sroa.526.0..sroa_idx, align 8
+  br label %27
 
-28:                                               ; preds = %26, %21
+27:                                               ; preds = %26, %21
   ret void
 }
 
@@ -2584,24 +2608,28 @@ define void @"_ZN76_$LT$ockam_multiaddr..proto..Secure$u20$as$u20$ockam_multiadd
   %.sroa.013.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %24, ptr %.sroa.013.sroa.5.0..sroa_idx, align 8
   store i8 8, ptr %0, align 8
-  br label %28
+  br label %27
 
 26:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !402
   %.sroa.0.i.i.i.sroa.0.0.copyload = load ptr, ptr %6, align 8, !noalias !413
+  %.sroa.0.i.i.i.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !413
+  %.sroa.0.i.i.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.0.i.i.i.sroa.5.0.copyload = load i64, ptr %.sroa.0.i.i.i.sroa.5.0..sroa_idx, align 8, !noalias !413
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !402
-  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load <2 x i64>, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !413
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !402
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !401
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   store i8 4, ptr %0, align 8
+  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.i.i.i.sroa.0.0.copyload, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x i64> %27, ptr %.sroa.425.0..sroa_idx, align 8
-  br label %28
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.0.i.i.i.sroa.4.0.copyload, ptr %.sroa.425.0..sroa_idx, align 8
+  %.sroa.526.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.0.i.i.i.sroa.5.0.copyload, ptr %.sroa.526.0..sroa_idx, align 8
+  br label %27
 
-28:                                               ; preds = %26, %21
+27:                                               ; preds = %26, %21
   ret void
 }
 

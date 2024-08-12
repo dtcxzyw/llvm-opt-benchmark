@@ -3956,12 +3956,18 @@ if.then32.i:                                      ; preds = %if.end26.i
   br label %test_ssl_memio_cleanup.exit
 
 test_ssl_memio_cleanup.exit:                      ; preds = %if.end26.i, %if.then32.i
+  %230 = load i32, ptr %return_code, align 4
   %return_code170 = getelementptr inbounds i8, ptr %client_cb, i64 92
-  %230 = load <2 x i32>, ptr %return_code, align 4
-  store <2 x i32> %230, ptr %return_code170, align 4
+  store i32 %230, ptr %return_code170, align 4
+  %231 = load i32, ptr %last_err.i, align 8
+  %last_err172 = getelementptr inbounds i8, ptr %client_cb, i64 96
+  store i32 %231, ptr %last_err172, align 8
+  %232 = load i32, ptr %return_code4, align 4
   %return_code175 = getelementptr inbounds i8, ptr %server_cb, i64 92
-  %231 = load <2 x i32>, ptr %return_code4, align 4
-  store <2 x i32> %231, ptr %return_code175, align 4
+  store i32 %232, ptr %return_code175, align 4
+  %233 = load i32, ptr %last_err2.i, align 8
+  %last_err178 = getelementptr inbounds i8, ptr %server_cb, i64 96
+  store i32 %233, ptr %last_err178, align 8
   ret i32 %_ret.5
 }
 

@@ -753,9 +753,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes18SourceErrorManager16disableBufferingEv(ptr noundef nonnull align 8 dereferenceable(464) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %sm.i15 = alloca %"class.llvh::SMRange", align 16
+  %sm.i15 = alloca %"class.llvh::SMRange", align 8
   %agg.tmp3.i16 = alloca %"class.llvh::ArrayRef.26", align 8
-  %sm.i = alloca %"class.llvh::SMRange", align 16
+  %sm.i = alloca %"class.llvh::SMRange", align 8
   %agg.tmp3.i = alloca %"class.llvh::ArrayRef.26", align 8
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %ref.tmp31 = alloca %"class.llvh::Twine", align 8
@@ -812,45 +812,49 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
 for.body.lr.ph:                                   ; preds = %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEEZNS3_16disableBufferingEvE3$_0EvT_SB_T0_.exit"
   %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
+  %6 = getelementptr inbounds i8, ptr %sm.i, i64 8
   %outputOptions_.i = getelementptr inbounds i8, ptr %this, i64 120
   %bufferedNotes_ = getelementptr inbounds i8, ptr %this, i64 440
   %LHSKind.i13 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
   %RHSKind.i14 = getelementptr inbounds i8, ptr %ref.tmp31, i64 17
+  %7 = getelementptr inbounds i8, ptr %sm.i15, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc34
   %__begin1.sroa.0.034 = phi ptr [ %4, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc34 ]
-  %6 = load i32, ptr %__begin1.sroa.0.034, align 8
+  %8 = load i32, ptr %__begin1.sroa.0.034, align 8
   %loc = getelementptr inbounds i8, ptr %__begin1.sroa.0.034, i64 8
   %agg.tmp16.sroa.0.0.copyload = load ptr, ptr %loc, align 8
   %sm = getelementptr inbounds i8, ptr %__begin1.sroa.0.034, i64 16
+  %agg.tmp17.sroa.0.0.copyload = load ptr, ptr %sm, align 8
+  %agg.tmp17.sroa.2.0.sm.sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.034, i64 24
+  %agg.tmp17.sroa.2.0.copyload = load ptr, ptr %agg.tmp17.sroa.2.0.sm.sroa_idx, align 8
   %msg = getelementptr inbounds i8, ptr %__begin1.sroa.0.034, i64 32
+  store i8 4, ptr %LHSKind.i, align 8
+  store i8 1, ptr %RHSKind.i, align 1
   store ptr %msg, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sm.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
-  %7 = load <2 x ptr>, ptr %sm, align 8
-  %agg.tmp17.sroa.0.0.copyload = load ptr, ptr %sm, align 8
-  store i8 4, ptr %LHSKind.i, align 8
-  store i8 1, ptr %RHSKind.i, align 1
-  store <2 x ptr> %7, ptr %sm.i, align 16
+  store ptr %agg.tmp17.sroa.0.0.copyload, ptr %sm.i, align 8
+  store ptr %agg.tmp17.sroa.2.0.copyload, ptr %6, align 8
   %cmp.i.i.not.i = icmp ne ptr %agg.tmp17.sroa.0.0.copyload, null
   %spec.select.i = select i1 %cmp.i.i.not.i, ptr %sm.i, ptr null
   %spec.select1.i = zext i1 %cmp.i.i.not.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3.i, i8 0, i64 16, i1 false)
-  %8 = load i8, ptr %outputOptions_.i, align 8
-  %tobool.i = trunc i8 %8 to i1
-  call void @_ZNK4llvh9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %agg.tmp16.sroa.0.0.copyload, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr %spec.select.i, i64 %spec.select1.i, ptr noundef nonnull byval(%"class.llvh::ArrayRef.26") align 8 %agg.tmp3.i, i1 noundef zeroext %tobool.i) #24
+  %9 = load i8, ptr %outputOptions_.i, align 8
+  %tobool.i = trunc i8 %9 to i1
+  call void @_ZNK4llvh9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %agg.tmp16.sroa.0.0.copyload, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr %spec.select.i, i64 %spec.select1.i, ptr noundef nonnull byval(%"class.llvh::ArrayRef.26") align 8 %agg.tmp3.i, i1 noundef zeroext %tobool.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sm.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
   %noteCount_.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.034, i64 64
-  %9 = load i32, ptr %noteCount_.i, align 8
-  %tobool.not.i = icmp eq i32 %9, 0
-  %10 = load ptr, ptr %bufferedNotes_, align 8
+  %10 = load i32, ptr %noteCount_.i, align 8
+  %tobool.not.i = icmp eq i32 %10, 0
+  %11 = load ptr, ptr %bufferedNotes_, align 8
   %firstNote_.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.034, i64 68
-  %11 = load i32, ptr %firstNote_.i, align 4
-  %idx.ext.i = zext i32 %11 to i64
-  %add.ptr.i = getelementptr inbounds %"class.hermes::SourceErrorManager::MessageData", ptr %10, i64 %idx.ext.i
-  %idx.ext7.i = zext i32 %9 to i64
+  %12 = load i32, ptr %firstNote_.i, align 4
+  %idx.ext.i = zext i32 %12 to i64
+  %add.ptr.i = getelementptr inbounds %"class.hermes::SourceErrorManager::MessageData", ptr %11, i64 %idx.ext.i
+  %idx.ext7.i = zext i32 %10 to i64
   %add.ptr8.i = getelementptr inbounds %"class.hermes::SourceErrorManager::MessageData", ptr %add.ptr.i, i64 %idx.ext7.i
   %retval.sroa.3.0.i = select i1 %tobool.not.i, ptr null, ptr %add.ptr8.i
   %retval.sroa.0.0.i = select i1 %tobool.not.i, ptr null, ptr %add.ptr.i
@@ -859,26 +863,28 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body25:                                       ; preds = %for.body, %for.body25
   %__begin2.032 = phi ptr [ %incdec.ptr, %for.body25 ], [ %retval.sroa.0.0.i, %for.body ]
-  %12 = load i32, ptr %__begin2.032, align 8
+  %13 = load i32, ptr %__begin2.032, align 8
   %loc28 = getelementptr inbounds i8, ptr %__begin2.032, i64 8
   %agg.tmp27.sroa.0.0.copyload = load ptr, ptr %loc28, align 8
   %sm30 = getelementptr inbounds i8, ptr %__begin2.032, i64 16
+  %agg.tmp29.sroa.0.0.copyload = load ptr, ptr %sm30, align 8
+  %agg.tmp29.sroa.2.0.sm30.sroa_idx = getelementptr inbounds i8, ptr %__begin2.032, i64 24
+  %agg.tmp29.sroa.2.0.copyload = load ptr, ptr %agg.tmp29.sroa.2.0.sm30.sroa_idx, align 8
   %msg32 = getelementptr inbounds i8, ptr %__begin2.032, i64 32
+  store i8 4, ptr %LHSKind.i13, align 8
+  store i8 1, ptr %RHSKind.i14, align 1
   store ptr %msg32, ptr %ref.tmp31, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sm.i15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i16)
-  %13 = load <2 x ptr>, ptr %sm30, align 8
-  %agg.tmp29.sroa.0.0.copyload = load ptr, ptr %sm30, align 8
-  store i8 4, ptr %LHSKind.i13, align 8
-  store i8 1, ptr %RHSKind.i14, align 1
-  store <2 x ptr> %13, ptr %sm.i15, align 16
+  store ptr %agg.tmp29.sroa.0.0.copyload, ptr %sm.i15, align 8
+  store ptr %agg.tmp29.sroa.2.0.copyload, ptr %7, align 8
   %cmp.i.i.not.i17 = icmp ne ptr %agg.tmp29.sroa.0.0.copyload, null
   %spec.select.i18 = select i1 %cmp.i.i.not.i17, ptr %sm.i15, ptr null
   %spec.select1.i19 = zext i1 %cmp.i.i.not.i17 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3.i16, i8 0, i64 16, i1 false)
   %14 = load i8, ptr %outputOptions_.i, align 8
   %tobool.i21 = trunc i8 %14 to i1
-  call void @_ZNK4llvh9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %agg.tmp27.sroa.0.0.copyload, i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp31, ptr %spec.select.i18, i64 %spec.select1.i19, ptr noundef nonnull byval(%"class.llvh::ArrayRef.26") align 8 %agg.tmp3.i16, i1 noundef zeroext %tobool.i21) #24
+  call void @_ZNK4llvh9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKindERKNS_5TwineENS_8ArrayRefINS_7SMRangeEEENS6_INS_7SMFixItEEEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %agg.tmp27.sroa.0.0.copyload, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp31, ptr %spec.select.i18, i64 %spec.select1.i19, ptr noundef nonnull byval(%"class.llvh::ArrayRef.26") align 8 %agg.tmp3.i16, i1 noundef zeroext %tobool.i21) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sm.i15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i16)
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.032, i64 64
@@ -4473,12 +4479,16 @@ _ZNSt12_Vector_baseIN6hermes19CollectMessagesRAII13StoredMessageESaIS2_EE11_M_al
   %add.ptr = getelementptr inbounds %"class.hermes::CollectMessagesRAII::StoredMessage", ptr %cond.i10, i64 %sub.ptr.div.i
   %3 = load i32, ptr %__args, align 4
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %__args1, align 8
+  %agg.tmp8.sroa.0.0.copyload.i.i = load ptr, ptr %__args3, align 8
+  %agg.tmp8.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__args3, i64 8
+  %agg.tmp8.sroa.2.0.copyload.i.i = load ptr, ptr %agg.tmp8.sroa.2.0..sroa_idx.i.i, align 8
   store i32 %3, ptr %add.ptr, align 8
   %loc3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %loc3.i.i.i, align 8
   %sm4.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %4 = load <2 x ptr>, ptr %__args3, align 8
-  store <2 x ptr> %4, ptr %sm4.i.i.i, align 8
+  store ptr %agg.tmp8.sroa.0.0.copyload.i.i, ptr %sm4.i.i.i, align 8
+  %sm.sroa.2.0.sm4.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  store ptr %agg.tmp8.sroa.2.0.copyload.i.i, ptr %sm.sroa.2.0.sm4.sroa_idx.i.i.i, align 8
   %msg5.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %msg5.i.i.i, ptr noundef nonnull align 8 dereferenceable(18) %__args5) #24
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -4584,12 +4594,16 @@ _ZNSt12_Vector_baseIN6hermes18SourceErrorManager11MessageDataESaIS2_EE11_M_alloc
   %add.ptr = getelementptr inbounds %"class.hermes::SourceErrorManager::MessageData", ptr %cond.i10, i64 %sub.ptr.div.i
   %3 = load i32, ptr %__args, align 4
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %__args1, align 8
+  %agg.tmp8.sroa.0.0.copyload.i.i = load ptr, ptr %__args3, align 8
+  %agg.tmp8.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__args3, i64 8
+  %agg.tmp8.sroa.2.0.copyload.i.i = load ptr, ptr %agg.tmp8.sroa.2.0..sroa_idx.i.i, align 8
   store i32 %3, ptr %add.ptr, align 8
   %loc3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %loc3.i.i.i, align 8
   %sm4.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %4 = load <2 x ptr>, ptr %__args3, align 8
-  store <2 x ptr> %4, ptr %sm4.i.i.i, align 8
+  store ptr %agg.tmp8.sroa.0.0.copyload.i.i, ptr %sm4.i.i.i, align 8
+  %sm.sroa.2.0.sm4.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  store ptr %agg.tmp8.sroa.2.0.copyload.i.i, ptr %sm.sroa.2.0.sm4.sroa_idx.i.i.i, align 8
   %msg5.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg5.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args5) #24
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -5644,12 +5658,16 @@ _ZNSt12_Vector_baseIN6hermes18SourceErrorManager15BufferedMessageESaIS2_EE11_M_a
   %add.ptr = getelementptr inbounds %"class.hermes::SourceErrorManager::BufferedMessage", ptr %cond.i10, i64 %sub.ptr.div.i
   %3 = load i32, ptr %__args, align 4
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %__args1, align 8
+  %agg.tmp8.sroa.0.0.copyload.i.i = load ptr, ptr %__args3, align 8
+  %agg.tmp8.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__args3, i64 8
+  %agg.tmp8.sroa.2.0.copyload.i.i = load ptr, ptr %agg.tmp8.sroa.2.0..sroa_idx.i.i, align 8
   store i32 %3, ptr %add.ptr, align 8
   %loc3.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %loc3.i.i.i.i, align 8
   %sm4.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %4 = load <2 x ptr>, ptr %__args3, align 8
-  store <2 x ptr> %4, ptr %sm4.i.i.i.i, align 8
+  store ptr %agg.tmp8.sroa.0.0.copyload.i.i, ptr %sm4.i.i.i.i, align 8
+  %sm.sroa.2.0.sm4.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  store ptr %agg.tmp8.sroa.2.0.copyload.i.i, ptr %sm.sroa.2.0.sm4.sroa_idx.i.i.i.i, align 8
   %msg5.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg5.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args5) #24
   %noteCount_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 64
@@ -5668,8 +5686,8 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i.i.i.i.i) #24
   %noteCount_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 64
   %noteCount_2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 64
-  %5 = load i64, ptr %noteCount_2.i.i.i.i.i.i.i, align 8, !alias.scope !90, !noalias !87
-  store i64 %5, ptr %noteCount_.i.i.i.i.i.i.i, align 8, !alias.scope !87, !noalias !90
+  %4 = load i64, ptr %noteCount_2.i.i.i.i.i.i.i, align 8, !alias.scope !90, !noalias !87
+  store i64 %4, ptr %noteCount_.i.i.i.i.i.i.i, align 8, !alias.scope !87, !noalias !90
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i.i.i.i.i) #24
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 72
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 72
@@ -5693,8 +5711,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6herm
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i.i.i.i.i16) #24
   %noteCount_.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 64
   %noteCount_2.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 64
-  %6 = load i64, ptr %noteCount_2.i.i.i.i.i.i.i18, align 8, !alias.scope !97, !noalias !94
-  store i64 %6, ptr %noteCount_.i.i.i.i.i.i.i17, align 8, !alias.scope !94, !noalias !97
+  %5 = load i64, ptr %noteCount_2.i.i.i.i.i.i.i18, align 8, !alias.scope !97, !noalias !94
+  store i64 %5, ptr %noteCount_.i.i.i.i.i.i.i17, align 8, !alias.scope !94, !noalias !97
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i.i.i.i.i16) #24
   %incdec.ptr.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 72
   %incdec.ptr1.i.i.i20 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 72

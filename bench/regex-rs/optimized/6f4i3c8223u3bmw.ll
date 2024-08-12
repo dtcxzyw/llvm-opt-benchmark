@@ -2751,10 +2751,16 @@ define noundef nonnull ptr @_ZN14regex_automata3nfa8thompson3nfa3NFA11never_matc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN14regex_automata3nfa8thompson3nfa3NFA6config17hd4eee49fbc8d8074E(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }) align 8 dereferenceable(24) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 18
+  store i8 2, ptr %2, align 2, !alias.scope !280
+  %3 = getelementptr inbounds i8, ptr %0, i64 19
+  store i8 2, ptr %3, align 1, !alias.scope !280
   store i64 2, ptr %0, align 8, !alias.scope !280
-  store <4 x i8> <i8 2, i8 2, i8 2, i8 3>, ptr %2, align 2, !alias.scope !280
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 0, ptr %3, align 8, !alias.scope !280
+  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  store i8 2, ptr %4, align 4, !alias.scope !280
+  %5 = getelementptr inbounds i8, ptr %0, i64 21
+  store i8 3, ptr %5, align 1, !alias.scope !280
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 0, ptr %6, align 8, !alias.scope !280
   ret void
 }
 
@@ -5453,7 +5459,7 @@ define void @_ZN14regex_automata4util9prefilter9Prefilter11from_choice17hd930be7
   %3 = alloca { { i64 }, { i64 }, { { { ptr, ptr }, i8, i8, [6 x i8] } } }, align 8
   %4 = alloca { { i64 }, { i64 }, { { { { { i64, ptr }, i64 }, ptr, i64, i64 }, ptr, { ptr, [3 x i64] }, i64 }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, i64 } }, align 8
   %5 = alloca { { i64 }, { i64 }, [2 x i64], { { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] } } }, align 32
-  %6 = alloca { ptr, ptr }, align 16
+  %6 = alloca { ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %7 = load i64, ptr %1, align 32, !range !587, !noundef !5
   %8 = xor i64 %7, -9223372036854775808
@@ -5691,7 +5697,7 @@ common.resume:                                    ; preds = %100, %95, %76, %81,
 84:                                               ; preds = %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0776aeaf0fcedb27E.exit", %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h66cbd8166227b542E.exit", %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hea7ed7b9e1a38eefE.exit", %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb7166bbb47654c6dE.exit", %"_ZN5alloc4sync12Arc$LT$T$GT$3new17ha8603057a2439b3eE.exit", %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h40b16281cb1565d3E.exit", %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb716267f6ee1a7fcE.exit"
   %.sroa.10.0 = phi ptr [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.155, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0776aeaf0fcedb27E.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.153, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h66cbd8166227b542E.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.151, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hea7ed7b9e1a38eefE.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.149, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb7166bbb47654c6dE.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.147, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17ha8603057a2439b3eE.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.145, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h40b16281cb1565d3E.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.143, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb716267f6ee1a7fcE.exit" ]
   %.sroa.0.0 = phi ptr [ %73, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0776aeaf0fcedb27E.exit" ], [ %64, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h66cbd8166227b542E.exit" ], [ %55, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hea7ed7b9e1a38eefE.exit" ], [ %39, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb7166bbb47654c6dE.exit" ], [ %31, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17ha8603057a2439b3eE.exit" ], [ %25, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h40b16281cb1565d3E.exit" ], [ %16, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb716267f6ee1a7fcE.exit" ]
-  store ptr %.sroa.0.0, ptr %6, align 16
+  store ptr %.sroa.0.0, ptr %6, align 8
   %85 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %.sroa.10.0, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %.sroa.10.0, i64 16
@@ -5710,7 +5716,7 @@ common.resume:                                    ; preds = %100, %95, %76, %81,
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !650)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
-  %97 = load ptr, ptr %6, align 16, !alias.scope !656, !nonnull !5, !noundef !5
+  %97 = load ptr, ptr %6, align 8, !alias.scope !656, !nonnull !5, !noundef !5
   %98 = atomicrmw sub ptr %97, i64 1 release, align 8, !noalias !656
   %99 = icmp eq i64 %98, 1
   br i1 %99, label %100, label %common.resume
@@ -5718,19 +5724,22 @@ common.resume:                                    ; preds = %100, %95, %76, %81,
 100:                                              ; preds = %95
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he00d74ff160796c7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-          to label %common.resume unwind label %104
+          to label %common.resume unwind label %105
 
 101:                                              ; preds = %84
-  %102 = zext i1 %94 to i8
-  %103 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %103, ptr %0, align 8
+  %102 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %103 = load ptr, ptr %85, align 8, !nonnull !5, !align !44, !noundef !5
+  %104 = zext i1 %94 to i8
+  store ptr %102, ptr %0, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %103, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 %102, ptr %.sroa.5.0..sroa_idx, align 8
+  store i8 %104, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
 
-104:                                              ; preds = %100
-  %105 = landingpad { ptr, i32 }
+105:                                              ; preds = %100
+  %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31
   unreachable

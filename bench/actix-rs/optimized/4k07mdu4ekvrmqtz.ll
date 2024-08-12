@@ -19,11 +19,15 @@ define hidden void @"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !3
   %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = load ptr, ptr %12, align 8, !nonnull !3, !align !5, !noundef !3
+  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = load ptr, ptr %14, align 8, !nonnull !3, !align !4, !noundef !3
   %.sroa.03.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.03.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = load <2 x ptr>, ptr %12, align 8
   store i64 %11, ptr %.sroa.03.sroa.2.0..sroa_idx, align 8
-  store <2 x ptr> %13, ptr %.sroa.03.sroa.3.0..sroa_idx, align 8
+  %.sroa.03.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %13, ptr %.sroa.03.sroa.3.0..sroa_idx, align 8
+  %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %15, ptr %.sroa.03.sroa.4.0..sroa_idx, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %4, ptr %.sroa.2.0..sroa_idx, align 8
   br label %.critedge
@@ -47,3 +51,4 @@ attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 8}
+!5 = !{i64 1}

@@ -894,7 +894,7 @@ for.inc.i:                                        ; preds = %do.body455.i, %if.e
   br i1 %cmp427.not.i, label %if.end684.i, label %for.body.i, !llvm.loop !6
 
 for.body466.i:                                    ; preds = %vaarg.end.i, %if.end629.i
-  %form.0291.i = phi ptr [ %146, %if.end629.i ], [ %call.i, %vaarg.end.i ]
+  %form.0291.i = phi ptr [ %147, %if.end629.i ], [ %call.i, %vaarg.end.i ]
   %prevtype.0290.i = phi ptr [ %spec.select.i, %if.end629.i ], [ null, %vaarg.end.i ]
   %post.0289.i = phi ptr [ %call5.i.i, %if.end629.i ], [ null, %vaarg.end.i ]
   %113 = load ptr, ptr %form.0291.i, align 8
@@ -1089,7 +1089,9 @@ if.end614.i:                                      ; preds = %if.end612.i, %land.
   %contentheader623.i = getelementptr inbounds i8, ptr %form.0291.i, i64 80
   %140 = load ptr, ptr %contentheader623.i, align 8
   %showfilename624.i = getelementptr inbounds i8, ptr %form.0291.i, i64 64
-  %141 = load <2 x ptr>, ptr %showfilename624.i, align 8
+  %141 = load ptr, ptr %showfilename624.i, align 8
+  %userp625.i = getelementptr inbounds i8, ptr %form.0291.i, i64 72
+  %142 = load ptr, ptr %userp625.i, align 8
   %tobool.i.i = icmp eq i64 %135, 0
   %tobool1.i.i = icmp ne ptr %134, null
   %or.cond.i.i = and i1 %tobool1.i.i, %tobool.i.i
@@ -1107,8 +1109,8 @@ if.end.i246.i:                                    ; preds = %if.then.i.i, %if.en
   br i1 %or.cond1.i.i, label %for.end637.i, label %if.end4.i247.i
 
 if.end4.i247.i:                                   ; preds = %if.end.i246.i
-  %142 = load ptr, ptr @Curl_ccalloc, align 8
-  %call5.i.i = call ptr %142(i64 noundef 1, i64 noundef 112) #6
+  %143 = load ptr, ptr @Curl_ccalloc, align 8
+  %call5.i.i = call ptr %143(i64 noundef 1, i64 noundef 112) #6
   %tobool6.not.i.i = icmp eq ptr %call5.i.i, null
   br i1 %tobool6.not.i.i, label %for.end637.i, label %if.then7.i.i
 
@@ -1130,7 +1132,9 @@ if.then7.i.i:                                     ; preds = %if.end4.i247.i
   %contentheader.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 64
   store ptr %140, ptr %contentheader.i.i, align 8
   %showfilename13.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 88
-  store <2 x ptr> %141, ptr %showfilename13.i.i, align 8
+  store ptr %141, ptr %showfilename13.i.i, align 8
+  %userp14.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 96
+  store ptr %142, ptr %userp14.i.i, align 8
   %or.i.i = or i64 %132, 128
   %flags15.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 80
   store i64 %or.i.i, ptr %flags15.i.i, align 8
@@ -1139,27 +1143,27 @@ if.then7.i.i:                                     ; preds = %if.end4.i247.i
 
 if.then18.i.i:                                    ; preds = %if.then7.i.i
   %more.i248.i = getelementptr inbounds i8, ptr %post.0289.i, i64 72
-  %143 = load ptr, ptr %more.i248.i, align 8
+  %144 = load ptr, ptr %more.i248.i, align 8
   %more19.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 72
-  store ptr %143, ptr %more19.i.i, align 8
+  store ptr %144, ptr %more19.i.i, align 8
   br label %if.end629.i
 
 if.else21.i.i:                                    ; preds = %if.then7.i.i
-  %144 = load ptr, ptr %last_post, align 8
-  %tobool22.not.i.i = icmp eq ptr %144, null
-  %httppost..i.i = select i1 %tobool22.not.i.i, ptr %httppost, ptr %144
+  %145 = load ptr, ptr %last_post, align 8
+  %tobool22.not.i.i = icmp eq ptr %145, null
+  %httppost..i.i = select i1 %tobool22.not.i.i, ptr %httppost, ptr %145
   store ptr %call5.i.i, ptr %httppost..i.i, align 8
   br label %if.end629.i
 
 if.end629.i:                                      ; preds = %if.else21.i.i, %if.then18.i.i
   %more.sink.i.i = phi ptr [ %more.i248.i, %if.then18.i.i ], [ %last_post, %if.else21.i.i ]
   store ptr %call5.i.i, ptr %more.sink.i.i, align 8
-  %145 = load ptr, ptr %contenttype621.i, align 8
-  %tobool631.not.i = icmp eq ptr %145, null
-  %spec.select.i = select i1 %tobool631.not.i, ptr %prevtype.0290.i, ptr %145
+  %146 = load ptr, ptr %contenttype621.i, align 8
+  %tobool631.not.i = icmp eq ptr %146, null
+  %spec.select.i = select i1 %tobool631.not.i, ptr %prevtype.0290.i, ptr %146
   %more636.i = getelementptr inbounds i8, ptr %form.0291.i, i64 88
-  %146 = load ptr, ptr %more636.i, align 8
-  %cmp465.not.i = icmp eq ptr %146, null
+  %147 = load ptr, ptr %more636.i, align 8
+  %cmp465.not.i = icmp eq ptr %147, null
   br i1 %cmp465.not.i, label %if.end684.i, label %for.body466.i, !llvm.loop !8
 
 for.end637.i:                                     ; preds = %if.end4.i247.i, %if.end.i246.i, %if.end605.i, %if.end586.i, %if.end564.thread255.i, %if.then519.i, %lor.lhs.false488.i, %lor.lhs.false473.i, %land.lhs.true471.i, %lor.lhs.false.i, %for.body554.i
@@ -1167,69 +1171,69 @@ for.end637.i:                                     ; preds = %if.end4.i247.i, %if
   br label %for.body643.i
 
 for.body643.i:                                    ; preds = %for.inc680.i, %for.end637.i
-  %ptr640.0294.i = phi ptr [ %form.0291.i, %for.end637.i ], [ %159, %for.inc680.i ]
+  %ptr640.0294.i = phi ptr [ %form.0291.i, %for.end637.i ], [ %160, %for.inc680.i ]
   %name_alloc644.i = getelementptr inbounds i8, ptr %ptr640.0294.i, i64 96
-  %147 = load i8, ptr %name_alloc644.i, align 8
-  %tobool645.i = trunc i8 %147 to i1
+  %148 = load i8, ptr %name_alloc644.i, align 8
+  %tobool645.i = trunc i8 %148 to i1
   br i1 %tobool645.i, label %do.body647.i, label %if.end652.i
 
 do.body647.i:                                     ; preds = %for.body643.i
-  %148 = load ptr, ptr @Curl_cfree, align 8
-  %149 = load ptr, ptr %ptr640.0294.i, align 8
-  call void %148(ptr noundef %149) #6
+  %149 = load ptr, ptr @Curl_cfree, align 8
+  %150 = load ptr, ptr %ptr640.0294.i, align 8
+  call void %149(ptr noundef %150) #6
   store ptr null, ptr %ptr640.0294.i, align 8
   store i8 0, ptr %name_alloc644.i, align 8
   br label %if.end652.i
 
 if.end652.i:                                      ; preds = %do.body647.i, %for.body643.i
   %value_alloc653.i = getelementptr inbounds i8, ptr %ptr640.0294.i, i64 97
-  %150 = load i8, ptr %value_alloc653.i, align 1
-  %tobool654.i = trunc i8 %150 to i1
+  %151 = load i8, ptr %value_alloc653.i, align 1
+  %tobool654.i = trunc i8 %151 to i1
   br i1 %tobool654.i, label %do.body656.i, label %if.end661.i
 
 do.body656.i:                                     ; preds = %if.end652.i
-  %151 = load ptr, ptr @Curl_cfree, align 8
+  %152 = load ptr, ptr @Curl_cfree, align 8
   %value657.i = getelementptr inbounds i8, ptr %ptr640.0294.i, i64 16
-  %152 = load ptr, ptr %value657.i, align 8
-  call void %151(ptr noundef %152) #6
+  %153 = load ptr, ptr %value657.i, align 8
+  call void %152(ptr noundef %153) #6
   store ptr null, ptr %value657.i, align 8
   store i8 0, ptr %value_alloc653.i, align 1
   br label %if.end661.i
 
 if.end661.i:                                      ; preds = %do.body656.i, %if.end652.i
   %contenttype_alloc662.i = getelementptr inbounds i8, ptr %ptr640.0294.i, i64 98
-  %153 = load i8, ptr %contenttype_alloc662.i, align 2
-  %tobool663.i = trunc i8 %153 to i1
+  %154 = load i8, ptr %contenttype_alloc662.i, align 2
+  %tobool663.i = trunc i8 %154 to i1
   br i1 %tobool663.i, label %do.body665.i, label %if.end670.i
 
 do.body665.i:                                     ; preds = %if.end661.i
-  %154 = load ptr, ptr @Curl_cfree, align 8
+  %155 = load ptr, ptr @Curl_cfree, align 8
   %contenttype666.i = getelementptr inbounds i8, ptr %ptr640.0294.i, i64 32
-  %155 = load ptr, ptr %contenttype666.i, align 8
-  call void %154(ptr noundef %155) #6
+  %156 = load ptr, ptr %contenttype666.i, align 8
+  call void %155(ptr noundef %156) #6
   store ptr null, ptr %contenttype666.i, align 8
   store i8 0, ptr %contenttype_alloc662.i, align 2
   br label %if.end670.i
 
 if.end670.i:                                      ; preds = %do.body665.i, %if.end661.i
   %showfilename_alloc671.i = getelementptr inbounds i8, ptr %ptr640.0294.i, i64 99
-  %156 = load i8, ptr %showfilename_alloc671.i, align 1
-  %tobool672.i = trunc i8 %156 to i1
+  %157 = load i8, ptr %showfilename_alloc671.i, align 1
+  %tobool672.i = trunc i8 %157 to i1
   br i1 %tobool672.i, label %do.body674.i, label %for.inc680.i
 
 do.body674.i:                                     ; preds = %if.end670.i
-  %157 = load ptr, ptr @Curl_cfree, align 8
+  %158 = load ptr, ptr @Curl_cfree, align 8
   %showfilename675.i = getelementptr inbounds i8, ptr %ptr640.0294.i, i64 64
-  %158 = load ptr, ptr %showfilename675.i, align 8
-  call void %157(ptr noundef %158) #6
+  %159 = load ptr, ptr %showfilename675.i, align 8
+  call void %158(ptr noundef %159) #6
   store ptr null, ptr %showfilename675.i, align 8
   store i8 0, ptr %showfilename_alloc671.i, align 1
   br label %for.inc680.i
 
 for.inc680.i:                                     ; preds = %do.body674.i, %if.end670.i
   %more681.i = getelementptr inbounds i8, ptr %ptr640.0294.i, i64 88
-  %159 = load ptr, ptr %more681.i, align 8
-  %cmp642.not.i = icmp eq ptr %159, null
+  %160 = load ptr, ptr %more681.i, align 8
+  %cmp642.not.i = icmp eq ptr %160, null
   br i1 %cmp642.not.i, label %if.end684.i, label %for.body643.i, !llvm.loop !9
 
 if.end684.i:                                      ; preds = %for.inc.i, %if.end629.i, %for.inc680.i
@@ -1237,12 +1241,12 @@ if.end684.i:                                      ; preds = %for.inc.i, %if.end6
   br label %while.body687.i
 
 while.body687.i:                                  ; preds = %while.body687.i, %if.end684.i
-  %first_form.0295.i = phi ptr [ %call.i, %if.end684.i ], [ %160, %while.body687.i ]
+  %first_form.0295.i = phi ptr [ %call.i, %if.end684.i ], [ %161, %while.body687.i ]
   %more689.i = getelementptr inbounds i8, ptr %first_form.0295.i, i64 88
-  %160 = load ptr, ptr %more689.i, align 8
-  %161 = load ptr, ptr @Curl_cfree, align 8
-  call void %161(ptr noundef nonnull %first_form.0295.i) #6
-  %tobool686.not.i = icmp eq ptr %160, null
+  %161 = load ptr, ptr %more689.i, align 8
+  %162 = load ptr, ptr @Curl_cfree, align 8
+  call void %162(ptr noundef nonnull %first_form.0295.i) #6
+  %tobool686.not.i = icmp eq ptr %161, null
   br i1 %tobool686.not.i, label %FormAdd.exit, label %while.body687.i, !llvm.loop !10
 
 FormAdd.exit:                                     ; preds = %while.body687.i, %entry

@@ -183,8 +183,8 @@ entry:
   %alpn_protos_len.i = alloca i64, align 8
   %server = alloca %struct.peer_st, align 8
   %client = alloca %struct.peer_st, align 8
-  %server_ex_data = alloca %struct.handshake_ex_data_st, align 8
-  %client_ex_data = alloca %struct.handshake_ex_data_st, align 8
+  %server_ex_data = alloca %struct.handshake_ex_data_st, align 4
+  %client_ex_data = alloca %struct.handshake_ex_data_st, align 4
   %client_ctx_data = alloca %struct.ctx_data_st, align 8
   %server_ctx_data = alloca %struct.ctx_data_st, align 8
   %server2_ctx_data = alloca %struct.ctx_data_st, align 8
@@ -210,8 +210,8 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %client_ctx_data, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %server, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %client, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %server_ex_data, i8 0, i64 20, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %client_ex_data, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %server_ex_data, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %client_ex_data, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alpn_protos.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alpn_protos_len.i)
   %max_fragment_size.i = getelementptr inbounds i8, ptr %test_ctx, i64 12
@@ -983,71 +983,79 @@ if.else160:                                       ; preds = %if.end147
   br label %for.cond.outer.outer
 
 err:                                              ; preds = %if.end68, %lor.lhs.false72, %lor.lhs.false77, %if.else56, %lor.lhs.false61, %if.end39, %lor.lhs.false42, %land.lhs.true, %lor.lhs.false, %if.then157, %if.then145, %if.then126, %sw.bb117, %sw.bb115, %sw.bb113, %if.then108, %if.then10, %if.then6
+  %50 = load i32, ptr %server_ex_data, align 4
   %server_alert_sent = getelementptr inbounds i8, ptr %call.i, i64 16
-  %50 = load <2 x i32>, ptr %server_ex_data, align 8
-  store <2 x i32> %50, ptr %server_alert_sent, align 8
+  store i32 %50, ptr %server_alert_sent, align 8
+  %num_fatal_alerts_sent = getelementptr inbounds i8, ptr %server_ex_data, i64 4
+  %51 = load i32, ptr %num_fatal_alerts_sent, align 4
+  %server_num_fatal_alerts_sent = getelementptr inbounds i8, ptr %call.i, i64 20
+  store i32 %51, ptr %server_num_fatal_alerts_sent, align 4
   %alert_received = getelementptr inbounds i8, ptr %client_ex_data, i64 8
-  %51 = load i32, ptr %alert_received, align 8
+  %52 = load i32, ptr %alert_received, align 4
   %server_alert_received = getelementptr inbounds i8, ptr %call.i, i64 24
-  store i32 %51, ptr %server_alert_received, align 8
+  store i32 %52, ptr %server_alert_received, align 8
+  %53 = load i32, ptr %client_ex_data, align 4
   %client_alert_sent = getelementptr inbounds i8, ptr %call.i, i64 4
-  %52 = load <2 x i32>, ptr %client_ex_data, align 8
-  store <2 x i32> %52, ptr %client_alert_sent, align 4
+  store i32 %53, ptr %client_alert_sent, align 4
+  %num_fatal_alerts_sent165 = getelementptr inbounds i8, ptr %client_ex_data, i64 4
+  %54 = load i32, ptr %num_fatal_alerts_sent165, align 4
+  %client_num_fatal_alerts_sent = getelementptr inbounds i8, ptr %call.i, i64 8
+  store i32 %54, ptr %client_num_fatal_alerts_sent, align 8
   %alert_received166 = getelementptr inbounds i8, ptr %server_ex_data, i64 8
-  %53 = load i32, ptr %alert_received166, align 8
+  %55 = load i32, ptr %alert_received166, align 4
   %client_alert_received = getelementptr inbounds i8, ptr %call.i, i64 12
-  store i32 %53, ptr %client_alert_received, align 4
-  %54 = load ptr, ptr %server, align 8
-  %call168 = call i32 @SSL_version(ptr noundef %54) #10
+  store i32 %55, ptr %client_alert_received, align 4
+  %56 = load ptr, ptr %server, align 8
+  %call168 = call i32 @SSL_version(ptr noundef %56) #10
   %server_protocol = getelementptr inbounds i8, ptr %call.i, i64 28
   store i32 %call168, ptr %server_protocol, align 4
-  %55 = load ptr, ptr %client, align 8
-  %call170 = call i32 @SSL_version(ptr noundef %55) #10
+  %57 = load ptr, ptr %client, align 8
+  %call170 = call i32 @SSL_version(ptr noundef %57) #10
   %client_protocol = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 %call170, ptr %client_protocol, align 8
   %servername = getelementptr inbounds i8, ptr %server_ex_data, i64 16
-  %56 = load i32, ptr %servername, align 8
+  %58 = load i32, ptr %servername, align 4
   %servername171 = getelementptr inbounds i8, ptr %call.i, i64 36
-  store i32 %56, ptr %servername171, align 4
-  %call173 = call ptr @SSL_get_session(ptr noundef %55) #10
+  store i32 %58, ptr %servername171, align 4
+  %call173 = call ptr @SSL_get_session(ptr noundef %57) #10
   %cmp174.not = icmp eq ptr %call173, null
   br i1 %cmp174.not, label %if.end178, label %if.then176
 
 if.then176:                                       ; preds = %err
   call void @SSL_SESSION_get0_ticket(ptr noundef nonnull %call173, ptr noundef nonnull %tick, ptr noundef nonnull %tick_len) #10
   %call177 = call ptr @SSL_SESSION_get_id(ptr noundef nonnull %call173, ptr noundef nonnull %sess_id_len) #10
-  %57 = icmp eq ptr %call177, null
+  %59 = icmp eq ptr %call177, null
   br label %if.end178
 
 if.end178:                                        ; preds = %if.then176, %err
-  %sess_id.0 = phi i1 [ %57, %if.then176 ], [ true, %err ]
-  %58 = load ptr, ptr %tick, align 8
-  %cmp179 = icmp eq ptr %58, null
-  %59 = load i64, ptr %tick_len, align 8
-  %cmp182 = icmp eq i64 %59, 0
+  %sess_id.0 = phi i1 [ %59, %if.then176 ], [ true, %err ]
+  %60 = load ptr, ptr %tick, align 8
+  %cmp179 = icmp eq ptr %60, null
+  %61 = load i64, ptr %tick_len, align 8
+  %cmp182 = icmp eq i64 %61, 0
   %or.cond3 = select i1 %cmp179, i1 true, i1 %cmp182
   %spec.select = select i1 %or.cond3, i32 2, i32 1
-  %60 = getelementptr inbounds i8, ptr %call.i, i64 40
-  store i32 %spec.select, ptr %60, align 8
-  %call189 = call ptr @SSL_get_current_compression(ptr noundef %55) #10
+  %62 = getelementptr inbounds i8, ptr %call.i, i64 40
+  store i32 %spec.select, ptr %62, align 8
+  %call189 = call ptr @SSL_get_current_compression(ptr noundef %57) #10
   %cmp190 = icmp ne ptr %call189, null
   %cond = zext i1 %cmp190 to i32
   %compression = getelementptr inbounds i8, ptr %call.i, i64 44
   store i32 %cond, ptr %compression, align 4
-  %61 = load i32, ptr %sess_id_len, align 4
-  %cmp195 = icmp eq i32 %61, 0
+  %63 = load i32, ptr %sess_id_len, align 4
+  %cmp195 = icmp eq i32 %63, 0
   %or.cond4 = select i1 %sess_id.0, i1 true, i1 %cmp195
   %.sink238 = select i1 %or.cond4, i32 2, i32 1
-  %62 = getelementptr inbounds i8, ptr %call.i, i64 144
-  store i32 %.sink238, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %call.i, i64 144
+  store i32 %.sink238, ptr %64, align 8
   %session_ticket_do_not_call = getelementptr inbounds i8, ptr %server_ex_data, i64 12
-  %63 = load i32, ptr %session_ticket_do_not_call, align 4
+  %65 = load i32, ptr %session_ticket_do_not_call, align 4
   %session_ticket_do_not_call201 = getelementptr inbounds i8, ptr %call.i, i64 48
-  store i32 %63, ptr %session_ticket_do_not_call201, align 8
-  %64 = load i32, ptr %extra, align 8
-  %cmp203 = icmp eq i32 %64, 2
-  %65 = load i32, ptr @n_retries, align 4
-  %cmp206 = icmp ne i32 %65, -1
+  store i32 %65, ptr %session_ticket_do_not_call201, align 8
+  %66 = load i32, ptr %extra, align 8
+  %cmp203 = icmp eq i32 %66, 2
+  %67 = load i32, ptr @n_retries, align 4
+  %cmp206 = icmp ne i32 %67, -1
   %or.cond5 = select i1 %cmp203, i1 %cmp206, i1 false
   br i1 %or.cond5, label %if.then208, label %if.end210
 
@@ -1056,21 +1064,21 @@ if.then208:                                       ; preds = %if.end178
   br label %if.end210
 
 if.end210:                                        ; preds = %if.then208, %if.end178
-  call void @SSL_get0_next_proto_negotiated(ptr noundef %55, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #10
-  %66 = load ptr, ptr %proto, align 8
-  %67 = load i32, ptr %proto_len, align 4
-  %conv212 = zext i32 %67 to i64
-  %cmp.i = icmp eq i32 %67, 0
+  call void @SSL_get0_next_proto_negotiated(ptr noundef %57, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #10
+  %68 = load ptr, ptr %proto, align 8
+  %69 = load i32, ptr %proto_len, align 4
+  %conv212 = zext i32 %69 to i64
+  %cmp.i = icmp eq i32 %69, 0
   br i1 %cmp.i, label %dup_str.exit, label %if.end.i118
 
 if.end.i118:                                      ; preds = %if.end210
-  %call.i119 = call i64 @OPENSSL_strnlen(ptr noundef %66, i64 noundef %conv212) #10
+  %call.i119 = call i64 @OPENSSL_strnlen(ptr noundef %68, i64 noundef %conv212) #10
   %call1.i120 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i119, i64 noundef %conv212) #10
   %tobool.not.i121 = icmp eq i32 %call1.i120, 0
   br i1 %tobool.not.i121, label %dup_str.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i118
-  %call3.i = call noalias ptr @CRYPTO_strndup(ptr noundef %66, i64 noundef %conv212, ptr noundef nonnull @.str, i32 noundef 1251) #10
+  %call3.i = call noalias ptr @CRYPTO_strndup(ptr noundef %68, i64 noundef %conv212, ptr noundef nonnull @.str, i32 noundef 1251) #10
   %call4.i122 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i) #10
   br label %dup_str.exit
 
@@ -1078,21 +1086,21 @@ dup_str.exit:                                     ; preds = %if.end210, %if.end.
   %retval.0.i123 = phi ptr [ null, %if.end210 ], [ %call3.i, %if.then2.i ], [ null, %if.end.i118 ]
   %client_npn_negotiated = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr %retval.0.i123, ptr %client_npn_negotiated, align 8
-  call void @SSL_get0_next_proto_negotiated(ptr noundef %54, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #10
-  %68 = load ptr, ptr %proto, align 8
-  %69 = load i32, ptr %proto_len, align 4
-  %conv215 = zext i32 %69 to i64
-  %cmp.i124 = icmp eq i32 %69, 0
+  call void @SSL_get0_next_proto_negotiated(ptr noundef %56, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #10
+  %70 = load ptr, ptr %proto, align 8
+  %71 = load i32, ptr %proto_len, align 4
+  %conv215 = zext i32 %71 to i64
+  %cmp.i124 = icmp eq i32 %71, 0
   br i1 %cmp.i124, label %dup_str.exit133, label %if.end.i125
 
 if.end.i125:                                      ; preds = %dup_str.exit
-  %call.i126 = call i64 @OPENSSL_strnlen(ptr noundef %68, i64 noundef %conv215) #10
+  %call.i126 = call i64 @OPENSSL_strnlen(ptr noundef %70, i64 noundef %conv215) #10
   %call1.i127 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i126, i64 noundef %conv215) #10
   %tobool.not.i128 = icmp eq i32 %call1.i127, 0
   br i1 %tobool.not.i128, label %dup_str.exit133, label %if.then2.i129
 
 if.then2.i129:                                    ; preds = %if.end.i125
-  %call3.i130 = call noalias ptr @CRYPTO_strndup(ptr noundef %68, i64 noundef %conv215, ptr noundef nonnull @.str, i32 noundef 1251) #10
+  %call3.i130 = call noalias ptr @CRYPTO_strndup(ptr noundef %70, i64 noundef %conv215, ptr noundef nonnull @.str, i32 noundef 1251) #10
   %call4.i131 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i130) #10
   br label %dup_str.exit133
 
@@ -1100,21 +1108,21 @@ dup_str.exit133:                                  ; preds = %dup_str.exit, %if.e
   %retval.0.i132 = phi ptr [ null, %dup_str.exit ], [ %call3.i130, %if.then2.i129 ], [ null, %if.end.i125 ]
   %server_npn_negotiated = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %retval.0.i132, ptr %server_npn_negotiated, align 8
-  call void @SSL_get0_alpn_selected(ptr noundef %55, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #10
-  %70 = load ptr, ptr %proto, align 8
-  %71 = load i32, ptr %proto_len, align 4
-  %conv218 = zext i32 %71 to i64
-  %cmp.i134 = icmp eq i32 %71, 0
+  call void @SSL_get0_alpn_selected(ptr noundef %57, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #10
+  %72 = load ptr, ptr %proto, align 8
+  %73 = load i32, ptr %proto_len, align 4
+  %conv218 = zext i32 %73 to i64
+  %cmp.i134 = icmp eq i32 %73, 0
   br i1 %cmp.i134, label %dup_str.exit143, label %if.end.i135
 
 if.end.i135:                                      ; preds = %dup_str.exit133
-  %call.i136 = call i64 @OPENSSL_strnlen(ptr noundef %70, i64 noundef %conv218) #10
+  %call.i136 = call i64 @OPENSSL_strnlen(ptr noundef %72, i64 noundef %conv218) #10
   %call1.i137 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i136, i64 noundef %conv218) #10
   %tobool.not.i138 = icmp eq i32 %call1.i137, 0
   br i1 %tobool.not.i138, label %dup_str.exit143, label %if.then2.i139
 
 if.then2.i139:                                    ; preds = %if.end.i135
-  %call3.i140 = call noalias ptr @CRYPTO_strndup(ptr noundef %70, i64 noundef %conv218, ptr noundef nonnull @.str, i32 noundef 1251) #10
+  %call3.i140 = call noalias ptr @CRYPTO_strndup(ptr noundef %72, i64 noundef %conv218, ptr noundef nonnull @.str, i32 noundef 1251) #10
   %call4.i141 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i140) #10
   br label %dup_str.exit143
 
@@ -1122,21 +1130,21 @@ dup_str.exit143:                                  ; preds = %dup_str.exit133, %i
   %retval.0.i142 = phi ptr [ null, %dup_str.exit133 ], [ %call3.i140, %if.then2.i139 ], [ null, %if.end.i135 ]
   %client_alpn_negotiated = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %retval.0.i142, ptr %client_alpn_negotiated, align 8
-  call void @SSL_get0_alpn_selected(ptr noundef %54, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #10
-  %72 = load ptr, ptr %proto, align 8
-  %73 = load i32, ptr %proto_len, align 4
-  %conv221 = zext i32 %73 to i64
-  %cmp.i144 = icmp eq i32 %73, 0
+  call void @SSL_get0_alpn_selected(ptr noundef %56, ptr noundef nonnull %proto, ptr noundef nonnull %proto_len) #10
+  %74 = load ptr, ptr %proto, align 8
+  %75 = load i32, ptr %proto_len, align 4
+  %conv221 = zext i32 %75 to i64
+  %cmp.i144 = icmp eq i32 %75, 0
   br i1 %cmp.i144, label %dup_str.exit153, label %if.end.i145
 
 if.end.i145:                                      ; preds = %dup_str.exit143
-  %call.i146 = call i64 @OPENSSL_strnlen(ptr noundef %72, i64 noundef %conv221) #10
+  %call.i146 = call i64 @OPENSSL_strnlen(ptr noundef %74, i64 noundef %conv221) #10
   %call1.i147 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 1250, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.41, i64 noundef %call.i146, i64 noundef %conv221) #10
   %tobool.not.i148 = icmp eq i32 %call1.i147, 0
   br i1 %tobool.not.i148, label %dup_str.exit153, label %if.then2.i149
 
 if.then2.i149:                                    ; preds = %if.end.i145
-  %call3.i150 = call noalias ptr @CRYPTO_strndup(ptr noundef %72, i64 noundef %conv221, ptr noundef nonnull @.str, i32 noundef 1251) #10
+  %call3.i150 = call noalias ptr @CRYPTO_strndup(ptr noundef %74, i64 noundef %conv221, ptr noundef nonnull @.str, i32 noundef 1251) #10
   %call4.i151 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.57, ptr noundef %call3.i150) #10
   br label %dup_str.exit153
 
@@ -1144,27 +1152,27 @@ dup_str.exit153:                                  ; preds = %dup_str.exit143, %i
   %retval.0.i152 = phi ptr [ null, %dup_str.exit143 ], [ %call3.i150, %if.then2.i149 ], [ null, %if.end.i145 ]
   %server_alpn_negotiated = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %retval.0.i152, ptr %server_alpn_negotiated, align 8
-  %call224 = call ptr @SSL_get_session(ptr noundef %54) #10
+  %call224 = call ptr @SSL_get_session(ptr noundef %56) #10
   %cmp225.not = icmp eq ptr %call224, null
   br i1 %cmp225.not, label %if.end230, label %if.then227
 
 if.then227:                                       ; preds = %dup_str.exit153
   %call228 = call i32 @SSL_SESSION_get0_ticket_appdata(ptr noundef nonnull %call224, ptr noundef nonnull %tick, ptr noundef nonnull %tick_len) #10
-  %74 = load ptr, ptr %tick, align 8
-  %75 = load i64, ptr %tick_len, align 8
-  %call229 = call noalias ptr @CRYPTO_strndup(ptr noundef %74, i64 noundef %75, ptr noundef nonnull @.str, i32 noundef 1681) #10
+  %76 = load ptr, ptr %tick, align 8
+  %77 = load i64, ptr %tick_len, align 8
+  %call229 = call noalias ptr @CRYPTO_strndup(ptr noundef %76, i64 noundef %77, ptr noundef nonnull @.str, i32 noundef 1681) #10
   %result_session_ticket_app_data = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr %call229, ptr %result_session_ticket_app_data, align 8
   br label %if.end230
 
 if.end230:                                        ; preds = %if.then227, %dup_str.exit153
-  %call232 = call i32 @SSL_session_reused(ptr noundef %55) #10
+  %call232 = call i32 @SSL_session_reused(ptr noundef %57) #10
   %client_resumed = getelementptr inbounds i8, ptr %call.i, i64 88
   store i32 %call232, ptr %client_resumed, align 8
-  %call234 = call i32 @SSL_session_reused(ptr noundef %54) #10
+  %call234 = call i32 @SSL_session_reused(ptr noundef %56) #10
   %server_resumed = getelementptr inbounds i8, ptr %call.i, i64 92
   store i32 %call234, ptr %server_resumed, align 4
-  %call236 = call ptr @SSL_get_current_cipher(ptr noundef %55) #10
+  %call236 = call ptr @SSL_get_current_cipher(ptr noundef %57) #10
   %call237 = call ptr @SSL_CIPHER_get_name(ptr noundef %call236) #10
   %call238 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call237) #11
   %cmp.i154 = icmp eq i64 %call238, 0
@@ -1189,7 +1197,7 @@ dup_str.exit163:                                  ; preds = %if.end230, %if.end.
   br i1 %cmp241.not, label %if.end246, label %if.then243
 
 if.then243:                                       ; preds = %dup_str.exit163
-  %call245 = call ptr @SSL_get1_session(ptr noundef %55) #10
+  %call245 = call ptr @SSL_get1_session(ptr noundef %57) #10
   store ptr %call245, ptr %session_out, align 8
   br label %if.end246
 
@@ -1198,7 +1206,7 @@ if.end246:                                        ; preds = %if.then243, %dup_st
   br i1 %cmp247.not, label %if.end257, label %if.then249
 
 if.then249:                                       ; preds = %if.end246
-  %call251 = call ptr @SSL_get_session(ptr noundef %54) #10
+  %call251 = call ptr @SSL_get_session(ptr noundef %56) #10
   %cmp252.not = icmp eq ptr %call251, null
   br i1 %cmp252.not, label %if.end257, label %if.then254
 
@@ -1208,20 +1216,20 @@ if.then254:                                       ; preds = %if.then249
   br label %if.end257
 
 if.end257:                                        ; preds = %if.then249, %if.then254, %if.end246
-  %call259 = call i64 @SSL_ctrl(ptr noundef %55, i32 noundef 109, i64 noundef 0, ptr noundef nonnull %tmp_key) #10
+  %call259 = call i64 @SSL_ctrl(ptr noundef %57, i32 noundef 109, i64 noundef 0, ptr noundef nonnull %tmp_key) #10
   %tobool260.not = icmp eq i64 %call259, 0
   br i1 %tobool260.not, label %if.end263, label %if.then261
 
 if.then261:                                       ; preds = %if.end257
-  %76 = load ptr, ptr %tmp_key, align 8
+  %78 = load ptr, ptr %tmp_key, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %name.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %name_len.i)
-  %call.i164 = call i32 @EVP_PKEY_is_a(ptr noundef %76, ptr noundef nonnull @.str.58) #10
+  %call.i164 = call i32 @EVP_PKEY_is_a(ptr noundef %78, ptr noundef nonnull @.str.58) #10
   %tobool.not.i165 = icmp eq i32 %call.i164, 0
   br i1 %tobool.not.i165, label %if.end6.i, label %if.then.i166
 
 if.then.i166:                                     ; preds = %if.then261
-  %call1.i167 = call i32 @EVP_PKEY_get_group_name(ptr noundef %76, ptr noundef nonnull %name.i, i64 noundef 80, ptr noundef nonnull %name_len.i) #10
+  %call1.i167 = call i32 @EVP_PKEY_get_group_name(ptr noundef %78, ptr noundef nonnull %name.i, i64 noundef 80, ptr noundef nonnull %name_len.i) #10
   %tobool2.not.i = icmp eq i32 %call1.i167, 0
   br i1 %tobool2.not.i, label %pkey_type.exit, label %if.end.i168
 
@@ -1230,7 +1238,7 @@ if.end.i168:                                      ; preds = %if.then.i166
   br label %pkey_type.exit
 
 if.end6.i:                                        ; preds = %if.then261
-  %call7.i170 = call i32 @EVP_PKEY_get_id(ptr noundef %76) #10
+  %call7.i170 = call i32 @EVP_PKEY_get_id(ptr noundef %78) #10
   br label %pkey_type.exit
 
 pkey_type.exit:                                   ; preds = %if.then.i166, %if.end.i168, %if.end6.i
@@ -1239,20 +1247,20 @@ pkey_type.exit:                                   ; preds = %if.then.i166, %if.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name_len.i)
   %tmp_key_type = getelementptr inbounds i8, ptr %call.i, i64 96
   store i32 %retval.0.i169, ptr %tmp_key_type, align 8
-  %77 = load ptr, ptr %tmp_key, align 8
-  call void @EVP_PKEY_free(ptr noundef %77) #10
+  %79 = load ptr, ptr %tmp_key, align 8
+  call void @EVP_PKEY_free(ptr noundef %79) #10
   br label %if.end263
 
 if.end263:                                        ; preds = %pkey_type.exit, %if.end257
   %server_sign_hash = getelementptr inbounds i8, ptr %call.i, i64 104
-  %call265 = call i64 @SSL_ctrl(ptr noundef %55, i32 noundef 108, i64 noundef 0, ptr noundef nonnull %server_sign_hash) #10
+  %call265 = call i64 @SSL_ctrl(ptr noundef %57, i32 noundef 108, i64 noundef 0, ptr noundef nonnull %server_sign_hash) #10
   %client_sign_hash = getelementptr inbounds i8, ptr %call.i, i64 124
-  %call267 = call i64 @SSL_ctrl(ptr noundef %54, i32 noundef 108, i64 noundef 0, ptr noundef nonnull %client_sign_hash) #10
+  %call267 = call i64 @SSL_ctrl(ptr noundef %56, i32 noundef 108, i64 noundef 0, ptr noundef nonnull %client_sign_hash) #10
   %server_sign_type = getelementptr inbounds i8, ptr %call.i, i64 108
-  %call269 = call i32 @SSL_get_peer_signature_type_nid(ptr noundef %55, ptr noundef nonnull %server_sign_type) #10
+  %call269 = call i32 @SSL_get_peer_signature_type_nid(ptr noundef %57, ptr noundef nonnull %server_sign_type) #10
   %client_sign_type = getelementptr inbounds i8, ptr %call.i, i64 128
-  %call271 = call i32 @SSL_get_peer_signature_type_nid(ptr noundef %54, ptr noundef nonnull %client_sign_type) #10
-  %call273 = call ptr @SSL_get0_peer_CA_list(ptr noundef %55) #10
+  %call271 = call i32 @SSL_get_peer_signature_type_nid(ptr noundef %56, ptr noundef nonnull %client_sign_type) #10
+  %call273 = call ptr @SSL_get0_peer_CA_list(ptr noundef %57) #10
   %cmp274 = icmp eq ptr %call273, null
   br i1 %cmp274, label %if.end280, label %if.else277
 
@@ -1262,9 +1270,9 @@ if.else277:                                       ; preds = %if.end263
 
 if.end280:                                        ; preds = %if.end263, %if.else277
   %call278.sink = phi ptr [ %call278, %if.else277 ], [ null, %if.end263 ]
-  %78 = getelementptr inbounds i8, ptr %call.i, i64 136
-  store ptr %call278.sink, ptr %78, align 8
-  %call282 = call ptr @SSL_get0_peer_CA_list(ptr noundef %54) #10
+  %80 = getelementptr inbounds i8, ptr %call.i, i64 136
+  store ptr %call278.sink, ptr %80, align 8
+  %call282 = call ptr @SSL_get0_peer_CA_list(ptr noundef %56) #10
   %cmp283 = icmp eq ptr %call282, null
   br i1 %cmp283, label %if.end289, label %if.else286
 
@@ -1274,9 +1282,9 @@ if.else286:                                       ; preds = %if.end280
 
 if.end289:                                        ; preds = %if.end280, %if.else286
   %call287.sink = phi ptr [ %call287, %if.else286 ], [ null, %if.end280 ]
-  %79 = getelementptr inbounds i8, ptr %call.i, i64 112
-  store ptr %call287.sink, ptr %79, align 8
-  %call.i171 = call ptr @SSL_get0_peer_certificate(ptr noundef %55) #10
+  %81 = getelementptr inbounds i8, ptr %call.i, i64 112
+  store ptr %call287.sink, ptr %81, align 8
+  %call.i171 = call ptr @SSL_get0_peer_certificate(ptr noundef %57) #10
   %cmp.not.i172 = icmp eq ptr %call.i171, null
   br i1 %cmp.not.i172, label %peer_pkey_type.exit, label %if.then.i173
 
@@ -1311,7 +1319,7 @@ peer_pkey_type.exit:                              ; preds = %if.end289, %pkey_ty
   %retval.0.i175 = phi i32 [ %retval.0.i.i, %pkey_type.exit.i ], [ 0, %if.end289 ]
   %server_cert_type = getelementptr inbounds i8, ptr %call.i, i64 100
   store i32 %retval.0.i175, ptr %server_cert_type, align 4
-  %call.i178 = call ptr @SSL_get0_peer_certificate(ptr noundef %54) #10
+  %call.i178 = call ptr @SSL_get0_peer_certificate(ptr noundef %56) #10
   %cmp.not.i179 = icmp eq ptr %call.i178, null
   br i1 %cmp.not.i179, label %peer_pkey_type.exit194, label %if.then.i180
 
@@ -1346,77 +1354,77 @@ peer_pkey_type.exit194:                           ; preds = %peer_pkey_type.exit
   %retval.0.i191 = phi i32 [ %retval.0.i.i190, %pkey_type.exit.i189 ], [ 0, %peer_pkey_type.exit ]
   %client_cert_type = getelementptr inbounds i8, ptr %call.i, i64 120
   store i32 %retval.0.i191, ptr %client_cert_type, align 8
-  %80 = load ptr, ptr %server_ctx_data, align 8
-  call void @CRYPTO_free(ptr noundef %80, ptr noundef nonnull @.str, i32 noundef 66) #10
+  %82 = load ptr, ptr %server_ctx_data, align 8
+  call void @CRYPTO_free(ptr noundef %82, ptr noundef nonnull @.str, i32 noundef 66) #10
   store ptr null, ptr %server_ctx_data, align 8
   %alpn_protocols.i195 = getelementptr inbounds i8, ptr %server_ctx_data, i64 16
-  %81 = load ptr, ptr %alpn_protocols.i195, align 8
-  call void @CRYPTO_free(ptr noundef %81, ptr noundef nonnull @.str, i32 noundef 68) #10
+  %83 = load ptr, ptr %alpn_protocols.i195, align 8
+  call void @CRYPTO_free(ptr noundef %83, ptr noundef nonnull @.str, i32 noundef 68) #10
   store ptr null, ptr %alpn_protocols.i195, align 8
   %srp_user.i = getelementptr inbounds i8, ptr %server_ctx_data, i64 32
-  %82 = load ptr, ptr %srp_user.i, align 8
-  call void @CRYPTO_free(ptr noundef %82, ptr noundef nonnull @.str, i32 noundef 70) #10
+  %84 = load ptr, ptr %srp_user.i, align 8
+  call void @CRYPTO_free(ptr noundef %84, ptr noundef nonnull @.str, i32 noundef 70) #10
   store ptr null, ptr %srp_user.i, align 8
   %srp_password.i = getelementptr inbounds i8, ptr %server_ctx_data, i64 40
-  %83 = load ptr, ptr %srp_password.i, align 8
-  call void @CRYPTO_free(ptr noundef %83, ptr noundef nonnull @.str, i32 noundef 72) #10
+  %85 = load ptr, ptr %srp_password.i, align 8
+  call void @CRYPTO_free(ptr noundef %85, ptr noundef nonnull @.str, i32 noundef 72) #10
   store ptr null, ptr %srp_password.i, align 8
   %session_ticket_app_data.i196 = getelementptr inbounds i8, ptr %server_ctx_data, i64 48
-  %84 = load ptr, ptr %session_ticket_app_data.i196, align 8
-  call void @CRYPTO_free(ptr noundef %84, ptr noundef nonnull @.str, i32 noundef 74) #10
+  %86 = load ptr, ptr %session_ticket_app_data.i196, align 8
+  call void @CRYPTO_free(ptr noundef %86, ptr noundef nonnull @.str, i32 noundef 74) #10
   store ptr null, ptr %session_ticket_app_data.i196, align 8
-  %85 = load ptr, ptr %server2_ctx_data, align 8
-  call void @CRYPTO_free(ptr noundef %85, ptr noundef nonnull @.str, i32 noundef 66) #10
+  %87 = load ptr, ptr %server2_ctx_data, align 8
+  call void @CRYPTO_free(ptr noundef %87, ptr noundef nonnull @.str, i32 noundef 66) #10
   store ptr null, ptr %server2_ctx_data, align 8
   %alpn_protocols.i197 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 16
-  %86 = load ptr, ptr %alpn_protocols.i197, align 8
-  call void @CRYPTO_free(ptr noundef %86, ptr noundef nonnull @.str, i32 noundef 68) #10
+  %88 = load ptr, ptr %alpn_protocols.i197, align 8
+  call void @CRYPTO_free(ptr noundef %88, ptr noundef nonnull @.str, i32 noundef 68) #10
   store ptr null, ptr %alpn_protocols.i197, align 8
   %srp_user.i198 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 32
-  %87 = load ptr, ptr %srp_user.i198, align 8
-  call void @CRYPTO_free(ptr noundef %87, ptr noundef nonnull @.str, i32 noundef 70) #10
+  %89 = load ptr, ptr %srp_user.i198, align 8
+  call void @CRYPTO_free(ptr noundef %89, ptr noundef nonnull @.str, i32 noundef 70) #10
   store ptr null, ptr %srp_user.i198, align 8
   %srp_password.i199 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 40
-  %88 = load ptr, ptr %srp_password.i199, align 8
-  call void @CRYPTO_free(ptr noundef %88, ptr noundef nonnull @.str, i32 noundef 72) #10
+  %90 = load ptr, ptr %srp_password.i199, align 8
+  call void @CRYPTO_free(ptr noundef %90, ptr noundef nonnull @.str, i32 noundef 72) #10
   store ptr null, ptr %srp_password.i199, align 8
   %session_ticket_app_data.i200 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 48
-  %89 = load ptr, ptr %session_ticket_app_data.i200, align 8
-  call void @CRYPTO_free(ptr noundef %89, ptr noundef nonnull @.str, i32 noundef 74) #10
+  %91 = load ptr, ptr %session_ticket_app_data.i200, align 8
+  call void @CRYPTO_free(ptr noundef %91, ptr noundef nonnull @.str, i32 noundef 74) #10
   store ptr null, ptr %session_ticket_app_data.i200, align 8
-  %90 = load ptr, ptr %client_ctx_data, align 8
-  call void @CRYPTO_free(ptr noundef %90, ptr noundef nonnull @.str, i32 noundef 66) #10
+  %92 = load ptr, ptr %client_ctx_data, align 8
+  call void @CRYPTO_free(ptr noundef %92, ptr noundef nonnull @.str, i32 noundef 66) #10
   store ptr null, ptr %client_ctx_data, align 8
   %alpn_protocols.i201 = getelementptr inbounds i8, ptr %client_ctx_data, i64 16
-  %91 = load ptr, ptr %alpn_protocols.i201, align 8
-  call void @CRYPTO_free(ptr noundef %91, ptr noundef nonnull @.str, i32 noundef 68) #10
+  %93 = load ptr, ptr %alpn_protocols.i201, align 8
+  call void @CRYPTO_free(ptr noundef %93, ptr noundef nonnull @.str, i32 noundef 68) #10
   store ptr null, ptr %alpn_protocols.i201, align 8
   %srp_user.i202 = getelementptr inbounds i8, ptr %client_ctx_data, i64 32
-  %92 = load ptr, ptr %srp_user.i202, align 8
-  call void @CRYPTO_free(ptr noundef %92, ptr noundef nonnull @.str, i32 noundef 70) #10
+  %94 = load ptr, ptr %srp_user.i202, align 8
+  call void @CRYPTO_free(ptr noundef %94, ptr noundef nonnull @.str, i32 noundef 70) #10
   store ptr null, ptr %srp_user.i202, align 8
   %srp_password.i203 = getelementptr inbounds i8, ptr %client_ctx_data, i64 40
-  %93 = load ptr, ptr %srp_password.i203, align 8
-  call void @CRYPTO_free(ptr noundef %93, ptr noundef nonnull @.str, i32 noundef 72) #10
+  %95 = load ptr, ptr %srp_password.i203, align 8
+  call void @CRYPTO_free(ptr noundef %95, ptr noundef nonnull @.str, i32 noundef 72) #10
   store ptr null, ptr %srp_password.i203, align 8
   %session_ticket_app_data.i204 = getelementptr inbounds i8, ptr %client_ctx_data, i64 48
-  %94 = load ptr, ptr %session_ticket_app_data.i204, align 8
-  call void @CRYPTO_free(ptr noundef %94, ptr noundef nonnull @.str, i32 noundef 74) #10
+  %96 = load ptr, ptr %session_ticket_app_data.i204, align 8
+  call void @CRYPTO_free(ptr noundef %96, ptr noundef nonnull @.str, i32 noundef 74) #10
   store ptr null, ptr %session_ticket_app_data.i204, align 8
-  call void @SSL_free(ptr noundef %54) #10
+  call void @SSL_free(ptr noundef %56) #10
   %write_buf.i = getelementptr inbounds i8, ptr %server, i64 8
-  %95 = load ptr, ptr %write_buf.i, align 8
-  call void @CRYPTO_free(ptr noundef %95, ptr noundef nonnull @.str, i32 noundef 770) #10
-  %read_buf.i = getelementptr inbounds i8, ptr %server, i64 24
-  %96 = load ptr, ptr %read_buf.i, align 8
-  call void @CRYPTO_free(ptr noundef %96, ptr noundef nonnull @.str, i32 noundef 771) #10
-  call void @SSL_free(ptr noundef %55) #10
-  %write_buf.i205 = getelementptr inbounds i8, ptr %client, i64 8
-  %97 = load ptr, ptr %write_buf.i205, align 8
+  %97 = load ptr, ptr %write_buf.i, align 8
   call void @CRYPTO_free(ptr noundef %97, ptr noundef nonnull @.str, i32 noundef 770) #10
-  %read_buf.i206 = getelementptr inbounds i8, ptr %client, i64 24
-  %98 = load ptr, ptr %read_buf.i206, align 8
+  %read_buf.i = getelementptr inbounds i8, ptr %server, i64 24
+  %98 = load ptr, ptr %read_buf.i, align 8
   call void @CRYPTO_free(ptr noundef %98, ptr noundef nonnull @.str, i32 noundef 771) #10
+  call void @SSL_free(ptr noundef %57) #10
+  %write_buf.i205 = getelementptr inbounds i8, ptr %client, i64 8
+  %99 = load ptr, ptr %write_buf.i205, align 8
+  call void @CRYPTO_free(ptr noundef %99, ptr noundef nonnull @.str, i32 noundef 770) #10
+  %read_buf.i206 = getelementptr inbounds i8, ptr %client, i64 24
+  %100 = load ptr, ptr %read_buf.i206, align 8
+  call void @CRYPTO_free(ptr noundef %100, ptr noundef nonnull @.str, i32 noundef 771) #10
   br label %return
 
 return:                                           ; preds = %entry, %peer_pkey_type.exit194, %if.then2

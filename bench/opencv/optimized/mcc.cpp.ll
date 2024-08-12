@@ -58,21 +58,35 @@ define void @_ZN2cv3mcc18DetectorParametersC2Ev(ptr nocapture noundef nonnull wr
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 16, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x double> <double 7.000000e+00, double 3.000000e-03>, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  store <2 x double> <double 1.000000e+02, double 5.000000e-01>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  store <2 x double> <double 9.000000e-01, double 5.000000e-02>, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 68
-  store <2 x float> <float 1.250000e+00, float 0x3FB99999A0000000>, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 76
-  store <4 x i32> <i32 4, i32 100, i32 100, i32 10000>, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 92
-  store i32 1000, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 4, ptr %11, align 8
+  store double 7.000000e+00, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  store double 3.000000e-03, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  store double 1.000000e+02, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  store double 5.000000e-01, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  store double 9.000000e-01, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  store double 5.000000e-02, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 68
+  store float 1.250000e+00, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  store float 0x3FB99999A0000000, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 4, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 100, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 100, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 10000, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 92
+  store i32 1000, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 4, ptr %18, align 8
   ret void
 }
 

@@ -72,42 +72,46 @@ define internal void @credentials_reset(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @credentials_packet(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = tail call noalias ptr @wmem_alloc0(ptr noundef null, i64 noundef 40) #5
-  %7 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %16, label %13
+  %7 = load i32, ptr %3, align 8
+  store i32 %7, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %9, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = load i32, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %.not.i = icmp eq ptr %15, null
+  br i1 %.not.i, label %19, label %16
 
-13:                                               ; preds = %5
-  %14 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull %12) #5
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %14, ptr %15, align 8
-  br label %16
+16:                                               ; preds = %5
+  %17 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull %15) #5
+  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %17, ptr %18, align 8
+  br label %19
 
-16:                                               ; preds = %13, %5
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 32
+19:                                               ; preds = %16, %5
+  %20 = getelementptr inbounds i8, ptr %3, i64 24
   %21 = load ptr, ptr %20, align 8
-  %.not16.i = icmp eq ptr %21, null
-  br i1 %.not16.i, label %tap_credential_clone.exit, label %22
+  %22 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %.not16.i = icmp eq ptr %24, null
+  br i1 %.not16.i, label %tap_credential_clone.exit, label %25
 
-22:                                               ; preds = %16
-  %23 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull %21) #5
-  %24 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %23, ptr %24, align 8
+25:                                               ; preds = %19
+  %26 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull %24) #5
+  %27 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %26, ptr %27, align 8
   br label %tap_credential_clone.exit
 
-tap_credential_clone.exit:                        ; preds = %16, %22
-  %25 = load ptr, ptr @credentials, align 8
-  tail call void @wmem_array_append(ptr noundef %25, ptr noundef nonnull %6, i32 noundef 1) #5
+tap_credential_clone.exit:                        ; preds = %19, %25
+  %28 = load ptr, ptr @credentials, align 8
+  tail call void @wmem_array_append(ptr noundef %28, ptr noundef nonnull %6, i32 noundef 1) #5
   ret i32 1
 }
 

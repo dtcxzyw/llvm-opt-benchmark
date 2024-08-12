@@ -1424,12 +1424,12 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, pt
   %10 = alloca i64, align 8
   store ptr null, ptr %6, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %106, label %11
+  br i1 %.not, label %108, label %11
 
 11:                                               ; preds = %5
   %12 = call fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %4, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef null)
   %.not66 = icmp eq ptr %12, null
-  br i1 %.not66, label %100, label %13
+  br i1 %.not66, label %102, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %3, i64 24
@@ -1452,7 +1452,7 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, pt
   %25 = call fastcc i32 @get_ftp_result(ptr noundef nonnull %12, ptr noundef nonnull %7)
   %26 = add i32 %25, -300
   %or.cond3 = icmp ult i32 %26, -100
-  br i1 %or.cond3, label %100, label %27
+  br i1 %or.cond3, label %102, label %27
 
 27:                                               ; preds = %13
   %28 = load ptr, ptr %6, align 8
@@ -1471,7 +1471,7 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, pt
   %36 = load i32, ptr %14, align 8
   %37 = and i32 %36, 16384
   %.not69 = icmp eq i32 %37, 0
-  br i1 %.not69, label %100, label %42
+  br i1 %.not69, label %102, label %42
 
 38:                                               ; preds = %27
   %39 = getelementptr inbounds i8, ptr %7, i64 4
@@ -1492,7 +1492,7 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, pt
   %48 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %12, ptr noundef nonnull @.str.44, ptr noundef nonnull %spec.select76) #15
   %49 = call fastcc i32 @get_ftp_result(ptr noundef nonnull %12, ptr noundef nonnull %7)
   %50 = icmp eq i32 %49, 213
-  br i1 %50, label %51, label %83
+  br i1 %50, label %51, label %85
 
 51:                                               ; preds = %42
   %52 = tail call ptr @__ctype_b_loc() #16
@@ -1529,85 +1529,88 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_url_stat(ptr noundef %0, pt
   %65 = getelementptr inbounds i8, ptr %8, i64 4
   %66 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.05880, ptr noundef nonnull @.str.45, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %63, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %8) #15
   %.not72 = icmp eq i32 %66, 6
-  br i1 %.not72, label %67, label %83
+  br i1 %.not72, label %67, label %85
 
 67:                                               ; preds = %.critedge.thread
-  %68 = load <2 x i32>, ptr %62, align 8
-  %69 = add nsw <2 x i32> %68, <i32 -1, i32 -1900>
-  store <2 x i32> %69, ptr %62, align 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 32
-  store i32 -1, ptr %70, align 8
-  %71 = call i64 @time(ptr noundef null) #15
-  store i64 %71, ptr %10, align 8
-  %72 = call ptr @gmtime_r(ptr noundef nonnull %10, ptr noundef nonnull %9) #15
-  %.not73 = icmp eq ptr %72, null
-  br i1 %.not73, label %83, label %73
+  %68 = load i32, ptr %61, align 4
+  %69 = add nsw i32 %68, -1900
+  store i32 %69, ptr %61, align 4
+  %70 = load i32, ptr %62, align 8
+  %71 = add nsw i32 %70, -1
+  store i32 %71, ptr %62, align 8
+  %72 = getelementptr inbounds i8, ptr %8, i64 32
+  store i32 -1, ptr %72, align 8
+  %73 = call i64 @time(ptr noundef null) #15
+  store i64 %73, ptr %10, align 8
+  %74 = call ptr @gmtime_r(ptr noundef nonnull %10, ptr noundef nonnull %9) #15
+  %.not73 = icmp eq ptr %74, null
+  br i1 %.not73, label %85, label %75
 
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %72, i64 32
-  store i32 -1, ptr %74, align 8
-  %75 = load i64, ptr %10, align 8
-  %76 = call i64 @mktime(ptr noundef nonnull %72) #15
-  %77 = sub nsw i64 %75, %76
-  %78 = load i32, ptr %8, align 8
-  %79 = trunc i64 %77 to i32
-  %80 = add i32 %78, %79
-  store i32 %80, ptr %8, align 8
-  %81 = load i32, ptr %74, align 8
-  store i32 %81, ptr %70, align 8
-  %82 = call i64 @mktime(ptr noundef nonnull %8) #15
-  br label %83
+75:                                               ; preds = %67
+  %76 = getelementptr inbounds i8, ptr %74, i64 32
+  store i32 -1, ptr %76, align 8
+  %77 = load i64, ptr %10, align 8
+  %78 = call i64 @mktime(ptr noundef nonnull %74) #15
+  %79 = sub nsw i64 %77, %78
+  %80 = load i32, ptr %8, align 8
+  %81 = trunc i64 %79 to i32
+  %82 = add i32 %80, %81
+  store i32 %82, ptr %8, align 8
+  %83 = load i32, ptr %76, align 8
+  store i32 %83, ptr %72, align 8
+  %84 = call i64 @mktime(ptr noundef nonnull %8) #15
+  br label %85
 
-83:                                               ; preds = %.critedge.thread, %67, %42, %73
-  %.sink90 = phi i64 [ %82, %73 ], [ -1, %42 ], [ -1, %67 ], [ -1, %.critedge.thread ]
-  %84 = getelementptr inbounds i8, ptr %3, i64 88
-  store i64 %.sink90, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %3, i64 28
-  store i32 0, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %3, i64 32
-  store i32 0, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %3, i64 72
+85:                                               ; preds = %.critedge.thread, %67, %42, %75
+  %.sink90 = phi i64 [ %84, %75 ], [ -1, %42 ], [ -1, %67 ], [ -1, %.critedge.thread ]
+  %86 = getelementptr inbounds i8, ptr %3, i64 88
+  store i64 %.sink90, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 0, ptr %87, align 4
+  %88 = getelementptr inbounds i8, ptr %3, i64 32
+  store i32 0, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %3, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store i64 -1, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %3, i64 104
-  store i64 -1, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 1, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 -1, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %3, i64 104
   store i64 -1, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %3, i64 56
-  store i64 4096, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %3, i64 48
-  %93 = load i64, ptr %92, align 8
-  %94 = add nsw i64 %93, 4095
-  %95 = sdiv i64 %94, 4096
-  %sext = shl i64 %95, 32
-  %96 = ashr exact i64 %sext, 32
-  %97 = getelementptr inbounds i8, ptr %3, i64 64
-  store i64 %96, ptr %97, align 8
-  %98 = call i32 @_php_stream_free(ptr noundef nonnull %12, i32 noundef 3) #15
-  %99 = load ptr, ptr %6, align 8
-  call void @php_url_free(ptr noundef %99) #15
-  br label %106
-
-100:                                              ; preds = %35, %13, %11
+  %91 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 1, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 -1, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %3, i64 56
+  store i64 4096, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %3, i64 48
+  %95 = load i64, ptr %94, align 8
+  %96 = add nsw i64 %95, 4095
+  %97 = sdiv i64 %96, 4096
+  %sext = shl i64 %97, 32
+  %98 = ashr exact i64 %sext, 32
+  %99 = getelementptr inbounds i8, ptr %3, i64 64
+  store i64 %98, ptr %99, align 8
+  %100 = call i32 @_php_stream_free(ptr noundef nonnull %12, i32 noundef 3) #15
   %101 = load ptr, ptr %6, align 8
-  %.not74 = icmp eq ptr %101, null
-  br i1 %.not74, label %103, label %102
+  call void @php_url_free(ptr noundef %101) #15
+  br label %108
 
-102:                                              ; preds = %100
-  call void @php_url_free(ptr noundef nonnull %101) #15
-  br label %103
+102:                                              ; preds = %35, %13, %11
+  %103 = load ptr, ptr %6, align 8
+  %.not74 = icmp eq ptr %103, null
+  br i1 %.not74, label %105, label %104
 
-103:                                              ; preds = %102, %100
-  br i1 %.not66, label %106, label %104
+104:                                              ; preds = %102
+  call void @php_url_free(ptr noundef nonnull %103) #15
+  br label %105
 
-104:                                              ; preds = %103
-  %105 = call i32 @_php_stream_free(ptr noundef nonnull %12, i32 noundef 3) #15
-  br label %106
+105:                                              ; preds = %104, %102
+  br i1 %.not66, label %108, label %106
 
-106:                                              ; preds = %103, %104, %5, %83
-  %.0 = phi i32 [ 0, %83 ], [ -1, %5 ], [ -1, %104 ], [ -1, %103 ]
+106:                                              ; preds = %105
+  %107 = call i32 @_php_stream_free(ptr noundef nonnull %12, i32 noundef 3) #15
+  br label %108
+
+108:                                              ; preds = %105, %106, %5, %85
+  %.0 = phi i32 [ 0, %85 ], [ -1, %5 ], [ -1, %106 ], [ -1, %105 ]
   ret i32 %.0
 }
 

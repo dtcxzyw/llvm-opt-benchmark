@@ -251,41 +251,48 @@ if.then57:                                        ; preds = %if.then52
 
 if.end59:                                         ; preds = %if.then52
   %minimum = getelementptr inbounds i8, ptr %absinfo, i64 4
+  %19 = load i32, ptr %minimum, align 4
   %abs_x_min = getelementptr inbounds i8, ptr %call.i, i64 844
-  %19 = load <2 x i32>, ptr %minimum, align 4
-  store <2 x i32> %19, ptr %abs_x_min, align 4
-  %20 = load i32, ptr %fd, align 8
-  %call61 = call i32 (i32, i64, ...) @ioctl(i32 noundef %20, i64 noundef 2149074241, ptr noundef nonnull %absinfo) #8
+  store i32 %19, ptr %abs_x_min, align 4
+  %maximum = getelementptr inbounds i8, ptr %absinfo, i64 8
+  %20 = load i32, ptr %maximum, align 4
+  %abs_x_max = getelementptr inbounds i8, ptr %call.i, i64 848
+  store i32 %20, ptr %abs_x_max, align 8
+  %21 = load i32, ptr %fd, align 8
+  %call61 = call i32 (i32, i64, ...) @ioctl(i32 noundef %21, i64 noundef 2149074241, ptr noundef nonnull %absinfo) #8
   %cmp62 = icmp slt i32 %call61, 0
   br i1 %cmp62, label %if.then64, label %if.end66
 
 if.then64:                                        ; preds = %if.end59
-  %21 = load ptr, ptr %evdev, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 365, ptr noundef nonnull @__func__.input_linux_complete, ptr noundef nonnull @.str.14, ptr noundef %21) #8
+  %22 = load ptr, ptr %evdev, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 365, ptr noundef nonnull @__func__.input_linux_complete, ptr noundef nonnull @.str.14, ptr noundef %22) #8
   br label %err_close
 
 if.end66:                                         ; preds = %if.end59
+  %23 = load i32, ptr %minimum, align 4
   %abs_y_min = getelementptr inbounds i8, ptr %call.i, i64 852
-  %22 = load <2 x i32>, ptr %minimum, align 4
-  store <2 x i32> %22, ptr %abs_y_min, align 4
+  store i32 %23, ptr %abs_y_min, align 4
+  %24 = load i32, ptr %maximum, align 4
+  %abs_y_max = getelementptr inbounds i8, ptr %call.i, i64 856
+  store i32 %24, ptr %abs_y_max, align 8
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end48, %if.end66, %if.end38
-  %23 = load i8, ptr %evtmap, align 1
-  %24 = and i8 %23, 2
-  %tobool73.not = icmp eq i8 %24, 0
+  %25 = load i8, ptr %evtmap, align 1
+  %26 = and i8 %25, 2
+  %tobool73.not = icmp eq i8 %26, 0
   br i1 %tobool73.not, label %if.end115, label %if.then74
 
 if.then74:                                        ; preds = %if.end70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %keymap, i8 0, i64 96, i1 false)
-  %25 = load i32, ptr %fd, align 8
-  %call77 = call i32 (i32, i64, ...) @ioctl(i32 noundef %25, i64 noundef 2153792801, ptr noundef nonnull %keymap) #8
+  %27 = load i32, ptr %fd, align 8
+  %call77 = call i32 (i32, i64, ...) @ioctl(i32 noundef %27, i64 noundef 2153792801, ptr noundef nonnull %keymap) #8
   %cmp78 = icmp slt i32 %call77, 0
   br i1 %cmp78, label %err_read_event_bits, label %if.end81
 
 if.end81:                                         ; preds = %if.then74
-  %26 = load i32, ptr %fd, align 8
-  %call84 = call i32 (i32, i64, ...) @ioctl(i32 noundef %26, i64 noundef 2153792792, ptr noundef nonnull %keystate) #8
+  %28 = load i32, ptr %fd, align 8
+  %call84 = call i32 (i32, i64, ...) @ioctl(i32 noundef %28, i64 noundef 2153792792, ptr noundef nonnull %keystate) #8
   %cmp85 = icmp slt i32 %call84, 0
   br i1 %cmp85, label %if.then87, label %for.cond.preheader
 
@@ -297,19 +304,19 @@ for.cond.preheader:                               ; preds = %if.end81
   br label %for.body
 
 if.then87:                                        ; preds = %if.end81
-  %27 = load ptr, ptr %evdev, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 381, ptr noundef nonnull @__func__.input_linux_complete, ptr noundef nonnull @.str.15, ptr noundef %27) #8
+  %29 = load ptr, ptr %evdev, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 381, ptr noundef nonnull @__func__.input_linux_complete, ptr noundef nonnull @.str.15, ptr noundef %29) #8
   br label %err_close
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %28 = trunc nuw nsw i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %div61 = lshr i64 %indvars.iv, 3
   %idxprom = and i64 %div61, 536870911
   %arrayidx = getelementptr [96 x i8], ptr %keymap, i64 0, i64 %idxprom
-  %29 = load i8, ptr %arrayidx, align 1
-  %conv92 = zext i8 %29 to i32
-  %rem = and i32 %28, 7
+  %31 = load i8, ptr %arrayidx, align 1
+  %conv92 = zext i8 %31 to i32
+  %rem = and i32 %30, 7
   %shl = shl nuw nsw i32 1, %rem
   %and93 = and i32 %shl, %conv92
   %tobool94.not = icmp eq i32 %and93, 0
@@ -317,28 +324,28 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.then95:                                        ; preds = %for.body
   %cmp.i = icmp ugt i64 %indvars.iv, 255
-  %30 = trunc i64 %indvars.iv to i32
-  %31 = add i32 %30, -704
-  %or.cond.i = icmp ult i32 %31, -352
+  %32 = trunc i64 %indvars.iv to i32
+  %33 = add i32 %32, -704
+  %or.cond.i = icmp ult i32 %33, -352
   %retval.0.i = and i1 %cmp.i, %or.cond.i
   br i1 %retval.0.i, label %if.then97, label %if.else
 
 if.then97:                                        ; preds = %if.then95
-  %32 = load i32, ptr %num_btns, align 8
-  %inc = add i32 %32, 1
+  %34 = load i32, ptr %num_btns, align 8
+  %inc = add i32 %34, 1
   store i32 %inc, ptr %num_btns, align 8
   br label %if.end99
 
 if.else:                                          ; preds = %if.then95
-  %33 = load i32, ptr %num_keys, align 4
-  %inc98 = add i32 %33, 1
+  %35 = load i32, ptr %num_keys, align 4
+  %inc98 = add i32 %35, 1
   store i32 %inc98, ptr %num_keys, align 4
   br label %if.end99
 
 if.end99:                                         ; preds = %if.else, %if.then97
   %arrayidx102 = getelementptr [96 x i8], ptr %keystate, i64 0, i64 %idxprom
-  %34 = load i8, ptr %arrayidx102, align 1
-  %conv103 = zext i8 %34 to i32
+  %36 = load i8, ptr %arrayidx102, align 1
+  %conv103 = zext i8 %36 to i32
   %and106 = and i32 %shl, %conv103
   %tobool107.not = icmp eq i32 %and106, 0
   br i1 %tobool107.not, label %for.inc, label %if.then108
@@ -346,8 +353,8 @@ if.end99:                                         ; preds = %if.else, %if.then97
 if.then108:                                       ; preds = %if.end99
   %arrayidx110 = getelementptr [768 x i8], ptr %keydown, i64 0, i64 %indvars.iv
   store i8 1, ptr %arrayidx110, align 1
-  %35 = load i32, ptr %keycount, align 8
-  %inc111 = add i32 %35, 1
+  %37 = load i32, ptr %keycount, align 8
+  %inc111 = add i32 %37, 1
   store i32 %inc111, ptr %keycount, align 8
   br label %for.inc
 
@@ -357,11 +364,11 @@ for.inc:                                          ; preds = %for.body, %if.then1
   br i1 %exitcond.not, label %if.end115, label %for.body, !llvm.loop !5
 
 if.end115:                                        ; preds = %for.inc, %if.end70
-  %36 = load i32, ptr %fd, align 8
-  call void @qemu_set_fd_handler(i32 noundef %36, ptr noundef nonnull @input_linux_event, ptr noundef null, ptr noundef %call.i) #8
+  %38 = load i32, ptr %fd, align 8
+  call void @qemu_set_fd_handler(i32 noundef %38, ptr noundef nonnull @input_linux_event, ptr noundef null, ptr noundef %call.i) #8
   %keycount117 = getelementptr inbounds i8, ptr %call.i, i64 824
-  %37 = load i32, ptr %keycount117, align 8
-  %tobool118.not = icmp eq i32 %37, 0
+  %39 = load i32, ptr %keycount117, align 8
+  %tobool118.not = icmp eq i32 %39, 0
   br i1 %tobool118.not, label %if.else120, label %if.then119
 
 if.then119:                                       ; preds = %if.end115
@@ -376,23 +383,23 @@ if.else120:                                       ; preds = %if.end115
 do.body:                                          ; preds = %if.then119, %if.else120
   %next = getelementptr inbounds i8, ptr %call.i, i64 896
   store ptr null, ptr %next, align 8
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @inputs, i64 8), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @inputs, i64 8), align 8
   %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 904
-  store ptr %38, ptr %tql_prev, align 8
-  store ptr %call.i, ptr %38, align 8
+  store ptr %40, ptr %tql_prev, align 8
+  store ptr %call.i, ptr %40, align 8
   store ptr %next, ptr getelementptr inbounds (i8, ptr @inputs, i64 8), align 8
   %initialized = getelementptr inbounds i8, ptr %call.i, i64 832
   store i8 1, ptr %initialized, align 8
   br label %return
 
 err_read_event_bits:                              ; preds = %if.then74, %if.then42, %if.then26, %if.end19
-  %39 = load ptr, ptr %evdev, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 411, ptr noundef nonnull @__func__.input_linux_complete, ptr noundef nonnull @.str.16, ptr noundef %39) #8
+  %41 = load ptr, ptr %evdev, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 411, ptr noundef nonnull @__func__.input_linux_complete, ptr noundef nonnull @.str.16, ptr noundef %41) #8
   br label %err_close
 
 err_close:                                        ; preds = %err_read_event_bits, %if.then87, %if.then64, %if.then57, %if.then17
-  %40 = load i32, ptr %fd, align 8
-  %call126 = call i32 @close(i32 noundef %40) #8
+  %42 = load i32, ptr %fd, align 8
+  %call126 = call i32 @close(i32 noundef %42) #8
   br label %return
 
 return:                                           ; preds = %err_close, %do.body, %if.then11, %if.then4, %if.then

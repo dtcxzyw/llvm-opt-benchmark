@@ -215,10 +215,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %0, align 8
   ret void
@@ -561,62 +564,80 @@ declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef no
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx36getCoordinateTransformationToLatticeERKNS_19MrcDensityMapHeaderE(ptr dead_on_unwind noalias writable sret(%"class.gmx::TranslateAndScale") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %1) local_unnamed_addr #0 {
-  %3 = alloca %"class.gmx::BasicVector", align 8
-  %4 = alloca %"class.gmx::BasicVector", align 8
+  %3 = alloca %"class.gmx::BasicVector", align 4
+  %4 = alloca %"class.gmx::BasicVector", align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 936
-  %6 = getelementptr inbounds i8, ptr %1, i64 876
-  %7 = getelementptr inbounds i8, ptr %1, i64 944
-  %8 = load i32, ptr %7, align 8
-  %9 = sitofp i32 %8 to float
-  %10 = getelementptr inbounds i8, ptr %1, i64 884
-  %11 = load float, ptr %10, align 4
-  %12 = fmul float %11, 0x3FB99999A0000000
-  %13 = fdiv float %9, %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
-  store float %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 60
-  %16 = load <2 x i32>, ptr %5, align 8
-  %17 = sitofp <2 x i32> %16 to <2 x float>
-  %18 = load <2 x float>, ptr %6, align 4
-  %19 = fmul <2 x float> %18, <float 0x3FB99999A0000000, float 0x3FB99999A0000000>
-  %20 = fdiv <2 x float> %17, %19
-  store <2 x float> %20, ptr %3, align 8
-  %21 = load <2 x float>, ptr %15, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 68
+  %6 = load i32, ptr %5, align 8
+  %7 = sitofp i32 %6 to float
+  %8 = getelementptr inbounds i8, ptr %1, i64 876
+  %9 = load float, ptr %8, align 4
+  %10 = fmul float %9, 0x3FB99999A0000000
+  %11 = fdiv float %7, %10
+  %12 = getelementptr inbounds i8, ptr %1, i64 940
+  %13 = load i32, ptr %12, align 4
+  %14 = sitofp i32 %13 to float
+  %15 = getelementptr inbounds i8, ptr %1, i64 880
+  %16 = load float, ptr %15, align 8
+  %17 = fmul float %16, 0x3FB99999A0000000
+  %18 = fdiv float %14, %17
+  %19 = getelementptr inbounds i8, ptr %1, i64 944
+  %20 = load i32, ptr %19, align 8
+  %21 = sitofp i32 %20 to float
+  %22 = getelementptr inbounds i8, ptr %1, i64 884
   %23 = load float, ptr %22, align 4
-  %24 = extractelement <2 x float> %21, i64 0
-  %25 = fcmp oeq float %24, 0.000000e+00
-  %26 = extractelement <2 x float> %21, i64 1
-  %27 = fcmp oeq float %26, 0.000000e+00
-  %or.cond = select i1 %25, i1 %27, i1 false
-  %28 = fcmp oeq float %23, 0.000000e+00
-  %or.cond20 = select i1 %or.cond, i1 %28, i1 false
-  br i1 %or.cond20, label %29, label %40
+  %24 = fmul float %23, 0x3FB99999A0000000
+  %25 = fdiv float %21, %24
+  store float %11, ptr %3, align 4
+  %26 = getelementptr inbounds i8, ptr %3, i64 4
+  store float %18, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  store float %25, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %1, i64 60
+  %29 = load float, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %1, i64 64
+  %31 = load float, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 68
+  %33 = load float, ptr %32, align 4
+  %34 = fcmp oeq float %29, 0.000000e+00
+  %35 = fcmp oeq float %31, 0.000000e+00
+  %or.cond = select i1 %34, i1 %35, i1 false
+  %36 = fcmp oeq float %33, 0.000000e+00
+  %or.cond20 = select i1 %or.cond, i1 %36, i1 false
+  br i1 %or.cond20, label %37, label %53
 
-29:                                               ; preds = %2
-  %30 = getelementptr inbounds i8, ptr %1, i64 924
-  %31 = load <2 x i32>, ptr %30, align 4
-  %32 = sub nsw <2 x i32> zeroinitializer, %31
-  %33 = sitofp <2 x i32> %32 to <2 x float>
-  %34 = fdiv <2 x float> %33, %20
-  %35 = getelementptr inbounds i8, ptr %1, i64 932
-  %36 = load i32, ptr %35, align 4
-  %37 = sub nsw i32 0, %36
-  %38 = sitofp i32 %37 to float
-  %39 = fdiv float %38, %13
-  br label %43
+37:                                               ; preds = %2
+  %38 = getelementptr inbounds i8, ptr %1, i64 924
+  %39 = load i32, ptr %38, align 4
+  %40 = sub nsw i32 0, %39
+  %41 = sitofp i32 %40 to float
+  %42 = fdiv float %41, %11
+  %43 = getelementptr inbounds i8, ptr %1, i64 928
+  %44 = load i32, ptr %43, align 8
+  %45 = sub nsw i32 0, %44
+  %46 = sitofp i32 %45 to float
+  %47 = fdiv float %46, %18
+  %48 = getelementptr inbounds i8, ptr %1, i64 932
+  %49 = load i32, ptr %48, align 4
+  %50 = sub nsw i32 0, %49
+  %51 = sitofp i32 %50 to float
+  %52 = fdiv float %51, %25
+  br label %57
 
-40:                                               ; preds = %2
-  %41 = fmul <2 x float> %21, <float 0xBFB99999A0000000, float 0xBFB99999A0000000>
-  %42 = fmul float %23, 0xBFB99999A0000000
-  br label %43
+53:                                               ; preds = %2
+  %54 = fmul float %29, 0xBFB99999A0000000
+  %55 = fmul float %31, 0xBFB99999A0000000
+  %56 = fmul float %33, 0xBFB99999A0000000
+  br label %57
 
-43:                                               ; preds = %40, %29
-  %.sink = phi float [ %39, %29 ], [ %42, %40 ]
-  %44 = phi <2 x float> [ %34, %29 ], [ %41, %40 ]
-  store <2 x float> %44, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 8
-  store float %.sink, ptr %45, align 8
+57:                                               ; preds = %53, %37
+  %.sink22 = phi float [ %42, %37 ], [ %54, %53 ]
+  %.sink21 = phi float [ %47, %37 ], [ %55, %53 ]
+  %.sink = phi float [ %52, %37 ], [ %56, %53 ]
+  store float %.sink22, ptr %4, align 4
+  %58 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %.sink21, ptr %58, align 4
+  %59 = getelementptr inbounds i8, ptr %4, i64 8
+  store float %.sink, ptr %59, align 4
   call void @_ZN3gmx17TranslateAndScaleC1ERKNS_11BasicVectorIfEES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %4)
   ret void
 }
@@ -629,12 +650,17 @@ define void @_ZN3gmx19getDynamicExtents3DERKNS_19MrcDensityMapHeaderE(ptr dead_o
   %4 = getelementptr inbounds i8, ptr %1, i64 920
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load <2 x i32>, ptr %3, align 8
-  %9 = sext <2 x i32> %8 to <2 x i64>
-  store <2 x i64> %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %6, ptr %10, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 916
+  %8 = load i32, ptr %7, align 4
+  %9 = load i32, ptr %3, align 8
+  %10 = sext i32 %8 to i64
+  %11 = sext i32 %9 to i64
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %10, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %6, ptr %14, align 8
   ret void
 }
 

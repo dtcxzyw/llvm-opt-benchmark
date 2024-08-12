@@ -210,10 +210,16 @@ if.then:                                          ; preds = %land.lhs.true, %ent
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true
-  %4 = load <2 x i64>, ptr %to, align 8
-  %5 = sitofp <2 x i64> %4 to <2 x double>
-  %6 = fmul <2 x double> %5, <double 1.562500e-02, double 1.562500e-02>
-  store <2 x double> %6, ptr %user, align 8
+  %to.val = load i64, ptr %to, align 8
+  %4 = getelementptr i8, ptr %to, i64 8
+  %to.val5 = load i64, ptr %4, align 8
+  %conv.i = sitofp i64 %to.val to double
+  %mul.i = fmul double %conv.i, 1.562500e-02
+  %conv1.i = sitofp i64 %to.val5 to double
+  %mul2.i = fmul double %conv1.i, 1.562500e-02
+  store double %mul.i, ptr %user, align 8
+  %ref.tmp.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %user, i64 8
+  store double %mul2.i, ptr %ref.tmp.sroa.2.0.position.sroa_idx, align 8
   ret i32 0
 }
 
@@ -221,37 +227,40 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 define internal noundef i32 @_ZN7msdfgenL8ftLineToEPK10FT_Vector_Pv(ptr nocapture noundef readonly %to, ptr nocapture noundef %user) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.msdfgen::EdgeHolder", align 8
-  %0 = load <2 x i64>, ptr %to, align 8
-  %1 = sitofp <2 x i64> %0 to <2 x double>
-  %2 = fmul <2 x double> %1, <double 1.562500e-02, double 1.562500e-02>
+  %to.val = load i64, ptr %to, align 8
+  %0 = getelementptr i8, ptr %to, i64 8
+  %to.val4 = load i64, ptr %0, align 8
+  %conv.i = sitofp i64 %to.val to double
+  %mul.i = fmul double %conv.i, 1.562500e-02
+  %conv1.i = sitofp i64 %to.val4 to double
+  %mul2.i = fmul double %conv1.i, 1.562500e-02
   %agg.tmp1.sroa.0.0.copyload = load double, ptr %user, align 8
   %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %user, i64 8
   %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
-  %3 = extractelement <2 x double> %2, i64 0
-  %cmp.i = fcmp une double %3, %agg.tmp1.sroa.0.0.copyload
-  %4 = extractelement <2 x double> %2, i64 1
-  %cmp3.i = fcmp une double %4, %agg.tmp1.sroa.2.0.copyload
-  %5 = select i1 %cmp.i, i1 true, i1 %cmp3.i
-  br i1 %5, label %if.then, label %if.end
+  %cmp.i = fcmp une double %mul.i, %agg.tmp1.sroa.0.0.copyload
+  %cmp3.i = fcmp une double %mul2.i, %agg.tmp1.sroa.2.0.copyload
+  %1 = select i1 %cmp.i, i1 true, i1 %cmp3.i
+  br i1 %1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %contour = getelementptr inbounds i8, ptr %user, i64 24
-  %6 = load ptr, ptr %contour, align 8
-  %call.i = tail call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp1.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %3, double %4, i32 noundef 7)
+  %2 = load ptr, ptr %contour, align 8
+  %call.i = tail call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp1.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %mul.i, double %mul2.i, i32 noundef 7)
   store ptr %call.i, ptr %ref.tmp, align 8
-  invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
-  store <2 x double> %2, ptr %user, align 8
+  store double %mul.i, ptr %user, align 8
+  store double %mul2.i, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %7 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %invoke.cont, %entry
   ret i32 0
@@ -261,44 +270,47 @@ if.end:                                           ; preds = %invoke.cont, %entry
 define internal noundef i32 @_ZN7msdfgenL9ftConicToEPK10FT_Vector_S2_Pv(ptr nocapture noundef readonly %control, ptr nocapture noundef readonly %to, ptr nocapture noundef %user) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.msdfgen::EdgeHolder", align 8
-  %0 = load <2 x i64>, ptr %to, align 8
-  %1 = sitofp <2 x i64> %0 to <2 x double>
-  %2 = fmul <2 x double> %1, <double 1.562500e-02, double 1.562500e-02>
+  %to.val = load i64, ptr %to, align 8
+  %0 = getelementptr i8, ptr %to, i64 8
+  %to.val4 = load i64, ptr %0, align 8
+  %conv.i = sitofp i64 %to.val to double
+  %mul.i = fmul double %conv.i, 1.562500e-02
+  %conv1.i = sitofp i64 %to.val4 to double
+  %mul2.i = fmul double %conv1.i, 1.562500e-02
   %agg.tmp1.sroa.0.0.copyload = load double, ptr %user, align 8
   %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %user, i64 8
   %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
-  %3 = extractelement <2 x double> %2, i64 0
-  %cmp.i = fcmp une double %3, %agg.tmp1.sroa.0.0.copyload
-  %4 = extractelement <2 x double> %2, i64 1
-  %cmp3.i = fcmp une double %4, %agg.tmp1.sroa.2.0.copyload
-  %5 = select i1 %cmp.i, i1 true, i1 %cmp3.i
-  br i1 %5, label %if.then, label %if.end
+  %cmp.i = fcmp une double %mul.i, %agg.tmp1.sroa.0.0.copyload
+  %cmp3.i = fcmp une double %mul2.i, %agg.tmp1.sroa.2.0.copyload
+  %1 = select i1 %cmp.i, i1 true, i1 %cmp3.i
+  br i1 %1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %contour = getelementptr inbounds i8, ptr %user, i64 24
-  %6 = load ptr, ptr %contour, align 8
+  %2 = load ptr, ptr %contour, align 8
   %control.val = load i64, ptr %control, align 8
-  %7 = getelementptr i8, ptr %control, i64 8
-  %control.val5 = load i64, ptr %7, align 8
+  %3 = getelementptr i8, ptr %control, i64 8
+  %control.val5 = load i64, ptr %3, align 8
   %conv.i6 = sitofp i64 %control.val to double
   %mul.i7 = fmul double %conv.i6, 1.562500e-02
   %conv1.i8 = sitofp i64 %control.val5 to double
   %mul2.i9 = fmul double %conv1.i8, 1.562500e-02
-  %call.i = tail call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %agg.tmp1.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %mul.i7, double %mul2.i9, double %3, double %4, i32 noundef 7)
+  %call.i = tail call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double %agg.tmp1.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %mul.i7, double %mul2.i9, double %mul.i, double %mul2.i, i32 noundef 7)
   store ptr %call.i, ptr %ref.tmp, align 8
-  invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
-  store <2 x double> %2, ptr %user, align 8
+  store double %mul.i, ptr %user, align 8
+  store double %mul2.i, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %8 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %4
 
 if.end:                                           ; preds = %invoke.cont, %entry
   ret i32 0
@@ -308,21 +320,23 @@ if.end:                                           ; preds = %invoke.cont, %entry
 define internal noundef i32 @_ZN7msdfgenL9ftCubicToEPK10FT_Vector_S2_S2_Pv(ptr nocapture noundef readonly %control1, ptr nocapture noundef readonly %control2, ptr nocapture noundef readonly %to, ptr nocapture noundef %user) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.msdfgen::EdgeHolder", align 8
-  %0 = load <2 x i64>, ptr %to, align 8
-  %1 = sitofp <2 x i64> %0 to <2 x double>
-  %2 = fmul <2 x double> %1, <double 1.562500e-02, double 1.562500e-02>
+  %to.val = load i64, ptr %to, align 8
+  %0 = getelementptr i8, ptr %to, i64 8
+  %to.val6 = load i64, ptr %0, align 8
+  %conv.i = sitofp i64 %to.val to double
+  %mul.i = fmul double %conv.i, 1.562500e-02
+  %conv1.i = sitofp i64 %to.val6 to double
+  %mul2.i = fmul double %conv1.i, 1.562500e-02
   %agg.tmp1.sroa.0.0.copyload = load double, ptr %user, align 8
   %agg.tmp1.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %user, i64 8
   %agg.tmp1.sroa.2.0.copyload = load double, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
-  %3 = extractelement <2 x double> %2, i64 0
-  %cmp.i = fcmp une double %3, %agg.tmp1.sroa.0.0.copyload
-  %4 = extractelement <2 x double> %2, i64 1
-  %cmp3.i = fcmp une double %4, %agg.tmp1.sroa.2.0.copyload
-  %5 = select i1 %cmp.i, i1 true, i1 %cmp3.i
+  %cmp.i = fcmp une double %mul.i, %agg.tmp1.sroa.0.0.copyload
+  %cmp3.i = fcmp une double %mul2.i, %agg.tmp1.sroa.2.0.copyload
+  %1 = select i1 %cmp.i, i1 true, i1 %cmp3.i
   %control1.val9.pre = load i64, ptr %control1, align 8
   %.phi.trans.insert = getelementptr i8, ptr %control1, i64 8
   %control1.val10.pre = load i64, ptr %.phi.trans.insert, align 8
-  br i1 %5, label %entry.if.then_crit_edge, label %lor.lhs.false
+  br i1 %1, label %entry.if.then_crit_edge, label %lor.lhs.false
 
 entry.if.then_crit_edge:                          ; preds = %entry
   %control2.val11.pre = load i64, ptr %control2, align 8
@@ -343,21 +357,21 @@ lor.lhs.false:                                    ; preds = %entry
   %mul.i14 = fmul double %conv.i13, 1.562500e-02
   %conv1.i15 = sitofp i64 %control1.val10.pre to double
   %mul2.i16 = fmul double %conv1.i15, 1.562500e-02
-  %sub.i = fsub double %mul.i14, %3
-  %sub3.i = fsub double %mul2.i16, %4
+  %sub.i = fsub double %mul.i14, %mul.i
+  %sub3.i = fsub double %mul2.i16, %mul2.i
   %control2.val = load i64, ptr %control2, align 8
-  %6 = getelementptr i8, ptr %control2, i64 8
-  %control2.val8 = load i64, ptr %6, align 8
+  %2 = getelementptr i8, ptr %control2, i64 8
+  %control2.val8 = load i64, ptr %2, align 8
   %conv.i21 = sitofp i64 %control2.val to double
   %mul.i22 = fmul double %conv.i21, 1.562500e-02
   %conv1.i23 = sitofp i64 %control2.val8 to double
   %mul2.i24 = fmul double %conv1.i23, 1.562500e-02
-  %sub.i27 = fsub double %mul.i22, %3
-  %sub3.i28 = fsub double %mul2.i24, %4
-  %7 = fneg double %sub3.i
-  %neg.i = fmul double %sub.i27, %7
-  %8 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i28, double %neg.i)
-  %tobool = fcmp une double %8, 0.000000e+00
+  %sub.i27 = fsub double %mul.i22, %mul.i
+  %sub3.i28 = fsub double %mul2.i24, %mul2.i
+  %3 = fneg double %sub3.i
+  %neg.i = fmul double %sub.i27, %3
+  %4 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i28, double %neg.i)
+  %tobool = fcmp une double %4, 0.000000e+00
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry.if.then_crit_edge, %lor.lhs.false
@@ -366,22 +380,23 @@ if.then:                                          ; preds = %entry.if.then_crit_
   %mul2.i34.pre-phi = phi double [ %.pre49, %entry.if.then_crit_edge ], [ %mul2.i16, %lor.lhs.false ]
   %mul.i32.pre-phi = phi double [ %.pre47, %entry.if.then_crit_edge ], [ %mul.i14, %lor.lhs.false ]
   %contour = getelementptr inbounds i8, ptr %user, i64 24
-  %9 = load ptr, ptr %contour, align 8
-  %call.i = tail call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %agg.tmp1.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %mul.i32.pre-phi, double %mul2.i34.pre-phi, double %mul.i38.pre-phi, double %mul2.i40.pre-phi, double %3, double %4, i32 noundef 7)
+  %5 = load ptr, ptr %contour, align 8
+  %call.i = tail call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %agg.tmp1.sroa.0.0.copyload, double %agg.tmp1.sroa.2.0.copyload, double %mul.i32.pre-phi, double %mul2.i34.pre-phi, double %mul.i38.pre-phi, double %mul2.i40.pre-phi, double %mul.i, double %mul2.i, i32 noundef 7)
   store ptr %call.i, ptr %ref.tmp, align 8
-  invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
-  store <2 x double> %2, ptr %user, align 8
+  store double %mul.i, ptr %user, align 8
+  store double %mul2.i, ptr %agg.tmp1.sroa.2.0.position.sroa_idx, align 8
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %6
 
 if.end:                                           ; preds = %invoke.cont, %lor.lhs.false
   ret i32 0

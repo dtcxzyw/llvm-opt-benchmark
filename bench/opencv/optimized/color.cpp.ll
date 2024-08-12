@@ -3505,17 +3505,21 @@ define hidden void @_ZN2cv3ccm8GetColor15getColorCheckerEPKdi(ptr dead_on_unwind
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.idx = mul i64 %indvars.iv, 24
   %8 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
-  %10 = load double, ptr %9, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load i64, ptr %12, align 8
-  %14 = mul i64 %13, %indvars.iv
-  %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  %16 = load <2 x double>, ptr %8, align 8
-  store <2 x double> %16, ptr %15, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
-  store double %10, ptr %.sroa.3.0..sroa_idx, align 8
+  %9 = load double, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = load double, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = load double, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %6, align 8
+  %16 = load i64, ptr %15, align 8
+  %17 = mul i64 %16, %indvars.iv
+  %18 = getelementptr inbounds i8, ptr %14, i64 %17
+  store double %9, ptr %18, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  store double %11, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
+  store double %13, ptr %.sroa.3.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !19
@@ -3568,10 +3572,10 @@ define hidden void @_ZN2cv3ccm8GetColor8getColorENS0_11CONST_COLORE(ptr dead_on_
   %10 = alloca %"class.cv::Mat", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::allocator.0", align 1
-  switch i32 %1, label %107 [
+  switch i32 %1, label %113 [
     i32 0, label %13
-    i32 1, label %48
-    i32 2, label %83
+    i32 1, label %50
+    i32 2, label %87
   ]
 
 13:                                               ; preds = %2
@@ -3585,17 +3589,21 @@ define hidden void @_ZN2cv3ccm8GetColor8getColorENS0_11CONST_COLORE(ptr dead_on_
   %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %16 ]
   %.idx.i = mul nuw nsw i64 %indvars.iv.i, 24
   %17 = getelementptr inbounds i8, ptr @_ZZN2cv3ccm8GetColor8getColorENS0_11CONST_COLOREE26ColorChecker2005_LAB_D50_2, i64 %.idx.i
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
-  %19 = load double, ptr %18, align 8, !noalias !21
-  %20 = load ptr, ptr %14, align 8, !alias.scope !21
-  %21 = load ptr, ptr %15, align 8, !alias.scope !21
-  %22 = load i64, ptr %21, align 8
-  %23 = mul i64 %22, %indvars.iv.i
-  %24 = getelementptr inbounds i8, ptr %20, i64 %23
-  %25 = load <2 x double>, ptr %17, align 8, !noalias !21
-  store <2 x double> %25, ptr %24, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %24, i64 16
-  store double %19, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %18 = load double, ptr %17, align 8, !noalias !21
+  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = load double, ptr %19, align 8, !noalias !21
+  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = load double, ptr %21, align 8, !noalias !21
+  %23 = load ptr, ptr %14, align 8, !alias.scope !21
+  %24 = load ptr, ptr %15, align 8, !alias.scope !21
+  %25 = load i64, ptr %24, align 8
+  %26 = mul i64 %25, %indvars.iv.i
+  %27 = getelementptr inbounds i8, ptr %23, i64 %26
+  store double %18, ptr %27, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %27, i64 8
+  store double %20, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %27, i64 16
+  store double %22, ptr %.sroa.3.0..sroa_idx.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 24
   br i1 %exitcond.not.i, label %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit, label %16, !llvm.loop !19
@@ -3603,293 +3611,301 @@ define hidden void @_ZN2cv3ccm8GetColor8getColorENS0_11CONST_COLORE(ptr dead_on_
 _ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit:   ; preds = %16
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef 24, i32 noundef 1, i32 noundef 0)
-          to label %.noexc unwind label %41
+          to label %.noexc unwind label %43
 
 .noexc:                                           ; preds = %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
-  %27 = getelementptr inbounds i8, ptr %5, i64 72
-  br label %28
+  %28 = getelementptr inbounds i8, ptr %5, i64 16
+  %29 = getelementptr inbounds i8, ptr %5, i64 72
+  br label %30
 
-28:                                               ; preds = %28, %.noexc
-  %indvars.iv.i15 = phi i64 [ 0, %.noexc ], [ %indvars.iv.next.i16, %28 ]
-  %29 = getelementptr inbounds i8, ptr @_ZZN2cv3ccm8GetColor8getColorENS0_11CONST_COLOREE29ColorChecker2005_COLORED_MASK, i64 %indvars.iv.i15
-  %30 = load i8, ptr %29, align 1, !noalias !24
-  %31 = load ptr, ptr %26, align 8, !alias.scope !24
-  %32 = load ptr, ptr %27, align 8, !alias.scope !24
-  %33 = load i64, ptr %32, align 8
-  %34 = mul i64 %33, %indvars.iv.i15
-  %35 = getelementptr inbounds i8, ptr %31, i64 %34
-  store i8 %30, ptr %35, align 1
+30:                                               ; preds = %30, %.noexc
+  %indvars.iv.i15 = phi i64 [ 0, %.noexc ], [ %indvars.iv.next.i16, %30 ]
+  %31 = getelementptr inbounds i8, ptr @_ZZN2cv3ccm8GetColor8getColorENS0_11CONST_COLOREE29ColorChecker2005_COLORED_MASK, i64 %indvars.iv.i15
+  %32 = load i8, ptr %31, align 1, !noalias !24
+  %33 = load ptr, ptr %28, align 8, !alias.scope !24
+  %34 = load ptr, ptr %29, align 8, !alias.scope !24
+  %35 = load i64, ptr %34, align 8
+  %36 = mul i64 %35, %indvars.iv.i15
+  %37 = getelementptr inbounds i8, ptr %33, i64 %36
+  store i8 %32, ptr %37, align 1
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i17 = icmp eq i64 %indvars.iv.next.i16, 24
-  br i1 %exitcond.not.i17, label %_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit, label %28, !llvm.loop !20
+  br i1 %exitcond.not.i17, label %_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit, label %30, !llvm.loop !20
 
-_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit: ; preds = %28
+_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit: ; preds = %30
   store i32 30, ptr %6, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   store ptr null, ptr %0, align 8, !alias.scope !27
-  %36 = invoke noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #15
-          to label %.noexc18 unwind label %43
+  %38 = invoke noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #15
+          to label %.noexc18 unwind label %45
 
 .noexc18:                                         ; preds = %_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  store i32 1, ptr %37, align 8, !noalias !27
-  %38 = getelementptr inbounds i8, ptr %36, i64 12
-  store i32 1, ptr %38, align 4, !noalias !27
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %36, align 8, !noalias !27
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
-  invoke void @_ZSt10_ConstructIN2cv3ccm5ColorEJRNS0_3MatENS1_11COLOR_SPACEES4_EEvPT_DpOT0_(ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(96) %5)
-          to label %45 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !27
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  store i32 1, ptr %39, align 8, !noalias !27
+  %40 = getelementptr inbounds i8, ptr %38, i64 12
+  store i32 1, ptr %40, align 4, !noalias !27
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %38, align 8, !noalias !27
+  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  invoke void @_ZSt10_ConstructIN2cv3ccm5ColorEJRNS0_3MatENS1_11COLOR_SPACEES4_EEvPT_DpOT0_(ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(96) %5)
+          to label %47 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !27
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %.noexc18
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZdlPv(ptr noundef nonnull %36) #17, !noalias !27
-  br label %.body
-
-41:                                               ; preds = %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %47
+  call void @_ZdlPv(ptr noundef nonnull %38) #17, !noalias !27
+  br label %.body
 
-43:                                               ; preds = %_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit
+43:                                               ; preds = %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit
   %44 = landingpad { ptr, i32 }
+          cleanup
+  br label %49
+
+45:                                               ; preds = %_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %40, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ]
+.body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, %45
+  %eh.lpad-body = phi { ptr, i32 } [ %46, %45 ], [ %42, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #14
-  br label %47
+  br label %49
 
-45:                                               ; preds = %.noexc18
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %36, ptr %46, align 8, !alias.scope !27
-  store ptr %39, ptr %0, align 8, !alias.scope !27
+47:                                               ; preds = %.noexc18
+  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %38, ptr %48, align 8, !alias.scope !27
+  store ptr %41, ptr %0, align 8, !alias.scope !27
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #14
-  br label %115
+  br label %121
 
-47:                                               ; preds = %.body, %41
-  %.pn10 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %42, %41 ]
+49:                                               ; preds = %.body, %43
+  %.pn10 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %44, %43 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
-  br label %116
+  br label %122
 
-48:                                               ; preds = %2
+50:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 18, i32 noundef 1, i32 noundef 22)
-  %49 = getelementptr inbounds i8, ptr %7, i64 16
-  %50 = getelementptr inbounds i8, ptr %7, i64 72
-  br label %51
+  %51 = getelementptr inbounds i8, ptr %7, i64 16
+  %52 = getelementptr inbounds i8, ptr %7, i64 72
+  br label %53
 
-51:                                               ; preds = %51, %48
-  %indvars.iv.i19 = phi i64 [ 0, %48 ], [ %indvars.iv.next.i23, %51 ]
+53:                                               ; preds = %53, %50
+  %indvars.iv.i19 = phi i64 [ 0, %50 ], [ %indvars.iv.next.i23, %53 ]
   %.idx.i20 = mul nuw nsw i64 %indvars.iv.i19, 24
-  %52 = getelementptr inbounds i8, ptr @_ZZN2cv3ccm8GetColor8getColorENS0_11CONST_COLOREE15Vinyl_LAB_D50_2, i64 %.idx.i20
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
-  %54 = load double, ptr %53, align 8, !noalias !30
-  %55 = load ptr, ptr %49, align 8, !alias.scope !30
-  %56 = load ptr, ptr %50, align 8, !alias.scope !30
-  %57 = load i64, ptr %56, align 8
-  %58 = mul i64 %57, %indvars.iv.i19
-  %59 = getelementptr inbounds i8, ptr %55, i64 %58
-  %60 = load <2 x double>, ptr %52, align 8, !noalias !30
-  store <2 x double> %60, ptr %59, align 8
-  %.sroa.3.0..sroa_idx.i22 = getelementptr inbounds i8, ptr %59, i64 16
-  store double %54, ptr %.sroa.3.0..sroa_idx.i22, align 8
+  %54 = getelementptr inbounds i8, ptr @_ZZN2cv3ccm8GetColor8getColorENS0_11CONST_COLOREE15Vinyl_LAB_D50_2, i64 %.idx.i20
+  %55 = load double, ptr %54, align 8, !noalias !30
+  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = load double, ptr %56, align 8, !noalias !30
+  %58 = getelementptr inbounds i8, ptr %54, i64 16
+  %59 = load double, ptr %58, align 8, !noalias !30
+  %60 = load ptr, ptr %51, align 8, !alias.scope !30
+  %61 = load ptr, ptr %52, align 8, !alias.scope !30
+  %62 = load i64, ptr %61, align 8
+  %63 = mul i64 %62, %indvars.iv.i19
+  %64 = getelementptr inbounds i8, ptr %60, i64 %63
+  store double %55, ptr %64, align 8
+  %.sroa.2.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %64, i64 8
+  store double %57, ptr %.sroa.2.0..sroa_idx.i21, align 8
+  %.sroa.3.0..sroa_idx.i22 = getelementptr inbounds i8, ptr %64, i64 16
+  store double %59, ptr %.sroa.3.0..sroa_idx.i22, align 8
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 18
-  br i1 %exitcond.not.i24, label %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit25, label %51, !llvm.loop !19
+  br i1 %exitcond.not.i24, label %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit25, label %53, !llvm.loop !19
 
-_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit25: ; preds = %51
+_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit25: ; preds = %53
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 18, i32 noundef 1, i32 noundef 0)
-          to label %.noexc29 unwind label %76
+          to label %.noexc29 unwind label %80
 
 .noexc29:                                         ; preds = %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit25
-  %61 = getelementptr inbounds i8, ptr %8, i64 16
-  %62 = getelementptr inbounds i8, ptr %8, i64 72
-  br label %63
+  %65 = getelementptr inbounds i8, ptr %8, i64 16
+  %66 = getelementptr inbounds i8, ptr %8, i64 72
+  br label %67
 
-63:                                               ; preds = %63, %.noexc29
-  %indvars.iv.i26 = phi i64 [ 0, %.noexc29 ], [ %indvars.iv.next.i27, %63 ]
-  %64 = getelementptr inbounds i8, ptr @_ZZN2cv3ccm8GetColor8getColorENS0_11CONST_COLOREE18Vinyl_COLORED_MASK, i64 %indvars.iv.i26
-  %65 = load i8, ptr %64, align 1, !noalias !33
-  %66 = load ptr, ptr %61, align 8, !alias.scope !33
-  %67 = load ptr, ptr %62, align 8, !alias.scope !33
-  %68 = load i64, ptr %67, align 8
-  %69 = mul i64 %68, %indvars.iv.i26
-  %70 = getelementptr inbounds i8, ptr %66, i64 %69
-  store i8 %65, ptr %70, align 1
+67:                                               ; preds = %67, %.noexc29
+  %indvars.iv.i26 = phi i64 [ 0, %.noexc29 ], [ %indvars.iv.next.i27, %67 ]
+  %68 = getelementptr inbounds i8, ptr @_ZZN2cv3ccm8GetColor8getColorENS0_11CONST_COLOREE18Vinyl_COLORED_MASK, i64 %indvars.iv.i26
+  %69 = load i8, ptr %68, align 1, !noalias !33
+  %70 = load ptr, ptr %65, align 8, !alias.scope !33
+  %71 = load ptr, ptr %66, align 8, !alias.scope !33
+  %72 = load i64, ptr %71, align 8
+  %73 = mul i64 %72, %indvars.iv.i26
+  %74 = getelementptr inbounds i8, ptr %70, i64 %73
+  store i8 %69, ptr %74, align 1
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 18
-  br i1 %exitcond.not.i28, label %_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit30, label %63, !llvm.loop !20
+  br i1 %exitcond.not.i28, label %_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit30, label %67, !llvm.loop !20
 
-_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit30: ; preds = %63
+_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit30: ; preds = %67
   store i32 30, ptr %9, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   store ptr null, ptr %0, align 8, !alias.scope !36
-  %71 = invoke noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #15
-          to label %.noexc32 unwind label %78
+  %75 = invoke noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #15
+          to label %.noexc32 unwind label %82
 
 .noexc32:                                         ; preds = %_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit30
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
-  store i32 1, ptr %72, align 8, !noalias !36
-  %73 = getelementptr inbounds i8, ptr %71, i64 12
-  store i32 1, ptr %73, align 4, !noalias !36
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %71, align 8, !noalias !36
-  %74 = getelementptr inbounds i8, ptr %71, i64 16
-  invoke void @_ZSt10_ConstructIN2cv3ccm5ColorEJRNS0_3MatENS1_11COLOR_SPACEES4_EEvPT_DpOT0_(ptr noundef nonnull %74, ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(96) %8)
-          to label %80 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i31, !noalias !36
+  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  store i32 1, ptr %76, align 8, !noalias !36
+  %77 = getelementptr inbounds i8, ptr %75, i64 12
+  store i32 1, ptr %77, align 4, !noalias !36
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %75, align 8, !noalias !36
+  %78 = getelementptr inbounds i8, ptr %75, i64 16
+  invoke void @_ZSt10_ConstructIN2cv3ccm5ColorEJRNS0_3MatENS1_11COLOR_SPACEES4_EEvPT_DpOT0_(ptr noundef nonnull %78, ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(96) %8)
+          to label %84 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i31, !noalias !36
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i31: ; preds = %.noexc32
-  %75 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZdlPv(ptr noundef nonnull %71) #17, !noalias !36
-  br label %.body33
-
-76:                                               ; preds = %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit25
-  %77 = landingpad { ptr, i32 }
-          cleanup
-  br label %82
-
-78:                                               ; preds = %_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit30
   %79 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZdlPv(ptr noundef nonnull %75) #17, !noalias !36
   br label %.body33
 
-.body33:                                          ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i31, %78
-  %eh.lpad-body34 = phi { ptr, i32 } [ %79, %78 ], [ %75, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i31 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
-  br label %82
-
-80:                                               ; preds = %.noexc32
-  %81 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %71, ptr %81, align 8, !alias.scope !36
-  store ptr %74, ptr %0, align 8, !alias.scope !36
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
-  br label %115
-
-82:                                               ; preds = %.body33, %76
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body34, %.body33 ], [ %77, %76 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #14
-  br label %116
-
-83:                                               ; preds = %2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef 140, i32 noundef 1, i32 noundef 22)
-  %84 = getelementptr inbounds i8, ptr %10, i64 16
-  %85 = getelementptr inbounds i8, ptr %10, i64 72
+80:                                               ; preds = %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit25
+  %81 = landingpad { ptr, i32 }
+          cleanup
   br label %86
 
-86:                                               ; preds = %86, %83
-  %indvars.iv.i36 = phi i64 [ 0, %83 ], [ %indvars.iv.next.i40, %86 ]
+82:                                               ; preds = %_ZN2cv3ccm8GetColor19getColorCheckerMASKEPKhi.exit30
+  %83 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body33
+
+.body33:                                          ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i31, %82
+  %eh.lpad-body34 = phi { ptr, i32 } [ %83, %82 ], [ %79, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i31 ]
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
+  br label %86
+
+84:                                               ; preds = %.noexc32
+  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %75, ptr %85, align 8, !alias.scope !36
+  store ptr %78, ptr %0, align 8, !alias.scope !36
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
+  br label %121
+
+86:                                               ; preds = %.body33, %80
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body34, %.body33 ], [ %81, %80 ]
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #14
+  br label %122
+
+87:                                               ; preds = %2
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef 140, i32 noundef 1, i32 noundef 22)
+  %88 = getelementptr inbounds i8, ptr %10, i64 16
+  %89 = getelementptr inbounds i8, ptr %10, i64 72
+  br label %90
+
+90:                                               ; preds = %90, %87
+  %indvars.iv.i36 = phi i64 [ 0, %87 ], [ %indvars.iv.next.i40, %90 ]
   %.idx.i37 = mul nuw nsw i64 %indvars.iv.i36, 24
-  %87 = getelementptr inbounds i8, ptr @_ZZN2cv3ccm8GetColor8getColorENS0_11CONST_COLOREE19DigitalSG_LAB_D50_2, i64 %.idx.i37
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
-  %89 = load double, ptr %88, align 8, !noalias !39
-  %90 = load ptr, ptr %84, align 8, !alias.scope !39
-  %91 = load ptr, ptr %85, align 8, !alias.scope !39
-  %92 = load i64, ptr %91, align 8
-  %93 = mul i64 %92, %indvars.iv.i36
-  %94 = getelementptr inbounds i8, ptr %90, i64 %93
-  %95 = load <2 x double>, ptr %87, align 8, !noalias !39
-  store <2 x double> %95, ptr %94, align 8
-  %.sroa.3.0..sroa_idx.i39 = getelementptr inbounds i8, ptr %94, i64 16
-  store double %89, ptr %.sroa.3.0..sroa_idx.i39, align 8
+  %91 = getelementptr inbounds i8, ptr @_ZZN2cv3ccm8GetColor8getColorENS0_11CONST_COLOREE19DigitalSG_LAB_D50_2, i64 %.idx.i37
+  %92 = load double, ptr %91, align 8, !noalias !39
+  %93 = getelementptr inbounds i8, ptr %91, i64 8
+  %94 = load double, ptr %93, align 8, !noalias !39
+  %95 = getelementptr inbounds i8, ptr %91, i64 16
+  %96 = load double, ptr %95, align 8, !noalias !39
+  %97 = load ptr, ptr %88, align 8, !alias.scope !39
+  %98 = load ptr, ptr %89, align 8, !alias.scope !39
+  %99 = load i64, ptr %98, align 8
+  %100 = mul i64 %99, %indvars.iv.i36
+  %101 = getelementptr inbounds i8, ptr %97, i64 %100
+  store double %92, ptr %101, align 8
+  %.sroa.2.0..sroa_idx.i38 = getelementptr inbounds i8, ptr %101, i64 8
+  store double %94, ptr %.sroa.2.0..sroa_idx.i38, align 8
+  %.sroa.3.0..sroa_idx.i39 = getelementptr inbounds i8, ptr %101, i64 16
+  store double %96, ptr %.sroa.3.0..sroa_idx.i39, align 8
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, 140
-  br i1 %exitcond.not.i41, label %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit42, label %86, !llvm.loop !19
+  br i1 %exitcond.not.i41, label %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit42, label %90, !llvm.loop !19
 
-_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit42: ; preds = %86
+_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit42: ; preds = %90
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   store ptr null, ptr %0, align 8, !alias.scope !42
-  %96 = invoke noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #15
-          to label %.noexc43 unwind label %103
+  %102 = invoke noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #15
+          to label %.noexc43 unwind label %109
 
 .noexc43:                                         ; preds = %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit42
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
-  store i32 1, ptr %97, align 8, !noalias !42
-  %98 = getelementptr inbounds i8, ptr %96, i64 12
-  store i32 1, ptr %98, align 4, !noalias !42
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %96, align 8, !noalias !42
-  %99 = getelementptr inbounds i8, ptr %96, i64 16
+  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  store i32 1, ptr %103, align 8, !noalias !42
+  %104 = getelementptr inbounds i8, ptr %102, i64 12
+  store i32 1, ptr %104, align 4, !noalias !42
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %102, align 8, !noalias !42
+  %105 = getelementptr inbounds i8, ptr %102, i64 16
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !42
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %10)
-          to label %.noexc.i.i.i.i unwind label %101, !noalias !42
+          to label %.noexc.i.i.i.i unwind label %107, !noalias !42
 
 .noexc.i.i.i.i:                                   ; preds = %.noexc43
-  invoke void @_ZN2cv3ccm5ColorC2ENS_3MatENS0_11COLOR_SPACEE(ptr noundef nonnull align 8 dereferenceable(352) %99, ptr noundef nonnull %3, i32 noundef 30)
-          to label %105 unwind label %.body.i.i.i.i.i, !noalias !42
+  invoke void @_ZN2cv3ccm5ColorC2ENS_3MatENS0_11COLOR_SPACEE(ptr noundef nonnull align 8 dereferenceable(352) %105, ptr noundef nonnull %3, i32 noundef 30)
+          to label %111 unwind label %.body.i.i.i.i.i, !noalias !42
 
 .body.i.i.i.i.i:                                  ; preds = %.noexc.i.i.i.i
-  %100 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #14, !noalias !42
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i
 
-101:                                              ; preds = %.noexc43
-  %102 = landingpad { ptr, i32 }
+107:                                              ; preds = %.noexc43
+  %108 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i: ; preds = %101, %.body.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %102, %101 ], [ %100, %.body.i.i.i.i.i ]
-  call void @_ZdlPv(ptr noundef nonnull %96) #17, !noalias !42
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i: ; preds = %107, %.body.i.i.i.i.i
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %108, %107 ], [ %106, %.body.i.i.i.i.i ]
+  call void @_ZdlPv(ptr noundef nonnull %102) #17, !noalias !42
   br label %.body44
 
-103:                                              ; preds = %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit42
-  %104 = landingpad { ptr, i32 }
+109:                                              ; preds = %_ZN2cv3ccm8GetColor15getColorCheckerEPKdi.exit42
+  %110 = landingpad { ptr, i32 }
           cleanup
   br label %.body44
 
-.body44:                                          ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, %103
-  %eh.lpad-body45 = phi { ptr, i32 } [ %104, %103 ], [ %eh.lpad-body.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ]
+.body44:                                          ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, %109
+  %eh.lpad-body45 = phi { ptr, i32 } [ %110, %109 ], [ %eh.lpad-body.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #14
-  br label %116
+  br label %122
 
-105:                                              ; preds = %.noexc.i.i.i.i
-  %106 = getelementptr inbounds i8, ptr %0, i64 8
+111:                                              ; preds = %.noexc.i.i.i.i
+  %112 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #14, !noalias !42
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3), !noalias !42
-  store ptr %96, ptr %106, align 8, !alias.scope !42
-  store ptr %99, ptr %0, align 8, !alias.scope !42
-  br label %115
+  store ptr %102, ptr %112, align 8, !alias.scope !42
+  store ptr %105, ptr %0, align 8, !alias.scope !42
+  br label %121
 
-107:                                              ; preds = %2
+113:                                              ; preds = %2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %108 unwind label %110
+          to label %114 unwind label %116
 
-108:                                              ; preds = %107
+114:                                              ; preds = %113
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -213, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @__func__._ZN2cv3ccm8GetColor8getColorENS0_11CONST_COLORE, ptr noundef nonnull @.str.1, i32 noundef 394) #18
-          to label %109 unwind label %112
+          to label %115 unwind label %118
 
-109:                                              ; preds = %108
+115:                                              ; preds = %114
   unreachable
 
-110:                                              ; preds = %107
-  %111 = landingpad { ptr, i32 }
+116:                                              ; preds = %113
+  %117 = landingpad { ptr, i32 }
           cleanup
-  br label %114
+  br label %120
 
-112:                                              ; preds = %108
-  %113 = landingpad { ptr, i32 }
+118:                                              ; preds = %114
+  %119 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
-  br label %114
+  br label %120
 
-114:                                              ; preds = %112, %110
-  %.pn12 = phi { ptr, i32 } [ %113, %112 ], [ %111, %110 ]
+120:                                              ; preds = %118, %116
+  %.pn12 = phi { ptr, i32 } [ %119, %118 ], [ %117, %116 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
-  br label %116
+  br label %122
 
-115:                                              ; preds = %105, %80, %45
-  %.sink = phi ptr [ %10, %105 ], [ %7, %80 ], [ %4, %45 ]
+121:                                              ; preds = %111, %84, %47
+  %.sink = phi ptr [ %10, %111 ], [ %7, %84 ], [ %4, %47 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #14
   ret void
 
-116:                                              ; preds = %114, %.body44, %82, %47
-  %.pn12.pn = phi { ptr, i32 } [ %.pn12, %114 ], [ %eh.lpad-body45, %.body44 ], [ %.pn, %82 ], [ %.pn10, %47 ]
+122:                                              ; preds = %120, %.body44, %86, %49
+  %.pn12.pn = phi { ptr, i32 } [ %.pn12, %120 ], [ %eh.lpad-body45, %.body44 ], [ %.pn, %86 ], [ %.pn10, %49 ]
   resume { ptr, i32 } %.pn12.pn
 }
 
@@ -4228,63 +4244,65 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4p
   %3 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #15
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   invoke void @_ZN2cv3ccm10ColorSpaceC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(200) %1)
-          to label %.noexc.i unwind label %18
+          to label %.noexc.i unwind label %19
 
 .noexc.i:                                         ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 232
   %6 = getelementptr inbounds i8, ptr %1, i64 200
-  %7 = getelementptr inbounds i8, ptr %1, i64 208
-  %8 = load ptr, ptr %7, align 8
-  %9 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %9, ptr %5, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit, label %10
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 240
+  %9 = getelementptr inbounds i8, ptr %1, i64 208
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit, label %11
 
-10:                                               ; preds = %.noexc.i
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
-  %12 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %16, label %13
+11:                                               ; preds = %.noexc.i
+  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %17, label %14
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr %11, align 4
-  %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %11, align 4
+14:                                               ; preds = %11
+  %15 = load i32, ptr %12, align 4
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %12, align 4
   br label %_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit
 
-16:                                               ; preds = %10
-  %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
+17:                                               ; preds = %11
+  %18 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4
   br label %_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #14
+  %21 = extractvalue { ptr, i32 } %20, 0
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #14
   tail call void @_ZdlPv(ptr noundef nonnull %3) #17
   invoke void @__cxa_rethrow() #18
-          to label %28 unwind label %22
+          to label %29 unwind label %23
 
-22:                                               ; preds = %18
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %19
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %24 unwind label %25
+          to label %25 unwind label %26
 
-24:                                               ; preds = %22
-  resume { ptr, i32 } %23
+25:                                               ; preds = %23
+  resume { ptr, i32 } %24
 
-25:                                               ; preds = %22
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %23
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #16
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #16
   unreachable
 
-28:                                               ; preds = %18
+29:                                               ; preds = %19
   unreachable
 
-_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit: ; preds = %.noexc.i, %13, %16
+_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit: ; preds = %.noexc.i, %14, %17
   ret ptr %3
 }
 

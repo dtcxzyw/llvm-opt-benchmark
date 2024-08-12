@@ -2597,16 +2597,16 @@ define range(i32 0, 2) i32 @OSSL_HPKE_get_grease_value(ptr noundef readonly %sui
 entry:
   %fakepriv = alloca ptr, align 8
   store ptr null, ptr %fakepriv, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %enc, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %enclen, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %ct, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %suite, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
+  %cmp = icmp eq ptr %enc, null
+  %cmp1 = icmp eq ptr %enclen, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %ct, null
+  %or.cond1 = or i1 %or.cond, %cmp3
   %cmp5 = icmp eq i64 %ctlen, 0
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp ne i4 %5, 0
-  %op.rdx = or i1 %6, %cmp5
-  br i1 %op.rdx, label %if.then, label %if.end
+  %or.cond2 = or i1 %or.cond1, %cmp5
+  %cmp7 = icmp eq ptr %suite, null
+  %or.cond3 = or i1 %cmp7, %or.cond2
+  br i1 %or.cond3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #5
@@ -2624,13 +2624,13 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then11, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %7 = load i16, ptr %call.i, align 8
+  %0 = load i16, ptr %call.i, align 8
   %call2.i = tail call ptr @ossl_HPKE_KDF_INFO_find_random(ptr noundef %libctx) #5
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %if.then11, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %8 = load i16, ptr %call2.i, align 8
+  %1 = load i16, ptr %call2.i, align 8
   %call7.i = tail call ptr @ossl_HPKE_AEAD_INFO_find_random(ptr noundef %libctx) #5
   %cmp8.i = icmp eq ptr %call7.i, null
   br i1 %cmp8.i, label %if.then11, label %if.end13
@@ -2650,16 +2650,16 @@ if.else:                                          ; preds = %if.end
 
 if.end13:                                         ; preds = %if.end5.i, %if.else
   %chosen.sroa.6.0.in = phi ptr [ %chosen.sroa.6.0.suite_in.sroa_idx, %if.else ], [ %call7.i, %if.end5.i ]
-  %chosen.sroa.5.0 = phi i16 [ %chosen.sroa.5.0.copyload, %if.else ], [ %8, %if.end5.i ]
-  %chosen.sroa.0.0 = phi i16 [ %chosen.sroa.0.0.copyload, %if.else ], [ %7, %if.end5.i ]
+  %chosen.sroa.5.0 = phi i16 [ %chosen.sroa.5.0.copyload, %if.else ], [ %1, %if.end5.i ]
+  %chosen.sroa.0.0 = phi i16 [ %chosen.sroa.0.0.copyload, %if.else ], [ %0, %if.end5.i ]
   %chosen.sroa.6.0 = load i16, ptr %chosen.sroa.6.0.in, align 2
   %chosen.sroa.6.0.insert.ext29 = zext i16 %chosen.sroa.6.0 to i48
   %chosen.sroa.6.0.insert.shift30 = shl nuw i48 %chosen.sroa.6.0.insert.ext29, 32
   %chosen.sroa.5.0.insert.ext24 = zext i16 %chosen.sroa.5.0 to i48
   %chosen.sroa.5.0.insert.shift25 = shl nuw nsw i48 %chosen.sroa.5.0.insert.ext24, 16
   %chosen.sroa.0.0.insert.ext20 = zext i16 %chosen.sroa.0.0 to i48
-  %9 = or disjoint i48 %chosen.sroa.6.0.insert.shift30, %chosen.sroa.0.0.insert.ext20
-  %chosen.sroa.0.0.insert.insert22 = or disjoint i48 %9, %chosen.sroa.5.0.insert.shift25
+  %2 = or disjoint i48 %chosen.sroa.6.0.insert.shift30, %chosen.sroa.0.0.insert.ext20
+  %chosen.sroa.0.0.insert.insert22 = or disjoint i48 %2, %chosen.sroa.5.0.insert.shift25
   %call.i15 = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %chosen.sroa.0.0) #5
   %cmp.i16 = icmp eq ptr %call.i15, null
   br i1 %cmp.i16, label %if.then16, label %if.end.i17
@@ -2687,8 +2687,8 @@ if.end17:                                         ; preds = %if.end4.i
   %chosen.sroa.6.0.suite.sroa_idx = getelementptr inbounds i8, ptr %suite, i64 4
   store i16 %chosen.sroa.6.0, ptr %chosen.sroa.6.0.suite.sroa_idx, align 2
   %taglen = getelementptr inbounds i8, ptr %call5.i, i64 16
-  %10 = load i64, ptr %taglen, align 8
-  %cmp18.not = icmp ult i64 %10, %ctlen
+  %3 = load i64, ptr %taglen, align 8
+  %cmp18.not = icmp ult i64 %3, %ctlen
   br i1 %cmp18.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
@@ -2699,9 +2699,9 @@ if.then19:                                        ; preds = %if.end17
 
 if.end20:                                         ; preds = %if.end17
   %Npk = getelementptr inbounds i8, ptr %call.i15, i64 48
-  %11 = load i64, ptr %Npk, align 8
-  %12 = load i64, ptr %enclen, align 8
-  %cmp21 = icmp ugt i64 %11, %12
+  %4 = load i64, ptr %Npk, align 8
+  %5 = load i64, ptr %enclen, align 8
+  %cmp21 = icmp ugt i64 %4, %5
   br i1 %cmp21, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.end20
@@ -2722,8 +2722,8 @@ if.then27:                                        ; preds = %if.end23
   br label %return
 
 if.end28:                                         ; preds = %if.end23
-  %13 = load ptr, ptr %fakepriv, align 8
-  call void @EVP_PKEY_free(ptr noundef %13) #5
+  %6 = load ptr, ptr %fakepriv, align 8
+  call void @EVP_PKEY_free(ptr noundef %6) #5
   %call29 = call i32 @RAND_bytes_ex(ptr noundef %libctx, ptr noundef nonnull %ct, i64 noundef %ctlen, i32 noundef 0) #5
   %cmp30 = icmp slt i32 %call29, 1
   br i1 %cmp30, label %if.then31, label %return

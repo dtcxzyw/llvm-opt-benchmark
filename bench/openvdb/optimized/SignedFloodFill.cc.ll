@@ -3410,10 +3410,13 @@ for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   br i1 %cmp.i.i, label %if.else.i.i, label %if.end36, !llvm.loop !40
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -4176,10 +4179,13 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end31
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 120
@@ -5006,10 +5012,13 @@ for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   br i1 %cmp.i.i, label %if.else.i.i, label %if.end31, !llvm.loop !51
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -5737,10 +5746,13 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end31
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 120
@@ -6918,10 +6930,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %if.end34, !llvm.loop !7
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -8362,15 +8377,17 @@ if.then13.critedge:                               ; preds = %land.rhs.i
 if.then13:                                        ; preds = %if.then13.critedge, %if.end.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
+  %8 = load ptr, ptr %second, align 8, !noalias !82
+  store ptr %8, ptr %agg.result, align 8, !alias.scope !82
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 72
-  %8 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !82
-  %9 = load <2 x ptr>, ptr %second, align 8, !noalias !82
-  store <2 x ptr> %9, ptr %agg.result, align 8, !alias.scope !82
-  %cmp.not.i.i.i.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !82
+  store ptr %9, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !82
+  %cmp.not.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then13
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !82
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -9422,10 +9439,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %if.end34, !llvm.loop !12
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -10301,10 +10321,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %if.end34, !llvm.loop !16
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -14303,10 +14326,13 @@ for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   br i1 %cmp.i.i, label %if.else.i.i, label %if.end31, !llvm.loop !139
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -15034,10 +15060,13 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end31
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 120
@@ -15864,10 +15893,13 @@ for.inc.i.i:                                      ; preds = %for.body.i.i.i.i
   br i1 %cmp.i.i, label %if.else.i.i, label %if.end31, !llvm.loop !149
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -16595,10 +16627,13 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end31
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 120
@@ -17773,10 +17808,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %if.end34, !llvm.loop !114
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 120
@@ -19816,10 +19854,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %if.end34, !llvm.loop !118
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 120
@@ -20695,10 +20736,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %if.end34, !llvm.loop !122
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 120
@@ -23931,10 +23975,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %if.end31, !llvm.loop !200
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -24797,10 +24844,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %if.end31, !llvm.loop !204
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -25676,10 +25726,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %if.end31, !llvm.loop !208
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -27218,10 +27271,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %if.end31, !llvm.loop !231
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 120
@@ -28084,10 +28140,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %if.end31, !llvm.loop !235
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 120
@@ -28963,10 +29022,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i.i.i, label %for.body.i.i, label %if.end31, !llvm.loop !239
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 120

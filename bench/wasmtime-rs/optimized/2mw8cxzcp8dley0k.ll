@@ -323,41 +323,44 @@ define align 8 ptr @"_ZN92_$LT$hashbrown..map..Keys$LT$K$C$V$GT$$u20$as$u20$core
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2cb8cf1b2262c157E"(ptr nocapture writeonly sret({ i64, [4 x i64] }) align 8 %0, ptr align 8 %1, i64 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = alloca { i64, i64 }, align 16
-  store i64 %2, ptr %5, align 16
+  %5 = alloca { i64, i64 }, align 8
+  store i64 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = call i64 @_ZN4core4hash11BuildHasher8hash_one17h061e423dec26af9eE(ptr nonnull align 8 %7, ptr nonnull align 8 %5)
   %9 = call ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h306ef2f0a207a783E"(ptr align 8 %1, i64 %8, ptr nonnull align 8 %5)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %15, label %10
+  br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %4
-  %11 = load i64, ptr %5, align 16, !noundef !3
+  %11 = load i64, ptr %5, align 8, !noundef !3
   %12 = load i64, ptr %6, align 8, !noundef !3
-  %13 = insertelement <2 x ptr> poison, ptr %9, i64 0
-  %14 = insertelement <2 x ptr> %13, ptr %1, i64 1
   br label %19
 
-15:                                               ; preds = %4
+13:                                               ; preds = %4
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h7e9a005d9906b26dE"(ptr align 8 %1, i64 1, ptr nonnull align 8 %7)
-  %16 = load <2 x i64>, ptr %5, align 16
-  %17 = ptrtoint ptr %1 to i64
-  %18 = inttoptr <2 x i64> %16 to <2 x ptr>
+  %14 = load i64, ptr %5, align 8, !noundef !3
+  %15 = load i64, ptr %6, align 8, !noundef !3
+  %16 = ptrtoint ptr %1 to i64
+  %17 = inttoptr i64 %14 to ptr
+  %18 = inttoptr i64 %15 to ptr
   br label %19
 
-19:                                               ; preds = %15, %10
-  %.sink14 = phi i64 [ %17, %15 ], [ %11, %10 ]
-  %.sink13 = phi i64 [ %8, %15 ], [ %12, %10 ]
-  %.sink = phi i64 [ 2, %15 ], [ 1, %10 ]
-  %20 = phi <2 x ptr> [ %18, %15 ], [ %14, %10 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink14, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink13, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x ptr> %20, ptr %23, align 8
+19:                                               ; preds = %13, %10
+  %.sink14 = phi i64 [ %16, %13 ], [ %11, %10 ]
+  %.sink13 = phi i64 [ %8, %13 ], [ %12, %10 ]
+  %.sink12 = phi ptr [ %17, %13 ], [ %9, %10 ]
+  %.sink11 = phi ptr [ %18, %13 ], [ %1, %10 ]
+  %.sink = phi i64 [ 2, %13 ], [ 1, %10 ]
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink14, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink13, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %.sink12, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %.sink11, ptr %23, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 }

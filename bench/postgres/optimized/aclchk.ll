@@ -2802,19 +2802,19 @@ define dso_local void @RemoveRoleFromObjectACL(i32 noundef %0, i32 noundef %1, i
   %4 = alloca %struct.InternalDefaultACL, align 8
   %5 = alloca [1 x %struct.ScanKeyData], align 16
   %6 = alloca %struct.InternalGrant, align 8
-  switch i32 %1, label %55 [
+  switch i32 %1, label %58 [
     i32 826, label %7
-    i32 1259, label %58
-    i32 1262, label %45
-    i32 1247, label %46
-    i32 1255, label %47
-    i32 2612, label %48
-    i32 2613, label %49
-    i32 2615, label %50
-    i32 1213, label %51
-    i32 1417, label %52
-    i32 2328, label %53
-    i32 6243, label %54
+    i32 1259, label %61
+    i32 1262, label %48
+    i32 1247, label %49
+    i32 1255, label %50
+    i32 2612, label %51
+    i32 2613, label %52
+    i32 2615, label %53
+    i32 1213, label %54
+    i32 1417, label %55
+    i32 2328, label %56
+    i32 6243, label %57
   ]
 
 7:                                                ; preds = %3
@@ -2841,127 +2841,131 @@ define dso_local void @RemoveRoleFromObjectACL(i32 noundef %0, i32 noundef %1, i
   %20 = zext i8 %19 to i64
   %21 = getelementptr i8, ptr %17, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 4
-  %23 = load <2 x i32>, ptr %22, align 4
-  store <2 x i32> %23, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 12
-  %25 = load i8, ptr %24, align 4
-  switch i8 %25, label %30 [
-    i8 114, label %35
-    i8 83, label %26
-    i8 102, label %27
-    i8 84, label %28
-    i8 110, label %29
+  %23 = load i32, ptr %22, align 4
+  store i32 %23, ptr %4, align 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %25, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %21, i64 12
+  %28 = load i8, ptr %27, align 4
+  switch i8 %28, label %33 [
+    i8 114, label %38
+    i8 83, label %29
+    i8 102, label %30
+    i8 84, label %31
+    i8 110, label %32
   ]
 
-26:                                               ; preds = %15
-  br label %35
-
-27:                                               ; preds = %15
-  br label %35
-
-28:                                               ; preds = %15
-  br label %35
-
 29:                                               ; preds = %15
-  br label %35
+  br label %38
 
 30:                                               ; preds = %15
-  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %31)
-  %32 = load i8, ptr %24, align 4
-  %33 = sext i8 %32 to i32
-  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %33) #8
+  br label %38
+
+31:                                               ; preds = %15
+  br label %38
+
+32:                                               ; preds = %15
+  br label %38
+
+33:                                               ; preds = %15
+  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %34)
+  %35 = load i8, ptr %27, align 4
+  %36 = sext i8 %35 to i32
+  %37 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %36) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1522, ptr noundef nonnull @__func__.RemoveRoleFromObjectACL) #8
   unreachable
 
-35:                                               ; preds = %15, %29, %28, %27, %26
-  %.sink = phi i32 [ 36, %29 ], [ 49, %28 ], [ 19, %27 ], [ 37, %26 ], [ 41, %15 ]
-  %36 = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 %.sink, ptr %36, align 4
+38:                                               ; preds = %15, %32, %31, %30, %29
+  %.sink = phi i32 [ 36, %32 ], [ 49, %31 ], [ 19, %30 ], [ 37, %29 ], [ 41, %15 ]
+  %39 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %.sink, ptr %39, align 4
   call void @systable_endscan(ptr noundef %10) #8
   call void @table_close(ptr noundef %8, i32 noundef 1) #8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
-  store i8 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 0, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  store i8 0, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %4, i64 16
+  store i8 1, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 0, ptr %42, align 8
   %.sroa.02.0.insert.ext = zext i32 %0 to i64
-  %40 = inttoptr i64 %.sroa.02.0.insert.ext to ptr
-  %41 = call ptr @list_make1_impl(i32 noundef 455, ptr %40) #8
-  %42 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 40
-  store i8 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 44
-  store i32 1, ptr %44, align 4
+  %43 = inttoptr i64 %.sroa.02.0.insert.ext to ptr
+  %44 = call ptr @list_make1_impl(i32 noundef 455, ptr %43) #8
+  %45 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %4, i64 40
+  store i8 0, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %4, i64 44
+  store i32 1, ptr %47, align 4
   call fastcc void @SetDefaultACL(ptr noundef nonnull %4)
-  br label %70
-
-45:                                               ; preds = %3
-  br label %58
-
-46:                                               ; preds = %3
-  br label %58
-
-47:                                               ; preds = %3
-  br label %58
+  br label %73
 
 48:                                               ; preds = %3
-  br label %58
+  br label %61
 
 49:                                               ; preds = %3
-  br label %58
+  br label %61
 
 50:                                               ; preds = %3
-  br label %58
+  br label %61
 
 51:                                               ; preds = %3
-  br label %58
+  br label %61
 
 52:                                               ; preds = %3
-  br label %58
+  br label %61
 
 53:                                               ; preds = %3
-  br label %58
+  br label %61
 
 54:                                               ; preds = %3
-  br label %58
+  br label %61
 
 55:                                               ; preds = %3
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, i32 noundef %1) #8
+  br label %61
+
+56:                                               ; preds = %3
+  br label %61
+
+57:                                               ; preds = %3
+  br label %61
+
+58:                                               ; preds = %3
+  %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %59)
+  %60 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, i32 noundef %1) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1580, ptr noundef nonnull @__func__.RemoveRoleFromObjectACL) #8
   unreachable
 
-58:                                               ; preds = %3, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45
-  %.sink22 = phi i32 [ 27, %54 ], [ 16, %53 ], [ 17, %52 ], [ 42, %51 ], [ 36, %50 ], [ 22, %49 ], [ 21, %48 ], [ 34, %47 ], [ 49, %46 ], [ 9, %45 ], [ 41, %3 ]
-  %59 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %.sink22, ptr %59, align 4
+61:                                               ; preds = %3, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48
+  %.sink22 = phi i32 [ 27, %57 ], [ 16, %56 ], [ 17, %55 ], [ 42, %54 ], [ 36, %53 ], [ 22, %52 ], [ 21, %51 ], [ 34, %50 ], [ 49, %49 ], [ 9, %48 ], [ 41, %3 ]
+  %62 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %.sink22, ptr %62, align 4
   store i8 0, ptr %6, align 8
   %.sroa.01.0.insert.ext = zext i32 %2 to i64
-  %60 = inttoptr i64 %.sroa.01.0.insert.ext to ptr
-  %61 = tail call ptr @list_make1_impl(i32 noundef 455, ptr %60) #8
-  %62 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 16
-  store i8 1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %6, i64 24
+  %63 = inttoptr i64 %.sroa.01.0.insert.ext to ptr
+  %64 = tail call ptr @list_make1_impl(i32 noundef 455, ptr %63) #8
+  %65 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %64, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %6, i64 16
+  store i8 1, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %6, i64 24
   %.sroa.0.0.insert.ext = zext i32 %0 to i64
-  %65 = inttoptr i64 %.sroa.0.0.insert.ext to ptr
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
-  %66 = tail call ptr @list_make1_impl(i32 noundef 455, ptr %65) #8
-  %67 = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 48
-  store i8 0, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 52
-  store i32 1, ptr %69, align 4
+  %68 = inttoptr i64 %.sroa.0.0.insert.ext to ptr
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
+  %69 = tail call ptr @list_make1_impl(i32 noundef 455, ptr %68) #8
+  %70 = getelementptr inbounds i8, ptr %6, i64 40
+  store ptr %69, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %6, i64 48
+  store i8 0, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %6, i64 52
+  store i32 1, ptr %72, align 4
   call fastcc void @ExecGrantStmt_oids(ptr noundef nonnull %6)
-  br label %70
+  br label %73
 
-70:                                               ; preds = %58, %35
+73:                                               ; preds = %61, %38
   ret void
 }
 
@@ -3126,101 +3130,105 @@ define internal fastcc void @SetDefaultACL(ptr nocapture noundef readonly %0) un
   %83 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %83, align 4
   call void @performDeletion(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0) #8
-  br label %132
+  br label %135
 
 84:                                               ; preds = %59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %7, i8 0, i64 5, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %8, i8 0, i64 5, i1 false)
-  br i1 %.not97, label %85, label %111
+  br i1 %.not97, label %85, label %114
 
 85:                                               ; preds = %84
   %86 = call i32 @GetNewOidWithIndex(ptr noundef %13, i32 noundef 828, i16 noundef signext 1) #8
   %87 = zext i32 %86 to i64
   store i64 %87, ptr %6, align 16
-  %88 = getelementptr inbounds i8, ptr %6, i64 8
-  %89 = load <2 x i32>, ptr %0, align 8
-  %90 = zext <2 x i32> %89 to <2 x i64>
-  store <2 x i64> %90, ptr %88, align 8
-  %91 = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 %.089, ptr %91, align 8
-  %92 = ptrtoint ptr %71 to i64
-  %93 = getelementptr inbounds i8, ptr %6, i64 32
+  %88 = load i32, ptr %0, align 8
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %89, ptr %90, align 8
+  %91 = load i32, ptr %14, align 4
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %92, ptr %93, align 16
-  %94 = getelementptr inbounds i8, ptr %13, i64 64
-  %95 = load ptr, ptr %94, align 8
-  %96 = call ptr @heap_form_tuple(ptr noundef %95, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
-  call void @CatalogTupleInsert(ptr noundef %13, ptr noundef %96) #8
-  %97 = load i32, ptr %0, align 8
-  call void @recordDependencyOnOwner(i32 noundef 826, i32 noundef %86, i32 noundef %97) #8
-  %98 = load i32, ptr %14, align 4
-  %.not99 = icmp eq i32 %98, 0
-  br i1 %.not99, label %104, label %99
+  %94 = getelementptr inbounds i8, ptr %6, i64 24
+  store i64 %.089, ptr %94, align 8
+  %95 = ptrtoint ptr %71 to i64
+  %96 = getelementptr inbounds i8, ptr %6, i64 32
+  store i64 %95, ptr %96, align 16
+  %97 = getelementptr inbounds i8, ptr %13, i64 64
+  %98 = load ptr, ptr %97, align 8
+  %99 = call ptr @heap_form_tuple(ptr noundef %98, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
+  call void @CatalogTupleInsert(ptr noundef %13, ptr noundef %99) #8
+  %100 = load i32, ptr %0, align 8
+  call void @recordDependencyOnOwner(i32 noundef 826, i32 noundef %86, i32 noundef %100) #8
+  %101 = load i32, ptr %14, align 4
+  %.not99 = icmp eq i32 %101, 0
+  br i1 %.not99, label %107, label %102
 
-99:                                               ; preds = %85
+102:                                              ; preds = %85
   store i32 826, ptr %9, align 4
-  %100 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %86, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 0, ptr %101, align 4
+  %103 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %86, ptr %103, align 4
+  %104 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 0, ptr %104, align 4
   store i32 2615, ptr %10, align 4
-  %102 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 %98, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %10, i64 8
-  store i32 0, ptr %103, align 4
+  %105 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 %101, ptr %105, align 4
+  %106 = getelementptr inbounds i8, ptr %10, i64 8
+  store i32 0, ptr %106, align 4
   call void @recordDependencyOn(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 97) #8
-  br label %104
+  br label %107
 
-104:                                              ; preds = %99, %85
-  %105 = call i32 @aclmembers(ptr noundef %71, ptr noundef nonnull %3) #8
-  %106 = load i32, ptr %0, align 8
-  %107 = load ptr, ptr %2, align 8
-  %108 = load ptr, ptr %3, align 8
-  call void @updateAclDependencies(i32 noundef 826, i32 noundef %86, i32 noundef 0, i32 noundef %106, i32 noundef %.090, ptr noundef %107, i32 noundef %105, ptr noundef %108) #8
-  %109 = load ptr, ptr @object_access_hook, align 8
-  %.not101 = icmp eq ptr %109, null
-  br i1 %.not101, label %.critedge103, label %110
+107:                                              ; preds = %102, %85
+  %108 = call i32 @aclmembers(ptr noundef %71, ptr noundef nonnull %3) #8
+  %109 = load i32, ptr %0, align 8
+  %110 = load ptr, ptr %2, align 8
+  %111 = load ptr, ptr %3, align 8
+  call void @updateAclDependencies(i32 noundef 826, i32 noundef %86, i32 noundef 0, i32 noundef %109, i32 noundef %.090, ptr noundef %110, i32 noundef %108, ptr noundef %111) #8
+  %112 = load ptr, ptr @object_access_hook, align 8
+  %.not101 = icmp eq ptr %112, null
+  br i1 %.not101, label %.critedge103, label %113
 
-110:                                              ; preds = %104
+113:                                              ; preds = %107
   call void @RunObjectPostCreateHook(i32 noundef 826, i32 noundef %86, i32 noundef 0, i1 noundef zeroext false) #8
   br label %.critedge103
 
-111:                                              ; preds = %84
-  %112 = getelementptr inbounds i8, ptr %48, i64 16
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 22
-  %115 = load i8, ptr %114, align 2
-  %116 = zext i8 %115 to i64
-  %117 = getelementptr i8, ptr %113, i64 %116
-  %118 = load i32, ptr %117, align 4
-  %119 = ptrtoint ptr %71 to i64
-  %120 = getelementptr inbounds i8, ptr %6, i64 32
-  store i64 %119, ptr %120, align 16
-  %121 = getelementptr inbounds i8, ptr %8, i64 4
-  store i8 1, ptr %121, align 1
-  %122 = getelementptr inbounds i8, ptr %13, i64 64
-  %123 = load ptr, ptr %122, align 8
-  %124 = call ptr @heap_modify_tuple(ptr noundef nonnull %48, ptr noundef %123, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
-  %125 = getelementptr inbounds i8, ptr %124, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %13, ptr noundef nonnull %125, ptr noundef %124) #8
-  %126 = call i32 @aclmembers(ptr noundef %71, ptr noundef nonnull %3) #8
-  %127 = load i32, ptr %0, align 8
-  %128 = load ptr, ptr %2, align 8
-  %129 = load ptr, ptr %3, align 8
-  call void @updateAclDependencies(i32 noundef 826, i32 noundef %118, i32 noundef 0, i32 noundef %127, i32 noundef %.090, ptr noundef %128, i32 noundef %126, ptr noundef %129) #8
-  %130 = load ptr, ptr @object_access_hook, align 8
-  %.not100 = icmp eq ptr %130, null
-  br i1 %.not100, label %132, label %131
+114:                                              ; preds = %84
+  %115 = getelementptr inbounds i8, ptr %48, i64 16
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 22
+  %118 = load i8, ptr %117, align 2
+  %119 = zext i8 %118 to i64
+  %120 = getelementptr i8, ptr %116, i64 %119
+  %121 = load i32, ptr %120, align 4
+  %122 = ptrtoint ptr %71 to i64
+  %123 = getelementptr inbounds i8, ptr %6, i64 32
+  store i64 %122, ptr %123, align 16
+  %124 = getelementptr inbounds i8, ptr %8, i64 4
+  store i8 1, ptr %124, align 1
+  %125 = getelementptr inbounds i8, ptr %13, i64 64
+  %126 = load ptr, ptr %125, align 8
+  %127 = call ptr @heap_modify_tuple(ptr noundef nonnull %48, ptr noundef %126, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  call void @CatalogTupleUpdate(ptr noundef %13, ptr noundef nonnull %128, ptr noundef %127) #8
+  %129 = call i32 @aclmembers(ptr noundef %71, ptr noundef nonnull %3) #8
+  %130 = load i32, ptr %0, align 8
+  %131 = load ptr, ptr %2, align 8
+  %132 = load ptr, ptr %3, align 8
+  call void @updateAclDependencies(i32 noundef 826, i32 noundef %121, i32 noundef 0, i32 noundef %130, i32 noundef %.090, ptr noundef %131, i32 noundef %129, ptr noundef %132) #8
+  %133 = load ptr, ptr @object_access_hook, align 8
+  %.not100 = icmp eq ptr %133, null
+  br i1 %.not100, label %135, label %134
 
-131:                                              ; preds = %111
-  call void @RunObjectPostAlterHook(i32 noundef 826, i32 noundef %118, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #8
-  br label %132
+134:                                              ; preds = %114
+  call void @RunObjectPostAlterHook(i32 noundef 826, i32 noundef %121, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #8
+  br label %135
 
-132:                                              ; preds = %111, %131, %74
+135:                                              ; preds = %114, %134, %74
   call void @ReleaseSysCache(ptr noundef nonnull %48) #8
   br label %.critedge103
 
-.critedge103:                                     ; preds = %110, %104, %73, %132
+.critedge103:                                     ; preds = %113, %107, %73, %135
   call void @table_close(ptr noundef %13, i32 noundef 3) #8
   call void @CommandCounterIncrement() #8
   ret void

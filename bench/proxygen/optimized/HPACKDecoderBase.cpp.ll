@@ -1028,34 +1028,46 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
 entry:
   %counter = alloca ptr, align 8
   %counterLen = alloca i64, align 8
-  %0 = icmp eq <8 x ptr> <ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @mallctl>, <ptr @mallocx, ptr @rallocx, ptr @xallocx, ptr @sallocx, ptr @dallocx, ptr @sdallocx, ptr @nallocx, ptr null>
-  %1 = icmp eq ptr @mallctlnametomib, null
-  %2 = icmp eq ptr @mallctlbymib, null
-  %3 = bitcast <8 x i1> %0 to i8
-  %4 = icmp ne i8 %3, 0
-  %op.rdx = or i1 %4, %1
-  %op.rdx10 = or i1 %op.rdx, %2
-  br i1 %op.rdx10, label %return, label %if.end
+  %0 = icmp eq ptr @mallocx, null
+  %1 = icmp eq ptr @rallocx, null
+  %or.cond = or i1 %0, %1
+  %2 = icmp eq ptr @xallocx, null
+  %or.cond1 = or i1 %2, %or.cond
+  %3 = icmp eq ptr @sallocx, null
+  %or.cond2 = or i1 %3, %or.cond1
+  %4 = icmp eq ptr @dallocx, null
+  %or.cond3 = or i1 %4, %or.cond2
+  %5 = icmp eq ptr @sdallocx, null
+  %or.cond4 = or i1 %5, %or.cond3
+  %6 = icmp eq ptr @nallocx, null
+  %or.cond5 = or i1 %6, %or.cond4
+  %7 = icmp eq ptr @mallctl, null
+  %or.cond6 = or i1 %7, %or.cond5
+  %8 = icmp eq ptr @mallctlnametomib, null
+  %or.cond7 = or i1 %8, %or.cond6
+  %9 = icmp eq ptr @mallctlbymib, null
+  %or.cond8 = or i1 %9, %or.cond7
+  br i1 %or.cond8, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store i64 8, ptr %counterLen, align 8
   %call = call i32 @mallctl(ptr noundef nonnull @.str.8, ptr noundef nonnull %counter, ptr noundef nonnull %counterLen, ptr noundef null, i64 noundef 0) #22
   %cmp.not = icmp eq i32 %call, 0
-  %5 = load i64, ptr %counterLen, align 8
-  %cmp12.not = icmp eq i64 %5, 8
+  %10 = load i64, ptr %counterLen, align 8
+  %cmp12.not = icmp eq i64 %10, 8
   %or.cond9 = select i1 %cmp.not, i1 %cmp12.not, i1 false
   br i1 %or.cond9, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end
-  %6 = load ptr, ptr %counter, align 8
-  %7 = load volatile i64, ptr %6, align 8
-  %8 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
-  %guard.uninitialized = icmp eq i8 %8, 0
+  %11 = load ptr, ptr %counter, align 8
+  %12 = load volatile i64, ptr %11, align 8
+  %13 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
+  %guard.uninitialized = icmp eq i8 %13, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !18
 
 init.check:                                       ; preds = %if.end14
-  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #22
-  %tobool.not = icmp eq i32 %9, 0
+  %14 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #22
+  %tobool.not = icmp eq i32 %14, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
@@ -1065,16 +1077,16 @@ init:                                             ; preds = %init.check
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %if.end14
-  %10 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8
-  %tobool16.not = icmp eq ptr %10, null
+  %15 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8
+  %tobool16.not = icmp eq ptr %15, null
   br i1 %tobool16.not, label %return, label %if.end18
 
 if.end18:                                         ; preds = %init.end
-  %11 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8
-  call void @free(ptr noundef %11) #22
-  %12 = load ptr, ptr %counter, align 8
-  %13 = load volatile i64, ptr %12, align 8
-  %cmp19 = icmp ne i64 %7, %13
+  %16 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8
+  call void @free(ptr noundef %16) #22
+  %17 = load ptr, ptr %counter, align 8
+  %18 = load volatile i64, ptr %17, align 8
+  %cmp19 = icmp ne i64 %12, %18
   br label %return
 
 return:                                           ; preds = %init.end, %if.end, %entry, %if.end18

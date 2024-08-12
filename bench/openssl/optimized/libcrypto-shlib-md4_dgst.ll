@@ -805,7 +805,13 @@ define noundef i32 @MD4_Init(ptr nocapture noundef writeonly %c) local_unnamed_a
 entry:
   %0 = getelementptr inbounds i8, ptr %c, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %c, align 4
+  store i32 1732584193, ptr %c, align 4
+  %B = getelementptr inbounds i8, ptr %c, i64 4
+  store i32 -271733879, ptr %B, align 4
+  %C = getelementptr inbounds i8, ptr %c, i64 8
+  store i32 -1732584194, ptr %C, align 4
+  %D = getelementptr inbounds i8, ptr %c, i64 12
+  store i32 271733878, ptr %D, align 4
   ret i32 1
 }
 

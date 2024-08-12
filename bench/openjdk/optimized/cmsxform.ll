@@ -1191,52 +1191,50 @@ declare i32 @cmsPipelineOutputChannels(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @SetWhitePoint(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) unnamed_addr #6 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %4, label %6
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
-  store <2 x double> <double 0x3FEEDAB9F559B3D0, double 1.000000e+00>, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  store double 0x3FEA6594AF4F0D84, ptr %5, align 8
+  store double 0x3FEEDAB9F559B3D0, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store double 1.000000e+00, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store double 0x3FEA6594AF4F0D84, ptr %6, align 8
   br label %NormalizeXYZ.exit
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+7:                                                ; preds = %2
   %8 = load double, ptr %1, align 8
   store double %8, ptr %0, align 8
-  %9 = load double, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
-  %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %12, ptr %13, align 8
-  %14 = fcmp ogt double %8, 2.000000e+00
-  br i1 %14, label %.lr.ph.i.preheader, label %NormalizeXYZ.exit
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = load double, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = load double, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %13, ptr %14, align 8
+  %15 = fcmp ogt double %8, 2.000000e+00
+  br i1 %15, label %.lr.ph.i, label %NormalizeXYZ.exit
 
-.lr.ph.i.preheader:                               ; preds = %6
-  %15 = insertelement <2 x double> poison, double %8, i64 0
-  %16 = insertelement <2 x double> %15, double %9, i64 1
-  br label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %7, %21
+  %16 = phi double [ %24, %21 ], [ %13, %7 ]
+  %17 = phi double [ %23, %21 ], [ %10, %7 ]
+  %18 = phi double [ %22, %21 ], [ %8, %7 ]
+  %19 = fcmp ogt double %17, 2.000000e+00
+  %20 = fcmp ogt double %16, 2.000000e+00
+  %or.cond = select i1 %19, i1 %20, i1 false
+  br i1 %or.cond, label %21, label %NormalizeXYZ.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %22
-  %17 = phi double [ %24, %22 ], [ %12, %.lr.ph.i.preheader ]
-  %18 = phi <2 x double> [ %23, %22 ], [ %16, %.lr.ph.i.preheader ]
-  %19 = extractelement <2 x double> %18, i64 1
-  %20 = fcmp ogt double %19, 2.000000e+00
-  %21 = fcmp ogt double %17, 2.000000e+00
-  %or.cond = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond, label %22, label %NormalizeXYZ.exit
+21:                                               ; preds = %.lr.ph.i
+  %22 = fdiv double %18, 1.000000e+01
+  store double %22, ptr %0, align 8
+  %23 = fdiv double %17, 1.000000e+01
+  store double %23, ptr %11, align 8
+  %24 = fdiv double %16, 1.000000e+01
+  store double %24, ptr %14, align 8
+  %25 = fcmp ogt double %22, 2.000000e+00
+  br i1 %25, label %.lr.ph.i, label %NormalizeXYZ.exit, !llvm.loop !10
 
-22:                                               ; preds = %.lr.ph.i
-  %23 = fdiv <2 x double> %18, <double 1.000000e+01, double 1.000000e+01>
-  store <2 x double> %23, ptr %0, align 8
-  %24 = fdiv double %17, 1.000000e+01
-  store double %24, ptr %13, align 8
-  %25 = extractelement <2 x double> %23, i64 0
-  %26 = fcmp ogt double %25, 2.000000e+00
-  br i1 %26, label %.lr.ph.i, label %NormalizeXYZ.exit, !llvm.loop !10
-
-NormalizeXYZ.exit:                                ; preds = %22, %.lr.ph.i, %6, %4
+NormalizeXYZ.exit:                                ; preds = %21, %.lr.ph.i, %7, %4
   ret void
 }
 
@@ -1523,54 +1521,58 @@ define hidden ptr @cmsCreateProofingTransformTHR(ptr noundef %0, ptr noundef %1,
   store i32 0, ptr %27, align 4
   %28 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 3) #11
   %29 = load double, ptr %28, align 8
-  %30 = insertelement <4 x double> poison, double %29, i64 0
-  %31 = shufflevector <4 x double> %30, <4 x double> poison, <4 x i32> zeroinitializer
-  store <4 x double> %31, ptr %17, align 16
-  %32 = and i32 %8, 20480
-  %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %33, label %44
+  %30 = getelementptr inbounds i8, ptr %17, i64 24
+  store double %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %17, i64 16
+  store double %29, ptr %31, align 16
+  %32 = getelementptr inbounds i8, ptr %17, i64 8
+  store double %29, ptr %32, align 8
+  store double %29, ptr %17, align 16
+  %33 = and i32 %8, 20480
+  %.not = icmp eq i32 %33, 0
+  br i1 %.not, label %34, label %45
 
-33:                                               ; preds = %9
+34:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   store ptr %1, ptr %13, align 16
-  %34 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %3, ptr %34, align 8
-  %35 = icmp eq ptr %3, null
-  %36 = select i1 %35, i32 1, i32 2
+  %35 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %3, ptr %35, align 8
+  %36 = icmp eq ptr %3, null
+  %37 = select i1 %36, i32 1, i32 2
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %12)
-  %wide.trip.count.i.i = zext nneg i32 %36 to i64
-  br label %37
+  %wide.trip.count.i.i = zext nneg i32 %37 to i64
+  br label %38
 
-37:                                               ; preds = %37, %33
-  %indvars.iv.i.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i, %37 ]
-  %38 = getelementptr inbounds [256 x i32], ptr %10, i64 0, i64 %indvars.iv.i.i
-  store i32 %.lobit, ptr %38, align 4
-  %39 = getelementptr inbounds [256 x i32], ptr %11, i64 0, i64 %indvars.iv.i.i
-  store i32 %6, ptr %39, align 4
-  %40 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 3) #11
-  %41 = load double, ptr %40, align 8
-  %42 = getelementptr inbounds [256 x double], ptr %12, i64 0, i64 %indvars.iv.i.i
-  store double %41, ptr %42, align 8
+38:                                               ; preds = %38, %34
+  %indvars.iv.i.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i, %38 ]
+  %39 = getelementptr inbounds [256 x i32], ptr %10, i64 0, i64 %indvars.iv.i.i
+  store i32 %.lobit, ptr %39, align 4
+  %40 = getelementptr inbounds [256 x i32], ptr %11, i64 0, i64 %indvars.iv.i.i
+  store i32 %6, ptr %40, align 4
+  %41 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 3) #11
+  %42 = load double, ptr %41, align 8
+  %43 = getelementptr inbounds [256 x double], ptr %12, i64 0, i64 %indvars.iv.i.i
+  store double %42, ptr %43, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %cmsCreateTransformTHR.exit, label %37, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %cmsCreateTransformTHR.exit, label %38, !llvm.loop !12
 
-cmsCreateTransformTHR.exit:                       ; preds = %37
-  %43 = call ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %36, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, i32 noundef 0, i32 noundef %2, i32 noundef %4, i32 noundef %8)
+cmsCreateTransformTHR.exit:                       ; preds = %38
+  %44 = call ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %37, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, i32 noundef 0, i32 noundef %2, i32 noundef %4, i32 noundef %8)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  br label %46
+  br label %47
 
-44:                                               ; preds = %9
-  %45 = call ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef %5, i32 noundef 1, i32 noundef %2, i32 noundef %4, i32 noundef %8)
-  br label %46
+45:                                               ; preds = %9
+  %46 = call ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef %5, i32 noundef 1, i32 noundef %2, i32 noundef %4, i32 noundef %8)
+  br label %47
 
-46:                                               ; preds = %44, %cmsCreateTransformTHR.exit
-  %.0 = phi ptr [ %45, %44 ], [ %43, %cmsCreateTransformTHR.exit ]
+47:                                               ; preds = %45, %cmsCreateTransformTHR.exit
+  %.0 = phi ptr [ %46, %45 ], [ %44, %cmsCreateTransformTHR.exit ]
   ret ptr %.0
 }
 

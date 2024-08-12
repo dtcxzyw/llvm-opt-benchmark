@@ -86,14 +86,25 @@ define dso_local void @_ZN3ozz2io6ExternIDv4_fE4LoadERNS0_8IArchiveEPS2_mj(ptr n
   br i1 %or.cond.not, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
-  %.03940.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ 0, %4 ]
+  %.03940.i.i = phi i64 [ %25, %.lr.ph.i.i ], [ 0, %4 ]
   %14 = getelementptr inbounds i8, ptr %1, i64 %.03940.i.i
-  %15 = load <4 x i8>, ptr %14, align 1
-  %16 = shufflevector <4 x i8> %15, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i8> %16, ptr %14, align 1
-  %17 = add nuw i64 %.03940.i.i, 4
-  %18 = icmp ult i64 %17, %5
-  br i1 %18, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !7
+  %15 = or disjoint i64 %.03940.i.i, 3
+  %16 = getelementptr inbounds i8, ptr %1, i64 %15
+  %17 = load i8, ptr %14, align 1
+  %18 = load i8, ptr %16, align 1
+  store i8 %17, ptr %16, align 1
+  store i8 %18, ptr %14, align 1
+  %19 = or disjoint i64 %.03940.i.i, 1
+  %20 = getelementptr inbounds i8, ptr %1, i64 %19
+  %21 = or disjoint i64 %.03940.i.i, 2
+  %22 = getelementptr inbounds i8, ptr %1, i64 %21
+  %23 = load i8, ptr %20, align 1
+  %24 = load i8, ptr %22, align 1
+  store i8 %23, ptr %22, align 1
+  store i8 %24, ptr %20, align 1
+  %25 = add nuw i64 %.03940.i.i, 4
+  %26 = icmp ult i64 %25, %5
+  br i1 %26, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !7
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %4
   ret void
@@ -161,14 +172,25 @@ define dso_local void @_ZN3ozz2io6ExternIDv2_xE4LoadERNS0_8IArchiveEPS2_mj(ptr n
   br i1 %or.cond.not, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIiEEEEvRT_.exit
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
-  %.03940.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ 0, %4 ]
+  %.03940.i.i = phi i64 [ %25, %.lr.ph.i.i ], [ 0, %4 ]
   %14 = getelementptr inbounds i8, ptr %1, i64 %.03940.i.i
-  %15 = load <4 x i8>, ptr %14, align 1
-  %16 = shufflevector <4 x i8> %15, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i8> %16, ptr %14, align 1
-  %17 = add nuw i64 %.03940.i.i, 4
-  %18 = icmp ult i64 %17, %5
-  br i1 %18, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIiEEEEvRT_.exit, !llvm.loop !9
+  %15 = or disjoint i64 %.03940.i.i, 3
+  %16 = getelementptr inbounds i8, ptr %1, i64 %15
+  %17 = load i8, ptr %14, align 1
+  %18 = load i8, ptr %16, align 1
+  store i8 %17, ptr %16, align 1
+  store i8 %18, ptr %14, align 1
+  %19 = or disjoint i64 %.03940.i.i, 1
+  %20 = getelementptr inbounds i8, ptr %1, i64 %19
+  %21 = or disjoint i64 %.03940.i.i, 2
+  %22 = getelementptr inbounds i8, ptr %1, i64 %21
+  %23 = load i8, ptr %20, align 1
+  %24 = load i8, ptr %22, align 1
+  store i8 %23, ptr %22, align 1
+  store i8 %24, ptr %20, align 1
+  %25 = add nuw i64 %.03940.i.i, 4
+  %26 = icmp ult i64 %25, %5
+  br i1 %26, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIiEEEEvRT_.exit, !llvm.loop !9
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIiEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %4
   ret void
@@ -257,14 +279,25 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math8Float4x4EE4LoadERNS0_8IArchive
   br i1 %or.cond.not, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
-  %.03940.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ 0, %4 ]
+  %.03940.i.i = phi i64 [ %25, %.lr.ph.i.i ], [ 0, %4 ]
   %14 = getelementptr inbounds i8, ptr %1, i64 %.03940.i.i
-  %15 = load <4 x i8>, ptr %14, align 1
-  %16 = shufflevector <4 x i8> %15, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i8> %16, ptr %14, align 1
-  %17 = add nuw i64 %.03940.i.i, 4
-  %18 = icmp ult i64 %17, %5
-  br i1 %18, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !7
+  %15 = or disjoint i64 %.03940.i.i, 3
+  %16 = getelementptr inbounds i8, ptr %1, i64 %15
+  %17 = load i8, ptr %14, align 1
+  %18 = load i8, ptr %16, align 1
+  store i8 %17, ptr %16, align 1
+  store i8 %18, ptr %14, align 1
+  %19 = or disjoint i64 %.03940.i.i, 1
+  %20 = getelementptr inbounds i8, ptr %1, i64 %19
+  %21 = or disjoint i64 %.03940.i.i, 2
+  %22 = getelementptr inbounds i8, ptr %1, i64 %21
+  %23 = load i8, ptr %20, align 1
+  %24 = load i8, ptr %22, align 1
+  store i8 %23, ptr %22, align 1
+  store i8 %24, ptr %20, align 1
+  %25 = add nuw i64 %.03940.i.i, 4
+  %26 = icmp ult i64 %25, %5
+  br i1 %26, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !7
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %4
   ret void

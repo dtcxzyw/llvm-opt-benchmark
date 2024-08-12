@@ -173,15 +173,42 @@ if.then19.i77:                                    ; preds = %if.end17.i32
   %conv26.i84 = zext i32 %sub.i83 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr24.i81, ptr nonnull readonly align 1 %input, i64 %conv26.i84, i1 false)
   %v1.i87 = getelementptr inbounds i8, ptr %state_in, i64 8
-  %4 = load <4 x i32>, ptr %v1.i87, align 4
-  %5 = load <4 x i32>, ptr %mem3220.i78, align 1
-  %6 = mul <4 x i32> %5, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %7 = add <4 x i32> %6, %4
-  %8 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %7, <4 x i32> %7, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %9 = mul <4 x i32> %8, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
-  store <4 x i32> %9, ptr %v1.i87, align 4
-  %10 = load i32, ptr %memsize.i28, align 4
-  %sub45.i107 = sub i32 16, %10
+  %4 = load i32, ptr %v1.i87, align 4
+  %mem3220.i78.val = load i32, ptr %mem3220.i78, align 1
+  %mul.i = mul i32 %mem3220.i78.val, -2048144777
+  %add.i = add i32 %mul.i, %4
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %add.i, i32 %add.i, i32 13)
+  %mul1.i = mul i32 %or.i, -1640531535
+  store i32 %mul1.i, ptr %v1.i87, align 4
+  %incdec.ptr.i91 = getelementptr inbounds i8, ptr %state_in, i64 28
+  %v2.i92 = getelementptr inbounds i8, ptr %state_in, i64 12
+  %5 = load i32, ptr %v2.i92, align 4
+  %incdec.ptr.i91.val = load i32, ptr %incdec.ptr.i91, align 1
+  %mul.i220 = mul i32 %incdec.ptr.i91.val, -2048144777
+  %add.i221 = add i32 %mul.i220, %5
+  %or.i222 = tail call i32 @llvm.fshl.i32(i32 %add.i221, i32 %add.i221, i32 13)
+  %mul1.i223 = mul i32 %or.i222, -1640531535
+  store i32 %mul1.i223, ptr %v2.i92, align 4
+  %incdec.ptr36.i96 = getelementptr inbounds i8, ptr %state_in, i64 32
+  %v3.i97 = getelementptr inbounds i8, ptr %state_in, i64 16
+  %6 = load i32, ptr %v3.i97, align 4
+  %incdec.ptr36.i96.val = load i32, ptr %incdec.ptr36.i96, align 1
+  %mul.i224 = mul i32 %incdec.ptr36.i96.val, -2048144777
+  %add.i225 = add i32 %mul.i224, %6
+  %or.i226 = tail call i32 @llvm.fshl.i32(i32 %add.i225, i32 %add.i225, i32 13)
+  %mul1.i227 = mul i32 %or.i226, -1640531535
+  store i32 %mul1.i227, ptr %v3.i97, align 4
+  %incdec.ptr40.i101 = getelementptr inbounds i8, ptr %state_in, i64 36
+  %v4.i102 = getelementptr inbounds i8, ptr %state_in, i64 20
+  %7 = load i32, ptr %v4.i102, align 4
+  %incdec.ptr40.i101.val = load i32, ptr %incdec.ptr40.i101, align 1
+  %mul.i228 = mul i32 %incdec.ptr40.i101.val, -2048144777
+  %add.i229 = add i32 %mul.i228, %7
+  %or.i230 = tail call i32 @llvm.fshl.i32(i32 %add.i229, i32 %add.i229, i32 13)
+  %mul1.i231 = mul i32 %or.i230, -1640531535
+  store i32 %mul1.i231, ptr %v4.i102, align 4
+  %8 = load i32, ptr %memsize.i28, align 4
+  %sub45.i107 = sub i32 16, %8
   %idx.ext46.i108 = zext i32 %sub45.i107 to i64
   %add.ptr47.i109 = getelementptr inbounds i8, ptr %input, i64 %idx.ext46.i108
   store i32 0, ptr %memsize.i28, align 4
@@ -195,23 +222,53 @@ if.end49.i35:                                     ; preds = %if.then19.i77, %if.
 
 if.then53.i52:                                    ; preds = %if.end49.i35
   %v156.i54 = getelementptr inbounds i8, ptr %state_in, i64 8
-  %11 = load <4 x i32>, ptr %v156.i54, align 4
+  %9 = load i32, ptr %v156.i54, align 4
+  %v258.i55 = getelementptr inbounds i8, ptr %state_in, i64 12
+  %10 = load i32, ptr %v258.i55, align 4
+  %v360.i56 = getelementptr inbounds i8, ptr %state_in, i64 16
+  %11 = load i32, ptr %v360.i56, align 4
+  %v462.i57 = getelementptr inbounds i8, ptr %state_in, i64 20
+  %12 = load i32, ptr %v462.i57, align 4
   br label %do.body.i58
 
 do.body.i58:                                      ; preds = %do.body.i58, %if.then53.i52
   %p.i8.2 = phi ptr [ %p.i8.0, %if.then53.i52 ], [ %add.ptr74.i70, %do.body.i58 ]
-  %12 = phi <4 x i32> [ %11, %if.then53.i52 ], [ %17, %do.body.i58 ]
-  %13 = load <4 x i32>, ptr %p.i8.2, align 1
-  %14 = mul <4 x i32> %13, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %15 = add <4 x i32> %14, %12
-  %16 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %15, <4 x i32> %15, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %17 = mul <4 x i32> %16, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %v155.i12.0 = phi i32 [ %9, %if.then53.i52 ], [ %mul1.i235, %do.body.i58 ]
+  %v257.i13.0 = phi i32 [ %10, %if.then53.i52 ], [ %mul1.i239, %do.body.i58 ]
+  %v359.i14.0 = phi i32 [ %11, %if.then53.i52 ], [ %mul1.i243, %do.body.i58 ]
+  %v461.i15.0 = phi i32 [ %12, %if.then53.i52 ], [ %mul1.i247, %do.body.i58 ]
+  %p.i8.2.val = load i32, ptr %p.i8.2, align 1
+  %mul.i232 = mul i32 %p.i8.2.val, -2048144777
+  %add.i233 = add i32 %mul.i232, %v155.i12.0
+  %or.i234 = tail call i32 @llvm.fshl.i32(i32 %add.i233, i32 %add.i233, i32 13)
+  %mul1.i235 = mul i32 %or.i234, -1640531535
+  %add.ptr65.i61 = getelementptr inbounds i8, ptr %p.i8.2, i64 4
+  %add.ptr65.i61.val = load i32, ptr %add.ptr65.i61, align 1
+  %mul.i236 = mul i32 %add.ptr65.i61.val, -2048144777
+  %add.i237 = add i32 %mul.i236, %v257.i13.0
+  %or.i238 = tail call i32 @llvm.fshl.i32(i32 %add.i237, i32 %add.i237, i32 13)
+  %mul1.i239 = mul i32 %or.i238, -1640531535
+  %add.ptr68.i64 = getelementptr inbounds i8, ptr %p.i8.2, i64 8
+  %add.ptr68.i64.val = load i32, ptr %add.ptr68.i64, align 1
+  %mul.i240 = mul i32 %add.ptr68.i64.val, -2048144777
+  %add.i241 = add i32 %mul.i240, %v359.i14.0
+  %or.i242 = tail call i32 @llvm.fshl.i32(i32 %add.i241, i32 %add.i241, i32 13)
+  %mul1.i243 = mul i32 %or.i242, -1640531535
+  %add.ptr71.i67 = getelementptr inbounds i8, ptr %p.i8.2, i64 12
+  %add.ptr71.i67.val = load i32, ptr %add.ptr71.i67, align 1
+  %mul.i244 = mul i32 %add.ptr71.i67.val, -2048144777
+  %add.i245 = add i32 %mul.i244, %v461.i15.0
+  %or.i246 = tail call i32 @llvm.fshl.i32(i32 %add.i245, i32 %add.i245, i32 13)
+  %mul1.i247 = mul i32 %or.i246, -1640531535
   %add.ptr74.i70 = getelementptr inbounds i8, ptr %p.i8.2, i64 16
   %cmp75.i71.not = icmp ugt ptr %add.ptr74.i70, %add.ptr50.i36
   br i1 %cmp75.i71.not, label %do.end.i72, label %do.body.i58, !llvm.loop !6
 
 do.end.i72:                                       ; preds = %do.body.i58
-  store <4 x i32> %17, ptr %v156.i54, align 4
+  store i32 %mul1.i235, ptr %v156.i54, align 4
+  store i32 %mul1.i239, ptr %v258.i55, align 4
+  store i32 %mul1.i243, ptr %v360.i56, align 4
+  store i32 %mul1.i247, ptr %v462.i57, align 4
   br label %if.end81.i38
 
 if.end81.i38:                                     ; preds = %do.end.i72, %if.end49.i35
@@ -248,25 +305,36 @@ entry:
 
 if.then.i16:                                      ; preds = %entry
   %v1.i17 = getelementptr inbounds i8, ptr %state_in, i64 8
-  %1 = load <4 x i32>, ptr %v1.i17, align 4
-  %2 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %1, <4 x i32> %1, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %3 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %2)
+  %1 = load i32, ptr %v1.i17, align 4
+  %or.i21 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 1)
+  %v2.i22 = getelementptr inbounds i8, ptr %state_in, i64 12
+  %2 = load i32, ptr %v2.i22, align 4
+  %or5.i26 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 7)
+  %add.i27 = add i32 %or5.i26, %or.i21
+  %v3.i28 = getelementptr inbounds i8, ptr %state_in, i64 16
+  %3 = load i32, ptr %v3.i28, align 4
+  %or9.i32 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 12)
+  %add10.i33 = add i32 %add.i27, %or9.i32
+  %v4.i34 = getelementptr inbounds i8, ptr %state_in, i64 20
+  %4 = load i32, ptr %v4.i34, align 4
+  %or14.i38 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 18)
+  %add15.i39 = add i32 %add10.i33, %or14.i38
   br label %XXH32_digest_endian.exit40
 
 if.else.i8:                                       ; preds = %entry
   %v316.i9 = getelementptr inbounds i8, ptr %state_in, i64 16
-  %4 = load i32, ptr %v316.i9, align 4
-  %add17.i10 = add i32 %4, 374761393
+  %5 = load i32, ptr %v316.i9, align 4
+  %add17.i10 = add i32 %5, 374761393
   br label %XXH32_digest_endian.exit40
 
 XXH32_digest_endian.exit40:                       ; preds = %if.else.i8, %if.then.i16
-  %h32.i5.0 = phi i32 [ %3, %if.then.i16 ], [ %add17.i10, %if.else.i8 ]
-  %5 = load i32, ptr %state_in, align 4
-  %add18.i11 = add i32 %5, %h32.i5.0
+  %h32.i5.0 = phi i32 [ %add15.i39, %if.then.i16 ], [ %add17.i10, %if.else.i8 ]
+  %6 = load i32, ptr %state_in, align 4
+  %add18.i11 = add i32 %6, %h32.i5.0
   %mem32.i12 = getelementptr inbounds i8, ptr %state_in, i64 24
   %memsize.i13 = getelementptr inbounds i8, ptr %state_in, i64 40
-  %6 = load i32, ptr %memsize.i13, align 4
-  %conv.i14 = zext i32 %6 to i64
+  %7 = load i32, ptr %memsize.i13, align 4
+  %conv.i14 = zext i32 %7 to i64
   %call.i15 = tail call fastcc i32 @XXH32_finalize(i32 noundef %add18.i11, ptr noundef nonnull %mem32.i12, i64 noundef %conv.i14)
   ret i32 %call.i15
 }
@@ -1412,12 +1480,6 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

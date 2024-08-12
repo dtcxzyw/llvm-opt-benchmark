@@ -299,24 +299,26 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   %7 = zext i1 %3 to i8
   %8 = zext i1 %4 to i8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = insertelement <2 x ptr> poison, ptr %1, i64 0
-  %11 = insertelement <2 x ptr> %10, ptr %2, i64 1
-  %12 = icmp eq <2 x ptr> %11, zeroinitializer
-  %13 = select <2 x i1> %12, <2 x ptr> <ptr @.str.3, ptr @.str.4>, <2 x ptr> %11
-  store <2 x ptr> %13, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %8, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 0, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %5, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 %7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 41
-  store i8 %7, ptr %18, align 1
+  %.not.i.i = icmp eq ptr %1, null
+  %10 = select i1 %.not.i.i, ptr @.str.3, ptr %1
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %.not6.i.i = icmp eq ptr %2, null
+  %12 = select i1 %.not6.i.i, ptr @.str.4, ptr %2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %8, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 25
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %5, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 %7, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 41
+  store i8 %7, ptr %17, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIbEEEE, i64 16), ptr %0, align 8
-  %19 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
-  %.not.i = icmp eq ptr %19, null
+  %18 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
+  %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %.noexc, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 .noexc:                                           ; preds = %6
@@ -328,52 +330,52 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), i8 0, i64 16, i1 false)
   tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
   invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
-          to label %20 unwind label %24
+          to label %19 unwind label %23
 
-20:                                               ; preds = %.noexc
+19:                                               ; preds = %.noexc
   store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), align 16
   store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 296), align 8
-  %21 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
-          to label %22 unwind label %26
+  %20 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
+          to label %21 unwind label %25
 
-22:                                               ; preds = %20
-  %23 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
-          to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %26
+21:                                               ; preds = %19
+  %22 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
+          to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %25
 
-24:                                               ; preds = %.noexc
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %.noexc
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-26:                                               ; preds = %22, %20
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %21, %19
+  %26 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352)) #28
   br label %.body
 
-.body:                                            ; preds = %26, %24
-  %.pn.i.i = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
+.body:                                            ; preds = %25, %23
+  %.pn.i.i = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
   tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304)) #28
   resume { ptr, i32 } %.pn.i.i
 
-_ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %22
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
-  store i32 %28, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
+_ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %21
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
+  store i32 %27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
   store ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   br label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 _ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit: ; preds = %_ZN3ozz7options6ParserC2Ev.exit.i, %6
-  %29 = phi ptr [ @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, %_ZN3ozz7options6ParserC2Ev.exit.i ], [ %19, %6 ]
-  %30 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %29, ptr noundef nonnull %0)
-  br i1 %30, label %35, label %31
+  %28 = phi ptr [ @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, %_ZN3ozz7options6ParserC2Ev.exit.i ], [ %18, %6 ]
+  %29 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %28, ptr noundef nonnull %0)
+  br i1 %29, label %34, label %30
 
-31:                                               ; preds = %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
-  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str)
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %1)
-  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  br label %35
+30:                                               ; preds = %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
+  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str)
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %1)
+  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  br label %34
 
-35:                                               ; preds = %31, %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
+34:                                               ; preds = %30, %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
   ret void
 }
 
@@ -382,22 +384,24 @@ define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIbEC2EPKcS4_bbPFbRKN
   %7 = zext i1 %3 to i8
   %8 = zext i1 %4 to i8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = insertelement <2 x ptr> poison, ptr %1, i64 0
-  %11 = insertelement <2 x ptr> %10, ptr %2, i64 1
-  %12 = icmp eq <2 x ptr> %11, zeroinitializer
-  %13 = select <2 x i1> %12, <2 x ptr> <ptr @.str.3, ptr @.str.4>, <2 x ptr> %11
-  store <2 x ptr> %13, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %8, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 0, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %5, ptr %16, align 8
+  %.not.i = icmp eq ptr %1, null
+  %10 = select i1 %.not.i, ptr @.str.3, ptr %1
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %.not6.i = icmp eq ptr %2, null
+  %12 = select i1 %.not6.i, ptr @.str.4, ptr %2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %8, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 25
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %5, ptr %15, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options11TypedOptionIbEE, i64 16), ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 %7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 41
-  store i8 %7, ptr %18, align 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 %7, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 41
+  store i8 %7, ptr %17, align 1
   ret void
 }
 
@@ -859,24 +863,26 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEC2EPKcS7_ibPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #3 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEC5EPKcS7_ibPFbRKNS0_6OptionEiE) align 2 personality ptr @__gxx_personality_v0 {
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = insertelement <2 x ptr> poison, ptr %1, i64 0
-  %10 = insertelement <2 x ptr> %9, ptr %2, i64 1
-  %11 = icmp eq <2 x ptr> %10, zeroinitializer
-  %12 = select <2 x i1> %11, <2 x ptr> <ptr @.str.3, ptr @.str.4>, <2 x ptr> %10
-  store <2 x ptr> %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %5, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %3, ptr %17, align 4
+  %.not.i.i = icmp eq ptr %1, null
+  %9 = select i1 %.not.i.i, ptr @.str.3, ptr %1
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %.not6.i.i = icmp eq ptr %2, null
+  %11 = select i1 %.not6.i.i, ptr @.str.4, ptr %2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %7, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 25
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %5, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 %3, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 %3, ptr %16, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIiEEEE, i64 16), ptr %0, align 8
-  %18 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
-  %.not.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
+  %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %.noexc, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 .noexc:                                           ; preds = %6
@@ -888,52 +894,52 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), i8 0, i64 16, i1 false)
   tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
   invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
-          to label %19 unwind label %23
+          to label %18 unwind label %22
 
-19:                                               ; preds = %.noexc
+18:                                               ; preds = %.noexc
   store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), align 16
   store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 296), align 8
-  %20 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
-          to label %21 unwind label %25
+  %19 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
+          to label %20 unwind label %24
 
-21:                                               ; preds = %19
-  %22 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
-          to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %25
+20:                                               ; preds = %18
+  %21 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
+          to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %24
 
-23:                                               ; preds = %.noexc
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %.noexc
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-25:                                               ; preds = %21, %19
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %20, %18
+  %25 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352)) #28
   br label %.body
 
-.body:                                            ; preds = %25, %23
-  %.pn.i.i = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
+.body:                                            ; preds = %24, %22
+  %.pn.i.i = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
   tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304)) #28
   resume { ptr, i32 } %.pn.i.i
 
-_ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %21
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
+_ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %20
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
   store ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   br label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 _ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit: ; preds = %_ZN3ozz7options6ParserC2Ev.exit.i, %6
-  %28 = phi ptr [ @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, %_ZN3ozz7options6ParserC2Ev.exit.i ], [ %18, %6 ]
-  %29 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %28, ptr noundef nonnull %0)
-  br i1 %29, label %34, label %30
+  %27 = phi ptr [ @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, %_ZN3ozz7options6ParserC2Ev.exit.i ], [ %17, %6 ]
+  %28 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %27, ptr noundef nonnull %0)
+  br i1 %28, label %33, label %29
 
-30:                                               ; preds = %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
-  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str)
-  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %1)
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  br label %34
+29:                                               ; preds = %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
+  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str)
+  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %1)
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  br label %33
 
-34:                                               ; preds = %30, %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
+33:                                               ; preds = %29, %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
   ret void
 }
 
@@ -941,22 +947,24 @@ _ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit: ; pred
 define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIiEC2EPKcS4_ibPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #3 comdat($_ZN3ozz7options11TypedOptionIiEC5EPKcS4_ibPFbRKNS0_6OptionEiE) align 2 {
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = insertelement <2 x ptr> poison, ptr %1, i64 0
-  %10 = insertelement <2 x ptr> %9, ptr %2, i64 1
-  %11 = icmp eq <2 x ptr> %10, zeroinitializer
-  %12 = select <2 x i1> %11, <2 x ptr> <ptr @.str.3, ptr @.str.4>, <2 x ptr> %10
-  store <2 x ptr> %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %5, ptr %15, align 8
+  %.not.i = icmp eq ptr %1, null
+  %9 = select i1 %.not.i, ptr @.str.3, ptr %1
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %.not6.i = icmp eq ptr %2, null
+  %11 = select i1 %.not6.i, ptr @.str.4, ptr %2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %7, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 25
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %5, ptr %14, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options11TypedOptionIiEE, i64 16), ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %3, ptr %17, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 %3, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 %3, ptr %16, align 4
   ret void
 }
 
@@ -1126,24 +1134,26 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
 define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEC2EPKcS7_fbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, float noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #3 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEC5EPKcS7_fbPFbRKNS0_6OptionEiE) align 2 personality ptr @__gxx_personality_v0 {
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = insertelement <2 x ptr> poison, ptr %1, i64 0
-  %10 = insertelement <2 x ptr> %9, ptr %2, i64 1
-  %11 = icmp eq <2 x ptr> %10, zeroinitializer
-  %12 = select <2 x i1> %11, <2 x ptr> <ptr @.str.3, ptr @.str.4>, <2 x ptr> %10
-  store <2 x ptr> %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %5, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  store float %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 44
-  store float %3, ptr %17, align 4
+  %.not.i.i = icmp eq ptr %1, null
+  %9 = select i1 %.not.i.i, ptr @.str.3, ptr %1
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %.not6.i.i = icmp eq ptr %2, null
+  %11 = select i1 %.not6.i.i, ptr @.str.4, ptr %2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %7, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 25
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %5, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  store float %3, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  store float %3, ptr %16, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIfEEEE, i64 16), ptr %0, align 8
-  %18 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
-  %.not.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
+  %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %.noexc, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 .noexc:                                           ; preds = %6
@@ -1155,52 +1165,52 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), i8 0, i64 16, i1 false)
   tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
   invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
-          to label %19 unwind label %23
+          to label %18 unwind label %22
 
-19:                                               ; preds = %.noexc
+18:                                               ; preds = %.noexc
   store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), align 16
   store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 296), align 8
-  %20 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
-          to label %21 unwind label %25
+  %19 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
+          to label %20 unwind label %24
 
-21:                                               ; preds = %19
-  %22 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
-          to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %25
+20:                                               ; preds = %18
+  %21 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
+          to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %24
 
-23:                                               ; preds = %.noexc
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %.noexc
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-25:                                               ; preds = %21, %19
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %20, %18
+  %25 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352)) #28
   br label %.body
 
-.body:                                            ; preds = %25, %23
-  %.pn.i.i = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
+.body:                                            ; preds = %24, %22
+  %.pn.i.i = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
   tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304)) #28
   resume { ptr, i32 } %.pn.i.i
 
-_ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %21
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
+_ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %20
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
   store ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   br label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 _ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit: ; preds = %_ZN3ozz7options6ParserC2Ev.exit.i, %6
-  %28 = phi ptr [ @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, %_ZN3ozz7options6ParserC2Ev.exit.i ], [ %18, %6 ]
-  %29 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %28, ptr noundef nonnull %0)
-  br i1 %29, label %34, label %30
+  %27 = phi ptr [ @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, %_ZN3ozz7options6ParserC2Ev.exit.i ], [ %17, %6 ]
+  %28 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %27, ptr noundef nonnull %0)
+  br i1 %28, label %33, label %29
 
-30:                                               ; preds = %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
-  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str)
-  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %1)
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  br label %34
+29:                                               ; preds = %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
+  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str)
+  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %1)
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  br label %33
 
-34:                                               ; preds = %30, %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
+33:                                               ; preds = %29, %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
   ret void
 }
 
@@ -1208,22 +1218,24 @@ _ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit: ; pred
 define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIfEC2EPKcS4_fbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, float noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #3 comdat($_ZN3ozz7options11TypedOptionIfEC5EPKcS4_fbPFbRKNS0_6OptionEiE) align 2 {
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = insertelement <2 x ptr> poison, ptr %1, i64 0
-  %10 = insertelement <2 x ptr> %9, ptr %2, i64 1
-  %11 = icmp eq <2 x ptr> %10, zeroinitializer
-  %12 = select <2 x i1> %11, <2 x ptr> <ptr @.str.3, ptr @.str.4>, <2 x ptr> %10
-  store <2 x ptr> %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %5, ptr %15, align 8
+  %.not.i = icmp eq ptr %1, null
+  %9 = select i1 %.not.i, ptr @.str.3, ptr %1
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %.not6.i = icmp eq ptr %2, null
+  %11 = select i1 %.not6.i, ptr @.str.4, ptr %2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %7, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 25
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %5, ptr %14, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options11TypedOptionIfEE, i64 16), ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  store float %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 44
-  store float %3, ptr %17, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  store float %3, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  store float %3, ptr %16, align 4
   ret void
 }
 
@@ -1393,24 +1405,26 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
 define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEC2ES5_S5_S5_bPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #3 comdat($_ZN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEC5ES5_S5_S5_bPFbRKNS0_6OptionEiE) align 2 personality ptr @__gxx_personality_v0 {
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = insertelement <2 x ptr> poison, ptr %1, i64 0
-  %10 = insertelement <2 x ptr> %9, ptr %2, i64 1
-  %11 = icmp eq <2 x ptr> %10, zeroinitializer
-  %12 = select <2 x i1> %11, <2 x ptr> <ptr @.str.3, ptr @.str.4>, <2 x ptr> %10
-  store <2 x ptr> %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %5, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %.not.i.i = icmp eq ptr %1, null
+  %9 = select i1 %.not.i.i, ptr @.str.3, ptr %1
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %.not6.i.i = icmp eq ptr %2, null
+  %11 = select i1 %.not6.i.i, ptr @.str.4, ptr %2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %7, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 25
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %5, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %3, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %3, ptr %17, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options8internal9RegistrerINS0_11TypedOptionIPKcEEEE, i64 16), ptr %0, align 8
-  %18 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
-  %.not.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
+  %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %.noexc, label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 .noexc:                                           ; preds = %6
@@ -1422,52 +1436,52 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), i8 0, i64 16, i1 false)
   tail call void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304), ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
   invoke void @_ZN3ozz7options11TypedOptionIbEC1EPKcS4_bbPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352), ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @_ZN3ozz7options12_GLOBAL__N_123ValidateExclusiveOptionERKNS0_6OptionEi)
-          to label %19 unwind label %23
+          to label %18 unwind label %22
 
-19:                                               ; preds = %.noexc
+18:                                               ; preds = %.noexc
   store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 288), align 16
   store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 296), align 8
-  %20 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
-          to label %21 unwind label %25
+  %19 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304))
+          to label %20 unwind label %24
 
-21:                                               ; preds = %19
-  %22 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
-          to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %25
+20:                                               ; preds = %18
+  %21 = invoke noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352))
+          to label %_ZN3ozz7options6ParserC2Ev.exit.i unwind label %24
 
-23:                                               ; preds = %.noexc
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %.noexc
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-25:                                               ; preds = %21, %19
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %20, %18
+  %25 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 352)) #28
   br label %.body
 
-.body:                                            ; preds = %25, %23
-  %.pn.i.i = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
+.body:                                            ; preds = %24, %22
+  %.pn.i.i = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
   tail call void @_ZN3ozz7options11TypedOptionIbED1Ev(ptr noundef nonnull align 8 dereferenceable(42) getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 304)) #28
   resume { ptr, i32 } %.pn.i.i
 
-_ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %21
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
+_ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %20
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 256), align 16
+  store i32 %26, ptr getelementptr inbounds (i8, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, i64 260), align 4
   store ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, ptr @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer7parser_E, align 8
   br label %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
 
 _ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit: ; preds = %_ZN3ozz7options6ParserC2Ev.exit.i, %6
-  %28 = phi ptr [ @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, %_ZN3ozz7options6ParserC2Ev.exit.i ], [ %18, %6 ]
-  %29 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %28, ptr noundef nonnull %0)
-  br i1 %29, label %34, label %30
+  %27 = phi ptr [ @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, %_ZN3ozz7options6ParserC2Ev.exit.i ], [ %17, %6 ]
+  %28 = tail call noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %27, ptr noundef nonnull %0)
+  br i1 %28, label %33, label %29
 
-30:                                               ; preds = %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
-  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str)
-  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %1)
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  br label %34
+29:                                               ; preds = %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
+  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str)
+  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %1)
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  br label %33
 
-34:                                               ; preds = %30, %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
+33:                                               ; preds = %29, %_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit
   ret void
 }
 
@@ -1475,22 +1489,24 @@ _ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit: ; pred
 define weak_odr dso_local void @_ZN3ozz7options11TypedOptionIPKcEC2ES3_S3_S3_bPFbRKNS0_6OptionEiE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #3 comdat($_ZN3ozz7options11TypedOptionIPKcEC5ES3_S3_S3_bPFbRKNS0_6OptionEiE) align 2 {
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = insertelement <2 x ptr> poison, ptr %1, i64 0
-  %10 = insertelement <2 x ptr> %9, ptr %2, i64 1
-  %11 = icmp eq <2 x ptr> %10, zeroinitializer
-  %12 = select <2 x i1> %11, <2 x ptr> <ptr @.str.3, ptr @.str.4>, <2 x ptr> %10
-  store <2 x ptr> %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %5, ptr %15, align 8
+  %.not.i = icmp eq ptr %1, null
+  %9 = select i1 %.not.i, ptr @.str.3, ptr %1
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %.not6.i = icmp eq ptr %2, null
+  %11 = select i1 %.not6.i, ptr @.str.4, ptr %2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %7, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 25
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %5, ptr %14, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options11TypedOptionIPKcEE, i64 16), ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %3, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %3, ptr %17, align 8
   ret void
 }
 
@@ -1661,17 +1677,19 @@ define dso_local void @_ZN3ozz7options6OptionC2EPKcS3_bPFbRKS1_iE(ptr nocapture 
   %6 = zext i1 %3 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = insertelement <2 x ptr> poison, ptr %1, i64 0
-  %9 = insertelement <2 x ptr> %8, ptr %2, i64 1
-  %10 = icmp eq <2 x ptr> %9, zeroinitializer
-  %11 = select <2 x i1> %10, <2 x ptr> <ptr @.str.3, ptr @.str.4>, <2 x ptr> %9
-  store <2 x ptr> %11, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %6, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 25
-  store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %4, ptr %14, align 8
+  %.not = icmp eq ptr %1, null
+  %8 = select i1 %.not, ptr @.str.3, ptr %1
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %.not6 = icmp eq ptr %2, null
+  %10 = select i1 %.not6, ptr @.str.4, ptr %2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %6, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 25
+  store i8 0, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %4, ptr %13, align 8
   ret void
 }
 
@@ -2467,14 +2485,16 @@ _ZN3ozz7options6ParserC2Ev.exit.i:                ; preds = %9
 
 _ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit: ; preds = %4, %_ZN3ozz7options6ParserC2Ev.exit.i
   %17 = phi ptr [ @_ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer12placeholder_E, %_ZN3ozz7options6ParserC2Ev.exit.i ], [ %5, %4 ]
-  %18 = insertelement <2 x ptr> poison, ptr %2, i64 0
-  %19 = insertelement <2 x ptr> %18, ptr %3, i64 1
-  %20 = icmp eq <2 x ptr> %19, zeroinitializer
+  %.not.i6 = icmp eq ptr %3, null
+  %18 = select i1 %.not.i6, ptr @.str.27, ptr %3
+  %19 = getelementptr inbounds i8, ptr %17, i64 296
+  store ptr %18, ptr %19, align 8
+  %.not.i7 = icmp eq ptr %2, null
+  %20 = select i1 %.not.i7, ptr @.str.28, ptr %2
   %21 = getelementptr inbounds i8, ptr %17, i64 288
-  %22 = select <2 x i1> %20, <2 x ptr> <ptr @.str.28, ptr @.str.27>, <2 x ptr> %19
-  store <2 x ptr> %22, ptr %21, align 8
-  %23 = tail call noundef i32 @_ZN3ozz7options6Parser5ParseEiPKPKc(ptr noundef nonnull align 8 dereferenceable(400) %17, i32 noundef %0, ptr noundef %1)
-  ret i32 %23
+  store ptr %20, ptr %21, align 8
+  %22 = tail call noundef i32 @_ZN3ozz7options6Parser5ParseEiPKPKc(ptr noundef nonnull align 8 dereferenceable(400) %17, i32 noundef %0, ptr noundef %1)
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

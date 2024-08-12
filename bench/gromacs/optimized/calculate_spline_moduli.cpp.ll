@@ -80,9 +80,9 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z19make_bspline_moduliiiii(ptr dead_on_unwind noalias writable sret(%"struct.std::array") align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"class.std::vector", align 16
-  %7 = alloca %"class.std::vector", align 16
-  %8 = alloca %"class.std::vector", align 16
+  %6 = alloca %"class.std::vector", align 8
+  %7 = alloca %"class.std::vector", align 8
+  %8 = alloca %"class.std::vector", align 8
   %9 = add nsw i32 %4, -1
   %10 = icmp slt i32 %4, 1
   br i1 %10, label %.noexc, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -158,66 +158,78 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
 ._crit_edge:                                      ; preds = %38, %.preheader
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr nonnull %13, i32 noundef %9, i32 noundef %1)
-          to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %55
+          to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %64
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
-  %42 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %42, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 16
-  %44 = load ptr, ptr %43, align 16
-  store ptr %44, ptr %41, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = load ptr, ptr %6, align 8
+  store ptr %43, ptr %0, align 8
+  %44 = getelementptr inbounds i8, ptr %6, i64 8
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %41, align 8
+  %46 = getelementptr inbounds i8, ptr %6, i64 16
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %42, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr nonnull %13, i32 noundef %9, i32 noundef %2)
-          to label %_ZNSt6vectorIfSaIfEED2Ev.exit39 unwind label %55
+          to label %_ZNSt6vectorIfSaIfEED2Ev.exit39 unwind label %64
 
 _ZNSt6vectorIfSaIfEED2Ev.exit39:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
-  %46 = getelementptr inbounds i8, ptr %0, i64 40
-  %47 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %47, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %7, i64 16
-  %49 = load ptr, ptr %48, align 16
-  store ptr %49, ptr %46, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = load ptr, ptr %7, align 8
+  store ptr %51, ptr %48, align 8
+  %52 = getelementptr inbounds i8, ptr %7, i64 8
+  %53 = load ptr, ptr %52, align 8
+  store ptr %53, ptr %49, align 8
+  %54 = getelementptr inbounds i8, ptr %7, i64 16
+  %55 = load ptr, ptr %54, align 8
+  store ptr %55, ptr %50, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZL12make_dft_modN3gmx8ArrayRefIKdEEii(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr nonnull %13, i32 noundef %9, i32 noundef %3)
-          to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %55
+          to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %64
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit39
-  %50 = getelementptr inbounds i8, ptr %0, i64 48
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
-  %52 = load <2 x ptr>, ptr %8, align 16
-  store <2 x ptr> %52, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %8, i64 16
-  %54 = load ptr, ptr %53, align 16
-  store ptr %54, ptr %51, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 48
+  %57 = getelementptr inbounds i8, ptr %0, i64 56
+  %58 = getelementptr inbounds i8, ptr %0, i64 64
+  %59 = load ptr, ptr %8, align 8
+  store ptr %59, ptr %56, align 8
+  %60 = getelementptr inbounds i8, ptr %8, i64 8
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %57, align 8
+  %62 = getelementptr inbounds i8, ptr %8, i64 16
+  %63 = load ptr, ptr %62, align 8
+  store ptr %63, ptr %58, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   ret void
 
-55:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit39, %_ZNSt6vectorIfSaIfEED2Ev.exit, %._crit_edge
-  %56 = landingpad { ptr, i32 }
+64:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit39, %_ZNSt6vectorIfSaIfEED2Ev.exit, %._crit_edge
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %57 = getelementptr inbounds i8, ptr %0, i64 72
-  br label %58
+  %66 = getelementptr inbounds i8, ptr %0, i64 72
+  br label %67
 
-58:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %55
-  %59 = phi ptr [ %57, %55 ], [ %60, %_ZNSt6vectorIfSaIfEED2Ev.exit.i ]
-  %60 = getelementptr inbounds i8, ptr %59, i64 -24
-  %61 = load ptr, ptr %60, align 8
-  %.not.i.i.i.i45 = icmp eq ptr %61, null
-  br i1 %.not.i.i.i.i45, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %62
+67:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %64
+  %68 = phi ptr [ %66, %64 ], [ %69, %_ZNSt6vectorIfSaIfEED2Ev.exit.i ]
+  %69 = getelementptr inbounds i8, ptr %68, i64 -24
+  %70 = load ptr, ptr %69, align 8
+  %.not.i.i.i.i45 = icmp eq ptr %70, null
+  br i1 %.not.i.i.i.i45, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %71
 
-62:                                               ; preds = %58
-  tail call void @_ZdlPv(ptr noundef nonnull %61) #19
+71:                                               ; preds = %67
+  tail call void @_ZdlPv(ptr noundef nonnull %70) #19
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
-_ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %62, %58
-  %63 = icmp eq ptr %60, %0
-  br i1 %63, label %_ZNSt6vectorIdSaIdEED2Ev.exit47, label %58
+_ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %71, %67
+  %72 = icmp eq ptr %69, %0
+  br i1 %72, label %_ZNSt6vectorIdSaIdEED2Ev.exit47, label %67
 
 _ZNSt6vectorIdSaIdEED2Ev.exit47:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %13) #19
-  resume { ptr, i32 } %56
+  resume { ptr, i32 } %65
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -390,67 +402,79 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z23make_p3m_bspline_moduliiiii(ptr dead_on_unwind noalias writable sret(%"struct.std::array") align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"class.std::vector", align 16
-  %7 = alloca %"class.std::vector", align 16
-  %8 = alloca %"class.std::vector", align 16
+  %6 = alloca %"class.std::vector", align 8
+  %7 = alloca %"class.std::vector", align 8
+  %8 = alloca %"class.std::vector", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   invoke fastcc void @_ZL27make_p3m_bspline_moduli_dimii(ptr dead_on_unwind noalias nonnull writable align 8 %6, i32 noundef %1, i32 noundef %4)
-          to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %23
+          to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %32
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
-  %12 = load ptr, ptr %11, align 16
-  store ptr %12, ptr %9, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %9, align 8
+  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %10, align 8
   invoke fastcc void @_ZL27make_p3m_bspline_moduli_dimii(ptr dead_on_unwind noalias nonnull writable align 8 %7, i32 noundef %2, i32 noundef %4)
-          to label %_ZNSt6vectorIfSaIfEED2Ev.exit11 unwind label %23
+          to label %_ZNSt6vectorIfSaIfEED2Ev.exit11 unwind label %32
 
 _ZNSt6vectorIfSaIfEED2Ev.exit11:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
-  %17 = load ptr, ptr %16, align 16
-  store ptr %17, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = load ptr, ptr %7, align 8
+  store ptr %19, ptr %16, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %17, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 16
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %18, align 8
   invoke fastcc void @_ZL27make_p3m_bspline_moduli_dimii(ptr dead_on_unwind noalias nonnull writable align 8 %8, i32 noundef %3, i32 noundef %4)
-          to label %_ZNSt6vectorIfSaIfEED2Ev.exit15 unwind label %23
+          to label %_ZNSt6vectorIfSaIfEED2Ev.exit15 unwind label %32
 
 _ZNSt6vectorIfSaIfEED2Ev.exit15:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit11
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
-  %20 = load <2 x ptr>, ptr %8, align 16
-  store <2 x ptr> %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
-  %22 = load ptr, ptr %21, align 16
-  store ptr %22, ptr %19, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = load ptr, ptr %8, align 8
+  store ptr %27, ptr %24, align 8
+  %28 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %25, align 8
+  %30 = getelementptr inbounds i8, ptr %8, i64 16
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %26, align 8
   ret void
 
-23:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit11, %_ZNSt6vectorIfSaIfEED2Ev.exit, %5
-  %24 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit11, %_ZNSt6vectorIfSaIfEED2Ev.exit, %5
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
-  br label %26
+  %34 = getelementptr inbounds i8, ptr %0, i64 72
+  br label %35
 
-26:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %23
-  %27 = phi ptr [ %25, %23 ], [ %28, %_ZNSt6vectorIfSaIfEED2Ev.exit.i ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 -24
-  %29 = load ptr, ptr %28, align 8
-  %.not.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %30
+35:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %32
+  %36 = phi ptr [ %34, %32 ], [ %37, %_ZNSt6vectorIfSaIfEED2Ev.exit.i ]
+  %37 = getelementptr inbounds i8, ptr %36, i64 -24
+  %38 = load ptr, ptr %37, align 8
+  %.not.i.i.i.i = icmp eq ptr %38, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %39
 
-30:                                               ; preds = %26
-  tail call void @_ZdlPv(ptr noundef nonnull %29) #19
+39:                                               ; preds = %35
+  tail call void @_ZdlPv(ptr noundef nonnull %38) #19
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
-_ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %30, %26
-  %31 = icmp eq ptr %28, %0
-  br i1 %31, label %_ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit, label %26
+_ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %39, %35
+  %40 = icmp eq ptr %37, %0
+  br i1 %40, label %_ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit, label %35
 
 _ZNSt5arrayISt6vectorIfSaIfEELm3EED2Ev.exit:      ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -665,10 +689,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %0, align 8
   ret void
@@ -862,155 +889,140 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define internal fastcc noundef double @_ZL16do_p3m_influencedi(double noundef %0, i32 noundef %1) unnamed_addr #9 {
   %3 = fmul double %0, %0
   %4 = fmul double %3, %3
-  switch i32 %1, label %128 [
+  switch i32 %1, label %113 [
     i32 2, label %5
     i32 3, label %9
     i32 4, label %14
-    i32 5, label %27
-    i32 6, label %46
-    i32 7, label %67
-    i32 8, label %94
+    i32 5, label %24
+    i32 6, label %39
+    i32 7, label %57
+    i32 8, label %82
   ]
 
 5:                                                ; preds = %2
   %6 = fmul double %3, 2.000000e+00
   %7 = fdiv double %6, 3.000000e+00
   %8 = fsub double 1.000000e+00, %7
-  br label %128
+  br label %113
 
 9:                                                ; preds = %2
   %10 = fsub double 1.000000e+00, %3
   %11 = fmul double %4, 2.000000e+00
   %12 = fdiv double %11, 1.500000e+01
   %13 = fadd double %10, %12
-  br label %128
+  br label %113
 
 14:                                               ; preds = %2
   %15 = fmul double %3, 4.000000e+00
   %16 = fdiv double %15, 3.000000e+00
   %17 = fsub double 1.000000e+00, %16
-  %18 = insertelement <2 x double> <double poison, double 2.000000e+00>, double %15, i64 0
-  %19 = insertelement <2 x double> poison, double %4, i64 0
-  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
-  %21 = fmul <2 x double> %18, %20
-  %22 = fdiv <2 x double> %21, <double 3.150000e+02, double 5.000000e+00>
-  %23 = extractelement <2 x double> %22, i64 1
-  %24 = fadd double %17, %23
-  %25 = extractelement <2 x double> %22, i64 0
-  %26 = fadd double %25, %24
-  br label %128
+  %18 = fmul double %4, 2.000000e+00
+  %19 = fdiv double %18, 5.000000e+00
+  %20 = fadd double %17, %19
+  %21 = fmul double %15, %4
+  %22 = fdiv double %21, 3.150000e+02
+  %23 = fadd double %22, %20
+  br label %113
 
-27:                                               ; preds = %2
-  %28 = insertelement <2 x double> poison, double %3, i64 0
-  %29 = insertelement <2 x double> %28, double %4, i64 1
-  %30 = fmul <2 x double> %29, <double 5.000000e+00, double 7.000000e+00>
-  %31 = fdiv <2 x double> %30, <double 3.000000e+00, double 9.000000e+00>
-  %32 = extractelement <2 x double> %31, i64 0
-  %33 = fsub double 1.000000e+00, %32
-  %34 = extractelement <2 x double> %31, i64 1
-  %35 = fadd double %33, %34
-  %36 = insertelement <2 x double> poison, double %4, i64 0
-  %37 = insertelement <2 x double> %36, double %3, i64 1
-  %38 = fmul <2 x double> %37, <double 2.000000e+00, double 1.700000e+01>
-  %39 = shufflevector <2 x double> %36, <2 x double> poison, <2 x i32> zeroinitializer
-  %40 = fmul <2 x double> %38, %39
-  %41 = fdiv <2 x double> %40, <double 2.835000e+03, double 1.890000e+02>
-  %42 = extractelement <2 x double> %41, i64 1
-  %43 = fsub double %35, %42
-  %44 = extractelement <2 x double> %41, i64 0
-  %45 = fadd double %44, %43
-  br label %128
+24:                                               ; preds = %2
+  %25 = fmul double %3, 5.000000e+00
+  %26 = fdiv double %25, 3.000000e+00
+  %27 = fsub double 1.000000e+00, %26
+  %28 = fmul double %4, 7.000000e+00
+  %29 = fdiv double %28, 9.000000e+00
+  %30 = fadd double %27, %29
+  %31 = fmul double %3, 1.700000e+01
+  %32 = fmul double %31, %4
+  %33 = fdiv double %32, 1.890000e+02
+  %34 = fsub double %30, %33
+  %35 = fmul double %4, 2.000000e+00
+  %36 = fmul double %4, %35
+  %37 = fdiv double %36, 2.835000e+03
+  %38 = fadd double %37, %34
+  br label %113
 
-46:                                               ; preds = %2
-  %47 = tail call double @llvm.fmuladd.f64(double %3, double -2.000000e+00, double 1.000000e+00)
-  %48 = fmul double %3, 2.560000e+02
-  %49 = insertelement <2 x double> <double 1.900000e+01, double poison>, double %48, i64 1
-  %50 = insertelement <2 x double> poison, double %4, i64 0
-  %51 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> zeroinitializer
-  %52 = fmul <2 x double> %49, %51
-  %53 = fdiv <2 x double> %52, <double 1.500000e+01, double 9.450000e+02>
-  %54 = extractelement <2 x double> %53, i64 0
-  %55 = fadd double %47, %54
-  %56 = extractelement <2 x double> %53, i64 1
-  %57 = fsub double %55, %56
-  %58 = fmul double %3, 4.000000e+00
-  %59 = insertelement <2 x double> <double poison, double 6.200000e+01>, double %58, i64 0
-  %60 = fmul <2 x double> %59, %51
-  %61 = fmul <2 x double> %51, %60
-  %62 = fdiv <2 x double> %61, <double 1.559250e+05, double 4.725000e+03>
-  %63 = extractelement <2 x double> %62, i64 1
-  %64 = fadd double %63, %57
-  %65 = extractelement <2 x double> %62, i64 0
-  %66 = fadd double %65, %64
-  br label %128
+39:                                               ; preds = %2
+  %40 = tail call double @llvm.fmuladd.f64(double %3, double -2.000000e+00, double 1.000000e+00)
+  %41 = fmul double %4, 1.900000e+01
+  %42 = fdiv double %41, 1.500000e+01
+  %43 = fadd double %40, %42
+  %44 = fmul double %3, 2.560000e+02
+  %45 = fmul double %44, %4
+  %46 = fdiv double %45, 9.450000e+02
+  %47 = fsub double %43, %46
+  %48 = fmul double %4, 6.200000e+01
+  %49 = fmul double %4, %48
+  %50 = fdiv double %49, 4.725000e+03
+  %51 = fadd double %50, %47
+  %52 = fmul double %3, 4.000000e+00
+  %53 = fmul double %52, %4
+  %54 = fmul double %4, %53
+  %55 = fdiv double %54, 1.559250e+05
+  %56 = fadd double %55, %51
+  br label %113
 
-67:                                               ; preds = %2
-  %68 = insertelement <2 x double> poison, double %3, i64 0
-  %69 = insertelement <2 x double> %68, double %4, i64 1
-  %70 = fmul <2 x double> %69, <double 7.000000e+00, double 2.800000e+01>
-  %71 = fdiv <2 x double> %70, <double 3.000000e+00, double 1.500000e+01>
-  %72 = extractelement <2 x double> %71, i64 0
-  %73 = fsub double 1.000000e+00, %72
-  %74 = extractelement <2 x double> %71, i64 1
-  %75 = fadd double %73, %74
-  %76 = insertelement <2 x double> poison, double %4, i64 0
-  %77 = insertelement <2 x double> %76, double %3, i64 1
-  %78 = fmul <2 x double> %77, <double 2.600000e+01, double 1.600000e+01>
-  %79 = shufflevector <2 x double> %76, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = fmul <2 x double> %78, %79
-  %81 = fdiv <2 x double> %80, <double 4.050000e+02, double 2.700000e+01>
-  %82 = extractelement <2 x double> %81, i64 1
-  %83 = fsub double %75, %82
-  %84 = extractelement <2 x double> %81, i64 0
-  %85 = fadd double %84, %83
-  %86 = fmul <2 x double> %77, <double 4.000000e+00, double 2.000000e+00>
-  %87 = fmul <2 x double> %86, %79
-  %88 = fmul <2 x double> %79, %87
-  %89 = fdiv <2 x double> %88, <double 0x4157328CC0000000, double 1.485000e+03>
-  %90 = extractelement <2 x double> %89, i64 1
-  %91 = fsub double %85, %90
-  %92 = extractelement <2 x double> %89, i64 0
-  %93 = fadd double %92, %91
-  br label %128
+57:                                               ; preds = %2
+  %58 = fmul double %3, 7.000000e+00
+  %59 = fdiv double %58, 3.000000e+00
+  %60 = fsub double 1.000000e+00, %59
+  %61 = fmul double %4, 2.800000e+01
+  %62 = fdiv double %61, 1.500000e+01
+  %63 = fadd double %60, %62
+  %64 = fmul double %3, 1.600000e+01
+  %65 = fmul double %64, %4
+  %66 = fdiv double %65, 2.700000e+01
+  %67 = fsub double %63, %66
+  %68 = fmul double %4, 2.600000e+01
+  %69 = fmul double %4, %68
+  %70 = fdiv double %69, 4.050000e+02
+  %71 = fadd double %70, %67
+  %72 = fmul double %3, 2.000000e+00
+  %73 = fmul double %72, %4
+  %74 = fmul double %4, %73
+  %75 = fdiv double %74, 1.485000e+03
+  %76 = fsub double %71, %75
+  %77 = fmul double %4, 4.000000e+00
+  %78 = fmul double %4, %77
+  %79 = fmul double %4, %78
+  %80 = fdiv double %79, 0x4157328CC0000000
+  %81 = fadd double %80, %76
+  br label %113
 
-94:                                               ; preds = %2
-  %95 = fmul double %3, 8.000000e+00
-  %96 = fdiv double %95, 3.000000e+00
-  %97 = fsub double 1.000000e+00, %96
-  %98 = fmul double %3, 3.440000e+02
-  %99 = insertelement <2 x double> <double 1.160000e+02, double poison>, double %98, i64 1
-  %100 = insertelement <2 x double> poison, double %4, i64 0
-  %101 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> zeroinitializer
-  %102 = fmul <2 x double> %99, %101
-  %103 = fdiv <2 x double> %102, <double 4.500000e+01, double 3.150000e+02>
-  %104 = extractelement <2 x double> %103, i64 0
-  %105 = fadd double %97, %104
-  %106 = extractelement <2 x double> %103, i64 1
-  %107 = fsub double %105, %106
-  %108 = fmul double %4, 2.480000e+02
-  %109 = insertelement <2 x double> <double 9.140000e+02, double poison>, double %108, i64 1
-  %110 = fmul <2 x double> %101, %109
-  %111 = insertelement <2 x double> %100, double %3, i64 1
-  %112 = fmul <2 x double> %111, %110
-  %113 = fdiv <2 x double> %112, <double 4.725000e+03, double 2.227500e+04>
-  %114 = extractelement <2 x double> %113, i64 0
-  %115 = fadd double %114, %107
-  %116 = extractelement <2 x double> %113, i64 1
-  %117 = fsub double %115, %116
-  %118 = fmul double %4, 8.000000e+00
-  %119 = insertelement <2 x double> <double 2.184400e+04, double poison>, double %118, i64 1
-  %120 = fmul <2 x double> %101, %119
-  %121 = fmul <2 x double> %101, %120
-  %122 = fmul <2 x double> %111, %121
-  %123 = fdiv <2 x double> %122, <double 0x41A95F49F2000000, double 0x41C3077775800000>
-  %124 = extractelement <2 x double> %123, i64 0
-  %125 = fadd double %124, %117
-  %126 = extractelement <2 x double> %123, i64 1
-  %127 = fsub double %125, %126
-  br label %128
+82:                                               ; preds = %2
+  %83 = fmul double %3, 8.000000e+00
+  %84 = fdiv double %83, 3.000000e+00
+  %85 = fsub double 1.000000e+00, %84
+  %86 = fmul double %4, 1.160000e+02
+  %87 = fdiv double %86, 4.500000e+01
+  %88 = fadd double %85, %87
+  %89 = fmul double %3, 3.440000e+02
+  %90 = fmul double %89, %4
+  %91 = fdiv double %90, 3.150000e+02
+  %92 = fsub double %88, %91
+  %93 = fmul double %4, 9.140000e+02
+  %94 = fmul double %4, %93
+  %95 = fdiv double %94, 4.725000e+03
+  %96 = fadd double %95, %92
+  %97 = fmul double %4, 2.480000e+02
+  %98 = fmul double %4, %97
+  %99 = fmul double %3, %98
+  %100 = fdiv double %99, 2.227500e+04
+  %101 = fsub double %96, %100
+  %102 = fmul double %4, 2.184400e+04
+  %103 = fmul double %4, %102
+  %104 = fmul double %4, %103
+  %105 = fdiv double %104, 0x41A95F49F2000000
+  %106 = fadd double %105, %101
+  %107 = fmul double %4, 8.000000e+00
+  %108 = fmul double %4, %107
+  %109 = fmul double %4, %108
+  %110 = fmul double %3, %109
+  %111 = fdiv double %110, 0x41C3077775800000
+  %112 = fsub double %106, %111
+  br label %113
 
-128:                                              ; preds = %2, %94, %67, %46, %27, %14, %9, %5
-  %.0 = phi double [ %127, %94 ], [ %93, %67 ], [ %66, %46 ], [ %45, %27 ], [ %26, %14 ], [ %13, %9 ], [ %8, %5 ], [ 0.000000e+00, %2 ]
+113:                                              ; preds = %2, %82, %57, %39, %24, %14, %9, %5
+  %.0 = phi double [ %112, %82 ], [ %81, %57 ], [ %56, %39 ], [ %38, %24 ], [ %23, %14 ], [ %13, %9 ], [ %8, %5 ], [ 0.000000e+00, %2 ]
   ret double %.0
 }
 

@@ -8494,9 +8494,12 @@ if.then:                                          ; preds = %entry
   %0 = load i32, ptr %flags, align 8
   %1 = or i32 %0, 128
   store i32 %1, ptr %flags, align 8
-  %2 = load <2 x ptr>, ptr %config, align 8
-  %3 = shufflevector <2 x ptr> %2, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %3, ptr %call, align 8
+  %alias2 = getelementptr inbounds i8, ptr %config, i64 8
+  %2 = load ptr, ptr %alias2, align 8
+  store ptr %2, ptr %call, align 8
+  %3 = load ptr, ptr %config, align 8
+  %alias5 = getelementptr inbounds i8, ptr %call, i64 8
+  store ptr %3, ptr %alias5, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -8559,9 +8562,11 @@ if.then10:                                        ; preds = %cond.end
   %6 = load i32, ptr %flags.i, align 8
   %7 = or i32 %6, 128
   store i32 %7, ptr %flags.i, align 8
-  %8 = load <2 x ptr>, ptr %config.017, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %call.i11, align 8
+  %8 = load ptr, ptr %alias, align 8
+  store ptr %8, ptr %call.i11, align 8
+  %9 = load ptr, ptr %config.017, align 8
+  %alias5.i = getelementptr inbounds i8, ptr %call.i11, i64 8
+  store ptr %9, ptr %alias5.i, align 8
   %10 = load ptr, ptr @configs, align 8
   %call6.i12 = tail call ptr @sdsnew(ptr noundef nonnull %5) #25
   %call7.i13 = tail call i32 @dictAdd(ptr noundef %10, ptr noundef %call6.i12, ptr noundef nonnull %call.i11) #25

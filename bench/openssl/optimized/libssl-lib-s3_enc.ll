@@ -198,15 +198,14 @@ if.end26:                                         ; preds = %if.end18
   %call3.i = call ptr @ssl_evp_md_fetch(ptr noundef %15, i32 noundef 64, ptr noundef %16) #8
   %call4.i = call ptr @EVP_MD_CTX_new() #8
   %call5.i = call ptr @EVP_MD_CTX_new() #8
-  %17 = insertelement <4 x ptr> poison, ptr %call.i, i64 0
-  %18 = insertelement <4 x ptr> %17, ptr %call3.i, i64 1
-  %19 = insertelement <4 x ptr> %18, ptr %call4.i, i64 2
-  %20 = insertelement <4 x ptr> %19, ptr %call5.i, i64 3
-  %.fr = freeze <4 x ptr> %20
-  %21 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %22 = bitcast <4 x i1> %21 to i4
-  %.not = icmp eq i4 %22, 0
-  br i1 %.not, label %for.cond.preheader.i, label %if.then.i
+  %cmp.i = icmp eq ptr %call.i, null
+  %cmp6.i = icmp eq ptr %call3.i, null
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp6.i
+  %cmp8.i = icmp eq ptr %call4.i, null
+  %or.cond1.i = select i1 %or.cond.i, i1 true, i1 %cmp8.i
+  %cmp10.i = icmp eq ptr %call5.i, null
+  %or.cond2.i = select i1 %or.cond1.i, i1 true, i1 %cmp10.i
+  br i1 %or.cond2.i, label %if.then.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end26
   %cmp1145.i = icmp sgt i32 %add21, 0
@@ -215,10 +214,10 @@ for.cond.preheader.i:                             ; preds = %if.end26
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %server_random.i = getelementptr inbounds i8, ptr %s, i64 288
   %client_random.i = getelementptr inbounds i8, ptr %s, i64 320
-  %23 = zext i32 %mul to i64
-  %umax = call i64 @llvm.umax.i64(i64 %23, i64 16)
-  %24 = add nsw i64 %umax, -1
-  %25 = lshr i64 %24, 4
+  %17 = zext i32 %mul to i64
+  %umax = call i64 @llvm.umax.i64(i64 %17, i64 16)
+  %18 = add nsw i64 %umax, -1
+  %19 = lshr i64 %18, 4
   br label %for.body.i
 
 if.then.i:                                        ; preds = %if.end26
@@ -255,11 +254,11 @@ lor.lhs.false20.i:                                ; preds = %if.end15.i
   br i1 %tobool24.not.i, label %if.then58.i, label %lor.lhs.false25.i
 
 lor.lhs.false25.i:                                ; preds = %lor.lhs.false20.i
-  %26 = load ptr, ptr %session, align 8
-  %master_key.i = getelementptr inbounds i8, ptr %26, i64 80
-  %master_key_length.i = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load i64, ptr %master_key_length.i, align 8
-  %call28.i = call i32 @EVP_DigestUpdate(ptr noundef %call5.i, ptr noundef nonnull %master_key.i, i64 noundef %27) #8
+  %20 = load ptr, ptr %session, align 8
+  %master_key.i = getelementptr inbounds i8, ptr %20, i64 80
+  %master_key_length.i = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load i64, ptr %master_key_length.i, align 8
+  %call28.i = call i32 @EVP_DigestUpdate(ptr noundef %call5.i, ptr noundef nonnull %master_key.i, i64 noundef %21) #8
   %tobool29.not.i = icmp eq i32 %call28.i, 0
   br i1 %tobool29.not.i, label %if.then58.i, label %lor.lhs.false30.i
 
@@ -284,11 +283,11 @@ lor.lhs.false43.i:                                ; preds = %lor.lhs.false39.i
   br i1 %tobool45.not.i, label %if.then58.i, label %lor.lhs.false46.i
 
 lor.lhs.false46.i:                                ; preds = %lor.lhs.false43.i
-  %28 = load ptr, ptr %session, align 8
-  %master_key48.i = getelementptr inbounds i8, ptr %28, i64 80
-  %master_key_length51.i = getelementptr inbounds i8, ptr %28, i64 8
-  %29 = load i64, ptr %master_key_length51.i, align 8
-  %call52.i = call i32 @EVP_DigestUpdate(ptr noundef %call4.i, ptr noundef nonnull %master_key48.i, i64 noundef %29) #8
+  %22 = load ptr, ptr %session, align 8
+  %master_key48.i = getelementptr inbounds i8, ptr %22, i64 80
+  %master_key_length51.i = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = load i64, ptr %master_key_length51.i, align 8
+  %call52.i = call i32 @EVP_DigestUpdate(ptr noundef %call4.i, ptr noundef nonnull %master_key48.i, i64 noundef %23) #8
   %tobool53.not.i = icmp eq i32 %call52.i, 0
   br i1 %tobool53.not.i, label %if.then58.i, label %lor.lhs.false54.i
 
@@ -305,7 +304,7 @@ if.then58.i:                                      ; preds = %lor.lhs.false54.i, 
 
 if.end59.i:                                       ; preds = %lor.lhs.false54.i
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 16
-  %cmp60.i = icmp ugt i64 %indvars.iv.next51.i, %23
+  %cmp60.i = icmp ugt i64 %indvars.iv.next51.i, %17
   br i1 %cmp60.i, label %if.then62.i, label %if.else.i
 
 if.then62.i:                                      ; preds = %if.end59.i
@@ -320,8 +319,8 @@ if.then66.i:                                      ; preds = %if.then62.i
   br label %ssl3_generate_key_block.exit
 
 if.end67.i:                                       ; preds = %if.then62.i
-  %30 = trunc nuw nsw i64 %indvars.iv50.i to i32
-  %sub.i = sub i32 %mul, %30
+  %24 = trunc nuw nsw i64 %indvars.iv50.i to i32
+  %sub.i = sub i32 %mul, %24
   %conv69.i = zext i32 %sub.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %km.addr.049.i, ptr nonnull align 16 %smd.i, i64 %conv69.i, i1 false)
   br label %if.end74.i
@@ -339,7 +338,7 @@ if.then72.i:                                      ; preds = %if.else.i
 
 if.end74.i:                                       ; preds = %if.else.i, %if.end67.i
   %add.ptr.i = getelementptr inbounds i8, ptr %km.addr.049.i, i64 16
-  %exitcond.not = icmp eq i64 %indvars.iv.i, %25
+  %exitcond.not = icmp eq i64 %indvars.iv.i, %19
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %if.end74.i, %for.cond.preheader.i

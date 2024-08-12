@@ -2509,7 +2509,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc__topology_init(ptr nocapture 
 hwloc_tma_malloc.exit:                            ; preds = %4, %7
   %.0.i = phi ptr [ %6, %4 ], [ %8, %7 ]
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %68, label %9
+  br i1 %.not, label %74, label %9
 
 9:                                                ; preds = %hwloc_tma_malloc.exit
   %10 = getelementptr inbounds i8, ptr %.0.i, i64 840
@@ -2622,21 +2622,33 @@ hwloc_tma_calloc.exit60:                          ; preds = %hwloc_tma_malloc.ex
   %63 = getelementptr inbounds i8, ptr %.0.i, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %63, i8 0, i64 80, i1 false)
   %64 = getelementptr inbounds i8, ptr %.0.i, i64 156
-  %65 = getelementptr inbounds i8, ptr %.0.i, i64 192
+  store i32 1, ptr %64, align 4
+  %65 = getelementptr inbounds i8, ptr %.0.i, i64 160
   store i32 1, ptr %65, align 8
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 2>, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.0.i, i64 176
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr %66, align 8
+  %66 = getelementptr inbounds i8, ptr %.0.i, i64 164
+  store i32 1, ptr %66, align 4
+  %67 = getelementptr inbounds i8, ptr %.0.i, i64 192
+  store i32 1, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %.0.i, i64 168
+  store i32 2, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %.0.i, i64 188
+  store i32 1, ptr %69, align 4
+  %70 = getelementptr inbounds i8, ptr %.0.i, i64 176
+  store i32 1, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %.0.i, i64 180
+  store i32 1, ptr %71, align 4
+  %72 = getelementptr inbounds i8, ptr %.0.i, i64 184
+  store i32 1, ptr %72, align 8
   tail call void @hwloc_internal_distances_init(ptr noundef nonnull %.0.i) #33
   tail call void @hwloc_internal_memattrs_init(ptr noundef nonnull %.0.i) #33
   tail call void @hwloc_internal_cpukinds_init(ptr noundef nonnull %.0.i) #33
-  %67 = getelementptr inbounds i8, ptr %.0.i, i64 704
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %67, i8 0, i64 20, i1 false)
+  %73 = getelementptr inbounds i8, ptr %.0.i, i64 704
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %73, i8 0, i64 20, i1 false)
   tail call void @hwloc_topology_setup_defaults(ptr noundef nonnull %.0.i)
   store ptr %.0.i, ptr %0, align 8
-  br label %68
+  br label %74
 
-68:                                               ; preds = %hwloc_tma_malloc.exit, %hwloc_tma_calloc.exit60
+74:                                               ; preds = %hwloc_tma_malloc.exit, %hwloc_tma_calloc.exit60
   %.0 = phi i32 [ 0, %hwloc_tma_calloc.exit60 ], [ -1, %hwloc_tma_malloc.exit ]
   ret i32 %.0
 }
@@ -5850,69 +5862,75 @@ hwloc_tma_malloc.exit:                            ; preds = %15, %18
   %29 = getelementptr inbounds i8, ptr %0, i64 116
   store i32 -1, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %0, i64 92
+  store i32 -3, ptr %30, align 4
   %31 = getelementptr inbounds i8, ptr %0, i64 108
   store i32 -7, ptr %31, align 4
-  store <4 x i32> <i32 -3, i32 -4, i32 -5, i32 -6>, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 112
-  store i32 -8, ptr %32, align 8
-  %33 = load ptr, ptr %13, align 8
-  %.not.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i, label %37, label %34
-
-34:                                               ; preds = %hwloc_tma_malloc.exit
-  %35 = load ptr, ptr %33, align 8
-  %36 = tail call ptr %35(ptr noundef nonnull %33, i64 noundef 248) #33
-  br label %hwloc_tma_malloc.exit.i
+  %32 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 -4, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 100
+  store i32 -5, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 -6, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 112
+  store i32 -8, ptr %35, align 8
+  %36 = load ptr, ptr %13, align 8
+  %.not.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i, label %40, label %37
 
 37:                                               ; preds = %hwloc_tma_malloc.exit
-  %38 = tail call noalias dereferenceable_or_null(248) ptr @malloc(i64 noundef 248) #35
+  %38 = load ptr, ptr %36, align 8
+  %39 = tail call ptr %38(ptr noundef nonnull %36, i64 noundef 248) #33
   br label %hwloc_tma_malloc.exit.i
 
-hwloc_tma_malloc.exit.i:                          ; preds = %37, %34
-  %.0.i.i = phi ptr [ %36, %34 ], [ %38, %37 ]
+40:                                               ; preds = %hwloc_tma_malloc.exit
+  %41 = tail call noalias dereferenceable_or_null(248) ptr @malloc(i64 noundef 248) #35
+  br label %hwloc_tma_malloc.exit.i
+
+hwloc_tma_malloc.exit.i:                          ; preds = %40, %37
+  %.0.i.i = phi ptr [ %39, %37 ], [ %41, %40 ]
   %.not.i26 = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i26, label %hwloc_alloc_setup_object.exit, label %39
+  br i1 %.not.i26, label %hwloc_alloc_setup_object.exit, label %42
 
-39:                                               ; preds = %hwloc_tma_malloc.exit.i
+42:                                               ; preds = %hwloc_tma_malloc.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %.0.i.i, i8 0, i64 248, i1 false)
-  %40 = load i64, ptr %11, align 8
-  %41 = add i64 %40, 1
-  store i64 %41, ptr %11, align 8
-  %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 240
-  store i64 %40, ptr %42, align 8
-  %43 = load ptr, ptr %13, align 8
-  %.not.i18.i = icmp eq ptr %43, null
-  br i1 %.not.i18.i, label %47, label %44
+  %43 = load i64, ptr %11, align 8
+  %44 = add i64 %43, 1
+  store i64 %44, ptr %11, align 8
+  %45 = getelementptr inbounds i8, ptr %.0.i.i, i64 240
+  store i64 %43, ptr %45, align 8
+  %46 = load ptr, ptr %13, align 8
+  %.not.i18.i = icmp eq ptr %46, null
+  br i1 %.not.i18.i, label %50, label %47
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %43, align 8
-  %46 = tail call ptr %45(ptr noundef nonnull %43, i64 noundef 48) #33
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %46, align 8
+  %49 = tail call ptr %48(ptr noundef nonnull %46, i64 noundef 48) #33
   br label %hwloc_tma_malloc.exit20.i
 
-47:                                               ; preds = %39
-  %48 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #35
+50:                                               ; preds = %42
+  %51 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #35
   br label %hwloc_tma_malloc.exit20.i
 
-hwloc_tma_malloc.exit20.i:                        ; preds = %47, %44
-  %.0.i19.i = phi ptr [ %46, %44 ], [ %48, %47 ]
-  %49 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
-  store ptr %.0.i19.i, ptr %49, align 8
+hwloc_tma_malloc.exit20.i:                        ; preds = %50, %47
+  %.0.i19.i = phi ptr [ %49, %47 ], [ %51, %50 ]
+  %52 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  store ptr %.0.i19.i, ptr %52, align 8
   %.not17.i = icmp eq ptr %.0.i19.i, null
-  br i1 %.not17.i, label %50, label %51
+  br i1 %.not17.i, label %53, label %54
 
-50:                                               ; preds = %hwloc_tma_malloc.exit20.i
+53:                                               ; preds = %hwloc_tma_malloc.exit20.i
   tail call void @free(ptr noundef nonnull %.0.i.i) #33
   br label %hwloc_alloc_setup_object.exit
 
-51:                                               ; preds = %hwloc_tma_malloc.exit20.i
+54:                                               ; preds = %hwloc_tma_malloc.exit20.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0.i19.i, i8 0, i64 48, i1 false)
   br label %hwloc_alloc_setup_object.exit
 
-hwloc_alloc_setup_object.exit:                    ; preds = %hwloc_tma_malloc.exit.i, %50, %51
-  %.0.i27 = phi ptr [ %.0.i.i, %51 ], [ null, %50 ], [ null, %hwloc_tma_malloc.exit.i ]
-  %52 = load ptr, ptr %20, align 8
-  %53 = load ptr, ptr %52, align 8
-  store ptr %.0.i27, ptr %53, align 8
+hwloc_alloc_setup_object.exit:                    ; preds = %hwloc_tma_malloc.exit.i, %53, %54
+  %.0.i27 = phi ptr [ %.0.i.i, %54 ], [ null, %53 ], [ null, %hwloc_tma_malloc.exit.i ]
+  %55 = load ptr, ptr %20, align 8
+  %56 = load ptr, ptr %55, align 8
+  store ptr %.0.i27, ptr %56, align 8
   ret void
 }
 

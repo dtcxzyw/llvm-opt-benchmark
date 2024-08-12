@@ -65,7 +65,7 @@ define dso_local range(i32 1, 7) i32 @rb_uv_to_utf8(ptr nocapture noundef nonnul
 4:                                                ; preds = %2
   %5 = trunc nuw nsw i64 %1 to i8
   store i8 %5, ptr %0, align 1
-  br label %98
+  br label %108
 
 6:                                                ; preds = %2
   %7 = icmp ult i64 %1, 2048
@@ -81,7 +81,7 @@ define dso_local range(i32 1, 7) i32 @rb_uv_to_utf8(ptr nocapture noundef nonnul
   %14 = or disjoint i8 %13, -128
   %15 = getelementptr i8, ptr %0, i64 1
   store i8 %14, ptr %15, align 1
-  br label %98
+  br label %108
 
 16:                                               ; preds = %6
   %17 = icmp ult i64 %1, 65536
@@ -103,7 +103,7 @@ define dso_local range(i32 1, 7) i32 @rb_uv_to_utf8(ptr nocapture noundef nonnul
   %29 = or disjoint i8 %28, -128
   %30 = getelementptr i8, ptr %0, i64 2
   store i8 %29, ptr %30, align 1
-  br label %98
+  br label %108
 
 31:                                               ; preds = %16
   %32 = icmp ult i64 %1, 2097152
@@ -131,11 +131,11 @@ define dso_local range(i32 1, 7) i32 @rb_uv_to_utf8(ptr nocapture noundef nonnul
   %49 = or disjoint i8 %48, -128
   %50 = getelementptr i8, ptr %0, i64 3
   store i8 %49, ptr %50, align 1
-  br label %98
+  br label %108
 
 51:                                               ; preds = %31
   %52 = icmp ult i64 %1, 67108864
-  br i1 %52, label %53, label %71
+  br i1 %52, label %53, label %76
 
 53:                                               ; preds = %51
   %54 = lshr i64 %1, 24
@@ -143,61 +143,77 @@ define dso_local range(i32 1, 7) i32 @rb_uv_to_utf8(ptr nocapture noundef nonnul
   %56 = or disjoint i8 %55, -8
   store i8 %56, ptr %0, align 1
   %57 = lshr i64 %1, 18
-  %58 = getelementptr i8, ptr %0, i64 1
-  %59 = lshr i64 %1, 12
-  %60 = lshr i64 %1, 6
-  %61 = trunc i64 %1 to i8
-  %62 = trunc nuw i64 %57 to i8
-  %63 = insertelement <4 x i8> poison, i8 %62, i64 0
-  %64 = trunc i64 %59 to i8
-  %65 = insertelement <4 x i8> %63, i8 %64, i64 1
-  %66 = trunc i64 %60 to i8
-  %67 = insertelement <4 x i8> %65, i8 %66, i64 2
-  %68 = insertelement <4 x i8> %67, i8 %61, i64 3
-  %69 = and <4 x i8> %68, <i8 63, i8 63, i8 63, i8 63>
-  %70 = or disjoint <4 x i8> %69, <i8 -128, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %70, ptr %58, align 1
-  br label %98
+  %58 = trunc nuw i64 %57 to i8
+  %59 = and i8 %58, 63
+  %60 = or disjoint i8 %59, -128
+  %61 = getelementptr i8, ptr %0, i64 1
+  store i8 %60, ptr %61, align 1
+  %62 = lshr i64 %1, 12
+  %63 = trunc i64 %62 to i8
+  %64 = and i8 %63, 63
+  %65 = or disjoint i8 %64, -128
+  %66 = getelementptr i8, ptr %0, i64 2
+  store i8 %65, ptr %66, align 1
+  %67 = lshr i64 %1, 6
+  %68 = trunc i64 %67 to i8
+  %69 = and i8 %68, 63
+  %70 = or disjoint i8 %69, -128
+  %71 = getelementptr i8, ptr %0, i64 3
+  store i8 %70, ptr %71, align 1
+  %72 = trunc i64 %1 to i8
+  %73 = and i8 %72, 63
+  %74 = or disjoint i8 %73, -128
+  %75 = getelementptr i8, ptr %0, i64 4
+  store i8 %74, ptr %75, align 1
+  br label %108
 
-71:                                               ; preds = %51
-  %72 = icmp ult i64 %1, 2147483648
-  br i1 %72, label %73, label %96
+76:                                               ; preds = %51
+  %77 = icmp ult i64 %1, 2147483648
+  br i1 %77, label %78, label %106
 
-73:                                               ; preds = %71
-  %74 = lshr i64 %1, 30
-  %75 = trunc nuw i64 %74 to i8
-  %76 = or disjoint i8 %75, -4
-  store i8 %76, ptr %0, align 1
-  %77 = lshr i64 %1, 24
-  %78 = trunc nuw i64 %77 to i8
-  %79 = and i8 %78, 63
-  %80 = or disjoint i8 %79, -128
-  %81 = getelementptr i8, ptr %0, i64 1
-  store i8 %80, ptr %81, align 1
-  %82 = lshr i64 %1, 18
-  %83 = getelementptr i8, ptr %0, i64 2
-  %84 = lshr i64 %1, 12
-  %85 = lshr i64 %1, 6
-  %86 = trunc i64 %1 to i8
-  %87 = trunc i64 %82 to i8
-  %88 = insertelement <4 x i8> poison, i8 %87, i64 0
-  %89 = trunc i64 %84 to i8
-  %90 = insertelement <4 x i8> %88, i8 %89, i64 1
-  %91 = trunc i64 %85 to i8
-  %92 = insertelement <4 x i8> %90, i8 %91, i64 2
-  %93 = insertelement <4 x i8> %92, i8 %86, i64 3
-  %94 = and <4 x i8> %93, <i8 63, i8 63, i8 63, i8 63>
-  %95 = or disjoint <4 x i8> %94, <i8 -128, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %95, ptr %83, align 1
-  br label %98
+78:                                               ; preds = %76
+  %79 = lshr i64 %1, 30
+  %80 = trunc nuw i64 %79 to i8
+  %81 = or disjoint i8 %80, -4
+  store i8 %81, ptr %0, align 1
+  %82 = lshr i64 %1, 24
+  %83 = trunc nuw i64 %82 to i8
+  %84 = and i8 %83, 63
+  %85 = or disjoint i8 %84, -128
+  %86 = getelementptr i8, ptr %0, i64 1
+  store i8 %85, ptr %86, align 1
+  %87 = lshr i64 %1, 18
+  %88 = trunc i64 %87 to i8
+  %89 = and i8 %88, 63
+  %90 = or disjoint i8 %89, -128
+  %91 = getelementptr i8, ptr %0, i64 2
+  store i8 %90, ptr %91, align 1
+  %92 = lshr i64 %1, 12
+  %93 = trunc i64 %92 to i8
+  %94 = and i8 %93, 63
+  %95 = or disjoint i8 %94, -128
+  %96 = getelementptr i8, ptr %0, i64 3
+  store i8 %95, ptr %96, align 1
+  %97 = lshr i64 %1, 6
+  %98 = trunc i64 %97 to i8
+  %99 = and i8 %98, 63
+  %100 = or disjoint i8 %99, -128
+  %101 = getelementptr i8, ptr %0, i64 4
+  store i8 %100, ptr %101, align 1
+  %102 = trunc i64 %1 to i8
+  %103 = and i8 %102, 63
+  %104 = or disjoint i8 %103, -128
+  %105 = getelementptr i8, ptr %0, i64 5
+  store i8 %104, ptr %105, align 1
+  br label %108
 
-96:                                               ; preds = %71
-  %97 = load i64, ptr @rb_eRangeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %97, ptr noundef nonnull @.str) #13
+106:                                              ; preds = %76
+  %107 = load i64, ptr @rb_eRangeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %107, ptr noundef nonnull @.str) #13
   unreachable
 
-98:                                               ; preds = %73, %53, %33, %18, %8, %4
-  %.0 = phi i32 [ 1, %4 ], [ 2, %8 ], [ 3, %18 ], [ 4, %33 ], [ 5, %53 ], [ 6, %73 ]
+108:                                              ; preds = %78, %53, %33, %18, %8, %4
+  %.0 = phi i32 [ 1, %4 ], [ 2, %8 ], [ 3, %18 ], [ 4, %33 ], [ 5, %53 ], [ 6, %78 ]
   ret i32 %.0
 }
 

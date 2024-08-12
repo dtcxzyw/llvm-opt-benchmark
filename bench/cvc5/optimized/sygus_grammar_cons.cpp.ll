@@ -4312,7 +4312,13 @@ _ZNSt12_Vector_baseIN4cvc58internal4kind6Kind_tESaIS3_EED2Ev.exit.i1141: ; preds
   br label %ehcleanup512
 
 invoke.cont452:                                   ; preds = %for.end440
-  store <4 x i32> <i32 157, i32 158, i32 159, i32 160>, ptr %call5.i.i.i.i2.i1137, align 4
+  store i32 157, ptr %call5.i.i.i.i2.i1137, align 4
+  %ref.tmp442.sroa.2.0.call5.i.i.i.i2.i1137.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i1137, i64 4
+  store i32 158, ptr %ref.tmp442.sroa.2.0.call5.i.i.i.i2.i1137.sroa_idx, align 4
+  %ref.tmp442.sroa.3.0.call5.i.i.i.i2.i1137.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i1137, i64 8
+  store i32 159, ptr %ref.tmp442.sroa.3.0.call5.i.i.i.i2.i1137.sroa_idx, align 4
+  %ref.tmp442.sroa.4.0.call5.i.i.i.i2.i1137.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i1137, i64 12
+  store i32 160, ptr %ref.tmp442.sroa.4.0.call5.i.i.i.i2.i1137.sroa_idx, align 4
   %141 = load ptr, ptr %_M_finish.i.i1038, align 8
   %142 = load ptr, ptr %_M_end_of_storage.i.i1035, align 8
   %cmp.not.i1151 = icmp eq ptr %141, %142

@@ -488,10 +488,21 @@ declare noundef zeroext i1 @_ZN3ue22NG10addLiteralERKNS_11ue2_literalEjjbNS_8som
 define linkonce_odr hidden void @_ZN3ue223ConstructLiteralVisitor3preERKNS_19AsciiComponentClassE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(72) %c) unnamed_addr #5 comdat align 2 {
 entry:
   %cr2 = getelementptr inbounds i8, ptr %c, i64 40
-  %0 = load <4 x i64>, ptr %cr2, align 8
-  %1 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %0)
-  %2 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %1)
-  switch i64 %2, label %if.else10 [
+  %0 = load i64, ptr %cr2, align 8
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
+  %arrayidx.i.i44.i.i = getelementptr inbounds i8, ptr %c, i64 48
+  %2 = load i64, ptr %arrayidx.i.i44.i.i, align 8
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %add9.i.i = add nuw nsw i64 %3, %1
+  %arrayidx.i.i45.i.i = getelementptr inbounds i8, ptr %c, i64 56
+  %4 = load i64, ptr %arrayidx.i.i45.i.i, align 8
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4)
+  %add15.i.i = add nuw nsw i64 %add9.i.i, %5
+  %arrayidx.i.i46.i.i = getelementptr inbounds i8, ptr %c, i64 64
+  %6 = load i64, ptr %arrayidx.i.i46.i.i, align 8
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
+  %add21.i.i = add nuw nsw i64 %add15.i.i, %7
+  switch i64 %add21.i.i, label %if.else10 [
     i64 1, label %if.then
     i64 2, label %land.lhs.true
   ]
@@ -503,15 +514,15 @@ if.then:                                          ; preds = %entry
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.then
   %i.06.i.i = phi i64 [ 0, %if.then ], [ %inc.i.i, %for.inc.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds [4 x i64], ptr %cr2, i64 0, i64 %i.06.i.i
-  %3 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %cmp4.not.i.i = icmp eq i64 %3, 0
+  %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
+  %cmp4.not.i.i = icmp eq i64 %8, 0
   br i1 %cmp4.not.i.i, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %mul.i.i = shl nuw nsw i64 %i.06.i.i, 6
-  %4 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %3, i1 true)
-  %add.i.i = or disjoint i64 %4, %mul.i.i
-  %5 = trunc i64 %add.i.i to i8
+  %9 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %8, i1 true)
+  %add.i.i = or disjoint i64 %9, %mul.i.i
+  %10 = trunc i64 %add.i.i to i8
   br label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
@@ -520,7 +531,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit, label %for.body.i.i, !llvm.loop !7
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.inc.i.i, %if.then.i.i
-  %retval.0.i.i = phi i8 [ %5, %if.then.i.i ], [ 0, %for.inc.i.i ]
+  %retval.0.i.i = phi i8 [ %10, %if.then.i.i ], [ 0, %for.inc.i.i ]
   tail call void @_ZN3ue211ue2_literal9push_backEcb(ptr noundef nonnull align 8 dereferenceable(64) %lit, i8 noundef signext %retval.0.i.i, i1 noundef zeroext false)
   br label %if.end11
 
@@ -535,15 +546,15 @@ if.then6:                                         ; preds = %land.lhs.true
 for.body.i.i5:                                    ; preds = %for.inc.i.i13, %if.then6
   %i.06.i.i6 = phi i64 [ 0, %if.then6 ], [ %inc.i.i14, %for.inc.i.i13 ]
   %arrayidx.i.i.i.i7 = getelementptr inbounds [4 x i64], ptr %cr2, i64 0, i64 %i.06.i.i6
-  %6 = load i64, ptr %arrayidx.i.i.i.i7, align 8
-  %cmp4.not.i.i8 = icmp eq i64 %6, 0
+  %11 = load i64, ptr %arrayidx.i.i.i.i7, align 8
+  %cmp4.not.i.i8 = icmp eq i64 %11, 0
   br i1 %cmp4.not.i.i8, label %for.inc.i.i13, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %for.body.i.i5
   %mul.i.i10 = shl nuw nsw i64 %i.06.i.i6, 6
-  %7 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %6, i1 true)
-  %add.i.i11 = or disjoint i64 %7, %mul.i.i10
-  %8 = trunc i64 %add.i.i11 to i8
+  %12 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %11, i1 true)
+  %add.i.i11 = or disjoint i64 %12, %mul.i.i10
+  %13 = trunc i64 %add.i.i11 to i8
   br label %_ZNK3ue29CharReach10find_firstEv.exit16
 
 for.inc.i.i13:                                    ; preds = %for.body.i.i5
@@ -552,7 +563,7 @@ for.inc.i.i13:                                    ; preds = %for.body.i.i5
   br i1 %exitcond.not.i.i15, label %_ZNK3ue29CharReach10find_firstEv.exit16, label %for.body.i.i5, !llvm.loop !7
 
 _ZNK3ue29CharReach10find_firstEv.exit16:          ; preds = %for.inc.i.i13, %if.then.i.i9
-  %retval.0.i.i12 = phi i8 [ %8, %if.then.i.i9 ], [ 0, %for.inc.i.i13 ]
+  %retval.0.i.i12 = phi i8 [ %13, %if.then.i.i9 ], [ 0, %for.inc.i.i13 ]
   tail call void @_ZN3ue211ue2_literal9push_backEcb(ptr noundef nonnull align 8 dereferenceable(64) %lit7, i8 noundef signext %retval.0.i.i12, i1 noundef zeroext true)
   br label %if.end11
 
@@ -1527,10 +1538,7 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #14
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i64> @llvm.ctpop.v4i64(<4 x i64>) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #15
+declare i64 @llvm.ctpop.i64(i64) #15
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

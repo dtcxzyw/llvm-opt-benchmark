@@ -129,19 +129,24 @@ define void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT
   %4 = getelementptr inbounds i8, ptr %1, i64 88
   %5 = load i8, ptr %4, align 8, !range !3, !noundef !4
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %10, label %7
+  br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
   call void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8b2890c081096e0aE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -151,19 +156,24 @@ define void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   %5 = load i8, ptr %4, align 8, !range !3, !noundef !4
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %10, label %7
+  br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
   call void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf03631857e63abd4E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8, !range !6, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -173,20 +183,25 @@ define void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   %5 = load i8, ptr %4, align 8, !range !3, !noundef !4
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %11, label %7
+  br i1 %6, label %13, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   call void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hed858076de7b6647E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %3, ptr nonnull align 8 %8)
   %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = load <2 x i64>, ptr %9, align 8
-  br label %11
+  %10 = load i64, ptr %9, align 8, !range !6, !noundef !4
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = load i64, ptr %11, align 8
+  br label %13
 
-11:                                               ; preds = %2, %7
-  %12 = phi <2 x i64> [ %10, %7 ], [ <i64 1, i64 0>, %2 ]
+13:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %10, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %12, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %15, align 8
   ret void
 }
 
@@ -232,3 +247,4 @@ attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x
 !3 = !{i8 0, i8 2}
 !4 = !{}
 !5 = !{i64 1}
+!6 = !{i64 0, i64 2}

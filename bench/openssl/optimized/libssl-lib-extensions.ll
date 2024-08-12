@@ -1888,53 +1888,55 @@ if.end:                                           ; preds = %entry
   %new_cipher = getelementptr inbounds i8, ptr %s, i64 696
   %1 = load ptr, ptr %new_cipher, align 8
   %algorithm_mkey = getelementptr inbounds i8, ptr %1, i64 28
-  %2 = load <2 x i32>, ptr %algorithm_mkey, align 4
+  %2 = load i32, ptr %algorithm_mkey, align 4
+  %algorithm_auth = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = load i32, ptr %algorithm_auth, align 8
   %ecpointformats = getelementptr inbounds i8, ptr %s, i64 2544
-  %3 = load ptr, ptr %ecpointformats, align 8
-  %cmp.not = icmp eq ptr %3, null
+  %4 = load ptr, ptr %ecpointformats, align 8
+  %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %ecpointformats_len = getelementptr inbounds i8, ptr %s, i64 2536
-  %4 = load i64, ptr %ecpointformats_len, align 8
-  %cmp7.not = icmp eq i64 %4, 0
+  %5 = load i64, ptr %ecpointformats_len, align 8
+  %cmp7.not = icmp eq i64 %5, 0
   br i1 %cmp7.not, label %return, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
   %peer_ecpointformats = getelementptr inbounds i8, ptr %s, i64 2560
-  %5 = load ptr, ptr %peer_ecpointformats, align 8
-  %cmp11.not = icmp eq ptr %5, null
+  %6 = load ptr, ptr %peer_ecpointformats, align 8
+  %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %return, label %land.lhs.true13
 
 land.lhs.true13:                                  ; preds = %land.lhs.true9
   %peer_ecpointformats_len = getelementptr inbounds i8, ptr %s, i64 2552
-  %6 = load i64, ptr %peer_ecpointformats_len, align 8
-  %cmp15.not = icmp eq i64 %6, 0
+  %7 = load i64, ptr %peer_ecpointformats_len, align 8
+  %cmp15.not = icmp eq i64 %7, 0
   br i1 %cmp15.not, label %return, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %land.lhs.true13
-  %7 = and <2 x i32> %2, <i32 4, i32 8>
-  %8 = icmp eq <2 x i32> %7, zeroinitializer
-  %9 = extractelement <2 x i1> %8, i64 0
-  %10 = extractelement <2 x i1> %8, i64 1
-  %or.cond = select i1 %9, i1 %10, i1 false
+  %8 = and i32 %2, 4
+  %tobool18.not = icmp eq i32 %8, 0
+  %9 = and i32 %3, 8
+  %tobool20.not = icmp eq i32 %9, 0
+  %or.cond = select i1 %tobool18.not, i1 %tobool20.not, i1 false
   br i1 %or.cond, label %return, label %for.body
 
 for.body:                                         ; preds = %land.lhs.true17, %for.inc
-  %list.014 = phi ptr [ %incdec.ptr, %for.inc ], [ %5, %land.lhs.true17 ]
+  %list.014 = phi ptr [ %incdec.ptr, %for.inc ], [ %6, %land.lhs.true17 ]
   %i.013 = phi i64 [ %inc, %for.inc ], [ 0, %land.lhs.true17 ]
-  %11 = load i8, ptr %list.014, align 1
-  %cmp29 = icmp eq i8 %11, 0
+  %10 = load i8, ptr %list.014, align 1
+  %cmp29 = icmp eq i8 %10, 0
   br i1 %cmp29, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %list.014, i64 1
   %inc = add nuw i64 %i.013, 1
-  %exitcond.not = icmp eq i64 %inc, %6
+  %exitcond.not = icmp eq i64 %inc, %7
   br i1 %exitcond.not, label %if.then37, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body
-  %cmp35 = icmp eq i64 %i.013, %6
+  %cmp35 = icmp eq i64 %i.013, %7
   br i1 %cmp35, label %if.then37, label %return
 
 if.then37:                                        ; preds = %for.inc, %for.end

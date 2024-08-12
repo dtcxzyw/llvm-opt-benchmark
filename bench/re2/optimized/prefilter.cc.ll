@@ -1886,14 +1886,16 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeINSt7
   store i32 %9, ptr %add.ptr.i.i.i.i, align 8
   store ptr %8, ptr %_M_parent.i.i.i.i.i.i, align 8
   %_M_left.i.i4.i.i.i = getelementptr inbounds i8, ptr %spec.select, i64 24
+  %10 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
+  store ptr %10, ptr %_M_left.i.i.i.i.i, align 8
   %_M_right.i.i5.i.i.i = getelementptr inbounds i8, ptr %spec.select, i64 32
-  %10 = load <2 x ptr>, ptr %_M_left.i.i4.i.i.i, align 8
-  store <2 x ptr> %10, ptr %_M_left.i.i.i.i.i, align 8
+  %11 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
+  store ptr %11, ptr %_M_right.i.i.i.i.i, align 8
   %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_parent16.i.i.i.i.i, align 8
   %_M_node_count.i.i6.i.i.i = getelementptr inbounds i8, ptr %spec.select, i64 40
-  %11 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
-  store i64 %11, ptr %_M_node_count.i.i.i.i.i, align 8
+  %12 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
+  store i64 %12, ptr %_M_node_count.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_left.i.i4.i.i.i, align 8
   store ptr %add.ptr3.i.i.i.i, ptr %_M_right.i.i5.i.i.i, align 8
@@ -1902,11 +1904,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeINSt7
 
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3re29Prefilter13LengthThenLexESaIS5_EEaSEOSA_.exit: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN3re29Prefilter13LengthThenLexESaIS5_EE5clearEv.exit.i.i.i, %if.then.i.i.i
   %_M_left.i.i = getelementptr inbounds i8, ptr %spec.select38, i64 24
-  %12 = load ptr, ptr %_M_left.i.i, align 8
+  %13 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %spec.select38, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i.i)
   store ptr %call, ptr %__an.i.i, align 8
-  %cmp.i.not3.i.i = icmp eq ptr %12, %add.ptr.i.i
+  %cmp.i.not3.i.i = icmp eq ptr %13, %add.ptr.i.i
   br i1 %cmp.i.not3.i.i, label %if.end24.thread35, label %for.body.i.i
 
 if.end24.thread35:                                ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3re29Prefilter13LengthThenLexESaIS5_EEaSEOSA_.exit
@@ -1914,16 +1916,16 @@ if.end24.thread35:                                ; preds = %_ZNSt3setINSt7__cxx
   br label %delete.notnull.sink.split
 
 for.body.i.i:                                     ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3re29Prefilter13LengthThenLexESaIS5_EEaSEOSA_.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN3re29Prefilter13LengthThenLexESaIS5_EE17_M_insert_unique_IRKS5_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_.exit.i.i
-  %__first.sroa.0.04.i.i = phi ptr [ %call.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN3re29Prefilter13LengthThenLexESaIS5_EE17_M_insert_unique_IRKS5_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_.exit.i.i ], [ %12, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3re29Prefilter13LengthThenLexESaIS5_EEaSEOSA_.exit ]
+  %__first.sroa.0.04.i.i = phi ptr [ %call.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN3re29Prefilter13LengthThenLexESaIS5_EE17_M_insert_unique_IRKS5_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_.exit.i.i ], [ %13, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3re29Prefilter13LengthThenLexESaIS5_EEaSEOSA_.exit ]
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i, i64 32
   %call3.i.i.i = call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN3re29Prefilter13LengthThenLexESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr nonnull %add.ptr.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i)
-  %13 = extractvalue { ptr, ptr } %call3.i.i.i, 1
-  %tobool.not.i.i.i = icmp eq ptr %13, null
+  %14 = extractvalue { ptr, ptr } %call3.i.i.i, 1
+  %tobool.not.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN3re29Prefilter13LengthThenLexESaIS5_EE17_M_insert_unique_IRKS5_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_.exit.i.i, label %if.then.i.i.i8
 
 if.then.i.i.i8:                                   ; preds = %for.body.i.i
-  %14 = extractvalue { ptr, ptr } %call3.i.i.i, 0
-  %call5.i.i.i = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN3re29Prefilter13LengthThenLexESaIS5_EE10_M_insert_IRKS5_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSK_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef %14, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i)
+  %15 = extractvalue { ptr, ptr } %call3.i.i.i, 0
+  %call5.i.i.i = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN3re29Prefilter13LengthThenLexESaIS5_EE10_M_insert_IRKS5_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSK_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef %15, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i.i)
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN3re29Prefilter13LengthThenLexESaIS5_EE17_M_insert_unique_IRKS5_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN3re29Prefilter13LengthThenLexESaIS5_EE17_M_insert_unique_IRKS5_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_.exit.i.i: ; preds = %if.then.i.i.i8, %for.body.i.i
@@ -1942,12 +1944,12 @@ if.then.i:                                        ; preds = %land.lhs.true
   br label %_ZN3re29Prefilter4Info9TakeMatchEv.exit
 
 _ZN3re29Prefilter4Info9TakeMatchEv.exit:          ; preds = %entry.if.end_crit_edge.i, %if.then.i
-  %15 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call.i, %if.then.i ]
+  %16 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call.i, %if.then.i ]
   %match_3.i = getelementptr inbounds i8, ptr %a, i64 56
   store ptr null, ptr %match_3.i, align 8
   %is_exact_.i9 = getelementptr inbounds i8, ptr %b, i64 48
-  %16 = load i8, ptr %is_exact_.i9, align 8
-  %tobool.i10 = trunc i8 %16 to i1
+  %17 = load i8, ptr %is_exact_.i9, align 8
+  %tobool.i10 = trunc i8 %17 to i1
   br i1 %tobool.i10, label %if.then.i15, label %entry.if.end_crit_edge.i11
 
 entry.if.end_crit_edge.i11:                       ; preds = %_ZN3re29Prefilter4Info9TakeMatchEv.exit
@@ -1961,10 +1963,10 @@ if.then.i15:                                      ; preds = %_ZN3re29Prefilter4I
   br label %if.end24.thread
 
 if.end24.thread:                                  ; preds = %if.then.i15, %entry.if.end_crit_edge.i11
-  %17 = phi ptr [ %.pre.i13, %entry.if.end_crit_edge.i11 ], [ %call.i16, %if.then.i15 ]
+  %18 = phi ptr [ %.pre.i13, %entry.if.end_crit_edge.i11 ], [ %call.i16, %if.then.i15 ]
   %match_3.i14 = getelementptr inbounds i8, ptr %b, i64 56
   store ptr null, ptr %match_3.i14, align 8
-  %call.i18 = tail call noundef ptr @_ZN3re29Prefilter5AndOrENS0_2OpEPS0_S2_(i32 noundef 4, ptr noundef %15, ptr noundef %17)
+  %call.i18 = tail call noundef ptr @_ZN3re29Prefilter5AndOrENS0_2OpEPS0_S2_(i32 noundef 4, ptr noundef %16, ptr noundef %18)
   %match_ = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call.i18, ptr %match_, align 8
   br label %delete.notnull.sink.split

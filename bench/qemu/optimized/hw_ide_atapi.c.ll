@@ -1195,6 +1195,7 @@ ide_atapi_cmd_reply.exit:                         ; preds = %if.then1.i, %if.els
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cmd_inquiry(ptr noundef %s, ptr nocapture noundef %buf) #0 {
 entry:
+  %arrayidx = getelementptr i8, ptr %buf, i64 2
   %arrayidx1 = getelementptr i8, ptr %buf, i64 4
   %0 = load i8, ptr %arrayidx1, align 1
   %conv = zext i8 %0 to i32
@@ -1205,7 +1206,6 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr i8, ptr %buf, i64 2
   %3 = load i8, ptr %arrayidx, align 1
   store i8 5, ptr %buf, align 1
   store i8 %3, ptr %arrayidx2, align 1
@@ -1230,7 +1230,13 @@ if.then21:                                        ; preds = %sw.bb19
   br label %return
 
 if.end:                                           ; preds = %sw.bb19
-  store <4 x i8> <i8 2, i8 0, i8 0, i8 20>, ptr %arrayidx1, align 1
+  store i8 2, ptr %arrayidx1, align 1
+  %arrayidx27 = getelementptr i8, ptr %buf, i64 5
+  store i8 0, ptr %arrayidx27, align 1
+  %arrayidx30 = getelementptr i8, ptr %buf, i64 6
+  store i8 0, ptr %arrayidx30, align 1
+  %arrayidx33 = getelementptr i8, ptr %buf, i64 7
+  store i8 20, ptr %arrayidx33, align 1
   %add.ptr = getelementptr i8, ptr %buf, i64 8
   %drive_serial_str = getelementptr inbounds i8, ptr %s, i64 572
   br label %for.body.i
@@ -1255,7 +1261,13 @@ padstr8.exit:                                     ; preds = %for.body.i
 
 if.end39:                                         ; preds = %padstr8.exit
   %arrayidx42 = getelementptr i8, ptr %buf, i64 28
-  store <4 x i8> <i8 2, i8 1, i8 0, i8 68>, ptr %arrayidx42, align 1
+  store i8 2, ptr %arrayidx42, align 1
+  %arrayidx45 = getelementptr i8, ptr %buf, i64 29
+  store i8 1, ptr %arrayidx45, align 1
+  %arrayidx48 = getelementptr i8, ptr %buf, i64 30
+  store i8 0, ptr %arrayidx48, align 1
+  %arrayidx51 = getelementptr i8, ptr %buf, i64 31
+  store i8 68, ptr %arrayidx51, align 1
   %add.ptr53 = getelementptr i8, ptr %buf, i64 32
   br label %for.body.i80
 
@@ -1320,7 +1332,13 @@ padstr8.exit109:                                  ; preds = %for.body.i100
 
 if.then68:                                        ; preds = %padstr8.exit109
   %arrayidx71 = getelementptr i8, ptr %buf, i64 100
-  store <4 x i8> <i8 1, i8 3, i8 0, i8 8>, ptr %arrayidx71, align 1
+  store i8 1, ptr %arrayidx71, align 1
+  %arrayidx74 = getelementptr i8, ptr %buf, i64 101
+  store i8 3, ptr %arrayidx74, align 1
+  %arrayidx77 = getelementptr i8, ptr %buf, i64 102
+  store i8 0, ptr %arrayidx77, align 1
+  %arrayidx80 = getelementptr i8, ptr %buf, i64 103
+  store i8 8, ptr %arrayidx80, align 1
   %arrayidx82 = getelementptr i8, ptr %buf, i64 104
   %13 = load i64, ptr %wwn, align 8
   %14 = tail call i64 @llvm.bswap.i64(i64 %13)
@@ -1332,7 +1350,11 @@ sw.default:                                       ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  store <4 x i8> <i8 5, i8 -128, i8 0, i8 33>, ptr %buf, align 1
+  store i8 5, ptr %buf, align 1
+  store i8 -128, ptr %arrayidx2, align 1
+  store i8 0, ptr %arrayidx, align 1
+  %arrayidx89 = getelementptr i8, ptr %buf, i64 3
+  store i8 33, ptr %arrayidx89, align 1
   %arrayidx90 = getelementptr i8, ptr %buf, i64 5
   store i8 0, ptr %arrayidx90, align 1
   %arrayidx91 = getelementptr i8, ptr %buf, i64 6
@@ -2205,7 +2227,13 @@ sw.bb3:                                           ; preds = %sw.bb
   %arrayidx6 = getelementptr i8, ptr %buf, i64 3
   %arrayidx11 = getelementptr i8, ptr %buf, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx6, i8 0, i64 5, i1 false)
-  store <4 x i8> <i8 1, i8 6, i8 0, i8 5>, ptr %arrayidx11, align 1
+  store i8 1, ptr %arrayidx11, align 1
+  %arrayidx12 = getelementptr i8, ptr %buf, i64 9
+  store i8 6, ptr %arrayidx12, align 1
+  %arrayidx13 = getelementptr i8, ptr %buf, i64 10
+  store i8 0, ptr %arrayidx13, align 1
+  %arrayidx14 = getelementptr i8, ptr %buf, i64 11
+  store i8 5, ptr %arrayidx14, align 1
   %arrayidx15 = getelementptr i8, ptr %buf, i64 12
   %2 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 16)
   %lba.i = getelementptr inbounds i8, ptr %s, i64 708
@@ -2299,7 +2327,13 @@ sw.bb33:                                          ; preds = %sw.bb
   %arrayidx36 = getelementptr i8, ptr %buf, i64 3
   %arrayidx41 = getelementptr i8, ptr %buf, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx36, i8 0, i64 5, i1 false)
-  store <4 x i8> <i8 42, i8 20, i8 59, i8 0>, ptr %arrayidx41, align 1
+  store i8 42, ptr %arrayidx41, align 1
+  %arrayidx42 = getelementptr i8, ptr %buf, i64 9
+  store i8 20, ptr %arrayidx42, align 1
+  %arrayidx43 = getelementptr i8, ptr %buf, i64 10
+  store i8 59, ptr %arrayidx43, align 1
+  %arrayidx44 = getelementptr i8, ptr %buf, i64 11
+  store i8 0, ptr %arrayidx44, align 1
   %arrayidx45 = getelementptr i8, ptr %buf, i64 12
   store i8 113, ptr %arrayidx45, align 1
   %arrayidx46 = getelementptr i8, ptr %buf, i64 13
@@ -2452,7 +2486,11 @@ if.end.i:                                         ; preds = %sw.bb.i
 if.end5.i:                                        ; preds = %if.end.i
   %shr.i = lshr i64 %7, 2
   %arrayidx6.i = getelementptr i8, ptr %buf, i64 4
-  store <4 x i8> <i8 1, i8 15, i8 1, i8 0>, ptr %arrayidx6.i, align 1
+  store i8 1, ptr %arrayidx6.i, align 1
+  %arrayidx7.i = getelementptr i8, ptr %buf, i64 5
+  store i8 15, ptr %arrayidx7.i, align 1
+  store i8 1, ptr %arrayidx.i, align 1
+  store i8 0, ptr %arrayidx1, align 1
   store i32 0, ptr %add.ptr, align 1
   %add.ptr10.i = getelementptr i8, ptr %buf, i64 12
   %8 = trunc i64 %shr.i to i32

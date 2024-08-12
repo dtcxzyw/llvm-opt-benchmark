@@ -5892,13 +5892,13 @@ ir_emit.exit:                                     ; preds = %ir_str.exit, %18
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ir_bind(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 0
-  br i1 %4, label %55, label %5
+  br i1 %4, label %58, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %13
+  br i1 %.not, label %8, label %16
 
 8:                                                ; preds = %5
   %9 = tail call noalias ptr @_emalloc_24() #20
@@ -5908,73 +5908,79 @@ define hidden i32 @ir_bind(ptr nocapture noundef %0, i32 noundef %1, i32 noundef
   %11 = getelementptr inbounds i8, ptr %10, i64 64
   store ptr %11, ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 8
-  store <4 x i32> <i32 -16, i32 16, i32 0, i32 0>, ptr %12, align 8
+  store i32 -16, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 16, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 0, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 20
+  store i32 0, ptr %15, align 4
   %.pre = load ptr, ptr %6, align 8
-  br label %13
+  br label %16
 
-13:                                               ; preds = %8, %5
-  %14 = phi ptr [ %.pre, %8 ], [ %7, %5 ]
-  %15 = tail call zeroext i1 @ir_hashtab_add(ptr noundef %14, i32 noundef %2, i32 noundef %1)
-  br i1 %15, label %55, label %16
+16:                                               ; preds = %8, %5
+  %17 = phi ptr [ %.pre, %8 ], [ %7, %5 ]
+  %18 = tail call zeroext i1 @ir_hashtab_add(ptr noundef %17, i32 noundef %2, i32 noundef %1)
+  br i1 %18, label %58, label %19
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %0, align 8
-  %18 = zext nneg i32 %2 to i64
-  %19 = getelementptr inbounds %struct._ir_insn, ptr %17, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = shl nuw nsw i32 %22, 8
-  %24 = or disjoint i32 %23, 60
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 12
-  %28 = load i32, ptr %27, align 4
-  %.not.i.i.i = icmp slt i32 %26, %28
-  br i1 %.not.i.i.i, label %ir_emit2.exit, label %29
-
-29:                                               ; preds = %16
-  %30 = getelementptr inbounds i8, ptr %0, i64 20
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %0, align 8
+  %21 = zext nneg i32 %2 to i64
+  %22 = getelementptr inbounds %struct._ir_insn, ptr %20, i64 %21
+  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i32
+  %26 = shl nuw nsw i32 %25, 8
+  %27 = or disjoint i32 %26, 60
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 12
   %31 = load i32, ptr %30, align 4
-  %32 = icmp slt i32 %28, 4096
-  %33 = shl nsw i32 %28, 1
-  %34 = icmp ult i32 %28, 8192
-  %35 = add nuw nsw i32 %28, 4096
-  %spec.select.i.i.i.i = select i1 %34, i32 8192, i32 %35
-  %.sink.i.i.i.i = select i1 %32, i32 %33, i32 %spec.select.i.i.i.i
-  store i32 %.sink.i.i.i.i, ptr %27, align 4
-  %36 = sext i32 %31 to i64
-  %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds %struct._ir_insn, ptr %17, i64 %37
-  %39 = add nsw i32 %31, %.sink.i.i.i.i
-  %40 = sext i32 %39 to i64
-  %41 = shl nsw i64 %40, 4
-  %42 = tail call ptr @_erealloc(ptr noundef %38, i64 noundef %41) #24
-  %43 = load i32, ptr %30, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct._ir_insn, ptr %42, i64 %44
-  store ptr %45, ptr %0, align 8
+  %.not.i.i.i = icmp slt i32 %29, %31
+  br i1 %.not.i.i.i, label %ir_emit2.exit, label %32
+
+32:                                               ; preds = %19
+  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp slt i32 %31, 4096
+  %36 = shl nsw i32 %31, 1
+  %37 = icmp ult i32 %31, 8192
+  %38 = add nuw nsw i32 %31, 4096
+  %spec.select.i.i.i.i = select i1 %37, i32 8192, i32 %38
+  %.sink.i.i.i.i = select i1 %35, i32 %36, i32 %spec.select.i.i.i.i
+  store i32 %.sink.i.i.i.i, ptr %30, align 4
+  %39 = sext i32 %34 to i64
+  %40 = sub nsw i64 0, %39
+  %41 = getelementptr inbounds %struct._ir_insn, ptr %20, i64 %40
+  %42 = add nsw i32 %34, %.sink.i.i.i.i
+  %43 = sext i32 %42 to i64
+  %44 = shl nsw i64 %43, 4
+  %45 = tail call ptr @_erealloc(ptr noundef %41, i64 noundef %44) #24
+  %46 = load i32, ptr %33, align 4
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds %struct._ir_insn, ptr %45, i64 %47
+  store ptr %48, ptr %0, align 8
   br label %ir_emit2.exit
 
-ir_emit2.exit:                                    ; preds = %16, %29
-  %46 = phi ptr [ %17, %16 ], [ %45, %29 ]
-  %47 = add nsw i32 %26, 1
-  store i32 %47, ptr %25, align 8
-  %48 = sext i32 %26 to i64
-  %49 = getelementptr inbounds %struct._ir_insn, ptr %46, i64 %48
-  store i32 %24, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 4
-  store i32 %2, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
-  store i32 1, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 12
-  store i32 0, ptr %52, align 4
-  %53 = load ptr, ptr %6, align 8
-  %54 = tail call zeroext i1 @ir_hashtab_add(ptr noundef %53, i32 noundef %26, i32 noundef %1)
-  br label %55
+ir_emit2.exit:                                    ; preds = %19, %32
+  %49 = phi ptr [ %20, %19 ], [ %48, %32 ]
+  %50 = add nsw i32 %29, 1
+  store i32 %50, ptr %28, align 8
+  %51 = sext i32 %29 to i64
+  %52 = getelementptr inbounds %struct._ir_insn, ptr %49, i64 %51
+  store i32 %27, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  store i32 %2, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  store i32 1, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %52, i64 12
+  store i32 0, ptr %55, align 4
+  %56 = load ptr, ptr %6, align 8
+  %57 = tail call zeroext i1 @ir_hashtab_add(ptr noundef %56, i32 noundef %29, i32 noundef %1)
+  br label %58
 
-55:                                               ; preds = %13, %ir_emit2.exit, %3
-  %.016 = phi i32 [ %2, %3 ], [ %2, %13 ], [ %26, %ir_emit2.exit ]
+58:                                               ; preds = %16, %ir_emit2.exit, %3
+  %.016 = phi i32 [ %2, %3 ], [ %2, %16 ], [ %29, %ir_emit2.exit ]
   ret i32 %.016
 }
 
@@ -7419,9 +7425,15 @@ ir_emit0.exit:                                    ; preds = %1, %6
   store i32 %24, ptr %2, align 8
   %25 = sext i32 %3 to i64
   %26 = getelementptr inbounds %struct._ir_insn, ptr %23, i64 %25
-  store <4 x i32> <i32 89, i32 0, i32 0, i32 0>, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 248
-  store i32 %3, ptr %27, align 8
+  store i32 89, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %26, i64 12
+  store i32 0, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 248
+  store i32 %3, ptr %30, align 8
   ret void
 }
 

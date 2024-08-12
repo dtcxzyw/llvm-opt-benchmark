@@ -139,50 +139,86 @@ define dso_local void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceabl
   %9 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr getelementptr inbounds (i8, ptr @_ZTV15SampleDebugDraw, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 44
-  store <4 x float> <float 0x3FD3333340000000, float 0x3FC99999A0000000, float 2.000000e+00, float 0x3FE3333340000000>, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 60
-  store <4 x float> <float 0x3FECCCCCC0000000, float 4.500000e+01, float 8.000000e+00, float 2.000000e+01>, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 76
-  store <4 x float> <float 1.200000e+01, float 0x3FF4CCCCC0000000, float 6.000000e+00, float 6.000000e+00>, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 92
-  store float 1.000000e+00, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 0, ptr %14, align 8
-  %15 = invoke noundef ptr @_Z19dtAllocNavMeshQueryv()
-          to label %16 unwind label %22
+  store float 0x3FD3333340000000, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  store float 0x3FC99999A0000000, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 52
+  store float 2.000000e+00, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  store float 0x3FE3333340000000, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 60
+  store float 0x3FECCCCCC0000000, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  store float 4.500000e+01, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 68
+  store float 8.000000e+00, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  store float 2.000000e+01, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 76
+  store float 1.200000e+01, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  store float 0x3FF4CCCCC0000000, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 84
+  store float 6.000000e+00, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 88
+  store float 6.000000e+00, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 92
+  store float 1.000000e+00, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 0, ptr %23, align 8
+  %24 = invoke noundef ptr @_Z19dtAllocNavMeshQueryv()
+          to label %25 unwind label %31
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %15, ptr %17, align 8
-  %18 = invoke noundef ptr @_Z12dtAllocCrowdv()
-          to label %19 unwind label %22
+25:                                               ; preds = %1
+  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %24, ptr %26, align 8
+  %27 = invoke noundef ptr @_Z12dtAllocCrowdv()
+          to label %28 unwind label %31
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %18, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %21, i8 0, i64 72, i1 false)
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %27, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 112
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, i8 0, i64 72, i1 false)
   ret void
 
-22:                                               ; preds = %16, %1
-  %23 = landingpad { ptr, i32 }
+31:                                               ; preds = %25, %1
+  %32 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN11duDebugDrawD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6Sample19resetCommonSettingsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 44
-  store <4 x float> <float 0x3FD3333340000000, float 0x3FC99999A0000000, float 2.000000e+00, float 0x3FE3333340000000>, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 60
-  store <4 x float> <float 0x3FECCCCCC0000000, float 4.500000e+01, float 8.000000e+00, float 2.000000e+01>, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 76
-  store <4 x float> <float 1.200000e+01, float 0x3FF4CCCCC0000000, float 6.000000e+00, float 6.000000e+00>, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 92
-  store float 1.000000e+00, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 0, ptr %6, align 8
+  store float 0x3FD3333340000000, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  store float 0x3FC99999A0000000, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 52
+  store float 2.000000e+00, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  store float 0x3FE3333340000000, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 60
+  store float 0x3FECCCCCC0000000, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  store float 4.500000e+01, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 68
+  store float 8.000000e+00, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  store float 2.000000e+01, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 76
+  store float 1.200000e+01, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  store float 0x3FF4CCCCC0000000, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 84
+  store float 6.000000e+00, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  store float 6.000000e+00, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 92
+  store float 1.000000e+00, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 0, ptr %15, align 8
   ret void
 }
 

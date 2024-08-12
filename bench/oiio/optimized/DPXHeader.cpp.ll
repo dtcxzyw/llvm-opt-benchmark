@@ -76,7 +76,13 @@ _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   store i64 4, ptr %m_len.i.i.i, align 8
   %call.i.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version.i.i, ptr noundef nonnull %agg.tmp.i.i, i64 noundef 8) #16
   %fileSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store <4 x i32> <i32 2052, i32 1, i32 1664, i32 384>, ptr %fileSize.i.i, align 4
+  store i32 2052, ptr %fileSize.i.i, align 4
+  %dittoKey.i.i = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 1, ptr %dittoKey.i.i, align 4
+  %genericSize.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 1664, ptr %genericSize.i.i, align 4
+  %industrySize.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 384, ptr %industrySize.i.i, align 4
   %userSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %encryptKey.i.i = getelementptr inbounds i8, ptr %this, i64 660
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(628) %userSize.i.i, i8 0, i64 628, i1 false)
@@ -91,8 +97,10 @@ _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   store i32 -1, ptr %yOffset.i.i, align 4
   %xOffset.i.i = getelementptr inbounds i8, ptr %this, i64 1408
   store i32 -1, ptr %xOffset.i.i, align 4
+  %yCenter.i.i = getelementptr inbounds i8, ptr %this, i64 1420
+  store float 0x7FF8000000000000, ptr %yCenter.i.i, align 4
   %xCenter.i.i = getelementptr inbounds i8, ptr %this, i64 1416
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xCenter.i.i, align 4
+  store float 0x7FF8000000000000, ptr %xCenter.i.i, align 4
   %yOriginalSize.i.i = getelementptr inbounds i8, ptr %this, i64 1428
   store i32 -1, ptr %yOriginalSize.i.i, align 4
   %xOriginalSize.i.i = getelementptr inbounds i8, ptr %this, i64 1424
@@ -100,9 +108,11 @@ _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   %sourceImageFileName.i.i = getelementptr inbounds i8, ptr %this, i64 1432
   %border.i.i = getelementptr inbounds i8, ptr %this, i64 1620
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %sourceImageFileName.i.i, i8 0, i64 188, i1 false)
+  %yScannedSize.i.i = getelementptr inbounds i8, ptr %this, i64 1640
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %border.i.i, i8 -1, i64 16, i1 false)
+  store float 0x7FF8000000000000, ptr %yScannedSize.i.i, align 4
   %xScannedSize.i.i = getelementptr inbounds i8, ptr %this, i64 1636
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xScannedSize.i.i, align 4
+  store float 0x7FF8000000000000, ptr %xScannedSize.i.i, align 4
   %reserved3.i.i = getelementptr inbounds i8, ptr %this, i64 1644
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %reserved3.i.i, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
@@ -114,8 +124,10 @@ _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   store i32 -1, ptr %sequenceLength.i.i, align 4
   %framePosition.i.i = getelementptr inbounds i8, ptr %this, i64 1712
   store i32 -1, ptr %framePosition.i.i, align 4
+  %shutterAngle.i.i = getelementptr inbounds i8, ptr %this, i64 1728
+  store float 0x7FF8000000000000, ptr %shutterAngle.i.i, align 4
   %frameRate.i.i = getelementptr inbounds i8, ptr %this, i64 1724
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %frameRate.i.i, align 4
+  store float 0x7FF8000000000000, ptr %frameRate.i.i, align 4
   %frameId.i.i = getelementptr inbounds i8, ptr %this, i64 1732
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %frameId.i.i, i8 0, i64 188, i1 false)
   %timeCode.i.i = getelementptr inbounds i8, ptr %this, i64 1920
@@ -124,12 +136,26 @@ _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   store i8 0, ptr %videoSignal.i.i, align 2
   %zero.i.i = getelementptr inbounds i8, ptr %this, i64 1931
   store i8 -1, ptr %zero.i.i, align 1
+  %temporalFrameRate.i.i = getelementptr inbounds i8, ptr %this, i64 1940
+  store float 0x7FF8000000000000, ptr %temporalFrameRate.i.i, align 4
+  %verticalSampleRate.i.i = getelementptr inbounds i8, ptr %this, i64 1936
+  store float 0x7FF8000000000000, ptr %verticalSampleRate.i.i, align 4
   %horizontalSampleRate.i.i = getelementptr inbounds i8, ptr %this, i64 1932
+  store float 0x7FF8000000000000, ptr %horizontalSampleRate.i.i, align 4
   %gamma.i.i = getelementptr inbounds i8, ptr %this, i64 1948
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %horizontalSampleRate.i.i, align 4
+  store float 0x7FF8000000000000, ptr %gamma.i.i, align 4
+  %timeOffset.i.i = getelementptr inbounds i8, ptr %this, i64 1944
+  store float 0x7FF8000000000000, ptr %timeOffset.i.i, align 4
+  %blackGain.i.i = getelementptr inbounds i8, ptr %this, i64 1956
+  store float 0x7FF8000000000000, ptr %blackGain.i.i, align 4
+  %blackLevel.i.i = getelementptr inbounds i8, ptr %this, i64 1952
+  store float 0x7FF8000000000000, ptr %blackLevel.i.i, align 4
+  %integrationTimes.i.i = getelementptr inbounds i8, ptr %this, i64 1968
+  store float 0x7FF8000000000000, ptr %integrationTimes.i.i, align 4
   %whiteLevel.i.i = getelementptr inbounds i8, ptr %this, i64 1964
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %whiteLevel.i.i, align 4
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %gamma.i.i, align 4
+  store float 0x7FF8000000000000, ptr %whiteLevel.i.i, align 4
+  %breakPoint.i.i = getelementptr inbounds i8, ptr %this, i64 1960
+  store float 0x7FF8000000000000, ptr %breakPoint.i.i, align 4
   %reserved5.i.i = getelementptr inbounds i8, ptr %this, i64 1972
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %reserved5.i.i, i8 0, i64 76, i1 false)
   %datumSwap = getelementptr inbounds i8, ptr %this, i64 2048
@@ -175,7 +201,13 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   store i64 4, ptr %m_len.i.i, align 8
   %call.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version.i, ptr noundef nonnull %agg.tmp.i, i64 noundef 8) #16
   %fileSize.i = getelementptr inbounds i8, ptr %this, i64 16
-  store <4 x i32> <i32 2052, i32 1, i32 1664, i32 384>, ptr %fileSize.i, align 4
+  store i32 2052, ptr %fileSize.i, align 4
+  %dittoKey.i = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 1, ptr %dittoKey.i, align 4
+  %genericSize.i = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 1664, ptr %genericSize.i, align 4
+  %industrySize.i = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 384, ptr %industrySize.i, align 4
   %userSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %encryptKey.i = getelementptr inbounds i8, ptr %this, i64 660
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(628) %userSize.i, i8 0, i64 628, i1 false)
@@ -190,8 +222,10 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   store i32 -1, ptr %yOffset.i, align 4
   %xOffset.i = getelementptr inbounds i8, ptr %this, i64 1408
   store i32 -1, ptr %xOffset.i, align 4
+  %yCenter.i = getelementptr inbounds i8, ptr %this, i64 1420
+  store float 0x7FF8000000000000, ptr %yCenter.i, align 4
   %xCenter.i = getelementptr inbounds i8, ptr %this, i64 1416
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xCenter.i, align 4
+  store float 0x7FF8000000000000, ptr %xCenter.i, align 4
   %yOriginalSize.i = getelementptr inbounds i8, ptr %this, i64 1428
   store i32 -1, ptr %yOriginalSize.i, align 4
   %xOriginalSize.i = getelementptr inbounds i8, ptr %this, i64 1424
@@ -199,9 +233,11 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   %sourceImageFileName.i = getelementptr inbounds i8, ptr %this, i64 1432
   %border.i = getelementptr inbounds i8, ptr %this, i64 1620
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %sourceImageFileName.i, i8 0, i64 188, i1 false)
+  %yScannedSize.i = getelementptr inbounds i8, ptr %this, i64 1640
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %border.i, i8 -1, i64 16, i1 false)
+  store float 0x7FF8000000000000, ptr %yScannedSize.i, align 4
   %xScannedSize.i = getelementptr inbounds i8, ptr %this, i64 1636
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xScannedSize.i, align 4
+  store float 0x7FF8000000000000, ptr %xScannedSize.i, align 4
   %reserved3.i = getelementptr inbounds i8, ptr %this, i64 1644
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %reserved3.i, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -218,8 +254,10 @@ entry:
   store i32 -1, ptr %sequenceLength.i, align 4
   %framePosition.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 -1, ptr %framePosition.i, align 4
+  %shutterAngle.i = getelementptr inbounds i8, ptr %this, i64 64
+  store float 0x7FF8000000000000, ptr %shutterAngle.i, align 4
   %frameRate.i = getelementptr inbounds i8, ptr %this, i64 60
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %frameRate.i, align 4
+  store float 0x7FF8000000000000, ptr %frameRate.i, align 4
   %frameId.i = getelementptr inbounds i8, ptr %this, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %frameId.i, i8 0, i64 188, i1 false)
   %timeCode.i = getelementptr inbounds i8, ptr %this, i64 256
@@ -228,12 +266,26 @@ entry:
   store i8 0, ptr %videoSignal.i, align 2
   %zero.i = getelementptr inbounds i8, ptr %this, i64 267
   store i8 -1, ptr %zero.i, align 1
+  %temporalFrameRate.i = getelementptr inbounds i8, ptr %this, i64 276
+  store float 0x7FF8000000000000, ptr %temporalFrameRate.i, align 4
+  %verticalSampleRate.i = getelementptr inbounds i8, ptr %this, i64 272
+  store float 0x7FF8000000000000, ptr %verticalSampleRate.i, align 4
   %horizontalSampleRate.i = getelementptr inbounds i8, ptr %this, i64 268
+  store float 0x7FF8000000000000, ptr %horizontalSampleRate.i, align 4
   %gamma.i = getelementptr inbounds i8, ptr %this, i64 284
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %horizontalSampleRate.i, align 4
+  store float 0x7FF8000000000000, ptr %gamma.i, align 4
+  %timeOffset.i = getelementptr inbounds i8, ptr %this, i64 280
+  store float 0x7FF8000000000000, ptr %timeOffset.i, align 4
+  %blackGain.i = getelementptr inbounds i8, ptr %this, i64 292
+  store float 0x7FF8000000000000, ptr %blackGain.i, align 4
+  %blackLevel.i = getelementptr inbounds i8, ptr %this, i64 288
+  store float 0x7FF8000000000000, ptr %blackLevel.i, align 4
+  %integrationTimes.i = getelementptr inbounds i8, ptr %this, i64 304
+  store float 0x7FF8000000000000, ptr %integrationTimes.i, align 4
   %whiteLevel.i = getelementptr inbounds i8, ptr %this, i64 300
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %whiteLevel.i, align 4
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %gamma.i, align 4
+  store float 0x7FF8000000000000, ptr %whiteLevel.i, align 4
+  %breakPoint.i = getelementptr inbounds i8, ptr %this, i64 296
+  store float 0x7FF8000000000000, ptr %breakPoint.i, align 4
   %reserved5.i = getelementptr inbounds i8, ptr %this, i64 308
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %reserved5.i, i8 0, i64 76, i1 false)
   ret void
@@ -253,7 +305,13 @@ entry:
   store i64 4, ptr %m_len.i, align 8
   %call = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version, ptr noundef nonnull %agg.tmp, i64 noundef 8) #16
   %fileSize = getelementptr inbounds i8, ptr %this, i64 16
-  store <4 x i32> <i32 2052, i32 1, i32 1664, i32 384>, ptr %fileSize, align 4
+  store i32 2052, ptr %fileSize, align 4
+  %dittoKey = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 1, ptr %dittoKey, align 4
+  %genericSize = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 1664, ptr %genericSize, align 4
+  %industrySize = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 384, ptr %industrySize, align 4
   %userSize = getelementptr inbounds i8, ptr %this, i64 32
   %encryptKey = getelementptr inbounds i8, ptr %this, i64 660
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(628) %userSize, i8 0, i64 628, i1 false)
@@ -268,8 +326,10 @@ entry:
   store i32 -1, ptr %yOffset, align 4
   %xOffset = getelementptr inbounds i8, ptr %this, i64 1408
   store i32 -1, ptr %xOffset, align 4
+  %yCenter = getelementptr inbounds i8, ptr %this, i64 1420
+  store float 0x7FF8000000000000, ptr %yCenter, align 4
   %xCenter = getelementptr inbounds i8, ptr %this, i64 1416
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xCenter, align 4
+  store float 0x7FF8000000000000, ptr %xCenter, align 4
   %yOriginalSize = getelementptr inbounds i8, ptr %this, i64 1428
   store i32 -1, ptr %yOriginalSize, align 4
   %xOriginalSize = getelementptr inbounds i8, ptr %this, i64 1424
@@ -277,9 +337,11 @@ entry:
   %sourceImageFileName = getelementptr inbounds i8, ptr %this, i64 1432
   %border = getelementptr inbounds i8, ptr %this, i64 1620
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %sourceImageFileName, i8 0, i64 188, i1 false)
+  %yScannedSize = getelementptr inbounds i8, ptr %this, i64 1640
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %border, i8 -1, i64 16, i1 false)
+  store float 0x7FF8000000000000, ptr %yScannedSize, align 4
   %xScannedSize = getelementptr inbounds i8, ptr %this, i64 1636
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xScannedSize, align 4
+  store float 0x7FF8000000000000, ptr %xScannedSize, align 4
   %reserved3 = getelementptr inbounds i8, ptr %this, i64 1644
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %reserved3, i8 0, i64 20, i1 false)
   ret void
@@ -298,8 +360,10 @@ entry:
   store i32 -1, ptr %sequenceLength, align 4
   %framePosition = getelementptr inbounds i8, ptr %this, i64 48
   store i32 -1, ptr %framePosition, align 4
+  %shutterAngle = getelementptr inbounds i8, ptr %this, i64 64
+  store float 0x7FF8000000000000, ptr %shutterAngle, align 4
   %frameRate = getelementptr inbounds i8, ptr %this, i64 60
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %frameRate, align 4
+  store float 0x7FF8000000000000, ptr %frameRate, align 4
   %frameId = getelementptr inbounds i8, ptr %this, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %frameId, i8 0, i64 188, i1 false)
   %timeCode = getelementptr inbounds i8, ptr %this, i64 256
@@ -308,12 +372,26 @@ entry:
   store i8 0, ptr %videoSignal, align 2
   %zero = getelementptr inbounds i8, ptr %this, i64 267
   store i8 -1, ptr %zero, align 1
+  %temporalFrameRate = getelementptr inbounds i8, ptr %this, i64 276
+  store float 0x7FF8000000000000, ptr %temporalFrameRate, align 4
+  %verticalSampleRate = getelementptr inbounds i8, ptr %this, i64 272
+  store float 0x7FF8000000000000, ptr %verticalSampleRate, align 4
   %horizontalSampleRate = getelementptr inbounds i8, ptr %this, i64 268
+  store float 0x7FF8000000000000, ptr %horizontalSampleRate, align 4
   %gamma = getelementptr inbounds i8, ptr %this, i64 284
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %horizontalSampleRate, align 4
+  store float 0x7FF8000000000000, ptr %gamma, align 4
+  %timeOffset = getelementptr inbounds i8, ptr %this, i64 280
+  store float 0x7FF8000000000000, ptr %timeOffset, align 4
+  %blackGain = getelementptr inbounds i8, ptr %this, i64 292
+  store float 0x7FF8000000000000, ptr %blackGain, align 4
+  %blackLevel = getelementptr inbounds i8, ptr %this, i64 288
+  store float 0x7FF8000000000000, ptr %blackLevel, align 4
+  %integrationTimes = getelementptr inbounds i8, ptr %this, i64 304
+  store float 0x7FF8000000000000, ptr %integrationTimes, align 4
   %whiteLevel = getelementptr inbounds i8, ptr %this, i64 300
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %whiteLevel, align 4
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %gamma, align 4
+  store float 0x7FF8000000000000, ptr %whiteLevel, align 4
+  %breakPoint = getelementptr inbounds i8, ptr %this, i64 296
+  store float 0x7FF8000000000000, ptr %breakPoint, align 4
   %reserved5 = getelementptr inbounds i8, ptr %this, i64 308
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %reserved5, i8 0, i64 76, i1 false)
   ret void
@@ -534,9 +612,17 @@ for.body.i68:                                     ; preds = %for.body.i68, %_ZN3
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit76:               ; preds = %for.body.i68
   %imageOrientation = getelementptr inbounds i8, ptr %this, i64 768
-  %18 = load <4 x i8>, ptr %imageOrientation, align 4
-  %19 = shufflevector <4 x i8> %18, <4 x i8> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  store <4 x i8> %19, ptr %imageOrientation, align 4
+  %18 = load i8, ptr %imageOrientation, align 4
+  %arrayidx1.i = getelementptr inbounds i8, ptr %this, i64 769
+  %19 = load i8, ptr %arrayidx1.i, align 1
+  store i8 %19, ptr %imageOrientation, align 4
+  store i8 %18, ptr %arrayidx1.i, align 1
+  %numberOfElements = getelementptr inbounds i8, ptr %this, i64 770
+  %20 = load i8, ptr %numberOfElements, align 2
+  %arrayidx1.i77 = getelementptr inbounds i8, ptr %this, i64 771
+  %21 = load i8, ptr %arrayidx1.i77, align 1
+  store i8 %21, ptr %numberOfElements, align 2
+  store i8 %20, ptr %arrayidx1.i77, align 1
   %pixelsPerLine = getelementptr inbounds i8, ptr %this, i64 772
   %add.ptr1.i78 = getelementptr inbounds i8, ptr %this, i64 775
   br label %for.body.i79
@@ -545,10 +631,10 @@ for.body.i79:                                     ; preds = %for.body.i79, %_ZN3
   %i.011.i80 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit76 ], [ %dec.i85, %for.body.i79 ]
   %pe.010.i81 = phi ptr [ %add.ptr1.i78, %_ZN3dpx9SwapBytesIjEET_RS1_.exit76 ], [ %incdec.ptr2.i84, %for.body.i79 ]
   %ps.09.i82 = phi ptr [ %pixelsPerLine, %_ZN3dpx9SwapBytesIjEET_RS1_.exit76 ], [ %incdec.ptr.i83, %for.body.i79 ]
-  %20 = load i8, ptr %ps.09.i82, align 1
-  %21 = load i8, ptr %pe.010.i81, align 1
-  store i8 %21, ptr %ps.09.i82, align 1
-  store i8 %20, ptr %pe.010.i81, align 1
+  %22 = load i8, ptr %ps.09.i82, align 1
+  %23 = load i8, ptr %pe.010.i81, align 1
+  store i8 %23, ptr %ps.09.i82, align 1
+  store i8 %22, ptr %pe.010.i81, align 1
   %incdec.ptr.i83 = getelementptr inbounds i8, ptr %ps.09.i82, i64 1
   %incdec.ptr2.i84 = getelementptr inbounds i8, ptr %pe.010.i81, i64 -1
   %dec.i85 = add nsw i64 %i.011.i80, -1
@@ -564,10 +650,10 @@ for.body.i89:                                     ; preds = %for.body.i89, %_ZN3
   %i.011.i90 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit87 ], [ %dec.i95, %for.body.i89 ]
   %pe.010.i91 = phi ptr [ %add.ptr1.i88, %_ZN3dpx9SwapBytesIjEET_RS1_.exit87 ], [ %incdec.ptr2.i94, %for.body.i89 ]
   %ps.09.i92 = phi ptr [ %linesPerElement, %_ZN3dpx9SwapBytesIjEET_RS1_.exit87 ], [ %incdec.ptr.i93, %for.body.i89 ]
-  %22 = load i8, ptr %ps.09.i92, align 1
-  %23 = load i8, ptr %pe.010.i91, align 1
-  store i8 %23, ptr %ps.09.i92, align 1
-  store i8 %22, ptr %pe.010.i91, align 1
+  %24 = load i8, ptr %ps.09.i92, align 1
+  %25 = load i8, ptr %pe.010.i91, align 1
+  store i8 %25, ptr %ps.09.i92, align 1
+  store i8 %24, ptr %pe.010.i91, align 1
   %incdec.ptr.i93 = getelementptr inbounds i8, ptr %ps.09.i92, i64 1
   %incdec.ptr2.i94 = getelementptr inbounds i8, ptr %pe.010.i91, i64 -1
   %dec.i95 = add nsw i64 %i.011.i90, -1
@@ -588,10 +674,10 @@ for.body.i99:                                     ; preds = %for.body.i99, %for.
   %i.011.i100 = phi i64 [ 2, %for.body ], [ %dec.i105, %for.body.i99 ]
   %pe.010.i101 = phi ptr [ %add.ptr1.i98, %for.body ], [ %incdec.ptr2.i104, %for.body.i99 ]
   %ps.09.i102 = phi ptr [ %arrayidx, %for.body ], [ %incdec.ptr.i103, %for.body.i99 ]
-  %24 = load i8, ptr %ps.09.i102, align 1
-  %25 = load i8, ptr %pe.010.i101, align 1
-  store i8 %25, ptr %ps.09.i102, align 1
-  store i8 %24, ptr %pe.010.i101, align 1
+  %26 = load i8, ptr %ps.09.i102, align 1
+  %27 = load i8, ptr %pe.010.i101, align 1
+  store i8 %27, ptr %ps.09.i102, align 1
+  store i8 %26, ptr %pe.010.i101, align 1
   %incdec.ptr.i103 = getelementptr inbounds i8, ptr %ps.09.i102, i64 1
   %incdec.ptr2.i104 = getelementptr inbounds i8, ptr %pe.010.i101, i64 -1
   %dec.i105 = add nsw i64 %i.011.i100, -1
@@ -607,10 +693,10 @@ for.body.i109:                                    ; preds = %for.body.i109, %_ZN
   %i.011.i110 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit107 ], [ %dec.i115, %for.body.i109 ]
   %pe.010.i111 = phi ptr [ %add.ptr1.i108, %_ZN3dpx9SwapBytesIjEET_RS1_.exit107 ], [ %incdec.ptr2.i114, %for.body.i109 ]
   %ps.09.i112 = phi ptr [ %lowData, %_ZN3dpx9SwapBytesIjEET_RS1_.exit107 ], [ %incdec.ptr.i113, %for.body.i109 ]
-  %26 = load i8, ptr %ps.09.i112, align 1
-  %27 = load i8, ptr %pe.010.i111, align 1
-  store i8 %27, ptr %ps.09.i112, align 1
-  store i8 %26, ptr %pe.010.i111, align 1
+  %28 = load i8, ptr %ps.09.i112, align 1
+  %29 = load i8, ptr %pe.010.i111, align 1
+  store i8 %29, ptr %ps.09.i112, align 1
+  store i8 %28, ptr %pe.010.i111, align 1
   %incdec.ptr.i113 = getelementptr inbounds i8, ptr %ps.09.i112, i64 1
   %incdec.ptr2.i114 = getelementptr inbounds i8, ptr %pe.010.i111, i64 -1
   %dec.i115 = add nsw i64 %i.011.i110, -1
@@ -626,10 +712,10 @@ for.body.i119:                                    ; preds = %for.body.i119, %_ZN
   %i.011.i120 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit117 ], [ %dec.i125, %for.body.i119 ]
   %pe.010.i121 = phi ptr [ %add.ptr1.i118, %_ZN3dpx9SwapBytesIjEET_RS1_.exit117 ], [ %incdec.ptr2.i124, %for.body.i119 ]
   %ps.09.i122 = phi ptr [ %lowQuantity, %_ZN3dpx9SwapBytesIjEET_RS1_.exit117 ], [ %incdec.ptr.i123, %for.body.i119 ]
-  %28 = load i8, ptr %ps.09.i122, align 1
-  %29 = load i8, ptr %pe.010.i121, align 1
-  store i8 %29, ptr %ps.09.i122, align 1
-  store i8 %28, ptr %pe.010.i121, align 1
+  %30 = load i8, ptr %ps.09.i122, align 1
+  %31 = load i8, ptr %pe.010.i121, align 1
+  store i8 %31, ptr %ps.09.i122, align 1
+  store i8 %30, ptr %pe.010.i121, align 1
   %incdec.ptr.i123 = getelementptr inbounds i8, ptr %ps.09.i122, i64 1
   %incdec.ptr2.i124 = getelementptr inbounds i8, ptr %pe.010.i121, i64 -1
   %dec.i125 = add nsw i64 %i.011.i120, -1
@@ -645,10 +731,10 @@ for.body.i128:                                    ; preds = %for.body.i128, %_ZN
   %i.011.i129 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit ], [ %dec.i134, %for.body.i128 ]
   %pe.010.i130 = phi ptr [ %add.ptr1.i127, %_ZN3dpx9SwapBytesIfEET_RS1_.exit ], [ %incdec.ptr2.i133, %for.body.i128 ]
   %ps.09.i131 = phi ptr [ %highData, %_ZN3dpx9SwapBytesIfEET_RS1_.exit ], [ %incdec.ptr.i132, %for.body.i128 ]
-  %30 = load i8, ptr %ps.09.i131, align 1
-  %31 = load i8, ptr %pe.010.i130, align 1
-  store i8 %31, ptr %ps.09.i131, align 1
-  store i8 %30, ptr %pe.010.i130, align 1
+  %32 = load i8, ptr %ps.09.i131, align 1
+  %33 = load i8, ptr %pe.010.i130, align 1
+  store i8 %33, ptr %ps.09.i131, align 1
+  store i8 %32, ptr %pe.010.i130, align 1
   %incdec.ptr.i132 = getelementptr inbounds i8, ptr %ps.09.i131, i64 1
   %incdec.ptr2.i133 = getelementptr inbounds i8, ptr %pe.010.i130, i64 -1
   %dec.i134 = add nsw i64 %i.011.i129, -1
@@ -664,10 +750,10 @@ for.body.i138:                                    ; preds = %for.body.i138, %_ZN
   %i.011.i139 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit136 ], [ %dec.i144, %for.body.i138 ]
   %pe.010.i140 = phi ptr [ %add.ptr1.i137, %_ZN3dpx9SwapBytesIjEET_RS1_.exit136 ], [ %incdec.ptr2.i143, %for.body.i138 ]
   %ps.09.i141 = phi ptr [ %highQuantity, %_ZN3dpx9SwapBytesIjEET_RS1_.exit136 ], [ %incdec.ptr.i142, %for.body.i138 ]
-  %32 = load i8, ptr %ps.09.i141, align 1
-  %33 = load i8, ptr %pe.010.i140, align 1
-  store i8 %33, ptr %ps.09.i141, align 1
-  store i8 %32, ptr %pe.010.i140, align 1
+  %34 = load i8, ptr %ps.09.i141, align 1
+  %35 = load i8, ptr %pe.010.i140, align 1
+  store i8 %35, ptr %ps.09.i141, align 1
+  store i8 %34, ptr %pe.010.i140, align 1
   %incdec.ptr.i142 = getelementptr inbounds i8, ptr %ps.09.i141, i64 1
   %incdec.ptr2.i143 = getelementptr inbounds i8, ptr %pe.010.i140, i64 -1
   %dec.i144 = add nsw i64 %i.011.i139, -1
@@ -676,9 +762,17 @@ for.body.i138:                                    ; preds = %for.body.i138, %_ZN
 
 _ZN3dpx9SwapBytesIfEET_RS1_.exit146:              ; preds = %for.body.i138
   %packing = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %34 = load <4 x i8>, ptr %packing, align 4
-  %35 = shufflevector <4 x i8> %34, <4 x i8> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  store <4 x i8> %35, ptr %packing, align 4
+  %36 = load i8, ptr %packing, align 4
+  %arrayidx1.i147 = getelementptr inbounds i8, ptr %arrayidx, i64 25
+  %37 = load i8, ptr %arrayidx1.i147, align 1
+  store i8 %37, ptr %packing, align 4
+  store i8 %36, ptr %arrayidx1.i147, align 1
+  %encoding = getelementptr inbounds i8, ptr %arrayidx, i64 26
+  %38 = load i8, ptr %encoding, align 2
+  %arrayidx1.i148 = getelementptr inbounds i8, ptr %arrayidx, i64 27
+  %39 = load i8, ptr %arrayidx1.i148, align 1
+  store i8 %39, ptr %encoding, align 2
+  store i8 %38, ptr %arrayidx1.i148, align 1
   %dataOffset = getelementptr inbounds i8, ptr %arrayidx, i64 28
   %add.ptr1.i149 = getelementptr inbounds i8, ptr %arrayidx, i64 31
   br label %for.body.i150
@@ -687,10 +781,10 @@ for.body.i150:                                    ; preds = %for.body.i150, %_ZN
   %i.011.i151 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit146 ], [ %dec.i156, %for.body.i150 ]
   %pe.010.i152 = phi ptr [ %add.ptr1.i149, %_ZN3dpx9SwapBytesIfEET_RS1_.exit146 ], [ %incdec.ptr2.i155, %for.body.i150 ]
   %ps.09.i153 = phi ptr [ %dataOffset, %_ZN3dpx9SwapBytesIfEET_RS1_.exit146 ], [ %incdec.ptr.i154, %for.body.i150 ]
-  %36 = load i8, ptr %ps.09.i153, align 1
-  %37 = load i8, ptr %pe.010.i152, align 1
-  store i8 %37, ptr %ps.09.i153, align 1
-  store i8 %36, ptr %pe.010.i152, align 1
+  %40 = load i8, ptr %ps.09.i153, align 1
+  %41 = load i8, ptr %pe.010.i152, align 1
+  store i8 %41, ptr %ps.09.i153, align 1
+  store i8 %40, ptr %pe.010.i152, align 1
   %incdec.ptr.i154 = getelementptr inbounds i8, ptr %ps.09.i153, i64 1
   %incdec.ptr2.i155 = getelementptr inbounds i8, ptr %pe.010.i152, i64 -1
   %dec.i156 = add nsw i64 %i.011.i151, -1
@@ -706,10 +800,10 @@ for.body.i160:                                    ; preds = %for.body.i160, %_ZN
   %i.011.i161 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit158 ], [ %dec.i166, %for.body.i160 ]
   %pe.010.i162 = phi ptr [ %add.ptr1.i159, %_ZN3dpx9SwapBytesIjEET_RS1_.exit158 ], [ %incdec.ptr2.i165, %for.body.i160 ]
   %ps.09.i163 = phi ptr [ %endOfLinePadding, %_ZN3dpx9SwapBytesIjEET_RS1_.exit158 ], [ %incdec.ptr.i164, %for.body.i160 ]
-  %38 = load i8, ptr %ps.09.i163, align 1
-  %39 = load i8, ptr %pe.010.i162, align 1
-  store i8 %39, ptr %ps.09.i163, align 1
-  store i8 %38, ptr %pe.010.i162, align 1
+  %42 = load i8, ptr %ps.09.i163, align 1
+  %43 = load i8, ptr %pe.010.i162, align 1
+  store i8 %43, ptr %ps.09.i163, align 1
+  store i8 %42, ptr %pe.010.i162, align 1
   %incdec.ptr.i164 = getelementptr inbounds i8, ptr %ps.09.i163, i64 1
   %incdec.ptr2.i165 = getelementptr inbounds i8, ptr %pe.010.i162, i64 -1
   %dec.i166 = add nsw i64 %i.011.i161, -1
@@ -725,10 +819,10 @@ for.body.i170:                                    ; preds = %for.body.i170, %_ZN
   %i.011.i171 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit168 ], [ %dec.i176, %for.body.i170 ]
   %pe.010.i172 = phi ptr [ %add.ptr1.i169, %_ZN3dpx9SwapBytesIjEET_RS1_.exit168 ], [ %incdec.ptr2.i175, %for.body.i170 ]
   %ps.09.i173 = phi ptr [ %endOfImagePadding, %_ZN3dpx9SwapBytesIjEET_RS1_.exit168 ], [ %incdec.ptr.i174, %for.body.i170 ]
-  %40 = load i8, ptr %ps.09.i173, align 1
-  %41 = load i8, ptr %pe.010.i172, align 1
-  store i8 %41, ptr %ps.09.i173, align 1
-  store i8 %40, ptr %pe.010.i172, align 1
+  %44 = load i8, ptr %ps.09.i173, align 1
+  %45 = load i8, ptr %pe.010.i172, align 1
+  store i8 %45, ptr %ps.09.i173, align 1
+  store i8 %44, ptr %pe.010.i172, align 1
   %incdec.ptr.i174 = getelementptr inbounds i8, ptr %ps.09.i173, i64 1
   %incdec.ptr2.i175 = getelementptr inbounds i8, ptr %pe.010.i172, i64 -1
   %dec.i176 = add nsw i64 %i.011.i171, -1
@@ -749,10 +843,10 @@ for.body.i180:                                    ; preds = %for.body.i180, %for
   %i.011.i181 = phi i64 [ 2, %for.end ], [ %dec.i186, %for.body.i180 ]
   %pe.010.i182 = phi ptr [ %add.ptr1.i179, %for.end ], [ %incdec.ptr2.i185, %for.body.i180 ]
   %ps.09.i183 = phi ptr [ %xOffset, %for.end ], [ %incdec.ptr.i184, %for.body.i180 ]
-  %42 = load i8, ptr %ps.09.i183, align 1
-  %43 = load i8, ptr %pe.010.i182, align 1
-  store i8 %43, ptr %ps.09.i183, align 1
-  store i8 %42, ptr %pe.010.i182, align 1
+  %46 = load i8, ptr %ps.09.i183, align 1
+  %47 = load i8, ptr %pe.010.i182, align 1
+  store i8 %47, ptr %ps.09.i183, align 1
+  store i8 %46, ptr %pe.010.i182, align 1
   %incdec.ptr.i184 = getelementptr inbounds i8, ptr %ps.09.i183, i64 1
   %incdec.ptr2.i185 = getelementptr inbounds i8, ptr %pe.010.i182, i64 -1
   %dec.i186 = add nsw i64 %i.011.i181, -1
@@ -768,10 +862,10 @@ for.body.i190:                                    ; preds = %for.body.i190, %_ZN
   %i.011.i191 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit188 ], [ %dec.i196, %for.body.i190 ]
   %pe.010.i192 = phi ptr [ %add.ptr1.i189, %_ZN3dpx9SwapBytesIjEET_RS1_.exit188 ], [ %incdec.ptr2.i195, %for.body.i190 ]
   %ps.09.i193 = phi ptr [ %yOffset, %_ZN3dpx9SwapBytesIjEET_RS1_.exit188 ], [ %incdec.ptr.i194, %for.body.i190 ]
-  %44 = load i8, ptr %ps.09.i193, align 1
-  %45 = load i8, ptr %pe.010.i192, align 1
-  store i8 %45, ptr %ps.09.i193, align 1
-  store i8 %44, ptr %pe.010.i192, align 1
+  %48 = load i8, ptr %ps.09.i193, align 1
+  %49 = load i8, ptr %pe.010.i192, align 1
+  store i8 %49, ptr %ps.09.i193, align 1
+  store i8 %48, ptr %pe.010.i192, align 1
   %incdec.ptr.i194 = getelementptr inbounds i8, ptr %ps.09.i193, i64 1
   %incdec.ptr2.i195 = getelementptr inbounds i8, ptr %pe.010.i192, i64 -1
   %dec.i196 = add nsw i64 %i.011.i191, -1
@@ -787,10 +881,10 @@ for.body.i200:                                    ; preds = %for.body.i200, %_ZN
   %i.011.i201 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit198 ], [ %dec.i206, %for.body.i200 ]
   %pe.010.i202 = phi ptr [ %add.ptr1.i199, %_ZN3dpx9SwapBytesIjEET_RS1_.exit198 ], [ %incdec.ptr2.i205, %for.body.i200 ]
   %ps.09.i203 = phi ptr [ %xCenter, %_ZN3dpx9SwapBytesIjEET_RS1_.exit198 ], [ %incdec.ptr.i204, %for.body.i200 ]
-  %46 = load i8, ptr %ps.09.i203, align 1
-  %47 = load i8, ptr %pe.010.i202, align 1
-  store i8 %47, ptr %ps.09.i203, align 1
-  store i8 %46, ptr %pe.010.i202, align 1
+  %50 = load i8, ptr %ps.09.i203, align 1
+  %51 = load i8, ptr %pe.010.i202, align 1
+  store i8 %51, ptr %ps.09.i203, align 1
+  store i8 %50, ptr %pe.010.i202, align 1
   %incdec.ptr.i204 = getelementptr inbounds i8, ptr %ps.09.i203, i64 1
   %incdec.ptr2.i205 = getelementptr inbounds i8, ptr %pe.010.i202, i64 -1
   %dec.i206 = add nsw i64 %i.011.i201, -1
@@ -806,10 +900,10 @@ for.body.i210:                                    ; preds = %for.body.i210, %_ZN
   %i.011.i211 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit208 ], [ %dec.i216, %for.body.i210 ]
   %pe.010.i212 = phi ptr [ %add.ptr1.i209, %_ZN3dpx9SwapBytesIfEET_RS1_.exit208 ], [ %incdec.ptr2.i215, %for.body.i210 ]
   %ps.09.i213 = phi ptr [ %yCenter, %_ZN3dpx9SwapBytesIfEET_RS1_.exit208 ], [ %incdec.ptr.i214, %for.body.i210 ]
-  %48 = load i8, ptr %ps.09.i213, align 1
-  %49 = load i8, ptr %pe.010.i212, align 1
-  store i8 %49, ptr %ps.09.i213, align 1
-  store i8 %48, ptr %pe.010.i212, align 1
+  %52 = load i8, ptr %ps.09.i213, align 1
+  %53 = load i8, ptr %pe.010.i212, align 1
+  store i8 %53, ptr %ps.09.i213, align 1
+  store i8 %52, ptr %pe.010.i212, align 1
   %incdec.ptr.i214 = getelementptr inbounds i8, ptr %ps.09.i213, i64 1
   %incdec.ptr2.i215 = getelementptr inbounds i8, ptr %pe.010.i212, i64 -1
   %dec.i216 = add nsw i64 %i.011.i211, -1
@@ -825,10 +919,10 @@ for.body.i220:                                    ; preds = %for.body.i220, %_ZN
   %i.011.i221 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit218 ], [ %dec.i226, %for.body.i220 ]
   %pe.010.i222 = phi ptr [ %add.ptr1.i219, %_ZN3dpx9SwapBytesIfEET_RS1_.exit218 ], [ %incdec.ptr2.i225, %for.body.i220 ]
   %ps.09.i223 = phi ptr [ %xOriginalSize, %_ZN3dpx9SwapBytesIfEET_RS1_.exit218 ], [ %incdec.ptr.i224, %for.body.i220 ]
-  %50 = load i8, ptr %ps.09.i223, align 1
-  %51 = load i8, ptr %pe.010.i222, align 1
-  store i8 %51, ptr %ps.09.i223, align 1
-  store i8 %50, ptr %pe.010.i222, align 1
+  %54 = load i8, ptr %ps.09.i223, align 1
+  %55 = load i8, ptr %pe.010.i222, align 1
+  store i8 %55, ptr %ps.09.i223, align 1
+  store i8 %54, ptr %pe.010.i222, align 1
   %incdec.ptr.i224 = getelementptr inbounds i8, ptr %ps.09.i223, i64 1
   %incdec.ptr2.i225 = getelementptr inbounds i8, ptr %pe.010.i222, i64 -1
   %dec.i226 = add nsw i64 %i.011.i221, -1
@@ -844,10 +938,10 @@ for.body.i230:                                    ; preds = %for.body.i230, %_ZN
   %i.011.i231 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit228 ], [ %dec.i236, %for.body.i230 ]
   %pe.010.i232 = phi ptr [ %add.ptr1.i229, %_ZN3dpx9SwapBytesIjEET_RS1_.exit228 ], [ %incdec.ptr2.i235, %for.body.i230 ]
   %ps.09.i233 = phi ptr [ %yOriginalSize, %_ZN3dpx9SwapBytesIjEET_RS1_.exit228 ], [ %incdec.ptr.i234, %for.body.i230 ]
-  %52 = load i8, ptr %ps.09.i233, align 1
-  %53 = load i8, ptr %pe.010.i232, align 1
-  store i8 %53, ptr %ps.09.i233, align 1
-  store i8 %52, ptr %pe.010.i232, align 1
+  %56 = load i8, ptr %ps.09.i233, align 1
+  %57 = load i8, ptr %pe.010.i232, align 1
+  store i8 %57, ptr %ps.09.i233, align 1
+  store i8 %56, ptr %pe.010.i232, align 1
   %incdec.ptr.i234 = getelementptr inbounds i8, ptr %ps.09.i233, i64 1
   %incdec.ptr2.i235 = getelementptr inbounds i8, ptr %pe.010.i232, i64 -1
   %dec.i236 = add nsw i64 %i.011.i231, -1
@@ -856,9 +950,29 @@ for.body.i230:                                    ; preds = %for.body.i230, %_ZN
 
 _ZN3dpx9SwapBytesIjEET_RS1_.exit238:              ; preds = %for.body.i230
   %border = getelementptr inbounds i8, ptr %this, i64 1620
-  %54 = load <8 x i8>, ptr %border, align 4
-  %55 = shufflevector <8 x i8> %54, <8 x i8> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
-  store <8 x i8> %55, ptr %border, align 4
+  %58 = load i8, ptr %border, align 4
+  %arrayidx1.i239 = getelementptr inbounds i8, ptr %this, i64 1621
+  %59 = load i8, ptr %arrayidx1.i239, align 1
+  store i8 %59, ptr %border, align 4
+  store i8 %58, ptr %arrayidx1.i239, align 1
+  %arrayidx78 = getelementptr inbounds i8, ptr %this, i64 1622
+  %60 = load i8, ptr %arrayidx78, align 2
+  %arrayidx1.i240 = getelementptr inbounds i8, ptr %this, i64 1623
+  %61 = load i8, ptr %arrayidx1.i240, align 1
+  store i8 %61, ptr %arrayidx78, align 2
+  store i8 %60, ptr %arrayidx1.i240, align 1
+  %arrayidx81 = getelementptr inbounds i8, ptr %this, i64 1624
+  %62 = load i8, ptr %arrayidx81, align 4
+  %arrayidx1.i241 = getelementptr inbounds i8, ptr %this, i64 1625
+  %63 = load i8, ptr %arrayidx1.i241, align 1
+  store i8 %63, ptr %arrayidx81, align 4
+  store i8 %62, ptr %arrayidx1.i241, align 1
+  %arrayidx84 = getelementptr inbounds i8, ptr %this, i64 1626
+  %64 = load i8, ptr %arrayidx84, align 2
+  %arrayidx1.i242 = getelementptr inbounds i8, ptr %this, i64 1627
+  %65 = load i8, ptr %arrayidx1.i242, align 1
+  store i8 %65, ptr %arrayidx84, align 2
+  store i8 %64, ptr %arrayidx1.i242, align 1
   %aspectRatio = getelementptr inbounds i8, ptr %this, i64 1628
   %add.ptr1.i243 = getelementptr inbounds i8, ptr %this, i64 1631
   br label %for.body.i244
@@ -867,10 +981,10 @@ for.body.i244:                                    ; preds = %for.body.i244, %_ZN
   %i.011.i245 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit238 ], [ %dec.i250, %for.body.i244 ]
   %pe.010.i246 = phi ptr [ %add.ptr1.i243, %_ZN3dpx9SwapBytesIjEET_RS1_.exit238 ], [ %incdec.ptr2.i249, %for.body.i244 ]
   %ps.09.i247 = phi ptr [ %aspectRatio, %_ZN3dpx9SwapBytesIjEET_RS1_.exit238 ], [ %incdec.ptr.i248, %for.body.i244 ]
-  %56 = load i8, ptr %ps.09.i247, align 1
-  %57 = load i8, ptr %pe.010.i246, align 1
-  store i8 %57, ptr %ps.09.i247, align 1
-  store i8 %56, ptr %pe.010.i246, align 1
+  %66 = load i8, ptr %ps.09.i247, align 1
+  %67 = load i8, ptr %pe.010.i246, align 1
+  store i8 %67, ptr %ps.09.i247, align 1
+  store i8 %66, ptr %pe.010.i246, align 1
   %incdec.ptr.i248 = getelementptr inbounds i8, ptr %ps.09.i247, i64 1
   %incdec.ptr2.i249 = getelementptr inbounds i8, ptr %pe.010.i246, i64 -1
   %dec.i250 = add nsw i64 %i.011.i245, -1
@@ -886,10 +1000,10 @@ for.body.i254:                                    ; preds = %for.body.i254, %_ZN
   %i.011.i255 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit252 ], [ %dec.i260, %for.body.i254 ]
   %pe.010.i256 = phi ptr [ %add.ptr1.i253, %_ZN3dpx9SwapBytesIjEET_RS1_.exit252 ], [ %incdec.ptr2.i259, %for.body.i254 ]
   %ps.09.i257 = phi ptr [ %arrayidx89, %_ZN3dpx9SwapBytesIjEET_RS1_.exit252 ], [ %incdec.ptr.i258, %for.body.i254 ]
-  %58 = load i8, ptr %ps.09.i257, align 1
-  %59 = load i8, ptr %pe.010.i256, align 1
-  store i8 %59, ptr %ps.09.i257, align 1
-  store i8 %58, ptr %pe.010.i256, align 1
+  %68 = load i8, ptr %ps.09.i257, align 1
+  %69 = load i8, ptr %pe.010.i256, align 1
+  store i8 %69, ptr %ps.09.i257, align 1
+  store i8 %68, ptr %pe.010.i256, align 1
   %incdec.ptr.i258 = getelementptr inbounds i8, ptr %ps.09.i257, i64 1
   %incdec.ptr2.i259 = getelementptr inbounds i8, ptr %pe.010.i256, i64 -1
   %dec.i260 = add nsw i64 %i.011.i255, -1
@@ -905,10 +1019,10 @@ for.body.i264:                                    ; preds = %for.body.i264, %_ZN
   %i.011.i265 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit262 ], [ %dec.i270, %for.body.i264 ]
   %pe.010.i266 = phi ptr [ %add.ptr1.i263, %_ZN3dpx9SwapBytesIjEET_RS1_.exit262 ], [ %incdec.ptr2.i269, %for.body.i264 ]
   %ps.09.i267 = phi ptr [ %framePosition, %_ZN3dpx9SwapBytesIjEET_RS1_.exit262 ], [ %incdec.ptr.i268, %for.body.i264 ]
-  %60 = load i8, ptr %ps.09.i267, align 1
-  %61 = load i8, ptr %pe.010.i266, align 1
-  store i8 %61, ptr %ps.09.i267, align 1
-  store i8 %60, ptr %pe.010.i266, align 1
+  %70 = load i8, ptr %ps.09.i267, align 1
+  %71 = load i8, ptr %pe.010.i266, align 1
+  store i8 %71, ptr %ps.09.i267, align 1
+  store i8 %70, ptr %pe.010.i266, align 1
   %incdec.ptr.i268 = getelementptr inbounds i8, ptr %ps.09.i267, i64 1
   %incdec.ptr2.i269 = getelementptr inbounds i8, ptr %pe.010.i266, i64 -1
   %dec.i270 = add nsw i64 %i.011.i265, -1
@@ -924,10 +1038,10 @@ for.body.i274:                                    ; preds = %for.body.i274, %_ZN
   %i.011.i275 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit272 ], [ %dec.i280, %for.body.i274 ]
   %pe.010.i276 = phi ptr [ %add.ptr1.i273, %_ZN3dpx9SwapBytesIjEET_RS1_.exit272 ], [ %incdec.ptr2.i279, %for.body.i274 ]
   %ps.09.i277 = phi ptr [ %sequenceLength, %_ZN3dpx9SwapBytesIjEET_RS1_.exit272 ], [ %incdec.ptr.i278, %for.body.i274 ]
-  %62 = load i8, ptr %ps.09.i277, align 1
-  %63 = load i8, ptr %pe.010.i276, align 1
-  store i8 %63, ptr %ps.09.i277, align 1
-  store i8 %62, ptr %pe.010.i276, align 1
+  %72 = load i8, ptr %ps.09.i277, align 1
+  %73 = load i8, ptr %pe.010.i276, align 1
+  store i8 %73, ptr %ps.09.i277, align 1
+  store i8 %72, ptr %pe.010.i276, align 1
   %incdec.ptr.i278 = getelementptr inbounds i8, ptr %ps.09.i277, i64 1
   %incdec.ptr2.i279 = getelementptr inbounds i8, ptr %pe.010.i276, i64 -1
   %dec.i280 = add nsw i64 %i.011.i275, -1
@@ -943,10 +1057,10 @@ for.body.i284:                                    ; preds = %for.body.i284, %_ZN
   %i.011.i285 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit282 ], [ %dec.i290, %for.body.i284 ]
   %pe.010.i286 = phi ptr [ %add.ptr1.i283, %_ZN3dpx9SwapBytesIjEET_RS1_.exit282 ], [ %incdec.ptr2.i289, %for.body.i284 ]
   %ps.09.i287 = phi ptr [ %heldCount, %_ZN3dpx9SwapBytesIjEET_RS1_.exit282 ], [ %incdec.ptr.i288, %for.body.i284 ]
-  %64 = load i8, ptr %ps.09.i287, align 1
-  %65 = load i8, ptr %pe.010.i286, align 1
-  store i8 %65, ptr %ps.09.i287, align 1
-  store i8 %64, ptr %pe.010.i286, align 1
+  %74 = load i8, ptr %ps.09.i287, align 1
+  %75 = load i8, ptr %pe.010.i286, align 1
+  store i8 %75, ptr %ps.09.i287, align 1
+  store i8 %74, ptr %pe.010.i286, align 1
   %incdec.ptr.i288 = getelementptr inbounds i8, ptr %ps.09.i287, i64 1
   %incdec.ptr2.i289 = getelementptr inbounds i8, ptr %pe.010.i286, i64 -1
   %dec.i290 = add nsw i64 %i.011.i285, -1
@@ -962,10 +1076,10 @@ for.body.i294:                                    ; preds = %for.body.i294, %_ZN
   %i.011.i295 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit292 ], [ %dec.i300, %for.body.i294 ]
   %pe.010.i296 = phi ptr [ %add.ptr1.i293, %_ZN3dpx9SwapBytesIjEET_RS1_.exit292 ], [ %incdec.ptr2.i299, %for.body.i294 ]
   %ps.09.i297 = phi ptr [ %frameRate, %_ZN3dpx9SwapBytesIjEET_RS1_.exit292 ], [ %incdec.ptr.i298, %for.body.i294 ]
-  %66 = load i8, ptr %ps.09.i297, align 1
-  %67 = load i8, ptr %pe.010.i296, align 1
-  store i8 %67, ptr %ps.09.i297, align 1
-  store i8 %66, ptr %pe.010.i296, align 1
+  %76 = load i8, ptr %ps.09.i297, align 1
+  %77 = load i8, ptr %pe.010.i296, align 1
+  store i8 %77, ptr %ps.09.i297, align 1
+  store i8 %76, ptr %pe.010.i296, align 1
   %incdec.ptr.i298 = getelementptr inbounds i8, ptr %ps.09.i297, i64 1
   %incdec.ptr2.i299 = getelementptr inbounds i8, ptr %pe.010.i296, i64 -1
   %dec.i300 = add nsw i64 %i.011.i295, -1
@@ -981,10 +1095,10 @@ for.body.i304:                                    ; preds = %for.body.i304, %_ZN
   %i.011.i305 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit302 ], [ %dec.i310, %for.body.i304 ]
   %pe.010.i306 = phi ptr [ %add.ptr1.i303, %_ZN3dpx9SwapBytesIfEET_RS1_.exit302 ], [ %incdec.ptr2.i309, %for.body.i304 ]
   %ps.09.i307 = phi ptr [ %shutterAngle, %_ZN3dpx9SwapBytesIfEET_RS1_.exit302 ], [ %incdec.ptr.i308, %for.body.i304 ]
-  %68 = load i8, ptr %ps.09.i307, align 1
-  %69 = load i8, ptr %pe.010.i306, align 1
-  store i8 %69, ptr %ps.09.i307, align 1
-  store i8 %68, ptr %pe.010.i306, align 1
+  %78 = load i8, ptr %ps.09.i307, align 1
+  %79 = load i8, ptr %pe.010.i306, align 1
+  store i8 %79, ptr %ps.09.i307, align 1
+  store i8 %78, ptr %pe.010.i306, align 1
   %incdec.ptr.i308 = getelementptr inbounds i8, ptr %ps.09.i307, i64 1
   %incdec.ptr2.i309 = getelementptr inbounds i8, ptr %pe.010.i306, i64 -1
   %dec.i310 = add nsw i64 %i.011.i305, -1
@@ -1000,10 +1114,10 @@ for.body.i314:                                    ; preds = %for.body.i314, %_ZN
   %i.011.i315 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit312 ], [ %dec.i320, %for.body.i314 ]
   %pe.010.i316 = phi ptr [ %add.ptr1.i313, %_ZN3dpx9SwapBytesIfEET_RS1_.exit312 ], [ %incdec.ptr2.i319, %for.body.i314 ]
   %ps.09.i317 = phi ptr [ %timeCode, %_ZN3dpx9SwapBytesIfEET_RS1_.exit312 ], [ %incdec.ptr.i318, %for.body.i314 ]
-  %70 = load i8, ptr %ps.09.i317, align 1
-  %71 = load i8, ptr %pe.010.i316, align 1
-  store i8 %71, ptr %ps.09.i317, align 1
-  store i8 %70, ptr %pe.010.i316, align 1
+  %80 = load i8, ptr %ps.09.i317, align 1
+  %81 = load i8, ptr %pe.010.i316, align 1
+  store i8 %81, ptr %ps.09.i317, align 1
+  store i8 %80, ptr %pe.010.i316, align 1
   %incdec.ptr.i318 = getelementptr inbounds i8, ptr %ps.09.i317, i64 1
   %incdec.ptr2.i319 = getelementptr inbounds i8, ptr %pe.010.i316, i64 -1
   %dec.i320 = add nsw i64 %i.011.i315, -1
@@ -1019,10 +1133,10 @@ for.body.i324:                                    ; preds = %for.body.i324, %_ZN
   %i.011.i325 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit322 ], [ %dec.i330, %for.body.i324 ]
   %pe.010.i326 = phi ptr [ %add.ptr1.i323, %_ZN3dpx9SwapBytesIjEET_RS1_.exit322 ], [ %incdec.ptr2.i329, %for.body.i324 ]
   %ps.09.i327 = phi ptr [ %userBits, %_ZN3dpx9SwapBytesIjEET_RS1_.exit322 ], [ %incdec.ptr.i328, %for.body.i324 ]
-  %72 = load i8, ptr %ps.09.i327, align 1
-  %73 = load i8, ptr %pe.010.i326, align 1
-  store i8 %73, ptr %ps.09.i327, align 1
-  store i8 %72, ptr %pe.010.i326, align 1
+  %82 = load i8, ptr %ps.09.i327, align 1
+  %83 = load i8, ptr %pe.010.i326, align 1
+  store i8 %83, ptr %ps.09.i327, align 1
+  store i8 %82, ptr %pe.010.i326, align 1
   %incdec.ptr.i328 = getelementptr inbounds i8, ptr %ps.09.i327, i64 1
   %incdec.ptr2.i329 = getelementptr inbounds i8, ptr %pe.010.i326, i64 -1
   %dec.i330 = add nsw i64 %i.011.i325, -1
@@ -1038,10 +1152,10 @@ for.body.i334:                                    ; preds = %for.body.i334, %_ZN
   %i.011.i335 = phi i64 [ 2, %_ZN3dpx9SwapBytesIjEET_RS1_.exit332 ], [ %dec.i340, %for.body.i334 ]
   %pe.010.i336 = phi ptr [ %add.ptr1.i333, %_ZN3dpx9SwapBytesIjEET_RS1_.exit332 ], [ %incdec.ptr2.i339, %for.body.i334 ]
   %ps.09.i337 = phi ptr [ %horizontalSampleRate, %_ZN3dpx9SwapBytesIjEET_RS1_.exit332 ], [ %incdec.ptr.i338, %for.body.i334 ]
-  %74 = load i8, ptr %ps.09.i337, align 1
-  %75 = load i8, ptr %pe.010.i336, align 1
-  store i8 %75, ptr %ps.09.i337, align 1
-  store i8 %74, ptr %pe.010.i336, align 1
+  %84 = load i8, ptr %ps.09.i337, align 1
+  %85 = load i8, ptr %pe.010.i336, align 1
+  store i8 %85, ptr %ps.09.i337, align 1
+  store i8 %84, ptr %pe.010.i336, align 1
   %incdec.ptr.i338 = getelementptr inbounds i8, ptr %ps.09.i337, i64 1
   %incdec.ptr2.i339 = getelementptr inbounds i8, ptr %pe.010.i336, i64 -1
   %dec.i340 = add nsw i64 %i.011.i335, -1
@@ -1057,10 +1171,10 @@ for.body.i344:                                    ; preds = %for.body.i344, %_ZN
   %i.011.i345 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit342 ], [ %dec.i350, %for.body.i344 ]
   %pe.010.i346 = phi ptr [ %add.ptr1.i343, %_ZN3dpx9SwapBytesIfEET_RS1_.exit342 ], [ %incdec.ptr2.i349, %for.body.i344 ]
   %ps.09.i347 = phi ptr [ %verticalSampleRate, %_ZN3dpx9SwapBytesIfEET_RS1_.exit342 ], [ %incdec.ptr.i348, %for.body.i344 ]
-  %76 = load i8, ptr %ps.09.i347, align 1
-  %77 = load i8, ptr %pe.010.i346, align 1
-  store i8 %77, ptr %ps.09.i347, align 1
-  store i8 %76, ptr %pe.010.i346, align 1
+  %86 = load i8, ptr %ps.09.i347, align 1
+  %87 = load i8, ptr %pe.010.i346, align 1
+  store i8 %87, ptr %ps.09.i347, align 1
+  store i8 %86, ptr %pe.010.i346, align 1
   %incdec.ptr.i348 = getelementptr inbounds i8, ptr %ps.09.i347, i64 1
   %incdec.ptr2.i349 = getelementptr inbounds i8, ptr %pe.010.i346, i64 -1
   %dec.i350 = add nsw i64 %i.011.i345, -1
@@ -1076,10 +1190,10 @@ for.body.i354:                                    ; preds = %for.body.i354, %_ZN
   %i.011.i355 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit352 ], [ %dec.i360, %for.body.i354 ]
   %pe.010.i356 = phi ptr [ %add.ptr1.i353, %_ZN3dpx9SwapBytesIfEET_RS1_.exit352 ], [ %incdec.ptr2.i359, %for.body.i354 ]
   %ps.09.i357 = phi ptr [ %temporalFrameRate, %_ZN3dpx9SwapBytesIfEET_RS1_.exit352 ], [ %incdec.ptr.i358, %for.body.i354 ]
-  %78 = load i8, ptr %ps.09.i357, align 1
-  %79 = load i8, ptr %pe.010.i356, align 1
-  store i8 %79, ptr %ps.09.i357, align 1
-  store i8 %78, ptr %pe.010.i356, align 1
+  %88 = load i8, ptr %ps.09.i357, align 1
+  %89 = load i8, ptr %pe.010.i356, align 1
+  store i8 %89, ptr %ps.09.i357, align 1
+  store i8 %88, ptr %pe.010.i356, align 1
   %incdec.ptr.i358 = getelementptr inbounds i8, ptr %ps.09.i357, i64 1
   %incdec.ptr2.i359 = getelementptr inbounds i8, ptr %pe.010.i356, i64 -1
   %dec.i360 = add nsw i64 %i.011.i355, -1
@@ -1095,10 +1209,10 @@ for.body.i364:                                    ; preds = %for.body.i364, %_ZN
   %i.011.i365 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit362 ], [ %dec.i370, %for.body.i364 ]
   %pe.010.i366 = phi ptr [ %add.ptr1.i363, %_ZN3dpx9SwapBytesIfEET_RS1_.exit362 ], [ %incdec.ptr2.i369, %for.body.i364 ]
   %ps.09.i367 = phi ptr [ %timeOffset, %_ZN3dpx9SwapBytesIfEET_RS1_.exit362 ], [ %incdec.ptr.i368, %for.body.i364 ]
-  %80 = load i8, ptr %ps.09.i367, align 1
-  %81 = load i8, ptr %pe.010.i366, align 1
-  store i8 %81, ptr %ps.09.i367, align 1
-  store i8 %80, ptr %pe.010.i366, align 1
+  %90 = load i8, ptr %ps.09.i367, align 1
+  %91 = load i8, ptr %pe.010.i366, align 1
+  store i8 %91, ptr %ps.09.i367, align 1
+  store i8 %90, ptr %pe.010.i366, align 1
   %incdec.ptr.i368 = getelementptr inbounds i8, ptr %ps.09.i367, i64 1
   %incdec.ptr2.i369 = getelementptr inbounds i8, ptr %pe.010.i366, i64 -1
   %dec.i370 = add nsw i64 %i.011.i365, -1
@@ -1114,10 +1228,10 @@ for.body.i374:                                    ; preds = %for.body.i374, %_ZN
   %i.011.i375 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit372 ], [ %dec.i380, %for.body.i374 ]
   %pe.010.i376 = phi ptr [ %add.ptr1.i373, %_ZN3dpx9SwapBytesIfEET_RS1_.exit372 ], [ %incdec.ptr2.i379, %for.body.i374 ]
   %ps.09.i377 = phi ptr [ %gamma, %_ZN3dpx9SwapBytesIfEET_RS1_.exit372 ], [ %incdec.ptr.i378, %for.body.i374 ]
-  %82 = load i8, ptr %ps.09.i377, align 1
-  %83 = load i8, ptr %pe.010.i376, align 1
-  store i8 %83, ptr %ps.09.i377, align 1
-  store i8 %82, ptr %pe.010.i376, align 1
+  %92 = load i8, ptr %ps.09.i377, align 1
+  %93 = load i8, ptr %pe.010.i376, align 1
+  store i8 %93, ptr %ps.09.i377, align 1
+  store i8 %92, ptr %pe.010.i376, align 1
   %incdec.ptr.i378 = getelementptr inbounds i8, ptr %ps.09.i377, i64 1
   %incdec.ptr2.i379 = getelementptr inbounds i8, ptr %pe.010.i376, i64 -1
   %dec.i380 = add nsw i64 %i.011.i375, -1
@@ -1133,10 +1247,10 @@ for.body.i384:                                    ; preds = %for.body.i384, %_ZN
   %i.011.i385 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit382 ], [ %dec.i390, %for.body.i384 ]
   %pe.010.i386 = phi ptr [ %add.ptr1.i383, %_ZN3dpx9SwapBytesIfEET_RS1_.exit382 ], [ %incdec.ptr2.i389, %for.body.i384 ]
   %ps.09.i387 = phi ptr [ %blackLevel, %_ZN3dpx9SwapBytesIfEET_RS1_.exit382 ], [ %incdec.ptr.i388, %for.body.i384 ]
-  %84 = load i8, ptr %ps.09.i387, align 1
-  %85 = load i8, ptr %pe.010.i386, align 1
-  store i8 %85, ptr %ps.09.i387, align 1
-  store i8 %84, ptr %pe.010.i386, align 1
+  %94 = load i8, ptr %ps.09.i387, align 1
+  %95 = load i8, ptr %pe.010.i386, align 1
+  store i8 %95, ptr %ps.09.i387, align 1
+  store i8 %94, ptr %pe.010.i386, align 1
   %incdec.ptr.i388 = getelementptr inbounds i8, ptr %ps.09.i387, i64 1
   %incdec.ptr2.i389 = getelementptr inbounds i8, ptr %pe.010.i386, i64 -1
   %dec.i390 = add nsw i64 %i.011.i385, -1
@@ -1152,10 +1266,10 @@ for.body.i394:                                    ; preds = %for.body.i394, %_ZN
   %i.011.i395 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit392 ], [ %dec.i400, %for.body.i394 ]
   %pe.010.i396 = phi ptr [ %add.ptr1.i393, %_ZN3dpx9SwapBytesIfEET_RS1_.exit392 ], [ %incdec.ptr2.i399, %for.body.i394 ]
   %ps.09.i397 = phi ptr [ %blackGain, %_ZN3dpx9SwapBytesIfEET_RS1_.exit392 ], [ %incdec.ptr.i398, %for.body.i394 ]
-  %86 = load i8, ptr %ps.09.i397, align 1
-  %87 = load i8, ptr %pe.010.i396, align 1
-  store i8 %87, ptr %ps.09.i397, align 1
-  store i8 %86, ptr %pe.010.i396, align 1
+  %96 = load i8, ptr %ps.09.i397, align 1
+  %97 = load i8, ptr %pe.010.i396, align 1
+  store i8 %97, ptr %ps.09.i397, align 1
+  store i8 %96, ptr %pe.010.i396, align 1
   %incdec.ptr.i398 = getelementptr inbounds i8, ptr %ps.09.i397, i64 1
   %incdec.ptr2.i399 = getelementptr inbounds i8, ptr %pe.010.i396, i64 -1
   %dec.i400 = add nsw i64 %i.011.i395, -1
@@ -1171,10 +1285,10 @@ for.body.i404:                                    ; preds = %for.body.i404, %_ZN
   %i.011.i405 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit402 ], [ %dec.i410, %for.body.i404 ]
   %pe.010.i406 = phi ptr [ %add.ptr1.i403, %_ZN3dpx9SwapBytesIfEET_RS1_.exit402 ], [ %incdec.ptr2.i409, %for.body.i404 ]
   %ps.09.i407 = phi ptr [ %breakPoint, %_ZN3dpx9SwapBytesIfEET_RS1_.exit402 ], [ %incdec.ptr.i408, %for.body.i404 ]
-  %88 = load i8, ptr %ps.09.i407, align 1
-  %89 = load i8, ptr %pe.010.i406, align 1
-  store i8 %89, ptr %ps.09.i407, align 1
-  store i8 %88, ptr %pe.010.i406, align 1
+  %98 = load i8, ptr %ps.09.i407, align 1
+  %99 = load i8, ptr %pe.010.i406, align 1
+  store i8 %99, ptr %ps.09.i407, align 1
+  store i8 %98, ptr %pe.010.i406, align 1
   %incdec.ptr.i408 = getelementptr inbounds i8, ptr %ps.09.i407, i64 1
   %incdec.ptr2.i409 = getelementptr inbounds i8, ptr %pe.010.i406, i64 -1
   %dec.i410 = add nsw i64 %i.011.i405, -1
@@ -1190,10 +1304,10 @@ for.body.i414:                                    ; preds = %for.body.i414, %_ZN
   %i.011.i415 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit412 ], [ %dec.i420, %for.body.i414 ]
   %pe.010.i416 = phi ptr [ %add.ptr1.i413, %_ZN3dpx9SwapBytesIfEET_RS1_.exit412 ], [ %incdec.ptr2.i419, %for.body.i414 ]
   %ps.09.i417 = phi ptr [ %whiteLevel, %_ZN3dpx9SwapBytesIfEET_RS1_.exit412 ], [ %incdec.ptr.i418, %for.body.i414 ]
-  %90 = load i8, ptr %ps.09.i417, align 1
-  %91 = load i8, ptr %pe.010.i416, align 1
-  store i8 %91, ptr %ps.09.i417, align 1
-  store i8 %90, ptr %pe.010.i416, align 1
+  %100 = load i8, ptr %ps.09.i417, align 1
+  %101 = load i8, ptr %pe.010.i416, align 1
+  store i8 %101, ptr %ps.09.i417, align 1
+  store i8 %100, ptr %pe.010.i416, align 1
   %incdec.ptr.i418 = getelementptr inbounds i8, ptr %ps.09.i417, i64 1
   %incdec.ptr2.i419 = getelementptr inbounds i8, ptr %pe.010.i416, i64 -1
   %dec.i420 = add nsw i64 %i.011.i415, -1
@@ -1209,10 +1323,10 @@ for.body.i424:                                    ; preds = %for.body.i424, %_ZN
   %i.011.i425 = phi i64 [ 2, %_ZN3dpx9SwapBytesIfEET_RS1_.exit422 ], [ %dec.i430, %for.body.i424 ]
   %pe.010.i426 = phi ptr [ %add.ptr1.i423, %_ZN3dpx9SwapBytesIfEET_RS1_.exit422 ], [ %incdec.ptr2.i429, %for.body.i424 ]
   %ps.09.i427 = phi ptr [ %integrationTimes, %_ZN3dpx9SwapBytesIfEET_RS1_.exit422 ], [ %incdec.ptr.i428, %for.body.i424 ]
-  %92 = load i8, ptr %ps.09.i427, align 1
-  %93 = load i8, ptr %pe.010.i426, align 1
-  store i8 %93, ptr %ps.09.i427, align 1
-  store i8 %92, ptr %pe.010.i426, align 1
+  %102 = load i8, ptr %ps.09.i427, align 1
+  %103 = load i8, ptr %pe.010.i426, align 1
+  store i8 %103, ptr %ps.09.i427, align 1
+  store i8 %102, ptr %pe.010.i426, align 1
   %incdec.ptr.i428 = getelementptr inbounds i8, ptr %ps.09.i427, i64 1
   %incdec.ptr2.i429 = getelementptr inbounds i8, ptr %pe.010.i426, i64 -1
   %dec.i430 = add nsw i64 %i.011.i425, -1
@@ -1622,7 +1736,13 @@ entry:
   store i64 4, ptr %m_len.i.i, align 8
   %call.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version.i, ptr noundef nonnull %agg.tmp.i, i64 noundef 8) #16
   %fileSize.i = getelementptr inbounds i8, ptr %this, i64 16
-  store <4 x i32> <i32 2052, i32 1, i32 1664, i32 384>, ptr %fileSize.i, align 4
+  store i32 2052, ptr %fileSize.i, align 4
+  %dittoKey.i = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 1, ptr %dittoKey.i, align 4
+  %genericSize.i = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 1664, ptr %genericSize.i, align 4
+  %industrySize.i = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 384, ptr %industrySize.i, align 4
   %userSize.i = getelementptr inbounds i8, ptr %this, i64 32
   %encryptKey.i = getelementptr inbounds i8, ptr %this, i64 660
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(628) %userSize.i, i8 0, i64 628, i1 false)
@@ -1637,8 +1757,10 @@ entry:
   store i32 -1, ptr %yOffset.i, align 4
   %xOffset.i = getelementptr inbounds i8, ptr %this, i64 1408
   store i32 -1, ptr %xOffset.i, align 4
+  %yCenter.i = getelementptr inbounds i8, ptr %this, i64 1420
+  store float 0x7FF8000000000000, ptr %yCenter.i, align 4
   %xCenter.i = getelementptr inbounds i8, ptr %this, i64 1416
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xCenter.i, align 4
+  store float 0x7FF8000000000000, ptr %xCenter.i, align 4
   %yOriginalSize.i = getelementptr inbounds i8, ptr %this, i64 1428
   store i32 -1, ptr %yOriginalSize.i, align 4
   %xOriginalSize.i = getelementptr inbounds i8, ptr %this, i64 1424
@@ -1646,9 +1768,11 @@ entry:
   %sourceImageFileName.i = getelementptr inbounds i8, ptr %this, i64 1432
   %border.i = getelementptr inbounds i8, ptr %this, i64 1620
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %sourceImageFileName.i, i8 0, i64 188, i1 false)
+  %yScannedSize.i = getelementptr inbounds i8, ptr %this, i64 1640
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %border.i, i8 -1, i64 16, i1 false)
+  store float 0x7FF8000000000000, ptr %yScannedSize.i, align 4
   %xScannedSize.i = getelementptr inbounds i8, ptr %this, i64 1636
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %xScannedSize.i, align 4
+  store float 0x7FF8000000000000, ptr %xScannedSize.i, align 4
   %reserved3.i = getelementptr inbounds i8, ptr %this, i64 1644
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %reserved3.i, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -1660,8 +1784,10 @@ entry:
   store i32 -1, ptr %sequenceLength.i, align 4
   %framePosition.i = getelementptr inbounds i8, ptr %this, i64 1712
   store i32 -1, ptr %framePosition.i, align 4
+  %shutterAngle.i = getelementptr inbounds i8, ptr %this, i64 1728
+  store float 0x7FF8000000000000, ptr %shutterAngle.i, align 4
   %frameRate.i = getelementptr inbounds i8, ptr %this, i64 1724
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %frameRate.i, align 4
+  store float 0x7FF8000000000000, ptr %frameRate.i, align 4
   %frameId.i = getelementptr inbounds i8, ptr %this, i64 1732
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %frameId.i, i8 0, i64 188, i1 false)
   %timeCode.i = getelementptr inbounds i8, ptr %this, i64 1920
@@ -1670,12 +1796,26 @@ entry:
   store i8 0, ptr %videoSignal.i, align 2
   %zero.i = getelementptr inbounds i8, ptr %this, i64 1931
   store i8 -1, ptr %zero.i, align 1
+  %temporalFrameRate.i = getelementptr inbounds i8, ptr %this, i64 1940
+  store float 0x7FF8000000000000, ptr %temporalFrameRate.i, align 4
+  %verticalSampleRate.i = getelementptr inbounds i8, ptr %this, i64 1936
+  store float 0x7FF8000000000000, ptr %verticalSampleRate.i, align 4
   %horizontalSampleRate.i = getelementptr inbounds i8, ptr %this, i64 1932
+  store float 0x7FF8000000000000, ptr %horizontalSampleRate.i, align 4
   %gamma.i = getelementptr inbounds i8, ptr %this, i64 1948
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %horizontalSampleRate.i, align 4
+  store float 0x7FF8000000000000, ptr %gamma.i, align 4
+  %timeOffset.i = getelementptr inbounds i8, ptr %this, i64 1944
+  store float 0x7FF8000000000000, ptr %timeOffset.i, align 4
+  %blackGain.i = getelementptr inbounds i8, ptr %this, i64 1956
+  store float 0x7FF8000000000000, ptr %blackGain.i, align 4
+  %blackLevel.i = getelementptr inbounds i8, ptr %this, i64 1952
+  store float 0x7FF8000000000000, ptr %blackLevel.i, align 4
+  %integrationTimes.i = getelementptr inbounds i8, ptr %this, i64 1968
+  store float 0x7FF8000000000000, ptr %integrationTimes.i, align 4
   %whiteLevel.i = getelementptr inbounds i8, ptr %this, i64 1964
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %whiteLevel.i, align 4
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %gamma.i, align 4
+  store float 0x7FF8000000000000, ptr %whiteLevel.i, align 4
+  %breakPoint.i = getelementptr inbounds i8, ptr %this, i64 1960
+  store float 0x7FF8000000000000, ptr %breakPoint.i, align 4
   %reserved5.i = getelementptr inbounds i8, ptr %this, i64 1972
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %reserved5.i, i8 0, i64 76, i1 false)
   ret void

@@ -76,22 +76,26 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #9
   %pos_begin.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %pos_begin2.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load <2 x i32>, ptr %pos_begin2.i.i, align 8
-  store <2 x i32> %0, ptr %pos_begin.i.i, align 8
+  %0 = load i32, ptr %pos_begin2.i.i, align 8
+  store i32 %0, ptr %pos_begin.i.i, align 8
+  %pos_end.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  %pos_end3.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %1 = load i32, ptr %pos_end3.i.i, align 4
+  store i32 %1, ptr %pos_end.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212ComponentEUSE, i64 16), ptr %call, align 8
   %loc.i = getelementptr inbounds i8, ptr %call, i64 16
   %loc2.i = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load i32, ptr %loc2.i, align 8
-  store i32 %1, ptr %loc.i, align 8
+  %2 = load i32, ptr %loc2.i, align 8
+  store i32 %2, ptr %loc.i, align 8
   %utf8.i = getelementptr inbounds i8, ptr %call, i64 20
   %utf83.i = getelementptr inbounds i8, ptr %this, i64 20
-  %2 = load i8, ptr %utf83.i, align 4
-  %frombool.i = and i8 %2, 1
+  %3 = load i8, ptr %utf83.i, align 4
+  %frombool.i = and i8 %3, 1
   store i8 %frombool.i, ptr %utf8.i, align 4
   %position.i = getelementptr inbounds i8, ptr %call, i64 24
   %position4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load i32, ptr %position4.i, align 8
-  store i32 %3, ptr %position.i, align 8
+  %4 = load i32, ptr %position4.i, align 8
+  store i32 %4, ptr %position.i, align 8
   ret ptr %call
 }
 

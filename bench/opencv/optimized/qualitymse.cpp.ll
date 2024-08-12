@@ -354,7 +354,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_17computeERKN2cv4UMatES3_(ptr dead_
   %7 = alloca %"class.cv::_InputArray", align 8
   %8 = alloca %"class.cv::_InputArray", align 8
   %9 = alloca %"class.cv::_OutputArray", align 8
-  %10 = alloca %"class.cv::Scalar_", align 16
+  %10 = alloca %"class.cv::Scalar_", align 8
   %11 = alloca %"class.cv::_InputArray", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 32
@@ -379,11 +379,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_17computeERKN2cv4UMatES3_(ptr dead_
   store i32 34209792, ptr %6, align 8
   store ptr %12, ptr %19, align 8
   %21 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
-          to label %22 unwind label %43
+          to label %22 unwind label %49
 
 22:                                               ; preds = %3
   invoke void @_ZN2cv8subtractERKNS_11_InputArrayES2_RKNS_12_OutputArrayES2_i(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef -1)
-          to label %23 unwind label %43
+          to label %23 unwind label %49
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %7, i64 16
@@ -406,7 +406,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_17computeERKN2cv4UMatES3_(ptr dead_
   store i32 34209792, ptr %9, align 8
   store ptr %12, ptr %30, align 8
   invoke void @_ZN2cv8multiplyERKNS_11_InputArrayES2_RKNS_12_OutputArrayEdi(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, double noundef 1.000000e+00, i32 noundef -1)
-          to label %32 unwind label %45
+          to label %32 unwind label %51
 
 32:                                               ; preds = %23
   %33 = getelementptr inbounds i8, ptr %11, i64 16
@@ -417,38 +417,46 @@ define internal fastcc void @_ZN12_GLOBAL__N_17computeERKN2cv4UMatES3_(ptr dead_
   %35 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %12, ptr %35, align 8
   %36 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
-          to label %37 unwind label %47
+          to label %37 unwind label %53
 
 37:                                               ; preds = %32
   invoke void @_ZN2cv4meanERKNS_11_InputArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.cv::Scalar_") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %36)
-          to label %38 unwind label %47
+          to label %38 unwind label %53
 
 38:                                               ; preds = %37
-  %39 = load <2 x double>, ptr %10, align 16
-  store <2 x double> %39, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %10, i64 16
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
-  %42 = load <2 x double>, ptr %40, align 16
-  store <2 x double> %42, ptr %41, align 8
+  %39 = load double, ptr %10, align 8
+  store double %39, ptr %0, align 8
+  %40 = getelementptr inbounds i8, ptr %10, i64 8
+  %41 = load double, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %41, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %10, i64 16
+  %44 = load double, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %10, i64 24
+  %47 = load double, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %47, ptr %48, align 8
   ret void
 
-43:                                               ; preds = %22, %3
-  %44 = landingpad { ptr, i32 }
+49:                                               ; preds = %22, %3
+  %50 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %55
 
-45:                                               ; preds = %23
-  %46 = landingpad { ptr, i32 }
+51:                                               ; preds = %23
+  %52 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %55
 
-47:                                               ; preds = %37, %32
-  %48 = landingpad { ptr, i32 }
+53:                                               ; preds = %37, %32
+  %54 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %55
 
-49:                                               ; preds = %45, %43, %47
-  %.pn14 = phi { ptr, i32 } [ %48, %47 ], [ %44, %43 ], [ %46, %45 ]
+55:                                               ; preds = %51, %49, %53
+  %.pn14 = phi { ptr, i32 } [ %54, %53 ], [ %50, %49 ], [ %52, %51 ]
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %12) #14
   resume { ptr, i32 } %.pn14
 }

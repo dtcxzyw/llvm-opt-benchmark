@@ -325,12 +325,17 @@ common.ret12:                                     ; preds = %2, %5, %10
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
   tail call fastcc void @ddSuppInteract(ptr noundef %18, ptr noundef %1)
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = load <2 x ptr>, ptr %19, align 8
-  %21 = ptrtoint <2 x ptr> %20 to <2 x i64>
-  %22 = or <2 x i64> %21, <i64 1, i64 1>
-  %23 = inttoptr <2 x i64> %22 to <2 x ptr>
-  store <2 x ptr> %23, ptr %19, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = ptrtoint ptr %19 to i64
+  %21 = or i64 %20, 1
+  %22 = inttoptr i64 %21 to ptr
+  store ptr %22, ptr %6, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %26 = or i64 %25, 1
+  %27 = inttoptr i64 %26 to ptr
+  store ptr %27, ptr %23, align 8
   br label %common.ret12
 }
 

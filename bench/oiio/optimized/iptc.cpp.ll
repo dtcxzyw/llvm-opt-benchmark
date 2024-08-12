@@ -132,6 +132,9 @@ land.lhs.true.lr.ph:                              ; preds = %entry
   %m_len.i42 = getelementptr inbounds i8, ptr %agg.tmp51, i64 8
   %extra_attribs = getelementptr inbounds i8, ptr %spec, i64 136
   %m_len.i57 = getelementptr inbounds i8, ptr %agg.tmp67, i64 8
+  %aggregate.i = getelementptr inbounds i8, ptr %agg.tmp71, i64 1
+  %vecsemantics.i = getelementptr inbounds i8, ptr %agg.tmp71, i64 2
+  %reserved.i = getelementptr inbounds i8, ptr %agg.tmp71, i64 3
   %arraylen4.i = getelementptr inbounds i8, ptr %agg.tmp71, i64 4
   %m_len.i63 = getelementptr inbounds i8, ptr %agg.tmp75, i64 8
   %m_len.i66 = getelementptr inbounds i8, ptr %agg.tmp79, i64 8
@@ -342,7 +345,10 @@ _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit58: ; 
   store ptr %18, ptr %agg.tmp67, align 8
   %call.i.i.i55 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #14
   store i64 %call.i.i.i55, ptr %m_len.i57, align 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp71, align 4
+  store i8 0, ptr %agg.tmp71, align 4
+  store i8 1, ptr %aggregate.i, align 1
+  store i8 0, ptr %vecsemantics.i, align 2
+  store i8 0, ptr %reserved.i, align 1
   store i32 0, ptr %arraylen4.i, align 4
   %call73 = invoke noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_014ParamValueList8containsENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(24) %extra_attribs, ptr noundef nonnull %agg.tmp67, ptr noundef nonnull %agg.tmp71, i1 noundef zeroext true)
           to label %invoke.cont72 unwind label %lpad29
@@ -441,6 +447,9 @@ invoke.cont.i.i:                                  ; preds = %entry
 
 _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %entry, %invoke.cont.i.i
   %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %aggregate.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 1
+  %vecsemantics.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 2
+  %reserved.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 3
   %arraylen4.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 4
   %m_len.i35 = getelementptr inbounds i8, ptr %agg.tmp35, i64 8
   %m_len.i21 = getelementptr inbounds i8, ptr %agg.tmp10, i64 8
@@ -450,6 +459,9 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %entry, %invoke.cont
   %m_len.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %m_len.i31 = getelementptr inbounds i8, ptr %agg.tmp29, i64 8
   %m_len.i41 = getelementptr inbounds i8, ptr %agg.tmp45, i64 8
+  %aggregate.i43 = getelementptr inbounds i8, ptr %agg.tmp49, i64 1
+  %vecsemantics.i44 = getelementptr inbounds i8, ptr %agg.tmp49, i64 2
+  %reserved.i45 = getelementptr inbounds i8, ptr %agg.tmp49, i64 3
   %arraylen4.i46 = getelementptr inbounds i8, ptr %agg.tmp49, i64 4
   %m_len.i48 = getelementptr inbounds i8, ptr %agg.tmp56, i64 8
   br label %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
@@ -461,7 +473,10 @@ _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; pr
   store ptr %2, ptr %agg.tmp, align 8
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   store i64 %call.i.i.i, ptr %m_len.i, align 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp4, align 4
+  store i8 0, ptr %agg.tmp4, align 4
+  store i8 1, ptr %aggregate.i, align 1
+  store i8 0, ptr %vecsemantics.i, align 2
+  store i8 0, ptr %reserved.i, align 1
   store i32 0, ptr %arraylen4.i, align 4
   %call = call noundef ptr @_ZNK18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp4, i1 noundef zeroext false)
   %tobool5.not = icmp eq ptr %call, null
@@ -597,7 +612,10 @@ _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit42: ; 
   store ptr %12, ptr %agg.tmp45, align 8
   %call.i.i.i39 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #14
   store i64 %call.i.i.i39, ptr %m_len.i41, align 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp49, align 4
+  store i8 0, ptr %agg.tmp49, align 4
+  store i8 1, ptr %aggregate.i43, align 1
+  store i8 0, ptr %vecsemantics.i44, align 2
+  store i8 0, ptr %reserved.i45, align 1
   store i32 0, ptr %arraylen4.i46, align 4
   %call50 = call noundef ptr @_ZNK18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp45, ptr noundef nonnull %agg.tmp49, i1 noundef zeroext false)
   %tobool51.not = icmp eq ptr %call50, null

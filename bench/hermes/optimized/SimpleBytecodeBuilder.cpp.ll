@@ -332,11 +332,14 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.then.i15.i, %if.
   %31 = load ptr, ptr %bytecode, align 8
   store ptr %31, ptr %bytecode_.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %call81, i64 32
-  %32 = load <2 x ptr>, ptr %_M_finish.i.i, align 8
-  %33 = load ptr, ptr %_M_finish.i.i, align 8
-  store <2 x ptr> %32, ptr %_M_finish.i.i.i.i.i, align 8
+  %32 = load ptr, ptr %_M_finish.i.i, align 8
+  store ptr %32, ptr %_M_finish.i.i.i.i.i, align 8
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call81, i64 40
+  %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %bytecode, i64 16
+  %33 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
+  store ptr %33, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   store ptr %31, ptr %data_.i.i, align 8
-  %sub.ptr.lhs.cast.i.i73 = ptrtoint ptr %33 to i64
+  %sub.ptr.lhs.cast.i.i73 = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast.i.i74 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i75 = sub i64 %sub.ptr.lhs.cast.i.i73, %sub.ptr.rhs.cast.i.i74
   %size_.i = getelementptr inbounds i8, ptr %call81, i64 16

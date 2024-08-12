@@ -344,7 +344,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_upsP8PJconsts(ptr no
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %25
+  br label %26
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 88
@@ -366,20 +366,22 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_upsP8PJconsts(ptr no
 18:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.5)
   %19 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %25
+  br label %26
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 488
   store double 0x3FEFCED916872B02, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 456
-  store <2 x double> <double 2.000000e+06, double 2.000000e+06>, ptr %22, align 8
+  store double 2.000000e+06, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 464
+  store double 2.000000e+06, ptr %23, align 8
   store double 0x3FF921FB54442D18, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 440
-  store double 0.000000e+00, ptr %23, align 8
-  %24 = tail call fastcc noundef ptr @_ZL11stere_setupP8PJconsts(ptr noundef nonnull %0)
-  br label %25
+  %24 = getelementptr inbounds i8, ptr %0, i64 440
+  store double 0.000000e+00, ptr %24, align 8
+  %25 = tail call fastcc noundef ptr @_ZL11stere_setupP8PJconsts(ptr noundef nonnull %0)
+  br label %26
 
-25:                                               ; preds = %20, %18, %4
+26:                                               ; preds = %20, %18, %4
   %.0 = phi ptr [ %5, %4 ], [ %19, %18 ], [ %0, %20 ]
   ret ptr %.0
 }

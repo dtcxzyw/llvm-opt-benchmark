@@ -714,150 +714,158 @@ if.end26:                                         ; preds = %if.then15, %if.then
   br i1 %tobool28, label %land.lhs.true, label %if.end44
 
 land.lhs.true:                                    ; preds = %if.end26
-  %21 = load <4 x i8>, ptr %is_static, align 1
-  %22 = and <4 x i8> %21, <i8 1, i8 1, i8 1, i8 1>
-  %23 = call i8 @llvm.vector.reduce.add.v4i8(<4 x i8> %22)
-  %cmp = icmp ugt i8 %23, 1
+  %21 = load i8, ptr %is_static, align 1
+  %22 = and i8 %21, 1
+  %23 = load i8, ptr %is_extern, align 2
+  %24 = and i8 %23, 1
+  %narrow = add nuw nsw i8 %24, %22
+  %25 = load i8, ptr %is_inline, align 1
+  %26 = and i8 %25, 1
+  %narrow29 = add nuw nsw i8 %narrow, %26
+  %27 = load i8, ptr %is_tls, align 4
+  %28 = and i8 %27, 1
+  %narrow30 = add nuw nsw i8 %narrow29, %28
+  %cmp = icmp ugt i8 %narrow30, 1
   br i1 %cmp, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %land.lhs.true
-  %24 = load ptr, ptr %tok.addr, align 8
-  call void (ptr, ptr, ...) @error_tok(ptr noundef %24, ptr noundef nonnull @.str.132) #16
+  %29 = load ptr, ptr %tok.addr, align 8
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %29, ptr noundef nonnull @.str.132) #16
   unreachable
 
 if.end44:                                         ; preds = %land.lhs.true, %if.end26
-  %25 = load ptr, ptr %tok.addr, align 8
-  %next = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load ptr, ptr %next, align 8
-  store ptr %26, ptr %tok.addr, align 8
+  %30 = load ptr, ptr %tok.addr, align 8
+  %next = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load ptr, ptr %next, align 8
+  store ptr %31, ptr %tok.addr, align 8
   br label %while.cond.backedge
 
 if.end45:                                         ; preds = %lor.lhs.false9
-  %27 = load ptr, ptr %tok.addr, align 8
-  %call46 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %27, ptr noundef nonnull @.str.41) #13
+  %32 = load ptr, ptr %tok.addr, align 8
+  %call46 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %32, ptr noundef nonnull @.str.41) #13
   br i1 %call46, label %while.cond.backedge, label %lor.lhs.false48
 
 while.cond.backedge:                              ; preds = %if.end45, %lor.lhs.false48, %lor.lhs.false51, %lor.lhs.false54, %lor.lhs.false57, %lor.lhs.false60, %lor.lhs.false63, %lor.lhs.false66, %if.end44, %if.end96
   br label %while.cond, !llvm.loop !15
 
 lor.lhs.false48:                                  ; preds = %if.end45
-  %28 = load ptr, ptr %tok.addr, align 8
-  %call49 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %28, ptr noundef nonnull @.str.42) #13
+  %33 = load ptr, ptr %tok.addr, align 8
+  %call49 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %33, ptr noundef nonnull @.str.42) #13
   br i1 %call49, label %while.cond.backedge, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %lor.lhs.false48
-  %29 = load ptr, ptr %tok.addr, align 8
-  %call52 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %29, ptr noundef nonnull @.str.43) #13
+  %34 = load ptr, ptr %tok.addr, align 8
+  %call52 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %34, ptr noundef nonnull @.str.43) #13
   br i1 %call52, label %while.cond.backedge, label %lor.lhs.false54
 
 lor.lhs.false54:                                  ; preds = %lor.lhs.false51
-  %30 = load ptr, ptr %tok.addr, align 8
-  %call55 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %30, ptr noundef nonnull @.str.44) #13
+  %35 = load ptr, ptr %tok.addr, align 8
+  %call55 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %35, ptr noundef nonnull @.str.44) #13
   br i1 %call55, label %while.cond.backedge, label %lor.lhs.false57
 
 lor.lhs.false57:                                  ; preds = %lor.lhs.false54
-  %31 = load ptr, ptr %tok.addr, align 8
-  %call58 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %31, ptr noundef nonnull @.str.45) #13
+  %36 = load ptr, ptr %tok.addr, align 8
+  %call58 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %36, ptr noundef nonnull @.str.45) #13
   br i1 %call58, label %while.cond.backedge, label %lor.lhs.false60
 
 lor.lhs.false60:                                  ; preds = %lor.lhs.false57
-  %32 = load ptr, ptr %tok.addr, align 8
-  %call61 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %32, ptr noundef nonnull @.str.46) #13
+  %37 = load ptr, ptr %tok.addr, align 8
+  %call61 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %37, ptr noundef nonnull @.str.46) #13
   br i1 %call61, label %while.cond.backedge, label %lor.lhs.false63
 
 lor.lhs.false63:                                  ; preds = %lor.lhs.false60
-  %33 = load ptr, ptr %tok.addr, align 8
-  %call64 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %33, ptr noundef nonnull @.str.47) #13
+  %38 = load ptr, ptr %tok.addr, align 8
+  %call64 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %38, ptr noundef nonnull @.str.47) #13
   br i1 %call64, label %while.cond.backedge, label %lor.lhs.false66
 
 lor.lhs.false66:                                  ; preds = %lor.lhs.false63
-  %34 = load ptr, ptr %tok.addr, align 8
-  %call67 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %34, ptr noundef nonnull @.str.48) #13
+  %39 = load ptr, ptr %tok.addr, align 8
+  %call67 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %39, ptr noundef nonnull @.str.48) #13
   br i1 %call67, label %while.cond.backedge, label %if.end70
 
 if.end70:                                         ; preds = %lor.lhs.false66
-  %35 = load ptr, ptr %tok.addr, align 8
-  %call71 = call zeroext i1 @equal(ptr noundef %35, ptr noundef nonnull @.str.55) #13
-  %36 = load ptr, ptr %tok.addr, align 8
+  %40 = load ptr, ptr %tok.addr, align 8
+  %call71 = call zeroext i1 @equal(ptr noundef %40, ptr noundef nonnull @.str.55) #13
+  %41 = load ptr, ptr %tok.addr, align 8
   br i1 %call71, label %if.then72, label %if.end80
 
 if.then72:                                        ; preds = %if.end70
-  %next73 = getelementptr inbounds i8, ptr %36, i64 8
-  %37 = load ptr, ptr %next73, align 8
-  store ptr %37, ptr %tok.addr, align 8
-  %call74 = call zeroext i1 @equal(ptr noundef %37, ptr noundef nonnull @.str.23) #13
+  %next73 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = load ptr, ptr %next73, align 8
+  store ptr %42, ptr %tok.addr, align 8
+  %call74 = call zeroext i1 @equal(ptr noundef %42, ptr noundef nonnull @.str.23) #13
   br i1 %call74, label %if.then75, label %while.cond.outer34, !llvm.loop !15
 
 if.then75:                                        ; preds = %if.then72
-  %38 = load ptr, ptr %tok.addr, align 8
-  %next76 = getelementptr inbounds i8, ptr %38, i64 8
-  %39 = load ptr, ptr %next76, align 8
-  %call77 = call fastcc ptr @typename(ptr noundef nonnull %tok.addr, ptr noundef %39)
-  %40 = load ptr, ptr %tok.addr, align 8
-  %call78 = call ptr @skip(ptr noundef %40, ptr noundef nonnull @.str.24) #13
+  %43 = load ptr, ptr %tok.addr, align 8
+  %next76 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = load ptr, ptr %next76, align 8
+  %call77 = call fastcc ptr @typename(ptr noundef nonnull %tok.addr, ptr noundef %44)
+  %45 = load ptr, ptr %tok.addr, align 8
+  %call78 = call ptr @skip(ptr noundef %45, ptr noundef nonnull @.str.24) #13
   store ptr %call78, ptr %tok.addr, align 8
   br label %while.cond.outer34.outer, !llvm.loop !15
 
 if.end80:                                         ; preds = %if.end70
-  %call81 = call zeroext i1 @equal(ptr noundef %36, ptr noundef nonnull @.str.38) #13
-  %41 = load ptr, ptr %tok.addr, align 8
+  %call81 = call zeroext i1 @equal(ptr noundef %41, ptr noundef nonnull @.str.38) #13
+  %46 = load ptr, ptr %tok.addr, align 8
   br i1 %call81, label %if.then82, label %if.end98
 
 if.then82:                                        ; preds = %if.end80
   br i1 %tobool83.not, label %if.then84, label %if.end85
 
 if.then84:                                        ; preds = %if.then82
-  call void (ptr, ptr, ...) @error_tok(ptr noundef %41, ptr noundef nonnull @.str.133) #16
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %46, ptr noundef nonnull @.str.133) #16
   unreachable
 
 if.end85:                                         ; preds = %if.then82
-  %next86 = getelementptr inbounds i8, ptr %41, i64 8
-  %42 = load ptr, ptr %next86, align 8
-  %call87 = call ptr @skip(ptr noundef %42, ptr noundef nonnull @.str.23) #13
+  %next86 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = load ptr, ptr %next86, align 8
+  %call87 = call ptr @skip(ptr noundef %47, ptr noundef nonnull @.str.23) #13
   store ptr %call87, ptr %tok.addr, align 8
   %call88 = call fastcc zeroext i1 @is_typename(ptr noundef %call87)
-  %43 = load ptr, ptr %tok.addr, align 8
+  %48 = load ptr, ptr %tok.addr, align 8
   br i1 %call88, label %if.then89, label %if.else92
 
 if.then89:                                        ; preds = %if.end85
-  %call90 = call fastcc ptr @typename(ptr noundef nonnull %tok.addr, ptr noundef %43)
+  %call90 = call fastcc ptr @typename(ptr noundef nonnull %tok.addr, ptr noundef %48)
   %align = getelementptr inbounds i8, ptr %call90, i64 8
-  %44 = load i32, ptr %align, align 8
+  %49 = load i32, ptr %align, align 8
   br label %if.end96
 
 if.else92:                                        ; preds = %if.end85
-  %call.i31 = call fastcc ptr @conditional(ptr noundef nonnull %tok.addr, ptr noundef %43)
+  %call.i31 = call fastcc ptr @conditional(ptr noundef nonnull %tok.addr, ptr noundef %48)
   %call.i.i = call fastcc i64 @eval2(ptr noundef %call.i31, ptr noundef null)
   %conv94 = trunc i64 %call.i.i to i32
   br label %if.end96
 
 if.end96:                                         ; preds = %if.else92, %if.then89
-  %storemerge = phi i32 [ %conv94, %if.else92 ], [ %44, %if.then89 ]
+  %storemerge = phi i32 [ %conv94, %if.else92 ], [ %49, %if.then89 ]
   store i32 %storemerge, ptr %align95, align 4
-  %45 = load ptr, ptr %tok.addr, align 8
-  %call97 = call ptr @skip(ptr noundef %45, ptr noundef nonnull @.str.24) #13
+  %50 = load ptr, ptr %tok.addr, align 8
+  %call97 = call ptr @skip(ptr noundef %50, ptr noundef nonnull @.str.24) #13
   store ptr %call97, ptr %tok.addr, align 8
   br label %while.cond.backedge
 
 if.end98:                                         ; preds = %if.end80
-  %call99 = call fastcc ptr @find_typedef(ptr noundef %41)
-  %46 = load ptr, ptr %tok.addr, align 8
-  %call100 = call zeroext i1 @equal(ptr noundef %46, ptr noundef nonnull @.str.32) #13
+  %call99 = call fastcc ptr @find_typedef(ptr noundef %46)
+  %51 = load ptr, ptr %tok.addr, align 8
+  %call100 = call zeroext i1 @equal(ptr noundef %51, ptr noundef nonnull @.str.32) #13
   br i1 %call100, label %if.then113, label %lor.lhs.false102
 
 lor.lhs.false102:                                 ; preds = %if.end98
-  %47 = load ptr, ptr %tok.addr, align 8
-  %call103 = call zeroext i1 @equal(ptr noundef %47, ptr noundef nonnull @.str.33) #13
+  %52 = load ptr, ptr %tok.addr, align 8
+  %call103 = call zeroext i1 @equal(ptr noundef %52, ptr noundef nonnull @.str.33) #13
   br i1 %call103, label %if.then113, label %lor.lhs.false105
 
 lor.lhs.false105:                                 ; preds = %lor.lhs.false102
-  %48 = load ptr, ptr %tok.addr, align 8
-  %call106 = call zeroext i1 @equal(ptr noundef %48, ptr noundef nonnull @.str.35) #13
+  %53 = load ptr, ptr %tok.addr, align 8
+  %call106 = call zeroext i1 @equal(ptr noundef %53, ptr noundef nonnull @.str.35) #13
   br i1 %call106, label %if.then113, label %lor.lhs.false108
 
 lor.lhs.false108:                                 ; preds = %lor.lhs.false105
-  %49 = load ptr, ptr %tok.addr, align 8
-  %call109 = call zeroext i1 @equal(ptr noundef %49, ptr noundef nonnull @.str.51) #13
+  %54 = load ptr, ptr %tok.addr, align 8
+  %call109 = call zeroext i1 @equal(ptr noundef %54, ptr noundef nonnull @.str.51) #13
   %tobool112 = icmp ne ptr %call99, null
   %or.cond = select i1 %call109, i1 true, i1 %tobool112
   br i1 %or.cond, label %if.then113, label %if.end143
@@ -867,15 +875,15 @@ if.then113:                                       ; preds = %lor.lhs.false108, %
   br i1 %tobool114.not, label %if.end116, label %while.end
 
 if.end116:                                        ; preds = %if.then113
-  %50 = load ptr, ptr %tok.addr, align 8
-  %call117 = call zeroext i1 @equal(ptr noundef %50, ptr noundef nonnull @.str.32) #13
-  %51 = load ptr, ptr %tok.addr, align 8
+  %55 = load ptr, ptr %tok.addr, align 8
+  %call117 = call zeroext i1 @equal(ptr noundef %55, ptr noundef nonnull @.str.32) #13
+  %56 = load ptr, ptr %tok.addr, align 8
   br i1 %call117, label %if.then118, label %if.else121
 
 if.then118:                                       ; preds = %if.end116
-  %next119 = getelementptr inbounds i8, ptr %51, i64 8
-  %52 = load ptr, ptr %next119, align 8
-  %call120 = call fastcc ptr @struct_decl(ptr noundef nonnull %tok.addr, ptr noundef %52)
+  %next119 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = load ptr, ptr %next119, align 8
+  %call120 = call fastcc ptr @struct_decl(ptr noundef nonnull %tok.addr, ptr noundef %57)
   br label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %if.then118, %if.then128, %if.else136, %if.then133, %if.then123, %sw.epilog
@@ -884,45 +892,45 @@ while.cond.outer.backedge:                        ; preds = %if.then118, %if.the
   br label %while.cond.outer, !llvm.loop !15
 
 if.else121:                                       ; preds = %if.end116
-  %call122 = call zeroext i1 @equal(ptr noundef %51, ptr noundef nonnull @.str.33) #13
-  %53 = load ptr, ptr %tok.addr, align 8
+  %call122 = call zeroext i1 @equal(ptr noundef %56, ptr noundef nonnull @.str.33) #13
+  %58 = load ptr, ptr %tok.addr, align 8
   br i1 %call122, label %if.then123, label %if.else126
 
 if.then123:                                       ; preds = %if.else121
-  %next124 = getelementptr inbounds i8, ptr %53, i64 8
-  %54 = load ptr, ptr %next124, align 8
-  %call125 = call fastcc ptr @union_decl(ptr noundef nonnull %tok.addr, ptr noundef %54)
+  %next124 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = load ptr, ptr %next124, align 8
+  %call125 = call fastcc ptr @union_decl(ptr noundef nonnull %tok.addr, ptr noundef %59)
   br label %while.cond.outer.backedge
 
 if.else126:                                       ; preds = %if.else121
-  %call127 = call zeroext i1 @equal(ptr noundef %53, ptr noundef nonnull @.str.35) #13
-  %55 = load ptr, ptr %tok.addr, align 8
+  %call127 = call zeroext i1 @equal(ptr noundef %58, ptr noundef nonnull @.str.35) #13
+  %60 = load ptr, ptr %tok.addr, align 8
   br i1 %call127, label %if.then128, label %if.else131
 
 if.then128:                                       ; preds = %if.else126
-  %next129 = getelementptr inbounds i8, ptr %55, i64 8
-  %56 = load ptr, ptr %next129, align 8
-  %call130 = call fastcc ptr @enum_specifier(ptr noundef nonnull %tok.addr, ptr noundef %56)
+  %next129 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = load ptr, ptr %next129, align 8
+  %call130 = call fastcc ptr @enum_specifier(ptr noundef nonnull %tok.addr, ptr noundef %61)
   br label %while.cond.outer.backedge
 
 if.else131:                                       ; preds = %if.else126
-  %call132 = call zeroext i1 @equal(ptr noundef %55, ptr noundef nonnull @.str.51) #13
-  %57 = load ptr, ptr %tok.addr, align 8
-  %next134 = getelementptr inbounds i8, ptr %57, i64 8
-  %58 = load ptr, ptr %next134, align 8
+  %call132 = call zeroext i1 @equal(ptr noundef %60, ptr noundef nonnull @.str.51) #13
+  %62 = load ptr, ptr %tok.addr, align 8
+  %next134 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = load ptr, ptr %next134, align 8
   br i1 %call132, label %if.then133, label %if.else136
 
 if.then133:                                       ; preds = %if.else131
-  %call135 = call fastcc ptr @typeof_specifier(ptr noundef nonnull %tok.addr, ptr noundef %58)
+  %call135 = call fastcc ptr @typeof_specifier(ptr noundef nonnull %tok.addr, ptr noundef %63)
   br label %while.cond.outer.backedge
 
 if.else136:                                       ; preds = %if.else131
-  store ptr %58, ptr %tok.addr, align 8
+  store ptr %63, ptr %tok.addr, align 8
   br label %while.cond.outer.backedge
 
 if.end143:                                        ; preds = %lor.lhs.false108
-  %59 = load ptr, ptr %tok.addr, align 8
-  %call144 = call zeroext i1 @equal(ptr noundef %59, ptr noundef nonnull @.str.26) #13
+  %64 = load ptr, ptr %tok.addr, align 8
+  %call144 = call zeroext i1 @equal(ptr noundef %64, ptr noundef nonnull @.str.26) #13
   br i1 %call144, label %if.then145, label %if.else147
 
 if.then145:                                       ; preds = %if.end143
@@ -930,8 +938,8 @@ if.then145:                                       ; preds = %if.end143
   br label %if.end192
 
 if.else147:                                       ; preds = %if.end143
-  %60 = load ptr, ptr %tok.addr, align 8
-  %call148 = call zeroext i1 @equal(ptr noundef %60, ptr noundef nonnull @.str.27) #13
+  %65 = load ptr, ptr %tok.addr, align 8
+  %call148 = call zeroext i1 @equal(ptr noundef %65, ptr noundef nonnull @.str.27) #13
   br i1 %call148, label %if.then149, label %if.else151
 
 if.then149:                                       ; preds = %if.else147
@@ -939,8 +947,8 @@ if.then149:                                       ; preds = %if.else147
   br label %if.end192
 
 if.else151:                                       ; preds = %if.else147
-  %61 = load ptr, ptr %tok.addr, align 8
-  %call152 = call zeroext i1 @equal(ptr noundef %61, ptr noundef nonnull @.str.28) #13
+  %66 = load ptr, ptr %tok.addr, align 8
+  %call152 = call zeroext i1 @equal(ptr noundef %66, ptr noundef nonnull @.str.28) #13
   br i1 %call152, label %if.then153, label %if.else155
 
 if.then153:                                       ; preds = %if.else151
@@ -948,8 +956,8 @@ if.then153:                                       ; preds = %if.else151
   br label %if.end192
 
 if.else155:                                       ; preds = %if.else151
-  %62 = load ptr, ptr %tok.addr, align 8
-  %call156 = call zeroext i1 @equal(ptr noundef %62, ptr noundef nonnull @.str.29) #13
+  %67 = load ptr, ptr %tok.addr, align 8
+  %call156 = call zeroext i1 @equal(ptr noundef %67, ptr noundef nonnull @.str.29) #13
   br i1 %call156, label %if.then157, label %if.else159
 
 if.then157:                                       ; preds = %if.else155
@@ -957,8 +965,8 @@ if.then157:                                       ; preds = %if.else155
   br label %if.end192
 
 if.else159:                                       ; preds = %if.else155
-  %63 = load ptr, ptr %tok.addr, align 8
-  %call160 = call zeroext i1 @equal(ptr noundef %63, ptr noundef nonnull @.str.30) #13
+  %68 = load ptr, ptr %tok.addr, align 8
+  %call160 = call zeroext i1 @equal(ptr noundef %68, ptr noundef nonnull @.str.30) #13
   br i1 %call160, label %if.then161, label %if.else163
 
 if.then161:                                       ; preds = %if.else159
@@ -966,8 +974,8 @@ if.then161:                                       ; preds = %if.else159
   br label %if.end192
 
 if.else163:                                       ; preds = %if.else159
-  %64 = load ptr, ptr %tok.addr, align 8
-  %call164 = call zeroext i1 @equal(ptr noundef %64, ptr noundef nonnull @.str.31) #13
+  %69 = load ptr, ptr %tok.addr, align 8
+  %call164 = call zeroext i1 @equal(ptr noundef %69, ptr noundef nonnull @.str.31) #13
   br i1 %call164, label %if.then165, label %if.else167
 
 if.then165:                                       ; preds = %if.else163
@@ -975,8 +983,8 @@ if.then165:                                       ; preds = %if.else163
   br label %if.end192
 
 if.else167:                                       ; preds = %if.else163
-  %65 = load ptr, ptr %tok.addr, align 8
-  %call168 = call zeroext i1 @equal(ptr noundef %65, ptr noundef nonnull @.str.49) #13
+  %70 = load ptr, ptr %tok.addr, align 8
+  %call168 = call zeroext i1 @equal(ptr noundef %70, ptr noundef nonnull @.str.49) #13
   br i1 %call168, label %if.then169, label %if.else171
 
 if.then169:                                       ; preds = %if.else167
@@ -984,8 +992,8 @@ if.then169:                                       ; preds = %if.else167
   br label %if.end192
 
 if.else171:                                       ; preds = %if.else167
-  %66 = load ptr, ptr %tok.addr, align 8
-  %call172 = call zeroext i1 @equal(ptr noundef %66, ptr noundef nonnull @.str.50) #13
+  %71 = load ptr, ptr %tok.addr, align 8
+  %call172 = call zeroext i1 @equal(ptr noundef %71, ptr noundef nonnull @.str.50) #13
   br i1 %call172, label %if.then173, label %if.else175
 
 if.then173:                                       ; preds = %if.else171
@@ -993,8 +1001,8 @@ if.then173:                                       ; preds = %if.else171
   br label %if.end192
 
 if.else175:                                       ; preds = %if.else171
-  %67 = load ptr, ptr %tok.addr, align 8
-  %call176 = call zeroext i1 @equal(ptr noundef %67, ptr noundef nonnull @.str.39) #13
+  %72 = load ptr, ptr %tok.addr, align 8
+  %call176 = call zeroext i1 @equal(ptr noundef %72, ptr noundef nonnull @.str.39) #13
   br i1 %call176, label %if.then177, label %if.else178
 
 if.then177:                                       ; preds = %if.else175
@@ -1002,8 +1010,8 @@ if.then177:                                       ; preds = %if.else175
   br label %if.end192
 
 if.else178:                                       ; preds = %if.else175
-  %68 = load ptr, ptr %tok.addr, align 8
-  %call179 = call zeroext i1 @equal(ptr noundef %68, ptr noundef nonnull @.str.40) #13
+  %73 = load ptr, ptr %tok.addr, align 8
+  %call179 = call zeroext i1 @equal(ptr noundef %73, ptr noundef nonnull @.str.40) #13
   br i1 %call179, label %if.then180, label %if.else182
 
 if.then180:                                       ; preds = %if.else178
@@ -1087,17 +1095,17 @@ sw.bb204:                                         ; preds = %if.end192
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end192
-  %69 = load ptr, ptr %tok.addr, align 8
-  call void (ptr, ptr, ...) @error_tok(ptr noundef %69, ptr noundef nonnull @.str.134) #16
+  %74 = load ptr, ptr %tok.addr, align 8
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %74, ptr noundef nonnull @.str.134) #16
   unreachable
 
 sw.epilog:                                        ; preds = %if.end192, %sw.bb204, %sw.bb203, %sw.bb202, %sw.bb201, %sw.bb200, %sw.bb199, %sw.bb198, %sw.bb197, %sw.bb196, %sw.bb195, %sw.bb194, %sw.bb193
   %ty.3.in = phi ptr [ @ty_ldouble, %sw.bb204 ], [ @ty_double, %sw.bb203 ], [ @ty_float, %sw.bb202 ], [ @ty_ulong, %sw.bb201 ], [ @ty_long, %sw.bb200 ], [ @ty_uint, %sw.bb199 ], [ @ty_int, %sw.bb198 ], [ @ty_ushort, %sw.bb197 ], [ @ty_short, %sw.bb196 ], [ @ty_uchar, %sw.bb195 ], [ @ty_char, %sw.bb194 ], [ @ty_bool, %sw.bb193 ], [ @ty_void, %if.end192 ]
   %ty.3 = load ptr, ptr %ty.3.in, align 8
-  %70 = load ptr, ptr %tok.addr, align 8
-  %next205 = getelementptr inbounds i8, ptr %70, i64 8
-  %71 = load ptr, ptr %next205, align 8
-  store ptr %71, ptr %tok.addr, align 8
+  %75 = load ptr, ptr %tok.addr, align 8
+  %next205 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = load ptr, ptr %next205, align 8
+  store ptr %76, ptr %tok.addr, align 8
   br label %while.cond.outer.backedge
 
 while.end:                                        ; preds = %if.then113, %lor.rhs.i, %is_typename.exit, %for.cond.i.i.i
@@ -1111,8 +1119,8 @@ if.then207:                                       ; preds = %while.end
 
 if.end210:                                        ; preds = %if.then207, %while.end
   %ty.4 = phi ptr [ %call208, %if.then207 ], [ %ty.0.ph36.ph, %while.end ]
-  %72 = load ptr, ptr %tok.addr, align 8
-  store ptr %72, ptr %rest, align 8
+  %77 = load ptr, ptr %tok.addr, align 8
+  store ptr %77, ptr %rest, align 8
   ret ptr %ty.4
 }
 
@@ -12724,9 +12732,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.vector.reduce.add.v4i8(<4 x i8>) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

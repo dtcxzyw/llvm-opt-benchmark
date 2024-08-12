@@ -10,14 +10,14 @@ target triple = "x86_64-unknown-linux-gnu"
 define i32 @wc_AesCbcDecryptWithKey(ptr noundef %out, ptr noundef %in, i32 noundef %inSz, ptr noundef %key, i32 noundef %keySz, ptr noundef %iv) local_unnamed_addr #0 {
 entry:
   %aes = alloca [1 x %struct.Aes], align 16
-  %0 = insertelement <4 x ptr> poison, ptr %out, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %in, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %key, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %iv, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %if.end, label %return
+  %cmp = icmp eq ptr %out, null
+  %cmp1 = icmp eq ptr %in, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %key, null
+  %or.cond1 = or i1 %or.cond, %cmp3
+  %cmp5 = icmp eq ptr %iv, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
+  br i1 %or.cond2, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call = call i32 @wc_AesInit(ptr noundef nonnull %aes, ptr noundef null, i32 noundef -2) #2

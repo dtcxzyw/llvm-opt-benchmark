@@ -1239,7 +1239,7 @@ define hidden void @_Z6redraw4DataPKN2cv6Point_IiEE(ptr noundef %0, ptr nocaptur
   %7 = alloca %"class.std::allocator.4", align 1
   %8 = alloca %"class.cv::_InputOutputArray", align 8
   %9 = alloca %"class.cv::_InputOutputArray", align 8
-  %10 = alloca %"class.cv::Scalar_", align 16
+  %10 = alloca %"class.cv::Scalar_", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::allocator.4", align 1
   %13 = alloca %"class.cv::_InputArray", align 8
@@ -1300,13 +1300,13 @@ define hidden void @_Z6redraw4DataPKN2cv6Point_IiEE(ptr noundef %0, ptr nocaptur
 44:                                               ; preds = %41
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %109
+  br label %111
 
 46:                                               ; preds = %42
   %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
-  br label %109
+  br label %111
 
 48:                                               ; preds = %.lr.ph, %_ZN2cv3Mat2atIfEERT_i.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN2cv3Mat2atIfEERT_i.exit ]
@@ -1399,44 +1399,48 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %65, %72, %78
   %.sroa.01.0.copyload = load i64, ptr %1, align 4
   %98 = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.0.copyload = load i64, ptr %98, align 4
-  store <2 x double> <double 1.000000e+00, double 2.550000e+02>, ptr %10, align 16
-  %99 = getelementptr inbounds i8, ptr %10, i64 16
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %99, align 16
+  store double 1.000000e+00, ptr %10, align 8
+  %99 = getelementptr inbounds i8, ptr %10, i64 8
+  store double 2.550000e+02, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %10, i64 16
+  store double 1.000000e+00, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %10, i64 24
+  store double 0.000000e+00, ptr %101, align 8
   call void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.01.0.copyload, i64 %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 1, i32 noundef 8, i32 noundef 0)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %100 unwind label %105
+          to label %102 unwind label %107
 
-100:                                              ; preds = %._crit_edge
-  %101 = getelementptr inbounds i8, ptr %13, i64 16
-  store i32 0, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %13, i64 20
-  store i32 0, ptr %102, align 4
+102:                                              ; preds = %._crit_edge
+  %103 = getelementptr inbounds i8, ptr %13, i64 16
+  store i32 0, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %13, i64 20
+  store i32 0, ptr %104, align 4
   store i32 16842752, ptr %13, align 8
-  %103 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %0, ptr %103, align 8
+  %105 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %0, ptr %105, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %104 unwind label %107
+          to label %106 unwind label %109
 
-104:                                              ; preds = %100
+106:                                              ; preds = %102
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
   ret void
 
-105:                                              ; preds = %._crit_edge
-  %106 = landingpad { ptr, i32 }
-          cleanup
-  br label %109
-
-107:                                              ; preds = %100
+107:                                              ; preds = %._crit_edge
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
-  br label %109
+  br label %111
 
-109:                                              ; preds = %105, %107, %44, %46
-  %.sink = phi ptr [ %7, %46 ], [ %7, %44 ], [ %12, %107 ], [ %12, %105 ]
-  %.pn20 = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ], [ %108, %107 ], [ %106, %105 ]
+109:                                              ; preds = %102
+  %110 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
+  br label %111
+
+111:                                              ; preds = %107, %109, %44, %46
+  %.sink = phi ptr [ %7, %46 ], [ %7, %44 ], [ %12, %109 ], [ %12, %107 ]
+  %.pn20 = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ], [ %110, %109 ], [ %108, %107 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #14
   resume { ptr, i32 } %.pn20
 }

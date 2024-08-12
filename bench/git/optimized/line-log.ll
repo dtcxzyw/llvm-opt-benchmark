@@ -2552,6 +2552,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %nr.i.i.i.i38.i.i = getelementptr inbounds i8, ptr %tmp2.i.i, i64 4
   %ranges.i.i.i.i39.i.i = getelementptr inbounds i8, ptr %tmp2.i.i, i64 8
   %ranges.i23.i = getelementptr inbounds i8, ptr %tmp.i, i64 8
+  %nr.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 4
   %target.i.i = getelementptr inbounds i8, ptr %diff.i, i64 16
   %tobool3.not53 = icmp eq ptr %range, null
   br label %for.body
@@ -3088,17 +3089,19 @@ process_diff_filepair.exit:                       ; preds = %range_set_append.ex
   call void @free(ptr noundef %92) #16
   %93 = load ptr, ptr %ranges.i23.i, align 8
   store ptr %93, ptr %ranges.i.i, align 8
-  %94 = load <2 x i32>, ptr %tmp.i, align 8
-  store <2 x i32> %94, ptr %ranges.i, align 8
-  %95 = load ptr, ptr %ranges17.i.i.i, align 8
-  call void @free(ptr noundef %95) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %diff.i, i8 0, i64 16, i1 false)
-  %96 = load ptr, ptr %ranges.i.i.i, align 8
+  %94 = load i32, ptr %nr.i.i, align 4
+  store i32 %94, ptr %nr.i, align 4
+  %95 = load i32, ptr %tmp.i, align 8
+  store i32 %95, ptr %ranges.i, align 8
+  %96 = load ptr, ptr %ranges17.i.i.i, align 8
   call void @free(ptr noundef %96) #16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %diff.i, i8 0, i64 16, i1 false)
+  %97 = load ptr, ptr %ranges.i.i.i, align 8
+  call void @free(ptr noundef %97) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %target.i.i, i8 0, i64 16, i1 false)
   %nr42.i = getelementptr inbounds i8, ptr %call.i21.i, i64 4
-  %97 = load i32, ptr %nr42.i, align 4
-  %cmp43.i.not = icmp eq i32 %97, 0
+  %98 = load i32, ptr %nr42.i, align 4
+  %cmp43.i.not = icmp eq i32 %98, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %diff.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %file_parent.i)
@@ -3110,44 +3113,44 @@ if.then:                                          ; preds = %process_diff_filepa
   br i1 %tobool3.not53, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then
-  %98 = load ptr, ptr %two.i, align 8
-  %path4 = getelementptr inbounds i8, ptr %98, i64 40
-  %99 = load ptr, ptr %path4, align 8
+  %99 = load ptr, ptr %two.i, align 8
+  %path4 = getelementptr inbounds i8, ptr %99, i64 40
+  %100 = load ptr, ptr %path4, align 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
-  %rg.054 = phi ptr [ %range, %land.rhs.lr.ph ], [ %101, %while.body ]
+  %rg.054 = phi ptr [ %range, %land.rhs.lr.ph ], [ %102, %while.body ]
   %path = getelementptr inbounds i8, ptr %rg.054, i64 8
-  %100 = load ptr, ptr %path, align 8
-  %call5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) %99) #18
+  %101 = load ptr, ptr %path, align 8
+  %call5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %100) #18
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %101 = load ptr, ptr %rg.054, align 8
-  %tobool3.not = icmp eq ptr %101, null
+  %102 = load ptr, ptr %rg.054, align 8
+  %tobool3.not = icmp eq ptr %102, null
   br i1 %tobool3.not, label %while.end, label %land.rhs, !llvm.loop !42
 
 while.end:                                        ; preds = %land.rhs, %while.body, %if.then
   %rg.0.lcssa = phi ptr [ null, %if.then ], [ null, %while.body ], [ %rg.054, %land.rhs ]
-  %102 = load ptr, ptr %queue, align 8
-  %arrayidx9 = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv
-  %103 = load ptr, ptr %arrayidx9, align 8
+  %103 = load ptr, ptr %queue, align 8
+  %arrayidx9 = getelementptr inbounds ptr, ptr %103, i64 %indvars.iv
+  %104 = load ptr, ptr %arrayidx9, align 8
   %call.i14 = call ptr @xmalloc(i64 noundef 24) #16
-  %104 = load ptr, ptr %103, align 8
-  store ptr %104, ptr %call.i14, align 8
-  %two.i15 = getelementptr inbounds i8, ptr %103, i64 8
-  %105 = load ptr, ptr %two.i15, align 8
+  %105 = load ptr, ptr %104, align 8
+  store ptr %105, ptr %call.i14, align 8
+  %two.i15 = getelementptr inbounds i8, ptr %104, i64 8
+  %106 = load ptr, ptr %two.i15, align 8
   %two2.i = getelementptr inbounds i8, ptr %call.i14, i64 8
-  store ptr %105, ptr %two2.i, align 8
-  %count.i = getelementptr inbounds i8, ptr %104, i64 72
-  %106 = load i32, ptr %count.i, align 8
-  %inc.i = add nsw i32 %106, 1
+  store ptr %106, ptr %two2.i, align 8
+  %count.i = getelementptr inbounds i8, ptr %105, i64 72
+  %107 = load i32, ptr %count.i, align 8
+  %inc.i = add nsw i32 %107, 1
   store i32 %inc.i, ptr %count.i, align 8
-  %107 = load ptr, ptr %two2.i, align 8
-  %count5.i = getelementptr inbounds i8, ptr %107, i64 72
-  %108 = load i32, ptr %count5.i, align 8
-  %inc6.i = add nsw i32 %108, 1
+  %108 = load ptr, ptr %two2.i, align 8
+  %count5.i = getelementptr inbounds i8, ptr %108, i64 72
+  %109 = load i32, ptr %count5.i, align 8
+  %inc6.i = add nsw i32 %109, 1
   store i32 %inc6.i, ptr %count5.i, align 8
   %pair11 = getelementptr inbounds i8, ptr %rg.0.lcssa, i64 32
   store ptr %call.i14, ptr %pair11, align 8
@@ -3160,9 +3163,9 @@ if.end:                                           ; preds = %process_diff_filepa
   %changed.1 = phi i32 [ %inc, %while.end ], [ %changed.057, %process_diff_filepair.exit ], [ %changed.057, %process_diff_filepair.exit.thread ]
   call void @free(ptr noundef %pairdiff.021) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %109 = load i32, ptr %nr, align 4
-  %110 = sext i32 %109 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %110
+  %110 = load i32, ptr %nr, align 4
+  %111 = sext i32 %110 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %111
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !43
 
 for.end:                                          ; preds = %if.end, %entry

@@ -1210,7 +1210,13 @@ common.ret57:                                     ; preds = %if.end17, %if.then5
   ret i32 %common.ret57.op
 
 if.end9:                                          ; preds = %if.then5
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 -48>, ptr %call6, align 1
+  store i8 0, ptr %call6, align 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %call6, i64 1
+  store i8 0, ptr %arrayidx1.i, align 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %call6, i64 2
+  store i8 1, ptr %arrayidx2.i, align 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %call6, i64 3
+  store i8 -48, ptr %arrayidx3.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %call6, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %serverinfo, i64 %serverinfo_length, i1 false)
   %call10 = tail call i32 @SSL_CTX_use_serverinfo_ex(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull %call6, i64 noundef %add.i)
@@ -1561,7 +1567,13 @@ if.end79:                                         ; preds = %if.end72
   br i1 %cmp27, label %if.then.i, label %extension_append.exit
 
 if.then.i:                                        ; preds = %if.end79
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 -48>, ptr %add.ptr, align 1
+  store i8 0, ptr %add.ptr, align 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  store i8 0, ptr %arrayidx1.i, align 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  store i8 1, ptr %arrayidx2.i, align 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %add.ptr, i64 3
+  store i8 -48, ptr %arrayidx3.i, align 1
   br label %extension_append.exit
 
 extension_append.exit:                            ; preds = %if.end79, %if.then.i

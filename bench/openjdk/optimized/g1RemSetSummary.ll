@@ -1106,52 +1106,59 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN13HRRSStatsIter14do_heap_regio
   %51 = add i64 %50, %10
   store i64 %51, ptr %49, align 8
   %52 = getelementptr inbounds i8, ptr %41, i64 24
-  %53 = getelementptr inbounds i8, ptr %41, i64 48
-  %54 = load i64, ptr %53, align 8
-  %55 = add i64 %54, %18
-  store i64 %55, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %41, i64 56
-  %57 = load i64, ptr %56, align 8
-  %58 = add i64 %57, %25
-  store i64 %58, ptr %56, align 8
-  %59 = load <2 x i64>, ptr %52, align 8
-  %60 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %17, i64 0
-  %61 = add <2 x i64> %59, %60
-  store <2 x i64> %61, ptr %52, align 8
-  %62 = zext i1 %45 to i64
-  %63 = getelementptr inbounds i8, ptr %41, i64 40
-  %64 = load i64, ptr %63, align 8
-  %65 = add i64 %64, %62
-  store i64 %65, ptr %63, align 8
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 80
-  %68 = load i32, ptr %67, align 8
-  %69 = icmp ne i32 %68, 0
-  %70 = getelementptr inbounds i8, ptr %0, i64 280
-  %71 = load i64, ptr %70, align 8
-  %72 = add i64 %71, %6
-  store i64 %72, ptr %70, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 288
-  %74 = load i64, ptr %73, align 8
-  %75 = add i64 %74, %10
-  store i64 %75, ptr %73, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 296
-  %77 = getelementptr inbounds i8, ptr %0, i64 320
-  %78 = load i64, ptr %77, align 8
-  %79 = add i64 %78, %18
-  store i64 %79, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 328
-  %81 = load i64, ptr %80, align 8
-  %82 = add i64 %81, %25
-  store i64 %82, ptr %80, align 8
-  %83 = load <2 x i64>, ptr %76, align 8
-  %84 = add <2 x i64> %83, %60
-  store <2 x i64> %84, ptr %76, align 8
-  %85 = zext i1 %69 to i64
-  %86 = getelementptr inbounds i8, ptr %0, i64 312
-  %87 = load i64, ptr %86, align 8
-  %88 = add i64 %87, %85
-  store i64 %88, ptr %86, align 8
+  %53 = load i64, ptr %52, align 8
+  %54 = add i64 %53, %17
+  store i64 %54, ptr %52, align 8
+  %55 = getelementptr inbounds i8, ptr %41, i64 48
+  %56 = load i64, ptr %55, align 8
+  %57 = add i64 %56, %18
+  store i64 %57, ptr %55, align 8
+  %58 = getelementptr inbounds i8, ptr %41, i64 56
+  %59 = load i64, ptr %58, align 8
+  %60 = add i64 %59, %25
+  store i64 %60, ptr %58, align 8
+  %61 = getelementptr inbounds i8, ptr %41, i64 32
+  %62 = load i64, ptr %61, align 8
+  %63 = add i64 %62, 1
+  store i64 %63, ptr %61, align 8
+  %64 = zext i1 %45 to i64
+  %65 = getelementptr inbounds i8, ptr %41, i64 40
+  %66 = load i64, ptr %65, align 8
+  %67 = add i64 %66, %64
+  store i64 %67, ptr %65, align 8
+  %68 = load ptr, ptr %3, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 80
+  %70 = load i32, ptr %69, align 8
+  %71 = icmp ne i32 %70, 0
+  %72 = getelementptr inbounds i8, ptr %0, i64 280
+  %73 = load i64, ptr %72, align 8
+  %74 = add i64 %73, %6
+  store i64 %74, ptr %72, align 8
+  %75 = getelementptr inbounds i8, ptr %0, i64 288
+  %76 = load i64, ptr %75, align 8
+  %77 = add i64 %76, %10
+  store i64 %77, ptr %75, align 8
+  %78 = getelementptr inbounds i8, ptr %0, i64 296
+  %79 = load i64, ptr %78, align 8
+  %80 = add i64 %79, %17
+  store i64 %80, ptr %78, align 8
+  %81 = getelementptr inbounds i8, ptr %0, i64 320
+  %82 = load i64, ptr %81, align 8
+  %83 = add i64 %82, %18
+  store i64 %83, ptr %81, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 328
+  %85 = load i64, ptr %84, align 8
+  %86 = add i64 %85, %25
+  store i64 %86, ptr %84, align 8
+  %87 = getelementptr inbounds i8, ptr %0, i64 304
+  %88 = load i64, ptr %87, align 8
+  %89 = add i64 %88, 1
+  store i64 %89, ptr %87, align 8
+  %90 = zext i1 %71 to i64
+  %91 = getelementptr inbounds i8, ptr %0, i64 312
+  %92 = load i64, ptr %91, align 8
+  %93 = add i64 %92, %90
+  store i64 %93, ptr %91, align 8
   ret i1 false
 }
 

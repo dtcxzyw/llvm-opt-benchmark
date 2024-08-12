@@ -4678,140 +4678,164 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$7or_else17h7bc06c2438170fac
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$$GT$9clone_box17h1fb71e637d8316f3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = load <2 x ptr>, ptr %0, align 8, !alias.scope !1326, !noalias !1329
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = load ptr, ptr %0, align 8, !alias.scope !1326, !noalias !1329, !nonnull !7, !noundef !7
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1326, !noalias !1329, !noundef !7
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1331
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !1331
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !alias.scope !1326, !noalias !1329, !noundef !7
+  %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1331
+  %8 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !1331
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit
 
-8:                                                ; preds = %1
+10:                                               ; preds = %1
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 24) #23, !noalias !1331
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %1
-  store <2 x ptr> %2, ptr %6, align 8
-  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %4, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
-  %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.15, 1
-  ret { ptr, ptr } %10
+  store ptr %2, ptr %8, align 8
+  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %4, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
+  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %6, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
+  %11 = insertvalue { ptr, ptr } poison, ptr %8, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.15, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$$GT$9clone_box17h36bf9bdcf276addfE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = load <2 x ptr>, ptr %0, align 8, !alias.scope !1334, !noalias !1337
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = load ptr, ptr %0, align 8, !alias.scope !1334, !noalias !1337, !nonnull !7, !noundef !7
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1334, !noalias !1337, !noundef !7
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1339
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !1339
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !alias.scope !1334, !noalias !1337, !noundef !7
+  %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1339
+  %8 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !1339
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit
 
-8:                                                ; preds = %1
+10:                                               ; preds = %1
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 24) #23, !noalias !1339
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %1
-  store <2 x ptr> %2, ptr %6, align 8
-  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %4, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
-  %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.21, 1
-  ret { ptr, ptr } %10
+  store ptr %2, ptr %8, align 8
+  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %4, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
+  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %6, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
+  %11 = insertvalue { ptr, ptr } poison, ptr %8, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.21, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$$GT$9clone_box17h692e28720f0e8c14E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = load <2 x ptr>, ptr %0, align 8, !alias.scope !1342, !noalias !1345
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = load ptr, ptr %0, align 8, !alias.scope !1342, !noalias !1345, !nonnull !7, !noundef !7
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1342, !noalias !1345, !noundef !7
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1347
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !1347
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !alias.scope !1342, !noalias !1345, !noundef !7
+  %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1347
+  %8 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !1347
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit
 
-8:                                                ; preds = %1
+10:                                               ; preds = %1
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 24) #23, !noalias !1347
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %1
-  store <2 x ptr> %2, ptr %6, align 8
-  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %4, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
-  %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.27, 1
-  ret { ptr, ptr } %10
+  store ptr %2, ptr %8, align 8
+  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %4, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
+  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %6, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
+  %11 = insertvalue { ptr, ptr } poison, ptr %8, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.27, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$$GT$9clone_box17h9b96e779ddea60dbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = load <2 x ptr>, ptr %0, align 8, !alias.scope !1350, !noalias !1353
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = load ptr, ptr %0, align 8, !alias.scope !1350, !noalias !1353, !nonnull !7, !noundef !7
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1350, !noalias !1353, !noundef !7
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1355
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !1355
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !alias.scope !1350, !noalias !1353, !noundef !7
+  %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1355
+  %8 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !1355
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit
 
-8:                                                ; preds = %1
+10:                                               ; preds = %1
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 24) #23, !noalias !1355
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %1
-  store <2 x ptr> %2, ptr %6, align 8
-  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %4, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
-  %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.18, 1
-  ret { ptr, ptr } %10
+  store ptr %2, ptr %8, align 8
+  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %4, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
+  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %6, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
+  %11 = insertvalue { ptr, ptr } poison, ptr %8, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.18, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$$GT$9clone_box17hc70321282de60289E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = load <2 x ptr>, ptr %0, align 8, !alias.scope !1358, !noalias !1361
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = load ptr, ptr %0, align 8, !alias.scope !1358, !noalias !1361, !nonnull !7, !noundef !7
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1358, !noalias !1361, !noundef !7
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1363
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !1363
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !alias.scope !1358, !noalias !1361, !noundef !7
+  %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1363
+  %8 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !1363
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit
 
-8:                                                ; preds = %1
+10:                                               ; preds = %1
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 24) #23, !noalias !1363
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %1
-  store <2 x ptr> %2, ptr %6, align 8
-  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %4, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
-  %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.24, 1
-  ret { ptr, ptr } %10
+  store ptr %2, ptr %8, align 8
+  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %4, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
+  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %6, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
+  %11 = insertvalue { ptr, ptr } poison, ptr %8, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.24, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$$GT$9clone_box17hfedece5a4d774e72E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = load <2 x ptr>, ptr %0, align 8, !alias.scope !1366, !noalias !1369
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = load ptr, ptr %0, align 8, !alias.scope !1366, !noalias !1369, !nonnull !7, !noundef !7
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1366, !noalias !1369, !noundef !7
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1371
-  %6 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !1371
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !alias.scope !1366, !noalias !1369, !noundef !7
+  %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1371
+  %8 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !1371
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit
 
-8:                                                ; preds = %1
+10:                                               ; preds = %1
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 24) #23, !noalias !1371
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %1
-  store <2 x ptr> %2, ptr %6, align 8
-  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %4, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
-  %9 = insertvalue { ptr, ptr } poison, ptr %6, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.30, 1
-  ret { ptr, ptr } %10
+  store ptr %2, ptr %8, align 8
+  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %4, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
+  %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %6, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
+  %11 = insertvalue { ptr, ptr } poison, ptr %8, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.30, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

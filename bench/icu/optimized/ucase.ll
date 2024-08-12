@@ -1409,7 +1409,13 @@ return:                                           ; preds = %if.else, %if.else.u
 define void @_ZN6icu_7523FullCaseFoldingIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this) unnamed_addr #2 align 2 {
 entry:
   %unfoldRows = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x i32> <i32 73, i32 5, i32 3, i32 0>, ptr %unfoldRows, align 8
+  store i32 73, ptr %unfoldRows, align 8
+  %unfoldRowWidth = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 5, ptr %unfoldRowWidth, align 4
+  %unfoldStringWidth = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 3, ptr %unfoldStringWidth, align 8
+  %currentRow = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 0, ptr %currentRow, align 4
   %rowCpIndex = getelementptr inbounds i8, ptr %this, i64 24
   store i32 3, ptr %rowCpIndex, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZL18ucase_props_unfold, i64 10), ptr %this, align 8

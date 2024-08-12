@@ -16,8 +16,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Map_MatchClean(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store <4 x float> <float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000>, ptr %2, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  store float 0x47B9999980000000, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  store float 0x47B9999980000000, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  store float 0x47B9999980000000, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  store float 0x47B9999980000000, ptr %5, align 8
   ret void
 }
 
@@ -210,328 +216,330 @@ define noundef i32 @Map_MatchNodeCut(ptr nocapture noundef %0, ptr noundef %1, p
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load i64, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.790.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
+  %.sroa.790.0.copyload = load float, ptr %.sroa.790.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 36
-  %10 = load <2 x float>, ptr %.sroa.790.0..sroa_idx, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1820
+  %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 1820
   %.075119 = load ptr, ptr %8, align 8
   %.not120 = icmp eq ptr %.075119, null
   br i1 %.not120, label %._crit_edge129, label %.lr.ph128
 
 .lr.ph128:                                        ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 1824
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 12
-  %15 = getelementptr inbounds i8, ptr %0, i64 116
-  %16 = getelementptr inbounds i8, ptr %0, i64 124
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
-  br label %18
+  %11 = getelementptr inbounds i8, ptr %0, i64 1824
+  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 12
+  %14 = getelementptr inbounds i8, ptr %0, i64 116
+  %15 = getelementptr inbounds i8, ptr %0, i64 124
+  %16 = getelementptr inbounds i8, ptr %0, i64 160
+  br label %17
 
-18:                                               ; preds = %.lr.ph128, %._crit_edge
+17:                                               ; preds = %.lr.ph128, %._crit_edge
   %.sroa.7.sroa.0.0 = phi i64 [ %9, %.lr.ph128 ], [ %.sroa.7.sroa.0.4, %._crit_edge ]
   %.075126 = phi ptr [ %.075119, %.lr.ph128 ], [ %.075, %._crit_edge ]
-  %.0125 = phi i32 [ 0, %.lr.ph128 ], [ %169, %._crit_edge ]
+  %.0125 = phi i32 [ 0, %.lr.ph128 ], [ %157, %._crit_edge ]
   %.076124 = phi float [ %4, %.lr.ph128 ], [ %.1.lcssa, %._crit_edge ]
   %.sroa.3.0123 = phi ptr [ %.sroa.3.0.copyload, %.lr.ph128 ], [ %.sroa.3.1.lcssa, %._crit_edge ]
-  %19 = phi <2 x float> [ %10, %.lr.ph128 ], [ %167, %._crit_edge ]
-  %20 = load i32, ptr %11, align 4
-  %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %11, align 4
-  %22 = icmp eq i32 %.0125, 30
-  br i1 %22, label %._crit_edge129, label %23
+  %.sroa.790.0122 = phi float [ %.sroa.790.0.copyload, %.lr.ph128 ], [ %.sroa.790.1.lcssa, %._crit_edge ]
+  %.sroa.10.0121 = phi float [ %.sroa.10.0.copyload, %.lr.ph128 ], [ %.sroa.10.1.lcssa, %._crit_edge ]
+  %18 = load i32, ptr %10, align 4
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %10, align 4
+  %20 = icmp eq i32 %.0125, 30
+  br i1 %20, label %._crit_edge129, label %21
 
-23:                                               ; preds = %18
+21:                                               ; preds = %17
   store ptr %.075126, ptr %.sroa.3.0..sroa_idx, align 8
-  %24 = getelementptr inbounds i8, ptr %.075126, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.not137 = icmp ult i32 %25, 268435456
+  %22 = getelementptr inbounds i8, ptr %.075126, i64 4
+  %23 = load i32, ptr %22, align 4
+  %.not137 = icmp ult i32 %23, 268435456
   br i1 %.not137, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.075126, i64 8
-  br label %27
+.lr.ph:                                           ; preds = %21
+  %24 = getelementptr inbounds i8, ptr %.075126, i64 8
+  br label %25
 
-27:                                               ; preds = %.lr.ph, %Map_MatchCompare.exit.thread
+25:                                               ; preds = %.lr.ph, %Map_MatchCompare.exit.thread
   %.sroa.7.sroa.0.2 = phi i64 [ %.sroa.7.sroa.0.0, %.lr.ph ], [ %.sroa.7.sroa.0.3, %Map_MatchCompare.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Map_MatchCompare.exit.thread ]
   %.1114 = phi float [ %.076124, %.lr.ph ], [ %.2, %Map_MatchCompare.exit.thread ]
   %.sroa.3.1113 = phi ptr [ %.sroa.3.0123, %.lr.ph ], [ %.sroa.3.2, %Map_MatchCompare.exit.thread ]
-  %28 = phi <2 x float> [ %19, %.lr.ph ], [ %162, %Map_MatchCompare.exit.thread ]
-  %29 = load i32, ptr %12, align 8
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %12, align 8
-  %31 = load i32, ptr %13, align 8
-  %32 = getelementptr inbounds [4 x i8], ptr %26, i64 0, i64 %indvars.iv
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = xor i32 %31, %34
-  store i32 %35, ptr %14, align 4
-  %36 = load i32, ptr %15, align 4
-  switch i32 %36, label %49 [
-    i32 0, label %37
-    i32 2, label %45
-    i32 3, label %45
-    i32 4, label %47
+  %.sroa.790.1112 = phi float [ %.sroa.790.0122, %.lr.ph ], [ %.sroa.790.2, %Map_MatchCompare.exit.thread ]
+  %.sroa.10.1111 = phi float [ %.sroa.10.0121, %.lr.ph ], [ %.sroa.10.2, %Map_MatchCompare.exit.thread ]
+  %26 = load i32, ptr %11, align 8
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %11, align 8
+  %28 = load i32, ptr %12, align 8
+  %29 = getelementptr inbounds [4 x i8], ptr %24, i64 0, i64 %indvars.iv
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = xor i32 %28, %31
+  store i32 %32, ptr %13, align 4
+  %33 = load i32, ptr %14, align 4
+  switch i32 %33, label %46 [
+    i32 0, label %34
+    i32 2, label %42
+    i32 3, label %42
+    i32 4, label %44
   ]
 
-37:                                               ; preds = %27
-  %38 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef %.1114) #10
-  %39 = load float, ptr %.sroa.790.0..sroa_idx, align 8
-  %40 = load float, ptr %16, align 4
-  %41 = fadd float %.1114, %40
-  %42 = fcmp ogt float %39, %41
-  br i1 %42, label %Map_MatchCompare.exit.thread, label %43
+34:                                               ; preds = %25
+  %35 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef %.1114) #10
+  %36 = load float, ptr %.sroa.790.0..sroa_idx, align 8
+  %37 = load float, ptr %15, align 4
+  %38 = fadd float %.1114, %37
+  %39 = fcmp ogt float %36, %38
+  br i1 %39, label %Map_MatchCompare.exit.thread, label %40
 
-43:                                               ; preds = %37
-  %44 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
-  store float %44, ptr %.sroa.10.0..sroa_idx, align 4
-  %.pre = load float, ptr %16, align 4
-  br label %62
+40:                                               ; preds = %34
+  %41 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
+  store float %41, ptr %.sroa.10.0..sroa_idx, align 4
+  %.pre = load float, ptr %15, align 4
+  br label %58
 
-45:                                               ; preds = %27, %27
-  %46 = tail call float @Map_CutGetAreaDerefed(ptr noundef nonnull %2, i32 noundef %3) #10
-  br label %51
+42:                                               ; preds = %25, %25
+  %43 = tail call float @Map_CutGetAreaDerefed(ptr noundef nonnull %2, i32 noundef %3) #10
+  br label %48
 
-47:                                               ; preds = %27
-  %48 = tail call float @Map_SwitchCutGetDerefed(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) #10
-  br label %51
+44:                                               ; preds = %25
+  %45 = tail call float @Map_SwitchCutGetDerefed(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) #10
+  br label %48
 
-49:                                               ; preds = %27
-  %50 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
-  br label %51
+46:                                               ; preds = %25
+  %47 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
+  br label %48
 
-51:                                               ; preds = %47, %49, %45
-  %.sink = phi float [ %48, %47 ], [ %50, %49 ], [ %46, %45 ]
+48:                                               ; preds = %44, %46, %42
+  %.sink = phi float [ %45, %44 ], [ %47, %46 ], [ %43, %42 ]
   store float %.sink, ptr %.sroa.10.0..sroa_idx, align 4
-  %52 = load float, ptr %16, align 4
-  %53 = extractelement <2 x float> %28, i64 1
-  %54 = fadd float %53, %52
-  %55 = fcmp ogt float %.sink, %54
-  br i1 %55, label %Map_MatchCompare.exit.thread, label %56
+  %49 = load float, ptr %15, align 4
+  %50 = fadd float %.sroa.10.1111, %49
+  %51 = fcmp ogt float %.sink, %50
+  br i1 %51, label %Map_MatchCompare.exit.thread, label %52
 
-56:                                               ; preds = %51
-  %57 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef %.1114) #10
-  %58 = load float, ptr %.sroa.790.0..sroa_idx, align 8
-  %59 = load float, ptr %16, align 4
-  %60 = fadd float %.1114, %59
-  %61 = fcmp ogt float %58, %60
-  br i1 %61, label %Map_MatchCompare.exit.thread, label %62
+52:                                               ; preds = %48
+  %53 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef %.1114) #10
+  %54 = load float, ptr %.sroa.790.0..sroa_idx, align 8
+  %55 = load float, ptr %15, align 4
+  %56 = fadd float %.1114, %55
+  %57 = fcmp ogt float %54, %56
+  br i1 %57, label %Map_MatchCompare.exit.thread, label %58
 
-62:                                               ; preds = %56, %43
-  %63 = phi float [ %59, %56 ], [ %.pre, %43 ]
-  %64 = load i32, ptr %15, align 4
-  %.not.i = icmp eq i32 %64, 0
-  br i1 %.not.i, label %65, label %100
+58:                                               ; preds = %52, %40
+  %59 = phi float [ %55, %52 ], [ %.pre, %40 ]
+  %60 = load i32, ptr %14, align 4
+  %.not.i = icmp eq i32 %60, 0
+  br i1 %.not.i, label %61, label %94
 
-65:                                               ; preds = %62
-  %66 = load float, ptr %.sroa.790.0..sroa_idx, align 8
-  %67 = fsub float %66, %63
-  %68 = extractelement <2 x float> %28, i64 0
-  %69 = fcmp olt float %68, %67
-  br i1 %69, label %Map_MatchCompare.exit.thread, label %70
+61:                                               ; preds = %58
+  %62 = load float, ptr %.sroa.790.0..sroa_idx, align 8
+  %63 = fsub float %62, %59
+  %64 = fcmp olt float %.sroa.790.1112, %63
+  br i1 %64, label %Map_MatchCompare.exit.thread, label %65
 
-70:                                               ; preds = %65
-  %71 = fadd float %63, %66
-  %72 = fcmp ogt float %68, %71
-  br i1 %72, label %Map_MatchCompare.exit.thread107, label %73
+65:                                               ; preds = %61
+  %66 = fadd float %59, %62
+  %67 = fcmp ogt float %.sroa.790.1112, %66
+  br i1 %67, label %Map_MatchCompare.exit.thread107, label %68
 
-73:                                               ; preds = %70
-  %74 = load float, ptr %.sroa.10.0..sroa_idx, align 4
-  %75 = fsub float %74, %63
-  %76 = extractelement <2 x float> %28, i64 1
-  %77 = fcmp olt float %76, %75
-  br i1 %77, label %Map_MatchCompare.exit.thread, label %78
+68:                                               ; preds = %65
+  %69 = load float, ptr %.sroa.10.0..sroa_idx, align 4
+  %70 = fsub float %69, %59
+  %71 = fcmp olt float %.sroa.10.1111, %70
+  br i1 %71, label %Map_MatchCompare.exit.thread, label %72
 
-78:                                               ; preds = %73
-  %79 = fadd float %63, %74
-  %80 = fcmp ogt float %76, %79
-  br i1 %80, label %Map_MatchCompare.exit.thread107, label %81
+72:                                               ; preds = %68
+  %73 = fadd float %59, %69
+  %74 = fcmp ogt float %.sroa.10.1111, %73
+  br i1 %74, label %Map_MatchCompare.exit.thread107, label %75
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 4
-  %83 = load i32, ptr %82, align 4
-  %84 = lshr i32 %83, 8
-  %85 = and i32 %84, 15
-  %86 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
-  %88 = load i32, ptr %87, align 4
-  %89 = lshr i32 %88, 8
-  %90 = and i32 %89, 15
-  %91 = icmp ugt i32 %85, %90
-  br i1 %91, label %Map_MatchCompare.exit.thread, label %92
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 4
+  %77 = load i32, ptr %76, align 4
+  %78 = lshr i32 %77, 8
+  %79 = and i32 %78, 15
+  %80 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %82 = load i32, ptr %81, align 4
+  %83 = lshr i32 %82, 8
+  %84 = and i32 %83, 15
+  %85 = icmp ugt i32 %79, %84
+  br i1 %85, label %Map_MatchCompare.exit.thread, label %86
 
-92:                                               ; preds = %81
-  %93 = icmp ult i32 %85, %90
-  br i1 %93, label %Map_MatchCompare.exit.thread107, label %94
+86:                                               ; preds = %75
+  %87 = icmp ult i32 %79, %84
+  br i1 %87, label %Map_MatchCompare.exit.thread107, label %88
 
-94:                                               ; preds = %92
-  %95 = lshr i32 %83, 2
-  %96 = and i32 %95, 7
-  %97 = lshr i32 %88, 2
-  %98 = and i32 %97, 7
-  %99 = icmp ugt i32 %96, %98
-  br i1 %99, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit.thread
+88:                                               ; preds = %86
+  %89 = lshr i32 %77, 2
+  %90 = and i32 %89, 7
+  %91 = lshr i32 %82, 2
+  %92 = and i32 %91, 7
+  %93 = icmp ugt i32 %90, %92
+  br i1 %93, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit.thread
 
-100:                                              ; preds = %62
-  %101 = load float, ptr %.sroa.10.0..sroa_idx, align 4
-  %102 = fsub float %101, %63
-  %103 = extractelement <2 x float> %28, i64 1
-  %104 = fcmp olt float %103, %102
-  br i1 %104, label %Map_MatchCompare.exit.thread, label %105
+94:                                               ; preds = %58
+  %95 = load float, ptr %.sroa.10.0..sroa_idx, align 4
+  %96 = fsub float %95, %59
+  %97 = fcmp olt float %.sroa.10.1111, %96
+  br i1 %97, label %Map_MatchCompare.exit.thread, label %98
 
-105:                                              ; preds = %100
-  %106 = fadd float %63, %101
-  %107 = fcmp ogt float %103, %106
-  br i1 %107, label %Map_MatchCompare.exit.thread107, label %108
+98:                                               ; preds = %94
+  %99 = fadd float %59, %95
+  %100 = fcmp ogt float %.sroa.10.1111, %99
+  br i1 %100, label %Map_MatchCompare.exit.thread107, label %101
 
-108:                                              ; preds = %105
-  %109 = load i32, ptr %17, align 8
-  %.not69.i = icmp eq i32 %109, 0
+101:                                              ; preds = %98
+  %102 = load i32, ptr %16, align 8
+  %.not69.i = icmp eq i32 %102, 0
   %.not70.i = icmp eq ptr %.sroa.3.1113, null
   %or.cond = select i1 %.not69.i, i1 true, i1 %.not70.i
-  br i1 %or.cond, label %129, label %110
+  br i1 %or.cond, label %122, label %103
 
-110:                                              ; preds = %108
-  %111 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 64
-  %112 = load ptr, ptr %111, align 8
-  %113 = tail call i32 @Mio_GateReadProfile(ptr noundef %112) #10
-  %114 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 64
-  %116 = load ptr, ptr %115, align 8
-  %117 = tail call i32 @Mio_GateReadProfile(ptr noundef %116) #10
-  %118 = load ptr, ptr %111, align 8
-  %119 = tail call i32 @Mio_GateReadProfile2(ptr noundef %118) #10
-  %120 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 64
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call i32 @Mio_GateReadProfile2(ptr noundef %122) #10
-  %124 = icmp slt i32 %119, %113
-  %125 = icmp sgt i32 %123, %117
-  %or.cond.i = select i1 %124, i1 %125, i1 false
-  br i1 %or.cond.i, label %Map_MatchCompare.exit.thread, label %126
+103:                                              ; preds = %101
+  %104 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 64
+  %105 = load ptr, ptr %104, align 8
+  %106 = tail call i32 @Mio_GateReadProfile(ptr noundef %105) #10
+  %107 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 64
+  %109 = load ptr, ptr %108, align 8
+  %110 = tail call i32 @Mio_GateReadProfile(ptr noundef %109) #10
+  %111 = load ptr, ptr %104, align 8
+  %112 = tail call i32 @Mio_GateReadProfile2(ptr noundef %111) #10
+  %113 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 64
+  %115 = load ptr, ptr %114, align 8
+  %116 = tail call i32 @Mio_GateReadProfile2(ptr noundef %115) #10
+  %117 = icmp slt i32 %112, %106
+  %118 = icmp sgt i32 %116, %110
+  %or.cond.i = select i1 %117, i1 %118, i1 false
+  br i1 %or.cond.i, label %Map_MatchCompare.exit.thread, label %119
 
-126:                                              ; preds = %110
-  %127 = icmp slt i32 %123, %117
-  %128 = icmp sgt i32 %119, %113
-  %or.cond71.i = select i1 %127, i1 %128, i1 false
+119:                                              ; preds = %103
+  %120 = icmp slt i32 %116, %110
+  %121 = icmp sgt i32 %112, %106
+  %or.cond71.i = select i1 %120, i1 %121, i1 false
   br i1 %or.cond71.i, label %Map_MatchCompare.exit.thread107, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %126
-  %.pre.i = load float, ptr %16, align 4
-  br label %129
+._crit_edge.i:                                    ; preds = %119
+  %.pre.i = load float, ptr %15, align 4
+  br label %122
 
-129:                                              ; preds = %._crit_edge.i, %108
-  %130 = phi float [ %.pre.i, %._crit_edge.i ], [ %63, %108 ]
-  %131 = load float, ptr %.sroa.790.0..sroa_idx, align 8
-  %132 = fsub float %131, %130
-  %133 = extractelement <2 x float> %28, i64 0
-  %134 = fcmp olt float %133, %132
-  br i1 %134, label %Map_MatchCompare.exit.thread, label %135
+122:                                              ; preds = %._crit_edge.i, %101
+  %123 = phi float [ %.pre.i, %._crit_edge.i ], [ %59, %101 ]
+  %124 = load float, ptr %.sroa.790.0..sroa_idx, align 8
+  %125 = fsub float %124, %123
+  %126 = fcmp olt float %.sroa.790.1112, %125
+  br i1 %126, label %Map_MatchCompare.exit.thread, label %127
 
-135:                                              ; preds = %129
-  %136 = fadd float %130, %131
-  %137 = fcmp ogt float %133, %136
-  br i1 %137, label %Map_MatchCompare.exit.thread107, label %138
+127:                                              ; preds = %122
+  %128 = fadd float %123, %124
+  %129 = fcmp ogt float %.sroa.790.1112, %128
+  br i1 %129, label %Map_MatchCompare.exit.thread107, label %130
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 4
-  %140 = load i32, ptr %139, align 4
-  %141 = lshr i32 %140, 8
-  %142 = and i32 %141, 15
-  %143 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 4
-  %145 = load i32, ptr %144, align 4
-  %146 = lshr i32 %145, 8
-  %147 = and i32 %146, 15
-  %148 = icmp ugt i32 %142, %147
-  br i1 %148, label %Map_MatchCompare.exit.thread, label %149
+130:                                              ; preds = %127
+  %131 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 4
+  %132 = load i32, ptr %131, align 4
+  %133 = lshr i32 %132, 8
+  %134 = and i32 %133, 15
+  %135 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 4
+  %137 = load i32, ptr %136, align 4
+  %138 = lshr i32 %137, 8
+  %139 = and i32 %138, 15
+  %140 = icmp ugt i32 %134, %139
+  br i1 %140, label %Map_MatchCompare.exit.thread, label %141
 
-149:                                              ; preds = %138
-  %150 = icmp ult i32 %142, %147
-  br i1 %150, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit
+141:                                              ; preds = %130
+  %142 = icmp ult i32 %134, %139
+  br i1 %142, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit
 
-Map_MatchCompare.exit:                            ; preds = %149
-  %151 = lshr i32 %140, 2
-  %152 = and i32 %151, 7
-  %153 = lshr i32 %145, 2
-  %154 = and i32 %153, 7
-  %155 = icmp ugt i32 %152, %154
-  br i1 %155, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit.thread
+Map_MatchCompare.exit:                            ; preds = %141
+  %143 = lshr i32 %132, 2
+  %144 = and i32 %143, 7
+  %145 = lshr i32 %137, 2
+  %146 = and i32 %145, 7
+  %147 = icmp ugt i32 %144, %146
+  br i1 %147, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit.thread
 
-Map_MatchCompare.exit.thread107:                  ; preds = %94, %149, %135, %126, %105, %92, %78, %70, %Map_MatchCompare.exit
+Map_MatchCompare.exit.thread107:                  ; preds = %88, %141, %127, %119, %98, %86, %72, %65, %Map_MatchCompare.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %.sroa.3.0.copyload82 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %156 = load i64, ptr %.sroa.7.0..sroa_idx, align 8
-  %157 = load <2 x float>, ptr %.sroa.790.0..sroa_idx, align 8
-  %158 = load i32, ptr %15, align 4
-  %159 = icmp eq i32 %158, 0
-  br i1 %159, label %160, label %Map_MatchCompare.exit.thread
+  %148 = load i64, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.790.0.copyload92 = load float, ptr %.sroa.790.0..sroa_idx, align 8
+  %.sroa.10.0.copyload98 = load float, ptr %.sroa.10.0..sroa_idx, align 4
+  %149 = load i32, ptr %14, align 4
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %151, label %Map_MatchCompare.exit.thread
 
-160:                                              ; preds = %Map_MatchCompare.exit.thread107
-  %161 = extractelement <2 x float> %157, i64 0
+151:                                              ; preds = %Map_MatchCompare.exit.thread107
   br label %Map_MatchCompare.exit.thread
 
-Map_MatchCompare.exit.thread:                     ; preds = %94, %138, %129, %110, %100, %81, %73, %65, %Map_MatchCompare.exit, %160, %Map_MatchCompare.exit.thread107, %56, %51, %37
-  %.sroa.7.sroa.0.3 = phi i64 [ %.sroa.7.sroa.0.2, %51 ], [ %.sroa.7.sroa.0.2, %56 ], [ %.sroa.7.sroa.0.2, %65 ], [ %156, %160 ], [ %156, %Map_MatchCompare.exit.thread107 ], [ %.sroa.7.sroa.0.2, %73 ], [ %.sroa.7.sroa.0.2, %81 ], [ %.sroa.7.sroa.0.2, %Map_MatchCompare.exit ], [ %.sroa.7.sroa.0.2, %100 ], [ %.sroa.7.sroa.0.2, %129 ], [ %.sroa.7.sroa.0.2, %138 ], [ %.sroa.7.sroa.0.2, %110 ], [ %.sroa.7.sroa.0.2, %37 ], [ %.sroa.7.sroa.0.2, %94 ]
-  %.sroa.3.2 = phi ptr [ %.sroa.3.1113, %51 ], [ %.sroa.3.1113, %56 ], [ %.sroa.3.1113, %65 ], [ %.sroa.3.0.copyload82, %160 ], [ %.sroa.3.0.copyload82, %Map_MatchCompare.exit.thread107 ], [ %.sroa.3.1113, %73 ], [ %.sroa.3.1113, %81 ], [ %.sroa.3.1113, %Map_MatchCompare.exit ], [ %.sroa.3.1113, %100 ], [ %.sroa.3.1113, %129 ], [ %.sroa.3.1113, %138 ], [ %.sroa.3.1113, %110 ], [ %.sroa.3.1113, %37 ], [ %.sroa.3.1113, %94 ]
-  %.2 = phi float [ %.1114, %51 ], [ %.1114, %56 ], [ %.1114, %65 ], [ %161, %160 ], [ %.1114, %Map_MatchCompare.exit.thread107 ], [ %.1114, %73 ], [ %.1114, %81 ], [ %.1114, %Map_MatchCompare.exit ], [ %.1114, %100 ], [ %.1114, %129 ], [ %.1114, %138 ], [ %.1114, %110 ], [ %.1114, %37 ], [ %.1114, %94 ]
-  %162 = phi <2 x float> [ %28, %51 ], [ %28, %56 ], [ %28, %65 ], [ %157, %160 ], [ %157, %Map_MatchCompare.exit.thread107 ], [ %28, %73 ], [ %28, %81 ], [ %28, %Map_MatchCompare.exit ], [ %28, %100 ], [ %28, %129 ], [ %28, %138 ], [ %28, %110 ], [ %28, %37 ], [ %28, %94 ]
+Map_MatchCompare.exit.thread:                     ; preds = %88, %130, %122, %103, %94, %75, %68, %61, %Map_MatchCompare.exit, %151, %Map_MatchCompare.exit.thread107, %52, %48, %34
+  %.sroa.7.sroa.0.3 = phi i64 [ %.sroa.7.sroa.0.2, %48 ], [ %.sroa.7.sroa.0.2, %52 ], [ %.sroa.7.sroa.0.2, %61 ], [ %148, %151 ], [ %148, %Map_MatchCompare.exit.thread107 ], [ %.sroa.7.sroa.0.2, %68 ], [ %.sroa.7.sroa.0.2, %75 ], [ %.sroa.7.sroa.0.2, %Map_MatchCompare.exit ], [ %.sroa.7.sroa.0.2, %94 ], [ %.sroa.7.sroa.0.2, %122 ], [ %.sroa.7.sroa.0.2, %130 ], [ %.sroa.7.sroa.0.2, %103 ], [ %.sroa.7.sroa.0.2, %34 ], [ %.sroa.7.sroa.0.2, %88 ]
+  %.sroa.10.2 = phi float [ %.sroa.10.1111, %48 ], [ %.sroa.10.1111, %52 ], [ %.sroa.10.1111, %61 ], [ %.sroa.10.0.copyload98, %151 ], [ %.sroa.10.0.copyload98, %Map_MatchCompare.exit.thread107 ], [ %.sroa.10.1111, %68 ], [ %.sroa.10.1111, %75 ], [ %.sroa.10.1111, %Map_MatchCompare.exit ], [ %.sroa.10.1111, %94 ], [ %.sroa.10.1111, %122 ], [ %.sroa.10.1111, %130 ], [ %.sroa.10.1111, %103 ], [ %.sroa.10.1111, %34 ], [ %.sroa.10.1111, %88 ]
+  %.sroa.790.2 = phi float [ %.sroa.790.1112, %48 ], [ %.sroa.790.1112, %52 ], [ %.sroa.790.1112, %61 ], [ %.sroa.790.0.copyload92, %151 ], [ %.sroa.790.0.copyload92, %Map_MatchCompare.exit.thread107 ], [ %.sroa.790.1112, %68 ], [ %.sroa.790.1112, %75 ], [ %.sroa.790.1112, %Map_MatchCompare.exit ], [ %.sroa.790.1112, %94 ], [ %.sroa.790.1112, %122 ], [ %.sroa.790.1112, %130 ], [ %.sroa.790.1112, %103 ], [ %.sroa.790.1112, %34 ], [ %.sroa.790.1112, %88 ]
+  %.sroa.3.2 = phi ptr [ %.sroa.3.1113, %48 ], [ %.sroa.3.1113, %52 ], [ %.sroa.3.1113, %61 ], [ %.sroa.3.0.copyload82, %151 ], [ %.sroa.3.0.copyload82, %Map_MatchCompare.exit.thread107 ], [ %.sroa.3.1113, %68 ], [ %.sroa.3.1113, %75 ], [ %.sroa.3.1113, %Map_MatchCompare.exit ], [ %.sroa.3.1113, %94 ], [ %.sroa.3.1113, %122 ], [ %.sroa.3.1113, %130 ], [ %.sroa.3.1113, %103 ], [ %.sroa.3.1113, %34 ], [ %.sroa.3.1113, %88 ]
+  %.2 = phi float [ %.1114, %48 ], [ %.1114, %52 ], [ %.1114, %61 ], [ %.sroa.790.0.copyload92, %151 ], [ %.1114, %Map_MatchCompare.exit.thread107 ], [ %.1114, %68 ], [ %.1114, %75 ], [ %.1114, %Map_MatchCompare.exit ], [ %.1114, %94 ], [ %.1114, %122 ], [ %.1114, %130 ], [ %.1114, %103 ], [ %.1114, %34 ], [ %.1114, %88 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %163 = load i32, ptr %24, align 4
-  %164 = lshr i32 %163, 28
-  %165 = zext nneg i32 %164 to i64
-  %166 = icmp ult i64 %indvars.iv.next, %165
-  br i1 %166, label %27, label %._crit_edge, !llvm.loop !4
+  %152 = load i32, ptr %22, align 4
+  %153 = lshr i32 %152, 28
+  %154 = zext nneg i32 %153 to i64
+  %155 = icmp ult i64 %indvars.iv.next, %154
+  br i1 %155, label %25, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %Map_MatchCompare.exit.thread, %23
-  %.sroa.7.sroa.0.4 = phi i64 [ %.sroa.7.sroa.0.0, %23 ], [ %.sroa.7.sroa.0.3, %Map_MatchCompare.exit.thread ]
-  %.sroa.3.1.lcssa = phi ptr [ %.sroa.3.0123, %23 ], [ %.sroa.3.2, %Map_MatchCompare.exit.thread ]
-  %.1.lcssa = phi float [ %.076124, %23 ], [ %.2, %Map_MatchCompare.exit.thread ]
-  %167 = phi <2 x float> [ %19, %23 ], [ %162, %Map_MatchCompare.exit.thread ]
-  %168 = getelementptr inbounds i8, ptr %.075126, i64 248
-  %169 = add nuw nsw i32 %.0125, 1
-  %.075 = load ptr, ptr %168, align 8
+._crit_edge:                                      ; preds = %Map_MatchCompare.exit.thread, %21
+  %.sroa.7.sroa.0.4 = phi i64 [ %.sroa.7.sroa.0.0, %21 ], [ %.sroa.7.sroa.0.3, %Map_MatchCompare.exit.thread ]
+  %.sroa.10.1.lcssa = phi float [ %.sroa.10.0121, %21 ], [ %.sroa.10.2, %Map_MatchCompare.exit.thread ]
+  %.sroa.790.1.lcssa = phi float [ %.sroa.790.0122, %21 ], [ %.sroa.790.2, %Map_MatchCompare.exit.thread ]
+  %.sroa.3.1.lcssa = phi ptr [ %.sroa.3.0123, %21 ], [ %.sroa.3.2, %Map_MatchCompare.exit.thread ]
+  %.1.lcssa = phi float [ %.076124, %21 ], [ %.2, %Map_MatchCompare.exit.thread ]
+  %156 = getelementptr inbounds i8, ptr %.075126, i64 248
+  %157 = add nuw nsw i32 %.0125, 1
+  %.075 = load ptr, ptr %156, align 8
   %.not = icmp eq ptr %.075, null
-  br i1 %.not, label %._crit_edge129, label %18, !llvm.loop !6
+  br i1 %.not, label %._crit_edge129, label %17, !llvm.loop !6
 
-._crit_edge129:                                   ; preds = %._crit_edge, %18, %5
-  %.sroa.7.sroa.0.1 = phi i64 [ %9, %5 ], [ %.sroa.7.sroa.0.4, %._crit_edge ], [ %.sroa.7.sroa.0.0, %18 ]
-  %.sroa.3.0.lcssa = phi ptr [ %.sroa.3.0.copyload, %5 ], [ %.sroa.3.1.lcssa, %._crit_edge ], [ %.sroa.3.0123, %18 ]
-  %170 = phi <2 x float> [ %10, %5 ], [ %167, %._crit_edge ], [ %19, %18 ]
+._crit_edge129:                                   ; preds = %._crit_edge, %17, %5
+  %.sroa.7.sroa.0.1 = phi i64 [ %9, %5 ], [ %.sroa.7.sroa.0.4, %._crit_edge ], [ %.sroa.7.sroa.0.0, %17 ]
+  %.sroa.10.0.lcssa = phi float [ %.sroa.10.0.copyload, %5 ], [ %.sroa.10.1.lcssa, %._crit_edge ], [ %.sroa.10.0121, %17 ]
+  %.sroa.790.0.lcssa = phi float [ %.sroa.790.0.copyload, %5 ], [ %.sroa.790.1.lcssa, %._crit_edge ], [ %.sroa.790.0122, %17 ]
+  %.sroa.3.0.lcssa = phi ptr [ %.sroa.3.0.copyload, %5 ], [ %.sroa.3.1.lcssa, %._crit_edge ], [ %.sroa.3.0123, %17 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false)
   store ptr %.sroa.3.0.lcssa, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 %.sroa.7.sroa.0.1, ptr %.sroa.7.0..sroa_idx, align 8
-  store <2 x float> %170, ptr %.sroa.790.0..sroa_idx, align 8
+  store float %.sroa.790.0.lcssa, ptr %.sroa.790.0..sroa_idx, align 8
+  store float %.sroa.10.0.lcssa, ptr %.sroa.10.0..sroa_idx, align 4
   %.not80 = icmp eq ptr %.sroa.3.0.lcssa, null
-  br i1 %.not80, label %181, label %171
+  br i1 %.not80, label %168, label %158
 
-171:                                              ; preds = %._crit_edge129
-  %172 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef 0x47B9999980000000) #10
-  %173 = getelementptr inbounds i8, ptr %0, i64 116
-  %174 = load i32, ptr %173, align 4
-  switch i32 %174, label %179 [
-    i32 2, label %175
-    i32 3, label %175
-    i32 4, label %177
+158:                                              ; preds = %._crit_edge129
+  %159 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef 0x47B9999980000000) #10
+  %160 = getelementptr inbounds i8, ptr %0, i64 116
+  %161 = load i32, ptr %160, align 4
+  switch i32 %161, label %166 [
+    i32 2, label %162
+    i32 3, label %162
+    i32 4, label %164
   ]
 
-175:                                              ; preds = %171, %171
-  %176 = tail call float @Map_CutGetAreaDerefed(ptr noundef nonnull %2, i32 noundef %3) #10
+162:                                              ; preds = %158, %158
+  %163 = tail call float @Map_CutGetAreaDerefed(ptr noundef nonnull %2, i32 noundef %3) #10
   br label %.sink.split
 
-177:                                              ; preds = %171
-  %178 = tail call float @Map_SwitchCutGetDerefed(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) #10
+164:                                              ; preds = %158
+  %165 = tail call float @Map_SwitchCutGetDerefed(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) #10
   br label %.sink.split
 
-179:                                              ; preds = %171
-  %180 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
+166:                                              ; preds = %158
+  %167 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
   br label %.sink.split
 
-.sink.split:                                      ; preds = %177, %179, %175
-  %.sink139 = phi float [ %176, %175 ], [ %180, %179 ], [ %178, %177 ]
+.sink.split:                                      ; preds = %164, %166, %162
+  %.sink139 = phi float [ %163, %162 ], [ %167, %166 ], [ %165, %164 ]
   store float %.sink139, ptr %.sroa.10.0..sroa_idx, align 4
-  br label %181
+  br label %168
 
-181:                                              ; preds = %.sink.split, %._crit_edge129
+168:                                              ; preds = %.sink.split, %._crit_edge129
   ret i32 1
 }
 
@@ -558,7 +566,7 @@ define noundef i32 @Map_MatchNodePhase(ptr nocapture noundef %0, ptr noundef %1,
   %11 = icmp ne i32 %10, 0
   %12 = icmp eq ptr %8, null
   %or.cond = select i1 %11, i1 %12, i1 false
-  br i1 %or.cond, label %138, label %13
+  br i1 %or.cond, label %141, label %13
 
 13:                                               ; preds = %3
   br i1 %11, label %14, label %.thread
@@ -650,160 +658,166 @@ define noundef i32 @Map_MatchNodePhase(ptr nocapture noundef %0, ptr noundef %1,
   %59 = getelementptr inbounds i8, ptr %8, i64 80
   %60 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %59, i64 0, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %60, i64 40, i1 false)
-  br label %63
+  br label %66
 
 61:                                               ; preds = %.thread
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 24, i1 false)
-  %62 = getelementptr inbounds i8, ptr %4, i64 24
-  store <4 x float> <float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000>, ptr %62, align 8
-  br label %63
+  %62 = getelementptr inbounds i8, ptr %4, i64 36
+  store float 0x47B9999980000000, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %4, i64 24
+  store float 0x47B9999980000000, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %4, i64 28
+  store float 0x47B9999980000000, ptr %64, align 4
+  %65 = getelementptr inbounds i8, ptr %4, i64 32
+  store float 0x47B9999980000000, ptr %65, align 8
+  br label %66
 
-63:                                               ; preds = %61, %.thread111
-  %64 = getelementptr inbounds i8, ptr %1, i64 160
-  %65 = load ptr, ptr %64, align 8
-  %.0100113 = load ptr, ptr %65, align 8
+66:                                               ; preds = %61, %.thread111
+  %67 = getelementptr inbounds i8, ptr %1, i64 160
+  %68 = load ptr, ptr %67, align 8
+  %.0100113 = load ptr, ptr %68, align 8
   %.not107114 = icmp eq ptr %.0100113, null
   br i1 %.not107114, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %1, i64 120
-  %67 = getelementptr inbounds [2 x %struct.Map_TimeStruct_t_], ptr %66, i64 0, i64 %6, i32 2
-  %68 = load float, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %0, i64 156
-  %70 = getelementptr inbounds i8, ptr %1, i64 24
-  %71 = getelementptr inbounds i8, ptr %0, i64 124
-  %72 = getelementptr inbounds i8, ptr %4, i64 32
-  br label %73
+.lr.ph:                                           ; preds = %66
+  %69 = getelementptr inbounds i8, ptr %1, i64 120
+  %70 = getelementptr inbounds [2 x %struct.Map_TimeStruct_t_], ptr %69, i64 0, i64 %6, i32 2
+  %71 = load float, ptr %70, align 4
+  %72 = getelementptr inbounds i8, ptr %0, i64 156
+  %73 = getelementptr inbounds i8, ptr %1, i64 24
+  %74 = getelementptr inbounds i8, ptr %0, i64 124
+  %75 = getelementptr inbounds i8, ptr %4, i64 32
+  br label %76
 
-73:                                               ; preds = %.lr.ph, %108
-  %.0100117 = phi ptr [ %.0100113, %.lr.ph ], [ %.0100, %108 ]
-  %.0116 = phi float [ %68, %.lr.ph ], [ %.1, %108 ]
-  %.098115 = phi ptr [ %8, %.lr.ph ], [ %.199, %108 ]
-  %74 = load i32, ptr %69, align 4
-  %.not109 = icmp eq i32 %74, 0
-  br i1 %.not109, label %.thread112.thread, label %75
+76:                                               ; preds = %.lr.ph, %111
+  %.0100117 = phi ptr [ %.0100113, %.lr.ph ], [ %.0100, %111 ]
+  %.0116 = phi float [ %71, %.lr.ph ], [ %.1, %111 ]
+  %.098115 = phi ptr [ %8, %.lr.ph ], [ %.199, %111 ]
+  %77 = load i32, ptr %72, align 4
+  %.not109 = icmp eq i32 %77, 0
+  br i1 %.not109, label %.thread112.thread, label %78
 
-75:                                               ; preds = %73
-  %76 = load i32, ptr %70, align 8
-  %77 = icmp sgt i32 %76, 3
-  br i1 %77, label %78, label %82
+78:                                               ; preds = %76
+  %79 = load i32, ptr %73, align 8
+  %80 = icmp sgt i32 %79, 3
+  br i1 %80, label %81, label %85
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %.0100117, i64 76
-  %80 = load i8, ptr %79, align 4
-  %81 = icmp sgt i8 %80, 2
-  br i1 %81, label %108, label %.thread112.thread
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds i8, ptr %.0100117, i64 76
+  %83 = load i8, ptr %82, align 4
+  %84 = icmp sgt i8 %83, 2
+  br i1 %84, label %111, label %.thread112.thread
 
-82:                                               ; preds = %75
-  %83 = icmp sgt i32 %76, 1
-  br i1 %83, label %.thread112, label %.thread112.thread
+85:                                               ; preds = %78
+  %86 = icmp sgt i32 %79, 1
+  br i1 %86, label %.thread112, label %.thread112.thread
 
-.thread112:                                       ; preds = %82
+.thread112:                                       ; preds = %85
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.0100117, i64 76
   %.pre = load i8, ptr %.phi.trans.insert, align 4
-  %84 = icmp sgt i8 %.pre, 3
-  br i1 %84, label %108, label %.thread112.thread
+  %87 = icmp sgt i8 %.pre, 3
+  br i1 %87, label %111, label %.thread112.thread
 
-.thread112.thread:                                ; preds = %78, %.thread112, %82, %73
-  %85 = getelementptr inbounds i8, ptr %.0100117, i64 80
-  %86 = getelementptr inbounds %struct.Map_MatchStruct_t_, ptr %85, i64 %6
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %108, label %89
+.thread112.thread:                                ; preds = %81, %.thread112, %85, %76
+  %88 = getelementptr inbounds i8, ptr %.0100117, i64 80
+  %89 = getelementptr inbounds %struct.Map_MatchStruct_t_, ptr %88, i64 %6
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %111, label %92
 
-89:                                               ; preds = %.thread112.thread
-  %90 = tail call i32 @Map_MatchNodeCut(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.0100117, i32 noundef %2, float noundef %.0116)
-  %91 = getelementptr inbounds i8, ptr %86, i64 16
-  %92 = load ptr, ptr %91, align 8
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %108, label %94
+92:                                               ; preds = %.thread112.thread
+  %93 = tail call i32 @Map_MatchNodeCut(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.0100117, i32 noundef %2, float noundef %.0116)
+  %94 = getelementptr inbounds i8, ptr %89, i64 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %111, label %97
 
-94:                                               ; preds = %89
-  %95 = getelementptr inbounds i8, ptr %86, i64 32
-  %96 = load float, ptr %95, align 8
-  %97 = load float, ptr %71, align 4
-  %98 = fadd float %.0116, %97
-  %99 = fcmp ogt float %96, %98
-  br i1 %99, label %108, label %100
+97:                                               ; preds = %92
+  %98 = getelementptr inbounds i8, ptr %89, i64 32
+  %99 = load float, ptr %98, align 8
+  %100 = load float, ptr %74, align 4
+  %101 = fadd float %.0116, %100
+  %102 = fcmp ogt float %99, %101
+  br i1 %102, label %111, label %103
 
-100:                                              ; preds = %94
-  %101 = load i32, ptr %9, align 4
-  %102 = call i32 @Map_MatchCompare(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %86, i32 noundef %101)
-  %.not110 = icmp eq i32 %102, 0
-  br i1 %.not110, label %108, label %103
-
-103:                                              ; preds = %100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %86, i64 40, i1 false)
+103:                                              ; preds = %97
   %104 = load i32, ptr %9, align 4
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %108
+  %105 = call i32 @Map_MatchCompare(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %89, i32 noundef %104)
+  %.not110 = icmp eq i32 %105, 0
+  br i1 %.not110, label %111, label %106
 
 106:                                              ; preds = %103
-  %107 = load float, ptr %72, align 8
-  br label %108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %89, i64 40, i1 false)
+  %107 = load i32, ptr %9, align 4
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %111
 
-108:                                              ; preds = %100, %106, %103, %89, %94, %.thread112.thread, %78, %.thread112
-  %.199 = phi ptr [ %.098115, %78 ], [ %.098115, %.thread112 ], [ %.098115, %.thread112.thread ], [ %.098115, %89 ], [ %.098115, %94 ], [ %.0100117, %106 ], [ %.0100117, %103 ], [ %.098115, %100 ]
-  %.1 = phi float [ %.0116, %78 ], [ %.0116, %.thread112 ], [ %.0116, %.thread112.thread ], [ %.0116, %89 ], [ %.0116, %94 ], [ %107, %106 ], [ %.0116, %103 ], [ %.0116, %100 ]
+109:                                              ; preds = %106
+  %110 = load float, ptr %75, align 8
+  br label %111
+
+111:                                              ; preds = %103, %109, %106, %92, %97, %.thread112.thread, %81, %.thread112
+  %.199 = phi ptr [ %.098115, %81 ], [ %.098115, %.thread112 ], [ %.098115, %.thread112.thread ], [ %.098115, %92 ], [ %.098115, %97 ], [ %.0100117, %109 ], [ %.0100117, %106 ], [ %.098115, %103 ]
+  %.1 = phi float [ %.0116, %81 ], [ %.0116, %.thread112 ], [ %.0116, %.thread112.thread ], [ %.0116, %92 ], [ %.0116, %97 ], [ %110, %109 ], [ %.0116, %106 ], [ %.0116, %103 ]
   %.0100 = load ptr, ptr %.0100117, align 8
   %.not107 = icmp eq ptr %.0100, null
-  br i1 %.not107, label %._crit_edge, label %73, !llvm.loop !7
+  br i1 %.not107, label %._crit_edge, label %76, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %108, %63
-  %.098.lcssa = phi ptr [ %8, %63 ], [ %.199, %108 ]
-  %109 = icmp eq ptr %.098.lcssa, null
-  br i1 %109, label %138, label %110
+._crit_edge:                                      ; preds = %111, %66
+  %.098.lcssa = phi ptr [ %8, %66 ], [ %.199, %111 ]
+  %112 = icmp eq ptr %.098.lcssa, null
+  br i1 %112, label %141, label %113
 
-110:                                              ; preds = %._crit_edge
+113:                                              ; preds = %._crit_edge
   store ptr %.098.lcssa, ptr %7, align 8
-  %111 = getelementptr inbounds i8, ptr %.098.lcssa, i64 80
-  %112 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %111, i64 0, i64 %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %112, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  %113 = load i32, ptr %9, align 4
-  %114 = icmp sgt i32 %113, 1
-  br i1 %114, label %115, label %138
+  %114 = getelementptr inbounds i8, ptr %.098.lcssa, i64 80
+  %115 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %114, i64 0, i64 %6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %115, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
+  %116 = load i32, ptr %9, align 4
+  %117 = icmp sgt i32 %116, 1
+  br i1 %117, label %118, label %141
 
-115:                                              ; preds = %110
-  %116 = getelementptr inbounds i8, ptr %1, i64 32
-  %117 = getelementptr inbounds [3 x i32], ptr %116, i64 0, i64 %6
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp sgt i32 %118, 0
-  br i1 %119, label %129, label %120
+118:                                              ; preds = %113
+  %119 = getelementptr inbounds i8, ptr %1, i64 32
+  %120 = getelementptr inbounds [3 x i32], ptr %119, i64 0, i64 %6
+  %121 = load i32, ptr %120, align 4
+  %122 = icmp sgt i32 %121, 0
+  br i1 %122, label %132, label %123
 
-120:                                              ; preds = %115
+123:                                              ; preds = %118
   %.not108 = icmp eq i32 %2, 0
-  %121 = zext i1 %.not108 to i64
-  %122 = getelementptr inbounds [2 x ptr], ptr %5, i64 0, i64 %121
-  %123 = load ptr, ptr %122, align 8
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %125, label %138
+  %124 = zext i1 %.not108 to i64
+  %125 = getelementptr inbounds [2 x ptr], ptr %5, i64 0, i64 %124
+  %126 = load ptr, ptr %125, align 8
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %128, label %141
 
-125:                                              ; preds = %120
-  %126 = getelementptr inbounds [3 x i32], ptr %116, i64 0, i64 %121
-  %127 = load i32, ptr %126, align 4
-  %128 = icmp sgt i32 %127, 0
-  br i1 %128, label %129, label %138
+128:                                              ; preds = %123
+  %129 = getelementptr inbounds [3 x i32], ptr %119, i64 0, i64 %124
+  %130 = load i32, ptr %129, align 4
+  %131 = icmp sgt i32 %130, 0
+  br i1 %131, label %132, label %141
 
-129:                                              ; preds = %125, %115
-  switch i32 %113, label %138 [
-    i32 2, label %130
-    i32 3, label %130
-    i32 4, label %135
+132:                                              ; preds = %128, %118
+  switch i32 %116, label %141 [
+    i32 2, label %133
+    i32 3, label %133
+    i32 4, label %138
   ]
 
-130:                                              ; preds = %129, %129
-  %131 = load ptr, ptr %7, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 160
-  %133 = load i32, ptr %132, align 8
-  %134 = tail call float @Map_CutRef(ptr noundef %131, i32 noundef %2, i32 noundef %133) #10
-  br label %138
+133:                                              ; preds = %132, %132
+  %134 = load ptr, ptr %7, align 8
+  %135 = getelementptr inbounds i8, ptr %0, i64 160
+  %136 = load i32, ptr %135, align 8
+  %137 = tail call float @Map_CutRef(ptr noundef %134, i32 noundef %2, i32 noundef %136) #10
+  br label %141
 
-135:                                              ; preds = %129
-  %136 = load ptr, ptr %7, align 8
-  %137 = tail call float @Map_SwitchCutRef(ptr noundef nonnull %1, ptr noundef %136, i32 noundef %2) #10
-  br label %138
+138:                                              ; preds = %132
+  %139 = load ptr, ptr %7, align 8
+  %140 = tail call float @Map_SwitchCutRef(ptr noundef nonnull %1, ptr noundef %139, i32 noundef %2) #10
+  br label %141
 
-138:                                              ; preds = %110, %120, %125, %135, %130, %129, %._crit_edge, %3
+141:                                              ; preds = %113, %123, %128, %138, %133, %132, %._crit_edge, %3
   ret i32 1
 }
 
@@ -945,18 +959,20 @@ define void @Map_MappingSetPiArrivalTimes(ptr nocapture noundef readonly %0) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define float @Map_TimeMatchWithInverter(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
-  %7 = load <2 x float>, ptr %3, align 8
-  %8 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %9 = load <2 x float>, ptr %6, align 8
-  %10 = fadd <2 x float> %8, %9
-  %11 = extractelement <2 x float> %10, i64 0
-  %12 = extractelement <2 x float> %10, i64 1
-  %13 = fcmp ogt float %11, %12
-  %14 = select i1 %13, float %11, float %12
-  ret float %14
+  %4 = load float, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %8 = getelementptr inbounds i8, ptr %6, i64 132
+  %9 = load float, ptr %8, align 4
+  %10 = fadd float %4, %9
+  %11 = getelementptr inbounds i8, ptr %1, i64 28
+  %12 = load float, ptr %11, align 4
+  %13 = load float, ptr %7, align 8
+  %14 = fadd float %12, %13
+  %15 = fcmp ogt float %14, %10
+  %16 = select i1 %15, float %14, float %10
+  ret float %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -964,19 +980,19 @@ define void @Map_NodeTryDroppingOnePhase(ptr nocapture noundef readonly %0, ptr 
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %148, label %6
+  br i1 %5, label %134, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 152
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %148, label %10
+  br i1 %9, label %134, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 116
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 1
-  br i1 %13, label %148, label %14
+  br i1 %13, label %134, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %8, i64 144
@@ -986,202 +1002,193 @@ define void @Map_NodeTryDroppingOnePhase(ptr nocapture noundef readonly %0, ptr 
   %19 = getelementptr inbounds i8, ptr %18, i64 128
   %20 = getelementptr inbounds i8, ptr %18, i64 132
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %8, i64 148
-  %23 = load float, ptr %22, align 4
-  %24 = load float, ptr %19, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 104
-  %26 = load float, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 108
-  %28 = load float, ptr %27, align 4
-  %29 = insertelement <2 x float> poison, float %21, i64 0
-  %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
-  %31 = insertelement <2 x float> poison, float %16, i64 0
-  %32 = insertelement <2 x float> %31, float %26, i64 1
-  %33 = fadd <2 x float> %30, %32
-  %34 = insertelement <2 x float> poison, float %24, i64 0
-  %35 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> zeroinitializer
-  %36 = insertelement <2 x float> poison, float %23, i64 0
-  %37 = insertelement <2 x float> %36, float %28, i64 1
-  %38 = fadd <2 x float> %35, %37
-  %39 = fcmp ogt <2 x float> %38, %33
-  %40 = select <2 x i1> %39, <2 x float> %38, <2 x float> %33
-  %41 = icmp eq i32 %12, 0
-  br i1 %41, label %42, label %62
+  %22 = fadd float %16, %21
+  %23 = getelementptr inbounds i8, ptr %8, i64 148
+  %24 = load float, ptr %23, align 4
+  %25 = load float, ptr %19, align 8
+  %26 = fadd float %24, %25
+  %27 = fcmp ogt float %26, %22
+  %28 = select i1 %27, float %26, float %22
+  %29 = getelementptr inbounds i8, ptr %4, i64 104
+  %30 = load float, ptr %29, align 8
+  %31 = fadd float %21, %30
+  %32 = getelementptr inbounds i8, ptr %4, i64 108
+  %33 = load float, ptr %32, align 4
+  %34 = fadd float %25, %33
+  %35 = fcmp ogt float %34, %31
+  %36 = select i1 %35, float %34, float %31
+  %37 = icmp eq i32 %12, 0
+  br i1 %37, label %38, label %56
 
-42:                                               ; preds = %14
-  %43 = getelementptr inbounds i8, ptr %0, i64 144
+38:                                               ; preds = %14
+  %39 = getelementptr inbounds i8, ptr %0, i64 144
+  %40 = load float, ptr %39, align 8
+  %41 = fcmp olt float %40, 1.000000e+09
+  br i1 %41, label %42, label %56
+
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds i8, ptr %4, i64 112
   %44 = load float, ptr %43, align 8
-  %45 = fcmp olt float %44, 1.000000e+09
-  br i1 %45, label %46, label %62
+  %45 = getelementptr inbounds i8, ptr %0, i64 124
+  %46 = load float, ptr %45, align 4
+  %47 = fadd float %28, %46
+  %48 = fcmp ogt float %44, %47
+  br i1 %48, label %49, label %50
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %4, i64 112
-  %48 = load float, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 124
-  %50 = load float, ptr %49, align 4
-  %51 = extractelement <2 x float> %40, i64 0
-  %52 = fadd float %51, %50
-  %53 = fcmp ogt float %48, %52
-  br i1 %53, label %54, label %55
-
-54:                                               ; preds = %46
+49:                                               ; preds = %42
   store ptr null, ptr %3, align 8
-  br label %148
+  br label %134
 
-55:                                               ; preds = %46
-  %56 = getelementptr inbounds i8, ptr %8, i64 152
-  %57 = load float, ptr %56, align 8
-  %58 = extractelement <2 x float> %40, i64 1
-  %59 = fadd float %58, %50
-  %60 = fcmp ogt float %57, %59
-  br i1 %60, label %61, label %148
+50:                                               ; preds = %42
+  %51 = getelementptr inbounds i8, ptr %8, i64 152
+  %52 = load float, ptr %51, align 8
+  %53 = fadd float %36, %46
+  %54 = fcmp ogt float %52, %53
+  br i1 %54, label %55, label %134
 
-61:                                               ; preds = %55
+55:                                               ; preds = %50
   store ptr null, ptr %7, align 8
-  br label %148
+  br label %134
 
-62:                                               ; preds = %42, %14
-  %63 = getelementptr inbounds i8, ptr %1, i64 32
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %148, label %66
+56:                                               ; preds = %38, %14
+  %57 = getelementptr inbounds i8, ptr %1, i64 32
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %134, label %60
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %1, i64 36
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %148, label %70
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds i8, ptr %1, i64 36
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %134, label %64
 
-70:                                               ; preds = %66
-  switch i32 %12, label %102 [
-    i32 2, label %71
-    i32 3, label %89
-    i32 4, label %89
+64:                                               ; preds = %60
+  switch i32 %12, label %91 [
+    i32 2, label %65
+    i32 3, label %80
+    i32 4, label %80
   ]
 
-71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %1, i64 140
-  %73 = load float, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %18, i64 136
-  %75 = load float, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 124
-  %77 = load float, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %1, i64 128
-  %79 = load float, ptr %78, align 8
-  %80 = insertelement <2 x float> poison, float %75, i64 0
-  %81 = shufflevector <2 x float> %80, <2 x float> poison, <2 x i32> zeroinitializer
-  %82 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %81, <2 x float> <float 3.000000e+00, float 3.000000e+00>, <2 x float> %40)
-  %83 = insertelement <2 x float> poison, float %77, i64 0
-  %84 = shufflevector <2 x float> %83, <2 x float> poison, <2 x i32> zeroinitializer
-  %85 = fadd <2 x float> %82, %84
-  %86 = insertelement <2 x float> poison, float %79, i64 0
-  %87 = insertelement <2 x float> %86, float %73, i64 1
-  %88 = fcmp ogt <2 x float> %87, %85
-  br label %102
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds i8, ptr %1, i64 140
+  %67 = load float, ptr %66, align 4
+  %68 = getelementptr inbounds i8, ptr %18, i64 136
+  %69 = load float, ptr %68, align 8
+  %70 = tail call float @llvm.fmuladd.f32(float %69, float 3.000000e+00, float %36)
+  %71 = getelementptr inbounds i8, ptr %0, i64 124
+  %72 = load float, ptr %71, align 4
+  %73 = fadd float %70, %72
+  %74 = fcmp ogt float %67, %73
+  %75 = getelementptr inbounds i8, ptr %1, i64 128
+  %76 = load float, ptr %75, align 8
+  %77 = tail call float @llvm.fmuladd.f32(float %69, float 3.000000e+00, float %28)
+  %78 = fadd float %77, %72
+  %79 = fcmp ogt float %76, %78
+  br label %91
 
-89:                                               ; preds = %70, %70
-  %90 = getelementptr inbounds i8, ptr %1, i64 140
-  %91 = load float, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %0, i64 124
-  %93 = load float, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %1, i64 128
-  %95 = load float, ptr %94, align 8
-  %96 = insertelement <2 x float> poison, float %93, i64 0
-  %97 = shufflevector <2 x float> %96, <2 x float> poison, <2 x i32> zeroinitializer
-  %98 = fadd <2 x float> %40, %97
-  %99 = insertelement <2 x float> poison, float %95, i64 0
-  %100 = insertelement <2 x float> %99, float %91, i64 1
-  %101 = fcmp ogt <2 x float> %100, %98
-  br label %102
+80:                                               ; preds = %64, %64
+  %81 = getelementptr inbounds i8, ptr %1, i64 140
+  %82 = load float, ptr %81, align 4
+  %83 = getelementptr inbounds i8, ptr %0, i64 124
+  %84 = load float, ptr %83, align 4
+  %85 = fadd float %36, %84
+  %86 = fcmp ogt float %82, %85
+  %87 = getelementptr inbounds i8, ptr %1, i64 128
+  %88 = load float, ptr %87, align 8
+  %89 = fadd float %28, %84
+  %90 = fcmp ogt float %88, %89
+  br label %91
 
-102:                                              ; preds = %70, %89, %71
-  %103 = phi <2 x i1> [ %88, %71 ], [ %101, %89 ], [ zeroinitializer, %70 ]
-  %104 = extractelement <2 x i1> %103, i64 0
-  %105 = extractelement <2 x i1> %103, i64 1
-  %or.cond = select i1 %105, i1 true, i1 %104
-  br i1 %or.cond, label %106, label %148
+91:                                               ; preds = %64, %80, %65
+  %.065.shrunk = phi i1 [ %79, %65 ], [ %90, %80 ], [ false, %64 ]
+  %.0.shrunk = phi i1 [ %74, %65 ], [ %86, %80 ], [ false, %64 ]
+  %or.cond = select i1 %.0.shrunk, i1 true, i1 %.065.shrunk
+  br i1 %or.cond, label %92, label %134
 
-106:                                              ; preds = %102
-  %or.cond3 = select i1 %105, i1 %104, i1 false
-  br i1 %or.cond3, label %107, label %113
+92:                                               ; preds = %91
+  %or.cond3 = select i1 %.0.shrunk, i1 %.065.shrunk, i1 false
+  br i1 %or.cond3, label %93, label %99
 
-107:                                              ; preds = %106
-  %108 = getelementptr inbounds i8, ptr %4, i64 116
-  %109 = load float, ptr %108, align 4
-  %110 = getelementptr inbounds i8, ptr %8, i64 156
-  %111 = load float, ptr %110, align 4
-  %112 = fcmp olt float %109, %111
-  br i1 %112, label %.thread71, label %.thread
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds i8, ptr %4, i64 116
+  %95 = load float, ptr %94, align 4
+  %96 = getelementptr inbounds i8, ptr %8, i64 156
+  %97 = load float, ptr %96, align 4
+  %98 = fcmp olt float %95, %97
+  br i1 %98, label %.thread71, label %.thread
 
-113:                                              ; preds = %106
-  br i1 %105, label %.thread71, label %.thread
+99:                                               ; preds = %92
+  br i1 %.0.shrunk, label %.thread71, label %.thread
 
-.thread71:                                        ; preds = %107, %113
-  %114 = icmp sgt i32 %12, 1
-  %115 = icmp sgt i32 %68, 0
-  %or.cond74 = and i1 %114, %115
-  br i1 %or.cond74, label %116, label %120
+.thread71:                                        ; preds = %93, %99
+  %100 = icmp sgt i32 %12, 1
+  %101 = icmp sgt i32 %62, 0
+  %or.cond74 = and i1 %100, %101
+  br i1 %or.cond74, label %102, label %106
 
-116:                                              ; preds = %.thread71
-  %117 = getelementptr inbounds i8, ptr %0, i64 160
-  %118 = load i32, ptr %117, align 8
-  %119 = tail call float @Map_CutDeref(ptr noundef nonnull %8, i32 noundef 1, i32 noundef %118) #10
-  br label %120
+102:                                              ; preds = %.thread71
+  %103 = getelementptr inbounds i8, ptr %0, i64 160
+  %104 = load i32, ptr %103, align 8
+  %105 = tail call float @Map_CutDeref(ptr noundef nonnull %8, i32 noundef 1, i32 noundef %104) #10
+  br label %106
 
-120:                                              ; preds = %116, %.thread71
+106:                                              ; preds = %102, %.thread71
   store ptr null, ptr %7, align 8
-  %121 = load i32, ptr %11, align 4
-  %122 = icmp sgt i32 %121, 1
-  br i1 %122, label %123, label %148
+  %107 = load i32, ptr %11, align 4
+  %108 = icmp sgt i32 %107, 1
+  br i1 %108, label %109, label %134
 
-123:                                              ; preds = %120
-  %124 = load i32, ptr %63, align 8
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %126, label %148
+109:                                              ; preds = %106
+  %110 = load i32, ptr %57, align 8
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %134
+
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %3, align 8
+  %114 = getelementptr inbounds i8, ptr %0, i64 160
+  %115 = load i32, ptr %114, align 8
+  %116 = tail call float @Map_CutRef(ptr noundef %113, i32 noundef 0, i32 noundef %115) #10
+  br label %134
+
+.thread:                                          ; preds = %93, %99
+  %117 = icmp sgt i32 %12, 1
+  %118 = icmp sgt i32 %58, 0
+  %or.cond75 = and i1 %117, %118
+  br i1 %or.cond75, label %119, label %123
+
+119:                                              ; preds = %.thread
+  %120 = getelementptr inbounds i8, ptr %0, i64 160
+  %121 = load i32, ptr %120, align 8
+  %122 = tail call float @Map_CutDeref(ptr noundef nonnull %4, i32 noundef 0, i32 noundef %121) #10
+  br label %123
+
+123:                                              ; preds = %119, %.thread
+  store ptr null, ptr %3, align 8
+  %124 = load i32, ptr %11, align 4
+  %125 = icmp sgt i32 %124, 1
+  br i1 %125, label %126, label %134
 
 126:                                              ; preds = %123
-  %127 = load ptr, ptr %3, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 160
-  %129 = load i32, ptr %128, align 8
-  %130 = tail call float @Map_CutRef(ptr noundef %127, i32 noundef 0, i32 noundef %129) #10
-  br label %148
+  %127 = load i32, ptr %61, align 4
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %129, label %134
 
-.thread:                                          ; preds = %107, %113
-  %131 = icmp sgt i32 %12, 1
-  %132 = icmp sgt i32 %64, 0
-  %or.cond75 = and i1 %131, %132
-  br i1 %or.cond75, label %133, label %137
+129:                                              ; preds = %126
+  %130 = load ptr, ptr %7, align 8
+  %131 = getelementptr inbounds i8, ptr %0, i64 160
+  %132 = load i32, ptr %131, align 8
+  %133 = tail call float @Map_CutRef(ptr noundef %130, i32 noundef 1, i32 noundef %132) #10
+  br label %134
 
-133:                                              ; preds = %.thread
-  %134 = getelementptr inbounds i8, ptr %0, i64 160
-  %135 = load i32, ptr %134, align 8
-  %136 = tail call float @Map_CutDeref(ptr noundef nonnull %4, i32 noundef 0, i32 noundef %135) #10
-  br label %137
-
-137:                                              ; preds = %133, %.thread
-  store ptr null, ptr %3, align 8
-  %138 = load i32, ptr %11, align 4
-  %139 = icmp sgt i32 %138, 1
-  br i1 %139, label %140, label %148
-
-140:                                              ; preds = %137
-  %141 = load i32, ptr %67, align 4
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %143, label %148
-
-143:                                              ; preds = %140
-  %144 = load ptr, ptr %7, align 8
-  %145 = getelementptr inbounds i8, ptr %0, i64 160
-  %146 = load i32, ptr %145, align 8
-  %147 = tail call float @Map_CutRef(ptr noundef %144, i32 noundef 1, i32 noundef %146) #10
-  br label %148
-
-148:                                              ; preds = %137, %140, %143, %120, %123, %126, %102, %62, %66, %54, %61, %55, %10, %2, %6
+134:                                              ; preds = %123, %126, %129, %106, %109, %112, %91, %56, %60, %49, %55, %50, %10, %2, %6
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fmuladd.f32(float, float, float) #6
+
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Map_NodeTransferArrivalTimes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #6 {
+define void @Map_NodeTransferArrivalTimes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1492,17 +1499,14 @@ declare i32 @Map_NodeIsAnd(ptr noundef) local_unnamed_addr #3
 declare void @Extra_ProgressBarStop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 declare ptr @Scl_ConReadMan(...) local_unnamed_addr #3
 
 declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #9
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -1510,10 +1514,10 @@ attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind }
 attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -6563,7 +6563,13 @@ invoke.cont.i953:                                 ; preds = %_ZNKSt14default_del
   %align.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 9
   store i16 0, ptr %align.i.i.i, align 1
   %fill.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 11
-  store <4 x i8> <i8 32, i8 0, i8 0, i8 0>, ptr %fill.i.i.i, align 1
+  store i8 32, ptr %fill.i.i.i, align 1
+  %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 12
+  store i8 0, ptr %arrayinit.element.i.i.i.i, align 4
+  %arrayinit.element2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 13
+  store i8 0, ptr %arrayinit.element2.i.i.i.i, align 1
+  %arrayinit.element3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 14
+  store i8 0, ptr %arrayinit.element3.i.i.i.i, align 2
   %size_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 15
   store i8 1, ptr %size_.i.i.i.i, align 1
   %call15.i.i750 = invoke ptr @_ZN3fmt3v106detail5writeIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbTnNSt9enable_ifIXsr3std7is_sameIT1_bEE5valueEiE4typeELi0EEET0_SF_SC_RKNS0_12format_specsIT_EENS1_10locale_refE(ptr nonnull %ref.tmp188, i1 noundef zeroext %tobool.i.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.i.i, ptr null)
@@ -19174,7 +19180,13 @@ entry:
   %align.i = getelementptr inbounds i8, ptr %ref.tmp, i64 9
   store i16 0, ptr %align.i, align 1
   %fill.i = getelementptr inbounds i8, ptr %ref.tmp, i64 11
-  store <4 x i8> <i8 32, i8 0, i8 0, i8 0>, ptr %fill.i, align 1
+  store i8 32, ptr %fill.i, align 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  store i8 0, ptr %arrayinit.element.i.i, align 4
+  %arrayinit.element2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 13
+  store i8 0, ptr %arrayinit.element2.i.i, align 1
+  %arrayinit.element3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 14
+  store i8 0, ptr %arrayinit.element3.i.i, align 2
   %size_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 15
   store i8 1, ptr %size_.i.i, align 1
   %call = call noundef ptr @_ZN3fmt3v106detail5writeIcPcbTnNSt9enable_ifIXsr3std7is_sameIT1_bEE5valueEiE4typeELi0EEET0_S8_S5_RKNS0_12format_specsIT_EENS1_10locale_refE(ptr noundef nonnull %buffer, i1 noundef zeroext %value, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr null)
@@ -25726,33 +25738,49 @@ lor.lhs.false6.i:                                 ; preds = %land.rhs.i
   %or.cond2.i = icmp ult i32 %19, 30288
   %cmp10.i = icmp ne i32 %cond, 12351
   %or.cond3.i = and i1 %cmp10.i, %or.cond2.i
-  %20 = and i32 %cond, -65538
-  %21 = insertelement <8 x i32> poison, i32 %cond, i64 0
-  %22 = insertelement <8 x i32> %21, i32 %20, i64 1
-  %23 = shufflevector <8 x i32> %22, <8 x i32> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0>
-  %24 = add <8 x i32> %23, <i32 -44032, i32 -63744, i32 -65040, i32 -65072, i32 -65280, i32 -65504, i32 -131072, i32 -127744>
-  %25 = icmp ult <8 x i32> %24, <i32 11172, i32 512, i32 10, i32 64, i32 97, i32 7, i32 65534, i32 848>
-  %26 = bitcast <8 x i1> %25 to i8
-  %27 = icmp ne i8 %26, 0
-  %op.rdx = or i1 %27, %or.cond3.i
-  br i1 %op.rdx, label %_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %lor.rhs.i
+  %20 = add nsw i32 %cond, -44032
+  %or.cond4.i = icmp ult i32 %20, 11172
+  %or.cond.i = or i1 %or.cond4.i, %or.cond3.i
+  %21 = add nsw i32 %cond, -63744
+  %or.cond5.i = icmp ult i32 %21, 512
+  %or.cond39.i = or i1 %or.cond5.i, %or.cond.i
+  %22 = add nsw i32 %cond, -65040
+  %or.cond6.i = icmp ult i32 %22, 10
+  %or.cond40.i = or i1 %or.cond6.i, %or.cond39.i
+  %23 = add nsw i32 %cond, -65072
+  %or.cond7.i = icmp ult i32 %23, 64
+  %or.cond41.i = or i1 %or.cond7.i, %or.cond40.i
+  %24 = add nsw i32 %cond, -65280
+  %or.cond8.i = icmp ult i32 %24, 97
+  %or.cond42.i = or i1 %or.cond8.i, %or.cond41.i
+  %25 = add nsw i32 %cond, -65504
+  %or.cond9.i = icmp ult i32 %25, 7
+  %or.cond43.i = or i1 %or.cond9.i, %or.cond42.i
+  %26 = and i32 %cond, -65538
+  %27 = add i32 %26, -131072
+  %28 = icmp ult i32 %27, 65534
+  %or.cond45.i = or i1 %28, %or.cond43.i
+  %29 = add nsw i32 %cond, -127744
+  %or.cond12.i = icmp ult i32 %29, 848
+  %or.cond46.i = or i1 %or.cond12.i, %or.cond45.i
+  br i1 %or.cond46.i, label %_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false6.i
-  %28 = and i32 %cond, -256
-  %29 = icmp eq i32 %28, 129280
-  %30 = select i1 %29, i64 2, i64 1
+  %30 = and i32 %cond, -256
+  %31 = icmp eq i32 %30, 129280
+  %32 = select i1 %31, i64 2, i64 1
   br label %_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit
 
 _ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit: ; preds = %entry, %land.rhs.i, %lor.lhs.false6.i, %lor.rhs.i
-  %conv.i5 = phi i64 [ 1, %entry ], [ 2, %land.rhs.i ], [ %30, %lor.rhs.i ], [ 2, %lor.lhs.false6.i ]
+  %conv.i5 = phi i64 [ 1, %entry ], [ 2, %land.rhs.i ], [ %32, %lor.rhs.i ], [ 2, %lor.lhs.false6.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %buf_ptr, i64 %idx.ext.i
-  %31 = lshr i64 2164195328, %idxprom.i
-  %idx.ext3.i = and i64 %31, 1
+  %33 = lshr i64 2164195328, %idxprom.i
+  %idx.ext3.i = and i64 %33, 1
   %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext3.i
-  %32 = load ptr, ptr %this, align 8
-  %33 = load i64, ptr %32, align 8
-  %add52.i = add i64 %33, %conv.i5
-  store i64 %add52.i, ptr %32, align 8
+  %34 = load ptr, ptr %this, align 8
+  %35 = load i64, ptr %34, align 8
+  %add52.i = add i64 %35, %conv.i5
+  store i64 %add52.i, ptr %34, align 8
   %cond15 = select i1 %tobool.not, ptr %add.ptr4.i, ptr %arrayidx9.i
   ret ptr %cond15
 }
@@ -26130,7 +26158,13 @@ entry:
   %align.i.i.i = getelementptr inbounds i8, ptr %f, i64 9
   store i16 0, ptr %align.i.i.i, align 1
   %fill.i.i.i = getelementptr inbounds i8, ptr %f, i64 11
-  store <4 x i8> <i8 32, i8 0, i8 0, i8 0>, ptr %fill.i.i.i, align 1
+  store i8 32, ptr %fill.i.i.i, align 1
+  %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %f, i64 12
+  store i8 0, ptr %arrayinit.element.i.i.i.i, align 4
+  %arrayinit.element2.i.i.i.i = getelementptr inbounds i8, ptr %f, i64 13
+  store i8 0, ptr %arrayinit.element2.i.i.i.i, align 1
+  %arrayinit.element3.i.i.i.i = getelementptr inbounds i8, ptr %f, i64 14
+  store i8 0, ptr %arrayinit.element3.i.i.i.i, align 2
   %size_.i.i.i.i = getelementptr inbounds i8, ptr %f, i64 15
   store i8 1, ptr %size_.i.i.i.i, align 1
   %width_ref_.i.i = getelementptr inbounds i8, ptr %f, i64 16
@@ -33100,7 +33134,13 @@ invoke.cont2:
   %align.i.i.i.i = getelementptr inbounds i8, ptr %formatter.i, i64 9
   store i16 0, ptr %align.i.i.i.i, align 1
   %fill.i.i.i.i = getelementptr inbounds i8, ptr %formatter.i, i64 11
-  store <4 x i8> <i8 32, i8 0, i8 0, i8 0>, ptr %fill.i.i.i.i, align 1
+  store i8 32, ptr %fill.i.i.i.i, align 1
+  %arrayinit.element.i.i.i.i.i = getelementptr inbounds i8, ptr %formatter.i, i64 12
+  store i8 0, ptr %arrayinit.element.i.i.i.i.i, align 4
+  %arrayinit.element2.i.i.i.i.i = getelementptr inbounds i8, ptr %formatter.i, i64 13
+  store i8 0, ptr %arrayinit.element2.i.i.i.i.i, align 1
+  %arrayinit.element3.i.i.i.i.i = getelementptr inbounds i8, ptr %formatter.i, i64 14
+  store i8 0, ptr %arrayinit.element3.i.i.i.i.i, align 2
   %size_.i.i.i.i.i = getelementptr inbounds i8, ptr %formatter.i, i64 15
   store i8 1, ptr %size_.i.i.i.i.i, align 1
   %width_ref_.i.i.i = getelementptr inbounds i8, ptr %formatter.i, i64 16
@@ -46181,14 +46221,14 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i, 
 define linkonce_odr hidden ptr @_ZN3fmt3v106detail11write_floatIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdEET0_SB_T1_NS0_12format_specsIT_EENS1_10locale_refE(ptr %out.coerce, double noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i22 = alloca %class.anon.375, align 8
-  %specs.i = alloca %"struct.fmt::v10::format_specs", align 16
+  %specs.i = alloca %"struct.fmt::v10::format_specs", align 8
   %ref.tmp.i = alloca %class.anon.374, align 8
-  %specs = alloca %"struct.fmt::v10::format_specs", align 16
+  %specs = alloca %"struct.fmt::v10::format_specs", align 8
   %ref.tmp = alloca %"struct.fmt::v10::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v10::basic_memory_buffer", align 8
   %ref.tmp63 = alloca %"class.std::allocator", align 1
   %f = alloca %"struct.fmt::v10::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 16
+  store i64 %specs.coerce0, ptr %specs, align 8
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call = call i64 @_ZN3fmt3v106detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_12format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -46223,11 +46263,13 @@ if.end20:                                         ; preds = %if.else, %if.then
 
 if.then22:                                        ; preds = %if.end20
   %cmp.i = fcmp uno double %value.addr.0, 0.000000e+00
+  %agg.tmp24.sroa.0.0.copyload = load i64, ptr %specs, align 8
+  %agg.tmp24.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %agg.tmp24.sroa.2.0.copyload = load i64, ptr %0, align 8
-  %6 = load <2 x i64>, ptr %specs, align 16
-  store <2 x i64> %6, ptr %specs.i, align 16
+  store i64 %agg.tmp24.sroa.0.0.copyload, ptr %specs.i, align 8
+  %6 = getelementptr inbounds i8, ptr %specs.i, i64 8
+  store i64 %agg.tmp24.sroa.2.0.copyload, ptr %6, align 8
   %7 = and i64 %agg.tmp24.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %7, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt3v106detail15write_nonfiniteIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET0_SB_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit
@@ -46276,13 +46318,13 @@ if.then39:                                        ; preds = %if.end28
   %13 = load i8, ptr %arrayidx.i, align 1
   store i8 %13, ptr %add.ptr.i, align 1
   %bf.clear56 = and i32 %fspecs.sroa.5.0, -65281
-  %14 = load i32, ptr %specs, align 16
+  %14 = load i32, ptr %specs, align 8
   %cmp58.not = icmp eq i32 %14, 0
   br i1 %cmp58.not, label %if.end62, label %if.then59
 
 if.then59:                                        ; preds = %if.then39
   %dec = add nsw i32 %14, -1
-  store i32 %dec, ptr %specs, align 16
+  store i32 %dec, ptr %specs, align 8
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then39, %if.then59, %if.end28
@@ -53255,7 +53297,13 @@ entry:
   %align.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 9
   store i16 0, ptr %align.i.i.i, align 1
   %fill.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 11
-  store <4 x i8> <i8 32, i8 0, i8 0, i8 0>, ptr %fill.i.i.i, align 1
+  store i8 32, ptr %fill.i.i.i, align 1
+  %arrayinit.element.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 12
+  store i8 0, ptr %arrayinit.element.i.i.i.i, align 4
+  %arrayinit.element2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 13
+  store i8 0, ptr %arrayinit.element2.i.i.i.i, align 1
+  %arrayinit.element3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 14
+  store i8 0, ptr %arrayinit.element3.i.i.i.i, align 2
   %size_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 15
   store i8 1, ptr %size_.i.i.i.i, align 1
   %2 = ptrtoint ptr %1 to i64

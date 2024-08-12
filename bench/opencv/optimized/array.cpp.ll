@@ -198,51 +198,54 @@ target triple = "x86_64-pc-linux-gnu"
 define void @cvSetIPLAllocators(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  %8 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %0, i64 1
-  %10 = insertelement <4 x ptr> %9, ptr %2, i64 2
-  %11 = insertelement <4 x ptr> %10, ptr %3, i64 3
-  %12 = icmp ne <4 x ptr> %11, zeroinitializer
-  %13 = icmp ne ptr %4, null
+  %8 = icmp ne ptr %0, null
+  %9 = zext i1 %8 to i32
+  %10 = icmp ne ptr %1, null
+  %11 = zext i1 %10 to i32
+  %12 = add nuw nsw i32 %11, %9
+  %13 = icmp ne ptr %2, null
   %14 = zext i1 %13 to i32
-  %15 = bitcast <4 x i1> %12 to i4
-  %16 = tail call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %15)
-  %17 = zext nneg i4 %16 to i32
-  %op.rdx = add nuw nsw i32 %17, %14
-  switch i32 %op.rdx, label %18 [
-    i32 5, label %26
-    i32 0, label %26
+  %15 = add nuw nsw i32 %12, %14
+  %16 = icmp ne ptr %3, null
+  %17 = zext i1 %16 to i32
+  %18 = add nuw nsw i32 %15, %17
+  %19 = icmp ne ptr %4, null
+  %20 = zext i1 %19 to i32
+  %21 = add nuw nsw i32 %18, %20
+  switch i32 %21, label %22 [
+    i32 5, label %30
+    i32 0, label %30
   ]
 
-18:                                               ; preds = %5
+22:                                               ; preds = %5
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %19 unwind label %21
+          to label %23 unwind label %25
 
-19:                                               ; preds = %18
+23:                                               ; preds = %22
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__.cvSetIPLAllocators, ptr noundef nonnull @.str.1, i32 noundef 83) #11
-          to label %20 unwind label %23
+          to label %24 unwind label %27
 
-20:                                               ; preds = %19
+24:                                               ; preds = %23
   unreachable
 
-21:                                               ; preds = %18
-  %22 = landingpad { ptr, i32 }
+25:                                               ; preds = %22
+  %26 = landingpad { ptr, i32 }
           cleanup
-  br label %25
+  br label %29
 
-23:                                               ; preds = %19
-  %24 = landingpad { ptr, i32 }
+27:                                               ; preds = %23
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
-  br label %25
+  br label %29
 
-25:                                               ; preds = %23, %21
-  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
+29:                                               ; preds = %27, %25
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #10
   resume { ptr, i32 } %.pn
 
-26:                                               ; preds = %5, %5
+30:                                               ; preds = %5, %5
   store ptr %0, ptr @_ZL5CvIPL.0, align 8
   store ptr %1, ptr @_ZL5CvIPL.1, align 8
   store ptr %2, ptr @_ZL5CvIPL.2, align 8
@@ -12775,9 +12778,6 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i4 @llvm.ctpop.i4(i4) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

@@ -757,7 +757,7 @@ _ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread: ; preds = %51, %_
   call void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::BitMatrix") align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i8 noundef zeroext %76)
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %77 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
-          to label %78 unwind label %90
+          to label %78 unwind label %93
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds i8, ptr %0, i64 8
@@ -771,30 +771,34 @@ _ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread: ; preds = %51, %_
   store i64 %83, ptr %82, align 8, !noalias !19
   %84 = getelementptr inbounds i8, ptr %77, i64 24
   %85 = getelementptr inbounds i8, ptr %4, i64 8
-  %86 = load <2 x ptr>, ptr %85, align 8, !noalias !19
-  store <2 x ptr> %86, ptr %84, align 8, !noalias !19
-  %87 = getelementptr inbounds i8, ptr %77, i64 40
-  %88 = getelementptr inbounds i8, ptr %4, i64 24
+  %86 = load ptr, ptr %85, align 8, !noalias !19
+  store ptr %86, ptr %84, align 8, !noalias !19
+  %87 = getelementptr inbounds i8, ptr %77, i64 32
+  %88 = getelementptr inbounds i8, ptr %4, i64 16
   %89 = load ptr, ptr %88, align 8, !noalias !19
   store ptr %89, ptr %87, align 8, !noalias !19
+  %90 = getelementptr inbounds i8, ptr %77, i64 40
+  %91 = getelementptr inbounds i8, ptr %4, i64 24
+  %92 = load ptr, ptr %91, align 8, !noalias !19
+  store ptr %92, ptr %90, align 8, !noalias !19
   store ptr %77, ptr %79, align 8, !alias.scope !19
   store ptr %82, ptr %0, align 8, !alias.scope !19
   br label %_ZN5ZXing9BitMatrixD2Ev.exit
 
-90:                                               ; preds = %75
-  %91 = landingpad { ptr, i32 }
+93:                                               ; preds = %75
+  %94 = landingpad { ptr, i32 }
           cleanup
-  %92 = getelementptr inbounds i8, ptr %4, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %.not.i.i.i.i15 = icmp eq ptr %93, null
-  br i1 %.not.i.i.i.i15, label %_ZN5ZXing9BitMatrixD2Ev.exit16, label %94
+  %95 = getelementptr inbounds i8, ptr %4, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %.not.i.i.i.i15 = icmp eq ptr %96, null
+  br i1 %.not.i.i.i.i15, label %_ZN5ZXing9BitMatrixD2Ev.exit16, label %97
 
-94:                                               ; preds = %90
-  call void @_ZdlPv(ptr noundef nonnull %93) #16
+97:                                               ; preds = %93
+  call void @_ZdlPv(ptr noundef nonnull %96) #16
   br label %_ZN5ZXing9BitMatrixD2Ev.exit16
 
-_ZN5ZXing9BitMatrixD2Ev.exit16:                   ; preds = %90, %94
-  resume { ptr, i32 } %91
+_ZN5ZXing9BitMatrixD2Ev.exit16:                   ; preds = %93, %97
+  resume { ptr, i32 } %94
 
 _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %78, %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread
   ret void

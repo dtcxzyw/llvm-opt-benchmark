@@ -621,9 +621,13 @@ _ZNSt10unique_ptrI22cmCTestMemCheckCommandSt14default_deleteIS0_EED2Ev.exit: ; p
   %6 = getelementptr inbounds i8, ptr %3, i64 960
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14, !noalias !8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %8, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %11, ptr %12, align 8
   store ptr %3, ptr %0, align 8
   ret void
 }

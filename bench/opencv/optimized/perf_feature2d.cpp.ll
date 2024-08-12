@@ -1158,15 +1158,45 @@ common.resume:                                    ; preds = %125, %.body.i.i.i
   %11 = getelementptr inbounds i8, ptr %8, i64 80
   %12 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %11, ptr %12, align 8, !noalias !17
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %8, align 4, !noalias !17
+  store i32 0, ptr %8, align 4, !noalias !17
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 1, ptr %.sroa.2.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 2, ptr %.sroa.3.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 3, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !17
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 16
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !17
+  store i32 4, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 20
+  store i32 5, ptr %.sroa.6.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 24
+  store i32 6, ptr %.sroa.7.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 28
+  store i32 7, ptr %.sroa.8.0..sroa_idx.i, align 4, !noalias !17
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 32
-  store <4 x i32> <i32 8, i32 9, i32 10, i32 11>, ptr %.sroa.9.0..sroa_idx.i, align 4, !noalias !17
+  store i32 8, ptr %.sroa.9.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 36
+  store i32 9, ptr %.sroa.10.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 40
+  store i32 10, ptr %.sroa.11.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 44
+  store i32 11, ptr %.sroa.12.0..sroa_idx.i, align 4, !noalias !17
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 48
-  store <4 x i32> <i32 12, i32 13, i32 14, i32 15>, ptr %.sroa.13.0..sroa_idx.i, align 4, !noalias !17
+  store i32 12, ptr %.sroa.13.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.14.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 52
+  store i32 13, ptr %.sroa.14.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.15.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 56
+  store i32 14, ptr %.sroa.15.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.16.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 60
+  store i32 15, ptr %.sroa.16.0..sroa_idx.i, align 4, !noalias !17
   %.sroa.17.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 64
-  store <4 x i32> <i32 16, i32 17, i32 18, i32 19>, ptr %.sroa.17.0..sroa_idx.i, align 4, !noalias !17
+  store i32 16, ptr %.sroa.17.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.18.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 68
+  store i32 17, ptr %.sroa.18.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 72
+  store i32 18, ptr %.sroa.19.0..sroa_idx.i, align 4, !noalias !17
+  %.sroa.20.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 76
+  store i32 19, ptr %.sroa.20.0..sroa_idx.i, align 4, !noalias !17
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %11, ptr %13, align 8, !noalias !17
   store ptr %6, ptr %5, align 8, !alias.scope !17
@@ -2195,27 +2225,27 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit64:   ; preds = %250, %252
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN11opencv_testL12getFeature2DENS_12_GLOBAL__N_113Feature2DTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.cv::Ptr.87", align 16
-  %4 = alloca %"struct.cv::Ptr.87", align 16
-  %5 = alloca %"struct.cv::Ptr.91", align 16
-  %6 = alloca %"struct.cv::Ptr.91", align 16
-  %7 = alloca %"struct.cv::Ptr.91", align 16
-  %8 = alloca %"struct.cv::Ptr.91", align 16
-  %9 = alloca %"struct.cv::Ptr.91", align 16
-  %10 = alloca %"struct.cv::Ptr.91", align 16
-  %11 = alloca %"struct.cv::Ptr.91", align 16
-  %12 = alloca %"struct.cv::Ptr.95", align 16
-  %13 = alloca %"struct.cv::Ptr.95", align 16
-  %14 = alloca %"struct.cv::Ptr.95", align 16
-  %15 = alloca %"struct.cv::Ptr.95", align 16
-  %16 = alloca %"struct.cv::Ptr.95", align 16
-  %17 = alloca %"struct.cv::Ptr.43", align 16
-  %18 = alloca %"struct.cv::Ptr.43", align 16
-  %19 = alloca %"struct.cv::Ptr.99", align 16
-  %20 = alloca %"struct.cv::Ptr.103", align 16
-  %21 = alloca %"struct.cv::Ptr.107", align 16
-  %22 = alloca %"struct.cv::Ptr.111", align 16
-  switch i32 %1, label %43 [
+  %3 = alloca %"struct.cv::Ptr.87", align 8
+  %4 = alloca %"struct.cv::Ptr.87", align 8
+  %5 = alloca %"struct.cv::Ptr.91", align 8
+  %6 = alloca %"struct.cv::Ptr.91", align 8
+  %7 = alloca %"struct.cv::Ptr.91", align 8
+  %8 = alloca %"struct.cv::Ptr.91", align 8
+  %9 = alloca %"struct.cv::Ptr.91", align 8
+  %10 = alloca %"struct.cv::Ptr.91", align 8
+  %11 = alloca %"struct.cv::Ptr.91", align 8
+  %12 = alloca %"struct.cv::Ptr.95", align 8
+  %13 = alloca %"struct.cv::Ptr.95", align 8
+  %14 = alloca %"struct.cv::Ptr.95", align 8
+  %15 = alloca %"struct.cv::Ptr.95", align 8
+  %16 = alloca %"struct.cv::Ptr.95", align 8
+  %17 = alloca %"struct.cv::Ptr.43", align 8
+  %18 = alloca %"struct.cv::Ptr.43", align 8
+  %19 = alloca %"struct.cv::Ptr.99", align 8
+  %20 = alloca %"struct.cv::Ptr.103", align 8
+  %21 = alloca %"struct.cv::Ptr.107", align 8
+  %22 = alloca %"struct.cv::Ptr.111", align 8
+  switch i32 %1, label %103 [
     i32 13, label %_ZN2cv3PtrINS_3ORBEED2Ev.exit
     i32 14, label %_ZN2cv3PtrINS_3ORBEED2Ev.exit7
     i32 0, label %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit
@@ -2240,129 +2270,209 @@ define internal fastcc void @_ZN11opencv_testL12getFeature2DENS_12_GLOBAL__N_113
 
 _ZN2cv3PtrINS_3ORBEED2Ev.exit:                    ; preds = %2
   call void @_ZN2cv3ORB6createEifiiiiNS0_9ScoreTypeEii(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.87") align 8 %3, i32 noundef 500, float noundef 0x3FF3333340000000, i32 noundef 8, i32 noundef 31, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 31, i32 noundef 20)
-  %23 = load <2 x ptr>, ptr %3, align 16
-  store <2 x ptr> %23, ptr %0, align 8
-  br label %44
+  %23 = load ptr, ptr %3, align 8
+  store ptr %23, ptr %0, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %24, align 8
+  br label %104
 
 _ZN2cv3PtrINS_3ORBEED2Ev.exit7:                   ; preds = %2
   call void @_ZN2cv3ORB6createEifiiiiNS0_9ScoreTypeEii(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.87") align 8 %4, i32 noundef 1500, float noundef 0x3FF4CCCCC0000000, i32 noundef 1, i32 noundef 31, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 31, i32 noundef 20)
-  %24 = load <2 x ptr>, ptr %4, align 16
-  store <2 x ptr> %24, ptr %0, align 8
-  br label %44
+  %27 = load ptr, ptr %4, align 8
+  store ptr %27, ptr %0, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %28, align 8
+  br label %104
 
 _ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit:   ; preds = %2
   call void @_ZN2cv19FastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.91") align 8 %5, i32 noundef 10, i1 noundef zeroext true, i32 noundef 2)
-  %25 = load <2 x ptr>, ptr %5, align 16
-  store <2 x ptr> %25, ptr %0, align 8
-  br label %44
+  %31 = load ptr, ptr %5, align 8
+  store ptr %31, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %32, align 8
+  br label %104
 
 _ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit20: ; preds = %2
   call void @_ZN2cv19FastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.91") align 8 %6, i32 noundef 20, i1 noundef zeroext true, i32 noundef 0)
-  %26 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %26, ptr %0, align 8
-  br label %44
+  %35 = load ptr, ptr %6, align 8
+  store ptr %35, ptr %0, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr %36, align 8
+  br label %104
 
 _ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit27: ; preds = %2
   call void @_ZN2cv19FastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.91") align 8 %7, i32 noundef 20, i1 noundef zeroext true, i32 noundef 1)
-  %27 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %27, ptr %0, align 8
-  br label %44
+  %39 = load ptr, ptr %7, align 8
+  store ptr %39, ptr %0, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %40, align 8
+  br label %104
 
 _ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit34: ; preds = %2
   call void @_ZN2cv19FastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.91") align 8 %8, i32 noundef 20, i1 noundef zeroext true, i32 noundef 2)
-  %28 = load <2 x ptr>, ptr %8, align 16
-  store <2 x ptr> %28, ptr %0, align 8
-  br label %44
+  %43 = load ptr, ptr %8, align 8
+  store ptr %43, ptr %0, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds i8, ptr %8, i64 8
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %44, align 8
+  br label %104
 
 _ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit41: ; preds = %2
   call void @_ZN2cv19FastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.91") align 8 %9, i32 noundef 20, i1 noundef zeroext false, i32 noundef 0)
-  %29 = load <2 x ptr>, ptr %9, align 16
-  store <2 x ptr> %29, ptr %0, align 8
-  br label %44
+  %47 = load ptr, ptr %9, align 8
+  store ptr %47, ptr %0, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds i8, ptr %9, i64 8
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %48, align 8
+  br label %104
 
 _ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit48: ; preds = %2
   call void @_ZN2cv19FastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.91") align 8 %10, i32 noundef 20, i1 noundef zeroext false, i32 noundef 1)
-  %30 = load <2 x ptr>, ptr %10, align 16
-  store <2 x ptr> %30, ptr %0, align 8
-  br label %44
+  %51 = load ptr, ptr %10, align 8
+  store ptr %51, ptr %0, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds i8, ptr %10, i64 8
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %52, align 8
+  br label %104
 
 _ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit55: ; preds = %2
   call void @_ZN2cv19FastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.91") align 8 %11, i32 noundef 20, i1 noundef zeroext false, i32 noundef 2)
-  %31 = load <2 x ptr>, ptr %11, align 16
-  store <2 x ptr> %31, ptr %0, align 8
-  br label %44
+  %55 = load ptr, ptr %11, align 8
+  store ptr %55, ptr %0, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds i8, ptr %11, i64 8
+  %58 = load ptr, ptr %57, align 8
+  store ptr %58, ptr %56, align 8
+  br label %104
 
 _ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit:  ; preds = %2
   call void @_ZN2cv20AgastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.95") align 8 %12, i32 noundef 10, i1 noundef zeroext true, i32 noundef 3)
-  %32 = load <2 x ptr>, ptr %12, align 16
-  store <2 x ptr> %32, ptr %0, align 8
-  br label %44
+  %59 = load ptr, ptr %12, align 8
+  store ptr %59, ptr %0, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds i8, ptr %12, i64 8
+  %62 = load ptr, ptr %61, align 8
+  store ptr %62, ptr %60, align 8
+  br label %104
 
 _ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit68: ; preds = %2
   call void @_ZN2cv20AgastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.95") align 8 %13, i32 noundef 70, i1 noundef zeroext true, i32 noundef 0)
-  %33 = load <2 x ptr>, ptr %13, align 16
-  store <2 x ptr> %33, ptr %0, align 8
-  br label %44
+  %63 = load ptr, ptr %13, align 8
+  store ptr %63, ptr %0, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds i8, ptr %13, i64 8
+  %66 = load ptr, ptr %65, align 8
+  store ptr %66, ptr %64, align 8
+  br label %104
 
 _ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit75: ; preds = %2
   call void @_ZN2cv20AgastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.95") align 8 %14, i32 noundef 70, i1 noundef zeroext true, i32 noundef 1)
-  %34 = load <2 x ptr>, ptr %14, align 16
-  store <2 x ptr> %34, ptr %0, align 8
-  br label %44
+  %67 = load ptr, ptr %14, align 8
+  store ptr %67, ptr %0, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %69 = getelementptr inbounds i8, ptr %14, i64 8
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %68, align 8
+  br label %104
 
 _ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit82: ; preds = %2
   call void @_ZN2cv20AgastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.95") align 8 %15, i32 noundef 70, i1 noundef zeroext true, i32 noundef 2)
-  %35 = load <2 x ptr>, ptr %15, align 16
-  store <2 x ptr> %35, ptr %0, align 8
-  br label %44
+  %71 = load ptr, ptr %15, align 8
+  store ptr %71, ptr %0, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = getelementptr inbounds i8, ptr %15, i64 8
+  %74 = load ptr, ptr %73, align 8
+  store ptr %74, ptr %72, align 8
+  br label %104
 
 _ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit89: ; preds = %2
   call void @_ZN2cv20AgastFeatureDetector6createEibNS0_12DetectorTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.95") align 8 %16, i32 noundef 70, i1 noundef zeroext true, i32 noundef 3)
-  %36 = load <2 x ptr>, ptr %16, align 16
-  store <2 x ptr> %36, ptr %0, align 8
-  br label %44
+  %75 = load ptr, ptr %16, align 8
+  store ptr %75, ptr %0, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds i8, ptr %16, i64 8
+  %78 = load ptr, ptr %77, align 8
+  store ptr %78, ptr %76, align 8
+  br label %104
 
 _ZN2cv3PtrINS_5AKAZEEED2Ev.exit:                  ; preds = %2
   call void @_ZN2cv5AKAZE6createENS0_14DescriptorTypeEiifiiNS_4KAZE15DiffusivityTypeEi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.43") align 8 %17, i32 noundef 5, i32 noundef 0, i32 noundef 3, float noundef 0x3F50624DE0000000, i32 noundef 4, i32 noundef 4, i32 noundef 1, i32 noundef -1)
-  %37 = load <2 x ptr>, ptr %17, align 16
-  store <2 x ptr> %37, ptr %0, align 8
-  br label %44
+  %79 = load ptr, ptr %17, align 8
+  store ptr %79, ptr %0, align 8
+  %80 = getelementptr inbounds i8, ptr %0, i64 8
+  %81 = getelementptr inbounds i8, ptr %17, i64 8
+  %82 = load ptr, ptr %81, align 8
+  store ptr %82, ptr %80, align 8
+  br label %104
 
 _ZN2cv3PtrINS_5AKAZEEED2Ev.exit102:               ; preds = %2
   call void @_ZN2cv5AKAZE6createENS0_14DescriptorTypeEiifiiNS_4KAZE15DiffusivityTypeEi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.43") align 8 %18, i32 noundef 3, i32 noundef 0, i32 noundef 3, float noundef 0x3F50624DE0000000, i32 noundef 4, i32 noundef 4, i32 noundef 1, i32 noundef -1)
-  %38 = load <2 x ptr>, ptr %18, align 16
-  store <2 x ptr> %38, ptr %0, align 8
-  br label %44
+  %83 = load ptr, ptr %18, align 8
+  store ptr %83, ptr %0, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 8
+  %85 = getelementptr inbounds i8, ptr %18, i64 8
+  %86 = load ptr, ptr %85, align 8
+  store ptr %86, ptr %84, align 8
+  br label %104
 
 _ZN2cv3PtrINS_5BRISKEED2Ev.exit:                  ; preds = %2
   call void @_ZN2cv5BRISK6createEiif(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.99") align 8 %19, i32 noundef 30, i32 noundef 3, float noundef 1.000000e+00)
-  %39 = load <2 x ptr>, ptr %19, align 16
-  store <2 x ptr> %39, ptr %0, align 8
-  br label %44
+  %87 = load ptr, ptr %19, align 8
+  store ptr %87, ptr %0, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 8
+  %89 = getelementptr inbounds i8, ptr %19, i64 8
+  %90 = load ptr, ptr %89, align 8
+  store ptr %90, ptr %88, align 8
+  br label %104
 
 _ZN2cv3PtrINS_4KAZEEED2Ev.exit:                   ; preds = %2
   call void @_ZN2cv4KAZE6createEbbfiiNS0_15DiffusivityTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.103") align 8 %20, i1 noundef zeroext false, i1 noundef zeroext false, float noundef 0x3F50624DE0000000, i32 noundef 4, i32 noundef 4, i32 noundef 1)
-  %40 = load <2 x ptr>, ptr %20, align 16
-  store <2 x ptr> %40, ptr %0, align 8
-  br label %44
+  %91 = load ptr, ptr %20, align 8
+  store ptr %91, ptr %0, align 8
+  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = getelementptr inbounds i8, ptr %20, i64 8
+  %94 = load ptr, ptr %93, align 8
+  store ptr %94, ptr %92, align 8
+  br label %104
 
 _ZN2cv3PtrINS_4MSEREED2Ev.exit:                   ; preds = %2
   call void @_ZN2cv4MSER6createEiiiddiddi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.107") align 8 %21, i32 noundef 5, i32 noundef 60, i32 noundef 14400, double noundef 2.500000e-01, double noundef 2.000000e-01, i32 noundef 200, double noundef 1.010000e+00, double noundef 3.000000e-03, i32 noundef 5)
-  %41 = load <2 x ptr>, ptr %21, align 16
-  store <2 x ptr> %41, ptr %0, align 8
-  br label %44
+  %95 = load ptr, ptr %21, align 8
+  store ptr %95, ptr %0, align 8
+  %96 = getelementptr inbounds i8, ptr %0, i64 8
+  %97 = getelementptr inbounds i8, ptr %21, i64 8
+  %98 = load ptr, ptr %97, align 8
+  store ptr %98, ptr %96, align 8
+  br label %104
 
 _ZN2cv3PtrINS_4SIFTEED2Ev.exit:                   ; preds = %2
   call void @_ZN2cv4SIFT6createEiidddb(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.111") align 8 %22, i32 noundef 0, i32 noundef 3, double noundef 4.000000e-02, double noundef 1.000000e+01, double noundef 1.600000e+00, i1 noundef zeroext false)
-  %42 = load <2 x ptr>, ptr %22, align 16
-  store <2 x ptr> %42, ptr %0, align 8
-  br label %44
+  %99 = load ptr, ptr %22, align 8
+  store ptr %99, ptr %0, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 8
+  %101 = getelementptr inbounds i8, ptr %22, i64 8
+  %102 = load ptr, ptr %101, align 8
+  store ptr %102, ptr %100, align 8
+  br label %104
 
-43:                                               ; preds = %2
+103:                                              ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %44
+  br label %104
 
-44:                                               ; preds = %43, %_ZN2cv3PtrINS_4SIFTEED2Ev.exit, %_ZN2cv3PtrINS_4MSEREED2Ev.exit, %_ZN2cv3PtrINS_4KAZEEED2Ev.exit, %_ZN2cv3PtrINS_5BRISKEED2Ev.exit, %_ZN2cv3PtrINS_5AKAZEEED2Ev.exit102, %_ZN2cv3PtrINS_5AKAZEEED2Ev.exit, %_ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit89, %_ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit82, %_ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit75, %_ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit68, %_ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit55, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit48, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit41, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit34, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit27, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit20, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit, %_ZN2cv3PtrINS_3ORBEED2Ev.exit7, %_ZN2cv3PtrINS_3ORBEED2Ev.exit
+104:                                              ; preds = %103, %_ZN2cv3PtrINS_4SIFTEED2Ev.exit, %_ZN2cv3PtrINS_4MSEREED2Ev.exit, %_ZN2cv3PtrINS_4KAZEEED2Ev.exit, %_ZN2cv3PtrINS_5BRISKEED2Ev.exit, %_ZN2cv3PtrINS_5AKAZEEED2Ev.exit102, %_ZN2cv3PtrINS_5AKAZEEED2Ev.exit, %_ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit89, %_ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit82, %_ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit75, %_ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit68, %_ZN2cv3PtrINS_20AgastFeatureDetectorEED2Ev.exit, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit55, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit48, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit41, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit34, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit27, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit20, %_ZN2cv3PtrINS_19FastFeatureDetectorEED2Ev.exit, %_ZN2cv3PtrINS_3ORBEED2Ev.exit7, %_ZN2cv3PtrINS_3ORBEED2Ev.exit
   ret void
 }
 
@@ -3083,20 +3193,26 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_ba
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN11opencv_testL38gtest_feature2d_extract_EvalGenerator_B5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.testing::internal::ParamGenerator") align 8 %0) #3 {
-  %2 = alloca %"class.testing::internal::CartesianProductHolder2.119", align 16
-  store <4 x i32> <i32 13, i32 14, i32 15, i32 16>, ptr %2, align 16, !alias.scope !27
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 17, ptr %3, align 16, !alias.scope !27
-  %4 = getelementptr inbounds i8, ptr %2, i64 20
-  store i32 18, ptr %4, align 4, !alias.scope !27
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 19, ptr %5, align 8, !alias.scope !27
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr @.str.49, ptr %6, align 16, !alias.scope !27
-  %7 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr @.str.50, ptr %7, align 8, !alias.scope !27
-  %8 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr @.str.51, ptr %8, align 16, !alias.scope !27
+  %2 = alloca %"class.testing::internal::CartesianProductHolder2.119", align 8
+  store i32 13, ptr %2, align 8, !alias.scope !27
+  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 14, ptr %3, align 4, !alias.scope !27
+  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 15, ptr %4, align 8, !alias.scope !27
+  %5 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 16, ptr %5, align 4, !alias.scope !27
+  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 17, ptr %6, align 8, !alias.scope !27
+  %7 = getelementptr inbounds i8, ptr %2, i64 20
+  store i32 18, ptr %7, align 4, !alias.scope !27
+  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 19, ptr %8, align 8, !alias.scope !27
+  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr @.str.49, ptr %9, align 8, !alias.scope !27
+  %10 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr @.str.50, ptr %10, align 8, !alias.scope !27
+  %11 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr @.str.51, ptr %11, align 8, !alias.scope !27
   call fastcc void @_ZNK7testing8internal23CartesianProductHolder2INS0_11ValueArray7IN11opencv_test13Feature2DValsES4_S4_S4_S4_S4_S4_EENS0_11ValueArray3IPKcS8_S8_EEEcvNS0_14ParamGeneratorISt5tupleIJT_T0_EEEEINS3_12_GLOBAL__N_113Feature2DTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 }
@@ -3110,8 +3226,8 @@ define internal void @_ZN11opencv_testL41gtest_feature2d_extract_EvalGenerateNam
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11opencv_test17feature2d_extract12PerfTestBodyEv(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_5AKAZEEED2Ev.exit:
-  %1 = alloca %"struct.cv::Ptr", align 16
-  %2 = alloca %"struct.cv::Ptr.43", align 16
+  %1 = alloca %"struct.cv::Ptr", align 8
+  %2 = alloca %"struct.cv::Ptr.43", align 8
   %3 = alloca %"struct.cv::Ptr", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.cv::Mat", align 8
@@ -3142,13 +3258,14 @@ _ZN2cv3PtrINS_5AKAZEEED2Ev.exit:
   %30 = alloca %"class.testing::Message", align 8
   %31 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @_ZN2cv5AKAZE6createENS0_14DescriptorTypeEiifiiNS_4KAZE15DiffusivityTypeEi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.43") align 8 %2, i32 noundef 5, i32 noundef 0, i32 noundef 3, float noundef 0x3F50624DE0000000, i32 noundef 4, i32 noundef 4, i32 noundef 1, i32 noundef -1)
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
-  %34 = load <2 x ptr>, ptr %2, align 16
-  %35 = load ptr, ptr %2, align 16
-  store ptr null, ptr %33, align 8
-  store <2 x ptr> %34, ptr %1, align 16
-  store ptr null, ptr %2, align 16
+  %32 = load ptr, ptr %2, align 8
+  store ptr %32, ptr %1, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = load ptr, ptr %34, align 8
+  store ptr null, ptr %34, align 8
+  store ptr %35, ptr %33, align 8
+  store ptr null, ptr %2, align 8
   %36 = invoke fastcc noundef nonnull align 8 dereferenceable(36) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN11opencv_test12_GLOBAL__N_113Feature2DTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8GetParamEv()
           to label %37 unwind label %49
 
@@ -3479,10 +3596,10 @@ _ZN7testing7MessageD2Ev.exit61:                   ; preds = %111, %122
   store i32 16842752, ptr %18, align 8
   %156 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %15, ptr %156, align 8
-  %157 = load ptr, ptr %35, align 8
+  %157 = load ptr, ptr %32, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 64
   %159 = load ptr, ptr %158, align 8
-  invoke void %159(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  invoke void %159(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %160 unwind label %178
 
 160:                                              ; preds = %150
@@ -3941,7 +4058,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_9Feature2DEED2Ev.exit
 
 _ZN2cv3PtrINS_9Feature2DEED2Ev.exit:              ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %318, %331, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i91
-  %336 = load ptr, ptr %32, align 8
+  %336 = load ptr, ptr %33, align 8
   %.not.i.i.i.i92 = icmp eq ptr %336, null
   br i1 %.not.i.i.i.i92, label %_ZN2cv3PtrINS_9Feature2DEED2Ev.exit98, label %337
 
@@ -4549,20 +4666,26 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_ba
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN11opencv_testL47gtest_feature2d_detectAndExtract_EvalGenerator_B5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.testing::internal::ParamGenerator") align 8 %0) #3 {
-  %2 = alloca %"class.testing::internal::CartesianProductHolder2.119", align 16
-  store <4 x i32> <i32 13, i32 14, i32 15, i32 16>, ptr %2, align 16, !alias.scope !32
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 17, ptr %3, align 16, !alias.scope !32
-  %4 = getelementptr inbounds i8, ptr %2, i64 20
-  store i32 18, ptr %4, align 4, !alias.scope !32
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 19, ptr %5, align 8, !alias.scope !32
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr @.str.49, ptr %6, align 16, !alias.scope !32
-  %7 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr @.str.50, ptr %7, align 8, !alias.scope !32
-  %8 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr @.str.51, ptr %8, align 16, !alias.scope !32
+  %2 = alloca %"class.testing::internal::CartesianProductHolder2.119", align 8
+  store i32 13, ptr %2, align 8, !alias.scope !32
+  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 14, ptr %3, align 4, !alias.scope !32
+  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 15, ptr %4, align 8, !alias.scope !32
+  %5 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 16, ptr %5, align 4, !alias.scope !32
+  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 17, ptr %6, align 8, !alias.scope !32
+  %7 = getelementptr inbounds i8, ptr %2, i64 20
+  store i32 18, ptr %7, align 4, !alias.scope !32
+  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 19, ptr %8, align 8, !alias.scope !32
+  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr @.str.49, ptr %9, align 8, !alias.scope !32
+  %10 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr @.str.50, ptr %10, align 8, !alias.scope !32
+  %11 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr @.str.51, ptr %11, align 8, !alias.scope !32
   call fastcc void @_ZNK7testing8internal23CartesianProductHolder2INS0_11ValueArray7IN11opencv_test13Feature2DValsES4_S4_S4_S4_S4_S4_EENS0_11ValueArray3IPKcS8_S8_EEEcvNS0_14ParamGeneratorISt5tupleIJT_T0_EEEEINS3_12_GLOBAL__N_113Feature2DTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %2)
   ret void
 }
@@ -9902,186 +10025,202 @@ define internal fastcc void @_ZNK7testing8internal23CartesianProductHolder2INS0_
   %4 = alloca %"class.testing::internal::ParamGenerator.70", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %6 = load <4 x i32>, ptr %1, align 8, !noalias !73
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load <2 x i32>, ptr %7, align 8, !noalias !73
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = load i32, ptr %1, align 8, !noalias !73
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = load i32, ptr %7, align 4, !noalias !73
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8, !noalias !73
+  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %12 = load i32, ptr %11, align 4, !noalias !73
+  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = load i32, ptr %13, align 8, !noalias !73
+  %15 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = load i32, ptr %15, align 4, !noalias !73
+  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = load i32, ptr %17, align 8, !noalias !73
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %11 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-          to label %.noexc unwind label %61
+  %19 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
+          to label %.noexc unwind label %69
 
 .noexc:                                           ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_113Feature2DTypeEEE, i64 16), ptr %11, align 8, !noalias !82
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !noalias !82
-  %13 = invoke noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #27
-          to label %15 unwind label %.body.i.i.i, !noalias !82
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_113Feature2DTypeEEE, i64 16), ptr %19, align 8, !noalias !82
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false), !noalias !82
+  %21 = invoke noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #27
+          to label %23 unwind label %.body.i.i.i, !noalias !82
 
 .body.i.i.i:                                      ; preds = %.noexc
-  %14 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #29, !noalias !82
-  br label %68
+  tail call void @_ZdlPv(ptr noundef nonnull %19) #29, !noalias !82
+  br label %76
 
-15:                                               ; preds = %.noexc
-  store ptr %13, ptr %12, align 8, !noalias !82
-  %16 = getelementptr inbounds i8, ptr %13, i64 28
-  %17 = getelementptr inbounds i8, ptr %11, i64 24
-  store ptr %16, ptr %17, align 8, !noalias !82
-  store <4 x i32> %6, ptr %13, align 4, !noalias !82
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 16
-  store <2 x i32> %8, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !82
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 24
-  store i32 %10, ptr %.sroa.7.0..sroa_idx.i, align 4, !noalias !82
-  %18 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %16, ptr %18, align 8, !noalias !82
-  store ptr %11, ptr %3, align 8, !alias.scope !82
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %19, ptr %19, align 8, !alias.scope !82
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
-  invoke void @_ZNK7testing8internal11ValueArray3IPKcS3_S3_EcvNS0_14ParamGeneratorIT_EEINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::internal::ParamGenerator.70") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %20)
-          to label %21 unwind label %63
+23:                                               ; preds = %.noexc
+  store ptr %21, ptr %20, align 8, !noalias !82
+  %24 = getelementptr inbounds i8, ptr %21, i64 28
+  %25 = getelementptr inbounds i8, ptr %19, i64 24
+  store ptr %24, ptr %25, align 8, !noalias !82
+  store i32 %6, ptr %21, align 4, !noalias !82
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 4
+  store i32 %8, ptr %.sroa.2.0..sroa_idx.i, align 4, !noalias !82
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 8
+  store i32 %10, ptr %.sroa.3.0..sroa_idx.i, align 4, !noalias !82
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 12
+  store i32 %12, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !82
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 16
+  store i32 %14, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !82
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 20
+  store i32 %16, ptr %.sroa.6.0..sroa_idx.i, align 4, !noalias !82
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 24
+  store i32 %18, ptr %.sroa.7.0..sroa_idx.i, align 4, !noalias !82
+  %26 = getelementptr inbounds i8, ptr %19, i64 16
+  store ptr %24, ptr %26, align 8, !noalias !82
+  store ptr %19, ptr %3, align 8, !alias.scope !82
+  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %27, ptr %27, align 8, !alias.scope !82
+  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  invoke void @_ZNK7testing8internal11ValueArray3IPKcS3_S3_EcvNS0_14ParamGeneratorIT_EEINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::internal::ParamGenerator.70") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %28)
+          to label %29 unwind label %71
 
-21:                                               ; preds = %15
+29:                                               ; preds = %23
   invoke fastcc void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_113Feature2DTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKNS0_14ParamGeneratorIS4_EERKNSC_ISA_EE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %22 unwind label %65
-
-22:                                               ; preds = %21
-  store ptr %5, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %23, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i unwind label %40
-
-.noexc.i.i:                                       ; preds = %22
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, %24
-  br i1 %26, label %29, label %.preheader.i.i.i.i
-
-.preheader.i.i.i.i:                               ; preds = %.noexc.i.i, %.preheader.i.i.i.i
-  %.0.i.i.i.i = phi ptr [ %27, %.preheader.i.i.i.i ], [ %25, %.noexc.i.i ]
-  %27 = load ptr, ptr %.0.i.i.i.i, align 8
-  %.not.i.i.i.i = icmp eq ptr %27, %24
-  br i1 %.not.i.i.i.i, label %28, label %.preheader.i.i.i.i, !llvm.loop !24
-
-28:                                               ; preds = %.preheader.i.i.i.i
-  store ptr %25, ptr %.0.i.i.i.i, align 8
-  br label %29
-
-29:                                               ; preds = %28, %.noexc.i.i
-  invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i unwind label %30
+          to label %30 unwind label %73
 
 30:                                               ; preds = %29
-  %31 = landingpad { ptr, i32 }
+  store ptr %5, ptr %0, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %31, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
+          to label %.noexc.i.i unwind label %48
+
+.noexc.i.i:                                       ; preds = %30
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, %32
+  br i1 %34, label %37, label %.preheader.i.i.i.i
+
+.preheader.i.i.i.i:                               ; preds = %.noexc.i.i, %.preheader.i.i.i.i
+  %.0.i.i.i.i = phi ptr [ %35, %.preheader.i.i.i.i ], [ %33, %.noexc.i.i ]
+  %35 = load ptr, ptr %.0.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %35, %32
+  br i1 %.not.i.i.i.i, label %36, label %.preheader.i.i.i.i, !llvm.loop !24
+
+36:                                               ; preds = %.preheader.i.i.i.i
+  store ptr %33, ptr %.0.i.i.i.i, align 8
+  br label %37
+
+37:                                               ; preds = %36, %.noexc.i.i
+  invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
+          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i unwind label %38
+
+38:                                               ; preds = %37
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #28
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #28
   unreachable
 
-_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i: ; preds = %29
-  br i1 %26, label %33, label %_ZN7testing8internal14ParamGeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i: ; preds = %37
+  br i1 %34, label %41, label %_ZN7testing8internal14ParamGeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-33:                                               ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i
-  %34 = load ptr, ptr %4, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %_ZN7testing8internal14ParamGeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %36
+41:                                               ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i
+  %42 = load ptr, ptr %4, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %_ZN7testing8internal14ParamGeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %44
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %34) #26
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %42, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(8) %42) #26
   br label %_ZN7testing8internal14ParamGeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-40:                                               ; preds = %22
-  %41 = landingpad { ptr, i32 }
-          catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #28
-  unreachable
-
-_ZN7testing8internal14ParamGeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i, %33, %36
-  invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %.noexc.i.i9 unwind label %58
-
-.noexc.i.i9:                                      ; preds = %_ZN7testing8internal14ParamGeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  %43 = load ptr, ptr %19, align 8
-  %44 = icmp eq ptr %43, %19
-  br i1 %44, label %47, label %.preheader.i.i.i.i10
-
-.preheader.i.i.i.i10:                             ; preds = %.noexc.i.i9, %.preheader.i.i.i.i10
-  %.0.i.i.i.i11 = phi ptr [ %45, %.preheader.i.i.i.i10 ], [ %43, %.noexc.i.i9 ]
-  %45 = load ptr, ptr %.0.i.i.i.i11, align 8
-  %.not.i.i.i.i12 = icmp eq ptr %45, %19
-  br i1 %.not.i.i.i.i12, label %46, label %.preheader.i.i.i.i10, !llvm.loop !24
-
-46:                                               ; preds = %.preheader.i.i.i.i10
-  store ptr %43, ptr %.0.i.i.i.i11, align 8
-  br label %47
-
-47:                                               ; preds = %46, %.noexc.i.i9
-  invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
-          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i13 unwind label %48
-
-48:                                               ; preds = %47
+48:                                               ; preds = %30
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
   call void @__clang_call_terminate(ptr %50) #28
   unreachable
 
-_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i13: ; preds = %47
-  br i1 %44, label %51, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_113Feature2DTypeEED2Ev.exit
+_ZN7testing8internal14ParamGeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i, %41, %44
+  invoke void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
+          to label %.noexc.i.i9 unwind label %66
 
-51:                                               ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i13
-  %52 = load ptr, ptr %3, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_113Feature2DTypeEED2Ev.exit, label %54
+.noexc.i.i9:                                      ; preds = %_ZN7testing8internal14ParamGeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+  %51 = load ptr, ptr %27, align 8
+  %52 = icmp eq ptr %51, %27
+  br i1 %52, label %55, label %.preheader.i.i.i.i10
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %52, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(8) %52) #26
-  br label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_113Feature2DTypeEED2Ev.exit
+.preheader.i.i.i.i10:                             ; preds = %.noexc.i.i9, %.preheader.i.i.i.i10
+  %.0.i.i.i.i11 = phi ptr [ %53, %.preheader.i.i.i.i10 ], [ %51, %.noexc.i.i9 ]
+  %53 = load ptr, ptr %.0.i.i.i.i11, align 8
+  %.not.i.i.i.i12 = icmp eq ptr %53, %27
+  br i1 %.not.i.i.i.i12, label %54, label %.preheader.i.i.i.i10, !llvm.loop !24
 
-58:                                               ; preds = %_ZN7testing8internal14ParamGeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  %59 = landingpad { ptr, i32 }
+54:                                               ; preds = %.preheader.i.i.i.i10
+  store ptr %51, ptr %.0.i.i.i.i11, align 8
+  br label %55
+
+55:                                               ; preds = %54, %.noexc.i.i9
+  invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal18g_linked_ptr_mutexE)
+          to label %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i13 unwind label %56
+
+56:                                               ; preds = %55
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #28
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #28
   unreachable
 
-_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_113Feature2DTypeEED2Ev.exit: ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i13, %51, %54
+_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i13: ; preds = %55
+  br i1 %52, label %59, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_113Feature2DTypeEED2Ev.exit
+
+59:                                               ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i13
+  %60 = load ptr, ptr %3, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_113Feature2DTypeEED2Ev.exit, label %62
+
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %60, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  %65 = load ptr, ptr %64, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(8) %60) #26
+  br label %_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_113Feature2DTypeEED2Ev.exit
+
+66:                                               ; preds = %_ZN7testing8internal14ParamGeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+  %67 = landingpad { ptr, i32 }
+          catch ptr null
+  %68 = extractvalue { ptr, i32 } %67, 0
+  call void @__clang_call_terminate(ptr %68) #28
+  unreachable
+
+_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_113Feature2DTypeEED2Ev.exit: ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i13, %59, %62
   ret void
 
-61:                                               ; preds = %2
-  %62 = landingpad { ptr, i32 }
+69:                                               ; preds = %2
+  %70 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %76
 
-63:                                               ; preds = %15
-  %64 = landingpad { ptr, i32 }
+71:                                               ; preds = %23
+  %72 = landingpad { ptr, i32 }
           cleanup
-  br label %67
+  br label %75
 
-65:                                               ; preds = %21
-  %66 = landingpad { ptr, i32 }
+73:                                               ; preds = %29
+  %74 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal14ParamGeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  br label %67
+  br label %75
 
-67:                                               ; preds = %65, %63
-  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %64, %63 ]
+75:                                               ; preds = %73, %71
+  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %72, %71 ]
   call fastcc void @_ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_113Feature2DTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
-  br label %68
+  br label %76
 
-68:                                               ; preds = %61, %.body.i.i.i, %67
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %67 ], [ %62, %61 ], [ %14, %.body.i.i.i ]
+76:                                               ; preds = %69, %.body.i.i.i, %75
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %75 ], [ %70, %69 ], [ %22, %.body.i.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %5) #29
   resume { ptr, i32 } %.pn.pn
 }

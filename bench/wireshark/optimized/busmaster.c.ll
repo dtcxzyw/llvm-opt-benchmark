@@ -447,7 +447,7 @@ switch.edge:
   %6 = alloca %struct.canfd_frame, align 4
   %7 = alloca %struct.can_frame, align 4
   %8 = alloca %struct.tm, align 8
-  %9 = alloca %struct.tm, align 16
+  %9 = alloca %struct.tm, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, -2
@@ -461,7 +461,7 @@ switch.edge:
   store i32 -13, ptr %4, align 4
   %17 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str) #8
   store ptr %17, ptr %5, align 8
-  br label %144
+  br label %160
 
 18:                                               ; preds = %switch.edge
   %19 = icmp ult i32 %11, 6
@@ -545,107 +545,129 @@ switch.edge:
 73:                                               ; preds = %50, %29
   %74 = getelementptr inbounds i8, ptr %2, i64 24
   %75 = load i32, ptr %74, align 8
-  switch i32 %75, label %128 [
+  switch i32 %75, label %144 [
     i32 2, label %76
-    i32 1, label %95
+    i32 1, label %100
   ]
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds i8, ptr %2, i64 28
-  %78 = getelementptr inbounds i8, ptr %8, i64 16
-  %79 = load <2 x i32>, ptr %77, align 4
-  %80 = add <2 x i32> %79, <i32 -1900, i32 -1>
-  %81 = shufflevector <2 x i32> %80, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %81, ptr %78, align 8
-  %82 = getelementptr inbounds i8, ptr %2, i64 36
-  %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %8, i64 12
-  store i32 %83, ptr %84, align 4
-  %85 = load i32, ptr %3, align 4
-  %86 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %85, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %3, i64 4
-  %88 = load <2 x i32>, ptr %87, align 4
-  %89 = shufflevector <2 x i32> %88, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %89, ptr %8, align 8
-  %90 = getelementptr inbounds i8, ptr %8, i64 32
-  store i32 -1, ptr %90, align 8
-  %91 = call i64 @mktime(ptr noundef nonnull %8) #8
-  %92 = getelementptr inbounds i8, ptr %3, i64 12
-  %93 = load i32, ptr %92, align 4
-  %94 = mul i32 %93, 1000
-  br label %128
-
-95:                                               ; preds = %73
-  %96 = getelementptr inbounds i8, ptr %2, i64 28
-  %97 = getelementptr inbounds i8, ptr %9, i64 16
-  %98 = load <2 x i32>, ptr %96, align 4
-  %99 = add <2 x i32> %98, <i32 -1900, i32 -1>
-  %100 = shufflevector <2 x i32> %99, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %100, ptr %97, align 16
-  %101 = getelementptr inbounds i8, ptr %2, i64 36
-  %102 = load <4 x i32>, ptr %101, align 4
-  %103 = shufflevector <4 x i32> %102, <4 x i32> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i32> %103, ptr %9, align 16
-  %104 = getelementptr inbounds i8, ptr %9, i64 32
-  store i32 -1, ptr %104, align 16
-  %105 = call i64 @mktime(ptr noundef nonnull %9) #8
-  %106 = load i32, ptr %3, align 4
-  %107 = mul i32 %106, 3600
-  %108 = zext i32 %107 to i64
-  %109 = add i64 %105, %108
-  %110 = getelementptr inbounds i8, ptr %3, i64 4
-  %111 = load i32, ptr %110, align 4
-  %112 = mul i32 %111, 60
-  %113 = zext i32 %112 to i64
-  %114 = add i64 %109, %113
-  %115 = getelementptr inbounds i8, ptr %3, i64 8
-  %116 = load i32, ptr %115, align 4
-  %117 = zext i32 %116 to i64
-  %118 = add i64 %114, %117
-  %119 = getelementptr inbounds i8, ptr %2, i64 52
-  %120 = load i32, ptr %119, align 4
-  %121 = getelementptr inbounds i8, ptr %3, i64 12
-  %122 = load i32, ptr %121, align 4
-  %123 = add i32 %122, %120
-  %124 = icmp ugt i32 %123, 999999
-  %125 = add i32 %123, -1000000
-  %126 = zext i1 %124 to i64
-  %.1 = add i64 %118, %126
-  %.0 = select i1 %124, i32 %125, i32 %123
-  %127 = mul i32 %.0, 1000
-  br label %128
-
-128:                                              ; preds = %73, %95, %76
-  %not..not115 = phi i32 [ 1, %76 ], [ 1, %95 ], [ 0, %73 ]
-  %.0104 = phi i32 [ %94, %76 ], [ %127, %95 ], [ 0, %73 ]
-  %.0103 = phi i64 [ %91, %76 ], [ %.1, %95 ], [ 0, %73 ]
-  store i32 0, ptr %0, align 8
-  %129 = call ptr @wtap_block_create(i32 noundef 5) #8
-  %130 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr %129, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %not..not115, ptr %131, align 4
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.0103, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.0104, ptr %133, align 8
-  %134 = load i64, ptr %21, align 8
-  %135 = load i64, ptr %23, align 8
-  %136 = sub i64 %134, %135
-  %137 = trunc i64 %136 to i32
-  %138 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %137, ptr %138, align 8
-  %139 = load i64, ptr %21, align 8
-  %140 = load i64, ptr %23, align 8
-  %141 = sub i64 %139, %140
-  %142 = trunc i64 %141 to i32
-  %143 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %142, ptr %143, align 4
+  %78 = load i32, ptr %77, align 4
+  %79 = add i32 %78, -1900
+  %80 = getelementptr inbounds i8, ptr %8, i64 20
+  store i32 %79, ptr %80, align 4
+  %81 = getelementptr inbounds i8, ptr %2, i64 32
+  %82 = load i32, ptr %81, align 4
+  %83 = add i32 %82, -1
+  %84 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 %83, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %2, i64 36
+  %86 = load i32, ptr %85, align 4
+  %87 = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 %86, ptr %87, align 4
+  %88 = load i32, ptr %3, align 4
+  %89 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %88, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %3, i64 4
+  %91 = load i32, ptr %90, align 4
+  %92 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %91, ptr %92, align 4
+  %93 = getelementptr inbounds i8, ptr %3, i64 8
+  %94 = load i32, ptr %93, align 4
+  store i32 %94, ptr %8, align 8
+  %95 = getelementptr inbounds i8, ptr %8, i64 32
+  store i32 -1, ptr %95, align 8
+  %96 = call i64 @mktime(ptr noundef nonnull %8) #8
+  %97 = getelementptr inbounds i8, ptr %3, i64 12
+  %98 = load i32, ptr %97, align 4
+  %99 = mul i32 %98, 1000
   br label %144
 
-144:                                              ; preds = %128, %16
-  %.0102 = phi i32 [ 1, %128 ], [ 0, %16 ]
+100:                                              ; preds = %73
+  %101 = getelementptr inbounds i8, ptr %2, i64 28
+  %102 = load i32, ptr %101, align 4
+  %103 = add i32 %102, -1900
+  %104 = getelementptr inbounds i8, ptr %9, i64 20
+  store i32 %103, ptr %104, align 4
+  %105 = getelementptr inbounds i8, ptr %2, i64 32
+  %106 = load i32, ptr %105, align 4
+  %107 = add i32 %106, -1
+  %108 = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 %107, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %2, i64 36
+  %110 = load i32, ptr %109, align 4
+  %111 = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 %110, ptr %111, align 4
+  %112 = getelementptr inbounds i8, ptr %2, i64 40
+  %113 = load i32, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 %113, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %2, i64 44
+  %116 = load i32, ptr %115, align 4
+  %117 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %116, ptr %117, align 4
+  %118 = getelementptr inbounds i8, ptr %2, i64 48
+  %119 = load i32, ptr %118, align 8
+  store i32 %119, ptr %9, align 8
+  %120 = getelementptr inbounds i8, ptr %9, i64 32
+  store i32 -1, ptr %120, align 8
+  %121 = call i64 @mktime(ptr noundef nonnull %9) #8
+  %122 = load i32, ptr %3, align 4
+  %123 = mul i32 %122, 3600
+  %124 = zext i32 %123 to i64
+  %125 = add i64 %121, %124
+  %126 = getelementptr inbounds i8, ptr %3, i64 4
+  %127 = load i32, ptr %126, align 4
+  %128 = mul i32 %127, 60
+  %129 = zext i32 %128 to i64
+  %130 = add i64 %125, %129
+  %131 = getelementptr inbounds i8, ptr %3, i64 8
+  %132 = load i32, ptr %131, align 4
+  %133 = zext i32 %132 to i64
+  %134 = add i64 %130, %133
+  %135 = getelementptr inbounds i8, ptr %2, i64 52
+  %136 = load i32, ptr %135, align 4
+  %137 = getelementptr inbounds i8, ptr %3, i64 12
+  %138 = load i32, ptr %137, align 4
+  %139 = add i32 %138, %136
+  %140 = icmp ugt i32 %139, 999999
+  %141 = add i32 %139, -1000000
+  %142 = zext i1 %140 to i64
+  %.1 = add i64 %134, %142
+  %.0 = select i1 %140, i32 %141, i32 %139
+  %143 = mul i32 %.0, 1000
+  br label %144
+
+144:                                              ; preds = %73, %100, %76
+  %not..not115 = phi i32 [ 1, %76 ], [ 1, %100 ], [ 0, %73 ]
+  %.0104 = phi i32 [ %99, %76 ], [ %143, %100 ], [ 0, %73 ]
+  %.0103 = phi i64 [ %96, %76 ], [ %.1, %100 ], [ 0, %73 ]
+  store i32 0, ptr %0, align 8
+  %145 = call ptr @wtap_block_create(i32 noundef 5) #8
+  %146 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr %145, ptr %146, align 8
+  %147 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %not..not115, ptr %147, align 4
+  %148 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.0103, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %.0104, ptr %149, align 8
+  %150 = load i64, ptr %21, align 8
+  %151 = load i64, ptr %23, align 8
+  %152 = sub i64 %150, %151
+  %153 = trunc i64 %152 to i32
+  %154 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %153, ptr %154, align 8
+  %155 = load i64, ptr %21, align 8
+  %156 = load i64, ptr %23, align 8
+  %157 = sub i64 %155, %156
+  %158 = trunc i64 %157 to i32
+  %159 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %158, ptr %159, align 4
+  br label %160
+
+160:                                              ; preds = %144, %16
+  %.0102 = phi i32 [ 1, %144 ], [ 0, %16 ]
   ret i32 %.0102
 }
 

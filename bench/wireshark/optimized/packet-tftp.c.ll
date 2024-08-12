@@ -312,7 +312,7 @@ is_valid_request.exit:                            ; preds = %17
 45:                                               ; preds = %40, %35
   %46 = tail call ptr @find_conversation_pinfo(ptr noundef nonnull %1, i32 noundef 0) #6
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %73, label %48
+  br i1 %47, label %76, label %48
 
 48:                                               ; preds = %30, %45, %40, %21
   %.1 = phi ptr [ %29, %30 ], [ %39, %40 ], [ %46, %45 ], [ %22, %21 ]
@@ -342,31 +342,37 @@ is_valid_request.exit:                            ; preds = %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %61, i8 0, i64 30, i1 false)
   store i16 -1, ptr %62, align 2
   %63 = getelementptr inbounds i8, ptr %60, i64 40
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %60, i64 56
-  store i32 1, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %60, i64 64
-  store ptr null, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %.1, i64 24
-  %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %60, i64 72
-  store i32 %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %60, i64 76
-  store i32 -1, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %60, i64 80
-  store i32 1, ptr %70, align 8
-  %71 = load i32, ptr @proto_tftp, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %.1, i32 noundef %71, ptr noundef nonnull %60) #6
+  store i32 1, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %60, i64 44
+  store i32 0, ptr %64, align 4
+  %65 = getelementptr inbounds i8, ptr %60, i64 48
+  store i32 0, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %60, i64 52
+  store i32 0, ptr %66, align 4
+  %67 = getelementptr inbounds i8, ptr %60, i64 56
+  store i32 1, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %60, i64 64
+  store ptr null, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %.1, i64 24
+  %70 = load i32, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %60, i64 72
+  store i32 %70, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %60, i64 76
+  store i32 -1, ptr %72, align 4
+  %73 = getelementptr inbounds i8, ptr %60, i64 80
+  store i32 1, ptr %73, align 8
+  %74 = load i32, ptr @proto_tftp, align 4
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %.1, i32 noundef %74, ptr noundef nonnull %60) #6
   br label %tftp_info_for_conversation.exit
 
 tftp_info_for_conversation.exit:                  ; preds = %55, %58
   %.0.i38 = phi ptr [ %57, %55 ], [ %60, %58 ]
   tail call fastcc void @dissect_tftp_message(ptr noundef nonnull %.0.i38, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
-  %72 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %73
+  %75 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
+  br label %76
 
-73:                                               ; preds = %45, %tftp_info_for_conversation.exit
-  %.030 = phi i32 [ %72, %tftp_info_for_conversation.exit ], [ 0, %45 ]
+76:                                               ; preds = %45, %tftp_info_for_conversation.exit
+  %.030 = phi i32 [ %75, %tftp_info_for_conversation.exit ], [ 0, %45 ]
   ret i32 %.030
 }
 
@@ -432,11 +438,11 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal range(i32 0, 2) i32 @dissect_embeddedtftp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %6 = icmp ult i32 %5, 4
-  br i1 %6, label %31, label %7
+  br i1 %6, label %34, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #6
-  switch i16 %8, label %31 [
+  switch i16 %8, label %34 [
     i16 1, label %9
     i16 2, label %9
     i16 3, label %13
@@ -449,12 +455,12 @@ define internal range(i32 0, 2) i32 @dissect_embeddedtftp_heur(ptr noundef %0, p
 9:                                                ; preds = %7, %7
   %10 = tail call fastcc i32 @is_valid_request_body(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %31, label %13
+  br i1 %.not, label %34, label %13
 
 11:                                               ; preds = %7
   %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #6
   %switch = icmp ult i16 %12, 9
-  br i1 %switch, label %13, label %31
+  br i1 %switch, label %13, label %34
 
 13:                                               ; preds = %11, %7, %7, %7, %7, %9
   %14 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #6
@@ -472,29 +478,35 @@ define internal range(i32 0, 2) i32 @dissect_embeddedtftp_heur(ptr noundef %0, p
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %20, i8 0, i64 30, i1 false)
   store i16 -1, ptr %21, align 2
   %22 = getelementptr inbounds i8, ptr %19, i64 40
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 56
-  store i32 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 64
-  store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %14, i64 24
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 72
-  store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 76
-  store i32 -1, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %19, i64 80
-  store i32 1, ptr %29, align 8
-  %30 = load i32, ptr @proto_tftp, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %14, i32 noundef %30, ptr noundef nonnull %19) #6
+  store i32 1, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %19, i64 44
+  store i32 0, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %19, i64 48
+  store i32 0, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %19, i64 52
+  store i32 0, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %19, i64 56
+  store i32 1, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %19, i64 64
+  store ptr null, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %14, i64 24
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %19, i64 72
+  store i32 %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %19, i64 76
+  store i32 -1, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %19, i64 80
+  store i32 1, ptr %32, align 8
+  %33 = load i32, ptr @proto_tftp, align 4
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %14, i32 noundef %33, ptr noundef nonnull %19) #6
   br label %tftp_info_for_conversation.exit
 
 tftp_info_for_conversation.exit:                  ; preds = %13, %17
   %.0.i = phi ptr [ %16, %13 ], [ %19, %17 ]
   tail call fastcc void @dissect_tftp_message(ptr noundef nonnull %.0.i, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %31
+  br label %34
 
-31:                                               ; preds = %7, %11, %9, %4, %tftp_info_for_conversation.exit
+34:                                               ; preds = %7, %11, %9, %4, %tftp_info_for_conversation.exit
   %.0 = phi i32 [ 1, %tftp_info_for_conversation.exit ], [ 0, %4 ], [ 0, %9 ], [ 0, %11 ], [ 0, %7 ]
   ret i32 %.0
 }
@@ -503,7 +515,7 @@ tftp_info_for_conversation.exit:                  ; preds = %13, %17
 define internal range(i32 0, 2) i32 @dissect_tftp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call fastcc i32 @is_valid_request_body(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %24, label %6
+  br i1 %.not, label %27, label %6
 
 6:                                                ; preds = %4
   %7 = tail call fastcc ptr @create_tftp_conversation(ptr noundef %1)
@@ -521,29 +533,35 @@ define internal range(i32 0, 2) i32 @dissect_tftp_heur(ptr noundef %0, ptr nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %13, i8 0, i64 30, i1 false)
   store i16 -1, ptr %14, align 2
   %15 = getelementptr inbounds i8, ptr %12, i64 40
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 56
-  store i32 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 64
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 24
-  %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 72
-  store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 76
-  store i32 -1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %12, i64 80
-  store i32 1, ptr %22, align 8
-  %23 = load i32, ptr @proto_tftp, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %7, i32 noundef %23, ptr noundef nonnull %12) #6
+  store i32 1, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %12, i64 44
+  store i32 0, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %12, i64 48
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 52
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %12, i64 56
+  store i32 1, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %12, i64 64
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %12, i64 72
+  store i32 %22, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %12, i64 76
+  store i32 -1, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %12, i64 80
+  store i32 1, ptr %25, align 8
+  %26 = load i32, ptr @proto_tftp, align 4
+  tail call void @conversation_add_proto_data(ptr noundef %7, i32 noundef %26, ptr noundef nonnull %12) #6
   br label %tftp_info_for_conversation.exit
 
 tftp_info_for_conversation.exit:                  ; preds = %6, %10
   %.0.i = phi ptr [ %9, %6 ], [ %12, %10 ]
   tail call fastcc void @dissect_tftp_message(ptr noundef nonnull %.0.i, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %24
+  br label %27
 
-24:                                               ; preds = %4, %tftp_info_for_conversation.exit
+27:                                               ; preds = %4, %tftp_info_for_conversation.exit
   %.0 = phi i32 [ 1, %tftp_info_for_conversation.exit ], [ 0, %4 ]
   ret i32 %.0
 }

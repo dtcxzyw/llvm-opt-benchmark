@@ -5026,8 +5026,11 @@ i2b.exit:                                         ; preds = %if.then5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) @cache, i8 0, i64 80, i1 false)
   store i32 2304, ptr @cache, align 8
   store ptr getelementptr inbounds (i8, ptr @cache, i64 120), ptr getelementptr inbounds (i8, ptr @cache, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @cache, i64 88), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @cache, i64 92), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @cache, i64 96), align 8
   store i32 625, ptr getelementptr inbounds (i8, ptr @cache, i64 104), align 8
-  store <4 x i32> <i32 1, i32 2, i32 0, i32 1>, ptr getelementptr inbounds (i8, ptr @cache, i64 88), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @cache, i64 100), align 4
   store ptr getelementptr inbounds (i8, ptr @cache, i64 80), ptr @p5s, align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @cache, i64 80), align 8
   br label %if.end9

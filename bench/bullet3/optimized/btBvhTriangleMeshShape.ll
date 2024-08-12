@@ -922,6 +922,7 @@ entry:
   %cmp10 = icmp eq i32 %6, 0
   %7 = load ptr, ptr %vertexbase, align 8
   %8 = load i32, ptr %stride, align 4
+  %arrayidx.i23 = getelementptr inbounds i8, ptr %4, i64 12
   %arrayidx.i24 = getelementptr inbounds i8, ptr %4, i64 16
   br i1 %cmp10, label %for.body.us, label %for.body
 
@@ -956,15 +957,21 @@ sw.epilog.us:                                     ; preds = %sw.bb.us, %sw.bb3.u
   %mul11.us = mul nsw i32 %8, %graphicsindex.1.us
   %idx.ext12.us = sext i32 %mul11.us to i64
   %add.ptr13.us = getelementptr inbounds i8, ptr %7, i64 %idx.ext12.us
+  %12 = load float, ptr %add.ptr13.us, align 4
+  %13 = load float, ptr %m_scaling.i, align 4
+  %mul17.us = fmul float %12, %13
+  %arrayidx19.us = getelementptr inbounds i8, ptr %add.ptr13.us, i64 4
+  %14 = load float, ptr %arrayidx19.us, align 4
+  %15 = load float, ptr %arrayidx.i23, align 4
+  %mul21.us = fmul float %14, %15
   %arrayidx23.us = getelementptr inbounds i8, ptr %add.ptr13.us, i64 8
-  %12 = load float, ptr %arrayidx23.us, align 4
-  %13 = load float, ptr %arrayidx.i24, align 4
-  %mul25.us = fmul float %12, %13
+  %16 = load float, ptr %arrayidx23.us, align 4
+  %17 = load float, ptr %arrayidx.i24, align 4
+  %mul25.us = fmul float %16, %17
   %arrayidx27.us = getelementptr inbounds [3 x %class.btVector3], ptr %m_triangle, i64 0, i64 %indvars.iv32
-  %14 = load <2 x float>, ptr %add.ptr13.us, align 4
-  %15 = load <2 x float>, ptr %m_scaling.i, align 4
-  %16 = fmul <2 x float> %14, %15
-  store <2 x float> %16, ptr %arrayidx27.us, align 16
+  store float %mul17.us, ptr %arrayidx27.us, align 16
+  %ref.tmp.sroa.2.0.arrayidx27.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx27.us, i64 4
+  store float %mul21.us, ptr %ref.tmp.sroa.2.0.arrayidx27.sroa_idx.us, align 4
   %ref.tmp.sroa.3.0.arrayidx27.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx27.us, i64 8
   store float %mul25.us, ptr %ref.tmp.sroa.3.0.arrayidx27.sroa_idx.us, align 8
   %ref.tmp.sroa.4.0.arrayidx27.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx27.us, i64 12
@@ -984,37 +991,44 @@ for.body:                                         ; preds = %entry, %sw.epilog
 
 sw.bb:                                            ; preds = %for.body
   %arrayidx = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv
-  %17 = load i32, ptr %arrayidx, align 4
+  %18 = load i32, ptr %arrayidx, align 4
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %for.body
   %arrayidx5 = getelementptr inbounds i16, ptr %add.ptr, i64 %indvars.iv
-  %18 = load i16, ptr %arrayidx5, align 2
-  %conv = zext i16 %18 to i32
+  %19 = load i16, ptr %arrayidx5, align 2
+  %conv = zext i16 %19 to i32
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %for.body
   %arrayidx8 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv
-  %19 = load i8, ptr %arrayidx8, align 1
-  %conv9 = zext i8 %19 to i32
+  %20 = load i8, ptr %arrayidx8, align 1
+  %conv9 = zext i8 %20 to i32
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.body, %sw.bb6, %sw.bb3, %sw.bb
-  %graphicsindex.1 = phi i32 [ %graphicsindex.028, %for.body ], [ %conv9, %sw.bb6 ], [ %conv, %sw.bb3 ], [ %17, %sw.bb ]
+  %graphicsindex.1 = phi i32 [ %graphicsindex.028, %for.body ], [ %conv9, %sw.bb6 ], [ %conv, %sw.bb3 ], [ %18, %sw.bb ]
   %mul29 = mul nsw i32 %8, %graphicsindex.1
   %idx.ext30 = sext i32 %mul29 to i64
   %add.ptr31 = getelementptr inbounds i8, ptr %7, i64 %idx.ext30
+  %21 = load double, ptr %add.ptr31, align 8
+  %conv35 = fptrunc double %21 to float
+  %22 = load float, ptr %m_scaling.i, align 4
+  %mul37 = fmul float %22, %conv35
+  %arrayidx39 = getelementptr inbounds i8, ptr %add.ptr31, i64 8
+  %23 = load double, ptr %arrayidx39, align 8
+  %conv40 = fptrunc double %23 to float
+  %24 = load float, ptr %arrayidx.i23, align 4
+  %mul42 = fmul float %24, %conv40
   %arrayidx44 = getelementptr inbounds i8, ptr %add.ptr31, i64 16
-  %20 = load double, ptr %arrayidx44, align 8
-  %conv45 = fptrunc double %20 to float
-  %21 = load float, ptr %arrayidx.i24, align 4
-  %mul47 = fmul float %21, %conv45
+  %25 = load double, ptr %arrayidx44, align 8
+  %conv45 = fptrunc double %25 to float
+  %26 = load float, ptr %arrayidx.i24, align 4
+  %mul47 = fmul float %26, %conv45
   %arrayidx49 = getelementptr inbounds [3 x %class.btVector3], ptr %m_triangle, i64 0, i64 %indvars.iv
-  %22 = load <2 x double>, ptr %add.ptr31, align 8
-  %23 = fptrunc <2 x double> %22 to <2 x float>
-  %24 = load <2 x float>, ptr %m_scaling.i, align 4
-  %25 = fmul <2 x float> %24, %23
-  store <2 x float> %25, ptr %arrayidx49, align 16
+  store float %mul37, ptr %arrayidx49, align 16
+  %ref.tmp32.sroa.2.0.arrayidx49.sroa_idx = getelementptr inbounds i8, ptr %arrayidx49, i64 4
+  store float %mul42, ptr %ref.tmp32.sroa.2.0.arrayidx49.sroa_idx, align 4
   %ref.tmp32.sroa.3.0.arrayidx49.sroa_idx = getelementptr inbounds i8, ptr %arrayidx49, i64 8
   store float %mul47, ptr %ref.tmp32.sroa.3.0.arrayidx49.sroa_idx, align 8
   %ref.tmp32.sroa.4.0.arrayidx49.sroa_idx = getelementptr inbounds i8, ptr %arrayidx49, i64 12
@@ -1025,16 +1039,16 @@ sw.epilog:                                        ; preds = %for.body, %sw.bb6, 
 
 for.end:                                          ; preds = %sw.epilog, %sw.epilog.us
   %m_callback = getelementptr inbounds i8, ptr %this, i64 16
-  %26 = load ptr, ptr %m_callback, align 8
-  %vtable50 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %m_callback, align 8
+  %vtable50 = load ptr, ptr %27, align 8
   %vfn51 = getelementptr inbounds i8, ptr %vtable50, i64 16
-  %27 = load ptr, ptr %vfn51, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %m_triangle, i32 noundef %nodeSubPart, i32 noundef %nodeTriangleIndex)
-  %28 = load ptr, ptr %m_meshInterface, align 8
-  %vtable53 = load ptr, ptr %28, align 8
+  %28 = load ptr, ptr %vfn51, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %m_triangle, i32 noundef %nodeSubPart, i32 noundef %nodeTriangleIndex)
+  %29 = load ptr, ptr %m_meshInterface, align 8
+  %vtable53 = load ptr, ptr %29, align 8
   %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 48
-  %29 = load ptr, ptr %vfn54, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(24) %28, i32 noundef %nodeSubPart)
+  %30 = load ptr, ptr %vfn54, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef %nodeSubPart)
   ret void
 }
 
@@ -1078,6 +1092,7 @@ entry:
   %cmp10 = icmp eq i32 %6, 0
   %7 = load ptr, ptr %vertexbase, align 8
   %8 = load i32, ptr %stride, align 4
+  %arrayidx.i23 = getelementptr inbounds i8, ptr %4, i64 12
   %arrayidx.i24 = getelementptr inbounds i8, ptr %4, i64 16
   br i1 %cmp10, label %for.body.us, label %for.body
 
@@ -1112,15 +1127,21 @@ sw.epilog.us:                                     ; preds = %sw.bb.us, %sw.bb3.u
   %mul11.us = mul nsw i32 %8, %graphicsindex.1.us
   %idx.ext12.us = sext i32 %mul11.us to i64
   %add.ptr13.us = getelementptr inbounds i8, ptr %7, i64 %idx.ext12.us
+  %12 = load float, ptr %add.ptr13.us, align 4
+  %13 = load float, ptr %m_scaling.i, align 4
+  %mul17.us = fmul float %12, %13
+  %arrayidx19.us = getelementptr inbounds i8, ptr %add.ptr13.us, i64 4
+  %14 = load float, ptr %arrayidx19.us, align 4
+  %15 = load float, ptr %arrayidx.i23, align 4
+  %mul21.us = fmul float %14, %15
   %arrayidx23.us = getelementptr inbounds i8, ptr %add.ptr13.us, i64 8
-  %12 = load float, ptr %arrayidx23.us, align 4
-  %13 = load float, ptr %arrayidx.i24, align 4
-  %mul25.us = fmul float %12, %13
+  %16 = load float, ptr %arrayidx23.us, align 4
+  %17 = load float, ptr %arrayidx.i24, align 4
+  %mul25.us = fmul float %16, %17
   %arrayidx27.us = getelementptr inbounds [3 x %class.btVector3], ptr %m_triangle, i64 0, i64 %indvars.iv32
-  %14 = load <2 x float>, ptr %add.ptr13.us, align 4
-  %15 = load <2 x float>, ptr %m_scaling.i, align 4
-  %16 = fmul <2 x float> %14, %15
-  store <2 x float> %16, ptr %arrayidx27.us, align 16
+  store float %mul17.us, ptr %arrayidx27.us, align 16
+  %ref.tmp.sroa.2.0.arrayidx27.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx27.us, i64 4
+  store float %mul21.us, ptr %ref.tmp.sroa.2.0.arrayidx27.sroa_idx.us, align 4
   %ref.tmp.sroa.3.0.arrayidx27.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx27.us, i64 8
   store float %mul25.us, ptr %ref.tmp.sroa.3.0.arrayidx27.sroa_idx.us, align 8
   %ref.tmp.sroa.4.0.arrayidx27.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx27.us, i64 12
@@ -1140,37 +1161,44 @@ for.body:                                         ; preds = %entry, %sw.epilog
 
 sw.bb:                                            ; preds = %for.body
   %arrayidx = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv
-  %17 = load i32, ptr %arrayidx, align 4
+  %18 = load i32, ptr %arrayidx, align 4
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %for.body
   %arrayidx5 = getelementptr inbounds i16, ptr %add.ptr, i64 %indvars.iv
-  %18 = load i16, ptr %arrayidx5, align 2
-  %conv = zext i16 %18 to i32
+  %19 = load i16, ptr %arrayidx5, align 2
+  %conv = zext i16 %19 to i32
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %for.body
   %arrayidx8 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv
-  %19 = load i8, ptr %arrayidx8, align 1
-  %conv9 = zext i8 %19 to i32
+  %20 = load i8, ptr %arrayidx8, align 1
+  %conv9 = zext i8 %20 to i32
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.body, %sw.bb6, %sw.bb3, %sw.bb
-  %graphicsindex.1 = phi i32 [ %graphicsindex.028, %for.body ], [ %conv9, %sw.bb6 ], [ %conv, %sw.bb3 ], [ %17, %sw.bb ]
+  %graphicsindex.1 = phi i32 [ %graphicsindex.028, %for.body ], [ %conv9, %sw.bb6 ], [ %conv, %sw.bb3 ], [ %18, %sw.bb ]
   %mul29 = mul nsw i32 %8, %graphicsindex.1
   %idx.ext30 = sext i32 %mul29 to i64
   %add.ptr31 = getelementptr inbounds i8, ptr %7, i64 %idx.ext30
+  %21 = load double, ptr %add.ptr31, align 8
+  %conv35 = fptrunc double %21 to float
+  %22 = load float, ptr %m_scaling.i, align 4
+  %mul37 = fmul float %22, %conv35
+  %arrayidx39 = getelementptr inbounds i8, ptr %add.ptr31, i64 8
+  %23 = load double, ptr %arrayidx39, align 8
+  %conv40 = fptrunc double %23 to float
+  %24 = load float, ptr %arrayidx.i23, align 4
+  %mul42 = fmul float %24, %conv40
   %arrayidx44 = getelementptr inbounds i8, ptr %add.ptr31, i64 16
-  %20 = load double, ptr %arrayidx44, align 8
-  %conv45 = fptrunc double %20 to float
-  %21 = load float, ptr %arrayidx.i24, align 4
-  %mul47 = fmul float %21, %conv45
+  %25 = load double, ptr %arrayidx44, align 8
+  %conv45 = fptrunc double %25 to float
+  %26 = load float, ptr %arrayidx.i24, align 4
+  %mul47 = fmul float %26, %conv45
   %arrayidx49 = getelementptr inbounds [3 x %class.btVector3], ptr %m_triangle, i64 0, i64 %indvars.iv
-  %22 = load <2 x double>, ptr %add.ptr31, align 8
-  %23 = fptrunc <2 x double> %22 to <2 x float>
-  %24 = load <2 x float>, ptr %m_scaling.i, align 4
-  %25 = fmul <2 x float> %24, %23
-  store <2 x float> %25, ptr %arrayidx49, align 16
+  store float %mul37, ptr %arrayidx49, align 16
+  %ref.tmp32.sroa.2.0.arrayidx49.sroa_idx = getelementptr inbounds i8, ptr %arrayidx49, i64 4
+  store float %mul42, ptr %ref.tmp32.sroa.2.0.arrayidx49.sroa_idx, align 4
   %ref.tmp32.sroa.3.0.arrayidx49.sroa_idx = getelementptr inbounds i8, ptr %arrayidx49, i64 8
   store float %mul47, ptr %ref.tmp32.sroa.3.0.arrayidx49.sroa_idx, align 8
   %ref.tmp32.sroa.4.0.arrayidx49.sroa_idx = getelementptr inbounds i8, ptr %arrayidx49, i64 12
@@ -1181,16 +1209,16 @@ sw.epilog:                                        ; preds = %for.body, %sw.bb6, 
 
 for.end:                                          ; preds = %sw.epilog, %sw.epilog.us
   %m_callback = getelementptr inbounds i8, ptr %this, i64 16
-  %26 = load ptr, ptr %m_callback, align 8
-  %vtable50 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %m_callback, align 8
+  %vtable50 = load ptr, ptr %27, align 8
   %vfn51 = getelementptr inbounds i8, ptr %vtable50, i64 16
-  %27 = load ptr, ptr %vfn51, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %m_triangle, i32 noundef %nodeSubPart, i32 noundef %nodeTriangleIndex)
-  %28 = load ptr, ptr %m_meshInterface, align 8
-  %vtable53 = load ptr, ptr %28, align 8
+  %28 = load ptr, ptr %vfn51, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %m_triangle, i32 noundef %nodeSubPart, i32 noundef %nodeTriangleIndex)
+  %29 = load ptr, ptr %m_meshInterface, align 8
+  %vtable53 = load ptr, ptr %29, align 8
   %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 48
-  %29 = load ptr, ptr %vfn54, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(24) %28, i32 noundef %nodeSubPart)
+  %30 = load ptr, ptr %vfn54, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef %nodeSubPart)
   ret void
 }
 
@@ -1234,6 +1262,7 @@ entry:
   %cmp14 = icmp eq i32 %7, 0
   %8 = load ptr, ptr %vertexbase, align 8
   %9 = load i32, ptr %stride, align 4
+  %arrayidx.i23 = getelementptr inbounds i8, ptr %5, i64 12
   %arrayidx.i24 = getelementptr inbounds i8, ptr %5, i64 16
   %m_triangle52 = getelementptr inbounds i8, ptr %this, i64 24
   br i1 %cmp14, label %for.body.us, label %entry.split
@@ -1267,15 +1296,21 @@ cond.end12.us:                                    ; preds = %cond.false8.us, %co
   %mul15.us = mul nsw i32 %9, %cond13.us
   %idx.ext16.us = sext i32 %mul15.us to i64
   %add.ptr17.us = getelementptr inbounds i8, ptr %8, i64 %idx.ext16.us
+  %13 = load float, ptr %add.ptr17.us, align 4
+  %14 = load float, ptr %m_scaling.i, align 4
+  %mul21.us = fmul float %13, %14
+  %arrayidx23.us = getelementptr inbounds i8, ptr %add.ptr17.us, i64 4
+  %15 = load float, ptr %arrayidx23.us, align 4
+  %16 = load float, ptr %arrayidx.i23, align 4
+  %mul25.us = fmul float %15, %16
   %arrayidx27.us = getelementptr inbounds i8, ptr %add.ptr17.us, i64 8
-  %13 = load float, ptr %arrayidx27.us, align 4
-  %14 = load float, ptr %arrayidx.i24, align 4
-  %mul29.us = fmul float %13, %14
+  %17 = load float, ptr %arrayidx27.us, align 4
+  %18 = load float, ptr %arrayidx.i24, align 4
+  %mul29.us = fmul float %17, %18
   %arrayidx31.us = getelementptr inbounds [3 x %class.btVector3], ptr %m_triangle52, i64 0, i64 %indvars.iv75
-  %15 = load <2 x float>, ptr %add.ptr17.us, align 4
-  %16 = load <2 x float>, ptr %m_scaling.i, align 4
-  %17 = fmul <2 x float> %15, %16
-  store <2 x float> %17, ptr %arrayidx31.us, align 8
+  store float %mul21.us, ptr %arrayidx31.us, align 8
+  %ref.tmp.sroa.2.0.arrayidx31.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx31.us, i64 4
+  store float %mul25.us, ptr %ref.tmp.sroa.2.0.arrayidx31.sroa_idx.us, align 4
   %ref.tmp.sroa.3.0.arrayidx31.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx31.us, i64 8
   store float %mul29.us, ptr %ref.tmp.sroa.3.0.arrayidx31.sroa_idx.us, align 8
   %ref.tmp.sroa.4.0.arrayidx31.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx31.us, i64 12
@@ -1293,22 +1328,29 @@ entry.split:                                      ; preds = %entry
 for.body.us29:                                    ; preds = %entry.split, %for.body.us29
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %for.body.us29 ], [ 2, %entry.split ]
   %arrayidx.us33 = getelementptr inbounds i16, ptr %add.ptr, i64 %indvars.iv69
-  %18 = load i16, ptr %arrayidx.us33, align 2
-  %conv.us34 = zext i16 %18 to i32
+  %19 = load i16, ptr %arrayidx.us33, align 2
+  %conv.us34 = zext i16 %19 to i32
   %mul33.us = mul nsw i32 %9, %conv.us34
   %idx.ext34.us = sext i32 %mul33.us to i64
   %add.ptr35.us = getelementptr inbounds i8, ptr %8, i64 %idx.ext34.us
+  %20 = load double, ptr %add.ptr35.us, align 8
+  %conv39.us = fptrunc double %20 to float
+  %21 = load float, ptr %m_scaling.i, align 4
+  %mul41.us = fmul float %21, %conv39.us
+  %arrayidx43.us = getelementptr inbounds i8, ptr %add.ptr35.us, i64 8
+  %22 = load double, ptr %arrayidx43.us, align 8
+  %conv44.us = fptrunc double %22 to float
+  %23 = load float, ptr %arrayidx.i23, align 4
+  %mul46.us = fmul float %23, %conv44.us
   %arrayidx48.us = getelementptr inbounds i8, ptr %add.ptr35.us, i64 16
-  %19 = load double, ptr %arrayidx48.us, align 8
-  %conv49.us = fptrunc double %19 to float
-  %20 = load float, ptr %arrayidx.i24, align 4
-  %mul51.us = fmul float %20, %conv49.us
+  %24 = load double, ptr %arrayidx48.us, align 8
+  %conv49.us = fptrunc double %24 to float
+  %25 = load float, ptr %arrayidx.i24, align 4
+  %mul51.us = fmul float %25, %conv49.us
   %arrayidx54.us = getelementptr inbounds [3 x %class.btVector3], ptr %m_triangle52, i64 0, i64 %indvars.iv69
-  %21 = load <2 x double>, ptr %add.ptr35.us, align 8
-  %22 = fptrunc <2 x double> %21 to <2 x float>
-  %23 = load <2 x float>, ptr %m_scaling.i, align 4
-  %24 = fmul <2 x float> %23, %22
-  store <2 x float> %24, ptr %arrayidx54.us, align 8
+  store float %mul41.us, ptr %arrayidx54.us, align 8
+  %ref.tmp36.sroa.2.0.arrayidx54.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx54.us, i64 4
+  store float %mul46.us, ptr %ref.tmp36.sroa.2.0.arrayidx54.sroa_idx.us, align 4
   %ref.tmp36.sroa.3.0.arrayidx54.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx54.us, i64 8
   store float %mul51.us, ptr %ref.tmp36.sroa.3.0.arrayidx54.sroa_idx.us, align 8
   %ref.tmp36.sroa.4.0.arrayidx54.sroa_idx.us = getelementptr inbounds i8, ptr %arrayidx54.us, i64 12
@@ -1320,21 +1362,28 @@ for.body.us29:                                    ; preds = %entry.split, %for.b
 for.body.us40:                                    ; preds = %entry.split, %for.body.us40
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.us40 ], [ 2, %entry.split ]
   %arrayidx7.us44 = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv
-  %25 = load i32, ptr %arrayidx7.us44, align 4
-  %mul33.us47 = mul nsw i32 %9, %25
+  %26 = load i32, ptr %arrayidx7.us44, align 4
+  %mul33.us47 = mul nsw i32 %9, %26
   %idx.ext34.us48 = sext i32 %mul33.us47 to i64
   %add.ptr35.us49 = getelementptr inbounds i8, ptr %8, i64 %idx.ext34.us48
+  %27 = load double, ptr %add.ptr35.us49, align 8
+  %conv39.us50 = fptrunc double %27 to float
+  %28 = load float, ptr %m_scaling.i, align 4
+  %mul41.us51 = fmul float %28, %conv39.us50
+  %arrayidx43.us52 = getelementptr inbounds i8, ptr %add.ptr35.us49, i64 8
+  %29 = load double, ptr %arrayidx43.us52, align 8
+  %conv44.us53 = fptrunc double %29 to float
+  %30 = load float, ptr %arrayidx.i23, align 4
+  %mul46.us54 = fmul float %30, %conv44.us53
   %arrayidx48.us55 = getelementptr inbounds i8, ptr %add.ptr35.us49, i64 16
-  %26 = load double, ptr %arrayidx48.us55, align 8
-  %conv49.us56 = fptrunc double %26 to float
-  %27 = load float, ptr %arrayidx.i24, align 4
-  %mul51.us57 = fmul float %27, %conv49.us56
+  %31 = load double, ptr %arrayidx48.us55, align 8
+  %conv49.us56 = fptrunc double %31 to float
+  %32 = load float, ptr %arrayidx.i24, align 4
+  %mul51.us57 = fmul float %32, %conv49.us56
   %arrayidx54.us59 = getelementptr inbounds [3 x %class.btVector3], ptr %m_triangle52, i64 0, i64 %indvars.iv
-  %28 = load <2 x double>, ptr %add.ptr35.us49, align 8
-  %29 = fptrunc <2 x double> %28 to <2 x float>
-  %30 = load <2 x float>, ptr %m_scaling.i, align 4
-  %31 = fmul <2 x float> %30, %29
-  store <2 x float> %31, ptr %arrayidx54.us59, align 8
+  store float %mul41.us51, ptr %arrayidx54.us59, align 8
+  %ref.tmp36.sroa.2.0.arrayidx54.sroa_idx.us60 = getelementptr inbounds i8, ptr %arrayidx54.us59, i64 4
+  store float %mul46.us54, ptr %ref.tmp36.sroa.2.0.arrayidx54.sroa_idx.us60, align 4
   %ref.tmp36.sroa.3.0.arrayidx54.sroa_idx.us61 = getelementptr inbounds i8, ptr %arrayidx54.us59, i64 8
   store float %mul51.us57, ptr %ref.tmp36.sroa.3.0.arrayidx54.sroa_idx.us61, align 8
   %ref.tmp36.sroa.4.0.arrayidx54.sroa_idx.us62 = getelementptr inbounds i8, ptr %arrayidx54.us59, i64 12
@@ -1346,22 +1395,29 @@ for.body.us40:                                    ; preds = %entry.split, %for.b
 for.body:                                         ; preds = %entry.split, %for.body
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %for.body ], [ 2, %entry.split ]
   %arrayidx10 = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv72
-  %32 = load i8, ptr %arrayidx10, align 1
-  %conv11 = zext i8 %32 to i32
+  %33 = load i8, ptr %arrayidx10, align 1
+  %conv11 = zext i8 %33 to i32
   %mul33 = mul nsw i32 %9, %conv11
   %idx.ext34 = sext i32 %mul33 to i64
   %add.ptr35 = getelementptr inbounds i8, ptr %8, i64 %idx.ext34
+  %34 = load double, ptr %add.ptr35, align 8
+  %conv39 = fptrunc double %34 to float
+  %35 = load float, ptr %m_scaling.i, align 4
+  %mul41 = fmul float %35, %conv39
+  %arrayidx43 = getelementptr inbounds i8, ptr %add.ptr35, i64 8
+  %36 = load double, ptr %arrayidx43, align 8
+  %conv44 = fptrunc double %36 to float
+  %37 = load float, ptr %arrayidx.i23, align 4
+  %mul46 = fmul float %37, %conv44
   %arrayidx48 = getelementptr inbounds i8, ptr %add.ptr35, i64 16
-  %33 = load double, ptr %arrayidx48, align 8
-  %conv49 = fptrunc double %33 to float
-  %34 = load float, ptr %arrayidx.i24, align 4
-  %mul51 = fmul float %34, %conv49
+  %38 = load double, ptr %arrayidx48, align 8
+  %conv49 = fptrunc double %38 to float
+  %39 = load float, ptr %arrayidx.i24, align 4
+  %mul51 = fmul float %39, %conv49
   %arrayidx54 = getelementptr inbounds [3 x %class.btVector3], ptr %m_triangle52, i64 0, i64 %indvars.iv72
-  %35 = load <2 x double>, ptr %add.ptr35, align 8
-  %36 = fptrunc <2 x double> %35 to <2 x float>
-  %37 = load <2 x float>, ptr %m_scaling.i, align 4
-  %38 = fmul <2 x float> %37, %36
-  store <2 x float> %38, ptr %arrayidx54, align 8
+  store float %mul41, ptr %arrayidx54, align 8
+  %ref.tmp36.sroa.2.0.arrayidx54.sroa_idx = getelementptr inbounds i8, ptr %arrayidx54, i64 4
+  store float %mul46, ptr %ref.tmp36.sroa.2.0.arrayidx54.sroa_idx, align 4
   %ref.tmp36.sroa.3.0.arrayidx54.sroa_idx = getelementptr inbounds i8, ptr %arrayidx54, i64 8
   store float %mul51, ptr %ref.tmp36.sroa.3.0.arrayidx54.sroa_idx, align 8
   %ref.tmp36.sroa.4.0.arrayidx54.sroa_idx = getelementptr inbounds i8, ptr %arrayidx54, i64 12
@@ -1372,16 +1428,16 @@ for.body:                                         ; preds = %entry.split, %for.b
 
 for.end:                                          ; preds = %for.body.us40, %for.body.us29, %for.body, %cond.end12.us
   %m_callback = getelementptr inbounds i8, ptr %this, i64 16
-  %39 = load ptr, ptr %m_callback, align 8
-  %vtable56 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %m_callback, align 8
+  %vtable56 = load ptr, ptr %40, align 8
   %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 16
-  %40 = load ptr, ptr %vfn57, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull %m_triangle52, i32 noundef %nodeSubPart, i32 noundef %nodeTriangleIndex)
-  %41 = load ptr, ptr %m_meshInterface, align 8
-  %vtable59 = load ptr, ptr %41, align 8
+  %41 = load ptr, ptr %vfn57, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %m_triangle52, i32 noundef %nodeSubPart, i32 noundef %nodeTriangleIndex)
+  %42 = load ptr, ptr %m_meshInterface, align 8
+  %vtable59 = load ptr, ptr %42, align 8
   %vfn60 = getelementptr inbounds i8, ptr %vtable59, i64 48
-  %42 = load ptr, ptr %vfn60, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(24) %41, i32 noundef %nodeSubPart)
+  %43 = load ptr, ptr %vfn60, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(24) %42, i32 noundef %nodeSubPart)
   ret void
 }
 

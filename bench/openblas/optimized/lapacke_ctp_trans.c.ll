@@ -64,7 +64,7 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %42 = or disjoint i32 %41, 1
   %43 = zext i1 %22 to i64
   %44 = sext i32 %3 to i64
-  br label %72
+  br label %75
 
 45:                                               ; preds = %56
   %46 = add nuw nsw i64 %49, 1
@@ -82,63 +82,71 @@ define void @LAPACKE_ctp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   br label %56
 
 56:                                               ; preds = %56, %48
-  %57 = phi i64 [ 0, %48 ], [ %69, %56 ]
-  %58 = phi i32 [ 0, %48 ], [ %70, %56 ]
+  %57 = phi i64 [ 0, %48 ], [ %72, %56 ]
+  %58 = phi i32 [ 0, %48 ], [ %73, %56 ]
   %59 = getelementptr { float, float }, ptr %55, i64 %57
-  %60 = add nsw i32 %58, %50
-  %61 = add i32 %33, %58
-  %62 = trunc i64 %57 to i32
-  %63 = mul nsw i32 %61, %62
-  %64 = sdiv i32 %63, 2
-  %65 = add nsw i32 %60, %64
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds { float, float }, ptr %5, i64 %66
-  %68 = load <2 x float>, ptr %59, align 4
-  store <2 x float> %68, ptr %67, align 4
-  %69 = add nuw nsw i64 %57, 1
-  %70 = xor i32 %62, -1
-  %71 = icmp eq i64 %69, %49
-  br i1 %71, label %45, label %56, !llvm.loop !6
+  %60 = load float, ptr %59, align 4
+  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %62 = load float, ptr %61, align 4
+  %63 = add nsw i32 %58, %50
+  %64 = add i32 %33, %58
+  %65 = trunc i64 %57 to i32
+  %66 = mul nsw i32 %64, %65
+  %67 = sdiv i32 %66, 2
+  %68 = add nsw i32 %63, %67
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds { float, float }, ptr %5, i64 %69
+  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  store float %60, ptr %70, align 4
+  store float %62, ptr %71, align 4
+  %72 = add nuw nsw i64 %57, 1
+  %73 = xor i32 %65, -1
+  %74 = icmp eq i64 %72, %49
+  br i1 %74, label %45, label %56, !llvm.loop !6
 
-72:                                               ; preds = %.loopexit, %40
-  %73 = phi i64 [ %43, %40 ], [ %100, %.loopexit ]
-  %74 = phi i32 [ 0, %40 ], [ %99, %.loopexit ]
-  %75 = phi i32 [ 0, %40 ], [ %98, %.loopexit ]
-  %76 = add nuw nsw i32 %75, %27
-  %77 = icmp slt i32 %76, %3
-  br i1 %77, label %78, label %.loopexit
+75:                                               ; preds = %.loopexit, %40
+  %76 = phi i64 [ %43, %40 ], [ %106, %.loopexit ]
+  %77 = phi i32 [ 0, %40 ], [ %105, %.loopexit ]
+  %78 = phi i32 [ 0, %40 ], [ %104, %.loopexit ]
+  %79 = add nuw nsw i32 %78, %27
+  %80 = icmp slt i32 %79, %3
+  br i1 %80, label %81, label %.loopexit
 
-78:                                               ; preds = %72
-  %79 = add i32 %42, %74
-  %80 = mul nsw i32 %79, %75
-  %81 = sdiv i32 %80, 2
-  %82 = add i32 %81, %74
-  br label %83
+81:                                               ; preds = %75
+  %82 = add i32 %42, %77
+  %83 = mul nsw i32 %82, %78
+  %84 = sdiv i32 %83, 2
+  %85 = add i32 %84, %77
+  br label %86
 
-83:                                               ; preds = %83, %78
-  %84 = phi i64 [ %73, %78 ], [ %89, %83 ]
-  %85 = trunc i64 %84 to i32
-  %86 = add i32 %82, %85
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds { float, float }, ptr %4, i64 %87
-  %89 = add nuw nsw i64 %84, 1
-  %90 = mul i64 %89, %84
-  %91 = trunc i64 %90 to i32
-  %92 = lshr i32 %91, 1
-  %93 = add nuw nsw i32 %92, %75
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds { float, float }, ptr %5, i64 %94
-  %96 = load <2 x float>, ptr %88, align 4
-  store <2 x float> %96, ptr %95, align 4
-  %97 = icmp slt i64 %89, %44
-  br i1 %97, label %83, label %.loopexit, !llvm.loop !7
+86:                                               ; preds = %86, %81
+  %87 = phi i64 [ %76, %81 ], [ %95, %86 ]
+  %88 = trunc i64 %87 to i32
+  %89 = add i32 %85, %88
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds { float, float }, ptr %4, i64 %90
+  %92 = load float, ptr %91, align 4
+  %93 = getelementptr inbounds i8, ptr %91, i64 4
+  %94 = load float, ptr %93, align 4
+  %95 = add nuw nsw i64 %87, 1
+  %96 = mul i64 %95, %87
+  %97 = trunc i64 %96 to i32
+  %98 = lshr i32 %97, 1
+  %99 = add nuw nsw i32 %98, %78
+  %100 = zext nneg i32 %99 to i64
+  %101 = getelementptr inbounds { float, float }, ptr %5, i64 %100
+  %102 = getelementptr inbounds i8, ptr %101, i64 4
+  store float %92, ptr %101, align 4
+  store float %94, ptr %102, align 4
+  %103 = icmp slt i64 %95, %44
+  br i1 %103, label %86, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %83, %72
-  %98 = add nuw nsw i32 %75, 1
-  %99 = xor i32 %75, -1
-  %100 = add nuw nsw i64 %73, 1
-  %101 = icmp eq i32 %98, %38
-  br i1 %101, label %.loopexit8, label %72, !llvm.loop !8
+.loopexit:                                        ; preds = %86, %75
+  %104 = add nuw nsw i32 %78, 1
+  %105 = xor i32 %78, -1
+  %106 = add nuw nsw i64 %76, 1
+  %107 = icmp eq i32 %104, %38
+  br i1 %107, label %.loopexit8, label %75, !llvm.loop !8
 
 .loopexit8:                                       ; preds = %45, %.loopexit, %37, %29, %23, %18, %10, %6
   ret void

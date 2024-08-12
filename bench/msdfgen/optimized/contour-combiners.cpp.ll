@@ -105,7 +105,9 @@ define weak_odr dso_local void @_ZN7msdfgen21SimpleContourCombinerINS_20TrueDist
 entry:
   %minDistance.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0.000000e+00>, ptr %minDistance.i, align 8
+  store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i, align 8
+  %dot.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  store double 0.000000e+00, ptr %dot.i.i, align 8
   ret void
 }
 
@@ -502,13 +504,19 @@ entry:
   %conv = trunc i64 %sub.ptr.div.i to i32
   %minDistance.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %shapeEdgeSelector, i8 0, i64 16, i1 false)
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0.000000e+00>, ptr %minDistance.i, align 8
+  store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i, align 8
+  %dot.i.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 24
+  store double 0.000000e+00, ptr %dot.i.i, align 8
   %minDistance.i38 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %innerEdgeSelector, i8 0, i64 16, i1 false)
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0.000000e+00>, ptr %minDistance.i38, align 8
+  store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i38, align 8
+  %dot.i.i39 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 24
+  store double 0.000000e+00, ptr %dot.i.i39, align 8
   %minDistance.i40 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outerEdgeSelector, i8 0, i64 16, i1 false)
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0.000000e+00>, ptr %minDistance.i40, align 8
+  store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i40, align 8
+  %dot.i.i41 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 24
+  store double 0.000000e+00, ptr %dot.i.i41, align 8
   call void @_ZN7msdfgen20TrueDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %shapeEdgeSelector, ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @_ZN7msdfgen20TrueDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %innerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @_ZN7msdfgen20TrueDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %outerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -1480,6 +1488,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %windings = getelementptr inbounds i8, ptr %this, i64 16
   %g.i35 = getelementptr inbounds i8, ptr %edgeDistance, i64 8
+  %b.i36 = getelementptr inbounds i8, ptr %edgeDistance, i64 16
   %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
@@ -1499,24 +1508,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 land.lhs.true:                                    ; preds = %for.body
   %6 = load double, ptr %edgeDistance, align 8
-  %7 = load <2 x double>, ptr %g.i35, align 8
-  %8 = extractelement <2 x double> %7, i64 0
-  %cmp.i3.i.i = fcmp olt double %6, %8
-  %cond.i4.i.i = select i1 %cmp.i3.i.i, double %8, double %6
-  %9 = insertelement <2 x double> poison, double %6, i64 0
-  %10 = insertelement <2 x double> %9, double %cond.i4.i.i, i64 1
-  %11 = fcmp olt <2 x double> %7, %10
-  %12 = select <2 x i1> %11, <2 x double> %7, <2 x double> %10
-  %13 = extractelement <2 x double> %12, i64 0
-  %14 = extractelement <2 x double> %12, i64 1
-  %cmp.i7.i.i = fcmp olt double %13, %14
-  %cond.i8.i.i = select i1 %cmp.i7.i.i, double %14, double %13
+  %7 = load double, ptr %g.i35, align 8
+  %8 = load double, ptr %b.i36, align 8
+  %cmp.i.i.i = fcmp olt double %7, %6
+  %cond.i.i.i = select i1 %cmp.i.i.i, double %7, double %6
+  %cmp.i3.i.i = fcmp olt double %6, %7
+  %cond.i4.i.i = select i1 %cmp.i3.i.i, double %7, double %6
+  %cmp.i5.i.i = fcmp ogt double %cond.i4.i.i, %8
+  %cond.i6.i.i = select i1 %cmp.i5.i.i, double %8, double %cond.i4.i.i
+  %cmp.i7.i.i = fcmp olt double %cond.i.i.i, %cond.i6.i.i
+  %cond.i8.i.i = select i1 %cmp.i7.i.i, double %cond.i6.i.i, double %cond.i.i.i
   %cmp14 = fcmp ult double %cond.i8.i.i, 0.000000e+00
   br i1 %cmp14, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %15 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i37 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %15, i64 %indvars.iv
+  %9 = load ptr, ptr %edgeSelectors, align 8
+  %add.ptr.i37 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %9, i64 %indvars.iv
   call void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i37)
   %.pre = load ptr, ptr %windings, align 8
   %add.ptr.i38.phi.trans.insert = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv
@@ -1524,30 +1531,28 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %16 = phi i32 [ %.pre271, %if.then ], [ %5, %for.body ]
-  %cmp21 = icmp slt i32 %16, 0
+  %10 = phi i32 [ %.pre271, %if.then ], [ %5, %for.body ]
+  %cmp21 = icmp slt i32 %10, 0
   br i1 %cmp21, label %land.lhs.true22, label %for.inc
 
 land.lhs.true22:                                  ; preds = %if.end
-  %17 = load double, ptr %edgeDistance, align 8
-  %18 = load <2 x double>, ptr %g.i35, align 8
-  %19 = extractelement <2 x double> %18, i64 0
-  %cmp.i3.i.i43 = fcmp olt double %17, %19
-  %cond.i4.i.i44 = select i1 %cmp.i3.i.i43, double %19, double %17
-  %20 = insertelement <2 x double> poison, double %17, i64 0
-  %21 = insertelement <2 x double> %20, double %cond.i4.i.i44, i64 1
-  %22 = fcmp olt <2 x double> %18, %21
-  %23 = select <2 x i1> %22, <2 x double> %18, <2 x double> %21
-  %24 = extractelement <2 x double> %23, i64 0
-  %25 = extractelement <2 x double> %23, i64 1
-  %cmp.i7.i.i47 = fcmp olt double %24, %25
-  %cond.i8.i.i48 = select i1 %cmp.i7.i.i47, double %25, double %24
+  %11 = load double, ptr %edgeDistance, align 8
+  %12 = load double, ptr %g.i35, align 8
+  %13 = load double, ptr %b.i36, align 8
+  %cmp.i.i.i41 = fcmp olt double %12, %11
+  %cond.i.i.i42 = select i1 %cmp.i.i.i41, double %12, double %11
+  %cmp.i3.i.i43 = fcmp olt double %11, %12
+  %cond.i4.i.i44 = select i1 %cmp.i3.i.i43, double %12, double %11
+  %cmp.i5.i.i45 = fcmp ogt double %cond.i4.i.i44, %13
+  %cond.i6.i.i46 = select i1 %cmp.i5.i.i45, double %13, double %cond.i4.i.i44
+  %cmp.i7.i.i47 = fcmp olt double %cond.i.i.i42, %cond.i6.i.i46
+  %cond.i8.i.i48 = select i1 %cmp.i7.i.i47, double %cond.i6.i.i46, double %cond.i.i.i42
   %cmp24 = fcmp ugt double %cond.i8.i.i48, 0.000000e+00
   br i1 %cmp24, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %land.lhs.true22
-  %26 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i49 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %26, i64 %indvars.iv
+  %14 = load ptr, ptr %edgeSelectors, align 8
+  %add.ptr.i49 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %14, i64 %indvars.iv
   call void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %outerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i49)
   br label %for.inc
 
@@ -1560,39 +1565,39 @@ for.end:                                          ; preds = %for.inc, %entry
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %shapeDistance, ptr noundef nonnull align 8 dereferenceable(160) %shapeEdgeSelector)
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %innerDistance, ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector)
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %outerDistance, ptr noundef nonnull align 8 dereferenceable(160) %outerEdgeSelector)
-  %27 = load double, ptr %innerDistance, align 8
+  %15 = load double, ptr %innerDistance, align 8
   %g.i50 = getelementptr inbounds i8, ptr %innerDistance, i64 8
-  %28 = load double, ptr %g.i50, align 8
+  %16 = load double, ptr %g.i50, align 8
   %b.i51 = getelementptr inbounds i8, ptr %innerDistance, i64 16
-  %29 = load double, ptr %b.i51, align 8
-  %cmp.i.i.i52 = fcmp olt double %28, %27
-  %cond.i.i.i53 = select i1 %cmp.i.i.i52, double %28, double %27
-  %cmp.i3.i.i54 = fcmp olt double %27, %28
-  %cond.i4.i.i55 = select i1 %cmp.i3.i.i54, double %28, double %27
-  %cmp.i5.i.i56 = fcmp ogt double %cond.i4.i.i55, %29
-  %cond.i6.i.i57 = select i1 %cmp.i5.i.i56, double %29, double %cond.i4.i.i55
+  %17 = load double, ptr %b.i51, align 8
+  %cmp.i.i.i52 = fcmp olt double %16, %15
+  %cond.i.i.i53 = select i1 %cmp.i.i.i52, double %16, double %15
+  %cmp.i3.i.i54 = fcmp olt double %15, %16
+  %cond.i4.i.i55 = select i1 %cmp.i3.i.i54, double %16, double %15
+  %cmp.i5.i.i56 = fcmp ogt double %cond.i4.i.i55, %17
+  %cond.i6.i.i57 = select i1 %cmp.i5.i.i56, double %17, double %cond.i4.i.i55
   %cmp.i7.i.i58 = fcmp olt double %cond.i.i.i53, %cond.i6.i.i57
   %cond.i8.i.i59 = select i1 %cmp.i7.i.i58, double %cond.i6.i.i57, double %cond.i.i.i53
-  %30 = load double, ptr %outerDistance, align 8
+  %18 = load double, ptr %outerDistance, align 8
   %g.i60 = getelementptr inbounds i8, ptr %outerDistance, i64 8
-  %31 = load double, ptr %g.i60, align 8
+  %19 = load double, ptr %g.i60, align 8
   %b.i61 = getelementptr inbounds i8, ptr %outerDistance, i64 16
-  %32 = load double, ptr %b.i61, align 8
-  %cmp.i.i.i62 = fcmp olt double %31, %30
-  %cond.i.i.i63 = select i1 %cmp.i.i.i62, double %31, double %30
-  %cmp.i3.i.i64 = fcmp olt double %30, %31
-  %cond.i4.i.i65 = select i1 %cmp.i3.i.i64, double %31, double %30
-  %cmp.i5.i.i66 = fcmp ogt double %cond.i4.i.i65, %32
-  %cond.i6.i.i67 = select i1 %cmp.i5.i.i66, double %32, double %cond.i4.i.i65
+  %20 = load double, ptr %b.i61, align 8
+  %cmp.i.i.i62 = fcmp olt double %19, %18
+  %cond.i.i.i63 = select i1 %cmp.i.i.i62, double %19, double %18
+  %cmp.i3.i.i64 = fcmp olt double %18, %19
+  %cond.i4.i.i65 = select i1 %cmp.i3.i.i64, double %19, double %18
+  %cmp.i5.i.i66 = fcmp ogt double %cond.i4.i.i65, %20
+  %cond.i6.i.i67 = select i1 %cmp.i5.i.i66, double %20, double %cond.i4.i.i65
   %cmp.i7.i.i68 = fcmp olt double %cond.i.i.i63, %cond.i6.i.i67
   %cond.i8.i.i69 = select i1 %cmp.i7.i.i68, double %cond.i6.i.i67, double %cond.i.i.i63
   %cmp32 = fcmp ult double %cond.i8.i.i59, 0.000000e+00
   br i1 %cmp32, label %if.else, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %for.end
-  %33 = call double @llvm.fabs.f64(double %cond.i8.i.i59)
-  %34 = call double @llvm.fabs.f64(double %cond.i8.i.i69)
-  %cmp34 = fcmp ugt double %33, %34
+  %21 = call double @llvm.fabs.f64(double %cond.i8.i.i59)
+  %22 = call double @llvm.fabs.f64(double %cond.i8.i.i69)
+  %cmp34 = fcmp ugt double %21, %22
   br i1 %cmp34, label %if.else, label %for.cond37.preheader
 
 for.cond37.preheader:                             ; preds = %land.lhs.true33
@@ -1607,32 +1612,32 @@ for.body39.lr.ph:                                 ; preds = %for.cond37.preheade
 
 for.body39:                                       ; preds = %for.body39.lr.ph, %for.inc57
   %indvars.iv256 = phi i64 [ 0, %for.body39.lr.ph ], [ %indvars.iv.next257, %for.inc57 ]
-  %distance.sroa.0.0234 = phi double [ %27, %for.body39.lr.ph ], [ %distance.sroa.0.1, %for.inc57 ]
-  %distance.sroa.13.0233 = phi double [ %28, %for.body39.lr.ph ], [ %distance.sroa.13.1, %for.inc57 ]
-  %distance.sroa.19.0232 = phi double [ %29, %for.body39.lr.ph ], [ %distance.sroa.19.1, %for.inc57 ]
-  %35 = load ptr, ptr %windings40, align 8
-  %add.ptr.i72 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv256
-  %36 = load i32, ptr %add.ptr.i72, align 4
-  %cmp43 = icmp sgt i32 %36, 0
+  %distance.sroa.0.0234 = phi double [ %15, %for.body39.lr.ph ], [ %distance.sroa.0.1, %for.inc57 ]
+  %distance.sroa.13.0233 = phi double [ %16, %for.body39.lr.ph ], [ %distance.sroa.13.1, %for.inc57 ]
+  %distance.sroa.19.0232 = phi double [ %17, %for.body39.lr.ph ], [ %distance.sroa.19.1, %for.inc57 ]
+  %23 = load ptr, ptr %windings40, align 8
+  %add.ptr.i72 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv256
+  %24 = load i32, ptr %add.ptr.i72, align 4
+  %cmp43 = icmp sgt i32 %24, 0
   br i1 %cmp43, label %if.then44, label %for.inc57
 
 if.then44:                                        ; preds = %for.body39
-  %37 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i73 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %37, i64 %indvars.iv256
+  %25 = load ptr, ptr %edgeSelectors, align 8
+  %add.ptr.i73 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %25, i64 %indvars.iv256
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %contourDistance, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i73)
-  %38 = load double, ptr %contourDistance, align 8
-  %39 = load double, ptr %g.i74, align 8
-  %40 = load double, ptr %b.i75, align 8
-  %cmp.i.i.i76 = fcmp olt double %39, %38
-  %cond.i.i.i77 = select i1 %cmp.i.i.i76, double %39, double %38
-  %cmp.i3.i.i78 = fcmp olt double %38, %39
-  %cond.i4.i.i79 = select i1 %cmp.i3.i.i78, double %39, double %38
-  %cmp.i5.i.i80 = fcmp ogt double %cond.i4.i.i79, %40
-  %cond.i6.i.i81 = select i1 %cmp.i5.i.i80, double %40, double %cond.i4.i.i79
+  %26 = load double, ptr %contourDistance, align 8
+  %27 = load double, ptr %g.i74, align 8
+  %28 = load double, ptr %b.i75, align 8
+  %cmp.i.i.i76 = fcmp olt double %27, %26
+  %cond.i.i.i77 = select i1 %cmp.i.i.i76, double %27, double %26
+  %cmp.i3.i.i78 = fcmp olt double %26, %27
+  %cond.i4.i.i79 = select i1 %cmp.i3.i.i78, double %27, double %26
+  %cmp.i5.i.i80 = fcmp ogt double %cond.i4.i.i79, %28
+  %cond.i6.i.i81 = select i1 %cmp.i5.i.i80, double %28, double %cond.i4.i.i79
   %cmp.i7.i.i82 = fcmp olt double %cond.i.i.i77, %cond.i6.i.i81
   %cond.i8.i.i83 = select i1 %cmp.i7.i.i82, double %cond.i6.i.i81, double %cond.i.i.i77
-  %41 = call double @llvm.fabs.f64(double %cond.i8.i.i83)
-  %cmp49 = fcmp olt double %41, %34
+  %29 = call double @llvm.fabs.f64(double %cond.i8.i.i83)
+  %cmp49 = fcmp olt double %29, %22
   br i1 %cmp49, label %land.lhs.true50, label %for.inc57
 
 land.lhs.true50:                                  ; preds = %if.then44
@@ -1651,9 +1656,9 @@ if.then54:                                        ; preds = %land.lhs.true50
   br label %for.inc57
 
 for.inc57:                                        ; preds = %for.body39, %if.then54, %land.lhs.true50, %if.then44
-  %distance.sroa.19.1 = phi double [ %40, %if.then54 ], [ %distance.sroa.19.0232, %land.lhs.true50 ], [ %distance.sroa.19.0232, %if.then44 ], [ %distance.sroa.19.0232, %for.body39 ]
-  %distance.sroa.13.1 = phi double [ %39, %if.then54 ], [ %distance.sroa.13.0233, %land.lhs.true50 ], [ %distance.sroa.13.0233, %if.then44 ], [ %distance.sroa.13.0233, %for.body39 ]
-  %distance.sroa.0.1 = phi double [ %38, %if.then54 ], [ %distance.sroa.0.0234, %land.lhs.true50 ], [ %distance.sroa.0.0234, %if.then44 ], [ %distance.sroa.0.0234, %for.body39 ]
+  %distance.sroa.19.1 = phi double [ %28, %if.then54 ], [ %distance.sroa.19.0232, %land.lhs.true50 ], [ %distance.sroa.19.0232, %if.then44 ], [ %distance.sroa.19.0232, %for.body39 ]
+  %distance.sroa.13.1 = phi double [ %27, %if.then54 ], [ %distance.sroa.13.0233, %land.lhs.true50 ], [ %distance.sroa.13.0233, %if.then44 ], [ %distance.sroa.13.0233, %for.body39 ]
+  %distance.sroa.0.1 = phi double [ %26, %if.then54 ], [ %distance.sroa.0.0234, %land.lhs.true50 ], [ %distance.sroa.0.0234, %if.then44 ], [ %distance.sroa.0.0234, %for.body39 ]
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count259
   br i1 %exitcond260.not, label %if.end91, label %for.body39, !llvm.loop !21
@@ -1663,9 +1668,9 @@ if.else:                                          ; preds = %land.lhs.true33, %f
   br i1 %cmp60, label %if.else89, label %land.lhs.true61
 
 land.lhs.true61:                                  ; preds = %if.else
-  %42 = call double @llvm.fabs.f64(double %cond.i8.i.i69)
-  %43 = call double @llvm.fabs.f64(double %cond.i8.i.i59)
-  %cmp62 = fcmp olt double %42, %43
+  %30 = call double @llvm.fabs.f64(double %cond.i8.i.i69)
+  %31 = call double @llvm.fabs.f64(double %cond.i8.i.i59)
+  %cmp62 = fcmp olt double %30, %31
   br i1 %cmp62, label %for.cond65.preheader, label %if.else89
 
 for.cond65.preheader:                             ; preds = %land.lhs.true61
@@ -1680,32 +1685,32 @@ for.body67.lr.ph:                                 ; preds = %for.cond65.preheade
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.inc86
   %indvars.iv261 = phi i64 [ 0, %for.body67.lr.ph ], [ %indvars.iv.next262, %for.inc86 ]
-  %distance.sroa.0.3241 = phi double [ %30, %for.body67.lr.ph ], [ %distance.sroa.0.4, %for.inc86 ]
-  %distance.sroa.13.3240 = phi double [ %31, %for.body67.lr.ph ], [ %distance.sroa.13.4, %for.inc86 ]
-  %distance.sroa.19.3239 = phi double [ %32, %for.body67.lr.ph ], [ %distance.sroa.19.4, %for.inc86 ]
-  %44 = load ptr, ptr %windings68, align 8
-  %add.ptr.i104 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv261
-  %45 = load i32, ptr %add.ptr.i104, align 4
-  %cmp71 = icmp slt i32 %45, 0
+  %distance.sroa.0.3241 = phi double [ %18, %for.body67.lr.ph ], [ %distance.sroa.0.4, %for.inc86 ]
+  %distance.sroa.13.3240 = phi double [ %19, %for.body67.lr.ph ], [ %distance.sroa.13.4, %for.inc86 ]
+  %distance.sroa.19.3239 = phi double [ %20, %for.body67.lr.ph ], [ %distance.sroa.19.4, %for.inc86 ]
+  %32 = load ptr, ptr %windings68, align 8
+  %add.ptr.i104 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv261
+  %33 = load i32, ptr %add.ptr.i104, align 4
+  %cmp71 = icmp slt i32 %33, 0
   br i1 %cmp71, label %if.then72, label %for.inc86
 
 if.then72:                                        ; preds = %for.body67
-  %46 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i105 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %46, i64 %indvars.iv261
+  %34 = load ptr, ptr %edgeSelectors, align 8
+  %add.ptr.i105 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %34, i64 %indvars.iv261
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %contourDistance73, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i105)
-  %47 = load double, ptr %contourDistance73, align 8
-  %48 = load double, ptr %g.i106, align 8
-  %49 = load double, ptr %b.i107, align 8
-  %cmp.i.i.i108 = fcmp olt double %48, %47
-  %cond.i.i.i109 = select i1 %cmp.i.i.i108, double %48, double %47
-  %cmp.i3.i.i110 = fcmp olt double %47, %48
-  %cond.i4.i.i111 = select i1 %cmp.i3.i.i110, double %48, double %47
-  %cmp.i5.i.i112 = fcmp ogt double %cond.i4.i.i111, %49
-  %cond.i6.i.i113 = select i1 %cmp.i5.i.i112, double %49, double %cond.i4.i.i111
+  %35 = load double, ptr %contourDistance73, align 8
+  %36 = load double, ptr %g.i106, align 8
+  %37 = load double, ptr %b.i107, align 8
+  %cmp.i.i.i108 = fcmp olt double %36, %35
+  %cond.i.i.i109 = select i1 %cmp.i.i.i108, double %36, double %35
+  %cmp.i3.i.i110 = fcmp olt double %35, %36
+  %cond.i4.i.i111 = select i1 %cmp.i3.i.i110, double %36, double %35
+  %cmp.i5.i.i112 = fcmp ogt double %cond.i4.i.i111, %37
+  %cond.i6.i.i113 = select i1 %cmp.i5.i.i112, double %37, double %cond.i4.i.i111
   %cmp.i7.i.i114 = fcmp olt double %cond.i.i.i109, %cond.i6.i.i113
   %cond.i8.i.i115 = select i1 %cmp.i7.i.i114, double %cond.i6.i.i113, double %cond.i.i.i109
-  %50 = call double @llvm.fabs.f64(double %cond.i8.i.i115)
-  %cmp78 = fcmp olt double %50, %43
+  %38 = call double @llvm.fabs.f64(double %cond.i8.i.i115)
+  %cmp78 = fcmp olt double %38, %31
   br i1 %cmp78, label %land.lhs.true79, label %for.inc86
 
 land.lhs.true79:                                  ; preds = %if.then72
@@ -1724,9 +1729,9 @@ if.then83:                                        ; preds = %land.lhs.true79
   br label %for.inc86
 
 for.inc86:                                        ; preds = %for.body67, %if.then83, %land.lhs.true79, %if.then72
-  %distance.sroa.19.4 = phi double [ %49, %if.then83 ], [ %distance.sroa.19.3239, %land.lhs.true79 ], [ %distance.sroa.19.3239, %if.then72 ], [ %distance.sroa.19.3239, %for.body67 ]
-  %distance.sroa.13.4 = phi double [ %48, %if.then83 ], [ %distance.sroa.13.3240, %land.lhs.true79 ], [ %distance.sroa.13.3240, %if.then72 ], [ %distance.sroa.13.3240, %for.body67 ]
-  %distance.sroa.0.4 = phi double [ %47, %if.then83 ], [ %distance.sroa.0.3241, %land.lhs.true79 ], [ %distance.sroa.0.3241, %if.then72 ], [ %distance.sroa.0.3241, %for.body67 ]
+  %distance.sroa.19.4 = phi double [ %37, %if.then83 ], [ %distance.sroa.19.3239, %land.lhs.true79 ], [ %distance.sroa.19.3239, %if.then72 ], [ %distance.sroa.19.3239, %for.body67 ]
+  %distance.sroa.13.4 = phi double [ %36, %if.then83 ], [ %distance.sroa.13.3240, %land.lhs.true79 ], [ %distance.sroa.13.3240, %if.then72 ], [ %distance.sroa.13.3240, %for.body67 ]
+  %distance.sroa.0.4 = phi double [ %35, %if.then83 ], [ %distance.sroa.0.3241, %land.lhs.true79 ], [ %distance.sroa.0.3241, %if.then72 ], [ %distance.sroa.0.3241, %for.body67 ]
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count264
   br i1 %exitcond265.not, label %if.end91, label %for.body67, !llvm.loop !22
@@ -1754,84 +1759,85 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   %distance.sroa.0.5249 = phi double [ %distance.sroa.0.2, %for.body95.lr.ph ], [ %distance.sroa.0.6, %for.inc115 ]
   %distance.sroa.13.5248 = phi double [ %distance.sroa.13.2, %for.body95.lr.ph ], [ %distance.sroa.13.6, %for.inc115 ]
   %distance.sroa.19.5247 = phi double [ %distance.sroa.19.2, %for.body95.lr.ph ], [ %distance.sroa.19.6, %for.inc115 ]
-  %51 = load ptr, ptr %windings96, align 8
-  %add.ptr.i136 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv266
-  %52 = load i32, ptr %add.ptr.i136, align 4
-  %cmp99.not = icmp eq i32 %52, %winding.0
+  %39 = load ptr, ptr %windings96, align 8
+  %add.ptr.i136 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv266
+  %40 = load i32, ptr %add.ptr.i136, align 4
+  %cmp99.not = icmp eq i32 %40, %winding.0
   br i1 %cmp99.not, label %for.inc115, label %if.then100
 
 if.then100:                                       ; preds = %for.body95
-  %53 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i137 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %53, i64 %indvars.iv266
+  %41 = load ptr, ptr %edgeSelectors, align 8
+  %add.ptr.i137 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %41, i64 %indvars.iv266
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %contourDistance101, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i137)
-  %54 = load double, ptr %contourDistance101, align 8
-  %55 = load double, ptr %g.i138, align 8
-  %56 = load double, ptr %b.i139, align 8
-  %57 = insertelement <2 x double> poison, double %55, i64 0
-  %58 = insertelement <2 x double> %57, double %distance.sroa.13.5248, i64 1
-  %59 = insertelement <2 x double> poison, double %54, i64 0
-  %60 = insertelement <2 x double> %59, double %distance.sroa.0.5249, i64 1
-  %61 = fcmp olt <2 x double> %58, %60
-  %62 = select <2 x i1> %61, <2 x double> %58, <2 x double> %60
-  %63 = fcmp olt <2 x double> %60, %58
-  %64 = select <2 x i1> %63, <2 x double> %58, <2 x double> %60
-  %65 = insertelement <2 x double> poison, double %56, i64 0
-  %66 = insertelement <2 x double> %65, double %distance.sroa.19.5247, i64 1
-  %67 = fcmp ogt <2 x double> %64, %66
-  %68 = select <2 x i1> %67, <2 x double> %66, <2 x double> %64
-  %69 = fcmp olt <2 x double> %62, %68
-  %70 = select <2 x i1> %69, <2 x double> %68, <2 x double> %62
-  %shift = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %71 = fmul <2 x double> %shift, %70
-  %mul = extractelement <2 x double> %71, i64 0
-  %cmp107 = fcmp oge double %mul, 0.000000e+00
-  %72 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %70)
-  %73 = extractelement <2 x double> %72, i64 0
-  %74 = extractelement <2 x double> %72, i64 1
-  %cmp111 = fcmp olt double %73, %74
-  %or.cond = select i1 %cmp107, i1 %cmp111, i1 false
-  br i1 %or.cond, label %if.then112, label %for.inc115
+  %42 = load double, ptr %contourDistance101, align 8
+  %43 = load double, ptr %g.i138, align 8
+  %44 = load double, ptr %b.i139, align 8
+  %cmp.i.i.i140 = fcmp olt double %43, %42
+  %cond.i.i.i141 = select i1 %cmp.i.i.i140, double %43, double %42
+  %cmp.i3.i.i142 = fcmp olt double %42, %43
+  %cond.i4.i.i143 = select i1 %cmp.i3.i.i142, double %43, double %42
+  %cmp.i5.i.i144 = fcmp ogt double %cond.i4.i.i143, %44
+  %cond.i6.i.i145 = select i1 %cmp.i5.i.i144, double %44, double %cond.i4.i.i143
+  %cmp.i7.i.i146 = fcmp olt double %cond.i.i.i141, %cond.i6.i.i145
+  %cond.i8.i.i147 = select i1 %cmp.i7.i.i146, double %cond.i6.i.i145, double %cond.i.i.i141
+  %cmp.i.i.i150 = fcmp olt double %distance.sroa.13.5248, %distance.sroa.0.5249
+  %cond.i.i.i151 = select i1 %cmp.i.i.i150, double %distance.sroa.13.5248, double %distance.sroa.0.5249
+  %cmp.i3.i.i152 = fcmp olt double %distance.sroa.0.5249, %distance.sroa.13.5248
+  %cond.i4.i.i153 = select i1 %cmp.i3.i.i152, double %distance.sroa.13.5248, double %distance.sroa.0.5249
+  %cmp.i5.i.i154 = fcmp ogt double %cond.i4.i.i153, %distance.sroa.19.5247
+  %cond.i6.i.i155 = select i1 %cmp.i5.i.i154, double %distance.sroa.19.5247, double %cond.i4.i.i153
+  %cmp.i7.i.i156 = fcmp olt double %cond.i.i.i151, %cond.i6.i.i155
+  %cond.i8.i.i157 = select i1 %cmp.i7.i.i156, double %cond.i6.i.i155, double %cond.i.i.i151
+  %mul = fmul double %cond.i8.i.i157, %cond.i8.i.i147
+  %cmp107 = fcmp ult double %mul, 0.000000e+00
+  br i1 %cmp107, label %for.inc115, label %land.lhs.true108
 
-if.then112:                                       ; preds = %if.then100
+land.lhs.true108:                                 ; preds = %if.then100
+  %45 = call double @llvm.fabs.f64(double %cond.i8.i.i147)
+  %46 = call double @llvm.fabs.f64(double %cond.i8.i.i157)
+  %cmp111 = fcmp olt double %45, %46
+  br i1 %cmp111, label %if.then112, label %for.inc115
+
+if.then112:                                       ; preds = %land.lhs.true108
   br label %for.inc115
 
-for.inc115:                                       ; preds = %for.body95, %if.then112, %if.then100
-  %distance.sroa.19.6 = phi double [ %distance.sroa.19.5247, %for.body95 ], [ %distance.sroa.19.5247, %if.then100 ], [ %56, %if.then112 ]
-  %distance.sroa.13.6 = phi double [ %distance.sroa.13.5248, %for.body95 ], [ %distance.sroa.13.5248, %if.then100 ], [ %55, %if.then112 ]
-  %distance.sroa.0.6 = phi double [ %distance.sroa.0.5249, %for.body95 ], [ %distance.sroa.0.5249, %if.then100 ], [ %54, %if.then112 ]
+for.inc115:                                       ; preds = %for.body95, %if.then112, %land.lhs.true108, %if.then100
+  %distance.sroa.19.6 = phi double [ %distance.sroa.19.5247, %for.body95 ], [ %distance.sroa.19.5247, %if.then100 ], [ %44, %if.then112 ], [ %distance.sroa.19.5247, %land.lhs.true108 ]
+  %distance.sroa.13.6 = phi double [ %distance.sroa.13.5248, %for.body95 ], [ %distance.sroa.13.5248, %if.then100 ], [ %43, %if.then112 ], [ %distance.sroa.13.5248, %land.lhs.true108 ]
+  %distance.sroa.0.6 = phi double [ %distance.sroa.0.5249, %for.body95 ], [ %distance.sroa.0.5249, %if.then100 ], [ %42, %if.then112 ], [ %distance.sroa.0.5249, %land.lhs.true108 ]
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count269
   br i1 %exitcond270.not, label %for.end117, label %for.body95, !llvm.loop !23
 
 for.end117:                                       ; preds = %for.inc115, %for.cond65.preheader, %for.cond37.preheader, %if.end91
-  %distance.sroa.19.5.lcssa = phi double [ %distance.sroa.19.2, %if.end91 ], [ %29, %for.cond37.preheader ], [ %32, %for.cond65.preheader ], [ %distance.sroa.19.6, %for.inc115 ]
-  %distance.sroa.13.5.lcssa = phi double [ %distance.sroa.13.2, %if.end91 ], [ %28, %for.cond37.preheader ], [ %31, %for.cond65.preheader ], [ %distance.sroa.13.6, %for.inc115 ]
-  %distance.sroa.0.5.lcssa = phi double [ %distance.sroa.0.2, %if.end91 ], [ %27, %for.cond37.preheader ], [ %30, %for.cond65.preheader ], [ %distance.sroa.0.6, %for.inc115 ]
-  %75 = load double, ptr %shapeDistance, align 8
+  %distance.sroa.19.5.lcssa = phi double [ %distance.sroa.19.2, %if.end91 ], [ %17, %for.cond37.preheader ], [ %20, %for.cond65.preheader ], [ %distance.sroa.19.6, %for.inc115 ]
+  %distance.sroa.13.5.lcssa = phi double [ %distance.sroa.13.2, %if.end91 ], [ %16, %for.cond37.preheader ], [ %19, %for.cond65.preheader ], [ %distance.sroa.13.6, %for.inc115 ]
+  %distance.sroa.0.5.lcssa = phi double [ %distance.sroa.0.2, %if.end91 ], [ %15, %for.cond37.preheader ], [ %18, %for.cond65.preheader ], [ %distance.sroa.0.6, %for.inc115 ]
+  %cmp.i.i.i180 = fcmp olt double %distance.sroa.13.5.lcssa, %distance.sroa.0.5.lcssa
+  %cond.i.i.i181 = select i1 %cmp.i.i.i180, double %distance.sroa.13.5.lcssa, double %distance.sroa.0.5.lcssa
+  %cmp.i3.i.i182 = fcmp olt double %distance.sroa.0.5.lcssa, %distance.sroa.13.5.lcssa
+  %cond.i4.i.i183 = select i1 %cmp.i3.i.i182, double %distance.sroa.13.5.lcssa, double %distance.sroa.0.5.lcssa
+  %cmp.i5.i.i184 = fcmp ogt double %cond.i4.i.i183, %distance.sroa.19.5.lcssa
+  %cond.i6.i.i185 = select i1 %cmp.i5.i.i184, double %distance.sroa.19.5.lcssa, double %cond.i4.i.i183
+  %cmp.i7.i.i186 = fcmp olt double %cond.i.i.i181, %cond.i6.i.i185
+  %cond.i8.i.i187 = select i1 %cmp.i7.i.i186, double %cond.i6.i.i185, double %cond.i.i.i181
+  %47 = load double, ptr %shapeDistance, align 8
   %g.i188 = getelementptr inbounds i8, ptr %shapeDistance, i64 8
-  %76 = load double, ptr %g.i188, align 8
+  %48 = load double, ptr %g.i188, align 8
   %b.i189 = getelementptr inbounds i8, ptr %shapeDistance, i64 16
-  %77 = load double, ptr %b.i189, align 8
-  %78 = insertelement <2 x double> poison, double %distance.sroa.13.5.lcssa, i64 0
-  %79 = insertelement <2 x double> %78, double %76, i64 1
-  %80 = insertelement <2 x double> poison, double %distance.sroa.0.5.lcssa, i64 0
-  %81 = insertelement <2 x double> %80, double %75, i64 1
-  %82 = fcmp olt <2 x double> %79, %81
-  %83 = select <2 x i1> %82, <2 x double> %79, <2 x double> %81
-  %84 = fcmp olt <2 x double> %81, %79
-  %85 = select <2 x i1> %84, <2 x double> %79, <2 x double> %81
-  %86 = insertelement <2 x double> poison, double %distance.sroa.19.5.lcssa, i64 0
-  %87 = insertelement <2 x double> %86, double %77, i64 1
-  %88 = fcmp ogt <2 x double> %85, %87
-  %89 = select <2 x i1> %88, <2 x double> %87, <2 x double> %85
-  %90 = fcmp olt <2 x double> %83, %89
-  %91 = select <2 x i1> %90, <2 x double> %89, <2 x double> %83
-  %92 = extractelement <2 x double> %91, i64 0
-  %93 = extractelement <2 x double> %91, i64 1
-  %cmp120 = fcmp oeq double %92, %93
-  %distance.sroa.19.7 = select i1 %cmp120, double %77, double %distance.sroa.19.5.lcssa
-  %distance.sroa.13.7 = select i1 %cmp120, double %76, double %distance.sroa.13.5.lcssa
-  %distance.sroa.0.7 = select i1 %cmp120, double %75, double %distance.sroa.0.5.lcssa
+  %49 = load double, ptr %b.i189, align 8
+  %cmp.i.i.i190 = fcmp olt double %48, %47
+  %cond.i.i.i191 = select i1 %cmp.i.i.i190, double %48, double %47
+  %cmp.i3.i.i192 = fcmp olt double %47, %48
+  %cond.i4.i.i193 = select i1 %cmp.i3.i.i192, double %48, double %47
+  %cmp.i5.i.i194 = fcmp ogt double %cond.i4.i.i193, %49
+  %cond.i6.i.i195 = select i1 %cmp.i5.i.i194, double %49, double %cond.i4.i.i193
+  %cmp.i7.i.i196 = fcmp olt double %cond.i.i.i191, %cond.i6.i.i195
+  %cond.i8.i.i197 = select i1 %cmp.i7.i.i196, double %cond.i6.i.i195, double %cond.i.i.i191
+  %cmp120 = fcmp oeq double %cond.i8.i.i187, %cond.i8.i.i197
+  %distance.sroa.19.7 = select i1 %cmp120, double %49, double %distance.sroa.19.5.lcssa
+  %distance.sroa.13.7 = select i1 %cmp120, double %48, double %distance.sroa.13.5.lcssa
+  %distance.sroa.0.7 = select i1 %cmp120, double %47, double %distance.sroa.0.5.lcssa
   store double %distance.sroa.0.7, ptr %agg.result, align 8
   %distance.sroa.13.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store double %distance.sroa.13.7, ptr %distance.sroa.13.0.agg.result.sroa_idx, align 8
@@ -2137,6 +2143,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %windings = getelementptr inbounds i8, ptr %this, i64 16
   %g.i = getelementptr inbounds i8, ptr %edgeDistance, i64 8
+  %b.i = getelementptr inbounds i8, ptr %edgeDistance, i64 16
   %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
@@ -2156,24 +2163,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 land.lhs.true:                                    ; preds = %for.body
   %6 = load double, ptr %edgeDistance, align 8
-  %7 = load <2 x double>, ptr %g.i, align 8
-  %8 = extractelement <2 x double> %7, i64 0
-  %cmp.i3.i.i = fcmp olt double %6, %8
-  %cond.i4.i.i = select i1 %cmp.i3.i.i, double %8, double %6
-  %9 = insertelement <2 x double> poison, double %6, i64 0
-  %10 = insertelement <2 x double> %9, double %cond.i4.i.i, i64 1
-  %11 = fcmp olt <2 x double> %7, %10
-  %12 = select <2 x i1> %11, <2 x double> %7, <2 x double> %10
-  %13 = extractelement <2 x double> %12, i64 0
-  %14 = extractelement <2 x double> %12, i64 1
-  %cmp.i7.i.i = fcmp olt double %13, %14
-  %cond.i8.i.i = select i1 %cmp.i7.i.i, double %14, double %13
+  %7 = load double, ptr %g.i, align 8
+  %8 = load double, ptr %b.i, align 8
+  %cmp.i.i.i = fcmp olt double %7, %6
+  %cond.i.i.i = select i1 %cmp.i.i.i, double %7, double %6
+  %cmp.i3.i.i = fcmp olt double %6, %7
+  %cond.i4.i.i = select i1 %cmp.i3.i.i, double %7, double %6
+  %cmp.i5.i.i = fcmp ogt double %cond.i4.i.i, %8
+  %cond.i6.i.i = select i1 %cmp.i5.i.i, double %8, double %cond.i4.i.i
+  %cmp.i7.i.i = fcmp olt double %cond.i.i.i, %cond.i6.i.i
+  %cond.i8.i.i = select i1 %cmp.i7.i.i, double %cond.i6.i.i, double %cond.i.i.i
   %cmp14 = fcmp ult double %cond.i8.i.i, 0.000000e+00
   br i1 %cmp14, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %15 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i35 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %15, i64 %indvars.iv
+  %9 = load ptr, ptr %edgeSelectors, align 8
+  %add.ptr.i35 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %9, i64 %indvars.iv
   call void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i35)
   %.pre = load ptr, ptr %windings, align 8
   %add.ptr.i36.phi.trans.insert = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv
@@ -2181,30 +2186,28 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %16 = phi i32 [ %.pre281, %if.then ], [ %5, %for.body ]
-  %cmp21 = icmp slt i32 %16, 0
+  %10 = phi i32 [ %.pre281, %if.then ], [ %5, %for.body ]
+  %cmp21 = icmp slt i32 %10, 0
   br i1 %cmp21, label %land.lhs.true22, label %for.inc
 
 land.lhs.true22:                                  ; preds = %if.end
-  %17 = load double, ptr %edgeDistance, align 8
-  %18 = load <2 x double>, ptr %g.i, align 8
-  %19 = extractelement <2 x double> %18, i64 0
-  %cmp.i3.i.i41 = fcmp olt double %17, %19
-  %cond.i4.i.i42 = select i1 %cmp.i3.i.i41, double %19, double %17
-  %20 = insertelement <2 x double> poison, double %17, i64 0
-  %21 = insertelement <2 x double> %20, double %cond.i4.i.i42, i64 1
-  %22 = fcmp olt <2 x double> %18, %21
-  %23 = select <2 x i1> %22, <2 x double> %18, <2 x double> %21
-  %24 = extractelement <2 x double> %23, i64 0
-  %25 = extractelement <2 x double> %23, i64 1
-  %cmp.i7.i.i45 = fcmp olt double %24, %25
-  %cond.i8.i.i46 = select i1 %cmp.i7.i.i45, double %25, double %24
+  %11 = load double, ptr %edgeDistance, align 8
+  %12 = load double, ptr %g.i, align 8
+  %13 = load double, ptr %b.i, align 8
+  %cmp.i.i.i39 = fcmp olt double %12, %11
+  %cond.i.i.i40 = select i1 %cmp.i.i.i39, double %12, double %11
+  %cmp.i3.i.i41 = fcmp olt double %11, %12
+  %cond.i4.i.i42 = select i1 %cmp.i3.i.i41, double %12, double %11
+  %cmp.i5.i.i43 = fcmp ogt double %cond.i4.i.i42, %13
+  %cond.i6.i.i44 = select i1 %cmp.i5.i.i43, double %13, double %cond.i4.i.i42
+  %cmp.i7.i.i45 = fcmp olt double %cond.i.i.i40, %cond.i6.i.i44
+  %cond.i8.i.i46 = select i1 %cmp.i7.i.i45, double %cond.i6.i.i44, double %cond.i.i.i40
   %cmp24 = fcmp ugt double %cond.i8.i.i46, 0.000000e+00
   br i1 %cmp24, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %land.lhs.true22
-  %26 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i47 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %26, i64 %indvars.iv
+  %14 = load ptr, ptr %edgeSelectors, align 8
+  %add.ptr.i47 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %14, i64 %indvars.iv
   call void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %outerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i47)
   br label %for.inc
 
@@ -2217,39 +2220,39 @@ for.end:                                          ; preds = %for.inc, %entry
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %shapeDistance, ptr noundef nonnull align 8 dereferenceable(160) %shapeEdgeSelector)
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %innerDistance, ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector)
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %outerDistance, ptr noundef nonnull align 8 dereferenceable(160) %outerEdgeSelector)
-  %27 = load double, ptr %innerDistance, align 8
+  %15 = load double, ptr %innerDistance, align 8
   %g.i48 = getelementptr inbounds i8, ptr %innerDistance, i64 8
-  %28 = load double, ptr %g.i48, align 8
+  %16 = load double, ptr %g.i48, align 8
   %b.i49 = getelementptr inbounds i8, ptr %innerDistance, i64 16
-  %29 = load double, ptr %b.i49, align 8
-  %cmp.i.i.i50 = fcmp olt double %28, %27
-  %cond.i.i.i51 = select i1 %cmp.i.i.i50, double %28, double %27
-  %cmp.i3.i.i52 = fcmp olt double %27, %28
-  %cond.i4.i.i53 = select i1 %cmp.i3.i.i52, double %28, double %27
-  %cmp.i5.i.i54 = fcmp ogt double %cond.i4.i.i53, %29
-  %cond.i6.i.i55 = select i1 %cmp.i5.i.i54, double %29, double %cond.i4.i.i53
+  %17 = load double, ptr %b.i49, align 8
+  %cmp.i.i.i50 = fcmp olt double %16, %15
+  %cond.i.i.i51 = select i1 %cmp.i.i.i50, double %16, double %15
+  %cmp.i3.i.i52 = fcmp olt double %15, %16
+  %cond.i4.i.i53 = select i1 %cmp.i3.i.i52, double %16, double %15
+  %cmp.i5.i.i54 = fcmp ogt double %cond.i4.i.i53, %17
+  %cond.i6.i.i55 = select i1 %cmp.i5.i.i54, double %17, double %cond.i4.i.i53
   %cmp.i7.i.i56 = fcmp olt double %cond.i.i.i51, %cond.i6.i.i55
   %cond.i8.i.i57 = select i1 %cmp.i7.i.i56, double %cond.i6.i.i55, double %cond.i.i.i51
-  %30 = load double, ptr %outerDistance, align 8
+  %18 = load double, ptr %outerDistance, align 8
   %g.i58 = getelementptr inbounds i8, ptr %outerDistance, i64 8
-  %31 = load double, ptr %g.i58, align 8
+  %19 = load double, ptr %g.i58, align 8
   %b.i59 = getelementptr inbounds i8, ptr %outerDistance, i64 16
-  %32 = load double, ptr %b.i59, align 8
-  %cmp.i.i.i60 = fcmp olt double %31, %30
-  %cond.i.i.i61 = select i1 %cmp.i.i.i60, double %31, double %30
-  %cmp.i3.i.i62 = fcmp olt double %30, %31
-  %cond.i4.i.i63 = select i1 %cmp.i3.i.i62, double %31, double %30
-  %cmp.i5.i.i64 = fcmp ogt double %cond.i4.i.i63, %32
-  %cond.i6.i.i65 = select i1 %cmp.i5.i.i64, double %32, double %cond.i4.i.i63
+  %20 = load double, ptr %b.i59, align 8
+  %cmp.i.i.i60 = fcmp olt double %19, %18
+  %cond.i.i.i61 = select i1 %cmp.i.i.i60, double %19, double %18
+  %cmp.i3.i.i62 = fcmp olt double %18, %19
+  %cond.i4.i.i63 = select i1 %cmp.i3.i.i62, double %19, double %18
+  %cmp.i5.i.i64 = fcmp ogt double %cond.i4.i.i63, %20
+  %cond.i6.i.i65 = select i1 %cmp.i5.i.i64, double %20, double %cond.i4.i.i63
   %cmp.i7.i.i66 = fcmp olt double %cond.i.i.i61, %cond.i6.i.i65
   %cond.i8.i.i67 = select i1 %cmp.i7.i.i66, double %cond.i6.i.i65, double %cond.i.i.i61
   %cmp32 = fcmp ult double %cond.i8.i.i57, 0.000000e+00
   br i1 %cmp32, label %if.else, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %for.end
-  %33 = call double @llvm.fabs.f64(double %cond.i8.i.i57)
-  %34 = call double @llvm.fabs.f64(double %cond.i8.i.i67)
-  %cmp34 = fcmp ugt double %33, %34
+  %21 = call double @llvm.fabs.f64(double %cond.i8.i.i57)
+  %22 = call double @llvm.fabs.f64(double %cond.i8.i.i67)
+  %cmp34 = fcmp ugt double %21, %22
   br i1 %cmp34, label %if.else, label %if.then35
 
 if.then35:                                        ; preds = %land.lhs.true33
@@ -2267,33 +2270,33 @@ for.body39.lr.ph:                                 ; preds = %if.then35
 
 for.body39:                                       ; preds = %for.body39.lr.ph, %for.inc57
   %indvars.iv266 = phi i64 [ 0, %for.body39.lr.ph ], [ %indvars.iv.next267, %for.inc57 ]
-  %distance.sroa.0.0239 = phi double [ %27, %for.body39.lr.ph ], [ %distance.sroa.0.1, %for.inc57 ]
-  %distance.sroa.13.0238 = phi double [ %28, %for.body39.lr.ph ], [ %distance.sroa.13.1, %for.inc57 ]
-  %distance.sroa.19.0237 = phi double [ %29, %for.body39.lr.ph ], [ %distance.sroa.19.1, %for.inc57 ]
+  %distance.sroa.0.0239 = phi double [ %15, %for.body39.lr.ph ], [ %distance.sroa.0.1, %for.inc57 ]
+  %distance.sroa.13.0238 = phi double [ %16, %for.body39.lr.ph ], [ %distance.sroa.13.1, %for.inc57 ]
+  %distance.sroa.19.0237 = phi double [ %17, %for.body39.lr.ph ], [ %distance.sroa.19.1, %for.inc57 ]
   %distance.sroa.25.0236 = phi double [ %distance.sroa.25.0.copyload, %for.body39.lr.ph ], [ %distance.sroa.25.1, %for.inc57 ]
-  %35 = load ptr, ptr %windings40, align 8
-  %add.ptr.i70 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv266
-  %36 = load i32, ptr %add.ptr.i70, align 4
-  %cmp43 = icmp sgt i32 %36, 0
+  %23 = load ptr, ptr %windings40, align 8
+  %add.ptr.i70 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv266
+  %24 = load i32, ptr %add.ptr.i70, align 4
+  %cmp43 = icmp sgt i32 %24, 0
   br i1 %cmp43, label %if.then44, label %for.inc57
 
 if.then44:                                        ; preds = %for.body39
-  %37 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i71 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %37, i64 %indvars.iv266
+  %25 = load ptr, ptr %edgeSelectors, align 8
+  %add.ptr.i71 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %25, i64 %indvars.iv266
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %contourDistance, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i71)
-  %38 = load double, ptr %contourDistance, align 8
-  %39 = load double, ptr %g.i72, align 8
-  %40 = load double, ptr %b.i73, align 8
-  %cmp.i.i.i74 = fcmp olt double %39, %38
-  %cond.i.i.i75 = select i1 %cmp.i.i.i74, double %39, double %38
-  %cmp.i3.i.i76 = fcmp olt double %38, %39
-  %cond.i4.i.i77 = select i1 %cmp.i3.i.i76, double %39, double %38
-  %cmp.i5.i.i78 = fcmp ogt double %cond.i4.i.i77, %40
-  %cond.i6.i.i79 = select i1 %cmp.i5.i.i78, double %40, double %cond.i4.i.i77
+  %26 = load double, ptr %contourDistance, align 8
+  %27 = load double, ptr %g.i72, align 8
+  %28 = load double, ptr %b.i73, align 8
+  %cmp.i.i.i74 = fcmp olt double %27, %26
+  %cond.i.i.i75 = select i1 %cmp.i.i.i74, double %27, double %26
+  %cmp.i3.i.i76 = fcmp olt double %26, %27
+  %cond.i4.i.i77 = select i1 %cmp.i3.i.i76, double %27, double %26
+  %cmp.i5.i.i78 = fcmp ogt double %cond.i4.i.i77, %28
+  %cond.i6.i.i79 = select i1 %cmp.i5.i.i78, double %28, double %cond.i4.i.i77
   %cmp.i7.i.i80 = fcmp olt double %cond.i.i.i75, %cond.i6.i.i79
   %cond.i8.i.i81 = select i1 %cmp.i7.i.i80, double %cond.i6.i.i79, double %cond.i.i.i75
-  %41 = call double @llvm.fabs.f64(double %cond.i8.i.i81)
-  %cmp49 = fcmp olt double %41, %34
+  %29 = call double @llvm.fabs.f64(double %cond.i8.i.i81)
+  %cmp49 = fcmp olt double %29, %22
   br i1 %cmp49, label %land.lhs.true50, label %for.inc57
 
 land.lhs.true50:                                  ; preds = %if.then44
@@ -2314,9 +2317,9 @@ if.then54:                                        ; preds = %land.lhs.true50
 
 for.inc57:                                        ; preds = %for.body39, %if.then54, %land.lhs.true50, %if.then44
   %distance.sroa.25.1 = phi double [ %distance.sroa.25.0.copyload226, %if.then54 ], [ %distance.sroa.25.0236, %land.lhs.true50 ], [ %distance.sroa.25.0236, %if.then44 ], [ %distance.sroa.25.0236, %for.body39 ]
-  %distance.sroa.19.1 = phi double [ %40, %if.then54 ], [ %distance.sroa.19.0237, %land.lhs.true50 ], [ %distance.sroa.19.0237, %if.then44 ], [ %distance.sroa.19.0237, %for.body39 ]
-  %distance.sroa.13.1 = phi double [ %39, %if.then54 ], [ %distance.sroa.13.0238, %land.lhs.true50 ], [ %distance.sroa.13.0238, %if.then44 ], [ %distance.sroa.13.0238, %for.body39 ]
-  %distance.sroa.0.1 = phi double [ %38, %if.then54 ], [ %distance.sroa.0.0239, %land.lhs.true50 ], [ %distance.sroa.0.0239, %if.then44 ], [ %distance.sroa.0.0239, %for.body39 ]
+  %distance.sroa.19.1 = phi double [ %28, %if.then54 ], [ %distance.sroa.19.0237, %land.lhs.true50 ], [ %distance.sroa.19.0237, %if.then44 ], [ %distance.sroa.19.0237, %for.body39 ]
+  %distance.sroa.13.1 = phi double [ %27, %if.then54 ], [ %distance.sroa.13.0238, %land.lhs.true50 ], [ %distance.sroa.13.0238, %if.then44 ], [ %distance.sroa.13.0238, %for.body39 ]
+  %distance.sroa.0.1 = phi double [ %26, %if.then54 ], [ %distance.sroa.0.0239, %land.lhs.true50 ], [ %distance.sroa.0.0239, %if.then44 ], [ %distance.sroa.0.0239, %for.body39 ]
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count269
   br i1 %exitcond270.not, label %if.end91, label %for.body39, !llvm.loop !27
@@ -2326,9 +2329,9 @@ if.else:                                          ; preds = %land.lhs.true33, %f
   br i1 %cmp60, label %if.else89, label %land.lhs.true61
 
 land.lhs.true61:                                  ; preds = %if.else
-  %42 = call double @llvm.fabs.f64(double %cond.i8.i.i67)
-  %43 = call double @llvm.fabs.f64(double %cond.i8.i.i57)
-  %cmp62 = fcmp olt double %42, %43
+  %30 = call double @llvm.fabs.f64(double %cond.i8.i.i67)
+  %31 = call double @llvm.fabs.f64(double %cond.i8.i.i57)
+  %cmp62 = fcmp olt double %30, %31
   br i1 %cmp62, label %if.then63, label %if.else89
 
 if.then63:                                        ; preds = %land.lhs.true61
@@ -2346,33 +2349,33 @@ for.body67.lr.ph:                                 ; preds = %if.then63
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.inc86
   %indvars.iv271 = phi i64 [ 0, %for.body67.lr.ph ], [ %indvars.iv.next272, %for.inc86 ]
-  %distance.sroa.0.3248 = phi double [ %30, %for.body67.lr.ph ], [ %distance.sroa.0.4, %for.inc86 ]
-  %distance.sroa.13.3247 = phi double [ %31, %for.body67.lr.ph ], [ %distance.sroa.13.4, %for.inc86 ]
-  %distance.sroa.19.3246 = phi double [ %32, %for.body67.lr.ph ], [ %distance.sroa.19.4, %for.inc86 ]
+  %distance.sroa.0.3248 = phi double [ %18, %for.body67.lr.ph ], [ %distance.sroa.0.4, %for.inc86 ]
+  %distance.sroa.13.3247 = phi double [ %19, %for.body67.lr.ph ], [ %distance.sroa.13.4, %for.inc86 ]
+  %distance.sroa.19.3246 = phi double [ %20, %for.body67.lr.ph ], [ %distance.sroa.19.4, %for.inc86 ]
   %distance.sroa.25.3245 = phi double [ %distance.sroa.25.0.copyload227, %for.body67.lr.ph ], [ %distance.sroa.25.4, %for.inc86 ]
-  %44 = load ptr, ptr %windings68, align 8
-  %add.ptr.i102 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv271
-  %45 = load i32, ptr %add.ptr.i102, align 4
-  %cmp71 = icmp slt i32 %45, 0
+  %32 = load ptr, ptr %windings68, align 8
+  %add.ptr.i102 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv271
+  %33 = load i32, ptr %add.ptr.i102, align 4
+  %cmp71 = icmp slt i32 %33, 0
   br i1 %cmp71, label %if.then72, label %for.inc86
 
 if.then72:                                        ; preds = %for.body67
-  %46 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i103 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %46, i64 %indvars.iv271
+  %34 = load ptr, ptr %edgeSelectors, align 8
+  %add.ptr.i103 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %34, i64 %indvars.iv271
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %contourDistance73, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i103)
-  %47 = load double, ptr %contourDistance73, align 8
-  %48 = load double, ptr %g.i104, align 8
-  %49 = load double, ptr %b.i105, align 8
-  %cmp.i.i.i106 = fcmp olt double %48, %47
-  %cond.i.i.i107 = select i1 %cmp.i.i.i106, double %48, double %47
-  %cmp.i3.i.i108 = fcmp olt double %47, %48
-  %cond.i4.i.i109 = select i1 %cmp.i3.i.i108, double %48, double %47
-  %cmp.i5.i.i110 = fcmp ogt double %cond.i4.i.i109, %49
-  %cond.i6.i.i111 = select i1 %cmp.i5.i.i110, double %49, double %cond.i4.i.i109
+  %35 = load double, ptr %contourDistance73, align 8
+  %36 = load double, ptr %g.i104, align 8
+  %37 = load double, ptr %b.i105, align 8
+  %cmp.i.i.i106 = fcmp olt double %36, %35
+  %cond.i.i.i107 = select i1 %cmp.i.i.i106, double %36, double %35
+  %cmp.i3.i.i108 = fcmp olt double %35, %36
+  %cond.i4.i.i109 = select i1 %cmp.i3.i.i108, double %36, double %35
+  %cmp.i5.i.i110 = fcmp ogt double %cond.i4.i.i109, %37
+  %cond.i6.i.i111 = select i1 %cmp.i5.i.i110, double %37, double %cond.i4.i.i109
   %cmp.i7.i.i112 = fcmp olt double %cond.i.i.i107, %cond.i6.i.i111
   %cond.i8.i.i113 = select i1 %cmp.i7.i.i112, double %cond.i6.i.i111, double %cond.i.i.i107
-  %50 = call double @llvm.fabs.f64(double %cond.i8.i.i113)
-  %cmp78 = fcmp olt double %50, %43
+  %38 = call double @llvm.fabs.f64(double %cond.i8.i.i113)
+  %cmp78 = fcmp olt double %38, %31
   br i1 %cmp78, label %land.lhs.true79, label %for.inc86
 
 land.lhs.true79:                                  ; preds = %if.then72
@@ -2393,9 +2396,9 @@ if.then83:                                        ; preds = %land.lhs.true79
 
 for.inc86:                                        ; preds = %for.body67, %if.then83, %land.lhs.true79, %if.then72
   %distance.sroa.25.4 = phi double [ %distance.sroa.25.0.copyload228, %if.then83 ], [ %distance.sroa.25.3245, %land.lhs.true79 ], [ %distance.sroa.25.3245, %if.then72 ], [ %distance.sroa.25.3245, %for.body67 ]
-  %distance.sroa.19.4 = phi double [ %49, %if.then83 ], [ %distance.sroa.19.3246, %land.lhs.true79 ], [ %distance.sroa.19.3246, %if.then72 ], [ %distance.sroa.19.3246, %for.body67 ]
-  %distance.sroa.13.4 = phi double [ %48, %if.then83 ], [ %distance.sroa.13.3247, %land.lhs.true79 ], [ %distance.sroa.13.3247, %if.then72 ], [ %distance.sroa.13.3247, %for.body67 ]
-  %distance.sroa.0.4 = phi double [ %47, %if.then83 ], [ %distance.sroa.0.3248, %land.lhs.true79 ], [ %distance.sroa.0.3248, %if.then72 ], [ %distance.sroa.0.3248, %for.body67 ]
+  %distance.sroa.19.4 = phi double [ %37, %if.then83 ], [ %distance.sroa.19.3246, %land.lhs.true79 ], [ %distance.sroa.19.3246, %if.then72 ], [ %distance.sroa.19.3246, %for.body67 ]
+  %distance.sroa.13.4 = phi double [ %36, %if.then83 ], [ %distance.sroa.13.3247, %land.lhs.true79 ], [ %distance.sroa.13.3247, %if.then72 ], [ %distance.sroa.13.3247, %for.body67 ]
+  %distance.sroa.0.4 = phi double [ %35, %if.then83 ], [ %distance.sroa.0.3248, %land.lhs.true79 ], [ %distance.sroa.0.3248, %if.then72 ], [ %distance.sroa.0.3248, %for.body67 ]
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count274
   br i1 %exitcond275.not, label %if.end91, label %for.body67, !llvm.loop !28
@@ -2426,84 +2429,85 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   %distance.sroa.13.5257 = phi double [ %distance.sroa.13.2, %for.body95.lr.ph ], [ %distance.sroa.13.6, %for.inc115 ]
   %distance.sroa.19.5256 = phi double [ %distance.sroa.19.2, %for.body95.lr.ph ], [ %distance.sroa.19.6, %for.inc115 ]
   %distance.sroa.25.5255 = phi double [ %distance.sroa.25.2, %for.body95.lr.ph ], [ %distance.sroa.25.6, %for.inc115 ]
-  %51 = load ptr, ptr %windings96, align 8
-  %add.ptr.i134 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv276
-  %52 = load i32, ptr %add.ptr.i134, align 4
-  %cmp99.not = icmp eq i32 %52, %winding.0
+  %39 = load ptr, ptr %windings96, align 8
+  %add.ptr.i134 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv276
+  %40 = load i32, ptr %add.ptr.i134, align 4
+  %cmp99.not = icmp eq i32 %40, %winding.0
   br i1 %cmp99.not, label %for.inc115, label %if.then100
 
 if.then100:                                       ; preds = %for.body95
-  %53 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i135 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %53, i64 %indvars.iv276
+  %41 = load ptr, ptr %edgeSelectors, align 8
+  %add.ptr.i135 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %41, i64 %indvars.iv276
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %contourDistance101, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i135)
-  %54 = load double, ptr %contourDistance101, align 8
-  %55 = load double, ptr %g.i136, align 8
-  %56 = load double, ptr %b.i137, align 8
-  %57 = insertelement <2 x double> poison, double %55, i64 0
-  %58 = insertelement <2 x double> %57, double %distance.sroa.13.5257, i64 1
-  %59 = insertelement <2 x double> poison, double %54, i64 0
-  %60 = insertelement <2 x double> %59, double %distance.sroa.0.5258, i64 1
-  %61 = fcmp olt <2 x double> %58, %60
-  %62 = select <2 x i1> %61, <2 x double> %58, <2 x double> %60
-  %63 = fcmp olt <2 x double> %60, %58
-  %64 = select <2 x i1> %63, <2 x double> %58, <2 x double> %60
-  %65 = insertelement <2 x double> poison, double %56, i64 0
-  %66 = insertelement <2 x double> %65, double %distance.sroa.19.5256, i64 1
-  %67 = fcmp ogt <2 x double> %64, %66
-  %68 = select <2 x i1> %67, <2 x double> %66, <2 x double> %64
-  %69 = fcmp olt <2 x double> %62, %68
-  %70 = select <2 x i1> %69, <2 x double> %68, <2 x double> %62
-  %shift = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %71 = fmul <2 x double> %shift, %70
-  %mul = extractelement <2 x double> %71, i64 0
-  %cmp107 = fcmp oge double %mul, 0.000000e+00
-  %72 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %70)
-  %73 = extractelement <2 x double> %72, i64 0
-  %74 = extractelement <2 x double> %72, i64 1
-  %cmp111 = fcmp olt double %73, %74
-  %or.cond = select i1 %cmp107, i1 %cmp111, i1 false
-  br i1 %or.cond, label %if.then112, label %for.inc115
+  %42 = load double, ptr %contourDistance101, align 8
+  %43 = load double, ptr %g.i136, align 8
+  %44 = load double, ptr %b.i137, align 8
+  %cmp.i.i.i138 = fcmp olt double %43, %42
+  %cond.i.i.i139 = select i1 %cmp.i.i.i138, double %43, double %42
+  %cmp.i3.i.i140 = fcmp olt double %42, %43
+  %cond.i4.i.i141 = select i1 %cmp.i3.i.i140, double %43, double %42
+  %cmp.i5.i.i142 = fcmp ogt double %cond.i4.i.i141, %44
+  %cond.i6.i.i143 = select i1 %cmp.i5.i.i142, double %44, double %cond.i4.i.i141
+  %cmp.i7.i.i144 = fcmp olt double %cond.i.i.i139, %cond.i6.i.i143
+  %cond.i8.i.i145 = select i1 %cmp.i7.i.i144, double %cond.i6.i.i143, double %cond.i.i.i139
+  %cmp.i.i.i148 = fcmp olt double %distance.sroa.13.5257, %distance.sroa.0.5258
+  %cond.i.i.i149 = select i1 %cmp.i.i.i148, double %distance.sroa.13.5257, double %distance.sroa.0.5258
+  %cmp.i3.i.i150 = fcmp olt double %distance.sroa.0.5258, %distance.sroa.13.5257
+  %cond.i4.i.i151 = select i1 %cmp.i3.i.i150, double %distance.sroa.13.5257, double %distance.sroa.0.5258
+  %cmp.i5.i.i152 = fcmp ogt double %cond.i4.i.i151, %distance.sroa.19.5256
+  %cond.i6.i.i153 = select i1 %cmp.i5.i.i152, double %distance.sroa.19.5256, double %cond.i4.i.i151
+  %cmp.i7.i.i154 = fcmp olt double %cond.i.i.i149, %cond.i6.i.i153
+  %cond.i8.i.i155 = select i1 %cmp.i7.i.i154, double %cond.i6.i.i153, double %cond.i.i.i149
+  %mul = fmul double %cond.i8.i.i155, %cond.i8.i.i145
+  %cmp107 = fcmp ult double %mul, 0.000000e+00
+  br i1 %cmp107, label %for.inc115, label %land.lhs.true108
 
-if.then112:                                       ; preds = %if.then100
+land.lhs.true108:                                 ; preds = %if.then100
+  %45 = call double @llvm.fabs.f64(double %cond.i8.i.i145)
+  %46 = call double @llvm.fabs.f64(double %cond.i8.i.i155)
+  %cmp111 = fcmp olt double %45, %46
+  br i1 %cmp111, label %if.then112, label %for.inc115
+
+if.then112:                                       ; preds = %land.lhs.true108
   %distance.sroa.25.0.copyload229 = load double, ptr %distance.sroa.25.0.contourDistance101.sroa_idx, align 8
   br label %for.inc115
 
-for.inc115:                                       ; preds = %for.body95, %if.then112, %if.then100
-  %distance.sroa.25.6 = phi double [ %distance.sroa.25.5255, %for.body95 ], [ %distance.sroa.25.5255, %if.then100 ], [ %distance.sroa.25.0.copyload229, %if.then112 ]
-  %distance.sroa.19.6 = phi double [ %distance.sroa.19.5256, %for.body95 ], [ %distance.sroa.19.5256, %if.then100 ], [ %56, %if.then112 ]
-  %distance.sroa.13.6 = phi double [ %distance.sroa.13.5257, %for.body95 ], [ %distance.sroa.13.5257, %if.then100 ], [ %55, %if.then112 ]
-  %distance.sroa.0.6 = phi double [ %distance.sroa.0.5258, %for.body95 ], [ %distance.sroa.0.5258, %if.then100 ], [ %54, %if.then112 ]
+for.inc115:                                       ; preds = %for.body95, %if.then112, %land.lhs.true108, %if.then100
+  %distance.sroa.25.6 = phi double [ %distance.sroa.25.5255, %for.body95 ], [ %distance.sroa.25.5255, %if.then100 ], [ %distance.sroa.25.0.copyload229, %if.then112 ], [ %distance.sroa.25.5255, %land.lhs.true108 ]
+  %distance.sroa.19.6 = phi double [ %distance.sroa.19.5256, %for.body95 ], [ %distance.sroa.19.5256, %if.then100 ], [ %44, %if.then112 ], [ %distance.sroa.19.5256, %land.lhs.true108 ]
+  %distance.sroa.13.6 = phi double [ %distance.sroa.13.5257, %for.body95 ], [ %distance.sroa.13.5257, %if.then100 ], [ %43, %if.then112 ], [ %distance.sroa.13.5257, %land.lhs.true108 ]
+  %distance.sroa.0.6 = phi double [ %distance.sroa.0.5258, %for.body95 ], [ %distance.sroa.0.5258, %if.then100 ], [ %42, %if.then112 ], [ %distance.sroa.0.5258, %land.lhs.true108 ]
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count279
   br i1 %exitcond280.not, label %for.end117, label %for.body95, !llvm.loop !29
 
 for.end117:                                       ; preds = %for.inc115, %if.then63, %if.then35, %if.end91
   %distance.sroa.25.5.lcssa = phi double [ %distance.sroa.25.2, %if.end91 ], [ %distance.sroa.25.0.copyload, %if.then35 ], [ %distance.sroa.25.0.copyload227, %if.then63 ], [ %distance.sroa.25.6, %for.inc115 ]
-  %distance.sroa.19.5.lcssa = phi double [ %distance.sroa.19.2, %if.end91 ], [ %29, %if.then35 ], [ %32, %if.then63 ], [ %distance.sroa.19.6, %for.inc115 ]
-  %distance.sroa.13.5.lcssa = phi double [ %distance.sroa.13.2, %if.end91 ], [ %28, %if.then35 ], [ %31, %if.then63 ], [ %distance.sroa.13.6, %for.inc115 ]
-  %distance.sroa.0.5.lcssa = phi double [ %distance.sroa.0.2, %if.end91 ], [ %27, %if.then35 ], [ %30, %if.then63 ], [ %distance.sroa.0.6, %for.inc115 ]
-  %75 = load double, ptr %shapeDistance, align 8
+  %distance.sroa.19.5.lcssa = phi double [ %distance.sroa.19.2, %if.end91 ], [ %17, %if.then35 ], [ %20, %if.then63 ], [ %distance.sroa.19.6, %for.inc115 ]
+  %distance.sroa.13.5.lcssa = phi double [ %distance.sroa.13.2, %if.end91 ], [ %16, %if.then35 ], [ %19, %if.then63 ], [ %distance.sroa.13.6, %for.inc115 ]
+  %distance.sroa.0.5.lcssa = phi double [ %distance.sroa.0.2, %if.end91 ], [ %15, %if.then35 ], [ %18, %if.then63 ], [ %distance.sroa.0.6, %for.inc115 ]
+  %cmp.i.i.i178 = fcmp olt double %distance.sroa.13.5.lcssa, %distance.sroa.0.5.lcssa
+  %cond.i.i.i179 = select i1 %cmp.i.i.i178, double %distance.sroa.13.5.lcssa, double %distance.sroa.0.5.lcssa
+  %cmp.i3.i.i180 = fcmp olt double %distance.sroa.0.5.lcssa, %distance.sroa.13.5.lcssa
+  %cond.i4.i.i181 = select i1 %cmp.i3.i.i180, double %distance.sroa.13.5.lcssa, double %distance.sroa.0.5.lcssa
+  %cmp.i5.i.i182 = fcmp ogt double %cond.i4.i.i181, %distance.sroa.19.5.lcssa
+  %cond.i6.i.i183 = select i1 %cmp.i5.i.i182, double %distance.sroa.19.5.lcssa, double %cond.i4.i.i181
+  %cmp.i7.i.i184 = fcmp olt double %cond.i.i.i179, %cond.i6.i.i183
+  %cond.i8.i.i185 = select i1 %cmp.i7.i.i184, double %cond.i6.i.i183, double %cond.i.i.i179
+  %47 = load double, ptr %shapeDistance, align 8
   %g.i186 = getelementptr inbounds i8, ptr %shapeDistance, i64 8
-  %76 = load double, ptr %g.i186, align 8
+  %48 = load double, ptr %g.i186, align 8
   %b.i187 = getelementptr inbounds i8, ptr %shapeDistance, i64 16
-  %77 = load double, ptr %b.i187, align 8
-  %78 = insertelement <2 x double> poison, double %distance.sroa.13.5.lcssa, i64 0
-  %79 = insertelement <2 x double> %78, double %76, i64 1
-  %80 = insertelement <2 x double> poison, double %distance.sroa.0.5.lcssa, i64 0
-  %81 = insertelement <2 x double> %80, double %75, i64 1
-  %82 = fcmp olt <2 x double> %79, %81
-  %83 = select <2 x i1> %82, <2 x double> %79, <2 x double> %81
-  %84 = fcmp olt <2 x double> %81, %79
-  %85 = select <2 x i1> %84, <2 x double> %79, <2 x double> %81
-  %86 = insertelement <2 x double> poison, double %distance.sroa.19.5.lcssa, i64 0
-  %87 = insertelement <2 x double> %86, double %77, i64 1
-  %88 = fcmp ogt <2 x double> %85, %87
-  %89 = select <2 x i1> %88, <2 x double> %87, <2 x double> %85
-  %90 = fcmp olt <2 x double> %83, %89
-  %91 = select <2 x i1> %90, <2 x double> %89, <2 x double> %83
-  %92 = extractelement <2 x double> %91, i64 0
-  %93 = extractelement <2 x double> %91, i64 1
-  %cmp120 = fcmp oeq double %92, %93
+  %49 = load double, ptr %b.i187, align 8
+  %cmp.i.i.i188 = fcmp olt double %48, %47
+  %cond.i.i.i189 = select i1 %cmp.i.i.i188, double %48, double %47
+  %cmp.i3.i.i190 = fcmp olt double %47, %48
+  %cond.i4.i.i191 = select i1 %cmp.i3.i.i190, double %48, double %47
+  %cmp.i5.i.i192 = fcmp ogt double %cond.i4.i.i191, %49
+  %cond.i6.i.i193 = select i1 %cmp.i5.i.i192, double %49, double %cond.i4.i.i191
+  %cmp.i7.i.i194 = fcmp olt double %cond.i.i.i189, %cond.i6.i.i193
+  %cond.i8.i.i195 = select i1 %cmp.i7.i.i194, double %cond.i6.i.i193, double %cond.i.i.i189
+  %cmp120 = fcmp oeq double %cond.i8.i.i185, %cond.i8.i.i195
   br i1 %cmp120, label %if.then121, label %if.end122
 
 if.then121:                                       ; preds = %for.end117
@@ -2513,9 +2517,9 @@ if.then121:                                       ; preds = %for.end117
 
 if.end122:                                        ; preds = %if.then121, %for.end117
   %distance.sroa.25.7 = phi double [ %distance.sroa.25.0.copyload230, %if.then121 ], [ %distance.sroa.25.5.lcssa, %for.end117 ]
-  %distance.sroa.19.7 = phi double [ %77, %if.then121 ], [ %distance.sroa.19.5.lcssa, %for.end117 ]
-  %distance.sroa.13.7 = phi double [ %76, %if.then121 ], [ %distance.sroa.13.5.lcssa, %for.end117 ]
-  %distance.sroa.0.7 = phi double [ %75, %if.then121 ], [ %distance.sroa.0.5.lcssa, %for.end117 ]
+  %distance.sroa.19.7 = phi double [ %49, %if.then121 ], [ %distance.sroa.19.5.lcssa, %for.end117 ]
+  %distance.sroa.13.7 = phi double [ %48, %if.then121 ], [ %distance.sroa.13.5.lcssa, %for.end117 ]
+  %distance.sroa.0.7 = phi double [ %47, %if.then121 ], [ %distance.sroa.0.5.lcssa, %for.end117 ]
   store double %distance.sroa.0.7, ptr %agg.result, align 8
   %distance.sroa.13.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store double %distance.sroa.13.7, ptr %distance.sroa.13.0.agg.result.sroa_idx, align 8
@@ -2588,7 +2592,9 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   %minDistance.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i, i8 0, i64 16, i1 false)
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0.000000e+00>, ptr %minDistance.i.i.i.i.i, align 8
+  store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i.i.i.i.i, align 8
+  %dot.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
+  store double 0.000000e+00, ptr %dot.i.i.i.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -2620,7 +2626,9 @@ for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN7msd
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i26, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit ]
   %minDistance.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.08.i.i.i22, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i22, i8 0, i64 16, i1 false)
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0.000000e+00>, ptr %minDistance.i.i.i.i.i24, align 8
+  store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i.i.i.i.i24, align 8
+  %dot.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.08.i.i.i22, i64 24
+  store double 0.000000e+00, ptr %dot.i.i.i.i.i.i25, align 8
   %dec.i.i.i26 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i27 = getelementptr inbounds i8, ptr %__cur.08.i.i.i22, i64 32
   %cmp.not.i.i.i28 = icmp eq i64 %dec.i.i.i26, 0
@@ -3268,9 +3276,6 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

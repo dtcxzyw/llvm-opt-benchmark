@@ -13,8 +13,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_quic_tserver_new(ptr nocapture noundef readonly %args, ptr noundef %certfile, ptr noundef %keyfile) local_unnamed_addr #0 {
 entry:
-  %ch_args = alloca %struct.quic_channel_args_st, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %ch_args, i8 0, i64 56, i1 false)
+  %ch_args = alloca %struct.quic_channel_args_st, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ch_args, i8 0, i64 56, i1 false)
   %net_rbio = getelementptr inbounds i8, ptr %args, i64 24
   %0 = load ptr, ptr %net_rbio, align 8
   %cmp = icmp eq ptr %0, null
@@ -101,19 +101,27 @@ if.end36:                                         ; preds = %land.lhs.true31.if.
   br i1 %cmp41, label %if.then82, label %if.end43
 
 if.end43:                                         ; preds = %if.end36
-  %10 = load <2 x ptr>, ptr %call, align 8
-  store <2 x ptr> %10, ptr %ch_args, align 16
+  %10 = load ptr, ptr %call, align 8
+  store ptr %10, ptr %ch_args, align 8
+  %propq48 = getelementptr inbounds i8, ptr %call, i64 8
+  %11 = load ptr, ptr %propq48, align 8
+  %propq49 = getelementptr inbounds i8, ptr %ch_args, i64 8
+  store ptr %11, ptr %propq49, align 8
   %tls51 = getelementptr inbounds i8, ptr %ch_args, i64 24
   store ptr %call39, ptr %tls51, align 8
-  %11 = load ptr, ptr %mutex, align 8
+  %12 = load ptr, ptr %mutex, align 8
   %mutex53 = getelementptr inbounds i8, ptr %ch_args, i64 32
-  store ptr %11, ptr %mutex53, align 16
+  store ptr %12, ptr %mutex53, align 8
   %is_server = getelementptr inbounds i8, ptr %ch_args, i64 16
-  store i32 1, ptr %is_server, align 16
+  store i32 1, ptr %is_server, align 8
   %now_cb = getelementptr inbounds i8, ptr %call, i64 40
+  %13 = load ptr, ptr %now_cb, align 8
   %now_cb55 = getelementptr inbounds i8, ptr %ch_args, i64 40
-  %12 = load <2 x ptr>, ptr %now_cb, align 8
-  store <2 x ptr> %12, ptr %now_cb55, align 8
+  store ptr %13, ptr %now_cb55, align 8
+  %now_cb_arg = getelementptr inbounds i8, ptr %call, i64 48
+  %14 = load ptr, ptr %now_cb_arg, align 8
+  %now_cb_arg57 = getelementptr inbounds i8, ptr %ch_args, i64 48
+  store ptr %14, ptr %now_cb_arg57, align 8
   %call58 = call ptr @ossl_quic_channel_new(ptr noundef nonnull %ch_args) #5
   %ch = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %call58, ptr %ch, align 8
@@ -122,16 +130,16 @@ if.end43:                                         ; preds = %if.end36
 
 if.end61:                                         ; preds = %if.end43
   %net_rbio64 = getelementptr inbounds i8, ptr %call, i64 24
-  %13 = load ptr, ptr %net_rbio64, align 8
-  %call65 = call i32 @ossl_quic_channel_set_net_rbio(ptr noundef nonnull %call58, ptr noundef %13) #5
+  %15 = load ptr, ptr %net_rbio64, align 8
+  %call65 = call i32 @ossl_quic_channel_set_net_rbio(ptr noundef nonnull %call58, ptr noundef %15) #5
   %tobool.not = icmp eq i32 %call65, 0
   br i1 %tobool.not, label %if.then82, label %lor.lhs.false66
 
 lor.lhs.false66:                                  ; preds = %if.end61
-  %14 = load ptr, ptr %ch, align 8
+  %16 = load ptr, ptr %ch, align 8
   %net_wbio69 = getelementptr inbounds i8, ptr %call, i64 32
-  %15 = load ptr, ptr %net_wbio69, align 8
-  %call70 = call i32 @ossl_quic_channel_set_net_wbio(ptr noundef %14, ptr noundef %15) #5
+  %17 = load ptr, ptr %net_wbio69, align 8
+  %call70 = call i32 @ossl_quic_channel_set_net_wbio(ptr noundef %16, ptr noundef %17) #5
   %tobool71.not = icmp eq i32 %call70, 0
   br i1 %tobool71.not, label %if.then82, label %if.end73
 
@@ -143,31 +151,31 @@ if.end73:                                         ; preds = %lor.lhs.false66
 if.end77:                                         ; preds = %if.end73
   %ssl = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %call74, ptr %ssl, align 8
-  %16 = load ptr, ptr %ch, align 8
+  %18 = load ptr, ptr %ch, align 8
   %ch79 = getelementptr inbounds i8, ptr %call74, i64 72
-  store ptr %16, ptr %ch79, align 8
+  store ptr %18, ptr %ch79, align 8
   store i32 1, ptr %call74, align 8
   br label %return
 
 if.then82:                                        ; preds = %if.end4, %if.end19, %land.lhs.true, %land.lhs.true31, %if.end36, %if.end43, %if.end73, %lor.lhs.false66, %if.end61
   %ctx83 = getelementptr inbounds i8, ptr %args, i64 16
-  %17 = load ptr, ptr %ctx83, align 8
-  %cmp84 = icmp eq ptr %17, null
+  %19 = load ptr, ptr %ctx83, align 8
+  %cmp84 = icmp eq ptr %19, null
   br i1 %cmp84, label %if.then85, label %if.end87
 
 if.then85:                                        ; preds = %if.then82
   %ctx86 = getelementptr inbounds i8, ptr %call, i64 96
-  %18 = load ptr, ptr %ctx86, align 8
-  call void @SSL_CTX_free(ptr noundef %18) #5
+  %20 = load ptr, ptr %ctx86, align 8
+  call void @SSL_CTX_free(ptr noundef %20) #5
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then85, %if.then82
   %tls88 = getelementptr inbounds i8, ptr %call, i64 104
-  %19 = load ptr, ptr %tls88, align 8
-  call void @SSL_free(ptr noundef %19) #5
+  %21 = load ptr, ptr %tls88, align 8
+  call void @SSL_free(ptr noundef %21) #5
   %ch89 = getelementptr inbounds i8, ptr %call, i64 80
-  %20 = load ptr, ptr %ch89, align 8
-  call void @ossl_quic_channel_free(ptr noundef %20) #5
+  %22 = load ptr, ptr %ch89, align 8
+  call void @ossl_quic_channel_free(ptr noundef %22) #5
   call void @ossl_crypto_mutex_free(ptr noundef nonnull %mutex) #5
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 149) #5
   br label %if.end91

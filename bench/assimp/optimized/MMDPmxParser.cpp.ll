@@ -3581,7 +3581,7 @@ entry:
   %tmp8.i = alloca i8, align 1
   %tmp16.i = alloca i16, align 2
   %tmp32.i = alloca i32, align 4
-  %magic = alloca [4 x i8], align 4
+  %magic = alloca [4 x i8], align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp26 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp29 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3589,11 +3589,21 @@ entry:
   %ref.tmp37 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp81 = alloca %"class.std::__cxx11::basic_string", align 8
   %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %magic, i64 noundef 4)
-  %0 = load <4 x i8>, ptr %magic, align 4
-  %.fr = freeze <4 x i8> %0
-  %.fr.scalar = bitcast <4 x i8> %.fr to i32
-  %.not = icmp eq i32 %.fr.scalar, 542657872
-  br i1 %.not, label %if.end, label %if.then
+  %0 = load i8, ptr %magic, align 1
+  %cmp = icmp ne i8 %0, 80
+  %arrayidx2 = getelementptr inbounds i8, ptr %magic, i64 1
+  %1 = load i8, ptr %arrayidx2, align 1
+  %cmp4 = icmp ne i8 %1, 77
+  %or.cond = select i1 %cmp, i1 true, i1 %cmp4
+  %arrayidx6 = getelementptr inbounds i8, ptr %magic, i64 2
+  %2 = load i8, ptr %arrayidx6, align 1
+  %cmp8 = icmp ne i8 %2, 88
+  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp8
+  %arrayidx10 = getelementptr inbounds i8, ptr %magic, i64 3
+  %3 = load i8, ptr %arrayidx10, align 1
+  %cmp12 = icmp ne i8 %3, 32
+  %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp12
+  br i1 %or.cond2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %exception = call ptr @__cxa_allocate_exception(i64 16) #15
@@ -3605,23 +3615,23 @@ invoke.cont:                                      ; preds = %if.then
   unreachable
 
 lpad:                                             ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception) #15
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %this, i64 noundef 4)
-  %2 = load float, ptr %this, align 8
-  %cmp15 = fcmp une float %2, 2.000000e+00
-  %cmp17 = fcmp une float %2, 0x4000CCCCC0000000
+  %5 = load float, ptr %this, align 8
+  %cmp15 = fcmp une float %5, 2.000000e+00
+  %cmp17 = fcmp une float %5, 0x4000CCCCC0000000
   %or.cond48 = and i1 %cmp15, %cmp17
   br i1 %or.cond48, label %if.then18, label %if.end25
 
 if.then18:                                        ; preds = %if.end
   %exception19 = call ptr @__cxa_allocate_exception(i64 16) #15
-  %3 = load float, ptr %this, align 8
-  invoke void @_Z12ai_to_stringIfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, float noundef %3)
+  %6 = load float, ptr %this, align 8
+  invoke void @_Z12ai_to_stringIfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, float noundef %6)
           to label %invoke.cont22 unwind label %ehcleanup.thread
 
 invoke.cont22:                                    ; preds = %if.then18
@@ -3629,7 +3639,7 @@ invoke.cont22:                                    ; preds = %if.then18
           to label %invoke.cont24 unwind label %ehcleanup.thread257
 
 ehcleanup.thread257:                              ; preds = %invoke.cont22
-  %4 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %cleanup.action
@@ -3639,68 +3649,68 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup.thread:                                 ; preds = %if.then18
-  %5 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %invoke.cont24
-  %6 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup.thread257, %ehcleanup.thread
-  %.pn256 = phi { ptr, i32 } [ %5, %ehcleanup.thread ], [ %4, %ehcleanup.thread257 ]
+  %.pn256 = phi { ptr, i32 } [ %8, %ehcleanup.thread ], [ %7, %ehcleanup.thread257 ]
   call void @__cxa_free_exception(ptr %exception19) #15
   br label %eh.resume
 
 if.end25:                                         ; preds = %if.end
   %setting = getelementptr inbounds i8, ptr %this, i64 4
   call void @_ZN3pmx10PmxSetting4ReadEPSi(ptr noundef nonnull align 1 dereferenceable(8) %setting, ptr noundef nonnull %stream)
-  %7 = load i8, ptr %setting, align 4
-  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp26, ptr noundef nonnull %stream, i8 noundef zeroext %7)
+  %10 = load i8, ptr %setting, align 4
+  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp26, ptr noundef nonnull %stream, i8 noundef zeroext %10)
   %model_name = getelementptr inbounds i8, ptr %this, i64 16
   %call28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %model_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #15
-  %8 = load i8, ptr %setting, align 4
-  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp29, ptr noundef nonnull %stream, i8 noundef zeroext %8)
+  %11 = load i8, ptr %setting, align 4
+  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp29, ptr noundef nonnull %stream, i8 noundef zeroext %11)
   %model_english_name = getelementptr inbounds i8, ptr %this, i64 48
   %call32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %model_english_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #15
-  %9 = load i8, ptr %setting, align 4
-  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp33, ptr noundef nonnull %stream, i8 noundef zeroext %9)
+  %12 = load i8, ptr %setting, align 4
+  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp33, ptr noundef nonnull %stream, i8 noundef zeroext %12)
   %model_comment = getelementptr inbounds i8, ptr %this, i64 80
   %call36 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %model_comment, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #15
-  %10 = load i8, ptr %setting, align 4
-  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp37, ptr noundef nonnull %stream, i8 noundef zeroext %10)
+  %13 = load i8, ptr %setting, align 4
+  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp37, ptr noundef nonnull %stream, i8 noundef zeroext %13)
   %model_english_comment = getelementptr inbounds i8, ptr %this, i64 112
   %call40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %model_english_comment, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #15
   %vertex_count = getelementptr inbounds i8, ptr %this, i64 144
   %call41 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %vertex_count, i64 noundef 4)
-  %11 = load i32, ptr %vertex_count, align 8
-  %conv44 = sext i32 %11 to i64
-  %12 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv44, i64 120)
-  %13 = extractvalue { i64, i1 } %12, 1
-  %14 = extractvalue { i64, i1 } %12, 0
-  %15 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 8)
+  %14 = load i32, ptr %vertex_count, align 8
+  %conv44 = sext i32 %14 to i64
+  %15 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv44, i64 120)
   %16 = extractvalue { i64, i1 } %15, 1
-  %17 = or i1 %13, %16
-  %18 = extractvalue { i64, i1 } %15, 0
-  %19 = select i1 %17, i64 -1, i64 %18
-  %call.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #17, !noalias !51
+  %17 = extractvalue { i64, i1 } %15, 0
+  %18 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 8)
+  %19 = extractvalue { i64, i1 } %18, 1
+  %20 = or i1 %16, %19
+  %21 = extractvalue { i64, i1 } %18, 0
+  %22 = select i1 %20, i64 -1, i64 %21
+  %call.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #17, !noalias !51
   store i64 %conv44, ptr %call.i, align 16, !noalias !51
-  %20 = getelementptr inbounds i8, ptr %call.i, i64 8
-  %isempty.i = icmp eq i32 %11, 0
+  %23 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %isempty.i = icmp eq i32 %14, 0
   br i1 %isempty.i, label %_ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i
 
 new.ctorloop.i:                                   ; preds = %if.end25
-  %arrayctor.end.i = getelementptr inbounds %"class.pmx::PmxVertex", ptr %20, i64 %conv44
+  %arrayctor.end.i = getelementptr inbounds %"class.pmx::PmxVertex", ptr %23, i64 %conv44
   br label %arrayctor.loop.i
 
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %new.ctorloop.i
-  %arrayctor.cur.i = phi ptr [ %20, %new.ctorloop.i ], [ %arrayctor.next.i, %arrayctor.loop.i ]
+  %arrayctor.cur.i = phi ptr [ %23, %new.ctorloop.i ], [ %arrayctor.next.i, %arrayctor.loop.i ]
   %skinning.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 104
   store ptr null, ptr %skinning.i.i, align 8, !noalias !51
   %edge.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 112
@@ -3712,86 +3722,86 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
 
 _ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i, %if.end25
   %vertices = getelementptr inbounds i8, ptr %this, i64 152
-  %21 = load ptr, ptr %vertices, align 8
-  store ptr %20, ptr %vertices, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %21, null
+  %24 = load ptr, ptr %vertices, align 8
+  store ptr %23, ptr %vertices, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %_ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %22 = getelementptr inbounds i8, ptr %21, i64 -8
-  %23 = load i64, ptr %22, align 8
-  %arraydestroy.isempty.i.i.i.i.i = icmp eq i64 %23, 0
+  %25 = getelementptr inbounds i8, ptr %24, i64 -8
+  %26 = load i64, ptr %25, align 8
+  %arraydestroy.isempty.i.i.i.i.i = icmp eq i64 %26, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i
 
 arraydestroy.body.preheader.i.i.i.i.i:            ; preds = %delete.notnull.i.i.i.i.i
-  %delete.end.i.i.i.i.i = getelementptr inbounds %"class.pmx::PmxVertex", ptr %21, i64 %23
+  %delete.end.i.i.i.i.i = getelementptr inbounds %"class.pmx::PmxVertex", ptr %24, i64 %26
   br label %arraydestroy.body.i.i.i.i.i
 
 arraydestroy.body.i.i.i.i.i:                      ; preds = %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i
   %arraydestroy.elementPast.i.i.i.i.i = phi ptr [ %arraydestroy.element.i.i.i.i.i, %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i ], [ %delete.end.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i ]
   %arraydestroy.element.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -120
   %skinning.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -16
-  %24 = load ptr, ptr %skinning.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %24, null
+  %27 = load ptr, ptr %skinning.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %27, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN3pmx17PmxVertexSkinningEEclEPS1_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3pmx17PmxVertexSkinningEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %24, align 8
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %27, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
-  %25 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24) #15
+  %28 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(8) %27) #15
   br label %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i
 
 _ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i:             ; preds = %_ZNKSt14default_deleteIN3pmx17PmxVertexSkinningEEclEPS1_.exit.i.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i
   store ptr null, ptr %skinning.i.i.i.i.i.i, align 8
-  %arraydestroy.done.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i, %21
+  %arraydestroy.done.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i, %24
   br i1 %arraydestroy.done.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %_ZN3pmx9PmxVertexD2Ev.exit.i.i.i.i.i, %delete.notnull.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %22) #18
+  call void @_ZdaPv(ptr noundef nonnull %25) #18
   %.pre = load i32, ptr %vertex_count, align 8
   br label %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %26 = phi i32 [ %.pre, %_ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i ], [ %11, %_ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit ]
-  %cmp47259 = icmp sgt i32 %26, 0
+  %29 = phi i32 [ %.pre, %_ZNKSt14default_deleteIA_N3pmx9PmxVertexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i ], [ %14, %_ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit ]
+  %cmp47259 = icmp sgt i32 %29, 0
   br i1 %cmp47259, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit ]
-  %27 = load ptr, ptr %vertices, align 8
-  %arrayidx.i = getelementptr inbounds %"class.pmx::PmxVertex", ptr %27, i64 %indvars.iv
+  %30 = load ptr, ptr %vertices, align 8
+  %arrayidx.i = getelementptr inbounds %"class.pmx::PmxVertex", ptr %30, i64 %indvars.iv
   call void @_ZN3pmx9PmxVertex4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(116) %arrayidx.i, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i32, ptr %vertex_count, align 8
-  %29 = sext i32 %28 to i64
-  %cmp47 = icmp slt i64 %indvars.iv.next, %29
+  %31 = load i32, ptr %vertex_count, align 8
+  %32 = sext i32 %31 to i64
+  %cmp47 = icmp slt i64 %indvars.iv.next, %32
   br i1 %cmp47, label %for.body, label %for.end, !llvm.loop !54
 
 for.end:                                          ; preds = %for.body, %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit
   %index_count = getelementptr inbounds i8, ptr %this, i64 160
   %call52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %index_count, i64 noundef 4)
-  %30 = load i32, ptr %index_count, align 8
-  %conv55 = sext i32 %30 to i64
-  %31 = icmp slt i32 %30, 0
-  %32 = shl nuw nsw i64 %conv55, 2
-  %33 = select i1 %31, i64 -1, i64 %32
-  %call.i49 = call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #17, !noalias !55
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i49, i8 0, i64 %33, i1 false), !noalias !55
+  %33 = load i32, ptr %index_count, align 8
+  %conv55 = sext i32 %33 to i64
+  %34 = icmp slt i32 %33, 0
+  %35 = shl nuw nsw i64 %conv55, 2
+  %36 = select i1 %34, i64 -1, i64 %35
+  %call.i49 = call noalias noundef nonnull ptr @_Znam(i64 noundef %36) #17, !noalias !55
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i49, i8 0, i64 %36, i1 false), !noalias !55
   %indices = getelementptr inbounds i8, ptr %this, i64 168
-  %34 = load ptr, ptr %indices, align 8
+  %37 = load ptr, ptr %indices, align 8
   store ptr %call.i49, ptr %indices, align 8
-  %tobool.not.i.i.i.i50 = icmp eq ptr %34, null
+  %tobool.not.i.i.i.i50 = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i.i50, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i: ; preds = %for.end
-  call void @_ZdaPv(ptr noundef nonnull %34) #18
+  call void @_ZdaPv(ptr noundef nonnull %37) #18
   %.pre302 = load i32, ptr %index_count, align 8
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i, %for.end
-  %35 = phi i32 [ %.pre302, %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i ], [ %30, %for.end ]
-  %cmp60261 = icmp sgt i32 %35, 0
+  %38 = phi i32 [ %.pre302, %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i ], [ %33, %for.end ]
+  %cmp60261 = icmp sgt i32 %38, 0
   br i1 %cmp60261, label %for.body61.lr.ph, label %for.end70
 
 for.body61.lr.ph:                                 ; preds = %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
@@ -3800,11 +3810,11 @@ for.body61.lr.ph:                                 ; preds = %_ZNSt10unique_ptrIA
 
 for.body61:                                       ; preds = %for.body61.lr.ph, %_ZN3pmx9ReadIndexEPSii.exit
   %indvars.iv278 = phi i64 [ 0, %for.body61.lr.ph ], [ %indvars.iv.next279, %_ZN3pmx9ReadIndexEPSii.exit ]
-  %36 = load i8, ptr %vertex_index_size, align 2
+  %39 = load i8, ptr %vertex_index_size, align 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp32.i)
-  switch i8 %36, label %_ZN3pmx9ReadIndexEPSii.exit [
+  switch i8 %39, label %_ZN3pmx9ReadIndexEPSii.exit [
     i8 1, label %sw.bb.i
     i8 2, label %sw.bb2.i
     i8 4, label %sw.bb9.i
@@ -3812,60 +3822,60 @@ for.body61:                                       ; preds = %for.body61.lr.ph, %
 
 sw.bb.i:                                          ; preds = %for.body61
   %call.i52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %tmp8.i, i64 noundef 1)
-  %37 = load i8, ptr %tmp8.i, align 1
-  %cmp.i = icmp eq i8 %37, -1
-  %conv.i = zext i8 %37 to i32
+  %40 = load i8, ptr %tmp8.i, align 1
+  %cmp.i = icmp eq i8 %40, -1
+  %conv.i = zext i8 %40 to i32
   %spec.select.i = select i1 %cmp.i, i32 -1, i32 %conv.i
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 sw.bb2.i:                                         ; preds = %for.body61
   %call3.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %tmp16.i, i64 noundef 2)
-  %38 = load i16, ptr %tmp16.i, align 2
-  %cmp5.i = icmp eq i16 %38, -1
-  %conv4.i = zext i16 %38 to i32
+  %41 = load i16, ptr %tmp16.i, align 2
+  %cmp5.i = icmp eq i16 %41, -1
+  %conv4.i = zext i16 %41 to i32
   %spec.select3.i = select i1 %cmp5.i, i32 -1, i32 %conv4.i
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 sw.bb9.i:                                         ; preds = %for.body61
   %call10.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %tmp32.i, i64 noundef 4)
-  %39 = load i32, ptr %tmp32.i, align 4
+  %42 = load i32, ptr %tmp32.i, align 4
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %for.body61, %sw.bb.i, %sw.bb2.i, %sw.bb9.i
-  %retval.0.i = phi i32 [ %39, %sw.bb9.i ], [ -1, %for.body61 ], [ %spec.select.i, %sw.bb.i ], [ %spec.select3.i, %sw.bb2.i ]
+  %retval.0.i = phi i32 [ %42, %sw.bb9.i ], [ -1, %for.body61 ], [ %spec.select.i, %sw.bb.i ], [ %spec.select3.i, %sw.bb2.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %tmp16.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp32.i)
-  %40 = load ptr, ptr %indices, align 8
-  %arrayidx.i53 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv278
+  %43 = load ptr, ptr %indices, align 8
+  %arrayidx.i53 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv278
   store i32 %retval.0.i, ptr %arrayidx.i53, align 4
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
-  %41 = load i32, ptr %index_count, align 8
-  %42 = sext i32 %41 to i64
-  %cmp60 = icmp slt i64 %indvars.iv.next279, %42
+  %44 = load i32, ptr %index_count, align 8
+  %45 = sext i32 %44 to i64
+  %cmp60 = icmp slt i64 %indvars.iv.next279, %45
   br i1 %cmp60, label %for.body61, label %for.end70, !llvm.loop !58
 
 for.end70:                                        ; preds = %_ZN3pmx9ReadIndexEPSii.exit, %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
   %texture_count = getelementptr inbounds i8, ptr %this, i64 176
   %call71 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %texture_count, i64 noundef 4)
-  %43 = load i32, ptr %texture_count, align 8
-  %conv74 = sext i32 %43 to i64
-  %44 = icmp slt i32 %43, 0
-  %45 = shl nuw nsw i64 %conv74, 5
-  %46 = or disjoint i64 %45, 8
-  %47 = select i1 %44, i64 -1, i64 %46
-  %call.i54 = call noalias noundef nonnull ptr @_Znam(i64 noundef %47) #17, !noalias !59
+  %46 = load i32, ptr %texture_count, align 8
+  %conv74 = sext i32 %46 to i64
+  %47 = icmp slt i32 %46, 0
+  %48 = shl nuw nsw i64 %conv74, 5
+  %49 = or disjoint i64 %48, 8
+  %50 = select i1 %47, i64 -1, i64 %49
+  %call.i54 = call noalias noundef nonnull ptr @_Znam(i64 noundef %50) #17, !noalias !59
   store i64 %conv74, ptr %call.i54, align 16, !noalias !59
-  %48 = getelementptr inbounds i8, ptr %call.i54, i64 8
-  %isempty.i55 = icmp eq i32 %43, 0
+  %51 = getelementptr inbounds i8, ptr %call.i54, i64 8
+  %isempty.i55 = icmp eq i32 %46, 0
   br i1 %isempty.i55, label %_ZN3mmd11make_uniqueIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i56
 
 new.ctorloop.i56:                                 ; preds = %for.end70
-  %arrayctor.end.i57 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %48, i64 %conv74
+  %arrayctor.end.i57 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %51, i64 %conv74
   br label %arrayctor.loop.i58
 
 arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58, %new.ctorloop.i56
-  %arrayctor.cur.i59 = phi ptr [ %48, %new.ctorloop.i56 ], [ %arrayctor.next.i60, %arrayctor.loop.i58 ]
+  %arrayctor.cur.i59 = phi ptr [ %51, %new.ctorloop.i56 ], [ %arrayctor.next.i60, %arrayctor.loop.i58 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i59) #15, !noalias !59
   %arrayctor.next.i60 = getelementptr inbounds i8, ptr %arrayctor.cur.i59, i64 32
   %arrayctor.done.i61 = icmp eq ptr %arrayctor.next.i60, %arrayctor.end.i57
@@ -3873,73 +3883,73 @@ arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58,
 
 _ZN3mmd11make_uniqueIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i58, %for.end70
   %textures = getelementptr inbounds i8, ptr %this, i64 184
-  %49 = load ptr, ptr %textures, align 8
-  store ptr %48, ptr %textures, align 8
-  %tobool.not.i.i.i.i62 = icmp eq ptr %49, null
+  %52 = load ptr, ptr %textures, align 8
+  store ptr %51, ptr %textures, align 8
+  %tobool.not.i.i.i.i62 = icmp eq ptr %52, null
   br i1 %tobool.not.i.i.i.i62, label %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev.exit, label %delete.notnull.i.i.i.i.i63
 
 delete.notnull.i.i.i.i.i63:                       ; preds = %_ZN3mmd11make_uniqueIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %50 = getelementptr inbounds i8, ptr %49, i64 -8
-  %51 = load i64, ptr %50, align 8
-  %arraydestroy.isempty.i.i.i.i.i64 = icmp eq i64 %51, 0
+  %53 = getelementptr inbounds i8, ptr %52, i64 -8
+  %54 = load i64, ptr %53, align 8
+  %arraydestroy.isempty.i.i.i.i.i64 = icmp eq i64 %54, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i64, label %_ZNKSt14default_deleteIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i65
 
 arraydestroy.body.preheader.i.i.i.i.i65:          ; preds = %delete.notnull.i.i.i.i.i63
-  %delete.end.i.i.i.i.i66 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %49, i64 %51
+  %delete.end.i.i.i.i.i66 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %52, i64 %54
   br label %arraydestroy.body.i.i.i.i.i67
 
 arraydestroy.body.i.i.i.i.i67:                    ; preds = %arraydestroy.body.i.i.i.i.i67, %arraydestroy.body.preheader.i.i.i.i.i65
   %arraydestroy.elementPast.i.i.i.i.i68 = phi ptr [ %arraydestroy.element.i.i.i.i.i69, %arraydestroy.body.i.i.i.i.i67 ], [ %delete.end.i.i.i.i.i66, %arraydestroy.body.preheader.i.i.i.i.i65 ]
   %arraydestroy.element.i.i.i.i.i69 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i68, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i69) #15
-  %arraydestroy.done.i.i.i.i.i70 = icmp eq ptr %arraydestroy.element.i.i.i.i.i69, %49
+  %arraydestroy.done.i.i.i.i.i70 = icmp eq ptr %arraydestroy.element.i.i.i.i.i69, %52
   br i1 %arraydestroy.done.i.i.i.i.i70, label %_ZNKSt14default_deleteIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i67
 
 _ZNKSt14default_deleteIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i67, %delete.notnull.i.i.i.i.i63
-  call void @_ZdaPv(ptr noundef nonnull %50) #18
+  call void @_ZdaPv(ptr noundef nonnull %53) #18
   br label %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclIS5_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS6_EE5valueEvE4typeEPSA_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %52 = load i32, ptr %texture_count, align 8
-  %cmp79263 = icmp sgt i32 %52, 0
+  %55 = load i32, ptr %texture_count, align 8
+  %cmp79263 = icmp sgt i32 %55, 0
   br i1 %cmp79263, label %for.body80, label %for.end93
 
 for.body80:                                       ; preds = %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev.exit, %for.body80
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %for.body80 ], [ 0, %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev.exit ]
-  %53 = load i8, ptr %setting, align 4
-  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp81, ptr noundef nonnull %stream, i8 noundef zeroext %53)
-  %54 = load ptr, ptr %textures, align 8
-  %arrayidx.i80 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %54, i64 %indvars.iv281
+  %56 = load i8, ptr %setting, align 4
+  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp81, ptr noundef nonnull %stream, i8 noundef zeroext %56)
+  %57 = load ptr, ptr %textures, align 8
+  %arrayidx.i80 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %57, i64 %indvars.iv281
   %call89 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i80, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #15
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
-  %55 = load i32, ptr %texture_count, align 8
-  %56 = sext i32 %55 to i64
-  %cmp79 = icmp slt i64 %indvars.iv.next282, %56
+  %58 = load i32, ptr %texture_count, align 8
+  %59 = sext i32 %58 to i64
+  %cmp79 = icmp slt i64 %indvars.iv.next282, %59
   br i1 %cmp79, label %for.body80, label %for.end93, !llvm.loop !62
 
 for.end93:                                        ; preds = %for.body80, %_ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev.exit
   %material_count = getelementptr inbounds i8, ptr %this, i64 192
   %call94 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %material_count, i64 noundef 4)
-  %57 = load i32, ptr %material_count, align 8
-  %conv97 = sext i32 %57 to i64
-  %58 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv97, i64 192)
-  %59 = extractvalue { i64, i1 } %58, 1
-  %60 = extractvalue { i64, i1 } %58, 0
-  %61 = or disjoint i64 %60, 8
-  %62 = select i1 %59, i64 -1, i64 %61
-  %call.i81 = call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #17, !noalias !63
+  %60 = load i32, ptr %material_count, align 8
+  %conv97 = sext i32 %60 to i64
+  %61 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv97, i64 192)
+  %62 = extractvalue { i64, i1 } %61, 1
+  %63 = extractvalue { i64, i1 } %61, 0
+  %64 = or disjoint i64 %63, 8
+  %65 = select i1 %62, i64 -1, i64 %64
+  %call.i81 = call noalias noundef nonnull ptr @_Znam(i64 noundef %65) #17, !noalias !63
   store i64 %conv97, ptr %call.i81, align 16, !noalias !63
-  %63 = getelementptr inbounds i8, ptr %call.i81, i64 8
-  %isempty.i82 = icmp eq i32 %57, 0
+  %66 = getelementptr inbounds i8, ptr %call.i81, i64 8
+  %isempty.i82 = icmp eq i32 %60, 0
   br i1 %isempty.i82, label %_ZN3mmd11make_uniqueIA_N3pmx11PmxMaterialEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i83
 
 new.ctorloop.i83:                                 ; preds = %for.end93
-  %arrayctor.end.i84 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %63, i64 %conv97
+  %arrayctor.end.i84 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %66, i64 %conv97
   br label %arrayctor.loop.i85
 
 arrayctor.loop.i85:                               ; preds = %arrayctor.loop.i85, %new.ctorloop.i83
-  %arrayctor.cur.i86 = phi ptr [ %63, %new.ctorloop.i83 ], [ %arrayctor.next.i87, %arrayctor.loop.i85 ]
+  %arrayctor.cur.i86 = phi ptr [ %66, %new.ctorloop.i83 ], [ %arrayctor.next.i87, %arrayctor.loop.i85 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i86) #15, !noalias !63
   %material_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i86, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %material_english_name.i.i) #15, !noalias !63
@@ -3967,19 +3977,19 @@ arrayctor.loop.i85:                               ; preds = %arrayctor.loop.i85,
 
 _ZN3mmd11make_uniqueIA_N3pmx11PmxMaterialEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i85, %for.end93
   %materials = getelementptr inbounds i8, ptr %this, i64 200
-  %64 = load ptr, ptr %materials, align 8
-  store ptr %63, ptr %materials, align 8
-  %tobool.not.i.i.i.i89 = icmp eq ptr %64, null
+  %67 = load ptr, ptr %materials, align 8
+  store ptr %66, ptr %materials, align 8
+  %tobool.not.i.i.i.i89 = icmp eq ptr %67, null
   br i1 %tobool.not.i.i.i.i89, label %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i.i.i.i90
 
 delete.notnull.i.i.i.i.i90:                       ; preds = %_ZN3mmd11make_uniqueIA_N3pmx11PmxMaterialEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %65 = getelementptr inbounds i8, ptr %64, i64 -8
-  %66 = load i64, ptr %65, align 8
-  %arraydestroy.isempty.i.i.i.i.i91 = icmp eq i64 %66, 0
+  %68 = getelementptr inbounds i8, ptr %67, i64 -8
+  %69 = load i64, ptr %68, align 8
+  %arraydestroy.isempty.i.i.i.i.i91 = icmp eq i64 %69, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i91, label %_ZNKSt14default_deleteIA_N3pmx11PmxMaterialEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i92
 
 arraydestroy.body.preheader.i.i.i.i.i92:          ; preds = %delete.notnull.i.i.i.i.i90
-  %delete.end.i.i.i.i.i93 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %64, i64 %66
+  %delete.end.i.i.i.i.i93 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %67, i64 %69
   br label %arraydestroy.body.i.i.i.i.i94
 
 arraydestroy.body.i.i.i.i.i94:                    ; preds = %arraydestroy.body.i.i.i.i.i94, %arraydestroy.body.preheader.i.i.i.i.i92
@@ -3990,51 +4000,51 @@ arraydestroy.body.i.i.i.i.i94:                    ; preds = %arraydestroy.body.i
   %material_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i95, i64 -160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %material_english_name.i.i.i.i.i.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i96) #15
-  %arraydestroy.done.i.i.i.i.i97 = icmp eq ptr %arraydestroy.element.i.i.i.i.i96, %64
+  %arraydestroy.done.i.i.i.i.i97 = icmp eq ptr %arraydestroy.element.i.i.i.i.i96, %67
   br i1 %arraydestroy.done.i.i.i.i.i97, label %_ZNKSt14default_deleteIA_N3pmx11PmxMaterialEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i94
 
 _ZNKSt14default_deleteIA_N3pmx11PmxMaterialEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i94, %delete.notnull.i.i.i.i.i90
-  call void @_ZdaPv(ptr noundef nonnull %65) #18
+  call void @_ZdaPv(ptr noundef nonnull %68) #18
   br label %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx11PmxMaterialEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx11PmxMaterialEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %67 = load i32, ptr %material_count, align 8
-  %cmp102265 = icmp sgt i32 %67, 0
+  %70 = load i32, ptr %material_count, align 8
+  %cmp102265 = icmp sgt i32 %70, 0
   br i1 %cmp102265, label %for.body103, label %for.end110
 
 for.body103:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit, %for.body103
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %for.body103 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit ]
-  %68 = load ptr, ptr %materials, align 8
-  %arrayidx.i107 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %68, i64 %indvars.iv284
+  %71 = load ptr, ptr %materials, align 8
+  %arrayidx.i107 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %71, i64 %indvars.iv284
   call void @_ZN3pmx11PmxMaterial4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(188) %arrayidx.i107, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
-  %69 = load i32, ptr %material_count, align 8
-  %70 = sext i32 %69 to i64
-  %cmp102 = icmp slt i64 %indvars.iv.next285, %70
+  %72 = load i32, ptr %material_count, align 8
+  %73 = sext i32 %72 to i64
+  %cmp102 = icmp slt i64 %indvars.iv.next285, %73
   br i1 %cmp102, label %for.body103, label %for.end110, !llvm.loop !66
 
 for.end110:                                       ; preds = %for.body103, %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit
   %bone_count = getelementptr inbounds i8, ptr %this, i64 208
   %call111 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %bone_count, i64 noundef 4)
-  %71 = load i32, ptr %bone_count, align 8
-  %conv114 = sext i32 %71 to i64
-  %72 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv114, i64 176)
-  %73 = extractvalue { i64, i1 } %72, 1
-  %74 = extractvalue { i64, i1 } %72, 0
-  %75 = or disjoint i64 %74, 8
-  %76 = select i1 %73, i64 -1, i64 %75
-  %call.i108 = call noalias noundef nonnull ptr @_Znam(i64 noundef %76) #17, !noalias !67
+  %74 = load i32, ptr %bone_count, align 8
+  %conv114 = sext i32 %74 to i64
+  %75 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv114, i64 176)
+  %76 = extractvalue { i64, i1 } %75, 1
+  %77 = extractvalue { i64, i1 } %75, 0
+  %78 = or disjoint i64 %77, 8
+  %79 = select i1 %76, i64 -1, i64 %78
+  %call.i108 = call noalias noundef nonnull ptr @_Znam(i64 noundef %79) #17, !noalias !67
   store i64 %conv114, ptr %call.i108, align 16, !noalias !67
-  %77 = getelementptr inbounds i8, ptr %call.i108, i64 8
-  %isempty.i109 = icmp eq i32 %71, 0
+  %80 = getelementptr inbounds i8, ptr %call.i108, i64 8
+  %isempty.i109 = icmp eq i32 %74, 0
   br i1 %isempty.i109, label %_ZN3mmd11make_uniqueIA_N3pmx7PmxBoneEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i110
 
 new.ctorloop.i110:                                ; preds = %for.end110
-  %arrayctor.end.i111 = getelementptr inbounds %"class.pmx::PmxBone", ptr %77, i64 %conv114
+  %arrayctor.end.i111 = getelementptr inbounds %"class.pmx::PmxBone", ptr %80, i64 %conv114
   br label %arrayctor.loop.i112
 
 arrayctor.loop.i112:                              ; preds = %arrayctor.loop.i112, %new.ctorloop.i110
-  %arrayctor.cur.i113 = phi ptr [ %77, %new.ctorloop.i110 ], [ %arrayctor.next.i114, %arrayctor.loop.i112 ]
+  %arrayctor.cur.i113 = phi ptr [ %80, %new.ctorloop.i110 ], [ %arrayctor.next.i114, %arrayctor.loop.i112 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i113) #15, !noalias !67
   %bone_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i113, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bone_english_name.i.i) #15, !noalias !67
@@ -4048,31 +4058,31 @@ arrayctor.loop.i112:                              ; preds = %arrayctor.loop.i112
 
 _ZN3mmd11make_uniqueIA_N3pmx7PmxBoneEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i112, %for.end110
   %bones = getelementptr inbounds i8, ptr %this, i64 216
-  %78 = load ptr, ptr %bones, align 8
-  store ptr %77, ptr %bones, align 8
-  %tobool.not.i.i.i.i116 = icmp eq ptr %78, null
+  %81 = load ptr, ptr %bones, align 8
+  store ptr %80, ptr %bones, align 8
+  %tobool.not.i.i.i.i116 = icmp eq ptr %81, null
   br i1 %tobool.not.i.i.i.i116, label %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i.i.i.i117
 
 delete.notnull.i.i.i.i.i117:                      ; preds = %_ZN3mmd11make_uniqueIA_N3pmx7PmxBoneEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %79 = getelementptr inbounds i8, ptr %78, i64 -8
-  %80 = load i64, ptr %79, align 8
-  %arraydestroy.isempty.i.i.i.i.i118 = icmp eq i64 %80, 0
+  %82 = getelementptr inbounds i8, ptr %81, i64 -8
+  %83 = load i64, ptr %82, align 8
+  %arraydestroy.isempty.i.i.i.i.i118 = icmp eq i64 %83, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i118, label %_ZNKSt14default_deleteIA_N3pmx7PmxBoneEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i119
 
 arraydestroy.body.preheader.i.i.i.i.i119:         ; preds = %delete.notnull.i.i.i.i.i117
-  %delete.end.i.i.i.i.i120 = getelementptr inbounds %"class.pmx::PmxBone", ptr %78, i64 %80
+  %delete.end.i.i.i.i.i120 = getelementptr inbounds %"class.pmx::PmxBone", ptr %81, i64 %83
   br label %arraydestroy.body.i.i.i.i.i121
 
 arraydestroy.body.i.i.i.i.i121:                   ; preds = %_ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i119
   %arraydestroy.elementPast.i.i.i.i.i122 = phi ptr [ %arraydestroy.element.i.i.i.i.i123, %_ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i ], [ %delete.end.i.i.i.i.i120, %arraydestroy.body.preheader.i.i.i.i.i119 ]
   %arraydestroy.element.i.i.i.i.i123 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i122, i64 -176
   %ik_links.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i122, i64 -8
-  %81 = load ptr, ptr %ik_links.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i124 = icmp eq ptr %81, null
+  %84 = load ptr, ptr %ik_links.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i124 = icmp eq ptr %84, null
   br i1 %cmp.not.i.i.i.i.i.i.i124, label %_ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N3pmx9PmxIkLinkEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_N3pmx9PmxIkLinkEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i121
-  call void @_ZdaPv(ptr noundef nonnull %81) #18
+  call void @_ZdaPv(ptr noundef nonnull %84) #18
   br label %_ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i
 
 _ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i:               ; preds = %_ZNKSt14default_deleteIA_N3pmx9PmxIkLinkEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i121
@@ -4080,50 +4090,50 @@ _ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i:               ; preds = %_ZNKSt14default_del
   %bone_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i122, i64 -144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bone_english_name.i.i.i.i.i.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i123) #15
-  %arraydestroy.done.i.i.i.i.i125 = icmp eq ptr %arraydestroy.element.i.i.i.i.i123, %78
+  %arraydestroy.done.i.i.i.i.i125 = icmp eq ptr %arraydestroy.element.i.i.i.i.i123, %81
   br i1 %arraydestroy.done.i.i.i.i.i125, label %_ZNKSt14default_deleteIA_N3pmx7PmxBoneEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i121
 
 _ZNKSt14default_deleteIA_N3pmx7PmxBoneEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %_ZN3pmx7PmxBoneD2Ev.exit.i.i.i.i.i, %delete.notnull.i.i.i.i.i117
-  call void @_ZdaPv(ptr noundef nonnull %79) #18
+  call void @_ZdaPv(ptr noundef nonnull %82) #18
   br label %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx7PmxBoneEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx7PmxBoneEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %82 = load i32, ptr %bone_count, align 8
-  %cmp119267 = icmp sgt i32 %82, 0
+  %85 = load i32, ptr %bone_count, align 8
+  %cmp119267 = icmp sgt i32 %85, 0
   br i1 %cmp119267, label %for.body120, label %for.end127
 
 for.body120:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit, %for.body120
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %for.body120 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit ]
-  %83 = load ptr, ptr %bones, align 8
-  %arrayidx.i136 = getelementptr inbounds %"class.pmx::PmxBone", ptr %83, i64 %indvars.iv287
+  %86 = load ptr, ptr %bones, align 8
+  %arrayidx.i136 = getelementptr inbounds %"class.pmx::PmxBone", ptr %86, i64 %indvars.iv287
   call void @_ZN3pmx7PmxBone4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(176) %arrayidx.i136, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
-  %84 = load i32, ptr %bone_count, align 8
-  %85 = sext i32 %84 to i64
-  %cmp119 = icmp slt i64 %indvars.iv.next288, %85
+  %87 = load i32, ptr %bone_count, align 8
+  %88 = sext i32 %87 to i64
+  %cmp119 = icmp slt i64 %indvars.iv.next288, %88
   br i1 %cmp119, label %for.body120, label %for.end127, !llvm.loop !70
 
 for.end127:                                       ; preds = %for.body120, %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit
   %morph_count = getelementptr inbounds i8, ptr %this, i64 224
   %call128 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %morph_count, i64 noundef 4)
-  %86 = load i32, ptr %morph_count, align 8
-  %conv131 = sext i32 %86 to i64
-  %87 = icmp slt i32 %86, 0
-  %88 = shl nuw nsw i64 %conv131, 7
-  %89 = or disjoint i64 %88, 8
-  %90 = select i1 %87, i64 -1, i64 %89
-  %call.i137 = call noalias noundef nonnull ptr @_Znam(i64 noundef %90) #17, !noalias !71
+  %89 = load i32, ptr %morph_count, align 8
+  %conv131 = sext i32 %89 to i64
+  %90 = icmp slt i32 %89, 0
+  %91 = shl nuw nsw i64 %conv131, 7
+  %92 = or disjoint i64 %91, 8
+  %93 = select i1 %90, i64 -1, i64 %92
+  %call.i137 = call noalias noundef nonnull ptr @_Znam(i64 noundef %93) #17, !noalias !71
   store i64 %conv131, ptr %call.i137, align 16, !noalias !71
-  %91 = getelementptr inbounds i8, ptr %call.i137, i64 8
-  %isempty.i138 = icmp eq i32 %86, 0
+  %94 = getelementptr inbounds i8, ptr %call.i137, i64 8
+  %isempty.i138 = icmp eq i32 %89, 0
   br i1 %isempty.i138, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxMorphEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i139
 
 new.ctorloop.i139:                                ; preds = %for.end127
-  %arrayctor.end.i140 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %91, i64 %conv131
+  %arrayctor.end.i140 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %94, i64 %conv131
   br label %arrayctor.loop.i141
 
 arrayctor.loop.i141:                              ; preds = %arrayctor.loop.i141, %new.ctorloop.i139
-  %arrayctor.cur.i142 = phi ptr [ %91, %new.ctorloop.i139 ], [ %arrayctor.next.i143, %arrayctor.loop.i141 ]
+  %arrayctor.cur.i142 = phi ptr [ %94, %new.ctorloop.i139 ], [ %arrayctor.next.i143, %arrayctor.loop.i141 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i142) #15, !noalias !71
   %morph_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i142, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %morph_english_name.i.i) #15, !noalias !71
@@ -4135,70 +4145,70 @@ arrayctor.loop.i141:                              ; preds = %arrayctor.loop.i141
 
 _ZN3mmd11make_uniqueIA_N3pmx8PmxMorphEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i141, %for.end127
   %morphs = getelementptr inbounds i8, ptr %this, i64 232
-  %92 = load ptr, ptr %morphs, align 8
-  store ptr %91, ptr %morphs, align 8
-  %tobool.not.i.i.i.i145 = icmp eq ptr %92, null
+  %95 = load ptr, ptr %morphs, align 8
+  store ptr %94, ptr %morphs, align 8
+  %tobool.not.i.i.i.i145 = icmp eq ptr %95, null
   br i1 %tobool.not.i.i.i.i145, label %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i.i.i.i146
 
 delete.notnull.i.i.i.i.i146:                      ; preds = %_ZN3mmd11make_uniqueIA_N3pmx8PmxMorphEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %93 = getelementptr inbounds i8, ptr %92, i64 -8
-  %94 = load i64, ptr %93, align 8
-  %arraydestroy.isempty.i.i.i.i.i147 = icmp eq i64 %94, 0
+  %96 = getelementptr inbounds i8, ptr %95, i64 -8
+  %97 = load i64, ptr %96, align 8
+  %arraydestroy.isempty.i.i.i.i.i147 = icmp eq i64 %97, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i147, label %_ZNKSt14default_deleteIA_N3pmx8PmxMorphEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i148
 
 arraydestroy.body.preheader.i.i.i.i.i148:         ; preds = %delete.notnull.i.i.i.i.i146
-  %delete.end.i.i.i.i.i149 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %92, i64 %94
+  %delete.end.i.i.i.i.i149 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %95, i64 %97
   br label %arraydestroy.body.i.i.i.i.i150
 
 arraydestroy.body.i.i.i.i.i150:                   ; preds = %arraydestroy.body.i.i.i.i.i150, %arraydestroy.body.preheader.i.i.i.i.i148
   %arraydestroy.elementPast.i.i.i.i.i151 = phi ptr [ %arraydestroy.element.i.i.i.i.i152, %arraydestroy.body.i.i.i.i.i150 ], [ %delete.end.i.i.i.i.i149, %arraydestroy.body.preheader.i.i.i.i.i148 ]
   %arraydestroy.element.i.i.i.i.i152 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i151, i64 -128
   call void @_ZN3pmx8PmxMorphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %arraydestroy.element.i.i.i.i.i152) #15
-  %arraydestroy.done.i.i.i.i.i153 = icmp eq ptr %arraydestroy.element.i.i.i.i.i152, %92
+  %arraydestroy.done.i.i.i.i.i153 = icmp eq ptr %arraydestroy.element.i.i.i.i.i152, %95
   br i1 %arraydestroy.done.i.i.i.i.i153, label %_ZNKSt14default_deleteIA_N3pmx8PmxMorphEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i150
 
 _ZNKSt14default_deleteIA_N3pmx8PmxMorphEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i150, %delete.notnull.i.i.i.i.i146
-  call void @_ZdaPv(ptr noundef nonnull %93) #18
+  call void @_ZdaPv(ptr noundef nonnull %96) #18
   br label %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx8PmxMorphEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx8PmxMorphEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %95 = load i32, ptr %morph_count, align 8
-  %cmp136269 = icmp sgt i32 %95, 0
+  %98 = load i32, ptr %morph_count, align 8
+  %cmp136269 = icmp sgt i32 %98, 0
   br i1 %cmp136269, label %for.body137, label %for.end144
 
 for.body137:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit, %for.body137
   %indvars.iv290 = phi i64 [ %indvars.iv.next291, %for.body137 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit ]
-  %96 = load ptr, ptr %morphs, align 8
-  %arrayidx.i163 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %96, i64 %indvars.iv290
+  %99 = load ptr, ptr %morphs, align 8
+  %arrayidx.i163 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %99, i64 %indvars.iv290
   call void @_ZN3pmx8PmxMorph4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx.i163, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
-  %97 = load i32, ptr %morph_count, align 8
-  %98 = sext i32 %97 to i64
-  %cmp136 = icmp slt i64 %indvars.iv.next291, %98
+  %100 = load i32, ptr %morph_count, align 8
+  %101 = sext i32 %100 to i64
+  %cmp136 = icmp slt i64 %indvars.iv.next291, %101
   br i1 %cmp136, label %for.body137, label %for.end144, !llvm.loop !74
 
 for.end144:                                       ; preds = %for.body137, %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit
   %frame_count = getelementptr inbounds i8, ptr %this, i64 240
   %call145 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %frame_count, i64 noundef 4)
-  %99 = load i32, ptr %frame_count, align 8
-  %conv148 = sext i32 %99 to i64
-  %100 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv148, i64 80)
-  %101 = extractvalue { i64, i1 } %100, 1
-  %102 = extractvalue { i64, i1 } %100, 0
-  %103 = or disjoint i64 %102, 8
-  %104 = select i1 %101, i64 -1, i64 %103
-  %call.i164 = call noalias noundef nonnull ptr @_Znam(i64 noundef %104) #17, !noalias !75
+  %102 = load i32, ptr %frame_count, align 8
+  %conv148 = sext i32 %102 to i64
+  %103 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv148, i64 80)
+  %104 = extractvalue { i64, i1 } %103, 1
+  %105 = extractvalue { i64, i1 } %103, 0
+  %106 = or disjoint i64 %105, 8
+  %107 = select i1 %104, i64 -1, i64 %106
+  %call.i164 = call noalias noundef nonnull ptr @_Znam(i64 noundef %107) #17, !noalias !75
   store i64 %conv148, ptr %call.i164, align 16, !noalias !75
-  %105 = getelementptr inbounds i8, ptr %call.i164, i64 8
-  %isempty.i165 = icmp eq i32 %99, 0
+  %108 = getelementptr inbounds i8, ptr %call.i164, i64 8
+  %isempty.i165 = icmp eq i32 %102, 0
   br i1 %isempty.i165, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxFrameEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i166
 
 new.ctorloop.i166:                                ; preds = %for.end144
-  %arrayctor.end.i167 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %105, i64 %conv148
+  %arrayctor.end.i167 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %108, i64 %conv148
   br label %arrayctor.loop.i168
 
 arrayctor.loop.i168:                              ; preds = %arrayctor.loop.i168, %new.ctorloop.i166
-  %arrayctor.cur.i169 = phi ptr [ %105, %new.ctorloop.i166 ], [ %arrayctor.next.i170, %arrayctor.loop.i168 ]
+  %arrayctor.cur.i169 = phi ptr [ %108, %new.ctorloop.i166 ], [ %arrayctor.next.i170, %arrayctor.loop.i168 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i169) #15, !noalias !75
   %frame_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i169, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %frame_english_name.i.i) #15, !noalias !75
@@ -4214,31 +4224,31 @@ arrayctor.loop.i168:                              ; preds = %arrayctor.loop.i168
 
 _ZN3mmd11make_uniqueIA_N3pmx8PmxFrameEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i168, %for.end144
   %frames = getelementptr inbounds i8, ptr %this, i64 248
-  %106 = load ptr, ptr %frames, align 8
-  store ptr %105, ptr %frames, align 8
-  %tobool.not.i.i.i.i172 = icmp eq ptr %106, null
+  %109 = load ptr, ptr %frames, align 8
+  store ptr %108, ptr %frames, align 8
+  %tobool.not.i.i.i.i172 = icmp eq ptr %109, null
   br i1 %tobool.not.i.i.i.i172, label %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i.i.i.i173
 
 delete.notnull.i.i.i.i.i173:                      ; preds = %_ZN3mmd11make_uniqueIA_N3pmx8PmxFrameEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %107 = getelementptr inbounds i8, ptr %106, i64 -8
-  %108 = load i64, ptr %107, align 8
-  %arraydestroy.isempty.i.i.i.i.i174 = icmp eq i64 %108, 0
+  %110 = getelementptr inbounds i8, ptr %109, i64 -8
+  %111 = load i64, ptr %110, align 8
+  %arraydestroy.isempty.i.i.i.i.i174 = icmp eq i64 %111, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i174, label %_ZNKSt14default_deleteIA_N3pmx8PmxFrameEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i175
 
 arraydestroy.body.preheader.i.i.i.i.i175:         ; preds = %delete.notnull.i.i.i.i.i173
-  %delete.end.i.i.i.i.i176 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %106, i64 %108
+  %delete.end.i.i.i.i.i176 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %109, i64 %111
   br label %arraydestroy.body.i.i.i.i.i177
 
 arraydestroy.body.i.i.i.i.i177:                   ; preds = %_ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i175
   %arraydestroy.elementPast.i.i.i.i.i178 = phi ptr [ %arraydestroy.element.i.i.i.i.i179, %_ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i ], [ %delete.end.i.i.i.i.i176, %arraydestroy.body.preheader.i.i.i.i.i175 ]
   %arraydestroy.element.i.i.i.i.i179 = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i178, i64 -80
   %elements.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i178, i64 -8
-  %109 = load ptr, ptr %elements.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i180 = icmp eq ptr %109, null
+  %112 = load ptr, ptr %elements.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i180 = icmp eq ptr %112, null
   br i1 %cmp.not.i.i.i.i.i.i.i180, label %_ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N3pmx15PmxFrameElementEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_N3pmx15PmxFrameElementEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i177
-  call void @_ZdaPv(ptr noundef nonnull %109) #18
+  call void @_ZdaPv(ptr noundef nonnull %112) #18
   br label %_ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i
 
 _ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i:              ; preds = %_ZNKSt14default_deleteIA_N3pmx15PmxFrameElementEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i177
@@ -4246,54 +4256,54 @@ _ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i:              ; preds = %_ZNKSt14default_del
   %frame_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i178, i64 -48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %frame_english_name.i.i.i.i.i.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i179) #15
-  %arraydestroy.done.i.i.i.i.i181 = icmp eq ptr %arraydestroy.element.i.i.i.i.i179, %106
+  %arraydestroy.done.i.i.i.i.i181 = icmp eq ptr %arraydestroy.element.i.i.i.i.i179, %109
   br i1 %arraydestroy.done.i.i.i.i.i181, label %_ZNKSt14default_deleteIA_N3pmx8PmxFrameEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i177
 
 _ZNKSt14default_deleteIA_N3pmx8PmxFrameEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %_ZN3pmx8PmxFrameD2Ev.exit.i.i.i.i.i, %delete.notnull.i.i.i.i.i173
-  call void @_ZdaPv(ptr noundef nonnull %107) #18
+  call void @_ZdaPv(ptr noundef nonnull %110) #18
   br label %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx8PmxFrameEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx8PmxFrameEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %110 = load i32, ptr %frame_count, align 8
-  %cmp153271 = icmp sgt i32 %110, 0
+  %113 = load i32, ptr %frame_count, align 8
+  %cmp153271 = icmp sgt i32 %113, 0
   br i1 %cmp153271, label %for.body154, label %for.end161
 
 for.body154:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit, %for.body154
   %indvars.iv293 = phi i64 [ %indvars.iv.next294, %for.body154 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit ]
-  %111 = load ptr, ptr %frames, align 8
-  %arrayidx.i192 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %111, i64 %indvars.iv293
+  %114 = load ptr, ptr %frames, align 8
+  %arrayidx.i192 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %114, i64 %indvars.iv293
   call void @_ZN3pmx8PmxFrame4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(80) %arrayidx.i192, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
-  %112 = load i32, ptr %frame_count, align 8
-  %113 = sext i32 %112 to i64
-  %cmp153 = icmp slt i64 %indvars.iv.next294, %113
+  %115 = load i32, ptr %frame_count, align 8
+  %116 = sext i32 %115 to i64
+  %cmp153 = icmp slt i64 %indvars.iv.next294, %116
   br i1 %cmp153, label %for.body154, label %for.end161, !llvm.loop !78
 
 for.end161:                                       ; preds = %for.body154, %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit
   %rigid_body_count = getelementptr inbounds i8, ptr %this, i64 256
   %call162 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %rigid_body_count, i64 noundef 4)
-  %114 = load i32, ptr %rigid_body_count, align 8
-  %conv165 = sext i32 %114 to i64
-  %115 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv165, i64 136)
-  %116 = extractvalue { i64, i1 } %115, 1
-  %117 = extractvalue { i64, i1 } %115, 0
-  %118 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %117, i64 8)
+  %117 = load i32, ptr %rigid_body_count, align 8
+  %conv165 = sext i32 %117 to i64
+  %118 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv165, i64 136)
   %119 = extractvalue { i64, i1 } %118, 1
-  %120 = or i1 %116, %119
-  %121 = extractvalue { i64, i1 } %118, 0
-  %122 = select i1 %120, i64 -1, i64 %121
-  %call.i193 = call noalias noundef nonnull ptr @_Znam(i64 noundef %122) #17, !noalias !79
+  %120 = extractvalue { i64, i1 } %118, 0
+  %121 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %120, i64 8)
+  %122 = extractvalue { i64, i1 } %121, 1
+  %123 = or i1 %119, %122
+  %124 = extractvalue { i64, i1 } %121, 0
+  %125 = select i1 %123, i64 -1, i64 %124
+  %call.i193 = call noalias noundef nonnull ptr @_Znam(i64 noundef %125) #17, !noalias !79
   store i64 %conv165, ptr %call.i193, align 16, !noalias !79
-  %123 = getelementptr inbounds i8, ptr %call.i193, i64 8
-  %isempty.i194 = icmp eq i32 %114, 0
+  %126 = getelementptr inbounds i8, ptr %call.i193, i64 8
+  %isempty.i194 = icmp eq i32 %117, 0
   br i1 %isempty.i194, label %_ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i195
 
 new.ctorloop.i195:                                ; preds = %for.end161
-  %arrayctor.end.i196 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %123, i64 %conv165
+  %arrayctor.end.i196 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %126, i64 %conv165
   br label %arrayctor.loop.i197
 
 arrayctor.loop.i197:                              ; preds = %arrayctor.loop.i197, %new.ctorloop.i195
-  %arrayctor.cur.i198 = phi ptr [ %123, %new.ctorloop.i195 ], [ %arrayctor.next.i199, %arrayctor.loop.i197 ]
+  %arrayctor.cur.i198 = phi ptr [ %126, %new.ctorloop.i195 ], [ %arrayctor.next.i199, %arrayctor.loop.i197 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.i198) #15, !noalias !79
   %girid_body_english_name.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i198, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %girid_body_english_name.i.i) #15, !noalias !79
@@ -4313,19 +4323,19 @@ arrayctor.loop.i197:                              ; preds = %arrayctor.loop.i197
 
 _ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %arrayctor.loop.i197, %for.end161
   %rigid_bodies = getelementptr inbounds i8, ptr %this, i64 264
-  %124 = load ptr, ptr %rigid_bodies, align 8
-  store ptr %123, ptr %rigid_bodies, align 8
-  %tobool.not.i.i.i.i201 = icmp eq ptr %124, null
+  %127 = load ptr, ptr %rigid_bodies, align 8
+  store ptr %126, ptr %rigid_bodies, align 8
+  %tobool.not.i.i.i.i201 = icmp eq ptr %127, null
   br i1 %tobool.not.i.i.i.i201, label %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i.i.i.i202
 
 delete.notnull.i.i.i.i.i202:                      ; preds = %_ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %125 = getelementptr inbounds i8, ptr %124, i64 -8
-  %126 = load i64, ptr %125, align 8
-  %arraydestroy.isempty.i.i.i.i.i203 = icmp eq i64 %126, 0
+  %128 = getelementptr inbounds i8, ptr %127, i64 -8
+  %129 = load i64, ptr %128, align 8
+  %arraydestroy.isempty.i.i.i.i.i203 = icmp eq i64 %129, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i203, label %_ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i204
 
 arraydestroy.body.preheader.i.i.i.i.i204:         ; preds = %delete.notnull.i.i.i.i.i202
-  %delete.end.i.i.i.i.i205 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %124, i64 %126
+  %delete.end.i.i.i.i.i205 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %127, i64 %129
   br label %arraydestroy.body.i.i.i.i.i206
 
 arraydestroy.body.i.i.i.i.i206:                   ; preds = %arraydestroy.body.i.i.i.i.i206, %arraydestroy.body.preheader.i.i.i.i.i204
@@ -4334,43 +4344,43 @@ arraydestroy.body.i.i.i.i.i206:                   ; preds = %arraydestroy.body.i
   %girid_body_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i207, i64 -104
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %girid_body_english_name.i.i.i.i.i.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i208) #15
-  %arraydestroy.done.i.i.i.i.i209 = icmp eq ptr %arraydestroy.element.i.i.i.i.i208, %124
+  %arraydestroy.done.i.i.i.i.i209 = icmp eq ptr %arraydestroy.element.i.i.i.i.i208, %127
   br i1 %arraydestroy.done.i.i.i.i.i209, label %_ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i206
 
 _ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i206, %delete.notnull.i.i.i.i.i202
-  call void @_ZdaPv(ptr noundef nonnull %125) #18
+  call void @_ZdaPv(ptr noundef nonnull %128) #18
   br label %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx12PmxRigidBodyEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %127 = load i32, ptr %rigid_body_count, align 8
-  %cmp170273 = icmp sgt i32 %127, 0
+  %130 = load i32, ptr %rigid_body_count, align 8
+  %cmp170273 = icmp sgt i32 %130, 0
   br i1 %cmp170273, label %for.body171, label %for.end178
 
 for.body171:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit, %for.body171
   %indvars.iv296 = phi i64 [ %indvars.iv.next297, %for.body171 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit ]
-  %128 = load ptr, ptr %rigid_bodies, align 8
-  %arrayidx.i219 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %128, i64 %indvars.iv296
+  %131 = load ptr, ptr %rigid_bodies, align 8
+  %arrayidx.i219 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %131, i64 %indvars.iv296
   call void @_ZN3pmx12PmxRigidBody4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(133) %arrayidx.i219, ptr noundef nonnull %stream, ptr noundef nonnull %setting)
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
-  %129 = load i32, ptr %rigid_body_count, align 8
-  %130 = sext i32 %129 to i64
-  %cmp170 = icmp slt i64 %indvars.iv.next297, %130
+  %132 = load i32, ptr %rigid_body_count, align 8
+  %133 = sext i32 %132 to i64
+  %cmp170 = icmp slt i64 %indvars.iv.next297, %133
   br i1 %cmp170, label %for.body171, label %for.end178, !llvm.loop !82
 
 for.end178:                                       ; preds = %for.body171, %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit
   %joint_count = getelementptr inbounds i8, ptr %this, i64 272
   %call179 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull %joint_count, i64 noundef 4)
-  %131 = load i32, ptr %joint_count, align 8
-  %conv182 = sext i32 %131 to i64
-  %132 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv182, i64 176)
-  %133 = extractvalue { i64, i1 } %132, 1
-  %134 = extractvalue { i64, i1 } %132, 0
-  %135 = or disjoint i64 %134, 8
-  %136 = select i1 %133, i64 -1, i64 %135
-  %call.i220 = call noalias noundef nonnull ptr @_Znam(i64 noundef %136) #17, !noalias !83
+  %134 = load i32, ptr %joint_count, align 8
+  %conv182 = sext i32 %134 to i64
+  %135 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv182, i64 176)
+  %136 = extractvalue { i64, i1 } %135, 1
+  %137 = extractvalue { i64, i1 } %135, 0
+  %138 = or disjoint i64 %137, 8
+  %139 = select i1 %136, i64 -1, i64 %138
+  %call.i220 = call noalias noundef nonnull ptr @_Znam(i64 noundef %139) #17, !noalias !83
   store i64 %conv182, ptr %call.i220, align 16, !noalias !83
   %.ptr.i = getelementptr inbounds i8, ptr %call.i220, i64 8
-  %isempty.i221 = icmp eq i32 %131, 0
+  %isempty.i221 = icmp eq i32 %134, 0
   br i1 %isempty.i221, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %new.ctorloop.i222
 
 new.ctorloop.i222:                                ; preds = %for.end178
@@ -4393,19 +4403,19 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
 
 _ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit: ; preds = %invoke.cont.i, %for.end178
   %joints = getelementptr inbounds i8, ptr %this, i64 280
-  %137 = load ptr, ptr %joints, align 8
+  %140 = load ptr, ptr %joints, align 8
   store ptr %.ptr.i, ptr %joints, align 8
-  %tobool.not.i.i.i.i225 = icmp eq ptr %137, null
+  %tobool.not.i.i.i.i225 = icmp eq ptr %140, null
   br i1 %tobool.not.i.i.i.i225, label %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i.i.i.i226
 
 delete.notnull.i.i.i.i.i226:                      ; preds = %_ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %138 = getelementptr inbounds i8, ptr %137, i64 -8
-  %139 = load i64, ptr %138, align 8
-  %arraydestroy.isempty.i.i.i.i.i227 = icmp eq i64 %139, 0
+  %141 = getelementptr inbounds i8, ptr %140, i64 -8
+  %142 = load i64, ptr %141, align 8
+  %arraydestroy.isempty.i.i.i.i.i227 = icmp eq i64 %142, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i227, label %_ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i228
 
 arraydestroy.body.preheader.i.i.i.i.i228:         ; preds = %delete.notnull.i.i.i.i.i226
-  %delete.end.i.i.i.i.i229 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %137, i64 %139
+  %delete.end.i.i.i.i.i229 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %140, i64 %142
   br label %arraydestroy.body.i.i.i.i.i230
 
 arraydestroy.body.i.i.i.i.i230:                   ; preds = %arraydestroy.body.i.i.i.i.i230, %arraydestroy.body.preheader.i.i.i.i.i228
@@ -4414,30 +4424,30 @@ arraydestroy.body.i.i.i.i.i230:                   ; preds = %arraydestroy.body.i
   %joint_english_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i231, i64 -144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %joint_english_name.i.i.i.i.i.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i.i.i.i.i232) #15
-  %arraydestroy.done.i.i.i.i.i233 = icmp eq ptr %arraydestroy.element.i.i.i.i.i232, %137
+  %arraydestroy.done.i.i.i.i.i233 = icmp eq ptr %arraydestroy.element.i.i.i.i.i232, %140
   br i1 %arraydestroy.done.i.i.i.i.i233, label %_ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i230
 
 _ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i230, %delete.notnull.i.i.i.i.i226
-  call void @_ZdaPv(ptr noundef nonnull %138) #18
+  call void @_ZdaPv(ptr noundef nonnull %141) #18
   br label %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N3pmx8PmxJointEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %_ZN3mmd11make_uniqueIA_N3pmx8PmxJointEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit
-  %140 = load i32, ptr %joint_count, align 8
-  %cmp187275 = icmp sgt i32 %140, 0
+  %143 = load i32, ptr %joint_count, align 8
+  %cmp187275 = icmp sgt i32 %143, 0
   br i1 %cmp187275, label %for.body188, label %for.end195
 
 for.body188:                                      ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit, %for.body188
   %indvars.iv299 = phi i64 [ %indvars.iv.next300, %for.body188 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit ]
-  %141 = load ptr, ptr %joints, align 8
-  %arrayidx.i243 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %141, i64 %indvars.iv299
+  %144 = load ptr, ptr %joints, align 8
+  %arrayidx.i243 = getelementptr inbounds %"class.pmx::PmxJoint", ptr %144, i64 %indvars.iv299
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i)
-  %142 = load i8, ptr %setting, align 4
-  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef %stream, i8 noundef zeroext %142)
+  %145 = load i8, ptr %setting, align 4
+  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef %stream, i8 noundef zeroext %145)
   %call.i244 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i243, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #15
-  %143 = load i8, ptr %setting, align 4
-  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef %stream, i8 noundef zeroext %143)
+  %146 = load i8, ptr %setting, align 4
+  call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef %stream, i8 noundef zeroext %146)
   %joint_english_name.i = getelementptr inbounds i8, ptr %arrayidx.i243, i64 32
   %call4.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %joint_english_name.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #15
@@ -4448,16 +4458,16 @@ for.body188:                                      ; preds = %_ZNSt10unique_ptrIA
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i)
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
-  %144 = load i32, ptr %joint_count, align 8
-  %145 = sext i32 %144 to i64
-  %cmp187 = icmp slt i64 %indvars.iv.next300, %145
+  %147 = load i32, ptr %joint_count, align 8
+  %148 = sext i32 %147 to i64
+  %cmp187 = icmp slt i64 %indvars.iv.next300, %148
   br i1 %cmp187, label %for.body188, label %for.end195, !llvm.loop !86
 
 for.end195:                                       ; preds = %for.body188, %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action, %lpad
-  %.pn46 = phi { ptr, i32 } [ %1, %lpad ], [ %.pn256, %cleanup.action ], [ %6, %ehcleanup ]
+  %.pn46 = phi { ptr, i32 } [ %4, %lpad ], [ %.pn256, %cleanup.action ], [ %9, %ehcleanup ]
   resume { ptr, i32 } %.pn46
 
 unreachable:                                      ; preds = %invoke.cont24

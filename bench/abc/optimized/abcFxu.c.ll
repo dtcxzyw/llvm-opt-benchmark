@@ -20,7 +20,13 @@ define void @Abc_NtkSetDefaultFxParams(ptr nocapture noundef writeonly %0) local
   store i32 1000000, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 4, ptr %6, align 8
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 1>, ptr %0, align 8
+  store i32 0, ptr %0, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 1, ptr %9, align 4
   ret void
 }
 

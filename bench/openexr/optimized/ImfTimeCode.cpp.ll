@@ -538,13 +538,16 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK7Imf_3_28TimeCodeeqERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
 entry:
-  %0 = load <2 x i32>, ptr %this, align 4
-  %1 = load <2 x i32>, ptr %c, align 4
-  %2 = icmp eq <2 x i32> %0, %1
-  %3 = extractelement <2 x i1> %2, i64 0
-  %4 = extractelement <2 x i1> %2, i64 1
-  %5 = select i1 %3, i1 %4, i1 false
-  ret i1 %5
+  %0 = load i32, ptr %this, align 4
+  %1 = load i32, ptr %c, align 4
+  %cmp = icmp eq i32 %0, %1
+  %_user = getelementptr inbounds i8, ptr %this, i64 4
+  %2 = load i32, ptr %_user, align 4
+  %_user3 = getelementptr inbounds i8, ptr %c, i64 4
+  %3 = load i32, ptr %_user3, align 4
+  %cmp4 = icmp eq i32 %2, %3
+  %4 = select i1 %cmp, i1 %cmp4, i1 false
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

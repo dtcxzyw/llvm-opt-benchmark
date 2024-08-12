@@ -4121,10 +4121,13 @@ define range(i32 0, 2160) i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
+  store i32 -2, ptr %1, align 4
   %8 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 -2, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 -2, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %1, i64 12
-  store <4 x i32> <i32 -2, i32 -2, i32 -2, i32 -2>, ptr %1, align 4
+  store i32 -2, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 -2, ptr %11, align 4
   %.not = icmp eq ptr %0, null

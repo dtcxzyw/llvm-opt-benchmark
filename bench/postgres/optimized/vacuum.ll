@@ -673,37 +673,41 @@ define dso_local void @ExecVacuum(ptr noundef %0, ptr nocapture noundef readonly
   %.not119425427454464475481 = phi i1 [ false, %.thread408 ], [ %.not119425427, %249 ]
   %.sink266 = phi i32 [ -1, %.thread408 ], [ %spec.select556, %249 ]
   %251 = getelementptr inbounds i8, ptr %4, i64 4
-  %252 = insertelement <4 x i32> poison, i32 %.sink266, i64 0
-  %253 = shufflevector <4 x i32> %252, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %253, ptr %251, align 4
-  %254 = getelementptr inbounds i8, ptr %4, i64 20
-  store i8 0, ptr %254, align 4
-  %255 = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 -1, ptr %255, align 4
-  %256 = load ptr, ptr @PortalContext, align 8
-  %257 = call ptr @AllocSetContextCreateInternal(ptr noundef %256, ptr noundef nonnull @.str.30, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #16
-  %258 = and i32 %250, 1040
-  %259 = icmp ne i32 %258, 0
-  %260 = and i32 %250, 2
-  %.not132 = icmp eq i32 %260, 0
-  %or.cond142 = and i1 %259, %.not132
-  br i1 %or.cond142, label %265, label %261
+  store i32 %.sink266, ptr %251, align 4
+  %252 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %.sink266, ptr %252, align 4
+  %253 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %.sink266, ptr %253, align 4
+  %254 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 %.sink266, ptr %254, align 4
+  %255 = getelementptr inbounds i8, ptr %4, i64 20
+  store i8 0, ptr %255, align 4
+  %256 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 -1, ptr %256, align 4
+  %257 = load ptr, ptr @PortalContext, align 8
+  %258 = call ptr @AllocSetContextCreateInternal(ptr noundef %257, ptr noundef nonnull @.str.30, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #16
+  %259 = and i32 %250, 1040
+  %260 = icmp ne i32 %259, 0
+  %261 = and i32 %250, 2
+  %.not132 = icmp eq i32 %261, 0
+  %or.cond142 = and i1 %260, %.not132
+  br i1 %or.cond142, label %266, label %262
 
-261:                                              ; preds = %.thread476
-  %262 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %257, ptr @CurrentMemoryContext, align 8
-  %263 = load i32, ptr @VacuumBufferUsageLimit, align 4
-  %spec.select = select i1 %.not119425427454464475481, i32 %.0107.lcssa282302326361373406420437450466473483, i32 %263
-  %264 = call ptr @GetAccessStrategyWithSize(i32 noundef 3, i32 noundef %spec.select) #16
-  store ptr %262, ptr @CurrentMemoryContext, align 8
-  br label %265
+262:                                              ; preds = %.thread476
+  %263 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %258, ptr @CurrentMemoryContext, align 8
+  %264 = load i32, ptr @VacuumBufferUsageLimit, align 4
+  %spec.select = select i1 %.not119425427454464475481, i32 %.0107.lcssa282302326361373406420437450466473483, i32 %264
+  %265 = call ptr @GetAccessStrategyWithSize(i32 noundef 3, i32 noundef %spec.select) #16
+  store ptr %263, ptr @CurrentMemoryContext, align 8
+  br label %266
 
-265:                                              ; preds = %.thread476, %261
-  %.0 = phi ptr [ %264, %261 ], [ null, %.thread476 ]
-  %266 = getelementptr inbounds i8, ptr %1, i64 16
-  %267 = load ptr, ptr %266, align 8
-  call void @vacuum(ptr noundef %267, ptr noundef nonnull %4, ptr noundef %.0, ptr noundef %257, i1 noundef zeroext %2)
-  call void @MemoryContextDelete(ptr noundef %257) #16
+266:                                              ; preds = %.thread476, %262
+  %.0 = phi ptr [ %265, %262 ], [ null, %.thread476 ]
+  %267 = getelementptr inbounds i8, ptr %1, i64 16
+  %268 = load ptr, ptr %267, align 8
+  call void @vacuum(ptr noundef %268, ptr noundef nonnull %4, ptr noundef %.0, ptr noundef %258, i1 noundef zeroext %2)
+  call void @MemoryContextDelete(ptr noundef %258) #16
   ret void
 }
 

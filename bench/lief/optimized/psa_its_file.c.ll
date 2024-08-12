@@ -43,27 +43,31 @@ define internal fastcc range(i32 -152, 1) i32 @psa_its_read_file(i64 noundef %0,
   %10 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.3)
   store ptr %10, ptr %2, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %19, label %12
+  br i1 %11, label %22, label %12
 
 12:                                               ; preds = %3
   tail call void @setbuf(ptr noundef nonnull %10, ptr noundef null) #3
   %13 = load ptr, ptr %2, align 8
   %14 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 16, ptr noundef %13)
   %.not = icmp eq i64 %14, 16
-  br i1 %.not, label %15, label %19
+  br i1 %.not, label %15, label %22
 
 15:                                               ; preds = %12
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %5, ptr noundef nonnull dereferenceable(8) @.str, i64 8)
   %.not10 = icmp eq i32 %bcmp, 0
-  br i1 %.not10, label %16, label %19
+  br i1 %.not10, label %16, label %22
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = load <2 x i32>, ptr %17, align 1
-  store <2 x i32> %18, ptr %1, align 4
-  br label %19
+  %18 = load i32, ptr %17, align 1
+  store i32 %18, ptr %1, align 4
+  %19 = getelementptr inbounds i8, ptr %5, i64 12
+  %20 = load i32, ptr %19, align 1
+  %21 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 %20, ptr %21, align 4
+  br label %22
 
-19:                                               ; preds = %15, %12, %3, %16
+22:                                               ; preds = %15, %12, %3, %16
   %.0 = phi i32 [ 0, %16 ], [ -140, %3 ], [ -152, %12 ], [ -152, %15 ]
   ret i32 %.0
 }

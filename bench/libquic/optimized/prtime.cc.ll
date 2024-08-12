@@ -553,7 +553,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_Z18PR_ParseTimeStringPKciPl(ptr 
 entry:
   %copy.i = alloca %struct.PRExplodedTime, align 4
   %tm = alloca %struct.PRExplodedTime, align 4
-  %localTime = alloca %struct.tm, align 16
+  %localTime = alloca %struct.tm, align 8
   %secs = alloca i64, align 8
   %tobool.not = icmp eq ptr %string, null
   br i1 %tobool.not, label %return, label %while.cond.preheader
@@ -2228,25 +2228,36 @@ if.then1558:                                      ; preds = %if.end1551
 
 if.then1562:                                      ; preds = %if.then1558
   %tm_sec1563 = getelementptr inbounds i8, ptr %tm, i64 4
-  %166 = load <4 x i32>, ptr %tm_sec1563, align 4
-  store <4 x i32> %166, ptr %localTime, align 16
-  %167 = load i32, ptr %tm_month, align 4
+  %166 = load i32, ptr %tm_sec1563, align 4
+  store i32 %166, ptr %localTime, align 8
+  %tm_min1565 = getelementptr inbounds i8, ptr %tm, i64 8
+  %167 = load i32, ptr %tm_min1565, align 4
+  %tm_min1566 = getelementptr inbounds i8, ptr %localTime, i64 4
+  store i32 %167, ptr %tm_min1566, align 4
+  %tm_hour1567 = getelementptr inbounds i8, ptr %tm, i64 12
+  %168 = load i32, ptr %tm_hour1567, align 4
+  %tm_hour1568 = getelementptr inbounds i8, ptr %localTime, i64 8
+  store i32 %168, ptr %tm_hour1568, align 8
+  %169 = load i32, ptr %tm_mday, align 4
+  %tm_mday1570 = getelementptr inbounds i8, ptr %localTime, i64 12
+  store i32 %169, ptr %tm_mday1570, align 4
+  %170 = load i32, ptr %tm_month, align 4
   %tm_mon = getelementptr inbounds i8, ptr %localTime, i64 16
-  store i32 %167, ptr %tm_mon, align 16
+  store i32 %170, ptr %tm_mon, align 8
   %conv1573 = zext nneg i16 %165 to i32
   %sub1574 = add nsw i32 %conv1573, -1900
   %tm_year1575 = getelementptr inbounds i8, ptr %localTime, i64 20
   store i32 %sub1574, ptr %tm_year1575, align 4
   %tm_isdst = getelementptr inbounds i8, ptr %localTime, i64 32
-  store i32 -1, ptr %tm_isdst, align 16
+  store i32 -1, ptr %tm_isdst, align 8
   %call1576 = call i64 @mktime(ptr noundef nonnull %localTime) #9
   %cmp1577.not = icmp eq i64 %call1576, -1
   br i1 %cmp1577.not, label %if.end1584, label %if.then1578
 
 if.then1578:                                      ; preds = %if.then1562
   %mul1579 = mul i64 %call1576, 1000000
-  %168 = load i32, ptr %tm, align 4
-  %conv1581 = sext i32 %168 to i64
+  %171 = load i32, ptr %tm, align 4
+  %conv1581 = sext i32 %171 to i64
   %add1582 = add nsw i64 %mul1579, %conv1581
   br label %return.sink.split
 
@@ -2254,16 +2265,16 @@ if.end1584:                                       ; preds = %if.then1562, %if.th
   store i64 86400, ptr %secs, align 8
   %call1585 = call ptr @localtime_r(ptr noundef nonnull %secs, ptr noundef nonnull %localTime) #9
   %tm_min1586 = getelementptr inbounds i8, ptr %localTime, i64 4
-  %169 = load i32, ptr %tm_min1586, align 4
+  %172 = load i32, ptr %tm_min1586, align 4
   %tm_hour1587 = getelementptr inbounds i8, ptr %localTime, i64 8
-  %170 = load i32, ptr %tm_hour1587, align 8
-  %mul1588 = mul nsw i32 %170, 60
+  %173 = load i32, ptr %tm_hour1587, align 8
+  %mul1588 = mul nsw i32 %173, 60
   %tm_mday1590 = getelementptr inbounds i8, ptr %localTime, i64 12
-  %171 = load i32, ptr %tm_mday1590, align 4
-  %172 = mul i32 %171, 1440
-  %mul1592 = add i32 %169, -2880
+  %174 = load i32, ptr %tm_mday1590, align 4
+  %175 = mul i32 %174, 1440
+  %mul1592 = add i32 %172, -2880
   %add1589 = add i32 %mul1592, %mul1588
-  %add1593 = add i32 %add1589, %172
+  %add1593 = add i32 %add1589, %175
   br label %if.end1594
 
 if.end1594:                                       ; preds = %if.end1584, %if.end1551
@@ -2277,8 +2288,8 @@ if.end1594:                                       ; preds = %if.end1584, %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %copy.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %tm, i64 40, i1 false)
   call void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr noundef nonnull %copy.i, ptr noundef nonnull @_Z16PR_GMTParametersPK14PRExplodedTime)
   %tm_year.i = getelementptr inbounds i8, ptr %copy.i, i64 24
-  %173 = load i16, ptr %tm_year.i, align 4
-  %conv.i = sext i16 %173 to i32
+  %176 = load i16, ptr %tm_year.i, align 4
+  %conv.i = sext i16 %176 to i32
   %sub.i = add nsw i32 %conv.i, -1
   %mul.i = mul nsw i32 %sub.i, 365
   %div.i = sdiv i32 %sub.i, 4
@@ -2289,35 +2300,35 @@ if.end1594:                                       ; preds = %if.end1584, %if.end
   %add13.i = add nsw i32 %add.i, %div12.i
   %sub14.i = add nsw i32 %add13.i, %mul.i
   %tm_yday.i = getelementptr inbounds i8, ptr %copy.i, i64 28
-  %174 = load i16, ptr %tm_yday.i, align 4
-  %conv15.i = sext i16 %174 to i32
+  %177 = load i16, ptr %tm_yday.i, align 4
+  %conv15.i = sext i16 %177 to i32
   %mul16.i = mul nsw i32 %conv15.i, 86400
   %tm_hour.i = getelementptr inbounds i8, ptr %copy.i, i64 12
-  %175 = load i32, ptr %tm_hour.i, align 4
-  %mul17.i = mul nsw i32 %175, 3600
+  %178 = load i32, ptr %tm_hour.i, align 4
+  %mul17.i = mul nsw i32 %178, 3600
   %add18.i = add nsw i32 %mul16.i, %mul17.i
   %tm_min.i = getelementptr inbounds i8, ptr %copy.i, i64 8
-  %176 = load i32, ptr %tm_min.i, align 4
-  %mul19.i = mul nsw i32 %176, 60
+  %179 = load i32, ptr %tm_min.i, align 4
+  %mul19.i = mul nsw i32 %179, 60
   %add20.i = add nsw i32 %add18.i, %mul19.i
   %tm_sec.i = getelementptr inbounds i8, ptr %copy.i, i64 4
-  %177 = load i32, ptr %tm_sec.i, align 4
-  %add21.i = add nsw i32 %add20.i, %177
+  %180 = load i32, ptr %tm_sec.i, align 4
+  %add21.i = add nsw i32 %add20.i, %180
   %conv22.i = sext i32 %sub14.i to i64
   %mul23.i = mul nsw i64 %conv22.i, 86400
   %conv24.i = sext i32 %add21.i to i64
   %tm_params.i = getelementptr inbounds i8, ptr %copy.i, i64 32
-  %178 = load i32, ptr %tm_params.i, align 4
-  %conv26.i = sext i32 %178 to i64
+  %181 = load i32, ptr %tm_params.i, align 4
+  %conv26.i = sext i32 %181 to i64
   %tp_dst_offset.i = getelementptr inbounds i8, ptr %copy.i, i64 36
-  %179 = load i32, ptr %tp_dst_offset.i, align 4
-  %conv29.i = sext i32 %179 to i64
-  %180 = add nsw i64 %conv29.i, %conv26.i
-  %add25.i = sub nsw i64 %conv24.i, %180
+  %182 = load i32, ptr %tp_dst_offset.i, align 4
+  %conv29.i = sext i32 %182 to i64
+  %183 = add nsw i64 %conv29.i, %conv26.i
+  %add25.i = sub nsw i64 %conv24.i, %183
   %sub30.i = add nsw i64 %add25.i, %mul23.i
   %mul31.i = mul nsw i64 %sub30.i, 1000000
-  %181 = load i32, ptr %copy.i, align 4
-  %conv32.i = sext i32 %181 to i64
+  %184 = load i32, ptr %copy.i, align 4
+  %conv32.i = sext i32 %184 to i64
   %add33.i = add nsw i64 %mul31.i, %conv32.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %copy.i)
   br label %return.sink.split

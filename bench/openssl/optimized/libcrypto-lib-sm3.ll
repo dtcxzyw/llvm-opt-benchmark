@@ -2726,9 +2726,21 @@ define noundef i32 @ossl_sm3_init(ptr nocapture noundef writeonly %c) local_unna
 entry:
   %0 = getelementptr inbounds i8, ptr %c, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1937774191, i32 1226093241, i32 388252375, i32 -628488704>, ptr %c, align 4
+  store i32 1937774191, ptr %c, align 4
+  %B = getelementptr inbounds i8, ptr %c, i64 4
+  store i32 1226093241, ptr %B, align 4
+  %C = getelementptr inbounds i8, ptr %c, i64 8
+  store i32 388252375, ptr %C, align 4
+  %D = getelementptr inbounds i8, ptr %c, i64 12
+  store i32 -628488704, ptr %D, align 4
   %E = getelementptr inbounds i8, ptr %c, i64 16
-  store <4 x i32> <i32 -1452330820, i32 372324522, i32 -477237683, i32 -1325724082>, ptr %E, align 4
+  store i32 -1452330820, ptr %E, align 4
+  %F = getelementptr inbounds i8, ptr %c, i64 20
+  store i32 372324522, ptr %F, align 4
+  %G = getelementptr inbounds i8, ptr %c, i64 24
+  store i32 -477237683, ptr %G, align 4
+  %H = getelementptr inbounds i8, ptr %c, i64 28
+  store i32 -1325724082, ptr %H, align 4
   ret i32 1
 }
 

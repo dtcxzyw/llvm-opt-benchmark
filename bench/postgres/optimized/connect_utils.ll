@@ -49,112 +49,116 @@ define dso_local ptr @connectDatabase(ptr nocapture noundef readonly %0, ptr nou
   %20 = phi ptr [ %18, %17 ], [ %12, %11 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = getelementptr inbounds i8, ptr %6, i64 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
-  %26 = getelementptr inbounds i8, ptr %6, i64 24
-  %27 = getelementptr inbounds i8, ptr %7, i64 24
-  %28 = getelementptr inbounds i8, ptr %6, i64 32
-  %29 = getelementptr inbounds i8, ptr %7, i64 32
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
-  %31 = getelementptr inbounds i8, ptr %6, i64 40
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  br label %33
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = getelementptr inbounds i8, ptr %6, i64 16
+  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds i8, ptr %6, i64 24
+  %29 = getelementptr inbounds i8, ptr %7, i64 24
+  %30 = getelementptr inbounds i8, ptr %6, i64 32
+  %31 = getelementptr inbounds i8, ptr %7, i64 32
+  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds i8, ptr %6, i64 40
+  %34 = getelementptr inbounds i8, ptr %7, i64 40
+  br label %35
 
-33:                                               ; preds = %.critedge, %19
-  %34 = phi ptr [ %59, %.critedge ], [ %20, %19 ]
+35:                                               ; preds = %.critedge, %19
+  %36 = phi ptr [ %62, %.critedge ], [ %20, %19 ]
   store ptr @.str.1, ptr %6, align 16
+  %37 = load ptr, ptr %21, align 8
+  store ptr %37, ptr %7, align 16
   store ptr @.str.2, ptr %22, align 8
-  %35 = load <2 x ptr>, ptr %21, align 8
-  store <2 x ptr> %35, ptr %7, align 16
-  store ptr @.str.3, ptr %23, align 16
-  %36 = load ptr, ptr %24, align 8
-  store ptr %36, ptr %25, align 16
-  store ptr @.str.4, ptr %26, align 8
-  store ptr %34, ptr %27, align 8
-  store ptr @.str.5, ptr %28, align 16
-  %37 = load ptr, ptr %0, align 8
-  store ptr %37, ptr %29, align 16
-  %38 = load ptr, ptr %30, align 8
-  %.not = icmp eq ptr %38, null
-  br i1 %.not, label %40, label %39
+  %38 = load ptr, ptr %23, align 8
+  store ptr %38, ptr %24, align 8
+  store ptr @.str.3, ptr %25, align 16
+  %39 = load ptr, ptr %26, align 8
+  store ptr %39, ptr %27, align 16
+  store ptr @.str.4, ptr %28, align 8
+  store ptr %36, ptr %29, align 8
+  store ptr @.str.5, ptr %30, align 16
+  %40 = load ptr, ptr %0, align 8
+  store ptr %40, ptr %31, align 16
+  %41 = load ptr, ptr %32, align 8
+  %.not = icmp eq ptr %41, null
+  br i1 %.not, label %43, label %42
 
-39:                                               ; preds = %33
-  store ptr @.str.5, ptr %31, align 8
-  store ptr %38, ptr %32, align 8
-  br label %40
+42:                                               ; preds = %35
+  store ptr @.str.5, ptr %33, align 8
+  store ptr %41, ptr %34, align 8
+  br label %43
 
-40:                                               ; preds = %39, %33
-  %.0 = phi i32 [ 6, %39 ], [ 5, %33 ]
-  %41 = zext nneg i32 %.0 to i64
-  %42 = getelementptr [8 x ptr], ptr %6, i64 0, i64 %41
-  store ptr @.str.6, ptr %42, align 8
-  %43 = add nuw nsw i32 %.0, 1
-  %44 = getelementptr [8 x ptr], ptr %7, i64 0, i64 %41
-  store ptr %1, ptr %44, align 8
-  %45 = zext nneg i32 %43 to i64
-  %46 = getelementptr [8 x ptr], ptr %6, i64 0, i64 %45
-  store ptr null, ptr %46, align 8
-  %47 = getelementptr [8 x ptr], ptr %7, i64 0, i64 %45
-  store ptr null, ptr %47, align 8
-  %48 = call ptr @PQconnectdbParams(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1) #4
-  %.not47 = icmp eq ptr %48, null
-  br i1 %.not47, label %49, label %51
+43:                                               ; preds = %42, %35
+  %.0 = phi i32 [ 6, %42 ], [ 5, %35 ]
+  %44 = zext nneg i32 %.0 to i64
+  %45 = getelementptr [8 x ptr], ptr %6, i64 0, i64 %44
+  store ptr @.str.6, ptr %45, align 8
+  %46 = add nuw nsw i32 %.0, 1
+  %47 = getelementptr [8 x ptr], ptr %7, i64 0, i64 %44
+  store ptr %1, ptr %47, align 8
+  %48 = zext nneg i32 %46 to i64
+  %49 = getelementptr [8 x ptr], ptr %6, i64 0, i64 %48
+  store ptr null, ptr %49, align 8
+  %50 = getelementptr [8 x ptr], ptr %7, i64 0, i64 %48
+  store ptr null, ptr %50, align 8
+  %51 = call ptr @PQconnectdbParams(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1) #4
+  %.not47 = icmp eq ptr %51, null
+  br i1 %.not47, label %52, label %54
 
-49:                                               ; preds = %40
-  %50 = load ptr, ptr %0, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %50) #4
+52:                                               ; preds = %43
+  %53 = load ptr, ptr %0, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %53) #4
   call void @exit(i32 noundef 1) #5
   unreachable
 
-51:                                               ; preds = %40
-  %52 = call i32 @PQstatus(ptr noundef nonnull %48) #4
-  %53 = icmp eq i32 %52, 1
-  br i1 %53, label %54, label %60
+54:                                               ; preds = %43
+  %55 = call i32 @PQstatus(ptr noundef nonnull %51) #4
+  %56 = icmp eq i32 %55, 1
+  br i1 %56, label %57, label %63
 
-54:                                               ; preds = %51
-  %55 = call i32 @PQconnectionNeedsPassword(ptr noundef nonnull %48) #4
-  %.not48 = icmp eq i32 %55, 0
-  br i1 %.not48, label %60, label %56
+57:                                               ; preds = %54
+  %58 = call i32 @PQconnectionNeedsPassword(ptr noundef nonnull %51) #4
+  %.not48 = icmp eq i32 %58, 0
+  br i1 %.not48, label %63, label %59
 
-56:                                               ; preds = %54
-  %57 = load i32, ptr %13, align 8
-  %.not49 = icmp eq i32 %57, 1
-  br i1 %.not49, label %60, label %.critedge
+59:                                               ; preds = %57
+  %60 = load i32, ptr %13, align 8
+  %.not49 = icmp eq i32 %60, 1
+  br i1 %.not49, label %63, label %.critedge
 
-.critedge:                                        ; preds = %56
-  call void @PQfinish(ptr noundef nonnull %48) #4
-  %58 = load ptr, ptr @connectDatabase.password, align 8
-  call void @free(ptr noundef %58) #4
-  %59 = call ptr @simple_prompt(ptr noundef nonnull @.str, i1 noundef zeroext false) #4
-  store ptr %59, ptr @connectDatabase.password, align 8
-  br label %33
+.critedge:                                        ; preds = %59
+  call void @PQfinish(ptr noundef nonnull %51) #4
+  %61 = load ptr, ptr @connectDatabase.password, align 8
+  call void @free(ptr noundef %61) #4
+  %62 = call ptr @simple_prompt(ptr noundef nonnull @.str, i1 noundef zeroext false) #4
+  store ptr %62, ptr @connectDatabase.password, align 8
+  br label %35
 
-60:                                               ; preds = %56, %54, %51
-  %61 = call i32 @PQstatus(ptr noundef nonnull %48) #4
-  %62 = icmp eq i32 %61, 1
-  br i1 %62, label %63, label %67
+63:                                               ; preds = %59, %57, %54
+  %64 = call i32 @PQstatus(ptr noundef nonnull %51) #4
+  %65 = icmp eq i32 %64, 1
+  br i1 %65, label %66, label %70
 
-63:                                               ; preds = %60
-  br i1 %3, label %64, label %65
+66:                                               ; preds = %63
+  br i1 %3, label %67, label %68
 
-64:                                               ; preds = %63
-  call void @PQfinish(ptr noundef nonnull %48) #4
-  br label %69
+67:                                               ; preds = %66
+  call void @PQfinish(ptr noundef nonnull %51) #4
+  br label %72
 
-65:                                               ; preds = %63
-  %66 = call ptr @PQerrorMessage(ptr noundef nonnull %48) #4
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %66) #4
+68:                                               ; preds = %66
+  %69 = call ptr @PQerrorMessage(ptr noundef nonnull %51) #4
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %69) #4
   call void @exit(i32 noundef 1) #5
   unreachable
 
-67:                                               ; preds = %60
-  %68 = call ptr @executeQuery(ptr noundef nonnull %48, ptr noundef nonnull @.str.9, i1 noundef zeroext %2) #4
-  call void @PQclear(ptr noundef %68) #4
-  br label %69
+70:                                               ; preds = %63
+  %71 = call ptr @executeQuery(ptr noundef nonnull %51, ptr noundef nonnull @.str.9, i1 noundef zeroext %2) #4
+  call void @PQclear(ptr noundef %71) #4
+  br label %72
 
-69:                                               ; preds = %67, %64
-  %.043 = phi ptr [ null, %64 ], [ %48, %67 ]
+72:                                               ; preds = %70, %67
+  %.043 = phi ptr [ null, %67 ], [ %51, %70 ]
   ret ptr %.043
 }
 

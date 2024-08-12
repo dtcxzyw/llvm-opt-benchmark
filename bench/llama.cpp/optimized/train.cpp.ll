@@ -7549,7 +7549,21 @@ entry:
   %print_usage = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i8 0, ptr %print_usage, align 8
   %save_every = getelementptr inbounds i8, ptr %agg.result, i64 44
-  store <8 x i32> <i32 10, i32 -1, i32 128, i32 6, i32 8, i32 1, i32 -1, i32 0>, ptr %save_every, align 4
+  store i32 10, ptr %save_every, align 4
+  %seed = getelementptr inbounds i8, ptr %agg.result, i64 48
+  store i32 -1, ptr %seed, align 8
+  %n_ctx = getelementptr inbounds i8, ptr %agg.result, i64 52
+  store i32 128, ptr %n_ctx, align 4
+  %n_threads = getelementptr inbounds i8, ptr %agg.result, i64 56
+  store i32 6, ptr %n_threads, align 8
+  %n_batch = getelementptr inbounds i8, ptr %agg.result, i64 60
+  store i32 8, ptr %n_batch, align 4
+  %n_gradient_accumulation = getelementptr inbounds i8, ptr %agg.result, i64 64
+  store i32 1, ptr %n_gradient_accumulation, align 8
+  %n_epochs = getelementptr inbounds i8, ptr %agg.result, i64 68
+  store i32 -1, ptr %n_epochs, align 4
+  %n_gpu_layers = getelementptr inbounds i8, ptr %agg.result, i64 72
+  store i32 0, ptr %n_gpu_layers, align 8
   %custom_n_ctx = getelementptr inbounds i8, ptr %agg.result, i64 76
   store i8 0, ptr %custom_n_ctx, align 4
   %use_flash = getelementptr inbounds i8, ptr %agg.result, i64 77
@@ -7579,19 +7593,29 @@ invoke.cont:                                      ; preds = %entry
   %cos_decay_steps = getelementptr inbounds i8, ptr %agg.result, i64 124
   store i32 1000, ptr %cos_decay_steps, align 4
   %cos_decay_restart = getelementptr inbounds i8, ptr %agg.result, i64 128
-  store <2 x float> <float 0x3FF19999A0000000, float 0x3FB99999A0000000>, ptr %cos_decay_restart, align 8
+  store float 0x3FF19999A0000000, ptr %cos_decay_restart, align 8
+  %cos_decay_min = getelementptr inbounds i8, ptr %agg.result, i64 132
+  store float 0x3FB99999A0000000, ptr %cos_decay_min, align 4
   %enable_restart = getelementptr inbounds i8, ptr %agg.result, i64 136
   store i8 0, ptr %enable_restart, align 8
   %adam_n_iter = getelementptr inbounds i8, ptr %agg.result, i64 152
   store i32 256, ptr %adam_n_iter, align 8
   %adam_alpha = getelementptr inbounds i8, ptr %agg.result, i64 156
-  store <2 x float> <float 0x3F50624DE0000000, float 0.000000e+00>, ptr %adam_alpha, align 4
+  store float 0x3F50624DE0000000, ptr %adam_alpha, align 4
+  %adam_min_alpha = getelementptr inbounds i8, ptr %agg.result, i64 160
+  store float 0.000000e+00, ptr %adam_min_alpha, align 8
   %adam_decay = getelementptr inbounds i8, ptr %agg.result, i64 164
   store float 0x3FB99999A0000000, ptr %adam_decay, align 4
   %adam_decay_min_ndim = getelementptr inbounds i8, ptr %agg.result, i64 168
   store i32 2, ptr %adam_decay_min_ndim, align 8
   %adam_beta1 = getelementptr inbounds i8, ptr %agg.result, i64 172
-  store <4 x float> <float 0x3FECCCCCC0000000, float 0x3FEFF7CEE0000000, float 1.000000e+00, float 0.000000e+00>, ptr %adam_beta1, align 4
+  store float 0x3FECCCCCC0000000, ptr %adam_beta1, align 4
+  %adam_beta2 = getelementptr inbounds i8, ptr %agg.result, i64 176
+  store float 0x3FEFF7CEE0000000, ptr %adam_beta2, align 8
+  %adam_gclip = getelementptr inbounds i8, ptr %agg.result, i64 180
+  store float 1.000000e+00, ptr %adam_gclip, align 4
+  %adam_eps_f = getelementptr inbounds i8, ptr %agg.result, i64 184
+  store float 0.000000e+00, ptr %adam_eps_f, align 8
   ret void
 
 lpad:                                             ; preds = %entry

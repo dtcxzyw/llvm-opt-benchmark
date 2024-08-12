@@ -1914,22 +1914,26 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalES2_St9_IdentityIS2_ESt4lessIS2_E
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %s.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %s3.i.i.i.i.i.i.i.i) #18
   %nocase.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 72
   %nocase3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 40
-  %29 = load <2 x ptr>, ptr %nocase3.i.i.i.i.i.i.i.i.i, align 8
-  store <2 x ptr> %29, ptr %nocase.i.i.i.i.i.i.i.i.i, align 8
+  %29 = load ptr, ptr %nocase3.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %29, ptr %nocase.i.i.i.i.i.i.i.i.i, align 8
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 80
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 48
+  %30 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %30, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 88
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 56
-  %30 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %30, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %31 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %31, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nocase3.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %m_num_bits.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 96
   %m_num_bits3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 64
-  %31 = load i64, ptr %m_num_bits3.i.i.i.i.i.i.i.i.i.i, align 8
-  store i64 %31, ptr %m_num_bits.i.i.i.i.i.i.i.i.i.i, align 8
+  %32 = load i64, ptr %m_num_bits3.i.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %32, ptr %m_num_bits.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %m_num_bits3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %call5.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #18
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %32 = load i64, ptr %_M_node_count.i.i, align 8
-  %inc.i.i = add i64 %32, 1
+  %33 = load i64, ptr %_M_node_count.i.i, align 8
+  %inc.i.i = add i64 %33, 1
   store i64 %inc.i.i, ptr %_M_node_count.i.i, align 8
   br label %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_.exit
 

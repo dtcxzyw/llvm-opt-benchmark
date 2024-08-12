@@ -3412,7 +3412,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %44, label %3
+  br i1 %.not, label %50, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3440,7 +3440,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv8haar_cvt14HaarClassifierEmS2_ET_S4_T0_RS
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
-  br label %44
+  br label %50
 
 20:                                               ; preds = %3
   %21 = icmp ult i64 %17, %1
@@ -3463,48 +3463,56 @@ _ZNKSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE12_M_check_lenEmPKc.exit: ; 
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i ], [ %26, %_ZNKSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %.0911.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %.012.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %26, %_ZNKSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %.0911.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %29 = load <2 x ptr>, ptr %.0911.i.i.i.i, align 8, !alias.scope !31, !noalias !28
-  store <2 x ptr> %29, ptr %.012.i.i.i.i, align 8, !alias.scope !28, !noalias !31
-  %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !31, !noalias !28
+  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !28, !noalias !31
+  %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !31, !noalias !28
   store ptr %32, ptr %30, align 8, !alias.scope !28, !noalias !31
+  %33 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %35 = load ptr, ptr %34, align 8, !alias.scope !31, !noalias !28
+  store ptr %35, ptr %33, align 8, !alias.scope !28, !noalias !31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !31, !noalias !28
-  %33 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
-  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
-  %35 = load <2 x ptr>, ptr %34, align 8, !alias.scope !31, !noalias !28
-  store <2 x ptr> %35, ptr %33, align 8, !alias.scope !28, !noalias !31
-  %36 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 40
+  %36 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
+  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
   %38 = load ptr, ptr %37, align 8, !alias.scope !31, !noalias !28
   store ptr %38, ptr %36, align 8, !alias.scope !28, !noalias !31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false), !alias.scope !31, !noalias !28
-  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 48
-  %40 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 48
-  %.not.i.i.i.i = icmp eq ptr %39, %5
+  %39 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
+  %41 = load ptr, ptr %40, align 8, !alias.scope !31, !noalias !28
+  store ptr %41, ptr %39, align 8, !alias.scope !28, !noalias !31
+  %42 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 40
+  %44 = load ptr, ptr %43, align 8, !alias.scope !31, !noalias !28
+  store ptr %44, ptr %42, align 8, !alias.scope !28, !noalias !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !31, !noalias !28
+  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 48
+  %46 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 48
+  %.not.i.i.i.i = icmp eq ptr %45, %5
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !33
 
 _ZNSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE12_M_check_lenEmPKc.exit
   %.not.i35 = icmp eq ptr %6, null
-  br i1 %.not.i35, label %_ZNSt12_Vector_baseIN2cv8haar_cvt14HaarClassifierESaIS2_EE13_M_deallocateEPS2_m.exit36, label %41
+  br i1 %.not.i35, label %_ZNSt12_Vector_baseIN2cv8haar_cvt14HaarClassifierESaIS2_EE13_M_deallocateEPS2_m.exit36, label %47
 
-41:                                               ; preds = %_ZNSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
+47:                                               ; preds = %_ZNSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #15
   br label %_ZNSt12_Vector_baseIN2cv8haar_cvt14HaarClassifierESaIS2_EE13_M_deallocateEPS2_m.exit36
 
-_ZNSt12_Vector_baseIN2cv8haar_cvt14HaarClassifierESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %41
+_ZNSt12_Vector_baseIN2cv8haar_cvt14HaarClassifierESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIN2cv8haar_cvt14HaarClassifierESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %47
   store ptr %26, ptr %0, align 8
-  %42 = getelementptr inbounds %"struct.cv::haar_cvt::HaarClassifier", ptr %27, i64 %1
-  store ptr %42, ptr %4, align 8
-  %43 = getelementptr inbounds %"struct.cv::haar_cvt::HaarClassifier", ptr %26, i64 %24
-  store ptr %43, ptr %11, align 8
-  br label %44
+  %48 = getelementptr inbounds %"struct.cv::haar_cvt::HaarClassifier", ptr %27, i64 %1
+  store ptr %48, ptr %4, align 8
+  %49 = getelementptr inbounds %"struct.cv::haar_cvt::HaarClassifier", ptr %26, i64 %24
+  store ptr %49, ptr %11, align 8
+  br label %50
 
-44:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN2cv8haar_cvt14HaarClassifierEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN2cv8haar_cvt14HaarClassifierESaIS2_EE13_M_deallocateEPS2_m.exit36, %2
+50:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN2cv8haar_cvt14HaarClassifierEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN2cv8haar_cvt14HaarClassifierESaIS2_EE13_M_deallocateEPS2_m.exit36, %2
   ret void
 }
 

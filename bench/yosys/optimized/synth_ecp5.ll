@@ -486,9 +486,23 @@ define internal void @_ZN12_GLOBAL__N_113SynthEcp5Pass11clear_flagsEv(ptr nounde
   %10 = getelementptr inbounds i8, ptr %0, i64 312
   %11 = getelementptr inbounds i8, ptr %0, i64 318
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %10, i8 0, i64 6, i1 false)
-  store <8 x i8> <i8 1, i8 0, i8 0, i8 0, i8 1, i8 0, i8 0, i8 0>, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 326
-  store i8 0, ptr %12, align 2
+  store i8 1, ptr %11, align 2
+  %12 = getelementptr inbounds i8, ptr %0, i64 319
+  store i8 0, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 320
+  store i8 0, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 321
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 325
+  store i8 0, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 322
+  store i8 1, ptr %16, align 2
+  %17 = getelementptr inbounds i8, ptr %0, i64 323
+  store i8 0, ptr %17, align 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 324
+  store i8 0, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 326
+  store i8 0, ptr %19, align 2
   ret void
 }
 

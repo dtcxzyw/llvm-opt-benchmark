@@ -142,9 +142,15 @@ invoke.cont:
   %cpString = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %cpString, align 8
   %endRange.i = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 -1, ptr %endRange.i, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 0, ptr %0, align 4
-  store <4 x i32> <i32 -1, i32 0, i32 -1, i32 0>, ptr %endRange.i, align 8
+  %range3.i = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 0, ptr %range3.i, align 4
+  %endElement4.i = getelementptr inbounds i8, ptr %this, i64 40
+  store i32 -1, ptr %endElement4.i, align 8
+  %nextElement5.i = getelementptr inbounds i8, ptr %this, i64 44
+  store i32 0, ptr %nextElement5.i, align 4
   %nextString.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %nextString.i, align 8
   %string.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -162,9 +168,15 @@ entry:
 
 if.end.thread:                                    ; preds = %entry
   %endRange = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 -1, ptr %endRange, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 0, ptr %1, align 4
-  store <4 x i32> <i32 -1, i32 0, i32 -1, i32 0>, ptr %endRange, align 8
+  %range3 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 0, ptr %range3, align 4
+  %endElement4 = getelementptr inbounds i8, ptr %this, i64 40
+  store i32 -1, ptr %endElement4, align 8
+  %nextElement5 = getelementptr inbounds i8, ptr %this, i64 44
+  store i32 0, ptr %nextElement5, align 4
   br label %if.end11
 
 if.end:                                           ; preds = %entry

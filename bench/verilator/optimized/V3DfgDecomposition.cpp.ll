@@ -771,15 +771,19 @@ define dso_local void @_ZN8DfgGraph19splitIntoComponentsENSt7__cxx1112basic_stri
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @_ZN19SplitIntoComponentsC2ER8DfgGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(32) %2), !noalias !5
   %5 = getelementptr inbounds i8, ptr %4, i64 40
-  %6 = load <2 x ptr>, ptr %5, align 8, !noalias !5
-  store <2 x ptr> %6, ptr %0, align 8, !alias.scope !5
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  %6 = load ptr, ptr %5, align 8, !noalias !5
+  store ptr %6, ptr %0, align 8, !alias.scope !5
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 48
   %9 = load ptr, ptr %8, align 8, !noalias !5
   store ptr %9, ptr %7, align 8, !alias.scope !5
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %12 = load ptr, ptr %11, align 8, !noalias !5
+  store ptr %12, ptr %10, align 8, !alias.scope !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !5
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20, !noalias !5
+  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20, !noalias !5
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   ret void
 }
@@ -791,12 +795,16 @@ define dso_local void @_ZN8DfgGraph23extractCyclicComponentsENSt7__cxx1112basic_
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %4)
   call void @_ZN23ExtractCyclicComponentsC2ER8DfgGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(248) %4, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(32) %2), !noalias !8
   %5 = getelementptr inbounds i8, ptr %4, i64 168
-  %6 = load <2 x ptr>, ptr %5, align 8, !noalias !8
-  store <2 x ptr> %6, ptr %0, align 8, !alias.scope !8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %4, i64 184
+  %6 = load ptr, ptr %5, align 8, !noalias !8
+  store ptr %6, ptr %0, align 8, !alias.scope !8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 176
   %9 = load ptr, ptr %8, align 8, !noalias !8
   store ptr %9, ptr %7, align 8, !alias.scope !8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds i8, ptr %4, i64 184
+  %12 = load ptr, ptr %11, align 8, !noalias !8
+  store ptr %12, ptr %10, align 8, !alias.scope !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !8
   call void @_ZN23ExtractCyclicComponentsD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %4) #20, !noalias !8
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %4)

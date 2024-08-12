@@ -1043,13 +1043,19 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @rb_Digest_SHA1_Init(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1009589776, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %4, align 4
-  store i32 0, ptr %3, align 4
+  store i32 1732584193, ptr %0, align 4
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -271733879, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1732584194, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 271733878, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1009589776, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %7, align 4
+  store i32 0, ptr %6, align 4
   ret i32 1
 }
 

@@ -347,10 +347,10 @@ declare void @_cmsMAT3eval(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define hidden range(i32 0, 2) i32 @cmsAdaptToIlluminant(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
   %5 = alloca %struct.cmsMAT3, align 8
   %6 = alloca %struct.cmsVEC3, align 8
-  %7 = alloca %struct.cmsVEC3, align 16
+  %7 = alloca %struct.cmsVEC3, align 8
   %8 = call i32 @_cmsAdaptationMatrix(ptr noundef nonnull %5, ptr noundef null, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %19, label %9
+  br i1 %.not, label %22, label %9
 
 9:                                                ; preds = %4
   %10 = load double, ptr %3, align 8
@@ -360,15 +360,19 @@ define hidden range(i32 0, 2) i32 @cmsAdaptToIlluminant(ptr nocapture noundef wr
   %14 = load double, ptr %13, align 8
   call void @_cmsVEC3init(ptr noundef nonnull %6, double noundef %10, double noundef %12, double noundef %14) #8
   call void @_cmsMAT3eval(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %15 = load <2 x double>, ptr %7, align 16
-  store <2 x double> %15, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
-  %17 = load double, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = load double, ptr %7, align 8
+  store double %15, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = load double, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
   store double %17, ptr %18, align 8
-  br label %19
+  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = load double, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %20, ptr %21, align 8
+  br label %22
 
-19:                                               ; preds = %4, %9
+22:                                               ; preds = %4, %9
   %.0 = phi i32 [ 1, %9 ], [ 0, %4 ]
   ret i32 %.0
 }

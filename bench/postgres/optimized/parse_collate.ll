@@ -151,10 +151,13 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
   %12 = load ptr, ptr %1, align 8
   store ptr %12, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 0, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %9, i64 20
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %13, align 8
+  store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %9, i64 24
   store i32 -1, ptr %17, align 8
   %18 = load i32, ptr %0, align 4
@@ -923,7 +926,10 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   %57 = load ptr, ptr %.02850, align 8
   %58 = load ptr, ptr %1, align 8
   store ptr %58, ptr %3, align 8
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %39, align 8
+  store i32 0, ptr %39, align 8
+  store i32 0, ptr %40, align 4
+  store i32 -1, ptr %41, align 8
+  store i32 0, ptr %42, align 4
   store i32 -1, ptr %43, align 8
   %59 = call zeroext i1 @assign_collations_walker(ptr noundef %56, ptr noundef nonnull %3)
   %60 = getelementptr inbounds i8, ptr %57, i64 8

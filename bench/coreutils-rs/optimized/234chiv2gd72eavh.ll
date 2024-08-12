@@ -283,22 +283,26 @@ define void @"_ZN83_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20
 
 _ZN7uu_shuf20NonrepeatingIterator3new17h5bb5e4ae01776e38E.exit: ; preds = %18
   %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = load i64, ptr %21, align 8, !alias.scope !64, !noalias !67, !noundef !4
+  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = load i64, ptr %23, align 8, !alias.scope !64, !noalias !67, !noundef !4
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5), !noalias !60
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
-  %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
-  %25 = load <2 x i64>, ptr %21, align 8, !alias.scope !64, !noalias !67
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !60
-  store i64 %7, ptr %22, align 8, !alias.scope !71, !noalias !72
+  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %7, ptr %25, align 8, !alias.scope !71, !noalias !72
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
   store i64 %9, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !71, !noalias !72
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
   store i8 %11, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !71, !noalias !72
-  store ptr %2, ptr %23, align 8, !alias.scope !55, !noalias !73
-  store i64 %.0.i, ptr %24, align 8, !alias.scope !55, !noalias !73
+  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %2, ptr %26, align 8, !alias.scope !55, !noalias !73
+  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %.0.i, ptr %27, align 8, !alias.scope !55, !noalias !73
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.e16c2fc9e77b009f0706c127c26f600a.6.llvm.1407976924502144584, i64 32, i1 false), !noalias !73
-  store <2 x i64> %25, ptr %.sroa.48.0..sroa_idx.i, align 8, !alias.scope !55, !noalias !73
+  %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %22, ptr %.sroa.48.0..sroa_idx.i, align 8, !alias.scope !55, !noalias !73
+  %.sroa.59.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %24, ptr %.sroa.59.0..sroa_idx.i, align 8, !alias.scope !55, !noalias !73
   ret void
 }
 

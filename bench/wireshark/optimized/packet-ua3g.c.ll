@@ -3282,273 +3282,278 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br i1 %.not751800, label %.loopexit, label %.lr.ph805
 
 .lr.ph805:                                        ; preds = %357
-  %358 = getelementptr inbounds i8, ptr %7, i64 8
-  %359 = getelementptr inbounds i8, ptr %7, i64 16
-  br label %360
+  %358 = getelementptr inbounds i8, ptr %7, i64 4
+  %359 = getelementptr inbounds i8, ptr %7, i64 8
+  %360 = getelementptr inbounds i8, ptr %7, i64 16
+  br label %361
 
-360:                                              ; preds = %.lr.ph805, %398
-  %361 = phi ptr [ null, %.lr.ph805 ], [ %399, %398 ]
-  %.0695804 = phi i32 [ 0, %.lr.ph805 ], [ %.1, %398 ]
-  %.0696803 = phi i32 [ 0, %.lr.ph805 ], [ %.1697, %398 ]
-  %.16802 = phi i32 [ 4, %.lr.ph805 ], [ %.17, %398 ]
-  %.16720801 = phi i32 [ %16, %.lr.ph805 ], [ %.17721, %398 ]
-  %362 = phi <2 x i32> [ zeroinitializer, %.lr.ph805 ], [ %400, %398 ]
-  %363 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.16802) #9
-  %364 = zext i8 %363 to i32
-  %365 = add i32 %.16802, 1
-  %366 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %365) #9
-  %367 = zext i8 %366 to i32
-  %368 = load i32, ptr @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter, align 4
-  %369 = add nuw nsw i32 %367, 2
-  %370 = tail call ptr @val_to_str_const(i32 noundef %364, ptr noundef nonnull @ip_device_routing_cmd_record_rtp_vals, ptr noundef nonnull @.str.1143) #9
-  %371 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef %368, ptr noundef %1, i32 noundef %.16802, i32 noundef %369, i32 noundef %364, ptr noundef nonnull @.str.1149, ptr noundef %370) #9
-  %372 = load i32, ptr @ett_ua3g_param, align 4
-  %373 = tail call ptr @proto_item_add_subtree(ptr noundef %371, i32 noundef %372) #9
-  %374 = load i32, ptr @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter, align 4
-  %375 = tail call ptr @proto_tree_add_item(ptr noundef %373, i32 noundef %374, ptr noundef %1, i32 noundef %.16802, i32 noundef 1, i32 noundef 0) #9
-  %376 = load i32, ptr @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_length, align 4
-  %377 = tail call ptr @proto_tree_add_item(ptr noundef %373, i32 noundef %376, ptr noundef %1, i32 noundef %365, i32 noundef 1, i32 noundef 0) #9
-  %378 = add i32 %.16802, 2
-  %379 = add i32 %.16720801, -2
-  %.not754 = icmp eq i8 %366, 0
-  br i1 %.not754, label %398, label %380
+361:                                              ; preds = %.lr.ph805, %401
+  %362 = phi ptr [ null, %.lr.ph805 ], [ %402, %401 ]
+  %363 = phi i32 [ 0, %.lr.ph805 ], [ %403, %401 ]
+  %.0695804 = phi i32 [ 0, %.lr.ph805 ], [ %.1, %401 ]
+  %.0696803 = phi i32 [ 0, %.lr.ph805 ], [ %.1697, %401 ]
+  %.16802 = phi i32 [ 4, %.lr.ph805 ], [ %.17, %401 ]
+  %.16720801 = phi i32 [ %16, %.lr.ph805 ], [ %.17721, %401 ]
+  %364 = phi i32 [ 0, %.lr.ph805 ], [ %404, %401 ]
+  %365 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.16802) #9
+  %366 = zext i8 %365 to i32
+  %367 = add i32 %.16802, 1
+  %368 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %367) #9
+  %369 = zext i8 %368 to i32
+  %370 = load i32, ptr @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter, align 4
+  %371 = add nuw nsw i32 %369, 2
+  %372 = tail call ptr @val_to_str_const(i32 noundef %366, ptr noundef nonnull @ip_device_routing_cmd_record_rtp_vals, ptr noundef nonnull @.str.1143) #9
+  %373 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef %370, ptr noundef %1, i32 noundef %.16802, i32 noundef %371, i32 noundef %366, ptr noundef nonnull @.str.1149, ptr noundef %372) #9
+  %374 = load i32, ptr @ett_ua3g_param, align 4
+  %375 = tail call ptr @proto_item_add_subtree(ptr noundef %373, i32 noundef %374) #9
+  %376 = load i32, ptr @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter, align 4
+  %377 = tail call ptr @proto_tree_add_item(ptr noundef %375, i32 noundef %376, ptr noundef %1, i32 noundef %.16802, i32 noundef 1, i32 noundef 0) #9
+  %378 = load i32, ptr @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_length, align 4
+  %379 = tail call ptr @proto_tree_add_item(ptr noundef %375, i32 noundef %378, ptr noundef %1, i32 noundef %367, i32 noundef 1, i32 noundef 0) #9
+  %380 = add i32 %.16802, 2
+  %381 = add i32 %.16720801, -2
+  %.not754 = icmp eq i8 %368, 0
+  br i1 %.not754, label %401, label %382
 
-380:                                              ; preds = %360
-  switch i8 %363, label %383 [
-    i8 1, label %381
-    i8 4, label %391
+382:                                              ; preds = %361
+  switch i8 %365, label %385 [
+    i8 1, label %383
+    i8 4, label %393
   ]
 
-381:                                              ; preds = %380
-  %382 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef %378, i32 noundef 4) #9
-  br label %391
+383:                                              ; preds = %382
+  %384 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef %380, i32 noundef 4) #9
+  br label %393
 
-383:                                              ; preds = %380
-  %384 = icmp ult i8 %366, 9
-  br i1 %384, label %385, label %391
+385:                                              ; preds = %382
+  %386 = icmp ult i8 %368, 9
+  br i1 %386, label %387, label %393
 
-385:                                              ; preds = %383
-  switch i8 %363, label %391 [
+387:                                              ; preds = %385
+  switch i8 %365, label %393 [
     i8 2, label %.thread
-    i8 3, label %388
+    i8 3, label %390
   ]
 
-.thread:                                          ; preds = %385
-  %386 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %378) #9
-  %387 = zext i16 %386 to i32
-  br label %391
+.thread:                                          ; preds = %387
+  %388 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %380) #9
+  %389 = zext i16 %388 to i32
+  br label %393
 
-388:                                              ; preds = %385
-  %389 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %378) #9
-  %390 = zext i16 %389 to i32
-  br label %391
+390:                                              ; preds = %387
+  %391 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %380) #9
+  %392 = zext i16 %391 to i32
+  br label %393
 
-391:                                              ; preds = %383, %388, %.thread, %385, %381, %380
-  %hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint.sink = phi ptr [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_remote_ip, %380 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_remote_ip, %381 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %385 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %.thread ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %388 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_value, %383 ]
-  %.sink914 = phi i32 [ 4, %380 ], [ 4, %381 ], [ %367, %385 ], [ %367, %.thread ], [ %367, %388 ], [ %367, %383 ]
-  %392 = phi ptr [ %361, %380 ], [ %382, %381 ], [ %361, %385 ], [ %361, %.thread ], [ %361, %388 ], [ %361, %383 ]
-  %.2698 = phi i32 [ %.0696803, %380 ], [ %.0696803, %381 ], [ %.0696803, %385 ], [ %387, %.thread ], [ %.0696803, %388 ], [ %.0696803, %383 ]
-  %.2 = phi i32 [ %.0695804, %380 ], [ %.0695804, %381 ], [ %.0695804, %385 ], [ %.0695804, %.thread ], [ %390, %388 ], [ %.0695804, %383 ]
-  %393 = phi <2 x i32> [ %362, %380 ], [ <i32 2, i32 4>, %381 ], [ %362, %385 ], [ %362, %.thread ], [ %362, %388 ], [ %362, %383 ]
-  %394 = load i32, ptr %hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint.sink, align 4
-  %395 = tail call ptr @proto_tree_add_item(ptr noundef %373, i32 noundef %394, ptr noundef %1, i32 noundef %378, i32 noundef %.sink914, i32 noundef 0) #9
-  %396 = add i32 %378, %367
-  %397 = sub i32 %379, %367
-  br label %398
+393:                                              ; preds = %385, %390, %.thread, %387, %383, %382
+  %hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint.sink = phi ptr [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_remote_ip, %382 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_remote_ip, %383 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %387 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %.thread ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint, %390 ], [ @hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_value, %385 ]
+  %.sink914 = phi i32 [ 4, %382 ], [ 4, %383 ], [ %369, %387 ], [ %369, %.thread ], [ %369, %390 ], [ %369, %385 ]
+  %394 = phi ptr [ %362, %382 ], [ %384, %383 ], [ %362, %387 ], [ %362, %.thread ], [ %362, %390 ], [ %362, %385 ]
+  %395 = phi i32 [ %363, %382 ], [ 4, %383 ], [ %363, %387 ], [ %363, %.thread ], [ %363, %390 ], [ %363, %385 ]
+  %396 = phi i32 [ %364, %382 ], [ 2, %383 ], [ %364, %387 ], [ %364, %.thread ], [ %364, %390 ], [ %364, %385 ]
+  %.2698 = phi i32 [ %.0696803, %382 ], [ %.0696803, %383 ], [ %.0696803, %387 ], [ %389, %.thread ], [ %.0696803, %390 ], [ %.0696803, %385 ]
+  %.2 = phi i32 [ %.0695804, %382 ], [ %.0695804, %383 ], [ %.0695804, %387 ], [ %.0695804, %.thread ], [ %392, %390 ], [ %.0695804, %385 ]
+  %397 = load i32, ptr %hf_ua3g_ip_device_routing_start_stop_record_rtp_parameter_uint.sink, align 4
+  %398 = tail call ptr @proto_tree_add_item(ptr noundef %375, i32 noundef %397, ptr noundef %1, i32 noundef %380, i32 noundef %.sink914, i32 noundef 0) #9
+  %399 = add i32 %380, %369
+  %400 = sub i32 %381, %369
+  br label %401
 
-398:                                              ; preds = %391, %360
-  %399 = phi ptr [ %392, %391 ], [ %361, %360 ]
-  %.17721 = phi i32 [ %397, %391 ], [ %379, %360 ]
-  %.17 = phi i32 [ %396, %391 ], [ %378, %360 ]
-  %.1697 = phi i32 [ %.2698, %391 ], [ %.0696803, %360 ]
-  %.1 = phi i32 [ %.2, %391 ], [ %.0695804, %360 ]
-  %400 = phi <2 x i32> [ %393, %391 ], [ %362, %360 ]
+401:                                              ; preds = %393, %361
+  %402 = phi ptr [ %394, %393 ], [ %362, %361 ]
+  %403 = phi i32 [ %395, %393 ], [ %363, %361 ]
+  %404 = phi i32 [ %396, %393 ], [ %364, %361 ]
+  %.17721 = phi i32 [ %400, %393 ], [ %381, %361 ]
+  %.17 = phi i32 [ %399, %393 ], [ %380, %361 ]
+  %.1697 = phi i32 [ %.2698, %393 ], [ %.0696803, %361 ]
+  %.1 = phi i32 [ %.2, %393 ], [ %.0695804, %361 ]
   %.not751 = icmp eq i32 %.17721, 0
-  br i1 %.not751, label %401, label %360, !llvm.loop !16
-
-401:                                              ; preds = %398
-  store ptr %399, ptr %358, align 8
-  store ptr null, ptr %359, align 8
-  %402 = icmp ne ptr %399, null
-  store <2 x i32> %400, ptr %7, align 8
-  %403 = load i32, ptr @setup_conversations_enabled, align 4
-  %404 = icmp ne i32 %403, 0
-  %or.cond6 = select i1 %404, i1 %402, i1 false
-  br i1 %or.cond6, label %405, label %.loopexit
+  br i1 %.not751, label %405, label %361, !llvm.loop !16
 
 405:                                              ; preds = %401
+  store i32 %403, ptr %358, align 4
+  store ptr %402, ptr %359, align 8
+  store ptr null, ptr %360, align 8
+  %406 = icmp ne ptr %402, null
+  store i32 %404, ptr %7, align 8
+  %407 = load i32, ptr @setup_conversations_enabled, align 4
+  %408 = icmp ne i32 %407, 0
+  %or.cond6 = select i1 %408, i1 %406, i1 false
+  br i1 %or.cond6, label %409, label %.loopexit
+
+409:                                              ; preds = %405
   %.not752 = icmp eq i32 %.1697, 0
-  br i1 %.not752, label %411, label %406
+  br i1 %.not752, label %415, label %410
 
-406:                                              ; preds = %405
-  %407 = getelementptr inbounds i8, ptr %2, i64 20
-  %408 = load i32, ptr %407, align 4
-  call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %.1697, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %408, i32 noundef 0, ptr noundef null) #9
-  %409 = add nuw nsw i32 %.1697, 1
-  %410 = load i32, ptr %407, align 4
-  call void @rtcp_add_address(ptr noundef %2, ptr noundef nonnull %7, i32 noundef %409, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %410) #9
-  br label %411
+410:                                              ; preds = %409
+  %411 = getelementptr inbounds i8, ptr %2, i64 20
+  %412 = load i32, ptr %411, align 4
+  call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %.1697, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %412, i32 noundef 0, ptr noundef null) #9
+  %413 = add nuw nsw i32 %.1697, 1
+  %414 = load i32, ptr %411, align 4
+  call void @rtcp_add_address(ptr noundef %2, ptr noundef nonnull %7, i32 noundef %413, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %414) #9
+  br label %415
 
-411:                                              ; preds = %406, %405
+415:                                              ; preds = %410, %409
   %.not753 = icmp eq i32 %.1, 0
-  br i1 %.not753, label %.loopexit, label %412
+  br i1 %.not753, label %.loopexit, label %416
 
-412:                                              ; preds = %411
-  %413 = getelementptr inbounds i8, ptr %2, i64 20
-  %414 = load i32, ptr %413, align 4
-  call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %.1, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %414, i32 noundef 0, ptr noundef null) #9
-  %415 = add nuw nsw i32 %.1, 1
-  %416 = load i32, ptr %413, align 4
-  call void @rtcp_add_address(ptr noundef %2, ptr noundef nonnull %7, i32 noundef %415, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %416) #9
+416:                                              ; preds = %415
+  %417 = getelementptr inbounds i8, ptr %2, i64 20
+  %418 = load i32, ptr %417, align 4
+  call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %.1, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %418, i32 noundef 0, ptr noundef null) #9
+  %419 = add nuw nsw i32 %.1, 1
+  %420 = load i32, ptr %417, align 4
+  call void @rtcp_add_address(ptr noundef %2, ptr noundef nonnull %7, i32 noundef %419, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %420) #9
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader791, %459
-  %.18795 = phi i32 [ %.19, %459 ], [ 4, %.preheader791 ]
-  %.18722794 = phi i32 [ %.19723, %459 ], [ %16, %.preheader791 ]
-  %417 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.18795) #9
-  %418 = zext i8 %417 to i32
-  %419 = add i32 %.18795, 1
-  %420 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %419) #9
-  %421 = zext i8 %420 to i32
-  %422 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter, align 4
-  %423 = add nuw nsw i32 %421, 2
-  %424 = tail call ptr @val_to_str_const(i32 noundef %418, ptr noundef nonnull @ip_device_routing_cmd_freeseating_vals, ptr noundef nonnull @.str.1143) #9
-  %425 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef %422, ptr noundef %1, i32 noundef %.18795, i32 noundef %423, i32 noundef %418, ptr noundef nonnull @.str.1149, ptr noundef %424) #9
-  %426 = load i32, ptr @ett_ua3g_param, align 4
-  %427 = tail call ptr @proto_item_add_subtree(ptr noundef %425, i32 noundef %426) #9
-  %428 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter, align 4
-  %429 = tail call ptr @proto_tree_add_item(ptr noundef %427, i32 noundef %428, ptr noundef %1, i32 noundef %.18795, i32 noundef 1, i32 noundef 0) #9
-  %430 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter_length, align 4
-  %431 = tail call ptr @proto_tree_add_item(ptr noundef %427, i32 noundef %430, ptr noundef %1, i32 noundef %419, i32 noundef 1, i32 noundef 0) #9
-  %432 = add i32 %.18795, 2
-  %433 = add i32 %.18722794, -2
-  %.not747 = icmp eq i8 %420, 0
-  br i1 %.not747, label %459, label %434
+.lr.ph:                                           ; preds = %.preheader791, %463
+  %.18795 = phi i32 [ %.19, %463 ], [ 4, %.preheader791 ]
+  %.18722794 = phi i32 [ %.19723, %463 ], [ %16, %.preheader791 ]
+  %421 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.18795) #9
+  %422 = zext i8 %421 to i32
+  %423 = add i32 %.18795, 1
+  %424 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %423) #9
+  %425 = zext i8 %424 to i32
+  %426 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter, align 4
+  %427 = add nuw nsw i32 %425, 2
+  %428 = tail call ptr @val_to_str_const(i32 noundef %422, ptr noundef nonnull @ip_device_routing_cmd_freeseating_vals, ptr noundef nonnull @.str.1143) #9
+  %429 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef %426, ptr noundef %1, i32 noundef %.18795, i32 noundef %427, i32 noundef %422, ptr noundef nonnull @.str.1149, ptr noundef %428) #9
+  %430 = load i32, ptr @ett_ua3g_param, align 4
+  %431 = tail call ptr @proto_item_add_subtree(ptr noundef %429, i32 noundef %430) #9
+  %432 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter, align 4
+  %433 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %432, ptr noundef %1, i32 noundef %.18795, i32 noundef 1, i32 noundef 0) #9
+  %434 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter_length, align 4
+  %435 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %434, ptr noundef %1, i32 noundef %423, i32 noundef 1, i32 noundef 0) #9
+  %436 = add i32 %.18795, 2
+  %437 = add i32 %.18722794, -2
+  %.not747 = icmp eq i8 %424, 0
+  br i1 %.not747, label %463, label %438
 
-434:                                              ; preds = %.lr.ph
-  switch i8 %417, label %448 [
-    i8 0, label %435
-    i8 1, label %438
-    i8 2, label %438
-    i8 3, label %445
-  ]
-
-435:                                              ; preds = %434
-  %436 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter_mac, align 4
-  %437 = tail call ptr @proto_tree_add_item(ptr noundef %427, i32 noundef %436, ptr noundef %1, i32 noundef %432, i32 noundef 6, i32 noundef 0) #9
-  br label %456
-
-438:                                              ; preds = %434, %434
-  switch i8 %420, label %.thread774 [
-    i8 4, label %440
-    i8 16, label %439
+438:                                              ; preds = %.lr.ph
+  switch i8 %421, label %452 [
+    i8 0, label %439
+    i8 1, label %442
+    i8 2, label %442
+    i8 3, label %449
   ]
 
 439:                                              ; preds = %438
-  br label %440
+  %440 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter_mac, align 4
+  %441 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %440, ptr noundef %1, i32 noundef %436, i32 noundef 6, i32 noundef 0) #9
+  br label %460
 
-440:                                              ; preds = %438, %439
-  %.0.in = phi ptr [ @hf_ua3g_ip_device_routing_freeseating_parameter_ipv6, %439 ], [ @hf_ua3g_ip_device_routing_freeseating_parameter_ip, %438 ]
+442:                                              ; preds = %438, %438
+  switch i8 %424, label %.thread774 [
+    i8 4, label %444
+    i8 16, label %443
+  ]
+
+443:                                              ; preds = %442
+  br label %444
+
+444:                                              ; preds = %442, %443
+  %.0.in = phi ptr [ @hf_ua3g_ip_device_routing_freeseating_parameter_ipv6, %443 ], [ @hf_ua3g_ip_device_routing_freeseating_parameter_ip, %442 ]
   %.0 = load i32, ptr %.0.in, align 4
   %.not748 = icmp eq i32 %.0, -1
-  br i1 %.not748, label %.thread774, label %441
+  br i1 %.not748, label %.thread774, label %445
 
-441:                                              ; preds = %440
-  %442 = tail call ptr @proto_tree_add_item(ptr noundef %427, i32 noundef %.0, ptr noundef %1, i32 noundef %432, i32 noundef %421, i32 noundef 0) #9
-  br label %456
+445:                                              ; preds = %444
+  %446 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %.0, ptr noundef %1, i32 noundef %436, i32 noundef %425, i32 noundef 0) #9
+  br label %460
 
-.thread774:                                       ; preds = %438, %440
-  %443 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter_value, align 4
-  %444 = tail call ptr @proto_tree_add_item(ptr noundef %427, i32 noundef %443, ptr noundef %1, i32 noundef %432, i32 noundef %421, i32 noundef 0) #9
-  br label %456
+.thread774:                                       ; preds = %442, %444
+  %447 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter_value, align 4
+  %448 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %447, ptr noundef %1, i32 noundef %436, i32 noundef %425, i32 noundef 0) #9
+  br label %460
 
-445:                                              ; preds = %434
-  %446 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter_do_reset, align 4
-  %447 = tail call ptr @proto_tree_add_item(ptr noundef %427, i32 noundef %446, ptr noundef %1, i32 noundef %432, i32 noundef %421, i32 noundef 0) #9
-  br label %456
+449:                                              ; preds = %438
+  %450 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter_do_reset, align 4
+  %451 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %450, ptr noundef %1, i32 noundef %436, i32 noundef %425, i32 noundef 0) #9
+  br label %460
 
-448:                                              ; preds = %434
-  %449 = icmp ult i8 %420, 9
-  br i1 %449, label %450, label %453
+452:                                              ; preds = %438
+  %453 = icmp ult i8 %424, 9
+  br i1 %453, label %454, label %457
 
-450:                                              ; preds = %448
-  %451 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter_uint, align 4
-  %452 = tail call ptr @proto_tree_add_item(ptr noundef %427, i32 noundef %451, ptr noundef %1, i32 noundef %432, i32 noundef %421, i32 noundef 0) #9
-  br label %456
+454:                                              ; preds = %452
+  %455 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter_uint, align 4
+  %456 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %455, ptr noundef %1, i32 noundef %436, i32 noundef %425, i32 noundef 0) #9
+  br label %460
 
-453:                                              ; preds = %448
-  %454 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter_value, align 4
-  %455 = tail call ptr @proto_tree_add_item(ptr noundef %427, i32 noundef %454, ptr noundef %1, i32 noundef %432, i32 noundef %421, i32 noundef 0) #9
-  br label %456
+457:                                              ; preds = %452
+  %458 = load i32, ptr @hf_ua3g_ip_device_routing_freeseating_parameter_value, align 4
+  %459 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %458, ptr noundef %1, i32 noundef %436, i32 noundef %425, i32 noundef 0) #9
+  br label %460
 
-456:                                              ; preds = %450, %453, %441, %.thread774, %445, %435
-  %457 = add i32 %432, %421
-  %458 = sub i32 %433, %421
-  br label %459
+460:                                              ; preds = %454, %457, %445, %.thread774, %449, %439
+  %461 = add i32 %436, %425
+  %462 = sub i32 %437, %425
+  br label %463
 
-459:                                              ; preds = %456, %.lr.ph
-  %.19723 = phi i32 [ %458, %456 ], [ %433, %.lr.ph ]
-  %.19 = phi i32 [ %457, %456 ], [ %432, %.lr.ph ]
+463:                                              ; preds = %460, %.lr.ph
+  %.19723 = phi i32 [ %462, %460 ], [ %437, %.lr.ph ]
+  %.19 = phi i32 [ %461, %460 ], [ %436, %.lr.ph ]
   %.not746 = icmp eq i32 %.19723, 0
   br i1 %.not746, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
-.lr.ph799:                                        ; preds = %.preheader789, %488
-  %.20798 = phi i32 [ %.21, %488 ], [ 4, %.preheader789 ]
-  %.20724797 = phi i32 [ %.21725, %488 ], [ %16, %.preheader789 ]
-  %460 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.20798) #9
-  %461 = zext i8 %460 to i32
-  %462 = add i32 %.20798, 1
-  %463 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %462) #9
-  %464 = zext i8 %463 to i32
-  %465 = load i32, ptr @hf_ua3g_ip_device_routing_appl_parameter, align 4
-  %466 = add nuw nsw i32 %464, 2
-  %467 = tail call ptr @val_to_str_const(i32 noundef %461, ptr noundef nonnull @ip_device_routing_cmd_appl_vals, ptr noundef nonnull @.str.1143) #9
-  %468 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef %465, ptr noundef %1, i32 noundef %.20798, i32 noundef %466, i32 noundef %461, ptr noundef nonnull @.str.1149, ptr noundef %467) #9
-  %469 = load i32, ptr @ett_ua3g_param, align 4
-  %470 = tail call ptr @proto_item_add_subtree(ptr noundef %468, i32 noundef %469) #9
-  %471 = load i32, ptr @hf_ua3g_ip_device_routing_appl_parameter, align 4
-  %472 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %471, ptr noundef %1, i32 noundef %.20798, i32 noundef 1, i32 noundef 0) #9
-  %473 = load i32, ptr @hf_ua3g_ip_device_routing_appl_parameter_length, align 4
-  %474 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %473, ptr noundef %1, i32 noundef %462, i32 noundef 1, i32 noundef 0) #9
-  %475 = add i32 %.20798, 2
-  %476 = add i32 %.20724797, -2
-  %.not750 = icmp eq i8 %463, 0
-  br i1 %.not750, label %488, label %477
+.lr.ph799:                                        ; preds = %.preheader789, %492
+  %.20798 = phi i32 [ %.21, %492 ], [ 4, %.preheader789 ]
+  %.20724797 = phi i32 [ %.21725, %492 ], [ %16, %.preheader789 ]
+  %464 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.20798) #9
+  %465 = zext i8 %464 to i32
+  %466 = add i32 %.20798, 1
+  %467 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %466) #9
+  %468 = zext i8 %467 to i32
+  %469 = load i32, ptr @hf_ua3g_ip_device_routing_appl_parameter, align 4
+  %470 = add nuw nsw i32 %468, 2
+  %471 = tail call ptr @val_to_str_const(i32 noundef %465, ptr noundef nonnull @ip_device_routing_cmd_appl_vals, ptr noundef nonnull @.str.1143) #9
+  %472 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef %469, ptr noundef %1, i32 noundef %.20798, i32 noundef %470, i32 noundef %465, ptr noundef nonnull @.str.1149, ptr noundef %471) #9
+  %473 = load i32, ptr @ett_ua3g_param, align 4
+  %474 = tail call ptr @proto_item_add_subtree(ptr noundef %472, i32 noundef %473) #9
+  %475 = load i32, ptr @hf_ua3g_ip_device_routing_appl_parameter, align 4
+  %476 = tail call ptr @proto_tree_add_item(ptr noundef %474, i32 noundef %475, ptr noundef %1, i32 noundef %.20798, i32 noundef 1, i32 noundef 0) #9
+  %477 = load i32, ptr @hf_ua3g_ip_device_routing_appl_parameter_length, align 4
+  %478 = tail call ptr @proto_tree_add_item(ptr noundef %474, i32 noundef %477, ptr noundef %1, i32 noundef %466, i32 noundef 1, i32 noundef 0) #9
+  %479 = add i32 %.20798, 2
+  %480 = add i32 %.20724797, -2
+  %.not750 = icmp eq i8 %467, 0
+  br i1 %.not750, label %492, label %481
 
-477:                                              ; preds = %.lr.ph799
-  %478 = icmp ult i8 %460, 3
-  br i1 %478, label %switch.lookup, label %479
+481:                                              ; preds = %.lr.ph799
+  %482 = icmp ult i8 %464, 3
+  br i1 %482, label %switch.lookup, label %483
 
-479:                                              ; preds = %477
-  %480 = icmp ult i8 %463, 9
-  %hf_ua3g_ip_device_routing_appl_parameter_uint.hf_ua3g_ip_device_routing_appl_parameter_value = select i1 %480, ptr @hf_ua3g_ip_device_routing_appl_parameter_uint, ptr @hf_ua3g_ip_device_routing_appl_parameter_value
-  br label %483
+483:                                              ; preds = %481
+  %484 = icmp ult i8 %467, 9
+  %hf_ua3g_ip_device_routing_appl_parameter_uint.hf_ua3g_ip_device_routing_appl_parameter_value = select i1 %484, ptr @hf_ua3g_ip_device_routing_appl_parameter_uint, ptr @hf_ua3g_ip_device_routing_appl_parameter_value
+  br label %487
 
-switch.lookup:                                    ; preds = %477
-  %481 = zext nneg i8 %460 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.decode_ip_device_routing, i64 0, i64 %481
+switch.lookup:                                    ; preds = %481
+  %485 = zext nneg i8 %464 to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.decode_ip_device_routing, i64 0, i64 %485
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %482 = zext nneg i8 %460 to i64
-  %switch.gep16 = getelementptr inbounds [3 x i32], ptr @switch.table.decode_ip_device_routing.24, i64 0, i64 %482
+  %486 = zext nneg i8 %464 to i64
+  %switch.gep16 = getelementptr inbounds [3 x i32], ptr @switch.table.decode_ip_device_routing.24, i64 0, i64 %486
   %switch.load17 = load i32, ptr %switch.gep16, align 4
-  br label %483
+  br label %487
 
-483:                                              ; preds = %switch.lookup, %479
-  %hf_ua3g_ip_device_routing_appl_parameter_uint.sink = phi ptr [ %hf_ua3g_ip_device_routing_appl_parameter_uint.hf_ua3g_ip_device_routing_appl_parameter_value, %479 ], [ %switch.load, %switch.lookup ]
-  %.sink915 = phi i32 [ 0, %479 ], [ %switch.load17, %switch.lookup ]
-  %484 = load i32, ptr %hf_ua3g_ip_device_routing_appl_parameter_uint.sink, align 4
-  %485 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %484, ptr noundef %1, i32 noundef %475, i32 noundef %464, i32 noundef %.sink915) #9
-  %486 = add i32 %475, %464
-  %487 = sub i32 %476, %464
-  br label %488
+487:                                              ; preds = %switch.lookup, %483
+  %hf_ua3g_ip_device_routing_appl_parameter_uint.sink = phi ptr [ %hf_ua3g_ip_device_routing_appl_parameter_uint.hf_ua3g_ip_device_routing_appl_parameter_value, %483 ], [ %switch.load, %switch.lookup ]
+  %.sink915 = phi i32 [ 0, %483 ], [ %switch.load17, %switch.lookup ]
+  %488 = load i32, ptr %hf_ua3g_ip_device_routing_appl_parameter_uint.sink, align 4
+  %489 = tail call ptr @proto_tree_add_item(ptr noundef %474, i32 noundef %488, ptr noundef %1, i32 noundef %479, i32 noundef %468, i32 noundef %.sink915) #9
+  %490 = add i32 %479, %468
+  %491 = sub i32 %480, %468
+  br label %492
 
-488:                                              ; preds = %483, %.lr.ph799
-  %.21725 = phi i32 [ %487, %483 ], [ %476, %.lr.ph799 ]
-  %.21 = phi i32 [ %486, %483 ], [ %475, %.lr.ph799 ]
+492:                                              ; preds = %487, %.lr.ph799
+  %.21725 = phi i32 [ %491, %487 ], [ %480, %.lr.ph799 ]
+  %.21 = phi i32 [ %490, %487 ], [ %479, %.lr.ph799 ]
   %.not749 = icmp eq i32 %.21725, 0
   br i1 %.not749, label %.loopexit, label %.lr.ph799, !llvm.loop !18
 
-.loopexit:                                        ; preds = %459, %488, %356, %328, %.lr.ph826, %286, %.lr.ph835, %.loopexit780, %198, %172, %357, %.preheader791, %.preheader789, %332, %.preheader786, %.preheader784, %260, %236, %199, %.preheader777, %.preheader, %13, %401, %411, %412, %139, %144, %17, %57, %60, %63, %66, %69, %72, %75, %54, %37, %18, %4, %329
+.loopexit:                                        ; preds = %463, %492, %356, %328, %.lr.ph826, %286, %.lr.ph835, %.loopexit780, %198, %172, %357, %.preheader791, %.preheader789, %332, %.preheader786, %.preheader784, %260, %236, %199, %.preheader777, %.preheader, %13, %405, %415, %416, %139, %144, %17, %57, %60, %63, %66, %69, %72, %75, %54, %37, %18, %4, %329
   ret void
 }
 
@@ -3936,7 +3941,7 @@ define internal fastcc void @decode_set_lcd_contrast(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %74, label %5
+  br i1 %.not, label %77, label %5
 
 5:                                                ; preds = %4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
@@ -4007,67 +4012,68 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr noc
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %.neg = mul nsw i32 %40, -3
-  %invariant.op = add i32 -1, %.neg
+  %44 = add nsw i32 %.neg, 3
   br label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %.preheader.us
-  %.1110.us = phi i32 [ %46, %.preheader.us ], [ 6, %.preheader.lr.ph ]
-  %.194109.us = phi i32 [ %47, %.preheader.us ], [ %43, %.preheader.lr.ph ]
-  %44 = load i32, ptr @hf_ua3g_beep_terminator, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %44, ptr noundef %1, i32 noundef %.1110.us, i32 noundef 1, i32 noundef 0) #9
-  %46 = add i32 %.1110.us, 1
-  %47 = add i32 %.194109.us, -1
-  %.not99.us = icmp eq i32 %47, 0
+  %.1110.us = phi i32 [ %47, %.preheader.us ], [ 6, %.preheader.lr.ph ]
+  %.194109.us = phi i32 [ %48, %.preheader.us ], [ %43, %.preheader.lr.ph ]
+  %45 = load i32, ptr @hf_ua3g_beep_terminator, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef %.1110.us, i32 noundef 1, i32 noundef 0) #9
+  %47 = add i32 %.1110.us, 1
+  %48 = add i32 %.194109.us, -1
+  %.not99.us = icmp eq i32 %48, 0
   br i1 %.not99.us, label %.loopexit, label %.preheader.us, !llvm.loop !23
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %.1110 = phi i32 [ %73, %._crit_edge ], [ 6, %.preheader.preheader ]
-  %.194109 = phi i32 [ %op.rdx3.reass, %._crit_edge ], [ %43, %.preheader.preheader ]
-  br label %48
+  %.1110 = phi i32 [ %75, %._crit_edge ], [ 6, %.preheader.preheader ]
+  %.194109 = phi i32 [ %76, %._crit_edge ], [ %43, %.preheader.preheader ]
+  br label %49
 
-48:                                               ; preds = %.preheader, %48
-  %.2106 = phi i32 [ %.1110, %.preheader ], [ %69, %48 ]
-  %.096104 = phi i32 [ 1, %.preheader ], [ %70, %48 ]
-  %49 = load i32, ptr @ett_ua3g_note, align 4
-  %50 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %.2106, i32 noundef 3, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.1158, i32 noundef %.096104) #9
-  %51 = load i32, ptr @hf_ua3g_beep_freq_sample, align 4
-  %52 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2106) #9
-  %53 = zext i8 %52 to i32
-  %54 = tail call ptr @val_to_str_const(i32 noundef %., ptr noundef nonnull @str_beep_freq_sample_nb, ptr noundef nonnull @.str.1143) #9
-  %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2106) #9
-  %56 = zext i8 %55 to i32
-  %57 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %50, i32 noundef %51, ptr noundef %1, i32 noundef %.2106, i32 noundef 1, i32 noundef %53, ptr noundef nonnull @.str.1159, ptr noundef %54, i32 noundef %56) #9
-  %58 = add i32 %.2106, 1
-  %59 = load i32, ptr @hf_ua3g_beep_level, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %59, ptr noundef %1, i32 noundef %58, i32 noundef 1, i32 noundef 0) #9
-  %61 = add i32 %.2106, 2
-  %62 = load i32, ptr @hf_ua3g_beep_duration, align 4
-  %63 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %61) #9
-  %64 = zext i8 %63 to i32
-  %65 = tail call ptr @val_to_str_const(i32 noundef %., ptr noundef nonnull @str_beep_duration, ptr noundef nonnull @.str.1143) #9
-  %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %61) #9
-  %67 = zext i8 %66 to i32
-  %68 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %50, i32 noundef %62, ptr noundef %1, i32 noundef %61, i32 noundef 1, i32 noundef %64, ptr noundef nonnull @.str.1160, ptr noundef %65, i32 noundef %67) #9
-  %69 = add i32 %.2106, 3
-  %70 = add nuw nsw i32 %.096104, 1
+49:                                               ; preds = %.preheader, %49
+  %.2106 = phi i32 [ %.1110, %.preheader ], [ %70, %49 ]
+  %.096104 = phi i32 [ 1, %.preheader ], [ %71, %49 ]
+  %50 = load i32, ptr @ett_ua3g_note, align 4
+  %51 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %.2106, i32 noundef 3, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.1158, i32 noundef %.096104) #9
+  %52 = load i32, ptr @hf_ua3g_beep_freq_sample, align 4
+  %53 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2106) #9
+  %54 = zext i8 %53 to i32
+  %55 = tail call ptr @val_to_str_const(i32 noundef %., ptr noundef nonnull @str_beep_freq_sample_nb, ptr noundef nonnull @.str.1143) #9
+  %56 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2106) #9
+  %57 = zext i8 %56 to i32
+  %58 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %51, i32 noundef %52, ptr noundef %1, i32 noundef %.2106, i32 noundef 1, i32 noundef %54, ptr noundef nonnull @.str.1159, ptr noundef %55, i32 noundef %57) #9
+  %59 = add i32 %.2106, 1
+  %60 = load i32, ptr @hf_ua3g_beep_level, align 4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %60, ptr noundef %1, i32 noundef %59, i32 noundef 1, i32 noundef 0) #9
+  %62 = add i32 %.2106, 2
+  %63 = load i32, ptr @hf_ua3g_beep_duration, align 4
+  %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %62) #9
+  %65 = zext i8 %64 to i32
+  %66 = tail call ptr @val_to_str_const(i32 noundef %., ptr noundef nonnull @str_beep_duration, ptr noundef nonnull @.str.1143) #9
+  %67 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %62) #9
+  %68 = zext i8 %67 to i32
+  %69 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %51, i32 noundef %63, ptr noundef %1, i32 noundef %62, i32 noundef 1, i32 noundef %65, ptr noundef nonnull @.str.1160, ptr noundef %66, i32 noundef %68) #9
+  %70 = add i32 %.2106, 3
+  %71 = add nuw nsw i32 %.096104, 1
   %exitcond.not = icmp eq i32 %.096104, %40
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %48
-  %71 = load i32, ptr @hf_ua3g_beep_terminator, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %71, ptr noundef %1, i32 noundef %69, i32 noundef 1, i32 noundef 0) #9
-  %73 = add i32 %.2106, 4
-  %op.rdx3.reass = add i32 %.194109, %invariant.op
-  %.not99 = icmp eq i32 %op.rdx3.reass, 0
+._crit_edge:                                      ; preds = %49
+  %72 = add i32 %44, %.194109
+  %73 = load i32, ptr @hf_ua3g_beep_terminator, align 4
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %73, ptr noundef %1, i32 noundef %70, i32 noundef 1, i32 noundef 0) #9
+  %75 = add i32 %.2106, 4
+  %76 = add i32 %72, -4
+  %.not99 = icmp eq i32 %76, 0
   br i1 %.not99, label %.loopexit, label %.preheader, !llvm.loop !23
 
-74:                                               ; preds = %4
-  %75 = getelementptr inbounds i8, ptr %2, i64 8
-  %76 = load ptr, ptr %75, align 8
-  tail call void @col_append_str(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.1161) #9
+77:                                               ; preds = %4
+  %78 = getelementptr inbounds i8, ptr %2, i64 8
+  %79 = load ptr, ptr %78, align 8
+  tail call void @col_append_str(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.1161) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader.us, %.lr.ph, %34, %13, %28, %5, %74
+.loopexit:                                        ; preds = %._crit_edge, %.preheader.us, %.lr.ph, %34, %13, %28, %5, %77
   ret void
 }
 

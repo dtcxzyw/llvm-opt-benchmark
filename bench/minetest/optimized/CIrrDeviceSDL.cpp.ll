@@ -16423,131 +16423,133 @@ sw.bb:                                            ; preds = %while.body
   store i32 1, ptr %irrevent, align 8, !tbaa !871
   store i32 6, ptr %Event263, align 4, !tbaa !64
   %4 = load <4 x i32>, ptr %data2, align 4, !tbaa !64
-  %5 = shufflevector <4 x i32> %4, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x i32> %5, ptr %1, align 8, !tbaa !64
+  %5 = extractelement <4 x i32> %4, i64 0
+  store i32 %5, ptr %1, align 8, !tbaa !64
+  %6 = extractelement <4 x i32> %4, i64 1
+  store i32 %6, ptr %Key, align 4, !tbaa !64
   store <4 x i32> %4, ptr %MouseX28, align 8, !tbaa !26
-  %6 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
-  store i32 %6, ptr %touchedCount279, align 8, !tbaa !64
+  %7 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
+  store i32 %7, ptr %touchedCount279, align 8, !tbaa !64
   %and = and i32 %call3, 3
   %cmp = icmp ne i32 %and, 0
-  %7 = zext i1 %cmp to i8
+  %8 = zext i1 %cmp to i8
   %bf.load = load i8, ptr %Y277, align 4
   %bf.clear = and i8 %bf.load, -4
   %and4 = and i32 %call3, 192
   %cmp5.not = icmp eq i32 %and4, 0
   %bf.shl = select i1 %cmp5.not, i8 0, i8 2
-  %bf.set = or disjoint i8 %bf.shl, %7
+  %bf.set = or disjoint i8 %bf.shl, %8
   %bf.set8 = or disjoint i8 %bf.set, %bf.clear
   store i8 %bf.set8, ptr %Y277, align 4
   %vtable = load ptr, ptr %this, align 8, !tbaa !23
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
-  %8 = load ptr, ptr %vfn, align 8
-  %call9 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
+  %9 = load ptr, ptr %vfn, align 8
+  %call9 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
   br label %sw.epilog288
 
 sw.bb10:                                          ; preds = %while.body
   %call12 = call i32 @SDL_GetModState() #21
   store i32 1, ptr %irrevent, align 8, !tbaa !871
   store i32 7, ptr %Event263, align 4, !tbaa !64
-  %9 = load float, ptr %preciseY, align 8, !tbaa !64
-  store float %9, ptr %X271, align 8, !tbaa !64
+  %10 = load float, ptr %preciseY, align 8, !tbaa !64
+  store float %10, ptr %X271, align 8, !tbaa !64
   %and15 = and i32 %call12, 3
   %cmp16 = icmp ne i32 %and15, 0
-  %10 = zext i1 %cmp16 to i8
+  %11 = zext i1 %cmp16 to i8
   %bf.load18 = load i8, ptr %Y277, align 4
   %bf.clear19 = and i8 %bf.load18, -4
   %and21 = and i32 %call12, 192
   %cmp22.not = icmp eq i32 %and21, 0
   %bf.shl25 = select i1 %cmp22.not, i8 0, i8 2
-  %bf.set20 = or disjoint i8 %bf.shl25, %10
+  %bf.set20 = or disjoint i8 %bf.shl25, %11
   %bf.set27 = or disjoint i8 %bf.set20, %bf.clear19
   store i8 %bf.set27, ptr %Y277, align 4
-  %11 = load <2 x i32>, ptr %MouseX28, align 8, !tbaa !26
-  store <2 x i32> %11, ptr %1, align 8, !tbaa !64
+  %12 = load <2 x i32>, ptr %MouseX28, align 8, !tbaa !26
+  store <2 x i32> %12, ptr %1, align 8, !tbaa !64
   %vtable32 = load ptr, ptr %this, align 8, !tbaa !23
   %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 200
-  %12 = load ptr, ptr %vfn33, align 8
-  %call34 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
+  %13 = load ptr, ptr %vfn33, align 8
+  %call34 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
   br label %sw.epilog288
 
 sw.bb35:                                          ; preds = %while.body, %while.body
   %call37 = call i32 @SDL_GetModState() #21
   store i32 1, ptr %irrevent, align 8, !tbaa !871
-  %13 = load <2 x i32>, ptr %data2, align 4, !tbaa !64
-  store <2 x i32> %13, ptr %1, align 8, !tbaa !64
+  %14 = load <2 x i32>, ptr %data2, align 4, !tbaa !64
+  store <2 x i32> %14, ptr %1, align 8, !tbaa !64
   %and43 = and i32 %call37, 3
   %cmp44 = icmp ne i32 %and43, 0
-  %14 = zext i1 %cmp44 to i8
+  %15 = zext i1 %cmp44 to i8
   %bf.load46 = load i8, ptr %Y277, align 4
   %bf.clear47 = and i8 %bf.load46, -4
   %and49 = and i32 %call37, 192
   %cmp50.not = icmp eq i32 %and49, 0
   %bf.shl53 = select i1 %cmp50.not, i8 0, i8 2
-  %bf.set48 = or disjoint i8 %bf.shl53, %14
+  %bf.set48 = or disjoint i8 %bf.shl53, %15
   %bf.set55 = or disjoint i8 %bf.set48, %bf.clear47
   store i8 %bf.set55, ptr %Y277, align 4
   store i32 6, ptr %Event263, align 4, !tbaa !64
-  %15 = load i8, ptr %fingerId264, align 8, !tbaa !64
-  switch i8 %15, label %sw.epilog [
+  %16 = load i8, ptr %fingerId264, align 8, !tbaa !64
+  switch i8 %16, label %sw.epilog [
     i8 1, label %sw.bb57
     i8 3, label %sw.bb64
     i8 2, label %sw.bb75
   ]
 
 sw.bb57:                                          ; preds = %sw.bb35
-  %16 = load i32, ptr %SDL_event, align 8, !tbaa !64
-  %cmp58 = icmp eq i32 %16, 1025
+  %17 = load i32, ptr %SDL_event, align 8, !tbaa !64
+  %cmp58 = icmp eq i32 %17, 1025
   br i1 %cmp58, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.bb57
   store i32 0, ptr %Event263, align 4, !tbaa !64
-  %17 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
-  %or = or i32 %17, 1
+  %18 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
+  %or = or i32 %18, 1
   br label %if.then90
 
 if.else:                                          ; preds = %sw.bb57
   store i32 3, ptr %Event263, align 4, !tbaa !64
-  %18 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
-  %and63 = and i32 %18, -2
+  %19 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
+  %and63 = and i32 %19, -2
   br label %if.then90
 
 sw.bb64:                                          ; preds = %sw.bb35
-  %19 = load i32, ptr %SDL_event, align 8, !tbaa !64
-  %cmp65 = icmp eq i32 %19, 1025
+  %20 = load i32, ptr %SDL_event, align 8, !tbaa !64
+  %cmp65 = icmp eq i32 %20, 1025
   br i1 %cmp65, label %if.then66, label %if.else70
 
 if.then66:                                        ; preds = %sw.bb64
   store i32 1, ptr %Event263, align 4, !tbaa !64
-  %20 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
-  %or69 = or i32 %20, 2
+  %21 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
+  %or69 = or i32 %21, 2
   br label %if.then90
 
 if.else70:                                        ; preds = %sw.bb64
   store i32 4, ptr %Event263, align 4, !tbaa !64
-  %21 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
-  %and73 = and i32 %21, -3
+  %22 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
+  %and73 = and i32 %22, -3
   br label %if.then90
 
 sw.bb75:                                          ; preds = %sw.bb35
-  %22 = load i32, ptr %SDL_event, align 8, !tbaa !64
-  %cmp76 = icmp eq i32 %22, 1025
+  %23 = load i32, ptr %SDL_event, align 8, !tbaa !64
+  %cmp76 = icmp eq i32 %23, 1025
   br i1 %cmp76, label %if.then77, label %if.else81
 
 if.then77:                                        ; preds = %sw.bb75
   store i32 2, ptr %Event263, align 4, !tbaa !64
-  %23 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
-  %or80 = or i32 %23, 4
+  %24 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
+  %or80 = or i32 %24, 4
   br label %if.then90
 
 if.else81:                                        ; preds = %sw.bb75
   store i32 5, ptr %Event263, align 4, !tbaa !64
-  %24 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
-  %and84 = and i32 %24, -5
+  %25 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
+  %and84 = and i32 %25, -5
   br label %if.then90
 
 sw.epilog:                                        ; preds = %sw.bb35
-  %25 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
-  store i32 %25, ptr %touchedCount279, align 8, !tbaa !64
+  %26 = load i32, ptr %MouseButtonStates83, align 8, !tbaa !874
+  store i32 %26, ptr %touchedCount279, align 8, !tbaa !64
   br label %sw.epilog288
 
 if.then90:                                        ; preds = %if.else81, %if.then77, %if.else70, %if.then66, %if.else, %if.then
@@ -16556,81 +16558,81 @@ if.then90:                                        ; preds = %if.else81, %if.then
   store i32 %or80.sink, ptr %touchedCount279, align 8, !tbaa !64
   %vtable91 = load ptr, ptr %this, align 8, !tbaa !23
   %vfn92 = getelementptr inbounds i8, ptr %vtable91, i64 200
-  %26 = load ptr, ptr %vfn92, align 8
-  %call93 = call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
-  %27 = load i32, ptr %Event263, align 4
-  %or.cond = icmp ult i32 %27, 3
+  %27 = load ptr, ptr %vfn92, align 8
+  %call93 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
+  %28 = load i32, ptr %Event263, align 4
+  %or.cond = icmp ult i32 %28, 3
   br i1 %or.cond, label %if.then98, label %sw.epilog288
 
 if.then98:                                        ; preds = %if.then90
-  %28 = load i32, ptr %1, align 8, !tbaa !64
-  %29 = load i32, ptr %Key, align 4, !tbaa !64
+  %29 = load i32, ptr %1, align 8, !tbaa !64
+  %30 = load i32, ptr %Key, align 4, !tbaa !64
   %vtable102 = load ptr, ptr %this, align 8, !tbaa !23
   %vfn103 = getelementptr inbounds i8, ptr %vtable102, i64 424
-  %30 = load ptr, ptr %vfn103, align 8
-  %call104 = call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %28, i32 noundef %29, i32 noundef %27) #21
+  %31 = load ptr, ptr %vfn103, align 8
+  %call104 = call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %29, i32 noundef %30, i32 noundef %28) #21
   switch i32 %call104, label %sw.epilog288 [
     i32 2, label %if.then106
     i32 3, label %if.then114
   ]
 
 if.then106:                                       ; preds = %if.then98
-  %31 = load i32, ptr %Event263, align 4, !tbaa !64
-  %add = add nsw i32 %31, 8
+  %32 = load i32, ptr %Event263, align 4, !tbaa !64
+  %add = add nsw i32 %32, 8
   store i32 %add, ptr %Event263, align 4, !tbaa !64
   %vtable109 = load ptr, ptr %this, align 8, !tbaa !23
   %vfn110 = getelementptr inbounds i8, ptr %vtable109, i64 200
-  %32 = load ptr, ptr %vfn110, align 8
-  %call111 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
+  %33 = load ptr, ptr %vfn110, align 8
+  %call111 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
   br label %sw.epilog288
 
 if.then114:                                       ; preds = %if.then98
-  %33 = load i32, ptr %Event263, align 4, !tbaa !64
-  %add116 = add nsw i32 %33, 11
+  %34 = load i32, ptr %Event263, align 4, !tbaa !64
+  %add116 = add nsw i32 %34, 11
   store i32 %add116, ptr %Event263, align 4, !tbaa !64
   %vtable119 = load ptr, ptr %this, align 8, !tbaa !23
   %vfn120 = getelementptr inbounds i8, ptr %vtable119, i64 200
-  %34 = load ptr, ptr %vfn120, align 8
-  %call121 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
+  %35 = load ptr, ptr %vfn120, align 8
+  %call121 = call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
   br label %sw.epilog288
 
 sw.bb126:                                         ; preds = %while.body
   store i32 3, ptr %irrevent, align 8, !tbaa !871
   %call128 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
-  %35 = getelementptr inbounds i8, ptr %call128, i64 16
-  store ptr %35, ptr %call128, align 8, !tbaa !875
+  %36 = getelementptr inbounds i8, ptr %call128, i64 16
+  store ptr %36, ptr %call128, align 8, !tbaa !875
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %call128, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !877
-  store i32 0, ptr %35, align 4, !tbaa !879
+  store i32 0, ptr %36, align 4, !tbaa !879
   store ptr %call128, ptr %1, align 8, !tbaa !64
   %call130 = call noundef i64 @_ZN3irr4core13utf8ToWStringERNS0_6stringIwEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %call128, ptr noundef nonnull %event)
   %vtable131 = load ptr, ptr %this, align 8, !tbaa !23
   %vfn132 = getelementptr inbounds i8, ptr %vtable131, i64 200
-  %36 = load ptr, ptr %vfn132, align 8
-  %call133 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
-  %37 = load ptr, ptr %1, align 8, !tbaa !64
-  %isnull = icmp eq ptr %37, null
+  %37 = load ptr, ptr %vfn132, align 8
+  %call133 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
+  %38 = load ptr, ptr %1, align 8, !tbaa !64
+  %isnull = icmp eq ptr %38, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %sw.bb126
-  %38 = load ptr, ptr %37, align 8, !tbaa !881
-  %39 = getelementptr inbounds i8, ptr %37, i64 16
-  %cmp.i.i.i.i = icmp eq ptr %38, %39
+  %39 = load ptr, ptr %38, align 8, !tbaa !881
+  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %cmp.i.i.i.i = icmp eq ptr %39, %40
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %delete.notnull
-  %_M_string_length.i.i.i.i402 = getelementptr inbounds i8, ptr %37, i64 8
-  %40 = load i64, ptr %_M_string_length.i.i.i.i402, align 8, !tbaa !877
-  %cmp3.i.i.i.i = icmp ult i64 %40, 4
+  %_M_string_length.i.i.i.i402 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = load i64, ptr %_M_string_length.i.i.i.i402, align 8, !tbaa !877
+  %cmp3.i.i.i.i = icmp ult i64 %41, 4
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN3irr4core6stringIwED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %delete.notnull
-  call void @_ZdlPv(ptr noundef %38) #23
+  call void @_ZdlPv(ptr noundef %39) #23
   br label %_ZN3irr4core6stringIwED2Ev.exit
 
 _ZN3irr4core6stringIwED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %37) #23
+  call void @_ZdlPv(ptr noundef nonnull %38) #23
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN3irr4core6stringIwED2Ev.exit, %sw.bb126
@@ -16638,9 +16640,9 @@ delete.end:                                       ; preds = %_ZN3irr4core6string
   br label %sw.epilog288
 
 sw.bb136:                                         ; preds = %while.body, %while.body
-  %41 = load i32, ptr %data2, align 4, !tbaa !64
-  %42 = load i8, ptr %is_sorted.i.i, align 8, !tbaa !55, !range !819, !noundef !820
-  %tobool.not.i.i = icmp eq i8 %42, 0
+  %42 = load i32, ptr %data2, align 4, !tbaa !64
+  %43 = load i8, ptr %is_sorted.i.i, align 8, !tbaa !55, !range !819, !noundef !820
+  %tobool.not.i.i = icmp eq i8 %43, 0
   %.pre3.i = load ptr, ptr %KeyMap, align 8, !tbaa !95
   %.pre454 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !95
   br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE4sortEv.exit.i
@@ -16654,8 +16656,8 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %.pre3.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %43 = call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i.i.i, i1 true), !range !817
-  %sub.i.i.i.i.i = shl nuw nsw i64 %43, 1
+  %44 = call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i.i.i, i1 true), !range !817
+  %sub.i.i.i.i.i = shl nuw nsw i64 %44, 1
   %mul.i.i.i.i = xor i64 %sub.i.i.i.i.i, 126
   call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %.pre3.i, ptr %.pre454, i64 noundef %mul.i.i.i.i)
   call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %.pre3.i, ptr %.pre454)
@@ -16670,10 +16672,10 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vector
   br label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE4sortEv.exit.i
 
 _ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE4sortEv.exit.i: ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit.i.i, %sw.bb136
-  %44 = phi ptr [ %.pre454, %sw.bb136 ], [ %.pre453, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit.i.i ]
-  %45 = phi ptr [ %.pre3.i, %sw.bb136 ], [ %.pre.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit.i.i ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %44 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %45 to i64
+  %45 = phi ptr [ %.pre454, %sw.bb136 ], [ %.pre453, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit.i.i ]
+  %46 = phi ptr [ %.pre3.i, %sw.bb136 ], [ %.pre.i, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit.i.i ]
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %45 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %46 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
@@ -16689,56 +16691,56 @@ if.end.i.i:                                       ; preds = %_ZN3irr4core5arrayI
 
 while.body.i.i.i.i:                               ; preds = %if.end.i.i, %while.body.i.i.i.i
   %__len.019.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i.i, %if.end.i.i ]
-  %__first.sroa.0.018.i.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ], [ %45, %if.end.i.i ]
+  %__first.sroa.0.018.i.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ], [ %46, %if.end.i.i ]
   %shr.i.i.i.i = lshr i64 %__len.019.i.i.i.i, 1
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %__first.sroa.0.018.i.i.i.i, i64 %shr.i.i.i.i
-  %46 = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4, !tbaa !882
-  %cmp.i.i15.i.i.i.i = icmp slt i32 %46, %41
+  %47 = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4, !tbaa !882
+  %cmp.i.i15.i.i.i.i = icmp slt i32 %47, %42
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
-  %47 = xor i64 %shr.i.i.i.i, -1
-  %sub9.i.i.i.i = add nsw i64 %__len.019.i.i.i.i, %47
+  %48 = xor i64 %shr.i.i.i.i, -1
+  %sub9.i.i.i.i = add nsw i64 %__len.019.i.i.i.i, %48
   %__first.sroa.0.1.i.i.i.i = select i1 %cmp.i.i15.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i, ptr %__first.sroa.0.018.i.i.i.i
   %__len.1.i.i.i.i = select i1 %cmp.i.i15.i.i.i.i, i64 %sub9.i.i.i.i, i64 %shr.i.i.i.i
   %cmp.i.i.i.i403 = icmp sgt i64 %__len.1.i.i.i.i, 0
   br i1 %cmp.i.i.i.i403, label %while.body.i.i.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit.i.i, !llvm.loop !884
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit.i.i: ; preds = %while.body.i.i.i.i, %if.end.i.i
-  %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %45, %if.end.i.i ], [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ]
-  %48 = load i32, ptr %__first.sroa.0.0.lcssa.i.i.i.i, align 4, !tbaa !882
-  %or.cond.not.i.i = icmp eq i32 %41, %48
+  %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %46, %if.end.i.i ], [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ]
+  %49 = load i32, ptr %__first.sroa.0.0.lcssa.i.i.i.i, align 4, !tbaa !882
+  %or.cond.not.i.i = icmp eq i32 %42, %49
   br i1 %or.cond.not.i.i, label %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE13binary_searchERKS3_.exit, label %if.then145
 
 _ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE13binary_searchERKS3_.exit: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__first.sroa.0.0.lcssa.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
-  %49 = and i64 %sub.ptr.sub.i.i.i, 34359738360
-  %cmp138 = icmp eq i64 %49, 34359738360
+  %50 = and i64 %sub.ptr.sub.i.i.i, 34359738360
+  %cmp138 = icmp eq i64 %50, 34359738360
   br i1 %cmp138, label %if.then145, label %if.end143
 
 if.end143:                                        ; preds = %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE13binary_searchERKS3_.exit
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 3
   %conv.i404 = and i64 %sub.ptr.div.i.i.i, 4294967295
-  %Win32Key = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %45, i64 %conv.i404, i32 1
-  %50 = load i32, ptr %Win32Key, align 4, !tbaa !885
-  %cmp144 = icmp eq i32 %50, 0
+  %Win32Key = getelementptr inbounds %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %46, i64 %conv.i404, i32 1
+  %51 = load i32, ptr %Win32Key, align 4, !tbaa !885
+  %cmp144 = icmp eq i32 %51, 0
   br i1 %cmp144, label %if.then145, label %if.end147
 
 if.then145:                                       ; preds = %if.end143, %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE13binary_searchERKS3_.exit, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr13CIrrDeviceSDL7SKeyMapESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit.i.i, %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE4sortEv.exit.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #21
-  call void @_ZN3irr4core6stringIcEC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef %41)
+  call void @_ZN3irr4core6stringIcEC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef %42)
   call void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef nonnull @.str.24, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 0) #21
-  %51 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
-  %cmp.i.i.i.i405 = icmp eq ptr %51, %2
+  %52 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
+  %cmp.i.i.i.i405 = icmp eq ptr %52, %2
   br i1 %cmp.i.i.i.i405, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i406
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %if.then145
-  %52 = load i64, ptr %_M_string_length.i.i.i.i407, align 8, !tbaa !63
-  %cmp3.i.i.i.i408 = icmp ult i64 %52, 16
+  %53 = load i64, ptr %_M_string_length.i.i.i.i407, align 8, !tbaa !63
+  %cmp3.i.i.i.i408 = icmp ult i64 %53, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i408)
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 if.then.i.i.i406:                                 ; preds = %if.then145
-  call void @_ZdlPv(ptr noundef %51) #23
+  call void @_ZdlPv(ptr noundef %52) #23
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i406, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
@@ -16746,7 +16748,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i406, %
   br label %if.end147
 
 if.end147:                                        ; preds = %_ZN3irr4core6stringIcED2Ev.exit, %if.end143
-  %key.0433 = phi i32 [ 0, %_ZN3irr4core6stringIcED2Ev.exit ], [ %50, %if.end143 ]
+  %key.0433 = phi i32 [ 0, %_ZN3irr4core6stringIcED2Ev.exit ], [ %51, %if.end143 ]
   %call148 = call i32 @SDL_IsTextInputActive() #21
   %tobool149.not = icmp eq i32 %call148, 0
   br i1 %tobool149.not, label %if.end147.if.end158_crit_edge, label %land.lhs.true150
@@ -16759,28 +16761,28 @@ if.end147.if.end158_crit_edge:                    ; preds = %if.end147
 land.lhs.true150:                                 ; preds = %if.end147
   %call151 = call noundef zeroext i1 @_ZN3irr13CIrrDeviceSDL17keyIsKnownSpecialENS_9EKEY_CODEE(i32 noundef %key.0433)
   %.pre456 = load i16, ptr %x266, align 8, !tbaa !64
-  %53 = and i16 %.pre456, 192
-  %cmp156 = icmp ne i16 %53, 0
+  %54 = and i16 %.pre456, 192
+  %cmp156 = icmp ne i16 %54, 0
   %or.cond460.not = select i1 %call151, i1 true, i1 %cmp156
   br i1 %or.cond460.not, label %if.end158, label %sw.epilog288
 
 if.end158:                                        ; preds = %land.lhs.true150, %if.end147.if.end158_crit_edge
-  %.pre-phi = phi i16 [ %53, %land.lhs.true150 ], [ %.pre8, %if.end147.if.end158_crit_edge ]
-  %54 = phi i16 [ %.pre456, %land.lhs.true150 ], [ %.pre455, %if.end147.if.end158_crit_edge ]
+  %.pre-phi = phi i16 [ %54, %land.lhs.true150 ], [ %.pre8, %if.end147.if.end158_crit_edge ]
+  %55 = phi i16 [ %.pre456, %land.lhs.true150 ], [ %.pre455, %if.end147.if.end158_crit_edge ]
   store i32 2, ptr %irrevent, align 8, !tbaa !871
   store i32 %key.0433, ptr %Key, align 4, !tbaa !64
-  %55 = load i32, ptr %SDL_event, align 8, !tbaa !64
-  %cmp160 = icmp eq i32 %55, 768
-  %56 = zext i1 %cmp160 to i8
+  %56 = load i32, ptr %SDL_event, align 8, !tbaa !64
+  %cmp160 = icmp eq i32 %56, 768
+  %57 = zext i1 %cmp160 to i8
   %bf.load161 = load i8, ptr %Y277, align 4
   %bf.clear162 = and i8 %bf.load161, -8
-  %57 = and i16 %54, 3
-  %cmp168.not = icmp eq i16 %57, 0
+  %58 = and i16 %55, 3
+  %cmp168.not = icmp eq i16 %58, 0
   %bf.shl171 = select i1 %cmp168.not, i8 0, i8 2
   %cmp178.not = icmp eq i16 %.pre-phi, 0
   %bf.shl181 = select i1 %cmp178.not, i8 0, i8 4
   %bf.set163 = or disjoint i8 %bf.shl181, %bf.shl171
-  %bf.set173 = or disjoint i8 %bf.set163, %56
+  %bf.set173 = or disjoint i8 %bf.set163, %57
   %bf.set183 = or disjoint i8 %bf.set173, %bf.clear162
   store i8 %bf.set183, ptr %Y277, align 4
   switch i32 %key.0433, label %sw.epilog.i [
@@ -16789,7 +16791,7 @@ if.end158:                                        ; preds = %land.lhs.true150, %
   ]
 
 sw.epilog.i:                                      ; preds = %if.end158
-  %and.i = and i32 %41, 1073741824
+  %and.i = and i32 %42, 1073741824
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %_ZN3irr13CIrrDeviceSDL24findCharToPassToIrrlichtEiNS_9EKEY_CODEE.exit
 
@@ -16810,12 +16812,12 @@ sw.default2.i:                                    ; preds = %if.end.i
   br label %_ZN3irr13CIrrDeviceSDL24findCharToPassToIrrlichtEiNS_9EKEY_CODEE.exit
 
 _ZN3irr13CIrrDeviceSDL24findCharToPassToIrrlichtEiNS_9EKEY_CODEE.exit: ; preds = %sw.default2.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %sw.epilog.i, %if.end158, %if.end158
-  %retval.0.i = phi i32 [ %41, %sw.default2.i ], [ %key.0433, %if.end158 ], [ %key.0433, %if.end158 ], [ 0, %sw.epilog.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ]
+  %retval.0.i = phi i32 [ %42, %sw.default2.i ], [ %key.0433, %if.end158 ], [ %key.0433, %if.end158 ], [ 0, %sw.epilog.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ], [ 0, %if.end.i ]
   store i32 %retval.0.i, ptr %1, align 8, !tbaa !64
   %vtable186 = load ptr, ptr %this, align 8, !tbaa !23
   %vfn187 = getelementptr inbounds i8, ptr %vtable186, i64 200
-  %58 = load ptr, ptr %vfn187, align 8
-  %call188 = call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
+  %59 = load ptr, ptr %vfn187, align 8
+  %call188 = call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
   br label %sw.epilog288
 
 sw.bb191:                                         ; preds = %while.body
@@ -16823,121 +16825,121 @@ sw.bb191:                                         ; preds = %while.body
   br label %sw.epilog288
 
 sw.bb193:                                         ; preds = %while.body
-  %59 = load i8, ptr %event, align 4, !tbaa !64
-  %cond = icmp eq i8 %59, 5
+  %60 = load i8, ptr %event, align 4, !tbaa !64
+  %cond = icmp eq i8 %60, 5
   br i1 %cond, label %sw.bb195, label %sw.bb214
 
 sw.bb195:                                         ; preds = %sw.bb193
-  %60 = load i32, ptr %fingerId264, align 8, !tbaa !64
-  %61 = load i32, ptr %Width267, align 4, !tbaa !829
-  %cmp196.not = icmp eq i32 %60, %61
+  %61 = load i32, ptr %fingerId264, align 8, !tbaa !64
+  %62 = load i32, ptr %Width267, align 4, !tbaa !829
+  %cmp196.not = icmp eq i32 %61, %62
   %.pre = load i32, ptr %data2, align 4, !tbaa !64
-  %62 = load i32, ptr %Height273, align 8
-  %cmp197.not = icmp eq i32 %.pre, %62
+  %63 = load i32, ptr %Height273, align 8
+  %cmp197.not = icmp eq i32 %.pre, %63
   %or.cond461 = select i1 %cmp196.not, i1 %cmp197.not, i1 false
   br i1 %or.cond461, label %sw.bb214, label %if.then198
 
 if.then198:                                       ; preds = %sw.bb195
-  store i32 %60, ptr %Width267, align 4, !tbaa !829
+  store i32 %61, ptr %Width267, align 4, !tbaa !829
   store i32 %.pre, ptr %Height273, align 8, !tbaa !830
-  %63 = load ptr, ptr %VideoDriver, align 8, !tbaa !81
-  %tobool203.not = icmp eq ptr %63, null
+  %64 = load ptr, ptr %VideoDriver, align 8, !tbaa !81
+  %tobool203.not = icmp eq ptr %64, null
   br i1 %tobool203.not, label %sw.bb214, label %if.then204
 
 if.then204:                                       ; preds = %if.then198
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp206) #21
-  store i32 %60, ptr %ref.tmp206, align 4, !tbaa !886
+  store i32 %61, ptr %ref.tmp206, align 4, !tbaa !886
   store i32 %.pre, ptr %Height.i, align 4, !tbaa !887
-  %vtable209 = load ptr, ptr %63, align 8, !tbaa !23
+  %vtable209 = load ptr, ptr %64, align 8, !tbaa !23
   %vfn210 = getelementptr inbounds i8, ptr %vtable209, i64 608
-  %64 = load ptr, ptr %vfn210, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp206) #21
+  %65 = load ptr, ptr %vfn210, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp206) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp206) #21
   br label %sw.bb214
 
 sw.bb214:                                         ; preds = %if.then204, %if.then198, %sw.bb195, %sw.bb193, %while.body
   store i32 10, ptr %irrevent, align 8, !tbaa !871
-  %65 = load <2 x ptr>, ptr %fingerId264, align 8, !tbaa !64
-  %66 = ptrtoint <2 x ptr> %65 to <2 x i64>
-  store <2 x i64> %66, ptr %1, align 8, !tbaa !64
+  %66 = load <2 x ptr>, ptr %fingerId264, align 8, !tbaa !64
+  %67 = ptrtoint <2 x ptr> %66 to <2 x i64>
+  store <2 x i64> %67, ptr %1, align 8, !tbaa !64
   %vtable218 = load ptr, ptr %this, align 8, !tbaa !23
   %vfn219 = getelementptr inbounds i8, ptr %vtable218, i64 200
-  %67 = load ptr, ptr %vfn219, align 8
-  %call220 = call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
+  %68 = load ptr, ptr %vfn219, align 8
+  %call220 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
   br label %sw.epilog288
 
 sw.bb221:                                         ; preds = %while.body
   store i32 4, ptr %irrevent, align 8, !tbaa !871
   store i32 0, ptr %Event263, align 4, !tbaa !64
-  %68 = load i64, ptr %fingerId264, align 8, !tbaa !64
-  store i64 %68, ptr %1, align 8, !tbaa !64
-  %69 = load <2 x float>, ptr %x266, align 8, !tbaa !64
-  %70 = load <2 x i32>, ptr %Width267, align 4, !tbaa !26
-  %71 = uitofp <2 x i32> %70 to <2 x float>
-  %72 = fmul <2 x float> %69, %71
-  %73 = fptosi <2 x float> %72 to <2 x i32>
-  store <2 x i32> %73, ptr %X271, align 8, !tbaa !64
-  %74 = load i32, ptr %CurrentTouchCount278, align 8, !tbaa !56
-  %inc = add nsw i32 %74, 1
+  %69 = load i64, ptr %fingerId264, align 8, !tbaa !64
+  store i64 %69, ptr %1, align 8, !tbaa !64
+  %70 = load <2 x float>, ptr %x266, align 8, !tbaa !64
+  %71 = load <2 x i32>, ptr %Width267, align 4, !tbaa !26
+  %72 = uitofp <2 x i32> %71 to <2 x float>
+  %73 = fmul <2 x float> %70, %72
+  %74 = fptosi <2 x float> %73 to <2 x i32>
+  store <2 x i32> %74, ptr %X271, align 8, !tbaa !64
+  %75 = load i32, ptr %CurrentTouchCount278, align 8, !tbaa !56
+  %inc = add nsw i32 %75, 1
   store i32 %inc, ptr %CurrentTouchCount278, align 8, !tbaa !56
   store i32 %inc, ptr %touchedCount279, align 8, !tbaa !64
   %vtable236 = load ptr, ptr %this, align 8, !tbaa !23
   %vfn237 = getelementptr inbounds i8, ptr %vtable236, i64 200
-  %75 = load ptr, ptr %vfn237, align 8
-  %call238 = call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
+  %76 = load ptr, ptr %vfn237, align 8
+  %call238 = call noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
   br label %sw.epilog288
 
 sw.bb239:                                         ; preds = %while.body
   store i32 4, ptr %irrevent, align 8, !tbaa !871
   store i32 2, ptr %Event263, align 4, !tbaa !64
-  %76 = load i64, ptr %fingerId264, align 8, !tbaa !64
-  store i64 %76, ptr %1, align 8, !tbaa !64
-  %77 = load <2 x float>, ptr %x266, align 8, !tbaa !64
-  %78 = load <2 x i32>, ptr %Width267, align 4, !tbaa !26
-  %79 = uitofp <2 x i32> %78 to <2 x float>
-  %80 = fmul <2 x float> %77, %79
-  %81 = fptosi <2 x float> %80 to <2 x i32>
-  store <2 x i32> %81, ptr %X271, align 8, !tbaa !64
-  %82 = load i32, ptr %CurrentTouchCount278, align 8, !tbaa !56
-  store i32 %82, ptr %touchedCount279, align 8, !tbaa !64
+  %77 = load i64, ptr %fingerId264, align 8, !tbaa !64
+  store i64 %77, ptr %1, align 8, !tbaa !64
+  %78 = load <2 x float>, ptr %x266, align 8, !tbaa !64
+  %79 = load <2 x i32>, ptr %Width267, align 4, !tbaa !26
+  %80 = uitofp <2 x i32> %79 to <2 x float>
+  %81 = fmul <2 x float> %78, %80
+  %82 = fptosi <2 x float> %81 to <2 x i32>
+  store <2 x i32> %82, ptr %X271, align 8, !tbaa !64
+  %83 = load i32, ptr %CurrentTouchCount278, align 8, !tbaa !56
+  store i32 %83, ptr %touchedCount279, align 8, !tbaa !64
   %vtable258 = load ptr, ptr %this, align 8, !tbaa !23
   %vfn259 = getelementptr inbounds i8, ptr %vtable258, i64 200
-  %83 = load ptr, ptr %vfn259, align 8
-  %call260 = call noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
+  %84 = load ptr, ptr %vfn259, align 8
+  %call260 = call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
   br label %sw.epilog288
 
 sw.bb261:                                         ; preds = %while.body
   store i32 4, ptr %irrevent, align 8, !tbaa !871
   store i32 1, ptr %Event263, align 4, !tbaa !64
-  %84 = load i64, ptr %fingerId264, align 8, !tbaa !64
-  store i64 %84, ptr %1, align 8, !tbaa !64
-  %85 = load <2 x float>, ptr %x266, align 8, !tbaa !64
-  %86 = load <2 x i32>, ptr %Width267, align 4, !tbaa !26
-  %87 = uitofp <2 x i32> %86 to <2 x float>
-  %88 = fmul <2 x float> %85, %87
-  %89 = fptosi <2 x float> %88 to <2 x i32>
-  store <2 x i32> %89, ptr %X271, align 8, !tbaa !64
-  %90 = load i32, ptr %CurrentTouchCount278, align 8, !tbaa !56
-  store i32 %90, ptr %touchedCount279, align 8, !tbaa !64
-  %cmp281 = icmp sgt i32 %90, 0
+  %85 = load i64, ptr %fingerId264, align 8, !tbaa !64
+  store i64 %85, ptr %1, align 8, !tbaa !64
+  %86 = load <2 x float>, ptr %x266, align 8, !tbaa !64
+  %87 = load <2 x i32>, ptr %Width267, align 4, !tbaa !26
+  %88 = uitofp <2 x i32> %87 to <2 x float>
+  %89 = fmul <2 x float> %86, %88
+  %90 = fptosi <2 x float> %89 to <2 x i32>
+  store <2 x i32> %90, ptr %X271, align 8, !tbaa !64
+  %91 = load i32, ptr %CurrentTouchCount278, align 8, !tbaa !56
+  store i32 %91, ptr %touchedCount279, align 8, !tbaa !64
+  %cmp281 = icmp sgt i32 %91, 0
   br i1 %cmp281, label %if.then282, label %if.end284
 
 if.then282:                                       ; preds = %sw.bb261
-  %dec = add nsw i32 %90, -1
+  %dec = add nsw i32 %91, -1
   store i32 %dec, ptr %CurrentTouchCount278, align 8, !tbaa !56
   br label %if.end284
 
 if.end284:                                        ; preds = %if.then282, %sw.bb261
   %vtable285 = load ptr, ptr %this, align 8, !tbaa !23
   %vfn286 = getelementptr inbounds i8, ptr %vtable285, i64 200
-  %91 = load ptr, ptr %vfn286, align 8
-  %call287 = call noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
+  %92 = load ptr, ptr %vfn286, align 8
+  %call287 = call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %irrevent) #21
   br label %sw.epilog288
 
 sw.epilog288:                                     ; preds = %if.end284, %sw.bb239, %sw.bb221, %sw.bb214, %sw.bb191, %_ZN3irr13CIrrDeviceSDL24findCharToPassToIrrlichtEiNS_9EKEY_CODEE.exit, %land.lhs.true150, %delete.end, %if.then114, %if.then106, %if.then98, %if.then90, %sw.epilog, %sw.bb10, %sw.bb, %while.body
   call void @_ZN3irr13CIrrDeviceSDL27resetReceiveTextInputEventsEv(ptr noundef nonnull align 8 dereferenceable(452) %this)
-  %92 = load i8, ptr %Close, align 8, !tbaa !58, !range !819, !noundef !820
-  %tobool.not = icmp eq i8 %92, 0
+  %93 = load i8, ptr %Close, align 8, !tbaa !58, !range !819, !noundef !820
+  %tobool.not = icmp eq i8 %93, 0
   br i1 %tobool.not, label %land.rhs, label %while.end, !llvm.loop !888
 
 while.end:                                        ; preds = %sw.epilog288, %land.rhs, %entry
@@ -16946,73 +16948,73 @@ while.end:                                        ; preds = %sw.epilog288, %land
   store i32 8, ptr %joyevent, align 8, !tbaa !871
   %Joysticks = getelementptr inbounds i8, ptr %this, i64 264
   %_M_finish.i.i409 = getelementptr inbounds i8, ptr %this, i64 272
-  %93 = load ptr, ptr %_M_finish.i.i409, align 8, !tbaa !835
-  %94 = load ptr, ptr %Joysticks, align 8, !tbaa !836
-  %sub.ptr.lhs.cast.i.i410441 = ptrtoint ptr %93 to i64
-  %sub.ptr.rhs.cast.i.i411442 = ptrtoint ptr %94 to i64
+  %94 = load ptr, ptr %_M_finish.i.i409, align 8, !tbaa !835
+  %95 = load ptr, ptr %Joysticks, align 8, !tbaa !836
+  %sub.ptr.lhs.cast.i.i410441 = ptrtoint ptr %94 to i64
+  %sub.ptr.rhs.cast.i.i411442 = ptrtoint ptr %95 to i64
   %sub.ptr.sub.i.i412443 = sub i64 %sub.ptr.lhs.cast.i.i410441, %sub.ptr.rhs.cast.i.i411442
-  %95 = and i64 %sub.ptr.sub.i.i412443, 34359738360
-  %cmp291446.not = icmp eq i64 %95, 0
+  %96 = and i64 %sub.ptr.sub.i.i412443, 34359738360
+  %cmp291446.not = icmp eq i64 %96, 0
   br i1 %cmp291446.not, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %96 = getelementptr inbounds i8, ptr %joyevent, i64 8
+  %97 = getelementptr inbounds i8, ptr %joyevent, i64 8
   %Axis = getelementptr inbounds i8, ptr %joyevent, i64 12
   %POV357 = getelementptr inbounds i8, ptr %joyevent, i64 48
   %Joystick = getelementptr inbounds i8, ptr %joyevent, i64 50
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %if.end363, %while.end
-  %97 = load i8, ptr %Close, align 8, !tbaa !58, !range !819, !noundef !820
-  %tobool369.not = icmp eq i8 %97, 0
+  %98 = load i8, ptr %Close, align 8, !tbaa !58, !range !819, !noundef !820
+  %tobool369.not = icmp eq i8 %98, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %joyevent) #21
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %SDL_event) #21
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %irrevent) #21
   ret i1 %tobool369.not
 
 for.body:                                         ; preds = %if.end363, %for.body.lr.ph
-  %98 = phi ptr [ %94, %for.body.lr.ph ], [ %107, %if.end363 ]
-  %99 = phi ptr [ %93, %for.body.lr.ph ], [ %108, %if.end363 ]
+  %99 = phi ptr [ %95, %for.body.lr.ph ], [ %108, %if.end363 ]
+  %100 = phi ptr [ %94, %for.body.lr.ph ], [ %109, %if.end363 ]
   %indvars.iv450 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next451, %if.end363 ]
-  %add.ptr.i.i416 = getelementptr inbounds ptr, ptr %98, i64 %indvars.iv450
-  %100 = load ptr, ptr %add.ptr.i.i416, align 8, !tbaa !95
-  %tobool294.not = icmp eq ptr %100, null
+  %add.ptr.i.i416 = getelementptr inbounds ptr, ptr %99, i64 %indvars.iv450
+  %101 = load ptr, ptr %add.ptr.i.i416, align 8, !tbaa !95
+  %tobool294.not = icmp eq ptr %101, null
   br i1 %tobool294.not, label %if.end363, label %if.then295
 
 if.then295:                                       ; preds = %for.body
-  %call297 = call i32 @SDL_JoystickNumButtons(ptr noundef nonnull %100) #21
+  %call297 = call i32 @SDL_JoystickNumButtons(ptr noundef nonnull %101) #21
   %.sroa.speculated421 = call i32 @llvm.smin.i32(i32 %call297, i32 32)
-  store i32 0, ptr %96, align 8, !tbaa !64
+  store i32 0, ptr %97, align 8, !tbaa !64
   %cmp302437 = icmp sgt i32 %call297, 0
   br i1 %cmp302437, label %for.body303, label %for.end
 
 for.body303:                                      ; preds = %if.then295, %for.body303
   %j.0438 = phi i32 [ %inc308, %for.body303 ], [ 0, %if.then295 ]
-  %call304 = call zeroext i8 @SDL_JoystickGetButton(ptr noundef nonnull %100, i32 noundef %j.0438) #21
+  %call304 = call zeroext i8 @SDL_JoystickGetButton(ptr noundef nonnull %101, i32 noundef %j.0438) #21
   %conv305 = zext i8 %call304 to i32
   %shl = shl i32 %conv305, %j.0438
-  %101 = load i32, ptr %96, align 8, !tbaa !64
-  %or307 = or i32 %shl, %101
-  store i32 %or307, ptr %96, align 8, !tbaa !64
+  %102 = load i32, ptr %97, align 8, !tbaa !64
+  %or307 = or i32 %shl, %102
+  store i32 %or307, ptr %97, align 8, !tbaa !64
   %inc308 = add nuw nsw i32 %j.0438, 1
   %exitcond.not = icmp eq i32 %inc308, %.sroa.speculated421
   br i1 %exitcond.not, label %for.end, label %for.body303, !llvm.loop !889
 
 for.end:                                          ; preds = %for.body303, %if.then295
-  %call310 = call i32 @SDL_JoystickNumAxes(ptr noundef nonnull %100) #21
+  %call310 = call i32 @SDL_JoystickNumAxes(ptr noundef nonnull %101) #21
   %cmp324439 = icmp sgt i32 %call310, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %Axis, i8 0, i64 12, i1 false)
   br i1 %cmp324439, label %for.body325.preheader, label %for.end331
 
 for.body325.preheader:                            ; preds = %for.end
-  %102 = call i32 @llvm.umin.i32(i32 %call310, i32 18)
-  %wide.trip.count = zext nneg i32 %102 to i64
+  %103 = call i32 @llvm.umin.i32(i32 %call310, i32 18)
+  %wide.trip.count = zext nneg i32 %103 to i64
   br label %for.body325
 
 for.body325:                                      ; preds = %for.body325, %for.body325.preheader
   %indvars.iv = phi i64 [ 0, %for.body325.preheader ], [ %indvars.iv.next, %for.body325 ]
-  %103 = trunc i64 %indvars.iv to i32
-  %call326 = call signext i16 @SDL_JoystickGetAxis(ptr noundef nonnull %100, i32 noundef %103) #21
+  %104 = trunc i64 %indvars.iv to i32
+  %call326 = call signext i16 @SDL_JoystickGetAxis(ptr noundef nonnull %101, i32 noundef %104) #21
   %arrayidx328 = getelementptr inbounds [18 x i16], ptr %Axis, i64 0, i64 %indvars.iv
   store i16 %call326, ptr %arrayidx328, align 2, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -17020,19 +17022,19 @@ for.body325:                                      ; preds = %for.body325, %for.b
   br i1 %exitcond449.not, label %for.end331, label %for.body325, !llvm.loop !890
 
 for.end331:                                       ; preds = %for.body325, %for.end
-  %call332 = call i32 @SDL_JoystickNumHats(ptr noundef nonnull %100) #21
+  %call332 = call i32 @SDL_JoystickNumHats(ptr noundef nonnull %101) #21
   %cmp333 = icmp sgt i32 %call332, 0
   br i1 %cmp333, label %if.then334, label %if.end358
 
 if.then334:                                       ; preds = %for.end331
-  %call335 = call zeroext i8 @SDL_JoystickGetHat(ptr noundef nonnull %100, i32 noundef 0) #21
+  %call335 = call zeroext i8 @SDL_JoystickGetHat(ptr noundef nonnull %101, i32 noundef 0) #21
   %switch.tableidx = add i8 %call335, -1
-  %104 = icmp ult i8 %switch.tableidx, 12
-  br i1 %104, label %switch.lookup, label %if.end358
+  %105 = icmp ult i8 %switch.tableidx, 12
+  br i1 %105, label %switch.lookup, label %if.end358
 
 switch.lookup:                                    ; preds = %if.then334
-  %105 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i16], ptr @switch.table._ZN3irr13CIrrDeviceSDL3runEv, i64 0, i64 %105
+  %106 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [12 x i16], ptr @switch.table._ZN3irr13CIrrDeviceSDL3runEv, i64 0, i64 %106
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %if.end358
 
@@ -17043,22 +17045,22 @@ if.end358:                                        ; preds = %switch.lookup, %if.
   store i8 %conv359, ptr %Joystick, align 2, !tbaa !64
   %vtable360 = load ptr, ptr %this, align 8, !tbaa !23
   %vfn361 = getelementptr inbounds i8, ptr %vtable360, i64 200
-  %106 = load ptr, ptr %vfn361, align 8
-  %call362 = call noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %joyevent) #21
+  %107 = load ptr, ptr %vfn361, align 8
+  %call362 = call noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(56) %joyevent) #21
   %.pre457 = load ptr, ptr %_M_finish.i.i409, align 8, !tbaa !835
   %.pre458 = load ptr, ptr %Joysticks, align 8, !tbaa !836
   br label %if.end363
 
 if.end363:                                        ; preds = %if.end358, %for.body
-  %107 = phi ptr [ %.pre458, %if.end358 ], [ %98, %for.body ]
-  %108 = phi ptr [ %.pre457, %if.end358 ], [ %99, %for.body ]
+  %108 = phi ptr [ %.pre458, %if.end358 ], [ %99, %for.body ]
+  %109 = phi ptr [ %.pre457, %if.end358 ], [ %100, %for.body ]
   %indvars.iv.next451 = add nuw nsw i64 %indvars.iv450, 1
-  %sub.ptr.lhs.cast.i.i410 = ptrtoint ptr %108 to i64
-  %sub.ptr.rhs.cast.i.i411 = ptrtoint ptr %107 to i64
+  %sub.ptr.lhs.cast.i.i410 = ptrtoint ptr %109 to i64
+  %sub.ptr.rhs.cast.i.i411 = ptrtoint ptr %108 to i64
   %sub.ptr.sub.i.i412 = sub i64 %sub.ptr.lhs.cast.i.i410, %sub.ptr.rhs.cast.i.i411
   %sub.ptr.div.i.i413 = lshr exact i64 %sub.ptr.sub.i.i412, 3
-  %109 = and i64 %sub.ptr.div.i.i413, 4294967295
-  %cmp291 = icmp ult i64 %indvars.iv.next451, %109
+  %110 = and i64 %sub.ptr.div.i.i413, 4294967295
+  %cmp291 = icmp ult i64 %indvars.iv.next451, %110
   br i1 %cmp291, label %for.body, label %for.cond.cleanup, !llvm.loop !891
 }
 

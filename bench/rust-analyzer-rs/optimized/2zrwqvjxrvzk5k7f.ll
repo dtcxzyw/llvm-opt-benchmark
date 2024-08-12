@@ -118,12 +118,16 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN5rowan13utility_types18WalkEvent$LT$T$GT$3map17h6948bd5290ac568eE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #8 {
+  %3 = load i64, ptr %1, align 8, !range !38, !noundef !16
   %.sink.in = getelementptr inbounds i8, ptr %1, i64 16
   %.sink = load ptr, ptr %.sink.in, align 8, !nonnull !16, !noundef !16
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink, ptr %3, align 8
-  %4 = load <2 x i64>, ptr %1, align 8
-  store <2 x i64> %4, ptr %0, align 8
+  %.sink3.in = getelementptr inbounds i8, ptr %1, i64 8
+  %.sink3 = load i64, ptr %.sink3.in, align 8, !range !38, !noundef !16
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink3, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %5, align 8
+  store i64 %3, ptr %0, align 8
   ret void
 }
 
@@ -153,11 +157,11 @@ define hidden noundef i64 @"_ZN63_$LT$rustc_hash..FxHasher$u20$as$u20$core..defa
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN71_$LT$rowan..ast..SyntaxNodePtr$LT$L$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hb266b0940c7c5838E.llvm.10524984205779628349"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  %4 = load i16, ptr %3, align 4, !range !4, !alias.scope !38, !noalias !41, !noundef !16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  %4 = load i16, ptr %3, align 4, !range !4, !alias.scope !39, !noalias !42, !noundef !16
   %5 = zext nneg i16 %4 to i64
-  %6 = load i64, ptr %1, align 8, !alias.scope !43, !noalias !38, !noundef !16
+  %6 = load i64, ptr %1, align 8, !alias.scope !44, !noalias !39, !noundef !16
   %7 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 5)
   %8 = xor i64 %7, %5
   %9 = mul i64 %8, 5871781006564002453
@@ -172,7 +176,7 @@ define hidden void @"_ZN71_$LT$rowan..ast..SyntaxNodePtr$LT$L$GT$$u20$as$u20$cor
   %18 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 5)
   %19 = xor i64 %18, %17
   %20 = mul i64 %19, 5871781006564002453
-  store i64 %20, ptr %1, align 8, !alias.scope !46
+  store i64 %20, ptr %1, align 8, !alias.scope !47
   ret void
 }
 
@@ -180,11 +184,11 @@ define hidden void @"_ZN71_$LT$rowan..ast..SyntaxNodePtr$LT$L$GT$$u20$as$u20$cor
 define hidden void @"_ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..hash..Hash$GT$4hash17h3a7b188aa6d3d3c9E.llvm.10524984205779628349"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #7 {
   %3 = load i16, ptr %0, align 2, !range !4, !noundef !16
   %4 = zext nneg i16 %3 to i64
-  %5 = load i64, ptr %1, align 8, !alias.scope !49, !noundef !16
+  %5 = load i64, ptr %1, align 8, !alias.scope !50, !noundef !16
   %6 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 5)
   %7 = xor i64 %6, %4
   %8 = mul i64 %7, 5871781006564002453
-  store i64 %8, ptr %1, align 8, !alias.scope !49
+  store i64 %8, ptr %1, align 8, !alias.scope !50
   ret void
 }
 
@@ -269,17 +273,18 @@ attributes #15 = { noreturn }
 !35 = !{!36, !24}
 !36 = distinct !{!36, !37, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u3217h879fefc5e1be8fbfE.llvm.10524984205779628349: argument 0"}
 !37 = distinct !{!37, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u3217h879fefc5e1be8fbfE.llvm.10524984205779628349"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..hash..Hash$GT$4hash17h3a7b188aa6d3d3c9E.llvm.10524984205779628349: argument 0"}
-!40 = distinct !{!40, !"_ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..hash..Hash$GT$4hash17h3a7b188aa6d3d3c9E.llvm.10524984205779628349"}
-!41 = !{!42}
-!42 = distinct !{!42, !40, !"_ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..hash..Hash$GT$4hash17h3a7b188aa6d3d3c9E.llvm.10524984205779628349: argument 1"}
-!43 = !{!44, !42}
-!44 = distinct !{!44, !45, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u1617hbf92c2b3966a22edE.llvm.10524984205779628349: argument 0"}
-!45 = distinct !{!45, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u1617hbf92c2b3966a22edE.llvm.10524984205779628349"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u3217h879fefc5e1be8fbfE.llvm.10524984205779628349: argument 0"}
-!48 = distinct !{!48, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u3217h879fefc5e1be8fbfE.llvm.10524984205779628349"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u1617hbf92c2b3966a22edE.llvm.10524984205779628349: argument 0"}
-!51 = distinct !{!51, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u1617hbf92c2b3966a22edE.llvm.10524984205779628349"}
+!38 = !{i64 0, i64 2}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..hash..Hash$GT$4hash17h3a7b188aa6d3d3c9E.llvm.10524984205779628349: argument 0"}
+!41 = distinct !{!41, !"_ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..hash..Hash$GT$4hash17h3a7b188aa6d3d3c9E.llvm.10524984205779628349"}
+!42 = !{!43}
+!43 = distinct !{!43, !41, !"_ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..hash..Hash$GT$4hash17h3a7b188aa6d3d3c9E.llvm.10524984205779628349: argument 1"}
+!44 = !{!45, !43}
+!45 = distinct !{!45, !46, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u1617hbf92c2b3966a22edE.llvm.10524984205779628349: argument 0"}
+!46 = distinct !{!46, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u1617hbf92c2b3966a22edE.llvm.10524984205779628349"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u3217h879fefc5e1be8fbfE.llvm.10524984205779628349: argument 0"}
+!49 = distinct !{!49, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u3217h879fefc5e1be8fbfE.llvm.10524984205779628349"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u1617hbf92c2b3966a22edE.llvm.10524984205779628349: argument 0"}
+!52 = distinct !{!52, !"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$9write_u1617hbf92c2b3966a22edE.llvm.10524984205779628349"}

@@ -2824,7 +2824,13 @@ _ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8proto
   %retval.0.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call2.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   store ptr %retval.0.i.i.i.i.i, ptr %retval.0.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %retval.0.i.i.i.i.i, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %add.ptr.i.i.i.i.i, align 1
+  store i8 0, ptr %add.ptr.i.i.i.i.i, align 1
+  %arrayidx.i.i.i = getelementptr i8, ptr %retval.0.i.i.i.i.i, i64 9
+  store i8 0, ptr %arrayidx.i.i.i, align 1
+  %arrayidx.i2.i.i = getelementptr i8, ptr %retval.0.i.i.i.i.i, i64 10
+  store i8 0, ptr %arrayidx.i2.i.i, align 1
+  %arrayidx.i3.i.i = getelementptr i8, ptr %retval.0.i.i.i.i.i, i64 11
+  store i8 1, ptr %arrayidx.i3.i.i, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %retval.0.i.i.i.i.i, ptr %add.ptr.i.i, align 8
   store ptr %retval.0.i.i.i.i.i, ptr %this, align 8

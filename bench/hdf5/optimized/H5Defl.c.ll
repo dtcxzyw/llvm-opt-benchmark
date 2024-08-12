@@ -290,51 +290,57 @@ declare i32 @H5D__contig_write(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -1, -9223372036854775808) i64 @H5D__efl_readvv(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
-  %11 = alloca %struct.H5D_efl_readvv_ud_t, align 16
-  %12 = load <2 x ptr>, ptr %1, align 8
-  %13 = shufflevector <2 x ptr> %12, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %13, ptr %11, align 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 120
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %15, ptr %16, align 16
-  %17 = call i64 @H5VM_opvv(i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @H5D__efl_readvv_cb, ptr noundef nonnull %11) #11
-  %18 = icmp slt i64 %17, 0
-  br i1 %18, label %19, label %23
+  %11 = alloca %struct.H5D_efl_readvv_ud_t, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %11, align 8
+  %14 = load ptr, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %14, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 120
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %17, ptr %18, align 8
+  %19 = call i64 @H5VM_opvv(i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @H5D__efl_readvv_cb, ptr noundef nonnull %11) #11
+  %20 = icmp slt i64 %19, 0
+  br i1 %20, label %21, label %25
 
-19:                                               ; preds = %10
-  %20 = load i64, ptr @H5E_DATASET_g, align 8
-  %21 = load i64, ptr @H5E_CANTOPERATE_g, align 8
-  %22 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__efl_readvv, i32 noundef 506, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.10) #11
-  br label %23
+21:                                               ; preds = %10
+  %22 = load i64, ptr @H5E_DATASET_g, align 8
+  %23 = load i64, ptr @H5E_CANTOPERATE_g, align 8
+  %24 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__efl_readvv, i32 noundef 506, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.10) #11
+  br label %25
 
-23:                                               ; preds = %10, %19
-  %.0 = phi i64 [ -1, %19 ], [ %17, %10 ]
+25:                                               ; preds = %10, %21
+  %.0 = phi i64 [ -1, %21 ], [ %19, %10 ]
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -1, -9223372036854775808) i64 @H5D__efl_writevv(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
-  %11 = alloca %struct.H5D_efl_writevv_ud_t, align 16
-  %12 = load <2 x ptr>, ptr %1, align 8
-  %13 = shufflevector <2 x ptr> %12, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %13, ptr %11, align 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 120
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %15, ptr %16, align 16
-  %17 = call i64 @H5VM_opvv(i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @H5D__efl_writevv_cb, ptr noundef nonnull %11) #11
-  %18 = icmp slt i64 %17, 0
-  br i1 %18, label %19, label %23
+  %11 = alloca %struct.H5D_efl_writevv_ud_t, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %11, align 8
+  %14 = load ptr, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %14, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 120
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %17, ptr %18, align 8
+  %19 = call i64 @H5VM_opvv(i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @H5D__efl_writevv_cb, ptr noundef nonnull %11) #11
+  %20 = icmp slt i64 %19, 0
+  br i1 %20, label %21, label %25
 
-19:                                               ; preds = %10
-  %20 = load i64, ptr @H5E_DATASET_g, align 8
-  %21 = load i64, ptr @H5E_CANTOPERATE_g, align 8
-  %22 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__efl_writevv, i32 noundef 581, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.18) #11
-  br label %23
+21:                                               ; preds = %10
+  %22 = load i64, ptr @H5E_DATASET_g, align 8
+  %23 = load i64, ptr @H5E_CANTOPERATE_g, align 8
+  %24 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__efl_writevv, i32 noundef 581, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.18) #11
+  br label %25
 
-23:                                               ; preds = %10, %19
-  %.0 = phi i64 [ -1, %19 ], [ %17, %10 ]
+25:                                               ; preds = %10, %21
+  %.0 = phi i64 [ -1, %21 ], [ %19, %10 ]
   ret i64 %.0
 }
 

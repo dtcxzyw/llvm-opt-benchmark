@@ -491,7 +491,13 @@ define hidden void @"_ZN16wasmtime_environ9component19vmcomponent_offsets27VMCom
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %20, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  store <4 x i32> <i32 0, i32 8, i32 16, i32 32>, ptr %.sroa.10.0..sroa_idx, align 4
+  store i32 0, ptr %.sroa.10.0..sroa_idx, align 4
+  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 8, ptr %.sroa.12.0..sroa_idx, align 4
+  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 16, ptr %.sroa.14.0..sroa_idx, align 4
+  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 32, ptr %.sroa.16.0..sroa_idx, align 4
   %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 44
   store i32 48, ptr %.sroa.18.0..sroa_idx, align 4
   %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48

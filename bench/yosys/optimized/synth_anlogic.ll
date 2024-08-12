@@ -295,7 +295,13 @@ define internal void @_ZN12_GLOBAL__N_116SynthAnlogicPass11clear_flagsEv(ptr nou
   %6 = getelementptr inbounds i8, ptr %0, i64 248
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.27)
   %8 = getelementptr inbounds i8, ptr %0, i64 280
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %8, align 8
+  store i8 1, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 281
+  store i8 0, ptr %9, align 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 282
+  store i8 0, ptr %10, align 2
+  %11 = getelementptr inbounds i8, ptr %0, i64 283
+  store i8 0, ptr %11, align 1
   ret void
 }
 

@@ -81,141 +81,143 @@ define hidden void @_ZN5ceres8internal31ComputeCanonicalViewsClusteringERKNS0_31
   %7 = tail call i64 @time(ptr noundef null) #14
   store i32 3, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
-  store <2 x double> <double 5.750000e+00, double 1.000000e+02>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
-  store double 0.000000e+00, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
-  %11 = getelementptr inbounds i8, ptr %5, i64 88
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 48
-  store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 56
-  %14 = getelementptr inbounds i8, ptr %5, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %16 = getelementptr inbounds i8, ptr %5, i64 96
-  %17 = getelementptr inbounds i8, ptr %5, i64 144
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 104
-  store i64 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 112
-  %20 = getelementptr inbounds i8, ptr %5, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  store double 5.750000e+00, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  store double 1.000000e+02, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  store double 0.000000e+00, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 40
+  %12 = getelementptr inbounds i8, ptr %5, i64 88
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  store i64 1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 56
+  %15 = getelementptr inbounds i8, ptr %5, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  %17 = getelementptr inbounds i8, ptr %5, i64 96
+  %18 = getelementptr inbounds i8, ptr %5, i64 144
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 104
+  store i64 1, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 112
+  %21 = getelementptr inbounds i8, ptr %5, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %5, i64 136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   invoke void @_ZN5ceres8internal24CanonicalViewsClustering17ComputeClusteringERKNS0_31CanonicalViewsClusteringOptionsERKNS0_13WeightedGraphIiEEPSt6vectorIiSaIiEEPSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef %2, ptr noundef %3)
-          to label %22 unwind label %57
+          to label %23 unwind label %58
 
-22:                                               ; preds = %4
-  %23 = load ptr, ptr @_ZZN5ceres8internal31ComputeCanonicalViewsClusteringERKNS0_31CanonicalViewsClusteringOptionsERKNS0_13WeightedGraphIiEEPSt6vectorIiSaIiEEPSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEE8vlocal__, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %27
+23:                                               ; preds = %4
+  %24 = load ptr, ptr @_ZZN5ceres8internal31ComputeCanonicalViewsClusteringERKNS0_31CanonicalViewsClusteringOptionsERKNS0_13WeightedGraphIiEEPSt6vectorIiSaIiEEPSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEE8vlocal__, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %22
-  %26 = invoke noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef nonnull @_ZZN5ceres8internal31ComputeCanonicalViewsClusteringERKNS0_31CanonicalViewsClusteringOptionsERKNS0_13WeightedGraphIiEEPSt6vectorIiSaIiEEPSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEE8vlocal__, ptr noundef nonnull @_ZN3fLI7FLAGS_vE, ptr noundef nonnull @.str, i32 noundef 2)
-          to label %30 unwind label %57
+26:                                               ; preds = %23
+  %27 = invoke noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef nonnull @_ZZN5ceres8internal31ComputeCanonicalViewsClusteringERKNS0_31CanonicalViewsClusteringOptionsERKNS0_13WeightedGraphIiEEPSt6vectorIiSaIiEEPSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEE8vlocal__, ptr noundef nonnull @_ZN3fLI7FLAGS_vE, ptr noundef nonnull @.str, i32 noundef 2)
+          to label %31 unwind label %58
 
-27:                                               ; preds = %22
-  %28 = load i32, ptr %23, align 4
-  %29 = icmp sgt i32 %28, 1
-  br i1 %29, label %31, label %.critedge
+28:                                               ; preds = %23
+  %29 = load i32, ptr %24, align 4
+  %30 = icmp sgt i32 %29, 1
+  br i1 %30, label %32, label %.critedge
 
-30:                                               ; preds = %25
-  br i1 %26, label %31, label %.critedge
+31:                                               ; preds = %26
+  br i1 %27, label %32, label %.critedge
 
-31:                                               ; preds = %27, %30
+32:                                               ; preds = %28, %31
   invoke void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull @.str, i32 noundef 88)
-          to label %32 unwind label %57
+          to label %33 unwind label %58
 
-32:                                               ; preds = %31
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
-          to label %34 unwind label %59
+33:                                               ; preds = %32
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
+          to label %35 unwind label %60
 
-34:                                               ; preds = %32
-  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @.str.1)
-          to label %36 unwind label %59
+35:                                               ; preds = %33
+  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull @.str.1)
+          to label %37 unwind label %60
 
-36:                                               ; preds = %34
-  %37 = call i64 @time(ptr noundef null) #14
-  %38 = sub nsw i64 %37, %7
-  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %35, i64 noundef %38)
-          to label %40 unwind label %59
+37:                                               ; preds = %35
+  %38 = call i64 @time(ptr noundef null) #14
+  %39 = sub nsw i64 %38, %7
+  %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef %39)
+          to label %41 unwind label %60
 
-40:                                               ; preds = %36
+41:                                               ; preds = %37
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #14
   br label %.critedge
 
-.critedge:                                        ; preds = %27, %30, %40
-  %41 = load ptr, ptr %19, align 8
-  %.not5.i.i.i.i.i = icmp eq ptr %41, null
+.critedge:                                        ; preds = %28, %31, %41
+  %42 = load ptr, ptr %20, align 8
+  %.not5.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.critedge, %.lr.ph.i.i.i.i.i
-  %.06.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i ], [ %41, %.critedge ]
-  %42 = load ptr, ptr %.06.i.i.i.i.i, align 8
+  %.06.i.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i.i ], [ %42, %.critedge ]
+  %43 = load ptr, ptr %.06.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i.i) #15
-  %.not.i.i.i.i.i = icmp eq ptr %42, null
+  %.not.i.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
 _ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.critedge
-  %43 = load ptr, ptr %16, align 8
-  %44 = load i64, ptr %18, align 8
-  %45 = shl i64 %44, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 %45, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %46 = load ptr, ptr %16, align 8
-  %47 = icmp eq ptr %17, %46
-  br i1 %47, label %_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEED2Ev.exit.i, label %48
+  %44 = load ptr, ptr %17, align 8
+  %45 = load i64, ptr %19, align 8
+  %46 = shl i64 %45, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 %46, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  %47 = load ptr, ptr %17, align 8
+  %48 = icmp eq ptr %18, %47
+  br i1 %48, label %_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEED2Ev.exit.i, label %49
 
-48:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
-  call void @_ZdlPv(ptr noundef %46) #15
+49:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
+  call void @_ZdlPv(ptr noundef %47) #15
   br label %_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEED2Ev.exit.i
 
-_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEED2Ev.exit.i: ; preds = %48, %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
-  %49 = load ptr, ptr %13, align 8
-  %.not5.i.i.i.i1.i = icmp eq ptr %49, null
+_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEED2Ev.exit.i: ; preds = %49, %_ZNSt10_HashtableIiSt4pairIKidESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
+  %50 = load ptr, ptr %14, align 8
+  %.not5.i.i.i.i1.i = icmp eq ptr %50, null
   br i1 %.not5.i.i.i.i1.i, label %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i2.i
 
 .lr.ph.i.i.i.i2.i:                                ; preds = %_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEED2Ev.exit.i, %.lr.ph.i.i.i.i2.i
-  %.06.i.i.i.i3.i = phi ptr [ %50, %.lr.ph.i.i.i.i2.i ], [ %49, %_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEED2Ev.exit.i ]
-  %50 = load ptr, ptr %.06.i.i.i.i3.i, align 8
+  %.06.i.i.i.i3.i = phi ptr [ %51, %.lr.ph.i.i.i.i2.i ], [ %50, %_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEED2Ev.exit.i ]
+  %51 = load ptr, ptr %.06.i.i.i.i3.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i3.i) #15
-  %.not.i.i.i.i4.i = icmp eq ptr %50, null
+  %.not.i.i.i.i4.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i4.i, label %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !6
 
 _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i2.i, %_ZNSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEED2Ev.exit.i
-  %51 = load ptr, ptr %10, align 8
-  %52 = load i64, ptr %12, align 8
-  %53 = shl i64 %52, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %51, i8 0, i64 %53, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %54 = load ptr, ptr %10, align 8
-  %55 = icmp eq ptr %11, %54
-  br i1 %55, label %_ZN5ceres8internal24CanonicalViewsClusteringD2Ev.exit, label %56
+  %52 = load ptr, ptr %11, align 8
+  %53 = load i64, ptr %13, align 8
+  %54 = shl i64 %53, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %52, i8 0, i64 %54, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  %55 = load ptr, ptr %11, align 8
+  %56 = icmp eq ptr %12, %55
+  br i1 %56, label %_ZN5ceres8internal24CanonicalViewsClusteringD2Ev.exit, label %57
 
-56:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
-  call void @_ZdlPv(ptr noundef %54) #15
+57:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
+  call void @_ZdlPv(ptr noundef %55) #15
   br label %_ZN5ceres8internal24CanonicalViewsClusteringD2Ev.exit
 
-_ZN5ceres8internal24CanonicalViewsClusteringD2Ev.exit: ; preds = %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, %56
+_ZN5ceres8internal24CanonicalViewsClusteringD2Ev.exit: ; preds = %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, %57
   ret void
 
-57:                                               ; preds = %31, %25, %4
-  %58 = landingpad { ptr, i32 }
+58:                                               ; preds = %32, %26, %4
+  %59 = landingpad { ptr, i32 }
           cleanup
-  br label %61
+  br label %62
 
-59:                                               ; preds = %36, %34, %32
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %37, %35, %33
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #14
-  br label %61
+  br label %62
 
-61:                                               ; preds = %59, %57
-  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ]
+62:                                               ; preds = %60, %58
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
   call void @_ZN5ceres8internal24CanonicalViewsClusteringD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #14
   resume { ptr, i32 } %.pn
 }

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @DES_ede3_cfb64_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %length, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, ptr nocapture noundef %ivec, ptr nocapture noundef %num, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
-  %ti = alloca [2 x i32], align 8
+  %ti = alloca [2 x i32], align 4
   %0 = load i32, ptr %num, align 4
   %tobool.not = icmp eq i32 %enc, 0
   %tobool72.not98 = icmp eq i64 %length, 0
@@ -50,42 +50,44 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %while.body
-  %1 = load <2 x i32>, ptr %ivec, align 1
-  store <2 x i32> %1, ptr %ti, align 8
+  %1 = load i32, ptr %ivec, align 1
+  %2 = load i32, ptr %incdec.ptr9, align 1
+  store i32 %1, ptr %ti, align 4
+  store i32 %2, ptr %arrayidx28, align 4
   call void @DES_encrypt3(ptr noundef nonnull %ti, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) #3
-  %2 = load i32, ptr %ti, align 8
-  %3 = load i32, ptr %arrayidx28, align 4
-  %conv32 = trunc i32 %2 to i8
+  %3 = load i32, ptr %ti, align 4
+  %4 = load i32, ptr %arrayidx28, align 4
+  %conv32 = trunc i32 %3 to i8
   store i8 %conv32, ptr %ivec, align 1
-  %shr = lshr i32 %2, 8
+  %shr = lshr i32 %3, 8
   %conv35 = trunc i32 %shr to i8
   store i8 %conv35, ptr %incdec.ptr, align 1
-  %shr37 = lshr i32 %2, 16
+  %shr37 = lshr i32 %3, 16
   %conv39 = trunc i32 %shr37 to i8
   store i8 %conv39, ptr %incdec.ptr3, align 1
-  %shr41 = lshr i32 %2, 24
+  %shr41 = lshr i32 %3, 24
   %conv43 = trunc nuw i32 %shr41 to i8
   store i8 %conv43, ptr %incdec.ptr5, align 1
-  %conv46 = trunc i32 %3 to i8
+  %conv46 = trunc i32 %4 to i8
   store i8 %conv46, ptr %incdec.ptr9, align 1
-  %shr48 = lshr i32 %3, 8
+  %shr48 = lshr i32 %4, 8
   %conv50 = trunc i32 %shr48 to i8
   store i8 %conv50, ptr %incdec.ptr13, align 1
-  %shr52 = lshr i32 %3, 16
+  %shr52 = lshr i32 %4, 16
   %conv54 = trunc i32 %shr52 to i8
   store i8 %conv54, ptr %incdec.ptr15, align 1
-  %shr56 = lshr i32 %3, 24
+  %shr56 = lshr i32 %4, 24
   %conv58 = trunc nuw i32 %shr56 to i8
   store i8 %conv58, ptr %incdec.ptr19, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %while.body
   %incdec.ptr61 = getelementptr inbounds i8, ptr %in.addr.094, i64 1
-  %4 = load i8, ptr %in.addr.094, align 1
+  %5 = load i8, ptr %in.addr.094, align 1
   %idxprom = sext i32 %n.095 to i64
   %arrayidx63 = getelementptr inbounds i8, ptr %ivec, i64 %idxprom
-  %5 = load i8, ptr %arrayidx63, align 1
-  %xor89 = xor i8 %5, %4
+  %6 = load i8, ptr %arrayidx63, align 1
+  %xor89 = xor i8 %6, %5
   %incdec.ptr66 = getelementptr inbounds i8, ptr %out.addr.093, i64 1
   store i8 %xor89, ptr %out.addr.093, align 1
   store i8 %xor89, ptr %arrayidx63, align 1
@@ -104,43 +106,45 @@ while.body73:                                     ; preds = %while.body73.lr.ph,
   br i1 %cmp74, label %if.then76, label %if.end142
 
 if.then76:                                        ; preds = %while.body73
-  %6 = load <2 x i32>, ptr %ivec, align 1
-  store <2 x i32> %6, ptr %ti, align 8
+  %7 = load i32, ptr %ivec, align 1
+  %8 = load i32, ptr %incdec.ptr87, align 1
+  store i32 %7, ptr %ti, align 4
+  store i32 %8, ptr %arrayidx106, align 4
   call void @DES_encrypt3(ptr noundef nonnull %ti, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) #3
-  %7 = load i32, ptr %ti, align 8
-  %8 = load i32, ptr %arrayidx106, align 4
-  %conv112 = trunc i32 %7 to i8
+  %9 = load i32, ptr %ti, align 4
+  %10 = load i32, ptr %arrayidx106, align 4
+  %conv112 = trunc i32 %9 to i8
   store i8 %conv112, ptr %ivec, align 1
-  %shr114 = lshr i32 %7, 8
+  %shr114 = lshr i32 %9, 8
   %conv116 = trunc i32 %shr114 to i8
   store i8 %conv116, ptr %incdec.ptr77, align 1
-  %shr118 = lshr i32 %7, 16
+  %shr118 = lshr i32 %9, 16
   %conv120 = trunc i32 %shr118 to i8
   store i8 %conv120, ptr %incdec.ptr79, align 1
-  %shr122 = lshr i32 %7, 24
+  %shr122 = lshr i32 %9, 24
   %conv124 = trunc nuw i32 %shr122 to i8
   store i8 %conv124, ptr %incdec.ptr83, align 1
-  %conv127 = trunc i32 %8 to i8
+  %conv127 = trunc i32 %10 to i8
   store i8 %conv127, ptr %incdec.ptr87, align 1
-  %shr129 = lshr i32 %8, 8
+  %shr129 = lshr i32 %10, 8
   %conv131 = trunc i32 %shr129 to i8
   store i8 %conv131, ptr %incdec.ptr91, align 1
-  %shr133 = lshr i32 %8, 16
+  %shr133 = lshr i32 %10, 16
   %conv135 = trunc i32 %shr133 to i8
   store i8 %conv135, ptr %incdec.ptr93, align 1
-  %shr137 = lshr i32 %8, 24
+  %shr137 = lshr i32 %10, 24
   %conv139 = trunc nuw i32 %shr137 to i8
   store i8 %conv139, ptr %incdec.ptr97, align 1
   br label %if.end142
 
 if.end142:                                        ; preds = %if.then76, %while.body73
   %incdec.ptr143 = getelementptr inbounds i8, ptr %in.addr.1100, i64 1
-  %9 = load i8, ptr %in.addr.1100, align 1
+  %11 = load i8, ptr %in.addr.1100, align 1
   %idxprom144 = sext i32 %n.2101 to i64
   %arrayidx145 = getelementptr inbounds i8, ptr %ivec, i64 %idxprom144
-  %10 = load i8, ptr %arrayidx145, align 1
-  store i8 %9, ptr %arrayidx145, align 1
-  %xor15088 = xor i8 %10, %9
+  %12 = load i8, ptr %arrayidx145, align 1
+  store i8 %11, ptr %arrayidx145, align 1
+  %xor15088 = xor i8 %12, %11
   %incdec.ptr152 = getelementptr inbounds i8, ptr %out.addr.199, i64 1
   store i8 %xor15088, ptr %out.addr.199, align 1
   %add153 = add nsw i32 %n.2101, 1

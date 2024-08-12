@@ -838,7 +838,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 4
   store float %306, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.4.0..sroa_idx, align 4
+  store float 7.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 12
+  store float -1.000000e+00, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 16
   store float %351, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 20
@@ -887,7 +889,9 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = 
   %.sroa.3.0..sroa_idx169 = getelementptr inbounds i8, ptr %373, i64 4
   store float %306, ptr %.sroa.3.0..sroa_idx169, align 4
   %.sroa.4.0..sroa_idx171 = getelementptr inbounds i8, ptr %373, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.4.0..sroa_idx171, align 4
+  store float 7.000000e+00, ptr %.sroa.4.0..sroa_idx171, align 4
+  %.sroa.5.0..sroa_idx173 = getelementptr inbounds i8, ptr %373, i64 12
+  store float -1.000000e+00, ptr %.sroa.5.0..sroa_idx173, align 4
   %.sroa.6.0..sroa_idx175 = getelementptr inbounds i8, ptr %373, i64 16
   store float %351, ptr %.sroa.6.0..sroa_idx175, align 4
   %.sroa.7.0..sroa_idx177 = getelementptr inbounds i8, ptr %373, i64 20
@@ -1504,7 +1508,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 4
   store float %306, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.4.0..sroa_idx, align 4
+  store float 7.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 12
+  store float -1.000000e+00, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 16
   store float %351, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 20
@@ -1553,7 +1559,9 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = 
   %.sroa.3.0..sroa_idx169 = getelementptr inbounds i8, ptr %373, i64 4
   store float %306, ptr %.sroa.3.0..sroa_idx169, align 4
   %.sroa.4.0..sroa_idx171 = getelementptr inbounds i8, ptr %373, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.4.0..sroa_idx171, align 4
+  store float 7.000000e+00, ptr %.sroa.4.0..sroa_idx171, align 4
+  %.sroa.5.0..sroa_idx173 = getelementptr inbounds i8, ptr %373, i64 12
+  store float -1.000000e+00, ptr %.sroa.5.0..sroa_idx173, align 4
   %.sroa.6.0..sroa_idx175 = getelementptr inbounds i8, ptr %373, i64 16
   store float %351, ptr %.sroa.6.0..sroa_idx175, align 4
   %.sroa.7.0..sroa_idx177 = getelementptr inbounds i8, ptr %373, i64 20
@@ -2170,7 +2178,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 4
   store float %306, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.4.0..sroa_idx, align 4
+  store float 7.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 12
+  store float -1.000000e+00, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 16
   store float %351, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 20
@@ -2219,7 +2229,9 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = 
   %.sroa.3.0..sroa_idx169 = getelementptr inbounds i8, ptr %373, i64 4
   store float %306, ptr %.sroa.3.0..sroa_idx169, align 4
   %.sroa.4.0..sroa_idx171 = getelementptr inbounds i8, ptr %373, i64 8
-  store <2 x float> <float 7.000000e+00, float -1.000000e+00>, ptr %.sroa.4.0..sroa_idx171, align 4
+  store float 7.000000e+00, ptr %.sroa.4.0..sroa_idx171, align 4
+  %.sroa.5.0..sroa_idx173 = getelementptr inbounds i8, ptr %373, i64 12
+  store float -1.000000e+00, ptr %.sroa.5.0..sroa_idx173, align 4
   %.sroa.6.0..sroa_idx175 = getelementptr inbounds i8, ptr %373, i64 16
   store float %351, ptr %.sroa.6.0..sroa_idx175, align 4
   %.sroa.7.0..sroa_idx177 = getelementptr inbounds i8, ptr %373, i64 20

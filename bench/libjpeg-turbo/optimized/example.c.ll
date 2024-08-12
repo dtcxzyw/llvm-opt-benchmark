@@ -164,7 +164,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 
 66:                                               ; preds = %.lr.ph
   %67 = getelementptr inbounds ptr, ptr %1, i64 %21
-  br i1 %.not.not, label %68, label %159
+  br i1 %.not.not, label %68, label %161
 
 68:                                               ; preds = %66
   %69 = load i32, ptr %8, align 4
@@ -191,177 +191,182 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 78:                                               ; preds = %74, %68
   call void @jpeg_stdio_dest(ptr noundef nonnull %4, ptr noundef %72) #12
   %79 = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 640, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %4, i64 52
-  store <4 x i32> <i32 640, i32 480, i32 3, i32 2>, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %4, i64 72
-  store i32 %70, ptr %81, align 8
+  store i32 480, ptr %80, align 4
+  %81 = getelementptr inbounds i8, ptr %4, i64 56
+  store i32 3, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %4, i64 60
+  store i32 2, ptr %82, align 4
+  %83 = getelementptr inbounds i8, ptr %4, i64 72
+  store i32 %70, ptr %83, align 8
   call void @jpeg_set_defaults(ptr noundef nonnull %4) #12
   call void @jpeg_set_quality(ptr noundef nonnull %4, i32 noundef %69, i32 noundef 1) #12
-  %82 = getelementptr inbounds i8, ptr %4, i64 88
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 12
-  store i32 1, ptr %84, align 4
-  %85 = load ptr, ptr %82, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
-  store i32 1, ptr %86, align 8
+  %84 = getelementptr inbounds i8, ptr %4, i64 88
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 12
+  store i32 1, ptr %86, align 4
+  %87 = load ptr, ptr %84, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  store i32 1, ptr %88, align 8
   call void @jpeg_start_compress(ptr noundef nonnull %4, i32 noundef 1) #12
-  %87 = load i32, ptr %81, align 8
-  %88 = icmp eq i32 %87, 12
-  %89 = getelementptr inbounds i8, ptr %4, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %89 = load i32, ptr %83, align 8
+  %90 = icmp eq i32 %89, 12
+  %91 = getelementptr inbounds i8, ptr %4, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = call ptr %92(ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1920, i32 noundef 480) #12
-  br i1 %88, label %.preheader50.i, label %.preheader52.i
+  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %94 = load ptr, ptr %93, align 8
+  %95 = call ptr %94(ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1920, i32 noundef 480) #12
+  br i1 %90, label %.preheader50.i, label %.preheader52.i
 
-.preheader50.i:                                   ; preds = %78, %115
-  %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %115 ], [ 0, %78 ]
-  %94 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv70.i
+.preheader50.i:                                   ; preds = %78, %117
+  %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %117 ], [ 0, %78 ]
+  %96 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv70.i
   %indvars.iv70.tr.i = trunc i64 %indvars.iv70.i to i32
-  %95 = shl i32 %indvars.iv70.tr.i, 12
-  %96 = udiv i32 %95, 480
-  %97 = trunc nuw i32 %96 to i16
-  %98 = and i16 %97, 4095
-  br label %99
+  %97 = shl i32 %indvars.iv70.tr.i, 12
+  %98 = udiv i32 %97, 480
+  %99 = trunc nuw i32 %98 to i16
+  %100 = and i16 %99, 4095
+  br label %101
 
-99:                                               ; preds = %99, %.preheader50.i
-  %indvars.iv66.i = phi i64 [ 0, %.preheader50.i ], [ %indvars.iv.next67.i, %99 ]
+101:                                              ; preds = %101, %.preheader50.i
+  %indvars.iv66.i = phi i64 [ 0, %.preheader50.i ], [ %indvars.iv.next67.i, %101 ]
   %indvars.iv66.tr.i = trunc i64 %indvars.iv66.i to i32
-  %100 = shl i32 %indvars.iv66.tr.i, 12
-  %101 = udiv i32 %100, 640
-  %102 = trunc nuw i32 %101 to i16
-  %103 = load ptr, ptr %94, align 8
-  %104 = mul nuw nsw i64 %indvars.iv66.i, 3
-  %105 = getelementptr inbounds i16, ptr %103, i64 %104
-  store i16 %102, ptr %105, align 2
-  %106 = load ptr, ptr %94, align 8
-  %107 = getelementptr inbounds i16, ptr %106, i64 %104
-  %108 = getelementptr inbounds i8, ptr %107, i64 2
-  store i16 %98, ptr %108, align 2
-  %109 = add nuw nsw i32 %101, %96
-  %110 = trunc nuw i32 %109 to i16
-  %111 = and i16 %110, 4095
-  %112 = load ptr, ptr %94, align 8
-  %113 = getelementptr inbounds i16, ptr %112, i64 %104
-  %114 = getelementptr inbounds i8, ptr %113, i64 4
-  store i16 %111, ptr %114, align 2
+  %102 = shl i32 %indvars.iv66.tr.i, 12
+  %103 = udiv i32 %102, 640
+  %104 = trunc nuw i32 %103 to i16
+  %105 = load ptr, ptr %96, align 8
+  %106 = mul nuw nsw i64 %indvars.iv66.i, 3
+  %107 = getelementptr inbounds i16, ptr %105, i64 %106
+  store i16 %104, ptr %107, align 2
+  %108 = load ptr, ptr %96, align 8
+  %109 = getelementptr inbounds i16, ptr %108, i64 %106
+  %110 = getelementptr inbounds i8, ptr %109, i64 2
+  store i16 %100, ptr %110, align 2
+  %111 = add nuw nsw i32 %103, %98
+  %112 = trunc nuw i32 %111 to i16
+  %113 = and i16 %112, 4095
+  %114 = load ptr, ptr %96, align 8
+  %115 = getelementptr inbounds i16, ptr %114, i64 %106
+  %116 = getelementptr inbounds i8, ptr %115, i64 4
+  store i16 %113, ptr %116, align 2
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next67.i, 640
-  br i1 %exitcond69.not.i, label %115, label %99, !llvm.loop !7
+  br i1 %exitcond69.not.i, label %117, label %101, !llvm.loop !7
 
-115:                                              ; preds = %99
+117:                                              ; preds = %101
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next71.i, 480
   br i1 %exitcond73.not.i, label %.loopexit51.i, label %.preheader50.i, !llvm.loop !8
 
-.preheader52.i:                                   ; preds = %78, %135
-  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %135 ], [ 0, %78 ]
-  %116 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv62.i
+.preheader52.i:                                   ; preds = %78, %137
+  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %137 ], [ 0, %78 ]
+  %118 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv62.i
   %indvars.iv62.tr.i = trunc i64 %indvars.iv62.i to i32
-  %117 = shl i32 %indvars.iv62.tr.i, 8
-  %118 = udiv i32 %117, 480
-  %119 = trunc i32 %118 to i8
-  br label %120
+  %119 = shl i32 %indvars.iv62.tr.i, 8
+  %120 = udiv i32 %119, 480
+  %121 = trunc i32 %120 to i8
+  br label %122
 
-120:                                              ; preds = %120, %.preheader52.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader52.i ], [ %indvars.iv.next.i, %120 ]
+122:                                              ; preds = %122, %.preheader52.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader52.i ], [ %indvars.iv.next.i, %122 ]
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
-  %121 = shl i32 %indvars.iv.tr.i, 8
-  %122 = udiv i32 %121, 640
-  %123 = trunc i32 %122 to i8
-  %124 = load ptr, ptr %116, align 8
-  %125 = mul nuw nsw i64 %indvars.iv.i, 3
-  %126 = getelementptr inbounds i8, ptr %124, i64 %125
-  store i8 %123, ptr %126, align 1
-  %127 = load ptr, ptr %116, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 %125
-  %129 = getelementptr inbounds i8, ptr %128, i64 1
-  store i8 %119, ptr %129, align 1
-  %130 = add nuw nsw i32 %122, %118
-  %131 = trunc i32 %130 to i8
-  %132 = load ptr, ptr %116, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 %125
-  %134 = getelementptr inbounds i8, ptr %133, i64 2
-  store i8 %131, ptr %134, align 1
+  %123 = shl i32 %indvars.iv.tr.i, 8
+  %124 = udiv i32 %123, 640
+  %125 = trunc i32 %124 to i8
+  %126 = load ptr, ptr %118, align 8
+  %127 = mul nuw nsw i64 %indvars.iv.i, 3
+  %128 = getelementptr inbounds i8, ptr %126, i64 %127
+  store i8 %125, ptr %128, align 1
+  %129 = load ptr, ptr %118, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 %127
+  %131 = getelementptr inbounds i8, ptr %130, i64 1
+  store i8 %121, ptr %131, align 1
+  %132 = add nuw nsw i32 %124, %120
+  %133 = trunc i32 %132 to i8
+  %134 = load ptr, ptr %118, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 %127
+  %136 = getelementptr inbounds i8, ptr %135, i64 2
+  store i8 %133, ptr %136, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 640
-  br i1 %exitcond.not.i, label %135, label %120, !llvm.loop !9
+  br i1 %exitcond.not.i, label %137, label %122, !llvm.loop !9
 
-135:                                              ; preds = %120
+137:                                              ; preds = %122
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, 480
   br i1 %exitcond65.not.i, label %.loopexit51.i, label %.preheader52.i, !llvm.loop !10
 
-.loopexit51.i:                                    ; preds = %135, %115
-  %.045.i = phi ptr [ %93, %115 ], [ null, %135 ]
-  %.044.i = phi ptr [ null, %115 ], [ %93, %135 ]
-  %136 = load i32, ptr %81, align 8
-  %137 = icmp eq i32 %136, 12
-  %138 = getelementptr inbounds i8, ptr %4, i64 304
-  %139 = load i32, ptr %138, align 8
-  %140 = load i32, ptr %80, align 4
-  %141 = icmp ult i32 %139, %140
-  br i1 %137, label %.preheader.i, label %.preheader48.i
+.loopexit51.i:                                    ; preds = %137, %117
+  %.045.i = phi ptr [ %95, %117 ], [ null, %137 ]
+  %.044.i = phi ptr [ null, %117 ], [ %95, %137 ]
+  %138 = load i32, ptr %83, align 8
+  %139 = icmp eq i32 %138, 12
+  %140 = getelementptr inbounds i8, ptr %4, i64 304
+  %141 = load i32, ptr %140, align 8
+  %142 = load i32, ptr %80, align 4
+  %143 = icmp ult i32 %141, %142
+  br i1 %139, label %.preheader.i, label %.preheader48.i
 
 .preheader48.i:                                   ; preds = %.loopexit51.i
-  br i1 %141, label %.lr.ph.i, label %write_JPEG_file.exit
+  br i1 %143, label %.lr.ph.i, label %write_JPEG_file.exit
 
 .preheader.i:                                     ; preds = %.loopexit51.i
-  br i1 %141, label %.lr.ph58.i, label %write_JPEG_file.exit
+  br i1 %143, label %.lr.ph58.i, label %write_JPEG_file.exit
 
 .lr.ph58.i:                                       ; preds = %.preheader.i, %.lr.ph58.i
-  %142 = phi i32 [ %147, %.lr.ph58.i ], [ %139, %.preheader.i ]
-  %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds ptr, ptr %.045.i, i64 %143
-  %145 = load ptr, ptr %144, align 8
-  store ptr %145, ptr %7, align 8
-  %146 = call i32 @jpeg12_write_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 1) #12
-  %147 = load i32, ptr %138, align 8
-  %148 = load i32, ptr %80, align 4
-  %149 = icmp ult i32 %147, %148
-  br i1 %149, label %.lr.ph58.i, label %write_JPEG_file.exit, !llvm.loop !11
+  %144 = phi i32 [ %149, %.lr.ph58.i ], [ %141, %.preheader.i ]
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds ptr, ptr %.045.i, i64 %145
+  %147 = load ptr, ptr %146, align 8
+  store ptr %147, ptr %7, align 8
+  %148 = call i32 @jpeg12_write_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 1) #12
+  %149 = load i32, ptr %140, align 8
+  %150 = load i32, ptr %80, align 4
+  %151 = icmp ult i32 %149, %150
+  br i1 %151, label %.lr.ph58.i, label %write_JPEG_file.exit, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %.preheader48.i, %.lr.ph.i
-  %150 = phi i32 [ %155, %.lr.ph.i ], [ %139, %.preheader48.i ]
-  %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds ptr, ptr %.044.i, i64 %151
-  %153 = load ptr, ptr %152, align 8
-  store ptr %153, ptr %6, align 8
-  %154 = call i32 @jpeg_write_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 1) #12
-  %155 = load i32, ptr %138, align 8
-  %156 = load i32, ptr %80, align 4
-  %157 = icmp ult i32 %155, %156
-  br i1 %157, label %.lr.ph.i, label %write_JPEG_file.exit, !llvm.loop !12
+  %152 = phi i32 [ %157, %.lr.ph.i ], [ %141, %.preheader48.i ]
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds ptr, ptr %.044.i, i64 %153
+  %155 = load ptr, ptr %154, align 8
+  store ptr %155, ptr %6, align 8
+  %156 = call i32 @jpeg_write_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 1) #12
+  %157 = load i32, ptr %140, align 8
+  %158 = load i32, ptr %80, align 4
+  %159 = icmp ult i32 %157, %158
+  br i1 %159, label %.lr.ph.i, label %write_JPEG_file.exit, !llvm.loop !12
 
 write_JPEG_file.exit:                             ; preds = %.lr.ph.i, %.lr.ph58.i, %.preheader48.i, %.preheader.i
   call void @jpeg_finish_compress(ptr noundef nonnull %4) #12
-  %158 = call i32 @fclose(ptr noundef %72)
+  %160 = call i32 @fclose(ptr noundef %72)
   call void @jpeg_destroy_compress(ptr noundef nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %167
+  br label %169
 
-159:                                              ; preds = %66
-  %160 = sub nsw i32 %0, %.04468
-  %161 = icmp slt i32 %160, 2
-  br i1 %161, label %162, label %164
+161:                                              ; preds = %66
+  %162 = sub nsw i32 %0, %.04468
+  %163 = icmp slt i32 %162, 2
+  br i1 %163, label %164, label %166
 
-162:                                              ; preds = %159
-  %163 = load ptr, ptr %1, align 8
-  call fastcc void @usage(ptr noundef %163)
+164:                                              ; preds = %161
+  %165 = load ptr, ptr %1, align 8
+  call fastcc void @usage(ptr noundef %165)
   unreachable
 
-164:                                              ; preds = %159
-  %165 = getelementptr i8, ptr %67, i64 8
-  %166 = load ptr, ptr %165, align 8
+166:                                              ; preds = %161
+  %167 = getelementptr i8, ptr %67, i64 8
+  %168 = load ptr, ptr %167, align 8
   call void @llvm.lifetime.start.p0(i64 632, ptr nonnull %3)
-  call fastcc void @do_read_JPEG_file(ptr noundef nonnull %3, ptr noundef nonnull %23, ptr noundef %166)
+  call fastcc void @do_read_JPEG_file(ptr noundef nonnull %3, ptr noundef nonnull %23, ptr noundef %168)
   call void @llvm.lifetime.end.p0(i64 632, ptr nonnull %3)
-  br label %167
+  br label %169
 
-167:                                              ; preds = %164, %write_JPEG_file.exit
+169:                                              ; preds = %166, %write_JPEG_file.exit
   ret i32 0
 }
 

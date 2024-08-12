@@ -213,7 +213,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   br label %14
 
 14:                                               ; preds = %"_ZN152_$LT$sqlx_sqlite..query_result..SqliteQueryResult$u20$as$u20$core..iter..traits..collect..Extend$LT$sqlx_sqlite..query_result..SqliteQueryResult$GT$$GT$6extend17hd5668ea0d7b51d79E.exit", %3
-  %15 = phi i64 [ %24, %"_ZN152_$LT$sqlx_sqlite..query_result..SqliteQueryResult$u20$as$u20$core..iter..traits..collect..Extend$LT$sqlx_sqlite..query_result..SqliteQueryResult$GT$$GT$6extend17hd5668ea0d7b51d79E.exit" ], [ %.promoted, %3 ]
+  %15 = phi i64 [ %23, %"_ZN152_$LT$sqlx_sqlite..query_result..SqliteQueryResult$u20$as$u20$core..iter..traits..collect..Extend$LT$sqlx_sqlite..query_result..SqliteQueryResult$GT$$GT$6extend17hd5668ea0d7b51d79E.exit" ], [ %.promoted, %3 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
@@ -221,55 +221,58 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %16 = load i64, ptr %4, align 8, !range !81, !alias.scope !82, !noundef !9
   switch i64 %16, label %17 [
-    i64 18, label %19
-    i64 17, label %20
+    i64 18, label %18
+    i64 17, label %19
     i64 16, label %"_ZN152_$LT$sqlx_sqlite..query_result..SqliteQueryResult$u20$as$u20$core..iter..traits..collect..Extend$LT$sqlx_sqlite..query_result..SqliteQueryResult$GT$$GT$6extend17hd5668ea0d7b51d79E.exit"
   ]
 
 17:                                               ; preds = %14
+  %.sroa.10.0.copyload12 = load i64, ptr %11, align 8, !alias.scope !84
+  %.sroa.14.0.copyload13 = load i64, ptr %12, align 8, !alias.scope !84
   %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.16.0.copyload14 = load i64, ptr %.sroa.16.0..sroa_idx, align 8, !alias.scope !84
   %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.722)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.722, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.18.0..sroa_idx, i64 16, i1 false)
-  %.sroa.419.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = load <2 x i64>, ptr %11, align 8, !alias.scope !84
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   store i64 %16, ptr %0, align 8
-  store <2 x i64> %18, ptr %.sroa.419.0..sroa_idx, align 8
+  %.sroa.419.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.10.0.copyload12, ptr %.sroa.419.0..sroa_idx, align 8
+  %.sroa.520.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.14.0.copyload13, ptr %.sroa.520.0..sroa_idx, align 8
   %.sroa.621.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.16.0.copyload14, ptr %.sroa.621.0..sroa_idx, align 8
   %.sroa.722.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.722.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.722, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.722)
-  br label %25
+  br label %24
+
+18:                                               ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  store i64 17, ptr %0, align 8
+  br label %24
 
 19:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  store i64 17, ptr %0, align 8
-  br label %25
-
-20:                                               ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  %21 = load i64, ptr %13, align 8, !noundef !9
+  %20 = load i64, ptr %13, align 8, !noundef !9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i64 16, ptr %0, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %15, ptr %.sroa.53.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %21, ptr %.sroa.6.0..sroa_idx, align 8
-  br label %25
+  store i64 %20, ptr %.sroa.6.0..sroa_idx, align 8
+  br label %24
 
 "_ZN152_$LT$sqlx_sqlite..query_result..SqliteQueryResult$u20$as$u20$core..iter..traits..collect..Extend$LT$sqlx_sqlite..query_result..SqliteQueryResult$GT$$GT$6extend17hd5668ea0d7b51d79E.exit": ; preds = %14
-  %22 = load i64, ptr %11, align 8, !alias.scope !85, !noalias !78, !noundef !9
-  %23 = load i64, ptr %12, align 8, !alias.scope !85, !noalias !78, !noundef !9
+  %21 = load i64, ptr %11, align 8, !alias.scope !85, !noalias !78, !noundef !9
+  %22 = load i64, ptr %12, align 8, !alias.scope !85, !noalias !78, !noundef !9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  %24 = add i64 %15, %22
-  store i64 %24, ptr %5, align 8, !alias.scope !86, !noalias !89
-  store i64 %23, ptr %13, align 8, !alias.scope !86, !noalias !89
+  %23 = add i64 %15, %21
+  store i64 %23, ptr %5, align 8, !alias.scope !86, !noalias !89
+  store i64 %22, ptr %13, align 8, !alias.scope !86, !noalias !89
   br label %14
 
-25:                                               ; preds = %17, %19, %20
+24:                                               ; preds = %17, %18, %19
   ret void
 }
 

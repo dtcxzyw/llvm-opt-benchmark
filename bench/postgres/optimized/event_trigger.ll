@@ -2801,7 +2801,7 @@ define dso_local void @EventTriggerCollectAlterDefPrivs(ptr noundef %0) local_un
 define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [9 x i64], align 16
   %3 = alloca [9 x i8], align 1
-  %4 = alloca %struct.ObjectAddress, align 8
+  %4 = alloca %struct.ObjectAddress, align 4
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -2838,451 +2838,457 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   %26 = getelementptr inbounds i8, ptr %3, i64 6
   %27 = getelementptr inbounds i8, ptr %2, i64 56
   %28 = getelementptr inbounds i8, ptr %2, i64 64
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
-  %30 = getelementptr inbounds i8, ptr %2, i64 40
-  %31 = getelementptr inbounds i8, ptr %2, i64 48
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  %33 = getelementptr inbounds i8, ptr %7, i64 48
-  %34 = load i32, ptr %17, align 4
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph103, label %._crit_edge
+  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = getelementptr inbounds i8, ptr %2, i64 40
+  %32 = getelementptr inbounds i8, ptr %2, i64 48
+  %33 = getelementptr inbounds i8, ptr %7, i64 40
+  %34 = getelementptr inbounds i8, ptr %7, i64 48
+  %35 = load i32, ptr %17, align 4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.lr.ph103, label %._crit_edge
 
-.lr.ph103:                                        ; preds = %.lr.ph, %182
-  %indvars.iv102 = phi i64 [ %indvars.iv.next, %182 ], [ 0, %.lr.ph ]
-  %36 = load ptr, ptr %18, align 8
-  %37 = getelementptr %union.ListCell, ptr %36, i64 %indvars.iv102
-  %38 = load ptr, ptr %37, align 8
+.lr.ph103:                                        ; preds = %.lr.ph, %186
+  %indvars.iv102 = phi i64 [ %indvars.iv.next, %186 ], [ 0, %.lr.ph ]
+  %37 = load ptr, ptr %18, align 8
+  %38 = getelementptr %union.ListCell, ptr %37, i64 %indvars.iv102
+  %39 = load ptr, ptr %38, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, i8 0, i64 9, i1 false)
-  %39 = load i32, ptr %38, align 8
-  switch i32 %39, label %179 [
-    i32 0, label %40
-    i32 2, label %142
-    i32 4, label %113
-    i32 6, label %52
-    i32 1, label %44
-    i32 3, label %48
-    i32 5, label %50
+  %40 = load i32, ptr %39, align 8
+  switch i32 %40, label %183 [
+    i32 0, label %41
+    i32 2, label %146
+    i32 4, label %117
+    i32 6, label %54
+    i32 1, label %45
+    i32 3, label %50
+    i32 5, label %52
   ]
 
-40:                                               ; preds = %.lr.ph103
-  %41 = getelementptr inbounds i8, ptr %38, i64 20
-  %42 = load i32, ptr %41, align 4
-  %.not83 = icmp eq i32 %42, 0
-  br i1 %.not83, label %182, label %.thread90
+41:                                               ; preds = %.lr.ph103
+  %42 = getelementptr inbounds i8, ptr %39, i64 20
+  %43 = load i32, ptr %42, align 4
+  %.not83 = icmp eq i32 %43, 0
+  br i1 %.not83, label %186, label %.thread90
 
-.thread90:                                        ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %38, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 12, i1 false)
-  br label %54
+.thread90:                                        ; preds = %41
+  %44 = getelementptr inbounds i8, ptr %39, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false)
+  br label %56
 
-44:                                               ; preds = %.lr.ph103
-  %45 = getelementptr inbounds i8, ptr %38, i64 16
-  %46 = load <2 x i32>, ptr %45, align 8
-  %47 = shufflevector <2 x i32> %46, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %47, ptr %4, align 8
-  store i32 0, ptr %20, align 8
-  br label %54
-
-48:                                               ; preds = %.lr.ph103
-  %49 = getelementptr inbounds i8, ptr %38, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %49, i64 12, i1 false)
-  br label %54
+45:                                               ; preds = %.lr.ph103
+  %46 = getelementptr inbounds i8, ptr %39, i64 16
+  %47 = getelementptr inbounds i8, ptr %39, i64 20
+  %48 = load i32, ptr %47, align 4
+  store i32 %48, ptr %4, align 4
+  %49 = load i32, ptr %46, align 8
+  store i32 %49, ptr %19, align 4
+  store i32 0, ptr %20, align 4
+  br label %56
 
 50:                                               ; preds = %.lr.ph103
-  %51 = getelementptr inbounds i8, ptr %38, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %51, i64 12, i1 false)
-  br label %54
+  %51 = getelementptr inbounds i8, ptr %39, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %51, i64 12, i1 false)
+  br label %56
 
 52:                                               ; preds = %.lr.ph103
-  %53 = getelementptr inbounds i8, ptr %38, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %53, i64 12, i1 false)
-  br label %54
+  %53 = getelementptr inbounds i8, ptr %39, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %53, i64 12, i1 false)
+  br label %56
 
-54:                                               ; preds = %44, %50, %52, %48, %.thread90
-  %55 = call ptr @getObjectIdentity(ptr noundef nonnull %4, i1 noundef zeroext true) #13
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %182, label %57
+54:                                               ; preds = %.lr.ph103
+  %55 = getelementptr inbounds i8, ptr %39, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %55, i64 12, i1 false)
+  br label %56
 
-57:                                               ; preds = %54
-  %58 = call ptr @getObjectTypeDescription(ptr noundef nonnull %4, i1 noundef zeroext true) #13
-  %59 = load i32, ptr %4, align 8
-  %60 = call zeroext i1 @is_objectclass_supported(i32 noundef %59) #13
-  br i1 %60, label %61, label %92
+56:                                               ; preds = %45, %52, %54, %50, %.thread90
+  %57 = call ptr @getObjectIdentity(ptr noundef nonnull %4, i1 noundef zeroext true) #13
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %186, label %59
 
-61:                                               ; preds = %57
-  %62 = load i32, ptr %4, align 8
-  %63 = call signext i16 @get_object_attnum_namespace(i32 noundef %62) #13
-  %64 = sext i16 %63 to i32
-  %.not84 = icmp eq i16 %63, 0
-  br i1 %.not84, label %92, label %65
+59:                                               ; preds = %56
+  %60 = call ptr @getObjectTypeDescription(ptr noundef nonnull %4, i1 noundef zeroext true) #13
+  %61 = load i32, ptr %4, align 4
+  %62 = call zeroext i1 @is_objectclass_supported(i32 noundef %61) #13
+  br i1 %62, label %63, label %94
 
-65:                                               ; preds = %61
-  %66 = load i32, ptr %4, align 8
-  %67 = call ptr @table_open(i32 noundef %66, i32 noundef 1) #13
-  %68 = load i32, ptr %4, align 8
-  %69 = call signext i16 @get_object_attnum_oid(i32 noundef %68) #13
-  %70 = load i32, ptr %19, align 4
-  %71 = call ptr @get_catalog_object_by_oid(ptr noundef %67, i16 noundef signext %69, i32 noundef %70) #13
-  %.not85 = icmp eq ptr %71, null
-  br i1 %.not85, label %72, label %77
+63:                                               ; preds = %59
+  %64 = load i32, ptr %4, align 4
+  %65 = call signext i16 @get_object_attnum_namespace(i32 noundef %64) #13
+  %66 = sext i16 %65 to i32
+  %.not84 = icmp eq i16 %65, 0
+  br i1 %.not84, label %94, label %67
 
-72:                                               ; preds = %65
-  %73 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %73)
-  %74 = load i32, ptr %4, align 8
-  %75 = load i32, ptr %19, align 4
-  %76 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %74, i32 noundef %75) #13
+67:                                               ; preds = %63
+  %68 = load i32, ptr %4, align 4
+  %69 = call ptr @table_open(i32 noundef %68, i32 noundef 1) #13
+  %70 = load i32, ptr %4, align 4
+  %71 = call signext i16 @get_object_attnum_oid(i32 noundef %70) #13
+  %72 = load i32, ptr %19, align 4
+  %73 = call ptr @get_catalog_object_by_oid(ptr noundef %69, i16 noundef signext %71, i32 noundef %72) #13
+  %.not85 = icmp eq ptr %73, null
+  br i1 %.not85, label %74, label %79
+
+74:                                               ; preds = %67
+  %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %75)
+  %76 = load i32, ptr %4, align 4
+  %77 = load i32, ptr %19, align 4
+  %78 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %76, i32 noundef %77) #13
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2118, ptr noundef nonnull @__func__.pg_event_trigger_ddl_commands) #13
   unreachable
 
-77:                                               ; preds = %65
-  %78 = getelementptr inbounds i8, ptr %67, i64 64
-  %79 = load ptr, ptr %78, align 8
-  %80 = call fastcc i64 @heap_getattr(ptr noundef nonnull %71, i32 noundef %64, ptr noundef %79, ptr noundef nonnull %5)
-  %81 = load i8, ptr %5, align 1
-  %82 = trunc i8 %81 to i1
-  br i1 %82, label %83, label %89
+79:                                               ; preds = %67
+  %80 = getelementptr inbounds i8, ptr %69, i64 64
+  %81 = load ptr, ptr %80, align 8
+  %82 = call fastcc i64 @heap_getattr(ptr noundef nonnull %73, i32 noundef %66, ptr noundef %81, ptr noundef nonnull %5)
+  %83 = load i8, ptr %5, align 1
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %85, label %91
 
-83:                                               ; preds = %77
-  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %84)
-  %85 = load i32, ptr %4, align 8
-  %86 = load i32, ptr %19, align 4
-  %87 = load i32, ptr %20, align 8
-  %88 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %85, i32 noundef %86, i32 noundef %87) #13
+85:                                               ; preds = %79
+  %86 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %86)
+  %87 = load i32, ptr %4, align 4
+  %88 = load i32, ptr %19, align 4
+  %89 = load i32, ptr %20, align 4
+  %90 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %87, i32 noundef %88, i32 noundef %89) #13
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2125, ptr noundef nonnull @__func__.pg_event_trigger_ddl_commands) #13
   unreachable
 
-89:                                               ; preds = %77
-  %90 = trunc i64 %80 to i32
-  %91 = call ptr @get_namespace_name_or_temp(i32 noundef %90) #13
-  call void @table_close(ptr noundef nonnull %67, i32 noundef 1) #13
-  br label %92
+91:                                               ; preds = %79
+  %92 = trunc i64 %82 to i32
+  %93 = call ptr @get_namespace_name_or_temp(i32 noundef %92) #13
+  call void @table_close(ptr noundef nonnull %69, i32 noundef 1) #13
+  br label %94
 
-92:                                               ; preds = %61, %89, %57
-  %.075 = phi ptr [ %91, %89 ], [ null, %61 ], [ null, %57 ]
-  %93 = load <2 x i32>, ptr %4, align 8
-  %94 = zext <2 x i32> %93 to <2 x i64>
-  store <2 x i64> %94, ptr %2, align 16
-  %95 = load i32, ptr %20, align 8
-  %96 = sext i32 %95 to i64
-  store i64 %96, ptr %29, align 16
-  %97 = getelementptr inbounds i8, ptr %38, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = call i32 @CreateCommandTag(ptr noundef %98) #13
-  %100 = call ptr @GetCommandTagName(i32 noundef %99) #13
-  %101 = call ptr @cstring_to_text(ptr noundef %100) #13
-  %102 = ptrtoint ptr %101 to i64
-  store i64 %102, ptr %23, align 8
-  %103 = call ptr @cstring_to_text(ptr noundef %58) #13
-  %104 = ptrtoint ptr %103 to i64
-  store i64 %104, ptr %24, align 16
-  %105 = icmp eq ptr %.075, null
-  br i1 %105, label %106, label %107
+94:                                               ; preds = %63, %91, %59
+  %.075 = phi ptr [ %93, %91 ], [ null, %63 ], [ null, %59 ]
+  %95 = load i32, ptr %4, align 4
+  %96 = zext i32 %95 to i64
+  store i64 %96, ptr %2, align 16
+  %97 = load i32, ptr %19, align 4
+  %98 = zext i32 %97 to i64
+  store i64 %98, ptr %29, align 8
+  %99 = load i32, ptr %20, align 4
+  %100 = sext i32 %99 to i64
+  store i64 %100, ptr %30, align 16
+  %101 = getelementptr inbounds i8, ptr %39, i64 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = call i32 @CreateCommandTag(ptr noundef %102) #13
+  %104 = call ptr @GetCommandTagName(i32 noundef %103) #13
+  %105 = call ptr @cstring_to_text(ptr noundef %104) #13
+  %106 = ptrtoint ptr %105 to i64
+  store i64 %106, ptr %23, align 8
+  %107 = call ptr @cstring_to_text(ptr noundef %60) #13
+  %108 = ptrtoint ptr %107 to i64
+  store i64 %108, ptr %24, align 16
+  %109 = icmp eq ptr %.075, null
+  br i1 %109, label %110, label %111
 
-106:                                              ; preds = %92
+110:                                              ; preds = %94
   store i8 1, ptr %25, align 1
-  br label %110
+  br label %114
 
-107:                                              ; preds = %92
-  %108 = call ptr @cstring_to_text(ptr noundef nonnull %.075) #13
-  %109 = ptrtoint ptr %108 to i64
-  store i64 %109, ptr %30, align 8
-  br label %110
+111:                                              ; preds = %94
+  %112 = call ptr @cstring_to_text(ptr noundef nonnull %.075) #13
+  %113 = ptrtoint ptr %112 to i64
+  store i64 %113, ptr %31, align 8
+  br label %114
 
-110:                                              ; preds = %107, %106
-  %111 = call ptr @cstring_to_text(ptr noundef nonnull %55) #13
-  %112 = ptrtoint ptr %111 to i64
-  store i64 %112, ptr %31, align 16
+114:                                              ; preds = %111, %110
+  %115 = call ptr @cstring_to_text(ptr noundef nonnull %57) #13
+  %116 = ptrtoint ptr %115 to i64
+  store i64 %116, ptr %32, align 16
   br label %.sink.split
 
-113:                                              ; preds = %.lr.ph103
+117:                                              ; preds = %.lr.ph103
   store i8 1, ptr %3, align 1
   store i8 1, ptr %21, align 1
   store i8 1, ptr %22, align 1
-  %114 = getelementptr inbounds i8, ptr %38, i64 8
-  %115 = load ptr, ptr %114, align 8
-  %116 = call i32 @CreateCommandTag(ptr noundef %115) #13
-  %117 = call ptr @GetCommandTagName(i32 noundef %116) #13
-  %118 = call ptr @cstring_to_text(ptr noundef %117) #13
-  %119 = ptrtoint ptr %118 to i64
-  store i64 %119, ptr %23, align 8
-  %120 = getelementptr inbounds i8, ptr %38, i64 16
-  %121 = load i32, ptr %120, align 8
-  switch i32 %121, label %139 [
+  %118 = getelementptr inbounds i8, ptr %39, i64 8
+  %119 = load ptr, ptr %118, align 8
+  %120 = call i32 @CreateCommandTag(ptr noundef %119) #13
+  %121 = call ptr @GetCommandTagName(i32 noundef %120) #13
+  %122 = call ptr @cstring_to_text(ptr noundef %121) #13
+  %123 = ptrtoint ptr %122 to i64
+  store i64 %123, ptr %23, align 8
+  %124 = getelementptr inbounds i8, ptr %39, i64 16
+  %125 = load i32, ptr %124, align 8
+  switch i32 %125, label %143 [
     i32 6, label %stringify_adefprivs_objtype.exit
-    i32 41, label %122
-    i32 37, label %123
-    i32 9, label %124
-    i32 12, label %125
-    i32 16, label %126
-    i32 17, label %127
-    i32 19, label %128
-    i32 21, label %129
-    i32 22, label %130
-    i32 36, label %131
-    i32 29, label %132
-    i32 34, label %133
-    i32 42, label %134
-    i32 49, label %135
-    i32 0, label %136
-    i32 1, label %136
-    i32 2, label %136
-    i32 3, label %136
-    i32 4, label %136
-    i32 5, label %136
-    i32 7, label %136
-    i32 8, label %136
-    i32 10, label %136
-    i32 11, label %136
-    i32 13, label %136
-    i32 14, label %136
-    i32 15, label %136
-    i32 18, label %136
-    i32 20, label %136
-    i32 23, label %136
-    i32 24, label %136
-    i32 25, label %136
-    i32 26, label %136
-    i32 27, label %136
-    i32 28, label %136
-    i32 30, label %136
-    i32 31, label %136
-    i32 32, label %136
-    i32 33, label %136
-    i32 35, label %136
-    i32 39, label %136
-    i32 38, label %136
-    i32 40, label %136
-    i32 43, label %136
-    i32 44, label %136
-    i32 45, label %136
-    i32 46, label %136
-    i32 47, label %136
-    i32 48, label %136
-    i32 50, label %136
-    i32 51, label %136
+    i32 41, label %126
+    i32 37, label %127
+    i32 9, label %128
+    i32 12, label %129
+    i32 16, label %130
+    i32 17, label %131
+    i32 19, label %132
+    i32 21, label %133
+    i32 22, label %134
+    i32 36, label %135
+    i32 29, label %136
+    i32 34, label %137
+    i32 42, label %138
+    i32 49, label %139
+    i32 0, label %140
+    i32 1, label %140
+    i32 2, label %140
+    i32 3, label %140
+    i32 4, label %140
+    i32 5, label %140
+    i32 7, label %140
+    i32 8, label %140
+    i32 10, label %140
+    i32 11, label %140
+    i32 13, label %140
+    i32 14, label %140
+    i32 15, label %140
+    i32 18, label %140
+    i32 20, label %140
+    i32 23, label %140
+    i32 24, label %140
+    i32 25, label %140
+    i32 26, label %140
+    i32 27, label %140
+    i32 28, label %140
+    i32 30, label %140
+    i32 31, label %140
+    i32 32, label %140
+    i32 33, label %140
+    i32 35, label %140
+    i32 39, label %140
+    i32 38, label %140
+    i32 40, label %140
+    i32 43, label %140
+    i32 44, label %140
+    i32 45, label %140
+    i32 46, label %140
+    i32 47, label %140
+    i32 48, label %140
+    i32 50, label %140
+    i32 51, label %140
   ]
 
-122:                                              ; preds = %113
+126:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-123:                                              ; preds = %113
+127:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-124:                                              ; preds = %113
+128:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-125:                                              ; preds = %113
+129:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-126:                                              ; preds = %113
+130:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-127:                                              ; preds = %113
+131:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-128:                                              ; preds = %113
+132:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-129:                                              ; preds = %113
+133:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-130:                                              ; preds = %113
+134:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-131:                                              ; preds = %113
+135:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-132:                                              ; preds = %113
+136:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-133:                                              ; preds = %113
+137:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-134:                                              ; preds = %113
+138:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-135:                                              ; preds = %113
+139:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-136:                                              ; preds = %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113
-  %137 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %137)
-  %138 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %121) #13
+140:                                              ; preds = %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117, %117
+  %141 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %141)
+  %142 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %125) #13
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2369, ptr noundef nonnull @__func__.stringify_adefprivs_objtype) #13
   unreachable
 
-139:                                              ; preds = %113
+143:                                              ; preds = %117
   br label %stringify_adefprivs_objtype.exit
 
-stringify_adefprivs_objtype.exit:                 ; preds = %113, %122, %123, %124, %125, %126, %127, %128, %129, %130, %131, %132, %133, %134, %135, %139
-  %.0.i = phi ptr [ @.str.58, %139 ], [ @.str.73, %135 ], [ @.str.72, %134 ], [ @.str.71, %133 ], [ @.str.70, %132 ], [ @.str.69, %131 ], [ @.str.68, %130 ], [ @.str.67, %129 ], [ @.str.66, %128 ], [ @.str.65, %127 ], [ @.str.64, %126 ], [ @.str.63, %125 ], [ @.str.62, %124 ], [ @.str.61, %123 ], [ @.str.60, %122 ], [ @.str.59, %113 ]
-  %140 = call ptr @cstring_to_text(ptr noundef nonnull %.0.i) #13
-  %141 = ptrtoint ptr %140 to i64
-  store i64 %141, ptr %24, align 16
+stringify_adefprivs_objtype.exit:                 ; preds = %117, %126, %127, %128, %129, %130, %131, %132, %133, %134, %135, %136, %137, %138, %139, %143
+  %.0.i = phi ptr [ @.str.58, %143 ], [ @.str.73, %139 ], [ @.str.72, %138 ], [ @.str.71, %137 ], [ @.str.70, %136 ], [ @.str.69, %135 ], [ @.str.68, %134 ], [ @.str.67, %133 ], [ @.str.66, %132 ], [ @.str.65, %131 ], [ @.str.64, %130 ], [ @.str.63, %129 ], [ @.str.62, %128 ], [ @.str.61, %127 ], [ @.str.60, %126 ], [ @.str.59, %117 ]
+  %144 = call ptr @cstring_to_text(ptr noundef nonnull %.0.i) #13
+  %145 = ptrtoint ptr %144 to i64
+  store i64 %145, ptr %24, align 16
   store i8 1, ptr %25, align 1
   store i8 1, ptr %26, align 1
   br label %.sink.split
 
-142:                                              ; preds = %.lr.ph103
+146:                                              ; preds = %.lr.ph103
   store i8 1, ptr %3, align 1
   store i8 1, ptr %21, align 1
   store i8 1, ptr %22, align 1
-  %143 = getelementptr inbounds i8, ptr %38, i64 16
-  %144 = load ptr, ptr %143, align 8
-  %145 = load i8, ptr %144, align 8
-  %146 = trunc i8 %145 to i1
-  %147 = select i1 %146, ptr @.str.29, ptr @.str.30
-  %148 = call ptr @cstring_to_text(ptr noundef nonnull %147) #13
-  %149 = ptrtoint ptr %148 to i64
-  store i64 %149, ptr %23, align 8
-  %150 = load ptr, ptr %143, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 4
-  %152 = load i32, ptr %151, align 4
-  switch i32 %152, label %171 [
+  %147 = getelementptr inbounds i8, ptr %39, i64 16
+  %148 = load ptr, ptr %147, align 8
+  %149 = load i8, ptr %148, align 8
+  %150 = trunc i8 %149 to i1
+  %151 = select i1 %150, ptr @.str.29, ptr @.str.30
+  %152 = call ptr @cstring_to_text(ptr noundef nonnull %151) #13
+  %153 = ptrtoint ptr %152 to i64
+  store i64 %153, ptr %23, align 8
+  %154 = load ptr, ptr %147, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 4
+  %156 = load i32, ptr %155, align 4
+  switch i32 %156, label %175 [
     i32 6, label %stringify_grant_objtype.exit
-    i32 41, label %153
-    i32 37, label %154
-    i32 9, label %155
-    i32 12, label %156
-    i32 16, label %157
-    i32 17, label %158
-    i32 19, label %159
-    i32 21, label %160
-    i32 22, label %161
-    i32 36, label %162
-    i32 27, label %163
-    i32 29, label %164
-    i32 34, label %165
-    i32 42, label %166
-    i32 49, label %167
-    i32 0, label %168
-    i32 1, label %168
-    i32 2, label %168
-    i32 3, label %168
-    i32 4, label %168
-    i32 5, label %168
-    i32 7, label %168
-    i32 8, label %168
-    i32 10, label %168
-    i32 11, label %168
-    i32 13, label %168
-    i32 14, label %168
-    i32 15, label %168
-    i32 18, label %168
-    i32 20, label %168
-    i32 23, label %168
-    i32 24, label %168
-    i32 25, label %168
-    i32 26, label %168
-    i32 28, label %168
-    i32 30, label %168
-    i32 31, label %168
-    i32 32, label %168
-    i32 33, label %168
-    i32 35, label %168
-    i32 39, label %168
-    i32 38, label %168
-    i32 40, label %168
-    i32 43, label %168
-    i32 44, label %168
-    i32 45, label %168
-    i32 46, label %168
-    i32 47, label %168
-    i32 48, label %168
-    i32 50, label %168
-    i32 51, label %168
+    i32 41, label %157
+    i32 37, label %158
+    i32 9, label %159
+    i32 12, label %160
+    i32 16, label %161
+    i32 17, label %162
+    i32 19, label %163
+    i32 21, label %164
+    i32 22, label %165
+    i32 36, label %166
+    i32 27, label %167
+    i32 29, label %168
+    i32 34, label %169
+    i32 42, label %170
+    i32 49, label %171
+    i32 0, label %172
+    i32 1, label %172
+    i32 2, label %172
+    i32 3, label %172
+    i32 4, label %172
+    i32 5, label %172
+    i32 7, label %172
+    i32 8, label %172
+    i32 10, label %172
+    i32 11, label %172
+    i32 13, label %172
+    i32 14, label %172
+    i32 15, label %172
+    i32 18, label %172
+    i32 20, label %172
+    i32 23, label %172
+    i32 24, label %172
+    i32 25, label %172
+    i32 26, label %172
+    i32 28, label %172
+    i32 30, label %172
+    i32 31, label %172
+    i32 32, label %172
+    i32 33, label %172
+    i32 35, label %172
+    i32 39, label %172
+    i32 38, label %172
+    i32 40, label %172
+    i32 43, label %172
+    i32 44, label %172
+    i32 45, label %172
+    i32 46, label %172
+    i32 47, label %172
+    i32 48, label %172
+    i32 50, label %172
+    i32 51, label %172
   ]
 
-153:                                              ; preds = %142
+157:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-154:                                              ; preds = %142
+158:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-155:                                              ; preds = %142
+159:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-156:                                              ; preds = %142
+160:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-157:                                              ; preds = %142
+161:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-158:                                              ; preds = %142
+162:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-159:                                              ; preds = %142
+163:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-160:                                              ; preds = %142
+164:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-161:                                              ; preds = %142
+165:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-162:                                              ; preds = %142
+166:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-163:                                              ; preds = %142
+167:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-164:                                              ; preds = %142
+168:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-165:                                              ; preds = %142
+169:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-166:                                              ; preds = %142
+170:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-167:                                              ; preds = %142
+171:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-168:                                              ; preds = %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142, %142
-  %169 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %169)
-  %170 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %152) #13
+172:                                              ; preds = %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146
+  %173 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %173)
+  %174 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %156) #13
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2285, ptr noundef nonnull @__func__.stringify_grant_objtype) #13
   unreachable
 
-171:                                              ; preds = %142
+175:                                              ; preds = %146
   br label %stringify_grant_objtype.exit
 
-stringify_grant_objtype.exit:                     ; preds = %142, %153, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %171
-  %.0.i86 = phi ptr [ @.str.58, %171 ], [ @.str.56, %167 ], [ @.str.55, %166 ], [ @.str.54, %165 ], [ @.str.53, %164 ], [ @.str.52, %163 ], [ @.str.51, %162 ], [ @.str.50, %161 ], [ @.str.49, %160 ], [ @.str.48, %159 ], [ @.str.47, %158 ], [ @.str.46, %157 ], [ @.str.45, %156 ], [ @.str.44, %155 ], [ @.str.43, %154 ], [ @.str.42, %153 ], [ @.str.41, %142 ]
-  %172 = call ptr @cstring_to_text(ptr noundef nonnull %.0.i86) #13
-  %173 = ptrtoint ptr %172 to i64
-  store i64 %173, ptr %24, align 16
+stringify_grant_objtype.exit:                     ; preds = %146, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %168, %169, %170, %171, %175
+  %.0.i86 = phi ptr [ @.str.58, %175 ], [ @.str.56, %171 ], [ @.str.55, %170 ], [ @.str.54, %169 ], [ @.str.53, %168 ], [ @.str.52, %167 ], [ @.str.51, %166 ], [ @.str.50, %165 ], [ @.str.49, %164 ], [ @.str.48, %163 ], [ @.str.47, %162 ], [ @.str.46, %161 ], [ @.str.45, %160 ], [ @.str.44, %159 ], [ @.str.43, %158 ], [ @.str.42, %157 ], [ @.str.41, %146 ]
+  %176 = call ptr @cstring_to_text(ptr noundef nonnull %.0.i86) #13
+  %177 = ptrtoint ptr %176 to i64
+  store i64 %177, ptr %24, align 16
   store i8 1, ptr %25, align 1
   store i8 1, ptr %26, align 1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %110, %stringify_adefprivs_objtype.exit, %stringify_grant_objtype.exit
-  %174 = getelementptr inbounds i8, ptr %38, i64 4
-  %175 = load i8, ptr %174, align 4
-  %176 = and i8 %175, 1
-  %177 = zext nneg i8 %176 to i64
-  store i64 %177, ptr %27, align 8
-  %178 = ptrtoint ptr %38 to i64
-  store i64 %178, ptr %28, align 16
-  br label %179
+.sink.split:                                      ; preds = %114, %stringify_adefprivs_objtype.exit, %stringify_grant_objtype.exit
+  %178 = getelementptr inbounds i8, ptr %39, i64 4
+  %179 = load i8, ptr %178, align 4
+  %180 = and i8 %179, 1
+  %181 = zext nneg i8 %180 to i64
+  store i64 %181, ptr %27, align 8
+  %182 = ptrtoint ptr %39 to i64
+  store i64 %182, ptr %28, align 16
+  br label %183
 
-179:                                              ; preds = %.sink.split, %.lr.ph103
-  %180 = load ptr, ptr %32, align 8
-  %181 = load ptr, ptr %33, align 8
-  call void @tuplestore_putvalues(ptr noundef %180, ptr noundef %181, ptr noundef nonnull %2, ptr noundef nonnull %3) #13
-  br label %182
+183:                                              ; preds = %.sink.split, %.lr.ph103
+  %184 = load ptr, ptr %33, align 8
+  %185 = load ptr, ptr %34, align 8
+  call void @tuplestore_putvalues(ptr noundef %184, ptr noundef %185, ptr noundef nonnull %2, ptr noundef nonnull %3) #13
+  br label %186
 
-182:                                              ; preds = %54, %40, %179
+186:                                              ; preds = %56, %41, %183
   %indvars.iv.next = add nuw nsw i64 %indvars.iv102, 1
-  %183 = load i32, ptr %17, align 4
-  %184 = sext i32 %183 to i64
-  %185 = icmp slt i64 %indvars.iv.next, %184
-  br i1 %185, label %.lr.ph103, label %._crit_edge
+  %187 = load i32, ptr %17, align 4
+  %188 = sext i32 %187 to i64
+  %189 = icmp slt i64 %indvars.iv.next, %188
+  br i1 %189, label %.lr.ph103, label %._crit_edge
 
-._crit_edge:                                      ; preds = %182, %.lr.ph, %13
+._crit_edge:                                      ; preds = %186, %.lr.ph, %13
   ret i64 0
 }
 

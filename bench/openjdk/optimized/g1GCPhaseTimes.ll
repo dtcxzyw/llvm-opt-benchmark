@@ -4135,70 +4135,72 @@ define hidden void @_ZNK14G1GCPhaseTimes24debug_phase_merge_remsetEv(ptr nocaptu
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  %16 = load i64, ptr %15, align 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = load i64, ptr %16, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %17) #18
-  %18 = getelementptr inbounds i8, ptr %3, i64 144
-  store i32 2, ptr %18, align 8
+  %18 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %18) #18
+  %19 = getelementptr inbounds i8, ptr %3, i64 144
+  store i32 2, ptr %19, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 120
-  %22 = load ptr, ptr %21, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 128
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 120
+  %23 = load ptr, ptr %22, align 8
   call void @_ZN12outputStream2spEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 4) #18
-  call void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(112) %20, ptr noundef nonnull %3, i1 noundef zeroext true)
+  call void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(112) %21, ptr noundef nonnull %3, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2)
-  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_158ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit, label %24
+  %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_158ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i = icmp eq ptr %24, null
+  br i1 %.not.i, label %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit, label %25
 
-24:                                               ; preds = %5
+25:                                               ; preds = %5
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %25) #18
-  %26 = getelementptr inbounds i8, ptr %2, i64 144
-  store i32 1, ptr %26, align 8
+  %26 = getelementptr inbounds i8, ptr %2, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %26) #18
+  %27 = getelementptr inbounds i8, ptr %2, i64 144
+  store i32 1, ptr %27, align 8
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %2, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_158ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
   call void @_ZN12outputStream2spEi(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef 4) #18
-  call void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputStream(ptr noundef nonnull %20, ptr noundef nonnull %2) #18
+  call void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputStream(ptr noundef nonnull %21, ptr noundef nonnull %2) #18
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #18
   br label %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit
 
-_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit: ; preds = %5, %24
+_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit: ; preds = %5, %25
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2)
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull align 8 poison, ptr noundef %22, i32 noundef 3, ptr noundef nonnull %3, i1 noundef zeroext true)
-  call void @_ZNK14G1GCPhaseTimes23print_thread_work_itemsEP15WorkerDataArrayIdEjP12outputStream(ptr nonnull align 8 poison, ptr noundef nonnull %20, i32 noundef 2, ptr noundef nonnull %3)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull align 8 poison, ptr noundef %23, i32 noundef 3, ptr noundef nonnull %3, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes23print_thread_work_itemsEP15WorkerDataArrayIdEjP12outputStream(ptr nonnull align 8 poison, ptr noundef nonnull %21, i32 noundef 2, ptr noundef nonnull %3)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #18
-  %27 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i, label %29, label %28
+  %28 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i.i.i, label %30, label %29
 
-28:                                               ; preds = %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %16) #18
+29:                                               ; preds = %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %17) #18
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %11) #18
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28, %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit
-  %30 = load ptr, ptr %12, align 8
-  %.not8.i.i.i.i = icmp eq ptr %30, %14
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %31
+30:                                               ; preds = %29, %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit
+  %31 = load ptr, ptr %12, align 8
+  %.not8.i.i.i.i = icmp eq ptr %31, %13
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %32
 
-31:                                               ; preds = %29
+32:                                               ; preds = %30
   store ptr %11, ptr %10, align 8
-  store <2 x ptr> %13, ptr %12, align 8
+  store ptr %13, ptr %12, align 8
+  store ptr %15, ptr %14, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %31, %29, %1
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %32, %30, %1
   ret void
 }
 
@@ -6033,41 +6035,55 @@ define hidden void @_ZN30G1EvacPhaseWithTrimTimeTrackerD2Ev(ptr nocapture nounde
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %31, label %5
+  br i1 %4, label %37, label %5
 
 5:                                                ; preds = %1
   %6 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #18
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 448
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
-  %14 = load <2 x i64>, ptr %9, align 8
-  %15 = load <2 x i64>, ptr %11, align 8
-  %16 = load <2 x i64>, ptr %13, align 8
-  %17 = add <2 x i64> %14, %15
-  %18 = insertelement <2 x i64> poison, i64 %7, i64 0
-  %19 = insertelement <2 x i64> %18, i64 %8, i64 1
-  %20 = sub <2 x i64> %19, %17
-  %21 = add nsw <2 x i64> %20, %16
-  store <2 x i64> %21, ptr %13, align 8
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 448
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8
-  %26 = load <2 x i64>, ptr %23, align 8
-  %27 = load <2 x i64>, ptr %25, align 8
-  %28 = add nsw <2 x i64> %27, %26
-  store <2 x i64> %28, ptr %25, align 8
-  %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 448
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = load ptr, ptr %0, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 448
+  %.sroa.0.0.copyload.i.i = load i64, ptr %14, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %13, i64 456
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i64, ptr %16, align 8
+  %18 = add i64 %10, %.sroa.0.0.copyload.i.i
+  %19 = sub i64 %7, %18
+  %20 = add nsw i64 %19, %17
+  store i64 %20, ptr %16, align 8
+  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = add i64 %12, %.sroa.2.0.copyload.i.i
+  %24 = sub i64 %8, %23
+  %25 = add nsw i64 %24, %22
+  store i64 %25, ptr %21, align 8
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 448
+  %.sroa.0.0.copyload.i6.i = load i64, ptr %27, align 8
+  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %26, i64 456
+  %.sroa.2.0.copyload.i8.i = load i64, ptr %.sroa.2.0..sroa_idx.i7.i, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i64, ptr %29, align 8
+  %31 = add nsw i64 %30, %.sroa.0.0.copyload.i6.i
+  store i64 %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = add nsw i64 %33, %.sroa.2.0.copyload.i8.i
+  store i64 %34, ptr %32, align 8
+  %35 = load ptr, ptr %0, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 448
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   store i8 1, ptr %2, align 8
-  br label %31
+  br label %37
 
-31:                                               ; preds = %5, %1
+37:                                               ; preds = %5, %1
   ret void
 }
 
@@ -6077,32 +6093,46 @@ define hidden void @_ZN30G1EvacPhaseWithTrimTimeTracker4stopEv(ptr nocapture nou
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = extractvalue { i64, i64 } %2, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 448
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = load <2 x i64>, ptr %5, align 8
-  %11 = load <2 x i64>, ptr %7, align 8
-  %12 = load <2 x i64>, ptr %9, align 8
-  %13 = add <2 x i64> %10, %11
-  %14 = insertelement <2 x i64> poison, i64 %3, i64 0
-  %15 = insertelement <2 x i64> %14, i64 %4, i64 1
-  %16 = sub <2 x i64> %15, %13
-  %17 = add nsw <2 x i64> %16, %12
-  store <2 x i64> %17, ptr %9, align 8
-  %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 448
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  %21 = load ptr, ptr %20, align 8
-  %22 = load <2 x i64>, ptr %19, align 8
-  %23 = load <2 x i64>, ptr %21, align 8
-  %24 = add nsw <2 x i64> %23, %22
-  store <2 x i64> %24, ptr %21, align 8
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 448
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 1, ptr %27, align 8
+  %6 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = load i64, ptr %7, align 8
+  %9 = load ptr, ptr %0, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 448
+  %.sroa.0.0.copyload.i = load i64, ptr %10, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 456
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i64, ptr %12, align 8
+  %14 = add i64 %6, %.sroa.0.0.copyload.i
+  %15 = sub i64 %3, %14
+  %16 = add nsw i64 %15, %13
+  store i64 %16, ptr %12, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = add i64 %8, %.sroa.2.0.copyload.i
+  %20 = sub i64 %4, %19
+  %21 = add nsw i64 %20, %18
+  store i64 %21, ptr %17, align 8
+  %22 = load ptr, ptr %0, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 448
+  %.sroa.0.0.copyload.i6 = load i64, ptr %23, align 8
+  %.sroa.2.0..sroa_idx.i7 = getelementptr inbounds i8, ptr %22, i64 456
+  %.sroa.2.0.copyload.i8 = load i64, ptr %.sroa.2.0..sroa_idx.i7, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i64, ptr %25, align 8
+  %27 = add nsw i64 %26, %.sroa.0.0.copyload.i6
+  store i64 %27, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = add nsw i64 %29, %.sroa.2.0.copyload.i8
+  store i64 %30, ptr %28, align 8
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 448
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 1, ptr %33, align 8
   ret void
 }
 
@@ -6362,7 +6392,7 @@ define hidden void @_ZN23G1EvacPhaseTimesTrackerD2Ev(ptr noundef nonnull align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %56, label %4
+  br i1 %.not, label %65, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -6370,106 +6400,138 @@ define hidden void @_ZN23G1EvacPhaseTimesTrackerD2Ev(ptr noundef nonnull align 8
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
   %9 = getelementptr inbounds i8, ptr %0, i64 136
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 448
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
-  %13 = load ptr, ptr %12, align 8
-  %14 = load <2 x i64>, ptr %9, align 8
-  %15 = load <2 x i64>, ptr %11, align 8
-  %16 = load <2 x i64>, ptr %13, align 8
-  %17 = add <2 x i64> %14, %15
-  %18 = insertelement <2 x i64> poison, i64 %7, i64 0
-  %19 = insertelement <2 x i64> %18, i64 %8, i64 1
-  %20 = sub <2 x i64> %19, %17
-  %21 = add nsw <2 x i64> %20, %16
-  store <2 x i64> %21, ptr %13, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 448
-  %24 = getelementptr inbounds i8, ptr %0, i64 160
-  %25 = load ptr, ptr %24, align 8
-  %26 = load <2 x i64>, ptr %23, align 8
-  %27 = load <2 x i64>, ptr %25, align 8
-  %28 = add nsw <2 x i64> %27, %26
-  store <2 x i64> %28, ptr %25, align 8
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 448
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  %31 = getelementptr inbounds i8, ptr %0, i64 168
-  store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 112
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = load <2 x i64>, ptr %32, align 8
-  %35 = load <2 x i64>, ptr %33, align 8
-  %36 = add nsw <2 x i64> %35, %34
-  store <2 x i64> %36, ptr %33, align 8
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
-  %39 = load i32, ptr %38, align 8
-  %40 = extractelement <2 x i64> %34, i64 0
-  %41 = extractelement <2 x i64> %34, i64 1
-  %42 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %40, i64 %41) #18
-  %43 = getelementptr inbounds i8, ptr %37, i64 184
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = zext i32 %39 to i64
-  %47 = getelementptr inbounds double, ptr %45, i64 %46
-  %48 = load double, ptr %47, align 8
-  %49 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #18
-  %50 = fcmp oeq double %48, %49
-  %51 = load ptr, ptr %44, align 8
-  %52 = getelementptr inbounds double, ptr %51, i64 %46
-  br i1 %50, label %_ZN14G1GCPhaseTimes23record_or_add_time_secsENS_11GCParPhasesEjd.exit, label %53
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = load i64, ptr %11, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 448
+  %.sroa.0.0.copyload.i.i = load i64, ptr %14, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %13, i64 456
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 152
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i64, ptr %16, align 8
+  %18 = add i64 %10, %.sroa.0.0.copyload.i.i
+  %19 = sub i64 %7, %18
+  %20 = add nsw i64 %19, %17
+  store i64 %20, ptr %16, align 8
+  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = add i64 %12, %.sroa.2.0.copyload.i.i
+  %24 = sub i64 %8, %23
+  %25 = add nsw i64 %24, %22
+  store i64 %25, ptr %21, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 448
+  %.sroa.0.0.copyload.i6.i = load i64, ptr %27, align 8
+  %.sroa.2.0..sroa_idx.i7.i = getelementptr inbounds i8, ptr %26, i64 456
+  %.sroa.2.0.copyload.i8.i = load i64, ptr %.sroa.2.0..sroa_idx.i7.i, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 160
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i64, ptr %29, align 8
+  %31 = add nsw i64 %30, %.sroa.0.0.copyload.i6.i
+  store i64 %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = add nsw i64 %33, %.sroa.2.0.copyload.i8.i
+  store i64 %34, ptr %32, align 8
+  %35 = load ptr, ptr %5, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 448
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
+  %37 = getelementptr inbounds i8, ptr %0, i64 168
+  store i8 1, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 112
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = load i64, ptr %38, align 8
+  %41 = load i64, ptr %39, align 8
+  %42 = add nsw i64 %41, %40
+  store i64 %42, ptr %39, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 120
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = load i64, ptr %45, align 8
+  %47 = add nsw i64 %46, %44
+  store i64 %47, ptr %45, align 8
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %50 = load i32, ptr %49, align 8
+  %51 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %40, i64 %44) #18
+  %52 = getelementptr inbounds i8, ptr %48, i64 184
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = zext i32 %50 to i64
+  %56 = getelementptr inbounds double, ptr %54, i64 %55
+  %57 = load double, ptr %56, align 8
+  %58 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #18
+  %59 = fcmp oeq double %57, %58
+  %60 = load ptr, ptr %53, align 8
+  %61 = getelementptr inbounds double, ptr %60, i64 %55
+  br i1 %59, label %_ZN14G1GCPhaseTimes23record_or_add_time_secsENS_11GCParPhasesEjd.exit, label %62
 
-53:                                               ; preds = %4
-  %54 = load double, ptr %52, align 8
-  %55 = fadd double %42, %54
+62:                                               ; preds = %4
+  %63 = load double, ptr %61, align 8
+  %64 = fadd double %51, %63
   br label %_ZN14G1GCPhaseTimes23record_or_add_time_secsENS_11GCParPhasesEjd.exit
 
-_ZN14G1GCPhaseTimes23record_or_add_time_secsENS_11GCParPhasesEjd.exit: ; preds = %4, %53
-  %.sink.i.i = phi double [ %55, %53 ], [ %42, %4 ]
-  store double %.sink.i.i, ptr %52, align 8
-  br label %56
+_ZN14G1GCPhaseTimes23record_or_add_time_secsENS_11GCParPhasesEjd.exit: ; preds = %4, %62
+  %.sink.i.i = phi double [ %64, %62 ], [ %51, %4 ]
+  store double %.sink.i.i, ptr %61, align 8
+  br label %65
 
-56:                                               ; preds = %_ZN14G1GCPhaseTimes23record_or_add_time_secsENS_11GCParPhasesEjd.exit, %1
-  %57 = getelementptr inbounds i8, ptr %0, i64 168
-  %58 = load i8, ptr %57, align 8
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %_ZN30G1EvacPhaseWithTrimTimeTrackerD2Ev.exit, label %60
+65:                                               ; preds = %_ZN14G1GCPhaseTimes23record_or_add_time_secsENS_11GCParPhasesEjd.exit, %1
+  %66 = getelementptr inbounds i8, ptr %0, i64 168
+  %67 = load i8, ptr %66, align 8
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %_ZN30G1EvacPhaseWithTrimTimeTrackerD2Ev.exit, label %69
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %0, i64 128
-  %62 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #18
-  %63 = extractvalue { i64, i64 } %62, 0
-  %64 = extractvalue { i64, i64 } %62, 1
-  %65 = getelementptr inbounds i8, ptr %0, i64 136
-  %66 = load ptr, ptr %61, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 448
-  %68 = getelementptr inbounds i8, ptr %0, i64 152
-  %69 = load ptr, ptr %68, align 8
-  %70 = load <2 x i64>, ptr %65, align 8
-  %71 = load <2 x i64>, ptr %67, align 8
-  %72 = load <2 x i64>, ptr %69, align 8
-  %73 = add <2 x i64> %70, %71
-  %74 = insertelement <2 x i64> poison, i64 %63, i64 0
-  %75 = insertelement <2 x i64> %74, i64 %64, i64 1
-  %76 = sub <2 x i64> %75, %73
-  %77 = add nsw <2 x i64> %76, %72
-  store <2 x i64> %77, ptr %69, align 8
-  %78 = load ptr, ptr %61, align 8
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %0, i64 128
+  %71 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #18
+  %72 = extractvalue { i64, i64 } %71, 0
+  %73 = extractvalue { i64, i64 } %71, 1
+  %74 = getelementptr inbounds i8, ptr %0, i64 136
+  %75 = load i64, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 144
+  %77 = load i64, ptr %76, align 8
+  %78 = load ptr, ptr %70, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 448
-  %80 = getelementptr inbounds i8, ptr %0, i64 160
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %79, align 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %78, i64 456
+  %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
+  %80 = getelementptr inbounds i8, ptr %0, i64 152
   %81 = load ptr, ptr %80, align 8
-  %82 = load <2 x i64>, ptr %79, align 8
-  %83 = load <2 x i64>, ptr %81, align 8
-  %84 = add nsw <2 x i64> %83, %82
-  store <2 x i64> %84, ptr %81, align 8
-  %85 = load ptr, ptr %61, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 448
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
-  store i8 1, ptr %57, align 8
+  %82 = load i64, ptr %81, align 8
+  %83 = add i64 %75, %.sroa.0.0.copyload.i.i.i
+  %84 = sub i64 %72, %83
+  %85 = add nsw i64 %84, %82
+  store i64 %85, ptr %81, align 8
+  %86 = getelementptr inbounds i8, ptr %81, i64 8
+  %87 = load i64, ptr %86, align 8
+  %88 = add i64 %77, %.sroa.2.0.copyload.i.i.i
+  %89 = sub i64 %73, %88
+  %90 = add nsw i64 %89, %87
+  store i64 %90, ptr %86, align 8
+  %91 = load ptr, ptr %70, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 448
+  %.sroa.0.0.copyload.i6.i.i = load i64, ptr %92, align 8
+  %.sroa.2.0..sroa_idx.i7.i.i = getelementptr inbounds i8, ptr %91, i64 456
+  %.sroa.2.0.copyload.i8.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i7.i.i, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 160
+  %94 = load ptr, ptr %93, align 8
+  %95 = load i64, ptr %94, align 8
+  %96 = add nsw i64 %95, %.sroa.0.0.copyload.i6.i.i
+  store i64 %96, ptr %94, align 8
+  %97 = getelementptr inbounds i8, ptr %94, i64 8
+  %98 = load i64, ptr %97, align 8
+  %99 = add nsw i64 %98, %.sroa.2.0.copyload.i8.i.i
+  store i64 %99, ptr %97, align 8
+  %100 = load ptr, ptr %70, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 448
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
+  store i8 1, ptr %66, align 8
   br label %_ZN30G1EvacPhaseWithTrimTimeTrackerD2Ev.exit
 
-_ZN30G1EvacPhaseWithTrimTimeTrackerD2Ev.exit:     ; preds = %56, %60
+_ZN30G1EvacPhaseWithTrimTimeTrackerD2Ev.exit:     ; preds = %65, %69
   tail call void @_ZN24G1GCParPhaseTimesTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %0) #18
   ret void
 }

@@ -3364,21 +3364,21 @@ Vec_WrdStart.exit:                                ; preds = %Vec_PtrAlloc.exit, 
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph60
 
-.lr.ph60:                                         ; preds = %.lr.ph60.preheader, %106
-  %indvars.iv = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next, %106 ]
-  %.04758 = phi i32 [ 0, %.lr.ph60.preheader ], [ %.1, %106 ]
+.lr.ph60:                                         ; preds = %.lr.ph60.preheader, %107
+  %indvars.iv = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next, %107 ]
+  %.04758 = phi i32 [ 0, %.lr.ph60.preheader ], [ %.1, %107 ]
   %37 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 68
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, %0
-  br i1 %41, label %106, label %42
+  br i1 %41, label %107, label %42
 
 42:                                               ; preds = %.lr.ph60
   %43 = getelementptr inbounds i8, ptr %38, i64 56
   %44 = load ptr, ptr %43, align 8
   %.not55 = icmp eq ptr %44, null
-  br i1 %.not55, label %45, label %106
+  br i1 %.not55, label %45, label %107
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %1, align 8
@@ -3458,46 +3458,50 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %84 = getelementptr inbounds i64, ptr %.val, i64 %83
   %85 = load i32, ptr %39, align 4
   %86 = icmp slt i32 %85, 7
-  br i1 %86, label %87, label %92
+  br i1 %86, label %87, label %93
 
 87:                                               ; preds = %Vec_PtrPush.exit
   %88 = getelementptr inbounds i8, ptr %38, i64 104
   %89 = load i64, ptr %88, align 8
-  %90 = insertelement <4 x i64> poison, i64 %89, i64 0
-  %91 = shufflevector <4 x i64> %90, <4 x i64> poison, <4 x i32> zeroinitializer
-  store <4 x i64> %91, ptr %84, align 8
-  br label %106
+  %90 = getelementptr inbounds i8, ptr %84, i64 24
+  store i64 %89, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %84, i64 16
+  store i64 %89, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %84, i64 8
+  store i64 %89, ptr %92, align 8
+  store i64 %89, ptr %84, align 8
+  br label %107
 
-92:                                               ; preds = %Vec_PtrPush.exit
-  switch i32 %85, label %106 [
-    i32 7, label %93
-    i32 8, label %103
+93:                                               ; preds = %Vec_PtrPush.exit
+  switch i32 %85, label %107 [
+    i32 7, label %94
+    i32 8, label %104
   ]
 
-93:                                               ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %38, i64 104
-  %95 = load ptr, ptr %94, align 8
-  %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %84, i64 16
-  store i64 %96, ptr %97, align 8
-  store i64 %96, ptr %84, align 8
-  %98 = load ptr, ptr %94, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
-  %100 = load i64, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %84, i64 24
-  store i64 %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %84, i64 8
-  store i64 %100, ptr %102, align 8
-  br label %106
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds i8, ptr %38, i64 104
+  %96 = load ptr, ptr %95, align 8
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %84, i64 16
+  store i64 %97, ptr %98, align 8
+  store i64 %97, ptr %84, align 8
+  %99 = load ptr, ptr %95, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %101 = load i64, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %84, i64 24
+  store i64 %101, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %84, i64 8
+  store i64 %101, ptr %103, align 8
+  br label %107
 
-103:                                              ; preds = %92
-  %104 = getelementptr inbounds i8, ptr %38, i64 104
-  %105 = load ptr, ptr %104, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) %105, i64 32, i1 false)
-  br label %106
+104:                                              ; preds = %93
+  %105 = getelementptr inbounds i8, ptr %38, i64 104
+  %106 = load ptr, ptr %105, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false)
+  br label %107
 
-106:                                              ; preds = %92, %87, %103, %93, %.lr.ph60, %42
-  %.1 = phi i32 [ %.04758, %.lr.ph60 ], [ %.04758, %42 ], [ %80, %87 ], [ %80, %93 ], [ %80, %103 ], [ %80, %92 ]
+107:                                              ; preds = %93, %87, %104, %94, %.lr.ph60, %42
+  %.1 = phi i32 [ %.04758, %.lr.ph60 ], [ %.04758, %42 ], [ %80, %87 ], [ %80, %94 ], [ %80, %104 ], [ %80, %93 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge61.thread, label %.lr.ph60, !llvm.loop !46
@@ -3506,7 +3510,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.not54 = icmp eq ptr %8, null
   br i1 %.not54, label %.thread, label %._crit_edge61.thread
 
-._crit_edge61.thread:                             ; preds = %106, %._crit_edge61
+._crit_edge61.thread:                             ; preds = %107, %._crit_edge61
   tail call void @free(ptr noundef nonnull %8) #30
   br label %.thread
 
@@ -3837,54 +3841,66 @@ Mio_SopGetVarNum.exit:                            ; preds = %8, %12
   br label %.preheader57.us
 
 .preheader57.us:                                  ; preds = %.preheader57.us.preheader, %._crit_edge.us
-  %.164.us = phi ptr [ %43, %._crit_edge.us ], [ %21, %.preheader57.us.preheader ]
-  %26 = phi <2 x i32> [ %42, %._crit_edge.us ], [ zeroinitializer, %.preheader57.us.preheader ]
-  br label %27
+  %26 = phi i32 [ %49, %._crit_edge.us ], [ 0, %.preheader57.us.preheader ]
+  %27 = phi i32 [ %48, %._crit_edge.us ], [ 0, %.preheader57.us.preheader ]
+  %.164.us = phi ptr [ %50, %._crit_edge.us ], [ %21, %.preheader57.us.preheader ]
+  br label %28
 
-27:                                               ; preds = %.preheader57.us, %40
-  %indvars.iv = phi i64 [ 0, %.preheader57.us ], [ %indvars.iv.next, %40 ]
-  %28 = phi <2 x i32> [ <i32 -1, i32 -1>, %.preheader57.us ], [ %41, %40 ]
+28:                                               ; preds = %.preheader57.us, %47
+  %indvars.iv = phi i64 [ 0, %.preheader57.us ], [ %indvars.iv.next, %47 ]
+  %.sroa.11.061.us = phi i32 [ -1, %.preheader57.us ], [ %.sroa.11.1.us, %47 ]
+  %.sroa.0.259.us = phi i32 [ -1, %.preheader57.us ], [ %.sroa.0.3.us, %47 ]
   %29 = getelementptr inbounds i8, ptr %.164.us, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1
-  switch i8 %30, label %40 [
-    i8 48, label %35
+  switch i8 %30, label %47 [
+    i8 48, label %38
     i8 49, label %31
   ]
 
-31:                                               ; preds = %27
+31:                                               ; preds = %28
   %32 = getelementptr inbounds [2 x i32], ptr %1, i64 %indvars.iv
-  %33 = load <2 x i32>, ptr %32, align 4
-  %34 = and <2 x i32> %33, %28
-  br label %40
+  %33 = load i32, ptr %32, align 4
+  %34 = and i32 %33, %.sroa.0.259.us
+  %35 = getelementptr inbounds i8, ptr %32, i64 4
+  %36 = load i32, ptr %35, align 4
+  %37 = and i32 %36, %.sroa.11.061.us
+  br label %47
 
-35:                                               ; preds = %27
-  %36 = getelementptr inbounds [2 x i32], ptr %1, i64 %indvars.iv
-  %37 = load <2 x i32>, ptr %36, align 4
-  %38 = xor <2 x i32> %37, <i32 -1, i32 -1>
-  %39 = and <2 x i32> %28, %38
-  br label %40
+38:                                               ; preds = %28
+  %39 = getelementptr inbounds [2 x i32], ptr %1, i64 %indvars.iv
+  %40 = load i32, ptr %39, align 4
+  %41 = xor i32 %40, -1
+  %42 = and i32 %.sroa.0.259.us, %41
+  %43 = getelementptr inbounds i8, ptr %39, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = xor i32 %44, -1
+  %46 = and i32 %.sroa.11.061.us, %45
+  br label %47
 
-40:                                               ; preds = %35, %31, %27
-  %41 = phi <2 x i32> [ %39, %35 ], [ %34, %31 ], [ %28, %27 ]
+47:                                               ; preds = %38, %31, %28
+  %.sroa.0.3.us = phi i32 [ %42, %38 ], [ %34, %31 ], [ %.sroa.0.259.us, %28 ]
+  %.sroa.11.1.us = phi i32 [ %46, %38 ], [ %37, %31 ], [ %.sroa.11.061.us, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !49
 
-._crit_edge.us:                                   ; preds = %40
-  %42 = or <2 x i32> %26, %41
-  store <2 x i32> %42, ptr %4, align 4
-  %43 = getelementptr inbounds i8, ptr %.164.us, i64 %25
-  %44 = load i8, ptr %43, align 1
-  %.not.us = icmp eq i8 %44, 0
+._crit_edge.us:                                   ; preds = %47
+  %48 = or i32 %27, %.sroa.0.3.us
+  store i32 %48, ptr %4, align 4
+  %49 = or i32 %26, %.sroa.11.1.us
+  store i32 %49, ptr %18, align 4
+  %50 = getelementptr inbounds i8, ptr %.164.us, i64 %25
+  %51 = load i8, ptr %50, align 1
+  %.not.us = icmp eq i8 %51, 0
   br i1 %.not.us, label %.loopexit, label %.preheader57.us, !llvm.loop !50
 
 .preheader57:                                     ; preds = %.preheader57.lr.ph, %.preheader57
-  %.164 = phi ptr [ %45, %.preheader57 ], [ %21, %.preheader57.lr.ph ]
+  %.164 = phi ptr [ %52, %.preheader57 ], [ %21, %.preheader57.lr.ph ]
   store i32 -1, ptr %4, align 4
   store i32 -1, ptr %18, align 4
-  %45 = getelementptr inbounds i8, ptr %.164, i64 %25
-  %46 = load i8, ptr %45, align 1
-  %.not = icmp eq i8 %46, 0
+  %52 = getelementptr inbounds i8, ptr %.164, i64 %25
+  %53 = load i8, ptr %52, align 1
+  %.not = icmp eq i8 %53, 0
   br i1 %.not, label %.loopexit, label %.preheader57, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.preheader57, %._crit_edge.us, %Mio_SopGetVarNum.exit, %20

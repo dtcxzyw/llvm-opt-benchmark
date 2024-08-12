@@ -885,74 +885,86 @@ define range(i32 -2, 1) i32 @KINSetConstraints(ptr noundef %0, ptr noundef %1) l
 
 4:                                                ; preds = %2
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 815, ptr noundef nonnull @__func__.KINSetConstraints, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
-  br label %36
+  br label %46
 
 5:                                                ; preds = %2
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %7, label %19
+  br i1 %6, label %7, label %24
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8
   %.not25 = icmp eq i32 %9, 0
-  br i1 %.not25, label %18, label %10
+  br i1 %.not25, label %23, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 320
   %12 = load ptr, ptr %11, align 8
   tail call void @N_VDestroy(ptr noundef %12) #9
   %13 = getelementptr inbounds i8, ptr %0, i64 512
-  %14 = getelementptr inbounds i8, ptr %0, i64 528
-  %15 = load <2 x i64>, ptr %13, align 8
-  %16 = load <2 x i64>, ptr %14, align 8
-  %17 = sub nsw <2 x i64> %16, %15
-  store <2 x i64> %17, ptr %14, align 8
-  br label %18
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 528
+  %16 = load i64, ptr %15, align 8
+  %17 = sub nsw i64 %16, %14
+  store i64 %17, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 520
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 536
+  %21 = load i64, ptr %20, align 8
+  %22 = sub nsw i64 %21, %19
+  store i64 %22, ptr %20, align 8
+  br label %23
 
-18:                                               ; preds = %10, %7
+23:                                               ; preds = %10, %7
   store i32 0, ptr %8, align 8
-  br label %36
+  br label %46
 
-19:                                               ; preds = %5
-  %20 = tail call double @N_VMaxNorm(ptr noundef nonnull %1) #9
-  %21 = fcmp ogt double %20, 2.500000e+00
-  br i1 %21, label %22, label %23
+24:                                               ; preds = %5
+  %25 = tail call double @N_VMaxNorm(ptr noundef nonnull %1) #9
+  %26 = fcmp ogt double %25, 2.500000e+00
+  br i1 %26, label %27, label %28
 
-22:                                               ; preds = %19
+27:                                               ; preds = %24
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -2, i32 noundef 838, ptr noundef nonnull @__func__.KINSetConstraints, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19) #9
-  br label %36
+  br label %46
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
-  %25 = load i32, ptr %24, align 8
-  %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %26, label %._crit_edge
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  %30 = load i32, ptr %29, align 8
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %31, label %._crit_edge
 
-._crit_edge:                                      ; preds = %23
+._crit_edge:                                      ; preds = %28
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 320
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %34
+  br label %44
 
-26:                                               ; preds = %23
-  %27 = tail call ptr @N_VClone(ptr noundef nonnull %1) #9
-  %28 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 512
-  %30 = getelementptr inbounds i8, ptr %0, i64 528
-  %31 = load <2 x i64>, ptr %29, align 8
-  %32 = load <2 x i64>, ptr %30, align 8
-  %33 = add nsw <2 x i64> %32, %31
-  store <2 x i64> %33, ptr %30, align 8
-  store i32 1, ptr %24, align 8
-  br label %34
+31:                                               ; preds = %28
+  %32 = tail call ptr @N_VClone(ptr noundef nonnull %1) #9
+  %33 = getelementptr inbounds i8, ptr %0, i64 320
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 512
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 528
+  %37 = load i64, ptr %36, align 8
+  %38 = add nsw i64 %37, %35
+  store i64 %38, ptr %36, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 520
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 536
+  %42 = load i64, ptr %41, align 8
+  %43 = add nsw i64 %42, %40
+  store i64 %43, ptr %41, align 8
+  store i32 1, ptr %29, align 8
+  br label %44
 
-34:                                               ; preds = %._crit_edge, %26
-  %35 = phi ptr [ %.pre, %._crit_edge ], [ %27, %26 ]
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %1, ptr noundef %35) #9
-  br label %36
+44:                                               ; preds = %._crit_edge, %31
+  %45 = phi ptr [ %.pre, %._crit_edge ], [ %32, %31 ]
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %1, ptr noundef %45) #9
+  br label %46
 
-36:                                               ; preds = %34, %22, %18, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %18 ], [ -2, %22 ], [ 0, %34 ]
+46:                                               ; preds = %44, %27, %23, %4
+  %.0 = phi i32 [ -1, %4 ], [ 0, %23 ], [ -2, %27 ], [ 0, %44 ]
   ret i32 %.0
 }
 

@@ -903,35 +903,38 @@ do.end:                                           ; preds = %entry
   %call1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call1, i8 0, i64 48, i1 false)
   %manager_.i.i.i.i = getelementptr inbounds i8, ptr %call1, i64 16
+  %invoker_.i.i.i.i = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i, align 16
   %manager_.i.i.i = getelementptr inbounds i8, ptr %builder, i64 16
   %1 = load ptr, ptr %manager_.i.i.i, align 16
   tail call void %1(i1 noundef zeroext false, ptr noundef nonnull %builder, ptr noundef nonnull %call1) #15
+  %2 = load ptr, ptr %manager_.i.i.i, align 16
+  store ptr %2, ptr %manager_.i.i.i.i, align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %builder, i64 24
-  %2 = load <2 x ptr>, ptr %manager_.i.i.i, align 16
-  store <2 x ptr> %2, ptr %manager_.i.i.i.i, align 16
+  %3 = load ptr, ptr %invoker_.i.i.i, align 8
+  store ptr %3, ptr %invoker_.i.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
-  %3 = load atomic i64, ptr @_ZN9grpc_core17CoreConfiguration9builders_E monotonic, align 8
-  %atomic-temp.i.0.i6 = inttoptr i64 %3 to ptr
+  %4 = load atomic i64, ptr @_ZN9grpc_core17CoreConfiguration9builders_E monotonic, align 8
+  %atomic-temp.i.0.i6 = inttoptr i64 %4 to ptr
   %next = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr %atomic-temp.i.0.i6, ptr %next, align 16
-  %4 = ptrtoint ptr %call1 to i64
-  %5 = cmpxchg weak ptr @_ZN9grpc_core17CoreConfiguration9builders_E, i64 %3, i64 %4 acq_rel monotonic, align 8
-  %6 = extractvalue { i64, i1 } %5, 1
-  br i1 %6, label %do.body8, label %_ZNSt6atomicIPN9grpc_core17CoreConfiguration17RegisteredBuilderEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
+  %5 = ptrtoint ptr %call1 to i64
+  %6 = cmpxchg weak ptr @_ZN9grpc_core17CoreConfiguration9builders_E, i64 %4, i64 %5 acq_rel monotonic, align 8
+  %7 = extractvalue { i64, i1 } %6, 1
+  br i1 %7, label %do.body8, label %_ZNSt6atomicIPN9grpc_core17CoreConfiguration17RegisteredBuilderEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
 
 _ZNSt6atomicIPN9grpc_core17CoreConfiguration17RegisteredBuilderEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit: ; preds = %do.end, %_ZNSt6atomicIPN9grpc_core17CoreConfiguration17RegisteredBuilderEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
-  %7 = phi { i64, i1 } [ %9, %_ZNSt6atomicIPN9grpc_core17CoreConfiguration17RegisteredBuilderEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit ], [ %5, %do.end ]
-  %8 = extractvalue { i64, i1 } %7, 0
-  store i64 %8, ptr %next, align 8
-  %9 = cmpxchg weak ptr @_ZN9grpc_core17CoreConfiguration9builders_E, i64 %8, i64 %4 acq_rel monotonic, align 8
-  %10 = extractvalue { i64, i1 } %9, 1
-  br i1 %10, label %do.body8, label %_ZNSt6atomicIPN9grpc_core17CoreConfiguration17RegisteredBuilderEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit, !llvm.loop !12
+  %8 = phi { i64, i1 } [ %10, %_ZNSt6atomicIPN9grpc_core17CoreConfiguration17RegisteredBuilderEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit ], [ %6, %do.end ]
+  %9 = extractvalue { i64, i1 } %8, 0
+  store i64 %9, ptr %next, align 8
+  %10 = cmpxchg weak ptr @_ZN9grpc_core17CoreConfiguration9builders_E, i64 %9, i64 %5 acq_rel monotonic, align 8
+  %11 = extractvalue { i64, i1 } %10, 1
+  br i1 %11, label %do.body8, label %_ZNSt6atomicIPN9grpc_core17CoreConfiguration17RegisteredBuilderEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit, !llvm.loop !12
 
 do.body8:                                         ; preds = %_ZNSt6atomicIPN9grpc_core17CoreConfiguration17RegisteredBuilderEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit, %do.end
-  %11 = load atomic i64, ptr @_ZN9grpc_core17CoreConfiguration7config_E monotonic, align 8
-  %cmp10.not = icmp eq i64 %11, 0
+  %12 = load atomic i64, ptr @_ZN9grpc_core17CoreConfiguration7config_E monotonic, align 8
+  %cmp10.not = icmp eq i64 %12, 0
   br i1 %cmp10.not, label %do.end16, label %if.then14
 
 if.then14:                                        ; preds = %do.body8

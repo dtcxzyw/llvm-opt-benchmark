@@ -446,45 +446,47 @@ define hidden void @_ZN5XHeap13out_of_memoryEv(ptr nocapture noundef nonnull rea
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load <2 x ptr>, ptr %8, align 8
-  %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = load i64, ptr %11, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = load i64, ptr %12, align 8
   tail call void @_Z8XStatIncRK12XStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) @_ZL19XCounterOutOfMemory, i64 noundef 1) #12
-  %13 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %20, label %14
+  %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %21, label %15
 
-14:                                               ; preds = %1
-  %15 = load ptr, ptr %2, align 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 168
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(888) %15) #12
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef %19)
-  br label %20
+15:                                               ; preds = %1
+  %16 = load ptr, ptr %2, align 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 168
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(888) %16) #12
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef %20)
+  br label %21
 
-20:                                               ; preds = %1, %14
-  %21 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i, label %23, label %22
+21:                                               ; preds = %1, %15
+  %22 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i, label %24, label %23
 
-22:                                               ; preds = %20
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %12) #12
+23:                                               ; preds = %21
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #12
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #12
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %20
-  %24 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %24, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %25
+24:                                               ; preds = %23, %21
+  %25 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %25, %9
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %26
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   store ptr %7, ptr %6, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  store ptr %9, ptr %8, align 8
+  store ptr %11, ptr %10, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %23, %25
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %24, %26
   ret void
 }
 
@@ -1248,9 +1250,9 @@ define linkonce_odr hidden void @_ZN22XRelocationSetSelector18register_live_page
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = getelementptr inbounds i8, ptr %1, i64 40
-  switch i8 %6, label %48 [
+  switch i8 %6, label %52 [
     i8 0, label %10
-    i8 1, label %29
+    i8 1, label %31
   ]
 
 10:                                               ; preds = %2
@@ -1273,80 +1275,89 @@ define linkonce_odr hidden void @_ZN22XRelocationSetSelector18register_live_page
 
 _ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit: ; preds = %10, %19
   %22 = getelementptr inbounds i8, ptr %0, i64 64
-  %23 = load <2 x i64>, ptr %22, align 8
-  %24 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %13, i64 1
-  %25 = add <2 x i64> %23, %24
-  store <2 x i64> %25, ptr %22, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
-  %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, %14
-  store i64 %28, ptr %26, align 8
+  %23 = load i64, ptr %22, align 8
+  %24 = add i64 %23, 1
+  store i64 %24, ptr %22, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, %13
+  store i64 %27, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = load i64, ptr %28, align 8
+  %30 = add i64 %29, %14
+  store i64 %30, ptr %28, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %67
+  br label %73
 
-29:                                               ; preds = %2
+31:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8
-  %30 = load i64, ptr %8, align 8
-  %31 = load i64, ptr %7, align 8
-  %32 = sub i64 %30, %31
-  %33 = load volatile i64, ptr %9, align 8
+  %32 = load i64, ptr %8, align 8
+  %33 = load i64, ptr %7, align 8
   %34 = sub i64 %32, %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 144
-  %36 = load i64, ptr %35, align 8
-  %37 = icmp ugt i64 %34, %36
-  br i1 %37, label %38, label %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6
+  %35 = load volatile i64, ptr %9, align 8
+  %36 = sub i64 %34, %35
+  %37 = getelementptr inbounds i8, ptr %0, i64 144
+  %38 = load i64, ptr %37, align 8
+  %39 = icmp ugt i64 %36, %38
+  br i1 %39, label %40, label %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6
 
-38:                                               ; preds = %29
-  %39 = getelementptr inbounds i8, ptr %0, i64 152
-  %40 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(8) %4)
+40:                                               ; preds = %31
+  %41 = getelementptr inbounds i8, ptr %0, i64 152
+  %42 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6
 
-_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6: ; preds = %29, %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 176
-  %42 = load <2 x i64>, ptr %41, align 8
-  %43 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %32, i64 1
-  %44 = add <2 x i64> %42, %43
-  store <2 x i64> %44, ptr %41, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 192
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %46, %33
-  store i64 %47, ptr %45, align 8
+_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6: ; preds = %31, %40
+  %43 = getelementptr inbounds i8, ptr %0, i64 176
+  %44 = load i64, ptr %43, align 8
+  %45 = add i64 %44, 1
+  store i64 %45, ptr %43, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 184
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %47, %34
+  store i64 %48, ptr %46, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 192
+  %50 = load i64, ptr %49, align 8
+  %51 = add i64 %50, %35
+  store i64 %51, ptr %49, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %67
+  br label %73
 
-48:                                               ; preds = %2
+52:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %1, ptr %3, align 8
-  %49 = load i64, ptr %8, align 8
-  %50 = load i64, ptr %7, align 8
-  %51 = sub i64 %49, %50
-  %52 = load volatile i64, ptr %9, align 8
-  %53 = sub i64 %51, %52
-  %54 = getelementptr inbounds i8, ptr %0, i64 256
-  %55 = load i64, ptr %54, align 8
-  %56 = icmp ugt i64 %53, %55
-  br i1 %56, label %57, label %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit7
+  %53 = load i64, ptr %8, align 8
+  %54 = load i64, ptr %7, align 8
+  %55 = sub i64 %53, %54
+  %56 = load volatile i64, ptr %9, align 8
+  %57 = sub i64 %55, %56
+  %58 = getelementptr inbounds i8, ptr %0, i64 256
+  %59 = load i64, ptr %58, align 8
+  %60 = icmp ugt i64 %57, %59
+  br i1 %60, label %61, label %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit7
 
-57:                                               ; preds = %48
-  %58 = getelementptr inbounds i8, ptr %0, i64 264
-  %59 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(8) %3)
+61:                                               ; preds = %52
+  %62 = getelementptr inbounds i8, ptr %0, i64 264
+  %63 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit7
 
-_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit7: ; preds = %48, %57
-  %60 = getelementptr inbounds i8, ptr %0, i64 288
-  %61 = load <2 x i64>, ptr %60, align 8
-  %62 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %51, i64 1
-  %63 = add <2 x i64> %61, %62
-  store <2 x i64> %63, ptr %60, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 304
+_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit7: ; preds = %52, %61
+  %64 = getelementptr inbounds i8, ptr %0, i64 288
   %65 = load i64, ptr %64, align 8
-  %66 = add i64 %65, %52
+  %66 = add i64 %65, 1
   store i64 %66, ptr %64, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 296
+  %68 = load i64, ptr %67, align 8
+  %69 = add i64 %68, %55
+  store i64 %69, ptr %67, align 8
+  %70 = getelementptr inbounds i8, ptr %0, i64 304
+  %71 = load i64, ptr %70, align 8
+  %72 = add i64 %71, %56
+  store i64 %72, ptr %70, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %67
+  br label %73
 
-67:                                               ; preds = %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6, %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit7, %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit
+73:                                               ; preds = %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6, %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit7, %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit
   ret void
 }
 

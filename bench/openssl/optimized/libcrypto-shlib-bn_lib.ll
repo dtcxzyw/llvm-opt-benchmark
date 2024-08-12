@@ -697,24 +697,26 @@ entry:
   %1 = load i32, ptr %flags1, align 4
   %2 = load ptr, ptr %a, align 8
   %top = getelementptr inbounds i8, ptr %a, i64 8
+  %3 = load i32, ptr %top, align 8
   %dmax = getelementptr inbounds i8, ptr %a, i64 12
+  %4 = load i32, ptr %dmax, align 4
   %neg = getelementptr inbounds i8, ptr %a, i64 16
-  %3 = load i32, ptr %neg, align 8
-  %4 = load ptr, ptr %b, align 8
-  store ptr %4, ptr %a, align 8
+  %5 = load i32, ptr %neg, align 8
+  %6 = load ptr, ptr %b, align 8
+  store ptr %6, ptr %a, align 8
   %top4 = getelementptr inbounds i8, ptr %b, i64 8
-  %5 = load i32, ptr %top4, align 8
+  %7 = load i32, ptr %top4, align 8
+  store i32 %7, ptr %top, align 8
   %dmax6 = getelementptr inbounds i8, ptr %b, i64 12
+  %8 = load i32, ptr %dmax6, align 4
+  store i32 %8, ptr %dmax, align 4
   %neg8 = getelementptr inbounds i8, ptr %b, i64 16
-  %6 = load <2 x i32>, ptr %top, align 8
-  store i32 %5, ptr %top, align 8
-  %7 = load i32, ptr %dmax6, align 4
-  store i32 %7, ptr %dmax, align 4
-  %8 = load i32, ptr %neg8, align 8
-  store i32 %8, ptr %neg, align 8
+  %9 = load i32, ptr %neg8, align 8
+  store i32 %9, ptr %neg, align 8
   store ptr %2, ptr %b, align 8
-  store <2 x i32> %6, ptr %top4, align 8
-  store i32 %3, ptr %neg8, align 8
+  store i32 %3, ptr %top4, align 8
+  store i32 %4, ptr %dmax6, align 4
+  store i32 %5, ptr %neg8, align 8
   %and = and i32 %0, 1
   %and14 = and i32 %1, 14
   %or = or disjoint i32 %and14, %and

@@ -135,7 +135,8 @@ _ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.preheader: ; preds = %32
 
 .lr.ph:                                           ; preds = %.preheader, %62
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %.preheader ]
-  store <2 x float> zeroinitializer, ptr %8, align 8
+  store float 0.000000e+00, ptr %8, align 8
+  store float 0.000000e+00, ptr %39, align 4
   %47 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %8, i64 noundef 4)
           to label %48 unwind label %.loopexit
 

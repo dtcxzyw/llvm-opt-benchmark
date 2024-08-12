@@ -1207,35 +1207,62 @@ define hidden void @VP8IteratorNzToBytes(ptr nocapture noundef %0) local_unnamed
 define hidden void @VP8IteratorBytesToNz(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 132
   %3 = getelementptr inbounds i8, ptr %0, i64 168
-  %4 = load <8 x i32>, ptr %2, align 4
-  %5 = shl <8 x i32> %4, <i32 12, i32 13, i32 14, i32 15, i32 18, i32 19, i32 22, i32 23>
-  %6 = getelementptr inbounds i8, ptr %0, i64 164
+  %4 = load i32, ptr %2, align 4
+  %5 = shl i32 %4, 12
+  %6 = getelementptr inbounds i8, ptr %0, i64 136
   %7 = load i32, ptr %6, align 4
-  %8 = shl i32 %7, 24
-  %9 = load i32, ptr %3, align 4
-  %10 = shl i32 %9, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 172
-  %12 = load i32, ptr %11, align 4
-  %13 = shl i32 %12, 7
-  %14 = getelementptr inbounds i8, ptr %0, i64 176
-  %15 = load i32, ptr %14, align 4
-  %16 = shl i32 %15, 11
-  %17 = getelementptr inbounds i8, ptr %0, i64 184
-  %18 = load i32, ptr %17, align 4
-  %19 = shl i32 %18, 17
-  %20 = getelementptr inbounds i8, ptr %0, i64 192
-  %21 = load i32, ptr %20, align 4
-  %22 = shl i32 %21, 21
-  %23 = tail call i32 @llvm.vector.reduce.or.v8i32(<8 x i32> %5)
-  %op.rdx = or i32 %23, %8
-  %op.rdx25 = or i32 %10, %13
-  %op.rdx26 = or i32 %16, %19
-  %op.rdx27 = or i32 %op.rdx, %op.rdx25
-  %op.rdx28 = or i32 %op.rdx26, %22
-  %op.rdx29 = or i32 %op.rdx27, %op.rdx28
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = load ptr, ptr %24, align 8
-  store i32 %op.rdx29, ptr %25, align 4
+  %8 = shl i32 %7, 13
+  %9 = getelementptr inbounds i8, ptr %0, i64 140
+  %10 = load i32, ptr %9, align 4
+  %11 = shl i32 %10, 14
+  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %13 = load i32, ptr %12, align 4
+  %14 = shl i32 %13, 15
+  %15 = getelementptr inbounds i8, ptr %0, i64 148
+  %16 = load i32, ptr %15, align 4
+  %17 = shl i32 %16, 18
+  %18 = getelementptr inbounds i8, ptr %0, i64 152
+  %19 = load i32, ptr %18, align 4
+  %20 = shl i32 %19, 19
+  %21 = getelementptr inbounds i8, ptr %0, i64 156
+  %22 = load i32, ptr %21, align 4
+  %23 = shl i32 %22, 22
+  %24 = getelementptr inbounds i8, ptr %0, i64 160
+  %25 = load i32, ptr %24, align 4
+  %26 = shl i32 %25, 23
+  %27 = getelementptr inbounds i8, ptr %0, i64 164
+  %28 = load i32, ptr %27, align 4
+  %29 = shl i32 %28, 24
+  %30 = load i32, ptr %3, align 4
+  %31 = shl i32 %30, 3
+  %32 = getelementptr inbounds i8, ptr %0, i64 172
+  %33 = load i32, ptr %32, align 4
+  %34 = shl i32 %33, 7
+  %35 = getelementptr inbounds i8, ptr %0, i64 176
+  %36 = load i32, ptr %35, align 4
+  %37 = shl i32 %36, 11
+  %38 = getelementptr inbounds i8, ptr %0, i64 184
+  %39 = load i32, ptr %38, align 4
+  %40 = shl i32 %39, 17
+  %41 = getelementptr inbounds i8, ptr %0, i64 192
+  %42 = load i32, ptr %41, align 4
+  %43 = shl i32 %42, 21
+  %44 = or i32 %8, %5
+  %45 = or i32 %44, %11
+  %46 = or i32 %45, %14
+  %47 = or i32 %46, %17
+  %48 = or i32 %47, %20
+  %49 = or i32 %48, %23
+  %50 = or i32 %49, %26
+  %51 = or i32 %50, %29
+  %52 = or i32 %51, %31
+  %53 = or i32 %52, %34
+  %54 = or i32 %53, %37
+  %55 = or i32 %54, %40
+  %56 = or i32 %55, %43
+  %57 = getelementptr inbounds i8, ptr %0, i64 72
+  %58 = load ptr, ptr %57, align 8
+  store i32 %56, ptr %58, align 4
   ret void
 }
 
@@ -1435,27 +1462,35 @@ define hidden range(i32 0, 2) i32 @VP8IteratorNext(ptr nocapture noundef %0) loc
 
 65:                                               ; preds = %1
   %66 = getelementptr inbounds i8, ptr %0, i64 64
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
-  store ptr %69, ptr %67, align 8
-  %70 = load <2 x ptr>, ptr %66, align 8
-  %71 = getelementptr i8, <2 x ptr> %70, <2 x i64> <i64 4, i64 4>
-  store <2 x ptr> %71, ptr %66, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 384
-  %73 = load <2 x ptr>, ptr %72, align 8
-  %74 = getelementptr i8, <2 x ptr> %73, <2 x i64> <i64 16, i64 16>
-  store <2 x ptr> %74, ptr %72, align 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  store ptr %68, ptr %66, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 48
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  store ptr %71, ptr %69, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 72
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 4
+  store ptr %74, ptr %72, align 8
+  %75 = getelementptr inbounds i8, ptr %0, i64 384
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  store ptr %77, ptr %75, align 8
+  %78 = getelementptr inbounds i8, ptr %0, i64 392
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  store ptr %80, ptr %78, align 8
   br label %VP8IteratorSetRow.exit
 
 VP8IteratorSetRow.exit:                           ; preds = %63, %9, %65
-  %75 = getelementptr inbounds i8, ptr %0, i64 332
-  %76 = load i32, ptr %75, align 4
-  %77 = add nsw i32 %76, -1
-  store i32 %77, ptr %75, align 4
-  %78 = icmp sgt i32 %76, 1
-  %79 = zext i1 %78 to i32
-  ret i32 %79
+  %81 = getelementptr inbounds i8, ptr %0, i64 332
+  %82 = load i32, ptr %81, align 4
+  %83 = add nsw i32 %82, -1
+  store i32 %83, ptr %81, align 4
+  %84 = icmp sgt i32 %82, 1
+  %85 = zext i1 %84 to i32
+  ret i32 %85
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1788,9 +1823,6 @@ define hidden range(i32 0, 2) i32 @VP8IteratorRotateI4(ptr noundef %0, ptr nocap
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.or.v8i32(<8 x i32>) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

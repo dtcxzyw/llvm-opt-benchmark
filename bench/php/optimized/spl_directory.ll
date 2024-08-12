@@ -9515,27 +9515,33 @@ spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
 
 112:                                              ; preds = %38, %48, %._crit_edge, %1
   %113 = getelementptr inbounds i8, ptr %0, i64 -328
-  %114 = load <2 x ptr>, ptr %113, align 8
-  store <2 x ptr> %114, ptr %17, align 8
-  %115 = getelementptr inbounds i8, ptr %15, i64 8
-  %116 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %116, ptr %15, align 8
+  %114 = load ptr, ptr %113, align 8
+  store ptr %114, ptr %17, align 8
+  %115 = getelementptr inbounds i8, ptr %0, i64 -320
+  %116 = load ptr, ptr %115, align 8
+  store ptr %116, ptr %19, align 8
+  %117 = load ptr, ptr %2, align 8
+  store ptr %117, ptr %15, align 8
+  %118 = getelementptr inbounds i8, ptr %0, i64 -376
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %119, ptr %120, align 8
   tail call void @zend_objects_clone_members(ptr noundef nonnull %20, ptr noundef nonnull %0) #18
-  %117 = load ptr, ptr %115, align 8
-  %.not56 = icmp eq ptr %117, null
-  br i1 %.not56, label %122, label %118
+  %121 = load ptr, ptr %120, align 8
+  %.not56 = icmp eq ptr %121, null
+  br i1 %.not56, label %126, label %122
 
-118:                                              ; preds = %112
-  %119 = getelementptr inbounds i8, ptr %117, i64 8
-  %120 = load ptr, ptr %119, align 8
-  %.not57 = icmp eq ptr %120, null
-  br i1 %.not57, label %122, label %121
+122:                                              ; preds = %112
+  %123 = getelementptr inbounds i8, ptr %121, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %.not57 = icmp eq ptr %124, null
+  br i1 %.not57, label %126, label %125
 
-121:                                              ; preds = %118
-  tail call void %120(ptr noundef nonnull %2, ptr noundef nonnull %15) #18
-  br label %122
+125:                                              ; preds = %122
+  tail call void %124(ptr noundef nonnull %2, ptr noundef nonnull %15) #18
+  br label %126
 
-122:                                              ; preds = %121, %118, %112
+126:                                              ; preds = %125, %122, %112
   ret ptr %20
 }
 

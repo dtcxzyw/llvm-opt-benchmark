@@ -410,8 +410,9 @@ if.end:                                           ; preds = %entry, %if.then
   %add12 = add nsw i32 %call11, 2440588
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx.i16 = getelementptr inbounds i8, ptr %this, i64 104
+  %5 = load i32, ptr %arrayidx.i16, align 8
   %arrayidx.i18 = getelementptr inbounds i8, ptr %this, i64 100
-  %5 = load <2 x i32>, ptr %arrayidx.i18, align 4
   %6 = load i32, ptr %arrayidx.i18, align 4
   store i32 0, ptr %status, align 4
   call void @_ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %add12, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -454,11 +455,12 @@ if.end36:                                         ; preds = %if.end19, %if.then2
   store i32 1, ptr %arrayidx3.i, align 4
   %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 110
   store i8 1, ptr %arrayidx5.i, align 2
+  store i32 %5, ptr %arrayidx.i16, align 8
   %arrayidx3.i28 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 1, ptr %arrayidx3.i28, align 8
   %arrayidx5.i30 = getelementptr inbounds i8, ptr %this, i64 131
   store i8 1, ptr %arrayidx5.i30, align 1
-  store <2 x i32> %5, ptr %arrayidx.i18, align 4
+  store i32 %6, ptr %arrayidx.i18, align 4
   %arrayidx3.i34 = getelementptr inbounds i8, ptr %this, i64 220
   store i32 1, ptr %arrayidx3.i34, align 4
   %arrayidx5.i36 = getelementptr inbounds i8, ptr %this, i64 130

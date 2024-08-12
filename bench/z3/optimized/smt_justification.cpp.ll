@@ -5589,10 +5589,14 @@ do.body.preheader:                                ; preds = %if.end
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
+  %m_size = getelementptr inbounds i8, ptr %this, i64 28
+  %13 = load i32, ptr %m_size, align 4
+  %inc = add i32 %13, 1
+  store i32 %inc, ptr %m_size, align 4
   %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
-  %13 = load <2 x i32>, ptr %m_used_slots, align 8
-  %14 = add <2 x i32> %13, <i32 1, i32 1>
-  store <2 x i32> %14, ptr %m_used_slots, align 8
+  %14 = load i32, ptr %m_used_slots, align 8
+  %inc5 = add i32 %14, 1
+  store i32 %inc5, ptr %m_used_slots, align 8
   %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %15 = load ptr, ptr %d, align 8
   store ptr %15, ptr %m_data, align 8
@@ -5602,61 +5606,63 @@ if.then4:                                         ; preds = %if.end
   br label %return.sink.split
 
 do.body:                                          ; preds = %do.body.preheader, %if.end10
-  %it.0 = phi ptr [ %24, %if.end10 ], [ %add.ptr, %do.body.preheader ]
+  %it.0 = phi ptr [ %23, %if.end10 ], [ %add.ptr, %do.body.preheader ]
   %m_data7 = getelementptr inbounds i8, ptr %it.0, i64 8
-  %17 = load <2 x ptr>, ptr %m_data7, align 8
-  %18 = load <2 x ptr>, ptr %d, align 8
-  %19 = icmp eq <2 x ptr> %17, %18
-  %20 = extractelement <2 x i1> %19, i64 0
-  %21 = extractelement <2 x i1> %19, i64 1
-  %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %return, label %if.end10
+  %17 = load ptr, ptr %m_data7, align 8
+  %18 = load ptr, ptr %d, align 8
+  %cmp.i.i.i = icmp eq ptr %17, %18
+  %second.i.i.i = getelementptr inbounds i8, ptr %it.0, i64 16
+  %19 = load ptr, ptr %second.i.i.i, align 8
+  %20 = load ptr, ptr %second.i.i, align 8
+  %cmp3.i.i.i = icmp eq ptr %19, %20
+  %21 = select i1 %cmp.i.i.i, i1 %cmp3.i.i.i, i1 false
+  br i1 %21, label %return, label %if.end10
 
 if.end10:                                         ; preds = %do.body
-  %23 = load i32, ptr %m_collisions, align 8
-  %inc11 = add i32 %23, 1
+  %22 = load i32, ptr %m_collisions, align 8
+  %inc11 = add i32 %22, 1
   store i32 %inc11, ptr %m_collisions, align 8
-  %24 = load ptr, ptr %it.0, align 8
-  %cmp.not = icmp eq ptr %24, null
+  %23 = load ptr, ptr %it.0, align 8
+  %cmp.not = icmp eq ptr %23, null
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !22
 
 do.end:                                           ; preds = %if.end10
   %m_size13 = getelementptr inbounds i8, ptr %this, i64 28
-  %25 = load i32, ptr %m_size13, align 4
-  %inc14 = add i32 %25, 1
+  %24 = load i32, ptr %m_size13, align 4
+  %inc14 = add i32 %24, 1
   store i32 %inc14, ptr %m_size13, align 4
-  %26 = load ptr, ptr %m_free_cell.i, align 8
-  %cmp.not.i14 = icmp eq ptr %26, null
+  %25 = load ptr, ptr %m_free_cell.i, align 8
+  %cmp.not.i14 = icmp eq ptr %25, null
   br i1 %cmp.not.i14, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %m_free_cell.i, align 8
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %m_free_cell.i, align 8
   br label %_ZN10chashtableISt4pairIPN3smt5enodeES3_EN12obj_pair_setIS2_S2_E9hash_procENS6_7eq_procEE13get_free_cellEv.exit
 
 if.else.i:                                        ; preds = %do.end
   %m_next_cell.i15 = getelementptr inbounds i8, ptr %this, i64 40
-  %28 = load ptr, ptr %m_next_cell.i15, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %28, i64 24
+  %27 = load ptr, ptr %m_next_cell.i15, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %27, i64 24
   store ptr %incdec.ptr.i, ptr %m_next_cell.i15, align 8
   br label %_ZN10chashtableISt4pairIPN3smt5enodeES3_EN12obj_pair_setIS2_S2_E9hash_procENS6_7eq_procEE13get_free_cellEv.exit
 
 _ZN10chashtableISt4pairIPN3smt5enodeES3_EN12obj_pair_setIS2_S2_E9hash_procENS6_7eq_procEE13get_free_cellEv.exit: ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi ptr [ %26, %if.then.i ], [ %28, %if.else.i ]
-  %29 = load ptr, ptr %add.ptr, align 8
-  store ptr %29, ptr %retval.0.i, align 8
+  %retval.0.i = phi ptr [ %25, %if.then.i ], [ %27, %if.else.i ]
+  %28 = load ptr, ptr %add.ptr, align 8
+  store ptr %28, ptr %retval.0.i, align 8
   %m_data.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %m_data3.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %30 = load ptr, ptr %m_data3.i, align 8
-  store ptr %30, ptr %m_data.i, align 8
+  %29 = load ptr, ptr %m_data3.i, align 8
+  store ptr %29, ptr %m_data.i, align 8
   %second.i.i16 = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %31 = load ptr, ptr %second.i.i16, align 8
+  %30 = load ptr, ptr %second.i.i16, align 8
   %second3.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  store ptr %31, ptr %second3.i.i, align 8
-  %32 = load ptr, ptr %d, align 8
-  store ptr %32, ptr %m_data3.i, align 8
-  %33 = load ptr, ptr %second.i.i, align 8
-  store ptr %33, ptr %second.i.i16, align 8
+  store ptr %30, ptr %second3.i.i, align 8
+  %31 = load ptr, ptr %d, align 8
+  store ptr %31, ptr %m_data3.i, align 8
+  %32 = load ptr, ptr %second.i.i, align 8
+  store ptr %32, ptr %second.i.i16, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then4, %_ZN10chashtableISt4pairIPN3smt5enodeES3_EN12obj_pair_setIS2_S2_E9hash_procENS6_7eq_procEE13get_free_cellEv.exit

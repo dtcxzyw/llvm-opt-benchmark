@@ -125,8 +125,8 @@ define hidden void @_ZN17DependencyContext23mark_dependent_nmethodsEP19Deoptimiz
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 152
   br label %9
 
-9:                                                ; preds = %.lr.ph, %42
-  %.021 = phi ptr [ %5, %.lr.ph ], [ %43, %42 ]
+9:                                                ; preds = %.lr.ph, %43
+  %.021 = phi ptr [ %5, %.lr.ph ], [ %44, %43 ]
   %10 = load ptr, ptr %.021, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 213
   %12 = load volatile i8, ptr %11, align 1
@@ -135,11 +135,11 @@ define hidden void @_ZN17DependencyContext23mark_dependent_nmethodsEP19Deoptimiz
 
 13:                                               ; preds = %9
   call void @_ZN19DeoptimizationScope9dependentEP7nmethod(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %10) #12
-  br label %42
+  br label %43
 
 14:                                               ; preds = %9
   %15 = call noundef zeroext i1 @_ZN7nmethod19check_dependency_onER9DepChange(ptr noundef nonnull align 8 dereferenceable(214) %10, ptr noundef nonnull align 8 dereferenceable(8) %2) #12
-  br i1 %15, label %16, label %42
+  br i1 %15, label %16, label %43
 
 16:                                               ; preds = %14
   %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE36ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
@@ -153,10 +153,11 @@ define hidden void @_ZN17DependencyContext23mark_dependent_nmethodsEP19Deoptimiz
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 32
-  %25 = load <2 x ptr>, ptr %24, align 8
-  %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 8
-  %28 = load i64, ptr %27, align 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %21, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %29 = load i64, ptr %28, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #12
@@ -165,45 +166,46 @@ define hidden void @_ZN17DependencyContext23mark_dependent_nmethodsEP19Deoptimiz
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.7) #12
   call void @_ZN9DepChange8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %4) #12
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
-  %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(214) %10, ptr noundef nonnull %4) #12
+  %30 = load ptr, ptr %10, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %32 = load ptr, ptr %31, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(214) %10, ptr noundef nonnull %4) #12
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #12
-  %32 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i, label %34, label %33
+  %33 = load ptr, ptr %23, align 8
+  %.not.i.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i, label %35, label %34
 
-33:                                               ; preds = %18
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %28) #12
+34:                                               ; preds = %18
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %29) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %23) #12
-  br label %34
+  br label %35
 
-34:                                               ; preds = %33, %18
-  %35 = load ptr, ptr %24, align 8
-  %.not8.i.i.i.i = icmp eq ptr %35, %26
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %36
+35:                                               ; preds = %34, %18
+  %36 = load ptr, ptr %24, align 8
+  %.not8.i.i.i.i = icmp eq ptr %36, %25
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %37
 
-36:                                               ; preds = %34
+37:                                               ; preds = %35
   store ptr %23, ptr %22, align 8
-  store <2 x ptr> %25, ptr %24, align 8
+  store ptr %25, ptr %24, align 8
+  store ptr %27, ptr %26, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %36, %34, %16
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %40 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
-  %41 = xor i1 %40, true
-  call void @_ZN19DeoptimizationScope4markEP7nmethodb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %10, i1 noundef zeroext %41) #12
-  br label %42
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %37, %35, %16
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %40 = load ptr, ptr %39, align 8
+  %41 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
+  %42 = xor i1 %41, true
+  call void @_ZN19DeoptimizationScope4markEP7nmethodb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %10, i1 noundef zeroext %42) #12
+  br label %43
 
-42:                                               ; preds = %13, %_ZN12ResourceMarkD2Ev.exit, %14
-  %43 = call noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef nonnull align 8 dereferenceable(24) %.021)
-  %.not = icmp eq ptr %43, null
+43:                                               ; preds = %13, %_ZN12ResourceMarkD2Ev.exit, %14
+  %44 = call noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef nonnull align 8 dereferenceable(24) %.021)
+  %.not = icmp eq ptr %44, null
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %42, %3
+._crit_edge:                                      ; preds = %43, %3
   ret void
 }
 

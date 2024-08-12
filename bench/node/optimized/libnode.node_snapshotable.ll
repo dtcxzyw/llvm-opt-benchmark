@@ -2158,11 +2158,14 @@ if.then.i.i.i.i:                                  ; preds = %entry, %if.then.i
   store ptr %9, ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !48
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %10 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
-  %11 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
-  store <2 x ptr> %10, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
+  %10 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
+  store ptr %10, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
+  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false), !noalias !48
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %12 = load i8, ptr @__libc_single_threaded, align 1
@@ -2817,7 +2820,7 @@ entry:
   %result.i2 = alloca i64, align 8
   %result.i1 = alloca i64, align 8
   %result.i = alloca i64, align 8
-  %ref.tmp = alloca %"class.std::vector.21", align 16
+  %ref.tmp = alloca %"class.std::vector.21", align 8
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca ptr, align 8
   %0 = load i8, ptr %this, align 8
@@ -2855,13 +2858,17 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %if.then.i, %entry
   %js_execution_async_resources = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %5, ptr %js_execution_async_resources, align 8
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE10ReadVectorImEESt6vectorIT_SaIS5_EEv(ptr nonnull sret(%"class.std::vector.21") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this)
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
-  %6 = load <2 x ptr>, ptr %ref.tmp, align 16
-  store <2 x ptr> %6, ptr %native_execution_async_resources.i, align 8
+  %6 = load ptr, ptr %ref.tmp, align 8
+  store ptr %6, ptr %native_execution_async_resources.i, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %7 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %7, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
+  %8 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %.pre = load i8, ptr %this, align 8
   %tobool = trunc i8 %.pre to i1
   br i1 %tobool, label %if.then, label %nrvo.skipdtor
@@ -2876,13 +2883,13 @@ if.then:                                          ; preds = %_ZNSt6vectorImSaImE
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i)
   %call7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #23
   store ptr %call7, ptr %ref.tmp6, align 8
-  %8 = load i8, ptr %this, align 8
-  %tobool.i4 = trunc i8 %8 to i1
+  %9 = load i8, ptr %this, align 8
+  %tobool.i4 = trunc i8 %9 to i1
   br i1 %tobool.i4, label %if.then.i5, label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcEEEvS3_DpOT_.exit
 
 if.then.i5:                                       ; preds = %if.then
-  %9 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %9, ptr noundef nonnull @.str.53, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6) #24
+  %10 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %10, ptr noundef nonnull @.str.53, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6) #24
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcEEEvS3_DpOT_.exit
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJPKcEEEvS3_DpOT_.exit: ; preds = %if.then, %if.then.i5
@@ -3581,8 +3588,8 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit: ; preds = %if.
 define dso_local void @_ZN4node20SnapshotDeserializer4ReadINS_24IsolateDataSerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS3_IXntsr3std13is_arithmeticIS4_EE5valueEvE4typeELSE_0EEES4_v(ptr noalias sret(%"struct.node::IsolateDataSerializeInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %ref.tmp = alloca %"class.std::vector.21", align 16
-  %ref.tmp2 = alloca %"class.std::vector.9", align 16
+  %ref.tmp = alloca %"class.std::vector.21", align 8
+  %ref.tmp2 = alloca %"class.std::vector.9", align 8
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca ptr, align 8
   %0 = load i8, ptr %this, align 8
@@ -3596,22 +3603,30 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit:   ; preds = %if.then.i, %entry
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE10ReadVectorImEESt6vectorIT_SaIS5_EEv(ptr nonnull sret(%"class.std::vector.21") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this)
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %2 = load <2 x ptr>, ptr %ref.tmp, align 16
-  store <2 x ptr> %2, ptr %agg.result, align 8
+  %2 = load ptr, ptr %ref.tmp, align 8
+  store ptr %2, ptr %agg.result, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %3, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %3 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
+  %4 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE10ReadVectorINS_8PropInfoEEESt6vectorIT_SaIS6_EEv(ptr nonnull sret(%"class.std::vector.9") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %this)
   %template_values = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_finish.i.i.i.i1 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %_M_end_of_storage.i.i.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 40
-  %4 = load <2 x ptr>, ptr %ref.tmp2, align 16
-  store <2 x ptr> %4, ptr %template_values, align 8
+  %5 = load ptr, ptr %ref.tmp2, align 8
+  store ptr %5, ptr %template_values, align 8
+  %_M_finish.i2.i.i.i3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %6 = load ptr, ptr %_M_finish.i2.i.i.i3, align 8
+  store ptr %6, ptr %_M_finish.i.i.i.i1, align 8
   %_M_end_of_storage.i4.i.i.i4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
-  %5 = load ptr, ptr %_M_end_of_storage.i4.i.i.i4, align 16
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i2, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp2, i8 0, i64 24, i1 false)
+  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i4, align 8
+  store ptr %7, ptr %_M_end_of_storage.i.i.i.i2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2, i8 0, i64 24, i1 false)
   %.pre = load i8, ptr %this, align 8
   %tobool = trunc i8 %.pre to i1
   br i1 %tobool, label %if.then, label %nrvo.skipdtor
@@ -3626,13 +3641,13 @@ if.then:                                          ; preds = %_ZNSt6vectorIN4node
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i)
   %call5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #23
   store ptr %call5, ptr %ref.tmp4, align 8
-  %6 = load i8, ptr %this, align 8
-  %tobool.i9 = trunc i8 %6 to i1
+  %8 = load i8, ptr %this, align 8
+  %tobool.i9 = trunc i8 %8 to i1
   br i1 %tobool.i9, label %if.then.i10, label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcEEEvS3_DpOT_.exit
 
 if.then.i10:                                      ; preds = %if.then
-  %7 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %7, ptr noundef nonnull @.str.69, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4) #24
+  %9 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %9, ptr noundef nonnull @.str.69, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4) #24
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcEEEvS3_DpOT_.exit
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJPKcEEEvS3_DpOT_.exit: ; preds = %if.then, %if.then.i10
@@ -3653,7 +3668,7 @@ entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp2 = alloca i64, align 8
   %count = alloca i64, align 8
-  %ref.tmp10 = alloca %"class.std::vector.9", align 16
+  %ref.tmp10 = alloca %"class.std::vector.9", align 8
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %name16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca ptr, align 8
@@ -3716,13 +3731,17 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit: ; preds = %if.
 _ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit:   ; preds = %if.end5, %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
   %6 = phi i64 [ %.pre, %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit ], [ %3, %if.end5 ]
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE23ReadNonArithmeticVectorINS_8PropInfoEEESt6vectorIT_SaIS6_EEm(ptr nonnull sret(%"class.std::vector.9") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %6)
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %7 = load <2 x ptr>, ptr %ref.tmp10, align 16
-  store <2 x ptr> %7, ptr %agg.result, align 8
+  %7 = load ptr, ptr %ref.tmp10, align 8
+  store ptr %7, ptr %agg.result, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
+  %8 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %8, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
-  %8 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp10, i8 0, i64 24, i1 false)
+  %9 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %9, ptr %_M_end_of_storage.i.i.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10, i8 0, i64 24, i1 false)
   %.pre11 = load i8, ptr %this, align 8
   %tobool13 = trunc i8 %.pre11 to i1
   br i1 %tobool13, label %if.then14, label %return
@@ -3743,13 +3762,13 @@ if.then14:                                        ; preds = %_ZNSt6vectorIN4node
   store ptr %call18, ptr %ref.tmp17, align 8
   %call20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #23
   store ptr %call20, ptr %ref.tmp19, align 8
-  %9 = load i8, ptr %this, align 8
-  %tobool.i5 = trunc i8 %9 to i1
+  %10 = load i8, ptr %this, align 8
+  %tobool.i5 = trunc i8 %10 to i1
   br i1 %tobool.i5, label %if.then.i6, label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_EEEvS3_DpOT_.exit
 
 if.then.i6:                                       ; preds = %if.then14
-  %10 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJPKcS2_EEEvP8_IO_FILES2_DpOT_(ptr noundef %10, ptr noundef nonnull @.str.288, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19) #24
+  %11 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJPKcS2_EEEvP8_IO_FILES2_DpOT_(ptr noundef %11, ptr noundef nonnull @.str.288, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19) #24
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_EEEvS3_DpOT_.exit
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_EEEvS3_DpOT_.exit: ; preds = %if.then14, %if.then.i6
@@ -3985,9 +4004,9 @@ return:                                           ; preds = %_ZN4node14BlobSeria
 define dso_local void @_ZN4node20SnapshotDeserializer4ReadINS_18RealmSerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS3_IXntsr3std13is_arithmeticIS4_EE5valueEvE4typeELSE_0EEES4_v(ptr noalias nocapture writeonly sret(%"struct.node::RealmSerializeInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
   %result.i = alloca i64, align 8
-  %ref.tmp = alloca %"class.std::vector.15", align 16
-  %ref.tmp2 = alloca %"class.std::vector.9", align 16
-  %ref.tmp4 = alloca %"class.std::vector.9", align 16
+  %ref.tmp = alloca %"class.std::vector.15", align 8
+  %ref.tmp2 = alloca %"class.std::vector.9", align 8
+  %ref.tmp4 = alloca %"class.std::vector.9", align 8
   %0 = load i8, ptr %this, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %_ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit45
@@ -3999,37 +4018,49 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit45: ; preds = %if.then.i, %entry
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE10ReadVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorIT_SaISB_EEv(ptr nonnull sret(%"class.std::vector.15") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this)
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %2 = load <2 x ptr>, ptr %ref.tmp, align 16
-  store <2 x ptr> %2, ptr %agg.result, align 8
+  %2 = load ptr, ptr %ref.tmp, align 8
+  store ptr %2, ptr %agg.result, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %3, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %3 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
+  %4 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE10ReadVectorINS_8PropInfoEEESt6vectorIT_SaIS6_EEv(ptr nonnull sret(%"class.std::vector.9") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %this)
   %persistent_values = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_finish.i.i.i.i1 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %_M_end_of_storage.i.i.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 40
-  %4 = load <2 x ptr>, ptr %ref.tmp2, align 16
-  store <2 x ptr> %4, ptr %persistent_values, align 8
+  %5 = load ptr, ptr %ref.tmp2, align 8
+  store ptr %5, ptr %persistent_values, align 8
+  %_M_finish.i2.i.i.i3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %6 = load ptr, ptr %_M_finish.i2.i.i.i3, align 8
+  store ptr %6, ptr %_M_finish.i.i.i.i1, align 8
   %_M_end_of_storage.i4.i.i.i4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
-  %5 = load ptr, ptr %_M_end_of_storage.i4.i.i.i4, align 16
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i2, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp2, i8 0, i64 24, i1 false)
+  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i4, align 8
+  store ptr %7, ptr %_M_end_of_storage.i.i.i.i2, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2, i8 0, i64 24, i1 false)
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE10ReadVectorINS_8PropInfoEEESt6vectorIT_SaIS6_EEv(ptr nonnull sret(%"class.std::vector.9") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %this)
   %native_objects = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %_M_finish.i.i.i.i21 = getelementptr inbounds i8, ptr %agg.result, i64 56
   %_M_end_of_storage.i.i.i.i22 = getelementptr inbounds i8, ptr %agg.result, i64 64
-  %6 = load <2 x ptr>, ptr %ref.tmp4, align 16
-  store <2 x ptr> %6, ptr %native_objects, align 8
+  %8 = load ptr, ptr %ref.tmp4, align 8
+  store ptr %8, ptr %native_objects, align 8
+  %_M_finish.i2.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
+  %9 = load ptr, ptr %_M_finish.i2.i.i.i23, align 8
+  store ptr %9, ptr %_M_finish.i.i.i.i21, align 8
   %_M_end_of_storage.i4.i.i.i24 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
-  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i24, align 16
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i22, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp4, i8 0, i64 24, i1 false)
+  %10 = load ptr, ptr %_M_end_of_storage.i4.i.i.i24, align 8
+  store ptr %10, ptr %_M_end_of_storage.i.i.i.i22, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i)
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE14ReadArithmeticImEEvPT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %result.i, i64 noundef 1)
-  %8 = load i64, ptr %result.i, align 8
+  %11 = load i64, ptr %result.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i)
   %context = getelementptr inbounds i8, ptr %agg.result, i64 72
-  store i64 %8, ptr %context, align 8
+  store i64 %11, ptr %context, align 8
   ret void
 }
 
@@ -4043,7 +4074,7 @@ entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp2 = alloca i64, align 8
   %count = alloca i64, align 8
-  %ref.tmp10 = alloca %"class.std::vector.15", align 16
+  %ref.tmp10 = alloca %"class.std::vector.15", align 8
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %name16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca ptr, align 8
@@ -4106,13 +4137,17 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit: ; preds = %if.
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %if.end5, %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
   %6 = phi i64 [ %.pre, %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit ], [ %3, %if.end5 ]
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE23ReadNonArithmeticVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorIT_SaISB_EEm(ptr nonnull sret(%"class.std::vector.15") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %6)
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %7 = load <2 x ptr>, ptr %ref.tmp10, align 16
-  store <2 x ptr> %7, ptr %agg.result, align 8
+  %7 = load ptr, ptr %ref.tmp10, align 8
+  store ptr %7, ptr %agg.result, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
+  %8 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %8, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
-  %8 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp10, i8 0, i64 24, i1 false)
+  %9 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %9, ptr %_M_end_of_storage.i.i.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10, i8 0, i64 24, i1 false)
   %.pre11 = load i8, ptr %this, align 8
   %tobool13 = trunc i8 %.pre11 to i1
   br i1 %tobool13, label %if.then14, label %return
@@ -4133,13 +4168,13 @@ if.then14:                                        ; preds = %_ZNSt6vectorINSt7__
   store ptr %call18, ptr %ref.tmp17, align 8
   %call20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #23
   store ptr %call20, ptr %ref.tmp19, align 8
-  %9 = load i8, ptr %this, align 8
-  %tobool.i5 = trunc i8 %9 to i1
+  %10 = load i8, ptr %this, align 8
+  %tobool.i5 = trunc i8 %10 to i1
   br i1 %tobool.i5, label %if.then.i6, label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_EEEvS3_DpOT_.exit
 
 if.then.i6:                                       ; preds = %if.then14
-  %10 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJPKcS2_EEEvP8_IO_FILES2_DpOT_(ptr noundef %10, ptr noundef nonnull @.str.288, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19) #24
+  %11 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJPKcS2_EEEvP8_IO_FILES2_DpOT_(ptr noundef %11, ptr noundef nonnull @.str.288, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19) #24
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_EEEvS3_DpOT_.exit
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_EEEvS3_DpOT_.exit: ; preds = %if.then14, %if.then.i6
@@ -4528,12 +4563,16 @@ _ZN4node10AsyncHooks13SerializeInfoD2Ev.exit:     ; preds = %entry, %if.then.i
   call void @_ZN4node20SnapshotDeserializer4ReadINS_10AsyncHooks13SerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS4_IXntsr3std13is_arithmeticIS5_EE5valueEvE4typeELSF_0EEES5_v(ptr nonnull sret(%"struct.node::AsyncHooks::SerializeInfo") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %native_execution_async_resources3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
-  %2 = load <2 x ptr>, ptr %native_execution_async_resources3.i, align 8
-  store <2 x ptr> %2, ptr %native_execution_async_resources.i.i, align 8
+  %2 = load ptr, ptr %native_execution_async_resources3.i, align 8
+  store ptr %2, ptr %native_execution_async_resources.i.i, align 8
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %3 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %3, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  %3 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %native_execution_async_resources3.i, i8 0, i64 24, i1 false)
   %call3 = call i64 @_ZN4node20SnapshotDeserializer4ReadINS_8TickInfo13SerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS4_IXntsr3std13is_arithmeticIS5_EE5valueEvE4typeELSF_0EEES5_v(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %tick_info = getelementptr inbounds i8, ptr %agg.result, i64 56
@@ -4543,31 +4582,31 @@ _ZN4node10AsyncHooks13SerializeInfoD2Ev.exit:     ; preds = %entry, %if.then.i
   store i64 %call5, ptr %immediate_info, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i)
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE14ReadArithmeticImEEvPT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %result.i, i64 noundef 1)
-  %4 = load i64, ptr %result.i, align 8
+  %5 = load i64, ptr %result.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i)
   %timeout_info = getelementptr inbounds i8, ptr %agg.result, i64 72
-  store i64 %4, ptr %timeout_info, align 8
+  store i64 %5, ptr %timeout_info, align 8
   call void @_ZN4node20SnapshotDeserializer4ReadINS_11performance16PerformanceState13SerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEES6_v(ptr nonnull sret(%"struct.node::performance::PerformanceState::SerializeInfo") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(32) %this)
   %performance_state = getelementptr inbounds i8, ptr %agg.result, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %performance_state, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i2)
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE14ReadArithmeticImEEvPT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %result.i2, i64 noundef 1)
-  %5 = load i64, ptr %result.i2, align 8
+  %6 = load i64, ptr %result.i2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i2)
   %exit_info = getelementptr inbounds i8, ptr %agg.result, i64 104
-  store i64 %5, ptr %exit_info, align 8
+  store i64 %6, ptr %exit_info, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i3)
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE14ReadArithmeticImEEvPT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %result.i3, i64 noundef 1)
-  %6 = load i64, ptr %result.i3, align 8
+  %7 = load i64, ptr %result.i3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i3)
   %stream_base_state = getelementptr inbounds i8, ptr %agg.result, i64 112
-  store i64 %6, ptr %stream_base_state, align 8
+  store i64 %7, ptr %stream_base_state, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i4)
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE14ReadArithmeticImEEvPT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %result.i4, i64 noundef 1)
-  %7 = load i64, ptr %result.i4, align 8
+  %8 = load i64, ptr %result.i4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i4)
   %should_abort_on_uncaught_toggle = getelementptr inbounds i8, ptr %agg.result, i64 120
-  store i64 %7, ptr %should_abort_on_uncaught_toggle, align 8
+  store i64 %8, ptr %should_abort_on_uncaught_toggle, align 8
   call void @_ZN4node20SnapshotDeserializer4ReadINS_18RealmSerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS3_IXntsr3std13is_arithmeticIS4_EE5valueEvE4typeELSE_0EEES4_v(ptr nonnull sret(%"struct.node::RealmSerializeInfo") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %this)
   %call13 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN4node18RealmSerializeInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %principal_realm.i, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp12) #23
   call void @_ZN4node18RealmSerializeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp12) #23
@@ -5140,21 +5179,25 @@ if.then.i13:                                      ; preds = %_ZNK4node26BlobSeri
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit: ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit11, %if.then.i13
+  %13 = load ptr, ptr %agg.result, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %14 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %14 = load <2 x ptr>, ptr %sink.i.i, align 8
-  %15 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  store ptr %15, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %16 = load <2 x ptr>, ptr %agg.result, align 8
-  %17 = load ptr, ptr %agg.result, align 8
-  store <2 x ptr> %14, ptr %agg.result, align 8
-  store <2 x ptr> %16, ptr %sink.i.i, align 8
-  store ptr %13, ptr %_M_end_of_storage.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %17, null
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %16 = load ptr, ptr %sink.i.i, align 8
+  store ptr %16, ptr %agg.result, align 8
+  %17 = load ptr, ptr %_M_finish.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i, align 8
+  store ptr %13, ptr %sink.i.i, align 8
+  store ptr %14, ptr %_M_finish.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4node18SnapshotSerializerD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
-  call void @_ZdlPv(ptr noundef nonnull %17) #27
+  call void @_ZdlPv(ptr noundef nonnull %13) #27
   br label %_ZN4node18SnapshotSerializerD2Ev.exit
 
 _ZN4node18SnapshotSerializerD2Ev.exit:            ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit, %if.then.i.i.i.i.i
@@ -5472,14 +5515,14 @@ declare void @_ZN4node12ReadFileSyncEP8_IO_FILE(ptr sret(%"class.std::vector.28"
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4node12SnapshotData8FromBlobEPS0_St17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %out, i64 %in.coerce0, ptr %in.coerce1) local_unnamed_addr #3 align 2 {
 entry:
-  %__tmp.i.i = alloca %"class.std::vector", align 16
+  %__tmp.i.i = alloca %"class.std::vector", align 8
   %result.i = alloca i32, align 4
   %r = alloca %"class.node::SnapshotDeserializer", align 8
   %magic = alloca i32, align 4
   %ref.tmp = alloca %"struct.node::SnapshotMetadata", align 8
-  %ref.tmp11 = alloca %"struct.node::IsolateDataSerializeInfo", align 16
+  %ref.tmp11 = alloca %"struct.node::IsolateDataSerializeInfo", align 8
   %ref.tmp13 = alloca %"struct.node::EnvSerializeInfo", align 8
-  %ref.tmp15 = alloca %"class.std::vector", align 16
+  %ref.tmp15 = alloca %"class.std::vector", align 8
   %0 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 73), align 1
   %frombool.i.i.i = and i8 %0, 1
   store i8 %frombool.i.i.i, ptr %r, align 8
@@ -5578,14 +5621,18 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit16: ; preds = %if.
   call void @_ZN4node20SnapshotDeserializer4ReadINS_24IsolateDataSerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS3_IXntsr3std13is_arithmeticIS4_EE5valueEvE4typeELSE_0EEES4_v(ptr nonnull sret(%"struct.node::IsolateDataSerializeInfo") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %r)
   %isolate_data_info = getelementptr inbounds i8, ptr %out, i64 136
   %14 = load ptr, ptr %isolate_data_info, align 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 144
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 152
-  %15 = load <2 x ptr>, ptr %ref.tmp11, align 16
-  store <2 x ptr> %15, ptr %isolate_data_info, align 8
+  %15 = load ptr, ptr %ref.tmp11, align 8
+  store ptr %15, ptr %isolate_data_info, align 8
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
-  %16 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 16
-  store ptr %16, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %14, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEEaSEOS1_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit16
@@ -5595,46 +5642,48 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNK4node26BlobSeri
 _ZNSt6vectorImSaImEEaSEOS1_.exit.i:               ; preds = %if.then.i.i.i.i.i.i, %_ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit16
   %template_values.i = getelementptr inbounds i8, ptr %out, i64 160
   %template_values3.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 24
-  %17 = load ptr, ptr %template_values.i, align 8
+  %18 = load ptr, ptr %template_values.i, align 8
   %_M_finish.i.i.i.i2.i = getelementptr inbounds i8, ptr %out, i64 168
-  %18 = load ptr, ptr %_M_finish.i.i.i.i2.i, align 8
+  %19 = load ptr, ptr %_M_finish.i.i.i.i2.i, align 8
   %_M_end_of_storage.i.i.i.i3.i = getelementptr inbounds i8, ptr %out, i64 176
+  %20 = load ptr, ptr %template_values3.i, align 8
+  store ptr %20, ptr %template_values.i, align 8
   %_M_finish.i2.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 32
-  %19 = load <2 x ptr>, ptr %template_values3.i, align 8
-  store <2 x ptr> %19, ptr %template_values.i, align 8
+  %21 = load ptr, ptr %_M_finish.i2.i.i.i4.i, align 8
+  store ptr %21, ptr %_M_finish.i.i.i.i2.i, align 8
   %_M_end_of_storage.i4.i.i.i5.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 40
-  %20 = load ptr, ptr %_M_end_of_storage.i4.i.i.i5.i, align 8
-  store ptr %20, ptr %_M_end_of_storage.i.i.i.i3.i, align 8
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %17, %18
+  %22 = load ptr, ptr %_M_end_of_storage.i4.i.i.i5.i, align 8
+  store ptr %22, ptr %_M_end_of_storage.i.i.i.i3.i, align 8
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %18, %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %template_values3.i, i8 0, i64 24, i1 false)
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNSt6vectorImSaImEEaSEOS1_.exit.i, %for.body.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %17, %_ZNSt6vectorImSaImEEaSEOS1_.exit.i ]
+  %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %18, %_ZNSt6vectorImSaImEEaSEOS1_.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i) #23
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 48
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %18
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %19
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !186
 
 _ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %_ZNSt6vectorImSaImEEaSEOS1_.exit.i
-  %tobool.not.i.i.i.i.i6.i = icmp eq ptr %17, null
+  %tobool.not.i.i.i.i.i6.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i6.i, label %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit, label %if.then.i.i.i.i.i7.i
 
 if.then.i.i.i.i.i7.i:                             ; preds = %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %17) #27
+  call void @_ZdlPv(ptr noundef nonnull %18) #27
   br label %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit
 
 _ZN4node24IsolateDataSerializeInfoaSEOS0_.exit:   ; preds = %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, %if.then.i.i.i.i.i7.i
-  %21 = load ptr, ptr %template_values3.i, align 8
-  %22 = load ptr, ptr %_M_finish.i2.i.i.i4.i, align 16
-  %cmp.not3.i.i.i.i.i = icmp eq ptr %21, %22
+  %23 = load ptr, ptr %template_values3.i, align 8
+  %24 = load ptr, ptr %_M_finish.i2.i.i.i4.i, align 8
+  %cmp.not3.i.i.i.i.i = icmp eq ptr %23, %24
   br i1 %cmp.not3.i.i.i.i.i, label %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit, %for.body.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %21, %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit ]
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %23, %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #23
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 48
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %22
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %24
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !186
 
 _ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %for.body.i.i.i.i.i
@@ -5642,21 +5691,21 @@ _ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; pr
   br label %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit
-  %23 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %21, %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit ]
-  %tobool.not.i.i.i.i = icmp eq ptr %23, null
+  %25 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %23, %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit ]
+  %tobool.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %23) #27
+  call void @_ZdlPv(ptr noundef nonnull %25) #27
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i
-  %24 = load ptr, ptr %ref.tmp11, align 16
-  %tobool.not.i.i.i1.i = icmp eq ptr %24, null
+  %26 = load ptr, ptr %ref.tmp11, align 8
+  %tobool.not.i.i.i1.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN4node24IsolateDataSerializeInfoD2Ev.exit, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %24) #27
+  call void @_ZdlPv(ptr noundef nonnull %26) #27
   br label %_ZN4node24IsolateDataSerializeInfoD2Ev.exit
 
 _ZN4node24IsolateDataSerializeInfoD2Ev.exit:      ; preds = %_ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit.i, %if.then.i.i.i2.i
@@ -5665,19 +5714,23 @@ _ZN4node24IsolateDataSerializeInfoD2Ev.exit:      ; preds = %_ZNSt6vectorIN4node
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %env_info, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, i64 32, i1 false)
   %native_execution_async_resources.i.i = getelementptr inbounds i8, ptr %out, i64 216
   %native_execution_async_resources3.i.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 32
-  %25 = load ptr, ptr %native_execution_async_resources.i.i, align 8
+  %27 = load ptr, ptr %native_execution_async_resources.i.i, align 8
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 224
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 232
-  %26 = load <2 x ptr>, ptr %native_execution_async_resources3.i.i, align 8
-  store <2 x ptr> %26, ptr %native_execution_async_resources.i.i, align 8
+  %28 = load ptr, ptr %native_execution_async_resources3.i.i, align 8
+  store ptr %28, ptr %native_execution_async_resources.i.i, align 8
+  %_M_finish.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 40
+  %29 = load ptr, ptr %_M_finish.i2.i.i.i.i.i, align 8
+  store ptr %29, ptr %_M_finish.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 48
-  %27 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
-  store ptr %27, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %25, null
+  %30 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
+  store ptr %30, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %27, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %native_execution_async_resources3.i.i, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN4node16EnvSerializeInfoaSEOS0_.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN4node24IsolateDataSerializeInfoD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %25) #27
+  call void @_ZdlPv(ptr noundef nonnull %27) #27
   br label %_ZN4node16EnvSerializeInfoaSEOS0_.exit
 
 _ZN4node16EnvSerializeInfoaSEOS0_.exit:           ; preds = %_ZN4node24IsolateDataSerializeInfoD2Ev.exit, %if.then.i.i.i.i.i.i.i
@@ -5688,50 +5741,57 @@ _ZN4node16EnvSerializeInfoaSEOS0_.exit:           ; preds = %_ZN4node24IsolateDa
   %principal_realm4.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 128
   %call5.i18 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN4node18RealmSerializeInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %principal_realm.i, ptr noundef nonnull align 8 dereferenceable(80) %principal_realm4.i) #23
   call void @_ZN4node18RealmSerializeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %principal_realm4.i) #23
-  %28 = load ptr, ptr %native_execution_async_resources3.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %28, null
+  %31 = load ptr, ptr %native_execution_async_resources3.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4node16EnvSerializeInfoD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4node16EnvSerializeInfoaSEOS0_.exit
-  call void @_ZdlPv(ptr noundef nonnull %28) #27
+  call void @_ZdlPv(ptr noundef nonnull %31) #27
   br label %_ZN4node16EnvSerializeInfoD2Ev.exit
 
 _ZN4node16EnvSerializeInfoD2Ev.exit:              ; preds = %_ZN4node16EnvSerializeInfoaSEOS0_.exit, %if.then.i.i.i.i.i
-  %29 = load i8, ptr %r, align 8
-  %tobool.i21 = trunc i8 %29 to i1
+  %32 = load i8, ptr %r, align 8
+  %tobool.i21 = trunc i8 %32 to i1
   br i1 %tobool.i21, label %if.then.i22, label %_ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit23
 
 if.then.i22:                                      ; preds = %_ZN4node16EnvSerializeInfoD2Ev.exit
-  %30 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJEEEvP8_IO_FILEPKcDpOT_(ptr noundef %30, ptr noundef nonnull @.str.105) #24
+  %33 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJEEEvP8_IO_FILEPKcDpOT_(ptr noundef %33, ptr noundef nonnull @.str.105) #24
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit23
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit23: ; preds = %_ZN4node16EnvSerializeInfoD2Ev.exit, %if.then.i22
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE10ReadVectorINS_8builtins13CodeCacheInfoEEESt6vectorIT_SaIS7_EEv(ptr nonnull sret(%"class.std::vector") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(32) %r)
   %code_cache = getelementptr inbounds i8, ptr %out, i64 392
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i)
+  %34 = load ptr, ptr %code_cache, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 400
+  %35 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 408
-  %31 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %32 = load <2 x ptr>, ptr %ref.tmp15, align 16
+  %36 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %37 = load ptr, ptr %ref.tmp15, align 8
+  store ptr %37, ptr %code_cache, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
+  %38 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %38, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
-  %33 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %33, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %39 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %39, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %_M_finish.i.i3.i.i = getelementptr inbounds i8, ptr %__tmp.i.i, i64 8
   %_M_end_of_storage.i.i4.i.i = getelementptr inbounds i8, ptr %__tmp.i.i, i64 16
-  %34 = load <2 x ptr>, ptr %code_cache, align 8
-  store <2 x ptr> %32, ptr %code_cache, align 8
-  store <2 x ptr> %34, ptr %__tmp.i.i, align 16
-  store ptr %31, ptr %_M_end_of_storage.i.i4.i.i, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp15, i8 0, i64 24, i1 false)
+  store ptr %34, ptr %__tmp.i.i, align 8
+  store ptr %35, ptr %_M_finish.i.i3.i.i, align 8
+  store ptr %36, ptr %_M_end_of_storage.i.i4.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp15, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.i.i)
   call void @_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp15) #23
-  %35 = load i8, ptr %r, align 8
-  %tobool.i24 = trunc i8 %35 to i1
+  %40 = load i8, ptr %r, align 8
+  %tobool.i24 = trunc i8 %40 to i1
   br i1 %tobool.i24, label %if.then.i25, label %return
 
 if.then.i25:                                      ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit23
-  %36 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRmEEEvP8_IO_FILEPKcDpOT_(ptr noundef %36, ptr noundef nonnull @.str.106, ptr noundef nonnull align 8 dereferenceable(8) %read_total.i.i) #24
+  %41 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRmEEEvP8_IO_FILEPKcDpOT_(ptr noundef %41, ptr noundef nonnull @.str.106, ptr noundef nonnull align 8 dereferenceable(8) %read_total.i.i) #24
   br label %return
 
 return:                                           ; preds = %if.then.i25, %_ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit23, %_ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit13
@@ -5859,7 +5919,7 @@ entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp2 = alloca i64, align 8
   %count = alloca i64, align 8
-  %ref.tmp10 = alloca %"class.std::vector", align 16
+  %ref.tmp10 = alloca %"class.std::vector", align 8
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %name16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca ptr, align 8
@@ -5930,19 +5990,23 @@ if.end9:                                          ; preds = %_ZNK4node26BlobSeri
   %8 = phi i64 [ %.pre, %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit ], [ %5, %if.end5 ]
   call void @_ZN4node16BlobDeserializerINS_20SnapshotDeserializerEE23ReadNonArithmeticVectorINS_8builtins13CodeCacheInfoEEESt6vectorIT_SaIS7_EEm(ptr nonnull sret(%"class.std::vector") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i)
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %9 = load <2 x ptr>, ptr %ref.tmp10, align 16
-  store <2 x ptr> %9, ptr %agg.result, align 8
+  %9 = load ptr, ptr %ref.tmp10, align 8
+  store ptr %9, ptr %agg.result, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
+  %10 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %10, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
-  %10 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %10, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %11, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.i.i)
   call void @_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10) #23
-  %11 = load i8, ptr %this, align 8
-  %tobool13 = trunc i8 %11 to i1
+  %12 = load i8, ptr %this, align 8
+  %tobool13 = trunc i8 %12 to i1
   br i1 %tobool13, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end9
@@ -5961,12 +6025,12 @@ if.then14:                                        ; preds = %if.end9
   store i64 23, ptr %__dnew.i8, align 8
   %call2.i10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %name16, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i8, i64 noundef 0) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %name16, ptr noundef %call2.i10) #23
-  %12 = load i64, ptr %__dnew.i8, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %name16, i64 noundef %12) #23
+  %13 = load i64, ptr %__dnew.i8, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %name16, i64 noundef %13) #23
   %call4.i11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name16) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i11, ptr noundef nonnull @.str.308, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.308, i64 23)) #23
-  %13 = load i64, ptr %__dnew.i8, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %name16, i64 noundef %13) #23
+  %14 = load i64, ptr %__dnew.i8, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %name16, i64 noundef %14) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i8)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i3) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i3)
@@ -5974,13 +6038,13 @@ if.then14:                                        ; preds = %if.end9
   store ptr %call18, ptr %ref.tmp17, align 8
   %call20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #23
   store ptr %call20, ptr %ref.tmp19, align 8
-  %14 = load i8, ptr %this, align 8
-  %tobool.i5 = trunc i8 %14 to i1
+  %15 = load i8, ptr %this, align 8
+  %tobool.i5 = trunc i8 %15 to i1
   br i1 %tobool.i5, label %if.then.i6, label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_EEEvS3_DpOT_.exit
 
 if.then.i6:                                       ; preds = %if.then14
-  %15 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJPKcS2_EEEvP8_IO_FILES2_DpOT_(ptr noundef %15, ptr noundef nonnull @.str.288, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19) #24
+  %16 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJPKcS2_EEEvP8_IO_FILES2_DpOT_(ptr noundef %16, ptr noundef nonnull @.str.288, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19) #24
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_EEEvS3_DpOT_.exit
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_EEEvS3_DpOT_.exit: ; preds = %if.then14, %if.then.i6
@@ -7201,7 +7265,7 @@ declare void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define dso_local noundef i32 @_ZN4node15SnapshotBuilder14CreateSnapshotEPNS_12SnapshotDataEPNS_22CommonEnvironmentSetupE(ptr noundef %out, ptr noundef nonnull %setup) local_unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %ref.tmp72 = alloca %"struct.node::IsolateDataSerializeInfo", align 16
+  %ref.tmp72 = alloca %"struct.node::IsolateDataSerializeInfo", align 8
   %ref.tmp75 = alloca %"struct.node::EnvSerializeInfo", align 8
   %ref.tmp147 = alloca %"struct.node::SnapshotMetadata", align 8
   %call = tail call noundef ptr @_ZNK4node22CommonEnvironmentSetup12isolate_dataEv(ptr noundef nonnull align 8 dereferenceable(8) %setup) #23
@@ -7260,14 +7324,18 @@ if.end71:                                         ; preds = %if.then68, %if.end5
   call void @_ZN4node11IsolateData9SerializeEPN2v815SnapshotCreatorE(ptr nonnull sret(%"struct.node::IsolateDataSerializeInfo") align 8 %ref.tmp72, ptr noundef nonnull align 8 dereferenceable(4192) %call73, ptr noundef %call5) #23
   %isolate_data_info = getelementptr inbounds i8, ptr %out, i64 136
   %6 = load ptr, ptr %isolate_data_info, align 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 144
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 152
-  %7 = load <2 x ptr>, ptr %ref.tmp72, align 16
-  store <2 x ptr> %7, ptr %isolate_data_info, align 8
+  %7 = load ptr, ptr %ref.tmp72, align 8
+  store ptr %7, ptr %isolate_data_info, align 8
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
+  %8 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %8, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
-  %8 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 16
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %9 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %6, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp72, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp72, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEEaSEOS1_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end71
@@ -7277,46 +7345,48 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end71
 _ZNSt6vectorImSaImEEaSEOS1_.exit.i:               ; preds = %if.then.i.i.i.i.i.i, %if.end71
   %template_values.i = getelementptr inbounds i8, ptr %out, i64 160
   %template_values3.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 24
-  %9 = load ptr, ptr %template_values.i, align 8
+  %10 = load ptr, ptr %template_values.i, align 8
   %_M_finish.i.i.i.i2.i = getelementptr inbounds i8, ptr %out, i64 168
-  %10 = load ptr, ptr %_M_finish.i.i.i.i2.i, align 8
+  %11 = load ptr, ptr %_M_finish.i.i.i.i2.i, align 8
   %_M_end_of_storage.i.i.i.i3.i = getelementptr inbounds i8, ptr %out, i64 176
+  %12 = load ptr, ptr %template_values3.i, align 8
+  store ptr %12, ptr %template_values.i, align 8
   %_M_finish.i2.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
-  %11 = load <2 x ptr>, ptr %template_values3.i, align 8
-  store <2 x ptr> %11, ptr %template_values.i, align 8
+  %13 = load ptr, ptr %_M_finish.i2.i.i.i4.i, align 8
+  store ptr %13, ptr %_M_finish.i.i.i.i2.i, align 8
   %_M_end_of_storage.i4.i.i.i5.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 40
-  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i5.i, align 8
-  store ptr %12, ptr %_M_end_of_storage.i.i.i.i3.i, align 8
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %9, %10
+  %14 = load ptr, ptr %_M_end_of_storage.i4.i.i.i5.i, align 8
+  store ptr %14, ptr %_M_end_of_storage.i.i.i.i3.i, align 8
+  %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %10, %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %template_values3.i, i8 0, i64 24, i1 false)
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNSt6vectorImSaImEEaSEOS1_.exit.i, %for.body.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %9, %_ZNSt6vectorImSaImEEaSEOS1_.exit.i ]
+  %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %10, %_ZNSt6vectorImSaImEEaSEOS1_.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i) #23
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 48
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %10
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %11
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !186
 
 _ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %_ZNSt6vectorImSaImEEaSEOS1_.exit.i
-  %tobool.not.i.i.i.i.i6.i = icmp eq ptr %9, null
+  %tobool.not.i.i.i.i.i6.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i.i6.i, label %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit, label %if.then.i.i.i.i.i7.i
 
 if.then.i.i.i.i.i7.i:                             ; preds = %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %9) #27
+  call void @_ZdlPv(ptr noundef nonnull %10) #27
   br label %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit
 
 _ZN4node24IsolateDataSerializeInfoaSEOS0_.exit:   ; preds = %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, %if.then.i.i.i.i.i7.i
-  %13 = load ptr, ptr %template_values3.i, align 8
-  %14 = load ptr, ptr %_M_finish.i2.i.i.i4.i, align 16
-  %cmp.not3.i.i.i.i.i = icmp eq ptr %13, %14
+  %15 = load ptr, ptr %template_values3.i, align 8
+  %16 = load ptr, ptr %_M_finish.i2.i.i.i4.i, align 8
+  %cmp.not3.i.i.i.i.i = icmp eq ptr %15, %16
   br i1 %cmp.not3.i.i.i.i.i, label %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit, %for.body.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %13, %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit ]
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %15, %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #23
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 48
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %14
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %16
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !186
 
 _ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %for.body.i.i.i.i.i
@@ -7324,21 +7394,21 @@ _ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; pr
   br label %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit
-  %15 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %13, %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit ]
-  %tobool.not.i.i.i.i = icmp eq ptr %15, null
+  %17 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %15, %_ZN4node24IsolateDataSerializeInfoaSEOS0_.exit ]
+  %tobool.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %15) #27
+  call void @_ZdlPv(ptr noundef nonnull %17) #27
   br label %_ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %_ZSt8_DestroyIPN4node8PropInfoES1_EvT_S3_RSaIT0_E.exit.i.i
-  %16 = load ptr, ptr %ref.tmp72, align 16
-  %tobool.not.i.i.i1.i = icmp eq ptr %16, null
+  %18 = load ptr, ptr %ref.tmp72, align 8
+  %tobool.not.i.i.i1.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN4node24IsolateDataSerializeInfoD2Ev.exit, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %16) #27
+  call void @_ZdlPv(ptr noundef nonnull %18) #27
   br label %_ZN4node24IsolateDataSerializeInfoD2Ev.exit
 
 _ZN4node24IsolateDataSerializeInfoD2Ev.exit:      ; preds = %_ZNSt6vectorIN4node8PropInfoESaIS1_EED2Ev.exit.i, %if.then.i.i.i2.i
@@ -7347,19 +7417,23 @@ _ZN4node24IsolateDataSerializeInfoD2Ev.exit:      ; preds = %_ZNSt6vectorIN4node
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %env_info, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75, i64 32, i1 false)
   %native_execution_async_resources.i.i = getelementptr inbounds i8, ptr %out, i64 216
   %native_execution_async_resources3.i.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 32
-  %17 = load ptr, ptr %native_execution_async_resources.i.i, align 8
+  %19 = load ptr, ptr %native_execution_async_resources.i.i, align 8
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 224
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 232
-  %18 = load <2 x ptr>, ptr %native_execution_async_resources3.i.i, align 8
-  store <2 x ptr> %18, ptr %native_execution_async_resources.i.i, align 8
+  %20 = load ptr, ptr %native_execution_async_resources3.i.i, align 8
+  store ptr %20, ptr %native_execution_async_resources.i.i, align 8
+  %_M_finish.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 40
+  %21 = load ptr, ptr %_M_finish.i2.i.i.i.i.i, align 8
+  store ptr %21, ptr %_M_finish.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 48
-  %19 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
-  store ptr %19, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %17, null
+  %22 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
+  store ptr %22, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %19, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %native_execution_async_resources3.i.i, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN4node16EnvSerializeInfoaSEOS0_.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN4node24IsolateDataSerializeInfoD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %17) #27
+  call void @_ZdlPv(ptr noundef nonnull %19) #27
   br label %_ZN4node16EnvSerializeInfoaSEOS0_.exit
 
 _ZN4node16EnvSerializeInfoaSEOS0_.exit:           ; preds = %_ZN4node24IsolateDataSerializeInfoD2Ev.exit, %if.then.i.i.i.i.i.i.i
@@ -7370,12 +7444,12 @@ _ZN4node16EnvSerializeInfoaSEOS0_.exit:           ; preds = %_ZN4node24IsolateDa
   %principal_realm4.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 128
   %call5.i = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN4node18RealmSerializeInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %principal_realm.i, ptr noundef nonnull align 8 dereferenceable(80) %principal_realm4.i) #23
   call void @_ZN4node18RealmSerializeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %principal_realm4.i) #23
-  %20 = load ptr, ptr %native_execution_async_resources3.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %20, null
+  %23 = load ptr, ptr %native_execution_async_resources3.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4node16EnvSerializeInfoD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4node16EnvSerializeInfoaSEOS0_.exit
-  call void @_ZdlPv(ptr noundef nonnull %20) #27
+  call void @_ZdlPv(ptr noundef nonnull %23) #27
   br label %_ZN4node16EnvSerializeInfoD2Ev.exit
 
 _ZN4node16EnvSerializeInfoD2Ev.exit:              ; preds = %_ZN4node16EnvSerializeInfoaSEOS0_.exit, %if.then.i.i.i.i.i
@@ -7418,16 +7492,16 @@ cleanup.thread:                                   ; preds = %do.end34, %if.end47
 
 cleanup.cont:                                     ; preds = %do.end120
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #23
-  %21 = load i32, ptr %spec.select.i, align 4
-  %and.i.i.i = and i32 %21, 1
+  %24 = load i32, ptr %spec.select.i, align 4
+  %and.i.i.i = and i32 %24, 1
   %cond140 = xor i32 %and.i.i.i, 1
   %call142 = call { ptr, i32 } @_ZN2v815SnapshotCreator10CreateBlobENS0_20FunctionCodeHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %cond140) #23
-  %22 = extractvalue { ptr, i32 } %call142, 0
-  %23 = extractvalue { ptr, i32 } %call142, 1
+  %25 = extractvalue { ptr, i32 } %call142, 0
+  %26 = extractvalue { ptr, i32 } %call142, 1
   %v8_snapshot_blob_data = getelementptr inbounds i8, ptr %out, i64 120
-  store ptr %22, ptr %v8_snapshot_blob_data, align 8
+  store ptr %25, ptr %v8_snapshot_blob_data, align 8
   %ref.tmp141.sroa.2.0.v8_snapshot_blob_data.sroa_idx = getelementptr inbounds i8, ptr %out, i64 128
-  store i32 %23, ptr %ref.tmp141.sroa.2.0.v8_snapshot_blob_data.sroa_idx, align 8
+  store i32 %26, ptr %ref.tmp141.sroa.2.0.v8_snapshot_blob_data.sroa_idx, align 8
   %call144 = call noundef zeroext i1 @_ZNK2v811StartupData13CanBeRehashedEv(ptr noundef nonnull align 8 dereferenceable(16) %v8_snapshot_blob_data) #23
   br i1 %call144, label %if.end146, label %return
 
@@ -7443,11 +7517,11 @@ if.end146:                                        ; preds = %cleanup.cont
   %call148 = call noundef i32 @_ZN2v814ScriptCompiler20CachedDataVersionTagEv() #23
   store i32 %call148, ptr %v8_cache_version_tag, align 8
   %flags = getelementptr inbounds i8, ptr %ref.tmp147, i64 108
-  %24 = load i32, ptr %spec.select.i, align 8
-  store i32 %24, ptr %flags, align 4
+  %27 = load i32, ptr %spec.select.i, align 8
+  store i32 %27, ptr %flags, align 4
   %metadata = getelementptr inbounds i8, ptr %out, i64 8
-  %25 = load i8, ptr %ref.tmp147, align 8
-  store i8 %25, ptr %metadata, align 8
+  %28 = load i8, ptr %ref.tmp147, align 8
+  store i8 %28, ptr %metadata, align 8
   %node_version.i = getelementptr inbounds i8, ptr %out, i64 16
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %node_version.i, ptr noundef nonnull align 8 dereferenceable(32) %node_version) #23
   %node_arch.i = getelementptr inbounds i8, ptr %out, i64 48
@@ -7455,39 +7529,39 @@ if.end146:                                        ; preds = %cleanup.cont
   %node_platform.i = getelementptr inbounds i8, ptr %out, i64 80
   %call7.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %node_platform.i, ptr noundef nonnull align 8 dereferenceable(32) %node_platform) #23
   %v8_cache_version_tag.i = getelementptr inbounds i8, ptr %out, i64 112
-  %26 = load i64, ptr %v8_cache_version_tag, align 8
-  store i64 %26, ptr %v8_cache_version_tag.i, align 8
+  %29 = load i64, ptr %v8_cache_version_tag, align 8
+  store i64 %29, ptr %v8_cache_version_tag.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %node_platform) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %node_arch) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %node_version) #23
   %req_wrap_queue_.i = getelementptr inbounds i8, ptr %call4, i64 2192
-  %27 = load ptr, ptr %req_wrap_queue_.i, align 8
-  %cmp.i.i44 = icmp eq ptr %27, %req_wrap_queue_.i
+  %30 = load ptr, ptr %req_wrap_queue_.i, align 8
+  %cmp.i.i44 = icmp eq ptr %30, %req_wrap_queue_.i
   br i1 %cmp.i.i44, label %land.end, label %if.then156
 
 land.end:                                         ; preds = %if.end146
   %handle_wrap_queue_.i = getelementptr inbounds i8, ptr %call4, i64 2176
-  %28 = load ptr, ptr %handle_wrap_queue_.i, align 8
-  %cmp.i.i45 = icmp eq ptr %28, %handle_wrap_queue_.i
+  %31 = load ptr, ptr %handle_wrap_queue_.i, align 8
+  %cmp.i.i45 = icmp eq ptr %31, %handle_wrap_queue_.i
   br i1 %cmp.i.i45, label %lor.lhs.false, label %if.then156
 
 lor.lhs.false:                                    ; preds = %land.end
-  %29 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 72), align 1
-  %tobool.i = trunc i8 %29 to i1
+  %32 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 72), align 1
+  %tobool.i = trunc i8 %32 to i1
   br i1 %tobool.i, label %if.then156, label %return
 
 if.then156:                                       ; preds = %if.end146, %lor.lhs.false, %land.end
-  %30 = phi i32 [ 0, %lor.lhs.false ], [ 14, %land.end ], [ 14, %if.end146 ]
+  %33 = phi i32 [ 0, %lor.lhs.false ], [ 14, %land.end ], [ 14, %if.end146 ]
   %isolate_data_.i.i = getelementptr inbounds i8, ptr %call4, i64 96
-  %31 = load ptr, ptr %isolate_data_.i.i, align 8
-  %event_loop_.i.i = getelementptr inbounds i8, ptr %31, i64 4064
-  %32 = load ptr, ptr %event_loop_.i.i, align 8
-  %33 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILE(ptr noundef %32, ptr noundef %33) #23
+  %34 = load ptr, ptr %isolate_data_.i.i, align 8
+  %event_loop_.i.i = getelementptr inbounds i8, ptr %34, i64 4064
+  %35 = load ptr, ptr %event_loop_.i.i, align 8
+  %36 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node27PrintLibuvHandleInformationEP9uv_loop_sP8_IO_FILE(ptr noundef %35, ptr noundef %36) #23
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %if.then156, %cleanup.thread, %cleanup.cont
-  %retval.1 = phi i32 [ 14, %cleanup.cont ], [ %retval.0.ph, %cleanup.thread ], [ %30, %if.then156 ], [ 0, %lor.lhs.false ]
+  %retval.1 = phi i32 [ 14, %cleanup.cont ], [ %retval.0.ph, %cleanup.thread ], [ %33, %if.then156 ], [ 0, %lor.lhs.false ]
   ret i32 %retval.1
 }
 
@@ -19345,10 +19419,13 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %data3.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !1284
   %owning_ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 48
   %owning_ptr3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 48
+  %3 = load ptr, ptr %owning_ptr3.i.i.i.i.i.i.i.i, align 8, !alias.scope !1282, !noalias !1279
+  store ptr %3, ptr %owning_ptr.i.i.i.i.i.i.i.i, align 8, !alias.scope !1279, !noalias !1282
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 56
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 56
-  %3 = load <2 x ptr>, ptr %owning_ptr3.i.i.i.i.i.i.i.i, align 8, !alias.scope !1282, !noalias !1279
+  %4 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1282, !noalias !1279
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1282, !noalias !1279
-  store <2 x ptr> %3, ptr %owning_ptr.i.i.i.i.i.i.i.i, align 8, !alias.scope !1279, !noalias !1282
+  store ptr %4, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1279, !noalias !1282
   store ptr null, ptr %owning_ptr3.i.i.i.i.i.i.i.i, align 8, !alias.scope !1282, !noalias !1279
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #23
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 64
@@ -19361,12 +19438,12 @@ _ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
   br label %_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
 _ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.loopexit, %_ZNSt12_Vector_baseIN4node8builtins13CodeCacheInfoESaIS2_EE11_M_allocateEm.exit
-  %4 = phi ptr [ %.pre, %_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.loopexit ], [ %1, %_ZNSt12_Vector_baseIN4node8builtins13CodeCacheInfoESaIS2_EE11_M_allocateEm.exit ]
-  %tobool.not.i = icmp eq ptr %4, null
+  %5 = phi ptr [ %.pre, %_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.loopexit ], [ %1, %_ZNSt12_Vector_baseIN4node8builtins13CodeCacheInfoESaIS2_EE11_M_allocateEm.exit ]
+  %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN4node8builtins13CodeCacheInfoESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #27
   br label %_ZNSt12_Vector_baseIN4node8builtins13CodeCacheInfoESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN4node8builtins13CodeCacheInfoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i
@@ -19424,10 +19501,13 @@ _ZNSt12_Vector_baseIN4node8builtins13CodeCacheInfoESaIS2_EE11_M_allocateEm.exit:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %data3.i.i.i, i64 16, i1 false)
   %owning_ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %owning_ptr3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 48
+  %3 = load ptr, ptr %owning_ptr3.i.i.i.i, align 8
+  store ptr %3, ptr %owning_ptr.i.i.i.i, align 8
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %_M_refcount4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 56
-  %3 = load <2 x ptr>, ptr %owning_ptr3.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i, align 8
-  store <2 x ptr> %3, ptr %owning_ptr.i.i.i.i, align 8
+  store ptr %4, ptr %_M_refcount.i.i.i.i.i.i, align 8
   store ptr null, ptr %owning_ptr3.i.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
@@ -19443,10 +19523,13 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %data3.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !1291
   %owning_ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 48
   %owning_ptr3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 48
+  %5 = load ptr, ptr %owning_ptr3.i.i.i.i.i.i.i.i, align 8, !alias.scope !1289, !noalias !1286
+  store ptr %5, ptr %owning_ptr.i.i.i.i.i.i.i.i, align 8, !alias.scope !1286, !noalias !1289
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 56
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 56
-  %4 = load <2 x ptr>, ptr %owning_ptr3.i.i.i.i.i.i.i.i, align 8, !alias.scope !1289, !noalias !1286
+  %6 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1289, !noalias !1286
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1289, !noalias !1286
-  store <2 x ptr> %4, ptr %owning_ptr.i.i.i.i.i.i.i.i, align 8, !alias.scope !1286, !noalias !1289
+  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1286, !noalias !1289
   store ptr null, ptr %owning_ptr3.i.i.i.i.i.i.i.i, align 8, !alias.scope !1289, !noalias !1286
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #23
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 64
@@ -19471,10 +19554,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4node
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %data3.i.i.i.i.i.i.i16, i64 16, i1 false), !alias.scope !1297
   %owning_ptr.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 48
   %owning_ptr3.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 48
+  %7 = load ptr, ptr %owning_ptr3.i.i.i.i.i.i.i.i18, align 8, !alias.scope !1295, !noalias !1292
+  store ptr %7, ptr %owning_ptr.i.i.i.i.i.i.i.i17, align 8, !alias.scope !1292, !noalias !1295
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 56
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 56
-  %5 = load <2 x ptr>, ptr %owning_ptr3.i.i.i.i.i.i.i.i18, align 8, !alias.scope !1295, !noalias !1292
+  %8 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !1295, !noalias !1292
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !1295, !noalias !1292
-  store <2 x ptr> %5, ptr %owning_ptr.i.i.i.i.i.i.i.i17, align 8, !alias.scope !1292, !noalias !1295
+  store ptr %8, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !1292, !noalias !1295
   store ptr null, ptr %owning_ptr3.i.i.i.i.i.i.i.i18, align 8, !alias.scope !1295, !noalias !1292
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #23
   %incdec.ptr.i.i.i21 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 64

@@ -821,7 +821,13 @@ if.end.i:                                         ; preds = %if.then70
   br i1 %tobool.not.i, label %get_localhost.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  store <4 x i32> <i32 0, i32 2, i32 1, i32 6>, ptr %call5.i, align 8
+  store i32 0, ptr %call5.i, align 8
+  %ai_family.i = getelementptr inbounds i8, ptr %call5.i, i64 4
+  store i32 2, ptr %ai_family.i, align 4
+  %ai_socktype.i = getelementptr inbounds i8, ptr %call5.i, i64 8
+  store i32 1, ptr %ai_socktype.i, align 8
+  %ai_protocol.i = getelementptr inbounds i8, ptr %call5.i, i64 12
+  store i32 6, ptr %ai_protocol.i, align 4
   %ai_addrlen.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   store i32 16, ptr %ai_addrlen.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i, i64 48
@@ -859,7 +865,13 @@ get_localhost6.exit.thread.i:                     ; preds = %if.end.i.i, %if.end
 
 if.end16.i:                                       ; preds = %if.end.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sa6.sroa.4.i.i, ptr noundef nonnull align 16 dereferenceable(16) %ipv6.i.i, i64 16, i1 false)
-  store <4 x i32> <i32 0, i32 10, i32 1, i32 6>, ptr %call2.i.i, align 8
+  store i32 0, ptr %call2.i.i, align 8
+  %ai_family.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
+  store i32 10, ptr %ai_family.i.i, align 4
+  %ai_socktype.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 8
+  store i32 1, ptr %ai_socktype.i.i, align 8
+  %ai_protocol.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 12
+  store i32 6, ptr %ai_protocol.i.i, align 4
   %ai_addrlen.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 16
   store i32 28, ptr %ai_addrlen.i.i, align 8
   %ai_next.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 40

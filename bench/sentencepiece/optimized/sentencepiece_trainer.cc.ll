@@ -8188,8 +8188,12 @@ define void @_ZN13sentencepiece20SentencePieceTrainer5TrainESt17basic_string_vie
   %6 = alloca %"class.sentencepiece::(anonymous namespace)::VectorSentenceIterator", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece12_GLOBAL__N_122VectorSentenceIteratorE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load <2 x ptr>, ptr %3, align 8
-  store <2 x ptr> %8, ptr %7, align 8
+  %8 = load ptr, ptr %3, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %9, align 8
   call void @_ZN13sentencepiece20SentencePieceTrainer5TrainESt17basic_string_viewIcSt11char_traitsIcEEPNS_16SentenceIteratorEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr dead_on_unwind writable sret(%"class.sentencepiece::util::Status") align 8 %0, i64 %1, ptr %2, ptr noundef nonnull %6, ptr noundef %4)
   ret void
 }
@@ -8204,8 +8208,12 @@ define void @_ZN13sentencepiece20SentencePieceTrainer5TrainERKSt13unordered_mapI
   %5 = alloca %"class.sentencepiece::(anonymous namespace)::VectorSentenceIterator", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece12_GLOBAL__N_122VectorSentenceIteratorE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %7, ptr %6, align 8
+  %7 = load ptr, ptr %2, align 8
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
   call void @_ZN13sentencepiece20SentencePieceTrainer5TrainERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEEPNS_16SentenceIteratorEPS7_(ptr dead_on_unwind writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %5, ptr noundef %3)
   ret void
 }

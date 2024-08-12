@@ -8,7 +8,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_blake2s_param_init(ptr nocapture noundef writeonly %P) local_unnamed_addr #0 {
 entry:
-  store <4 x i8> <i8 32, i8 0, i8 1, i8 1>, ptr %P, align 1
+  store i8 32, ptr %P, align 1
+  %key_length = getelementptr inbounds i8, ptr %P, i64 1
+  store i8 0, ptr %key_length, align 1
+  %fanout = getelementptr inbounds i8, ptr %P, i64 2
+  store i8 1, ptr %fanout, align 1
+  %depth = getelementptr inbounds i8, ptr %P, i64 3
+  store i8 1, ptr %depth, align 1
   %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %leaf_length, i8 0, i64 28, i1 false)
   ret void

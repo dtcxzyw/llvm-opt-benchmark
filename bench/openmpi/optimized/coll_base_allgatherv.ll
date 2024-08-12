@@ -455,12 +455,12 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %.lr.ph, %61
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_coll_base_allgatherv_intra_neighborexchange(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
   %10 = alloca [2 x i32], align 4
-  %11 = alloca [2 x i32], align 8
+  %11 = alloca [2 x i32], align 4
   %12 = alloca [2 x i32], align 4
-  %13 = alloca [2 x i32], align 8
-  %14 = alloca [2 x i32], align 8
-  %15 = alloca [2 x i32], align 8
-  %16 = alloca [2 x i32], align 8
+  %13 = alloca [2 x i32], align 4
+  %14 = alloca [2 x i32], align 4
+  %15 = alloca [2 x i32], align 4
+  %16 = alloca [2 x i32], align 4
   %17 = alloca ptr, align 8
   %18 = alloca ptr, align 8
   %19 = getelementptr i8, ptr %7, i64 248
@@ -522,15 +522,18 @@ define i32 @ompi_coll_base_allgatherv_intra_neighborexchange(ptr noundef %0, i32
   %.sink142 = phi i32 [ %45, %43 ], [ %51, %48 ]
   %.pn = phi i32 [ %47, %43 ], [ %52, %48 ]
   %54 = phi i32 [ %.val121, %43 ], [ %51, %48 ]
-  %55 = phi <2 x i32> [ <i32 2, i32 -2>, %43 ], [ <i32 -2, i32 2>, %48 ]
+  %.sink138 = phi i32 [ 2, %43 ], [ -2, %48 ]
+  %.sink = phi i32 [ -2, %43 ], [ 2, %48 ]
   %.sink141 = srem i32 %.pn, %.val.val
   store i32 %.sink142, ptr %10, align 4
-  %56 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 %.sink141, ptr %56, align 4
+  %55 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 %.sink141, ptr %55, align 4
   store i32 %54, ptr %12, align 4
-  %57 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %54, ptr %57, align 4
-  store <2 x i32> %55, ptr %11, align 8
+  %56 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %54, ptr %56, align 4
+  store i32 %.sink138, ptr %11, align 4
+  %57 = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 %.sink, ptr %57, align 4
   %58 = sext i32 %.sink142 to i64
   %59 = getelementptr inbounds i32, ptr %5, i64 %58
   %60 = load i32, ptr %59, align 4
@@ -568,84 +571,105 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %73, %75
   %81 = icmp sgt i32 %80, 1
   br i1 %81, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %79, %118
-  %.1128 = phi i32 [ %90, %118 ], [ %54, %79 ]
-  %.0102127 = phi i32 [ %121, %118 ], [ 1, %79 ]
-  %82 = and i32 %.0102127, 1
-  %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 %83
-  %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 %83
-  %87 = load i32, ptr %86, align 4
-  %88 = add i32 %85, %.val.val
-  %89 = add i32 %88, %87
-  %90 = srem i32 %89, %.val.val
-  store i32 %90, ptr %84, align 4
-  %91 = sext i32 %.1128 to i64
-  %92 = getelementptr inbounds i32, ptr %4, i64 %91
-  %93 = load <2 x i32>, ptr %92, align 4
-  store <2 x i32> %93, ptr %13, align 8
-  %94 = getelementptr inbounds i32, ptr %5, i64 %91
-  %95 = load <2 x i32>, ptr %94, align 4
-  store <2 x i32> %95, ptr %14, align 8
-  %96 = call i32 @ompi_datatype_create_indexed(i32 noundef 2, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %6, ptr noundef nonnull %18) #7
-  %.not116 = icmp eq i32 %96, 0
-  br i1 %.not116, label %97, label %.loopexit
+.lr.ph:                                           ; preds = %79
+  %82 = getelementptr inbounds i8, ptr %13, i64 4
+  %83 = getelementptr inbounds i8, ptr %14, i64 4
+  %84 = getelementptr inbounds i8, ptr %15, i64 4
+  %85 = getelementptr inbounds i8, ptr %16, i64 4
+  br label %86
 
-97:                                               ; preds = %.lr.ph
-  %.val123 = load ptr, ptr %18, align 8
-  %98 = call i32 @opal_datatype_commit(ptr noundef %.val123) #7
-  %.not117 = icmp eq i32 %98, 0
-  br i1 %.not117, label %99, label %.loopexit
-
-99:                                               ; preds = %97
-  %100 = sext i32 %90 to i64
+86:                                               ; preds = %.lr.ph, %133
+  %.1128 = phi i32 [ %54, %.lr.ph ], [ %95, %133 ]
+  %.0102127 = phi i32 [ 1, %.lr.ph ], [ %136, %133 ]
+  %87 = and i32 %.0102127, 1
+  %88 = zext nneg i32 %87 to i64
+  %89 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 %88
+  %90 = load i32, ptr %89, align 4
+  %91 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 %88
+  %92 = load i32, ptr %91, align 4
+  %93 = add i32 %90, %.val.val
+  %94 = add i32 %93, %92
+  %95 = srem i32 %94, %.val.val
+  store i32 %95, ptr %89, align 4
+  %96 = sext i32 %.1128 to i64
+  %97 = getelementptr inbounds i32, ptr %4, i64 %96
+  %98 = load i32, ptr %97, align 4
+  store i32 %98, ptr %13, align 4
+  %99 = add nsw i32 %.1128, 1
+  %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i32, ptr %4, i64 %100
-  %102 = load <2 x i32>, ptr %101, align 4
-  store <2 x i32> %102, ptr %15, align 8
-  %103 = getelementptr inbounds i32, ptr %5, i64 %100
-  %104 = load <2 x i32>, ptr %103, align 4
-  store <2 x i32> %104, ptr %16, align 8
-  %105 = call i32 @ompi_datatype_create_indexed(i32 noundef 2, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %6, ptr noundef nonnull %17) #7
-  %.not118 = icmp eq i32 %105, 0
-  br i1 %.not118, label %106, label %.loopexit
+  %102 = load i32, ptr %101, align 4
+  store i32 %102, ptr %82, align 4
+  %103 = getelementptr inbounds i32, ptr %5, i64 %96
+  %104 = load i32, ptr %103, align 4
+  store i32 %104, ptr %14, align 4
+  %105 = getelementptr inbounds i32, ptr %5, i64 %100
+  %106 = load i32, ptr %105, align 4
+  store i32 %106, ptr %83, align 4
+  %107 = call i32 @ompi_datatype_create_indexed(i32 noundef 2, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %6, ptr noundef nonnull %18) #7
+  %.not116 = icmp eq i32 %107, 0
+  br i1 %.not116, label %108, label %.loopexit
 
-106:                                              ; preds = %99
+108:                                              ; preds = %86
+  %.val123 = load ptr, ptr %18, align 8
+  %109 = call i32 @opal_datatype_commit(ptr noundef %.val123) #7
+  %.not117 = icmp eq i32 %109, 0
+  br i1 %.not117, label %110, label %.loopexit
+
+110:                                              ; preds = %108
+  %111 = sext i32 %95 to i64
+  %112 = getelementptr inbounds i32, ptr %4, i64 %111
+  %113 = load i32, ptr %112, align 4
+  store i32 %113, ptr %15, align 4
+  %114 = getelementptr i8, ptr %112, i64 4
+  %115 = load i32, ptr %114, align 4
+  store i32 %115, ptr %84, align 4
+  %116 = getelementptr inbounds i32, ptr %5, i64 %111
+  %117 = load i32, ptr %116, align 4
+  store i32 %117, ptr %16, align 4
+  %118 = getelementptr i8, ptr %116, i64 4
+  %119 = load i32, ptr %118, align 4
+  store i32 %119, ptr %85, align 4
+  %120 = call i32 @ompi_datatype_create_indexed(i32 noundef 2, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %6, ptr noundef nonnull %17) #7
+  %.not118 = icmp eq i32 %120, 0
+  br i1 %.not118, label %121, label %.loopexit
+
+121:                                              ; preds = %110
   %.val122 = load ptr, ptr %17, align 8
-  %107 = call i32 @opal_datatype_commit(ptr noundef %.val122) #7
-  %.not119 = icmp eq i32 %107, 0
-  br i1 %.not119, label %108, label %.loopexit
+  %122 = call i32 @opal_datatype_commit(ptr noundef %.val122) #7
+  %.not119 = icmp eq i32 %122, 0
+  br i1 %.not119, label %123, label %.loopexit
 
-108:                                              ; preds = %106
-  %109 = load ptr, ptr %18, align 8
-  %110 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 %83
-  %111 = load i32, ptr %110, align 4
-  %112 = load ptr, ptr %17, align 8
-  %113 = icmp eq i32 %111, %.val121
-  br i1 %113, label %114, label %116
+123:                                              ; preds = %121
+  %124 = load ptr, ptr %18, align 8
+  %125 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 %88
+  %126 = load i32, ptr %125, align 4
+  %127 = load ptr, ptr %17, align 8
+  %128 = icmp eq i32 %126, %.val121
+  br i1 %128, label %129, label %131
 
-114:                                              ; preds = %108
-  %115 = call i32 @ompi_datatype_sndrcv(ptr noundef %3, i32 noundef 1, ptr noundef %109, ptr noundef %3, i32 noundef 1, ptr noundef %112) #7
+129:                                              ; preds = %123
+  %130 = call i32 @ompi_datatype_sndrcv(ptr noundef %3, i32 noundef 1, ptr noundef %124, ptr noundef %3, i32 noundef 1, ptr noundef %127) #7
   br label %ompi_coll_base_sendrecv.exit125
 
-116:                                              ; preds = %108
-  %117 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %3, i64 noundef 1, ptr noundef %109, i32 noundef %111, i32 noundef -11, ptr noundef %3, i64 noundef 1, ptr noundef %112, i32 noundef %111, i32 noundef -11, ptr noundef %7, ptr noundef null) #7
+131:                                              ; preds = %123
+  %132 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %3, i64 noundef 1, ptr noundef %124, i32 noundef %126, i32 noundef -11, ptr noundef %3, i64 noundef 1, ptr noundef %127, i32 noundef %126, i32 noundef -11, ptr noundef %7, ptr noundef null) #7
   br label %ompi_coll_base_sendrecv.exit125
 
-ompi_coll_base_sendrecv.exit125:                  ; preds = %114, %116
-  %.0.i124 = phi i32 [ %115, %114 ], [ %117, %116 ]
+ompi_coll_base_sendrecv.exit125:                  ; preds = %129, %131
+  %.0.i124 = phi i32 [ %130, %129 ], [ %132, %131 ]
   %.not120 = icmp eq i32 %.0.i124, 0
-  br i1 %.not120, label %118, label %.loopexit
+  br i1 %.not120, label %133, label %.loopexit
 
-118:                                              ; preds = %ompi_coll_base_sendrecv.exit125
-  %119 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %18) #7
-  %120 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %17) #7
-  %121 = add nuw nsw i32 %.0102127, 1
-  %exitcond.not = icmp eq i32 %121, %80
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+133:                                              ; preds = %ompi_coll_base_sendrecv.exit125
+  %134 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %18) #7
+  %135 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %17) #7
+  %136 = add nuw nsw i32 %.0102127, 1
+  %exitcond.not = icmp eq i32 %136, %80
+  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !10
 
-.loopexit:                                        ; preds = %118, %ompi_coll_base_sendrecv.exit125, %106, %99, %97, %.lr.ph, %79, %33, %ompi_coll_base_sendrecv.exit, %23
-  %.0 = phi i32 [ %24, %23 ], [ %40, %33 ], [ %.0.i, %ompi_coll_base_sendrecv.exit ], [ 0, %79 ], [ 0, %118 ], [ %.0.i124, %ompi_coll_base_sendrecv.exit125 ], [ %107, %106 ], [ %105, %99 ], [ %98, %97 ], [ %96, %.lr.ph ]
+.loopexit:                                        ; preds = %133, %ompi_coll_base_sendrecv.exit125, %121, %110, %108, %86, %79, %33, %ompi_coll_base_sendrecv.exit, %23
+  %.0 = phi i32 [ %24, %23 ], [ %40, %33 ], [ %.0.i, %ompi_coll_base_sendrecv.exit ], [ 0, %79 ], [ 0, %133 ], [ %.0.i124, %ompi_coll_base_sendrecv.exit125 ], [ %122, %121 ], [ %120, %110 ], [ %109, %108 ], [ %107, %86 ]
   ret i32 %.0
 }
 

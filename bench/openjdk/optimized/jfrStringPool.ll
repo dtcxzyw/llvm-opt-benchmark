@@ -3390,10 +3390,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN22UnBufferedWriteToChunkI19Jfr
 
 _ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE16write_unbufferedEPKvl.exit: ; preds = %.critedge.i.i, %4
   %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load <2 x i64>, ptr %25, align 8
-  %27 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %3, i64 1
-  %28 = add <2 x i64> %26, %27
-  store <2 x i64> %28, ptr %25, align 8
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, 1
+  store i64 %27, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = load i64, ptr %28, align 8
+  %30 = add i64 %29, %3
+  store i64 %30, ptr %28, align 8
   ret i1 true
 }
 

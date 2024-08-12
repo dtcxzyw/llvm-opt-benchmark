@@ -115,7 +115,13 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZN6hermes2vm9GCPointerINS0_16ArrayStorageBaseINS0_13HermesValue32EEEEC2ERNS0_11PointerBaseEPS4_RNS0_7HadesGCE.exit: ; preds = %entry, %if.then.i.i.i.i
   %firstIterationEntry_ = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x i32> <i32 0, i32 0, i32 16, i32 0>, ptr %firstIterationEntry_, align 4
+  store i32 0, ptr %firstIterationEntry_, align 4
+  %lastIterationEntry_ = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %lastIterationEntry_, align 4
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 16, ptr %capacity_, align 4
+  %size_ = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 0, ptr %size_, align 4
   ret void
 }
 
@@ -209,7 +215,13 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZN6hermes2vm7Hades
 
 _ZN6hermes2vm7Runtime10makeAFixedINS0_14OrderedHashMapELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_16ArrayStorageBaseINS0_13HermesValue32EEEEEEEEPT_DpOT2_.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb1ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %firstIterationEntry_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
-  store <4 x i32> <i32 0, i32 0, i32 16, i32 0>, ptr %firstIterationEntry_.i.i.i.i.i.i, align 4
+  store i32 0, ptr %firstIterationEntry_.i.i.i.i.i.i, align 4
+  %lastIterationEntry_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 12
+  store i32 0, ptr %lastIterationEntry_.i.i.i.i.i.i, align 4
+  %capacity_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
+  store i32 16, ptr %capacity_.i.i.i.i.i.i, align 4
+  %size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 20
+  store i32 0, ptr %size_.i.i.i.i.i.i, align 4
   store i32 385875992, ptr %cond.i.i.i.i.i, align 4
   ret ptr %cond.i.i.i.i.i
 }

@@ -571,23 +571,28 @@ define hidden void @_ZN11StringDedup4Stat20report_process_pauseEv(ptr nocapture 
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = extractvalue { i64, i64 } %2, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 168
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
-  %7 = load <2 x i64>, ptr %5, align 8
-  %8 = insertelement <2 x i64> poison, i64 %3, i64 0
-  %9 = insertelement <2 x i64> %8, i64 %4, i64 1
-  %10 = sub <2 x i64> %9, %7
-  %11 = load <2 x i64>, ptr %6, align 8
-  %12 = add nsw <2 x i64> %10, %11
-  store <2 x i64> %12, ptr %6, align 8
-  %13 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %15, label %14
+  %6 = load i64, ptr %5, align 8
+  %7 = sub i64 %3, %6
+  %8 = getelementptr inbounds i8, ptr %0, i64 176
+  %9 = load i64, ptr %8, align 8
+  %10 = sub i64 %4, %9
+  %11 = getelementptr inbounds i8, ptr %0, i64 200
+  %12 = load i64, ptr %11, align 8
+  %13 = add nsw i64 %7, %12
+  store i64 %13, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 208
+  %15 = load i64, ptr %14, align 8
+  %16 = add nsw i64 %10, %15
+  store i64 %16, ptr %14, align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %19, label %18
 
-14:                                               ; preds = %1
+18:                                               ; preds = %1
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.10)
-  br label %15
+  br label %19
 
-15:                                               ; preds = %1, %14
+19:                                               ; preds = %1, %18
   ret void
 }
 

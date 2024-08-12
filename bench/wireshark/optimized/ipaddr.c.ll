@@ -225,7 +225,7 @@ declare { i64, i64 } @stnode_location(ptr noundef) local_unnamed_addr #2
 define internal zeroext i1 @df_func_ip_special_mask(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %43, label %.preheader
+  br i1 %5, label %48, label %.preheader
 
 .preheader:                                       ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 8
@@ -233,8 +233,8 @@ define internal zeroext i1 @df_func_ip_special_mask(ptr nocapture noundef readon
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %37
-  %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %42
+  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.preheader ]
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
@@ -262,47 +262,52 @@ define internal zeroext i1 @df_func_ip_special_mask(ptr nocapture noundef readon
 lookup_block.exit:                                ; preds = %12, %16
   %.0.i = phi ptr [ %18, %16 ], [ %15, %12 ]
   %20 = icmp eq ptr %.0.i, null
-  br i1 %20, label %37, label %21
+  br i1 %20, label %42, label %21
 
 21:                                               ; preds = %lookup_block.exit
   %22 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %23 = load i32, ptr %22, align 8
   %24 = icmp sgt i32 %23, 0
   %spec.select = zext i1 %24 to i32
-  %25 = or disjoint i32 %spec.select, 2
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 32
-  %27 = load <4 x i32>, ptr %26, align 8
-  %28 = icmp sgt <4 x i32> %27, zeroinitializer
-  %29 = extractelement <4 x i1> %28, i64 3
-  %.1 = select i1 %29, i32 %25, i32 %spec.select
-  %30 = or disjoint i32 %.1, 4
-  %31 = extractelement <4 x i1> %28, i64 2
-  %.2 = select i1 %31, i32 %30, i32 %.1
-  %32 = or disjoint i32 %.2, 8
-  %33 = extractelement <4 x i1> %28, i64 1
-  %.3 = select i1 %33, i32 %32, i32 %.2
-  %34 = or i32 %.3, 16
-  %35 = extractelement <4 x i1> %28, i64 0
-  %.4 = select i1 %35, i32 %34, i32 %.3
-  %36 = tail call ptr @fvalue_new(i32 noundef 7) #4
-  tail call void @fvalue_set_uinteger(ptr noundef %36, i32 noundef %.4) #4
-  tail call void @df_cell_append(ptr noundef %2, ptr noundef %36) #4
-  br label %37
+  %25 = getelementptr inbounds i8, ptr %.0.i, i64 44
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp sgt i32 %26, 0
+  %28 = or disjoint i32 %spec.select, 2
+  %.1 = select i1 %27, i32 %28, i32 %spec.select
+  %29 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp sgt i32 %30, 0
+  %32 = or disjoint i32 %.1, 4
+  %.2 = select i1 %31, i32 %32, i32 %.1
+  %33 = getelementptr inbounds i8, ptr %.0.i, i64 36
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp sgt i32 %34, 0
+  %36 = or disjoint i32 %.2, 8
+  %.3 = select i1 %35, i32 %36, i32 %.2
+  %37 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp sgt i32 %38, 0
+  %40 = or i32 %.3, 16
+  %.4 = select i1 %39, i32 %40, i32 %.3
+  %41 = tail call ptr @fvalue_new(i32 noundef 7) #4
+  tail call void @fvalue_set_uinteger(ptr noundef %41, i32 noundef %.4) #4
+  tail call void @df_cell_append(ptr noundef %2, ptr noundef %41) #4
+  br label %42
 
-37:                                               ; preds = %lookup_block.exit, %21
+42:                                               ; preds = %lookup_block.exit, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = load i32, ptr %6, align 8
-  %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %indvars.iv.next, %39
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  %43 = load i32, ptr %6, align 8
+  %44 = zext i32 %43 to i64
+  %45 = icmp ult i64 %indvars.iv.next, %44
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %37, %.preheader
-  %41 = tail call zeroext i1 @df_cell_is_empty(ptr noundef %2) #4
-  %42 = xor i1 %41, true
-  br label %43
+._crit_edge:                                      ; preds = %42, %.preheader
+  %46 = tail call zeroext i1 @df_cell_is_empty(ptr noundef %2) #4
+  %47 = xor i1 %46, true
+  br label %48
 
-43:                                               ; preds = %3, %._crit_edge
-  %.024 = phi i1 [ %42, %._crit_edge ], [ false, %3 ]
+48:                                               ; preds = %3, %._crit_edge
+  %.024 = phi i1 [ %47, %._crit_edge ], [ false, %3 ]
   ret i1 %.024
 }
 

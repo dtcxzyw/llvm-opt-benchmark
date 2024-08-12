@@ -4080,7 +4080,7 @@ define internal fastcc i32 @zip_read_data_zipx_lzma_alone(ptr noundef %0, ptr no
   %9 = getelementptr inbounds i8, ptr %8, i64 161
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %58
+  br i1 %.not, label %11, label %61
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %4)
@@ -4189,136 +4189,140 @@ define internal fastcc i32 @zip_read_data_zipx_lzma_alone(ptr noundef %0, ptr no
 zipx_lzma_alone_init.exit.thread:                 ; preds = %19, %27, %34, %54, %44
   %.0.i.ph = phi i32 [ -30, %44 ], [ -30, %54 ], [ -30, %34 ], [ -30, %27 ], [ -25, %19 ]
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %4)
-  br label %116
+  br label %119
 
 zipx_lzma_alone_init.exit:                        ; preds = %45
   %55 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 9) #21
-  %56 = load <2 x i64>, ptr %21, align 8
-  %57 = add nsw <2 x i64> %56, <i64 -9, i64 9>
-  store <2 x i64> %57, ptr %21, align 8
+  %56 = load i64, ptr %21, align 8
+  %57 = add nsw i64 %56, -9
+  store i64 %57, ptr %21, align 8
+  %58 = getelementptr inbounds i8, ptr %8, i64 128
+  %59 = load i64, ptr %58, align 8
+  %60 = add nsw i64 %59, 9
+  store i64 %60, ptr %58, align 8
   store i8 1, ptr %9, align 1
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %4)
-  br label %58
+  br label %61
 
-58:                                               ; preds = %zipx_lzma_alone_init.exit, %3
-  %59 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %5) #21
-  %60 = load i64, ptr %5, align 8
-  %61 = icmp slt i64 %60, 0
-  br i1 %61, label %62, label %63
+61:                                               ; preds = %zipx_lzma_alone_init.exit, %3
+  %62 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %5) #21
+  %63 = load i64, ptr %5, align 8
+  %64 = icmp slt i64 %63, 0
+  br i1 %64, label %65, label %66
 
-62:                                               ; preds = %58
+65:                                               ; preds = %61
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.44) #21
-  br label %116
+  br label %119
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %8, i64 120
-  %65 = load i64, ptr %64, align 8
-  %. = call i64 @llvm.smin.i64(i64 %65, i64 %60)
-  %66 = getelementptr inbounds i8, ptr %8, i64 304
-  store ptr %59, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %8, i64 312
-  store i64 %., ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %8, i64 320
-  store i64 0, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %8, i64 168
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %8, i64 328
-  store ptr %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %8, i64 176
-  %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %8, i64 112
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 48
-  %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %8, i64 136
-  %79 = load i64, ptr %78, align 8
-  %80 = sub nsw i64 %77, %79
-  %81 = call i64 @llvm.smin.i64(i64 %73, i64 %80)
-  %82 = getelementptr inbounds i8, ptr %8, i64 336
-  store i64 %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %8, i64 344
-  store i64 0, ptr %83, align 8
-  %84 = call i32 @lzma_code(ptr noundef nonnull %66, i32 noundef 0) #21
-  switch i32 %84, label %93 [
-    i32 9, label %85
-    i32 1, label %86
+66:                                               ; preds = %61
+  %67 = getelementptr inbounds i8, ptr %8, i64 120
+  %68 = load i64, ptr %67, align 8
+  %. = call i64 @llvm.smin.i64(i64 %68, i64 %63)
+  %69 = getelementptr inbounds i8, ptr %8, i64 304
+  store ptr %62, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %8, i64 312
+  store i64 %., ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %8, i64 320
+  store i64 0, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %8, i64 168
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %8, i64 328
+  store ptr %73, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %8, i64 176
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %8, i64 112
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 48
+  %80 = load i64, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %8, i64 136
+  %82 = load i64, ptr %81, align 8
+  %83 = sub nsw i64 %80, %82
+  %84 = call i64 @llvm.smin.i64(i64 %76, i64 %83)
+  %85 = getelementptr inbounds i8, ptr %8, i64 336
+  store i64 %84, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %8, i64 344
+  store i64 0, ptr %86, align 8
+  %87 = call i32 @lzma_code(ptr noundef nonnull %69, i32 noundef 0) #21
+  switch i32 %87, label %96 [
+    i32 9, label %88
+    i32 1, label %89
     i32 0, label %._crit_edge
   ]
 
-._crit_edge:                                      ; preds = %63
-  %.pre = load i64, ptr %68, align 8
-  br label %94
+._crit_edge:                                      ; preds = %66
+  %.pre = load i64, ptr %71, align 8
+  br label %97
 
-85:                                               ; preds = %63
+88:                                               ; preds = %66
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.45, i32 noundef 9) #21
-  br label %116
+  br label %119
 
-86:                                               ; preds = %63
-  call void @lzma_end(ptr noundef nonnull %66) #21
-  %87 = getelementptr inbounds i8, ptr %8, i64 440
-  store i8 0, ptr %87, align 8
-  %88 = load i64, ptr %68, align 8
-  %89 = load i64, ptr %64, align 8
-  %.not67 = icmp eq i64 %88, %89
-  br i1 %.not67, label %91, label %90
+89:                                               ; preds = %66
+  call void @lzma_end(ptr noundef nonnull %69) #21
+  %90 = getelementptr inbounds i8, ptr %8, i64 440
+  store i8 0, ptr %90, align 8
+  %91 = load i64, ptr %71, align 8
+  %92 = load i64, ptr %67, align 8
+  %.not67 = icmp eq i64 %91, %92
+  br i1 %.not67, label %94, label %93
 
-90:                                               ; preds = %86
+93:                                               ; preds = %89
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.46) #21
-  br label %116
+  br label %119
 
-91:                                               ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %8, i64 162
-  store i8 1, ptr %92, align 2
-  br label %94
+94:                                               ; preds = %89
+  %95 = getelementptr inbounds i8, ptr %8, i64 162
+  store i8 1, ptr %95, align 2
+  br label %97
 
-93:                                               ; preds = %63
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.47, i32 noundef %84) #21
-  br label %116
+96:                                               ; preds = %66
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.47, i32 noundef %87) #21
+  br label %119
 
-94:                                               ; preds = %._crit_edge, %91
-  %95 = phi i64 [ %.pre, %._crit_edge ], [ %88, %91 ]
-  %96 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %95) #21
-  %97 = load i64, ptr %64, align 8
-  %98 = sub nsw i64 %97, %95
-  store i64 %98, ptr %64, align 8
-  %99 = getelementptr inbounds i8, ptr %8, i64 128
-  %100 = load i64, ptr %99, align 8
-  %101 = add nsw i64 %100, %95
-  store i64 %101, ptr %99, align 8
-  %102 = load i64, ptr %83, align 8
-  %103 = load i64, ptr %78, align 8
-  %104 = add i64 %103, %102
-  store i64 %104, ptr %78, align 8
-  %105 = icmp eq i64 %97, %95
-  br i1 %105, label %106, label %108
+97:                                               ; preds = %._crit_edge, %94
+  %98 = phi i64 [ %.pre, %._crit_edge ], [ %91, %94 ]
+  %99 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %98) #21
+  %100 = load i64, ptr %67, align 8
+  %101 = sub nsw i64 %100, %98
+  store i64 %101, ptr %67, align 8
+  %102 = getelementptr inbounds i8, ptr %8, i64 128
+  %103 = load i64, ptr %102, align 8
+  %104 = add nsw i64 %103, %98
+  store i64 %104, ptr %102, align 8
+  %105 = load i64, ptr %86, align 8
+  %106 = load i64, ptr %81, align 8
+  %107 = add i64 %106, %105
+  store i64 %107, ptr %81, align 8
+  %108 = icmp eq i64 %100, %98
+  br i1 %108, label %109, label %111
 
-106:                                              ; preds = %94
-  %107 = getelementptr inbounds i8, ptr %8, i64 162
-  store i8 1, ptr %107, align 2
-  br label %108
+109:                                              ; preds = %97
+  %110 = getelementptr inbounds i8, ptr %8, i64 162
+  store i8 1, ptr %110, align 2
+  br label %111
 
-108:                                              ; preds = %106, %94
-  store i64 %102, ptr %2, align 8
-  %109 = load ptr, ptr %69, align 8
-  store ptr %109, ptr %1, align 8
-  %110 = call fastcc i32 @consume_optional_marker(ptr noundef nonnull %0, ptr noundef nonnull %8)
-  %.not68 = icmp eq i32 %110, 0
-  br i1 %.not68, label %111, label %116
-
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %8, i64 162
-  %113 = load i8, ptr %112, align 2
-  %.not69 = icmp eq i8 %113, 0
-  br i1 %.not69, label %116, label %114
+111:                                              ; preds = %109, %97
+  store i64 %105, ptr %2, align 8
+  %112 = load ptr, ptr %72, align 8
+  store ptr %112, ptr %1, align 8
+  %113 = call fastcc i32 @consume_optional_marker(ptr noundef nonnull %0, ptr noundef nonnull %8)
+  %.not68 = icmp eq i32 %113, 0
+  br i1 %.not68, label %114, label %119
 
 114:                                              ; preds = %111
-  call void @lzma_end(ptr noundef nonnull %66) #21
-  %115 = getelementptr inbounds i8, ptr %8, i64 440
-  store i8 0, ptr %115, align 8
-  br label %116
+  %115 = getelementptr inbounds i8, ptr %8, i64 162
+  %116 = load i8, ptr %115, align 2
+  %.not69 = icmp eq i8 %116, 0
+  br i1 %.not69, label %119, label %117
 
-116:                                              ; preds = %zipx_lzma_alone_init.exit.thread, %111, %114, %108, %93, %90, %85, %62
-  %.0 = phi i32 [ -30, %62 ], [ -30, %93 ], [ -30, %90 ], [ -30, %85 ], [ %110, %108 ], [ 0, %114 ], [ 0, %111 ], [ %.0.i.ph, %zipx_lzma_alone_init.exit.thread ]
+117:                                              ; preds = %114
+  call void @lzma_end(ptr noundef nonnull %69) #21
+  %118 = getelementptr inbounds i8, ptr %8, i64 440
+  store i8 0, ptr %118, align 8
+  br label %119
+
+119:                                              ; preds = %zipx_lzma_alone_init.exit.thread, %114, %117, %111, %96, %93, %88, %65
+  %.0 = phi i32 [ -30, %65 ], [ -30, %96 ], [ -30, %93 ], [ -30, %88 ], [ %113, %111 ], [ 0, %117 ], [ 0, %114 ], [ %.0.i.ph, %zipx_lzma_alone_init.exit.thread ]
   ret i32 %.0
 }
 
@@ -5104,7 +5108,7 @@ define internal fastcc i32 @zip_read_data_none(ptr noundef %0, ptr nocapture nou
 
 22:                                               ; preds = %16
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.40) #21
-  br label %218
+  br label %219
 
 23:                                               ; preds = %16
   %24 = load i8, ptr %17, align 8
@@ -5184,7 +5188,7 @@ define internal fastcc i32 @zip_read_data_none(ptr noundef %0, ptr nocapture nou
 
 70:                                               ; preds = %61
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.43) #21
-  br label %218
+  br label %219
 
 71:                                               ; preds = %61
   %72 = getelementptr inbounds i8, ptr %spec.select130, i64 16
@@ -5227,12 +5231,12 @@ define internal fastcc i32 @zip_read_data_none(ptr noundef %0, ptr nocapture nou
 94:                                               ; preds = %89
   %95 = call fastcc i32 @check_authentication_code(ptr noundef nonnull %0, ptr noundef nonnull %19)
   %.not129 = icmp eq i32 %95, 0
-  br i1 %.not129, label %96, label %218
+  br i1 %.not129, label %96, label %219
 
 96:                                               ; preds = %94, %89
   %97 = getelementptr inbounds i8, ptr %10, i64 162
   store i8 1, ptr %97, align 2
-  br label %218
+  br label %219
 
 98:                                               ; preds = %50, %49, %35, %31, %27, %23
   %99 = getelementptr inbounds i8, ptr %spec.select130, i64 1
@@ -5316,10 +5320,10 @@ define internal fastcc i32 @zip_read_data_none(ptr noundef %0, ptr nocapture nou
 136:                                              ; preds = %132
   %137 = tail call fastcc i32 @check_authentication_code(ptr noundef nonnull %0, ptr noundef null)
   %.not118 = icmp eq i32 %137, 0
-  br i1 %.not118, label %138, label %218
+  br i1 %.not118, label %138, label %219
 
 138:                                              ; preds = %136, %132
-  br label %218
+  br label %219
 
 139:                                              ; preds = %128
   %140 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %6) #21
@@ -5329,7 +5333,7 @@ define internal fastcc i32 @zip_read_data_none(ptr noundef %0, ptr nocapture nou
 
 143:                                              ; preds = %139
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.40) #21
-  br label %218
+  br label %219
 
 144:                                              ; preds = %139
   %145 = load i64, ptr %129, align 8
@@ -5445,20 +5449,22 @@ trad_enc_decrypt_update.exit:                     ; preds = %164, %155, %193
   %208 = load i64, ptr %207, align 8
   %209 = sub nsw i64 %208, %206
   store i64 %209, ptr %207, align 8
-  %210 = getelementptr inbounds i8, ptr %10, i64 128
-  %211 = load <2 x i64>, ptr %210, align 8
-  %212 = insertelement <2 x i64> poison, i64 %206, i64 0
-  %213 = shufflevector <2 x i64> %212, <2 x i64> poison, <2 x i32> zeroinitializer
-  %214 = add nsw <2 x i64> %211, %213
-  store <2 x i64> %214, ptr %210, align 8
-  %215 = getelementptr inbounds i8, ptr %10, i64 104
-  %216 = load i64, ptr %215, align 8
-  %217 = add i64 %216, %206
-  store i64 %217, ptr %215, align 8
+  %210 = getelementptr inbounds i8, ptr %10, i64 136
+  %211 = load i64, ptr %210, align 8
+  %212 = add nsw i64 %211, %206
+  store i64 %212, ptr %210, align 8
+  %213 = getelementptr inbounds i8, ptr %10, i64 128
+  %214 = load i64, ptr %213, align 8
+  %215 = add nsw i64 %214, %206
+  store i64 %215, ptr %213, align 8
+  %216 = getelementptr inbounds i8, ptr %10, i64 104
+  %217 = load i64, ptr %216, align 8
+  %218 = add i64 %217, %206
+  store i64 %218, ptr %216, align 8
   store ptr %.1, ptr %1, align 8
-  br label %218
+  br label %219
 
-218:                                              ; preds = %136, %94, %205, %143, %138, %96, %70, %22
+219:                                              ; preds = %136, %94, %205, %143, %138, %96, %70, %22
   %.0103 = phi i32 [ -30, %22 ], [ -25, %70 ], [ 0, %96 ], [ 0, %205 ], [ 0, %138 ], [ -30, %143 ], [ %95, %94 ], [ %137, %136 ]
   ret i32 %.0103
 }

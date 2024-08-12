@@ -66,20 +66,22 @@ define void @"_ZN119_$LT$$RF$alloc..collections..btree..set..BTreeSet$LT$T$C$A$G
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load <2 x i64>, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8, !noundef !3
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = load i64, ptr %7, align 8, !noundef !3
   br label %"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7731a9c4eb2a53E.exit"
 
 "_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7731a9c4eb2a53E.exit": ; preds = %2, %4
   %.sroa.01.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %2 ]
-  %7 = phi <2 x i64> [ %6, %4 ], [ <i64 undef, i64 0>, %2 ]
+  %.sroa.01.sroa.3.sroa.4.0.i = phi i64 [ %6, %4 ], [ undef, %2 ]
+  %.sroa.3.0.i = phi i64 [ %8, %4 ], [ 0, %2 ]
   store i64 %.sroa.01.sroa.0.0.i, ptr %0, align 8
   %.sroa.0.sroa.0.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.0.sroa.0.sroa.2.0..sroa_idx.i, align 8
   %.sroa.0.sroa.0.sroa.2.sroa.2.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %.sroa.0.sroa.0.sroa.2.sroa.2.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx.i, align 8
   %.sroa.0.sroa.0.sroa.2.sroa.3.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = extractelement <2 x i64> %7, i64 0
-  store i64 %8, ptr %.sroa.0.sroa.0.sroa.2.sroa.3.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx.i, align 8
+  store i64 %.sroa.01.sroa.3.sroa.4.0.i, ptr %.sroa.0.sroa.0.sroa.2.sroa.3.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx.i, align 8
   %.sroa.0.sroa.0.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sroa.01.sroa.0.0.i, ptr %.sroa.0.sroa.0.sroa.3.0..sroa_idx.i, align 8
   %.sroa.0.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
@@ -87,7 +89,9 @@ define void @"_ZN119_$LT$$RF$alloc..collections..btree..set..BTreeSet$LT$T$C$A$G
   %.sroa.0.sroa.0.sroa.4.sroa.2.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %3, ptr %.sroa.0.sroa.0.sroa.4.sroa.2.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx.i, align 8
   %.sroa.0.sroa.0.sroa.4.sroa.3.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
-  store <2 x i64> %7, ptr %.sroa.0.sroa.0.sroa.4.sroa.3.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx.i, align 8
+  store i64 %.sroa.01.sroa.3.sroa.4.0.i, ptr %.sroa.0.sroa.0.sroa.4.sroa.3.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx.i, align 8
+  %.sroa.0.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %.sroa.3.0.i, ptr %.sroa.0.sroa.2.0..sroa_idx.i, align 8
   ret void
 }
 
@@ -715,20 +719,22 @@ define void @"_ZN122_$LT$alloc..collections..btree..set..BTreeSet$LT$T$C$A$GT$$u
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load <2 x i64>, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !noundef !3
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load i64, ptr %8, align 8, !noundef !3
   br label %"_ZN119_$LT$$RF$alloc..collections..btree..set..BTreeSet$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7ec7d6a8289201fdE.exit"
 
 "_ZN119_$LT$$RF$alloc..collections..btree..set..BTreeSet$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7ec7d6a8289201fdE.exit": ; preds = %2, %5
   %.sroa.01.sroa.0.0.i.i = phi i64 [ 1, %5 ], [ 0, %2 ]
-  %8 = phi <2 x i64> [ %7, %5 ], [ <i64 undef, i64 0>, %2 ]
+  %.sroa.01.sroa.3.sroa.4.0.i.i = phi i64 [ %7, %5 ], [ undef, %2 ]
+  %.sroa.3.0.i.i = phi i64 [ %9, %5 ], [ 0, %2 ]
   store i64 %.sroa.01.sroa.0.0.i.i, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %4, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = extractelement <2 x i64> %8, i64 0
-  store i64 %9, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.01.sroa.3.sroa.4.0.i.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
   store i64 %.sroa.01.sroa.0.0.i.i, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
@@ -736,7 +742,9 @@ define void @"_ZN122_$LT$alloc..collections..btree..set..BTreeSet$LT$T$C$A$GT$$u
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
   store ptr %4, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 56
-  store <2 x i64> %8, ptr %.sroa.8.0..sroa_idx, align 8
+  store i64 %.sroa.01.sroa.3.sroa.4.0.i.i, ptr %.sroa.8.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 64
+  store i64 %.sroa.3.0.i.i, ptr %.sroa.9.0..sroa_idx, align 8
   %10 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %10)
   call void @_ZN4core4iter6traits8iterator8Iterator8for_each17h7e2b742c493dc953E(ptr nonnull align 8 %3, ptr nonnull align 8 %0)
@@ -1306,24 +1314,26 @@ define i16 @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$16from_sorte
 define void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h160f38c26f35b089E"(ptr nocapture writeonly sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !noundef !3
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %7, label %4
+  br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load <2 x i64>, ptr %5, align 8
-  br label %7
+  %6 = load i64, ptr %5, align 8, !noundef !3
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = load i64, ptr %7, align 8, !noundef !3
+  br label %9
 
-7:                                                ; preds = %2, %4
+9:                                                ; preds = %2, %4
   %.sroa.01.sroa.0.0 = phi i64 [ 1, %4 ], [ 0, %2 ]
-  %8 = phi <2 x i64> [ %6, %4 ], [ <i64 undef, i64 0>, %2 ]
+  %.sroa.01.sroa.3.sroa.4.0 = phi i64 [ %6, %4 ], [ undef, %2 ]
+  %.sroa.3.0 = phi i64 [ %8, %4 ], [ 0, %2 ]
   store i64 %.sroa.01.sroa.0.0, ptr %0, align 8
   %.sroa.0.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.0.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.0.sroa.0.sroa.2.sroa.2.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %.sroa.0.sroa.0.sroa.2.sroa.2.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx, align 8
   %.sroa.0.sroa.0.sroa.2.sroa.3.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = extractelement <2 x i64> %8, i64 0
-  store i64 %9, ptr %.sroa.0.sroa.0.sroa.2.sroa.3.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.01.sroa.3.sroa.4.0, ptr %.sroa.0.sroa.0.sroa.2.sroa.3.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx, align 8
   %.sroa.0.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sroa.01.sroa.0.0, ptr %.sroa.0.sroa.0.sroa.3.0..sroa_idx, align 8
   %.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
@@ -1331,7 +1341,9 @@ define void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h160
   %.sroa.0.sroa.0.sroa.4.sroa.2.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %3, ptr %.sroa.0.sroa.0.sroa.4.sroa.2.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.0.sroa.0.sroa.4.sroa.3.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  store <2 x i64> %8, ptr %.sroa.0.sroa.0.sroa.4.sroa.3.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.01.sroa.3.sroa.4.0, ptr %.sroa.0.sroa.0.sroa.4.sroa.3.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx, align 8
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %.sroa.3.0, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   ret void
 }
 
@@ -1339,24 +1351,26 @@ define void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h160
 define void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7731a9c4eb2a53E"(ptr nocapture writeonly sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !noundef !3
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %7, label %4
+  br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load <2 x i64>, ptr %5, align 8
-  br label %7
+  %6 = load i64, ptr %5, align 8, !noundef !3
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = load i64, ptr %7, align 8, !noundef !3
+  br label %9
 
-7:                                                ; preds = %2, %4
+9:                                                ; preds = %2, %4
   %.sroa.01.sroa.0.0 = phi i64 [ 1, %4 ], [ 0, %2 ]
-  %8 = phi <2 x i64> [ %6, %4 ], [ <i64 undef, i64 0>, %2 ]
+  %.sroa.01.sroa.3.sroa.4.0 = phi i64 [ %6, %4 ], [ undef, %2 ]
+  %.sroa.3.0 = phi i64 [ %8, %4 ], [ 0, %2 ]
   store i64 %.sroa.01.sroa.0.0, ptr %0, align 8
   %.sroa.0.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.0.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.0.sroa.0.sroa.2.sroa.2.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %.sroa.0.sroa.0.sroa.2.sroa.2.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx, align 8
   %.sroa.0.sroa.0.sroa.2.sroa.3.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = extractelement <2 x i64> %8, i64 0
-  store i64 %9, ptr %.sroa.0.sroa.0.sroa.2.sroa.3.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.01.sroa.3.sroa.4.0, ptr %.sroa.0.sroa.0.sroa.2.sroa.3.0..sroa.0.sroa.0.sroa.2.0..sroa_idx.sroa_idx, align 8
   %.sroa.0.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sroa.01.sroa.0.0, ptr %.sroa.0.sroa.0.sroa.3.0..sroa_idx, align 8
   %.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
@@ -1364,7 +1378,9 @@ define void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7
   %.sroa.0.sroa.0.sroa.4.sroa.2.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %3, ptr %.sroa.0.sroa.0.sroa.4.sroa.2.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.0.sroa.0.sroa.4.sroa.3.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  store <2 x i64> %8, ptr %.sroa.0.sroa.0.sroa.4.sroa.3.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.01.sroa.3.sroa.4.0, ptr %.sroa.0.sroa.0.sroa.4.sroa.3.0..sroa.0.sroa.0.sroa.4.0..sroa_idx.sroa_idx, align 8
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %.sroa.3.0, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   ret void
 }
 

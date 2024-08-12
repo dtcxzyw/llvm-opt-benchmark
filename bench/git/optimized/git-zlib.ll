@@ -58,18 +58,19 @@ entry:
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @inflateInit_(ptr noundef nonnull %strm, ptr noundef nonnull @.str, i32 noundef 112) #6
   %6 = load ptr, ptr %strm, align 8
-  %7 = load ptr, ptr %next_out3.i, align 8
-  %8 = load <2 x ptr>, ptr %next_in.i, align 8
-  %9 = insertelement <2 x ptr> poison, ptr %6, i64 0
-  %10 = insertelement <2 x ptr> %9, ptr %7, i64 1
-  %11 = ptrtoint <2 x ptr> %10 to <2 x i64>
-  %12 = ptrtoint <2 x ptr> %8 to <2 x i64>
-  %13 = sub <2 x i64> %11, %12
-  %14 = load i64, ptr %total_out7.i, align 8
-  %15 = load i64, ptr %total_out.i, align 8
-  %16 = extractelement <2 x i64> %13, i64 1
-  %add.i = add i64 %15, %16
-  %cmp.not.i = icmp eq i64 %14, %add.i
+  %7 = load ptr, ptr %next_in.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %8 = load ptr, ptr %next_out3.i, align 8
+  %9 = load ptr, ptr %next_out.i, align 8
+  %sub.ptr.lhs.cast4.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast5.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub6.i = sub i64 %sub.ptr.lhs.cast4.i, %sub.ptr.rhs.cast5.i
+  %10 = load i64, ptr %total_out7.i, align 8
+  %11 = load i64, ptr %total_out.i, align 8
+  %add.i = add i64 %11, %sub.ptr.sub6.i
+  %cmp.not.i = icmp eq i64 %10, %add.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -77,11 +78,10 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %17 = load i64, ptr %total_in5.i, align 8
-  %18 = load i64, ptr %total_in.i, align 8
-  %19 = extractelement <2 x i64> %13, i64 0
-  %add11.i = add i64 %18, %19
-  %cmp12.not.i = icmp eq i64 %17, %add11.i
+  %12 = load i64, ptr %total_in5.i, align 8
+  %13 = load i64, ptr %total_in.i, align 8
+  %add11.i = add i64 %13, %sub.ptr.sub.i
+  %cmp12.not.i = icmp eq i64 %12, %add11.i
   br i1 %cmp12.not.i, label %zlib_post_call.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
@@ -89,13 +89,16 @@ if.then13.i:                                      ; preds = %if.end.i
   unreachable
 
 zlib_post_call.exit:                              ; preds = %if.end.i
-  store i64 %14, ptr %total_out.i, align 8
-  store i64 %17, ptr %total_in.i, align 8
+  store i64 %10, ptr %total_out.i, align 8
+  store i64 %12, ptr %total_in.i, align 8
   store ptr %6, ptr %next_in.i, align 8
-  store ptr %7, ptr %next_out.i, align 8
-  %20 = load <2 x i64>, ptr %avail_in.i, align 8
-  %21 = sub <2 x i64> %20, %13
-  store <2 x i64> %21, ptr %avail_in.i, align 8
+  store ptr %8, ptr %next_out.i, align 8
+  %14 = load i64, ptr %avail_in.i, align 8
+  %sub.i = sub i64 %14, %sub.ptr.sub.i
+  store i64 %sub.i, ptr %avail_in.i, align 8
+  %15 = load i64, ptr %avail_out.i, align 8
+  %sub27.i = sub i64 %15, %sub.ptr.sub6.i
+  store i64 %sub27.i, ptr %avail_out.i, align 8
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -105,9 +108,9 @@ if.then:                                          ; preds = %zlib_post_call.exit
 if.end:                                           ; preds = %zlib_post_call.exit
   %call1 = tail call fastcc ptr @zerr_to_string(i32 noundef %call)
   %msg = getelementptr inbounds i8, ptr %strm, i64 48
-  %22 = load ptr, ptr %msg, align 8
-  %tobool.not = icmp eq ptr %22, null
-  %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %22
+  %16 = load ptr, ptr %msg, align 8
+  %tobool.not = icmp eq ptr %16, null
+  %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %16
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.1, ptr noundef nonnull %call1, ptr noundef nonnull %spec.select) #7
   unreachable
 }
@@ -167,18 +170,19 @@ entry:
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @inflateInit2_(ptr noundef nonnull %strm, i32 noundef 31, ptr noundef nonnull @.str, i32 noundef 112) #6
   %6 = load ptr, ptr %strm, align 8
-  %7 = load ptr, ptr %next_out3.i, align 8
-  %8 = load <2 x ptr>, ptr %next_in.i, align 8
-  %9 = insertelement <2 x ptr> poison, ptr %6, i64 0
-  %10 = insertelement <2 x ptr> %9, ptr %7, i64 1
-  %11 = ptrtoint <2 x ptr> %10 to <2 x i64>
-  %12 = ptrtoint <2 x ptr> %8 to <2 x i64>
-  %13 = sub <2 x i64> %11, %12
-  %14 = load i64, ptr %total_out7.i, align 8
-  %15 = load i64, ptr %total_out.i, align 8
-  %16 = extractelement <2 x i64> %13, i64 1
-  %add.i = add i64 %15, %16
-  %cmp.not.i = icmp eq i64 %14, %add.i
+  %7 = load ptr, ptr %next_in.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %8 = load ptr, ptr %next_out3.i, align 8
+  %9 = load ptr, ptr %next_out.i, align 8
+  %sub.ptr.lhs.cast4.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast5.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub6.i = sub i64 %sub.ptr.lhs.cast4.i, %sub.ptr.rhs.cast5.i
+  %10 = load i64, ptr %total_out7.i, align 8
+  %11 = load i64, ptr %total_out.i, align 8
+  %add.i = add i64 %11, %sub.ptr.sub6.i
+  %cmp.not.i = icmp eq i64 %10, %add.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -186,11 +190,10 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %17 = load i64, ptr %total_in5.i, align 8
-  %18 = load i64, ptr %total_in.i, align 8
-  %19 = extractelement <2 x i64> %13, i64 0
-  %add11.i = add i64 %18, %19
-  %cmp12.not.i = icmp eq i64 %17, %add11.i
+  %12 = load i64, ptr %total_in5.i, align 8
+  %13 = load i64, ptr %total_in.i, align 8
+  %add11.i = add i64 %13, %sub.ptr.sub.i
+  %cmp12.not.i = icmp eq i64 %12, %add11.i
   br i1 %cmp12.not.i, label %zlib_post_call.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
@@ -198,13 +201,16 @@ if.then13.i:                                      ; preds = %if.end.i
   unreachable
 
 zlib_post_call.exit:                              ; preds = %if.end.i
-  store i64 %14, ptr %total_out.i, align 8
-  store i64 %17, ptr %total_in.i, align 8
+  store i64 %10, ptr %total_out.i, align 8
+  store i64 %12, ptr %total_in.i, align 8
   store ptr %6, ptr %next_in.i, align 8
-  store ptr %7, ptr %next_out.i, align 8
-  %20 = load <2 x i64>, ptr %avail_in.i, align 8
-  %21 = sub <2 x i64> %20, %13
-  store <2 x i64> %21, ptr %avail_in.i, align 8
+  store ptr %8, ptr %next_out.i, align 8
+  %14 = load i64, ptr %avail_in.i, align 8
+  %sub.i = sub i64 %14, %sub.ptr.sub.i
+  store i64 %sub.i, ptr %avail_in.i, align 8
+  %15 = load i64, ptr %avail_out.i, align 8
+  %sub27.i = sub i64 %15, %sub.ptr.sub6.i
+  store i64 %sub27.i, ptr %avail_out.i, align 8
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -214,9 +220,9 @@ if.then:                                          ; preds = %zlib_post_call.exit
 if.end:                                           ; preds = %zlib_post_call.exit
   %call1 = tail call fastcc ptr @zerr_to_string(i32 noundef %call)
   %msg = getelementptr inbounds i8, ptr %strm, i64 48
-  %22 = load ptr, ptr %msg, align 8
-  %tobool.not = icmp eq ptr %22, null
-  %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %22
+  %16 = load ptr, ptr %msg, align 8
+  %tobool.not = icmp eq ptr %16, null
+  %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %16
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.3, ptr noundef nonnull %call1, ptr noundef nonnull %spec.select) #7
   unreachable
 }
@@ -255,18 +261,19 @@ entry:
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @inflateEnd(ptr noundef nonnull %strm) #6
   %6 = load ptr, ptr %strm, align 8
-  %7 = load ptr, ptr %next_out3.i, align 8
-  %8 = load <2 x ptr>, ptr %next_in.i, align 8
-  %9 = insertelement <2 x ptr> poison, ptr %6, i64 0
-  %10 = insertelement <2 x ptr> %9, ptr %7, i64 1
-  %11 = ptrtoint <2 x ptr> %10 to <2 x i64>
-  %12 = ptrtoint <2 x ptr> %8 to <2 x i64>
-  %13 = sub <2 x i64> %11, %12
-  %14 = load i64, ptr %total_out7.i, align 8
-  %15 = load i64, ptr %total_out.i, align 8
-  %16 = extractelement <2 x i64> %13, i64 1
-  %add.i = add i64 %15, %16
-  %cmp.not.i = icmp eq i64 %14, %add.i
+  %7 = load ptr, ptr %next_in.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %8 = load ptr, ptr %next_out3.i, align 8
+  %9 = load ptr, ptr %next_out.i, align 8
+  %sub.ptr.lhs.cast4.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast5.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub6.i = sub i64 %sub.ptr.lhs.cast4.i, %sub.ptr.rhs.cast5.i
+  %10 = load i64, ptr %total_out7.i, align 8
+  %11 = load i64, ptr %total_out.i, align 8
+  %add.i = add i64 %11, %sub.ptr.sub6.i
+  %cmp.not.i = icmp eq i64 %10, %add.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -274,11 +281,10 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %17 = load i64, ptr %total_in5.i, align 8
-  %18 = load i64, ptr %total_in.i, align 8
-  %19 = extractelement <2 x i64> %13, i64 0
-  %add11.i = add i64 %18, %19
-  %cmp12.not.i = icmp eq i64 %17, %add11.i
+  %12 = load i64, ptr %total_in5.i, align 8
+  %13 = load i64, ptr %total_in.i, align 8
+  %add11.i = add i64 %13, %sub.ptr.sub.i
+  %cmp12.not.i = icmp eq i64 %12, %add11.i
   br i1 %cmp12.not.i, label %zlib_post_call.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
@@ -286,13 +292,16 @@ if.then13.i:                                      ; preds = %if.end.i
   unreachable
 
 zlib_post_call.exit:                              ; preds = %if.end.i
-  store i64 %14, ptr %total_out.i, align 8
-  store i64 %17, ptr %total_in.i, align 8
+  store i64 %10, ptr %total_out.i, align 8
+  store i64 %12, ptr %total_in.i, align 8
   store ptr %6, ptr %next_in.i, align 8
-  store ptr %7, ptr %next_out.i, align 8
-  %20 = load <2 x i64>, ptr %avail_in.i, align 8
-  %21 = sub <2 x i64> %20, %13
-  store <2 x i64> %21, ptr %avail_in.i, align 8
+  store ptr %8, ptr %next_out.i, align 8
+  %14 = load i64, ptr %avail_in.i, align 8
+  %sub.i = sub i64 %14, %sub.ptr.sub.i
+  store i64 %sub.i, ptr %avail_in.i, align 8
+  %15 = load i64, ptr %avail_out.i, align 8
+  %sub27.i = sub i64 %15, %sub.ptr.sub6.i
+  store i64 %sub27.i, ptr %avail_out.i, align 8
   switch i32 %call, label %sw.default.i [
     i32 0, label %return
     i32 -4, label %zerr_to_string.exit
@@ -320,9 +329,9 @@ sw.default.i:                                     ; preds = %zlib_post_call.exit
 zerr_to_string.exit:                              ; preds = %zlib_post_call.exit, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.default.i
   %retval.0.i = phi ptr [ @.str.19, %sw.default.i ], [ @.str.18, %sw.bb4.i ], [ @.str.17, %sw.bb3.i ], [ @.str.16, %sw.bb2.i ], [ @.str.15, %sw.bb1.i ], [ @.str.14, %zlib_post_call.exit ]
   %msg = getelementptr inbounds i8, ptr %strm, i64 48
-  %22 = load ptr, ptr %msg, align 8
-  %tobool.not = icmp eq ptr %22, null
-  %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %22
+  %16 = load ptr, ptr %msg, align 8
+  %tobool.not = icmp eq ptr %16, null
+  %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %16
   %call5 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %spec.select) #6
   br label %return
 
@@ -508,21 +517,23 @@ entry:
   %total_out.i = getelementptr inbounds i8, ptr %strm, i64 136
   %total_out7.i = getelementptr inbounds i8, ptr %strm, i64 40
   %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
+  %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %strm, i8 0, i64 160, i1 false)
   %call = tail call i32 @deflateInit_(ptr noundef nonnull %strm, i32 noundef %level, ptr noundef nonnull @.str, i32 noundef 112) #6
   %0 = load ptr, ptr %strm, align 8
-  %1 = load ptr, ptr %next_out3.i, align 8
-  %2 = load <2 x ptr>, ptr %next_in.i, align 8
-  %3 = insertelement <2 x ptr> poison, ptr %0, i64 0
-  %4 = insertelement <2 x ptr> %3, ptr %1, i64 1
-  %5 = ptrtoint <2 x ptr> %4 to <2 x i64>
-  %6 = ptrtoint <2 x ptr> %2 to <2 x i64>
-  %7 = sub <2 x i64> %5, %6
-  %8 = load i64, ptr %total_out7.i, align 8
-  %9 = load i64, ptr %total_out.i, align 8
-  %10 = extractelement <2 x i64> %7, i64 1
-  %add.i = add i64 %9, %10
-  %cmp.not.i = icmp eq i64 %8, %add.i
+  %1 = load ptr, ptr %next_in.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %2 = load ptr, ptr %next_out3.i, align 8
+  %3 = load ptr, ptr %next_out.i, align 8
+  %sub.ptr.lhs.cast4.i = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast5.i = ptrtoint ptr %3 to i64
+  %sub.ptr.sub6.i = sub i64 %sub.ptr.lhs.cast4.i, %sub.ptr.rhs.cast5.i
+  %4 = load i64, ptr %total_out7.i, align 8
+  %5 = load i64, ptr %total_out.i, align 8
+  %add.i = add i64 %5, %sub.ptr.sub6.i
+  %cmp.not.i = icmp eq i64 %4, %add.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -531,11 +542,10 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %total_in5.i = getelementptr inbounds i8, ptr %strm, i64 16
-  %11 = load i64, ptr %total_in5.i, align 8
-  %12 = load i64, ptr %total_in.i, align 8
-  %13 = extractelement <2 x i64> %7, i64 0
-  %add11.i = add i64 %12, %13
-  %cmp12.not.i = icmp eq i64 %11, %add11.i
+  %6 = load i64, ptr %total_in5.i, align 8
+  %7 = load i64, ptr %total_in.i, align 8
+  %add11.i = add i64 %7, %sub.ptr.sub.i
+  %cmp12.not.i = icmp eq i64 %6, %add11.i
   br i1 %cmp12.not.i, label %zlib_post_call.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
@@ -543,13 +553,16 @@ if.then13.i:                                      ; preds = %if.end.i
   unreachable
 
 zlib_post_call.exit:                              ; preds = %if.end.i
-  store i64 %8, ptr %total_out.i, align 8
-  store i64 %11, ptr %total_in.i, align 8
+  store i64 %4, ptr %total_out.i, align 8
+  store i64 %6, ptr %total_in.i, align 8
   store ptr %0, ptr %next_in.i, align 8
-  store ptr %1, ptr %next_out.i, align 8
-  %14 = load <2 x i64>, ptr %avail_in.i, align 8
-  %15 = sub <2 x i64> %14, %7
-  store <2 x i64> %15, ptr %avail_in.i, align 8
+  store ptr %2, ptr %next_out.i, align 8
+  %8 = load i64, ptr %avail_in.i, align 8
+  %sub.i = sub i64 %8, %sub.ptr.sub.i
+  store i64 %sub.i, ptr %avail_in.i, align 8
+  %9 = load i64, ptr %avail_out.i, align 8
+  %sub27.i = sub i64 %9, %sub.ptr.sub6.i
+  store i64 %sub27.i, ptr %avail_out.i, align 8
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -559,9 +572,9 @@ if.then:                                          ; preds = %zlib_post_call.exit
 if.end:                                           ; preds = %zlib_post_call.exit
   %call1 = tail call fastcc ptr @zerr_to_string(i32 noundef %call)
   %msg = getelementptr inbounds i8, ptr %strm, i64 48
-  %16 = load ptr, ptr %msg, align 8
-  %tobool.not = icmp eq ptr %16, null
-  %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %16
+  %10 = load ptr, ptr %msg, align 8
+  %tobool.not = icmp eq ptr %10, null
+  %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %10
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.7, ptr noundef nonnull %call1, ptr noundef nonnull %spec.select) #7
   unreachable
 }
@@ -588,21 +601,23 @@ entry:
   %total_out.i = getelementptr inbounds i8, ptr %strm, i64 136
   %total_out7.i = getelementptr inbounds i8, ptr %strm, i64 40
   %avail_in.i = getelementptr inbounds i8, ptr %strm, i64 112
+  %avail_out.i = getelementptr inbounds i8, ptr %strm, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %strm, i8 0, i64 160, i1 false)
   %call = tail call i32 @deflateInit2_(ptr noundef nonnull %strm, i32 noundef %level, i32 noundef 8, i32 noundef %windowBits, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @.str, i32 noundef 112) #6
   %0 = load ptr, ptr %strm, align 8
-  %1 = load ptr, ptr %next_out3.i, align 8
-  %2 = load <2 x ptr>, ptr %next_in.i, align 8
-  %3 = insertelement <2 x ptr> poison, ptr %0, i64 0
-  %4 = insertelement <2 x ptr> %3, ptr %1, i64 1
-  %5 = ptrtoint <2 x ptr> %4 to <2 x i64>
-  %6 = ptrtoint <2 x ptr> %2 to <2 x i64>
-  %7 = sub <2 x i64> %5, %6
-  %8 = load i64, ptr %total_out7.i, align 8
-  %9 = load i64, ptr %total_out.i, align 8
-  %10 = extractelement <2 x i64> %7, i64 1
-  %add.i = add i64 %9, %10
-  %cmp.not.i = icmp eq i64 %8, %add.i
+  %1 = load ptr, ptr %next_in.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %2 = load ptr, ptr %next_out3.i, align 8
+  %3 = load ptr, ptr %next_out.i, align 8
+  %sub.ptr.lhs.cast4.i = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast5.i = ptrtoint ptr %3 to i64
+  %sub.ptr.sub6.i = sub i64 %sub.ptr.lhs.cast4.i, %sub.ptr.rhs.cast5.i
+  %4 = load i64, ptr %total_out7.i, align 8
+  %5 = load i64, ptr %total_out.i, align 8
+  %add.i = add i64 %5, %sub.ptr.sub6.i
+  %cmp.not.i = icmp eq i64 %4, %add.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -611,11 +626,10 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %total_in5.i = getelementptr inbounds i8, ptr %strm, i64 16
-  %11 = load i64, ptr %total_in5.i, align 8
-  %12 = load i64, ptr %total_in.i, align 8
-  %13 = extractelement <2 x i64> %7, i64 0
-  %add11.i = add i64 %12, %13
-  %cmp12.not.i = icmp eq i64 %11, %add11.i
+  %6 = load i64, ptr %total_in5.i, align 8
+  %7 = load i64, ptr %total_in.i, align 8
+  %add11.i = add i64 %7, %sub.ptr.sub.i
+  %cmp12.not.i = icmp eq i64 %6, %add11.i
   br i1 %cmp12.not.i, label %zlib_post_call.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
@@ -623,13 +637,16 @@ if.then13.i:                                      ; preds = %if.end.i
   unreachable
 
 zlib_post_call.exit:                              ; preds = %if.end.i
-  store i64 %8, ptr %total_out.i, align 8
-  store i64 %11, ptr %total_in.i, align 8
+  store i64 %4, ptr %total_out.i, align 8
+  store i64 %6, ptr %total_in.i, align 8
   store ptr %0, ptr %next_in.i, align 8
-  store ptr %1, ptr %next_out.i, align 8
-  %14 = load <2 x i64>, ptr %avail_in.i, align 8
-  %15 = sub <2 x i64> %14, %7
-  store <2 x i64> %15, ptr %avail_in.i, align 8
+  store ptr %2, ptr %next_out.i, align 8
+  %8 = load i64, ptr %avail_in.i, align 8
+  %sub.i = sub i64 %8, %sub.ptr.sub.i
+  store i64 %sub.i, ptr %avail_in.i, align 8
+  %9 = load i64, ptr %avail_out.i, align 8
+  %sub27.i = sub i64 %9, %sub.ptr.sub6.i
+  store i64 %sub27.i, ptr %avail_out.i, align 8
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -639,9 +656,9 @@ if.then:                                          ; preds = %zlib_post_call.exit
 if.end:                                           ; preds = %zlib_post_call.exit
   %call1 = tail call fastcc ptr @zerr_to_string(i32 noundef %call)
   %msg = getelementptr inbounds i8, ptr %strm, i64 48
-  %16 = load ptr, ptr %msg, align 8
-  %tobool.not = icmp eq ptr %16, null
-  %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %16
+  %10 = load ptr, ptr %msg, align 8
+  %tobool.not = icmp eq ptr %10, null
+  %spec.select = select i1 %tobool.not, ptr @.str.2, ptr %10
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.20, ptr noundef nonnull %call1, ptr noundef nonnull %spec.select) #7
   unreachable
 }
@@ -685,18 +702,19 @@ entry:
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @deflateEnd(ptr noundef nonnull %strm) #6
   %6 = load ptr, ptr %strm, align 8
-  %7 = load ptr, ptr %next_out3.i, align 8
-  %8 = load <2 x ptr>, ptr %next_in.i, align 8
-  %9 = insertelement <2 x ptr> poison, ptr %6, i64 0
-  %10 = insertelement <2 x ptr> %9, ptr %7, i64 1
-  %11 = ptrtoint <2 x ptr> %10 to <2 x i64>
-  %12 = ptrtoint <2 x ptr> %8 to <2 x i64>
-  %13 = sub <2 x i64> %11, %12
-  %14 = load i64, ptr %total_out7.i, align 8
-  %15 = load i64, ptr %total_out.i, align 8
-  %16 = extractelement <2 x i64> %13, i64 1
-  %add.i = add i64 %15, %16
-  %cmp.not.i = icmp eq i64 %14, %add.i
+  %7 = load ptr, ptr %next_in.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %8 = load ptr, ptr %next_out3.i, align 8
+  %9 = load ptr, ptr %next_out.i, align 8
+  %sub.ptr.lhs.cast4.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast5.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub6.i = sub i64 %sub.ptr.lhs.cast4.i, %sub.ptr.rhs.cast5.i
+  %10 = load i64, ptr %total_out7.i, align 8
+  %11 = load i64, ptr %total_out.i, align 8
+  %add.i = add i64 %11, %sub.ptr.sub6.i
+  %cmp.not.i = icmp eq i64 %10, %add.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -704,11 +722,10 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %17 = load i64, ptr %total_in5.i, align 8
-  %18 = load i64, ptr %total_in.i, align 8
-  %19 = extractelement <2 x i64> %13, i64 0
-  %add11.i = add i64 %18, %19
-  %cmp12.not.i = icmp eq i64 %17, %add11.i
+  %12 = load i64, ptr %total_in5.i, align 8
+  %13 = load i64, ptr %total_in.i, align 8
+  %add11.i = add i64 %13, %sub.ptr.sub.i
+  %cmp12.not.i = icmp eq i64 %12, %add11.i
   br i1 %cmp12.not.i, label %zlib_post_call.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
@@ -716,13 +733,16 @@ if.then13.i:                                      ; preds = %if.end.i
   unreachable
 
 zlib_post_call.exit:                              ; preds = %if.end.i
-  store i64 %14, ptr %total_out.i, align 8
-  store i64 %17, ptr %total_in.i, align 8
+  store i64 %10, ptr %total_out.i, align 8
+  store i64 %12, ptr %total_in.i, align 8
   store ptr %6, ptr %next_in.i, align 8
-  store ptr %7, ptr %next_out.i, align 8
-  %20 = load <2 x i64>, ptr %avail_in.i, align 8
-  %21 = sub <2 x i64> %20, %13
-  store <2 x i64> %21, ptr %avail_in.i, align 8
+  store ptr %8, ptr %next_out.i, align 8
+  %14 = load i64, ptr %avail_in.i, align 8
+  %sub.i = sub i64 %14, %sub.ptr.sub.i
+  store i64 %sub.i, ptr %avail_in.i, align 8
+  %15 = load i64, ptr %avail_out.i, align 8
+  %sub27.i = sub i64 %15, %sub.ptr.sub6.i
+  store i64 %sub27.i, ptr %avail_out.i, align 8
   ret i32 %call
 }
 
@@ -801,18 +821,19 @@ entry:
   store i32 %conv.i13.i, ptr %avail_out12.i, align 8
   %call = tail call i32 @deflateEnd(ptr noundef nonnull %strm) #6
   %6 = load ptr, ptr %strm, align 8
-  %7 = load ptr, ptr %next_out3.i, align 8
-  %8 = load <2 x ptr>, ptr %next_in.i, align 8
-  %9 = insertelement <2 x ptr> poison, ptr %6, i64 0
-  %10 = insertelement <2 x ptr> %9, ptr %7, i64 1
-  %11 = ptrtoint <2 x ptr> %10 to <2 x i64>
-  %12 = ptrtoint <2 x ptr> %8 to <2 x i64>
-  %13 = sub <2 x i64> %11, %12
-  %14 = load i64, ptr %total_out7.i, align 8
-  %15 = load i64, ptr %total_out.i, align 8
-  %16 = extractelement <2 x i64> %13, i64 1
-  %add.i = add i64 %15, %16
-  %cmp.not.i = icmp eq i64 %14, %add.i
+  %7 = load ptr, ptr %next_in.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %8 = load ptr, ptr %next_out3.i, align 8
+  %9 = load ptr, ptr %next_out.i, align 8
+  %sub.ptr.lhs.cast4.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast5.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub6.i = sub i64 %sub.ptr.lhs.cast4.i, %sub.ptr.rhs.cast5.i
+  %10 = load i64, ptr %total_out7.i, align 8
+  %11 = load i64, ptr %total_out.i, align 8
+  %add.i = add i64 %11, %sub.ptr.sub6.i
+  %cmp.not.i = icmp eq i64 %10, %add.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -820,11 +841,10 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %17 = load i64, ptr %total_in5.i, align 8
-  %18 = load i64, ptr %total_in.i, align 8
-  %19 = extractelement <2 x i64> %13, i64 0
-  %add11.i = add i64 %18, %19
-  %cmp12.not.i = icmp eq i64 %17, %add11.i
+  %12 = load i64, ptr %total_in5.i, align 8
+  %13 = load i64, ptr %total_in.i, align 8
+  %add11.i = add i64 %13, %sub.ptr.sub.i
+  %cmp12.not.i = icmp eq i64 %12, %add11.i
   br i1 %cmp12.not.i, label %zlib_post_call.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
@@ -832,13 +852,16 @@ if.then13.i:                                      ; preds = %if.end.i
   unreachable
 
 zlib_post_call.exit:                              ; preds = %if.end.i
-  store i64 %14, ptr %total_out.i, align 8
-  store i64 %17, ptr %total_in.i, align 8
+  store i64 %10, ptr %total_out.i, align 8
+  store i64 %12, ptr %total_in.i, align 8
   store ptr %6, ptr %next_in.i, align 8
-  store ptr %7, ptr %next_out.i, align 8
-  %20 = load <2 x i64>, ptr %avail_in.i, align 8
-  %21 = sub <2 x i64> %20, %13
-  store <2 x i64> %21, ptr %avail_in.i, align 8
+  store ptr %8, ptr %next_out.i, align 8
+  %14 = load i64, ptr %avail_in.i, align 8
+  %sub.i = sub i64 %14, %sub.ptr.sub.i
+  store i64 %sub.i, ptr %avail_in.i, align 8
+  %15 = load i64, ptr %avail_out.i, align 8
+  %sub27.i = sub i64 %15, %sub.ptr.sub6.i
+  store i64 %sub27.i, ptr %avail_out.i, align 8
   ret i32 %call
 }
 

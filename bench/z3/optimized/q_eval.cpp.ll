@@ -2092,8 +2092,12 @@ for.body43:                                       ; preds = %for.body43.preheade
   %add45 = add i32 %retval.0.i, %21
   %idxprom.i57 = zext i32 %add45 to i64
   %arrayidx.i58 = getelementptr inbounds %"struct.std::pair", ptr %22, i64 %idxprom.i57
-  %23 = load <2 x ptr>, ptr %arrayidx.i56, align 8
-  store <2 x ptr> %23, ptr %arrayidx.i58, align 8
+  %23 = load ptr, ptr %arrayidx.i56, align 8
+  store ptr %23, ptr %arrayidx.i58, align 8
+  %second.i = getelementptr inbounds i8, ptr %arrayidx.i56, i64 8
+  %24 = load ptr, ptr %second.i, align 8
+  %second3.i = getelementptr inbounds i8, ptr %arrayidx.i58, i64 8
+  store ptr %24, ptr %second3.i, align 8
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body43, !llvm.loop !13
@@ -2103,8 +2107,8 @@ for.end.loopexit:                                 ; preds = %for.body43
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit54
-  %24 = phi ptr [ %.pre, %for.end.loopexit ], [ %19, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit54 ]
-  %tobool.not.i = icmp eq ptr %24, null
+  %25 = phi ptr [ %.pre, %for.end.loopexit ], [ %19, %_ZNK6vectorISt4pairIPN3euf5enodeES3_ELb0EjE4sizeEv.exit54 ]
+  %tobool.not.i = icmp eq ptr %25, null
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
@@ -2121,12 +2125,12 @@ for.end54:                                        ; preds = %sw.epilog.us
   br i1 %has_undef.071.us.ph, label %if.end57, label %return
 
 if.end57:                                         ; preds = %sw.epilog.us.thread, %for.end54
-  %25 = load ptr, ptr %evidence, align 8
-  %tobool.not.i61 = icmp eq ptr %25, null
+  %26 = load ptr, ptr %evidence, align 8
+  %tobool.not.i61 = icmp eq ptr %26, null
   br i1 %tobool.not.i61, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end57, %if.then.i
-  %.sink = phi ptr [ %24, %if.then.i ], [ %25, %if.end57 ]
+  %.sink = phi ptr [ %25, %if.then.i ], [ %26, %if.end57 ]
   %retval.0.i.sink = phi i32 [ %sub49, %if.then.i ], [ %retval.0.i, %if.end57 ]
   %retval.0.ph = phi i32 [ -1, %if.then.i ], [ 0, %if.end57 ]
   %arrayidx.i63 = getelementptr inbounds i8, ptr %.sink, i64 -4

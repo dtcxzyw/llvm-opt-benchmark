@@ -1188,10 +1188,10 @@ for.body29:                                       ; preds = %if.else25, %for.bod
   br i1 %exitcond41.not, label %for.end40, label %for.body29, !llvm.loop !8
 
 for.end40:                                        ; preds = %for.body29
-  %12 = load <2 x double>, ptr %values, align 16
-  %shift = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %13 = fadd <2 x double> %12, %shift
-  %add43 = extractelement <2 x double> %13, i64 0
+  %12 = load double, ptr %values, align 16
+  %arrayidx42 = getelementptr inbounds i8, ptr %values, i64 8
+  %13 = load double, ptr %arrayidx42, align 8
+  %add43 = fadd double %12, %13
   %arrayidx44 = getelementptr inbounds i8, ptr %values, i64 16
   %14 = load double, ptr %arrayidx44, align 16
   %add45 = fadd double %add43, %14
@@ -1199,10 +1199,10 @@ for.end40:                                        ; preds = %for.body29
   br i1 %call, label %for.cond57.preheader.preheader, label %if.then46
 
 if.then46:                                        ; preds = %for.end40
-  %15 = insertelement <2 x double> poison, double %add45, i64 0
-  %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
-  %17 = fdiv <2 x double> %12, %16
-  store <2 x double> %17, ptr %values, align 16
+  %div = fdiv double %12, %add45
+  store double %div, ptr %values, align 16
+  %div49 = fdiv double %13, %add45
+  store double %div49, ptr %arrayidx42, align 8
   %div51 = fdiv double %14, %add45
   store double %div51, ptr %arrayidx44, align 16
   br label %for.cond57.preheader.preheader
@@ -1212,8 +1212,8 @@ for.cond57.preheader.preheader:                   ; preds = %if.then46, %for.end
 
 for.cond57.preheader:                             ; preds = %for.cond57.preheader.preheader, %for.cond57.preheader
   %indvar = phi i64 [ %indvar.next, %for.cond57.preheader ], [ 0, %for.cond57.preheader.preheader ]
-  %18 = shl nuw nsw i64 %indvar, 5
-  %scevgep = getelementptr i8, ptr %m44, i64 %18
+  %15 = shl nuw nsw i64 %indvar, 5
+  %scevgep = getelementptr i8, ptr %m44, i64 %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 16 dereferenceable(24) %values, i64 24, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond47.not = icmp eq i64 %indvar.next, 3

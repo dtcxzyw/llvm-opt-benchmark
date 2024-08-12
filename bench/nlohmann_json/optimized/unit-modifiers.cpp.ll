@@ -4464,7 +4464,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i:           ; preds = %if.then628
   br label %ehcleanup701
 
 invoke.cont643:                                   ; preds = %if.then628
-  store <4 x i8> <i8 1, i8 2, i8 3, i8 4>, ptr %call5.i.i.i.i2.i, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i, align 1
+  %ref.tmp632.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 1
+  store i8 2, ptr %ref.tmp632.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp632.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 2
+  store i8 3, ptr %ref.tmp632.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp632.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 3
+  store i8 4, ptr %ref.tmp632.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 1
   %ref.tmp632.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 4
   store i8 5, ptr %ref.tmp632.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -36072,7 +36078,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i6485:       ; preds = %if.then12261
   br label %ehcleanup12363
 
 invoke.cont12275:                                 ; preds = %if.then12261
-  store <4 x i8> <i8 1, i8 2, i8 3, i8 4>, ptr %call5.i.i.i.i2.i6481, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i6481, align 1
+  %ref.tmp12265.sroa.2.0.call5.i.i.i.i2.i6481.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6481, i64 1
+  store i8 2, ptr %ref.tmp12265.sroa.2.0.call5.i.i.i.i2.i6481.sroa_idx, align 1
+  %ref.tmp12265.sroa.3.0.call5.i.i.i.i2.i6481.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6481, i64 2
+  store i8 3, ptr %ref.tmp12265.sroa.3.0.call5.i.i.i.i2.i6481.sroa_idx, align 1
+  %ref.tmp12265.sroa.4.0.call5.i.i.i.i2.i6481.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6481, i64 3
+  store i8 4, ptr %ref.tmp12265.sroa.4.0.call5.i.i.i.i2.i6481.sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !477)
   %m_value.i.i.i.i6492 = getelementptr inbounds i8, ptr %j12262, i64 8
   store ptr null, ptr %m_value.i.i.i.i6492, align 8, !alias.scope !477
@@ -36110,7 +36122,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i6513:       ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNSt6vectorIhSaIhEED2Ev.exit6525:                ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit6508
   %add.ptr.i1.i6514 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6509, i64 4
-  store <4 x i8> <i8 5, i8 6, i8 7, i8 8>, ptr %call5.i.i.i.i2.i6509, align 1
+  store i8 5, ptr %call5.i.i.i.i2.i6509, align 1
+  %ref.tmp12283.sroa.2.0.call5.i.i.i.i2.i6509.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6509, i64 1
+  store i8 6, ptr %ref.tmp12283.sroa.2.0.call5.i.i.i.i2.i6509.sroa_idx, align 1
+  %ref.tmp12283.sroa.3.0.call5.i.i.i.i2.i6509.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6509, i64 2
+  store i8 7, ptr %ref.tmp12283.sroa.3.0.call5.i.i.i.i2.i6509.sroa_idx, align 1
+  %ref.tmp12283.sroa.4.0.call5.i.i.i.i2.i6509.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6509, i64 3
+  store i8 8, ptr %ref.tmp12283.sroa.4.0.call5.i.i.i.i2.i6509.sroa_idx, align 1
   store ptr %call5.i.i.i.i2.i6509, ptr %s12280, align 8
   %_M_finish.i.i.i.i.i6520 = getelementptr inbounds i8, ptr %s12280, i64 8
   store ptr %add.ptr.i1.i6514, ptr %_M_finish.i.i.i.i.i6520, align 8
@@ -36141,7 +36159,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i6532:       ; preds = %invoke.cont12301
   br label %ehcleanup12360
 
 invoke.cont12316:                                 ; preds = %invoke.cont12301
-  store <4 x i8> <i8 5, i8 6, i8 7, i8 8>, ptr %call5.i.i.i.i2.i6528, align 1
+  store i8 5, ptr %call5.i.i.i.i2.i6528, align 1
+  %ref.tmp12306.sroa.2.0.call5.i.i.i.i2.i6528.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6528, i64 1
+  store i8 6, ptr %ref.tmp12306.sroa.2.0.call5.i.i.i.i2.i6528.sroa_idx, align 1
+  %ref.tmp12306.sroa.3.0.call5.i.i.i.i2.i6528.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6528, i64 2
+  store i8 7, ptr %ref.tmp12306.sroa.3.0.call5.i.i.i.i2.i6528.sroa_idx, align 1
+  %ref.tmp12306.sroa.4.0.call5.i.i.i.i2.i6528.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6528, i64 3
+  store i8 8, ptr %ref.tmp12306.sroa.4.0.call5.i.i.i.i2.i6528.sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !480)
   %m_value.i.i.i.i6539 = getelementptr inbounds i8, ptr %ref.tmp12303, i64 8
   store ptr null, ptr %m_value.i.i.i.i6539, align 8, !alias.scope !480
@@ -36212,7 +36236,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i6566:       ; preds = %invoke.cont12333
   br label %ehcleanup12360
 
 invoke.cont12348:                                 ; preds = %invoke.cont12333
-  store <4 x i8> <i8 1, i8 2, i8 3, i8 4>, ptr %call5.i.i.i.i2.i6562, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i6562, align 1
+  %ref.tmp12338.sroa.2.0.call5.i.i.i.i2.i6562.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6562, i64 1
+  store i8 2, ptr %ref.tmp12338.sroa.2.0.call5.i.i.i.i2.i6562.sroa_idx, align 1
+  %ref.tmp12338.sroa.3.0.call5.i.i.i.i2.i6562.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6562, i64 2
+  store i8 3, ptr %ref.tmp12338.sroa.3.0.call5.i.i.i.i2.i6562.sroa_idx, align 1
+  %ref.tmp12338.sroa.4.0.call5.i.i.i.i2.i6562.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6562, i64 3
+  store i8 4, ptr %ref.tmp12338.sroa.4.0.call5.i.i.i.i2.i6562.sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !483)
   %m_value.i.i.i.i6573 = getelementptr inbounds i8, ptr %ref.tmp12335, i64 8
   store ptr null, ptr %m_value.i.i.i.i6573, align 8, !alias.scope !483
@@ -36390,7 +36420,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i6621:       ; preds = %if.then12373
   br label %ehcleanup12474
 
 invoke.cont12387:                                 ; preds = %if.then12373
-  store <4 x i8> <i8 1, i8 2, i8 3, i8 4>, ptr %call5.i.i.i.i2.i6617, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i6617, align 1
+  %ref.tmp12377.sroa.2.0.call5.i.i.i.i2.i6617.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6617, i64 1
+  store i8 2, ptr %ref.tmp12377.sroa.2.0.call5.i.i.i.i2.i6617.sroa_idx, align 1
+  %ref.tmp12377.sroa.3.0.call5.i.i.i.i2.i6617.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6617, i64 2
+  store i8 3, ptr %ref.tmp12377.sroa.3.0.call5.i.i.i.i2.i6617.sroa_idx, align 1
+  %ref.tmp12377.sroa.4.0.call5.i.i.i.i2.i6617.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6617, i64 3
+  store i8 4, ptr %ref.tmp12377.sroa.4.0.call5.i.i.i.i2.i6617.sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !486)
   %m_value.i.i.i.i6628 = getelementptr inbounds i8, ptr %j12374, i64 8
   store ptr null, ptr %m_value.i.i.i.i6628, align 8, !alias.scope !486
@@ -36432,7 +36468,13 @@ invoke.cont12404:                                 ; preds = %_ZNSt6vectorIhSaIhE
   %add.ptr.i1.i6650 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6645, i64 4
   %_M_end_of_storage.i.i6651 = getelementptr inbounds i8, ptr %s12392, i64 16
   store ptr %add.ptr.i1.i6650, ptr %_M_end_of_storage.i.i6651, align 8
-  store <4 x i8> <i8 5, i8 6, i8 7, i8 8>, ptr %call5.i.i.i.i2.i6645, align 1
+  store i8 5, ptr %call5.i.i.i.i2.i6645, align 1
+  %ref.tmp12394.sroa.2.0.call5.i.i.i.i2.i6645.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6645, i64 1
+  store i8 6, ptr %ref.tmp12394.sroa.2.0.call5.i.i.i.i2.i6645.sroa_idx, align 1
+  %ref.tmp12394.sroa.3.0.call5.i.i.i.i2.i6645.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6645, i64 2
+  store i8 7, ptr %ref.tmp12394.sroa.3.0.call5.i.i.i.i2.i6645.sroa_idx, align 1
+  %ref.tmp12394.sroa.4.0.call5.i.i.i.i2.i6645.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6645, i64 3
+  store i8 8, ptr %ref.tmp12394.sroa.4.0.call5.i.i.i.i2.i6645.sroa_idx, align 1
   %_M_finish.i.i6653 = getelementptr inbounds i8, ptr %s12392, i64 8
   store ptr %add.ptr.i1.i6650, ptr %_M_finish.i.i6653, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4swapERSC_(ptr noundef nonnull align 8 dereferenceable(16) %j12374, ptr noundef nonnull align 8 dereferenceable(24) %s12392)
@@ -36456,7 +36498,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i6662:       ; preds = %invoke.cont12412
   br label %ehcleanup12471
 
 invoke.cont12427:                                 ; preds = %invoke.cont12412
-  store <4 x i8> <i8 5, i8 6, i8 7, i8 8>, ptr %call5.i.i.i.i2.i6658, align 1
+  store i8 5, ptr %call5.i.i.i.i2.i6658, align 1
+  %ref.tmp12417.sroa.2.0.call5.i.i.i.i2.i6658.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6658, i64 1
+  store i8 6, ptr %ref.tmp12417.sroa.2.0.call5.i.i.i.i2.i6658.sroa_idx, align 1
+  %ref.tmp12417.sroa.3.0.call5.i.i.i.i2.i6658.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6658, i64 2
+  store i8 7, ptr %ref.tmp12417.sroa.3.0.call5.i.i.i.i2.i6658.sroa_idx, align 1
+  %ref.tmp12417.sroa.4.0.call5.i.i.i.i2.i6658.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6658, i64 3
+  store i8 8, ptr %ref.tmp12417.sroa.4.0.call5.i.i.i.i2.i6658.sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !489)
   %m_value.i.i.i.i6669 = getelementptr inbounds i8, ptr %ref.tmp12414, i64 8
   store ptr null, ptr %m_value.i.i.i.i6669, align 8, !alias.scope !489
@@ -36527,7 +36575,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i6696:       ; preds = %invoke.cont12444
   br label %ehcleanup12471
 
 invoke.cont12459:                                 ; preds = %invoke.cont12444
-  store <4 x i8> <i8 1, i8 2, i8 3, i8 4>, ptr %call5.i.i.i.i2.i6692, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i6692, align 1
+  %ref.tmp12449.sroa.2.0.call5.i.i.i.i2.i6692.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6692, i64 1
+  store i8 2, ptr %ref.tmp12449.sroa.2.0.call5.i.i.i.i2.i6692.sroa_idx, align 1
+  %ref.tmp12449.sroa.3.0.call5.i.i.i.i2.i6692.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6692, i64 2
+  store i8 3, ptr %ref.tmp12449.sroa.3.0.call5.i.i.i.i2.i6692.sroa_idx, align 1
+  %ref.tmp12449.sroa.4.0.call5.i.i.i.i2.i6692.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6692, i64 3
+  store i8 4, ptr %ref.tmp12449.sroa.4.0.call5.i.i.i.i2.i6692.sroa_idx, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !492)
   %m_value.i.i.i.i6703 = getelementptr inbounds i8, ptr %ref.tmp12446, i64 8
   store ptr null, ptr %m_value.i.i.i.i6703, align 8, !alias.scope !492
@@ -36699,7 +36753,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i6762:       ; preds = %_ZN8nlohmann16json_
 
 _ZNSt6vectorIhSaIhEED2Ev.exit6779:                ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IiiTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SG_EE5valueEiE4typeELi0EEEOT_.exit6757
   %add.ptr.i1.i6763 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6758, i64 4
-  store <4 x i8> <i8 1, i8 2, i8 3, i8 4>, ptr %call5.i.i.i.i2.i6758, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i6758, align 1
+  %ref.tmp12489.sroa.2.0.call5.i.i.i.i2.i6758.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6758, i64 1
+  store i8 2, ptr %ref.tmp12489.sroa.2.0.call5.i.i.i.i2.i6758.sroa_idx, align 1
+  %ref.tmp12489.sroa.3.0.call5.i.i.i.i2.i6758.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6758, i64 2
+  store i8 3, ptr %ref.tmp12489.sroa.3.0.call5.i.i.i.i2.i6758.sroa_idx, align 1
+  %ref.tmp12489.sroa.4.0.call5.i.i.i.i2.i6758.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6758, i64 3
+  store i8 4, ptr %ref.tmp12489.sroa.4.0.call5.i.i.i.i2.i6758.sroa_idx, align 1
   store ptr %call5.i.i.i.i2.i6758, ptr %s1, align 8
   %_M_finish.i.i.i.i.i6769 = getelementptr inbounds i8, ptr %s1, i64 8
   store ptr %add.ptr.i1.i6763, ptr %_M_finish.i.i.i.i.i6769, align 8
@@ -36723,7 +36783,13 @@ invoke.cont12512:                                 ; preds = %_ZNSt6vectorIhSaIhE
   %add.ptr.i1.i6785 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6780, i64 4
   %_M_end_of_storage.i.i6786 = getelementptr inbounds i8, ptr %s2, i64 16
   store ptr %add.ptr.i1.i6785, ptr %_M_end_of_storage.i.i6786, align 8
-  store <4 x i8> <i8 5, i8 6, i8 7, i8 8>, ptr %call5.i.i.i.i2.i6780, align 1
+  store i8 5, ptr %call5.i.i.i.i2.i6780, align 1
+  %ref.tmp12502.sroa.2.0.call5.i.i.i.i2.i6780.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6780, i64 1
+  store i8 6, ptr %ref.tmp12502.sroa.2.0.call5.i.i.i.i2.i6780.sroa_idx, align 1
+  %ref.tmp12502.sroa.3.0.call5.i.i.i.i2.i6780.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6780, i64 2
+  store i8 7, ptr %ref.tmp12502.sroa.3.0.call5.i.i.i.i2.i6780.sroa_idx, align 1
+  %ref.tmp12502.sroa.4.0.call5.i.i.i.i2.i6780.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6780, i64 3
+  store i8 8, ptr %ref.tmp12502.sroa.4.0.call5.i.i.i.i2.i6780.sroa_idx, align 1
   %_M_finish.i.i6788 = getelementptr inbounds i8, ptr %s2, i64 8
   store ptr %add.ptr.i1.i6785, ptr %_M_finish.i.i6788, align 8
   %call12517 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
@@ -40704,20 +40770,22 @@ entry:
 if.then:                                          ; preds = %entry
   %m_value = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_value, align 8
+  %2 = load ptr, ptr %1, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %3 = load ptr, ptr %other, align 8
+  %4 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %5 = load ptr, ptr %other, align 8
+  store ptr %5, ptr %1, align 8
   %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
+  %6 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %6, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
-  %4 = load <2 x ptr>, ptr %1, align 8
-  store ptr %3, ptr %1, align 8
-  %5 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
-  store ptr %5, ptr %_M_finish.i.i.i.i, align 8
-  %6 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i, align 8
-  store <2 x ptr> %4, ptr %other, align 8
-  store ptr %2, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %7, ptr %_M_end_of_storage.i.i.i.i, align 8
+  store ptr %2, ptr %other, align 8
+  store ptr %3, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i4.i.i.i, align 8
   ret void
 
 if.else:                                          ; preds = %entry
@@ -40732,7 +40800,7 @@ invoke.cont:                                      ; preds = %if.else
           to label %invoke.cont6 unwind label %ehcleanup.thread6
 
 ehcleanup.thread6:                                ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %cleanup.action
@@ -40742,23 +40810,23 @@ invoke.cont6:                                     ; preds = %invoke.cont
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup.thread:                                 ; preds = %if.else
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %invoke.cont6
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup.thread6, %ehcleanup.thread
-  %.pn5 = phi { ptr, i32 } [ %8, %ehcleanup.thread ], [ %7, %ehcleanup.thread6 ]
+  %.pn5 = phi { ptr, i32 } [ %9, %ehcleanup.thread ], [ %8, %ehcleanup.thread6 ]
   call void @__cxa_free_exception(ptr %exception) #19
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action
-  %.pn4 = phi { ptr, i32 } [ %9, %ehcleanup ], [ %.pn5, %cleanup.action ]
+  %.pn4 = phi { ptr, i32 } [ %10, %ehcleanup ], [ %.pn5, %cleanup.action ]
   resume { ptr, i32 } %.pn4
 
 unreachable:                                      ; preds = %invoke.cont6
@@ -41073,32 +41141,34 @@ if.then:                                          ; preds = %entry
   %m_value = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_value, align 8
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %__tmp.sroa.8.i)
+  %2 = load ptr, ptr %1, align 8
   %_M_finish3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = load ptr, ptr %_M_finish3.i.i.i.i.i.i, align 8
   %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8
-  %m_subtype2.i.i = getelementptr inbounds i8, ptr %1, i64 24
-  %_M_finish.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
-  %_M_end_of_storage.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
-  %m_subtype2.i6.i = getelementptr inbounds i8, ptr %other, i64 24
-  %3 = load <2 x ptr>, ptr %1, align 8
+  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  %m_subtype2.i.i = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %__tmp.sroa.8.i, ptr noundef nonnull align 8 dereferenceable(9) %m_subtype2.i.i, i64 9, i1 false)
-  %4 = load ptr, ptr %other, align 8
-  store ptr %4, ptr %1, align 8
-  %5 = load ptr, ptr %_M_finish.i2.i.i.i.i.i, align 8
-  store ptr %5, ptr %_M_finish3.i.i.i.i.i.i, align 8
-  %6 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
-  store ptr %6, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %other, align 8
+  store ptr %5, ptr %1, align 8
+  %_M_finish.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
+  %6 = load ptr, ptr %_M_finish.i2.i.i.i.i.i, align 8
+  store ptr %6, ptr %_M_finish3.i.i.i.i.i.i, align 8
+  %_M_end_of_storage.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
+  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
+  store ptr %7, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  %m_subtype2.i6.i = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %m_subtype2.i.i, ptr noundef nonnull align 8 dereferenceable(9) %m_subtype2.i6.i, i64 9, i1 false)
-  %7 = load ptr, ptr %other, align 8
-  store <2 x ptr> %3, ptr %other, align 8
-  store ptr %2, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i11.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %other, align 8
+  store ptr %2, ptr %other, align 8
+  store ptr %3, ptr %_M_finish.i2.i.i.i.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i11.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i.i11.i, label %_ZSt4swapIN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit, label %if.then.i.i.i.i.i.i12.i
 
 if.then.i.i.i.i.i.i12.i:                          ; preds = %if.then
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #22
   br label %_ZSt4swapIN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit
 
 _ZSt4swapIN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit: ; preds = %if.then, %if.then.i.i.i.i.i.i12.i
@@ -41111,6 +41181,81 @@ if.else:                                          ; preds = %entry
   %call4 = tail call noundef nonnull ptr @_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
   store ptr %call4, ptr %ref.tmp3, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail6concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA33_KcPS9_EEET_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(33) @.str.301, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3)
+          to label %invoke.cont unwind label %ehcleanup.thread
+
+invoke.cont:                                      ; preds = %if.else
+  invoke void @_ZN8nlohmann16json_abi_v3_11_36detail10type_error6createIPNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEETnNSt9enable_ifIXsr21is_basic_json_contextIT_EE5valueEiE4typeELi0EEES2_iRKSC_SJ_(ptr sret(%"class.nlohmann::json_abi_v3_11_3::detail::type_error") align 8 %exception, i32 noundef 310, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %this)
+          to label %invoke.cont6 unwind label %ehcleanup.thread6
+
+ehcleanup.thread6:                                ; preds = %invoke.cont
+  %9 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  br label %cleanup.action
+
+invoke.cont6:                                     ; preds = %invoke.cont
+  invoke void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE, ptr nonnull @_ZN8nlohmann16json_abi_v3_11_36detail10type_errorD2Ev) #23
+          to label %unreachable unwind label %ehcleanup
+
+ehcleanup.thread:                                 ; preds = %if.else
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  br label %cleanup.action
+
+ehcleanup:                                        ; preds = %invoke.cont6
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  br label %eh.resume
+
+cleanup.action:                                   ; preds = %ehcleanup.thread6, %ehcleanup.thread
+  %.pn5 = phi { ptr, i32 } [ %10, %ehcleanup.thread ], [ %9, %ehcleanup.thread6 ]
+  call void @__cxa_free_exception(ptr %exception) #19
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup, %cleanup.action
+  %.pn4 = phi { ptr, i32 } [ %11, %ehcleanup ], [ %.pn5, %cleanup.action ]
+  resume { ptr, i32 } %.pn4
+
+unreachable:                                      ; preds = %invoke.cont6
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4swapERSC_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp3 = alloca ptr, align 8
+  %0 = load i8, ptr %this, align 8
+  %cmp.i = icmp eq i8 %0, 8
+  br i1 %cmp.i, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %m_value = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load ptr, ptr %m_value, align 8
+  %2 = load ptr, ptr %1, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %5 = load ptr, ptr %other, align 8
+  store ptr %5, ptr %1, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
+  %6 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %6, ptr %_M_finish.i.i.i.i, align 8
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
+  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %7, ptr %_M_end_of_storage.i.i.i.i, align 8
+  store ptr %2, ptr %other, align 8
+  store ptr %3, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  ret void
+
+if.else:                                          ; preds = %entry
+  %exception = tail call ptr @__cxa_allocate_exception(i64 32) #19
+  %call4 = tail call noundef nonnull ptr @_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
+  store ptr %call4, ptr %ref.tmp3, align 8
+  invoke void @_ZN8nlohmann16json_abi_v3_11_36detail6concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA49_KcPS9_EEET_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(49) @.str.302, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3)
           to label %invoke.cont unwind label %ehcleanup.thread
 
 invoke.cont:                                      ; preds = %if.else
@@ -41145,79 +41290,6 @@ cleanup.action:                                   ; preds = %ehcleanup.thread6, 
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action
   %.pn4 = phi { ptr, i32 } [ %10, %ehcleanup ], [ %.pn5, %cleanup.action ]
-  resume { ptr, i32 } %.pn4
-
-unreachable:                                      ; preds = %invoke.cont6
-  unreachable
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4swapERSC_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp3 = alloca ptr, align 8
-  %0 = load i8, ptr %this, align 8
-  %cmp.i = icmp eq i8 %0, 8
-  br i1 %cmp.i, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %m_value = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %m_value, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %3 = load ptr, ptr %other, align 8
-  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
-  %4 = load <2 x ptr>, ptr %1, align 8
-  store ptr %3, ptr %1, align 8
-  %5 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
-  store ptr %5, ptr %_M_finish.i.i.i.i, align 8
-  %6 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i, align 8
-  store <2 x ptr> %4, ptr %other, align 8
-  store ptr %2, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  ret void
-
-if.else:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 32) #19
-  %call4 = tail call noundef nonnull ptr @_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
-  store ptr %call4, ptr %ref.tmp3, align 8
-  invoke void @_ZN8nlohmann16json_abi_v3_11_36detail6concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA49_KcPS9_EEET_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(49) @.str.302, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3)
-          to label %invoke.cont unwind label %ehcleanup.thread
-
-invoke.cont:                                      ; preds = %if.else
-  invoke void @_ZN8nlohmann16json_abi_v3_11_36detail10type_error6createIPNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEETnNSt9enable_ifIXsr21is_basic_json_contextIT_EE5valueEiE4typeELi0EEES2_iRKSC_SJ_(ptr sret(%"class.nlohmann::json_abi_v3_11_3::detail::type_error") align 8 %exception, i32 noundef 310, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %this)
-          to label %invoke.cont6 unwind label %ehcleanup.thread6
-
-ehcleanup.thread6:                                ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  br label %cleanup.action
-
-invoke.cont6:                                     ; preds = %invoke.cont
-  invoke void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE, ptr nonnull @_ZN8nlohmann16json_abi_v3_11_36detail10type_errorD2Ev) #23
-          to label %unreachable unwind label %ehcleanup
-
-ehcleanup.thread:                                 ; preds = %if.else
-  %8 = landingpad { ptr, i32 }
-          cleanup
-  br label %cleanup.action
-
-ehcleanup:                                        ; preds = %invoke.cont6
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  br label %eh.resume
-
-cleanup.action:                                   ; preds = %ehcleanup.thread6, %ehcleanup.thread
-  %.pn5 = phi { ptr, i32 } [ %8, %ehcleanup.thread ], [ %7, %ehcleanup.thread6 ]
-  call void @__cxa_free_exception(ptr %exception) #19
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup, %cleanup.action
-  %.pn4 = phi { ptr, i32 } [ %9, %ehcleanup ], [ %.pn5, %cleanup.action ]
   resume { ptr, i32 } %.pn4
 
 unreachable:                                      ; preds = %invoke.cont6
@@ -45127,12 +45199,21 @@ sw.bb99:                                          ; preds = %sw.bb85, %sw.bb85
   br i1 %cmp104, label %if.then105, label %for.inc
 
 if.then105:                                       ; preds = %sw.bb99
+  %inc109 = add i64 %bytes_after_last_accept.0111, 1
   %arrayidx.i.i77 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes_after_last_accept.0111
+  %inc112 = add i64 %bytes_after_last_accept.0111, 2
+  %arrayidx.i.i78 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc109
+  %inc115 = add i64 %bytes_after_last_accept.0111, 3
+  %arrayidx.i.i79 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc112
   br i1 %ensure_ascii, label %if.then107, label %if.else126
 
 if.then107:                                       ; preds = %if.then105
+  store i8 92, ptr %arrayidx.i.i77, align 1
+  store i8 117, ptr %arrayidx.i.i78, align 1
+  store i8 102, ptr %arrayidx.i.i79, align 1
   %inc118 = add i64 %bytes_after_last_accept.0111, 4
-  store <4 x i8> <i8 92, i8 117, i8 102, i8 102>, ptr %arrayidx.i.i77, align 1
+  %arrayidx.i.i80 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc115
+  store i8 102, ptr %arrayidx.i.i80, align 1
   %inc121 = add i64 %bytes_after_last_accept.0111, 5
   %arrayidx.i.i81 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc118
   store i8 102, ptr %arrayidx.i.i81, align 1
@@ -45142,11 +45223,6 @@ if.then107:                                       ; preds = %if.then105
   br label %if.end139
 
 if.else126:                                       ; preds = %if.then105
-  %inc112 = add i64 %bytes_after_last_accept.0111, 2
-  %arrayidx.i.i79 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc112
-  %inc115 = add i64 %bytes_after_last_accept.0111, 3
-  %inc109 = add i64 %bytes_after_last_accept.0111, 1
-  %arrayidx.i.i78 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc109
   store i8 -17, ptr %arrayidx.i.i77, align 1
   store i8 -65, ptr %arrayidx.i.i78, align 1
   store i8 -67, ptr %arrayidx.i.i79, align 1

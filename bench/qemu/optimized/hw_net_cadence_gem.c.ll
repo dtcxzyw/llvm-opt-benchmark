@@ -111,7 +111,13 @@ entry:
   %arrayidx4.i = getelementptr i8, ptr %call.i, i64 13588
   store i32 -1, ptr %arrayidx4.i, align 4
   %arrayidx6.i = getelementptr i8, ptr %call.i, i64 13596
-  store <4 x i32> <i32 -1912541184, i32 -504, i32 3, i32 3>, ptr %arrayidx6.i, align 4
+  store i32 -1912541184, ptr %arrayidx6.i, align 4
+  %arrayidx8.i = getelementptr i8, ptr %call.i, i64 13600
+  store i32 -504, ptr %arrayidx8.i, align 4
+  %arrayidx10.i = getelementptr i8, ptr %call.i, i64 13604
+  store i32 3, ptr %arrayidx10.i, align 4
+  %arrayidx12.i = getelementptr i8, ptr %call.i, i64 13608
+  store i32 3, ptr %arrayidx12.i, align 4
   %arrayidx14.i = getelementptr i8, ptr %call.i, i64 13612
   store i32 -16, ptr %arrayidx14.i, align 4
   %arrayidx16.i = getelementptr i8, ptr %call.i, i64 13616
@@ -813,8 +819,21 @@ if.then.i.i:                                      ; preds = %sw.bb.i.i168
   %phy_regs.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 19726
   %84 = getelementptr inbounds i8, ptr %opaque, i64 19748
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %84, i8 0, i64 42, i1 false)
+  store i16 4416, ptr %phy_regs.i.i.i, align 2
   %arrayidx4.i.i.i = getelementptr i8, ptr %opaque, i64 19728
-  store <8 x i16> <i16 4416, i16 31081, i16 321, i16 3266, i16 481, i16 -12831, i16 15, i16 8193>, ptr %phy_regs.i.i.i, align 2
+  store i16 31081, ptr %arrayidx4.i.i.i, align 2
+  %arrayidx6.i.i.i = getelementptr i8, ptr %opaque, i64 19730
+  store i16 321, ptr %arrayidx6.i.i.i, align 2
+  %arrayidx8.i.i.i = getelementptr i8, ptr %opaque, i64 19732
+  store i16 3266, ptr %arrayidx8.i.i.i, align 2
+  %arrayidx10.i.i.i = getelementptr i8, ptr %opaque, i64 19734
+  store i16 481, ptr %arrayidx10.i.i.i, align 2
+  %arrayidx12.i.i.i = getelementptr i8, ptr %opaque, i64 19736
+  store i16 -12831, ptr %arrayidx12.i.i.i, align 2
+  %arrayidx14.i.i.i = getelementptr i8, ptr %opaque, i64 19738
+  store i16 15, ptr %arrayidx14.i.i.i, align 2
+  %arrayidx16.i.i.i = getelementptr i8, ptr %opaque, i64 19740
+  store i16 8193, ptr %arrayidx16.i.i.i, align 2
   %arrayidx18.i.i.i = getelementptr i8, ptr %opaque, i64 19742
   store i16 16614, ptr %arrayidx18.i.i.i, align 2
   %arrayidx20.i.i.i = getelementptr i8, ptr %opaque, i64 19744
@@ -1933,8 +1952,21 @@ if.end:                                           ; preds = %if.then, %entry
   %phy_regs.i = getelementptr inbounds i8, ptr %call.i, i64 19726
   %6 = getelementptr inbounds i8, ptr %call.i, i64 19748
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %6, i8 0, i64 42, i1 false)
+  store i16 4416, ptr %phy_regs.i, align 2
   %arrayidx4.i = getelementptr i8, ptr %call.i, i64 19728
-  store <8 x i16> <i16 4416, i16 31081, i16 321, i16 3266, i16 481, i16 -12831, i16 15, i16 8193>, ptr %phy_regs.i, align 2
+  store i16 31081, ptr %arrayidx4.i, align 2
+  %arrayidx6.i = getelementptr i8, ptr %call.i, i64 19730
+  store i16 321, ptr %arrayidx6.i, align 2
+  %arrayidx8.i = getelementptr i8, ptr %call.i, i64 19732
+  store i16 3266, ptr %arrayidx8.i, align 2
+  %arrayidx10.i = getelementptr i8, ptr %call.i, i64 19734
+  store i16 481, ptr %arrayidx10.i, align 2
+  %arrayidx12.i = getelementptr i8, ptr %call.i, i64 19736
+  store i16 -12831, ptr %arrayidx12.i, align 2
+  %arrayidx14.i = getelementptr i8, ptr %call.i, i64 19738
+  store i16 15, ptr %arrayidx14.i, align 2
+  %arrayidx16.i = getelementptr i8, ptr %call.i, i64 19740
+  store i16 8193, ptr %arrayidx16.i, align 2
   %arrayidx18.i = getelementptr i8, ptr %call.i, i64 19742
   store i16 16614, ptr %arrayidx18.i, align 2
   %arrayidx20.i = getelementptr i8, ptr %call.i, i64 19744

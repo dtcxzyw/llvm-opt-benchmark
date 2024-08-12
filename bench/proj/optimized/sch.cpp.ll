@@ -56,15 +56,15 @@ define hidden noundef ptr @pj_sch(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z32pj_projection_specific_setup_schP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = alloca %struct.PJ_XYZ, align 16
-  %3 = alloca %struct.PJ_LPZ, align 16
-  %4 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #8
+  %2 = alloca %struct.PJ_XYZ, align 8
+  %3 = alloca %struct.PJ_LPZ, align 8
+  %4 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
   %7 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %192
+  br label %187
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 88
@@ -95,7 +95,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_schP8PJconsts(ptr no
 25:                                               ; preds = %8
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.3)
   %26 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %192
+  br label %187
 
 27:                                               ; preds = %17
   %28 = load ptr, ptr %0, align 8
@@ -113,7 +113,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_schP8PJconsts(ptr no
 36:                                               ; preds = %17
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.6)
   %37 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %192
+  br label %187
 
 38:                                               ; preds = %27
   %39 = load ptr, ptr %0, align 8
@@ -131,7 +131,7 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_schP8PJconsts(ptr no
 47:                                               ; preds = %27
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.9)
   %48 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %192
+  br label %187
 
 49:                                               ; preds = %38
   %50 = load ptr, ptr %0, align 8
@@ -187,33 +187,33 @@ _ZL17pj_sch_destructorP8PJconstsi.exit.i:         ; preds = %71, %68, %59
 76:                                               ; preds = %53
   tail call void @_Z24pj_inherit_ellipsoid_defPK8PJconstsPS_(ptr noundef nonnull %0, ptr noundef nonnull %56)
   %77 = load double, ptr %54, align 8
-  %78 = tail call double @cos(double noundef %77) #9
+  %78 = tail call double @cos(double noundef %77) #8
   %79 = load double, ptr %54, align 8
-  %80 = tail call double @sin(double noundef %79) #9
+  %80 = tail call double @sin(double noundef %79) #8
   %81 = getelementptr inbounds i8, ptr %54, i64 8
   %82 = load double, ptr %81, align 8
-  %83 = tail call double @cos(double noundef %82) #9
+  %83 = tail call double @cos(double noundef %82) #8
   %84 = load double, ptr %81, align 8
-  %85 = tail call double @sin(double noundef %84) #9
+  %85 = tail call double @sin(double noundef %84) #8
   %86 = getelementptr inbounds i8, ptr %0, i64 216
   %87 = load double, ptr %86, align 8
   %88 = fneg double %87
   %89 = fmul double %80, %88
   %90 = tail call double @llvm.fmuladd.f64(double %89, double %80, double 1.000000e+00)
-  %91 = tail call double @sqrt(double noundef %90) #9
+  %91 = tail call double @sqrt(double noundef %90) #8
   %92 = getelementptr inbounds i8, ptr %0, i64 168
   %93 = load double, ptr %92, align 8
   %94 = fdiv double %93, %91
   %95 = load double, ptr %86, align 8
   %96 = fsub double 1.000000e+00, %95
   %97 = fmul double %93, %96
-  %98 = tail call noundef double @pow(double noundef %91, double noundef 3.000000e+00) #9
+  %98 = tail call noundef double @pow(double noundef %91, double noundef 3.000000e+00) #8
   %99 = fdiv double %97, %98
   %100 = getelementptr inbounds i8, ptr %54, i64 16
   %101 = load double, ptr %100, align 8
-  %102 = tail call double @cos(double noundef %101) #9
+  %102 = tail call double @cos(double noundef %101) #8
   %103 = load double, ptr %100, align 8
-  %104 = tail call double @sin(double noundef %103) #9
+  %104 = tail call double @sin(double noundef %103) #8
   %105 = getelementptr inbounds i8, ptr %54, i64 24
   %106 = load double, ptr %105, align 8
   %107 = fmul double %94, %99
@@ -274,76 +274,77 @@ _ZL17pj_sch_destructorP8PJconstsi.exit101.i:      ; preds = %131, %128, %119
   %141 = fneg double %104
   %142 = fneg double %80
   %143 = fmul double %83, %142
-  %144 = getelementptr inbounds i8, ptr %54, i64 40
-  %145 = insertelement <2 x double> poison, double %143, i64 0
-  %146 = shufflevector <2 x double> %145, <2 x double> poison, <2 x i32> zeroinitializer
-  %147 = insertelement <2 x double> poison, double %102, i64 0
-  %148 = insertelement <2 x double> %147, double %104, i64 1
-  %149 = fmul <2 x double> %146, %148
-  %150 = shufflevector <2 x double> %148, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %151 = insertelement <2 x double> %150, double %141, i64 0
-  %152 = insertelement <2 x double> poison, double %85, i64 0
-  %153 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> zeroinitializer
-  %154 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %151, <2 x double> %153, <2 x double> %149)
-  store <2 x double> %154, ptr %144, align 8
-  %155 = fmul double %78, %85
-  %156 = getelementptr inbounds i8, ptr %54, i64 56
-  store double %155, ptr %156, align 8
-  %157 = fmul double %85, %142
-  %158 = getelementptr inbounds i8, ptr %54, i64 64
-  %159 = fneg double %83
-  %160 = insertelement <2 x double> poison, double %157, i64 0
-  %161 = shufflevector <2 x double> %160, <2 x double> poison, <2 x i32> zeroinitializer
-  %162 = fmul <2 x double> %161, %148
-  %163 = insertelement <2 x double> poison, double %83, i64 0
-  %164 = insertelement <2 x double> %163, double %159, i64 1
-  %165 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %164, <2 x double> %150, <2 x double> %162)
-  store <2 x double> %165, ptr %158, align 8
-  %166 = getelementptr inbounds i8, ptr %54, i64 80
-  store double %80, ptr %166, align 8
-  %167 = insertelement <2 x double> poison, double %78, i64 0
-  %168 = shufflevector <2 x double> %167, <2 x double> poison, <2 x i32> zeroinitializer
-  %169 = fmul <2 x double> %168, %148
-  %170 = getelementptr inbounds i8, ptr %54, i64 88
-  store <2 x double> %169, ptr %170, align 8
-  %171 = load double, ptr %105, align 8
-  %172 = load ptr, ptr %57, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 120
-  %174 = load ptr, ptr %173, align 8
-  %175 = load <2 x double>, ptr %54, align 8
-  %176 = shufflevector <2 x double> %175, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %176, ptr %3, align 16
+  %144 = fmul double %143, %102
+  %145 = tail call double @llvm.fmuladd.f64(double %141, double %85, double %144)
+  %146 = getelementptr inbounds i8, ptr %54, i64 40
+  store double %145, ptr %146, align 8
+  %147 = fmul double %143, %104
+  %148 = tail call double @llvm.fmuladd.f64(double %85, double %102, double %147)
+  %149 = getelementptr inbounds i8, ptr %54, i64 48
+  store double %148, ptr %149, align 8
+  %150 = fmul double %78, %85
+  %151 = getelementptr inbounds i8, ptr %54, i64 56
+  store double %150, ptr %151, align 8
+  %152 = fmul double %85, %142
+  %153 = fmul double %152, %102
+  %154 = tail call double @llvm.fmuladd.f64(double %83, double %104, double %153)
+  %155 = getelementptr inbounds i8, ptr %54, i64 64
+  store double %154, ptr %155, align 8
+  %156 = fneg double %83
+  %157 = fmul double %152, %104
+  %158 = tail call double @llvm.fmuladd.f64(double %156, double %102, double %157)
+  %159 = getelementptr inbounds i8, ptr %54, i64 72
+  store double %158, ptr %159, align 8
+  %160 = getelementptr inbounds i8, ptr %54, i64 80
+  store double %80, ptr %160, align 8
+  %161 = fmul double %78, %102
+  %162 = getelementptr inbounds i8, ptr %54, i64 88
+  store double %161, ptr %162, align 8
+  %163 = fmul double %78, %104
+  %164 = getelementptr inbounds i8, ptr %54, i64 96
+  store double %163, ptr %164, align 8
+  %165 = load double, ptr %81, align 8
+  %166 = load double, ptr %54, align 8
+  %167 = load double, ptr %105, align 8
+  %168 = load ptr, ptr %57, align 8
+  %169 = getelementptr inbounds i8, ptr %168, i64 120
+  %170 = load ptr, ptr %169, align 8
+  store double %165, ptr %3, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  store double %166, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
-  store double %171, ptr %.sroa.3.0..sroa_idx.i, align 16
-  call void %174(ptr dead_on_unwind nonnull writable sret(%struct.PJ_XYZ) align 8 %2, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %3, ptr noundef %172)
-  %177 = load double, ptr %114, align 8
-  %178 = fneg double %177
-  %179 = fmul double %78, %178
-  %180 = getelementptr inbounds i8, ptr %54, i64 104
-  %181 = load <2 x double>, ptr %2, align 16
-  %182 = insertelement <2 x double> poison, double %179, i64 0
-  %183 = shufflevector <2 x double> %182, <2 x double> poison, <2 x i32> zeroinitializer
-  %184 = insertelement <2 x double> %163, double %85, i64 1
-  %185 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %183, <2 x double> %184, <2 x double> %181)
-  store <2 x double> %185, ptr %180, align 8
-  %186 = getelementptr inbounds i8, ptr %2, i64 16
-  %187 = load double, ptr %186, align 16
-  %188 = call double @llvm.fmuladd.f64(double %178, double %80, double %187)
-  %189 = getelementptr inbounds i8, ptr %54, i64 120
-  store double %188, ptr %189, align 8
-  %190 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @_ZL13sch_forward3d6PJ_LPZP8PJconsts, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr @_ZL13sch_inverse3d6PJ_XYZP8PJconsts, ptr %191, align 8
+  store double %167, ptr %.sroa.3.0..sroa_idx.i, align 8
+  call void %170(ptr dead_on_unwind nonnull writable sret(%struct.PJ_XYZ) align 8 %2, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %3, ptr noundef %168)
+  %171 = load double, ptr %2, align 8
+  %172 = load double, ptr %114, align 8
+  %173 = fneg double %172
+  %174 = fmul double %78, %173
+  %175 = call double @llvm.fmuladd.f64(double %174, double %83, double %171)
+  %176 = getelementptr inbounds i8, ptr %54, i64 104
+  store double %175, ptr %176, align 8
+  %177 = getelementptr inbounds i8, ptr %2, i64 8
+  %178 = load double, ptr %177, align 8
+  %179 = call double @llvm.fmuladd.f64(double %174, double %85, double %178)
+  %180 = getelementptr inbounds i8, ptr %54, i64 112
+  store double %179, ptr %180, align 8
+  %181 = getelementptr inbounds i8, ptr %2, i64 16
+  %182 = load double, ptr %181, align 8
+  %183 = call double @llvm.fmuladd.f64(double %173, double %80, double %182)
+  %184 = getelementptr inbounds i8, ptr %54, i64 120
+  store double %183, ptr %184, align 8
+  %185 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @_ZL13sch_forward3d6PJ_LPZP8PJconsts, ptr %185, align 8
+  %186 = getelementptr inbounds i8, ptr %0, i64 128
+  store ptr @_ZL13sch_inverse3d6PJ_XYZP8PJconsts, ptr %186, align 8
   br label %_ZL12pj_sch_setupP8PJconsts.exit
 
 _ZL12pj_sch_setupP8PJconsts.exit:                 ; preds = %_ZL17pj_sch_destructorP8PJconstsi.exit.i, %_ZL17pj_sch_destructorP8PJconstsi.exit101.i, %136
   %.0.i = phi ptr [ %75, %_ZL17pj_sch_destructorP8PJconstsi.exit.i ], [ %135, %_ZL17pj_sch_destructorP8PJconstsi.exit101.i ], [ %0, %136 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %192
+  br label %187
 
-192:                                              ; preds = %_ZL12pj_sch_setupP8PJconsts.exit, %47, %36, %25, %6
+187:                                              ; preds = %_ZL12pj_sch_setupP8PJconsts.exit, %47, %36, %25, %6
   %.0 = phi ptr [ %7, %6 ], [ %.0.i, %_ZL12pj_sch_setupP8PJconsts.exit ], [ %48, %47 ], [ %37, %36 ], [ %26, %25 ]
   ret ptr %.0
 }
@@ -449,91 +450,99 @@ define internal void @_ZL13sch_forward3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noa
   %23 = load double, ptr %22, align 8
   %24 = fsub double %23, %21
   %25 = getelementptr inbounds i8, ptr %6, i64 32
-  %26 = getelementptr inbounds i8, ptr %6, i64 56
-  %27 = getelementptr inbounds i8, ptr %6, i64 80
-  %28 = getelementptr inbounds i8, ptr %6, i64 48
-  %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 72
-  %31 = load double, ptr %30, align 8
-  %32 = fmul double %19, %31
-  %33 = tail call double @llvm.fmuladd.f64(double %29, double %14, double %32)
-  %34 = getelementptr inbounds i8, ptr %6, i64 96
+  %26 = load double, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %6, i64 56
+  %28 = load double, ptr %27, align 8
+  %29 = fmul double %19, %28
+  %30 = tail call double @llvm.fmuladd.f64(double %26, double %14, double %29)
+  %31 = getelementptr inbounds i8, ptr %6, i64 80
+  %32 = load double, ptr %31, align 8
+  %33 = tail call double @llvm.fmuladd.f64(double %32, double %24, double %30)
+  %34 = getelementptr inbounds i8, ptr %6, i64 40
   %35 = load double, ptr %34, align 8
-  %36 = tail call double @llvm.fmuladd.f64(double %35, double %24, double %33)
-  %37 = load <2 x double>, ptr %25, align 8
-  %38 = load <2 x double>, ptr %26, align 8
-  %39 = insertelement <2 x double> poison, double %19, i64 0
-  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
-  %41 = fmul <2 x double> %40, %38
-  %42 = insertelement <2 x double> poison, double %14, i64 0
-  %43 = shufflevector <2 x double> %42, <2 x double> poison, <2 x i32> zeroinitializer
-  %44 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %37, <2 x double> %43, <2 x double> %41)
-  %45 = load <2 x double>, ptr %27, align 8
-  %46 = insertelement <2 x double> poison, double %24, i64 0
-  %47 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> zeroinitializer
-  %48 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %45, <2 x double> %47, <2 x double> %44)
-  store <2 x double> %48, ptr %0, align 8
-  store double %36, ptr %22, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 144
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 128
-  %52 = load ptr, ptr %51, align 8
-  call void %52(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %4, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %0, ptr noundef %50)
+  %36 = getelementptr inbounds i8, ptr %6, i64 64
+  %37 = load double, ptr %36, align 8
+  %38 = fmul double %19, %37
+  %39 = tail call double @llvm.fmuladd.f64(double %35, double %14, double %38)
+  %40 = getelementptr inbounds i8, ptr %6, i64 88
+  %41 = load double, ptr %40, align 8
+  %42 = tail call double @llvm.fmuladd.f64(double %41, double %24, double %39)
+  %43 = getelementptr inbounds i8, ptr %6, i64 48
+  %44 = load double, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %6, i64 72
+  %46 = load double, ptr %45, align 8
+  %47 = fmul double %19, %46
+  %48 = tail call double @llvm.fmuladd.f64(double %44, double %14, double %47)
+  %49 = getelementptr inbounds i8, ptr %6, i64 96
+  %50 = load double, ptr %49, align 8
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double %24, double %48)
+  store double %33, ptr %0, align 8
+  store double %42, ptr %17, align 8
+  store double %51, ptr %22, align 8
+  %52 = getelementptr inbounds i8, ptr %6, i64 144
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 128
+  %55 = load ptr, ptr %54, align 8
+  call void %55(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %4, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %0, ptr noundef %53)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %53 = getelementptr inbounds i8, ptr %6, i64 128
-  %54 = load double, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 168
-  %56 = load double, ptr %55, align 8
-  %57 = fdiv double %54, %56
-  %58 = load <2 x double>, ptr %1, align 8
-  %59 = insertelement <2 x double> poison, double %57, i64 0
-  %60 = shufflevector <2 x double> %59, <2 x double> poison, <2 x i32> zeroinitializer
-  %61 = fmul <2 x double> %58, %60
-  store <2 x double> %61, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 16
-  %63 = load double, ptr %62, align 8
-  store double %63, ptr %22, align 8
+  %56 = load double, ptr %1, align 8
+  %57 = getelementptr inbounds i8, ptr %6, i64 128
+  %58 = load double, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %2, i64 168
+  %60 = load double, ptr %59, align 8
+  %61 = fdiv double %58, %60
+  %62 = fmul double %56, %61
+  store double %62, ptr %0, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = load double, ptr %63, align 8
+  %65 = fmul double %64, %61
+  store double %65, ptr %17, align 8
+  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %67 = load double, ptr %66, align 8
+  store double %67, ptr %22, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL13sch_inverse3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias writable sret(%struct.PJ_LPZ) align 8 %0, ptr nocapture noundef byval(%struct.PJ_XYZ) align 8 %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca %struct.PJ_XYZ, align 8
-  %5 = alloca %struct.PJ_LPZ, align 16
+  %5 = alloca %struct.PJ_LPZ, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 168
-  %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 128
-  %11 = load double, ptr %10, align 8
-  %12 = fdiv double %9, %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 144
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 120
-  %19 = load ptr, ptr %18, align 8
-  %20 = load <2 x double>, ptr %1, align 8
-  %21 = insertelement <2 x double> poison, double %12, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = fmul <2 x double> %20, %22
-  store <2 x double> %23, ptr %5, align 16
+  %8 = load double, ptr %1, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 168
+  %10 = load double, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 128
+  %12 = load double, ptr %11, align 8
+  %13 = fdiv double %10, %12
+  %14 = fmul double %8, %13
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load double, ptr %15, align 8
+  %17 = fmul double %16, %13
+  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = load double, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 144
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 120
+  %23 = load ptr, ptr %22, align 8
+  store double %14, ptr %5, align 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  store double %17, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  store double %15, ptr %.sroa.33.0..sroa_idx, align 16
-  call void %19(ptr dead_on_unwind nonnull writable sret(%struct.PJ_XYZ) align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %5, ptr noundef %17)
+  store double %19, ptr %.sroa.33.0..sroa_idx, align 8
+  call void %23(ptr dead_on_unwind nonnull writable sret(%struct.PJ_XYZ) align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %5, ptr noundef %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %24 = getelementptr inbounds i8, ptr %7, i64 32
   %25 = load double, ptr %24, align 8
   %26 = load double, ptr %1, align 8
   %27 = getelementptr inbounds i8, ptr %7, i64 40
   %28 = load double, ptr %27, align 8
-  %29 = load double, ptr %13, align 8
+  %29 = load double, ptr %15, align 8
   %30 = fmul double %28, %29
   %31 = call double @llvm.fmuladd.f64(double %25, double %26, double %30)
   %32 = getelementptr inbounds i8, ptr %7, i64 48
   %33 = load double, ptr %32, align 8
-  %34 = load double, ptr %14, align 8
+  %34 = load double, ptr %18, align 8
   %35 = call double @llvm.fmuladd.f64(double %33, double %34, double %31)
   %36 = getelementptr inbounds i8, ptr %7, i64 56
   %37 = load double, ptr %36, align 8
@@ -560,11 +569,11 @@ define internal void @_ZL13sch_inverse3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noa
   %57 = getelementptr inbounds i8, ptr %7, i64 112
   %58 = load double, ptr %57, align 8
   %59 = fadd double %44, %58
-  store double %59, ptr %13, align 8
+  store double %59, ptr %15, align 8
   %60 = getelementptr inbounds i8, ptr %7, i64 120
   %61 = load double, ptr %60, align 8
   %62 = fadd double %53, %61
-  store double %62, ptr %14, align 8
+  store double %62, ptr %18, align 8
   %63 = getelementptr inbounds i8, ptr %7, i64 136
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 128
@@ -582,9 +591,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #7
-
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -592,9 +598,8 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-p
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind allocsize(0,1) }
-attributes #9 = { nounwind }
+attributes #7 = { nounwind allocsize(0,1) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

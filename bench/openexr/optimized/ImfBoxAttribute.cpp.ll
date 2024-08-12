@@ -185,7 +185,13 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
-  store <4 x i32> <i32 2147483647, i32 2147483647, i32 -2147483648, i32 -2147483648>, ptr %_value.i, align 4
+  store i32 2147483647, ptr %_value.i, align 4
+  %y3.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  store i32 2147483647, ptr %y3.i.i.i.i, align 4
+  %max.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  store i32 -2147483648, ptr %max.i.i.i, align 4
+  %y3.i4.i.i.i = getelementptr inbounds i8, ptr %call, i64 20
+  store i32 -2147483648, ptr %y3.i4.i.i.i, align 4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -214,7 +220,13 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
-  store <4 x i32> <i32 2147483647, i32 2147483647, i32 -2147483648, i32 -2147483648>, ptr %_value.i, align 4
+  store i32 2147483647, ptr %_value.i, align 4
+  %y3.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  store i32 2147483647, ptr %y3.i.i.i.i, align 4
+  %max.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  store i32 -2147483648, ptr %max.i.i.i, align 4
+  %y3.i4.i.i.i = getelementptr inbounds i8, ptr %call, i64 20
+  store i32 -2147483648, ptr %y3.i4.i.i.i, align 4
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEEE, i64 0) #12
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE.exit
@@ -239,9 +251,6 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   br label %common.resume
 
 _ZN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13copyValueFromERKNS_9AttributeE.exit: ; preds = %invoke.cont
-  %y3.i4.i.i.i = getelementptr inbounds i8, ptr %call, i64 20
-  %max.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
-  %y3.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
   %_value.i2 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i32, ptr %_value.i2, align 4
   store i32 %2, ptr %_value.i, align 4
@@ -524,7 +533,13 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
-  store <4 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, ptr %_value.i, align 4
+  store float 0x47EFFFFFE0000000, ptr %_value.i, align 4
+  %y3.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  store float 0x47EFFFFFE0000000, ptr %y3.i.i.i.i, align 4
+  %max.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  store float 0xC7EFFFFFE0000000, ptr %max.i.i.i, align 4
+  %y3.i4.i.i.i = getelementptr inbounds i8, ptr %call, i64 20
+  store float 0xC7EFFFFFE0000000, ptr %y3.i4.i.i.i, align 4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -545,7 +560,13 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
-  store <4 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, ptr %_value.i, align 4
+  store float 0x47EFFFFFE0000000, ptr %_value.i, align 4
+  %y3.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  store float 0x47EFFFFFE0000000, ptr %y3.i.i.i.i, align 4
+  %max.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  store float 0xC7EFFFFFE0000000, ptr %max.i.i.i, align 4
+  %y3.i4.i.i.i = getelementptr inbounds i8, ptr %call, i64 20
+  store float 0xC7EFFFFFE0000000, ptr %y3.i4.i.i.i, align 4
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEEE, i64 0) #12
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEE13copyValueFromERKNS_9AttributeE.exit
@@ -570,9 +591,6 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   br label %common.resume
 
 _ZN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEE13copyValueFromERKNS_9AttributeE.exit: ; preds = %invoke.cont
-  %y3.i4.i.i.i = getelementptr inbounds i8, ptr %call, i64 20
-  %max.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
-  %y3.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
   %_value.i2 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load float, ptr %_value.i2, align 4
   store float %2, ptr %_value.i, align 4

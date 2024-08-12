@@ -2610,32 +2610,36 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %14
   call void @_ZN26XServiceabilityPauseTracerC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #12
   %17 = call noundef ptr @_ZN14XCollectedHeap4heapEv() #12
   %18 = getelementptr inbounds i8, ptr %17, i64 72
-  %19 = load <2 x i32>, ptr %18, align 8
-  %20 = add <2 x i32> %19, <i32 1, i32 1>
-  store <2 x i32> %20, ptr %18, align 8
-  %21 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
-  call void @_ZN5XHeap10mark_startEv(ptr noundef nonnull align 64 dereferenceable(4088) %21) #12
+  %19 = load i32, ptr %18, align 8
+  %20 = add i32 %19, 1
+  store i32 %20, ptr %18, align 8
+  %21 = getelementptr inbounds i8, ptr %17, i64 76
+  %22 = load i32, ptr %21, align 4
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %21, align 4
+  %24 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
+  call void @_ZN5XHeap10mark_startEv(ptr noundef nonnull align 64 dereferenceable(4088) %24) #12
   call void @_ZN26XServiceabilityPauseTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %22 = load i8, ptr %3, align 8
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %_ZN10XStatTimerD2Ev.exit
+  %25 = load i8, ptr %3, align 8
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %_ZN10XStatTimerD2Ev.exit
 
-24:                                               ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit
-  %25 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #12
-  %26 = extractvalue { i64, i64 } %25, 0
-  store i64 %26, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
-  %28 = extractvalue { i64, i64 } %25, 1
-  store i64 %28, ptr %27, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2) #12
+27:                                               ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit
+  %28 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #12
+  %29 = extractvalue { i64, i64 } %28, 0
+  store i64 %29, ptr %2, align 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = extractvalue { i64, i64 } %28, 1
+  store i64 %31, ptr %30, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2) #12
   br label %_ZN10XStatTimerD2Ev.exit
 
-_ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %24
+_ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret i1 true
 }

@@ -784,9 +784,13 @@ if.end.i:                                         ; preds = %if.end21.i.i.i, %if
   %cond.sink.i.i.ph.i = phi ptr [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end21.i.i.i ]
   store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %9 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
-  %10 = add <2 x i32> %9, <i32 -1, i32 1>
-  store <2 x i32> %10, ptr %NumEntries.i.i.i.i, align 8
+  %9 = load i32, ptr %NumEntries.i.i.i.i, align 8
+  %sub.i.i = add i32 %9, -1
+  store i32 %sub.i.i, ptr %NumEntries.i.i.i.i, align 8
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %10 = load i32, ptr %NumTombstones.i.i.i.i, align 4
+  %add.i.i = add i32 %10, 1
+  store i32 %add.i.i, ptr %NumTombstones.i.i.i.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end13.i.i.i, %if.end.i, %if.else, %if.then

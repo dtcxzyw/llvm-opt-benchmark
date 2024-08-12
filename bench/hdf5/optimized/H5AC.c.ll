@@ -569,7 +569,7 @@ define range(i32 -1, 1) i32 @H5AC_set_cache_auto_resize_config(ptr noundef %0, p
   %6 = load i64, ptr @H5E_CACHE_g, align 8
   %7 = load i64, ptr @H5E_SYSTEM_g, align 8
   %8 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_set_cache_auto_resize_config, i32 noundef 1778, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @.str.42) #6
-  br label %126
+  br label %138
 
 9:                                                ; preds = %2
   %10 = tail call i32 @H5AC_validate_config(ptr noundef %1)
@@ -580,7 +580,7 @@ define range(i32 -1, 1) i32 @H5AC_set_cache_auto_resize_config(ptr noundef %0, p
   %12 = load i64, ptr @H5E_CACHE_g, align 8
   %13 = load i64, ptr @H5E_BADVALUE_g, align 8
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_set_cache_auto_resize_config, i32 noundef 1782, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.1) #6
-  br label %126
+  br label %138
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %1, i64 6
@@ -597,7 +597,7 @@ define range(i32 -1, 1) i32 @H5AC_set_cache_auto_resize_config(ptr noundef %0, p
   %23 = load i64, ptr @H5E_CACHE_g, align 8
   %24 = load i64, ptr @H5E_LOGGING_g, align 8
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_set_cache_auto_resize_config, i32 noundef 1792, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.43) #6
-  br label %126
+  br label %138
 
 26:                                               ; preds = %19, %15
   %27 = getelementptr inbounds i8, ptr %1, i64 5
@@ -615,7 +615,7 @@ define range(i32 -1, 1) i32 @H5AC_set_cache_auto_resize_config(ptr noundef %0, p
   %35 = load i64, ptr @H5E_CACHE_g, align 8
   %36 = load i64, ptr @H5E_LOGGING_g, align 8
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_set_cache_auto_resize_config, i32 noundef 1801, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.4) #6
-  br label %126
+  br label %138
 
 38:                                               ; preds = %26, %30
   %39 = load i32, ptr %1, align 8
@@ -629,7 +629,7 @@ define range(i32 -1, 1) i32 @H5AC_set_cache_auto_resize_config(ptr noundef %0, p
   %44 = load i64, ptr @H5E_CACHE_g, align 8
   %45 = load i64, ptr @H5E_SYSTEM_g, align 8
   %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_set_cache_auto_resize_config, i32 noundef 1806, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.44) #6
-  br label %126
+  br label %138
 
 47:                                               ; preds = %38
   store i32 1, ptr %3, align 8
@@ -653,114 +653,130 @@ define range(i32 -1, 1) i32 @H5AC_set_cache_auto_resize_config(ptr noundef %0, p
   %61 = getelementptr inbounds i8, ptr %3, i64 32
   store double %60, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %1, i64 1056
-  %63 = getelementptr inbounds i8, ptr %3, i64 40
-  %64 = load <2 x i64>, ptr %62, align 8
-  store <2 x i64> %64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 1072
+  %63 = load i64, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 %63, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %1, i64 1064
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %3, i64 56
+  %67 = getelementptr inbounds i8, ptr %3, i64 48
   store i64 %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 1080
-  %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %3, i64 64
-  store i32 %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 1088
-  %72 = getelementptr inbounds i8, ptr %3, i64 72
-  %73 = load <2 x double>, ptr %71, align 8
-  store <2 x double> %73, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 1104
-  %75 = load i8, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %3, i64 88
-  %77 = and i8 %75, 1
-  store i8 %77, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 1112
-  %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %3, i64 96
-  store i64 %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 1120
-  %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %3, i64 104
-  store i32 %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 1128
-  %85 = getelementptr inbounds i8, ptr %3, i64 112
-  %86 = load <2 x double>, ptr %84, align 8
-  store <2 x double> %86, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 1144
+  %68 = getelementptr inbounds i8, ptr %1, i64 1072
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %3, i64 56
+  store i64 %69, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %1, i64 1080
+  %72 = load i32, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %3, i64 64
+  store i32 %72, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %1, i64 1088
+  %75 = load double, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %3, i64 72
+  store double %75, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %1, i64 1096
+  %78 = load double, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %3, i64 80
+  store double %78, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %1, i64 1104
+  %81 = load i8, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %3, i64 88
+  %83 = and i8 %81, 1
+  store i8 %83, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %1, i64 1112
+  %85 = load i64, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %3, i64 96
+  store i64 %85, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %1, i64 1120
   %88 = load i32, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %3, i64 128
+  %89 = getelementptr inbounds i8, ptr %3, i64 104
   store i32 %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 1152
-  %91 = getelementptr inbounds i8, ptr %3, i64 136
-  %92 = load <2 x double>, ptr %90, align 8
-  store <2 x double> %92, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 1168
-  %94 = load i8, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %3, i64 152
-  %96 = and i8 %94, 1
-  store i8 %96, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 1176
-  %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %3, i64 160
-  store i64 %98, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 1184
-  %101 = load i32, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %3, i64 168
-  store i32 %101, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 1188
-  %104 = load i8, ptr %103, align 4
-  %105 = getelementptr inbounds i8, ptr %3, i64 172
-  %106 = and i8 %104, 1
-  store i8 %106, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %1, i64 1192
-  %108 = load double, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %3, i64 176
-  store double %108, ptr %109, align 8
-  %110 = call i32 @H5C_set_cache_auto_resize_config(ptr noundef nonnull %0, ptr noundef nonnull %3) #6
-  %111 = icmp slt i32 %110, 0
-  br i1 %111, label %112, label %116
+  %90 = getelementptr inbounds i8, ptr %1, i64 1128
+  %91 = load double, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %3, i64 112
+  store double %91, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %1, i64 1136
+  %94 = load double, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %3, i64 120
+  store double %94, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %1, i64 1144
+  %97 = load i32, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %3, i64 128
+  store i32 %97, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %1, i64 1152
+  %100 = load double, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %3, i64 136
+  store double %100, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %1, i64 1160
+  %103 = load double, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %3, i64 144
+  store double %103, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %1, i64 1168
+  %106 = load i8, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %3, i64 152
+  %108 = and i8 %106, 1
+  store i8 %108, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %1, i64 1176
+  %110 = load i64, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %3, i64 160
+  store i64 %110, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %1, i64 1184
+  %113 = load i32, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %3, i64 168
+  store i32 %113, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %1, i64 1188
+  %116 = load i8, ptr %115, align 4
+  %117 = getelementptr inbounds i8, ptr %3, i64 172
+  %118 = and i8 %116, 1
+  store i8 %118, ptr %117, align 4
+  %119 = getelementptr inbounds i8, ptr %1, i64 1192
+  %120 = load double, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %3, i64 176
+  store double %120, ptr %121, align 8
+  %122 = call i32 @H5C_set_cache_auto_resize_config(ptr noundef nonnull %0, ptr noundef nonnull %3) #6
+  %123 = icmp slt i32 %122, 0
+  br i1 %123, label %124, label %128
 
-112:                                              ; preds = %47
-  %113 = load i64, ptr @H5E_CACHE_g, align 8
-  %114 = load i64, ptr @H5E_SYSTEM_g, align 8
-  %115 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_set_cache_auto_resize_config, i32 noundef 1810, i64 noundef %113, i64 noundef %114, ptr noundef nonnull @.str.45) #6
-  br label %126
+124:                                              ; preds = %47
+  %125 = load i64, ptr @H5E_CACHE_g, align 8
+  %126 = load i64, ptr @H5E_SYSTEM_g, align 8
+  %127 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_set_cache_auto_resize_config, i32 noundef 1810, i64 noundef %125, i64 noundef %126, ptr noundef nonnull @.str.45) #6
+  br label %138
 
-116:                                              ; preds = %47
-  %117 = getelementptr inbounds i8, ptr %1, i64 1032
-  %118 = load i8, ptr %117, align 8
-  %119 = trunc i8 %118 to i1
-  %120 = call i32 @H5C_set_evictions_enabled(ptr noundef nonnull %0, i1 noundef zeroext %119) #6
-  %121 = icmp slt i32 %120, 0
-  br i1 %121, label %122, label %126
-
-122:                                              ; preds = %116
-  %123 = load i64, ptr @H5E_CACHE_g, align 8
-  %124 = load i64, ptr @H5E_SYSTEM_g, align 8
-  %125 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_set_cache_auto_resize_config, i32 noundef 1812, i64 noundef %123, i64 noundef %124, ptr noundef nonnull @.str.46) #6
-  br label %126
-
-126:                                              ; preds = %116, %122, %112, %40, %34, %22, %11, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %11 ], [ -1, %22 ], [ -1, %34 ], [ -1, %40 ], [ -1, %112 ], [ -1, %122 ], [ 0, %116 ]
-  %127 = getelementptr inbounds i8, ptr %0, i64 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 1
-  %130 = load i8, ptr %129, align 1
+128:                                              ; preds = %47
+  %129 = getelementptr inbounds i8, ptr %1, i64 1032
+  %130 = load i8, ptr %129, align 8
   %131 = trunc i8 %130 to i1
-  br i1 %131, label %132, label %139
+  %132 = call i32 @H5C_set_evictions_enabled(ptr noundef nonnull %0, i1 noundef zeroext %131) #6
+  %133 = icmp slt i32 %132, 0
+  br i1 %133, label %134, label %138
 
-132:                                              ; preds = %126
-  %133 = call i32 @H5C_log_write_set_cache_config_msg(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.0) #6
-  %134 = icmp slt i32 %133, 0
-  br i1 %134, label %135, label %139
+134:                                              ; preds = %128
+  %135 = load i64, ptr @H5E_CACHE_g, align 8
+  %136 = load i64, ptr @H5E_SYSTEM_g, align 8
+  %137 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_set_cache_auto_resize_config, i32 noundef 1812, i64 noundef %135, i64 noundef %136, ptr noundef nonnull @.str.46) #6
+  br label %138
 
-135:                                              ; preds = %132
-  %136 = load i64, ptr @H5E_CACHE_g, align 8
-  %137 = load i64, ptr @H5E_LOGGING_g, align 8
-  %138 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_set_cache_auto_resize_config, i32 noundef 1831, i64 noundef %136, i64 noundef %137, ptr noundef nonnull @.str.6) #6
-  br label %139
+138:                                              ; preds = %128, %134, %124, %40, %34, %22, %11, %5
+  %.0 = phi i32 [ -1, %5 ], [ -1, %11 ], [ -1, %22 ], [ -1, %34 ], [ -1, %40 ], [ -1, %124 ], [ -1, %134 ], [ 0, %128 ]
+  %139 = getelementptr inbounds i8, ptr %0, i64 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 1
+  %142 = load i8, ptr %141, align 1
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %144, label %151
 
-139:                                              ; preds = %132, %135, %126
-  %.1 = phi i32 [ -1, %135 ], [ %.0, %132 ], [ %.0, %126 ]
+144:                                              ; preds = %138
+  %145 = call i32 @H5C_log_write_set_cache_config_msg(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.0) #6
+  %146 = icmp slt i32 %145, 0
+  br i1 %146, label %147, label %151
+
+147:                                              ; preds = %144
+  %148 = load i64, ptr @H5E_CACHE_g, align 8
+  %149 = load i64, ptr @H5E_LOGGING_g, align 8
+  %150 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_set_cache_auto_resize_config, i32 noundef 1831, i64 noundef %148, i64 noundef %149, ptr noundef nonnull @.str.6) #6
+  br label %151
+
+151:                                              ; preds = %144, %147, %138
+  %.1 = phi i32 [ -1, %147 ], [ %.0, %144 ], [ %.0, %138 ]
   ret i32 %.1
 }
 
@@ -1935,7 +1951,7 @@ define range(i32 -1, 1) i32 @H5AC_get_cache_auto_resize_config(ptr noundef %0, p
   %10 = load i64, ptr @H5E_CACHE_g, align 8
   %11 = load i64, ptr @H5E_SYSTEM_g, align 8
   %12 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_get_cache_auto_resize_config, i32 noundef 1602, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.35) #6
-  br label %98
+  br label %110
 
 13:                                               ; preds = %7
   %14 = call i32 @H5C_get_cache_auto_resize_config(ptr noundef nonnull %0, ptr noundef nonnull %3) #6
@@ -1946,7 +1962,7 @@ define range(i32 -1, 1) i32 @H5AC_get_cache_auto_resize_config(ptr noundef %0, p
   %17 = load i64, ptr @H5E_CACHE_g, align 8
   %18 = load i64, ptr @H5E_SYSTEM_g, align 8
   %19 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_get_cache_auto_resize_config, i32 noundef 1606, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.36) #6
-  br label %98
+  br label %110
 
 20:                                               ; preds = %13
   %21 = call i32 @H5C_get_evictions_enabled(ptr noundef nonnull %0, ptr noundef nonnull %4) #6
@@ -1957,7 +1973,7 @@ define range(i32 -1, 1) i32 @H5AC_get_cache_auto_resize_config(ptr noundef %0, p
   %24 = load i64, ptr @H5E_CACHE_g, align 8
   %25 = load i64, ptr @H5E_SYSTEM_g, align 8
   %26 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_get_cache_auto_resize_config, i32 noundef 1608, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.37) #6
-  br label %98
+  br label %110
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1990,75 +2006,91 @@ define range(i32 -1, 1) i32 @H5AC_get_cache_auto_resize_config(ptr noundef %0, p
   %47 = getelementptr inbounds i8, ptr %1, i64 1048
   store double %46, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %3, i64 40
-  %49 = getelementptr inbounds i8, ptr %1, i64 1056
-  %50 = load <2 x i64>, ptr %48, align 8
-  store <2 x i64> %50, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %3, i64 56
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 1056
+  store i64 %49, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %3, i64 48
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 1072
+  %53 = getelementptr inbounds i8, ptr %1, i64 1064
   store i64 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %3, i64 64
-  %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 1080
-  store i32 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %3, i64 72
-  %58 = getelementptr inbounds i8, ptr %1, i64 1088
-  %59 = load <2 x double>, ptr %57, align 8
-  store <2 x double> %59, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %3, i64 88
-  %61 = load i8, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 1104
-  %63 = and i8 %61, 1
-  store i8 %63, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %3, i64 96
-  %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 1112
-  store i64 %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %3, i64 128
-  %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 1144
-  store i32 %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %3, i64 136
-  %71 = getelementptr inbounds i8, ptr %1, i64 1152
-  %72 = getelementptr inbounds i8, ptr %3, i64 104
-  %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 1120
-  store i32 %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %3, i64 112
-  %76 = getelementptr inbounds i8, ptr %1, i64 1128
-  %77 = load <2 x double>, ptr %75, align 8
-  store <2 x double> %77, ptr %76, align 8
-  %78 = load <2 x double>, ptr %70, align 8
-  store <2 x double> %78, ptr %71, align 8
-  %79 = getelementptr inbounds i8, ptr %3, i64 152
-  %80 = load i8, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 1168
-  %82 = and i8 %80, 1
-  store i8 %82, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %3, i64 160
-  %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %1, i64 1176
-  store i64 %84, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %3, i64 168
-  %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 1184
-  store i32 %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %3, i64 172
-  %90 = load i8, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %1, i64 1188
-  %92 = and i8 %90, 1
-  store i8 %92, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %3, i64 176
-  %94 = load double, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %1, i64 1192
-  store double %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 1200
-  store i64 262144, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 1208
-  store i32 1, ptr %97, align 8
-  br label %98
+  %54 = getelementptr inbounds i8, ptr %3, i64 56
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %1, i64 1072
+  store i64 %55, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %3, i64 64
+  %58 = load i32, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %1, i64 1080
+  store i32 %58, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %3, i64 72
+  %61 = load double, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %1, i64 1088
+  store double %61, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %3, i64 80
+  %64 = load double, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %1, i64 1096
+  store double %64, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %3, i64 88
+  %67 = load i8, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %1, i64 1104
+  %69 = and i8 %67, 1
+  store i8 %69, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %3, i64 96
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %1, i64 1112
+  store i64 %71, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %3, i64 128
+  %74 = load i32, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %1, i64 1144
+  store i32 %74, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %3, i64 136
+  %77 = load double, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %1, i64 1152
+  store double %77, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %3, i64 104
+  %80 = load i32, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %1, i64 1120
+  store i32 %80, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %3, i64 112
+  %83 = load double, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %1, i64 1128
+  store double %83, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %3, i64 120
+  %86 = load double, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %1, i64 1136
+  store double %86, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %3, i64 144
+  %89 = load double, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %1, i64 1160
+  store double %89, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %3, i64 152
+  %92 = load i8, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %1, i64 1168
+  %94 = and i8 %92, 1
+  store i8 %94, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %3, i64 160
+  %96 = load i64, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %1, i64 1176
+  store i64 %96, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %3, i64 168
+  %99 = load i32, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %1, i64 1184
+  store i32 %99, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %3, i64 172
+  %102 = load i8, ptr %101, align 4
+  %103 = getelementptr inbounds i8, ptr %1, i64 1188
+  %104 = and i8 %102, 1
+  store i8 %104, ptr %103, align 4
+  %105 = getelementptr inbounds i8, ptr %3, i64 176
+  %106 = load double, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %1, i64 1192
+  store double %106, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %1, i64 1200
+  store i64 262144, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %1, i64 1208
+  store i32 1, ptr %109, align 8
+  br label %110
 
-98:                                               ; preds = %27, %23, %16, %9
+110:                                              ; preds = %27, %23, %16, %9
   %.0 = phi i32 [ -1, %9 ], [ -1, %16 ], [ -1, %23 ], [ 0, %27 ]
   ret i32 %.0
 }

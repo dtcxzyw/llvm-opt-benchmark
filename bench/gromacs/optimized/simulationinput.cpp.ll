@@ -32,13 +32,13 @@ $_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx26applyGlobalSimulationStateERKNS_15SimulationInputEP26PartialDeserializedTprFileP7t_stateP10t_inputrecP10gmx_mtop_t(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"class.std::vector", align 16
+  %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %struct.PartialDeserializedTprFile, align 8
   %9 = alloca %"class.std::filesystem::__cxx11::path", align 8
   call void @_ZNSt10filesystem7__cxx114pathC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext 2)
   invoke void @_Z14read_tpx_stateRKNSt10filesystem7__cxx114pathEP10t_inputrecP7t_stateP10gmx_mtop_t(ptr dead_on_unwind nonnull writable sret(%struct.PartialDeserializedTprFile) align 8 %8, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %3, ptr noundef %2, ptr noundef %4)
-          to label %10 unwind label %32
+          to label %10 unwind label %37
 
 10:                                               ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull align 8 dereferenceable(41) %8, i64 41, i1 false)
@@ -48,68 +48,76 @@ define void @_ZN3gmx26applyGlobalSimulationStateERKNS_15SimulationInputEP26Parti
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %11) #9
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
-  %13 = getelementptr inbounds i8, ptr %1, i64 64
-  %14 = load ptr, ptr %13, align 8
-  %15 = load <2 x ptr>, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 64
+  %13 = load ptr, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 64
   %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
-  %19 = load ptr, ptr %18, align 16
-  %20 = load <2 x ptr>, ptr %11, align 8
-  %21 = load ptr, ptr %11, align 8
-  store <2 x ptr> %15, ptr %11, align 8
-  store ptr %14, ptr %18, align 16
-  %22 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %20, ptr %6, align 16
-  store <2 x ptr> %22, ptr %12, align 8
-  store ptr %19, ptr %16, align 8
-  %.not.i.i.i.i6 = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i6, label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, label %23
+  %18 = load ptr, ptr %12, align 8
+  store ptr %18, ptr %11, align 8
+  %19 = getelementptr inbounds i8, ptr %8, i64 56
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %14, align 8
+  %21 = getelementptr inbounds i8, ptr %8, i64 64
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %16, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %27 = load ptr, ptr %26, align 8
+  store ptr %13, ptr %6, align 8
+  store ptr %15, ptr %24, align 8
+  store ptr %17, ptr %26, align 8
+  store ptr %23, ptr %12, align 8
+  store ptr %25, ptr %19, align 8
+  store ptr %27, ptr %21, align 8
+  %.not.i.i.i.i6 = icmp eq ptr %13, null
+  br i1 %.not.i.i.i.i6, label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, label %28
 
-23:                                               ; preds = %10
-  call void @_ZdlPv(ptr noundef nonnull %21) #10
+28:                                               ; preds = %10
+  call void @_ZdlPv(ptr noundef nonnull %13) #10
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
-_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %10, %23
+_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %10, %28
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %24 = getelementptr inbounds i8, ptr %8, i64 72
-  %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 72
-  store i32 %25, ptr %26, align 8
-  %27 = load ptr, ptr %12, align 8
-  %.not.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i, label %_ZN26PartialDeserializedTprFileD2Ev.exit, label %28
+  %29 = getelementptr inbounds i8, ptr %8, i64 72
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %1, i64 72
+  store i32 %30, ptr %31, align 8
+  %32 = load ptr, ptr %12, align 8
+  %.not.i.i.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i.i.i, label %_ZN26PartialDeserializedTprFileD2Ev.exit, label %33
 
-28:                                               ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
-  call void @_ZdlPv(ptr noundef nonnull %27) #10
+33:                                               ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
+  call void @_ZdlPv(ptr noundef nonnull %32) #10
   br label %_ZN26PartialDeserializedTprFileD2Ev.exit
 
-_ZN26PartialDeserializedTprFileD2Ev.exit:         ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %28
+_ZN26PartialDeserializedTprFileD2Ev.exit:         ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %33
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #9
-  %29 = getelementptr inbounds i8, ptr %9, i64 32
-  %30 = load ptr, ptr %29, align 8
-  %.not.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %31
+  %34 = getelementptr inbounds i8, ptr %9, i64 32
+  %35 = load ptr, ptr %34, align 8
+  %.not.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %36
 
-31:                                               ; preds = %_ZN26PartialDeserializedTprFileD2Ev.exit
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull %30) #9
+36:                                               ; preds = %_ZN26PartialDeserializedTprFileD2Ev.exit
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull %35) #9
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit
 
-_ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZN26PartialDeserializedTprFileD2Ev.exit, %31
-  store ptr null, ptr %29, align 8
+_ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZN26PartialDeserializedTprFileD2Ev.exit, %36
+  store ptr null, ptr %34, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #9
   ret void
 
-32:                                               ; preds = %5
-  %33 = landingpad { ptr, i32 }
+37:                                               ; preds = %5
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #9
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %38
 }
 
 declare void @_Z14read_tpx_stateRKNSt10filesystem7__cxx114pathEP10t_inputrecP7t_stateP10gmx_mtop_t(ptr dead_on_unwind writable sret(%struct.PartialDeserializedTprFile) align 8, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

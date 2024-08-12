@@ -6886,22 +6886,34 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %0 = load i32, ptr %data, align 1
+  %0 = load i8, ptr %data, align 1
+  %cmp1 = icmp eq i8 %0, 60
+  %arrayidx3 = getelementptr inbounds i8, ptr %data, i64 1
+  %1 = load i8, ptr %arrayidx3, align 1
+  %cmp5 = icmp eq i8 %1, 63
+  %and93 = and i1 %cmp1, %cmp5
+  %arrayidx7 = getelementptr inbounds i8, ptr %data, i64 2
+  %2 = load i8, ptr %arrayidx7, align 1
+  %cmp9 = icmp eq i8 %2, 120
+  %and1194 = and i1 %and93, %cmp9
+  %arrayidx12 = getelementptr inbounds i8, ptr %data, i64 3
+  %3 = load i8, ptr %arrayidx12, align 1
+  %cmp14 = icmp eq i8 %3, 109
+  %and1695 = and i1 %and1194, %cmp14
   %arrayidx17 = getelementptr inbounds i8, ptr %data, i64 4
-  %1 = load i8, ptr %arrayidx17, align 1
-  %cmp19 = icmp eq i8 %1, 108
-  %2 = icmp eq i32 %0, 1836597052
-  %op.rdx = and i1 %2, %cmp19
-  br i1 %op.rdx, label %land.lhs.true, label %return
+  %4 = load i8, ptr %arrayidx17, align 1
+  %cmp19 = icmp eq i8 %4, 108
+  %and2196 = and i1 %and1695, %cmp19
+  br i1 %and2196, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %arrayidx22 = getelementptr inbounds i8, ptr %data, i64 5
-  %3 = load i8, ptr %arrayidx22, align 1
-  %idxprom = zext i8 %3 to i64
+  %5 = load i8, ptr %arrayidx22, align 1
+  %idxprom = zext i8 %5 to i64
   %arrayidx23 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %idxprom
-  %4 = load i8, ptr %arrayidx23, align 1
-  %5 = and i8 %4, 8
-  %tobool26.not = icmp ne i8 %5, 0
+  %6 = load i8, ptr %arrayidx23, align 1
+  %7 = and i8 %6, 8
+  %tobool26.not = icmp ne i8 %7, 0
   %cmp27107 = icmp ugt i64 %size, 7
   %or.cond = and i1 %tobool26.not, %cmp27107
   br i1 %or.cond, label %for.body, label %return
@@ -6910,16 +6922,16 @@ for.body:                                         ; preds = %land.lhs.true, %for
   %add109 = phi i64 [ %add, %for.inc ], [ 7, %land.lhs.true ]
   %i.0108 = phi i64 [ %add109, %for.inc ], [ 6, %land.lhs.true ]
   %arrayidx28 = getelementptr inbounds i8, ptr %data, i64 %i.0108
-  %6 = load i8, ptr %arrayidx28, align 1
-  switch i8 %6, label %for.inc [
+  %8 = load i8, ptr %arrayidx28, align 1
+  switch i8 %8, label %for.inc [
     i8 63, label %return
     i8 101, label %land.lhs.true36
   ]
 
 land.lhs.true36:                                  ; preds = %for.body
   %arrayidx38 = getelementptr inbounds i8, ptr %data, i64 %add109
-  %7 = load i8, ptr %arrayidx38, align 1
-  %cmp40 = icmp eq i8 %7, 110
+  %9 = load i8, ptr %arrayidx38, align 1
+  %cmp40 = icmp eq i8 %9, 110
   br i1 %cmp40, label %if.then41, label %for.inc
 
 if.then41:                                        ; preds = %land.lhs.true36
@@ -6933,8 +6945,8 @@ if.end55:                                         ; preds = %if.then41
 
 lor.lhs.false58:                                  ; preds = %if.end55
   %arrayidx59 = getelementptr inbounds i8, ptr %data, i64 %inc56
-  %8 = load i8, ptr %arrayidx59, align 1
-  %cmp61.not = icmp eq i8 %8, 99
+  %10 = load i8, ptr %arrayidx59, align 1
+  %cmp61.not = icmp eq i8 %10, 99
   br i1 %cmp61.not, label %if.end63, label %return
 
 if.end63:                                         ; preds = %lor.lhs.false58
@@ -6944,8 +6956,8 @@ if.end63:                                         ; preds = %lor.lhs.false58
 
 lor.lhs.false66:                                  ; preds = %if.end63
   %arrayidx67 = getelementptr inbounds i8, ptr %data, i64 %inc64
-  %9 = load i8, ptr %arrayidx67, align 1
-  %cmp69.not = icmp eq i8 %9, 111
+  %11 = load i8, ptr %arrayidx67, align 1
+  %cmp69.not = icmp eq i8 %11, 111
   br i1 %cmp69.not, label %if.end71, label %return
 
 if.end71:                                         ; preds = %lor.lhs.false66
@@ -6955,8 +6967,8 @@ if.end71:                                         ; preds = %lor.lhs.false66
 
 lor.lhs.false74:                                  ; preds = %if.end71
   %arrayidx75 = getelementptr inbounds i8, ptr %data, i64 %inc72
-  %10 = load i8, ptr %arrayidx75, align 1
-  %cmp77.not = icmp eq i8 %10, 100
+  %12 = load i8, ptr %arrayidx75, align 1
+  %cmp77.not = icmp eq i8 %12, 100
   br i1 %cmp77.not, label %if.end79, label %return
 
 if.end79:                                         ; preds = %lor.lhs.false74
@@ -6966,8 +6978,8 @@ if.end79:                                         ; preds = %lor.lhs.false74
 
 lor.lhs.false82:                                  ; preds = %if.end79
   %arrayidx83 = getelementptr inbounds i8, ptr %data, i64 %inc80
-  %11 = load i8, ptr %arrayidx83, align 1
-  %cmp85.not = icmp eq i8 %11, 105
+  %13 = load i8, ptr %arrayidx83, align 1
+  %cmp85.not = icmp eq i8 %13, 105
   br i1 %cmp85.not, label %if.end87, label %return
 
 if.end87:                                         ; preds = %lor.lhs.false82
@@ -6977,8 +6989,8 @@ if.end87:                                         ; preds = %lor.lhs.false82
 
 lor.lhs.false90:                                  ; preds = %if.end87
   %arrayidx91 = getelementptr inbounds i8, ptr %data, i64 %inc88
-  %12 = load i8, ptr %arrayidx91, align 1
-  %cmp93.not = icmp eq i8 %12, 110
+  %14 = load i8, ptr %arrayidx91, align 1
+  %cmp93.not = icmp eq i8 %14, 110
   br i1 %cmp93.not, label %if.end95, label %return
 
 if.end95:                                         ; preds = %lor.lhs.false90
@@ -6988,8 +7000,8 @@ if.end95:                                         ; preds = %lor.lhs.false90
 
 lor.lhs.false98:                                  ; preds = %if.end95
   %arrayidx99 = getelementptr inbounds i8, ptr %data, i64 %inc96
-  %13 = load i8, ptr %arrayidx99, align 1
-  %cmp101.not = icmp eq i8 %13, 103
+  %15 = load i8, ptr %arrayidx99, align 1
+  %cmp101.not = icmp eq i8 %15, 103
   %inc104 = add nuw i64 %i.0108, 8
   %cmp105110 = icmp ult i64 %inc104, %size
   %or.cond114 = select i1 %cmp101.not, i1 %cmp105110, i1 false
@@ -6998,12 +7010,12 @@ lor.lhs.false98:                                  ; preds = %if.end95
 land.rhs:                                         ; preds = %lor.lhs.false98, %while.body
   %offset.0111 = phi i64 [ %inc112, %while.body ], [ %inc104, %lor.lhs.false98 ]
   %arrayidx106 = getelementptr inbounds i8, ptr %data, i64 %offset.0111
-  %14 = load i8, ptr %arrayidx106, align 1
-  %idxprom107 = zext i8 %14 to i64
+  %16 = load i8, ptr %arrayidx106, align 1
+  %idxprom107 = zext i8 %16 to i64
   %arrayidx108 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %idxprom107
-  %15 = load i8, ptr %arrayidx108, align 1
-  %16 = and i8 %15, 8
-  %tobool111.not = icmp eq i8 %16, 0
+  %17 = load i8, ptr %arrayidx108, align 1
+  %18 = and i8 %17, 8
+  %tobool111.not = icmp eq i8 %18, 0
   br i1 %tobool111.not, label %lor.lhs.false114, label %while.body
 
 while.body:                                       ; preds = %land.rhs
@@ -7012,7 +7024,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp105, label %land.rhs, label %return, !llvm.loop !68
 
 lor.lhs.false114:                                 ; preds = %land.rhs
-  %cmp117.not = icmp eq i8 %14, 61
+  %cmp117.not = icmp eq i8 %16, 61
   br i1 %cmp117.not, label %while.cond121, label %return
 
 while.cond121:                                    ; preds = %lor.lhs.false114, %land.rhs123
@@ -7023,19 +7035,19 @@ while.cond121:                                    ; preds = %lor.lhs.false114, %
 
 land.rhs123:                                      ; preds = %while.cond121
   %arrayidx124 = getelementptr inbounds i8, ptr %data, i64 %offset.1
-  %17 = load i8, ptr %arrayidx124, align 1
-  %idxprom125 = zext i8 %17 to i64
+  %19 = load i8, ptr %arrayidx124, align 1
+  %idxprom125 = zext i8 %19 to i64
   %arrayidx126 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %idxprom125
-  %18 = load i8, ptr %arrayidx126, align 1
-  %19 = and i8 %18, 8
-  %tobool129.not = icmp eq i8 %19, 0
+  %20 = load i8, ptr %arrayidx126, align 1
+  %21 = and i8 %20, 8
+  %tobool129.not = icmp eq i8 %21, 0
   br i1 %tobool129.not, label %lor.lhs.false141, label %while.cond121, !llvm.loop !69
 
 lor.lhs.false141:                                 ; preds = %land.rhs123
-  %cmp138 = icmp eq i8 %17, 34
-  %20 = select i1 %cmp138, i32 34, i32 39
-  %conv143 = zext i8 %17 to i32
-  %cmp145.not = icmp eq i32 %20, %conv143
+  %cmp138 = icmp eq i8 %19, 34
+  %22 = select i1 %cmp138, i32 34, i32 39
+  %conv143 = zext i8 %19 to i32
+  %cmp145.not = icmp eq i32 %22, %conv143
   br i1 %cmp145.not, label %if.end147, label %return
 
 if.end147:                                        ; preds = %lor.lhs.false141
@@ -7048,12 +7060,12 @@ if.end147:                                        ; preds = %lor.lhs.false141
 land.rhs151:                                      ; preds = %if.end147, %while.body159
   %offset.2113 = phi i64 [ %inc160, %while.body159 ], [ %inc148, %if.end147 ]
   %arrayidx152 = getelementptr inbounds i8, ptr %data, i64 %offset.2113
-  %21 = load i8, ptr %arrayidx152, align 1
-  %idxprom153 = zext i8 %21 to i64
+  %23 = load i8, ptr %arrayidx152, align 1
+  %idxprom153 = zext i8 %23 to i64
   %arrayidx154 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4implL14chartype_tableE, i64 0, i64 %idxprom153
-  %22 = load i8, ptr %arrayidx154, align 1
-  %23 = and i8 %22, 64
-  %tobool157.not = icmp eq i8 %23, 0
+  %24 = load i8, ptr %arrayidx154, align 1
+  %25 = and i8 %24, 64
+  %tobool157.not = icmp eq i8 %25, 0
   br i1 %tobool157.not, label %lor.lhs.false163, label %while.body159
 
 while.body159:                                    ; preds = %land.rhs151
@@ -7071,9 +7083,9 @@ lor.lhs.false163:                                 ; preds = %land.rhs151
   %arrayidx152.le = getelementptr inbounds i8, ptr %data, i64 %offset.2113
   %sub99 = sub i64 %offset.2113, %inc148
   store i64 %sub99, ptr %out_length, align 8
-  %24 = load i8, ptr %arrayidx152.le, align 1
-  %conv165 = zext i8 %24 to i32
-  %cmp167.not = icmp eq i32 %20, %conv165
+  %26 = load i8, ptr %arrayidx152.le, align 1
+  %conv165 = zext i8 %26 to i32
+  %cmp167.not = icmp eq i32 %22, %conv165
   br label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true36

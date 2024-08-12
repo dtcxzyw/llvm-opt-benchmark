@@ -8683,9 +8683,10 @@ define linkonce_odr dso_local ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
-  %35 = load <2 x ptr>, ptr %0, align 8
-  %36 = shufflevector <2 x ptr> %35, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %36, ptr %0, align 8
+  %35 = load ptr, ptr %0, align 8
+  %36 = load ptr, ptr %10, align 8
+  store ptr %36, ptr %0, align 8
+  store ptr %35, ptr %10, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_SG_T0_.exit.preheader
 
 37:                                               ; preds = %31
@@ -9773,87 +9774,89 @@ define linkonce_odr dso_local void @_ZSt27__unguarded_partition_pivotISt16revers
 33:                                               ; preds = %4
   %34 = load ptr, ptr %10, align 8
   %35 = tail call noundef zeroext i1 %3(ptr noundef %34, ptr noundef %15)
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %40
 
 36:                                               ; preds = %33
-  %37 = load <2 x ptr>, ptr %10, align 8
-  %38 = shufflevector <2 x ptr> %37, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %38, ptr %10, align 8
+  %37 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 -8
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %10, align 8
+  store ptr %39, ptr %37, align 8
+  store ptr %38, ptr %10, align 8
   br label %_ZSt22__move_median_to_firstISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_SI_T0_.exit
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %12, align 8
-  %41 = load ptr, ptr %.sroa.0.0.copyload.i2.i, align 8
-  %42 = tail call noundef zeroext i1 %3(ptr noundef %40, ptr noundef %41)
-  %43 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 -8
-  %44 = load ptr, ptr %43, align 8
-  br i1 %42, label %45, label %47
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %12, align 8
+  %42 = load ptr, ptr %.sroa.0.0.copyload.i2.i, align 8
+  %43 = tail call noundef zeroext i1 %3(ptr noundef %41, ptr noundef %42)
+  %44 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 -8
+  %45 = load ptr, ptr %44, align 8
+  br i1 %43, label %46, label %48
 
-45:                                               ; preds = %39
-  %46 = load ptr, ptr %.sroa.0.0.copyload.i2.i, align 8
-  store ptr %46, ptr %43, align 8
-  store ptr %44, ptr %.sroa.0.0.copyload.i2.i, align 8
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %.sroa.0.0.copyload.i2.i, align 8
+  store ptr %47, ptr %44, align 8
+  store ptr %45, ptr %.sroa.0.0.copyload.i2.i, align 8
   br label %_ZSt22__move_median_to_firstISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_SI_T0_.exit
 
-47:                                               ; preds = %39
-  %48 = load ptr, ptr %12, align 8
-  store ptr %48, ptr %43, align 8
-  store ptr %44, ptr %12, align 8
+48:                                               ; preds = %40
+  %49 = load ptr, ptr %12, align 8
+  store ptr %49, ptr %44, align 8
+  store ptr %45, ptr %12, align 8
   br label %_ZSt22__move_median_to_firstISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_SI_T0_.exit
 
-_ZSt22__move_median_to_firstISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_SI_T0_.exit: ; preds = %19, %29, %31, %36, %45, %47
-  %49 = load ptr, ptr %1, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 -8
-  %51 = load i64, ptr %2, align 8
-  %52 = inttoptr i64 %51 to ptr
+_ZSt22__move_median_to_firstISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_SI_T0_.exit: ; preds = %19, %29, %31, %36, %46, %48
+  %50 = load ptr, ptr %1, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 -8
+  %52 = load i64, ptr %2, align 8
+  %53 = inttoptr i64 %52 to ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  br label %53
+  br label %54
 
-53:                                               ; preds = %69, %_ZSt22__move_median_to_firstISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_SI_T0_.exit
-  %.sroa.05.0 = phi ptr [ %52, %_ZSt22__move_median_to_firstISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_SI_T0_.exit ], [ %storemerge.i, %69 ]
-  %.sroa.06.0 = phi ptr [ %50, %_ZSt22__move_median_to_firstISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_SI_T0_.exit ], [ %70, %69 ]
-  %54 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 -8
-  %55 = load ptr, ptr %54, align 8, !noalias !105
-  %56 = load ptr, ptr %50, align 8, !noalias !105
-  %57 = tail call noundef zeroext i1 %3(ptr noundef %55, ptr noundef %56), !noalias !105
-  br i1 %57, label %.lr.ph.i, label %.preheader.i
+54:                                               ; preds = %70, %_ZSt22__move_median_to_firstISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_SI_T0_.exit
+  %.sroa.05.0 = phi ptr [ %53, %_ZSt22__move_median_to_firstISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_SI_T0_.exit ], [ %storemerge.i, %70 ]
+  %.sroa.06.0 = phi ptr [ %51, %_ZSt22__move_median_to_firstISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_SI_T0_.exit ], [ %71, %70 ]
+  %55 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 -8
+  %56 = load ptr, ptr %55, align 8, !noalias !105
+  %57 = load ptr, ptr %51, align 8, !noalias !105
+  %58 = tail call noundef zeroext i1 %3(ptr noundef %56, ptr noundef %57), !noalias !105
+  br i1 %58, label %.lr.ph.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.lr.ph.i, %53
-  %.sroa.06.1 = phi ptr [ %.sroa.06.0, %53 ], [ %58, %.lr.ph.i ]
-  br label %63
+.preheader.i:                                     ; preds = %.lr.ph.i, %54
+  %.sroa.06.1 = phi ptr [ %.sroa.06.0, %54 ], [ %59, %.lr.ph.i ]
+  br label %64
 
-.lr.ph.i:                                         ; preds = %53, %.lr.ph.i
-  %.sroa.06.2 = phi ptr [ %58, %.lr.ph.i ], [ %.sroa.06.0, %53 ]
-  %58 = getelementptr inbounds i8, ptr %.sroa.06.2, i64 -8
-  %59 = getelementptr inbounds i8, ptr %.sroa.06.2, i64 -16
-  %60 = load ptr, ptr %59, align 8, !noalias !105
-  %61 = load ptr, ptr %50, align 8, !noalias !105
-  %62 = tail call noundef zeroext i1 %3(ptr noundef %60, ptr noundef %61), !noalias !105
-  br i1 %62, label %.lr.ph.i, label %.preheader.i, !llvm.loop !108
+.lr.ph.i:                                         ; preds = %54, %.lr.ph.i
+  %.sroa.06.2 = phi ptr [ %59, %.lr.ph.i ], [ %.sroa.06.0, %54 ]
+  %59 = getelementptr inbounds i8, ptr %.sroa.06.2, i64 -8
+  %60 = getelementptr inbounds i8, ptr %.sroa.06.2, i64 -16
+  %61 = load ptr, ptr %60, align 8, !noalias !105
+  %62 = load ptr, ptr %51, align 8, !noalias !105
+  %63 = tail call noundef zeroext i1 %3(ptr noundef %61, ptr noundef %62), !noalias !105
+  br i1 %63, label %.lr.ph.i, label %.preheader.i, !llvm.loop !108
 
-63:                                               ; preds = %63, %.preheader.i
-  %.sroa.05.1 = phi ptr [ %.sroa.05.0, %.preheader.i ], [ %storemerge.i, %63 ]
+64:                                               ; preds = %64, %.preheader.i
+  %.sroa.05.1 = phi ptr [ %.sroa.05.0, %.preheader.i ], [ %storemerge.i, %64 ]
   %storemerge.i = getelementptr inbounds i8, ptr %.sroa.05.1, i64 8
-  %64 = load ptr, ptr %50, align 8, !noalias !105
-  %65 = load ptr, ptr %.sroa.05.1, align 8, !noalias !105
-  %66 = tail call noundef zeroext i1 %3(ptr noundef %64, ptr noundef %65), !noalias !105
-  br i1 %66, label %63, label %67, !llvm.loop !109
+  %65 = load ptr, ptr %51, align 8, !noalias !105
+  %66 = load ptr, ptr %.sroa.05.1, align 8, !noalias !105
+  %67 = tail call noundef zeroext i1 %3(ptr noundef %65, ptr noundef %66), !noalias !105
+  br i1 %67, label %64, label %68, !llvm.loop !109
 
-67:                                               ; preds = %63
-  %68 = icmp ult ptr %storemerge.i, %.sroa.06.1
-  br i1 %68, label %69, label %_ZSt21__unguarded_partitionISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEET_SI_SI_SI_T0_.exit
+68:                                               ; preds = %64
+  %69 = icmp ult ptr %storemerge.i, %.sroa.06.1
+  br i1 %69, label %70, label %_ZSt21__unguarded_partitionISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEET_SI_SI_SI_T0_.exit
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %.sroa.06.1, i64 -8
-  %71 = load ptr, ptr %70, align 8, !noalias !105
-  %72 = load ptr, ptr %.sroa.05.1, align 8, !noalias !105
-  store ptr %72, ptr %70, align 8, !noalias !105
-  store ptr %71, ptr %.sroa.05.1, align 8, !noalias !105
-  br label %53, !llvm.loop !110
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds i8, ptr %.sroa.06.1, i64 -8
+  %72 = load ptr, ptr %71, align 8, !noalias !105
+  %73 = load ptr, ptr %.sroa.05.1, align 8, !noalias !105
+  store ptr %73, ptr %71, align 8, !noalias !105
+  store ptr %72, ptr %.sroa.05.1, align 8, !noalias !105
+  br label %54, !llvm.loop !110
 
-_ZSt21__unguarded_partitionISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEET_SI_SI_SI_T0_.exit: ; preds = %67
-  %73 = ptrtoint ptr %.sroa.06.1 to i64
-  store i64 %73, ptr %0, align 8, !alias.scope !105
+_ZSt21__unguarded_partitionISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEET_SI_SI_SI_T0_.exit: ; preds = %68
+  %74 = ptrtoint ptr %.sroa.06.1 to i64
+  store i64 %74, ptr %0, align 8, !alias.scope !105
   ret void
 }
 

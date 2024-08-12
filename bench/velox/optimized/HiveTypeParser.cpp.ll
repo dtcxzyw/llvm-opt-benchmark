@@ -5138,7 +5138,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox4type6fbhive13TokenMetadataES
 define void @_ZN8facebook5velox4type6fbhive14HiveTypeParser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %ser) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.facebook::velox::type::fbhive::TokenAndRemaining", align 8
-  %result = alloca %"struct.facebook::velox::type::fbhive::Result", align 16
+  %result = alloca %"struct.facebook::velox::type::fbhive::Result", align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ser) #23
   %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ser) #23
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %call3.i
@@ -5175,15 +5175,17 @@ lpad:                                             ; preds = %lor.rhs
   resume { ptr, i32 } %4
 
 if.end:                                           ; preds = %entry, %invoke.cont3
+  %5 = load ptr, ptr %result, align 8
+  store ptr %5, ptr %agg.result, align 8
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %result, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %6 = load <2 x ptr>, ptr %result, align 16
-  store <2 x ptr> %6, ptr %agg.result, align 8
-  %cmp.not.i.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %6, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZN8facebook5velox4type6fbhive6ResultD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -5293,18 +5295,18 @@ entry:
   %token.i = alloca %"struct.facebook::velox::type::fbhive::TokenAndRemaining", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
-  %scalarType = alloca %"class.std::shared_ptr", align 16
+  %scalarType = alloca %"class.std::shared_ptr", align 8
   %tmp52 = alloca %"struct.facebook::velox::type::fbhive::Token", align 8
   %length = alloca %"struct.facebook::velox::type::fbhive::Token", align 8
   %ref.tmp55 = alloca %"class.std::__cxx11::basic_string", align 8
   %tmp65 = alloca %"struct.facebook::velox::type::fbhive::Token", align 8
   %resultList = alloca %"struct.facebook::velox::type::fbhive::ResultList", align 8
-  %ref.tmp78 = alloca %"class.std::shared_ptr.16", align 16
-  %ref.tmp89 = alloca %"class.std::shared_ptr.19", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr", align 16
-  %agg.tmp93 = alloca %"class.std::shared_ptr", align 16
-  %ref.tmp111 = alloca %"class.std::shared_ptr.22", align 16
-  %agg.tmp112 = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp78 = alloca %"class.std::shared_ptr.16", align 8
+  %ref.tmp89 = alloca %"class.std::shared_ptr.19", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp93 = alloca %"class.std::shared_ptr", align 8
+  %ref.tmp111 = alloca %"class.std::shared_ptr.22", align 8
+  %agg.tmp112 = alloca %"class.std::shared_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i)
   %remaining_.i = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %remaining_.i, align 8, !noalias !86
@@ -5515,7 +5517,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 if.end38:                                         ; preds = %if.else
   %18 = load i8, ptr %typeKind.i, align 4
   call void @_ZN8facebook5velox16createScalarTypeENS0_8TypeKindE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %scalarType, i8 noundef signext %18)
-  %19 = load ptr, ptr %scalarType, align 16
+  %19 = load ptr, ptr %scalarType, align 8
   %cmp.i.i.not = icmp eq ptr %19, null
   br i1 %cmp.i.i.not, label %if.then43, label %if.end44
 
@@ -5582,15 +5584,17 @@ if.end64:                                         ; preds = %invoke.cont57
           to label %if.end67 unwind label %lpad47
 
 if.end67:                                         ; preds = %if.end64, %invoke.cont48, %if.end44
+  %24 = load ptr, ptr %scalarType, align 8
+  store ptr %24, ptr %agg.result, align 8
+  %_M_refcount.i.i68 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i69 = getelementptr inbounds i8, ptr %scalarType, i64 8
-  %24 = load ptr, ptr %_M_refcount3.i.i69, align 8
-  %25 = load <2 x ptr>, ptr %scalarType, align 16
-  store <2 x ptr> %25, ptr %agg.result, align 8
-  %cmp.not.i.i.i70 = icmp eq ptr %24, null
+  %25 = load ptr, ptr %_M_refcount3.i.i69, align 8
+  store ptr %25, ptr %_M_refcount.i.i68, align 8
+  %cmp.not.i.i.i70 = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i70, label %return, label %if.then.i.i.i71
 
 if.then.i.i.i71:                                  ; preds = %if.end67
-  %_M_use_count.i.i.i.i72 = getelementptr inbounds i8, ptr %24, i64 8
+  %_M_use_count.i.i.i.i72 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i73 = icmp eq i8 %26, 0
   br i1 %tobool.i.not.i.i.i.i73, label %if.else.i.i.i.i.i76, label %if.then.i.i.i.i.i74
@@ -5699,19 +5703,22 @@ sw.bb:                                            ; preds = %if.then71
           to label %_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit unwind label %lpad74
 
 _ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit: ; preds = %sw.bb
+  %41 = load ptr, ptr %ref.tmp78, align 8
+  store ptr %41, ptr %agg.result, align 8
+  %_M_refcount.i.i88 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %ref.tmp78, i64 8
-  %41 = load <2 x ptr>, ptr %ref.tmp78, align 16
+  %42 = load ptr, ptr %_M_refcount4.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i, align 8
-  store <2 x ptr> %41, ptr %agg.result, align 8
-  store ptr null, ptr %ref.tmp78, align 16
+  store ptr %42, ptr %_M_refcount.i.i88, align 8
+  store ptr null, ptr %ref.tmp78, align 8
   br label %cleanup
 
 sw.bb80:                                          ; preds = %if.then71
   %_M_finish.i = getelementptr inbounds i8, ptr %resultList, i64 8
-  %42 = load ptr, ptr %_M_finish.i, align 8
-  %43 = load ptr, ptr %resultList, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %42 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %43 to i64
+  %43 = load ptr, ptr %_M_finish.i, align 8
+  %44 = load ptr, ptr %resultList, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %43 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %44 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp83.not = icmp eq i64 %sub.ptr.sub.i, 32
   br i1 %cmp83.not, label %invoke.cont91, label %if.then86
@@ -5721,37 +5728,38 @@ if.then86:                                        ; preds = %sw.bb80
   unreachable
 
 invoke.cont91:                                    ; preds = %sw.bb80
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %agg.tmp, align 8
   %_M_refcount.i.i120 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %_M_refcount3.i.i121 = getelementptr inbounds i8, ptr %43, i64 8
-  %44 = load ptr, ptr %_M_refcount3.i.i121, align 8
-  %45 = load <2 x ptr>, ptr %43, align 8
-  store <2 x ptr> %45, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i122 = icmp eq ptr %44, null
+  %_M_refcount3.i.i121 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = load ptr, ptr %_M_refcount3.i.i121, align 8
+  store ptr %46, ptr %_M_refcount.i.i120, align 8
+  %cmp.not.i.i.i122 = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i122, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit129, label %if.then.i.i.i123
 
 if.then.i.i.i123:                                 ; preds = %invoke.cont91
-  %_M_use_count.i.i.i.i124 = getelementptr inbounds i8, ptr %44, i64 8
-  %46 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i125 = icmp eq i8 %46, 0
+  %_M_use_count.i.i.i.i124 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i125 = icmp eq i8 %47, 0
   br i1 %tobool.i.not.i.i.i.i125, label %if.else.i.i.i.i.i128, label %if.then.i.i.i.i.i126
 
 if.then.i.i.i.i.i126:                             ; preds = %if.then.i.i.i123
-  %47 = load i32, ptr %_M_use_count.i.i.i.i124, align 4
-  %add.i.i.i.i.i127 = add nsw i32 %47, 1
+  %48 = load i32, ptr %_M_use_count.i.i.i.i124, align 4
+  %add.i.i.i.i.i127 = add nsw i32 %48, 1
   store i32 %add.i.i.i.i.i127, ptr %_M_use_count.i.i.i.i124, align 4
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit129
 
 if.else.i.i.i.i.i128:                             ; preds = %if.then.i.i.i123
-  %48 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i124, i32 1 acq_rel, align 4
+  %49 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i124, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %resultList, align 8
   %.pre348 = ptrtoint ptr %.pre to i64
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit129
 
 _ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit129: ; preds = %invoke.cont91, %if.then.i.i.i.i.i126, %if.else.i.i.i.i.i128
   %sub.ptr.rhs.cast.i.i.i132.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i, %invoke.cont91 ], [ %sub.ptr.rhs.cast.i, %if.then.i.i.i.i.i126 ], [ %.pre348, %if.else.i.i.i.i.i128 ]
-  %49 = phi ptr [ %43, %invoke.cont91 ], [ %43, %if.then.i.i.i.i.i126 ], [ %.pre, %if.else.i.i.i.i.i128 ]
-  %50 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.lhs.cast.i.i.i131 = ptrtoint ptr %50 to i64
+  %50 = phi ptr [ %44, %invoke.cont91 ], [ %44, %if.then.i.i.i.i.i126 ], [ %.pre, %if.else.i.i.i.i.i128 ]
+  %51 = load ptr, ptr %_M_finish.i, align 8
+  %sub.ptr.lhs.cast.i.i.i131 = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i.i.i133 = sub i64 %sub.ptr.lhs.cast.i.i.i131, %sub.ptr.rhs.cast.i.i.i132.pre-phi
   %sub.ptr.div.i.i.i134 = ashr exact i64 %sub.ptr.sub.i.i.i133, 4
   %cmp.not.i.i135 = icmp ugt i64 %sub.ptr.div.i.i.i134, 1
@@ -5765,29 +5773,30 @@ if.then.i.i136:                                   ; preds = %_ZNSt10shared_ptrIK
   unreachable
 
 invoke.cont96:                                    ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit129
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %49, i64 16
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = load ptr, ptr %add.ptr.i.i, align 8
+  store ptr %52, ptr %agg.tmp93, align 8
   %_M_refcount.i.i139 = getelementptr inbounds i8, ptr %agg.tmp93, i64 8
-  %_M_refcount3.i.i140 = getelementptr inbounds i8, ptr %49, i64 24
-  %51 = load ptr, ptr %_M_refcount3.i.i140, align 8
-  %52 = load <2 x ptr>, ptr %add.ptr.i.i, align 8
-  store <2 x ptr> %52, ptr %agg.tmp93, align 16
-  %cmp.not.i.i.i141 = icmp eq ptr %51, null
+  %_M_refcount3.i.i140 = getelementptr inbounds i8, ptr %50, i64 24
+  %53 = load ptr, ptr %_M_refcount3.i.i140, align 8
+  store ptr %53, ptr %_M_refcount.i.i139, align 8
+  %cmp.not.i.i.i141 = icmp eq ptr %53, null
   br i1 %cmp.not.i.i.i141, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit148, label %if.then.i.i.i142
 
 if.then.i.i.i142:                                 ; preds = %invoke.cont96
-  %_M_use_count.i.i.i.i143 = getelementptr inbounds i8, ptr %51, i64 8
-  %53 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i144 = icmp eq i8 %53, 0
+  %_M_use_count.i.i.i.i143 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i144 = icmp eq i8 %54, 0
   br i1 %tobool.i.not.i.i.i.i144, label %if.else.i.i.i.i.i147, label %if.then.i.i.i.i.i145
 
 if.then.i.i.i.i.i145:                             ; preds = %if.then.i.i.i142
-  %54 = load i32, ptr %_M_use_count.i.i.i.i143, align 4
-  %add.i.i.i.i.i146 = add nsw i32 %54, 1
+  %55 = load i32, ptr %_M_use_count.i.i.i.i143, align 4
+  %add.i.i.i.i.i146 = add nsw i32 %55, 1
   store i32 %add.i.i.i.i.i146, ptr %_M_use_count.i.i.i.i143, align 4
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit148
 
 if.else.i.i.i.i.i147:                             ; preds = %if.then.i.i.i142
-  %55 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i143, i32 1 acq_rel, align 4
+  %56 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i143, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit148
 
 _ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit148: ; preds = %invoke.cont96, %if.then.i.i.i.i.i145, %if.else.i.i.i.i.i147
@@ -5795,178 +5804,181 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit148: ; preds = %invoke.co
           to label %_ZNSt10shared_ptrIKN8facebook5velox7MapTypeEED2Ev.exit unwind label %lpad98
 
 _ZNSt10shared_ptrIKN8facebook5velox7MapTypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit148
+  %57 = load ptr, ptr %ref.tmp89, align 8
+  store ptr %57, ptr %agg.result, align 8
+  %_M_refcount.i.i149 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount4.i.i150 = getelementptr inbounds i8, ptr %ref.tmp89, i64 8
-  %56 = load <2 x ptr>, ptr %ref.tmp89, align 16
+  %58 = load ptr, ptr %_M_refcount4.i.i150, align 8
   store ptr null, ptr %_M_refcount4.i.i150, align 8
-  store <2 x ptr> %56, ptr %agg.result, align 8
-  store ptr null, ptr %ref.tmp89, align 16
-  %57 = load ptr, ptr %_M_refcount.i.i139, align 8
-  %cmp.not.i.i.i183 = icmp eq ptr %57, null
+  store ptr %58, ptr %_M_refcount.i.i149, align 8
+  store ptr null, ptr %ref.tmp89, align 8
+  %59 = load ptr, ptr %_M_refcount.i.i139, align 8
+  %cmp.not.i.i.i183 = icmp eq ptr %59, null
   br i1 %cmp.not.i.i.i183, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit213, label %if.then.i.i.i184
 
 if.then.i.i.i184:                                 ; preds = %_ZNSt10shared_ptrIKN8facebook5velox7MapTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i185 = getelementptr inbounds i8, ptr %57, i64 8
-  %58 = load atomic i64, ptr %_M_use_count.i.i.i.i185 acquire, align 8
-  %cmp.i.i.i.i186 = icmp eq i64 %58, 4294967297
-  %59 = trunc i64 %58 to i32
+  %_M_use_count.i.i.i.i185 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = load atomic i64, ptr %_M_use_count.i.i.i.i185 acquire, align 8
+  %cmp.i.i.i.i186 = icmp eq i64 %60, 4294967297
+  %61 = trunc i64 %60 to i32
   br i1 %cmp.i.i.i.i186, label %if.then.i.i.i.i209, label %if.end.i.i.i.i187
 
 if.then.i.i.i.i209:                               ; preds = %if.then.i.i.i184
   store i32 0, ptr %_M_use_count.i.i.i.i185, align 8
-  %_M_weak_count.i.i.i.i210 = getelementptr inbounds i8, ptr %57, i64 12
+  %_M_weak_count.i.i.i.i210 = getelementptr inbounds i8, ptr %59, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i210, align 4
-  %vtable.i.i.i.i211 = load ptr, ptr %57, align 8
+  %vtable.i.i.i.i211 = load ptr, ptr %59, align 8
   %vfn.i.i.i.i212 = getelementptr inbounds i8, ptr %vtable.i.i.i.i211, i64 16
-  %60 = load ptr, ptr %vfn.i.i.i.i212, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(16) %57) #23
+  %62 = load ptr, ptr %vfn.i.i.i.i212, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %59) #23
   br label %if.end8.sink.split.i.i.i.i204
 
 if.end.i.i.i.i187:                                ; preds = %if.then.i.i.i184
-  %61 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i188 = icmp eq i8 %61, 0
+  %63 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i188 = icmp eq i8 %63, 0
   br i1 %tobool.i.i.not.i.i.i.i188, label %if.else.i.i.i.i.i208, label %if.then.i.i.i.i.i189
 
 if.then.i.i.i.i.i189:                             ; preds = %if.end.i.i.i.i187
-  %add.i.i.i.i.i190 = add nsw i32 %59, -1
+  %add.i.i.i.i.i190 = add nsw i32 %61, -1
   store i32 %add.i.i.i.i.i190, ptr %_M_use_count.i.i.i.i185, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i191
 
 if.else.i.i.i.i.i208:                             ; preds = %if.end.i.i.i.i187
-  %62 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i185, i32 -1 acq_rel, align 4
+  %64 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i185, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i191
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i191: ; preds = %if.else.i.i.i.i.i208, %if.then.i.i.i.i.i189
-  %retval.i.0.i.i.i.i192 = phi i32 [ %59, %if.then.i.i.i.i.i189 ], [ %62, %if.else.i.i.i.i.i208 ]
+  %retval.i.0.i.i.i.i192 = phi i32 [ %61, %if.then.i.i.i.i.i189 ], [ %64, %if.else.i.i.i.i.i208 ]
   %cmp6.i.i.i.i193 = icmp eq i32 %retval.i.0.i.i.i.i192, 1
   br i1 %cmp6.i.i.i.i193, label %if.then7.i.i.i.i194, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit213
 
 if.then7.i.i.i.i194:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i191
-  %vtable.i.i.i.i.i.i195 = load ptr, ptr %57, align 8
+  %vtable.i.i.i.i.i.i195 = load ptr, ptr %59, align 8
   %vfn.i.i.i.i.i.i196 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i195, i64 16
-  %63 = load ptr, ptr %vfn.i.i.i.i.i.i196, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(16) %57) #23
-  %_M_weak_count.i.i.i.i.i.i197 = getelementptr inbounds i8, ptr %57, i64 12
-  %64 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i198 = icmp eq i8 %64, 0
+  %65 = load ptr, ptr %vfn.i.i.i.i.i.i196, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(16) %59) #23
+  %_M_weak_count.i.i.i.i.i.i197 = getelementptr inbounds i8, ptr %59, i64 12
+  %66 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i198 = icmp eq i8 %66, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i198, label %if.else.i.i.i.i.i.i.i207, label %if.then.i.i.i.i.i.i.i199
 
 if.then.i.i.i.i.i.i.i199:                         ; preds = %if.then7.i.i.i.i194
-  %65 = load i32, ptr %_M_weak_count.i.i.i.i.i.i197, align 4
-  %add.i.i.i.i.i.i.i200 = add nsw i32 %65, -1
+  %67 = load i32, ptr %_M_weak_count.i.i.i.i.i.i197, align 4
+  %add.i.i.i.i.i.i.i200 = add nsw i32 %67, -1
   store i32 %add.i.i.i.i.i.i.i200, ptr %_M_weak_count.i.i.i.i.i.i197, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i201
 
 if.else.i.i.i.i.i.i.i207:                         ; preds = %if.then7.i.i.i.i194
-  %66 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i197, i32 -1 acq_rel, align 4
+  %68 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i197, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i201
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i201: ; preds = %if.else.i.i.i.i.i.i.i207, %if.then.i.i.i.i.i.i.i199
-  %retval.i.0.i.i.i.i.i.i202 = phi i32 [ %65, %if.then.i.i.i.i.i.i.i199 ], [ %66, %if.else.i.i.i.i.i.i.i207 ]
+  %retval.i.0.i.i.i.i.i.i202 = phi i32 [ %67, %if.then.i.i.i.i.i.i.i199 ], [ %68, %if.else.i.i.i.i.i.i.i207 ]
   %cmp.i.i.i.i.i.i203 = icmp eq i32 %retval.i.0.i.i.i.i.i.i202, 1
   br i1 %cmp.i.i.i.i.i.i203, label %if.end8.sink.split.i.i.i.i204, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit213
 
 if.end8.sink.split.i.i.i.i204:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i201, %if.then.i.i.i.i209
-  %vtable2.i.i.i.i.i.i205 = load ptr, ptr %57, align 8
+  %vtable2.i.i.i.i.i.i205 = load ptr, ptr %59, align 8
   %vfn3.i.i.i.i.i.i206 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i205, i64 24
-  %67 = load ptr, ptr %vfn3.i.i.i.i.i.i206, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(16) %57) #23
+  %69 = load ptr, ptr %vfn3.i.i.i.i.i.i206, align 8
+  call void %69(ptr noundef nonnull align 8 dereferenceable(16) %59) #23
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit213
 
 _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit213: ; preds = %_ZNSt10shared_ptrIKN8facebook5velox7MapTypeEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i191, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i201, %if.end8.sink.split.i.i.i.i204
-  %68 = load ptr, ptr %_M_refcount.i.i120, align 8
-  %cmp.not.i.i.i215 = icmp eq ptr %68, null
+  %70 = load ptr, ptr %_M_refcount.i.i120, align 8
+  %cmp.not.i.i.i215 = icmp eq ptr %70, null
   br i1 %cmp.not.i.i.i215, label %cleanup, label %if.then.i.i.i216
 
 if.then.i.i.i216:                                 ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit213
-  %_M_use_count.i.i.i.i217 = getelementptr inbounds i8, ptr %68, i64 8
-  %69 = load atomic i64, ptr %_M_use_count.i.i.i.i217 acquire, align 8
-  %cmp.i.i.i.i218 = icmp eq i64 %69, 4294967297
-  %70 = trunc i64 %69 to i32
+  %_M_use_count.i.i.i.i217 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = load atomic i64, ptr %_M_use_count.i.i.i.i217 acquire, align 8
+  %cmp.i.i.i.i218 = icmp eq i64 %71, 4294967297
+  %72 = trunc i64 %71 to i32
   br i1 %cmp.i.i.i.i218, label %if.then.i.i.i.i241, label %if.end.i.i.i.i219
 
 if.then.i.i.i.i241:                               ; preds = %if.then.i.i.i216
   store i32 0, ptr %_M_use_count.i.i.i.i217, align 8
-  %_M_weak_count.i.i.i.i242 = getelementptr inbounds i8, ptr %68, i64 12
+  %_M_weak_count.i.i.i.i242 = getelementptr inbounds i8, ptr %70, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i242, align 4
-  %vtable.i.i.i.i243 = load ptr, ptr %68, align 8
+  %vtable.i.i.i.i243 = load ptr, ptr %70, align 8
   %vfn.i.i.i.i244 = getelementptr inbounds i8, ptr %vtable.i.i.i.i243, i64 16
-  %71 = load ptr, ptr %vfn.i.i.i.i244, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(16) %68) #23
+  %73 = load ptr, ptr %vfn.i.i.i.i244, align 8
+  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %70) #23
   br label %if.end8.sink.split.i.i.i.i236
 
 if.end.i.i.i.i219:                                ; preds = %if.then.i.i.i216
-  %72 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i220 = icmp eq i8 %72, 0
+  %74 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i220 = icmp eq i8 %74, 0
   br i1 %tobool.i.i.not.i.i.i.i220, label %if.else.i.i.i.i.i240, label %if.then.i.i.i.i.i221
 
 if.then.i.i.i.i.i221:                             ; preds = %if.end.i.i.i.i219
-  %add.i.i.i.i.i222 = add nsw i32 %70, -1
+  %add.i.i.i.i.i222 = add nsw i32 %72, -1
   store i32 %add.i.i.i.i.i222, ptr %_M_use_count.i.i.i.i217, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i223
 
 if.else.i.i.i.i.i240:                             ; preds = %if.end.i.i.i.i219
-  %73 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i217, i32 -1 acq_rel, align 4
+  %75 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i217, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i223
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i223: ; preds = %if.else.i.i.i.i.i240, %if.then.i.i.i.i.i221
-  %retval.i.0.i.i.i.i224 = phi i32 [ %70, %if.then.i.i.i.i.i221 ], [ %73, %if.else.i.i.i.i.i240 ]
+  %retval.i.0.i.i.i.i224 = phi i32 [ %72, %if.then.i.i.i.i.i221 ], [ %75, %if.else.i.i.i.i.i240 ]
   %cmp6.i.i.i.i225 = icmp eq i32 %retval.i.0.i.i.i.i224, 1
   br i1 %cmp6.i.i.i.i225, label %if.then7.i.i.i.i226, label %cleanup
 
 if.then7.i.i.i.i226:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i223
-  %vtable.i.i.i.i.i.i227 = load ptr, ptr %68, align 8
+  %vtable.i.i.i.i.i.i227 = load ptr, ptr %70, align 8
   %vfn.i.i.i.i.i.i228 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i227, i64 16
-  %74 = load ptr, ptr %vfn.i.i.i.i.i.i228, align 8
-  call void %74(ptr noundef nonnull align 8 dereferenceable(16) %68) #23
-  %_M_weak_count.i.i.i.i.i.i229 = getelementptr inbounds i8, ptr %68, i64 12
-  %75 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i230 = icmp eq i8 %75, 0
+  %76 = load ptr, ptr %vfn.i.i.i.i.i.i228, align 8
+  call void %76(ptr noundef nonnull align 8 dereferenceable(16) %70) #23
+  %_M_weak_count.i.i.i.i.i.i229 = getelementptr inbounds i8, ptr %70, i64 12
+  %77 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i230 = icmp eq i8 %77, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i230, label %if.else.i.i.i.i.i.i.i239, label %if.then.i.i.i.i.i.i.i231
 
 if.then.i.i.i.i.i.i.i231:                         ; preds = %if.then7.i.i.i.i226
-  %76 = load i32, ptr %_M_weak_count.i.i.i.i.i.i229, align 4
-  %add.i.i.i.i.i.i.i232 = add nsw i32 %76, -1
+  %78 = load i32, ptr %_M_weak_count.i.i.i.i.i.i229, align 4
+  %add.i.i.i.i.i.i.i232 = add nsw i32 %78, -1
   store i32 %add.i.i.i.i.i.i.i232, ptr %_M_weak_count.i.i.i.i.i.i229, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i233
 
 if.else.i.i.i.i.i.i.i239:                         ; preds = %if.then7.i.i.i.i226
-  %77 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i229, i32 -1 acq_rel, align 4
+  %79 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i229, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i233
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i233: ; preds = %if.else.i.i.i.i.i.i.i239, %if.then.i.i.i.i.i.i.i231
-  %retval.i.0.i.i.i.i.i.i234 = phi i32 [ %76, %if.then.i.i.i.i.i.i.i231 ], [ %77, %if.else.i.i.i.i.i.i.i239 ]
+  %retval.i.0.i.i.i.i.i.i234 = phi i32 [ %78, %if.then.i.i.i.i.i.i.i231 ], [ %79, %if.else.i.i.i.i.i.i.i239 ]
   %cmp.i.i.i.i.i.i235 = icmp eq i32 %retval.i.0.i.i.i.i.i.i234, 1
   br i1 %cmp.i.i.i.i.i.i235, label %if.end8.sink.split.i.i.i.i236, label %cleanup
 
 if.end8.sink.split.i.i.i.i236:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i233, %if.then.i.i.i.i241
-  %vtable2.i.i.i.i.i.i237 = load ptr, ptr %68, align 8
+  %vtable2.i.i.i.i.i.i237 = load ptr, ptr %70, align 8
   %vfn3.i.i.i.i.i.i238 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i237, i64 24
-  %78 = load ptr, ptr %vfn3.i.i.i.i.i.i238, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(16) %68) #23
+  %80 = load ptr, ptr %vfn3.i.i.i.i.i.i238, align 8
+  call void %80(ptr noundef nonnull align 8 dereferenceable(16) %70) #23
   br label %cleanup
 
 lpad95:                                           ; preds = %if.then.i.i136
-  %79 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup101
 
 lpad98:                                           ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit148
-  %80 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp93) #23
   br label %ehcleanup101
 
 ehcleanup101:                                     ; preds = %lpad98, %lpad95
-  %.pn = phi { ptr, i32 } [ %80, %lpad98 ], [ %79, %lpad95 ]
+  %.pn = phi { ptr, i32 } [ %82, %lpad98 ], [ %81, %lpad95 ]
   call void @_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #23
   br label %ehcleanup119
 
 sw.bb102:                                         ; preds = %if.then71
   %_M_finish.i246 = getelementptr inbounds i8, ptr %resultList, i64 8
-  %81 = load ptr, ptr %_M_finish.i246, align 8
-  %82 = load ptr, ptr %resultList, align 8
-  %sub.ptr.lhs.cast.i247 = ptrtoint ptr %81 to i64
-  %sub.ptr.rhs.cast.i248 = ptrtoint ptr %82 to i64
+  %83 = load ptr, ptr %_M_finish.i246, align 8
+  %84 = load ptr, ptr %resultList, align 8
+  %sub.ptr.lhs.cast.i247 = ptrtoint ptr %83 to i64
+  %sub.ptr.rhs.cast.i248 = ptrtoint ptr %84 to i64
   %sub.ptr.sub.i249 = sub i64 %sub.ptr.lhs.cast.i247, %sub.ptr.rhs.cast.i248
   %cmp105.not = icmp eq i64 %sub.ptr.sub.i249, 16
   br i1 %cmp105.not, label %invoke.cont114, label %if.then108
@@ -5976,28 +5988,29 @@ if.then108:                                       ; preds = %sw.bb102
   unreachable
 
 invoke.cont114:                                   ; preds = %sw.bb102
+  %85 = load ptr, ptr %84, align 8
+  store ptr %85, ptr %agg.tmp112, align 8
   %_M_refcount.i.i261 = getelementptr inbounds i8, ptr %agg.tmp112, i64 8
-  %_M_refcount3.i.i262 = getelementptr inbounds i8, ptr %82, i64 8
-  %83 = load ptr, ptr %_M_refcount3.i.i262, align 8
-  %84 = load <2 x ptr>, ptr %82, align 8
-  store <2 x ptr> %84, ptr %agg.tmp112, align 16
-  %cmp.not.i.i.i263 = icmp eq ptr %83, null
+  %_M_refcount3.i.i262 = getelementptr inbounds i8, ptr %84, i64 8
+  %86 = load ptr, ptr %_M_refcount3.i.i262, align 8
+  store ptr %86, ptr %_M_refcount.i.i261, align 8
+  %cmp.not.i.i.i263 = icmp eq ptr %86, null
   br i1 %cmp.not.i.i.i263, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit270, label %if.then.i.i.i264
 
 if.then.i.i.i264:                                 ; preds = %invoke.cont114
-  %_M_use_count.i.i.i.i265 = getelementptr inbounds i8, ptr %83, i64 8
-  %85 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i266 = icmp eq i8 %85, 0
+  %_M_use_count.i.i.i.i265 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i266 = icmp eq i8 %87, 0
   br i1 %tobool.i.not.i.i.i.i266, label %if.else.i.i.i.i.i269, label %if.then.i.i.i.i.i267
 
 if.then.i.i.i.i.i267:                             ; preds = %if.then.i.i.i264
-  %86 = load i32, ptr %_M_use_count.i.i.i.i265, align 4
-  %add.i.i.i.i.i268 = add nsw i32 %86, 1
+  %88 = load i32, ptr %_M_use_count.i.i.i.i265, align 4
+  %add.i.i.i.i.i268 = add nsw i32 %88, 1
   store i32 %add.i.i.i.i.i268, ptr %_M_use_count.i.i.i.i265, align 4
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit270
 
 if.else.i.i.i.i.i269:                             ; preds = %if.then.i.i.i264
-  %87 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i265, i32 1 acq_rel, align 4
+  %89 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i265, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit270
 
 _ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit270: ; preds = %invoke.cont114, %if.then.i.i.i.i.i267, %if.else.i.i.i.i.i269
@@ -6005,85 +6018,88 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit270: ; preds = %invoke.co
           to label %_ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit unwind label %lpad116
 
 _ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit270
+  %90 = load ptr, ptr %ref.tmp111, align 8
+  store ptr %90, ptr %agg.result, align 8
+  %_M_refcount.i.i271 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount4.i.i272 = getelementptr inbounds i8, ptr %ref.tmp111, i64 8
-  %88 = load <2 x ptr>, ptr %ref.tmp111, align 16
+  %91 = load ptr, ptr %_M_refcount4.i.i272, align 8
   store ptr null, ptr %_M_refcount4.i.i272, align 8
-  store <2 x ptr> %88, ptr %agg.result, align 8
-  store ptr null, ptr %ref.tmp111, align 16
-  %89 = load ptr, ptr %_M_refcount.i.i261, align 8
-  %cmp.not.i.i.i305 = icmp eq ptr %89, null
+  store ptr %91, ptr %_M_refcount.i.i271, align 8
+  store ptr null, ptr %ref.tmp111, align 8
+  %92 = load ptr, ptr %_M_refcount.i.i261, align 8
+  %cmp.not.i.i.i305 = icmp eq ptr %92, null
   br i1 %cmp.not.i.i.i305, label %cleanup, label %if.then.i.i.i306
 
 if.then.i.i.i306:                                 ; preds = %_ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i307 = getelementptr inbounds i8, ptr %89, i64 8
-  %90 = load atomic i64, ptr %_M_use_count.i.i.i.i307 acquire, align 8
-  %cmp.i.i.i.i308 = icmp eq i64 %90, 4294967297
-  %91 = trunc i64 %90 to i32
+  %_M_use_count.i.i.i.i307 = getelementptr inbounds i8, ptr %92, i64 8
+  %93 = load atomic i64, ptr %_M_use_count.i.i.i.i307 acquire, align 8
+  %cmp.i.i.i.i308 = icmp eq i64 %93, 4294967297
+  %94 = trunc i64 %93 to i32
   br i1 %cmp.i.i.i.i308, label %if.then.i.i.i.i331, label %if.end.i.i.i.i309
 
 if.then.i.i.i.i331:                               ; preds = %if.then.i.i.i306
   store i32 0, ptr %_M_use_count.i.i.i.i307, align 8
-  %_M_weak_count.i.i.i.i332 = getelementptr inbounds i8, ptr %89, i64 12
+  %_M_weak_count.i.i.i.i332 = getelementptr inbounds i8, ptr %92, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i332, align 4
-  %vtable.i.i.i.i333 = load ptr, ptr %89, align 8
+  %vtable.i.i.i.i333 = load ptr, ptr %92, align 8
   %vfn.i.i.i.i334 = getelementptr inbounds i8, ptr %vtable.i.i.i.i333, i64 16
-  %92 = load ptr, ptr %vfn.i.i.i.i334, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(16) %89) #23
+  %95 = load ptr, ptr %vfn.i.i.i.i334, align 8
+  call void %95(ptr noundef nonnull align 8 dereferenceable(16) %92) #23
   br label %if.end8.sink.split.i.i.i.i326
 
 if.end.i.i.i.i309:                                ; preds = %if.then.i.i.i306
-  %93 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i310 = icmp eq i8 %93, 0
+  %96 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i310 = icmp eq i8 %96, 0
   br i1 %tobool.i.i.not.i.i.i.i310, label %if.else.i.i.i.i.i330, label %if.then.i.i.i.i.i311
 
 if.then.i.i.i.i.i311:                             ; preds = %if.end.i.i.i.i309
-  %add.i.i.i.i.i312 = add nsw i32 %91, -1
+  %add.i.i.i.i.i312 = add nsw i32 %94, -1
   store i32 %add.i.i.i.i.i312, ptr %_M_use_count.i.i.i.i307, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i313
 
 if.else.i.i.i.i.i330:                             ; preds = %if.end.i.i.i.i309
-  %94 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i307, i32 -1 acq_rel, align 4
+  %97 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i307, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i313
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i313: ; preds = %if.else.i.i.i.i.i330, %if.then.i.i.i.i.i311
-  %retval.i.0.i.i.i.i314 = phi i32 [ %91, %if.then.i.i.i.i.i311 ], [ %94, %if.else.i.i.i.i.i330 ]
+  %retval.i.0.i.i.i.i314 = phi i32 [ %94, %if.then.i.i.i.i.i311 ], [ %97, %if.else.i.i.i.i.i330 ]
   %cmp6.i.i.i.i315 = icmp eq i32 %retval.i.0.i.i.i.i314, 1
   br i1 %cmp6.i.i.i.i315, label %if.then7.i.i.i.i316, label %cleanup
 
 if.then7.i.i.i.i316:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i313
-  %vtable.i.i.i.i.i.i317 = load ptr, ptr %89, align 8
+  %vtable.i.i.i.i.i.i317 = load ptr, ptr %92, align 8
   %vfn.i.i.i.i.i.i318 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i317, i64 16
-  %95 = load ptr, ptr %vfn.i.i.i.i.i.i318, align 8
-  call void %95(ptr noundef nonnull align 8 dereferenceable(16) %89) #23
-  %_M_weak_count.i.i.i.i.i.i319 = getelementptr inbounds i8, ptr %89, i64 12
-  %96 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i320 = icmp eq i8 %96, 0
+  %98 = load ptr, ptr %vfn.i.i.i.i.i.i318, align 8
+  call void %98(ptr noundef nonnull align 8 dereferenceable(16) %92) #23
+  %_M_weak_count.i.i.i.i.i.i319 = getelementptr inbounds i8, ptr %92, i64 12
+  %99 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i320 = icmp eq i8 %99, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i320, label %if.else.i.i.i.i.i.i.i329, label %if.then.i.i.i.i.i.i.i321
 
 if.then.i.i.i.i.i.i.i321:                         ; preds = %if.then7.i.i.i.i316
-  %97 = load i32, ptr %_M_weak_count.i.i.i.i.i.i319, align 4
-  %add.i.i.i.i.i.i.i322 = add nsw i32 %97, -1
+  %100 = load i32, ptr %_M_weak_count.i.i.i.i.i.i319, align 4
+  %add.i.i.i.i.i.i.i322 = add nsw i32 %100, -1
   store i32 %add.i.i.i.i.i.i.i322, ptr %_M_weak_count.i.i.i.i.i.i319, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i323
 
 if.else.i.i.i.i.i.i.i329:                         ; preds = %if.then7.i.i.i.i316
-  %98 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i319, i32 -1 acq_rel, align 4
+  %101 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i319, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i323
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i323: ; preds = %if.else.i.i.i.i.i.i.i329, %if.then.i.i.i.i.i.i.i321
-  %retval.i.0.i.i.i.i.i.i324 = phi i32 [ %97, %if.then.i.i.i.i.i.i.i321 ], [ %98, %if.else.i.i.i.i.i.i.i329 ]
+  %retval.i.0.i.i.i.i.i.i324 = phi i32 [ %100, %if.then.i.i.i.i.i.i.i321 ], [ %101, %if.else.i.i.i.i.i.i.i329 ]
   %cmp.i.i.i.i.i.i325 = icmp eq i32 %retval.i.0.i.i.i.i.i.i324, 1
   br i1 %cmp.i.i.i.i.i.i325, label %if.end8.sink.split.i.i.i.i326, label %cleanup
 
 if.end8.sink.split.i.i.i.i326:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i323, %if.then.i.i.i.i331
-  %vtable2.i.i.i.i.i.i327 = load ptr, ptr %89, align 8
+  %vtable2.i.i.i.i.i.i327 = load ptr, ptr %92, align 8
   %vfn3.i.i.i.i.i.i328 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i327, i64 24
-  %99 = load ptr, ptr %vfn3.i.i.i.i.i.i328, align 8
-  call void %99(ptr noundef nonnull align 8 dereferenceable(16) %89) #23
+  %102 = load ptr, ptr %vfn3.i.i.i.i.i.i328, align 8
+  call void %102(ptr noundef nonnull align 8 dereferenceable(16) %92) #23
   br label %cleanup
 
 lpad116:                                          ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit270
-  %100 = landingpad { ptr, i32 }
+  %103 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp112) #23
   br label %ehcleanup119
@@ -6097,7 +6113,7 @@ cleanup:                                          ; preds = %if.end8.sink.split.
   br label %return
 
 ehcleanup119:                                     ; preds = %lpad116, %ehcleanup101, %lpad74
-  %.pn2 = phi { ptr, i32 } [ %100, %lpad116 ], [ %40, %lpad74 ], [ %.pn, %ehcleanup101 ]
+  %.pn2 = phi { ptr, i32 } [ %103, %lpad116 ], [ %40, %lpad74 ], [ %.pn, %ehcleanup101 ]
   call void @_ZN8facebook5velox4type6fbhive10ResultListD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %resultList) #23
   br label %common.resume
 
@@ -6538,11 +6554,11 @@ entry:
   %token.i7 = alloca %"struct.facebook::velox::type::fbhive::TokenAndRemaining", align 8
   %ref.tmp.i = alloca %"struct.facebook::velox::type::fbhive::TokenAndRemaining", align 8
   %token.i = alloca %"struct.facebook::velox::type::fbhive::TokenAndRemaining", align 8
-  %subTypeList = alloca %"class.std::vector.11", align 16
+  %subTypeList = alloca %"class.std::vector.11", align 8
   %names = alloca %"class.std::vector.0", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %result = alloca %"struct.facebook::velox::type::fbhive::Result", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %subTypeList, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %subTypeList, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %names, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i)
   %remaining_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -6613,16 +6629,23 @@ _ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev.exit: ; preds =
   %remaining.i14 = getelementptr inbounds i8, ptr %token.i7, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remaining_.i, ptr noundef nonnull align 8 dereferenceable(16) %remaining.i14, i64 16, i1 false), !noalias !126
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i7)
-  %6 = load <2 x ptr>, ptr %subTypeList, align 16
-  %7 = load ptr, ptr %_M_end_of_storage.i, align 16
-  %8 = load ptr, ptr %names, align 8
-  %9 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %10 = insertelement <4 x ptr> %9, ptr %7, i64 2
-  %11 = insertelement <4 x ptr> %10, ptr %8, i64 3
-  store <4 x ptr> %11, ptr %agg.result, align 8
+  %6 = load ptr, ptr %subTypeList, align 8
+  store ptr %6, ptr %agg.result, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %7 = load ptr, ptr %_M_finish.i53, align 8
+  store ptr %7, ptr %_M_finish.i.i.i.i, align 8
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %8 = load ptr, ptr %_M_end_of_storage.i, align 8
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %names5 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %9 = load ptr, ptr %names, align 8
+  store ptr %9, ptr %names5, align 8
   %_M_finish.i.i.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %12 = load <2 x ptr>, ptr %_M_finish.i.i, align 8
-  store <2 x ptr> %12, ptr %_M_finish.i.i.i.i17, align 8
+  %10 = load ptr, ptr %_M_finish.i.i, align 8
+  store ptr %10, ptr %_M_finish.i.i.i.i17, align 8
+  %_M_end_of_storage.i.i.i.i19 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %11 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %11, ptr %_M_end_of_storage.i.i.i.i19, align 8
   ret void
 
 lpad.loopexit:                                    ; preds = %if.end15, %while.cond, %if.then7, %invoke.cont8
@@ -6646,9 +6669,9 @@ if.then7:                                         ; preds = %if.end
           to label %.noexc40 unwind label %lpad.loopexit
 
 .noexc40:                                         ; preds = %if.then7
-  %13 = load ptr, ptr %token.i32, align 8, !noalias !129
-  %14 = load i32, ptr %13, align 8, !noalias !129
-  %cmp.i37 = icmp eq i32 %14, 19
+  %12 = load ptr, ptr %token.i32, align 8, !noalias !129
+  %13 = load i32, ptr %12, align 8, !noalias !129
+  %cmp.i37 = icmp eq i32 %13, 19
   br i1 %cmp.i37, label %invoke.cont8, label %if.end.i38
 
 if.end.i38:                                       ; preds = %.noexc40
@@ -6667,9 +6690,9 @@ invoke.cont8:                                     ; preds = %.noexc40
           to label %.noexc50 unwind label %lpad.loopexit
 
 .noexc50:                                         ; preds = %invoke.cont8
-  %15 = load ptr, ptr %token.i42, align 8, !noalias !132
-  %16 = load i32, ptr %15, align 8, !noalias !132
-  %cmp.i47 = icmp eq i32 %16, 16
+  %14 = load ptr, ptr %token.i42, align 8, !noalias !132
+  %15 = load i32, ptr %14, align 8, !noalias !132
+  %cmp.i47 = icmp eq i32 %15, 16
   br i1 %cmp.i47, label %invoke.cont10, label %if.end.i48
 
 if.end.i48:                                       ; preds = %.noexc50
@@ -6688,7 +6711,7 @@ invoke.cont10:                                    ; preds = %.noexc50
           to label %invoke.cont12 unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %invoke.cont10
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #23
   br label %ehcleanup
@@ -6696,20 +6719,20 @@ lpad.i.i:                                         ; preds = %invoke.cont10
 invoke.cont12:                                    ; preds = %invoke.cont10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !135
-  %18 = load ptr, ptr %_M_finish.i.i, align 8
-  %19 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %18, %19
+  %17 = load ptr, ptr %_M_finish.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %17, %18
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #23
-  %20 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #23
+  %19 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %19, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont14
 
 if.else.i.i:                                      ; preds = %invoke.cont12
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %names, ptr %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %names, ptr %17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %if.then.i.i, %if.else.i.i
@@ -6717,7 +6740,7 @@ invoke.cont14:                                    ; preds = %if.then.i.i, %if.el
   br label %if.end15
 
 lpad13:                                           ; preds = %if.else.i.i
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #23
   br label %ehcleanup
@@ -6727,44 +6750,44 @@ if.end15:                                         ; preds = %invoke.cont14, %if.
           to label %invoke.cont16 unwind label %lpad.loopexit
 
 invoke.cont16:                                    ; preds = %if.end15
-  %22 = load ptr, ptr %_M_finish.i53, align 8
-  %23 = load ptr, ptr %_M_end_of_storage.i, align 16
-  %cmp.not.i = icmp eq ptr %22, %23
+  %21 = load ptr, ptr %_M_finish.i53, align 8
+  %22 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %21, %22
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont16
-  %24 = load ptr, ptr %result, align 8
-  store ptr %24, ptr %22, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
-  %25 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  store ptr %25, ptr %_M_refcount.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %25, null
+  %23 = load ptr, ptr %result, align 8
+  store ptr %23, ptr %21, align 8
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  store ptr %24, ptr %_M_refcount.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIKN8facebook5velox4TypeEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %26, 0
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i54
 
 if.then.i.i.i.i.i.i.i.i54:                        ; preds = %if.then.i.i.i.i.i.i
-  %27 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %27, 1
+  %26 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i.i = add nsw i32 %26, 1
   store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIKN8facebook5velox4TypeEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %28 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %27 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIKN8facebook5velox4TypeEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIKN8facebook5velox4TypeEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i54, %if.then.i
-  %29 = load ptr, ptr %_M_finish.i53, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %29, i64 16
+  %28 = load ptr, ptr %_M_finish.i53, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i53, align 8
   br label %invoke.cont18
 
 if.else.i:                                        ; preds = %invoke.cont16
-  invoke void @_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %subTypeList, ptr %22, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  invoke void @_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %subTypeList, ptr %21, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIKN8facebook5velox4TypeEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, %if.else.i
@@ -6775,10 +6798,10 @@ invoke.cont18:                                    ; preds = %_ZNSt16allocator_tr
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont18
-  %30 = load ptr, ptr %ref.tmp.i57, align 8
-  %31 = load i32, ptr %30, align 8
+  %29 = load ptr, ptr %ref.tmp.i57, align 8
+  %30 = load i32, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i57)
-  %cmp21 = icmp eq i32 %31, 17
+  %cmp21 = icmp eq i32 %30, 17
   br i1 %cmp21, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %invoke.cont19
@@ -6789,9 +6812,9 @@ if.then22:                                        ; preds = %invoke.cont19
           to label %.noexc73 unwind label %lpad17
 
 .noexc73:                                         ; preds = %if.then22
-  %32 = load ptr, ptr %token.i64, align 8, !noalias !141
-  %33 = load i32, ptr %32, align 8, !noalias !141
-  %cmp.i69 = icmp eq i32 %33, 17
+  %31 = load ptr, ptr %token.i64, align 8, !noalias !141
+  %32 = load i32, ptr %31, align 8, !noalias !141
+  %cmp.i69 = icmp eq i32 %32, 17
   br i1 %cmp.i69, label %_ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit74, label %if.end.i70
 
 if.end.i70:                                       ; preds = %.noexc73
@@ -6804,89 +6827,89 @@ _ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit74:
   br label %if.end25
 
 lpad17:                                           ; preds = %if.then22, %invoke.cont18, %if.else.i
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8facebook5velox4type6fbhive6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %result) #23
   br label %ehcleanup
 
 if.end25:                                         ; preds = %_ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit74, %invoke.cont19
-  %35 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i75 = icmp eq ptr %35, null
+  %34 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i75 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i.i75, label %while.cond.backedge, label %if.then.i.i.i.i
 
 while.cond.backedge:                              ; preds = %if.end25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   br label %while.cond, !llvm.loop !144
 
 if.then.i.i.i.i:                                  ; preds = %if.end25
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
-  %36 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i = icmp eq i64 %36, 4294967297
-  %37 = trunc i64 %36 to i32
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i.i = icmp eq i64 %35, 4294967297
+  %36 = trunc i64 %35 to i32
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
-  %vtable.i.i.i.i.i = load ptr, ptr %35, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %34, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
-  %38 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %35) #23
+  %37 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %34) #23
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %39 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %39, 0
+  %38 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %38, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i76
 
 if.then.i.i.i.i.i.i76:                            ; preds = %if.end.i.i.i.i.i
-  %add.i.i.i.i.i.i = add nsw i32 %37, -1
+  %add.i.i.i.i.i.i = add nsw i32 %36, -1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
-  %40 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %39 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i76
-  %retval.i.0.i.i.i.i.i = phi i32 [ %37, %if.then.i.i.i.i.i.i76 ], [ %40, %if.else.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i = phi i32 [ %36, %if.then.i.i.i.i.i.i76 ], [ %39, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %while.cond.backedge
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %35, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %34, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
-  %41 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %35) #23
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 12
-  %42 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %42, 0
+  %40 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %34) #23
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 12
+  %41 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %41, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i79, label %if.then.i.i.i.i.i.i.i.i77
 
 if.then.i.i.i.i.i.i.i.i77:                        ; preds = %if.then7.i.i.i.i.i
-  %43 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i.i78 = add nsw i32 %43, -1
+  %42 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i.i78 = add nsw i32 %42, -1
   store i32 %add.i.i.i.i.i.i.i.i78, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i79:                        ; preds = %if.then7.i.i.i.i.i
-  %44 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %43 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i79, %if.then.i.i.i.i.i.i.i.i77
-  %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %43, %if.then.i.i.i.i.i.i.i.i77 ], [ %44, %if.else.i.i.i.i.i.i.i.i79 ]
+  %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %42, %if.then.i.i.i.i.i.i.i.i77 ], [ %43, %if.else.i.i.i.i.i.i.i.i79 ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %while.cond.backedge
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %35, align 8
+  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %34, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
-  %45 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %35) #23
+  %44 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %34) #23
   br label %while.cond.backedge
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i.i, %lpad17, %lpad13
-  %.pn = phi { ptr, i32 } [ %34, %lpad17 ], [ %21, %lpad13 ], [ %17, %lpad.i.i ], [ %lpad.loopexit80, %lpad.loopexit ], [ %lpad.loopexit.split-lp81, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %33, %lpad17 ], [ %20, %lpad13 ], [ %16, %lpad.i.i ], [ %lpad.loopexit80, %lpad.loopexit ], [ %lpad.loopexit.split-lp81, %lpad.loopexit.split-lp ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %names) #23
   call void @_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %subTypeList) #23
   resume { ptr, i32 } %.pn
@@ -8962,15 +8985,17 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr", ptr %cond.i10, i64 %sub.ptr.div.i
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  %4 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %4, ptr %add.ptr, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  store ptr %4, ptr %_M_refcount.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIKN8facebook5velox4TypeEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -8994,10 +9019,13 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaISt10shared_ptrIKN8facebook5velox4TypeEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
+  %8 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !164, !noalias !161
+  store ptr %8, ptr %__cur.07.i.i.i, align 8, !alias.scope !161, !noalias !164
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
-  %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !164, !noalias !161
+  %9 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !164, !noalias !161
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !164, !noalias !161
-  store <2 x ptr> %8, ptr %__cur.07.i.i.i, align 8, !alias.scope !161, !noalias !164
+  store ptr %9, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !alias.scope !161, !noalias !164
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !164, !noalias !161
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
@@ -9015,10 +9043,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10sh
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
+  %10 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !170, !noalias !167
+  store ptr %10, ptr %__cur.07.i.i.i13, align 8, !alias.scope !167, !noalias !170
+  %_M_refcount.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %9 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !170, !noalias !167
+  %11 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !170, !noalias !167
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !170, !noalias !167
-  store <2 x ptr> %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !167, !noalias !170
+  store ptr %11, ptr %_M_refcount.i.i.i.i.i.i.i.i15, align 8, !alias.scope !167, !noalias !170
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !170, !noalias !167
   %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16

@@ -9264,7 +9264,7 @@ define linkonce_odr hidden noundef double @_ZN6casadi6erfinvEd(double noundef %0
 3:                                                ; preds = %1
   %4 = fcmp oeq double %0, 1.000000e+00
   %5 = select i1 %4, double 0x7FF0000000000000, double 0x7FF8000000000000
-  br label %71
+  br label %68
 
 6:                                                ; preds = %1
   %7 = fcmp ugt double %0, -1.000000e+00
@@ -9273,7 +9273,7 @@ define linkonce_odr hidden noundef double @_ZN6casadi6erfinvEd(double noundef %0
 8:                                                ; preds = %6
   %9 = fcmp oeq double %0, -1.000000e+00
   %10 = select i1 %9, double 0xFFF0000000000000, double 0x7FF8000000000000
-  br label %71
+  br label %68
 
 11:                                               ; preds = %6
   %12 = fcmp olt double %0, 0xBFE6666666666666
@@ -9292,7 +9292,7 @@ define linkonce_odr hidden noundef double @_ZN6casadi6erfinvEd(double noundef %0
   %23 = tail call double @llvm.fmuladd.f64(double %18, double 0x3FFA316E01655ACE, double 0x400C59E294B52E4B)
   %24 = tail call double @llvm.fmuladd.f64(double %23, double %18, double 1.000000e+00)
   %25 = fdiv double %22, %24
-  br label %71
+  br label %68
 
 26:                                               ; preds = %11
   %27 = fcmp olt double %0, 0x3FE6666666666666
@@ -9309,7 +9309,7 @@ define linkonce_odr hidden noundef double @_ZN6casadi6erfinvEd(double noundef %0
   %36 = tail call double @llvm.fmuladd.f64(double %35, double %29, double 0xC000F270054B995C)
   %37 = tail call double @llvm.fmuladd.f64(double %36, double %29, double 1.000000e+00)
   %38 = fdiv double %33, %37
-  br label %54
+  br label %51
 
 39:                                               ; preds = %26
   %40 = fsub double 1.000000e+00, %0
@@ -9318,38 +9318,35 @@ define linkonce_odr hidden noundef double @_ZN6casadi6erfinvEd(double noundef %0
   %43 = fneg double %42
   %44 = tail call double @sqrt(double noundef %43) #25
   %45 = tail call double @llvm.fmuladd.f64(double %44, double 0x3FFA42F34D0301D7, double 0x400B6FC13E8A6585)
-  %46 = insertelement <2 x double> <double poison, double 0x3FFA316E01655ACE>, double %45, i64 0
-  %47 = insertelement <2 x double> poison, double %44, i64 0
-  %48 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> zeroinitializer
-  %49 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %46, <2 x double> %48, <2 x double> <double 0xBFF9FF9DF367E38B, double 0x400C59E294B52E4B>)
-  %50 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %49, <2 x double> %48, <2 x double> <double 0xBFFF888FFFF9054B, double 1.000000e+00>)
-  %51 = extractelement <2 x double> %50, i64 0
-  %52 = extractelement <2 x double> %50, i64 1
-  %53 = fdiv double %51, %52
-  br label %54
+  %46 = tail call double @llvm.fmuladd.f64(double %45, double %44, double 0xBFF9FF9DF367E38B)
+  %47 = tail call double @llvm.fmuladd.f64(double %46, double %44, double 0xBFFF888FFFF9054B)
+  %48 = tail call double @llvm.fmuladd.f64(double %44, double 0x3FFA316E01655ACE, double 0x400C59E294B52E4B)
+  %49 = tail call double @llvm.fmuladd.f64(double %48, double %44, double 1.000000e+00)
+  %50 = fdiv double %47, %49
+  br label %51
 
-54:                                               ; preds = %39, %28
-  %.040 = phi double [ %38, %28 ], [ %53, %39 ]
-  %55 = tail call double @erf(double noundef %.040) #25
-  %56 = fsub double %55, %0
-  %57 = fneg double %.040
-  %58 = fmul double %.040, %57
-  %59 = tail call double @exp(double noundef %58) #25
-  %60 = fmul double %59, 0x3FF20DD750429B6D
-  %61 = fdiv double %56, %60
-  %62 = fsub double %.040, %61
-  %63 = tail call double @erf(double noundef %62) #25
-  %64 = fsub double %63, %0
-  %65 = fneg double %62
-  %66 = fmul double %62, %65
-  %67 = tail call double @exp(double noundef %66) #25
-  %68 = fmul double %67, 0x3FF20DD750429B6D
-  %69 = fdiv double %64, %68
-  %70 = fsub double %62, %69
-  br label %71
+51:                                               ; preds = %39, %28
+  %.040 = phi double [ %38, %28 ], [ %50, %39 ]
+  %52 = tail call double @erf(double noundef %.040) #25
+  %53 = fsub double %52, %0
+  %54 = fneg double %.040
+  %55 = fmul double %.040, %54
+  %56 = tail call double @exp(double noundef %55) #25
+  %57 = fmul double %56, 0x3FF20DD750429B6D
+  %58 = fdiv double %53, %57
+  %59 = fsub double %.040, %58
+  %60 = tail call double @erf(double noundef %59) #25
+  %61 = fsub double %60, %0
+  %62 = fneg double %59
+  %63 = fmul double %59, %62
+  %64 = tail call double @exp(double noundef %63) #25
+  %65 = fmul double %64, 0x3FF20DD750429B6D
+  %66 = fdiv double %61, %65
+  %67 = fsub double %59, %66
+  br label %68
 
-71:                                               ; preds = %54, %13, %8, %3
-  %.0 = phi double [ %5, %3 ], [ %10, %8 ], [ %25, %13 ], [ %70, %54 ]
+68:                                               ; preds = %51, %13, %8, %3
+  %.0 = phi double [ %5, %3 ], [ %10, %8 ], [ %25, %13 ], [ %67, %51 ]
   ret double %.0
 }
 
@@ -17748,9 +17745,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

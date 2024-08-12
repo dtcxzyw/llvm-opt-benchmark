@@ -246,9 +246,13 @@ eepro100_get_class_by_name.exit:                  ; preds = %for.body.i
   %revision6 = getelementptr inbounds i8, ptr %call.i17, i64 212
   store i8 %4, ptr %revision6, align 4
   %subsystem_vendor_id = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %5 = load i16, ptr %subsystem_vendor_id, align 4
   %subsystem_vendor_id7 = getelementptr inbounds i8, ptr %call.i17, i64 216
-  %5 = load <2 x i16>, ptr %subsystem_vendor_id, align 4
-  store <2 x i16> %5, ptr %subsystem_vendor_id7, align 8
+  store i16 %5, ptr %subsystem_vendor_id7, align 8
+  %subsystem_id = getelementptr inbounds i8, ptr %arrayidx.i, i64 22
+  %6 = load i16, ptr %subsystem_id, align 2
+  %subsystem_id8 = getelementptr inbounds i8, ptr %call.i17, i64 218
+  store i16 %6, ptr %subsystem_id8, align 2
   ret void
 }
 

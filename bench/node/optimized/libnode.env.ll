@@ -67039,7 +67039,13 @@ entry:
   %env_vars_ = getelementptr inbounds i8, ptr %this, i64 1384
   %emit_env_nonstring_warning_ = getelementptr inbounds i8, ptr %this, i64 1402
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %env_vars_, i8 0, i64 18, i1 false)
-  store <4 x i8> <i8 1, i8 1, i8 1, i8 0>, ptr %emit_env_nonstring_warning_, align 2
+  store i8 1, ptr %emit_env_nonstring_warning_, align 2
+  %emit_err_name_warning_ = getelementptr inbounds i8, ptr %this, i64 1403
+  store i8 1, ptr %emit_err_name_warning_, align 1
+  %emit_filehandle_warning_ = getelementptr inbounds i8, ptr %this, i64 1404
+  store i8 1, ptr %emit_filehandle_warning_, align 4
+  %source_maps_enabled_ = getelementptr inbounds i8, ptr %this, i64 1405
+  store i8 0, ptr %source_maps_enabled_, align 1
   %async_callback_scope_depth_ = getelementptr inbounds i8, ptr %this, i64 1408
   %destroy_async_id_list_ = getelementptr inbounds i8, ptr %this, i64 1416
   %shadow_realms_ = getelementptr inbounds i8, ptr %this, i64 1440
@@ -75066,12 +75072,16 @@ _ZN4node10AsyncHooks13SerializeInfoD2Ev.exit:
   call void @_ZN4node10AsyncHooks9SerializeEN2v85LocalINS1_7ContextEEEPNS1_15SnapshotCreatorE(ptr nonnull sret(%"struct.node::AsyncHooks::SerializeInfo") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_, ptr %call2.i, ptr noundef %creator)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %native_execution_async_resources3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
-  %2 = load <2 x ptr>, ptr %native_execution_async_resources3.i, align 8
-  store <2 x ptr> %2, ptr %native_execution_async_resources.i.i, align 8
+  %2 = load ptr, ptr %native_execution_async_resources3.i, align 8
+  store ptr %2, ptr %native_execution_async_resources.i.i, align 8
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %3 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %3, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  %3 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %native_execution_async_resources3.i, i8 0, i64 24, i1 false)
   %js_array_.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 1176
   %.pre = load ptr, ptr %js_array_.i.i.i.phi.trans.insert, align 8
@@ -75079,75 +75089,75 @@ _ZN4node10AsyncHooks13SerializeInfoD2Ev.exit:
   %isolate_.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 1144
   %.pre35 = load ptr, ptr %isolate_.i.i.i.phi.trans.insert, align 8
   %call.i.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %.pre35, i64 noundef %.pre36) #24
-  %4 = load i64, ptr %call.i.i.i.i, align 8
-  %call11.i.i.i = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call2.i, i64 noundef %4) #24
+  %5 = load i64, ptr %call.i.i.i.i, align 8
+  %call11.i.i.i = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call2.i, i64 noundef %5) #24
   %immediate_info = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i64 %call11.i.i.i, ptr %immediate_info, align 8
   %js_array_.i.i = getelementptr inbounds i8, ptr %this, i64 1232
-  %5 = load ptr, ptr %js_array_.i.i, align 8, !nonnull !925, !noundef !925
+  %6 = load ptr, ptr %js_array_.i.i, align 8, !nonnull !925, !noundef !925
   %isolate_.i.i = getelementptr inbounds i8, ptr %this, i64 1200
-  %6 = load ptr, ptr %isolate_.i.i, align 8
-  %7 = load i64, ptr %5, align 8
-  %call.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %6, i64 noundef %7) #24
-  %8 = load i64, ptr %call.i.i.i, align 8
-  %call11.i.i = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call2.i, i64 noundef %8) #24
+  %7 = load ptr, ptr %isolate_.i.i, align 8
+  %8 = load i64, ptr %6, align 8
+  %call.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %8) #24
+  %9 = load i64, ptr %call.i.i.i, align 8
+  %call11.i.i = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call2.i, i64 noundef %9) #24
   %timeout_info = getelementptr inbounds i8, ptr %agg.result, i64 72
   store i64 %call11.i.i, ptr %timeout_info, align 8
   %js_array_.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 1296
-  %9 = load ptr, ptr %js_array_.i.i.i15, align 8, !nonnull !925, !noundef !925
+  %10 = load ptr, ptr %js_array_.i.i.i15, align 8, !nonnull !925, !noundef !925
   %isolate_.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 1264
-  %10 = load ptr, ptr %isolate_.i.i.i16, align 8
-  %11 = load i64, ptr %9, align 8
-  %call.i.i.i.i17 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %11) #24
-  %12 = load i64, ptr %call.i.i.i.i17, align 8
-  %call11.i.i.i18 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call2.i, i64 noundef %12) #24
+  %11 = load ptr, ptr %isolate_.i.i.i16, align 8
+  %12 = load i64, ptr %10, align 8
+  %call.i.i.i.i17 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %12) #24
+  %13 = load i64, ptr %call.i.i.i.i17, align 8
+  %call11.i.i.i18 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call2.i, i64 noundef %13) #24
   %tick_info = getelementptr inbounds i8, ptr %agg.result, i64 56
   store i64 %call11.i.i.i18, ptr %tick_info, align 8
   %performance_state_ = getelementptr inbounds i8, ptr %this, i64 2048
-  %13 = load ptr, ptr %performance_state_, align 8
-  call void @_ZN4node11performance16PerformanceState9SerializeEN2v85LocalINS2_7ContextEEEPNS2_15SnapshotCreatorE(ptr nonnull sret(%"struct.node::performance::PerformanceState::SerializeInfo") align 8 %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(178) %13, ptr %call2.i, ptr noundef nonnull %creator) #24
+  %14 = load ptr, ptr %performance_state_, align 8
+  call void @_ZN4node11performance16PerformanceState9SerializeEN2v85LocalINS2_7ContextEEEPNS2_15SnapshotCreatorE(ptr nonnull sret(%"struct.node::performance::PerformanceState::SerializeInfo") align 8 %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(178) %14, ptr %call2.i, ptr noundef nonnull %creator) #24
   %performance_state = getelementptr inbounds i8, ptr %agg.result, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %performance_state, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp27, i64 24, i1 false)
   %js_array_.i.i19 = getelementptr inbounds i8, ptr %this, i64 1880
-  %14 = load ptr, ptr %js_array_.i.i19, align 8, !nonnull !925, !noundef !925
+  %15 = load ptr, ptr %js_array_.i.i19, align 8, !nonnull !925, !noundef !925
   %isolate_.i.i20 = getelementptr inbounds i8, ptr %this, i64 1848
-  %15 = load ptr, ptr %isolate_.i.i20, align 8
-  %16 = load i64, ptr %14, align 8
-  %call.i.i.i21 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %15, i64 noundef %16) #24
-  %17 = load i64, ptr %call.i.i.i21, align 8
-  %call11.i.i22 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call2.i, i64 noundef %17) #24
+  %16 = load ptr, ptr %isolate_.i.i20, align 8
+  %17 = load i64, ptr %15, align 8
+  %call.i.i.i21 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %16, i64 noundef %17) #24
+  %18 = load i64, ptr %call.i.i.i21, align 8
+  %call11.i.i22 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call2.i, i64 noundef %18) #24
   %exit_info = getelementptr inbounds i8, ptr %agg.result, i64 104
   store i64 %call11.i.i22, ptr %exit_info, align 8
   %js_array_.i.i23 = getelementptr inbounds i8, ptr %this, i64 2008
-  %18 = load ptr, ptr %js_array_.i.i23, align 8, !nonnull !925, !noundef !925
+  %19 = load ptr, ptr %js_array_.i.i23, align 8, !nonnull !925, !noundef !925
   %isolate_.i.i24 = getelementptr inbounds i8, ptr %this, i64 1976
-  %19 = load ptr, ptr %isolate_.i.i24, align 8
-  %20 = load i64, ptr %18, align 8
-  %call.i.i.i25 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %19, i64 noundef %20) #24
-  %21 = load i64, ptr %call.i.i.i25, align 8
-  %call11.i.i26 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call2.i, i64 noundef %21) #24
+  %20 = load ptr, ptr %isolate_.i.i24, align 8
+  %21 = load i64, ptr %19, align 8
+  %call.i.i.i25 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %20, i64 noundef %21) #24
+  %22 = load i64, ptr %call.i.i.i25, align 8
+  %call11.i.i26 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call2.i, i64 noundef %22) #24
   %stream_base_state = getelementptr inbounds i8, ptr %agg.result, i64 112
   store i64 %call11.i.i26, ptr %stream_base_state, align 8
   %js_array_.i.i27 = getelementptr inbounds i8, ptr %this, i64 1936
-  %22 = load ptr, ptr %js_array_.i.i27, align 8, !nonnull !925, !noundef !925
+  %23 = load ptr, ptr %js_array_.i.i27, align 8, !nonnull !925, !noundef !925
   %isolate_.i.i28 = getelementptr inbounds i8, ptr %this, i64 1904
-  %23 = load ptr, ptr %isolate_.i.i28, align 8
-  %24 = load i64, ptr %22, align 8
-  %call.i.i.i29 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %23, i64 noundef %24) #24
-  %25 = load i64, ptr %call.i.i.i29, align 8
-  %call11.i.i30 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call2.i, i64 noundef %25) #24
+  %24 = load ptr, ptr %isolate_.i.i28, align 8
+  %25 = load i64, ptr %23, align 8
+  %call.i.i.i29 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %24, i64 noundef %25) #24
+  %26 = load i64, ptr %call.i.i.i29, align 8
+  %call11.i.i30 = call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %call2.i, i64 noundef %26) #24
   %should_abort_on_uncaught_toggle = getelementptr inbounds i8, ptr %agg.result, i64 120
   store i64 %call11.i.i30, ptr %should_abort_on_uncaught_toggle, align 8
-  %26 = load ptr, ptr %principal_realm_.i.i, align 8
-  call void @_ZN4node5Realm9SerializeEPN2v815SnapshotCreatorE(ptr nonnull sret(%"struct.node::RealmSerializeInfo") align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(872) %26, ptr noundef nonnull %creator) #24
+  %27 = load ptr, ptr %principal_realm_.i.i, align 8
+  call void @_ZN4node5Realm9SerializeEPN2v815SnapshotCreatorE(ptr nonnull sret(%"struct.node::RealmSerializeInfo") align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(872) %27, ptr noundef nonnull %creator) #24
   %call50 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN4node18RealmSerializeInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %principal_realm.i, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp48) #24
   call void @_ZN4node18RealmSerializeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp48) #24
   %contexts_ = getelementptr inbounds i8, ptr %this, i64 2320
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 2328
-  %27 = load ptr, ptr %_M_finish.i, align 8
-  %28 = load ptr, ptr %contexts_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %28 to i64
+  %28 = load ptr, ptr %_M_finish.i, align 8
+  %29 = load ptr, ptr %contexts_, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %28 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not = icmp eq i64 %sub.ptr.sub.i, 8
   br i1 %cmp.not, label %do.body57, label %do.body54
@@ -75158,13 +75168,13 @@ do.body54:                                        ; preds = %_ZN4node10AsyncHook
   unreachable
 
 do.body57:                                        ; preds = %_ZN4node10AsyncHooks13SerializeInfoD2Ev.exit
-  %29 = load ptr, ptr %principal_realm_.i.i, align 8
-  %vtable.i32 = load ptr, ptr %29, align 8
+  %30 = load ptr, ptr %principal_realm_.i.i, align 8
+  %vtable.i32 = load ptr, ptr %30, align 8
   %vfn.i33 = getelementptr inbounds i8, ptr %vtable.i32, i64 64
-  %30 = load ptr, ptr %vfn.i33, align 8
-  %call2.i34 = call ptr %30(ptr noundef nonnull align 8 dereferenceable(872) %29) #24
-  %31 = load ptr, ptr %28, align 8
-  %cmp.i12.i = icmp eq ptr %31, null
+  %31 = load ptr, ptr %vfn.i33, align 8
+  %call2.i34 = call ptr %31(ptr noundef nonnull align 8 dereferenceable(872) %30) #24
+  %32 = load ptr, ptr %29, align 8
+  %cmp.i12.i = icmp eq ptr %32, null
   %cmp.i9.i = icmp eq ptr %call2.i34, null
   br i1 %cmp.i12.i, label %if.then.i, label %if.end.i
 
@@ -75175,9 +75185,9 @@ if.end.i:                                         ; preds = %do.body57
   br i1 %cmp.i9.i, label %do.body70, label %_ZN2v88internal12HandleHelper12EqualHandlesINS_14PersistentBaseINS_7ContextEEENS_5LocalIS4_EEEEbRKT_RKT0_.exit
 
 _ZN2v88internal12HandleHelper12EqualHandlesINS_14PersistentBaseINS_7ContextEEENS_5LocalIS4_EEEEbRKT_RKT0_.exit: ; preds = %if.end.i
-  %32 = load i64, ptr %31, align 8
-  %33 = load i64, ptr %call2.i34, align 8
-  %cmp.i = icmp eq i64 %32, %33
+  %33 = load i64, ptr %32, align 8
+  %34 = load i64, ptr %call2.i34, align 8
+  %cmp.i = icmp eq i64 %33, %34
   br i1 %cmp.i, label %nrvo.skipdtor, label %do.body70
 
 do.body70:                                        ; preds = %if.then.i, %if.end.i, %_ZN2v88internal12HandleHelper12EqualHandlesINS_14PersistentBaseINS_7ContextEEENS_5LocalIS4_EEEEbRKT_RKT0_.exit
@@ -75453,7 +75463,7 @@ _ZN4node18DeserializeRequestD2Ev.exit:            ; preds = %_ZNSt7__cxx114listI
 define dso_local void @_ZN4node11Environment22RunDeserializeRequestsEv(ptr noundef nonnull align 8 dereferenceable(2872) %this) local_unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %request = alloca %"struct.node::DeserializeRequest", align 16
+  %request = alloca %"struct.node::DeserializeRequest", align 8
   %isolate_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #24
@@ -75479,11 +75489,12 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4node18DeserializeRequestD2Ev.exit
   %5 = phi ptr [ %4, %while.body.lr.ph ], [ %19, %_ZN4node18DeserializeRequestD2Ev.exit ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = load ptr, ptr %_M_storage.i.i.i, align 8
+  store ptr %6, ptr %request, align 8
   %holder3.i = getelementptr inbounds i8, ptr %5, i64 24
-  %6 = load ptr, ptr %holder3.i, align 8
-  %7 = load <2 x ptr>, ptr %_M_storage.i.i.i, align 8
-  store <2 x ptr> %7, ptr %request, align 16
-  %cmp.i.i.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %holder3.i, align 8
+  store ptr %7, ptr %holder.i, align 8
+  %cmp.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.i.i.i, label %_ZN4node18DeserializeRequestC2EOS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body
@@ -75495,7 +75506,7 @@ if.then.i.i:                                      ; preds = %while.body
 _ZN4node18DeserializeRequestC2EOS0_.exit:         ; preds = %while.body, %if.then.i.i
   %8 = phi ptr [ %5, %while.body ], [ %.pre, %if.then.i.i ]
   %index4.i = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %index.i, ptr noundef nonnull align 8 dereferenceable(16) %index4.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %index.i, ptr noundef nonnull align 8 dereferenceable(16) %index4.i, i64 16, i1 false)
   %9 = load i64, ptr %_M_size.i.i.i, align 8
   %sub.i.i.i = add i64 %9, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -75522,8 +75533,8 @@ if.end.i43:                                       ; preds = %_ZNSt7__cxx114listI
 
 _ZN2v89LocalBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %_ZNSt7__cxx114listIN4node18DeserializeRequestESaIS2_EE9pop_frontEv.exit, %if.end.i43
   %retval.i39.sroa.0.1 = phi ptr [ %call.i, %if.end.i43 ], [ null, %_ZNSt7__cxx114listIN4node18DeserializeRequestESaIS2_EE9pop_frontEv.exit ]
-  %13 = load ptr, ptr %request, align 16
-  %14 = load i32, ptr %index.i, align 16
+  %13 = load ptr, ptr %request, align 8
+  %14 = load i32, ptr %index.i, align 8
   %15 = load ptr, ptr %info, align 8
   call void %13(ptr %call2.i, ptr %retval.i39.sroa.0.1, i32 noundef %14, ptr noundef %15) #24
   %16 = load ptr, ptr %holder.i, align 8

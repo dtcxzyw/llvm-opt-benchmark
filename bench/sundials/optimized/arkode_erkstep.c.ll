@@ -62,7 +62,7 @@ define ptr @ERKStepCreate(ptr noundef %0, double noundef %1, ptr noundef %2, ptr
 
 6:                                                ; preds = %4
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 43, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
-  br label %57
+  br label %60
 
 7:                                                ; preds = %4
   %8 = icmp eq ptr %2, null
@@ -70,7 +70,7 @@ define ptr @ERKStepCreate(ptr noundef %0, double noundef %1, ptr noundef %2, ptr
 
 9:                                                ; preds = %7
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 51, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #9
-  br label %57
+  br label %60
 
 10:                                               ; preds = %7
   %.not = icmp eq ptr %3, null
@@ -78,7 +78,7 @@ define ptr @ERKStepCreate(ptr noundef %0, double noundef %1, ptr noundef %2, ptr
 
 11:                                               ; preds = %10
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 58, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #9
-  br label %57
+  br label %60
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %2, i64 8
@@ -120,7 +120,7 @@ erkStep_CheckNVector.exit:                        ; preds = %30
 
 erkStep_CheckNVector.exit.thread:                 ; preds = %12, %18, %22, %26, %30, %erkStep_CheckNVector.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 67, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
-  br label %57
+  br label %60
 
 36:                                               ; preds = %erkStep_CheckNVector.exit
   %37 = tail call ptr @arkCreate(ptr noundef nonnull %3) #9
@@ -129,7 +129,7 @@ erkStep_CheckNVector.exit.thread:                 ; preds = %12, %18, %22, %26, 
 
 39:                                               ; preds = %36
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 76, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #9
-  br label %57
+  br label %60
 
 40:                                               ; preds = %36
   %calloc = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
@@ -138,7 +138,7 @@ erkStep_CheckNVector.exit.thread:                 ; preds = %12, %18, %22, %26, 
 
 42:                                               ; preds = %40
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %37, i32 noundef -20, i32 noundef 86, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #9
-  br label %57
+  br label %60
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %37, i64 208
@@ -155,26 +155,30 @@ erkStep_CheckNVector.exit.thread:                 ; preds = %12, %18, %22, %26, 
 
 49:                                               ; preds = %43
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %37, i32 noundef %48, i32 noundef 102, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #9
-  br label %57
+  br label %60
 
 50:                                               ; preds = %43
   store ptr %0, ptr %calloc, align 8
-  %51 = getelementptr inbounds i8, ptr %37, i64 544
-  %52 = load <2 x i64>, ptr %51, align 8
-  %53 = add nsw <2 x i64> %52, <i64 10, i64 41>
-  store <2 x i64> %53, ptr %51, align 8
-  %54 = getelementptr inbounds i8, ptr %calloc, i64 40
-  store i64 0, ptr %54, align 8
-  %55 = tail call i32 @arkInit(ptr noundef nonnull %37, double noundef %1, ptr noundef nonnull %2, i32 noundef 0) #9
-  %.not40 = icmp eq i32 %55, 0
-  br i1 %.not40, label %57, label %56
+  %51 = getelementptr inbounds i8, ptr %37, i64 552
+  %52 = load i64, ptr %51, align 8
+  %53 = add nsw i64 %52, 41
+  store i64 %53, ptr %51, align 8
+  %54 = getelementptr inbounds i8, ptr %37, i64 544
+  %55 = load i64, ptr %54, align 8
+  %56 = add nsw i64 %55, 10
+  store i64 %56, ptr %54, align 8
+  %57 = getelementptr inbounds i8, ptr %calloc, i64 40
+  store i64 0, ptr %57, align 8
+  %58 = tail call i32 @arkInit(ptr noundef nonnull %37, double noundef %1, ptr noundef nonnull %2, i32 noundef 0) #9
+  %.not40 = icmp eq i32 %58, 0
+  br i1 %.not40, label %60, label %59
 
-56:                                               ; preds = %50
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %37, i32 noundef %55, i32 noundef 125, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #9
-  br label %57
+59:                                               ; preds = %50
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %37, i32 noundef %58, i32 noundef 125, ptr noundef nonnull @__func__.ERKStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #9
+  br label %60
 
-57:                                               ; preds = %50, %56, %49, %42, %39, %erkStep_CheckNVector.exit.thread, %11, %9, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %9 ], [ null, %39 ], [ null, %42 ], [ null, %49 ], [ null, %56 ], [ null, %erkStep_CheckNVector.exit.thread ], [ null, %11 ], [ %37, %50 ]
+60:                                               ; preds = %50, %59, %49, %42, %39, %erkStep_CheckNVector.exit.thread, %11, %9, %6
+  %.0 = phi ptr [ null, %6 ], [ null, %9 ], [ null, %39 ], [ null, %42 ], [ null, %49 ], [ null, %59 ], [ null, %erkStep_CheckNVector.exit.thread ], [ null, %11 ], [ %37, %50 ]
   ret ptr %.0
 }
 

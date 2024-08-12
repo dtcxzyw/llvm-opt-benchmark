@@ -1308,7 +1308,7 @@ define void @_ZN5faiss8IndexNSGC2EiiNS_10MetricTypeE(ptr noundef nonnull align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexNSGE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN5faiss3NSGC1Ei(ptr noundef nonnull align 8 dereferenceable(5048) %11, i32 noundef %2)
-          to label %12 unwind label %19
+          to label %12 unwind label %22
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 5088
@@ -1322,14 +1322,20 @@ define void @_ZN5faiss8IndexNSGC2EiiNS_10MetricTypeE(ptr noundef nonnull align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 5112
   store i8 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 5116
-  store <4 x i32> <i32 10, i32 100, i32 114, i32 10>, ptr %18, align 4
+  store i32 10, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 5120
+  store i32 100, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 5128
+  store i32 10, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 5124
+  store i32 114, ptr %21, align 4
   ret void
 
-19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
+22:                                               ; preds = %4
+  %23 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #8
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %23
 }
 
 declare void @_ZN5faiss3NSGC1Ei(ptr noundef nonnull align 8 dereferenceable(5048), i32 noundef) unnamed_addr #2
@@ -1360,7 +1366,7 @@ define void @_ZN5faiss8IndexNSGC2EPNS_5IndexEi(ptr noundef nonnull align 8 deref
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexNSGE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @_ZN5faiss3NSGC1Ei(ptr noundef nonnull align 8 dereferenceable(5048) %14, i32 noundef %2)
-          to label %15 unwind label %22
+          to label %15 unwind label %25
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %0, i64 5088
@@ -1374,14 +1380,20 @@ define void @_ZN5faiss8IndexNSGC2EPNS_5IndexEi(ptr noundef nonnull align 8 deref
   %20 = getelementptr inbounds i8, ptr %0, i64 5112
   store i8 1, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 5116
-  store <4 x i32> <i32 10, i32 100, i32 114, i32 10>, ptr %21, align 4
+  store i32 10, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 5120
+  store i32 100, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 5128
+  store i32 10, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 5124
+  store i32 114, ptr %24, align 4
   ret void
 
-22:                                               ; preds = %3
-  %23 = landingpad { ptr, i32 }
+25:                                               ; preds = %3
+  %26 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #8
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2354,7 +2366,13 @@ _ZN5faiss8IndexNSGC2EiiNS_10MetricTypeE.exit:     ; preds = %1
   %15 = getelementptr inbounds i8, ptr %0, i64 5112
   store i8 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 5116
-  store <4 x i32> <i32 10, i32 100, i32 114, i32 10>, ptr %16, align 4
+  store i32 10, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 5120
+  store i32 100, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 5128
+  store i32 10, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 5124
+  store i32 114, ptr %19, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12IndexNSGFlatE, i64 16), ptr %0, align 8
   store i8 1, ptr %5, align 1
   ret void
@@ -2566,7 +2584,7 @@ define void @_ZN5faiss12IndexNSGFlatC2EiiNS_10MetricTypeE(ptr noundef nonnull al
   %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   %6 = sext i32 %1 to i64
   invoke void @_ZN5faiss9IndexFlatC1ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %5, i64 noundef %6, i32 noundef %3)
-          to label %7 unwind label %27
+          to label %7 unwind label %30
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2590,8 +2608,8 @@ define void @_ZN5faiss12IndexNSGFlatC2EiiNS_10MetricTypeE(ptr noundef nonnull al
   invoke void @_ZN5faiss3NSGC1Ei(ptr noundef nonnull align 8 dereferenceable(5048) %18, i32 noundef %2)
           to label %_ZN5faiss8IndexNSGC2EPNS_5IndexEi.exit unwind label %19
 
-common.resume:                                    ; preds = %27, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %28, %27 ]
+common.resume:                                    ; preds = %30, %19
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -2611,14 +2629,20 @@ _ZN5faiss8IndexNSGC2EPNS_5IndexEi.exit:           ; preds = %7
   %25 = getelementptr inbounds i8, ptr %0, i64 5112
   store i8 1, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 5116
-  store <4 x i32> <i32 10, i32 100, i32 114, i32 10>, ptr %26, align 4
+  store i32 10, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %0, i64 5120
+  store i32 100, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 5128
+  store i32 10, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 5124
+  store i32 114, ptr %29, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12IndexNSGFlatE, i64 16), ptr %0, align 8
   store i8 1, ptr %21, align 8
   store i8 1, ptr %15, align 1
   ret void
 
-27:                                               ; preds = %4
-  %28 = landingpad { ptr, i32 }
+30:                                               ; preds = %4
+  %31 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %5) #19
   br label %common.resume
@@ -2663,7 +2687,13 @@ _ZN5faiss8IndexNSGC2EiiNS_10MetricTypeE.exit:     ; preds = %1
   %15 = getelementptr inbounds i8, ptr %0, i64 5112
   store i8 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 5116
-  store <4 x i32> <i32 10, i32 100, i32 114, i32 10>, ptr %16, align 4
+  store i32 10, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 5120
+  store i32 100, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 5128
+  store i32 10, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 5124
+  store i32 114, ptr %19, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexNSGPQE, i64 16), ptr %0, align 8
   ret void
 }
@@ -2674,7 +2704,7 @@ define void @_ZN5faiss10IndexNSGPQC2Eiiii(ptr noundef nonnull align 8 dereferenc
   %7 = sext i32 %2 to i64
   %8 = sext i32 %4 to i64
   invoke void @_ZN5faiss7IndexPQC1EimmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(396) %6, i32 noundef %1, i64 noundef %7, i64 noundef %8, i32 noundef 1)
-          to label %9 unwind label %29
+          to label %9 unwind label %32
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2698,8 +2728,8 @@ define void @_ZN5faiss10IndexNSGPQC2Eiiii(ptr noundef nonnull align 8 dereferenc
   invoke void @_ZN5faiss3NSGC1Ei(ptr noundef nonnull align 8 dereferenceable(5048) %20, i32 noundef %3)
           to label %_ZN5faiss8IndexNSGC2EPNS_5IndexEi.exit unwind label %21
 
-common.resume:                                    ; preds = %29, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %30, %29 ]
+common.resume:                                    ; preds = %32, %21
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %33, %32 ]
   resume { ptr, i32 } %common.resume.op
 
 21:                                               ; preds = %9
@@ -2719,14 +2749,20 @@ _ZN5faiss8IndexNSGC2EPNS_5IndexEi.exit:           ; preds = %9
   %27 = getelementptr inbounds i8, ptr %0, i64 5112
   store i8 1, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 5116
-  store <4 x i32> <i32 10, i32 100, i32 114, i32 10>, ptr %28, align 4
+  store i32 10, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %0, i64 5120
+  store i32 100, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 5128
+  store i32 10, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 5124
+  store i32 114, ptr %31, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexNSGPQE, i64 16), ptr %0, align 8
   store i8 1, ptr %23, align 8
   store i8 0, ptr %17, align 1
   ret void
 
-29:                                               ; preds = %5
-  %30 = landingpad { ptr, i32 }
+32:                                               ; preds = %5
+  %33 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   br label %common.resume
@@ -2743,7 +2779,7 @@ declare void @_ZN5faiss16ProductQuantizer17compute_sdc_tableEv(ptr noundef nonnu
 define void @_ZN5faiss10IndexNSGSQC2EiNS_15ScalarQuantizer13QuantizerTypeEiNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(5132) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #21
   invoke void @_ZN5faiss20IndexScalarQuantizerC1EiNS_15ScalarQuantizer13QuantizerTypeENS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(144) %6, i32 noundef %1, i32 noundef %2, i32 noundef %4)
-          to label %7 unwind label %30
+          to label %7 unwind label %33
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2767,8 +2803,8 @@ define void @_ZN5faiss10IndexNSGSQC2EiNS_15ScalarQuantizer13QuantizerTypeEiNS_10
   invoke void @_ZN5faiss3NSGC1Ei(ptr noundef nonnull align 8 dereferenceable(5048) %18, i32 noundef %3)
           to label %_ZN5faiss8IndexNSGC2EPNS_5IndexEi.exit unwind label %19
 
-common.resume:                                    ; preds = %30, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %31, %30 ]
+common.resume:                                    ; preds = %33, %19
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %34, %33 ]
   resume { ptr, i32 } %common.resume.op
 
 19:                                               ; preds = %7
@@ -2788,17 +2824,23 @@ _ZN5faiss8IndexNSGC2EPNS_5IndexEi.exit:           ; preds = %7
   %25 = getelementptr inbounds i8, ptr %0, i64 5112
   store i8 1, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 5116
-  store <4 x i32> <i32 10, i32 100, i32 114, i32 10>, ptr %26, align 4
+  store i32 10, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %0, i64 5120
+  store i32 100, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 5128
+  store i32 10, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 5124
+  store i32 114, ptr %29, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexNSGSQE, i64 16), ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 25
-  %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 1
-  store i8 %29, ptr %15, align 1
+  %30 = getelementptr inbounds i8, ptr %6, i64 25
+  %31 = load i8, ptr %30, align 1
+  %32 = and i8 %31, 1
+  store i8 %32, ptr %15, align 1
   store i8 1, ptr %21, align 8
   ret void
 
-30:                                               ; preds = %5
-  %31 = landingpad { ptr, i32 }
+33:                                               ; preds = %5
+  %34 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   br label %common.resume
@@ -3044,7 +3086,13 @@ _ZN5faiss8IndexNSGC2EiiNS_10MetricTypeE.exit:     ; preds = %1
   %15 = getelementptr inbounds i8, ptr %0, i64 5112
   store i8 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 5116
-  store <4 x i32> <i32 10, i32 100, i32 114, i32 10>, ptr %16, align 4
+  store i32 10, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 5120
+  store i32 100, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 5128
+  store i32 10, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 5124
+  store i32 114, ptr %19, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexNSGSQE, i64 16), ptr %0, align 8
   ret void
 }

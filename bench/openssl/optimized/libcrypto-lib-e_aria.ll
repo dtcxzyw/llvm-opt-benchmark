@@ -2094,11 +2094,17 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %key_set = getelementptr inbounds i8, ptr %call, i64 280
+  store i32 0, ptr %key_set, align 8
+  %iv_set = getelementptr inbounds i8, ptr %call, i64 284
+  store i32 0, ptr %iv_set, align 4
   %L = getelementptr inbounds i8, ptr %call, i64 296
   store i32 8, ptr %L, align 8
   %M = getelementptr inbounds i8, ptr %call, i64 300
   store i32 12, ptr %M, align 4
-  store <4 x i32> zeroinitializer, ptr %key_set, align 8
+  %tag_set = getelementptr inbounds i8, ptr %call, i64 288
+  store i32 0, ptr %tag_set, align 8
+  %len_set = getelementptr inbounds i8, ptr %call, i64 292
+  store i32 0, ptr %len_set, align 4
   %tls_aad_len = getelementptr inbounds i8, ptr %call, i64 304
   store i32 -1, ptr %tls_aad_len, align 8
   br label %return

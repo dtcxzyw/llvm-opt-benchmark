@@ -370,36 +370,42 @@ define void @Gia_DeriveAigTest() local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %1, i8 0, i64 100, i1 false)
-  store <4 x i8> <i8 116, i8 101, i8 115, i8 116>, ptr %1, align 16
-  %5 = call i32 @Gia_ManReadCifar10File(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %6 = load ptr, ptr %2, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = call ptr @Gia_DeriveAig(ptr noundef %6, ptr noundef %7)
-  call void @Gia_AigerWrite(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
-  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str)
-  call void @Gia_ManStop(ptr noundef %8) #21
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %Vec_WrdFree.exit, label %12
+  store i8 116, ptr %1, align 16
+  %5 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 101, ptr %5, align 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 115, ptr %6, align 2
+  %7 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 116, ptr %7, align 1
+  %8 = call i32 @Gia_ManReadCifar10File(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %9 = load ptr, ptr %2, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call ptr @Gia_DeriveAig(ptr noundef %9, ptr noundef %10)
+  call void @Gia_AigerWrite(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
+  %12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str)
+  call void @Gia_ManStop(ptr noundef %11) #21
+  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %Vec_WrdFree.exit, label %15
 
-12:                                               ; preds = %0
-  call void @free(ptr noundef nonnull %11) #21
+15:                                               ; preds = %0
+  call void @free(ptr noundef nonnull %14) #21
   br label %Vec_WrdFree.exit
 
-Vec_WrdFree.exit:                                 ; preds = %0, %12
-  call void @free(ptr noundef nonnull %6) #21
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %.not.i2 = icmp eq ptr %14, null
-  br i1 %.not.i2, label %Vec_StrFree.exit, label %15
+Vec_WrdFree.exit:                                 ; preds = %0, %15
+  call void @free(ptr noundef nonnull %9) #21
+  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %.not.i2 = icmp eq ptr %17, null
+  br i1 %.not.i2, label %Vec_StrFree.exit, label %18
 
-15:                                               ; preds = %Vec_WrdFree.exit
-  call void @free(ptr noundef nonnull %14) #21
+18:                                               ; preds = %Vec_WrdFree.exit
+  call void @free(ptr noundef nonnull %17) #21
   br label %Vec_StrFree.exit
 
-Vec_StrFree.exit:                                 ; preds = %Vec_WrdFree.exit, %15
-  call void @free(ptr noundef nonnull %7) #21
+Vec_StrFree.exit:                                 ; preds = %Vec_WrdFree.exit, %18
+  call void @free(ptr noundef nonnull %10) #21
   ret void
 }
 
@@ -3195,109 +3201,108 @@ Gia_ManGetExampleValue.exit.preheader:            ; preds = %.lr.ph80.thread, %.
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us.preheader, %._crit_edge.i.us
   %indvars.iv97 = phi i64 [ 0, %.lr.ph.i.us.preheader ], [ %indvars.iv.next98, %._crit_edge.i.us ]
-  %.05576.us = phi i32 [ 0, %.lr.ph.i.us.preheader ], [ %71, %._crit_edge.i.us ]
-  %42 = phi <2 x float> [ zeroinitializer, %.lr.ph.i.us.preheader ], [ %69, %._crit_edge.i.us ]
-  %43 = getelementptr inbounds i8, ptr %.val61110, i64 %indvars.iv97
-  %44 = load i8, ptr %43, align 1
-  %45 = lshr i64 %indvars.iv97, 6
-  %46 = and i64 %45, 67108863
-  %47 = and i64 %indvars.iv97, 63
-  br label %48
+  %.079.us = phi float [ 0.000000e+00, %.lr.ph.i.us.preheader ], [ %62, %._crit_edge.i.us ]
+  %.05278.us = phi float [ 0.000000e+00, %.lr.ph.i.us.preheader ], [ %67, %._crit_edge.i.us ]
+  %.05576.us = phi i32 [ 0, %.lr.ph.i.us.preheader ], [ %69, %._crit_edge.i.us ]
+  %42 = getelementptr inbounds i8, ptr %.val61110, i64 %indvars.iv97
+  %43 = load i8, ptr %42, align 1
+  %44 = lshr i64 %indvars.iv97, 6
+  %45 = and i64 %44, 67108863
+  %46 = and i64 %indvars.iv97, 63
+  br label %47
 
-48:                                               ; preds = %48, %.lr.ph.i.us
-  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %48 ]
-  %.016.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %.1.i.us, %48 ]
-  %49 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i.us
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i64, ptr %50, i64 %46
-  %52 = load i64, ptr %51, align 8
-  %53 = lshr i64 %52, %47
-  %.fr.i.us = freeze i64 %53
-  %54 = and i64 %.fr.i.us, 1
-  %.not14.i.us = icmp eq i64 %54, 0
-  %55 = trunc nuw nsw i64 %indvars.iv.i.us to i32
-  %56 = shl nuw i32 1, %55
-  %57 = select i1 %.not14.i.us, i32 0, i32 %56
-  %.1.i.us = or i32 %57, %.016.i.us
+47:                                               ; preds = %47, %.lr.ph.i.us
+  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %47 ]
+  %.016.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %.1.i.us, %47 ]
+  %48 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i.us
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i64, ptr %49, i64 %45
+  %51 = load i64, ptr %50, align 8
+  %52 = lshr i64 %51, %46
+  %.fr.i.us = freeze i64 %52
+  %53 = and i64 %.fr.i.us, 1
+  %.not14.i.us = icmp eq i64 %53, 0
+  %54 = trunc nuw nsw i64 %indvars.iv.i.us to i32
+  %55 = shl nuw i32 1, %54
+  %56 = select i1 %.not14.i.us, i32 0, i32 %55
+  %.1.i.us = or i32 %56, %.016.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i111
-  br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %48, !llvm.loop !42
+  br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %47, !llvm.loop !42
 
-._crit_edge.i.us:                                 ; preds = %48
-  %58 = sext i8 %44 to i32
+._crit_edge.i.us:                                 ; preds = %47
+  %57 = sext i8 %43 to i32
   %spec.select.i.us = select i1 %.not14.i.us, i32 0, i32 %41
-  %59 = or i32 %.1.i.us, %spec.select.i.us
-  %60 = sub nsw i32 %58, %59
-  %61 = sitofp i32 %60 to float
-  %62 = fmul float %61, 3.906250e-03
-  %63 = icmp sgt i8 %44, 0
-  %64 = tail call i32 @llvm.abs.i32(i32 %59, i1 true)
+  %58 = or i32 %.1.i.us, %spec.select.i.us
+  %59 = sub nsw i32 %57, %58
+  %60 = sitofp i32 %59 to float
+  %61 = fmul float %60, 3.906250e-03
+  %62 = tail call float @llvm.fmuladd.f32(float %61, float %61, float %.079.us)
+  %63 = icmp sgt i8 %43, 0
+  %64 = tail call i32 @llvm.abs.i32(i32 %58, i1 true)
   %65 = uitofp nneg i32 %64 to float
   %66 = select i1 %63, float %65, float 0.000000e+00
-  %67 = insertelement <2 x float> poison, float %66, i64 0
-  %68 = insertelement <2 x float> %67, float %62, i64 1
-  %69 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %68, <2 x float> %68, <2 x float> %42)
-  %70 = zext i1 %63 to i32
-  %71 = add nuw nsw i32 %.05576.us, %70
+  %67 = tail call float @llvm.fmuladd.f32(float %66, float %66, float %.05278.us)
+  %68 = zext i1 %63 to i32
+  %69 = add nuw nsw i32 %.05576.us, %68
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count101
   br i1 %exitcond102.not, label %._crit_edge.thread, label %.lr.ph.i.us, !llvm.loop !44
 
 Gia_ManGetExampleValue.exit:                      ; preds = %Gia_ManGetExampleValue.exit.preheader, %Gia_ManGetExampleValue.exit
   %indvars.iv92 = phi i64 [ 0, %Gia_ManGetExampleValue.exit.preheader ], [ %indvars.iv.next93, %Gia_ManGetExampleValue.exit ]
-  %.079 = phi float [ 0.000000e+00, %Gia_ManGetExampleValue.exit.preheader ], [ %76, %Gia_ManGetExampleValue.exit ]
-  %.05576 = phi i32 [ 0, %Gia_ManGetExampleValue.exit.preheader ], [ %79, %Gia_ManGetExampleValue.exit ]
-  %72 = getelementptr inbounds i8, ptr %.val61105, i64 %indvars.iv92
-  %73 = load i8, ptr %72, align 1
-  %74 = sitofp i8 %73 to float
-  %75 = fmul float %74, 3.906250e-03
-  %76 = tail call float @llvm.fmuladd.f32(float %75, float %75, float %.079)
-  %77 = icmp sgt i8 %73, 0
-  %78 = zext i1 %77 to i32
-  %79 = add nuw nsw i32 %.05576, %78
+  %.079 = phi float [ 0.000000e+00, %Gia_ManGetExampleValue.exit.preheader ], [ %74, %Gia_ManGetExampleValue.exit ]
+  %.05576 = phi i32 [ 0, %Gia_ManGetExampleValue.exit.preheader ], [ %77, %Gia_ManGetExampleValue.exit ]
+  %70 = getelementptr inbounds i8, ptr %.val61105, i64 %indvars.iv92
+  %71 = load i8, ptr %70, align 1
+  %72 = sitofp i8 %71 to float
+  %73 = fmul float %72, 3.906250e-03
+  %74 = tail call float @llvm.fmuladd.f32(float %73, float %73, float %.079)
+  %75 = icmp sgt i8 %71, 0
+  %76 = zext i1 %75 to i32
+  %77 = add nuw nsw i32 %.05576, %76
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
   br i1 %exitcond96.not, label %._crit_edge, label %Gia_ManGetExampleValue.exit, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %Gia_ManGetExampleValue.exit, %.critedge.thread106, %.critedge.thread
-  %.055.lcssa = phi i32 [ 0, %.critedge.thread ], [ 0, %.critedge.thread106 ], [ %79, %Gia_ManGetExampleValue.exit ]
-  %.0.lcssa = phi float [ 0.000000e+00, %.critedge.thread ], [ 0.000000e+00, %.critedge.thread106 ], [ %76, %Gia_ManGetExampleValue.exit ]
+  %.055.lcssa = phi i32 [ 0, %.critedge.thread ], [ 0, %.critedge.thread106 ], [ %77, %Gia_ManGetExampleValue.exit ]
+  %.0.lcssa = phi float [ 0.000000e+00, %.critedge.thread ], [ 0.000000e+00, %.critedge.thread106 ], [ %74, %Gia_ManGetExampleValue.exit ]
   %.not59 = icmp eq ptr %13, null
-  %80 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %.0.lcssa, i64 1
-  br i1 %.not59, label %82, label %._crit_edge.thread
+  br i1 %.not59, label %78, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.i.us, %.critedge, %._crit_edge
-  %.055.lcssa116 = phi i32 [ %.055.lcssa, %._crit_edge ], [ 0, %.critedge ], [ %71, %._crit_edge.i.us ]
-  %81 = phi <2 x float> [ %80, %._crit_edge ], [ zeroinitializer, %.critedge ], [ %69, %._crit_edge.i.us ]
+  %.0.lcssa120 = phi float [ %.0.lcssa, %._crit_edge ], [ 0.000000e+00, %.critedge ], [ %62, %._crit_edge.i.us ]
+  %.052.lcssa118 = phi float [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.critedge ], [ %67, %._crit_edge.i.us ]
+  %.055.lcssa116 = phi i32 [ %.055.lcssa, %._crit_edge ], [ 0, %.critedge ], [ %69, %._crit_edge.i.us ]
   tail call void @free(ptr noundef nonnull %13) #21
-  br label %82
+  br label %78
 
-82:                                               ; preds = %._crit_edge, %._crit_edge.thread
+78:                                               ; preds = %._crit_edge, %._crit_edge.thread
+  %.0.lcssa121 = phi float [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa120, %._crit_edge.thread ]
+  %.052.lcssa119 = phi float [ 0.000000e+00, %._crit_edge ], [ %.052.lcssa118, %._crit_edge.thread ]
   %.055.lcssa117 = phi i32 [ %.055.lcssa, %._crit_edge ], [ %.055.lcssa116, %._crit_edge.thread ]
-  %83 = phi <2 x float> [ %80, %._crit_edge ], [ %81, %._crit_edge.thread ]
-  %84 = getelementptr i8, ptr %3, i64 4
-  %.val70 = load i32, ptr %84, align 4
-  %85 = uitofp nneg i32 %.055.lcssa117 to double
-  %86 = fmul double %85, 1.000000e+02
-  %87 = sitofp i32 %.val70 to double
-  %88 = fdiv double %86, %87
-  %89 = extractelement <2 x float> %83, i64 1
-  %90 = fpext float %89 to double
-  %91 = extractelement <2 x float> %83, i64 0
-  %92 = fpext float %91 to double
-  %93 = fmul double %90, 1.000000e+02
-  %94 = fdiv double %93, %92
-  %95 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i32 noundef %.val70, i32 noundef %.055.lcssa117, double noundef %88, double noundef %90, double noundef %92, double noundef %94)
-  %96 = icmp eq ptr %4, null
-  br i1 %96, label %99, label %97
+  %79 = getelementptr i8, ptr %3, i64 4
+  %.val70 = load i32, ptr %79, align 4
+  %80 = uitofp nneg i32 %.055.lcssa117 to double
+  %81 = fmul double %80, 1.000000e+02
+  %82 = sitofp i32 %.val70 to double
+  %83 = fdiv double %81, %82
+  %84 = fpext float %.0.lcssa121 to double
+  %85 = fpext float %.052.lcssa119 to double
+  %86 = fmul double %84, 1.000000e+02
+  %87 = fdiv double %86, %85
+  %88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i32 noundef %.val70, i32 noundef %.055.lcssa117, double noundef %83, double noundef %84, double noundef %85, double noundef %87)
+  %89 = icmp eq ptr %4, null
+  br i1 %89, label %92, label %90
 
-97:                                               ; preds = %82
-  %.val72 = load i32, ptr %84, align 4
-  tail call void @Gia_ManSimLogStats2(ptr noundef %1, ptr noundef nonnull %4, i32 noundef %.val72, i32 noundef %.055.lcssa117, float noundef %89, float noundef %91)
-  %98 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %4)
-  br label %99
+90:                                               ; preds = %78
+  %.val72 = load i32, ptr %79, align 4
+  tail call void @Gia_ManSimLogStats2(ptr noundef %1, ptr noundef nonnull %4, i32 noundef %.val72, i32 noundef %.055.lcssa117, float noundef %.0.lcssa121, float noundef %.052.lcssa119)
+  %91 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %4)
+  br label %92
 
-99:                                               ; preds = %82, %97
+92:                                               ; preds = %78, %90
   ret void
 }
 
@@ -4216,9 +4221,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #19
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

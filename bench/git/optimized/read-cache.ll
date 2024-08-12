@@ -5631,9 +5631,13 @@ load_cache_entries_threaded.exit:                 ; preds = %if.end83.i, %if.end
   call void @free(ptr noundef %call5.i) #28
   call void @free(ptr noundef %call47.i) #28
   %st_mtim186 = getelementptr inbounds i8, ptr %st, i64 88
-  %116 = load <2 x i64>, ptr %st_mtim186, align 8
-  %117 = trunc <2 x i64> %116 to <2 x i32>
-  store <2 x i32> %117, ptr %timestamp, align 8
+  %116 = load i64, ptr %st_mtim186, align 8
+  %conv94187 = trunc i64 %116 to i32
+  store i32 %conv94187, ptr %timestamp, align 8
+  %tv_nsec188 = getelementptr inbounds i8, ptr %st, i64 96
+  %117 = load i64, ptr %tv_nsec188, align 8
+  %conv98189 = trunc i64 %117 to i32
+  store i32 %conv98189, ptr %nsec, align 4
   br label %if.then102
 
 if.else:                                          ; preds = %if.end23.i135, %read_eoie_extension.exit.thread, %if.end64.thread, %if.end64, %if.end79, %if.then32.i, %if.then41.i, %if.then84
@@ -5663,9 +5667,13 @@ if.end93:                                         ; preds = %if.else.i164, %if.t
   %121 = load i32, ptr %cache_nr39, align 4
   %call8.i = call fastcc i64 @load_cache_entry_block(ptr noundef nonnull %istate, ptr noundef %120, i32 noundef 0, i32 noundef %121, ptr noundef nonnull %call23, i64 noundef 12)
   %st_mtim = getelementptr inbounds i8, ptr %st, i64 88
-  %122 = load <2 x i64>, ptr %st_mtim, align 8
-  %123 = trunc <2 x i64> %122 to <2 x i32>
-  store <2 x i32> %123, ptr %timestamp, align 8
+  %122 = load i64, ptr %st_mtim, align 8
+  %conv94 = trunc i64 %122 to i32
+  store i32 %conv94, ptr %timestamp, align 8
+  %tv_nsec = getelementptr inbounds i8, ptr %st, i64 96
+  %123 = load i64, ptr %tv_nsec, align 8
+  %conv98 = trunc i64 %123 to i32
+  store i32 %conv98, ptr %nsec, align 4
   br i1 %tobool80180.ph, label %if.then102, label %if.else110
 
 if.then102:                                       ; preds = %load_cache_entries_threaded.exit, %if.end93
@@ -9140,10 +9148,13 @@ if.end176:                                        ; preds = %if.then174, %record
 if.then178:                                       ; preds = %if.end176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_write_index.sb.87, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i)
+  store i8 0, ptr %buffer.i, align 4
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 1
+  store i8 0, ptr %arrayidx3.i.i, align 1
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 2
+  store i8 0, ptr %arrayidx6.i.i, align 2
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %buffer.i, align 4
+  store i8 1, ptr %arrayidx9.i.i, align 1
   call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef nonnull %buffer.i, i64 noundef 4) #28
   %73 = load i32, ptr %ieot.0, align 4
   %cmp21.i = icmp sgt i32 %73, 0
@@ -9700,10 +9711,15 @@ if.end333:                                        ; preds = %if.end315
 
 if.end338:                                        ; preds = %if.end333
   %st_mtim = getelementptr inbounds i8, ptr %st, i64 88
+  %171 = load i64, ptr %st_mtim, align 8
+  %conv339 = trunc i64 %171 to i32
   %timestamp = getelementptr inbounds i8, ptr %istate, i64 48
-  %171 = load <2 x i64>, ptr %st_mtim, align 8
-  %172 = trunc <2 x i64> %171 to <2 x i32>
-  store <2 x i32> %172, ptr %timestamp, align 8
+  store i32 %conv339, ptr %timestamp, align 8
+  %tv_nsec = getelementptr inbounds i8, ptr %st, i64 96
+  %172 = load i64, ptr %tv_nsec, align 8
+  %conv341 = trunc i64 %172 to i32
+  %nsec = getelementptr inbounds i8, ptr %istate, i64 52
+  store i32 %conv341, ptr %nsec, align 4
   %trace_perf_key.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 8), align 8
   %trace_perf_key.val146 = load i8, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 12), align 4
   %tobool.not.i375 = icmp eq i32 %trace_perf_key.val, 0

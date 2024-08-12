@@ -2323,14 +2323,14 @@ define hidden void @zend_closure_from_frame(ptr noundef %0, ptr nocapture nounde
   store ptr %12, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 776, ptr %13, align 8
-  br label %98
+  br label %101
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %6, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 262144
   %.not58 = icmp eq i32 %17, 0
-  br i1 %.not58, label %63, label %18
+  br i1 %.not58, label %66, label %18
 
 18:                                               ; preds = %14
   %19 = and i32 %9, 776
@@ -2390,7 +2390,7 @@ define hidden void @zend_closure_from_frame(ptr noundef %0, ptr nocapture nounde
   store ptr %45, ptr %0, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 776, ptr %48, align 8
-  br label %98
+  br label %101
 
 .critedge2:                                       ; preds = %..critedge2_crit_edge, %33, %20, %18
   %49 = phi i32 [ %.pre, %..critedge2_crit_edge ], [ %16, %33 ], [ %16, %20 ], [ %16, %18 ]
@@ -2402,97 +2402,101 @@ define hidden void @zend_closure_from_frame(ptr noundef %0, ptr nocapture nounde
   %52 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @zend_closure_call_magic, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %6, i64 8
-  %54 = getelementptr inbounds i8, ptr %4, i64 8
-  %55 = load <2 x ptr>, ptr %53, align 8
-  store <2 x ptr> %55, ptr %54, align 8
-  %56 = and i32 %49, 16384
-  %.not60 = icmp eq i32 %56, 0
-  br i1 %.not60, label %59, label %57
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %54, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %6, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %57, ptr %58, align 8
+  %59 = and i32 %49, 16384
+  %.not60 = icmp eq i32 %59, 0
+  br i1 %.not60, label %62, label %60
 
-57:                                               ; preds = %.critedge2
-  %58 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr @trampoline_arg_info, ptr %58, align 8
-  br label %59
+60:                                               ; preds = %.critedge2
+  %61 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr @trampoline_arg_info, ptr %61, align 8
+  br label %62
 
-59:                                               ; preds = %.critedge2, %57
-  %60 = icmp eq ptr %6, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
-  br i1 %60, label %61, label %62
+62:                                               ; preds = %.critedge2, %60
+  %63 = icmp eq ptr %6, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
+  br i1 %63, label %64, label %65
 
-61:                                               ; preds = %59
+64:                                               ; preds = %62
   store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1296), align 8
-  br label %63
+  br label %66
 
-62:                                               ; preds = %59
+65:                                               ; preds = %62
   tail call void @_efree(ptr noundef %6) #13
-  br label %63
+  br label %66
 
-63:                                               ; preds = %62, %61, %14
-  %.0 = phi ptr [ %6, %14 ], [ %4, %61 ], [ %4, %62 ]
-  %64 = load i32, ptr %8, align 8
-  %65 = and i32 %64, 776
-  %.not61 = icmp eq i32 %65, 0
-  br i1 %.not61, label %73, label %66
+66:                                               ; preds = %65, %64, %14
+  %.0 = phi ptr [ %6, %14 ], [ %4, %64 ], [ %4, %65 ]
+  %67 = load i32, ptr %8, align 8
+  %68 = and i32 %67, 776
+  %.not61 = icmp eq i32 %68, 0
+  br i1 %.not61, label %76, label %69
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %7, align 8
-  store ptr %67, ptr %3, align 8
-  %68 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 776, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %.0, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %67, i64 16
-  %72 = load ptr, ptr %71, align 8
-  call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef %70, ptr noundef %72, ptr noundef nonnull %3, i1 noundef zeroext true)
-  br label %77
-
-73:                                               ; preds = %63
-  %74 = getelementptr inbounds i8, ptr %.0, i64 16
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %7, align 8
+  store ptr %70, ptr %3, align 8
+  %71 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 776, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %.0, i64 16
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %70, i64 16
   %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %7, align 8
-  call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef %75, ptr noundef %76, ptr noundef null, i1 noundef zeroext true)
-  br label %77
+  call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef %73, ptr noundef %75, ptr noundef nonnull %3, i1 noundef zeroext true)
+  br label %80
 
-77:                                               ; preds = %73, %66
-  %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 60
-  %80 = load i32, ptr %79, align 4
-  %81 = or i32 %80, 8388608
-  store i32 %81, ptr %79, align 4
-  %82 = icmp eq ptr %.0, %4
-  br i1 %82, label %83, label %98
+76:                                               ; preds = %66
+  %77 = getelementptr inbounds i8, ptr %.0, i64 16
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %7, align 8
+  call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef %78, ptr noundef %79, ptr noundef null, i1 noundef zeroext true)
+  br label %80
 
-83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %.0, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
-  %87 = load i32, ptr %86, align 4
-  %88 = and i32 %87, 64
-  %.not62 = icmp eq i32 %88, 0
-  br i1 %.not62, label %89, label %98
+80:                                               ; preds = %76, %69
+  %81 = load ptr, ptr %0, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 60
+  %83 = load i32, ptr %82, align 4
+  %84 = or i32 %83, 8388608
+  store i32 %84, ptr %82, align 4
+  %85 = icmp eq ptr %.0, %4
+  br i1 %85, label %86, label %101
 
-89:                                               ; preds = %83
-  %90 = load i32, ptr %85, align 4
-  %91 = icmp ne i32 %90, 0
-  call void @llvm.assume(i1 %91)
-  %92 = add i32 %90, -1
-  store i32 %92, ptr %85, align 4
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %98
+86:                                               ; preds = %80
+  %87 = getelementptr inbounds i8, ptr %.0, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 4
+  %90 = load i32, ptr %89, align 4
+  %91 = and i32 %90, 64
+  %.not62 = icmp eq i32 %91, 0
+  br i1 %.not62, label %92, label %101
 
-94:                                               ; preds = %89
-  %95 = and i32 %87, 128
-  %.not63 = icmp eq i32 %95, 0
-  br i1 %.not63, label %97, label %96
+92:                                               ; preds = %86
+  %93 = load i32, ptr %88, align 4
+  %94 = icmp ne i32 %93, 0
+  call void @llvm.assume(i1 %94)
+  %95 = add i32 %93, -1
+  store i32 %95, ptr %88, align 4
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %97, label %101
 
-96:                                               ; preds = %94
-  call void @free(ptr noundef nonnull %85) #13
-  br label %98
+97:                                               ; preds = %92
+  %98 = and i32 %90, 128
+  %.not63 = icmp eq i32 %98, 0
+  br i1 %.not63, label %100, label %99
 
-97:                                               ; preds = %94
-  call void @_efree(ptr noundef nonnull %85) #13
-  br label %98
+99:                                               ; preds = %97
+  call void @free(ptr noundef nonnull %88) #13
+  br label %101
 
-98:                                               ; preds = %83, %96, %97, %89, %77, %44, %11
+100:                                              ; preds = %97
+  call void @_efree(ptr noundef nonnull %88) #13
+  br label %101
+
+101:                                              ; preds = %86, %99, %100, %92, %80, %44, %11
   ret void
 }
 

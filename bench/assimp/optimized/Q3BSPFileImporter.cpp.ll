@@ -2170,7 +2170,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %7 = phi i32 [ %6, %for.body.lr.ph ], [ %38, %for.inc ]
+  %7 = phi i32 [ %6, %for.body.lr.ph ], [ %42, %for.inc ]
   %idx.055 = phi i64 [ 0, %for.body.lr.ph ], [ %idx.1, %for.inc ]
   %i.054 = phi i64 [ 0, %for.body.lr.ph ], [ %inc63, %for.inc ]
   %8 = load i32, ptr %iVertexIndex, align 4
@@ -2240,53 +2240,69 @@ if.end38:                                         ; preds = %_ZN6Assimp17Q3BSPFi
   %24 = load i32, ptr %vertIdx, align 4
   %idxprom = zext i32 %24 to i64
   %arrayidx39 = getelementptr inbounds %class.aiVector3t, ptr %23, i64 %idxprom
+  %25 = load float, ptr %15, align 4
+  %y = getelementptr inbounds i8, ptr %15, i64 4
+  %26 = load float, ptr %y, align 4
   %z = getelementptr inbounds i8, ptr %15, i64 8
-  %25 = load float, ptr %z, align 4
-  %26 = load <2 x float>, ptr %15, align 4
-  store <2 x float> %26, ptr %arrayidx39, align 4
+  %27 = load float, ptr %z, align 4
+  store float %25, ptr %arrayidx39, align 4
+  %y.i = getelementptr inbounds i8, ptr %arrayidx39, i64 4
+  store float %26, ptr %y.i, align 4
   %z.i = getelementptr inbounds i8, ptr %arrayidx39, i64 8
-  store float %25, ptr %z.i, align 4
-  %27 = load ptr, ptr %mNormals, align 8
-  %28 = load i32, ptr %vertIdx, align 4
-  %idxprom42 = zext i32 %28 to i64
-  %arrayidx43 = getelementptr inbounds %class.aiVector3t, ptr %27, i64 %idxprom42
+  store float %27, ptr %z.i, align 4
+  %28 = load ptr, ptr %mNormals, align 8
+  %29 = load i32, ptr %vertIdx, align 4
+  %idxprom42 = zext i32 %29 to i64
+  %arrayidx43 = getelementptr inbounds %class.aiVector3t, ptr %28, i64 %idxprom42
   %vNormal = getelementptr inbounds i8, ptr %15, i64 28
+  %30 = load float, ptr %vNormal, align 4
+  %y46 = getelementptr inbounds i8, ptr %15, i64 32
+  %31 = load float, ptr %y46, align 4
   %z48 = getelementptr inbounds i8, ptr %15, i64 36
-  %29 = load float, ptr %z48, align 4
-  %30 = load <2 x float>, ptr %vNormal, align 4
-  store <2 x float> %30, ptr %arrayidx43, align 4
+  %32 = load float, ptr %z48, align 4
+  store float %30, ptr %arrayidx43, align 4
+  %y.i41 = getelementptr inbounds i8, ptr %arrayidx43, i64 4
+  store float %31, ptr %y.i41, align 4
   %z.i42 = getelementptr inbounds i8, ptr %arrayidx43, i64 8
-  store float %29, ptr %z.i42, align 4
-  %31 = load ptr, ptr %mTextureCoords, align 8
-  %32 = load i32, ptr %vertIdx, align 4
-  %idxprom50 = zext i32 %32 to i64
-  %arrayidx51 = getelementptr inbounds %class.aiVector3t, ptr %31, i64 %idxprom50
+  store float %32, ptr %z.i42, align 4
+  %33 = load ptr, ptr %mTextureCoords, align 8
+  %34 = load i32, ptr %vertIdx, align 4
+  %idxprom50 = zext i32 %34 to i64
+  %arrayidx51 = getelementptr inbounds %class.aiVector3t, ptr %33, i64 %idxprom50
   %vTexCoord = getelementptr inbounds i8, ptr %15, i64 12
-  %33 = load <2 x float>, ptr %vTexCoord, align 4
-  store <2 x float> %33, ptr %arrayidx51, align 4
+  %35 = load float, ptr %vTexCoord, align 4
+  %y54 = getelementptr inbounds i8, ptr %15, i64 16
+  %36 = load float, ptr %y54, align 4
+  store float %35, ptr %arrayidx51, align 4
+  %y.i43 = getelementptr inbounds i8, ptr %arrayidx51, i64 4
+  store float %36, ptr %y.i43, align 4
   %z.i44 = getelementptr inbounds i8, ptr %arrayidx51, i64 8
   store float 0.000000e+00, ptr %z.i44, align 4
-  %34 = load ptr, ptr %arrayidx56, align 8
-  %35 = load i32, ptr %vertIdx, align 4
-  %idxprom57 = zext i32 %35 to i64
-  %arrayidx58 = getelementptr inbounds %class.aiVector3t, ptr %34, i64 %idxprom57
+  %37 = load ptr, ptr %arrayidx56, align 8
+  %38 = load i32, ptr %vertIdx, align 4
+  %idxprom57 = zext i32 %38 to i64
+  %arrayidx58 = getelementptr inbounds %class.aiVector3t, ptr %37, i64 %idxprom57
   %vLightmap = getelementptr inbounds i8, ptr %15, i64 20
-  %36 = load <2 x float>, ptr %vLightmap, align 4
-  store <2 x float> %36, ptr %arrayidx58, align 4
+  %39 = load float, ptr %vLightmap, align 4
+  %y61 = getelementptr inbounds i8, ptr %15, i64 24
+  %40 = load float, ptr %y61, align 4
+  store float %39, ptr %arrayidx58, align 4
+  %y.i45 = getelementptr inbounds i8, ptr %arrayidx58, i64 4
+  store float %40, ptr %y.i45, align 4
   %z.i46 = getelementptr inbounds i8, ptr %arrayidx58, i64 8
   store float 0.000000e+00, ptr %z.i46, align 4
-  %37 = load i32, ptr %vertIdx, align 4
-  %inc = add i32 %37, 1
+  %41 = load i32, ptr %vertIdx, align 4
+  %inc = add i32 %41, 1
   store i32 %inc, ptr %vertIdx, align 4
   %inc62 = add nuw nsw i64 %idx.2, 1
   %.pre = load i32, ptr %iNumOfFaceVerts, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end17, %for.body, %if.end38
-  %38 = phi i32 [ %7, %for.body ], [ %7, %if.end17 ], [ %.pre, %if.end38 ]
+  %42 = phi i32 [ %7, %for.body ], [ %7, %if.end17 ], [ %.pre, %if.end38 ]
   %idx.1 = phi i64 [ %idx.055, %for.body ], [ %idx.055, %if.end17 ], [ %inc62, %if.end38 ]
   %inc63 = add nuw i64 %i.054, 1
-  %conv8 = sext i32 %38 to i64
+  %conv8 = sext i32 %42 to i64
   %cmp9 = icmp ult i64 %inc63, %conv8
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !19
 

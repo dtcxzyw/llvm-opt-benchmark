@@ -11,9 +11,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3ozz4math3BoxC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) %0) unnamed_addr #0 align 2 {
-  store <4 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, ptr %2, align 4
+  store float 0x47EFFFFFE0000000, ptr %0, align 4
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  store float 0x47EFFFFFE0000000, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store float 0x47EFFFFFE0000000, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store float 0xC7EFFFFFE0000000, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store float 0xC7EFFFFFE0000000, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  store float 0xC7EFFFFFE0000000, ptr %6, align 4
   ret void
 }
 
@@ -27,38 +35,52 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr nocapture noundef
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.094 = phi ptr [ %23, %.lr.ph ], [ %1, %4 ]
-  %.sroa.882.093 = phi float [ %13, %.lr.ph ], [ 0x47EFFFFFE0000000, %4 ]
-  %.sroa.075.092 = phi <2 x float> [ %16, %.lr.ph ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %4 ]
-  %.sroa.067.091 = phi <2 x float> [ %18, %.lr.ph ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %4 ]
-  %.sroa.8.090 = phi float [ %20, %.lr.ph ], [ 0xC7EFFFFFE0000000, %4 ]
-  %10 = getelementptr inbounds i8, ptr %.094, i64 8
-  %11 = load float, ptr %10, align 4
-  %12 = fcmp olt float %.sroa.882.093, %11
-  %13 = select i1 %12, float %.sroa.882.093, float %11
-  %14 = load <2 x float>, ptr %.094, align 4
-  %15 = fcmp olt <2 x float> %.sroa.075.092, %14
-  %16 = select <2 x i1> %15, <2 x float> %.sroa.075.092, <2 x float> %14
-  %17 = fcmp ogt <2 x float> %.sroa.067.091, %14
-  %18 = select <2 x i1> %17, <2 x float> %.sroa.067.091, <2 x float> %14
-  %19 = fcmp ogt float %.sroa.8.090, %11
-  %20 = select i1 %19, float %.sroa.8.090, float %11
-  %21 = ptrtoint ptr %.094 to i64
-  %22 = add i64 %21, %2
-  %23 = inttoptr i64 %22 to ptr
-  %24 = icmp ult ptr %23, %8
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  %.094 = phi ptr [ %28, %.lr.ph ], [ %1, %4 ]
+  %.sroa.882.093 = phi float [ %19, %.lr.ph ], [ 0x47EFFFFFE0000000, %4 ]
+  %.sroa.075.092 = phi <2 x float> [ %.sroa.0.4.vec.insert, %.lr.ph ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %4 ]
+  %.sroa.067.091 = phi <2 x float> [ %.sroa.064.4.vec.insert, %.lr.ph ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %4 ]
+  %.sroa.8.090 = phi float [ %25, %.lr.ph ], [ 0xC7EFFFFFE0000000, %4 ]
+  %.sroa.075.0.vec.extract77 = extractelement <2 x float> %.sroa.075.092, i64 0
+  %10 = load float, ptr %.094, align 4
+  %11 = fcmp olt float %.sroa.075.0.vec.extract77, %10
+  %.sroa.075.0.vec.extract77. = select i1 %11, float %.sroa.075.0.vec.extract77, float %10
+  %.sroa.075.4.vec.extract80 = extractelement <2 x float> %.sroa.075.092, i64 1
+  %12 = getelementptr inbounds i8, ptr %.094, i64 4
+  %13 = load float, ptr %12, align 4
+  %14 = fcmp olt float %.sroa.075.4.vec.extract80, %13
+  %15 = select i1 %14, float %.sroa.075.4.vec.extract80, float %13
+  %16 = getelementptr inbounds i8, ptr %.094, i64 8
+  %17 = load float, ptr %16, align 4
+  %18 = fcmp olt float %.sroa.882.093, %17
+  %19 = select i1 %18, float %.sroa.882.093, float %17
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %.sroa.075.0.vec.extract77., i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %15, i64 1
+  %.sroa.067.0.vec.extract69 = extractelement <2 x float> %.sroa.067.091, i64 0
+  %20 = fcmp ogt float %.sroa.067.0.vec.extract69, %10
+  %21 = select i1 %20, float %.sroa.067.0.vec.extract69, float %10
+  %.sroa.067.4.vec.extract72 = extractelement <2 x float> %.sroa.067.091, i64 1
+  %22 = fcmp ogt float %.sroa.067.4.vec.extract72, %13
+  %23 = select i1 %22, float %.sroa.067.4.vec.extract72, float %13
+  %24 = fcmp ogt float %.sroa.8.090, %17
+  %25 = select i1 %24, float %.sroa.8.090, float %17
+  %.sroa.064.0.vec.insert = insertelement <2 x float> poison, float %21, i64 0
+  %.sroa.064.4.vec.insert = insertelement <2 x float> %.sroa.064.0.vec.insert, float %23, i64 1
+  %26 = ptrtoint ptr %.094 to i64
+  %27 = add i64 %26, %2
+  %28 = inttoptr i64 %27 to ptr
+  %29 = icmp ult ptr %28, %8
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.sroa.8.0.lcssa = phi float [ 0xC7EFFFFFE0000000, %4 ], [ %20, %.lr.ph ]
-  %.sroa.067.0.lcssa = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %4 ], [ %18, %.lr.ph ]
-  %.sroa.075.0.lcssa = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %4 ], [ %16, %.lr.ph ]
-  %.sroa.882.0.lcssa = phi float [ 0x47EFFFFFE0000000, %4 ], [ %13, %.lr.ph ]
+  %.sroa.8.0.lcssa = phi float [ 0xC7EFFFFFE0000000, %4 ], [ %25, %.lr.ph ]
+  %.sroa.067.0.lcssa = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %4 ], [ %.sroa.064.4.vec.insert, %.lr.ph ]
+  %.sroa.075.0.lcssa = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %4 ], [ %.sroa.0.4.vec.insert, %.lr.ph ]
+  %.sroa.882.0.lcssa = phi float [ 0x47EFFFFFE0000000, %4 ], [ %19, %.lr.ph ]
   store <2 x float> %.sroa.075.0.lcssa, ptr %0, align 4
   %.sroa.882.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store float %.sroa.882.0.lcssa, ptr %.sroa.882.0..sroa_idx, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 12
-  store <2 x float> %.sroa.067.0.lcssa, ptr %25, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  store <2 x float> %.sroa.067.0.lcssa, ptr %30, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   store float %.sroa.8.0.lcssa, ptr %.sroa.8.0..sroa_idx, align 4
   ret void
@@ -96,13 +118,25 @@ define dso_local void @_ZN3ozz4math12TransformBoxERKNS0_8Float4x4ERKNS0_3BoxE(pt
   %31 = fmul <4 x float> %30, %21
   %32 = fadd <4 x float> %26, %31
   %33 = fadd <4 x float> %29, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %24, <4 x float> %33)
-  %36 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %24, <4 x float> %33)
-  %37 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  store <4 x float> %37, ptr %0, align 4
-  %38 = shufflevector <4 x float> %36, <4 x float> poison, <2 x i32> <i32 1, i32 2>
-  store <2 x float> %38, ptr %34, align 4
+  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 12
+  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds i8, ptr %0, i64 20
+  %39 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %24, <4 x float> %33)
+  %40 = extractelement <4 x float> %39, i64 0
+  store float %40, ptr %0, align 4
+  %41 = extractelement <4 x float> %39, i64 1
+  store float %41, ptr %34, align 4
+  %42 = extractelement <4 x float> %39, i64 2
+  store float %42, ptr %35, align 4
+  %43 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %24, <4 x float> %33)
+  %44 = extractelement <4 x float> %43, i64 0
+  store float %44, ptr %36, align 4
+  %45 = extractelement <4 x float> %43, i64 1
+  store float %45, ptr %37, align 4
+  %46 = extractelement <4 x float> %43, i64 2
+  store float %46, ptr %38, align 4
   ret void
 }
 

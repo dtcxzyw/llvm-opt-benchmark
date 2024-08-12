@@ -530,28 +530,32 @@ if.then.i:                                        ; preds = %if.then110
   br label %if.end114
 
 if.then2.i:                                       ; preds = %if.then110
-  %14 = load <2 x i64>, ptr @in6addr_any, align 4
+  %ref.tmp111.sroa.6.sroa.0.0.copyload47 = load i64, ptr @in6addr_any, align 4
+  %ref.tmp111.sroa.6.sroa.4.0.copyload48 = load i64, ptr getelementptr inbounds (i8, ptr @in6addr_any, i64 8), align 4
   br label %if.end114
 
 if.end114:                                        ; preds = %if.then2.i, %if.then.i
+  %ref.tmp111.sroa.6.sroa.0.0 = phi i64 [ %ref.tmp111.sroa.6.sroa.0.0.copyload47, %if.then2.i ], [ 0, %if.then.i ]
+  %ref.tmp111.sroa.6.sroa.4.0 = phi i64 [ %ref.tmp111.sroa.6.sroa.4.0.copyload48, %if.then2.i ], [ undef, %if.then.i ]
   %ref.tmp111.sroa.534.0 = phi i32 [ 0, %if.then2.i ], [ %call.i32, %if.then.i ]
   %ref.tmp111.sroa.0.0 = phi i16 [ 10, %if.then2.i ], [ 2, %if.then.i ]
-  %15 = phi <2 x i64> [ %14, %if.then2.i ], [ <i64 0, i64 undef>, %if.then.i ]
   store i16 %ref.tmp111.sroa.0.0, ptr %ip_addr_, align 4
   %ref.tmp111.sroa.5.0.ip_addr_.sroa_idx = getelementptr inbounds i8, ptr %ip_addr_, i64 2
   store i16 0, ptr %ref.tmp111.sroa.5.0.ip_addr_.sroa_idx, align 2
   %ref.tmp111.sroa.534.0.ip_addr_.sroa_idx = getelementptr inbounds i8, ptr %ip_addr_, i64 4
   store i32 %ref.tmp111.sroa.534.0, ptr %ref.tmp111.sroa.534.0.ip_addr_.sroa_idx, align 4
   %ref.tmp111.sroa.6.0.ip_addr_.sroa_idx = getelementptr inbounds i8, ptr %ip_addr_, i64 8
-  store <2 x i64> %15, ptr %ref.tmp111.sroa.6.0.ip_addr_.sroa_idx, align 4
+  store i64 %ref.tmp111.sroa.6.sroa.0.0, ptr %ref.tmp111.sroa.6.0.ip_addr_.sroa_idx, align 4
+  %ref.tmp111.sroa.6.sroa.4.0.ref.tmp111.sroa.6.0.ip_addr_.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %ip_addr_, i64 16
+  store i64 %ref.tmp111.sroa.6.sroa.4.0, ptr %ref.tmp111.sroa.6.sroa.4.0.ref.tmp111.sroa.6.0.ip_addr_.sroa_idx.sroa_idx, align 4
   %ref.tmp111.sroa.7.0.ip_addr_.sroa_idx = getelementptr inbounds i8, ptr %ip_addr_, i64 24
   store i32 0, ptr %ref.tmp111.sroa.7.0.ip_addr_.sroa_idx, align 4
   br label %if.end139
 
 land.lhs.true116:                                 ; preds = %land.lhs.true107, %if.end103
   %_nic_name_allowed.i = getelementptr inbounds i8, ptr %this, i64 9
-  %16 = load i8, ptr %_nic_name_allowed.i, align 1
-  %tobool.i33 = trunc i8 %16 to i1
+  %14 = load i8, ptr %_nic_name_allowed.i, align 1
+  %tobool.i33 = trunc i8 %14 to i1
   br i1 %tobool.i33, label %if.then119, label %if.then132
 
 if.then119:                                       ; preds = %land.lhs.true116
@@ -564,8 +568,8 @@ invoke.cont120:                                   ; preds = %if.then119
 
 if.else124:                                       ; preds = %invoke.cont120
   %call125 = tail call ptr @__errno_location() #17
-  %17 = load i32, ptr %call125, align 4
-  %cmp126.not = icmp eq i32 %17, 19
+  %15 = load i32, ptr %call125, align 4
+  %cmp126.not = icmp eq i32 %15, 19
   br i1 %cmp126.not, label %if.then132, label %cleanup144
 
 if.then132:                                       ; preds = %land.lhs.true116, %if.else124
@@ -578,10 +582,10 @@ invoke.cont134:                                   ; preds = %if.then132
 
 if.end139:                                        ; preds = %invoke.cont120, %if.end114, %invoke.cont134
   %call2.i = call zeroext i16 @htons(i16 noundef zeroext %port.2) #17
-  %18 = getelementptr inbounds i8, ptr %ip_addr_, i64 2
-  store i16 %call2.i, ptr %18, align 2
-  %19 = load i16, ptr %ip_addr_, align 4
-  %cmp141 = icmp eq i16 %19, 10
+  %16 = getelementptr inbounds i8, ptr %ip_addr_, i64 2
+  store i16 %call2.i, ptr %16, align 2
+  %17 = load i16, ptr %ip_addr_, align 4
+  %cmp141 = icmp eq i16 %17, 10
   br i1 %cmp141, label %if.then142, label %cleanup144
 
 if.then142:                                       ; preds = %if.end139

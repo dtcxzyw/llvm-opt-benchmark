@@ -5333,20 +5333,46 @@ entry:
   %call.i19 = tail call noundef float @nextafterf(float noundef 1.000000e+00, float noundef 2.000000e+00) #16
   store float %call.i19, ptr %arrayinit.element2, align 8
   %arrayinit.element4 = getelementptr inbounds i8, ptr %kValues, i64 12
-  store <4 x float> <float 1.000000e+01, float 0x3FB99999A0000000, float 1.000000e+02, float 0x3F847AE140000000>, ptr %arrayinit.element4, align 4
+  store float 1.000000e+01, ptr %arrayinit.element4, align 4
+  %arrayinit.element5 = getelementptr inbounds i8, ptr %kValues, i64 16
+  store float 0x3FB99999A0000000, ptr %arrayinit.element5, align 16
+  %arrayinit.element6 = getelementptr inbounds i8, ptr %kValues, i64 20
+  store float 1.000000e+02, ptr %arrayinit.element6, align 4
+  %arrayinit.element7 = getelementptr inbounds i8, ptr %kValues, i64 24
+  store float 0x3F847AE140000000, ptr %arrayinit.element7, align 8
   %arrayinit.element8 = getelementptr inbounds i8, ptr %kValues, i64 28
-  store <4 x float> <float 1.000000e+10, float 0x3DDB7CDFE0000000, float 0x3EA12650C0000000, float 0xBEA12650C0000000>, ptr %arrayinit.element8, align 4
+  store float 1.000000e+10, ptr %arrayinit.element8, align 4
+  %arrayinit.element9 = getelementptr inbounds i8, ptr %kValues, i64 32
+  store float 0x3DDB7CDFE0000000, ptr %arrayinit.element9, align 16
+  %arrayinit.element10 = getelementptr inbounds i8, ptr %kValues, i64 36
+  store float 0x3EA12650C0000000, ptr %arrayinit.element10, align 4
+  %arrayinit.element11 = getelementptr inbounds i8, ptr %kValues, i64 40
+  store float 0xBEA12650C0000000, ptr %arrayinit.element11, align 8
   %arrayinit.element12 = getelementptr inbounds i8, ptr %kValues, i64 44
-  store <4 x float> <float 0x4132D6F6E0000000, float 0x3EB4B6E7E0000000, float 0x462F2AECE0000000, float 0x39B90AD1C0000000>, ptr %arrayinit.element12, align 4
+  store float 0x4132D6F6E0000000, ptr %arrayinit.element12, align 4
+  %arrayinit.element13 = getelementptr inbounds i8, ptr %kValues, i64 48
+  store float 0x3EB4B6E7E0000000, ptr %arrayinit.element13, align 16
+  %arrayinit.element14 = getelementptr inbounds i8, ptr %kValues, i64 52
+  store float 0x462F2AECE0000000, ptr %arrayinit.element14, align 4
+  %arrayinit.element15 = getelementptr inbounds i8, ptr %kValues, i64 56
+  store float 0x39B90AD1C0000000, ptr %arrayinit.element15, align 8
   %arrayinit.element16 = getelementptr inbounds i8, ptr %kValues, i64 60
-  store <4 x float> <float 0x47D738C340000000, float 0x380BDC87C0000000, float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, ptr %arrayinit.element16, align 4
+  store float 0x47D738C340000000, ptr %arrayinit.element16, align 4
+  %arrayinit.element17 = getelementptr inbounds i8, ptr %kValues, i64 64
+  store float 0x380BDC87C0000000, ptr %arrayinit.element17, align 16
+  %arrayinit.element18 = getelementptr inbounds i8, ptr %kValues, i64 68
+  store float 0x47EFFFFFE0000000, ptr %arrayinit.element18, align 4
+  %arrayinit.element20 = getelementptr inbounds i8, ptr %kValues, i64 72
+  store float 0xC7EFFFFFE0000000, ptr %arrayinit.element20, align 8
   %arrayinit.element22 = getelementptr inbounds i8, ptr %kValues, i64 76
   store float 0x3E80000000000000, ptr %arrayinit.element22, align 4
   %arrayinit.element24 = getelementptr inbounds i8, ptr %kValues, i64 80
   %call.i20 = tail call noundef float @nextafterf(float noundef 0x3810000000000000, float noundef 1.000000e+00) #16
   store float %call.i20, ptr %arrayinit.element24, align 16
   %arrayinit.element27 = getelementptr inbounds i8, ptr %kValues, i64 84
-  store <2 x float> <float 0x3810000000000000, float 0x36A0000000000000>, ptr %arrayinit.element27, align 4
+  store float 0x3810000000000000, ptr %arrayinit.element27, align 4
+  %arrayinit.element29 = getelementptr inbounds i8, ptr %kValues, i64 88
+  store float 0x36A0000000000000, ptr %arrayinit.element29, align 8
   %arrayinit.element31 = getelementptr inbounds i8, ptr %kValues, i64 92
   store float 0x3800000000000000, ptr %arrayinit.element31, align 4
   %arrayinit.element33 = getelementptr inbounds i8, ptr %kValues, i64 96
@@ -5997,32 +6023,56 @@ entry:
   %call3 = tail call double @nextafter(double noundef 1.000000e+00, double noundef 2.000000e+00) #16
   store double %call3, ptr %arrayinit.element2, align 16
   %arrayinit.element4 = getelementptr inbounds i8, ptr %kValues, i64 24
-  store <2 x double> <double 1.000000e+01, double 1.000000e-01>, ptr %arrayinit.element4, align 8
+  store double 1.000000e+01, ptr %arrayinit.element4, align 8
+  %arrayinit.element5 = getelementptr inbounds i8, ptr %kValues, i64 32
+  store double 1.000000e-01, ptr %arrayinit.element5, align 16
   %arrayinit.element6 = getelementptr inbounds i8, ptr %kValues, i64 40
-  store <2 x double> <double 1.000000e+02, double 1.000000e-02>, ptr %arrayinit.element6, align 8
+  store double 1.000000e+02, ptr %arrayinit.element6, align 8
+  %arrayinit.element7 = getelementptr inbounds i8, ptr %kValues, i64 48
+  store double 1.000000e-02, ptr %arrayinit.element7, align 16
   %arrayinit.element8 = getelementptr inbounds i8, ptr %kValues, i64 56
-  store <2 x double> <double 1.000000e+10, double 1.000000e-10>, ptr %arrayinit.element8, align 8
+  store double 1.000000e+10, ptr %arrayinit.element8, align 8
+  %arrayinit.element9 = getelementptr inbounds i8, ptr %kValues, i64 64
+  store double 1.000000e-10, ptr %arrayinit.element9, align 16
   %arrayinit.element10 = getelementptr inbounds i8, ptr %kValues, i64 72
-  store <2 x double> <double 0x3EA12650C9D1FC75, double 0xBEA12650C9D1D790>, ptr %arrayinit.element10, align 8
+  store double 0x3EA12650C9D1FC75, ptr %arrayinit.element10, align 8
+  %arrayinit.element11 = getelementptr inbounds i8, ptr %kValues, i64 80
+  store double 0xBEA12650C9D1D790, ptr %arrayinit.element11, align 16
   %arrayinit.element12 = getelementptr inbounds i8, ptr %kValues, i64 88
-  store <2 x double> <double 0x4132D6F6E98F7C86, double 0x3EB4B6E7D218FECF>, ptr %arrayinit.element12, align 8
+  store double 0x4132D6F6E98F7C86, ptr %arrayinit.element12, align 8
+  %arrayinit.element13 = getelementptr inbounds i8, ptr %kValues, i64 96
+  store double 0x3EB4B6E7D218FECF, ptr %arrayinit.element13, align 16
   %arrayinit.element14 = getelementptr inbounds i8, ptr %kValues, i64 104
-  store <2 x double> <double 0x462F2AECEB04B8F4, double 0x39B90AD1C6AE2BE9>, ptr %arrayinit.element14, align 8
+  store double 0x462F2AECEB04B8F4, ptr %arrayinit.element14, align 8
+  %arrayinit.element15 = getelementptr inbounds i8, ptr %kValues, i64 112
+  store double 0x39B90AD1C6AE2BE9, ptr %arrayinit.element15, align 16
   %arrayinit.element16 = getelementptr inbounds i8, ptr %kValues, i64 120
-  store <2 x double> <double 0x47D738C341C7B61E, double 0x380BDC87BB9F981D>, ptr %arrayinit.element16, align 8
+  store double 0x47D738C341C7B61E, ptr %arrayinit.element16, align 8
+  %arrayinit.element17 = getelementptr inbounds i8, ptr %kValues, i64 128
+  store double 0x380BDC87BB9F981D, ptr %arrayinit.element17, align 16
   %arrayinit.element18 = getelementptr inbounds i8, ptr %kValues, i64 136
-  store <2 x double> <double 1.000000e+100, double 1.000000e-100>, ptr %arrayinit.element18, align 8
+  store double 1.000000e+100, ptr %arrayinit.element18, align 8
+  %arrayinit.element19 = getelementptr inbounds i8, ptr %kValues, i64 144
+  store double 1.000000e-100, ptr %arrayinit.element19, align 16
   %arrayinit.element20 = getelementptr inbounds i8, ptr %kValues, i64 152
-  store <2 x double> <double 0x7FE5FA5F23041FDA, double 0x75C09D159719C>, ptr %arrayinit.element20, align 8
+  store double 0x7FE5FA5F23041FDA, ptr %arrayinit.element20, align 8
+  %arrayinit.element21 = getelementptr inbounds i8, ptr %kValues, i64 160
+  store double 0x75C09D159719C, ptr %arrayinit.element21, align 16
   %arrayinit.element22 = getelementptr inbounds i8, ptr %kValues, i64 168
-  store <2 x double> <double 0x10000000000000, double 0x7FEFFFFFFFFFFFFF>, ptr %arrayinit.element22, align 8
+  store double 0x10000000000000, ptr %arrayinit.element22, align 8
+  %arrayinit.element23 = getelementptr inbounds i8, ptr %kValues, i64 176
+  store double 0x7FEFFFFFFFFFFFFF, ptr %arrayinit.element23, align 16
   %arrayinit.element25 = getelementptr inbounds i8, ptr %kValues, i64 184
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0x3CB0000000000000>, ptr %arrayinit.element25, align 8
+  store double 0xFFEFFFFFFFFFFFFF, ptr %arrayinit.element25, align 8
+  %arrayinit.element27 = getelementptr inbounds i8, ptr %kValues, i64 192
+  store double 0x3CB0000000000000, ptr %arrayinit.element27, align 16
   %arrayinit.element29 = getelementptr inbounds i8, ptr %kValues, i64 200
   %call31 = tail call double @nextafter(double noundef 0x10000000000000, double noundef 1.000000e+00) #16
   store double %call31, ptr %arrayinit.element29, align 8
   %arrayinit.element32 = getelementptr inbounds i8, ptr %kValues, i64 208
-  store <2 x double> <double 0x10000000000000, double 4.940660e-324>, ptr %arrayinit.element32, align 16
+  store double 0x10000000000000, ptr %arrayinit.element32, align 16
+  %arrayinit.element34 = getelementptr inbounds i8, ptr %kValues, i64 216
+  store double 4.940660e-324, ptr %arrayinit.element34, align 8
   %arrayinit.element36 = getelementptr inbounds i8, ptr %kValues, i64 224
   store double 0x8000000000000, ptr %arrayinit.element36, align 16
   %arrayinit.element38 = getelementptr inbounds i8, ptr %kValues, i64 232

@@ -12365,15 +12365,19 @@ declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7obj_refI4expr11ast_managerE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %struct.mk_ismt2_pp, align 16
-  %0 = load <2 x ptr>, ptr %e, align 8
-  store <2 x ptr> %0, ptr %ref.tmp, align 16
+  %ref.tmp = alloca %struct.mk_ismt2_pp, align 8
+  %0 = load ptr, ptr %e, align 8
+  %m_manager.i = getelementptr inbounds i8, ptr %e, i64 8
+  %1 = load ptr, ptr %m_manager.i, align 8
+  store ptr %0, ptr %ref.tmp, align 8
+  %m_manager.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store ptr %1, ptr %m_manager.i2, align 8
   %m_empty.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr null, ptr %m_empty.i, align 16
+  store ptr null, ptr %m_empty.i, align 8
   %m_params.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr %m_empty.i, ptr %m_params.i, align 8
   %m_indent.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_indent.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_indent.i, i8 0, i64 16, i1 false)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12382,24 +12386,28 @@ invoke.cont:                                      ; preds = %entry
   ret ptr %out
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_empty.i) #19
-  resume { ptr, i32 } %1
+  resume { ptr, i32 } %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7obj_refI3app11ast_managerE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %struct.mk_ismt2_pp, align 16
-  %0 = load <2 x ptr>, ptr %e, align 8
-  store <2 x ptr> %0, ptr %ref.tmp, align 16
+  %ref.tmp = alloca %struct.mk_ismt2_pp, align 8
+  %0 = load ptr, ptr %e, align 8
+  %m_manager.i = getelementptr inbounds i8, ptr %e, i64 8
+  %1 = load ptr, ptr %m_manager.i, align 8
+  store ptr %0, ptr %ref.tmp, align 8
+  %m_manager.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store ptr %1, ptr %m_manager.i2, align 8
   %m_empty.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr null, ptr %m_empty.i, align 16
+  store ptr null, ptr %m_empty.i, align 8
   %m_params.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr %m_empty.i, ptr %m_params.i, align 8
   %m_indent.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_indent.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_indent.i, i8 0, i64 16, i1 false)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12408,24 +12416,28 @@ invoke.cont:                                      ; preds = %entry
   ret ptr %out
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_empty.i) #19
-  resume { ptr, i32 } %1
+  resume { ptr, i32 } %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7obj_refI9func_decl11ast_managerE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %struct.mk_ismt2_pp, align 16
-  %0 = load <2 x ptr>, ptr %e, align 8
-  store <2 x ptr> %0, ptr %ref.tmp, align 16
+  %ref.tmp = alloca %struct.mk_ismt2_pp, align 8
+  %0 = load ptr, ptr %e, align 8
+  %m_manager.i = getelementptr inbounds i8, ptr %e, i64 8
+  %1 = load ptr, ptr %m_manager.i, align 8
+  store ptr %0, ptr %ref.tmp, align 8
+  %m_manager.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store ptr %1, ptr %m_manager.i2, align 8
   %m_empty.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr null, ptr %m_empty.i, align 16
+  store ptr null, ptr %m_empty.i, align 8
   %m_params.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr %m_empty.i, ptr %m_params.i, align 8
   %m_indent.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_indent.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_indent.i, i8 0, i64 16, i1 false)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12434,24 +12446,28 @@ invoke.cont:                                      ; preds = %entry
   ret ptr %out
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_empty.i) #19
-  resume { ptr, i32 } %1
+  resume { ptr, i32 } %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7obj_refI4sort11ast_managerE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %struct.mk_ismt2_pp, align 16
-  %0 = load <2 x ptr>, ptr %e, align 8
-  store <2 x ptr> %0, ptr %ref.tmp, align 16
+  %ref.tmp = alloca %struct.mk_ismt2_pp, align 8
+  %0 = load ptr, ptr %e, align 8
+  %m_manager.i = getelementptr inbounds i8, ptr %e, i64 8
+  %1 = load ptr, ptr %m_manager.i, align 8
+  store ptr %0, ptr %ref.tmp, align 8
+  %m_manager.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store ptr %1, ptr %m_manager.i2, align 8
   %m_empty.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr null, ptr %m_empty.i, align 16
+  store ptr null, ptr %m_empty.i, align 8
   %m_params.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr %m_empty.i, ptr %m_params.i, align 8
   %m_indent.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_indent.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_indent.i, i8 0, i64 16, i1 false)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12460,10 +12476,10 @@ invoke.cont:                                      ; preds = %entry
   ret ptr %out
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_empty.i) #19
-  resume { ptr, i32 } %1
+  resume { ptr, i32 } %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15783,18 +15799,21 @@ _ZN6vectorIN12smt2_printer4infoELb0EjE4backEv.exit: ; preds = %if.end136, %if.en
   %arrayidx.i1.i = getelementptr inbounds %"struct.smt2_printer::info", ptr %121, i64 %retval.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %f_info, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i1.i, i64 12, i1 false)
   store i32 0, ptr %f_info, align 4
-  %125 = load i32, ptr %m_num_decls.i.i, align 4
-  %mul = shl i32 %125, 1
-  %126 = load i32, ptr %num_lets, align 4
-  %mul157 = shl i32 %126, 3
+  %m_depth = getelementptr inbounds i8, ptr %f_info, i64 8
+  %125 = load i32, ptr %m_depth, align 4
+  %inc155 = add i32 %125, 1
+  store i32 %inc155, ptr %m_depth, align 4
+  %126 = load i32, ptr %m_num_decls.i.i, align 4
+  %mul = shl i32 %126, 1
+  %127 = load i32, ptr %num_lets, align 4
+  %mul157 = shl i32 %127, 3
   %add158 = add i32 %mul157, %mul
   %m_weight = getelementptr inbounds i8, ptr %f_info, i64 4
-  %127 = load <2 x i32>, ptr %m_weight, align 4
-  %128 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %add158, i64 0
-  %129 = add <2 x i32> %128, %127
-  store <2 x i32> %129, ptr %m_weight, align 4
+  %128 = load i32, ptr %m_weight, align 4
+  %add159 = add i32 %add158, %128
+  store i32 %add159, ptr %m_weight, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i.i)
-  %cmp2.not.i.i = icmp eq i32 %125, 0
+  %cmp2.not.i.i = icmp eq i32 %126, 0
   br i1 %cmp2.not.i.i, label %_ZN12smt2_printer20unregister_var_namesEP10quantifier.exit, label %for.body.lr.ph.i.i340
 
 for.body.lr.ph.i.i340:                            ; preds = %_ZN6vectorIN12smt2_printer4infoELb0EjE4backEv.exit
@@ -15804,29 +15823,29 @@ for.body.lr.ph.i.i340:                            ; preds = %_ZN6vectorIN12smt2_
 
 for.body.i.i341:                                  ; preds = %_ZN6vectorI6symbolLb0EjE4backEv.exit.i.i, %for.body.lr.ph.i.i340
   %i.03.i.i = phi i32 [ 0, %for.body.lr.ph.i.i340 ], [ %inc.i.i345, %_ZN6vectorI6symbolLb0EjE4backEv.exit.i.i ]
-  %130 = load ptr, ptr %m_var_names.i.i, align 8
-  %cmp.i.i.i.i342 = icmp eq ptr %130, null
+  %129 = load ptr, ptr %m_var_names.i.i, align 8
+  %cmp.i.i.i.i342 = icmp eq ptr %129, null
   br i1 %cmp.i.i.i.i342, label %_ZN6vectorI6symbolLb0EjE4backEv.exit.i.i, label %if.end.i.i.i.i343
 
 if.end.i.i.i.i343:                                ; preds = %for.body.i.i341
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %130, i64 -4
-  %131 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %132 = add i32 %131, -1
-  %133 = zext i32 %132 to i64
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %129, i64 -4
+  %130 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %131 = add i32 %130, -1
+  %132 = zext i32 %131 to i64
   br label %_ZN6vectorI6symbolLb0EjE4backEv.exit.i.i
 
 _ZN6vectorI6symbolLb0EjE4backEv.exit.i.i:         ; preds = %if.end.i.i.i.i343, %for.body.i.i341
-  %retval.0.i.i.i.i = phi i64 [ %133, %if.end.i.i.i.i343 ], [ 4294967295, %for.body.i.i341 ]
-  %arrayidx.i1.i.i.i = getelementptr inbounds %class.symbol, ptr %130, i64 %retval.0.i.i.i.i
-  %134 = load i64, ptr %arrayidx.i1.i.i.i, align 8
-  store i64 %134, ptr %s.i.i, align 8
-  %arrayidx.i.i.i344 = getelementptr inbounds i8, ptr %130, i64 -4
-  %135 = load i32, ptr %arrayidx.i.i.i344, align 4
-  %dec.i.i.i = add i32 %135, -1
+  %retval.0.i.i.i.i = phi i64 [ %132, %if.end.i.i.i.i343 ], [ 4294967295, %for.body.i.i341 ]
+  %arrayidx.i1.i.i.i = getelementptr inbounds %class.symbol, ptr %129, i64 %retval.0.i.i.i.i
+  %133 = load i64, ptr %arrayidx.i1.i.i.i, align 8
+  store i64 %133, ptr %s.i.i, align 8
+  %arrayidx.i.i.i344 = getelementptr inbounds i8, ptr %129, i64 -4
+  %134 = load i32, ptr %arrayidx.i.i.i344, align 4
+  %dec.i.i.i = add i32 %134, -1
   store i32 %dec.i.i.i, ptr %arrayidx.i.i.i344, align 4
   call void @_ZN14core_hashtableI18default_hash_entryI6symbolE16symbol_hash_proc14symbol_eq_procE6removeERKS1_(ptr noundef nonnull align 8 dereferenceable(20) %m_var_names_set.i.i, ptr noundef nonnull align 8 dereferenceable(8) %s.i.i)
   %inc.i.i345 = add nuw i32 %i.03.i.i, 1
-  %exitcond.not.i.i346 = icmp eq i32 %inc.i.i345, %125
+  %exitcond.not.i.i346 = icmp eq i32 %inc.i.i345, %126
   br i1 %exitcond.not.i.i346, label %_ZN12smt2_printer20unregister_var_namesEP10quantifier.exit, label %for.body.i.i341, !llvm.loop !68
 
 _ZN12smt2_printer20unregister_var_namesEP10quantifier.exit: ; preds = %_ZN6vectorI6symbolLb0EjE4backEv.exit.i.i, %_ZN6vectorIN12smt2_printer4infoELb0EjE4backEv.exit

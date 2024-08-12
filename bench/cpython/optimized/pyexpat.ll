@@ -6439,8 +6439,14 @@ if.then77:                                        ; preds = %do.end74
 
 if.end79:                                         ; preds = %do.end74
   %size = getelementptr inbounds i8, ptr %call75, i64 8
+  store i32 176, ptr %size, align 8
   store ptr @.str.89, ptr %call75, align 8
-  store <4 x i32> <i32 176, i32 2, i32 5, i32 0>, ptr %size, align 8
+  %MAJOR_VERSION = getelementptr inbounds i8, ptr %call75, i64 12
+  store i32 2, ptr %MAJOR_VERSION, align 4
+  %MINOR_VERSION = getelementptr inbounds i8, ptr %call75, i64 16
+  store i32 5, ptr %MINOR_VERSION, align 8
+  %MICRO_VERSION = getelementptr inbounds i8, ptr %call75, i64 20
+  store i32 0, ptr %MICRO_VERSION, align 4
   %ErrorString = getelementptr inbounds i8, ptr %call75, i64 24
   store ptr @PyExpat_XML_ErrorString, ptr %ErrorString, align 8
   %GetErrorCode = getelementptr inbounds i8, ptr %call75, i64 32

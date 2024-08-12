@@ -226,8 +226,14 @@ entry:
   %1 = load ptr, ptr %bytes, align 8
   %bytes2 = getelementptr inbounds i8, ptr %agg.result, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cond, i64 1
+  store i8 0, ptr %cond, align 1
+  %incdec.ptr3.i = getelementptr inbounds i8, ptr %cond, i64 2
+  store i8 0, ptr %incdec.ptr.i, align 1
+  %incdec.ptr5.i = getelementptr inbounds i8, ptr %cond, i64 3
+  store i8 0, ptr %incdec.ptr3.i, align 1
   %incdec.ptr6.i = getelementptr inbounds i8, ptr %cond, i64 4
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 4>, ptr %cond, align 1
+  store i8 4, ptr %incdec.ptr5.i, align 1
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %cond, i64 5
   store i8 1, ptr %incdec.ptr6.i, align 1
   store i32 0, ptr %incdec.ptr7.i, align 1

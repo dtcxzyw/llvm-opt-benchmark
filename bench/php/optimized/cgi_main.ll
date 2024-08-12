@@ -665,9 +665,12 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr %10, align 4
   %17 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #28
   call void @zend_signal_startup() #28
+  store i8 0, ptr getelementptr inbounds (i8, ptr @php_cgi_globals, i64 64), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @php_cgi_globals, i64 65), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @php_cgi_globals, i64 66), align 2
   store i8 1, ptr getelementptr inbounds (i8, ptr @php_cgi_globals, i64 68), align 4
   store ptr null, ptr getelementptr inbounds (i8, ptr @php_cgi_globals, i64 56), align 8
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 1>, ptr getelementptr inbounds (i8, ptr @php_cgi_globals, i64 64), align 8
+  store i8 1, ptr getelementptr inbounds (i8, ptr @php_cgi_globals, i64 67), align 1
   store i8 0, ptr getelementptr inbounds (i8, ptr @php_cgi_globals, i64 69), align 1
   store i8 1, ptr getelementptr inbounds (i8, ptr @php_cgi_globals, i64 70), align 2
   call void @_zend_hash_init(ptr noundef nonnull @php_cgi_globals, i32 noundef 8, ptr noundef nonnull @user_config_cache_entry_dtor, i1 noundef zeroext true) #28

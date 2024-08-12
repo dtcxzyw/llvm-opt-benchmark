@@ -3911,7 +3911,7 @@ declare noundef zeroext i1 @_ZN4Luau7CodeGen28isCustomUserdataBytecodeTypeEh(i8 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13BytecodeTypesE(i32 noundef %0, ptr noundef nonnull writeonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
-  switch i32 %0, label %106 [
+  switch i32 %0, label %130 [
     i32 0, label %3
     i32 1, label %3
     i32 2, label %4
@@ -3955,52 +3955,52 @@ define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13Bytecod
     i32 40, label %46
     i32 41, label %47
     i32 42, label %50
-    i32 43, label %51
-    i32 44, label %53
-    i32 45, label %54
-    i32 46, label %55
-    i32 47, label %56
-    i32 48, label %58
-    i32 50, label %60
-    i32 51, label %62
-    i32 53, label %63
-    i32 54, label %66
-    i32 55, label %67
-    i32 56, label %67
-    i32 57, label %69
-    i32 58, label %70
-    i32 59, label %71
-    i32 60, label %74
-    i32 62, label %75
-    i32 63, label %76
-    i32 64, label %77
-    i32 65, label %79
-    i32 66, label %79
-    i32 67, label %82
-    i32 68, label %83
-    i32 69, label %83
-    i32 70, label %86
-    i32 71, label %87
-    i32 72, label %87
-    i32 73, label %90
-    i32 74, label %91
-    i32 75, label %94
-    i32 76, label %95
-    i32 77, label %98
-    i32 52, label %99
-    i32 49, label %101
-    i32 61, label %103
+    i32 43, label %54
+    i32 44, label %56
+    i32 45, label %57
+    i32 46, label %61
+    i32 47, label %62
+    i32 48, label %64
+    i32 50, label %66
+    i32 51, label %68
+    i32 53, label %69
+    i32 54, label %72
+    i32 55, label %76
+    i32 56, label %76
+    i32 57, label %78
+    i32 58, label %79
+    i32 59, label %80
+    i32 60, label %83
+    i32 62, label %84
+    i32 63, label %85
+    i32 64, label %86
+    i32 65, label %88
+    i32 66, label %88
+    i32 67, label %91
+    i32 68, label %95
+    i32 69, label %95
+    i32 70, label %98
+    i32 71, label %102
+    i32 72, label %102
+    i32 73, label %105
+    i32 74, label %109
+    i32 75, label %112
+    i32 76, label %116
+    i32 77, label %119
+    i32 52, label %123
+    i32 49, label %125
+    i32 61, label %127
   ]
 
 3:                                                ; preds = %2, %2
   store i8 15, ptr %1, align 1
-  br label %106
+  br label %130
 
 4:                                                ; preds = %2, %2, %2
   store i8 2, ptr %1, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 2, ptr %5, align 1
-  br label %106
+  br label %130
 
 6:                                                ; preds = %2
   store i8 2, ptr %1, align 1
@@ -4008,13 +4008,13 @@ define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13Bytecod
   store i8 2, ptr %7, align 1
   %8 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 2, ptr %8, align 1
-  br label %106
+  br label %130
 
 9:                                                ; preds = %2, %2, %2, %2, %2, %2, %2
   store i8 2, ptr %1, align 1
   %10 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 2, ptr %10, align 1
-  br label %106
+  br label %130
 
 11:                                               ; preds = %2
   store i8 2, ptr %1, align 1
@@ -4022,13 +4022,13 @@ define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13Bytecod
   store i8 2, ptr %12, align 1
   %13 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 2, ptr %13, align 1
-  br label %106
+  br label %130
 
 14:                                               ; preds = %2
   store i8 2, ptr %1, align 1
   %15 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 2, ptr %15, align 1
-  br label %106
+  br label %130
 
 16:                                               ; preds = %2
   store i8 2, ptr %1, align 1
@@ -4036,13 +4036,13 @@ define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13Bytecod
   store i8 2, ptr %17, align 1
   %18 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 2, ptr %18, align 1
-  br label %106
+  br label %130
 
 19:                                               ; preds = %2
   store i8 2, ptr %1, align 1
   %20 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 2, ptr %20, align 1
-  br label %106
+  br label %130
 
 21:                                               ; preds = %2
   store i8 2, ptr %1, align 1
@@ -4050,17 +4050,17 @@ define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13Bytecod
   store i8 2, ptr %22, align 1
   %23 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 2, ptr %23, align 1
-  br label %106
+  br label %130
 
 24:                                               ; preds = %2, %2
   store i32 33686018, ptr %1, align 1
-  br label %106
+  br label %130
 
 25:                                               ; preds = %2
   store i8 2, ptr %1, align 1
   %26 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 2, ptr %26, align 1
-  br label %106
+  br label %130
 
 27:                                               ; preds = %2
   store i8 2, ptr %1, align 1
@@ -4068,13 +4068,13 @@ define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13Bytecod
   store i8 2, ptr %28, align 1
   %29 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 2, ptr %29, align 1
-  br label %106
+  br label %130
 
 30:                                               ; preds = %2, %2, %2, %2, %2, %2
   store i8 2, ptr %1, align 1
   %31 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 2, ptr %31, align 1
-  br label %106
+  br label %130
 
 32:                                               ; preds = %2
   store i8 2, ptr %1, align 1
@@ -4082,21 +4082,21 @@ define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13Bytecod
   store i8 2, ptr %33, align 1
   %34 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 2, ptr %34, align 1
-  br label %106
+  br label %130
 
 35:                                               ; preds = %2
   store i32 33686018, ptr %1, align 1
-  br label %106
+  br label %130
 
 36:                                               ; preds = %2
   store i8 2, ptr %1, align 1
   %37 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 2, ptr %37, align 1
-  br label %106
+  br label %130
 
 38:                                               ; preds = %2, %2, %2, %2
   store i32 33686018, ptr %1, align 1
-  br label %106
+  br label %130
 
 39:                                               ; preds = %2, %2
   store i8 2, ptr %1, align 1
@@ -4104,11 +4104,11 @@ define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13Bytecod
   store i8 2, ptr %40, align 1
   %41 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 2, ptr %41, align 1
-  br label %106
+  br label %130
 
 42:                                               ; preds = %2
   store i32 33686018, ptr %1, align 1
-  br label %106
+  br label %130
 
 43:                                               ; preds = %2, %2
   store i8 2, ptr %1, align 1
@@ -4116,11 +4116,11 @@ define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13Bytecod
   store i8 2, ptr %44, align 1
   %45 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 2, ptr %45, align 1
-  br label %106
+  br label %130
 
 46:                                               ; preds = %2
   store i8 3, ptr %1, align 1
-  br label %106
+  br label %130
 
 47:                                               ; preds = %2
   store i8 2, ptr %1, align 1
@@ -4128,185 +4128,233 @@ define internal fastcc void @_ZN4Luau7CodeGenL16applyBuiltinCallEiRNS0_13Bytecod
   store i8 3, ptr %48, align 1
   %49 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 2, ptr %49, align 1
-  br label %106
+  br label %130
 
 50:                                               ; preds = %2
-  store <4 x i8> <i8 3, i8 2, i8 2, i8 2>, ptr %1, align 1
-  br label %106
-
-51:                                               ; preds = %2
-  store i8 2, ptr %1, align 1
-  %52 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 3, ptr %52, align 1
-  br label %106
-
-53:                                               ; preds = %2
   store i8 3, ptr %1, align 1
-  br label %106
+  %51 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 2, ptr %51, align 1
+  %52 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 2, ptr %52, align 1
+  %53 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 2, ptr %53, align 1
+  br label %130
 
 54:                                               ; preds = %2
-  store <4 x i8> <i8 3, i8 3, i8 2, i8 2>, ptr %1, align 1
-  br label %106
-
-55:                                               ; preds = %2
-  store i32 33686018, ptr %1, align 1
-  br label %106
+  store i8 2, ptr %1, align 1
+  %55 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 3, ptr %55, align 1
+  br label %130
 
 56:                                               ; preds = %2
-  store i8 2, ptr %1, align 1
-  %57 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 2, ptr %57, align 1
-  br label %106
+  store i8 3, ptr %1, align 1
+  br label %130
 
-58:                                               ; preds = %2
-  store i8 2, ptr %1, align 1
-  %59 = getelementptr inbounds i8, ptr %1, i64 1
+57:                                               ; preds = %2
+  store i8 3, ptr %1, align 1
+  %58 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 3, ptr %58, align 1
+  %59 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 2, ptr %59, align 1
-  br label %106
+  %60 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 2, ptr %60, align 1
+  br label %130
 
-60:                                               ; preds = %2
-  store i8 15, ptr %1, align 1
-  %61 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 4, ptr %61, align 1
-  br label %106
+61:                                               ; preds = %2
+  store i32 33686018, ptr %1, align 1
+  br label %130
 
 62:                                               ; preds = %2
-  store i8 1, ptr %1, align 1
-  br label %106
+  store i8 2, ptr %1, align 1
+  %63 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 2, ptr %63, align 1
+  br label %130
 
-63:                                               ; preds = %2
-  store i8 15, ptr %1, align 1
-  %64 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 4, ptr %64, align 1
-  %65 = getelementptr inbounds i8, ptr %1, i64 2
+64:                                               ; preds = %2
+  store i8 2, ptr %1, align 1
+  %65 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 2, ptr %65, align 1
-  br label %106
+  br label %130
 
 66:                                               ; preds = %2
-  store <4 x i8> <i8 8, i8 2, i8 2, i8 2>, ptr %1, align 1
-  br label %106
+  store i8 15, ptr %1, align 1
+  %67 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 4, ptr %67, align 1
+  br label %130
 
-67:                                               ; preds = %2, %2
-  store i8 2, ptr %1, align 1
-  %68 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 2, ptr %68, align 1
-  br label %106
+68:                                               ; preds = %2
+  store i8 1, ptr %1, align 1
+  br label %130
 
 69:                                               ; preds = %2
   store i8 15, ptr %1, align 1
-  br label %106
+  %70 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 4, ptr %70, align 1
+  %71 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 2, ptr %71, align 1
+  br label %130
 
-70:                                               ; preds = %2
-  store i8 2, ptr %1, align 1
-  br label %106
-
-71:                                               ; preds = %2
-  store i8 2, ptr %1, align 1
-  %72 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 2, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %1, i64 2
+72:                                               ; preds = %2
+  store i8 8, ptr %1, align 1
+  %73 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 2, ptr %73, align 1
-  br label %106
+  %74 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 2, ptr %74, align 1
+  %75 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 2, ptr %75, align 1
+  br label %130
 
-74:                                               ; preds = %2
-  store i8 4, ptr %1, align 1
-  br label %106
-
-75:                                               ; preds = %2
+76:                                               ; preds = %2, %2
   store i8 2, ptr %1, align 1
-  br label %106
+  %77 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 2, ptr %77, align 1
+  br label %130
 
-76:                                               ; preds = %2
-  store i8 3, ptr %1, align 1
-  br label %106
+78:                                               ; preds = %2
+  store i8 15, ptr %1, align 1
+  br label %130
 
-77:                                               ; preds = %2
+79:                                               ; preds = %2
   store i8 2, ptr %1, align 1
-  %78 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 2, ptr %78, align 1
-  br label %106
+  br label %130
 
-79:                                               ; preds = %2, %2
+80:                                               ; preds = %2
   store i8 2, ptr %1, align 1
-  %80 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 9, ptr %80, align 1
-  %81 = getelementptr inbounds i8, ptr %1, i64 2
+  %81 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 2, ptr %81, align 1
-  br label %106
+  %82 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 2, ptr %82, align 1
+  br label %130
 
-82:                                               ; preds = %2
-  store <4 x i8> <i8 0, i8 9, i8 2, i8 2>, ptr %1, align 1
-  br label %106
+83:                                               ; preds = %2
+  store i8 4, ptr %1, align 1
+  br label %130
 
-83:                                               ; preds = %2, %2
+84:                                               ; preds = %2
   store i8 2, ptr %1, align 1
-  %84 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 9, ptr %84, align 1
-  %85 = getelementptr inbounds i8, ptr %1, i64 2
-  store i8 2, ptr %85, align 1
-  br label %106
+  br label %130
+
+85:                                               ; preds = %2
+  store i8 3, ptr %1, align 1
+  br label %130
 
 86:                                               ; preds = %2
-  store <4 x i8> <i8 0, i8 9, i8 2, i8 2>, ptr %1, align 1
-  br label %106
-
-87:                                               ; preds = %2, %2
   store i8 2, ptr %1, align 1
-  %88 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 9, ptr %88, align 1
-  %89 = getelementptr inbounds i8, ptr %1, i64 2
-  store i8 2, ptr %89, align 1
-  br label %106
+  %87 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 2, ptr %87, align 1
+  br label %130
 
-90:                                               ; preds = %2
-  store <4 x i8> <i8 0, i8 9, i8 2, i8 2>, ptr %1, align 1
-  br label %106
+88:                                               ; preds = %2, %2
+  store i8 2, ptr %1, align 1
+  %89 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 9, ptr %89, align 1
+  %90 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 2, ptr %90, align 1
+  br label %130
 
 91:                                               ; preds = %2
-  store i8 2, ptr %1, align 1
+  store i8 0, ptr %1, align 1
   %92 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 9, ptr %92, align 1
   %93 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 2, ptr %93, align 1
-  br label %106
+  %94 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 2, ptr %94, align 1
+  br label %130
 
-94:                                               ; preds = %2
-  store <4 x i8> <i8 0, i8 9, i8 2, i8 2>, ptr %1, align 1
-  br label %106
-
-95:                                               ; preds = %2
+95:                                               ; preds = %2, %2
   store i8 2, ptr %1, align 1
   %96 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 9, ptr %96, align 1
   %97 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 2, ptr %97, align 1
-  br label %106
+  br label %130
 
 98:                                               ; preds = %2
-  store <4 x i8> <i8 0, i8 9, i8 2, i8 2>, ptr %1, align 1
-  br label %106
-
-99:                                               ; preds = %2
   store i8 0, ptr %1, align 1
-  %100 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 4, ptr %100, align 1
-  br label %106
+  %99 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 9, ptr %99, align 1
+  %100 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 2, ptr %100, align 1
+  %101 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 2, ptr %101, align 1
+  br label %130
 
-101:                                              ; preds = %2
+102:                                              ; preds = %2, %2
+  store i8 2, ptr %1, align 1
+  %103 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 9, ptr %103, align 1
+  %104 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 2, ptr %104, align 1
+  br label %130
+
+105:                                              ; preds = %2
+  store i8 0, ptr %1, align 1
+  %106 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 9, ptr %106, align 1
+  %107 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 2, ptr %107, align 1
+  %108 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 2, ptr %108, align 1
+  br label %130
+
+109:                                              ; preds = %2
+  store i8 2, ptr %1, align 1
+  %110 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 9, ptr %110, align 1
+  %111 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 2, ptr %111, align 1
+  br label %130
+
+112:                                              ; preds = %2
+  store i8 0, ptr %1, align 1
+  %113 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 9, ptr %113, align 1
+  %114 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 2, ptr %114, align 1
+  %115 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 2, ptr %115, align 1
+  br label %130
+
+116:                                              ; preds = %2
+  store i8 2, ptr %1, align 1
+  %117 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 9, ptr %117, align 1
+  %118 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 2, ptr %118, align 1
+  br label %130
+
+119:                                              ; preds = %2
+  store i8 0, ptr %1, align 1
+  %120 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 9, ptr %120, align 1
+  %121 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 2, ptr %121, align 1
+  %122 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 2, ptr %122, align 1
+  br label %130
+
+123:                                              ; preds = %2
+  store i8 0, ptr %1, align 1
+  %124 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 4, ptr %124, align 1
+  br label %130
+
+125:                                              ; preds = %2
   store i8 15, ptr %1, align 1
-  %102 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 4, ptr %102, align 1
-  br label %106
+  %126 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 4, ptr %126, align 1
+  br label %130
 
-103:                                              ; preds = %2
+127:                                              ; preds = %2
   store i8 4, ptr %1, align 1
-  %104 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 4, ptr %104, align 1
-  %105 = getelementptr inbounds i8, ptr %1, i64 2
-  store i8 4, ptr %105, align 1
-  br label %106
+  %128 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 4, ptr %128, align 1
+  %129 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 4, ptr %129, align 1
+  br label %130
 
-106:                                              ; preds = %103, %101, %99, %98, %95, %94, %91, %90, %87, %86, %83, %82, %79, %77, %76, %75, %74, %71, %70, %69, %67, %66, %63, %62, %60, %58, %56, %55, %54, %53, %51, %50, %47, %46, %43, %42, %39, %38, %36, %35, %32, %30, %27, %25, %24, %21, %19, %16, %14, %11, %9, %6, %4, %3, %2
+130:                                              ; preds = %127, %125, %123, %119, %116, %112, %109, %105, %102, %98, %95, %91, %88, %86, %85, %84, %83, %80, %79, %78, %76, %72, %69, %68, %66, %64, %62, %61, %57, %56, %54, %50, %47, %46, %43, %42, %39, %38, %36, %35, %32, %30, %27, %25, %24, %21, %19, %16, %14, %11, %9, %6, %4, %3, %2
   ret void
 }
 

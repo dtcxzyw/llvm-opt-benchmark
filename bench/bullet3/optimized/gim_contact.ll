@@ -306,7 +306,9 @@ if.else74:                                        ; preds = %for.body42
 
 for.body.preheader.i:                             ; preds = %if.else74
   %m_normal.i = getelementptr inbounds i8, ptr %pcontact.0156, i64 16
-  %40 = load <2 x float>, ptr %m_normal.i, align 4
+  %vec_sum.sroa.0.0.copyload.i = load float, ptr %m_normal.i, align 4
+  %vec_sum.sroa.5.0.m_normal.sroa_idx.i = getelementptr inbounds i8, ptr %pcontact.0156, i64 20
+  %vec_sum.sroa.5.0.copyload.i = load float, ptr %vec_sum.sroa.5.0.m_normal.sroa_idx.i, align 4
   %vec_sum.sroa.9.0.m_normal.sroa_idx.i = getelementptr inbounds i8, ptr %pcontact.0156, i64 24
   %vec_sum.sroa.9.0.copyload.i = load float, ptr %vec_sum.sroa.9.0.m_normal.sroa_idx.i, align 4
   %wide.trip.count.i = zext i32 %coincident_count.0154 to i64
@@ -314,58 +316,61 @@ for.body.preheader.i:                             ; preds = %if.else74
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %vec_sum.sroa.0.013.i = phi float [ %vec_sum.sroa.0.0.copyload.i, %for.body.preheader.i ], [ %add.i.i107, %for.body.i ]
+  %vec_sum.sroa.5.012.i = phi float [ %vec_sum.sroa.5.0.copyload.i, %for.body.preheader.i ], [ %add8.i.i, %for.body.i ]
   %vec_sum.sroa.9.011.i = phi float [ %vec_sum.sroa.9.0.copyload.i, %for.body.preheader.i ], [ %add13.i.i, %for.body.i ]
-  %41 = phi <2 x float> [ %40, %for.body.preheader.i ], [ %43, %for.body.i ]
   %arrayidx.i106 = getelementptr inbounds %class.btVector3, ptr %coincident_normals, i64 %indvars.iv.i
-  %42 = load <2 x float>, ptr %arrayidx.i106, align 16
-  %43 = fadd <2 x float> %41, %42
+  %40 = load float, ptr %arrayidx.i106, align 16
+  %add.i.i107 = fadd float %vec_sum.sroa.0.013.i, %40
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx.i106, i64 4
+  %41 = load float, ptr %arrayidx5.i.i, align 4
+  %add8.i.i = fadd float %vec_sum.sroa.5.012.i, %41
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i106, i64 8
-  %44 = load float, ptr %arrayidx10.i.i, align 8
-  %add13.i.i = fadd float %vec_sum.sroa.9.011.i, %44
+  %42 = load float, ptr %arrayidx10.i.i, align 8
+  %add13.i.i = fadd float %vec_sum.sroa.9.011.i, %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i
-  %45 = fmul <2 x float> %43, %43
-  %mul8.i.i.i = extractelement <2 x float> %45, i64 1
-  %46 = extractelement <2 x float> %43, i64 0
-  %47 = tail call float @llvm.fmuladd.f32(float %46, float %46, float %mul8.i.i.i)
-  %48 = tail call noundef float @llvm.fmuladd.f32(float %add13.i.i, float %add13.i.i, float %47)
-  %cmp3.i = fcmp olt float %48, 0x3EE4F8B580000000
+  %mul8.i.i.i = fmul float %add8.i.i, %add8.i.i
+  %43 = tail call float @llvm.fmuladd.f32(float %add.i.i107, float %add.i.i107, float %mul8.i.i.i)
+  %44 = tail call noundef float @llvm.fmuladd.f32(float %add13.i.i, float %add13.i.i, float %43)
+  %cmp3.i = fcmp olt float %44, 0x3EE4F8B580000000
   br i1 %cmp3.i, label %if.end79, label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i
-  %cmp4.i = fcmp ugt float %48, 0x3E7AD7F2A0000000
+  %cmp4.i = fcmp ugt float %44, 0x3E7AD7F2A0000000
   br i1 %cmp4.i, label %if.else.i, label %if.end9.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %49 = bitcast float %48 to i32
-  %shr.i = lshr i32 %49, 1
+  %45 = bitcast float %44 to i32
+  %shr.i = lshr i32 %45, 1
   %sub.i109 = sub nsw i32 1597463007, %shr.i
-  %50 = bitcast i32 %sub.i109 to float
-  %51 = fmul float %48, -5.000000e-01
-  %neg.i = fmul float %51, %50
-  %52 = tail call float @llvm.fmuladd.f32(float %neg.i, float %50, float 1.500000e+00)
-  %mul8.i = fmul float %52, %50
+  %46 = bitcast i32 %sub.i109 to float
+  %47 = fmul float %44, -5.000000e-01
+  %neg.i = fmul float %47, %46
+  %48 = tail call float @llvm.fmuladd.f32(float %neg.i, float %46, float 1.500000e+00)
+  %mul8.i = fmul float %48, %46
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.else.i, %if.end.i
   %storemerge.i = phi float [ %mul8.i, %if.else.i ], [ 0x47EFFFFFE0000000, %if.end.i ]
-  %53 = insertelement <2 x float> poison, float %storemerge.i, i64 0
-  %54 = shufflevector <2 x float> %53, <2 x float> poison, <2 x i32> zeroinitializer
-  %55 = fmul <2 x float> %43, %54
+  %mul.i.i108 = fmul float %add.i.i107, %storemerge.i
+  %mul4.i.i = fmul float %add8.i.i, %storemerge.i
   %mul8.i.i = fmul float %add13.i.i, %storemerge.i
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %mul.i.i108, i64 0
+  %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %mul4.i.i, i64 1
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i, i64 0
-  store <2 x float> %55, ptr %m_normal.i, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %m_normal.i, align 4
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %vec_sum.sroa.9.0.m_normal.sroa_idx.i, align 4
   br label %if.end79
 
 if.end79:                                         ; preds = %if.end9.i, %for.end.i, %if.else74
   %coincident_count.2 = phi i32 [ %coincident_count.0154, %if.else74 ], [ 0, %for.end.i ], [ 0, %if.end9.i ]
-  %56 = load i32, ptr %m_allocated_size.i.i68, align 4
-  %57 = load i32, ptr %m_size.i, align 8
-  %cmp.not.i.i112 = icmp ugt i32 %56, %57
+  %49 = load i32, ptr %m_allocated_size.i.i68, align 4
+  %50 = load i32, ptr %m_size.i, align 8
+  %cmp.not.i.i112 = icmp ugt i32 %49, %50
   br i1 %cmp.not.i.i112, label %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i135, label %if.then.i.i113
 
 entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i135: ; preds = %if.end79
@@ -373,23 +378,23 @@ entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i135: ; preds 
   br label %invoke.cont80
 
 if.then.i.i113:                                   ; preds = %if.end79
-  store i32 %56, ptr %m_size.i, align 8
-  %add.i.i114 = shl i32 %57, 1
+  store i32 %49, ptr %m_size.i, align 8
+  %add.i.i114 = shl i32 %50, 1
   %mul.i.i115 = add i32 %add.i.i114, 4
   %cmp.i.i.i116 = icmp eq i32 %mul.i.i115, 0
   br i1 %cmp.i.i.i116, label %if.then.i.i.i92.invoke, label %if.end.i.i.i117
 
 if.end.i.i.i117:                                  ; preds = %if.then.i.i113
-  %cmp2.not.i.i.i118 = icmp eq i32 %56, 0
+  %cmp2.not.i.i.i118 = icmp eq i32 %49, 0
   br i1 %cmp2.not.i.i.i118, label %if.else.i.i.i130, label %if.then3.i.i.i119
 
 if.then3.i.i.i119:                                ; preds = %if.end.i.i.i117
-  %58 = load ptr, ptr %this, align 8
-  %conv.i.i.i120 = zext i32 %56 to i64
+  %51 = load ptr, ptr %this, align 8
+  %conv.i.i.i120 = zext i32 %49 to i64
   %mul.i.i.i121 = mul nuw nsw i64 %conv.i.i.i120, 48
   %conv5.i.i.i122 = zext i32 %mul.i.i115 to i64
   %mul6.i.i.i123 = mul nuw nsw i64 %conv5.i.i.i122, 48
-  %call.i.i.i124138 = invoke noundef ptr @_Z11gim_reallocPvmm(ptr noundef %58, i64 noundef %mul.i.i.i121, i64 noundef %mul6.i.i.i123)
+  %call.i.i.i124138 = invoke noundef ptr @_Z11gim_reallocPvmm(ptr noundef %51, i64 noundef %mul.i.i.i121, i64 noundef %mul6.i.i.i123)
           to label %if.end12.i.i.i125 unwind label %lpad.loopexit
 
 if.else.i.i.i130:                                 ; preds = %if.end.i.i.i117
@@ -406,17 +411,17 @@ if.end12.i.i.i125:                                ; preds = %if.else.i.i.i130, %
   br label %invoke.cont80
 
 invoke.cont80:                                    ; preds = %if.end12.i.i.i125, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i135
-  %59 = phi i32 [ %57, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i135 ], [ %.pre166, %if.end12.i.i.i125 ]
-  %60 = phi ptr [ %.pre.i136, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i135 ], [ %storemerge.i.i.i126, %if.end12.i.i.i125 ]
-  %idxprom.i127 = zext i32 %59 to i64
-  %arrayidx.i128 = getelementptr inbounds %class.GIM_CONTACT, ptr %60, i64 %idxprom.i127
+  %52 = phi i32 [ %50, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i135 ], [ %.pre166, %if.end12.i.i.i125 ]
+  %53 = phi ptr [ %.pre.i136, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i135 ], [ %storemerge.i.i.i126, %if.end12.i.i.i125 ]
+  %idxprom.i127 = zext i32 %52 to i64
+  %arrayidx.i128 = getelementptr inbounds %class.GIM_CONTACT, ptr %53, i64 %idxprom.i127
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i128, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i105, i64 48, i1 false)
-  %61 = load i32, ptr %m_size.i, align 8
-  %inc.i129 = add i32 %61, 1
+  %54 = load i32, ptr %m_size.i, align 8
+  %inc.i129 = add i32 %54, 1
   store i32 %inc.i129, ptr %m_size.i, align 8
-  %62 = load ptr, ptr %this, align 8
-  %idxprom.i143 = zext i32 %61 to i64
-  %arrayidx.i144 = getelementptr inbounds %class.GIM_CONTACT, ptr %62, i64 %idxprom.i143
+  %55 = load ptr, ptr %this, align 8
+  %idxprom.i143 = zext i32 %54 to i64
+  %arrayidx.i144 = getelementptr inbounds %class.GIM_CONTACT, ptr %55, i64 %idxprom.i143
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then58, %if.then59, %if.then68, %if.else, %invoke.cont80
@@ -439,10 +444,10 @@ if.end.i.i.i146:                                  ; preds = %for.end86, %_ZN9gim
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.end.i.i.i146
-  %63 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  tail call void @__clang_call_terminate(ptr %64) #9
+  %57 = extractvalue { ptr, i32 } %56, 0
+  tail call void @__clang_call_terminate(ptr %57) #9
   unreachable
 
 return:                                           ; preds = %if.end.i.i.i146, %_ZN9gim_arrayI11GIM_CONTACTE9push_backERKS0_.exit

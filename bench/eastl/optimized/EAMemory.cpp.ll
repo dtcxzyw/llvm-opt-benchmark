@@ -91,17 +91,18 @@ if.end21.i.i:                                     ; preds = %do.body.i.i, %if.en
   %byteCount.addr.2.i.i = phi i64 [ %byteCount.addr.1.i.i, %if.end.i.i ], [ %sub19.i.i, %do.body.i.i ]
   %pDestination.addr.2.i.i = phi ptr [ %pDestination.addr.1.i.i, %if.end.i.i ], [ %add.ptr18.i.i, %do.body.i.i ]
   %cmp22.i.i = icmp ugt i64 %byteCount.addr.2.i.i, 15
-  br i1 %cmp22.i.i, label %do.body24.i.i.preheader, label %if.end34.i.i
+  br i1 %cmp22.i.i, label %do.body24.i.i, label %if.end34.i.i
 
-do.body24.i.i.preheader:                          ; preds = %if.end21.i.i
-  %4 = insertelement <4 x i32> poison, i32 %c.addr.0.lcssa.i.i, i64 0
-  %5 = shufflevector <4 x i32> %4, <4 x i32> poison, <4 x i32> zeroinitializer
-  br label %do.body24.i.i
-
-do.body24.i.i:                                    ; preds = %do.body24.i.i.preheader, %do.body24.i.i
-  %byteCount.addr.5.i.i = phi i64 [ %sub30.i.i, %do.body24.i.i ], [ %byteCount.addr.2.i.i, %do.body24.i.i.preheader ]
-  %pDestination.addr.5.i.i = phi ptr [ %add.ptr29.i.i, %do.body24.i.i ], [ %pDestination.addr.2.i.i, %do.body24.i.i.preheader ]
-  store <4 x i32> %5, ptr %pDestination.addr.5.i.i, align 4
+do.body24.i.i:                                    ; preds = %if.end21.i.i, %do.body24.i.i
+  %byteCount.addr.5.i.i = phi i64 [ %sub30.i.i, %do.body24.i.i ], [ %byteCount.addr.2.i.i, %if.end21.i.i ]
+  %pDestination.addr.5.i.i = phi ptr [ %add.ptr29.i.i, %do.body24.i.i ], [ %pDestination.addr.2.i.i, %if.end21.i.i ]
+  store i32 %c.addr.0.lcssa.i.i, ptr %pDestination.addr.5.i.i, align 4
+  %arrayidx26.i.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i.i, i64 4
+  store i32 %c.addr.0.lcssa.i.i, ptr %arrayidx26.i.i, align 4
+  %arrayidx27.i.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i.i, i64 8
+  store i32 %c.addr.0.lcssa.i.i, ptr %arrayidx27.i.i, align 4
+  %arrayidx28.i.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i.i, i64 12
+  store i32 %c.addr.0.lcssa.i.i, ptr %arrayidx28.i.i, align 4
   %add.ptr29.i.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i.i, i64 16
   %sub30.i.i = add i64 %byteCount.addr.5.i.i, -16
   %cmp32.i.i = icmp ugt i64 %sub30.i.i, 15
@@ -227,17 +228,18 @@ if.end21.i:                                       ; preds = %do.body.i, %if.end.
   %byteCount.addr.2.i = phi i64 [ %byteCount.addr.1.i, %if.end.i ], [ %sub19.i, %do.body.i ]
   %pDestination.addr.2.i = phi ptr [ %pDestination.addr.1.i, %if.end.i ], [ %add.ptr18.i, %do.body.i ]
   %cmp22.i = icmp ugt i64 %byteCount.addr.2.i, 15
-  br i1 %cmp22.i, label %do.body24.i.preheader, label %if.end34.i
+  br i1 %cmp22.i, label %do.body24.i, label %if.end34.i
 
-do.body24.i.preheader:                            ; preds = %if.end21.i
-  %4 = insertelement <4 x i32> poison, i32 %c.addr.0.lcssa.i, i64 0
-  %5 = shufflevector <4 x i32> %4, <4 x i32> poison, <4 x i32> zeroinitializer
-  br label %do.body24.i
-
-do.body24.i:                                      ; preds = %do.body24.i.preheader, %do.body24.i
-  %byteCount.addr.5.i = phi i64 [ %sub30.i, %do.body24.i ], [ %byteCount.addr.2.i, %do.body24.i.preheader ]
-  %pDestination.addr.5.i = phi ptr [ %add.ptr29.i, %do.body24.i ], [ %pDestination.addr.2.i, %do.body24.i.preheader ]
-  store <4 x i32> %5, ptr %pDestination.addr.5.i, align 4
+do.body24.i:                                      ; preds = %if.end21.i, %do.body24.i
+  %byteCount.addr.5.i = phi i64 [ %sub30.i, %do.body24.i ], [ %byteCount.addr.2.i, %if.end21.i ]
+  %pDestination.addr.5.i = phi ptr [ %add.ptr29.i, %do.body24.i ], [ %pDestination.addr.2.i, %if.end21.i ]
+  store i32 %c.addr.0.lcssa.i, ptr %pDestination.addr.5.i, align 4
+  %arrayidx26.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i, i64 4
+  store i32 %c.addr.0.lcssa.i, ptr %arrayidx26.i, align 4
+  %arrayidx27.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i, i64 8
+  store i32 %c.addr.0.lcssa.i, ptr %arrayidx27.i, align 4
+  %arrayidx28.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i, i64 12
+  store i32 %c.addr.0.lcssa.i, ptr %arrayidx28.i, align 4
   %add.ptr29.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i, i64 16
   %sub30.i = add i64 %byteCount.addr.5.i, -16
   %cmp32.i = icmp ugt i64 %sub30.i, 15
@@ -362,17 +364,18 @@ if.end21.i:                                       ; preds = %do.body.i, %if.end.
   %byteCount.addr.2.i = phi i64 [ %byteCount.addr.1.i, %if.end.i ], [ %sub19.i, %do.body.i ]
   %pDestination.addr.2.i = phi ptr [ %pDestination.addr.1.i, %if.end.i ], [ %add.ptr18.i, %do.body.i ]
   %cmp22.i = icmp ugt i64 %byteCount.addr.2.i, 15
-  br i1 %cmp22.i, label %do.body24.i.preheader, label %if.end34.i
+  br i1 %cmp22.i, label %do.body24.i, label %if.end34.i
 
-do.body24.i.preheader:                            ; preds = %if.end21.i
-  %4 = insertelement <4 x i32> poison, i32 %c.addr.0.lcssa.i, i64 0
-  %5 = shufflevector <4 x i32> %4, <4 x i32> poison, <4 x i32> zeroinitializer
-  br label %do.body24.i
-
-do.body24.i:                                      ; preds = %do.body24.i.preheader, %do.body24.i
-  %byteCount.addr.5.i = phi i64 [ %sub30.i, %do.body24.i ], [ %byteCount.addr.2.i, %do.body24.i.preheader ]
-  %pDestination.addr.5.i = phi ptr [ %add.ptr29.i, %do.body24.i ], [ %pDestination.addr.2.i, %do.body24.i.preheader ]
-  store <4 x i32> %5, ptr %pDestination.addr.5.i, align 4
+do.body24.i:                                      ; preds = %if.end21.i, %do.body24.i
+  %byteCount.addr.5.i = phi i64 [ %sub30.i, %do.body24.i ], [ %byteCount.addr.2.i, %if.end21.i ]
+  %pDestination.addr.5.i = phi ptr [ %add.ptr29.i, %do.body24.i ], [ %pDestination.addr.2.i, %if.end21.i ]
+  store i32 %c.addr.0.lcssa.i, ptr %pDestination.addr.5.i, align 4
+  %arrayidx26.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i, i64 4
+  store i32 %c.addr.0.lcssa.i, ptr %arrayidx26.i, align 4
+  %arrayidx27.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i, i64 8
+  store i32 %c.addr.0.lcssa.i, ptr %arrayidx27.i, align 4
+  %arrayidx28.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i, i64 12
+  store i32 %c.addr.0.lcssa.i, ptr %arrayidx28.i, align 4
   %add.ptr29.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i, i64 16
   %sub30.i = add i64 %byteCount.addr.5.i, -16
   %cmp32.i = icmp ugt i64 %sub30.i, 15
@@ -496,17 +499,18 @@ if.end21:                                         ; preds = %do.body, %if.end
   %byteCount.addr.2 = phi i64 [ %byteCount.addr.1, %if.end ], [ %sub19, %do.body ]
   %pDestination.addr.2 = phi ptr [ %pDestination.addr.1, %if.end ], [ %add.ptr18, %do.body ]
   %cmp22 = icmp ugt i64 %byteCount.addr.2, 15
-  br i1 %cmp22, label %do.body24.preheader, label %if.end34
+  br i1 %cmp22, label %do.body24, label %if.end34
 
-do.body24.preheader:                              ; preds = %if.end21
-  %4 = insertelement <4 x i32> poison, i32 %c.addr.0.lcssa, i64 0
-  %5 = shufflevector <4 x i32> %4, <4 x i32> poison, <4 x i32> zeroinitializer
-  br label %do.body24
-
-do.body24:                                        ; preds = %do.body24.preheader, %do.body24
-  %byteCount.addr.5 = phi i64 [ %sub30, %do.body24 ], [ %byteCount.addr.2, %do.body24.preheader ]
-  %pDestination.addr.5 = phi ptr [ %add.ptr29, %do.body24 ], [ %pDestination.addr.2, %do.body24.preheader ]
-  store <4 x i32> %5, ptr %pDestination.addr.5, align 4
+do.body24:                                        ; preds = %if.end21, %do.body24
+  %byteCount.addr.5 = phi i64 [ %sub30, %do.body24 ], [ %byteCount.addr.2, %if.end21 ]
+  %pDestination.addr.5 = phi ptr [ %add.ptr29, %do.body24 ], [ %pDestination.addr.2, %if.end21 ]
+  store i32 %c.addr.0.lcssa, ptr %pDestination.addr.5, align 4
+  %arrayidx26 = getelementptr inbounds i8, ptr %pDestination.addr.5, i64 4
+  store i32 %c.addr.0.lcssa, ptr %arrayidx26, align 4
+  %arrayidx27 = getelementptr inbounds i8, ptr %pDestination.addr.5, i64 8
+  store i32 %c.addr.0.lcssa, ptr %arrayidx27, align 4
+  %arrayidx28 = getelementptr inbounds i8, ptr %pDestination.addr.5, i64 12
+  store i32 %c.addr.0.lcssa, ptr %arrayidx28, align 4
   %add.ptr29 = getelementptr inbounds i8, ptr %pDestination.addr.5, i64 16
   %sub30 = add i64 %byteCount.addr.5, -16
   %cmp32 = icmp ugt i64 %sub30, 15
@@ -656,17 +660,18 @@ if.end21.i.i:                                     ; preds = %do.body.i.i, %if.en
   %byteCount.addr.2.i.i = phi i64 [ %byteCount.addr.1.i.i, %if.end.i.i ], [ %sub19.i.i, %do.body.i.i ]
   %pDestination.addr.2.i.i = phi ptr [ %pDestination.addr.1.i.i, %if.end.i.i ], [ %add.ptr18.i.i, %do.body.i.i ]
   %cmp22.i.i = icmp ugt i64 %byteCount.addr.2.i.i, 15
-  br i1 %cmp22.i.i, label %do.body24.i.i.preheader, label %if.end34.i.i
+  br i1 %cmp22.i.i, label %do.body24.i.i, label %if.end34.i.i
 
-do.body24.i.i.preheader:                          ; preds = %if.end21.i.i
-  %6 = insertelement <4 x i32> poison, i32 %c.addr.0.lcssa.i.i, i64 0
-  %7 = shufflevector <4 x i32> %6, <4 x i32> poison, <4 x i32> zeroinitializer
-  br label %do.body24.i.i
-
-do.body24.i.i:                                    ; preds = %do.body24.i.i.preheader, %do.body24.i.i
-  %byteCount.addr.5.i.i = phi i64 [ %sub30.i.i, %do.body24.i.i ], [ %byteCount.addr.2.i.i, %do.body24.i.i.preheader ]
-  %pDestination.addr.5.i.i = phi ptr [ %add.ptr29.i.i, %do.body24.i.i ], [ %pDestination.addr.2.i.i, %do.body24.i.i.preheader ]
-  store <4 x i32> %7, ptr %pDestination.addr.5.i.i, align 4
+do.body24.i.i:                                    ; preds = %if.end21.i.i, %do.body24.i.i
+  %byteCount.addr.5.i.i = phi i64 [ %sub30.i.i, %do.body24.i.i ], [ %byteCount.addr.2.i.i, %if.end21.i.i ]
+  %pDestination.addr.5.i.i = phi ptr [ %add.ptr29.i.i, %do.body24.i.i ], [ %pDestination.addr.2.i.i, %if.end21.i.i ]
+  store i32 %c.addr.0.lcssa.i.i, ptr %pDestination.addr.5.i.i, align 4
+  %arrayidx26.i.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i.i, i64 4
+  store i32 %c.addr.0.lcssa.i.i, ptr %arrayidx26.i.i, align 4
+  %arrayidx27.i.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i.i, i64 8
+  store i32 %c.addr.0.lcssa.i.i, ptr %arrayidx27.i.i, align 4
+  %arrayidx28.i.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i.i, i64 12
+  store i32 %c.addr.0.lcssa.i.i, ptr %arrayidx28.i.i, align 4
   %add.ptr29.i.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i.i, i64 16
   %sub30.i.i = add i64 %byteCount.addr.5.i.i, -16
   %cmp32.i.i = icmp ugt i64 %sub30.i.i, 15
@@ -706,38 +711,38 @@ while.body46.i.i:                                 ; preds = %if.end43.i.i, %whil
   br i1 %cmp45.not.i.i, label %sw.epilog, label %while.body46.i.i, !llvm.loop !10
 
 sw.bb3:                                           ; preds = %entry
-  %8 = load i8, ptr %pSource, align 1
-  %conv.i17 = zext i8 %8 to i32
+  %6 = load i8, ptr %pSource, align 1
+  %conv.i17 = zext i8 %6 to i32
   %add.ptr.i = getelementptr inbounds i8, ptr %pSource, i64 1
-  %9 = load i8, ptr %add.ptr.i, align 1
-  %conv1.i = zext i8 %9 to i32
+  %7 = load i8, ptr %add.ptr.i, align 1
+  %conv1.i = zext i8 %7 to i32
   %add.ptr2.i = getelementptr inbounds i8, ptr %pSource, i64 2
-  %10 = load i8, ptr %add.ptr2.i, align 1
-  %conv3.i = zext i8 %10 to i32
+  %8 = load i8, ptr %add.ptr2.i, align 1
+  %conv3.i = zext i8 %8 to i32
   %mul.i = shl nuw nsw i32 %conv1.i, 8
   %mul4.i = shl nuw nsw i32 %conv3.i, 8
   %mul5.i = shl nuw nsw i32 %conv3.i, 16
   %mul7.i = shl nuw nsw i32 %conv.i17, 8
   %mul8.i = shl nuw nsw i32 %conv.i17, 16
   %mul9.i = shl nuw i32 %conv.i17, 24
-  %11 = or disjoint i32 %mul9.i, %mul.i
-  %12 = or disjoint i32 %11, %mul5.i
-  %add10.i = or disjoint i32 %12, %conv.i17
+  %9 = or disjoint i32 %mul9.i, %mul.i
+  %10 = or disjoint i32 %9, %mul5.i
+  %add10.i = or disjoint i32 %10, %conv.i17
   %mul17.i = shl nuw nsw i32 %conv1.i, 16
   %mul18.i = shl nuw i32 %conv1.i, 24
-  %13 = or disjoint i32 %mul8.i, %mul18.i
-  %14 = or disjoint i32 %13, %mul4.i
-  %add19.i = or disjoint i32 %14, %conv1.i
-  %15 = or disjoint i32 %mul17.i, %mul7.i
+  %11 = or disjoint i32 %mul8.i, %mul18.i
+  %12 = or disjoint i32 %11, %mul4.i
+  %add19.i = or disjoint i32 %12, %conv1.i
+  %13 = or disjoint i32 %mul17.i, %mul7.i
   %mul27.i = shl nuw i32 %conv3.i, 24
-  %16 = or disjoint i32 %15, %mul27.i
-  %add28.i = or disjoint i32 %16, %conv3.i
-  %17 = ptrtoint ptr %pDestination to i64
-  %and40.i = and i64 %17, 3
+  %14 = or disjoint i32 %13, %mul27.i
+  %add28.i = or disjoint i32 %14, %conv3.i
+  %15 = ptrtoint ptr %pDestination to i64
+  %and40.i = and i64 %15, 3
   %cmp41.i = icmp ne i64 %and40.i, 0
   %cmp2942.i = icmp ne i64 %destByteCount, 0
-  %18 = and i1 %cmp41.i, %cmp2942.i
-  br i1 %18, label %while.body.i, label %while.cond38.preheader.i
+  %16 = and i1 %cmp41.i, %cmp2942.i
+  br i1 %16, label %while.body.i, label %while.cond38.preheader.i
 
 while.cond38.preheader.i:                         ; preds = %while.body.i, %sw.bb3
   %pDestination.0.lcssa.i = phi ptr [ %pDestination, %sw.bb3 ], [ %incdec.ptr.i, %while.body.i ]
@@ -761,12 +766,12 @@ while.body.i:                                     ; preds = %sw.bb3, %while.body
   %add31.i = tail call i32 @llvm.fshl.i32(i32 %val32b.045.i, i32 %val32a.044.i, i32 24)
   %add34.i = tail call i32 @llvm.fshl.i32(i32 %val32c.046.i, i32 %val32b.045.i, i32 24)
   %add37.i = tail call i32 @llvm.fshl.i32(i32 %val32a.044.i, i32 %val32c.046.i, i32 24)
-  %19 = ptrtoint ptr %incdec.ptr.i to i64
-  %and.i = and i64 %19, 3
+  %17 = ptrtoint ptr %incdec.ptr.i to i64
+  %and.i = and i64 %17, 3
   %cmp.i = icmp ne i64 %and.i, 0
   %cmp29.i = icmp ne i64 %dec.i, 0
-  %20 = select i1 %cmp.i, i1 %cmp29.i, i1 false
-  br i1 %20, label %while.body.i, label %while.cond38.preheader.i, !llvm.loop !11
+  %18 = select i1 %cmp.i, i1 %cmp29.i, i1 false
+  br i1 %18, label %while.body.i, label %while.cond38.preheader.i, !llvm.loop !11
 
 while.cond45.preheader.i:                         ; preds = %while.body40.i, %while.cond38.preheader.i
   %pDestination.1.lcssa.i = phi ptr [ %pDestination.0.lcssa.i, %while.cond38.preheader.i ], [ %add.ptr43.i, %while.body40.i ]
@@ -818,35 +823,35 @@ while.body53.i:                                   ; preds = %while.cond51.prehea
   br i1 %cmp52.not.i, label %sw.epilog, label %while.body53.i, !llvm.loop !14
 
 sw.bb4:                                           ; preds = %entry
-  %21 = load i32, ptr %pSource, align 4
-  %22 = ptrtoint ptr %pDestination to i64
-  %and57.i = and i64 %22, 3
+  %19 = load i32, ptr %pSource, align 4
+  %20 = ptrtoint ptr %pDestination to i64
+  %and57.i = and i64 %20, 3
   %cmp58.i = icmp ne i64 %and57.i, 0
   %cmp159.i = icmp ne i64 %destByteCount, 0
-  %23 = and i1 %cmp58.i, %cmp159.i
-  br i1 %23, label %while.body.i22, label %while.end.i
+  %21 = and i1 %cmp58.i, %cmp159.i
+  br i1 %21, label %while.body.i22, label %while.end.i
 
 while.body.i22:                                   ; preds = %sw.bb4, %while.body.i22
   %pDestination.addr.062.i = phi ptr [ %add.ptr.i24, %while.body.i22 ], [ %pDestination, %sw.bb4 ]
   %byteCount.addr.061.i = phi i64 [ %dec.i26, %while.body.i22 ], [ %destByteCount, %sw.bb4 ]
-  %c.addr.060.i = phi i32 [ %add.i25, %while.body.i22 ], [ %21, %sw.bb4 ]
+  %c.addr.060.i = phi i32 [ %add.i25, %while.body.i22 ], [ %19, %sw.bb4 ]
   %conv.i23 = trunc i32 %c.addr.060.i to i8
   store i8 %conv.i23, ptr %pDestination.addr.062.i, align 1
   %add.ptr.i24 = getelementptr inbounds i8, ptr %pDestination.addr.062.i, i64 1
   %add.i25 = tail call i32 @llvm.fshl.i32(i32 %c.addr.060.i, i32 %c.addr.060.i, i32 24)
   %dec.i26 = add i64 %byteCount.addr.061.i, -1
-  %24 = ptrtoint ptr %add.ptr.i24 to i64
-  %and.i27 = and i64 %24, 3
+  %22 = ptrtoint ptr %add.ptr.i24 to i64
+  %and.i27 = and i64 %22, 3
   %cmp.i28 = icmp ne i64 %and.i27, 0
   %cmp1.i = icmp ne i64 %dec.i26, 0
-  %25 = select i1 %cmp.i28, i1 %cmp1.i, i1 false
-  br i1 %25, label %while.body.i22, label %while.end.i, !llvm.loop !5
+  %23 = select i1 %cmp.i28, i1 %cmp1.i, i1 false
+  br i1 %23, label %while.body.i22, label %while.end.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %while.body.i22, %sw.bb4
-  %c.addr.0.lcssa.i = phi i32 [ %21, %sw.bb4 ], [ %add.i25, %while.body.i22 ]
+  %c.addr.0.lcssa.i = phi i32 [ %19, %sw.bb4 ], [ %add.i25, %while.body.i22 ]
   %byteCount.addr.0.lcssa.i18 = phi i64 [ %destByteCount, %sw.bb4 ], [ %dec.i26, %while.body.i22 ]
   %pDestination.addr.0.lcssa.i = phi ptr [ %pDestination, %sw.bb4 ], [ %add.ptr.i24, %while.body.i22 ]
-  %.lcssa.i = phi i64 [ %22, %sw.bb4 ], [ %24, %while.body.i22 ]
+  %.lcssa.i = phi i64 [ %20, %sw.bb4 ], [ %22, %while.body.i22 ]
   %cmp2.i = icmp ult i64 %byteCount.addr.0.lcssa.i18, 4
   %and3.i = and i64 %.lcssa.i, 4
   %cmp4.not.i = icmp eq i64 %and3.i, 0
@@ -897,17 +902,18 @@ if.end21.i:                                       ; preds = %do.body.i, %if.end.
   %byteCount.addr.2.i = phi i64 [ %byteCount.addr.1.i, %if.end.i ], [ %sub19.i, %do.body.i ]
   %pDestination.addr.2.i = phi ptr [ %pDestination.addr.1.i, %if.end.i ], [ %add.ptr18.i, %do.body.i ]
   %cmp22.i = icmp ugt i64 %byteCount.addr.2.i, 15
-  br i1 %cmp22.i, label %do.body24.i.preheader, label %if.end34.i
+  br i1 %cmp22.i, label %do.body24.i, label %if.end34.i
 
-do.body24.i.preheader:                            ; preds = %if.end21.i
-  %26 = insertelement <4 x i32> poison, i32 %c.addr.0.lcssa.i, i64 0
-  %27 = shufflevector <4 x i32> %26, <4 x i32> poison, <4 x i32> zeroinitializer
-  br label %do.body24.i
-
-do.body24.i:                                      ; preds = %do.body24.i.preheader, %do.body24.i
-  %byteCount.addr.5.i = phi i64 [ %sub30.i, %do.body24.i ], [ %byteCount.addr.2.i, %do.body24.i.preheader ]
-  %pDestination.addr.5.i = phi ptr [ %add.ptr29.i, %do.body24.i ], [ %pDestination.addr.2.i, %do.body24.i.preheader ]
-  store <4 x i32> %27, ptr %pDestination.addr.5.i, align 4
+do.body24.i:                                      ; preds = %if.end21.i, %do.body24.i
+  %byteCount.addr.5.i = phi i64 [ %sub30.i, %do.body24.i ], [ %byteCount.addr.2.i, %if.end21.i ]
+  %pDestination.addr.5.i = phi ptr [ %add.ptr29.i, %do.body24.i ], [ %pDestination.addr.2.i, %if.end21.i ]
+  store i32 %c.addr.0.lcssa.i, ptr %pDestination.addr.5.i, align 4
+  %arrayidx26.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i, i64 4
+  store i32 %c.addr.0.lcssa.i, ptr %arrayidx26.i, align 4
+  %arrayidx27.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i, i64 8
+  store i32 %c.addr.0.lcssa.i, ptr %arrayidx27.i, align 4
+  %arrayidx28.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i, i64 12
+  store i32 %c.addr.0.lcssa.i, ptr %arrayidx28.i, align 4
   %add.ptr29.i = getelementptr inbounds i8, ptr %pDestination.addr.5.i, i64 16
   %sub30.i = add i64 %byteCount.addr.5.i, -16
   %cmp32.i = icmp ugt i64 %sub30.i, 15
@@ -947,12 +953,12 @@ while.body46.i:                                   ; preds = %if.end43.i, %while.
   br i1 %cmp45.not.i, label %sw.epilog, label %while.body46.i, !llvm.loop !10
 
 sw.default:                                       ; preds = %entry
-  %28 = ptrtoint ptr %pDestination to i64
-  %29 = ptrtoint ptr %pSource to i64
-  %30 = or i64 %29, %28
-  %31 = or i64 %30, %sourceByteCount
-  %32 = and i64 %31, 3
-  %or.cond25.i = icmp eq i64 %32, 0
+  %24 = ptrtoint ptr %pDestination to i64
+  %25 = ptrtoint ptr %pSource to i64
+  %26 = or i64 %25, %24
+  %27 = or i64 %26, %sourceByteCount
+  %28 = and i64 %27, 3
+  %or.cond25.i = icmp eq i64 %28, 0
   br i1 %or.cond25.i, label %while.cond.preheader.i, label %while.cond18.preheader.i
 
 while.cond18.preheader.i:                         ; preds = %sw.default
@@ -962,14 +968,14 @@ while.cond18.preheader.i:                         ; preds = %sw.default
 for.cond21.preheader.lr.ph.i:                     ; preds = %while.cond18.preheader.i
   %cmp2227.not.i = icmp ne i64 %sourceByteCount, 0
   tail call void @llvm.assume(i1 %cmp2227.not.i)
-  %33 = add i64 %sourceByteCount, -1
+  %29 = add i64 %sourceByteCount, -1
   br label %for.cond21.preheader.us.i
 
 for.cond21.preheader.us.i:                        ; preds = %for.cond21.while.cond18.loopexit_crit_edge.us.i, %for.cond21.preheader.lr.ph.i
   %d.sroa.0.335.us.i = phi ptr [ %incdec.ptr28.us.i, %for.cond21.while.cond18.loopexit_crit_edge.us.i ], [ %pDestination, %for.cond21.preheader.lr.ph.i ]
-  %destByteCount.addr.334.us.i = phi i64 [ %36, %for.cond21.while.cond18.loopexit_crit_edge.us.i ], [ %destByteCount, %for.cond21.preheader.lr.ph.i ]
-  %34 = add i64 %destByteCount.addr.334.us.i, -1
-  %umin.i = tail call i64 @llvm.umin.i64(i64 %34, i64 %33)
+  %destByteCount.addr.334.us.i = phi i64 [ %32, %for.cond21.while.cond18.loopexit_crit_edge.us.i ], [ %destByteCount, %for.cond21.preheader.lr.ph.i ]
+  %30 = add i64 %destByteCount.addr.334.us.i, -1
+  %umin.i = tail call i64 @llvm.umin.i64(i64 %30, i64 %29)
   br label %for.body26.us.i
 
 for.body26.us.i:                                  ; preds = %for.body26.us.i, %for.cond21.preheader.us.i
@@ -977,16 +983,16 @@ for.body26.us.i:                                  ; preds = %for.body26.us.i, %f
   %s.sroa.0.230.us.i = phi ptr [ %pSource, %for.cond21.preheader.us.i ], [ %incdec.ptr27.us.i, %for.body26.us.i ]
   %d.sroa.0.429.us.i = phi ptr [ %d.sroa.0.335.us.i, %for.cond21.preheader.us.i ], [ %incdec.ptr28.us.i, %for.body26.us.i ]
   %incdec.ptr27.us.i = getelementptr inbounds i8, ptr %s.sroa.0.230.us.i, i64 1
-  %35 = load i8, ptr %s.sroa.0.230.us.i, align 1
+  %31 = load i8, ptr %s.sroa.0.230.us.i, align 1
   %incdec.ptr28.us.i = getelementptr inbounds i8, ptr %d.sroa.0.429.us.i, i64 1
-  store i8 %35, ptr %d.sroa.0.429.us.i, align 1
+  store i8 %31, ptr %d.sroa.0.429.us.i, align 1
   %inc.us.i = add nuw i64 %i20.031.us.i, 1
   %exitcond.not.i = icmp eq i64 %i20.031.us.i, %umin.i
   br i1 %exitcond.not.i, label %for.cond21.while.cond18.loopexit_crit_edge.us.i, label %for.body26.us.i, !llvm.loop !15
 
 for.cond21.while.cond18.loopexit_crit_edge.us.i:  ; preds = %for.body26.us.i
-  %36 = sub i64 %34, %umin.i
-  %tobool.not.us.i = icmp eq i64 %36, 0
+  %32 = sub i64 %30, %umin.i
+  %tobool.not.us.i = icmp eq i64 %32, 0
   br i1 %tobool.not.us.i, label %sw.epilog, label %for.cond21.preheader.us.i, !llvm.loop !16
 
 while.cond.preheader.i:                           ; preds = %sw.default
@@ -1004,17 +1010,17 @@ for.body.us.i:                                    ; preds = %for.body.us.i, %for
   %d.sroa.0.138.us.i = phi ptr [ %pDestination, %for.cond.preheader.lr.ph.i ], [ %incdec.ptr9.us.i, %for.body.us.i ]
   %destByteCount.addr.137.us.i = phi i64 [ %destByteCount, %for.cond.preheader.lr.ph.i ], [ %sub.us.i, %for.body.us.i ]
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %s.sroa.0.039.us.i, i64 4
-  %37 = load i32, ptr %s.sroa.0.039.us.i, align 4
+  %33 = load i32, ptr %s.sroa.0.039.us.i, align 4
   %incdec.ptr9.us.i = getelementptr inbounds i8, ptr %d.sroa.0.138.us.i, i64 4
-  store i32 %37, ptr %d.sroa.0.138.us.i, align 4
+  store i32 %33, ptr %d.sroa.0.138.us.i, align 4
   %add.us.i = add i64 %i.140.us.i, 4
   %sub.us.i = add i64 %destByteCount.addr.137.us.i, -4
   %cmp7.us.i = icmp ult i64 %add.us.i, %sourceByteCount
   %cmp8.us.i = icmp ugt i64 %sub.us.i, 3
-  %38 = select i1 %cmp7.us.i, i1 %cmp8.us.i, i1 false
-  %brmerge = select i1 %38, i1 true, i1 %cmp8.us.i
-  %add.us.i.mux = select i1 %38, i64 %add.us.i, i64 0
-  %incdec.ptr.us.i.mux = select i1 %38, ptr %incdec.ptr.us.i, ptr %pSource
+  %34 = select i1 %cmp7.us.i, i1 %cmp8.us.i, i1 false
+  %brmerge = select i1 %34, i1 true, i1 %cmp8.us.i
+  %add.us.i.mux = select i1 %34, i64 %add.us.i, i64 0
+  %incdec.ptr.us.i.mux = select i1 %34, ptr %incdec.ptr.us.i, ptr %pSource
   br i1 %brmerge, label %for.body.us.i, label %while.end.i29, !llvm.loop !17
 
 while.end.i29:                                    ; preds = %for.body.us.i, %while.cond.preheader.i
@@ -1035,9 +1041,9 @@ while.body14.i:                                   ; preds = %while.body14.i, %wh
   %d.sroa.0.254.i = phi ptr [ %incdec.ptr16.i, %while.body14.i ], [ %d.sroa.0.0.lcssa.i, %while.body14.preheader.i ]
   %destByteCount.addr.253.i = phi i64 [ %dec.i31, %while.body14.i ], [ %destByteCount.addr.0.lcssa.i, %while.body14.preheader.i ]
   %incdec.ptr15.i = getelementptr inbounds i8, ptr %s.sroa.0.155.i, i64 1
-  %39 = load i8, ptr %s.sroa.0.155.i, align 1
+  %35 = load i8, ptr %s.sroa.0.155.i, align 1
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %d.sroa.0.254.i, i64 1
-  store i8 %39, ptr %d.sroa.0.254.i, align 1
+  store i8 %35, ptr %d.sroa.0.254.i, align 1
   %dec.i31 = add nsw i64 %destByteCount.addr.253.i, -1
   %cmp13.not.i = icmp eq i64 %dec.i31, 0
   br i1 %cmp13.not.i, label %sw.epilog, label %while.body14.i, !llvm.loop !18
@@ -1050,17 +1056,17 @@ sw.bb7:                                           ; preds = %entry
   %v2.0.in.i = getelementptr inbounds i8, ptr %pSource, i64 4
   %v2.0.i = load i32, ptr %v2.0.in.i, align 1
   %v1.0.i = load i32, ptr %pSource, align 1
-  %40 = ptrtoint ptr %pDestination to i64
-  %and67.i = and i64 %40, 15
+  %36 = ptrtoint ptr %pDestination to i64
+  %and67.i = and i64 %36, 15
   %cmp68.not.i = icmp eq i64 %and67.i, 0
   br i1 %cmp68.not.i, label %if.end98.i, label %while.cond.preheader.i32
 
 while.cond.preheader.i32:                         ; preds = %sw.bb7
-  %and7091.i = and i64 %40, 3
+  %and7091.i = and i64 %36, 3
   %cmp7192.i = icmp ne i64 %and7091.i, 0
   %cmp7293.i = icmp ne i64 %destByteCount, 0
-  %41 = and i1 %cmp7192.i, %cmp7293.i
-  br i1 %41, label %while.body.i40, label %while.end.i33
+  %37 = and i1 %cmp7192.i, %cmp7293.i
+  br i1 %37, label %while.body.i40, label %while.end.i33
 
 while.body.i40:                                   ; preds = %while.cond.preheader.i32, %while.body.i40
   %byteCount.addr.199.i = phi i64 [ %dec.i41, %while.body.i40 ], [ %destByteCount, %while.cond.preheader.i32 ]
@@ -1077,12 +1083,12 @@ while.body.i40:                                   ; preds = %while.cond.preheade
   %add77.i = tail call i32 @llvm.fshl.i32(i32 %v3.296.i, i32 %v2.295.i, i32 24)
   %add80.i = tail call i32 @llvm.fshl.i32(i32 %v4.297.i, i32 %v3.296.i, i32 24)
   %add83.i = tail call i32 @llvm.fshl.i32(i32 %v1.294.i, i32 %v4.297.i, i32 24)
-  %42 = ptrtoint ptr %incdec.ptr.i42 to i64
-  %and70.i = and i64 %42, 3
+  %38 = ptrtoint ptr %incdec.ptr.i42 to i64
+  %and70.i = and i64 %38, 3
   %cmp71.i = icmp ne i64 %and70.i, 0
   %cmp72.i = icmp ne i64 %dec.i41, 0
-  %43 = select i1 %cmp71.i, i1 %cmp72.i, i1 false
-  br i1 %43, label %while.body.i40, label %while.end.i33, !llvm.loop !19
+  %39 = select i1 %cmp71.i, i1 %cmp72.i, i1 false
+  br i1 %39, label %while.body.i40, label %while.end.i33, !llvm.loop !19
 
 while.end.i33:                                    ; preds = %while.body.i40, %while.cond.preheader.i32
   %v1.2.lcssa.i = phi i32 [ %v1.0.i, %while.cond.preheader.i32 ], [ %add74.i, %while.body.i40 ]
@@ -1091,14 +1097,14 @@ while.end.i33:                                    ; preds = %while.body.i40, %wh
   %v4.2.lcssa.i = phi i32 [ %v4.0.i, %while.cond.preheader.i32 ], [ %add83.i, %while.body.i40 ]
   %pDestination.1.lcssa.i34 = phi ptr [ %pDestination, %while.cond.preheader.i32 ], [ %incdec.ptr.i42, %while.body.i40 ]
   %byteCount.addr.1.lcssa.i35 = phi i64 [ %destByteCount, %while.cond.preheader.i32 ], [ %dec.i41, %while.body.i40 ]
-  %.lcssa.i36 = phi i64 [ %40, %while.cond.preheader.i32 ], [ %42, %while.body.i40 ]
+  %.lcssa.i36 = phi i64 [ %36, %while.cond.preheader.i32 ], [ %38, %while.body.i40 ]
   %cmp84.i = icmp ugt i64 %byteCount.addr.1.lcssa.i35, 255
   br i1 %cmp84.i, label %if.then85.i, label %if.end98.i
 
 if.then85.i:                                      ; preds = %while.end.i33
   %and86.i = lshr i64 %.lcssa.i36, 2
-  %44 = and i64 %and86.i, 3
-  switch i64 %44, label %default.unreachable [
+  %40 = and i64 %and86.i, 3
+  switch i64 %40, label %default.unreachable [
     i64 3, label %sw.bb.i
     i64 2, label %sw.bb88.i
     i64 1, label %sw.bb92.i
@@ -1215,8 +1221,8 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %inc.i = add nuw nsw i32 %i.0124.i, 1
   %cmp116.i = icmp ult i32 %i.0124.i, 3
   %cmp118.i = icmp ne i64 %dec123.i, 0
-  %45 = select i1 %cmp116.i, i1 %cmp118.i, i1 false
-  br i1 %45, label %for.body.i, label %sw.epilog, !llvm.loop !22
+  %41 = select i1 %cmp116.i, i1 %cmp118.i, i1 false
+  br i1 %41, label %for.body.i, label %sw.epilog, !llvm.loop !22
 
 sw.epilog:                                        ; preds = %for.body.i, %while.body46.i, %while.body53.i, %while.body46.i.i, %for.cond21.while.cond18.loopexit_crit_edge.us.i, %while.body14.i, %for.cond.preheader.i, %while.end107.i, %while.end.i29, %while.cond18.preheader.i, %if.end43.i, %while.cond51.preheader.i, %if.end43.i.i, %sw.bb
   ret void

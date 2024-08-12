@@ -833,20 +833,26 @@ _init_part_record.exit:                           ; preds = %1, %6
   %18 = getelementptr inbounds i8, ptr %2, i64 212
   store i32 -1, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %2, i64 272
-  store <4 x i16> <i16 -2, i16 -2, i16 1, i16 1>, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 296
-  store i16 -2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 298
-  store i16 3, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %2, i64 300
-  store i32 -2, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %2, i64 304
+  store i16 -2, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %2, i64 274
+  store i16 -2, ptr %20, align 2
+  %21 = getelementptr inbounds i8, ptr %2, i64 276
+  store i16 1, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %2, i64 278
+  store i16 1, ptr %22, align 2
+  %23 = getelementptr inbounds i8, ptr %2, i64 296
   store i16 -2, ptr %23, align 8
-  %24 = tail call ptr @xstrdup(ptr noundef %0) #17
-  %25 = getelementptr inbounds i8, ptr %2, i64 224
-  store ptr %24, ptr %25, align 8
-  %26 = load ptr, ptr @part_list, align 8
-  tail call void @list_append(ptr noundef %26, ptr noundef nonnull %2) #17
+  %24 = getelementptr inbounds i8, ptr %2, i64 298
+  store i16 3, ptr %24, align 2
+  %25 = getelementptr inbounds i8, ptr %2, i64 300
+  store i32 -2, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %2, i64 304
+  store i16 -2, ptr %26, align 8
+  %27 = tail call ptr @xstrdup(ptr noundef %0) #17
+  %28 = getelementptr inbounds i8, ptr %2, i64 224
+  store ptr %27, ptr %28, align 8
+  %29 = load ptr, ptr @part_list, align 8
+  tail call void @list_append(ptr noundef %29, ptr noundef nonnull %2) #17
   ret ptr %2
 }
 

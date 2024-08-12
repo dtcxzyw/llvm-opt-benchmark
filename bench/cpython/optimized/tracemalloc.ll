@@ -954,17 +954,16 @@ if.end14:                                         ; preds = %if.then9, %if.end7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hashtable_alloc.i.i5)
   store ptr %call.i.i6, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3496), align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3464), align 8
+  %cmp19 = icmp eq ptr %5, null
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3480), align 8
+  %cmp20 = icmp eq ptr %6, null
+  %or.cond = select i1 %cmp19, i1 true, i1 %cmp20
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3488), align 8
-  %8 = insertelement <4 x ptr> poison, ptr %5, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %6, i64 1
-  %10 = insertelement <4 x ptr> %9, ptr %7, i64 2
-  %11 = insertelement <4 x ptr> %10, ptr %call.i.i6, i64 3
-  %.fr = freeze <4 x ptr> %11
-  %12 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %13 = bitcast <4 x i1> %12 to i4
-  %.not = icmp eq i4 %13, 0
-  br i1 %.not, label %while.body.preheader.i, label %if.then25
+  %cmp22 = icmp eq ptr %7, null
+  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp22
+  %cmp24 = icmp eq ptr %call.i.i6, null
+  %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp24
+  br i1 %or.cond2, label %if.then25, label %while.body.preheader.i
 
 if.then25:                                        ; preds = %if.end14
   %call26 = call ptr @PyErr_NoMemory() #13
@@ -976,13 +975,13 @@ while.body.preheader.i:                           ; preds = %if.end14
   store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 24808), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3516), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3524), align 4
   %call.i7 = call i64 @PyObject_Hash(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24808)) #13
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3524), align 4
-  %conv2.i = zext i32 %14 to i64
-  %15 = xor i64 %call.i7, %conv2.i
-  %xor3.i = xor i64 %15, 3430008
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3524), align 4
+  %conv2.i = zext i32 %8 to i64
+  %9 = xor i64 %call.i7, %conv2.i
+  %xor3.i = xor i64 %9, 3430008
   %mul.i = mul i64 %xor3.i, 1000003
-  %16 = load i16, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3514), align 2
-  %conv8.i = zext i16 %16 to i64
+  %10 = load i16, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3514), align 2
+  %conv8.i = zext i16 %10 to i64
   %xor9.i = xor i64 %mul.i, %conv8.i
   %add10.i = add i64 %xor9.i, 97531
   store i64 %add10.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3504), align 8

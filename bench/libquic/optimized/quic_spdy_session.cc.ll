@@ -1642,8 +1642,8 @@ declare noundef zeroext i8 @_ZN3net18ClampSpdy3PriorityEh(i8 noundef zeroext) lo
 define linkonce_odr dso_local void @_ZN3net22PriorityWriteSchedulerIjE16UnregisterStreamEj(ptr noundef nonnull align 8 dereferenceable(776) %this, i32 noundef %stream_id) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator", align 8
-  %agg.tmp.i.i.i = alloca %"struct.std::_Deque_iterator", align 16
-  %agg.tmp1.i.i.i = alloca %"struct.std::_Deque_iterator", align 16
+  %agg.tmp.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
+  %agg.tmp1.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %it.i = alloca %"struct.std::_Deque_iterator", align 8
   %ref.tmp.i = alloca ptr, align 8
   %tmp.i = alloca %"struct.std::_Deque_iterator", align 8
@@ -1752,49 +1752,65 @@ if.then22:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
   %_M_start.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %12 = load ptr, ptr %_M_start.i.i, align 8, !noalias !12
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %13 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !12
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %14 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !12
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %15 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !12
   %_M_finish.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %16 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !15
+  %_M_first3.i.i5.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  %17 = load ptr, ptr %_M_first3.i.i5.i, align 8, !noalias !15
   %_M_last4.i.i7.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %18 = load ptr, ptr %_M_last4.i.i7.i, align 8, !noalias !15
+  %_M_node5.i.i9.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
+  %19 = load ptr, ptr %_M_node5.i.i9.i, align 8, !noalias !15
   store ptr %second, ptr %ref.tmp.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !12
-  %12 = load <2 x ptr>, ptr %_M_start.i.i, align 8, !noalias !15
-  store <2 x ptr> %12, ptr %agg.tmp.i.i.i, align 16, !noalias !18
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !18
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !18
+  store ptr %12, ptr %agg.tmp.i.i.i, align 8, !noalias !21
+  %_M_first.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  store ptr %13, ptr %_M_first.i.i.i.i, align 8, !noalias !21
   %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
-  %13 = load <2 x ptr>, ptr %_M_last4.i.i.i, align 8, !noalias !15
-  store <2 x ptr> %13, ptr %_M_last.i.i.i.i, align 16, !noalias !18
-  %14 = load <2 x ptr>, ptr %_M_finish.i.i, align 8, !noalias !21
-  store <2 x ptr> %14, ptr %agg.tmp1.i.i.i, align 16, !noalias !18
+  store ptr %14, ptr %_M_last.i.i.i.i, align 8, !noalias !21
+  %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
+  store ptr %15, ptr %_M_node.i.i.i.i, align 8, !noalias !21
+  store ptr %16, ptr %agg.tmp1.i.i.i, align 8, !noalias !21
+  %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
+  store ptr %17, ptr %_M_first.i1.i.i.i, align 8, !noalias !21
   %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
-  %15 = load <2 x ptr>, ptr %_M_last4.i.i7.i, align 8, !noalias !21
-  store <2 x ptr> %15, ptr %_M_last.i3.i.i.i, align 16, !noalias !18
+  store ptr %18, ptr %_M_last.i3.i.i.i, align 8, !noalias !21
+  %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
+  store ptr %19, ptr %_M_node.i5.i.i.i, align 8, !noalias !21
   call void @_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_St26random_access_iterator_tag(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %it.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !12
-  %16 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !24
-  %17 = load ptr, ptr %it.i, align 8
-  %cmp.i.i.not = icmp eq ptr %17, %16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !18
+  %20 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !24
+  %21 = load ptr, ptr %it.i, align 8
+  %cmp.i.i.not = icmp eq ptr %21, %20
   br i1 %cmp.i.i.not, label %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then22
   %_M_node5.i.i = getelementptr inbounds i8, ptr %it.i, i64 24
-  %18 = load ptr, ptr %_M_node5.i.i, align 8
+  %22 = load ptr, ptr %_M_node5.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  store ptr %17, ptr %agg.tmp.i.i, align 8, !alias.scope !27, !noalias !30
+  store ptr %21, ptr %agg.tmp.i.i, align 8, !alias.scope !27, !noalias !30
   %_M_first.i.i.i21.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
-  %19 = load ptr, ptr %18, align 8, !noalias !33
-  store ptr %19, ptr %_M_first.i.i.i21.i, align 8, !alias.scope !27, !noalias !30
+  %23 = load ptr, ptr %22, align 8, !noalias !33
+  store ptr %23, ptr %_M_first.i.i.i21.i, align 8, !alias.scope !27, !noalias !30
   %_M_last.i.i.i22.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 512
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 512
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i.i22.i, align 8, !alias.scope !27, !noalias !30
   %_M_node.i.i.i23.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
-  store ptr %18, ptr %_M_node.i.i.i23.i, align 8, !alias.scope !27, !noalias !30
+  store ptr %22, ptr %_M_node.i.i.i23.i, align 8, !alias.scope !27, !noalias !30
   call void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8_M_eraseESt15_Deque_iteratorIS4_RS4_PS4_E(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(80) %arrayidx, ptr noundef nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   %num_ready_streams_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %20 = load i64, ptr %num_ready_streams_.i, align 8
-  %dec.i = add i64 %20, -1
+  %24 = load i64, ptr %num_ready_streams_.i, align 8
+  %dec.i = add i64 %24, -1
   store i64 %dec.i, ptr %num_ready_streams_.i, align 8
   br label %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit
 
@@ -1806,57 +1822,57 @@ _ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit, %if.end
-  %21 = phi i32 [ %.pre, %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit ], [ %stream_id, %if.end ]
+  %25 = phi i32 [ %.pre, %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit ], [ %stream_id, %if.end ]
   %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
-  %22 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
-  %conv.i.i.i.i.i.i.i = zext i32 %21 to i64
-  %rem.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i, %22
-  %23 = load ptr, ptr %stream_infos_, align 8
-  %arrayidx.i.i.i.i3 = getelementptr inbounds ptr, ptr %23, i64 %rem.i.i.i.i.i.i
-  %24 = load ptr, ptr %arrayidx.i.i.i.i3, align 8
+  %26 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
+  %conv.i.i.i.i.i.i.i = zext i32 %25 to i64
+  %rem.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i, %26
+  %27 = load ptr, ptr %stream_infos_, align 8
+  %arrayidx.i.i.i.i3 = getelementptr inbounds ptr, ptr %27, i64 %rem.i.i.i.i.i.i
+  %28 = load ptr, ptr %arrayidx.i.i.i.i3, align 8
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i, %if.end24
-  %__prev_n.0.i.i.i.i = phi ptr [ %24, %if.end24 ], [ %25, %while.cond.i.i.i.i ]
-  %25 = load ptr, ptr %__prev_n.0.i.i.i.i, align 8
-  %cmp.not.i.i.i.i4 = icmp eq ptr %25, %retval.sroa.0.1.i.i
+  %__prev_n.0.i.i.i.i = phi ptr [ %28, %if.end24 ], [ %29, %while.cond.i.i.i.i ]
+  %29 = load ptr, ptr %__prev_n.0.i.i.i.i, align 8
+  %cmp.not.i.i.i.i4 = icmp eq ptr %29, %retval.sroa.0.1.i.i
   br i1 %cmp.not.i.i.i.i4, label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !34
 
 _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit.i.i.i: ; preds = %while.cond.i.i.i.i
-  %cmp.i.i.i.i5 = icmp eq ptr %24, %__prev_n.0.i.i.i.i
-  %26 = load ptr, ptr %retval.sroa.0.1.i.i, align 8
-  %tobool.not.i.i.i.i6 = icmp eq ptr %26, null
+  %cmp.i.i.i.i5 = icmp eq ptr %28, %__prev_n.0.i.i.i.i
+  %30 = load ptr, ptr %retval.sroa.0.1.i.i, align 8
+  %tobool.not.i.i.i.i6 = icmp eq ptr %30, null
   br i1 %cmp.i.i.i.i5, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit.i.i.i
   br i1 %tobool.not.i.i.i.i6, label %if.end.i.i.i.i.i, label %cond.end.i.i.i.i
 
 cond.end.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i8 = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load i32, ptr %add.ptr.i.i.i.i8, align 4
-  %conv.i.i.i.i.i.i.i.i9 = zext i32 %27 to i64
-  %rem.i.i.i.i.i.i.i10 = urem i64 %conv.i.i.i.i.i.i.i.i9, %22
+  %add.ptr.i.i.i.i8 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load i32, ptr %add.ptr.i.i.i.i8, align 4
+  %conv.i.i.i.i.i.i.i.i9 = zext i32 %31 to i64
+  %rem.i.i.i.i.i.i.i10 = urem i64 %conv.i.i.i.i.i.i.i.i9, %26
   %cmp.not.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i10, %rem.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit, label %if.then3.i.i.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %cond.end.i.i.i.i
-  %arrayidx5.i.i.i.i.i = getelementptr inbounds ptr, ptr %23, i64 %rem.i.i.i.i.i.i.i10
-  store ptr %24, ptr %arrayidx5.i.i.i.i.i, align 8
+  %arrayidx5.i.i.i.i.i = getelementptr inbounds ptr, ptr %27, i64 %rem.i.i.i.i.i.i.i10
+  store ptr %28, ptr %arrayidx5.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load ptr, ptr %stream_infos_, align 8
   %arrayidx7.i.phi.trans.insert.i.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i.i, i64 %rem.i.i.i.i.i.i
   %.pre24.i.i.i.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i
-  %28 = phi ptr [ %24, %if.then.i.i.i.i ], [ %.pre24.i.i.i.i, %if.then3.i.i.i.i.i ]
-  %29 = phi ptr [ %23, %if.then.i.i.i.i ], [ %.pre.i.i.i.i, %if.then3.i.i.i.i.i ]
+  %32 = phi ptr [ %28, %if.then.i.i.i.i ], [ %.pre24.i.i.i.i, %if.then3.i.i.i.i.i ]
+  %33 = phi ptr [ %27, %if.then.i.i.i.i ], [ %.pre.i.i.i.i, %if.then3.i.i.i.i.i ]
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
-  %arrayidx7.i.i.i.i.i = getelementptr inbounds ptr, ptr %29, i64 %rem.i.i.i.i.i.i
-  %cmp8.i.i.i.i.i = icmp eq ptr %_M_before_begin.i.i.i.i.i, %28
+  %arrayidx7.i.i.i.i.i = getelementptr inbounds ptr, ptr %33, i64 %rem.i.i.i.i.i.i
+  %cmp8.i.i.i.i.i = icmp eq ptr %_M_before_begin.i.i.i.i.i, %32
   br i1 %cmp8.i.i.i.i.i, label %if.then9.i.i.i.i.i, label %if.end11.i.i.i.i.i
 
 if.then9.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  store ptr %26, ptr %_M_before_begin.i.i.i.i.i, align 8
+  store ptr %30, ptr %_M_before_begin.i.i.i.i.i, align 8
   br label %if.end11.i.i.i.i.i
 
 if.end11.i.i.i.i.i:                               ; preds = %if.then9.i.i.i.i.i, %if.end.i.i.i.i.i
@@ -1867,24 +1883,24 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt10_HashtableIj
   br i1 %tobool.not.i.i.i.i6, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit, label %if.then6.i.i.i.i
 
 if.then6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
-  %add.ptr8.i.i.i.i7 = getelementptr inbounds i8, ptr %26, i64 8
-  %30 = load i32, ptr %add.ptr8.i.i.i.i7, align 4
-  %conv.i.i.i.i14.i.i.i.i = zext i32 %30 to i64
-  %rem.i.i.i15.i.i.i.i = urem i64 %conv.i.i.i.i14.i.i.i.i, %22
+  %add.ptr8.i.i.i.i7 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = load i32, ptr %add.ptr8.i.i.i.i7, align 4
+  %conv.i.i.i.i14.i.i.i.i = zext i32 %34 to i64
+  %rem.i.i.i15.i.i.i.i = urem i64 %conv.i.i.i.i14.i.i.i.i, %26
   %cmp10.not.i.i.i.i = icmp eq i64 %rem.i.i.i15.i.i.i.i, %rem.i.i.i.i.i.i
   br i1 %cmp10.not.i.i.i.i, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit, label %if.then11.i.i.i.i
 
 if.then11.i.i.i.i:                                ; preds = %if.then6.i.i.i.i
-  %arrayidx13.i.i.i.i = getelementptr inbounds ptr, ptr %23, i64 %rem.i.i.i15.i.i.i.i
+  %arrayidx13.i.i.i.i = getelementptr inbounds ptr, ptr %27, i64 %rem.i.i.i15.i.i.i.i
   store ptr %__prev_n.0.i.i.i.i, ptr %arrayidx13.i.i.i.i, align 8
   br label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit
 
 _ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit: ; preds = %cond.end.i.i.i.i, %if.end11.i.i.i.i.i, %if.else.i.i.i.i, %if.then6.i.i.i.i, %if.then11.i.i.i.i
-  %31 = load ptr, ptr %retval.sroa.0.1.i.i, align 8
-  store ptr %31, ptr %__prev_n.0.i.i.i.i, align 8
+  %35 = load ptr, ptr %retval.sroa.0.1.i.i, align 8
+  store ptr %35, ptr %__prev_n.0.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %retval.sroa.0.1.i.i) #19
-  %32 = load i64, ptr %_M_element_count.i.i.i, align 8
-  %dec.i.i.i.i = add i64 %32, -1
+  %36 = load i64, ptr %_M_element_count.i.i.i, align 8
+  %dec.i.i.i.i = add i64 %36, -1
   store i64 %dec.i.i.i.i, ptr %_M_element_count.i.i.i, align 8
   br label %return
 
@@ -2231,12 +2247,18 @@ if.then.i162:                                     ; preds = %if.end34
   br label %sw.default
 
 sw.default:                                       ; preds = %if.then.i162, %if.end34, %for.end
-  %59 = load <2 x ptr>, ptr %__last, align 8
-  store <2 x ptr> %59, ptr %agg.result, align 8
+  %59 = load ptr, ptr %__last, align 8
+  store ptr %59, ptr %agg.result, align 8
+  %_M_first.i168 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %60 = load ptr, ptr %_M_first.i, align 8
+  store ptr %60, ptr %_M_first.i168, align 8
   %_M_last.i170 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_last4.i171 = getelementptr inbounds i8, ptr %__last, i64 16
-  %60 = load <2 x ptr>, ptr %_M_last4.i171, align 8
-  store <2 x ptr> %60, ptr %_M_last.i170, align 8
+  %61 = load ptr, ptr %_M_last4.i171, align 8
+  store ptr %61, ptr %_M_last.i170, align 8
+  %_M_node.i172 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %62 = load ptr, ptr %_M_node.i, align 8
+  store ptr %62, ptr %_M_node.i172, align 8
   br label %return
 
 return:                                           ; preds = %sw.default, %if.then33, %if.then27, %if.then21, %if.then15, %if.then10, %if.then5, %if.then
@@ -3306,8 +3328,8 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
 define linkonce_odr dso_local void @_ZN3net22PriorityWriteSchedulerIjE22UpdateStreamPrecedenceEjRKNS_16StreamPrecedenceIjEE(ptr noundef nonnull align 8 dereferenceable(776) %this, i32 noundef %stream_id, ptr noundef nonnull align 4 dereferenceable(16) %precedence) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator", align 8
-  %agg.tmp.i.i.i = alloca %"struct.std::_Deque_iterator", align 16
-  %agg.tmp1.i.i.i = alloca %"struct.std::_Deque_iterator", align 16
+  %agg.tmp.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
+  %agg.tmp1.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %it.i = alloca %"struct.std::_Deque_iterator", align 8
   %ref.tmp.i = alloca ptr, align 8
   %tmp.i = alloca %"struct.std::_Deque_iterator", align 8
@@ -3435,49 +3457,65 @@ if.then24:                                        ; preds = %if.end23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
   %_M_start.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %16 = load ptr, ptr %_M_start.i.i, align 8, !noalias !94
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %17 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !94
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %18 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !94
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %19 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !94
   %_M_finish.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %20 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !97
+  %_M_first3.i.i5.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  %21 = load ptr, ptr %_M_first3.i.i5.i, align 8, !noalias !97
   %_M_last4.i.i7.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %22 = load ptr, ptr %_M_last4.i.i7.i, align 8, !noalias !97
+  %_M_node5.i.i9.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
+  %23 = load ptr, ptr %_M_node5.i.i9.i, align 8, !noalias !97
   store ptr %second, ptr %ref.tmp.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !94
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !94
-  %16 = load <2 x ptr>, ptr %_M_start.i.i, align 8, !noalias !97
-  store <2 x ptr> %16, ptr %agg.tmp.i.i.i, align 16, !noalias !100
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !100
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !100
+  store ptr %16, ptr %agg.tmp.i.i.i, align 8, !noalias !103
+  %_M_first.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  store ptr %17, ptr %_M_first.i.i.i.i, align 8, !noalias !103
   %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
-  %17 = load <2 x ptr>, ptr %_M_last4.i.i.i, align 8, !noalias !97
-  store <2 x ptr> %17, ptr %_M_last.i.i.i.i, align 16, !noalias !100
-  %18 = load <2 x ptr>, ptr %_M_finish.i.i, align 8, !noalias !103
-  store <2 x ptr> %18, ptr %agg.tmp1.i.i.i, align 16, !noalias !100
+  store ptr %18, ptr %_M_last.i.i.i.i, align 8, !noalias !103
+  %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
+  store ptr %19, ptr %_M_node.i.i.i.i, align 8, !noalias !103
+  store ptr %20, ptr %agg.tmp1.i.i.i, align 8, !noalias !103
+  %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
+  store ptr %21, ptr %_M_first.i1.i.i.i, align 8, !noalias !103
   %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
-  %19 = load <2 x ptr>, ptr %_M_last4.i.i7.i, align 8, !noalias !103
-  store <2 x ptr> %19, ptr %_M_last.i3.i.i.i, align 16, !noalias !100
+  store ptr %22, ptr %_M_last.i3.i.i.i, align 8, !noalias !103
+  %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
+  store ptr %23, ptr %_M_node.i5.i.i.i, align 8, !noalias !103
   call void @_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_St26random_access_iterator_tag(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %it.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !94
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !94
-  %20 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !106
-  %21 = load ptr, ptr %it.i, align 8
-  %cmp.i.i.not = icmp eq ptr %21, %20
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !100
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !100
+  %24 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !106
+  %25 = load ptr, ptr %it.i, align 8
+  %cmp.i.i.not = icmp eq ptr %25, %24
   br i1 %cmp.i.i.not, label %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then24
   %_M_node5.i.i = getelementptr inbounds i8, ptr %it.i, i64 24
-  %22 = load ptr, ptr %_M_node5.i.i, align 8
+  %26 = load ptr, ptr %_M_node5.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
-  store ptr %21, ptr %agg.tmp.i.i, align 8, !alias.scope !109, !noalias !112
+  store ptr %25, ptr %agg.tmp.i.i, align 8, !alias.scope !109, !noalias !112
   %_M_first.i.i.i21.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
-  %23 = load ptr, ptr %22, align 8, !noalias !115
-  store ptr %23, ptr %_M_first.i.i.i21.i, align 8, !alias.scope !109, !noalias !112
+  %27 = load ptr, ptr %26, align 8, !noalias !115
+  store ptr %27, ptr %_M_first.i.i.i21.i, align 8, !alias.scope !109, !noalias !112
   %_M_last.i.i.i22.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 512
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 512
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i.i22.i, align 8, !alias.scope !109, !noalias !112
   %_M_node.i.i.i23.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
-  store ptr %22, ptr %_M_node.i.i.i23.i, align 8, !alias.scope !109, !noalias !112
+  store ptr %26, ptr %_M_node.i.i.i23.i, align 8, !alias.scope !109, !noalias !112
   call void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8_M_eraseESt15_Deque_iteratorIS4_RS4_PS4_E(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(80) %arrayidx, ptr noundef nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   %num_ready_streams_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %24 = load i64, ptr %num_ready_streams_.i, align 8
-  %dec.i = add i64 %24, -1
+  %28 = load i64, ptr %num_ready_streams_.i, align 8
+  %dec.i = add i64 %28, -1
   store i64 %dec.i, ptr %num_ready_streams_.i, align 8
   br label %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit
 
@@ -3489,17 +3527,17 @@ _ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS
   %arrayidx29 = getelementptr inbounds [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %idxprom28
   store ptr %second, ptr %ref.tmp31, align 8
   %_M_finish.i.i13 = getelementptr inbounds i8, ptr %arrayidx29, i64 48
-  %25 = load ptr, ptr %_M_finish.i.i13, align 8
+  %29 = load ptr, ptr %_M_finish.i.i13, align 8
   %_M_last.i.i = getelementptr inbounds i8, ptr %arrayidx29, i64 64
-  %26 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i14 = getelementptr inbounds i8, ptr %26, i64 -8
-  %cmp.not.i.i = icmp eq ptr %25, %add.ptr.i.i14
+  %30 = load ptr, ptr %_M_last.i.i, align 8
+  %add.ptr.i.i14 = getelementptr inbounds i8, ptr %30, i64 -8
+  %cmp.not.i.i = icmp eq ptr %29, %add.ptr.i.i14
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i15
 
 if.then.i.i15:                                    ; preds = %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit
-  store ptr %second, ptr %25, align 8
-  %27 = load ptr, ptr %_M_finish.i.i13, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  store ptr %second, ptr %29, align 8
+  %31 = load ptr, ptr %_M_finish.i.i13, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i13, align 8
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9push_backEOS4_.exit
 
@@ -3509,8 +3547,8 @@ if.else.i.i:                                      ; preds = %_ZN3net22PriorityWr
 
 _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9push_backEOS4_.exit: ; preds = %if.then.i.i15, %if.else.i.i
   %num_ready_streams_ = getelementptr inbounds i8, ptr %this, i64 8
-  %28 = load i64, ptr %num_ready_streams_, align 8
-  %inc = add i64 %28, 1
+  %32 = load i64, ptr %num_ready_streams_, align 8
+  %inc = add i64 %32, 1
   store i64 %inc, ptr %num_ready_streams_, align 8
   br label %if.end32
 
@@ -4173,17 +4211,17 @@ attributes #20 = { noreturn }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_: %agg.result"}
-!14 = distinct !{!14, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_"}
+!13 = distinct !{!13, !14, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: %agg.result"}
+!14 = distinct !{!14, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: %agg.result"}
-!17 = distinct !{!17, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
-!18 = !{!19, !13}
-!19 = distinct !{!19, !20, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_: %agg.result"}
-!20 = distinct !{!20, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: %agg.result"}
-!23 = distinct !{!23, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
+!16 = distinct !{!16, !17, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: %agg.result"}
+!17 = distinct !{!17, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_: %agg.result"}
+!20 = distinct !{!20, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_"}
+!21 = !{!22, !19}
+!22 = distinct !{!22, !23, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_: %agg.result"}
+!23 = distinct !{!23, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_"}
 !24 = !{!25}
 !25 = distinct !{!25, !26, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: %agg.result"}
 !26 = distinct !{!26, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
@@ -4255,17 +4293,17 @@ attributes #20 = { noreturn }
 !92 = distinct !{!92, !93, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_: %agg.result"}
 !93 = distinct !{!93, !"_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_"}
 !94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_: %agg.result"}
-!96 = distinct !{!96, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_"}
+!95 = distinct !{!95, !96, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: %agg.result"}
+!96 = distinct !{!96, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
 !97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv: %agg.result"}
-!99 = distinct !{!99, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE5beginEv"}
-!100 = !{!101, !95}
-!101 = distinct !{!101, !102, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_: %agg.result"}
-!102 = distinct !{!102, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_"}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: %agg.result"}
-!105 = distinct !{!105, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
+!98 = distinct !{!98, !99, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: %agg.result"}
+!99 = distinct !{!99, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}
+!100 = !{!101}
+!101 = distinct !{!101, !102, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_: %agg.result"}
+!102 = distinct !{!102, !"_ZSt4findISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EPKS4_ET_SB_SB_RKT0_"}
+!103 = !{!104, !101}
+!104 = distinct !{!104, !105, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_: %agg.result"}
+!105 = distinct !{!105, !"_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_"}
 !106 = !{!107}
 !107 = distinct !{!107, !108, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv: %agg.result"}
 !108 = distinct !{!108, !"_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE3endEv"}

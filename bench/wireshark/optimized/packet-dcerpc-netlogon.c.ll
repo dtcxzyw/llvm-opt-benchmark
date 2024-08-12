@@ -2220,195 +2220,209 @@ dissect_dcerpc_8bytes.exit:                       ; preds = %29, %27
   %38 = getelementptr inbounds i8, ptr %7, i64 32
   %39 = getelementptr inbounds i8, ptr %7, i64 40
   %40 = getelementptr inbounds i8, ptr %2, i64 232
-  %41 = getelementptr inbounds i8, ptr %2, i64 240
-  %42 = load ptr, ptr %41, align 8
-  %43 = load <2 x i32>, ptr %40, align 8
-  store <2 x i32> %43, ptr %36, align 8
-  store ptr %42, ptr %38, align 8
+  %41 = load i32, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %2, i64 236
+  %43 = load i32, ptr %42, align 4
+  %44 = getelementptr inbounds i8, ptr %2, i64 240
+  %45 = load ptr, ptr %44, align 8
+  store i32 %41, ptr %36, align 8
+  store i32 %43, ptr %37, align 4
+  store ptr %45, ptr %38, align 8
   store ptr null, ptr %39, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 208
-  %45 = getelementptr inbounds i8, ptr %2, i64 216
-  %.sink.i = load ptr, ptr %45, align 8
-  %46 = load <2 x i32>, ptr %44, align 8
-  store <2 x i32> %46, ptr %7, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %.sink.i, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr null, ptr %48, align 8
-  %49 = load ptr, ptr @netlogon_auths, align 8
-  %50 = call ptr @wmem_map_lookup(ptr noundef %49, ptr noundef nonnull %7) #9
-  %.not = icmp eq ptr %50, null
-  br i1 %.not, label %51, label %.preheader
+  %46 = getelementptr inbounds i8, ptr %2, i64 208
+  %47 = getelementptr inbounds i8, ptr %2, i64 212
+  %48 = getelementptr inbounds i8, ptr %2, i64 216
+  %.sink.i = load ptr, ptr %48, align 8
+  %.sink8.i = load i32, ptr %47, align 4
+  %.sink9.i = load i32, ptr %46, align 8
+  store i32 %.sink9.i, ptr %7, align 8
+  %49 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %.sink8.i, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %.sink.i, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr null, ptr %51, align 8
+  %52 = load ptr, ptr @netlogon_auths, align 8
+  %53 = call ptr @wmem_map_lookup(ptr noundef %52, ptr noundef nonnull %7) #9
+  %.not = icmp eq ptr %53, null
+  br i1 %.not, label %54, label %.preheader
 
-51:                                               ; preds = %dissect_dcerpc_8bytes.exit
-  %52 = getelementptr inbounds i8, ptr %7, i64 4
-  %53 = call ptr @wmem_file_scope() #9
-  %54 = call noalias ptr @wmem_memdup(ptr noundef %53, ptr noundef nonnull %7, i64 noundef 48) #9
+54:                                               ; preds = %dissect_dcerpc_8bytes.exit
   %55 = call ptr @wmem_file_scope() #9
-  %56 = load i32, ptr %7, align 8
-  %57 = load i32, ptr %52, align 4
-  %58 = load ptr, ptr %47, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
-  store i32 %56, ptr %54, align 8
-  %59 = icmp eq i32 %57, 0
-  br i1 %59, label %copy_address_wmem.exit, label %60
+  %56 = call noalias ptr @wmem_memdup(ptr noundef %55, ptr noundef nonnull %7, i64 noundef 48) #9
+  %57 = call ptr @wmem_file_scope() #9
+  %58 = load i32, ptr %7, align 8
+  %59 = load i32, ptr %49, align 4
+  %60 = load ptr, ptr %50, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
+  store i32 %58, ptr %56, align 8
+  %61 = icmp eq i32 %59, 0
+  br i1 %61, label %copy_address_wmem.exit, label %62
 
-60:                                               ; preds = %51
-  %61 = sext i32 %57 to i64
-  %62 = call noalias ptr @wmem_memdup(ptr noundef %55, ptr noundef %58, i64 noundef %61) #9
-  %63 = getelementptr inbounds i8, ptr %54, i64 16
-  store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %54, i64 8
-  store ptr %62, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %54, i64 4
-  store i32 %57, ptr %65, align 4
+62:                                               ; preds = %54
+  %63 = sext i32 %59 to i64
+  %64 = call noalias ptr @wmem_memdup(ptr noundef %57, ptr noundef %60, i64 noundef %63) #9
+  %65 = getelementptr inbounds i8, ptr %56, i64 16
+  store ptr %64, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %56, i64 8
+  store ptr %64, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %56, i64 4
+  store i32 %59, ptr %67, align 4
   br label %copy_address_wmem.exit
 
-copy_address_wmem.exit:                           ; preds = %51, %60
-  %66 = call ptr @wmem_file_scope() #9
-  %67 = getelementptr inbounds i8, ptr %54, i64 24
-  %68 = load i32, ptr %36, align 8
-  %69 = load i32, ptr %37, align 4
-  %70 = load ptr, ptr %38, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
-  store i32 %68, ptr %67, align 8
-  %71 = icmp eq i32 %69, 0
-  br i1 %71, label %copy_address_wmem.exit48, label %72
+copy_address_wmem.exit:                           ; preds = %54, %62
+  %68 = call ptr @wmem_file_scope() #9
+  %69 = getelementptr inbounds i8, ptr %56, i64 24
+  %70 = load i32, ptr %36, align 8
+  %71 = load i32, ptr %37, align 4
+  %72 = load ptr, ptr %38, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
+  store i32 %70, ptr %69, align 8
+  %73 = icmp eq i32 %71, 0
+  br i1 %73, label %copy_address_wmem.exit48, label %74
 
-72:                                               ; preds = %copy_address_wmem.exit
-  %73 = sext i32 %69 to i64
-  %74 = call noalias ptr @wmem_memdup(ptr noundef %66, ptr noundef %70, i64 noundef %73) #9
-  %75 = getelementptr inbounds i8, ptr %54, i64 40
-  store ptr %74, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %54, i64 32
-  store ptr %74, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %54, i64 28
-  store i32 %69, ptr %77, align 4
+74:                                               ; preds = %copy_address_wmem.exit
+  %75 = sext i32 %71 to i64
+  %76 = call noalias ptr @wmem_memdup(ptr noundef %68, ptr noundef %72, i64 noundef %75) #9
+  %77 = getelementptr inbounds i8, ptr %56, i64 40
+  store ptr %76, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %56, i64 32
+  store ptr %76, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %56, i64 28
+  store i32 %71, ptr %79, align 4
   br label %copy_address_wmem.exit48
 
-copy_address_wmem.exit48:                         ; preds = %copy_address_wmem.exit, %72
-  %78 = load ptr, ptr @netlogon_auths, align 8
-  %79 = call ptr @wmem_map_insert(ptr noundef %78, ptr noundef nonnull %54, ptr noundef nonnull %15) #9
-  br label %93
+copy_address_wmem.exit48:                         ; preds = %copy_address_wmem.exit, %74
+  %80 = load ptr, ptr @netlogon_auths, align 8
+  %81 = call ptr @wmem_map_insert(ptr noundef %80, ptr noundef nonnull %56, ptr noundef nonnull %15) #9
+  br label %95
 
-.preheader:                                       ; preds = %dissect_dcerpc_8bytes.exit, %84
-  %.0 = phi ptr [ %81, %84 ], [ %50, %dissect_dcerpc_8bytes.exit ]
-  %80 = getelementptr inbounds i8, ptr %.0, i64 392
-  %81 = load ptr, ptr %80, align 8
-  %.not46 = icmp eq ptr %81, null
-  %82 = getelementptr inbounds i8, ptr %.0, i64 384
-  %83 = load i32, ptr %82, align 8
-  br i1 %.not46, label %86, label %84
-
-84:                                               ; preds = %.preheader
-  %85 = icmp slt i32 %83, %32
-  br i1 %85, label %.preheader, label %.critedge, !llvm.loop !6
+.preheader:                                       ; preds = %dissect_dcerpc_8bytes.exit, %86
+  %.0 = phi ptr [ %83, %86 ], [ %53, %dissect_dcerpc_8bytes.exit ]
+  %82 = getelementptr inbounds i8, ptr %.0, i64 392
+  %83 = load ptr, ptr %82, align 8
+  %.not46 = icmp eq ptr %83, null
+  %84 = getelementptr inbounds i8, ptr %.0, i64 384
+  %85 = load i32, ptr %84, align 8
+  br i1 %.not46, label %88, label %86
 
 86:                                               ; preds = %.preheader
-  %87 = icmp eq i32 %83, %32
-  br i1 %87, label %.critedge, label %89
+  %87 = icmp slt i32 %85, %32
+  br i1 %87, label %.preheader, label %.critedge, !llvm.loop !6
 
-.critedge:                                        ; preds = %84, %86
-  %88 = call ptr @wmem_file_scope() #9
-  call void @wmem_free(ptr noundef %88, ptr noundef nonnull %15) #9
-  br label %93
+88:                                               ; preds = %.preheader
+  %89 = icmp eq i32 %85, %32
+  br i1 %89, label %.critedge, label %91
 
-89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %.0, i64 392
-  %91 = load i32, ptr %31, align 4
-  %92 = getelementptr inbounds i8, ptr %.0, i64 388
-  store i32 %91, ptr %92, align 4
-  store ptr %15, ptr %90, align 8
-  br label %93
+.critedge:                                        ; preds = %86, %88
+  %90 = call ptr @wmem_file_scope() #9
+  call void @wmem_free(ptr noundef %90, ptr noundef nonnull %15) #9
+  br label %95
 
-93:                                               ; preds = %.critedge, %89, %copy_address_wmem.exit48
-  %94 = add i32 %13, 8
-  ret i32 %94
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds i8, ptr %.0, i64 392
+  %93 = load i32, ptr %31, align 4
+  %94 = getelementptr inbounds i8, ptr %.0, i64 388
+  store i32 %93, ptr %94, align 4
+  store ptr %15, ptr %92, align 8
+  br label %95
+
+95:                                               ; preds = %.critedge, %91, %copy_address_wmem.exit48
+  %96 = add i32 %13, 8
+  ret i32 %96
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @netlogon_dissect_netrserverreqchallenge_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct._netlogon_auth_key, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 24
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
-  %11 = getelementptr inbounds i8, ptr %2, i64 208
-  %12 = getelementptr inbounds i8, ptr %2, i64 216
-  %13 = load ptr, ptr %12, align 8
-  %14 = load <2 x i32>, ptr %11, align 8
-  store <2 x i32> %14, ptr %8, align 8
-  store ptr %13, ptr %9, align 8
-  store ptr null, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 232
-  %16 = getelementptr inbounds i8, ptr %2, i64 240
-  %.sink.i = load ptr, ptr %16, align 8
-  %17 = load <2 x i32>, ptr %15, align 8
-  store <2 x i32> %17, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %.sink.i, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr null, ptr %19, align 8
-  %20 = load ptr, ptr @netlogon_auths, align 8
-  %21 = call ptr @wmem_map_lookup(ptr noundef %20, ptr noundef nonnull %7) #9
-  %22 = load i32, ptr @hf_server_challenge, align 4
+  %9 = getelementptr inbounds i8, ptr %7, i64 28
+  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %12 = getelementptr inbounds i8, ptr %2, i64 208
+  %13 = load i32, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %2, i64 212
+  %15 = load i32, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %2, i64 216
+  %17 = load ptr, ptr %16, align 8
+  store i32 %13, ptr %8, align 8
+  store i32 %15, ptr %9, align 4
+  store ptr %17, ptr %10, align 8
+  store ptr null, ptr %11, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 232
+  %19 = getelementptr inbounds i8, ptr %2, i64 236
+  %20 = getelementptr inbounds i8, ptr %2, i64 240
+  %.sink.i = load ptr, ptr %20, align 8
+  %.sink8.i = load i32, ptr %19, align 4
+  %.sink9.i = load i32, ptr %18, align 8
+  store i32 %.sink9.i, ptr %7, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %.sink8.i, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %.sink.i, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr null, ptr %23, align 8
+  %24 = load ptr, ptr @netlogon_auths, align 8
+  %25 = call ptr @wmem_map_lookup(ptr noundef %24, ptr noundef nonnull %7) #9
+  %26 = load i32, ptr @hf_server_challenge, align 4
   %.val = load i8, ptr %5, align 1
-  %23 = and i8 %.val, 16
-  %.not.i = icmp eq i8 %23, 0
-  br i1 %.not.i, label %26, label %24
+  %27 = and i8 %.val, 16
+  %.not.i = icmp eq i8 %27, 0
+  br i1 %.not.i, label %30, label %28
 
-24:                                               ; preds = %6
-  %25 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %1) #9
-  br label %28
+28:                                               ; preds = %6
+  %29 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %1) #9
+  br label %32
 
-26:                                               ; preds = %6
-  %27 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %1) #9
-  br label %28
+30:                                               ; preds = %6
+  %31 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %1) #9
+  br label %32
 
-28:                                               ; preds = %26, %24
-  %29 = phi i64 [ %25, %24 ], [ %27, %26 ]
+32:                                               ; preds = %30, %28
+  %33 = phi i64 [ %29, %28 ], [ %31, %30 ]
   %.not14.i = icmp eq ptr %3, null
-  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit, label %30
+  br i1 %.not14.i, label %dissect_dcerpc_8bytes.exit, label %34
 
-30:                                               ; preds = %28
-  %31 = call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %22, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 0) #9
+34:                                               ; preds = %32
+  %35 = call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %26, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 0) #9
   br label %dissect_dcerpc_8bytes.exit
 
-dissect_dcerpc_8bytes.exit:                       ; preds = %28, %30
-  %32 = add i32 %1, 8
-  %33 = load i32, ptr @hf_netlogon_rc, align 4
-  %34 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %32, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %33, ptr noundef null) #9
-  %.not = icmp eq ptr %21, null
+dissect_dcerpc_8bytes.exit:                       ; preds = %32, %34
+  %36 = add i32 %1, 8
+  %37 = load i32, ptr @hf_netlogon_rc, align 4
+  %38 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %36, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %37, ptr noundef null) #9
+  %.not = icmp eq ptr %25, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %dissect_dcerpc_8bytes.exit
-  %35 = getelementptr inbounds i8, ptr %2, i64 20
-  br label %36
+  %39 = getelementptr inbounds i8, ptr %2, i64 20
+  br label %40
 
-36:                                               ; preds = %.preheader, %42
-  %.025 = phi ptr [ %21, %.preheader ], [ %44, %42 ]
-  %37 = getelementptr inbounds i8, ptr %.025, i64 388
-  %38 = load i32, ptr %37, align 4
-  %.not23 = icmp eq i32 %38, -1
-  br i1 %.not23, label %.critedge, label %39
+40:                                               ; preds = %.preheader, %46
+  %.025 = phi ptr [ %25, %.preheader ], [ %48, %46 ]
+  %41 = getelementptr inbounds i8, ptr %.025, i64 388
+  %42 = load i32, ptr %41, align 4
+  %.not23 = icmp eq i32 %42, -1
+  br i1 %.not23, label %.critedge, label %43
 
-39:                                               ; preds = %36
-  %40 = load i32, ptr %35, align 4
-  %41 = icmp slt i32 %38, %40
-  br i1 %41, label %42, label %.critedge
+43:                                               ; preds = %40
+  %44 = load i32, ptr %39, align 4
+  %45 = icmp slt i32 %42, %44
+  br i1 %45, label %46, label %.critedge
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %.025, i64 392
-  %44 = load ptr, ptr %43, align 8
-  %cond = icmp eq ptr %44, null
-  br i1 %cond, label %.loopexit, label %36, !llvm.loop !7
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %.025, i64 392
+  %48 = load ptr, ptr %47, align 8
+  %cond = icmp eq ptr %48, null
+  br i1 %cond, label %.loopexit, label %40, !llvm.loop !7
 
-.critedge:                                        ; preds = %39, %36
-  %45 = getelementptr inbounds i8, ptr %.025, i64 8
-  store i64 %29, ptr %45, align 8
+.critedge:                                        ; preds = %43, %40
+  %49 = getelementptr inbounds i8, ptr %.025, i64 8
+  store i64 %33, ptr %49, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %.critedge, %dissect_dcerpc_8bytes.exit
-  ret i32 %34
+.loopexit:                                        ; preds = %46, %.critedge, %dissect_dcerpc_8bytes.exit
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4525,292 +4539,303 @@ dissect_dcerpc_8bytes.exit:                       ; preds = %28, %30
   %52 = load i32, ptr @hf_netlogon_rc, align 4
   %53 = tail call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %.299, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %52, ptr noundef null) #9
   %54 = getelementptr inbounds i8, ptr %8, i64 24
-  %55 = getelementptr inbounds i8, ptr %8, i64 32
-  %56 = getelementptr inbounds i8, ptr %8, i64 40
-  %57 = getelementptr inbounds i8, ptr %2, i64 208
-  %58 = getelementptr inbounds i8, ptr %2, i64 216
-  %59 = load ptr, ptr %58, align 8
-  %60 = load <2 x i32>, ptr %57, align 8
-  store <2 x i32> %60, ptr %54, align 8
-  store ptr %59, ptr %55, align 8
-  store ptr null, ptr %56, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 232
-  %62 = getelementptr inbounds i8, ptr %2, i64 240
-  %.sink.i = load ptr, ptr %62, align 8
-  %63 = load <2 x i32>, ptr %61, align 8
-  store <2 x i32> %63, ptr %8, align 8
-  %64 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %.sink.i, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr null, ptr %65, align 8
-  %66 = load ptr, ptr @netlogon_auths, align 8
-  %67 = call ptr @wmem_map_lookup(ptr noundef %66, ptr noundef nonnull %8) #9
-  %.not107 = icmp eq ptr %67, null
+  %55 = getelementptr inbounds i8, ptr %8, i64 28
+  %56 = getelementptr inbounds i8, ptr %8, i64 32
+  %57 = getelementptr inbounds i8, ptr %8, i64 40
+  %58 = getelementptr inbounds i8, ptr %2, i64 208
+  %59 = load i32, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %2, i64 212
+  %61 = load i32, ptr %60, align 4
+  %62 = getelementptr inbounds i8, ptr %2, i64 216
+  %63 = load ptr, ptr %62, align 8
+  store i32 %59, ptr %54, align 8
+  store i32 %61, ptr %55, align 4
+  store ptr %63, ptr %56, align 8
+  store ptr null, ptr %57, align 8
+  %64 = getelementptr inbounds i8, ptr %2, i64 232
+  %65 = getelementptr inbounds i8, ptr %2, i64 236
+  %66 = getelementptr inbounds i8, ptr %2, i64 240
+  %.sink.i = load ptr, ptr %66, align 8
+  %.sink8.i = load i32, ptr %65, align 4
+  %.sink9.i = load i32, ptr %64, align 8
+  store i32 %.sink9.i, ptr %8, align 8
+  %67 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %.sink8.i, ptr %67, align 4
+  %68 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %.sink.i, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr null, ptr %69, align 8
+  %70 = load ptr, ptr @netlogon_auths, align 8
+  %71 = call ptr @wmem_map_lookup(ptr noundef %70, ptr noundef nonnull %8) #9
+  %.not107 = icmp eq ptr %71, null
   br i1 %.not107, label %.loopexit127, label %.preheader
 
 .preheader:                                       ; preds = %51
-  %68 = getelementptr inbounds i8, ptr %2, i64 20
-  br label %69
+  %72 = getelementptr inbounds i8, ptr %2, i64 20
+  br label %73
 
-69:                                               ; preds = %.preheader, %75
-  %.095148 = phi ptr [ %67, %.preheader ], [ %77, %75 ]
-  %70 = getelementptr inbounds i8, ptr %.095148, i64 388
-  %71 = load i32, ptr %70, align 4
-  %.not109 = icmp eq i32 %71, -1
-  br i1 %.not109, label %.critedge, label %72
+73:                                               ; preds = %.preheader, %79
+  %.095148 = phi ptr [ %71, %.preheader ], [ %81, %79 ]
+  %74 = getelementptr inbounds i8, ptr %.095148, i64 388
+  %75 = load i32, ptr %74, align 4
+  %.not109 = icmp eq i32 %75, -1
+  br i1 %.not109, label %.critedge, label %76
 
-72:                                               ; preds = %69
-  %73 = load i32, ptr %68, align 4
-  %74 = icmp slt i32 %71, %73
-  br i1 %74, label %75, label %.critedge
+76:                                               ; preds = %73
+  %77 = load i32, ptr %72, align 4
+  %78 = icmp slt i32 %75, %77
+  br i1 %78, label %79, label %.critedge
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %.095148, i64 392
-  %77 = load ptr, ptr %76, align 8
-  %cond = icmp eq ptr %77, null
-  br i1 %cond, label %.loopexit127, label %69, !llvm.loop !9
-
-.critedge:                                        ; preds = %72, %69
-  store ptr null, ptr %9, align 8
-  %78 = getelementptr inbounds i8, ptr %.095148, i64 344
-  store i32 %.096, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %.095148, i64 372
-  store i32 0, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %2, i64 408
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %.095148, i64 392
   %81 = load ptr, ptr %80, align 8
-  %82 = call i32 @get_md4pass_list(ptr noundef %81, ptr noundef nonnull %9) #9
-  %83 = and i32 %.096, 16777216
-  %.not110 = icmp eq i32 %83, 0
-  br i1 %.not110, label %121, label %84
+  %cond = icmp eq ptr %81, null
+  br i1 %cond, label %.loopexit127, label %73, !llvm.loop !9
 
-84:                                               ; preds = %.critedge
-  %85 = getelementptr inbounds i8, ptr %.095148, i64 8
-  %86 = load <2 x i64>, ptr %.095148, align 8
-  store <2 x i64> %86, ptr %12, align 16
-  %.not152 = icmp eq i32 %82, 0
+.critedge:                                        ; preds = %76, %73
+  store ptr null, ptr %9, align 8
+  %82 = getelementptr inbounds i8, ptr %.095148, i64 344
+  store i32 %.096, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %.095148, i64 372
+  store i32 0, ptr %83, align 4
+  %84 = getelementptr inbounds i8, ptr %2, i64 408
+  %85 = load ptr, ptr %84, align 8
+  %86 = call i32 @get_md4pass_list(ptr noundef %85, ptr noundef nonnull %9) #9
+  %87 = and i32 %.096, 16777216
+  %.not110 = icmp eq i32 %87, 0
+  br i1 %.not110, label %127, label %88
+
+88:                                               ; preds = %.critedge
+  %89 = load i64, ptr %.095148, align 8
+  store i64 %89, ptr %12, align 16
+  %90 = getelementptr inbounds i8, ptr %12, i64 8
+  %91 = getelementptr inbounds i8, ptr %.095148, i64 8
+  %92 = load i64, ptr %91, align 8
+  store i64 %92, ptr %90, align 8
+  %.not152 = icmp eq i32 %86, 0
   br i1 %.not152, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %84
-  %wide.trip.count = zext i32 %82 to i64
+.lr.ph.preheader:                                 ; preds = %88
+  %wide.trip.count = zext i32 %86 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %120
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %120 ]
-  %87 = load ptr, ptr %9, align 8
-  %88 = getelementptr %struct._md4_pass, ptr %87, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(273) %10, ptr noundef nonnull align 1 dereferenceable(273) %88, i64 273, i1 false)
-  %89 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %13, ptr noundef nonnull %12, i64 noundef 16, ptr noundef nonnull %10, i64 noundef 16) #9
-  %.not114 = icmp eq i32 %89, 0
-  br i1 %.not114, label %90, label %120
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %126
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %126 ]
+  %93 = load ptr, ptr %9, align 8
+  %94 = getelementptr %struct._md4_pass, ptr %93, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(273) %10, ptr noundef nonnull align 1 dereferenceable(273) %94, i64 273, i1 false)
+  %95 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %13, ptr noundef nonnull %12, i64 noundef 16, ptr noundef nonnull %10, i64 noundef 16) #9
+  %.not114 = icmp eq i32 %95, 0
+  br i1 %.not114, label %96, label %126
 
-90:                                               ; preds = %.lr.ph
+96:                                               ; preds = %.lr.ph
   store ptr null, ptr %15, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) %13, i64 16, i1 false)
-  %91 = call i32 @gcry_cipher_open(ptr noundef nonnull %15, i32 noundef 7, i32 noundef 12, i32 noundef 0) #9
-  %.not115 = icmp eq i32 %91, 0
-  br i1 %.not115, label %95, label %92
+  %97 = call i32 @gcry_cipher_open(ptr noundef nonnull %15, i32 noundef 7, i32 noundef 12, i32 noundef 0) #9
+  %.not115 = icmp eq i32 %97, 0
+  br i1 %.not115, label %101, label %98
 
-92:                                               ; preds = %90
-  %93 = call ptr @gcry_strsource(i32 noundef %91) #9
-  %94 = call ptr @gcry_strerror(i32 noundef %91) #9
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 6821, ptr noundef nonnull @__func__.netlogon_dissect_netrserverauthenticate023_reply, ptr noundef nonnull @.str.1033, ptr noundef %93, ptr noundef %94) #9
-  br label %.loopexit
-
-95:                                               ; preds = %90
-  %96 = load ptr, ptr %15, align 8
-  %97 = call i32 @gcry_cipher_setiv(ptr noundef %96, ptr noundef nonnull %16, i64 noundef 16) #9
-  %.not116 = icmp eq i32 %97, 0
-  br i1 %.not116, label %102, label %98
-
-98:                                               ; preds = %95
+98:                                               ; preds = %96
   %99 = call ptr @gcry_strsource(i32 noundef %97) #9
   %100 = call ptr @gcry_strerror(i32 noundef %97) #9
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 6828, ptr noundef nonnull @__func__.netlogon_dissect_netrserverauthenticate023_reply, ptr noundef nonnull @.str.1034, ptr noundef %99, ptr noundef %100) #9
-  %101 = load ptr, ptr %15, align 8
-  call void @gcry_cipher_close(ptr noundef %101) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 6821, ptr noundef nonnull @__func__.netlogon_dissect_netrserverauthenticate023_reply, ptr noundef nonnull @.str.1033, ptr noundef %99, ptr noundef %100) #9
   br label %.loopexit
 
-102:                                              ; preds = %95
-  %103 = load ptr, ptr %15, align 8
-  %104 = call i32 @gcry_cipher_setkey(ptr noundef %103, ptr noundef nonnull %11, i64 noundef 16) #9
-  %.not117 = icmp eq i32 %104, 0
-  br i1 %.not117, label %109, label %105
+101:                                              ; preds = %96
+  %102 = load ptr, ptr %15, align 8
+  %103 = call i32 @gcry_cipher_setiv(ptr noundef %102, ptr noundef nonnull %16, i64 noundef 16) #9
+  %.not116 = icmp eq i32 %103, 0
+  br i1 %.not116, label %108, label %104
 
-105:                                              ; preds = %102
-  %106 = call ptr @gcry_strsource(i32 noundef %104) #9
-  %107 = call ptr @gcry_strerror(i32 noundef %104) #9
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 6836, ptr noundef nonnull @__func__.netlogon_dissect_netrserverauthenticate023_reply, ptr noundef nonnull @.str.1035, ptr noundef %106, ptr noundef %107) #9
-  %108 = load ptr, ptr %15, align 8
-  call void @gcry_cipher_close(ptr noundef %108) #9
+104:                                              ; preds = %101
+  %105 = call ptr @gcry_strsource(i32 noundef %103) #9
+  %106 = call ptr @gcry_strerror(i32 noundef %103) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 6828, ptr noundef nonnull @__func__.netlogon_dissect_netrserverauthenticate023_reply, ptr noundef nonnull @.str.1034, ptr noundef %105, ptr noundef %106) #9
+  %107 = load ptr, ptr %15, align 8
+  call void @gcry_cipher_close(ptr noundef %107) #9
   br label %.loopexit
 
-109:                                              ; preds = %102
+108:                                              ; preds = %101
+  %109 = load ptr, ptr %15, align 8
+  %110 = call i32 @gcry_cipher_setkey(ptr noundef %109, ptr noundef nonnull %11, i64 noundef 16) #9
+  %.not117 = icmp eq i32 %110, 0
+  br i1 %.not117, label %115, label %111
+
+111:                                              ; preds = %108
+  %112 = call ptr @gcry_strsource(i32 noundef %110) #9
+  %113 = call ptr @gcry_strerror(i32 noundef %110) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 6836, ptr noundef nonnull @__func__.netlogon_dissect_netrserverauthenticate023_reply, ptr noundef nonnull @.str.1035, ptr noundef %112, ptr noundef %113) #9
+  %114 = load ptr, ptr %15, align 8
+  call void @gcry_cipher_close(ptr noundef %114) #9
+  br label %.loopexit
+
+115:                                              ; preds = %108
   store i64 1311768465173141112, ptr %14, align 8
-  %110 = load ptr, ptr %15, align 8
-  %111 = call i32 @gcry_cipher_encrypt(ptr noundef %110, ptr noundef nonnull %14, i64 noundef 8, ptr noundef nonnull %85, i64 noundef 8) #9
-  %.not118 = icmp eq i32 %111, 0
-  br i1 %.not118, label %116, label %112
+  %116 = load ptr, ptr %15, align 8
+  %117 = call i32 @gcry_cipher_encrypt(ptr noundef %116, ptr noundef nonnull %14, i64 noundef 8, ptr noundef nonnull %91, i64 noundef 8) #9
+  %.not118 = icmp eq i32 %117, 0
+  br i1 %.not118, label %122, label %118
 
-112:                                              ; preds = %109
-  %113 = call ptr @gcry_strsource(i32 noundef %111) #9
-  %114 = call ptr @gcry_strerror(i32 noundef %111) #9
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 6846, ptr noundef nonnull @__func__.netlogon_dissect_netrserverauthenticate023_reply, ptr noundef nonnull @.str.1036, ptr noundef %113, ptr noundef %114) #9
-  %115 = load ptr, ptr %15, align 8
-  call void @gcry_cipher_close(ptr noundef %115) #9
+118:                                              ; preds = %115
+  %119 = call ptr @gcry_strsource(i32 noundef %117) #9
+  %120 = call ptr @gcry_strerror(i32 noundef %117) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 6846, ptr noundef nonnull @__func__.netlogon_dissect_netrserverauthenticate023_reply, ptr noundef nonnull @.str.1036, ptr noundef %119, ptr noundef %120) #9
+  %121 = load ptr, ptr %15, align 8
+  call void @gcry_cipher_close(ptr noundef %121) #9
   br label %.loopexit
 
-116:                                              ; preds = %109
-  %117 = load ptr, ptr %15, align 8
-  call void @gcry_cipher_close(ptr noundef %117) #9
-  %118 = load i64, ptr %14, align 8
-  %119 = icmp eq i64 %118, %29
-  br i1 %119, label %.loopexit124, label %120
+122:                                              ; preds = %115
+  %123 = load ptr, ptr %15, align 8
+  call void @gcry_cipher_close(ptr noundef %123) #9
+  %124 = load i64, ptr %14, align 8
+  %125 = icmp eq i64 %124, %29
+  br i1 %125, label %.loopexit124, label %126
 
-120:                                              ; preds = %.lr.ph, %116
+126:                                              ; preds = %.lr.ph, %122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
-121:                                              ; preds = %.critedge
-  %122 = and i32 %.096, 16384
-  %.not111 = icmp eq i32 %122, 0
-  br i1 %.not111, label %.loopexit, label %123
+127:                                              ; preds = %.critedge
+  %128 = and i32 %.096, 16384
+  %.not111 = icmp eq i32 %128, 0
+  br i1 %.not111, label %.loopexit, label %129
 
-123:                                              ; preds = %121
+129:                                              ; preds = %127
   store i32 0, ptr %17, align 4
   store i64 0, ptr %20, align 8
-  %124 = call i32 @gcry_md_open(ptr noundef nonnull %19, i32 noundef 1, i32 noundef 0) #9
-  %.not112 = icmp eq i32 %124, 0
-  br i1 %.not112, label %125, label %133
+  %130 = call i32 @gcry_md_open(ptr noundef nonnull %19, i32 noundef 1, i32 noundef 0) #9
+  %.not112 = icmp eq i32 %130, 0
+  br i1 %.not112, label %131, label %139
 
-125:                                              ; preds = %123
-  %126 = load ptr, ptr %19, align 8
-  call void @gcry_md_write(ptr noundef %126, ptr noundef nonnull %17, i64 noundef 4) #9
-  %127 = load ptr, ptr %19, align 8
-  call void @gcry_md_write(ptr noundef %127, ptr noundef nonnull %.095148, i64 noundef 8) #9
-  %128 = load ptr, ptr %19, align 8
-  %129 = getelementptr inbounds i8, ptr %.095148, i64 8
-  call void @gcry_md_write(ptr noundef %128, ptr noundef nonnull %129, i64 noundef 8) #9
-  %130 = load ptr, ptr %19, align 8
-  %131 = call ptr @gcry_md_read(ptr noundef %130, i32 noundef 0) #9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, ptr noundef nonnull align 1 dereferenceable(16) %131, i64 16, i1 false)
+131:                                              ; preds = %129
   %132 = load ptr, ptr %19, align 8
-  call void @gcry_md_close(ptr noundef %132) #9
-  br label %133
+  call void @gcry_md_write(ptr noundef %132, ptr noundef nonnull %17, i64 noundef 4) #9
+  %133 = load ptr, ptr %19, align 8
+  call void @gcry_md_write(ptr noundef %133, ptr noundef nonnull %.095148, i64 noundef 8) #9
+  %134 = load ptr, ptr %19, align 8
+  %135 = getelementptr inbounds i8, ptr %.095148, i64 8
+  call void @gcry_md_write(ptr noundef %134, ptr noundef nonnull %135, i64 noundef 8) #9
+  %136 = load ptr, ptr %19, align 8
+  %137 = call ptr @gcry_md_read(ptr noundef %136, i32 noundef 0) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, ptr noundef nonnull align 1 dereferenceable(16) %137, i64 16, i1 false)
+  %138 = load ptr, ptr %19, align 8
+  call void @gcry_md_close(ptr noundef %138) #9
+  br label %139
 
-133:                                              ; preds = %125, %123
-  %134 = getelementptr inbounds i8, ptr %.095148, i64 8
-  %.not153 = icmp eq i32 %82, 0
+139:                                              ; preds = %131, %129
+  %140 = getelementptr inbounds i8, ptr %.095148, i64 8
+  %.not153 = icmp eq i32 %86, 0
   br i1 %.not153, label %.loopexit, label %.lr.ph151
 
-.lr.ph151:                                        ; preds = %133
-  %135 = getelementptr inbounds i8, ptr %11, i64 7
-  %wide.trip.count182 = zext i32 %82 to i64
-  br label %136
+.lr.ph151:                                        ; preds = %139
+  %141 = getelementptr inbounds i8, ptr %11, i64 7
+  %wide.trip.count182 = zext i32 %86 to i64
+  br label %142
 
-136:                                              ; preds = %.lr.ph151, %143
-  %indvars.iv179 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next180, %143 ]
-  %137 = load ptr, ptr %9, align 8
-  %138 = getelementptr %struct._md4_pass, ptr %137, i64 %indvars.iv179
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(273) %10, ptr noundef nonnull align 1 dereferenceable(273) %138, i64 273, i1 false)
-  %139 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %18, i64 noundef 16, ptr noundef nonnull %10, i64 noundef 16) #9
-  %.not113 = icmp eq i32 %139, 0
-  br i1 %.not113, label %140, label %143
+142:                                              ; preds = %.lr.ph151, %149
+  %indvars.iv179 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next180, %149 ]
+  %143 = load ptr, ptr %9, align 8
+  %144 = getelementptr %struct._md4_pass, ptr %143, i64 %indvars.iv179
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(273) %10, ptr noundef nonnull align 1 dereferenceable(273) %144, i64 273, i1 false)
+  %145 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %18, i64 noundef 16, ptr noundef nonnull %10, i64 noundef 16) #9
+  %.not113 = icmp eq i32 %145, 0
+  br i1 %.not113, label %146, label %149
 
-140:                                              ; preds = %136
-  call void @crypt_des_ecb(ptr noundef nonnull %20, ptr noundef nonnull %134, ptr noundef nonnull %11) #9
-  call void @crypt_des_ecb(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %135) #9
-  %141 = load i64, ptr %21, align 8
-  %142 = icmp eq i64 %141, %29
-  br i1 %142, label %.loopexit124, label %143
+146:                                              ; preds = %142
+  call void @crypt_des_ecb(ptr noundef nonnull %20, ptr noundef nonnull %140, ptr noundef nonnull %11) #9
+  call void @crypt_des_ecb(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %141) #9
+  %147 = load i64, ptr %21, align 8
+  %148 = icmp eq i64 %147, %29
+  br i1 %148, label %.loopexit124, label %149
 
-143:                                              ; preds = %136, %140
+149:                                              ; preds = %142, %146
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
-  br i1 %exitcond183.not, label %.loopexit, label %136, !llvm.loop !11
+  br i1 %exitcond183.not, label %.loopexit, label %142, !llvm.loop !11
 
-.loopexit124:                                     ; preds = %116, %140
-  %.194 = phi ptr [ %138, %140 ], [ %88, %116 ]
-  %.092 = phi ptr [ @.str.1038, %140 ], [ @.str.413, %116 ]
-  %144 = getelementptr inbounds i8, ptr %.095148, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(273) %144, ptr noundef nonnull align 1 dereferenceable(273) %.194, i64 273, i1 false)
-  %145 = load i32, ptr %68, align 4
-  %146 = getelementptr inbounds i8, ptr %.095148, i64 292
-  store i32 %145, ptr %146, align 4
-  %147 = getelementptr inbounds i8, ptr %.095148, i64 296
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false)
-  %148 = call ptr @proto_tree_get_parent(ptr noundef %3) #9
-  %149 = getelementptr inbounds i8, ptr %.194, i64 16
-  %150 = load i8, ptr %.194, align 1
-  %151 = zext i8 %150 to i32
-  %152 = getelementptr i8, ptr %.194, i64 1
-  %153 = load i8, ptr %152, align 1
-  %154 = zext i8 %153 to i32
-  %155 = getelementptr i8, ptr %.194, i64 2
-  %156 = load i8, ptr %155, align 1
+.loopexit124:                                     ; preds = %122, %146
+  %.194 = phi ptr [ %144, %146 ], [ %94, %122 ]
+  %.092 = phi ptr [ @.str.1038, %146 ], [ @.str.413, %122 ]
+  %150 = getelementptr inbounds i8, ptr %.095148, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(273) %150, ptr noundef nonnull align 1 dereferenceable(273) %.194, i64 273, i1 false)
+  %151 = load i32, ptr %72, align 4
+  %152 = getelementptr inbounds i8, ptr %.095148, i64 292
+  store i32 %151, ptr %152, align 4
+  %153 = getelementptr inbounds i8, ptr %.095148, i64 296
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false)
+  %154 = call ptr @proto_tree_get_parent(ptr noundef %3) #9
+  %155 = getelementptr inbounds i8, ptr %.194, i64 16
+  %156 = load i8, ptr %.194, align 1
   %157 = zext i8 %156 to i32
-  %158 = getelementptr i8, ptr %.194, i64 3
+  %158 = getelementptr i8, ptr %.194, i64 1
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
-  %161 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %148, ptr noundef nonnull @ei_netlogon_auth_nthash, ptr noundef nonnull @.str.1040, ptr noundef nonnull %.092, ptr noundef nonnull %149, i32 noundef %151, i32 noundef %154, i32 noundef %157, i32 noundef %160) #9
-  %162 = call ptr @proto_tree_get_parent(ptr noundef %3) #9
-  %163 = load i8, ptr %11, align 16
-  %164 = zext i8 %163 to i32
-  %165 = getelementptr inbounds i8, ptr %11, i64 1
-  %166 = load i8, ptr %165, align 1
-  %167 = zext i8 %166 to i32
-  %168 = getelementptr inbounds i8, ptr %11, i64 2
-  %169 = load i8, ptr %168, align 2
+  %161 = getelementptr i8, ptr %.194, i64 2
+  %162 = load i8, ptr %161, align 1
+  %163 = zext i8 %162 to i32
+  %164 = getelementptr i8, ptr %.194, i64 3
+  %165 = load i8, ptr %164, align 1
+  %166 = zext i8 %165 to i32
+  %167 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %154, ptr noundef nonnull @ei_netlogon_auth_nthash, ptr noundef nonnull @.str.1040, ptr noundef nonnull %.092, ptr noundef nonnull %155, i32 noundef %157, i32 noundef %160, i32 noundef %163, i32 noundef %166) #9
+  %168 = call ptr @proto_tree_get_parent(ptr noundef %3) #9
+  %169 = load i8, ptr %11, align 16
   %170 = zext i8 %169 to i32
-  %171 = getelementptr inbounds i8, ptr %11, i64 3
+  %171 = getelementptr inbounds i8, ptr %11, i64 1
   %172 = load i8, ptr %171, align 1
   %173 = zext i8 %172 to i32
-  %174 = getelementptr inbounds i8, ptr %11, i64 4
-  %175 = load i8, ptr %174, align 4
+  %174 = getelementptr inbounds i8, ptr %11, i64 2
+  %175 = load i8, ptr %174, align 2
   %176 = zext i8 %175 to i32
-  %177 = getelementptr inbounds i8, ptr %11, i64 5
+  %177 = getelementptr inbounds i8, ptr %11, i64 3
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i32
-  %180 = getelementptr inbounds i8, ptr %11, i64 6
-  %181 = load i8, ptr %180, align 2
+  %180 = getelementptr inbounds i8, ptr %11, i64 4
+  %181 = load i8, ptr %180, align 4
   %182 = zext i8 %181 to i32
-  %183 = getelementptr inbounds i8, ptr %11, i64 7
+  %183 = getelementptr inbounds i8, ptr %11, i64 5
   %184 = load i8, ptr %183, align 1
   %185 = zext i8 %184 to i32
-  %186 = getelementptr inbounds i8, ptr %11, i64 8
-  %187 = load i8, ptr %186, align 8
+  %186 = getelementptr inbounds i8, ptr %11, i64 6
+  %187 = load i8, ptr %186, align 2
   %188 = zext i8 %187 to i32
-  %189 = getelementptr inbounds i8, ptr %11, i64 9
+  %189 = getelementptr inbounds i8, ptr %11, i64 7
   %190 = load i8, ptr %189, align 1
   %191 = zext i8 %190 to i32
-  %192 = getelementptr inbounds i8, ptr %11, i64 10
-  %193 = load i8, ptr %192, align 2
+  %192 = getelementptr inbounds i8, ptr %11, i64 8
+  %193 = load i8, ptr %192, align 8
   %194 = zext i8 %193 to i32
-  %195 = getelementptr inbounds i8, ptr %11, i64 11
+  %195 = getelementptr inbounds i8, ptr %11, i64 9
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i32
-  %198 = getelementptr inbounds i8, ptr %11, i64 12
-  %199 = load i8, ptr %198, align 4
+  %198 = getelementptr inbounds i8, ptr %11, i64 10
+  %199 = load i8, ptr %198, align 2
   %200 = zext i8 %199 to i32
-  %201 = getelementptr inbounds i8, ptr %11, i64 13
+  %201 = getelementptr inbounds i8, ptr %11, i64 11
   %202 = load i8, ptr %201, align 1
   %203 = zext i8 %202 to i32
-  %204 = getelementptr inbounds i8, ptr %11, i64 14
-  %205 = load i8, ptr %204, align 2
+  %204 = getelementptr inbounds i8, ptr %11, i64 12
+  %205 = load i8, ptr %204, align 4
   %206 = zext i8 %205 to i32
-  %207 = getelementptr inbounds i8, ptr %11, i64 15
+  %207 = getelementptr inbounds i8, ptr %11, i64 13
   %208 = load i8, ptr %207, align 1
   %209 = zext i8 %208 to i32
-  %210 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %162, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1041, i32 noundef %164, i32 noundef %167, i32 noundef %170, i32 noundef %173, i32 noundef %176, i32 noundef %179, i32 noundef %182, i32 noundef %185, i32 noundef %188, i32 noundef %191, i32 noundef %194, i32 noundef %197, i32 noundef %200, i32 noundef %203, i32 noundef %206, i32 noundef %209) #9
+  %210 = getelementptr inbounds i8, ptr %11, i64 14
+  %211 = load i8, ptr %210, align 2
+  %212 = zext i8 %211 to i32
+  %213 = getelementptr inbounds i8, ptr %11, i64 15
+  %214 = load i8, ptr %213, align 1
+  %215 = zext i8 %214 to i32
+  %216 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %168, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1041, i32 noundef %170, i32 noundef %173, i32 noundef %176, i32 noundef %179, i32 noundef %182, i32 noundef %185, i32 noundef %188, i32 noundef %191, i32 noundef %194, i32 noundef %197, i32 noundef %200, i32 noundef %203, i32 noundef %206, i32 noundef %209, i32 noundef %212, i32 noundef %215) #9
   br label %.loopexit127
 
-.loopexit:                                        ; preds = %120, %143, %121, %84, %133, %92, %98, %105, %112
-  %211 = getelementptr inbounds i8, ptr %.095148, i64 296
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %211, i8 0, i64 16, i1 false)
+.loopexit:                                        ; preds = %126, %149, %127, %88, %139, %98, %104, %111, %118
+  %217 = getelementptr inbounds i8, ptr %.095148, i64 296
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %217, i8 0, i64 16, i1 false)
   br label %.loopexit127
 
-.loopexit127:                                     ; preds = %75, %.loopexit, %.loopexit124, %51
+.loopexit127:                                     ; preds = %79, %.loopexit, %.loopexit124, %51
   ret i32 %53
 }
 
@@ -6582,162 +6607,170 @@ define internal noundef i32 @netlogon_dissect_opaque_buffer_block(ptr noundef %0
   %13 = load i32, ptr %12, align 8
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %13, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #9
   %15 = icmp slt i32 %2, 8
-  br i1 %15, label %127, label %16
+  br i1 %15, label %131, label %16
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds i8, ptr %11, i64 24
-  %18 = getelementptr inbounds i8, ptr %11, i64 32
-  %19 = getelementptr inbounds i8, ptr %11, i64 40
-  %20 = getelementptr inbounds i8, ptr %3, i64 232
-  %21 = getelementptr inbounds i8, ptr %3, i64 240
-  %22 = load ptr, ptr %21, align 8
-  %23 = load <2 x i32>, ptr %20, align 8
-  store <2 x i32> %23, ptr %17, align 8
-  store ptr %22, ptr %18, align 8
-  store ptr null, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 208
-  %25 = getelementptr inbounds i8, ptr %3, i64 216
-  %.sink.i = load ptr, ptr %25, align 8
-  %26 = load <2 x i32>, ptr %24, align 8
-  store <2 x i32> %26, ptr %11, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %.sink.i, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr null, ptr %28, align 8
-  %29 = load ptr, ptr @netlogon_auths, align 8
-  %30 = call ptr @wmem_map_lookup(ptr noundef %29, ptr noundef nonnull %11) #9
-  %cond89 = icmp eq ptr %30, null
+  %18 = getelementptr inbounds i8, ptr %11, i64 28
+  %19 = getelementptr inbounds i8, ptr %11, i64 32
+  %20 = getelementptr inbounds i8, ptr %11, i64 40
+  %21 = getelementptr inbounds i8, ptr %3, i64 232
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 236
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds i8, ptr %3, i64 240
+  %26 = load ptr, ptr %25, align 8
+  store i32 %22, ptr %17, align 8
+  store i32 %24, ptr %18, align 4
+  store ptr %26, ptr %19, align 8
+  store ptr null, ptr %20, align 8
+  %27 = getelementptr inbounds i8, ptr %3, i64 208
+  %28 = getelementptr inbounds i8, ptr %3, i64 212
+  %29 = getelementptr inbounds i8, ptr %3, i64 216
+  %.sink.i = load ptr, ptr %29, align 8
+  %.sink8.i = load i32, ptr %28, align 4
+  %.sink9.i = load i32, ptr %27, align 8
+  store i32 %.sink9.i, ptr %11, align 8
+  %30 = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 %.sink8.i, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %.sink.i, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr null, ptr %32, align 8
+  %33 = load ptr, ptr @netlogon_auths, align 8
+  %34 = call ptr @wmem_map_lookup(ptr noundef %33, ptr noundef nonnull %11) #9
+  %cond89 = icmp eq ptr %34, null
   br i1 %cond89, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %31 = getelementptr inbounds i8, ptr %3, i64 20
-  br label %32
+  %35 = getelementptr inbounds i8, ptr %3, i64 20
+  br label %36
 
-32:                                               ; preds = %.lr.ph, %38
-  %.07190 = phi ptr [ %30, %.lr.ph ], [ %40, %38 ]
-  %33 = getelementptr inbounds i8, ptr %.07190, i64 388
-  %34 = load i32, ptr %33, align 4
-  %.not77 = icmp eq i32 %34, -1
-  br i1 %.not77, label %.critedge, label %35
+36:                                               ; preds = %.lr.ph, %42
+  %.07190 = phi ptr [ %34, %.lr.ph ], [ %44, %42 ]
+  %37 = getelementptr inbounds i8, ptr %.07190, i64 388
+  %38 = load i32, ptr %37, align 4
+  %.not77 = icmp eq i32 %38, -1
+  br i1 %.not77, label %.critedge, label %39
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %31, align 4
-  %37 = icmp slt i32 %34, %36
-  br i1 %37, label %38, label %.critedge
+39:                                               ; preds = %36
+  %40 = load i32, ptr %35, align 4
+  %41 = icmp slt i32 %38, %40
+  br i1 %41, label %42, label %.critedge
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %.07190, i64 392
-  %40 = load ptr, ptr %39, align 8
-  %cond = icmp eq ptr %40, null
-  br i1 %cond, label %._crit_edge, label %32, !llvm.loop !13
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds i8, ptr %.07190, i64 392
+  %44 = load ptr, ptr %43, align 8
+  %cond = icmp eq ptr %44, null
+  br i1 %cond, label %._crit_edge, label %36, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %38, %16
-  %41 = call ptr @proto_tree_get_parent(ptr noundef %4) #9
-  %42 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %3, ptr noundef %41, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1125) #9
-  br label %127
+._crit_edge:                                      ; preds = %42, %16
+  %45 = call ptr @proto_tree_get_parent(ptr noundef %4) #9
+  %46 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %3, ptr noundef %45, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1125) #9
+  br label %131
 
-.critedge:                                        ; preds = %35, %32
-  %43 = getelementptr inbounds i8, ptr %.07190, i64 344
-  %44 = load i32, ptr %43, align 8
-  %45 = and i32 %44, 16777216
-  %.not.i = icmp eq i32 %45, 0
-  br i1 %.not.i, label %68, label %46
+.critedge:                                        ; preds = %39, %36
+  %47 = getelementptr inbounds i8, ptr %.07190, i64 344
+  %48 = load i32, ptr %47, align 8
+  %49 = and i32 %48, 16777216
+  %.not.i = icmp eq i32 %49, 0
+  br i1 %.not.i, label %72, label %50
 
-46:                                               ; preds = %.critedge
+50:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store ptr null, ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %47 = call i32 @gcry_cipher_open(ptr noundef nonnull %9, i32 noundef 7, i32 noundef 12, i32 noundef 0) #9
-  %.not.i.i = icmp eq i32 %47, 0
-  br i1 %.not.i.i, label %51, label %48
+  %51 = call i32 @gcry_cipher_open(ptr noundef nonnull %9, i32 noundef 7, i32 noundef 12, i32 noundef 0) #9
+  %.not.i.i = icmp eq i32 %51, 0
+  br i1 %.not.i.i, label %55, label %52
 
-48:                                               ; preds = %46
-  %49 = call ptr @gcry_strsource(i32 noundef %47) #9
-  %50 = call ptr @gcry_strerror(i32 noundef %47) #9
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7162, ptr noundef nonnull @__func__.prepare_session_key_cipher_aes, ptr noundef nonnull @.str.1033, ptr noundef %49, ptr noundef %50) #9
+52:                                               ; preds = %50
+  %53 = call ptr @gcry_strsource(i32 noundef %51) #9
+  %54 = call ptr @gcry_strerror(i32 noundef %51) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7162, ptr noundef nonnull @__func__.prepare_session_key_cipher_aes, ptr noundef nonnull @.str.1033, ptr noundef %53, ptr noundef %54) #9
   br label %prepare_session_key_cipher_aes.exit.i
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %9, align 8
-  %53 = call i32 @gcry_cipher_setiv(ptr noundef %52, ptr noundef nonnull %10, i64 noundef 16) #9
-  %.not17.i.i = icmp eq i32 %53, 0
-  br i1 %.not17.i.i, label %58, label %54
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %9, align 8
+  %57 = call i32 @gcry_cipher_setiv(ptr noundef %56, ptr noundef nonnull %10, i64 noundef 16) #9
+  %.not17.i.i = icmp eq i32 %57, 0
+  br i1 %.not17.i.i, label %62, label %58
 
-54:                                               ; preds = %51
-  %55 = call ptr @gcry_strsource(i32 noundef %53) #9
-  %56 = call ptr @gcry_strerror(i32 noundef %53) #9
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7169, ptr noundef nonnull @__func__.prepare_session_key_cipher_aes, ptr noundef nonnull @.str.1034, ptr noundef %55, ptr noundef %56) #9
-  %57 = load ptr, ptr %9, align 8
-  call void @gcry_cipher_close(ptr noundef %57) #9
+58:                                               ; preds = %55
+  %59 = call ptr @gcry_strsource(i32 noundef %57) #9
+  %60 = call ptr @gcry_strerror(i32 noundef %57) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7169, ptr noundef nonnull @__func__.prepare_session_key_cipher_aes, ptr noundef nonnull @.str.1034, ptr noundef %59, ptr noundef %60) #9
+  %61 = load ptr, ptr %9, align 8
+  call void @gcry_cipher_close(ptr noundef %61) #9
   br label %prepare_session_key_cipher_aes.exit.i
 
-58:                                               ; preds = %51
-  %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds i8, ptr %.07190, i64 296
-  %61 = call i32 @gcry_cipher_setkey(ptr noundef %59, ptr noundef nonnull %60, i64 noundef 16) #9
-  %.not18.i.i = icmp eq i32 %61, 0
-  br i1 %.not18.i.i, label %66, label %62
+62:                                               ; preds = %55
+  %63 = load ptr, ptr %9, align 8
+  %64 = getelementptr inbounds i8, ptr %.07190, i64 296
+  %65 = call i32 @gcry_cipher_setkey(ptr noundef %63, ptr noundef nonnull %64, i64 noundef 16) #9
+  %.not18.i.i = icmp eq i32 %65, 0
+  br i1 %.not18.i.i, label %70, label %66
 
-62:                                               ; preds = %58
-  %63 = call ptr @gcry_strsource(i32 noundef %61) #9
-  %64 = call ptr @gcry_strerror(i32 noundef %61) #9
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7177, ptr noundef nonnull @__func__.prepare_session_key_cipher_aes, ptr noundef nonnull @.str.1035, ptr noundef %63, ptr noundef %64) #9
-  %65 = load ptr, ptr %9, align 8
-  call void @gcry_cipher_close(ptr noundef %65) #9
+66:                                               ; preds = %62
+  %67 = call ptr @gcry_strsource(i32 noundef %65) #9
+  %68 = call ptr @gcry_strerror(i32 noundef %65) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7177, ptr noundef nonnull @__func__.prepare_session_key_cipher_aes, ptr noundef nonnull @.str.1035, ptr noundef %67, ptr noundef %68) #9
+  %69 = load ptr, ptr %9, align 8
+  call void @gcry_cipher_close(ptr noundef %69) #9
   br label %prepare_session_key_cipher_aes.exit.i
 
-66:                                               ; preds = %58
-  %67 = load ptr, ptr %9, align 8
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %9, align 8
   br label %prepare_session_key_cipher_aes.exit.i
 
-prepare_session_key_cipher_aes.exit.i:            ; preds = %66, %62, %54, %48
-  %.0 = phi ptr [ %67, %66 ], [ null, %62 ], [ null, %54 ], [ null, %48 ]
-  %.0.i.i = phi i32 [ 0, %66 ], [ %61, %62 ], [ %53, %54 ], [ %47, %48 ]
+prepare_session_key_cipher_aes.exit.i:            ; preds = %70, %66, %58, %52
+  %.0 = phi ptr [ %71, %70 ], [ null, %66 ], [ null, %58 ], [ null, %52 ]
+  %.0.i.i = phi i32 [ 0, %70 ], [ %65, %66 ], [ %57, %58 ], [ %51, %52 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %prepare_session_key_cipher.exit
 
-68:                                               ; preds = %.critedge
-  %69 = and i32 %44, 16384
-  %.not7.i = icmp eq i32 %69, 0
-  br i1 %.not7.i, label %prepare_session_key_cipher.exit.thread, label %70
+72:                                               ; preds = %.critedge
+  %73 = and i32 %48, 16384
+  %.not7.i = icmp eq i32 %73, 0
+  br i1 %.not7.i, label %prepare_session_key_cipher.exit.thread, label %74
 
-70:                                               ; preds = %68
+74:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %71 = call i32 @gcry_cipher_open(ptr noundef nonnull %8, i32 noundef 301, i32 noundef 4, i32 noundef 0) #9
-  %.not.i8.i = icmp eq i32 %71, 0
-  br i1 %.not.i8.i, label %75, label %72
+  %75 = call i32 @gcry_cipher_open(ptr noundef nonnull %8, i32 noundef 301, i32 noundef 4, i32 noundef 0) #9
+  %.not.i8.i = icmp eq i32 %75, 0
+  br i1 %.not.i8.i, label %79, label %76
 
-72:                                               ; preds = %70
-  %73 = call ptr @gcry_strsource(i32 noundef %71) #9
-  %74 = call ptr @gcry_strerror(i32 noundef %71) #9
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7196, ptr noundef nonnull @__func__.prepare_session_key_cipher_strong, ptr noundef nonnull @.str.1033, ptr noundef %73, ptr noundef %74) #9
+76:                                               ; preds = %74
+  %77 = call ptr @gcry_strsource(i32 noundef %75) #9
+  %78 = call ptr @gcry_strerror(i32 noundef %75) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7196, ptr noundef nonnull @__func__.prepare_session_key_cipher_strong, ptr noundef nonnull @.str.1033, ptr noundef %77, ptr noundef %78) #9
   br label %prepare_session_key_cipher_strong.exit.i
 
-75:                                               ; preds = %70
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds i8, ptr %.07190, i64 296
-  %78 = call i32 @gcry_cipher_setkey(ptr noundef %76, ptr noundef nonnull %77, i64 noundef 16) #9
-  %.not12.i.i = icmp eq i32 %78, 0
-  br i1 %.not12.i.i, label %83, label %79
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %8, align 8
+  %81 = getelementptr inbounds i8, ptr %.07190, i64 296
+  %82 = call i32 @gcry_cipher_setkey(ptr noundef %80, ptr noundef nonnull %81, i64 noundef 16) #9
+  %.not12.i.i = icmp eq i32 %82, 0
+  br i1 %.not12.i.i, label %87, label %83
 
-79:                                               ; preds = %75
-  %80 = call ptr @gcry_strsource(i32 noundef %78) #9
-  %81 = call ptr @gcry_strerror(i32 noundef %78) #9
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7203, ptr noundef nonnull @__func__.prepare_session_key_cipher_strong, ptr noundef nonnull @.str.1035, ptr noundef %80, ptr noundef %81) #9
-  %82 = load ptr, ptr %8, align 8
-  call void @gcry_cipher_close(ptr noundef %82) #9
+83:                                               ; preds = %79
+  %84 = call ptr @gcry_strsource(i32 noundef %82) #9
+  %85 = call ptr @gcry_strerror(i32 noundef %82) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7203, ptr noundef nonnull @__func__.prepare_session_key_cipher_strong, ptr noundef nonnull @.str.1035, ptr noundef %84, ptr noundef %85) #9
+  %86 = load ptr, ptr %8, align 8
+  call void @gcry_cipher_close(ptr noundef %86) #9
   br label %prepare_session_key_cipher_strong.exit.i
 
-83:                                               ; preds = %75
-  %84 = load ptr, ptr %8, align 8
+87:                                               ; preds = %79
+  %88 = load ptr, ptr %8, align 8
   br label %prepare_session_key_cipher_strong.exit.i
 
-prepare_session_key_cipher_strong.exit.i:         ; preds = %83, %79, %72
-  %.1 = phi ptr [ %84, %83 ], [ null, %79 ], [ null, %72 ]
-  %.0.i9.i = phi i32 [ 0, %83 ], [ %78, %79 ], [ %71, %72 ]
+prepare_session_key_cipher_strong.exit.i:         ; preds = %87, %83, %76
+  %.1 = phi ptr [ %88, %87 ], [ null, %83 ], [ null, %76 ]
+  %.0.i9.i = phi i32 [ 0, %87 ], [ %82, %83 ], [ %75, %76 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %prepare_session_key_cipher.exit
 
@@ -6745,80 +6778,80 @@ prepare_session_key_cipher.exit:                  ; preds = %prepare_session_key
   %.2 = phi ptr [ %.1, %prepare_session_key_cipher_strong.exit.i ], [ %.0, %prepare_session_key_cipher_aes.exit.i ]
   %.0.i = phi i32 [ %.0.i9.i, %prepare_session_key_cipher_strong.exit.i ], [ %.0.i.i, %prepare_session_key_cipher_aes.exit.i ]
   %.not78 = icmp eq i32 %.0.i, 0
-  br i1 %.not78, label %87, label %prepare_session_key_cipher.exit.thread
+  br i1 %.not78, label %91, label %prepare_session_key_cipher.exit.thread
 
-prepare_session_key_cipher.exit.thread:           ; preds = %68, %prepare_session_key_cipher.exit
-  %.0.i86 = phi i32 [ %.0.i, %prepare_session_key_cipher.exit ], [ 84, %68 ]
-  %85 = call ptr @gcry_strsource(i32 noundef %.0.i86) #9
-  %86 = call ptr @gcry_strerror(i32 noundef %.0.i86) #9
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7270, ptr noundef nonnull @__func__.netlogon_dissect_opaque_buffer_block, ptr noundef nonnull @.str.1126, ptr noundef %85, ptr noundef %86) #9
-  br label %127
+prepare_session_key_cipher.exit.thread:           ; preds = %72, %prepare_session_key_cipher.exit
+  %.0.i86 = phi i32 [ %.0.i, %prepare_session_key_cipher.exit ], [ 84, %72 ]
+  %89 = call ptr @gcry_strsource(i32 noundef %.0.i86) #9
+  %90 = call ptr @gcry_strerror(i32 noundef %.0.i86) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7270, ptr noundef nonnull @__func__.netlogon_dissect_opaque_buffer_block, ptr noundef nonnull @.str.1126, ptr noundef %89, ptr noundef %90) #9
+  br label %131
 
-87:                                               ; preds = %prepare_session_key_cipher.exit
-  %88 = getelementptr inbounds i8, ptr %3, i64 408
-  %89 = load ptr, ptr %88, align 8
-  %90 = zext nneg i32 %2 to i64
-  %91 = call ptr @tvb_memdup(ptr noundef %89, ptr noundef %0, i32 noundef %1, i64 noundef %90) #9
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %94
+91:                                               ; preds = %prepare_session_key_cipher.exit
+  %92 = getelementptr inbounds i8, ptr %3, i64 408
+  %93 = load ptr, ptr %92, align 8
+  %94 = zext nneg i32 %2 to i64
+  %95 = call ptr @tvb_memdup(ptr noundef %93, ptr noundef %0, i32 noundef %1, i64 noundef %94) #9
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %97, label %98
 
-93:                                               ; preds = %87
+97:                                               ; preds = %91
   call void @gcry_cipher_close(ptr noundef %.2) #9
-  br label %127
+  br label %131
 
-94:                                               ; preds = %87
-  %95 = call i32 @gcry_cipher_decrypt(ptr noundef %.2, ptr noundef nonnull %91, i64 noundef %90, ptr noundef null, i64 noundef 0) #9
+98:                                               ; preds = %91
+  %99 = call i32 @gcry_cipher_decrypt(ptr noundef %.2, ptr noundef nonnull %95, i64 noundef %94, ptr noundef null, i64 noundef 0) #9
   call void @gcry_cipher_close(ptr noundef %.2) #9
-  %.not79 = icmp eq i32 %95, 0
-  br i1 %.not79, label %99, label %96
+  %.not79 = icmp eq i32 %99, 0
+  br i1 %.not79, label %103, label %100
 
-96:                                               ; preds = %94
-  %97 = call ptr @gcry_strsource(i32 noundef %95) #9
-  %98 = call ptr @gcry_strerror(i32 noundef %95) #9
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7284, ptr noundef nonnull @__func__.netlogon_dissect_opaque_buffer_block, ptr noundef nonnull @.str.1126, ptr noundef %97, ptr noundef %98) #9
-  br label %127
+100:                                              ; preds = %98
+  %101 = call ptr @gcry_strsource(i32 noundef %99) #9
+  %102 = call ptr @gcry_strerror(i32 noundef %99) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1010, i32 noundef 5, ptr noundef nonnull @.str.1032, i64 noundef 7284, ptr noundef nonnull @__func__.netlogon_dissect_opaque_buffer_block, ptr noundef nonnull @.str.1126, ptr noundef %101, ptr noundef %102) #9
+  br label %131
 
-99:                                               ; preds = %94
-  %100 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %91, i32 noundef %2, i32 noundef %2) #9
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %127, label %102
+103:                                              ; preds = %98
+  %104 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %95, i32 noundef %2, i32 noundef %2) #9
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %131, label %106
 
-102:                                              ; preds = %99
-  %103 = add nsw i32 %2, -8
-  %104 = call i32 @tvb_get_letohl(ptr noundef nonnull %100, i32 noundef 4) #9
-  %.not80 = icmp eq i32 %104, %103
-  %105 = call ptr @proto_tree_get_parent(ptr noundef %4) #9
-  %106 = getelementptr inbounds i8, ptr %.07190, i64 292
-  %107 = load i32, ptr %106, align 4
-  %108 = getelementptr inbounds i8, ptr %.07190, i64 296
-  %109 = load i8, ptr %108, align 8
-  %110 = zext i8 %109 to i32
-  %111 = getelementptr i8, ptr %.07190, i64 297
-  %112 = load i8, ptr %111, align 1
-  %113 = zext i8 %112 to i32
-  %114 = getelementptr i8, ptr %.07190, i64 298
-  %115 = load i8, ptr %114, align 2
-  %116 = zext i8 %115 to i32
-  %117 = getelementptr i8, ptr %.07190, i64 299
-  %118 = load i8, ptr %117, align 1
-  %119 = zext i8 %118 to i32
-  %120 = getelementptr inbounds i8, ptr %.07190, i64 32
-  br i1 %.not80, label %123, label %121
+106:                                              ; preds = %103
+  %107 = add nsw i32 %2, -8
+  %108 = call i32 @tvb_get_letohl(ptr noundef nonnull %104, i32 noundef 4) #9
+  %.not80 = icmp eq i32 %108, %107
+  %109 = call ptr @proto_tree_get_parent(ptr noundef %4) #9
+  %110 = getelementptr inbounds i8, ptr %.07190, i64 292
+  %111 = load i32, ptr %110, align 4
+  %112 = getelementptr inbounds i8, ptr %.07190, i64 296
+  %113 = load i8, ptr %112, align 8
+  %114 = zext i8 %113 to i32
+  %115 = getelementptr i8, ptr %.07190, i64 297
+  %116 = load i8, ptr %115, align 1
+  %117 = zext i8 %116 to i32
+  %118 = getelementptr i8, ptr %.07190, i64 298
+  %119 = load i8, ptr %118, align 2
+  %120 = zext i8 %119 to i32
+  %121 = getelementptr i8, ptr %.07190, i64 299
+  %122 = load i8, ptr %121, align 1
+  %123 = zext i8 %122 to i32
+  %124 = getelementptr inbounds i8, ptr %.07190, i64 32
+  br i1 %.not80, label %127, label %125
 
-121:                                              ; preds = %102
-  %122 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %3, ptr noundef %105, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1127, i32 noundef %107, i32 noundef %110, i32 noundef %113, i32 noundef %116, i32 noundef %119, ptr noundef nonnull %120) #9
-  br label %127
+125:                                              ; preds = %106
+  %126 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %3, ptr noundef %109, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1127, i32 noundef %111, i32 noundef %114, i32 noundef %117, i32 noundef %120, i32 noundef %123, ptr noundef nonnull %124) #9
+  br label %131
 
-123:                                              ; preds = %102
-  %124 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %3, ptr noundef %105, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1128, i32 noundef %107, i32 noundef %110, i32 noundef %113, i32 noundef %116, i32 noundef %119, ptr noundef nonnull %120) #9
-  call void @add_new_data_source(ptr noundef nonnull %3, ptr noundef nonnull %100, ptr noundef nonnull @.str.91) #9
-  %125 = load i32, ptr @hf_netlogon_opaque_buffer_dec, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %125, ptr noundef nonnull %100, i32 noundef 0, i32 noundef %2, i32 noundef 0) #9
-  br label %127
+127:                                              ; preds = %106
+  %128 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %3, ptr noundef %109, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1128, i32 noundef %111, i32 noundef %114, i32 noundef %117, i32 noundef %120, i32 noundef %123, ptr noundef nonnull %124) #9
+  call void @add_new_data_source(ptr noundef nonnull %3, ptr noundef nonnull %104, ptr noundef nonnull @.str.91) #9
+  %129 = load i32, ptr @hf_netlogon_opaque_buffer_dec, align 4
+  %130 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %129, ptr noundef nonnull %104, i32 noundef 0, i32 noundef %2, i32 noundef 0) #9
+  br label %131
 
-127:                                              ; preds = %99, %7, %123, %121, %96, %93, %prepare_session_key_cipher.exit.thread, %._crit_edge
-  %128 = add i32 %2, %1
-  ret i32 %128
+131:                                              ; preds = %103, %7, %127, %125, %100, %97, %prepare_session_key_cipher.exit.thread, %._crit_edge
+  %132 = add i32 %2, %1
+  ret i32 %132
 }
 
 declare i32 @gcry_cipher_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

@@ -14383,30 +14383,63 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL32pipeline_class_Zero_Instructions, i64 5), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds (i8, ptr @_ZL32pipeline_class_Zero_Instructions, i64 16), i8 0, i64 36, i1 false)
   store i32 0, ptr @_ZL35pipeline_class_Unknown_Instructions, align 8
-  store <4 x i8> <i8 1, i8 0, i8 1, i8 1>, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 4), align 4
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 4), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 5), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 6), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 7), align 1
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 8), align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 56), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 16), i8 0, i64 36, i1 false)
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 16), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 20), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(13) @_ZN12Pipeline_Use19elaborated_elementsE, i8 0, i64 13, i1 false)
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 1>, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 16), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 24), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 28), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 32), align 16
-  store <4 x i32> <i32 0, i32 0, i32 2, i32 2>, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 36), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 36), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 40), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 44), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 48), align 16
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 52), align 4
-  store <4 x i32> <i32 0, i32 0, i32 3, i32 3>, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 56), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 56), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 60), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 64), align 16
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 68), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 72), align 8
-  store <4 x i32> <i32 0, i32 0, i32 4, i32 4>, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 76), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 76), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 80), align 16
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 84), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 88), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 92), align 4
-  store <4 x i32> <i32 0, i32 0, i32 5, i32 5>, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 96), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 96), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 100), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 104), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 108), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 112), align 16
-  store <4 x i32> <i32 0, i32 0, i32 6, i32 6>, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 116), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 116), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 120), align 8
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 124), align 4
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 128), align 16
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 132), align 4
-  store <4 x i32> <i32 0, i32 0, i32 7, i32 7>, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 140), align 4
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 144), align 16
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 148), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 152), align 8
-  store <4 x i32> <i32 0, i32 0, i32 8, i32 8>, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 156), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 156), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 160), align 16
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 164), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 168), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 172), align 4
-  store <4 x i32> <i32 0, i32 0, i32 9, i32 9>, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 176), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 176), align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 180), align 4
+  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 184), align 8
+  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 188), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 192), align 16
-  store <4 x i32> <i32 0, i32 0, i32 10, i32 10>, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 196), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 196), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 200), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 204), align 4
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 208), align 16
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 212), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 216), align 8
   store i32 0, ptr @_ZN12Pipeline_Use14elaborated_useE, align 8
@@ -14417,10 +14450,16 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 4), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 8), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 12), align 4
-  store <4 x i32> <i32 -2147483647, i32 1792, i32 8, i32 10>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 16), align 16
+  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 16), align 16
+  store i32 1792, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 20), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 24), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 32), align 16
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 36), align 4
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr @_ZL18pipeline_class_001, align 8
+  store i8 1, ptr @_ZL18pipeline_class_001, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 24), align 8
@@ -14433,10 +14472,16 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 4), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 8), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 12), align 4
-  store <4 x i32> <i32 -2147483646, i32 1792, i32 8, i32 10>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 16), align 16
+  store i32 -2147483646, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 16), align 16
+  store i32 1792, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 20), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 24), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 32), align 16
   store i32 12, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 36), align 4
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 2>, ptr @_ZL18pipeline_class_002, align 8
+  store i8 1, ptr @_ZL18pipeline_class_002, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 2), align 2
+  store i8 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 24), align 8
@@ -14447,10 +14492,16 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store ptr @_ZL21pipeline_res_mask_002, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 56), align 8
   store i32 1, ptr @_ZL21pipeline_res_mask_003, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 4), i8 0, i64 9, i1 false)
-  store <4 x i32> <i32 -2147483647, i32 1792, i32 8, i32 10>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 16), align 16
+  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 16), align 16
+  store i32 1792, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 20), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 24), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 32), align 16
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 36), align 4
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr @_ZL18pipeline_class_003, align 8
+  store i8 1, ptr @_ZL18pipeline_class_003, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_002, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 24), align 8
@@ -14459,7 +14510,10 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 56), align 8
-  store <4 x i8> <i8 1, i8 5, i8 0, i8 1>, ptr @_ZL18pipeline_class_004, align 8
+  store i8 1, ptr @_ZL18pipeline_class_004, align 8
+  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 24), align 8
@@ -14468,7 +14522,10 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 56), align 8
-  store <4 x i8> <i8 1, i8 5, i8 0, i8 1>, ptr @_ZL18pipeline_class_005, align 8
+  store i8 1, ptr @_ZL18pipeline_class_005, align 8
+  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_002, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 24), align 8
@@ -14479,12 +14536,21 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store ptr @_ZL21pipeline_res_mask_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 56), align 8
   store i32 1, ptr @_ZL21pipeline_res_mask_004, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 4), i8 0, i64 9, i1 false)
-  store <4 x i32> <i32 -2147483647, i32 1792, i32 8, i32 10>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 16), align 16
+  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 16), align 16
+  store i32 1792, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 20), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 24), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 32), align 16
-  store <4 x i32> <i32 8, i32 56, i32 3, i32 5>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 36), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 36), align 4
+  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 44), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 48), align 16
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 52), align 4
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 56), align 8
-  store <4 x i8> <i8 1, i8 6, i8 0, i8 1>, ptr @_ZL18pipeline_class_006, align 8
+  store i8 1, ptr @_ZL18pipeline_class_006, align 8
+  store i8 6, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 24), align 8
@@ -14495,10 +14561,16 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store ptr @_ZL21pipeline_res_mask_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 56), align 8
   store i32 1, ptr @_ZL21pipeline_res_mask_005, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 4), i8 0, i64 9, i1 false)
-  store <4 x i32> <i32 -2147483647, i32 56, i32 3, i32 5>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 16), align 16
+  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 16), align 16
+  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 20), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 24), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 32), align 16
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 36), align 4
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr @_ZL18pipeline_class_007, align 8
+  store i8 1, ptr @_ZL18pipeline_class_007, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 24), align 8
@@ -14507,7 +14579,10 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_005, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 56), align 8
-  store <4 x i8> <i8 2, i8 0, i8 0, i8 1>, ptr @_ZL18pipeline_class_008, align 8
+  store i8 2, ptr @_ZL18pipeline_class_008, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_002, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 24), align 8
@@ -14516,7 +14591,10 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 44), align 4
   store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 56), align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr @_ZL18pipeline_class_009, align 8
+  store i8 1, ptr @_ZL18pipeline_class_009, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 24), align 8
@@ -14527,10 +14605,16 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store ptr @_ZL21pipeline_res_mask_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 56), align 8
   store i32 1, ptr @_ZL21pipeline_res_mask_006, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 4), i8 0, i64 9, i1 false)
-  store <4 x i32> <i32 -2147483647, i32 256, i32 8, i32 8>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 16), align 16
+  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 16), align 16
+  store i32 256, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 20), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 24), align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 28), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 32), align 16
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 36), align 4
-  store <4 x i8> <i8 1, i8 5, i8 0, i8 1>, ptr @_ZL18pipeline_class_010, align 8
+  store i8 1, ptr @_ZL18pipeline_class_010, align 8
+  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_005, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 24), align 8
@@ -14541,12 +14625,21 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store ptr @_ZL21pipeline_res_mask_006, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 56), align 8
   store i32 1, ptr @_ZL21pipeline_res_mask_007, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 4), i8 0, i64 9, i1 false)
-  store <4 x i32> <i32 -2147483647, i32 256, i32 8, i32 8>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 16), align 16
+  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 16), align 16
+  store i32 256, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 20), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 24), align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 28), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 32), align 16
-  store <4 x i32> <i32 8, i32 56, i32 3, i32 5>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 36), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 36), align 4
+  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 44), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 48), align 16
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 52), align 4
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 56), align 8
-  store <4 x i8> <i8 1, i8 6, i8 0, i8 1>, ptr @_ZL18pipeline_class_011, align 8
+  store i8 1, ptr @_ZL18pipeline_class_011, align 8
+  store i8 6, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_006, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 24), align 8
@@ -14555,7 +14648,10 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 257, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 44), align 4
   store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_007, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 56), align 8
-  store <4 x i8> <i8 2, i8 5, i8 0, i8 1>, ptr @_ZL18pipeline_class_012, align 8
+  store i8 2, ptr @_ZL18pipeline_class_012, align 8
+  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 24), align 8
@@ -14564,7 +14660,10 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 56), align 8
-  store <4 x i8> <i8 1, i8 5, i8 0, i8 1>, ptr @_ZL18pipeline_class_013, align 8
+  store i8 1, ptr @_ZL18pipeline_class_013, align 8
+  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 24), align 8
@@ -14573,7 +14672,10 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 56), align 8
-  store <4 x i8> <i8 2, i8 5, i8 0, i8 1>, ptr @_ZL18pipeline_class_014, align 8
+  store i8 2, ptr @_ZL18pipeline_class_014, align 8
+  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 24), align 8
@@ -14587,7 +14689,10 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_008, i64 8), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_008, i64 12), align 4
   store i32 -2147483640, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_008, i64 16), align 16
-  store <4 x i8> <i8 3, i8 0, i8 0, i8 4>, ptr @_ZL18pipeline_class_015, align 8
+  store i8 3, ptr @_ZL18pipeline_class_015, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 2), align 2
+  store i8 4, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_007, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 24), align 8
@@ -14601,7 +14706,10 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_009, i64 8), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_009, i64 12), align 4
   store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_009, i64 16), align 16
-  store <4 x i8> <i8 2, i8 5, i8 0, i8 1>, ptr @_ZL18pipeline_class_016, align 8
+  store i8 2, ptr @_ZL18pipeline_class_016, align 8
+  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_007, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 24), align 8
@@ -14614,10 +14722,16 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 4), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 8), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 12), align 4
-  store <4 x i32> <i32 -2147483647, i32 56, i32 3, i32 5>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 16), align 16
+  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 16), align 16
+  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 20), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 24), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 32), align 16
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 36), align 4
-  store <4 x i8> <i8 3, i8 5, i8 0, i8 1>, ptr @_ZL18pipeline_class_017, align 8
+  store i8 3, ptr @_ZL18pipeline_class_017, align 8
+  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_005, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_008, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 24), align 8
@@ -14630,10 +14744,16 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 4), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 8), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 12), align 4
-  store <4 x i32> <i32 -2147483646, i32 128, i32 7, i32 7>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 16), align 16
+  store i32 -2147483646, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 16), align 16
+  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 20), align 4
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 24), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 28), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 32), align 16
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 36), align 4
-  store <4 x i8> <i8 1, i8 5, i8 0, i8 2>, ptr @_ZL18pipeline_class_020, align 8
+  store i8 1, ptr @_ZL18pipeline_class_020, align 8
+  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 2), align 2
+  store i8 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_009, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 24), align 8
@@ -14644,7 +14764,10 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store ptr @_ZL21pipeline_res_mask_012, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 56), align 8
   store i32 1, ptr @_ZL21pipeline_res_mask_021, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 4), i8 0, i64 9, i1 false)
-  store <4 x i32> <i32 -2147483646, i32 56, i32 3, i32 5>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 16), align 16
+  store i32 -2147483646, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 16), align 16
+  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 20), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 24), align 8
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 32), align 16
   store i32 12, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 36), align 4
   store i32 64, ptr @_ZL21pipeline_res_mask_023, align 16
@@ -14652,7 +14775,10 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 6, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_023, i64 8), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_023, i64 12), align 4
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_023, i64 16), align 16
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr @_ZL18pipeline_class_034, align 8
+  store i8 0, ptr @_ZL18pipeline_class_034, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 3), align 1
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 16), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL23pipeline_res_stages_015, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 24), align 8
@@ -14661,7 +14787,10 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 64, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 44), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_023, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 56), align 8
-  store <4 x i8> <i8 2, i8 0, i8 0, i8 1>, ptr @_ZL18pipeline_class_035, align 8
+  store i8 2, ptr @_ZL18pipeline_class_035, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 3), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 4), i8 0, i64 5, i1 false)
   store ptr @_ZL18pipeline_reads_010, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_015, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 24), align 8
@@ -14677,14 +14806,30 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 -2147483644, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 16), align 16
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 20), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 24), i8 0, i64 9, i1 false)
-  store <4 x i32> <i32 2, i32 56, i32 3, i32 5>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 36), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 36), align 4
+  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 40), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 44), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 48), align 16
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 52), align 4
-  store <4 x i32> <i32 4, i32 1792, i32 8, i32 10>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 56), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 56), align 8
+  store i32 1792, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 60), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 64), align 16
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 68), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 72), align 8
-  store <4 x i32> <i32 12, i32 64, i32 6, i32 6>, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 76), align 4
+  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 76), align 4
+  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 80), align 16
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 84), align 4
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 88), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 92), align 4
   store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 96), align 16
-  store <8 x i8> <i8 1, i8 6, i8 6, i8 1, i8 1, i8 0, i8 0, i8 1>, ptr @_ZL18pipeline_class_036, align 8
+  store i8 1, ptr @_ZL18pipeline_class_036, align 8
+  store i8 6, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 1), align 1
+  store i8 6, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 3), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 4), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 5), align 1
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 6), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 7), align 1
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 8), align 8
   store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_016, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 24), align 8
@@ -14693,7 +14838,14 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i32 65, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 44), align 4
   store i32 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_024, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 56), align 8
-  store <8 x i8> <i8 0, i8 0, i8 100, i8 10, i8 1, i8 0, i8 1, i8 1>, ptr @_ZL18pipeline_class_037, align 8
+  store i8 0, ptr @_ZL18pipeline_class_037, align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 1), align 1
+  store i8 100, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 2), align 2
+  store i8 10, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 3), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 4), align 4
+  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 5), align 1
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 6), align 2
+  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 7), align 1
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 8), align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 16), align 8
   store ptr @_ZL23pipeline_res_stages_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 24), align 8

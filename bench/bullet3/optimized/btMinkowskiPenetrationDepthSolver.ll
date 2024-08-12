@@ -97,50 +97,54 @@ for.body:                                         ; preds = %land.end, %for.body
   %fneg.i = fneg float %norm.sroa.0.0.copyload
   %fneg4.i = fneg float %norm.sroa.3.0.copyload
   %fneg8.i = fneg float %norm.sroa.5.0.copyload
-  %7 = load <2 x float>, ptr %transA, align 4
-  %8 = load <2 x float>, ptr %arrayidx4.i.i, align 4
-  %9 = insertelement <2 x float> poison, float %fneg4.i, i64 0
-  %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> zeroinitializer
-  %11 = fmul <2 x float> %8, %10
-  %12 = insertelement <2 x float> poison, float %fneg.i, i64 0
-  %13 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> zeroinitializer
-  %14 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> %13, <2 x float> %11)
-  %15 = load <2 x float>, ptr %arrayidx9.i.i, align 4
-  %16 = insertelement <2 x float> poison, float %fneg8.i, i64 0
-  %17 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> zeroinitializer
-  %18 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %15, <2 x float> %17, <2 x float> %14)
-  %19 = load float, ptr %arrayidx.i.i8.i, align 4
-  %20 = load float, ptr %arrayidx.i3.i9.i, align 4
-  %mul7.i11.i = fmul float %20, %fneg4.i
-  %21 = tail call float @llvm.fmuladd.f32(float %19, float %fneg.i, float %mul7.i11.i)
-  %22 = load float, ptr %arrayidx.i5.i12.i, align 4
-  %23 = tail call noundef float @llvm.fmuladd.f32(float %22, float %fneg8.i, float %21)
-  %retval.sroa.3.12.vec.insert.i64 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %23, i64 0
+  %7 = load float, ptr %transA, align 4
+  %8 = load float, ptr %arrayidx4.i.i, align 4
+  %mul7.i.i = fmul float %8, %fneg4.i
+  %9 = tail call float @llvm.fmuladd.f32(float %7, float %fneg.i, float %mul7.i.i)
+  %10 = load float, ptr %arrayidx9.i.i, align 4
+  %11 = tail call noundef float @llvm.fmuladd.f32(float %10, float %fneg8.i, float %9)
+  %12 = load float, ptr %arrayidx.i.i5.i, align 4
+  %13 = load float, ptr %arrayidx.i3.i6.i, align 4
+  %mul7.i7.i = fmul float %13, %fneg4.i
+  %14 = tail call float @llvm.fmuladd.f32(float %12, float %fneg.i, float %mul7.i7.i)
+  %15 = load float, ptr %arrayidx.i5.i.i, align 4
+  %16 = tail call noundef float @llvm.fmuladd.f32(float %15, float %fneg8.i, float %14)
+  %17 = load float, ptr %arrayidx.i.i8.i, align 4
+  %18 = load float, ptr %arrayidx.i3.i9.i, align 4
+  %mul7.i11.i = fmul float %18, %fneg4.i
+  %19 = tail call float @llvm.fmuladd.f32(float %17, float %fneg.i, float %mul7.i11.i)
+  %20 = load float, ptr %arrayidx.i5.i12.i, align 4
+  %21 = tail call noundef float @llvm.fmuladd.f32(float %20, float %fneg8.i, float %19)
+  %retval.sroa.0.0.vec.insert.i62 = insertelement <2 x float> poison, float %11, i64 0
+  %retval.sroa.0.4.vec.insert.i63 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i62, float %16, i64 1
+  %retval.sroa.3.12.vec.insert.i64 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %21, i64 0
   %arrayidx34 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInABatch, i64 0, i64 %indvars.iv
-  store <2 x float> %18, ptr %arrayidx34, align 16
+  store <2 x float> %retval.sroa.0.4.vec.insert.i63, ptr %arrayidx34, align 16
   %ref.tmp27.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds i8, ptr %arrayidx34, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i64, ptr %ref.tmp27.sroa.2.0.arrayidx34.sroa_idx, align 8
-  %24 = load <2 x float>, ptr %transB, align 4
-  %25 = load <2 x float>, ptr %arrayidx4.i.i67, align 4
-  %26 = insertelement <2 x float> poison, float %norm.sroa.3.0.copyload, i64 0
-  %27 = shufflevector <2 x float> %26, <2 x float> poison, <2 x i32> zeroinitializer
-  %28 = fmul <2 x float> %27, %25
-  %29 = insertelement <2 x float> poison, float %norm.sroa.0.0.copyload, i64 0
-  %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
-  %31 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %24, <2 x float> %30, <2 x float> %28)
-  %32 = load <2 x float>, ptr %arrayidx9.i.i70, align 4
-  %33 = insertelement <2 x float> poison, float %norm.sroa.5.0.copyload, i64 0
-  %34 = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> zeroinitializer
-  %35 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %32, <2 x float> %34, <2 x float> %31)
-  %36 = load float, ptr %arrayidx.i.i8.i76, align 4
-  %37 = load float, ptr %arrayidx.i3.i9.i77, align 4
-  %mul7.i11.i78 = fmul float %norm.sroa.3.0.copyload, %37
-  %38 = tail call float @llvm.fmuladd.f32(float %36, float %norm.sroa.0.0.copyload, float %mul7.i11.i78)
-  %39 = load float, ptr %arrayidx.i5.i12.i79, align 4
-  %40 = tail call noundef float @llvm.fmuladd.f32(float %39, float %norm.sroa.5.0.copyload, float %38)
-  %retval.sroa.3.12.vec.insert.i82 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %40, i64 0
+  %22 = load float, ptr %transB, align 4
+  %23 = load float, ptr %arrayidx4.i.i67, align 4
+  %mul7.i.i69 = fmul float %norm.sroa.3.0.copyload, %23
+  %24 = tail call float @llvm.fmuladd.f32(float %22, float %norm.sroa.0.0.copyload, float %mul7.i.i69)
+  %25 = load float, ptr %arrayidx9.i.i70, align 4
+  %26 = tail call noundef float @llvm.fmuladd.f32(float %25, float %norm.sroa.5.0.copyload, float %24)
+  %27 = load float, ptr %arrayidx.i.i5.i72, align 4
+  %28 = load float, ptr %arrayidx.i3.i6.i73, align 4
+  %mul7.i7.i74 = fmul float %norm.sroa.3.0.copyload, %28
+  %29 = tail call float @llvm.fmuladd.f32(float %27, float %norm.sroa.0.0.copyload, float %mul7.i7.i74)
+  %30 = load float, ptr %arrayidx.i5.i.i75, align 4
+  %31 = tail call noundef float @llvm.fmuladd.f32(float %30, float %norm.sroa.5.0.copyload, float %29)
+  %32 = load float, ptr %arrayidx.i.i8.i76, align 4
+  %33 = load float, ptr %arrayidx.i3.i9.i77, align 4
+  %mul7.i11.i78 = fmul float %norm.sroa.3.0.copyload, %33
+  %34 = tail call float @llvm.fmuladd.f32(float %32, float %norm.sroa.0.0.copyload, float %mul7.i11.i78)
+  %35 = load float, ptr %arrayidx.i5.i12.i79, align 4
+  %36 = tail call noundef float @llvm.fmuladd.f32(float %35, float %norm.sroa.5.0.copyload, float %34)
+  %retval.sroa.0.0.vec.insert.i80 = insertelement <2 x float> poison, float %26, i64 0
+  %retval.sroa.0.4.vec.insert.i81 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i80, float %31, i64 1
+  %retval.sroa.3.12.vec.insert.i82 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %36, i64 0
   %arrayidx40 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInBBatch, i64 0, i64 %indvars.iv
-  store <2 x float> %35, ptr %arrayidx40, align 16
+  store <2 x float> %retval.sroa.0.4.vec.insert.i81, ptr %arrayidx40, align 16
   %ref.tmp35.sroa.2.0.arrayidx40.sroa_idx = getelementptr inbounds i8, ptr %arrayidx40, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i82, ptr %ref.tmp35.sroa.2.0.arrayidx40.sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -150,8 +154,8 @@ for.body:                                         ; preds = %land.end, %for.body
 for.end:                                          ; preds = %for.body
   %vtable = load ptr, ptr %convexA, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
-  %41 = load ptr, ptr %vfn, align 8
-  %call41 = tail call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(32) %convexA)
+  %37 = load ptr, ptr %vfn, align 8
+  %call41 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(32) %convexA)
   %cmp44376 = icmp sgt i32 %call41, 0
   br i1 %cmp44376, label %for.body45.lr.ph, label %if.end
 
@@ -165,94 +169,91 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   %i42.0377 = phi i32 [ 0, %for.body45.lr.ph ], [ %inc73, %for.body45 ]
   %vtable47 = load ptr, ptr %convexA, align 8
   %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 176
-  %42 = load ptr, ptr %vfn48, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(32) %convexA, i32 noundef %i42.0377, ptr noundef nonnull align 4 dereferenceable(16) %norm46)
-  %43 = load <4 x float>, ptr %transA, align 4
-  %44 = shufflevector <4 x float> %43, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %45 = load float, ptr %norm46, align 8
-  %46 = load <4 x float>, ptr %arrayidx.i.i5.i, align 4
-  %47 = shufflevector <4 x float> %46, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %48 = load float, ptr %arrayidx7.i.i, align 4
-  %49 = load <4 x float>, ptr %arrayidx.i.i8.i, align 4
-  %50 = shufflevector <4 x float> %49, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %51 = load float, ptr %arrayidx12.i.i, align 8
-  %52 = load float, ptr %arrayidx4.i.i, align 4
-  %53 = load float, ptr %arrayidx.i3.i6.i, align 4
-  %54 = load float, ptr %arrayidx.i3.i9.i, align 4
-  %55 = insertelement <2 x float> poison, float %48, i64 0
-  %56 = shufflevector <2 x float> %55, <2 x float> poison, <2 x i32> zeroinitializer
-  %57 = insertelement <2 x float> %47, float %53, i64 1
-  %58 = fmul <2 x float> %56, %57
-  %59 = insertelement <2 x float> %44, float %52, i64 1
-  %60 = insertelement <2 x float> poison, float %45, i64 0
-  %61 = shufflevector <2 x float> %60, <2 x float> poison, <2 x i32> zeroinitializer
-  %62 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %59, <2 x float> %61, <2 x float> %58)
-  %63 = insertelement <2 x float> %50, float %54, i64 1
-  %64 = insertelement <2 x float> poison, float %51, i64 0
-  %65 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> zeroinitializer
-  %66 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %63, <2 x float> %65, <2 x float> %62)
-  %67 = load float, ptr %arrayidx9.i.i, align 4
-  %68 = load float, ptr %arrayidx.i5.i.i, align 4
-  %mul8.i13.i = fmul float %48, %68
-  %69 = call float @llvm.fmuladd.f32(float %67, float %45, float %mul8.i13.i)
-  %70 = load float, ptr %arrayidx.i5.i12.i, align 4
-  %71 = call noundef float @llvm.fmuladd.f32(float %70, float %51, float %69)
-  %retval.sroa.3.12.vec.insert.i87 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %71, i64 0
-  store <2 x float> %66, ptr %norm46, align 8
+  %38 = load ptr, ptr %vfn48, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(32) %convexA, i32 noundef %i42.0377, ptr noundef nonnull align 4 dereferenceable(16) %norm46)
+  %39 = load float, ptr %transA, align 4
+  %40 = load float, ptr %norm46, align 8
+  %41 = load float, ptr %arrayidx.i.i5.i, align 4
+  %42 = load float, ptr %arrayidx7.i.i, align 4
+  %mul8.i.i = fmul float %41, %42
+  %43 = call float @llvm.fmuladd.f32(float %39, float %40, float %mul8.i.i)
+  %44 = load float, ptr %arrayidx.i.i8.i, align 4
+  %45 = load float, ptr %arrayidx12.i.i, align 8
+  %46 = call noundef float @llvm.fmuladd.f32(float %44, float %45, float %43)
+  %47 = load float, ptr %arrayidx4.i.i, align 4
+  %48 = load float, ptr %arrayidx.i3.i6.i, align 4
+  %mul8.i7.i = fmul float %42, %48
+  %49 = call float @llvm.fmuladd.f32(float %47, float %40, float %mul8.i7.i)
+  %50 = load float, ptr %arrayidx.i3.i9.i, align 4
+  %51 = call noundef float @llvm.fmuladd.f32(float %50, float %45, float %49)
+  %52 = load float, ptr %arrayidx9.i.i, align 4
+  %53 = load float, ptr %arrayidx.i5.i.i, align 4
+  %mul8.i13.i = fmul float %42, %53
+  %54 = call float @llvm.fmuladd.f32(float %52, float %40, float %mul8.i13.i)
+  %55 = load float, ptr %arrayidx.i5.i12.i, align 4
+  %56 = call noundef float @llvm.fmuladd.f32(float %55, float %45, float %54)
+  %retval.sroa.0.0.vec.insert.i85 = insertelement <2 x float> poison, float %46, i64 0
+  %retval.sroa.0.4.vec.insert.i86 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i85, float %51, i64 1
+  %retval.sroa.3.12.vec.insert.i87 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %56, i64 0
+  store <2 x float> %retval.sroa.0.4.vec.insert.i86, ptr %norm46, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i87, ptr %arrayidx12.i.i, align 8
   %call53 = call noundef ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv()
   %arrayidx55 = getelementptr inbounds %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv401
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx55, ptr noundef nonnull align 8 dereferenceable(16) %norm46, i64 16, i1 false)
-  %72 = load float, ptr %norm46, align 8
-  %fneg.i90 = fneg float %72
-  %73 = load float, ptr %arrayidx7.i.i, align 4
-  %fneg4.i92 = fneg float %73
-  %74 = load float, ptr %arrayidx12.i.i, align 8
-  %fneg8.i94 = fneg float %74
-  %75 = load <2 x float>, ptr %transA, align 4
-  %76 = load <2 x float>, ptr %arrayidx4.i.i, align 4
-  %77 = insertelement <2 x float> poison, float %fneg4.i92, i64 0
-  %78 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> zeroinitializer
-  %79 = fmul <2 x float> %76, %78
-  %80 = insertelement <2 x float> poison, float %fneg.i90, i64 0
-  %81 = shufflevector <2 x float> %80, <2 x float> poison, <2 x i32> zeroinitializer
-  %82 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %75, <2 x float> %81, <2 x float> %79)
-  %83 = load <2 x float>, ptr %arrayidx9.i.i, align 4
-  %84 = insertelement <2 x float> poison, float %fneg8.i94, i64 0
-  %85 = shufflevector <2 x float> %84, <2 x float> poison, <2 x i32> zeroinitializer
-  %86 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %83, <2 x float> %85, <2 x float> %82)
-  %87 = load float, ptr %arrayidx.i.i8.i, align 4
-  %88 = load float, ptr %arrayidx.i3.i9.i, align 4
-  %mul7.i11.i111 = fmul float %88, %fneg4.i92
-  %89 = call float @llvm.fmuladd.f32(float %87, float %fneg.i90, float %mul7.i11.i111)
-  %90 = load float, ptr %arrayidx.i5.i12.i, align 4
-  %91 = call noundef float @llvm.fmuladd.f32(float %90, float %fneg8.i94, float %89)
-  %retval.sroa.3.12.vec.insert.i115 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %91, i64 0
+  %57 = load float, ptr %norm46, align 8
+  %fneg.i90 = fneg float %57
+  %58 = load float, ptr %arrayidx7.i.i, align 4
+  %fneg4.i92 = fneg float %58
+  %59 = load float, ptr %arrayidx12.i.i, align 8
+  %fneg8.i94 = fneg float %59
+  %60 = load float, ptr %transA, align 4
+  %61 = load float, ptr %arrayidx4.i.i, align 4
+  %mul7.i.i102 = fmul float %61, %fneg4.i92
+  %62 = call float @llvm.fmuladd.f32(float %60, float %fneg.i90, float %mul7.i.i102)
+  %63 = load float, ptr %arrayidx9.i.i, align 4
+  %64 = call noundef float @llvm.fmuladd.f32(float %63, float %fneg8.i94, float %62)
+  %65 = load float, ptr %arrayidx.i.i5.i, align 4
+  %66 = load float, ptr %arrayidx.i3.i6.i, align 4
+  %mul7.i7.i107 = fmul float %66, %fneg4.i92
+  %67 = call float @llvm.fmuladd.f32(float %65, float %fneg.i90, float %mul7.i7.i107)
+  %68 = load float, ptr %arrayidx.i5.i.i, align 4
+  %69 = call noundef float @llvm.fmuladd.f32(float %68, float %fneg8.i94, float %67)
+  %70 = load float, ptr %arrayidx.i.i8.i, align 4
+  %71 = load float, ptr %arrayidx.i3.i9.i, align 4
+  %mul7.i11.i111 = fmul float %71, %fneg4.i92
+  %72 = call float @llvm.fmuladd.f32(float %70, float %fneg.i90, float %mul7.i11.i111)
+  %73 = load float, ptr %arrayidx.i5.i12.i, align 4
+  %74 = call noundef float @llvm.fmuladd.f32(float %73, float %fneg8.i94, float %72)
+  %retval.sroa.0.0.vec.insert.i113 = insertelement <2 x float> poison, float %64, i64 0
+  %retval.sroa.0.4.vec.insert.i114 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i113, float %69, i64 1
+  %retval.sroa.3.12.vec.insert.i115 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %74, i64 0
   %arrayidx64 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInABatch, i64 0, i64 %indvars.iv401
-  store <2 x float> %86, ptr %arrayidx64, align 16
+  store <2 x float> %retval.sroa.0.4.vec.insert.i114, ptr %arrayidx64, align 16
   %ref.tmp56.sroa.2.0.arrayidx64.sroa_idx = getelementptr inbounds i8, ptr %arrayidx64, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i115, ptr %ref.tmp56.sroa.2.0.arrayidx64.sroa_idx, align 8
-  %92 = load <2 x float>, ptr %transB, align 4
-  %93 = load <2 x float>, ptr %arrayidx4.i.i67, align 4
-  %94 = insertelement <2 x float> poison, float %73, i64 0
-  %95 = shufflevector <2 x float> %94, <2 x float> poison, <2 x i32> zeroinitializer
-  %96 = fmul <2 x float> %95, %93
-  %97 = insertelement <2 x float> poison, float %72, i64 0
-  %98 = shufflevector <2 x float> %97, <2 x float> poison, <2 x i32> zeroinitializer
-  %99 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %92, <2 x float> %98, <2 x float> %96)
-  %100 = load <2 x float>, ptr %arrayidx9.i.i70, align 4
-  %101 = insertelement <2 x float> poison, float %74, i64 0
-  %102 = shufflevector <2 x float> %101, <2 x float> poison, <2 x i32> zeroinitializer
-  %103 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %100, <2 x float> %102, <2 x float> %99)
-  %104 = load float, ptr %arrayidx.i.i8.i76, align 4
-  %105 = load float, ptr %arrayidx.i3.i9.i77, align 4
-  %mul7.i11.i129 = fmul float %73, %105
-  %106 = call float @llvm.fmuladd.f32(float %104, float %72, float %mul7.i11.i129)
-  %107 = load float, ptr %arrayidx.i5.i12.i79, align 4
-  %108 = call noundef float @llvm.fmuladd.f32(float %107, float %74, float %106)
-  %retval.sroa.3.12.vec.insert.i133 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %108, i64 0
+  %75 = load float, ptr %transB, align 4
+  %76 = load float, ptr %arrayidx4.i.i67, align 4
+  %mul7.i.i120 = fmul float %58, %76
+  %77 = call float @llvm.fmuladd.f32(float %75, float %57, float %mul7.i.i120)
+  %78 = load float, ptr %arrayidx9.i.i70, align 4
+  %79 = call noundef float @llvm.fmuladd.f32(float %78, float %59, float %77)
+  %80 = load float, ptr %arrayidx.i.i5.i72, align 4
+  %81 = load float, ptr %arrayidx.i3.i6.i73, align 4
+  %mul7.i7.i125 = fmul float %58, %81
+  %82 = call float @llvm.fmuladd.f32(float %80, float %57, float %mul7.i7.i125)
+  %83 = load float, ptr %arrayidx.i5.i.i75, align 4
+  %84 = call noundef float @llvm.fmuladd.f32(float %83, float %59, float %82)
+  %85 = load float, ptr %arrayidx.i.i8.i76, align 4
+  %86 = load float, ptr %arrayidx.i3.i9.i77, align 4
+  %mul7.i11.i129 = fmul float %58, %86
+  %87 = call float @llvm.fmuladd.f32(float %85, float %57, float %mul7.i11.i129)
+  %88 = load float, ptr %arrayidx.i5.i12.i79, align 4
+  %89 = call noundef float @llvm.fmuladd.f32(float %88, float %59, float %87)
+  %retval.sroa.0.0.vec.insert.i131 = insertelement <2 x float> poison, float %79, i64 0
+  %retval.sroa.0.4.vec.insert.i132 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i131, float %84, i64 1
+  %retval.sroa.3.12.vec.insert.i133 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %89, i64 0
   %arrayidx70 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInBBatch, i64 0, i64 %indvars.iv401
-  store <2 x float> %103, ptr %arrayidx70, align 16
+  store <2 x float> %retval.sroa.0.4.vec.insert.i132, ptr %arrayidx70, align 16
   %ref.tmp65.sroa.2.0.arrayidx70.sroa_idx = getelementptr inbounds i8, ptr %arrayidx70, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i133, ptr %ref.tmp65.sroa.2.0.arrayidx70.sroa_idx, align 8
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
@@ -261,117 +262,114 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   br i1 %exitcond404.not, label %if.end.loopexit, label %for.body45, !llvm.loop !7
 
 if.end.loopexit:                                  ; preds = %for.body45
-  %109 = trunc nuw i64 %indvars.iv.next402 to i32
+  %90 = trunc nuw i64 %indvars.iv.next402 to i32
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %for.end
-  %numSampleDirections.0 = phi i32 [ 42, %for.end ], [ %109, %if.end.loopexit ]
+  %numSampleDirections.0 = phi i32 [ 42, %for.end ], [ %90, %if.end.loopexit ]
   %vtable75 = load ptr, ptr %convexB, align 8
   %vfn76 = getelementptr inbounds i8, ptr %vtable75, i64 168
-  %110 = load ptr, ptr %vfn76, align 8
-  %call77 = call noundef i32 %110(ptr noundef nonnull align 8 dereferenceable(32) %convexB)
+  %91 = load ptr, ptr %vfn76, align 8
+  %call77 = call noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(32) %convexB)
   %cmp82379 = icmp sgt i32 %call77, 0
   br i1 %cmp82379, label %for.body83.lr.ph, label %if.end113
 
 for.body83.lr.ph:                                 ; preds = %if.end
   %arrayidx7.i.i137 = getelementptr inbounds i8, ptr %norm84, i64 4
   %arrayidx12.i.i140 = getelementptr inbounds i8, ptr %norm84, i64 8
-  %111 = zext i32 %numSampleDirections.0 to i64
+  %92 = zext i32 %numSampleDirections.0 to i64
   br label %for.body83
 
 for.body83:                                       ; preds = %for.body83.lr.ph, %for.body83
-  %indvars.iv405 = phi i64 [ %111, %for.body83.lr.ph ], [ %indvars.iv.next406, %for.body83 ]
+  %indvars.iv405 = phi i64 [ %92, %for.body83.lr.ph ], [ %indvars.iv.next406, %for.body83 ]
   %i80.0380 = phi i32 [ 0, %for.body83.lr.ph ], [ %inc111, %for.body83 ]
   %vtable85 = load ptr, ptr %convexB, align 8
   %vfn86 = getelementptr inbounds i8, ptr %vtable85, i64 176
-  %112 = load ptr, ptr %vfn86, align 8
-  call void %112(ptr noundef nonnull align 8 dereferenceable(32) %convexB, i32 noundef %i80.0380, ptr noundef nonnull align 4 dereferenceable(16) %norm84)
-  %113 = load <4 x float>, ptr %transB, align 4
-  %114 = shufflevector <4 x float> %113, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %115 = load float, ptr %norm84, align 8
-  %116 = load <4 x float>, ptr %arrayidx.i.i5.i72, align 4
-  %117 = shufflevector <4 x float> %116, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %118 = load float, ptr %arrayidx7.i.i137, align 4
-  %119 = load <4 x float>, ptr %arrayidx.i.i8.i76, align 4
-  %120 = shufflevector <4 x float> %119, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %121 = load float, ptr %arrayidx12.i.i140, align 8
-  %122 = load float, ptr %arrayidx4.i.i67, align 4
-  %123 = load float, ptr %arrayidx.i3.i6.i73, align 4
-  %124 = load float, ptr %arrayidx.i3.i9.i77, align 4
-  %125 = insertelement <2 x float> poison, float %118, i64 0
-  %126 = shufflevector <2 x float> %125, <2 x float> poison, <2 x i32> zeroinitializer
-  %127 = insertelement <2 x float> %117, float %123, i64 1
-  %128 = fmul <2 x float> %126, %127
-  %129 = insertelement <2 x float> %114, float %122, i64 1
-  %130 = insertelement <2 x float> poison, float %115, i64 0
-  %131 = shufflevector <2 x float> %130, <2 x float> poison, <2 x i32> zeroinitializer
-  %132 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %129, <2 x float> %131, <2 x float> %128)
-  %133 = insertelement <2 x float> %120, float %124, i64 1
-  %134 = insertelement <2 x float> poison, float %121, i64 0
-  %135 = shufflevector <2 x float> %134, <2 x float> poison, <2 x i32> zeroinitializer
-  %136 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %133, <2 x float> %135, <2 x float> %132)
-  %137 = load float, ptr %arrayidx9.i.i70, align 4
-  %138 = load float, ptr %arrayidx.i5.i.i75, align 4
-  %mul8.i13.i147 = fmul float %118, %138
-  %139 = call float @llvm.fmuladd.f32(float %137, float %115, float %mul8.i13.i147)
-  %140 = load float, ptr %arrayidx.i5.i12.i79, align 4
-  %141 = call noundef float @llvm.fmuladd.f32(float %140, float %121, float %139)
-  %retval.sroa.3.12.vec.insert.i151 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %141, i64 0
-  store <2 x float> %136, ptr %norm84, align 8
+  %93 = load ptr, ptr %vfn86, align 8
+  call void %93(ptr noundef nonnull align 8 dereferenceable(32) %convexB, i32 noundef %i80.0380, ptr noundef nonnull align 4 dereferenceable(16) %norm84)
+  %94 = load float, ptr %transB, align 4
+  %95 = load float, ptr %norm84, align 8
+  %96 = load float, ptr %arrayidx.i.i5.i72, align 4
+  %97 = load float, ptr %arrayidx7.i.i137, align 4
+  %mul8.i.i138 = fmul float %96, %97
+  %98 = call float @llvm.fmuladd.f32(float %94, float %95, float %mul8.i.i138)
+  %99 = load float, ptr %arrayidx.i.i8.i76, align 4
+  %100 = load float, ptr %arrayidx12.i.i140, align 8
+  %101 = call noundef float @llvm.fmuladd.f32(float %99, float %100, float %98)
+  %102 = load float, ptr %arrayidx4.i.i67, align 4
+  %103 = load float, ptr %arrayidx.i3.i6.i73, align 4
+  %mul8.i7.i143 = fmul float %97, %103
+  %104 = call float @llvm.fmuladd.f32(float %102, float %95, float %mul8.i7.i143)
+  %105 = load float, ptr %arrayidx.i3.i9.i77, align 4
+  %106 = call noundef float @llvm.fmuladd.f32(float %105, float %100, float %104)
+  %107 = load float, ptr %arrayidx9.i.i70, align 4
+  %108 = load float, ptr %arrayidx.i5.i.i75, align 4
+  %mul8.i13.i147 = fmul float %97, %108
+  %109 = call float @llvm.fmuladd.f32(float %107, float %95, float %mul8.i13.i147)
+  %110 = load float, ptr %arrayidx.i5.i12.i79, align 4
+  %111 = call noundef float @llvm.fmuladd.f32(float %110, float %100, float %109)
+  %retval.sroa.0.0.vec.insert.i149 = insertelement <2 x float> poison, float %101, i64 0
+  %retval.sroa.0.4.vec.insert.i150 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i149, float %106, i64 1
+  %retval.sroa.3.12.vec.insert.i151 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %111, i64 0
+  store <2 x float> %retval.sroa.0.4.vec.insert.i150, ptr %norm84, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i151, ptr %arrayidx12.i.i140, align 8
   %call91 = call noundef ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv()
   %arrayidx93 = getelementptr inbounds %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv405
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx93, ptr noundef nonnull align 8 dereferenceable(16) %norm84, i64 16, i1 false)
-  %142 = load float, ptr %norm84, align 8
-  %fneg.i154 = fneg float %142
-  %143 = load float, ptr %arrayidx7.i.i137, align 4
-  %fneg4.i156 = fneg float %143
-  %144 = load float, ptr %arrayidx12.i.i140, align 8
-  %fneg8.i158 = fneg float %144
-  %145 = load <2 x float>, ptr %transA, align 4
-  %146 = load <2 x float>, ptr %arrayidx4.i.i, align 4
-  %147 = insertelement <2 x float> poison, float %fneg4.i156, i64 0
-  %148 = shufflevector <2 x float> %147, <2 x float> poison, <2 x i32> zeroinitializer
-  %149 = fmul <2 x float> %146, %148
-  %150 = insertelement <2 x float> poison, float %fneg.i154, i64 0
-  %151 = shufflevector <2 x float> %150, <2 x float> poison, <2 x i32> zeroinitializer
-  %152 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %145, <2 x float> %151, <2 x float> %149)
-  %153 = load <2 x float>, ptr %arrayidx9.i.i, align 4
-  %154 = insertelement <2 x float> poison, float %fneg8.i158, i64 0
-  %155 = shufflevector <2 x float> %154, <2 x float> poison, <2 x i32> zeroinitializer
-  %156 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %153, <2 x float> %155, <2 x float> %152)
-  %157 = load float, ptr %arrayidx.i.i8.i, align 4
-  %158 = load float, ptr %arrayidx.i3.i9.i, align 4
-  %mul7.i11.i175 = fmul float %158, %fneg4.i156
-  %159 = call float @llvm.fmuladd.f32(float %157, float %fneg.i154, float %mul7.i11.i175)
-  %160 = load float, ptr %arrayidx.i5.i12.i, align 4
-  %161 = call noundef float @llvm.fmuladd.f32(float %160, float %fneg8.i158, float %159)
-  %retval.sroa.3.12.vec.insert.i179 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %161, i64 0
+  %112 = load float, ptr %norm84, align 8
+  %fneg.i154 = fneg float %112
+  %113 = load float, ptr %arrayidx7.i.i137, align 4
+  %fneg4.i156 = fneg float %113
+  %114 = load float, ptr %arrayidx12.i.i140, align 8
+  %fneg8.i158 = fneg float %114
+  %115 = load float, ptr %transA, align 4
+  %116 = load float, ptr %arrayidx4.i.i, align 4
+  %mul7.i.i166 = fmul float %116, %fneg4.i156
+  %117 = call float @llvm.fmuladd.f32(float %115, float %fneg.i154, float %mul7.i.i166)
+  %118 = load float, ptr %arrayidx9.i.i, align 4
+  %119 = call noundef float @llvm.fmuladd.f32(float %118, float %fneg8.i158, float %117)
+  %120 = load float, ptr %arrayidx.i.i5.i, align 4
+  %121 = load float, ptr %arrayidx.i3.i6.i, align 4
+  %mul7.i7.i171 = fmul float %121, %fneg4.i156
+  %122 = call float @llvm.fmuladd.f32(float %120, float %fneg.i154, float %mul7.i7.i171)
+  %123 = load float, ptr %arrayidx.i5.i.i, align 4
+  %124 = call noundef float @llvm.fmuladd.f32(float %123, float %fneg8.i158, float %122)
+  %125 = load float, ptr %arrayidx.i.i8.i, align 4
+  %126 = load float, ptr %arrayidx.i3.i9.i, align 4
+  %mul7.i11.i175 = fmul float %126, %fneg4.i156
+  %127 = call float @llvm.fmuladd.f32(float %125, float %fneg.i154, float %mul7.i11.i175)
+  %128 = load float, ptr %arrayidx.i5.i12.i, align 4
+  %129 = call noundef float @llvm.fmuladd.f32(float %128, float %fneg8.i158, float %127)
+  %retval.sroa.0.0.vec.insert.i177 = insertelement <2 x float> poison, float %119, i64 0
+  %retval.sroa.0.4.vec.insert.i178 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i177, float %124, i64 1
+  %retval.sroa.3.12.vec.insert.i179 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %129, i64 0
   %arrayidx102 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInABatch, i64 0, i64 %indvars.iv405
-  store <2 x float> %156, ptr %arrayidx102, align 16
+  store <2 x float> %retval.sroa.0.4.vec.insert.i178, ptr %arrayidx102, align 16
   %ref.tmp94.sroa.2.0.arrayidx102.sroa_idx = getelementptr inbounds i8, ptr %arrayidx102, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i179, ptr %ref.tmp94.sroa.2.0.arrayidx102.sroa_idx, align 8
-  %162 = load <2 x float>, ptr %transB, align 4
-  %163 = load <2 x float>, ptr %arrayidx4.i.i67, align 4
-  %164 = insertelement <2 x float> poison, float %143, i64 0
-  %165 = shufflevector <2 x float> %164, <2 x float> poison, <2 x i32> zeroinitializer
-  %166 = fmul <2 x float> %165, %163
-  %167 = insertelement <2 x float> poison, float %142, i64 0
-  %168 = shufflevector <2 x float> %167, <2 x float> poison, <2 x i32> zeroinitializer
-  %169 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %162, <2 x float> %168, <2 x float> %166)
-  %170 = load <2 x float>, ptr %arrayidx9.i.i70, align 4
-  %171 = insertelement <2 x float> poison, float %144, i64 0
-  %172 = shufflevector <2 x float> %171, <2 x float> poison, <2 x i32> zeroinitializer
-  %173 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %170, <2 x float> %172, <2 x float> %169)
-  %174 = load float, ptr %arrayidx.i.i8.i76, align 4
-  %175 = load float, ptr %arrayidx.i3.i9.i77, align 4
-  %mul7.i11.i193 = fmul float %143, %175
-  %176 = call float @llvm.fmuladd.f32(float %174, float %142, float %mul7.i11.i193)
-  %177 = load float, ptr %arrayidx.i5.i12.i79, align 4
-  %178 = call noundef float @llvm.fmuladd.f32(float %177, float %144, float %176)
-  %retval.sroa.3.12.vec.insert.i197 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %178, i64 0
+  %130 = load float, ptr %transB, align 4
+  %131 = load float, ptr %arrayidx4.i.i67, align 4
+  %mul7.i.i184 = fmul float %113, %131
+  %132 = call float @llvm.fmuladd.f32(float %130, float %112, float %mul7.i.i184)
+  %133 = load float, ptr %arrayidx9.i.i70, align 4
+  %134 = call noundef float @llvm.fmuladd.f32(float %133, float %114, float %132)
+  %135 = load float, ptr %arrayidx.i.i5.i72, align 4
+  %136 = load float, ptr %arrayidx.i3.i6.i73, align 4
+  %mul7.i7.i189 = fmul float %113, %136
+  %137 = call float @llvm.fmuladd.f32(float %135, float %112, float %mul7.i7.i189)
+  %138 = load float, ptr %arrayidx.i5.i.i75, align 4
+  %139 = call noundef float @llvm.fmuladd.f32(float %138, float %114, float %137)
+  %140 = load float, ptr %arrayidx.i.i8.i76, align 4
+  %141 = load float, ptr %arrayidx.i3.i9.i77, align 4
+  %mul7.i11.i193 = fmul float %113, %141
+  %142 = call float @llvm.fmuladd.f32(float %140, float %112, float %mul7.i11.i193)
+  %143 = load float, ptr %arrayidx.i5.i12.i79, align 4
+  %144 = call noundef float @llvm.fmuladd.f32(float %143, float %114, float %142)
+  %retval.sroa.0.0.vec.insert.i195 = insertelement <2 x float> poison, float %134, i64 0
+  %retval.sroa.0.4.vec.insert.i196 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i195, float %139, i64 1
+  %retval.sroa.3.12.vec.insert.i197 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %144, i64 0
   %arrayidx108 = getelementptr inbounds [62 x %class.btVector3], ptr %separatingAxisInBBatch, i64 0, i64 %indvars.iv405
-  store <2 x float> %173, ptr %arrayidx108, align 16
+  store <2 x float> %retval.sroa.0.4.vec.insert.i196, ptr %arrayidx108, align 16
   %ref.tmp103.sroa.2.0.arrayidx108.sroa_idx = getelementptr inbounds i8, ptr %arrayidx108, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i197, ptr %ref.tmp103.sroa.2.0.arrayidx108.sroa_idx, align 8
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
@@ -380,19 +378,19 @@ for.body83:                                       ; preds = %for.body83.lr.ph, %
   br i1 %exitcond408.not, label %if.end113.loopexit, label %for.body83, !llvm.loop !8
 
 if.end113.loopexit:                               ; preds = %for.body83
-  %179 = trunc nuw i64 %indvars.iv.next406 to i32
+  %145 = trunc nuw i64 %indvars.iv.next406 to i32
   br label %if.end113
 
 if.end113:                                        ; preds = %if.end113.loopexit, %if.end
-  %numSampleDirections.2 = phi i32 [ %numSampleDirections.0, %if.end ], [ %179, %if.end113.loopexit ]
+  %numSampleDirections.2 = phi i32 [ %numSampleDirections.0, %if.end ], [ %145, %if.end113.loopexit ]
   %vtable115 = load ptr, ptr %convexA, align 8
   %vfn116 = getelementptr inbounds i8, ptr %vtable115, i64 152
-  %180 = load ptr, ptr %vfn116, align 8
-  call void %180(ptr noundef nonnull align 8 dereferenceable(32) %convexA, ptr noundef nonnull %separatingAxisInABatch, ptr noundef nonnull %supportVerticesABatch, i32 noundef %numSampleDirections.2)
+  %146 = load ptr, ptr %vfn116, align 8
+  call void %146(ptr noundef nonnull align 8 dereferenceable(32) %convexA, ptr noundef nonnull %separatingAxisInABatch, ptr noundef nonnull %supportVerticesABatch, i32 noundef %numSampleDirections.2)
   %vtable119 = load ptr, ptr %convexB, align 8
   %vfn120 = getelementptr inbounds i8, ptr %vtable119, i64 152
-  %181 = load ptr, ptr %vfn120, align 8
-  call void %181(ptr noundef nonnull align 8 dereferenceable(32) %convexB, ptr noundef nonnull %separatingAxisInBBatch, ptr noundef nonnull %supportVerticesBBatch, i32 noundef %numSampleDirections.2)
+  %147 = load ptr, ptr %vfn120, align 8
+  call void %147(ptr noundef nonnull align 8 dereferenceable(32) %convexB, ptr noundef nonnull %separatingAxisInBBatch, ptr noundef nonnull %supportVerticesBBatch, i32 noundef %numSampleDirections.2)
   %cmp122383 = icmp sgt i32 %numSampleDirections.2, 0
   br i1 %cmp122383, label %for.body123.lr.ph, label %for.end167
 
@@ -411,21 +409,22 @@ for.body123:                                      ; preds = %for.body123.lr.ph, 
   %minProj.0393 = phi float [ 0x43ABC16D60000000, %for.body123.lr.ph ], [ %minProj.1, %for.inc165 ]
   %minNorm.sroa.28.0391 = phi float [ 0.000000e+00, %for.body123.lr.ph ], [ %minNorm.sroa.28.1, %for.inc165 ]
   %minNorm.sroa.19.0390 = phi float [ 0.000000e+00, %for.body123.lr.ph ], [ %minNorm.sroa.19.1, %for.inc165 ]
-  %182 = phi <2 x float> [ zeroinitializer, %for.body123.lr.ph ], [ %260, %for.inc165 ]
+  %minNorm.sroa.10.0389 = phi float [ 0.000000e+00, %for.body123.lr.ph ], [ %minNorm.sroa.10.1, %for.inc165 ]
+  %minNorm.sroa.0.0388 = phi float [ 0.000000e+00, %for.body123.lr.ph ], [ %minNorm.sroa.0.1, %for.inc165 ]
   %call125 = call noundef ptr @_ZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEv()
   %arrayidx127 = getelementptr inbounds %class.btVector3, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 %indvars.iv409
-  %183 = load <2 x float>, ptr %arrayidx127, align 16
+  %norm124.sroa.0.0.copyload = load float, ptr %arrayidx127, align 16
+  %norm124.sroa.4.0.arrayidx127.sroa_idx = getelementptr inbounds i8, ptr %arrayidx127, i64 4
+  %norm124.sroa.4.0.copyload = load float, ptr %norm124.sroa.4.0.arrayidx127.sroa_idx, align 4
   %norm124.sroa.6.0.arrayidx127.sroa_idx = getelementptr inbounds i8, ptr %arrayidx127, i64 8
   %norm124.sroa.6.0.copyload = load float, ptr %norm124.sroa.6.0.arrayidx127.sroa_idx, align 8
   %norm124.sroa.9.0.arrayidx127.sroa_idx = getelementptr inbounds i8, ptr %arrayidx127, i64 12
   %norm124.sroa.9.0.copyload = load float, ptr %norm124.sroa.9.0.arrayidx127.sroa_idx, align 4
   %norm124.sroa.6.0 = select i1 %6, float 0.000000e+00, float %norm124.sroa.6.0.copyload
-  %184 = extractelement <2 x float> %183, i64 1
-  %mul8.i.i201 = fmul float %184, %184
-  %185 = extractelement <2 x float> %183, i64 0
-  %186 = call float @llvm.fmuladd.f32(float %185, float %185, float %mul8.i.i201)
-  %187 = call noundef float @llvm.fmuladd.f32(float %norm124.sroa.6.0, float %norm124.sroa.6.0, float %186)
-  %conv = fpext float %187 to double
+  %mul8.i.i201 = fmul float %norm124.sroa.4.0.copyload, %norm124.sroa.4.0.copyload
+  %148 = call float @llvm.fmuladd.f32(float %norm124.sroa.0.0.copyload, float %norm124.sroa.0.0.copyload, float %mul8.i.i201)
+  %149 = call noundef float @llvm.fmuladd.f32(float %norm124.sroa.6.0, float %norm124.sroa.6.0, float %148)
+  %conv = fpext float %149 to double
   %cmp134 = fcmp ogt double %conv, 1.000000e-02
   br i1 %cmp134, label %if.then135, label %for.inc165
 
@@ -442,105 +441,83 @@ if.then135:                                       ; preds = %for.body123
   %qInB.sroa.2.0.copyload = load float, ptr %qInB.sroa.2.0.arrayidx143.sroa_idx, align 4
   %qInB.sroa.3.0.arrayidx143.sroa_idx = getelementptr inbounds i8, ptr %arrayidx143, i64 8
   %qInB.sroa.3.0.copyload = load float, ptr %qInB.sroa.3.0.arrayidx143.sroa_idx, align 8
-  %188 = load float, ptr %transA, align 4
-  %189 = load float, ptr %arrayidx.i.i5.i, align 4
-  %190 = load float, ptr %arrayidx.i.i8.i, align 4
-  %191 = load float, ptr %arrayidx4.i.i, align 4
-  %192 = load float, ptr %arrayidx.i3.i6.i, align 4
-  %193 = load float, ptr %arrayidx.i3.i9.i, align 4
-  %194 = load float, ptr %arrayidx9.i.i, align 4
-  %195 = load float, ptr %arrayidx.i5.i.i, align 4
-  %196 = load float, ptr %arrayidx.i5.i12.i, align 4
-  %197 = load float, ptr %m_origin.i, align 4
-  %198 = load float, ptr %arrayidx7.i.i204, align 4
-  %199 = load float, ptr %arrayidx13.i.i, align 4
-  %200 = load <4 x float>, ptr %transB, align 4
-  %201 = shufflevector <4 x float> %200, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %202 = load <4 x float>, ptr %arrayidx.i.i5.i72, align 4
-  %203 = shufflevector <4 x float> %202, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %204 = load <4 x float>, ptr %arrayidx.i.i8.i76, align 4
-  %205 = shufflevector <4 x float> %204, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %206 = load <4 x float>, ptr %arrayidx4.i.i67, align 4
-  %207 = shufflevector <4 x float> %206, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %208 = load <4 x float>, ptr %arrayidx.i3.i6.i73, align 4
-  %209 = shufflevector <4 x float> %208, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %210 = load <4 x float>, ptr %arrayidx.i3.i9.i77, align 4
-  %211 = shufflevector <4 x float> %210, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %212 = load <4 x float>, ptr %arrayidx9.i.i70, align 4
-  %213 = shufflevector <4 x float> %212, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %214 = load <4 x float>, ptr %arrayidx.i5.i.i75, align 4
-  %215 = shufflevector <4 x float> %214, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %216 = load <4 x float>, ptr %arrayidx.i5.i12.i79, align 4
-  %217 = shufflevector <4 x float> %216, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %218 = load <4 x float>, ptr %m_origin.i218, align 4
-  %219 = shufflevector <4 x float> %218, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %220 = insertelement <2 x float> poison, float %qInB.sroa.2.0.copyload, i64 0
-  %221 = insertelement <2 x float> %220, float %pInA.sroa.2.0.copyload, i64 1
-  %222 = insertelement <2 x float> %203, float %189, i64 1
-  %223 = fmul <2 x float> %221, %222
-  %224 = insertelement <2 x float> poison, float %qInB.sroa.0.0.copyload, i64 0
-  %225 = insertelement <2 x float> %224, float %pInA.sroa.0.0.copyload, i64 1
-  %226 = insertelement <2 x float> %201, float %188, i64 1
-  %227 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %225, <2 x float> %226, <2 x float> %223)
-  %228 = insertelement <2 x float> poison, float %qInB.sroa.3.0.copyload, i64 0
-  %229 = insertelement <2 x float> %228, float %pInA.sroa.3.0.copyload, i64 1
-  %230 = insertelement <2 x float> %205, float %190, i64 1
-  %231 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %229, <2 x float> %230, <2 x float> %227)
-  %232 = insertelement <2 x float> %219, float %197, i64 1
-  %233 = fadd <2 x float> %231, %232
-  %234 = load float, ptr %arrayidx7.i.i220, align 4
-  %235 = insertelement <2 x float> %209, float %192, i64 1
-  %236 = fmul <2 x float> %221, %235
-  %237 = insertelement <2 x float> %207, float %191, i64 1
-  %238 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %225, <2 x float> %237, <2 x float> %236)
-  %239 = insertelement <2 x float> %211, float %193, i64 1
-  %240 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %229, <2 x float> %239, <2 x float> %238)
-  %241 = insertelement <2 x float> poison, float %234, i64 0
-  %242 = insertelement <2 x float> %241, float %198, i64 1
-  %243 = fadd <2 x float> %240, %242
-  %244 = load float, ptr %arrayidx13.i.i222, align 4
-  %245 = insertelement <2 x float> %215, float %195, i64 1
-  %246 = fmul <2 x float> %221, %245
-  %247 = insertelement <2 x float> %213, float %194, i64 1
-  %248 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %225, <2 x float> %247, <2 x float> %246)
-  %249 = insertelement <2 x float> %217, float %196, i64 1
-  %250 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %229, <2 x float> %249, <2 x float> %248)
-  %251 = insertelement <2 x float> poison, float %244, i64 0
-  %252 = insertelement <2 x float> %251, float %199, i64 1
-  %253 = fadd <2 x float> %250, %252
-  %shift = shufflevector <2 x float> %233, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %254 = fsub <2 x float> %233, %shift
-  %sub.i = extractelement <2 x float> %254, i64 0
-  %shift413 = shufflevector <2 x float> %243, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %255 = fsub <2 x float> %243, %shift413
-  %sub8.i = extractelement <2 x float> %255, i64 0
-  %shift414 = shufflevector <2 x float> %253, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %256 = fsub <2 x float> %253, %shift414
-  %257 = extractelement <2 x float> %256, i64 0
-  %sub14.i = select i1 %6, float 0.000000e+00, float %257
-  %mul8.i = fmul float %184, %sub8.i
-  %258 = call float @llvm.fmuladd.f32(float %185, float %sub.i, float %mul8.i)
-  %259 = call noundef float @llvm.fmuladd.f32(float %norm124.sroa.6.0, float %sub14.i, float %258)
-  %cmp161 = fcmp olt float %259, %minProj.0393
+  %150 = load float, ptr %transA, align 4
+  %151 = load float, ptr %arrayidx.i.i5.i, align 4
+  %mul8.i.i.i = fmul float %pInA.sroa.2.0.copyload, %151
+  %152 = call float @llvm.fmuladd.f32(float %pInA.sroa.0.0.copyload, float %150, float %mul8.i.i.i)
+  %153 = load float, ptr %arrayidx.i.i8.i, align 4
+  %154 = call noundef float @llvm.fmuladd.f32(float %pInA.sroa.3.0.copyload, float %153, float %152)
+  %155 = load float, ptr %arrayidx4.i.i, align 4
+  %156 = load float, ptr %arrayidx.i3.i6.i, align 4
+  %mul8.i3.i.i = fmul float %pInA.sroa.2.0.copyload, %156
+  %157 = call float @llvm.fmuladd.f32(float %pInA.sroa.0.0.copyload, float %155, float %mul8.i3.i.i)
+  %158 = load float, ptr %arrayidx.i3.i9.i, align 4
+  %159 = call noundef float @llvm.fmuladd.f32(float %pInA.sroa.3.0.copyload, float %158, float %157)
+  %160 = load float, ptr %arrayidx9.i.i, align 4
+  %161 = load float, ptr %arrayidx.i5.i.i, align 4
+  %mul8.i8.i.i = fmul float %pInA.sroa.2.0.copyload, %161
+  %162 = call float @llvm.fmuladd.f32(float %pInA.sroa.0.0.copyload, float %160, float %mul8.i8.i.i)
+  %163 = load float, ptr %arrayidx.i5.i12.i, align 4
+  %164 = call noundef float @llvm.fmuladd.f32(float %pInA.sroa.3.0.copyload, float %163, float %162)
+  %165 = load float, ptr %m_origin.i, align 4
+  %add.i.i = fadd float %154, %165
+  %166 = load float, ptr %arrayidx7.i.i204, align 4
+  %add8.i.i = fadd float %159, %166
+  %167 = load float, ptr %arrayidx13.i.i, align 4
+  %add14.i.i = fadd float %164, %167
+  %168 = load float, ptr %transB, align 4
+  %169 = load float, ptr %arrayidx.i.i5.i72, align 4
+  %mul8.i.i.i209 = fmul float %qInB.sroa.2.0.copyload, %169
+  %170 = call float @llvm.fmuladd.f32(float %qInB.sroa.0.0.copyload, float %168, float %mul8.i.i.i209)
+  %171 = load float, ptr %arrayidx.i.i8.i76, align 4
+  %172 = call noundef float @llvm.fmuladd.f32(float %qInB.sroa.3.0.copyload, float %171, float %170)
+  %173 = load float, ptr %arrayidx4.i.i67, align 4
+  %174 = load float, ptr %arrayidx.i3.i6.i73, align 4
+  %mul8.i3.i.i213 = fmul float %qInB.sroa.2.0.copyload, %174
+  %175 = call float @llvm.fmuladd.f32(float %qInB.sroa.0.0.copyload, float %173, float %mul8.i3.i.i213)
+  %176 = load float, ptr %arrayidx.i3.i9.i77, align 4
+  %177 = call noundef float @llvm.fmuladd.f32(float %qInB.sroa.3.0.copyload, float %176, float %175)
+  %178 = load float, ptr %arrayidx9.i.i70, align 4
+  %179 = load float, ptr %arrayidx.i5.i.i75, align 4
+  %mul8.i8.i.i216 = fmul float %qInB.sroa.2.0.copyload, %179
+  %180 = call float @llvm.fmuladd.f32(float %qInB.sroa.0.0.copyload, float %178, float %mul8.i8.i.i216)
+  %181 = load float, ptr %arrayidx.i5.i12.i79, align 4
+  %182 = call noundef float @llvm.fmuladd.f32(float %qInB.sroa.3.0.copyload, float %181, float %180)
+  %183 = load float, ptr %m_origin.i218, align 4
+  %add.i.i219 = fadd float %172, %183
+  %184 = load float, ptr %arrayidx7.i.i220, align 4
+  %add8.i.i221 = fadd float %177, %184
+  %185 = load float, ptr %arrayidx13.i.i222, align 4
+  %add14.i.i223 = fadd float %182, %185
+  %sub.i = fsub float %add.i.i219, %add.i.i
+  %sub8.i = fsub float %add8.i.i221, %add8.i.i
+  %186 = fsub float %add14.i.i223, %add14.i.i
+  %sub14.i = select i1 %6, float 0.000000e+00, float %186
+  %mul8.i = fmul float %norm124.sroa.4.0.copyload, %sub8.i
+  %187 = call float @llvm.fmuladd.f32(float %norm124.sroa.0.0.copyload, float %sub.i, float %mul8.i)
+  %188 = call noundef float @llvm.fmuladd.f32(float %norm124.sroa.6.0, float %sub14.i, float %187)
+  %cmp161 = fcmp olt float %188, %minProj.0393
   br i1 %cmp161, label %if.then162, label %for.inc165
 
 if.then162:                                       ; preds = %if.then135
   br label %for.inc165
 
 for.inc165:                                       ; preds = %for.body123, %if.then162, %if.then135
+  %minNorm.sroa.0.1 = phi float [ %norm124.sroa.0.0.copyload, %if.then162 ], [ %minNorm.sroa.0.0388, %if.then135 ], [ %minNorm.sroa.0.0388, %for.body123 ]
+  %minNorm.sroa.10.1 = phi float [ %norm124.sroa.4.0.copyload, %if.then162 ], [ %minNorm.sroa.10.0389, %if.then135 ], [ %minNorm.sroa.10.0389, %for.body123 ]
   %minNorm.sroa.19.1 = phi float [ %norm124.sroa.6.0, %if.then162 ], [ %minNorm.sroa.19.0390, %if.then135 ], [ %minNorm.sroa.19.0390, %for.body123 ]
   %minNorm.sroa.28.1 = phi float [ %norm124.sroa.9.0.copyload, %if.then162 ], [ %minNorm.sroa.28.0391, %if.then135 ], [ %minNorm.sroa.28.0391, %for.body123 ]
-  %minProj.1 = phi float [ %259, %if.then162 ], [ %minProj.0393, %if.then135 ], [ %minProj.0393, %for.body123 ]
-  %260 = phi <2 x float> [ %183, %if.then162 ], [ %182, %if.then135 ], [ %182, %for.body123 ]
+  %minProj.1 = phi float [ %188, %if.then162 ], [ %minProj.0393, %if.then135 ], [ %minProj.0393, %for.body123 ]
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %exitcond412.not = icmp eq i64 %indvars.iv.next410, %wide.trip.count
   br i1 %exitcond412.not, label %for.end167, label %for.body123, !llvm.loop !9
 
 for.end167:                                       ; preds = %for.inc165, %if.end113
+  %minNorm.sroa.0.0.lcssa = phi float [ 0.000000e+00, %if.end113 ], [ %minNorm.sroa.0.1, %for.inc165 ]
+  %minNorm.sroa.10.0.lcssa = phi float [ 0.000000e+00, %if.end113 ], [ %minNorm.sroa.10.1, %for.inc165 ]
   %minNorm.sroa.19.0.lcssa = phi float [ 0.000000e+00, %if.end113 ], [ %minNorm.sroa.19.1, %for.inc165 ]
   %minNorm.sroa.28.0.lcssa = phi float [ 0.000000e+00, %if.end113 ], [ %minNorm.sroa.28.1, %for.inc165 ]
   %minProj.0.lcssa = phi float [ 0x43ABC16D60000000, %if.end113 ], [ %minProj.1, %for.inc165 ]
-  %261 = phi <2 x float> [ zeroinitializer, %if.end113 ], [ %260, %for.inc165 ]
   %call170 = call noundef float @_ZNK13btConvexShape19getMarginNonVirtualEv(ptr noundef nonnull align 8 dereferenceable(32) %convexA)
   %call176 = call noundef float @_ZNK13btConvexShape19getMarginNonVirtualEv(ptr noundef nonnull align 8 dereferenceable(32) %convexB)
   %cmp180 = fcmp olt float %minProj.0.lcssa, 0.000000e+00
@@ -553,17 +530,21 @@ invoke.cont204:                                   ; preds = %for.end167
   %add185 = fadd float %add, 5.000000e-01
   %add186 = fadd float %minProj.0.lcssa, %add185
   call void @_ZN17btGjkPairDetectorC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(100) %gjkdet, ptr noundef nonnull %convexA, ptr noundef nonnull %convexB, ptr noundef nonnull %simplexSolver, ptr noundef null)
+  %mul.i266 = fmul float %minNorm.sroa.0.0.lcssa, %add186
+  %mul4.i268 = fmul float %minNorm.sroa.10.0.lcssa, %add186
   %mul8.i270 = fmul float %minNorm.sroa.19.0.lcssa, %add186
   %m_maximumDistanceSquared.i = getelementptr inbounds i8, ptr %input, i64 128
   %m_origin.i276 = getelementptr inbounds i8, ptr %transA, i64 48
-  %262 = insertelement <2 x float> poison, float %add186, i64 0
-  %263 = shufflevector <2 x float> %262, <2 x float> poison, <2 x i32> zeroinitializer
-  %264 = fmul <2 x float> %261, %263
-  %265 = load <2 x float>, ptr %m_origin.i276, align 4
-  %266 = fadd <2 x float> %265, %264
+  %189 = load float, ptr %m_origin.i276, align 4
+  %add.i277 = fadd float %189, %mul.i266
+  %arrayidx5.i278 = getelementptr inbounds i8, ptr %transA, i64 52
+  %190 = load float, ptr %arrayidx5.i278, align 4
+  %add8.i280 = fadd float %190, %mul4.i268
   %arrayidx11.i281 = getelementptr inbounds i8, ptr %transA, i64 56
-  %267 = load float, ptr %arrayidx11.i281, align 4
-  %add14.i = fadd float %mul8.i270, %267
+  %191 = load float, ptr %arrayidx11.i281, align 4
+  %add14.i = fadd float %mul8.i270, %191
+  %retval.sroa.0.0.vec.insert.i283 = insertelement <2 x float> poison, float %add.i277, i64 0
+  %retval.sroa.0.4.vec.insert.i284 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i283, float %add8.i280, i64 1
   %retval.sroa.3.12.vec.insert.i285 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %input, ptr noundef nonnull align 4 dereferenceable(16) %transA, i64 16, i1 false)
   %arrayidx7.i.i293 = getelementptr inbounds i8, ptr %input, i64 16
@@ -571,7 +552,7 @@ invoke.cont204:                                   ; preds = %for.end167
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %input, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
   %m_origin3.i296 = getelementptr inbounds i8, ptr %input, i64 48
-  store <2 x float> %266, ptr %m_origin3.i296, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i284, ptr %m_origin3.i296, align 4
   %displacedTrans.sroa.6.sroa.3.0.m_origin3.i296.sroa_idx = getelementptr inbounds i8, ptr %input, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i285, ptr %displacedTrans.sroa.6.sroa.3.0.m_origin3.i296.sroa_idx, align 4
   %m_transformB = getelementptr inbounds i8, ptr %input, i64 64
@@ -587,42 +568,47 @@ invoke.cont204:                                   ; preds = %for.end167
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK13btConvexShapeS4_RK11btTransformS7_R9btVector3S9_S9_P12btIDebugDrawE20btIntermediateResult, i64 16), ptr %res, align 8
   %m_hasResult.i = getelementptr inbounds i8, ptr %res, i64 44
   store i8 0, ptr %m_hasResult.i, align 4
-  %268 = fneg <2 x float> %261
+  %fneg.i303 = fneg float %minNorm.sroa.0.0.lcssa
+  %fneg4.i305 = fneg float %minNorm.sroa.10.0.lcssa
   %fneg8.i307 = fneg float %minNorm.sroa.19.0.lcssa
+  %retval.sroa.0.0.vec.insert.i308 = insertelement <2 x float> poison, float %fneg.i303, i64 0
+  %retval.sroa.0.4.vec.insert.i309 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i308, float %fneg4.i305, i64 1
   %retval.sroa.3.12.vec.insert.i310 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i307, i64 0
   %m_cachedSeparatingAxis.i = getelementptr inbounds i8, ptr %gjkdet, i64 8
-  store <2 x float> %268, ptr %m_cachedSeparatingAxis.i, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i309, ptr %m_cachedSeparatingAxis.i, align 8
   %ref.tmp202.sroa.2.0.m_cachedSeparatingAxis.i.sroa_idx = getelementptr inbounds i8, ptr %gjkdet, i64 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i310, ptr %ref.tmp202.sroa.2.0.m_cachedSeparatingAxis.i.sroa_idx, align 8
   call void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100) %gjkdet, ptr noundef nonnull align 4 dereferenceable(132) %input, ptr noundef nonnull align 8 dereferenceable(8) %res, ptr noundef %debugDraw, i1 noundef zeroext false)
-  %269 = load i8, ptr %m_hasResult.i, align 4
-  %tobool211 = trunc i8 %269 to i1
+  %192 = load i8, ptr %m_hasResult.i, align 4
+  %tobool211 = trunc i8 %192 to i1
   br i1 %tobool211, label %invoke.cont218, label %return
 
 invoke.cont218:                                   ; preds = %invoke.cont204
   %m_depth = getelementptr inbounds i8, ptr %res, i64 40
-  %270 = load float, ptr %m_depth, align 8
-  %sub = fsub float %add186, %270
+  %193 = load float, ptr %m_depth, align 8
+  %sub = fsub float %add186, %193
   %m_pointInWorld = getelementptr inbounds i8, ptr %res, i64 24
+  %mul.i316 = fmul float %minNorm.sroa.0.0.lcssa, %sub
+  %mul4.i318 = fmul float %minNorm.sroa.10.0.lcssa, %sub
   %mul8.i320 = fmul float %minNorm.sroa.19.0.lcssa, %sub
-  %271 = insertelement <2 x float> poison, float %sub, i64 0
-  %272 = shufflevector <2 x float> %271, <2 x float> poison, <2 x i32> zeroinitializer
-  %273 = fmul <2 x float> %261, %272
-  %274 = load <2 x float>, ptr %m_pointInWorld, align 8
-  %275 = fsub <2 x float> %274, %273
+  %194 = load float, ptr %m_pointInWorld, align 8
+  %sub.i326 = fsub float %194, %mul.i316
+  %arrayidx5.i327 = getelementptr inbounds i8, ptr %res, i64 28
+  %195 = load float, ptr %arrayidx5.i327, align 4
+  %sub8.i329 = fsub float %195, %mul4.i318
   %arrayidx11.i330 = getelementptr inbounds i8, ptr %res, i64 32
-  %276 = load float, ptr %arrayidx11.i330, align 8
-  %sub14.i332 = fsub float %276, %mul8.i320
+  %196 = load float, ptr %arrayidx11.i330, align 8
+  %sub14.i332 = fsub float %196, %mul8.i320
+  %retval.sroa.0.0.vec.insert.i333 = insertelement <2 x float> poison, float %sub.i326, i64 0
+  %retval.sroa.0.4.vec.insert.i334 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i333, float %sub8.i329, i64 1
   %retval.sroa.3.12.vec.insert.i335 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i332, i64 0
-  store <2 x float> %275, ptr %pa, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i334, ptr %pa, align 4
   %ref.tmp213.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %pa, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i335, ptr %ref.tmp213.sroa.2.0..sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pb, ptr noundef nonnull align 8 dereferenceable(16) %m_pointInWorld, i64 16, i1 false)
-  %277 = extractelement <2 x float> %261, i64 0
-  store float %277, ptr %v, align 4
+  store float %minNorm.sroa.0.0.lcssa, ptr %v, align 4
   %minNorm.sroa.10.0.v.sroa_idx = getelementptr inbounds i8, ptr %v, i64 4
-  %278 = extractelement <2 x float> %261, i64 1
-  store float %278, ptr %minNorm.sroa.10.0.v.sroa_idx, align 4
+  store float %minNorm.sroa.10.0.lcssa, ptr %minNorm.sroa.10.0.v.sroa_idx, align 4
   %minNorm.sroa.19.0.v.sroa_idx = getelementptr inbounds i8, ptr %v, i64 8
   store float %minNorm.sroa.19.0.lcssa, ptr %minNorm.sroa.19.0.v.sroa_idx, align 4
   %minNorm.sroa.28.0.v.sroa_idx = getelementptr inbounds i8, ptr %v, i64 12
@@ -642,54 +628,180 @@ entry:
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !10
 
 init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections) #11
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections) #10
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store <4 x float> <float 0.000000e+00, float -0.000000e+00, float -1.000000e+00, float 0.000000e+00>, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, align 16
-  store <4 x float> <float 0x3FE727CC00000000, float 0xBFE0D2BD40000000, float 0xBFDC9F3C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 16), align 16
-  store <4 x float> <float 0xBFD1B05740000000, float 0xBFEB388440000000, float 0xBFDC9F3C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 32), align 16
-  store <4 x float> <float 0xBFEC9F2340000000, float -0.000000e+00, float 0xBFDC9F2FE0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 48), align 16
-  store <4 x float> <float 0xBFD1B05740000000, float 0x3FEB388440000000, float 0xBFDC9F40A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 64), align 16
-  store <4 x float> <float 0x3FE727CC00000000, float 0x3FE0D2BD40000000, float 0xBFDC9F3C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 80), align 16
-  store <4 x float> <float 0x3FD1B05740000000, float 0xBFEB388440000000, float 0x3FDC9F40A0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 96), align 16
-  store <4 x float> <float 0xBFE727CC00000000, float 0xBFE0D2BD40000000, float 0x3FDC9F3C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 112), align 16
-  store <4 x float> <float 0xBFE727CC00000000, float 0x3FE0D2BD40000000, float 0x3FDC9F3C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 128), align 16
-  store <4 x float> <float 0x3FD1B05740000000, float 0x3FEB388440000000, float 0x3FDC9F3C80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 144), align 16
-  store <4 x float> <float 0x3FEC9F2340000000, float 0.000000e+00, float 0x3FDC9F2FE0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 160), align 16
-  store <4 x float> <float -0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 176), align 16
-  store <4 x float> <float 0x3FDB387E00000000, float 0xBFD3C6D620000000, float 0xBFEB388EC0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 192), align 16
-  store <4 x float> <float 0xBFC4CB5BC0000000, float 0xBFDFFFEB00000000, float 0xBFEB388EC0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 208), align 16
-  store <4 x float> <float 0x3FD0D2D880000000, float 0xBFE9E36D20000000, float 0xBFE0D2D880000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 224), align 16
-  store <4 x float> <float 0x3FDB387E00000000, float 0x3FD3C6D620000000, float 0xBFEB388EC0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 240), align 16
-  store <4 x float> <float 0x3FEB388220000000, float -0.000000e+00, float 0xBFE0D2D440000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 256), align 16
-  store <4 x float> <float 0xBFE0D2C7C0000000, float -0.000000e+00, float 0xBFEB388A80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 272), align 16
-  store <4 x float> <float 0xBFE605A700000000, float 0xBFDFFFF360000000, float 0xBFE0D2D440000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 288), align 16
-  store <4 x float> <float 0xBFC4CB5BC0000000, float 0x3FDFFFEB00000000, float 0xBFEB388EC0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 304), align 16
-  store <4 x float> <float 0xBFE605A700000000, float 0x3FDFFFF360000000, float 0xBFE0D2D440000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 320), align 16
-  store <4 x float> <float 0x3FD0D2D880000000, float 0x3FE9E36D20000000, float 0xBFE0D2D880000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 336), align 16
-  store <4 x float> <float 0x3FEE6F1120000000, float 0x3FD3C6DE80000000, float 0.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 352), align 16
-  store <4 x float> <float 0x3FEE6F1120000000, float 0xBFD3C6DE80000000, float 0.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 368), align 16
-  store <4 x float> <float 0x3FE2CF24A0000000, float 0xBFE9E377A0000000, float 0.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 384), align 16
-  store <4 x float> <float 0.000000e+00, float -1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 400), align 16
-  store <4 x float> <float 0xBFE2CF24A0000000, float 0xBFE9E377A0000000, float 0.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 416), align 16
-  store <4 x float> <float 0xBFEE6F1120000000, float 0xBFD3C6DE80000000, float -0.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 432), align 16
-  store <4 x float> <float 0xBFEE6F1120000000, float 0x3FD3C6DE80000000, float -0.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 448), align 16
-  store <4 x float> <float 0xBFE2CF24A0000000, float 0x3FE9E377A0000000, float -0.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 464), align 16
-  store <4 x float> <float -0.000000e+00, float 1.000000e+00, float -0.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 480), align 16
-  store <4 x float> <float 0x3FE2CF24A0000000, float 0x3FE9E377A0000000, float -0.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 496), align 16
-  store <4 x float> <float 0x3FE605A700000000, float 0xBFDFFFF360000000, float 0x3FE0D2D440000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 512), align 16
-  store <4 x float> <float 0xBFD0D2D880000000, float 0xBFE9E36D20000000, float 0x3FE0D2D880000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 528), align 16
-  store <4 x float> <float 0xBFEB388220000000, float 0.000000e+00, float 0x3FE0D2D440000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 544), align 16
-  store <4 x float> <float 0xBFD0D2D880000000, float 0x3FE9E36D20000000, float 0x3FE0D2D880000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 560), align 16
-  store <4 x float> <float 0x3FE605A700000000, float 0x3FDFFFF360000000, float 0x3FE0D2D440000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 576), align 16
-  store <4 x float> <float 0x3FE0D2C7C0000000, float 0.000000e+00, float 0x3FEB388A80000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 592), align 16
-  store <4 x float> <float 0x3FC4CB5BC0000000, float 0xBFDFFFEB00000000, float 0x3FEB388EC0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 608), align 16
-  store <4 x float> <float 0xBFDB387E00000000, float 0xBFD3C6D620000000, float 0x3FEB388EC0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 624), align 16
-  store <4 x float> <float 0xBFDB387E00000000, float 0x3FD3C6D620000000, float 0x3FEB388EC0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 640), align 16
-  store <4 x float> <float 0x3FC4CB5BC0000000, float 0x3FDFFFEB00000000, float 0x3FEB388EC0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 656), align 16
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections) #11
+  store float 0.000000e+00, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, align 16
+  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 4), align 4
+  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 8), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 12), align 4
+  store float 0x3FE727CC00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 16), align 16
+  store float 0xBFE0D2BD40000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 20), align 4
+  store float 0xBFDC9F3C80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 24), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 28), align 4
+  store float 0xBFD1B05740000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 32), align 16
+  store float 0xBFEB388440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 36), align 4
+  store float 0xBFDC9F3C80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 40), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 44), align 4
+  store float 0xBFEC9F2340000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 48), align 16
+  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 52), align 4
+  store float 0xBFDC9F2FE0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 56), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 60), align 4
+  store float 0xBFD1B05740000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 64), align 16
+  store float 0x3FEB388440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 68), align 4
+  store float 0xBFDC9F40A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 72), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 76), align 4
+  store float 0x3FE727CC00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 80), align 16
+  store float 0x3FE0D2BD40000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 84), align 4
+  store float 0xBFDC9F3C80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 88), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 92), align 4
+  store float 0x3FD1B05740000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 96), align 16
+  store float 0xBFEB388440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 100), align 4
+  store float 0x3FDC9F40A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 104), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 108), align 4
+  store float 0xBFE727CC00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 112), align 16
+  store float 0xBFE0D2BD40000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 116), align 4
+  store float 0x3FDC9F3C80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 120), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 124), align 4
+  store float 0xBFE727CC00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 128), align 16
+  store float 0x3FE0D2BD40000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 132), align 4
+  store float 0x3FDC9F3C80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 136), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 140), align 4
+  store float 0x3FD1B05740000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 144), align 16
+  store float 0x3FEB388440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 148), align 4
+  store float 0x3FDC9F3C80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 152), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 156), align 4
+  store float 0x3FEC9F2340000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 160), align 16
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 164), align 4
+  store float 0x3FDC9F2FE0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 168), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 172), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 176), align 16
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 180), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 184), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 188), align 4
+  store float 0x3FDB387E00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 192), align 16
+  store float 0xBFD3C6D620000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 196), align 4
+  store float 0xBFEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 200), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 204), align 4
+  store float 0xBFC4CB5BC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 208), align 16
+  store float 0xBFDFFFEB00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 212), align 4
+  store float 0xBFEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 216), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 220), align 4
+  store float 0x3FD0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 224), align 16
+  store float 0xBFE9E36D20000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 228), align 4
+  store float 0xBFE0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 232), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 236), align 4
+  store float 0x3FDB387E00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 240), align 16
+  store float 0x3FD3C6D620000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 244), align 4
+  store float 0xBFEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 248), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 252), align 4
+  store float 0x3FEB388220000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 256), align 16
+  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 260), align 4
+  store float 0xBFE0D2D440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 264), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 268), align 4
+  store float 0xBFE0D2C7C0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 272), align 16
+  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 276), align 4
+  store float 0xBFEB388A80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 280), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 284), align 4
+  store float 0xBFE605A700000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 288), align 16
+  store float 0xBFDFFFF360000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 292), align 4
+  store float 0xBFE0D2D440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 296), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 300), align 4
+  store float 0xBFC4CB5BC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 304), align 16
+  store float 0x3FDFFFEB00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 308), align 4
+  store float 0xBFEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 312), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 316), align 4
+  store float 0xBFE605A700000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 320), align 16
+  store float 0x3FDFFFF360000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 324), align 4
+  store float 0xBFE0D2D440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 328), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 332), align 4
+  store float 0x3FD0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 336), align 16
+  store float 0x3FE9E36D20000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 340), align 4
+  store float 0xBFE0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 344), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 348), align 4
+  store float 0x3FEE6F1120000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 352), align 16
+  store float 0x3FD3C6DE80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 356), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 360), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 364), align 4
+  store float 0x3FEE6F1120000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 368), align 16
+  store float 0xBFD3C6DE80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 372), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 376), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 380), align 4
+  store float 0x3FE2CF24A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 384), align 16
+  store float 0xBFE9E377A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 388), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 392), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 396), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 400), align 16
+  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 404), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 408), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 412), align 4
+  store float 0xBFE2CF24A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 416), align 16
+  store float 0xBFE9E377A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 420), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 424), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 428), align 4
+  store float 0xBFEE6F1120000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 432), align 16
+  store float 0xBFD3C6DE80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 436), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 440), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 444), align 4
+  store float 0xBFEE6F1120000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 448), align 16
+  store float 0x3FD3C6DE80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 452), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 456), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 460), align 4
+  store float 0xBFE2CF24A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 464), align 16
+  store float 0x3FE9E377A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 468), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 472), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 476), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 480), align 16
+  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 484), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 488), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 492), align 4
+  store float 0x3FE2CF24A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 496), align 16
+  store float 0x3FE9E377A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 500), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 504), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 508), align 4
+  store float 0x3FE605A700000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 512), align 16
+  store float 0xBFDFFFF360000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 516), align 4
+  store float 0x3FE0D2D440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 520), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 524), align 4
+  store float 0xBFD0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 528), align 16
+  store float 0xBFE9E36D20000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 532), align 4
+  store float 0x3FE0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 536), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 540), align 4
+  store float 0xBFEB388220000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 544), align 16
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 548), align 4
+  store float 0x3FE0D2D440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 552), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 556), align 4
+  store float 0xBFD0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 560), align 16
+  store float 0x3FE9E36D20000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 564), align 4
+  store float 0x3FE0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 568), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 572), align 4
+  store float 0x3FE605A700000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 576), align 16
+  store float 0x3FDFFFF360000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 580), align 4
+  store float 0x3FE0D2D440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 584), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 588), align 4
+  store float 0x3FE0D2C7C0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 592), align 16
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 596), align 4
+  store float 0x3FEB388A80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 600), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 604), align 4
+  store float 0x3FC4CB5BC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 608), align 16
+  store float 0xBFDFFFEB00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 612), align 4
+  store float 0x3FEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 616), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 620), align 4
+  store float 0xBFDB387E00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 624), align 16
+  store float 0xBFD3C6D620000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 628), align 4
+  store float 0x3FEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 632), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 636), align 4
+  store float 0xBFDB387E00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 640), align 16
+  store float 0x3FD3C6D620000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 644), align 4
+  store float 0x3FEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 648), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 652), align 4
+  store float 0x3FC4CB5BC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 656), align 16
+  store float 0x3FDFFFEB00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 660), align 4
+  store float 0x3FEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 664), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 668), align 4
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections) #10
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
@@ -728,7 +840,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN33btMinkowskiPenetrationDepthSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -738,7 +850,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #7
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK13btConvexShapeS4_RK11btTransformS7_R9btVector3S9_S9_P12btIDebugDrawEN20btIntermediateResultD0Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #6 align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -771,9 +883,6 @@ entry:
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #10
-
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -784,9 +893,8 @@ attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { builtin nounwind }
+attributes #10 = { nounwind }
+attributes #11 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

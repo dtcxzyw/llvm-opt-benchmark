@@ -1746,14 +1746,18 @@ define internal void @HU4_C(ptr nocapture noundef %0) #4 {
   store i8 %48, ptr %49, align 1
   %50 = getelementptr inbounds i8, ptr %0, i64 35
   store i8 %48, ptr %50, align 1
-  %51 = getelementptr inbounds i8, ptr %0, i64 96
-  %52 = insertelement <4 x i8> poison, i8 %12, i64 0
-  %53 = shufflevector <4 x i8> %52, <4 x i8> poison, <4 x i32> zeroinitializer
-  store <4 x i8> %53, ptr %51, align 1
-  %54 = getelementptr inbounds i8, ptr %0, i64 66
+  %51 = getelementptr inbounds i8, ptr %0, i64 99
+  store i8 %12, ptr %51, align 1
+  %52 = getelementptr inbounds i8, ptr %0, i64 98
+  store i8 %12, ptr %52, align 1
+  %53 = getelementptr inbounds i8, ptr %0, i64 97
+  store i8 %12, ptr %53, align 1
+  %54 = getelementptr inbounds i8, ptr %0, i64 96
   store i8 %12, ptr %54, align 1
-  %55 = getelementptr inbounds i8, ptr %0, i64 67
+  %55 = getelementptr inbounds i8, ptr %0, i64 66
   store i8 %12, ptr %55, align 1
+  %56 = getelementptr inbounds i8, ptr %0, i64 67
+  store i8 %12, ptr %56, align 1
   ret void
 }
 

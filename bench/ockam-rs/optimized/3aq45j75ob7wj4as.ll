@@ -1037,10 +1037,14 @@ define hidden void @_ZN3std9panicking3try7do_call17h115b8b89ec5fc7a7E.llvm.25304
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try7do_call17h284c239d12136087E.llvm.2530427196549672958(ptr nocapture noundef readonly %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %2 = alloca { ptr, ptr }, align 16
+  %2 = alloca { ptr, ptr }, align 8
+  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !160, !noundef !4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !160, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !186
-  %3 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %3, ptr %2, align 16, !noalias !190
+  store ptr %3, ptr %2, align 8, !noalias !190
+  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %5, ptr %6, align 8, !noalias !190
   call void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete28_$u7b$$u7b$closure$u7d$$u7d$17h7e7d3909f5e51fdbE.llvm.6390491434047147085"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !186
   ret void
@@ -1276,10 +1280,14 @@ define hidden void @_ZN3std9panicking3try7do_call17h99ff104ff4eae8e3E.llvm.25304
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try7do_call17hc9b85e965ee6ad9cE.llvm.2530427196549672958(ptr nocapture noundef readonly %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %2 = alloca { ptr, ptr }, align 16
+  %2 = alloca { ptr, ptr }, align 8
+  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !160, !noundef !4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !160, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !249
-  %3 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %3, ptr %2, align 16, !noalias !253
+  store ptr %3, ptr %2, align 8, !noalias !253
+  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %5, ptr %6, align 8, !noalias !253
   call void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete28_$u7b$$u7b$closure$u7d$$u7d$17h3593209a27fac120E.llvm.6390491434047147085"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !249
   ret void

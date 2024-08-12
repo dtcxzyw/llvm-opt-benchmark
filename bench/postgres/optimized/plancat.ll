@@ -2983,7 +2983,7 @@ define dso_local void @add_function_cost(ptr noundef %0, i32 noundef %1, ptr nou
   %18 = getelementptr inbounds i8, ptr %17, i64 92
   %19 = load i32, ptr %18, align 4
   %.not16 = icmp eq i32 %19, 0
-  br i1 %.not16, label %33, label %20
+  br i1 %.not16, label %38, label %20
 
 20:                                               ; preds = %11
   store i32 443, ptr %5, align 8
@@ -2999,27 +2999,33 @@ define dso_local void @add_function_cost(ptr noundef %0, i32 noundef %1, ptr nou
   %26 = call i64 @OidFunctionCall1Coll(i32 noundef %19, i32 noundef 0, i64 noundef %25) #10
   %27 = inttoptr i64 %26 to ptr
   %28 = icmp eq ptr %5, %27
-  br i1 %28, label %29, label %33
+  br i1 %28, label %29, label %38
 
 29:                                               ; preds = %20
-  %30 = load <2 x double>, ptr %24, align 8
-  %31 = load <2 x double>, ptr %3, align 8
-  %32 = fadd <2 x double> %30, %31
-  store <2 x double> %32, ptr %3, align 8
-  br label %41
+  %30 = getelementptr inbounds i8, ptr %5, i64 40
+  %31 = load double, ptr %24, align 8
+  %32 = load double, ptr %3, align 8
+  %33 = fadd double %31, %32
+  store double %33, ptr %3, align 8
+  %34 = load double, ptr %30, align 8
+  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %36 = load double, ptr %35, align 8
+  %37 = fadd double %34, %36
+  store double %37, ptr %35, align 8
+  br label %46
 
-33:                                               ; preds = %20, %11
-  %34 = getelementptr inbounds i8, ptr %17, i64 80
-  %35 = load float, ptr %34, align 4
-  %36 = fpext float %35 to double
-  %37 = load double, ptr @cpu_operator_cost, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
-  %39 = load double, ptr %38, align 8
-  %40 = call double @llvm.fmuladd.f64(double %36, double %37, double %39)
-  store double %40, ptr %38, align 8
-  br label %41
+38:                                               ; preds = %20, %11
+  %39 = getelementptr inbounds i8, ptr %17, i64 80
+  %40 = load float, ptr %39, align 4
+  %41 = fpext float %40 to double
+  %42 = load double, ptr @cpu_operator_cost, align 8
+  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = load double, ptr %43, align 8
+  %45 = call double @llvm.fmuladd.f64(double %41, double %42, double %44)
+  store double %45, ptr %43, align 8
+  br label %46
 
-41:                                               ; preds = %33, %29
+46:                                               ; preds = %38, %29
   call void @ReleaseSysCache(ptr noundef nonnull %7) #10
   ret void
 }

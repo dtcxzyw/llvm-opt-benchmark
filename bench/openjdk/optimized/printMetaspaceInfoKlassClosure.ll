@@ -47,33 +47,35 @@ define hidden void @_ZN9metaspace30PrintMetaspaceInfoKlassClosure8do_klassEP5Kla
   %19 = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 32
-  %22 = load <2 x ptr>, ptr %21, align 8
-  %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = load ptr, ptr %6, align 8
-  %27 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %1) #4
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull @.str.4, ptr noundef %27) #4
-  %28 = load ptr, ptr %20, align 8
-  %.not.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i, label %30, label %29
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %18, i64 40
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %18, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %1) #4
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull @.str.4, ptr noundef %28) #4
+  %29 = load ptr, ptr %20, align 8
+  %.not.i.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i.i, label %31, label %30
 
-29:                                               ; preds = %2
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %18, i64 noundef %25) #4
+30:                                               ; preds = %2
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %18, i64 noundef %26) #4
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %20) #4
-  br label %30
+  br label %31
 
-30:                                               ; preds = %29, %2
-  %31 = load ptr, ptr %21, align 8
-  %.not8.i.i.i.i = icmp eq ptr %31, %23
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %32
+31:                                               ; preds = %30, %2
+  %32 = load ptr, ptr %21, align 8
+  %.not8.i.i.i.i = icmp eq ptr %32, %22
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %33
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   store ptr %20, ptr %19, align 8
-  store <2 x ptr> %22, ptr %21, align 8
+  store ptr %22, ptr %21, align 8
+  store ptr %24, ptr %23, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %30, %32
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %31, %33
   ret void
 }
 

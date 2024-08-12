@@ -537,7 +537,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i:           ; preds = %if.then164
   br label %ehcleanup382
 
 _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %if.then164
-  store <4 x i8> <i8 -54, i8 -2, i8 -70, i8 -66>, ptr %call5.i.i.i.i2.i, align 1
+  store i8 -54, ptr %call5.i.i.i.i2.i, align 1
+  %ref.tmp165.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 1
+  store i8 -2, ptr %ref.tmp165.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp165.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 2
+  store i8 -70, ptr %ref.tmp165.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp165.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 3
+  store i8 -66, ptr %ref.tmp165.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %container1, i8 0, i64 33, i1 false)
   %m_subtype.i107 = getelementptr inbounds i8, ptr %container2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %container2, i8 0, i64 24, i1 false)

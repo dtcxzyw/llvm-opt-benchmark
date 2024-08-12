@@ -508,35 +508,35 @@ entry:
   %tmpQ.i.i.i = alloca [1 x %struct.sp_int], align 16
   %tmpX.i.i.i = alloca [1 x %struct.sp_int], align 16
   %cBuf.i.i.i = alloca [4104 x i8], align 16
-  %0 = insertelement <4 x ptr> poison, ptr %key, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %rng, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %priv, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %privSz, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
+  %cmp = icmp eq ptr %key, null
+  %cmp1 = icmp eq ptr %rng, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %priv, null
+  %or.cond1 = or i1 %or.cond, %cmp3
+  %cmp5 = icmp eq ptr %privSz, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
   %cmp7 = icmp eq ptr %pub, null
+  %or.cond3 = or i1 %or.cond2, %cmp7
   %cmp9 = icmp eq ptr %pubSz, null
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp ne i4 %5, 0
-  %op.rdx = or i1 %6, %cmp7
-  %op.rdx11 = or i1 %op.rdx, %cmp9
-  br i1 %op.rdx11, label %return, label %do.end.i
+  %or.cond4 = or i1 %or.cond3, %cmp9
+  br i1 %or.cond4, label %return, label %do.end.i
 
 do.end.i:                                         ; preds = %entry
-  %7 = load i32, ptr %key, align 8
-  %cmp.not.i.i = icmp eq i32 %7, 0
+  %0 = load i32, ptr %key, align 8
+  %cmp.not.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i, label %if.else.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %do.end.i
   %dp.i.i = getelementptr inbounds i8, ptr %key, i64 8
-  %8 = load i64, ptr %dp.i.i, align 8
-  %and.i.i = and i64 %8, 1
+  %1 = load i64, ptr %dp.i.i, align 8
+  %and.i.i = and i64 %1, 1
   %cmp2.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp2.i.i, label %return, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.rhs.i.i, %do.end.i
   %q.i.i = getelementptr inbounds i8, ptr %key, i64 2080
-  %9 = load i32, ptr %q.i.i, align 8
-  %cmp5.not.i.i = icmp eq i32 %9, 0
+  %2 = load i32, ptr %q.i.i, align 8
+  %cmp5.not.i.i = icmp eq i32 %2, 0
   br i1 %cmp5.not.i.i, label %if.else9.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i
@@ -546,14 +546,14 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i
   %call.i.i.i = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %q.i.i) #13
   %call4.i.i.i = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %key) #13
   %trustedGroup.i.i.i = getelementptr inbounds i8, ptr %key, i64 3128
-  %10 = load i32, ptr %trustedGroup.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq i32 %10, 0
+  %3 = load i32, ptr %trustedGroup.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i, label %if.end12.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
   %mul5.i.i.i = shl i32 %call.i.i.i, 3
-  %11 = and i32 %call4.i.i.i, 536870911
-  switch i32 %11, label %GeneratePrivateDh.exit.thread21.i [
+  %4 = and i32 %call4.i.i.i, 536870911
+  switch i32 %4, label %GeneratePrivateDh.exit.thread21.i [
     i32 128, label %sw.bb.i.i.i.i
     i32 256, label %CheckDhLN.exit.i.i.i
   ]
@@ -563,14 +563,14 @@ sw.bb.i.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.not.i.i.i, label %if.end12.i.i.i, label %GeneratePrivateDh.exit.thread21.i
 
 CheckDhLN.exit.i.i.i:                             ; preds = %land.lhs.true.i.i.i
-  %12 = add i32 %mul5.i.i.i, -224
-  %switch.and.i.i.i.i = and i32 %12, -40
+  %5 = add i32 %mul5.i.i.i, -224
+  %switch.and.i.i.i.i = and i32 %5, -40
   %switch.selectcmp.i.not.i.i.i = icmp eq i32 %switch.and.i.i.i.i, 0
   br i1 %switch.selectcmp.i.not.i.i.i, label %if.end12.i.i.i, label %GeneratePrivateDh.exit.thread21.i
 
 if.end12.i.i.i:                                   ; preds = %CheckDhLN.exit.i.i.i, %sw.bb.i.i.i.i, %if.end.i.i.i
-  %13 = load i32, ptr %privSz, align 4
-  %add.i.i.i = add i32 %13, 8
+  %6 = load i32, ptr %privSz, align 4
+  %add.i.i.i = add i32 %6, 8
   %call14.i.i.i = call i32 @sp_init_multi(ptr noundef nonnull %tmpX.i.i.i, ptr noundef nonnull %tmpQ.i.i.i, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %cmp15.not.i.i.i = icmp eq i32 %call14.i.i.i, 0
   br i1 %cmp15.not.i.i.i, label %do.body19.i.i.i, label %GeneratePrivateDh.exit.thread21.i
@@ -600,7 +600,7 @@ do.cond.i.i.i:                                    ; preds = %if.end28.i.i.i
   br i1 %cmp37.not.i.i.i, label %for.cond.preheader.i.i.i.i, label %do.body19.i.i.i, !llvm.loop !7
 
 for.cond.preheader.i.i.i.i:                       ; preds = %do.cond.i.i.i
-  %cmp515.i.i.i.i = icmp ult i32 %13, -8
+  %cmp515.i.i.i.i = icmp ult i32 %6, -8
   br i1 %cmp515.i.i.i.i, label %for.body.i.i.i.i, label %while.cond9.preheader.i.i.i.i
 
 while.cond9.preheader.i.i.i.i:                    ; preds = %for.body.i.i.i.i, %for.cond.preheader.i.i.i.i
@@ -628,8 +628,8 @@ while.body12.i.i.i.i:                             ; preds = %while.cond9.prehead
   br i1 %tobool11.not.i.i.i.i, label %ForceZero.exit.i.i.i, label %while.body12.i.i.i.i, !llvm.loop !9
 
 ForceZero.exit.i.i.i:                             ; preds = %while.body12.i.i.i.i, %while.cond9.preheader.i.i.i.i
-  %14 = load i32, ptr %privSz, align 4
-  %mul45.i.i.i = shl nsw i32 %14, 3
+  %7 = load i32, ptr %privSz, align 4
+  %mul45.i.i.i = shl nsw i32 %7, 3
   %call46.i.i.i = call i32 @sp_2expt(ptr noundef nonnull %tmpQ.i.i.i, i32 noundef %mul45.i.i.i) #13
   %cmp48.i.i.i = icmp eq i32 %call46.i.i.i, 0
   br i1 %cmp48.i.i.i, label %if.then50.i.i.i, label %GeneratePrivateDh.exit.i
@@ -661,8 +661,8 @@ if.end83.i.i.i:                                   ; preds = %if.end76.i.i.i
 
 if.then86.i.i.i:                                  ; preds = %if.end83.i.i.i
   %call88.i.i.i = call i32 @sp_unsigned_bin_size(ptr noundef nonnull %tmpX.i.i.i) #13
-  %15 = load i32, ptr %privSz, align 4
-  %cmp89.i.i.i = icmp ugt i32 %call88.i.i.i, %15
+  %8 = load i32, ptr %privSz, align 4
+  %cmp89.i.i.i = icmp ugt i32 %call88.i.i.i, %8
   br i1 %cmp89.i.i.i, label %GeneratePrivateDh.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then86.i.i.i
@@ -672,10 +672,10 @@ if.else.i.i.i:                                    ; preds = %if.then86.i.i.i
 
 if.else9.i.i:                                     ; preds = %if.else.i.i
   %call11.i.i = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %key) #13
-  %16 = add i32 %call11.i.i, -128
-  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 25)
-  %18 = icmp ult i32 %17, 8
-  br i1 %18, label %switch.lookup, label %sw.default.i.i
+  %9 = add i32 %call11.i.i, -128
+  %10 = tail call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 25)
+  %11 = icmp ult i32 %10, 8
+  br i1 %11, label %switch.lookup, label %sw.default.i.i
 
 sw.default.i.i:                                   ; preds = %if.else9.i.i
   %mul.i.i = shl i32 %call11.i.i, 3
@@ -688,28 +688,28 @@ if.else.i19.i.i:                                  ; preds = %sw.default.i.i
   %mul.i.i.i = fmul double %call.i20.i.i, 2.400000e+00
   %call2.i.i.i = tail call double @log(double noundef %conv.i.i.i) #13
   %call3.i.i.i = tail call double @pow(double noundef %call2.i.i.i, double noundef 0x3FE5555555555555) #13
-  %19 = tail call double @llvm.fmuladd.f64(double %mul.i.i.i, double %call3.i.i.i, double -5.000000e+00)
-  %conv5.i.i.i = fptoui double %19 to i32
-  %20 = lshr i32 %conv5.i.i.i, 2
-  %21 = and i32 %20, 536870911
-  %22 = add nuw nsw i32 %21, 1
+  %12 = tail call double @llvm.fmuladd.f64(double %mul.i.i.i, double %call3.i.i.i, double -5.000000e+00)
+  %conv5.i.i.i = fptoui double %12 to i32
+  %13 = lshr i32 %conv5.i.i.i, 2
+  %14 = and i32 %13, 536870911
+  %15 = add nuw nsw i32 %14, 1
   br label %DiscreteLogWorkFactor.exit.i.i
 
 DiscreteLogWorkFactor.exit.i.i:                   ; preds = %if.else.i19.i.i, %sw.default.i.i
-  %retval.0.i21.i.i = phi i32 [ %22, %if.else.i19.i.i ], [ 1, %sw.default.i.i ]
+  %retval.0.i21.i.i = phi i32 [ %15, %if.else.i19.i.i ], [ 1, %sw.default.i.i ]
   %cond.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %call11.i.i, i32 %retval.0.i21.i.i)
   br label %sw.epilog.i.i
 
 switch.lookup:                                    ; preds = %if.else9.i.i
-  %23 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.wc_DhGenerateKeyPair, i64 0, i64 %23
+  %16 = zext nneg i32 %10 to i64
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.wc_DhGenerateKeyPair, i64 0, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %switch.lookup, %DiscreteLogWorkFactor.exit.i.i
   %sz.0.i.i = phi i32 [ %cond.i.i.i, %DiscreteLogWorkFactor.exit.i.i ], [ %switch.load, %switch.lookup ]
-  %24 = load i32, ptr %privSz, align 4
-  %cmp22.not.i.i = icmp ugt i32 %sz.0.i.i, %24
+  %17 = load i32, ptr %privSz, align 4
+  %cmp22.not.i.i = icmp ugt i32 %sz.0.i.i, %17
   br i1 %cmp22.not.i.i, label %return, label %if.end29.i.i
 
 if.end29.i.i:                                     ; preds = %sw.epilog.i.i
@@ -718,9 +718,9 @@ if.end29.i.i:                                     ; preds = %sw.epilog.i.i
   br i1 %cmp30.i.i, label %GeneratePrivateDh.exit.thread17.i, label %return
 
 GeneratePrivateDh.exit.thread17.i:                ; preds = %if.end29.i.i
-  %25 = load i8, ptr %priv, align 1
-  %26 = or i8 %25, 12
-  store i8 %26, ptr %priv, align 1
+  %18 = load i8, ptr %priv, align 1
+  %19 = or i8 %18, 12
+  store i8 %19, ptr %priv, align 1
   store i32 %sz.0.i.i, ptr %privSz, align 4
   br label %if.then11.i
 
@@ -746,12 +746,12 @@ GeneratePrivateDh.exit.if.then11_crit_edge.i:     ; preds = %GeneratePrivateDh.e
   br label %if.then11.i
 
 if.then11.i:                                      ; preds = %GeneratePrivateDh.exit.if.then11_crit_edge.i, %GeneratePrivateDh.exit.thread17.i
-  %27 = phi i32 [ %.pre.i, %GeneratePrivateDh.exit.if.then11_crit_edge.i ], [ %sz.0.i.i, %GeneratePrivateDh.exit.thread17.i ]
+  %20 = phi i32 [ %.pre.i, %GeneratePrivateDh.exit.if.then11_crit_edge.i ], [ %sz.0.i.i, %GeneratePrivateDh.exit.thread17.i ]
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %x.i.i)
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %y.i.i)
-  %28 = load i32, ptr %pubSz, align 4
+  %21 = load i32, ptr %pubSz, align 4
   %call.i.i = call i32 @sp_unsigned_bin_size(ptr noundef nonnull %key) #13
-  %cmp.i.i = icmp ult i32 %28, %call.i.i
+  %cmp.i.i = icmp ult i32 %21, %call.i.i
   br i1 %cmp.i.i, label %GeneratePublicDh.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then11.i
@@ -760,7 +760,7 @@ if.end.i.i:                                       ; preds = %if.then11.i
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %GeneratePublicDh.exit.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  %call7.i.i = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %x.i.i, ptr noundef %priv, i32 noundef %27) #13
+  %call7.i.i = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %x.i.i, ptr noundef %priv, i32 noundef %20) #13
   %cmp8.not.i.i = icmp eq i32 %call7.i.i, 0
   br i1 %cmp8.not.i.i, label %land.lhs.true.i.i, label %if.end30.i.i
 
@@ -803,29 +803,29 @@ entry:
   %y.i = alloca [1 x %struct.sp_int], align 16
   %x.i = alloca [1 x %struct.sp_int], align 16
   %z.i = alloca [1 x %struct.sp_int], align 16
-  %0 = insertelement <4 x ptr> poison, ptr %key, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %agree, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %agreeSz, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %priv, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
+  %cmp = icmp eq ptr %key, null
+  %cmp1 = icmp eq ptr %agree, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %agreeSz, null
+  %or.cond1 = or i1 %or.cond, %cmp3
+  %cmp5 = icmp eq ptr %priv, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
   %cmp7 = icmp eq ptr %otherPub, null
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp ne i4 %5, 0
-  %op.rdx = or i1 %6, %cmp7
-  br i1 %op.rdx, label %return, label %if.end
+  %or.cond3 = or i1 %or.cond2, %cmp7
+  br i1 %or.cond3, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %y.i)
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %x.i)
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %z.i)
-  %7 = load i32, ptr %key, align 8
-  %cmp.not.i = icmp eq i32 %7, 0
+  %0 = load i32, ptr %key, align 8
+  %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %if.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end
   %dp.i = getelementptr inbounds i8, ptr %key, i64 8
-  %8 = load i64, ptr %dp.i, align 8
-  %and.i = and i64 %8, 1
+  %1 = load i64, ptr %dp.i, align 8
+  %and.i = and i64 %1, 1
   %cmp2.i = icmp eq i64 %and.i, 0
   br i1 %cmp2.i, label %wc_DhAgree_Sync.exit, label %if.end.i
 

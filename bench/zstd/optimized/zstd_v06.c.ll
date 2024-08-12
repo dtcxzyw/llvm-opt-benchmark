@@ -6948,7 +6948,7 @@ BITv06_reloadDStream.exit.thread.i:               ; preds = %if.end32.i
   br i1 %78, label %if.end38.i, label %ZSTDv06_decompressSequences.exit
 
 if.end.i155.i:                                    ; preds = %if.end32.i, %if.end.i155.lr.ph.i
-  %79 = phi i32 [ %77, %if.end.i155.lr.ph.i ], [ %103, %if.end32.i ]
+  %79 = phi i32 [ %77, %if.end.i155.lr.ph.i ], [ %104, %if.end32.i ]
   %op.1299.i = phi ptr [ %dst, %if.end.i155.lr.ph.i ], [ %add.ptr2.i.i, %if.end32.i ]
   %nbSeq.0298.i = phi i32 [ %nbSeq.0.i.i, %if.end.i155.lr.ph.i ], [ %dec.i, %if.end32.i ]
   %litPtr.1297.i = phi ptr [ %21, %if.end.i155.lr.ph.i ], [ %add.ptr5.i.i, %if.end32.i ]
@@ -7081,8 +7081,10 @@ if.else45.i.i:                                    ; preds = %if.then20.i.i
 
 if.else49.i.i:                                    ; preds = %if.end18.i.i
   %sub50.i.i = add i64 %add12.i.i, -2
-  %90 = load <2 x i64>, ptr %prevOffset.i, align 8
-  store <2 x i64> %90, ptr %arrayidx52.i.i, align 8
+  %90 = load i64, ptr %arrayidx52.i.i, align 8
+  store i64 %90, ptr %arrayidx54.i.i, align 8
+  %91 = load i64, ptr %prevOffset.i, align 8
+  store i64 %91, ptr %arrayidx52.i.i, align 8
   store i64 %sub50.i.i, ptr %prevOffset.i, align 8
   br label %if.end61.i182.i
 
@@ -7090,8 +7092,8 @@ if.end61.i182.i:                                  ; preds = %if.else49.i.i, %if.
   %bitD.val3.i59.i.i = phi i32 [ %bitD.val3.i59.i322.i, %if.end38.i.i ], [ %bitD.val3.i59.i322.i, %if.else45.i.i ], [ %add.i.i.i180.i, %if.else49.i.i ]
   %offset.2.i.i = phi i64 [ %86, %if.end38.i.i ], [ %89, %if.else45.i.i ], [ %sub50.i.i, %if.else49.i.i ]
   %arrayidx64.i.i = getelementptr inbounds [53 x i32], ptr @ZSTDv06_decodeSequence.ML_base, i64 0, i64 %idxprom5.i.i
-  %91 = load i32, ptr %arrayidx64.i.i, align 4
-  %add65.i.i = add i32 %91, 3
+  %92 = load i32, ptr %arrayidx64.i.i, align 4
+  %add65.i.i = add i32 %92, 3
   %conv66.i.i = zext i32 %add65.i.i to i64
   %cmp67.i.i = icmp ugt i8 %DInfo.sroa.1.0.copyload.i55.i.i, 31
   br i1 %cmp67.i.i, label %cond.true.i.i, label %cond.end.i.i
@@ -7114,8 +7116,8 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %if.
   %cond.i.i = phi i64 [ %shr3.i.i67.i.i, %cond.true.i.i ], [ 0, %if.end61.i182.i ]
   %add71.i.i = add nuw i64 %cond.i.i, %conv66.i.i
   %arrayidx83.i.i = getelementptr inbounds [36 x i32], ptr @ZSTDv06_decodeSequence.LL_base, i64 0, i64 %idxprom.i.i
-  %92 = load i32, ptr %arrayidx83.i.i, align 4
-  %conv84.i.i = zext i32 %92 to i64
+  %93 = load i32, ptr %arrayidx83.i.i, align 4
+  %conv84.i.i = zext i32 %93 to i64
   %cmp85.i.i = icmp ugt i8 %DInfo.sroa.1.0.copyload.i.i.i, 15
   br i1 %cmp85.i.i, label %cond.true87.i.i, label %cond.end91.i.i
 
@@ -7133,11 +7135,11 @@ cond.true87.i.i:                                  ; preds = %cond.end.i.i
   br label %cond.end91.i.i
 
 cond.end91.i.i:                                   ; preds = %cond.true87.i.i, %cond.end.i.i
-  %93 = phi i32 [ %add.i.i79.i.i, %cond.true87.i.i ], [ %bitD.val3.i70.i.i, %cond.end.i.i ]
+  %94 = phi i32 [ %add.i.i79.i.i, %cond.true87.i.i ], [ %bitD.val3.i70.i.i, %cond.end.i.i ]
   %cond92.i.i = phi i64 [ %shr3.i.i78.i.i, %cond.true87.i.i ], [ 0, %cond.end.i.i ]
   %add93.i.i = add nuw i64 %cond92.i.i, %conv84.i.i
   %cmp96.i.i = icmp ult i32 %add7.i.i, 32
-  %cmp.i.i183.i = icmp ugt i32 %93, 64
+  %cmp.i.i183.i = icmp ugt i32 %94, 64
   %or.cond122.i.i = select i1 %cmp96.i.i, i1 true, i1 %cmp.i.i183.i
   br i1 %or.cond122.i.i, label %ZSTDv06_decodeSequence.exit.i, label %if.end.i.i184.i
 
@@ -7146,12 +7148,12 @@ if.end.i.i184.i:                                  ; preds = %cond.end91.i.i
   br i1 %cmp2.not.i.i188.i, label %if.end10.i.i196.i, label %if.then4.i.i189.i
 
 if.then4.i.i189.i:                                ; preds = %if.end.i.i184.i
-  %shr.i.i190.i = lshr i32 %93, 3
+  %shr.i.i190.i = lshr i32 %94, 3
   %idx.ext.i.i191.i = zext nneg i32 %shr.i.i190.i to i64
   %idx.neg.i.i192.i = sub nsw i64 0, %idx.ext.i.i191.i
   %add.ptr7.i.i193.i = getelementptr inbounds i8, ptr %82, i64 %idx.neg.i.i192.i
   store ptr %add.ptr7.i.i193.i, ptr %ptr.i.i118.i, align 8
-  %and.i.i194.i = and i32 %93, 7
+  %and.i.i194.i = and i32 %94, 7
   br label %if.end101.sink.split.i.i
 
 if.end10.i.i196.i:                                ; preds = %if.end.i.i184.i
@@ -7159,7 +7161,7 @@ if.end10.i.i196.i:                                ; preds = %if.end.i.i184.i
   br i1 %cmp13.i.i197.i, label %ZSTDv06_decodeSequence.exit.i, label %if.end22.i.i198.i
 
 if.end22.i.i198.i:                                ; preds = %if.end10.i.i196.i
-  %shr24.i.i199.i = lshr i32 %93, 3
+  %shr24.i.i199.i = lshr i32 %94, 3
   %idx.ext26.i.i200.i = zext nneg i32 %shr24.i.i199.i to i64
   %idx.neg27.i.i201.i = sub nsw i64 0, %idx.ext26.i.i200.i
   %add.ptr28.i.i202.i = getelementptr inbounds i8, ptr %82, i64 %idx.neg27.i.i201.i
@@ -7174,7 +7176,7 @@ if.end22.i.i198.i:                                ; preds = %if.end10.i.i196.i
   %add.ptr40.i.i211.i = getelementptr inbounds i8, ptr %82, i64 %idx.neg39.i.i210.i
   store ptr %add.ptr40.i.i211.i, ptr %ptr.i.i118.i, align 8
   %mul.i.i212.i = shl i32 %nbBytes.0.i.i208.i, 3
-  %sub.i.i213.i = sub i32 %93, %mul.i.i212.i
+  %sub.i.i213.i = sub i32 %94, %mul.i.i212.i
   br label %if.end101.sink.split.i.i
 
 if.end101.sink.split.i.i:                         ; preds = %if.end22.i.i198.i, %if.then4.i.i189.i
@@ -7185,7 +7187,7 @@ if.end101.sink.split.i.i:                         ; preds = %if.end22.i.i198.i, 
   br label %ZSTDv06_decodeSequence.exit.i
 
 ZSTDv06_decodeSequence.exit.i:                    ; preds = %if.end101.sink.split.i.i, %if.end10.i.i196.i, %cond.end91.i.i
-  %bitD.val3.i.i.i.i = phi i32 [ %93, %if.end10.i.i196.i ], [ %93, %cond.end91.i.i ], [ %sub.i.sink.i.i, %if.end101.sink.split.i.i ]
+  %bitD.val3.i.i.i.i = phi i32 [ %94, %if.end10.i.i196.i ], [ %94, %cond.end91.i.i ], [ %sub.i.sink.i.i, %if.end101.sink.split.i.i ]
   %arrayidx.i.i195.i = getelementptr inbounds %struct.FSEv06_decode_t, ptr %stateLL.val51.i.i, i64 %stateLL.val.i.i
   %DInfo.sroa.0.0.copyload.i.i.i = load i16, ptr %arrayidx.i.i195.i, align 2
   %DInfo.sroa.21.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i195.i, i64 3
@@ -7317,14 +7319,14 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
   %op.addr.199.i.i = phi ptr [ %incdec.ptr61.i.i, %while.body.i.i ], [ %add.ptr54.i.i, %while.cond.preheader.i.i ]
   %match.198.i.i = phi ptr [ %incdec.ptr.i235.i, %while.body.i.i ], [ %22, %while.cond.preheader.i.i ]
   %incdec.ptr.i235.i = getelementptr inbounds i8, ptr %match.198.i.i, i64 1
-  %94 = load i8, ptr %match.198.i.i, align 1
+  %95 = load i8, ptr %match.198.i.i, align 1
   %incdec.ptr61.i.i = getelementptr inbounds i8, ptr %op.addr.199.i.i, i64 1
-  store i8 %94, ptr %op.addr.199.i.i, align 1
+  store i8 %95, ptr %op.addr.199.i.i, align 1
   %cmp60.i.i = icmp ult ptr %incdec.ptr61.i.i, %add.ptr2.i.i
   br i1 %cmp60.i.i, label %while.body.i.i, label %ZSTDv06_execSequence.exit.i, !llvm.loop !43
 
 if.end63.i.i:                                     ; preds = %if.end50.i.i, %ZSTDv06_wildcopy.exit.i.i
-  %95 = phi i64 [ %sub.i233.i, %if.end50.i.i ], [ %add71.i.i, %ZSTDv06_wildcopy.exit.i.i ]
+  %96 = phi i64 [ %sub.i233.i, %if.end50.i.i ], [ %add71.i.i, %ZSTDv06_wildcopy.exit.i.i ]
   %match.0.i.i = phi ptr [ %22, %if.end50.i.i ], [ %add.ptr6.i.i, %ZSTDv06_wildcopy.exit.i.i ]
   %op.addr.0.i.i = phi ptr [ %add.ptr54.i.i, %if.end50.i.i ], [ %add.ptr.i216.i, %ZSTDv06_wildcopy.exit.i.i ]
   %cmp65.i.i = icmp ult i64 %offset.2.i.i, 8
@@ -7332,29 +7334,29 @@ if.end63.i.i:                                     ; preds = %if.end50.i.i, %ZSTD
 
 if.then66.i.i:                                    ; preds = %if.end63.i.i
   %arrayidx.i231.i = getelementptr inbounds [8 x i32], ptr @ZSTDv06_execSequence.dec64table, i64 0, i64 %offset.2.i.i
-  %96 = load i32, ptr %arrayidx.i231.i, align 4
-  %97 = load i8, ptr %match.0.i.i, align 1
-  store i8 %97, ptr %op.addr.0.i.i, align 1
+  %97 = load i32, ptr %arrayidx.i231.i, align 4
+  %98 = load i8, ptr %match.0.i.i, align 1
+  store i8 %98, ptr %op.addr.0.i.i, align 1
   %arrayidx70.i.i = getelementptr inbounds i8, ptr %match.0.i.i, i64 1
-  %98 = load i8, ptr %arrayidx70.i.i, align 1
+  %99 = load i8, ptr %arrayidx70.i.i, align 1
   %arrayidx71.i.i = getelementptr inbounds i8, ptr %op.addr.0.i.i, i64 1
-  store i8 %98, ptr %arrayidx71.i.i, align 1
+  store i8 %99, ptr %arrayidx71.i.i, align 1
   %arrayidx72.i.i = getelementptr inbounds i8, ptr %match.0.i.i, i64 2
-  %99 = load i8, ptr %arrayidx72.i.i, align 1
+  %100 = load i8, ptr %arrayidx72.i.i, align 1
   %arrayidx73.i.i = getelementptr inbounds i8, ptr %op.addr.0.i.i, i64 2
-  store i8 %99, ptr %arrayidx73.i.i, align 1
+  store i8 %100, ptr %arrayidx73.i.i, align 1
   %arrayidx74.i.i = getelementptr inbounds i8, ptr %match.0.i.i, i64 3
-  %100 = load i8, ptr %arrayidx74.i.i, align 1
+  %101 = load i8, ptr %arrayidx74.i.i, align 1
   %arrayidx75.i.i = getelementptr inbounds i8, ptr %op.addr.0.i.i, i64 3
-  store i8 %100, ptr %arrayidx75.i.i, align 1
+  store i8 %101, ptr %arrayidx75.i.i, align 1
   %arrayidx77.i.i = getelementptr inbounds [8 x i32], ptr @ZSTDv06_execSequence.dec32table, i64 0, i64 %offset.2.i.i
-  %101 = load i32, ptr %arrayidx77.i.i, align 4
-  %idx.ext.i232.i = zext i32 %101 to i64
+  %102 = load i32, ptr %arrayidx77.i.i, align 4
+  %idx.ext.i232.i = zext i32 %102 to i64
   %add.ptr78.i.i = getelementptr inbounds i8, ptr %match.0.i.i, i64 %idx.ext.i232.i
   %add.ptr79.i.i = getelementptr inbounds i8, ptr %op.addr.0.i.i, i64 4
   %add.ptr78.val.i.i = load i32, ptr %add.ptr78.i.i, align 1
   store i32 %add.ptr78.val.i.i, ptr %add.ptr79.i.i, align 1
-  %idx.ext80.i.i = sext i32 %96 to i64
+  %idx.ext80.i.i = sext i32 %97 to i64
   %idx.neg81.i.i = sub nsw i64 0, %idx.ext80.i.i
   %add.ptr82.i.i = getelementptr inbounds i8, ptr %add.ptr78.i.i, i64 %idx.neg81.i.i
   br label %if.end83.i.i
@@ -7401,14 +7403,14 @@ while.body101.i.i:                                ; preds = %if.end98.i.i, %whil
   %op.addr.396.i.i = phi ptr [ %incdec.ptr103.i.i, %while.body101.i.i ], [ %op.addr.2.i.i, %if.end98.i.i ]
   %match.495.i.i = phi ptr [ %incdec.ptr102.i.i, %while.body101.i.i ], [ %match.3.i.i, %if.end98.i.i ]
   %incdec.ptr102.i.i = getelementptr inbounds i8, ptr %match.495.i.i, i64 1
-  %102 = load i8, ptr %match.495.i.i, align 1
+  %103 = load i8, ptr %match.495.i.i, align 1
   %incdec.ptr103.i.i = getelementptr inbounds i8, ptr %op.addr.396.i.i, i64 1
-  store i8 %102, ptr %op.addr.396.i.i, align 1
+  store i8 %103, ptr %op.addr.396.i.i, align 1
   %cmp100.i.i = icmp ult ptr %incdec.ptr103.i.i, %add.ptr2.i.i
   br i1 %cmp100.i.i, label %while.body101.i.i, label %ZSTDv06_execSequence.exit.i, !llvm.loop !44
 
 if.else105.i.i:                                   ; preds = %if.end83.i.i
-  %add.ptr.i83.i.i = getelementptr i8, ptr %op.addr.0.i.i, i64 %95
+  %add.ptr.i83.i.i = getelementptr i8, ptr %op.addr.0.i.i, i64 %96
   br label %do.body.i84.i.i
 
 do.body.i84.i.i:                                  ; preds = %do.body.i84.i.i, %if.else105.i.i
@@ -7426,8 +7428,8 @@ ZSTDv06_execSequence.exit.i:                      ; preds = %do.body.i84.i.i, %w
   br i1 %cmp.i236.i, label %if.end32.i, label %ZSTDv06_decompressSequences.exit
 
 if.end32.i:                                       ; preds = %ZSTDv06_execSequence.exit.i
-  %103 = load i32, ptr %72, align 8
-  %cmp.i154.i = icmp ugt i32 %103, 64
+  %104 = load i32, ptr %72, align 8
+  %cmp.i154.i = icmp ugt i32 %104, 64
   br i1 %cmp.i154.i, label %BITv06_reloadDStream.exit.thread.i, label %if.end.i155.i, !llvm.loop !45
 
 if.end38.i:                                       ; preds = %BITv06_reloadDStream.exit.i, %BITv06_reloadDStream.exit.thread.i, %if.end.i15, %if.end.thread.i

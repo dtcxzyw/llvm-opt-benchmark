@@ -188596,10 +188596,12 @@ define dso_local void @zend_vm_set_opcode_handler(ptr nocapture noundef %0) loca
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i = load i32, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr %18, align 8
   store i8 %15, ptr %12, align 1
-  %19 = load <2 x i32>, ptr %18, align 8
-  %20 = shufflevector <2 x i32> %19, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %20, ptr %18, align 8
+  store i32 %.sroa.0.0.copyload.i, ptr %19, align 4
   store i8 %13, ptr %14, align 2
   br label %21
 
@@ -188823,10 +188825,12 @@ define dso_local void @zend_vm_set_opcode_handler_ex(ptr noundef %0, i32 noundef
 26:                                               ; preds = %._crit_edge279
   %27 = getelementptr inbounds i8, ptr %0, i64 30
   %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i = load i32, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 12
+  %30 = load i32, ptr %29, align 4
+  store i32 %30, ptr %28, align 8
   store i8 %23, ptr %19, align 1
-  %29 = load <2 x i32>, ptr %28, align 8
-  %30 = shufflevector <2 x i32> %29, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %30, ptr %28, align 8
+  store i32 %.sroa.0.0.copyload.i, ptr %29, align 4
   store i8 %20, ptr %27, align 2
   br label %413
 
@@ -188851,10 +188855,12 @@ define dso_local void @zend_vm_set_opcode_handler_ex(ptr noundef %0, i32 noundef
 40:                                               ; preds = %._crit_edge276
   %41 = getelementptr inbounds i8, ptr %0, i64 30
   %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i267 = load i32, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 12
+  %44 = load i32, ptr %43, align 4
+  store i32 %44, ptr %42, align 8
   store i8 %37, ptr %33, align 1
-  %43 = load <2 x i32>, ptr %42, align 8
-  %44 = shufflevector <2 x i32> %43, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %44, ptr %42, align 8
+  store i32 %.sroa.0.0.copyload.i267, ptr %43, align 4
   store i8 %34, ptr %41, align 2
   br label %413
 
@@ -188881,10 +188887,12 @@ define dso_local void @zend_vm_set_opcode_handler_ex(ptr noundef %0, i32 noundef
 56:                                               ; preds = %._crit_edge
   %57 = getelementptr inbounds i8, ptr %0, i64 30
   %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i268 = load i32, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 12
+  %60 = load i32, ptr %59, align 4
+  store i32 %60, ptr %58, align 8
   store i8 %53, ptr %49, align 1
-  %59 = load <2 x i32>, ptr %58, align 8
-  %60 = shufflevector <2 x i32> %59, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %60, ptr %58, align 8
+  store i32 %.sroa.0.0.copyload.i268, ptr %59, align 4
   store i8 %50, ptr %57, align 2
   br label %413
 
@@ -188961,10 +188969,12 @@ define dso_local void @zend_vm_set_opcode_handler_ex(ptr noundef %0, i32 noundef
 
 102:                                              ; preds = %96
   %103 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i269 = load i32, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %0, i64 12
+  %105 = load i32, ptr %104, align 4
+  store i32 %105, ptr %103, align 8
   store i8 %100, ptr %97, align 1
-  %104 = load <2 x i32>, ptr %103, align 8
-  %105 = shufflevector <2 x i32> %104, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %105, ptr %103, align 8
+  store i32 %.sroa.0.0.copyload.i269, ptr %104, align 4
   store i8 %98, ptr %99, align 2
   br label %106
 
@@ -189019,10 +189029,12 @@ define dso_local void @zend_vm_set_opcode_handler_ex(ptr noundef %0, i32 noundef
 
 131:                                              ; preds = %125
   %132 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i270 = load i32, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %0, i64 12
+  %134 = load i32, ptr %133, align 4
+  store i32 %134, ptr %132, align 8
   store i8 %129, ptr %126, align 1
-  %133 = load <2 x i32>, ptr %132, align 8
-  %134 = shufflevector <2 x i32> %133, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %134, ptr %132, align 8
+  store i32 %.sroa.0.0.copyload.i270, ptr %133, align 4
   store i8 %127, ptr %128, align 2
   br label %135
 
@@ -189078,10 +189090,12 @@ define dso_local void @zend_vm_set_opcode_handler_ex(ptr noundef %0, i32 noundef
 
 162:                                              ; preds = %156
   %163 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i271 = load i32, ptr %163, align 8
+  %164 = getelementptr inbounds i8, ptr %0, i64 12
+  %165 = load i32, ptr %164, align 4
+  store i32 %165, ptr %163, align 8
   store i8 %160, ptr %157, align 1
-  %164 = load <2 x i32>, ptr %163, align 8
-  %165 = shufflevector <2 x i32> %164, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %165, ptr %163, align 8
+  store i32 %.sroa.0.0.copyload.i271, ptr %164, align 4
   store i8 %158, ptr %159, align 2
   br label %166
 
@@ -189137,10 +189151,12 @@ define dso_local void @zend_vm_set_opcode_handler_ex(ptr noundef %0, i32 noundef
 
 193:                                              ; preds = %187
   %194 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i272 = load i32, ptr %194, align 8
+  %195 = getelementptr inbounds i8, ptr %0, i64 12
+  %196 = load i32, ptr %195, align 4
+  store i32 %196, ptr %194, align 8
   store i8 %191, ptr %188, align 1
-  %195 = load <2 x i32>, ptr %194, align 8
-  %196 = shufflevector <2 x i32> %195, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %196, ptr %194, align 8
+  store i32 %.sroa.0.0.copyload.i272, ptr %195, align 4
   store i8 %189, ptr %190, align 2
   br label %197
 
@@ -189182,10 +189198,12 @@ define dso_local void @zend_vm_set_opcode_handler_ex(ptr noundef %0, i32 noundef
 
 217:                                              ; preds = %211
   %218 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i273 = load i32, ptr %218, align 8
+  %219 = getelementptr inbounds i8, ptr %0, i64 12
+  %220 = load i32, ptr %219, align 4
+  store i32 %220, ptr %218, align 8
   store i8 %215, ptr %212, align 1
-  %219 = load <2 x i32>, ptr %218, align 8
-  %220 = shufflevector <2 x i32> %219, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %220, ptr %218, align 8
+  store i32 %.sroa.0.0.copyload.i273, ptr %219, align 4
   store i8 %213, ptr %214, align 2
   br label %221
 
@@ -189500,10 +189518,12 @@ define dso_local void @zend_vm_set_opcode_handler_ex(ptr noundef %0, i32 noundef
 
 395:                                              ; preds = %389
   %396 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i274 = load i32, ptr %396, align 8
+  %397 = getelementptr inbounds i8, ptr %0, i64 12
+  %398 = load i32, ptr %397, align 4
+  store i32 %398, ptr %396, align 8
   store i8 %393, ptr %390, align 1
-  %397 = load <2 x i32>, ptr %396, align 8
-  %398 = shufflevector <2 x i32> %397, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %398, ptr %396, align 8
+  store i32 %.sroa.0.0.copyload.i274, ptr %397, align 4
   store i8 %391, ptr %392, align 2
   br label %413
 
@@ -189524,10 +189544,12 @@ define dso_local void @zend_vm_set_opcode_handler_ex(ptr noundef %0, i32 noundef
 
 409:                                              ; preds = %403
   %410 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i275 = load i32, ptr %410, align 8
+  %411 = getelementptr inbounds i8, ptr %0, i64 12
+  %412 = load i32, ptr %411, align 4
+  store i32 %412, ptr %410, align 8
   store i8 %407, ptr %404, align 1
-  %411 = load <2 x i32>, ptr %410, align 8
-  %412 = shufflevector <2 x i32> %411, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %412, ptr %410, align 8
+  store i32 %.sroa.0.0.copyload.i275, ptr %411, align 4
   store i8 %405, ptr %406, align 2
   br label %413
 

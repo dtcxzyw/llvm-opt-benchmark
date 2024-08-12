@@ -43,7 +43,7 @@ define range(i32 0, 2) i32 @Sim_SymmsGetPatternUsingSat(ptr nocapture noundef %0
   br label %32
 
 32:                                               ; preds = %.lr.ph169, %.critedge
-  %33 = phi i32 [ %11, %.lr.ph169 ], [ %291, %.critedge ]
+  %33 = phi i32 [ %11, %.lr.ph169 ], [ %293, %.critedge ]
   %indvars.iv202 = phi i64 [ %31, %.lr.ph169 ], [ %indvars.iv.next203, %.critedge ]
   %34 = load ptr, ptr %13, align 8
   %35 = getelementptr i8, ptr %34, i64 8
@@ -584,38 +584,41 @@ Sim_SymmsSatProveOne.exit:                        ; preds = %Abc_Clock.exit45.i,
 .critedge10:                                      ; preds = %.critedge12, %.lr.ph177, %254
   store i32 %49, ptr %8, align 8
   %285 = getelementptr inbounds i8, ptr %0, i64 140
-  %286 = getelementptr inbounds i8, ptr %0, i64 148
-  %287 = getelementptr inbounds i8, ptr %0, i64 144
-  %288 = load <2 x i32>, ptr %285, align 4
-  store <2 x i32> %288, ptr %286, align 4
+  %286 = load i32, ptr %285, align 4
+  %287 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 %286, ptr %287, align 4
+  %288 = getelementptr inbounds i8, ptr %0, i64 144
+  %289 = load i32, ptr %288, align 8
+  %290 = getelementptr inbounds i8, ptr %0, i64 152
+  store i32 %289, ptr %290, align 8
   store i32 %53, ptr %285, align 4
-  store i32 %63, ptr %287, align 8
-  br label %294
+  store i32 %63, ptr %288, align 8
+  br label %296
 
 .critedge6:                                       ; preds = %.critedge8, %.lr.ph161, %224, %61, %65
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %.val126 = load i32, ptr %46, align 4
-  %289 = trunc nuw i64 %indvars.iv.next197 to i32
-  %290 = icmp sgt i32 %.val126, %289
-  br i1 %290, label %61, label %.critedge2.loopexit.loopexit, !llvm.loop !14
+  %291 = trunc nuw i64 %indvars.iv.next197 to i32
+  %292 = icmp sgt i32 %.val126, %291
+  br i1 %292, label %61, label %.critedge2.loopexit.loopexit, !llvm.loop !14
 
 .critedge.loopexit:                               ; preds = %.critedge2.loopexit
   %.pre214 = load i32, ptr %10, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %32
-  %291 = phi i32 [ %.pre214, %.critedge.loopexit ], [ %33, %32 ]
+  %293 = phi i32 [ %.pre214, %.critedge.loopexit ], [ %33, %32 ]
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, 1
-  %292 = sext i32 %291 to i64
-  %293 = icmp slt i64 %indvars.iv.next203, %292
-  br i1 %293, label %32, label %._crit_edge, !llvm.loop !15
+  %294 = sext i32 %293 to i64
+  %295 = icmp slt i64 %indvars.iv.next203, %294
+  br i1 %295, label %32, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.critedge, %2
-  %.lcssa150 = phi i32 [ %11, %2 ], [ %291, %.critedge ]
+  %.lcssa150 = phi i32 [ %11, %2 ], [ %293, %.critedge ]
   store i32 %.lcssa150, ptr %8, align 8
-  br label %294
+  br label %296
 
-294:                                              ; preds = %._crit_edge, %.critedge10
+296:                                              ; preds = %._crit_edge, %.critedge10
   %.0111 = phi i32 [ 1, %.critedge10 ], [ 0, %._crit_edge ]
   ret i32 %.0111
 }

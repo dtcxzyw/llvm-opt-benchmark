@@ -226,11 +226,11 @@ define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr nocaptur
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @lock) #9
   %7 = tail call i32 @perfInit()
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %55
+  br i1 %8, label %9, label %49
 
 9:                                                ; preds = %3
   %10 = icmp eq i32 %2, 0
-  br i1 %10, label %19, label %11
+  br i1 %10, label %18, label %11
 
 11:                                               ; preds = %9
   %12 = icmp eq i32 %0, -1
@@ -238,83 +238,82 @@ define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr nocaptur
   %14 = sext i32 %0 to i64
   %15 = getelementptr inbounds %struct.ticks, ptr %13, i64 %14
   %.036.ph = select i1 %12, ptr getelementptr inbounds (i8, ptr @counters, i64 32), ptr %15
+  %.sroa.0.0.copyload46 = load i64, ptr %.036.ph, align 8
   %.sroa.2.0..sroa_idx47 = getelementptr inbounds i8, ptr %.036.ph, i64 8
-  %16 = load <2 x i64>, ptr %.036.ph, align 8
+  %.sroa.2.0.copyload48 = load i64, ptr %.sroa.2.0..sroa_idx47, align 8
   %.sroa.3.0..sroa_idx49 = getelementptr inbounds i8, ptr %.036.ph, i64 16
   %.sroa.3.0.copyload50 = load i64, ptr %.sroa.3.0..sroa_idx49, align 8
-  %17 = tail call fastcc i32 @get_totalticks(i32 noundef %0, ptr noundef nonnull %.036.ph)
-  %18 = icmp sgt i32 %17, -1
-  br i1 %18, label %28, label %55
+  %16 = tail call fastcc i32 @get_totalticks(i32 noundef %0, ptr noundef nonnull %.036.ph)
+  %17 = icmp sgt i32 %16, -1
+  br i1 %17, label %26, label %49
 
-19:                                               ; preds = %9
-  %20 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @counters, i64 8), align 8
+18:                                               ; preds = %9
+  %.sroa.0.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 16), align 8
   %.sroa.3.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %21 = call i32 (ptr, ptr, ...) @read_statdata(ptr nonnull poison, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %22 = icmp slt i32 %21, 0
-  br i1 %22, label %get_jvmticks.exit.thread, label %23
+  %19 = call i32 (ptr, ptr, ...) @read_statdata(ptr nonnull poison, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %get_jvmticks.exit.thread, label %21
 
-23:                                               ; preds = %19
-  %24 = call fastcc i32 @get_totalticks(i32 noundef -1, ptr noundef nonnull getelementptr inbounds (i8, ptr @counters, i64 8))
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %get_jvmticks.exit.thread, label %get_jvmticks.exit
+21:                                               ; preds = %18
+  %22 = call fastcc i32 @get_totalticks(i32 noundef -1, ptr noundef nonnull getelementptr inbounds (i8, ptr @counters, i64 8))
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %get_jvmticks.exit.thread, label %get_jvmticks.exit
 
-get_jvmticks.exit.thread:                         ; preds = %19, %23
+get_jvmticks.exit.thread:                         ; preds = %18, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %55
+  br label %49
 
-get_jvmticks.exit:                                ; preds = %23
-  %26 = load i64, ptr %4, align 8
-  store i64 %26, ptr getelementptr inbounds (i8, ptr @counters, i64 8), align 8
-  %27 = load i64, ptr %5, align 8
-  store i64 %27, ptr getelementptr inbounds (i8, ptr @counters, i64 16), align 8
+get_jvmticks.exit:                                ; preds = %21
+  %24 = load i64, ptr %4, align 8
+  store i64 %24, ptr getelementptr inbounds (i8, ptr @counters, i64 8), align 8
+  %25 = load i64, ptr %5, align 8
+  store i64 %25, ptr getelementptr inbounds (i8, ptr @counters, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %28
+  br label %26
 
-28:                                               ; preds = %get_jvmticks.exit, %11
+26:                                               ; preds = %get_jvmticks.exit, %11
   %.0365268 = phi ptr [ getelementptr inbounds (i8, ptr @counters, i64 8), %get_jvmticks.exit ], [ %.036.ph, %11 ]
+  %.sroa.0.0.copyload5367 = phi i64 [ %.sroa.0.0.copyload, %get_jvmticks.exit ], [ %.sroa.0.0.copyload46, %11 ]
   %.sroa.2.0..sroa_idx5566 = phi ptr [ getelementptr inbounds (i8, ptr @counters, i64 16), %get_jvmticks.exit ], [ %.sroa.2.0..sroa_idx47, %11 ]
+  %.sroa.2.0.copyload5765 = phi i64 [ %.sroa.2.0.copyload, %get_jvmticks.exit ], [ %.sroa.2.0.copyload48, %11 ]
   %.sroa.3.0..sroa_idx5964 = phi ptr [ getelementptr inbounds (i8, ptr @counters, i64 24), %get_jvmticks.exit ], [ %.sroa.3.0..sroa_idx49, %11 ]
   %.sroa.3.0.copyload6163 = phi i64 [ %.sroa.3.0.copyload, %get_jvmticks.exit ], [ %.sroa.3.0.copyload50, %11 ]
-  %29 = phi <2 x i64> [ %20, %get_jvmticks.exit ], [ %16, %11 ]
-  %30 = load i64, ptr %.sroa.3.0..sroa_idx5964, align 8
-  %31 = icmp eq i64 %30, %.sroa.3.0.copyload6163
-  br i1 %31, label %55, label %32
+  %27 = load i64, ptr %.sroa.3.0..sroa_idx5964, align 8
+  %28 = icmp eq i64 %27, %.sroa.3.0.copyload6163
+  br i1 %28, label %49, label %29
 
-32:                                               ; preds = %28
-  %33 = sub i64 %30, %.sroa.3.0.copyload6163
-  %34 = load i64, ptr %.0365268, align 8
-  %35 = load i64, ptr %.sroa.2.0..sroa_idx5566, align 8
-  %36 = insertelement <2 x i64> poison, i64 %34, i64 0
-  %37 = insertelement <2 x i64> %36, i64 %35, i64 1
-  %38 = sub <2 x i64> %37, %29
-  %shift = shufflevector <2 x i64> %38, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %39 = add <2 x i64> %shift, %38
-  %40 = extractelement <2 x i64> %39, i64 0
-  %spec.select44 = call i64 @llvm.umax.i64(i64 %33, i64 %40)
-  %41 = uitofp i64 %spec.select44 to double
-  %42 = uitofp <2 x i64> %38 to <2 x double>
-  %43 = insertelement <2 x double> poison, double %41, i64 0
-  %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
-  %45 = fdiv <2 x double> %42, %44
-  %46 = fcmp ogt <2 x double> %45, zeroinitializer
-  %47 = select <2 x i1> %46, <2 x double> %45, <2 x double> zeroinitializer
-  %48 = fcmp olt <2 x double> %47, <double 1.000000e+00, double 1.000000e+00>
-  %49 = extractelement <2 x i1> %48, i64 1
-  %50 = extractelement <2 x double> %47, i64 1
-  %51 = select i1 %49, double %50, double 1.000000e+00
-  store double %51, ptr %1, align 8
-  %52 = extractelement <2 x i1> %48, i64 0
-  %53 = extractelement <2 x double> %47, i64 0
-  %54 = select i1 %52, double %53, double 1.000000e+00
-  br label %55
+29:                                               ; preds = %26
+  %30 = sub i64 %27, %.sroa.3.0.copyload6163
+  %31 = load i64, ptr %.0365268, align 8
+  %32 = sub i64 %31, %.sroa.0.0.copyload5367
+  %33 = load i64, ptr %.sroa.2.0..sroa_idx5566, align 8
+  %34 = sub i64 %33, %.sroa.2.0.copyload5765
+  %35 = add i64 %34, %32
+  %spec.select44 = call i64 @llvm.umax.i64(i64 %30, i64 %35)
+  %36 = uitofp i64 %34 to double
+  %37 = uitofp i64 %spec.select44 to double
+  %38 = fdiv double %36, %37
+  %39 = fcmp ogt double %38, 0.000000e+00
+  %40 = select i1 %39, double %38, double 0.000000e+00
+  %41 = fcmp olt double %40, 1.000000e+00
+  %42 = select i1 %41, double %40, double 1.000000e+00
+  store double %42, ptr %1, align 8
+  %43 = uitofp i64 %32 to double
+  %44 = fdiv double %43, %37
+  %45 = fcmp ogt double %44, 0.000000e+00
+  %46 = select i1 %45, double %44, double 0.000000e+00
+  %47 = fcmp olt double %46, 1.000000e+00
+  %48 = select i1 %47, double %46, double 1.000000e+00
+  br label %49
 
-55:                                               ; preds = %get_jvmticks.exit.thread, %28, %11, %32, %3
-  %.034 = phi double [ -1.000000e+00, %11 ], [ %54, %32 ], [ -1.000000e+00, %3 ], [ 0.000000e+00, %28 ], [ -1.000000e+00, %get_jvmticks.exit.thread ]
-  %56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #9
+49:                                               ; preds = %get_jvmticks.exit.thread, %26, %11, %29, %3
+  %.034 = phi double [ -1.000000e+00, %11 ], [ %48, %29 ], [ -1.000000e+00, %3 ], [ 0.000000e+00, %26 ], [ -1.000000e+00, %get_jvmticks.exit.thread ]
+  %50 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #9
   ret double %.034
 }
 

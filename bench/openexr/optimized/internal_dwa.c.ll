@@ -760,6 +760,7 @@ for.body86.lr.ph:                                 ; preds = %for.cond83.preheade
   %_channelData89 = getelementptr inbounds i8, ptr %me, i64 48
   %_quantBaseError.i.i = getelementptr inbounds i8, ptr %enc, i64 60
   %_width.i.i = getelementptr inbounds i8, ptr %enc, i64 52
+  %_height.i.i = getelementptr inbounds i8, ptr %enc, i64 56
   %_numAcComp.i.i = getelementptr inbounds i8, ptr %enc, i64 8
   %_packedAc.i.i = getelementptr inbounds i8, ptr %enc, i64 64
   %_packedDc.i.i = getelementptr inbounds i8, ptr %enc, i64 72
@@ -771,6 +772,7 @@ for.body86.lr.ph:                                 ; preds = %for.cond83.preheade
   %_channel_encode_data_count.i = getelementptr inbounds i8, ptr %enc, i64 48
   %alloc_fn123 = getelementptr inbounds i8, ptr %me, i64 184
   %free_fn124 = getelementptr inbounds i8, ptr %me, i64 192
+  %_numDcComp = getelementptr inbounds i8, ptr %enc, i64 16
   br label %for.body86
 
 for.body61:                                       ; preds = %for.cond57.preheader, %for.inc77
@@ -889,6 +891,7 @@ for.body165.lr.ph:                                ; preds = %for.cond161.prehead
   %alloc_fn188 = getelementptr inbounds i8, ptr %me, i64 184
   %free_fn189 = getelementptr inbounds i8, ptr %me, i64 192
   %_numAcComp192 = getelementptr inbounds i8, ptr %enc175, i64 8
+  %_numDcComp194 = getelementptr inbounds i8, ptr %enc175, i64 16
   br label %for.body165
 
 for.body86:                                       ; preds = %for.body86.lr.ph, %for.inc157
@@ -913,11 +916,13 @@ for.body86:                                       ; preds = %for.body86.lr.ph, %
   %arrayidx104 = getelementptr inbounds %struct._ChannelData, ptr %88, i64 %idxprom103
   %chan111 = getelementptr inbounds i8, ptr %arrayidx92, i64 448
   %92 = load ptr, ptr %chan111, align 32
+  %width112 = getelementptr inbounds i8, ptr %92, i64 12
+  %93 = load i32, ptr %width112, align 4
   %height = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = load i32, ptr %height, align 8
   store float %div, ptr %_quantBaseError.i.i, align 4
-  %93 = load <2 x i32>, ptr %height, align 8
-  %94 = shufflevector <2 x i32> %93, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %94, ptr %_width.i.i, align 4
+  store i32 %93, ptr %_width.i.i, align 4
+  store i32 %94, ptr %_height.i.i, align 8
   store ptr @dwaCompressorToNonlinear, ptr %enc, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_numAcComp.i.i, i8 0, i64 16, i1 false)
   store ptr %packedAcEnd.1271, ptr %_packedAc.i.i, align 8
@@ -961,59 +966,61 @@ LossyDctEncoderCsc_construct.exit:                ; preds = %for.body.i.i
   %98 = load ptr, ptr %alloc_fn123, align 8
   %99 = load ptr, ptr %free_fn124, align 8
   %call125 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %98, ptr noundef %99, ptr noundef nonnull %enc)
-  %100 = load <2 x i64>, ptr %add.ptr20, align 8
-  %101 = load <2 x i64>, ptr %_numAcComp.i.i, align 8
-  %102 = add <2 x i64> %101, %100
-  store <2 x i64> %102, ptr %add.ptr20, align 8
-  %103 = load ptr, ptr %_channelData89, align 8
-  %104 = load i32, ptr %arrayidx88, align 4
-  %idxprom138 = sext i32 %104 to i64
-  %processed140 = getelementptr inbounds %struct._ChannelData, ptr %103, i64 %idxprom138, i32 7
+  %100 = load i64, ptr %add.ptr20, align 8
+  %101 = load i64, ptr %_numAcComp.i.i, align 8
+  %add127 = add i64 %101, %100
+  store i64 %add127, ptr %add.ptr20, align 8
+  %102 = load i64, ptr %add.ptr21, align 8
+  %103 = load i64, ptr %_numDcComp, align 8
+  %add128 = add i64 %103, %102
+  store i64 %add128, ptr %add.ptr21, align 8
+  %104 = load ptr, ptr %_channelData89, align 8
+  %105 = load i32, ptr %arrayidx88, align 4
+  %idxprom138 = sext i32 %105 to i64
+  %processed140 = getelementptr inbounds %struct._ChannelData, ptr %104, i64 %idxprom138, i32 7
   store i32 1, ptr %processed140, align 32
-  %105 = load ptr, ptr %_channelData89, align 8
-  %106 = load i32, ptr %arrayidx96, align 4
-  %idxprom144 = sext i32 %106 to i64
-  %processed146 = getelementptr inbounds %struct._ChannelData, ptr %105, i64 %idxprom144, i32 7
+  %106 = load ptr, ptr %_channelData89, align 8
+  %107 = load i32, ptr %arrayidx96, align 4
+  %idxprom144 = sext i32 %107 to i64
+  %processed146 = getelementptr inbounds %struct._ChannelData, ptr %106, i64 %idxprom144, i32 7
   store i32 1, ptr %processed146, align 32
-  %107 = load ptr, ptr %_channelData89, align 8
-  %108 = load i32, ptr %arrayidx102, align 4
-  %idxprom150 = sext i32 %108 to i64
-  %processed152 = getelementptr inbounds %struct._ChannelData, ptr %107, i64 %idxprom150, i32 7
+  %108 = load ptr, ptr %_channelData89, align 8
+  %109 = load i32, ptr %arrayidx102, align 4
+  %idxprom150 = sext i32 %109 to i64
+  %processed152 = getelementptr inbounds %struct._ChannelData, ptr %108, i64 %idxprom150, i32 7
   store i32 1, ptr %processed152, align 32
   %cmp153.not = icmp eq i32 %call125, 0
   br i1 %cmp153.not, label %for.inc157, label %return
 
 for.inc157:                                       ; preds = %LossyDctEncoderCsc_construct.exit
-  %109 = extractelement <2 x i64> %101, i64 1
-  %mul133 = shl i64 %109, 1
+  %mul133 = shl i64 %103, 1
   %add.ptr134 = getelementptr inbounds i8, ptr %packedDcEnd.1270, i64 %mul133
-  %110 = extractelement <2 x i64> %101, i64 0
-  %mul130 = shl i64 %110, 1
+  %mul130 = shl i64 %101, 1
   %add.ptr131 = getelementptr inbounds i8, ptr %packedAcEnd.1271, i64 %mul130
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
-  %111 = load i32, ptr %_numCscChannelSets, align 4
-  %112 = sext i32 %111 to i64
-  %cmp84 = icmp slt i64 %indvars.iv.next302, %112
+  %110 = load i32, ptr %_numCscChannelSets, align 4
+  %111 = sext i32 %110 to i64
+  %cmp84 = icmp slt i64 %indvars.iv.next302, %111
   br i1 %cmp84, label %for.body86, label %for.cond161.preheader.loopexit, !llvm.loop !19
 
 for.body165:                                      ; preds = %for.body165.lr.ph, %for.inc267
-  %113 = phi i32 [ %85, %for.body165.lr.ph ], [ %154, %for.inc267 ]
+  %112 = phi i32 [ %85, %for.body165.lr.ph ], [ %152, %for.inc267 ]
   %indvars.iv307 = phi i64 [ 0, %for.body165.lr.ph ], [ %indvars.iv.next308, %for.inc267 ]
   %packedAcEnd.2290 = phi ptr [ %packedAcEnd.1.lcssa, %for.body165.lr.ph ], [ %packedAcEnd.3, %for.inc267 ]
   %packedDcEnd.2289 = phi ptr [ %packedDcEnd.1.lcssa, %for.body165.lr.ph ], [ %packedDcEnd.3, %for.inc267 ]
-  %114 = load ptr, ptr %_channelData167, align 8
-  %arrayidx169 = getelementptr inbounds %struct._ChannelData, ptr %114, i64 %indvars.iv307
+  %113 = load ptr, ptr %_channelData167, align 8
+  %arrayidx169 = getelementptr inbounds %struct._ChannelData, ptr %113, i64 %indvars.iv307
   %chan170 = getelementptr inbounds i8, ptr %arrayidx169, i64 448
-  %115 = load ptr, ptr %chan170, align 32
+  %114 = load ptr, ptr %chan170, align 32
   %processed171 = getelementptr inbounds i8, ptr %arrayidx169, i64 544
-  %116 = load i32, ptr %processed171, align 32
-  %tobool172.not = icmp eq i32 %116, 0
+  %115 = load i32, ptr %processed171, align 32
+  %tobool172.not = icmp eq i32 %115, 0
   br i1 %tobool172.not, label %if.end174, label %for.inc267
 
 if.end174:                                        ; preds = %for.body165
   %compression = getelementptr inbounds i8, ptr %arrayidx169, i64 548
-  %117 = load i32, ptr %compression, align 4
-  switch i32 %117, label %return [
+  %116 = load i32, ptr %compression, align 4
+  switch i32 %116, label %return [
     i32 1, label %sw.bb
     i32 2, label %for.cond209.preheader
     i32 0, label %sw.bb243
@@ -1021,80 +1028,82 @@ if.end174:                                        ; preds = %for.body165
 
 for.cond209.preheader:                            ; preds = %if.end174
   %_size = getelementptr inbounds i8, ptr %arrayidx169, i64 408
-  %118 = load i64, ptr %_size, align 8
-  %cmp210285.not = icmp eq i64 %118, 0
+  %117 = load i64, ptr %_size, align 8
+  %cmp210285.not = icmp eq i64 %117, 0
   br i1 %cmp210285.not, label %sw.epilog, label %for.body212.lr.ph
 
 for.body212.lr.ph:                                ; preds = %for.cond209.preheader
   %_rows = getelementptr inbounds i8, ptr %arrayidx169, i64 392
-  %width215 = getelementptr inbounds i8, ptr %115, i64 12
-  %bytes_per_element220 = getelementptr inbounds i8, ptr %115, i64 25
+  %width215 = getelementptr inbounds i8, ptr %114, i64 12
+  %bytes_per_element220 = getelementptr inbounds i8, ptr %114, i64 25
   %planarUncRleEnd = getelementptr inbounds i8, ptr %arrayidx169, i64 504
   br label %for.body212
 
 sw.bb:                                            ; preds = %if.end174
-  %p_linear = getelementptr inbounds i8, ptr %115, i64 24
-  %119 = load i8, ptr %p_linear, align 8
-  %tobool176.not = icmp eq i8 %119, 0
+  %p_linear = getelementptr inbounds i8, ptr %114, i64 24
+  %118 = load i8, ptr %p_linear, align 8
+  %tobool176.not = icmp eq i8 %118, 0
   %spec.store.select = select i1 %tobool176.not, ptr @dwaCompressorToNonlinear, ptr null
-  %120 = load float, ptr %_dwaCompressionLevel179, align 4
-  %div180 = fdiv float %120, 1.000000e+05
-  %width182 = getelementptr inbounds i8, ptr %115, i64 12
-  %121 = load i32, ptr %width182, align 4
-  %height183 = getelementptr inbounds i8, ptr %115, i64 8
-  %122 = load i32, ptr %height183, align 8
-  call fastcc void @LossyDctEncoder_construct(ptr noundef nonnull %enc175, float noundef %div180, ptr noundef nonnull %arrayidx169, ptr noundef %packedAcEnd.2290, ptr noundef %packedDcEnd.2289, ptr noundef %spec.store.select, i32 noundef %121, i32 noundef %122)
-  %123 = load ptr, ptr %alloc_fn188, align 8
-  %124 = load ptr, ptr %free_fn189, align 8
-  %call190 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %123, ptr noundef %124, ptr noundef nonnull %enc175)
-  %125 = load <2 x i64>, ptr %add.ptr20, align 8
-  %126 = load <2 x i64>, ptr %_numAcComp192, align 8
-  %127 = add <2 x i64> %126, %125
-  store <2 x i64> %127, ptr %add.ptr20, align 8
-  %128 = extractelement <2 x i64> %126, i64 0
-  %mul197 = shl i64 %128, 1
+  %119 = load float, ptr %_dwaCompressionLevel179, align 4
+  %div180 = fdiv float %119, 1.000000e+05
+  %width182 = getelementptr inbounds i8, ptr %114, i64 12
+  %120 = load i32, ptr %width182, align 4
+  %height183 = getelementptr inbounds i8, ptr %114, i64 8
+  %121 = load i32, ptr %height183, align 8
+  call fastcc void @LossyDctEncoder_construct(ptr noundef nonnull %enc175, float noundef %div180, ptr noundef nonnull %arrayidx169, ptr noundef %packedAcEnd.2290, ptr noundef %packedDcEnd.2289, ptr noundef %spec.store.select, i32 noundef %120, i32 noundef %121)
+  %122 = load ptr, ptr %alloc_fn188, align 8
+  %123 = load ptr, ptr %free_fn189, align 8
+  %call190 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %122, ptr noundef %123, ptr noundef nonnull %enc175)
+  %124 = load i64, ptr %add.ptr20, align 8
+  %125 = load i64, ptr %_numAcComp192, align 8
+  %add193 = add i64 %125, %124
+  store i64 %add193, ptr %add.ptr20, align 8
+  %126 = load i64, ptr %add.ptr21, align 8
+  %127 = load i64, ptr %_numDcComp194, align 8
+  %add195 = add i64 %127, %126
+  store i64 %add195, ptr %add.ptr21, align 8
+  %mul197 = shl i64 %125, 1
   %add.ptr198 = getelementptr inbounds i8, ptr %packedAcEnd.2290, i64 %mul197
-  %129 = extractelement <2 x i64> %126, i64 1
-  %mul200 = shl i64 %129, 1
+  %mul200 = shl i64 %127, 1
   %add.ptr201 = getelementptr inbounds i8, ptr %packedDcEnd.2289, i64 %mul200
   %cmp202.not = icmp eq i32 %call190, 0
   br i1 %cmp202.not, label %sw.epilog, label %return
 
 for.body212:                                      ; preds = %for.body212.lr.ph, %for.end233
   %y208.0286 = phi i64 [ 0, %for.body212.lr.ph ], [ %inc241, %for.end233 ]
-  %130 = load i32, ptr %width215, align 4
-  %cmp216281 = icmp sgt i32 %130, 0
+  %128 = load i32, ptr %width215, align 4
+  %cmp216281 = icmp sgt i32 %128, 0
   %.pre315 = load i8, ptr %bytes_per_element220, align 1
   br i1 %cmp216281, label %for.cond219.preheader.preheader, label %for.end233
 
 for.cond219.preheader.preheader:                  ; preds = %for.body212
-  %131 = load ptr, ptr %_rows, align 8
-  %arrayidx213 = getelementptr inbounds ptr, ptr %131, i64 %y208.0286
-  %132 = load ptr, ptr %arrayidx213, align 8
+  %129 = load ptr, ptr %_rows, align 8
+  %arrayidx213 = getelementptr inbounds ptr, ptr %129, i64 %y208.0286
+  %130 = load ptr, ptr %arrayidx213, align 8
   br label %for.cond219.preheader
 
 for.cond219.preheader:                            ; preds = %for.cond219.preheader.preheader, %for.inc231
-  %133 = phi i32 [ %139, %for.inc231 ], [ %130, %for.cond219.preheader.preheader ]
-  %134 = phi i8 [ %140, %for.inc231 ], [ %.pre315, %for.cond219.preheader.preheader ]
+  %131 = phi i32 [ %137, %for.inc231 ], [ %128, %for.cond219.preheader.preheader ]
+  %132 = phi i8 [ %138, %for.inc231 ], [ %.pre315, %for.cond219.preheader.preheader ]
   %x.0283 = phi i32 [ %inc232, %for.inc231 ], [ 0, %for.cond219.preheader.preheader ]
-  %row.0282 = phi ptr [ %row.1.lcssa, %for.inc231 ], [ %132, %for.cond219.preheader.preheader ]
-  %cmp222277 = icmp sgt i8 %134, 0
+  %row.0282 = phi ptr [ %row.1.lcssa, %for.inc231 ], [ %130, %for.cond219.preheader.preheader ]
+  %cmp222277 = icmp sgt i8 %132, 0
   br i1 %cmp222277, label %for.body224, label %for.inc231
 
 for.body224:                                      ; preds = %for.cond219.preheader, %for.body224
   %indvars.iv304 = phi i64 [ %indvars.iv.next305, %for.body224 ], [ 0, %for.cond219.preheader ]
   %row.1278 = phi ptr [ %incdec.ptr, %for.body224 ], [ %row.0282, %for.cond219.preheader ]
   %incdec.ptr = getelementptr inbounds i8, ptr %row.1278, i64 1
-  %135 = load i8, ptr %row.1278, align 1
+  %133 = load i8, ptr %row.1278, align 1
   %arrayidx226 = getelementptr inbounds [4 x ptr], ptr %planarUncRleEnd, i64 0, i64 %indvars.iv304
-  %136 = load ptr, ptr %arrayidx226, align 8
-  %incdec.ptr227 = getelementptr inbounds i8, ptr %136, i64 1
+  %134 = load ptr, ptr %arrayidx226, align 8
+  %incdec.ptr227 = getelementptr inbounds i8, ptr %134, i64 1
   store ptr %incdec.ptr227, ptr %arrayidx226, align 8
-  store i8 %135, ptr %136, align 1
+  store i8 %133, ptr %134, align 1
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
-  %137 = load i8, ptr %bytes_per_element220, align 1
-  %138 = sext i8 %137 to i64
-  %cmp222 = icmp slt i64 %indvars.iv.next305, %138
+  %135 = load i8, ptr %bytes_per_element220, align 1
+  %136 = sext i8 %135 to i64
+  %cmp222 = icmp slt i64 %indvars.iv.next305, %136
   br i1 %cmp222, label %for.body224, label %for.inc231.loopexit, !llvm.loop !20
 
 for.inc231.loopexit:                              ; preds = %for.body224
@@ -1102,38 +1111,38 @@ for.inc231.loopexit:                              ; preds = %for.body224
   br label %for.inc231
 
 for.inc231:                                       ; preds = %for.inc231.loopexit, %for.cond219.preheader
-  %139 = phi i32 [ %133, %for.cond219.preheader ], [ %.pre314, %for.inc231.loopexit ]
-  %140 = phi i8 [ %134, %for.cond219.preheader ], [ %137, %for.inc231.loopexit ]
+  %137 = phi i32 [ %131, %for.cond219.preheader ], [ %.pre314, %for.inc231.loopexit ]
+  %138 = phi i8 [ %132, %for.cond219.preheader ], [ %135, %for.inc231.loopexit ]
   %row.1.lcssa = phi ptr [ %row.0282, %for.cond219.preheader ], [ %incdec.ptr, %for.inc231.loopexit ]
   %inc232 = add nuw nsw i32 %x.0283, 1
-  %cmp216 = icmp slt i32 %inc232, %139
+  %cmp216 = icmp slt i32 %inc232, %137
   br i1 %cmp216, label %for.cond219.preheader, label %for.end233, !llvm.loop !21
 
 for.end233:                                       ; preds = %for.inc231, %for.body212
-  %141 = phi i8 [ %.pre315, %for.body212 ], [ %140, %for.inc231 ]
-  %.lcssa = phi i32 [ %130, %for.body212 ], [ %139, %for.inc231 ]
+  %139 = phi i8 [ %.pre315, %for.body212 ], [ %138, %for.inc231 ]
+  %.lcssa = phi i32 [ %128, %for.body212 ], [ %137, %for.inc231 ]
   %conv235 = sext i32 %.lcssa to i64
-  %conv237 = sext i8 %141 to i64
+  %conv237 = sext i8 %139 to i64
   %mul238 = mul nsw i64 %conv237, %conv235
-  %142 = load i64, ptr %add.ptr19, align 8
-  %add239 = add i64 %mul238, %142
+  %140 = load i64, ptr %add.ptr19, align 8
+  %add239 = add i64 %mul238, %140
   store i64 %add239, ptr %add.ptr19, align 8
   %inc241 = add nuw i64 %y208.0286, 1
-  %143 = load i64, ptr %_size, align 8
-  %cmp210 = icmp ult i64 %inc241, %143
+  %141 = load i64, ptr %_size, align 8
+  %cmp210 = icmp ult i64 %inc241, %141
   br i1 %cmp210, label %for.body212, label %sw.epilog, !llvm.loop !22
 
 sw.bb243:                                         ; preds = %if.end174
-  %width244 = getelementptr inbounds i8, ptr %115, i64 12
-  %144 = load i32, ptr %width244, align 4
-  %conv245 = sext i32 %144 to i64
-  %bytes_per_element246 = getelementptr inbounds i8, ptr %115, i64 25
-  %145 = load i8, ptr %bytes_per_element246, align 1
-  %conv247 = sext i8 %145 to i64
+  %width244 = getelementptr inbounds i8, ptr %114, i64 12
+  %142 = load i32, ptr %width244, align 4
+  %conv245 = sext i32 %142 to i64
+  %bytes_per_element246 = getelementptr inbounds i8, ptr %114, i64 25
+  %143 = load i8, ptr %bytes_per_element246, align 1
+  %conv247 = sext i8 %143 to i64
   %mul248 = mul nsw i64 %conv247, %conv245
   %_size253 = getelementptr inbounds i8, ptr %arrayidx169, i64 408
-  %146 = load i64, ptr %_size253, align 8
-  %cmp254274.not = icmp eq i64 %146, 0
+  %144 = load i64, ptr %_size253, align 8
+  %cmp254274.not = icmp eq i64 %144, 0
   br i1 %cmp254274.not, label %for.end263, label %for.body256.lr.ph
 
 for.body256.lr.ph:                                ; preds = %sw.bb243
@@ -1143,25 +1152,25 @@ for.body256.lr.ph:                                ; preds = %sw.bb243
   br label %for.body256
 
 for.body256:                                      ; preds = %for.body256.lr.ph, %for.body256
-  %147 = phi ptr [ %.pre312, %for.body256.lr.ph ], [ %add.ptr260, %for.body256 ]
+  %145 = phi ptr [ %.pre312, %for.body256.lr.ph ], [ %add.ptr260, %for.body256 ]
   %y251.0275 = phi i64 [ 0, %for.body256.lr.ph ], [ %inc262, %for.body256 ]
-  %148 = load ptr, ptr %_rows257, align 8
-  %arrayidx258 = getelementptr inbounds ptr, ptr %148, i64 %y251.0275
-  %149 = load ptr, ptr %arrayidx258, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %147, ptr align 1 %149, i64 %mul248, i1 false)
-  %150 = load ptr, ptr %planarUncBufferEnd, align 16
-  %add.ptr260 = getelementptr inbounds i8, ptr %150, i64 %mul248
+  %146 = load ptr, ptr %_rows257, align 8
+  %arrayidx258 = getelementptr inbounds ptr, ptr %146, i64 %y251.0275
+  %147 = load ptr, ptr %arrayidx258, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %145, ptr align 1 %147, i64 %mul248, i1 false)
+  %148 = load ptr, ptr %planarUncBufferEnd, align 16
+  %add.ptr260 = getelementptr inbounds i8, ptr %148, i64 %mul248
   store ptr %add.ptr260, ptr %planarUncBufferEnd, align 16
   %inc262 = add nuw i64 %y251.0275, 1
-  %151 = load i64, ptr %_size253, align 8
-  %cmp254 = icmp ult i64 %inc262, %151
+  %149 = load i64, ptr %_size253, align 8
+  %cmp254 = icmp ult i64 %inc262, %149
   br i1 %cmp254, label %for.body256, label %for.end263, !llvm.loop !23
 
 for.end263:                                       ; preds = %for.body256, %sw.bb243
   %planarUncSize = getelementptr inbounds i8, ptr %arrayidx169, i64 536
-  %152 = load i64, ptr %planarUncSize, align 8
-  %153 = load i64, ptr %add.ptr13, align 8
-  %add264 = add i64 %153, %152
+  %150 = load i64, ptr %planarUncSize, align 8
+  %151 = load i64, ptr %add.ptr13, align 8
+  %add264 = add i64 %151, %150
   store i64 %add264, ptr %add.ptr13, align 8
   br label %sw.epilog
 
@@ -1173,63 +1182,63 @@ sw.epilog:                                        ; preds = %for.end233, %for.co
   br label %for.inc267
 
 for.inc267:                                       ; preds = %for.body165, %sw.epilog
-  %154 = phi i32 [ %113, %for.body165 ], [ %.pre316, %sw.epilog ]
+  %152 = phi i32 [ %112, %for.body165 ], [ %.pre316, %sw.epilog ]
   %packedDcEnd.3 = phi ptr [ %packedDcEnd.2289, %for.body165 ], [ %packedDcEnd.4, %sw.epilog ]
   %packedAcEnd.3 = phi ptr [ %packedAcEnd.2290, %for.body165 ], [ %packedAcEnd.4, %sw.epilog ]
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
-  %155 = sext i32 %154 to i64
-  %cmp163 = icmp slt i64 %indvars.iv.next308, %155
+  %153 = sext i32 %152 to i64
+  %cmp163 = icmp slt i64 %indvars.iv.next308, %153
   br i1 %cmp163, label %for.body165, label %for.end269, !llvm.loop !24
 
 for.end269:                                       ; preds = %for.inc267, %for.cond161.preheader
-  %156 = load i64, ptr %add.ptr13, align 8
-  %cmp270.not = icmp eq i64 %156, 0
+  %154 = load i64, ptr %add.ptr13, align 8
+  %cmp270.not = icmp eq i64 %154, 0
   br i1 %cmp270.not, label %if.end283, label %if.then272
 
 if.then272:                                       ; preds = %for.end269
-  %157 = load ptr, ptr %me, align 8
-  %context = getelementptr inbounds i8, ptr %157, i64 16
-  %158 = load ptr, ptr %context, align 8
-  %159 = load ptr, ptr %_planarUncBuffer.i, align 8
-  %call275 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %156) #16
-  %call276 = call i32 @exr_compress_buffer(ptr noundef %158, i32 noundef 9, ptr noundef %159, i64 noundef %156, ptr noundef %curp.0.lcssa50.i, i64 noundef %call275, ptr noundef nonnull %outSize) #16
+  %155 = load ptr, ptr %me, align 8
+  %context = getelementptr inbounds i8, ptr %155, i64 16
+  %156 = load ptr, ptr %context, align 8
+  %157 = load ptr, ptr %_planarUncBuffer.i, align 8
+  %call275 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %154) #16
+  %call276 = call i32 @exr_compress_buffer(ptr noundef %156, i32 noundef 9, ptr noundef %157, i64 noundef %154, ptr noundef %curp.0.lcssa50.i, i64 noundef %call275, ptr noundef nonnull %outSize) #16
   %cmp277.not = icmp eq i32 %call276, 0
   br i1 %cmp277.not, label %if.end280, label %return
 
 if.end280:                                        ; preds = %if.then272
-  %160 = load i64, ptr %outSize, align 8
-  %add.ptr281 = getelementptr inbounds i8, ptr %curp.0.lcssa50.i, i64 %160
-  store i64 %160, ptr %add.ptr14, align 8
-  %add282 = add i64 %160, %add
+  %158 = load i64, ptr %outSize, align 8
+  %add.ptr281 = getelementptr inbounds i8, ptr %curp.0.lcssa50.i, i64 %158
+  store i64 %158, ptr %add.ptr14, align 8
+  %add282 = add i64 %158, %add
   br label %if.end283
 
 if.end283:                                        ; preds = %if.end280, %for.end269
   %nWritten.0 = phi i64 [ %add, %for.end269 ], [ %add282, %if.end280 ]
   %outDataPtr.0 = phi ptr [ %curp.0.lcssa50.i, %for.end269 ], [ %add.ptr281, %if.end280 ]
-  %161 = load i64, ptr %add.ptr20, align 8
-  %cmp284.not = icmp eq i64 %161, 0
+  %159 = load i64, ptr %add.ptr20, align 8
+  %cmp284.not = icmp eq i64 %159, 0
   br i1 %cmp284.not, label %if.end325, label %if.then286
 
 if.then286:                                       ; preds = %if.end283
-  %162 = load i32, ptr %_acCompression, align 8
-  switch i32 %162, label %return [
+  %160 = load i32, ptr %_acCompression, align 8
+  switch i32 %160, label %return [
     i32 0, label %sw.bb288
     i32 1, label %sw.bb310
   ]
 
 sw.bb288:                                         ; preds = %if.then286
-  %163 = load i64, ptr %outBufferSize, align 8
-  %164 = ptrtoint ptr %outDataPtr.0 to i64
-  %165 = ptrtoint ptr %4 to i64
-  %sub.neg = sub i64 %165, %164
-  %sub289 = add i64 %sub.neg, %163
-  %166 = load ptr, ptr %_packedAcBuffer, align 8
-  %167 = load ptr, ptr %me, align 8
-  %scratch_buffer_1 = getelementptr inbounds i8, ptr %167, i64 184
-  %168 = load ptr, ptr %scratch_buffer_1, align 8
-  %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %167, i64 192
-  %169 = load i64, ptr %scratch_alloc_size_1, align 8
-  %call293 = call i32 @internal_huf_compress(ptr noundef nonnull %add.ptr15, ptr noundef %outDataPtr.0, i64 noundef %sub289, ptr noundef %166, i64 noundef %161, ptr noundef %168, i64 noundef %169) #16
+  %161 = load i64, ptr %outBufferSize, align 8
+  %162 = ptrtoint ptr %outDataPtr.0 to i64
+  %163 = ptrtoint ptr %4 to i64
+  %sub.neg = sub i64 %163, %162
+  %sub289 = add i64 %sub.neg, %161
+  %164 = load ptr, ptr %_packedAcBuffer, align 8
+  %165 = load ptr, ptr %me, align 8
+  %scratch_buffer_1 = getelementptr inbounds i8, ptr %165, i64 184
+  %166 = load ptr, ptr %scratch_buffer_1, align 8
+  %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %165, i64 192
+  %167 = load i64, ptr %scratch_alloc_size_1, align 8
+  %call293 = call i32 @internal_huf_compress(ptr noundef nonnull %add.ptr15, ptr noundef %outDataPtr.0, i64 noundef %sub289, ptr noundef %164, i64 noundef %159, ptr noundef %166, i64 noundef %167) #16
   switch i32 %call293, label %return [
     i32 0, label %sw.bb288.sw.epilog322_crit_edge
     i32 4, label %if.then299
@@ -1240,145 +1249,145 @@ sw.bb288.sw.epilog322_crit_edge:                  ; preds = %sw.bb288
   br label %sw.epilog322
 
 if.then299:                                       ; preds = %sw.bb288
-  %170 = load ptr, ptr %me, align 8
-  %compressed_buffer301 = getelementptr inbounds i8, ptr %170, i64 160
-  %171 = load ptr, ptr %compressed_buffer301, align 8
-  %packed_buffer303 = getelementptr inbounds i8, ptr %170, i64 96
-  %172 = load ptr, ptr %packed_buffer303, align 8
-  %packed_alloc_size = getelementptr inbounds i8, ptr %170, i64 112
-  %173 = load i64, ptr %packed_alloc_size, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %171, ptr align 1 %172, i64 %173, i1 false)
+  %168 = load ptr, ptr %me, align 8
+  %compressed_buffer301 = getelementptr inbounds i8, ptr %168, i64 160
+  %169 = load ptr, ptr %compressed_buffer301, align 8
+  %packed_buffer303 = getelementptr inbounds i8, ptr %168, i64 96
+  %170 = load ptr, ptr %packed_buffer303, align 8
+  %packed_alloc_size = getelementptr inbounds i8, ptr %168, i64 112
+  %171 = load i64, ptr %packed_alloc_size, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %169, ptr align 1 %170, i64 %171, i1 false)
   br label %return.sink.split.sink.split
 
 sw.bb310:                                         ; preds = %if.then286
-  %mul311 = shl i64 %161, 1
-  %174 = load ptr, ptr %me, align 8
-  %context313 = getelementptr inbounds i8, ptr %174, i64 16
-  %175 = load ptr, ptr %context313, align 8
-  %176 = load ptr, ptr %_packedAcBuffer, align 8
+  %mul311 = shl i64 %159, 1
+  %172 = load ptr, ptr %me, align 8
+  %context313 = getelementptr inbounds i8, ptr %172, i64 16
+  %173 = load ptr, ptr %context313, align 8
+  %174 = load ptr, ptr %_packedAcBuffer, align 8
   %call315 = call i64 @exr_compress_max_buffer_size(i64 noundef %mul311) #16
-  %call316 = call i32 @exr_compress_buffer(ptr noundef %175, i32 noundef 9, ptr noundef %176, i64 noundef %mul311, ptr noundef %outDataPtr.0, i64 noundef %call315, ptr noundef nonnull %destLen) #16
+  %call316 = call i32 @exr_compress_buffer(ptr noundef %173, i32 noundef 9, ptr noundef %174, i64 noundef %mul311, ptr noundef %outDataPtr.0, i64 noundef %call315, ptr noundef nonnull %destLen) #16
   %cmp317.not = icmp eq i32 %call316, 0
   br i1 %cmp317.not, label %if.end320, label %return
 
 if.end320:                                        ; preds = %sw.bb310
-  %177 = load i64, ptr %destLen, align 8
-  store i64 %177, ptr %add.ptr15, align 8
+  %175 = load i64, ptr %destLen, align 8
+  store i64 %175, ptr %add.ptr15, align 8
   br label %sw.epilog322
 
 sw.epilog322:                                     ; preds = %sw.bb288.sw.epilog322_crit_edge, %if.end320
-  %178 = phi i64 [ %.pre317, %sw.bb288.sw.epilog322_crit_edge ], [ %177, %if.end320 ]
-  %add.ptr323 = getelementptr inbounds i8, ptr %outDataPtr.0, i64 %178
-  %add324 = add i64 %178, %nWritten.0
+  %176 = phi i64 [ %.pre317, %sw.bb288.sw.epilog322_crit_edge ], [ %175, %if.end320 ]
+  %add.ptr323 = getelementptr inbounds i8, ptr %outDataPtr.0, i64 %176
+  %add324 = add i64 %176, %nWritten.0
   br label %if.end325
 
 if.end325:                                        ; preds = %sw.epilog322, %if.end283
   %nWritten.1 = phi i64 [ %nWritten.0, %if.end283 ], [ %add324, %sw.epilog322 ]
   %outDataPtr.1 = phi ptr [ %outDataPtr.0, %if.end283 ], [ %add.ptr323, %sw.epilog322 ]
-  %179 = load i64, ptr %add.ptr21, align 8
-  %cmp326.not = icmp eq i64 %179, 0
+  %177 = load i64, ptr %add.ptr21, align 8
+  %cmp326.not = icmp eq i64 %177, 0
   br i1 %cmp326.not, label %if.end355, label %if.then328
 
 if.then328:                                       ; preds = %if.end325
-  %mul329 = shl i64 %179, 1
-  %180 = load ptr, ptr %me, align 8
-  %scratch_buffer_1332 = getelementptr inbounds i8, ptr %180, i64 184
-  %scratch_alloc_size_1334 = getelementptr inbounds i8, ptr %180, i64 192
-  %call335 = call i32 @internal_encode_alloc_buffer(ptr noundef %180, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1332, ptr noundef nonnull %scratch_alloc_size_1334, i64 noundef %mul329) #16
+  %mul329 = shl i64 %177, 1
+  %178 = load ptr, ptr %me, align 8
+  %scratch_buffer_1332 = getelementptr inbounds i8, ptr %178, i64 184
+  %scratch_alloc_size_1334 = getelementptr inbounds i8, ptr %178, i64 192
+  %call335 = call i32 @internal_encode_alloc_buffer(ptr noundef %178, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1332, ptr noundef nonnull %scratch_alloc_size_1334, i64 noundef %mul329) #16
   %cmp336.not = icmp eq i32 %call335, 0
   br i1 %cmp336.not, label %if.end339, label %return
 
 if.end339:                                        ; preds = %if.then328
-  %181 = load ptr, ptr %me, align 8
-  %scratch_buffer_1341 = getelementptr inbounds i8, ptr %181, i64 184
-  %182 = load ptr, ptr %scratch_buffer_1341, align 8
-  %183 = load ptr, ptr %_packedDcBuffer, align 8
-  call void @internal_zip_deconstruct_bytes(ptr noundef %182, ptr noundef %183, i64 noundef %mul329) #16
-  %184 = load ptr, ptr %me, align 8
-  %context344 = getelementptr inbounds i8, ptr %184, i64 16
-  %185 = load ptr, ptr %context344, align 8
+  %179 = load ptr, ptr %me, align 8
+  %scratch_buffer_1341 = getelementptr inbounds i8, ptr %179, i64 184
+  %180 = load ptr, ptr %scratch_buffer_1341, align 8
+  %181 = load ptr, ptr %_packedDcBuffer, align 8
+  call void @internal_zip_deconstruct_bytes(ptr noundef %180, ptr noundef %181, i64 noundef %mul329) #16
+  %182 = load ptr, ptr %me, align 8
+  %context344 = getelementptr inbounds i8, ptr %182, i64 16
+  %183 = load ptr, ptr %context344, align 8
   %_zipLevel = getelementptr inbounds i8, ptr %me, i64 200
-  %186 = load i32, ptr %_zipLevel, align 8
-  %scratch_buffer_1346 = getelementptr inbounds i8, ptr %184, i64 184
-  %187 = load ptr, ptr %scratch_buffer_1346, align 8
+  %184 = load i32, ptr %_zipLevel, align 8
+  %scratch_buffer_1346 = getelementptr inbounds i8, ptr %182, i64 184
+  %185 = load ptr, ptr %scratch_buffer_1346, align 8
   %call347 = call i64 @exr_compress_max_buffer_size(i64 noundef %mul329) #16
-  %call348 = call i32 @exr_compress_buffer(ptr noundef %185, i32 noundef %186, ptr noundef %187, i64 noundef %mul329, ptr noundef %outDataPtr.1, i64 noundef %call347, ptr noundef nonnull %compBytes) #16
+  %call348 = call i32 @exr_compress_buffer(ptr noundef %183, i32 noundef %184, ptr noundef %185, i64 noundef %mul329, ptr noundef %outDataPtr.1, i64 noundef %call347, ptr noundef nonnull %compBytes) #16
   %cmp349.not = icmp eq i32 %call348, 0
   br i1 %cmp349.not, label %if.end352, label %return
 
 if.end352:                                        ; preds = %if.end339
-  %188 = load i64, ptr %compBytes, align 8
-  store i64 %188, ptr %add.ptr16, align 8
-  %add.ptr353 = getelementptr inbounds i8, ptr %outDataPtr.1, i64 %188
-  %add354 = add i64 %188, %nWritten.1
+  %186 = load i64, ptr %compBytes, align 8
+  store i64 %186, ptr %add.ptr16, align 8
+  %add.ptr353 = getelementptr inbounds i8, ptr %outDataPtr.1, i64 %186
+  %add354 = add i64 %186, %nWritten.1
   br label %if.end355
 
 if.end355:                                        ; preds = %if.end352, %if.end325
   %nWritten.2 = phi i64 [ %nWritten.1, %if.end325 ], [ %add354, %if.end352 ]
   %outDataPtr.2 = phi ptr [ %outDataPtr.1, %if.end325 ], [ %add.ptr353, %if.end352 ]
-  %189 = load i64, ptr %add.ptr19, align 8
-  %cmp356.not = icmp eq i64 %189, 0
+  %187 = load i64, ptr %add.ptr19, align 8
+  %cmp356.not = icmp eq i64 %187, 0
   br i1 %cmp356.not, label %if.end374, label %if.then358
 
 if.then358:                                       ; preds = %if.end355
   %_rleBuffer = getelementptr inbounds i8, ptr %me, i64 120
-  %190 = load ptr, ptr %_rleBuffer, align 8
+  %188 = load ptr, ptr %_rleBuffer, align 8
   %_rleBufferSize = getelementptr inbounds i8, ptr %me, i64 128
-  %191 = load i64, ptr %_rleBufferSize, align 8
+  %189 = load i64, ptr %_rleBufferSize, align 8
   %arrayidx361 = getelementptr inbounds i8, ptr %me, i64 152
-  %192 = load ptr, ptr %arrayidx361, align 8
-  %call362 = call i64 @internal_rle_compress(ptr noundef %190, i64 noundef %191, ptr noundef %192, i64 noundef %189) #16
+  %190 = load ptr, ptr %arrayidx361, align 8
+  %call362 = call i64 @internal_rle_compress(ptr noundef %188, i64 noundef %189, ptr noundef %190, i64 noundef %187) #16
   store i64 %call362, ptr %add.ptr18, align 8
-  %193 = load ptr, ptr %me, align 8
-  %context364 = getelementptr inbounds i8, ptr %193, i64 16
-  %194 = load ptr, ptr %context364, align 8
-  %195 = load ptr, ptr %_rleBuffer, align 8
+  %191 = load ptr, ptr %me, align 8
+  %context364 = getelementptr inbounds i8, ptr %191, i64 16
+  %192 = load ptr, ptr %context364, align 8
+  %193 = load ptr, ptr %_rleBuffer, align 8
   %call366 = call i64 @exr_compress_max_buffer_size(i64 noundef %call362) #16
-  %call367 = call i32 @exr_compress_buffer(ptr noundef %194, i32 noundef 9, ptr noundef %195, i64 noundef %call362, ptr noundef %outDataPtr.2, i64 noundef %call366, ptr noundef nonnull %compBytes359) #16
+  %call367 = call i32 @exr_compress_buffer(ptr noundef %192, i32 noundef 9, ptr noundef %193, i64 noundef %call362, ptr noundef %outDataPtr.2, i64 noundef %call366, ptr noundef nonnull %compBytes359) #16
   %cmp368.not = icmp eq i32 %call367, 0
   br i1 %cmp368.not, label %if.end371, label %return
 
 if.end371:                                        ; preds = %if.then358
-  %196 = load i64, ptr %compBytes359, align 8
-  store i64 %196, ptr %add.ptr17, align 8
-  %add.ptr372 = getelementptr inbounds i8, ptr %outDataPtr.2, i64 %196
-  %add373 = add i64 %196, %nWritten.2
+  %194 = load i64, ptr %compBytes359, align 8
+  store i64 %194, ptr %add.ptr17, align 8
+  %add.ptr372 = getelementptr inbounds i8, ptr %outDataPtr.2, i64 %194
+  %add373 = add i64 %194, %nWritten.2
   br label %if.end374
 
 if.end374:                                        ; preds = %if.end371, %if.end355
   %nWritten.3 = phi i64 [ %nWritten.2, %if.end355 ], [ %add373, %if.end371 ]
   %outDataPtr.3 = phi ptr [ %outDataPtr.2, %if.end355 ], [ %add.ptr372, %if.end371 ]
-  %197 = ptrtoint ptr %outDataPtr.3 to i64
-  %198 = load ptr, ptr %me, align 8
-  %compressed_buffer376 = getelementptr inbounds i8, ptr %198, i64 160
-  %199 = load ptr, ptr %compressed_buffer376, align 8
-  %200 = ptrtoint ptr %199 to i64
-  %sub377 = sub i64 %197, %200
+  %195 = ptrtoint ptr %outDataPtr.3 to i64
+  %196 = load ptr, ptr %me, align 8
+  %compressed_buffer376 = getelementptr inbounds i8, ptr %196, i64 160
+  %197 = load ptr, ptr %compressed_buffer376, align 8
+  %198 = ptrtoint ptr %197 to i64
+  %sub377 = sub i64 %195, %198
   %cmp378.not = icmp eq i64 %nWritten.3, %sub377
   br i1 %cmp378.not, label %if.end381, label %return
 
 if.end381:                                        ; preds = %if.end374
-  %packed_bytes = getelementptr inbounds i8, ptr %198, i64 104
-  %201 = load i64, ptr %packed_bytes, align 8
-  %cmp383.not = icmp ult i64 %nWritten.3, %201
+  %packed_bytes = getelementptr inbounds i8, ptr %196, i64 104
+  %199 = load i64, ptr %packed_bytes, align 8
+  %cmp383.not = icmp ult i64 %nWritten.3, %199
   br i1 %cmp383.not, label %return.sink.split, label %if.then385
 
 if.then385:                                       ; preds = %if.end381
-  %packed_buffer389 = getelementptr inbounds i8, ptr %198, i64 96
-  %202 = load ptr, ptr %packed_buffer389, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %199, ptr align 1 %202, i64 %201, i1 false)
+  %packed_buffer389 = getelementptr inbounds i8, ptr %196, i64 96
+  %200 = load ptr, ptr %packed_buffer389, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %197, ptr align 1 %200, i64 %199, i1 false)
   br label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %if.then385, %if.then299
   %.sink332 = phi i64 [ 112, %if.then299 ], [ 104, %if.then385 ]
-  %203 = load ptr, ptr %me, align 8
-  %packed_alloc_size306 = getelementptr inbounds i8, ptr %203, i64 %.sink332
-  %204 = load i64, ptr %packed_alloc_size306, align 8
+  %201 = load ptr, ptr %me, align 8
+  %packed_alloc_size306 = getelementptr inbounds i8, ptr %201, i64 %.sink332
+  %202 = load i64, ptr %packed_alloc_size306, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end381
-  %.sink330 = phi ptr [ %198, %if.end381 ], [ %203, %return.sink.split.sink.split ]
-  %.sink = phi i64 [ %nWritten.3, %if.end381 ], [ %204, %return.sink.split.sink.split ]
+  %.sink330 = phi ptr [ %196, %if.end381 ], [ %201, %return.sink.split.sink.split ]
+  %.sink = phi i64 [ %nWritten.3, %if.end381 ], [ %202, %return.sink.split.sink.split ]
   %compressed_bytes395 = getelementptr inbounds i8, ptr %.sink330, i64 168
   store i64 %.sink, ptr %compressed_bytes395, align 8
   br label %return
@@ -2176,6 +2185,7 @@ for.body228.lr.ph:                                ; preds = %for.cond225.prehead
   %_remDcCount.i.i = getelementptr inbounds i8, ptr %decoder, i64 40
   %_toLinear.i.i = getelementptr inbounds i8, ptr %decoder, i64 48
   %_width.i.i = getelementptr inbounds i8, ptr %decoder, i64 56
+  %_height.i.i = getelementptr inbounds i8, ptr %decoder, i64 60
   %_channel_decode_data.i.i = getelementptr inbounds i8, ptr %decoder, i64 64
   %arrayidx2.i = getelementptr inbounds i8, ptr %decoder, i64 72
   %arrayidx4.i = getelementptr inbounds i8, ptr %decoder, i64 80
@@ -2267,6 +2277,7 @@ for.body318.lr.ph:                                ; preds = %for.cond314.prehead
   %_remDcCount.i.i269 = getelementptr inbounds i8, ptr %decoder334, i64 40
   %_toLinear.i.i270 = getelementptr inbounds i8, ptr %decoder334, i64 48
   %_width.i.i271 = getelementptr inbounds i8, ptr %decoder334, i64 56
+  %_height.i.i272 = getelementptr inbounds i8, ptr %decoder334, i64 60
   %_channel_decode_data.i.i274 = getelementptr inbounds i8, ptr %decoder334, i64 64
   %81 = getelementptr inbounds i8, ptr %decoder334, i64 72
   %_channel_decode_data_count.i275 = getelementptr inbounds i8, ptr %decoder334, i64 88
@@ -2315,16 +2326,18 @@ if.end256:                                        ; preds = %lor.lhs.false248
   %add.ptr270 = getelementptr inbounds i8, ptr %packedAcBufferEnd.1308, i64 %mul269
   %chan274 = getelementptr inbounds i8, ptr %arrayidx238, i64 448
   %90 = load ptr, ptr %chan274, align 32
+  %width275 = getelementptr inbounds i8, ptr %90, i64 12
+  %91 = load i32, ptr %width275, align 4
   %height = getelementptr inbounds i8, ptr %90, i64 8
+  %92 = load i32, ptr %height, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %decoder, i8 0, i64 16, i1 false)
   store ptr %packedAcBufferEnd.1308, ptr %_packedAc.i.i, align 8
   store ptr %add.ptr270, ptr %_packedAcEnd.i.i, align 8
   store ptr %packedDcBufferEnd.1307, ptr %_packedDc.i.i, align 8
   store i64 %totalDcUncompressedCount.0309, ptr %_remDcCount.i.i, align 8
   store ptr @dwaCompressorToLinear, ptr %_toLinear.i.i, align 8
-  %91 = load <2 x i32>, ptr %height, align 8
-  %92 = shufflevector <2 x i32> %91, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %92, ptr %_width.i.i, align 8
+  store i32 %91, ptr %_width.i.i, align 8
+  store i32 %92, ptr %_height.i.i, align 4
   store ptr %arrayidx238, ptr %_channel_decode_data.i.i, align 8
   store ptr %arrayidx244, ptr %arrayidx2.i, align 8
   store ptr %arrayidx251, ptr %arrayidx4.i, align 8
@@ -2392,16 +2405,18 @@ sw.bb333:                                         ; preds = %if.end331
   %tobool335.not.not = icmp eq i8 %108, 0
   %spec.store.select = select i1 %tobool335.not.not, ptr @dwaCompressorToLinear, ptr null
   %add.ptr339 = getelementptr inbounds i8, ptr %packedAcBufferEnd.2329, i64 %mul338
+  %width340 = getelementptr inbounds i8, ptr %104, i64 12
+  %109 = load i32, ptr %width340, align 4
   %height341 = getelementptr inbounds i8, ptr %104, i64 8
+  %110 = load i32, ptr %height341, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %decoder334, i8 0, i64 16, i1 false)
   store ptr %packedAcBufferEnd.2329, ptr %_packedAc.i.i266, align 8
   store ptr %add.ptr339, ptr %_packedAcEnd.i.i267, align 8
   store ptr %packedDcBufferEnd.2327, ptr %_packedDc.i.i268, align 8
   store i64 %totalDcUncompressedCount.1330, ptr %_remDcCount.i.i269, align 8
   store ptr %spec.store.select, ptr %_toLinear.i.i270, align 8
-  %109 = load <2 x i32>, ptr %height341, align 8
-  %110 = shufflevector <2 x i32> %109, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %110, ptr %_width.i.i271, align 8
+  store i32 %109, ptr %_width.i.i271, align 8
+  store i32 %110, ptr %_height.i.i272, align 4
   br i1 %tobool335.not.not, label %LossyDctDecoder_construct.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb333
@@ -5737,55 +5752,65 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %add.ptr.idx
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %0 = load float, ptr %arrayidx, align 4
+  %mul14 = fmul float %0, 0x3FDD906C20000000
+  %mul17 = fmul float %0, 0x3FC87DE660000000
   %arrayidx19 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %1 = load float, ptr %arrayidx19, align 4
+  %mul20 = fmul float %1, 0x3FDD906C20000000
+  %mul23 = fmul float %1, 0x3FC87DE660000000
   %arrayidx25 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %2 = load float, ptr %arrayidx25, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %add.ptr, i64 12
   %3 = load float, ptr %arrayidx27, align 4
+  %mul28 = fmul float %3, 0x3FDA9B66C0000000
+  %4 = tail call float @llvm.fmuladd.f32(float %2, float 0x3FDF6297E0000000, float %mul28)
   %arrayidx29 = getelementptr inbounds i8, ptr %add.ptr, i64 20
-  %4 = load float, ptr %arrayidx29, align 4
+  %5 = load float, ptr %arrayidx29, align 4
+  %6 = tail call float @llvm.fmuladd.f32(float %5, float 0x3FD1C73CA0000000, float %4)
   %arrayidx31 = getelementptr inbounds i8, ptr %add.ptr, i64 28
-  %5 = load float, ptr %arrayidx31, align 4
-  %6 = load float, ptr %add.ptr, align 4
+  %7 = load float, ptr %arrayidx31, align 4
+  %8 = tail call float @llvm.fmuladd.f32(float %7, float 0x3FB8F8C160000000, float %6)
+  %neg = fmul float %3, 0xBFB8F8C160000000
+  %9 = tail call float @llvm.fmuladd.f32(float %2, float 0x3FDA9B66C0000000, float %neg)
+  %10 = tail call float @llvm.fmuladd.f32(float %5, float 0xBFDF6297E0000000, float %9)
+  %11 = tail call float @llvm.fmuladd.f32(float %7, float 0xBFD1C73CA0000000, float %10)
+  %neg49 = fmul float %3, 0xBFDF6297E0000000
+  %12 = tail call float @llvm.fmuladd.f32(float %2, float 0x3FD1C73CA0000000, float %neg49)
+  %13 = tail call float @llvm.fmuladd.f32(float %5, float 0x3FB8F8C160000000, float %12)
+  %14 = tail call float @llvm.fmuladd.f32(float %7, float 0x3FDA9B66C0000000, float %13)
+  %neg59 = fmul float %3, 0xBFD1C73CA0000000
+  %15 = tail call float @llvm.fmuladd.f32(float %2, float 0x3FB8F8C160000000, float %neg59)
+  %16 = tail call float @llvm.fmuladd.f32(float %5, float 0x3FDA9B66C0000000, float %15)
+  %17 = tail call float @llvm.fmuladd.f32(float %7, float 0xBFDF6297E0000000, float %16)
+  %18 = load float, ptr %add.ptr, align 4
   %arrayidx67 = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %7 = load float, ptr %arrayidx67, align 4
-  %add = fadd float %6, %7
-  %sub72 = fsub float %6, %7
-  %8 = insertelement <2 x float> poison, float %add, i64 0
-  %9 = insertelement <2 x float> %8, float %sub72, i64 1
-  %10 = fmul <2 x float> %9, <float 0x3FD6A09F60000000, float 0x3FD6A09F60000000>
-  %11 = insertelement <2 x float> poison, float %0, i64 0
-  %12 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x float> %12, <float 0x3FC87DE660000000, float 0x3FDD906C20000000>
-  %14 = insertelement <2 x float> poison, float %1, i64 0
-  %15 = shufflevector <2 x float> %14, <2 x float> poison, <2 x i32> zeroinitializer
-  %16 = fmul <2 x float> %15, <float 0x3FDD906C20000000, float 0x3FC87DE660000000>
-  %17 = fsub <2 x float> %13, %16
-  %18 = fadd <2 x float> %13, %16
-  %19 = shufflevector <2 x float> %17, <2 x float> %18, <2 x i32> <i32 0, i32 3>
-  %20 = insertelement <4 x float> poison, float %3, i64 0
-  %21 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> zeroinitializer
-  %22 = fmul <4 x float> %21, <float 0x3FDA9B66C0000000, float 0xBFB8F8C160000000, float 0xBFDF6297E0000000, float 0xBFD1C73CA0000000>
-  %23 = insertelement <4 x float> poison, float %2, i64 0
-  %24 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> zeroinitializer
-  %25 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %24, <4 x float> <float 0x3FDF6297E0000000, float 0x3FDA9B66C0000000, float 0x3FD1C73CA0000000, float 0x3FB8F8C160000000>, <4 x float> %22)
-  %26 = insertelement <4 x float> poison, float %4, i64 0
-  %27 = shufflevector <4 x float> %26, <4 x float> poison, <4 x i32> zeroinitializer
-  %28 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %27, <4 x float> <float 0x3FD1C73CA0000000, float 0xBFDF6297E0000000, float 0x3FB8F8C160000000, float 0x3FDA9B66C0000000>, <4 x float> %25)
-  %29 = insertelement <4 x float> poison, float %5, i64 0
-  %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> zeroinitializer
-  %31 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %30, <4 x float> <float 0x3FB8F8C160000000, float 0xBFD1C73CA0000000, float 0x3FDA9B66C0000000, float 0xBFDF6297E0000000>, <4 x float> %28)
-  %32 = shufflevector <2 x float> %10, <2 x float> %19, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %33 = shufflevector <2 x float> %10, <2 x float> %19, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %34 = fadd <4 x float> %32, %33
-  %35 = fsub <4 x float> %32, %33
-  %36 = shufflevector <4 x float> %34, <4 x float> %35, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
-  %37 = fadd <4 x float> %31, %36
-  store <4 x float> %37, ptr %add.ptr, align 4
-  %38 = fsub <4 x float> %36, %31
-  %39 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %39, ptr %arrayidx67, align 4
+  %19 = load float, ptr %arrayidx67, align 4
+  %add = fadd float %18, %19
+  %mul68 = fmul float %add, 0x3FD6A09F60000000
+  %sub72 = fsub float %18, %19
+  %mul73 = fmul float %sub72, 0x3FD6A09F60000000
+  %add77 = fadd float %mul14, %mul23
+  %sub81 = fsub float %mul17, %mul20
+  %add85 = fadd float %add77, %mul68
+  %add89 = fadd float %sub81, %mul73
+  %sub93 = fsub float %mul73, %sub81
+  %sub97 = fsub float %mul68, %add77
+  %add101 = fadd float %8, %add85
+  store float %add101, ptr %add.ptr, align 4
+  %add105 = fadd float %11, %add89
+  store float %add105, ptr %arrayidx25, align 4
+  %add109 = fadd float %14, %sub93
+  store float %add109, ptr %arrayidx, align 4
+  %add113 = fadd float %17, %sub97
+  store float %add113, ptr %arrayidx27, align 4
+  %sub117 = fsub float %sub97, %17
+  store float %sub117, ptr %arrayidx67, align 4
+  %sub121 = fsub float %sub93, %14
+  store float %sub121, ptr %arrayidx29, align 4
+  %sub125 = fsub float %add89, %11
+  store float %sub125, ptr %arrayidx19, align 4
+  %sub129 = fsub float %add85, %8
+  store float %sub129, ptr %arrayidx31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.body133.preheader, label %for.body, !llvm.loop !53
@@ -5795,52 +5820,52 @@ for.body133.preheader:                            ; preds = %for.body, %entry
 
 for.body133:                                      ; preds = %for.body133.preheader, %for.body133
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %for.body133 ], [ 0, %for.body133.preheader ]
-  %40 = or disjoint i64 %indvars.iv181, 16
-  %arrayidx135 = getelementptr inbounds float, ptr %data, i64 %40
-  %41 = load float, ptr %arrayidx135, align 4
-  %mul136 = fmul float %41, 0x3FDD906C20000000
-  %mul141 = fmul float %41, 0x3FC87DE660000000
-  %42 = or disjoint i64 %indvars.iv181, 48
-  %arrayidx145 = getelementptr inbounds float, ptr %data, i64 %42
-  %43 = load float, ptr %arrayidx145, align 4
-  %mul146 = fmul float %43, 0x3FDD906C20000000
-  %mul151 = fmul float %43, 0x3FC87DE660000000
-  %44 = or disjoint i64 %indvars.iv181, 8
-  %arrayidx155 = getelementptr inbounds float, ptr %data, i64 %44
-  %45 = load float, ptr %arrayidx155, align 4
-  %46 = or disjoint i64 %indvars.iv181, 24
-  %arrayidx159 = getelementptr inbounds float, ptr %data, i64 %46
-  %47 = load float, ptr %arrayidx159, align 4
-  %mul160 = fmul float %47, 0x3FDA9B66C0000000
-  %48 = tail call float @llvm.fmuladd.f32(float %45, float 0x3FDF6297E0000000, float %mul160)
-  %49 = or disjoint i64 %indvars.iv181, 40
-  %arrayidx163 = getelementptr inbounds float, ptr %data, i64 %49
-  %50 = load float, ptr %arrayidx163, align 4
-  %51 = tail call float @llvm.fmuladd.f32(float %50, float 0x3FD1C73CA0000000, float %48)
-  %52 = or disjoint i64 %indvars.iv181, 56
-  %arrayidx167 = getelementptr inbounds float, ptr %data, i64 %52
-  %53 = load float, ptr %arrayidx167, align 4
-  %54 = tail call float @llvm.fmuladd.f32(float %53, float 0x3FB8F8C160000000, float %51)
-  %neg178 = fmul float %47, 0xBFB8F8C160000000
-  %55 = tail call float @llvm.fmuladd.f32(float %45, float 0x3FDA9B66C0000000, float %neg178)
-  %56 = tail call float @llvm.fmuladd.f32(float %50, float 0xBFDF6297E0000000, float %55)
-  %57 = tail call float @llvm.fmuladd.f32(float %53, float 0xBFD1C73CA0000000, float %56)
-  %neg198 = fmul float %47, 0xBFDF6297E0000000
-  %58 = tail call float @llvm.fmuladd.f32(float %45, float 0x3FD1C73CA0000000, float %neg198)
-  %59 = tail call float @llvm.fmuladd.f32(float %50, float 0x3FB8F8C160000000, float %58)
-  %60 = tail call float @llvm.fmuladd.f32(float %53, float 0x3FDA9B66C0000000, float %59)
-  %neg216 = fmul float %47, 0xBFD1C73CA0000000
-  %61 = tail call float @llvm.fmuladd.f32(float %45, float 0x3FB8F8C160000000, float %neg216)
-  %62 = tail call float @llvm.fmuladd.f32(float %50, float 0x3FDA9B66C0000000, float %61)
-  %63 = tail call float @llvm.fmuladd.f32(float %53, float 0xBFDF6297E0000000, float %62)
+  %20 = or disjoint i64 %indvars.iv181, 16
+  %arrayidx135 = getelementptr inbounds float, ptr %data, i64 %20
+  %21 = load float, ptr %arrayidx135, align 4
+  %mul136 = fmul float %21, 0x3FDD906C20000000
+  %mul141 = fmul float %21, 0x3FC87DE660000000
+  %22 = or disjoint i64 %indvars.iv181, 48
+  %arrayidx145 = getelementptr inbounds float, ptr %data, i64 %22
+  %23 = load float, ptr %arrayidx145, align 4
+  %mul146 = fmul float %23, 0x3FDD906C20000000
+  %mul151 = fmul float %23, 0x3FC87DE660000000
+  %24 = or disjoint i64 %indvars.iv181, 8
+  %arrayidx155 = getelementptr inbounds float, ptr %data, i64 %24
+  %25 = load float, ptr %arrayidx155, align 4
+  %26 = or disjoint i64 %indvars.iv181, 24
+  %arrayidx159 = getelementptr inbounds float, ptr %data, i64 %26
+  %27 = load float, ptr %arrayidx159, align 4
+  %mul160 = fmul float %27, 0x3FDA9B66C0000000
+  %28 = tail call float @llvm.fmuladd.f32(float %25, float 0x3FDF6297E0000000, float %mul160)
+  %29 = or disjoint i64 %indvars.iv181, 40
+  %arrayidx163 = getelementptr inbounds float, ptr %data, i64 %29
+  %30 = load float, ptr %arrayidx163, align 4
+  %31 = tail call float @llvm.fmuladd.f32(float %30, float 0x3FD1C73CA0000000, float %28)
+  %32 = or disjoint i64 %indvars.iv181, 56
+  %arrayidx167 = getelementptr inbounds float, ptr %data, i64 %32
+  %33 = load float, ptr %arrayidx167, align 4
+  %34 = tail call float @llvm.fmuladd.f32(float %33, float 0x3FB8F8C160000000, float %31)
+  %neg178 = fmul float %27, 0xBFB8F8C160000000
+  %35 = tail call float @llvm.fmuladd.f32(float %25, float 0x3FDA9B66C0000000, float %neg178)
+  %36 = tail call float @llvm.fmuladd.f32(float %30, float 0xBFDF6297E0000000, float %35)
+  %37 = tail call float @llvm.fmuladd.f32(float %33, float 0xBFD1C73CA0000000, float %36)
+  %neg198 = fmul float %27, 0xBFDF6297E0000000
+  %38 = tail call float @llvm.fmuladd.f32(float %25, float 0x3FD1C73CA0000000, float %neg198)
+  %39 = tail call float @llvm.fmuladd.f32(float %30, float 0x3FB8F8C160000000, float %38)
+  %40 = tail call float @llvm.fmuladd.f32(float %33, float 0x3FDA9B66C0000000, float %39)
+  %neg216 = fmul float %27, 0xBFD1C73CA0000000
+  %41 = tail call float @llvm.fmuladd.f32(float %25, float 0x3FB8F8C160000000, float %neg216)
+  %42 = tail call float @llvm.fmuladd.f32(float %30, float 0x3FDA9B66C0000000, float %41)
+  %43 = tail call float @llvm.fmuladd.f32(float %33, float 0xBFDF6297E0000000, float %42)
   %arrayidx228 = getelementptr inbounds float, ptr %data, i64 %indvars.iv181
-  %64 = load float, ptr %arrayidx228, align 4
-  %65 = or disjoint i64 %indvars.iv181, 32
-  %arrayidx231 = getelementptr inbounds float, ptr %data, i64 %65
-  %66 = load float, ptr %arrayidx231, align 4
-  %add232 = fadd float %64, %66
+  %44 = load float, ptr %arrayidx228, align 4
+  %45 = or disjoint i64 %indvars.iv181, 32
+  %arrayidx231 = getelementptr inbounds float, ptr %data, i64 %45
+  %46 = load float, ptr %arrayidx231, align 4
+  %add232 = fadd float %44, %46
   %mul233 = fmul float %add232, 0x3FD6A09F60000000
-  %sub240 = fsub float %64, %66
+  %sub240 = fsub float %44, %46
   %mul241 = fmul float %sub240, 0x3FD6A09F60000000
   %add245 = fadd float %mul136, %mul151
   %sub249 = fsub float %mul141, %mul146
@@ -5848,21 +5873,21 @@ for.body133:                                      ; preds = %for.body133.prehead
   %add257 = fadd float %sub249, %mul241
   %sub261 = fsub float %mul241, %sub249
   %sub265 = fsub float %mul233, %add245
-  %add269 = fadd float %54, %add253
+  %add269 = fadd float %34, %add253
   store float %add269, ptr %arrayidx228, align 4
-  %add274 = fadd float %57, %add257
+  %add274 = fadd float %37, %add257
   store float %add274, ptr %arrayidx155, align 4
-  %add280 = fadd float %60, %sub261
+  %add280 = fadd float %40, %sub261
   store float %add280, ptr %arrayidx135, align 4
-  %add286 = fadd float %63, %sub265
+  %add286 = fadd float %43, %sub265
   store float %add286, ptr %arrayidx159, align 4
-  %sub292 = fsub float %sub265, %63
+  %sub292 = fsub float %sub265, %43
   store float %sub292, ptr %arrayidx231, align 4
-  %sub298 = fsub float %sub261, %60
+  %sub298 = fsub float %sub261, %40
   store float %sub298, ptr %arrayidx163, align 4
-  %sub304 = fsub float %add257, %57
+  %sub304 = fsub float %add257, %37
   store float %sub304, ptr %arrayidx145, align 4
-  %sub310 = fsub float %add253, %54
+  %sub310 = fsub float %add253, %34
   store float %sub310, ptr %arrayidx167, align 4
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next182, 8
@@ -9549,9 +9574,6 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -988,14 +988,18 @@ entry:
   %options_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %options_, align 8
   %skiplist_height = getelementptr inbounds i8, ptr %this, i64 40
+  %2 = load i32, ptr %skiplist_height, align 8
+  %skiplist_branching_factor = getelementptr inbounds i8, ptr %this, i64 44
+  %3 = load i32, ptr %skiplist_branching_factor, align 4
   %allocator_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %allocator, ptr %allocator_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRepE, i64 16), ptr %call, align 8
   %bucket_size_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %1, ptr %bucket_size_.i, align 8
   %skiplist_height_.i = getelementptr inbounds i8, ptr %call, i64 24
-  %2 = load <2 x i32>, ptr %skiplist_height, align 8
-  store <2 x i32> %2, ptr %skiplist_height_.i, align 8
+  store i32 %2, ptr %skiplist_height_.i, align 8
+  %skiplist_branching_factor_.i = getelementptr inbounds i8, ptr %call, i64 28
+  store i32 %3, ptr %skiplist_branching_factor_.i, align 4
   %transform_.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %transform, ptr %transform_.i, align 8
   %compare_.i = getelementptr inbounds i8, ptr %call, i64 48
@@ -1005,8 +1009,8 @@ entry:
   %mul.i = shl i64 %1, 3
   %vtable.i = load ptr, ptr %allocator, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
-  %3 = load ptr, ptr %vfn.i, align 8
-  %call.i1 = invoke noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %allocator, i64 noundef %mul.i, i64 noundef 0, ptr noundef null)
+  %4 = load ptr, ptr %vfn.i, align 8
+  %call.i1 = invoke noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %allocator, i64 noundef %mul.i, i64 noundef 0, ptr noundef null)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
@@ -1027,10 +1031,10 @@ invoke.cont:                                      ; preds = %for.body.i, %call.i
   ret ptr %call
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call) #20
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1146,33 +1150,34 @@ if.then.i:                                        ; preds = %entry
   %12 = load ptr, ptr %vfn.i, align 8
   %call3.i = call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef 56, i64 noundef 0, ptr noundef null)
   %compare_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %13 = load ptr, ptr %compare_.i, align 8
+  %14 = load ptr, ptr %allocator_.i, align 8
   %skiplist_height_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %13 = load i32, ptr %skiplist_height_.i, align 8
+  %15 = load i32, ptr %skiplist_height_.i, align 8
   %skiplist_branching_factor_.i = getelementptr inbounds i8, ptr %this, i64 28
-  %14 = load i32, ptr %skiplist_branching_factor_.i, align 4
-  %conv.i5.i = trunc i32 %13 to i16
-  %kBranching_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 2
-  %conv2.i.i = trunc i32 %14 to i16
-  %kScaledInverseBranching_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 4
-  %conv4.i.i = and i32 %14, 65535
-  %div.i.i = udiv i32 -2147483648, %conv4.i.i
-  %compare_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 8
-  %allocator_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 16
-  %15 = load ptr, ptr %allocator_.i, align 8
-  %16 = load <2 x ptr>, ptr %compare_.i, align 8
+  %16 = load i32, ptr %skiplist_branching_factor_.i, align 4
+  %conv.i5.i = trunc i32 %15 to i16
   store i16 %conv.i5.i, ptr %call3.i, align 8
+  %kBranching_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 2
+  %conv2.i.i = trunc i32 %16 to i16
   store i16 %conv2.i.i, ptr %kBranching_.i.i, align 2
+  %kScaledInverseBranching_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 4
+  %conv4.i.i = and i32 %16, 65535
+  %div.i.i = udiv i32 -2147483648, %conv4.i.i
   store i32 %div.i.i, ptr %kScaledInverseBranching_.i.i, align 4
-  store <2 x ptr> %16, ptr %compare_.i.i, align 8
+  %compare_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 8
+  store ptr %13, ptr %compare_.i.i, align 8
+  %allocator_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 16
+  store ptr %14, ptr %allocator_.i.i, align 8
   %head_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 24
-  %sub.i.i.i = add nsw i32 %13, -1
+  %sub.i.i.i = add nsw i32 %15, -1
   %conv.i.i.i = sext i32 %sub.i.i.i to i64
   %mul.i.i.i = shl nsw i64 %conv.i.i.i, 3
   %add.i.i.i = add nsw i64 %mul.i.i.i, 16
-  %vtable.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i = load ptr, ptr %14, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %17 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %add.i.i.i, i64 noundef 0, ptr noundef null)
+  %call.i.i.i = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %add.i.i.i, i64 noundef 0, ptr noundef null)
   store ptr null, ptr %call.i.i.i, align 8
   store ptr %call.i.i.i, ptr %head_.i.i, align 8
   %max_height_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 32

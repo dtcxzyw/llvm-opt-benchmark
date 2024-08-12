@@ -412,8 +412,8 @@ define void @_ZN6colvar17linearCombination14calc_gradientsEv(ptr nocapture nound
   br i1 %.not, label %._crit_edge33, label %.lr.ph32
 
 .lr.ph32:                                         ; preds = %1, %.loopexit
-  %6 = phi ptr [ %109, %.loopexit ], [ %5, %1 ]
-  %.02430 = phi i64 [ %110, %.loopexit ], [ 0, %1 ]
+  %6 = phi ptr [ %110, %.loopexit ], [ %5, %1 ]
+  %.02430 = phi i64 [ %111, %.loopexit ], [ 0, %1 ]
   %7 = getelementptr inbounds ptr, ptr %6, i64 %.02430
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
@@ -455,141 +455,143 @@ define void @_ZN6colvar17linearCombination14calc_gradientsEv(ptr nocapture nound
 _ZNK6colvar17linearCombination31getPolynomialFactorOfCVGradientEm.exit: ; preds = %20, %26
   %.pre = phi ptr [ %.pre.pre, %26 ], [ %12, %20 ]
   %.0.i = phi double [ %36, %26 ], [ %25, %20 ]
-  %37 = insertelement <2 x double> poison, double %.0.i, i64 0
-  %38 = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %39
+  br label %37
 
-39:                                               ; preds = %._crit_edge29, %_ZNK6colvar17linearCombination31getPolynomialFactorOfCVGradientEm.exit
-  %40 = phi ptr [ %.pre, %_ZNK6colvar17linearCombination31getPolynomialFactorOfCVGradientEm.exit ], [ %106, %._crit_edge29 ]
-  %41 = phi ptr [ %.pre, %_ZNK6colvar17linearCombination31getPolynomialFactorOfCVGradientEm.exit ], [ %107, %._crit_edge29 ]
-  %.023 = phi i64 [ 0, %_ZNK6colvar17linearCombination31getPolynomialFactorOfCVGradientEm.exit ], [ %108, %._crit_edge29 ]
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %.02430
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 632
-  %45 = load i32, ptr %44, align 8
-  switch i32 %45, label %_ZNK11colvarvalue4sizeEv.exit [
-    i32 7, label %49
-    i32 1, label %46
-    i32 2, label %47
-    i32 3, label %47
-    i32 4, label %47
-    i32 5, label %48
-    i32 6, label %48
+37:                                               ; preds = %._crit_edge29, %_ZNK6colvar17linearCombination31getPolynomialFactorOfCVGradientEm.exit
+  %38 = phi ptr [ %.pre, %_ZNK6colvar17linearCombination31getPolynomialFactorOfCVGradientEm.exit ], [ %107, %._crit_edge29 ]
+  %39 = phi ptr [ %.pre, %_ZNK6colvar17linearCombination31getPolynomialFactorOfCVGradientEm.exit ], [ %108, %._crit_edge29 ]
+  %.023 = phi i64 [ 0, %_ZNK6colvar17linearCombination31getPolynomialFactorOfCVGradientEm.exit ], [ %109, %._crit_edge29 ]
+  %40 = getelementptr inbounds ptr, ptr %39, i64 %.02430
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 632
+  %43 = load i32, ptr %42, align 8
+  switch i32 %43, label %_ZNK11colvarvalue4sizeEv.exit [
+    i32 7, label %47
+    i32 1, label %44
+    i32 2, label %45
+    i32 3, label %45
+    i32 4, label %45
+    i32 5, label %46
+    i32 6, label %46
   ]
 
-46:                                               ; preds = %39
+44:                                               ; preds = %37
   br label %_ZNK11colvarvalue4sizeEv.exit
 
-47:                                               ; preds = %39, %39, %39
+45:                                               ; preds = %37, %37, %37
   br label %_ZNK11colvarvalue4sizeEv.exit
 
-48:                                               ; preds = %39, %39
+46:                                               ; preds = %37, %37
   br label %_ZNK11colvarvalue4sizeEv.exit
 
-49:                                               ; preds = %39
-  %50 = getelementptr inbounds i8, ptr %43, i64 704
-  %51 = getelementptr inbounds i8, ptr %43, i64 712
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %50, align 8
-  %54 = ptrtoint ptr %52 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 3
+47:                                               ; preds = %37
+  %48 = getelementptr inbounds i8, ptr %41, i64 704
+  %49 = getelementptr inbounds i8, ptr %41, i64 712
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %48, align 8
+  %52 = ptrtoint ptr %50 to i64
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  %55 = ashr exact i64 %54, 3
   br label %_ZNK11colvarvalue4sizeEv.exit
 
-_ZNK11colvarvalue4sizeEv.exit:                    ; preds = %39, %46, %47, %48, %49
-  %.0.i25 = phi i64 [ 4, %48 ], [ 3, %47 ], [ 1, %46 ], [ %57, %49 ], [ 0, %39 ]
-  %58 = icmp ult i64 %.023, %.0.i25
-  br i1 %58, label %.preheader26, label %.loopexit
+_ZNK11colvarvalue4sizeEv.exit:                    ; preds = %37, %44, %45, %46, %47
+  %.0.i25 = phi i64 [ 4, %46 ], [ 3, %45 ], [ 1, %44 ], [ %55, %47 ], [ 0, %37 ]
+  %56 = icmp ult i64 %.023, %.0.i25
+  br i1 %56, label %.preheader26, label %.loopexit
 
 .preheader26:                                     ; preds = %_ZNK11colvarvalue4sizeEv.exit
-  %59 = getelementptr inbounds i8, ptr %43, i64 576
-  %60 = getelementptr inbounds i8, ptr %43, i64 584
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %59, align 8
-  %.not34 = icmp eq ptr %61, %62
+  %57 = getelementptr inbounds i8, ptr %41, i64 576
+  %58 = getelementptr inbounds i8, ptr %41, i64 584
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %57, align 8
+  %.not34 = icmp eq ptr %59, %60
   br i1 %.not34, label %._crit_edge29, label %.preheader
 
 .preheader:                                       ; preds = %.preheader26, %._crit_edge
-  %63 = phi ptr [ %97, %._crit_edge ], [ %40, %.preheader26 ]
-  %64 = phi ptr [ %95, %._crit_edge ], [ %62, %.preheader26 ]
-  %.02228 = phi i64 [ %98, %._crit_edge ], [ 0, %.preheader26 ]
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %.02228
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 504
-  %68 = getelementptr inbounds i8, ptr %66, i64 512
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %67, align 8
-  %.not35 = icmp eq ptr %69, %70
+  %61 = phi ptr [ %98, %._crit_edge ], [ %38, %.preheader26 ]
+  %62 = phi ptr [ %96, %._crit_edge ], [ %60, %.preheader26 ]
+  %.02228 = phi i64 [ %99, %._crit_edge ], [ 0, %.preheader26 ]
+  %63 = getelementptr inbounds ptr, ptr %62, i64 %.02228
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 504
+  %66 = getelementptr inbounds i8, ptr %64, i64 512
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr %65, align 8
+  %.not35 = icmp eq ptr %67, %68
   br i1 %.not35, label %.preheader.._crit_edge_crit_edge, label %.lr.ph
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %63, i64 %.02430
+  %.phi.trans.insert = getelementptr inbounds ptr, ptr %61, i64 %.02430
   %.pre36 = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert37 = getelementptr inbounds i8, ptr %.pre36, i64 576
   %.pre38 = load ptr, ptr %.phi.trans.insert37, align 8
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %71 = phi ptr [ %89, %.lr.ph ], [ %70, %.preheader ]
-  %.027 = phi i64 [ %78, %.lr.ph ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds %"class.colvarmodule::atom", ptr %71, i64 %.027, i32 7
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %69 = phi ptr [ %90, %.lr.ph ], [ %68, %.preheader ]
+  %.027 = phi i64 [ %79, %.lr.ph ], [ 0, %.preheader ]
+  %70 = getelementptr inbounds %"class.colvarmodule::atom", ptr %69, i64 %.027, i32 7
+  %71 = load double, ptr %70, align 8, !noalias !7
+  %72 = fmul double %.0.i, %71
+  %73 = getelementptr inbounds i8, ptr %70, i64 8
   %74 = load double, ptr %73, align 8, !noalias !7
   %75 = fmul double %.0.i, %74
-  %76 = load <2 x double>, ptr %72, align 8, !noalias !7
-  %77 = fmul <2 x double> %38, %76
-  store <2 x double> %77, ptr %72, align 8
+  %76 = getelementptr inbounds i8, ptr %70, i64 16
+  %77 = load double, ptr %76, align 8, !noalias !7
+  %78 = fmul double %.0.i, %77
+  store double %72, ptr %70, align 8
   store double %75, ptr %73, align 8
-  %78 = add nuw i64 %.027, 1
-  %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds ptr, ptr %79, i64 %.02430
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 576
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds ptr, ptr %83, i64 %.02228
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 504
-  %87 = getelementptr inbounds i8, ptr %85, i64 512
-  %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr %86, align 8
-  %90 = ptrtoint ptr %88 to i64
+  store double %78, ptr %76, align 8
+  %79 = add nuw i64 %.027, 1
+  %80 = load ptr, ptr %2, align 8
+  %81 = getelementptr inbounds ptr, ptr %80, i64 %.02430
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 576
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds ptr, ptr %84, i64 %.02228
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 504
+  %88 = getelementptr inbounds i8, ptr %86, i64 512
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %87, align 8
   %91 = ptrtoint ptr %89 to i64
-  %92 = sub i64 %90, %91
-  %93 = sdiv exact i64 %92, 120
-  %94 = icmp ult i64 %78, %93
-  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  %92 = ptrtoint ptr %90 to i64
+  %93 = sub i64 %91, %92
+  %94 = sdiv exact i64 %93, 120
+  %95 = icmp ult i64 %79, %94
+  br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader.._crit_edge_crit_edge
-  %95 = phi ptr [ %.pre38, %.preheader.._crit_edge_crit_edge ], [ %83, %.lr.ph ]
-  %96 = phi ptr [ %.pre36, %.preheader.._crit_edge_crit_edge ], [ %81, %.lr.ph ]
-  %97 = phi ptr [ %63, %.preheader.._crit_edge_crit_edge ], [ %79, %.lr.ph ]
-  %98 = add nuw i64 %.02228, 1
-  %99 = getelementptr inbounds i8, ptr %96, i64 584
-  %100 = load ptr, ptr %99, align 8
-  %101 = ptrtoint ptr %100 to i64
-  %102 = ptrtoint ptr %95 to i64
-  %103 = sub i64 %101, %102
-  %104 = ashr exact i64 %103, 3
-  %105 = icmp ult i64 %98, %104
-  br i1 %105, label %.preheader, label %._crit_edge29, !llvm.loop !11
+  %96 = phi ptr [ %.pre38, %.preheader.._crit_edge_crit_edge ], [ %84, %.lr.ph ]
+  %97 = phi ptr [ %.pre36, %.preheader.._crit_edge_crit_edge ], [ %82, %.lr.ph ]
+  %98 = phi ptr [ %61, %.preheader.._crit_edge_crit_edge ], [ %80, %.lr.ph ]
+  %99 = add nuw i64 %.02228, 1
+  %100 = getelementptr inbounds i8, ptr %97, i64 584
+  %101 = load ptr, ptr %100, align 8
+  %102 = ptrtoint ptr %101 to i64
+  %103 = ptrtoint ptr %96 to i64
+  %104 = sub i64 %102, %103
+  %105 = ashr exact i64 %104, 3
+  %106 = icmp ult i64 %99, %105
+  br i1 %106, label %.preheader, label %._crit_edge29, !llvm.loop !11
 
 ._crit_edge29:                                    ; preds = %._crit_edge, %.preheader26
-  %106 = phi ptr [ %40, %.preheader26 ], [ %97, %._crit_edge ]
-  %107 = phi ptr [ %41, %.preheader26 ], [ %97, %._crit_edge ]
-  %108 = add i64 %.023, 1
-  br label %39, !llvm.loop !12
+  %107 = phi ptr [ %38, %.preheader26 ], [ %98, %._crit_edge ]
+  %108 = phi ptr [ %39, %.preheader26 ], [ %98, %._crit_edge ]
+  %109 = add i64 %.023, 1
+  br label %37, !llvm.loop !12
 
 .loopexit:                                        ; preds = %_ZNK11colvarvalue4sizeEv.exit, %.lr.ph32
-  %109 = phi ptr [ %12, %.lr.ph32 ], [ %41, %_ZNK11colvarvalue4sizeEv.exit ]
-  %110 = add nuw i64 %.02430, 1
-  %111 = load ptr, ptr %3, align 8
-  %112 = ptrtoint ptr %111 to i64
-  %113 = ptrtoint ptr %109 to i64
-  %114 = sub i64 %112, %113
-  %115 = ashr exact i64 %114, 3
-  %116 = icmp ult i64 %110, %115
-  br i1 %116, label %.lr.ph32, label %._crit_edge33, !llvm.loop !13
+  %110 = phi ptr [ %12, %.lr.ph32 ], [ %39, %_ZNK11colvarvalue4sizeEv.exit ]
+  %111 = add nuw i64 %.02430, 1
+  %112 = load ptr, ptr %3, align 8
+  %113 = ptrtoint ptr %112 to i64
+  %114 = ptrtoint ptr %110 to i64
+  %115 = sub i64 %113, %114
+  %116 = ashr exact i64 %115, 3
+  %117 = icmp ult i64 %111, %116
+  br i1 %117, label %.lr.ph32, label %._crit_edge33, !llvm.loop !13
 
 ._crit_edge33:                                    ; preds = %.loopexit, %1
   ret void
@@ -1867,9 +1869,10 @@ define linkonce_odr ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
-  %35 = load <2 x ptr>, ptr %0, align 8
-  %36 = shufflevector <2 x ptr> %35, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %36, ptr %0, align 8
+  %35 = load ptr, ptr %0, align 8
+  %36 = load ptr, ptr %10, align 8
+  store ptr %36, ptr %0, align 8
+  store ptr %35, ptr %10, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit.preheader
 
 37:                                               ; preds = %31

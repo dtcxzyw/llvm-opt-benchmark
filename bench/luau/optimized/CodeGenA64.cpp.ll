@@ -114,7 +114,7 @@ declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA642brENS1_11RegisterA64E(ptr
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsERNS0_18BaseCodeGenContextE(ptr noundef nonnull align 8 dereferenceable(2792) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %2 = alloca [9 x %"struct.Luau::CodeGen::A64::RegisterA64"], align 8
+  %2 = alloca [9 x %"struct.Luau::CodeGen::A64::RegisterA64"], align 1
   %3 = alloca %"class.Luau::CodeGen::A64::AssemblyBuilderA64", align 8
   %4 = alloca ptr, align 8
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64C1Ebj(ptr noundef nonnull align 8 dereferenceable(176) %3, i1 noundef zeroext false, i32 noundef 0)
@@ -124,46 +124,46 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 1)
-          to label %10 unwind label %55
+          to label %10 unwind label %62
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %2)
   %11 = invoke i64 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelEv(ptr noundef nonnull align 8 dereferenceable(176) %3)
-          to label %.noexc unwind label %55
+          to label %.noexc unwind label %62
 
 .noexc:                                           ; preds = %10
   %.sroa.1.0.extract.shift = lshr i64 %11, 32
   %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -8, i8 -8, i16 noundef zeroext 256)
-          to label %.noexc12 unwind label %55
+          to label %.noexc12 unwind label %62
 
 .noexc12:                                         ; preds = %.noexc
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643stpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -22, i8 -14, i64 16447489)
-          to label %.noexc13 unwind label %55
+          to label %.noexc13 unwind label %62
 
 .noexc13:                                         ; preds = %.noexc12
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643stpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -102, i8 -94, i64 68735924225)
-          to label %.noexc14 unwind label %55
+          to label %.noexc14 unwind label %62
 
 .noexc14:                                         ; preds = %.noexc13
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643stpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -86, i8 -78, i64 137455400961)
-          to label %.noexc15 unwind label %55
+          to label %.noexc15 unwind label %62
 
 .noexc15:                                         ; preds = %.noexc14
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643stpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -70, i8 -62, i64 206174877697)
-          to label %.noexc16 unwind label %55
+          to label %.noexc16 unwind label %62
 
 .noexc16:                                         ; preds = %.noexc15
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -54, i64 274894354433)
-          to label %.noexc17 unwind label %55
+          to label %.noexc17 unwind label %62
 
 .noexc17:                                         ; preds = %.noexc16
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -22, i8 -8)
-          to label %.noexc18 unwind label %55
+          to label %.noexc18 unwind label %62
 
 .noexc18:                                         ; preds = %.noexc17
   %12 = invoke i64 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelEv(ptr noundef nonnull align 8 dereferenceable(176) %3)
-          to label %.noexc19 unwind label %55
+          to label %.noexc19 unwind label %62
 
 .noexc19:                                         ; preds = %.noexc18
   %.sroa.3.8.extract.shift = lshr i64 %12, 32
@@ -172,168 +172,182 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
   %14 = sub i32 %.sroa.3.8.extract.trunc, %.sroa.1.0.extract.trunc
   %15 = shl i32 %14, 2
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -102, i8 2)
-          to label %.noexc20 unwind label %55
+          to label %.noexc20 unwind label %62
 
 .noexc20:                                         ; preds = %.noexc19
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -94, i8 26)
-          to label %.noexc21 unwind label %55
+          to label %.noexc21 unwind label %62
 
 .noexc21:                                         ; preds = %.noexc20
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -86, i64 103095599617)
-          to label %.noexc22 unwind label %55
+          to label %.noexc22 unwind label %62
 
 .noexc22:                                         ; preds = %.noexc21
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -54, i64 68735861249)
-          to label %.noexc23 unwind label %55
+          to label %.noexc23 unwind label %62
 
 .noexc23:                                         ; preds = %.noexc22
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -78, i8 -62, i64 34376124929)
-          to label %.noexc24 unwind label %55
+          to label %.noexc24 unwind label %62
 
 .noexc24:                                         ; preds = %.noexc23
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 74, i64 137455337985)
-          to label %.noexc25 unwind label %55
+          to label %.noexc25 unwind label %62
 
 .noexc25:                                         ; preds = %.noexc24
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 74, i64 34376141313)
-          to label %.noexc26 unwind label %55
+          to label %.noexc26 unwind label %62
 
 .noexc26:                                         ; preds = %.noexc25
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -70, i64 16402945)
-          to label %.noexc27 unwind label %55
+          to label %.noexc27 unwind label %62
 
 .noexc27:                                         ; preds = %.noexc26
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA642brENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 18)
-          to label %.noexc28 unwind label %55
+          to label %.noexc28 unwind label %62
 
 .noexc28:                                         ; preds = %.noexc27
   %16 = invoke i64 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelEv(ptr noundef nonnull align 8 dereferenceable(176) %3)
-          to label %.noexc29 unwind label %55
+          to label %.noexc29 unwind label %62
 
 .noexc29:                                         ; preds = %.noexc28
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -54, i64 274894354433)
-          to label %.noexc30 unwind label %55
+          to label %.noexc30 unwind label %62
 
 .noexc30:                                         ; preds = %.noexc29
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -70, i8 -62, i64 206174877697)
-          to label %.noexc31 unwind label %55
+          to label %.noexc31 unwind label %62
 
 .noexc31:                                         ; preds = %.noexc30
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -86, i8 -78, i64 137455400961)
-          to label %.noexc32 unwind label %55
+          to label %.noexc32 unwind label %62
 
 .noexc32:                                         ; preds = %.noexc31
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -102, i8 -94, i64 68735924225)
-          to label %.noexc33 unwind label %55
+          to label %.noexc33 unwind label %62
 
 .noexc33:                                         ; preds = %.noexc32
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -22, i8 -14, i64 16447489)
-          to label %.noexc34 unwind label %55
+          to label %.noexc34 unwind label %62
 
 .noexc34:                                         ; preds = %.noexc33
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -8, i8 -8, i16 noundef zeroext 256)
-          to label %.noexc35 unwind label %55
+          to label %.noexc35 unwind label %62
 
 .noexc35:                                         ; preds = %.noexc34
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643retEv(ptr noundef nonnull align 8 dereferenceable(176) %3)
-          to label %.noexc36 unwind label %55
+          to label %.noexc36 unwind label %62
 
 .noexc36:                                         ; preds = %.noexc35
   %17 = load ptr, ptr %6, align 8, !noalias !5
   %18 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8, !noalias !5
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %.noexc37 unwind label %55
+          to label %.noexc37 unwind label %62
 
 .noexc37:                                         ; preds = %.noexc36
-  store <8 x i8> <i8 -22, i8 -14, i8 -102, i8 -94, i8 -86, i8 -78, i8 -70, i8 -62>, ptr %2, align 8, !noalias !5
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
-  store i8 -54, ptr %20, align 8, !noalias !5
-  %21 = load ptr, ptr %6, align 8, !noalias !5
-  %22 = getelementptr inbounds i8, ptr %21, i64 64
-  %23 = load ptr, ptr %22, align 8, !noalias !5
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %15, i32 noundef 256, ptr nonnull %2, i64 9)
-          to label %.noexc38 unwind label %55
+  store i8 -22, ptr %2, align 1, !noalias !5
+  %20 = getelementptr inbounds i8, ptr %2, i64 1
+  store i8 -14, ptr %20, align 1, !noalias !5
+  %21 = getelementptr inbounds i8, ptr %2, i64 2
+  store i8 -102, ptr %21, align 1, !noalias !5
+  %22 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 -94, ptr %22, align 1, !noalias !5
+  %23 = getelementptr inbounds i8, ptr %2, i64 4
+  store i8 -86, ptr %23, align 1, !noalias !5
+  %24 = getelementptr inbounds i8, ptr %2, i64 5
+  store i8 -78, ptr %24, align 1, !noalias !5
+  %25 = getelementptr inbounds i8, ptr %2, i64 6
+  store i8 -70, ptr %25, align 1, !noalias !5
+  %26 = getelementptr inbounds i8, ptr %2, i64 7
+  store i8 -62, ptr %26, align 1, !noalias !5
+  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  store i8 -54, ptr %27, align 1, !noalias !5
+  %28 = load ptr, ptr %6, align 8, !noalias !5
+  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %30 = load ptr, ptr %29, align 8, !noalias !5
+  invoke void %30(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %15, i32 noundef 256, ptr nonnull %2, i64 9)
+          to label %.noexc38 unwind label %62
 
 .noexc38:                                         ; preds = %.noexc37
-  %24 = load ptr, ptr %6, align 8, !noalias !5
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
-  %26 = load ptr, ptr %25, align 8, !noalias !5
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %13, i32 noundef -1)
-          to label %27 unwind label %55
+  %31 = load ptr, ptr %6, align 8, !noalias !5
+  %32 = getelementptr inbounds i8, ptr %31, i64 48
+  %33 = load ptr, ptr %32, align 8, !noalias !5
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %13, i32 noundef -1)
+          to label %34 unwind label %62
 
-27:                                               ; preds = %.noexc38
+34:                                               ; preds = %.noexc38
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %2)
-  %28 = invoke noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648finalizeEv(ptr noundef nonnull align 8 dereferenceable(176) %3)
-          to label %29 unwind label %55
+  %35 = invoke noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648finalizeEv(ptr noundef nonnull align 8 dereferenceable(176) %3)
+          to label %36 unwind label %62
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
-  %32 = load ptr, ptr %31, align 8
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %33 unwind label %55
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 56
+  %39 = load ptr, ptr %38, align 8
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %40 unwind label %62
 
-33:                                               ; preds = %29
+40:                                               ; preds = %36
   store ptr null, ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = ptrtoint ptr %37 to i64
-  %39 = ptrtoint ptr %35 to i64
-  %40 = sub i64 %38, %39
-  %sext = shl i64 %40, 32
-  %41 = ashr exact i64 %sext, 32
-  %42 = getelementptr inbounds i8, ptr %3, i64 24
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 32
-  %45 = load ptr, ptr %44, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %47 = ptrtoint ptr %43 to i64
-  %48 = sub i64 %46, %47
-  %49 = shl i64 %48, 32
-  %sext40 = ashr exact i64 %49, 32
-  %50 = and i64 %sext40, -4
-  %51 = getelementptr inbounds i8, ptr %0, i64 136
-  %52 = getelementptr inbounds i8, ptr %0, i64 144
-  %53 = invoke noundef zeroext i1 @_ZN4Luau7CodeGen13CodeAllocator8allocateEPKhmS3_mRPhRmS5_(ptr noundef nonnull align 8 dereferenceable(120) %34, ptr noundef %35, i64 noundef %41, ptr noundef %43, i64 noundef %50, ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %54 unwind label %55
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = ptrtoint ptr %42 to i64
+  %47 = sub i64 %45, %46
+  %sext = shl i64 %47, 32
+  %48 = ashr exact i64 %sext, 32
+  %49 = getelementptr inbounds i8, ptr %3, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %3, i64 32
+  %52 = load ptr, ptr %51, align 8
+  %53 = ptrtoint ptr %52 to i64
+  %54 = ptrtoint ptr %50 to i64
+  %55 = sub i64 %53, %54
+  %56 = shl i64 %55, 32
+  %sext40 = ashr exact i64 %56, 32
+  %57 = and i64 %sext40, -4
+  %58 = getelementptr inbounds i8, ptr %0, i64 136
+  %59 = getelementptr inbounds i8, ptr %0, i64 144
+  %60 = invoke noundef zeroext i1 @_ZN4Luau7CodeGen13CodeAllocator8allocateEPKhmS3_mRPhRmS5_(ptr noundef nonnull align 8 dereferenceable(120) %41, ptr noundef %42, i64 noundef %48, ptr noundef %50, i64 noundef %57, ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %61 unwind label %62
 
-54:                                               ; preds = %33
-  br i1 %53, label %57, label %71
+61:                                               ; preds = %40
+  br i1 %60, label %64, label %78
 
-55:                                               ; preds = %.noexc38, %.noexc37, %.noexc36, %.noexc35, %.noexc34, %.noexc33, %.noexc32, %.noexc31, %.noexc30, %.noexc29, %.noexc28, %.noexc27, %.noexc26, %.noexc25, %.noexc24, %.noexc23, %.noexc22, %.noexc21, %.noexc20, %.noexc19, %.noexc18, %.noexc17, %.noexc16, %.noexc15, %.noexc14, %.noexc13, %.noexc12, %.noexc, %10, %57, %33, %29, %27, %1
-  %56 = landingpad { ptr, i32 }
+62:                                               ; preds = %.noexc38, %.noexc37, %.noexc36, %.noexc35, %.noexc34, %.noexc33, %.noexc32, %.noexc31, %.noexc30, %.noexc29, %.noexc28, %.noexc27, %.noexc26, %.noexc25, %.noexc24, %.noexc23, %.noexc22, %.noexc21, %.noexc20, %.noexc19, %.noexc18, %.noexc17, %.noexc16, %.noexc15, %.noexc14, %.noexc13, %.noexc12, %.noexc, %10, %64, %40, %36, %34, %1
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64D1Ev(ptr noundef nonnull align 8 dereferenceable(176) %3) #4
-  resume { ptr, i32 } %56
+  resume { ptr, i32 } %63
 
-57:                                               ; preds = %54
-  %58 = shl nuw nsw i64 %.sroa.3.8.extract.shift, 2
-  %59 = and i64 %58, 4294967292
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
-  %62 = load ptr, ptr %61, align 8
-  invoke void %62(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %59)
-          to label %63 unwind label %55
+64:                                               ; preds = %61
+  %65 = shl nuw nsw i64 %.sroa.3.8.extract.shift, 2
+  %66 = and i64 %65, 4294967292
+  %67 = load ptr, ptr %6, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %69 = load ptr, ptr %68, align 8
+  invoke void %69(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %66)
+          to label %70 unwind label %62
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr %4, align 8
-  %65 = zext i32 %13 to i64
-  %66 = getelementptr inbounds i8, ptr %64, i64 %65
-  %67 = getelementptr inbounds i8, ptr %0, i64 168
-  store ptr %66, ptr %67, align 8
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %4, align 8
+  %72 = zext i32 %13 to i64
+  %73 = getelementptr inbounds i8, ptr %71, i64 %72
+  %74 = getelementptr inbounds i8, ptr %0, i64 168
+  store ptr %73, ptr %74, align 8
   %sh.diff = lshr i64 %16, 30
-  %68 = and i64 %sh.diff, 4294967292
-  %69 = getelementptr inbounds i8, ptr %64, i64 %68
-  %70 = getelementptr inbounds i8, ptr %0, i64 176
-  store ptr %69, ptr %70, align 8
-  br label %71
+  %75 = and i64 %sh.diff, 4294967292
+  %76 = getelementptr inbounds i8, ptr %71, i64 %75
+  %77 = getelementptr inbounds i8, ptr %0, i64 176
+  store ptr %76, ptr %77, align 8
+  br label %78
 
-71:                                               ; preds = %54, %63
+78:                                               ; preds = %61, %70
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64D1Ev(ptr noundef nonnull align 8 dereferenceable(176) %3) #4
-  ret i1 %53
+  ret i1 %60
 }
 
 declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64C1Ebj(ptr noundef nonnull align 8 dereferenceable(176), i1 noundef zeroext, i32 noundef) unnamed_addr #1

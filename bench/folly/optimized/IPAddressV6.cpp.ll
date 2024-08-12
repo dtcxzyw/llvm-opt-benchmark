@@ -1496,14 +1496,26 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
 entry:
   %counter = alloca ptr, align 8
   %counterLen = alloca i64, align 8
-  %0 = icmp eq <8 x ptr> <ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @mallctl>, <ptr @mallocx, ptr @rallocx, ptr @xallocx, ptr @sallocx, ptr @dallocx, ptr @sdallocx, ptr @nallocx, ptr null>
-  %1 = icmp eq ptr @mallctlnametomib, null
-  %2 = icmp eq ptr @mallctlbymib, null
-  %3 = bitcast <8 x i1> %0 to i8
-  %4 = icmp ne i8 %3, 0
-  %op.rdx = or i1 %4, %1
-  %op.rdx1 = or i1 %op.rdx, %2
-  br i1 %op.rdx1, label %return, label %if.end
+  %0 = icmp eq ptr @mallocx, null
+  %1 = icmp eq ptr @rallocx, null
+  %brmerge = or i1 %0, %1
+  %2 = icmp eq ptr @xallocx, null
+  %brmerge22 = or i1 %2, %brmerge
+  %3 = icmp eq ptr @sallocx, null
+  %brmerge23 = or i1 %3, %brmerge22
+  %4 = icmp eq ptr @dallocx, null
+  %brmerge24 = or i1 %4, %brmerge23
+  %5 = icmp eq ptr @sdallocx, null
+  %brmerge25 = or i1 %5, %brmerge24
+  %6 = icmp eq ptr @nallocx, null
+  %brmerge26 = or i1 %6, %brmerge25
+  %7 = icmp eq ptr @mallctl, null
+  %brmerge27 = or i1 %7, %brmerge26
+  %8 = icmp eq ptr @mallctlnametomib, null
+  %brmerge28 = or i1 %8, %brmerge27
+  %9 = icmp eq ptr @mallctlbymib, null
+  %brmerge29 = or i1 %9, %brmerge28
+  br i1 %brmerge29, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %counter) #32
@@ -1511,21 +1523,21 @@ if.end:                                           ; preds = %entry
   store i64 8, ptr %counterLen, align 8, !tbaa !7
   %call = call i32 @mallctl(ptr noundef nonnull @.str.1, ptr noundef nonnull %counter, ptr noundef nonnull %counterLen, ptr noundef null, i64 noundef 0) #32
   %cmp.not = icmp eq i32 %call, 0
-  %5 = load i64, ptr %counterLen, align 8
-  %cmp12.not = icmp eq i64 %5, 8
+  %10 = load i64, ptr %counterLen, align 8
+  %cmp12.not = icmp eq i64 %10, 8
   %or.cond = select i1 %cmp.not, i1 %cmp12.not, i1 false
   br i1 %or.cond, label %if.end14, label %cleanup20
 
 if.end14:                                         ; preds = %if.end
-  %6 = load ptr, ptr %counter, align 8, !tbaa !32
-  %7 = load volatile i64, ptr %6, align 8, !tbaa !7
-  %8 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
-  %guard.uninitialized = icmp eq i8 %8, 0
+  %11 = load ptr, ptr %counter, align 8, !tbaa !32
+  %12 = load volatile i64, ptr %11, align 8, !tbaa !7
+  %13 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
+  %guard.uninitialized = icmp eq i8 %13, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !38
 
 init.check:                                       ; preds = %if.end14
-  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #32
-  %tobool.not = icmp eq i32 %9, 0
+  %14 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #32
+  %tobool.not = icmp eq i32 %14, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
@@ -1535,16 +1547,16 @@ init:                                             ; preds = %init.check
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %if.end14
-  %10 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !32
-  %tobool16.not = icmp eq ptr %10, null
+  %15 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !32
+  %tobool16.not = icmp eq ptr %15, null
   br i1 %tobool16.not, label %cleanup20, label %if.end18
 
 if.end18:                                         ; preds = %init.end
-  %11 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !32
-  call void @free(ptr noundef %11) #32
-  %12 = load ptr, ptr %counter, align 8, !tbaa !32
-  %13 = load volatile i64, ptr %12, align 8, !tbaa !7
-  %cmp19 = icmp ne i64 %7, %13
+  %16 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !32
+  call void @free(ptr noundef %16) #32
+  %17 = load ptr, ptr %counter, align 8, !tbaa !32
+  %18 = load volatile i64, ptr %17, align 8, !tbaa !7
+  %cmp19 = icmp ne i64 %12, %18
   br label %cleanup20
 
 cleanup20:                                        ; preds = %if.end18, %init.end, %if.end
@@ -8760,6 +8772,7 @@ declare void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereference
 define noundef zeroext i1 @_ZNK5folly11IPAddressV610isLoopbackEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(18) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::IPAddressV4", align 4
+  %arrayidx.4.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load <8 x i8>, ptr %this, align 4
   %.fr = freeze <8 x i8> %0
   %arrayidx.8.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -8777,6 +8790,10 @@ entry:
   %6 = icmp eq i8 %5, 0
   %7 = and i1 %4, %6
   %op.rdx25 = select i1 %7, i1 %cmp5.i, i1 false
+  %bc3 = bitcast <8 x i8> %.fr to <2 x i32>
+  %8 = extractelement <2 x i32> %bc3, i64 0
+  %bc = bitcast <8 x i8> %.fr to <2 x i32>
+  %9 = extractelement <2 x i32> %bc, i64 1
   br i1 %op.rdx25, label %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit, label %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread
 
 _ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread: ; preds = %entry
@@ -8785,17 +8802,17 @@ _ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread: ; preds = %entry
 
 _ZNK5folly11IPAddressV612isIPv4MappedEv.exit:     ; preds = %entry
   %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 11
-  %8 = load i8, ptr %arrayidx6.i, align 1, !tbaa !25
-  %cmp8.i = icmp eq i8 %8, -1
+  %10 = load i8, ptr %arrayidx6.i, align 1, !tbaa !25
+  %cmp8.i = icmp eq i8 %10, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #32
   br i1 %cmp8.i, label %land.rhs, label %if.end.critedge
 
 land.rhs:                                         ; preds = %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit
-  %9 = load <4 x i8>, ptr %arrayidx.8.i, align 4
-  %.fr10.i = freeze <4 x i8> %9
+  %11 = load <4 x i8>, ptr %arrayidx.8.i, align 4
+  %.fr10.i = freeze <4 x i8> %11
   %.fr10.scalar.i = bitcast <4 x i8> %.fr10.i to i32
-  %10 = icmp eq i32 %.fr10.scalar.i, -65536
-  br i1 %10, label %_ZNK5folly11IPAddressV610createIPv4Ev.exit, label %if.then.i
+  %12 = icmp eq i32 %.fr10.scalar.i, -65536
+  br i1 %12, label %_ZNK5folly11IPAddressV610createIPv4Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.rhs
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #32
@@ -8807,10 +8824,10 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception.i) #32
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %13
 
 _ZNK5folly11IPAddressV610createIPv4Ev.exit:       ; preds = %land.rhs
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -8821,21 +8838,21 @@ _ZNK5folly11IPAddressV610createIPv4Ev.exit:       ; preds = %land.rhs
   br i1 %call5, label %return, label %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge
 
 _ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge: ; preds = %_ZNK5folly11IPAddressV610createIPv4Ev.exit
-  %12 = load <2 x i32>, ptr %this, align 4
+  %socka.sroa.4.8.copyload.pre = load i32, ptr %this, align 4
+  %socka.sroa.6.8.copyload.pre = load i32, ptr %arrayidx.4.i, align 4
   br label %if.end
 
 if.end.critedge:                                  ; preds = %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit, %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp) #32
-  %13 = bitcast <8 x i8> %.fr to <2 x i32>
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge, %if.end.critedge
-  %14 = phi <2 x i32> [ %12, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge ], [ %13, %if.end.critedge ]
+  %socka.sroa.6.8.copyload = phi i32 [ %socka.sroa.6.8.copyload.pre, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge ], [ %9, %if.end.critedge ]
+  %socka.sroa.4.8.copyload = phi i32 [ %socka.sroa.4.8.copyload.pre, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge ], [ %8, %if.end.critedge ]
   %socka.sroa.7.8.copyload = load i32, ptr %arrayidx.8.i, align 4
-  %15 = icmp eq <2 x i32> %14, zeroinitializer
-  %16 = extractelement <2 x i1> %15, i64 0
-  %17 = extractelement <2 x i1> %15, i64 1
-  %or.cond = select i1 %16, i1 %17, i1 false
+  %cmp = icmp eq i32 %socka.sroa.4.8.copyload, 0
+  %cmp8 = icmp eq i32 %socka.sroa.6.8.copyload, 0
+  %or.cond = select i1 %cmp, i1 %cmp8, i1 false
   %cmp12 = icmp eq i32 %socka.sroa.7.8.copyload, 0
   %or.cond22 = select i1 %or.cond, i1 %cmp12, i1 false
   br i1 %or.cond22, label %land.rhs13, label %return
@@ -9015,7 +9032,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i ], [ %24, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %lpad.i ], [ %26, %lpad.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i
@@ -9050,6 +9067,7 @@ if.end:                                           ; preds = %_ZNK5folly11IPAddre
   %.fr.i1.pre-phi = phi <8 x i8> [ %.pre10, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge ], [ %.fr, %if.end.critedge ]
   %14 = phi i8 [ %13, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge ], [ %8, %if.end.critedge ]
   %15 = phi i8 [ %.pre9, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge ], [ %3, %if.end.critedge ]
+  %arrayidx.4.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %16 = load i8, ptr %arrayidx.8.i, align 4
   %.fr27.i = freeze i8 %16
   %cmp5.i.i = icmp eq i8 %15, -1
@@ -9060,6 +9078,8 @@ if.end:                                           ; preds = %_ZNK5folly11IPAddre
   %20 = and i1 %17, %19
   %op.rdx25.i = select i1 %20, i1 %cmp5.i.i, i1 false
   %bc3.i = bitcast <8 x i8> %.fr.i1.pre-phi to <2 x i32>
+  %21 = extractelement <2 x i32> %bc3.i, i64 0
+  %22 = extractelement <2 x i32> %bc3.i, i64 1
   br i1 %op.rdx25.i, label %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.i, label %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread.i
 
 _ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread.i: ; preds = %if.end
@@ -9068,17 +9088,17 @@ _ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread.i: ; preds = %if.end
 
 _ZNK5folly11IPAddressV612isIPv4MappedEv.exit.i:   ; preds = %if.end
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 11
-  %21 = load i8, ptr %arrayidx6.i.i, align 1, !tbaa !25
-  %cmp8.i.i = icmp eq i8 %21, -1
+  %23 = load i8, ptr %arrayidx6.i.i, align 1, !tbaa !25
+  %cmp8.i.i = icmp eq i8 %23, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i) #32
   br i1 %cmp8.i.i, label %land.rhs.i, label %if.end.critedge.i
 
 land.rhs.i:                                       ; preds = %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.i
-  %22 = load <4 x i8>, ptr %arrayidx.8.i, align 4
-  %.fr10.i.i = freeze <4 x i8> %22
+  %24 = load <4 x i8>, ptr %arrayidx.8.i, align 4
+  %.fr10.i.i = freeze <4 x i8> %24
   %.fr10.scalar.i.i = bitcast <4 x i8> %.fr10.i.i to i32
-  %23 = icmp eq i32 %.fr10.scalar.i.i, -65536
-  br i1 %23, label %_ZNK5folly11IPAddressV610createIPv4Ev.exit.i, label %if.then.i.i
+  %25 = icmp eq i32 %.fr10.scalar.i.i, -65536
+  br i1 %25, label %_ZNK5folly11IPAddressV610createIPv4Ev.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.rhs.i
   %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #32
@@ -9090,7 +9110,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
-  %24 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception.i.i) #32
   br label %common.resume
@@ -9105,8 +9125,8 @@ _ZNK5folly11IPAddressV610createIPv4Ev.exit.i:     ; preds = %land.rhs.i
 
 _ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i: ; preds = %_ZNK5folly11IPAddressV610createIPv4Ev.exit.i
   %socka.sroa.4.8.copyload.pre.i = load i32, ptr %this, align 4
-  %25 = load <2 x i32>, ptr %this, align 4
-  %26 = trunc i32 %socka.sroa.4.8.copyload.pre.i to i8
+  %socka.sroa.6.8.copyload.pre.i = load i32, ptr %arrayidx.4.i.i, align 4
+  %27 = trunc i32 %socka.sroa.4.8.copyload.pre.i to i8
   br label %if.end.i
 
 if.end.critedge.i:                                ; preds = %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.i, %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread.i
@@ -9114,13 +9134,13 @@ if.end.critedge.i:                                ; preds = %_ZNK5folly11IPAddre
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.critedge.i, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i
-  %27 = phi i8 [ %26, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i ], [ %14, %if.end.critedge.i ]
-  %28 = phi <2 x i32> [ %25, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i ], [ %bc3.i, %if.end.critedge.i ]
+  %28 = phi i8 [ %27, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i ], [ %14, %if.end.critedge.i ]
+  %socka.sroa.6.8.copyload.i = phi i32 [ %socka.sroa.6.8.copyload.pre.i, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i ], [ %22, %if.end.critedge.i ]
+  %socka.sroa.4.8.copyload.i = phi i32 [ %socka.sroa.4.8.copyload.pre.i, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i ], [ %21, %if.end.critedge.i ]
   %socka.sroa.7.8.copyload.i = load i32, ptr %arrayidx.8.i, align 4
-  %29 = icmp eq <2 x i32> %28, zeroinitializer
-  %30 = extractelement <2 x i1> %29, i64 0
-  %31 = extractelement <2 x i1> %29, i64 1
-  %or.cond.i = select i1 %30, i1 %31, i1 false
+  %cmp.i = icmp eq i32 %socka.sroa.4.8.copyload.i, 0
+  %cmp8.i4 = icmp eq i32 %socka.sroa.6.8.copyload.i, 0
+  %or.cond.i = select i1 %cmp.i, i1 %cmp8.i4, i1 false
   %cmp12.i = icmp eq i32 %socka.sroa.7.8.copyload.i, 0
   %or.cond22.i = select i1 %or.cond.i, i1 %cmp12.i, i1 false
   %socka.sroa.8.8.this.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -9132,11 +9152,11 @@ if.end.i:                                         ; preds = %if.end.critedge.i, 
 lor.rhs:                                          ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %masked.i) #32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ba.i) #32, !noalias !278
-  %and11.i.i = and i8 %27, -2
+  %and11.i.i = and i8 %28, -2
   %retval.sroa.0.sroa.0.0.insert.ext.i.i = zext i8 %and11.i.i to i64
   store i64 %retval.sroa.0.sroa.0.0.insert.ext.i.i, ptr %ba.i, align 8, !noalias !278
-  %32 = getelementptr inbounds i8, ptr %ba.i, i64 8
-  store i64 0, ptr %32, align 8, !noalias !278
+  %29 = getelementptr inbounds i8, ptr %ba.i, i64 8
+  store i64 0, ptr %29, align 8, !noalias !278
   call void @_ZN5folly11IPAddressV6C1ERKSt5arrayIhLm16EE(ptr noundef nonnull align 4 dereferenceable(18) %masked.i, ptr noundef nonnull align 1 dereferenceable(16) %ba.i) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ba.i) #32, !noalias !278
   %rhsv = load i16, ptr %masked.i, align 4

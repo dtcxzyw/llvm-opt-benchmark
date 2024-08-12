@@ -40209,9 +40209,9 @@ invoke.cont67:                                    ; preds = %if.end57
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %invoke.cont67
+  %36 = load i32, ptr %call73, align 4, !tbaa !382
   %Height.i = getelementptr inbounds i8, ptr %call73, i64 4
-  %36 = load i32, ptr %Height.i, align 4, !tbaa !384
-  %37 = load <2 x i32>, ptr %call73, align 4, !tbaa !497
+  %37 = load i32, ptr %Height.i, align 4, !tbaa !384
   %38 = load ptr, ptr %m_game_ui, align 8, !tbaa !17
   %show_profiler_graph = getelementptr inbounds i8, ptr %38, i64 4
   %39 = load i8, ptr %show_profiler_graph, align 4, !tbaa !989, !range !154, !noundef !177
@@ -40230,7 +40230,7 @@ if.then79:                                        ; preds = %invoke.cont72
           to label %invoke.cont81 unwind label %lpad71
 
 invoke.cont81:                                    ; preds = %if.then79
-  %sub = add i32 %36, -10
+  %sub = add i32 %37, -10
   invoke void @_ZNK13ProfilerGraph4drawEiiPN3irr5video12IVideoDriverEPNS0_3gui8IGUIFontE(ptr noundef nonnull align 8 dereferenceable(84) %graph, i32 noundef 10, i32 noundef %sub, ptr noundef %40, ptr noundef %call.i156)
           to label %if.end84 unwind label %lpad71
 
@@ -40255,7 +40255,9 @@ invoke.cont97:                                    ; preds = %if.end84
   %Y.i.i = getelementptr inbounds i8, ptr %ref.tmp94, i64 4
   store i32 0, ptr %Y.i.i, align 4, !tbaa !1279
   %LowerRightCorner.i = getelementptr inbounds i8, ptr %ref.tmp94, i64 8
-  store <2 x i32> %37, ptr %LowerRightCorner.i, align 4, !tbaa !497
+  store i32 %36, ptr %LowerRightCorner.i, align 4, !tbaa !1278
+  %Y.i2.i = getelementptr inbounds i8, ptr %ref.tmp94, i64 12
+  store i32 %37, ptr %Y.i2.i, align 4, !tbaa !1279
   %vtable99 = load ptr, ptr %47, align 8, !tbaa !15
   %vfn100 = getelementptr inbounds i8, ptr %vtable99, i64 408
   %48 = load ptr, ptr %vfn100, align 8

@@ -125,14 +125,17 @@ define hidden void @_ZN13grep_searcher11line_buffer17LineBufferBuilder3new17hd39
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN13grep_searcher11line_buffer17LineBufferBuilder5build17hedde0cfe37f466e8E(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, i64, { i8, [1 x i8] }, i8, [5 x i8] }, { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, i64, i64, i64 }) align 8 dereferenceable(104) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.2.0..sroa_idx1 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load <2 x i64>, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17ha43889fc6207b940E"(i64 noundef %.sroa.2.0.copyload, i1 noundef zeroext true), !noalias !19
   %5 = extractvalue { i64, ptr } %4, 1
   %.sink1.i = extractvalue { i64, ptr } %4, 0
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  store <2 x i64> %3, ptr %.sroa.2.0..sroa_idx1, align 8
+  %.sroa.2.0..sroa_idx1 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx1, align 8
+  %.sroa.3.0..sroa_idx3 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %3, ptr %.sroa.3.0..sroa_idx3, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %.sink1.i, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56

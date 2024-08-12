@@ -2481,157 +2481,159 @@ define internal void @"_ZNSt17_Function_handlerIFvPKvRKSt8functionIFvPKN3dap8Typ
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = alloca %"struct.dap::ResponseOrError", align 16
-  %9 = alloca %"struct.dap::SetExceptionBreakpointsResponse", align 16
+  %8 = alloca %"struct.dap::ResponseOrError", align 8
+  %9 = alloca %"struct.dap::SetExceptionBreakpointsResponse", align 8
   %.val = load ptr, ptr %0, align 8
   %.val4 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @_ZN10cmDebugger26cmDebuggerExceptionManager36HandleSetExceptionBreakpointsRequestERKN3dap30SetExceptionBreakpointsRequestE(ptr dead_on_unwind nonnull writable sret(%"struct.dap::SetExceptionBreakpointsResponse") align 8 %9, ptr noundef nonnull align 8 dereferenceable(232) %.val, ptr noundef nonnull readonly align 8 dereferenceable(88) %.val4)
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = load <2 x ptr>, ptr %9, align 16
-  store <2 x ptr> %12, ptr %8, align 16
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
-  %15 = load ptr, ptr %14, align 16
-  store ptr %15, ptr %13, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %16 = getelementptr inbounds i8, ptr %8, i64 24
-  %17 = getelementptr inbounds i8, ptr %9, i64 24
-  %18 = load i8, ptr %17, align 8
-  %19 = and i8 %18, 1
-  store i8 %19, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #14
-  %21 = load ptr, ptr %9, align 16
-  %22 = load ptr, ptr %11, align 8
-  %.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %21, %22
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %14, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  %17 = getelementptr inbounds i8, ptr %8, i64 24
+  %18 = getelementptr inbounds i8, ptr %9, i64 24
+  %19 = load i8, ptr %18, align 8
+  %20 = and i8 %19, 1
+  store i8 %20, ptr %17, align 8
+  %21 = getelementptr inbounds i8, ptr %8, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #14
+  %22 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %12, align 8
+  %.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %22, %23
   br i1 %.not4.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %4, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %21, %4 ]
-  %23 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 176
-  call void @_ZN3dap6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %23) #14
-  %24 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 120
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #14
-  %25 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 64
+  %.05.i.i.i.i.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %22, %4 ]
+  %24 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 176
+  call void @_ZN3dap6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %24) #14
+  %25 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #14
-  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 496
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %26, %22
+  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #14
+  %27 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 496
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %27, %23
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.pr.i.i.i.i.i.i = load ptr, ptr %9, align 16
+  %.pr.i.i.i.i.i.i = load ptr, ptr %9, align 8
   br label %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i, %4
-  %27 = phi ptr [ %.pr.i.i.i.i.i.i, %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i ], [ %21, %4 ]
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN3dap31SetExceptionBreakpointsResponseD2Ev.exit.i.i.i, label %28
+  %28 = phi ptr [ %.pr.i.i.i.i.i.i, %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i ], [ %22, %4 ]
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN3dap31SetExceptionBreakpointsResponseD2Ev.exit.i.i.i, label %29
 
-28:                                               ; preds = %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %27) #15
+29:                                               ; preds = %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %28) #15
   br label %_ZN3dap31SetExceptionBreakpointsResponseD2Ev.exit.i.i.i
 
-_ZN3dap31SetExceptionBreakpointsResponseD2Ev.exit.i.i.i: ; preds = %28, %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
-  %29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #14
-  %.not.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i, label %40, label %30
+_ZN3dap31SetExceptionBreakpointsResponseD2Ev.exit.i.i.i: ; preds = %29, %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
+  %30 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #14
+  %.not.i.i.i = icmp eq i64 %30, 0
+  br i1 %.not.i.i.i, label %41, label %31
 
-30:                                               ; preds = %_ZN3dap31SetExceptionBreakpointsResponseD2Ev.exit.i.i.i
-  %31 = invoke noundef ptr @_ZN3dap6TypeOfINS_31SetExceptionBreakpointsResponseEE4typeEv()
-          to label %32 unwind label %38
+31:                                               ; preds = %_ZN3dap31SetExceptionBreakpointsResponseD2Ev.exit.i.i.i
+  %32 = invoke noundef ptr @_ZN3dap6TypeOfINS_31SetExceptionBreakpointsResponseEE4typeEv()
+          to label %33 unwind label %39
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store ptr %31, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i.i, label %.invoke.i.i.i, label %35
+  store ptr %32, ptr %7, align 8
+  %34 = getelementptr inbounds i8, ptr %3, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i.i, label %.invoke.i.i.i, label %36
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %3, i64 24
-  %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %_ZNKSt8functionIFvPKN3dap8TypeInfoERKNS0_5ErrorEEEclES3_S6_.exit.i.i.i unwind label %38
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds i8, ptr %3, i64 24
+  %38 = load ptr, ptr %37, align 8
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %21)
+          to label %_ZNKSt8functionIFvPKN3dap8TypeInfoERKNS0_5ErrorEEEclES3_S6_.exit.i.i.i unwind label %39
 
-_ZNKSt8functionIFvPKN3dap8TypeInfoERKNS0_5ErrorEEEclES3_S6_.exit.i.i.i: ; preds = %35
+_ZNKSt8functionIFvPKN3dap8TypeInfoERKNS0_5ErrorEEEclES3_S6_.exit.i.i.i: ; preds = %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %48
+  br label %49
 
-38:                                               ; preds = %45, %.invoke.i.i.i, %40, %35, %30
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %46, %.invoke.i.i.i, %41, %36, %31
+  %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3dap15ResponseOrErrorINS_31SetExceptionBreakpointsResponseEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #14
-  resume { ptr, i32 } %39
+  resume { ptr, i32 } %40
 
-40:                                               ; preds = %_ZN3dap31SetExceptionBreakpointsResponseD2Ev.exit.i.i.i
-  %41 = invoke noundef ptr @_ZN3dap6TypeOfINS_31SetExceptionBreakpointsResponseEE4typeEv()
-          to label %42 unwind label %38
+41:                                               ; preds = %_ZN3dap31SetExceptionBreakpointsResponseD2Ev.exit.i.i.i
+  %42 = invoke noundef ptr @_ZN3dap6TypeOfINS_31SetExceptionBreakpointsResponseEE4typeEv()
+          to label %43 unwind label %39
 
-42:                                               ; preds = %40
+43:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr %41, ptr %5, align 8
+  store ptr %42, ptr %5, align 8
   store ptr %8, ptr %6, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %.not.i.i8.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i8.i.i.i, label %.invoke.i.i.i, label %45
+  %44 = getelementptr inbounds i8, ptr %2, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %.not.i.i8.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i8.i.i.i, label %.invoke.i.i.i, label %46
 
-.invoke.i.i.i:                                    ; preds = %42, %32
+.invoke.i.i.i:                                    ; preds = %43, %33
   invoke void @_ZSt25__throw_bad_function_callv() #16
-          to label %.cont.i.i.i unwind label %38
+          to label %.cont.i.i.i unwind label %39
 
 .cont.i.i.i:                                      ; preds = %.invoke.i.i.i
   unreachable
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %2, i64 24
-  %47 = load ptr, ptr %46, align 8
-  invoke void %47(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %_ZNKSt8functionIFvPKN3dap8TypeInfoEPKvEEclES3_S5_.exit.i.i.i unwind label %38
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %48 = load ptr, ptr %47, align 8
+  invoke void %48(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %_ZNKSt8functionIFvPKN3dap8TypeInfoEPKvEEclES3_S5_.exit.i.i.i unwind label %39
 
-_ZNKSt8functionIFvPKN3dap8TypeInfoEPKvEEclES3_S5_.exit.i.i.i: ; preds = %45
+_ZNKSt8functionIFvPKN3dap8TypeInfoEPKvEEclES3_S5_.exit.i.i.i: ; preds = %46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %48
+  br label %49
 
-48:                                               ; preds = %_ZNKSt8functionIFvPKN3dap8TypeInfoEPKvEEclES3_S5_.exit.i.i.i, %_ZNKSt8functionIFvPKN3dap8TypeInfoERKNS0_5ErrorEEEclES3_S6_.exit.i.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #14
-  %49 = load ptr, ptr %8, align 16
-  %50 = load ptr, ptr %10, align 8
-  %.not4.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %49, %50
+49:                                               ; preds = %_ZNKSt8functionIFvPKN3dap8TypeInfoEPKvEEclES3_S5_.exit.i.i.i, %_ZNKSt8functionIFvPKN3dap8TypeInfoERKNS0_5ErrorEEEclES3_S6_.exit.i.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #14
+  %50 = load ptr, ptr %8, align 8
+  %51 = load ptr, ptr %11, align 8
+  %.not4.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %50, %51
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %48, %.lr.ph.i.i.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %49, %48 ]
-  %51 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 176
-  call void @_ZN3dap6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %51) #14
-  %52 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 120
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #14
-  %53 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 64
+.lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %49, %.lr.ph.i.i.i.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %50, %49 ]
+  %52 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 176
+  call void @_ZN3dap6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %52) #14
+  %53 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #14
-  %54 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 496
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %54, %50
+  %54 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #14
+  %55 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 496
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %55, %51
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
-  %.pr.i.i.i.i.i.i.i = load ptr, ptr %8, align 16
+  %.pr.i.i.i.i.i.i.i = load ptr, ptr %8, align 8
   br label %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i
 
-_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i, %48
-  %55 = phi ptr [ %.pr.i.i.i.i.i.i.i, %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i ], [ %49, %48 ]
-  %.not.i.i.i.i.i.i11.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i.i.i.i.i11.i.i.i, label %"_ZSt10__invoke_rIvRZN3dap7Session15registerHandlerIZN10cmDebugger26cmDebuggerExceptionManagerC1EPS1_E3$_0NS0_30SetExceptionBreakpointsRequestEEENSt9enable_ifIXsr6traits14CompatibleWithIT_St8functionIFvNS0_7RequestEEEEE5valueEvE4typeEOS9_EUlPKvRKSA_IFvPKNS0_8TypeInfoESI_EERKSA_IFvSL_RKNS0_5ErrorEEEE_JSI_SP_SW_EENS8_IX16is_invocable_r_vIS9_T0_DpT1_EES9_E4typeEOSZ_DpOS10_.exit", label %56
+_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i, %49
+  %56 = phi ptr [ %.pr.i.i.i.i.i.i.i, %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i ], [ %50, %49 ]
+  %.not.i.i.i.i.i.i11.i.i.i = icmp eq ptr %56, null
+  br i1 %.not.i.i.i.i.i.i11.i.i.i, label %"_ZSt10__invoke_rIvRZN3dap7Session15registerHandlerIZN10cmDebugger26cmDebuggerExceptionManagerC1EPS1_E3$_0NS0_30SetExceptionBreakpointsRequestEEENSt9enable_ifIXsr6traits14CompatibleWithIT_St8functionIFvNS0_7RequestEEEEE5valueEvE4typeEOS9_EUlPKvRKSA_IFvPKNS0_8TypeInfoESI_EERKSA_IFvSL_RKNS0_5ErrorEEEE_JSI_SP_SW_EENS8_IX16is_invocable_r_vIS9_T0_DpT1_EES9_E4typeEOSZ_DpOS10_.exit", label %57
 
-56:                                               ; preds = %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %55) #15
+57:                                               ; preds = %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %56) #15
   br label %"_ZSt10__invoke_rIvRZN3dap7Session15registerHandlerIZN10cmDebugger26cmDebuggerExceptionManagerC1EPS1_E3$_0NS0_30SetExceptionBreakpointsRequestEEENSt9enable_ifIXsr6traits14CompatibleWithIT_St8functionIFvNS0_7RequestEEEEE5valueEvE4typeEOS9_EUlPKvRKSA_IFvPKNS0_8TypeInfoESI_EERKSA_IFvSL_RKNS0_5ErrorEEEE_JSI_SP_SW_EENS8_IX16is_invocable_r_vIS9_T0_DpT1_EES9_E4typeEOSZ_DpOS10_.exit"
 
-"_ZSt10__invoke_rIvRZN3dap7Session15registerHandlerIZN10cmDebugger26cmDebuggerExceptionManagerC1EPS1_E3$_0NS0_30SetExceptionBreakpointsRequestEEENSt9enable_ifIXsr6traits14CompatibleWithIT_St8functionIFvNS0_7RequestEEEEE5valueEvE4typeEOS9_EUlPKvRKSA_IFvPKNS0_8TypeInfoESI_EERKSA_IFvSL_RKNS0_5ErrorEEEE_JSI_SP_SW_EENS8_IX16is_invocable_r_vIS9_T0_DpT1_EES9_E4typeEOSZ_DpOS10_.exit": ; preds = %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i, %56
+"_ZSt10__invoke_rIvRZN3dap7Session15registerHandlerIZN10cmDebugger26cmDebuggerExceptionManagerC1EPS1_E3$_0NS0_30SetExceptionBreakpointsRequestEEENSt9enable_ifIXsr6traits14CompatibleWithIT_St8functionIFvNS0_7RequestEEEEE5valueEvE4typeEOS9_EUlPKvRKSA_IFvPKNS0_8TypeInfoESI_EERKSA_IFvSL_RKNS0_5ErrorEEEE_JSI_SP_SW_EENS8_IX16is_invocable_r_vIS9_T0_DpT1_EES9_E4typeEOSZ_DpOS10_.exit": ; preds = %_ZSt8_DestroyIPN3dap10BreakpointES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i, %57
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   ret void

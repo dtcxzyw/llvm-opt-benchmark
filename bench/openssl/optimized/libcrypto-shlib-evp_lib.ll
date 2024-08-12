@@ -1666,13 +1666,17 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load <2 x i32>, ptr %md, align 8
+  %1 = load i32, ptr %md, align 8
+  %pkey_type = getelementptr inbounds i8, ptr %md, i64 4
+  %2 = load i32, ptr %pkey_type, align 4
   %call.i = tail call ptr @evp_md_new() #13
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  store <2 x i32> %1, ptr %call.i, align 8
+  store i32 %1, ptr %call.i, align 8
+  %pkey_type1.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  store i32 %2, ptr %pkey_type1.i, align 4
   %origin.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 2, ptr %origin.i, align 8
   %refcnt3 = getelementptr inbounds i8, ptr %call.i, i64 120

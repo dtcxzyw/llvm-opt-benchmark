@@ -15,15 +15,21 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZN24ZBarrierSetAssemblerBase25load_bad_mask_from_threadE8Register(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 %0, i32 %1) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
-  store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 48>, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 0, ptr %7, align 8
+  store i32 -1, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 48, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  store i8 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 0, ptr %10, align 8
   ret void
 }
 
@@ -31,15 +37,21 @@ define hidden void @_ZN24ZBarrierSetAssemblerBase25load_bad_mask_from_threadE8Re
 define hidden void @_ZN24ZBarrierSetAssemblerBase25mark_bad_mask_from_threadE8Register(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 %0, i32 %1) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
-  store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 56>, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 0, ptr %7, align 8
+  store i32 -1, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 56, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  store i8 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 0, ptr %10, align 8
   ret void
 }
 
@@ -47,15 +59,21 @@ define hidden void @_ZN24ZBarrierSetAssemblerBase25mark_bad_mask_from_threadE8Re
 define hidden void @_ZN24ZBarrierSetAssemblerBase26load_bad_mask_from_jni_envE8Register(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 %0, i32 %1) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
-  store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 -912>, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 0, ptr %7, align 8
+  store i32 -1, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -912, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  store i8 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 0, ptr %10, align 8
   ret void
 }
 
@@ -63,15 +81,21 @@ define hidden void @_ZN24ZBarrierSetAssemblerBase26load_bad_mask_from_jni_envE8R
 define hidden void @_ZN24ZBarrierSetAssemblerBase26mark_bad_mask_from_jni_envE8Register(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 %0, i32 %1) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
-  store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 -904>, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 0, ptr %7, align 8
+  store i32 -1, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -904, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  store i8 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 0, ptr %10, align 8
   ret void
 }
 

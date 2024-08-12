@@ -55,43 +55,71 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %error_handler_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 8
-  %3 = load <2 x ptr>, ptr %error_handler_fn.i, align 8, !noalias !4
-  store <2 x ptr> %3, ptr %0, align 8, !alias.scope !4
+  %3 = load ptr, ptr %error_handler_fn.i, align 8, !noalias !4
+  store ptr %3, ptr %0, align 8, !alias.scope !4
+  %alloc_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 16
+  %4 = load ptr, ptr %alloc_fn.i, align 8, !noalias !4
+  %alloc_fn2.i = getelementptr inbounds i8, ptr %inits, i64 16
+  store ptr %4, ptr %alloc_fn2.i, align 8, !alias.scope !4
   %free_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 24
+  %5 = load ptr, ptr %free_fn.i, align 8, !noalias !4
   %free_fn3.i = getelementptr inbounds i8, ptr %inits, i64 24
-  %4 = load <2 x ptr>, ptr %free_fn.i, align 8, !noalias !4
-  store <2 x ptr> %4, ptr %free_fn3.i, align 8, !alias.scope !4
+  store ptr %5, ptr %free_fn3.i, align 8, !alias.scope !4
+  %user_data.i = getelementptr inbounds i8, ptr %ctxtdata, i64 32
+  %6 = load ptr, ptr %user_data.i, align 8, !noalias !4
+  %user_data4.i = getelementptr inbounds i8, ptr %inits, i64 32
+  store ptr %6, ptr %user_data4.i, align 8, !alias.scope !4
   %read_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 40
+  %7 = load ptr, ptr %read_fn.i, align 8, !noalias !4
   %read_fn5.i = getelementptr inbounds i8, ptr %inits, i64 40
-  %5 = load <2 x ptr>, ptr %read_fn.i, align 8, !noalias !4
-  store <2 x ptr> %5, ptr %read_fn5.i, align 8, !alias.scope !4
+  store ptr %7, ptr %read_fn5.i, align 8, !alias.scope !4
+  %size_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 48
+  %8 = load ptr, ptr %size_fn.i, align 8, !noalias !4
+  %size_fn6.i = getelementptr inbounds i8, ptr %inits, i64 48
+  store ptr %8, ptr %size_fn6.i, align 8, !alias.scope !4
   %write_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 56
+  %9 = load ptr, ptr %write_fn.i, align 8, !noalias !4
   %write_fn7.i = getelementptr inbounds i8, ptr %inits, i64 56
-  %6 = load <2 x ptr>, ptr %write_fn.i, align 8, !noalias !4
-  store <2 x ptr> %6, ptr %write_fn7.i, align 8, !alias.scope !4
+  store ptr %9, ptr %write_fn7.i, align 8, !alias.scope !4
+  %destroy_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 64
+  %10 = load ptr, ptr %destroy_fn.i, align 8, !noalias !4
+  %destroy_fn8.i = getelementptr inbounds i8, ptr %inits, i64 64
+  store ptr %10, ptr %destroy_fn8.i, align 8, !alias.scope !4
   %max_image_width.i = getelementptr inbounds i8, ptr %ctxtdata, i64 72
+  %11 = load i32, ptr %max_image_width.i, align 8, !noalias !4
   %max_image_width9.i = getelementptr inbounds i8, ptr %inits, i64 72
-  %7 = load <4 x i32>, ptr %max_image_width.i, align 8, !noalias !4
-  store <4 x i32> %7, ptr %max_image_width9.i, align 8, !alias.scope !4
-  %8 = load i64, ptr %ctxtdata, align 8, !noalias !4
-  %cmp.i = icmp ugt i64 %8, 95
+  store i32 %11, ptr %max_image_width9.i, align 8, !alias.scope !4
+  %max_image_height.i = getelementptr inbounds i8, ptr %ctxtdata, i64 76
+  %12 = load i32, ptr %max_image_height.i, align 4, !noalias !4
+  %max_image_height10.i = getelementptr inbounds i8, ptr %inits, i64 76
+  store i32 %12, ptr %max_image_height10.i, align 4, !alias.scope !4
+  %max_tile_width.i = getelementptr inbounds i8, ptr %ctxtdata, i64 80
+  %13 = load i32, ptr %max_tile_width.i, align 8, !noalias !4
+  %max_tile_width11.i = getelementptr inbounds i8, ptr %inits, i64 80
+  store i32 %13, ptr %max_tile_width11.i, align 8, !alias.scope !4
+  %max_tile_height.i = getelementptr inbounds i8, ptr %ctxtdata, i64 84
+  %14 = load i32, ptr %max_tile_height.i, align 4, !noalias !4
+  %max_tile_height12.i = getelementptr inbounds i8, ptr %inits, i64 84
+  store i32 %14, ptr %max_tile_height12.i, align 4, !alias.scope !4
+  %15 = load i64, ptr %ctxtdata, align 8, !noalias !4
+  %cmp.i = icmp ugt i64 %15, 95
   br i1 %cmp.i, label %if.end.i, label %fill_context_data.exit
 
 if.end.i:                                         ; preds = %if.then.i
   %zip_level.i = getelementptr inbounds i8, ptr %ctxtdata, i64 88
-  %9 = load i32, ptr %zip_level.i, align 8, !noalias !4
-  store i32 %9, ptr %1, align 8, !alias.scope !4
+  %16 = load i32, ptr %zip_level.i, align 8, !noalias !4
+  store i32 %16, ptr %1, align 8, !alias.scope !4
   %dwa_quality.i = getelementptr inbounds i8, ptr %ctxtdata, i64 92
-  %10 = load float, ptr %dwa_quality.i, align 4, !noalias !4
-  store float %10, ptr %2, align 4, !alias.scope !4
-  %cmp17.i = icmp ugt i64 %8, 103
+  %17 = load float, ptr %dwa_quality.i, align 4, !noalias !4
+  store float %17, ptr %2, align 4, !alias.scope !4
+  %cmp17.i = icmp ugt i64 %15, 103
   br i1 %cmp17.i, label %if.then18.i, label %fill_context_data.exit
 
 if.then18.i:                                      ; preds = %if.end.i
   %flags.i = getelementptr inbounds i8, ptr %ctxtdata, i64 96
-  %11 = load i32, ptr %flags.i, align 8, !noalias !4
+  %18 = load i32, ptr %flags.i, align 8, !noalias !4
   %flags19.i = getelementptr inbounds i8, ptr %inits, i64 96
-  store i32 %11, ptr %flags19.i, align 8, !alias.scope !4
+  store i32 %18, ptr %flags19.i, align 8, !alias.scope !4
   br label %fill_context_data.exit
 
 fill_context_data.exit:                           ; preds = %entry, %if.then.i, %if.end.i, %if.then18.i
@@ -100,8 +128,8 @@ fill_context_data.exit:                           ; preds = %entry, %if.then.i, 
   br i1 %tobool.not, label %if.else26, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %fill_context_data.exit
-  %12 = load i8, ptr %filename, align 1
-  %cmp.not = icmp eq i8 %12, 0
+  %19 = load i8, ptr %filename, align 1
+  %cmp.not = icmp eq i8 %19, 0
   br i1 %cmp.not, label %if.else26, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -110,71 +138,71 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp2, label %if.then4, label %if.end27
 
 if.then4:                                         ; preds = %if.then
-  %13 = load ptr, ptr %ret, align 8
-  %do_read = getelementptr inbounds i8, ptr %13, i64 40
+  %20 = load ptr, ptr %ret, align 8
+  %do_read = getelementptr inbounds i8, ptr %20, i64 40
   store ptr @dispatch_read, ptr %do_read, align 8
-  %filename5 = getelementptr inbounds i8, ptr %13, i64 8
-  %call6 = call i32 @exr_attr_string_create(ptr noundef %13, ptr noundef nonnull %filename5, ptr noundef nonnull %filename) #13
+  %filename5 = getelementptr inbounds i8, ptr %20, i64 8
+  %call6 = call i32 @exr_attr_string_create(ptr noundef %20, ptr noundef nonnull %filename5, ptr noundef nonnull %filename) #13
   %cmp7 = icmp eq i32 %call6, 0
   br i1 %cmp7, label %if.then9, label %if.end23
 
 if.then9:                                         ; preds = %if.then4
   %read_fn = getelementptr inbounds i8, ptr %inits, i64 40
-  %14 = load ptr, ptr %read_fn, align 8
-  %tobool10.not = icmp eq ptr %14, null
+  %21 = load ptr, ptr %read_fn, align 8
+  %tobool10.not = icmp eq ptr %21, null
   br i1 %tobool10.not, label %if.then11, label %if.then15
 
 if.then11:                                        ; preds = %if.then9
   %size_fn = getelementptr inbounds i8, ptr %inits, i64 48
   store ptr @default_query_size_func, ptr %size_fn, align 8
-  %15 = load ptr, ptr %ret, align 8
-  %user_data.i7 = getelementptr inbounds i8, ptr %15, i64 136
-  %16 = load ptr, ptr %user_data.i7, align 8
-  store i32 -1, ptr %16, align 4
-  %destroy_fn.i8 = getelementptr inbounds i8, ptr %15, i64 144
+  %22 = load ptr, ptr %ret, align 8
+  %user_data.i7 = getelementptr inbounds i8, ptr %22, i64 136
+  %23 = load ptr, ptr %user_data.i7, align 8
+  store i32 -1, ptr %23, align 4
+  %destroy_fn.i8 = getelementptr inbounds i8, ptr %22, i64 144
   store ptr @default_shutdown, ptr %destroy_fn.i8, align 8
-  %read_fn.i9 = getelementptr inbounds i8, ptr %15, i64 160
+  %read_fn.i9 = getelementptr inbounds i8, ptr %22, i64 160
   store ptr @default_read_func, ptr %read_fn.i9, align 8
-  %str.i = getelementptr inbounds i8, ptr %15, i64 16
-  %17 = load ptr, ptr %str.i, align 8
-  %call.i = call i32 (ptr, i32, ...) @open(ptr noundef %17, i32 noundef 524288) #13
+  %str.i = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = load ptr, ptr %str.i, align 8
+  %call.i = call i32 (ptr, i32, ...) @open(ptr noundef %24, i32 noundef 524288) #13
   %cmp.i10 = icmp slt i32 %call.i, 0
   br i1 %cmp.i10, label %if.end, label %if.end.i11
 
 if.end.i11:                                       ; preds = %if.then11
-  store i32 %call.i, ptr %16, align 4
+  store i32 %call.i, ptr %23, align 4
   br label %if.then15
 
 if.end:                                           ; preds = %if.then11
-  %print_error.i = getelementptr inbounds i8, ptr %15, i64 72
-  %18 = load ptr, ptr %print_error.i, align 8
+  %print_error.i = getelementptr inbounds i8, ptr %22, i64 72
+  %25 = load ptr, ptr %print_error.i, align 8
   %call2.i = tail call ptr @__errno_location() #14
-  %19 = load i32, ptr %call2.i, align 4
-  %call3.i = call ptr @strerror(i32 noundef %19) #13
-  %call4.i = call i32 (ptr, i32, ptr, ...) %18(ptr noundef nonnull %15, i32 noundef 5, ptr noundef nonnull @.str.15, ptr noundef %call3.i) #13
+  %26 = load i32, ptr %call2.i, align 4
+  %call3.i = call ptr @strerror(i32 noundef %26) #13
+  %call4.i = call i32 (ptr, i32, ptr, ...) %25(ptr noundef nonnull %22, i32 noundef 5, ptr noundef nonnull @.str.15, ptr noundef %call3.i) #13
   %cmp13 = icmp eq i32 %call4.i, 0
   br i1 %cmp13, label %if.then15, label %if.end23
 
 if.then15:                                        ; preds = %if.end.i11, %if.then9, %if.end
-  %20 = load ptr, ptr %ret, align 8
-  %21 = getelementptr inbounds i8, ptr %inits, i64 48
-  %inits.val = load ptr, ptr %21, align 8
+  %27 = load ptr, ptr %ret, align 8
+  %28 = getelementptr inbounds i8, ptr %inits, i64 48
+  %inits.val = load ptr, ptr %28, align 8
   %tobool.not.i13 = icmp eq ptr %inits.val, null
   br i1 %tobool.not.i13, label %if.then20, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.then15
-  %user_data.i15 = getelementptr inbounds i8, ptr %20, i64 136
-  %22 = load ptr, ptr %user_data.i15, align 8
-  %call.i16 = call i64 %inits.val(ptr noundef %20, ptr noundef %22) #13
+  %user_data.i15 = getelementptr inbounds i8, ptr %27, i64 136
+  %29 = load ptr, ptr %user_data.i15, align 8
+  %call.i16 = call i64 %inits.val(ptr noundef %27, ptr noundef %29) #13
   %.pre = load ptr, ptr %ret, align 8
   br label %if.then20
 
 if.then20:                                        ; preds = %if.then.i14, %if.then15
-  %23 = phi ptr [ %.pre, %if.then.i14 ], [ %20, %if.then15 ]
+  %30 = phi ptr [ %.pre, %if.then.i14 ], [ %27, %if.then15 ]
   %call.sink.i = phi i64 [ %call.i16, %if.then.i14 ], [ -1, %if.then15 ]
-  %24 = getelementptr inbounds i8, ptr %20, i64 152
-  store i64 %call.sink.i, ptr %24, align 8
-  %call21 = call i32 @internal_exr_check_magic(ptr noundef %23) #13
+  %31 = getelementptr inbounds i8, ptr %27, i64 152
+  store i64 %call.sink.i, ptr %31, align 8
+  %call21 = call i32 @internal_exr_check_magic(ptr noundef %30) #13
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end, %if.then20, %if.then4
@@ -183,8 +211,8 @@ if.end23:                                         ; preds = %if.end, %if.then20,
   br label %if.end27
 
 if.else26:                                        ; preds = %land.lhs.true, %fill_context_data.exit
-  %25 = load ptr, ptr %0, align 8
-  call void %25(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str) #13
+  %32 = load ptr, ptr %0, align 8
+  call void %32(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str) #13
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then, %if.end23, %if.else26
@@ -444,43 +472,71 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %error_handler_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 8
-  %3 = load <2 x ptr>, ptr %error_handler_fn.i, align 8, !noalias !7
-  store <2 x ptr> %3, ptr %0, align 8, !alias.scope !7
+  %3 = load ptr, ptr %error_handler_fn.i, align 8, !noalias !7
+  store ptr %3, ptr %0, align 8, !alias.scope !7
+  %alloc_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 16
+  %4 = load ptr, ptr %alloc_fn.i, align 8, !noalias !7
+  %alloc_fn2.i = getelementptr inbounds i8, ptr %inits, i64 16
+  store ptr %4, ptr %alloc_fn2.i, align 8, !alias.scope !7
   %free_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 24
+  %5 = load ptr, ptr %free_fn.i, align 8, !noalias !7
   %free_fn3.i = getelementptr inbounds i8, ptr %inits, i64 24
-  %4 = load <2 x ptr>, ptr %free_fn.i, align 8, !noalias !7
-  store <2 x ptr> %4, ptr %free_fn3.i, align 8, !alias.scope !7
+  store ptr %5, ptr %free_fn3.i, align 8, !alias.scope !7
+  %user_data.i = getelementptr inbounds i8, ptr %ctxtdata, i64 32
+  %6 = load ptr, ptr %user_data.i, align 8, !noalias !7
+  %user_data4.i = getelementptr inbounds i8, ptr %inits, i64 32
+  store ptr %6, ptr %user_data4.i, align 8, !alias.scope !7
   %read_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 40
+  %7 = load ptr, ptr %read_fn.i, align 8, !noalias !7
   %read_fn5.i = getelementptr inbounds i8, ptr %inits, i64 40
-  %5 = load <2 x ptr>, ptr %read_fn.i, align 8, !noalias !7
-  store <2 x ptr> %5, ptr %read_fn5.i, align 8, !alias.scope !7
+  store ptr %7, ptr %read_fn5.i, align 8, !alias.scope !7
+  %size_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 48
+  %8 = load ptr, ptr %size_fn.i, align 8, !noalias !7
+  %size_fn6.i = getelementptr inbounds i8, ptr %inits, i64 48
+  store ptr %8, ptr %size_fn6.i, align 8, !alias.scope !7
   %write_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 56
+  %9 = load ptr, ptr %write_fn.i, align 8, !noalias !7
   %write_fn7.i = getelementptr inbounds i8, ptr %inits, i64 56
-  %6 = load <2 x ptr>, ptr %write_fn.i, align 8, !noalias !7
-  store <2 x ptr> %6, ptr %write_fn7.i, align 8, !alias.scope !7
+  store ptr %9, ptr %write_fn7.i, align 8, !alias.scope !7
+  %destroy_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 64
+  %10 = load ptr, ptr %destroy_fn.i, align 8, !noalias !7
+  %destroy_fn8.i = getelementptr inbounds i8, ptr %inits, i64 64
+  store ptr %10, ptr %destroy_fn8.i, align 8, !alias.scope !7
   %max_image_width.i = getelementptr inbounds i8, ptr %ctxtdata, i64 72
+  %11 = load i32, ptr %max_image_width.i, align 8, !noalias !7
   %max_image_width9.i = getelementptr inbounds i8, ptr %inits, i64 72
-  %7 = load <4 x i32>, ptr %max_image_width.i, align 8, !noalias !7
-  store <4 x i32> %7, ptr %max_image_width9.i, align 8, !alias.scope !7
-  %8 = load i64, ptr %ctxtdata, align 8, !noalias !7
-  %cmp.i = icmp ugt i64 %8, 95
+  store i32 %11, ptr %max_image_width9.i, align 8, !alias.scope !7
+  %max_image_height.i = getelementptr inbounds i8, ptr %ctxtdata, i64 76
+  %12 = load i32, ptr %max_image_height.i, align 4, !noalias !7
+  %max_image_height10.i = getelementptr inbounds i8, ptr %inits, i64 76
+  store i32 %12, ptr %max_image_height10.i, align 4, !alias.scope !7
+  %max_tile_width.i = getelementptr inbounds i8, ptr %ctxtdata, i64 80
+  %13 = load i32, ptr %max_tile_width.i, align 8, !noalias !7
+  %max_tile_width11.i = getelementptr inbounds i8, ptr %inits, i64 80
+  store i32 %13, ptr %max_tile_width11.i, align 8, !alias.scope !7
+  %max_tile_height.i = getelementptr inbounds i8, ptr %ctxtdata, i64 84
+  %14 = load i32, ptr %max_tile_height.i, align 4, !noalias !7
+  %max_tile_height12.i = getelementptr inbounds i8, ptr %inits, i64 84
+  store i32 %14, ptr %max_tile_height12.i, align 4, !alias.scope !7
+  %15 = load i64, ptr %ctxtdata, align 8, !noalias !7
+  %cmp.i = icmp ugt i64 %15, 95
   br i1 %cmp.i, label %if.end.i, label %fill_context_data.exit
 
 if.end.i:                                         ; preds = %if.then.i
   %zip_level.i = getelementptr inbounds i8, ptr %ctxtdata, i64 88
-  %9 = load i32, ptr %zip_level.i, align 8, !noalias !7
-  store i32 %9, ptr %1, align 8, !alias.scope !7
+  %16 = load i32, ptr %zip_level.i, align 8, !noalias !7
+  store i32 %16, ptr %1, align 8, !alias.scope !7
   %dwa_quality.i = getelementptr inbounds i8, ptr %ctxtdata, i64 92
-  %10 = load float, ptr %dwa_quality.i, align 4, !noalias !7
-  store float %10, ptr %2, align 4, !alias.scope !7
-  %cmp17.i = icmp ugt i64 %8, 103
+  %17 = load float, ptr %dwa_quality.i, align 4, !noalias !7
+  store float %17, ptr %2, align 4, !alias.scope !7
+  %cmp17.i = icmp ugt i64 %15, 103
   br i1 %cmp17.i, label %if.then18.i, label %fill_context_data.exit
 
 if.then18.i:                                      ; preds = %if.end.i
   %flags.i = getelementptr inbounds i8, ptr %ctxtdata, i64 96
-  %11 = load i32, ptr %flags.i, align 8, !noalias !7
+  %18 = load i32, ptr %flags.i, align 8, !noalias !7
   %flags19.i = getelementptr inbounds i8, ptr %inits, i64 96
-  store i32 %11, ptr %flags19.i, align 8, !alias.scope !7
+  store i32 %18, ptr %flags19.i, align 8, !alias.scope !7
   br label %fill_context_data.exit
 
 fill_context_data.exit:                           ; preds = %entry, %if.then.i, %if.end.i, %if.then18.i
@@ -490,14 +546,14 @@ fill_context_data.exit:                           ; preds = %entry, %if.then.i, 
 
 if.then:                                          ; preds = %fill_context_data.exit
   %flags = getelementptr inbounds i8, ptr %inits, i64 96
-  %12 = load i32, ptr %flags, align 8
-  %and = and i32 %12, 2
+  %19 = load i32, ptr %flags, align 8
+  %and = and i32 %19, 2
   %tobool1.not = icmp eq i32 %and, 0
   br i1 %tobool1.not, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.then
-  %13 = load ptr, ptr %0, align 8
-  call void %13(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.1) #13
+  %20 = load ptr, ptr %0, align 8
+  call void %20(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.1) #13
   br label %return
 
 if.end3:                                          ; preds = %fill_context_data.exit
@@ -505,8 +561,8 @@ if.end3:                                          ; preds = %fill_context_data.e
   br i1 %tobool4.not, label %if.else36, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %14 = load i8, ptr %filename, align 1
-  %cmp.not = icmp eq i8 %14, 0
+  %21 = load i8, ptr %filename, align 1
+  %cmp.not = icmp eq i8 %21, 0
   br i1 %cmp.not, label %if.else36, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
@@ -515,48 +571,48 @@ if.then6:                                         ; preds = %land.lhs.true
   br i1 %cmp7, label %if.then9, label %if.end43
 
 if.then9:                                         ; preds = %if.then6
-  %15 = load ptr, ptr %ret, align 8
-  %do_read = getelementptr inbounds i8, ptr %15, i64 40
+  %22 = load ptr, ptr %ret, align 8
+  %do_read = getelementptr inbounds i8, ptr %22, i64 40
   store ptr @dispatch_read, ptr %do_read, align 8
-  %filename10 = getelementptr inbounds i8, ptr %15, i64 8
-  %call11 = call i32 @exr_attr_string_create(ptr noundef %15, ptr noundef nonnull %filename10, ptr noundef nonnull %filename) #13
+  %filename10 = getelementptr inbounds i8, ptr %22, i64 8
+  %call11 = call i32 @exr_attr_string_create(ptr noundef %22, ptr noundef nonnull %filename10, ptr noundef nonnull %filename) #13
   %cmp12 = icmp eq i32 %call11, 0
   br i1 %cmp12, label %if.then14, label %if.then32
 
 if.then14:                                        ; preds = %if.then9
   %read_fn = getelementptr inbounds i8, ptr %inits, i64 40
-  %16 = load ptr, ptr %read_fn, align 8
-  %tobool15.not = icmp eq ptr %16, null
+  %23 = load ptr, ptr %read_fn, align 8
+  %tobool15.not = icmp eq ptr %23, null
   br i1 %tobool15.not, label %if.end18, label %if.then21
 
 if.end18:                                         ; preds = %if.then14
   %size_fn = getelementptr inbounds i8, ptr %inits, i64 48
   store ptr @default_query_size_func, ptr %size_fn, align 8
-  %17 = load ptr, ptr %ret, align 8
-  %call17 = call fastcc i32 @default_init_read_file(ptr noundef %17)
+  %24 = load ptr, ptr %ret, align 8
+  %call17 = call fastcc i32 @default_init_read_file(ptr noundef %24)
   %cmp19 = icmp eq i32 %call17, 0
   br i1 %cmp19, label %if.then21, label %if.then32
 
 if.then21:                                        ; preds = %if.then14, %if.end18
-  %18 = load ptr, ptr %ret, align 8
-  %19 = getelementptr inbounds i8, ptr %inits, i64 48
-  %inits.val = load ptr, ptr %19, align 8
+  %25 = load ptr, ptr %ret, align 8
+  %26 = getelementptr inbounds i8, ptr %inits, i64 48
+  %inits.val = load ptr, ptr %26, align 8
   %tobool.not.i9 = icmp eq ptr %inits.val, null
   br i1 %tobool.not.i9, label %if.end29, label %if.then.i10
 
 if.then.i10:                                      ; preds = %if.then21
-  %user_data.i11 = getelementptr inbounds i8, ptr %18, i64 136
-  %20 = load ptr, ptr %user_data.i11, align 8
-  %call.i = call i64 %inits.val(ptr noundef %18, ptr noundef %20) #13
+  %user_data.i11 = getelementptr inbounds i8, ptr %25, i64 136
+  %27 = load ptr, ptr %user_data.i11, align 8
+  %call.i = call i64 %inits.val(ptr noundef %25, ptr noundef %27) #13
   %.pre = load ptr, ptr %ret, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then21, %if.then.i10
-  %21 = phi ptr [ %.pre, %if.then.i10 ], [ %18, %if.then21 ]
+  %28 = phi ptr [ %.pre, %if.then.i10 ], [ %25, %if.then21 ]
   %call.sink.i = phi i64 [ %call.i, %if.then.i10 ], [ -1, %if.then21 ]
-  %22 = getelementptr inbounds i8, ptr %18, i64 152
-  store i64 %call.sink.i, ptr %22, align 8
-  %call27 = call i32 @internal_exr_parse_header(ptr noundef %21) #13
+  %29 = getelementptr inbounds i8, ptr %25, i64 152
+  store i64 %call.sink.i, ptr %29, align 8
+  %call27 = call i32 @internal_exr_parse_header(ptr noundef %28) #13
   %cmp30.not = icmp eq i32 %call27, 0
   br i1 %cmp30.not, label %if.end43, label %if.then32
 
@@ -567,20 +623,20 @@ if.then32:                                        ; preds = %if.end18, %if.then9
 
 if.else36:                                        ; preds = %land.lhs.true, %if.end3
   %flags37 = getelementptr inbounds i8, ptr %inits, i64 96
-  %23 = load i32, ptr %flags37, align 8
-  %and38 = and i32 %23, 2
+  %30 = load i32, ptr %flags37, align 8
+  %and38 = and i32 %30, 2
   %tobool39.not = icmp eq i32 %and38, 0
   br i1 %tobool39.not, label %if.then40, label %if.end43
 
 if.then40:                                        ; preds = %if.else36
-  %24 = load ptr, ptr %0, align 8
-  call void %24(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.2) #13
+  %31 = load ptr, ptr %0, align 8
+  call void %31(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.2) #13
   br label %if.end43
 
 if.end43:                                         ; preds = %if.else36, %if.then40, %if.then6, %if.then32, %if.end29
   %rv.3 = phi i32 [ %rv.019, %if.then32 ], [ 0, %if.end29 ], [ 1, %if.then6 ], [ 3, %if.then40 ], [ 3, %if.else36 ]
-  %25 = load ptr, ptr %ret, align 8
-  store ptr %25, ptr %ctxt, align 8
+  %32 = load ptr, ptr %ret, align 8
+  store ptr %32, ptr %ctxt, align 8
   br label %return
 
 return:                                           ; preds = %if.then, %if.then2, %if.end43
@@ -610,43 +666,71 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %error_handler_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 8
-  %3 = load <2 x ptr>, ptr %error_handler_fn.i, align 8, !noalias !10
-  store <2 x ptr> %3, ptr %0, align 8, !alias.scope !10
+  %3 = load ptr, ptr %error_handler_fn.i, align 8, !noalias !10
+  store ptr %3, ptr %0, align 8, !alias.scope !10
+  %alloc_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 16
+  %4 = load ptr, ptr %alloc_fn.i, align 8, !noalias !10
+  %alloc_fn2.i = getelementptr inbounds i8, ptr %inits, i64 16
+  store ptr %4, ptr %alloc_fn2.i, align 8, !alias.scope !10
   %free_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 24
+  %5 = load ptr, ptr %free_fn.i, align 8, !noalias !10
   %free_fn3.i = getelementptr inbounds i8, ptr %inits, i64 24
-  %4 = load <2 x ptr>, ptr %free_fn.i, align 8, !noalias !10
-  store <2 x ptr> %4, ptr %free_fn3.i, align 8, !alias.scope !10
+  store ptr %5, ptr %free_fn3.i, align 8, !alias.scope !10
+  %user_data.i = getelementptr inbounds i8, ptr %ctxtdata, i64 32
+  %6 = load ptr, ptr %user_data.i, align 8, !noalias !10
+  %user_data4.i = getelementptr inbounds i8, ptr %inits, i64 32
+  store ptr %6, ptr %user_data4.i, align 8, !alias.scope !10
   %read_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 40
+  %7 = load ptr, ptr %read_fn.i, align 8, !noalias !10
   %read_fn5.i = getelementptr inbounds i8, ptr %inits, i64 40
-  %5 = load <2 x ptr>, ptr %read_fn.i, align 8, !noalias !10
-  store <2 x ptr> %5, ptr %read_fn5.i, align 8, !alias.scope !10
+  store ptr %7, ptr %read_fn5.i, align 8, !alias.scope !10
+  %size_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 48
+  %8 = load ptr, ptr %size_fn.i, align 8, !noalias !10
+  %size_fn6.i = getelementptr inbounds i8, ptr %inits, i64 48
+  store ptr %8, ptr %size_fn6.i, align 8, !alias.scope !10
   %write_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 56
+  %9 = load ptr, ptr %write_fn.i, align 8, !noalias !10
   %write_fn7.i = getelementptr inbounds i8, ptr %inits, i64 56
-  %6 = load <2 x ptr>, ptr %write_fn.i, align 8, !noalias !10
-  store <2 x ptr> %6, ptr %write_fn7.i, align 8, !alias.scope !10
+  store ptr %9, ptr %write_fn7.i, align 8, !alias.scope !10
+  %destroy_fn.i = getelementptr inbounds i8, ptr %ctxtdata, i64 64
+  %10 = load ptr, ptr %destroy_fn.i, align 8, !noalias !10
+  %destroy_fn8.i = getelementptr inbounds i8, ptr %inits, i64 64
+  store ptr %10, ptr %destroy_fn8.i, align 8, !alias.scope !10
   %max_image_width.i = getelementptr inbounds i8, ptr %ctxtdata, i64 72
+  %11 = load i32, ptr %max_image_width.i, align 8, !noalias !10
   %max_image_width9.i = getelementptr inbounds i8, ptr %inits, i64 72
-  %7 = load <4 x i32>, ptr %max_image_width.i, align 8, !noalias !10
-  store <4 x i32> %7, ptr %max_image_width9.i, align 8, !alias.scope !10
-  %8 = load i64, ptr %ctxtdata, align 8, !noalias !10
-  %cmp.i = icmp ugt i64 %8, 95
+  store i32 %11, ptr %max_image_width9.i, align 8, !alias.scope !10
+  %max_image_height.i = getelementptr inbounds i8, ptr %ctxtdata, i64 76
+  %12 = load i32, ptr %max_image_height.i, align 4, !noalias !10
+  %max_image_height10.i = getelementptr inbounds i8, ptr %inits, i64 76
+  store i32 %12, ptr %max_image_height10.i, align 4, !alias.scope !10
+  %max_tile_width.i = getelementptr inbounds i8, ptr %ctxtdata, i64 80
+  %13 = load i32, ptr %max_tile_width.i, align 8, !noalias !10
+  %max_tile_width11.i = getelementptr inbounds i8, ptr %inits, i64 80
+  store i32 %13, ptr %max_tile_width11.i, align 8, !alias.scope !10
+  %max_tile_height.i = getelementptr inbounds i8, ptr %ctxtdata, i64 84
+  %14 = load i32, ptr %max_tile_height.i, align 4, !noalias !10
+  %max_tile_height12.i = getelementptr inbounds i8, ptr %inits, i64 84
+  store i32 %14, ptr %max_tile_height12.i, align 4, !alias.scope !10
+  %15 = load i64, ptr %ctxtdata, align 8, !noalias !10
+  %cmp.i = icmp ugt i64 %15, 95
   br i1 %cmp.i, label %if.end.i, label %fill_context_data.exit
 
 if.end.i:                                         ; preds = %if.then.i
   %zip_level.i = getelementptr inbounds i8, ptr %ctxtdata, i64 88
-  %9 = load i32, ptr %zip_level.i, align 8, !noalias !10
-  store i32 %9, ptr %1, align 8, !alias.scope !10
+  %16 = load i32, ptr %zip_level.i, align 8, !noalias !10
+  store i32 %16, ptr %1, align 8, !alias.scope !10
   %dwa_quality.i = getelementptr inbounds i8, ptr %ctxtdata, i64 92
-  %10 = load float, ptr %dwa_quality.i, align 4, !noalias !10
-  store float %10, ptr %2, align 4, !alias.scope !10
-  %cmp17.i = icmp ugt i64 %8, 103
+  %17 = load float, ptr %dwa_quality.i, align 4, !noalias !10
+  store float %17, ptr %2, align 4, !alias.scope !10
+  %cmp17.i = icmp ugt i64 %15, 103
   br i1 %cmp17.i, label %if.then18.i, label %fill_context_data.exit
 
 if.then18.i:                                      ; preds = %if.end.i
   %flags.i = getelementptr inbounds i8, ptr %ctxtdata, i64 96
-  %11 = load i32, ptr %flags.i, align 8, !noalias !10
+  %18 = load i32, ptr %flags.i, align 8, !noalias !10
   %flags19.i = getelementptr inbounds i8, ptr %inits, i64 96
-  store i32 %11, ptr %flags19.i, align 8, !alias.scope !10
+  store i32 %18, ptr %flags19.i, align 8, !alias.scope !10
   br label %fill_context_data.exit
 
 fill_context_data.exit:                           ; preds = %entry, %if.then.i, %if.end.i, %if.then18.i
@@ -655,8 +739,8 @@ fill_context_data.exit:                           ; preds = %entry, %if.then.i, 
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %fill_context_data.exit
-  %12 = load ptr, ptr %0, align 8
-  call void %12(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.1) #13
+  %19 = load ptr, ptr %0, align 8
+  call void %19(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.1) #13
   br label %return
 
 if.end:                                           ; preds = %fill_context_data.exit
@@ -664,8 +748,8 @@ if.end:                                           ; preds = %fill_context_data.e
   br i1 %tobool1.not, label %if.else32, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %13 = load i8, ptr %filename, align 1
-  %cmp.not = icmp eq i8 %13, 0
+  %20 = load i8, ptr %filename, align 1
+  %cmp.not = icmp eq i8 %20, 0
   br i1 %cmp.not, label %if.else32, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
@@ -674,15 +758,15 @@ if.then3:                                         ; preds = %land.lhs.true
   br i1 %cmp4, label %if.then6, label %if.end34
 
 if.then6:                                         ; preds = %if.then3
-  %14 = load ptr, ptr %ret, align 8
-  %do_write = getelementptr inbounds i8, ptr %14, i64 48
+  %21 = load ptr, ptr %ret, align 8
+  %do_write = getelementptr inbounds i8, ptr %21, i64 48
   store ptr @dispatch_write, ptr %do_write, align 8
-  %filename7 = getelementptr inbounds i8, ptr %14, i64 8
-  %call8 = call i32 @exr_attr_string_create(ptr noundef %14, ptr noundef nonnull %filename7, ptr noundef nonnull %filename) #13
+  %filename7 = getelementptr inbounds i8, ptr %21, i64 8
+  %call8 = call i32 @exr_attr_string_create(ptr noundef %21, ptr noundef nonnull %filename7, ptr noundef nonnull %filename) #13
   %cmp9 = icmp ne i32 %call8, 0
   %write_fn = getelementptr inbounds i8, ptr %inits, i64 56
-  %15 = load ptr, ptr %write_fn, align 8
-  %tobool12 = icmp ne ptr %15, null
+  %22 = load ptr, ptr %write_fn, align 8
+  %tobool12 = icmp ne ptr %22, null
   %or.cond = select i1 %cmp9, i1 true, i1 %tobool12
   br i1 %or.cond, label %if.end25, label %if.then13
 
@@ -691,69 +775,69 @@ if.then13:                                        ; preds = %if.then6
   br i1 %cmp14, label %if.then16, label %if.then21
 
 if.then16:                                        ; preds = %if.then13
-  %16 = load ptr, ptr %ret, align 8
+  %23 = load ptr, ptr %ret, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmproot.i)
-  %filename.i = getelementptr inbounds i8, ptr %16, i64 8
-  %str.i = getelementptr inbounds i8, ptr %16, i64 16
-  %17 = load ptr, ptr %str.i, align 8
+  %filename.i = getelementptr inbounds i8, ptr %23, i64 8
+  %str.i = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = load ptr, ptr %str.i, align 8
   %call.i = call i32 @getpid() #13
   %call1.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmproot.i, i64 noundef 32, ptr noundef nonnull @.str.21, i32 noundef %call.i) #13
   %cmp.i8 = icmp sgt i32 %call1.i, 31
   br i1 %cmp.i8, label %if.then.i12, label %if.end.i9
 
 if.then.i12:                                      ; preds = %if.then16
-  %report_error.i = getelementptr inbounds i8, ptr %16, i64 64
-  %18 = load ptr, ptr %report_error.i, align 8
-  %call2.i = call i32 %18(ptr noundef nonnull %16, i32 noundef 3, ptr noundef nonnull @.str.22) #13
+  %report_error.i = getelementptr inbounds i8, ptr %23, i64 64
+  %25 = load ptr, ptr %report_error.i, align 8
+  %call2.i = call i32 %25(ptr noundef nonnull %23, i32 noundef 3, ptr noundef nonnull @.str.22) #13
   br label %if.end18
 
 if.end.i9:                                        ; preds = %if.then16
   %call4.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tmproot.i) #15
-  %19 = load i32, ptr %filename.i, align 8
-  %conv.i = sext i32 %19 to i64
+  %26 = load i32, ptr %filename.i, align 8
+  %conv.i = sext i32 %26 to i64
   %add.i = add i64 %call4.i, %conv.i
   %cmp6.i = icmp ugt i64 %add.i, 2147483646
   br i1 %cmp6.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %if.end.i9
-  %standard_error.i = getelementptr inbounds i8, ptr %16, i64 56
-  %20 = load ptr, ptr %standard_error.i, align 8
-  %call9.i = call i32 %20(ptr noundef nonnull %16, i32 noundef 1) #13
+  %standard_error.i = getelementptr inbounds i8, ptr %23, i64 56
+  %27 = load ptr, ptr %standard_error.i, align 8
+  %call9.i = call i32 %27(ptr noundef nonnull %23, i32 noundef 1) #13
   br label %if.end18
 
 if.end10.i:                                       ; preds = %if.end.i9
-  %alloc_fn.i10 = getelementptr inbounds i8, ptr %16, i64 88
-  %21 = load ptr, ptr %alloc_fn.i10, align 8
+  %alloc_fn.i10 = getelementptr inbounds i8, ptr %23, i64 88
+  %28 = load ptr, ptr %alloc_fn.i10, align 8
   %add11.i = add nuw nsw i64 %add.i, 1
-  %call12.i = call ptr %21(i64 noundef %add11.i) #13
+  %call12.i = call ptr %28(i64 noundef %add11.i) #13
   %tobool.not.i11 = icmp eq ptr %call12.i, null
   br i1 %tobool.not.i11, label %if.else45.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end10.i
-  %call14.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 47) #15
+  %call14.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %24, i32 noundef 47) #15
   %conv15.i = trunc nuw nsw i64 %add.i to i32
-  %tmp_filename.i = getelementptr inbounds i8, ptr %16, i64 24
+  %tmp_filename.i = getelementptr inbounds i8, ptr %23, i64 24
   store i32 %conv15.i, ptr %tmp_filename.i, align 8
   %conv18.i = trunc nuw nsw i64 %add11.i to i32
-  %alloc_size.i = getelementptr inbounds i8, ptr %16, i64 28
+  %alloc_size.i = getelementptr inbounds i8, ptr %23, i64 28
   store i32 %conv18.i, ptr %alloc_size.i, align 4
-  %str21.i = getelementptr inbounds i8, ptr %16, i64 32
+  %str21.i = getelementptr inbounds i8, ptr %23, i64 32
   store ptr %call12.i, ptr %str21.i, align 8
   %tobool22.not.i = icmp eq ptr %call14.i, null
   br i1 %tobool22.not.i, label %if.else.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.then13.i
-  %22 = ptrtoint ptr %call14.i to i64
-  %23 = ptrtoint ptr %17 to i64
-  %sub.i = sub i64 %22, %23
+  %29 = ptrtoint ptr %call14.i to i64
+  %30 = ptrtoint ptr %24 to i64
+  %sub.i = sub i64 %29, %30
   %add24.i = add i64 %sub.i, 1
-  %call25.i = call ptr @strncpy(ptr noundef nonnull %call12.i, ptr noundef %17, i64 noundef %add24.i) #13
+  %call25.i = call ptr @strncpy(ptr noundef nonnull %call12.i, ptr noundef %24, i64 noundef %add24.i) #13
   %add.ptr.i = getelementptr inbounds i8, ptr %call12.i, i64 %add24.i
   %call27.i = call ptr @strncpy(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %tmproot.i, i64 noundef %call4.i) #13
   %add.ptr29.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call4.i
-  %add.ptr30.i = getelementptr inbounds i8, ptr %17, i64 %add24.i
-  %24 = load i32, ptr %filename.i, align 8
-  %conv33.i = sext i32 %24 to i64
+  %add.ptr30.i = getelementptr inbounds i8, ptr %24, i64 %add24.i
+  %31 = load i32, ptr %filename.i, align 8
+  %conv33.i = sext i32 %31 to i64
   %sub34.i = sub i64 %conv33.i, %add24.i
   %call35.i = call ptr @strncpy(ptr noundef nonnull %add.ptr29.i, ptr noundef %add.ptr30.i, i64 noundef %sub34.i) #13
   br label %if.end18.thread15
@@ -761,20 +845,20 @@ if.then23.i:                                      ; preds = %if.then13.i
 if.else.i:                                        ; preds = %if.then13.i
   %call37.i = call ptr @strncpy(ptr noundef nonnull %call12.i, ptr noundef nonnull %tmproot.i, i64 noundef %call4.i) #13
   %add.ptr38.i = getelementptr inbounds i8, ptr %call12.i, i64 %call4.i
-  %25 = load i32, ptr %filename.i, align 8
-  %conv41.i = sext i32 %25 to i64
-  %call42.i = call ptr @strncpy(ptr noundef nonnull %add.ptr38.i, ptr noundef %17, i64 noundef %conv41.i) #13
+  %32 = load i32, ptr %filename.i, align 8
+  %conv41.i = sext i32 %32 to i64
+  %call42.i = call ptr @strncpy(ptr noundef nonnull %add.ptr38.i, ptr noundef %24, i64 noundef %conv41.i) #13
   br label %if.end18.thread15
 
 if.else45.i:                                      ; preds = %if.end10.i
-  %print_error.i = getelementptr inbounds i8, ptr %16, i64 72
-  %26 = load ptr, ptr %print_error.i, align 8
-  %call47.i = call i32 (ptr, i32, ptr, ...) %26(ptr noundef nonnull %16, i32 noundef 1, ptr noundef nonnull @.str.23, i64 noundef %add11.i) #13
+  %print_error.i = getelementptr inbounds i8, ptr %23, i64 72
+  %33 = load ptr, ptr %print_error.i, align 8
+  %call47.i = call i32 (ptr, i32, ptr, ...) %33(ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull @.str.23, i64 noundef %add11.i) #13
   br label %if.end18
 
 if.end18.thread15:                                ; preds = %if.then23.i, %if.else.i
-  %27 = getelementptr inbounds i8, ptr %call12.i, i64 %add.i
-  store i8 0, ptr %27, align 1
+  %34 = getelementptr inbounds i8, ptr %call12.i, i64 %add.i
+  store i8 0, ptr %34, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmproot.i)
   br label %if.then21
 
@@ -785,8 +869,8 @@ if.end18:                                         ; preds = %if.else45.i, %if.th
   br i1 %cmp19, label %if.then21, label %if.then28
 
 if.then21:                                        ; preds = %if.then13, %if.end18.thread15, %if.end18
-  %28 = load ptr, ptr %ret, align 8
-  %call22 = call fastcc i32 @default_init_write_file(ptr noundef %28)
+  %35 = load ptr, ptr %ret, align 8
+  %call22 = call fastcc i32 @default_init_write_file(ptr noundef %35)
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then21, %if.then6
@@ -800,14 +884,14 @@ if.then28:                                        ; preds = %if.end18, %if.end25
   br label %if.end34
 
 if.else32:                                        ; preds = %land.lhs.true, %if.end
-  %29 = load ptr, ptr %0, align 8
-  call void %29(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.3) #13
+  %36 = load ptr, ptr %0, align 8
+  call void %36(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.3) #13
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then3, %if.then28, %if.end25, %if.else32
   %rv.2 = phi i32 [ %rv.020, %if.then28 ], [ 0, %if.end25 ], [ 3, %if.else32 ], [ 1, %if.then3 ]
-  %30 = load ptr, ptr %ret, align 8
-  store ptr %30, ptr %ctxt, align 8
+  %37 = load ptr, ptr %ret, align 8
+  store ptr %37, ptr %ctxt, align 8
   br label %return
 
 return:                                           ; preds = %if.end34, %if.then

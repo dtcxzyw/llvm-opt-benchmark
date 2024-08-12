@@ -1338,19 +1338,20 @@ Vec_IntFetch.exit.thread:                         ; preds = %17
 
 57:                                               ; preds = %Vec_IntFetch.exit.thread, %Vec_IntFetch.exit
   %.0.i127 = phi ptr [ null, %Vec_IntFetch.exit.thread ], [ %.0.i, %Vec_IntFetch.exit ]
-  %58 = load <2 x i16>, ptr %18, align 4
-  %59 = and <2 x i16> %58, <i16 1, i16 1>
-  %60 = icmp eq <2 x i16> %59, zeroinitializer
-  %61 = icmp sgt i32 %4, 0
-  %62 = extractelement <2 x i1> %60, i64 0
-  br i1 %62, label %63, label %78
+  %58 = load i16, ptr %18, align 4
+  %59 = and i16 %58, 1
+  %.not = icmp eq i16 %59, 0
+  %60 = load i16, ptr %25, align 2
+  %61 = and i16 %60, 1
+  %.not75 = icmp eq i16 %61, 0
+  %62 = icmp sgt i32 %4, 0
+  br i1 %.not, label %63, label %77
 
 63:                                               ; preds = %57
-  %64 = extractelement <2 x i1> %60, i64 1
-  br i1 %64, label %.preheader83, label %.preheader86
+  br i1 %.not75, label %.preheader83, label %.preheader86
 
 .preheader83:                                     ; preds = %63
-  br i1 %61, label %.lr.ph96.preheader, label %.loopexit
+  br i1 %62, label %.lr.ph96.preheader, label %.loopexit
 
 .lr.ph96.preheader:                               ; preds = %.preheader83
   %wide.trip.count117 = zext nneg i32 %4 to i64
@@ -1358,19 +1359,19 @@ Vec_IntFetch.exit.thread:                         ; preds = %17
 
 .lr.ph96:                                         ; preds = %.lr.ph96.preheader, %.lr.ph96
   %indvars.iv114 = phi i64 [ 0, %.lr.ph96.preheader ], [ %indvars.iv.next115, %.lr.ph96 ]
-  %65 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv114
-  %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv114
-  %68 = load i32, ptr %67, align 4
-  %69 = and i32 %68, %66
-  %70 = getelementptr inbounds i32, ptr %.0.i127, i64 %indvars.iv114
-  store i32 %69, ptr %70, align 4
+  %64 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv114
+  %65 = load i32, ptr %64, align 4
+  %66 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv114
+  %67 = load i32, ptr %66, align 4
+  %68 = and i32 %67, %65
+  %69 = getelementptr inbounds i32, ptr %.0.i127, i64 %indvars.iv114
+  store i32 %68, ptr %69, align 4
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
   br i1 %exitcond118.not, label %.loopexit, label %.lr.ph96, !llvm.loop !13
 
 .preheader86:                                     ; preds = %63
-  br i1 %61, label %.lr.ph92.preheader, label %.loopexit
+  br i1 %62, label %.lr.ph92.preheader, label %.loopexit
 
 .lr.ph92.preheader:                               ; preds = %.preheader86
   %wide.trip.count107 = zext nneg i32 %4 to i64
@@ -1378,24 +1379,23 @@ Vec_IntFetch.exit.thread:                         ; preds = %17
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92
   %indvars.iv104 = phi i64 [ 0, %.lr.ph92.preheader ], [ %indvars.iv.next105, %.lr.ph92 ]
-  %71 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv104
-  %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv104
-  %74 = load i32, ptr %73, align 4
-  %75 = xor i32 %74, -1
-  %76 = and i32 %72, %75
-  %77 = getelementptr inbounds i32, ptr %.0.i127, i64 %indvars.iv104
-  store i32 %76, ptr %77, align 4
+  %70 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv104
+  %71 = load i32, ptr %70, align 4
+  %72 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv104
+  %73 = load i32, ptr %72, align 4
+  %74 = xor i32 %73, -1
+  %75 = and i32 %71, %74
+  %76 = getelementptr inbounds i32, ptr %.0.i127, i64 %indvars.iv104
+  store i32 %75, ptr %76, align 4
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
   br i1 %exitcond108.not, label %.loopexit, label %.lr.ph92, !llvm.loop !14
 
-78:                                               ; preds = %57
-  %79 = extractelement <2 x i1> %60, i64 1
-  br i1 %79, label %.preheader88, label %.thread82
+77:                                               ; preds = %57
+  br i1 %.not75, label %.preheader88, label %.thread82
 
-.preheader88:                                     ; preds = %78
-  br i1 %61, label %.lr.ph.preheader, label %.loopexit
+.preheader88:                                     ; preds = %77
+  br i1 %62, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader88
   %wide.trip.count = zext nneg i32 %4 to i64
@@ -1403,20 +1403,20 @@ Vec_IntFetch.exit.thread:                         ; preds = %17
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %80 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv
-  %81 = load i32, ptr %80, align 4
-  %82 = xor i32 %81, -1
-  %83 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
-  %84 = load i32, ptr %83, align 4
-  %85 = and i32 %84, %82
-  %86 = getelementptr inbounds i32, ptr %.0.i127, i64 %indvars.iv
-  store i32 %85, ptr %86, align 4
+  %78 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv
+  %79 = load i32, ptr %78, align 4
+  %80 = xor i32 %79, -1
+  %81 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
+  %82 = load i32, ptr %81, align 4
+  %83 = and i32 %82, %80
+  %84 = getelementptr inbounds i32, ptr %.0.i127, i64 %indvars.iv
+  store i32 %83, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
-.thread82:                                        ; preds = %78
-  br i1 %61, label %.lr.ph94.preheader, label %.loopexit
+.thread82:                                        ; preds = %77
+  br i1 %62, label %.lr.ph94.preheader, label %.loopexit
 
 .lr.ph94.preheader:                               ; preds = %.thread82
   %wide.trip.count112 = zext nneg i32 %4 to i64
@@ -1424,14 +1424,14 @@ Vec_IntFetch.exit.thread:                         ; preds = %17
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.lr.ph94
   %indvars.iv109 = phi i64 [ 0, %.lr.ph94.preheader ], [ %indvars.iv.next110, %.lr.ph94 ]
-  %87 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv109
+  %85 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv109
+  %86 = load i32, ptr %85, align 4
+  %87 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv109
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv109
-  %90 = load i32, ptr %89, align 4
-  %.demorgan = or i32 %90, %88
-  %91 = xor i32 %.demorgan, -1
-  %92 = getelementptr inbounds i32, ptr %.0.i127, i64 %indvars.iv109
-  store i32 %91, ptr %92, align 4
+  %.demorgan = or i32 %88, %86
+  %89 = xor i32 %.demorgan, -1
+  %90 = getelementptr inbounds i32, ptr %.0.i127, i64 %indvars.iv109
+  store i32 %89, ptr %90, align 4
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
   br i1 %exitcond113.not, label %.loopexit, label %.lr.ph94, !llvm.loop !16

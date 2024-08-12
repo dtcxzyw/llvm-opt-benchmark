@@ -1870,7 +1870,7 @@ Abc_Clock.exit:                                   ; preds = %8, %21
 
 35:                                               ; preds = %.critedge
   %36 = call i32 @Cec_GiaSplitTest2(ptr noundef %0, i32 poison, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
-  br label %383
+  br label %386
 
 37:                                               ; preds = %.critedge
   %38 = add i32 %1, -1
@@ -1932,19 +1932,19 @@ Abc_Clock.exit187:                                ; preds = %44, %49
 
 71:                                               ; preds = %70
   %.not179 = icmp eq i32 %7, 0
-  br i1 %.not179, label %72, label %383
+  br i1 %.not179, label %72, label %386
 
 72:                                               ; preds = %71
   %puts180 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %383
+  br label %386
 
 73:                                               ; preds = %70
   %.not177 = icmp eq i32 %7, 0
-  br i1 %.not177, label %74, label %383
+  br i1 %.not177, label %74, label %386
 
 74:                                               ; preds = %73
   %puts178 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %383
+  br label %386
 
 Vec_PtrPush.exit:                                 ; preds = %70
   %75 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
@@ -2512,82 +2512,88 @@ Vec_PtrPush.exit221.us:                           ; preds = %Vec_PtrGrow.exit.i2
   %339 = getelementptr inbounds i8, ptr %336, i64 20
   store i32 %2, ptr %339, align 4
   %340 = getelementptr inbounds i8, ptr %336, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 -1, i32 -1>, ptr %340, align 8
-  %341 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv
-  %342 = call i32 @pthread_create(ptr noundef nonnull %341, ptr noundef null, ptr noundef nonnull @Cec_GiaSplitWorkerThread, ptr noundef nonnull %336) #17
+  store i32 0, ptr %340, align 8
+  %341 = getelementptr inbounds i8, ptr %336, i64 28
+  store i32 -1, ptr %341, align 4
+  %342 = getelementptr inbounds i8, ptr %336, i64 32
+  store i32 -1, ptr %342, align 8
+  %343 = getelementptr inbounds i8, ptr %336, i64 36
+  store i32 -1, ptr %343, align 4
+  %344 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv
+  %345 = call i32 @pthread_create(ptr noundef nonnull %344, ptr noundef null, ptr noundef nonnull @Cec_GiaSplitWorkerThread, ptr noundef nonnull %336) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader230, label %.lr.ph, !llvm.loop !19
 
 .split247.us:                                     ; preds = %134
-  %343 = getelementptr inbounds i8, ptr %89, i64 368
-  %344 = load ptr, ptr %343, align 8
-  store ptr %344, ptr %28, align 8
-  store ptr null, ptr %343, align 8
+  %346 = getelementptr inbounds i8, ptr %89, i64 368
+  %347 = load ptr, ptr %346, align 8
+  store ptr %347, ptr %28, align 8
+  store ptr null, ptr %346, align 8
   br label %.preheader
 
 .split.us:                                        ; preds = %._crit_edge.us
-  %345 = icmp eq i32 %.3143.us, 0
-  br i1 %345, label %346, label %.preheader
+  %348 = icmp eq i32 %.3143.us, 0
+  br i1 %348, label %349, label %.preheader
 
-346:                                              ; preds = %.split.us
+349:                                              ; preds = %.split.us
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader230.split.us, %.split247.us, %346, %.split.us
-  %.5151 = phi i32 [ %.2148238.us, %.split247.us ], [ %.3149.us, %.split.us ], [ %.3149.us, %346 ], [ %.0146.us, %.preheader230.split.us ]
-  %347 = phi i1 [ true, %.split247.us ], [ false, %.split.us ], [ false, %346 ], [ false, %.preheader230.split.us ]
-  %348 = phi i1 [ false, %.split247.us ], [ false, %.split.us ], [ true, %346 ], [ true, %.preheader230.split.us ]
-  %349 = phi i1 [ false, %.split247.us ], [ true, %.split.us ], [ false, %346 ], [ false, %.preheader230.split.us ]
-  %.0145 = phi i32 [ 0, %.split247.us ], [ -1, %.split.us ], [ 1, %346 ], [ 1, %.preheader230.split.us ]
+.preheader:                                       ; preds = %.preheader230.split.us, %.split247.us, %349, %.split.us
+  %.5151 = phi i32 [ %.2148238.us, %.split247.us ], [ %.3149.us, %.split.us ], [ %.3149.us, %349 ], [ %.0146.us, %.preheader230.split.us ]
+  %350 = phi i1 [ true, %.split247.us ], [ false, %.split.us ], [ false, %349 ], [ false, %.preheader230.split.us ]
+  %351 = phi i1 [ false, %.split247.us ], [ false, %.split.us ], [ true, %349 ], [ true, %.preheader230.split.us ]
+  %352 = phi i1 [ false, %.split247.us ], [ true, %.split.us ], [ false, %349 ], [ false, %.preheader230.split.us ]
+  %.0145 = phi i32 [ 0, %.split247.us ], [ -1, %.split.us ], [ 1, %349 ], [ 1, %.preheader230.split.us ]
   br i1 %80, label %.lr.ph257.preheader, label %._crit_edge
 
 .lr.ph257.preheader:                              ; preds = %.preheader
   %wide.trip.count271 = zext nneg i32 %38 to i64
   br label %.lr.ph257
 
-.lr.ph257:                                        ; preds = %.lr.ph257.preheader, %356
-  %indvars.iv268 = phi i64 [ 0, %.lr.ph257.preheader ], [ %indvars.iv.next269, %356 ]
-  %350 = getelementptr inbounds [100 x %struct.Par_ThData_t_], ptr %13, i64 0, i64 %indvars.iv268
-  call void @Gia_ManStopP(ptr noundef nonnull %350) #17
-  %351 = getelementptr inbounds i8, ptr %350, i64 8
-  %352 = load ptr, ptr %351, align 8
-  %353 = icmp eq ptr %352, null
-  br i1 %353, label %356, label %354
+.lr.ph257:                                        ; preds = %.lr.ph257.preheader, %359
+  %indvars.iv268 = phi i64 [ 0, %.lr.ph257.preheader ], [ %indvars.iv.next269, %359 ]
+  %353 = getelementptr inbounds [100 x %struct.Par_ThData_t_], ptr %13, i64 0, i64 %indvars.iv268
+  call void @Gia_ManStopP(ptr noundef nonnull %353) #17
+  %354 = getelementptr inbounds i8, ptr %353, i64 8
+  %355 = load ptr, ptr %354, align 8
+  %356 = icmp eq ptr %355, null
+  br i1 %356, label %359, label %357
 
-354:                                              ; preds = %.lr.ph257
-  call void @Cnf_DataFree(ptr noundef nonnull %352) #17
-  %355 = getelementptr inbounds i8, ptr %350, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %350, i8 0, i64 16, i1 false)
-  store i32 1, ptr %355, align 8
-  br label %356
+357:                                              ; preds = %.lr.ph257
+  call void @Cnf_DataFree(ptr noundef nonnull %355) #17
+  %358 = getelementptr inbounds i8, ptr %353, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %353, i8 0, i64 16, i1 false)
+  store i32 1, ptr %358, align 8
+  br label %359
 
-356:                                              ; preds = %.lr.ph257, %354
+359:                                              ; preds = %.lr.ph257, %357
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
   br i1 %exitcond272.not, label %._crit_edge, label %.lr.ph257, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %356, %.preheader230.split, %.preheader
-  %.5151280285 = phi i32 [ %.5151, %.preheader ], [ 0, %.preheader230.split ], [ %.5151, %356 ]
-  %357 = phi i1 [ %347, %.preheader ], [ false, %.preheader230.split ], [ %347, %356 ]
-  %358 = phi i1 [ %348, %.preheader ], [ false, %.preheader230.split ], [ %348, %356 ]
-  %359 = phi i1 [ %349, %.preheader ], [ true, %.preheader230.split ], [ %349, %356 ]
-  %.0145281284 = phi i32 [ %.0145, %.preheader ], [ -1, %.preheader230.split ], [ %.0145, %356 ]
+._crit_edge:                                      ; preds = %359, %.preheader230.split, %.preheader
+  %.5151280285 = phi i32 [ %.5151, %.preheader ], [ 0, %.preheader230.split ], [ %.5151, %359 ]
+  %360 = phi i1 [ %350, %.preheader ], [ false, %.preheader230.split ], [ %350, %359 ]
+  %361 = phi i1 [ %351, %.preheader ], [ false, %.preheader230.split ], [ %351, %359 ]
+  %362 = phi i1 [ %352, %.preheader ], [ true, %.preheader230.split ], [ %352, %359 ]
+  %.0145281284 = phi i32 [ %.0145, %.preheader ], [ -1, %.preheader230.split ], [ %.0145, %359 ]
   %.val7.i = load i32, ptr %76, align 4
-  %360 = icmp sgt i32 %.val7.i, 0
+  %363 = icmp sgt i32 %.val7.i, 0
   %.pre = load ptr, ptr %78, align 8
-  br i1 %360, label %.lr.ph.i.preheader, label %.critedge.i
+  br i1 %363, label %.lr.ph.i.preheader, label %.critedge.i
 
 .lr.ph.i.preheader:                               ; preds = %._crit_edge
-  %361 = zext nneg i32 %.val7.i to i64
+  %364 = zext nneg i32 %.val7.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %362 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv.i
-  %363 = load ptr, ptr %362, align 8
-  call void @Gia_ManStop(ptr noundef %363) #17
+  %365 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv.i
+  %366 = load ptr, ptr %365, align 8
+  call void @Gia_ManStop(ptr noundef %366) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond273.not = icmp eq i64 %indvars.iv.next.i, %361
+  %exitcond273.not = icmp eq i64 %indvars.iv.next.i, %364
   br i1 %exitcond273.not, label %.critedge.i.thread, label %.lr.ph.i, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %._crit_edge
@@ -2601,48 +2607,48 @@ Vec_PtrPush.exit221.us:                           ; preds = %Vec_PtrGrow.exit.i2
 Cec_GiaSplitClean.exit:                           ; preds = %.critedge.i, %.critedge.i.thread
   call void @free(ptr noundef nonnull %75) #17
   %.not175 = icmp eq i32 %7, 0
-  br i1 %.not175, label %364, label %383
+  br i1 %.not175, label %367, label %386
 
-364:                                              ; preds = %Cec_GiaSplitClean.exit
-  %365 = or i1 %358, %359
-  %brmerge290 = or i1 %365, %357
-  br i1 %brmerge290, label %.sink.split, label %367
+367:                                              ; preds = %Cec_GiaSplitClean.exit
+  %368 = or i1 %361, %362
+  %brmerge290 = or i1 %368, %360
+  br i1 %brmerge290, label %.sink.split, label %370
 
-.sink.split:                                      ; preds = %364
-  %.str.18.mux = select i1 %358, ptr @.str.19, ptr @.str.20
-  %.str.18.mux.mux = select i1 %357, ptr @.str.18, ptr %.str.18.mux
-  %366 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.18.mux.mux)
-  br label %367
+.sink.split:                                      ; preds = %367
+  %.str.18.mux = select i1 %361, ptr @.str.19, ptr @.str.20
+  %.str.18.mux.mux = select i1 %360, ptr @.str.18, ptr %.str.18.mux
+  %369 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.18.mux.mux)
+  br label %370
 
-367:                                              ; preds = %364, %.sink.split
-  %368 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.5151280285)
+370:                                              ; preds = %367, %.sink.split
+  %371 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.5151280285)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %369 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #17
-  %370 = icmp slt i32 %369, 0
-  br i1 %370, label %Abc_Clock.exit224, label %371
+  %372 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #17
+  %373 = icmp slt i32 %372, 0
+  br i1 %373, label %Abc_Clock.exit224, label %374
 
-371:                                              ; preds = %367
-  %372 = load i64, ptr %9, align 8
-  %373 = mul nsw i64 %372, 1000000
-  %374 = getelementptr inbounds i8, ptr %9, i64 8
-  %375 = load i64, ptr %374, align 8
-  %376 = sdiv i64 %375, 1000
-  %377 = add nsw i64 %376, %373
+374:                                              ; preds = %370
+  %375 = load i64, ptr %9, align 8
+  %376 = mul nsw i64 %375, 1000000
+  %377 = getelementptr inbounds i8, ptr %9, i64 8
+  %378 = load i64, ptr %377, align 8
+  %379 = sdiv i64 %378, 1000
+  %380 = add nsw i64 %379, %376
   br label %Abc_Clock.exit224
 
-Abc_Clock.exit224:                                ; preds = %367, %371
-  %.0.i223 = phi i64 [ %377, %371 ], [ -1, %367 ]
+Abc_Clock.exit224:                                ; preds = %370, %374
+  %.0.i223 = phi i64 [ %380, %374 ], [ -1, %370 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %378 = sub nsw i64 %.0.i223, %.0.i
+  %381 = sub nsw i64 %.0.i223, %.0.i
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.12)
-  %379 = sitofp i64 %378 to double
-  %380 = fdiv double %379, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.35, double noundef %380)
-  %381 = load ptr, ptr @stdout, align 8
-  %382 = call i32 @fflush(ptr noundef %381)
-  br label %383
+  %382 = sitofp i64 %381 to double
+  %383 = fdiv double %382, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.35, double noundef %383)
+  %384 = load ptr, ptr @stdout, align 8
+  %385 = call i32 @fflush(ptr noundef %384)
+  br label %386
 
-383:                                              ; preds = %Cec_GiaSplitClean.exit, %Abc_Clock.exit224, %73, %74, %71, %72, %35
+386:                                              ; preds = %Cec_GiaSplitClean.exit, %Abc_Clock.exit224, %73, %74, %71, %72, %35
   %.0 = phi i32 [ %36, %35 ], [ 0, %72 ], [ 0, %71 ], [ 1, %74 ], [ 1, %73 ], [ %.0145281284, %Abc_Clock.exit224 ], [ %.0145281284, %Cec_GiaSplitClean.exit ]
   ret i32 %.0
 }

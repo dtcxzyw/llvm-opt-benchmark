@@ -234,19 +234,29 @@ entry:
 define noundef i32 @_ZN13b2DynamicTree11CreateProxyERK6b2AABBPv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabb, ptr noundef %userData) local_unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN13b2DynamicTree12AllocateNodeEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %0 = load <2 x float>, ptr %aabb, align 4
-  %1 = fadd <2 x float> %0, <float 0xBFB99999A0000000, float 0xBFB99999A0000000>
+  %0 = load float, ptr %aabb, align 4
+  %sub.i = fadd float %0, 0xBFB99999A0000000
+  %y.i8 = getelementptr inbounds i8, ptr %aabb, i64 4
+  %1 = load float, ptr %y.i8, align 4
+  %sub3.i = fadd float %1, 0xBFB99999A0000000
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %sub.i, i64 0
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %sub3.i, i64 1
   %m_nodes = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_nodes, align 8
   %idxprom = sext i32 %call to i64
   %arrayidx = getelementptr inbounds %struct.b2TreeNode, ptr %2, i64 %idxprom
-  store <2 x float> %1, ptr %arrayidx, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %arrayidx, align 8
   %upperBound = getelementptr inbounds i8, ptr %aabb, i64 8
-  %3 = load <2 x float>, ptr %upperBound, align 4
-  %4 = fadd <2 x float> %3, <float 0x3FB99999A0000000, float 0x3FB99999A0000000>
+  %3 = load float, ptr %upperBound, align 4
+  %add.i = fadd float %3, 0x3FB99999A0000000
+  %y.i9 = getelementptr inbounds i8, ptr %aabb, i64 12
+  %4 = load float, ptr %y.i9, align 4
+  %add3.i = fadd float %4, 0x3FB99999A0000000
+  %retval.sroa.0.0.vec.insert.i11 = insertelement <2 x float> poison, float %add.i, i64 0
+  %retval.sroa.0.4.vec.insert.i12 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i11, float %add3.i, i64 1
   %5 = load ptr, ptr %m_nodes, align 8
   %upperBound11 = getelementptr inbounds %struct.b2TreeNode, ptr %5, i64 %idxprom, i32 0, i32 1
-  store <2 x float> %4, ptr %upperBound11, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i12, ptr %upperBound11, align 8
   %6 = load ptr, ptr %m_nodes, align 8
   %userData15 = getelementptr inbounds %struct.b2TreeNode, ptr %6, i64 %idxprom, i32 1
   store ptr %userData, ptr %userData15, align 8
@@ -285,49 +295,46 @@ if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %m_nodes4, align 8
   %idxprom5 = sext i32 %leaf to i64
   %arrayidx6 = getelementptr inbounds %struct.b2TreeNode, ptr %4, i64 %idxprom5
-  %5 = load <2 x float>, ptr %arrayidx6, align 8
+  %leafAABB.sroa.0.0.copyload = load float, ptr %arrayidx6, align 8
+  %leafAABB.sroa.7.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 4
+  %leafAABB.sroa.7.0.copyload = load float, ptr %leafAABB.sroa.7.0.arrayidx6.sroa_idx, align 4
   %leafAABB.sroa.13.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 8
-  %6 = load <2 x float>, ptr %leafAABB.sroa.13.0.arrayidx6.sroa_idx, align 8
+  %leafAABB.sroa.13.0.copyload = load float, ptr %leafAABB.sroa.13.0.arrayidx6.sroa_idx, align 8
+  %leafAABB.sroa.19.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 12
+  %leafAABB.sroa.19.0.copyload = load float, ptr %leafAABB.sroa.19.0.arrayidx6.sroa_idx, align 4
   %idxprom9249 = sext i32 %1 to i64
   %arrayidx10250 = getelementptr inbounds %struct.b2TreeNode, ptr %4, i64 %idxprom9249
   %child1.i251 = getelementptr inbounds i8, ptr %arrayidx10250, i64 28
-  %7 = load i32, ptr %child1.i251, align 4
-  %cmp.i252 = icmp eq i32 %7, -1
-  br i1 %cmp.i252, label %while.end, label %while.body.preheader
+  %5 = load i32, ptr %child1.i251, align 4
+  %cmp.i252 = icmp eq i32 %5, -1
+  br i1 %cmp.i252, label %while.end, label %while.body
 
-while.body.preheader:                             ; preds = %if.end
-  %8 = extractelement <2 x float> %5, i64 0
-  %9 = extractelement <2 x float> %5, i64 1
-  %10 = extractelement <2 x float> %6, i64 0
-  %11 = extractelement <2 x float> %6, i64 1
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.preheader, %if.end88
-  %12 = phi i32 [ %54, %if.end88 ], [ %7, %while.body.preheader ]
-  %arrayidx10255 = phi ptr [ %arrayidx10, %if.end88 ], [ %arrayidx10250, %while.body.preheader ]
-  %idxprom9254 = phi i64 [ %idxprom9, %if.end88 ], [ %idxprom9249, %while.body.preheader ]
-  %index.0253 = phi i32 [ %., %if.end88 ], [ %1, %while.body.preheader ]
+while.body:                                       ; preds = %if.end, %if.end88
+  %6 = phi i32 [ %22, %if.end88 ], [ %5, %if.end ]
+  %arrayidx10255 = phi ptr [ %arrayidx10, %if.end88 ], [ %arrayidx10250, %if.end ]
+  %idxprom9254 = phi i64 [ %idxprom9, %if.end88 ], [ %idxprom9249, %if.end ]
+  %index.0253 = phi i32 [ %., %if.end88 ], [ %1, %if.end ]
   %child219 = getelementptr inbounds i8, ptr %arrayidx10255, i64 32
-  %13 = load i32, ptr %child219, align 8
+  %7 = load i32, ptr %child219, align 8
   %upperBound.i = getelementptr inbounds i8, ptr %arrayidx10255, i64 8
-  %14 = load float, ptr %upperBound.i, align 4
-  %15 = load float, ptr %arrayidx10255, align 4
-  %sub.i = fsub float %14, %15
+  %8 = load float, ptr %upperBound.i, align 4
+  %9 = load float, ptr %arrayidx10255, align 4
+  %sub.i = fsub float %8, %9
   %y.i = getelementptr inbounds i8, ptr %arrayidx10255, i64 12
-  %16 = load float, ptr %y.i, align 4
+  %10 = load float, ptr %y.i, align 4
   %y5.i = getelementptr inbounds i8, ptr %arrayidx10255, i64 4
-  %17 = load float, ptr %y5.i, align 4
-  %sub6.i = fsub float %16, %17
+  %11 = load float, ptr %y5.i, align 4
+  %sub6.i = fsub float %10, %11
   %add.i = fadd float %sub.i, %sub6.i
   %mul.i = fmul float %add.i, 2.000000e+00
-  %cmp.i.i.i = fcmp olt float %15, %8
-  %cond.i.i.i = select i1 %cmp.i.i.i, float %15, float %8
-  %cmp.i3.i.i = fcmp olt float %17, %9
-  %cond.i4.i.i = select i1 %cmp.i3.i.i, float %17, float %9
-  %cmp.i.i3.i = fcmp ogt float %14, %10
-  %cond.i.i4.i = select i1 %cmp.i.i3.i, float %14, float %10
-  %cmp.i3.i7.i = fcmp ogt float %16, %11
-  %cond.i4.i8.i = select i1 %cmp.i3.i7.i, float %16, float %11
+  %cmp.i.i.i = fcmp olt float %9, %leafAABB.sroa.0.0.copyload
+  %cond.i.i.i = select i1 %cmp.i.i.i, float %9, float %leafAABB.sroa.0.0.copyload
+  %cmp.i3.i.i = fcmp olt float %11, %leafAABB.sroa.7.0.copyload
+  %cond.i4.i.i = select i1 %cmp.i3.i.i, float %11, float %leafAABB.sroa.7.0.copyload
+  %cmp.i.i3.i = fcmp ogt float %8, %leafAABB.sroa.13.0.copyload
+  %cond.i.i4.i = select i1 %cmp.i.i3.i, float %8, float %leafAABB.sroa.13.0.copyload
+  %cmp.i3.i7.i = fcmp ogt float %10, %leafAABB.sroa.19.0.copyload
+  %cond.i4.i8.i = select i1 %cmp.i3.i7.i, float %10, float %leafAABB.sroa.19.0.copyload
   %sub.i63 = fsub float %cond.i.i4.i, %cond.i.i.i
   %sub6.i66 = fsub float %cond.i4.i8.i, %cond.i4.i.i
   %add.i67 = fadd float %sub.i63, %sub6.i66
@@ -335,79 +342,89 @@ while.body:                                       ; preds = %while.body.preheade
   %mul = fmul float %mul.i68, 2.000000e+00
   %sub = fsub float %mul.i68, %mul.i
   %mul30 = fmul float %sub, 2.000000e+00
-  %idxprom32 = sext i32 %12 to i64
+  %idxprom32 = sext i32 %6 to i64
   %arrayidx33 = getelementptr inbounds %struct.b2TreeNode, ptr %4, i64 %idxprom32
   %child1.i69 = getelementptr inbounds i8, ptr %arrayidx33, i64 28
-  %18 = load i32, ptr %child1.i69, align 4
-  %cmp.i70 = icmp eq i32 %18, -1
+  %12 = load i32, ptr %child1.i69, align 4
+  %cmp.i70 = icmp eq i32 %12, -1
+  %13 = load float, ptr %arrayidx33, align 4
+  %cmp.i.i.i71 = fcmp olt float %leafAABB.sroa.0.0.copyload, %13
+  %cond.i.i.i72 = select i1 %cmp.i.i.i71, float %leafAABB.sroa.0.0.copyload, float %13
+  %y2.i.i74 = getelementptr inbounds i8, ptr %arrayidx33, i64 4
+  %14 = load float, ptr %y2.i.i74, align 4
+  %cmp.i3.i.i75 = fcmp olt float %leafAABB.sroa.7.0.copyload, %14
+  %cond.i4.i.i76 = select i1 %cmp.i3.i.i75, float %leafAABB.sroa.7.0.copyload, float %14
   %upperBound5.i80 = getelementptr inbounds i8, ptr %arrayidx33, i64 8
-  %19 = load <2 x float>, ptr %arrayidx33, align 4
-  %20 = fcmp olt <2 x float> %5, %19
-  %21 = select <2 x i1> %20, <2 x float> %5, <2 x float> %19
-  %22 = load <2 x float>, ptr %upperBound5.i80, align 4
-  %23 = fcmp ogt <2 x float> %6, %22
-  %24 = select <2 x i1> %23, <2 x float> %6, <2 x float> %22
+  %15 = load float, ptr %upperBound5.i80, align 4
+  %cmp.i.i3.i81 = fcmp ogt float %leafAABB.sroa.13.0.copyload, %15
+  %cond.i.i4.i82 = select i1 %cmp.i.i3.i81, float %leafAABB.sroa.13.0.copyload, float %15
+  %y2.i6.i84 = getelementptr inbounds i8, ptr %arrayidx33, i64 12
+  %16 = load float, ptr %y2.i6.i84, align 4
+  %cmp.i3.i7.i85 = fcmp ogt float %leafAABB.sroa.19.0.copyload, %16
+  %cond.i4.i8.i86 = select i1 %cmp.i3.i7.i85, float %leafAABB.sroa.19.0.copyload, float %16
   br i1 %cmp.i70, label %if.then35, label %if.else
 
 if.then35:                                        ; preds = %while.body
-  %25 = fsub <2 x float> %24, %21
-  %shift = shufflevector <2 x float> %25, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %26 = fadd <2 x float> %25, %shift
-  %add.i95 = extractelement <2 x float> %26, i64 0
+  %sub.i91 = fsub float %cond.i.i4.i82, %cond.i.i.i72
+  %sub6.i94 = fsub float %cond.i4.i8.i86, %cond.i4.i.i76
+  %add.i95 = fadd float %sub.i91, %sub6.i94
   %mul.i96 = fmul float %add.i95, 2.000000e+00
   br label %if.end55
 
 if.else:                                          ; preds = %while.body
-  %27 = shufflevector <2 x float> %24, <2 x float> %22, <2 x i32> <i32 0, i32 2>
-  %28 = shufflevector <2 x float> %21, <2 x float> %19, <2 x i32> <i32 0, i32 2>
-  %29 = fsub <2 x float> %27, %28
-  %30 = shufflevector <2 x float> %24, <2 x float> %22, <2 x i32> <i32 1, i32 3>
-  %31 = shufflevector <2 x float> %21, <2 x float> %19, <2 x i32> <i32 1, i32 3>
-  %32 = fsub <2 x float> %30, %31
-  %33 = fadd <2 x float> %29, %32
-  %34 = fmul <2 x float> %33, <float 2.000000e+00, float 2.000000e+00>
-  %shift262 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %35 = fsub <2 x float> %34, %shift262
-  %sub53 = extractelement <2 x float> %35, i64 0
+  %sub.i117 = fsub float %15, %13
+  %sub6.i120 = fsub float %16, %14
+  %add.i121 = fadd float %sub.i117, %sub6.i120
+  %mul.i122 = fmul float %add.i121, 2.000000e+00
+  %sub.i124 = fsub float %cond.i.i4.i82, %cond.i.i.i72
+  %sub6.i127 = fsub float %cond.i4.i8.i86, %cond.i4.i.i76
+  %add.i128 = fadd float %sub.i124, %sub6.i127
+  %mul.i129 = fmul float %add.i128, 2.000000e+00
+  %sub53 = fsub float %mul.i129, %mul.i122
   br label %if.end55
 
 if.end55:                                         ; preds = %if.else, %if.then35
   %call41.pn = phi float [ %mul.i96, %if.then35 ], [ %sub53, %if.else ]
   %cost1.0 = fadd float %mul30, %call41.pn
-  %idxprom57 = sext i32 %13 to i64
+  %idxprom57 = sext i32 %7 to i64
   %arrayidx58 = getelementptr inbounds %struct.b2TreeNode, ptr %4, i64 %idxprom57
   %child1.i130 = getelementptr inbounds i8, ptr %arrayidx58, i64 28
-  %36 = load i32, ptr %child1.i130, align 4
-  %cmp.i131 = icmp eq i32 %36, -1
+  %17 = load i32, ptr %child1.i130, align 4
+  %cmp.i131 = icmp eq i32 %17, -1
+  %18 = load float, ptr %arrayidx58, align 4
+  %cmp.i.i.i132 = fcmp olt float %leafAABB.sroa.0.0.copyload, %18
+  %cond.i.i.i133 = select i1 %cmp.i.i.i132, float %leafAABB.sroa.0.0.copyload, float %18
+  %y2.i.i135 = getelementptr inbounds i8, ptr %arrayidx58, i64 4
+  %19 = load float, ptr %y2.i.i135, align 4
+  %cmp.i3.i.i136 = fcmp olt float %leafAABB.sroa.7.0.copyload, %19
+  %cond.i4.i.i137 = select i1 %cmp.i3.i.i136, float %leafAABB.sroa.7.0.copyload, float %19
   %upperBound5.i141 = getelementptr inbounds i8, ptr %arrayidx58, i64 8
-  %37 = load <2 x float>, ptr %arrayidx58, align 4
-  %38 = fcmp olt <2 x float> %5, %37
-  %39 = select <2 x i1> %38, <2 x float> %5, <2 x float> %37
-  %40 = load <2 x float>, ptr %upperBound5.i141, align 4
-  %41 = fcmp ogt <2 x float> %6, %40
-  %42 = select <2 x i1> %41, <2 x float> %6, <2 x float> %40
+  %20 = load float, ptr %upperBound5.i141, align 4
+  %cmp.i.i3.i142 = fcmp ogt float %leafAABB.sroa.13.0.copyload, %20
+  %cond.i.i4.i143 = select i1 %cmp.i.i3.i142, float %leafAABB.sroa.13.0.copyload, float %20
+  %y2.i6.i145 = getelementptr inbounds i8, ptr %arrayidx58, i64 12
+  %21 = load float, ptr %y2.i6.i145, align 4
+  %cmp.i3.i7.i146 = fcmp ogt float %leafAABB.sroa.19.0.copyload, %21
+  %cond.i4.i8.i147 = select i1 %cmp.i3.i7.i146, float %leafAABB.sroa.19.0.copyload, float %21
   br i1 %cmp.i131, label %if.then60, label %if.else68
 
 if.then60:                                        ; preds = %if.end55
-  %43 = fsub <2 x float> %42, %39
-  %shift263 = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %44 = fadd <2 x float> %43, %shift263
-  %add.i156 = extractelement <2 x float> %44, i64 0
+  %sub.i152 = fsub float %cond.i.i4.i143, %cond.i.i.i133
+  %sub6.i155 = fsub float %cond.i4.i8.i147, %cond.i4.i.i137
+  %add.i156 = fadd float %sub.i152, %sub6.i155
   %mul.i157 = fmul float %add.i156, 2.000000e+00
   br label %if.end84
 
 if.else68:                                        ; preds = %if.end55
-  %45 = shufflevector <2 x float> %42, <2 x float> %40, <2 x i32> <i32 0, i32 2>
-  %46 = shufflevector <2 x float> %39, <2 x float> %37, <2 x i32> <i32 0, i32 2>
-  %47 = fsub <2 x float> %45, %46
-  %48 = shufflevector <2 x float> %42, <2 x float> %40, <2 x i32> <i32 1, i32 3>
-  %49 = shufflevector <2 x float> %39, <2 x float> %37, <2 x i32> <i32 1, i32 3>
-  %50 = fsub <2 x float> %48, %49
-  %51 = fadd <2 x float> %47, %50
-  %52 = fmul <2 x float> %51, <float 2.000000e+00, float 2.000000e+00>
-  %shift264 = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %53 = fsub <2 x float> %52, %shift264
-  %sub82 = extractelement <2 x float> %53, i64 0
+  %sub.i178 = fsub float %20, %18
+  %sub6.i181 = fsub float %21, %19
+  %add.i182 = fadd float %sub.i178, %sub6.i181
+  %mul.i183 = fmul float %add.i182, 2.000000e+00
+  %sub.i185 = fsub float %cond.i.i4.i143, %cond.i.i.i133
+  %sub6.i188 = fsub float %cond.i4.i8.i147, %cond.i4.i.i137
+  %add.i189 = fadd float %sub.i185, %sub6.i188
+  %mul.i190 = fmul float %add.i189, 2.000000e+00
+  %sub82 = fsub float %mul.i190, %mul.i183
   br label %if.end84
 
 if.end84:                                         ; preds = %if.else68, %if.then60
@@ -420,56 +437,68 @@ if.end84:                                         ; preds = %if.else68, %if.then
 
 if.end88:                                         ; preds = %if.end84
   %cmp89 = fcmp olt float %cost1.0, %cost2.0
-  %. = select i1 %cmp89, i32 %12, i32 %13
+  %. = select i1 %cmp89, i32 %6, i32 %7
   %idxprom9 = sext i32 %. to i64
   %arrayidx10 = getelementptr inbounds %struct.b2TreeNode, ptr %4, i64 %idxprom9
   %child1.i = getelementptr inbounds i8, ptr %arrayidx10, i64 28
-  %54 = load i32, ptr %child1.i, align 4
-  %cmp.i = icmp eq i32 %54, -1
+  %22 = load i32, ptr %child1.i, align 4
+  %cmp.i = icmp eq i32 %22, -1
   br i1 %cmp.i, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end88, %if.end84, %if.end
   %index.0.lcssa = phi i32 [ %1, %if.end ], [ %index.0253, %if.end84 ], [ %., %if.end88 ]
   %idxprom9.lcssa = phi i64 [ %idxprom9249, %if.end ], [ %idxprom9254, %if.end84 ], [ %idxprom9, %if.end88 ]
-  %55 = getelementptr inbounds %struct.b2TreeNode, ptr %4, i64 %idxprom9.lcssa, i32 2
-  %56 = load i32, ptr %55, align 8
+  %23 = getelementptr inbounds %struct.b2TreeNode, ptr %4, i64 %idxprom9.lcssa, i32 2
+  %24 = load i32, ptr %23, align 8
   %call96 = tail call noundef i32 @_ZN13b2DynamicTree12AllocateNodeEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %57 = load ptr, ptr %m_nodes4, align 8
+  %25 = load ptr, ptr %m_nodes4, align 8
   %idxprom98 = sext i32 %call96 to i64
-  %58 = getelementptr inbounds %struct.b2TreeNode, ptr %57, i64 %idxprom98, i32 2
-  store i32 %56, ptr %58, align 8
-  %59 = load ptr, ptr %m_nodes4, align 8
-  %userData = getelementptr inbounds %struct.b2TreeNode, ptr %59, i64 %idxprom98, i32 1
+  %26 = getelementptr inbounds %struct.b2TreeNode, ptr %25, i64 %idxprom98, i32 2
+  store i32 %24, ptr %26, align 8
+  %27 = load ptr, ptr %m_nodes4, align 8
+  %userData = getelementptr inbounds %struct.b2TreeNode, ptr %27, i64 %idxprom98, i32 1
   store ptr null, ptr %userData, align 8
-  %60 = load ptr, ptr %m_nodes4, align 8
-  %arrayidx105 = getelementptr inbounds %struct.b2TreeNode, ptr %60, i64 %idxprom98
-  %arrayidx109 = getelementptr inbounds %struct.b2TreeNode, ptr %60, i64 %idxprom9.lcssa
-  %61 = load <2 x float>, ptr %arrayidx109, align 4
-  %62 = fcmp olt <2 x float> %5, %61
-  %63 = select <2 x i1> %62, <2 x float> %5, <2 x float> %61
-  store <2 x float> %63, ptr %arrayidx105, align 4
+  %28 = load ptr, ptr %m_nodes4, align 8
+  %arrayidx105 = getelementptr inbounds %struct.b2TreeNode, ptr %28, i64 %idxprom98
+  %arrayidx109 = getelementptr inbounds %struct.b2TreeNode, ptr %28, i64 %idxprom9.lcssa
+  %29 = load float, ptr %arrayidx109, align 4
+  %cmp.i.i.i191 = fcmp olt float %leafAABB.sroa.0.0.copyload, %29
+  %cond.i.i.i192 = select i1 %cmp.i.i.i191, float %leafAABB.sroa.0.0.copyload, float %29
+  %y2.i.i194 = getelementptr inbounds i8, ptr %arrayidx109, i64 4
+  %30 = load float, ptr %y2.i.i194, align 4
+  %cmp.i3.i.i195 = fcmp olt float %leafAABB.sroa.7.0.copyload, %30
+  %cond.i4.i.i196 = select i1 %cmp.i3.i.i195, float %leafAABB.sroa.7.0.copyload, float %30
+  %retval.sroa.0.0.vec.insert.i.i197 = insertelement <2 x float> poison, float %cond.i.i.i192, i64 0
+  %retval.sroa.0.4.vec.insert.i.i198 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i197, float %cond.i4.i.i196, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i198, ptr %arrayidx105, align 4
   %upperBound5.i200 = getelementptr inbounds i8, ptr %arrayidx109, i64 8
-  %64 = load <2 x float>, ptr %upperBound5.i200, align 4
-  %65 = fcmp ogt <2 x float> %6, %64
-  %66 = select <2 x i1> %65, <2 x float> %6, <2 x float> %64
+  %31 = load float, ptr %upperBound5.i200, align 4
+  %cmp.i.i3.i201 = fcmp ogt float %leafAABB.sroa.13.0.copyload, %31
+  %cond.i.i4.i202 = select i1 %cmp.i.i3.i201, float %leafAABB.sroa.13.0.copyload, float %31
+  %y2.i6.i204 = getelementptr inbounds i8, ptr %arrayidx109, i64 12
+  %32 = load float, ptr %y2.i6.i204, align 4
+  %cmp.i3.i7.i205 = fcmp ogt float %leafAABB.sroa.19.0.copyload, %32
+  %cond.i4.i8.i206 = select i1 %cmp.i3.i7.i205, float %leafAABB.sroa.19.0.copyload, float %32
+  %retval.sroa.0.0.vec.insert.i9.i207 = insertelement <2 x float> poison, float %cond.i.i4.i202, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i208 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i207, float %cond.i4.i8.i206, i64 1
   %upperBound7.i209 = getelementptr inbounds i8, ptr %arrayidx105, i64 8
-  store <2 x float> %66, ptr %upperBound7.i209, align 4
-  %67 = load ptr, ptr %m_nodes4, align 8
-  %height = getelementptr inbounds %struct.b2TreeNode, ptr %67, i64 %idxprom9.lcssa, i32 5
-  %68 = load i32, ptr %height, align 4
-  %add114 = add nsw i32 %68, 1
-  %height118 = getelementptr inbounds %struct.b2TreeNode, ptr %67, i64 %idxprom98, i32 5
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i208, ptr %upperBound7.i209, align 4
+  %33 = load ptr, ptr %m_nodes4, align 8
+  %height = getelementptr inbounds %struct.b2TreeNode, ptr %33, i64 %idxprom9.lcssa, i32 5
+  %34 = load i32, ptr %height, align 4
+  %add114 = add nsw i32 %34, 1
+  %height118 = getelementptr inbounds %struct.b2TreeNode, ptr %33, i64 %idxprom98, i32 5
   store i32 %add114, ptr %height118, align 4
-  %cmp119.not = icmp eq i32 %56, -1
-  %69 = load ptr, ptr %m_nodes4, align 8
+  %cmp119.not = icmp eq i32 %24, -1
+  %35 = load ptr, ptr %m_nodes4, align 8
   br i1 %cmp119.not, label %if.else151, label %if.then120
 
 if.then120:                                       ; preds = %while.end
-  %idxprom122 = sext i32 %56 to i64
-  %arrayidx123 = getelementptr inbounds %struct.b2TreeNode, ptr %69, i64 %idxprom122
+  %idxprom122 = sext i32 %24 to i64
+  %arrayidx123 = getelementptr inbounds %struct.b2TreeNode, ptr %35, i64 %idxprom122
   %child1124 = getelementptr inbounds i8, ptr %arrayidx123, i64 28
-  %70 = load i32, ptr %child1124, align 4
-  %cmp125 = icmp eq i32 %70, %index.0.lcssa
+  %36 = load i32, ptr %child1124, align 4
+  %cmp125 = icmp eq i32 %36, %index.0.lcssa
   br i1 %cmp125, label %if.then126, label %if.else131
 
 if.then126:                                       ; preds = %if.then120
@@ -482,82 +511,98 @@ if.else131:                                       ; preds = %if.then120
   br label %if.end136
 
 if.end136:                                        ; preds = %if.else131, %if.then126
-  %71 = load ptr, ptr %m_nodes4, align 8
-  %child1140 = getelementptr inbounds %struct.b2TreeNode, ptr %71, i64 %idxprom98, i32 3
+  %37 = load ptr, ptr %m_nodes4, align 8
+  %child1140 = getelementptr inbounds %struct.b2TreeNode, ptr %37, i64 %idxprom98, i32 3
   store i32 %index.0.lcssa, ptr %child1140, align 4
-  %72 = load ptr, ptr %m_nodes4, align 8
-  %child2144 = getelementptr inbounds %struct.b2TreeNode, ptr %72, i64 %idxprom98, i32 4
+  %38 = load ptr, ptr %m_nodes4, align 8
+  %child2144 = getelementptr inbounds %struct.b2TreeNode, ptr %38, i64 %idxprom98, i32 4
   store i32 %leaf, ptr %child2144, align 8
-  %73 = load ptr, ptr %m_nodes4, align 8
-  %74 = getelementptr inbounds %struct.b2TreeNode, ptr %73, i64 %idxprom9.lcssa, i32 2
-  store i32 %call96, ptr %74, align 8
-  %75 = load ptr, ptr %m_nodes4, align 8
-  %76 = getelementptr inbounds %struct.b2TreeNode, ptr %75, i64 %idxprom5, i32 2
+  %39 = load ptr, ptr %m_nodes4, align 8
+  %40 = getelementptr inbounds %struct.b2TreeNode, ptr %39, i64 %idxprom9.lcssa, i32 2
+  store i32 %call96, ptr %40, align 8
+  %41 = load ptr, ptr %m_nodes4, align 8
+  %42 = getelementptr inbounds %struct.b2TreeNode, ptr %41, i64 %idxprom5, i32 2
   br label %if.end167
 
 if.else151:                                       ; preds = %while.end
-  %child1155 = getelementptr inbounds %struct.b2TreeNode, ptr %69, i64 %idxprom98, i32 3
+  %child1155 = getelementptr inbounds %struct.b2TreeNode, ptr %35, i64 %idxprom98, i32 3
   store i32 %index.0.lcssa, ptr %child1155, align 4
-  %77 = load ptr, ptr %m_nodes4, align 8
-  %child2159 = getelementptr inbounds %struct.b2TreeNode, ptr %77, i64 %idxprom98, i32 4
+  %43 = load ptr, ptr %m_nodes4, align 8
+  %child2159 = getelementptr inbounds %struct.b2TreeNode, ptr %43, i64 %idxprom98, i32 4
   store i32 %leaf, ptr %child2159, align 8
-  %78 = load ptr, ptr %m_nodes4, align 8
-  %79 = getelementptr inbounds %struct.b2TreeNode, ptr %78, i64 %idxprom9.lcssa, i32 2
-  store i32 %call96, ptr %79, align 8
-  %80 = load ptr, ptr %m_nodes4, align 8
-  %81 = getelementptr inbounds %struct.b2TreeNode, ptr %80, i64 %idxprom5, i32 2
-  store i32 %call96, ptr %81, align 8
+  %44 = load ptr, ptr %m_nodes4, align 8
+  %45 = getelementptr inbounds %struct.b2TreeNode, ptr %44, i64 %idxprom9.lcssa, i32 2
+  store i32 %call96, ptr %45, align 8
+  %46 = load ptr, ptr %m_nodes4, align 8
+  %47 = getelementptr inbounds %struct.b2TreeNode, ptr %46, i64 %idxprom5, i32 2
+  store i32 %call96, ptr %47, align 8
   br label %if.end167
 
 if.end167:                                        ; preds = %if.else151, %if.end136
-  %this.sink = phi ptr [ %this, %if.else151 ], [ %76, %if.end136 ]
+  %this.sink = phi ptr [ %this, %if.else151 ], [ %42, %if.end136 ]
   store i32 %call96, ptr %this.sink, align 8
-  %82 = load ptr, ptr %m_nodes4, align 8
-  %83 = getelementptr inbounds %struct.b2TreeNode, ptr %82, i64 %idxprom5, i32 2
-  %index.2259 = load i32, ptr %83, align 8
+  %48 = load ptr, ptr %m_nodes4, align 8
+  %49 = getelementptr inbounds %struct.b2TreeNode, ptr %48, i64 %idxprom5, i32 2
+  %index.2259 = load i32, ptr %49, align 8
   %cmp172.not260 = icmp eq i32 %index.2259, -1
   br i1 %cmp172.not260, label %while.end214, label %while.body173
 
 while.body173:                                    ; preds = %if.end167, %while.body173
   %index.2261 = phi i32 [ %index.2, %while.body173 ], [ %index.2259, %if.end167 ]
   %call174 = tail call noundef i32 @_ZN13b2DynamicTree7BalanceEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %index.2261)
-  %84 = load ptr, ptr %m_nodes4, align 8
+  %50 = load ptr, ptr %m_nodes4, align 8
   %idxprom177 = sext i32 %call174 to i64
-  %arrayidx178 = getelementptr inbounds %struct.b2TreeNode, ptr %84, i64 %idxprom177
+  %arrayidx178 = getelementptr inbounds %struct.b2TreeNode, ptr %50, i64 %idxprom177
   %child1179 = getelementptr inbounds i8, ptr %arrayidx178, i64 28
-  %85 = load i32, ptr %child1179, align 4
+  %51 = load i32, ptr %child1179, align 4
   %child2184 = getelementptr inbounds i8, ptr %arrayidx178, i64 32
-  %86 = load i32, ptr %child2184, align 8
-  %idxprom186 = sext i32 %85 to i64
-  %height188 = getelementptr inbounds %struct.b2TreeNode, ptr %84, i64 %idxprom186, i32 5
-  %87 = load i32, ptr %height188, align 4
-  %idxprom190 = sext i32 %86 to i64
-  %height192 = getelementptr inbounds %struct.b2TreeNode, ptr %84, i64 %idxprom190, i32 5
-  %88 = load i32, ptr %height192, align 4
-  %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %87, i32 %88)
+  %52 = load i32, ptr %child2184, align 8
+  %idxprom186 = sext i32 %51 to i64
+  %height188 = getelementptr inbounds %struct.b2TreeNode, ptr %50, i64 %idxprom186, i32 5
+  %53 = load i32, ptr %height188, align 4
+  %idxprom190 = sext i32 %52 to i64
+  %height192 = getelementptr inbounds %struct.b2TreeNode, ptr %50, i64 %idxprom190, i32 5
+  %54 = load i32, ptr %height192, align 4
+  %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %53, i32 %54)
   %add194 = add nsw i32 %cond.i, 1
-  %height198 = getelementptr inbounds %struct.b2TreeNode, ptr %84, i64 %idxprom177, i32 5
+  %height198 = getelementptr inbounds %struct.b2TreeNode, ptr %50, i64 %idxprom177, i32 5
   store i32 %add194, ptr %height198, align 4
-  %89 = load ptr, ptr %m_nodes4, align 8
-  %arrayidx201 = getelementptr inbounds %struct.b2TreeNode, ptr %89, i64 %idxprom177
-  %arrayidx205 = getelementptr inbounds %struct.b2TreeNode, ptr %89, i64 %idxprom186
-  %arrayidx209 = getelementptr inbounds %struct.b2TreeNode, ptr %89, i64 %idxprom190
-  %90 = load <2 x float>, ptr %arrayidx205, align 4
-  %91 = load <2 x float>, ptr %arrayidx209, align 4
-  %92 = fcmp olt <2 x float> %90, %91
-  %93 = select <2 x i1> %92, <2 x float> %90, <2 x float> %91
-  store <2 x float> %93, ptr %arrayidx201, align 4
+  %55 = load ptr, ptr %m_nodes4, align 8
+  %arrayidx201 = getelementptr inbounds %struct.b2TreeNode, ptr %55, i64 %idxprom177
+  %arrayidx205 = getelementptr inbounds %struct.b2TreeNode, ptr %55, i64 %idxprom186
+  %arrayidx209 = getelementptr inbounds %struct.b2TreeNode, ptr %55, i64 %idxprom190
+  %56 = load float, ptr %arrayidx205, align 4
+  %57 = load float, ptr %arrayidx209, align 4
+  %cmp.i.i.i210 = fcmp olt float %56, %57
+  %cond.i.i.i211 = select i1 %cmp.i.i.i210, float %56, float %57
+  %y.i.i212 = getelementptr inbounds i8, ptr %arrayidx205, i64 4
+  %58 = load float, ptr %y.i.i212, align 4
+  %y2.i.i213 = getelementptr inbounds i8, ptr %arrayidx209, i64 4
+  %59 = load float, ptr %y2.i.i213, align 4
+  %cmp.i3.i.i214 = fcmp olt float %58, %59
+  %cond.i4.i.i215 = select i1 %cmp.i3.i.i214, float %58, float %59
+  %retval.sroa.0.0.vec.insert.i.i216 = insertelement <2 x float> poison, float %cond.i.i.i211, i64 0
+  %retval.sroa.0.4.vec.insert.i.i217 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i216, float %cond.i4.i.i215, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i217, ptr %arrayidx201, align 4
   %upperBound.i218 = getelementptr inbounds i8, ptr %arrayidx205, i64 8
   %upperBound5.i219 = getelementptr inbounds i8, ptr %arrayidx209, i64 8
-  %94 = load <2 x float>, ptr %upperBound.i218, align 4
-  %95 = load <2 x float>, ptr %upperBound5.i219, align 4
-  %96 = fcmp ogt <2 x float> %94, %95
-  %97 = select <2 x i1> %96, <2 x float> %94, <2 x float> %95
+  %60 = load float, ptr %upperBound.i218, align 4
+  %61 = load float, ptr %upperBound5.i219, align 4
+  %cmp.i.i3.i220 = fcmp ogt float %60, %61
+  %cond.i.i4.i221 = select i1 %cmp.i.i3.i220, float %60, float %61
+  %y.i5.i222 = getelementptr inbounds i8, ptr %arrayidx205, i64 12
+  %62 = load float, ptr %y.i5.i222, align 4
+  %y2.i6.i223 = getelementptr inbounds i8, ptr %arrayidx209, i64 12
+  %63 = load float, ptr %y2.i6.i223, align 4
+  %cmp.i3.i7.i224 = fcmp ogt float %62, %63
+  %cond.i4.i8.i225 = select i1 %cmp.i3.i7.i224, float %62, float %63
+  %retval.sroa.0.0.vec.insert.i9.i226 = insertelement <2 x float> poison, float %cond.i.i4.i221, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i227 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i226, float %cond.i4.i8.i225, i64 1
   %upperBound7.i228 = getelementptr inbounds i8, ptr %arrayidx201, i64 8
-  store <2 x float> %97, ptr %upperBound7.i228, align 4
-  %98 = load ptr, ptr %m_nodes4, align 8
-  %99 = getelementptr inbounds %struct.b2TreeNode, ptr %98, i64 %idxprom177, i32 2
-  %index.2 = load i32, ptr %99, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i227, ptr %upperBound7.i228, align 4
+  %64 = load ptr, ptr %m_nodes4, align 8
+  %65 = getelementptr inbounds %struct.b2TreeNode, ptr %64, i64 %idxprom177, i32 2
+  %index.2 = load i32, ptr %65, align 8
   %cmp172.not = icmp eq i32 %index.2, -1
   br i1 %cmp172.not, label %while.end214, label %while.body173, !llvm.loop !8
 
@@ -674,19 +719,35 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx56 = getelementptr inbounds %struct.b2TreeNode, ptr %16, i64 %idxprom55
   %idxprom59 = sext i32 %18 to i64
   %arrayidx60 = getelementptr inbounds %struct.b2TreeNode, ptr %16, i64 %idxprom59
-  %19 = load <2 x float>, ptr %arrayidx56, align 4
-  %20 = load <2 x float>, ptr %arrayidx60, align 4
-  %21 = fcmp olt <2 x float> %19, %20
-  %22 = select <2 x i1> %21, <2 x float> %19, <2 x float> %20
-  store <2 x float> %22, ptr %arrayidx44, align 4
+  %19 = load float, ptr %arrayidx56, align 4
+  %20 = load float, ptr %arrayidx60, align 4
+  %cmp.i.i.i = fcmp olt float %19, %20
+  %cond.i.i.i = select i1 %cmp.i.i.i, float %19, float %20
+  %y.i.i = getelementptr inbounds i8, ptr %arrayidx56, i64 4
+  %21 = load float, ptr %y.i.i, align 4
+  %y2.i.i = getelementptr inbounds i8, ptr %arrayidx60, i64 4
+  %22 = load float, ptr %y2.i.i, align 4
+  %cmp.i3.i.i = fcmp olt float %21, %22
+  %cond.i4.i.i = select i1 %cmp.i3.i.i, float %21, float %22
+  %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %cond.i.i.i, i64 0
+  %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %cond.i4.i.i, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %arrayidx44, align 4
   %upperBound.i = getelementptr inbounds i8, ptr %arrayidx56, i64 8
   %upperBound5.i = getelementptr inbounds i8, ptr %arrayidx60, i64 8
-  %23 = load <2 x float>, ptr %upperBound.i, align 4
-  %24 = load <2 x float>, ptr %upperBound5.i, align 4
-  %25 = fcmp ogt <2 x float> %23, %24
-  %26 = select <2 x i1> %25, <2 x float> %23, <2 x float> %24
+  %23 = load float, ptr %upperBound.i, align 4
+  %24 = load float, ptr %upperBound5.i, align 4
+  %cmp.i.i3.i = fcmp ogt float %23, %24
+  %cond.i.i4.i = select i1 %cmp.i.i3.i, float %23, float %24
+  %y.i5.i = getelementptr inbounds i8, ptr %arrayidx56, i64 12
+  %25 = load float, ptr %y.i5.i, align 4
+  %y2.i6.i = getelementptr inbounds i8, ptr %arrayidx60, i64 12
+  %26 = load float, ptr %y2.i6.i, align 4
+  %cmp.i3.i7.i = fcmp ogt float %25, %26
+  %cond.i4.i8.i = select i1 %cmp.i3.i7.i, float %25, float %26
+  %retval.sroa.0.0.vec.insert.i9.i = insertelement <2 x float> poison, float %cond.i.i4.i, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i, float %cond.i4.i8.i, i64 1
   %upperBound7.i = getelementptr inbounds i8, ptr %arrayidx44, i64 8
-  store <2 x float> %26, ptr %upperBound7.i, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i, ptr %upperBound7.i, align 4
   %27 = load ptr, ptr %m_nodes, align 8
   %height = getelementptr inbounds %struct.b2TreeNode, ptr %27, i64 %idxprom55, i32 5
   %28 = load i32, ptr %height, align 4
@@ -729,11 +790,21 @@ if.end82:                                         ; preds = %while.body, %if.els
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN13b2DynamicTree9MoveProxyEiRK6b2AABBRK6b2Vec2(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %proxyId, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %displacement) local_unnamed_addr #6 align 2 {
 entry:
-  %0 = load <2 x float>, ptr %aabb, align 4
-  %1 = fadd <2 x float> %0, <float 0xBFB99999A0000000, float 0xBFB99999A0000000>
+  %0 = load float, ptr %aabb, align 4
+  %sub.i = fadd float %0, 0xBFB99999A0000000
+  %y.i16 = getelementptr inbounds i8, ptr %aabb, i64 4
+  %1 = load float, ptr %y.i16, align 4
+  %sub3.i = fadd float %1, 0xBFB99999A0000000
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %sub.i, i64 0
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %sub3.i, i64 1
   %upperBound = getelementptr inbounds i8, ptr %aabb, i64 8
-  %2 = load <2 x float>, ptr %upperBound, align 4
-  %3 = fadd <2 x float> %2, <float 0x3FB99999A0000000, float 0x3FB99999A0000000>
+  %2 = load float, ptr %upperBound, align 4
+  %add.i = fadd float %2, 0x3FB99999A0000000
+  %y.i17 = getelementptr inbounds i8, ptr %aabb, i64 12
+  %3 = load float, ptr %y.i17, align 4
+  %add3.i = fadd float %3, 0x3FB99999A0000000
+  %retval.sroa.0.0.vec.insert.i19 = insertelement <2 x float> poison, float %add.i, i64 0
+  %retval.sroa.0.4.vec.insert.i20 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i19, float %add3.i, i64 1
   %4 = load float, ptr %displacement, align 4
   %mul.i = fmul float %4, 4.000000e+00
   %y.i21 = getelementptr inbounds i8, ptr %displacement, i64 4
@@ -743,20 +814,18 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %6 = extractelement <2 x float> %1, i64 0
-  %add = fadd float %6, %mul.i
-  %fatAABB.sroa.0.0.vec.insert = insertelement <2 x float> %1, float %add, i64 0
+  %add = fadd float %sub.i, %mul.i
+  %fatAABB.sroa.0.0.vec.insert = insertelement <2 x float> %retval.sroa.0.4.vec.insert.i, float %add, i64 0
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %7 = extractelement <2 x float> %3, i64 0
-  %add13 = fadd float %7, %mul.i
-  %fatAABB.sroa.8.8.vec.insert = insertelement <2 x float> %3, float %add13, i64 0
+  %add13 = fadd float %add.i, %mul.i
+  %fatAABB.sroa.8.8.vec.insert = insertelement <2 x float> %retval.sroa.0.4.vec.insert.i20, float %add13, i64 0
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %fatAABB.sroa.0.0 = phi <2 x float> [ %fatAABB.sroa.0.0.vec.insert, %if.then ], [ %1, %if.else ]
-  %fatAABB.sroa.8.0 = phi <2 x float> [ %3, %if.then ], [ %fatAABB.sroa.8.8.vec.insert, %if.else ]
+  %fatAABB.sroa.0.0 = phi <2 x float> [ %fatAABB.sroa.0.0.vec.insert, %if.then ], [ %retval.sroa.0.4.vec.insert.i, %if.else ]
+  %fatAABB.sroa.8.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i20, %if.then ], [ %fatAABB.sroa.8.8.vec.insert, %if.else ]
   %cmp14 = fcmp olt float %mul1.i, 0.000000e+00
   br i1 %cmp14, label %if.then15, label %if.else20
 
@@ -776,58 +845,57 @@ if.end25:                                         ; preds = %if.else20, %if.then
   %fatAABB.sroa.0.1 = phi <2 x float> [ %fatAABB.sroa.0.4.vec.insert, %if.then15 ], [ %fatAABB.sroa.0.0, %if.else20 ]
   %fatAABB.sroa.8.1 = phi <2 x float> [ %fatAABB.sroa.8.0, %if.then15 ], [ %fatAABB.sroa.8.12.vec.insert, %if.else20 ]
   %m_nodes = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load ptr, ptr %m_nodes, align 8
+  %6 = load ptr, ptr %m_nodes, align 8
   %idxprom = sext i32 %proxyId to i64
-  %arrayidx = getelementptr inbounds %struct.b2TreeNode, ptr %8, i64 %idxprom
-  %9 = load <2 x float>, ptr %arrayidx, align 4
-  %10 = extractelement <2 x float> %9, i64 0
-  %11 = extractelement <2 x float> %0, i64 0
-  %cmp.i = fcmp ole float %10, %11
-  %12 = fcmp ole <2 x float> %9, %0
-  %cmp9.i = extractelement <2 x i1> %12, i64 1
-  %13 = select i1 %cmp.i, i1 %cmp9.i, i1 false
-  br i1 %13, label %land.rhs13.i, label %if.end44
+  %arrayidx = getelementptr inbounds %struct.b2TreeNode, ptr %6, i64 %idxprom
+  %7 = load float, ptr %arrayidx, align 4
+  %cmp.i = fcmp ole float %7, %0
+  %y.i24 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %8 = load float, ptr %y.i24, align 4
+  %cmp9.i = fcmp ole float %8, %1
+  %9 = select i1 %cmp.i, i1 %cmp9.i, i1 false
+  br i1 %9, label %land.rhs13.i, label %if.end44
 
 land.rhs13.i:                                     ; preds = %if.end25
   %upperBound15.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %14 = load float, ptr %upperBound15.i, align 4
-  %15 = extractelement <2 x float> %2, i64 0
-  %cmp17.i = fcmp ugt float %15, %14
+  %10 = load float, ptr %upperBound15.i, align 4
+  %cmp17.i = fcmp ugt float %2, %10
   br i1 %cmp17.i, label %if.end44, label %_ZNK6b2AABB8ContainsERKS_.exit
 
 _ZNK6b2AABB8ContainsERKS_.exit:                   ; preds = %land.rhs13.i
   %y25.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
-  %16 = load float, ptr %y25.i, align 4
-  %17 = extractelement <2 x float> %2, i64 1
-  %cmp26.i = fcmp ugt float %17, %16
+  %11 = load float, ptr %y25.i, align 4
+  %cmp26.i = fcmp ugt float %3, %11
   br i1 %cmp26.i, label %if.end44, label %if.then28
 
 if.then28:                                        ; preds = %_ZNK6b2AABB8ContainsERKS_.exit
+  %fatAABB.sroa.0.0.vec.extract68 = extractelement <2 x float> %fatAABB.sroa.0.1, i64 0
+  %sub.i30 = fadd float %fatAABB.sroa.0.0.vec.extract68, 0xBFD99999A0000000
+  %fatAABB.sroa.0.4.vec.extract71 = extractelement <2 x float> %fatAABB.sroa.0.1, i64 1
+  %sub3.i33 = fadd float %fatAABB.sroa.0.4.vec.extract71, 0xBFD99999A0000000
   %fatAABB.sroa.8.12.vec.extract = extractelement <2 x float> %fatAABB.sroa.8.1, i64 1
   %add3.i44 = fadd float %fatAABB.sroa.8.12.vec.extract, 0x3FD99999A0000000
-  %18 = fadd <2 x float> %fatAABB.sroa.0.1, <float 0xBFD99999A0000000, float 0xBFD99999A0000000>
-  %19 = fcmp ugt <2 x float> %18, %9
-  %20 = extractelement <2 x i1> %19, i64 0
-  %21 = extractelement <2 x i1> %19, i64 1
-  %.not79 = select i1 %20, i1 true, i1 %21
+  %cmp.i47 = fcmp ugt float %sub.i30, %7
+  %cmp9.i50 = fcmp ugt float %sub3.i33, %8
+  %.not79 = select i1 %cmp.i47, i1 true, i1 %cmp9.i50
   %fatAABB.sroa.8.8.vec.extract74 = extractelement <2 x float> %fatAABB.sroa.8.1, i64 0
   %add.i41 = fadd float %fatAABB.sroa.8.8.vec.extract74, 0x3FD99999A0000000
-  %cmp17.i54 = fcmp ugt float %14, %add.i41
+  %cmp17.i54 = fcmp ugt float %10, %add.i41
   %or.cond = select i1 %.not79, i1 true, i1 %cmp17.i54
-  %cmp26.i58 = fcmp ugt float %16, %add3.i44
+  %cmp26.i58 = fcmp ugt float %11, %add3.i44
   %or.cond78 = select i1 %or.cond, i1 true, i1 %cmp26.i58
   br i1 %or.cond78, label %if.end44, label %return
 
 if.end44:                                         ; preds = %if.then28, %if.end25, %land.rhs13.i, %_ZNK6b2AABB8ContainsERKS_.exit
   tail call void @_ZN13b2DynamicTree10RemoveLeafEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %proxyId)
-  %22 = load ptr, ptr %m_nodes, align 8
-  %arrayidx47 = getelementptr inbounds %struct.b2TreeNode, ptr %22, i64 %idxprom
+  %12 = load ptr, ptr %m_nodes, align 8
+  %arrayidx47 = getelementptr inbounds %struct.b2TreeNode, ptr %12, i64 %idxprom
   store <2 x float> %fatAABB.sroa.0.1, ptr %arrayidx47, align 8
   %fatAABB.sroa.8.0.arrayidx47.sroa_idx = getelementptr inbounds i8, ptr %arrayidx47, i64 8
   store <2 x float> %fatAABB.sroa.8.1, ptr %fatAABB.sroa.8.0.arrayidx47.sroa_idx, align 8
   tail call void @_ZN13b2DynamicTree10InsertLeafEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %proxyId)
-  %23 = load ptr, ptr %m_nodes, align 8
-  %moved = getelementptr inbounds %struct.b2TreeNode, ptr %23, i64 %idxprom, i32 6
+  %13 = load ptr, ptr %m_nodes, align 8
+  %moved = getelementptr inbounds %struct.b2TreeNode, ptr %13, i64 %idxprom, i32 6
   store i8 1, ptr %moved, align 8
   br label %return
 
@@ -998,36 +1066,64 @@ return.sink.split:                                ; preds = %if.end37, %if.end11
   %height9.sink = phi ptr [ %height9, %if.end110 ], [ %height8, %if.end37 ]
   %retval.0.ph = phi i32 [ %1, %if.end110 ], [ %3, %if.end37 ]
   %upperBound.i183.sink = getelementptr inbounds i8, ptr %add.ptr7.sink380, i64 8
+  %y.i.i177.sink = getelementptr inbounds i8, ptr %add.ptr7.sink380, i64 4
   %26 = getelementptr inbounds i8, ptr %add.ptr85.sink340.sink, i64 24
   store i32 %iA, ptr %26, align 8
-  %27 = load <2 x float>, ptr %add.ptr7.sink380, align 4
-  %28 = load <2 x float>, ptr %add.ptr85.sink340.sink, align 4
-  %29 = fcmp olt <2 x float> %27, %28
-  %30 = select <2 x i1> %29, <2 x float> %27, <2 x float> %28
-  store <2 x float> %30, ptr %add.ptr, align 4
+  %27 = load float, ptr %add.ptr7.sink380, align 4
+  %28 = load float, ptr %add.ptr85.sink340.sink, align 4
+  %cmp.i.i.i215 = fcmp olt float %27, %28
+  %cond.i.i.i216 = select i1 %cmp.i.i.i215, float %27, float %28
+  %29 = load float, ptr %y.i.i177.sink, align 4
+  %y2.i.i218 = getelementptr inbounds i8, ptr %add.ptr85.sink340.sink, i64 4
+  %30 = load float, ptr %y2.i.i218, align 4
+  %cmp.i3.i.i219 = fcmp olt float %29, %30
+  %cond.i4.i.i220 = select i1 %cmp.i3.i.i219, float %29, float %30
+  %retval.sroa.0.0.vec.insert.i.i221 = insertelement <2 x float> poison, float %cond.i.i.i216, i64 0
+  %retval.sroa.0.4.vec.insert.i.i222 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i221, float %cond.i4.i.i220, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i222, ptr %add.ptr, align 4
   %upperBound5.i224 = getelementptr inbounds i8, ptr %add.ptr85.sink340.sink, i64 8
-  %31 = load <2 x float>, ptr %upperBound.i183.sink, align 4
-  %32 = load <2 x float>, ptr %upperBound5.i224, align 4
-  %33 = fcmp ogt <2 x float> %31, %32
-  %34 = select <2 x i1> %33, <2 x float> %31, <2 x float> %32
+  %31 = load float, ptr %upperBound.i183.sink, align 4
+  %32 = load float, ptr %upperBound5.i224, align 4
+  %cmp.i.i3.i225 = fcmp ogt float %31, %32
+  %cond.i.i4.i226 = select i1 %cmp.i.i3.i225, float %31, float %32
+  %y.i5.i227 = getelementptr inbounds i8, ptr %add.ptr7.sink380, i64 12
+  %33 = load float, ptr %y.i5.i227, align 4
+  %y2.i6.i228 = getelementptr inbounds i8, ptr %add.ptr85.sink340.sink, i64 12
+  %34 = load float, ptr %y2.i6.i228, align 4
+  %cmp.i3.i7.i229 = fcmp ogt float %33, %34
+  %cond.i4.i8.i230 = select i1 %cmp.i3.i7.i229, float %33, float %34
+  %retval.sroa.0.0.vec.insert.i9.i231 = insertelement <2 x float> poison, float %cond.i.i4.i226, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i232 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i231, float %cond.i4.i8.i230, i64 1
   %upperBound7.i233 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  store <2 x float> %34, ptr %upperBound7.i233, align 4
-  %35 = load <2 x float>, ptr %add.ptr88.sink315.sink, align 4
-  %36 = fcmp ogt <2 x float> %35, %30
-  %37 = select <2 x i1> %36, <2 x float> %30, <2 x float> %35
-  store <2 x float> %37, ptr %add.ptr4.sink353, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i232, ptr %upperBound7.i233, align 4
+  %35 = load float, ptr %add.ptr88.sink315.sink, align 4
+  %cmp.i.i.i234 = fcmp ogt float %35, %cond.i.i.i216
+  %cond.i.i.i235 = select i1 %cmp.i.i.i234, float %cond.i.i.i216, float %35
+  %y2.i.i237 = getelementptr inbounds i8, ptr %add.ptr88.sink315.sink, i64 4
+  %36 = load float, ptr %y2.i.i237, align 4
+  %cmp.i3.i.i238 = fcmp olt float %cond.i4.i.i220, %36
+  %cond.i4.i.i239 = select i1 %cmp.i3.i.i238, float %cond.i4.i.i220, float %36
+  %retval.sroa.0.0.vec.insert.i.i240 = insertelement <2 x float> poison, float %cond.i.i.i235, i64 0
+  %retval.sroa.0.4.vec.insert.i.i241 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i240, float %cond.i4.i.i239, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i241, ptr %add.ptr4.sink353, align 4
   %upperBound5.i243 = getelementptr inbounds i8, ptr %add.ptr88.sink315.sink, i64 8
-  %38 = load <2 x float>, ptr %upperBound5.i243, align 4
-  %39 = fcmp olt <2 x float> %38, %34
-  %40 = select <2 x i1> %39, <2 x float> %34, <2 x float> %38
-  %41 = load i32, ptr %height8.sink, align 4
-  %cond.i253 = tail call noundef i32 @llvm.smax.i32(i32 %41, i32 %.sink300.sink)
+  %37 = load float, ptr %upperBound5.i243, align 4
+  %cmp.i.i3.i244 = fcmp olt float %37, %cond.i.i4.i226
+  %cond.i.i4.i245 = select i1 %cmp.i.i3.i244, float %cond.i.i4.i226, float %37
+  %y2.i6.i247 = getelementptr inbounds i8, ptr %add.ptr88.sink315.sink, i64 12
+  %38 = load float, ptr %y2.i6.i247, align 4
+  %cmp.i3.i7.i248 = fcmp ogt float %cond.i4.i8.i230, %38
+  %cond.i4.i8.i249 = select i1 %cmp.i3.i7.i248, float %cond.i4.i8.i230, float %38
+  %retval.sroa.0.0.vec.insert.i9.i250 = insertelement <2 x float> poison, float %cond.i.i4.i245, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i251 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i250, float %cond.i4.i8.i249, i64 1
+  %39 = load i32, ptr %height8.sink, align 4
+  %cond.i253 = tail call noundef i32 @llvm.smax.i32(i32 %39, i32 %.sink300.sink)
   %add145 = add nsw i32 %cond.i253, 1
   store i32 %add145, ptr %height, align 4
-  %42 = load i32, ptr %height112.sink.sink, align 4
-  %cond.i254 = tail call noundef i32 @llvm.smax.i32(i32 %add145, i32 %42)
-  %43 = getelementptr inbounds i8, ptr %add.ptr4.sink353, i64 8
-  store <2 x float> %40, ptr %43, align 4
+  %40 = load i32, ptr %height112.sink.sink, align 4
+  %cond.i254 = tail call noundef i32 @llvm.smax.i32(i32 %add145, i32 %40)
+  %41 = getelementptr inbounds i8, ptr %add.ptr4.sink353, i64 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i251, ptr %41, align 4
   %storemerge = add nsw i32 %cond.i254, 1
   store i32 %storemerge, ptr %height9.sink, align 4
   br label %return
@@ -1100,12 +1196,15 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.end9:                                          ; preds = %for.body
   %upperBound.i5 = getelementptr inbounds i8, ptr %add.ptr6, i64 8
-  %8 = load <2 x float>, ptr %upperBound.i5, align 4
-  %9 = load <2 x float>, ptr %add.ptr6, align 4
-  %10 = fsub <2 x float> %8, %9
-  %shift = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %11 = fadd <2 x float> %10, %shift
-  %add.i10 = extractelement <2 x float> %11, i64 0
+  %8 = load float, ptr %upperBound.i5, align 4
+  %9 = load float, ptr %add.ptr6, align 4
+  %sub.i6 = fsub float %8, %9
+  %y.i7 = getelementptr inbounds i8, ptr %add.ptr6, i64 12
+  %10 = load float, ptr %y.i7, align 4
+  %y5.i8 = getelementptr inbounds i8, ptr %add.ptr6, i64 4
+  %11 = load float, ptr %y5.i8, align 4
+  %sub6.i9 = fsub float %10, %11
+  %add.i10 = fadd float %sub.i6, %sub6.i9
   %mul.i11 = fmul float %add.i10, 2.000000e+00
   %add = fadd float %totalArea.013, %mul.i11
   br label %for.inc
@@ -1326,15 +1425,19 @@ for.body20:                                       ; preds = %for.cond18.preheade
   %16 = load i32, ptr %arrayidx23, align 4
   %idxprom24 = sext i32 %16 to i64
   %arrayidx25 = getelementptr inbounds %struct.b2TreeNode, ptr %15, i64 %idxprom24
+  %aabbi.sroa.0.0.copyload = load float, ptr %arrayidx25, align 8
+  %aabbi.sroa.2.0.arrayidx25.sroa_idx = getelementptr inbounds i8, ptr %arrayidx25, i64 4
+  %aabbi.sroa.2.0.copyload = load float, ptr %aabbi.sroa.2.0.arrayidx25.sroa_idx, align 4
   %aabbi.sroa.3.0.arrayidx25.sroa_idx = getelementptr inbounds i8, ptr %arrayidx25, i64 8
-  %17 = load <2 x float>, ptr %arrayidx25, align 8
-  %18 = load <2 x float>, ptr %aabbi.sroa.3.0.arrayidx25.sroa_idx, align 8
+  %aabbi.sroa.3.0.copyload = load float, ptr %aabbi.sroa.3.0.arrayidx25.sroa_idx, align 8
+  %aabbi.sroa.4.0.arrayidx25.sroa_idx = getelementptr inbounds i8, ptr %arrayidx25, i64 12
+  %aabbi.sroa.4.0.copyload = load float, ptr %aabbi.sroa.4.0.arrayidx25.sroa_idx, align 4
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %cmp2768 = icmp slt i64 %indvars.iv.next89, %indvars.iv91
   br i1 %cmp2768, label %for.body28.preheader, label %for.cond18.loopexit
 
 for.body28.preheader:                             ; preds = %for.body20
-  %19 = trunc nuw nsw i64 %indvars.iv88 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv88 to i32
   br label %for.body28
 
 for.body28:                                       ; preds = %for.body28.preheader, %for.body28
@@ -1343,89 +1446,112 @@ for.body28:                                       ; preds = %for.body28.preheade
   %iMin.171 = phi i32 [ %iMin.078, %for.body28.preheader ], [ %iMin.2, %for.body28 ]
   %jMin.170 = phi i32 [ %jMin.077, %for.body28.preheader ], [ %jMin.2, %for.body28 ]
   %arrayidx31 = getelementptr inbounds i32, ptr %call.i, i64 %indvars.iv85
-  %20 = load i32, ptr %arrayidx31, align 4
-  %idxprom32 = sext i32 %20 to i64
+  %18 = load i32, ptr %arrayidx31, align 4
+  %idxprom32 = sext i32 %18 to i64
   %arrayidx33 = getelementptr inbounds %struct.b2TreeNode, ptr %15, i64 %idxprom32
+  %aabbj.sroa.0.0.copyload = load float, ptr %arrayidx33, align 8
+  %aabbj.sroa.2.0.arrayidx33.sroa_idx = getelementptr inbounds i8, ptr %arrayidx33, i64 4
+  %aabbj.sroa.2.0.copyload = load float, ptr %aabbj.sroa.2.0.arrayidx33.sroa_idx, align 4
   %aabbj.sroa.3.0.arrayidx33.sroa_idx = getelementptr inbounds i8, ptr %arrayidx33, i64 8
-  %21 = load <2 x float>, ptr %arrayidx33, align 8
-  %22 = load <2 x float>, ptr %aabbj.sroa.3.0.arrayidx33.sroa_idx, align 8
-  %23 = fcmp olt <2 x float> %17, %21
-  %24 = select <2 x i1> %23, <2 x float> %17, <2 x float> %21
-  %25 = fcmp ogt <2 x float> %18, %22
-  %26 = select <2 x i1> %25, <2 x float> %18, <2 x float> %22
-  %27 = fsub <2 x float> %26, %24
-  %shift = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %28 = fadd <2 x float> %27, %shift
-  %add.i = extractelement <2 x float> %28, i64 0
+  %aabbj.sroa.3.0.copyload = load float, ptr %aabbj.sroa.3.0.arrayidx33.sroa_idx, align 8
+  %aabbj.sroa.4.0.arrayidx33.sroa_idx = getelementptr inbounds i8, ptr %arrayidx33, i64 12
+  %aabbj.sroa.4.0.copyload = load float, ptr %aabbj.sroa.4.0.arrayidx33.sroa_idx, align 4
+  %cmp.i.i.i = fcmp olt float %aabbi.sroa.0.0.copyload, %aabbj.sroa.0.0.copyload
+  %cond.i.i.i = select i1 %cmp.i.i.i, float %aabbi.sroa.0.0.copyload, float %aabbj.sroa.0.0.copyload
+  %cmp.i3.i.i = fcmp olt float %aabbi.sroa.2.0.copyload, %aabbj.sroa.2.0.copyload
+  %cond.i4.i.i = select i1 %cmp.i3.i.i, float %aabbi.sroa.2.0.copyload, float %aabbj.sroa.2.0.copyload
+  %cmp.i.i3.i = fcmp ogt float %aabbi.sroa.3.0.copyload, %aabbj.sroa.3.0.copyload
+  %cond.i.i4.i = select i1 %cmp.i.i3.i, float %aabbi.sroa.3.0.copyload, float %aabbj.sroa.3.0.copyload
+  %cmp.i3.i7.i = fcmp ogt float %aabbi.sroa.4.0.copyload, %aabbj.sroa.4.0.copyload
+  %cond.i4.i8.i = select i1 %cmp.i3.i7.i, float %aabbi.sroa.4.0.copyload, float %aabbj.sroa.4.0.copyload
+  %sub.i = fsub float %cond.i.i4.i, %cond.i.i.i
+  %sub6.i = fsub float %cond.i4.i8.i, %cond.i4.i.i
+  %add.i = fadd float %sub.i, %sub6.i
   %mul.i = fmul float %add.i, 2.000000e+00
   %cmp36 = fcmp olt float %mul.i, %minCost.172
-  %29 = trunc nuw nsw i64 %indvars.iv85 to i32
-  %jMin.2 = select i1 %cmp36, i32 %29, i32 %jMin.170
-  %iMin.2 = select i1 %cmp36, i32 %19, i32 %iMin.171
+  %19 = trunc nuw nsw i64 %indvars.iv85 to i32
+  %jMin.2 = select i1 %cmp36, i32 %19, i32 %jMin.170
+  %iMin.2 = select i1 %cmp36, i32 %17, i32 %iMin.171
   %minCost.2 = select i1 %cmp36, float %mul.i, float %minCost.172
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %sext = shl i64 %indvars.iv.next86, 32
-  %30 = ashr exact i64 %sext, 32
-  %cmp27 = icmp slt i64 %30, %indvars.iv91
+  %20 = ashr exact i64 %sext, 32
+  %cmp27 = icmp slt i64 %20, %indvars.iv91
   br i1 %cmp27, label %for.body28, label %for.cond18.loopexit, !llvm.loop !14
 
 for.end44:                                        ; preds = %for.cond18.loopexit
   %idxprom45 = sext i32 %iMin.1.lcssa to i64
   %arrayidx46 = getelementptr inbounds i32, ptr %call.i, i64 %idxprom45
-  %31 = load i32, ptr %arrayidx46, align 4
+  %21 = load i32, ptr %arrayidx46, align 4
   %idxprom47 = sext i32 %jMin.1.lcssa to i64
   %arrayidx48 = getelementptr inbounds i32, ptr %call.i, i64 %idxprom47
-  %32 = load i32, ptr %arrayidx48, align 4
-  %idx.ext = sext i32 %31 to i64
+  %22 = load i32, ptr %arrayidx48, align 4
+  %idx.ext = sext i32 %21 to i64
   %add.ptr = getelementptr inbounds %struct.b2TreeNode, ptr %15, i64 %idx.ext
-  %idx.ext51 = sext i32 %32 to i64
+  %idx.ext51 = sext i32 %22 to i64
   %add.ptr52 = getelementptr inbounds %struct.b2TreeNode, ptr %15, i64 %idx.ext51
   %call53 = tail call noundef i32 @_ZN13b2DynamicTree12AllocateNodeEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %33 = load ptr, ptr %m_nodes21, align 8
+  %23 = load ptr, ptr %m_nodes21, align 8
   %idx.ext55 = sext i32 %call53 to i64
-  %add.ptr56 = getelementptr inbounds %struct.b2TreeNode, ptr %33, i64 %idx.ext55
+  %add.ptr56 = getelementptr inbounds %struct.b2TreeNode, ptr %23, i64 %idx.ext55
   %child157 = getelementptr inbounds i8, ptr %add.ptr56, i64 28
-  store i32 %31, ptr %child157, align 4
+  store i32 %21, ptr %child157, align 4
   %child258 = getelementptr inbounds i8, ptr %add.ptr56, i64 32
-  store i32 %32, ptr %child258, align 8
+  store i32 %22, ptr %child258, align 8
   %height59 = getelementptr inbounds i8, ptr %add.ptr, i64 36
-  %34 = load i32, ptr %height59, align 4
+  %24 = load i32, ptr %height59, align 4
   %height60 = getelementptr inbounds i8, ptr %add.ptr52, i64 36
-  %35 = load i32, ptr %height60, align 4
-  %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %34, i32 %35)
+  %25 = load i32, ptr %height60, align 4
+  %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %24, i32 %25)
   %add62 = add nsw i32 %cond.i, 1
   %height63 = getelementptr inbounds i8, ptr %add.ptr56, i64 36
   store i32 %add62, ptr %height63, align 4
-  %36 = load <2 x float>, ptr %add.ptr, align 4
-  %37 = load <2 x float>, ptr %add.ptr52, align 4
-  %38 = fcmp olt <2 x float> %36, %37
-  %39 = select <2 x i1> %38, <2 x float> %36, <2 x float> %37
-  store <2 x float> %39, ptr %add.ptr56, align 4
+  %26 = load float, ptr %add.ptr, align 4
+  %27 = load float, ptr %add.ptr52, align 4
+  %cmp.i.i.i46 = fcmp olt float %26, %27
+  %cond.i.i.i47 = select i1 %cmp.i.i.i46, float %26, float %27
+  %y.i.i48 = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %28 = load float, ptr %y.i.i48, align 4
+  %y2.i.i49 = getelementptr inbounds i8, ptr %add.ptr52, i64 4
+  %29 = load float, ptr %y2.i.i49, align 4
+  %cmp.i3.i.i50 = fcmp olt float %28, %29
+  %cond.i4.i.i51 = select i1 %cmp.i3.i.i50, float %28, float %29
+  %retval.sroa.0.0.vec.insert.i.i52 = insertelement <2 x float> poison, float %cond.i.i.i47, i64 0
+  %retval.sroa.0.4.vec.insert.i.i53 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i52, float %cond.i4.i.i51, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i53, ptr %add.ptr56, align 4
   %upperBound.i54 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %upperBound5.i55 = getelementptr inbounds i8, ptr %add.ptr52, i64 8
-  %40 = load <2 x float>, ptr %upperBound.i54, align 4
-  %41 = load <2 x float>, ptr %upperBound5.i55, align 4
-  %42 = fcmp ogt <2 x float> %40, %41
-  %43 = select <2 x i1> %42, <2 x float> %40, <2 x float> %41
+  %30 = load float, ptr %upperBound.i54, align 4
+  %31 = load float, ptr %upperBound5.i55, align 4
+  %cmp.i.i3.i56 = fcmp ogt float %30, %31
+  %cond.i.i4.i57 = select i1 %cmp.i.i3.i56, float %30, float %31
+  %y.i5.i58 = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %32 = load float, ptr %y.i5.i58, align 4
+  %y2.i6.i59 = getelementptr inbounds i8, ptr %add.ptr52, i64 12
+  %33 = load float, ptr %y2.i6.i59, align 4
+  %cmp.i3.i7.i60 = fcmp ogt float %32, %33
+  %cond.i4.i8.i61 = select i1 %cmp.i3.i7.i60, float %32, float %33
+  %retval.sroa.0.0.vec.insert.i9.i62 = insertelement <2 x float> poison, float %cond.i.i4.i57, i64 0
+  %retval.sroa.0.4.vec.insert.i10.i63 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i9.i62, float %cond.i4.i8.i61, i64 1
   %upperBound7.i64 = getelementptr inbounds i8, ptr %add.ptr56, i64 8
-  store <2 x float> %43, ptr %upperBound7.i64, align 4
-  %44 = getelementptr inbounds i8, ptr %add.ptr56, i64 24
-  store i32 -1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %add.ptr, i64 24
-  store i32 %call53, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %add.ptr52, i64 24
-  store i32 %call53, ptr %46, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i10.i63, ptr %upperBound7.i64, align 4
+  %34 = getelementptr inbounds i8, ptr %add.ptr56, i64 24
+  store i32 -1, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  store i32 %call53, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %add.ptr52, i64 24
+  store i32 %call53, ptr %36, align 8
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv91
-  %47 = load i32, ptr %gep, align 4
-  store i32 %47, ptr %arrayidx48, align 4
+  %37 = load i32, ptr %gep, align 4
+  store i32 %37, ptr %arrayidx48, align 4
   store i32 %call53, ptr %arrayidx46, align 4
   %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
   %cmp16 = icmp sgt i64 %indvars.iv91, 2
   br i1 %cmp16, label %for.cond18.preheader, label %while.end, !llvm.loop !15
 
 while.end:                                        ; preds = %for.end44, %entry, %while.cond.preheader
-  %48 = load i32, ptr %call.i, align 4
-  store i32 %48, ptr %this, align 8
+  %38 = load i32, ptr %call.i, align 4
+  store i32 %38, ptr %this, align 8
   tail call void @_Z14b2Free_DefaultPv(ptr noundef nonnull %call.i)
   ret void
 }

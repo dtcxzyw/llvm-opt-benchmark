@@ -1263,104 +1263,100 @@ define noundef i64 @"_ZN115_$LT$statrs..distribution..hypergeometric..Hypergeome
 define { i64, double } @"_ZN124_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h0a5ee6a31aefc93bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8, !noundef !4
   %3 = icmp eq i64 %2, 0
-  br i1 %3, label %12, label %4
+  br i1 %3, label %14, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load <2 x i64>, ptr %5, align 8
-  %7 = uitofp <2 x i64> %6 to <2 x double>
-  %shift = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %8 = fmul <2 x double> %shift, %7
-  %9 = extractelement <2 x double> %8, i64 0
-  %10 = uitofp i64 %2 to double
-  %11 = fdiv double %9, %10
-  br label %12
+  %6 = load i64, ptr %5, align 8, !noundef !4
+  %7 = uitofp i64 %6 to double
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = uitofp i64 %9 to double
+  %11 = fmul double %7, %10
+  %12 = uitofp i64 %2 to double
+  %13 = fdiv double %11, %12
+  br label %14
 
-12:                                               ; preds = %1, %4
-  %.sroa.3.0 = phi double [ %11, %4 ], [ undef, %1 ]
+14:                                               ; preds = %1, %4
+  %.sroa.3.0 = phi double [ %13, %4 ], [ undef, %1 ]
   %.sroa.0.0 = phi i64 [ 1, %4 ], [ 0, %1 ]
-  %13 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
-  %14 = insertvalue { i64, double } %13, double %.sroa.3.0, 1
-  ret { i64, double } %14
+  %15 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
+  %16 = insertvalue { i64, double } %15, double %.sroa.3.0, 1
+  ret { i64, double } %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, double } @"_ZN124_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17h06a7a277688faed5E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8, !noundef !4
   %3 = icmp ult i64 %2, 2
-  br i1 %3, label %20, label %4
+  br i1 %3, label %21, label %4
 
 4:                                                ; preds = %1
   %5 = uitofp i64 %2 to double
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load <2 x i64>, ptr %6, align 8, !alias.scope !200, !noalias !203
-  %8 = uitofp <2 x i64> %7 to <2 x double>
-  %9 = extractelement <2 x double> %8, i64 0
-  %10 = extractelement <2 x double> %8, i64 1
-  %11 = fmul double %9, %10
-  %12 = fsub double %5, %10
-  %13 = fmul double %11, %12
-  %14 = fsub double %5, %9
-  %15 = fmul double %14, %13
-  %16 = fmul double %5, %5
-  %17 = fadd double %5, -1.000000e+00
-  %18 = fmul double %16, %17
-  %19 = fdiv double %15, %18
-  br label %20
+  %7 = load i64, ptr %6, align 8, !alias.scope !200, !noalias !203, !noundef !4
+  %8 = uitofp i64 %7 to double
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = load i64, ptr %9, align 8, !alias.scope !200, !noalias !203, !noundef !4
+  %11 = uitofp i64 %10 to double
+  %12 = fmul double %8, %11
+  %13 = fsub double %5, %11
+  %14 = fmul double %12, %13
+  %15 = fsub double %5, %8
+  %16 = fmul double %15, %14
+  %17 = fmul double %5, %5
+  %18 = fadd double %5, -1.000000e+00
+  %19 = fmul double %17, %18
+  %20 = fdiv double %16, %19
+  br label %21
 
-20:                                               ; preds = %1, %4
-  %.sroa.3.0 = phi double [ %19, %4 ], [ undef, %1 ]
+21:                                               ; preds = %1, %4
+  %.sroa.3.0 = phi double [ %20, %4 ], [ undef, %1 ]
   %.sroa.0.0 = phi i64 [ 1, %4 ], [ 0, %1 ]
-  %21 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
-  %22 = insertvalue { i64, double } %21, double %.sroa.3.0, 1
-  ret { i64, double } %22
+  %22 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
+  %23 = insertvalue { i64, double } %22, double %.sroa.3.0, 1
+  ret { i64, double } %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, double } @"_ZN124_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17h50990bbab2cd5b3bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8, !noundef !4
   %3 = icmp ult i64 %2, 3
-  br i1 %3, label %35, label %4
+  br i1 %3, label %29, label %4
 
 4:                                                ; preds = %1
   %5 = uitofp i64 %2 to double
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = fadd double %5, -1.000000e+00
-  %8 = load <2 x i64>, ptr %6, align 8, !alias.scope !205, !noalias !208
-  %9 = uitofp <2 x i64> %8 to <2 x double>
-  %10 = extractelement <2 x double> %9, i64 1
-  %11 = fmul double %10, 2.000000e+00
-  %12 = fsub double %5, %11
-  %13 = extractelement <2 x double> %9, i64 0
-  %14 = fmul double %13, 2.000000e+00
+  %7 = load i64, ptr %6, align 8, !alias.scope !205, !noalias !208, !noundef !4
+  %8 = uitofp i64 %7 to double
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = load i64, ptr %9, align 8, !alias.scope !205, !noalias !208, !noundef !4
+  %11 = uitofp i64 %10 to double
+  %12 = fadd double %5, -1.000000e+00
+  %13 = tail call double @llvm.sqrt.f64(double %12)
+  %14 = fmul double %11, 2.000000e+00
   %15 = fsub double %5, %14
-  %16 = fmul double %13, %10
-  %17 = insertelement <2 x double> poison, double %5, i64 0
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
-  %19 = fsub <2 x double> %18, %9
-  %20 = extractelement <2 x double> %19, i64 0
-  %21 = fmul double %20, %16
-  %22 = extractelement <2 x double> %19, i64 1
-  %23 = fmul double %22, %21
-  %24 = fadd double %5, -2.000000e+00
-  %25 = insertelement <2 x double> poison, double %7, i64 0
-  %26 = insertelement <2 x double> %25, double %23, i64 1
-  %27 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %26)
-  %28 = insertelement <2 x double> poison, double %12, i64 0
-  %29 = insertelement <2 x double> %28, double %24, i64 1
-  %30 = fmul <2 x double> %27, %29
-  %31 = extractelement <2 x double> %30, i64 0
-  %32 = fmul double %15, %31
-  %33 = extractelement <2 x double> %30, i64 1
-  %34 = fdiv double %32, %33
-  br label %35
+  %16 = fmul double %13, %15
+  %17 = fmul double %8, 2.000000e+00
+  %18 = fsub double %5, %17
+  %19 = fmul double %18, %16
+  %20 = fmul double %8, %11
+  %21 = fsub double %5, %8
+  %22 = fmul double %21, %20
+  %23 = fsub double %5, %11
+  %24 = fmul double %23, %22
+  %25 = tail call double @llvm.sqrt.f64(double %24)
+  %26 = fadd double %5, -2.000000e+00
+  %27 = fmul double %26, %25
+  %28 = fdiv double %19, %27
+  br label %29
 
-35:                                               ; preds = %1, %4
-  %.sroa.3.0 = phi double [ %34, %4 ], [ undef, %1 ]
+29:                                               ; preds = %1, %4
+  %.sroa.3.0 = phi double [ %28, %4 ], [ undef, %1 ]
   %.sroa.0.0 = phi i64 [ 1, %4 ], [ 0, %1 ]
-  %36 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
-  %37 = insertvalue { i64, double } %36, double %.sroa.3.0, 1
-  ret { i64, double } %37
+  %30 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
+  %31 = insertvalue { i64, double } %30, double %.sroa.3.0, 1
+  ret { i64, double } %31
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1666,37 +1662,35 @@ define hidden { i64, double } @_ZN6statrs10statistics6traits12Distribution7std_d
 
 15:                                               ; preds = %5
   %16 = tail call double @llvm.sqrt.f64(double %2)
-  %17 = fmul double %2, %2
-  %18 = insertelement <2 x double> poison, double %2, i64 0
-  %19 = insertelement <2 x double> %18, double %17, i64 1
-  %20 = fdiv <2 x double> <double 2.500000e-01, double 3.125000e-02>, %19
-  %21 = fadd <2 x double> %20, <double 1.000000e+00, double 1.000000e+00>
-  %shift = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %22 = fmul <2 x double> %21, %shift
-  %23 = extractelement <2 x double> %22, i64 0
-  %24 = fmul double %2, %17
-  %25 = fdiv double 4.687500e-02, %24
-  %26 = fsub double 1.000000e+00, %25
-  %27 = fmul double %23, %26
-  %28 = fdiv double %16, %27
+  %17 = fdiv double 2.500000e-01, %2
+  %18 = fadd double %17, 1.000000e+00
+  %19 = fmul double %2, %2
+  %20 = fdiv double 3.125000e-02, %19
+  %21 = fadd double %20, 1.000000e+00
+  %22 = fmul double %18, %21
+  %23 = fmul double %2, %19
+  %24 = fdiv double 4.687500e-02, %23
+  %25 = fsub double 1.000000e+00, %24
+  %26 = fmul double %22, %25
+  %27 = fdiv double %16, %26
   br label %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread.i"
 
 "_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread.i": ; preds = %15, %7
-  %.sroa.4.0.i.ph.i = phi double [ %14, %7 ], [ %28, %15 ]
-  %29 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.4.0.i.ph.i, 1
-  %30 = fmul double %.sroa.4.0.i.ph.i, %.sroa.4.0.i.ph.i
-  %31 = fsub double %2, %30
+  %.sroa.4.0.i.ph.i = phi double [ %14, %7 ], [ %27, %15 ]
+  %28 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.4.0.i.ph.i, 1
+  %29 = fmul double %.sroa.4.0.i.ph.i, %.sroa.4.0.i.ph.i
+  %30 = fsub double %2, %29
   br label %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17h75fe0b51b46b727aE.exit"
 
 "_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17h75fe0b51b46b727aE.exit": ; preds = %1, %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread.i"
-  %32 = phi { i64, double } [ %29, %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread.i" ], [ { i64 0, double undef }, %1 ]
-  %33 = phi double [ %31, %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread.i" ], [ undef, %1 ]
-  %34 = extractvalue { i64, double } %32, 0
-  %switch = icmp eq i64 %34, 0
-  %35 = tail call double @llvm.sqrt.f64(double %33)
-  %.sroa.3.0 = select i1 %switch, double undef, double %35
-  %36 = insertvalue { i64, double } %32, double %.sroa.3.0, 1
-  ret { i64, double } %36
+  %31 = phi { i64, double } [ %28, %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread.i" ], [ { i64 0, double undef }, %1 ]
+  %32 = phi double [ %30, %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread.i" ], [ undef, %1 ]
+  %33 = extractvalue { i64, double } %31, 0
+  %switch = icmp eq i64 %33, 0
+  %34 = tail call double @llvm.sqrt.f64(double %32)
+  %.sroa.3.0 = select i1 %switch, double undef, double %34
+  %35 = insertvalue { i64, double } %31, double %.sroa.3.0, 1
+  ret { i64, double } %35
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1788,9 +1782,6 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #19
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

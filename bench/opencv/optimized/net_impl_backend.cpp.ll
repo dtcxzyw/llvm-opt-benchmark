@@ -93,7 +93,7 @@ define void @_ZN2cv3dnn14dnn4_v202405213Net4Impl4wrapERNS_3MatE(ptr dead_on_unwi
   %6 = alloca %"class.std::tuple", align 8
   %7 = alloca %"class.std::tuple.58", align 1
   %8 = alloca ptr, align 8
-  %9 = alloca %"struct.cv::Ptr", align 16
+  %9 = alloca %"struct.cv::Ptr", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.37", align 1
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -245,16 +245,17 @@ _ZNSt3mapIPvN2cv3PtrINS1_3dnn14dnn4_v2024052114BackendWrapperEEESt4lessIS0_ESaIS
   %70 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %71 = getelementptr inbounds i8, ptr %9, i64 8
-  %72 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 48
-  %73 = load ptr, ptr %72, align 8
-  %74 = load <2 x ptr>, ptr %70, align 8
-  store <2 x ptr> %74, ptr %9, align 16
-  %.not.i.i.i.i44 = icmp eq ptr %73, null
+  %71 = load ptr, ptr %70, align 8
+  store ptr %71, ptr %9, align 8
+  %72 = getelementptr inbounds i8, ptr %9, i64 8
+  %73 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 48
+  %74 = load ptr, ptr %73, align 8
+  store ptr %74, ptr %72, align 8
+  %.not.i.i.i.i44 = icmp eq ptr %74, null
   br i1 %.not.i.i.i.i44, label %_ZN2cv3PtrINS_3dnn14dnn4_v2024052114BackendWrapperEEC2ERKS4_.exit, label %75
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %73, i64 8
+  %76 = getelementptr inbounds i8, ptr %74, i64 8
   %77 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %77, 0
   br i1 %.not.i.i.i.i.i, label %81, label %78
@@ -470,7 +471,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052114BackendWrapperEEC2ERKS4_.exit: ; preds = %69
   br label %176
 
 140:                                              ; preds = %94, %_ZN2cv3PtrINS_3dnn14dnn4_v2024052114BackendWrapperEEC2ERKS4_.exit, %_ZN2cv3PtrINS_3dnn14dnn4_v2024052114BackendWrapperEEC2ERKS4_.exit, %_ZN2cv3PtrINS_3dnn14dnn4_v2024052114BackendWrapperEEC2ERKS4_.exit
-  %141 = load ptr, ptr %71, align 8
+  %141 = load ptr, ptr %72, align 8
   %.not.i.i.i.i45 = icmp eq ptr %141, null
   br i1 %.not.i.i.i.i45, label %_ZN2cv3PtrINS_3dnn14dnn4_v2024052114BackendWrapperEED2Ev.exit, label %142
 
@@ -716,7 +717,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
   br label %282
 
 .critedge:                                        ; preds = %113
-  %246 = load ptr, ptr %71, align 8
+  %246 = load ptr, ptr %72, align 8
   %.not.i.i.i.i69 = icmp eq ptr %246, null
   br i1 %.not.i.i.i.i69, label %_ZN2cv3PtrINS_3dnn14dnn4_v2024052114BackendWrapperEEaSERKS4_.exit, label %247
 

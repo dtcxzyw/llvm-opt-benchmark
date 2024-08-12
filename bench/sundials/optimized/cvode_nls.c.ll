@@ -491,7 +491,7 @@ define internal range(i32 -21, 903) i32 @cvNlsLSetup(i32 noundef %0, ptr nocaptu
 
 5:                                                ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 266, ptr noundef nonnull @__func__.cvNlsLSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
-  br label %37
+  br label %38
 
 6:                                                ; preds = %3
   %.not = icmp eq i32 %0, 0
@@ -529,25 +529,27 @@ define internal range(i32 -21, 903) i32 @cvNlsLSetup(i32 noundef %0, ptr nocaptu
   %27 = load i32, ptr %16, align 8
   store i32 %27, ptr %1, align 4
   %28 = getelementptr inbounds i8, ptr %2, i64 664
+  store double 1.000000e+00, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 648
   %30 = load double, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %2, i64 656
   store double %30, ptr %31, align 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 856
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 1072
-  store i64 %33, ptr %34, align 8
-  %35 = icmp slt i32 %23, 0
-  br i1 %35, label %37, label %36
+  %32 = getelementptr inbounds i8, ptr %2, i64 672
+  store double 1.000000e+00, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 856
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 1072
+  store i64 %34, ptr %35, align 8
+  %36 = icmp slt i32 %23, 0
+  br i1 %36, label %38, label %37
 
-36:                                               ; preds = %8
+37:                                               ; preds = %8
   %.not26 = icmp eq i32 %23, 0
   %. = select i1 %.not26, i32 0, i32 902
-  br label %37
+  br label %38
 
-37:                                               ; preds = %36, %8, %5
-  %.0 = phi i32 [ -21, %5 ], [ -6, %8 ], [ %., %36 ]
+38:                                               ; preds = %37, %8, %5
+  %.0 = phi i32 [ -21, %5 ], [ -6, %8 ], [ %., %37 ]
   ret i32 %.0
 }
 

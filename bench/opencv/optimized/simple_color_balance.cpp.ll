@@ -193,12 +193,18 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6xphoto12SimpleWBImplE
 _ZN2cv3PtrINS_6xphoto12SimpleWBImplEED2Ev.exit:   ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN2cv6xphoto12SimpleWBImplE, i64 16), ptr %5, align 8, !noalias !4
   %7 = getelementptr inbounds i8, ptr %2, i64 24
-  store <4 x float> <float 0.000000e+00, float 2.550000e+02, float 0.000000e+00, float 2.550000e+02>, ptr %7, align 8, !noalias !4
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
-  store float 2.000000e+00, ptr %8, align 8, !noalias !4
+  store float 0.000000e+00, ptr %7, align 8, !noalias !4
+  %8 = getelementptr inbounds i8, ptr %2, i64 28
+  store float 2.550000e+02, ptr %8, align 4, !noalias !4
+  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  store float 0.000000e+00, ptr %9, align 8, !noalias !4
+  %10 = getelementptr inbounds i8, ptr %2, i64 36
+  store float 2.550000e+02, ptr %10, align 4, !noalias !4
+  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  store float 2.000000e+00, ptr %11, align 8, !noalias !4
   store ptr %5, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %2, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %2, ptr %12, align 8
   ret void
 }
 

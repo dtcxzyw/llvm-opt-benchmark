@@ -40,40 +40,42 @@ define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_
 ; Function Attrs: nonlazybind uwtable
 define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bedE(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %23, label %.lr.ph.split.us
+  br i1 %4, label %24, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN3fst3raw5crc3211CheckSummer6update17hc4ffa5523ef4001cE(ptr noalias noundef nonnull align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !4
-  %8 = load i64, ptr %5, align 8, !alias.scope !7, !noalias !15, !noundef !20
-  %9 = load i64, ptr %0, align 8, !alias.scope !21, !noalias !15, !noundef !20
-  %10 = sub i64 %9, %8
-  %11 = icmp ult i64 %10, %2
-  br i1 %11, label %12, label %._crit_edge.split.us
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @_ZN3fst3raw5crc3211CheckSummer6update17hc4ffa5523ef4001cE(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !4
+  %9 = load i64, ptr %5, align 8, !alias.scope !7, !noalias !15, !noundef !20
+  %10 = load i64, ptr %0, align 8, !alias.scope !21, !noalias !15, !noundef !20
+  %11 = sub i64 %10, %9
+  %12 = icmp ult i64 %11, %2
+  br i1 %12, label %13, label %._crit_edge.split.us
 
-12:                                               ; preds = %.lr.ph.split.us
-  %13 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h65546744b17b5732E.llvm.614913092116699848"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %8, i64 noundef %2), !noalias !24
-  %14 = extractvalue { i64, i64 } %13, 0
-  %15 = extractvalue { i64, i64 } %13, 1
-  tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.614913092116699848(i64 noundef %14, i64 %15), !noalias !24
+13:                                               ; preds = %.lr.ph.split.us
+  %14 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h65546744b17b5732E.llvm.614913092116699848"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %9, i64 noundef %2), !noalias !24
+  %15 = extractvalue { i64, i64 } %14, 0
+  %16 = extractvalue { i64, i64 } %14, 1
+  tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.614913092116699848(i64 noundef %15, i64 %16), !noalias !24
   %.pre.i.i.i.i.us = load i64, ptr %5, align 8, !alias.scope !7, !noalias !15
   br label %._crit_edge.split.us
 
-._crit_edge.split.us:                             ; preds = %12, %.lr.ph.split.us
-  %16 = phi i64 [ %8, %.lr.ph.split.us ], [ %.pre.i.i.i.i.us, %12 ]
-  %17 = load ptr, ptr %6, align 8, !alias.scope !7, !noalias !15, !nonnull !20, !noundef !20
-  %18 = getelementptr inbounds i8, ptr %17, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !25
-  %19 = load <2 x i64>, ptr %5, align 8, !alias.scope !26, !noalias !27
-  %20 = insertelement <2 x i64> poison, i64 %2, i64 0
-  %21 = shufflevector <2 x i64> %20, <2 x i64> poison, <2 x i32> zeroinitializer
-  %22 = add <2 x i64> %19, %21
-  store <2 x i64> %22, ptr %5, align 8, !alias.scope !26, !noalias !27
-  br label %23
+._crit_edge.split.us:                             ; preds = %13, %.lr.ph.split.us
+  %17 = phi i64 [ %9, %.lr.ph.split.us ], [ %.pre.i.i.i.i.us, %13 ]
+  %18 = load ptr, ptr %6, align 8, !alias.scope !7, !noalias !15, !nonnull !20, !noundef !20
+  %19 = getelementptr inbounds i8, ptr %18, i64 %17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !25
+  %20 = load i64, ptr %5, align 8, !alias.scope !7, !noalias !15, !noundef !20
+  %21 = add i64 %20, %2
+  store i64 %21, ptr %5, align 8, !alias.scope !7, !noalias !15
+  %22 = load i64, ptr %7, align 8, !alias.scope !26, !noalias !27, !noundef !20
+  %23 = add i64 %22, %2
+  store i64 %23, ptr %7, align 8, !alias.scope !26, !noalias !27
+  br label %24
 
-23:                                               ; preds = %._crit_edge.split.us, %3
+24:                                               ; preds = %._crit_edge.split.us, %3
   ret ptr null
 }
 

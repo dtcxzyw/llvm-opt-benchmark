@@ -58,7 +58,13 @@ entry:
   %_yLevelNumber = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %yLevelNumber, ptr %_yLevelNumber, align 4
   %_dataWindow = getelementptr inbounds i8, ptr %this, i64 24
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %_dataWindow, align 8
+  %max.i = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 0, ptr %_dataWindow, align 8
+  %y3.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 0, ptr %y3.i.i, align 4
+  store i32 -1, ptr %max.i, align 8
+  %y3.i2.i = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 -1, ptr %y3.i2.i, align 4
   ret void
 }
 
@@ -214,12 +220,21 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 define void @_ZN7Imf_3_210ImageLevel11shiftPixelsEii(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %dx, i32 noundef %dy) unnamed_addr #8 align 2 {
 entry:
   %_dataWindow = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load <4 x i32>, ptr %_dataWindow, align 8
-  %1 = insertelement <4 x i32> poison, i32 %dx, i64 0
-  %2 = insertelement <4 x i32> %1, i32 %dy, i64 1
-  %3 = shufflevector <4 x i32> %2, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %4 = add nsw <4 x i32> %0, %3
-  store <4 x i32> %4, ptr %_dataWindow, align 8
+  %0 = load i32, ptr %_dataWindow, align 8
+  %add = add nsw i32 %0, %dx
+  store i32 %add, ptr %_dataWindow, align 8
+  %y = getelementptr inbounds i8, ptr %this, i64 28
+  %1 = load i32, ptr %y, align 4
+  %add4 = add nsw i32 %1, %dy
+  store i32 %add4, ptr %y, align 4
+  %max = getelementptr inbounds i8, ptr %this, i64 32
+  %2 = load i32, ptr %max, align 8
+  %add7 = add nsw i32 %2, %dx
+  store i32 %add7, ptr %max, align 8
+  %y10 = getelementptr inbounds i8, ptr %this, i64 36
+  %3 = load i32, ptr %y10, align 4
+  %add11 = add nsw i32 %3, %dy
+  store i32 %add11, ptr %y10, align 4
   ret void
 }
 

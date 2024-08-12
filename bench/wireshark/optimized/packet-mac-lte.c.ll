@@ -2705,159 +2705,153 @@ define hidden void @set_mac_lte_channel_mapping(ptr nocapture noundef readonly %
   %58 = load i8, ptr %57, align 4
   switch i8 %58, label %.thread [
     i8 4, label %59
-    i8 2, label %109
+    i8 2, label %103
   ]
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 20
-  %61 = load <4 x i32>, ptr %60, align 4
-  %62 = icmp eq <4 x i32> %61, <i32 1, i32 1, i32 1, i32 1>
-  %63 = getelementptr inbounds i8, ptr %38, i64 8
-  %64 = extractelement <4 x i1> %62, i64 2
-  br i1 %64, label %65, label %87
+  %60 = getelementptr inbounds i8, ptr %0, i64 28
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp eq i32 %61, 1
+  %63 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp eq i32 %64, 1
+  %66 = getelementptr inbounds i8, ptr %0, i64 20
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 1
+  %69 = getelementptr inbounds i8, ptr %0, i64 24
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp eq i32 %70, 1
+  %72 = getelementptr inbounds i8, ptr %38, i64 8
+  br i1 %62, label %73, label %88
 
-65:                                               ; preds = %59
-  %66 = extractelement <4 x i1> %62, i64 3
-  br i1 %66, label %67, label %77
+73:                                               ; preds = %59
+  br i1 %65, label %74, label %81
 
-67:                                               ; preds = %65
-  %68 = extractelement <4 x i1> %62, i64 0
-  br i1 %68, label %69, label %73
+74:                                               ; preds = %73
+  br i1 %68, label %75, label %78
 
-69:                                               ; preds = %67
-  %70 = extractelement <4 x i1> %62, i64 1
-  br i1 %70, label %71, label %72
+75:                                               ; preds = %74
+  br i1 %71, label %76, label %77
 
-71:                                               ; preds = %69
-  store i32 19, ptr %63, align 4
+76:                                               ; preds = %75
+  store i32 19, ptr %72, align 4
   br label %.thread
 
-72:                                               ; preds = %69
-  store i32 13, ptr %63, align 4
+77:                                               ; preds = %75
+  store i32 13, ptr %72, align 4
   br label %.thread
 
-73:                                               ; preds = %67
-  %74 = extractelement <4 x i1> %62, i64 1
-  br i1 %74, label %75, label %76
+78:                                               ; preds = %74
+  br i1 %71, label %79, label %80
 
-75:                                               ; preds = %73
-  store i32 16, ptr %63, align 4
+79:                                               ; preds = %78
+  store i32 16, ptr %72, align 4
   br label %.thread
 
-76:                                               ; preds = %73
-  store i32 10, ptr %63, align 4
+80:                                               ; preds = %78
+  store i32 10, ptr %72, align 4
   br label %.thread
 
-77:                                               ; preds = %65
-  %78 = extractelement <4 x i1> %62, i64 0
-  br i1 %78, label %79, label %83
+81:                                               ; preds = %73
+  br i1 %68, label %82, label %85
 
-79:                                               ; preds = %77
-  %80 = extractelement <4 x i1> %62, i64 1
-  br i1 %80, label %81, label %82
+82:                                               ; preds = %81
+  br i1 %71, label %83, label %84
 
-81:                                               ; preds = %79
-  store i32 17, ptr %63, align 4
+83:                                               ; preds = %82
+  store i32 17, ptr %72, align 4
   br label %.thread
 
-82:                                               ; preds = %79
-  store i32 11, ptr %63, align 4
+84:                                               ; preds = %82
+  store i32 11, ptr %72, align 4
   br label %.thread
 
-83:                                               ; preds = %77
-  %84 = extractelement <4 x i1> %62, i64 1
-  br i1 %84, label %85, label %86
+85:                                               ; preds = %81
+  br i1 %71, label %86, label %87
 
-85:                                               ; preds = %83
-  store i32 14, ptr %63, align 4
+86:                                               ; preds = %85
+  store i32 14, ptr %72, align 4
   br label %.thread
 
-86:                                               ; preds = %83
-  store i32 8, ptr %63, align 4
+87:                                               ; preds = %85
+  store i32 8, ptr %72, align 4
   br label %.thread
 
-87:                                               ; preds = %59
-  %88 = extractelement <4 x i1> %62, i64 3
-  br i1 %88, label %89, label %99
+88:                                               ; preds = %59
+  br i1 %65, label %89, label %96
 
-89:                                               ; preds = %87
-  %90 = extractelement <4 x i1> %62, i64 0
-  br i1 %90, label %91, label %95
+89:                                               ; preds = %88
+  br i1 %68, label %90, label %93
 
-91:                                               ; preds = %89
-  %92 = extractelement <4 x i1> %62, i64 1
-  br i1 %92, label %93, label %94
+90:                                               ; preds = %89
+  br i1 %71, label %91, label %92
 
-93:                                               ; preds = %91
-  store i32 18, ptr %63, align 4
+91:                                               ; preds = %90
+  store i32 18, ptr %72, align 4
   br label %.thread
 
-94:                                               ; preds = %91
-  store i32 12, ptr %63, align 4
+92:                                               ; preds = %90
+  store i32 12, ptr %72, align 4
   br label %.thread
 
-95:                                               ; preds = %89
-  %96 = extractelement <4 x i1> %62, i64 1
-  br i1 %96, label %97, label %98
+93:                                               ; preds = %89
+  br i1 %71, label %94, label %95
 
-97:                                               ; preds = %95
-  store i32 15, ptr %63, align 4
+94:                                               ; preds = %93
+  store i32 15, ptr %72, align 4
   br label %.thread
 
-98:                                               ; preds = %95
-  store i32 9, ptr %63, align 4
+95:                                               ; preds = %93
+  store i32 9, ptr %72, align 4
   br label %.thread
 
-99:                                               ; preds = %87
-  %100 = extractelement <4 x i1> %62, i64 0
-  br i1 %100, label %101, label %105
+96:                                               ; preds = %88
+  br i1 %68, label %97, label %100
 
-101:                                              ; preds = %99
-  %102 = extractelement <4 x i1> %62, i64 1
-  br i1 %102, label %103, label %104
+97:                                               ; preds = %96
+  br i1 %71, label %98, label %99
 
-103:                                              ; preds = %101
-  store i32 7, ptr %63, align 4
+98:                                               ; preds = %97
+  store i32 7, ptr %72, align 4
   br label %.thread
 
-104:                                              ; preds = %101
-  store i32 5, ptr %63, align 4
+99:                                               ; preds = %97
+  store i32 5, ptr %72, align 4
   br label %.thread
 
-105:                                              ; preds = %99
-  %106 = extractelement <4 x i1> %62, i64 1
-  br i1 %106, label %107, label %108
+100:                                              ; preds = %96
+  br i1 %71, label %101, label %102
 
-107:                                              ; preds = %105
-  store i32 6, ptr %63, align 4
+101:                                              ; preds = %100
+  store i32 6, ptr %72, align 4
   br label %.thread
 
-108:                                              ; preds = %105
-  store i32 4, ptr %63, align 4
+102:                                              ; preds = %100
+  store i32 4, ptr %72, align 4
   br label %.thread
 
-109:                                              ; preds = %56
-  %110 = getelementptr inbounds i8, ptr %0, i64 36
-  %111 = load i32, ptr %110, align 4
-  %.not92 = icmp eq i32 %111, 0
-  br i1 %.not92, label %.thread, label %112
+103:                                              ; preds = %56
+  %104 = getelementptr inbounds i8, ptr %0, i64 36
+  %105 = load i32, ptr %104, align 4
+  %.not92 = icmp eq i32 %105, 0
+  br i1 %.not92, label %.thread, label %106
 
-112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %0, i64 40
-  %114 = load i8, ptr %113, align 4
-  %115 = icmp eq i8 %114, 5
-  %116 = getelementptr inbounds i8, ptr %38, i64 8
-  br i1 %115, label %117, label %118
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds i8, ptr %0, i64 40
+  %108 = load i8, ptr %107, align 4
+  %109 = icmp eq i8 %108, 5
+  %110 = getelementptr inbounds i8, ptr %38, i64 8
+  br i1 %109, label %111, label %112
 
-117:                                              ; preds = %112
-  store i32 2, ptr %116, align 4
+111:                                              ; preds = %106
+  store i32 2, ptr %110, align 4
   br label %.thread
 
-118:                                              ; preds = %112
-  store i32 3, ptr %116, align 4
+112:                                              ; preds = %106
+  store i32 3, ptr %110, align 4
   br label %.thread
 
-.thread:                                          ; preds = %27, %97, %98, %93, %94, %107, %108, %103, %104, %75, %76, %71, %72, %85, %86, %81, %82, %118, %117, %109, %56, %31, %4, %8, %53
+.thread:                                          ; preds = %27, %94, %95, %91, %92, %101, %102, %98, %99, %79, %80, %76, %77, %86, %87, %83, %84, %112, %111, %103, %56, %31, %4, %8, %53
   ret void
 }
 

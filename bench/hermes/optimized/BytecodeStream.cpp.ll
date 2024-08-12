@@ -970,8 +970,11 @@ if.end:                                           ; preds = %_ZN6hermes3hbc18Byt
   %sub.ptr.sub.i.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i.i13, %sub.ptr.rhs.cast.i.i.i14
   %files_.i = getelementptr inbounds i8, ptr %BM, i64 272
   %scopeDescDataOffset_.i = getelementptr inbounds i8, ptr %BM, i64 304
+  %20 = load i32, ptr %scopeDescDataOffset_.i, align 8
+  %textifiedCalleeOffset_.i = getelementptr inbounds i8, ptr %BM, i64 308
+  %21 = load i32, ptr %textifiedCalleeOffset_.i, align 4
   %stringTableOffset_.i = getelementptr inbounds i8, ptr %BM, i64 312
-  %20 = load i32, ptr %stringTableOffset_.i, align 8
+  %22 = load i32, ptr %stringTableOffset_.i, align 8
   %conv10 = trunc i64 %sub.ptr.div.i.i.i to i32
   store i32 %conv10, ptr %header, align 4
   %filenameStorageSize = getelementptr inbounds i8, ptr %header, i64 4
@@ -979,111 +982,112 @@ if.end:                                           ; preds = %_ZN6hermes3hbc18Byt
   store i32 %conv12, ptr %filenameStorageSize, align 4
   %fileRegionCount = getelementptr inbounds i8, ptr %header, i64 8
   %Size.i = getelementptr inbounds i8, ptr %BM, i64 280
-  %21 = load i32, ptr %Size.i, align 8
-  store i32 %21, ptr %fileRegionCount, align 4
+  %23 = load i32, ptr %Size.i, align 8
+  store i32 %23, ptr %fileRegionCount, align 4
   %scopeDescDataOffset = getelementptr inbounds i8, ptr %header, i64 12
-  %22 = load <2 x i32>, ptr %scopeDescDataOffset_.i, align 8
-  store <2 x i32> %22, ptr %scopeDescDataOffset, align 4
+  store i32 %20, ptr %scopeDescDataOffset, align 4
+  %textifiedCalleeOffset = getelementptr inbounds i8, ptr %header, i64 16
+  store i32 %21, ptr %textifiedCalleeOffset, align 4
   %stringTableOffset = getelementptr inbounds i8, ptr %header, i64 20
-  store i32 %20, ptr %stringTableOffset, align 4
+  store i32 %22, ptr %stringTableOffset, align 4
   %debugDataSize = getelementptr inbounds i8, ptr %header, i64 24
   %Length.i.i = getelementptr inbounds i8, ptr %BM, i64 352
-  %23 = load i64, ptr %Length.i.i, align 8
-  %conv16 = trunc i64 %23 to i32
+  %24 = load i64, ptr %Length.i.i, align 8
+  %conv16 = trunc i64 %24 to i32
   store i32 %conv16, ptr %debugDataSize, align 4
   %isLayout_.i.i19 = getelementptr inbounds i8, ptr %this, i64 48
-  %24 = load i8, ptr %isLayout_.i.i19, align 8
-  %tobool.i.i20 = trunc i8 %24 to i1
+  %25 = load i8, ptr %isLayout_.i.i19, align 8
+  %tobool.i.i20 = trunc i8 %25 to i1
   br i1 %tobool.i.i20, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26, label %if.then.i.i21
 
 if.then.i.i21:                                    ; preds = %if.end
   %outputHasher_.i.i22 = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i22, ptr nonnull %header, i64 28) #12
-  %25 = load ptr, ptr %this, align 8
-  %call4.i.i23 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %25, ptr noundef nonnull %header, i64 noundef 28) #12
+  %26 = load ptr, ptr %this, align 8
+  %call4.i.i23 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %26, ptr noundef nonnull %header, i64 noundef 28) #12
   %.pre = load i64, ptr %loc_.i, align 8
   %.pre60 = load i8, ptr %isLayout_.i.i19, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26
 
 _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26: ; preds = %if.end, %if.then.i.i21
-  %26 = phi i8 [ %24, %if.end ], [ %.pre60, %if.then.i.i21 ]
-  %27 = phi i64 [ %11, %if.end ], [ %.pre, %if.then.i.i21 ]
-  %add.i.i25 = add i64 %27, 28
+  %27 = phi i8 [ %25, %if.end ], [ %.pre60, %if.then.i.i21 ]
+  %28 = phi i64 [ %11, %if.end ], [ %.pre, %if.then.i.i21 ]
+  %add.i.i25 = add i64 %28, 28
   store i64 %add.i.i25, ptr %loc_.i, align 8
-  %tobool.i = trunc i8 %26 to i1
+  %tobool.i = trunc i8 %27 to i1
   br i1 %tobool.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26
   %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %16, i64 %sub.ptr.sub.i.i.i) #12
-  %28 = load ptr, ptr %this, align 8
-  %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %28, ptr noundef %16, i64 noundef %sub.ptr.sub.i.i.i) #12
+  %29 = load ptr, ptr %this, align 8
+  %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %29, ptr noundef %16, i64 noundef %sub.ptr.sub.i.i.i) #12
   %.pre61 = load i64, ptr %loc_.i, align 8
   %.pre62 = load i8, ptr %isLayout_.i.i19, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit
 
 _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit: ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26, %if.then.i
-  %29 = phi i8 [ %26, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26 ], [ %.pre62, %if.then.i ]
-  %30 = phi i64 [ %add.i.i25, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26 ], [ %.pre61, %if.then.i ]
-  %add.i = add i64 %30, %sub.ptr.sub.i.i.i
+  %30 = phi i8 [ %27, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26 ], [ %.pre62, %if.then.i ]
+  %31 = phi i64 [ %add.i.i25, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26 ], [ %.pre61, %if.then.i ]
+  %add.i = add i64 %31, %sub.ptr.sub.i.i.i
   store i64 %add.i, ptr %loc_.i, align 8
-  %tobool.i30 = trunc i8 %29 to i1
+  %tobool.i30 = trunc i8 %30 to i1
   br i1 %tobool.i30, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit, label %if.then.i31
 
 if.then.i31:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit
   %outputHasher_.i32 = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i32, ptr %18, i64 %sub.ptr.sub.i.i.i15) #12
-  %31 = load ptr, ptr %this, align 8
-  %call4.i33 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %31, ptr noundef %18, i64 noundef %sub.ptr.sub.i.i.i15) #12
+  %32 = load ptr, ptr %this, align 8
+  %call4.i33 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %32, ptr noundef %18, i64 noundef %sub.ptr.sub.i.i.i15) #12
   %.pre63 = load i64, ptr %loc_.i, align 8
   %.pre66.pre = load i8, ptr %isLayout_.i.i19, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
 
 _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit: ; preds = %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit, %if.then.i31
-  %.pre66 = phi i8 [ %29, %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit ], [ %.pre66.pre, %if.then.i31 ]
-  %32 = phi i64 [ %add.i, %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit ], [ %.pre63, %if.then.i31 ]
-  %add.i36 = add i64 %32, %sub.ptr.sub.i.i.i15
+  %.pre66 = phi i8 [ %30, %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit ], [ %.pre66.pre, %if.then.i31 ]
+  %33 = phi i64 [ %add.i, %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit ], [ %.pre63, %if.then.i31 ]
+  %add.i36 = add i64 %33, %sub.ptr.sub.i.i.i15
   store i64 %add.i36, ptr %loc_.i, align 8
-  %33 = load ptr, ptr %files_.i, align 8
-  %34 = load i32, ptr %Size.i, align 8
-  %.fr = freeze i32 %34
+  %34 = load ptr, ptr %files_.i, align 8
+  %35 = load i32, ptr %Size.i, align 8
+  %.fr = freeze i32 %35
   %conv.i38 = zext i32 %.fr to i64
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::DebugFileRegion", ptr %33, i64 %conv.i38
+  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::DebugFileRegion", ptr %34, i64 %conv.i38
   %cmp.not57 = icmp eq i32 %.fr, 0
   br i1 %cmp.not57, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
   %outputHasher_.i.i42 = getelementptr inbounds i8, ptr %this, i64 64
-  %35 = trunc i8 %.pre66 to i1
-  br i1 %35, label %for.body.lr.ph.split.us, label %for.body
+  %36 = trunc i8 %.pre66 to i1
+  br i1 %36, label %for.body.lr.ph.split.us, label %for.body
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
-  %36 = mul nuw nsw i64 %conv.i38, 12
-  %37 = add nsw i64 %36, -12
-  %38 = urem i64 %37, 12
-  %39 = sub nuw nsw i64 %37, %38
-  %40 = add i64 %add.i36, %39
-  %41 = add i64 %40, 12
-  store i64 %41, ptr %loc_.i, align 8
+  %37 = mul nuw nsw i64 %conv.i38, 12
+  %38 = add nsw i64 %37, -12
+  %39 = urem i64 %38, 12
+  %40 = sub nuw nsw i64 %38, %39
+  %41 = add i64 %add.i36, %40
+  %42 = add i64 %41, 12
+  store i64 %42, ptr %loc_.i, align 8
   br label %for.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.exit
-  %42 = phi i64 [ %add.i.i45, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.exit ], [ %add.i36, %for.body.lr.ph ]
-  %__begin1.058 = phi ptr [ %incdec.ptr, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.exit ], [ %33, %for.body.lr.ph ]
-  %43 = load i8, ptr %isLayout_.i.i19, align 8
-  %tobool.i.i40 = trunc i8 %43 to i1
+  %43 = phi i64 [ %add.i.i45, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.exit ], [ %add.i36, %for.body.lr.ph ]
+  %__begin1.058 = phi ptr [ %incdec.ptr, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.exit ], [ %34, %for.body.lr.ph ]
+  %44 = load i8, ptr %isLayout_.i.i19, align 8
+  %tobool.i.i40 = trunc i8 %44 to i1
   br i1 %tobool.i.i40, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.exit, label %if.then.i.i41
 
 if.then.i.i41:                                    ; preds = %for.body
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i42, ptr nonnull %__begin1.058, i64 12) #12
-  %44 = load ptr, ptr %this, align 8
-  %call4.i.i43 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %44, ptr noundef nonnull %__begin1.058, i64 noundef 12) #12
+  %45 = load ptr, ptr %this, align 8
+  %call4.i.i43 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %45, ptr noundef nonnull %__begin1.058, i64 noundef 12) #12
   %.pre64 = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.exit
 
 _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.exit: ; preds = %for.body, %if.then.i.i41
-  %45 = phi i64 [ %42, %for.body ], [ %.pre64, %if.then.i.i41 ]
-  %add.i.i45 = add i64 %45, 12
+  %46 = phi i64 [ %43, %for.body ], [ %.pre64, %if.then.i.i41 ]
+  %add.i.i45 = add i64 %46, 12
   store i64 %add.i.i45, ptr %loc_.i, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.058, i64 12
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
@@ -1094,10 +1098,10 @@ for.end.loopexit:                                 ; preds = %_ZN6hermes3hbc18Byt
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.body.lr.ph.split.us, %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
-  %46 = phi i64 [ %add.i.i45, %for.end.loopexit ], [ %41, %for.body.lr.ph.split.us ], [ %add.i36, %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit ]
-  %47 = phi i8 [ %.pre65, %for.end.loopexit ], [ %.pre66, %for.body.lr.ph.split.us ], [ %.pre66, %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit ]
+  %47 = phi i64 [ %add.i.i45, %for.end.loopexit ], [ %42, %for.body.lr.ph.split.us ], [ %add.i36, %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit ]
+  %48 = phi i8 [ %.pre65, %for.end.loopexit ], [ %.pre66, %for.body.lr.ph.split.us ], [ %.pre66, %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit ]
   %agg.tmp20.sroa.2.0.copyload = load i64, ptr %Length.i.i, align 8
-  %tobool.i47 = trunc i8 %47 to i1
+  %tobool.i47 = trunc i8 %48 to i1
   br i1 %tobool.i47, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit54, label %if.then.i48
 
 if.then.i48:                                      ; preds = %for.end
@@ -1105,14 +1109,14 @@ if.then.i48:                                      ; preds = %for.end
   %agg.tmp20.sroa.0.0.copyload = load ptr, ptr %ref_.i, align 8
   %outputHasher_.i49 = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i49, ptr %agg.tmp20.sroa.0.0.copyload, i64 %agg.tmp20.sroa.2.0.copyload) #12
-  %48 = load ptr, ptr %this, align 8
-  %call4.i50 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %48, ptr noundef %agg.tmp20.sroa.0.0.copyload, i64 noundef %agg.tmp20.sroa.2.0.copyload) #12
+  %49 = load ptr, ptr %this, align 8
+  %call4.i50 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %49, ptr noundef %agg.tmp20.sroa.0.0.copyload, i64 noundef %agg.tmp20.sroa.2.0.copyload) #12
   %.pre67 = load i64, ptr %loc_.i, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit54
 
 _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit54: ; preds = %for.end, %if.then.i48
-  %49 = phi i64 [ %46, %for.end ], [ %.pre67, %if.then.i48 ]
-  %add.i53 = add i64 %49, %agg.tmp20.sroa.2.0.copyload
+  %50 = phi i64 [ %47, %for.end ], [ %.pre67, %if.then.i48 ]
+  %add.i53 = add i64 %50, %agg.tmp20.sroa.2.0.copyload
   br label %return
 
 return:                                           ; preds = %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit54, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit

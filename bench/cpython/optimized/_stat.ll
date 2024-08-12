@@ -616,7 +616,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind uwtable
 define internal ptr @stat_filemode(ptr nocapture readnone %self, ptr noundef %omode) #0 {
 entry:
-  %buf = alloca [10 x i8], align 8
+  %buf = alloca [10 x i8], align 1
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
@@ -655,26 +655,55 @@ switch.lookup:                                    ; preds = %entry.split
 
 filetype.exit:                                    ; preds = %entry.split, %switch.lookup
   %retval.0.i7 = phi i8 [ %switch.load, %switch.lookup ], [ 63, %entry.split ]
-  store i8 %retval.0.i7, ptr %buf, align 8
+  store i8 %retval.0.i7, ptr %buf, align 1
   %arrayidx35 = getelementptr inbounds i8, ptr %buf, i64 1
-  %5 = insertelement <8 x i32> poison, i32 %conv.i, i64 0
-  %6 = shufflevector <8 x i32> %5, <8 x i32> poison, <8 x i32> zeroinitializer
-  %7 = and <8 x i32> %6, <i32 256, i32 128, i32 2048, i32 32, i32 16, i32 1024, i32 4, i32 2>
+  %and.i8 = and i32 %conv.i, 256
+  %tobool.not.i9 = icmp eq i32 %and.i8, 0
+  %conv.i10 = select i1 %tobool.not.i9, i8 45, i8 114
+  store i8 %conv.i10, ptr %arrayidx35, align 1
+  %and1.i = and i32 %conv.i, 128
+  %tobool2.not.i = icmp eq i32 %and1.i, 0
+  %conv4.i = select i1 %tobool2.not.i, i8 45, i8 119
+  %arrayidx5.i = getelementptr inbounds i8, ptr %buf, i64 2
+  store i8 %conv4.i, ptr %arrayidx5.i, align 1
+  %and6.i = and i32 %conv.i, 2048
+  %tobool7.not.i = icmp eq i32 %and6.i, 0
   %and13.i = and i32 %conv.i, 64
   %tobool14.not.i = icmp eq i32 %and13.i, 0
   %conv16.i = select i1 %tobool14.not.i, i8 45, i8 120
   %conv11.i = select i1 %tobool14.not.i, i8 83, i8 115
+  %conv11.sink.i = select i1 %tobool7.not.i, i8 %conv16.i, i8 %conv11.i
+  %5 = getelementptr inbounds i8, ptr %buf, i64 3
+  store i8 %conv11.sink.i, ptr %5, align 1
+  %and18.i = and i32 %conv.i, 32
+  %tobool19.not.i = icmp eq i32 %and18.i, 0
+  %conv21.i = select i1 %tobool19.not.i, i8 45, i8 114
+  %arrayidx22.i = getelementptr inbounds i8, ptr %buf, i64 4
+  store i8 %conv21.i, ptr %arrayidx22.i, align 1
+  %and23.i = and i32 %conv.i, 16
+  %tobool24.not.i = icmp eq i32 %and23.i, 0
+  %conv26.i = select i1 %tobool24.not.i, i8 45, i8 119
+  %arrayidx27.i = getelementptr inbounds i8, ptr %buf, i64 5
+  store i8 %conv26.i, ptr %arrayidx27.i, align 1
+  %and28.i = and i32 %conv.i, 1024
+  %tobool29.not.i = icmp eq i32 %and28.i, 0
   %and37.i = and i32 %conv.i, 8
   %tobool38.not.i = icmp eq i32 %and37.i, 0
   %conv40.i = select i1 %tobool38.not.i, i8 45, i8 120
   %conv34.i = select i1 %tobool38.not.i, i8 83, i8 115
-  %8 = icmp eq <8 x i32> %7, zeroinitializer
-  %9 = insertelement <8 x i8> <i8 45, i8 45, i8 poison, i8 45, i8 45, i8 poison, i8 45, i8 45>, i8 %conv16.i, i64 2
-  %10 = insertelement <8 x i8> %9, i8 %conv40.i, i64 5
-  %11 = insertelement <8 x i8> <i8 114, i8 119, i8 poison, i8 114, i8 119, i8 poison, i8 114, i8 119>, i8 %conv11.i, i64 2
-  %12 = insertelement <8 x i8> %11, i8 %conv34.i, i64 5
-  %13 = select <8 x i1> %8, <8 x i8> %10, <8 x i8> %12
-  store <8 x i8> %13, ptr %arrayidx35, align 1
+  %conv34.sink.i = select i1 %tobool29.not.i, i8 %conv40.i, i8 %conv34.i
+  %6 = getelementptr inbounds i8, ptr %buf, i64 6
+  store i8 %conv34.sink.i, ptr %6, align 1
+  %and43.i = and i32 %conv.i, 4
+  %tobool44.not.i = icmp eq i32 %and43.i, 0
+  %conv46.i = select i1 %tobool44.not.i, i8 45, i8 114
+  %arrayidx47.i = getelementptr inbounds i8, ptr %buf, i64 7
+  store i8 %conv46.i, ptr %arrayidx47.i, align 1
+  %and48.i = and i32 %conv.i, 2
+  %tobool49.not.i = icmp eq i32 %and48.i, 0
+  %conv51.i = select i1 %tobool49.not.i, i8 45, i8 119
+  %arrayidx52.i = getelementptr inbounds i8, ptr %buf, i64 8
+  store i8 %conv51.i, ptr %arrayidx52.i, align 1
   %and53.i = and i32 %conv.i, 512
   %tobool54.not.i = icmp eq i32 %and53.i, 0
   %and62.i = and i32 %conv.i, 1
@@ -690,15 +719,29 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i, %i
   br i1 %tobool.not, label %land.lhs.true.split, label %return
 
 land.lhs.true.split:                              ; preds = %land.lhs.true
-  store <8 x i8> <i8 63, i8 114, i8 119, i8 115, i8 114, i8 119, i8 115, i8 114>, ptr %buf, align 8
+  store i8 63, ptr %buf, align 1
+  %arrayidx36 = getelementptr inbounds i8, ptr %buf, i64 1
+  store i8 114, ptr %arrayidx36, align 1
+  %arrayidx5.i13 = getelementptr inbounds i8, ptr %buf, i64 2
+  store i8 119, ptr %arrayidx5.i13, align 1
+  %7 = getelementptr inbounds i8, ptr %buf, i64 3
+  store i8 115, ptr %7, align 1
+  %arrayidx22.i14 = getelementptr inbounds i8, ptr %buf, i64 4
+  store i8 114, ptr %arrayidx22.i14, align 1
+  %arrayidx27.i15 = getelementptr inbounds i8, ptr %buf, i64 5
+  store i8 119, ptr %arrayidx27.i15, align 1
+  %8 = getelementptr inbounds i8, ptr %buf, i64 6
+  store i8 115, ptr %8, align 1
+  %arrayidx47.i16 = getelementptr inbounds i8, ptr %buf, i64 7
+  store i8 114, ptr %arrayidx47.i16, align 1
   %arrayidx52.i17 = getelementptr inbounds i8, ptr %buf, i64 8
-  store i8 119, ptr %arrayidx52.i17, align 8
+  store i8 119, ptr %arrayidx52.i17, align 1
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true.split, %filetype.exit
   %.sink = phi i8 [ 116, %land.lhs.true.split ], [ %conv59.sink.i, %filetype.exit ]
-  %14 = getelementptr inbounds i8, ptr %buf, i64 9
-  store i8 %.sink, ptr %14, align 1
+  %9 = getelementptr inbounds i8, ptr %buf, i64 9
+  store i8 %.sink, ptr %9, align 1
   %call4 = call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %buf, i64 noundef 10) #2
   br label %return
 

@@ -205,7 +205,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 23:                                               ; preds = %16
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.2) #6
-  br label %184
+  br label %183
 
 24:                                               ; preds = %16
   %25 = call ptr @optget(ptr noundef nonnull %21, ptr noundef nonnull @.str.3) #6
@@ -286,7 +286,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %60 = load ptr, ptr %59, align 8
   call void @print_version(ptr noundef %60) #6
   call void @optfree(ptr noundef nonnull %21) #6
-  br label %184
+  br label %183
 
 61:                                               ; preds = %53
   %62 = call ptr @optget(ptr noundef nonnull %21, ptr noundef nonnull @.str.11) #6
@@ -298,7 +298,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 65:                                               ; preds = %61
   call void @optfree(ptr noundef nonnull %21) #6
   call void @help()
-  br label %184
+  br label %183
 
 66:                                               ; preds = %61
   %67 = call ptr @optget(ptr noundef nonnull %21, ptr noundef nonnull @.str.12) #6
@@ -362,7 +362,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 94:                                               ; preds = %90
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.18) #6
   call void @optfree(ptr noundef nonnull %21) #6
-  br label %184
+  br label %183
 
 95:                                               ; preds = %86
   store ptr null, ptr @logg_file, align 8
@@ -389,7 +389,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %104 = getelementptr inbounds i8, ptr %103, i64 32
   %105 = load i32, ptr %104, align 8
   %.not55 = icmp eq i32 %105, 0
-  br i1 %.not55, label %106, label %183
+  br i1 %.not55, label %106, label %182
 
 106:                                              ; preds = %99
   %107 = call i64 @time(ptr noundef null) #6
@@ -460,51 +460,50 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %154 = fmul double %153, 0x3F50000000000000
   %155 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.32, double noundef %154) #6
   %156 = load i64, ptr getelementptr inbounds (i8, ptr @info, i64 32), align 8
-  %157 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @info, i64 24), align 8
-  %158 = shl i64 %156, 2
-  %159 = uitofp i64 %158 to double
-  %160 = fmul double %159, 0x3F50000000000000
+  %157 = shl i64 %156, 2
+  %158 = uitofp i64 %157 to double
+  %159 = fmul double %158, 0x3F50000000000000
   %.not60 = icmp eq i64 %156, 0
-  %161 = uitofp <2 x i64> %157 to <2 x double>
-  %162 = extractelement <2 x double> %161, i64 0
-  %163 = extractelement <2 x double> %161, i64 1
-  %164 = fdiv double %162, %163
-  %165 = select i1 %.not60, double 0.000000e+00, double %164
-  %166 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.33, double noundef %160, double noundef %165) #6
-  %167 = sdiv i32 %122, 1000
-  %168 = sdiv i32 %120, 60
-  %169 = srem i32 %120, 60
-  %170 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.34, i32 noundef %120, i32 noundef %167, i32 noundef %168, i32 noundef %169) #6
-  %171 = call ptr @localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %10) #6
-  %.not61 = icmp eq ptr %171, null
-  br i1 %.not61, label %172, label %174
+  %160 = load i64, ptr getelementptr inbounds (i8, ptr @info, i64 24), align 8
+  %161 = uitofp i64 %160 to double
+  %162 = uitofp i64 %156 to double
+  %163 = fdiv double %161, %162
+  %164 = select i1 %.not60, double 0.000000e+00, double %163
+  %165 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.33, double noundef %159, double noundef %164) #6
+  %166 = sdiv i32 %122, 1000
+  %167 = sdiv i32 %120, 60
+  %168 = srem i32 %120, 60
+  %169 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.34, i32 noundef %120, i32 noundef %166, i32 noundef %167, i32 noundef %168) #6
+  %170 = call ptr @localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %10) #6
+  %.not61 = icmp eq ptr %170, null
+  br i1 %.not61, label %171, label %173
 
-172:                                              ; preds = %150
-  %173 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.35) #6
-  br label %174
+171:                                              ; preds = %150
+  %172 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.35) #6
+  br label %173
 
-174:                                              ; preds = %172, %150
-  %175 = call i64 @strftime(ptr noundef nonnull %7, i64 noundef 26, ptr noundef nonnull @.str.36, ptr noundef nonnull %10) #6
-  %176 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.37, ptr noundef nonnull %7) #6
-  %177 = call ptr @localtime_r(ptr noundef nonnull %6, ptr noundef nonnull %10) #6
-  %.not62 = icmp eq ptr %177, null
-  br i1 %.not62, label %178, label %180
+173:                                              ; preds = %171, %150
+  %174 = call i64 @strftime(ptr noundef nonnull %7, i64 noundef 26, ptr noundef nonnull @.str.36, ptr noundef nonnull %10) #6
+  %175 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.37, ptr noundef nonnull %7) #6
+  %176 = call ptr @localtime_r(ptr noundef nonnull %6, ptr noundef nonnull %10) #6
+  %.not62 = icmp eq ptr %176, null
+  br i1 %.not62, label %177, label %179
 
-178:                                              ; preds = %174
-  %179 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.38) #6
-  br label %180
+177:                                              ; preds = %173
+  %178 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.38) #6
+  br label %179
 
-180:                                              ; preds = %178, %174
-  %181 = call i64 @strftime(ptr noundef nonnull %7, i64 noundef 26, ptr noundef nonnull @.str.36, ptr noundef nonnull %10) #6
-  %182 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.39, ptr noundef nonnull %7) #6
+179:                                              ; preds = %177, %173
+  %180 = call i64 @strftime(ptr noundef nonnull %7, i64 noundef 26, ptr noundef nonnull @.str.36, ptr noundef nonnull %10) #6
+  %181 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.39, ptr noundef nonnull %7) #6
+  br label %182
+
+182:                                              ; preds = %179, %99
+  call void @optfree(ptr noundef nonnull %21) #6
   br label %183
 
-183:                                              ; preds = %180, %99
-  call void @optfree(ptr noundef nonnull %21) #6
-  br label %184
-
-184:                                              ; preds = %183, %94, %65, %57, %23
-  %.0 = phi i32 [ 2, %23 ], [ 0, %57 ], [ 0, %65 ], [ 2, %94 ], [ %102, %183 ]
+183:                                              ; preds = %182, %94, %65, %57, %23
+  %.0 = phi i32 [ 2, %23 ], [ 0, %57 ], [ 0, %65 ], [ 2, %94 ], [ %102, %182 ]
   ret i32 %.0
 }
 

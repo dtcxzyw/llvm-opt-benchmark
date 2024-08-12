@@ -2088,188 +2088,194 @@ define linkonce_odr void @_ZN3nix18ValuePrintingTests4testIJEEEvNS_5ValueESt17ba
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = getelementptr inbounds i8, ptr %6, i64 16
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %16, align 8
+  store i8 0, ptr %7, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 0, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %7, i64 2
+  store i8 0, ptr %16, align 2
+  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 1, ptr %17, align 1
+  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %19, align 8
   invoke void @_ZN3nix5Value5printERNS_9EvalStateERSoNS_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1248) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %7)
-          to label %17 unwind label %34
+          to label %20 unwind label %37
 
-17:                                               ; preds = %4
+20:                                               ; preds = %4
   invoke void @_ZNKRSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %6)
-          to label %18 unwind label %34
+          to label %21 unwind label %37
 
-18:                                               ; preds = %17
-  %19 = load ptr, ptr %9, align 8, !noalias !4
-  %20 = getelementptr inbounds i8, ptr %9, i64 8
-  %21 = load i64, ptr %20, align 8, !noalias !4
-  %22 = icmp eq i64 %21, %2
-  br i1 %22, label %23, label %26
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %9, align 8, !noalias !4
+  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = load i64, ptr %23, align 8, !noalias !4
+  %25 = icmp eq i64 %24, %2
+  br i1 %25, label %26, label %29
 
-23:                                               ; preds = %18
-  %24 = icmp eq i64 %2, 0
-  br i1 %24, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+26:                                               ; preds = %21
+  %27 = icmp eq i64 %2, 0
+  br i1 %27, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %23
-  %bcmp.i.i.i = call i32 @bcmp(ptr %3, ptr %19, i64 %2), !noalias !4
-  %25 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %25, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, label %26
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %26
+  %bcmp.i.i.i = call i32 @bcmp(ptr %3, ptr %22, i64 %2), !noalias !4
+  %28 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %28, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, label %29
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %23
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %26
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %8)
-          to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit unwind label %36
+          to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit unwind label %39
 
-26:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %18
+29:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %21
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS5_EEENS_15AssertionResultEPKcSC_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %8, ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.179, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit unwind label %36
+          to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit unwind label %39
 
-_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit: ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, %26
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 16
-  %29 = icmp eq ptr %27, %28
-  br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit: ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, %29
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds i8, ptr %9, i64 16
+  %32 = icmp eq ptr %30, %31
+  br i1 %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit
-  %30 = load i64, ptr %20, align 8
-  %31 = icmp ult i64 %30, 16
-  call void @llvm.assume(i1 %31)
+  %33 = load i64, ptr %23, align 8
+  %34 = icmp ult i64 %33, 16
+  call void @llvm.assume(i1 %34)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit
-  call void @_ZdlPv(ptr noundef %27) #26
+  call void @_ZdlPv(ptr noundef %30) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #23
-  %32 = load i8, ptr %8, align 8
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %62, label %40
+  %35 = load i8, ptr %8, align 8
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %65, label %43
 
-34:                                               ; preds = %17, %4
-  %35 = landingpad { ptr, i32 }
+37:                                               ; preds = %20, %4
+  %38 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %76
 
-36:                                               ; preds = %26, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i
-  %37 = landingpad { ptr, i32 }
+39:                                               ; preds = %29, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i
+  %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
-  br label %73
+  br label %76
 
-38:                                               ; preds = %40
-  %39 = landingpad { ptr, i32 }
+41:                                               ; preds = %43
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %75
 
-40:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %41 unwind label %38
+          to label %44 unwind label %41
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %8, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %.not.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i, label %_ZNK7testing15AssertionResult15failure_messageEv.exit, label %44
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds i8, ptr %8, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %.not.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i, label %_ZNK7testing15AssertionResult15failure_messageEv.exit, label %47
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %43, align 8
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %46, align 8
   br label %_ZNK7testing15AssertionResult15failure_messageEv.exit
 
-_ZNK7testing15AssertionResult15failure_messageEv.exit: ; preds = %44, %41
-  %46 = phi ptr [ %45, %44 ], [ @.str.172, %41 ]
-  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef 17, ptr noundef %46)
-          to label %47 unwind label %53
+_ZNK7testing15AssertionResult15failure_messageEv.exit: ; preds = %47, %44
+  %49 = phi ptr [ %48, %47 ], [ @.str.172, %44 ]
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef 17, ptr noundef %49)
+          to label %50 unwind label %56
 
-47:                                               ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit
+50:                                               ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit
   invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %48 unwind label %55
+          to label %51 unwind label %58
 
-48:                                               ; preds = %47
+51:                                               ; preds = %50
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #23
-  %49 = load ptr, ptr %10, align 8
-  %.not.i.i11 = icmp eq ptr %49, null
+  %52 = load ptr, ptr %10, align 8
+  %.not.i.i11 = icmp eq ptr %52, null
   br i1 %.not.i.i11, label %_ZN7testing7MessageD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %48
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(128) %49) #23
+_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %51
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(128) %52) #23
   br label %_ZN7testing7MessageD2Ev.exit
 
-_ZN7testing7MessageD2Ev.exit:                     ; preds = %48, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
+_ZN7testing7MessageD2Ev.exit:                     ; preds = %51, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %10, align 8
-  br label %62
+  br label %65
 
-53:                                               ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit
-  %54 = landingpad { ptr, i32 }
+56:                                               ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit
+  %57 = landingpad { ptr, i32 }
           cleanup
-  br label %57
+  br label %60
 
-55:                                               ; preds = %47
-  %56 = landingpad { ptr, i32 }
+58:                                               ; preds = %50
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #23
-  br label %57
+  br label %60
 
-57:                                               ; preds = %55, %53
-  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ]
-  %58 = load ptr, ptr %10, align 8
-  %.not.i.i12 = icmp eq ptr %58, null
+60:                                               ; preds = %58, %56
+  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ]
+  %61 = load ptr, ptr %10, align 8
+  %.not.i.i12 = icmp eq ptr %61, null
   br i1 %.not.i.i12, label %_ZN7testing7MessageD2Ev.exit14, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i13
 
-_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i13: ; preds = %57
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(128) %58) #23
+_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i13: ; preds = %60
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8
+  call void %64(ptr noundef nonnull align 8 dereferenceable(128) %61) #23
   br label %_ZN7testing7MessageD2Ev.exit14
 
-_ZN7testing7MessageD2Ev.exit14:                   ; preds = %57, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i13
+_ZN7testing7MessageD2Ev.exit14:                   ; preds = %60, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i13
   store ptr null, ptr %10, align 8
-  br label %72
+  br label %75
 
-62:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
-  %63 = getelementptr inbounds i8, ptr %8, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %.not.i.i15 = icmp eq ptr %64, null
-  br i1 %.not.i.i15, label %_ZN7testing15AssertionResultD2Ev.exit, label %65
+65:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+  %66 = getelementptr inbounds i8, ptr %8, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %.not.i.i15 = icmp eq ptr %67, null
+  br i1 %.not.i.i15, label %_ZN7testing15AssertionResultD2Ev.exit, label %68
 
-65:                                               ; preds = %62
-  %66 = load ptr, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %64, i64 16
-  %68 = icmp eq ptr %66, %67
-  br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %67, align 8
+  %70 = getelementptr inbounds i8, ptr %67, i64 16
+  %71 = icmp eq ptr %69, %70
+  br i1 %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %64, i64 8
-  %70 = load i64, ptr %69, align 8
-  %71 = icmp ult i64 %70, 16
-  call void @llvm.assume(i1 %71)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %68
+  %72 = getelementptr inbounds i8, ptr %67, i64 8
+  %73 = load i64, ptr %72, align 8
+  %74 = icmp ult i64 %73, 16
+  call void @llvm.assume(i1 %74)
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %65
-  call void @_ZdlPv(ptr noundef %66) #26
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %68
+  call void @_ZdlPv(ptr noundef %69) #26
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %64) #23
-  call void @_ZdlPv(ptr noundef nonnull %64) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #23
+  call void @_ZdlPv(ptr noundef nonnull %67) #26
   br label %_ZN7testing15AssertionResultD2Ev.exit
 
-_ZN7testing15AssertionResultD2Ev.exit:            ; preds = %62, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
-  store ptr null, ptr %63, align 8
+_ZN7testing15AssertionResultD2Ev.exit:            ; preds = %65, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
+  store ptr null, ptr %66, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #23
   ret void
 
-72:                                               ; preds = %_ZN7testing7MessageD2Ev.exit14, %38
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit14 ], [ %39, %38 ]
+75:                                               ; preds = %_ZN7testing7MessageD2Ev.exit14, %41
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit14 ], [ %42, %41 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
-  br label %73
+  br label %76
 
-73:                                               ; preds = %72, %36, %34
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %72 ], [ %37, %36 ], [ %35, %34 ]
+76:                                               ; preds = %75, %39, %37
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %75 ], [ %40, %39 ], [ %38, %37 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #23
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -3571,52 +3577,76 @@ define void @_ZN3nix34ValuePrintingTests_depthAttrs_Test8TestBodyEv(ptr noundef 
   store ptr %43, ptr %.sroa.538.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %7, align 8
-  %61 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 1, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %7, i64 16
-  %63 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 -1, i64 24, i1 false)
-  store i64 0, ptr %63, align 8
+  store i8 0, ptr %7, align 8
+  %61 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 0, ptr %61, align 1
+  %62 = getelementptr inbounds i8, ptr %7, i64 2
+  store i8 0, ptr %62, align 2
+  %63 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 1, ptr %63, align 1
+  %64 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 1, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %7, i64 16
+  %66 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 -1, i64 24, i1 false)
+  store i64 0, ptr %66, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %6, i64 39, ptr nonnull @.str.60, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %7)
   store i32 6, ptr %8, align 8
   %.sroa.538.0..sroa_idx39 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %43, ptr %.sroa.538.0..sroa_idx39, align 8
   %.sroa.6.0..sroa_idx45 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 0, ptr %.sroa.6.0..sroa_idx45, align 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %9, align 8
-  %64 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 2, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %9, i64 16
-  %66 = getelementptr inbounds i8, ptr %9, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 -1, i64 24, i1 false)
-  store i64 0, ptr %66, align 8
+  store i8 0, ptr %9, align 8
+  %67 = getelementptr inbounds i8, ptr %9, i64 1
+  store i8 0, ptr %67, align 1
+  %68 = getelementptr inbounds i8, ptr %9, i64 2
+  store i8 0, ptr %68, align 2
+  %69 = getelementptr inbounds i8, ptr %9, i64 3
+  store i8 1, ptr %69, align 1
+  %70 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 2, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %9, i64 16
+  %72 = getelementptr inbounds i8, ptr %9, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 -1, i64 24, i1 false)
+  store i64 0, ptr %72, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %8, i64 71, ptr nonnull @.str.61, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %9)
   store i32 6, ptr %10, align 8
   %.sroa.538.0..sroa_idx41 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %43, ptr %.sroa.538.0..sroa_idx41, align 8
   %.sroa.6.0..sroa_idx47 = getelementptr inbounds i8, ptr %10, i64 16
   store i64 0, ptr %.sroa.6.0..sroa_idx47, align 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %11, align 8
-  %67 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 3, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %11, i64 16
-  %69 = getelementptr inbounds i8, ptr %11, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 -1, i64 24, i1 false)
-  store i64 0, ptr %69, align 8
+  store i8 0, ptr %11, align 8
+  %73 = getelementptr inbounds i8, ptr %11, i64 1
+  store i8 0, ptr %73, align 1
+  %74 = getelementptr inbounds i8, ptr %11, i64 2
+  store i8 0, ptr %74, align 2
+  %75 = getelementptr inbounds i8, ptr %11, i64 3
+  store i8 1, ptr %75, align 1
+  %76 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 3, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %11, i64 16
+  %78 = getelementptr inbounds i8, ptr %11, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 -1, i64 24, i1 false)
+  store i64 0, ptr %78, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %10, i64 67, ptr nonnull @.str.62, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %11)
   store i32 6, ptr %12, align 8
   %.sroa.538.0..sroa_idx43 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %43, ptr %.sroa.538.0..sroa_idx43, align 8
   %.sroa.6.0..sroa_idx49 = getelementptr inbounds i8, ptr %12, i64 16
   store i64 0, ptr %.sroa.6.0..sroa_idx49, align 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %13, align 8
-  %70 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 4, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %13, i64 16
-  %72 = getelementptr inbounds i8, ptr %13, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 -1, i64 24, i1 false)
-  store i64 0, ptr %72, align 8
+  store i8 0, ptr %13, align 8
+  %79 = getelementptr inbounds i8, ptr %13, i64 1
+  store i8 0, ptr %79, align 1
+  %80 = getelementptr inbounds i8, ptr %13, i64 2
+  store i8 0, ptr %80, align 2
+  %81 = getelementptr inbounds i8, ptr %13, i64 3
+  store i8 1, ptr %81, align 1
+  %82 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 4, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %13, i64 16
+  %84 = getelementptr inbounds i8, ptr %13, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 -1, i64 24, i1 false)
+  store i64 0, ptr %84, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %12, i64 67, ptr nonnull @.str.62, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %13)
   ret void
 }
@@ -3940,45 +3970,75 @@ define void @_ZN3nix33ValuePrintingTests_depthList_Test8TestBodyEv(ptr noundef n
   %59 = getelementptr inbounds i8, ptr %58, i64 16
   store ptr %5, ptr %59, align 8
   store i64 3, ptr %53, align 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %7, align 8
-  %60 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 1, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %7, i64 16
-  %62 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 -1, i64 24, i1 false)
-  store i64 0, ptr %62, align 8
-  call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %6, i64 15, ptr nonnull @.str.65, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %7)
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %8, align 8
-  %63 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 2, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %8, i64 16
-  %65 = getelementptr inbounds i8, ptr %8, i64 40
+  store i8 0, ptr %7, align 8
+  %60 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 0, ptr %60, align 1
+  %61 = getelementptr inbounds i8, ptr %7, i64 2
+  store i8 0, ptr %61, align 2
+  %62 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 1, ptr %62, align 1
+  %63 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 1, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %7, i64 16
+  %65 = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 -1, i64 24, i1 false)
   store i64 0, ptr %65, align 8
-  call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %6, i64 47, ptr nonnull @.str.66, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %8)
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %9, align 8
-  %66 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 3, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %9, i64 16
-  %68 = getelementptr inbounds i8, ptr %9, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 -1, i64 24, i1 false)
-  store i64 0, ptr %68, align 8
-  call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %6, i64 61, ptr nonnull @.str.67, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %9)
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %10, align 8
-  %69 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 4, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %10, i64 16
-  %71 = getelementptr inbounds i8, ptr %10, i64 40
+  call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %6, i64 15, ptr nonnull @.str.65, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %7)
+  store i8 0, ptr %8, align 8
+  %66 = getelementptr inbounds i8, ptr %8, i64 1
+  store i8 0, ptr %66, align 1
+  %67 = getelementptr inbounds i8, ptr %8, i64 2
+  store i8 0, ptr %67, align 2
+  %68 = getelementptr inbounds i8, ptr %8, i64 3
+  store i8 1, ptr %68, align 1
+  %69 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 2, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %8, i64 16
+  %71 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 -1, i64 24, i1 false)
   store i64 0, ptr %71, align 8
+  call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %6, i64 47, ptr nonnull @.str.66, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %8)
+  store i8 0, ptr %9, align 8
+  %72 = getelementptr inbounds i8, ptr %9, i64 1
+  store i8 0, ptr %72, align 1
+  %73 = getelementptr inbounds i8, ptr %9, i64 2
+  store i8 0, ptr %73, align 2
+  %74 = getelementptr inbounds i8, ptr %9, i64 3
+  store i8 1, ptr %74, align 1
+  %75 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 3, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %9, i64 16
+  %77 = getelementptr inbounds i8, ptr %9, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 -1, i64 24, i1 false)
+  store i64 0, ptr %77, align 8
+  call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %6, i64 61, ptr nonnull @.str.67, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %9)
+  store i8 0, ptr %10, align 8
+  %78 = getelementptr inbounds i8, ptr %10, i64 1
+  store i8 0, ptr %78, align 1
+  %79 = getelementptr inbounds i8, ptr %10, i64 2
+  store i8 0, ptr %79, align 2
+  %80 = getelementptr inbounds i8, ptr %10, i64 3
+  store i8 1, ptr %80, align 1
+  %81 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 4, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %10, i64 16
+  %83 = getelementptr inbounds i8, ptr %10, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 -1, i64 24, i1 false)
+  store i64 0, ptr %83, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %6, i64 61, ptr nonnull @.str.67, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %10)
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %11, align 8
-  %72 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 5, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %11, i64 16
-  %74 = getelementptr inbounds i8, ptr %11, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 -1, i64 24, i1 false)
-  store i64 0, ptr %74, align 8
+  store i8 0, ptr %11, align 8
+  %84 = getelementptr inbounds i8, ptr %11, i64 1
+  store i8 0, ptr %84, align 1
+  %85 = getelementptr inbounds i8, ptr %11, i64 2
+  store i8 0, ptr %85, align 2
+  %86 = getelementptr inbounds i8, ptr %11, i64 3
+  store i8 1, ptr %86, align 1
+  %87 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 5, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %11, i64 16
+  %89 = getelementptr inbounds i8, ptr %11, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 -1, i64 24, i1 false)
+  store i64 0, ptr %89, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %6, i64 61, ptr nonnull @.str.67, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %11)
   ret void
 }
@@ -4102,191 +4162,197 @@ define linkonce_odr void @_ZN3nix19StringPrintingTests4testIJEEEvSt17basic_strin
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %9)
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = getelementptr inbounds i8, ptr %9, i64 16
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 32
-  %20 = zext i32 %5 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 -1, i64 24, i1 false)
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 40
-  store i64 0, ptr %21, align 8
+  store i8 0, ptr %10, align 8
+  %18 = getelementptr inbounds i8, ptr %10, i64 1
+  store i8 0, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %10, i64 2
+  store i8 0, ptr %19, align 2
+  %20 = getelementptr inbounds i8, ptr %10, i64 3
+  store i8 1, ptr %20, align 1
+  %21 = getelementptr inbounds i8, ptr %10, i64 8
+  %22 = getelementptr inbounds i8, ptr %10, i64 32
+  %23 = zext i32 %5 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 -1, i64 24, i1 false)
+  store i64 %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %10, i64 40
+  store i64 0, ptr %24, align 8
   invoke void @_ZN3nix10printValueERNS_9EvalStateERSoRNS_5ValueENS_12PrintOptionsE(ptr noundef nonnull align 8 dereferenceable(1248) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %10)
-          to label %22 unwind label %39
+          to label %25 unwind label %42
 
-22:                                               ; preds = %6
+25:                                               ; preds = %6
   invoke void @_ZNKRSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(128) %9)
-          to label %23 unwind label %39
+          to label %26 unwind label %42
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %12, align 8, !noalias !16
-  %25 = getelementptr inbounds i8, ptr %12, i64 8
-  %26 = load i64, ptr %25, align 8, !noalias !16
-  %27 = icmp eq i64 %26, %3
-  br i1 %27, label %28, label %31
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %12, align 8, !noalias !16
+  %28 = getelementptr inbounds i8, ptr %12, i64 8
+  %29 = load i64, ptr %28, align 8, !noalias !16
+  %30 = icmp eq i64 %29, %3
+  br i1 %30, label %31, label %34
 
-28:                                               ; preds = %23
-  %29 = icmp eq i64 %3, 0
-  br i1 %29, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+31:                                               ; preds = %26
+  %32 = icmp eq i64 %3, 0
+  br i1 %32, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %28
-  %bcmp.i.i.i = call i32 @bcmp(ptr %4, ptr %24, i64 %3), !noalias !16
-  %30 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %30, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, label %31
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %31
+  %bcmp.i.i.i = call i32 @bcmp(ptr %4, ptr %27, i64 %3), !noalias !16
+  %33 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %33, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, label %34
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %28
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %31
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11)
-          to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit unwind label %41
+          to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit unwind label %44
 
-31:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %23
+34:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %26
   invoke void @_ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS5_EEENS_15AssertionResultEPKcSC_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11, ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.179, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit unwind label %41
+          to label %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit unwind label %44
 
-_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit: ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, %31
-  %32 = load ptr, ptr %12, align 8
-  %33 = getelementptr inbounds i8, ptr %12, i64 16
-  %34 = icmp eq ptr %32, %33
-  br i1 %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit: ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, %34
+  %35 = load ptr, ptr %12, align 8
+  %36 = getelementptr inbounds i8, ptr %12, i64 16
+  %37 = icmp eq ptr %35, %36
+  br i1 %37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit
-  %35 = load i64, ptr %25, align 8
-  %36 = icmp ult i64 %35, 16
-  call void @llvm.assume(i1 %36)
+  %38 = load i64, ptr %28, align 8
+  %39 = icmp ult i64 %38, 16
+  call void @llvm.assume(i1 %39)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS6_ETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSK_RKSC_RKSD_.exit
-  call void @_ZdlPv(ptr noundef %32) #26
+  call void @_ZdlPv(ptr noundef %35) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #23
-  %37 = load i8, ptr %11, align 8
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %67, label %43
+  %40 = load i8, ptr %11, align 8
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %70, label %46
 
-39:                                               ; preds = %22, %6
-  %40 = landingpad { ptr, i32 }
+42:                                               ; preds = %25, %6
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %78
+  br label %81
 
-41:                                               ; preds = %31, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i
-  %42 = landingpad { ptr, i32 }
+44:                                               ; preds = %34, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
-  br label %78
+  br label %81
 
-43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+46:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %44 unwind label %56
+          to label %47 unwind label %59
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %11, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %_ZNK7testing15AssertionResult15failure_messageEv.exit, label %47
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds i8, ptr %11, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %.not.i.i = icmp eq ptr %49, null
+  br i1 %.not.i.i, label %_ZNK7testing15AssertionResult15failure_messageEv.exit, label %50
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %46, align 8
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %49, align 8
   br label %_ZNK7testing15AssertionResult15failure_messageEv.exit
 
-_ZNK7testing15AssertionResult15failure_messageEv.exit: ; preds = %47, %44
-  %49 = phi ptr [ %48, %47 ], [ @.str.172, %44 ]
-  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef 278, ptr noundef %49)
-          to label %50 unwind label %58
+_ZNK7testing15AssertionResult15failure_messageEv.exit: ; preds = %50, %47
+  %52 = phi ptr [ %51, %50 ], [ @.str.172, %47 ]
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef 278, ptr noundef %52)
+          to label %53 unwind label %61
 
-50:                                               ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit
+53:                                               ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit
   invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %51 unwind label %60
+          to label %54 unwind label %63
 
-51:                                               ; preds = %50
+54:                                               ; preds = %53
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #23
-  %52 = load ptr, ptr %13, align 8
-  %.not.i.i14 = icmp eq ptr %52, null
+  %55 = load ptr, ptr %13, align 8
+  %.not.i.i14 = icmp eq ptr %55, null
   br i1 %.not.i.i14, label %_ZN7testing7MessageD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %51
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(128) %52) #23
+_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %54
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(128) %55) #23
   br label %_ZN7testing7MessageD2Ev.exit
 
-_ZN7testing7MessageD2Ev.exit:                     ; preds = %51, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
+_ZN7testing7MessageD2Ev.exit:                     ; preds = %54, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %13, align 8
-  br label %67
+  br label %70
 
-56:                                               ; preds = %43
-  %57 = landingpad { ptr, i32 }
+59:                                               ; preds = %46
+  %60 = landingpad { ptr, i32 }
           cleanup
-  br label %77
+  br label %80
 
-58:                                               ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit
-  %59 = landingpad { ptr, i32 }
+61:                                               ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit
+  %62 = landingpad { ptr, i32 }
           cleanup
-  br label %62
+  br label %65
 
-60:                                               ; preds = %50
-  %61 = landingpad { ptr, i32 }
+63:                                               ; preds = %53
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #23
-  br label %62
+  br label %65
 
-62:                                               ; preds = %60, %58
-  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
-  %63 = load ptr, ptr %13, align 8
-  %.not.i.i15 = icmp eq ptr %63, null
+65:                                               ; preds = %63, %61
+  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
+  %66 = load ptr, ptr %13, align 8
+  %.not.i.i15 = icmp eq ptr %66, null
   br i1 %.not.i.i15, label %_ZN7testing7MessageD2Ev.exit17, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i16
 
-_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i16: ; preds = %62
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  %66 = load ptr, ptr %65, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(128) %63) #23
+_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i16: ; preds = %65
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = load ptr, ptr %68, align 8
+  call void %69(ptr noundef nonnull align 8 dereferenceable(128) %66) #23
   br label %_ZN7testing7MessageD2Ev.exit17
 
-_ZN7testing7MessageD2Ev.exit17:                   ; preds = %62, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i16
+_ZN7testing7MessageD2Ev.exit17:                   ; preds = %65, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i16
   store ptr null, ptr %13, align 8
-  br label %77
+  br label %80
 
-67:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
-  %68 = getelementptr inbounds i8, ptr %11, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %.not.i.i18 = icmp eq ptr %69, null
-  br i1 %.not.i.i18, label %_ZN7testing15AssertionResultD2Ev.exit, label %70
+70:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN7testing7MessageD2Ev.exit
+  %71 = getelementptr inbounds i8, ptr %11, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %.not.i.i18 = icmp eq ptr %72, null
+  br i1 %.not.i.i18, label %_ZN7testing15AssertionResultD2Ev.exit, label %73
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %69, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 16
-  %73 = icmp eq ptr %71, %72
-  br i1 %73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %72, align 8
+  %75 = getelementptr inbounds i8, ptr %72, i64 16
+  %76 = icmp eq ptr %74, %75
+  br i1 %76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %69, i64 8
-  %75 = load i64, ptr %74, align 8
-  %76 = icmp ult i64 %75, 16
-  call void @llvm.assume(i1 %76)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %73
+  %77 = getelementptr inbounds i8, ptr %72, i64 8
+  %78 = load i64, ptr %77, align 8
+  %79 = icmp ult i64 %78, 16
+  call void @llvm.assume(i1 %79)
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %70
-  call void @_ZdlPv(ptr noundef %71) #26
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %73
+  call void @_ZdlPv(ptr noundef %74) #26
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #23
-  call void @_ZdlPv(ptr noundef nonnull %69) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %72) #23
+  call void @_ZdlPv(ptr noundef nonnull %72) #26
   br label %_ZN7testing15AssertionResultD2Ev.exit
 
-_ZN7testing15AssertionResultD2Ev.exit:            ; preds = %67, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
-  store ptr null, ptr %68, align 8
+_ZN7testing15AssertionResultD2Ev.exit:            ; preds = %70, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
+  store ptr null, ptr %71, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %9) #23
   ret void
 
-77:                                               ; preds = %_ZN7testing7MessageD2Ev.exit17, %56
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit17 ], [ %57, %56 ]
+80:                                               ; preds = %_ZN7testing7MessageD2Ev.exit17, %59
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit17 ], [ %60, %59 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #23
-  br label %78
+  br label %81
 
-78:                                               ; preds = %77, %41, %39
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %77 ], [ %42, %41 ], [ %40, %39 ]
+81:                                               ; preds = %80, %44, %42
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %80 ], [ %45, %44 ], [ %43, %42 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %9) #23
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -4358,26 +4424,38 @@ define void @_ZN3nix38ValuePrintingTests_attrsTypeFirst_Test8TestBodyEv(ptr noun
   store ptr %13, ptr %.sroa.312.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 -1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 100, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
-  %30 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 -1, i64 16, i1 false)
-  store i64 0, ptr %30, align 8
+  store i8 0, ptr %5, align 8
+  %27 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %27, align 1
+  %28 = getelementptr inbounds i8, ptr %5, i64 2
+  store i8 0, ptr %28, align 2
+  %29 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 1, ptr %29, align 1
+  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 -1, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 100, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %5, i64 24
+  %33 = getelementptr inbounds i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 -1, i64 16, i1 false)
+  store i64 0, ptr %33, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %4, i64 36, ptr nonnull @.str.85, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %5)
   store i32 6, ptr %6, align 8
   %.sroa.312.0..sroa_idx13 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %13, ptr %.sroa.312.0..sroa_idx13, align 8
   %.sroa.4.0..sroa_idx15 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %.sroa.4.0..sroa_idx15, align 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %32, align 8
+  store i8 0, ptr %7, align 8
+  %34 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 0, ptr %34, align 1
+  %35 = getelementptr inbounds i8, ptr %7, i64 2
+  store i8 0, ptr %35, align 2
+  %36 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 1, ptr %36, align 1
+  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %38 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %38, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %6, i64 36, ptr nonnull @.str.86, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %7)
   ret void
 }
@@ -4401,11 +4479,17 @@ define void @_ZN3nix37ValuePrintingTests_ansiColorsInt_Test8TestBodyEv(ptr nound
   store i64 10, ptr %.sroa.23.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %5, align 8
+  store i8 1, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %4, align 1
+  %5 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %5, align 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %6, align 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %8, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 13, ptr nonnull @.str.89, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   ret void
 }
@@ -4425,11 +4509,17 @@ define void @_ZTv0_n48_N3nix37ValuePrintingTests_ansiColorsInt_Test8TestBodyEv(p
   store i64 10, ptr %.sroa.23.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx.i, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %9, align 8
+  store i8 1, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %9, align 2
+  %10 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %12, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 13, ptr nonnull @.str.89, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -4445,11 +4535,17 @@ define void @_ZN3nix39ValuePrintingTests_ansiColorsFloat_Test8TestBodyEv(ptr nou
   store double 1.600000e+00, ptr %.sroa.23.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %5, align 8
+  store i8 1, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %4, align 1
+  %5 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %5, align 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %6, align 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %8, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 14, ptr nonnull @.str.92, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   ret void
 }
@@ -4469,11 +4565,17 @@ define void @_ZTv0_n48_N3nix39ValuePrintingTests_ansiColorsFloat_Test8TestBodyEv
   store double 1.600000e+00, ptr %.sroa.23.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx.i, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %9, align 8
+  store i8 1, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %9, align 2
+  %10 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %12, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 14, ptr nonnull @.str.92, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -4489,11 +4591,17 @@ define void @_ZN3nix38ValuePrintingTests_ansiColorsBool_Test8TestBodyEv(ptr noun
   store i32 2, ptr %2, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i8 1, ptr %.sroa.23.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %5, align 8
+  store i8 1, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %4, align 1
+  %5 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %5, align 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %6, align 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %8, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 15, ptr nonnull @.str.95, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   ret void
 }
@@ -4513,11 +4621,17 @@ define void @_ZTv0_n48_N3nix38ValuePrintingTests_ansiColorsBool_Test8TestBodyEv(
   store i32 2, ptr %2, align 8
   %.sroa.23.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
   store i8 1, ptr %.sroa.23.0..sroa_idx.i, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %9, align 8
+  store i8 1, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %9, align 2
+  %10 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %12, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 15, ptr nonnull @.str.95, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -4533,11 +4647,17 @@ define void @_ZN3nix40ValuePrintingTests_ansiColorsString_Test8TestBodyEv(ptr no
   store ptr @.str.40, ptr %.sroa.23.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %.sroa.3.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %5, align 8
+  store i8 1, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %4, align 1
+  %5 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %5, align 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %6, align 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %8, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 18, ptr nonnull @.str.98, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   ret void
 }
@@ -4557,11 +4677,17 @@ define void @_ZTv0_n48_N3nix40ValuePrintingTests_ansiColorsString_Test8TestBodyE
   store ptr @.str.40, ptr %.sroa.23.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %.sroa.3.0..sroa_idx.i, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %9, align 8
+  store i8 1, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %9, align 2
+  %10 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %12, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 18, ptr nonnull @.str.98, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -4577,13 +4703,19 @@ define void @_ZN3nix46ValuePrintingTests_ansiColorsStringElided_Test8TestBodyEv(
   store ptr @.str.40, ptr %.sroa.23.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %.sroa.3.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 -1, i64 24, i1 false)
-  store i64 3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
-  store i64 0, ptr %6, align 8
+  store i8 1, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %4, align 1
+  %5 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %5, align 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %6, align 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 -1, i64 24, i1 false)
+  store i64 3, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 0, ptr %9, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 39, ptr nonnull @.str.101, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   ret void
 }
@@ -4603,13 +4735,19 @@ define void @_ZTv0_n48_N3nix46ValuePrintingTests_ansiColorsStringElided_Test8Tes
   store ptr @.str.40, ptr %.sroa.23.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %.sroa.3.0..sroa_idx.i, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 -1, i64 24, i1 false)
-  store i64 3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
-  store i64 0, ptr %10, align 8
+  store i8 1, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %9, align 2
+  %10 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 -1, i64 24, i1 false)
+  store i64 3, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 0, ptr %13, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 39, ptr nonnull @.str.101, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -4625,11 +4763,11 @@ define void @_ZN3nix38ValuePrintingTests_ansiColorsPath_Test8TestBodyEv(ptr noun
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   call void @_ZN3nix9CanonPathC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 5, ptr nonnull @.str.40)
   invoke void @_ZN3nix9EvalState8rootPathENS_9CanonPathE(ptr dead_on_unwind nonnull writable sret(%"struct.nix::SourcePath") align 8 %3, ptr noundef nonnull align 8 dereferenceable(1248) %6, ptr noundef nonnull %4)
-          to label %7 unwind label %60
+          to label %7 unwind label %63
 
 7:                                                ; preds = %1
   invoke void @_ZN3nix5Value6mkPathERKNS_10SourcePathE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %8 unwind label %62
+          to label %8 unwind label %65
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds i8, ptr %3, i64 16
@@ -4743,27 +4881,33 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN3nix9CanonPathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %5, align 8
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %59, align 8
+  store i8 1, ptr %5, align 8
+  %58 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %58, align 1
+  %59 = getelementptr inbounds i8, ptr %5, i64 2
+  store i8 0, ptr %59, align 2
+  %60 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 1, ptr %60, align 1
+  %61 = getelementptr inbounds i8, ptr %5, i64 8
+  %62 = getelementptr inbounds i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %62, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 17, ptr nonnull @.str.104, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %5)
   ret void
 
-60:                                               ; preds = %1
-  %61 = landingpad { ptr, i32 }
+63:                                               ; preds = %1
+  %64 = landingpad { ptr, i32 }
           cleanup
-  br label %64
+  br label %67
 
-62:                                               ; preds = %7
-  %63 = landingpad { ptr, i32 }
+65:                                               ; preds = %7
+  %66 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3nix10SourcePathD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #23
-  br label %64
+  br label %67
 
-64:                                               ; preds = %62, %60
-  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ]
+67:                                               ; preds = %65, %63
+  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %64, %63 ]
   call void @_ZN3nix9CanonPathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   resume { ptr, i32 } %.pn
 }
@@ -4913,11 +5057,17 @@ define void @_ZN3nix38ValuePrintingTests_ansiColorsNull_Test8TestBodyEv(ptr noun
   store i32 5, ptr %2, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.22.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.22, i64 20, i1 false)
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %5, align 8
+  store i8 1, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %4, align 1
+  %5 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %5, align 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %6, align 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %8, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 15, ptr nonnull @.str.107, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   ret void
 }
@@ -4939,11 +5089,17 @@ define void @_ZTv0_n48_N3nix38ValuePrintingTests_ansiColorsNull_Test8TestBodyEv(
   store i32 5, ptr %2, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.22.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.22.i, i64 20, i1 false)
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %9, align 8
+  store i8 1, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %9, align 2
+  %10 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %12, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 15, ptr nonnull @.str.107, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.22.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -5002,11 +5158,17 @@ define void @_ZN3nix39ValuePrintingTests_ansiColorsAttrs_Test8TestBodyEv(ptr nou
   store ptr %11, ptr %.sroa.28.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %26, align 8
+  store i8 1, ptr %5, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %25, align 1
+  %26 = getelementptr inbounds i8, ptr %5, i64 2
+  store i8 0, ptr %26, align 2
+  %27 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 1, ptr %27, align 1
+  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %29 = getelementptr inbounds i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %29, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %4, i64 43, ptr nonnull @.str.110, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %5)
   ret void
 }
@@ -5070,11 +5232,17 @@ define void @_ZTv0_n48_N3nix39ValuePrintingTests_ansiColorsAttrs_Test8TestBodyEv
   store ptr %15, ptr %.sroa.28.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx.i, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %30, align 8
+  store i8 1, ptr %5, align 8
+  %29 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %29, align 1
+  %30 = getelementptr inbounds i8, ptr %5, i64 2
+  store i8 0, ptr %30, align 2
+  %31 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 1, ptr %31, align 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %33 = getelementptr inbounds i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %33, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %9, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %4, i64 43, ptr nonnull @.str.110, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -5129,11 +5297,17 @@ define void @_ZN3nix44ValuePrintingTests_ansiColorsDerivation_Test8TestBodyEv(pt
   store ptr %10, ptr %.sroa.38.0..sroa_idx9, align 8
   %.sroa.4.0..sroa_idx11 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.4.0..sroa_idx11, align 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %21, align 8
+  store i8 1, ptr %6, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 1
+  store i8 1, ptr %20, align 1
+  %21 = getelementptr inbounds i8, ptr %6, i64 2
+  store i8 0, ptr %21, align 2
+  %22 = getelementptr inbounds i8, ptr %6, i64 3
+  store i8 1, ptr %22, align 1
+  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds i8, ptr %6, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %24, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %5, i64 35, ptr nonnull @.str.115, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %6)
   ret void
 }
@@ -5193,11 +5367,17 @@ define void @_ZTv0_n48_N3nix44ValuePrintingTests_ansiColorsDerivation_Test8TestB
   store ptr %14, ptr %.sroa.38.0..sroa_idx9.i, align 8
   %.sroa.4.0..sroa_idx11.i = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.4.0..sroa_idx11.i, align 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %25, align 8
+  store i8 1, ptr %6, align 8
+  %24 = getelementptr inbounds i8, ptr %6, i64 1
+  store i8 1, ptr %24, align 1
+  %25 = getelementptr inbounds i8, ptr %6, i64 2
+  store i8 0, ptr %25, align 2
+  %26 = getelementptr inbounds i8, ptr %6, i64 3
+  store i8 1, ptr %26, align 1
+  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %28 = getelementptr inbounds i8, ptr %6, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %28, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %10, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %5, i64 35, ptr nonnull @.str.115, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -5217,12 +5397,12 @@ define void @_ZN3nix39ValuePrintingTests_ansiColorsError_Test8TestBodyEv(ptr nou
   %7 = alloca %"struct.nix::PrintOptions", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.118, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %8 unwind label %22
+          to label %8 unwind label %25
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3nix9EvalState10getBuiltinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1248) %9, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %11 unwind label %24
+          to label %11 unwind label %27
 
 11:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
@@ -5255,27 +5435,33 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %2, ptr %.sroa.26.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %5, ptr %.sroa.3.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %21, align 8
+  store i8 1, ptr %7, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 1, ptr %20, align 1
+  %21 = getelementptr inbounds i8, ptr %7, i64 2
+  store i8 0, ptr %21, align 2
+  %22 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 1, ptr %22, align 1
+  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %24, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %6, i64 28, ptr nonnull @.str.120, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %7)
   ret void
 
-22:                                               ; preds = %1
-  %23 = landingpad { ptr, i32 }
+25:                                               ; preds = %1
+  %26 = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %29
 
-24:                                               ; preds = %8
-  %25 = landingpad { ptr, i32 }
+27:                                               ; preds = %8
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  br label %26
+  br label %29
 
-26:                                               ; preds = %24, %22
-  %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
+29:                                               ; preds = %27, %25
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   resume { ptr, i32 } %.pn
 }
@@ -5307,11 +5493,11 @@ define void @_ZN3nix49ValuePrintingTests_ansiColorsDerivationError_Test8TestBody
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.118, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %13 unwind label %44
+          to label %13 unwind label %47
 
 13:                                               ; preds = %1
   %14 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3nix9EvalState10getBuiltinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1248) %12, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %15 unwind label %46
+          to label %15 unwind label %49
 
 15:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
@@ -5383,38 +5569,44 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %28, ptr %.sroa.315.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %9, i64 8
-  %41 = getelementptr inbounds i8, ptr %9, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %41, align 8
+  store i8 1, ptr %9, align 8
+  %40 = getelementptr inbounds i8, ptr %9, i64 1
+  store i8 1, ptr %40, align 1
+  %41 = getelementptr inbounds i8, ptr %9, i64 2
+  store i8 0, ptr %41, align 2
+  %42 = getelementptr inbounds i8, ptr %9, i64 3
+  store i8 1, ptr %42, align 1
+  %43 = getelementptr inbounds i8, ptr %9, i64 8
+  %44 = getelementptr inbounds i8, ptr %9, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %44, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %8, i64 75, ptr nonnull @.str.123, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %9)
   store i32 6, ptr %10, align 8
   %.sroa.315.0..sroa_idx16 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %28, ptr %.sroa.315.0..sroa_idx16, align 8
   %.sroa.4.0..sroa_idx18 = getelementptr inbounds i8, ptr %10, i64 16
   store i64 0, ptr %.sroa.4.0..sroa_idx18, align 8
-  %42 = getelementptr inbounds i8, ptr %11, i64 8
+  %45 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 16843009, ptr %11, align 8
-  %43 = getelementptr inbounds i8, ptr %11, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %43, align 8
+  %46 = getelementptr inbounds i8, ptr %11, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %46, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %10, i64 28, ptr nonnull @.str.120, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %11)
   ret void
 
-44:                                               ; preds = %1
-  %45 = landingpad { ptr, i32 }
+47:                                               ; preds = %1
+  %48 = landingpad { ptr, i32 }
           cleanup
-  br label %48
+  br label %51
 
-46:                                               ; preds = %13
-  %47 = landingpad { ptr, i32 }
+49:                                               ; preds = %13
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  br label %48
+  br label %51
 
-48:                                               ; preds = %46, %44
-  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
+51:                                               ; preds = %49, %47
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   resume { ptr, i32 } %.pn
 }
@@ -5432,7 +5624,7 @@ define void @_ZTv0_n48_N3nix49ValuePrintingTests_ansiColorsDerivationError_Test8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3nix40ValuePrintingTests_ansiColorsAssert_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.nix::ExprVar", align 8
-  %3 = alloca %"class.std::shared_ptr.154", align 16
+  %3 = alloca %"class.std::shared_ptr.154", align 8
   %4 = alloca %"struct.nix::ExprInt", align 8
   %5 = alloca %"struct.nix::ExprAssert", align 8
   %6 = alloca %"struct.nix::Value", align 8
@@ -5449,16 +5641,17 @@ define void @_ZN3nix40ValuePrintingTests_ansiColorsAssert_Test8TestBodyEv(ptr no
   %14 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %10, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %0, i64 960
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 968
-  %18 = load ptr, ptr %17, align 8
-  %19 = load <2 x ptr>, ptr %15, align 8
-  store <2 x ptr> %19, ptr %3, align 16
-  %.not.i.i.i = icmp eq ptr %18, null
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %3, align 8
+  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 968
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %17, align 8
+  %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN3nix9StaticEnvEEC2IS1_vEERKS_IT_E.exit, label %20
 
 20:                                               ; preds = %1
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds i8, ptr %19, i64 8
   %22 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %22, 0
   br i1 %.not.i.i.i.i, label %26, label %23
@@ -5475,10 +5668,10 @@ define void @_ZN3nix40ValuePrintingTests_ansiColorsAssert_Test8TestBodyEv(ptr no
 
 _ZNSt10shared_ptrIKN3nix9StaticEnvEEC2IS1_vEERKS_IT_E.exit: ; preds = %1, %23, %26
   invoke void @_ZN3nix7ExprVar8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9StaticEnvEE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(1248) %8, ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %28 unwind label %76
+          to label %28 unwind label %79
 
 28:                                               ; preds = %_ZNSt10shared_ptrIKN3nix9StaticEnvEEC2IS1_vEERKS_IT_E.exit
-  %29 = load ptr, ptr %16, align 8
+  %29 = load ptr, ptr %17, align 8
   %.not.i.i.i4 = icmp eq ptr %29, null
   br i1 %.not.i.i.i4, label %64, label %30
 
@@ -5570,19 +5763,25 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %73 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %4, ptr %73, align 8
   call void @_ZN3nix9EvalState8mkThunk_ERNS_5ValueEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(1248) %8, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %5)
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %7, align 8
-  %74 = getelementptr inbounds i8, ptr %7, i64 8
-  %75 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %75, align 8
+  store i8 1, ptr %7, align 8
+  %74 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 1, ptr %74, align 1
+  %75 = getelementptr inbounds i8, ptr %7, i64 2
+  store i8 0, ptr %75, align 2
+  %76 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 1, ptr %76, align 1
+  %77 = getelementptr inbounds i8, ptr %7, i64 8
+  %78 = getelementptr inbounds i8, ptr %7, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %78, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %6, i64 46, ptr nonnull @.str.127, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %7)
   ret void
 
-76:                                               ; preds = %_ZNSt10shared_ptrIKN3nix9StaticEnvEEC2IS1_vEERKS_IT_E.exit
-  %77 = landingpad { ptr, i32 }
+79:                                               ; preds = %_ZNSt10shared_ptrIKN3nix9StaticEnvEEC2IS1_vEERKS_IT_E.exit
+  %80 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN3nix9StaticEnvEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
-  resume { ptr, i32 } %77
+  resume { ptr, i32 } %80
 }
 
 declare void @_ZN3nix7ExprVar8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9StaticEnvEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(1248), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
@@ -5704,11 +5903,17 @@ define void @_ZN3nix38ValuePrintingTests_ansiColorsList_Test8TestBodyEv(ptr noun
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %3, ptr %15, align 8
   store i64 3, ptr %11, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %17, align 8
+  store i8 1, ptr %5, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %5, i64 2
+  store i8 0, ptr %17, align 2
+  %18 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 1, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %20, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %4, i64 52, ptr nonnull @.str.130, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %5)
   ret void
 }
@@ -5747,11 +5952,17 @@ define void @_ZTv0_n48_N3nix38ValuePrintingTests_ansiColorsList_Test8TestBodyEv(
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %3, ptr %19, align 8
   store i64 3, ptr %15, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %21, align 8
+  store i8 1, ptr %5, align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds i8, ptr %5, i64 2
+  store i8 0, ptr %21, align 2
+  %22 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 1, ptr %22, align 1
+  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %24, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %9, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %4, i64 52, ptr nonnull @.str.130, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -5793,7 +6004,7 @@ define void @_ZN3nix40ValuePrintingTests_ansiColorsLambda_Test8TestBodyEv(ptr no
           cleanup
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN3nix3Pos5StdinENS4_6StringENS3_10SourcePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %17) #23
   call void @_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %8) #23
-  br label %88
+  br label %94
 
 20:                                               ; preds = %1
   %21 = load i8, ptr %16, align 8
@@ -5823,7 +6034,7 @@ _ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.e
   %26 = getelementptr inbounds i8, ptr %0, i64 128
   %27 = getelementptr inbounds i8, ptr %0, i64 152
   %28 = invoke { ptr, i32 } @_ZN3nix13ChunkedVectorINS_8PosTable6OffsetELm8192EE3addES2_(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 4294967297)
-          to label %.noexc unwind label %82
+          to label %.noexc unwind label %88
 
 .noexc:                                           ; preds = %_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit
   %29 = extractvalue { ptr, i32 } %28, 1
@@ -5874,7 +6085,7 @@ _ZNSt16allocator_traitsISaIN3nix8PosTable6OriginEEE9constructIS2_JRKS2_EEEvRS3_P
 
 49:                                               ; preds = %38
   invoke void @_ZNSt6vectorIN3nix8PosTable6OriginESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr %32, ptr noundef nonnull align 8 dereferenceable(64) %7)
-          to label %50 unwind label %82
+          to label %50 unwind label %88
 
 50:                                               ; preds = %49, %34, %_ZNSt16allocator_traitsISaIN3nix8PosTable6OriginEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i
   %51 = load i64, ptr @_ZN3nix4Expr7nrExprsE, align 8
@@ -5913,93 +6124,105 @@ _ZNSt16allocator_traitsISaIN3nix8PosTable6OriginEEE9constructIS2_JRKS2_EEEvRS3_P
   store ptr %6, ptr %.sroa.325.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %11, ptr %.sroa.4.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %13, align 8
-  %67 = getelementptr inbounds i8, ptr %13, i64 8
-  %68 = getelementptr inbounds i8, ptr %13, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %68, align 8
+  store i8 1, ptr %13, align 8
+  %67 = getelementptr inbounds i8, ptr %13, i64 1
+  store i8 1, ptr %67, align 1
+  %68 = getelementptr inbounds i8, ptr %13, i64 2
+  store i8 0, ptr %68, align 2
+  %69 = getelementptr inbounds i8, ptr %13, i64 3
+  store i8 1, ptr %69, align 1
+  %70 = getelementptr inbounds i8, ptr %13, i64 8
+  %71 = getelementptr inbounds i8, ptr %13, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %71, align 8
   invoke void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %12, i64 36, ptr nonnull @.str.133, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %13)
-          to label %69 unwind label %85
+          to label %72 unwind label %91
 
-69:                                               ; preds = %58
-  %70 = invoke i32 @_ZN3nix11SymbolTable6createESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(88) %56, i64 5, ptr nonnull @.str.40)
-          to label %_ZN3nix11LibExprTest12createSymbolEPKc.exit16 unwind label %85
+72:                                               ; preds = %58
+  %73 = invoke i32 @_ZN3nix11SymbolTable6createESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(88) %56, i64 5, ptr nonnull @.str.40)
+          to label %_ZN3nix11LibExprTest12createSymbolEPKc.exit16 unwind label %91
 
-_ZN3nix11LibExprTest12createSymbolEPKc.exit16:    ; preds = %69
-  invoke void @_ZN3nix10ExprLambda7setNameENS_6SymbolE(ptr noundef nonnull align 8 dereferenceable(40) %11, i32 %70)
-          to label %71 unwind label %85
+_ZN3nix11LibExprTest12createSymbolEPKc.exit16:    ; preds = %72
+  invoke void @_ZN3nix10ExprLambda7setNameENS_6SymbolE(ptr noundef nonnull align 8 dereferenceable(40) %11, i32 %73)
+          to label %74 unwind label %91
 
-71:                                               ; preds = %_ZN3nix11LibExprTest12createSymbolEPKc.exit16
+74:                                               ; preds = %_ZN3nix11LibExprTest12createSymbolEPKc.exit16
   store i32 12, ptr %14, align 8
   %.sroa.325.0..sroa_idx26 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %6, ptr %.sroa.325.0..sroa_idx26, align 8
   %.sroa.4.0..sroa_idx28 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %11, ptr %.sroa.4.0..sroa_idx28, align 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %15, align 8
-  %72 = getelementptr inbounds i8, ptr %15, i64 8
-  %73 = getelementptr inbounds i8, ptr %15, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %73, align 8
+  store i8 1, ptr %15, align 8
+  %75 = getelementptr inbounds i8, ptr %15, i64 1
+  store i8 1, ptr %75, align 1
+  %76 = getelementptr inbounds i8, ptr %15, i64 2
+  store i8 0, ptr %76, align 2
+  %77 = getelementptr inbounds i8, ptr %15, i64 3
+  store i8 1, ptr %77, align 1
+  %78 = getelementptr inbounds i8, ptr %15, i64 8
+  %79 = getelementptr inbounds i8, ptr %15, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %79, align 8
   invoke void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %14, i64 42, ptr nonnull @.str.134, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %15)
-          to label %74 unwind label %85
+          to label %80 unwind label %91
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %75, null
-  br i1 %.not.i.i.i.i, label %_ZN3nix7FormalsD2Ev.exit, label %76
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %81, null
+  br i1 %.not.i.i.i.i, label %_ZN3nix7FormalsD2Ev.exit, label %82
 
-76:                                               ; preds = %74
-  call void @_ZdlPv(ptr noundef nonnull %75) #26
+82:                                               ; preds = %80
+  call void @_ZdlPv(ptr noundef nonnull %81) #26
   br label %_ZN3nix7FormalsD2Ev.exit
 
-_ZN3nix7FormalsD2Ev.exit:                         ; preds = %74, %76
+_ZN3nix7FormalsD2Ev.exit:                         ; preds = %80, %82
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %77 = load i8, ptr %18, align 8
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %77, -1
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN3nix8PosTable6OriginD2Ev.exit, label %78
+  %83 = load i8, ptr %18, align 8
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %83, -1
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN3nix8PosTable6OriginD2Ev.exit, label %84
 
-78:                                               ; preds = %_ZN3nix7FormalsD2Ev.exit
+84:                                               ; preds = %_ZN3nix7FormalsD2Ev.exit
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN3nix3Pos5StdinENS5_6StringENS4_10SourcePathEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(49) %17)
-          to label %_ZN3nix8PosTable6OriginD2Ev.exit unwind label %79
+          to label %_ZN3nix8PosTable6OriginD2Ev.exit unwind label %85
 
-79:                                               ; preds = %78
-  %80 = landingpad { ptr, i32 }
+85:                                               ; preds = %84
+  %86 = landingpad { ptr, i32 }
           catch ptr null
-  %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #27
+  %87 = extractvalue { ptr, i32 } %86, 0
+  call void @__clang_call_terminate(ptr %87) #27
   unreachable
 
-_ZN3nix8PosTable6OriginD2Ev.exit:                 ; preds = %78, %_ZN3nix7FormalsD2Ev.exit
+_ZN3nix8PosTable6OriginD2Ev.exit:                 ; preds = %84, %_ZN3nix7FormalsD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   ret void
 
-82:                                               ; preds = %49, %_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit
-  %83 = landingpad { ptr, i32 }
+88:                                               ; preds = %49, %_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit
+  %89 = landingpad { ptr, i32 }
           cleanup
   br label %.body11
 
 .thread:                                          ; preds = %50
-  %84 = landingpad { ptr, i32 }
+  %90 = landingpad { ptr, i32 }
           cleanup
   br label %.body11
 
-85:                                               ; preds = %58, %_ZN3nix11LibExprTest12createSymbolEPKc.exit16, %71, %69
-  %86 = landingpad { ptr, i32 }
+91:                                               ; preds = %58, %_ZN3nix11LibExprTest12createSymbolEPKc.exit16, %74, %72
+  %92 = landingpad { ptr, i32 }
           cleanup
   %.pre = load ptr, ptr %10, align 8
   %.not.i.i.i.i17 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i.i.i17, label %.body11, label %87
+  br i1 %.not.i.i.i.i17, label %.body11, label %93
 
-87:                                               ; preds = %85
+93:                                               ; preds = %91
   call void @_ZdlPv(ptr noundef nonnull %.pre) #26
   br label %.body11
 
-.body11:                                          ; preds = %.thread, %87, %85, %82, %44
-  %.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %45, %44 ], [ %86, %85 ], [ %86, %87 ], [ %84, %.thread ]
+.body11:                                          ; preds = %.thread, %93, %91, %88, %44
+  %.pn.pn = phi { ptr, i32 } [ %89, %88 ], [ %45, %44 ], [ %92, %91 ], [ %92, %93 ], [ %90, %.thread ]
   call void @_ZN3nix8PosTable6OriginD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #23
-  br label %88
+  br label %94
 
-88:                                               ; preds = %.body11, %.body
+94:                                               ; preds = %.body11, %.body
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body11 ], [ %19, %.body ]
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -6022,7 +6245,7 @@ define void @_ZN3nix40ValuePrintingTests_ansiColorsPrimOp_Test8TestBodyEv(ptr no
   %5 = alloca %"struct.nix::PrintOptions", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.40, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %6 unwind label %31
+          to label %6 unwind label %34
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 32
@@ -6031,96 +6254,102 @@ define void @_ZN3nix40ValuePrintingTests_ansiColorsPrimOp_Test8TestBodyEv(ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   invoke void @_ZN3nix5Value8mkPrimOpEPNS_6PrimOpE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %2)
-          to label %9 unwind label %33
+          to label %9 unwind label %36
 
 9:                                                ; preds = %6
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %11, align 8
+  store i8 1, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %5, i64 2
+  store i8 0, ptr %11, align 2
+  %12 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 1, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %14, align 8
   invoke void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %4, i64 27, ptr nonnull @.str.137, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %5)
-          to label %12 unwind label %33
+          to label %15 unwind label %36
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %13, %15
+15:                                               ; preds = %9
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds i8, ptr %2, i64 40
+  %18 = load ptr, ptr %17, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %16, %18
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %12, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %22, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i ], [ %13, %12 ]
-  %16 = load ptr, ptr %.05.i.i.i.i.i, align 8
-  %17 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %18 = icmp eq ptr %16, %17
-  br i1 %18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
+.lr.ph.i.i.i.i.i:                                 ; preds = %15, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %25, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i ], [ %16, %15 ]
+  %19 = load ptr, ptr %.05.i.i.i.i.i, align 8
+  %20 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %19 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
-  %20 = load i64, ptr %19, align 8
-  %21 = icmp ult i64 %20, 16
-  call void @llvm.assume(i1 %21)
+  %22 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = icmp ult i64 %23, 16
+  call void @llvm.assume(i1 %24)
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef %16) #26
+  call void @_ZdlPv(ptr noundef %19) #26
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %.05.i.i.i.i.i) #23
-  %22 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i = icmp eq ptr %22, %15
+  %25 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i = icmp eq ptr %25, %18
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %7, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %12
-  %23 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %13, %12 ]
-  %.not.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %24
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %15
+  %26 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %16, %15 ]
+  %.not.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %27
 
-24:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %23) #26
+27:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %26) #26
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %24, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
-  %27 = icmp eq ptr %25, %26
-  br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %27, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = icmp eq ptr %28, %29
+  br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
-  %29 = load i64, ptr %28, align 8
-  %30 = icmp ult i64 %29, 16
-  call void @llvm.assume(i1 %30)
+  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = load i64, ptr %31, align 8
+  %33 = icmp ult i64 %32, 16
+  call void @llvm.assume(i1 %33)
   br label %_ZN3nix6PrimOpD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef %25) #26
+  call void @_ZdlPv(ptr noundef %28) #26
   br label %_ZN3nix6PrimOpD2Ev.exit
 
 _ZN3nix6PrimOpD2Ev.exit:                          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #23
   ret void
 
-31:                                               ; preds = %1
-  %32 = landingpad { ptr, i32 }
+34:                                               ; preds = %1
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
-  br label %35
+  br label %38
 
-33:                                               ; preds = %9, %6
-  %34 = landingpad { ptr, i32 }
+36:                                               ; preds = %9, %6
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3nix6PrimOpD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #23
-  br label %35
+  br label %38
 
-35:                                               ; preds = %33, %31
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
+38:                                               ; preds = %36, %34
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -6143,7 +6372,7 @@ define void @_ZN3nix43ValuePrintingTests_ansiColorsPrimOpApp_Test8TestBodyEv(ptr
   %6 = alloca %"struct.nix::PrintOptions", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.40, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %7 unwind label %32
+          to label %7 unwind label %35
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %2, i64 32
@@ -6152,7 +6381,7 @@ define void @_ZN3nix43ValuePrintingTests_ansiColorsPrimOpApp_Test8TestBodyEv(ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   invoke void @_ZN3nix5Value8mkPrimOpEPNS_6PrimOpE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %2)
-          to label %10 unwind label %34
+          to label %10 unwind label %37
 
 10:                                               ; preds = %7
   store i32 14, ptr %5, align 8
@@ -6160,93 +6389,99 @@ define void @_ZN3nix43ValuePrintingTests_ansiColorsPrimOpApp_Test8TestBodyEv(ptr
   store ptr %4, ptr %.sroa.26.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   store ptr null, ptr %.sroa.3.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %12, align 8
+  store i8 1, ptr %6, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 1
+  store i8 0, ptr %11, align 1
+  %12 = getelementptr inbounds i8, ptr %6, i64 2
+  store i8 0, ptr %12, align 2
+  %13 = getelementptr inbounds i8, ptr %6, i64 3
+  store i8 1, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %15, align 8
   invoke void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %5, i64 45, ptr nonnull @.str.140, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %6)
-          to label %13 unwind label %34
+          to label %16 unwind label %37
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 40
-  %16 = load ptr, ptr %15, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %14, %16
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %8, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 40
+  %19 = load ptr, ptr %18, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %17, %19
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %13, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %23, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i ], [ %14, %13 ]
-  %17 = load ptr, ptr %.05.i.i.i.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %19 = icmp eq ptr %17, %18
-  br i1 %19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
+.lr.ph.i.i.i.i.i:                                 ; preds = %16, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %26, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i ], [ %17, %16 ]
+  %20 = load ptr, ptr %.05.i.i.i.i.i, align 8
+  %21 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
+  %22 = icmp eq ptr %20, %21
+  br i1 %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %20 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = icmp ult i64 %21, 16
-  call void @llvm.assume(i1 %22)
+  %23 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %24 = load i64, ptr %23, align 8
+  %25 = icmp ult i64 %24, 16
+  call void @llvm.assume(i1 %25)
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef %17) #26
+  call void @_ZdlPv(ptr noundef %20) #26
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %.05.i.i.i.i.i) #23
-  %23 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i = icmp eq ptr %23, %16
+  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i = icmp eq ptr %26, %19
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %8, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %13
-  %24 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %14, %13 ]
-  %.not.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %25
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %16
+  %27 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %17, %16 ]
+  %.not.i.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %28
 
-25:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %24) #26
+28:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %27) #26
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %25, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
-  %28 = icmp eq ptr %26, %27
-  br i1 %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %28, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = icmp eq ptr %29, %30
+  br i1 %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = icmp ult i64 %30, 16
-  call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = icmp ult i64 %33, 16
+  call void @llvm.assume(i1 %34)
   br label %_ZN3nix6PrimOpD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef %26) #26
+  call void @_ZdlPv(ptr noundef %29) #26
   br label %_ZN3nix6PrimOpD2Ev.exit
 
 _ZN3nix6PrimOpD2Ev.exit:                          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #23
   ret void
 
-32:                                               ; preds = %1
-  %33 = landingpad { ptr, i32 }
+35:                                               ; preds = %1
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
-  br label %36
+  br label %39
 
-34:                                               ; preds = %10, %7
-  %35 = landingpad { ptr, i32 }
+37:                                               ; preds = %10, %7
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3nix6PrimOpD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #23
-  br label %36
+  br label %39
 
-36:                                               ; preds = %34, %32
-  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
+39:                                               ; preds = %37, %35
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -6267,11 +6502,17 @@ define void @_ZN3nix39ValuePrintingTests_ansiColorsThunk_Test8TestBodyEv(ptr nou
   store i32 10, ptr %2, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.23.0..sroa_idx, i8 0, i64 16, i1 false)
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %5, align 8
+  store i8 1, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %4, align 1
+  %5 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %5, align 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %6, align 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %8, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 20, ptr nonnull @.str.143, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   ret void
 }
@@ -6289,11 +6530,17 @@ define void @_ZTv0_n48_N3nix39ValuePrintingTests_ansiColorsThunk_Test8TestBodyEv
   store i32 10, ptr %2, align 8
   %.sroa.23.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.23.0..sroa_idx.i, i8 0, i64 16, i1 false)
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %9, align 8
+  store i8 1, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %9, align 2
+  %10 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %12, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 20, ptr nonnull @.str.143, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -6307,11 +6554,17 @@ define void @_ZN3nix43ValuePrintingTests_ansiColorsBlackhole_Test8TestBodyEv(ptr
   store i32 10, ptr %2, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   store ptr @_ZN3nix10eBlackHoleE, ptr %.sroa.23.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %5, align 8
+  store i8 1, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %4, align 1
+  %5 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %5, align 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %6, align 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %8, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 43, ptr nonnull @.str.146, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   ret void
 }
@@ -6329,11 +6582,17 @@ define void @_ZTv0_n48_N3nix43ValuePrintingTests_ansiColorsBlackhole_Test8TestBo
   store i32 10, ptr %2, align 8
   %.sroa.23.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   store ptr @_ZN3nix10eBlackHoleE, ptr %.sroa.23.0..sroa_idx.i, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %9, align 8
+  store i8 1, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %9, align 2
+  %10 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 1, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %12, align 8
   tail call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %7, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %2, i64 43, ptr nonnull @.str.146, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
@@ -6387,11 +6646,17 @@ define void @_ZN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_Test8TestBodyEv
   store ptr %9, ptr %.sroa.28.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %24, align 8
+  store i8 1, ptr %4, align 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 1
+  store i8 0, ptr %23, align 1
+  %24 = getelementptr inbounds i8, ptr %4, i64 2
+  store i8 0, ptr %24, align 2
+  %25 = getelementptr inbounds i8, ptr %4, i64 3
+  store i8 1, ptr %25, align 1
+  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds i8, ptr %4, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %27, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %3, i64 41, ptr nonnull @.str.150, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %4)
   ret void
 }
@@ -6428,11 +6693,17 @@ define void @_ZN3nix46ValuePrintingTests_ansiColorsListRepeated_Test8TestBodyEv(
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %2, ptr %13, align 8
   store i64 2, ptr %9, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %15, align 8
+  store i8 1, ptr %4, align 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 1
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %4, i64 2
+  store i8 0, ptr %15, align 2
+  %16 = getelementptr inbounds i8, ptr %4, i64 3
+  store i8 1, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %18, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %3, i64 31, ptr nonnull @.str.153, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %4)
   ret void
 }
@@ -6466,11 +6737,17 @@ define void @_ZTv0_n48_N3nix46ValuePrintingTests_ansiColorsListRepeated_Test8Tes
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %2, ptr %17, align 8
   store i64 2, ptr %13, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %19, align 8
+  store i8 1, ptr %4, align 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 1
+  store i8 0, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %4, i64 2
+  store i8 0, ptr %19, align 2
+  %20 = getelementptr inbounds i8, ptr %4, i64 3
+  store i8 1, ptr %20, align 1
+  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds i8, ptr %4, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %22, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %8, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %3, i64 31, ptr nonnull @.str.153, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -6501,17 +6778,23 @@ define void @_ZN3nix36ValuePrintingTests_listRepeated_Test8TestBodyEv(ptr nounde
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %2, ptr %14, align 8
   store i64 2, ptr %10, align 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %16, align 8
+  store i8 0, ptr %4, align 8
+  %15 = getelementptr inbounds i8, ptr %4, i64 1
+  store i8 0, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %4, i64 2
+  store i8 0, ptr %16, align 2
+  %17 = getelementptr inbounds i8, ptr %4, i64 3
+  store i8 1, ptr %17, align 1
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %19, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %3, i64 20, ptr nonnull @.str.156, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %4)
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %18, align 8
+  %21 = getelementptr inbounds i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %21, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %3, i64 11, ptr nonnull @.str.157, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %5)
   ret void
 }
@@ -6547,17 +6830,23 @@ define void @_ZTv0_n48_N3nix36ValuePrintingTests_listRepeated_Test8TestBodyEv(pt
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %2, ptr %18, align 8
   store i64 2, ptr %14, align 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %20, align 8
+  store i8 0, ptr %4, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 1
+  store i8 0, ptr %19, align 1
+  %20 = getelementptr inbounds i8, ptr %4, i64 2
+  store i8 0, ptr %20, align 2
+  %21 = getelementptr inbounds i8, ptr %4, i64 3
+  store i8 1, ptr %21, align 1
+  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %23, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %9, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %3, i64 20, ptr nonnull @.str.156, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %4)
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 -1, i64 32, i1 false)
-  store i64 0, ptr %22, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 -1, i64 32, i1 false)
+  store i64 0, ptr %25, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %9, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %3, i64 11, ptr nonnull @.str.157, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -6620,32 +6909,38 @@ define void @_ZN3nix45ValuePrintingTests_ansiColorsAttrsElided_Test8TestBodyEv(p
   store ptr %14, ptr %.sroa.418.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 -1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 24
-  %31 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 -1, i64 16, i1 false)
-  store i64 0, ptr %31, align 8
+  store i8 1, ptr %5, align 8
+  %28 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %28, align 1
+  %29 = getelementptr inbounds i8, ptr %5, i64 2
+  store i8 0, ptr %29, align 2
+  %30 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 1, ptr %30, align 1
+  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 -1, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 1, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %5, i64 24
+  %34 = getelementptr inbounds i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 -1, i64 16, i1 false)
+  store i64 0, ptr %34, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %4, i64 54, ptr nonnull @.str.160, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %5)
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 16
-  store i64 0, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %6, i64 8
+  %36 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 0, ptr %36, align 8
   store i32 1, ptr %6, align 8
-  store i64 3, ptr %32, align 8
-  %34 = call i32 @_ZN3nix11SymbolTable6createESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(88) %15, i64 5, ptr nonnull @.str.161)
+  store i64 3, ptr %35, align 8
+  %37 = call i32 @_ZN3nix11SymbolTable6createESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(88) %15, i64 5, ptr nonnull @.str.161)
   %.sroa.0.0.copyload = load i32, ptr @_ZN3nix5noPosE, align 4
-  %35 = load i32, ptr %18, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %18, align 4
-  %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds [0 x %"struct.nix::Attr"], ptr %17, i64 0, i64 %37
-  store i32 %34, ptr %38, align 8
-  %.sroa.2.0..sroa_idx.i8 = getelementptr inbounds i8, ptr %38, i64 4
+  %38 = load i32, ptr %18, align 4
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %18, align 4
+  %40 = zext i32 %38 to i64
+  %41 = getelementptr inbounds [0 x %"struct.nix::Attr"], ptr %17, i64 0, i64 %40
+  store i32 %37, ptr %41, align 8
+  %.sroa.2.0..sroa_idx.i8 = getelementptr inbounds i8, ptr %41, i64 4
   store i32 %.sroa.0.0.copyload, ptr %.sroa.2.0..sroa_idx.i8, align 4
-  %.sroa.3.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %38, i64 8
+  %.sroa.3.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %6, ptr %.sroa.3.0..sroa_idx.i9, align 8
   call void @_ZN3nix8Bindings4sortEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
   store i32 6, ptr %7, align 8
@@ -6653,15 +6948,21 @@ define void @_ZN3nix45ValuePrintingTests_ansiColorsAttrsElided_Test8TestBodyEv(p
   store ptr %14, ptr %.sroa.418.0..sroa_idx19, align 8
   %.sroa.6.0..sroa_idx21 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %.sroa.6.0..sroa_idx21, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %8, align 8
-  %39 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 -1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 16
-  store i64 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %8, i64 24
-  %42 = getelementptr inbounds i8, ptr %8, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 -1, i64 16, i1 false)
-  store i64 0, ptr %42, align 8
+  store i8 1, ptr %8, align 8
+  %42 = getelementptr inbounds i8, ptr %8, i64 1
+  store i8 0, ptr %42, align 1
+  %43 = getelementptr inbounds i8, ptr %8, i64 2
+  store i8 0, ptr %43, align 2
+  %44 = getelementptr inbounds i8, ptr %8, i64 3
+  store i8 1, ptr %44, align 1
+  %45 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 -1, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %8, i64 16
+  store i64 1, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %8, i64 24
+  %48 = getelementptr inbounds i8, ptr %8, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 -1, i64 16, i1 false)
+  store i64 0, ptr %48, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %7, i64 55, ptr nonnull @.str.162, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %8)
   ret void
 }
@@ -6705,34 +7006,46 @@ define void @_ZN3nix44ValuePrintingTests_ansiColorsListElided_Test8TestBodyEv(pt
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %3, ptr %18, align 8
   store i64 2, ptr %14, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 -1, i64 16, i1 false)
-  store i64 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
-  store i64 -1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 40
-  store i64 0, ptr %22, align 8
+  store i8 1, ptr %5, align 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %19, align 1
+  %20 = getelementptr inbounds i8, ptr %5, i64 2
+  store i8 0, ptr %20, align 2
+  %21 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 1, ptr %21, align 1
+  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 -1, i64 16, i1 false)
+  store i64 1, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  store i64 -1, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 40
+  store i64 0, ptr %25, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %4, i64 42, ptr nonnull @.str.165, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %5)
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
-  store i64 0, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 0, ptr %27, align 8
   store i32 1, ptr %6, align 8
-  store i64 3, ptr %23, align 8
-  %25 = load ptr, ptr %15, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr %6, ptr %26, align 8
+  store i64 3, ptr %26, align 8
+  %28 = load ptr, ptr %15, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  store ptr %6, ptr %29, align 8
   store i64 3, ptr %14, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %7, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 -1, i64 16, i1 false)
-  store i64 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 32
-  store i64 -1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 40
-  store i64 0, ptr %30, align 8
+  store i8 1, ptr %7, align 8
+  %30 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 0, ptr %30, align 1
+  %31 = getelementptr inbounds i8, ptr %7, i64 2
+  store i8 0, ptr %31, align 2
+  %32 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 1, ptr %32, align 1
+  %33 = getelementptr inbounds i8, ptr %7, i64 8
+  %34 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 -1, i64 16, i1 false)
+  store i64 1, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %7, i64 32
+  store i64 -1, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %7, i64 40
+  store i64 0, ptr %36, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %4, i64 43, ptr nonnull @.str.166, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %7)
   ret void
 }
@@ -6776,34 +7089,46 @@ define void @_ZTv0_n48_N3nix44ValuePrintingTests_ansiColorsListElided_Test8TestB
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %3, ptr %22, align 8
   store i64 2, ptr %18, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 -1, i64 16, i1 false)
-  store i64 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 32
-  store i64 -1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 40
-  store i64 0, ptr %26, align 8
+  store i8 1, ptr %5, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 1
+  store i8 0, ptr %23, align 1
+  %24 = getelementptr inbounds i8, ptr %5, i64 2
+  store i8 0, ptr %24, align 2
+  %25 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 1, ptr %25, align 1
+  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds i8, ptr %5, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 -1, i64 16, i1 false)
+  store i64 1, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %5, i64 32
+  store i64 -1, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %5, i64 40
+  store i64 0, ptr %29, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %11, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %4, i64 42, ptr nonnull @.str.165, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %5)
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 16
-  store i64 0, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 0, ptr %31, align 8
   store i32 1, ptr %6, align 8
-  store i64 3, ptr %27, align 8
-  %29 = load ptr, ptr %19, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
-  store ptr %6, ptr %30, align 8
+  store i64 3, ptr %30, align 8
+  %32 = load ptr, ptr %19, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  store ptr %6, ptr %33, align 8
   store i64 3, ptr %18, align 8
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 -1, i64 16, i1 false)
-  store i64 1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
-  store i64 -1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 40
-  store i64 0, ptr %34, align 8
+  store i8 1, ptr %7, align 8
+  %34 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 0, ptr %34, align 1
+  %35 = getelementptr inbounds i8, ptr %7, i64 2
+  store i8 0, ptr %35, align 2
+  %36 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 1, ptr %36, align 1
+  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %38 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 -1, i64 16, i1 false)
+  store i64 1, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %7, i64 32
+  store i64 -1, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %7, i64 40
+  store i64 0, ptr %40, align 8
   call void @_ZN3nix18ValuePrintingTests4testIJNS_12PrintOptionsEEEEvNS_5ValueESt17basic_string_viewIcSt11char_traitsIcEEDpT_(ptr noundef nonnull align 8 dereferenceable(1272) %11, ptr noundef nonnull byval(%"struct.nix::Value") align 8 %4, i64 43, ptr nonnull @.str.166, ptr noundef nonnull byval(%"struct.nix::PrintOptions") align 8 %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -18684,7 +19009,7 @@ declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.nix::SearchPath", align 8
-  %4 = alloca %"class.nix::ref", align 16
+  %4 = alloca %"class.nix::ref", align 8
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZN3nix12LibStoreTestC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %6)
@@ -18703,16 +19028,17 @@ define linkonce_odr void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 d
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = load <2 x ptr>, ptr %16, align 8
-  store <2 x ptr> %20, ptr %4, align 16
-  %.not.i.i.i.i = icmp eq ptr %19, null
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %4, align 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %18, align 8
+  %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit, label %21
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds i8, ptr %20, i64 8
   %23 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %.not.i.i.i.i.i, label %27, label %24
@@ -18807,7 +19133,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit
 
 _ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit:         ; preds = %29, %48, %61, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %66 = load ptr, ptr %17, align 8
+  %66 = load ptr, ptr %18, align 8
   %.not.i.i.i.i4 = icmp eq ptr %66, null
   br i1 %.not.i.i.i.i4, label %_ZN3nix3refINS_5StoreEED2Ev.exit, label %67
 
@@ -20027,60 +20353,68 @@ _ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE11_M_allocateEm.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %22, %_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE11_M_allocateEm.exit ]
-  %.0911.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %5, %_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE11_M_allocateEm.exit ]
+  %.012.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %22, %_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE11_M_allocateEm.exit ]
+  %.0911.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %5, %_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %24 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !35, !noalias !32
-  store <2 x ptr> %24, ptr %.012.i.i.i, align 8, !alias.scope !32, !noalias !35
-  %25 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %26 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %24 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !35, !noalias !32
+  store ptr %24, ptr %.012.i.i.i, align 8, !alias.scope !32, !noalias !35
+  %25 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
+  %26 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !35, !noalias !32
   store ptr %27, ptr %25, align 8, !alias.scope !32, !noalias !35
+  %28 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %29 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %30 = load ptr, ptr %29, align 8, !alias.scope !35, !noalias !32
+  store ptr %30, ptr %28, align 8, !alias.scope !32, !noalias !35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !32
-  %28 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %29 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %28, %1
+  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %32 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %31, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %.lr.ph.i.i.i, !llvm.loop !37
 
 _ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE11_M_allocateEm.exit
-  %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE11_M_allocateEm.exit ], [ %29, %.lr.ph.i.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
+  %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE11_M_allocateEm.exit ], [ %32, %.lr.ph.i.i.i ]
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i15 = icmp eq ptr %4, %1
   br i1 %.not10.i.i.i15, label %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %.lr.ph.i.i.i16
-  %.012.i.i.i17 = phi ptr [ %36, %.lr.ph.i.i.i16 ], [ %30, %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
-  %.0911.i.i.i18 = phi ptr [ %35, %.lr.ph.i.i.i16 ], [ %1, %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
+  %.012.i.i.i17 = phi ptr [ %42, %.lr.ph.i.i.i16 ], [ %33, %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
+  %.0911.i.i.i18 = phi ptr [ %41, %.lr.ph.i.i.i16 ], [ %1, %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  %31 = load <2 x ptr>, ptr %.0911.i.i.i18, align 8, !alias.scope !41, !noalias !38
-  store <2 x ptr> %31, ptr %.012.i.i.i17, align 8, !alias.scope !38, !noalias !41
-  %32 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 16
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 16
-  %34 = load ptr, ptr %33, align 8, !alias.scope !41, !noalias !38
-  store ptr %34, ptr %32, align 8, !alias.scope !38, !noalias !41
+  %34 = load ptr, ptr %.0911.i.i.i18, align 8, !alias.scope !41, !noalias !38
+  store ptr %34, ptr %.012.i.i.i17, align 8, !alias.scope !38, !noalias !41
+  %35 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 8
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 8
+  %37 = load ptr, ptr %36, align 8, !alias.scope !41, !noalias !38
+  store ptr %37, ptr %35, align 8, !alias.scope !38, !noalias !41
+  %38 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 16
+  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 16
+  %40 = load ptr, ptr %39, align 8, !alias.scope !41, !noalias !38
+  store ptr %40, ptr %38, align 8, !alias.scope !38, !noalias !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !41, !noalias !38
-  %35 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 24
-  %36 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 24
-  %.not.i.i.i19 = icmp eq ptr %35, %4
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 24
+  %42 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 24
+  %.not.i.i.i19 = icmp eq ptr %41, %4
   br i1 %.not.i.i.i19, label %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, label %.lr.ph.i.i.i16, !llvm.loop !37
 
 _ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21: ; preds = %.lr.ph.i.i.i16, %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit
-  %.0.lcssa.i.i.i20 = phi ptr [ %30, %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ], [ %36, %.lr.ph.i.i.i16 ]
+  %.0.lcssa.i.i.i20 = phi ptr [ %33, %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ], [ %42, %.lr.ph.i.i.i16 ]
   %.not.i22 = icmp eq ptr %5, null
-  br i1 %.not.i22, label %_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE13_M_deallocateEPS8_m.exit, label %37
+  br i1 %.not.i22, label %_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE13_M_deallocateEPS8_m.exit, label %43
 
-37:                                               ; preds = %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21
+43:                                               ; preds = %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21
   tail call void @_ZdlPv(ptr noundef nonnull %5) #26
   br label %_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE13_M_deallocateEPS8_m.exit
 
-_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, %37
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, %43
+  %44 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8
-  %39 = getelementptr inbounds %"class.std::vector.128", ptr %22, i64 %15
-  store ptr %39, ptr %38, align 8
+  %45 = getelementptr inbounds %"class.std::vector.128", ptr %22, i64 %15
+  store ptr %45, ptr %44, align 8
   ret void
 }
 
@@ -21584,60 +21918,68 @@ _ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE11_M_allocat
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE11_M_allocateEm.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %22, %_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE11_M_allocateEm.exit ]
-  %.0911.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %5, %_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE11_M_allocateEm.exit ]
+  %.012.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %22, %_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE11_M_allocateEm.exit ]
+  %.0911.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %5, %_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %24 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !60, !noalias !57
-  store <2 x ptr> %24, ptr %.012.i.i.i, align 8, !alias.scope !57, !noalias !60
-  %25 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %26 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %24 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !60, !noalias !57
+  store ptr %24, ptr %.012.i.i.i, align 8, !alias.scope !57, !noalias !60
+  %25 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
+  %26 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !60, !noalias !57
   store ptr %27, ptr %25, align 8, !alias.scope !57, !noalias !60
+  %28 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %29 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %30 = load ptr, ptr %29, align 8, !alias.scope !60, !noalias !57
+  store ptr %30, ptr %28, align 8, !alias.scope !57, !noalias !60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !60, !noalias !57
-  %28 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %29 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %28, %1
+  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %32 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %31, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !62
 
 _ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE11_M_allocateEm.exit
-  %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE11_M_allocateEm.exit ], [ %29, %.lr.ph.i.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
+  %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE11_M_allocateEm.exit ], [ %32, %.lr.ph.i.i.i ]
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i15 = icmp eq ptr %4, %1
   br i1 %.not10.i.i.i15, label %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i16
-  %.012.i.i.i17 = phi ptr [ %36, %.lr.ph.i.i.i16 ], [ %30, %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
-  %.0911.i.i.i18 = phi ptr [ %35, %.lr.ph.i.i.i16 ], [ %1, %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  %.012.i.i.i17 = phi ptr [ %42, %.lr.ph.i.i.i16 ], [ %33, %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  %.0911.i.i.i18 = phi ptr [ %41, %.lr.ph.i.i.i16 ], [ %1, %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %31 = load <2 x ptr>, ptr %.0911.i.i.i18, align 8, !alias.scope !66, !noalias !63
-  store <2 x ptr> %31, ptr %.012.i.i.i17, align 8, !alias.scope !63, !noalias !66
-  %32 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 16
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 16
-  %34 = load ptr, ptr %33, align 8, !alias.scope !66, !noalias !63
-  store ptr %34, ptr %32, align 8, !alias.scope !63, !noalias !66
+  %34 = load ptr, ptr %.0911.i.i.i18, align 8, !alias.scope !66, !noalias !63
+  store ptr %34, ptr %.012.i.i.i17, align 8, !alias.scope !63, !noalias !66
+  %35 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 8
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 8
+  %37 = load ptr, ptr %36, align 8, !alias.scope !66, !noalias !63
+  store ptr %37, ptr %35, align 8, !alias.scope !63, !noalias !66
+  %38 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 16
+  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 16
+  %40 = load ptr, ptr %39, align 8, !alias.scope !66, !noalias !63
+  store ptr %40, ptr %38, align 8, !alias.scope !63, !noalias !66
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !66, !noalias !63
-  %35 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 24
-  %36 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 24
-  %.not.i.i.i19 = icmp eq ptr %35, %4
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 24
+  %42 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 24
+  %.not.i.i.i19 = icmp eq ptr %41, %4
   br i1 %.not.i.i.i19, label %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %.lr.ph.i.i.i16, !llvm.loop !62
 
 _ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21: ; preds = %.lr.ph.i.i.i16, %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
-  %.0.lcssa.i.i.i20 = phi ptr [ %30, %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %36, %.lr.ph.i.i.i16 ]
+  %.0.lcssa.i.i.i20 = phi ptr [ %33, %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %42, %.lr.ph.i.i.i16 ]
   %.not.i22 = icmp eq ptr %5, null
-  br i1 %.not.i22, label %_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit, label %37
+  br i1 %.not.i22, label %_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit, label %43
 
-37:                                               ; preds = %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21
+43:                                               ; preds = %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21
   tail call void @_ZdlPv(ptr noundef nonnull %5) #26
   br label %_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit
 
-_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, %37
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseISt6vectorIN3nix8PosTable6OffsetESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIS_IN3nix8PosTable6OffsetESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, %43
+  %44 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8
-  %39 = getelementptr inbounds %"class.std::vector.218", ptr %22, i64 %15
-  store ptr %39, ptr %38, align 8
+  %45 = getelementptr inbounds %"class.std::vector.218", ptr %22, i64 %15
+  store ptr %45, ptr %44, align 8
   ret void
 }
 

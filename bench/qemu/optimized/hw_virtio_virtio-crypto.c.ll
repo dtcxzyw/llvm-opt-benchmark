@@ -355,36 +355,60 @@ define internal void @virtio_crypto_get_config(ptr noundef %vdev, ptr nocapture 
 entry:
   %crypto_cfg = alloca %struct.virtio_crypto_config, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 35, ptr noundef nonnull @__func__.VIRTIO_CRYPTO) #11
+  %status1 = getelementptr inbounds i8, ptr %call.i, i64 604
+  %0 = load i32, ptr %status1, align 4
+  store i32 %0, ptr %crypto_cfg, align 8
   %max_queues = getelementptr inbounds i8, ptr %call.i, i64 600
-  %0 = load <2 x i32>, ptr %max_queues, align 8
-  %1 = shufflevector <2 x i32> %0, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %1, ptr %crypto_cfg, align 8
+  %1 = load i32, ptr %max_queues, align 8
+  %crypto_cfg.4.crypto_cfg.4.crypto_cfg.4.max_dataqueues.sroa_idx = getelementptr inbounds i8, ptr %crypto_cfg, i64 4
+  store i32 %1, ptr %crypto_cfg.4.crypto_cfg.4.crypto_cfg.4.max_dataqueues.sroa_idx, align 4
   %crypto_services2 = getelementptr inbounds i8, ptr %call.i, i64 544
-  %2 = load <4 x i32>, ptr %crypto_services2, align 8
+  %2 = load i32, ptr %crypto_services2, align 8
   %crypto_cfg.8.crypto_cfg.8.crypto_cfg.8.crypto_services.sroa_idx = getelementptr inbounds i8, ptr %crypto_cfg, i64 8
-  store <4 x i32> %2, ptr %crypto_cfg.8.crypto_cfg.8.crypto_cfg.8.crypto_services.sroa_idx, align 8
+  store i32 %2, ptr %crypto_cfg.8.crypto_cfg.8.crypto_cfg.8.crypto_services.sroa_idx, align 8
+  %cipher_algo_l4 = getelementptr inbounds i8, ptr %call.i, i64 548
+  %3 = load i32, ptr %cipher_algo_l4, align 4
+  %crypto_cfg.12.crypto_cfg.12.crypto_cfg.12.cipher_algo_l.sroa_idx = getelementptr inbounds i8, ptr %crypto_cfg, i64 12
+  store i32 %3, ptr %crypto_cfg.12.crypto_cfg.12.crypto_cfg.12.cipher_algo_l.sroa_idx, align 4
+  %cipher_algo_h6 = getelementptr inbounds i8, ptr %call.i, i64 552
+  %4 = load i32, ptr %cipher_algo_h6, align 8
+  %crypto_cfg.16.crypto_cfg.16.crypto_cfg.16.cipher_algo_h.sroa_idx = getelementptr inbounds i8, ptr %crypto_cfg, i64 16
+  store i32 %4, ptr %crypto_cfg.16.crypto_cfg.16.crypto_cfg.16.cipher_algo_h.sroa_idx, align 8
+  %hash_algo8 = getelementptr inbounds i8, ptr %call.i, i64 556
+  %5 = load i32, ptr %hash_algo8, align 4
+  %crypto_cfg.20.crypto_cfg.20.crypto_cfg.20.hash_algo.sroa_idx = getelementptr inbounds i8, ptr %crypto_cfg, i64 20
+  store i32 %5, ptr %crypto_cfg.20.crypto_cfg.20.crypto_cfg.20.hash_algo.sroa_idx, align 4
   %mac_algo_l10 = getelementptr inbounds i8, ptr %call.i, i64 560
-  %3 = load i32, ptr %mac_algo_l10, align 8
+  %6 = load i32, ptr %mac_algo_l10, align 8
   %crypto_cfg.24.crypto_cfg.24.crypto_cfg.24.mac_algo_l.sroa_idx = getelementptr inbounds i8, ptr %crypto_cfg, i64 24
-  store i32 %3, ptr %crypto_cfg.24.crypto_cfg.24.crypto_cfg.24.mac_algo_l.sroa_idx, align 8
+  store i32 %6, ptr %crypto_cfg.24.crypto_cfg.24.crypto_cfg.24.mac_algo_l.sroa_idx, align 8
   %mac_algo_h12 = getelementptr inbounds i8, ptr %call.i, i64 564
-  %4 = load <2 x i32>, ptr %mac_algo_h12, align 4
-  %max_cipher_key_len16 = getelementptr inbounds i8, ptr %call.i, i64 576
-  %5 = load <2 x i32>, ptr %max_cipher_key_len16, align 8
-  %6 = shufflevector <2 x i32> %4, <2 x i32> %5, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %7 = load i32, ptr %mac_algo_h12, align 4
   %crypto_cfg.28.crypto_cfg.28.crypto_cfg.28.mac_algo_h.sroa_idx = getelementptr inbounds i8, ptr %crypto_cfg, i64 28
-  store <4 x i32> %6, ptr %crypto_cfg.28.crypto_cfg.28.crypto_cfg.28.mac_algo_h.sroa_idx, align 4
+  store i32 %7, ptr %crypto_cfg.28.crypto_cfg.28.crypto_cfg.28.mac_algo_h.sroa_idx, align 4
+  %aead_algo14 = getelementptr inbounds i8, ptr %call.i, i64 568
+  %8 = load i32, ptr %aead_algo14, align 8
+  %crypto_cfg.32.crypto_cfg.32.crypto_cfg.32.aead_algo.sroa_idx = getelementptr inbounds i8, ptr %crypto_cfg, i64 32
+  store i32 %8, ptr %crypto_cfg.32.crypto_cfg.32.crypto_cfg.32.aead_algo.sroa_idx, align 8
+  %max_cipher_key_len16 = getelementptr inbounds i8, ptr %call.i, i64 576
+  %9 = load i32, ptr %max_cipher_key_len16, align 8
+  %crypto_cfg.36.crypto_cfg.36.crypto_cfg.36.max_cipher_key_len.sroa_idx = getelementptr inbounds i8, ptr %crypto_cfg, i64 36
+  store i32 %9, ptr %crypto_cfg.36.crypto_cfg.36.crypto_cfg.36.max_cipher_key_len.sroa_idx, align 4
+  %max_auth_key_len18 = getelementptr inbounds i8, ptr %call.i, i64 580
+  %10 = load i32, ptr %max_auth_key_len18, align 4
+  %crypto_cfg.40.crypto_cfg.40.crypto_cfg.40.max_auth_key_len.sroa_idx = getelementptr inbounds i8, ptr %crypto_cfg, i64 40
+  store i32 %10, ptr %crypto_cfg.40.crypto_cfg.40.crypto_cfg.40.max_auth_key_len.sroa_idx, align 8
   %max_size20 = getelementptr inbounds i8, ptr %call.i, i64 584
-  %7 = load i64, ptr %max_size20, align 8
+  %11 = load i64, ptr %max_size20, align 8
   %crypto_cfg.48.crypto_cfg.48.crypto_cfg.48.max_size.sroa_idx = getelementptr inbounds i8, ptr %crypto_cfg, i64 48
-  store i64 %7, ptr %crypto_cfg.48.crypto_cfg.48.crypto_cfg.48.max_size.sroa_idx, align 8
+  store i64 %11, ptr %crypto_cfg.48.crypto_cfg.48.crypto_cfg.48.max_size.sroa_idx, align 8
   %akcipher_algo22 = getelementptr inbounds i8, ptr %call.i, i64 572
-  %8 = load i32, ptr %akcipher_algo22, align 4
+  %12 = load i32, ptr %akcipher_algo22, align 4
   %crypto_cfg.44.crypto_cfg.44.crypto_cfg.44.akcipher_algo.sroa_idx = getelementptr inbounds i8, ptr %crypto_cfg, i64 44
-  store i32 %8, ptr %crypto_cfg.44.crypto_cfg.44.crypto_cfg.44.akcipher_algo.sroa_idx, align 4
+  store i32 %12, ptr %crypto_cfg.44.crypto_cfg.44.crypto_cfg.44.akcipher_algo.sroa_idx, align 4
   %config_size = getelementptr inbounds i8, ptr %call.i, i64 616
-  %9 = load i64, ptr %config_size, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %config, ptr nonnull align 8 %crypto_cfg, i64 %9, i1 false)
+  %13 = load i64, ptr %config_size, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %config, ptr nonnull align 8 %crypto_cfg, i64 %13, i1 false)
   ret void
 }
 
@@ -982,9 +1006,11 @@ if.end.lr.ph:                                     ; preds = %entry
   %keytype4.i = getelementptr inbounds i8, ptr %ctrl, i64 20
   %keylen7.i = getelementptr inbounds i8, ptr %ctrl, i64 24
   %u31.i = getelementptr inbounds i8, ptr %ctrl, i64 28
+  %hash_algo.i = getelementptr inbounds i8, ptr %ctrl, i64 32
   %op_type1.i = getelementptr inbounds i8, ptr %ctrl, i64 64
   %aad_len.i = getelementptr inbounds i8, ptr %ctrl, i64 56
   %u92.i = getelementptr inbounds i8, ptr %ctrl, i64 40
+  %hash_result_len99.i = getelementptr inbounds i8, ptr %ctrl, i64 44
   %auth_key_len.i = getelementptr inbounds i8, ptr %ctrl, i64 48
   %max_auth_key_len.i = getelementptr inbounds i8, ptr %call.i, i64 580
   %status = getelementptr inbounds i8, ptr %input, i64 8
@@ -1104,14 +1130,17 @@ if.end22.i:                                       ; preds = %if.then15.i
   ]
 
 if.then40.i:                                      ; preds = %if.end22.i
+  %u43.val.i = load i32, ptr %u92.i, align 8
   %hash_alg.i = getelementptr inbounds i8, ptr %call24, i64 40
+  store i32 %u43.val.i, ptr %hash_alg.i, align 8
   %auth_key_len.val.i = load i32, ptr %auth_key_len.i, align 8
   %auth_key_len49.i = getelementptr inbounds i8, ptr %call24, i64 48
   store i32 %auth_key_len.val.i, ptr %auth_key_len49.i, align 8
-  %11 = load <2 x i32>, ptr %u92.i, align 8
-  store <2 x i32> %11, ptr %hash_alg.i, align 8
-  %12 = load i32, ptr %max_auth_key_len.i, align 4
-  %cmp56.i = icmp ugt i32 %auth_key_len.val.i, %12
+  %hash_result_len.val.i = load i32, ptr %hash_result_len99.i, align 4
+  %hash_result_len54.i = getelementptr inbounds i8, ptr %call24, i64 44
+  store i32 %hash_result_len.val.i, ptr %hash_result_len54.i, align 4
+  %11 = load i32, ptr %max_auth_key_len.i, align 4
+  %cmp56.i = icmp ugt i32 %auth_key_len.val.i, %11
   br i1 %cmp56.i, label %if.then58.i, label %if.end60.i
 
 if.then58.i:                                      ; preds = %if.then40.i
@@ -1127,11 +1156,11 @@ if.then64.i:                                      ; preds = %if.end60.i
   %call67.i = call noalias ptr @g_malloc(i64 noundef %conv66.i) #15
   %auth_key.i = getelementptr inbounds i8, ptr %call24, i64 72
   store ptr %call67.i, ptr %auth_key.i, align 8
-  %13 = load i32, ptr %auth_key_len49.i, align 8
-  %conv70.i = zext i32 %13 to i64
-  %14 = load i32, ptr %out_num.addr.i, align 4
-  %15 = load ptr, ptr %iov.addr.i, align 8
-  %call.i46.i = call i64 @iov_to_buf_full(ptr noundef %15, i32 noundef %14, i64 noundef 0, ptr noundef %call67.i, i64 noundef %conv70.i) #11
+  %12 = load i32, ptr %auth_key_len49.i, align 8
+  %conv70.i = zext i32 %12 to i64
+  %13 = load i32, ptr %out_num.addr.i, align 4
+  %14 = load ptr, ptr %iov.addr.i, align 8
+  %call.i46.i = call i64 @iov_to_buf_full(ptr noundef %14, i32 noundef %13, i64 noundef 0, ptr noundef %call67.i, i64 noundef %conv70.i) #11
   %.pre.i = load i32, ptr %auth_key_len49.i, align 8
   %.pre47.i = zext i32 %.pre.i to i64
   %cmp74.not.i = icmp eq i64 %call.i46.i, %.pre47.i
@@ -1146,9 +1175,12 @@ if.end79.i:                                       ; preds = %if.then64.i
   br label %virtio_crypto_create_sym_session.exit
 
 if.then89.i:                                      ; preds = %if.end22.i
+  %u92.val.i = load i32, ptr %u92.i, align 8
   %hash_alg95.i = getelementptr inbounds i8, ptr %call24, i64 40
-  %16 = load <2 x i32>, ptr %u92.i, align 8
-  store <2 x i32> %16, ptr %hash_alg95.i, align 8
+  store i32 %u92.val.i, ptr %hash_alg95.i, align 8
+  %hash_result_len99.val.i = load i32, ptr %hash_result_len99.i, align 4
+  %hash_result_len101.i = getelementptr inbounds i8, ptr %call24, i64 44
+  store i32 %hash_result_len99.val.i, ptr %hash_result_len101.i, align 4
   br label %virtio_crypto_create_sym_session.exit
 
 if.else102.i:                                     ; preds = %if.end22.i
@@ -1166,9 +1198,9 @@ virtio_crypto_create_sym_session.exit.thread:     ; preds = %if.then58.i, %if.th
   br label %if.then31
 
 virtio_crypto_create_sym_session.exit:            ; preds = %if.then.i53, %if.end60.i, %if.end79.i, %if.then89.i
-  %17 = load ptr, ptr %0, align 8
-  %18 = load ptr, ptr %cb, align 8
-  %call110.i = call i32 @cryptodev_backend_create_session(ptr noundef %17, ptr noundef nonnull %info.i, i32 noundef %queue_id22.val, ptr noundef %18, ptr noundef nonnull %call24) #11
+  %15 = load ptr, ptr %0, align 8
+  %16 = load ptr, ptr %cb, align 8
+  %call110.i = call i32 @cryptodev_backend_create_session(ptr noundef %15, ptr noundef nonnull %info.i, i32 noundef %queue_id22.val, ptr noundef %16, ptr noundef nonnull %call24) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out_num.addr.i)
   %cmp29 = icmp slt i32 %call110.i, 0
@@ -1182,20 +1214,20 @@ if.then31:                                        ; preds = %virtio_crypto_creat
 sw.bb33:                                          ; preds = %if.end17
   %cb34 = getelementptr inbounds i8, ptr %call24, i64 88
   store ptr @virtio_crypto_create_session_completion, ptr %cb34, align 8
-  %19 = load ptr, ptr %out_iov, align 8
-  %20 = load i32, ptr %out_num, align 4
+  %17 = load ptr, ptr %out_iov, align 8
+  %18 = load i32, ptr %out_num, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iov.addr.i54)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out_num.addr.i55)
-  store ptr %19, ptr %iov.addr.i54, align 8
-  store i32 %20, ptr %out_num.addr.i55, align 4
+  store ptr %17, ptr %iov.addr.i54, align 8
+  store i32 %18, ptr %out_num.addr.i55, align 4
   %call.i.i56 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %info.i57 = getelementptr inbounds i8, ptr %call24, i64 24
   %u.i = getelementptr inbounds i8, ptr %call24, i64 32
   %sess_req.val.i58 = load i32, ptr %u43, align 8
   %keytype4.val.i = load i32, ptr %keytype4.i, align 4
   %keylen7.val.i = load i32, ptr %keylen7.i, align 8
-  %21 = add i32 %keytype4.val.i, -3
-  %or.cond.i = icmp ult i32 %21, -2
+  %19 = add i32 %keytype4.val.i, -3
+  %or.cond.i = icmp ult i32 %19, -2
   br i1 %or.cond.i, label %if.then.i71, label %if.end.i
 
 if.then.i71:                                      ; preds = %sw.bb33
@@ -1211,7 +1243,7 @@ if.then10.i:                                      ; preds = %if.end.i
   %call11.i = call noalias ptr @g_malloc(i64 noundef %conv.i59) #15
   %key.i = getelementptr inbounds i8, ptr %call24, i64 48
   store ptr %call11.i, ptr %key.i, align 8
-  %call.i26.i = call i64 @iov_to_buf_full(ptr noundef %19, i32 noundef %20, i64 noundef 0, ptr noundef %call11.i, i64 noundef %conv.i59) #11
+  %call.i26.i = call i64 @iov_to_buf_full(ptr noundef %17, i32 noundef %18, i64 noundef 0, ptr noundef %call11.i, i64 noundef %conv.i59) #11
   %cmp16.not.i = icmp eq i64 %call.i26.i, %conv.i59
   br i1 %cmp16.not.i, label %if.end19.i, label %if.then18.i
 
@@ -1240,12 +1272,15 @@ virtio_crypto_create_asym_session.exit.thread:    ; preds = %if.then.i71, %if.th
   br label %if.then39
 
 virtio_crypto_create_asym_session.exit:           ; preds = %if.end22.i64
+  %u31.val.i = load i32, ptr %u31.i, align 4
   %u33.i = getelementptr inbounds i8, ptr %call24, i64 56
-  %22 = load <2 x i32>, ptr %u31.i, align 4
-  store <2 x i32> %22, ptr %u33.i, align 8
-  %23 = load ptr, ptr %0, align 8
-  %24 = load ptr, ptr %cb34, align 8
-  %call42.i = call i32 @cryptodev_backend_create_session(ptr noundef %23, ptr noundef nonnull %info.i57, i32 noundef %queue_id22.val, ptr noundef %24, ptr noundef nonnull %call24) #11
+  store i32 %u31.val.i, ptr %u33.i, align 8
+  %hash_algo.val.i = load i32, ptr %hash_algo.i, align 8
+  %hash_algo39.i = getelementptr inbounds i8, ptr %call24, i64 60
+  store i32 %hash_algo.val.i, ptr %hash_algo39.i, align 4
+  %20 = load ptr, ptr %0, align 8
+  %21 = load ptr, ptr %cb34, align 8
+  %call42.i = call i32 @cryptodev_backend_create_session(ptr noundef %20, ptr noundef nonnull %info.i57, i32 noundef %queue_id22.val, ptr noundef %21, ptr noundef nonnull %call24) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.addr.i54)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out_num.addr.i55)
   %cmp37 = icmp slt i32 %call42.i, 0
@@ -1278,13 +1313,13 @@ sw.default:                                       ; preds = %if.end17
 
 land.lhs.true2.i78:                               ; preds = %sw.default
   %iov_len.i79 = getelementptr inbounds i8, ptr %5, i64 8
-  %25 = load i64, ptr %iov_len.i79, align 8
-  %cmp5.not.i80 = icmp ult i64 %25, 16
+  %22 = load i64, ptr %iov_len.i79, align 8
+  %cmp5.not.i80 = icmp ult i64 %22, 16
   br i1 %cmp5.not.i80, label %iov_from_buf.exit, label %iov_from_buf.exit.thread
 
 iov_from_buf.exit.thread:                         ; preds = %land.lhs.true2.i78
-  %26 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %input, i64 16, i1 false)
+  %23 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %input, i64 16, i1 false)
   br label %if.else
 
 iov_from_buf.exit:                                ; preds = %sw.default, %land.lhs.true2.i78
@@ -1362,41 +1397,49 @@ if.then1:                                         ; preds = %if.end
   br i1 %tobool3.not, label %if.end21, label %if.then4
 
 if.then4:                                         ; preds = %if.then1
-  %2 = load <4 x i32>, ptr %1, align 8
+  %iv_len = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = load i32, ptr %iv_len, align 4
+  %3 = load i32, ptr %1, align 8
+  %add = add i32 %3, %2
+  %src_len = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = load i32, ptr %src_len, align 8
+  %add5 = add i32 %add, %4
+  %dst_len = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = load i32, ptr %dst_len, align 4
+  %add6 = add i32 %add5, %5
   %digest_result_len = getelementptr inbounds i8, ptr %1, i64 16
-  %3 = load i32, ptr %digest_result_len, align 8
-  %4 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %2)
-  %op.rdx = add i32 %4, %3
-  %conv = zext i32 %op.rdx to i64
+  %6 = load i32, ptr %digest_result_len, align 8
+  %add7 = add i32 %add6, %6
+  %conv = zext i32 %add7 to i64
   %add8 = add nuw nsw i64 %conv, 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, i8 0, i64 %add8, i1 false)
   br label %if.end21.sink.split
 
 if.then13:                                        ; preds = %if.end
   %u16 = getelementptr inbounds i8, ptr %req, i64 152
-  %5 = load ptr, ptr %u16, align 8
-  %tobool17.not = icmp eq ptr %5, null
+  %7 = load ptr, ptr %u16, align 8
+  %tobool17.not = icmp eq ptr %7, null
   br i1 %tobool17.not, label %if.end21, label %if.then18
 
 if.then18:                                        ; preds = %if.then13
-  %src = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load ptr, ptr %src, align 8
-  tail call void @g_free(ptr noundef %6) #11
-  %dst = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = load ptr, ptr %dst, align 8
-  tail call void @g_free(ptr noundef %7) #11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  %src = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %src, align 8
+  tail call void @g_free(ptr noundef %8) #11
+  %dst = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = load ptr, ptr %dst, align 8
+  tail call void @g_free(ptr noundef %9) #11
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   br label %if.end21.sink.split
 
 if.end21.sink.split:                              ; preds = %if.then4, %if.then18
-  %.sink = phi ptr [ %5, %if.then18 ], [ %1, %if.then4 ]
+  %.sink = phi ptr [ %7, %if.then18 ], [ %1, %if.then4 ]
   tail call void @g_free(ptr noundef nonnull %.sink) #11
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end21.sink.split, %if.end, %if.then13, %if.then1
   %in_iov = getelementptr inbounds i8, ptr %req, i64 72
-  %8 = load ptr, ptr %in_iov, align 8
-  tail call void @g_free(ptr noundef %8) #11
+  %10 = load ptr, ptr %in_iov, align 8
+  tail call void @g_free(ptr noundef %10) #11
   tail call void @g_free(ptr noundef nonnull %req) #11
   br label %return
 
@@ -1588,15 +1631,24 @@ if.then6:                                         ; preds = %if.else
   %aad_len13.val = load i32, ptr %aad_len13, align 1
   %hash_result_len15 = getelementptr inbounds i8, ptr %alg_chain_para, i64 32
   %hash_result_len15.val = load i32, ptr %hash_result_len15, align 1
+  %hash_start_src_offset17 = getelementptr inbounds i8, ptr %alg_chain_para, i64 20
+  %hash_start_src_offset17.val = load i32, ptr %hash_start_src_offset17, align 1
   %cipher_start_src_offset19 = getelementptr inbounds i8, ptr %alg_chain_para, i64 12
-  %0 = load <4 x i32>, ptr %cipher_start_src_offset19, align 1
+  %cipher_start_src_offset19.val = load i32, ptr %cipher_start_src_offset19, align 1
+  %len_to_cipher21 = getelementptr inbounds i8, ptr %alg_chain_para, i64 16
+  %len_to_cipher21.val = load i32, ptr %len_to_cipher21, align 1
+  %len_to_hash23 = getelementptr inbounds i8, ptr %alg_chain_para, i64 24
+  %len_to_hash23.val = load i32, ptr %len_to_hash23, align 1
   br label %if.end26
 
 if.end26:                                         ; preds = %entry, %if.then6
   %cipher_para.pn = phi ptr [ %alg_chain_para, %if.then6 ], [ %cipher_para, %entry ]
   %aad_len.0 = phi i32 [ %aad_len13.val, %if.then6 ], [ 0, %entry ]
   %hash_result_len.0 = phi i32 [ %hash_result_len15.val, %if.then6 ], [ 0, %entry ]
-  %1 = phi <4 x i32> [ %0, %if.then6 ], [ zeroinitializer, %entry ]
+  %hash_start_src_offset.0 = phi i32 [ %hash_start_src_offset17.val, %if.then6 ], [ 0, %entry ]
+  %len_to_hash.0 = phi i32 [ %len_to_hash23.val, %if.then6 ], [ 0, %entry ]
+  %cipher_start_src_offset.0 = phi i32 [ %cipher_start_src_offset19.val, %if.then6 ], [ 0, %entry ]
+  %len_to_cipher.0 = phi i32 [ %len_to_cipher21.val, %if.then6 ], [ 0, %entry ]
   %iv_len.0 = load i32, ptr %cipher_para.pn, align 1
   %dst_len.0.in = getelementptr inbounds i8, ptr %cipher_para.pn, i64 8
   %dst_len.0 = load i32, ptr %dst_len.0.in, align 1
@@ -1619,8 +1671,8 @@ if.end30:                                         ; preds = %if.end26
   %reass.add = shl nuw nsw i64 %conv33, 1
   %add38 = add nuw nsw i64 %add34, %reass.add
   %max_size = getelementptr inbounds i8, ptr %call.i, i64 584
-  %2 = load i64, ptr %max_size, align 8
-  %cmp39 = icmp ugt i64 %add38, %2
+  %0 = load i64, ptr %max_size, align 8
+  %cmp39 = icmp ugt i64 %add38, %0
   br i1 %cmp39, label %if.then47, label %if.end48
 
 if.then47:                                        ; preds = %if.end30
@@ -1640,8 +1692,13 @@ if.end48:                                         ; preds = %if.end30
   %digest_result_len = getelementptr inbounds i8, ptr %call50, i64 16
   store i32 %hash_result_len.0, ptr %digest_result_len, align 8
   %hash_start_src_offset55 = getelementptr inbounds i8, ptr %call50, i64 20
-  %3 = shufflevector <4 x i32> %1, <4 x i32> poison, <4 x i32> <i32 2, i32 0, i32 3, i32 1>
-  store <4 x i32> %3, ptr %hash_start_src_offset55, align 4
+  store i32 %hash_start_src_offset.0, ptr %hash_start_src_offset55, align 4
+  %len_to_hash56 = getelementptr inbounds i8, ptr %call50, i64 28
+  store i32 %len_to_hash.0, ptr %len_to_hash56, align 4
+  %cipher_start_src_offset57 = getelementptr inbounds i8, ptr %call50, i64 24
+  store i32 %cipher_start_src_offset.0, ptr %cipher_start_src_offset57, align 8
+  %len_to_cipher58 = getelementptr inbounds i8, ptr %call50, i64 32
+  store i32 %len_to_cipher.0, ptr %len_to_cipher58, align 8
   %cmp60.not = icmp eq i32 %iv_len.0, 0
   br i1 %cmp60.not, label %if.end85, label %do.end
 
@@ -1661,15 +1718,15 @@ if.then77:                                        ; preds = %do.end
 
 if.end78:                                         ; preds = %do.end
   %call81 = call i64 @iov_discard_front(ptr noundef nonnull %iov.addr, ptr noundef nonnull %out_num.addr, i64 noundef %call.i76) #11
-  %4 = load i32, ptr %iv_len51, align 4
-  %conv83 = zext i32 %4 to i64
+  %1 = load i32, ptr %iv_len51, align 4
+  %conv83 = zext i32 %1 to i64
   %.pre98 = load i32, ptr %call50, align 8
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end78, %if.end48
-  %5 = phi i32 [ %.pre98, %if.end78 ], [ %aad_len.0, %if.end48 ]
+  %2 = phi i32 [ %.pre98, %if.end78 ], [ %aad_len.0, %if.end48 ]
   %curr_size.0 = phi i64 [ %conv83, %if.end78 ], [ 0, %if.end48 ]
-  %cmp87.not = icmp eq i32 %5, 0
+  %cmp87.not = icmp eq i32 %2, 0
   br i1 %cmp87.not, label %if.end117, label %do.end91
 
 do.end91:                                         ; preds = %if.end85
@@ -1677,12 +1734,12 @@ do.end91:                                         ; preds = %if.end85
   %add.ptr94 = getelementptr i8, ptr %data92, i64 %curr_size.0
   %aad_data = getelementptr inbounds i8, ptr %call50, i64 64
   store ptr %add.ptr94, ptr %aad_data, align 8
-  %conv97 = zext i32 %5 to i64
-  %6 = load i32, ptr %out_num.addr, align 4
-  %7 = load ptr, ptr %iov.addr, align 8
-  %call.i80 = call i64 @iov_to_buf_full(ptr noundef %7, i32 noundef %6, i64 noundef 0, ptr noundef %add.ptr94, i64 noundef %conv97) #11
-  %8 = load i32, ptr %call50, align 8
-  %conv100 = zext i32 %8 to i64
+  %conv97 = zext i32 %2 to i64
+  %3 = load i32, ptr %out_num.addr, align 4
+  %4 = load ptr, ptr %iov.addr, align 8
+  %call.i80 = call i64 @iov_to_buf_full(ptr noundef %4, i32 noundef %3, i64 noundef 0, ptr noundef %add.ptr94, i64 noundef %conv97) #11
+  %5 = load i32, ptr %call50, align 8
+  %conv100 = zext i32 %5 to i64
   %cmp101.not = icmp eq i64 %call.i80, %conv100
   br i1 %cmp101.not, label %if.end110, label %if.then109
 
@@ -1692,15 +1749,15 @@ if.then109:                                       ; preds = %do.end91
 
 if.end110:                                        ; preds = %do.end91
   %call113 = call i64 @iov_discard_front(ptr noundef nonnull %iov.addr, ptr noundef nonnull %out_num.addr, i64 noundef %call.i80) #11
-  %9 = load i32, ptr %call50, align 8
-  %conv115 = zext i32 %9 to i64
+  %6 = load i32, ptr %call50, align 8
+  %conv115 = zext i32 %6 to i64
   %add116 = add nuw nsw i64 %curr_size.0, %conv115
   br label %if.end117
 
 if.end117:                                        ; preds = %if.end110, %if.end85
   %curr_size.1 = phi i64 [ %add116, %if.end110 ], [ %curr_size.0, %if.end85 ]
-  %10 = load i32, ptr %src_len52, align 8
-  %cmp119.not = icmp eq i32 %10, 0
+  %7 = load i32, ptr %src_len52, align 8
+  %cmp119.not = icmp eq i32 %7, 0
   br i1 %cmp119.not, label %if.end149, label %do.end123
 
 do.end123:                                        ; preds = %if.end117
@@ -1708,12 +1765,12 @@ do.end123:                                        ; preds = %if.end117
   %add.ptr126 = getelementptr i8, ptr %data124, i64 %curr_size.1
   %src = getelementptr inbounds i8, ptr %call50, i64 48
   store ptr %add.ptr126, ptr %src, align 8
-  %conv129 = zext i32 %10 to i64
-  %11 = load i32, ptr %out_num.addr, align 4
-  %12 = load ptr, ptr %iov.addr, align 8
-  %call.i90 = call i64 @iov_to_buf_full(ptr noundef %12, i32 noundef %11, i64 noundef 0, ptr noundef %add.ptr126, i64 noundef %conv129) #11
-  %13 = load i32, ptr %src_len52, align 8
-  %conv132 = zext i32 %13 to i64
+  %conv129 = zext i32 %7 to i64
+  %8 = load i32, ptr %out_num.addr, align 4
+  %9 = load ptr, ptr %iov.addr, align 8
+  %call.i90 = call i64 @iov_to_buf_full(ptr noundef %9, i32 noundef %8, i64 noundef 0, ptr noundef %add.ptr126, i64 noundef %conv129) #11
+  %10 = load i32, ptr %src_len52, align 8
+  %conv132 = zext i32 %10 to i64
   %cmp133.not = icmp eq i64 %call.i90, %conv132
   br i1 %cmp133.not, label %if.end142, label %if.then141
 
@@ -1723,8 +1780,8 @@ if.then141:                                       ; preds = %do.end123
 
 if.end142:                                        ; preds = %do.end123
   %call145 = call i64 @iov_discard_front(ptr noundef nonnull %iov.addr, ptr noundef nonnull %out_num.addr, i64 noundef %call.i90) #11
-  %14 = load i32, ptr %src_len52, align 8
-  %conv147 = zext i32 %14 to i64
+  %11 = load i32, ptr %src_len52, align 8
+  %conv147 = zext i32 %11 to i64
   %add148 = add nuw nsw i64 %curr_size.1, %conv147
   br label %if.end149
 
@@ -1738,8 +1795,8 @@ if.end149:                                        ; preds = %if.end142, %if.end1
   br i1 %cmp158.not, label %return, label %do.end162
 
 do.end162:                                        ; preds = %if.end149
-  %15 = load i32, ptr %dst_len53, align 4
-  %conv154 = zext i32 %15 to i64
+  %12 = load i32, ptr %dst_len53, align 4
+  %conv154 = zext i32 %12 to i64
   %add.ptr165 = getelementptr i8, ptr %add.ptr152, i64 %conv154
   %digest_result = getelementptr inbounds i8, ptr %call50, i64 72
   store ptr %add.ptr165, ptr %digest_result, align 8
@@ -2016,9 +2073,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

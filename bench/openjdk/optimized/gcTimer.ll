@@ -208,24 +208,31 @@ define hidden void @_ZN7GCTimer21register_gc_pause_endERK11TimeInstantI30Composi
   br i1 %23, label %24, label %_ZN14TimePartitions19report_gc_phase_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit
 
 24:                                               ; preds = %20
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %16, align 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
+  %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %25 = getelementptr inbounds i8, ptr %15, i64 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
-  %27 = load <2 x i64>, ptr %16, align 8
-  %28 = load <2 x i64>, ptr %25, align 8
-  %29 = sub nsw <2 x i64> %27, %28
-  %30 = load <2 x i64>, ptr %26, align 8
-  %31 = add nsw <2 x i64> %30, %29
-  store <2 x i64> %31, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 96
-  %.sroa.0.0.copyload.i.i = load i64, ptr %32, align 8
+  %.sroa.0.0.copyload.i9.i.i = load i64, ptr %25, align 8
+  %.sroa.2.0..sroa_idx.i10.i.i = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.2.0.copyload.i11.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i10.i.i, align 8
+  %26 = sub nsw i64 %.sroa.0.0.copyload.i.i.i, %.sroa.0.0.copyload.i9.i.i
+  %27 = sub nsw i64 %.sroa.2.0.copyload.i.i.i, %.sroa.2.0.copyload.i11.i.i
+  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = load i64, ptr %28, align 8
+  %30 = add nsw i64 %29, %26
+  store i64 %30, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = load i64, ptr %31, align 8
+  %33 = add nsw i64 %32, %27
+  store i64 %33, ptr %31, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.0.0.copyload.i.i = load i64, ptr %34, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 104
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %33 = extractelement <2 x i64> %29, i64 0
-  %34 = icmp sgt i64 %33, %.sroa.0.0.copyload.i.i
-  %.sroa.0.0.copyload.sroa.speculated.i.i.i = tail call i64 @llvm.smax.i64(i64 %33, i64 %.sroa.0.0.copyload.i.i)
-  %35 = extractelement <2 x i64> %29, i64 1
-  %.sroa.2.0.copyload.sroa.speculated.i.i.i = select i1 %34, i64 %35, i64 %.sroa.2.0.copyload.i.i
-  store i64 %.sroa.0.0.copyload.sroa.speculated.i.i.i, ptr %32, align 8
+  %35 = icmp sgt i64 %26, %.sroa.0.0.copyload.i.i
+  %.sroa.0.0.copyload.sroa.speculated.i.i.i = tail call i64 @llvm.smax.i64(i64 %26, i64 %.sroa.0.0.copyload.i.i)
+  %.sroa.2.0.copyload.sroa.speculated.i.i.i = select i1 %35, i64 %27, i64 %.sroa.2.0.copyload.i.i
+  store i64 %.sroa.0.0.copyload.sroa.speculated.i.i.i, ptr %34, align 8
   store i64 %.sroa.2.0.copyload.sroa.speculated.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZN14TimePartitions19report_gc_phase_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit
 
@@ -262,24 +269,31 @@ define hidden void @_ZN14TimePartitions19report_gc_phase_endERK11TimeInstantI30C
   br i1 %22, label %23, label %_ZN14TimePartitions17update_statisticsEP7GCPhase.exit
 
 23:                                               ; preds = %19
+  %.sroa.0.0.copyload.i.i = load i64, ptr %15, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %14, i64 40
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %24 = getelementptr inbounds i8, ptr %14, i64 16
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
-  %26 = load <2 x i64>, ptr %15, align 8
-  %27 = load <2 x i64>, ptr %24, align 8
-  %28 = sub nsw <2 x i64> %26, %27
-  %29 = load <2 x i64>, ptr %25, align 8
-  %30 = add nsw <2 x i64> %29, %28
-  store <2 x i64> %30, ptr %25, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
-  %.sroa.0.0.copyload.i = load i64, ptr %31, align 8
+  %.sroa.0.0.copyload.i9.i = load i64, ptr %24, align 8
+  %.sroa.2.0..sroa_idx.i10.i = getelementptr inbounds i8, ptr %14, i64 24
+  %.sroa.2.0.copyload.i11.i = load i64, ptr %.sroa.2.0..sroa_idx.i10.i, align 8
+  %25 = sub nsw i64 %.sroa.0.0.copyload.i.i, %.sroa.0.0.copyload.i9.i
+  %26 = sub nsw i64 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload.i11.i
+  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = load i64, ptr %27, align 8
+  %29 = add nsw i64 %28, %25
+  store i64 %29, ptr %27, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = load i64, ptr %30, align 8
+  %32 = add nsw i64 %31, %26
+  store i64 %32, ptr %30, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.0.0.copyload.i = load i64, ptr %33, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %32 = extractelement <2 x i64> %28, i64 0
-  %33 = icmp sgt i64 %32, %.sroa.0.0.copyload.i
-  %.sroa.0.0.copyload.sroa.speculated.i.i = tail call i64 @llvm.smax.i64(i64 %32, i64 %.sroa.0.0.copyload.i)
-  %34 = extractelement <2 x i64> %28, i64 1
-  %.sroa.2.0.copyload.sroa.speculated.i.i = select i1 %33, i64 %34, i64 %.sroa.2.0.copyload.i
-  store i64 %.sroa.0.0.copyload.sroa.speculated.i.i, ptr %31, align 8
+  %34 = icmp sgt i64 %25, %.sroa.0.0.copyload.i
+  %.sroa.0.0.copyload.sroa.speculated.i.i = tail call i64 @llvm.smax.i64(i64 %25, i64 %.sroa.0.0.copyload.i)
+  %.sroa.2.0.copyload.sroa.speculated.i.i = select i1 %34, i64 %26, i64 %.sroa.2.0.copyload.i
+  store i64 %.sroa.0.0.copyload.sroa.speculated.i.i, ptr %33, align 8
   store i64 %.sroa.2.0.copyload.sroa.speculated.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   br label %_ZN14TimePartitions17update_statisticsEP7GCPhase.exit
 
@@ -454,24 +468,31 @@ define hidden void @_ZN7GCTimer21register_gc_phase_endERK11TimeInstantI30Composi
   br i1 %23, label %24, label %_ZN14TimePartitions19report_gc_phase_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit
 
 24:                                               ; preds = %20
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %16, align 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
+  %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %25 = getelementptr inbounds i8, ptr %15, i64 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
-  %27 = load <2 x i64>, ptr %16, align 8
-  %28 = load <2 x i64>, ptr %25, align 8
-  %29 = sub nsw <2 x i64> %27, %28
-  %30 = load <2 x i64>, ptr %26, align 8
-  %31 = add nsw <2 x i64> %30, %29
-  store <2 x i64> %31, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 96
-  %.sroa.0.0.copyload.i.i = load i64, ptr %32, align 8
+  %.sroa.0.0.copyload.i9.i.i = load i64, ptr %25, align 8
+  %.sroa.2.0..sroa_idx.i10.i.i = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.2.0.copyload.i11.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i10.i.i, align 8
+  %26 = sub nsw i64 %.sroa.0.0.copyload.i.i.i, %.sroa.0.0.copyload.i9.i.i
+  %27 = sub nsw i64 %.sroa.2.0.copyload.i.i.i, %.sroa.2.0.copyload.i11.i.i
+  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = load i64, ptr %28, align 8
+  %30 = add nsw i64 %29, %26
+  store i64 %30, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = load i64, ptr %31, align 8
+  %33 = add nsw i64 %32, %27
+  store i64 %33, ptr %31, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.0.0.copyload.i.i = load i64, ptr %34, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 104
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %33 = extractelement <2 x i64> %29, i64 0
-  %34 = icmp sgt i64 %33, %.sroa.0.0.copyload.i.i
-  %.sroa.0.0.copyload.sroa.speculated.i.i.i = tail call i64 @llvm.smax.i64(i64 %33, i64 %.sroa.0.0.copyload.i.i)
-  %35 = extractelement <2 x i64> %29, i64 1
-  %.sroa.2.0.copyload.sroa.speculated.i.i.i = select i1 %34, i64 %35, i64 %.sroa.2.0.copyload.i.i
-  store i64 %.sroa.0.0.copyload.sroa.speculated.i.i.i, ptr %32, align 8
+  %35 = icmp sgt i64 %26, %.sroa.0.0.copyload.i.i
+  %.sroa.0.0.copyload.sroa.speculated.i.i.i = tail call i64 @llvm.smax.i64(i64 %26, i64 %.sroa.0.0.copyload.i.i)
+  %.sroa.2.0.copyload.sroa.speculated.i.i.i = select i1 %35, i64 %27, i64 %.sroa.2.0.copyload.i.i
+  store i64 %.sroa.0.0.copyload.sroa.speculated.i.i.i, ptr %34, align 8
   store i64 %.sroa.2.0.copyload.sroa.speculated.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZN14TimePartitions19report_gc_phase_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit
 
@@ -575,24 +596,31 @@ define hidden void @_ZN10STWGCTimer15register_gc_endERK11TimeInstantI30Composite
   br i1 %23, label %24, label %_ZN7GCTimer21register_gc_pause_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit
 
 24:                                               ; preds = %20
+  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %16, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
+  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %25 = getelementptr inbounds i8, ptr %15, i64 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
-  %27 = load <2 x i64>, ptr %16, align 8
-  %28 = load <2 x i64>, ptr %25, align 8
-  %29 = sub nsw <2 x i64> %27, %28
-  %30 = load <2 x i64>, ptr %26, align 8
-  %31 = add nsw <2 x i64> %30, %29
-  store <2 x i64> %31, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 96
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %32, align 8
+  %.sroa.0.0.copyload.i9.i.i.i = load i64, ptr %25, align 8
+  %.sroa.2.0..sroa_idx.i10.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.2.0.copyload.i11.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i10.i.i.i, align 8
+  %26 = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i, %.sroa.0.0.copyload.i9.i.i.i
+  %27 = sub nsw i64 %.sroa.2.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i11.i.i.i
+  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = load i64, ptr %28, align 8
+  %30 = add nsw i64 %29, %26
+  store i64 %30, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = load i64, ptr %31, align 8
+  %33 = add nsw i64 %32, %27
+  store i64 %33, ptr %31, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %34, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 104
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %33 = extractelement <2 x i64> %29, i64 0
-  %34 = icmp sgt i64 %33, %.sroa.0.0.copyload.i.i.i
-  %.sroa.0.0.copyload.sroa.speculated.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %33, i64 %.sroa.0.0.copyload.i.i.i)
-  %35 = extractelement <2 x i64> %29, i64 1
-  %.sroa.2.0.copyload.sroa.speculated.i.i.i.i = select i1 %34, i64 %35, i64 %.sroa.2.0.copyload.i.i.i
-  store i64 %.sroa.0.0.copyload.sroa.speculated.i.i.i.i, ptr %32, align 8
+  %35 = icmp sgt i64 %26, %.sroa.0.0.copyload.i.i.i
+  %.sroa.0.0.copyload.sroa.speculated.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %26, i64 %.sroa.0.0.copyload.i.i.i)
+  %.sroa.2.0.copyload.sroa.speculated.i.i.i.i = select i1 %35, i64 %27, i64 %.sroa.2.0.copyload.i.i.i
+  store i64 %.sroa.0.0.copyload.sroa.speculated.i.i.i.i, ptr %34, align 8
   store i64 %.sroa.2.0.copyload.sroa.speculated.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   br label %_ZN7GCTimer21register_gc_pause_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit
 
@@ -692,24 +720,31 @@ define hidden void @_ZN17ConcurrentGCTimer26register_gc_concurrent_endERK11TimeI
   br i1 %23, label %24, label %_ZN14TimePartitions19report_gc_phase_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit
 
 24:                                               ; preds = %20
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %16, align 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
+  %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %25 = getelementptr inbounds i8, ptr %15, i64 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
-  %27 = load <2 x i64>, ptr %16, align 8
-  %28 = load <2 x i64>, ptr %25, align 8
-  %29 = sub nsw <2 x i64> %27, %28
-  %30 = load <2 x i64>, ptr %26, align 8
-  %31 = add nsw <2 x i64> %30, %29
-  store <2 x i64> %31, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 96
-  %.sroa.0.0.copyload.i.i = load i64, ptr %32, align 8
+  %.sroa.0.0.copyload.i9.i.i = load i64, ptr %25, align 8
+  %.sroa.2.0..sroa_idx.i10.i.i = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.2.0.copyload.i11.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i10.i.i, align 8
+  %26 = sub nsw i64 %.sroa.0.0.copyload.i.i.i, %.sroa.0.0.copyload.i9.i.i
+  %27 = sub nsw i64 %.sroa.2.0.copyload.i.i.i, %.sroa.2.0.copyload.i11.i.i
+  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = load i64, ptr %28, align 8
+  %30 = add nsw i64 %29, %26
+  store i64 %30, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = load i64, ptr %31, align 8
+  %33 = add nsw i64 %32, %27
+  store i64 %33, ptr %31, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.0.0.copyload.i.i = load i64, ptr %34, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 104
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %33 = extractelement <2 x i64> %29, i64 0
-  %34 = icmp sgt i64 %33, %.sroa.0.0.copyload.i.i
-  %.sroa.0.0.copyload.sroa.speculated.i.i.i = tail call i64 @llvm.smax.i64(i64 %33, i64 %.sroa.0.0.copyload.i.i)
-  %35 = extractelement <2 x i64> %29, i64 1
-  %.sroa.2.0.copyload.sroa.speculated.i.i.i = select i1 %34, i64 %35, i64 %.sroa.2.0.copyload.i.i
-  store i64 %.sroa.0.0.copyload.sroa.speculated.i.i.i, ptr %32, align 8
+  %35 = icmp sgt i64 %26, %.sroa.0.0.copyload.i.i
+  %.sroa.0.0.copyload.sroa.speculated.i.i.i = tail call i64 @llvm.smax.i64(i64 %26, i64 %.sroa.0.0.copyload.i.i)
+  %.sroa.2.0.copyload.sroa.speculated.i.i.i = select i1 %35, i64 %27, i64 %.sroa.2.0.copyload.i.i
+  store i64 %.sroa.0.0.copyload.sroa.speculated.i.i.i, ptr %34, align 8
   store i64 %.sroa.2.0.copyload.sroa.speculated.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZN14TimePartitions19report_gc_phase_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit
 
@@ -916,24 +951,31 @@ define hidden void @_ZN14TimePartitions17update_statisticsEP7GCPhase(ptr nocaptu
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.0.0.copyload.i = load i64, ptr %11, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
-  %14 = load <2 x i64>, ptr %11, align 8
-  %15 = load <2 x i64>, ptr %12, align 8
-  %16 = sub nsw <2 x i64> %14, %15
-  %17 = load <2 x i64>, ptr %13, align 8
-  %18 = add nsw <2 x i64> %17, %16
-  store <2 x i64> %18, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  %.sroa.0.0.copyload = load i64, ptr %19, align 8
+  %.sroa.0.0.copyload.i9 = load i64, ptr %12, align 8
+  %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.2.0.copyload.i11 = load i64, ptr %.sroa.2.0..sroa_idx.i10, align 8
+  %13 = sub nsw i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i9
+  %14 = sub nsw i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i11
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = load i64, ptr %15, align 8
+  %17 = add nsw i64 %16, %13
+  store i64 %17, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = load i64, ptr %18, align 8
+  %20 = add nsw i64 %19, %14
+  store i64 %20, ptr %18, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.0.0.copyload = load i64, ptr %21, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %20 = extractelement <2 x i64> %16, i64 0
-  %21 = icmp sgt i64 %20, %.sroa.0.0.copyload
-  %.sroa.0.0.copyload.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %20, i64 %.sroa.0.0.copyload)
-  %22 = extractelement <2 x i64> %16, i64 1
-  %.sroa.2.0.copyload.sroa.speculated.i = select i1 %21, i64 %22, i64 %.sroa.2.0.copyload
-  store i64 %.sroa.0.0.copyload.sroa.speculated.i, ptr %19, align 8
+  %22 = icmp sgt i64 %13, %.sroa.0.0.copyload
+  %.sroa.0.0.copyload.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %13, i64 %.sroa.0.0.copyload)
+  %.sroa.2.0.copyload.sroa.speculated.i = select i1 %22, i64 %14, i64 %.sroa.2.0.copyload
+  store i64 %.sroa.0.0.copyload.sroa.speculated.i, ptr %21, align 8
   store i64 %.sroa.2.0.copyload.sroa.speculated.i, ptr %.sroa.2.0..sroa_idx, align 8
   br label %23
 

@@ -277,14 +277,14 @@ define noundef zeroext i1 @_ZN5draco28AttributeOctahedronTransform25InverseTrans
   br i1 %or.cond.i, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit.thread
 
 _ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit: ; preds = %11
-  %.not28 = icmp eq i32 %8, 0
-  br i1 %.not28, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit.thread, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit
   %notmask.i.neg = shl nuw nsw i32 1, %13
   %15 = add nsw i32 %notmask.i.neg, -2
   %16 = uitofp nneg i32 %15 to float
   %17 = fdiv float 2.000000e+00, %16
+  %.not28 = icmp eq i32 %8, 0
+  br i1 %.not28, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit.thread, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit
   %18 = load ptr, ptr %1, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 48
@@ -295,62 +295,61 @@ _ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit: ; preds = %11
   %25 = getelementptr inbounds i8, ptr %2, i64 48
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr i8, ptr %24, i64 %26
-  %28 = insertelement <2 x float> poison, float %17, i64 0
-  %29 = shufflevector <2 x float> %28, <2 x float> poison, <2 x i32> zeroinitializer
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit
   %.01627 = phi ptr [ %30, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ %22, %.lr.ph.preheader ]
-  %.01726 = phi i32 [ %66, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ 0, %.lr.ph.preheader ]
-  %.01825 = phi ptr [ %65, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ %27, %.lr.ph.preheader ]
+  %.01726 = phi i32 [ %61, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ 0, %.lr.ph.preheader ]
+  %.01825 = phi ptr [ %60, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ %27, %.lr.ph.preheader ]
+  %28 = getelementptr inbounds i8, ptr %.01627, i64 4
+  %29 = load i32, ptr %.01627, align 4
   %30 = getelementptr inbounds i8, ptr %.01627, i64 8
-  %31 = load <2 x i32>, ptr %.01627, align 4
-  %32 = sitofp <2 x i32> %31 to <2 x float>
-  %33 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %32, <2 x float> %29, <2 x float> <float -1.000000e+00, float -1.000000e+00>)
-  %34 = extractelement <2 x float> %33, i64 0
-  %35 = tail call noundef float @llvm.fabs.f32(float %34)
-  %36 = fsub float 1.000000e+00, %35
-  %37 = extractelement <2 x float> %33, i64 1
-  %38 = tail call noundef float @llvm.fabs.f32(float %37)
-  %39 = fsub float %36, %38
+  %31 = load i32, ptr %28, align 4
+  %32 = sitofp i32 %29 to float
+  %33 = tail call float @llvm.fmuladd.f32(float %32, float %17, float -1.000000e+00)
+  %34 = sitofp i32 %31 to float
+  %35 = tail call float @llvm.fmuladd.f32(float %34, float %17, float -1.000000e+00)
+  %36 = tail call noundef float @llvm.fabs.f32(float %33)
+  %37 = fsub float 1.000000e+00, %36
+  %38 = tail call noundef float @llvm.fabs.f32(float %35)
+  %39 = fsub float %37, %38
   %40 = fneg float %39
   %41 = fcmp olt float %40, 0.000000e+00
   %42 = select i1 %41, float 0.000000e+00, float %40
-  %43 = fneg float %42
-  %44 = fcmp olt <2 x float> %33, zeroinitializer
-  %45 = extractelement <2 x i1> %44, i64 0
-  %46 = select i1 %45, float %42, float %43
-  %47 = fadd float %34, %46
-  %48 = extractelement <2 x i1> %44, i64 1
-  %49 = select i1 %48, float %42, float %43
-  %50 = fadd float %37, %49
-  %51 = fmul float %47, %47
-  %52 = tail call float @llvm.fmuladd.f32(float %39, float %39, float %51)
-  %53 = tail call float @llvm.fmuladd.f32(float %50, float %50, float %52)
-  %54 = fpext float %53 to double
-  %55 = fcmp olt double %54, 0x3EB0C6F7A0B5ED8D
-  br i1 %55, label %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit, label %56
+  %43 = fcmp olt float %33, 0.000000e+00
+  %44 = fneg float %42
+  %45 = select i1 %43, float %42, float %44
+  %46 = fadd float %33, %45
+  %47 = fcmp olt float %35, 0.000000e+00
+  %48 = select i1 %47, float %42, float %44
+  %49 = fadd float %35, %48
+  %50 = fmul float %46, %46
+  %51 = tail call float @llvm.fmuladd.f32(float %39, float %39, float %50)
+  %52 = tail call float @llvm.fmuladd.f32(float %49, float %49, float %51)
+  %53 = fpext float %52 to double
+  %54 = fcmp olt double %53, 0x3EB0C6F7A0B5ED8D
+  br i1 %54, label %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit, label %55
 
-56:                                               ; preds = %.lr.ph
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %53)
-  %57 = fdiv float 1.000000e+00, %sqrt.i.i
-  %58 = insertelement <2 x float> poison, float %39, i64 0
-  %59 = insertelement <2 x float> %58, float %47, i64 1
-  %60 = insertelement <2 x float> poison, float %57, i64 0
-  %61 = shufflevector <2 x float> %60, <2 x float> poison, <2 x i32> zeroinitializer
-  %62 = fmul <2 x float> %59, %61
-  %63 = fmul float %50, %57
+55:                                               ; preds = %.lr.ph
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %52)
+  %56 = fdiv float 1.000000e+00, %sqrt.i.i
+  %57 = fmul float %39, %56
+  %58 = fmul float %46, %56
+  %59 = fmul float %49, %56
   br label %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit
 
-_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit: ; preds = %.lr.ph, %56
-  %.sink.i.i = phi float [ %63, %56 ], [ 0.000000e+00, %.lr.ph ]
-  %64 = phi <2 x float> [ %62, %56 ], [ zeroinitializer, %.lr.ph ]
-  store <2 x float> %64, ptr %.01825, align 1
+_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit: ; preds = %.lr.ph, %55
+  %.sink36.i.i = phi float [ %57, %55 ], [ 0.000000e+00, %.lr.ph ]
+  %.sink35.i.i = phi float [ %58, %55 ], [ 0.000000e+00, %.lr.ph ]
+  %.sink.i.i = phi float [ %59, %55 ], [ 0.000000e+00, %.lr.ph ]
+  store float %.sink36.i.i, ptr %.01825, align 1
+  %.sroa.223.0..018.sroa_idx = getelementptr inbounds i8, ptr %.01825, i64 4
+  store float %.sink35.i.i, ptr %.sroa.223.0..018.sroa_idx, align 1
   %.sroa.3.0..018.sroa_idx = getelementptr inbounds i8, ptr %.01825, i64 8
   store float %.sink.i.i, ptr %.sroa.3.0..018.sroa_idx, align 1
-  %65 = getelementptr inbounds i8, ptr %.01825, i64 12
-  %66 = add nuw i32 %.01726, 1
-  %exitcond.not = icmp eq i32 %66, %8
+  %60 = getelementptr inbounds i8, ptr %.01825, i64 12
+  %61 = add nuw i32 %.01726, 1
+  %exitcond.not = icmp eq i32 %61, %8
   br i1 %exitcond.not, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit.thread, label %.lr.ph, !llvm.loop !7
 
 _ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit.thread: ; preds = %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit, %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit, %11, %6, %3
@@ -426,68 +425,68 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %3, %10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedOctahedralCoordsIfEEvPKT_PiS5_(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 comdat align 2 {
-  %5 = load <2 x float>, ptr %1, align 4
-  %6 = fpext <2 x float> %5 to <2 x double>
-  %7 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %6)
-  %shift = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %8 = fadd <2 x double> %7, %shift
-  %9 = extractelement <2 x double> %8, i64 0
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load float, ptr %10, align 4
-  %.fr = freeze float %11
-  %12 = fpext float %.fr to double
-  %13 = tail call noundef double @llvm.fabs.f64(double %12)
-  %14 = fadd double %9, %13
-  %15 = fcmp ogt double %14, 0x3EB0C6F7A0B5ED8D
-  br i1 %15, label %16, label %23
+  %5 = load float, ptr %1, align 4
+  %6 = fpext float %5 to double
+  %7 = tail call noundef double @llvm.fabs.f64(double %6)
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = load float, ptr %8, align 4
+  %10 = fpext float %9 to double
+  %11 = tail call noundef double @llvm.fabs.f64(double %10)
+  %12 = fadd double %7, %11
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load float, ptr %13, align 4
+  %.fr = freeze float %14
+  %15 = fpext float %.fr to double
+  %16 = tail call noundef double @llvm.fabs.f64(double %15)
+  %17 = fadd double %12, %16
+  %18 = fcmp ogt double %17, 0x3EB0C6F7A0B5ED8D
+  br i1 %18, label %19, label %25
 
-16:                                               ; preds = %4
-  %17 = fdiv double 1.000000e+00, %14
-  %18 = insertelement <2 x double> poison, double %17, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = fmul <2 x double> %19, %6
-  %21 = fmul double %17, %12
-  %22 = fcmp olt double %21, 0.000000e+00
-  br label %23
+19:                                               ; preds = %4
+  %20 = fdiv double 1.000000e+00, %17
+  %21 = fmul double %20, %6
+  %22 = fmul double %20, %10
+  %23 = fmul double %20, %15
+  %24 = fcmp olt double %23, 0.000000e+00
+  br label %25
 
-23:                                               ; preds = %4, %16
-  %.sroa.6.0 = phi i1 [ %22, %16 ], [ false, %4 ]
-  %24 = phi <2 x double> [ %20, %16 ], [ <double 1.000000e+00, double 0.000000e+00>, %4 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %26 = load i32, ptr %25, align 4
-  %27 = sitofp i32 %26 to double
-  %28 = insertelement <2 x double> poison, double %27, i64 0
-  %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> zeroinitializer
-  %30 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %24, <2 x double> %29, <2 x double> <double 5.000000e-01, double 5.000000e-01>)
-  %31 = tail call <2 x double> @llvm.floor.v2f64(<2 x double> %30)
-  %32 = fptosi <2 x double> %31 to <2 x i32>
-  %33 = tail call <2 x i32> @llvm.abs.v2i32(<2 x i32> %32, i1 true)
-  %shift29 = shufflevector <2 x i32> %33, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %34 = add nuw <2 x i32> %shift29, %33
-  %35 = extractelement <2 x i32> %34, i64 0
-  %36 = sub i32 %26, %35
-  %37 = icmp slt i32 %36, 0
-  %38 = extractelement <2 x i32> %32, i64 1
-  %39 = icmp sgt i32 %38, 0
-  %40 = sub i32 0, %36
-  %storemerge.p = select i1 %39, i32 %36, i32 %40
-  %storemerge = select i1 %37, i32 %storemerge.p, i32 0
-  %.sroa.3.021 = add i32 %storemerge, %38
-  %.sroa.7.0 = tail call i32 @llvm.smax.i32(i32 %36, i32 0)
-  %41 = sub nsw i32 0, %.sroa.7.0
-  %spec.select = select i1 %.sroa.6.0, i32 %41, i32 %.sroa.7.0
-  %42 = extractelement <2 x i32> %32, i64 0
-  %43 = icmp sgt i32 %42, -1
+25:                                               ; preds = %4, %19
+  %.sroa.3.0 = phi double [ %22, %19 ], [ 0.000000e+00, %4 ]
+  %.sroa.0.0 = phi double [ %21, %19 ], [ 1.000000e+00, %4 ]
+  %.sroa.6.0 = phi i1 [ %24, %19 ], [ false, %4 ]
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = load i32, ptr %26, align 4
+  %28 = sitofp i32 %27 to double
+  %29 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0, double %28, double 5.000000e-01)
+  %30 = tail call double @llvm.floor.f64(double %29)
+  %31 = fptosi double %30 to i32
+  %32 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0, double %28, double 5.000000e-01)
+  %33 = tail call double @llvm.floor.f64(double %32)
+  %34 = fptosi double %33 to i32
+  %35 = tail call i32 @llvm.abs.i32(i32 %31, i1 true)
+  %36 = tail call i32 @llvm.abs.i32(i32 %34, i1 true)
+  %37 = add nuw i32 %36, %35
+  %38 = sub i32 %27, %37
+  %39 = icmp slt i32 %38, 0
+  %40 = icmp sgt i32 %34, 0
+  %41 = sub i32 0, %38
+  %storemerge.p = select i1 %40, i32 %38, i32 %41
+  %storemerge = select i1 %39, i32 %storemerge.p, i32 0
+  %.sroa.3.021 = add i32 %storemerge, %34
+  %.sroa.7.0 = tail call i32 @llvm.smax.i32(i32 %38, i32 0)
+  %42 = sub nsw i32 0, %.sroa.7.0
+  %spec.select = select i1 %.sroa.6.0, i32 %42, i32 %.sroa.7.0
+  %43 = icmp sgt i32 %31, -1
   br i1 %43, label %44, label %47
 
-44:                                               ; preds = %23
-  %45 = add nsw i32 %.sroa.3.021, %26
-  %46 = add nsw i32 %spec.select, %26
+44:                                               ; preds = %25
+  %45 = add nsw i32 %.sroa.3.021, %27
+  %46 = add nsw i32 %spec.select, %27
   %.phi.trans.insert.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre.i.i.pre = load i32, ptr %.phi.trans.insert.i.i.phi.trans.insert, align 4
   br label %55
 
-47:                                               ; preds = %23
+47:                                               ; preds = %25
   %48 = icmp slt i32 %.sroa.3.021, 0
   %49 = getelementptr inbounds i8, ptr %0, i64 8
   %50 = load i32, ptr %49, align 4
@@ -520,32 +519,32 @@ define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedO
   br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %63
 
 63:                                               ; preds = %61
-  %64 = icmp slt i32 %26, %.0.i
+  %64 = icmp slt i32 %27, %.0.i
   %or.cond = select i1 %56, i1 %64, i1 false
   br i1 %or.cond, label %65, label %67
 
 65:                                               ; preds = %63
-  %factor43.i.i = shl i32 %26, 1
+  %factor43.i.i = shl i32 %27, 1
   %66 = sub i32 %factor43.i.i, %.0.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 67:                                               ; preds = %63
-  %68 = icmp sgt i32 %26, %.0.i
+  %68 = icmp sgt i32 %27, %.0.i
   %or.cond22 = select i1 %62, i1 %68, i1 false
   br i1 %or.cond22, label %69, label %71
 
 69:                                               ; preds = %67
-  %factor42.i.i = shl i32 %26, 1
+  %factor42.i.i = shl i32 %27, 1
   %70 = sub i32 %factor42.i.i, %.0.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 71:                                               ; preds = %67
-  %72 = icmp sgt i32 %26, %.013.i
+  %72 = icmp sgt i32 %27, %.013.i
   %or.cond23 = select i1 %60, i1 %72, i1 false
   br i1 %or.cond23, label %73, label %75
 
 73:                                               ; preds = %71
-  %factor41.i.i = shl i32 %26, 1
+  %factor41.i.i = shl i32 %27, 1
   %74 = sub i32 %factor41.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
@@ -553,11 +552,11 @@ define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedO
   br i1 %57, label %76, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 76:                                               ; preds = %75
-  %77 = icmp slt i32 %26, %.013.i
+  %77 = icmp slt i32 %27, %.013.i
   br i1 %77, label %78, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
 78:                                               ; preds = %76
-  %factor.i.i = shl i32 %26, 1
+  %factor.i.i = shl i32 %27, 1
   %79 = sub i32 %factor.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
@@ -821,6 +820,12 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.floor.f64(double) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -844,21 +849,6 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.floor.v2f64(<2 x double>) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.abs.v2i32(<2 x i32>, i1 immarg) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

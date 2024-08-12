@@ -969,7 +969,7 @@ while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %invoke.cont
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %sw.epilog498
-  %3 = phi i32 [ %pos, %while.body.lr.ph.lr.ph.lr.ph ], [ %232, %sw.epilog498 ]
+  %3 = phi i32 [ %pos, %while.body.lr.ph.lr.ph.lr.ph ], [ %231, %sw.epilog498 ]
   %quoteStart.0.ph836 = phi i32 [ -1, %while.body.lr.ph.lr.ph.lr.ph ], [ %quoteStart.0.ph673830, %sw.epilog498 ]
   %quoteLimit.0.ph835 = phi i32 [ -1, %while.body.lr.ph.lr.ph.lr.ph ], [ %quoteLimit.0.ph672829, %sw.epilog498 ]
   %varStart.0.ph834 = phi i32 [ -1, %while.body.lr.ph.lr.ph.lr.ph ], [ %varStart.1, %sw.epilog498 ]
@@ -1065,7 +1065,7 @@ if.then14:                                        ; preds = %if.then12
   br label %if.then14.invoke
 
 if.then14.invoke:                                 ; preds = %invoke.cont327, %invoke.cont273, %if.end121, %if.end58, %invoke.cont52, %invoke.cont108, %if.then492, %if.else462, %if.then439, %if.then424, %if.then411, %if.then402, %if.then393, %if.then379, %if.then323, %if.then195, %if.then188, %if.then168, %if.else146, %if.then83, %if.then48, %if.then37, %if.then20, %if.then14
-  %13 = phi ptr [ %12, %if.then14 ], [ %17, %if.then20 ], [ %22, %if.then37 ], [ %26, %if.then48 ], [ %39, %if.then83 ], [ %81, %if.else146 ], [ %93, %if.then168 ], [ %106, %if.then188 ], [ %107, %if.then195 ], [ %169, %if.then323 ], [ %173, %if.then379 ], [ %193, %if.then393 ], [ %198, %if.then402 ], [ %203, %if.then411 ], [ %211, %if.then424 ], [ %217, %if.then439 ], [ %225, %if.else462 ], [ %231, %if.then492 ], [ %58, %invoke.cont108 ], [ %27, %invoke.cont52 ], [ %27, %if.end58 ], [ %68, %if.end121 ], [ %150, %invoke.cont273 ], [ %170, %invoke.cont327 ]
+  %13 = phi ptr [ %12, %if.then14 ], [ %17, %if.then20 ], [ %22, %if.then37 ], [ %26, %if.then48 ], [ %39, %if.then83 ], [ %81, %if.else146 ], [ %93, %if.then168 ], [ %106, %if.then188 ], [ %107, %if.then195 ], [ %169, %if.then323 ], [ %173, %if.then379 ], [ %193, %if.then393 ], [ %198, %if.then402 ], [ %203, %if.then411 ], [ %211, %if.then424 ], [ %217, %if.then439 ], [ %225, %if.else462 ], [ %230, %if.then492 ], [ %58, %invoke.cont108 ], [ %27, %invoke.cont52 ], [ %27, %if.end58 ], [ %68, %if.end121 ], [ %150, %invoke.cont273 ], [ %170, %invoke.cont327 ]
   %14 = phi i32 [ 65563, %if.then14 ], [ 65542, %if.then20 ], [ 65538, %if.then37 ], [ 65552, %if.then48 ], [ 65556, %if.then83 ], [ 65544, %if.else146 ], [ 7, %if.then168 ], [ 65570, %if.then188 ], [ 65570, %if.then195 ], [ 65546, %if.then323 ], [ 7, %if.then379 ], [ 65549, %if.then393 ], [ 65551, %if.then402 ], [ 65550, %if.then411 ], [ 65545, %if.then424 ], [ 65545, %if.then439 ], [ 65545, %if.else462 ], [ 65555, %if.then492 ], [ 65566, %invoke.cont108 ], [ 65566, %if.end58 ], [ 65540, %invoke.cont52 ], [ 65566, %if.end121 ], [ 65553, %invoke.cont273 ], [ 7, %invoke.cont327 ]
   %15 = invoke noundef i32 @_ZN6icu_7520TransliteratorParser11syntaxErrorE10UErrorCodeRKNS_13UnicodeStringEiRS1_(ptr noundef nonnull align 8 dereferenceable(498) %13, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %pos, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %cleanup499 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2325,17 +2325,21 @@ if.else462:                                       ; preds = %invoke.cont449, %if
   br label %if.then14.invoke
 
 sw.default:                                       ; preds = %if.end137
-  %226 = insertelement <4 x i16> poison, i16 %retval.0.i.i, i64 0
-  %227 = shufflevector <4 x i16> %226, <4 x i16> poison, <4 x i32> zeroinitializer
-  %.fr1097 = freeze <4 x i16> %227
-  %228 = add <4 x i16> %.fr1097, <i16 -127, i16 -48, i16 -65, i16 -97>
-  %229 = icmp ult <4 x i16> %228, <i16 -94, i16 10, i16 26, i16 26>
-  %230 = bitcast <4 x i1> %229 to i4
-  %.not = icmp eq i4 %230, 0
-  br i1 %.not, label %if.then492, label %if.end495
+  %226 = add i16 %retval.0.i.i, -127
+  %or.cond1 = icmp ult i16 %226, -94
+  %227 = add nsw i16 %retval.0.i.i, -48
+  %or.cond2 = icmp ult i16 %227, 10
+  %or.cond217 = select i1 %or.cond1, i1 true, i1 %or.cond2
+  %228 = add nsw i16 %retval.0.i.i, -65
+  %or.cond3 = icmp ult i16 %228, 26
+  %or.cond218 = select i1 %or.cond217, i1 true, i1 %or.cond3
+  %229 = add nsw i16 %retval.0.i.i, -97
+  %or.cond4 = icmp ult i16 %229, 26
+  %or.cond219 = select i1 %or.cond218, i1 true, i1 %or.cond4
+  br i1 %or.cond219, label %if.end495, label %if.then492
 
 if.then492:                                       ; preds = %sw.default
-  %231 = load ptr, ptr %parser, align 8
+  %230 = load ptr, ptr %parser, align 8
   br label %if.then14.invoke
 
 if.end495:                                        ; preds = %sw.default
@@ -2351,12 +2355,12 @@ _ZN6icu_7513UnicodeString6appendEDs.exit644:      ; preds = %if.end495
 sw.epilog498:                                     ; preds = %cleanup, %_ZN6icu_7513UnicodeString6appendEDs.exit644, %_ZN6icu_7513UnicodeString6appendEDs.exit585, %_ZN6icu_7513UnicodeString6appendEDs.exit494, %_ZN6icu_7513UnicodeString6appendEDs.exit474, %_ZN6icu_7513UnicodeString6appendEDs.exit399, %cleanup306, %if.end427, %if.then452, %invoke.cont458, %if.end442, %invoke.cont415, %invoke.cont406, %invoke.cont397, %if.then260, %if.then144
   %varLimit.1 = phi i32 [ %varLimit.0.ph833, %_ZN6icu_7513UnicodeString6appendEDs.exit644 ], [ %varLimit.0.ph833, %if.end427 ], [ %varLimit.0.ph833, %if.end442 ], [ %varLimit.0.ph833, %if.then452 ], [ %varLimit.0.ph833, %invoke.cont458 ], [ %varLimit.0.ph833, %invoke.cont415 ], [ %varLimit.0.ph833, %invoke.cont406 ], [ %varLimit.0.ph833, %invoke.cont397 ], [ %varLimit.0.ph833, %_ZN6icu_7513UnicodeString6appendEDs.exit585 ], [ %varLimit.0.ph833, %_ZN6icu_7513UnicodeString6appendEDs.exit494 ], [ %varLimit.0.ph833, %if.then260 ], [ %varLimit.0.ph833, %_ZN6icu_7513UnicodeString6appendEDs.exit474 ], [ %varLimit.2, %cleanup306 ], [ %varLimit.0.ph833, %cleanup ], [ %varLimit.0.ph833, %_ZN6icu_7513UnicodeString6appendEDs.exit399 ], [ %varLimit.0.ph833, %if.then144 ]
   %varStart.1 = phi i32 [ %varStart.0.ph834, %_ZN6icu_7513UnicodeString6appendEDs.exit644 ], [ %varStart.0.ph834, %if.end427 ], [ %varStart.0.ph834, %if.end442 ], [ %varStart.0.ph834, %if.then452 ], [ %varStart.0.ph834, %invoke.cont458 ], [ %varStart.0.ph834, %invoke.cont415 ], [ %varStart.0.ph834, %invoke.cont406 ], [ %varStart.0.ph834, %invoke.cont397 ], [ %varStart.0.ph834, %_ZN6icu_7513UnicodeString6appendEDs.exit585 ], [ %varStart.0.ph834, %_ZN6icu_7513UnicodeString6appendEDs.exit494 ], [ %varStart.0.ph834, %if.then260 ], [ %varStart.0.ph834, %_ZN6icu_7513UnicodeString6appendEDs.exit474 ], [ %varStart.2, %cleanup306 ], [ %varStart.0.ph834, %cleanup ], [ %varStart.0.ph834, %_ZN6icu_7513UnicodeString6appendEDs.exit399 ], [ %varStart.0.ph834, %if.then144 ]
-  %232 = load i32, ptr %pos.addr, align 4
-  %cmp822827 = icmp slt i32 %232, %limit
+  %231 = load i32, ptr %pos.addr, align 4
+  %cmp822827 = icmp slt i32 %231, %limit
   br i1 %cmp822827, label %while.body.lr.ph.lr.ph, label %cleanup499, !llvm.loop !7
 
 cleanup499:                                       ; preds = %sw.epilog498, %if.end120, %while.cond.backedge, %if.then14.invoke, %invoke.cont, %if.then12.while.end_crit_edge, %sw.epilog498.thread, %cleanup.thread
-  %retval.1 = phi i32 [ %pos, %cleanup.thread ], [ %.pre937, %if.then12.while.end_crit_edge ], [ %pos, %invoke.cont ], [ %76, %sw.epilog498.thread ], [ %pos, %if.then14.invoke ], [ %24, %while.cond.backedge ], [ %67, %if.end120 ], [ %232, %sw.epilog498 ]
+  %retval.1 = phi i32 [ %pos, %cleanup.thread ], [ %.pre937, %if.then12.while.end_crit_edge ], [ %pos, %invoke.cont ], [ %76, %sw.epilog498.thread ], [ %pos, %if.then14.invoke ], [ %24, %while.cond.backedge ], [ %67, %if.end120 ], [ %231, %sw.epilog498 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %scratch) #15
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pp) #15
   ret i32 %retval.1

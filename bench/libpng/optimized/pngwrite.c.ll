@@ -1083,15 +1083,27 @@ define noalias ptr @png_create_write_struct(ptr noundef %0, ptr noundef %1, ptr 
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %5, i64 440
-  %8 = getelementptr inbounds i8, ptr %5, i64 456
-  store <4 x i32> <i32 8192, i32 -1, i32 8, i32 15>, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 480
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 476
-  store i32 8, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 472
-  store i32 15, ptr %11, align 8
-  store <4 x i32> <i32 8, i32 1, i32 -1, i32 8>, ptr %8, align 8
+  store i32 8192, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 460
+  store i32 1, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %5, i64 444
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %5, i64 456
+  store i32 8, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 452
+  store i32 15, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %5, i64 448
+  store i32 8, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 480
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 464
+  store i32 -1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 476
+  store i32 8, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 472
+  store i32 15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 468
+  store i32 8, ptr %17, align 4
   tail call void @png_set_write_fn(ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null) #15
   br label %png_create_write_struct_2.exit
 
@@ -1103,23 +1115,35 @@ png_create_write_struct_2.exit:                   ; preds = %4, %6
 define noalias ptr @png_create_write_struct_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call noalias ptr @png_create_png_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #15
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %15, label %9
+  br i1 %.not, label %21, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %8, i64 440
-  %11 = getelementptr inbounds i8, ptr %8, i64 456
-  store <4 x i32> <i32 8192, i32 -1, i32 8, i32 15>, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 480
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 476
-  store i32 8, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 472
-  store i32 15, ptr %14, align 8
-  store <4 x i32> <i32 8, i32 1, i32 -1, i32 8>, ptr %11, align 8
+  store i32 8192, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %8, i64 460
+  store i32 1, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %8, i64 444
+  store i32 -1, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %8, i64 456
+  store i32 8, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %8, i64 452
+  store i32 15, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %8, i64 448
+  store i32 8, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %8, i64 480
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %8, i64 464
+  store i32 -1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %8, i64 476
+  store i32 8, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %8, i64 472
+  store i32 15, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %8, i64 468
+  store i32 8, ptr %20, align 4
   tail call void @png_set_write_fn(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null) #15
-  br label %15
+  br label %21
 
-15:                                               ; preds = %9, %7
+21:                                               ; preds = %9, %7
   ret ptr %8
 }
 
@@ -2392,56 +2416,68 @@ define internal fastcc i32 @png_image_write_init(ptr noundef %0) unnamed_addr #0
 
 png_create_write_struct.exit.thread:              ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %20
+  br label %26
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %4, i64 440
-  %7 = getelementptr inbounds i8, ptr %4, i64 456
-  store <4 x i32> <i32 8192, i32 -1, i32 8, i32 15>, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 480
-  store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 476
-  store i32 8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 472
-  store i32 15, ptr %10, align 8
-  store <4 x i32> <i32 8, i32 1, i32 -1, i32 8>, ptr %7, align 8
+  store i32 8192, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 460
+  store i32 1, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %4, i64 444
+  store i32 -1, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 456
+  store i32 8, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 452
+  store i32 15, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %4, i64 448
+  store i32 8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 480
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %4, i64 464
+  store i32 -1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 476
+  store i32 8, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %4, i64 472
+  store i32 15, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %4, i64 468
+  store i32 8, ptr %16, align 4
   tail call void @png_set_write_fn(ptr noundef nonnull %4, ptr noundef null, ptr noundef null, ptr noundef null) #15
   store ptr %4, ptr %2, align 8
-  %11 = tail call noalias ptr @png_create_info_struct(ptr noundef nonnull %4) #15
-  store ptr %11, ptr %3, align 8
-  %.not11 = icmp eq ptr %11, null
-  br i1 %.not11, label %19, label %12
+  %17 = tail call noalias ptr @png_create_info_struct(ptr noundef nonnull %4) #15
+  store ptr %17, ptr %3, align 8
+  %.not11 = icmp eq ptr %17, null
+  br i1 %.not11, label %25, label %18
 
-12:                                               ; preds = %5
-  %13 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %4, i64 noundef 48) #15
-  %.not12 = icmp eq ptr %13, null
-  br i1 %.not12, label %18, label %14
+18:                                               ; preds = %5
+  %19 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %4, i64 noundef 48) #15
+  %.not12 = icmp eq ptr %19, null
+  br i1 %.not12, label %24, label %20
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, i8 0, i64 32, i1 false)
-  store ptr %4, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %11, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 40
-  store i8 1, ptr %17, align 8
-  store ptr %13, ptr %0, align 8
-  br label %22
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 32, i1 false)
+  store ptr %4, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr %17, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %19, i64 40
+  store i8 1, ptr %23, align 8
+  store ptr %19, ptr %0, align 8
+  br label %28
 
-18:                                               ; preds = %12
+24:                                               ; preds = %18
   call void @png_destroy_info_struct(ptr noundef nonnull %4, ptr noundef nonnull %3) #15
-  br label %19
+  br label %25
 
-19:                                               ; preds = %18, %5
+25:                                               ; preds = %24, %5
   call void @png_destroy_write_struct(ptr noundef nonnull %2, ptr noundef null)
-  br label %20
+  br label %26
 
-20:                                               ; preds = %png_create_write_struct.exit.thread, %19
-  %21 = call i32 @png_image_error(ptr noundef %0, ptr noundef nonnull @.str.24) #15
-  br label %22
+26:                                               ; preds = %png_create_write_struct.exit.thread, %25
+  %27 = call i32 @png_image_error(ptr noundef %0, ptr noundef nonnull @.str.24) #15
+  br label %28
 
-22:                                               ; preds = %20, %14
-  %.0 = phi i32 [ 1, %14 ], [ %21, %20 ]
+28:                                               ; preds = %26, %20
+  %.0 = phi i32 [ 1, %20 ], [ %27, %26 ]
   ret i32 %.0
 }
 

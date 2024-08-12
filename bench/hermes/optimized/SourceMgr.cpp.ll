@@ -3425,14 +3425,17 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4llv
 _ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvh9SourceMgr9SrcBufferESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i12 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4llvh9SourceMgr9SrcBufferESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.llvh::SourceMgr::SrcBuffer", ptr %cond.i12, i64 %sub.ptr.div.i
-  %OffsetCache3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %3 = load <2 x i64>, ptr %__args, align 8
+  %3 = load i64, ptr %__args, align 8
+  store i64 %3, ptr %add.ptr, align 8
   store ptr null, ptr %__args, align 8
-  store <2 x i64> %3, ptr %add.ptr, align 8
+  %OffsetCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %OffsetCache3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %4 = load i64, ptr %OffsetCache3.i.i.i, align 8
+  store i64 %4, ptr %OffsetCache.i.i.i, align 8
   %IncludeLoc.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %IncludeLoc4.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
-  %4 = load i64, ptr %IncludeLoc4.i.i.i, align 8
-  store i64 %4, ptr %IncludeLoc.i.i.i, align 8
+  %5 = load i64, ptr %IncludeLoc4.i.i.i, align 8
+  store i64 %5, ptr %IncludeLoc.i.i.i, align 8
   store i64 0, ptr %OffsetCache3.i.i.i, align 8
   %cmp.i.i.not5.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.i.i.not5.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %for.body.i.i.i.i.i
@@ -3440,17 +3443,17 @@ _ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE11_M_allocateEm.exit: ; p
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE11_M_allocateEm.exit, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i12, %_ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE11_M_allocateEm.exit ]
   %__first.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN4llvh9SourceMgr9SrcBufferESaIS2_EE11_M_allocateEm.exit ]
-  %5 = load i64, ptr %__first.sroa.0.06.i.i.i.i.i, align 8
-  store i64 %5, ptr %__cur.07.i.i.i.i.i, align 8
+  %6 = load i64, ptr %__first.sroa.0.06.i.i.i.i.i, align 8
+  store i64 %6, ptr %__cur.07.i.i.i.i.i, align 8
   store ptr null, ptr %__first.sroa.0.06.i.i.i.i.i, align 8
   %OffsetCache.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %OffsetCache3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
-  %6 = load i64, ptr %OffsetCache3.i.i.i.i.i.i.i, align 8
-  store i64 %6, ptr %OffsetCache.i.i.i.i.i.i.i, align 8
+  %7 = load i64, ptr %OffsetCache3.i.i.i.i.i.i.i, align 8
+  store i64 %7, ptr %OffsetCache.i.i.i.i.i.i.i, align 8
   %IncludeLoc.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %IncludeLoc4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
-  %7 = load i64, ptr %IncludeLoc4.i.i.i.i.i.i.i, align 8
-  store i64 %7, ptr %IncludeLoc.i.i.i.i.i.i.i, align 8
+  %8 = load i64, ptr %IncludeLoc4.i.i.i.i.i.i.i, align 8
+  store i64 %8, ptr %IncludeLoc.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %OffsetCache3.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 24
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
@@ -3466,17 +3469,17 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EE
 for.body.i.i.i.i.i14:                             ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %for.body.i.i.i.i.i14
   %__cur.07.i.i.i.i.i15 = phi ptr [ %incdec.ptr.i.i.i.i.i22, %for.body.i.i.i.i.i14 ], [ %incdec.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   %__first.sroa.0.06.i.i.i.i.i16 = phi ptr [ %incdec.ptr.i.i.i.i.i.i21, %for.body.i.i.i.i.i14 ], [ %__position.coerce, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvh9SourceMgr9SrcBufferES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
-  %8 = load i64, ptr %__first.sroa.0.06.i.i.i.i.i16, align 8
-  store i64 %8, ptr %__cur.07.i.i.i.i.i15, align 8
+  %9 = load i64, ptr %__first.sroa.0.06.i.i.i.i.i16, align 8
+  store i64 %9, ptr %__cur.07.i.i.i.i.i15, align 8
   store ptr null, ptr %__first.sroa.0.06.i.i.i.i.i16, align 8
   %OffsetCache.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i15, i64 8
   %OffsetCache3.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i16, i64 8
-  %9 = load i64, ptr %OffsetCache3.i.i.i.i.i.i.i18, align 8
-  store i64 %9, ptr %OffsetCache.i.i.i.i.i.i.i17, align 8
+  %10 = load i64, ptr %OffsetCache3.i.i.i.i.i.i.i18, align 8
+  store i64 %10, ptr %OffsetCache.i.i.i.i.i.i.i17, align 8
   %IncludeLoc.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i15, i64 16
   %IncludeLoc4.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i16, i64 16
-  %10 = load i64, ptr %IncludeLoc4.i.i.i.i.i.i.i20, align 8
-  store i64 %10, ptr %IncludeLoc.i.i.i.i.i.i.i19, align 8
+  %11 = load i64, ptr %IncludeLoc4.i.i.i.i.i.i.i20, align 8
+  store i64 %11, ptr %IncludeLoc.i.i.i.i.i.i.i19, align 8
   store i64 0, ptr %OffsetCache3.i.i.i.i.i.i.i18, align 8
   %incdec.ptr.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i16, i64 24
   %incdec.ptr.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i15, i64 24

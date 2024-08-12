@@ -4283,11 +4283,11 @@ check_float8_array.exit60:                        ; preds = %34
   %49 = getelementptr i8, ptr %10, i64 40
   %50 = load double, ptr %49, align 8
   %51 = fcmp oeq double %41, 0.000000e+00
-  br i1 %51, label %84, label %52
+  br i1 %51, label %80, label %52
 
 52:                                               ; preds = %check_float8_array.exit60
   %53 = fcmp oeq double %46, 0.000000e+00
-  br i1 %53, label %84, label %54
+  br i1 %53, label %80, label %54
 
 54:                                               ; preds = %52
   %55 = fadd double %43, %48
@@ -4307,59 +4307,54 @@ check_float8_array.exit60:                        ; preds = %34
 
 float8_pl.exit:                                   ; preds = %54
   %63 = fadd double %41, %46
-  %64 = insertelement <2 x double> poison, double %43, i64 0
-  %65 = insertelement <2 x double> %64, double %48, i64 1
-  %66 = insertelement <2 x double> poison, double %41, i64 0
-  %67 = insertelement <2 x double> %66, double %46, i64 1
-  %68 = fdiv <2 x double> %65, %67
-  %shift = shufflevector <2 x double> %68, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %69 = fsub <2 x double> %68, %shift
-  %70 = extractelement <2 x double> %69, i64 0
-  %71 = fadd double %45, %50
-  %72 = fmul double %41, %46
-  %73 = fmul double %72, %70
-  %74 = fmul double %70, %73
-  %75 = fdiv double %74, %63
-  %76 = fadd double %71, %75
-  %77 = tail call double @llvm.fabs.f64(double %76)
-  %78 = fcmp une double %77, 0x7FF0000000000000
-  %79 = tail call double @llvm.fabs.f64(double %45)
-  %80 = fcmp oeq double %79, 0x7FF0000000000000
-  %or.cond = select i1 %78, i1 true, i1 %80
-  %81 = tail call double @llvm.fabs.f64(double %50)
-  %82 = fcmp oeq double %81, 0x7FF0000000000000
-  %or.cond55 = select i1 %or.cond, i1 true, i1 %82
-  br i1 %or.cond55, label %84, label %83
+  %64 = fdiv double %43, %41
+  %65 = fdiv double %48, %46
+  %66 = fsub double %64, %65
+  %67 = fadd double %45, %50
+  %68 = fmul double %41, %46
+  %69 = fmul double %68, %66
+  %70 = fmul double %66, %69
+  %71 = fdiv double %70, %63
+  %72 = fadd double %67, %71
+  %73 = tail call double @llvm.fabs.f64(double %72)
+  %74 = fcmp une double %73, 0x7FF0000000000000
+  %75 = tail call double @llvm.fabs.f64(double %45)
+  %76 = fcmp oeq double %75, 0x7FF0000000000000
+  %or.cond = select i1 %74, i1 true, i1 %76
+  %77 = tail call double @llvm.fabs.f64(double %50)
+  %78 = fcmp oeq double %77, 0x7FF0000000000000
+  %or.cond55 = select i1 %or.cond, i1 true, i1 %78
+  br i1 %or.cond55, label %80, label %79
 
-83:                                               ; preds = %float8_pl.exit
+79:                                               ; preds = %float8_pl.exit
   tail call void @float_overflow_error() #21
   unreachable
 
-84:                                               ; preds = %52, %check_float8_array.exit60, %float8_pl.exit
-  %.050 = phi double [ %76, %float8_pl.exit ], [ %50, %check_float8_array.exit60 ], [ %45, %52 ]
+80:                                               ; preds = %52, %check_float8_array.exit60, %float8_pl.exit
+  %.050 = phi double [ %72, %float8_pl.exit ], [ %50, %check_float8_array.exit60 ], [ %45, %52 ]
   %.049 = phi double [ %55, %float8_pl.exit ], [ %48, %check_float8_array.exit60 ], [ %43, %52 ]
   %.048 = phi double [ %63, %float8_pl.exit ], [ %46, %check_float8_array.exit60 ], [ %41, %52 ]
-  %85 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
-  %.not = icmp eq i32 %85, 0
-  br i1 %.not, label %87, label %86
+  %81 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
+  %.not = icmp eq i32 %81, 0
+  br i1 %.not, label %83, label %82
 
-86:                                               ; preds = %84
+82:                                               ; preds = %80
   store double %.048, ptr %25, align 8
   store double %.049, ptr %42, align 8
   store double %.050, ptr %44, align 8
-  br label %91
+  br label %87
 
-87:                                               ; preds = %84
+83:                                               ; preds = %80
   store double %.048, ptr %2, align 16
-  %88 = getelementptr inbounds i8, ptr %2, i64 8
-  store double %.049, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %2, i64 16
-  store double %.050, ptr %89, align 16
-  %90 = call ptr @construct_array(ptr noundef nonnull %2, i32 noundef 3, i32 noundef 701, i32 noundef 8, i1 noundef zeroext true, i8 noundef signext 100) #19
-  br label %91
+  %84 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %.049, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %2, i64 16
+  store double %.050, ptr %85, align 16
+  %86 = call ptr @construct_array(ptr noundef nonnull %2, i32 noundef 3, i32 noundef 701, i32 noundef 8, i1 noundef zeroext true, i8 noundef signext 100) #19
+  br label %87
 
-91:                                               ; preds = %87, %86
-  %.0.in = phi ptr [ %6, %86 ], [ %90, %87 ]
+87:                                               ; preds = %83, %82
+  %.0.in = phi ptr [ %6, %82 ], [ %86, %83 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -4411,75 +4406,75 @@ define dso_local i64 @float8_accum(ptr noundef %0) local_unnamed_addr #5 {
 
 check_float8_array.exit:                          ; preds = %17
   %23 = getelementptr i8, ptr %6, i64 24
-  %24 = load <2 x double>, ptr %23, align 8
-  %25 = getelementptr i8, ptr %6, i64 40
+  %24 = load double, ptr %23, align 8
+  %25 = getelementptr i8, ptr %6, i64 32
   %26 = load double, ptr %25, align 8
-  %27 = insertelement <2 x double> <double 1.000000e+00, double poison>, double %8, i64 1
-  %28 = fadd <2 x double> %27, %24
-  %29 = extractelement <2 x double> %24, i64 0
-  %30 = fcmp ogt double %29, 0.000000e+00
-  br i1 %30, label %31, label %53
+  %27 = getelementptr i8, ptr %6, i64 40
+  %28 = load double, ptr %27, align 8
+  %29 = fadd double %24, 1.000000e+00
+  %30 = fadd double %8, %26
+  %31 = fcmp ogt double %24, 0.000000e+00
+  br i1 %31, label %32, label %50
 
-31:                                               ; preds = %check_float8_array.exit
-  %32 = extractelement <2 x double> %28, i64 1
-  %33 = tail call double @llvm.fabs.f64(double %32)
+32:                                               ; preds = %check_float8_array.exit
+  %33 = tail call double @llvm.fabs.f64(double %30)
   %34 = fcmp oeq double %33, 0x7FF0000000000000
-  br i1 %34, label %46, label %35
+  br i1 %34, label %44, label %35
 
-35:                                               ; preds = %31
-  %36 = fneg double %32
-  %37 = extractelement <2 x double> %28, i64 0
-  %38 = tail call double @llvm.fmuladd.f64(double %8, double %37, double %36)
-  %39 = fmul double %38, %38
-  %40 = fmul <2 x double> %24, %28
-  %41 = extractelement <2 x double> %40, i64 0
-  %42 = fdiv double %39, %41
-  %43 = fadd double %26, %42
-  %44 = tail call double @llvm.fabs.f64(double %43)
-  %45 = fcmp oeq double %44, 0x7FF0000000000000
-  br i1 %45, label %46, label %56
+35:                                               ; preds = %32
+  %36 = fneg double %30
+  %37 = tail call double @llvm.fmuladd.f64(double %8, double %29, double %36)
+  %38 = fmul double %37, %37
+  %39 = fmul double %24, %29
+  %40 = fdiv double %38, %39
+  %41 = fadd double %28, %40
+  %42 = tail call double @llvm.fabs.f64(double %41)
+  %43 = fcmp oeq double %42, 0x7FF0000000000000
+  br i1 %43, label %44, label %53
 
-46:                                               ; preds = %35, %31
-  %47 = extractelement <2 x double> %24, i64 1
-  %48 = tail call double @llvm.fabs.f64(double %47)
-  %49 = fcmp oeq double %48, 0x7FF0000000000000
-  %50 = tail call double @llvm.fabs.f64(double %8)
-  %51 = fcmp oeq double %50, 0x7FF0000000000000
-  %or.cond = select i1 %49, i1 true, i1 %51
-  br i1 %or.cond, label %56, label %52
+44:                                               ; preds = %35, %32
+  %45 = tail call double @llvm.fabs.f64(double %26)
+  %46 = fcmp oeq double %45, 0x7FF0000000000000
+  %47 = tail call double @llvm.fabs.f64(double %8)
+  %48 = fcmp oeq double %47, 0x7FF0000000000000
+  %or.cond = select i1 %46, i1 true, i1 %48
+  br i1 %or.cond, label %53, label %49
 
-52:                                               ; preds = %46
+49:                                               ; preds = %44
   tail call void @float_overflow_error() #21
   unreachable
 
-53:                                               ; preds = %check_float8_array.exit
-  %54 = tail call double @llvm.fabs.f64(double %8)
-  %or.cond40 = fcmp ueq double %54, 0x7FF0000000000000
-  br i1 %or.cond40, label %55, label %56
+50:                                               ; preds = %check_float8_array.exit
+  %51 = tail call double @llvm.fabs.f64(double %8)
+  %or.cond40 = fcmp ueq double %51, 0x7FF0000000000000
+  br i1 %or.cond40, label %52, label %53
+
+52:                                               ; preds = %50
+  br label %53
+
+53:                                               ; preds = %44, %50, %52, %35
+  %.036 = phi double [ %41, %35 ], [ 0x7FF8000000000000, %52 ], [ %28, %50 ], [ 0x7FF8000000000000, %44 ]
+  %54 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
+  %.not = icmp eq i32 %54, 0
+  br i1 %.not, label %56, label %55
 
 55:                                               ; preds = %53
-  br label %56
+  store double %29, ptr %23, align 8
+  store double %30, ptr %25, align 8
+  store double %.036, ptr %27, align 8
+  br label %60
 
-56:                                               ; preds = %46, %53, %55, %35
-  %.036 = phi double [ %43, %35 ], [ 0x7FF8000000000000, %55 ], [ %26, %53 ], [ 0x7FF8000000000000, %46 ]
-  %57 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
-  %.not = icmp eq i32 %57, 0
-  br i1 %.not, label %59, label %58
+56:                                               ; preds = %53
+  store double %29, ptr %2, align 16
+  %57 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %30, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %2, i64 16
+  store double %.036, ptr %58, align 16
+  %59 = call ptr @construct_array(ptr noundef nonnull %2, i32 noundef 3, i32 noundef 701, i32 noundef 8, i1 noundef zeroext true, i8 noundef signext 100) #19
+  br label %60
 
-58:                                               ; preds = %56
-  store <2 x double> %28, ptr %23, align 8
-  store double %.036, ptr %25, align 8
-  br label %62
-
-59:                                               ; preds = %56
-  store <2 x double> %28, ptr %2, align 16
-  %60 = getelementptr inbounds i8, ptr %2, i64 16
-  store double %.036, ptr %60, align 16
-  %61 = call ptr @construct_array(ptr noundef nonnull %2, i32 noundef 3, i32 noundef 701, i32 noundef 8, i1 noundef zeroext true, i8 noundef signext 100) #19
-  br label %62
-
-62:                                               ; preds = %59, %58
-  %.0.in = phi ptr [ %6, %58 ], [ %61, %59 ]
+60:                                               ; preds = %56, %55
+  %.0.in = phi ptr [ %6, %55 ], [ %59, %56 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -4528,77 +4523,77 @@ define dso_local i64 @float4_accum(ptr noundef %0) local_unnamed_addr #5 {
 
 check_float8_array.exit:                          ; preds = %20
   %26 = getelementptr i8, ptr %6, i64 24
-  %27 = load <2 x double>, ptr %26, align 8
-  %28 = getelementptr i8, ptr %6, i64 40
+  %27 = load double, ptr %26, align 8
+  %28 = getelementptr i8, ptr %6, i64 32
   %29 = load double, ptr %28, align 8
-  %30 = insertelement <2 x double> <double 1.000000e+00, double poison>, double %11, i64 1
-  %31 = fadd <2 x double> %27, %30
-  %32 = extractelement <2 x double> %27, i64 0
-  %33 = fcmp ogt double %32, 0.000000e+00
-  br i1 %33, label %34, label %56
+  %30 = getelementptr i8, ptr %6, i64 40
+  %31 = load double, ptr %30, align 8
+  %32 = fadd double %27, 1.000000e+00
+  %33 = fadd double %29, %11
+  %34 = fcmp ogt double %27, 0.000000e+00
+  br i1 %34, label %35, label %53
 
-34:                                               ; preds = %check_float8_array.exit
-  %35 = extractelement <2 x double> %31, i64 1
-  %36 = tail call double @llvm.fabs.f64(double %35)
+35:                                               ; preds = %check_float8_array.exit
+  %36 = tail call double @llvm.fabs.f64(double %33)
   %37 = fcmp oeq double %36, 0x7FF0000000000000
-  br i1 %37, label %49, label %38
+  br i1 %37, label %47, label %38
 
-38:                                               ; preds = %34
-  %39 = fneg double %35
-  %40 = extractelement <2 x double> %31, i64 0
-  %41 = tail call double @llvm.fmuladd.f64(double %11, double %40, double %39)
-  %42 = fmul double %41, %41
-  %43 = fmul <2 x double> %27, %31
-  %44 = extractelement <2 x double> %43, i64 0
-  %45 = fdiv double %42, %44
-  %46 = fadd double %29, %45
-  %47 = tail call double @llvm.fabs.f64(double %46)
-  %48 = fcmp oeq double %47, 0x7FF0000000000000
-  br i1 %48, label %49, label %61
+38:                                               ; preds = %35
+  %39 = fneg double %33
+  %40 = tail call double @llvm.fmuladd.f64(double %11, double %32, double %39)
+  %41 = fmul double %40, %40
+  %42 = fmul double %27, %32
+  %43 = fdiv double %41, %42
+  %44 = fadd double %31, %43
+  %45 = tail call double @llvm.fabs.f64(double %44)
+  %46 = fcmp oeq double %45, 0x7FF0000000000000
+  br i1 %46, label %47, label %58
 
-49:                                               ; preds = %38, %34
-  %50 = extractelement <2 x double> %27, i64 1
-  %51 = tail call double @llvm.fabs.f64(double %50)
-  %52 = fcmp oeq double %51, 0x7FF0000000000000
-  %53 = tail call double @llvm.fabs.f64(double %11)
-  %54 = fcmp oeq double %53, 0x7FF0000000000000
-  %or.cond = select i1 %52, i1 true, i1 %54
-  br i1 %or.cond, label %61, label %55
+47:                                               ; preds = %38, %35
+  %48 = tail call double @llvm.fabs.f64(double %29)
+  %49 = fcmp oeq double %48, 0x7FF0000000000000
+  %50 = tail call double @llvm.fabs.f64(double %11)
+  %51 = fcmp oeq double %50, 0x7FF0000000000000
+  %or.cond = select i1 %49, i1 true, i1 %51
+  br i1 %or.cond, label %58, label %52
 
-55:                                               ; preds = %49
+52:                                               ; preds = %47
   tail call void @float_overflow_error() #21
   unreachable
 
-56:                                               ; preds = %check_float8_array.exit
-  %57 = fcmp uno float %10, 0.000000e+00
-  %58 = tail call double @llvm.fabs.f64(double %11)
-  %59 = fcmp oeq double %58, 0x7FF0000000000000
-  %or.cond40 = select i1 %57, i1 true, i1 %59
-  br i1 %or.cond40, label %60, label %61
+53:                                               ; preds = %check_float8_array.exit
+  %54 = fcmp uno float %10, 0.000000e+00
+  %55 = tail call double @llvm.fabs.f64(double %11)
+  %56 = fcmp oeq double %55, 0x7FF0000000000000
+  %or.cond40 = select i1 %54, i1 true, i1 %56
+  br i1 %or.cond40, label %57, label %58
 
-60:                                               ; preds = %56
-  br label %61
+57:                                               ; preds = %53
+  br label %58
 
-61:                                               ; preds = %49, %56, %60, %38
-  %.036 = phi double [ %46, %38 ], [ 0x7FF8000000000000, %60 ], [ %29, %56 ], [ 0x7FF8000000000000, %49 ]
-  %62 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
-  %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %64, label %63
+58:                                               ; preds = %47, %53, %57, %38
+  %.036 = phi double [ %44, %38 ], [ 0x7FF8000000000000, %57 ], [ %31, %53 ], [ 0x7FF8000000000000, %47 ]
+  %59 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
+  %.not = icmp eq i32 %59, 0
+  br i1 %.not, label %61, label %60
 
-63:                                               ; preds = %61
-  store <2 x double> %31, ptr %26, align 8
-  store double %.036, ptr %28, align 8
-  br label %67
+60:                                               ; preds = %58
+  store double %32, ptr %26, align 8
+  store double %33, ptr %28, align 8
+  store double %.036, ptr %30, align 8
+  br label %65
 
-64:                                               ; preds = %61
-  store <2 x double> %31, ptr %2, align 16
-  %65 = getelementptr inbounds i8, ptr %2, i64 16
-  store double %.036, ptr %65, align 16
-  %66 = call ptr @construct_array(ptr noundef nonnull %2, i32 noundef 3, i32 noundef 701, i32 noundef 8, i1 noundef zeroext true, i8 noundef signext 100) #19
-  br label %67
+61:                                               ; preds = %58
+  store double %32, ptr %2, align 16
+  %62 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %33, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %2, i64 16
+  store double %.036, ptr %63, align 16
+  %64 = call ptr @construct_array(ptr noundef nonnull %2, i32 noundef 3, i32 noundef 701, i32 noundef 8, i1 noundef zeroext true, i8 noundef signext 100) #19
+  br label %65
 
-67:                                               ; preds = %64, %63
-  %.0.in = phi ptr [ %6, %63 ], [ %66, %64 ]
+65:                                               ; preds = %61, %60
+  %.0.in = phi ptr [ %6, %60 ], [ %64, %61 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -4945,162 +4940,154 @@ define dso_local i64 @float8_regr_accum(ptr noundef %0) local_unnamed_addr #5 {
 
 check_float8_array.exit:                          ; preds = %19
   %25 = getelementptr i8, ptr %6, i64 24
-  %26 = load <2 x double>, ptr %25, align 8
-  %27 = getelementptr i8, ptr %6, i64 40
+  %26 = load double, ptr %25, align 8
+  %27 = getelementptr i8, ptr %6, i64 32
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr i8, ptr %6, i64 48
+  %29 = getelementptr i8, ptr %6, i64 40
   %30 = load double, ptr %29, align 8
-  %31 = getelementptr i8, ptr %6, i64 56
-  %32 = getelementptr i8, ptr %6, i64 64
-  %33 = load <2 x double>, ptr %31, align 8
-  %34 = insertelement <2 x double> <double 1.000000e+00, double poison>, double %10, i64 1
-  %35 = fadd <2 x double> %34, %26
-  %36 = fadd double %8, %30
-  %37 = extractelement <2 x double> %26, i64 0
-  %38 = fcmp ogt double %37, 0.000000e+00
-  br i1 %38, label %39, label %100
+  %31 = getelementptr i8, ptr %6, i64 48
+  %32 = load double, ptr %31, align 8
+  %33 = getelementptr i8, ptr %6, i64 56
+  %34 = load double, ptr %33, align 8
+  %35 = getelementptr i8, ptr %6, i64 64
+  %36 = load double, ptr %35, align 8
+  %37 = fadd double %26, 1.000000e+00
+  %38 = fadd double %10, %28
+  %39 = fadd double %8, %32
+  %40 = fcmp ogt double %26, 0.000000e+00
+  br i1 %40, label %41, label %90
 
-39:                                               ; preds = %check_float8_array.exit
-  %40 = extractelement <2 x double> %35, i64 1
-  %41 = fmul <2 x double> %26, %35
-  %42 = extractelement <2 x double> %41, i64 0
-  %43 = fdiv double 1.000000e+00, %42
-  %44 = insertelement <2 x double> %35, double %36, i64 0
-  %45 = fneg <2 x double> %44
-  %46 = insertelement <2 x double> poison, double %8, i64 0
-  %47 = insertelement <2 x double> %46, double %10, i64 1
-  %48 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> zeroinitializer
-  %49 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %47, <2 x double> %48, <2 x double> %45)
-  %50 = fmul <2 x double> %49, %49
-  %51 = extractelement <2 x double> %50, i64 1
-  %52 = tail call double @llvm.fmuladd.f64(double %51, double %43, double %28)
-  %53 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> zeroinitializer
-  %54 = fmul <2 x double> %49, %53
-  %55 = insertelement <2 x double> poison, double %43, i64 0
-  %56 = shufflevector <2 x double> %55, <2 x double> poison, <2 x i32> zeroinitializer
-  %57 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %54, <2 x double> %56, <2 x double> %33)
-  %58 = extractelement <2 x double> %57, i64 1
-  %59 = tail call double @llvm.fabs.f64(double %40)
-  %60 = fcmp oeq double %59, 0x7FF0000000000000
-  %61 = tail call double @llvm.fabs.f64(double %52)
-  %62 = fcmp oeq double %61, 0x7FF0000000000000
-  %or.cond = select i1 %60, i1 true, i1 %62
-  %63 = tail call double @llvm.fabs.f64(double %36)
-  %64 = fcmp oeq double %63, 0x7FF0000000000000
-  %or.cond90 = select i1 %or.cond, i1 true, i1 %64
-  %65 = extractelement <2 x double> %57, i64 0
-  %66 = tail call double @llvm.fabs.f64(double %65)
+41:                                               ; preds = %check_float8_array.exit
+  %42 = fneg double %38
+  %43 = tail call double @llvm.fmuladd.f64(double %10, double %37, double %42)
+  %44 = fneg double %39
+  %45 = tail call double @llvm.fmuladd.f64(double %8, double %37, double %44)
+  %46 = fmul double %26, %37
+  %47 = fdiv double 1.000000e+00, %46
+  %48 = fmul double %43, %43
+  %49 = tail call double @llvm.fmuladd.f64(double %48, double %47, double %30)
+  %50 = fmul double %45, %45
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double %47, double %34)
+  %52 = fmul double %43, %45
+  %53 = tail call double @llvm.fmuladd.f64(double %52, double %47, double %36)
+  %54 = tail call double @llvm.fabs.f64(double %38)
+  %55 = fcmp oeq double %54, 0x7FF0000000000000
+  %56 = tail call double @llvm.fabs.f64(double %49)
+  %57 = fcmp oeq double %56, 0x7FF0000000000000
+  %or.cond = select i1 %55, i1 true, i1 %57
+  %58 = tail call double @llvm.fabs.f64(double %39)
+  %59 = fcmp oeq double %58, 0x7FF0000000000000
+  %or.cond90 = select i1 %or.cond, i1 true, i1 %59
+  %60 = tail call double @llvm.fabs.f64(double %51)
+  %61 = fcmp oeq double %60, 0x7FF0000000000000
+  %or.cond92 = select i1 %or.cond90, i1 true, i1 %61
+  %62 = tail call double @llvm.fabs.f64(double %53)
+  %63 = fcmp oeq double %62, 0x7FF0000000000000
+  %or.cond94 = select i1 %or.cond92, i1 true, i1 %63
+  br i1 %or.cond94, label %64, label %94
+
+64:                                               ; preds = %41
+  br i1 %or.cond, label %65, label %70
+
+65:                                               ; preds = %64
+  %66 = tail call double @llvm.fabs.f64(double %28)
   %67 = fcmp oeq double %66, 0x7FF0000000000000
-  %or.cond92 = select i1 %or.cond90, i1 true, i1 %67
-  %68 = tail call double @llvm.fabs.f64(double %58)
+  %68 = tail call double @llvm.fabs.f64(double %10)
   %69 = fcmp oeq double %68, 0x7FF0000000000000
-  %or.cond94 = select i1 %or.cond92, i1 true, i1 %69
-  br i1 %or.cond94, label %70, label %106
+  %or.cond98 = select i1 %67, i1 true, i1 %69
+  br i1 %or.cond98, label %70, label %87
 
-70:                                               ; preds = %39
-  br i1 %or.cond, label %71, label %77
+70:                                               ; preds = %64, %65
+  %or.cond100 = select i1 %59, i1 true, i1 %61
+  br i1 %or.cond100, label %71, label %76
 
 71:                                               ; preds = %70
-  %72 = extractelement <2 x double> %26, i64 1
-  %73 = tail call double @llvm.fabs.f64(double %72)
-  %74 = fcmp oeq double %73, 0x7FF0000000000000
-  %75 = tail call double @llvm.fabs.f64(double %10)
-  %76 = fcmp oeq double %75, 0x7FF0000000000000
-  %or.cond98 = select i1 %74, i1 true, i1 %76
-  br i1 %or.cond98, label %77, label %95
+  %72 = tail call double @llvm.fabs.f64(double %32)
+  %73 = fcmp oeq double %72, 0x7FF0000000000000
+  %74 = tail call double @llvm.fabs.f64(double %8)
+  %75 = fcmp oeq double %74, 0x7FF0000000000000
+  %or.cond102 = select i1 %73, i1 true, i1 %75
+  br i1 %or.cond102, label %76, label %87
 
-77:                                               ; preds = %70, %71
-  %or.cond100 = select i1 %64, i1 true, i1 %67
-  br i1 %or.cond100, label %78, label %83
+76:                                               ; preds = %70, %71
+  br i1 %63, label %77, label %88
 
-78:                                               ; preds = %77
-  %79 = tail call double @llvm.fabs.f64(double %30)
-  %80 = fcmp oeq double %79, 0x7FF0000000000000
-  %81 = tail call double @llvm.fabs.f64(double %8)
-  %82 = fcmp oeq double %81, 0x7FF0000000000000
-  %or.cond102 = select i1 %80, i1 true, i1 %82
-  br i1 %or.cond102, label %83, label %95
+77:                                               ; preds = %76
+  %78 = tail call double @llvm.fabs.f64(double %28)
+  %79 = fcmp oeq double %78, 0x7FF0000000000000
+  %80 = tail call double @llvm.fabs.f64(double %10)
+  %81 = fcmp oeq double %80, 0x7FF0000000000000
+  %or.cond104 = select i1 %79, i1 true, i1 %81
+  br i1 %or.cond104, label %89, label %82
 
-83:                                               ; preds = %77, %78
-  br i1 %69, label %84, label %96
+82:                                               ; preds = %77
+  %83 = tail call double @llvm.fabs.f64(double %32)
+  %84 = fcmp oeq double %83, 0x7FF0000000000000
+  %85 = tail call double @llvm.fabs.f64(double %8)
+  %86 = fcmp oeq double %85, 0x7FF0000000000000
+  %or.cond106 = select i1 %84, i1 true, i1 %86
+  br i1 %or.cond106, label %89, label %87
 
-84:                                               ; preds = %83
-  %85 = extractelement <2 x double> %26, i64 1
-  %86 = tail call double @llvm.fabs.f64(double %85)
-  %87 = fcmp oeq double %86, 0x7FF0000000000000
-  %88 = tail call double @llvm.fabs.f64(double %10)
-  %89 = fcmp oeq double %88, 0x7FF0000000000000
-  %or.cond104 = select i1 %87, i1 true, i1 %89
-  br i1 %or.cond104, label %98, label %90
-
-90:                                               ; preds = %84
-  %91 = tail call double @llvm.fabs.f64(double %30)
-  %92 = fcmp oeq double %91, 0x7FF0000000000000
-  %93 = tail call double @llvm.fabs.f64(double %8)
-  %94 = fcmp oeq double %93, 0x7FF0000000000000
-  %or.cond106 = select i1 %92, i1 true, i1 %94
-  br i1 %or.cond106, label %98, label %95
-
-95:                                               ; preds = %90, %78, %71
+87:                                               ; preds = %82, %71, %65
   tail call void @float_overflow_error() #21
   unreachable
 
-96:                                               ; preds = %83
-  %.082 = select i1 %62, double 0x7FF8000000000000, double %52
-  %.083 = select i1 %67, double 0x7FF8000000000000, double %65
-  %97 = insertelement <2 x double> %57, double %.083, i64 0
-  br label %106
+88:                                               ; preds = %76
+  %.082 = select i1 %57, double 0x7FF8000000000000, double %49
+  %.083 = select i1 %61, double 0x7FF8000000000000, double %51
+  br label %94
 
-98:                                               ; preds = %90, %84
-  %.082111 = select i1 %62, double 0x7FF8000000000000, double %52
-  %.083112 = select i1 %67, double 0x7FF8000000000000, double %65
-  %99 = insertelement <2 x double> <double poison, double 0x7FF8000000000000>, double %.083112, i64 0
-  br label %106
+89:                                               ; preds = %82, %77
+  %.082111 = select i1 %57, double 0x7FF8000000000000, double %49
+  %.083112 = select i1 %61, double 0x7FF8000000000000, double %51
+  br label %94
 
-100:                                              ; preds = %check_float8_array.exit
-  %101 = load double, ptr %32, align 8
-  %102 = tail call double @llvm.fabs.f64(double %10)
-  %or.cond108 = fcmp ueq double %102, 0x7FF0000000000000
-  %.186 = select i1 %or.cond108, double 0x7FF8000000000000, double %101
-  %.2 = select i1 %or.cond108, double 0x7FF8000000000000, double %28
-  %103 = tail call double @llvm.fabs.f64(double %8)
-  %or.cond110 = fcmp ueq double %103, 0x7FF0000000000000
-  %104 = insertelement <2 x double> %33, double %.186, i64 1
-  br i1 %or.cond110, label %105, label %106
+90:                                               ; preds = %check_float8_array.exit
+  %91 = tail call double @llvm.fabs.f64(double %10)
+  %or.cond108 = fcmp ueq double %91, 0x7FF0000000000000
+  %.186 = select i1 %or.cond108, double 0x7FF8000000000000, double %36
+  %.2 = select i1 %or.cond108, double 0x7FF8000000000000, double %30
+  %92 = tail call double @llvm.fabs.f64(double %8)
+  %or.cond110 = fcmp ueq double %92, 0x7FF0000000000000
+  br i1 %or.cond110, label %93, label %94
 
-105:                                              ; preds = %100
-  br label %106
+93:                                               ; preds = %90
+  br label %94
 
-106:                                              ; preds = %96, %100, %39, %105, %98
-  %.085 = phi double [ 0x7FF8000000000000, %98 ], [ %58, %96 ], [ 0x7FF8000000000000, %105 ], [ %58, %39 ], [ %.186, %100 ]
-  %.1 = phi double [ %.082111, %98 ], [ %.082, %96 ], [ %.2, %105 ], [ %52, %39 ], [ %.2, %100 ]
-  %107 = phi <2 x double> [ %99, %98 ], [ %97, %96 ], [ <double 0x7FF8000000000000, double 0x7FF8000000000000>, %105 ], [ %57, %39 ], [ %104, %100 ]
-  %108 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
-  %.not = icmp eq i32 %108, 0
-  br i1 %.not, label %111, label %109
+94:                                               ; preds = %88, %90, %41, %93, %89
+  %.085 = phi double [ 0x7FF8000000000000, %89 ], [ %53, %88 ], [ 0x7FF8000000000000, %93 ], [ %53, %41 ], [ %.186, %90 ]
+  %.184 = phi double [ %.083112, %89 ], [ %.083, %88 ], [ 0x7FF8000000000000, %93 ], [ %51, %41 ], [ %34, %90 ]
+  %.1 = phi double [ %.082111, %89 ], [ %.082, %88 ], [ %.2, %93 ], [ %49, %41 ], [ %.2, %90 ]
+  %95 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
+  %.not = icmp eq i32 %95, 0
+  br i1 %.not, label %97, label %96
 
-109:                                              ; preds = %106
-  store <2 x double> %35, ptr %25, align 8
-  store double %.1, ptr %27, align 8
-  store double %36, ptr %29, align 8
-  %110 = extractelement <2 x double> %107, i64 0
-  store double %110, ptr %31, align 8
-  store double %.085, ptr %32, align 8
-  br label %116
+96:                                               ; preds = %94
+  store double %37, ptr %25, align 8
+  store double %38, ptr %27, align 8
+  store double %.1, ptr %29, align 8
+  store double %39, ptr %31, align 8
+  store double %.184, ptr %33, align 8
+  store double %.085, ptr %35, align 8
+  br label %104
 
-111:                                              ; preds = %106
-  store <2 x double> %35, ptr %2, align 16
-  %112 = getelementptr inbounds i8, ptr %2, i64 16
-  store double %.1, ptr %112, align 16
-  %113 = getelementptr inbounds i8, ptr %2, i64 24
-  store double %36, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %2, i64 32
-  store <2 x double> %107, ptr %114, align 16
-  %115 = call ptr @construct_array(ptr noundef nonnull %2, i32 noundef 6, i32 noundef 701, i32 noundef 8, i1 noundef zeroext true, i8 noundef signext 100) #19
-  br label %116
+97:                                               ; preds = %94
+  store double %37, ptr %2, align 16
+  %98 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %38, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %2, i64 16
+  store double %.1, ptr %99, align 16
+  %100 = getelementptr inbounds i8, ptr %2, i64 24
+  store double %39, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %2, i64 32
+  store double %.184, ptr %101, align 16
+  %102 = getelementptr inbounds i8, ptr %2, i64 40
+  store double %.085, ptr %102, align 8
+  %103 = call ptr @construct_array(ptr noundef nonnull %2, i32 noundef 6, i32 noundef 701, i32 noundef 8, i1 noundef zeroext true, i8 noundef signext 100) #19
+  br label %104
 
-116:                                              ; preds = %111, %109
-  %.0.in = phi ptr [ %6, %109 ], [ %115, %111 ]
+104:                                              ; preds = %97, %96
+  %.0.in = phi ptr [ %6, %96 ], [ %103, %97 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -5180,174 +5167,171 @@ check_float8_array.exit:                          ; preds = %19
 
 check_float8_array.exit118:                       ; preds = %34
   %40 = getelementptr i8, ptr %10, i64 24
-  %41 = getelementptr i8, ptr %6, i64 40
-  %42 = load double, ptr %41, align 8
-  %43 = getelementptr i8, ptr %6, i64 48
-  %44 = load double, ptr %43, align 8
-  %45 = getelementptr i8, ptr %6, i64 56
-  %46 = load double, ptr %45, align 8
-  %47 = getelementptr i8, ptr %6, i64 64
-  %48 = load double, ptr %47, align 8
-  %49 = load <2 x double>, ptr %25, align 8
-  %50 = extractelement <2 x double> %49, i64 0
-  %51 = load <2 x double>, ptr %40, align 8
-  %52 = getelementptr i8, ptr %10, i64 40
-  %53 = load double, ptr %52, align 8
-  %54 = getelementptr i8, ptr %10, i64 48
-  %55 = load double, ptr %54, align 8
-  %56 = getelementptr i8, ptr %10, i64 56
-  %57 = load double, ptr %56, align 8
-  %58 = getelementptr i8, ptr %10, i64 64
-  %59 = load double, ptr %58, align 8
-  %60 = fcmp oeq double %50, 0.000000e+00
-  br i1 %60, label %133, label %61
+  %41 = load double, ptr %25, align 8
+  %42 = getelementptr i8, ptr %6, i64 32
+  %43 = load double, ptr %42, align 8
+  %44 = getelementptr i8, ptr %6, i64 40
+  %45 = load double, ptr %44, align 8
+  %46 = getelementptr i8, ptr %6, i64 48
+  %47 = load double, ptr %46, align 8
+  %48 = getelementptr i8, ptr %6, i64 56
+  %49 = load double, ptr %48, align 8
+  %50 = getelementptr i8, ptr %6, i64 64
+  %51 = load double, ptr %50, align 8
+  %52 = load double, ptr %40, align 8
+  %53 = getelementptr i8, ptr %10, i64 32
+  %54 = load double, ptr %53, align 8
+  %55 = getelementptr i8, ptr %10, i64 40
+  %56 = load double, ptr %55, align 8
+  %57 = getelementptr i8, ptr %10, i64 48
+  %58 = load double, ptr %57, align 8
+  %59 = getelementptr i8, ptr %10, i64 56
+  %60 = load double, ptr %59, align 8
+  %61 = getelementptr i8, ptr %10, i64 64
+  %62 = load double, ptr %61, align 8
+  %63 = fcmp oeq double %41, 0.000000e+00
+  br i1 %63, label %128, label %64
 
-61:                                               ; preds = %check_float8_array.exit118
-  %62 = extractelement <2 x double> %51, i64 0
-  %63 = fcmp oeq double %62, 0.000000e+00
-  br i1 %63, label %133, label %64
+64:                                               ; preds = %check_float8_array.exit118
+  %65 = fcmp oeq double %52, 0.000000e+00
+  br i1 %65, label %128, label %66
 
-64:                                               ; preds = %61
-  %65 = fadd <2 x double> %49, %51
-  %66 = extractelement <2 x double> %65, i64 1
-  %67 = extractelement <2 x double> %65, i64 0
-  %68 = tail call double @llvm.fabs.f64(double %66)
-  %69 = fcmp une double %68, 0x7FF0000000000000
-  %70 = shufflevector <2 x double> %51, <2 x double> %49, <2 x i32> <i32 1, i32 3>
-  %71 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %70)
-  %72 = fcmp oeq <2 x double> %71, <double 0x7FF0000000000000, double 0x7FF0000000000000>
-  %73 = extractelement <2 x i1> %72, i64 1
-  %or.cond.i = or i1 %73, %69
-  %74 = extractelement <2 x i1> %72, i64 0
+66:                                               ; preds = %64
+  %67 = fadd double %41, %52
+  %68 = fadd double %43, %54
+  %69 = tail call double @llvm.fabs.f64(double %68)
+  %70 = fcmp une double %69, 0x7FF0000000000000
+  %71 = tail call double @llvm.fabs.f64(double %43)
+  %72 = fcmp oeq double %71, 0x7FF0000000000000
+  %or.cond.i = or i1 %72, %70
+  %73 = tail call double @llvm.fabs.f64(double %54)
+  %74 = fcmp oeq double %73, 0x7FF0000000000000
   %or.cond8.i = or i1 %74, %or.cond.i
   br i1 %or.cond8.i, label %float8_pl.exit, label %75
 
-75:                                               ; preds = %64
+75:                                               ; preds = %66
   tail call void @float_overflow_error() #21
   unreachable
 
-float8_pl.exit:                                   ; preds = %64
-  %76 = shufflevector <2 x double> %49, <2 x double> %51, <2 x i32> <i32 1, i32 3>
-  %77 = shufflevector <2 x double> %49, <2 x double> %51, <2 x i32> <i32 0, i32 2>
-  %78 = fdiv <2 x double> %76, %77
-  %shift = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %79 = fsub <2 x double> %78, %shift
-  %80 = fadd double %42, %53
-  %81 = fmul <2 x double> %49, %51
-  %82 = fmul <2 x double> %81, %79
-  %83 = fmul <2 x double> %79, %82
-  %84 = extractelement <2 x double> %83, i64 0
-  %85 = fdiv double %84, %67
-  %86 = fadd double %80, %85
-  %87 = tail call double @llvm.fabs.f64(double %86)
-  %88 = fcmp une double %87, 0x7FF0000000000000
-  %89 = tail call double @llvm.fabs.f64(double %42)
+float8_pl.exit:                                   ; preds = %66
+  %76 = fdiv double %43, %41
+  %77 = fdiv double %54, %52
+  %78 = fsub double %76, %77
+  %79 = fadd double %45, %56
+  %80 = fmul double %41, %52
+  %81 = fmul double %80, %78
+  %82 = fmul double %78, %81
+  %83 = fdiv double %82, %67
+  %84 = fadd double %79, %83
+  %85 = tail call double @llvm.fabs.f64(double %84)
+  %86 = fcmp une double %85, 0x7FF0000000000000
+  %87 = tail call double @llvm.fabs.f64(double %45)
+  %88 = fcmp oeq double %87, 0x7FF0000000000000
+  %or.cond = select i1 %86, i1 true, i1 %88
+  %89 = tail call double @llvm.fabs.f64(double %56)
   %90 = fcmp oeq double %89, 0x7FF0000000000000
-  %or.cond = select i1 %88, i1 true, i1 %90
-  %91 = tail call double @llvm.fabs.f64(double %53)
-  %92 = fcmp oeq double %91, 0x7FF0000000000000
-  %or.cond105 = select i1 %or.cond, i1 true, i1 %92
-  br i1 %or.cond105, label %94, label %93
+  %or.cond105 = select i1 %or.cond, i1 true, i1 %90
+  br i1 %or.cond105, label %92, label %91
 
-93:                                               ; preds = %float8_pl.exit
+91:                                               ; preds = %float8_pl.exit
   tail call void @float_overflow_error() #21
   unreachable
 
-94:                                               ; preds = %float8_pl.exit
-  %95 = fadd double %44, %55
-  %96 = tail call double @llvm.fabs.f64(double %95)
-  %97 = fcmp une double %96, 0x7FF0000000000000
-  %98 = tail call double @llvm.fabs.f64(double %44)
+92:                                               ; preds = %float8_pl.exit
+  %93 = fadd double %47, %58
+  %94 = tail call double @llvm.fabs.f64(double %93)
+  %95 = fcmp une double %94, 0x7FF0000000000000
+  %96 = tail call double @llvm.fabs.f64(double %47)
+  %97 = fcmp oeq double %96, 0x7FF0000000000000
+  %or.cond.i119 = or i1 %97, %95
+  %98 = tail call double @llvm.fabs.f64(double %58)
   %99 = fcmp oeq double %98, 0x7FF0000000000000
-  %or.cond.i119 = or i1 %99, %97
-  %100 = tail call double @llvm.fabs.f64(double %55)
-  %101 = fcmp oeq double %100, 0x7FF0000000000000
-  %or.cond8.i120 = or i1 %101, %or.cond.i119
-  br i1 %or.cond8.i120, label %float8_pl.exit121, label %102
+  %or.cond8.i120 = or i1 %99, %or.cond.i119
+  br i1 %or.cond8.i120, label %float8_pl.exit121, label %100
 
-102:                                              ; preds = %94
+100:                                              ; preds = %92
   tail call void @float_overflow_error() #21
   unreachable
 
-float8_pl.exit121:                                ; preds = %94
-  %103 = insertelement <2 x double> poison, double %44, i64 0
-  %104 = insertelement <2 x double> %103, double %55, i64 1
-  %105 = fdiv <2 x double> %104, %77
-  %shift122 = shufflevector <2 x double> %105, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %106 = fsub <2 x double> %105, %shift122
-  %107 = fadd double %46, %57
-  %108 = fmul <2 x double> %81, %106
-  %109 = fmul <2 x double> %106, %108
-  %110 = extractelement <2 x double> %109, i64 0
-  %111 = fdiv double %110, %67
-  %112 = fadd double %107, %111
-  %113 = tail call double @llvm.fabs.f64(double %112)
-  %114 = fcmp une double %113, 0x7FF0000000000000
-  %115 = tail call double @llvm.fabs.f64(double %46)
-  %116 = fcmp oeq double %115, 0x7FF0000000000000
-  %or.cond107 = select i1 %114, i1 true, i1 %116
-  %117 = tail call double @llvm.fabs.f64(double %57)
-  %118 = fcmp oeq double %117, 0x7FF0000000000000
-  %or.cond109 = select i1 %or.cond107, i1 true, i1 %118
-  br i1 %or.cond109, label %120, label %119
+float8_pl.exit121:                                ; preds = %92
+  %101 = fdiv double %47, %41
+  %102 = fdiv double %58, %52
+  %103 = fsub double %101, %102
+  %104 = fadd double %49, %60
+  %105 = fmul double %80, %103
+  %106 = fmul double %103, %105
+  %107 = fdiv double %106, %67
+  %108 = fadd double %104, %107
+  %109 = tail call double @llvm.fabs.f64(double %108)
+  %110 = fcmp une double %109, 0x7FF0000000000000
+  %111 = tail call double @llvm.fabs.f64(double %49)
+  %112 = fcmp oeq double %111, 0x7FF0000000000000
+  %or.cond107 = select i1 %110, i1 true, i1 %112
+  %113 = tail call double @llvm.fabs.f64(double %60)
+  %114 = fcmp oeq double %113, 0x7FF0000000000000
+  %or.cond109 = select i1 %or.cond107, i1 true, i1 %114
+  br i1 %or.cond109, label %116, label %115
 
-119:                                              ; preds = %float8_pl.exit121
+115:                                              ; preds = %float8_pl.exit121
   tail call void @float_overflow_error() #21
   unreachable
 
-120:                                              ; preds = %float8_pl.exit121
-  %121 = fadd double %48, %59
-  %122 = fmul <2 x double> %82, %106
-  %123 = extractelement <2 x double> %122, i64 0
-  %124 = fdiv double %123, %67
-  %125 = fadd double %121, %124
-  %126 = tail call double @llvm.fabs.f64(double %125)
-  %127 = fcmp une double %126, 0x7FF0000000000000
-  %128 = tail call double @llvm.fabs.f64(double %48)
-  %129 = fcmp oeq double %128, 0x7FF0000000000000
-  %or.cond111 = select i1 %127, i1 true, i1 %129
-  %130 = tail call double @llvm.fabs.f64(double %59)
-  %131 = fcmp oeq double %130, 0x7FF0000000000000
-  %or.cond113 = select i1 %or.cond111, i1 true, i1 %131
-  br i1 %or.cond113, label %133, label %132
+116:                                              ; preds = %float8_pl.exit121
+  %117 = fadd double %51, %62
+  %118 = fmul double %81, %103
+  %119 = fdiv double %118, %67
+  %120 = fadd double %117, %119
+  %121 = tail call double @llvm.fabs.f64(double %120)
+  %122 = fcmp une double %121, 0x7FF0000000000000
+  %123 = tail call double @llvm.fabs.f64(double %51)
+  %124 = fcmp oeq double %123, 0x7FF0000000000000
+  %or.cond111 = select i1 %122, i1 true, i1 %124
+  %125 = tail call double @llvm.fabs.f64(double %62)
+  %126 = fcmp oeq double %125, 0x7FF0000000000000
+  %or.cond113 = select i1 %or.cond111, i1 true, i1 %126
+  br i1 %or.cond113, label %128, label %127
 
-132:                                              ; preds = %120
+127:                                              ; preds = %116
   tail call void @float_overflow_error() #21
   unreachable
 
-133:                                              ; preds = %61, %check_float8_array.exit118, %120
-  %.0100 = phi double [ %125, %120 ], [ %59, %check_float8_array.exit118 ], [ %48, %61 ]
-  %.099 = phi double [ %112, %120 ], [ %57, %check_float8_array.exit118 ], [ %46, %61 ]
-  %.098 = phi double [ %95, %120 ], [ %55, %check_float8_array.exit118 ], [ %44, %61 ]
-  %.097 = phi double [ %86, %120 ], [ %53, %check_float8_array.exit118 ], [ %42, %61 ]
-  %134 = phi <2 x double> [ %65, %120 ], [ %51, %check_float8_array.exit118 ], [ %49, %61 ]
-  %135 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
-  %.not = icmp eq i32 %135, 0
-  br i1 %.not, label %137, label %136
+128:                                              ; preds = %64, %check_float8_array.exit118, %116
+  %.0100 = phi double [ %120, %116 ], [ %62, %check_float8_array.exit118 ], [ %51, %64 ]
+  %.099 = phi double [ %108, %116 ], [ %60, %check_float8_array.exit118 ], [ %49, %64 ]
+  %.098 = phi double [ %93, %116 ], [ %58, %check_float8_array.exit118 ], [ %47, %64 ]
+  %.097 = phi double [ %84, %116 ], [ %56, %check_float8_array.exit118 ], [ %45, %64 ]
+  %.096 = phi double [ %68, %116 ], [ %54, %check_float8_array.exit118 ], [ %43, %64 ]
+  %.095 = phi double [ %67, %116 ], [ %52, %check_float8_array.exit118 ], [ %41, %64 ]
+  %129 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
+  %.not = icmp eq i32 %129, 0
+  br i1 %.not, label %131, label %130
 
-136:                                              ; preds = %133
-  store <2 x double> %134, ptr %25, align 8
-  store double %.097, ptr %41, align 8
-  store double %.098, ptr %43, align 8
-  store double %.099, ptr %45, align 8
-  store double %.0100, ptr %47, align 8
-  br label %143
+130:                                              ; preds = %128
+  store double %.095, ptr %25, align 8
+  store double %.096, ptr %42, align 8
+  store double %.097, ptr %44, align 8
+  store double %.098, ptr %46, align 8
+  store double %.099, ptr %48, align 8
+  store double %.0100, ptr %50, align 8
+  br label %138
 
-137:                                              ; preds = %133
-  store <2 x double> %134, ptr %2, align 16
-  %138 = getelementptr inbounds i8, ptr %2, i64 16
-  store double %.097, ptr %138, align 16
-  %139 = getelementptr inbounds i8, ptr %2, i64 24
-  store double %.098, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %2, i64 32
-  store double %.099, ptr %140, align 16
-  %141 = getelementptr inbounds i8, ptr %2, i64 40
-  store double %.0100, ptr %141, align 8
-  %142 = call ptr @construct_array(ptr noundef nonnull %2, i32 noundef 6, i32 noundef 701, i32 noundef 8, i1 noundef zeroext true, i8 noundef signext 100) #19
-  br label %143
+131:                                              ; preds = %128
+  store double %.095, ptr %2, align 16
+  %132 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %.096, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %2, i64 16
+  store double %.097, ptr %133, align 16
+  %134 = getelementptr inbounds i8, ptr %2, i64 24
+  store double %.098, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %2, i64 32
+  store double %.099, ptr %135, align 16
+  %136 = getelementptr inbounds i8, ptr %2, i64 40
+  store double %.0100, ptr %136, align 8
+  %137 = call ptr @construct_array(ptr noundef nonnull %2, i32 noundef 6, i32 noundef 701, i32 noundef 8, i1 noundef zeroext true, i8 noundef signext 100) #19
+  br label %138
 
-143:                                              ; preds = %137, %136
-  %.0.in = phi ptr [ %6, %136 ], [ %142, %137 ]
+138:                                              ; preds = %131, %130
+  %.0.in = phi ptr [ %6, %130 ], [ %137, %131 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -5878,40 +5862,39 @@ check_float8_array.exit:                          ; preds = %14
   %22 = getelementptr i8, ptr %5, i64 40
   %23 = load double, ptr %22, align 8
   %24 = getelementptr i8, ptr %5, i64 56
-  %25 = load <2 x double>, ptr %24, align 8
-  %26 = fcmp olt double %21, 1.000000e+00
-  br i1 %26, label %27, label %29
-
-27:                                               ; preds = %check_float8_array.exit
-  %28 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %28, align 4
-  br label %43
+  %25 = load double, ptr %24, align 8
+  %26 = getelementptr i8, ptr %5, i64 64
+  %27 = load double, ptr %26, align 8
+  %28 = fcmp olt double %21, 1.000000e+00
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %check_float8_array.exit
-  %30 = fcmp oeq double %23, 0.000000e+00
-  br i1 %30, label %31, label %33
+  %30 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %30, align 4
+  br label %42
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %32, align 4
-  br label %43
+31:                                               ; preds = %check_float8_array.exit
+  %32 = fcmp oeq double %23, 0.000000e+00
+  br i1 %32, label %33, label %35
 
-33:                                               ; preds = %29
-  %34 = extractelement <2 x double> %25, i64 0
-  %35 = fcmp oeq double %34, 0.000000e+00
-  br i1 %35, label %43, label %36
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %34, align 4
+  br label %42
 
-36:                                               ; preds = %33
-  %37 = insertelement <2 x double> %25, double %23, i64 0
-  %38 = fmul <2 x double> %37, %25
-  %39 = extractelement <2 x double> %38, i64 0
-  %40 = extractelement <2 x double> %38, i64 1
-  %41 = fdiv double %40, %39
-  %42 = bitcast double %41 to i64
-  br label %43
+35:                                               ; preds = %31
+  %36 = fcmp oeq double %25, 0.000000e+00
+  br i1 %36, label %42, label %37
 
-43:                                               ; preds = %33, %36, %31, %27
-  %.0 = phi i64 [ 0, %27 ], [ 0, %31 ], [ %42, %36 ], [ 4607182418800017408, %33 ]
+37:                                               ; preds = %35
+  %38 = fmul double %27, %27
+  %39 = fmul double %23, %25
+  %40 = fdiv double %38, %39
+  %41 = bitcast double %40 to i64
+  br label %42
+
+42:                                               ; preds = %35, %37, %33, %29
+  %.0 = phi i64 [ 0, %29 ], [ 0, %33 ], [ %41, %37 ], [ 4607182418800017408, %35 ]
   ret i64 %.0
 }
 
@@ -6642,11 +6625,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
 
 33:                                               ; preds = %24
   %34 = fcmp olt double %5, %7
-  br i1 %34, label %35, label %70
+  br i1 %34, label %35, label %66
 
 35:                                               ; preds = %33
   %36 = fcmp olt double %3, %5
-  br i1 %36, label %111, label %37
+  br i1 %36, label %103, label %37
 
 37:                                               ; preds = %35
   %38 = fcmp ult double %3, %7
@@ -6656,7 +6639,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   %40 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %10, i32 1)
   %41 = extractvalue { i32, i1 } %40, 1
   %42 = extractvalue { i32, i1 } %40, 0
-  br i1 %41, label %43, label %111
+  br i1 %41, label %43, label %103
 
 43:                                               ; preds = %39
   %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
@@ -6676,104 +6659,96 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
 52:                                               ; preds = %47
   %53 = fsub double %3, %5
   %54 = fdiv double %53, %48
-  br label %66
+  br label %62
 
 55:                                               ; preds = %47
-  %56 = insertelement <2 x double> poison, double %3, i64 0
-  %57 = insertelement <2 x double> %56, double %7, i64 1
-  %58 = fmul <2 x double> %57, <double 5.000000e-01, double 5.000000e-01>
-  %59 = fmul double %5, 5.000000e-01
-  %60 = insertelement <2 x double> poison, double %59, i64 0
-  %61 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> zeroinitializer
-  %62 = fsub <2 x double> %58, %61
-  %63 = extractelement <2 x double> %62, i64 0
-  %64 = extractelement <2 x double> %62, i64 1
-  %65 = fdiv double %63, %64
-  br label %66
+  %56 = fmul double %3, 5.000000e-01
+  %57 = fmul double %5, 5.000000e-01
+  %58 = fsub double %56, %57
+  %59 = fmul double %7, 5.000000e-01
+  %60 = fsub double %59, %57
+  %61 = fdiv double %58, %60
+  br label %62
 
-66:                                               ; preds = %55, %52
-  %.sink = phi double [ %65, %55 ], [ %54, %52 ]
-  %67 = fmul double %.sink, %51
-  %storemerge57 = fptosi double %67 to i32
+62:                                               ; preds = %55, %52
+  %.sink = phi double [ %61, %55 ], [ %54, %52 ]
+  %63 = fmul double %.sink, %51
+  %storemerge57 = fptosi double %63 to i32
   %.not58 = icmp sgt i32 %10, %storemerge57
-  %68 = add nsw i32 %10, -1
-  %spec.select = select i1 %.not58, i32 %storemerge57, i32 %68
-  %69 = add i32 %spec.select, 1
-  br label %111
+  %64 = add nsw i32 %10, -1
+  %spec.select = select i1 %.not58, i32 %storemerge57, i32 %64
+  %65 = add i32 %spec.select, 1
+  br label %103
 
-70:                                               ; preds = %33
-  %71 = fcmp ogt double %5, %7
-  br i1 %71, label %72, label %107
+66:                                               ; preds = %33
+  %67 = fcmp ogt double %5, %7
+  br i1 %67, label %68, label %99
+
+68:                                               ; preds = %66
+  %69 = fcmp ogt double %3, %5
+  br i1 %69, label %103, label %70
+
+70:                                               ; preds = %68
+  %71 = fcmp ugt double %3, %7
+  br i1 %71, label %80, label %72
 
 72:                                               ; preds = %70
-  %73 = fcmp ogt double %3, %5
-  br i1 %73, label %111, label %74
+  %73 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %10, i32 1)
+  %74 = extractvalue { i32, i1 } %73, 1
+  %75 = extractvalue { i32, i1 } %73, 0
+  br i1 %74, label %76, label %103
 
-74:                                               ; preds = %72
-  %75 = fcmp ugt double %3, %7
-  br i1 %75, label %84, label %76
-
-76:                                               ; preds = %74
-  %77 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %10, i32 1)
-  %78 = extractvalue { i32, i1 } %77, 1
-  %79 = extractvalue { i32, i1 } %77, 0
-  br i1 %78, label %80, label %111
-
-80:                                               ; preds = %76
-  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %81)
-  %82 = tail call i32 @errcode(i32 noundef 50331778) #19
-  %83 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #19
+76:                                               ; preds = %72
+  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  tail call void @llvm.assume(i1 %77)
+  %78 = tail call i32 @errcode(i32 noundef 50331778) #19
+  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #19
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4155, ptr noundef nonnull @__func__.width_bucket_float8) #19
   unreachable
 
-84:                                               ; preds = %74
-  %85 = fsub double %5, %7
-  %86 = tail call double @llvm.fabs.f64(double %85)
-  %87 = fcmp oeq double %86, 0x7FF0000000000000
-  %88 = uitofp nneg i32 %10 to double
-  br i1 %87, label %92, label %89
+80:                                               ; preds = %70
+  %81 = fsub double %5, %7
+  %82 = tail call double @llvm.fabs.f64(double %81)
+  %83 = fcmp oeq double %82, 0x7FF0000000000000
+  %84 = uitofp nneg i32 %10 to double
+  br i1 %83, label %88, label %85
 
-89:                                               ; preds = %84
-  %90 = fsub double %5, %3
-  %91 = fdiv double %90, %85
-  br label %103
+85:                                               ; preds = %80
+  %86 = fsub double %5, %3
+  %87 = fdiv double %86, %81
+  br label %95
 
-92:                                               ; preds = %84
-  %93 = fmul double %5, 5.000000e-01
-  %94 = insertelement <2 x double> poison, double %3, i64 0
-  %95 = insertelement <2 x double> %94, double %7, i64 1
-  %96 = fmul <2 x double> %95, <double 5.000000e-01, double 5.000000e-01>
-  %97 = insertelement <2 x double> poison, double %93, i64 0
-  %98 = shufflevector <2 x double> %97, <2 x double> poison, <2 x i32> zeroinitializer
-  %99 = fsub <2 x double> %98, %96
-  %100 = extractelement <2 x double> %99, i64 0
-  %101 = extractelement <2 x double> %99, i64 1
-  %102 = fdiv double %100, %101
-  br label %103
+88:                                               ; preds = %80
+  %89 = fmul double %5, 5.000000e-01
+  %90 = fmul double %3, 5.000000e-01
+  %91 = fsub double %89, %90
+  %92 = fmul double %7, 5.000000e-01
+  %93 = fsub double %89, %92
+  %94 = fdiv double %91, %93
+  br label %95
 
-103:                                              ; preds = %92, %89
-  %.sink64 = phi double [ %102, %92 ], [ %91, %89 ]
-  %104 = fmul double %.sink64, %88
-  %storemerge = fptosi double %104 to i32
+95:                                               ; preds = %88, %85
+  %.sink64 = phi double [ %94, %88 ], [ %87, %85 ]
+  %96 = fmul double %.sink64, %84
+  %storemerge = fptosi double %96 to i32
   %.not = icmp sgt i32 %10, %storemerge
-  %105 = add nsw i32 %10, -1
-  %spec.select63 = select i1 %.not, i32 %storemerge, i32 %105
-  %106 = add i32 %spec.select63, 1
-  br label %111
+  %97 = add nsw i32 %10, -1
+  %spec.select63 = select i1 %.not, i32 %storemerge, i32 %97
+  %98 = add i32 %spec.select63, 1
+  br label %103
 
-107:                                              ; preds = %70
-  %108 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %108)
-  %109 = tail call i32 @errcode(i32 noundef 386138242) #19
-  %110 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50) #19
+99:                                               ; preds = %66
+  %100 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  tail call void @llvm.assume(i1 %100)
+  %101 = tail call i32 @errcode(i32 noundef 386138242) #19
+  %102 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50) #19
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4172, ptr noundef nonnull @__func__.width_bucket_float8) #19
   unreachable
 
-111:                                              ; preds = %72, %35, %103, %76, %39, %66
-  %.0 = phi i32 [ %69, %66 ], [ %42, %39 ], [ %106, %103 ], [ %79, %76 ], [ 0, %35 ], [ 0, %72 ]
-  %112 = sext i32 %.0 to i64
-  ret i64 %112
+103:                                              ; preds = %68, %35, %95, %72, %39, %62
+  %.0 = phi i32 [ %65, %62 ], [ %42, %39 ], [ %98, %95 ], [ %75, %72 ], [ 0, %35 ], [ 0, %68 ]
+  %104 = sext i32 %.0 to i64
+  ret i64 %104
 }
 
 declare zeroext i1 @pg_strong_random(ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -6800,12 +6775,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #16
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

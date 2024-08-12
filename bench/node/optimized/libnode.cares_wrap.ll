@@ -1540,12 +1540,16 @@ entry:
   %sock_state_cb_data = getelementptr inbounds i8, ptr %options, i64 80
   store ptr %this, ptr %sock_state_cb_data, align 8
   %timeout_ = getelementptr inbounds i8, ptr %this, i64 76
+  %1 = load i32, ptr %timeout_, align 4
   %timeout = getelementptr inbounds i8, ptr %options, i64 4
-  %1 = load <2 x i32>, ptr %timeout_, align 4
-  store <2 x i32> %1, ptr %timeout, align 4
+  store i32 %1, ptr %timeout, align 4
+  %tries_ = getelementptr inbounds i8, ptr %this, i64 80
+  %2 = load i32, ptr %tries_, align 8
+  %tries = getelementptr inbounds i8, ptr %options, i64 8
+  store i32 %2, ptr %tries, align 8
   %library_inited_ = getelementptr inbounds i8, ptr %this, i64 74
-  %2 = load i8, ptr %library_inited_, align 2
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %library_inited_, align 2
+  %tobool = trunc i8 %3 to i1
   br i1 %tobool, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1560,27 +1564,27 @@ cleanup.thread:                                   ; preds = %if.then
 
 if.then2:                                         ; preds = %if.then
   %realm_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds i8, ptr %3, i64 176
-  %4 = load ptr, ptr %env_.i.i, align 8
-  %5 = icmp ult i32 %call, 25
-  br i1 %5, label %switch.lookup, label %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit
+  %4 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = load ptr, ptr %env_.i.i, align 8
+  %6 = icmp ult i32 %call, 25
+  br i1 %6, label %switch.lookup, label %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit
 
 switch.lookup:                                    ; preds = %if.then2
   %switch.tableidx = add nsw i32 %call, -1
-  %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [24 x ptr], ptr @switch.table._ZN4node10cares_wrap9QueryWrapINS0_13ReverseTraitsEE10ParseErrorEi, i64 0, i64 %6
+  %7 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [24 x ptr], ptr @switch.table._ZN4node10cares_wrap9QueryWrapINS0_13ReverseTraitsEE10ParseErrorEi, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit
 
 _ZN4node10cares_wrap17ToErrorCodeStringEi.exit:   ; preds = %if.then2, %switch.lookup
   %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.109, %if.then2 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i.i)
-  %isolate_.i.i.i = getelementptr inbounds i8, ptr %4, i64 88
-  %7 = load ptr, ptr %isolate_.i.i.i, align 8
-  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i, ptr noundef %7) #20
+  %isolate_.i.i.i = getelementptr inbounds i8, ptr %5, i64 88
   %8 = load ptr, ptr %isolate_.i.i.i, align 8
-  %call.i.i.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %retval.0.i, i32 noundef 0, i32 noundef -1) #20
+  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i, ptr noundef %8) #20
+  %9 = load ptr, ptr %isolate_.i.i.i, align 8
+  %call.i.i.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull %retval.0.i, i32 noundef 0, i32 noundef -1) #20
   %cmp.i.i.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %cleanup
 
@@ -1590,7 +1594,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4node10cares_wra
 
 cleanup:                                          ; preds = %if.then.i.i.i.i, %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit
   %call11.i.i = call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr %call.i.i.i) #20
-  %call18.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr %call11.i.i) #20
+  %call18.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr %call11.i.i) #20
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i.i)
   call void @uv_mutex_unlock(ptr noundef nonnull @_ZN4node10cares_wrap12_GLOBAL__N_118ares_library_mutexE) #20
@@ -1606,27 +1610,27 @@ if.then8:                                         ; preds = %if.end5
   call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node10cares_wrap12_GLOBAL__N_118ares_library_mutexE) #20
   call void @ares_library_cleanup() #20
   %realm_.i4 = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load ptr, ptr %realm_.i4, align 8
-  %env_.i.i5 = getelementptr inbounds i8, ptr %9, i64 176
-  %10 = load ptr, ptr %env_.i.i5, align 8
-  %11 = icmp ult i32 %call6, 25
-  br i1 %11, label %switch.lookup41, label %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit31
+  %10 = load ptr, ptr %realm_.i4, align 8
+  %env_.i.i5 = getelementptr inbounds i8, ptr %10, i64 176
+  %11 = load ptr, ptr %env_.i.i5, align 8
+  %12 = icmp ult i32 %call6, 25
+  br i1 %12, label %switch.lookup41, label %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit31
 
 switch.lookup41:                                  ; preds = %if.then8
   %switch.tableidx42 = add nsw i32 %call6, -1
-  %12 = sext i32 %switch.tableidx42 to i64
-  %switch.gep43 = getelementptr inbounds [24 x ptr], ptr @switch.table._ZN4node10cares_wrap9QueryWrapINS0_13ReverseTraitsEE10ParseErrorEi, i64 0, i64 %12
+  %13 = sext i32 %switch.tableidx42 to i64
+  %switch.gep43 = getelementptr inbounds [24 x ptr], ptr @switch.table._ZN4node10cares_wrap9QueryWrapINS0_13ReverseTraitsEE10ParseErrorEi, i64 0, i64 %13
   %switch.load44 = load ptr, ptr %switch.gep43, align 8
   br label %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit31
 
 _ZN4node10cares_wrap17ToErrorCodeStringEi.exit31: ; preds = %if.then8, %switch.lookup41
   %retval.0.i7 = phi ptr [ %switch.load44, %switch.lookup41 ], [ @.str.109, %if.then8 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i.i32)
-  %isolate_.i.i.i33 = getelementptr inbounds i8, ptr %10, i64 88
-  %13 = load ptr, ptr %isolate_.i.i.i33, align 8
-  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i32, ptr noundef %13) #20
+  %isolate_.i.i.i33 = getelementptr inbounds i8, ptr %11, i64 88
   %14 = load ptr, ptr %isolate_.i.i.i33, align 8
-  %call.i.i.i34 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %14, ptr noundef nonnull %retval.0.i7, i32 noundef 0, i32 noundef -1) #20
+  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i32, ptr noundef %14) #20
+  %15 = load ptr, ptr %isolate_.i.i.i33, align 8
+  %call.i.i.i34 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %15, ptr noundef nonnull %retval.0.i7, i32 noundef 0, i32 noundef -1) #20
   %cmp.i.i.i.i.i35 = icmp eq ptr %call.i.i.i34, null
   br i1 %cmp.i.i.i.i.i35, label %if.then.i.i.i.i38, label %_ZN4node11Environment10ThrowErrorEPKc.exit39
 
@@ -1636,7 +1640,7 @@ if.then.i.i.i.i38:                                ; preds = %_ZN4node10cares_wra
 
 _ZN4node11Environment10ThrowErrorEPKc.exit39:     ; preds = %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit31, %if.then.i.i.i.i38
   %call11.i.i36 = call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr %call.i.i.i34) #20
-  %call18.i.i37 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr %call11.i.i36) #20
+  %call18.i.i37 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr %call11.i.i36) #20
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i32) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i.i32)
   call void @uv_mutex_unlock(ptr noundef nonnull @_ZN4node10cares_wrap12_GLOBAL__N_118ares_library_mutexE) #20

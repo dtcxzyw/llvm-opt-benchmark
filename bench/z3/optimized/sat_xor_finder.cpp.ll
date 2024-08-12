@@ -2243,8 +2243,9 @@ _ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i.i:      ; preds = %lor.lhs.false.i12, 
   %idx.ext.i17 = zext i32 %18 to i64
   %add.ptr.i18 = getelementptr inbounds %class.svector.20, ptr %19, i64 %idx.ext.i17
   store ptr null, ptr %add.ptr.i18, align 8
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 -4
+  %20 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %arrayidx.i11.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 -8
-  %20 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i, align 4
   %21 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %21 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
@@ -2252,8 +2253,9 @@ _ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i.i:      ; preds = %lor.lhs.false.i12, 
           to label %_ZNK6vectorIbLb0EjE3endEv.exit.i.i.i.i unwind label %lpad.loopexit.split-lp
 
 _ZNK6vectorIbLb0EjE3endEv.exit.i.i.i.i:           ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i.i
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 -4
-  store <2 x i32> %20, ptr %call3.i.i.i.i26, align 4
+  store i32 %21, ptr %call3.i.i.i.i26, align 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i26, i64 4
+  store i32 %20, ptr %incdec.ptr.i.i.i.i, align 4
   %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i26, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %add.ptr.i18, align 8
   %22 = load i32, ptr %arrayidx.i.i.i.i.i, align 4

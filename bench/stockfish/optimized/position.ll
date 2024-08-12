@@ -3860,7 +3860,7 @@ define dso_local void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef no
   %15 = and i16 %1, -16384
   switch i16 %15, label %._crit_edge [
     i16 16384, label %.thread
-    i16 -16384, label %58
+    i16 -16384, label %62
   ]
 
 ._crit_edge:                                      ; preds = %2
@@ -3868,7 +3868,7 @@ define dso_local void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef no
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 256
   %.pre11 = load i64, ptr %.phi.trans.insert, align 8
   %.pre12 = shl nuw i64 1, %13
-  br label %60
+  br label %64
 
 .thread:                                          ; preds = %2
   %16 = load i32, ptr %14, align 4
@@ -3916,101 +3916,106 @@ define dso_local void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef no
   %52 = load i64, ptr %51, align 8
   %53 = or i64 %52, %18
   store i64 %53, ptr %51, align 8
-  %54 = zext i32 %42 to i64
+  %54 = zext i32 %43 to i64
   %55 = getelementptr inbounds [16 x i32], ptr %32, i64 0, i64 %54
-  %56 = load <2 x i32>, ptr %55, align 8
-  %57 = add nsw <2 x i32> %56, <i32 1, i32 1>
-  store <2 x i32> %57, ptr %55, align 8
-  br label %60
+  %56 = load i32, ptr %55, align 4
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %55, align 4
+  %58 = zext i32 %42 to i64
+  %59 = getelementptr inbounds [16 x i32], ptr %32, i64 0, i64 %58
+  %60 = load i32, ptr %59, align 8
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %59, align 8
+  br label %64
 
-58:                                               ; preds = %2
-  %59 = zext nneg i16 %10 to i32
-  call void @_ZN9Stockfish8Position11do_castlingILb0EEEvNS_5ColorENS_6SquareERS3_S4_S4_(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %8, i32 noundef %59, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %114
+62:                                               ; preds = %2
+  %63 = zext nneg i16 %10 to i32
+  call void @_ZN9Stockfish8Position11do_castlingILb0EEEvNS_5ColorENS_6SquareERS3_S4_S4_(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %8, i32 noundef %63, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %118
 
-60:                                               ; preds = %._crit_edge, %.thread
+64:                                               ; preds = %._crit_edge, %.thread
   %.pre-phi = phi i64 [ %.pre12, %._crit_edge ], [ %18, %.thread ]
-  %61 = phi i64 [ %.pre11, %._crit_edge ], [ %48, %.thread ]
-  %62 = phi i32 [ %.pre, %._crit_edge ], [ %43, %.thread ]
-  %63 = zext nneg i16 %10 to i64
-  %64 = shl nuw i64 1, %63
-  %65 = or i64 %64, %.pre-phi
-  %66 = getelementptr inbounds i8, ptr %0, i64 256
-  %67 = xor i64 %61, %65
-  store i64 %67, ptr %66, align 8
-  %68 = and i32 %62, 7
-  %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds [8 x i64], ptr %66, i64 0, i64 %69
-  %71 = load i64, ptr %70, align 8
-  %72 = xor i64 %71, %65
-  store i64 %72, ptr %70, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 320
-  %74 = ashr i32 %62, 3
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds [2 x i64], ptr %73, i64 0, i64 %75
-  %77 = load i64, ptr %76, align 8
-  %78 = xor i64 %77, %65
-  store i64 %78, ptr %76, align 8
+  %65 = phi i64 [ %.pre11, %._crit_edge ], [ %48, %.thread ]
+  %66 = phi i32 [ %.pre, %._crit_edge ], [ %43, %.thread ]
+  %67 = zext nneg i16 %10 to i64
+  %68 = shl nuw i64 1, %67
+  %69 = or i64 %68, %.pre-phi
+  %70 = getelementptr inbounds i8, ptr %0, i64 256
+  %71 = xor i64 %65, %69
+  store i64 %71, ptr %70, align 8
+  %72 = and i32 %66, 7
+  %73 = zext nneg i32 %72 to i64
+  %74 = getelementptr inbounds [8 x i64], ptr %70, i64 0, i64 %73
+  %75 = load i64, ptr %74, align 8
+  %76 = xor i64 %75, %69
+  store i64 %76, ptr %74, align 8
+  %77 = getelementptr inbounds i8, ptr %0, i64 320
+  %78 = ashr i32 %66, 3
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr inbounds [2 x i64], ptr %77, i64 0, i64 %79
+  %81 = load i64, ptr %80, align 8
+  %82 = xor i64 %81, %69
+  store i64 %82, ptr %80, align 8
   store i32 0, ptr %14, align 4
-  %79 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %63
-  store i32 %62, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %0, i64 848
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 160
-  %83 = load i32, ptr %82, align 32
-  %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %114, label %84
+  %83 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %67
+  store i32 %66, ptr %83, align 4
+  %84 = getelementptr inbounds i8, ptr %0, i64 848
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 160
+  %87 = load i32, ptr %86, align 32
+  %.not = icmp eq i32 %87, 0
+  br i1 %.not, label %118, label %88
 
-84:                                               ; preds = %60
-  %85 = icmp eq i16 %15, -32768
-  %86 = icmp eq i32 %7, 1
-  %.neg = select i1 %86, i32 -8, i32 8
-  %87 = select i1 %85, i32 %.neg, i32 0
-  %.0 = add nsw i32 %87, %12
-  %88 = sext i32 %.0 to i64
-  %89 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %88
-  store i32 %83, ptr %89, align 4
-  %90 = and i32 %83, 7
-  %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds [8 x i64], ptr %66, i64 0, i64 %91
-  %93 = zext nneg i32 %.0 to i64
-  %94 = shl nuw i64 1, %93
-  %95 = load i64, ptr %92, align 8
-  %96 = or i64 %95, %94
-  store i64 %96, ptr %92, align 8
-  %97 = load i64, ptr %66, align 8
-  %98 = or i64 %97, %96
-  store i64 %98, ptr %66, align 8
-  %99 = ashr i32 %83, 3
-  %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds [2 x i64], ptr %73, i64 0, i64 %100
-  %102 = load i64, ptr %101, align 8
-  %103 = or i64 %102, %94
-  store i64 %103, ptr %101, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 336
-  %105 = zext i32 %83 to i64
-  %106 = getelementptr inbounds [16 x i32], ptr %104, i64 0, i64 %105
-  %107 = load i32, ptr %106, align 4
-  %108 = add nsw i32 %107, 1
-  store i32 %108, ptr %106, align 4
-  %109 = and i32 %83, -8
-  %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds [16 x i32], ptr %104, i64 0, i64 %110
-  %112 = load i32, ptr %111, align 8
-  %113 = add nsw i32 %112, 1
-  store i32 %113, ptr %111, align 8
-  br label %114
+88:                                               ; preds = %64
+  %89 = icmp eq i16 %15, -32768
+  %90 = icmp eq i32 %7, 1
+  %.neg = select i1 %90, i32 -8, i32 8
+  %91 = select i1 %89, i32 %.neg, i32 0
+  %.0 = add nsw i32 %91, %12
+  %92 = sext i32 %.0 to i64
+  %93 = getelementptr inbounds [64 x i32], ptr %0, i64 0, i64 %92
+  store i32 %87, ptr %93, align 4
+  %94 = and i32 %87, 7
+  %95 = zext nneg i32 %94 to i64
+  %96 = getelementptr inbounds [8 x i64], ptr %70, i64 0, i64 %95
+  %97 = zext nneg i32 %.0 to i64
+  %98 = shl nuw i64 1, %97
+  %99 = load i64, ptr %96, align 8
+  %100 = or i64 %99, %98
+  store i64 %100, ptr %96, align 8
+  %101 = load i64, ptr %70, align 8
+  %102 = or i64 %101, %100
+  store i64 %102, ptr %70, align 8
+  %103 = ashr i32 %87, 3
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds [2 x i64], ptr %77, i64 0, i64 %104
+  %106 = load i64, ptr %105, align 8
+  %107 = or i64 %106, %98
+  store i64 %107, ptr %105, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 336
+  %109 = zext i32 %87 to i64
+  %110 = getelementptr inbounds [16 x i32], ptr %108, i64 0, i64 %109
+  %111 = load i32, ptr %110, align 4
+  %112 = add nsw i32 %111, 1
+  store i32 %112, ptr %110, align 4
+  %113 = and i32 %87, -8
+  %114 = zext i32 %113 to i64
+  %115 = getelementptr inbounds [16 x i32], ptr %108, i64 0, i64 %114
+  %116 = load i32, ptr %115, align 8
+  %117 = add nsw i32 %116, 1
+  store i32 %117, ptr %115, align 8
+  br label %118
 
-114:                                              ; preds = %60, %84, %58
-  %115 = getelementptr inbounds i8, ptr %0, i64 848
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 56
-  %118 = load ptr, ptr %117, align 8
-  store ptr %118, ptr %115, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 856
-  %120 = load i32, ptr %119, align 8
-  %121 = add nsw i32 %120, -1
-  store i32 %121, ptr %119, align 8
+118:                                              ; preds = %64, %88, %62
+  %119 = getelementptr inbounds i8, ptr %0, i64 848
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 56
+  %122 = load ptr, ptr %121, align 8
+  store ptr %122, ptr %119, align 8
+  %123 = getelementptr inbounds i8, ptr %0, i64 856
+  %124 = load i32, ptr %123, align 8
+  %125 = add nsw i32 %124, -1
+  store i32 %125, ptr %123, align 8
   ret void
 }
 

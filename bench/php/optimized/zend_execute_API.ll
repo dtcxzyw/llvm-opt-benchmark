@@ -87,8 +87,10 @@ define hidden void @init_executor() local_unnamed_addr #0 {
   store ptr getelementptr inbounds (i8, ptr @executor_globals, i64 32), ptr getelementptr inbounds (i8, ptr @executor_globals, i64 296), align 8
   store ptr getelementptr inbounds (i8, ptr @executor_globals, i64 288), ptr getelementptr inbounds (i8, ptr @executor_globals, i64 288), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 532), align 4
-  %1 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
-  store <2 x ptr> %1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
+  store ptr %1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 536), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 800), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 993), align 1
@@ -114,18 +116,18 @@ define hidden void @init_executor() local_unnamed_addr #0 {
   store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1012), align 4
   store ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1024), ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) getelementptr inbounds (i8, ptr @executor_globals, i64 1024), i8 0, i64 256, i1 false)
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
-  %4 = load i32, ptr %3, align 8
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 520), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load i32, ptr %6, align 8
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 524), align 4
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 528), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = load i32, ptr %4, align 8
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 520), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load i32, ptr %7, align 8
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 524), align 4
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 528), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1680), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @executor_globals, i64 1624), i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (i8, ptr @executor_globals, i64 1684), i8 0, i64 20, i1 false)

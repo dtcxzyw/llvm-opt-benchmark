@@ -7235,59 +7235,81 @@ define linkonce_odr void @_ZSt11make_uniqueISt3anyJN3gmx24MttkPropagatorConnecti
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %4, align 8
   %5 = invoke noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #31
-          to label %6 unwind label %38
+          to label %6 unwind label %50
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
-  %9 = load <2 x ptr>, ptr %1, align 8
-  %10 = load ptr, ptr %7, align 8
+  %7 = load ptr, ptr %1, align 8
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  %11 = load ptr, ptr %8, align 8
-  %12 = shufflevector <2 x ptr> %9, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %13 = insertelement <4 x ptr> %12, ptr %10, i64 2
-  %14 = insertelement <4 x ptr> %13, ptr %11, i64 3
-  store <4 x ptr> %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
-  %18 = load <2 x ptr>, ptr %16, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %19 = load <2 x ptr>, ptr %17, align 8
-  %20 = shufflevector <2 x ptr> %18, <2 x ptr> %19, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x ptr> %20, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 64
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
-  %23 = getelementptr inbounds i8, ptr %1, i64 72
-  %24 = getelementptr inbounds i8, ptr %1, i64 88
-  %25 = load ptr, ptr %22, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  %26 = load <2 x ptr>, ptr %23, align 8
-  %27 = load ptr, ptr %24, align 8
-  %28 = insertelement <4 x ptr> poison, ptr %25, i64 0
-  %29 = shufflevector <2 x ptr> %26, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %30 = shufflevector <4 x ptr> %28, <4 x ptr> %29, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %31 = insertelement <4 x ptr> %30, ptr %27, i64 3
-  store <4 x ptr> %31, ptr %21, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  %32 = getelementptr inbounds i8, ptr %5, i64 96
-  %33 = getelementptr inbounds i8, ptr %1, i64 96
-  %34 = load <2 x ptr>, ptr %33, align 8
-  store <2 x ptr> %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 112
-  %36 = getelementptr inbounds i8, ptr %1, i64 112
+  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 40
+  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  %23 = getelementptr inbounds i8, ptr %5, i64 48
+  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %5, i64 56
+  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %5, i64 64
+  %30 = getelementptr inbounds i8, ptr %1, i64 64
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %29, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  %32 = getelementptr inbounds i8, ptr %5, i64 72
+  %33 = getelementptr inbounds i8, ptr %1, i64 72
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %32, align 8
+  %35 = getelementptr inbounds i8, ptr %5, i64 80
+  %36 = getelementptr inbounds i8, ptr %1, i64 80
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %35, align 8
+  %38 = getelementptr inbounds i8, ptr %5, i64 88
+  %39 = getelementptr inbounds i8, ptr %1, i64 88
+  %40 = load ptr, ptr %39, align 8
+  store ptr %40, ptr %38, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
+  %41 = getelementptr inbounds i8, ptr %5, i64 96
+  %42 = getelementptr inbounds i8, ptr %1, i64 96
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %41, align 8
+  %44 = getelementptr inbounds i8, ptr %5, i64 104
+  %45 = getelementptr inbounds i8, ptr %1, i64 104
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %44, align 8
+  %47 = getelementptr inbounds i8, ptr %5, i64 112
+  %48 = getelementptr inbounds i8, ptr %1, i64 112
+  %49 = load ptr, ptr %48, align 8
+  store ptr %49, ptr %47, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   store ptr %5, ptr %4, align 8
   store ptr %3, ptr %0, align 8
   ret void
 
-38:                                               ; preds = %2
-  %39 = landingpad { ptr, i32 }
+50:                                               ; preds = %2
+  %51 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %3) #28
-  resume { ptr, i32 } %39
+  resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9190,56 +9212,89 @@ define void @_ZN3gmx11MttkElement20propagateEtaVelocityEl(ptr nocapture noundef 
   %51 = fmul double %50, %46
   %52 = fptrunc double %51 to float
   %53 = getelementptr inbounds i8, ptr %7, i64 80
-  %54 = load <8 x float>, ptr %53, align 4
-  %55 = insertelement <8 x float> poison, float %52, i64 0
-  %56 = shufflevector <8 x float> %55, <8 x float> poison, <8 x i32> zeroinitializer
-  %57 = fmul <8 x float> %54, %56
-  store <8 x float> %57, ptr %3, align 16
-  %58 = getelementptr inbounds i8, ptr %7, i64 112
-  %59 = load float, ptr %58, align 4
-  %60 = fmul float %59, %52
-  %61 = getelementptr inbounds i8, ptr %3, i64 32
-  store float %60, ptr %61, align 16
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
-  %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 12
-  %65 = load i32, ptr %64, align 4
-  %66 = load ptr, ptr %10, align 8
-  %67 = tail call noundef ptr @_ZNK3gmx19StatePropagatorData8constBoxEv(ptr noundef nonnull align 8 dereferenceable(632) %66)
-  %68 = call noundef float @_Z9calc_pres7PbcTypeiPA3_KfS2_S2_PA3_f(i32 noundef %63, i32 noundef %65, ptr noundef %67, ptr noundef nonnull %3, ptr noundef %9, ptr noundef nonnull %4)
-  %69 = load ptr, ptr %5, align 8
-  %70 = call noundef ptr @_ZN3gmx10EnergyData8enerdataEv(ptr noundef nonnull align 8 dereferenceable(552) %69)
-  %71 = getelementptr inbounds i8, ptr %70, i64 336
-  %72 = load float, ptr %71, align 4
-  %73 = fadd float %68, %72
-  %74 = fmul float %41, 3.000000e+00
-  %75 = fpext float %74 to double
-  %76 = getelementptr inbounds i8, ptr %0, i64 64
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
-  %79 = load float, ptr %78, align 8
-  %80 = fpext float %79 to double
-  %81 = fdiv double %80, 0x40309AFAE1F7C60E
-  %82 = fmul double %81, %75
-  %83 = getelementptr inbounds i8, ptr %77, i64 48
-  %84 = load float, ptr %83, align 8
-  %85 = fsub float %73, %84
-  %86 = fpext float %85 to double
-  %87 = fmul double %82, %86
-  %88 = fptrunc double %87 to float
-  %89 = getelementptr inbounds i8, ptr %77, i64 12
-  %90 = load float, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %0, i64 28
-  %92 = load float, ptr %91, align 4
-  %93 = call float @llvm.fmuladd.f32(float %92, float %88, float %90)
-  store float %93, ptr %89, align 4
-  %94 = fpext float %92 to double
-  %95 = getelementptr inbounds i8, ptr %77, i64 24
-  %96 = load double, ptr %95, align 8
-  %97 = fadd double %96, %94
-  store double %97, ptr %95, align 8
-  call void @_ZN3gmx8MttkData25calculateIntegralIfNeededEv(ptr noundef nonnull align 8 dereferenceable(152) %77)
-  call void @_ZN3gmx8MttkData20updateScalingFactorsEv(ptr noundef nonnull align 8 dereferenceable(152) %77)
+  %54 = load float, ptr %53, align 4
+  %55 = fmul float %54, %52
+  store float %55, ptr %3, align 16
+  %56 = getelementptr inbounds i8, ptr %7, i64 84
+  %57 = load float, ptr %56, align 4
+  %58 = fmul float %57, %52
+  %59 = getelementptr inbounds i8, ptr %3, i64 4
+  store float %58, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %7, i64 88
+  %61 = load float, ptr %60, align 4
+  %62 = fmul float %61, %52
+  %63 = getelementptr inbounds i8, ptr %3, i64 8
+  store float %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %7, i64 92
+  %65 = load float, ptr %64, align 4
+  %66 = fmul float %65, %52
+  %67 = getelementptr inbounds i8, ptr %3, i64 12
+  store float %66, ptr %67, align 4
+  %68 = getelementptr inbounds i8, ptr %7, i64 96
+  %69 = load float, ptr %68, align 4
+  %70 = fmul float %69, %52
+  %71 = getelementptr inbounds i8, ptr %3, i64 16
+  store float %70, ptr %71, align 16
+  %72 = getelementptr inbounds i8, ptr %7, i64 100
+  %73 = load float, ptr %72, align 4
+  %74 = fmul float %73, %52
+  %75 = getelementptr inbounds i8, ptr %3, i64 20
+  store float %74, ptr %75, align 4
+  %76 = getelementptr inbounds i8, ptr %7, i64 104
+  %77 = load float, ptr %76, align 4
+  %78 = fmul float %77, %52
+  %79 = getelementptr inbounds i8, ptr %3, i64 24
+  store float %78, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %7, i64 108
+  %81 = load float, ptr %80, align 4
+  %82 = fmul float %81, %52
+  %83 = getelementptr inbounds i8, ptr %3, i64 28
+  store float %82, ptr %83, align 4
+  %84 = getelementptr inbounds i8, ptr %7, i64 112
+  %85 = load float, ptr %84, align 4
+  %86 = fmul float %85, %52
+  %87 = getelementptr inbounds i8, ptr %3, i64 32
+  store float %86, ptr %87, align 16
+  %88 = getelementptr inbounds i8, ptr %0, i64 8
+  %89 = load i32, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 12
+  %91 = load i32, ptr %90, align 4
+  %92 = load ptr, ptr %10, align 8
+  %93 = tail call noundef ptr @_ZNK3gmx19StatePropagatorData8constBoxEv(ptr noundef nonnull align 8 dereferenceable(632) %92)
+  %94 = call noundef float @_Z9calc_pres7PbcTypeiPA3_KfS2_S2_PA3_f(i32 noundef %89, i32 noundef %91, ptr noundef %93, ptr noundef nonnull %3, ptr noundef %9, ptr noundef nonnull %4)
+  %95 = load ptr, ptr %5, align 8
+  %96 = call noundef ptr @_ZN3gmx10EnergyData8enerdataEv(ptr noundef nonnull align 8 dereferenceable(552) %95)
+  %97 = getelementptr inbounds i8, ptr %96, i64 336
+  %98 = load float, ptr %97, align 4
+  %99 = fadd float %94, %98
+  %100 = fmul float %41, 3.000000e+00
+  %101 = fpext float %100 to double
+  %102 = getelementptr inbounds i8, ptr %0, i64 64
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 16
+  %105 = load float, ptr %104, align 8
+  %106 = fpext float %105 to double
+  %107 = fdiv double %106, 0x40309AFAE1F7C60E
+  %108 = fmul double %107, %101
+  %109 = getelementptr inbounds i8, ptr %103, i64 48
+  %110 = load float, ptr %109, align 8
+  %111 = fsub float %99, %110
+  %112 = fpext float %111 to double
+  %113 = fmul double %108, %112
+  %114 = fptrunc double %113 to float
+  %115 = getelementptr inbounds i8, ptr %103, i64 12
+  %116 = load float, ptr %115, align 4
+  %117 = getelementptr inbounds i8, ptr %0, i64 28
+  %118 = load float, ptr %117, align 4
+  %119 = call float @llvm.fmuladd.f32(float %118, float %114, float %116)
+  store float %119, ptr %115, align 4
+  %120 = fpext float %118 to double
+  %121 = getelementptr inbounds i8, ptr %103, i64 24
+  %122 = load double, ptr %121, align 8
+  %123 = fadd double %122, %120
+  store double %123, ptr %121, align 8
+  call void @_ZN3gmx8MttkData25calculateIntegralIfNeededEv(ptr noundef nonnull align 8 dereferenceable(152) %103)
+  call void @_ZN3gmx8MttkData20updateScalingFactorsEv(ptr noundef nonnull align 8 dereferenceable(152) %103)
   ret void
 }
 
@@ -9738,10 +9793,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx20ElementNotFoundErrorE, i64 16), ptr %0, align 8
   ret void
@@ -9985,63 +10043,81 @@ define void @_ZN3gmx14MttkBoxScaling8scaleBoxEv(ptr nocapture noundef nonnull re
   %10 = load float, ptr %9, align 8
   %11 = fmul float %8, %10
   %12 = tail call noundef float @expf(float noundef %11) #27
-  %13 = getelementptr inbounds i8, ptr %4, i64 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 12
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
-  %17 = getelementptr inbounds i8, ptr %4, i64 20
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
-  %19 = getelementptr inbounds i8, ptr %4, i64 28
-  %20 = load <8 x float>, ptr %4, align 4
-  %21 = insertelement <8 x float> poison, float %12, i64 0
-  %22 = shufflevector <8 x float> %21, <8 x float> poison, <8 x i32> zeroinitializer
-  %23 = fmul <8 x float> %22, %20
-  store <8 x float> %23, ptr %4, align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = load float, ptr %4, align 4
+  %14 = fmul float %12, %13
+  store float %14, ptr %4, align 4
+  %15 = getelementptr inbounds i8, ptr %4, i64 4
+  %16 = load float, ptr %15, align 4
+  %17 = fmul float %12, %16
+  store float %17, ptr %15, align 4
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = load float, ptr %18, align 4
+  %20 = fmul float %12, %19
+  store float %20, ptr %18, align 4
+  %21 = getelementptr inbounds i8, ptr %4, i64 12
+  %22 = load float, ptr %21, align 4
+  %23 = fmul float %12, %22
+  store float %23, ptr %21, align 4
+  %24 = getelementptr inbounds i8, ptr %4, i64 16
   %25 = load float, ptr %24, align 4
   %26 = fmul float %12, %25
   store float %26, ptr %24, align 4
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
-  %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 52
-  %31 = extractelement <8 x float> %23, i64 0
-  %32 = fmul float %31, %29
+  %27 = getelementptr inbounds i8, ptr %4, i64 20
+  %28 = load float, ptr %27, align 4
+  %29 = fmul float %12, %28
+  store float %29, ptr %27, align 4
+  %30 = getelementptr inbounds i8, ptr %4, i64 24
+  %31 = load float, ptr %30, align 4
+  %32 = fmul float %12, %31
   store float %32, ptr %30, align 4
-  %33 = load float, ptr %13, align 4
-  %34 = fmul float %29, %33
-  %35 = getelementptr inbounds i8, ptr %27, i64 56
-  store float %34, ptr %35, align 4
-  %36 = load float, ptr %14, align 4
-  %37 = fmul float %29, %36
-  %38 = getelementptr inbounds i8, ptr %27, i64 60
-  store float %37, ptr %38, align 4
-  %39 = load float, ptr %15, align 4
-  %40 = fmul float %29, %39
-  %41 = getelementptr inbounds i8, ptr %27, i64 64
-  store float %40, ptr %41, align 4
-  %42 = load float, ptr %16, align 4
-  %43 = fmul float %29, %42
-  %44 = getelementptr inbounds i8, ptr %27, i64 68
-  store float %43, ptr %44, align 4
-  %45 = load float, ptr %17, align 4
-  %46 = fmul float %29, %45
-  %47 = getelementptr inbounds i8, ptr %27, i64 72
-  store float %46, ptr %47, align 4
-  %48 = load float, ptr %18, align 4
-  %49 = fmul float %29, %48
-  %50 = getelementptr inbounds i8, ptr %27, i64 76
-  store float %49, ptr %50, align 4
-  %51 = load float, ptr %19, align 4
-  %52 = fmul float %29, %51
-  %53 = getelementptr inbounds i8, ptr %27, i64 80
-  store float %52, ptr %53, align 4
-  %54 = load float, ptr %24, align 4
-  %55 = fmul float %29, %54
-  %56 = getelementptr inbounds i8, ptr %27, i64 84
-  store float %55, ptr %56, align 4
-  %57 = load ptr, ptr %5, align 8
-  tail call void @_ZN3gmx8MttkData25calculateIntegralIfNeededEv(ptr noundef nonnull align 8 dereferenceable(152) %57)
+  %33 = getelementptr inbounds i8, ptr %4, i64 28
+  %34 = load float, ptr %33, align 4
+  %35 = fmul float %12, %34
+  store float %35, ptr %33, align 4
+  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  %37 = load float, ptr %36, align 4
+  %38 = fmul float %12, %37
+  store float %38, ptr %36, align 4
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 12
+  %41 = load float, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %39, i64 52
+  %43 = fmul float %14, %41
+  store float %43, ptr %42, align 4
+  %44 = load float, ptr %15, align 4
+  %45 = fmul float %41, %44
+  %46 = getelementptr inbounds i8, ptr %39, i64 56
+  store float %45, ptr %46, align 4
+  %47 = load float, ptr %18, align 4
+  %48 = fmul float %41, %47
+  %49 = getelementptr inbounds i8, ptr %39, i64 60
+  store float %48, ptr %49, align 4
+  %50 = load float, ptr %21, align 4
+  %51 = fmul float %41, %50
+  %52 = getelementptr inbounds i8, ptr %39, i64 64
+  store float %51, ptr %52, align 4
+  %53 = load float, ptr %24, align 4
+  %54 = fmul float %41, %53
+  %55 = getelementptr inbounds i8, ptr %39, i64 68
+  store float %54, ptr %55, align 4
+  %56 = load float, ptr %27, align 4
+  %57 = fmul float %41, %56
+  %58 = getelementptr inbounds i8, ptr %39, i64 72
+  store float %57, ptr %58, align 4
+  %59 = load float, ptr %30, align 4
+  %60 = fmul float %41, %59
+  %61 = getelementptr inbounds i8, ptr %39, i64 76
+  store float %60, ptr %61, align 4
+  %62 = load float, ptr %33, align 4
+  %63 = fmul float %41, %62
+  %64 = getelementptr inbounds i8, ptr %39, i64 80
+  store float %63, ptr %64, align 4
+  %65 = load float, ptr %36, align 4
+  %66 = fmul float %41, %65
+  %67 = getelementptr inbounds i8, ptr %39, i64 84
+  store float %66, ptr %67, align 4
+  %68 = load ptr, ptr %5, align 8
+  tail call void @_ZN3gmx8MttkData25calculateIntegralIfNeededEv(ptr noundef nonnull align 8 dereferenceable(152) %68)
   ret void
 }
 

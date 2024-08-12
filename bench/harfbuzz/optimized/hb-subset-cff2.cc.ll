@@ -3762,10 +3762,13 @@ if.end40:                                         ; preds = %if.then37, %while.e
   %bf.shl = shl nuw i32 %and, 2
   %bf.set.i36 = or disjoint i32 %bf.shl, 3
   store i32 %bf.set.i36, ptr %is_used_.i23, align 8
+  %27 = load i32, ptr %occupancy, align 8
+  %inc46 = add i32 %27, 1
+  store i32 %inc46, ptr %occupancy, align 8
   %population47 = getelementptr inbounds i8, ptr %this, i64 20
-  %27 = load <2 x i32>, ptr %population47, align 4
-  %28 = add <2 x i32> %27, <i32 1, i32 1>
-  store <2 x i32> %28, ptr %population47, align 4
+  %28 = load i32, ptr %population47, align 4
+  %inc48 = add i32 %28, 1
+  store i32 %inc48, ptr %population47, align 4
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %29 = load i16, ptr %max_chain_length, align 2
   %conv49 = zext i16 %29 to i32
@@ -3773,14 +3776,13 @@ if.end40:                                         ; preds = %if.then37, %while.e
   br i1 %cmp50, label %land.lhs.true51, label %return
 
 land.lhs.true51:                                  ; preds = %if.end40
-  %30 = extractelement <2 x i32> %28, i64 1
-  %mul = shl i32 %30, 3
-  %31 = load i32, ptr %mask, align 4
-  %cmp54 = icmp ugt i32 %mul, %31
+  %mul = shl i32 %inc46, 3
+  %30 = load i32, ptr %mask, align 4
+  %cmp54 = icmp ugt i32 %mul, %30
   br i1 %cmp54, label %if.then55, label %return
 
 if.then55:                                        ; preds = %land.lhs.true51
-  %sub57 = add i32 %31, -8
+  %sub57 = add i32 %30, -8
   %call58 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE5allocEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %sub57)
   br label %return
 
@@ -4335,10 +4337,13 @@ if.end40:                                         ; preds = %if.then37, %while.e
   %bf.shl = shl nuw i32 %and, 2
   %bf.set.i36 = or disjoint i32 %bf.shl, 3
   store i32 %bf.set.i36, ptr %is_used_.i23, align 8
+  %27 = load i32, ptr %occupancy, align 8
+  %inc46 = add i32 %27, 1
+  store i32 %inc46, ptr %occupancy, align 8
   %population47 = getelementptr inbounds i8, ptr %this, i64 20
-  %27 = load <2 x i32>, ptr %population47, align 4
-  %28 = add <2 x i32> %27, <i32 1, i32 1>
-  store <2 x i32> %28, ptr %population47, align 4
+  %28 = load i32, ptr %population47, align 4
+  %inc48 = add i32 %28, 1
+  store i32 %inc48, ptr %population47, align 4
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %29 = load i16, ptr %max_chain_length, align 2
   %conv49 = zext i16 %29 to i32
@@ -4346,14 +4351,13 @@ if.end40:                                         ; preds = %if.then37, %while.e
   br i1 %cmp50, label %land.lhs.true51, label %return
 
 land.lhs.true51:                                  ; preds = %if.end40
-  %30 = extractelement <2 x i32> %28, i64 1
-  %mul = shl i32 %30, 3
-  %31 = load i32, ptr %mask, align 4
-  %cmp54 = icmp ugt i32 %mul, %31
+  %mul = shl i32 %inc46, 3
+  %30 = load i32, ptr %mask, align 4
+  %cmp54 = icmp ugt i32 %mul, %30
   br i1 %cmp54, label %if.then55, label %return
 
 if.then55:                                        ; preds = %land.lhs.true51
-  %sub57 = add i32 %31, -8
+  %sub57 = add i32 %30, -8
   %call58 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE5allocEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %sub57)
   br label %return
 
@@ -13228,72 +13232,90 @@ if.end.i.i.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i
   store i16 0, ptr %max_chain_length3.i.i.i.i.i.i, align 2
   %population.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %population4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 20
-  %5 = load <4 x i32>, ptr %population4.i.i.i.i.i.i, align 4
-  store <4 x i32> %5, ptr %population.i.i.i.i.i.i, align 4
-  store <4 x i32> zeroinitializer, ptr %population4.i.i.i.i.i.i, align 4
+  %5 = load i32, ptr %population4.i.i.i.i.i.i, align 4
+  store i32 %5, ptr %population.i.i.i.i.i.i, align 4
+  store i32 0, ptr %population4.i.i.i.i.i.i, align 4
+  %occupancy.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %occupancy5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 24
+  %6 = load i32, ptr %occupancy5.i.i.i.i.i.i, align 4
+  store i32 %6, ptr %occupancy.i.i.i.i.i.i, align 4
+  store i32 0, ptr %occupancy5.i.i.i.i.i.i, align 4
+  %mask.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 28
+  %mask6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 28
+  %7 = load i32, ptr %mask6.i.i.i.i.i.i, align 4
+  store i32 %7, ptr %mask.i.i.i.i.i.i, align 4
+  store i32 0, ptr %mask6.i.i.i.i.i.i, align 4
+  %prime.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %prime7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 32
+  %8 = load i32, ptr %prime7.i.i.i.i.i.i, align 4
+  store i32 %8, ptr %prime.i.i.i.i.i.i, align 4
+  store i32 0, ptr %prime7.i.i.i.i.i.i, align 4
   %items8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 40
-  %6 = load ptr, ptr %items8.i.i.i.i.i.i, align 8
-  store ptr %6, ptr %items.i.i.i.i.i, align 8
+  %9 = load ptr, ptr %items8.i.i.i.i.i.i, align 8
+  store ptr %9, ptr %items.i.i.i.i.i, align 8
   store ptr null, ptr %items8.i.i.i.i.i.i, align 8
   br label %_ZN3CFF12subr_remap_taSEOS0_.exit
 
 _ZN3CFF12subr_remap_taSEOS0_.exit:                ; preds = %lor.lhs.false.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %back_map.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %back_map3.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 48
-  %length2.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 52
-  %7 = load <2 x i32>, ptr %back_map3.i.i, align 4
+  %10 = load i32, ptr %back_map3.i.i, align 4
+  store i32 %10, ptr %back_map.i.i, align 4
   store i32 0, ptr %back_map3.i.i, align 4
-  store <2 x i32> %7, ptr %back_map.i.i, align 4
+  %length.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 52
+  %length2.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 52
+  %11 = load i32, ptr %length2.i.i.i.i.i, align 4
+  store i32 %11, ptr %length.i.i.i.i.i, align 4
   store i32 0, ptr %length2.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %arrayZ3.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 56
-  %8 = load ptr, ptr %arrayZ3.i.i.i.i.i, align 8
-  store ptr %8, ptr %arrayZ.i.i.i.i.i, align 8
+  %12 = load ptr, ptr %arrayZ3.i.i.i.i.i, align 8
+  store ptr %12, ptr %arrayZ.i.i.i.i.i, align 8
   store ptr null, ptr %arrayZ3.i.i.i.i.i, align 8
   %bias.i = getelementptr inbounds i8, ptr %arrayidx6, i64 64
-  %9 = load i32, ptr %bias.i, align 8
+  %13 = load i32, ptr %bias.i, align 8
   %bias2.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
-  store i32 %9, ptr %bias2.i, align 8
-  %10 = load ptr, ptr %arrayZ4, align 8
-  %arrayidx12 = getelementptr inbounds %"struct.CFF::subr_remap_t", ptr %10, i64 %indvars.iv
+  store i32 %13, ptr %bias2.i, align 8
+  %14 = load ptr, ptr %arrayZ4, align 8
+  %arrayidx12 = getelementptr inbounds %"struct.CFF::subr_remap_t", ptr %14, i64 %indvars.iv
   %back_map.i.i10 = getelementptr inbounds i8, ptr %arrayidx12, i64 48
-  %11 = load i32, ptr %back_map.i.i10, align 8
-  %tobool.not.i.i.i.i = icmp eq i32 %11, 0
+  %15 = load i32, ptr %back_map.i.i10, align 8
+  %tobool.not.i.i.i.i = icmp eq i32 %15, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN11hb_vector_tIjLb0EED2Ev.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN3CFF12subr_remap_taSEOS0_.exit
   %length.i.i.i.i.i11 = getelementptr inbounds i8, ptr %arrayidx12, i64 52
   store i32 0, ptr %length.i.i.i.i.i11, align 4
   %arrayZ.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx12, i64 56
-  %12 = load ptr, ptr %arrayZ.i.i.i.i, align 8
-  tail call void @free(ptr noundef %12) #13
+  %16 = load ptr, ptr %arrayZ.i.i.i.i, align 8
+  tail call void @free(ptr noundef %16) #13
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit.i.i
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit.i.i:             ; preds = %if.then.i.i.i.i, %_ZN3CFF12subr_remap_taSEOS0_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %back_map.i.i10, i8 0, i64 16, i1 false)
   store atomic i32 -57005, ptr %arrayidx12 monotonic, align 4
   %user_data2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx12, i64 8
-  %13 = load atomic i64, ptr %user_data2.i.i.i.i.i.i acquire, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq i64 %13, 0
+  %17 = load atomic i64, ptr %user_data2.i.i.i.i.i.i acquire, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq i64 %17, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN11hb_vector_tIjLb0EED2Ev.exit.i.i
-  %14 = inttoptr i64 %13 to ptr
-  %items.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 40
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %14)
-  %call.i.i.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %14) #13
-  tail call void @free(ptr noundef nonnull %14) #13
+  %18 = inttoptr i64 %17 to ptr
+  %items.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 40
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %18)
+  %call.i.i.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %18) #13
+  tail call void @free(ptr noundef nonnull %18) #13
   store atomic i64 0, ptr %user_data2.i.i.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i.i
 
 _ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZN11hb_vector_tIjLb0EED2Ev.exit.i.i
   %items.i.i.i.i.i12 = getelementptr inbounds i8, ptr %arrayidx12, i64 40
-  %15 = load ptr, ptr %items.i.i.i.i.i12, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %15, null
+  %19 = load ptr, ptr %items.i.i.i.i.i12, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3CFF12subr_remap_tD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i.i.i
-  tail call void @free(ptr noundef nonnull %15) #13
+  tail call void @free(ptr noundef nonnull %19) #13
   store ptr null, ptr %items.i.i.i.i.i12, align 8
   br label %_ZN3CFF12subr_remap_tD2Ev.exit
 
@@ -13303,16 +13325,16 @@ _ZN3CFF12subr_remap_tD2Ev.exit:                   ; preds = %_ZL14hb_object_fini
   %population.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx12, i64 20
   store i32 0, ptr %population.i.i.i.i.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr %length, align 4
-  %17 = zext i32 %16 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %17
+  %20 = load i32, ptr %length, align 4
+  %21 = zext i32 %20 to i64
+  %cmp = icmp ult i64 %indvars.iv.next, %21
   br i1 %cmp, label %lor.lhs.false.i.i.i.i.i.i, label %return.sink.split, !llvm.loop !84
 
 return.sink.split:                                ; preds = %_ZN3CFF12subr_remap_tD2Ev.exit, %for.cond.preheader, %entry
   %retval.0.ph = phi ptr [ null, %entry ], [ %call, %for.cond.preheader ], [ %call, %_ZN3CFF12subr_remap_tD2Ev.exit ]
   %arrayZ13 = getelementptr inbounds i8, ptr %this, i64 8
-  %18 = load ptr, ptr %arrayZ13, align 8
-  tail call void @free(ptr noundef %18) #13
+  %22 = load ptr, ptr %arrayZ13, align 8
+  tail call void @free(ptr noundef %22) #13
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end
@@ -17360,10 +17382,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   %bf.shl = shl nuw i32 %and, 2
   %bf.set.i34 = or disjoint i32 %bf.shl, 3
   store i32 %bf.set.i34, ptr %is_used_.i21, align 4
+  %17 = load i32, ptr %occupancy, align 8
+  %inc39 = add i32 %17, 1
+  store i32 %inc39, ptr %occupancy, align 8
   %population40 = getelementptr inbounds i8, ptr %this, i64 20
-  %17 = load <2 x i32>, ptr %population40, align 4
-  %18 = add <2 x i32> %17, <i32 1, i32 1>
-  store <2 x i32> %18, ptr %population40, align 4
+  %18 = load i32, ptr %population40, align 4
+  %inc41 = add i32 %18, 1
+  store i32 %inc41, ptr %population40, align 4
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %19 = load i16, ptr %max_chain_length, align 2
   %conv42 = zext i16 %19 to i32
@@ -17371,14 +17396,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   br i1 %cmp43, label %land.lhs.true44, label %return
 
 land.lhs.true44:                                  ; preds = %if.end34
-  %20 = extractelement <2 x i32> %18, i64 1
-  %mul = shl i32 %20, 3
-  %21 = load i32, ptr %mask, align 4
-  %cmp47 = icmp ugt i32 %mul, %21
+  %mul = shl i32 %inc39, 3
+  %20 = load i32, ptr %mask, align 4
+  %cmp47 = icmp ugt i32 %mul, %20
   br i1 %cmp47, label %if.then48, label %return
 
 if.then48:                                        ; preds = %land.lhs.true44
-  %sub50 = add i32 %21, -8
+  %sub50 = add i32 %20, -8
   %call51 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE5allocEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %sub50)
   br label %return
 
@@ -18037,10 +18061,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   %bf.shl = shl nuw i32 %and, 2
   %bf.set.i34 = or disjoint i32 %bf.shl, 3
   store i32 %bf.set.i34, ptr %is_used_.i21, align 4
+  %17 = load i32, ptr %occupancy, align 8
+  %inc39 = add i32 %17, 1
+  store i32 %inc39, ptr %occupancy, align 8
   %population40 = getelementptr inbounds i8, ptr %this, i64 20
-  %17 = load <2 x i32>, ptr %population40, align 4
-  %18 = add <2 x i32> %17, <i32 1, i32 1>
-  store <2 x i32> %18, ptr %population40, align 4
+  %18 = load i32, ptr %population40, align 4
+  %inc41 = add i32 %18, 1
+  store i32 %inc41, ptr %population40, align 4
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %19 = load i16, ptr %max_chain_length, align 2
   %conv42 = zext i16 %19 to i32
@@ -18048,14 +18075,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   br i1 %cmp43, label %land.lhs.true44, label %return
 
 land.lhs.true44:                                  ; preds = %if.end34
-  %20 = extractelement <2 x i32> %18, i64 1
-  %mul = shl i32 %20, 3
-  %21 = load i32, ptr %mask, align 4
-  %cmp47 = icmp ugt i32 %mul, %21
+  %mul = shl i32 %inc39, 3
+  %20 = load i32, ptr %mask, align 4
+  %cmp47 = icmp ugt i32 %mul, %20
   br i1 %cmp47, label %if.then48, label %return
 
 if.then48:                                        ; preds = %land.lhs.true44
-  %sub50 = add i32 %21, -8
+  %sub50 = add i32 %20, -8
   %call51 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE5allocEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %sub50)
   br label %return
 
@@ -19854,6 +19880,9 @@ if.then16:                                        ; preds = %if.end14
   %seen_vsindex.i = getelementptr inbounds i8, ptr %env, i64 4132
   store i8 0, ptr %seen_vsindex.i, align 4
   %varStore = getelementptr inbounds i8, ptr %this, i64 8
+  %7 = load ptr, ptr %varStore, align 8
+  %normalized_coords = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %normalized_coords, align 8
   %agg.tmp.sroa.2.0.normalized_coords.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.normalized_coords.sroa_idx, align 8
   store ptr %c, ptr %param, align 8
@@ -19866,8 +19895,9 @@ if.then16:                                        ; preds = %if.end14
   %scalars.i = getelementptr inbounds i8, ptr %param, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scalars.i, i8 0, i64 16, i1 false)
   %varStore3.i = getelementptr inbounds i8, ptr %param, i64 40
-  %7 = load <2 x ptr>, ptr %varStore, align 8
-  store <2 x ptr> %7, ptr %varStore3.i, align 8
+  store ptr %7, ptr %varStore3.i, align 8
+  %normalized_coords4.i = getelementptr inbounds i8, ptr %param, i64 48
+  store ptr %agg.tmp.sroa.0.0.copyload, ptr %normalized_coords4.i, align 8
   %normalized_coords.sroa.2.0.normalized_coords4.sroa_idx.i = getelementptr inbounds i8, ptr %param, i64 56
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %normalized_coords.sroa.2.0.normalized_coords4.sroa_idx.i, align 8
   %argStack.i.i = getelementptr inbounds i8, ptr %env, i64 16

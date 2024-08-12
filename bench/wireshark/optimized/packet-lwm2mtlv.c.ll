@@ -1985,9 +1985,15 @@ define internal fastcc void @lwm2m_add_resource(ptr nocapture noundef %0, ptr no
   %47 = getelementptr inbounds i8, ptr %1, i64 32
   %48 = getelementptr inbounds i8, ptr %1, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 72
-  store ptr null, ptr %49, align 8
+  store i32 -1, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %1, i64 60
+  store i32 0, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %1, i64 64
+  store i32 0, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %1, i64 68
+  store i32 -1, ptr %51, align 4
+  %52 = getelementptr inbounds i8, ptr %1, i64 72
+  store ptr null, ptr %52, align 8
   ret void
 }
 

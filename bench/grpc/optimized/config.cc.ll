@@ -1303,10 +1303,13 @@ entry:
   %manager_.i.i.i = getelementptr inbounds i8, ptr %check_constraints_cb, i64 16
   %0 = load ptr, ptr %manager_.i.i.i, align 16
   tail call void %0(i1 noundef zeroext false, ptr noundef nonnull %check_constraints_cb, ptr noundef nonnull %call) #18
+  %1 = load ptr, ptr %manager_.i.i.i, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  store ptr %1, ptr %manager_5.i.i.i, align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %check_constraints_cb, i64 24
-  %1 = load <2 x ptr>, ptr %manager_.i.i.i, align 16
-  store <2 x ptr> %1, ptr %manager_5.i.i.i, align 16
+  %2 = load ptr, ptr %invoker_.i.i.i, align 8
+  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  store ptr %2, ptr %invoker_6.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   store ptr %call, ptr @_ZN9grpc_core12_GLOBAL__N_122g_check_constraints_cbE, align 8

@@ -604,7 +604,7 @@ define noundef ptr @Map_ManCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2
 
 6:                                                ; preds = %3
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %91
+  br label %101
 
 7:                                                ; preds = %3
   %calloc47 = tail call dereferenceable_or_null(1920) ptr @calloc(i64 1, i64 1920)
@@ -683,56 +683,66 @@ Map_TableCreate.exit:                             ; preds = %.preheader.i.i, %22
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %39, i8 0, i64 176, i1 false)
   %40 = getelementptr inbounds i8, ptr %38, i64 120
-  %41 = getelementptr inbounds i8, ptr %38, i64 136
-  store <2 x float> <float 0x47B9999980000000, float 0x47B9999980000000>, ptr %41, align 4
-  store <4 x float> <float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000>, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  %41 = getelementptr inbounds i8, ptr %38, i64 128
+  store float 0x47B9999980000000, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %38, i64 124
+  store float 0x47B9999980000000, ptr %42, align 4
+  store float 0x47B9999980000000, ptr %40, align 8
+  %43 = getelementptr inbounds i8, ptr %38, i64 132
+  %44 = getelementptr inbounds i8, ptr %38, i64 140
+  store float 0x47B9999980000000, ptr %44, align 4
+  %45 = getelementptr inbounds i8, ptr %38, i64 136
+  store float 0x47B9999980000000, ptr %45, align 4
+  store float 0x47B9999980000000, ptr %43, align 4
+  %46 = getelementptr inbounds i8, ptr %38, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   store ptr %calloc47, ptr %38, align 8
-  %43 = load i32, ptr %30, align 4
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %30, align 4
-  %45 = getelementptr inbounds i8, ptr %38, i64 16
-  store i32 %43, ptr %45, align 8
-  %46 = icmp sgt i32 %43, -1
-  br i1 %46, label %47, label %50
+  %47 = load i32, ptr %30, align 4
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %30, align 4
+  %49 = getelementptr inbounds i8, ptr %38, i64 16
+  store i32 %47, ptr %49, align 8
+  %50 = icmp sgt i32 %47, -1
+  br i1 %50, label %51, label %54
 
-47:                                               ; preds = %Map_TableCreate.exit
-  %48 = getelementptr inbounds i8, ptr %calloc47, i64 56
-  %49 = load ptr, ptr %48, align 8
-  tail call void @Map_NodeVecPush(ptr noundef %49, ptr noundef nonnull %38) #20
+51:                                               ; preds = %Map_TableCreate.exit
+  %52 = getelementptr inbounds i8, ptr %calloc47, i64 56
+  %53 = load ptr, ptr %52, align 8
+  tail call void @Map_NodeVecPush(ptr noundef %53, ptr noundef nonnull %38) #20
   br label %Map_NodeCreate.exit
 
-50:                                               ; preds = %Map_TableCreate.exit
-  %51 = getelementptr inbounds i8, ptr %38, i64 28
-  %52 = load i32, ptr %51, align 4
-  %53 = or i32 %52, 8
-  store i32 %53, ptr %51, align 4
+54:                                               ; preds = %Map_TableCreate.exit
+  %55 = getelementptr inbounds i8, ptr %38, i64 28
+  %56 = load i32, ptr %55, align 4
+  %57 = or i32 %56, 8
+  store i32 %57, ptr %55, align 4
   br label %Map_NodeCreate.exit
 
-Map_NodeCreate.exit:                              ; preds = %47, %50
-  %54 = getelementptr inbounds i8, ptr %38, i64 44
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %calloc47, i64 48
-  store ptr %38, ptr %55, align 8
-  %56 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #20
-  %57 = getelementptr inbounds i8, ptr %calloc47, i64 56
-  store ptr %56, ptr %57, align 8
-  %58 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #20
-  %59 = getelementptr inbounds i8, ptr %calloc47, i64 64
-  store ptr %58, ptr %59, align 8
-  %60 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #20
-  %61 = getelementptr inbounds i8, ptr %calloc47, i64 1760
-  store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %calloc47, i64 24
-  store i32 %0, ptr %62, align 8
-  %63 = sext i32 %0 to i64
-  %64 = shl nsw i64 %63, 3
-  %65 = tail call noalias ptr @malloc(i64 noundef %64) #21
-  %66 = getelementptr inbounds i8, ptr %calloc47, i64 16
+Map_NodeCreate.exit:                              ; preds = %51, %54
+  %58 = getelementptr inbounds i8, ptr %38, i64 44
+  %59 = getelementptr inbounds i8, ptr %38, i64 48
+  store float -1.000000e+00, ptr %59, align 4
+  store float -1.000000e+00, ptr %58, align 4
+  %60 = getelementptr inbounds i8, ptr %calloc47, i64 48
+  store ptr %38, ptr %60, align 8
+  %61 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #20
+  %62 = getelementptr inbounds i8, ptr %calloc47, i64 56
+  store ptr %61, ptr %62, align 8
+  %63 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #20
+  %64 = getelementptr inbounds i8, ptr %calloc47, i64 64
+  store ptr %63, ptr %64, align 8
+  %65 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #20
+  %66 = getelementptr inbounds i8, ptr %calloc47, i64 1760
   store ptr %65, ptr %66, align 8
-  %67 = icmp sgt i32 %0, 0
-  br i1 %67, label %.lr.ph.preheader, label %._crit_edge
+  %67 = getelementptr inbounds i8, ptr %calloc47, i64 24
+  store i32 %0, ptr %67, align 8
+  %68 = sext i32 %0 to i64
+  %69 = shl nsw i64 %68, 3
+  %70 = tail call noalias ptr @malloc(i64 noundef %69) #21
+  %71 = getelementptr inbounds i8, ptr %calloc47, i64 16
+  store ptr %70, ptr %71, align 8
+  %72 = icmp sgt i32 %0, 0
+  br i1 %72, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %Map_NodeCreate.exit
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -740,58 +750,68 @@ Map_NodeCreate.exit:                              ; preds = %47, %50
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Map_NodeCreate.exit40
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %Map_NodeCreate.exit40 ]
-  %68 = load ptr, ptr %34, align 8
-  %69 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %68) #20
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %70, i8 0, i64 176, i1 false)
-  %71 = getelementptr inbounds i8, ptr %69, i64 120
-  %72 = getelementptr inbounds i8, ptr %69, i64 136
-  store <2 x float> <float 0x47B9999980000000, float 0x47B9999980000000>, ptr %72, align 4
-  store <4 x float> <float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000>, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %69, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
-  store ptr %calloc47, ptr %69, align 8
-  %74 = load i32, ptr %30, align 4
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %30, align 4
-  %76 = getelementptr inbounds i8, ptr %69, i64 16
-  store i32 %74, ptr %76, align 8
-  %77 = icmp sgt i32 %74, -1
-  br i1 %77, label %78, label %80
+  %73 = load ptr, ptr %34, align 8
+  %74 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %73) #20
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %75, i8 0, i64 176, i1 false)
+  %76 = getelementptr inbounds i8, ptr %74, i64 120
+  %77 = getelementptr inbounds i8, ptr %74, i64 128
+  store float 0x47B9999980000000, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %74, i64 124
+  store float 0x47B9999980000000, ptr %78, align 4
+  store float 0x47B9999980000000, ptr %76, align 8
+  %79 = getelementptr inbounds i8, ptr %74, i64 132
+  %80 = getelementptr inbounds i8, ptr %74, i64 140
+  store float 0x47B9999980000000, ptr %80, align 4
+  %81 = getelementptr inbounds i8, ptr %74, i64 136
+  store float 0x47B9999980000000, ptr %81, align 4
+  store float 0x47B9999980000000, ptr %79, align 4
+  %82 = getelementptr inbounds i8, ptr %74, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
+  store ptr %calloc47, ptr %74, align 8
+  %83 = load i32, ptr %30, align 4
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %30, align 4
+  %85 = getelementptr inbounds i8, ptr %74, i64 16
+  store i32 %83, ptr %85, align 8
+  %86 = icmp sgt i32 %83, -1
+  br i1 %86, label %87, label %89
 
-78:                                               ; preds = %.lr.ph
-  %79 = load ptr, ptr %57, align 8
-  tail call void @Map_NodeVecPush(ptr noundef %79, ptr noundef nonnull %69) #20
+87:                                               ; preds = %.lr.ph
+  %88 = load ptr, ptr %62, align 8
+  tail call void @Map_NodeVecPush(ptr noundef %88, ptr noundef nonnull %74) #20
   br label %Map_NodeCreate.exit40
 
-80:                                               ; preds = %.lr.ph
-  %81 = getelementptr inbounds i8, ptr %69, i64 28
-  %82 = load i32, ptr %81, align 4
-  %83 = or i32 %82, 8
-  store i32 %83, ptr %81, align 4
+89:                                               ; preds = %.lr.ph
+  %90 = getelementptr inbounds i8, ptr %74, i64 28
+  %91 = load i32, ptr %90, align 4
+  %92 = or i32 %91, 8
+  store i32 %92, ptr %90, align 4
   br label %Map_NodeCreate.exit40
 
-Map_NodeCreate.exit40:                            ; preds = %78, %80
-  %84 = getelementptr inbounds i8, ptr %69, i64 44
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %84, align 4
-  %85 = load ptr, ptr %66, align 8
-  %86 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv
-  store ptr %69, ptr %86, align 8
+Map_NodeCreate.exit40:                            ; preds = %87, %89
+  %93 = getelementptr inbounds i8, ptr %74, i64 44
+  %94 = getelementptr inbounds i8, ptr %74, i64 48
+  store float -1.000000e+00, ptr %94, align 4
+  store float -1.000000e+00, ptr %93, align 4
+  %95 = load ptr, ptr %71, align 8
+  %96 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv
+  store ptr %74, ptr %96, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %Map_NodeCreate.exit40, %Map_NodeCreate.exit
-  %87 = getelementptr inbounds i8, ptr %calloc47, i64 40
-  store i32 %1, ptr %87, align 8
-  %88 = sext i32 %1 to i64
-  %89 = shl nsw i64 %88, 3
-  %calloc = tail call ptr @calloc(i64 1, i64 %89)
-  %90 = getelementptr inbounds i8, ptr %calloc47, i64 32
-  store ptr %calloc, ptr %90, align 8
-  br label %91
+  %97 = getelementptr inbounds i8, ptr %calloc47, i64 40
+  store i32 %1, ptr %97, align 8
+  %98 = sext i32 %1 to i64
+  %99 = shl nsw i64 %98, 3
+  %calloc = tail call ptr @calloc(i64 1, i64 %99)
+  %100 = getelementptr inbounds i8, ptr %calloc47, i64 32
+  store ptr %calloc, ptr %100, align 8
+  br label %101
 
-91:                                               ; preds = %._crit_edge, %6
+101:                                              ; preds = %._crit_edge, %6
   %.039 = phi ptr [ null, %6 ], [ %calloc47, %._crit_edge ]
   ret ptr %.039
 }
@@ -823,177 +843,187 @@ define noundef ptr @Map_NodeCreate(ptr noundef %0, ptr noundef %1, ptr noundef %
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %7, i8 0, i64 176, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 120
-  %9 = getelementptr inbounds i8, ptr %6, i64 136
-  store <2 x float> <float 0x47B9999980000000, float 0x47B9999980000000>, ptr %9, align 4
-  store <4 x float> <float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000>, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 64
-  store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 72
-  store ptr %2, ptr %11, align 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 128
+  store float 0x47B9999980000000, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 124
+  store float 0x47B9999980000000, ptr %10, align 4
+  store float 0x47B9999980000000, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 132
+  %12 = getelementptr inbounds i8, ptr %6, i64 140
+  store float 0x47B9999980000000, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %6, i64 136
+  store float 0x47B9999980000000, ptr %13, align 4
+  store float 0x47B9999980000000, ptr %11, align 4
+  %14 = getelementptr inbounds i8, ptr %6, i64 64
+  store ptr %1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 72
+  store ptr %2, ptr %15, align 8
   store ptr %0, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 44
-  %13 = load i32, ptr %12, align 4
-  %14 = add nsw i32 %13, 1
-  store i32 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 %13, ptr %15, align 8
-  %16 = icmp sgt i32 %13, -1
-  br i1 %16, label %17, label %20
+  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %17 = load i32, ptr %16, align 4
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %16, align 4
+  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 %17, ptr %19, align 8
+  %20 = icmp sgt i32 %17, -1
+  br i1 %20, label %21, label %24
 
-17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
-  %19 = load ptr, ptr %18, align 8
-  tail call void @Map_NodeVecPush(ptr noundef %19, ptr noundef nonnull %6) #20
-  br label %24
+21:                                               ; preds = %3
+  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = load ptr, ptr %22, align 8
+  tail call void @Map_NodeVecPush(ptr noundef %23, ptr noundef nonnull %6) #20
+  br label %28
 
-20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %6, i64 28
-  %22 = load i32, ptr %21, align 4
-  %23 = or i32 %22, 8
-  store i32 %23, ptr %21, align 4
-  br label %24
+24:                                               ; preds = %3
+  %25 = getelementptr inbounds i8, ptr %6, i64 28
+  %26 = load i32, ptr %25, align 4
+  %27 = or i32 %26, 8
+  store i32 %27, ptr %25, align 4
+  br label %28
 
-24:                                               ; preds = %20, %17
+28:                                               ; preds = %24, %21
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.critedge, label %25
+  br i1 %.not, label %.critedge, label %29
 
-25:                                               ; preds = %24
+29:                                               ; preds = %28
   %.not51 = icmp eq ptr %2, null
-  %26 = load ptr, ptr %10, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %28 = and i64 %27, -2
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 28
-  %31 = load i32, ptr %30, align 4
-  br i1 %.not51, label %79, label %32
+  %30 = load ptr, ptr %14, align 8
+  %31 = ptrtoint ptr %30 to i64
+  %32 = and i64 %31, -2
+  %33 = inttoptr i64 %32 to ptr
+  %34 = getelementptr inbounds i8, ptr %33, i64 28
+  %35 = load i32, ptr %34, align 4
+  br i1 %.not51, label %83, label %36
 
-32:                                               ; preds = %25
-  %33 = lshr i32 %31, 5
-  %34 = and i32 %33, 65535
-  %35 = load ptr, ptr %11, align 8
-  %36 = ptrtoint ptr %35 to i64
-  %37 = and i64 %36, -2
-  %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 28
-  %40 = load i32, ptr %39, align 4
-  %41 = lshr i32 %40, 5
-  %42 = and i32 %41, 65535
-  %. = tail call i32 @llvm.umax.i32(i32 %34, i32 %42)
-  %43 = getelementptr inbounds i8, ptr %6, i64 28
+36:                                               ; preds = %29
+  %37 = lshr i32 %35, 5
+  %38 = and i32 %37, 65535
+  %39 = load ptr, ptr %15, align 8
+  %40 = ptrtoint ptr %39 to i64
+  %41 = and i64 %40, -2
+  %42 = inttoptr i64 %41 to ptr
+  %43 = getelementptr inbounds i8, ptr %42, i64 28
   %44 = load i32, ptr %43, align 4
-  %45 = shl nuw nsw i32 %., 5
-  %46 = add nuw nsw i32 %45, 32
-  %47 = and i32 %46, 2097120
-  %48 = and i32 %44, -2097121
-  %49 = or disjoint i32 %47, %48
-  store i32 %49, ptr %43, align 4
-  %50 = ptrtoint ptr %1 to i64
-  %51 = and i64 %50, 1
-  %.not54 = icmp eq i64 %51, 0
-  br i1 %.not54, label %58, label %52
+  %45 = lshr i32 %44, 5
+  %46 = and i32 %45, 65535
+  %. = tail call i32 @llvm.umax.i32(i32 %38, i32 %46)
+  %47 = getelementptr inbounds i8, ptr %6, i64 28
+  %48 = load i32, ptr %47, align 4
+  %49 = shl nuw nsw i32 %., 5
+  %50 = add nuw nsw i32 %49, 32
+  %51 = and i32 %50, 2097120
+  %52 = and i32 %48, -2097121
+  %53 = or disjoint i32 %51, %52
+  store i32 %53, ptr %47, align 4
+  %54 = ptrtoint ptr %1 to i64
+  %55 = and i64 %54, 1
+  %.not54 = icmp eq i64 %55, 0
+  br i1 %.not54, label %62, label %56
 
-52:                                               ; preds = %32
-  %53 = and i64 %50, -2
-  %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds i8, ptr %54, i64 28
-  %56 = load i32, ptr %55, align 4
-  %.lobit56 = and i32 %56, 8
-  %57 = xor i32 %.lobit56, 8
-  br label %62
-
-58:                                               ; preds = %32
-  %59 = getelementptr inbounds i8, ptr %1, i64 28
+56:                                               ; preds = %36
+  %57 = and i64 %54, -2
+  %58 = inttoptr i64 %57 to ptr
+  %59 = getelementptr inbounds i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = and i32 %60, 8
-  br label %62
+  %.lobit56 = and i32 %60, 8
+  %61 = xor i32 %.lobit56, 8
+  br label %66
 
-62:                                               ; preds = %58, %52
-  %63 = phi i32 [ %57, %52 ], [ %61, %58 ]
-  %64 = ptrtoint ptr %2 to i64
-  %65 = and i64 %64, 1
-  %.not57 = icmp eq i64 %65, 0
-  br i1 %.not57, label %72, label %66
+62:                                               ; preds = %36
+  %63 = getelementptr inbounds i8, ptr %1, i64 28
+  %64 = load i32, ptr %63, align 4
+  %65 = and i32 %64, 8
+  br label %66
 
-66:                                               ; preds = %62
-  %67 = and i64 %64, -2
-  %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr inbounds i8, ptr %68, i64 28
-  %70 = load i32, ptr %69, align 4
-  %.lobit59 = and i32 %70, 8
-  %71 = xor i32 %.lobit59, 8
-  br label %76
+66:                                               ; preds = %62, %56
+  %67 = phi i32 [ %61, %56 ], [ %65, %62 ]
+  %68 = ptrtoint ptr %2 to i64
+  %69 = and i64 %68, 1
+  %.not57 = icmp eq i64 %69, 0
+  br i1 %.not57, label %76, label %70
 
-72:                                               ; preds = %62
-  %73 = getelementptr inbounds i8, ptr %2, i64 28
+70:                                               ; preds = %66
+  %71 = and i64 %68, -2
+  %72 = inttoptr i64 %71 to ptr
+  %73 = getelementptr inbounds i8, ptr %72, i64 28
   %74 = load i32, ptr %73, align 4
-  %75 = and i32 %74, 8
-  br label %76
+  %.lobit59 = and i32 %74, 8
+  %75 = xor i32 %.lobit59, 8
+  br label %80
 
-76:                                               ; preds = %72, %66
-  %77 = phi i32 [ %71, %66 ], [ %75, %72 ]
-  %78 = and i32 %63, %77
-  br label %97
+76:                                               ; preds = %66
+  %77 = getelementptr inbounds i8, ptr %2, i64 28
+  %78 = load i32, ptr %77, align 4
+  %79 = and i32 %78, 8
+  br label %80
 
-79:                                               ; preds = %25
-  %80 = and i32 %31, 2097120
-  %81 = getelementptr inbounds i8, ptr %6, i64 28
-  %82 = load i32, ptr %81, align 4
-  %83 = and i32 %82, -2097121
-  %84 = or disjoint i32 %83, %80
-  store i32 %84, ptr %81, align 4
-  %85 = ptrtoint ptr %1 to i64
-  %86 = and i64 %85, 1
-  %.not52 = icmp eq i64 %86, 0
-  br i1 %.not52, label %93, label %87
+80:                                               ; preds = %76, %70
+  %81 = phi i32 [ %75, %70 ], [ %79, %76 ]
+  %82 = and i32 %67, %81
+  br label %101
 
-87:                                               ; preds = %79
-  %88 = and i64 %85, -2
-  %89 = inttoptr i64 %88 to ptr
-  %90 = getelementptr inbounds i8, ptr %89, i64 28
-  %91 = load i32, ptr %90, align 4
-  %.lobit = and i32 %91, 8
-  %92 = xor i32 %.lobit, 8
-  br label %97
+83:                                               ; preds = %29
+  %84 = and i32 %35, 2097120
+  %85 = getelementptr inbounds i8, ptr %6, i64 28
+  %86 = load i32, ptr %85, align 4
+  %87 = and i32 %86, -2097121
+  %88 = or disjoint i32 %87, %84
+  store i32 %88, ptr %85, align 4
+  %89 = ptrtoint ptr %1 to i64
+  %90 = and i64 %89, 1
+  %.not52 = icmp eq i64 %90, 0
+  br i1 %.not52, label %97, label %91
 
-93:                                               ; preds = %79
-  %94 = getelementptr inbounds i8, ptr %1, i64 28
+91:                                               ; preds = %83
+  %92 = and i64 %89, -2
+  %93 = inttoptr i64 %92 to ptr
+  %94 = getelementptr inbounds i8, ptr %93, i64 28
   %95 = load i32, ptr %94, align 4
-  %96 = and i32 %95, 8
-  br label %97
+  %.lobit = and i32 %95, 8
+  %96 = xor i32 %.lobit, 8
+  br label %101
 
-97:                                               ; preds = %87, %93, %76
-  %.sink = phi i32 [ %49, %76 ], [ %84, %93 ], [ %84, %87 ]
-  %.sink62 = phi i32 [ %78, %76 ], [ %96, %93 ], [ %92, %87 ]
-  %.sink61 = phi ptr [ %43, %76 ], [ %81, %93 ], [ %81, %87 ]
-  %.pre-phi = phi i64 [ %50, %76 ], [ %85, %93 ], [ %85, %87 ]
-  %98 = and i32 %.sink, -9
-  %99 = or i32 %.sink62, %98
-  store i32 %99, ptr %.sink61, align 4
-  %100 = and i64 %.pre-phi, -2
-  %101 = inttoptr i64 %100 to ptr
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
-  %103 = load i32, ptr %102, align 8
-  %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %102, align 8
+97:                                               ; preds = %83
+  %98 = getelementptr inbounds i8, ptr %1, i64 28
+  %99 = load i32, ptr %98, align 4
+  %100 = and i32 %99, 8
+  br label %101
+
+101:                                              ; preds = %91, %97, %80
+  %.sink = phi i32 [ %53, %80 ], [ %88, %97 ], [ %88, %91 ]
+  %.sink62 = phi i32 [ %82, %80 ], [ %100, %97 ], [ %96, %91 ]
+  %.sink61 = phi ptr [ %47, %80 ], [ %85, %97 ], [ %85, %91 ]
+  %.pre-phi = phi i64 [ %54, %80 ], [ %89, %97 ], [ %89, %91 ]
+  %102 = and i32 %.sink, -9
+  %103 = or i32 %.sink62, %102
+  store i32 %103, ptr %.sink61, align 4
+  %104 = and i64 %.pre-phi, -2
+  %105 = inttoptr i64 %104 to ptr
+  %106 = getelementptr inbounds i8, ptr %105, i64 24
+  %107 = load i32, ptr %106, align 8
+  %108 = add nsw i32 %107, 1
+  store i32 %108, ptr %106, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %24, %97
+.critedge:                                        ; preds = %28, %101
   %.not60 = icmp eq ptr %2, null
-  br i1 %.not60, label %112, label %105
+  br i1 %.not60, label %116, label %109
 
-105:                                              ; preds = %.critedge
-  %106 = ptrtoint ptr %2 to i64
-  %107 = and i64 %106, -2
-  %108 = inttoptr i64 %107 to ptr
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
-  %110 = load i32, ptr %109, align 8
-  %111 = add nsw i32 %110, 1
-  store i32 %111, ptr %109, align 8
-  br label %112
+109:                                              ; preds = %.critedge
+  %110 = ptrtoint ptr %2 to i64
+  %111 = and i64 %110, -2
+  %112 = inttoptr i64 %111 to ptr
+  %113 = getelementptr inbounds i8, ptr %112, i64 24
+  %114 = load i32, ptr %113, align 8
+  %115 = add nsw i32 %114, 1
+  store i32 %115, ptr %113, align 8
+  br label %116
 
-112:                                              ; preds = %105, %.critedge
-  %113 = getelementptr inbounds i8, ptr %6, i64 44
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %113, align 4
+116:                                              ; preds = %109, %.critedge
+  %117 = getelementptr inbounds i8, ptr %6, i64 44
+  %118 = getelementptr inbounds i8, ptr %6, i64 48
+  store float -1.000000e+00, ptr %118, align 4
+  store float -1.000000e+00, ptr %117, align 4
   ret ptr %6
 }
 

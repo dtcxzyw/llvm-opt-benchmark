@@ -1511,25 +1511,22 @@ define { i64, double } @"_ZN110_$LT$statrs..distribution..weibull..Weibull$u20$a
   %16 = fsub double %13, %15
   %17 = tail call noundef double @llvm.sqrt.f64(double %16)
   %18 = fmul double %3, %7
-  %19 = fmul double %3, %12
-  %20 = fdiv double 3.000000e+00, %4
-  %21 = fadd double %20, 1.000000e+00
-  %22 = tail call noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef %21)
-  %23 = fmul double %19, %22
-  %24 = insertelement <2 x double> poison, double %18, i64 0
-  %25 = insertelement <2 x double> %24, double %17, i64 1
-  %26 = fmul <2 x double> %25, %25
-  %27 = extractelement <2 x double> %26, i64 1
-  %28 = fmul double %27, 3.000000e+00
-  %29 = fmul double %18, %28
-  %30 = fsub double %23, %29
-  %31 = fmul <2 x double> %25, %26
-  %32 = extractelement <2 x double> %31, i64 0
-  %33 = fsub double %30, %32
-  %34 = extractelement <2 x double> %31, i64 1
-  %35 = fdiv double %33, %34
-  %36 = insertvalue { i64, double } { i64 1, double undef }, double %35, 1
-  ret { i64, double } %36
+  %19 = fmul double %17, %17
+  %20 = fmul double %17, %19
+  %21 = fmul double %3, %12
+  %22 = fdiv double 3.000000e+00, %4
+  %23 = fadd double %22, 1.000000e+00
+  %24 = tail call noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef %23)
+  %25 = fmul double %21, %24
+  %26 = fmul double %19, 3.000000e+00
+  %27 = fmul double %18, %26
+  %28 = fsub double %25, %27
+  %29 = fmul double %18, %18
+  %30 = fmul double %18, %29
+  %31 = fsub double %28, %30
+  %32 = fdiv double %31, %20
+  %33 = insertvalue { i64, double } { i64 1, double undef }, double %32, 1
+  ret { i64, double } %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

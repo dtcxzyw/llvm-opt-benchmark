@@ -361,15 +361,19 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_bf_ecb_raw(i32 noundef %n) #1 {
 entry:
   %key = alloca %struct.bf_key_st, align 4
-  %data = alloca [2 x i32], align 8
+  %data = alloca [2 x i32], align 4
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [2 x [30 x i8]], ptr @bf_key, i64 0, i64 %idxprom
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx) #8
   %conv = trunc i64 %call to i32
   call void @BF_set_key(ptr noundef nonnull %key, i32 noundef %conv, ptr noundef nonnull %arrayidx) #7
   %arrayidx5 = getelementptr inbounds [2 x [2 x i32]], ptr @bf_plain, i64 0, i64 %idxprom
-  %0 = load <2 x i32>, ptr %arrayidx5, align 8
-  store <2 x i32> %0, ptr %data, align 8
+  %0 = load i32, ptr %arrayidx5, align 8
+  store i32 %0, ptr %data, align 4
+  %arrayidx10 = getelementptr inbounds i8, ptr %arrayidx5, i64 4
+  %1 = load i32, ptr %arrayidx10, align 4
+  %arrayidx11 = getelementptr inbounds i8, ptr %data, i64 4
+  store i32 %1, ptr %arrayidx11, align 4
   call void @BF_encrypt(ptr noundef nonnull %data, ptr noundef nonnull %key) #7
   %arrayidx14 = getelementptr inbounds [2 x [2 x i32]], ptr @bf_cipher, i64 0, i64 %idxprom
   %call17 = call i32 @test_mem_eq(ptr noundef nonnull @.str.40, i32 noundef 304, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull %arrayidx14, i64 noundef 8, ptr noundef nonnull %data, i64 noundef 8) #7

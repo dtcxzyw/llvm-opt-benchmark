@@ -10671,7 +10671,13 @@ define internal fastcc void @_ZL18getCodegenAssemblyB5cxx11PKcbi(ptr dead_on_unw
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 96
   store ptr @_ZL17kUserdataRunTypes, ptr %.sroa.15.0..sroa_idx, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 104
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %.sroa.16.0..sroa_idx, align 8
+  store i8 0, ptr %.sroa.16.0..sroa_idx, align 8
+  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 105
+  store i8 0, ptr %.sroa.17.0..sroa_idx, align 1
+  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 106
+  store i8 1, ptr %.sroa.18.0..sroa_idx, align 2
+  %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 107
+  store i8 0, ptr %.sroa.19.0..sroa_idx, align 1
   %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 108
   store i8 %16, ptr %.sroa.20.0..sroa_idx, align 4
   %.sroa.2141.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 112

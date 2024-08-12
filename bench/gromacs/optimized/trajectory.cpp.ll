@@ -121,7 +121,7 @@ $_ZTISt15_Sp_counted_ptrIPN3gmx28AnalysisDataVectorPlotModuleELN9__gnu_cxx12_Loc
 define void @_ZN3gmx15analysismodules14TrajectoryInfo6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #9
   invoke void @_ZN3gmx24TrajectoryAnalysisModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %.noexc unwind label %30
+          to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15analysismodules12_GLOBAL__N_110TrajectoryE, i64 16), ptr %2, align 8
@@ -134,94 +134,100 @@ define void @_ZN3gmx15analysismodules14TrajectoryInfo6createEv(ptr dead_on_unwin
   %6 = getelementptr inbounds i8, ptr %2, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
   %7 = getelementptr inbounds i8, ptr %2, i64 136
-  store <4 x i8> <i8 1, i8 1, i8 1, i8 0>, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 140
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 144
-  invoke void @_ZN3gmx12AnalysisDataC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %10 unwind label %17
+  store i8 1, ptr %7, align 1
+  %8 = getelementptr inbounds i8, ptr %2, i64 137
+  store i8 1, ptr %8, align 1
+  %9 = getelementptr inbounds i8, ptr %2, i64 138
+  store i8 1, ptr %9, align 1
+  %10 = getelementptr inbounds i8, ptr %2, i64 139
+  store i8 0, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %2, i64 140
+  store i32 0, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %2, i64 144
+  invoke void @_ZN3gmx12AnalysisDataC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %20
 
-10:                                               ; preds = %.noexc
-  %11 = getelementptr inbounds i8, ptr %2, i64 168
-  invoke void @_ZN3gmx12AnalysisDataC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %19
+13:                                               ; preds = %.noexc
+  %14 = getelementptr inbounds i8, ptr %2, i64 168
+  invoke void @_ZN3gmx12AnalysisDataC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %15 unwind label %22
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %2, i64 192
-  invoke void @_ZN3gmx12AnalysisDataC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %14 unwind label %21
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds i8, ptr %2, i64 192
+  invoke void @_ZN3gmx12AnalysisDataC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %24
 
-14:                                               ; preds = %12
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %9, ptr noundef nonnull @.str)
-          to label %15 unwind label %23
+17:                                               ; preds = %15
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %12, ptr noundef nonnull @.str)
+          to label %18 unwind label %26
 
-15:                                               ; preds = %14
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %11, ptr noundef nonnull @.str.1)
-          to label %16 unwind label %23
+18:                                               ; preds = %17
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %14, ptr noundef nonnull @.str.1)
+          to label %19 unwind label %26
 
-16:                                               ; preds = %15
-  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %13, ptr noundef nonnull @.str.2)
-          to label %_ZN3gmx15analysismodules12_GLOBAL__N_110TrajectoryC2Ev.exit unwind label %23
+19:                                               ; preds = %18
+  invoke void @_ZN3gmx24TrajectoryAnalysisModule23registerAnalysisDatasetEPNS_12AnalysisDataEPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %16, ptr noundef nonnull @.str.2)
+          to label %_ZN3gmx15analysismodules12_GLOBAL__N_110TrajectoryC2Ev.exit unwind label %26
 
-17:                                               ; preds = %.noexc
-  %18 = landingpad { ptr, i32 }
+20:                                               ; preds = %.noexc
+  %21 = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %30
 
-19:                                               ; preds = %10
-  %20 = landingpad { ptr, i32 }
+22:                                               ; preds = %13
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %29
 
-21:                                               ; preds = %12
-  %22 = landingpad { ptr, i32 }
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
           cleanup
-  br label %25
+  br label %28
 
-23:                                               ; preds = %16, %15, %14
-  %24 = landingpad { ptr, i32 }
+26:                                               ; preds = %19, %18, %17
+  %27 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3gmx12AnalysisDataD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #10
-  br label %25
+  tail call void @_ZN3gmx12AnalysisDataD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #10
+  br label %28
 
-25:                                               ; preds = %23, %21
-  %.pn.i = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
-  tail call void @_ZN3gmx12AnalysisDataD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #10
-  br label %26
+28:                                               ; preds = %26, %24
+  %.pn.i = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
+  tail call void @_ZN3gmx12AnalysisDataD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #10
+  br label %29
 
-26:                                               ; preds = %25, %19
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %25 ], [ %20, %19 ]
-  tail call void @_ZN3gmx12AnalysisDataD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
-  br label %27
+29:                                               ; preds = %28, %22
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %28 ], [ %23, %22 ]
+  tail call void @_ZN3gmx12AnalysisDataD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #10
+  br label %30
 
-27:                                               ; preds = %26, %17
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %26 ], [ %18, %17 ]
+30:                                               ; preds = %29, %20
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %29 ], [ %21, %20 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
-  %28 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit.i, label %29
+  %31 = load ptr, ptr %3, align 8
+  %.not.i.i.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit.i, label %32
 
-29:                                               ; preds = %27
-  tail call void @_ZdlPv(ptr noundef nonnull %28) #11
+32:                                               ; preds = %30
+  tail call void @_ZdlPv(ptr noundef nonnull %31) #11
   br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit.i
 
-_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit.i: ; preds = %29, %27
+_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit.i: ; preds = %32, %30
   tail call void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
   br label %.body
 
-_ZN3gmx15analysismodules12_GLOBAL__N_110TrajectoryC2Ev.exit: ; preds = %16
+_ZN3gmx15analysismodules12_GLOBAL__N_110TrajectoryC2Ev.exit: ; preds = %19
   store ptr %2, ptr %0, align 8
   ret void
 
-30:                                               ; preds = %1
-  %31 = landingpad { ptr, i32 }
+33:                                               ; preds = %1
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit.i, %30
-  %eh.lpad-body = phi { ptr, i32 } [ %31, %30 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit.i ]
+.body:                                            ; preds = %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit.i, %33
+  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %2) #11
   resume { ptr, i32 } %eh.lpad-body
 }

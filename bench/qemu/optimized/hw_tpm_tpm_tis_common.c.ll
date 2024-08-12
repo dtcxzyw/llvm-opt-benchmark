@@ -1472,9 +1472,12 @@ sw.bb13:                                          ; preds = %for.body
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %for.body, %sw.bb13
-  %5 = phi <2 x i32> [ <i32 67108864, i32 8448>, %sw.bb13 ], [ <i32 0, i32 -1>, %for.body ]
+  %.sink35 = phi i32 [ 67108864, %sw.bb13 ], [ 0, %for.body ]
+  %.sink = phi i32 [ 8448, %sw.bb13 ], [ -1, %for.body ]
   %sts17 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  store <2 x i32> %5, ptr %sts17, align 8
+  store i32 %.sink35, ptr %sts17, align 8
+  %iface_id21 = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  store i32 %.sink, ptr %iface_id21, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %for.body
@@ -1490,9 +1493,9 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 for.end:                                          ; preds = %sw.epilog
   %rw_offset = getelementptr inbounds i8, ptr %s, i64 4368
   store i16 0, ptr %rw_offset, align 16
-  %6 = load ptr, ptr %be_driver, align 8
-  %7 = load i64, ptr %be_buffer_size, align 8
-  %call33 = tail call i32 @tpm_backend_startup_tpm(ptr noundef %6, i64 noundef %7) #10
+  %5 = load ptr, ptr %be_driver, align 8
+  %6 = load i64, ptr %be_buffer_size, align 8
+  %call33 = tail call i32 @tpm_backend_startup_tpm(ptr noundef %5, i64 noundef %6) #10
   %cmp34 = icmp slt i32 %call33, 0
   br i1 %cmp34, label %if.then35, label %if.end36
 

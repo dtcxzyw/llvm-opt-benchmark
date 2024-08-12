@@ -4559,45 +4559,49 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %6 unwind label %12
+          to label %6 unwind label %15
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 40
-  %8 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 56
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = load ptr, ptr %2, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 56
+  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret ptr %4
 
-12:                                               ; preds = %3
-  %13 = landingpad { ptr, i32 }
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #19
+  %17 = extractvalue { ptr, i32 } %16, 0
+  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #19
   tail call void @_ZdlPv(ptr noundef nonnull %4) #20
   invoke void @__cxa_rethrow() #21
-          to label %22 unwind label %16
+          to label %25 unwind label %19
 
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
+19:                                               ; preds = %15
+  %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %18 unwind label %19
+          to label %21 unwind label %22
 
-18:                                               ; preds = %16
-  resume { ptr, i32 } %17
+21:                                               ; preds = %19
+  resume { ptr, i32 } %20
 
-19:                                               ; preds = %16
-  %20 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #23
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #23
   unreachable
 
-22:                                               ; preds = %12
+25:                                               ; preds = %15
   unreachable
 }
 

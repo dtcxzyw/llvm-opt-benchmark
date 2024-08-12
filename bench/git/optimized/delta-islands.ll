@@ -2160,9 +2160,12 @@ if.then81.i.i:                                    ; preds = %if.end71.i.i
   %and92.i.i = and i32 %83, %not.i.i
   store i32 %and92.i.i, ptr %arrayidx91.i.i, align 4
   %size94.i.i = getelementptr inbounds i8, ptr %15, i64 4
-  %84 = load <2 x i32>, ptr %size94.i.i, align 4
-  %85 = add <2 x i32> %84, <i32 1, i32 1>
-  store <2 x i32> %85, ptr %size94.i.i, align 4
+  %84 = load i32, ptr %size94.i.i, align 4
+  %inc95.i.i = add i32 %84, 1
+  store i32 %inc95.i.i, ptr %size94.i.i, align 4
+  %85 = load i32, ptr %n_occupied.i.i, align 8
+  %inc97.i.i = add i32 %85, 1
+  store i32 %inc97.i.i, ptr %n_occupied.i.i, align 8
   br label %if.then.i14
 
 if.else98.i.i:                                    ; preds = %if.end71.i.i
@@ -2977,9 +2980,12 @@ if.then81:                                        ; preds = %if.end71
   %and92 = and i32 %21, %not
   store i32 %and92, ptr %arrayidx91, align 4
   %size94 = getelementptr inbounds i8, ptr %h, i64 4
-  %22 = load <2 x i32>, ptr %size94, align 4
-  %23 = add <2 x i32> %22, <i32 1, i32 1>
-  store <2 x i32> %23, ptr %size94, align 4
+  %22 = load i32, ptr %size94, align 4
+  %inc95 = add i32 %22, 1
+  store i32 %inc95, ptr %size94, align 4
+  %23 = load i32, ptr %n_occupied, align 8
+  %inc97 = add i32 %23, 1
+  store i32 %inc97, ptr %n_occupied, align 8
   br label %if.end128
 
 if.else98:                                        ; preds = %if.end71

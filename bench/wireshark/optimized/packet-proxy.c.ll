@@ -518,174 +518,176 @@ proxy_v1_get_token_length.exit146.thread211.i:    ; preds = %141, %proxy_v1_get_
   br label %dissect_proxy_v1_header.exit
 
 166:                                              ; preds = %156, %105
+  %storemerge.i = phi i32 [ 3, %156 ], [ 2, %105 ]
+  %.sink225.i = phi i32 [ 16, %156 ], [ 4, %105 ]
   %.sink.i = phi ptr [ %12, %156 ], [ %10, %105 ]
   %.0127.in.i = phi i32 [ %138, %156 ], [ %87, %105 ]
-  %167 = phi <2 x i32> [ <i32 3, i32 16>, %156 ], [ <i32 2, i32 4>, %105 ]
-  %168 = getelementptr inbounds i8, ptr %14, i64 4
-  store <2 x i32> %167, ptr %14, align 8
-  %169 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %.sink.i, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr null, ptr %170, align 8
+  store i32 %storemerge.i, ptr %14, align 8
+  %167 = getelementptr inbounds i8, ptr %14, i64 4
+  store i32 %.sink225.i, ptr %167, align 4
+  %168 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %.sink.i, ptr %168, align 8
+  %169 = getelementptr inbounds i8, ptr %14, i64 16
+  store ptr null, ptr %169, align 8
   %.0127.i = add nuw i32 %.0127.in.i, 1
-  %171 = sub i32 %29, %.0127.i
-  %172 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0127.i, i32 noundef %171, i8 noundef zeroext 32) #7
-  %173 = icmp eq i32 %172, -1
-  br i1 %173, label %proxy_v1_get_token_length.exit148.thread.i, label %175
+  %170 = sub i32 %29, %.0127.i
+  %171 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0127.i, i32 noundef %170, i8 noundef zeroext 32) #7
+  %172 = icmp eq i32 %171, -1
+  br i1 %172, label %proxy_v1_get_token_length.exit148.thread.i, label %174
 
 proxy_v1_get_token_length.exit148.thread.i:       ; preds = %166
-  %174 = call ptr @proto_tree_add_expert(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_bad_format, ptr noundef %0, i32 noundef %.0127.i, i32 noundef %171) #7
+  %173 = call ptr @proto_tree_add_expert(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_bad_format, ptr noundef %0, i32 noundef %.0127.i, i32 noundef %170) #7
   br label %proxy_v1_get_token_length.exit148.thread216.i
 
-175:                                              ; preds = %166
-  %176 = sub i32 %172, %.0127.i
-  %.not222.i = icmp eq i32 %172, %.0127.i
-  br i1 %.not222.i, label %proxy_v1_get_token_length.exit148.thread216.i, label %177
+174:                                              ; preds = %166
+  %175 = sub i32 %171, %.0127.i
+  %.not222.i = icmp eq i32 %171, %.0127.i
+  br i1 %.not222.i, label %proxy_v1_get_token_length.exit148.thread216.i, label %176
 
-177:                                              ; preds = %175
-  %178 = add i32 %176, 1
-  %179 = icmp slt i32 %178, 107
-  br i1 %179, label %182, label %180
+176:                                              ; preds = %174
+  %177 = add i32 %175, 1
+  %178 = icmp slt i32 %177, 107
+  br i1 %178, label %181, label %179
 
-180:                                              ; preds = %177
+179:                                              ; preds = %176
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108, i32 noundef 373, ptr noundef nonnull @.str.109) #8
   unreachable
 
-proxy_v1_get_token_length.exit148.thread216.i:    ; preds = %175, %proxy_v1_get_token_length.exit148.thread.i
-  %181 = call i32 @tvb_captured_length(ptr noundef %0) #7
+proxy_v1_get_token_length.exit148.thread216.i:    ; preds = %174, %proxy_v1_get_token_length.exit148.thread.i
+  %180 = call i32 @tvb_captured_length(ptr noundef %0) #7
   br label %dissect_proxy_v1_header.exit
 
-182:                                              ; preds = %177
-  %183 = sext i32 %176 to i64
-  %184 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.0127.i, i64 noundef %183) #7
-  %185 = getelementptr i8, ptr %8, i64 %183
-  store i8 0, ptr %185, align 1
-  %186 = call zeroext i1 @ws_strtou16(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %6) #7
-  br i1 %186, label %190, label %187
+181:                                              ; preds = %176
+  %182 = sext i32 %175 to i64
+  %183 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.0127.i, i64 noundef %182) #7
+  %184 = getelementptr i8, ptr %8, i64 %182
+  store i8 0, ptr %184, align 1
+  %185 = call zeroext i1 @ws_strtou16(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %6) #7
+  br i1 %185, label %189, label %186
 
-187:                                              ; preds = %182
-  %188 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_bad_format, ptr noundef %0, i32 noundef %.0127.i, i32 noundef %176, ptr noundef nonnull @.str.102) #7
-  %189 = call i32 @tvb_captured_length(ptr noundef %0) #7
+186:                                              ; preds = %181
+  %187 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_bad_format, ptr noundef %0, i32 noundef %.0127.i, i32 noundef %175, ptr noundef nonnull @.str.102) #7
+  %188 = call i32 @tvb_captured_length(ptr noundef %0) #7
   br label %dissect_proxy_v1_header.exit
 
-190:                                              ; preds = %182
-  %191 = load i32, ptr @hf_proxy_srcport, align 4
-  %192 = load i16, ptr %6, align 2
-  %193 = zext i16 %192 to i32
-  %194 = call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %191, ptr noundef %0, i32 noundef %.0127.i, i32 noundef %176, i32 noundef %193) #7
-  %195 = add nuw i32 %172, 1
-  %196 = add i32 %29, -2
-  %.neg.i = xor i32 %172, -1
-  %197 = add i32 %196, %.neg.i
-  %198 = icmp slt i32 %197, 1
-  br i1 %198, label %199, label %202
+189:                                              ; preds = %181
+  %190 = load i32, ptr @hf_proxy_srcport, align 4
+  %191 = load i16, ptr %6, align 2
+  %192 = zext i16 %191 to i32
+  %193 = call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %190, ptr noundef %0, i32 noundef %.0127.i, i32 noundef %175, i32 noundef %192) #7
+  %194 = add nuw i32 %171, 1
+  %195 = add i32 %29, -2
+  %.neg.i = xor i32 %171, -1
+  %196 = add i32 %195, %.neg.i
+  %197 = icmp slt i32 %196, 1
+  br i1 %197, label %198, label %201
 
-199:                                              ; preds = %190
-  %200 = call ptr @proto_tree_add_expert(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_bad_format, ptr noundef %0, i32 noundef %195, i32 noundef %197) #7
-  %201 = call i32 @tvb_captured_length(ptr noundef %0) #7
+198:                                              ; preds = %189
+  %199 = call ptr @proto_tree_add_expert(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_bad_format, ptr noundef %0, i32 noundef %194, i32 noundef %196) #7
+  %200 = call i32 @tvb_captured_length(ptr noundef %0) #7
   br label %dissect_proxy_v1_header.exit
 
-202:                                              ; preds = %190
-  %203 = zext nneg i32 %197 to i64
-  %204 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %195, i64 noundef %203) #7
-  %205 = getelementptr [107 x i8], ptr %8, i64 0, i64 %203
-  store i8 0, ptr %205, align 1
-  %206 = call zeroext i1 @ws_strtou16(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %7) #7
-  br i1 %206, label %210, label %207
+201:                                              ; preds = %189
+  %202 = zext nneg i32 %196 to i64
+  %203 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %194, i64 noundef %202) #7
+  %204 = getelementptr [107 x i8], ptr %8, i64 0, i64 %202
+  store i8 0, ptr %204, align 1
+  %205 = call zeroext i1 @ws_strtou16(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %7) #7
+  br i1 %205, label %209, label %206
 
-207:                                              ; preds = %202
-  %208 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_bad_format, ptr noundef %0, i32 noundef %195, i32 noundef %197, ptr noundef nonnull @.str.102) #7
-  %209 = call i32 @tvb_captured_length(ptr noundef %0) #7
+206:                                              ; preds = %201
+  %207 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_bad_format, ptr noundef %0, i32 noundef %194, i32 noundef %196, ptr noundef nonnull @.str.102) #7
+  %208 = call i32 @tvb_captured_length(ptr noundef %0) #7
   br label %dissect_proxy_v1_header.exit
 
-210:                                              ; preds = %202
-  %211 = load i32, ptr @hf_proxy_dstport, align 4
-  %212 = load i16, ptr %7, align 2
-  %213 = zext i16 %212 to i32
-  %214 = call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %211, ptr noundef %0, i32 noundef %195, i32 noundef %197, i32 noundef %213) #7
-  %215 = load ptr, ptr %30, align 8
-  %216 = getelementptr inbounds i8, ptr %1, i64 408
-  %217 = load ptr, ptr %216, align 8
-  %218 = call ptr @address_to_str(ptr noundef %217, ptr noundef nonnull %13) #7
-  %219 = load ptr, ptr %216, align 8
-  %220 = call ptr @address_to_str(ptr noundef %219, ptr noundef nonnull %14) #7
-  call void (ptr, i32, ptr, ...) @col_add_lstr(ptr noundef %215, i32 noundef 25, ptr noundef nonnull @.str.103, ptr noundef %218, ptr noundef nonnull @.str.104, ptr noundef %220, ptr noundef nonnull @.str.105, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #7
-  %221 = load ptr, ptr %30, align 8
-  %222 = load i16, ptr %6, align 2
-  %223 = load i16, ptr %7, align 2
-  call void @col_append_ports(ptr noundef %221, i32 noundef 25, i32 noundef 2, i16 noundef zeroext %222, i16 noundef zeroext %223) #7
-  %224 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #7
-  %225 = load i32, ptr @proto_proxy, align 4
-  %226 = call ptr @conversation_get_proto_data(ptr noundef nonnull %224, i32 noundef %225) #7
-  %227 = icmp eq ptr %226, null
-  br i1 %227, label %228, label %dissect_proxy_v1_header.exit
+209:                                              ; preds = %201
+  %210 = load i32, ptr @hf_proxy_dstport, align 4
+  %211 = load i16, ptr %7, align 2
+  %212 = zext i16 %211 to i32
+  %213 = call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %210, ptr noundef %0, i32 noundef %194, i32 noundef %196, i32 noundef %212) #7
+  %214 = load ptr, ptr %30, align 8
+  %215 = getelementptr inbounds i8, ptr %1, i64 408
+  %216 = load ptr, ptr %215, align 8
+  %217 = call ptr @address_to_str(ptr noundef %216, ptr noundef nonnull %13) #7
+  %218 = load ptr, ptr %215, align 8
+  %219 = call ptr @address_to_str(ptr noundef %218, ptr noundef nonnull %14) #7
+  call void (ptr, i32, ptr, ...) @col_add_lstr(ptr noundef %214, i32 noundef 25, ptr noundef nonnull @.str.103, ptr noundef %217, ptr noundef nonnull @.str.104, ptr noundef %219, ptr noundef nonnull @.str.105, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #7
+  %220 = load ptr, ptr %30, align 8
+  %221 = load i16, ptr %6, align 2
+  %222 = load i16, ptr %7, align 2
+  call void @col_append_ports(ptr noundef %220, i32 noundef 25, i32 noundef 2, i16 noundef zeroext %221, i16 noundef zeroext %222) #7
+  %223 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #7
+  %224 = load i32, ptr @proto_proxy, align 4
+  %225 = call ptr @conversation_get_proto_data(ptr noundef nonnull %223, i32 noundef %224) #7
+  %226 = icmp eq ptr %225, null
+  br i1 %226, label %227, label %dissect_proxy_v1_header.exit
 
-228:                                              ; preds = %210
-  %229 = call ptr @wmem_file_scope() #7
-  %230 = call noalias ptr @wmem_alloc(ptr noundef %229, i64 noundef 64) #7
-  %231 = call ptr @wmem_file_scope() #7
-  %232 = load i32, ptr %13, align 8
-  %233 = getelementptr inbounds i8, ptr %13, i64 4
-  %234 = load i32, ptr %233, align 4
-  %235 = getelementptr inbounds i8, ptr %13, i64 8
-  %236 = load ptr, ptr %235, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %230, i8 0, i64 24, i1 false)
-  store i32 %232, ptr %230, align 8
-  %237 = icmp eq i32 %234, 0
-  br i1 %237, label %copy_address_wmem.exit.i, label %238
+227:                                              ; preds = %209
+  %228 = call ptr @wmem_file_scope() #7
+  %229 = call noalias ptr @wmem_alloc(ptr noundef %228, i64 noundef 64) #7
+  %230 = call ptr @wmem_file_scope() #7
+  %231 = load i32, ptr %13, align 8
+  %232 = getelementptr inbounds i8, ptr %13, i64 4
+  %233 = load i32, ptr %232, align 4
+  %234 = getelementptr inbounds i8, ptr %13, i64 8
+  %235 = load ptr, ptr %234, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %229, i8 0, i64 24, i1 false)
+  store i32 %231, ptr %229, align 8
+  %236 = icmp eq i32 %233, 0
+  br i1 %236, label %copy_address_wmem.exit.i, label %237
 
-238:                                              ; preds = %228
-  %239 = sext i32 %234 to i64
-  %240 = call noalias ptr @wmem_memdup(ptr noundef %231, ptr noundef %236, i64 noundef %239) #7
-  %241 = getelementptr inbounds i8, ptr %230, i64 16
-  store ptr %240, ptr %241, align 8
-  %242 = getelementptr inbounds i8, ptr %230, i64 8
-  store ptr %240, ptr %242, align 8
-  %243 = getelementptr inbounds i8, ptr %230, i64 4
-  store i32 %234, ptr %243, align 4
+237:                                              ; preds = %227
+  %238 = sext i32 %233 to i64
+  %239 = call noalias ptr @wmem_memdup(ptr noundef %230, ptr noundef %235, i64 noundef %238) #7
+  %240 = getelementptr inbounds i8, ptr %229, i64 16
+  store ptr %239, ptr %240, align 8
+  %241 = getelementptr inbounds i8, ptr %229, i64 8
+  store ptr %239, ptr %241, align 8
+  %242 = getelementptr inbounds i8, ptr %229, i64 4
+  store i32 %233, ptr %242, align 4
   br label %copy_address_wmem.exit.i
 
-copy_address_wmem.exit.i:                         ; preds = %238, %228
-  %244 = call ptr @wmem_file_scope() #7
-  %245 = getelementptr inbounds i8, ptr %230, i64 24
-  %246 = load i32, ptr %14, align 8
-  %247 = load i32, ptr %168, align 4
-  %248 = load ptr, ptr %169, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %245, i8 0, i64 24, i1 false)
-  store i32 %246, ptr %245, align 8
-  %249 = icmp eq i32 %247, 0
-  br i1 %249, label %copy_address_wmem.exit149.i, label %250
+copy_address_wmem.exit.i:                         ; preds = %237, %227
+  %243 = call ptr @wmem_file_scope() #7
+  %244 = getelementptr inbounds i8, ptr %229, i64 24
+  %245 = load i32, ptr %14, align 8
+  %246 = load i32, ptr %167, align 4
+  %247 = load ptr, ptr %168, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %244, i8 0, i64 24, i1 false)
+  store i32 %245, ptr %244, align 8
+  %248 = icmp eq i32 %246, 0
+  br i1 %248, label %copy_address_wmem.exit149.i, label %249
 
-250:                                              ; preds = %copy_address_wmem.exit.i
-  %251 = sext i32 %247 to i64
-  %252 = call noalias ptr @wmem_memdup(ptr noundef %244, ptr noundef %248, i64 noundef %251) #7
-  %253 = getelementptr inbounds i8, ptr %230, i64 40
-  store ptr %252, ptr %253, align 8
-  %254 = getelementptr inbounds i8, ptr %230, i64 32
-  store ptr %252, ptr %254, align 8
-  %255 = getelementptr inbounds i8, ptr %230, i64 28
-  store i32 %247, ptr %255, align 4
+249:                                              ; preds = %copy_address_wmem.exit.i
+  %250 = sext i32 %246 to i64
+  %251 = call noalias ptr @wmem_memdup(ptr noundef %243, ptr noundef %247, i64 noundef %250) #7
+  %252 = getelementptr inbounds i8, ptr %229, i64 40
+  store ptr %251, ptr %252, align 8
+  %253 = getelementptr inbounds i8, ptr %229, i64 32
+  store ptr %251, ptr %253, align 8
+  %254 = getelementptr inbounds i8, ptr %229, i64 28
+  store i32 %246, ptr %254, align 4
   br label %copy_address_wmem.exit149.i
 
-copy_address_wmem.exit149.i:                      ; preds = %250, %copy_address_wmem.exit.i
-  %256 = getelementptr inbounds i8, ptr %230, i64 48
-  store i32 2, ptr %256, align 8
-  %257 = load i16, ptr %6, align 2
-  %258 = getelementptr inbounds i8, ptr %230, i64 52
-  store i16 %257, ptr %258, align 4
-  %259 = load i16, ptr %7, align 2
-  %260 = getelementptr inbounds i8, ptr %230, i64 54
-  store i16 %259, ptr %260, align 2
-  %261 = getelementptr inbounds i8, ptr %1, i64 20
-  %262 = load i32, ptr %261, align 4
-  %263 = getelementptr inbounds i8, ptr %230, i64 56
-  store i32 %262, ptr %263, align 8
-  %264 = load i32, ptr @proto_proxy, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %224, i32 noundef %264, ptr noundef nonnull %230) #7
+copy_address_wmem.exit149.i:                      ; preds = %249, %copy_address_wmem.exit.i
+  %255 = getelementptr inbounds i8, ptr %229, i64 48
+  store i32 2, ptr %255, align 8
+  %256 = load i16, ptr %6, align 2
+  %257 = getelementptr inbounds i8, ptr %229, i64 52
+  store i16 %256, ptr %257, align 4
+  %258 = load i16, ptr %7, align 2
+  %259 = getelementptr inbounds i8, ptr %229, i64 54
+  store i16 %258, ptr %259, align 2
+  %260 = getelementptr inbounds i8, ptr %1, i64 20
+  %261 = load i32, ptr %260, align 4
+  %262 = getelementptr inbounds i8, ptr %229, i64 56
+  store i32 %261, ptr %262, align 8
+  %263 = load i32, ptr @proto_proxy, align 4
+  call void @conversation_add_proto_data(ptr noundef nonnull %223, i32 noundef %263, ptr noundef nonnull %229) #7
   br label %dissect_proxy_v1_header.exit
 
-dissect_proxy_v1_header.exit:                     ; preds = %is_proxy_v1.exit.thread.i, %proxy_v1_get_token_length.exit.thread188.i, %proxy_v1_get_token_length.exit140.thread196.i, %75, %proxy_v1_get_token_length.exit142.thread201.i, %102, %proxy_v1_get_token_length.exit144.thread206.i, %127, %proxy_v1_get_token_length.exit146.thread211.i, %153, %159, %proxy_v1_get_token_length.exit148.thread216.i, %187, %199, %207, %210, %copy_address_wmem.exit149.i
-  %.0.i = phi i32 [ %165, %159 ], [ %201, %199 ], [ %209, %207 ], [ %189, %187 ], [ %181, %proxy_v1_get_token_length.exit148.thread216.i ], [ %155, %153 ], [ %147, %proxy_v1_get_token_length.exit146.thread211.i ], [ %129, %127 ], [ %121, %proxy_v1_get_token_length.exit144.thread206.i ], [ %104, %102 ], [ %96, %proxy_v1_get_token_length.exit142.thread201.i ], [ %77, %75 ], [ %69, %proxy_v1_get_token_length.exit140.thread196.i ], [ %48, %proxy_v1_get_token_length.exit.thread188.i ], [ 0, %is_proxy_v1.exit.thread.i ], [ %29, %copy_address_wmem.exit149.i ], [ %29, %210 ]
+dissect_proxy_v1_header.exit:                     ; preds = %is_proxy_v1.exit.thread.i, %proxy_v1_get_token_length.exit.thread188.i, %proxy_v1_get_token_length.exit140.thread196.i, %75, %proxy_v1_get_token_length.exit142.thread201.i, %102, %proxy_v1_get_token_length.exit144.thread206.i, %127, %proxy_v1_get_token_length.exit146.thread211.i, %153, %159, %proxy_v1_get_token_length.exit148.thread216.i, %186, %198, %206, %209, %copy_address_wmem.exit149.i
+  %.0.i = phi i32 [ %165, %159 ], [ %200, %198 ], [ %208, %206 ], [ %188, %186 ], [ %180, %proxy_v1_get_token_length.exit148.thread216.i ], [ %155, %153 ], [ %147, %proxy_v1_get_token_length.exit146.thread211.i ], [ %129, %127 ], [ %121, %proxy_v1_get_token_length.exit144.thread206.i ], [ %104, %102 ], [ %96, %proxy_v1_get_token_length.exit142.thread201.i ], [ %77, %75 ], [ %69, %proxy_v1_get_token_length.exit140.thread196.i ], [ %48, %proxy_v1_get_token_length.exit.thread188.i ], [ 0, %is_proxy_v1.exit.thread.i ], [ %29, %copy_address_wmem.exit149.i ], [ %29, %209 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 107, ptr nonnull %8)
@@ -695,31 +697,31 @@ dissect_proxy_v1_header.exit:                     ; preds = %is_proxy_v1.exit.th
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  %265 = load i32, ptr @proto_proxy, align 4
-  %266 = call ptr @conversation_get_proto_data(ptr noundef nonnull %15, i32 noundef %265) #7
-  %.not = icmp eq ptr %266, null
-  br i1 %.not, label %277, label %267
+  %264 = load i32, ptr @proto_proxy, align 4
+  %265 = call ptr @conversation_get_proto_data(ptr noundef nonnull %15, i32 noundef %264) #7
+  %.not = icmp eq ptr %265, null
+  br i1 %.not, label %276, label %266
 
-267:                                              ; preds = %dissect_proxy_v1_header.exit
-  %268 = getelementptr inbounds i8, ptr %1, i64 20
-  %269 = load i32, ptr %268, align 4
-  %270 = getelementptr inbounds i8, ptr %266, i64 56
-  %271 = load i32, ptr %270, align 8
-  %.not18 = icmp ult i32 %269, %271
-  br i1 %.not18, label %277, label %272
+266:                                              ; preds = %dissect_proxy_v1_header.exit
+  %267 = getelementptr inbounds i8, ptr %1, i64 20
+  %268 = load i32, ptr %267, align 4
+  %269 = getelementptr inbounds i8, ptr %265, i64 56
+  %270 = load i32, ptr %269, align 8
+  %.not18 = icmp ult i32 %268, %270
+  br i1 %.not18, label %276, label %271
 
-272:                                              ; preds = %267
-  %273 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i) #7
-  %.not19 = icmp eq i32 %273, 0
-  br i1 %.not19, label %277, label %274
+271:                                              ; preds = %266
+  %272 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i) #7
+  %.not19 = icmp eq i32 %272, 0
+  br i1 %.not19, label %276, label %273
 
-274:                                              ; preds = %272
-  %275 = call fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0.i, ptr noundef %3, ptr noundef nonnull %266)
-  %276 = add i32 %275, %.0.i
-  br label %277
+273:                                              ; preds = %271
+  %274 = call fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0.i, ptr noundef %3, ptr noundef nonnull %265)
+  %275 = add i32 %274, %.0.i
+  br label %276
 
-277:                                              ; preds = %274, %272, %267, %dissect_proxy_v1_header.exit
-  %.0 = phi i32 [ %276, %274 ], [ %.0.i, %272 ], [ %.0.i, %267 ], [ %.0.i, %dissect_proxy_v1_header.exit ]
+276:                                              ; preds = %273, %271, %266, %dissect_proxy_v1_header.exit
+  %.0 = phi i32 [ %275, %273 ], [ %.0.i, %271 ], [ %.0.i, %266 ], [ %.0.i, %dissect_proxy_v1_header.exit ]
   ret i32 %.0
 }
 

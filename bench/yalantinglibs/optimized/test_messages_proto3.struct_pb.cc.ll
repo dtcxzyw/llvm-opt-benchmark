@@ -9205,9 +9205,15 @@ for.body962:                                      ; preds = %for.end951, %for.bo
   %pos.1636749 = phi i64 [ %add973, %for.body962 ], [ %pos.158.lcssa, %for.end951 ]
   %__begin2953.sroa.0.06748 = phi ptr [ %call.i3913, %for.body962 ], [ %319, %for.end951 ]
   %arrayidx.i7326 = getelementptr inbounds i8, ptr %data, i64 %pos.1636749
+  store i8 -14, ptr %arrayidx.i7326, align 1
   %_M_storage.i.i3912 = getelementptr inbounds i8, ptr %__begin2953.sroa.0.06748, i64 32
   %inc.i7325 = add i64 %pos.1636749, 1
-  store <4 x i8> <i8 -14, i8 3, i8 10, i8 13>, ptr %arrayidx.i7326, align 1
+  %arrayidx3.i7321 = getelementptr inbounds i8, ptr %data, i64 %inc.i7325
+  store i8 3, ptr %arrayidx3.i7321, align 1
+  %gep6738 = getelementptr i8, ptr %invariant.gep6594, i64 %inc.i7325
+  store i8 10, ptr %gep6738, align 1
+  %gep6740 = getelementptr i8, ptr %invariant.gep, i64 %inc.i7325
+  store i8 13, ptr %gep6740, align 1
   %gep6742 = getelementptr i8, ptr %invariant.gep6741, i64 %inc.i7325
   %320 = load i32, ptr %_M_storage.i.i3912, align 4
   store i32 %320, ptr %gep6742, align 1
@@ -9236,9 +9242,15 @@ for.body987:                                      ; preds = %for.end976, %for.bo
   %pos.1656765 = phi i64 [ %add998, %for.body987 ], [ %pos.163.lcssa, %for.end976 ]
   %__begin2978.sroa.0.06764 = phi ptr [ %call.i3918, %for.body987 ], [ %322, %for.end976 ]
   %arrayidx.i7262 = getelementptr inbounds i8, ptr %data, i64 %pos.1656765
+  store i8 -6, ptr %arrayidx.i7262, align 1
   %_M_storage.i.i3917 = getelementptr inbounds i8, ptr %__begin2978.sroa.0.06764, i64 32
   %inc.i7261 = add i64 %pos.1656765, 1
-  store <4 x i8> <i8 -6, i8 3, i8 18, i8 9>, ptr %arrayidx.i7262, align 1
+  %arrayidx3.i7257 = getelementptr inbounds i8, ptr %data, i64 %inc.i7261
+  store i8 3, ptr %arrayidx3.i7257, align 1
+  %gep6754 = getelementptr i8, ptr %invariant.gep6594, i64 %inc.i7261
+  store i8 18, ptr %gep6754, align 1
+  %gep6756 = getelementptr i8, ptr %invariant.gep, i64 %inc.i7261
+  store i8 9, ptr %gep6756, align 1
   %gep6758 = getelementptr i8, ptr %invariant.gep6741, i64 %inc.i7261
   %323 = load i64, ptr %_M_storage.i.i3917, align 8
   store i64 %323, ptr %gep6758, align 1
@@ -9265,9 +9277,15 @@ for.body1012:                                     ; preds = %for.end1001, %for.b
   %pos.1676781 = phi i64 [ %add1023, %for.body1012 ], [ %pos.165.lcssa, %for.end1001 ]
   %__begin21003.sroa.0.06780 = phi ptr [ %call.i3923, %for.body1012 ], [ %325, %for.end1001 ]
   %arrayidx.i7198 = getelementptr inbounds i8, ptr %data, i64 %pos.1676781
+  store i8 -126, ptr %arrayidx.i7198, align 1
   %_M_storage.i.i3922 = getelementptr inbounds i8, ptr %__begin21003.sroa.0.06780, i64 32
   %inc.i7197 = add i64 %pos.1676781, 1
-  store <4 x i8> <i8 -126, i8 4, i8 10, i8 13>, ptr %arrayidx.i7198, align 1
+  %arrayidx3.i7193 = getelementptr inbounds i8, ptr %data, i64 %inc.i7197
+  store i8 4, ptr %arrayidx3.i7193, align 1
+  %gep6770 = getelementptr i8, ptr %invariant.gep6594, i64 %inc.i7197
+  store i8 10, ptr %gep6770, align 1
+  %gep6772 = getelementptr i8, ptr %invariant.gep, i64 %inc.i7197
+  store i8 13, ptr %gep6772, align 1
   %gep6774 = getelementptr i8, ptr %invariant.gep6741, i64 %inc.i7197
   %326 = load i32, ptr %_M_storage.i.i3922, align 4
   store i32 %326, ptr %gep6774, align 1
@@ -9294,9 +9312,15 @@ for.body1037:                                     ; preds = %for.end1026, %for.b
   %pos.1696797 = phi i64 [ %add1048, %for.body1037 ], [ %pos.167.lcssa, %for.end1026 ]
   %__begin21028.sroa.0.06796 = phi ptr [ %call.i3929, %for.body1037 ], [ %328, %for.end1026 ]
   %arrayidx.i7134 = getelementptr inbounds i8, ptr %data, i64 %pos.1696797
+  store i8 -118, ptr %arrayidx.i7134, align 1
   %_M_storage.i.i3928 = getelementptr inbounds i8, ptr %__begin21028.sroa.0.06796, i64 32
   %inc.i7133 = add i64 %pos.1696797, 1
-  store <4 x i8> <i8 -118, i8 4, i8 18, i8 9>, ptr %arrayidx.i7134, align 1
+  %arrayidx3.i7129 = getelementptr inbounds i8, ptr %data, i64 %inc.i7133
+  store i8 4, ptr %arrayidx3.i7129, align 1
+  %gep6786 = getelementptr i8, ptr %invariant.gep6594, i64 %inc.i7133
+  store i8 18, ptr %gep6786, align 1
+  %gep6788 = getelementptr i8, ptr %invariant.gep, i64 %inc.i7133
+  store i8 9, ptr %gep6788, align 1
   %gep6790 = getelementptr i8, ptr %invariant.gep6741, i64 %inc.i7133
   %329 = load i64, ptr %_M_storage.i.i3928, align 8
   store i64 %329, ptr %gep6790, align 1
@@ -9507,10 +9531,16 @@ for.body1118:                                     ; preds = %for.end1107, %for.b
   %pos.1796861 = phi i64 [ %inc2.i6824, %for.body1118 ], [ %pos.175.lcssa, %for.end1107 ]
   %__begin21109.sroa.0.06860 = phi ptr [ %call.i3945, %for.body1118 ], [ %345, %for.end1107 ]
   %arrayidx.i6910 = getelementptr inbounds i8, ptr %data, i64 %pos.1796861
+  store i8 -94, ptr %arrayidx.i6910, align 1
   %_M_storage.i.i3944 = getelementptr inbounds i8, ptr %__begin21109.sroa.0.06860, i64 32
   %inc.i6909 = add i64 %pos.1796861, 1
+  %arrayidx3.i6905 = getelementptr inbounds i8, ptr %data, i64 %inc.i6909
+  store i8 4, ptr %arrayidx3.i6905, align 1
   %second1128 = getelementptr inbounds i8, ptr %__begin21109.sroa.0.06860, i64 33
-  store <4 x i8> <i8 -94, i8 4, i8 4, i8 8>, ptr %arrayidx.i6910, align 1
+  %gep6850 = getelementptr i8, ptr %invariant.gep6594, i64 %inc.i6909
+  store i8 4, ptr %gep6850, align 1
+  %gep6852 = getelementptr i8, ptr %invariant.gep, i64 %inc.i6909
+  store i8 8, ptr %gep6852, align 1
   %346 = load i8, ptr %_M_storage.i.i3944, align 1
   %conv1.i6855 = and i8 %346, 1
   %gep6854 = getelementptr i8, ptr %invariant.gep6741, i64 %inc.i6909
@@ -77743,12 +77773,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN6google8protobuf9FieldMaskESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %3 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !194, !noalias !191
-  store <2 x ptr> %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !191, !noalias !194
+  %3 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !194, !noalias !191
+  store ptr %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !191, !noalias !194
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %4 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !194, !noalias !191
+  store ptr %4, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !191, !noalias !194
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !194, !noalias !191
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !191, !noalias !194
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !194, !noalias !191
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !191, !noalias !194
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !194, !noalias !191
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
@@ -77766,12 +77800,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6goog
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN6google8protobuf9FieldMaskESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !200, !noalias !197
-  store <2 x ptr> %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !197, !noalias !200
+  %6 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !200, !noalias !197
+  store ptr %6, ptr %__cur.07.i.i.i13, align 8, !alias.scope !197, !noalias !200
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
+  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !200, !noalias !197
+  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !197, !noalias !200
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
-  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !200, !noalias !197
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !197, !noalias !200
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !200, !noalias !197
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !197, !noalias !200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !200, !noalias !197
   %incdec.ptr.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
   %incdec.ptr1.i.i.i20 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
@@ -78404,12 +78442,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN6google8protobuf9ListValueESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
-  %3 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !220, !noalias !217
-  store <2 x ptr> %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !217, !noalias !220
+  %3 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !220, !noalias !217
+  store ptr %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !217, !noalias !220
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %4 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !220, !noalias !217
+  store ptr %4, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !217, !noalias !220
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !220, !noalias !217
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !217, !noalias !220
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !220, !noalias !217
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !217, !noalias !220
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !220, !noalias !217
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
@@ -78427,12 +78469,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6goog
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN6google8protobuf9ListValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
-  %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !226, !noalias !223
-  store <2 x ptr> %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !223, !noalias !226
+  %6 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !226, !noalias !223
+  store ptr %6, ptr %__cur.07.i.i.i13, align 8, !alias.scope !223, !noalias !226
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
+  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !226, !noalias !223
+  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !223, !noalias !226
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
-  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !226, !noalias !223
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !223, !noalias !226
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !226, !noalias !223
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !223, !noalias !226
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !226, !noalias !223
   %incdec.ptr.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
   %incdec.ptr1.i.i.i20 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24

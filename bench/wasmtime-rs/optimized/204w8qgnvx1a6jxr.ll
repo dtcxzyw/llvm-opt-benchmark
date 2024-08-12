@@ -878,24 +878,26 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h96bc56
   %17 = load ptr, ptr %16, align 8, !nonnull !3, !align !4, !noundef !3
   %18 = load ptr, ptr %17, align 8, !noundef !3
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %22, label %19
+  br i1 %.not.i, label %24, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %17, i64 8
-  %21 = load <2 x i64>, ptr %20, align 8
-  br label %22
+  %21 = load i64, ptr %20, align 8, !noundef !3
+  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %23 = load i64, ptr %22, align 8, !noundef !3
+  br label %24
 
-22:                                               ; preds = %19, %14
+24:                                               ; preds = %19, %14
   %.sroa.0.sroa.4.0.i = phi i64 [ 1, %19 ], [ 0, %14 ]
-  %23 = phi <2 x i64> [ %21, %19 ], [ <i64 undef, i64 0>, %14 ]
+  %.sroa.0.sroa.3.sroa.4.0.i = phi i64 [ %21, %19 ], [ undef, %14 ]
+  %.sroa.3.0.i = phi i64 [ %23, %19 ], [ 0, %14 ]
   store i64 %.sroa.0.sroa.4.0.i, ptr %12, align 8
   %.sroa.0.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr null, ptr %.sroa.0.sroa.3.0..sroa_idx.i, align 8
   %.sroa.0.sroa.3.sroa.3.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %18, ptr %.sroa.0.sroa.3.sroa.3.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx.i, align 8
   %.sroa.0.sroa.3.sroa.4.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 24
-  %24 = extractelement <2 x i64> %23, i64 0
-  store i64 %24, ptr %.sroa.0.sroa.3.sroa.4.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx.i, align 8
+  store i64 %.sroa.0.sroa.3.sroa.4.0.i, ptr %.sroa.0.sroa.3.sroa.4.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx.i, align 8
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 32
   store i64 %.sroa.0.sroa.4.0.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 40
@@ -903,7 +905,9 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h96bc56
   %.sroa.0.sroa.5.sroa.3.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 48
   store ptr %18, ptr %.sroa.0.sroa.5.sroa.3.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i, align 8
   %.sroa.0.sroa.5.sroa.4.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 56
-  store <2 x i64> %23, ptr %.sroa.0.sroa.5.sroa.4.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i, align 8
+  store i64 %.sroa.0.sroa.3.sroa.4.0.i, ptr %.sroa.0.sroa.5.sroa.4.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i, align 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 64
+  store i64 %.sroa.3.0.i, ptr %.sroa.3.0..sroa_idx.i, align 8
   %25 = getelementptr inbounds i8, ptr %8, i64 72
   %26 = getelementptr inbounds i8, ptr %9, i64 8
   %27 = getelementptr inbounds i8, ptr %9, i64 16
@@ -911,7 +915,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h96bc56
   %29 = getelementptr inbounds i8, ptr %11, i64 16
   br label %30
 
-30:                                               ; preds = %68, %22
+30:                                               ; preds = %68, %24
   %31 = invoke { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d624b8a193932dfE"(ptr nonnull align 8 %12)
           to label %36 unwind label %34
 

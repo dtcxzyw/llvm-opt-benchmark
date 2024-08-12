@@ -6885,7 +6885,13 @@ invoke.cont:                                      ; preds = %.noexc
   %Callback_.i = getelementptr inbounds i8, ptr %this, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %Callback_.i, i8 0, i64 32, i1 false)
   %AllocInYoung_ = getelementptr inbounds i8, ptr %this, i64 128
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %AllocInYoung_, align 8
+  store i8 1, ptr %AllocInYoung_, align 8
+  %OverwriteDeadYGObjects_ = getelementptr inbounds i8, ptr %this, i64 129
+  store i8 0, ptr %OverwriteDeadYGObjects_, align 1
+  %RevertToYGAtTTI_ = getelementptr inbounds i8, ptr %this, i64 130
+  store i8 0, ptr %RevertToYGAtTTI_, align 2
+  %ProtectMetadata_ = getelementptr inbounds i8, ptr %this, i64 131
+  store i8 0, ptr %ProtectMetadata_, align 1
   %AnalyticsCallback_ = getelementptr inbounds i8, ptr %this, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %AnalyticsCallback_, i8 0, i64 64, i1 false)
   ret void

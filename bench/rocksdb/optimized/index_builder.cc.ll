@@ -1665,7 +1665,7 @@ entry:
   %sep = alloca %"class.rocksdb::Slice", align 8
   %first_internal_key_buf = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp21 = alloca %"class.rocksdb::Slice", align 8
-  %entry29 = alloca %"struct.rocksdb::IndexValue", align 16
+  %entry29 = alloca %"struct.rocksdb::IndexValue", align 8
   %encoded_entry = alloca %"class.std::__cxx11::basic_string", align 8
   %delta_encoded_entry = alloca %"class.std::__cxx11::basic_string", align 8
   %delta_encoded_entry_slice = alloca %"class.rocksdb::Slice", align 8
@@ -1806,44 +1806,48 @@ lpad:                                             ; preds = %if.then20
 if.end28:                                         ; preds = %invoke.cont25, %land.lhs.true18, %land.lhs.true, %if.end14
   %first_internal_key.sroa.0.0 = phi ptr [ %call.i12, %if.end14 ], [ %call.i12, %land.lhs.true ], [ %call.i12, %land.lhs.true18 ], [ %call.i18, %invoke.cont25 ]
   %first_internal_key.sroa.3.0 = phi i64 [ %call2.i14, %if.end14 ], [ %call2.i14, %land.lhs.true ], [ %call2.i14, %land.lhs.true18 ], [ %call2.i20, %invoke.cont25 ]
-  %19 = load <2 x i64>, ptr %block_handle, align 8
-  store <2 x i64> %19, ptr %entry29, align 16
+  %agg.tmp.sroa.0.0.copyload = load i64, ptr %block_handle, align 8
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %block_handle, i64 8
+  %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  store i64 %agg.tmp.sroa.0.0.copyload, ptr %entry29, align 8
+  %_handle.sroa.2.0.handle.sroa_idx.i = getelementptr inbounds i8, ptr %entry29, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload, ptr %_handle.sroa.2.0.handle.sroa_idx.i, align 8
   %first_internal_key.i = getelementptr inbounds i8, ptr %entry29, i64 16
-  store ptr %first_internal_key.sroa.0.0, ptr %first_internal_key.i, align 16
+  store ptr %first_internal_key.sroa.0.0, ptr %first_internal_key.i, align 8
   %_first_internal_key.sroa.2.0.first_internal_key.sroa_idx.i = getelementptr inbounds i8, ptr %entry29, i64 24
   store i64 %first_internal_key.sroa.3.0, ptr %_first_internal_key.sroa.2.0.first_internal_key.sroa_idx.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %encoded_entry) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delta_encoded_entry) #20
   %include_first_key_ = getelementptr inbounds i8, ptr %this, i64 394
-  %20 = load i8, ptr %include_first_key_, align 2
-  %tobool32 = trunc i8 %20 to i1
+  %19 = load i8, ptr %include_first_key_, align 2
+  %tobool32 = trunc i8 %19 to i1
   invoke void @_ZNK7rocksdb10IndexValue8EncodeToEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPKNS_11BlockHandleE(ptr noundef nonnull align 8 dereferenceable(32) %entry29, ptr noundef nonnull %encoded_entry, i1 noundef zeroext %tobool32, ptr noundef null)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %if.end28
   %use_value_delta_encoding_ = getelementptr inbounds i8, ptr %this, i64 392
-  %21 = load i8, ptr %use_value_delta_encoding_, align 8
-  %tobool35 = trunc i8 %21 to i1
+  %20 = load i8, ptr %use_value_delta_encoding_, align 8
+  %tobool35 = trunc i8 %20 to i1
   br i1 %tobool35, label %land.lhs.true36, label %if.end45
 
 land.lhs.true36:                                  ; preds = %invoke.cont34
   %last_encoded_handle_ = getelementptr inbounds i8, ptr %this, i64 400
-  %22 = load i64, ptr %last_encoded_handle_, align 8
-  %cmp.i = icmp eq i64 %22, 0
+  %21 = load i64, ptr %last_encoded_handle_, align 8
+  %cmp.i = icmp eq i64 %21, 0
   %size_.i21 = getelementptr inbounds i8, ptr %this, i64 408
-  %23 = load i64, ptr %size_.i21, align 8
-  %cmp2.i = icmp eq i64 %23, 0
-  %24 = select i1 %cmp.i, i1 %cmp2.i, i1 false
-  br i1 %24, label %if.end45, label %if.then39
+  %22 = load i64, ptr %size_.i21, align 8
+  %cmp2.i = icmp eq i64 %22, 0
+  %23 = select i1 %cmp.i, i1 %cmp2.i, i1 false
+  br i1 %23, label %if.end45, label %if.then39
 
 if.then39:                                        ; preds = %land.lhs.true36
-  %25 = load i8, ptr %include_first_key_, align 2
-  %tobool41 = trunc i8 %25 to i1
+  %24 = load i8, ptr %include_first_key_, align 2
+  %tobool41 = trunc i8 %24 to i1
   invoke void @_ZNK7rocksdb10IndexValue8EncodeToEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPKNS_11BlockHandleE(ptr noundef nonnull align 8 dereferenceable(32) %entry29, ptr noundef nonnull %delta_encoded_entry, i1 noundef zeroext %tobool41, ptr noundef nonnull %last_encoded_handle_)
           to label %if.end45 unwind label %lpad33
 
 lpad33:                                           ; preds = %invoke.cont55, %if.end45, %if.then39, %if.end28
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delta_encoded_entry) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %encoded_entry) #20
@@ -1868,18 +1872,18 @@ if.end45:                                         ; preds = %invoke.cont34, %lan
 
 invoke.cont50:                                    ; preds = %if.end45
   %seperator_is_key_plus_seq_51 = getelementptr inbounds i8, ptr %this, i64 393
-  %27 = load i8, ptr %seperator_is_key_plus_seq_51, align 1
-  %tobool52 = trunc i8 %27 to i1
+  %26 = load i8, ptr %seperator_is_key_plus_seq_51, align 1
+  %tobool52 = trunc i8 %26 to i1
   br i1 %tobool52, label %if.end60, label %invoke.cont55
 
 invoke.cont55:                                    ; preds = %invoke.cont50
-  %28 = load ptr, ptr %sep, align 8
-  %29 = load i64, ptr %size_.i10, align 8
-  %sub.i = add i64 %29, -8
+  %27 = load ptr, ptr %sep, align 8
+  %28 = load i64, ptr %size_.i10, align 8
+  %sub.i = add i64 %28, -8
   %index_block_builder_without_seq_ = getelementptr inbounds i8, ptr %this, i64 216
-  store ptr %28, ptr %ref.tmp54, align 8
-  %30 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
-  store i64 %sub.i, ptr %30, align 8
+  store ptr %27, ptr %ref.tmp54, align 8
+  %29 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
+  store i64 %sub.i, ptr %29, align 8
   %call.i28 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %encoded_entry) #20
   store ptr %call.i28, ptr %ref.tmp57, align 8
   %size_.i29 = getelementptr inbounds i8, ptr %ref.tmp57, i64 8
@@ -1896,7 +1900,7 @@ if.end60:                                         ; preds = %invoke.cont55, %inv
   ret void
 
 ehcleanup:                                        ; preds = %lpad33, %lpad
-  %.pn = phi { ptr, i32 } [ %26, %lpad33 ], [ %18, %lpad ]
+  %.pn = phi { ptr, i32 } [ %25, %lpad33 ], [ %18, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %first_internal_key_buf) #20
   resume { ptr, i32 } %.pn
 }

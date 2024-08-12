@@ -88,8 +88,8 @@ define void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define noundef i64 @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$6finish17h3aa37d194c1f0b45E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
-  %2 = alloca { i64, i64, i64, i64 }, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  %2 = alloca { i64, i64, i64, i64 }, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = shl i64 %4, 56
@@ -101,14 +101,23 @@ define noundef i64 @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core.
   %11 = xor i64 %10, %8
   store i64 %11, ptr %9, align 8
   call void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..hash..sip..Sip$GT$8c_rounds17h75d6cab168b99a05E"(ptr nonnull align 8 %2)
-  %12 = load <2 x i64>, ptr %2, align 16
-  %13 = insertelement <2 x i64> <i64 poison, i64 255>, i64 %8, i64 0
-  %14 = xor <2 x i64> %12, %13
-  store <2 x i64> %14, ptr %2, align 16
+  %12 = load i64, ptr %2, align 8, !noundef !3
+  %13 = xor i64 %12, %8
+  store i64 %13, ptr %2, align 8
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = load i64, ptr %14, align 8, !noundef !3
+  %16 = xor i64 %15, 255
+  store i64 %16, ptr %14, align 8
   call void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..hash..sip..Sip$GT$8d_rounds17h058543a58579d190E"(ptr nonnull align 8 %2)
-  %15 = load <4 x i64>, ptr %2, align 16
-  %16 = call i64 @llvm.vector.reduce.xor.v4i64(<4 x i64> %15)
-  ret i64 %16
+  %17 = load i64, ptr %2, align 8, !noundef !3
+  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = load i64, ptr %18, align 8, !noundef !3
+  %20 = xor i64 %19, %17
+  %21 = load i64, ptr %14, align 8, !noundef !3
+  %22 = xor i64 %20, %21
+  %23 = load i64, ptr %9, align 8, !noundef !3
+  %24 = xor i64 %22, %23
+  ret i64 %24
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -126,12 +135,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..hash..sip..Sip$GT$8d_rounds17h058543a58579d190E"(ptr align 8) unnamed_addr #0
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.xor.v4i64(<4 x i64>) #2
-
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

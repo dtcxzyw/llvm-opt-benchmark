@@ -199,7 +199,7 @@ _ZN4pbrt12StringPrintfIJRKfS2_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIc
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define dso_local { <2 x float>, float } @_ZNK4pbrt18RGBToSpectrumTableclENS_3RGBE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, <2 x float> %rgb.coerce0, float %rgb.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %c = alloca %"class.pstd::array", align 8
+  %c = alloca %"class.pstd::array", align 4
   %rgb.sroa.0.0.vec.extract = extractelement <2 x float> %rgb.coerce0, i64 0
   %rgb.sroa.0.4.vec.extract = extractelement <2 x float> %rgb.coerce0, i64 1
   %cmp = fcmp oeq float %rgb.sroa.0.0.vec.extract, %rgb.sroa.0.4.vec.extract
@@ -284,7 +284,7 @@ while.body.i:                                     ; preds = %while.body.i, %_ZN4
   %5 = load float, ptr %arrayidx48, align 4
   %sub52 = fsub float %5, %3
   %div53 = fdiv float %sub44, %sub52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %c, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %c, i8 0, i64 12, i1 false)
   %coeffs.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %coeffs.i, align 8
   %idxprom5.i = sext i32 %.sroa.speculated to i64
@@ -345,14 +345,18 @@ for.body:                                         ; preds = %"_ZN4pbrt12FindInte
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
-  %15 = load <2 x float>, ptr %c, align 8
+  %15 = load float, ptr %c, align 4
+  %arrayidx.i125 = getelementptr inbounds i8, ptr %c, i64 4
+  %16 = load float, ptr %arrayidx.i125, align 4
   %arrayidx.i126 = getelementptr inbounds i8, ptr %c, i64 8
-  %16 = load float, ptr %arrayidx.i126, align 8
+  %17 = load float, ptr %arrayidx.i126, align 4
+  %retval.sroa.0.0.vec.insert216 = insertelement <2 x float> poison, float %15, i64 0
+  %retval.sroa.0.4.vec.insert218 = insertelement <2 x float> %retval.sroa.0.0.vec.insert216, float %16, i64 1
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %retval.sroa.0.0 = phi <2 x float> [ zeroinitializer, %if.then ], [ %15, %for.end ]
-  %retval.sroa.5.0 = phi float [ %div, %if.then ], [ %16, %for.end ]
+  %retval.sroa.0.0 = phi <2 x float> [ zeroinitializer, %if.then ], [ %retval.sroa.0.4.vec.insert218, %for.end ]
+  %retval.sroa.5.0 = phi float [ %div, %if.then ], [ %17, %for.end ]
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.5.0, 1
   ret { <2 x float>, float } %.fca.1.insert
@@ -552,18 +556,16 @@ if.end.i.i:                                       ; preds = %if.end3.i
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, float %0, float 0.000000e+00
   %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i.i)
   %1 = tail call noundef float @llvm.fma.f32(float %sqrt.i.i.i, float 0xBF90974760000000, float 0x3FE82A39C0000000)
-  %2 = fadd float %sqrt.i.i.i, 0x3FFE5A35A0000000
-  %3 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
-  %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> zeroinitializer
-  %5 = insertelement <2 x float> poison, float %1, i64 0
-  %6 = insertelement <2 x float> %5, float %2, i64 1
-  %7 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %4, <2 x float> %6, <2 x float> <float 0x4000086E80000000, float 0x3FE3791C00000000>)
-  %8 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %4, <2 x float> %7, <2 x float> <float 0x3FE874D3C0000000, float 0x3FA1C085C0000000>)
-  %9 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %4, <2 x float> %8, <2 x float> <float 0x3FA1AF0E00000000, float 0xBF06F08220000000>)
-  %10 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %4, <2 x float> %9, <2 x float> <float 0xBF5B929FE0000000, float 0x3E9C0B4880000000>)
-  %shift = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %11 = fdiv <2 x float> %10, %shift
-  %div.i.i = extractelement <2 x float> %11, i64 0
+  %2 = tail call noundef float @llvm.fma.f32(float %sqrt.i.i.i, float %1, float 0x4000086E80000000)
+  %3 = tail call noundef float @llvm.fma.f32(float %sqrt.i.i.i, float %2, float 0x3FE874D3C0000000)
+  %4 = tail call noundef float @llvm.fma.f32(float %sqrt.i.i.i, float %3, float 0x3FA1AF0E00000000)
+  %5 = tail call noundef float @llvm.fma.f32(float %sqrt.i.i.i, float %4, float 0xBF5B929FE0000000)
+  %6 = fadd float %sqrt.i.i.i, 0x3FFE5A35A0000000
+  %7 = tail call noundef float @llvm.fma.f32(float %sqrt.i.i.i, float %6, float 0x3FE3791C00000000)
+  %8 = tail call noundef float @llvm.fma.f32(float %sqrt.i.i.i, float %7, float 0x3FA1C085C0000000)
+  %9 = tail call noundef float @llvm.fma.f32(float %sqrt.i.i.i, float %8, float 0xBF06F08220000000)
+  %10 = tail call noundef float @llvm.fma.f32(float %sqrt.i.i.i, float %9, float 0x3E9C0B4880000000)
+  %div.i.i = fdiv float %5, %10
   br label %_ZN4pbrt12LinearToSRGBEf.exit.i
 
 _ZN4pbrt12LinearToSRGBEf.exit.i:                  ; preds = %if.end3.i, %if.end.i.i
@@ -571,10 +573,10 @@ _ZN4pbrt12LinearToSRGBEf.exit.i:                  ; preds = %if.end3.i, %if.end.
   %mul3.i.i = fmul float %0, %div.i.i.sink
   %mul.i = fmul float %mul3.i.i, 2.550000e+02
   %add.i = fadd float %mul.i, 0.000000e+00
-  %12 = tail call noundef float @llvm.round.f32(float %add.i)
-  %cmp.i3.i = fcmp olt float %12, 0.000000e+00
-  %cmp3.i.i = fcmp ogt float %12, 2.550000e+02
-  %conv2.val.i.i = select i1 %cmp3.i.i, float 2.550000e+02, float %12
+  %11 = tail call noundef float @llvm.round.f32(float %add.i)
+  %cmp.i3.i = fcmp olt float %11, 0.000000e+00
+  %cmp3.i.i = fcmp ogt float %11, 2.550000e+02
+  %conv2.val.i.i = select i1 %cmp3.i.i, float 2.550000e+02, float %11
   %retval.0.i4.i = select i1 %cmp.i3.i, float 0.000000e+00, float %conv2.val.i.i
   %conv.i = fptoui float %retval.0.i4.i to i8
   br label %_ZN4pbrt13LinearToSRGB8Eff.exit
@@ -3830,9 +3832,6 @@ declare float @llvm.sqrt.f32(float) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fma.v2f32(<2 x float>, <2 x float>, <2 x float>) #20
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

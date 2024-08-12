@@ -2775,10 +2775,10 @@ define internal fastcc range(i32 0, 2) i32 @is_gquic_unencrypt(ptr noundef %0, p
   %20 = getelementptr inbounds i8, ptr %4, i64 8
   br label %21
 
-21:                                               ; preds = %.lr.ph, %154
-  %.1164 = phi i32 [ %.0134, %.lr.ph ], [ %.3, %154 ]
-  %.0135163 = phi i8 [ 0, %.lr.ph ], [ %.1136, %154 ]
-  %.0138162 = phi i32 [ 0, %.lr.ph ], [ %.1139, %154 ]
+21:                                               ; preds = %.lr.ph, %158
+  %.1164 = phi i32 [ %.0134, %.lr.ph ], [ %.3, %158 ]
+  %.0135163 = phi i8 [ 0, %.lr.ph ], [ %.1136, %158 ]
+  %.0138162 = phi i32 [ 0, %.lr.ph ], [ %.1139, %158 ]
   %22 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1164) #4
   %23 = icmp slt i32 %22, 2
   br i1 %23, label %.loopexit, label %24
@@ -2791,7 +2791,7 @@ define internal fastcc range(i32 0, 2) i32 @is_gquic_unencrypt(ptr noundef %0, p
 
 28:                                               ; preds = %24
   %29 = add i32 %.1164, 1
-  switch i8 %25, label %154 [
+  switch i8 %25, label %158 [
     i8 0, label %.loopexit
     i8 1, label %30
     i8 2, label %32
@@ -2803,7 +2803,7 @@ define internal fastcc range(i32 0, 2) i32 @is_gquic_unencrypt(ptr noundef %0, p
 
 30:                                               ; preds = %28
   %31 = add i32 %.1164, 17
-  br label %154
+  br label %158
 
 32:                                               ; preds = %28
   %33 = add i32 %.1164, 5
@@ -2818,7 +2818,7 @@ define internal fastcc range(i32 0, 2) i32 @is_gquic_unencrypt(ptr noundef %0, p
   %40 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %39) #4
   %41 = zext i16 %38 to i32
   %42 = icmp eq i32 %40, %41
-  br i1 %42, label %.loopexit, label %154
+  br i1 %42, label %.loopexit, label %158
 
 43:                                               ; preds = %28
   %44 = add i32 %.1164, 9
@@ -2832,15 +2832,15 @@ define internal fastcc range(i32 0, 2) i32 @is_gquic_unencrypt(ptr noundef %0, p
   %50 = add i32 %.1164, 11
   %51 = zext i16 %49 to i32
   %52 = add i32 %50, %51
-  br label %154
+  br label %158
 
 53:                                               ; preds = %28
   %54 = add i32 %.1164, 13
-  br label %154
+  br label %158
 
 55:                                               ; preds = %28
   %56 = add i32 %.1164, 5
-  br label %154
+  br label %158
 
 57:                                               ; preds = %28
   %58 = load i32, ptr %10, align 4
@@ -2857,11 +2857,11 @@ define internal fastcc range(i32 0, 2) i32 @is_gquic_unencrypt(ptr noundef %0, p
 63:                                               ; preds = %59, %57
   %.2 = phi i32 [ %29, %57 ], [ %spec.select154, %59 ]
   %64 = add i32 %.2, %19
-  br label %154
+  br label %158
 
 65:                                               ; preds = %24
   %.not143 = icmp sgt i8 %25, -1
-  br i1 %.not143, label %83, label %switch.lookup
+  br i1 %.not143, label %87, label %switch.lookup
 
 switch.lookup:                                    ; preds = %65
   %66 = and i32 %26, 32
@@ -2873,164 +2873,165 @@ switch.lookup:                                    ; preds = %65
   %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.is_gquic_unencrypt, i64 0, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   %70 = and i8 %25, 3
-  %narrow = add nuw nsw i8 %70, 2
-  %op.rdx = zext nneg i8 %narrow to i32
-  %op.rdx197 = add i32 %switch.load, %spec.select155
-  %op.rdx198 = add i32 %op.rdx197, %op.rdx
-  %op.rdx199 = add i32 %op.rdx198, %.1164
-  %71 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %op.rdx199) #4
-  %72 = icmp slt i32 %71, 5
-  br i1 %72, label %.loopexit, label %73
+  %narrow = add nuw nsw i8 %70, 1
+  %switch.offset = zext nneg i8 %narrow to i32
+  %71 = add i32 %.1164, 1
+  %72 = add i32 %71, %spec.select155
+  %73 = add i32 %72, %switch.load
+  %74 = add i32 %73, %switch.offset
+  %75 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %74) #4
+  %76 = icmp slt i32 %75, 5
+  br i1 %76, label %.loopexit, label %77
 
-73:                                               ; preds = %switch.lookup
-  %74 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %op.rdx199) #4
-  switch i32 %74, label %154 [
-    i32 1128811599, label %75
+77:                                               ; preds = %switch.lookup
+  %78 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %74) #4
+  switch i32 %78, label %158 [
+    i32 1128811599, label %79
     i32 1380272640, label %.loopexit
     i32 1397247055, label %.loopexit
   ]
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %1, i64 284
-  %77 = load i32, ptr %76, align 4
-  %.not152 = icmp eq i32 %77, 443
-  br i1 %.not152, label %.loopexit, label %78
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds i8, ptr %1, i64 284
+  %81 = load i32, ptr %80, align 4
+  %.not152 = icmp eq i32 %81, 443
+  br i1 %.not152, label %.loopexit, label %82
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %1, i64 288
-  %80 = load i32, ptr %79, align 8
-  %81 = trunc i32 %80 to i16
-  %82 = getelementptr inbounds i8, ptr %4, i64 12
-  store i16 %81, ptr %82, align 4
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds i8, ptr %1, i64 288
+  %84 = load i32, ptr %83, align 8
+  %85 = trunc i32 %84 to i16
+  %86 = getelementptr inbounds i8, ptr %4, i64 12
+  store i16 %85, ptr %86, align 4
   br label %.loopexit
 
-83:                                               ; preds = %65
+87:                                               ; preds = %65
   %.not144 = icmp ult i8 %25, 64
-  br i1 %.not144, label %152, label %switch.lookup190
+  br i1 %.not144, label %156, label %switch.lookup190
 
-switch.lookup190:                                 ; preds = %83
-  %84 = lshr i8 %25, 2
-  %85 = and i8 %84, 3
-  %86 = zext nneg i8 %85 to i64
-  %switch.gep191 = getelementptr inbounds [4 x i32], ptr @switch.table.is_gquic_unencrypt.5, i64 0, i64 %86
+switch.lookup190:                                 ; preds = %87
+  %88 = lshr i8 %25, 2
+  %89 = and i8 %88, 3
+  %90 = zext nneg i8 %89 to i64
+  %switch.gep191 = getelementptr inbounds [4 x i32], ptr @switch.table.is_gquic_unencrypt.5, i64 0, i64 %90
   %switch.load192 = load i32, ptr %switch.gep191, align 4
-  %87 = and i8 %25, 3
-  %88 = zext nneg i8 %87 to i64
-  %switch.gep195 = getelementptr inbounds [4 x i32], ptr @switch.table.is_gquic_unencrypt.5, i64 0, i64 %88
+  %91 = and i8 %25, 3
+  %92 = zext nneg i8 %91 to i64
+  %switch.gep195 = getelementptr inbounds [4 x i32], ptr @switch.table.is_gquic_unencrypt.5, i64 0, i64 %92
   %switch.load196 = load i32, ptr %switch.gep195, align 4
-  %89 = add i32 %.1164, 1
-  %90 = load i32, ptr %10, align 4
-  %.not145 = icmp eq i32 %90, 0
-  br i1 %.not145, label %126, label %91
+  %93 = add i32 %.1164, 1
+  %94 = load i32, ptr %10, align 4
+  %.not145 = icmp eq i32 %94, 0
+  br i1 %.not145, label %130, label %95
 
-91:                                               ; preds = %switch.lookup190
-  %92 = load i8, ptr %4, align 4
-  %93 = icmp ult i8 %92, 34
-  br i1 %93, label %94, label %126
+95:                                               ; preds = %switch.lookup190
+  %96 = load i8, ptr %4, align 4
+  %97 = icmp ult i8 %96, 34
+  br i1 %97, label %98, label %130
 
-94:                                               ; preds = %91
-  %95 = add i32 %.1164, 2
-  %96 = add i32 %95, %switch.load192
-  %97 = add i32 %96, 2
-  %98 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %97) #4
-  %99 = icmp slt i32 %98, 2
-  br i1 %99, label %.loopexit, label %100
+98:                                               ; preds = %95
+  %99 = add i32 %.1164, 2
+  %100 = add i32 %99, %switch.load192
+  %101 = add i32 %100, 2
+  %102 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %101) #4
+  %103 = icmp slt i32 %102, 2
+  br i1 %103, label %.loopexit, label %104
 
-100:                                              ; preds = %94
-  %101 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %97) #4
-  %102 = add i32 %96, 3
-  %.not149 = icmp eq i8 %101, 0
-  %103 = zext i8 %101 to i32
-  %104 = mul nuw nsw i32 %103, 3
-  %105 = add i32 %96, 5
-  %106 = add i32 %105, %104
-  %.4 = select i1 %.not149, i32 %102, i32 %106
-  %107 = and i32 %26, 32
-  %.not150 = icmp eq i32 %107, 0
-  br i1 %.not150, label %154, label %108
+104:                                              ; preds = %98
+  %105 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %101) #4
+  %106 = add i32 %100, 3
+  %.not149 = icmp eq i8 %105, 0
+  %107 = zext i8 %105 to i32
+  %108 = mul nuw nsw i32 %107, 3
+  %109 = add i32 %100, 5
+  %110 = add i32 %109, %108
+  %.4 = select i1 %.not149, i32 %106, i32 %110
+  %111 = and i32 %26, 32
+  %.not150 = icmp eq i32 %111, 0
+  br i1 %.not150, label %158, label %112
 
-108:                                              ; preds = %100
-  %109 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.4) #4
-  %110 = icmp slt i32 %109, 2
-  br i1 %110, label %.loopexit, label %111
+112:                                              ; preds = %104
+  %113 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.4) #4
+  %114 = icmp slt i32 %113, 2
+  br i1 %114, label %.loopexit, label %115
 
-111:                                              ; preds = %108
-  %112 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4) #4
-  %113 = add i32 %.4, 1
-  %114 = zext i8 %112 to i32
-  %115 = add nuw nsw i32 %switch.load196, 1
-  %116 = mul nuw nsw i32 %115, %114
-  %117 = add i32 %113, %116
-  %118 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %117) #4
-  %119 = icmp slt i32 %118, 2
-  br i1 %119, label %.loopexit, label %120
+115:                                              ; preds = %112
+  %116 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4) #4
+  %117 = add i32 %.4, 1
+  %118 = zext i8 %116 to i32
+  %119 = add nuw nsw i32 %switch.load196, 1
+  %120 = mul nuw nsw i32 %119, %118
+  %121 = add i32 %117, %120
+  %122 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %121) #4
+  %123 = icmp slt i32 %122, 2
+  br i1 %123, label %.loopexit, label %124
 
-120:                                              ; preds = %111
-  %121 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %117) #4
-  %122 = add i32 %117, 1
-  %123 = zext i8 %121 to i32
-  %124 = mul nuw nsw i32 %switch.load192, %123
-  %125 = add i32 %122, %124
-  br label %154
+124:                                              ; preds = %115
+  %125 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %121) #4
+  %126 = add i32 %121, 1
+  %127 = zext i8 %125 to i32
+  %128 = mul nuw nsw i32 %switch.load192, %127
+  %129 = add i32 %126, %128
+  br label %158
 
-126:                                              ; preds = %91, %switch.lookup190
-  %127 = add i32 %89, %switch.load192
-  %128 = add i32 %127, 2
-  %129 = and i32 %26, 32
-  %.not146 = icmp eq i32 %129, 0
-  br i1 %.not146, label %136, label %130
+130:                                              ; preds = %95, %switch.lookup190
+  %131 = add i32 %93, %switch.load192
+  %132 = add i32 %131, 2
+  %133 = and i32 %26, 32
+  %.not146 = icmp eq i32 %133, 0
+  br i1 %.not146, label %140, label %134
 
-130:                                              ; preds = %126
-  %131 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %128) #4
-  %132 = icmp slt i32 %131, 2
-  br i1 %132, label %.loopexit, label %133
+134:                                              ; preds = %130
+  %135 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %132) #4
+  %136 = icmp slt i32 %135, 2
+  br i1 %136, label %.loopexit, label %137
 
-133:                                              ; preds = %130
-  %134 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %128) #4
-  %135 = add i32 %127, 3
-  br label %136
+137:                                              ; preds = %134
+  %138 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %132) #4
+  %139 = add i32 %131, 3
+  br label %140
 
-136:                                              ; preds = %133, %126
-  %.2137 = phi i8 [ %134, %133 ], [ %.0135163, %126 ]
-  %.5 = phi i32 [ %135, %133 ], [ %128, %126 ]
-  %137 = add i32 %.5, %switch.load196
+140:                                              ; preds = %137, %130
+  %.2137 = phi i8 [ %138, %137 ], [ %.0135163, %130 ]
+  %.5 = phi i32 [ %139, %137 ], [ %132, %130 ]
+  %141 = add i32 %.5, %switch.load196
   %.not147 = icmp eq i8 %.2137, 0
-  %138 = zext i8 %.2137 to i32
-  %139 = add nuw nsw i32 %switch.load196, 1
-  %140 = mul nuw nsw i32 %139, %138
-  %141 = select i1 %.not147, i32 0, i32 %140
-  %.6 = add i32 %137, %141
-  %142 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.6) #4
-  %143 = icmp slt i32 %142, 2
-  br i1 %143, label %.loopexit, label %144
+  %142 = zext i8 %.2137 to i32
+  %143 = add nuw nsw i32 %switch.load196, 1
+  %144 = mul nuw nsw i32 %143, %142
+  %145 = select i1 %.not147, i32 0, i32 %144
+  %.6 = add i32 %141, %145
+  %146 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.6) #4
+  %147 = icmp slt i32 %146, 2
+  br i1 %147, label %.loopexit, label %148
 
-144:                                              ; preds = %136
-  %145 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6) #4
-  %146 = add i32 %.6, 1
-  %.not148 = icmp eq i8 %145, 0
-  br i1 %.not148, label %154, label %147
+148:                                              ; preds = %140
+  %149 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6) #4
+  %150 = add i32 %.6, 1
+  %.not148 = icmp eq i8 %149, 0
+  br i1 %.not148, label %158, label %151
 
-147:                                              ; preds = %144
-  %148 = zext i8 %145 to i32
-  %149 = mul nuw nsw i32 %148, 3
-  %150 = add i32 %.6, 3
-  %151 = add i32 %150, %149
-  br label %154
+151:                                              ; preds = %148
+  %152 = zext i8 %149 to i32
+  %153 = mul nuw nsw i32 %152, 3
+  %154 = add i32 %.6, 3
+  %155 = add i32 %154, %153
+  br label %158
 
-152:                                              ; preds = %83
-  %153 = add i32 %.1164, 1
-  br label %154
+156:                                              ; preds = %87
+  %157 = add i32 %.1164, 1
+  br label %158
 
-154:                                              ; preds = %73, %120, %100, %147, %144, %152, %30, %47, %53, %55, %63, %36, %28
-  %.1139 = phi i32 [ %.0138162, %28 ], [ %.0138162, %63 ], [ %.0138162, %55 ], [ %.0138162, %53 ], [ %.0138162, %47 ], [ %.0138162, %36 ], [ %.0138162, %30 ], [ %spec.select155, %73 ], [ %.0138162, %120 ], [ %.0138162, %100 ], [ %.0138162, %147 ], [ %.0138162, %144 ], [ %.0138162, %152 ]
-  %.1136 = phi i8 [ %.0135163, %28 ], [ %.0135163, %63 ], [ %.0135163, %55 ], [ %.0135163, %53 ], [ %.0135163, %47 ], [ %.0135163, %36 ], [ %.0135163, %30 ], [ %.0135163, %73 ], [ %.0135163, %120 ], [ %.0135163, %100 ], [ %.2137, %147 ], [ %.2137, %144 ], [ %.0135163, %152 ]
-  %.3 = phi i32 [ %29, %28 ], [ %64, %63 ], [ %56, %55 ], [ %54, %53 ], [ %52, %47 ], [ %39, %36 ], [ %31, %30 ], [ %op.rdx199, %73 ], [ %125, %120 ], [ %.4, %100 ], [ %151, %147 ], [ %146, %144 ], [ %153, %152 ]
-  %155 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3) #4
-  %156 = icmp sgt i32 %155, 0
-  br i1 %156, label %21, label %.loopexit, !llvm.loop !19
+158:                                              ; preds = %77, %124, %104, %151, %148, %156, %30, %47, %53, %55, %63, %36, %28
+  %.1139 = phi i32 [ %.0138162, %28 ], [ %.0138162, %63 ], [ %.0138162, %55 ], [ %.0138162, %53 ], [ %.0138162, %47 ], [ %.0138162, %36 ], [ %.0138162, %30 ], [ %spec.select155, %77 ], [ %.0138162, %124 ], [ %.0138162, %104 ], [ %.0138162, %151 ], [ %.0138162, %148 ], [ %.0138162, %156 ]
+  %.1136 = phi i8 [ %.0135163, %28 ], [ %.0135163, %63 ], [ %.0135163, %55 ], [ %.0135163, %53 ], [ %.0135163, %47 ], [ %.0135163, %36 ], [ %.0135163, %30 ], [ %.0135163, %77 ], [ %.0135163, %124 ], [ %.0135163, %104 ], [ %.2137, %151 ], [ %.2137, %148 ], [ %.0135163, %156 ]
+  %.3 = phi i32 [ %29, %28 ], [ %64, %63 ], [ %56, %55 ], [ %54, %53 ], [ %52, %47 ], [ %39, %36 ], [ %31, %30 ], [ %74, %77 ], [ %129, %124 ], [ %.4, %104 ], [ %155, %151 ], [ %150, %148 ], [ %157, %156 ]
+  %159 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3) #4
+  %160 = icmp sgt i32 %159, 0
+  br i1 %160, label %21, label %.loopexit, !llvm.loop !19
 
-.loopexit:                                        ; preds = %21, %28, %32, %36, %43, %switch.lookup, %73, %73, %94, %108, %111, %130, %136, %154, %16, %75, %78, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %78 ], [ 1, %75 ], [ 0, %16 ], [ 0, %21 ], [ 0, %28 ], [ 0, %32 ], [ 1, %36 ], [ 0, %43 ], [ 0, %switch.lookup ], [ 1, %73 ], [ 1, %73 ], [ 0, %94 ], [ 0, %108 ], [ 0, %111 ], [ 0, %130 ], [ 0, %136 ], [ 0, %154 ]
+.loopexit:                                        ; preds = %21, %28, %32, %36, %43, %switch.lookup, %77, %77, %98, %112, %115, %134, %140, %158, %16, %79, %82, %5
+  %.0 = phi i32 [ 0, %5 ], [ 1, %82 ], [ 1, %79 ], [ 0, %16 ], [ 0, %21 ], [ 0, %28 ], [ 0, %32 ], [ 1, %36 ], [ 0, %43 ], [ 0, %switch.lookup ], [ 1, %77 ], [ 1, %77 ], [ 0, %98 ], [ 0, %112 ], [ 0, %115 ], [ 0, %134 ], [ 0, %140 ], [ 0, %158 ]
   ret i32 %.0
 }
 

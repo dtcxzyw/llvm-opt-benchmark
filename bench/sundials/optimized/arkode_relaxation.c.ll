@@ -53,7 +53,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %11 = getelementptr inbounds i8, ptr %1, i64 72
   %12 = tail call i32 %7(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #8
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %365
+  br i1 %.not, label %13, label %359
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %0, i64 264
@@ -74,11 +74,11 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %28 = add nsw i64 %27, 1
   store i64 %28, ptr %26, align 8
   %29 = icmp slt i32 %25, 0
-  br i1 %29, label %365, label %30
+  br i1 %29, label %359, label %30
 
 30:                                               ; preds = %13
   %.not38 = icmp eq i32 %25, 0
-  br i1 %.not38, label %31, label %365
+  br i1 %.not38, label %31, label %359
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds i8, ptr %1, i64 104
@@ -87,9 +87,9 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   store double %33, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %1, i64 136
   %36 = load i32, ptr %35, align 8
-  switch i32 %36, label %365 [
+  switch i32 %36, label %359 [
     i32 0, label %37
-    i32 1, label %253
+    i32 1, label %247
   ]
 
 37:                                               ; preds = %31
@@ -242,16 +242,16 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %126 = getelementptr inbounds i8, ptr %39, i64 160
   br label %127
 
-127:                                              ; preds = %239, %.lr.ph.i
-  %128 = phi double [ %104, %.lr.ph.i ], [ %243, %239 ]
-  %129 = phi ptr [ %120, %.lr.ph.i ], [ %249, %239 ]
-  %.2194.i = phi i32 [ 0, %.lr.ph.i ], [ %248, %239 ]
-  %.0118193.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2120.i, %239 ]
-  %.0121192.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2123.i, %239 ]
-  %.0124191.i = phi double [ %124, %.lr.ph.i ], [ %.2126.i, %239 ]
-  %.0127190.i = phi double [ %.1134.lcssa.i, %.lr.ph.i ], [ %.2129.i, %239 ]
-  %.2132189.i = phi double [ %.1131.lcssa.i, %.lr.ph.i ], [ %.4.i, %239 ]
-  %.2135188.i = phi double [ %.1134.lcssa.i, %.lr.ph.i ], [ %.3.i, %239 ]
+127:                                              ; preds = %233, %.lr.ph.i
+  %128 = phi double [ %104, %.lr.ph.i ], [ %237, %233 ]
+  %129 = phi ptr [ %120, %.lr.ph.i ], [ %243, %233 ]
+  %.2194.i = phi i32 [ 0, %.lr.ph.i ], [ %242, %233 ]
+  %.0118193.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2120.i, %233 ]
+  %.0121192.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2123.i, %233 ]
+  %.0124191.i = phi double [ %124, %.lr.ph.i ], [ %.2126.i, %233 ]
+  %.0127190.i = phi double [ %.1134.lcssa.i, %.lr.ph.i ], [ %.2129.i, %233 ]
+  %.2132189.i = phi double [ %.1131.lcssa.i, %.lr.ph.i ], [ %.4.i, %233 ]
+  %.2135188.i = phi double [ %.1134.lcssa.i, %.lr.ph.i ], [ %.3.i, %233 ]
   %130 = fcmp ogt double %.0124191.i, 0.000000e+00
   %131 = fcmp ogt double %128, 0.000000e+00
   %or.cond.i = select i1 %130, i1 %131, i1 false
@@ -309,13 +309,13 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 158:                                              ; preds = %154
   %159 = call double @llvm.fabs.f64(double %.1122.i)
   %160 = fcmp ult double %159, %149
-  br i1 %160, label %211, label %161
+  br i1 %160, label %205, label %161
 
 161:                                              ; preds = %158
   %162 = load double, ptr %4, align 8
   %163 = call double @llvm.fabs.f64(double %162)
   %164 = fcmp olt double %155, %163
-  br i1 %164, label %165, label %211
+  br i1 %164, label %165, label %205
 
 165:                                              ; preds = %161
   %166 = fdiv double %144, %162
@@ -326,253 +326,246 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %169 = fmul double %151, 2.000000e+00
   %170 = fmul double %169, %166
   %171 = fsub double 1.000000e+00, %166
-  br label %194
+  br label %188
 
 172:                                              ; preds = %165
-  %173 = insertelement <2 x double> poison, double %162, i64 0
-  %174 = insertelement <2 x double> %173, double %144, i64 1
-  %175 = insertelement <2 x double> poison, double %.2126.i, i64 0
-  %176 = shufflevector <2 x double> %175, <2 x double> poison, <2 x i32> zeroinitializer
-  %177 = fdiv <2 x double> %174, %176
-  %178 = fmul double %151, 2.000000e+00
-  %179 = extractelement <2 x double> %177, i64 0
-  %180 = fmul double %178, %179
-  %shift = shufflevector <2 x double> %177, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %181 = fsub <2 x double> %177, %shift
-  %182 = extractelement <2 x double> %181, i64 0
-  %183 = fsub double %.3.i, %.3136.i
-  %184 = fneg double %183
-  %185 = fadd <2 x double> %177, <double -1.000000e+00, double -1.000000e+00>
-  %186 = extractelement <2 x double> %185, i64 1
-  %187 = fmul double %186, %184
-  %188 = call double @llvm.fmuladd.f64(double %180, double %182, double %187)
-  %189 = fmul double %166, %188
-  %190 = extractelement <2 x double> %185, i64 0
-  %191 = fmul double %186, %190
-  %192 = fadd double %166, -1.000000e+00
-  %193 = fmul double %192, %191
-  br label %194
+  %173 = fdiv double %162, %.2126.i
+  %174 = fdiv double %144, %.2126.i
+  %175 = fmul double %151, 2.000000e+00
+  %176 = fmul double %175, %173
+  %177 = fsub double %173, %174
+  %178 = fsub double %.3.i, %.3136.i
+  %179 = fadd double %174, -1.000000e+00
+  %180 = fneg double %178
+  %181 = fmul double %179, %180
+  %182 = call double @llvm.fmuladd.f64(double %176, double %177, double %181)
+  %183 = fmul double %166, %182
+  %184 = fadd double %173, -1.000000e+00
+  %185 = fmul double %179, %184
+  %186 = fadd double %166, -1.000000e+00
+  %187 = fmul double %186, %185
+  br label %188
 
-194:                                              ; preds = %172, %168
-  %.0114.i = phi double [ %170, %168 ], [ %189, %172 ]
-  %.0113.i = phi double [ %171, %168 ], [ %193, %172 ]
-  %195 = fcmp ogt double %.0114.i, 0.000000e+00
-  %196 = fneg double %.0113.i
-  %197 = fneg double %.0114.i
-  %.1115.i = select i1 %195, double %.0114.i, double %197
-  %.1.i = select i1 %195, double %196, double %.0113.i
-  %198 = fmul double %151, 3.000000e+00
-  %199 = fmul double %149, %.1.i
-  %200 = call double @llvm.fabs.f64(double %199)
-  %201 = fneg double %200
-  %202 = call double @llvm.fmuladd.f64(double %198, double %.1.i, double %201)
-  %203 = fmul double %.1122.i, %.1.i
-  %204 = call double @llvm.fabs.f64(double %203)
-  %205 = fmul double %.1115.i, 2.000000e+00
-  %206 = fcmp olt double %202, %204
-  %207 = select i1 %206, double %202, double %204
-  %208 = fcmp olt double %205, %207
-  br i1 %208, label %209, label %211
+188:                                              ; preds = %172, %168
+  %.0114.i = phi double [ %170, %168 ], [ %183, %172 ]
+  %.0113.i = phi double [ %171, %168 ], [ %187, %172 ]
+  %189 = fcmp ogt double %.0114.i, 0.000000e+00
+  %190 = fneg double %.0113.i
+  %191 = fneg double %.0114.i
+  %.1115.i = select i1 %189, double %.0114.i, double %191
+  %.1.i = select i1 %189, double %190, double %.0113.i
+  %192 = fmul double %151, 3.000000e+00
+  %193 = fmul double %149, %.1.i
+  %194 = call double @llvm.fabs.f64(double %193)
+  %195 = fneg double %194
+  %196 = call double @llvm.fmuladd.f64(double %192, double %.1.i, double %195)
+  %197 = fmul double %.1122.i, %.1.i
+  %198 = call double @llvm.fabs.f64(double %197)
+  %199 = fmul double %.1115.i, 2.000000e+00
+  %200 = fcmp olt double %196, %198
+  %201 = select i1 %200, double %196, double %198
+  %202 = fcmp olt double %199, %201
+  br i1 %202, label %203, label %205
 
-209:                                              ; preds = %194
-  %210 = fdiv double %.1115.i, %.1.i
-  %.pre.i = call double @llvm.fabs.f64(double %210)
-  br label %211
+203:                                              ; preds = %188
+  %204 = fdiv double %.1115.i, %.1.i
+  %.pre.i = call double @llvm.fabs.f64(double %204)
+  br label %205
 
-211:                                              ; preds = %209, %194, %161, %158
-  %.pre-phi.i = phi double [ %152, %158 ], [ %152, %161 ], [ %152, %194 ], [ %.pre.i, %209 ]
-  %.2123.i = phi double [ %151, %158 ], [ %151, %161 ], [ %151, %194 ], [ %.1119.i, %209 ]
-  %.2120.i = phi double [ %151, %158 ], [ %151, %161 ], [ %151, %194 ], [ %210, %209 ]
+205:                                              ; preds = %203, %188, %161, %158
+  %.pre-phi.i = phi double [ %152, %158 ], [ %152, %161 ], [ %152, %188 ], [ %.pre.i, %203 ]
+  %.2123.i = phi double [ %151, %158 ], [ %151, %161 ], [ %151, %188 ], [ %.1119.i, %203 ]
+  %.2120.i = phi double [ %151, %158 ], [ %151, %161 ], [ %151, %188 ], [ %204, %203 ]
   store double %144, ptr %4, align 8
-  %212 = fcmp ogt double %.pre-phi.i, %149
-  br i1 %212, label %213, label %215
+  %206 = fcmp ogt double %.pre-phi.i, %149
+  br i1 %206, label %207, label %209
 
-213:                                              ; preds = %211
-  %214 = fadd double %.3.i, %.2120.i
-  br label %221
+207:                                              ; preds = %205
+  %208 = fadd double %.3.i, %.2120.i
+  br label %215
 
-215:                                              ; preds = %211
-  %216 = fcmp ogt double %151, 0.000000e+00
-  br i1 %216, label %217, label %219
+209:                                              ; preds = %205
+  %210 = fcmp ogt double %151, 0.000000e+00
+  br i1 %210, label %211, label %213
 
-217:                                              ; preds = %215
-  %218 = fadd double %.3.i, %149
-  br label %221
+211:                                              ; preds = %209
+  %212 = fadd double %.3.i, %149
+  br label %215
 
-219:                                              ; preds = %215
-  %220 = fsub double %.3.i, %149
-  br label %221
+213:                                              ; preds = %209
+  %214 = fsub double %.3.i, %149
+  br label %215
 
-221:                                              ; preds = %219, %217, %213
-  %.4.i = phi double [ %214, %213 ], [ %218, %217 ], [ %220, %219 ]
-  %222 = getelementptr inbounds i8, ptr %129, i64 64
-  %223 = load double, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %129, i64 72
-  %225 = load double, ptr %224, align 8
-  %226 = load ptr, ptr %18, align 8
-  %227 = load ptr, ptr %43, align 8
-  %228 = load ptr, ptr %23, align 8
-  %229 = load ptr, ptr %16, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %229, double noundef %.4.i, ptr noundef %226, ptr noundef %227) #8
-  %230 = load ptr, ptr %38, align 8
-  %231 = load ptr, ptr %230, align 8
-  %232 = call i32 %231(ptr noundef %227, ptr noundef nonnull %5, ptr noundef %228) #8
-  %233 = load ptr, ptr %38, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 40
-  %235 = load i64, ptr %234, align 8
-  %236 = add nsw i64 %235, 1
-  store i64 %236, ptr %234, align 8
-  %237 = icmp slt i32 %232, 0
-  br i1 %237, label %arkRelaxNewtonSolve.exit.thread52.sink.split, label %238
+215:                                              ; preds = %213, %211, %207
+  %.4.i = phi double [ %208, %207 ], [ %212, %211 ], [ %214, %213 ]
+  %216 = getelementptr inbounds i8, ptr %129, i64 64
+  %217 = load double, ptr %216, align 8
+  %218 = getelementptr inbounds i8, ptr %129, i64 72
+  %219 = load double, ptr %218, align 8
+  %220 = load ptr, ptr %18, align 8
+  %221 = load ptr, ptr %43, align 8
+  %222 = load ptr, ptr %23, align 8
+  %223 = load ptr, ptr %16, align 8
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %223, double noundef %.4.i, ptr noundef %220, ptr noundef %221) #8
+  %224 = load ptr, ptr %38, align 8
+  %225 = load ptr, ptr %224, align 8
+  %226 = call i32 %225(ptr noundef %221, ptr noundef nonnull %5, ptr noundef %222) #8
+  %227 = load ptr, ptr %38, align 8
+  %228 = getelementptr inbounds i8, ptr %227, i64 40
+  %229 = load i64, ptr %228, align 8
+  %230 = add nsw i64 %229, 1
+  store i64 %230, ptr %228, align 8
+  %231 = icmp slt i32 %226, 0
+  br i1 %231, label %arkRelaxNewtonSolve.exit.thread52.sink.split, label %232
 
-238:                                              ; preds = %221
-  %.not.i149.i = icmp eq i32 %232, 0
-  br i1 %.not.i149.i, label %239, label %arkRelaxNewtonSolve.exit.thread52.sink.split
+232:                                              ; preds = %215
+  %.not.i149.i = icmp eq i32 %226, 0
+  br i1 %.not.i149.i, label %233, label %arkRelaxNewtonSolve.exit.thread52.sink.split
 
-239:                                              ; preds = %238
-  %240 = load double, ptr %5, align 8
-  %241 = fsub double %240, %223
-  %242 = fneg double %.4.i
-  %243 = call double @llvm.fmuladd.f64(double %242, double %225, double %241)
-  store double %243, ptr %5, align 8
-  %244 = load ptr, ptr %38, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 40
-  %246 = load i64, ptr %245, align 8
-  %247 = add nsw i64 %246, 1
-  store i64 %247, ptr %245, align 8
-  %248 = add nuw nsw i32 %.2194.i, 1
-  %249 = load ptr, ptr %38, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 168
-  %251 = load i32, ptr %250, align 8
-  %252 = icmp slt i32 %248, %251
-  br i1 %252, label %127, label %arkRelaxNewtonSolve.exit.thread52
+233:                                              ; preds = %232
+  %234 = load double, ptr %5, align 8
+  %235 = fsub double %234, %217
+  %236 = fneg double %.4.i
+  %237 = call double @llvm.fmuladd.f64(double %236, double %219, double %235)
+  store double %237, ptr %5, align 8
+  %238 = load ptr, ptr %38, align 8
+  %239 = getelementptr inbounds i8, ptr %238, i64 40
+  %240 = load i64, ptr %239, align 8
+  %241 = add nsw i64 %240, 1
+  store i64 %241, ptr %239, align 8
+  %242 = add nuw nsw i32 %.2194.i, 1
+  %243 = load ptr, ptr %38, align 8
+  %244 = getelementptr inbounds i8, ptr %243, i64 168
+  %245 = load i32, ptr %244, align 8
+  %246 = icmp slt i32 %242, %245
+  br i1 %246, label %127, label %arkRelaxNewtonSolve.exit.thread52
 
-253:                                              ; preds = %31
-  %254 = getelementptr inbounds i8, ptr %0, i64 648
-  %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 96
-  %257 = getelementptr inbounds i8, ptr %255, i64 168
-  %258 = load i32, ptr %257, align 8
-  %259 = icmp sgt i32 %258, 0
-  br i1 %259, label %.lr.ph.i41, label %arkRelaxNewtonSolve.exit.thread
+247:                                              ; preds = %31
+  %248 = getelementptr inbounds i8, ptr %0, i64 648
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds i8, ptr %249, i64 96
+  %251 = getelementptr inbounds i8, ptr %249, i64 168
+  %252 = load i32, ptr %251, align 8
+  %253 = icmp sgt i32 %252, 0
+  br i1 %253, label %.lr.ph.i41, label %arkRelaxNewtonSolve.exit.thread
 
-.lr.ph.i41:                                       ; preds = %253
-  %260 = getelementptr inbounds i8, ptr %255, i64 80
-  %261 = getelementptr inbounds i8, ptr %0, i64 312
-  %262 = getelementptr inbounds i8, ptr %255, i64 144
-  %263 = getelementptr inbounds i8, ptr %255, i64 88
-  %264 = getelementptr inbounds i8, ptr %0, i64 320
-  %265 = getelementptr inbounds i8, ptr %255, i64 152
-  %266 = getelementptr inbounds i8, ptr %255, i64 160
-  %267 = getelementptr inbounds i8, ptr %255, i64 176
-  %.pre.i42 = load double, ptr %256, align 8
-  br label %274
+.lr.ph.i41:                                       ; preds = %247
+  %254 = getelementptr inbounds i8, ptr %249, i64 80
+  %255 = getelementptr inbounds i8, ptr %0, i64 312
+  %256 = getelementptr inbounds i8, ptr %249, i64 144
+  %257 = getelementptr inbounds i8, ptr %249, i64 88
+  %258 = getelementptr inbounds i8, ptr %0, i64 320
+  %259 = getelementptr inbounds i8, ptr %249, i64 152
+  %260 = getelementptr inbounds i8, ptr %249, i64 160
+  %261 = getelementptr inbounds i8, ptr %249, i64 176
+  %.pre.i42 = load double, ptr %250, align 8
+  br label %268
 
-268:                                              ; preds = %322
-  %269 = add nuw nsw i32 %.02636.i, 1
-  %270 = load ptr, ptr %254, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 168
-  %272 = load i32, ptr %271, align 8
-  %273 = icmp slt i32 %269, %272
-  br i1 %273, label %274, label %arkRelaxNewtonSolve.exit.thread
+262:                                              ; preds = %316
+  %263 = add nuw nsw i32 %.02636.i, 1
+  %264 = load ptr, ptr %248, align 8
+  %265 = getelementptr inbounds i8, ptr %264, i64 168
+  %266 = load i32, ptr %265, align 8
+  %267 = icmp slt i32 %263, %266
+  br i1 %267, label %268, label %arkRelaxNewtonSolve.exit.thread
 
-274:                                              ; preds = %268, %.lr.ph.i41
-  %275 = phi double [ %.pre.i42, %.lr.ph.i41 ], [ %332, %268 ]
-  %276 = phi ptr [ %255, %.lr.ph.i41 ], [ %270, %268 ]
-  %.02636.i = phi i32 [ 0, %.lr.ph.i41 ], [ %269, %268 ]
-  %277 = getelementptr inbounds i8, ptr %276, i64 64
-  %278 = load double, ptr %277, align 8
-  %279 = getelementptr inbounds i8, ptr %276, i64 72
-  %280 = load double, ptr %279, align 8
-  %281 = load ptr, ptr %18, align 8
-  %282 = load ptr, ptr %261, align 8
-  %283 = load ptr, ptr %23, align 8
-  %284 = load ptr, ptr %16, align 8
-  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %284, double noundef %275, ptr noundef %281, ptr noundef %282) #8
-  %285 = load ptr, ptr %254, align 8
-  %286 = load ptr, ptr %285, align 8
-  %287 = tail call i32 %286(ptr noundef %282, ptr noundef nonnull %260, ptr noundef %283) #8
-  %288 = load ptr, ptr %254, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 40
-  %290 = load i64, ptr %289, align 8
-  %291 = add nsw i64 %290, 1
-  store i64 %291, ptr %289, align 8
-  %292 = icmp slt i32 %287, 0
-  br i1 %292, label %arkRelaxNewtonSolve.exit.thread, label %293
+268:                                              ; preds = %262, %.lr.ph.i41
+  %269 = phi double [ %.pre.i42, %.lr.ph.i41 ], [ %326, %262 ]
+  %270 = phi ptr [ %249, %.lr.ph.i41 ], [ %264, %262 ]
+  %.02636.i = phi i32 [ 0, %.lr.ph.i41 ], [ %263, %262 ]
+  %271 = getelementptr inbounds i8, ptr %270, i64 64
+  %272 = load double, ptr %271, align 8
+  %273 = getelementptr inbounds i8, ptr %270, i64 72
+  %274 = load double, ptr %273, align 8
+  %275 = load ptr, ptr %18, align 8
+  %276 = load ptr, ptr %255, align 8
+  %277 = load ptr, ptr %23, align 8
+  %278 = load ptr, ptr %16, align 8
+  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %278, double noundef %269, ptr noundef %275, ptr noundef %276) #8
+  %279 = load ptr, ptr %248, align 8
+  %280 = load ptr, ptr %279, align 8
+  %281 = tail call i32 %280(ptr noundef %276, ptr noundef nonnull %254, ptr noundef %277) #8
+  %282 = load ptr, ptr %248, align 8
+  %283 = getelementptr inbounds i8, ptr %282, i64 40
+  %284 = load i64, ptr %283, align 8
+  %285 = add nsw i64 %284, 1
+  store i64 %285, ptr %283, align 8
+  %286 = icmp slt i32 %281, 0
+  br i1 %286, label %arkRelaxNewtonSolve.exit.thread, label %287
 
-293:                                              ; preds = %274
-  %.not.i.i43 = icmp eq i32 %287, 0
-  br i1 %.not.i.i43, label %294, label %arkRelaxNewtonSolve.exit.thread
+287:                                              ; preds = %268
+  %.not.i.i43 = icmp eq i32 %281, 0
+  br i1 %.not.i.i43, label %288, label %arkRelaxNewtonSolve.exit.thread
 
-294:                                              ; preds = %293
-  %295 = load double, ptr %260, align 8
-  %296 = fsub double %295, %278
-  %297 = fneg double %275
-  %298 = tail call double @llvm.fmuladd.f64(double %297, double %280, double %296)
-  store double %298, ptr %260, align 8
-  %299 = tail call double @llvm.fabs.f64(double %298)
-  %300 = load double, ptr %262, align 8
-  %301 = fcmp olt double %299, %300
-  br i1 %301, label %arkRelaxNewtonSolve.exit.thread48, label %302
+288:                                              ; preds = %287
+  %289 = load double, ptr %254, align 8
+  %290 = fsub double %289, %272
+  %291 = fneg double %269
+  %292 = tail call double @llvm.fmuladd.f64(double %291, double %274, double %290)
+  store double %292, ptr %254, align 8
+  %293 = tail call double @llvm.fabs.f64(double %292)
+  %294 = load double, ptr %256, align 8
+  %295 = fcmp olt double %293, %294
+  br i1 %295, label %arkRelaxNewtonSolve.exit.thread48, label %296
 
-302:                                              ; preds = %294
-  %303 = load double, ptr %256, align 8
-  %304 = load ptr, ptr %18, align 8
-  %305 = load ptr, ptr %261, align 8
-  %306 = load ptr, ptr %264, align 8
-  %307 = load ptr, ptr %254, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 72
-  %309 = load double, ptr %308, align 8
-  %310 = load ptr, ptr %23, align 8
-  %311 = load ptr, ptr %16, align 8
-  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %311, double noundef %303, ptr noundef %304, ptr noundef %305) #8
-  %312 = load ptr, ptr %254, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 8
-  %314 = load ptr, ptr %313, align 8
-  %315 = tail call i32 %314(ptr noundef %305, ptr noundef %306, ptr noundef %310) #8
-  %316 = load ptr, ptr %254, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 48
-  %318 = load i64, ptr %317, align 8
-  %319 = add nsw i64 %318, 1
-  store i64 %319, ptr %317, align 8
-  %320 = icmp slt i32 %315, 0
-  br i1 %320, label %arkRelaxNewtonSolve.exit.thread, label %321
+296:                                              ; preds = %288
+  %297 = load double, ptr %250, align 8
+  %298 = load ptr, ptr %18, align 8
+  %299 = load ptr, ptr %255, align 8
+  %300 = load ptr, ptr %258, align 8
+  %301 = load ptr, ptr %248, align 8
+  %302 = getelementptr inbounds i8, ptr %301, i64 72
+  %303 = load double, ptr %302, align 8
+  %304 = load ptr, ptr %23, align 8
+  %305 = load ptr, ptr %16, align 8
+  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %305, double noundef %297, ptr noundef %298, ptr noundef %299) #8
+  %306 = load ptr, ptr %248, align 8
+  %307 = getelementptr inbounds i8, ptr %306, i64 8
+  %308 = load ptr, ptr %307, align 8
+  %309 = tail call i32 %308(ptr noundef %299, ptr noundef %300, ptr noundef %304) #8
+  %310 = load ptr, ptr %248, align 8
+  %311 = getelementptr inbounds i8, ptr %310, i64 48
+  %312 = load i64, ptr %311, align 8
+  %313 = add nsw i64 %312, 1
+  store i64 %313, ptr %311, align 8
+  %314 = icmp slt i32 %309, 0
+  br i1 %314, label %arkRelaxNewtonSolve.exit.thread, label %315
 
-321:                                              ; preds = %302
-  %.not.i30.i = icmp eq i32 %315, 0
-  br i1 %.not.i30.i, label %322, label %arkRelaxNewtonSolve.exit.thread
+315:                                              ; preds = %296
+  %.not.i30.i = icmp eq i32 %309, 0
+  br i1 %.not.i30.i, label %316, label %arkRelaxNewtonSolve.exit.thread
 
-322:                                              ; preds = %321
-  %323 = tail call double @N_VDotProd(ptr noundef %304, ptr noundef %306) #8
-  %324 = fsub double %323, %309
-  store double %324, ptr %263, align 8
-  %325 = load double, ptr %265, align 8
-  %326 = load double, ptr %256, align 8
-  %327 = tail call double @llvm.fabs.f64(double %326)
-  %328 = load double, ptr %266, align 8
-  %329 = tail call double @llvm.fmuladd.f64(double %325, double %327, double %328)
-  %330 = load double, ptr %260, align 8
-  %331 = fdiv double %330, %324
-  %332 = fsub double %326, %331
-  store double %332, ptr %256, align 8
-  %333 = load i64, ptr %267, align 8
+316:                                              ; preds = %315
+  %317 = tail call double @N_VDotProd(ptr noundef %298, ptr noundef %300) #8
+  %318 = fsub double %317, %303
+  store double %318, ptr %257, align 8
+  %319 = load double, ptr %259, align 8
+  %320 = load double, ptr %250, align 8
+  %321 = tail call double @llvm.fabs.f64(double %320)
+  %322 = load double, ptr %260, align 8
+  %323 = tail call double @llvm.fmuladd.f64(double %319, double %321, double %322)
+  %324 = load double, ptr %254, align 8
+  %325 = fdiv double %324, %318
+  %326 = fsub double %320, %325
+  store double %326, ptr %250, align 8
+  %327 = load i64, ptr %261, align 8
+  %328 = add nsw i64 %327, 1
+  store i64 %328, ptr %261, align 8
+  %329 = tail call double @llvm.fabs.f64(double %325)
+  %330 = fcmp olt double %329, %323
+  br i1 %330, label %arkRelaxNewtonSolve.exit.thread48, label %262
+
+arkRelaxNewtonSolve.exit.thread52.sink.split:     ; preds = %63, %45, %99, %.preheader.i, %232, %215
+  %.0.i.ph.ph = phi i32 [ -45, %215 ], [ 1, %232 ], [ -45, %.preheader.i ], [ 1, %99 ], [ -45, %45 ], [ 1, %63 ]
+  %331 = load ptr, ptr %38, align 8
+  %332 = getelementptr inbounds i8, ptr %331, i64 40
+  %333 = load i64, ptr %332, align 8
   %334 = add nsw i64 %333, 1
-  store i64 %334, ptr %267, align 8
-  %335 = tail call double @llvm.fabs.f64(double %331)
-  %336 = fcmp olt double %335, %329
-  br i1 %336, label %arkRelaxNewtonSolve.exit.thread48, label %268
-
-arkRelaxNewtonSolve.exit.thread52.sink.split:     ; preds = %63, %45, %99, %.preheader.i, %238, %221
-  %.0.i.ph.ph = phi i32 [ -45, %221 ], [ 1, %238 ], [ -45, %.preheader.i ], [ 1, %99 ], [ -45, %45 ], [ 1, %63 ]
-  %337 = load ptr, ptr %38, align 8
-  %338 = getelementptr inbounds i8, ptr %337, i64 40
-  %339 = load i64, ptr %338, align 8
-  %340 = add nsw i64 %339, 1
-  store i64 %340, ptr %338, align 8
+  store i64 %334, ptr %332, align 8
   br label %arkRelaxNewtonSolve.exit.thread52
 
-arkRelaxNewtonSolve.exit.thread52:                ; preds = %239, %arkRelaxNewtonSolve.exit.thread52.sink.split, %80, %117, %119
-  %.0.i.ph = phi i32 [ 3, %119 ], [ 3, %117 ], [ 3, %80 ], [ %.0.i.ph.ph, %arkRelaxNewtonSolve.exit.thread52.sink.split ], [ 3, %239 ]
+arkRelaxNewtonSolve.exit.thread52:                ; preds = %233, %arkRelaxNewtonSolve.exit.thread52.sink.split, %80, %117, %119
+  %.0.i.ph = phi i32 [ 3, %119 ], [ 3, %117 ], [ 3, %80 ], [ %.0.i.ph.ph, %arkRelaxNewtonSolve.exit.thread52.sink.split ], [ 3, %233 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %arkRelaxNewtonSolve.exit.thread
@@ -580,55 +573,55 @@ arkRelaxNewtonSolve.exit.thread52:                ; preds = %239, %arkRelaxNewto
 arkRelaxNewtonSolve.exit:                         ; preds = %64, %100, %143, %154
   %.lcssa.sink = phi double [ %144, %154 ], [ %144, %143 ], [ %104, %100 ], [ %68, %64 ]
   %.3.i.lcssa.sink = phi double [ %.3.i, %154 ], [ %.3.i, %143 ], [ %.1131186.i, %100 ], [ %.0133184.i, %64 ]
-  %341 = getelementptr inbounds i8, ptr %39, i64 80
-  store double %.lcssa.sink, ptr %341, align 8
+  %335 = getelementptr inbounds i8, ptr %39, i64 80
+  store double %.lcssa.sink, ptr %335, align 8
   store double %.3.i.lcssa.sink, ptr %40, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %arkRelaxNewtonSolve.exit.thread48
 
-arkRelaxNewtonSolve.exit.thread:                  ; preds = %268, %274, %293, %302, %321, %253, %arkRelaxNewtonSolve.exit.thread52
-  %.046 = phi i32 [ %.0.i.ph, %arkRelaxNewtonSolve.exit.thread52 ], [ 3, %253 ], [ 2, %321 ], [ -46, %302 ], [ 1, %293 ], [ -45, %274 ], [ 3, %268 ]
-  %342 = getelementptr inbounds i8, ptr %1, i64 184
-  %343 = load i64, ptr %342, align 8
-  %344 = add nsw i64 %343, 1
-  store i64 %344, ptr %342, align 8
-  br label %365
+arkRelaxNewtonSolve.exit.thread:                  ; preds = %262, %268, %287, %296, %315, %247, %arkRelaxNewtonSolve.exit.thread52
+  %.046 = phi i32 [ %.0.i.ph, %arkRelaxNewtonSolve.exit.thread52 ], [ 3, %247 ], [ 2, %315 ], [ -46, %296 ], [ 1, %287 ], [ -45, %268 ], [ 3, %262 ]
+  %336 = getelementptr inbounds i8, ptr %1, i64 184
+  %337 = load i64, ptr %336, align 8
+  %338 = add nsw i64 %337, 1
+  store i64 %338, ptr %336, align 8
+  br label %359
 
-arkRelaxNewtonSolve.exit.thread48:                ; preds = %294, %322, %arkRelaxNewtonSolve.exit
-  %345 = getelementptr inbounds i8, ptr %0, i64 648
-  %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds i8, ptr %346, i64 96
+arkRelaxNewtonSolve.exit.thread48:                ; preds = %288, %316, %arkRelaxNewtonSolve.exit
+  %339 = getelementptr inbounds i8, ptr %0, i64 648
+  %340 = load ptr, ptr %339, align 8
+  %341 = getelementptr inbounds i8, ptr %340, i64 96
+  %342 = load double, ptr %341, align 8
+  %343 = getelementptr inbounds i8, ptr %1, i64 112
+  %344 = load double, ptr %343, align 8
+  %345 = fcmp olt double %342, %344
+  br i1 %345, label %350, label %346
+
+346:                                              ; preds = %arkRelaxNewtonSolve.exit.thread48
+  %347 = getelementptr inbounds i8, ptr %1, i64 120
   %348 = load double, ptr %347, align 8
-  %349 = getelementptr inbounds i8, ptr %1, i64 112
-  %350 = load double, ptr %349, align 8
-  %351 = fcmp olt double %348, %350
-  br i1 %351, label %356, label %352
+  %349 = fcmp ogt double %342, %348
+  br i1 %349, label %350, label %354
 
-352:                                              ; preds = %arkRelaxNewtonSolve.exit.thread48
-  %353 = getelementptr inbounds i8, ptr %1, i64 120
-  %354 = load double, ptr %353, align 8
-  %355 = fcmp ogt double %348, %354
-  br i1 %355, label %356, label %360
+350:                                              ; preds = %346, %arkRelaxNewtonSolve.exit.thread48
+  %351 = getelementptr inbounds i8, ptr %1, i64 192
+  %352 = load i64, ptr %351, align 8
+  %353 = add nsw i64 %352, 1
+  store i64 %353, ptr %351, align 8
+  br label %359
 
-356:                                              ; preds = %352, %arkRelaxNewtonSolve.exit.thread48
-  %357 = getelementptr inbounds i8, ptr %1, i64 192
-  %358 = load i64, ptr %357, align 8
-  %359 = add nsw i64 %358, 1
-  store i64 %359, ptr %357, align 8
-  br label %365
+354:                                              ; preds = %346
+  %355 = load double, ptr %34, align 8
+  store double %355, ptr %32, align 8
+  %356 = load ptr, ptr %339, align 8
+  %357 = getelementptr inbounds i8, ptr %356, i64 96
+  %358 = load double, ptr %357, align 8
+  store double %358, ptr %2, align 8
+  br label %359
 
-360:                                              ; preds = %352
-  %361 = load double, ptr %34, align 8
-  store double %361, ptr %32, align 8
-  %362 = load ptr, ptr %345, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 96
-  %364 = load double, ptr %363, align 8
-  store double %364, ptr %2, align 8
-  br label %365
-
-365:                                              ; preds = %31, %30, %13, %3, %360, %356, %arkRelaxNewtonSolve.exit.thread
-  %.034 = phi i32 [ %.046, %arkRelaxNewtonSolve.exit.thread ], [ 3, %356 ], [ 0, %360 ], [ %12, %3 ], [ -45, %13 ], [ 1, %30 ], [ -22, %31 ]
+359:                                              ; preds = %31, %30, %13, %3, %354, %350, %arkRelaxNewtonSolve.exit.thread
+  %.034 = phi i32 [ %.046, %arkRelaxNewtonSolve.exit.thread ], [ 3, %350 ], [ 0, %354 ], [ %12, %3 ], [ -45, %13 ], [ 1, %30 ], [ -22, %31 ]
   ret i32 %.034
 }
 
@@ -1206,7 +1199,7 @@ define range(i32 -22, 1) i32 @arkRelaxCreate(ptr noundef %0, ptr noundef %1, ptr
 
 6:                                                ; preds = %5
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 691, ptr noundef nonnull @__func__.arkRelaxCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15) #8
-  br label %44
+  br label %50
 
 7:                                                ; preds = %5
   %8 = icmp ne ptr %1, null
@@ -1217,21 +1210,21 @@ define range(i32 -22, 1) i32 @arkRelaxCreate(ptr noundef %0, ptr noundef %1, ptr
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 640
   store i32 0, ptr %11, align 8
-  br label %44
+  br label %50
 
 12:                                               ; preds = %7
   br i1 %8, label %14, label %13
 
 13:                                               ; preds = %12
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 707, ptr noundef nonnull @__func__.arkRelaxCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #8
-  br label %44
+  br label %50
 
 14:                                               ; preds = %12
   br i1 %9, label %16, label %15
 
 15:                                               ; preds = %14
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 714, ptr noundef nonnull @__func__.arkRelaxCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #8
-  br label %44
+  br label %50
 
 16:                                               ; preds = %14
   %17 = icmp ne ptr %3, null
@@ -1241,59 +1234,69 @@ define range(i32 -22, 1) i32 @arkRelaxCreate(ptr noundef %0, ptr noundef %1, ptr
 
 19:                                               ; preds = %16
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 722, ptr noundef nonnull @__func__.arkRelaxCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #8
-  br label %44
+  br label %50
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %0, i64 648
   %22 = load ptr, ptr %21, align 8
   %.not46 = icmp eq ptr %22, null
-  br i1 %.not46, label %23, label %35
+  br i1 %.not46, label %23, label %41
 
 23:                                               ; preds = %20
   %calloc = tail call dereferenceable_or_null(200) ptr @calloc(i64 1, i64 200)
   store ptr %calloc, ptr %21, align 8
   %.not47 = icmp eq ptr %calloc, null
-  br i1 %.not47, label %44, label %24
+  br i1 %.not47, label %50, label %24
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds i8, ptr %calloc, i64 32
   store i32 10, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %calloc, i64 120
-  store <2 x double> <double 1.200000e+00, double 2.500000e-01>, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %calloc, i64 136
-  store i32 1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %calloc, i64 144
-  store <2 x double> <double 0x3CE4000000000000, double 0x3CD0000000000000>, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %calloc, i64 160
-  store double 0x3D06849B86A12B9B, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %calloc, i64 168
-  store i32 10, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %calloc, i64 104
-  store <2 x double> <double 1.000000e+00, double 8.000000e-01>, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 544
-  %33 = load <2 x i64>, ptr %32, align 8
-  %34 = add nsw <2 x i64> %33, <i64 12, i64 14>
-  store <2 x i64> %34, ptr %32, align 8
-  br label %35
+  %26 = getelementptr inbounds i8, ptr %calloc, i64 112
+  store double 8.000000e-01, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %calloc, i64 120
+  store double 1.200000e+00, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %calloc, i64 128
+  store double 2.500000e-01, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %calloc, i64 136
+  store i32 1, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %calloc, i64 144
+  store double 0x3CE4000000000000, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %calloc, i64 152
+  store double 0x3CD0000000000000, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %calloc, i64 160
+  store double 0x3D06849B86A12B9B, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %calloc, i64 168
+  store i32 10, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %calloc, i64 104
+  store double 1.000000e+00, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 544
+  %36 = load i64, ptr %35, align 8
+  %37 = add nsw i64 %36, 12
+  store i64 %37, ptr %35, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 552
+  %39 = load i64, ptr %38, align 8
+  %40 = add nsw i64 %39, 14
+  store i64 %40, ptr %38, align 8
+  br label %41
 
-35:                                               ; preds = %24, %20
-  %36 = phi ptr [ %calloc, %24 ], [ %22, %20 ]
-  store ptr %1, ptr %36, align 8
-  %37 = load ptr, ptr %21, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %2, ptr %38, align 8
-  %39 = load ptr, ptr %21, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
-  store ptr %3, ptr %40, align 8
-  %41 = load ptr, ptr %21, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
-  store ptr %4, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 640
-  store i32 1, ptr %43, align 8
-  br label %44
+41:                                               ; preds = %24, %20
+  %42 = phi ptr [ %calloc, %24 ], [ %22, %20 ]
+  store ptr %1, ptr %42, align 8
+  %43 = load ptr, ptr %21, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  store ptr %2, ptr %44, align 8
+  %45 = load ptr, ptr %21, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  store ptr %3, ptr %46, align 8
+  %47 = load ptr, ptr %21, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  store ptr %4, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 640
+  store i32 1, ptr %49, align 8
+  br label %50
 
-44:                                               ; preds = %23, %35, %19, %15, %13, %10, %6
-  %.0 = phi i32 [ 0, %35 ], [ -22, %19 ], [ -22, %15 ], [ -22, %13 ], [ 0, %10 ], [ -21, %6 ], [ -20, %23 ]
+50:                                               ; preds = %23, %41, %19, %15, %13, %10, %6
+  %.0 = phi i32 [ 0, %41 ], [ -22, %19 ], [ -22, %15 ], [ -22, %13 ], [ 0, %10 ], [ -21, %6 ], [ -20, %23 ]
   ret i32 %.0
 }
 

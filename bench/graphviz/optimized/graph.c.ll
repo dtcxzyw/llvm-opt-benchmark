@@ -47,54 +47,60 @@ gv_calloc.exit.i:                                 ; preds = %3
   br i1 %.not.i, label %agclos.exit, label %10
 
 10:                                               ; preds = %gv_calloc.exit.i
-  %11 = load <2 x ptr>, ptr %2, align 8
-  %12 = icmp eq <2 x ptr> %11, zeroinitializer
-  %13 = select <2 x i1> %12, <2 x ptr> <ptr @AgIdDisc, ptr @AgIoDisc>, <2 x ptr> %11
+  %11 = load ptr, ptr %2, align 8
+  %.not11.i = icmp eq ptr %11, null
+  %spec.select.i = select i1 %.not11.i, ptr @AgIdDisc, ptr %11
+  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %.not12.i = icmp eq ptr %13, null
+  %spec.select13.i = select i1 %.not12.i, ptr @AgIoDisc, ptr %13
   br label %agclos.exit
 
 agclos.exit:                                      ; preds = %gv_calloc.exit.i, %10
-  %14 = phi <2 x ptr> [ %13, %10 ], [ <ptr @AgIdDisc, ptr @AgIoDisc>, %gv_calloc.exit.i ]
-  store <2 x ptr> %14, ptr %5, align 8
-  %15 = tail call noalias dereferenceable_or_null(136) ptr @calloc(i64 noundef 1, i64 noundef 136) #9
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %gv_calloc.exit
+  %spec.select.sink.i = phi ptr [ %spec.select.i, %10 ], [ @AgIdDisc, %gv_calloc.exit.i ]
+  %14 = phi ptr [ %spec.select13.i, %10 ], [ @AgIoDisc, %gv_calloc.exit.i ]
+  store ptr %spec.select.sink.i, ptr %5, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %14, ptr %15, align 8
+  %16 = tail call noalias dereferenceable_or_null(136) ptr @calloc(i64 noundef 1, i64 noundef 136) #9
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %gv_calloc.exit
 
-17:                                               ; preds = %agclos.exit
-  %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.1, i64 noundef 136) #10
+18:                                               ; preds = %agclos.exit
+  %19 = load ptr, ptr @stderr, align 8
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.1, i64 noundef 136) #10
   tail call fastcc void @graphviz_exit() #11
   unreachable
 
 gv_calloc.exit:                                   ; preds = %agclos.exit
-  %20 = getelementptr inbounds i8, ptr %15, i64 128
-  store ptr %5, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 24
-  store i32 %1, ptr %21, align 8
-  %22 = trunc i32 %1 to i8
-  %23 = or i8 %22, 8
-  store i8 %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 120
-  store ptr %15, ptr %24, align 8
-  %25 = extractelement <2 x ptr> %14, i64 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr %26(ptr noundef nonnull %15, ptr noundef %2) #12
-  %28 = load ptr, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %16, i64 128
+  store ptr %5, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %16, i64 24
+  store i32 %1, ptr %22, align 8
+  %23 = trunc i32 %1 to i8
+  %24 = or i8 %23, 8
+  store i8 %24, ptr %22, align 8
+  %25 = getelementptr inbounds i8, ptr %16, i64 120
+  store ptr %16, ptr %25, align 8
+  %26 = load ptr, ptr %spec.select.sink.i, align 8
+  %27 = tail call ptr %26(ptr noundef nonnull %16, ptr noundef %2) #12
+  %28 = load ptr, ptr %21, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %27, ptr %29, align 8
-  %30 = call i32 @agmapnametoid(ptr noundef nonnull %15, i32 noundef 0, ptr noundef %0, ptr noundef nonnull %4, i1 noundef zeroext true) #12
+  %30 = call i32 @agmapnametoid(ptr noundef nonnull %16, i32 noundef 0, ptr noundef %0, ptr noundef nonnull %4, i1 noundef zeroext true) #12
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %34, label %31
 
 31:                                               ; preds = %gv_calloc.exit
   %32 = load i64, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %15, i64 8
+  %33 = getelementptr inbounds i8, ptr %16, i64 8
   store i64 %32, ptr %33, align 8
   br label %34
 
 34:                                               ; preds = %31, %gv_calloc.exit
-  %35 = call ptr @agopen1(ptr noundef nonnull %15)
-  call void @agregister(ptr noundef nonnull %15, i32 noundef 0, ptr noundef nonnull %15) #12
-  ret ptr %15
+  %35 = call ptr @agopen1(ptr noundef nonnull %16)
+  call void @agregister(ptr noundef nonnull %16, i32 noundef 0, ptr noundef nonnull %16) #12
+  ret ptr %16
 }
 
 declare i32 @agmapnametoid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1

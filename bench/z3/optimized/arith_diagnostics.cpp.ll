@@ -355,14 +355,26 @@ entry:
   %m_region.i.i = getelementptr inbounds i8, ptr %s, i64 2208
   %call.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 32)
   %m_ty = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = load i32, ptr %m_ty, align 8
+  %m_lit_head = getelementptr inbounds i8, ptr %this, i64 20
+  %1 = load i32, ptr %m_lit_head, align 4
+  %m_lit_tail = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load i32, ptr %m_lit_tail, align 8
+  %m_eq_head = getelementptr inbounds i8, ptr %this, i64 28
+  %3 = load i32, ptr %m_eq_head, align 4
   %m_eq_tail = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load i32, ptr %m_eq_tail, align 8
-  %m_ty.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %1 = load <4 x i32>, ptr %m_ty, align 8
+  %4 = load i32, ptr %m_eq_tail, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arith16arith_proof_hintE, i64 16), ptr %call.i, align 8
-  store <4 x i32> %1, ptr %m_ty.i, align 8
+  %m_ty.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  store i32 %0, ptr %m_ty.i, align 8
+  %m_lit_head.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  store i32 %1, ptr %m_lit_head.i, align 4
+  %m_lit_tail.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  store i32 %2, ptr %m_lit_tail.i, align 8
+  %m_eq_head.i = getelementptr inbounds i8, ptr %call.i, i64 20
+  store i32 %3, ptr %m_eq_head.i, align 4
   %m_eq_tail.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store i32 %0, ptr %m_eq_tail.i, align 8
+  store i32 %4, ptr %m_eq_tail.i, align 8
   ret ptr %call.i
 }
 
@@ -1877,14 +1889,26 @@ if.end12:                                         ; preds = %.noexc.i, %if.end
   %m_region.i.i.i = getelementptr inbounds i8, ptr %10, i64 2208
   %call.i.i = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i.i, i64 noundef 32)
   %m_ty.i = getelementptr inbounds i8, ptr %this, i64 1120
+  %11 = load i32, ptr %m_ty.i, align 8
+  %m_lit_head.i = getelementptr inbounds i8, ptr %this, i64 1124
+  %12 = load i32, ptr %m_lit_head.i, align 4
+  %m_lit_tail.i = getelementptr inbounds i8, ptr %this, i64 1128
+  %13 = load i32, ptr %m_lit_tail.i, align 8
+  %m_eq_head.i = getelementptr inbounds i8, ptr %this, i64 1132
+  %14 = load i32, ptr %m_eq_head.i, align 4
   %m_eq_tail.i = getelementptr inbounds i8, ptr %this, i64 1136
-  %11 = load i32, ptr %m_eq_tail.i, align 8
-  %m_ty.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  %12 = load <4 x i32>, ptr %m_ty.i, align 8
+  %15 = load i32, ptr %m_eq_tail.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arith16arith_proof_hintE, i64 16), ptr %call.i.i, align 8
-  store <4 x i32> %12, ptr %m_ty.i.i, align 8
+  %m_ty.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  store i32 %11, ptr %m_ty.i.i, align 8
+  %m_lit_head.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  store i32 %12, ptr %m_lit_head.i.i, align 4
+  %m_lit_tail.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  store i32 %13, ptr %m_lit_tail.i.i, align 8
+  %m_eq_head.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
+  store i32 %14, ptr %m_eq_head.i.i, align 4
   %m_eq_tail.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  store i32 %11, ptr %m_eq_tail.i.i, align 8
+  store i32 %15, ptr %m_eq_tail.i.i, align 8
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true.i, %if.end12
@@ -2224,14 +2248,26 @@ for.end64:                                        ; preds = %_ZN5arith24arith_pr
   %m_region.i.i.i = getelementptr inbounds i8, ptr %54, i64 2208
   %call.i.i = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i.i, i64 noundef 32)
   %m_ty.i = getelementptr inbounds i8, ptr %this, i64 1120
+  %55 = load i32, ptr %m_ty.i, align 8
+  %m_lit_head.i = getelementptr inbounds i8, ptr %this, i64 1124
+  %56 = load i32, ptr %m_lit_head.i, align 4
+  %m_lit_tail.i = getelementptr inbounds i8, ptr %this, i64 1128
+  %57 = load i32, ptr %m_lit_tail.i, align 8
+  %m_eq_head.i = getelementptr inbounds i8, ptr %this, i64 1132
+  %58 = load i32, ptr %m_eq_head.i, align 4
   %m_eq_tail.i = getelementptr inbounds i8, ptr %this, i64 1136
-  %55 = load i32, ptr %m_eq_tail.i, align 8
-  %m_ty.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  %56 = load <4 x i32>, ptr %m_ty.i, align 8
+  %59 = load i32, ptr %m_eq_tail.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arith16arith_proof_hintE, i64 16), ptr %call.i.i, align 8
-  store <4 x i32> %56, ptr %m_ty.i.i, align 8
+  %m_ty.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  store i32 %55, ptr %m_ty.i.i, align 8
+  %m_lit_head.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  store i32 %56, ptr %m_lit_head.i.i, align 4
+  %m_lit_tail.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  store i32 %57, ptr %m_lit_tail.i.i, align 8
+  %m_eq_head.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
+  store i32 %58, ptr %m_eq_head.i.i, align 4
   %m_eq_tail.i.i50 = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  store i32 %55, ptr %m_eq_tail.i.i50, align 8
+  store i32 %59, ptr %m_eq_tail.i.i50, align 8
   br label %if.end68
 
 if.end68:                                         ; preds = %entry, %land.lhs.true.i, %for.end64
@@ -2412,13 +2448,25 @@ _ZN5arith24arith_proof_hint_builder9add_diseqEPN3euf5enodeES3_.exit: ; preds = %
   %m_region.i.i.i = getelementptr inbounds i8, ptr %17, i64 2208
   %call.i.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i.i, i64 noundef 32)
   %m_ty.i = getelementptr inbounds i8, ptr %this, i64 1120
-  %18 = load i32, ptr %m_eq_tail.i.i, align 8
-  %m_ty.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  %19 = load <4 x i32>, ptr %m_ty.i, align 8
+  %18 = load i32, ptr %m_ty.i, align 8
+  %m_lit_head.i = getelementptr inbounds i8, ptr %this, i64 1124
+  %19 = load i32, ptr %m_lit_head.i, align 4
+  %m_lit_tail.i = getelementptr inbounds i8, ptr %this, i64 1128
+  %20 = load i32, ptr %m_lit_tail.i, align 8
+  %m_eq_head.i = getelementptr inbounds i8, ptr %this, i64 1132
+  %21 = load i32, ptr %m_eq_head.i, align 4
+  %22 = load i32, ptr %m_eq_tail.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arith16arith_proof_hintE, i64 16), ptr %call.i.i, align 8
-  store <4 x i32> %19, ptr %m_ty.i.i, align 8
+  %m_ty.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  store i32 %18, ptr %m_ty.i.i, align 8
+  %m_lit_head.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  store i32 %19, ptr %m_lit_head.i.i, align 4
+  %m_lit_tail.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  store i32 %20, ptr %m_lit_tail.i.i, align 8
+  %m_eq_head.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
+  store i32 %21, ptr %m_eq_head.i.i, align 4
   %m_eq_tail.i.i1 = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  store i32 %18, ptr %m_eq_tail.i.i1, align 8
+  store i32 %22, ptr %m_eq_tail.i.i1, align 8
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true.i, %_ZN5arith24arith_proof_hint_builder9add_diseqEPN3euf5enodeES3_.exit
@@ -2557,28 +2605,40 @@ _ZN8rationalD2Ev.exit28:                          ; preds = %.noexc.i26
   %m_region.i.i.i = getelementptr inbounds i8, ptr %16, i64 2208
   %call.i.i = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i.i, i64 noundef 32)
   %m_ty.i = getelementptr inbounds i8, ptr %this, i64 1120
+  %17 = load i32, ptr %m_ty.i, align 8
+  %m_lit_head.i = getelementptr inbounds i8, ptr %this, i64 1124
+  %18 = load i32, ptr %m_lit_head.i, align 4
+  %m_lit_tail.i = getelementptr inbounds i8, ptr %this, i64 1128
+  %19 = load i32, ptr %m_lit_tail.i, align 8
+  %m_eq_head.i = getelementptr inbounds i8, ptr %this, i64 1132
+  %20 = load i32, ptr %m_eq_head.i, align 4
   %m_eq_tail.i = getelementptr inbounds i8, ptr %this, i64 1136
-  %17 = load i32, ptr %m_eq_tail.i, align 8
-  %m_ty.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  %18 = load <4 x i32>, ptr %m_ty.i, align 8
+  %21 = load i32, ptr %m_eq_tail.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arith16arith_proof_hintE, i64 16), ptr %call.i.i, align 8
-  store <4 x i32> %18, ptr %m_ty.i.i, align 8
+  %m_ty.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  store i32 %17, ptr %m_ty.i.i, align 8
+  %m_lit_head.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  store i32 %18, ptr %m_lit_head.i.i, align 4
+  %m_lit_tail.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  store i32 %19, ptr %m_lit_tail.i.i, align 8
+  %m_eq_head.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
+  store i32 %20, ptr %m_eq_head.i.i, align 4
   %m_eq_tail.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  store i32 %17, ptr %m_eq_tail.i.i, align 8
+  store i32 %21, ptr %m_eq_tail.i.i, align 8
   br label %return
 
 lpad:                                             ; preds = %if.end
-  %19 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad11:                                           ; preds = %_ZN8rationalD2Ev.exit
-  %20 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad18:                                           ; preds = %_ZN8rationalD2Ev.exit15
-  %21 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -2588,7 +2648,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 
 eh.resume:                                        ; preds = %lpad18, %lpad11, %lpad
   %ref.tmp14.sink = phi ptr [ %ref.tmp14, %lpad18 ], [ %ref.tmp8, %lpad11 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %21, %lpad18 ], [ %20, %lpad11 ], [ %19, %lpad ]
+  %.pn = phi { ptr, i32 } [ %24, %lpad18 ], [ %23, %lpad11 ], [ %22, %lpad ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14.sink) #15
   resume { ptr, i32 } %.pn
 }

@@ -17654,11 +17654,17 @@ define void @_ZN29colvarbias_restraint_k_movingC2EPKc(ptr nocapture noundef nonn
   %55 = getelementptr inbounds i8, ptr %54, i64 10
   store i8 0, ptr %55, align 2
   %56 = getelementptr inbounds i8, ptr %0, i64 40
+  store double 0.000000e+00, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %58, align 8
-  store <2 x double> zeroinitializer, ptr %56, align 8
+  store double -1.000000e+00, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  store double -1.000000e+00, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  store double 1.000000e+00, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  store double 0.000000e+00, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 48
+  store double 0.000000e+00, ptr %61, align 8
   ret void
 }
 
@@ -17896,71 +17902,77 @@ define void @_ZN29colvarbias_restraint_harmonicC2EPKc(ptr nocapture noundef nonn
   %107 = getelementptr inbounds i8, ptr %106, i64 10
   store i8 0, ptr %107, align 2
   %108 = getelementptr inbounds i8, ptr %0, i64 128
+  store double 0.000000e+00, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %0, i64 96
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 112
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %110, align 8
-  store <2 x double> zeroinitializer, ptr %108, align 8
-  %111 = load ptr, ptr %1, align 8
-  store ptr %111, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %1, i64 136
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr i8, ptr %111, i64 -152
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 %115
-  store ptr %113, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %1, i64 144
-  %118 = load ptr, ptr %117, align 8
-  %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr i8, ptr %119, i64 -160
-  %121 = load i64, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 %121
-  store ptr %118, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %1, i64 152
-  %124 = load ptr, ptr %123, align 8
-  %125 = load ptr, ptr %0, align 8
-  %126 = getelementptr i8, ptr %125, i64 -24
-  %127 = load i64, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 %127
-  store ptr %124, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 160
-  %130 = load ptr, ptr %129, align 8
-  %131 = load ptr, ptr %0, align 8
-  %132 = getelementptr i8, ptr %131, i64 -32
-  %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 %133
-  store ptr %130, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 168
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr i8, ptr %137, i64 -40
-  %139 = load i64, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 %139
-  store ptr %136, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %1, i64 176
-  %142 = load ptr, ptr %141, align 8
-  %143 = load ptr, ptr %0, align 8
-  %144 = getelementptr i8, ptr %143, i64 -48
-  %145 = load i64, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 %145
-  store ptr %142, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %1, i64 184
-  %148 = load ptr, ptr %147, align 8
-  %149 = load ptr, ptr %0, align 8
-  %150 = getelementptr i8, ptr %149, i64 -168
-  %151 = load i64, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %0, i64 %151
-  store ptr %148, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %1, i64 192
-  %154 = load ptr, ptr %153, align 8
-  store ptr %154, ptr %54, align 8
-  %155 = getelementptr inbounds i8, ptr %1, i64 200
-  %156 = load ptr, ptr %155, align 8
-  %157 = load ptr, ptr %0, align 8
-  %158 = getelementptr i8, ptr %157, i64 -176
-  %159 = load i64, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 %159
-  store ptr %156, ptr %160, align 8
+  store double -1.000000e+00, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %0, i64 104
+  store double -1.000000e+00, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 112
+  store double 1.000000e+00, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %0, i64 120
+  store double 0.000000e+00, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %0, i64 136
+  store double 0.000000e+00, ptr %113, align 8
+  %114 = load ptr, ptr %1, align 8
+  store ptr %114, ptr %0, align 8
+  %115 = getelementptr inbounds i8, ptr %1, i64 136
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr i8, ptr %114, i64 -152
+  %118 = load i64, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 %118
+  store ptr %116, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %1, i64 144
+  %121 = load ptr, ptr %120, align 8
+  %122 = load ptr, ptr %0, align 8
+  %123 = getelementptr i8, ptr %122, i64 -160
+  %124 = load i64, ptr %123, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 %124
+  store ptr %121, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %1, i64 152
+  %127 = load ptr, ptr %126, align 8
+  %128 = load ptr, ptr %0, align 8
+  %129 = getelementptr i8, ptr %128, i64 -24
+  %130 = load i64, ptr %129, align 8
+  %131 = getelementptr inbounds i8, ptr %0, i64 %130
+  store ptr %127, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %1, i64 160
+  %133 = load ptr, ptr %132, align 8
+  %134 = load ptr, ptr %0, align 8
+  %135 = getelementptr i8, ptr %134, i64 -32
+  %136 = load i64, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %0, i64 %136
+  store ptr %133, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %1, i64 168
+  %139 = load ptr, ptr %138, align 8
+  %140 = load ptr, ptr %0, align 8
+  %141 = getelementptr i8, ptr %140, i64 -40
+  %142 = load i64, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %0, i64 %142
+  store ptr %139, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %1, i64 176
+  %145 = load ptr, ptr %144, align 8
+  %146 = load ptr, ptr %0, align 8
+  %147 = getelementptr i8, ptr %146, i64 -48
+  %148 = load i64, ptr %147, align 8
+  %149 = getelementptr inbounds i8, ptr %0, i64 %148
+  store ptr %145, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %1, i64 184
+  %151 = load ptr, ptr %150, align 8
+  %152 = load ptr, ptr %0, align 8
+  %153 = getelementptr i8, ptr %152, i64 -168
+  %154 = load i64, ptr %153, align 8
+  %155 = getelementptr inbounds i8, ptr %0, i64 %154
+  store ptr %151, ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %1, i64 192
+  %157 = load ptr, ptr %156, align 8
+  store ptr %157, ptr %54, align 8
+  %158 = getelementptr inbounds i8, ptr %1, i64 200
+  %159 = load ptr, ptr %158, align 8
+  %160 = load ptr, ptr %0, align 8
+  %161 = getelementptr i8, ptr %160, i64 -176
+  %162 = load i64, ptr %161, align 8
+  %163 = getelementptr inbounds i8, ptr %0, i64 %162
+  store ptr %159, ptr %163, align 8
   ret void
 }
 
@@ -17970,17 +17982,17 @@ define void @_ZN29colvarbias_restraint_harmonicC1EPKc(ptr noundef nonnull align 
   tail call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 808
   invoke void @_ZN10colvardepsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4)
-          to label %5 unwind label %30
+          to label %5 unwind label %33
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 176
   invoke void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT29colvarbias_restraint_harmonic, i64 296), ptr noundef %1)
-          to label %7 unwind label %32
+          to label %7 unwind label %35
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 928
   invoke void @_ZN13colvarbias_tiC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT29colvarbias_restraint_harmonic, i64 320), ptr noundef %1)
-          to label %9 unwind label %34
+          to label %9 unwind label %37
 
 9:                                                ; preds = %7
   store ptr getelementptr inbounds inrange(-144, 104) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_20colvarbias_restraint, i64 144), ptr %0, align 8
@@ -17990,7 +18002,7 @@ define void @_ZN29colvarbias_restraint_harmonicC1EPKc(ptr noundef nonnull align 
   store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTC29colvarbias_restraint_harmonic0_20colvarbias_restraint, i64 1184), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 248
   %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str)
-          to label %_ZN20colvarbias_restraintC2EPKc.exit unwind label %36
+          to label %_ZN20colvarbias_restraintC2EPKc.exit unwind label %39
 
 _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   %12 = getelementptr inbounds i8, ptr %0, i64 144
@@ -18020,11 +18032,17 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   %26 = getelementptr inbounds i8, ptr %0, i64 1010
   store i8 0, ptr %26, align 2
   %27 = getelementptr inbounds i8, ptr %0, i64 128
+  store double 0.000000e+00, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 96
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %29, align 8
-  store <2 x double> zeroinitializer, ptr %27, align 8
+  store double -1.000000e+00, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 104
+  store double -1.000000e+00, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 112
+  store double 1.000000e+00, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  store double 0.000000e+00, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 136
+  store double 0.000000e+00, ptr %32, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 712), ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 176), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 1104), ptr %6, align 8
@@ -18036,39 +18054,39 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   store ptr getelementptr inbounds (i8, ptr @_ZTV29colvarbias_restraint_harmonic, i64 2152), ptr %21, align 8
   ret void
 
-30:                                               ; preds = %2
-  %31 = landingpad { ptr, i32 }
+33:                                               ; preds = %2
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %40
+  br label %43
 
-32:                                               ; preds = %5
-  %33 = landingpad { ptr, i32 }
+35:                                               ; preds = %5
+  %36 = landingpad { ptr, i32 }
           cleanup
-  br label %39
+  br label %42
 
-34:                                               ; preds = %7
-  %35 = landingpad { ptr, i32 }
+37:                                               ; preds = %7
+  %38 = landingpad { ptr, i32 }
           cleanup
-  br label %38
+  br label %41
 
-36:                                               ; preds = %9
-  %37 = landingpad { ptr, i32 }
+39:                                               ; preds = %9
+  %40 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT29colvarbias_restraint_harmonic, i64 320)) #26
-  br label %38
+  br label %41
 
-38:                                               ; preds = %36, %34
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
+41:                                               ; preds = %39, %37
+  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
   tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT29colvarbias_restraint_harmonic, i64 296)) #26
-  br label %39
+  br label %42
 
-39:                                               ; preds = %38, %32
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %38 ], [ %33, %32 ]
+42:                                               ; preds = %41, %35
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %41 ], [ %36, %35 ]
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4) #26
-  br label %40
+  br label %43
 
-40:                                               ; preds = %39, %30
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %39 ], [ %31, %30 ]
+43:                                               ; preds = %42, %33
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %42 ], [ %34, %33 ]
   tail call void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %3) #26
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -18484,90 +18502,98 @@ define void @_ZN35colvarbias_restraint_harmonic_wallsC2EPKc(ptr noundef nonnull 
   %56 = getelementptr inbounds i8, ptr %55, i64 10
   store i8 0, ptr %56, align 2
   %57 = getelementptr inbounds i8, ptr %0, i64 40
+  store double 0.000000e+00, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %59, align 8
-  store <2 x double> zeroinitializer, ptr %57, align 8
-  %60 = load ptr, ptr %1, align 8
-  store ptr %60, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 72
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr i8, ptr %60, i64 -152
-  %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 %64
-  store ptr %62, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 80
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr i8, ptr %68, i64 -160
-  %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 %70
-  store ptr %67, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 88
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr i8, ptr %74, i64 -24
-  %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 %76
-  store ptr %73, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 96
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr i8, ptr %80, i64 -32
-  %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 %82
-  store ptr %79, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 104
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr i8, ptr %86, i64 -40
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 %88
-  store ptr %85, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 112
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr i8, ptr %92, i64 -48
-  %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 %94
-  store ptr %91, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 120
-  %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr i8, ptr %98, i64 -168
-  %100 = load i64, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 %100
-  store ptr %97, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 56
-  %103 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %102, i8 0, i64 48, i1 false)
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %103, align 8
-  %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr i8, ptr %104, i64 -40
-  %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 %106
-  invoke void @_ZN10colvardeps7provideEib(ptr noundef nonnull align 8 dereferenceable(120) %107, i32 noundef 4, i1 noundef zeroext true)
-          to label %108 unwind label %114
+  store double -1.000000e+00, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  store double -1.000000e+00, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  store double 1.000000e+00, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 32
+  store double 0.000000e+00, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 48
+  store double 0.000000e+00, ptr %62, align 8
+  %63 = load ptr, ptr %1, align 8
+  store ptr %63, ptr %0, align 8
+  %64 = getelementptr inbounds i8, ptr %1, i64 72
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr i8, ptr %63, i64 -152
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 %67
+  store ptr %65, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %1, i64 80
+  %70 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %0, align 8
+  %72 = getelementptr i8, ptr %71, i64 -160
+  %73 = load i64, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 %73
+  store ptr %70, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %1, i64 88
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %0, align 8
+  %78 = getelementptr i8, ptr %77, i64 -24
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %0, i64 %79
+  store ptr %76, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %1, i64 96
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %0, align 8
+  %84 = getelementptr i8, ptr %83, i64 -32
+  %85 = load i64, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %0, i64 %85
+  store ptr %82, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %1, i64 104
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr %0, align 8
+  %90 = getelementptr i8, ptr %89, i64 -40
+  %91 = load i64, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %0, i64 %91
+  store ptr %88, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %1, i64 112
+  %94 = load ptr, ptr %93, align 8
+  %95 = load ptr, ptr %0, align 8
+  %96 = getelementptr i8, ptr %95, i64 -48
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %0, i64 %97
+  store ptr %94, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %1, i64 120
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %0, align 8
+  %102 = getelementptr i8, ptr %101, i64 -168
+  %103 = load i64, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %0, i64 %103
+  store ptr %100, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %0, i64 56
+  %106 = getelementptr inbounds i8, ptr %0, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %105, i8 0, i64 48, i1 false)
+  store double -1.000000e+00, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %0, i64 112
+  store double -1.000000e+00, ptr %107, align 8
+  %108 = load ptr, ptr %0, align 8
+  %109 = getelementptr i8, ptr %108, i64 -40
+  %110 = load i64, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 %110
+  invoke void @_ZN10colvardeps7provideEib(ptr noundef nonnull align 8 dereferenceable(120) %111, i32 noundef 4, i1 noundef zeroext true)
+          to label %112 unwind label %118
 
-108:                                              ; preds = %3
-  %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr i8, ptr %109, i64 -40
-  %111 = load i64, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 %111
-  invoke void @_ZN10colvardeps11set_enabledEib(ptr noundef nonnull align 8 dereferenceable(120) %112, i32 noundef 4, i1 noundef zeroext true)
-          to label %113 unwind label %114
+112:                                              ; preds = %3
+  %113 = load ptr, ptr %0, align 8
+  %114 = getelementptr i8, ptr %113, i64 -40
+  %115 = load i64, ptr %114, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 %115
+  invoke void @_ZN10colvardeps11set_enabledEib(ptr noundef nonnull align 8 dereferenceable(120) %116, i32 noundef 4, i1 noundef zeroext true)
+          to label %117 unwind label %118
 
-113:                                              ; preds = %108
+117:                                              ; preds = %112
   ret void
 
-114:                                              ; preds = %108, %3
-  %115 = landingpad { ptr, i32 }
+118:                                              ; preds = %112, %3
+  %119 = landingpad { ptr, i32 }
           cleanup
-  %116 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %116) #26
-  tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %102) #26
-  resume { ptr, i32 } %115
+  %120 = getelementptr inbounds i8, ptr %0, i64 80
+  tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %120) #26
+  tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %105) #26
+  resume { ptr, i32 } %119
 }
 
 declare void @_ZN10colvardeps7provideEib(ptr noundef nonnull align 8 dereferenceable(120), i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
@@ -18580,17 +18606,17 @@ define void @_ZN35colvarbias_restraint_harmonic_wallsC1EPKc(ptr noundef nonnull 
   tail call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 776
   invoke void @_ZN10colvardepsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4)
-          to label %5 unwind label %35
+          to label %5 unwind label %39
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 144
   invoke void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 216), ptr noundef %1)
-          to label %7 unwind label %37
+          to label %7 unwind label %41
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 896
   invoke void @_ZN13colvarbias_tiC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 240), ptr noundef %1)
-          to label %9 unwind label %39
+          to label %9 unwind label %43
 
 9:                                                ; preds = %7
   store ptr getelementptr inbounds inrange(-144, 104) (i8, ptr @_ZTC35colvarbias_restraint_harmonic_walls0_20colvarbias_restraint, i64 144), ptr %0, align 8
@@ -18600,7 +18626,7 @@ define void @_ZN35colvarbias_restraint_harmonic_wallsC1EPKc(ptr noundef nonnull 
   store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTC35colvarbias_restraint_harmonic_walls0_20colvarbias_restraint, i64 1184), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 216
   %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str)
-          to label %_ZN20colvarbias_restraintC2EPKc.exit unwind label %41
+          to label %_ZN20colvarbias_restraintC2EPKc.exit unwind label %45
 
 _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   %12 = getelementptr inbounds i8, ptr %0, i64 120
@@ -18624,11 +18650,17 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   %22 = getelementptr inbounds i8, ptr %0, i64 978
   store i8 0, ptr %22, align 2
   %23 = getelementptr inbounds i8, ptr %0, i64 40
+  store double 0.000000e+00, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %25, align 8
-  store <2 x double> zeroinitializer, ptr %23, align 8
+  store double -1.000000e+00, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  store double -1.000000e+00, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  store double 1.000000e+00, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  store double 0.000000e+00, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  store double 0.000000e+00, ptr %28, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 432), ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 168), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 824), ptr %6, align 8
@@ -18636,70 +18668,72 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1280), ptr %4, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1472), ptr %8, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV35colvarbias_restraint_harmonic_walls, i64 1664), ptr %15, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
-  %28 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %26, i8 0, i64 48, i1 false)
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, i8 0, i64 48, i1 false)
+  store double -1.000000e+00, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 112
+  store double -1.000000e+00, ptr %32, align 8
   invoke void @_ZN10colvardeps7provideEib(ptr noundef nonnull align 8 dereferenceable(120) %4, i32 noundef 4, i1 noundef zeroext true)
-          to label %29 unwind label %43
+          to label %33 unwind label %47
 
-29:                                               ; preds = %_ZN20colvarbias_restraintC2EPKc.exit
-  %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 -40
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 %32
-  invoke void @_ZN10colvardeps11set_enabledEib(ptr noundef nonnull align 8 dereferenceable(120) %33, i32 noundef 4, i1 noundef zeroext true)
-          to label %34 unwind label %43
+33:                                               ; preds = %_ZN20colvarbias_restraintC2EPKc.exit
+  %34 = load ptr, ptr %0, align 8
+  %35 = getelementptr i8, ptr %34, i64 -40
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 %36
+  invoke void @_ZN10colvardeps11set_enabledEib(ptr noundef nonnull align 8 dereferenceable(120) %37, i32 noundef 4, i1 noundef zeroext true)
+          to label %38 unwind label %47
 
-34:                                               ; preds = %29
+38:                                               ; preds = %33
   ret void
 
-35:                                               ; preds = %2
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  br label %48
-
-37:                                               ; preds = %5
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  br label %47
-
-39:                                               ; preds = %7
+39:                                               ; preds = %2
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %46
+  br label %52
 
-41:                                               ; preds = %9
+41:                                               ; preds = %5
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %51
 
-43:                                               ; preds = %29, %_ZN20colvarbias_restraintC2EPKc.exit
+43:                                               ; preds = %7
   %44 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #26
-  tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #26
+  br label %50
+
+45:                                               ; preds = %9
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  br label %49
+
+47:                                               ; preds = %33, %_ZN20colvarbias_restraintC2EPKc.exit
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #26
+  tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #26
   tail call void @_ZN27colvarbias_restraint_movingD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 272)) #26
-  br label %45
+  br label %49
 
-45:                                               ; preds = %43, %41
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
+49:                                               ; preds = %47, %45
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
   tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 240)) #26
-  br label %46
+  br label %50
 
-46:                                               ; preds = %45, %39
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %40, %39 ]
+50:                                               ; preds = %49, %43
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %49 ], [ %44, %43 ]
   tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT35colvarbias_restraint_harmonic_walls, i64 216)) #26
-  br label %47
+  br label %51
 
-47:                                               ; preds = %46, %37
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %46 ], [ %38, %37 ]
+51:                                               ; preds = %50, %41
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %50 ], [ %42, %41 ]
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4) #26
-  br label %48
+  br label %52
 
-48:                                               ; preds = %47, %35
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %47 ], [ %36, %35 ]
+52:                                               ; preds = %51, %39
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %51 ], [ %40, %39 ]
   tail call void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %3) #26
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
@@ -19194,77 +19228,83 @@ define void @_ZN27colvarbias_restraint_linearC2EPKc(ptr nocapture noundef nonnul
   %107 = getelementptr inbounds i8, ptr %106, i64 10
   store i8 0, ptr %107, align 2
   %108 = getelementptr inbounds i8, ptr %0, i64 128
+  store double 0.000000e+00, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %0, i64 96
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 112
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %110, align 8
-  store <2 x double> zeroinitializer, ptr %108, align 8
-  %111 = load ptr, ptr %1, align 8
-  store ptr %111, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %1, i64 136
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr i8, ptr %111, i64 -152
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 %115
-  store ptr %113, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %1, i64 144
-  %118 = load ptr, ptr %117, align 8
-  %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr i8, ptr %119, i64 -160
-  %121 = load i64, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 %121
-  store ptr %118, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %1, i64 152
-  %124 = load ptr, ptr %123, align 8
-  %125 = load ptr, ptr %0, align 8
-  %126 = getelementptr i8, ptr %125, i64 -24
-  %127 = load i64, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 %127
-  store ptr %124, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 160
-  %130 = load ptr, ptr %129, align 8
-  %131 = load ptr, ptr %0, align 8
-  %132 = getelementptr i8, ptr %131, i64 -32
-  %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 %133
-  store ptr %130, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 168
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr i8, ptr %137, i64 -40
-  %139 = load i64, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 %139
-  store ptr %136, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %1, i64 176
-  %142 = load ptr, ptr %141, align 8
-  %143 = load ptr, ptr %0, align 8
-  %144 = getelementptr i8, ptr %143, i64 -48
-  %145 = load i64, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 %145
-  store ptr %142, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %1, i64 184
-  %148 = load ptr, ptr %147, align 8
-  %149 = load ptr, ptr %0, align 8
-  %150 = getelementptr i8, ptr %149, i64 -168
-  %151 = load i64, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %0, i64 %151
-  store ptr %148, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %1, i64 192
-  %154 = load ptr, ptr %153, align 8
-  store ptr %154, ptr %54, align 8
-  %155 = getelementptr inbounds i8, ptr %1, i64 200
-  %156 = load ptr, ptr %155, align 8
-  %157 = load ptr, ptr %0, align 8
-  %158 = getelementptr i8, ptr %157, i64 -176
-  %159 = load i64, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 %159
-  store ptr %156, ptr %160, align 8
-  %161 = load ptr, ptr %0, align 8
-  %162 = getelementptr i8, ptr %161, i64 -176
-  %163 = load i64, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 %163
-  %165 = getelementptr inbounds i8, ptr %164, i64 16
-  store i8 0, ptr %165, align 8
+  store double -1.000000e+00, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %0, i64 104
+  store double -1.000000e+00, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 112
+  store double 1.000000e+00, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %0, i64 120
+  store double 0.000000e+00, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %0, i64 136
+  store double 0.000000e+00, ptr %113, align 8
+  %114 = load ptr, ptr %1, align 8
+  store ptr %114, ptr %0, align 8
+  %115 = getelementptr inbounds i8, ptr %1, i64 136
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr i8, ptr %114, i64 -152
+  %118 = load i64, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 %118
+  store ptr %116, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %1, i64 144
+  %121 = load ptr, ptr %120, align 8
+  %122 = load ptr, ptr %0, align 8
+  %123 = getelementptr i8, ptr %122, i64 -160
+  %124 = load i64, ptr %123, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 %124
+  store ptr %121, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %1, i64 152
+  %127 = load ptr, ptr %126, align 8
+  %128 = load ptr, ptr %0, align 8
+  %129 = getelementptr i8, ptr %128, i64 -24
+  %130 = load i64, ptr %129, align 8
+  %131 = getelementptr inbounds i8, ptr %0, i64 %130
+  store ptr %127, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %1, i64 160
+  %133 = load ptr, ptr %132, align 8
+  %134 = load ptr, ptr %0, align 8
+  %135 = getelementptr i8, ptr %134, i64 -32
+  %136 = load i64, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %0, i64 %136
+  store ptr %133, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %1, i64 168
+  %139 = load ptr, ptr %138, align 8
+  %140 = load ptr, ptr %0, align 8
+  %141 = getelementptr i8, ptr %140, i64 -40
+  %142 = load i64, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %0, i64 %142
+  store ptr %139, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %1, i64 176
+  %145 = load ptr, ptr %144, align 8
+  %146 = load ptr, ptr %0, align 8
+  %147 = getelementptr i8, ptr %146, i64 -48
+  %148 = load i64, ptr %147, align 8
+  %149 = getelementptr inbounds i8, ptr %0, i64 %148
+  store ptr %145, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %1, i64 184
+  %151 = load ptr, ptr %150, align 8
+  %152 = load ptr, ptr %0, align 8
+  %153 = getelementptr i8, ptr %152, i64 -168
+  %154 = load i64, ptr %153, align 8
+  %155 = getelementptr inbounds i8, ptr %0, i64 %154
+  store ptr %151, ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %1, i64 192
+  %157 = load ptr, ptr %156, align 8
+  store ptr %157, ptr %54, align 8
+  %158 = getelementptr inbounds i8, ptr %1, i64 200
+  %159 = load ptr, ptr %158, align 8
+  %160 = load ptr, ptr %0, align 8
+  %161 = getelementptr i8, ptr %160, i64 -176
+  %162 = load i64, ptr %161, align 8
+  %163 = getelementptr inbounds i8, ptr %0, i64 %162
+  store ptr %159, ptr %163, align 8
+  %164 = load ptr, ptr %0, align 8
+  %165 = getelementptr i8, ptr %164, i64 -176
+  %166 = load i64, ptr %165, align 8
+  %167 = getelementptr inbounds i8, ptr %0, i64 %166
+  %168 = getelementptr inbounds i8, ptr %167, i64 16
+  store i8 0, ptr %168, align 8
   ret void
 }
 
@@ -19274,17 +19314,17 @@ define void @_ZN27colvarbias_restraint_linearC1EPKc(ptr noundef nonnull align 8 
   tail call void @_ZN11colvarparseC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 808
   invoke void @_ZN10colvardepsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4)
-          to label %5 unwind label %30
+          to label %5 unwind label %33
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 176
   invoke void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT27colvarbias_restraint_linear, i64 296), ptr noundef %1)
-          to label %7 unwind label %32
+          to label %7 unwind label %35
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 928
   invoke void @_ZN13colvarbias_tiC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT27colvarbias_restraint_linear, i64 320), ptr noundef %1)
-          to label %9 unwind label %34
+          to label %9 unwind label %37
 
 9:                                                ; preds = %7
   store ptr getelementptr inbounds inrange(-144, 104) (i8, ptr @_ZTC27colvarbias_restraint_linear0_20colvarbias_restraint, i64 144), ptr %0, align 8
@@ -19294,7 +19334,7 @@ define void @_ZN27colvarbias_restraint_linearC1EPKc(ptr noundef nonnull align 8 
   store ptr getelementptr inbounds inrange(-144, 112) (i8, ptr @_ZTC27colvarbias_restraint_linear0_20colvarbias_restraint, i64 1184), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 248
   %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str)
-          to label %_ZN20colvarbias_restraintC2EPKc.exit unwind label %36
+          to label %_ZN20colvarbias_restraintC2EPKc.exit unwind label %39
 
 _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   %12 = getelementptr inbounds i8, ptr %0, i64 144
@@ -19323,11 +19363,17 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   %26 = getelementptr inbounds i8, ptr %0, i64 1010
   store i8 0, ptr %26, align 2
   %27 = getelementptr inbounds i8, ptr %0, i64 128
+  store double 0.000000e+00, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 96
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %29, align 8
-  store <2 x double> zeroinitializer, ptr %27, align 8
+  store double -1.000000e+00, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 104
+  store double -1.000000e+00, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 112
+  store double 1.000000e+00, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  store double 0.000000e+00, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 136
+  store double 0.000000e+00, ptr %32, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 712), ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 176), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV27colvarbias_restraint_linear, i64 1104), ptr %6, align 8
@@ -19340,39 +19386,39 @@ _ZN20colvarbias_restraintC2EPKc.exit:             ; preds = %9
   store i8 0, ptr %23, align 8
   ret void
 
-30:                                               ; preds = %2
-  %31 = landingpad { ptr, i32 }
+33:                                               ; preds = %2
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %40
+  br label %43
 
-32:                                               ; preds = %5
-  %33 = landingpad { ptr, i32 }
+35:                                               ; preds = %5
+  %36 = landingpad { ptr, i32 }
           cleanup
-  br label %39
+  br label %42
 
-34:                                               ; preds = %7
-  %35 = landingpad { ptr, i32 }
+37:                                               ; preds = %7
+  %38 = landingpad { ptr, i32 }
           cleanup
-  br label %38
+  br label %41
 
-36:                                               ; preds = %9
-  %37 = landingpad { ptr, i32 }
+39:                                               ; preds = %9
+  %40 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT27colvarbias_restraint_linear, i64 320)) #26
-  br label %38
+  br label %41
 
-38:                                               ; preds = %36, %34
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
+41:                                               ; preds = %39, %37
+  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
   tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT27colvarbias_restraint_linear, i64 296)) #26
-  br label %39
+  br label %42
 
-39:                                               ; preds = %38, %32
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %38 ], [ %33, %32 ]
+42:                                               ; preds = %41, %35
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %41 ], [ %36, %35 ]
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4) #26
-  br label %40
+  br label %43
 
-40:                                               ; preds = %39, %30
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %39 ], [ %31, %30 ]
+43:                                               ; preds = %42, %33
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %42 ], [ %34, %33 ]
   tail call void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %3) #26
   resume { ptr, i32 } %.pn.pn.pn
 }

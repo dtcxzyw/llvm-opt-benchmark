@@ -353,7 +353,13 @@ invoke.cont3:                                     ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN21blast_term_ite_tactic2rwE, i64 16), ptr %m_rw.i, align 8
   store ptr %m, ptr %m_cfg.i.i, align 8
   %m_num_fresh.i.i.i = getelementptr inbounds i8, ptr %call, i64 560
-  store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %m_num_fresh.i.i.i, align 8
+  store i32 0, ptr %m_num_fresh.i.i.i, align 8
+  %m_max_steps.i.i.i = getelementptr inbounds i8, ptr %call, i64 564
+  store i32 -1, ptr %m_max_steps.i.i.i, align 4
+  %m_max_inflation.i.i.i = getelementptr inbounds i8, ptr %call, i64 568
+  store i32 -1, ptr %m_max_inflation.i.i.i, align 8
+  %m_init_term_size.i.i.i = getelementptr inbounds i8, ptr %call, i64 572
+  store i32 0, ptr %m_init_term_size.i.i.i, align 4
   invoke void @_ZN21blast_term_ite_tactic6rw_cfg11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(32) %m_cfg.i.i, ptr noundef nonnull align 8 dereferenceable(8) %p)
           to label %invoke.cont4 unwind label %lpad.i.i
 
@@ -407,8 +413,13 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN21blast_term_ite_tactic2rwE, i64 16), ptr %ite_rw, align 8
   store ptr %0, ptr %m_cfg.i, align 8
   %m_num_fresh.i.i = getelementptr inbounds i8, ptr %ite_rw, i64 552
+  store i32 0, ptr %m_num_fresh.i.i, align 8
+  %m_max_steps.i.i = getelementptr inbounds i8, ptr %ite_rw, i64 556
+  store i32 -1, ptr %m_max_steps.i.i, align 4
+  %m_max_inflation.i.i = getelementptr inbounds i8, ptr %ite_rw, i64 560
+  store i32 -1, ptr %m_max_inflation.i.i, align 8
   %m_init_term_size.i.i = getelementptr inbounds i8, ptr %ite_rw, i64 564
-  store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %m_num_fresh.i.i, align 8
+  store i32 0, ptr %m_init_term_size.i.i, align 4
   invoke void @_ZN21blast_term_ite_tactic6rw_cfg11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(32) %m_cfg.i, ptr noundef nonnull align 8 dereferenceable(8) %p)
           to label %invoke.cont2 unwind label %lpad.i
 
@@ -419,7 +430,6 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad1.body
 
 invoke.cont2:                                     ; preds = %.noexc
-  %m_max_inflation.i.i = getelementptr inbounds i8, ptr %ite_rw, i64 560
   store i32 %max_inflation, ptr %m_max_inflation.i.i, align 8
   %cmp.not = icmp eq i32 %max_inflation, -1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1159,7 +1169,13 @@ _Z7deallocIN21blast_term_ite_tactic3impEEvPT_.exit:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN21blast_term_ite_tactic2rwE, i64 16), ptr %m_rw.i, align 8
   store ptr %1, ptr %m_cfg.i.i, align 8
   %m_num_fresh.i.i.i = getelementptr inbounds i8, ptr %call, i64 560
-  store <4 x i32> <i32 0, i32 -1, i32 -1, i32 0>, ptr %m_num_fresh.i.i.i, align 8
+  store i32 0, ptr %m_num_fresh.i.i.i, align 8
+  %m_max_steps.i.i.i = getelementptr inbounds i8, ptr %call, i64 564
+  store i32 -1, ptr %m_max_steps.i.i.i, align 4
+  %m_max_inflation.i.i.i = getelementptr inbounds i8, ptr %call, i64 568
+  store i32 -1, ptr %m_max_inflation.i.i.i, align 8
+  %m_init_term_size.i.i.i = getelementptr inbounds i8, ptr %call, i64 572
+  store i32 0, ptr %m_init_term_size.i.i.i, align 4
   invoke void @_ZN21blast_term_ite_tactic6rw_cfg11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(32) %m_cfg.i.i, ptr noundef nonnull align 8 dereferenceable(8) %m_params)
           to label %_ZN21blast_term_ite_tactic3impC2ER11ast_managerRK10params_ref.exit unwind label %lpad.i.i
 

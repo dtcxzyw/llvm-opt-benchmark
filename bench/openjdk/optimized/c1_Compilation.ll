@@ -3615,19 +3615,25 @@ declare void @_ZN10CodeBuffer23initialize_section_sizeEP11CodeSectioni(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14MacroAssembler22bang_stack_with_offsetEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
-  %3 = alloca %class.Address, align 16
+  %3 = alloca %class.Address, align 8
   %4 = sub nsw i32 0, %1
-  store <4 x i32> <i32 4, i32 -1, i32 -1, i32 -1>, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %4, ptr %5, align 16
-  %6 = getelementptr inbounds i8, ptr %3, i64 20
-  store i8 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %8, align 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
-  store i32 0, ptr %9, align 8
+  store i32 4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 -1, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 -1, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 -1, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 %4, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 20
+  store i8 0, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  store i32 0, ptr %12, align 8
   call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %3, i32 0) #7
   ret void
 }

@@ -644,11 +644,13 @@ entry:
   %manager_.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %0 = load ptr, ptr %manager_.i.i.i, align 16
   call void %0(i1 noundef zeroext false, ptr noundef nonnull %callback, ptr noundef nonnull %agg.tmp) #23
+  %1 = load ptr, ptr %manager_.i.i.i, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  store ptr %1, ptr %manager_5.i.i.i, align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %callback, i64 24
-  %1 = load <2 x ptr>, ptr %manager_.i.i.i, align 16
-  %2 = load ptr, ptr %manager_.i.i.i, align 16
-  store <2 x ptr> %1, ptr %manager_5.i.i.i, align 16
+  %2 = load ptr, ptr %invoker_.i.i.i, align 8
+  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  store ptr %2, ptr %invoker_6.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
@@ -656,41 +658,45 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void %2(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp.i) #23
+  call void %1(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp.i) #23
+  %3 = load ptr, ptr %manager_5.i.i.i, align 16
   %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  %3 = load <2 x ptr>, ptr %manager_5.i.i.i, align 16
-  %4 = load ptr, ptr %manager_5.i.i.i, align 16
-  store <2 x ptr> %3, ptr %manager_5.i.i.i.i, align 16
+  store ptr %3, ptr %manager_5.i.i.i.i, align 16
+  %4 = load ptr, ptr %invoker_6.i.i.i, align 8
+  %invoker_6.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
+  store ptr %4, ptr %invoker_6.i.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_5.i.i.i, align 16
   store ptr null, ptr %invoker_6.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental19SelfDeletingClosureE, i64 16), ptr %call.i1, align 16
   %cb_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
-  call void %4(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %cb_.i.i) #23
+  call void %3(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %cb_.i.i) #23
+  %5 = load ptr, ptr %manager_5.i.i.i.i, align 16
   %manager_5.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 32
-  %5 = load <2 x ptr>, ptr %manager_5.i.i.i.i, align 16
-  store <2 x ptr> %5, ptr %manager_5.i.i.i.i.i, align 16
+  store ptr %5, ptr %manager_5.i.i.i.i.i, align 16
+  %6 = load ptr, ptr %invoker_6.i.i.i.i, align 8
+  %invoker_6.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 40
+  store ptr %6, ptr %invoker_6.i.i.i.i.i, align 8
   %manager_5.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i1, i64 64
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_5.i.i.i2.i.i, align 16
   %invoker_6.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i1, i64 72
   store ptr null, ptr %invoker_6.i.i.i4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %pool_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load ptr, ptr %pool_.i, align 8
-  invoke void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl3RunEPNS0_11EventEngine7ClosureE(ptr noundef nonnull align 8 dereferenceable(632) %6, ptr noundef nonnull %call.i1)
+  %7 = load ptr, ptr %pool_.i, align 8
+  invoke void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl3RunEPNS0_11EventEngine7ClosureE(ptr noundef nonnull align 8 dereferenceable(632) %7, ptr noundef nonnull %call.i1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %7 = load ptr, ptr %manager_5.i.i.i, align 16
-  call void %7(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #23
+  %8 = load ptr, ptr %manager_5.i.i.i, align 16
+  call void %8(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #23
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = load ptr, ptr %manager_5.i.i.i, align 16
-  call void %9(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #23
-  resume { ptr, i32 } %8
+  %10 = load ptr, ptr %manager_5.i.i.i, align 16
+  call void %10(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #23
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable

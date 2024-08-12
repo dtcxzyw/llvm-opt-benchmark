@@ -6739,11 +6739,13 @@ entry:
   tail call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %buffer_handle.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %buffer_handle3.i.i.i.i.i.i) #21
   %block_handle.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 88
   %block_handle4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 80
+  %1 = load ptr, ptr %block_handle4.i.i.i.i.i.i, align 8, !tbaa !74
+  store ptr %1, ptr %block_handle.i.i.i.i.i.i, align 8, !tbaa !74
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 96
   %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 88
-  %1 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !tbaa !73
-  %2 = load <2 x ptr>, ptr %block_handle4.i.i.i.i.i.i, align 8, !tbaa !3
+  %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !tbaa !73
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !tbaa !73
-  store <2 x ptr> %2, ptr %block_handle.i.i.i.i.i.i, align 8, !tbaa !3
+  store ptr %2, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !73
   store ptr null, ptr %block_handle4.i.i.i.i.i.i, align 8, !tbaa !74
   store ptr %call5.i.i.i.i, ptr %_M_node.i, align 8, !tbaa !216
   %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -6825,11 +6827,11 @@ lpad46:                                           ; preds = %if.end44
 
 if.then.i:                                        ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i
   %retval.sroa.0.0.ph = phi ptr [ %12, %if.end.i.i ], [ %__it.sroa.0.0, %invoke.cont ], [ %14, %for.cond.i.i ]
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %1, null
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb15FixedSizeBufferEELb0EEEEE18_M_deallocate_nodeEPS7_.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %18, 4294967297
   %19 = trunc i64 %18 to i32
@@ -6837,16 +6839,16 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8, !tbaa !75
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4, !tbaa !77
-  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !48
+  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !48
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
-  %vtable3.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !48
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
+  %vtable3.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !48
   %vfn4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i.i.i.i, i64 24
   %21 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb15FixedSizeBufferEELb0EEEEE18_M_deallocate_nodeEPS7_.exit.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i.i
@@ -6869,7 +6871,7 @@ invoke.cont.i.i.i.i.i.i.i.i.i:                    ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb15FixedSizeBufferEELb0EEEEE18_M_deallocate_nodeEPS7_.exit.i, !prof !79
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb15FixedSizeBufferEELb0EEEEE18_M_deallocate_nodeEPS7_.exit.i
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN6duckdb15FixedSizeBufferEELb0EEEEE18_M_deallocate_nodeEPS7_.exit.i: ; preds = %if.then7.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.then.i

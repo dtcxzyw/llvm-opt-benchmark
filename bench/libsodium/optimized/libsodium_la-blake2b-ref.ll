@@ -557,20 +557,36 @@ blake2b_set_lastblock.exit:                       ; preds = %if.end16, %if.then.
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr23, i8 0, i64 %sub25, i1 false)
   %11 = load ptr, ptr @blake2b_compress, align 8
   %call28 = tail call i32 %11(ptr noundef nonnull %S, ptr noundef nonnull %buf20) #8, !callees !7
-  %12 = load <2 x i64>, ptr %S, align 1
-  store <2 x i64> %12, ptr %buffer, align 16
+  %12 = load i64, ptr %S, align 1
+  store i64 %12, ptr %buffer, align 16
+  %arrayidx34 = getelementptr i8, ptr %S, i64 8
+  %13 = load i64, ptr %arrayidx34, align 1
+  %buffer.8.buffer.8.buffer.8.add.ptr32.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 8
+  store i64 %13, ptr %buffer.8.buffer.8.buffer.8.add.ptr32.sroa_idx, align 8
   %arrayidx38 = getelementptr i8, ptr %S, i64 16
-  %13 = load <2 x i64>, ptr %arrayidx38, align 1
+  %14 = load i64, ptr %arrayidx38, align 1
   %buffer.16.buffer.16.buffer.16.add.ptr36.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 16
-  store <2 x i64> %13, ptr %buffer.16.buffer.16.buffer.16.add.ptr36.sroa_idx, align 16
+  store i64 %14, ptr %buffer.16.buffer.16.buffer.16.add.ptr36.sroa_idx, align 16
+  %arrayidx42 = getelementptr i8, ptr %S, i64 24
+  %15 = load i64, ptr %arrayidx42, align 1
+  %buffer.24.buffer.24.buffer.24.add.ptr40.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 24
+  store i64 %15, ptr %buffer.24.buffer.24.buffer.24.add.ptr40.sroa_idx, align 8
   %arrayidx46 = getelementptr i8, ptr %S, i64 32
-  %14 = load <2 x i64>, ptr %arrayidx46, align 1
+  %16 = load i64, ptr %arrayidx46, align 1
   %buffer.32.buffer.32.buffer.32.add.ptr44.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 32
-  store <2 x i64> %14, ptr %buffer.32.buffer.32.buffer.32.add.ptr44.sroa_idx, align 16
+  store i64 %16, ptr %buffer.32.buffer.32.buffer.32.add.ptr44.sroa_idx, align 16
+  %arrayidx50 = getelementptr i8, ptr %S, i64 40
+  %17 = load i64, ptr %arrayidx50, align 1
+  %buffer.40.buffer.40.buffer.40.add.ptr48.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 40
+  store i64 %17, ptr %buffer.40.buffer.40.buffer.40.add.ptr48.sroa_idx, align 8
   %arrayidx54 = getelementptr i8, ptr %S, i64 48
-  %15 = load <2 x i64>, ptr %arrayidx54, align 1
+  %18 = load i64, ptr %arrayidx54, align 1
   %buffer.48.buffer.48.buffer.48.add.ptr52.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 48
-  store <2 x i64> %15, ptr %buffer.48.buffer.48.buffer.48.add.ptr52.sroa_idx, align 16
+  store i64 %18, ptr %buffer.48.buffer.48.buffer.48.add.ptr52.sroa_idx, align 16
+  %arrayidx58 = getelementptr i8, ptr %S, i64 56
+  %19 = load i64, ptr %arrayidx58, align 1
+  %buffer.56.buffer.56.buffer.56.add.ptr56.sroa_idx = getelementptr inbounds i8, ptr %buffer, i64 56
+  store i64 %19, ptr %buffer.56.buffer.56.buffer.56.add.ptr56.sroa_idx, align 8
   %conv60 = zext nneg i8 %outlen to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr nonnull align 16 %buffer, i64 %conv60, i1 false)
   tail call void @sodium_memzero(ptr noundef nonnull %S, i64 noundef 64) #8

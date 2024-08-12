@@ -1317,20 +1317,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_afs() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.498, ptr noundef nonnull @.str.499, ptr noundef nonnull @.str.500) #7
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.498, ptr noundef nonnull @.str.499, ptr noundef nonnull @.str.500) #6
   store i32 %1, ptr @proto_afs, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_afs.hf, i32 noundef 266) #7
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_afs.ett, i32 noundef 16) #7
-  tail call void @reassembly_table_register(ptr noundef nonnull @afs_reassembly_table, ptr noundef nonnull @addresses_reassembly_table_functions) #7
-  %2 = tail call ptr @wmem_epan_scope() #7
-  %3 = tail call ptr @wmem_file_scope() #7
-  %4 = tail call noalias ptr @wmem_map_new_autoreset(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @afs_hash, ptr noundef nonnull @afs_equal) #7
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_afs.hf, i32 noundef 266) #6
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_afs.ett, i32 noundef 16) #6
+  tail call void @reassembly_table_register(ptr noundef nonnull @afs_reassembly_table, ptr noundef nonnull @addresses_reassembly_table_functions) #6
+  %2 = tail call ptr @wmem_epan_scope() #6
+  %3 = tail call ptr @wmem_file_scope() #6
+  %4 = tail call noalias ptr @wmem_map_new_autoreset(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @afs_hash, ptr noundef nonnull @afs_equal) #6
   store ptr %4, ptr @afs_request_hash, align 8
   %5 = load i32, ptr @proto_afs, align 4
-  %6 = tail call ptr @prefs_register_protocol(i32 noundef %5, ptr noundef null) #7
-  tail call void @prefs_register_bool_preference(ptr noundef %6, ptr noundef nonnull @.str.501, ptr noundef nonnull @.str.502, ptr noundef nonnull @.str.503, ptr noundef nonnull @afs_defragment) #7
+  %6 = tail call ptr @prefs_register_protocol(i32 noundef %5, ptr noundef null) #6
+  tail call void @prefs_register_bool_preference(ptr noundef %6, ptr noundef nonnull @.str.501, ptr noundef nonnull @.str.502, ptr noundef nonnull @.str.503, ptr noundef nonnull @afs_defragment) #6
   %7 = load i32, ptr @proto_afs, align 4
-  %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.500, ptr noundef nonnull @dissect_afs, i32 noundef %7) #7
+  %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.500, ptr noundef nonnull @dissect_afs, i32 noundef %7) #6
   ret void
 }
 
@@ -1350,9 +1350,17 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @afs_hash(ptr nocapture noundef readonly %0) #2 {
-  %2 = load <4 x i32>, ptr %0, align 4
-  %3 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %2)
-  ret i32 %3
+  %2 = load i32, ptr %0, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = load i32, ptr %3, align 4
+  %5 = add i32 %4, %2
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = load i32, ptr %6, align 4
+  %8 = add i32 %5, %7
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = load i32, ptr %9, align 4
+  %11 = add i32 %8, %10
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1406,14 +1414,14 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %6 = alloca ptr, align 8
   %7 = alloca %struct.nstime_t, align 8
   %8 = icmp eq ptr %3, null
-  br i1 %8, label %237, label %9
+  br i1 %8, label %239, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.499) #7
+  tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.499) #6
   %12 = load ptr, ptr %10, align 8
-  tail call void @col_clear(ptr noundef %12, i32 noundef 25) #7
+  tail call void @col_clear(ptr noundef %12, i32 noundef 25) #6
   %13 = getelementptr inbounds i8, ptr %3, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
@@ -1422,7 +1430,7 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.in.v = select i1 %17, i64 288, i64 284
   %.in = getelementptr inbounds i8, ptr %1, i64 %.in.v
   %18 = load i32, ptr %.in, align 4
-  %19 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #7
+  %19 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #6
   %20 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8
   store i32 %21, ptr %5, align 4
@@ -1431,415 +1439,418 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %24 = getelementptr inbounds i8, ptr %5, i64 16
   store i16 %23, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %3, i64 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
-  %28 = load <2 x i32>, ptr %25, align 4
-  store <2 x i32> %28, ptr %26, align 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 12
-  %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 12
-  store i32 %30, ptr %31, align 4
-  %32 = load ptr, ptr @afs_request_hash, align 8
-  %33 = call ptr @wmem_map_lookup(ptr noundef %32, ptr noundef nonnull %5) #7
-  %34 = getelementptr inbounds i8, ptr %1, i64 80
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 50
-  %37 = load i16, ptr %36, align 2
-  %38 = and i16 %37, 8
-  %.not = icmp eq i16 %38, 0
-  br i1 %.not, label %39, label %59
+  %26 = load i32, ptr %25, align 4
+  %27 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %26, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %29, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %3, i64 12
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %32, ptr %33, align 4
+  %34 = load ptr, ptr @afs_request_hash, align 8
+  %35 = call ptr @wmem_map_lookup(ptr noundef %34, ptr noundef nonnull %5) #6
+  %36 = getelementptr inbounds i8, ptr %1, i64 80
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 50
+  %39 = load i16, ptr %38, align 2
+  %40 = and i16 %39, 8
+  %.not = icmp eq i16 %40, 0
+  br i1 %.not, label %41, label %61
 
-39:                                               ; preds = %9
-  %40 = icmp ne ptr %33, null
-  %or.cond = or i1 %16, %40
-  br i1 %or.cond, label %54, label %.thread
+41:                                               ; preds = %9
+  %42 = icmp ne ptr %35, null
+  %or.cond = or i1 %16, %42
+  br i1 %or.cond, label %56, label %.thread
 
-.thread:                                          ; preds = %39
-  %41 = call ptr @wmem_file_scope() #7
-  %42 = call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 20) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %42, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
-  %43 = call ptr @wmem_file_scope() #7
-  %44 = call noalias ptr @wmem_alloc(ptr noundef %43, i64 noundef 32) #7
-  %45 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #7
-  store i32 %45, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 20
-  %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %44, i64 4
-  store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %44, i64 8
-  store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %44, i64 16
-  %51 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
-  %52 = load ptr, ptr @afs_request_hash, align 8
-  %53 = call ptr @wmem_map_insert(ptr noundef %52, ptr noundef %42, ptr noundef nonnull %44) #7
+.thread:                                          ; preds = %41
+  %43 = call ptr @wmem_file_scope() #6
+  %44 = call noalias ptr @wmem_alloc(ptr noundef %43, i64 noundef 20) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %44, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
+  %45 = call ptr @wmem_file_scope() #6
+  %46 = call noalias ptr @wmem_alloc(ptr noundef %45, i64 noundef 32) #6
+  %47 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #6
+  store i32 %47, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %1, i64 20
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds i8, ptr %46, i64 4
+  store i32 %49, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %46, i64 8
+  store i32 0, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %46, i64 16
+  %53 = getelementptr inbounds i8, ptr %1, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false)
+  %54 = load ptr, ptr @afs_request_hash, align 8
+  %55 = call ptr @wmem_map_insert(ptr noundef %54, ptr noundef %44, ptr noundef nonnull %46) #6
   br label %.thread252
 
-54:                                               ; preds = %39
-  %or.cond3 = and i1 %16, %40
-  br i1 %or.cond3, label %55, label %59
+56:                                               ; preds = %41
+  %or.cond3 = and i1 %16, %42
+  br i1 %or.cond3, label %57, label %61
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %1, i64 20
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %33, i64 8
-  store i32 %57, ptr %58, align 8
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds i8, ptr %1, i64 20
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds i8, ptr %35, i64 8
+  store i32 %59, ptr %60, align 8
   br label %.thread252
 
-59:                                               ; preds = %54, %9
-  %.not292 = icmp eq ptr %33, null
-  br i1 %.not292, label %61, label %.thread252
+61:                                               ; preds = %56, %9
+  %.not292 = icmp eq ptr %35, null
+  br i1 %.not292, label %63, label %.thread252
 
-.thread252:                                       ; preds = %.thread, %55, %59
-  %.0222255 = phi ptr [ %33, %59 ], [ %44, %.thread ], [ %33, %55 ]
-  %60 = load i32, ptr %.0222255, align 8
-  br label %61
+.thread252:                                       ; preds = %.thread, %57, %61
+  %.0222255 = phi ptr [ %35, %61 ], [ %46, %.thread ], [ %35, %57 ]
+  %62 = load i32, ptr %.0222255, align 8
+  br label %63
 
-61:                                               ; preds = %.thread252, %59
-  %62 = phi i1 [ true, %.thread252 ], [ false, %59 ]
-  %.0222254 = phi ptr [ %.0222255, %.thread252 ], [ null, %59 ]
-  %.0227 = phi i32 [ %60, %.thread252 ], [ 0, %59 ]
-  switch i32 %18, label %104 [
-    i32 7000, label %63
-    i32 7001, label %67
-    i32 7002, label %71
-    i32 7003, label %75
-    i32 7004, label %79
-    i32 7005, label %83
-    i32 7006, label %87
-    i32 7007, label %90
-    i32 7008, label %94
-    i32 7009, label %97
-    i32 7021, label %100
+63:                                               ; preds = %.thread252, %61
+  %64 = phi i1 [ true, %.thread252 ], [ false, %61 ]
+  %.0222254 = phi ptr [ %.0222255, %.thread252 ], [ null, %61 ]
+  %.0227 = phi i32 [ %62, %.thread252 ], [ 0, %61 ]
+  switch i32 %18, label %106 [
+    i32 7000, label %65
+    i32 7001, label %69
+    i32 7002, label %73
+    i32 7003, label %77
+    i32 7004, label %81
+    i32 7005, label %85
+    i32 7006, label %89
+    i32 7007, label %92
+    i32 7008, label %96
+    i32 7009, label %99
+    i32 7021, label %102
   ]
 
-63:                                               ; preds = %61
-  %64 = load i32, ptr @hf_afs_fs, align 4
-  %65 = load i32, ptr @hf_afs_fs_opcode, align 4
-  %66 = select i1 %16, ptr @dissect_fs_reply, ptr @dissect_fs_request
-  br label %110
+65:                                               ; preds = %63
+  %66 = load i32, ptr @hf_afs_fs, align 4
+  %67 = load i32, ptr @hf_afs_fs_opcode, align 4
+  %68 = select i1 %16, ptr @dissect_fs_reply, ptr @dissect_fs_request
+  br label %112
 
-67:                                               ; preds = %61
-  %68 = load i32, ptr @hf_afs_cb, align 4
-  %69 = load i32, ptr @hf_afs_cb_opcode, align 4
-  %70 = select i1 %16, ptr @dissect_cb_reply, ptr @dissect_cb_request
-  br label %110
+69:                                               ; preds = %63
+  %70 = load i32, ptr @hf_afs_cb, align 4
+  %71 = load i32, ptr @hf_afs_cb_opcode, align 4
+  %72 = select i1 %16, ptr @dissect_cb_reply, ptr @dissect_cb_request
+  br label %112
 
-71:                                               ; preds = %61
-  %72 = load i32, ptr @hf_afs_prot, align 4
-  %73 = load i32, ptr @hf_afs_prot_opcode, align 4
-  %74 = select i1 %16, ptr @dissect_prot_reply, ptr @dissect_prot_request
-  br label %110
+73:                                               ; preds = %63
+  %74 = load i32, ptr @hf_afs_prot, align 4
+  %75 = load i32, ptr @hf_afs_prot_opcode, align 4
+  %76 = select i1 %16, ptr @dissect_prot_reply, ptr @dissect_prot_request
+  br label %112
 
-75:                                               ; preds = %61
-  %76 = load i32, ptr @hf_afs_vldb, align 4
-  %77 = load i32, ptr @hf_afs_vldb_opcode, align 4
-  %78 = select i1 %16, ptr @dissect_vldb_reply, ptr @dissect_vldb_request
-  br label %110
+77:                                               ; preds = %63
+  %78 = load i32, ptr @hf_afs_vldb, align 4
+  %79 = load i32, ptr @hf_afs_vldb_opcode, align 4
+  %80 = select i1 %16, ptr @dissect_vldb_reply, ptr @dissect_vldb_request
+  br label %112
 
-79:                                               ; preds = %61
-  %80 = load i32, ptr @hf_afs_kauth, align 4
-  %81 = load i32, ptr @hf_afs_kauth_opcode, align 4
-  %82 = select i1 %16, ptr @dissect_kauth_reply, ptr @dissect_kauth_request
-  br label %110
+81:                                               ; preds = %63
+  %82 = load i32, ptr @hf_afs_kauth, align 4
+  %83 = load i32, ptr @hf_afs_kauth_opcode, align 4
+  %84 = select i1 %16, ptr @dissect_kauth_reply, ptr @dissect_kauth_request
+  br label %112
 
-83:                                               ; preds = %61
-  %84 = load i32, ptr @hf_afs_vol, align 4
-  %85 = load i32, ptr @hf_afs_vol_opcode, align 4
-  %86 = select i1 %16, ptr @dissect_vol_reply, ptr @dissect_vol_request
-  br label %110
+85:                                               ; preds = %63
+  %86 = load i32, ptr @hf_afs_vol, align 4
+  %87 = load i32, ptr @hf_afs_vol_opcode, align 4
+  %88 = select i1 %16, ptr @dissect_vol_reply, ptr @dissect_vol_request
+  br label %112
 
-87:                                               ; preds = %61
-  %88 = load i32, ptr @hf_afs_error, align 4
-  %89 = load i32, ptr @hf_afs_error_opcode, align 4
-  br label %110
+89:                                               ; preds = %63
+  %90 = load i32, ptr @hf_afs_error, align 4
+  %91 = load i32, ptr @hf_afs_error_opcode, align 4
+  br label %112
 
-90:                                               ; preds = %61
-  %91 = load i32, ptr @hf_afs_bos, align 4
-  %92 = load i32, ptr @hf_afs_bos_opcode, align 4
-  %93 = select i1 %16, ptr @dissect_bos_reply, ptr @dissect_bos_request
-  br label %110
+92:                                               ; preds = %63
+  %93 = load i32, ptr @hf_afs_bos, align 4
+  %94 = load i32, ptr @hf_afs_bos_opcode, align 4
+  %95 = select i1 %16, ptr @dissect_bos_reply, ptr @dissect_bos_request
+  br label %112
 
-94:                                               ; preds = %61
-  %95 = load i32, ptr @hf_afs_update, align 4
-  %96 = load i32, ptr @hf_afs_update_opcode, align 4
-  br label %110
+96:                                               ; preds = %63
+  %97 = load i32, ptr @hf_afs_update, align 4
+  %98 = load i32, ptr @hf_afs_update_opcode, align 4
+  br label %112
 
-97:                                               ; preds = %61
-  %98 = load i32, ptr @hf_afs_rmtsys, align 4
-  %99 = load i32, ptr @hf_afs_rmtsys_opcode, align 4
-  br label %110
+99:                                               ; preds = %63
+  %100 = load i32, ptr @hf_afs_rmtsys, align 4
+  %101 = load i32, ptr @hf_afs_rmtsys_opcode, align 4
+  br label %112
 
-100:                                              ; preds = %61
-  %101 = load i32, ptr @hf_afs_backup, align 4
-  %102 = load i32, ptr @hf_afs_backup_opcode, align 4
-  %103 = select i1 %16, ptr @dissect_backup_reply, ptr @dissect_backup_request
-  br label %110
+102:                                              ; preds = %63
+  %103 = load i32, ptr @hf_afs_backup, align 4
+  %104 = load i32, ptr @hf_afs_backup_opcode, align 4
+  %105 = select i1 %16, ptr @dissect_backup_reply, ptr @dissect_backup_request
+  br label %112
 
-104:                                              ; preds = %61
-  %105 = icmp sgt i32 %18, 7024
-  br i1 %105, label %106, label %110
+106:                                              ; preds = %63
+  %107 = icmp sgt i32 %18, 7024
+  br i1 %107, label %108, label %112
 
-106:                                              ; preds = %104
-  %107 = load i32, ptr @hf_afs_butc, align 4
-  %108 = load i32, ptr @hf_afs_butc_opcode, align 4
-  %109 = select i1 %16, ptr @dissect_butc_reply, ptr @dissect_butc_request
-  br label %110
+108:                                              ; preds = %106
+  %109 = load i32, ptr @hf_afs_butc, align 4
+  %110 = load i32, ptr @hf_afs_butc_opcode, align 4
+  %111 = select i1 %16, ptr @dissect_butc_reply, ptr @dissect_butc_request
+  br label %112
 
-110:                                              ; preds = %104, %106, %100, %97, %94, %90, %87, %83, %79, %75, %71, %67, %63
-  %.0230 = phi i32 [ %108, %106 ], [ 0, %104 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %92, %90 ], [ %89, %87 ], [ %85, %83 ], [ %81, %79 ], [ %77, %75 ], [ %73, %71 ], [ %69, %67 ], [ %65, %63 ]
-  %.0228 = phi i32 [ %107, %106 ], [ 0, %104 ], [ %101, %100 ], [ %98, %97 ], [ %95, %94 ], [ %91, %90 ], [ %88, %87 ], [ %84, %83 ], [ %80, %79 ], [ %76, %75 ], [ %72, %71 ], [ %68, %67 ], [ %64, %63 ]
-  %.not235 = phi i1 [ false, %106 ], [ true, %104 ], [ false, %100 ], [ false, %97 ], [ false, %94 ], [ false, %90 ], [ true, %87 ], [ false, %83 ], [ false, %79 ], [ false, %75 ], [ false, %71 ], [ false, %67 ], [ false, %63 ]
-  %.0225 = phi ptr [ @butc_req_ext, %106 ], [ null, %104 ], [ @backup_req_ext, %100 ], [ @rmtsys_req_ext, %97 ], [ @update_req_ext, %94 ], [ @bos_req_ext, %90 ], [ null, %87 ], [ @vol_req_ext, %83 ], [ @kauth_req_ext, %79 ], [ @vldb_req_ext, %75 ], [ @prot_req_ext, %71 ], [ @cb_req_ext, %67 ], [ @fs_req_ext, %63 ]
-  %.0220 = phi ptr [ %109, %106 ], [ null, %104 ], [ %103, %100 ], [ null, %97 ], [ null, %94 ], [ %93, %90 ], [ null, %87 ], [ %86, %83 ], [ %82, %79 ], [ %78, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %63 ]
-  %111 = and i32 %.0227, -8
-  %or.cond5 = icmp eq i32 %111, 10000
-  %112 = add i32 %.0227, -20000
-  %or.cond7 = icmp ult i32 %112, 14
+112:                                              ; preds = %106, %108, %102, %99, %96, %92, %89, %85, %81, %77, %73, %69, %65
+  %.0230 = phi i32 [ %110, %108 ], [ 0, %106 ], [ %104, %102 ], [ %101, %99 ], [ %98, %96 ], [ %94, %92 ], [ %91, %89 ], [ %87, %85 ], [ %83, %81 ], [ %79, %77 ], [ %75, %73 ], [ %71, %69 ], [ %67, %65 ]
+  %.0228 = phi i32 [ %109, %108 ], [ 0, %106 ], [ %103, %102 ], [ %100, %99 ], [ %97, %96 ], [ %93, %92 ], [ %90, %89 ], [ %86, %85 ], [ %82, %81 ], [ %78, %77 ], [ %74, %73 ], [ %70, %69 ], [ %66, %65 ]
+  %.not235 = phi i1 [ false, %108 ], [ true, %106 ], [ false, %102 ], [ false, %99 ], [ false, %96 ], [ false, %92 ], [ true, %89 ], [ false, %85 ], [ false, %81 ], [ false, %77 ], [ false, %73 ], [ false, %69 ], [ false, %65 ]
+  %.0225 = phi ptr [ @butc_req_ext, %108 ], [ null, %106 ], [ @backup_req_ext, %102 ], [ @rmtsys_req_ext, %99 ], [ @update_req_ext, %96 ], [ @bos_req_ext, %92 ], [ null, %89 ], [ @vol_req_ext, %85 ], [ @kauth_req_ext, %81 ], [ @vldb_req_ext, %77 ], [ @prot_req_ext, %73 ], [ @cb_req_ext, %69 ], [ @fs_req_ext, %65 ]
+  %.0220 = phi ptr [ %111, %108 ], [ null, %106 ], [ %105, %102 ], [ null, %99 ], [ null, %96 ], [ %95, %92 ], [ null, %89 ], [ %88, %85 ], [ %84, %81 ], [ %80, %77 ], [ %76, %73 ], [ %72, %69 ], [ %68, %65 ]
+  %113 = and i32 %.0227, -8
+  %or.cond5 = icmp eq i32 %113, 10000
+  %114 = add i32 %.0227, -20000
+  %or.cond7 = icmp ult i32 %114, 14
   %or.cond245 = or i1 %or.cond5, %or.cond7
-  br i1 %or.cond245, label %.thread275, label %116
+  br i1 %or.cond245, label %.thread275, label %118
 
-.thread275:                                       ; preds = %110
-  %113 = load i32, ptr @hf_afs_ubik, align 4
-  %114 = load i32, ptr @hf_afs_ubik_opcode, align 4
-  %115 = select i1 %16, ptr @dissect_ubik_reply, ptr @dissect_ubik_request
-  br label %118
+.thread275:                                       ; preds = %112
+  %115 = load i32, ptr @hf_afs_ubik, align 4
+  %116 = load i32, ptr @hf_afs_ubik_opcode, align 4
+  %117 = select i1 %16, ptr @dissect_ubik_reply, ptr @dissect_ubik_request
+  br label %120
 
-116:                                              ; preds = %110
+118:                                              ; preds = %112
   %or.cond9 = icmp ult i32 %.0227, 66001
-  br i1 %or.cond9, label %117, label %132
+  br i1 %or.cond9, label %119, label %134
 
-117:                                              ; preds = %116
+119:                                              ; preds = %118
   %.pre = load i32, ptr @hf_afs_ubik, align 4
-  br i1 %.not235, label %126, label %118
+  br i1 %.not235, label %128, label %120
 
-118:                                              ; preds = %.thread275, %117
-  %119 = phi i32 [ %113, %.thread275 ], [ %.pre, %117 ]
-  %.1231265288 = phi i32 [ %114, %.thread275 ], [ %.0230, %117 ]
-  %.1229266287 = phi i32 [ %113, %.thread275 ], [ %.0228, %117 ]
-  %.1226268286 = phi ptr [ @ubik_req_ext, %.thread275 ], [ %.0225, %117 ]
-  %.1270285 = phi ptr [ %115, %.thread275 ], [ %.0220, %117 ]
-  %120 = load ptr, ptr %10, align 8
-  %121 = icmp eq i32 %.1229266287, %119
-  %122 = select i1 %121, ptr @.str.895, ptr @.str.896
-  %123 = call ptr @val_to_str_ext(i32 noundef %18, ptr noundef nonnull @port_types_short_ext, ptr noundef nonnull @.str.897) #7
-  %124 = select i1 %16, ptr @.str.898, ptr @.str.899
-  %125 = call ptr @val_to_str_ext(i32 noundef %.0227, ptr noundef nonnull %.1226268286, ptr noundef nonnull @.str.897) #7
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.894, ptr noundef nonnull %122, ptr noundef %123, ptr noundef nonnull %124, ptr noundef %125, i32 noundef %.0227) #7
-  br label %136
+120:                                              ; preds = %.thread275, %119
+  %121 = phi i32 [ %115, %.thread275 ], [ %.pre, %119 ]
+  %.1231265288 = phi i32 [ %116, %.thread275 ], [ %.0230, %119 ]
+  %.1229266287 = phi i32 [ %115, %.thread275 ], [ %.0228, %119 ]
+  %.1226268286 = phi ptr [ @ubik_req_ext, %.thread275 ], [ %.0225, %119 ]
+  %.1270285 = phi ptr [ %117, %.thread275 ], [ %.0220, %119 ]
+  %122 = load ptr, ptr %10, align 8
+  %123 = icmp eq i32 %.1229266287, %121
+  %124 = select i1 %123, ptr @.str.895, ptr @.str.896
+  %125 = call ptr @val_to_str_ext(i32 noundef %18, ptr noundef nonnull @port_types_short_ext, ptr noundef nonnull @.str.897) #6
+  %126 = select i1 %16, ptr @.str.898, ptr @.str.899
+  %127 = call ptr @val_to_str_ext(i32 noundef %.0227, ptr noundef nonnull %.1226268286, ptr noundef nonnull @.str.897) #6
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %122, i32 noundef 25, ptr noundef nonnull @.str.894, ptr noundef nonnull %124, ptr noundef %125, ptr noundef nonnull %126, ptr noundef %127, i32 noundef %.0227) #6
+  br label %138
 
-126:                                              ; preds = %117
-  %127 = load ptr, ptr %10, align 8
-  %128 = icmp eq i32 %.0228, %.pre
-  %129 = select i1 %128, ptr @.str.895, ptr @.str.896
-  %130 = call ptr @val_to_str_ext(i32 noundef %18, ptr noundef nonnull @port_types_short_ext, ptr noundef nonnull @.str.897) #7
-  %131 = select i1 %16, ptr @.str.898, ptr @.str.899
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %127, i32 noundef 25, ptr noundef nonnull @.str.900, ptr noundef nonnull %129, ptr noundef %130, ptr noundef nonnull %131, i32 noundef %.0227) #7
-  br label %136
+128:                                              ; preds = %119
+  %129 = load ptr, ptr %10, align 8
+  %130 = icmp eq i32 %.0228, %.pre
+  %131 = select i1 %130, ptr @.str.895, ptr @.str.896
+  %132 = call ptr @val_to_str_ext(i32 noundef %18, ptr noundef nonnull @port_types_short_ext, ptr noundef nonnull @.str.897) #6
+  %133 = select i1 %16, ptr @.str.898, ptr @.str.899
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %129, i32 noundef 25, ptr noundef nonnull @.str.900, ptr noundef nonnull %131, ptr noundef %132, ptr noundef nonnull %133, i32 noundef %.0227) #6
+  br label %138
 
-132:                                              ; preds = %116
-  %133 = load ptr, ptr %10, align 8
-  %134 = call ptr @val_to_str_ext(i32 noundef %18, ptr noundef nonnull @port_types_short_ext, ptr noundef nonnull @.str.897) #7
-  %135 = select i1 %16, ptr @.str.898, ptr @.str.899
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %133, i32 noundef 25, ptr noundef nonnull @.str.901, ptr noundef %134, ptr noundef nonnull %135) #7
-  br label %136
+134:                                              ; preds = %118
+  %135 = load ptr, ptr %10, align 8
+  %136 = call ptr @val_to_str_ext(i32 noundef %18, ptr noundef nonnull @port_types_short_ext, ptr noundef nonnull @.str.897) #6
+  %137 = select i1 %16, ptr @.str.898, ptr @.str.899
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %135, i32 noundef 25, ptr noundef nonnull @.str.901, ptr noundef %136, ptr noundef nonnull %137) #6
+  br label %138
 
-136:                                              ; preds = %118, %126, %132
-  %or.cond246273 = phi i1 [ true, %118 ], [ true, %126 ], [ false, %132 ]
-  %.1269 = phi ptr [ %.1270285, %118 ], [ %.0220, %126 ], [ %.0220, %132 ]
-  %.1229267 = phi i32 [ %.1229266287, %118 ], [ %.0228, %126 ], [ %.0228, %132 ]
-  %.1231264 = phi i32 [ %.1231265288, %118 ], [ %.0230, %126 ], [ %.0230, %132 ]
-  %137 = load i32, ptr @proto_afs, align 4
-  %138 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #7
-  %139 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %137, ptr noundef %0, i32 noundef 0, i32 noundef %138, i32 noundef 0) #7
-  store ptr %139, ptr %6, align 8
-  %140 = load i32, ptr @ett_afs, align 4
-  %141 = call ptr @proto_item_add_subtree(ptr noundef %139, i32 noundef %140) #7
-  %142 = getelementptr inbounds i8, ptr %1, i64 272
-  %143 = load i32, ptr %142, align 8
-  %144 = load i32, ptr @afs_defragment, align 4
-  %.not236 = icmp eq i32 %144, 0
-  br i1 %.not236, label %168, label %145
+138:                                              ; preds = %120, %128, %134
+  %or.cond246273 = phi i1 [ true, %120 ], [ true, %128 ], [ false, %134 ]
+  %.1269 = phi ptr [ %.1270285, %120 ], [ %.0220, %128 ], [ %.0220, %134 ]
+  %.1229267 = phi i32 [ %.1229266287, %120 ], [ %.0228, %128 ], [ %.0228, %134 ]
+  %.1231264 = phi i32 [ %.1231265288, %120 ], [ %.0230, %128 ], [ %.0230, %134 ]
+  %139 = load i32, ptr @proto_afs, align 4
+  %140 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
+  %141 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %139, ptr noundef %0, i32 noundef 0, i32 noundef %140, i32 noundef 0) #6
+  store ptr %141, ptr %6, align 8
+  %142 = load i32, ptr @ett_afs, align 4
+  %143 = call ptr @proto_item_add_subtree(ptr noundef %141, i32 noundef %142) #6
+  %144 = getelementptr inbounds i8, ptr %1, i64 272
+  %145 = load i32, ptr %144, align 8
+  %146 = load i32, ptr @afs_defragment, align 4
+  %.not236 = icmp eq i32 %146, 0
+  br i1 %.not236, label %170, label %147
 
-145:                                              ; preds = %136
-  %146 = load i8, ptr %13, align 1
-  %147 = and i8 %146, 4
-  %.not237 = icmp eq i8 %147, 0
-  br i1 %.not237, label %152, label %148
+147:                                              ; preds = %138
+  %148 = load i8, ptr %13, align 1
+  %149 = and i8 %148, 4
+  %.not237 = icmp eq i8 %149, 0
+  br i1 %.not237, label %154, label %150
 
-148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %3, i64 16
-  %150 = load i32, ptr %149, align 4
-  %151 = icmp ugt i32 %150, 1
-  br i1 %151, label %152, label %168
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds i8, ptr %3, i64 16
+  %152 = load i32, ptr %151, align 4
+  %153 = icmp ugt i32 %152, 1
+  br i1 %153, label %154, label %170
 
-152:                                              ; preds = %148, %145
-  %153 = load i32, ptr %29, align 4
-  %154 = load i32, ptr %27, align 4
-  %155 = xor i32 %154, %153
-  store i32 1, ptr %142, align 8
-  %156 = getelementptr inbounds i8, ptr %3, i64 16
-  %157 = load i32, ptr %156, align 4
-  %158 = add i32 %157, -1
-  %159 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #7
-  %160 = load i8, ptr %13, align 1
-  %161 = and i8 %160, 4
-  %.not238 = icmp eq i8 %161, 0
-  %162 = zext i1 %.not238 to i32
-  %163 = call ptr @fragment_add_seq_check(ptr noundef nonnull @afs_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %155, ptr noundef null, i32 noundef %158, i32 noundef %159, i32 noundef %162) #7
-  %164 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.902, ptr noundef %163, ptr noundef nonnull @afs_frag_items, ptr noundef null, ptr noundef %141) #7
-  %.not239 = icmp eq ptr %164, null
-  %165 = load ptr, ptr %10, align 8
-  br i1 %.not239, label %167, label %166
+154:                                              ; preds = %150, %147
+  %155 = load i32, ptr %31, align 4
+  %156 = load i32, ptr %28, align 4
+  %157 = xor i32 %156, %155
+  store i32 1, ptr %144, align 8
+  %158 = getelementptr inbounds i8, ptr %3, i64 16
+  %159 = load i32, ptr %158, align 4
+  %160 = add i32 %159, -1
+  %161 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #6
+  %162 = load i8, ptr %13, align 1
+  %163 = and i8 %162, 4
+  %.not238 = icmp eq i8 %163, 0
+  %164 = zext i1 %.not238 to i32
+  %165 = call ptr @fragment_add_seq_check(ptr noundef nonnull @afs_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %157, ptr noundef null, i32 noundef %160, i32 noundef %161, i32 noundef %164) #6
+  %166 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.902, ptr noundef %165, ptr noundef nonnull @afs_frag_items, ptr noundef null, ptr noundef %143) #6
+  %.not239 = icmp eq ptr %166, null
+  %167 = load ptr, ptr %10, align 8
+  br i1 %.not239, label %169, label %168
 
-166:                                              ; preds = %152
-  call void @col_append_str(ptr noundef %165, i32 noundef 25, ptr noundef nonnull @.str.903) #7
-  br label %168
+168:                                              ; preds = %154
+  call void @col_append_str(ptr noundef %167, i32 noundef 25, ptr noundef nonnull @.str.903) #6
+  br label %170
 
-167:                                              ; preds = %152
-  call void @col_set_str(ptr noundef %165, i32 noundef 25, ptr noundef nonnull @.str.904) #7
+169:                                              ; preds = %154
+  call void @col_set_str(ptr noundef %167, i32 noundef 25, ptr noundef nonnull @.str.904) #6
   br label %.sink.split
 
-168:                                              ; preds = %166, %148, %136
-  %169 = phi i1 [ true, %166 ], [ false, %148 ], [ false, %136 ]
-  %.0219 = phi ptr [ %164, %166 ], [ %0, %148 ], [ %0, %136 ]
-  %170 = and i32 %143, 255
-  store i32 %170, ptr %142, align 8
+170:                                              ; preds = %168, %150, %138
+  %171 = phi i1 [ true, %168 ], [ false, %150 ], [ false, %138 ]
+  %.0219 = phi ptr [ %166, %168 ], [ %0, %150 ], [ %0, %138 ]
+  %172 = and i32 %145, 255
+  store i32 %172, ptr %144, align 8
   %.not240 = icmp eq ptr %2, null
-  br i1 %.not240, label %.sink.split, label %171
+  br i1 %.not240, label %.sink.split, label %173
 
-171:                                              ; preds = %168
-  %172 = load i32, ptr @hf_afs_service, align 4
-  %173 = or i1 %or.cond7, %or.cond246273
-  %174 = select i1 %173, ptr @.str.896, ptr @.str.906
-  %175 = load i32, ptr @hf_afs_ubik, align 4
-  %176 = icmp eq i32 %.1229267, %175
-  %177 = select i1 %176, ptr @.str.907, ptr @.str.896
-  %178 = call ptr @val_to_str_ext(i32 noundef %18, ptr noundef nonnull @port_types_ext, ptr noundef nonnull @.str.897) #7
-  %179 = select i1 %16, ptr @.str.898, ptr @.str.899
-  %180 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %141, i32 noundef %172, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i32 noundef %.0227, ptr noundef nonnull @.str.905, ptr noundef nonnull %174, ptr noundef nonnull %177, ptr noundef %178, ptr noundef nonnull %179) #7
-  %181 = icmp eq ptr %.0222254, null
-  %or.cond19 = or i1 %16, %181
-  br i1 %or.cond19, label %188, label %182
+173:                                              ; preds = %170
+  %174 = load i32, ptr @hf_afs_service, align 4
+  %175 = or i1 %or.cond7, %or.cond246273
+  %176 = select i1 %175, ptr @.str.896, ptr @.str.906
+  %177 = load i32, ptr @hf_afs_ubik, align 4
+  %178 = icmp eq i32 %.1229267, %177
+  %179 = select i1 %178, ptr @.str.907, ptr @.str.896
+  %180 = call ptr @val_to_str_ext(i32 noundef %18, ptr noundef nonnull @port_types_ext, ptr noundef nonnull @.str.897) #6
+  %181 = select i1 %16, ptr @.str.898, ptr @.str.899
+  %182 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %143, i32 noundef %174, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i32 noundef %.0227, ptr noundef nonnull @.str.905, ptr noundef nonnull %176, ptr noundef nonnull %179, ptr noundef %180, ptr noundef nonnull %181) #6
+  %183 = icmp eq ptr %.0222254, null
+  %or.cond19 = or i1 %16, %183
+  br i1 %or.cond19, label %190, label %184
 
-182:                                              ; preds = %171
-  %183 = getelementptr inbounds i8, ptr %.0222254, i64 8
-  %184 = load i32, ptr %183, align 8
-  %.not241 = icmp eq i32 %184, 0
-  br i1 %.not241, label %.thread290, label %185
+184:                                              ; preds = %173
+  %185 = getelementptr inbounds i8, ptr %.0222254, i64 8
+  %186 = load i32, ptr %185, align 8
+  %.not241 = icmp eq i32 %186, 0
+  br i1 %.not241, label %.thread290, label %187
 
-185:                                              ; preds = %182
-  %186 = load i32, ptr @hf_afs_repframe, align 4
-  %187 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %141, i32 noundef %186, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i32 noundef %184, ptr noundef nonnull @.str.908, i32 noundef %184) #7
+187:                                              ; preds = %184
+  %188 = load i32, ptr @hf_afs_repframe, align 4
+  %189 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %143, i32 noundef %188, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i32 noundef %186, ptr noundef nonnull @.str.908, i32 noundef %186) #6
   br label %.thread290
 
-188:                                              ; preds = %171
-  %or.cond21 = and i1 %16, %62
-  br i1 %or.cond21, label %189, label %.thread290
+190:                                              ; preds = %173
+  %or.cond21 = and i1 %16, %64
+  br i1 %or.cond21, label %191, label %.thread290
 
-189:                                              ; preds = %188
-  %190 = getelementptr inbounds i8, ptr %.0222254, i64 8
-  %191 = load i32, ptr %190, align 8
-  %.not242 = icmp eq i32 %191, 0
-  br i1 %.not242, label %.thread290, label %192
+191:                                              ; preds = %190
+  %192 = getelementptr inbounds i8, ptr %.0222254, i64 8
+  %193 = load i32, ptr %192, align 8
+  %.not242 = icmp eq i32 %193, 0
+  br i1 %.not242, label %.thread290, label %194
 
-192:                                              ; preds = %189
-  %193 = load i32, ptr @hf_afs_reqframe, align 4
-  %194 = getelementptr inbounds i8, ptr %.0222254, i64 4
-  %195 = load i32, ptr %194, align 4
-  %196 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %141, i32 noundef %193, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i32 noundef %195, ptr noundef nonnull @.str.909, i32 noundef %195) #7
-  %197 = getelementptr inbounds i8, ptr %1, i64 24
-  %198 = getelementptr inbounds i8, ptr %.0222254, i64 16
-  call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %197, ptr noundef nonnull %198) #7
-  %199 = load i32, ptr @hf_afs_time, align 4
-  %200 = call ptr @proto_tree_add_time(ptr noundef %141, i32 noundef %199, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #7
+194:                                              ; preds = %191
+  %195 = load i32, ptr @hf_afs_reqframe, align 4
+  %196 = getelementptr inbounds i8, ptr %.0222254, i64 4
+  %197 = load i32, ptr %196, align 4
+  %198 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %143, i32 noundef %195, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i32 noundef %197, ptr noundef nonnull @.str.909, i32 noundef %197) #6
+  %199 = getelementptr inbounds i8, ptr %1, i64 24
+  %200 = getelementptr inbounds i8, ptr %.0222254, i64 16
+  call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %199, ptr noundef nonnull %200) #6
+  %201 = load i32, ptr @hf_afs_time, align 4
+  %202 = call ptr @proto_tree_add_time(ptr noundef %143, i32 noundef %201, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #6
   br label %.thread290
 
-.thread290:                                       ; preds = %182, %185, %192, %189, %188
-  br i1 %or.cond246273, label %201, label %.sink.split
+.thread290:                                       ; preds = %184, %187, %194, %191, %190
+  br i1 %or.cond246273, label %203, label %.sink.split
 
-201:                                              ; preds = %.thread290
+203:                                              ; preds = %.thread290
   store ptr null, ptr %6, align 8
-  %202 = icmp ne i32 %.1231264, 0
-  %or.cond29 = select i1 %17, i1 %202, i1 false
-  br i1 %or.cond29, label %203, label %210
+  %204 = icmp ne i32 %.1231264, 0
+  %or.cond29 = select i1 %17, i1 %204, i1 false
+  br i1 %or.cond29, label %205, label %212
 
-203:                                              ; preds = %201
-  %204 = getelementptr inbounds i8, ptr %3, i64 16
-  %205 = load i32, ptr %204, align 4
-  %206 = icmp eq i32 %205, 1
-  %or.cond31 = or i1 %169, %206
+205:                                              ; preds = %203
+  %206 = getelementptr inbounds i8, ptr %3, i64 16
+  %207 = load i32, ptr %206, align 4
+  %208 = icmp eq i32 %207, 1
+  %or.cond31 = or i1 %171, %208
   %. = select i1 %or.cond31, i32 4, i32 0
-  %207 = call ptr @proto_tree_add_uint(ptr noundef %141, i32 noundef %.1231264, ptr noundef %.0219, i32 noundef 0, i32 noundef %., i32 noundef %.0227) #7
-  store ptr %207, ptr %6, align 8
-  %208 = load i32, ptr @ett_afs_op, align 4
-  %209 = call ptr @proto_item_add_subtree(ptr noundef %207, i32 noundef %208) #7
-  br label %218
+  %209 = call ptr @proto_tree_add_uint(ptr noundef %143, i32 noundef %.1231264, ptr noundef %.0219, i32 noundef 0, i32 noundef %., i32 noundef %.0227) #6
+  store ptr %209, ptr %6, align 8
+  %210 = load i32, ptr @ett_afs_op, align 4
+  %211 = call ptr @proto_item_add_subtree(ptr noundef %209, i32 noundef %210) #6
+  br label %220
 
-210:                                              ; preds = %201
-  %or.cond33 = select i1 %16, i1 %202, i1 false
-  br i1 %or.cond33, label %211, label %215
+212:                                              ; preds = %203
+  %or.cond33 = select i1 %16, i1 %204, i1 false
+  br i1 %or.cond33, label %213, label %217
 
-211:                                              ; preds = %210
-  %212 = call ptr @proto_tree_add_uint(ptr noundef %141, i32 noundef %.1231264, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i32 noundef %.0227) #7
-  store ptr %212, ptr %6, align 8
-  %213 = load i32, ptr @ett_afs_op, align 4
-  %214 = call ptr @proto_item_add_subtree(ptr noundef %212, i32 noundef %213) #7
-  br label %218
+213:                                              ; preds = %212
+  %214 = call ptr @proto_tree_add_uint(ptr noundef %143, i32 noundef %.1231264, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i32 noundef %.0227) #6
+  store ptr %214, ptr %6, align 8
+  %215 = load i32, ptr @ett_afs_op, align 4
+  %216 = call ptr @proto_item_add_subtree(ptr noundef %214, i32 noundef %215) #6
+  br label %220
 
-215:                                              ; preds = %210
-  %216 = load i32, ptr @ett_afs_op, align 4
-  %217 = call ptr @proto_tree_add_subtree(ptr noundef %141, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i32 noundef %216, ptr noundef nonnull %6, ptr noundef nonnull @.str.910) #7
-  br label %218
+217:                                              ; preds = %212
+  %218 = load i32, ptr @ett_afs_op, align 4
+  %219 = call ptr @proto_tree_add_subtree(ptr noundef %143, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i32 noundef %218, ptr noundef nonnull %6, ptr noundef nonnull @.str.910) #6
+  br label %220
 
-218:                                              ; preds = %211, %215, %203
-  %.0224 = phi ptr [ %209, %203 ], [ %214, %211 ], [ %217, %215 ]
+220:                                              ; preds = %213, %217, %205
+  %.0224 = phi ptr [ %211, %205 ], [ %216, %213 ], [ %219, %217 ]
   %.not243 = icmp eq i32 %.1229267, 0
-  br i1 %.not243, label %proto_item_set_hidden.exit, label %219
+  br i1 %.not243, label %proto_item_set_hidden.exit, label %221
 
-219:                                              ; preds = %218
-  %220 = call ptr @proto_tree_add_boolean(ptr noundef %141, i32 noundef %.1229267, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i64 noundef 1) #7
-  %.not.i = icmp eq ptr %220, null
-  br i1 %.not.i, label %proto_item_set_hidden.exit, label %221
+221:                                              ; preds = %220
+  %222 = call ptr @proto_tree_add_boolean(ptr noundef %143, i32 noundef %.1229267, ptr noundef %.0219, i32 noundef 0, i32 noundef 0, i64 noundef 1) #6
+  %.not.i = icmp eq ptr %222, null
+  br i1 %.not.i, label %proto_item_set_hidden.exit, label %223
 
-221:                                              ; preds = %219
-  %222 = getelementptr inbounds i8, ptr %220, i64 32
-  %223 = load ptr, ptr %222, align 8
-  %.not5.i = icmp eq ptr %223, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %224
+223:                                              ; preds = %221
+  %224 = getelementptr inbounds i8, ptr %222, i64 32
+  %225 = load ptr, ptr %224, align 8
+  %.not5.i = icmp eq ptr %225, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %226
 
-224:                                              ; preds = %221
-  %225 = getelementptr inbounds i8, ptr %223, i64 28
-  %226 = load i32, ptr %225, align 4
-  %227 = or i32 %226, 1
-  store i32 %227, ptr %225, align 4
+226:                                              ; preds = %223
+  %227 = getelementptr inbounds i8, ptr %225, i64 28
+  %228 = load i32, ptr %227, align 4
+  %229 = or i32 %228, 1
+  store i32 %229, ptr %227, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %224, %221, %219, %218
+proto_item_set_hidden.exit:                       ; preds = %226, %223, %221, %220
   %.not244 = icmp eq ptr %.1269, null
-  br i1 %.not244, label %.sink.split, label %228
+  br i1 %.not244, label %.sink.split, label %230
 
-228:                                              ; preds = %proto_item_set_hidden.exit
-  %229 = getelementptr inbounds i8, ptr %3, i64 16
-  %230 = load i32, ptr %229, align 4
-  %231 = icmp eq i32 %230, 1
-  %or.cond35 = or i1 %169, %231
-  br i1 %or.cond35, label %232, label %.sink.split
+230:                                              ; preds = %proto_item_set_hidden.exit
+  %231 = getelementptr inbounds i8, ptr %3, i64 16
+  %232 = load i32, ptr %231, align 4
+  %233 = icmp eq i32 %232, 1
+  %or.cond35 = or i1 %171, %233
+  br i1 %or.cond35, label %234, label %.sink.split
 
-232:                                              ; preds = %228
-  %233 = getelementptr inbounds i8, ptr %1, i64 408
-  %234 = load ptr, ptr %233, align 8
-  %235 = call ptr @ptvcursor_new(ptr noundef %234, ptr noundef %.0224, ptr noundef %.0219, i32 noundef 0) #7
-  call void %.1269(ptr noundef %235, ptr noundef nonnull %3, i32 noundef %.0227) #7
+234:                                              ; preds = %230
+  %235 = getelementptr inbounds i8, ptr %1, i64 408
+  %236 = load ptr, ptr %235, align 8
+  %237 = call ptr @ptvcursor_new(ptr noundef %236, ptr noundef %.0224, ptr noundef %.0219, i32 noundef 0) #6
+  call void %.1269(ptr noundef %237, ptr noundef nonnull %3, i32 noundef %.0227) #6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %168, %proto_item_set_hidden.exit, %232, %228, %.thread290, %167
-  %.0219.sink = phi ptr [ %0, %167 ], [ %.0219, %.thread290 ], [ %.0219, %228 ], [ %.0219, %232 ], [ %.0219, %proto_item_set_hidden.exit ], [ %.0219, %168 ]
-  %236 = call i32 @tvb_captured_length(ptr noundef %.0219.sink) #7
-  br label %237
+.sink.split:                                      ; preds = %170, %proto_item_set_hidden.exit, %234, %230, %.thread290, %169
+  %.0219.sink = phi ptr [ %0, %169 ], [ %.0219, %.thread290 ], [ %.0219, %230 ], [ %.0219, %234 ], [ %.0219, %proto_item_set_hidden.exit ], [ %.0219, %170 ]
+  %238 = call i32 @tvb_captured_length(ptr noundef %.0219.sink) #6
+  br label %239
 
-237:                                              ; preds = %.sink.split, %4
-  %.0 = phi i32 [ 0, %4 ], [ %236, %.sink.split ]
+239:                                              ; preds = %.sink.split, %4
+  %.0 = phi i32 [ 0, %4 ], [ %238, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1905,7 +1916,7 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr nocapture noundef rea
   tail call fastcc void @OUT_FS_AFSCallBack(ptr noundef %0)
   tail call fastcc void @OUT_FS_AFSVolSync(ptr noundef %0)
   %7 = load i32, ptr @hf_afs_fs_data, align 4
-  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef -1, i32 noundef 0) #7
+  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef -1, i32 noundef 0) #6
   br label %71
 
 9:                                                ; preds = %5
@@ -1931,14 +1942,14 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr nocapture noundef rea
   %15 = select i1 %14, ptr @.str.912, ptr @.str.235
   %16 = select i1 %13, ptr @.str.911, ptr %15
   %17 = load i32, ptr @ett_afs_fid, align 4
-  %18 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %17, ptr noundef nonnull @.str.932, ptr noundef nonnull %16) #7
+  %18 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %17, ptr noundef nonnull @.str.932, ptr noundef nonnull %16) #6
   %19 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef 0) #7
+  %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef 0) #6
   %21 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #7
+  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #6
   %23 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %24 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %24 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   tail call fastcc void @OUT_FS_AFSFetchStatus(ptr noundef %0, ptr noundef nonnull @.str.913)
   tail call fastcc void @OUT_FS_AFSFetchStatus(ptr noundef %0, ptr noundef nonnull @.str.914)
   tail call fastcc void @OUT_FS_AFSCallBack(ptr noundef %0)
@@ -1984,10 +1995,10 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr nocapture noundef rea
   br label %71
 
 37:                                               ; preds = %5
-  %38 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %39 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %40 = tail call i32 @tvb_get_ntohl(ptr noundef %38, i32 noundef %39) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %38 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %39 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %40 = tail call i32 @tvb_get_ntohl(ptr noundef %38, i32 noundef %39) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1999,11 +2010,11 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr nocapture noundef rea
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %37
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
-  %42 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %43 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %44 = tail call i32 @tvb_get_ntohl(ptr noundef %42, i32 noundef %43) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
+  %42 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %43 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %44 = tail call i32 @tvb_get_ntohl(ptr noundef %42, i32 noundef %43) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %.not89 = icmp eq i32 %44, 0
   br i1 %.not89, label %._crit_edge80, label %.lr.ph79
 
@@ -2024,28 +2035,28 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr nocapture noundef rea
 
 47:                                               ; preds = %5
   %48 = load i32, ptr @hf_afs_fs_xstats_version, align 4
-  %49 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0) #7
+  %49 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0) #6
   br label %71
 
 50:                                               ; preds = %5
   %51 = load i32, ptr @hf_afs_fs_xstats_version, align 4
-  %52 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef 0) #7
+  %52 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef 0) #6
   %53 = load i32, ptr @hf_afs_fs_xstats_timestamp, align 4
   tail call fastcc void @OUT_TIMESECS(ptr noundef %0, i32 noundef %53)
   br label %71
 
 54:                                               ; preds = %5
   %55 = load i32, ptr @hf_afs_fs_cps_spare2, align 4
-  %56 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #7
+  %56 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #6
   %57 = load i32, ptr @hf_afs_fs_cps_spare3, align 4
-  %58 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef 0) #7
+  %58 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef 0) #6
   br label %71
 
 59:                                               ; preds = %5
-  %60 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %61 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %62 = tail call i32 @tvb_get_ntohl(ptr noundef %60, i32 noundef %61) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %60 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %61 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %62 = tail call i32 @tvb_get_ntohl(ptr noundef %60, i32 noundef %61) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %.not90 = icmp eq i32 %62, 0
   br i1 %.not90, label %._crit_edge84, label %.lr.ph83
 
@@ -2057,10 +2068,10 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr nocapture noundef rea
   br i1 %exitcond93.not, label %._crit_edge84, label %.lr.ph83, !llvm.loop !7
 
 ._crit_edge84:                                    ; preds = %.lr.ph83, %59
-  %64 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %65 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %66 = tail call i32 @tvb_get_ntohl(ptr noundef %64, i32 noundef %65) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %64 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %65 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %66 = tail call i32 @tvb_get_ntohl(ptr noundef %64, i32 noundef %65) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %.not91 = icmp eq i32 %66, 0
   br i1 %.not91, label %._crit_edge88, label %.lr.ph87
 
@@ -2077,7 +2088,7 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr nocapture noundef rea
 
 68:                                               ; preds = %3
   %69 = load i32, ptr @hf_afs_fs_errcode, align 4
-  %70 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %69, i32 noundef 4, i32 noundef 0) #7
+  %70 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %69, i32 noundef 4, i32 noundef 0) #6
   br label %71
 
 71:                                               ; preds = %3, %68, %5, %6, %9, %10, %11, %12, %25, %26, %27, %28, %29, %33, %35, %._crit_edge80, %46, %47, %50, %54, %._crit_edge88
@@ -2086,7 +2097,7 @@ define internal void @dissect_fs_reply(ptr noundef %0, ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_fs_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   switch i32 %2, label %OUT_RXString.exit [
     i32 130, label %4
     i32 131, label %17
@@ -2126,105 +2137,105 @@ define internal void @dissect_fs_request(ptr noundef %0, ptr nocapture readnone 
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @ett_afs_fid, align 4
-  %6 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %5, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.933) #7
+  %6 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %5, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.933) #6
   %7 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #7
+  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #6
   %9 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #7
+  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #6
   %11 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %13 = load i32, ptr @hf_afs_fs_offset, align 4
-  %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #7
+  %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #6
   %15 = load i32, ptr @hf_afs_fs_length, align 4
-  %16 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0) #7
+  %16 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 17:                                               ; preds = %3
   %18 = load i32, ptr @ett_afs_fid, align 4
-  %19 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %18, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %19 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %18, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %20 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0) #7
+  %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0) #6
   %22 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %23 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0) #7
+  %23 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0) #6
   %24 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   br label %OUT_RXString.exit
 
 26:                                               ; preds = %3
   %27 = load i32, ptr @ett_afs_fid, align 4
-  %28 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %27, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %28 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %27, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %29 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %30 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0) #7
+  %30 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0) #6
   %31 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %32 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef 0) #7
+  %32 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef 0) #6
   %33 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %34 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %34 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   br label %OUT_RXString.exit
 
 35:                                               ; preds = %3
   %36 = load i32, ptr @ett_afs_fid, align 4
-  %37 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %36, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.935) #7
+  %37 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %36, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.935) #6
   %38 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %39 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef 0) #7
+  %39 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef 0) #6
   %40 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %41 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef 0) #7
+  %41 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef 0) #6
   %42 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %43 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %43 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   tail call fastcc void @OUT_FS_AFSStoreStatus(ptr noundef %0, ptr noundef nonnull @.str.245)
   %44 = load i32, ptr @hf_afs_fs_offset, align 4
-  %45 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %44, i32 noundef 4, i32 noundef 0) #7
+  %45 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %44, i32 noundef 4, i32 noundef 0) #6
   %46 = load i32, ptr @hf_afs_fs_length, align 4
-  %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0) #7
+  %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0) #6
   %48 = load i32, ptr @hf_afs_fs_flength, align 4
-  %49 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0) #7
+  %49 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0) #6
   %50 = load i32, ptr @hf_afs_fs_data, align 4
-  %51 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %50, i32 noundef -1, i32 noundef 0) #7
+  %51 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %50, i32 noundef -1, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 52:                                               ; preds = %3
   %53 = load i32, ptr @ett_afs_fid, align 4
-  %54 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %53, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %54 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %53, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %55 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %56 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #7
+  %56 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #6
   %57 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %58 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef 0) #7
+  %58 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef 0) #6
   %59 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %60 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %59, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %60 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %59, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   tail call fastcc void @dissect_acl(ptr noundef %0)
   br label %OUT_RXString.exit
 
 61:                                               ; preds = %3
   %62 = load i32, ptr @ett_afs_fid, align 4
-  %63 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %62, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %63 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %62, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %64 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %65 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0) #7
+  %65 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0) #6
   %66 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %67 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %66, i32 noundef 4, i32 noundef 0) #7
+  %67 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %66, i32 noundef 4, i32 noundef 0) #6
   %68 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %69 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %69 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   tail call fastcc void @OUT_FS_AFSStoreStatus(ptr noundef %0, ptr noundef nonnull @.str.245)
   br label %OUT_RXString.exit
 
 70:                                               ; preds = %3
   %71 = load i32, ptr @ett_afs_fid, align 4
-  %72 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %71, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.936) #7
+  %72 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %71, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.936) #6
   %73 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %74 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %73, i32 noundef 4, i32 noundef 0) #7
+  %74 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %73, i32 noundef 4, i32 noundef 0) #6
   %75 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %76 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %75, i32 noundef 4, i32 noundef 0) #7
+  %76 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %75, i32 noundef 4, i32 noundef 0) #6
   %77 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %78 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %78 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %79 = load i32, ptr @hf_afs_fs_name, align 4
-  %80 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %81 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef 0) #7
-  %82 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %80 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %81 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef 0) #6
+  %82 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %83 = sub i32 %82, %80
   %84 = and i32 %83, 3
   %.not.i = icmp eq i32 %84, 0
@@ -2232,23 +2243,23 @@ define internal void @dissect_fs_request(ptr noundef %0, ptr nocapture readnone 
 
 85:                                               ; preds = %70
   %86 = sub nuw nsw i32 4, %84
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %86) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %86) #6
   br label %OUT_RXString.exit
 
 87:                                               ; preds = %3
   %88 = load i32, ptr @ett_afs_fid, align 4
-  %89 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %88, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %89 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %88, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %90 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %91 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %90, i32 noundef 4, i32 noundef 0) #7
+  %91 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %90, i32 noundef 4, i32 noundef 0) #6
   %92 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %93 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %92, i32 noundef 4, i32 noundef 0) #7
+  %93 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %92, i32 noundef 4, i32 noundef 0) #6
   %94 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %95 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %94, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %95 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %94, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %96 = load i32, ptr @hf_afs_fs_name, align 4
-  %97 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %98 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %96, i32 noundef 4, i32 noundef 0) #7
-  %99 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %97 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %98 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %96, i32 noundef 4, i32 noundef 0) #6
+  %99 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %100 = sub i32 %99, %97
   %101 = and i32 %100, 3
   %.not.i109 = icmp eq i32 %101, 0
@@ -2256,7 +2267,7 @@ define internal void @dissect_fs_request(ptr noundef %0, ptr nocapture readnone 
 
 102:                                              ; preds = %87
   %103 = sub nuw nsw i32 4, %101
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %103) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %103) #6
   br label %OUT_RXString.exit110
 
 OUT_RXString.exit110:                             ; preds = %87, %102
@@ -2265,18 +2276,18 @@ OUT_RXString.exit110:                             ; preds = %87, %102
 
 104:                                              ; preds = %3
   %105 = load i32, ptr @ett_afs_fid, align 4
-  %106 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %105, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.937) #7
+  %106 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %105, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.937) #6
   %107 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %108 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %107, i32 noundef 4, i32 noundef 0) #7
+  %108 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %107, i32 noundef 4, i32 noundef 0) #6
   %109 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %110 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef 0) #7
+  %110 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef 0) #6
   %111 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %112 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %111, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %112 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %111, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %113 = load i32, ptr @hf_afs_fs_oldname, align 4
-  %114 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %115 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %113, i32 noundef 4, i32 noundef 0) #7
-  %116 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %114 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %115 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %113, i32 noundef 4, i32 noundef 0) #6
+  %116 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %117 = sub i32 %116, %114
   %118 = and i32 %117, 3
   %.not.i111 = icmp eq i32 %118, 0
@@ -2284,23 +2295,23 @@ OUT_RXString.exit110:                             ; preds = %87, %102
 
 119:                                              ; preds = %104
   %120 = sub nuw nsw i32 4, %118
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %120) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %120) #6
   br label %OUT_RXString.exit112
 
 OUT_RXString.exit112:                             ; preds = %104, %119
   %121 = load i32, ptr @ett_afs_fid, align 4
-  %122 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %121, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.938) #7
+  %122 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %121, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.938) #6
   %123 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %124 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %123, i32 noundef 4, i32 noundef 0) #7
+  %124 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %123, i32 noundef 4, i32 noundef 0) #6
   %125 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %126 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %125, i32 noundef 4, i32 noundef 0) #7
+  %126 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %125, i32 noundef 4, i32 noundef 0) #6
   %127 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %128 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %127, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %128 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %127, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %129 = load i32, ptr @hf_afs_fs_newname, align 4
-  %130 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %131 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %129, i32 noundef 4, i32 noundef 0) #7
-  %132 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %130 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %131 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %129, i32 noundef 4, i32 noundef 0) #6
+  %132 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %133 = sub i32 %132, %130
   %134 = and i32 %133, 3
   %.not.i113 = icmp eq i32 %134, 0
@@ -2308,23 +2319,23 @@ OUT_RXString.exit112:                             ; preds = %104, %119
 
 135:                                              ; preds = %OUT_RXString.exit112
   %136 = sub nuw nsw i32 4, %134
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %136) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %136) #6
   br label %OUT_RXString.exit
 
 137:                                              ; preds = %3
   %138 = load i32, ptr @ett_afs_fid, align 4
-  %139 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %138, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.235) #7
+  %139 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %138, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.235) #6
   %140 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %141 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef 0) #7
+  %141 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef 0) #6
   %142 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %143 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %142, i32 noundef 4, i32 noundef 0) #7
+  %143 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %142, i32 noundef 4, i32 noundef 0) #6
   %144 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %145 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %144, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %145 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %144, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %146 = load i32, ptr @hf_afs_fs_symlink_name, align 4
-  %147 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %148 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %146, i32 noundef 4, i32 noundef 0) #7
-  %149 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %147 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %148 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %146, i32 noundef 4, i32 noundef 0) #6
+  %149 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %150 = sub i32 %149, %147
   %151 = and i32 %150, 3
   %.not.i115 = icmp eq i32 %151, 0
@@ -2332,14 +2343,14 @@ OUT_RXString.exit112:                             ; preds = %104, %119
 
 152:                                              ; preds = %137
   %153 = sub nuw nsw i32 4, %151
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %153) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %153) #6
   br label %OUT_RXString.exit116
 
 OUT_RXString.exit116:                             ; preds = %137, %152
   %154 = load i32, ptr @hf_afs_fs_symlink_content, align 4
-  %155 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %156 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %154, i32 noundef 4, i32 noundef 0) #7
-  %157 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %155 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %156 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %154, i32 noundef 4, i32 noundef 0) #6
+  %157 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %158 = sub i32 %157, %155
   %159 = and i32 %158, 3
   %.not.i117 = icmp eq i32 %159, 0
@@ -2347,7 +2358,7 @@ OUT_RXString.exit116:                             ; preds = %137, %152
 
 160:                                              ; preds = %OUT_RXString.exit116
   %161 = sub nuw nsw i32 4, %159
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %161) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %161) #6
   br label %OUT_RXString.exit118
 
 OUT_RXString.exit118:                             ; preds = %OUT_RXString.exit116, %160
@@ -2356,18 +2367,18 @@ OUT_RXString.exit118:                             ; preds = %OUT_RXString.exit11
 
 162:                                              ; preds = %3
   %163 = load i32, ptr @ett_afs_fid, align 4
-  %164 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %163, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.939) #7
+  %164 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %163, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.939) #6
   %165 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %166 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %165, i32 noundef 4, i32 noundef 0) #7
+  %166 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %165, i32 noundef 4, i32 noundef 0) #6
   %167 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %168 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef 0) #7
+  %168 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef 0) #6
   %169 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %170 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %169, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %170 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %169, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %171 = load i32, ptr @hf_afs_fs_name, align 4
-  %172 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %173 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %171, i32 noundef 4, i32 noundef 0) #7
-  %174 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %172 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %173 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %171, i32 noundef 4, i32 noundef 0) #6
+  %174 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %175 = sub i32 %174, %172
   %176 = and i32 %175, 3
   %.not.i119 = icmp eq i32 %176, 0
@@ -2375,35 +2386,35 @@ OUT_RXString.exit118:                             ; preds = %OUT_RXString.exit11
 
 177:                                              ; preds = %162
   %178 = sub nuw nsw i32 4, %176
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %178) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %178) #6
   br label %OUT_RXString.exit120
 
 OUT_RXString.exit120:                             ; preds = %162, %177
   %179 = load i32, ptr @ett_afs_fid, align 4
-  %180 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %179, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.940) #7
+  %180 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %179, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.940) #6
   %181 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %182 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %181, i32 noundef 4, i32 noundef 0) #7
+  %182 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %181, i32 noundef 4, i32 noundef 0) #6
   %183 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %184 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %183, i32 noundef 4, i32 noundef 0) #7
+  %184 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %183, i32 noundef 4, i32 noundef 0) #6
   %185 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %186 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %185, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %186 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %185, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   br label %OUT_RXString.exit
 
 187:                                              ; preds = %3
   %188 = load i32, ptr @ett_afs_fid, align 4
-  %189 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %188, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %189 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %188, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %190 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %191 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %190, i32 noundef 4, i32 noundef 0) #7
+  %191 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %190, i32 noundef 4, i32 noundef 0) #6
   %192 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %193 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %192, i32 noundef 4, i32 noundef 0) #7
+  %193 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %192, i32 noundef 4, i32 noundef 0) #6
   %194 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %195 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %194, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %195 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %194, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %196 = load i32, ptr @hf_afs_fs_name, align 4
-  %197 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %198 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %196, i32 noundef 4, i32 noundef 0) #7
-  %199 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %197 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %198 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %196, i32 noundef 4, i32 noundef 0) #6
+  %199 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %200 = sub i32 %199, %197
   %201 = and i32 %200, 3
   %.not.i121 = icmp eq i32 %201, 0
@@ -2411,7 +2422,7 @@ OUT_RXString.exit120:                             ; preds = %162, %177
 
 202:                                              ; preds = %187
   %203 = sub nuw nsw i32 4, %201
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %203) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %203) #6
   br label %OUT_RXString.exit122
 
 OUT_RXString.exit122:                             ; preds = %187, %202
@@ -2420,18 +2431,18 @@ OUT_RXString.exit122:                             ; preds = %187, %202
 
 204:                                              ; preds = %3
   %205 = load i32, ptr @ett_afs_fid, align 4
-  %206 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %205, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %206 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %205, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %207 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %208 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %207, i32 noundef 4, i32 noundef 0) #7
+  %208 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %207, i32 noundef 4, i32 noundef 0) #6
   %209 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %210 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %209, i32 noundef 4, i32 noundef 0) #7
+  %210 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %209, i32 noundef 4, i32 noundef 0) #6
   %211 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %212 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %211, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %212 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %211, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %213 = load i32, ptr @hf_afs_fs_name, align 4
-  %214 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %215 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %213, i32 noundef 4, i32 noundef 0) #7
-  %216 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %214 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %215 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %213, i32 noundef 4, i32 noundef 0) #6
+  %216 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %217 = sub i32 %216, %214
   %218 = and i32 %217, 3
   %.not.i123 = icmp eq i32 %218, 0
@@ -2439,78 +2450,78 @@ OUT_RXString.exit122:                             ; preds = %187, %202
 
 219:                                              ; preds = %204
   %220 = sub nuw nsw i32 4, %218
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %220) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %220) #6
   br label %OUT_RXString.exit
 
 221:                                              ; preds = %3
   %222 = load i32, ptr @ett_afs_fid, align 4
-  %223 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %222, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %223 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %222, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %224 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %225 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %224, i32 noundef 4, i32 noundef 0) #7
+  %225 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %224, i32 noundef 4, i32 noundef 0) #6
   %226 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %227 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %226, i32 noundef 4, i32 noundef 0) #7
+  %227 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %226, i32 noundef 4, i32 noundef 0) #6
   %228 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %229 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %228, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %229 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %228, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %230 = load i32, ptr @hf_afs_fs_vicelocktype, align 4
-  %231 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %230, i32 noundef 4, i32 noundef 0) #7
+  %231 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %230, i32 noundef 4, i32 noundef 0) #6
   tail call fastcc void @OUT_FS_AFSVolSync(ptr noundef %0)
   br label %OUT_RXString.exit
 
 232:                                              ; preds = %3
   %233 = load i32, ptr @ett_afs_fid, align 4
-  %234 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %233, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %234 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %233, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %235 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %236 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %235, i32 noundef 4, i32 noundef 0) #7
+  %236 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %235, i32 noundef 4, i32 noundef 0) #6
   %237 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %238 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %237, i32 noundef 4, i32 noundef 0) #7
+  %238 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %237, i32 noundef 4, i32 noundef 0) #6
   %239 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %240 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %239, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %240 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %239, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   tail call fastcc void @OUT_FS_AFSVolSync(ptr noundef %0)
   br label %OUT_RXString.exit
 
 241:                                              ; preds = %3
   %242 = load i32, ptr @ett_afs_fid, align 4
-  %243 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %242, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %243 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %242, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %244 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %245 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %244, i32 noundef 4, i32 noundef 0) #7
+  %245 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %244, i32 noundef 4, i32 noundef 0) #6
   %246 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %247 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %246, i32 noundef 4, i32 noundef 0) #7
+  %247 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %246, i32 noundef 4, i32 noundef 0) #6
   %248 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %249 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %248, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %249 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %248, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   tail call fastcc void @OUT_FS_AFSVolSync(ptr noundef %0)
   br label %OUT_RXString.exit
 
 250:                                              ; preds = %3
-  %251 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %252 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %253 = tail call i32 @tvb_get_ntohl(ptr noundef %251, i32 noundef %252) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %251 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %252 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %253 = tail call i32 @tvb_get_ntohl(ptr noundef %251, i32 noundef %252) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %.not158 = icmp eq i32 %253, 0
   br i1 %.not158, label %._crit_edge, label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %250, %.lr.ph153
   %.0106152 = phi i32 [ %262, %.lr.ph153 ], [ 0, %250 ]
   %254 = load i32, ptr @ett_afs_fid, align 4
-  %255 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %254, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %255 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %254, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %256 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %257 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %256, i32 noundef 4, i32 noundef 0) #7
+  %257 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %256, i32 noundef 4, i32 noundef 0) #6
   %258 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %259 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %258, i32 noundef 4, i32 noundef 0) #7
+  %259 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %258, i32 noundef 4, i32 noundef 0) #6
   %260 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %261 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %260, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %261 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %260, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %262 = add nuw i32 %.0106152, 1
   %exitcond163.not = icmp eq i32 %262, %253
   br i1 %exitcond163.not, label %._crit_edge, label %.lr.ph153, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph153, %250
-  %263 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %264 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %265 = tail call i32 @tvb_get_ntohl(ptr noundef %263, i32 noundef %264) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %263 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %264 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %265 = tail call i32 @tvb_get_ntohl(ptr noundef %263, i32 noundef %264) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %.not159 = icmp eq i32 %265, 0
   br i1 %.not159, label %OUT_RXString.exit, label %.lr.ph156
 
@@ -2523,9 +2534,9 @@ OUT_RXString.exit122:                             ; preds = %187, %202
 
 267:                                              ; preds = %3
   %268 = load i32, ptr @hf_afs_fs_volname, align 4
-  %269 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %270 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %268, i32 noundef 4, i32 noundef 0) #7
-  %271 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %269 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %270 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %268, i32 noundef 4, i32 noundef 0) #6
+  %271 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %272 = sub i32 %271, %269
   %273 = and i32 %272, 3
   %.not.i125 = icmp eq i32 %273, 0
@@ -2533,21 +2544,21 @@ OUT_RXString.exit122:                             ; preds = %187, %202
 
 274:                                              ; preds = %267
   %275 = sub nuw nsw i32 4, %273
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %275) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %275) #6
   br label %OUT_RXString.exit
 
 276:                                              ; preds = %3
   %277 = load i32, ptr @hf_afs_fs_volid, align 4
-  %278 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %277, i32 noundef 4, i32 noundef 0) #7
+  %278 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %277, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 279:                                              ; preds = %3
   %280 = load i32, ptr @hf_afs_fs_volid, align 4
-  %281 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %280, i32 noundef 4, i32 noundef 0) #7
+  %281 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %280, i32 noundef 4, i32 noundef 0) #6
   %282 = load i32, ptr @hf_afs_fs_volname, align 4
-  %283 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %284 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %282, i32 noundef 4, i32 noundef 0) #7
-  %285 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %283 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %284 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %282, i32 noundef 4, i32 noundef 0) #6
+  %285 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %286 = sub i32 %285, %283
   %287 = and i32 %286, 3
   %.not.i127 = icmp eq i32 %287, 0
@@ -2555,14 +2566,14 @@ OUT_RXString.exit122:                             ; preds = %187, %202
 
 288:                                              ; preds = %279
   %289 = sub nuw nsw i32 4, %287
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %289) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %289) #6
   br label %OUT_RXString.exit128
 
 OUT_RXString.exit128:                             ; preds = %279, %288
   %290 = load i32, ptr @hf_afs_fs_offlinemsg, align 4
-  %291 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %292 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %290, i32 noundef 4, i32 noundef 0) #7
-  %293 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %291 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %292 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %290, i32 noundef 4, i32 noundef 0) #6
+  %293 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %294 = sub i32 %293, %291
   %295 = and i32 %294, 3
   %.not.i129 = icmp eq i32 %295, 0
@@ -2570,14 +2581,14 @@ OUT_RXString.exit128:                             ; preds = %279, %288
 
 296:                                              ; preds = %OUT_RXString.exit128
   %297 = sub nuw nsw i32 4, %295
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %297) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %297) #6
   br label %OUT_RXString.exit130
 
 OUT_RXString.exit130:                             ; preds = %OUT_RXString.exit128, %296
   %298 = load i32, ptr @hf_afs_fs_motd, align 4
-  %299 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %300 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %298, i32 noundef 4, i32 noundef 0) #7
-  %301 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %299 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %300 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %298, i32 noundef 4, i32 noundef 0) #6
+  %301 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %302 = sub i32 %301, %299
   %303 = and i32 %302, 3
   %.not.i131 = icmp eq i32 %303, 0
@@ -2585,21 +2596,21 @@ OUT_RXString.exit130:                             ; preds = %OUT_RXString.exit12
 
 304:                                              ; preds = %OUT_RXString.exit130
   %305 = sub nuw nsw i32 4, %303
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %305) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %305) #6
   br label %OUT_RXString.exit
 
 306:                                              ; preds = %3
   %307 = load i32, ptr @hf_afs_fs_viceid, align 4
-  %308 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %307, i32 noundef 4, i32 noundef 0) #7
+  %308 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %307, i32 noundef 4, i32 noundef 0) #6
   %309 = load i32, ptr @hf_afs_fs_token, align 4
   tail call fastcc void @OUT_RXStringV(ptr noundef %0, i32 noundef %309, i32 noundef 1024)
   br label %OUT_RXString.exit
 
 310:                                              ; preds = %3
   %311 = load i32, ptr @hf_afs_fs_volname, align 4
-  %312 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %313 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %311, i32 noundef 4, i32 noundef 0) #7
-  %314 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %312 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %313 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %311, i32 noundef 4, i32 noundef 0) #6
+  %314 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %315 = sub i32 %314, %312
   %316 = and i32 %315, 3
   %.not.i133 = icmp eq i32 %316, 0
@@ -2607,91 +2618,91 @@ OUT_RXString.exit130:                             ; preds = %OUT_RXString.exit12
 
 317:                                              ; preds = %310
   %318 = sub nuw nsw i32 4, %316
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %318) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %318) #6
   br label %OUT_RXString.exit
 
 319:                                              ; preds = %3
-  %320 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %321 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %322 = tail call i32 @tvb_get_ntohl(ptr noundef %320, i32 noundef %321) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %320 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %321 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %322 = tail call i32 @tvb_get_ntohl(ptr noundef %320, i32 noundef %321) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %.not = icmp eq i32 %322, 0
   br i1 %.not, label %OUT_RXString.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %319, %.lr.ph
   %.0107149 = phi i32 [ %331, %.lr.ph ], [ 0, %319 ]
   %323 = load i32, ptr @ett_afs_fid, align 4
-  %324 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %323, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %324 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %323, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %325 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %326 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %325, i32 noundef 4, i32 noundef 0) #7
+  %326 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %325, i32 noundef 4, i32 noundef 0) #6
   %327 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %328 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %327, i32 noundef 4, i32 noundef 0) #7
+  %328 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %327, i32 noundef 4, i32 noundef 0) #6
   %329 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %330 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %329, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %330 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %329, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %331 = add nuw i32 %.0107149, 1
   %exitcond.not = icmp eq i32 %331, %322
   br i1 %exitcond.not, label %OUT_RXString.exit, label %.lr.ph, !llvm.loop !11
 
 332:                                              ; preds = %3
   %333 = load i32, ptr @ett_afs_fid, align 4
-  %334 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %333, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %334 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %333, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %335 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %336 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %335, i32 noundef 4, i32 noundef 0) #7
+  %336 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %335, i32 noundef 4, i32 noundef 0) #6
   %337 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %338 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %337, i32 noundef 4, i32 noundef 0) #7
+  %338 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %337, i32 noundef 4, i32 noundef 0) #6
   %339 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %340 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %339, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %340 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %339, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %341 = load i32, ptr @hf_afs_fs_vicelocktype, align 4
-  %342 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %341, i32 noundef 4, i32 noundef 0) #7
+  %342 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %341, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 343:                                              ; preds = %3
   %344 = load i32, ptr @ett_afs_fid, align 4
-  %345 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %344, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %345 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %344, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %346 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %347 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %346, i32 noundef 4, i32 noundef 0) #7
+  %347 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %346, i32 noundef 4, i32 noundef 0) #6
   %348 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %349 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %348, i32 noundef 4, i32 noundef 0) #7
+  %349 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %348, i32 noundef 4, i32 noundef 0) #6
   %350 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %351 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %350, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %351 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %350, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   br label %OUT_RXString.exit
 
 352:                                              ; preds = %3
   %353 = load i32, ptr @ett_afs_fid, align 4
-  %354 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %353, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %354 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %353, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %355 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %356 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %355, i32 noundef 4, i32 noundef 0) #7
+  %356 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %355, i32 noundef 4, i32 noundef 0) #6
   %357 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %358 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %357, i32 noundef 4, i32 noundef 0) #7
+  %358 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %357, i32 noundef 4, i32 noundef 0) #6
   %359 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %360 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %359, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %360 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %359, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   br label %OUT_RXString.exit
 
 361:                                              ; preds = %3
   %362 = load i32, ptr @hf_afs_fs_xstats_clientversion, align 4
-  %363 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %362, i32 noundef 4, i32 noundef 0) #7
+  %363 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %362, i32 noundef 4, i32 noundef 0) #6
   %364 = load i32, ptr @hf_afs_fs_xstats_collnumber, align 4
-  %365 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %364, i32 noundef 4, i32 noundef 0) #7
+  %365 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %364, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 366:                                              ; preds = %3
   %367 = load i32, ptr @ett_afs_fid, align 4
-  %368 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %367, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %368 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %367, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %369 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %370 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %369, i32 noundef 4, i32 noundef 0) #7
+  %370 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %369, i32 noundef 4, i32 noundef 0) #6
   %371 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %372 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %371, i32 noundef 4, i32 noundef 0) #7
+  %372 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %371, i32 noundef 4, i32 noundef 0) #6
   %373 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %374 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %373, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %374 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %373, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %375 = load i32, ptr @hf_afs_fs_name, align 4
-  %376 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %377 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %375, i32 noundef 4, i32 noundef 0) #7
-  %378 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %376 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %377 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %375, i32 noundef 4, i32 noundef 0) #6
+  %378 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %379 = sub i32 %378, %376
   %380 = and i32 %379, 3
   %.not.i135 = icmp eq i32 %380, 0
@@ -2699,62 +2710,62 @@ OUT_RXString.exit130:                             ; preds = %OUT_RXString.exit12
 
 381:                                              ; preds = %366
   %382 = sub nuw nsw i32 4, %380
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %382) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %382) #6
   br label %OUT_RXString.exit
 
 383:                                              ; preds = %3
   %384 = load i32, ptr @hf_afs_fs_viceid, align 4
-  %385 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %386 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %387 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %385, i32 noundef %386) #7
+  %385 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %386 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %387 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %385, i32 noundef %386) #6
   %388 = zext i8 %387 to i32
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 1) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 1) #6
   %.not.i137 = icmp eq i8 %387, 0
   br i1 %.not.i137, label %OUT_RXArray8.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %383, %.lr.ph.i
   %.09.i = phi i32 [ %390, %.lr.ph.i ], [ 0, %383 ]
-  %389 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %384, i32 noundef 4, i32 noundef 0) #7
+  %389 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %384, i32 noundef 4, i32 noundef 0) #6
   %390 = add nuw nsw i32 %.09.i, 1
   %exitcond.not.i = icmp eq i32 %390, %388
   br i1 %exitcond.not.i, label %OUT_RXArray8.exit, label %.lr.ph.i, !llvm.loop !12
 
 OUT_RXArray8.exit:                                ; preds = %.lr.ph.i, %383
   %391 = load i32, ptr @hf_afs_fs_ipaddr, align 4
-  %392 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %393 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %394 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %392, i32 noundef %393) #7
+  %392 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %393 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %394 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %392, i32 noundef %393) #6
   %395 = zext i8 %394 to i32
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 1) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 1) #6
   %.not.i138 = icmp eq i8 %394, 0
   br i1 %.not.i138, label %OUT_RXArray8.exit142, label %.lr.ph.i139
 
 .lr.ph.i139:                                      ; preds = %OUT_RXArray8.exit, %.lr.ph.i139
   %.09.i140 = phi i32 [ %397, %.lr.ph.i139 ], [ 0, %OUT_RXArray8.exit ]
-  %396 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %391, i32 noundef 4, i32 noundef 0) #7
+  %396 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %391, i32 noundef 4, i32 noundef 0) #6
   %397 = add nuw nsw i32 %.09.i140, 1
   %exitcond.not.i141 = icmp eq i32 %397, %395
   br i1 %exitcond.not.i141, label %OUT_RXArray8.exit142, label %.lr.ph.i139, !llvm.loop !12
 
 OUT_RXArray8.exit142:                             ; preds = %.lr.ph.i139, %OUT_RXArray8.exit
   %398 = load i32, ptr @hf_afs_fs_cps_spare1, align 4
-  %399 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %398, i32 noundef 4, i32 noundef 0) #7
+  %399 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %398, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 400:                                              ; preds = %3
   %401 = load i32, ptr @ett_afs_fid, align 4
-  %402 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %401, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %402 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %401, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %403 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %404 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %403, i32 noundef 4, i32 noundef 0) #7
+  %404 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %403, i32 noundef 4, i32 noundef 0) #6
   %405 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %406 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %405, i32 noundef 4, i32 noundef 0) #7
+  %406 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %405, i32 noundef 4, i32 noundef 0) #6
   %407 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %408 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %407, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %408 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %407, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %409 = load i32, ptr @hf_afs_fs_symlink_name, align 4
-  %410 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %411 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %409, i32 noundef 4, i32 noundef 0) #7
-  %412 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %410 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %411 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %409, i32 noundef 4, i32 noundef 0) #6
+  %412 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %413 = sub i32 %412, %410
   %414 = and i32 %413, 3
   %.not.i143 = icmp eq i32 %414, 0
@@ -2762,14 +2773,14 @@ OUT_RXArray8.exit142:                             ; preds = %.lr.ph.i139, %OUT_R
 
 415:                                              ; preds = %400
   %416 = sub nuw nsw i32 4, %414
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %416) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %416) #6
   br label %OUT_RXString.exit144
 
 OUT_RXString.exit144:                             ; preds = %400, %415
   %417 = load i32, ptr @hf_afs_fs_symlink_content, align 4
-  %418 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %419 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %417, i32 noundef 4, i32 noundef 0) #7
-  %420 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %418 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %419 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %417, i32 noundef 4, i32 noundef 0) #6
+  %420 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %421 = sub i32 %420, %418
   %422 = and i32 %421, 3
   %.not.i145 = icmp eq i32 %422, 0
@@ -2777,7 +2788,7 @@ OUT_RXString.exit144:                             ; preds = %400, %415
 
 423:                                              ; preds = %OUT_RXString.exit144
   %424 = sub nuw nsw i32 4, %422
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %424) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %424) #6
   br label %OUT_RXString.exit146
 
 OUT_RXString.exit146:                             ; preds = %OUT_RXString.exit144, %423
@@ -2786,72 +2797,72 @@ OUT_RXString.exit146:                             ; preds = %OUT_RXString.exit14
 
 425:                                              ; preds = %3
   %426 = load i32, ptr @ett_afs_fid, align 4
-  %427 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %426, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %427 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %426, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %428 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %429 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %428, i32 noundef 4, i32 noundef 0) #7
+  %429 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %428, i32 noundef 4, i32 noundef 0) #6
   %430 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %431 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %430, i32 noundef 4, i32 noundef 0) #7
+  %431 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %430, i32 noundef 4, i32 noundef 0) #6
   %432 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %433 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %432, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %433 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %432, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   br label %OUT_RXString.exit
 
 434:                                              ; preds = %3
-  %435 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %436 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %437 = tail call i32 @tvb_get_ntohl(ptr noundef %435, i32 noundef %436) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %435 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %436 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %437 = tail call i32 @tvb_get_ntohl(ptr noundef %435, i32 noundef %436) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %.not157 = icmp eq i32 %437, 0
   br i1 %.not157, label %OUT_RXString.exit, label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %434, %.lr.ph151
   %.0150 = phi i32 [ %446, %.lr.ph151 ], [ 0, %434 ]
   %438 = load i32, ptr @ett_afs_fid, align 4
-  %439 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %438, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %439 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %438, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %440 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %441 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %440, i32 noundef 4, i32 noundef 0) #7
+  %441 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %440, i32 noundef 4, i32 noundef 0) #6
   %442 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %443 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %442, i32 noundef 4, i32 noundef 0) #7
+  %443 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %442, i32 noundef 4, i32 noundef 0) #6
   %444 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %445 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %444, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %445 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %444, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %446 = add nuw i32 %.0150, 1
   %exitcond162.not = icmp eq i32 %446, %437
   br i1 %exitcond162.not, label %OUT_RXString.exit, label %.lr.ph151, !llvm.loop !13
 
 447:                                              ; preds = %3
   %448 = load i32, ptr @ett_afs_fid, align 4
-  %449 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %448, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %449 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %448, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %450 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %451 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %450, i32 noundef 4, i32 noundef 0) #7
+  %451 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %450, i32 noundef 4, i32 noundef 0) #6
   %452 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %453 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %452, i32 noundef 4, i32 noundef 0) #7
+  %453 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %452, i32 noundef 4, i32 noundef 0) #6
   %454 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %455 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %454, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %455 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %454, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %456 = load i32, ptr @hf_afs_fs_offset64, align 4
-  %457 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %456, i32 noundef 8, i32 noundef 0) #7
+  %457 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %456, i32 noundef 8, i32 noundef 0) #6
   %458 = load i32, ptr @hf_afs_fs_length64, align 4
-  %459 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %458, i32 noundef 8, i32 noundef 0) #7
+  %459 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %458, i32 noundef 8, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 460:                                              ; preds = %3
   %461 = load i32, ptr @ett_afs_fid, align 4
-  %462 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %461, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %462 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %461, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %463 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %464 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %463, i32 noundef 4, i32 noundef 0) #7
+  %464 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %463, i32 noundef 4, i32 noundef 0) #6
   %465 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %466 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %465, i32 noundef 4, i32 noundef 0) #7
+  %466 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %465, i32 noundef 4, i32 noundef 0) #6
   %467 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %468 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %467, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %468 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %467, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   tail call fastcc void @OUT_FS_AFSStoreStatus(ptr noundef %0, ptr noundef nonnull @.str.245)
   %469 = load i32, ptr @hf_afs_fs_offset64, align 4
-  %470 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %469, i32 noundef 8, i32 noundef 0) #7
+  %470 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %469, i32 noundef 8, i32 noundef 0) #6
   %471 = load i32, ptr @hf_afs_fs_length64, align 4
-  %472 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %471, i32 noundef 8, i32 noundef 0) #7
+  %472 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %471, i32 noundef 8, i32 noundef 0) #6
   %473 = load i32, ptr @hf_afs_fs_flength64, align 4
-  %474 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %473, i32 noundef 8, i32 noundef 0) #7
+  %474 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %473, i32 noundef 8, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 OUT_RXString.exit:                                ; preds = %.lr.ph, %.lr.ph151, %.lr.ph156, %319, %434, %._crit_edge, %381, %366, %317, %310, %304, %OUT_RXString.exit130, %274, %267, %219, %204, %135, %OUT_RXString.exit112, %85, %70, %460, %447, %425, %OUT_RXString.exit146, %OUT_RXArray8.exit142, %361, %352, %343, %332, %306, %276, %241, %232, %221, %OUT_RXString.exit122, %OUT_RXString.exit120, %OUT_RXString.exit118, %OUT_RXString.exit110, %61, %52, %35, %26, %17, %4, %3
@@ -2871,27 +2882,27 @@ define internal void @dissect_cb_reply(ptr noundef %0, ptr nocapture noundef rea
   br i1 %cond, label %6, label %39
 
 6:                                                ; preds = %5
-  %7 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %7, i32 noundef %8) #7
+  %7 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @ett_afs_cm_interfaces, align 4
-  %11 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %10, ptr noundef nonnull @.str.942) #7
+  %11 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %10, ptr noundef nonnull @.str.942) #6
   %12 = load i32, ptr @hf_afs_cm_numint, align 4
-  %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #7
+  %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #6
   %14 = load i32, ptr @hf_afs_cm_uuid, align 4
-  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 44, i32 noundef 0) #7
+  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 44, i32 noundef 0) #6
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %._crit_edge31.thread.i, label %.lr.ph.i
 
 ._crit_edge31.thread.i:                           ; preds = %6
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 128) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 128) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 128) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 128) #6
   br label %OUT_CM_INTERFACES.exit
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
   %.027.i = phi i32 [ %18, %.lr.ph.i ], [ 0, %6 ]
   %16 = load i32, ptr @hf_afs_cm_ipaddr, align 4
-  %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #7
+  %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #6
   %18 = add nuw i32 %.027.i, 1
   %exitcond.not.i = icmp eq i32 %18, %9
   br i1 %exitcond.not.i, label %.lr.ph30.preheader.i, label %.lr.ph.i, !llvm.loop !14
@@ -2899,47 +2910,47 @@ define internal void @dissect_cb_reply(ptr noundef %0, ptr nocapture noundef rea
 .lr.ph30.preheader.i:                             ; preds = %.lr.ph.i
   %19 = shl i32 %9, 2
   %20 = sub i32 128, %19
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %20) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %20) #6
   br label %.lr.ph30.i
 
 .lr.ph30.i:                                       ; preds = %.lr.ph30.i, %.lr.ph30.preheader.i
   %.128.i = phi i32 [ %23, %.lr.ph30.i ], [ 0, %.lr.ph30.preheader.i ]
   %21 = load i32, ptr @hf_afs_cm_netmask, align 4
-  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #7
+  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #6
   %23 = add nuw i32 %.128.i, 1
   %exitcond38.not.i = icmp eq i32 %23, %9
   br i1 %exitcond38.not.i, label %.lr.ph34.preheader.i, label %.lr.ph30.i, !llvm.loop !15
 
 .lr.ph34.preheader.i:                             ; preds = %.lr.ph30.i
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %20) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %20) #6
   br label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %.lr.ph34.i, %.lr.ph34.preheader.i
   %.232.i = phi i32 [ %26, %.lr.ph34.i ], [ 0, %.lr.ph34.preheader.i ]
   %24 = load i32, ptr @hf_afs_cm_mtu, align 4
-  %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #7
+  %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #6
   %26 = add nuw i32 %.232.i, 1
   %exitcond39.not.i = icmp eq i32 %26, %9
   br i1 %exitcond39.not.i, label %OUT_CM_INTERFACES.exit, label %.lr.ph34.i, !llvm.loop !16
 
 OUT_CM_INTERFACES.exit:                           ; preds = %.lr.ph34.i, %._crit_edge31.thread.i
   %27 = phi i32 [ 128, %._crit_edge31.thread.i ], [ %20, %.lr.ph34.i ]
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %27) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %27) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %28 = load i32, ptr @ett_afs_cm_capabilities, align 4
-  %29 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %28, ptr noundef nonnull @.str.367) #7
+  %29 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %28, ptr noundef nonnull @.str.367) #6
   %30 = load i32, ptr @hf_afs_cm_numcap, align 4
-  %31 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0) #7
+  %31 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0) #6
   %32 = load i32, ptr @hf_afs_cm_capabilities, align 4
-  %33 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %32, i32 noundef 4, i32 noundef 0) #7
+  %33 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %32, i32 noundef 4, i32 noundef 0) #6
   %34 = load i32, ptr @hf_afs_cm_cap_errortrans, align 4
-  %35 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %35 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   br label %39
 
 36:                                               ; preds = %3
   %37 = load i32, ptr @hf_afs_cb_errcode, align 4
-  %38 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %37, i32 noundef 4, i32 noundef 0) #7
+  %38 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %37, i32 noundef 4, i32 noundef 0) #6
   br label %39
 
 39:                                               ; preds = %3, %36, %OUT_CM_INTERFACES.exit, %5
@@ -2948,56 +2959,56 @@ OUT_CM_INTERFACES.exit:                           ; preds = %.lr.ph34.i, %._crit
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_cb_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %cond = icmp eq i32 %2, 204
   br i1 %cond, label %4, label %.loopexit
 
 4:                                                ; preds = %3
-  %5 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %5, i32 noundef %6) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %5 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %5, i32 noundef %6) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.01516 = phi i32 [ %16, %.lr.ph ], [ 0, %4 ]
   %8 = load i32, ptr @ett_afs_fid, align 4
-  %9 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %8, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #7
+  %9 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %8, ptr noundef nonnull @.str.932, ptr noundef nonnull @.str.934) #6
   %10 = load i32, ptr @hf_afs_cb_fid_volume, align 4
-  %11 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef 0) #7
+  %11 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef 0) #6
   %12 = load i32, ptr @hf_afs_cb_fid_vnode, align 4
-  %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #7
+  %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #6
   %14 = load i32, ptr @hf_afs_cb_fid_uniqifier, align 4
-  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %16 = add nuw i32 %.01516, 1
   %exitcond.not = icmp eq i32 %16, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %17 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %18 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %19 = tail call i32 @tvb_get_ntohl(ptr noundef %17, i32 noundef %18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %17 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %18 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %19 = tail call i32 @tvb_get_ntohl(ptr noundef %17, i32 noundef %18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %.not20 = icmp eq i32 %19, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph19
 
 .lr.ph19:                                         ; preds = %._crit_edge, %.lr.ph19
   %.017 = phi i32 [ %31, %.lr.ph19 ], [ 0, %._crit_edge ]
   %20 = load i32, ptr @ett_afs_callback, align 4
-  %21 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %20, ptr noundef nonnull @.str.2) #7
+  %21 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %20, ptr noundef nonnull @.str.2) #6
   %22 = load i32, ptr @hf_afs_cb_callback_version, align 4
-  %23 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0) #7
+  %23 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0) #6
   %24 = load i32, ptr @hf_afs_cb_callback_expires, align 4
-  %25 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %26 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %27 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %24, ptr noundef %26, i32 noundef %27, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %25 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %26 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %27 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %24, ptr noundef %26, i32 noundef %27, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %29 = load i32, ptr @hf_afs_cb_callback_type, align 4
-  %30 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %30 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   %31 = add nuw i32 %.017, 1
   %exitcond21.not = icmp eq i32 %31, %19
   br i1 %exitcond21.not, label %.loopexit, label %.lr.ph19, !llvm.loop !18
@@ -3027,28 +3038,28 @@ define internal void @dissect_prot_reply(ptr noundef %0, ptr nocapture noundef r
   ]
 
 6:                                                ; preds = %5
-  %7 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %7, i32 noundef %8) #7
+  %7 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_afs_prot_count, align 4
-  %11 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef 0) #7
+  %11 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef 0) #6
   %.not37 = icmp eq i32 %9, 0
   br i1 %.not37, label %.loopexit, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %6, %.lr.ph35
   %.034 = phi i32 [ %14, %.lr.ph35 ], [ 0, %6 ]
   %12 = load i32, ptr @hf_afs_prot_id, align 4
-  %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #7
+  %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #6
   %14 = add nuw i32 %.034, 1
   %exitcond41.not = icmp eq i32 %14, %9
   br i1 %exitcond41.not, label %.loopexit, label %.lr.ph35, !llvm.loop !19
 
 15:                                               ; preds = %5
-  %16 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %17 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %18 = tail call i32 @tvb_get_ntohl(ptr noundef %16, i32 noundef %17) #7
+  %16 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %17 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %18 = tail call i32 @tvb_get_ntohl(ptr noundef %16, i32 noundef %17) #6
   %19 = load i32, ptr @hf_afs_prot_count, align 4
-  %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef 0) #7
+  %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef 0) #6
   %.not36 = icmp eq i32 %18, 0
   br i1 %.not36, label %.loopexit, label %.lr.ph33
 
@@ -3061,31 +3072,31 @@ define internal void @dissect_prot_reply(ptr noundef %0, ptr nocapture noundef r
   br i1 %exitcond40.not, label %.loopexit, label %.lr.ph33, !llvm.loop !20
 
 23:                                               ; preds = %5, %5, %5, %5, %5
-  %24 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %25 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %26 = tail call i32 @tvb_get_ntohl(ptr noundef %24, i32 noundef %25) #7
+  %24 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %25 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %26 = tail call i32 @tvb_get_ntohl(ptr noundef %24, i32 noundef %25) #6
   %27 = load i32, ptr @hf_afs_prot_count, align 4
-  %28 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef 0) #7
+  %28 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef 0) #6
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %.02631 = phi i32 [ %31, %.lr.ph ], [ 0, %23 ]
   %29 = load i32, ptr @hf_afs_prot_id, align 4
-  %30 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0) #7
+  %30 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0) #6
   %31 = add nuw i32 %.02631, 1
   %exitcond.not = icmp eq i32 %31, %26
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 32:                                               ; preds = %5
   %33 = load i32, ptr @hf_afs_prot_maxuid, align 4
-  %34 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef 0) #7
+  %34 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef 0) #6
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %3, %32
   %hf_afs_prot_errcode.sink = phi ptr [ @hf_afs_prot_maxgid, %32 ], [ @hf_afs_prot_errcode, %3 ]
   %35 = load i32, ptr %hf_afs_prot_errcode.sink, align 4
-  %36 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef 0) #7
+  %36 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef 0) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph33, %.lr.ph35, %.loopexit.sink.split, %23, %15, %6, %3, %5
@@ -3094,7 +3105,7 @@ define internal void @dissect_prot_reply(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_prot_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   switch i32 %2, label %OUT_RXString.exit39 [
     i32 500, label %4
     i32 501, label %17
@@ -3118,9 +3129,9 @@ define internal void @dissect_prot_request(ptr noundef %0, ptr nocapture readnon
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @hf_afs_prot_name_uint_string, align 4
-  %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %7 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #7
-  %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %7 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #6
+  %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = sub i32 %8, %6
   %10 = and i32 %9, 3
   %.not.i = icmp eq i32 %10, 0
@@ -3128,39 +3139,39 @@ define internal void @dissect_prot_request(ptr noundef %0, ptr nocapture readnon
 
 11:                                               ; preds = %4
   %12 = sub nuw nsw i32 4, %10
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %12) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %12) #6
   br label %OUT_RXString.exit
 
 OUT_RXString.exit:                                ; preds = %4, %11
   %13 = load i32, ptr @hf_afs_prot_id, align 4
-  %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #7
+  %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #6
   %15 = load i32, ptr @hf_afs_prot_oldid, align 4
-  %16 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0) #7
+  %16 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit39
 
 17:                                               ; preds = %3, %3, %3, %3, %3, %3, %3
   %18 = load i32, ptr @hf_afs_prot_id, align 4
-  %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef 0) #7
+  %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit39
 
 20:                                               ; preds = %3
   %21 = load i32, ptr @hf_afs_prot_pos, align 4
-  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #7
+  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit39
 
 23:                                               ; preds = %3, %3, %3
   %24 = load i32, ptr @hf_afs_prot_uid, align 4
-  %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #7
+  %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #6
   %26 = load i32, ptr @hf_afs_prot_gid, align 4
-  %27 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0) #7
+  %27 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit39
 
 28:                                               ; preds = %3
-  %29 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %30 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %31 = tail call i32 @tvb_get_ntohl(ptr noundef %29, i32 noundef %30) #7
+  %29 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %30 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %31 = tail call i32 @tvb_get_ntohl(ptr noundef %29, i32 noundef %30) #6
   %32 = load i32, ptr @hf_afs_prot_count, align 4
-  %33 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %32, i32 noundef 4, i32 noundef 0) #7
+  %33 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %32, i32 noundef 4, i32 noundef 0) #6
   %.not44 = icmp eq i32 %31, 0
   br i1 %.not44, label %OUT_RXString.exit39, label %.lr.ph43
 
@@ -3173,27 +3184,27 @@ OUT_RXString.exit:                                ; preds = %4, %11
   br i1 %exitcond46.not, label %OUT_RXString.exit39, label %.lr.ph43, !llvm.loop !22
 
 36:                                               ; preds = %3
-  %37 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %38 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %39 = tail call i32 @tvb_get_ntohl(ptr noundef %37, i32 noundef %38) #7
+  %37 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %38 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %39 = tail call i32 @tvb_get_ntohl(ptr noundef %37, i32 noundef %38) #6
   %40 = load i32, ptr @hf_afs_prot_count, align 4
-  %41 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef 0) #7
+  %41 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef 0) #6
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %OUT_RXString.exit39, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %.lr.ph
   %.03341 = phi i32 [ %44, %.lr.ph ], [ 0, %36 ]
   %42 = load i32, ptr @hf_afs_prot_id, align 4
-  %43 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #7
+  %43 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
   %44 = add nuw i32 %.03341, 1
   %exitcond.not = icmp eq i32 %44, %39
   br i1 %exitcond.not, label %OUT_RXString.exit39, label %.lr.ph, !llvm.loop !23
 
 45:                                               ; preds = %3
   %46 = load i32, ptr @hf_afs_prot_name_uint_string, align 4
-  %47 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %48 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0) #7
-  %49 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %47 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %48 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0) #6
+  %49 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %50 = sub i32 %49, %47
   %51 = and i32 %50, 3
   %.not.i34 = icmp eq i32 %51, 0
@@ -3201,30 +3212,30 @@ OUT_RXString.exit:                                ; preds = %4, %11
 
 52:                                               ; preds = %45
   %53 = sub nuw nsw i32 4, %51
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %53) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %53) #6
   br label %OUT_RXString.exit35
 
 OUT_RXString.exit35:                              ; preds = %45, %52
   %54 = load i32, ptr @hf_afs_prot_flag, align 4
-  %55 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0) #7
+  %55 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0) #6
   %56 = load i32, ptr @hf_afs_prot_oldid, align 4
-  %57 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef 0) #7
+  %57 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit39
 
 58:                                               ; preds = %3
   %59 = load i32, ptr @hf_afs_prot_id, align 4
-  %60 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %59, i32 noundef 4, i32 noundef 0) #7
+  %60 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %59, i32 noundef 4, i32 noundef 0) #6
   %61 = load i32, ptr @hf_afs_prot_flag, align 4
-  %62 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef 0) #7
+  %62 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit39
 
 63:                                               ; preds = %3
   %64 = load i32, ptr @hf_afs_prot_id, align 4
-  %65 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0) #7
+  %65 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0) #6
   %66 = load i32, ptr @hf_afs_prot_name_uint_string, align 4
-  %67 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %68 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %66, i32 noundef 4, i32 noundef 0) #7
-  %69 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %67 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %68 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %66, i32 noundef 4, i32 noundef 0) #6
+  %69 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %70 = sub i32 %69, %67
   %71 = and i32 %70, 3
   %.not.i36 = icmp eq i32 %71, 0
@@ -3232,23 +3243,23 @@ OUT_RXString.exit35:                              ; preds = %45, %52
 
 72:                                               ; preds = %63
   %73 = sub nuw nsw i32 4, %71
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %73) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %73) #6
   br label %OUT_RXString.exit37
 
 OUT_RXString.exit37:                              ; preds = %63, %72
   %74 = load i32, ptr @hf_afs_prot_oldid, align 4
-  %75 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0) #7
+  %75 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0) #6
   %76 = load i32, ptr @hf_afs_prot_newid, align 4
-  %77 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %76, i32 noundef 4, i32 noundef 0) #7
+  %77 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %76, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit39
 
 78:                                               ; preds = %3
   %79 = load i32, ptr @hf_afs_prot_id, align 4
-  %80 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef 0) #7
+  %80 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef 0) #6
   %81 = load i32, ptr @hf_afs_prot_name_uint_string, align 4
-  %82 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %83 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %81, i32 noundef 4, i32 noundef 0) #7
-  %84 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %82 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %83 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %81, i32 noundef 4, i32 noundef 0) #6
+  %84 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %85 = sub i32 %84, %82
   %86 = and i32 %85, 3
   %.not.i38 = icmp eq i32 %86, 0
@@ -3256,7 +3267,7 @@ OUT_RXString.exit37:                              ; preds = %63, %72
 
 87:                                               ; preds = %78
   %88 = sub nuw nsw i32 4, %86
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %88) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %88) #6
   br label %OUT_RXString.exit39
 
 OUT_RXString.exit39:                              ; preds = %.lr.ph, %.lr.ph43, %36, %28, %87, %78, %OUT_RXString.exit37, %58, %OUT_RXString.exit35, %23, %20, %17, %OUT_RXString.exit, %3
@@ -3287,20 +3298,20 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
 
 6:                                                ; preds = %5
   %7 = load i32, ptr @hf_afs_vldb_count, align 4
-  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #7
+  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #6
   %9 = load i32, ptr @hf_afs_vldb_nextindex, align 4
-  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #7
+  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #6
   br label %186
 
 11:                                               ; preds = %5, %5
   %12 = load i32, ptr @hf_afs_vldb_name, align 4
   tail call fastcc void @OUT_RXStringV(ptr noundef %0, i32 noundef %12, i32 noundef 65)
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
-  %13 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %15 = tail call i32 @tvb_get_ntohl(ptr noundef %13, i32 noundef %14) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
+  %13 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %15 = tail call i32 @tvb_get_ntohl(ptr noundef %13, i32 noundef %14) #6
   %16 = load i32, ptr @hf_afs_vldb_numservers, align 4
-  %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #7
+  %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #6
   br label %18
 
 18:                                               ; preds = %11, %24
@@ -3310,11 +3321,11 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
 
 20:                                               ; preds = %18
   %21 = load i32, ptr @hf_afs_vldb_server, align 4
-  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #7
+  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #6
   br label %24
 
 23:                                               ; preds = %18
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   br label %24
 
 24:                                               ; preds = %20, %23
@@ -3324,11 +3335,11 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
 
 .preheader:                                       ; preds = %24, %42
   %.1144 = phi i32 [ %43, %42 ], [ 0, %24 ]
-  %26 = tail call ptr @wmem_packet_scope() #7
-  %27 = tail call noalias ptr @wmem_strdup(ptr noundef %26, ptr noundef nonnull @.str.943) #7
-  %28 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %29 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %30 = tail call i32 @tvb_get_ntohl(ptr noundef %28, i32 noundef %29) #7
+  %26 = tail call ptr @wmem_packet_scope() #6
+  %27 = tail call noalias ptr @wmem_strdup(ptr noundef %26, ptr noundef nonnull @.str.943) #6
+  %28 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %29 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %30 = tail call i32 @tvb_get_ntohl(ptr noundef %28, i32 noundef %29) #6
   %31 = icmp slt i32 %.1144, %15
   %32 = icmp ult i32 %30, 26
   %or.cond = select i1 %31, i1 %32, i1 false
@@ -3339,58 +3350,58 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
   %35 = add nuw nsw i8 %34, 97
   %36 = getelementptr i8, ptr %27, i64 6
   store i8 %35, ptr %36, align 1
-  %37 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
+  %37 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
   %38 = load i32, ptr @hf_afs_vldb_partition, align 4
-  %39 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %40 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %41 = tail call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef 4, ptr noundef %27) #7
+  %39 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %40 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %41 = tail call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef 4, ptr noundef %27) #6
   br label %42
 
 42:                                               ; preds = %33, %.preheader
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %43 = add nuw nsw i32 %.1144, 1
   %exitcond151.not = icmp eq i32 %43, 8
   br i1 %exitcond151.not, label %44, label %.preheader, !llvm.loop !25
 
 44:                                               ; preds = %42
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 32) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 32) #6
   %45 = load i32, ptr @hf_afs_vldb_rwvol, align 4
-  %46 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef 0) #7
+  %46 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef 0) #6
   %47 = load i32, ptr @hf_afs_vldb_rovol, align 4
-  %48 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0) #7
+  %48 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0) #6
   %49 = load i32, ptr @hf_afs_vldb_bkvol, align 4
-  %50 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef 0) #7
+  %50 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef 0) #6
   %51 = load i32, ptr @hf_afs_vldb_clonevol, align 4
-  %52 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef 0) #7
-  %53 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %54 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %55 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %52 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef 0) #6
+  %53 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %54 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %55 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %56 = load i32, ptr @hf_afs_vldb_flags, align 4
   %57 = load i32, ptr @ett_afs_vldb_flags, align 4
-  %58 = tail call ptr @proto_tree_add_bitmask(ptr noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef %56, i32 noundef %57, ptr noundef nonnull @dissect_vldb_reply.vldb_flags, i32 noundef 0) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %58 = tail call ptr @proto_tree_add_bitmask(ptr noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef %56, i32 noundef %57, ptr noundef nonnull @dissect_vldb_reply.vldb_flags, i32 noundef 0) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   br label %186
 
 59:                                               ; preds = %5
   %60 = load i32, ptr @hf_afs_vldb_id, align 4
-  %61 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef 0) #7
+  %61 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef 0) #6
   br label %186
 
 62:                                               ; preds = %5, %5
   %63 = load i32, ptr @hf_afs_vldb_count, align 4
-  %64 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef 0) #7
+  %64 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef 0) #6
   %65 = load i32, ptr @hf_afs_vldb_nextindex, align 4
-  %66 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef 0) #7
+  %66 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef 0) #6
   br label %186
 
 67:                                               ; preds = %5, %5
   %68 = load i32, ptr @hf_afs_vldb_name, align 4
   tail call fastcc void @OUT_RXStringV(ptr noundef %0, i32 noundef %68, i32 noundef 65)
-  %69 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %70 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %71 = tail call i32 @tvb_get_ntohl(ptr noundef %69, i32 noundef %70) #7
+  %69 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %70 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %71 = tail call i32 @tvb_get_ntohl(ptr noundef %69, i32 noundef %70) #6
   %72 = load i32, ptr @hf_afs_vldb_numservers, align 4
-  %73 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef 0) #7
+  %73 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef 0) #6
   br label %74
 
 74:                                               ; preds = %67, %80
@@ -3400,11 +3411,11 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
 
 76:                                               ; preds = %74
   %77 = load i32, ptr @hf_afs_vldb_server, align 4
-  %78 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef 0) #7
+  %78 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef 0) #6
   br label %80
 
 79:                                               ; preds = %74
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   br label %80
 
 80:                                               ; preds = %76, %79
@@ -3414,11 +3425,11 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
 
 .preheader133:                                    ; preds = %80, %98
   %.1126142 = phi i32 [ %99, %98 ], [ 0, %80 ]
-  %82 = tail call ptr @wmem_packet_scope() #7
-  %83 = tail call noalias ptr @wmem_strdup(ptr noundef %82, ptr noundef nonnull @.str.943) #7
-  %84 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %85 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %86 = tail call i32 @tvb_get_ntohl(ptr noundef %84, i32 noundef %85) #7
+  %82 = tail call ptr @wmem_packet_scope() #6
+  %83 = tail call noalias ptr @wmem_strdup(ptr noundef %82, ptr noundef nonnull @.str.943) #6
+  %84 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %85 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %86 = tail call i32 @tvb_get_ntohl(ptr noundef %84, i32 noundef %85) #6
   %87 = icmp slt i32 %.1126142, %71
   %88 = icmp ult i32 %86, 26
   %or.cond3 = select i1 %87, i1 %88, i1 false
@@ -3429,37 +3440,37 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
   %91 = add nuw nsw i8 %90, 97
   %92 = getelementptr i8, ptr %83, i64 6
   store i8 %91, ptr %92, align 1
-  %93 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
+  %93 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
   %94 = load i32, ptr @hf_afs_vldb_partition, align 4
-  %95 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %96 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %97 = tail call ptr @proto_tree_add_string(ptr noundef %93, i32 noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef 4, ptr noundef %83) #7
+  %95 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %96 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %97 = tail call ptr @proto_tree_add_string(ptr noundef %93, i32 noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef 4, ptr noundef %83) #6
   br label %98
 
 98:                                               ; preds = %89, %.preheader133
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %99 = add nuw nsw i32 %.1126142, 1
   %exitcond149.not = icmp eq i32 %99, 13
   br i1 %exitcond149.not, label %100, label %.preheader133, !llvm.loop !27
 
 100:                                              ; preds = %98
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 52) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 52) #6
   %101 = load i32, ptr @hf_afs_vldb_rwvol, align 4
-  %102 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %101, i32 noundef 4, i32 noundef 0) #7
+  %102 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %101, i32 noundef 4, i32 noundef 0) #6
   %103 = load i32, ptr @hf_afs_vldb_rovol, align 4
-  %104 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %103, i32 noundef 4, i32 noundef 0) #7
+  %104 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %103, i32 noundef 4, i32 noundef 0) #6
   %105 = load i32, ptr @hf_afs_vldb_bkvol, align 4
-  %106 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %105, i32 noundef 4, i32 noundef 0) #7
+  %106 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %105, i32 noundef 4, i32 noundef 0) #6
   br label %186
 
 107:                                              ; preds = %5, %5
   %108 = load i32, ptr @hf_afs_vldb_name, align 4
   tail call fastcc void @OUT_RXStringV(ptr noundef %0, i32 noundef %108, i32 noundef 65)
-  %109 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %110 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %111 = tail call i32 @tvb_get_ntohl(ptr noundef %109, i32 noundef %110) #7
+  %109 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %110 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %111 = tail call i32 @tvb_get_ntohl(ptr noundef %109, i32 noundef %110) #6
   %112 = load i32, ptr @hf_afs_vldb_numservers, align 4
-  %113 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %112, i32 noundef 4, i32 noundef 0) #7
+  %113 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %112, i32 noundef 4, i32 noundef 0) #6
   br label %114
 
 114:                                              ; preds = %107, %120
@@ -3469,11 +3480,11 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
 
 116:                                              ; preds = %114
   %117 = load i32, ptr @hf_afs_vldb_serveruuid, align 4
-  %118 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %117, i32 noundef 44, i32 noundef 0) #7
+  %118 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %117, i32 noundef 44, i32 noundef 0) #6
   br label %120
 
 119:                                              ; preds = %114
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 44) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 44) #6
   br label %120
 
 120:                                              ; preds = %116, %119
@@ -3488,11 +3499,11 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
 
 123:                                              ; preds = %.preheader136
   %124 = load i32, ptr @hf_afs_vldb_serveruniq, align 4
-  %125 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %124, i32 noundef 4, i32 noundef 0) #7
+  %125 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %124, i32 noundef 4, i32 noundef 0) #6
   br label %127
 
 126:                                              ; preds = %.preheader136
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   br label %127
 
 127:                                              ; preds = %123, %126
@@ -3502,11 +3513,11 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
 
 .preheader135:                                    ; preds = %127, %145
   %.2139 = phi i32 [ %146, %145 ], [ 0, %127 ]
-  %129 = tail call ptr @wmem_packet_scope() #7
-  %130 = tail call noalias ptr @wmem_strdup(ptr noundef %129, ptr noundef nonnull @.str.943) #7
-  %131 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %132 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %133 = tail call i32 @tvb_get_ntohl(ptr noundef %131, i32 noundef %132) #7
+  %129 = tail call ptr @wmem_packet_scope() #6
+  %130 = tail call noalias ptr @wmem_strdup(ptr noundef %129, ptr noundef nonnull @.str.943) #6
+  %131 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %132 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %133 = tail call i32 @tvb_get_ntohl(ptr noundef %131, i32 noundef %132) #6
   %134 = icmp slt i32 %.2139, %111
   %135 = icmp ult i32 %133, 26
   %or.cond5 = select i1 %134, i1 %135, i1 false
@@ -3517,15 +3528,15 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
   %138 = add nuw nsw i8 %137, 97
   %139 = getelementptr i8, ptr %130, i64 6
   store i8 %138, ptr %139, align 1
-  %140 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
+  %140 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
   %141 = load i32, ptr @hf_afs_vldb_partition, align 4
-  %142 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %143 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %144 = tail call ptr @proto_tree_add_string(ptr noundef %140, i32 noundef %141, ptr noundef %142, i32 noundef %143, i32 noundef 4, ptr noundef %130) #7
+  %142 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %143 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %144 = tail call ptr @proto_tree_add_string(ptr noundef %140, i32 noundef %141, ptr noundef %142, i32 noundef %143, i32 noundef 4, ptr noundef %130) #6
   br label %145
 
 145:                                              ; preds = %136, %.preheader135
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %146 = add nuw nsw i32 %.2139, 1
   %exitcond146.not = icmp eq i32 %146, 13
   br i1 %exitcond146.not, label %.preheader134, label %.preheader135, !llvm.loop !30
@@ -3537,11 +3548,11 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
 
 148:                                              ; preds = %.preheader134
   %149 = load i32, ptr @hf_afs_vldb_serverflags, align 4
-  %150 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %149, i32 noundef 4, i32 noundef 0) #7
+  %150 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %149, i32 noundef 4, i32 noundef 0) #6
   br label %152
 
 151:                                              ; preds = %.preheader134
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   br label %152
 
 152:                                              ; preds = %148, %151
@@ -3551,38 +3562,38 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
 
 154:                                              ; preds = %152
   %155 = load i32, ptr @hf_afs_vldb_rwvol, align 4
-  %156 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %155, i32 noundef 4, i32 noundef 0) #7
+  %156 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %155, i32 noundef 4, i32 noundef 0) #6
   %157 = load i32, ptr @hf_afs_vldb_rovol, align 4
-  %158 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %157, i32 noundef 4, i32 noundef 0) #7
+  %158 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %157, i32 noundef 4, i32 noundef 0) #6
   %159 = load i32, ptr @hf_afs_vldb_bkvol, align 4
-  %160 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %159, i32 noundef 4, i32 noundef 0) #7
+  %160 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %159, i32 noundef 4, i32 noundef 0) #6
   %161 = load i32, ptr @hf_afs_vldb_clonevol, align 4
-  %162 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %161, i32 noundef 4, i32 noundef 0) #7
+  %162 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %161, i32 noundef 4, i32 noundef 0) #6
   %163 = load i32, ptr @hf_afs_vldb_flags, align 4
-  %164 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %163, i32 noundef 4, i32 noundef 0) #7
+  %164 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %163, i32 noundef 4, i32 noundef 0) #6
   %165 = load i32, ptr @hf_afs_vldb_spare1, align 4
-  %166 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %165, i32 noundef 4, i32 noundef 0) #7
+  %166 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %165, i32 noundef 4, i32 noundef 0) #6
   %167 = load i32, ptr @hf_afs_vldb_spare2, align 4
-  %168 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef 0) #7
+  %168 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef 0) #6
   %169 = load i32, ptr @hf_afs_vldb_spare3, align 4
-  %170 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %169, i32 noundef 4, i32 noundef 0) #7
+  %170 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %169, i32 noundef 4, i32 noundef 0) #6
   %171 = load i32, ptr @hf_afs_vldb_spare4, align 4
-  %172 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %171, i32 noundef 4, i32 noundef 0) #7
+  %172 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %171, i32 noundef 4, i32 noundef 0) #6
   %173 = load i32, ptr @hf_afs_vldb_spare5, align 4
-  %174 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef 0) #7
+  %174 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef 0) #6
   %175 = load i32, ptr @hf_afs_vldb_spare6, align 4
-  %176 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %175, i32 noundef 4, i32 noundef 0) #7
+  %176 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %175, i32 noundef 4, i32 noundef 0) #6
   %177 = load i32, ptr @hf_afs_vldb_spare7, align 4
-  %178 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %177, i32 noundef 4, i32 noundef 0) #7
+  %178 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %177, i32 noundef 4, i32 noundef 0) #6
   %179 = load i32, ptr @hf_afs_vldb_spare8, align 4
-  %180 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %179, i32 noundef 4, i32 noundef 0) #7
+  %180 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %179, i32 noundef 4, i32 noundef 0) #6
   %181 = load i32, ptr @hf_afs_vldb_spare9, align 4
-  %182 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %181, i32 noundef 4, i32 noundef 0) #7
+  %182 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %181, i32 noundef 4, i32 noundef 0) #6
   br label %186
 
 183:                                              ; preds = %3
   %184 = load i32, ptr @hf_afs_vldb_errcode, align 4
-  %185 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %184, i32 noundef 4, i32 noundef 0) #7
+  %185 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %184, i32 noundef 4, i32 noundef 0) #6
   br label %186
 
 186:                                              ; preds = %3, %183, %5, %6, %44, %59, %62, %100, %154
@@ -3591,7 +3602,7 @@ define internal void @dissect_vldb_reply(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_vldb_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   switch i32 %2, label %OUT_RXString.exit [
     i32 501, label %4
     i32 517, label %4
@@ -3620,16 +3631,16 @@ define internal void @dissect_vldb_request(ptr noundef %0, ptr nocapture readnon
 
 6:                                                ; preds = %3, %3, %3, %3, %3, %3
   %7 = load i32, ptr @hf_afs_vldb_id, align 4
-  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #7
+  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #6
   %9 = load i32, ptr @hf_afs_vldb_type, align 4
-  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #7
+  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 11:                                               ; preds = %3, %3, %3, %3
   %12 = load i32, ptr @hf_afs_vldb_name_uint_string, align 4
-  %13 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #7
-  %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %13 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #6
+  %15 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %16 = sub i32 %15, %13
   %17 = and i32 %16, 3
   %.not.i = icmp eq i32 %17, 0
@@ -3637,44 +3648,44 @@ define internal void @dissect_vldb_request(ptr noundef %0, ptr nocapture readnon
 
 18:                                               ; preds = %11
   %19 = sub nuw nsw i32 4, %17
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %19) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %19) #6
   br label %OUT_RXString.exit
 
 20:                                               ; preds = %3
   %21 = load i32, ptr @hf_afs_vldb_bump, align 4
-  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #7
+  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 23:                                               ; preds = %3, %3
   %24 = load i32, ptr @hf_afs_vldb_id, align 4
-  %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #7
+  %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #6
   %26 = load i32, ptr @hf_afs_vldb_type, align 4
-  %27 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0) #7
+  %27 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0) #6
   %28 = load i32, ptr @hf_afs_vldb_name, align 4
   tail call fastcc void @OUT_RXStringV(ptr noundef %0, i32 noundef %28, i32 noundef 65)
   br label %OUT_RXString.exit
 
 29:                                               ; preds = %3, %3
   %30 = load i32, ptr @hf_afs_vldb_index, align 4
-  %31 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0) #7
+  %31 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 32:                                               ; preds = %3
   %33 = load i32, ptr @hf_afs_vldb_serveruuid, align 4
-  %34 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %33, i32 noundef 44, i32 noundef 0) #7
+  %34 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %33, i32 noundef 44, i32 noundef 0) #6
   %35 = load i32, ptr @hf_afs_vldb_spare1, align 4
-  %36 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef 0) #7
-  %37 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %38 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %39 = tail call i32 @tvb_get_ntohl(ptr noundef %37, i32 noundef %38) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %36 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef 0) #6
+  %37 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %38 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %39 = tail call i32 @tvb_get_ntohl(ptr noundef %37, i32 noundef %38) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %OUT_RXString.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32, %.lr.ph
   %.019 = phi i32 [ %42, %.lr.ph ], [ 0, %32 ]
   %40 = load i32, ptr @hf_afs_vldb_serverip, align 4
-  %41 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef 0) #7
+  %41 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef 0) #6
   %42 = add nuw i32 %.019, 1
   %exitcond.not = icmp eq i32 %42, %39
   br i1 %exitcond.not, label %OUT_RXString.exit, label %.lr.ph, !llvm.loop !32
@@ -3691,7 +3702,7 @@ define internal void @dissect_kauth_reply(ptr noundef %0, ptr nocapture noundef 
 
 5:                                                ; preds = %3
   %6 = load i32, ptr @hf_afs_kauth_errcode, align 4
-  %7 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef 0) #7
+  %7 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef 0) #6
   br label %8
 
 8:                                                ; preds = %3, %5
@@ -3700,7 +3711,7 @@ define internal void @dissect_kauth_reply(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_kauth_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   switch i32 %2, label %OUT_KAUTH_GetTicket.exit [
     i32 1, label %4
     i32 21, label %4
@@ -3720,9 +3731,9 @@ define internal void @dissect_kauth_request(ptr noundef %0, ptr nocapture readno
 
 4:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
   %5 = load i32, ptr @hf_afs_kauth_princ, align 4
-  %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %7 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #7
-  %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %7 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #6
+  %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = sub i32 %8, %6
   %10 = and i32 %9, 3
   %.not.i = icmp eq i32 %10, 0
@@ -3730,14 +3741,14 @@ define internal void @dissect_kauth_request(ptr noundef %0, ptr nocapture readno
 
 11:                                               ; preds = %4
   %12 = sub nuw nsw i32 4, %10
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %12) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %12) #6
   br label %OUT_RXString.exit
 
 OUT_RXString.exit:                                ; preds = %4, %11
   %13 = load i32, ptr @hf_afs_kauth_realm, align 4
-  %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #7
-  %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #6
+  %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %17 = sub i32 %16, %14
   %18 = and i32 %17, 3
   %.not.i9 = icmp eq i32 %18, 0
@@ -3745,21 +3756,21 @@ OUT_RXString.exit:                                ; preds = %4, %11
 
 19:                                               ; preds = %OUT_RXString.exit
   %20 = sub nuw nsw i32 4, %18
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %20) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %20) #6
   br label %OUT_RXString.exit10
 
 OUT_RXString.exit10:                              ; preds = %OUT_RXString.exit, %19
   %21 = load i32, ptr @hf_afs_kauth_data, align 4
-  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef -1, i32 noundef 0) #7
+  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef -1, i32 noundef 0) #6
   br label %OUT_KAUTH_GetTicket.exit
 
 23:                                               ; preds = %3, %3
   %24 = load i32, ptr @hf_afs_kauth_kvno, align 4
-  %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #7
+  %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #6
   %26 = load i32, ptr @hf_afs_kauth_domain, align 4
-  %27 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %28 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0) #7
-  %29 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %27 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %28 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0) #6
+  %29 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %30 = sub i32 %29, %27
   %31 = and i32 %30, 3
   %.not.i.i = icmp eq i32 %31, 0
@@ -3767,20 +3778,20 @@ OUT_RXString.exit10:                              ; preds = %OUT_RXString.exit, 
 
 32:                                               ; preds = %23
   %33 = sub nuw nsw i32 4, %31
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %33) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %33) #6
   br label %OUT_RXString.exit.i
 
 OUT_RXString.exit.i:                              ; preds = %32, %23
-  %34 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %35 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %36 = tail call i32 @tvb_get_ntohl(ptr noundef %34, i32 noundef %35) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %34 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %35 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %36 = tail call i32 @tvb_get_ntohl(ptr noundef %34, i32 noundef %35) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %37 = load i32, ptr @hf_afs_kauth_data, align 4
-  %38 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %37, i32 noundef %36, i32 noundef 0) #7
+  %38 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %37, i32 noundef %36, i32 noundef 0) #6
   %39 = load i32, ptr @hf_afs_kauth_princ, align 4
-  %40 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %41 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef 0) #7
-  %42 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %40 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %41 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef 0) #6
+  %42 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %43 = sub i32 %42, %40
   %44 = and i32 %43, 3
   %.not.i8.i = icmp eq i32 %44, 0
@@ -3788,14 +3799,14 @@ OUT_RXString.exit.i:                              ; preds = %32, %23
 
 45:                                               ; preds = %OUT_RXString.exit.i
   %46 = sub nuw nsw i32 4, %44
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %46) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %46) #6
   br label %OUT_RXString.exit9.i
 
 OUT_RXString.exit9.i:                             ; preds = %45, %OUT_RXString.exit.i
   %47 = load i32, ptr @hf_afs_kauth_realm, align 4
-  %48 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %49 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0) #7
-  %50 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %48 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %49 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0) #6
+  %50 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %51 = sub i32 %50, %48
   %52 = and i32 %51, 3
   %.not.i10.i = icmp eq i32 %52, 0
@@ -3803,14 +3814,14 @@ OUT_RXString.exit9.i:                             ; preds = %45, %OUT_RXString.e
 
 53:                                               ; preds = %OUT_RXString.exit9.i
   %54 = sub nuw nsw i32 4, %52
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %54) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %54) #6
   br label %OUT_KAUTH_GetTicket.exit
 
 55:                                               ; preds = %3
   %56 = load i32, ptr @hf_afs_kauth_princ, align 4
-  %57 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %58 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef 0) #7
-  %59 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %57 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %58 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef 0) #6
+  %59 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %60 = sub i32 %59, %57
   %61 = and i32 %60, 3
   %.not.i11 = icmp eq i32 %61, 0
@@ -3818,14 +3829,14 @@ OUT_RXString.exit9.i:                             ; preds = %45, %OUT_RXString.e
 
 62:                                               ; preds = %55
   %63 = sub nuw nsw i32 4, %61
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %63) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %63) #6
   br label %OUT_RXString.exit12
 
 OUT_RXString.exit12:                              ; preds = %55, %62
   %64 = load i32, ptr @hf_afs_kauth_realm, align 4
-  %65 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %66 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0) #7
-  %67 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %65 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %66 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0) #6
+  %67 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %68 = sub i32 %67, %65
   %69 = and i32 %68, 3
   %.not.i13 = icmp eq i32 %69, 0
@@ -3833,19 +3844,19 @@ OUT_RXString.exit12:                              ; preds = %55, %62
 
 70:                                               ; preds = %OUT_RXString.exit12
   %71 = sub nuw nsw i32 4, %69
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %71) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %71) #6
   br label %OUT_RXString.exit14
 
 OUT_RXString.exit14:                              ; preds = %OUT_RXString.exit12, %70
   %72 = load i32, ptr @hf_afs_kauth_kvno, align 4
-  %73 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef 0) #7
+  %73 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_KAUTH_GetTicket.exit
 
 74:                                               ; preds = %3
   %75 = load i32, ptr @hf_afs_kauth_name, align 4
-  %76 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %77 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %75, i32 noundef 4, i32 noundef 0) #7
-  %78 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %76 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %77 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %75, i32 noundef 4, i32 noundef 0) #6
+  %78 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %79 = sub i32 %78, %76
   %80 = and i32 %79, 3
   %.not.i15 = icmp eq i32 %80, 0
@@ -3853,7 +3864,7 @@ OUT_RXString.exit14:                              ; preds = %OUT_RXString.exit12
 
 81:                                               ; preds = %74
   %82 = sub nuw nsw i32 4, %80
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %82) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %82) #6
   br label %OUT_KAUTH_GetTicket.exit
 
 OUT_KAUTH_GetTicket.exit:                         ; preds = %81, %74, %53, %OUT_RXString.exit9.i, %OUT_RXString.exit14, %OUT_RXString.exit10, %3
@@ -3874,14 +3885,14 @@ define internal void @dissect_vol_reply(ptr noundef %0, ptr nocapture noundef re
 
 6:                                                ; preds = %5
   %7 = load i32, ptr @hf_afs_vol_count, align 4
-  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #7
+  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #6
   %9 = load i32, ptr @hf_afs_vol_name, align 4
   tail call fastcc void @OUT_RXStringV(ptr noundef %0, i32 noundef %9, i32 noundef 32)
   br label %13
 
 10:                                               ; preds = %3
   %11 = load i32, ptr @hf_afs_vol_errcode, align 4
-  %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #7
+  %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #6
   br label %13
 
 13:                                               ; preds = %3, %10, %6, %5
@@ -3890,15 +3901,15 @@ define internal void @dissect_vol_reply(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_vol_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %cond = icmp eq i32 %2, 121
   br i1 %cond, label %4, label %9
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @hf_afs_vol_count, align 4
-  %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #7
+  %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #6
   %7 = load i32, ptr @hf_afs_vol_id, align 4
-  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #7
+  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #6
   br label %9
 
 9:                                                ; preds = %3, %4
@@ -3931,11 +3942,11 @@ define internal void @dissect_bos_reply(ptr noundef %0, ptr nocapture noundef re
 
 6:                                                ; preds = %5
   %7 = load i32, ptr @hf_afs_bos_status, align 4
-  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #7
+  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #6
   %9 = load i32, ptr @hf_afs_bos_statusdesc, align 4
-  %10 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %11 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #7
-  %12 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %10 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %11 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #6
+  %12 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %13 = sub i32 %12, %10
   %14 = and i32 %13, 3
   %.not.i = icmp eq i32 %14, 0
@@ -3943,14 +3954,14 @@ define internal void @dissect_bos_reply(ptr noundef %0, ptr nocapture noundef re
 
 15:                                               ; preds = %6
   %16 = sub nuw nsw i32 4, %14
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %16) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %16) #6
   br label %OUT_RXString.exit
 
 17:                                               ; preds = %5
   %18 = load i32, ptr @hf_afs_bos_instance, align 4
-  %19 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef 0) #7
-  %21 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %19 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef 0) #6
+  %21 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %22 = sub i32 %21, %19
   %23 = and i32 %22, 3
   %.not.i24 = icmp eq i32 %23, 0
@@ -3958,14 +3969,14 @@ define internal void @dissect_bos_reply(ptr noundef %0, ptr nocapture noundef re
 
 24:                                               ; preds = %17
   %25 = sub nuw nsw i32 4, %23
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %25) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %25) #6
   br label %OUT_RXString.exit
 
 26:                                               ; preds = %5
   %27 = load i32, ptr @hf_afs_bos_type, align 4
-  %28 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %29 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef 0) #7
-  %30 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %28 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %29 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef 0) #6
+  %30 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %31 = sub i32 %30, %28
   %32 = and i32 %31, 3
   %.not.i26 = icmp eq i32 %32, 0
@@ -3973,18 +3984,18 @@ define internal void @dissect_bos_reply(ptr noundef %0, ptr nocapture noundef re
 
 33:                                               ; preds = %26
   %34 = sub nuw nsw i32 4, %32
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %34) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %34) #6
   br label %OUT_RXString.exit27
 
 OUT_RXString.exit27:                              ; preds = %26, %33
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 40) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 40) #6
   br label %OUT_RXString.exit
 
 35:                                               ; preds = %5
   %36 = load i32, ptr @hf_afs_bos_parm, align 4
-  %37 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %38 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef 0) #7
-  %39 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %37 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %38 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef 0) #6
+  %39 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %40 = sub i32 %39, %37
   %41 = and i32 %40, 3
   %.not.i28 = icmp eq i32 %41, 0
@@ -3992,14 +4003,14 @@ OUT_RXString.exit27:                              ; preds = %26, %33
 
 42:                                               ; preds = %35
   %43 = sub nuw nsw i32 4, %41
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %43) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %43) #6
   br label %OUT_RXString.exit
 
 44:                                               ; preds = %5
   %45 = load i32, ptr @hf_afs_bos_user, align 4
-  %46 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef 0) #7
-  %48 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %46 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef 0) #6
+  %48 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %49 = sub i32 %48, %46
   %50 = and i32 %49, 3
   %.not.i30 = icmp eq i32 %50, 0
@@ -4007,31 +4018,31 @@ OUT_RXString.exit27:                              ; preds = %26, %33
 
 51:                                               ; preds = %44
   %52 = sub nuw nsw i32 4, %50
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %52) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %52) #6
   br label %OUT_RXString.exit
 
 53:                                               ; preds = %5
   %54 = load i32, ptr @hf_afs_bos_kvno, align 4
-  %55 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0) #7
+  %55 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0) #6
   %56 = load i32, ptr @hf_afs_bos_key, align 4
-  %57 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %56, i32 noundef 8, i32 noundef 0) #7
+  %57 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %56, i32 noundef 8, i32 noundef 0) #6
   %58 = load i32, ptr @hf_afs_bos_keymodtime, align 4
-  %59 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %60 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %61 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %58, ptr noundef %60, i32 noundef %61, i32 noundef 8, i32 noundef 16) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 8) #7
+  %59 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %60 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %61 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %58, ptr noundef %60, i32 noundef %61, i32 noundef 8, i32 noundef 16) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 8) #6
   %63 = load i32, ptr @hf_afs_bos_keychecksum, align 4
-  %64 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef 0) #7
+  %64 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %63, i32 noundef 4, i32 noundef 0) #6
   %65 = load i32, ptr @hf_afs_bos_keyspare2, align 4
-  %66 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef 0) #7
+  %66 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 67:                                               ; preds = %5
   %68 = load i32, ptr @hf_afs_bos_cell, align 4
-  %69 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %70 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef 0) #7
-  %71 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %69 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %70 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef 0) #6
+  %71 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %72 = sub i32 %71, %69
   %73 = and i32 %72, 3
   %.not.i32 = icmp eq i32 %73, 0
@@ -4039,14 +4050,14 @@ OUT_RXString.exit27:                              ; preds = %26, %33
 
 74:                                               ; preds = %67
   %75 = sub nuw nsw i32 4, %73
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %75) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %75) #6
   br label %OUT_RXString.exit
 
 76:                                               ; preds = %5
   %77 = load i32, ptr @hf_afs_bos_host, align 4
-  %78 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %79 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef 0) #7
-  %80 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %78 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %79 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef 0) #6
+  %80 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %81 = sub i32 %80, %78
   %82 = and i32 %81, 3
   %.not.i34 = icmp eq i32 %82, 0
@@ -4054,44 +4065,44 @@ OUT_RXString.exit27:                              ; preds = %26, %33
 
 83:                                               ; preds = %76
   %84 = sub nuw nsw i32 4, %82
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %84) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %84) #6
   br label %OUT_RXString.exit
 
 85:                                               ; preds = %5
   %86 = load i32, ptr @hf_afs_bos_newtime, align 4
-  %87 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %88 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %89 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %86, ptr noundef %88, i32 noundef %89, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %87 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %88 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %89 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %86, ptr noundef %88, i32 noundef %89, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %91 = load i32, ptr @hf_afs_bos_baktime, align 4
-  %92 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %93 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %94 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %91, ptr noundef %93, i32 noundef %94, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %92 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %93 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %94 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %91, ptr noundef %93, i32 noundef %94, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %96 = load i32, ptr @hf_afs_bos_oldtime, align 4
-  %97 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %98 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %99 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %96, ptr noundef %98, i32 noundef %99, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %97 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %98 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %99 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %96, ptr noundef %98, i32 noundef %99, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   br label %OUT_RXString.exit
 
 101:                                              ; preds = %5
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 12) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 12) #6
   br label %OUT_RXString.exit
 
 102:                                              ; preds = %5
   %103 = load i32, ptr @hf_afs_bos_data, align 4
-  %104 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %103, i32 noundef -1, i32 noundef 0) #7
+  %104 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %103, i32 noundef -1, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 105:                                              ; preds = %5
   %106 = load i32, ptr @hf_afs_bos_error, align 4
-  %107 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %108 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %106, i32 noundef 4, i32 noundef 0) #7
-  %109 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %107 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %108 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %106, i32 noundef 4, i32 noundef 0) #6
+  %109 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %110 = sub i32 %109, %107
   %111 = and i32 %110, 3
   %.not.i36 = icmp eq i32 %111, 0
@@ -4099,14 +4110,14 @@ OUT_RXString.exit27:                              ; preds = %26, %33
 
 112:                                              ; preds = %105
   %113 = sub nuw nsw i32 4, %111
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %113) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %113) #6
   br label %OUT_RXString.exit37
 
 OUT_RXString.exit37:                              ; preds = %105, %112
   %114 = load i32, ptr @hf_afs_bos_spare1, align 4
-  %115 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %116 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %114, i32 noundef 4, i32 noundef 0) #7
-  %117 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %115 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %116 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %114, i32 noundef 4, i32 noundef 0) #6
+  %117 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %118 = sub i32 %117, %115
   %119 = and i32 %118, 3
   %.not.i38 = icmp eq i32 %119, 0
@@ -4114,14 +4125,14 @@ OUT_RXString.exit37:                              ; preds = %105, %112
 
 120:                                              ; preds = %OUT_RXString.exit37
   %121 = sub nuw nsw i32 4, %119
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %121) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %121) #6
   br label %OUT_RXString.exit39
 
 OUT_RXString.exit39:                              ; preds = %OUT_RXString.exit37, %120
   %122 = load i32, ptr @hf_afs_bos_spare2, align 4
-  %123 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %124 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %122, i32 noundef 4, i32 noundef 0) #7
-  %125 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %123 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %124 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %122, i32 noundef 4, i32 noundef 0) #6
+  %125 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %126 = sub i32 %125, %123
   %127 = and i32 %126, 3
   %.not.i40 = icmp eq i32 %127, 0
@@ -4129,14 +4140,14 @@ OUT_RXString.exit39:                              ; preds = %OUT_RXString.exit37
 
 128:                                              ; preds = %OUT_RXString.exit39
   %129 = sub nuw nsw i32 4, %127
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %129) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %129) #6
   br label %OUT_RXString.exit41
 
 OUT_RXString.exit41:                              ; preds = %OUT_RXString.exit39, %128
   %130 = load i32, ptr @hf_afs_bos_spare3, align 4
-  %131 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %132 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %130, i32 noundef 4, i32 noundef 0) #7
-  %133 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %131 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %132 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %130, i32 noundef 4, i32 noundef 0) #6
+  %133 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %134 = sub i32 %133, %131
   %135 = and i32 %134, 3
   %.not.i42 = icmp eq i32 %135, 0
@@ -4144,12 +4155,12 @@ OUT_RXString.exit41:                              ; preds = %OUT_RXString.exit39
 
 136:                                              ; preds = %OUT_RXString.exit41
   %137 = sub nuw nsw i32 4, %135
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %137) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %137) #6
   br label %OUT_RXString.exit
 
 138:                                              ; preds = %3
   %139 = load i32, ptr @hf_afs_bos_errcode, align 4
-  %140 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %139, i32 noundef 4, i32 noundef 0) #7
+  %140 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %139, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit
 
 OUT_RXString.exit:                                ; preds = %136, %OUT_RXString.exit41, %83, %76, %74, %67, %51, %44, %42, %35, %24, %17, %15, %6, %3, %138, %5, %OUT_RXString.exit27, %53, %85, %101, %102
@@ -4158,7 +4169,7 @@ OUT_RXString.exit:                                ; preds = %136, %OUT_RXString.
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_bos_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   switch i32 %2, label %OUT_RXString.exit58 [
     i32 80, label %4
     i32 81, label %69
@@ -4193,9 +4204,9 @@ define internal void @dissect_bos_request(ptr noundef %0, ptr nocapture readnone
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @hf_afs_bos_type, align 4
-  %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %7 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #7
-  %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %7 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #6
+  %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = sub i32 %8, %6
   %10 = and i32 %9, 3
   %.not.i = icmp eq i32 %10, 0
@@ -4203,14 +4214,14 @@ define internal void @dissect_bos_request(ptr noundef %0, ptr nocapture readnone
 
 11:                                               ; preds = %4
   %12 = sub nuw nsw i32 4, %10
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %12) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %12) #6
   br label %OUT_RXString.exit
 
 OUT_RXString.exit:                                ; preds = %4, %11
   %13 = load i32, ptr @hf_afs_bos_instance, align 4
-  %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #7
-  %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #6
+  %16 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %17 = sub i32 %16, %14
   %18 = and i32 %17, 3
   %.not.i45 = icmp eq i32 %18, 0
@@ -4218,14 +4229,14 @@ OUT_RXString.exit:                                ; preds = %4, %11
 
 19:                                               ; preds = %OUT_RXString.exit
   %20 = sub nuw nsw i32 4, %18
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %20) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %20) #6
   br label %OUT_RXString.exit46
 
 OUT_RXString.exit46:                              ; preds = %OUT_RXString.exit, %19
   %21 = load i32, ptr @hf_afs_bos_parm, align 4
-  %22 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %23 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #7
-  %24 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %22 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %23 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #6
+  %24 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %25 = sub i32 %24, %22
   %26 = and i32 %25, 3
   %.not.i47 = icmp eq i32 %26, 0
@@ -4233,14 +4244,14 @@ OUT_RXString.exit46:                              ; preds = %OUT_RXString.exit, 
 
 27:                                               ; preds = %OUT_RXString.exit46
   %28 = sub nuw nsw i32 4, %26
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %28) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %28) #6
   br label %OUT_RXString.exit48
 
 OUT_RXString.exit48:                              ; preds = %OUT_RXString.exit46, %27
   %29 = load i32, ptr @hf_afs_bos_parm, align 4
-  %30 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %31 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0) #7
-  %32 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %30 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %31 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0) #6
+  %32 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %33 = sub i32 %32, %30
   %34 = and i32 %33, 3
   %.not.i49 = icmp eq i32 %34, 0
@@ -4248,14 +4259,14 @@ OUT_RXString.exit48:                              ; preds = %OUT_RXString.exit46
 
 35:                                               ; preds = %OUT_RXString.exit48
   %36 = sub nuw nsw i32 4, %34
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %36) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %36) #6
   br label %OUT_RXString.exit50
 
 OUT_RXString.exit50:                              ; preds = %OUT_RXString.exit48, %35
   %37 = load i32, ptr @hf_afs_bos_parm, align 4
-  %38 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %39 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %37, i32 noundef 4, i32 noundef 0) #7
-  %40 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %38 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %39 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %37, i32 noundef 4, i32 noundef 0) #6
+  %40 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %41 = sub i32 %40, %38
   %42 = and i32 %41, 3
   %.not.i51 = icmp eq i32 %42, 0
@@ -4263,14 +4274,14 @@ OUT_RXString.exit50:                              ; preds = %OUT_RXString.exit48
 
 43:                                               ; preds = %OUT_RXString.exit50
   %44 = sub nuw nsw i32 4, %42
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %44) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %44) #6
   br label %OUT_RXString.exit52
 
 OUT_RXString.exit52:                              ; preds = %OUT_RXString.exit50, %43
   %45 = load i32, ptr @hf_afs_bos_parm, align 4
-  %46 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef 0) #7
-  %48 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %46 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef 0) #6
+  %48 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %49 = sub i32 %48, %46
   %50 = and i32 %49, 3
   %.not.i53 = icmp eq i32 %50, 0
@@ -4278,14 +4289,14 @@ OUT_RXString.exit52:                              ; preds = %OUT_RXString.exit50
 
 51:                                               ; preds = %OUT_RXString.exit52
   %52 = sub nuw nsw i32 4, %50
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %52) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %52) #6
   br label %OUT_RXString.exit54
 
 OUT_RXString.exit54:                              ; preds = %OUT_RXString.exit52, %51
   %53 = load i32, ptr @hf_afs_bos_parm, align 4
-  %54 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %55 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef 0) #7
-  %56 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %54 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %55 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef 0) #6
+  %56 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %57 = sub i32 %56, %54
   %58 = and i32 %57, 3
   %.not.i55 = icmp eq i32 %58, 0
@@ -4293,14 +4304,14 @@ OUT_RXString.exit54:                              ; preds = %OUT_RXString.exit52
 
 59:                                               ; preds = %OUT_RXString.exit54
   %60 = sub nuw nsw i32 4, %58
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %60) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %60) #6
   br label %OUT_RXString.exit56
 
 OUT_RXString.exit56:                              ; preds = %OUT_RXString.exit54, %59
   %61 = load i32, ptr @hf_afs_bos_parm, align 4
-  %62 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %63 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef 0) #7
-  %64 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %62 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %63 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef 0) #6
+  %64 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %65 = sub i32 %64, %62
   %66 = and i32 %65, 3
   %.not.i57 = icmp eq i32 %66, 0
@@ -4308,14 +4319,14 @@ OUT_RXString.exit56:                              ; preds = %OUT_RXString.exit54
 
 67:                                               ; preds = %OUT_RXString.exit56
   %68 = sub nuw nsw i32 4, %66
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %68) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %68) #6
   br label %OUT_RXString.exit58
 
 69:                                               ; preds = %3
   %70 = load i32, ptr @hf_afs_bos_instance, align 4
-  %71 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %72 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef 0) #7
-  %73 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %71 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %72 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef 0) #6
+  %73 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %74 = sub i32 %73, %71
   %75 = and i32 %74, 3
   %.not.i59 = icmp eq i32 %75, 0
@@ -4323,14 +4334,14 @@ OUT_RXString.exit56:                              ; preds = %OUT_RXString.exit54
 
 76:                                               ; preds = %69
   %77 = sub nuw nsw i32 4, %75
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %77) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %77) #6
   br label %OUT_RXString.exit58
 
 78:                                               ; preds = %3
   %79 = load i32, ptr @hf_afs_bos_instance, align 4
-  %80 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %81 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef 0) #7
-  %82 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %80 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %81 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef 0) #6
+  %82 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %83 = sub i32 %82, %80
   %84 = and i32 %83, 3
   %.not.i61 = icmp eq i32 %84, 0
@@ -4338,19 +4349,19 @@ OUT_RXString.exit56:                              ; preds = %OUT_RXString.exit54
 
 85:                                               ; preds = %78
   %86 = sub nuw nsw i32 4, %84
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %86) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %86) #6
   br label %OUT_RXString.exit62
 
 OUT_RXString.exit62:                              ; preds = %78, %85
   %87 = load i32, ptr @hf_afs_bos_status, align 4
-  %88 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef 0) #7
+  %88 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 89:                                               ; preds = %3
   %90 = load i32, ptr @hf_afs_bos_instance, align 4
-  %91 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %92 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %90, i32 noundef 4, i32 noundef 0) #7
-  %93 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %91 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %92 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %90, i32 noundef 4, i32 noundef 0) #6
+  %93 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %94 = sub i32 %93, %91
   %95 = and i32 %94, 3
   %.not.i63 = icmp eq i32 %95, 0
@@ -4358,19 +4369,19 @@ OUT_RXString.exit62:                              ; preds = %78, %85
 
 96:                                               ; preds = %89
   %97 = sub nuw nsw i32 4, %95
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %97) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %97) #6
   br label %OUT_RXString.exit58
 
 98:                                               ; preds = %3
   %99 = load i32, ptr @hf_afs_bos_num, align 4
-  %100 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %99, i32 noundef 4, i32 noundef 0) #7
+  %100 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %99, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 101:                                              ; preds = %3
   %102 = load i32, ptr @hf_afs_bos_instance, align 4
-  %103 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %104 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %102, i32 noundef 4, i32 noundef 0) #7
-  %105 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %103 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %104 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %102, i32 noundef 4, i32 noundef 0) #6
+  %105 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %106 = sub i32 %105, %103
   %107 = and i32 %106, 3
   %.not.i65 = icmp eq i32 %107, 0
@@ -4378,14 +4389,14 @@ OUT_RXString.exit62:                              ; preds = %78, %85
 
 108:                                              ; preds = %101
   %109 = sub nuw nsw i32 4, %107
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %109) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %109) #6
   br label %OUT_RXString.exit58
 
 110:                                              ; preds = %3
   %111 = load i32, ptr @hf_afs_bos_instance, align 4
-  %112 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %113 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %111, i32 noundef 4, i32 noundef 0) #7
-  %114 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %112 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %113 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %111, i32 noundef 4, i32 noundef 0) #6
+  %114 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %115 = sub i32 %114, %112
   %116 = and i32 %115, 3
   %.not.i67 = icmp eq i32 %116, 0
@@ -4393,19 +4404,19 @@ OUT_RXString.exit62:                              ; preds = %78, %85
 
 117:                                              ; preds = %110
   %118 = sub nuw nsw i32 4, %116
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %118) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %118) #6
   br label %OUT_RXString.exit68
 
 OUT_RXString.exit68:                              ; preds = %110, %117
   %119 = load i32, ptr @hf_afs_bos_num, align 4
-  %120 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %119, i32 noundef 4, i32 noundef 0) #7
+  %120 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %119, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 121:                                              ; preds = %3
   %122 = load i32, ptr @hf_afs_bos_user, align 4
-  %123 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %124 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %122, i32 noundef 4, i32 noundef 0) #7
-  %125 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %123 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %124 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %122, i32 noundef 4, i32 noundef 0) #6
+  %125 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %126 = sub i32 %125, %123
   %127 = and i32 %126, 3
   %.not.i69 = icmp eq i32 %127, 0
@@ -4413,14 +4424,14 @@ OUT_RXString.exit68:                              ; preds = %110, %117
 
 128:                                              ; preds = %121
   %129 = sub nuw nsw i32 4, %127
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %129) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %129) #6
   br label %OUT_RXString.exit58
 
 130:                                              ; preds = %3
   %131 = load i32, ptr @hf_afs_bos_user, align 4
-  %132 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %133 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %131, i32 noundef 4, i32 noundef 0) #7
-  %134 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %132 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %133 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %131, i32 noundef 4, i32 noundef 0) #6
+  %134 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %135 = sub i32 %134, %132
   %136 = and i32 %135, 3
   %.not.i71 = icmp eq i32 %136, 0
@@ -4428,36 +4439,36 @@ OUT_RXString.exit68:                              ; preds = %110, %117
 
 137:                                              ; preds = %130
   %138 = sub nuw nsw i32 4, %136
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %138) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %138) #6
   br label %OUT_RXString.exit58
 
 139:                                              ; preds = %3
   %140 = load i32, ptr @hf_afs_bos_num, align 4
-  %141 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef 0) #7
+  %141 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 142:                                              ; preds = %3
   %143 = load i32, ptr @hf_afs_bos_num, align 4
-  %144 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %143, i32 noundef 4, i32 noundef 0) #7
+  %144 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %143, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 145:                                              ; preds = %3
   %146 = load i32, ptr @hf_afs_bos_num, align 4
-  %147 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %146, i32 noundef 4, i32 noundef 0) #7
+  %147 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %146, i32 noundef 4, i32 noundef 0) #6
   %148 = load i32, ptr @hf_afs_bos_key, align 4
-  %149 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %148, i32 noundef 8, i32 noundef 0) #7
+  %149 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %148, i32 noundef 8, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 150:                                              ; preds = %3
   %151 = load i32, ptr @hf_afs_bos_num, align 4
-  %152 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %151, i32 noundef 4, i32 noundef 0) #7
+  %152 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %151, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 153:                                              ; preds = %3
   %154 = load i32, ptr @hf_afs_bos_content, align 4
-  %155 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %156 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %154, i32 noundef 4, i32 noundef 0) #7
-  %157 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %155 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %156 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %154, i32 noundef 4, i32 noundef 0) #6
+  %157 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %158 = sub i32 %157, %155
   %159 = and i32 %158, 3
   %.not.i73 = icmp eq i32 %159, 0
@@ -4465,19 +4476,19 @@ OUT_RXString.exit68:                              ; preds = %110, %117
 
 160:                                              ; preds = %153
   %161 = sub nuw nsw i32 4, %159
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %161) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %161) #6
   br label %OUT_RXString.exit58
 
 162:                                              ; preds = %3
   %163 = load i32, ptr @hf_afs_bos_num, align 4
-  %164 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %163, i32 noundef 4, i32 noundef 0) #7
+  %164 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %163, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 165:                                              ; preds = %3
   %166 = load i32, ptr @hf_afs_bos_content, align 4
-  %167 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %168 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %166, i32 noundef 4, i32 noundef 0) #7
-  %169 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %167 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %168 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %166, i32 noundef 4, i32 noundef 0) #6
+  %169 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %170 = sub i32 %169, %167
   %171 = and i32 %170, 3
   %.not.i75 = icmp eq i32 %171, 0
@@ -4485,14 +4496,14 @@ OUT_RXString.exit68:                              ; preds = %110, %117
 
 172:                                              ; preds = %165
   %173 = sub nuw nsw i32 4, %171
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %173) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %173) #6
   br label %OUT_RXString.exit58
 
 174:                                              ; preds = %3
   %175 = load i32, ptr @hf_afs_bos_content, align 4
-  %176 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %177 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %175, i32 noundef 4, i32 noundef 0) #7
-  %178 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %176 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %177 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %175, i32 noundef 4, i32 noundef 0) #6
+  %178 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %179 = sub i32 %178, %176
   %180 = and i32 %179, 3
   %.not.i77 = icmp eq i32 %180, 0
@@ -4500,14 +4511,14 @@ OUT_RXString.exit68:                              ; preds = %110, %117
 
 181:                                              ; preds = %174
   %182 = sub nuw nsw i32 4, %180
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %182) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %182) #6
   br label %OUT_RXString.exit58
 
 183:                                              ; preds = %3
   %184 = load i32, ptr @hf_afs_bos_content, align 4
-  %185 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %186 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %184, i32 noundef 4, i32 noundef 0) #7
-  %187 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %185 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %186 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %184, i32 noundef 4, i32 noundef 0) #6
+  %187 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %188 = sub i32 %187, %185
   %189 = and i32 %188, 3
   %.not.i79 = icmp eq i32 %189, 0
@@ -4515,24 +4526,24 @@ OUT_RXString.exit68:                              ; preds = %110, %117
 
 190:                                              ; preds = %183
   %191 = sub nuw nsw i32 4, %189
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %191) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %191) #6
   br label %OUT_RXString.exit80
 
 OUT_RXString.exit80:                              ; preds = %183, %190
   %192 = load i32, ptr @hf_afs_bos_status, align 4
-  %193 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %192, i32 noundef 4, i32 noundef 0) #7
+  %193 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %192, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 194:                                              ; preds = %3
   %195 = load i32, ptr @hf_afs_bos_flags, align 4
-  %196 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %195, i32 noundef 4, i32 noundef 0) #7
+  %196 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %195, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 197:                                              ; preds = %3
   %198 = load i32, ptr @hf_afs_bos_instance, align 4
-  %199 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %200 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %198, i32 noundef 4, i32 noundef 0) #7
-  %201 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %199 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %200 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %198, i32 noundef 4, i32 noundef 0) #6
+  %201 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %202 = sub i32 %201, %199
   %203 = and i32 %202, 3
   %.not.i81 = icmp eq i32 %203, 0
@@ -4540,14 +4551,14 @@ OUT_RXString.exit80:                              ; preds = %183, %190
 
 204:                                              ; preds = %197
   %205 = sub nuw nsw i32 4, %203
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %205) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %205) #6
   br label %OUT_RXString.exit58
 
 206:                                              ; preds = %3
   %207 = load i32, ptr @hf_afs_bos_path, align 4
-  %208 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %209 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %207, i32 noundef 4, i32 noundef 0) #7
-  %210 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %208 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %209 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %207, i32 noundef 4, i32 noundef 0) #6
+  %210 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %211 = sub i32 %210, %208
   %212 = and i32 %211, 3
   %.not.i83 = icmp eq i32 %212, 0
@@ -4555,23 +4566,23 @@ OUT_RXString.exit80:                              ; preds = %183, %190
 
 213:                                              ; preds = %206
   %214 = sub nuw nsw i32 4, %212
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %214) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %214) #6
   br label %OUT_RXString.exit84
 
 OUT_RXString.exit84:                              ; preds = %206, %213
   %215 = load i32, ptr @hf_afs_bos_size, align 4
-  %216 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %215, i32 noundef 4, i32 noundef 0) #7
+  %216 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %215, i32 noundef 4, i32 noundef 0) #6
   %217 = load i32, ptr @hf_afs_bos_flags, align 4
-  %218 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %217, i32 noundef 4, i32 noundef 0) #7
+  %218 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %217, i32 noundef 4, i32 noundef 0) #6
   %219 = load i32, ptr @hf_afs_bos_date, align 4
-  %220 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %219, i32 noundef 4, i32 noundef 0) #7
+  %220 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %219, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 221:                                              ; preds = %3
   %222 = load i32, ptr @hf_afs_bos_path, align 4
-  %223 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %224 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %222, i32 noundef 4, i32 noundef 0) #7
-  %225 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %223 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %224 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %222, i32 noundef 4, i32 noundef 0) #6
+  %225 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %226 = sub i32 %225, %223
   %227 = and i32 %226, 3
   %.not.i85 = icmp eq i32 %227, 0
@@ -4579,14 +4590,14 @@ OUT_RXString.exit84:                              ; preds = %206, %213
 
 228:                                              ; preds = %221
   %229 = sub nuw nsw i32 4, %227
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %229) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %229) #6
   br label %OUT_RXString.exit58
 
 230:                                              ; preds = %3
   %231 = load i32, ptr @hf_afs_bos_path, align 4
-  %232 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %233 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %231, i32 noundef 4, i32 noundef 0) #7
-  %234 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %232 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %233 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %231, i32 noundef 4, i32 noundef 0) #6
+  %234 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %235 = sub i32 %234, %232
   %236 = and i32 %235, 3
   %.not.i87 = icmp eq i32 %236, 0
@@ -4594,14 +4605,14 @@ OUT_RXString.exit84:                              ; preds = %206, %213
 
 237:                                              ; preds = %230
   %238 = sub nuw nsw i32 4, %236
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %238) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %238) #6
   br label %OUT_RXString.exit58
 
 239:                                              ; preds = %3
   %240 = load i32, ptr @hf_afs_bos_cmd, align 4
-  %241 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %242 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %240, i32 noundef 4, i32 noundef 0) #7
-  %243 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %241 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %242 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %240, i32 noundef 4, i32 noundef 0) #6
+  %243 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %244 = sub i32 %243, %241
   %245 = and i32 %244, 3
   %.not.i89 = icmp eq i32 %245, 0
@@ -4609,30 +4620,30 @@ OUT_RXString.exit84:                              ; preds = %206, %213
 
 246:                                              ; preds = %239
   %247 = sub nuw nsw i32 4, %245
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %247) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %247) #6
   br label %OUT_RXString.exit58
 
 248:                                              ; preds = %3
   %249 = load i32, ptr @hf_afs_bos_flags, align 4
-  %250 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %249, i32 noundef 4, i32 noundef 0) #7
+  %250 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %249, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 251:                                              ; preds = %3
   %252 = load i32, ptr @hf_afs_bos_num, align 4
-  %253 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 12) #7
+  %253 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 12) #6
   br label %OUT_RXString.exit58
 
 254:                                              ; preds = %3
   %255 = load i32, ptr @hf_afs_bos_num, align 4
-  %256 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %255, i32 noundef 4, i32 noundef 0) #7
+  %256 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %255, i32 noundef 4, i32 noundef 0) #6
   br label %OUT_RXString.exit58
 
 257:                                              ; preds = %3
   %258 = load i32, ptr @hf_afs_bos_file, align 4
-  %259 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %260 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %258, i32 noundef 4, i32 noundef 0) #7
-  %261 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %259 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %260 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %258, i32 noundef 4, i32 noundef 0) #6
+  %261 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %262 = sub i32 %261, %259
   %263 = and i32 %262, 3
   %.not.i91 = icmp eq i32 %263, 0
@@ -4640,14 +4651,14 @@ OUT_RXString.exit84:                              ; preds = %206, %213
 
 264:                                              ; preds = %257
   %265 = sub nuw nsw i32 4, %263
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %265) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %265) #6
   br label %OUT_RXString.exit58
 
 266:                                              ; preds = %3
   %267 = load i32, ptr @hf_afs_bos_content, align 4
-  %268 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %269 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %267, i32 noundef 4, i32 noundef 0) #7
-  %270 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %268 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %269 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %267, i32 noundef 4, i32 noundef 0) #6
+  %270 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %271 = sub i32 %270, %268
   %272 = and i32 %271, 3
   %.not.i93 = icmp eq i32 %272, 0
@@ -4655,7 +4666,7 @@ OUT_RXString.exit84:                              ; preds = %206, %213
 
 273:                                              ; preds = %266
   %274 = sub nuw nsw i32 4, %272
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %274) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %274) #6
   br label %OUT_RXString.exit58
 
 OUT_RXString.exit58:                              ; preds = %273, %266, %264, %257, %246, %239, %237, %230, %228, %221, %204, %197, %181, %174, %172, %165, %160, %153, %137, %130, %128, %121, %108, %101, %96, %89, %76, %69, %67, %OUT_RXString.exit56, %254, %251, %248, %OUT_RXString.exit84, %194, %OUT_RXString.exit80, %162, %150, %145, %142, %139, %OUT_RXString.exit68, %98, %OUT_RXString.exit62, %3
@@ -4670,7 +4681,7 @@ define internal void @dissect_backup_reply(ptr noundef %0, ptr nocapture noundef
 
 6:                                                ; preds = %3
   %7 = load i32, ptr @hf_afs_backup_errcode, align 4
-  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #7
+  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #6
   br label %9
 
 9:                                                ; preds = %6, %3
@@ -4679,7 +4690,7 @@ define internal void @dissect_backup_reply(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_backup_request(ptr noundef %0, ptr nocapture readnone %1, i32 %2) #0 {
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   ret void
 }
 
@@ -4691,7 +4702,7 @@ define internal void @dissect_butc_reply(ptr noundef %0, ptr nocapture noundef r
 
 6:                                                ; preds = %3
   %7 = load i32, ptr @hf_afs_butc_errcode, align 4
-  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #7
+  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #6
   br label %9
 
 9:                                                ; preds = %6, %3
@@ -4700,7 +4711,7 @@ define internal void @dissect_butc_reply(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_butc_request(ptr noundef %0, ptr nocapture readnone %1, i32 %2) #0 {
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   ret void
 }
 
@@ -4739,14 +4750,14 @@ define internal void @dissect_ubik_reply(ptr noundef %0, ptr nocapture readnone 
   tail call fastcc void @OUT_UBIK_DebugOld(ptr noundef %0)
   tail call fastcc void @OUT_UBIK_InterfaceAddrs(ptr noundef %0)
   %9 = load i32, ptr @hf_afs_ubik_isclone, align 4
-  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #7
+  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #6
   br label %16
 
 11:                                               ; preds = %3
   tail call fastcc void @OUT_UBIK_SDebugOld(ptr noundef %0)
   tail call fastcc void @OUT_UBIK_InterfaceAddrs(ptr noundef %0)
   %12 = load i32, ptr @hf_afs_ubik_isclone, align 4
-  %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #7
+  %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #6
   br label %16
 
 14:                                               ; preds = %3
@@ -4763,7 +4774,7 @@ define internal void @dissect_ubik_reply(ptr noundef %0, ptr nocapture readnone 
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_ubik_request(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   switch i32 %2, label %53 [
     i32 10000, label %4
     i32 20013, label %52
@@ -4784,30 +4795,30 @@ define internal void @dissect_ubik_request(ptr noundef %0, ptr nocapture readnon
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @hf_afs_ubik_state, align 4
-  %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #7
+  %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #6
   %7 = load i32, ptr @hf_afs_ubik_votestart, align 4
-  %8 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %9 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %10 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %7, ptr noundef %9, i32 noundef %10, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %8 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %9 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %10 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %7, ptr noundef %9, i32 noundef %10, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   tail call fastcc void @OUT_UBIKVERSION(ptr noundef %0, ptr noundef nonnull @.str.944)
   tail call fastcc void @OUT_UBIKVERSION(ptr noundef %0, ptr noundef nonnull @.str.951)
   br label %53
 
 12:                                               ; preds = %3
   %13 = load i32, ptr @hf_afs_ubik_site, align 4
-  %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #7
+  %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #6
   br label %53
 
 15:                                               ; preds = %3
   %16 = load i32, ptr @hf_afs_ubik_site, align 4
-  %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #7
+  %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #6
   br label %53
 
 18:                                               ; preds = %3, %3
   %19 = load i32, ptr @hf_afs_ubik_site, align 4
-  %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef 0) #7
+  %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef 0) #6
   br label %53
 
 21:                                               ; preds = %3
@@ -4821,42 +4832,42 @@ define internal void @dissect_ubik_request(ptr noundef %0, ptr nocapture readnon
 23:                                               ; preds = %3
   tail call fastcc void @OUT_UBIKVERSION(ptr noundef %0, ptr noundef nonnull @.str.951)
   %24 = load i32, ptr @hf_afs_ubik_file, align 4
-  %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #7
+  %25 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #6
   %26 = load i32, ptr @hf_afs_ubik_pos, align 4
-  %27 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0) #7
+  %27 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0) #6
   %28 = load i32, ptr @hf_afs_ubik_length, align 4
-  %29 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef 0) #7
+  %29 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef 0) #6
   %30 = load i32, ptr @hf_afs_ubik_locktype, align 4
-  %31 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0) #7
+  %31 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0) #6
   br label %53
 
 32:                                               ; preds = %3
   tail call fastcc void @OUT_UBIKVERSION(ptr noundef %0, ptr noundef nonnull @.str.951)
   %33 = load i32, ptr @hf_afs_ubik_file, align 4
-  %34 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef 0) #7
+  %34 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef 0) #6
   %35 = load i32, ptr @hf_afs_ubik_pos, align 4
-  %36 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef 0) #7
+  %36 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef 0) #6
   br label %53
 
 37:                                               ; preds = %3
   %38 = load i32, ptr @hf_afs_ubik_file, align 4
-  %39 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef 0) #7
+  %39 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef 0) #6
   br label %53
 
 40:                                               ; preds = %3
   %41 = load i32, ptr @hf_afs_ubik_file, align 4
-  %42 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0) #7
+  %42 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0) #6
   %43 = load i32, ptr @hf_afs_ubik_length, align 4
-  %44 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef 0) #7
+  %44 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef 0) #6
   tail call fastcc void @OUT_UBIKVERSION(ptr noundef %0, ptr noundef nonnull @.str.944)
   br label %53
 
 45:                                               ; preds = %3
   tail call fastcc void @OUT_UBIKVERSION(ptr noundef %0, ptr noundef nonnull @.str.951)
   %46 = load i32, ptr @hf_afs_ubik_file, align 4
-  %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0) #7
+  %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0) #6
   %48 = load i32, ptr @hf_afs_ubik_length, align 4
-  %49 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0) #7
+  %49 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0) #6
   br label %53
 
 50:                                               ; preds = %3
@@ -4916,100 +4927,100 @@ declare ptr @ptvcursor_new(ptr noundef, ptr noundef, ptr noundef, i32 noundef) l
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_FS_AFSFetchStatus(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @ett_afs_status, align 4
-  %4 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %3, ptr noundef nonnull @.str.919, ptr noundef %1) #7
+  %4 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %3, ptr noundef nonnull @.str.919, ptr noundef %1) #6
   %5 = load i32, ptr @hf_afs_fs_status_interfaceversion, align 4
-  %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #7
+  %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #6
   %7 = load i32, ptr @hf_afs_fs_status_filetype, align 4
-  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #7
+  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #6
   %9 = load i32, ptr @hf_afs_fs_status_linkcount, align 4
-  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #7
+  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #6
   %11 = load i32, ptr @hf_afs_fs_status_length, align 4
-  %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #7
+  %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #6
   %13 = load i32, ptr @hf_afs_fs_status_dataversion, align 4
-  %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #7
+  %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #6
   %15 = load i32, ptr @hf_afs_fs_status_author, align 4
-  %16 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0) #7
+  %16 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0) #6
   %17 = load i32, ptr @hf_afs_fs_status_owner, align 4
-  %18 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef 0) #7
+  %18 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef 0) #6
   %19 = load i32, ptr @hf_afs_fs_status_calleraccess, align 4
-  %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef 0) #7
+  %20 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef 0) #6
   %21 = load i32, ptr @hf_afs_fs_status_anonymousaccess, align 4
-  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #7
+  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #6
   %23 = load i32, ptr @hf_afs_fs_status_mode, align 4
-  %24 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef 0) #7
+  %24 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef 0) #6
   %25 = load i32, ptr @hf_afs_fs_status_parentvnode, align 4
-  %26 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %25, i32 noundef 4, i32 noundef 0) #7
+  %26 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %25, i32 noundef 4, i32 noundef 0) #6
   %27 = load i32, ptr @hf_afs_fs_status_parentunique, align 4
-  %28 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef 0) #7
+  %28 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef 0) #6
   %29 = load i32, ptr @hf_afs_fs_status_segsize, align 4
-  %30 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0) #7
+  %30 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef 0) #6
   %31 = load i32, ptr @hf_afs_fs_status_clientmodtime, align 4
-  %32 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %33 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %34 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %31, ptr noundef %33, i32 noundef %34, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %32 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %33 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %34 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %31, ptr noundef %33, i32 noundef %34, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %36 = load i32, ptr @hf_afs_fs_status_servermodtime, align 4
-  %37 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %38 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %39 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %36, ptr noundef %38, i32 noundef %39, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %37 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %38 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %39 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %36, ptr noundef %38, i32 noundef %39, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %41 = load i32, ptr @hf_afs_fs_status_group, align 4
-  %42 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0) #7
+  %42 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0) #6
   %43 = load i32, ptr @hf_afs_fs_status_synccounter, align 4
-  %44 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef 0) #7
+  %44 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef 0) #6
   %45 = load i32, ptr @hf_afs_fs_status_dataversionhigh, align 4
-  %46 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef 0) #7
+  %46 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef 0) #6
   %47 = load i32, ptr @hf_afs_fs_status_spare2, align 4
-  %48 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0) #7
+  %48 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef 0) #6
   %49 = load i32, ptr @hf_afs_fs_status_spare3, align 4
-  %50 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef 0) #7
+  %50 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef 0) #6
   %51 = load i32, ptr @hf_afs_fs_status_spare4, align 4
-  %52 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %52 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_FS_AFSCallBack(ptr noundef %0) unnamed_addr #0 {
   %2 = load i32, ptr @ett_afs_callback, align 4
-  %3 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %2, ptr noundef nonnull @.str.2) #7
+  %3 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %2, ptr noundef nonnull @.str.2) #6
   %4 = load i32, ptr @hf_afs_fs_callback_version, align 4
-  %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef 0) #7
+  %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef 0) #6
   %6 = load i32, ptr @hf_afs_fs_callback_expires, align 4
-  %7 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %8 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %6, ptr noundef %8, i32 noundef %9, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %7 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %8 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %6, ptr noundef %8, i32 noundef %9, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %11 = load i32, ptr @hf_afs_fs_callback_type, align 4
-  %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_FS_AFSVolSync(ptr noundef %0) unnamed_addr #0 {
   %2 = load i32, ptr @ett_afs_status, align 4
-  %3 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %2, ptr noundef nonnull @.str.920) #7
+  %3 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %2, ptr noundef nonnull @.str.920) #6
   %4 = load i32, ptr @hf_afs_fs_volsync_spare1, align 4
-  %5 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %4, ptr noundef %6, i32 noundef %7, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %5 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %4, ptr noundef %6, i32 noundef %7, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %9 = load i32, ptr @hf_afs_fs_volsync_spare2, align 4
-  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #7
+  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #6
   %11 = load i32, ptr @hf_afs_fs_volsync_spare3, align 4
-  %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #7
+  %12 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #6
   %13 = load i32, ptr @hf_afs_fs_volsync_spare4, align 4
-  %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #7
+  %14 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0) #6
   %15 = load i32, ptr @hf_afs_fs_volsync_spare5, align 4
-  %16 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0) #7
+  %16 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0) #6
   %17 = load i32, ptr @hf_afs_fs_volsync_spare6, align 4
-  %18 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %18 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   ret void
 }
 
@@ -5024,49 +5035,49 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   %6 = alloca [128 x i8], align 16
   %7 = alloca [10 x i8], align 1
   %8 = alloca [10 x i8], align 1
-  %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %10 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %11 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
+  %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %10 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %11 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, ptr noundef nonnull align 16 dereferenceable(128) @__const.dissect_acl.user, i64 128, i1 false)
-  %12 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %11, i32 noundef %12) #7
+  %12 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %11, i32 noundef %12) #6
   %14 = load i32, ptr @hf_afs_fs_acl_datasize, align 4
-  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0) #7
-  %16 = tail call ptr @wmem_packet_scope() #7
-  %17 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %18 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %19 = tail call i32 @tvb_captured_length_remaining(ptr noundef %11, i32 noundef %18) #7
-  %20 = tail call ptr @tvb_format_text(ptr noundef %16, ptr noundef %11, i32 noundef %17, i32 noundef %19) #7
-  %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %20, ptr noundef nonnull @.str.921, ptr noundef nonnull %3, ptr noundef nonnull %2) #7
+  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0) #6
+  %16 = tail call ptr @wmem_packet_scope() #6
+  %17 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %18 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %19 = tail call i32 @tvb_captured_length_remaining(ptr noundef %11, i32 noundef %18) #6
+  %20 = tail call ptr @tvb_format_text(ptr noundef %16, ptr noundef %11, i32 noundef %17, i32 noundef %19) #6
+  %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %20, ptr noundef nonnull @.str.921, ptr noundef nonnull %3, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %21, 1
   br i1 %.not, label %22, label %.loopexit
 
 22:                                               ; preds = %1
   %23 = load i32, ptr @hf_afs_fs_acl_count_positive, align 4
-  %24 = call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %24 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %25 = load i32, ptr %2, align 4
   %26 = load i32, ptr %3, align 4
-  %27 = call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %23, ptr noundef %11, i32 noundef %24, i32 noundef %25, i32 noundef %26) #7
+  %27 = call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %23, ptr noundef %11, i32 noundef %24, i32 noundef %25, i32 noundef %26) #6
   %28 = load i32, ptr %2, align 4
-  call void @ptvcursor_advance(ptr noundef %0, i32 noundef %28) #7
-  %29 = call ptr @wmem_packet_scope() #7
-  %30 = call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %31 = call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %32 = call i32 @tvb_captured_length_remaining(ptr noundef %11, i32 noundef %31) #7
-  %33 = call ptr @tvb_format_text(ptr noundef %29, ptr noundef %11, i32 noundef %30, i32 noundef %32) #7
-  %34 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %33, ptr noundef nonnull @.str.921, ptr noundef nonnull %4, ptr noundef nonnull %2) #7
+  call void @ptvcursor_advance(ptr noundef %0, i32 noundef %28) #6
+  %29 = call ptr @wmem_packet_scope() #6
+  %30 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %31 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %32 = call i32 @tvb_captured_length_remaining(ptr noundef %11, i32 noundef %31) #6
+  %33 = call ptr @tvb_format_text(ptr noundef %29, ptr noundef %11, i32 noundef %30, i32 noundef %32) #6
+  %34 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %33, ptr noundef nonnull @.str.921, ptr noundef nonnull %4, ptr noundef nonnull %2) #6
   %.not118 = icmp eq i32 %34, 1
   br i1 %.not118, label %35, label %.loopexit
 
 35:                                               ; preds = %22
   %36 = load i32, ptr @hf_afs_fs_acl_count_negative, align 4
-  %37 = call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %37 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %38 = load i32, ptr %2, align 4
   %39 = load i32, ptr %4, align 4
-  %40 = call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %36, ptr noundef %11, i32 noundef %37, i32 noundef %38, i32 noundef %39) #7
+  %40 = call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %36, ptr noundef %11, i32 noundef %37, i32 noundef %38, i32 noundef %39) #6
   %41 = load i32, ptr %2, align 4
-  call void @ptvcursor_advance(ptr noundef %0, i32 noundef %41) #7
-  %42 = call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  call void @ptvcursor_advance(ptr noundef %0, i32 noundef %41) #6
+  %42 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %43 = load i32, ptr %3, align 4
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph, label %.preheader
@@ -5084,12 +5095,12 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
 .lr.ph:                                           ; preds = %35, %89
   %.04 = phi i32 [ %133, %89 ], [ %42, %35 ]
   %.01133 = phi i32 [ %134, %89 ], [ 0, %35 ]
-  %48 = call ptr @wmem_packet_scope() #7
-  %49 = call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %50 = call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %51 = call i32 @tvb_captured_length_remaining(ptr noundef %11, i32 noundef %50) #7
-  %52 = call ptr @tvb_format_text(ptr noundef %48, ptr noundef %11, i32 noundef %49, i32 noundef %51) #7
-  %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %52, ptr noundef nonnull @.str.922, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %2) #7
+  %48 = call ptr @wmem_packet_scope() #6
+  %49 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %50 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %51 = call i32 @tvb_captured_length_remaining(ptr noundef %11, i32 noundef %50) #6
+  %52 = call ptr @tvb_format_text(ptr noundef %48, ptr noundef %11, i32 noundef %49, i32 noundef %51) #6
+  %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %52, ptr noundef nonnull @.str.922, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %2) #6
   %.not128 = icmp eq i32 %53, 2
   br i1 %.not128, label %54, label %.loopexit
 
@@ -5101,7 +5112,7 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not129, label %59, label %57
 
 57:                                               ; preds = %54
-  %58 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.923, i64 noundef 10) #7
+  %58 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.923, i64 noundef 10) #6
   %.pre = load i32, ptr %5, align 4
   br label %59
 
@@ -5112,7 +5123,7 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not130, label %64, label %62
 
 62:                                               ; preds = %59
-  %63 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.924, i64 noundef 10) #7
+  %63 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.924, i64 noundef 10) #6
   %.pre11 = load i32, ptr %5, align 4
   br label %64
 
@@ -5123,7 +5134,7 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not131, label %69, label %67
 
 67:                                               ; preds = %64
-  %68 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.925, i64 noundef 10) #7
+  %68 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.925, i64 noundef 10) #6
   %.pre12 = load i32, ptr %5, align 4
   br label %69
 
@@ -5134,7 +5145,7 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not132, label %74, label %72
 
 72:                                               ; preds = %69
-  %73 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.926, i64 noundef 10) #7
+  %73 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.926, i64 noundef 10) #6
   %.pre13 = load i32, ptr %5, align 4
   br label %74
 
@@ -5145,7 +5156,7 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not133, label %79, label %77
 
 77:                                               ; preds = %74
-  %78 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.927, i64 noundef 10) #7
+  %78 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.927, i64 noundef 10) #6
   %.pre14 = load i32, ptr %5, align 4
   br label %79
 
@@ -5156,7 +5167,7 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not134, label %84, label %82
 
 82:                                               ; preds = %79
-  %83 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.928, i64 noundef 10) #7
+  %83 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.928, i64 noundef 10) #6
   %.pre15 = load i32, ptr %5, align 4
   br label %84
 
@@ -5167,18 +5178,18 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not135, label %89, label %87
 
 87:                                               ; preds = %84
-  %88 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.929, i64 noundef 10) #7
+  %88 = call i64 @g_strlcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.929, i64 noundef 10) #6
   br label %89
 
 89:                                               ; preds = %87, %84
   %90 = load i32, ptr %2, align 4
   %91 = load i32, ptr @ett_afs_acl, align 4
-  %92 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %11, i32 noundef %.04, i32 noundef %90, i32 noundef %91, ptr noundef null, ptr noundef nonnull @.str.930, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @.str.896) #7
+  %92 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %11, i32 noundef %.04, i32 noundef %90, i32 noundef %91, ptr noundef null, ptr noundef nonnull @.str.930, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @.str.896) #6
   %93 = load i32, ptr @hf_afs_fs_acl_entity, align 4
-  %94 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %94 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %95 = trunc i64 %94 to i32
-  %96 = call ptr @proto_tree_add_string(ptr noundef %92, i32 noundef %93, ptr noundef %11, i32 noundef %.04, i32 noundef %95, ptr noundef nonnull %6) #7
-  %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %96 = call ptr @proto_tree_add_string(ptr noundef %92, i32 noundef %93, ptr noundef %11, i32 noundef %.04, i32 noundef %95, ptr noundef nonnull %6) #6
+  %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %98 = trunc i64 %97 to i32
   %99 = add i32 %.04, 1
   %100 = add i32 %99, %98
@@ -5188,31 +5199,31 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   %104 = load i32, ptr @hf_afs_fs_acl_r, align 4
   %105 = load i32, ptr %5, align 4
   %106 = sext i32 %105 to i64
-  %107 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %104, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %106) #7
+  %107 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %104, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %106) #6
   %108 = load i32, ptr @hf_afs_fs_acl_l, align 4
   %109 = load i32, ptr %5, align 4
   %110 = sext i32 %109 to i64
-  %111 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %108, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %110) #7
+  %111 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %108, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %110) #6
   %112 = load i32, ptr @hf_afs_fs_acl_i, align 4
   %113 = load i32, ptr %5, align 4
   %114 = sext i32 %113 to i64
-  %115 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %112, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %114) #7
+  %115 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %112, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %114) #6
   %116 = load i32, ptr @hf_afs_fs_acl_d, align 4
   %117 = load i32, ptr %5, align 4
   %118 = sext i32 %117 to i64
-  %119 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %116, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %118) #7
+  %119 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %116, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %118) #6
   %120 = load i32, ptr @hf_afs_fs_acl_w, align 4
   %121 = load i32, ptr %5, align 4
   %122 = sext i32 %121 to i64
-  %123 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %120, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %122) #7
+  %123 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %120, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %122) #6
   %124 = load i32, ptr @hf_afs_fs_acl_k, align 4
   %125 = load i32, ptr %5, align 4
   %126 = sext i32 %125 to i64
-  %127 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %124, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %126) #7
+  %127 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %124, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %126) #6
   %128 = load i32, ptr @hf_afs_fs_acl_a, align 4
   %129 = load i32, ptr %5, align 4
   %130 = sext i32 %129 to i64
-  %131 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %128, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %130) #7
+  %131 = call ptr @proto_tree_add_boolean(ptr noundef %92, i32 noundef %128, ptr noundef %11, i32 noundef %100, i32 noundef %103, i64 noundef %130) #6
   %132 = load i32, ptr %2, align 4
   %133 = add i32 %132, %.04
   %134 = add nuw nsw i32 %.01133, 1
@@ -5229,12 +5240,12 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
 141:                                              ; preds = %.lr.ph7, %137
   %.16 = phi i32 [ %.0.lcssa, %.lr.ph7 ], [ %227, %137 ]
   %.11145 = phi i32 [ 0, %.lr.ph7 ], [ %138, %137 ]
-  %142 = call ptr @wmem_packet_scope() #7
-  %143 = call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %144 = call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %145 = call i32 @tvb_captured_length_remaining(ptr noundef %11, i32 noundef %144) #7
-  %146 = call ptr @tvb_format_text(ptr noundef %142, ptr noundef %11, i32 noundef %143, i32 noundef %145) #7
-  %147 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %146, ptr noundef nonnull @.str.922, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %2) #7
+  %142 = call ptr @wmem_packet_scope() #6
+  %143 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %144 = call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %145 = call i32 @tvb_captured_length_remaining(ptr noundef %11, i32 noundef %144) #6
+  %146 = call ptr @tvb_format_text(ptr noundef %142, ptr noundef %11, i32 noundef %143, i32 noundef %145) #6
+  %147 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %146, ptr noundef nonnull @.str.922, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %2) #6
   %.not119 = icmp eq i32 %147, 2
   br i1 %.not119, label %148, label %.loopexit
 
@@ -5246,7 +5257,7 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not120, label %153, label %151
 
 151:                                              ; preds = %148
-  %152 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.923, i64 noundef 10) #7
+  %152 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.923, i64 noundef 10) #6
   %.pre16 = load i32, ptr %5, align 4
   br label %153
 
@@ -5257,7 +5268,7 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not121, label %158, label %156
 
 156:                                              ; preds = %153
-  %157 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.924, i64 noundef 10) #7
+  %157 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.924, i64 noundef 10) #6
   %.pre17 = load i32, ptr %5, align 4
   br label %158
 
@@ -5268,7 +5279,7 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not122, label %163, label %161
 
 161:                                              ; preds = %158
-  %162 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.925, i64 noundef 10) #7
+  %162 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.925, i64 noundef 10) #6
   %.pre18 = load i32, ptr %5, align 4
   br label %163
 
@@ -5279,7 +5290,7 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not123, label %168, label %166
 
 166:                                              ; preds = %163
-  %167 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.926, i64 noundef 10) #7
+  %167 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.926, i64 noundef 10) #6
   %.pre19 = load i32, ptr %5, align 4
   br label %168
 
@@ -5290,7 +5301,7 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not124, label %173, label %171
 
 171:                                              ; preds = %168
-  %172 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.927, i64 noundef 10) #7
+  %172 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.927, i64 noundef 10) #6
   %.pre20 = load i32, ptr %5, align 4
   br label %173
 
@@ -5301,7 +5312,7 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not125, label %178, label %176
 
 176:                                              ; preds = %173
-  %177 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.928, i64 noundef 10) #7
+  %177 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.928, i64 noundef 10) #6
   %.pre21 = load i32, ptr %5, align 4
   br label %178
 
@@ -5312,18 +5323,18 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not126, label %183, label %181
 
 181:                                              ; preds = %178
-  %182 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.929, i64 noundef 10) #7
+  %182 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.929, i64 noundef 10) #6
   br label %183
 
 183:                                              ; preds = %181, %178
   %184 = load i32, ptr %2, align 4
   %185 = load i32, ptr @ett_afs_acl, align 4
-  %186 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %11, i32 noundef %.16, i32 noundef %184, i32 noundef %185, ptr noundef null, ptr noundef nonnull @.str.930, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull @.str.931) #7
+  %186 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %11, i32 noundef %.16, i32 noundef %184, i32 noundef %185, ptr noundef null, ptr noundef nonnull @.str.930, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull @.str.931) #6
   %187 = load i32, ptr @hf_afs_fs_acl_entity, align 4
-  %188 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %188 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %189 = trunc i64 %188 to i32
-  %190 = call ptr @proto_tree_add_string(ptr noundef %186, i32 noundef %187, ptr noundef %11, i32 noundef %.16, i32 noundef %189, ptr noundef nonnull %6) #7
-  %191 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %190 = call ptr @proto_tree_add_string(ptr noundef %186, i32 noundef %187, ptr noundef %11, i32 noundef %.16, i32 noundef %189, ptr noundef nonnull %6) #6
+  %191 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %192 = trunc i64 %191 to i32
   %193 = add i32 %.16, 1
   %194 = add i32 %193, %192
@@ -5333,31 +5344,31 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
   %198 = load i32, ptr @hf_afs_fs_acl_r, align 4
   %199 = load i32, ptr %5, align 4
   %200 = sext i32 %199 to i64
-  %201 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %198, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %200) #7
+  %201 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %198, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %200) #6
   %202 = load i32, ptr @hf_afs_fs_acl_l, align 4
   %203 = load i32, ptr %5, align 4
   %204 = sext i32 %203 to i64
-  %205 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %202, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %204) #7
+  %205 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %202, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %204) #6
   %206 = load i32, ptr @hf_afs_fs_acl_i, align 4
   %207 = load i32, ptr %5, align 4
   %208 = sext i32 %207 to i64
-  %209 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %206, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %208) #7
+  %209 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %206, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %208) #6
   %210 = load i32, ptr @hf_afs_fs_acl_d, align 4
   %211 = load i32, ptr %5, align 4
   %212 = sext i32 %211 to i64
-  %213 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %210, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %212) #7
+  %213 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %210, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %212) #6
   %214 = load i32, ptr @hf_afs_fs_acl_w, align 4
   %215 = load i32, ptr %5, align 4
   %216 = sext i32 %215 to i64
-  %217 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %214, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %216) #7
+  %217 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %214, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %216) #6
   %218 = load i32, ptr @hf_afs_fs_acl_k, align 4
   %219 = load i32, ptr %5, align 4
   %220 = sext i32 %219 to i64
-  %221 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %218, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %220) #7
+  %221 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %218, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %220) #6
   %222 = load i32, ptr @hf_afs_fs_acl_a, align 4
   %223 = load i32, ptr %5, align 4
   %224 = sext i32 %223 to i64
-  %225 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %222, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %224) #7
+  %225 = call ptr @proto_tree_add_boolean(ptr noundef %186, i32 noundef %222, ptr noundef %11, i32 noundef %194, i32 noundef %197, i64 noundef %224) #6
   %226 = load i32, ptr %2, align 4
   %227 = add i32 %226, %.16
   %.not127 = icmp slt i32 %227, %47
@@ -5370,22 +5381,22 @@ define internal fastcc void @dissect_acl(ptr noundef %0) unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_FS_AFSFid(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @ett_afs_fid, align 4
-  %4 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %3, ptr noundef nonnull @.str.932, ptr noundef %1) #7
+  %4 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %3, ptr noundef nonnull @.str.932, ptr noundef %1) #6
   %5 = load i32, ptr @hf_afs_fs_fid_volume, align 4
-  %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #7
+  %6 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef 0) #6
   %7 = load i32, ptr @hf_afs_fs_fid_vnode, align 4
-  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #7
+  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #6
   %9 = load i32, ptr @hf_afs_fs_fid_uniqifier, align 4
-  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %10 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_RXString(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #7
-  %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %3 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #6
+  %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %6 = sub i32 %5, %3
   %7 = and i32 %6, 3
   %.not = icmp eq i32 %7, 0
@@ -5393,7 +5404,7 @@ define internal fastcc void @OUT_RXString(ptr noundef %0, i32 noundef %1) unname
 
 8:                                                ; preds = %2
   %9 = sub nuw nsw i32 4, %7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %9) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %9) #6
   br label %10
 
 10:                                               ; preds = %8, %2
@@ -5402,11 +5413,11 @@ define internal fastcc void @OUT_RXString(ptr noundef %0, i32 noundef %1) unname
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_TIMESTAMP(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1, ptr noundef %4, i32 noundef %5, i32 noundef 8, i32 noundef 16) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 8) #7
+  %3 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1, ptr noundef %4, i32 noundef %5, i32 noundef 8, i32 noundef 16) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 8) #6
   ret void
 }
 
@@ -5418,11 +5429,11 @@ declare void @ptvcursor_advance(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_TIMESECS(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1, ptr noundef %4, i32 noundef %5, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %3 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1, ptr noundef %4, i32 noundef %5, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   ret void
 }
 
@@ -5451,68 +5462,68 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_FS_AFSStoreStatus(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @ett_afs_status, align 4
-  %4 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %3, ptr noundef nonnull @.str.919, ptr noundef %1) #7
-  %5 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %4 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %3, ptr noundef nonnull @.str.919, ptr noundef %1) #6
+  %5 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %8 = load i32, ptr @hf_afs_fs_status_mask, align 4
   %9 = load i32, ptr @ett_afs_status_mask, align 4
-  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @OUT_FS_AFSStoreStatus.status_mask_flags, i32 noundef 0) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @OUT_FS_AFSStoreStatus.status_mask_flags, i32 noundef 0) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %11 = load i32, ptr @hf_afs_fs_status_clientmodtime, align 4
-  %12 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %13 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %11, ptr noundef %13, i32 noundef %14, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %12 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %13 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %14 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %11, ptr noundef %13, i32 noundef %14, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %16 = load i32, ptr @hf_afs_fs_status_owner, align 4
-  %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #7
+  %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #6
   %18 = load i32, ptr @hf_afs_fs_status_group, align 4
-  %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef 0) #7
+  %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef 0) #6
   %20 = load i32, ptr @hf_afs_fs_status_mode, align 4
-  %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0) #7
+  %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0) #6
   %22 = load i32, ptr @hf_afs_fs_status_segsize, align 4
-  %23 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0) #7
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %23 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0) #6
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_RXStringV(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %5 = tail call ptr @wmem_packet_scope() #7
+  %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %5 = tail call ptr @wmem_packet_scope() #6
   %6 = add nuw nsw i32 %2, 1
   %7 = zext nneg i32 %6 to i64
-  %8 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %5, i64 noundef %7) #7
-  %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %8 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %5, i64 noundef %7) #6
+  %9 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.023 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
   %.02022 = phi i32 [ %12, %.lr.ph ], [ %9, %3 ]
-  %10 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %.02022) #7
+  %10 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %.02022) #6
   %11 = trunc i32 %10 to i8
-  tail call void @wmem_strbuf_append_c(ptr noundef %8, i8 noundef signext %11) #7
+  tail call void @wmem_strbuf_append_c(ptr noundef %8, i8 noundef signext %11) #6
   %12 = add i32 %.02022, 4
   %13 = add nuw i32 %.023, 1
   %exitcond.not = icmp eq i32 %13, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %14 = tail call zeroext i1 @wmem_strbuf_utf8_validate(ptr noundef %8, ptr noundef null) #7
+  %14 = tail call zeroext i1 @wmem_strbuf_utf8_validate(ptr noundef %8, ptr noundef null) #6
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %._crit_edge
-  tail call void @wmem_strbuf_utf8_make_valid(ptr noundef %8) #7
+  tail call void @wmem_strbuf_utf8_make_valid(ptr noundef %8) #6
   br label %16
 
 16:                                               ; preds = %15, %._crit_edge
-  %17 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
+  %17 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
   %18 = shl nuw nsw i32 %2, 2
-  %19 = tail call ptr @wmem_strbuf_finalize(ptr noundef %8) #7
-  %20 = tail call ptr @proto_tree_add_string(ptr noundef %17, i32 noundef %1, ptr noundef %4, i32 noundef %9, i32 noundef %18, ptr noundef %19) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %18) #7
+  %19 = tail call ptr @wmem_strbuf_finalize(ptr noundef %8) #6
+  %20 = tail call ptr @proto_tree_add_string(ptr noundef %17, i32 noundef %1, ptr noundef %4, i32 noundef %9, i32 noundef %18, ptr noundef %19) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef %18) #6
   ret void
 }
 
@@ -5537,108 +5548,108 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_UBIK_DebugOld(ptr noundef %0) unnamed_addr #0 {
   %2 = load i32, ptr @hf_afs_ubik_now, align 4
-  %3 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %2, ptr noundef %4, i32 noundef %5, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %3 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %2, ptr noundef %4, i32 noundef %5, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %7 = load i32, ptr @hf_afs_ubik_lastyestime, align 4
-  %8 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %9 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %10 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %7, ptr noundef %9, i32 noundef %10, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %8 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %9 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %10 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %7, ptr noundef %9, i32 noundef %10, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %12 = load i32, ptr @hf_afs_ubik_lastyeshost, align 4
-  %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #7
+  %13 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0) #6
   %14 = load i32, ptr @hf_afs_ubik_lastyesstate, align 4
-  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0) #7
+  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0) #6
   %16 = load i32, ptr @hf_afs_ubik_lastyesclaim, align 4
-  %17 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %18 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %19 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %16, ptr noundef %18, i32 noundef %19, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %17 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %18 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %19 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %16, ptr noundef %18, i32 noundef %19, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %21 = load i32, ptr @hf_afs_ubik_lowesthost, align 4
-  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #7
+  %22 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #6
   %23 = load i32, ptr @hf_afs_ubik_lowesttime, align 4
-  %24 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %25 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %26 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %23, ptr noundef %25, i32 noundef %26, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %24 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %25 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %26 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %23, ptr noundef %25, i32 noundef %26, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %28 = load i32, ptr @hf_afs_ubik_synchost, align 4
-  %29 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef 0) #7
+  %29 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef 0) #6
   %30 = load i32, ptr @hf_afs_ubik_synctime, align 4
-  %31 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %32 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %33 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %30, ptr noundef %32, i32 noundef %33, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %31 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %32 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %33 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %30, ptr noundef %32, i32 noundef %33, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   tail call fastcc void @OUT_UBIKVERSION(ptr noundef %0, ptr noundef nonnull @.str.945)
   tail call fastcc void @OUT_UBIKVERSION(ptr noundef %0, ptr noundef nonnull @.str.946)
   %35 = load i32, ptr @hf_afs_ubik_amsyncsite, align 4
-  %36 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef 0) #7
+  %36 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef 0) #6
   %37 = load i32, ptr @hf_afs_ubik_syncsiteuntil, align 4
-  %38 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %39 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %40 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %37, ptr noundef %39, i32 noundef %40, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %38 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %39 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %40 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %37, ptr noundef %39, i32 noundef %40, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %42 = load i32, ptr @hf_afs_ubik_nservers, align 4
-  %43 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #7
+  %43 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
   %44 = load i32, ptr @hf_afs_ubik_lockedpages, align 4
-  %45 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %44, i32 noundef 4, i32 noundef 0) #7
+  %45 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %44, i32 noundef 4, i32 noundef 0) #6
   %46 = load i32, ptr @hf_afs_ubik_writelockedpages, align 4
-  %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0) #7
+  %47 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0) #6
   tail call fastcc void @OUT_UBIKVERSION(ptr noundef %0, ptr noundef nonnull @.str.947)
   %48 = load i32, ptr @hf_afs_ubik_activewrite, align 4
-  %49 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0) #7
+  %49 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0) #6
   %50 = load i32, ptr @hf_afs_ubik_tidcounter, align 4
-  %51 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef 0) #7
+  %51 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef 0) #6
   %52 = load i32, ptr @hf_afs_ubik_anyreadlocks, align 4
-  %53 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef 0) #7
+  %53 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef 0) #6
   %54 = load i32, ptr @hf_afs_ubik_anywritelocks, align 4
-  %55 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0) #7
+  %55 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0) #6
   %56 = load i32, ptr @hf_afs_ubik_recoverystate, align 4
-  %57 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef 0) #7
+  %57 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef 0) #6
   %58 = load i32, ptr @hf_afs_ubik_currenttrans, align 4
-  %59 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %58, i32 noundef 4, i32 noundef 0) #7
+  %59 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %58, i32 noundef 4, i32 noundef 0) #6
   %60 = load i32, ptr @hf_afs_ubik_writetrans, align 4
-  %61 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef 0) #7
+  %61 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef 0) #6
   %62 = load i32, ptr @hf_afs_ubik_epochtime, align 4
-  %63 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %64 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %65 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %62, ptr noundef %64, i32 noundef %65, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %63 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %64 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %65 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %62, ptr noundef %64, i32 noundef %65, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_UBIK_SDebugOld(ptr noundef %0) unnamed_addr #0 {
   %2 = load i32, ptr @hf_afs_ubik_addr, align 4
-  %3 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef 0) #7
+  %3 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef 0) #6
   %4 = load i32, ptr @hf_afs_ubik_lastvotetime, align 4
-  %5 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %4, ptr noundef %6, i32 noundef %7, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %5 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %6 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %4, ptr noundef %6, i32 noundef %7, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %9 = load i32, ptr @hf_afs_ubik_lastbeaconsent, align 4
-  %10 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
-  %11 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %12 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %9, ptr noundef %11, i32 noundef %12, i32 noundef 4, i32 noundef 18) #7
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  %10 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
+  %11 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %12 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %9, ptr noundef %11, i32 noundef %12, i32 noundef 4, i32 noundef 18) #6
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %14 = load i32, ptr @hf_afs_ubik_lastvote, align 4
-  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0) #7
+  %15 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0) #6
   tail call fastcc void @OUT_UBIKVERSION(ptr noundef %0, ptr noundef nonnull @.str.948)
   %16 = load i32, ptr @hf_afs_ubik_currentdb, align 4
-  %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #7
+  %17 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0) #6
   %18 = load i32, ptr @hf_afs_ubik_beaconsincedown, align 4
-  %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef 0) #7
+  %19 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef 0) #6
   %20 = load i32, ptr @hf_afs_ubik_up, align 4
-  %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0) #7
+  %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0) #6
   ret void
 }
 
@@ -5649,15 +5660,15 @@ define internal fastcc void @OUT_UBIK_InterfaceAddrs(ptr noundef %0) unnamed_add
 2:                                                ; preds = %1, %14
   %.011 = phi i32 [ 0, %1 ], [ %.2, %14 ]
   %.0810 = phi i32 [ 0, %1 ], [ %15, %14 ]
-  %3 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %4 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %3, i32 noundef %4) #7
+  %3 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %4 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %3, i32 noundef %4) #6
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr @hf_afs_ubik_interface, align 4
-  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #7
+  %8 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #6
   br label %14
 
 9:                                                ; preds = %2
@@ -5666,11 +5677,11 @@ define internal fastcc void @OUT_UBIK_InterfaceAddrs(ptr noundef %0) unnamed_add
 
 10:                                               ; preds = %9
   %11 = load i32, ptr @hf_afs_ubik_null_addresses, align 4
-  %12 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %11, i32 noundef -1, i32 noundef 0) #7
+  %12 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %11, i32 noundef -1, i32 noundef 0) #6
   br label %13
 
 13:                                               ; preds = %10, %9
-  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  tail call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   br label %14
 
 14:                                               ; preds = %6, %13
@@ -5686,46 +5697,43 @@ define internal fastcc void @OUT_UBIK_InterfaceAddrs(ptr noundef %0) unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @OUT_UBIKVERSION(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.nstime_t, align 8
-  %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %6 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %5) #7
-  %7 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %4 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %5 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
+  %6 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %5) #6
+  %7 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %8 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   %9 = add i32 %8, 4
-  %10 = tail call i32 @tvb_get_ntohl(ptr noundef %7, i32 noundef %9) #7
+  %10 = tail call i32 @tvb_get_ntohl(ptr noundef %7, i32 noundef %9) #6
   %11 = zext i32 %6 to i64
   store i64 %11, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_afs_ubikver, align 4
-  %14 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %13, ptr noundef nonnull @.str.949, ptr noundef %1, i32 noundef %6, i32 noundef %10) #7
+  %14 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %13, ptr noundef nonnull @.str.949, ptr noundef %1, i32 noundef %6, i32 noundef %10) #6
   %.not = icmp eq i32 %6, 0
-  %15 = tail call ptr @ptvcursor_tree(ptr noundef %0) #7
+  %15 = tail call ptr @ptvcursor_tree(ptr noundef %0) #6
   %16 = load i32, ptr @hf_afs_ubik_version_epoch, align 4
-  %17 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
-  %18 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
+  %17 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #6
+  %18 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #6
   br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %2
-  %20 = call ptr @proto_tree_add_time(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 4, ptr noundef nonnull %3) #7
+  %20 = call ptr @proto_tree_add_time(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 4, ptr noundef nonnull %3) #6
   br label %23
 
 21:                                               ; preds = %2
-  %22 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 4, ptr noundef nonnull %3, ptr noundef nonnull @.str.950) #7
+  %22 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 4, ptr noundef nonnull %3, ptr noundef nonnull @.str.950) #6
   br label %23
 
 23:                                               ; preds = %21, %19
-  call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #7
+  call void @ptvcursor_advance(ptr noundef %0, i32 noundef 4) #6
   %24 = load i32, ptr @hf_afs_ubik_version_counter, align 4
-  %25 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #7
-  call void @ptvcursor_pop_subtree(ptr noundef %0) #7
+  %25 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef 0) #6
+  call void @ptvcursor_pop_subtree(ptr noundef %0) #6
   ret void
 }
 
 declare ptr @proto_tree_add_time_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5733,9 +5741,8 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

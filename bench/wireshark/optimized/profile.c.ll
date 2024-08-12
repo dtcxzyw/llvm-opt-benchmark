@@ -490,33 +490,37 @@ empty_profile_list.exit:                          ; preds = %.lr.ph15.i, %0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %empty_profile_list.exit, %.lr.ph
-  %9 = phi ptr [ %25, %.lr.ph ], [ null, %empty_profile_list.exit ]
-  %.010 = phi ptr [ %27, %.lr.ph ], [ %1, %empty_profile_list.exit ]
+  %9 = phi ptr [ %28, %.lr.ph ], [ null, %empty_profile_list.exit ]
+  %.010 = phi ptr [ %30, %.lr.ph ], [ %1, %empty_profile_list.exit ]
   %10 = load ptr, ptr %.010, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 16
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
-  %16 = load i32, ptr %15, align 8
-  %17 = load <2 x i32>, ptr %14, align 8
-  %18 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
-  %19 = tail call noalias ptr @g_strdup(ptr noundef %11) #5
-  store ptr %19, ptr %18, align 8
-  %20 = tail call noalias ptr @g_strdup(ptr noundef %13) #5
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
-  store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 16
-  store <2 x i32> %17, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 24
-  store i32 %16, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 28
-  store i32 0, ptr %24, align 4
-  %25 = tail call ptr @g_list_append(ptr noundef %9, ptr noundef nonnull %18) #5
-  store ptr %25, ptr @current_profiles, align 8
-  %26 = getelementptr inbounds i8, ptr %.010, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %.not = icmp eq ptr %27, null
+  %15 = load i32, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %10, i64 20
+  %17 = load i32, ptr %16, align 4
+  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %19 = load i32, ptr %18, align 8
+  %20 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
+  %21 = tail call noalias ptr @g_strdup(ptr noundef %11) #5
+  store ptr %21, ptr %20, align 8
+  %22 = tail call noalias ptr @g_strdup(ptr noundef %13) #5
+  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr %22, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %20, i64 16
+  store i32 %15, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %20, i64 20
+  store i32 %17, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %20, i64 24
+  store i32 %19, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %20, i64 28
+  store i32 0, ptr %27, align 4
+  %28 = tail call ptr @g_list_append(ptr noundef %9, ptr noundef nonnull %20) #5
+  store ptr %28, ptr @current_profiles, align 8
+  %29 = getelementptr inbounds i8, ptr %.010, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %.not = icmp eq ptr %30, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %empty_profile_list.exit
@@ -631,140 +635,158 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %6, align 8
-  %7 = tail call ptr @g_list_append(ptr noundef %1, ptr noundef nonnull %2) #5
-  store ptr %7, ptr @edited_profiles, align 8
-  %8 = tail call ptr @g_list_last(ptr noundef %7) #5
-  %9 = tail call ptr @get_profiles_dir() #5
-  %10 = tail call ptr @g_dir_open(ptr noundef %9, i32 noundef 0, ptr noundef null) #5
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %21, label %.preheader52
+  store i32 1, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 20
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 28
+  store i32 0, ptr %9, align 4
+  %10 = tail call ptr @g_list_append(ptr noundef %1, ptr noundef nonnull %2) #5
+  store ptr %10, ptr @edited_profiles, align 8
+  %11 = tail call ptr @g_list_last(ptr noundef %10) #5
+  %12 = tail call ptr @get_profiles_dir() #5
+  %13 = tail call ptr @g_dir_open(ptr noundef %12, i32 noundef 0, ptr noundef null) #5
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %24, label %.preheader52
 
 .preheader52:                                     ; preds = %0
-  %11 = tail call ptr @g_dir_read_name(ptr noundef nonnull %10) #5
-  %.not4753 = icmp eq ptr %11, null
+  %14 = tail call ptr @g_dir_read_name(ptr noundef nonnull %13) #5
+  %.not4753 = icmp eq ptr %14, null
   br i1 %.not4753, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader52, %19
-  %12 = phi ptr [ %20, %19 ], [ %11, %.preheader52 ]
-  %.14354 = phi ptr [ %.244, %19 ], [ null, %.preheader52 ]
-  %13 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %9, ptr noundef nonnull @.str.7, ptr noundef nonnull %12) #5
-  %14 = tail call i32 @test_for_directory(ptr noundef %13) #5
-  %15 = icmp eq i32 %14, 21
-  br i1 %15, label %16, label %19
+.lr.ph:                                           ; preds = %.preheader52, %22
+  %15 = phi ptr [ %23, %22 ], [ %14, %.preheader52 ]
+  %.14354 = phi ptr [ %.244, %22 ], [ null, %.preheader52 ]
+  %16 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %12, ptr noundef nonnull @.str.7, ptr noundef nonnull %15) #5
+  %17 = tail call i32 @test_for_directory(ptr noundef %16) #5
+  %18 = icmp eq i32 %17, 21
+  br i1 %18, label %19, label %22
 
-16:                                               ; preds = %.lr.ph
-  %17 = tail call noalias ptr @g_strdup(ptr noundef nonnull %12) #5
-  %18 = tail call ptr @g_list_prepend(ptr noundef %.14354, ptr noundef %17) #5
-  br label %19
+19:                                               ; preds = %.lr.ph
+  %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %15) #5
+  %21 = tail call ptr @g_list_prepend(ptr noundef %.14354, ptr noundef %20) #5
+  br label %22
 
-19:                                               ; preds = %16, %.lr.ph
-  %.244 = phi ptr [ %18, %16 ], [ %.14354, %.lr.ph ]
-  tail call void @g_free(ptr noundef %13) #5
-  %20 = tail call ptr @g_dir_read_name(ptr noundef nonnull %10) #5
-  %.not47 = icmp eq ptr %20, null
+22:                                               ; preds = %19, %.lr.ph
+  %.244 = phi ptr [ %21, %19 ], [ %.14354, %.lr.ph ]
+  tail call void @g_free(ptr noundef %16) #5
+  %23 = tail call ptr @g_dir_read_name(ptr noundef nonnull %13) #5
+  %.not47 = icmp eq ptr %23, null
   br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %19, %.preheader52
-  %.143.lcssa = phi ptr [ null, %.preheader52 ], [ %.244, %19 ]
-  tail call void @g_dir_close(ptr noundef nonnull %10) #5
-  br label %21
+._crit_edge:                                      ; preds = %22, %.preheader52
+  %.143.lcssa = phi ptr [ null, %.preheader52 ], [ %.244, %22 ]
+  tail call void @g_dir_close(ptr noundef nonnull %13) #5
+  br label %24
 
-21:                                               ; preds = %._crit_edge, %0
+24:                                               ; preds = %._crit_edge, %0
   %.042 = phi ptr [ %.143.lcssa, %._crit_edge ], [ null, %0 ]
-  tail call void @g_free(ptr noundef %9) #5
-  %22 = tail call ptr @g_list_sort(ptr noundef %.042, ptr noundef nonnull @g_ascii_strcasecmp) #5
-  %23 = tail call ptr @g_list_first(ptr noundef %22) #5
-  %.not4855 = icmp eq ptr %23, null
+  tail call void @g_free(ptr noundef %12) #5
+  %25 = tail call ptr @g_list_sort(ptr noundef %.042, ptr noundef nonnull @g_ascii_strcasecmp) #5
+  %26 = tail call ptr @g_list_first(ptr noundef %25) #5
+  %.not4855 = icmp eq ptr %26, null
   br i1 %.not4855, label %._crit_edge59, label %.lr.ph58
 
-.lr.ph58:                                         ; preds = %21, %.lr.ph58
-  %.056 = phi ptr [ %34, %.lr.ph58 ], [ %23, %21 ]
-  %24 = load ptr, ptr %.056, align 8
-  %25 = load ptr, ptr @edited_profiles, align 8
-  %26 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
-  %27 = tail call noalias ptr @g_strdup(ptr noundef %24) #5
-  store ptr %27, ptr %26, align 8
-  %28 = tail call noalias ptr @g_strdup(ptr noundef %24) #5
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 16
-  store <4 x i32> <i32 2, i32 0, i32 0, i32 0>, ptr %30, align 8
-  %31 = tail call ptr @g_list_append(ptr noundef %25, ptr noundef nonnull %26) #5
-  store ptr %31, ptr @edited_profiles, align 8
-  %32 = tail call ptr @g_list_last(ptr noundef %31) #5
-  %33 = getelementptr inbounds i8, ptr %.056, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %.not48 = icmp eq ptr %34, null
+.lr.ph58:                                         ; preds = %24, %.lr.ph58
+  %.056 = phi ptr [ %40, %.lr.ph58 ], [ %26, %24 ]
+  %27 = load ptr, ptr %.056, align 8
+  %28 = load ptr, ptr @edited_profiles, align 8
+  %29 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
+  %30 = tail call noalias ptr @g_strdup(ptr noundef %27) #5
+  store ptr %30, ptr %29, align 8
+  %31 = tail call noalias ptr @g_strdup(ptr noundef %27) #5
+  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  store ptr %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %29, i64 16
+  store i32 2, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %29, i64 20
+  store i32 0, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %29, i64 24
+  store i32 0, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %29, i64 28
+  store i32 0, ptr %36, align 4
+  %37 = tail call ptr @g_list_append(ptr noundef %28, ptr noundef nonnull %29) #5
+  store ptr %37, ptr @edited_profiles, align 8
+  %38 = tail call ptr @g_list_last(ptr noundef %37) #5
+  %39 = getelementptr inbounds i8, ptr %.056, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %.not48 = icmp eq ptr %40, null
   br i1 %.not48, label %._crit_edge59, label %.lr.ph58, !llvm.loop !16
 
-._crit_edge59:                                    ; preds = %.lr.ph58, %21
-  tail call void @g_list_free_full(ptr noundef %22, ptr noundef nonnull @g_free) #5
-  %35 = tail call ptr @get_global_profiles_dir() #5
-  %36 = tail call ptr @g_dir_open(ptr noundef %35, i32 noundef 0, ptr noundef null) #5
-  %.not49 = icmp eq ptr %36, null
-  br i1 %.not49, label %47, label %.preheader
+._crit_edge59:                                    ; preds = %.lr.ph58, %24
+  tail call void @g_list_free_full(ptr noundef %25, ptr noundef nonnull @g_free) #5
+  %41 = tail call ptr @get_global_profiles_dir() #5
+  %42 = tail call ptr @g_dir_open(ptr noundef %41, i32 noundef 0, ptr noundef null) #5
+  %.not49 = icmp eq ptr %42, null
+  br i1 %.not49, label %53, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge59
-  %37 = tail call ptr @g_dir_read_name(ptr noundef nonnull %36) #5
-  %.not5060 = icmp eq ptr %37, null
+  %43 = tail call ptr @g_dir_read_name(ptr noundef nonnull %42) #5
+  %.not5060 = icmp eq ptr %43, null
   br i1 %.not5060, label %._crit_edge63, label %.lr.ph62
 
-.lr.ph62:                                         ; preds = %.preheader, %45
-  %38 = phi ptr [ %46, %45 ], [ %37, %.preheader ]
-  %.14161 = phi ptr [ %.2, %45 ], [ null, %.preheader ]
-  %39 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %35, ptr noundef nonnull @.str.7, ptr noundef nonnull %38) #5
-  %40 = tail call i32 @test_for_directory(ptr noundef %39) #5
-  %41 = icmp eq i32 %40, 21
-  br i1 %41, label %42, label %45
+.lr.ph62:                                         ; preds = %.preheader, %51
+  %44 = phi ptr [ %52, %51 ], [ %43, %.preheader ]
+  %.14161 = phi ptr [ %.2, %51 ], [ null, %.preheader ]
+  %45 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %41, ptr noundef nonnull @.str.7, ptr noundef nonnull %44) #5
+  %46 = tail call i32 @test_for_directory(ptr noundef %45) #5
+  %47 = icmp eq i32 %46, 21
+  br i1 %47, label %48, label %51
 
-42:                                               ; preds = %.lr.ph62
-  %43 = tail call noalias ptr @g_strdup(ptr noundef nonnull %38) #5
-  %44 = tail call ptr @g_list_prepend(ptr noundef %.14161, ptr noundef %43) #5
-  br label %45
+48:                                               ; preds = %.lr.ph62
+  %49 = tail call noalias ptr @g_strdup(ptr noundef nonnull %44) #5
+  %50 = tail call ptr @g_list_prepend(ptr noundef %.14161, ptr noundef %49) #5
+  br label %51
 
-45:                                               ; preds = %42, %.lr.ph62
-  %.2 = phi ptr [ %44, %42 ], [ %.14161, %.lr.ph62 ]
-  tail call void @g_free(ptr noundef %39) #5
-  %46 = tail call ptr @g_dir_read_name(ptr noundef nonnull %36) #5
-  %.not50 = icmp eq ptr %46, null
+51:                                               ; preds = %48, %.lr.ph62
+  %.2 = phi ptr [ %50, %48 ], [ %.14161, %.lr.ph62 ]
+  tail call void @g_free(ptr noundef %45) #5
+  %52 = tail call ptr @g_dir_read_name(ptr noundef nonnull %42) #5
+  %.not50 = icmp eq ptr %52, null
   br i1 %.not50, label %._crit_edge63, label %.lr.ph62, !llvm.loop !17
 
-._crit_edge63:                                    ; preds = %45, %.preheader
-  %.141.lcssa = phi ptr [ null, %.preheader ], [ %.2, %45 ]
-  tail call void @g_dir_close(ptr noundef nonnull %36) #5
-  br label %47
+._crit_edge63:                                    ; preds = %51, %.preheader
+  %.141.lcssa = phi ptr [ null, %.preheader ], [ %.2, %51 ]
+  tail call void @g_dir_close(ptr noundef nonnull %42) #5
+  br label %53
 
-47:                                               ; preds = %._crit_edge63, %._crit_edge59
+53:                                               ; preds = %._crit_edge63, %._crit_edge59
   %.040 = phi ptr [ %.141.lcssa, %._crit_edge63 ], [ null, %._crit_edge59 ]
-  tail call void @g_free(ptr noundef %35) #5
-  %48 = tail call ptr @g_list_sort(ptr noundef %.040, ptr noundef nonnull @g_ascii_strcasecmp) #5
-  %49 = tail call ptr @g_list_first(ptr noundef %48) #5
-  %.not5165 = icmp eq ptr %49, null
+  tail call void @g_free(ptr noundef %41) #5
+  %54 = tail call ptr @g_list_sort(ptr noundef %.040, ptr noundef nonnull @g_ascii_strcasecmp) #5
+  %55 = tail call ptr @g_list_first(ptr noundef %54) #5
+  %.not5165 = icmp eq ptr %55, null
   br i1 %.not5165, label %._crit_edge69, label %.lr.ph68
 
-.lr.ph68:                                         ; preds = %47, %.lr.ph68
-  %.166 = phi ptr [ %60, %.lr.ph68 ], [ %49, %47 ]
-  %50 = load ptr, ptr %.166, align 8
-  %51 = load ptr, ptr @edited_profiles, align 8
-  %52 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
-  %53 = tail call noalias ptr @g_strdup(ptr noundef %50) #5
-  store ptr %53, ptr %52, align 8
-  %54 = tail call noalias ptr @g_strdup(ptr noundef %50) #5
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
-  store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 16
-  store <4 x i32> <i32 2, i32 1, i32 1, i32 0>, ptr %56, align 8
-  %57 = tail call ptr @g_list_append(ptr noundef %51, ptr noundef nonnull %52) #5
-  store ptr %57, ptr @edited_profiles, align 8
-  %58 = tail call ptr @g_list_last(ptr noundef %57) #5
-  %59 = getelementptr inbounds i8, ptr %.166, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %.not51 = icmp eq ptr %60, null
+.lr.ph68:                                         ; preds = %53, %.lr.ph68
+  %.166 = phi ptr [ %69, %.lr.ph68 ], [ %55, %53 ]
+  %56 = load ptr, ptr %.166, align 8
+  %57 = load ptr, ptr @edited_profiles, align 8
+  %58 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
+  %59 = tail call noalias ptr @g_strdup(ptr noundef %56) #5
+  store ptr %59, ptr %58, align 8
+  %60 = tail call noalias ptr @g_strdup(ptr noundef %56) #5
+  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  store ptr %60, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %58, i64 16
+  store i32 2, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %58, i64 20
+  store i32 1, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %58, i64 24
+  store i32 1, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %58, i64 28
+  store i32 0, ptr %65, align 4
+  %66 = tail call ptr @g_list_append(ptr noundef %57, ptr noundef nonnull %58) #5
+  store ptr %66, ptr @edited_profiles, align 8
+  %67 = tail call ptr @g_list_last(ptr noundef %66) #5
+  %68 = getelementptr inbounds i8, ptr %.166, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %.not51 = icmp eq ptr %69, null
   br i1 %.not51, label %._crit_edge69, label %.lr.ph68, !llvm.loop !18
 
-._crit_edge69:                                    ; preds = %.lr.ph68, %47
-  tail call void @g_list_free_full(ptr noundef %48, ptr noundef nonnull @g_free) #5
+._crit_edge69:                                    ; preds = %.lr.ph68, %53
+  tail call void @g_list_free_full(ptr noundef %54, ptr noundef nonnull @g_free) #5
   tail call void @copy_profile_list()
   ret void
 }

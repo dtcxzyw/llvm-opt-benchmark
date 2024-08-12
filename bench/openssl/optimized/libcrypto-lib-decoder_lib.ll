@@ -1497,14 +1497,14 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @OSSL_DECODER_export(ptr noundef readonly %decoder_inst, ptr noundef %reference, i64 noundef %reference_sz, ptr noundef %export_cb, ptr noundef %export_cbarg) local_unnamed_addr #0 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %decoder_inst, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %reference, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %export_cb, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %export_cbarg, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %OSSL_DECODER_INSTANCE_get_decoder_ctx.exit, label %if.then
+  %cmp.not = icmp eq ptr %decoder_inst, null
+  %cmp5.not = icmp eq ptr %reference, null
+  %or.cond = or i1 %cmp.not, %cmp5.not
+  %cmp16.not = icmp eq ptr %export_cb, null
+  %or.cond6 = or i1 %or.cond, %cmp16.not
+  %cmp27.not = icmp eq ptr %export_cbarg, null
+  %or.cond7 = or i1 %or.cond6, %cmp27.not
+  br i1 %or.cond7, label %if.then, label %OSSL_DECODER_INSTANCE_get_decoder_ctx.exit
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #6
@@ -1513,12 +1513,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 OSSL_DECODER_INSTANCE_get_decoder_ctx.exit:       ; preds = %entry
-  %6 = load ptr, ptr %decoder_inst, align 8
+  %0 = load ptr, ptr %decoder_inst, align 8
   %decoderctx.i = getelementptr inbounds i8, ptr %decoder_inst, i64 8
-  %7 = load ptr, ptr %decoderctx.i, align 8
-  %export_object = getelementptr inbounds i8, ptr %6, i64 112
-  %8 = load ptr, ptr %export_object, align 8
-  %call38 = tail call i32 %8(ptr noundef %7, ptr noundef nonnull %reference, i64 noundef %reference_sz, ptr noundef nonnull %export_cb, ptr noundef nonnull %export_cbarg) #6
+  %1 = load ptr, ptr %decoderctx.i, align 8
+  %export_object = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = load ptr, ptr %export_object, align 8
+  %call38 = tail call i32 %2(ptr noundef %1, ptr noundef nonnull %reference, i64 noundef %reference_sz, ptr noundef nonnull %export_cb, ptr noundef nonnull %export_cbarg) #6
   br label %return
 
 return:                                           ; preds = %OSSL_DECODER_INSTANCE_get_decoder_ctx.exit, %if.then

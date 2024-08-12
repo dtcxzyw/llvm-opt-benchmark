@@ -1313,32 +1313,36 @@ for.end21:                                        ; preds = %save_attr_sz.exit29
 define internal fastcc i32 @save_tiledesc(ptr noundef %ctxt, ptr nocapture noundef readonly %a) unnamed_addr #0 {
 entry:
   %isz.i = alloca i32, align 4
-  %sizes = alloca [2 x i32], align 8
+  %sizes = alloca [2 x i32], align 4
   %0 = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load ptr, ptr %0, align 8
-  %2 = load <2 x i32>, ptr %1, align 1
-  store <2 x i32> %2, ptr %sizes, align 8
+  %2 = load i32, ptr %1, align 1
+  store i32 %2, ptr %sizes, align 4
+  %y_size = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = load i32, ptr %y_size, align 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %sizes, i64 4
+  store i32 %3, ptr %arrayidx1, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %isz.i)
   store i32 9, ptr %isz.i, align 4
   %do_write.i = getelementptr inbounds i8, ptr %ctxt, i64 48
-  %3 = load ptr, ptr %do_write.i, align 8
+  %4 = load ptr, ptr %do_write.i, align 8
   %output_file_offset.i = getelementptr inbounds i8, ptr %ctxt, i64 176
-  %call1.i = call i32 %3(ptr noundef %ctxt, ptr noundef nonnull %isz.i, i64 noundef 4, ptr noundef nonnull %output_file_offset.i) #5
+  %call1.i = call i32 %4(ptr noundef %ctxt, ptr noundef nonnull %isz.i, i64 noundef 4, ptr noundef nonnull %output_file_offset.i) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %isz.i)
   %cmp = icmp eq i32 %call1.i, 0
   br i1 %cmp, label %if.end, label %if.end6
 
 if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %do_write.i, align 8
-  %call.i = call i32 %4(ptr noundef nonnull %ctxt, ptr noundef nonnull %sizes, i64 noundef 8, ptr noundef nonnull %output_file_offset.i) #5
+  %5 = load ptr, ptr %do_write.i, align 8
+  %call.i = call i32 %5(ptr noundef nonnull %ctxt, ptr noundef nonnull %sizes, i64 noundef 8, ptr noundef nonnull %output_file_offset.i) #5
   %cmp3 = icmp eq i32 %call.i, 0
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %5 = load ptr, ptr %do_write.i, align 8
-  %6 = load ptr, ptr %0, align 8
-  %level_and_round = getelementptr inbounds i8, ptr %6, i64 8
-  %call5 = call i32 %5(ptr noundef nonnull %ctxt, ptr noundef nonnull %level_and_round, i64 noundef 1, ptr noundef nonnull %output_file_offset.i) #5
+  %6 = load ptr, ptr %do_write.i, align 8
+  %7 = load ptr, ptr %0, align 8
+  %level_and_round = getelementptr inbounds i8, ptr %7, i64 8
+  %call5 = call i32 %6(ptr noundef nonnull %ctxt, ptr noundef nonnull %level_and_round, i64 noundef 1, ptr noundef nonnull %output_file_offset.i) #5
   br label %if.end6
 
 if.end6:                                          ; preds = %entry, %if.then4, %if.end

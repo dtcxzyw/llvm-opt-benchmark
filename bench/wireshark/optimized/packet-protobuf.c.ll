@@ -1254,8 +1254,8 @@ deregister_header_fields.exit:                    ; preds = %21, %23
   br i1 %.not2335, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
-  %.037 = phi i32 [ %50, %.lr.ph ], [ 0, %38 ]
-  %.01936 = phi ptr [ %49, %.lr.ph ], [ %41, %38 ]
+  %.037 = phi i32 [ %53, %.lr.ph ], [ 0, %38 ]
+  %.01936 = phi ptr [ %52, %.lr.ph ], [ %41, %38 ]
   %42 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.01936) #11
   %43 = load ptr, ptr @dynamic_hf, align 8
   %44 = sext i32 %.037 to i64
@@ -1264,20 +1264,26 @@ deregister_header_fields.exit:                    ; preds = %21, %23
   tail call void @g_free(ptr noundef %42) #11
   %46 = load ptr, ptr @dynamic_hf, align 8
   %47 = getelementptr %struct.hf_register_info, ptr %46, i64 %44, i32 1, i32 7
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %47, align 8
-  %48 = getelementptr %struct.hf_register_info, ptr %46, i64 %44, i32 1, i32 11
-  store ptr null, ptr %48, align 8
-  %49 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.01936) #11
-  %50 = add i32 %.037, 1
-  %.not23 = icmp eq ptr %49, null
+  store i32 -1, ptr %47, align 8
+  %48 = getelementptr %struct.hf_register_info, ptr %46, i64 %44, i32 1, i32 8
+  store i32 0, ptr %48, align 4
+  %49 = getelementptr %struct.hf_register_info, ptr %46, i64 %44, i32 1, i32 9
+  store i32 0, ptr %49, align 8
+  %50 = getelementptr %struct.hf_register_info, ptr %46, i64 %44, i32 1, i32 10
+  store i32 -1, ptr %50, align 4
+  %51 = getelementptr %struct.hf_register_info, ptr %46, i64 %44, i32 1, i32 11
+  store ptr null, ptr %51, align 8
+  %52 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.01936) #11
+  %53 = add i32 %.037, 1
+  %.not23 = icmp eq ptr %52, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
   tail call void @wmem_destroy_list(ptr noundef %26) #11
-  %51 = load i32, ptr @proto_protobuf, align 4
-  %52 = load ptr, ptr @dynamic_hf, align 8
-  %53 = load i32, ptr @dynamic_hf_size, align 4
-  tail call void @proto_register_field_array(i32 noundef %51, ptr noundef %52, i32 noundef %53) #11
+  %54 = load i32, ptr @proto_protobuf, align 4
+  %55 = load ptr, ptr @dynamic_hf, align 8
+  %56 = load i32, ptr @dynamic_hf_size, align 4
+  tail call void @proto_register_field_array(i32 noundef %54, ptr noundef %55, i32 noundef %56) #11
   br label %deregister_header_fields.exit34
 
 deregister_header_fields.exit34:                  ; preds = %37, %35, %1, %._crit_edge, %deregister_header_fields.exit

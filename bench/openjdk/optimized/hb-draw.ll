@@ -1125,7 +1125,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %25, 
 define hidden void @hb_draw_line_to(ptr noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %21
+  br i1 %.not, label %7, label %23
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %2, i64 12
@@ -1147,31 +1147,34 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %7, %16
   %18 = phi ptr [ %17, %16 ], [ null, %7 ]
   tail call void %13(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, float noundef %9, float noundef %11, ptr noundef %18)
   store i32 1, ptr %2, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 4
-  %20 = load <2 x float>, ptr %8, align 4
-  store <2 x float> %20, ptr %19, align 4
-  br label %21
+  %19 = load float, ptr %8, align 4
+  %20 = getelementptr inbounds i8, ptr %2, i64 4
+  store float %19, ptr %20, align 4
+  %21 = load float, ptr %10, align 4
+  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  store float %21, ptr %22, align 4
+  br label %23
 
-21:                                               ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit, %5
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+23:                                               ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit, %5
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit, label %26
+  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = load ptr, ptr %26, align 8
+  %.not.i = icmp eq ptr %27, null
+  br i1 %.not.i, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit, label %28
 
-26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
-  %28 = load ptr, ptr %27, align 8
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = load ptr, ptr %29, align 8
   br label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
 
-_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %21, %26
-  %29 = phi ptr [ %28, %26 ], [ null, %21 ]
-  tail call void %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, float noundef %3, float noundef %4, ptr noundef %29)
-  %30 = getelementptr inbounds i8, ptr %2, i64 12
-  store float %3, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
-  store float %4, ptr %31, align 4
+_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %23, %28
+  %31 = phi ptr [ %30, %28 ], [ null, %23 ]
+  tail call void %25(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, float noundef %3, float noundef %4, ptr noundef %31)
+  %32 = getelementptr inbounds i8, ptr %2, i64 12
+  store float %3, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  store float %4, ptr %33, align 4
   ret void
 }
 
@@ -1179,7 +1182,7 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %21, %
 define hidden void @hb_draw_quadratic_to(ptr noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #0 {
   %8 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %23
+  br i1 %.not, label %9, label %25
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %2, i64 12
@@ -1201,31 +1204,34 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %9, %18
   %20 = phi ptr [ %19, %18 ], [ null, %9 ]
   tail call void %15(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, float noundef %11, float noundef %13, ptr noundef %20)
   store i32 1, ptr %2, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
-  %22 = load <2 x float>, ptr %10, align 4
-  store <2 x float> %22, ptr %21, align 4
-  br label %23
+  %21 = load float, ptr %10, align 4
+  %22 = getelementptr inbounds i8, ptr %2, i64 4
+  store float %21, ptr %22, align 4
+  %23 = load float, ptr %12, align 4
+  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  store float %23, ptr %24, align 4
+  br label %25
 
-23:                                               ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit, %7
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+25:                                               ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit, %7
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
-  %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit, label %28
+  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = load ptr, ptr %28, align 8
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit, label %30
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %27, i64 16
-  %30 = load ptr, ptr %29, align 8
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = load ptr, ptr %31, align 8
   br label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit
 
-_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds = %23, %28
-  %31 = phi ptr [ %30, %28 ], [ null, %23 ]
-  tail call void %25(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef %31)
-  %32 = getelementptr inbounds i8, ptr %2, i64 12
-  store float %5, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
-  store float %6, ptr %33, align 4
+_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds = %25, %30
+  %33 = phi ptr [ %32, %30 ], [ null, %25 ]
+  tail call void %27(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef %33)
+  %34 = getelementptr inbounds i8, ptr %2, i64 12
+  store float %5, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  store float %6, ptr %35, align 4
   ret void
 }
 
@@ -1233,7 +1239,7 @@ _ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds =
 define hidden void @hb_draw_cubic_to(ptr noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #0 {
   %10 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %25
+  br i1 %.not, label %11, label %27
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %2, i64 12
@@ -1255,31 +1261,34 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %11, %20
   %22 = phi ptr [ %21, %20 ], [ null, %11 ]
   tail call void %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, float noundef %13, float noundef %15, ptr noundef %22)
   store i32 1, ptr %2, align 4
-  %23 = getelementptr inbounds i8, ptr %2, i64 4
-  %24 = load <2 x float>, ptr %12, align 4
-  store <2 x float> %24, ptr %23, align 4
-  br label %25
+  %23 = load float, ptr %12, align 4
+  %24 = getelementptr inbounds i8, ptr %2, i64 4
+  store float %23, ptr %24, align 4
+  %25 = load float, ptr %14, align 4
+  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  store float %25, ptr %26, align 4
+  br label %27
 
-25:                                               ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit, %9
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+27:                                               ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit, %9
+  %28 = getelementptr inbounds i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
-  %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit, label %30
+  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = load ptr, ptr %30, align 8
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit, label %32
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %29, i64 24
-  %32 = load ptr, ptr %31, align 8
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds i8, ptr %31, i64 24
+  %34 = load ptr, ptr %33, align 8
   br label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit
 
-_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %25, %30
-  %33 = phi ptr [ %32, %30 ], [ null, %25 ]
-  tail call void %27(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr noundef %33)
-  %34 = getelementptr inbounds i8, ptr %2, i64 12
-  store float %7, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
-  store float %8, ptr %35, align 4
+_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %27, %32
+  %35 = phi ptr [ %34, %32 ], [ null, %27 ]
+  tail call void %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr noundef %35)
+  %36 = getelementptr inbounds i8, ptr %2, i64 12
+  store float %7, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  store float %8, ptr %37, align 4
   ret void
 }
 

@@ -71,32 +71,34 @@ define noundef nonnull align 8 dereferenceable(116) ptr @_ZN4LIEF2PE12ResourceDa
   tail call void @_ZN4LIEF2PE12ResourceNode4swapERS1_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(76) %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = getelementptr inbounds i8, ptr %1, i64 80
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 96
-  %11 = load <2 x ptr>, ptr %3, align 8
-  store ptr %8, ptr %3, align 8
-  %12 = load ptr, ptr %9, align 8
-  store ptr %12, ptr %5, align 8
-  %13 = load ptr, ptr %10, align 8
-  store ptr %13, ptr %6, align 8
-  store <2 x ptr> %11, ptr %4, align 8
-  store ptr %7, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
-  %15 = getelementptr inbounds i8, ptr %1, i64 104
-  %16 = load i32, ptr %14, align 8
-  %17 = load i32, ptr %15, align 4
-  store i32 %17, ptr %14, align 8
-  store i32 %16, ptr %15, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 108
-  %19 = getelementptr inbounds i8, ptr %1, i64 108
-  %20 = load i32, ptr %18, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %3, align 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 88
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %6, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 96
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %8, align 8
+  store ptr %5, ptr %4, align 8
+  store ptr %7, ptr %11, align 8
+  store ptr %9, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = getelementptr inbounds i8, ptr %1, i64 104
+  %17 = load i32, ptr %15, align 8
+  %18 = load i32, ptr %16, align 4
+  store i32 %18, ptr %15, align 8
+  store i32 %17, ptr %16, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 108
+  %20 = getelementptr inbounds i8, ptr %1, i64 108
   %21 = load i32, ptr %19, align 4
-  store i32 %21, ptr %18, align 4
-  store i32 %20, ptr %19, align 4
+  %22 = load i32, ptr %20, align 4
+  store i32 %22, ptr %19, align 4
+  store i32 %21, ptr %20, align 4
   ret ptr %0
 }
 
@@ -105,32 +107,34 @@ define void @_ZN4LIEF2PE12ResourceData4swapERS1_(ptr noundef nonnull align 8 der
   tail call void @_ZN4LIEF2PE12ResourceNode4swapERS1_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(76) %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = getelementptr inbounds i8, ptr %1, i64 80
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 96
-  %11 = load <2 x ptr>, ptr %3, align 8
-  store ptr %8, ptr %3, align 8
-  %12 = load ptr, ptr %9, align 8
-  store ptr %12, ptr %5, align 8
-  %13 = load ptr, ptr %10, align 8
-  store ptr %13, ptr %6, align 8
-  store <2 x ptr> %11, ptr %4, align 8
-  store ptr %7, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
-  %15 = getelementptr inbounds i8, ptr %1, i64 104
-  %16 = load i32, ptr %14, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %3, align 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 88
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %6, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 96
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %8, align 8
+  store ptr %5, ptr %4, align 8
+  store ptr %7, ptr %11, align 8
+  store ptr %9, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = getelementptr inbounds i8, ptr %1, i64 104
   %17 = load i32, ptr %15, align 8
-  store i32 %17, ptr %14, align 8
-  store i32 %16, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 108
-  %19 = getelementptr inbounds i8, ptr %1, i64 108
-  %20 = load i32, ptr %18, align 4
+  %18 = load i32, ptr %16, align 8
+  store i32 %18, ptr %15, align 8
+  store i32 %17, ptr %16, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 108
+  %20 = getelementptr inbounds i8, ptr %1, i64 108
   %21 = load i32, ptr %19, align 4
-  store i32 %21, ptr %18, align 4
-  store i32 %20, ptr %19, align 4
+  %22 = load i32, ptr %20, align 4
+  store i32 %22, ptr %19, align 4
+  store i32 %21, ptr %20, align 4
   ret void
 }
 

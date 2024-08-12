@@ -2064,7 +2064,7 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   %4 = alloca [1024 x i8], align 16
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %5, 2
-  br i1 %6, label %168, label %7
+  br i1 %6, label %170, label %7
 
 7:                                                ; preds = %2
   %8 = lshr i64 %1, 32
@@ -2079,7 +2079,7 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   %15 = tail call ptr @__errno_location() #16
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 2
-  br i1 %17, label %168, label %18
+  br i1 %17, label %170, label %18
 
 18:                                               ; preds = %14
   %19 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -2197,7 +2197,7 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
 79:                                               ; preds = %69
   %80 = load i32, ptr %37, align 8
   %81 = icmp slt i32 %80, 2
-  br i1 %81, label %160, label %82
+  br i1 %81, label %162, label %82
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %3, i64 32
@@ -2205,161 +2205,164 @@ define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr nocapture nounde
   %85 = getelementptr inbounds i8, ptr %0, i64 40
   %86 = load i32, ptr %85, align 8
   %87 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %84, i32 noundef %86) #14
-  br i1 %87, label %160, label %88
+  br i1 %87, label %162, label %88
 
 88:                                               ; preds = %82
   %89 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 16
-  %91 = getelementptr inbounds i8, ptr %0, i64 20
-  %92 = load <2 x i32>, ptr %83, align 8
-  store <2 x i32> %92, ptr %90, align 8
-  %93 = load i32, ptr %37, align 8
-  store i32 %93, ptr %0, align 8
-  %94 = load i64, ptr %40, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 80
-  store i64 %94, ptr %95, align 8
-  %.not61 = icmp eq i64 %94, 0
-  br i1 %.not61, label %103, label %96
+  %90 = load i32, ptr %83, align 8
+  %91 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %90, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %3, i64 36
+  %93 = load i32, ptr %92, align 4
+  %94 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %93, ptr %94, align 4
+  %95 = load i32, ptr %37, align 8
+  store i32 %95, ptr %0, align 8
+  %96 = load i64, ptr %40, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 80
+  store i64 %96, ptr %97, align 8
+  %.not61 = icmp eq i64 %96, 0
+  br i1 %.not61, label %105, label %98
 
-96:                                               ; preds = %88
-  %97 = getelementptr inbounds i8, ptr %0, i64 104
-  %98 = load ptr, ptr %97, align 8
-  call void @pfree(ptr noundef %98) #14
-  %99 = load i64, ptr %40, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 88
-  store i64 %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %3, i64 120
-  %102 = load ptr, ptr %101, align 8
-  store ptr %102, ptr %97, align 8
-  br label %103
+98:                                               ; preds = %88
+  %99 = getelementptr inbounds i8, ptr %0, i64 104
+  %100 = load ptr, ptr %99, align 8
+  call void @pfree(ptr noundef %100) #14
+  %101 = load i64, ptr %40, align 8
+  %102 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 %101, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %3, i64 120
+  %104 = load ptr, ptr %103, align 8
+  store ptr %104, ptr %99, align 8
+  br label %105
 
-103:                                              ; preds = %96, %88
-  %104 = getelementptr inbounds i8, ptr %3, i64 120
-  store ptr null, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 112
-  %106 = getelementptr inbounds i8, ptr %0, i64 120
-  %107 = load ptr, ptr %106, align 8
-  %.not62 = icmp eq ptr %107, null
-  br i1 %.not62, label %109, label %108
+105:                                              ; preds = %98, %88
+  %106 = getelementptr inbounds i8, ptr %3, i64 120
+  store ptr null, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %0, i64 112
+  %108 = getelementptr inbounds i8, ptr %0, i64 120
+  %109 = load ptr, ptr %108, align 8
+  %.not62 = icmp eq ptr %109, null
+  br i1 %.not62, label %111, label %110
 
-108:                                              ; preds = %103
-  call void @pfree(ptr noundef nonnull %107) #14
-  br label %109
+110:                                              ; preds = %105
+  call void @pfree(ptr noundef nonnull %109) #14
+  br label %111
 
-109:                                              ; preds = %108, %103
-  %110 = load i64, ptr %52, align 8
-  store i64 %110, ptr %105, align 8
-  %111 = getelementptr inbounds i8, ptr %3, i64 136
-  %112 = load ptr, ptr %111, align 8
-  store ptr %112, ptr %106, align 8
-  store ptr null, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 48
+111:                                              ; preds = %110, %105
+  %112 = load i64, ptr %52, align 8
+  store i64 %112, ptr %107, align 8
+  %113 = getelementptr inbounds i8, ptr %3, i64 136
   %114 = load ptr, ptr %113, align 8
-  %.not63 = icmp eq ptr %114, null
-  br i1 %.not63, label %SnapBuildSnapDecRefcount.exit, label %115
+  store ptr %114, ptr %108, align 8
+  store ptr null, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %0, i64 48
+  %116 = load ptr, ptr %115, align 8
+  %.not63 = icmp eq ptr %116, null
+  br i1 %.not63, label %SnapBuildSnapDecRefcount.exit, label %117
 
-115:                                              ; preds = %109
-  %116 = getelementptr inbounds i8, ptr %114, i64 46
-  %117 = load i8, ptr %116, align 2
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %119, label %122
+117:                                              ; preds = %111
+  %118 = getelementptr inbounds i8, ptr %116, i64 46
+  %119 = load i8, ptr %118, align 2
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %121, label %124
 
-119:                                              ; preds = %115
-  %120 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %120)
-  %121 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #14
+121:                                              ; preds = %117
+  %122 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %122)
+  %123 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #14
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @__func__.SnapBuildSnapDecRefcount) #14
   unreachable
 
-122:                                              ; preds = %115
-  %123 = getelementptr inbounds i8, ptr %114, i64 64
-  %124 = load i32, ptr %123, align 8
-  %125 = add i32 %124, -1
-  store i32 %125, ptr %123, align 8
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %SnapBuildFreeSnapshot.exit.i, label %SnapBuildSnapDecRefcount.exit
+124:                                              ; preds = %117
+  %125 = getelementptr inbounds i8, ptr %116, i64 64
+  %126 = load i32, ptr %125, align 8
+  %127 = add i32 %126, -1
+  store i32 %127, ptr %125, align 8
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %SnapBuildFreeSnapshot.exit.i, label %SnapBuildSnapDecRefcount.exit
 
-SnapBuildFreeSnapshot.exit.i:                     ; preds = %122
-  call void @pfree(ptr noundef nonnull %114) #14
+SnapBuildFreeSnapshot.exit.i:                     ; preds = %124
+  call void @pfree(ptr noundef nonnull %116) #14
   br label %SnapBuildSnapDecRefcount.exit
 
-SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapshot.exit.i, %122, %109
-  %127 = load i64, ptr %95, align 8
-  %128 = shl i64 %127, 2
-  %129 = add i64 %128, 124
-  %130 = getelementptr inbounds i8, ptr %0, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = call ptr @MemoryContextAllocZero(ptr noundef %131, i64 noundef %129) #14
-  store i32 5, ptr %132, align 8
-  %133 = load i32, ptr %90, align 8
-  %134 = getelementptr inbounds i8, ptr %132, i64 4
-  store i32 %133, ptr %134, align 4
-  %135 = load i32, ptr %91, align 4
-  %136 = getelementptr inbounds i8, ptr %132, i64 8
-  store i32 %135, ptr %136, align 8
-  %137 = getelementptr i8, ptr %132, i64 120
-  %138 = getelementptr inbounds i8, ptr %132, i64 16
-  store ptr %137, ptr %138, align 8
-  %139 = load i64, ptr %95, align 8
-  %140 = trunc i64 %139 to i32
-  %141 = getelementptr inbounds i8, ptr %132, i64 24
-  store i32 %140, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %0, i64 104
-  %143 = load ptr, ptr %142, align 8
-  %144 = load i64, ptr %95, align 8
-  %145 = shl i64 %144, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %137, ptr align 4 %143, i64 %145, i1 false)
-  %146 = and i64 %139, 4294967295
-  call void @pg_qsort(ptr noundef %137, i64 noundef %146, i64 noundef 4, ptr noundef nonnull @xidComparator) #14
-  %147 = getelementptr inbounds i8, ptr %132, i64 32
-  %148 = getelementptr inbounds i8, ptr %132, i64 48
-  store i32 0, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %132, i64 64
-  store i32 0, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %132, i64 68
-  store i32 0, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %132, i64 112
-  store i64 0, ptr %151, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %147, i8 0, i64 15, i1 false)
-  store ptr %132, ptr %113, align 8
-  %152 = load i32, ptr %149, align 8
-  %153 = add i32 %152, 1
-  store i32 %153, ptr %149, align 8
-  %154 = getelementptr inbounds i8, ptr %0, i64 64
-  %155 = load ptr, ptr %154, align 8
-  call void @ReorderBufferSetRestartPoint(ptr noundef %155, i64 noundef %1) #14
-  %156 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
-  br i1 %156, label %157, label %168
+SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapshot.exit.i, %124, %111
+  %129 = load i64, ptr %97, align 8
+  %130 = shl i64 %129, 2
+  %131 = add i64 %130, 124
+  %132 = getelementptr inbounds i8, ptr %0, i64 8
+  %133 = load ptr, ptr %132, align 8
+  %134 = call ptr @MemoryContextAllocZero(ptr noundef %133, i64 noundef %131) #14
+  store i32 5, ptr %134, align 8
+  %135 = load i32, ptr %91, align 8
+  %136 = getelementptr inbounds i8, ptr %134, i64 4
+  store i32 %135, ptr %136, align 4
+  %137 = load i32, ptr %94, align 4
+  %138 = getelementptr inbounds i8, ptr %134, i64 8
+  store i32 %137, ptr %138, align 8
+  %139 = getelementptr i8, ptr %134, i64 120
+  %140 = getelementptr inbounds i8, ptr %134, i64 16
+  store ptr %139, ptr %140, align 8
+  %141 = load i64, ptr %97, align 8
+  %142 = trunc i64 %141 to i32
+  %143 = getelementptr inbounds i8, ptr %134, i64 24
+  store i32 %142, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %0, i64 104
+  %145 = load ptr, ptr %144, align 8
+  %146 = load i64, ptr %97, align 8
+  %147 = shl i64 %146, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %139, ptr align 4 %145, i64 %147, i1 false)
+  %148 = and i64 %141, 4294967295
+  call void @pg_qsort(ptr noundef %139, i64 noundef %148, i64 noundef 4, ptr noundef nonnull @xidComparator) #14
+  %149 = getelementptr inbounds i8, ptr %134, i64 32
+  %150 = getelementptr inbounds i8, ptr %134, i64 48
+  store i32 0, ptr %150, align 8
+  %151 = getelementptr inbounds i8, ptr %134, i64 64
+  store i32 0, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %134, i64 68
+  store i32 0, ptr %152, align 4
+  %153 = getelementptr inbounds i8, ptr %134, i64 112
+  store i64 0, ptr %153, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %149, i8 0, i64 15, i1 false)
+  store ptr %134, ptr %115, align 8
+  %154 = load i32, ptr %151, align 8
+  %155 = add i32 %154, 1
+  store i32 %155, ptr %151, align 8
+  %156 = getelementptr inbounds i8, ptr %0, i64 64
+  %157 = load ptr, ptr %156, align 8
+  call void @ReorderBufferSetRestartPoint(ptr noundef %157, i64 noundef %1) #14
+  %158 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  br i1 %158, label %159, label %170
 
-157:                                              ; preds = %SnapBuildSnapDecRefcount.exit
-  %158 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, i32 noundef %9, i32 noundef %10) #14
-  %159 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.55) #14
+159:                                              ; preds = %SnapBuildSnapDecRefcount.exit
+  %160 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, i32 noundef %9, i32 noundef %10) #14
+  %161 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.55) #14
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2003, ptr noundef nonnull @__func__.SnapBuildRestore) #14
-  br label %168
+  br label %170
 
-160:                                              ; preds = %82, %79
-  %161 = getelementptr inbounds i8, ptr %3, i64 120
-  %162 = load ptr, ptr %161, align 8
-  %.not64 = icmp eq ptr %162, null
-  br i1 %.not64, label %164, label %163
+162:                                              ; preds = %82, %79
+  %163 = getelementptr inbounds i8, ptr %3, i64 120
+  %164 = load ptr, ptr %163, align 8
+  %.not64 = icmp eq ptr %164, null
+  br i1 %.not64, label %166, label %165
 
-163:                                              ; preds = %160
-  call void @pfree(ptr noundef nonnull %162) #14
-  br label %164
+165:                                              ; preds = %162
+  call void @pfree(ptr noundef nonnull %164) #14
+  br label %166
 
-164:                                              ; preds = %163, %160
-  %165 = getelementptr inbounds i8, ptr %3, i64 136
-  %166 = load ptr, ptr %165, align 8
-  %.not65 = icmp eq ptr %166, null
-  br i1 %.not65, label %168, label %167
+166:                                              ; preds = %165, %162
+  %167 = getelementptr inbounds i8, ptr %3, i64 136
+  %168 = load ptr, ptr %167, align 8
+  %.not65 = icmp eq ptr %168, null
+  br i1 %.not65, label %170, label %169
 
-167:                                              ; preds = %164
-  call void @pfree(ptr noundef nonnull %166) #14
-  br label %168
+169:                                              ; preds = %166
+  call void @pfree(ptr noundef nonnull %168) #14
+  br label %170
 
-168:                                              ; preds = %164, %167, %157, %SnapBuildSnapDecRefcount.exit, %14, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ true, %SnapBuildSnapDecRefcount.exit ], [ true, %157 ], [ false, %167 ], [ false, %164 ]
+170:                                              ; preds = %166, %169, %159, %SnapBuildSnapDecRefcount.exit, %14, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %14 ], [ true, %SnapBuildSnapDecRefcount.exit ], [ true, %159 ], [ false, %169 ], [ false, %166 ]
   ret i1 %.0
 }
 

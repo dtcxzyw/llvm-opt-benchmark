@@ -414,7 +414,7 @@ define internal range(i32 -20, 3) i32 @idaNlsLSetup(i32 %0, ptr nocapture nounde
 
 5:                                                ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 243, ptr noundef nonnull @__func__.idaNlsLSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
-  br label %31
+  br label %32
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 912
@@ -442,17 +442,19 @@ define internal range(i32 -20, 3) i32 @idaNlsLSetup(i32 %0, ptr nocapture nounde
   %27 = getelementptr inbounds i8, ptr %2, i64 712
   store double %26, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 720
-  store <2 x double> <double 1.000000e+00, double 2.000000e+01>, ptr %28, align 8
-  %29 = icmp slt i32 %24, 0
-  br i1 %29, label %31, label %30
+  store double 1.000000e+00, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %2, i64 728
+  store double 2.000000e+01, ptr %29, align 8
+  %30 = icmp slt i32 %24, 0
+  br i1 %30, label %32, label %31
 
-30:                                               ; preds = %6
+31:                                               ; preds = %6
   %.not = icmp eq i32 %24, 0
   %. = select i1 %.not, i32 0, i32 2
-  br label %31
+  br label %32
 
-31:                                               ; preds = %30, %6, %5
-  %.0 = phi i32 [ -20, %5 ], [ -6, %6 ], [ %., %30 ]
+32:                                               ; preds = %31, %6, %5
+  %.0 = phi i32 [ -20, %5 ], [ -6, %6 ], [ %., %31 ]
   ret i32 %.0
 }
 

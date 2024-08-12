@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [36 x i8] c"qemu_file_buffer_empty(param->file)\00", align 1
 @__PRETTY_FUNCTION__.compress_flush_data = private unnamed_addr constant [31 x i8] c"void compress_flush_data(void)\00", align 1
 @__PRETTY_FUNCTION__.compress_page_with_multi_thread = private unnamed_addr constant [90 x i8] c"_Bool compress_page_with_multi_thread(RAMBlock *, ram_addr_t, int ((*)(CompressParam *)))\00", align 1
-@compression_counters = internal unnamed_addr global %struct.anon.0 zeroinitializer, align 16
+@compression_counters = internal unnamed_addr global %struct.anon.0 zeroinitializer, align 8
 @decomp_done_lock = internal global %struct.QemuMutex zeroinitializer, align 8
 @decomp_param = internal unnamed_addr global ptr null, align 8
 @decomp_done_cond = internal global %struct.QemuCond zeroinitializer, align 8
@@ -993,17 +993,20 @@ if.end:                                           ; preds = %entry
   %call1 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #10
   %compression = getelementptr inbounds i8, ptr %info, i64 168
   store ptr %call1, ptr %compression, align 8
-  %0 = load <2 x i64>, ptr @compression_counters, align 16
-  store <2 x i64> %0, ptr %call1, align 8
-  %1 = load double, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 16), align 16
+  %0 = load i64, ptr @compression_counters, align 8
+  store i64 %0, ptr %call1, align 8
+  %1 = load i64, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 8), align 8
+  %busy = getelementptr inbounds i8, ptr %call1, i64 8
+  store i64 %1, ptr %busy, align 8
+  %2 = load double, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 16), align 8
   %busy_rate = getelementptr inbounds i8, ptr %call1, i64 16
-  store double %1, ptr %busy_rate, align 8
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 24), align 8
+  store double %2, ptr %busy_rate, align 8
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 24), align 8
   %compressed_size = getelementptr inbounds i8, ptr %call1, i64 24
-  store i64 %2, ptr %compressed_size, align 8
-  %3 = load double, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 32), align 16
+  store i64 %3, ptr %compressed_size, align 8
+  %4 = load double, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 32), align 8
   %compression_rate = getelementptr inbounds i8, ptr %call1, i64 32
-  store double %3, ptr %compression_rate, align 8
+  store double %4, ptr %compression_rate, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1013,7 +1016,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i64 @compress_ram_pages() local_unnamed_addr #6 {
 entry:
-  %0 = load i64, ptr @compression_counters, align 16
+  %0 = load i64, ptr @compression_counters, align 8
   ret i64 %0
 }
 
@@ -1037,9 +1040,9 @@ if.end:                                           ; preds = %entry
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 24), align 8
   %add = add i64 %2, %conv2
   store i64 %add, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 24), align 8
-  %3 = load i64, ptr @compression_counters, align 16
+  %3 = load i64, ptr @compression_counters, align 8
   %inc = add i64 %3, 1
-  store i64 %inc, ptr @compression_counters, align 16
+  store i64 %inc, ptr @compression_counters, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1061,28 +1064,28 @@ if.end:                                           ; preds = %entry
   %conv = uitofp i64 %sub to double
   %conv1 = uitofp i64 %page_count to double
   %div = fdiv double %conv, %conv1
-  store double %div, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 16), align 16
+  store double %div, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 16), align 8
   store i64 %0, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 40), align 8
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 24), align 8
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 48), align 16
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 48), align 8
   %tobool.not = icmp eq i64 %2, %3
   br i1 %tobool.not, label %if.end9, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %sub2 = sub i64 %2, %3
   %conv3 = uitofp i64 %sub2 to double
-  %4 = load i64, ptr @compression_counters, align 16
+  %4 = load i64, ptr @compression_counters, align 8
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 56), align 8
   %sub5 = sub i64 %4, %5
   %call6 = tail call i64 @qemu_target_page_size() #8
   %mul = mul i64 %sub5, %call6
   %conv7 = uitofp i64 %mul to double
   %div8 = fdiv double %conv7, %conv3
-  store double %div8, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 32), align 16
-  %6 = load i64, ptr @compression_counters, align 16
+  store double %div8, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 32), align 8
+  %6 = load i64, ptr @compression_counters, align 8
   store i64 %6, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 56), align 8
   %7 = load i64, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 24), align 8
-  store i64 %7, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 48), align 16
+  store i64 %7, ptr getelementptr inbounds (i8, ptr @compression_counters, i64 48), align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %entry, %if.then4, %if.end

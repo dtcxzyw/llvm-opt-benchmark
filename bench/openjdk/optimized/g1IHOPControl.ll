@@ -550,23 +550,21 @@ define hidden noundef i64 @_ZNK21G1AdaptiveIHOPControl23actual_target_thresholdE
   %17 = getelementptr inbounds i8, ptr %16, i64 120
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(1488) %15) #14
-  %20 = load i64, ptr %2, align 8
-  %21 = load i64, ptr %9, align 8
-  %22 = uitofp i64 %21 to double
-  %23 = insertelement <2 x i64> poison, i64 %19, i64 0
-  %24 = insertelement <2 x i64> %23, i64 %20, i64 1
-  %25 = uitofp <2 x i64> %24 to <2 x double>
-  %26 = insertelement <2 x double> poison, double %14, i64 0
-  %27 = insertelement <2 x double> %26, double %22, i64 1
-  %28 = fsub <2 x double> <double 1.000000e+02, double 1.000000e+02>, %27
-  %29 = fmul <2 x double> %28, %25
-  %30 = fdiv <2 x double> %29, <double 1.000000e+02, double 1.000000e+02>
-  %31 = extractelement <2 x double> %30, i64 0
-  %32 = extractelement <2 x double> %30, i64 1
-  %33 = fcmp olt double %31, %32
-  %34 = select i1 %33, double %31, double %32
-  %35 = fptoui double %34 to i64
-  ret i64 %35
+  %20 = uitofp i64 %19 to double
+  %21 = fsub double 1.000000e+02, %14
+  %22 = fmul double %21, %20
+  %23 = fdiv double %22, 1.000000e+02
+  %24 = load i64, ptr %2, align 8
+  %25 = uitofp i64 %24 to double
+  %26 = load i64, ptr %9, align 8
+  %27 = uitofp i64 %26 to double
+  %28 = fsub double 1.000000e+02, %27
+  %29 = fmul double %28, %25
+  %30 = fdiv double %29, 1.000000e+02
+  %31 = fcmp olt double %23, %30
+  %32 = select i1 %31, double %23, double %30
+  %33 = fptoui double %32 to i64
+  ret i64 %33
 }
 
 ; Function Attrs: noreturn
@@ -629,7 +627,7 @@ define hidden noundef i64 @_ZN21G1AdaptiveIHOPControl29get_conc_mark_start_thres
   %8 = sext i32 %7 to i64
   %9 = icmp ule i64 %5, %8
   %10 = select i1 %.not.i, i1 %9, i1 false
-  br i1 %10, label %11, label %88
+  br i1 %10, label %11, label %86
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 64
@@ -711,38 +709,36 @@ _ZNK21G1AdaptiveIHOPControl23actual_target_thresholdEv.exit: ; preds = %_ZNK21G1
   %68 = getelementptr inbounds i8, ptr %67, i64 120
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noundef i64 %69(ptr noundef nonnull align 8 dereferenceable(1488) %66) #14
-  %71 = load i64, ptr %46, align 8
-  %72 = load i64, ptr %60, align 8
-  %73 = uitofp i64 %72 to double
-  %74 = insertelement <2 x i64> poison, i64 %70, i64 0
-  %75 = insertelement <2 x i64> %74, i64 %71, i64 1
-  %76 = uitofp <2 x i64> %75 to <2 x double>
-  %77 = insertelement <2 x double> poison, double %65, i64 0
-  %78 = insertelement <2 x double> %77, double %73, i64 1
-  %79 = fsub <2 x double> <double 1.000000e+02, double 1.000000e+02>, %78
-  %80 = fmul <2 x double> %79, %76
-  %81 = fdiv <2 x double> %80, <double 1.000000e+02, double 1.000000e+02>
-  %82 = extractelement <2 x double> %81, i64 0
-  %83 = extractelement <2 x double> %81, i64 1
-  %84 = fcmp olt double %82, %83
-  %85 = select i1 %84, double %82, double %83
-  %86 = fptoui double %85 to i64
-  %87 = tail call i64 @llvm.usub.sat.i64(i64 %86, i64 %57)
-  br label %97
+  %71 = uitofp i64 %70 to double
+  %72 = fsub double 1.000000e+02, %65
+  %73 = fmul double %72, %71
+  %74 = fdiv double %73, 1.000000e+02
+  %75 = load i64, ptr %46, align 8
+  %76 = uitofp i64 %75 to double
+  %77 = load i64, ptr %60, align 8
+  %78 = uitofp i64 %77 to double
+  %79 = fsub double 1.000000e+02, %78
+  %80 = fmul double %79, %76
+  %81 = fdiv double %80, 1.000000e+02
+  %82 = fcmp olt double %74, %81
+  %83 = select i1 %82, double %74, double %81
+  %84 = fptoui double %83 to i64
+  %85 = tail call i64 @llvm.usub.sat.i64(i64 %84, i64 %57)
+  br label %95
 
-88:                                               ; preds = %1
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
-  %90 = load double, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 16
-  %92 = load i64, ptr %91, align 8
-  %93 = uitofp i64 %92 to double
-  %94 = fmul double %90, %93
-  %95 = fdiv double %94, 1.000000e+02
-  %96 = fptoui double %95 to i64
-  br label %97
+86:                                               ; preds = %1
+  %87 = getelementptr inbounds i8, ptr %0, i64 8
+  %88 = load double, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %0, i64 16
+  %90 = load i64, ptr %89, align 8
+  %91 = uitofp i64 %90 to double
+  %92 = fmul double %88, %91
+  %93 = fdiv double %92, 1.000000e+02
+  %94 = fptoui double %93 to i64
+  br label %95
 
-97:                                               ; preds = %88, %_ZNK21G1AdaptiveIHOPControl23actual_target_thresholdEv.exit
-  %.0 = phi i64 [ %87, %_ZNK21G1AdaptiveIHOPControl23actual_target_thresholdEv.exit ], [ %96, %88 ]
+95:                                               ; preds = %86, %_ZNK21G1AdaptiveIHOPControl23actual_target_thresholdEv.exit
+  %.0 = phi i64 [ %85, %_ZNK21G1AdaptiveIHOPControl23actual_target_thresholdEv.exit ], [ %94, %86 ]
   ret i64 %.0
 }
 
@@ -852,114 +848,112 @@ _ZNK21G1AdaptiveIHOPControl23actual_target_thresholdEv.exit: ; preds = %_ZN13G1I
   %48 = getelementptr inbounds i8, ptr %47, i64 120
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(1488) %46) #14
-  %51 = load i64, ptr %34, align 8
-  %52 = load i64, ptr %40, align 8
-  %53 = uitofp i64 %52 to double
-  %54 = insertelement <2 x i64> poison, i64 %50, i64 0
-  %55 = insertelement <2 x i64> %54, i64 %51, i64 1
-  %56 = uitofp <2 x i64> %55 to <2 x double>
-  %57 = insertelement <2 x double> poison, double %45, i64 0
-  %58 = insertelement <2 x double> %57, double %53, i64 1
-  %59 = fsub <2 x double> <double 1.000000e+02, double 1.000000e+02>, %58
-  %60 = fmul <2 x double> %59, %56
-  %61 = fdiv <2 x double> %60, <double 1.000000e+02, double 1.000000e+02>
-  %62 = extractelement <2 x double> %61, i64 0
-  %63 = extractelement <2 x double> %61, i64 1
-  %64 = fcmp olt double %62, %63
-  %65 = select i1 %64, double %62, double %63
-  %66 = fptoui double %65 to i64
-  %67 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_55ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not = icmp eq ptr %67, null
-  br i1 %.not, label %137, label %68
+  %51 = uitofp i64 %50 to double
+  %52 = fsub double 1.000000e+02, %45
+  %53 = fmul double %52, %51
+  %54 = fdiv double %53, 1.000000e+02
+  %55 = load i64, ptr %34, align 8
+  %56 = uitofp i64 %55 to double
+  %57 = load i64, ptr %40, align 8
+  %58 = uitofp i64 %57 to double
+  %59 = fsub double 1.000000e+02, %58
+  %60 = fmul double %59, %56
+  %61 = fdiv double %60, 1.000000e+02
+  %62 = fcmp olt double %54, %61
+  %63 = select i1 %62, double %54, double %61
+  %64 = fptoui double %63 to i64
+  %65 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_55ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not = icmp eq ptr %65, null
+  br i1 %.not, label %135, label %66
 
-68:                                               ; preds = %_ZNK21G1AdaptiveIHOPControl23actual_target_thresholdEv.exit
-  %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
-  %71 = load ptr, ptr %70, align 8
-  %72 = tail call noundef i64 %71(ptr noundef nonnull align 8 dereferenceable(216) %0) #14
-  %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
-  %75 = load ptr, ptr %74, align 8
-  %76 = tail call noundef i64 %75(ptr noundef nonnull align 8 dereferenceable(216) %0) #14
-  %.not.i3 = icmp eq i64 %66, 0
-  %77 = uitofp i64 %76 to double
-  %78 = uitofp i64 %66 to double
-  %79 = fdiv double %77, %78
-  %80 = fmul double %79, 1.000000e+02
-  %81 = select i1 %.not.i3, double 0.000000e+00, double %80
-  %82 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+66:                                               ; preds = %_ZNK21G1AdaptiveIHOPControl23actual_target_thresholdEv.exit
+  %67 = load ptr, ptr %0, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef i64 %69(ptr noundef nonnull align 8 dereferenceable(216) %0) #14
+  %71 = load ptr, ptr %0, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 24
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call noundef i64 %73(ptr noundef nonnull align 8 dereferenceable(216) %0) #14
+  %.not.i3 = icmp eq i64 %64, 0
+  %75 = uitofp i64 %74 to double
+  %76 = uitofp i64 %64 to double
+  %77 = fdiv double %75, %76
+  %78 = fmul double %77, 1.000000e+02
+  %79 = select i1 %.not.i3, double 0.000000e+00, double %78
+  %80 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 96
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 96
-  %85 = load ptr, ptr %84, align 8
-  %86 = tail call noundef i64 %85(ptr noundef nonnull align 8 dereferenceable(1488) %82) #14
-  %87 = getelementptr inbounds i8, ptr %0, i64 208
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 136
-  %90 = getelementptr inbounds i8, ptr %0, i64 56
-  %91 = load ptr, ptr %90, align 8
-  %92 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %89) #14
-  %93 = load double, ptr %91, align 8
-  %94 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %89) #14
-  %95 = getelementptr inbounds i8, ptr %0, i64 144
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp slt i32 %96, 5
-  br i1 %97, label %98, label %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit
+  %84 = tail call noundef i64 %83(ptr noundef nonnull align 8 dereferenceable(1488) %80) #14
+  %85 = getelementptr inbounds i8, ptr %0, i64 208
+  %86 = load i64, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %0, i64 136
+  %88 = getelementptr inbounds i8, ptr %0, i64 56
+  %89 = load ptr, ptr %88, align 8
+  %90 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %87) #14
+  %91 = load double, ptr %89, align 8
+  %92 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %87) #14
+  %93 = getelementptr inbounds i8, ptr %0, i64 144
+  %94 = load i32, ptr %93, align 8
+  %95 = icmp slt i32 %94, 5
+  br i1 %95, label %96, label %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit
 
-98:                                               ; preds = %68
-  %99 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %89) #14
-  %100 = sub nsw i32 5, %96
-  %101 = uitofp nneg i32 %100 to double
-  %102 = fmul double %99, %101
-  %103 = fmul double %102, 5.000000e-01
-  %104 = fcmp ogt double %103, %94
-  %105 = select i1 %104, double %103, double %94
+96:                                               ; preds = %66
+  %97 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %87) #14
+  %98 = sub nsw i32 5, %94
+  %99 = uitofp nneg i32 %98 to double
+  %100 = fmul double %97, %99
+  %101 = fmul double %100, 5.000000e-01
+  %102 = fcmp ogt double %101, %92
+  %103 = select i1 %102, double %101, double %92
   br label %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit
 
-_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit: ; preds = %68, %98
-  %.0.i.i.i.i = phi double [ %105, %98 ], [ %94, %68 ]
-  %106 = tail call noundef double @llvm.fmuladd.f64(double %93, double %.0.i.i.i.i, double %92)
-  %107 = fcmp ogt double %106, 0.000000e+00
-  %108 = select i1 %107, double %106, double 0.000000e+00
-  %109 = getelementptr inbounds i8, ptr %0, i64 64
-  %110 = load ptr, ptr %90, align 8
-  %111 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %109) #14
-  %112 = load double, ptr %110, align 8
-  %113 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %109) #14
-  %114 = getelementptr inbounds i8, ptr %0, i64 72
-  %115 = load i32, ptr %114, align 8
-  %116 = icmp slt i32 %115, 5
-  br i1 %116, label %117, label %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit5
+_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit: ; preds = %66, %96
+  %.0.i.i.i.i = phi double [ %103, %96 ], [ %92, %66 ]
+  %104 = tail call noundef double @llvm.fmuladd.f64(double %91, double %.0.i.i.i.i, double %90)
+  %105 = fcmp ogt double %104, 0.000000e+00
+  %106 = select i1 %105, double %104, double 0.000000e+00
+  %107 = getelementptr inbounds i8, ptr %0, i64 64
+  %108 = load ptr, ptr %88, align 8
+  %109 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %107) #14
+  %110 = load double, ptr %108, align 8
+  %111 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %107) #14
+  %112 = getelementptr inbounds i8, ptr %0, i64 72
+  %113 = load i32, ptr %112, align 8
+  %114 = icmp slt i32 %113, 5
+  br i1 %114, label %115, label %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit5
 
-117:                                              ; preds = %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit
-  %118 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %109) #14
-  %119 = sub nsw i32 5, %115
-  %120 = uitofp nneg i32 %119 to double
-  %121 = fmul double %118, %120
-  %122 = fmul double %121, 5.000000e-01
-  %123 = fcmp ogt double %122, %113
-  %124 = select i1 %123, double %122, double %113
-  %.pre = load i32, ptr %114, align 8
+115:                                              ; preds = %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit
+  %116 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %107) #14
+  %117 = sub nsw i32 5, %113
+  %118 = uitofp nneg i32 %117 to double
+  %119 = fmul double %116, %118
+  %120 = fmul double %119, 5.000000e-01
+  %121 = fcmp ogt double %120, %111
+  %122 = select i1 %121, double %120, double %111
+  %.pre = load i32, ptr %112, align 8
   br label %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit5
 
-_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit5: ; preds = %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit, %117
-  %125 = phi i32 [ %.pre, %117 ], [ %115, %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit ]
-  %.0.i.i.i.i4 = phi double [ %124, %117 ], [ %113, %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit ]
-  %126 = tail call noundef double @llvm.fmuladd.f64(double %112, double %.0.i.i.i.i4, double %111)
-  %127 = fcmp ogt double %126, 0.000000e+00
-  %128 = select i1 %127, double %126, double 0.000000e+00
-  %129 = fmul double %128, 1.000000e+03
-  %130 = sext i32 %125 to i64
-  %131 = load i64, ptr @G1AdaptiveIHOPNumInitialSamples, align 8
-  %.not.i6 = icmp ule i64 %131, %130
-  %132 = load i32, ptr %95, align 8
-  %133 = sext i32 %132 to i64
-  %134 = icmp ule i64 %131, %133
-  %135 = select i1 %.not.i6, i1 %134, i1 false
-  %136 = select i1 %135, ptr @.str.9, ptr @.str.10
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_55ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %72, double noundef %81, i64 noundef %66, i64 noundef %86, i64 noundef %88, double noundef %108, double noundef %129, ptr noundef nonnull %136)
-  br label %137
+_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit5: ; preds = %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit, %115
+  %123 = phi i32 [ %.pre, %115 ], [ %113, %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit ]
+  %.0.i.i.i.i4 = phi double [ %122, %115 ], [ %111, %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit ]
+  %124 = tail call noundef double @llvm.fmuladd.f64(double %110, double %.0.i.i.i.i4, double %109)
+  %125 = fcmp ogt double %124, 0.000000e+00
+  %126 = select i1 %125, double %124, double 0.000000e+00
+  %127 = fmul double %126, 1.000000e+03
+  %128 = sext i32 %123 to i64
+  %129 = load i64, ptr @G1AdaptiveIHOPNumInitialSamples, align 8
+  %.not.i6 = icmp ule i64 %129, %128
+  %130 = load i32, ptr %93, align 8
+  %131 = sext i32 %130 to i64
+  %132 = icmp ule i64 %129, %131
+  %133 = select i1 %.not.i6, i1 %132, i1 false
+  %134 = select i1 %133, ptr @.str.9, ptr @.str.10
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_55ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %70, double noundef %79, i64 noundef %64, i64 noundef %84, i64 noundef %86, double noundef %106, double noundef %127, ptr noundef nonnull %134)
+  br label %135
 
-137:                                              ; preds = %_ZNK21G1AdaptiveIHOPControl23actual_target_thresholdEv.exit, %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit5
+135:                                              ; preds = %_ZNK21G1AdaptiveIHOPControl23actual_target_thresholdEv.exit, %_ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit5
   ret void
 }
 
@@ -1072,31 +1066,29 @@ _ZNK21G1AdaptiveIHOPControl7predictEPK12TruncatedSeq.exit4: ; preds = %_ZNK21G1A
   %85 = uitofp i64 %84 to double
   %86 = fcmp olt double %85, 1.000000e+02
   %87 = select i1 %86, double %85, double 1.000000e+02
-  %88 = insertelement <2 x i64> poison, i64 %37, i64 0
-  %89 = insertelement <2 x i64> %88, i64 %38, i64 1
-  %90 = uitofp <2 x i64> %89 to <2 x double>
-  %91 = uitofp i64 %39 to double
-  %92 = insertelement <2 x double> poison, double %87, i64 0
-  %93 = insertelement <2 x double> %92, double %91, i64 1
-  %94 = fsub <2 x double> <double 1.000000e+02, double 1.000000e+02>, %93
-  %95 = fmul <2 x double> %94, %90
-  %96 = fdiv <2 x double> %95, <double 1.000000e+02, double 1.000000e+02>
-  %97 = extractelement <2 x double> %96, i64 0
-  %98 = extractelement <2 x double> %96, i64 1
-  %99 = fcmp olt double %97, %98
-  %100 = select i1 %99, double %97, double %98
-  %101 = fptoui double %100 to i64
-  %102 = tail call noundef double @llvm.fmuladd.f64(double %67, double %.0.i.i.i.i3, double %66)
-  %103 = fcmp ogt double %102, 0.000000e+00
-  %104 = select i1 %103, double %102, double 0.000000e+00
-  %105 = sext i32 %80 to i64
-  %106 = load i64, ptr @G1AdaptiveIHOPNumInitialSamples, align 8
-  %.not.i5 = icmp ule i64 %106, %105
-  %107 = load i32, ptr %53, align 8
-  %108 = sext i32 %107 to i64
-  %109 = icmp ule i64 %106, %108
-  %110 = select i1 %.not.i5, i1 %109, i1 false
-  tail call void @_ZN11G1NewTracer31report_adaptive_ihop_statisticsEmmmmddb(ptr noundef nonnull align 8 dereferenceable(88) %1, i64 noundef %25, i64 noundef %101, i64 noundef %44, i64 noundef %46, double noundef %83, double noundef %104, i1 noundef zeroext %110) #14
+  %88 = fsub double 1.000000e+02, %87
+  %89 = uitofp i64 %37 to double
+  %90 = fmul double %88, %89
+  %91 = fdiv double %90, 1.000000e+02
+  %92 = uitofp i64 %39 to double
+  %93 = fsub double 1.000000e+02, %92
+  %94 = uitofp i64 %38 to double
+  %95 = fmul double %93, %94
+  %96 = fdiv double %95, 1.000000e+02
+  %97 = fcmp olt double %91, %96
+  %98 = select i1 %97, double %91, double %96
+  %99 = fptoui double %98 to i64
+  %100 = tail call noundef double @llvm.fmuladd.f64(double %67, double %.0.i.i.i.i3, double %66)
+  %101 = fcmp ogt double %100, 0.000000e+00
+  %102 = select i1 %101, double %100, double 0.000000e+00
+  %103 = sext i32 %80 to i64
+  %104 = load i64, ptr @G1AdaptiveIHOPNumInitialSamples, align 8
+  %.not.i5 = icmp ule i64 %104, %103
+  %105 = load i32, ptr %53, align 8
+  %106 = sext i32 %105 to i64
+  %107 = icmp ule i64 %104, %106
+  %108 = select i1 %.not.i5, i1 %107, i1 false
+  tail call void @_ZN11G1NewTracer31report_adaptive_ihop_statisticsEmmmmddb(ptr noundef nonnull align 8 dereferenceable(88) %1, i64 noundef %25, i64 noundef %99, i64 noundef %44, i64 noundef %46, double noundef %83, double noundef %102, i1 noundef zeroext %108) #14
   ret void
 }
 

@@ -118,9 +118,12 @@ entry:
   store i8 2, ptr %rev.i, align 8
   %oem_id.i = getelementptr inbounds i8, ptr %table.i, i64 16
   %oem_id2.i = getelementptr inbounds i8, ptr %s, i64 3840
+  %5 = load ptr, ptr %oem_id2.i, align 8
+  store ptr %5, ptr %oem_id.i, align 8
+  %oem_table_id.i = getelementptr inbounds i8, ptr %table.i, i64 24
   %oem_table_id3.i = getelementptr inbounds i8, ptr %s, i64 3848
-  %5 = load <2 x ptr>, ptr %oem_id2.i, align 8
-  store <2 x ptr> %5, ptr %oem_id.i, align 8
+  %6 = load ptr, ptr %oem_table_id3.i, align 8
+  store ptr %6, ptr %oem_table_id.i, align 8
   %array.i = getelementptr inbounds i8, ptr %table.i, i64 32
   store ptr null, ptr %array.i, align 8
   %table_offset.i = getelementptr inbounds i8, ptr %table.i, i64 40
@@ -132,10 +135,10 @@ entry:
   %call1.i.i.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #10
   %call.i14.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
   %possible_cpu_arch_ids.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 336
-  %6 = load ptr, ptr %possible_cpu_arch_ids.i.i, align 8
-  %call2.i.i = call ptr %6(ptr noundef %call.i14.i.i) #10
-  %7 = load i32, ptr %call2.i.i, align 8
-  %cmp15.i.i = icmp sgt i32 %7, 0
+  %7 = load ptr, ptr %possible_cpu_arch_ids.i.i, align 8
+  %call2.i.i = call ptr %7(ptr noundef %call.i14.i.i) #10
+  %8 = load i32, ptr %call2.i.i, align 8
+  %cmp15.i.i = icmp sgt i32 %8, 0
   br i1 %cmp15.i.i, label %for.body.lr.ph.i.i, label %build_dsdt.exit
 
 for.body.lr.ph.i.i:                               ; preds = %entry
@@ -145,36 +148,36 @@ for.body.lr.ph.i.i:                               ; preds = %entry
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %call3.i.i = call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #10
-  %8 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %call4.i.i = call ptr (ptr, ...) @aml_device(ptr noundef nonnull @.str.9, i32 noundef %8) #10
+  %9 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %call4.i.i = call ptr (ptr, ...) @aml_device(ptr noundef nonnull @.str.9, i32 noundef %9) #10
   %call5.i.i = call ptr (ptr, ...) @aml_string(ptr noundef nonnull @.str.11) #10
   %call6.i.i = call ptr @aml_name_decl(ptr noundef nonnull @.str.10, ptr noundef %call5.i.i) #10
   call void @aml_append(ptr noundef %call4.i.i, ptr noundef %call6.i.i) #10
   %arrayidx.i.i = getelementptr [0 x %struct.CPUArchId], ptr %cpus.i.i, i64 0, i64 %indvars.iv.i.i
-  %9 = load i64, ptr %arrayidx.i.i, align 8
-  %call7.i.i = call ptr @aml_int(i64 noundef %9) #10
+  %10 = load i64, ptr %arrayidx.i.i, align 8
+  %call7.i.i = call ptr @aml_int(i64 noundef %10) #10
   %call8.i.i = call ptr @aml_name_decl(ptr noundef nonnull @.str.12, ptr noundef %call7.i.i) #10
   call void @aml_append(ptr noundef %call4.i.i, ptr noundef %call8.i.i) #10
-  %10 = load i64, ptr %arrayidx.i.i, align 8
+  %11 = load i64, ptr %arrayidx.i.i, align 8
   call void @build_append_int_noprefix(ptr noundef %call3.i.i, i64 noundef 24, i32 noundef 1) #10
   call void @build_append_int_noprefix(ptr noundef %call3.i.i, i64 noundef 20, i32 noundef 1) #10
   call void @build_append_int_noprefix(ptr noundef %call3.i.i, i64 noundef 1, i32 noundef 1) #10
   call void @build_append_int_noprefix(ptr noundef %call3.i.i, i64 noundef 0, i32 noundef 1) #10
   call void @build_append_int_noprefix(ptr noundef %call3.i.i, i64 noundef 1, i32 noundef 4) #10
-  call void @build_append_int_noprefix(ptr noundef %call3.i.i, i64 noundef %10, i32 noundef 8) #10
+  call void @build_append_int_noprefix(ptr noundef %call3.i.i, i64 noundef %11, i32 noundef 8) #10
   call void @build_append_int_noprefix(ptr noundef %call3.i.i, i64 noundef %indvars.iv.i.i, i32 noundef 4) #10
   %len9.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
-  %11 = load i32, ptr %len9.i.i, align 8
-  %12 = load ptr, ptr %call3.i.i, align 8
-  %call10.i.i = call ptr @aml_buffer(i32 noundef %11, ptr noundef %12) #10
+  %12 = load i32, ptr %len9.i.i, align 8
+  %13 = load ptr, ptr %call3.i.i, align 8
+  %call10.i.i = call ptr @aml_buffer(i32 noundef %12, ptr noundef %13) #10
   %call11.i.i = call ptr @aml_name_decl(ptr noundef nonnull @.str.13, ptr noundef %call10.i.i) #10
   call void @aml_append(ptr noundef %call4.i.i, ptr noundef %call11.i.i) #10
   %call12.i.i = call ptr @g_array_free(ptr noundef nonnull %call3.i.i, i32 noundef 1) #10
   call void @aml_append(ptr noundef %call4.i, ptr noundef %call4.i.i) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %13 = load i32, ptr %call2.i.i, align 8
-  %14 = sext i32 %13 to i64
-  %cmp.i.i = icmp slt i64 %indvars.iv.next.i.i, %14
+  %14 = load i32, ptr %call2.i.i, align 8
+  %15 = sext i32 %14 to i64
+  %cmp.i.i = icmp slt i64 %indvars.iv.next.i.i, %15
   br i1 %cmp.i.i, label %for.body.i.i, label %build_dsdt.exit, !llvm.loop !5
 
 build_dsdt.exit:                                  ; preds = %for.body.i.i, %entry
@@ -190,27 +193,27 @@ build_dsdt.exit:                                  ; preds = %for.body.i.i, %entr
   %call6.i13.i = call ptr @aml_name_decl(ptr noundef nonnull @.str.19, ptr noundef %call5.i12.i) #10
   call void @aml_append(ptr noundef %call.i.i, ptr noundef %call6.i13.i) #10
   %call7.i14.i = call ptr @aml_resource_template() #10
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %conv.i.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %arrayidx.i, align 8
+  %conv.i.i = trunc i64 %16 to i32
   %size.i.i = getelementptr i8, ptr %4, i64 184
-  %16 = load i64, ptr %size.i.i, align 8
-  %conv8.i.i = trunc i64 %16 to i32
+  %17 = load i64, ptr %size.i.i, align 8
+  %conv8.i.i = trunc i64 %17 to i32
   %call9.i.i = call ptr @aml_memory32_fixed(i32 noundef %conv.i.i, i32 noundef %conv8.i.i, i32 noundef 1) #10
   call void @aml_append(ptr noundef %call7.i14.i, ptr noundef %call9.i.i) #10
   %call10.i15.i = call ptr @aml_name_decl(ptr noundef nonnull @.str.20, ptr noundef %call7.i14.i) #10
   call void @aml_append(ptr noundef %call.i.i, ptr noundef %call10.i15.i) #10
   call void @aml_append(ptr noundef %call4.i, ptr noundef %call.i.i) #10
   call void @aml_append(ptr noundef %call.i, ptr noundef %call4.i) #10
-  %17 = load ptr, ptr %call.i, align 8
-  %18 = load ptr, ptr %17, align 8
-  %len.i = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load i32, ptr %len.i, align 8
-  %call6.i = call ptr @g_array_append_vals(ptr noundef %0, ptr noundef %18, i32 noundef %19) #10
+  %18 = load ptr, ptr %call.i, align 8
+  %19 = load ptr, ptr %18, align 8
+  %len.i = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = load i32, ptr %len.i, align 8
+  %call6.i = call ptr @g_array_append_vals(ptr noundef %0, ptr noundef %19, i32 noundef %20) #10
   call void @acpi_table_end(ptr noundef %3, ptr noundef nonnull %table.i) #10
   call void @free_aml_allocator() #10
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %table.i)
   call void @acpi_add_table(ptr noundef %call, ptr noundef %0) #10
-  %20 = load ptr, ptr %linker, align 8
+  %21 = load ptr, ptr %linker, align 8
   %s.val = load ptr, ptr %oem_id2.i, align 8
   %s.val32 = load ptr, ptr %oem_table_id3.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dsdt_tbl_offset.addr.i)
@@ -225,24 +228,27 @@ build_dsdt.exit:                                  ; preds = %for.body.i.i, %entr
   store i8 5, ptr %minor_ver.i, align 2
   %xdsdt_tbl_offset.i = getelementptr inbounds i8, ptr %fadt.i, i64 160
   store ptr %dsdt_tbl_offset.addr.i, ptr %xdsdt_tbl_offset.i, align 8
-  call void @build_fadt(ptr noundef %0, ptr noundef %20, ptr noundef nonnull %fadt.i, ptr noundef %s.val, ptr noundef %s.val32) #10
+  call void @build_fadt(ptr noundef %0, ptr noundef %21, ptr noundef nonnull %fadt.i, ptr noundef %s.val, ptr noundef %s.val32) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dsdt_tbl_offset.addr.i)
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %fadt.i)
   call void @acpi_add_table(ptr noundef %call, ptr noundef %0) #10
-  %21 = load ptr, ptr %linker, align 8
+  %22 = load ptr, ptr %linker, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %table.i34)
   %call.i.i35 = call ptr @object_get_class(ptr noundef %s) #10
   %call1.i.i36 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i35, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #10
   %call.i10.i = call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
   %possible_cpu_arch_ids.i = getelementptr inbounds i8, ptr %call1.i.i36, i64 336
-  %22 = load ptr, ptr %possible_cpu_arch_ids.i, align 8
-  %call2.i = call ptr %22(ptr noundef %call.i10.i) #10
+  %23 = load ptr, ptr %possible_cpu_arch_ids.i, align 8
+  %call2.i = call ptr %23(ptr noundef %call.i10.i) #10
   store ptr @.str.21, ptr %table.i34, align 8
   %rev.i37 = getelementptr inbounds i8, ptr %table.i34, i64 8
   store i8 6, ptr %rev.i37, align 8
   %oem_id.i38 = getelementptr inbounds i8, ptr %table.i34, i64 16
-  %23 = load <2 x ptr>, ptr %oem_id2.i, align 8
-  store <2 x ptr> %23, ptr %oem_id.i38, align 8
+  %24 = load ptr, ptr %oem_id2.i, align 8
+  store ptr %24, ptr %oem_id.i38, align 8
+  %oem_table_id.i39 = getelementptr inbounds i8, ptr %table.i34, i64 24
+  %25 = load ptr, ptr %oem_table_id3.i, align 8
+  store ptr %25, ptr %oem_table_id.i39, align 8
   %array.i40 = getelementptr inbounds i8, ptr %table.i34, i64 32
   store ptr null, ptr %array.i40, align 8
   %table_offset.i41 = getelementptr inbounds i8, ptr %table.i34, i64 40
@@ -250,8 +256,8 @@ build_dsdt.exit:                                  ; preds = %for.body.i.i, %entr
   call void @acpi_table_begin(ptr noundef nonnull %table.i34, ptr noundef %0) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 0, i32 noundef 4) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 0, i32 noundef 4) #10
-  %24 = load i32, ptr %call2.i, align 8
-  %cmp11.i = icmp sgt i32 %24, 0
+  %26 = load i32, ptr %call2.i, align 8
+  %cmp11.i = icmp sgt i32 %26, 0
   br i1 %cmp11.i, label %for.body.lr.ph.i, label %build_madt.exit
 
 for.body.lr.ph.i:                                 ; preds = %build_dsdt.exit
@@ -261,38 +267,41 @@ for.body.lr.ph.i:                                 ; preds = %build_dsdt.exit
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i.i43 = getelementptr [0 x %struct.CPUArchId], ptr %cpus.i.i42, i64 0, i64 %indvars.iv.i
-  %25 = load i64, ptr %arrayidx.i.i43, align 8
+  %27 = load i64, ptr %arrayidx.i.i43, align 8
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 24, i32 noundef 1) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 20, i32 noundef 1) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 1, i32 noundef 1) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 0, i32 noundef 1) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 1, i32 noundef 4) #10
-  call void @build_append_int_noprefix(ptr noundef %0, i64 noundef %25, i32 noundef 8) #10
+  call void @build_append_int_noprefix(ptr noundef %0, i64 noundef %27, i32 noundef 8) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef %indvars.iv.i, i32 noundef 4) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %26 = load i32, ptr %call2.i, align 8
-  %27 = sext i32 %26 to i64
-  %cmp.i = icmp slt i64 %indvars.iv.next.i, %27
+  %28 = load i32, ptr %call2.i, align 8
+  %29 = sext i32 %28 to i64
+  %cmp.i = icmp slt i64 %indvars.iv.next.i, %29
   br i1 %cmp.i, label %for.body.i, label %build_madt.exit, !llvm.loop !7
 
 build_madt.exit:                                  ; preds = %for.body.i, %build_dsdt.exit
-  call void @acpi_table_end(ptr noundef %21, ptr noundef nonnull %table.i34) #10
+  call void @acpi_table_end(ptr noundef %22, ptr noundef nonnull %table.i34) #10
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %table.i34)
   call void @acpi_add_table(ptr noundef %call, ptr noundef %0) #10
-  %28 = load ptr, ptr %linker, align 8
+  %30 = load ptr, ptr %linker, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %table.i44)
   %call.i.i45 = call ptr @object_get_class(ptr noundef %s) #10
   %call1.i.i46 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i45, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #10
   %call.i32.i = call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
   %possible_cpu_arch_ids.i47 = getelementptr inbounds i8, ptr %call1.i.i46, i64 336
-  %29 = load ptr, ptr %possible_cpu_arch_ids.i47, align 8
-  %call2.i48 = call ptr %29(ptr noundef %call.i32.i) #10
+  %31 = load ptr, ptr %possible_cpu_arch_ids.i47, align 8
+  %call2.i48 = call ptr %31(ptr noundef %call.i32.i) #10
   store ptr @.str.22, ptr %table.i44, align 8
   %rev.i49 = getelementptr inbounds i8, ptr %table.i44, i64 8
   store i8 1, ptr %rev.i49, align 8
   %oem_id.i50 = getelementptr inbounds i8, ptr %table.i44, i64 16
-  %30 = load <2 x ptr>, ptr %oem_id2.i, align 8
-  store <2 x ptr> %30, ptr %oem_id.i50, align 8
+  %32 = load ptr, ptr %oem_id2.i, align 8
+  store ptr %32, ptr %oem_id.i50, align 8
+  %oem_table_id.i52 = getelementptr inbounds i8, ptr %table.i44, i64 24
+  %33 = load ptr, ptr %oem_table_id3.i, align 8
+  store ptr %33, ptr %oem_table_id.i52, align 8
   %array.i54 = getelementptr inbounds i8, ptr %table.i44, i64 32
   store ptr null, ptr %array.i54, align 8
   %table_offset.i55 = getelementptr inbounds i8, ptr %table.i44, i64 40
@@ -301,18 +310,18 @@ build_madt.exit:                                  ; preds = %for.body.i, %build_
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 0, i32 noundef 4) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 10000000, i32 noundef 8) #10
   %smp.i = getelementptr inbounds i8, ptr %call.i32.i, i64 288
-  %31 = load i32, ptr %smp.i, align 8
-  %add.i = add i32 %31, 1
+  %34 = load i32, ptr %smp.i, align 8
+  %add.i = add i32 %34, 1
   %conv.i = zext i32 %add.i to i64
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef %conv.i, i32 noundef 4) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 56, i32 noundef 4) #10
-  %32 = load i32, ptr %len, align 8
-  %33 = load i32, ptr %table_offset.i55, align 8
-  %sub.i = sub i32 %32, %33
+  %35 = load i32, ptr %len, align 8
+  %36 = load i32, ptr %table_offset.i55, align 8
+  %sub.i = sub i32 %35, %36
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef 0, i32 noundef 2) #10
   %harts.i = getelementptr inbounds i8, ptr %s, i64 1216
-  %34 = load ptr, ptr %harts.i, align 8
-  %call8.i = call ptr @riscv_isa_string(ptr noundef %34) #10
+  %37 = load ptr, ptr %harts.i, align 8
+  %call8.i = call ptr @riscv_isa_string(ptr noundef %37) #10
   %call9.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call8.i) #12
   %add11.i = add i64 %call9.i, 9
   %rem.i = and i64 %add11.i, 1
@@ -325,8 +334,8 @@ build_madt.exit:                                  ; preds = %for.body.i, %build_
   %add14.i = add i64 %call13.i, 1
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef %add14.i, i32 noundef 2) #10
   %call15.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call8.i) #12
-  %35 = trunc i64 %call15.i to i32
-  %conv17.i = add i32 %35, 1
+  %38 = trunc i64 %call15.i to i32
+  %conv17.i = add i32 %38, 1
   %call18.i = call ptr @g_array_append_vals(ptr noundef %0, ptr noundef %call8.i, i32 noundef %conv17.i) #10
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -335,8 +344,8 @@ if.then.i:                                        ; preds = %build_madt.exit
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %build_madt.exit
-  %36 = load i32, ptr %call2.i48, align 8
-  %cmp2133.i = icmp sgt i32 %36, 0
+  %39 = load i32, ptr %call2.i48, align 8
+  %cmp2133.i = icmp sgt i32 %39, 0
   br i1 %cmp2133.i, label %for.body.lr.ph.i56, label %build_rhct.exit
 
 for.body.lr.ph.i56:                               ; preds = %if.end.i
@@ -352,22 +361,22 @@ for.body.i57:                                     ; preds = %for.body.i57, %for.
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef %indvars.iv.i58, i32 noundef 4) #10
   call void @build_append_int_noprefix(ptr noundef %0, i64 noundef %conv24.i, i32 noundef 4) #10
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
-  %37 = load i32, ptr %call2.i48, align 8
-  %38 = sext i32 %37 to i64
-  %cmp21.i = icmp slt i64 %indvars.iv.next.i59, %38
+  %40 = load i32, ptr %call2.i48, align 8
+  %41 = sext i32 %40 to i64
+  %cmp21.i = icmp slt i64 %indvars.iv.next.i59, %41
   br i1 %cmp21.i, label %for.body.i57, label %build_rhct.exit, !llvm.loop !8
 
 build_rhct.exit:                                  ; preds = %for.body.i57, %if.end.i
-  call void @acpi_table_end(ptr noundef %28, ptr noundef nonnull %table.i44) #10
+  call void @acpi_table_end(ptr noundef %30, ptr noundef nonnull %table.i44) #10
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %table.i44)
-  %39 = load i32, ptr %len, align 8
-  store i32 %39, ptr %xsdt, align 4
-  %40 = load ptr, ptr %linker, align 8
-  %41 = load ptr, ptr %oem_id2.i, align 8
-  %42 = load ptr, ptr %oem_table_id3.i, align 8
-  call void @build_xsdt(ptr noundef %0, ptr noundef %40, ptr noundef %call, ptr noundef %41, ptr noundef %42) #10
-  %43 = load ptr, ptr %oem_id2.i, align 8
-  store ptr %43, ptr %rsdp_data, align 8
+  %42 = load i32, ptr %len, align 8
+  store i32 %42, ptr %xsdt, align 4
+  %43 = load ptr, ptr %linker, align 8
+  %44 = load ptr, ptr %oem_id2.i, align 8
+  %45 = load ptr, ptr %oem_table_id3.i, align 8
+  call void @build_xsdt(ptr noundef %0, ptr noundef %43, ptr noundef %call, ptr noundef %44, ptr noundef %45) #10
+  %46 = load ptr, ptr %oem_id2.i, align 8
+  store ptr %46, ptr %rsdp_data, align 8
   %revision = getelementptr inbounds i8, ptr %rsdp_data, i64 8
   store i8 2, ptr %revision, align 8
   %rsdt_tbl_offset = getelementptr inbounds i8, ptr %rsdp_data, i64 16
@@ -375,15 +384,15 @@ build_rhct.exit:                                  ; preds = %for.body.i57, %if.e
   %xsdt_tbl_offset = getelementptr inbounds i8, ptr %rsdp_data, i64 24
   store ptr %xsdt, ptr %xsdt_tbl_offset, align 8
   %rsdp = getelementptr inbounds i8, ptr %tables, i64 8
-  %44 = load ptr, ptr %rsdp, align 8
-  %45 = load ptr, ptr %linker, align 8
-  call void @build_rsdp(ptr noundef %44, ptr noundef %45, ptr noundef nonnull %rsdp_data) #10
-  %46 = load i32, ptr %len, align 8
-  %cmp = icmp ugt i32 %46, 65536
+  %47 = load ptr, ptr %rsdp, align 8
+  %48 = load ptr, ptr %linker, align 8
+  call void @build_rsdp(ptr noundef %47, ptr noundef %48, ptr noundef nonnull %rsdp_data) #10
+  %49 = load i32, ptr %len, align 8
+  %cmp = icmp ugt i32 %49, 65536
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %build_rhct.exit
-  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.5, i32 noundef %46, i32 noundef 65536) #10
+  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.5, i32 noundef %49, i32 noundef 65536) #10
   %call12 = call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.6) #10
   br label %if.end
 

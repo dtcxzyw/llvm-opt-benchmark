@@ -50,50 +50,72 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZN2cv8saliency14ObjectnessBING9FilterTIG3dotEllll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 align 2 {
-  %6 = load <2 x i64>, ptr %0, align 8
+  %6 = load i64, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load <2 x i64>, ptr %7, align 8
-  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
-  %10 = trunc nuw nsw i64 %9 to i32
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
-  %12 = trunc nuw nsw i64 %11 to i32
-  %.neg27 = mul nsw i32 %12, -2
-  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
+  %8 = load i64, ptr %7, align 8
+  %9 = and i64 %6, %1
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
+  %11 = trunc nuw nsw i64 %10 to i32
+  %12 = shl nuw nsw i32 %11, 1
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %14 = trunc nuw nsw i64 %13 to i32
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4)
-  %16 = trunc nuw nsw i64 %15 to i32
-  %17 = shufflevector <2 x i64> %6, <2 x i64> poison, <4 x i32> zeroinitializer
-  %18 = insertelement <4 x i64> poison, i64 %4, i64 0
-  %19 = insertelement <4 x i64> %18, i64 %3, i64 1
-  %20 = insertelement <4 x i64> %19, i64 %1, i64 2
-  %21 = insertelement <4 x i64> %20, i64 %2, i64 3
-  %22 = and <4 x i64> %17, %21
-  %23 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %22)
-  %24 = trunc nuw nsw <4 x i64> %23 to <4 x i32>
-  %25 = shl nuw nsw <4 x i32> %24, <i32 4, i32 3, i32 1, i32 2>
-  %26 = shl nuw nsw i32 %14, 2
-  %27 = add nuw nsw i32 %26, %10
-  %28 = shl nuw nsw i32 %16, 3
-  %29 = add nuw nsw i32 %27, %28
-  %narrow = sub nsw i32 %.neg27, %29
-  %30 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %25)
-  %op.rdx = add i32 %30, %narrow
-  %31 = shufflevector <2 x i64> %8, <2 x i64> poison, <4 x i32> zeroinitializer
-  %32 = and <4 x i64> %31, %21
-  %33 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %32)
-  %34 = trunc nuw nsw <4 x i64> %33 to <4 x i32>
-  %35 = shl nuw nsw <4 x i32> %34, <i32 4, i32 3, i32 1, i32 2>
-  %36 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %35)
-  %op.rdx33 = add i32 %36, %narrow
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  %38 = load float, ptr %37, align 8
-  %39 = sitofp i32 %op.rdx to float
-  %40 = getelementptr inbounds i8, ptr %0, i64 20
-  %41 = load float, ptr %40, align 4
-  %42 = sitofp i32 %op.rdx33 to float
-  %43 = fmul float %41, %42
-  %44 = tail call float @llvm.fmuladd.f32(float %38, float %39, float %43)
-  ret float %44
+  %15 = and i64 %8, %1
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %15)
+  %17 = trunc nuw nsw i64 %16 to i32
+  %18 = shl nuw nsw i32 %17, 1
+  %19 = and i64 %6, %2
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
+  %21 = trunc nuw nsw i64 %20 to i32
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %23 = trunc nuw nsw i64 %22 to i32
+  %24 = shl nuw nsw i32 %21, 2
+  %.neg27 = mul nsw i32 %23, -2
+  %25 = and i64 %8, %2
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %25)
+  %27 = trunc nuw nsw i64 %26 to i32
+  %28 = shl nuw nsw i32 %27, 2
+  %29 = and i64 %6, %3
+  %30 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %29)
+  %31 = trunc nuw nsw i64 %30 to i32
+  %32 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
+  %33 = trunc nuw nsw i64 %32 to i32
+  %34 = shl nuw nsw i32 %31, 3
+  %35 = and i64 %8, %3
+  %36 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %35)
+  %37 = trunc nuw nsw i64 %36 to i32
+  %38 = shl nuw nsw i32 %37, 3
+  %39 = and i64 %6, %4
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %39)
+  %41 = trunc nuw nsw i64 %40 to i32
+  %42 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4)
+  %43 = trunc nuw nsw i64 %42 to i32
+  %44 = shl nuw nsw i32 %41, 4
+  %45 = shl nuw nsw i32 %33, 2
+  %46 = add nuw nsw i32 %45, %14
+  %47 = shl nuw nsw i32 %43, 3
+  %48 = add nuw nsw i32 %46, %47
+  %narrow = sub nsw i32 %.neg27, %48
+  %49 = add nsw i32 %narrow, %44
+  %narrow17 = add nsw i32 %49, %34
+  %50 = add nsw i32 %narrow17, %12
+  %narrow19 = add nsw i32 %50, %24
+  %51 = and i64 %8, %4
+  %52 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %51)
+  %53 = trunc nuw nsw i64 %52 to i32
+  %54 = shl nuw nsw i32 %53, 4
+  %55 = add nsw i32 %narrow, %54
+  %narrow18 = add nsw i32 %55, %38
+  %56 = add nsw i32 %narrow18, %18
+  %narrow20 = add nsw i32 %56, %28
+  %57 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = load float, ptr %57, align 8
+  %59 = sitofp i32 %narrow19 to float
+  %60 = getelementptr inbounds i8, ptr %0, i64 20
+  %61 = load float, ptr %60, align 4
+  %62 = sitofp i32 %narrow20 to float
+  %63 = fmul float %61, %62
+  %64 = tail call float @llvm.fmuladd.f32(float %58, float %59, float %63)
+  ret float %64
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -351,7 +373,7 @@ define void @_ZN2cv8saliency14ObjectnessBING9FilterTIG13matchTemplateERKNS_3MatE
   %.sroa.0.0.insert.insert151 = or disjoint i64 %.sroa.10.0.insert.shift181, %.sroa.0.0.insert.ext149
   call void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %5, i64 %.sroa.0.0.insert.insert151, i32 noundef 6)
   invoke void @_ZN2cv4Mat_IdEC2EONS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(352) %5)
-          to label %30 unwind label %245
+          to label %30 unwind label %261
 
 30:                                               ; preds = %3
   %31 = getelementptr inbounds i8, ptr %5, i64 208
@@ -361,11 +383,11 @@ define void @_ZN2cv8saliency14ObjectnessBING9FilterTIG13matchTemplateERKNS_3MatE
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #11
   invoke void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %7, i64 %.sroa.0.0.insert.insert151, i32 noundef 6)
-          to label %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit unwind label %247
+          to label %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit unwind label %263
 
 _ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit:          ; preds = %30
   invoke void @_ZN2cv4Mat_IdEC2EONS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(352) %7)
-          to label %34 unwind label %249
+          to label %34 unwind label %265
 
 34:                                               ; preds = %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit
   %35 = getelementptr inbounds i8, ptr %7, i64 208
@@ -375,11 +397,11 @@ _ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit:          ; preds = %30
   %37 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #11
   invoke void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %9, i64 %.sroa.0.0.insert.insert151, i32 noundef 6)
-          to label %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit123 unwind label %251
+          to label %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit123 unwind label %267
 
 _ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit123:       ; preds = %34
   invoke void @_ZN2cv4Mat_IdEC2EONS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(352) %9)
-          to label %38 unwind label %253
+          to label %38 unwind label %269
 
 38:                                               ; preds = %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit123
   %39 = getelementptr inbounds i8, ptr %9, i64 208
@@ -389,11 +411,11 @@ _ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit123:       ; preds = %34
   %41 = getelementptr inbounds i8, ptr %9, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #11
   invoke void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %11, i64 %.sroa.0.0.insert.insert151, i32 noundef 6)
-          to label %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit124 unwind label %255
+          to label %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit124 unwind label %271
 
 _ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit124:       ; preds = %38
   invoke void @_ZN2cv4Mat_IdEC2EONS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(352) %11)
-          to label %42 unwind label %257
+          to label %42 unwind label %273
 
 42:                                               ; preds = %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit124
   %43 = getelementptr inbounds i8, ptr %11, i64 208
@@ -403,11 +425,11 @@ _ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit124:       ; preds = %38
   %45 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %45) #11
   invoke void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %13, i64 %.sroa.0.0.insert.insert151, i32 noundef 0)
-          to label %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit unwind label %259
+          to label %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit unwind label %275
 
 _ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit:          ; preds = %42
   invoke void @_ZN2cv4Mat_IhEC2EONS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(352) %13)
-          to label %46 unwind label %261
+          to label %46 unwind label %277
 
 46:                                               ; preds = %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit
   %47 = getelementptr inbounds i8, ptr %13, i64 208
@@ -417,11 +439,11 @@ _ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit:          ; preds = %42
   %49 = getelementptr inbounds i8, ptr %13, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %49) #11
   invoke void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %15, i64 %.sroa.0.0.insert.insert151, i32 noundef 0)
-          to label %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit125 unwind label %263
+          to label %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit125 unwind label %279
 
 _ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit125:       ; preds = %46
   invoke void @_ZN2cv4Mat_IhEC2EONS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(352) %15)
-          to label %50 unwind label %265
+          to label %50 unwind label %281
 
 50:                                               ; preds = %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit125
   %51 = getelementptr inbounds i8, ptr %15, i64 208
@@ -431,11 +453,11 @@ _ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit125:       ; preds = %46
   %53 = getelementptr inbounds i8, ptr %15, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %53) #11
   invoke void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %17, i64 %.sroa.0.0.insert.insert151, i32 noundef 0)
-          to label %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit126 unwind label %267
+          to label %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit126 unwind label %283
 
 _ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit126:       ; preds = %50
   invoke void @_ZN2cv4Mat_IhEC2EONS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(352) %17)
-          to label %54 unwind label %269
+          to label %54 unwind label %285
 
 54:                                               ; preds = %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit126
   %55 = getelementptr inbounds i8, ptr %17, i64 208
@@ -445,11 +467,11 @@ _ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit126:       ; preds = %50
   %57 = getelementptr inbounds i8, ptr %17, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %57) #11
   invoke void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %19, i64 %.sroa.0.0.insert.insert151, i32 noundef 0)
-          to label %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit127 unwind label %271
+          to label %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit127 unwind label %287
 
 _ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit127:       ; preds = %54
   invoke void @_ZN2cv4Mat_IhEC2EONS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(352) %19)
-          to label %58 unwind label %273
+          to label %58 unwind label %289
 
 58:                                               ; preds = %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit127
   %59 = getelementptr inbounds i8, ptr %19, i64 208
@@ -459,7 +481,7 @@ _ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit127:       ; preds = %54
   %61 = getelementptr inbounds i8, ptr %19, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %61) #11
   invoke void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %29, i32 noundef %28, i32 noundef 5)
-          to label %_ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit.preheader unwind label %275
+          to label %_ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit.preheader unwind label %291
 
 _ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit.preheader:    ; preds = %58
   %.not190 = icmp slt i32 %25, 1
@@ -624,143 +646,161 @@ _ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit.preheader:    ; preds = %58
   %201 = load i64, ptr %179, align 8
   %202 = load i64, ptr %186, align 8
   %203 = load i64, ptr %193, align 8
-  %204 = load <2 x i64>, ptr %1, align 8
-  %205 = load <2 x i64>, ptr %82, align 8
-  %206 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %201)
-  %207 = trunc nuw nsw i64 %206 to i32
-  %208 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %202)
-  %209 = trunc nuw nsw i64 %208 to i32
-  %210 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %203)
+  %204 = load i64, ptr %1, align 8
+  %205 = load i64, ptr %82, align 8
+  %206 = and i64 %204, %201
+  %207 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %206)
+  %208 = trunc nuw nsw i64 %207 to i32
+  %209 = shl nuw nsw i32 %208, 1
+  %210 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %201)
   %211 = trunc nuw nsw i64 %210 to i32
-  %212 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %199)
-  %213 = trunc nuw nsw i64 %212 to i32
-  %214 = shufflevector <2 x i64> %204, <2 x i64> poison, <4 x i32> zeroinitializer
-  %215 = insertelement <4 x i64> poison, i64 %203, i64 0
-  %216 = insertelement <4 x i64> %215, i64 %199, i64 1
-  %217 = insertelement <4 x i64> %216, i64 %201, i64 2
-  %218 = insertelement <4 x i64> %217, i64 %202, i64 3
-  %219 = and <4 x i64> %214, %218
-  %220 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %219)
-  %221 = trunc nuw nsw <4 x i64> %220 to <4 x i32>
-  %222 = shl nuw nsw <4 x i32> %221, <i32 3, i32 4, i32 1, i32 2>
-  %.neg = mul nsw i32 %213, -8
-  %223 = shl nuw nsw i32 %209, 1
-  %224 = add nuw nsw i32 %223, %207
-  %225 = shl nuw nsw i32 %211, 2
-  %226 = add nuw nsw i32 %224, %225
-  %narrow.i = sub nsw i32 %.neg, %226
-  %227 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %222)
-  %op.rdx = add i32 %227, %narrow.i
-  %228 = shufflevector <2 x i64> %205, <2 x i64> poison, <4 x i32> zeroinitializer
-  %229 = insertelement <4 x i64> poison, i64 %199, i64 0
-  %230 = insertelement <4 x i64> %229, i64 %203, i64 1
-  %231 = insertelement <4 x i64> %230, i64 %201, i64 2
-  %232 = insertelement <4 x i64> %231, i64 %202, i64 3
-  %233 = and <4 x i64> %228, %232
-  %234 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %233)
-  %235 = trunc nuw nsw <4 x i64> %234 to <4 x i32>
-  %236 = shl nuw nsw <4 x i32> %235, <i32 4, i32 3, i32 1, i32 2>
-  %237 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %236)
-  %op.rdx199 = add i32 %237, %narrow.i
-  %238 = load float, ptr %83, align 8
-  %239 = sitofp i32 %op.rdx to float
-  %240 = load float, ptr %84, align 4
-  %241 = sitofp i32 %op.rdx199 to float
-  %242 = fmul float %240, %241
-  %243 = call noundef float @llvm.fmuladd.f32(float %238, float %239, float %242)
-  %244 = getelementptr inbounds float, ptr %144, i64 %indvars.iv
-  store float %243, ptr %244, align 4
+  %212 = and i64 %205, %201
+  %213 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %212)
+  %214 = trunc nuw nsw i64 %213 to i32
+  %215 = shl nuw nsw i32 %214, 1
+  %216 = and i64 %204, %202
+  %217 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %216)
+  %218 = trunc nuw nsw i64 %217 to i32
+  %219 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %202)
+  %220 = trunc nuw nsw i64 %219 to i32
+  %221 = shl nuw nsw i32 %218, 2
+  %222 = and i64 %205, %202
+  %223 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %222)
+  %224 = trunc nuw nsw i64 %223 to i32
+  %225 = shl nuw nsw i32 %224, 2
+  %226 = and i64 %204, %203
+  %227 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %226)
+  %228 = trunc nuw nsw i64 %227 to i32
+  %229 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %203)
+  %230 = trunc nuw nsw i64 %229 to i32
+  %231 = shl nuw nsw i32 %228, 3
+  %232 = and i64 %205, %203
+  %233 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %232)
+  %234 = trunc nuw nsw i64 %233 to i32
+  %235 = shl nuw nsw i32 %234, 3
+  %236 = and i64 %204, %199
+  %237 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %236)
+  %238 = trunc nuw nsw i64 %237 to i32
+  %239 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %199)
+  %240 = trunc nuw nsw i64 %239 to i32
+  %241 = shl nuw nsw i32 %238, 4
+  %.neg = mul nsw i32 %240, -8
+  %242 = shl nuw nsw i32 %220, 1
+  %243 = add nuw nsw i32 %242, %211
+  %244 = shl nuw nsw i32 %230, 2
+  %245 = add nuw nsw i32 %243, %244
+  %narrow.i = sub nsw i32 %.neg, %245
+  %246 = add nuw nsw i32 %231, %241
+  %narrow17.i = add nuw nsw i32 %246, %209
+  %247 = add nuw nsw i32 %narrow17.i, %221
+  %narrow19.i = add nsw i32 %247, %narrow.i
+  %248 = and i64 %205, %199
+  %249 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %248)
+  %250 = trunc nuw nsw i64 %249 to i32
+  %251 = shl nuw nsw i32 %250, 4
+  %252 = add nsw i32 %narrow.i, %251
+  %narrow18.i = add nsw i32 %252, %235
+  %253 = add nsw i32 %narrow18.i, %215
+  %narrow20.i = add nsw i32 %253, %225
+  %254 = load float, ptr %83, align 8
+  %255 = sitofp i32 %narrow19.i to float
+  %256 = load float, ptr %84, align 4
+  %257 = sitofp i32 %narrow20.i to float
+  %258 = fmul float %256, %257
+  %259 = call noundef float @llvm.fmuladd.f32(float %254, float %255, float %258)
+  %260 = getelementptr inbounds float, ptr %144, i64 %indvars.iv
+  store float %259, ptr %260, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.0.0.insert.ext149
   br i1 %exitcond.not, label %_ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit, label %.lr.ph, !llvm.loop !11
 
-245:                                              ; preds = %3
-  %246 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %5) #11
-  br label %299
-
-247:                                              ; preds = %30
-  %248 = landingpad { ptr, i32 }
-          cleanup
-  br label %298
-
-249:                                              ; preds = %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit
-  %250 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %7) #11
-  br label %298
-
-251:                                              ; preds = %34
-  %252 = landingpad { ptr, i32 }
-          cleanup
-  br label %297
-
-253:                                              ; preds = %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit123
-  %254 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %9) #11
-  br label %297
-
-255:                                              ; preds = %38
-  %256 = landingpad { ptr, i32 }
-          cleanup
-  br label %296
-
-257:                                              ; preds = %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit124
-  %258 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %11) #11
-  br label %296
-
-259:                                              ; preds = %42
-  %260 = landingpad { ptr, i32 }
-          cleanup
-  br label %295
-
-261:                                              ; preds = %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit
+261:                                              ; preds = %3
   %262 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %13) #11
-  br label %295
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %5) #11
+  br label %315
 
-263:                                              ; preds = %46
+263:                                              ; preds = %30
   %264 = landingpad { ptr, i32 }
           cleanup
-  br label %294
+  br label %314
 
-265:                                              ; preds = %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit125
+265:                                              ; preds = %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit
   %266 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %15) #11
-  br label %294
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %7) #11
+  br label %314
 
-267:                                              ; preds = %50
+267:                                              ; preds = %34
   %268 = landingpad { ptr, i32 }
           cleanup
-  br label %293
+  br label %313
 
-269:                                              ; preds = %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit126
+269:                                              ; preds = %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit123
   %270 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %17) #11
-  br label %293
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %9) #11
+  br label %313
 
-271:                                              ; preds = %54
+271:                                              ; preds = %38
   %272 = landingpad { ptr, i32 }
           cleanup
-  br label %292
+  br label %312
 
-273:                                              ; preds = %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit127
+273:                                              ; preds = %_ZN2cv4Mat_IdE5zerosENS_5Size_IiEE.exit124
   %274 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %19) #11
-  br label %292
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %11) #11
+  br label %312
 
-275:                                              ; preds = %58
+275:                                              ; preds = %42
   %276 = landingpad { ptr, i32 }
           cleanup
-  br label %291
+  br label %311
+
+277:                                              ; preds = %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit
+  %278 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %13) #11
+  br label %311
+
+279:                                              ; preds = %46
+  %280 = landingpad { ptr, i32 }
+          cleanup
+  br label %310
+
+281:                                              ; preds = %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit125
+  %282 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %15) #11
+  br label %310
+
+283:                                              ; preds = %50
+  %284 = landingpad { ptr, i32 }
+          cleanup
+  br label %309
+
+285:                                              ; preds = %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit126
+  %286 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %17) #11
+  br label %309
+
+287:                                              ; preds = %54
+  %288 = landingpad { ptr, i32 }
+          cleanup
+  br label %308
+
+289:                                              ; preds = %_ZN2cv4Mat_IhE5zerosENS_5Size_IiEE.exit127
+  %290 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %19) #11
+  br label %308
+
+291:                                              ; preds = %58
+  %292 = landingpad { ptr, i32 }
+          cleanup
+  br label %307
 
 _ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit:              ; preds = %.lr.ph, %85
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
@@ -769,28 +809,28 @@ _ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit:              ; preds = %.lr.ph, %85
 
 _ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit._crit_edge:   ; preds = %_ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit, %_ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit.preheader
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #11
-  %277 = add nsw i32 %27, -7
-  %278 = add nsw i32 %25, -7
+  %293 = add nsw i32 %27, -7
+  %294 = add nsw i32 %25, -7
   store i32 8, ptr %22, align 4
-  %279 = getelementptr inbounds i8, ptr %22, i64 4
-  store i32 8, ptr %279, align 4
-  %280 = getelementptr inbounds i8, ptr %22, i64 8
-  store i32 %277, ptr %280, align 4
-  %281 = getelementptr inbounds i8, ptr %22, i64 12
-  store i32 %278, ptr %281, align 4
+  %295 = getelementptr inbounds i8, ptr %22, i64 4
+  store i32 8, ptr %295, align 4
+  %296 = getelementptr inbounds i8, ptr %22, i64 8
+  store i32 %293, ptr %296, align 4
+  %297 = getelementptr inbounds i8, ptr %22, i64 12
+  store i32 %294, ptr %297, align 4
   invoke void @_ZN2cv3MatC2ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull align 4 dereferenceable(16) %22)
-          to label %282 unwind label %286
+          to label %298 unwind label %302
 
-282:                                              ; preds = %_ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit._crit_edge
-  %283 = getelementptr inbounds i8, ptr %23, i64 8
-  %284 = getelementptr inbounds i8, ptr %23, i64 16
-  store i64 0, ptr %284, align 8
+298:                                              ; preds = %_ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit._crit_edge
+  %299 = getelementptr inbounds i8, ptr %23, i64 8
+  %300 = getelementptr inbounds i8, ptr %23, i64 16
+  store i64 0, ptr %300, align 8
   store i32 33619968, ptr %23, align 8
-  store ptr %0, ptr %283, align 8
+  store ptr %0, ptr %299, align 8
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(24) %23)
-          to label %285 unwind label %288
+          to label %301 unwind label %304
 
-285:                                              ; preds = %282
+301:                                              ; preds = %298
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #11
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #11
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #11
@@ -803,65 +843,65 @@ _ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit._crit_edge:   ; preds = %_ZN2cv4Mat_IfEC2ENS
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #11
   ret void
 
-286:                                              ; preds = %_ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit._crit_edge
-  %287 = landingpad { ptr, i32 }
+302:                                              ; preds = %_ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit._crit_edge
+  %303 = landingpad { ptr, i32 }
           cleanup
-  br label %290
+  br label %306
 
-288:                                              ; preds = %282
-  %289 = landingpad { ptr, i32 }
+304:                                              ; preds = %298
+  %305 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #11
-  br label %290
+  br label %306
 
-290:                                              ; preds = %288, %286
-  %.pn.pn = phi { ptr, i32 } [ %289, %288 ], [ %287, %286 ]
+306:                                              ; preds = %304, %302
+  %.pn.pn = phi { ptr, i32 } [ %305, %304 ], [ %303, %302 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #11
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #11
-  br label %291
+  br label %307
 
-291:                                              ; preds = %290, %275
-  %.pn112.pn = phi { ptr, i32 } [ %.pn.pn, %290 ], [ %276, %275 ]
+307:                                              ; preds = %306, %291
+  %.pn112.pn = phi { ptr, i32 } [ %.pn.pn, %306 ], [ %292, %291 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #11
-  br label %292
+  br label %308
 
-292:                                              ; preds = %291, %273, %271
-  %.pn112.pn.pn = phi { ptr, i32 } [ %.pn112.pn, %291 ], [ %274, %273 ], [ %272, %271 ]
+308:                                              ; preds = %307, %289, %287
+  %.pn112.pn.pn = phi { ptr, i32 } [ %.pn112.pn, %307 ], [ %290, %289 ], [ %288, %287 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #11
-  br label %293
+  br label %309
 
-293:                                              ; preds = %292, %269, %267
-  %.pn112.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn, %292 ], [ %270, %269 ], [ %268, %267 ]
+309:                                              ; preds = %308, %285, %283
+  %.pn112.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn, %308 ], [ %286, %285 ], [ %284, %283 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #11
-  br label %294
+  br label %310
 
-294:                                              ; preds = %293, %265, %263
-  %.pn112.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn, %293 ], [ %266, %265 ], [ %264, %263 ]
+310:                                              ; preds = %309, %281, %279
+  %.pn112.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn, %309 ], [ %282, %281 ], [ %280, %279 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #11
-  br label %295
+  br label %311
 
-295:                                              ; preds = %294, %261, %259
-  %.pn112.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn.pn, %294 ], [ %262, %261 ], [ %260, %259 ]
+311:                                              ; preds = %310, %277, %275
+  %.pn112.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn.pn, %310 ], [ %278, %277 ], [ %276, %275 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #11
-  br label %296
+  br label %312
 
-296:                                              ; preds = %295, %257, %255
-  %.pn112.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn.pn.pn, %295 ], [ %258, %257 ], [ %256, %255 ]
+312:                                              ; preds = %311, %273, %271
+  %.pn112.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn.pn.pn, %311 ], [ %274, %273 ], [ %272, %271 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #11
-  br label %297
+  br label %313
 
-297:                                              ; preds = %296, %253, %251
-  %.pn112.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn.pn.pn.pn, %296 ], [ %254, %253 ], [ %252, %251 ]
+313:                                              ; preds = %312, %269, %267
+  %.pn112.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn.pn.pn.pn, %312 ], [ %270, %269 ], [ %268, %267 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #11
-  br label %298
+  br label %314
 
-298:                                              ; preds = %297, %249, %247
-  %.pn112.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn.pn.pn.pn.pn, %297 ], [ %250, %249 ], [ %248, %247 ]
+314:                                              ; preds = %313, %265, %263
+  %.pn112.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn.pn.pn.pn.pn, %313 ], [ %266, %265 ], [ %264, %263 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #11
-  br label %299
+  br label %315
 
-299:                                              ; preds = %298, %245
-  %.pn112.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn.pn.pn.pn.pn.pn, %298 ], [ %246, %245 ]
+315:                                              ; preds = %314, %261
+  %.pn112.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn112.pn.pn.pn.pn.pn.pn.pn.pn, %314 ], [ %262, %261 ]
   resume { ptr, i32 } %.pn112.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -1107,12 +1147,6 @@ define internal void @_GLOBAL__sub_I_FilterTIG.cpp() #9 section ".text.startup" 
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i64> @llvm.ctpop.v4i64(<4 x i64>) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

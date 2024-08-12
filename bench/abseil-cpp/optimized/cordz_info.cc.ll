@@ -799,9 +799,13 @@ entry:
   %analyzer = alloca %"class.absl::cord_internal::(anonymous namespace)::CordRepAnalyzer", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %agg.result, i8 0, i64 336, i1 false)
   %method_ = getelementptr inbounds i8, ptr %this, i64 1112
+  %0 = load i32, ptr %method_, align 8
   %method = getelementptr inbounds i8, ptr %agg.result, i64 128
-  %0 = load <2 x i32>, ptr %method_, align 8
-  store <2 x i32> %0, ptr %method, align 8
+  store i32 %0, ptr %method, align 8
+  %parent_method_ = getelementptr inbounds i8, ptr %this, i64 1116
+  %1 = load i32, ptr %parent_method_, align 4
+  %parent_method = getelementptr inbounds i8, ptr %agg.result, i64 132
+  store i32 %1, ptr %parent_method, align 4
   %update_tracker_ = getelementptr inbounds i8, ptr %this, i64 1120
   %update_tracker = getelementptr inbounds i8, ptr %agg.result, i64 136
   br label %for.body.i
@@ -810,8 +814,8 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %update_tracker, i64 0, i64 %indvars.iv.i
   %arrayidx4.i = getelementptr inbounds [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"], ptr %update_tracker_, i64 0, i64 %indvars.iv.i
-  %1 = load atomic i64, ptr %arrayidx4.i monotonic, align 8
-  store atomic i64 %1, ptr %arrayidx.i monotonic, align 8
+  %2 = load atomic i64, ptr %arrayidx4.i monotonic, align 8
+  store atomic i64 %2, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 25
   br i1 %exitcond.not.i, label %_ZN4absl13cord_internal18CordzUpdateTrackeraSERKS1_.exit, label %for.body.i, !llvm.loop !7
@@ -820,13 +824,13 @@ _ZN4absl13cord_internal18CordzUpdateTrackeraSERKS1_.exit: ; preds = %for.body.i
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_.i)
   %rep_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %2 = load ptr, ptr %rep_.i, align 8
-  %tobool.not.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %rep_.i, align 8
+  %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %_ZN4absl13cord_internal18CordzUpdateTrackeraSERKS1_.exit
-  %refcount.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = atomicrmw add ptr %refcount.i.i, i32 2 monotonic, align 4
+  %refcount.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = atomicrmw add ptr %refcount.i.i, i32 2 monotonic, align 4
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %_ZN4absl13cord_internal18CordzUpdateTrackeraSERKS1_.exit
@@ -834,104 +838,104 @@ cond.end.i:                                       ; preds = %cond.true.i, %_ZN4a
           to label %_ZNK4absl13cord_internal9CordzInfo10RefCordRepEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %cond.end.i
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #19
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #19
   unreachable
 
 _ZNK4absl13cord_internal9CordzInfo10RefCordRepEv.exit: ; preds = %cond.end.i
   br i1 %tobool.not.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNK4absl13cord_internal9CordzInfo10RefCordRepEv.exit
-  %6 = load i64, ptr %2, align 8
-  store i64 %6, ptr %agg.result, align 8
+  %7 = load i64, ptr %3, align 8
+  store i64 %7, ptr %agg.result, align 8
   store ptr %agg.result, ptr %analyzer, align 8
   %memory_usage_.i = getelementptr inbounds i8, ptr %analyzer, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory_usage_.i, i8 0, i64 16, i1 false)
-  %refcount2.i = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = load atomic i32, ptr %refcount2.i acquire, align 4
-  %shr.i.i = ashr i32 %7, 1
+  %refcount2.i = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = load atomic i32, ptr %refcount2.i acquire, align 4
+  %shr.i.i = ashr i32 %8, 1
   %cmp.i = icmp ugt i32 %shr.i.i, 1
   %narrow.i = add nsw i32 %shr.i.i, -1
   %narrow18.i = select i1 %cmp.i, i32 %narrow.i, i32 1
   %cond.i = sext i32 %narrow18.i to i64
-  %tag.i.i = getelementptr inbounds i8, ptr %2, i64 12
-  %8 = load i8, ptr %tag.i.i, align 4
-  %cmp6.i = icmp eq i8 %8, 2
+  %tag.i.i = getelementptr inbounds i8, ptr %3, i64 12
+  %9 = load i8, ptr %tag.i.i, align 4
+  %cmp6.i = icmp eq i8 %9, 2
   br i1 %cmp6.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %9 = load ptr, ptr %analyzer, align 8
-  %node_count.i = getelementptr inbounds i8, ptr %9, i64 24
-  %10 = load i64, ptr %node_count.i, align 8
-  %inc.i = add i64 %10, 1
+  %10 = load ptr, ptr %analyzer, align 8
+  %node_count.i = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = load i64, ptr %node_count.i, align 8
+  %inc.i = add i64 %11, 1
   store i64 %inc.i, ptr %node_count.i, align 8
-  %crc.i = getelementptr inbounds i8, ptr %9, i64 120
-  %11 = load i64, ptr %crc.i, align 8
-  %inc8.i = add i64 %11, 1
+  %crc.i = getelementptr inbounds i8, ptr %10, i64 120
+  %12 = load i64, ptr %crc.i, align 8
+  %inc8.i = add i64 %12, 1
   store i64 %inc8.i, ptr %crc.i, align 8
-  %12 = load i64, ptr %memory_usage_.i, align 8
-  %add.i.i = add i64 %12, 32
+  %13 = load i64, ptr %memory_usage_.i, align 8
+  %add.i.i = add i64 %13, 32
   store i64 %add.i.i, ptr %memory_usage_.i, align 8
   %conv2.i.i = uitofp i64 %cond.i to double
   %div.i.i = fdiv double 3.200000e+01, %conv2.i.i
   %fair_share.i.i = getelementptr inbounds i8, ptr %analyzer, i64 16
-  %13 = load double, ptr %fair_share.i.i, align 8
-  %add3.i.i = fadd double %div.i.i, %13
+  %14 = load double, ptr %fair_share.i.i, align 8
+  %add3.i.i = fadd double %div.i.i, %14
   store double %add3.i.i, ptr %fair_share.i.i, align 8
-  %child.i = getelementptr inbounds i8, ptr %2, i64 16
-  %14 = load ptr, ptr %child.i, align 8
-  %cmp.i.i = icmp eq ptr %14, null
+  %child.i = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = load ptr, ptr %child.i, align 8
+  %cmp.i.i = icmp eq ptr %15, null
   br i1 %cmp.i.i, label %if.end.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %refcount5.i.i = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load atomic i32, ptr %refcount5.i.i acquire, align 4
-  %shr.i.i.i = ashr i32 %15, 1
+  %refcount5.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load atomic i32, ptr %refcount5.i.i acquire, align 4
+  %shr.i.i.i = ashr i32 %16, 1
   %conv.i.i.i = sext i32 %shr.i.i.i to i64
   %mul.i.i = mul nsw i64 %conv.i.i.i, %cond.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.i, %if.then.i, %if.then
   %repref.sroa.8.0.i = phi i64 [ %cond.i, %if.then ], [ %mul.i.i, %if.end.i.i ], [ 0, %if.then.i ]
-  %repref.sroa.0.0.i = phi ptr [ %2, %if.then ], [ %14, %if.end.i.i ], [ null, %if.then.i ]
+  %repref.sroa.0.0.i = phi ptr [ %3, %if.then ], [ %15, %if.end.i.i ], [ null, %if.then.i ]
   %call15.i = call fastcc { ptr, i64 } @_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer15CountLinearRepsENS2_6RepRefERNS2_11MemoryUsageE(ptr noundef nonnull align 8 dereferenceable(24) %analyzer, ptr %repref.sroa.0.0.i, i64 %repref.sroa.8.0.i, ptr noundef nonnull align 8 dereferenceable(16) %memory_usage_.i)
-  %16 = extractvalue { ptr, i64 } %call15.i, 0
-  %17 = extractvalue { ptr, i64 } %call15.i, 1
-  %tobool.not.i7.i = icmp eq ptr %16, null
+  %17 = extractvalue { ptr, i64 } %call15.i, 0
+  %18 = extractvalue { ptr, i64 } %call15.i, 1
+  %tobool.not.i7.i = icmp eq ptr %17, null
   br i1 %tobool.not.i7.i, label %_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer14AnalyzeCordRepEPKNS0_7CordRepE.exit, label %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit12.i
 
 _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit12.i: ; preds = %if.end.i
-  %tag.i9.i = getelementptr inbounds i8, ptr %16, i64 12
-  %18 = load i8, ptr %tag.i9.i, align 4
-  %cond1.i = icmp eq i8 %18, 3
+  %tag.i9.i = getelementptr inbounds i8, ptr %17, i64 12
+  %19 = load i8, ptr %tag.i9.i, align 4
+  %cond1.i = icmp eq i8 %19, 3
   br i1 %cond1.i, label %sw.bb.i, label %_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer14AnalyzeCordRepEPKNS0_7CordRepE.exit
 
 sw.bb.i:                                          ; preds = %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit12.i
-  call fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer12AnalyzeBtreeENS2_6RepRefE(ptr noundef nonnull align 8 dereferenceable(24) %analyzer, ptr nonnull %16, i64 %17)
+  call fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer12AnalyzeBtreeENS2_6RepRefE(ptr noundef nonnull align 8 dereferenceable(24) %analyzer, ptr nonnull %17, i64 %18)
   br label %_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer14AnalyzeCordRepEPKNS0_7CordRepE.exit
 
 _ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer14AnalyzeCordRepEPKNS0_7CordRepE.exit: ; preds = %if.end.i, %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit12.i, %sw.bb.i
-  %19 = load i64, ptr %memory_usage_.i, align 8
-  %20 = load ptr, ptr %analyzer, align 8
-  %estimated_memory_usage.i = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load i64, ptr %estimated_memory_usage.i, align 8
-  %add.i = add i64 %21, %19
+  %20 = load i64, ptr %memory_usage_.i, align 8
+  %21 = load ptr, ptr %analyzer, align 8
+  %estimated_memory_usage.i = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = load i64, ptr %estimated_memory_usage.i, align 8
+  %add.i = add i64 %22, %20
   store i64 %add.i, ptr %estimated_memory_usage.i, align 8
   %fair_share.i = getelementptr inbounds i8, ptr %analyzer, i64 16
-  %22 = load double, ptr %fair_share.i, align 8
-  %conv.i = fptoui double %22 to i64
-  %estimated_fair_share_memory_usage.i = getelementptr inbounds i8, ptr %20, i64 16
-  %23 = load i64, ptr %estimated_fair_share_memory_usage.i, align 8
-  %add22.i = add i64 %23, %conv.i
+  %23 = load double, ptr %fair_share.i, align 8
+  %conv.i = fptoui double %23 to i64
+  %estimated_fair_share_memory_usage.i = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = load i64, ptr %estimated_fair_share_memory_usage.i, align 8
+  %add22.i = add i64 %24, %conv.i
   store i64 %add22.i, ptr %estimated_fair_share_memory_usage.i, align 8
-  %24 = atomicrmw sub ptr %refcount2.i, i32 2 acq_rel, align 4
-  %cmp.i.not.i = icmp eq i32 %24, 2
+  %25 = atomicrmw sub ptr %refcount2.i, i32 2 acq_rel, align 4
+  %cmp.i.not.i = icmp eq i32 %25, 2
   br i1 %cmp.i.not.i, label %if.then.i6, label %if.end
 
 if.then.i6:                                       ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer14AnalyzeCordRepEPKNS0_7CordRepE.exit
-  tail call void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef nonnull %2)
+  tail call void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef nonnull %3)
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i6, %_ZN4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer14AnalyzeCordRepEPKNS0_7CordRepE.exit, %_ZNK4absl13cord_internal9CordzInfo10RefCordRepEv.exit

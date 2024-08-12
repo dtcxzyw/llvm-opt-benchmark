@@ -1795,7 +1795,7 @@ declare void @_ZN15MainApplication12loadLanguageE7QString(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %class.QString, align 16
+  %3 = alloca %class.QString, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN7QStringD2Ev.exit, label %.split.i
 
@@ -1806,12 +1806,16 @@ define linkonce_odr void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 derefere
 _ZN7QStringD2Ev.exit:                             ; preds = %.split.i, %2
   %.sink5.i = phi i64 [ %4, %.split.i ], [ 0, %2 ]
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, i64 %.sink5.i, ptr %1)
-  %5 = load <2 x ptr>, ptr %3, align 16
-  store <2 x ptr> %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  store i64 %8, ptr %6, align 8
+  %5 = load ptr, ptr %3, align 8
+  store ptr %5, ptr %0, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  store i64 %11, ptr %9, align 8
   ret void
 }
 

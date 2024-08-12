@@ -133,7 +133,7 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
 
 11:                                               ; preds = %7
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 103, ptr noundef nonnull @__func__.arkAdapt, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #8
-  br label %127
+  br label %115
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %1, i64 96
@@ -180,7 +180,7 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
 
 39:                                               ; preds = %35
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -47, i32 noundef 126, ptr noundef nonnull @__func__.arkAdapt, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.22) #8
-  br label %127
+  br label %115
 
 40:                                               ; preds = %35
   %41 = call double @llvm.fabs.f64(double %4)
@@ -194,7 +194,7 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
 
 47:                                               ; preds = %40
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 138, ptr noundef nonnull @__func__.arkAdapt, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.23) #8
-  br label %127
+  br label %115
 
 48:                                               ; preds = %40
   %49 = fdiv double %4, %41
@@ -205,94 +205,82 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
   %54 = getelementptr inbounds i8, ptr %1, i64 56
   %55 = load double, ptr %54, align 8
   %56 = load double, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 48
-  %58 = load double, ptr %57, align 8
-  %59 = fmul double %49, %58
-  %60 = fmul double %53, %59
-  %61 = load double, ptr %1, align 8
-  %62 = insertelement <2 x double> poison, double %55, i64 0
-  %63 = insertelement <2 x double> %62, double %61, i64 1
-  %64 = insertelement <2 x double> poison, double %4, i64 1
-  %65 = insertelement <2 x double> %64, double %56, i64 0
-  %66 = fmul <2 x double> %63, %65
-  %67 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %66)
-  %68 = extractelement <2 x double> %67, i64 0
-  %69 = extractelement <2 x double> %67, i64 1
-  %70 = fcmp olt double %68, %69
-  %.84 = select i1 %70, double %68, double %69
-  %71 = getelementptr inbounds i8, ptr %1, i64 24
-  %72 = load double, ptr %71, align 8
-  %73 = insertelement <2 x double> poison, double %49, i64 0
-  %74 = insertelement <2 x double> %73, double %72, i64 1
-  %75 = insertelement <2 x double> %64, double %.84, i64 0
-  %76 = fmul <2 x double> %74, %75
-  %77 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %76)
-  %78 = extractelement <2 x double> %77, i64 0
-  %79 = extractelement <2 x double> %77, i64 1
-  %80 = fcmp ogt double %78, %79
-  %81 = select i1 %80, double %78, double %79
-  %82 = fmul double %49, %81
-  %83 = call double @llvm.fabs.f64(double %82)
-  %84 = call double @llvm.fabs.f64(double %60)
-  %85 = fcmp olt double %83, %84
-  %.sink89 = select i1 %85, i64 136, i64 144
-  %.85 = select i1 %85, double %83, double %84
-  %86 = getelementptr inbounds i8, ptr %1, i64 %.sink89
-  %87 = load i64, ptr %86, align 8
-  %88 = add nsw i64 %87, 1
-  store i64 %88, ptr %86, align 8
-  %89 = fmul double %49, %.85
-  %90 = fcmp ugt double %5, 1.000000e+00
-  br i1 %90, label %107, label %91
+  %57 = fmul double %55, %56
+  %58 = getelementptr inbounds i8, ptr %1, i64 48
+  %59 = load double, ptr %58, align 8
+  %60 = fmul double %49, %59
+  %61 = fmul double %53, %60
+  %62 = call double @llvm.fabs.f64(double %57)
+  %63 = load double, ptr %1, align 8
+  %64 = fmul double %63, %4
+  %65 = call double @llvm.fabs.f64(double %64)
+  %66 = fcmp olt double %62, %65
+  %.84 = select i1 %66, double %62, double %65
+  %67 = fmul double %49, %.84
+  %68 = call double @llvm.fabs.f64(double %67)
+  %69 = getelementptr inbounds i8, ptr %1, i64 24
+  %70 = load double, ptr %69, align 8
+  %71 = fmul double %70, %4
+  %72 = call double @llvm.fabs.f64(double %71)
+  %73 = fcmp ogt double %68, %72
+  %74 = select i1 %73, double %68, double %72
+  %75 = fmul double %49, %74
+  %76 = call double @llvm.fabs.f64(double %75)
+  %77 = call double @llvm.fabs.f64(double %61)
+  %78 = fcmp olt double %76, %77
+  %.sink89 = select i1 %78, i64 136, i64 144
+  %.85 = select i1 %78, double %76, double %77
+  %79 = getelementptr inbounds i8, ptr %1, i64 %.sink89
+  %80 = load i64, ptr %79, align 8
+  %81 = add nsw i64 %80, 1
+  store i64 %81, ptr %79, align 8
+  %82 = fmul double %49, %.85
+  %83 = fcmp ugt double %5, 1.000000e+00
+  br i1 %83, label %100, label %84
 
-91:                                               ; preds = %48
-  %92 = call double @llvm.fabs.f64(double %89)
-  %93 = getelementptr inbounds i8, ptr %1, i64 72
+84:                                               ; preds = %48
+  %85 = call double @llvm.fabs.f64(double %82)
+  %86 = getelementptr inbounds i8, ptr %1, i64 72
+  %87 = load double, ptr %86, align 8
+  %88 = fmul double %87, %4
+  %89 = fmul double %88, 0x3FEFFFFDE7210BE9
+  %90 = call double @llvm.fabs.f64(double %89)
+  %91 = fcmp ogt double %85, %90
+  br i1 %91, label %92, label %100
+
+92:                                               ; preds = %84
+  %93 = getelementptr inbounds i8, ptr %1, i64 80
   %94 = load double, ptr %93, align 8
   %95 = fmul double %94, %4
-  %96 = fmul double %95, 0x3FEFFFFDE7210BE9
+  %96 = fmul double %95, 0x3FF000010C6F7A0B
   %97 = call double @llvm.fabs.f64(double %96)
-  %98 = fcmp ogt double %92, %97
-  br i1 %98, label %99, label %107
+  %98 = fcmp olt double %85, %97
+  br i1 %98, label %99, label %100
 
-99:                                               ; preds = %91
-  %100 = getelementptr inbounds i8, ptr %1, i64 80
-  %101 = load double, ptr %100, align 8
-  %102 = fmul double %101, %4
-  %103 = fmul double %102, 0x3FF000010C6F7A0B
-  %104 = call double @llvm.fabs.f64(double %103)
-  %105 = fcmp olt double %92, %104
-  br i1 %105, label %106, label %107
+99:                                               ; preds = %92
+  br label %100
 
-106:                                              ; preds = %99
-  br label %107
+100:                                              ; preds = %84, %92, %99, %48
+  %101 = phi double [ %82, %84 ], [ %82, %92 ], [ %4, %99 ], [ %82, %48 ]
+  %102 = fdiv double %101, %4
+  %103 = getelementptr inbounds i8, ptr %0, i64 416
+  %104 = getelementptr inbounds i8, ptr %0, i64 384
+  %105 = load double, ptr %104, align 8
+  %106 = fdiv double %105, %41
+  %107 = fcmp ogt double %102, %106
+  %.86 = select i1 %107, double %102, double %106
+  %108 = getelementptr inbounds i8, ptr %0, i64 392
+  %109 = load double, ptr %108, align 8
+  %110 = fmul double %41, %109
+  %111 = fmul double %110, %.86
+  %112 = fcmp olt double %111, 1.000000e+00
+  %113 = select i1 %112, double 1.000000e+00, double %111
+  %114 = fdiv double %.86, %113
+  store double %114, ptr %103, align 8
+  br label %115
 
-107:                                              ; preds = %91, %99, %106, %48
-  %108 = phi double [ %89, %91 ], [ %89, %99 ], [ %4, %106 ], [ %89, %48 ]
-  %109 = getelementptr inbounds i8, ptr %0, i64 416
-  %110 = getelementptr inbounds i8, ptr %0, i64 384
-  %111 = load double, ptr %110, align 8
-  %112 = insertelement <2 x double> poison, double %108, i64 0
-  %113 = insertelement <2 x double> %112, double %111, i64 1
-  %114 = insertelement <2 x double> poison, double %4, i64 0
-  %115 = insertelement <2 x double> %114, double %41, i64 1
-  %116 = fdiv <2 x double> %113, %115
-  %117 = extractelement <2 x double> %116, i64 0
-  %118 = extractelement <2 x double> %116, i64 1
-  %119 = fcmp ogt double %117, %118
-  %.86 = select i1 %119, double %117, double %118
-  %120 = getelementptr inbounds i8, ptr %0, i64 392
-  %121 = load double, ptr %120, align 8
-  %122 = fmul double %41, %121
-  %123 = fmul double %122, %.86
-  %124 = fcmp olt double %123, 1.000000e+00
-  %125 = select i1 %124, double 1.000000e+00, double %123
-  %126 = fdiv double %.86, %125
-  store double %126, ptr %109, align 8
-  br label %127
-
-127:                                              ; preds = %107, %47, %39, %11
-  %.067 = phi i32 [ -21, %11 ], [ -47, %39 ], [ -22, %47 ], [ 0, %107 ]
+115:                                              ; preds = %100, %47, %39, %11
+  %.067 = phi i32 [ -21, %11 ], [ -47, %39 ], [ -22, %47 ], [ 0, %100 ]
   ret i32 %.067
 }
 
@@ -311,9 +299,6 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #7
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

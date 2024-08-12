@@ -2152,23 +2152,24 @@ Pdr_ManFindInvariantStart.exit:                   ; preds = %15, %1, %.critedge.
   %.val11 = load i32, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 180
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 356
-  %26 = load <2 x i32>, ptr %25, align 4
-  %27 = sitofp <2 x i32> %26 to <2 x double>
-  %28 = extractelement <2 x double> %27, i64 0
-  %29 = extractelement <2 x double> %27, i64 1
-  %30 = fdiv double %29, %28
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.43, i32 noundef %.0.i, i32 noundef %.val, i32 noundef %19, i32 noundef %.val11, i32 noundef %24, double noundef %30)
-  %31 = getelementptr inbounds i8, ptr %17, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %33
+  %25 = getelementptr inbounds i8, ptr %0, i64 360
+  %26 = load i32, ptr %25, align 8
+  %27 = sitofp i32 %26 to double
+  %28 = getelementptr inbounds i8, ptr %0, i64 356
+  %29 = load i32, ptr %28, align 4
+  %30 = sitofp i32 %29 to double
+  %31 = fdiv double %27, %30
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.43, i32 noundef %.0.i, i32 noundef %.val, i32 noundef %19, i32 noundef %.val11, i32 noundef %24, double noundef %31)
+  %32 = getelementptr inbounds i8, ptr %17, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %.not.i = icmp eq ptr %33, null
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %34
 
-33:                                               ; preds = %Pdr_ManFindInvariantStart.exit
-  tail call void @free(ptr noundef nonnull %32) #18
+34:                                               ; preds = %Pdr_ManFindInvariantStart.exit
+  tail call void @free(ptr noundef nonnull %33) #18
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %Pdr_ManFindInvariantStart.exit, %33
+Vec_PtrFree.exit:                                 ; preds = %Pdr_ManFindInvariantStart.exit, %34
   tail call void @free(ptr noundef nonnull %17) #18
   ret void
 }

@@ -119,48 +119,52 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN16cranelift_e
   %4 = add i64 %1, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = load i32, ptr %5, align 8, !range !47, !alias.scope !48, !noalias !51, !noundef !9
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
-  %9 = load i32, ptr %8, align 4, !alias.scope !48, !noalias !51
-  %10 = load <2 x i32>, ptr %6, align 8, !alias.scope !48, !noalias !51
+  %7 = load i32, ptr %6, align 8, !alias.scope !47, !noalias !50, !noundef !9
+  %8 = load i32, ptr %5, align 8, !range !52, !alias.scope !47, !noalias !50, !noundef !9
+  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = load i32, ptr %9, align 4, !alias.scope !47, !noalias !50
+  %11 = getelementptr inbounds i8, ptr %0, i64 36
+  %12 = load i32, ptr %11, align 4, !alias.scope !47, !noalias !50, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !alias.scope !53, !noalias !56, !noundef !9
-  %13 = icmp ult i64 %12, %4
-  br i1 %13, label %14, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h90c89bfa67c3e85dE.llvm.11489394707175253082.exit.i"
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = load i64, ptr %13, align 8, !alias.scope !53, !noalias !56, !noundef !9
+  %15 = icmp ult i64 %14, %4
+  br i1 %15, label %16, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h90c89bfa67c3e85dE.llvm.11489394707175253082.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h90c89bfa67c3e85dE.llvm.11489394707175253082.exit.i": ; preds = %2
-  store i64 %4, ptr %11, align 8, !alias.scope !58, !noalias !56
+  store i64 %4, ptr %13, align 8, !alias.scope !58, !noalias !56
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd162e552b93fcebbE.exit"
 
-14:                                               ; preds = %2
-  %trunc.i = trunc nuw i32 %7 to i1
-  %.sroa.5.0.i = select i1 %trunc.i, i32 undef, i32 %9
-  %15 = sub nuw i64 %4, %12
+16:                                               ; preds = %2
+  %trunc.i = trunc nuw i32 %8 to i1
+  %.sroa.5.0.i = select i1 %trunc.i, i32 undef, i32 %10
+  %17 = sub nuw i64 %4, %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !61
-  store i32 %7, ptr %3, align 4, !noalias !53
+  store i32 %8, ptr %3, align 4, !noalias !53
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.5.0.i, ptr %.sroa.4.0..sroa_idx, align 4, !noalias !53
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  store <2 x i32> %10, ptr %.sroa.5.0..sroa_idx, align 4, !noalias !53
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h38b1fb9f3c060a78E.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %15, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %3), !noalias !56
+  store i32 %7, ptr %.sroa.5.0..sroa_idx, align 4, !noalias !53
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 %12, ptr %.sroa.6.0..sroa_idx, align 4, !noalias !53
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h38b1fb9f3c060a78E.llvm.11489394707175253082"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %17, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %3), !noalias !56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !61
-  %.pre = load i64, ptr %11, align 8
+  %.pre = load i64, ptr %13, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd162e552b93fcebbE.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd162e552b93fcebbE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h90c89bfa67c3e85dE.llvm.11489394707175253082.exit.i", %14
-  %16 = phi i64 [ %4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h90c89bfa67c3e85dE.llvm.11489394707175253082.exit.i" ], [ %.pre, %14 ]
-  %17 = icmp ugt i64 %16, %1
-  br i1 %17, label %18, label %22, !prof !46
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd162e552b93fcebbE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h90c89bfa67c3e85dE.llvm.11489394707175253082.exit.i", %16
+  %18 = phi i64 [ %4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h90c89bfa67c3e85dE.llvm.11489394707175253082.exit.i" ], [ %.pre, %16 ]
+  %19 = icmp ugt i64 %18, %1
+  br i1 %19, label %20, label %24, !prof !46
 
-18:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd162e552b93fcebbE.exit"
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !nonnull !9, !noundef !9
-  %21 = getelementptr inbounds [0 x { { i32, [1 x i32] }, i32, i32 }], ptr %20, i64 0, i64 %1
-  ret ptr %21
+20:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd162e552b93fcebbE.exit"
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8, !nonnull !9, !noundef !9
+  %23 = getelementptr inbounds [0 x { { i32, [1 x i32] }, i32, i32 }], ptr %22, i64 0, i64 %1
+  ret ptr %23
 
-22:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd162e552b93fcebbE.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b56912ca5fe4cf949d49ab7038ab5979.1.llvm.7332213574936156402) #26
+24:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd162e552b93fcebbE.exit"
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1, i64 noundef %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b56912ca5fe4cf949d49ab7038ab5979.1.llvm.7332213574936156402) #26
   unreachable
 }
 
@@ -937,23 +941,33 @@ define hidden noundef i8 @"_ZN84_$LT$cranelift_frontend..frontend..BlockStatus$u
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN76_$LT$cranelift_frontend..ssa..SSABlockData$u20$as$u20$core..clone..Clone$GT$5clone17h5264e89bc240756aE.llvm.7332213574936156402"(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, i32, i32 }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = load i32, ptr %1, align 4, !range !47, !noundef !9
-  %trunc = trunc nuw i32 %4 to i1
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4
-  %.sroa.5.0 = select i1 %trunc, i32 undef, i32 %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %4, ptr %0, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.5.0, ptr %8, align 4
-  %9 = load <2 x i32>, ptr %3, align 4
-  store <2 x i32> %9, ptr %7, align 4
+  %4 = load i32, ptr %3, align 4, !noundef !9
+  %5 = load i32, ptr %1, align 4, !range !52, !noundef !9
+  %trunc = trunc nuw i32 %5 to i1
+  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = load i32, ptr %6, align 4
+  %.sroa.5.0 = select i1 %trunc, i32 undef, i32 %7
+  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = load i32, ptr %8, align 4, !noundef !9
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %4, ptr %10, align 4
+  store i32 %5, ptr %0, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sroa.5.0, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %9, ptr %12, align 4
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN80_$LT$cranelift_frontend..ssa..SSABlockData$u20$as$u20$core..default..Default$GT$7default17h0ad9ee70b43e7da8E.llvm.7332213574936156402"(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, i32, i32 }) align 4 dereferenceable(16) %0) unnamed_addr #16 {
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %0, align 4
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %2, align 4
+  store i32 0, ptr %0, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 0, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %4, align 4
   ret void
 }
 
@@ -1131,12 +1145,12 @@ attributes #29 = { nounwind }
 !44 = distinct !{!44, !45, !"_ZN93_$LT$cranelift_entity..packed_option..PackedOption$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he0d45ca65e350991E.llvm.7332213574936156402: argument 0"}
 !45 = distinct !{!45, !"_ZN93_$LT$cranelift_entity..packed_option..PackedOption$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he0d45ca65e350991E.llvm.7332213574936156402"}
 !46 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!47 = !{i32 0, i32 2}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN76_$LT$cranelift_frontend..ssa..SSABlockData$u20$as$u20$core..clone..Clone$GT$5clone17h5264e89bc240756aE.llvm.7332213574936156402: argument 1"}
-!50 = distinct !{!50, !"_ZN76_$LT$cranelift_frontend..ssa..SSABlockData$u20$as$u20$core..clone..Clone$GT$5clone17h5264e89bc240756aE.llvm.7332213574936156402"}
-!51 = !{!52}
-!52 = distinct !{!52, !50, !"_ZN76_$LT$cranelift_frontend..ssa..SSABlockData$u20$as$u20$core..clone..Clone$GT$5clone17h5264e89bc240756aE.llvm.7332213574936156402: argument 0"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN76_$LT$cranelift_frontend..ssa..SSABlockData$u20$as$u20$core..clone..Clone$GT$5clone17h5264e89bc240756aE.llvm.7332213574936156402: argument 1"}
+!49 = distinct !{!49, !"_ZN76_$LT$cranelift_frontend..ssa..SSABlockData$u20$as$u20$core..clone..Clone$GT$5clone17h5264e89bc240756aE.llvm.7332213574936156402"}
+!50 = !{!51}
+!51 = distinct !{!51, !49, !"_ZN76_$LT$cranelift_frontend..ssa..SSABlockData$u20$as$u20$core..clone..Clone$GT$5clone17h5264e89bc240756aE.llvm.7332213574936156402: argument 0"}
+!52 = !{i32 0, i32 2}
 !53 = !{!54}
 !54 = distinct !{!54, !55, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd162e552b93fcebbE: argument 0"}
 !55 = distinct !{!55, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hd162e552b93fcebbE"}

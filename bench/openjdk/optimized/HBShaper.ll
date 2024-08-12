@@ -225,7 +225,7 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   %143 = load ptr, ptr %142, align 8
   %144 = tail call ptr %143(ptr noundef nonnull %0, ptr noundef nonnull %91, ptr noundef null) #8
   %145 = icmp eq ptr %144, null
-  br i1 %145, label %151, label %.preheader
+  br i1 %145, label %149, label %.preheader
 
 .preheader:                                       ; preds = %141
   %146 = icmp sgt i32 %7, 0
@@ -235,72 +235,77 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   %147 = sub i32 %3, %4
   %148 = sext i32 %71 to i64
   %wide.trip.count = zext nneg i32 %7 to i64
-  %149 = insertelement <2 x float> poison, float %12, i64 0
-  %150 = shufflevector <2 x float> %149, <2 x float> poison, <2 x i32> zeroinitializer
-  br label %158
+  br label %156
 
-151:                                              ; preds = %141
-  %152 = load ptr, ptr %0, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 1784
-  %154 = load ptr, ptr %153, align 8
-  tail call void %154(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull %129, i32 noundef 0) #8
-  %155 = load ptr, ptr %0, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 1784
-  %157 = load ptr, ptr %156, align 8
-  tail call void %157(ptr noundef nonnull %0, ptr noundef nonnull %86, ptr noundef nonnull %135, i32 noundef 0) #8
+149:                                              ; preds = %141
+  %150 = load ptr, ptr %0, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 1784
+  %152 = load ptr, ptr %151, align 8
+  tail call void %152(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull %129, i32 noundef 0) #8
+  %153 = load ptr, ptr %0, align 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 1784
+  %155 = load ptr, ptr %154, align 8
+  tail call void %155(ptr noundef nonnull %0, ptr noundef nonnull %86, ptr noundef nonnull %135, i32 noundef 0) #8
   br label %init_JNI_IDs.exit.thread
 
-158:                                              ; preds = %.lr.ph, %158
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %158 ]
-  %159 = phi <2 x float> [ zeroinitializer, %.lr.ph ], [ %189, %158 ]
-  %160 = add nsw i64 %indvars.iv, %148
-  %161 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %8, i64 %indvars.iv
-  %162 = getelementptr inbounds i8, ptr %161, i64 8
-  %163 = load i32, ptr %162, align 4
-  %164 = add i32 %147, %163
-  %165 = getelementptr inbounds i32, ptr %144, i64 %160
+156:                                              ; preds = %.lr.ph, %156
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %156 ]
+  %.0139164 = phi float [ 0.000000e+00, %.lr.ph ], [ %184, %156 ]
+  %.0140163 = phi float [ 0.000000e+00, %.lr.ph ], [ %188, %156 ]
+  %157 = add nsw i64 %indvars.iv, %148
+  %158 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %8, i64 %indvars.iv
+  %159 = getelementptr inbounds i8, ptr %158, i64 8
+  %160 = load i32, ptr %159, align 4
+  %161 = add i32 %147, %160
+  %162 = getelementptr inbounds i32, ptr %144, i64 %157
+  store i32 %161, ptr %162, align 4
+  %163 = load i32, ptr %158, align 4
+  %164 = or i32 %163, %2
+  %165 = getelementptr inbounds i32, ptr %129, i64 %157
   store i32 %164, ptr %165, align 4
-  %166 = load i32, ptr %161, align 4
-  %167 = or i32 %166, %2
-  %168 = getelementptr inbounds i32, ptr %129, i64 %160
-  store i32 %167, ptr %168, align 4
-  %169 = extractelement <2 x float> %159, i64 0
-  %170 = fadd float %120, %169
-  %171 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %9, i64 %indvars.iv
-  %172 = getelementptr inbounds i8, ptr %171, i64 8
-  %173 = load i32, ptr %172, align 4
-  %174 = sitofp i32 %173 to float
-  %175 = tail call float @llvm.fmuladd.f32(float %174, float %12, float %170)
-  %176 = shl nsw i64 %160, 1
-  %177 = getelementptr inbounds float, ptr %135, i64 %176
-  store float %175, ptr %177, align 4
-  %178 = extractelement <2 x float> %159, i64 1
-  %179 = fadd float %125, %178
-  %180 = getelementptr inbounds i8, ptr %171, i64 12
-  %181 = load i32, ptr %180, align 4
-  %182 = sitofp i32 %181 to float
-  %183 = fneg float %182
-  %184 = tail call float @llvm.fmuladd.f32(float %183, float %12, float %179)
-  %185 = or disjoint i64 %176, 1
-  %186 = getelementptr inbounds float, ptr %135, i64 %185
-  store float %184, ptr %186, align 4
-  %187 = load <2 x i32>, ptr %171, align 4
-  %188 = sitofp <2 x i32> %187 to <2 x float>
-  %189 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %188, <2 x float> %150, <2 x float> %159)
+  %166 = fadd float %120, %.0139164
+  %167 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %9, i64 %indvars.iv
+  %168 = getelementptr inbounds i8, ptr %167, i64 8
+  %169 = load i32, ptr %168, align 4
+  %170 = sitofp i32 %169 to float
+  %171 = tail call float @llvm.fmuladd.f32(float %170, float %12, float %166)
+  %172 = shl nsw i64 %157, 1
+  %173 = getelementptr inbounds float, ptr %135, i64 %172
+  store float %171, ptr %173, align 4
+  %174 = fadd float %125, %.0140163
+  %175 = getelementptr inbounds i8, ptr %167, i64 12
+  %176 = load i32, ptr %175, align 4
+  %177 = sitofp i32 %176 to float
+  %178 = fneg float %177
+  %179 = tail call float @llvm.fmuladd.f32(float %178, float %12, float %174)
+  %180 = or disjoint i64 %172, 1
+  %181 = getelementptr inbounds float, ptr %135, i64 %180
+  store float %179, ptr %181, align 4
+  %182 = load i32, ptr %167, align 4
+  %183 = sitofp i32 %182 to float
+  %184 = tail call float @llvm.fmuladd.f32(float %183, float %12, float %.0139164)
+  %185 = getelementptr inbounds i8, ptr %167, i64 4
+  %186 = load i32, ptr %185, align 4
+  %187 = sitofp i32 %186 to float
+  %188 = tail call float @llvm.fmuladd.f32(float %187, float %12, float %.0140163)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %158, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %156, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %158, %.preheader
-  %190 = phi <2 x float> [ zeroinitializer, %.preheader ], [ %189, %158 ]
-  %191 = add nsw i32 %71, %7
-  %192 = insertelement <2 x float> poison, float %120, i64 0
-  %193 = insertelement <2 x float> %192, float %125, i64 1
-  %194 = fadd <2 x float> %193, %190
-  %195 = shl nsw i32 %191, 1
+._crit_edge:                                      ; preds = %156, %.preheader
+  %.0140.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %188, %156 ]
+  %.0139.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %184, %156 ]
+  %189 = add nsw i32 %71, %7
+  %190 = fadd float %120, %.0139.lcssa
+  %191 = fadd float %125, %.0140.lcssa
+  %192 = shl nsw i32 %189, 1
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds float, ptr %135, i64 %193
+  store float %190, ptr %194, align 4
+  %195 = or disjoint i32 %192, 1
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds float, ptr %135, i64 %196
-  store <2 x float> %194, ptr %197, align 4
+  store float %191, ptr %197, align 4
   %198 = load ptr, ptr %0, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 1784
   %200 = load ptr, ptr %199, align 8
@@ -317,23 +322,21 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   %208 = getelementptr inbounds i8, ptr %207, i64 888
   %209 = load ptr, ptr %208, align 8
   %210 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 152), align 8
-  %211 = extractelement <2 x float> %194, i64 0
-  tail call void %209(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %210, float noundef %211) #8
-  %212 = load ptr, ptr %0, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 888
-  %214 = load ptr, ptr %213, align 8
-  %215 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 160), align 8
-  %216 = extractelement <2 x float> %194, i64 1
-  tail call void %214(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %215, float noundef %216) #8
-  %217 = load ptr, ptr %0, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 872
-  %219 = load ptr, ptr %218, align 8
-  %220 = load ptr, ptr @gvdCountFID, align 8
-  tail call void %219(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %220, i32 noundef %191) #8
+  tail call void %209(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %210, float noundef %190) #8
+  %211 = load ptr, ptr %0, align 8
+  %212 = getelementptr inbounds i8, ptr %211, i64 888
+  %213 = load ptr, ptr %212, align 8
+  %214 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 160), align 8
+  tail call void %213(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %214, float noundef %191) #8
+  %215 = load ptr, ptr %0, align 8
+  %216 = getelementptr inbounds i8, ptr %215, i64 872
+  %217 = load ptr, ptr %216, align 8
+  %218 = load ptr, ptr @gvdCountFID, align 8
+  tail call void %217(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %218, i32 noundef %189) #8
   br label %init_JNI_IDs.exit.thread
 
-init_JNI_IDs.exit.thread:                         ; preds = %109, %59, %52, %45, %38, %31, %25, %19, %13, %.critedge, %._crit_edge, %151, %138, %95
-  %.0 = phi i8 [ 0, %95 ], [ 0, %138 ], [ 0, %151 ], [ 1, %._crit_edge ], [ 0, %.critedge ], [ 0, %13 ], [ 0, %19 ], [ 0, %25 ], [ 0, %31 ], [ 0, %38 ], [ 0, %45 ], [ 0, %52 ], [ 0, %59 ], [ 0, %109 ]
+init_JNI_IDs.exit.thread:                         ; preds = %109, %59, %52, %45, %38, %31, %25, %19, %13, %.critedge, %._crit_edge, %149, %138, %95
+  %.0 = phi i8 [ 0, %95 ], [ 0, %138 ], [ 0, %149 ], [ 1, %._crit_edge ], [ 0, %.critedge ], [ 0, %13 ], [ 0, %19 ], [ 0, %25 ], [ 0, %31 ], [ 0, %38 ], [ 0, %45 ], [ 0, %52 ], [ 0, %59 ], [ 0, %109 ]
   ret i8 %.0
 }
 
@@ -608,9 +611,6 @@ declare ptr @hb_buffer_get_glyph_positions(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

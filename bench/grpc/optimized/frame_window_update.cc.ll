@@ -70,8 +70,14 @@ do.end:                                           ; preds = %entry
   %bytes = getelementptr inbounds i8, ptr %agg.result, i64 16
   %2 = load ptr, ptr %bytes, align 8
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %2
+  %incdec.ptr = getelementptr inbounds i8, ptr %cond, i64 1
+  store i8 0, ptr %cond, align 1
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %cond, i64 2
+  store i8 0, ptr %incdec.ptr, align 1
+  %incdec.ptr5 = getelementptr inbounds i8, ptr %cond, i64 3
+  store i8 4, ptr %incdec.ptr4, align 1
   %incdec.ptr6 = getelementptr inbounds i8, ptr %cond, i64 4
-  store <4 x i8> <i8 0, i8 0, i8 4, i8 8>, ptr %cond, align 1
+  store i8 8, ptr %incdec.ptr5, align 1
   %incdec.ptr7 = getelementptr inbounds i8, ptr %cond, i64 5
   store i8 0, ptr %incdec.ptr6, align 1
   %shr = lshr i32 %id, 24

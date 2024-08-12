@@ -740,12 +740,18 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 _ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit: ; preds = %for.body.i.i.i.i
   store ptr %call.i.i.i.i, ptr %call, align 8
   %m_slots.i.i = getelementptr inbounds i8, ptr %call, i64 20
+  store i32 8, ptr %m_slots.i.i, align 4
+  %m_used_slots.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  store i32 0, ptr %m_used_slots.i.i, align 8
+  %m_size.i.i = getelementptr inbounds i8, ptr %call, i64 28
+  store i32 0, ptr %m_size.i.i, align 4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 128
   %m_next_cell.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %add.ptr.i.i, ptr %m_next_cell.i.i, align 8
   %m_free_cell.i.i = getelementptr inbounds i8, ptr %call, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 8, i32 0, i32 0, i32 0>, ptr %m_slots.i.i, align 4
+  %m_collisions.i = getelementptr inbounds i8, ptr %call, i64 32
+  store i32 0, ptr %m_collisions.i, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
@@ -870,12 +876,18 @@ for.body.i.i.i.i41:                               ; preds = %for.body.i.i.i.i41,
 _ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit: ; preds = %for.body.i.i.i.i41
   store ptr %call.i.i.i.i40, ptr %call13, align 8
   %m_slots.i.i47 = getelementptr inbounds i8, ptr %call13, i64 20
+  store i32 8, ptr %m_slots.i.i47, align 4
+  %m_used_slots.i.i48 = getelementptr inbounds i8, ptr %call13, i64 24
+  store i32 0, ptr %m_used_slots.i.i48, align 8
+  %m_size.i.i49 = getelementptr inbounds i8, ptr %call13, i64 28
+  store i32 0, ptr %m_size.i.i49, align 4
   %add.ptr.i.i50 = getelementptr inbounds i8, ptr %call.i.i.i.i40, i64 128
   %m_next_cell.i.i51 = getelementptr inbounds i8, ptr %call13, i64 40
   store ptr %add.ptr.i.i50, ptr %m_next_cell.i.i51, align 8
   %m_free_cell.i.i52 = getelementptr inbounds i8, ptr %call13, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i52, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 8, i32 0, i32 0, i32 0>, ptr %m_slots.i.i47, align 4
+  %m_collisions.i53 = getelementptr inbounds i8, ptr %call13, i64 32
+  store i32 0, ptr %m_collisions.i53, align 8
   %4 = ptrtoint ptr %call13 to i64
   %or16 = or i64 %4, 3
   %5 = inttoptr i64 %or16 to ptr
@@ -1788,10 +1800,14 @@ do.body.preheader:                                ; preds = %if.end
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
+  %m_size = getelementptr inbounds i8, ptr %this, i64 28
+  %12 = load i32, ptr %m_size, align 4
+  %inc = add i32 %12, 1
+  store i32 %inc, ptr %m_size, align 4
   %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
-  %12 = load <2 x i32>, ptr %m_used_slots, align 8
-  %13 = add <2 x i32> %12, <i32 1, i32 1>
-  store <2 x i32> %13, ptr %m_used_slots, align 8
+  %13 = load i32, ptr %m_used_slots, align 8
+  %inc5 = add i32 %13, 1
+  store i32 %inc5, ptr %m_used_slots, align 8
   %14 = load ptr, ptr %d, align 8
   %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %14, ptr %m_data, align 8
@@ -1926,10 +1942,14 @@ do.body.preheader:                                ; preds = %if.end
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
+  %m_size = getelementptr inbounds i8, ptr %this, i64 28
+  %16 = load i32, ptr %m_size, align 4
+  %inc = add i32 %16, 1
+  store i32 %inc, ptr %m_size, align 4
   %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
-  %16 = load <2 x i32>, ptr %m_used_slots, align 8
-  %17 = add <2 x i32> %16, <i32 1, i32 1>
-  store <2 x i32> %17, ptr %m_used_slots, align 8
+  %17 = load i32, ptr %m_used_slots, align 8
+  %inc5 = add i32 %17, 1
+  store i32 %inc5, ptr %m_used_slots, align 8
   %18 = load ptr, ptr %d, align 8
   %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %18, ptr %m_data, align 8
@@ -2091,10 +2111,14 @@ do.body.preheader:                                ; preds = %if.end
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
+  %m_size = getelementptr inbounds i8, ptr %this, i64 36
+  %19 = load i32, ptr %m_size, align 4
+  %inc = add i32 %19, 1
+  store i32 %inc, ptr %m_size, align 4
   %m_used_slots = getelementptr inbounds i8, ptr %this, i64 32
-  %19 = load <2 x i32>, ptr %m_used_slots, align 8
-  %20 = add <2 x i32> %19, <i32 1, i32 1>
-  store <2 x i32> %20, ptr %m_used_slots, align 8
+  %20 = load i32, ptr %m_used_slots, align 8
+  %inc5 = add i32 %20, 1
+  store i32 %inc5, ptr %m_used_slots, align 8
   %21 = load ptr, ptr %d, align 8
   %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %21, ptr %m_data, align 8
@@ -2263,10 +2287,14 @@ do.body.preheader:                                ; preds = %if.end
   br label %do.body
 
 if.then4:                                         ; preds = %if.end
+  %m_size = getelementptr inbounds i8, ptr %this, i64 28
+  %8 = load i32, ptr %m_size, align 4
+  %inc = add i32 %8, 1
+  store i32 %inc, ptr %m_size, align 4
   %m_used_slots = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x i32>, ptr %m_used_slots, align 8
-  %9 = add <2 x i32> %8, <i32 1, i32 1>
-  store <2 x i32> %9, ptr %m_used_slots, align 8
+  %9 = load i32, ptr %m_used_slots, align 8
+  %inc5 = add i32 %9, 1
+  store i32 %inc5, ptr %m_used_slots, align 8
   %10 = load ptr, ptr %d, align 8
   %m_data = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %10, ptr %m_data, align 8

@@ -1400,18 +1400,21 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h10a7bd4b
   %3 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %4 = tail call noundef align 8 ptr %3(ptr noalias noundef align 8 dereferenceable_or_null(24) null)
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+  br i1 %5, label %13, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load <2 x i64>, ptr %4, align 8
-  %9 = load i64, ptr %4, align 8, !noundef !4
-  %10 = add i64 %9, 1
+  %7 = load i64, ptr %4, align 8, !noundef !4
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = add i64 %7, 1
   store i64 %10, ptr %4, align 8
-  store <2 x i64> %8, ptr %7, align 8
-  br label %11
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %12, align 8
+  br label %13
 
-11:                                               ; preds = %2, %6
+13:                                               ; preds = %2, %6
   %storemerge = phi i64 [ 0, %6 ], [ 1, %2 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
@@ -1830,7 +1833,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h79c194c208b61acc
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$C$typst_svg..GradientRef$RP$$GT$$GT$17h8e6693e3905293b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #17
-          to label %21 unwind label %19
+          to label %22 unwind label %20
 
 13:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -1842,27 +1845,30 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h79c194c208b61acc
 
 .noexc.thread:                                    ; preds = %2, %.noexc
   %.0.i.i7 = phi ptr [ %9, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !453
-  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !453, !noundef !4
-  %18 = add i64 %17, 1
-  store i64 %18, ptr %.0.i.i7, align 8, !noalias !453
+  %14 = load i64, ptr %.0.i.i7, align 8, !noalias !453, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %.0.i.i7, i64 8
+  %16 = load i64, ptr %15, align 8, !noalias !453, !noundef !4
+  %17 = add i64 %14, 1
+  store i64 %17, ptr %.0.i.i7, align 8, !noalias !453
+  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %1, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
-  store <2 x i64> %16, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %14, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %16, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 
-19:                                               ; preds = %11
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %11
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
-21:                                               ; preds = %11
+22:                                               ; preds = %11
   resume { ptr, i32 } %12
 }
 
@@ -1892,7 +1898,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h7b4a0e3500c205df
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$C$typst_svg..PatternRef$RP$$GT$$GT$17h2f586b4f5eb84413E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #17
-          to label %21 unwind label %19
+          to label %22 unwind label %20
 
 13:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -1904,27 +1910,30 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h7b4a0e3500c205df
 
 .noexc.thread:                                    ; preds = %2, %.noexc
   %.0.i.i7 = phi ptr [ %9, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !462
-  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !462, !noundef !4
-  %18 = add i64 %17, 1
-  store i64 %18, ptr %.0.i.i7, align 8, !noalias !462
+  %14 = load i64, ptr %.0.i.i7, align 8, !noalias !462, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %.0.i.i7, i64 8
+  %16 = load i64, ptr %15, align 8, !noalias !462, !noundef !4
+  %17 = add i64 %14, 1
+  store i64 %17, ptr %.0.i.i7, align 8, !noalias !462
+  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %1, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
-  store <2 x i64> %16, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %14, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %16, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 
-19:                                               ; preds = %11
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %11
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
-21:                                               ; preds = %11
+22:                                               ; preds = %11
   resume { ptr, i32 } %12
 }
 
@@ -1954,7 +1963,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h83227d805056b24e
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$C$typst_svg..SVGSubGradient$RP$$GT$$GT$17h8af0120bc70a1ccfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #17
-          to label %21 unwind label %19
+          to label %22 unwind label %20
 
 13:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -1966,27 +1975,30 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h83227d805056b24e
 
 .noexc.thread:                                    ; preds = %2, %.noexc
   %.0.i.i7 = phi ptr [ %9, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !471
-  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !471, !noundef !4
-  %18 = add i64 %17, 1
-  store i64 %18, ptr %.0.i.i7, align 8, !noalias !471
+  %14 = load i64, ptr %.0.i.i7, align 8, !noalias !471, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %.0.i.i7, i64 8
+  %16 = load i64, ptr %15, align 8, !noalias !471, !noundef !4
+  %17 = add i64 %14, 1
+  store i64 %17, ptr %.0.i.i7, align 8, !noalias !471
+  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %1, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
-  store <2 x i64> %16, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %14, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %16, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 
-19:                                               ; preds = %11
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %11
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
-21:                                               ; preds = %11
+22:                                               ; preds = %11
   resume { ptr, i32 } %12
 }
 
@@ -2016,7 +2028,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h991c62f1dc1a95a7
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$C$typst..visualize..pattern..Pattern$RP$$GT$$GT$17hde35945836c249a0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #17
-          to label %21 unwind label %19
+          to label %22 unwind label %20
 
 13:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -2028,27 +2040,30 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h991c62f1dc1a95a7
 
 .noexc.thread:                                    ; preds = %2, %.noexc
   %.0.i.i7 = phi ptr [ %9, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !480
-  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !480, !noundef !4
-  %18 = add i64 %17, 1
-  store i64 %18, ptr %.0.i.i7, align 8, !noalias !480
+  %14 = load i64, ptr %.0.i.i7, align 8, !noalias !480, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %.0.i.i7, i64 8
+  %16 = load i64, ptr %15, align 8, !noalias !480, !noundef !4
+  %17 = add i64 %14, 1
+  store i64 %17, ptr %.0.i.i7, align 8, !noalias !480
+  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %1, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
-  store <2 x i64> %16, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %14, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %16, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 
-19:                                               ; preds = %11
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %11
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
-21:                                               ; preds = %11
+22:                                               ; preds = %11
   resume { ptr, i32 } %12
 }
 
@@ -2078,7 +2093,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hbb2c26315a092f4f
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr133drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$C$$LP$typst..visualize..gradient..Gradient$C$typst..layout..ratio..Ratio$RP$$RP$$GT$$GT$17hbb9fbaaccbe99c2dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #17
-          to label %21 unwind label %19
+          to label %22 unwind label %20
 
 13:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -2090,27 +2105,30 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hbb2c26315a092f4f
 
 .noexc.thread:                                    ; preds = %2, %.noexc
   %.0.i.i7 = phi ptr [ %9, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !489
-  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !489, !noundef !4
-  %18 = add i64 %17, 1
-  store i64 %18, ptr %.0.i.i7, align 8, !noalias !489
+  %14 = load i64, ptr %.0.i.i7, align 8, !noalias !489, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %.0.i.i7, i64 8
+  %16 = load i64, ptr %15, align 8, !noalias !489, !noundef !4
+  %17 = add i64 %14, 1
+  store i64 %17, ptr %.0.i.i7, align 8, !noalias !489
+  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %1, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
-  store <2 x i64> %16, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %14, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %16, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 
-19:                                               ; preds = %11
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %11
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
-21:                                               ; preds = %11
+22:                                               ; preds = %11
   resume { ptr, i32 } %12
 }
 
@@ -2140,7 +2158,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hcc92cf9116842f8b
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$C$typst_svg..RenderedGlyph$RP$$GT$$GT$17h4cc3642df0adf1ffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #17
-          to label %21 unwind label %19
+          to label %22 unwind label %20
 
 13:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -2152,27 +2170,30 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hcc92cf9116842f8b
 
 .noexc.thread:                                    ; preds = %2, %.noexc
   %.0.i.i7 = phi ptr [ %9, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !498
-  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !498, !noundef !4
-  %18 = add i64 %17, 1
-  store i64 %18, ptr %.0.i.i7, align 8, !noalias !498
+  %14 = load i64, ptr %.0.i.i7, align 8, !noalias !498, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %.0.i.i7, i64 8
+  %16 = load i64, ptr %15, align 8, !noalias !498, !noundef !4
+  %17 = add i64 %14, 1
+  store i64 %17, ptr %.0.i.i7, align 8, !noalias !498
+  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %1, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
-  store <2 x i64> %16, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %14, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %16, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 
-19:                                               ; preds = %11
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %11
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
-21:                                               ; preds = %11
+22:                                               ; preds = %11
   resume { ptr, i32 } %12
 }
 
@@ -2202,7 +2223,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hd47b527f80d84611
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$$LP$u128$C$ecow..string..EcoString$RP$$GT$$GT$17hdbeb820e088d1304E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #17
-          to label %21 unwind label %19
+          to label %22 unwind label %20
 
 13:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -2214,27 +2235,30 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hd47b527f80d84611
 
 .noexc.thread:                                    ; preds = %2, %.noexc
   %.0.i.i7 = phi ptr [ %9, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, i64 8), %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !507
-  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !507, !noundef !4
-  %18 = add i64 %17, 1
-  store i64 %18, ptr %.0.i.i7, align 8, !noalias !507
+  %14 = load i64, ptr %.0.i.i7, align 8, !noalias !507, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %.0.i.i7, i64 8
+  %16 = load i64, ptr %15, align 8, !noalias !507, !noundef !4
+  %17 = add i64 %14, 1
+  store i64 %17, ptr %.0.i.i7, align 8, !noalias !507
+  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %1, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
-  store <2 x i64> %16, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) @anon.11fe356efee1b66e158a7b822f193927.21.llvm.13846770185197118408, i64 32, i1 false)
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %14, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %16, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 
-19:                                               ; preds = %11
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %11
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
-21:                                               ; preds = %11
+22:                                               ; preds = %11
   resume { ptr, i32 } %12
 }
 

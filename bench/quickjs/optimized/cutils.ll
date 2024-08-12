@@ -1306,14 +1306,16 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @exchange_one_int128(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 %2) unnamed_addr #11 {
-  %4 = getelementptr i8, ptr %0, i64 8
-  %5 = load i64, ptr %1, align 8
-  %6 = getelementptr i8, ptr %1, i64 8
-  %7 = load <2 x i64>, ptr %0, align 8
-  store i64 %5, ptr %0, align 8
-  %8 = load i64, ptr %6, align 8
-  store i64 %8, ptr %4, align 8
-  store <2 x i64> %7, ptr %1, align 8
+  %4 = load i64, ptr %0, align 8
+  %5 = getelementptr i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8
+  %7 = load i64, ptr %1, align 8
+  store i64 %7, ptr %0, align 8
+  %8 = getelementptr i8, ptr %1, i64 8
+  %9 = load i64, ptr %8, align 8
+  store i64 %9, ptr %5, align 8
+  store i64 %4, ptr %1, align 8
+  store i64 %6, ptr %8, align 8
   ret void
 }
 
@@ -1328,19 +1330,21 @@ define internal void @exchange_int128s(ptr nocapture noundef %0, ptr nocapture n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.020 = phi i64 [ %5, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %.01519 = phi ptr [ %11, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.01618 = phi ptr [ %12, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.01519 = phi ptr [ %12, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.01618 = phi ptr [ %13, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %5 = add nsw i64 %.020, -1
-  %6 = getelementptr i8, ptr %.01519, i64 8
-  %7 = load i64, ptr %.01618, align 8
-  %8 = getelementptr i8, ptr %.01618, i64 8
-  %9 = load <2 x i64>, ptr %.01519, align 8
-  store i64 %7, ptr %.01519, align 8
-  %10 = load i64, ptr %8, align 8
-  store i64 %10, ptr %6, align 8
-  store <2 x i64> %9, ptr %.01618, align 8
-  %11 = getelementptr i8, ptr %.01519, i64 16
-  %12 = getelementptr i8, ptr %.01618, i64 16
+  %6 = load i64, ptr %.01519, align 8
+  %7 = getelementptr i8, ptr %.01519, i64 8
+  %8 = load i64, ptr %7, align 8
+  %9 = load i64, ptr %.01618, align 8
+  store i64 %9, ptr %.01519, align 8
+  %10 = getelementptr i8, ptr %.01618, i64 8
+  %11 = load i64, ptr %10, align 8
+  store i64 %11, ptr %7, align 8
+  store i64 %6, ptr %.01618, align 8
+  store i64 %8, ptr %10, align 8
+  %12 = getelementptr i8, ptr %.01519, i64 16
+  %13 = getelementptr i8, ptr %.01618, i64 16
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 

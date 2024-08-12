@@ -2220,15 +2220,15 @@ _ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVe
   %436 = getelementptr inbounds i8, ptr %.val.i56, i64 88
   %437 = load ptr, ptr %436, align 8
   %438 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 98, i1 noundef zeroext true)
-          to label %.noexc67 unwind label %747
+          to label %.noexc67 unwind label %748
 
 .noexc67:                                         ; preds = %433
   %439 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-          to label %.noexc68 unwind label %747
+          to label %.noexc68 unwind label %748
 
 .noexc68:                                         ; preds = %.noexc67
   %440 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %439, ptr noundef nonnull @.str.447)
-          to label %.noexc69 unwind label %747
+          to label %.noexc69 unwind label %748
 
 .noexc69:                                         ; preds = %.noexc68
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
@@ -2236,7 +2236,7 @@ _ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVe
   %442 = getelementptr inbounds i8, ptr %441, i64 56
   %443 = load ptr, ptr %442, align 8, !noalias !16
   invoke void %443(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 8 dereferenceable(152) %.val.i56)
-          to label %.noexc70 unwind label %747
+          to label %.noexc70 unwind label %748
 
 .noexc70:                                         ; preds = %.noexc69
   invoke void @_ZN7AstNode11prettyNameQERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef nonnull align 8 dereferenceable(32) %20)
@@ -2261,7 +2261,7 @@ _ZNK7AstNode11prettyNameQB5cxx11Ev.exit.i:        ; preds = %.noexc70
 448:                                              ; preds = %447
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #28
   %449 = invoke noundef zeroext i1 @_ZNK8FileLine9warnIsOffE11V3ErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %437, i8 98)
-          to label %.noexc73 unwind label %747
+          to label %.noexc73 unwind label %748
 
 .noexc73:                                         ; preds = %448
   br i1 %449, label %570, label %450
@@ -2300,12 +2300,12 @@ _ZNK7AstNode11prettyNameQB5cxx11Ev.exit.i:        ; preds = %.noexc70
 _ZN8FileLine9singletonEv.exit.i:                  ; preds = %460, %457, %454
   %464 = load i16, ptr %437, align 8
   %465 = invoke noundef zeroext i16 @_ZN17FileLineSingleton11msgEnSetBitEtmb(ptr noundef nonnull align 8 dereferenceable(328) @_ZZN8FileLine9singletonEvE1s, i16 noundef zeroext %464, i64 noundef 98, i1 noundef zeroext false)
-          to label %.noexc74 unwind label %747
+          to label %.noexc74 unwind label %748
 
 .noexc74:                                         ; preds = %_ZN8FileLine9singletonEv.exit.i
   store i16 %465, ptr %437, align 8
   invoke void @_ZN7V3Graph11reportLoopsEPFbPK11V3GraphEdgeEP13V3GraphVertex(ptr noundef nonnull align 8 dereferenceable(24) %.val9, ptr noundef nonnull @_ZN11V3GraphEdge16followAlwaysTrueEPKS_, ptr noundef nonnull %434)
-          to label %.noexc75 unwind label %747
+          to label %.noexc75 unwind label %748
 
 .noexc75:                                         ; preds = %.noexc74
   %466 = load i8, ptr getelementptr inbounds (i8, ptr @v3Global, i64 912), align 8
@@ -2601,7 +2601,7 @@ _ZN7V3Sched12_GLOBAL__N_114reportLoopVarsEPNS0_5GraphEPNS0_21SchedAcyclicVarVert
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
   invoke void @_ZN7V3GraphC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22)
-          to label %.noexc76 unwind label %747
+          to label %.noexc76 unwind label %748
 
 .noexc76:                                         ; preds = %_ZN7V3Sched12_GLOBAL__N_114reportLoopVarsEPNS0_5GraphEPNS0_21SchedAcyclicVarVertexE.exit.i
   invoke void @_ZN7V3Graph12subtreeLoopsEPFbPK11V3GraphEdgeEP13V3GraphVertexPS_(ptr noundef nonnull align 8 dereferenceable(24) %.val9, ptr noundef nonnull @_ZN11V3GraphEdge16followAlwaysTrueEPKS_, ptr noundef nonnull %434, ptr noundef nonnull %22)
@@ -2958,14 +2958,14 @@ _ZNSt6vectorIP11AstVarScopeSaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vect
 _ZN12VNUser1InUseD2Ev.exit.i:                     ; preds = %._crit_edge155.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !20
   invoke void @_ZN13SenTreeFinderC2EP10AstNetlist(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef %1)
-          to label %.preheader.i87 unwind label %701
+          to label %.preheader.i87 unwind label %702
 
 .preheader.i87:                                   ; preds = %_ZN12VNUser1InUseD2Ev.exit.i
   %.not111165.i = icmp eq ptr %.sroa.0104.0.lcssa.i, %.sroa.6.0.lcssa.i
   br i1 %.not111165.i, label %._crit_edge168.i, label %.lr.ph167.i
 
-.lr.ph167.i:                                      ; preds = %.preheader.i87, %715
-  %.sroa.099.0166.i = phi ptr [ %716, %715 ], [ %.sroa.0104.0.lcssa.i, %.preheader.i87 ]
+.lr.ph167.i:                                      ; preds = %.preheader.i87, %716
+  %.sroa.099.0166.i = phi ptr [ %717, %716 ], [ %.sroa.0104.0.lcssa.i, %.preheader.i87 ]
   %658 = load ptr, ptr %.sroa.099.0166.i, align 8
   %659 = getelementptr i8, ptr %658, i64 80
   %.val54.i = load ptr, ptr %659, align 8
@@ -2986,8 +2986,8 @@ _ZN12VNUser1InUseD2Ev.exit.i:                     ; preds = %._crit_edge155.i
   br i1 %.not112158.i, label %._crit_edge163.i, label %.lr.ph162.i
 
 .lr.ph162.i:                                      ; preds = %665, %_ZN7AstNode7addNextI10AstSenItemS1_EEPT_S3_PT0_.exit.i
-  %.042160.i = phi ptr [ %699, %_ZN7AstNode7addNextI10AstSenItemS1_EEPT_S3_PT0_.exit.i ], [ null, %665 ]
-  %.sroa.095.0159.i = phi ptr [ %700, %_ZN7AstNode7addNextI10AstSenItemS1_EEPT_S3_PT0_.exit.i ], [ %666, %665 ]
+  %.042160.i = phi ptr [ %700, %_ZN7AstNode7addNextI10AstSenItemS1_EEPT_S3_PT0_.exit.i ], [ null, %665 ]
+  %.sroa.095.0159.i = phi ptr [ %701, %_ZN7AstNode7addNextI10AstSenItemS1_EEPT_S3_PT0_.exit.i ], [ %666, %665 ]
   %669 = load ptr, ptr %.sroa.095.0159.i, align 8
   %670 = invoke noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #24
           to label %671 unwind label %.loopexit.i91
@@ -2996,193 +2996,195 @@ _ZN12VNUser1InUseD2Ev.exit.i:                     ; preds = %._crit_edge155.i
   %672 = getelementptr inbounds i8, ptr %669, i64 168
   %673 = load ptr, ptr %672, align 8
   invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %670, i16 316, ptr noundef %663)
-          to label %.noexc79.i unwind label %703
+          to label %.noexc79.i unwind label %704
 
 .noexc79.i:                                       ; preds = %671
   store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %670, align 8
   %674 = getelementptr inbounds i8, ptr %670, i64 152
   %675 = getelementptr inbounds i8, ptr %670, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %674, i8 0, i64 25, i1 false)
-  %676 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8, !noalias !20
-  %677 = load <2 x ptr>, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8, !noalias !20
-  store <2 x ptr> %677, ptr %675, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %676, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i, label %678
+  %676 = load ptr, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8, !noalias !20
+  store ptr %676, ptr %675, align 8
+  %677 = getelementptr inbounds i8, ptr %670, i64 192
+  %678 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8, !noalias !20
+  store ptr %678, ptr %677, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %678, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i, label %679
 
-678:                                              ; preds = %.noexc79.i
-  %679 = getelementptr inbounds i8, ptr %676, i64 8
-  %680 = load i8, ptr @__libc_single_threaded, align 1, !noalias !20
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %680, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %684, label %681
+679:                                              ; preds = %.noexc79.i
+  %680 = getelementptr inbounds i8, ptr %678, i64 8
+  %681 = load i8, ptr @__libc_single_threaded, align 1, !noalias !20
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %681, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %685, label %682
 
-681:                                              ; preds = %678
-  %682 = load i32, ptr %679, align 4
-  %683 = add nsw i32 %682, 1
-  store i32 %683, ptr %679, align 4
+682:                                              ; preds = %679
+  %683 = load i32, ptr %680, align 4
+  %684 = add nsw i32 %683, 1
+  store i32 %684, ptr %680, align 4
   br label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i
 
-684:                                              ; preds = %678
-  %685 = atomicrmw volatile add ptr %679, i32 1 acq_rel, align 4
+685:                                              ; preds = %679
+  %686 = atomicrmw volatile add ptr %680, i32 1 acq_rel, align 4
   br label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i
 
-_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i:    ; preds = %684, %681, %.noexc79.i
+_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i:    ; preds = %685, %682, %.noexc79.i
   store ptr %673, ptr %674, align 8
   %.not.i.i.i.i78.i = icmp eq ptr %673, null
-  br i1 %.not.i.i.i.i78.i, label %694, label %686
+  br i1 %.not.i.i.i.i78.i, label %695, label %687
 
-686:                                              ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i
-  %687 = getelementptr inbounds i8, ptr %673, i64 72
-  %688 = load ptr, ptr %687, align 8
-  %689 = getelementptr inbounds i8, ptr %670, i64 72
-  %690 = load ptr, ptr %689, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %690, %688
-  br i1 %.not.i.i.i.i.i.i, label %694, label %691
+687:                                              ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i
+  %688 = getelementptr inbounds i8, ptr %673, i64 72
+  %689 = load ptr, ptr %688, align 8
+  %690 = getelementptr inbounds i8, ptr %670, i64 72
+  %691 = load ptr, ptr %690, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %691, %689
+  br i1 %.not.i.i.i.i.i.i, label %695, label %692
 
-691:                                              ; preds = %686
-  store ptr %688, ptr %689, align 8
-  %692 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8, !noalias !20
-  %693 = add i64 %692, 1
-  store i64 %693, ptr @_ZN7AstNode12s_editCntGblE, align 8, !noalias !20
-  br label %694
+692:                                              ; preds = %687
+  store ptr %689, ptr %690, align 8
+  %693 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8, !noalias !20
+  %694 = add i64 %693, 1
+  store i64 %694, ptr @_ZN7AstNode12s_editCntGblE, align 8, !noalias !20
+  br label %695
 
-694:                                              ; preds = %691, %686, %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i
+695:                                              ; preds = %692, %687, %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV9AstVarRef, i64 16), ptr %670, align 8
-  %695 = getelementptr inbounds i8, ptr %670, i64 160
-  store ptr %669, ptr %695, align 8
-  %696 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #24
-          to label %697 unwind label %.loopexit.i91
+  %696 = getelementptr inbounds i8, ptr %670, i64 160
+  store ptr %669, ptr %696, align 8
+  %697 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #24
+          to label %698 unwind label %.loopexit.i91
 
-697:                                              ; preds = %694
-  invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %696, i16 38, ptr noundef %663)
-          to label %.noexc81.i unwind label %705
+698:                                              ; preds = %695
+  invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %697, i16 38, ptr noundef %663)
+          to label %.noexc81.i unwind label %706
 
-.noexc81.i:                                       ; preds = %697
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSenItem, i64 16), ptr %696, align 8
-  %698 = getelementptr inbounds i8, ptr %696, i64 152
-  store i8 7, ptr %698, align 8
-  invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %696, ptr noundef nonnull %670)
-          to label %_ZN10AstSenItemC2EP8FileLine9VEdgeTypeP11AstNodeExprS4_.exit.i unwind label %705
+.noexc81.i:                                       ; preds = %698
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSenItem, i64 16), ptr %697, align 8
+  %699 = getelementptr inbounds i8, ptr %697, i64 152
+  store i8 7, ptr %699, align 8
+  invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %697, ptr noundef nonnull %670)
+          to label %_ZN10AstSenItemC2EP8FileLine9VEdgeTypeP11AstNodeExprS4_.exit.i unwind label %706
 
 _ZN10AstSenItemC2EP8FileLine9VEdgeTypeP11AstNodeExprS4_.exit.i: ; preds = %.noexc81.i
-  %699 = invoke noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef %.042160.i, ptr noundef nonnull %696)
+  %700 = invoke noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef %.042160.i, ptr noundef nonnull %697)
           to label %_ZN7AstNode7addNextI10AstSenItemS1_EEPT_S3_PT0_.exit.i unwind label %.loopexit.i91
 
 _ZN7AstNode7addNextI10AstSenItemS1_EEPT_S3_PT0_.exit.i: ; preds = %_ZN10AstSenItemC2EP8FileLine9VEdgeTypeP11AstNodeExprS4_.exit.i
-  %700 = getelementptr inbounds i8, ptr %.sroa.095.0159.i, i64 8
-  %.not112.i = icmp eq ptr %700, %668
+  %701 = getelementptr inbounds i8, ptr %.sroa.095.0159.i, i64 8
+  %.not112.i = icmp eq ptr %701, %668
   br i1 %.not112.i, label %._crit_edge163.i, label %.lr.ph162.i
 
-701:                                              ; preds = %_ZN12VNUser1InUseD2Ev.exit.i
-  %702 = landingpad { ptr, i32 }
+702:                                              ; preds = %_ZN12VNUser1InUseD2Ev.exit.i
+  %703 = landingpad { ptr, i32 }
+          cleanup
+  br label %742
+
+.loopexit.i91:                                    ; preds = %_ZN10AstSenItemC2EP8FileLine9VEdgeTypeP11AstNodeExprS4_.exit.i, %695, %.lr.ph162.i
+  %lpad.loopexit.i92 = landingpad { ptr, i32 }
           cleanup
   br label %741
 
-.loopexit.i91:                                    ; preds = %_ZN10AstSenItemC2EP8FileLine9VEdgeTypeP11AstNodeExprS4_.exit.i, %694, %.lr.ph162.i
-  %lpad.loopexit.i92 = landingpad { ptr, i32 }
-          cleanup
-  br label %740
-
-.loopexit.split-lp.i88:                           ; preds = %714, %713, %_ZN10AstSenTreeC2EP8FileLineP10AstSenItem.exit.i, %._crit_edge163.i, %661, %.lr.ph167.i
+.loopexit.split-lp.i88:                           ; preds = %715, %714, %_ZN10AstSenTreeC2EP8FileLineP10AstSenItem.exit.i, %._crit_edge163.i, %661, %.lr.ph167.i
   %lpad.loopexit.split-lp.i89 = landingpad { ptr, i32 }
           cleanup
-  br label %740
+  br label %741
 
-703:                                              ; preds = %671
-  %704 = landingpad { ptr, i32 }
+704:                                              ; preds = %671
+  %705 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %670) #26
-  br label %740
+  br label %741
 
-705:                                              ; preds = %.noexc81.i, %697
-  %706 = landingpad { ptr, i32 }
+706:                                              ; preds = %.noexc81.i, %698
+  %707 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %696) #26
-  br label %740
+  call void @_ZdlPv(ptr noundef nonnull %697) #26
+  br label %741
 
 ._crit_edge163.i:                                 ; preds = %_ZN7AstNode7addNextI10AstSenItemS1_EEPT_S3_PT0_.exit.i, %665
-  %.042.lcssa.i = phi ptr [ null, %665 ], [ %699, %_ZN7AstNode7addNextI10AstSenItemS1_EEPT_S3_PT0_.exit.i ]
-  %707 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #24
-          to label %708 unwind label %.loopexit.split-lp.i88
+  %.042.lcssa.i = phi ptr [ null, %665 ], [ %700, %_ZN7AstNode7addNextI10AstSenItemS1_EEPT_S3_PT0_.exit.i ]
+  %708 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #24
+          to label %709 unwind label %.loopexit.split-lp.i88
 
-708:                                              ; preds = %._crit_edge163.i
-  invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %707, i16 39, ptr noundef %663)
-          to label %.noexc85.i unwind label %717
+709:                                              ; preds = %._crit_edge163.i
+  invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %708, i16 39, ptr noundef %663)
+          to label %.noexc85.i unwind label %718
 
-.noexc85.i:                                       ; preds = %708
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSenTree, i64 16), ptr %707, align 8
-  %709 = getelementptr inbounds i8, ptr %707, i64 152
-  store i8 0, ptr %709, align 8
+.noexc85.i:                                       ; preds = %709
+  store ptr getelementptr inbounds (i8, ptr @_ZTV10AstSenTree, i64 16), ptr %708, align 8
+  %710 = getelementptr inbounds i8, ptr %708, i64 152
+  store i8 0, ptr %710, align 8
   %.not.i.i.i84.i = icmp eq ptr %.042.lcssa.i, null
-  br i1 %.not.i.i.i84.i, label %_ZN10AstSenTreeC2EP8FileLineP10AstSenItem.exit.i, label %710
+  br i1 %.not.i.i.i84.i, label %_ZN10AstSenTreeC2EP8FileLineP10AstSenItem.exit.i, label %711
 
-710:                                              ; preds = %.noexc85.i
-  invoke void @_ZN7AstNode7addOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %707, ptr noundef nonnull %.042.lcssa.i)
-          to label %_ZN10AstSenTreeC2EP8FileLineP10AstSenItem.exit.i unwind label %717
+711:                                              ; preds = %.noexc85.i
+  invoke void @_ZN7AstNode7addOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %708, ptr noundef nonnull %.042.lcssa.i)
+          to label %_ZN10AstSenTreeC2EP8FileLineP10AstSenItem.exit.i unwind label %718
 
-_ZN10AstSenTreeC2EP8FileLineP10AstSenItem.exit.i: ; preds = %710, %.noexc85.i
-  %711 = getelementptr i8, ptr %658, i64 88
-  %.val56.i = load ptr, ptr %711, align 8
-  %712 = invoke noundef ptr @_ZN13SenTreeFinder10getSenTreeEP10AstSenTree(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull %707)
-          to label %713 unwind label %.loopexit.split-lp.i88
-
-713:                                              ; preds = %_ZN10AstSenTreeC2EP8FileLineP10AstSenItem.exit.i
-  invoke void @_ZN7V3Sched12LogicByScope3addEP8AstScopeP10AstSenTreeP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %.val56.i, ptr noundef %712, ptr noundef nonnull %.val54.i)
+_ZN10AstSenTreeC2EP8FileLineP10AstSenItem.exit.i: ; preds = %711, %.noexc85.i
+  %712 = getelementptr i8, ptr %658, i64 88
+  %.val56.i = load ptr, ptr %712, align 8
+  %713 = invoke noundef ptr @_ZN13SenTreeFinder10getSenTreeEP10AstSenTree(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull %708)
           to label %714 unwind label %.loopexit.split-lp.i88
 
-714:                                              ; preds = %713
-  invoke void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %707)
+714:                                              ; preds = %_ZN10AstSenTreeC2EP8FileLineP10AstSenItem.exit.i
+  invoke void @_ZN7V3Sched12LogicByScope3addEP8AstScopeP10AstSenTreeP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %.val56.i, ptr noundef %713, ptr noundef nonnull %.val54.i)
           to label %715 unwind label %.loopexit.split-lp.i88
 
 715:                                              ; preds = %714
-  %716 = getelementptr inbounds i8, ptr %.sroa.099.0166.i, i64 8
-  %.not111.i = icmp eq ptr %716, %.sroa.6.0.lcssa.i
+  invoke void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %708)
+          to label %716 unwind label %.loopexit.split-lp.i88
+
+716:                                              ; preds = %715
+  %717 = getelementptr inbounds i8, ptr %.sroa.099.0166.i, i64 8
+  %.not111.i = icmp eq ptr %717, %.sroa.6.0.lcssa.i
   br i1 %.not111.i, label %._crit_edge168.i, label %.lr.ph167.i
 
-717:                                              ; preds = %710, %708
-  %718 = landingpad { ptr, i32 }
+718:                                              ; preds = %711, %709
+  %719 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %707) #26
-  br label %740
+  call void @_ZdlPv(ptr noundef nonnull %708) #26
+  br label %741
 
-._crit_edge168.i:                                 ; preds = %715, %.preheader.i87
-  %719 = getelementptr inbounds i8, ptr %8, i64 32
-  %720 = load ptr, ptr %719, align 8, !noalias !20
-  %.not5.i.i.i.i.i.i = icmp eq ptr %720, null
+._crit_edge168.i:                                 ; preds = %716, %.preheader.i87
+  %720 = getelementptr inbounds i8, ptr %8, i64 32
+  %721 = load ptr, ptr %720, align 8, !noalias !20
+  %.not5.i.i.i.i.i.i = icmp eq ptr %721, null
   br i1 %.not5.i.i.i.i.i.i, label %_ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %._crit_edge168.i, %.lr.ph.i.i.i.i.i.i
-  %.06.i.i.i.i.i.i = phi ptr [ %721, %.lr.ph.i.i.i.i.i.i ], [ %720, %._crit_edge168.i ]
-  %721 = load ptr, ptr %.06.i.i.i.i.i.i, align 8
+  %.06.i.i.i.i.i.i = phi ptr [ %722, %.lr.ph.i.i.i.i.i.i ], [ %721, %._crit_edge168.i ]
+  %722 = load ptr, ptr %.06.i.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i.i.i) #26
-  %.not.i.i.i.i.i87.i = icmp eq ptr %721, null
+  %.not.i.i.i.i.i87.i = icmp eq ptr %722, null
   br i1 %.not.i.i.i.i.i87.i, label %_ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !23
 
 _ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge168.i
-  %722 = getelementptr inbounds i8, ptr %8, i64 16
-  %723 = load ptr, ptr %722, align 8, !noalias !20
-  %724 = getelementptr inbounds i8, ptr %8, i64 24
-  %725 = load i64, ptr %724, align 8, !noalias !20
-  %726 = shl i64 %725, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %723, i8 0, i64 %726, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %719, i8 0, i64 16, i1 false), !noalias !20
-  %727 = load ptr, ptr %722, align 8, !noalias !20
-  %728 = getelementptr inbounds i8, ptr %8, i64 64
-  %729 = icmp eq ptr %728, %727
-  br i1 %729, label %_ZN13SenTreeFinderD2Ev.exit.i, label %730
+  %723 = getelementptr inbounds i8, ptr %8, i64 16
+  %724 = load ptr, ptr %723, align 8, !noalias !20
+  %725 = getelementptr inbounds i8, ptr %8, i64 24
+  %726 = load i64, ptr %725, align 8, !noalias !20
+  %727 = shl i64 %726, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %724, i8 0, i64 %727, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %720, i8 0, i64 16, i1 false), !noalias !20
+  %728 = load ptr, ptr %723, align 8, !noalias !20
+  %729 = getelementptr inbounds i8, ptr %8, i64 64
+  %730 = icmp eq ptr %729, %728
+  br i1 %730, label %_ZN13SenTreeFinderD2Ev.exit.i, label %731
 
-730:                                              ; preds = %_ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i
-  call void @_ZdlPv(ptr noundef %727) #26
+731:                                              ; preds = %_ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i
+  call void @_ZdlPv(ptr noundef %728) #26
   br label %_ZN13SenTreeFinderD2Ev.exit.i
 
-_ZN13SenTreeFinderD2Ev.exit.i:                    ; preds = %730, %_ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i
+_ZN13SenTreeFinderD2Ev.exit.i:                    ; preds = %731, %_ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i
   %.not.i.i.i88.i = icmp eq ptr %.sroa.0104.0.lcssa.i, null
-  br i1 %.not.i.i.i88.i, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i, label %731
+  br i1 %.not.i.i.i88.i, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i, label %732
 
-731:                                              ; preds = %_ZN13SenTreeFinderD2Ev.exit.i
+732:                                              ; preds = %_ZN13SenTreeFinderD2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.0.lcssa.i) #26
   br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i
 
-_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i: ; preds = %731, %_ZN13SenTreeFinderD2Ev.exit.i
+_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i: ; preds = %732, %_ZN13SenTreeFinderD2Ev.exit.i
   %.val.i.i.i.i = load ptr, ptr %574, align 8, !noalias !20
   %.not1.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
   br i1 %.not1.i.i.i.i.i, label %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -3190,104 +3192,104 @@ _ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i
   %.02.i.i.i.i.i = phi ptr [ %.0.val.i.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i ], [ %.val.i.i.i.i, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i ]
   %.0.val.i.i.i.i.i = load ptr, ptr %.02.i.i.i.i.i, align 8
-  %732 = getelementptr i8, ptr %.02.i.i.i.i.i, i64 16
-  %.val.i.i.i.i.i.i = load ptr, ptr %732, align 8
+  %733 = getelementptr i8, ptr %.02.i.i.i.i.i, i64 16
+  %.val.i.i.i.i.i.i = load ptr, ptr %733, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i, label %733
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i, label %734
 
-733:                                              ; preds = %.lr.ph.i.i.i.i.i
+734:                                              ; preds = %.lr.ph.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i.i.i.i) #26
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i
 
-_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i: ; preds = %733, %.lr.ph.i.i.i.i.i
+_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i: ; preds = %734, %.lr.ph.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.02.i.i.i.i.i) #26
   %.not.i.i.i.i89.i = icmp eq ptr %.0.val.i.i.i.i.i, null
   br i1 %.not.i.i.i.i89.i, label %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !24
 
 _ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i
-  %734 = load ptr, ptr %6, align 8, !noalias !20
-  %735 = load i64, ptr %573, align 8, !noalias !20
-  %736 = shl i64 %735, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %734, i8 0, i64 %736, i1 false)
+  %735 = load ptr, ptr %6, align 8, !noalias !20
+  %736 = load i64, ptr %573, align 8, !noalias !20
+  %737 = shl i64 %736, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %735, i8 0, i64 %737, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %574, i8 0, i64 16, i1 false), !noalias !20
-  %737 = load ptr, ptr %6, align 8, !noalias !20
-  %738 = icmp eq ptr %572, %737
-  br i1 %738, label %745, label %739
+  %738 = load ptr, ptr %6, align 8, !noalias !20
+  %739 = icmp eq ptr %572, %738
+  br i1 %739, label %746, label %740
 
-739:                                              ; preds = %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
-  call void @_ZdlPv(ptr noundef %737) #26
-  br label %745
+740:                                              ; preds = %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
+  call void @_ZdlPv(ptr noundef %738) #26
+  br label %746
 
-740:                                              ; preds = %717, %705, %703, %.loopexit.split-lp.i88, %.loopexit.i91
-  %.pn.i90 = phi { ptr, i32 } [ %706, %705 ], [ %704, %703 ], [ %718, %717 ], [ %lpad.loopexit.i92, %.loopexit.i91 ], [ %lpad.loopexit.split-lp.i89, %.loopexit.split-lp.i88 ]
+741:                                              ; preds = %718, %706, %704, %.loopexit.split-lp.i88, %.loopexit.i91
+  %.pn.i90 = phi { ptr, i32 } [ %707, %706 ], [ %705, %704 ], [ %719, %718 ], [ %lpad.loopexit.i92, %.loopexit.i91 ], [ %lpad.loopexit.split-lp.i89, %.loopexit.split-lp.i88 ]
   call void @_ZN13SenTreeFinderD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #28
-  br label %741
+  br label %742
 
-741:                                              ; preds = %740, %701
-  %.pn.pn.i86 = phi { ptr, i32 } [ %.pn.i90, %740 ], [ %702, %701 ]
-  %742 = load ptr, ptr %0, align 8, !alias.scope !20
-  %.not.i.i.i.i90.i = icmp eq ptr %742, null
-  br i1 %.not.i.i.i.i90.i, label %_ZN7V3Sched12LogicByScopeD2Ev.exit.i, label %743
+742:                                              ; preds = %741, %702
+  %.pn.pn.i86 = phi { ptr, i32 } [ %.pn.i90, %741 ], [ %703, %702 ]
+  %743 = load ptr, ptr %0, align 8, !alias.scope !20
+  %.not.i.i.i.i90.i = icmp eq ptr %743, null
+  br i1 %.not.i.i.i.i90.i, label %_ZN7V3Sched12LogicByScopeD2Ev.exit.i, label %744
 
-743:                                              ; preds = %741
-  call void @_ZdlPv(ptr noundef nonnull %742) #26
+744:                                              ; preds = %742
+  call void @_ZdlPv(ptr noundef nonnull %743) #26
   br label %_ZN7V3Sched12LogicByScopeD2Ev.exit.i
 
-_ZN7V3Sched12LogicByScopeD2Ev.exit.i:             ; preds = %743, %741, %621
-  %.sroa.0104.4.i = phi ptr [ %.sroa.0104.1.i, %621 ], [ %.sroa.0104.0.lcssa.i, %741 ], [ %.sroa.0104.0.lcssa.i, %743 ]
-  %.pn52.i = phi { ptr, i32 } [ %lpad.phi119.i, %621 ], [ %.pn.pn.i86, %741 ], [ %.pn.pn.i86, %743 ]
+_ZN7V3Sched12LogicByScopeD2Ev.exit.i:             ; preds = %744, %742, %621
+  %.sroa.0104.4.i = phi ptr [ %.sroa.0104.1.i, %621 ], [ %.sroa.0104.0.lcssa.i, %742 ], [ %.sroa.0104.0.lcssa.i, %744 ]
+  %.pn52.i = phi { ptr, i32 } [ %lpad.phi119.i, %621 ], [ %.pn.pn.i86, %742 ], [ %.pn.pn.i86, %744 ]
   %.not.i.i.i91.i = icmp eq ptr %.sroa.0104.4.i, null
-  br i1 %.not.i.i.i91.i, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i, label %744
+  br i1 %.not.i.i.i91.i, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i, label %745
 
-744:                                              ; preds = %_ZN7V3Sched12LogicByScopeD2Ev.exit.i
+745:                                              ; preds = %_ZN7V3Sched12LogicByScopeD2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.4.i) #26
   br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i
 
-_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i: ; preds = %744, %_ZN7V3Sched12LogicByScopeD2Ev.exit.i, %_ZN7V3Sched12LogicByScopeD2Ev.exit.thread.i
-  %.pn52109.i = phi { ptr, i32 } [ %620, %_ZN7V3Sched12LogicByScopeD2Ev.exit.thread.i ], [ %.pn52.i, %_ZN7V3Sched12LogicByScopeD2Ev.exit.i ], [ %.pn52.i, %744 ]
+_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i: ; preds = %745, %_ZN7V3Sched12LogicByScopeD2Ev.exit.i, %_ZN7V3Sched12LogicByScopeD2Ev.exit.thread.i
+  %.pn52109.i = phi { ptr, i32 } [ %620, %_ZN7V3Sched12LogicByScopeD2Ev.exit.thread.i ], [ %.pn52.i, %_ZN7V3Sched12LogicByScopeD2Ev.exit.i ], [ %.pn52.i, %745 ]
   call fastcc void @_ZNSt13unordered_mapIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaIS6_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #28
   br label %.body71
 
-745:                                              ; preds = %739, %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
+746:                                              ; preds = %740, %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
   %.not.i.i.i102 = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not.i.i.i102, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit, label %746
+  br i1 %.not.i.i.i102, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit, label %747
 
-746:                                              ; preds = %745
+747:                                              ; preds = %746
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #26
   br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit
 
-747:                                              ; preds = %_ZN8FileLine9singletonEv.exit.i, %_ZN7V3Sched12_GLOBAL__N_114reportLoopVarsEPNS0_5GraphEPNS0_21SchedAcyclicVarVertexE.exit.i, %.noexc74, %448, %.noexc69, %.noexc68, %.noexc67, %433
-  %748 = landingpad { ptr, i32 }
+748:                                              ; preds = %_ZN8FileLine9singletonEv.exit.i, %_ZN7V3Sched12_GLOBAL__N_114reportLoopVarsEPNS0_5GraphEPNS0_21SchedAcyclicVarVertexE.exit.i, %.noexc74, %448, %.noexc69, %.noexc68, %.noexc67, %433
+  %749 = landingpad { ptr, i32 }
           cleanup
   br label %.body71
 
-.body71:                                          ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i, %462, %747, %444, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit16.i.i, %549, %561, %569
-  %eh.lpad-body72 = phi { ptr, i32 } [ %445, %444 ], [ %.pn.pn.i.i, %549 ], [ %.pn.pn.i.i, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit16.i.i ], [ %.pn.pn.i, %569 ], [ %562, %561 ], [ %.pn52109.i, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i ], [ %748, %747 ], [ %463, %462 ]
+.body71:                                          ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i, %462, %748, %444, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit16.i.i, %549, %561, %569
+  %eh.lpad-body72 = phi { ptr, i32 } [ %445, %444 ], [ %.pn.pn.i.i, %549 ], [ %.pn.pn.i.i, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit16.i.i ], [ %.pn.pn.i, %569 ], [ %562, %561 ], [ %.pn52109.i, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i ], [ %749, %748 ], [ %463, %462 ]
   %.not.i.i.i103 = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not.i.i.i103, label %.body, label %749
+  br i1 %.not.i.i.i103, label %.body, label %750
 
-749:                                              ; preds = %.body71
+750:                                              ; preds = %.body71
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #26
   br label %.body
 
-_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit: ; preds = %746, %745, %293
-  %750 = load ptr, ptr %39, align 8
-  %.not.i105 = icmp eq ptr %750, null
+_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit: ; preds = %747, %746, %293
+  %751 = load ptr, ptr %39, align 8
+  %.not.i105 = icmp eq ptr %751, null
   br i1 %.not.i105, label %_ZNSt10unique_ptrIN7V3Sched12_GLOBAL__N_15GraphESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.exit.i: ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit
-  call void @_ZN7V3GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %750) #28
-  call void @_ZdlPv(ptr noundef nonnull %750) #26
+  call void @_ZN7V3GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %751) #28
+  call void @_ZdlPv(ptr noundef nonnull %751) #26
   br label %_ZNSt10unique_ptrIN7V3Sched12_GLOBAL__N_15GraphESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7V3Sched12_GLOBAL__N_15GraphESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.exit.i
   ret void
 
-.body:                                            ; preds = %749, %.body71, %410, %411, %210, %.loopexit.split-lp.i24, %294, %.body.i30, %.body35
-  %.pn6 = phi { ptr, i32 } [ %.pn, %.body35 ], [ %lpad.phi.i, %210 ], [ %lpad.phi.i, %.loopexit.split-lp.i24 ], [ %.pn13.pn.i, %.body.i30 ], [ %295, %294 ], [ %lpad.phi.i39, %411 ], [ %lpad.phi.i39, %410 ], [ %eh.lpad-body72, %.body71 ], [ %eh.lpad-body72, %749 ]
+.body:                                            ; preds = %750, %.body71, %410, %411, %210, %.loopexit.split-lp.i24, %294, %.body.i30, %.body35
+  %.pn6 = phi { ptr, i32 } [ %.pn, %.body35 ], [ %lpad.phi.i, %210 ], [ %lpad.phi.i, %.loopexit.split-lp.i24 ], [ %.pn13.pn.i, %.body.i30 ], [ %295, %294 ], [ %lpad.phi.i39, %411 ], [ %lpad.phi.i39, %410 ], [ %eh.lpad-body72, %.body71 ], [ %eh.lpad-body72, %750 ]
   call fastcc void @_ZNSt10unique_ptrIN7V3Sched12_GLOBAL__N_15GraphESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #28
   br label %common.resume
 }
@@ -3962,21 +3964,25 @@ define internal noundef zeroext i1 @_ZNK7V3Sched12_GLOBAL__N_123SchedAcyclicLogi
 define internal noundef nonnull ptr @_ZNK7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertex5cloneEP7V3Graph(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24
   %4 = getelementptr inbounds i8, ptr %0, i64 80
-  %5 = load <2 x ptr>, ptr %4, align 8
+  %.val = load ptr, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %.val3 = load ptr, ptr %5, align 8
   invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1)
-          to label %6 unwind label %8
+          to label %6 unwind label %9
 
 6:                                                ; preds = %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 80
-  store <2 x ptr> %5, ptr %7, align 8
+  store ptr %.val, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 88
+  store ptr %.val3, ptr %8, align 8
   ret ptr %3
 
-8:                                                ; preds = %2
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %3) #26
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -6159,127 +6165,129 @@ _ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_
   call void @__clang_call_terminate(ptr %26) #27
   unreachable
 
-common.resume:                                    ; preds = %.body28, %.body, %168, %19, %22
-  %common.resume.op = phi { ptr, i32 } [ %20, %22 ], [ %20, %19 ], [ %.pn, %.body28 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %168 ]
+common.resume:                                    ; preds = %.body28, %.body, %173, %19, %22
+  %common.resume.op = phi { ptr, i32 } [ %20, %22 ], [ %20, %19 ], [ %.pn, %.body28 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %173 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit: ; preds = %17
-  %27 = load <2 x ptr>, ptr %15, align 8
-  %28 = load ptr, ptr %15, align 8
-  store <2 x ptr> %27, ptr %13, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %14, align 8
+  %29 = load ptr, ptr %15, align 8
+  store ptr %29, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %29 = getelementptr inbounds i8, ptr %7, i64 16
-  %30 = getelementptr inbounds i8, ptr %7, i64 24
+  %30 = getelementptr inbounds i8, ptr %7, i64 16
+  %31 = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %.not.i.i.not.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i, label %31
+  %.not.i.i.not.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i, label %32
 
-31:                                               ; preds = %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit
-  %32 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
-          to label %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i unwind label %33
+32:                                               ; preds = %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit
+  %33 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+          to label %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i unwind label %34
 
-33:                                               ; preds = %31
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %32
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %29, align 8
-  %.not.i.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i.i, label %.body, label %36
+  %36 = load ptr, ptr %30, align 8
+  %.not.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i.i, label %.body, label %37
 
-36:                                               ; preds = %33
-  %37 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %.body unwind label %38
+37:                                               ; preds = %34
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+          to label %.body unwind label %39
 
-38:                                               ; preds = %36
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #27
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #27
   unreachable
 
-_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i: ; preds = %31
-  %41 = load ptr, ptr %14, align 8
-  store ptr %41, ptr %30, align 8
-  %42 = load ptr, ptr %13, align 8
-  store ptr %42, ptr %29, align 8
+_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i: ; preds = %32
+  %42 = load ptr, ptr %14, align 8
+  store ptr %42, ptr %31, align 8
+  %43 = load ptr, ptr %13, align 8
+  store ptr %43, ptr %30, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %.not.i.i.not.i.i.i = icmp eq ptr %42, null
+  %.not.i.i.not.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i
 
 _ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i: ; preds = %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.thread, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i
-  %43 = phi ptr [ %29, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i ], [ %29, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit ], [ %16, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.thread ]
-  %44 = phi ptr [ %41, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i ], [ null, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit ], [ null, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.thread ]
+  %44 = phi ptr [ %30, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i ], [ %30, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit ], [ %16, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.thread ]
+  %45 = phi ptr [ %42, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i ], [ null, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit ], [ null, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.thread ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !66
   br label %_ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_15_Iter_comp_iterIT_EESE_.exit.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i: ; preds = %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2ERKS9_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !noalias !66
-  %45 = getelementptr inbounds i8, ptr %6, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false), !noalias !66
+  %46 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  store ptr %42, ptr %45, align 8, !alias.scope !66
+  store ptr %43, ptr %46, align 8, !alias.scope !66
   br label %_ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_15_Iter_comp_iterIT_EESE_.exit.i
 
 _ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_15_Iter_comp_iterIT_EESE_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i
-  %46 = phi ptr [ %29, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i ], [ %43, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i ]
-  %47 = phi ptr [ %41, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i ], [ %44, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i ]
-  %.val.i.i.i25.i = phi ptr [ %42, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i ], [ null, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i ]
-  %48 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %47, ptr %48, align 8
+  %47 = phi ptr [ %30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i ], [ %44, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i ]
+  %48 = phi ptr [ %42, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i ], [ %45, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i ]
+  %.val.i.i.i25.i = phi ptr [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ESC_.exit.i.i ], [ null, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EEC2EOS9_.exit.thread.i.i ]
+  %49 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %48, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %49 = icmp eq ptr %.val21, %.val18
-  br i1 %49, label %127, label %50
+  %50 = icmp eq ptr %.val21, %.val18
+  br i1 %50, label %132, label %51
 
-50:                                               ; preds = %_ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_15_Iter_comp_iterIT_EESE_.exit.i
-  %51 = ptrtoint ptr %.val18 to i64
-  %52 = ptrtoint ptr %.val21 to i64
-  %53 = sub i64 %51, %52
-  %54 = ashr exact i64 %53, 4
-  %55 = icmp sgt i64 %54, 0
-  br i1 %55, label %.lr.ph.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i
+51:                                               ; preds = %_ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_15_Iter_comp_iterIT_EESE_.exit.i
+  %52 = ptrtoint ptr %.val18 to i64
+  %53 = ptrtoint ptr %.val21 to i64
+  %54 = sub i64 %52, %53
+  %55 = ashr exact i64 %54, 4
+  %56 = icmp sgt i64 %55, 0
+  br i1 %56, label %.lr.ph.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %50, %select.unfold.i.i.i.i
-  %storemerge26.i.i.in.in.i.i = phi i64 [ %storemerge26.i.i.i.i, %select.unfold.i.i.i.i ], [ %54, %50 ]
+.lr.ph.i.i.i.i:                                   ; preds = %51, %select.unfold.i.i.i.i
+  %storemerge26.i.i.in.in.i.i = phi i64 [ %storemerge26.i.i.i.i, %select.unfold.i.i.i.i ], [ %55, %51 ]
   %storemerge26.i.i.in.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i, 1
   %storemerge26.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i, 1
-  %56 = shl nuw nsw i64 %storemerge26.i.i.i.i, 4
-  %57 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #29
-  %.not.i.i.i.i = icmp eq ptr %57, null
-  br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %58
+  %57 = shl nuw nsw i64 %storemerge26.i.i.i.i, 4
+  %58 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %57, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #29
+  %.not.i.i.i.i = icmp eq ptr %58, null
+  br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %59
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   %.not10.i.i.i.i = icmp ult i64 %storemerge26.i.i.in.in.i.i, 3
   br i1 %.not10.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !69
 
-58:                                               ; preds = %.lr.ph.i.i.i.i
-  %59 = getelementptr inbounds i8, ptr %57, i64 %56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val21, i64 16, i1 false)
+59:                                               ; preds = %.lr.ph.i.i.i.i
+  %60 = getelementptr inbounds i8, ptr %58, i64 %57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val21, i64 16, i1 false)
   %.not18.i.i.i.i.i = icmp eq i64 %storemerge26.i.i.i.i, 1
   br i1 %.not18.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread48.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
-_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread48.i.i: ; preds = %58
-  %60 = load ptr, ptr %57, align 8
-  store ptr %60, ptr %.val21, align 8
-  %61 = getelementptr inbounds i8, ptr %57, i64 8
+_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread48.i.i: ; preds = %59
+  %61 = load ptr, ptr %58, align 8
+  store ptr %61, ptr %.val21, align 8
+  %62 = getelementptr inbounds i8, ptr %58, i64 8
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread43.sink.split.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %58
-  %.01317.i.i.i.i.i = getelementptr i8, ptr %57, i64 16
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %59
+  %.01317.i.i.i.i.i = getelementptr i8, ptr %58, i64 16
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
   %.01320.i.i.i.i.i = phi ptr [ %.013.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
-  %.019.i.i.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i.i ], [ %57, %.lr.ph.i.i.preheader.i.i.i ]
+  %.019.i.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i.i ], [ %58, %.lr.ph.i.i.preheader.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.01320.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.019.i.i.i.i.i, i64 16, i1 false)
-  %62 = getelementptr inbounds i8, ptr %.019.i.i.i.i.i, i64 16
+  %63 = getelementptr inbounds i8, ptr %.019.i.i.i.i.i, i64 16
   %.013.i.i.i.i.i = getelementptr inbounds i8, ptr %.01320.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %.013.i.i.i.i.i, %59
+  %.not.i.i.i.i.i = icmp eq ptr %.013.i.i.i.i.i, %60
   br i1 %.not.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !70
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr %.val21, align 8
-  %64 = getelementptr inbounds i8, ptr %.019.i.i.i.i.i, i64 24
+  %64 = load ptr, ptr %63, align 8
+  store ptr %64, ptr %.val21, align 8
+  %65 = getelementptr inbounds i8, ptr %.019.i.i.i.i.i, i64 24
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread43.sink.split.i.i
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.loopexit.i: ; preds = %select.unfold.i.i.i.i
@@ -6287,209 +6295,204 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GL
   %.val.i.i.i.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i
 
-_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i: ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.loopexit.i, %50
-  %.val.i.i.i.i = phi ptr [ %.val.i.i.i.pre.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.loopexit.i ], [ %.val.i.i.i25.i, %50 ]
-  %65 = getelementptr inbounds i8, ptr %4, i64 16
-  %66 = getelementptr inbounds i8, ptr %6, i64 16
+_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i: ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.loopexit.i, %51
+  %.val.i.i.i.i = phi ptr [ %.val.i.i.i.pre.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.loopexit.i ], [ %.val.i.i.i25.i, %51 ]
+  %66 = getelementptr inbounds i8, ptr %4, i64 16
+  %67 = getelementptr inbounds i8, ptr %4, i64 24
+  %68 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %.not.i.i.not.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.not.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i.i, label %67
+  br i1 %.not.i.i.not.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i.i, label %69
 
-67:                                               ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i
-  %68 = invoke noundef zeroext i1 %.val.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2)
-          to label %69 unwind label %71
+69:                                               ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i
+  %70 = invoke noundef zeroext i1 %.val.i.i.i.i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2)
+          to label %71 unwind label %74
 
-69:                                               ; preds = %67
-  %70 = load <2 x ptr>, ptr %66, align 8
-  store <2 x ptr> %70, ptr %65, align 8
+71:                                               ; preds = %69
+  %72 = load ptr, ptr %49, align 8
+  store ptr %72, ptr %67, align 8
+  %73 = load ptr, ptr %68, align 8
+  store ptr %73, ptr %66, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i.i
 
-71:                                               ; preds = %67
-  %72 = landingpad { ptr, i32 }
+74:                                               ; preds = %69
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %73 = load ptr, ptr %65, align 8
-  %.not.i.i.i17.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i.i17.i.i, label %.body.i.i, label %74
+  %76 = load ptr, ptr %66, align 8
+  %.not.i.i.i17.i.i = icmp eq ptr %76, null
+  br i1 %.not.i.i.i17.i.i, label %.body.i.i, label %77
 
-74:                                               ; preds = %71
-  %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %.body.i.i unwind label %76
+77:                                               ; preds = %74
+  %78 = invoke noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %.body.i.i unwind label %79
 
-76:                                               ; preds = %74
-  %77 = landingpad { ptr, i32 }
+79:                                               ; preds = %77
+  %80 = landingpad { ptr, i32 }
           catch ptr null
-  %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #27
+  %81 = extractvalue { ptr, i32 } %80, 0
+  call void @__clang_call_terminate(ptr %81) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i.i: ; preds = %69, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i.i: ; preds = %71, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread.i.i
   invoke fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_(ptr %.val21, ptr %.val18, ptr noundef nonnull %4)
-          to label %79 unwind label %86
+          to label %82 unwind label %89
 
-79:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i.i
-  %80 = load ptr, ptr %65, align 8
-  %.not.i.i.i18.i.i = icmp eq ptr %80, null
-  br i1 %.not.i.i.i18.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i, label %81
+82:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i.i
+  %83 = load ptr, ptr %66, align 8
+  %.not.i.i.i18.i.i = icmp eq ptr %83, null
+  br i1 %.not.i.i.i18.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i, label %84
 
-81:                                               ; preds = %79
-  %82 = invoke noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i unwind label %83
+84:                                               ; preds = %82
+  %85 = invoke noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i unwind label %86
 
-83:                                               ; preds = %81
-  %84 = landingpad { ptr, i32 }
+86:                                               ; preds = %84
+  %87 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #27
+  %88 = extractvalue { ptr, i32 } %87, 0
+  call void @__clang_call_terminate(ptr %88) #27
   unreachable
 
-86:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i.i
-  %87 = landingpad { ptr, i32 }
+89:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i.i
+  %90 = landingpad { ptr, i32 }
           cleanup
-  %88 = load ptr, ptr %65, align 8
-  %.not.i.i.i19.i.i = icmp eq ptr %88, null
-  br i1 %.not.i.i.i19.i.i, label %.body.i.i, label %89
+  %91 = load ptr, ptr %66, align 8
+  %.not.i.i.i19.i.i = icmp eq ptr %91, null
+  br i1 %.not.i.i.i19.i.i, label %.body.i.i, label %92
 
-89:                                               ; preds = %86
-  %90 = invoke noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %.body.i.i unwind label %91
+92:                                               ; preds = %89
+  %93 = invoke noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %.body.i.i unwind label %94
 
-91:                                               ; preds = %89
-  %92 = landingpad { ptr, i32 }
+94:                                               ; preds = %92
+  %95 = landingpad { ptr, i32 }
           catch ptr null
-  %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #27
+  %96 = extractvalue { ptr, i32 } %95, 0
+  call void @__clang_call_terminate(ptr %96) #27
   unreachable
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread43.sink.split.i.i: ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread48.i.i
-  %.sink66.i.i = phi ptr [ %64, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i ], [ %61, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread48.i.i ]
-  %94 = load i32, ptr %.sink66.i.i, align 4
-  %95 = getelementptr inbounds i8, ptr %.val21, i64 8
-  store i32 %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %5, i64 16
-  %97 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink66.i.i = phi ptr [ %65, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i ], [ %62, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread48.i.i ]
+  %97 = load i32, ptr %.sink66.i.i, align 4
+  %98 = getelementptr inbounds i8, ptr %.val21, i64 8
+  store i32 %97, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %5, i64 16
+  %100 = getelementptr inbounds i8, ptr %5, i64 24
+  %101 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %.val.i.i21.i.i = load ptr, ptr %97, align 8
+  %.val.i.i21.i.i = load ptr, ptr %101, align 8
   %.not.i.i.not.i.i22.i.i = icmp eq ptr %.val.i.i21.i.i, null
-  br i1 %.not.i.i.not.i.i22.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit27.i.i, label %98
+  br i1 %.not.i.i.not.i.i22.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit27.i.i, label %102
 
-98:                                               ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread43.sink.split.i.i
-  %99 = invoke noundef zeroext i1 %.val.i.i21.i.i(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2)
-          to label %100 unwind label %102
+102:                                              ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread43.sink.split.i.i
+  %103 = invoke noundef zeroext i1 %.val.i.i21.i.i(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2)
+          to label %104 unwind label %107
 
-100:                                              ; preds = %98
-  %101 = load <2 x ptr>, ptr %97, align 8
-  store <2 x ptr> %101, ptr %96, align 8
+104:                                              ; preds = %102
+  %105 = load ptr, ptr %49, align 8
+  store ptr %105, ptr %100, align 8
+  %106 = load ptr, ptr %101, align 8
+  store ptr %106, ptr %99, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit27.i.i
 
-102:                                              ; preds = %98
-  %103 = landingpad { ptr, i32 }
-          cleanup
-  %104 = load ptr, ptr %96, align 8
-  %.not.i.i.i23.i.i = icmp eq ptr %104, null
-  br i1 %.not.i.i.i23.i.i, label %.body.i.i, label %105
-
-105:                                              ; preds = %102
-  %106 = invoke noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %.body.i.i unwind label %107
-
-107:                                              ; preds = %105
+107:                                              ; preds = %102
   %108 = landingpad { ptr, i32 }
-          catch ptr null
-  %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #27
-  unreachable
+          cleanup
+  %109 = load ptr, ptr %99, align 8
+  %.not.i.i.i23.i.i = icmp eq ptr %109, null
+  br i1 %.not.i.i.i23.i.i, label %.body.i.i, label %110
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit27.i.i: ; preds = %100, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread43.sink.split.i.i
-  invoke fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lNS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_T1_T2_(ptr nonnull %.val21, ptr %.val18, ptr noundef nonnull %57, i64 noundef %storemerge26.i.i.i.i, ptr noundef nonnull %5)
-          to label %110 unwind label %117
-
-110:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit27.i.i
-  %111 = load ptr, ptr %96, align 8
-  %.not.i.i.i28.i.i = icmp eq ptr %111, null
-  br i1 %.not.i.i.i28.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i, label %112
+110:                                              ; preds = %107
+  %111 = invoke noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %.body.i.i unwind label %112
 
 112:                                              ; preds = %110
-  %113 = invoke noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i unwind label %114
-
-114:                                              ; preds = %112
-  %115 = landingpad { ptr, i32 }
+  %113 = landingpad { ptr, i32 }
           catch ptr null
-  %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #27
+  %114 = extractvalue { ptr, i32 } %113, 0
+  call void @__clang_call_terminate(ptr %114) #27
   unreachable
 
-117:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit27.i.i
-  %118 = landingpad { ptr, i32 }
-          cleanup
-  %119 = load ptr, ptr %96, align 8
-  %.not.i.i.i30.i.i = icmp eq ptr %119, null
-  br i1 %.not.i.i.i30.i.i, label %.body.i.i, label %120
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit27.i.i: ; preds = %104, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread43.sink.split.i.i
+  invoke fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lNS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_T1_T2_(ptr nonnull %.val21, ptr %.val18, ptr noundef nonnull %58, i64 noundef %storemerge26.i.i.i.i, ptr noundef nonnull %5)
+          to label %115 unwind label %122
 
-120:                                              ; preds = %117
-  %121 = invoke noundef zeroext i1 %119(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %.body.i.i unwind label %122
+115:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit27.i.i
+  %116 = load ptr, ptr %99, align 8
+  %.not.i.i.i28.i.i = icmp eq ptr %116, null
+  br i1 %.not.i.i.i28.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i, label %117
 
-122:                                              ; preds = %120
+117:                                              ; preds = %115
+  %118 = invoke noundef zeroext i1 %116(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i unwind label %119
+
+119:                                              ; preds = %117
+  %120 = landingpad { ptr, i32 }
+          catch ptr null
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #27
+  unreachable
+
+122:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit27.i.i
   %123 = landingpad { ptr, i32 }
+          cleanup
+  %124 = load ptr, ptr %99, align 8
+  %.not.i.i.i30.i.i = icmp eq ptr %124, null
+  br i1 %.not.i.i.i30.i.i, label %.body.i.i, label %125
+
+125:                                              ; preds = %122
+  %126 = invoke noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %.body.i.i unwind label %127
+
+127:                                              ; preds = %125
+  %128 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #27
+  %129 = extractvalue { ptr, i32 } %128, 0
+  call void @__clang_call_terminate(ptr %129) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i: ; preds = %112, %110, %81, %79
-  %.sroa.6.038.i.i = phi ptr [ null, %79 ], [ null, %81 ], [ %57, %110 ], [ %57, %112 ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i: ; preds = %117, %115, %84, %82
+  %.sroa.6.038.i.i = phi ptr [ null, %82 ], [ null, %84 ], [ %58, %115 ], [ %58, %117 ]
   call void @_ZdlPv(ptr noundef %.sroa.6.038.i.i) #28
   %.phi.trans.insert26.i = getelementptr inbounds i8, ptr %6, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert26.i, align 8
-  br label %127
+  br label %132
 
-.body.i.i:                                        ; preds = %120, %117, %105, %102, %89, %86, %74, %71
-  %.sroa.6.040.i.i = phi ptr [ null, %74 ], [ null, %71 ], [ null, %86 ], [ null, %89 ], [ %57, %105 ], [ %57, %102 ], [ %57, %117 ], [ %57, %120 ]
-  %.pn.i.i = phi { ptr, i32 } [ %72, %74 ], [ %72, %71 ], [ %87, %86 ], [ %87, %89 ], [ %103, %105 ], [ %103, %102 ], [ %118, %117 ], [ %118, %120 ]
+.body.i.i:                                        ; preds = %125, %122, %110, %107, %92, %89, %77, %74
+  %.sroa.6.040.i.i = phi ptr [ null, %77 ], [ null, %74 ], [ null, %89 ], [ null, %92 ], [ %58, %110 ], [ %58, %107 ], [ %58, %122 ], [ %58, %125 ]
+  %.pn.i.i = phi { ptr, i32 } [ %75, %77 ], [ %75, %74 ], [ %90, %89 ], [ %90, %92 ], [ %108, %110 ], [ %108, %107 ], [ %123, %122 ], [ %123, %125 ]
   call void @_ZdlPv(ptr noundef %.sroa.6.040.i.i) #28
-  %125 = getelementptr inbounds i8, ptr %6, i64 16
-  %126 = load ptr, ptr %125, align 8
-  %.not.i.i.i9.i = icmp eq ptr %126, null
-  br i1 %.not.i.i.i9.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit10.i, label %140
+  %130 = getelementptr inbounds i8, ptr %6, i64 16
+  %131 = load ptr, ptr %130, align 8
+  %.not.i.i.i9.i = icmp eq ptr %131, null
+  br i1 %.not.i.i.i9.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit10.i, label %145
 
-127:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i, %_ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_15_Iter_comp_iterIT_EESE_.exit.i
-  %128 = phi ptr [ %.pre.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i ], [ %.val.i.i.i25.i, %_ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_15_Iter_comp_iterIT_EESE_.exit.i ]
+132:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i, %_ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_15_Iter_comp_iterIT_EESE_.exit.i
+  %133 = phi ptr [ %.pre.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i.i ], [ %.val.i.i.i25.i, %_ZN9__gnu_cxx5__ops16__iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_15_Iter_comp_iterIT_EESE_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %.not.i.i.i6.i = icmp eq ptr %128, null
-  br i1 %.not.i.i.i6.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i, label %129
+  %.not.i.i.i6.i = icmp eq ptr %133, null
+  br i1 %.not.i.i.i6.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i, label %134
 
-129:                                              ; preds = %127
-  %130 = invoke noundef zeroext i1 %128(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i unwind label %131
+134:                                              ; preds = %132
+  %135 = invoke noundef zeroext i1 %133(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i unwind label %136
 
-131:                                              ; preds = %129
-  %132 = landingpad { ptr, i32 }
+136:                                              ; preds = %134
+  %137 = landingpad { ptr, i32 }
           catch ptr null
-  %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #27
+  %138 = extractvalue { ptr, i32 } %137, 0
+  call void @__clang_call_terminate(ptr %138) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i: ; preds = %129, %127
-  %134 = load ptr, ptr %46, align 8
-  %.not.i.i7.i = icmp eq ptr %134, null
-  br i1 %.not.i.i7.i, label %151, label %135
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i: ; preds = %134, %132
+  %139 = load ptr, ptr %47, align 8
+  %.not.i.i7.i = icmp eq ptr %139, null
+  br i1 %.not.i.i7.i, label %156, label %140
 
-135:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i
-  %136 = invoke noundef zeroext i1 %134(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %151 unwind label %137
-
-137:                                              ; preds = %135
-  %138 = landingpad { ptr, i32 }
-          catch ptr null
-  %139 = extractvalue { ptr, i32 } %138, 0
-  call void @__clang_call_terminate(ptr %139) #27
-  unreachable
-
-140:                                              ; preds = %.body.i.i
-  %141 = invoke noundef zeroext i1 %126(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit10.i unwind label %142
+140:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i
+  %141 = invoke noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+          to label %156 unwind label %142
 
 142:                                              ; preds = %140
   %143 = landingpad { ptr, i32 }
@@ -6498,194 +6501,205 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   call void @__clang_call_terminate(ptr %144) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit10.i: ; preds = %140, %.body.i.i
-  %145 = load ptr, ptr %46, align 8
-  %.not.i.i11.i = icmp eq ptr %145, null
-  br i1 %.not.i.i11.i, label %.body, label %146
+145:                                              ; preds = %.body.i.i
+  %146 = invoke noundef zeroext i1 %131(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit10.i unwind label %147
 
-146:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit10.i
-  %147 = invoke noundef zeroext i1 %145(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %.body unwind label %148
-
-148:                                              ; preds = %146
-  %149 = landingpad { ptr, i32 }
+147:                                              ; preds = %145
+  %148 = landingpad { ptr, i32 }
           catch ptr null
-  %150 = extractvalue { ptr, i32 } %149, 0
-  call void @__clang_call_terminate(ptr %150) #27
+  %149 = extractvalue { ptr, i32 } %148, 0
+  call void @__clang_call_terminate(ptr %149) #27
   unreachable
 
-151:                                              ; preds = %135, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %152 = load ptr, ptr %13, align 8
-  %.not.i.i23 = icmp eq ptr %152, null
-  br i1 %.not.i.i23, label %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit, label %153
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit10.i: ; preds = %145, %.body.i.i
+  %150 = load ptr, ptr %47, align 8
+  %.not.i.i11.i = icmp eq ptr %150, null
+  br i1 %.not.i.i11.i, label %.body, label %151
+
+151:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit10.i
+  %152 = invoke noundef zeroext i1 %150(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+          to label %.body unwind label %153
 
 153:                                              ; preds = %151
-  %154 = invoke noundef zeroext i1 %152(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit unwind label %155
-
-155:                                              ; preds = %153
-  %156 = landingpad { ptr, i32 }
+  %154 = landingpad { ptr, i32 }
           catch ptr null
-  %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #27
+  %155 = extractvalue { ptr, i32 } %154, 0
+  call void @__clang_call_terminate(ptr %155) #27
   unreachable
 
-_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit: ; preds = %151, %153
-  %158 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %159
+156:                                              ; preds = %140, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  %157 = load ptr, ptr %13, align 8
+  %.not.i.i23 = icmp eq ptr %157, null
+  br i1 %.not.i.i23, label %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit, label %158
 
-159:                                              ; preds = %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit, %224
-  %.01535 = phi i64 [ 0, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit ], [ %226, %224 ]
-  %160 = load ptr, ptr %0, align 8
-  %.val19 = load ptr, ptr %160, align 8
-  %161 = getelementptr i8, ptr %160, i64 8
-  %.val20 = load ptr, ptr %161, align 8
-  %162 = ptrtoint ptr %.val20 to i64
-  %163 = ptrtoint ptr %.val19 to i64
-  %164 = sub i64 %162, %163
-  %165 = ashr exact i64 %164, 4
-  %166 = icmp eq i64 %.01535, %165
-  br i1 %166, label %227, label %173
+158:                                              ; preds = %156
+  %159 = invoke noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+          to label %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit unwind label %160
 
-.body:                                            ; preds = %33, %36, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit10.i, %146
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %.pn.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit10.i ], [ %.pn.i.i, %146 ]
-  %167 = load ptr, ptr %13, align 8
-  %.not.i.i25 = icmp eq ptr %167, null
-  br i1 %.not.i.i25, label %common.resume, label %168
-
-168:                                              ; preds = %.body
-  %169 = invoke noundef zeroext i1 %167(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %common.resume unwind label %170
-
-170:                                              ; preds = %168
-  %171 = landingpad { ptr, i32 }
+160:                                              ; preds = %158
+  %161 = landingpad { ptr, i32 }
           catch ptr null
-  %172 = extractvalue { ptr, i32 } %171, 0
-  call void @__clang_call_terminate(ptr %172) #27
+  %162 = extractvalue { ptr, i32 } %161, 0
+  call void @__clang_call_terminate(ptr %162) #27
   unreachable
 
-173:                                              ; preds = %159
-  %174 = getelementptr inbounds %"struct.std::pair.150", ptr %.val19, i64 %.01535
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr i8, ptr %175, i64 80
-  %.val = load ptr, ptr %176, align 8
-  %177 = getelementptr i8, ptr %.val, i64 168
-  %.val.val = load ptr, ptr %177, align 8
+_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit: ; preds = %156, %158
+  %163 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %164
+
+164:                                              ; preds = %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit, %229
+  %.01535 = phi i64 [ 0, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit ], [ %231, %229 ]
+  %165 = load ptr, ptr %0, align 8
+  %.val19 = load ptr, ptr %165, align 8
+  %166 = getelementptr i8, ptr %165, i64 8
+  %.val20 = load ptr, ptr %166, align 8
+  %167 = ptrtoint ptr %.val20 to i64
+  %168 = ptrtoint ptr %.val19 to i64
+  %169 = sub i64 %167, %168
+  %170 = ashr exact i64 %169, 4
+  %171 = icmp eq i64 %.01535, %170
+  br i1 %171, label %232, label %178
+
+.body:                                            ; preds = %34, %37, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit10.i, %151
+  %eh.lpad-body = phi { ptr, i32 } [ %35, %37 ], [ %35, %34 ], [ %.pn.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit10.i ], [ %.pn.i.i, %151 ]
+  %172 = load ptr, ptr %13, align 8
+  %.not.i.i25 = icmp eq ptr %172, null
+  br i1 %.not.i.i25, label %common.resume, label %173
+
+173:                                              ; preds = %.body
+  %174 = invoke noundef zeroext i1 %172(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+          to label %common.resume unwind label %175
+
+175:                                              ; preds = %173
+  %176 = landingpad { ptr, i32 }
+          catch ptr null
+  %177 = extractvalue { ptr, i32 } %176, 0
+  call void @__clang_call_terminate(ptr %177) #27
+  unreachable
+
+178:                                              ; preds = %164
+  %179 = getelementptr inbounds %"struct.std::pair.150", ptr %.val19, i64 %.01535
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr i8, ptr %180, i64 80
+  %.val = load ptr, ptr %181, align 8
+  %182 = getelementptr i8, ptr %.val, i64 168
+  %.val.val = load ptr, ptr %182, align 8
   call void @_ZN7V3Error18warnMoreStandaloneB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9)
-  %178 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %179 unwind label %220
+  %183 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %184 unwind label %225
 
-179:                                              ; preds = %173
-  %180 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull @.str.459)
-          to label %181 unwind label %220
+184:                                              ; preds = %178
+  %185 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %183, ptr noundef nonnull @.str.459)
+          to label %186 unwind label %225
 
-181:                                              ; preds = %179
-  %182 = getelementptr inbounds i8, ptr %.val.val, i64 88
-  %183 = load ptr, ptr %182, align 8
-  %184 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoP8FileLine(ptr noundef nonnull align 8 dereferenceable(8) %180, ptr noundef %183)
-          to label %185 unwind label %220
+186:                                              ; preds = %184
+  %187 = getelementptr inbounds i8, ptr %.val.val, i64 88
+  %188 = load ptr, ptr %187, align 8
+  %189 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoP8FileLine(ptr noundef nonnull align 8 dereferenceable(8) %185, ptr noundef %188)
+          to label %190 unwind label %225
 
-185:                                              ; preds = %181
-  %186 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %184, ptr noundef nonnull @.str.460)
-          to label %187 unwind label %220
+190:                                              ; preds = %186
+  %191 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr noundef nonnull @.str.460)
+          to label %192 unwind label %225
 
-187:                                              ; preds = %185
+192:                                              ; preds = %190
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %188 = load ptr, ptr %.val.val, align 8, !noalias !71
-  %189 = getelementptr inbounds i8, ptr %188, i64 56
-  %190 = load ptr, ptr %189, align 8, !noalias !71
-  invoke void %190(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(152) %.val.val)
-          to label %.noexc unwind label %220
+  %193 = load ptr, ptr %.val.val, align 8, !noalias !71
+  %194 = getelementptr inbounds i8, ptr %193, i64 56
+  %195 = load ptr, ptr %194, align 8, !noalias !71
+  invoke void %195(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(152) %.val.val)
+          to label %.noexc unwind label %225
 
-.noexc:                                           ; preds = %187
+.noexc:                                           ; preds = %192
   invoke void @_ZN7AstNode10prettyNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %193 unwind label %191
+          to label %198 unwind label %196
 
-191:                                              ; preds = %.noexc
-  %192 = landingpad { ptr, i32 }
+196:                                              ; preds = %.noexc
+  %197 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
   br label %.body28
 
-193:                                              ; preds = %.noexc
+198:                                              ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %194 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %186, ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %195 unwind label %222
+  %199 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %191, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %200 unwind label %227
 
-195:                                              ; preds = %193
-  %196 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %194, ptr noundef nonnull @.str.461)
-          to label %197 unwind label %222
+200:                                              ; preds = %198
+  %201 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %199, ptr noundef nonnull @.str.461)
+          to label %202 unwind label %227
 
-197:                                              ; preds = %195
-  %198 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %196, ptr noundef nonnull @_ZSt3decRSt8ios_base)
-          to label %199 unwind label %222
+202:                                              ; preds = %200
+  %203 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %201, ptr noundef nonnull @_ZSt3decRSt8ios_base)
+          to label %204 unwind label %227
 
-199:                                              ; preds = %197
-  %200 = getelementptr inbounds i8, ptr %.val.val, i64 72
-  %201 = load ptr, ptr %200, align 8
-  %.not.i = icmp eq ptr %201, null
-  br i1 %.not.i, label %_ZNK7AstNode5widthEv.exit, label %202
+204:                                              ; preds = %202
+  %205 = getelementptr inbounds i8, ptr %.val.val, i64 72
+  %206 = load ptr, ptr %205, align 8
+  %.not.i = icmp eq ptr %206, null
+  br i1 %.not.i, label %_ZNK7AstNode5widthEv.exit, label %207
 
-202:                                              ; preds = %199
-  %203 = getelementptr inbounds i8, ptr %201, i64 152
-  %204 = load i32, ptr %203, align 8
+207:                                              ; preds = %204
+  %208 = getelementptr inbounds i8, ptr %206, i64 152
+  %209 = load i32, ptr %208, align 8
   br label %_ZNK7AstNode5widthEv.exit
 
-_ZNK7AstNode5widthEv.exit:                        ; preds = %202, %199
-  %205 = phi i32 [ %204, %202 ], [ 0, %199 ]
-  %206 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %198, i32 noundef %205)
-          to label %207 unwind label %222
+_ZNK7AstNode5widthEv.exit:                        ; preds = %207, %204
+  %210 = phi i32 [ %209, %207 ], [ 0, %204 ]
+  %211 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %203, i32 noundef %210)
+          to label %212 unwind label %227
 
-207:                                              ; preds = %_ZNK7AstNode5widthEv.exit
-  %208 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %206, ptr noundef nonnull @.str.462)
-          to label %209 unwind label %222
+212:                                              ; preds = %_ZNK7AstNode5widthEv.exit
+  %213 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef nonnull @.str.462)
+          to label %214 unwind label %227
 
-209:                                              ; preds = %207
-  %210 = getelementptr inbounds i8, ptr %174, i64 8
-  %211 = load i32, ptr %210, align 8
-  %212 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %208, i32 noundef %211)
-          to label %213 unwind label %222
+214:                                              ; preds = %212
+  %215 = getelementptr inbounds i8, ptr %179, i64 8
+  %216 = load i32, ptr %215, align 8
+  %217 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %213, i32 noundef %216)
+          to label %218 unwind label %227
 
-213:                                              ; preds = %209
+218:                                              ; preds = %214
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
-  %214 = call noundef zeroext i1 @_ZN10V3SplitVar11canSplitVarEPK6AstVar(ptr noundef nonnull %.val.val)
-  br i1 %214, label %215, label %224
+  %219 = call noundef zeroext i1 @_ZN10V3SplitVar11canSplitVarEPK6AstVar(ptr noundef nonnull %.val.val)
+  br i1 %219, label %220, label %229
 
-215:                                              ; preds = %213
-  %216 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.463)
-  %217 = load ptr, ptr %158, align 8
-  %218 = load i32, ptr %217, align 4
-  %219 = add i32 %218, 1
-  store i32 %219, ptr %217, align 4
-  br label %224
+220:                                              ; preds = %218
+  %221 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.463)
+  %222 = load ptr, ptr %163, align 8
+  %223 = load i32, ptr %222, align 4
+  %224 = add i32 %223, 1
+  store i32 %224, ptr %222, align 4
+  br label %229
 
-220:                                              ; preds = %187, %185, %181, %179, %173
-  %221 = landingpad { ptr, i32 }
+225:                                              ; preds = %192, %190, %186, %184, %178
+  %226 = landingpad { ptr, i32 }
           cleanup
   br label %.body28
 
-222:                                              ; preds = %209, %207, %_ZNK7AstNode5widthEv.exit, %197, %195, %193
-  %223 = landingpad { ptr, i32 }
+227:                                              ; preds = %214, %212, %_ZNK7AstNode5widthEv.exit, %202, %200, %198
+  %228 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
   br label %.body28
 
-.body28:                                          ; preds = %220, %191, %222
-  %.pn = phi { ptr, i32 } [ %223, %222 ], [ %221, %220 ], [ %192, %191 ]
+.body28:                                          ; preds = %225, %196, %227
+  %.pn = phi { ptr, i32 } [ %228, %227 ], [ %226, %225 ], [ %197, %196 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
   br label %common.resume
 
-224:                                              ; preds = %215, %213
-  %225 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 10)
-  %226 = add nuw nsw i64 %.01535, 1
-  %exitcond.not = icmp eq i64 %226, 10
-  br i1 %exitcond.not, label %227, label %159, !llvm.loop !74
+229:                                              ; preds = %220, %218
+  %230 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 10)
+  %231 = add nuw nsw i64 %.01535, 1
+  %exitcond.not = icmp eq i64 %231, 10
+  br i1 %exitcond.not, label %232, label %164, !llvm.loop !74
 
-227:                                              ; preds = %159, %224
+232:                                              ; preds = %164, %229
   ret void
 }
 
@@ -7198,308 +7212,324 @@ define internal fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_i
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 4
   %12 = icmp slt i64 %11, 15
-  br i1 %12, label %13, label %43
+  br i1 %12, label %13, label %46
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %4, i64 16
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %.val.i.i = load ptr, ptr %15, align 8
+  %.val.i.i = load ptr, ptr %16, align 8
   %.not.i.i.not.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit, label %16
+  br i1 %.not.i.i.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit, label %17
 
-16:                                               ; preds = %13
-  %17 = invoke noundef zeroext i1 %.val.i.i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
-          to label %18 unwind label %20
+17:                                               ; preds = %13
+  %18 = invoke noundef zeroext i1 %.val.i.i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+          to label %19 unwind label %23
 
-18:                                               ; preds = %16
-  %19 = load <2 x ptr>, ptr %15, align 8
-  store <2 x ptr> %19, ptr %14, align 8
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %15, align 8
+  %22 = load ptr, ptr %16, align 8
+  store ptr %22, ptr %14, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
 
-20:                                               ; preds = %16
-  %21 = landingpad { ptr, i32 }
+23:                                               ; preds = %17
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %14, align 8
-  %.not.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i, label %common.resume, label %23
+  %25 = load ptr, ptr %14, align 8
+  %.not.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i, label %common.resume, label %26
 
-23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %common.resume unwind label %25
+26:                                               ; preds = %23
+  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %common.resume unwind label %28
 
-25:                                               ; preds = %23
-  %26 = landingpad { ptr, i32 }
+28:                                               ; preds = %26
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #27
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #27
   unreachable
 
-common.resume:                                    ; preds = %35, %38, %110, %113, %118, %121, %126, %129, %95, %98, %72, %75, %52, %55, %20, %23
-  %common.resume.op = phi { ptr, i32 } [ %21, %23 ], [ %21, %20 ], [ %53, %55 ], [ %53, %52 ], [ %73, %75 ], [ %73, %72 ], [ %96, %98 ], [ %96, %95 ], [ %36, %35 ], [ %36, %38 ], [ %111, %110 ], [ %111, %113 ], [ %119, %118 ], [ %119, %121 ], [ %127, %126 ], [ %127, %129 ]
+common.resume:                                    ; preds = %38, %41, %122, %125, %130, %133, %138, %141, %107, %110, %81, %84, %58, %61, %23, %26
+  %common.resume.op = phi { ptr, i32 } [ %24, %26 ], [ %24, %23 ], [ %59, %61 ], [ %59, %58 ], [ %82, %84 ], [ %82, %81 ], [ %108, %110 ], [ %108, %107 ], [ %39, %38 ], [ %39, %41 ], [ %123, %122 ], [ %123, %125 ], [ %131, %130 ], [ %131, %133 ], [ %139, %138 ], [ %139, %141 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %13, %18
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %13, %19
   invoke fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_(ptr %0, ptr %1, ptr noundef nonnull %4)
-          to label %28 unwind label %35
+          to label %31 unwind label %38
 
-28:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
-  %29 = load ptr, ptr %14, align 8
-  %.not.i.i.i19 = icmp eq ptr %29, null
-  br i1 %.not.i.i.i19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %30
+31:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
+  %32 = load ptr, ptr %14, align 8
+  %.not.i.i.i19 = icmp eq ptr %32, null
+  br i1 %.not.i.i.i19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %33
 
-30:                                               ; preds = %28
-  %31 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %32
+33:                                               ; preds = %31
+  %34 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %35
 
-32:                                               ; preds = %30
-  %33 = landingpad { ptr, i32 }
-          catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #27
-  unreachable
-
-35:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
+35:                                               ; preds = %33
   %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = load ptr, ptr %14, align 8
-  %.not.i.i.i20 = icmp eq ptr %37, null
-  br i1 %.not.i.i.i20, label %common.resume, label %38
-
-38:                                               ; preds = %35
-  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %common.resume unwind label %40
-
-40:                                               ; preds = %38
-  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #27
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #27
   unreachable
 
-43:                                               ; preds = %3
-  %44 = lshr i64 %11, 1
-  %45 = getelementptr inbounds %"struct.std::pair.150", ptr %0, i64 %44
-  %46 = getelementptr inbounds i8, ptr %5, i64 16
-  %47 = getelementptr inbounds i8, ptr %2, i64 16
+38:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = load ptr, ptr %14, align 8
+  %.not.i.i.i20 = icmp eq ptr %40, null
+  br i1 %.not.i.i.i20, label %common.resume, label %41
+
+41:                                               ; preds = %38
+  %42 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %common.resume unwind label %43
+
+43:                                               ; preds = %41
+  %44 = landingpad { ptr, i32 }
+          catch ptr null
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #27
+  unreachable
+
+46:                                               ; preds = %3
+  %47 = lshr i64 %11, 1
+  %48 = getelementptr inbounds %"struct.std::pair.150", ptr %0, i64 %47
+  %49 = getelementptr inbounds i8, ptr %5, i64 16
+  %50 = getelementptr inbounds i8, ptr %5, i64 24
+  %51 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %.val.i.i22 = load ptr, ptr %47, align 8
+  %.val.i.i22 = load ptr, ptr %51, align 8
   %.not.i.i.not.i.i23 = icmp eq ptr %.val.i.i22, null
-  br i1 %.not.i.i.not.i.i23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26, label %48
+  br i1 %.not.i.i.not.i.i23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26, label %52
 
-48:                                               ; preds = %43
-  %49 = invoke noundef zeroext i1 %.val.i.i22(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
-          to label %50 unwind label %52
+52:                                               ; preds = %46
+  %53 = invoke noundef zeroext i1 %.val.i.i22(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+          to label %54 unwind label %58
 
-50:                                               ; preds = %48
-  %51 = load <2 x ptr>, ptr %47, align 8
-  store <2 x ptr> %51, ptr %46, align 8
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds i8, ptr %2, i64 24
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %50, align 8
+  %57 = load ptr, ptr %51, align 8
+  store ptr %57, ptr %49, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26
 
-52:                                               ; preds = %48
-  %53 = landingpad { ptr, i32 }
+58:                                               ; preds = %52
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %54 = load ptr, ptr %46, align 8
-  %.not.i.i.i24 = icmp eq ptr %54, null
-  br i1 %.not.i.i.i24, label %common.resume, label %55
+  %60 = load ptr, ptr %49, align 8
+  %.not.i.i.i24 = icmp eq ptr %60, null
+  br i1 %.not.i.i.i24, label %common.resume, label %61
 
-55:                                               ; preds = %52
-  %56 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %common.resume unwind label %57
+61:                                               ; preds = %58
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %common.resume unwind label %63
 
-57:                                               ; preds = %55
-  %58 = landingpad { ptr, i32 }
+63:                                               ; preds = %61
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #27
+  %65 = extractvalue { ptr, i32 } %64, 0
+  call void @__clang_call_terminate(ptr %65) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26: ; preds = %43, %50
-  invoke fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_(ptr %0, ptr %45, ptr noundef nonnull %5)
-          to label %60 unwind label %110
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26: ; preds = %46, %54
+  invoke fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_(ptr %0, ptr %48, ptr noundef nonnull %5)
+          to label %66 unwind label %122
 
-60:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26
-  %61 = load ptr, ptr %46, align 8
-  %.not.i.i.i27 = icmp eq ptr %61, null
-  br i1 %.not.i.i.i27, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit28, label %62
+66:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26
+  %67 = load ptr, ptr %49, align 8
+  %.not.i.i.i27 = icmp eq ptr %67, null
+  br i1 %.not.i.i.i27, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit28, label %68
 
-62:                                               ; preds = %60
-  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit28 unwind label %64
-
-64:                                               ; preds = %62
-  %65 = landingpad { ptr, i32 }
-          catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #27
-  unreachable
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit28: ; preds = %60, %62
-  %67 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %.val.i.i29 = load ptr, ptr %47, align 8
-  %.not.i.i.not.i.i30 = icmp eq ptr %.val.i.i29, null
-  br i1 %.not.i.i.not.i.i30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33, label %68
-
-68:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit28
-  %69 = invoke noundef zeroext i1 %.val.i.i29(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
-          to label %70 unwind label %72
+68:                                               ; preds = %66
+  %69 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit28 unwind label %70
 
 70:                                               ; preds = %68
-  %71 = load <2 x ptr>, ptr %47, align 8
-  store <2 x ptr> %71, ptr %67, align 8
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33
+  %71 = landingpad { ptr, i32 }
+          catch ptr null
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #27
+  unreachable
 
-72:                                               ; preds = %68
-  %73 = landingpad { ptr, i32 }
-          cleanup
-  %74 = load ptr, ptr %67, align 8
-  %.not.i.i.i31 = icmp eq ptr %74, null
-  br i1 %.not.i.i.i31, label %common.resume, label %75
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit28: ; preds = %66, %68
+  %73 = getelementptr inbounds i8, ptr %6, i64 16
+  %74 = getelementptr inbounds i8, ptr %6, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  %.val.i.i29 = load ptr, ptr %51, align 8
+  %.not.i.i.not.i.i30 = icmp eq ptr %.val.i.i29, null
+  br i1 %.not.i.i.not.i.i30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33, label %75
 
-75:                                               ; preds = %72
-  %76 = invoke noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %common.resume unwind label %77
+75:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit28
+  %76 = invoke noundef zeroext i1 %.val.i.i29(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+          to label %77 unwind label %81
 
 77:                                               ; preds = %75
-  %78 = landingpad { ptr, i32 }
+  %78 = getelementptr inbounds i8, ptr %2, i64 24
+  %79 = load ptr, ptr %78, align 8
+  store ptr %79, ptr %74, align 8
+  %80 = load ptr, ptr %51, align 8
+  store ptr %80, ptr %73, align 8
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33
+
+81:                                               ; preds = %75
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  %83 = load ptr, ptr %73, align 8
+  %.not.i.i.i31 = icmp eq ptr %83, null
+  br i1 %.not.i.i.i31, label %common.resume, label %84
+
+84:                                               ; preds = %81
+  %85 = invoke noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %common.resume unwind label %86
+
+86:                                               ; preds = %84
+  %87 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #27
+  %88 = extractvalue { ptr, i32 } %87, 0
+  call void @__clang_call_terminate(ptr %88) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit28, %70
-  invoke fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_(ptr %45, ptr %1, ptr noundef nonnull %6)
-          to label %80 unwind label %118
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit28, %77
+  invoke fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_(ptr %48, ptr %1, ptr noundef nonnull %6)
+          to label %89 unwind label %130
 
-80:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33
-  %81 = load ptr, ptr %67, align 8
-  %.not.i.i.i34 = icmp eq ptr %81, null
-  br i1 %.not.i.i.i34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit35, label %82
+89:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33
+  %90 = load ptr, ptr %73, align 8
+  %.not.i.i.i34 = icmp eq ptr %90, null
+  br i1 %.not.i.i.i34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit35, label %91
 
-82:                                               ; preds = %80
-  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit35 unwind label %84
-
-84:                                               ; preds = %82
-  %85 = landingpad { ptr, i32 }
-          catch ptr null
-  %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #27
-  unreachable
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit35: ; preds = %80, %82
-  %87 = ptrtoint ptr %45 to i64
-  %88 = sub i64 %8, %87
-  %89 = ashr exact i64 %88, 4
-  %90 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %.val.i.i36 = load ptr, ptr %47, align 8
-  %.not.i.i.not.i.i37 = icmp eq ptr %.val.i.i36, null
-  br i1 %.not.i.i.not.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit40, label %91
-
-91:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit35
-  %92 = invoke noundef zeroext i1 %.val.i.i36(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
-          to label %93 unwind label %95
+91:                                               ; preds = %89
+  %92 = invoke noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit35 unwind label %93
 
 93:                                               ; preds = %91
-  %94 = load <2 x ptr>, ptr %47, align 8
-  store <2 x ptr> %94, ptr %90, align 8
+  %94 = landingpad { ptr, i32 }
+          catch ptr null
+  %95 = extractvalue { ptr, i32 } %94, 0
+  call void @__clang_call_terminate(ptr %95) #27
+  unreachable
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit35: ; preds = %89, %91
+  %96 = ptrtoint ptr %48 to i64
+  %97 = sub i64 %8, %96
+  %98 = ashr exact i64 %97, 4
+  %99 = getelementptr inbounds i8, ptr %7, i64 16
+  %100 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  %.val.i.i36 = load ptr, ptr %51, align 8
+  %.not.i.i.not.i.i37 = icmp eq ptr %.val.i.i36, null
+  br i1 %.not.i.i.not.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit40, label %101
+
+101:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit35
+  %102 = invoke noundef zeroext i1 %.val.i.i36(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+          to label %103 unwind label %107
+
+103:                                              ; preds = %101
+  %104 = getelementptr inbounds i8, ptr %2, i64 24
+  %105 = load ptr, ptr %104, align 8
+  store ptr %105, ptr %100, align 8
+  %106 = load ptr, ptr %51, align 8
+  store ptr %106, ptr %99, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit40
 
-95:                                               ; preds = %91
-  %96 = landingpad { ptr, i32 }
-          cleanup
-  %97 = load ptr, ptr %90, align 8
-  %.not.i.i.i38 = icmp eq ptr %97, null
-  br i1 %.not.i.i.i38, label %common.resume, label %98
-
-98:                                               ; preds = %95
-  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %common.resume unwind label %100
-
-100:                                              ; preds = %98
-  %101 = landingpad { ptr, i32 }
-          catch ptr null
-  %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #27
-  unreachable
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit40: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit35, %93
-  invoke fastcc void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_SL_T0_SM_T1_(ptr %0, ptr %45, ptr %1, i64 noundef %44, i64 noundef %89, ptr noundef nonnull %7)
-          to label %103 unwind label %126
-
-103:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit40
-  %104 = load ptr, ptr %90, align 8
-  %.not.i.i.i41 = icmp eq ptr %104, null
-  br i1 %.not.i.i.i41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %105
-
-105:                                              ; preds = %103
-  %106 = invoke noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %107
-
-107:                                              ; preds = %105
+107:                                              ; preds = %101
   %108 = landingpad { ptr, i32 }
+          cleanup
+  %109 = load ptr, ptr %99, align 8
+  %.not.i.i.i38 = icmp eq ptr %109, null
+  br i1 %.not.i.i.i38, label %common.resume, label %110
+
+110:                                              ; preds = %107
+  %111 = invoke noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+          to label %common.resume unwind label %112
+
+112:                                              ; preds = %110
+  %113 = landingpad { ptr, i32 }
           catch ptr null
-  %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #27
+  %114 = extractvalue { ptr, i32 } %113, 0
+  call void @__clang_call_terminate(ptr %114) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit: ; preds = %105, %103, %30, %28
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit40: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit35, %103
+  invoke fastcc void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_SL_T0_SM_T1_(ptr %0, ptr %48, ptr %1, i64 noundef %47, i64 noundef %98, ptr noundef nonnull %7)
+          to label %115 unwind label %138
+
+115:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit40
+  %116 = load ptr, ptr %99, align 8
+  %.not.i.i.i41 = icmp eq ptr %116, null
+  br i1 %.not.i.i.i41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %117
+
+117:                                              ; preds = %115
+  %118 = invoke noundef zeroext i1 %116(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %119
+
+119:                                              ; preds = %117
+  %120 = landingpad { ptr, i32 }
+          catch ptr null
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #27
+  unreachable
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit: ; preds = %117, %115, %33, %31
   ret void
 
-110:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26
-  %111 = landingpad { ptr, i32 }
+122:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26
+  %123 = landingpad { ptr, i32 }
           cleanup
-  %112 = load ptr, ptr %46, align 8
-  %.not.i.i.i43 = icmp eq ptr %112, null
-  br i1 %.not.i.i.i43, label %common.resume, label %113
+  %124 = load ptr, ptr %49, align 8
+  %.not.i.i.i43 = icmp eq ptr %124, null
+  br i1 %.not.i.i.i43, label %common.resume, label %125
 
-113:                                              ; preds = %110
-  %114 = invoke noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %common.resume unwind label %115
+125:                                              ; preds = %122
+  %126 = invoke noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %common.resume unwind label %127
 
-115:                                              ; preds = %113
-  %116 = landingpad { ptr, i32 }
+127:                                              ; preds = %125
+  %128 = landingpad { ptr, i32 }
           catch ptr null
-  %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #27
+  %129 = extractvalue { ptr, i32 } %128, 0
+  call void @__clang_call_terminate(ptr %129) #27
   unreachable
 
-118:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33
-  %119 = landingpad { ptr, i32 }
+130:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33
+  %131 = landingpad { ptr, i32 }
           cleanup
-  %120 = load ptr, ptr %67, align 8
-  %.not.i.i.i45 = icmp eq ptr %120, null
-  br i1 %.not.i.i.i45, label %common.resume, label %121
+  %132 = load ptr, ptr %73, align 8
+  %.not.i.i.i45 = icmp eq ptr %132, null
+  br i1 %.not.i.i.i45, label %common.resume, label %133
 
-121:                                              ; preds = %118
-  %122 = invoke noundef zeroext i1 %120(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %common.resume unwind label %123
+133:                                              ; preds = %130
+  %134 = invoke noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %common.resume unwind label %135
 
-123:                                              ; preds = %121
-  %124 = landingpad { ptr, i32 }
+135:                                              ; preds = %133
+  %136 = landingpad { ptr, i32 }
           catch ptr null
-  %125 = extractvalue { ptr, i32 } %124, 0
-  call void @__clang_call_terminate(ptr %125) #27
+  %137 = extractvalue { ptr, i32 } %136, 0
+  call void @__clang_call_terminate(ptr %137) #27
   unreachable
 
-126:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit40
-  %127 = landingpad { ptr, i32 }
+138:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit40
+  %139 = landingpad { ptr, i32 }
           cleanup
-  %128 = load ptr, ptr %90, align 8
-  %.not.i.i.i47 = icmp eq ptr %128, null
-  br i1 %.not.i.i.i47, label %common.resume, label %129
+  %140 = load ptr, ptr %99, align 8
+  %.not.i.i.i47 = icmp eq ptr %140, null
+  br i1 %.not.i.i.i47, label %common.resume, label %141
 
-129:                                              ; preds = %126
-  %130 = invoke noundef zeroext i1 %128(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %common.resume unwind label %131
+141:                                              ; preds = %138
+  %142 = invoke noundef zeroext i1 %140(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+          to label %common.resume unwind label %143
 
-131:                                              ; preds = %129
-  %132 = landingpad { ptr, i32 }
+143:                                              ; preds = %141
+  %144 = landingpad { ptr, i32 }
           catch ptr null
-  %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #27
+  %145 = extractvalue { ptr, i32 } %144, 0
+  call void @__clang_call_terminate(ptr %145) #27
   unreachable
 }
 
@@ -7519,367 +7549,346 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_
   %17 = getelementptr inbounds %"struct.std::pair.150", ptr %0, i64 %16
   %18 = icmp sgt i64 %16, %3
   %19 = getelementptr inbounds i8, ptr %4, i64 16
-  br i1 %18, label %20, label %77
+  br i1 %18, label %20, label %83
 
 20:                                               ; preds = %5
   %21 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %.val.i.i = load ptr, ptr %19, align 8
   %.not.i.i.not.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit, label %22
+  br i1 %.not.i.i.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit, label %23
 
-22:                                               ; preds = %20
-  %23 = invoke noundef zeroext i1 %.val.i.i(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
-          to label %24 unwind label %26
+23:                                               ; preds = %20
+  %24 = invoke noundef zeroext i1 %.val.i.i(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
+          to label %25 unwind label %29
 
-24:                                               ; preds = %22
-  %25 = load <2 x ptr>, ptr %19, align 8
-  store <2 x ptr> %25, ptr %21, align 8
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %22, align 8
+  %28 = load ptr, ptr %19, align 8
+  store ptr %28, ptr %21, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+29:                                               ; preds = %23
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %28 = load ptr, ptr %21, align 8
-  %.not.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i, label %common.resume, label %29
+  %31 = load ptr, ptr %21, align 8
+  %.not.i.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i.i, label %common.resume, label %32
 
-29:                                               ; preds = %26
-  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %common.resume unwind label %31
+32:                                               ; preds = %29
+  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %common.resume unwind label %34
 
-31:                                               ; preds = %29
-  %32 = landingpad { ptr, i32 }
+34:                                               ; preds = %32
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #27
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #27
   unreachable
 
-common.resume:                                    ; preds = %61, %64, %69, %72, %118, %121, %126, %129, %158, %161, %143, %146, %103, %106, %83, %86, %46, %49, %26, %29
-  %common.resume.op = phi { ptr, i32 } [ %27, %29 ], [ %27, %26 ], [ %47, %49 ], [ %47, %46 ], [ %84, %86 ], [ %84, %83 ], [ %104, %106 ], [ %104, %103 ], [ %144, %146 ], [ %144, %143 ], [ %62, %61 ], [ %62, %64 ], [ %70, %69 ], [ %70, %72 ], [ %119, %118 ], [ %119, %121 ], [ %127, %126 ], [ %127, %129 ], [ %159, %158 ], [ %159, %161 ]
+common.resume:                                    ; preds = %67, %70, %75, %78, %130, %133, %138, %141, %173, %176, %158, %161, %115, %118, %92, %95, %52, %55, %29, %32
+  %common.resume.op = phi { ptr, i32 } [ %30, %32 ], [ %30, %29 ], [ %53, %55 ], [ %53, %52 ], [ %93, %95 ], [ %93, %92 ], [ %116, %118 ], [ %116, %115 ], [ %159, %161 ], [ %159, %158 ], [ %68, %67 ], [ %68, %70 ], [ %76, %75 ], [ %76, %78 ], [ %131, %130 ], [ %131, %133 ], [ %139, %138 ], [ %139, %141 ], [ %174, %173 ], [ %174, %176 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %20, %24
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %20, %25
   invoke fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lNS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_T1_T2_(ptr %0, ptr %17, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %6)
-          to label %34 unwind label %61
+          to label %37 unwind label %67
 
-34:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
-  %35 = load ptr, ptr %21, align 8
-  %.not.i.i.i31 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %36
+37:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
+  %38 = load ptr, ptr %21, align 8
+  %.not.i.i.i31 = icmp eq ptr %38, null
+  br i1 %.not.i.i.i31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %39
 
-36:                                               ; preds = %34
-  %37 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %38
+39:                                               ; preds = %37
+  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %41
 
-38:                                               ; preds = %36
-  %39 = landingpad { ptr, i32 }
+41:                                               ; preds = %39
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #27
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit: ; preds = %34, %36
-  %41 = getelementptr inbounds i8, ptr %7, i64 16
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit: ; preds = %37, %39
+  %44 = getelementptr inbounds i8, ptr %7, i64 16
+  %45 = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %.val.i.i32 = load ptr, ptr %19, align 8
   %.not.i.i.not.i.i33 = icmp eq ptr %.val.i.i32, null
-  br i1 %.not.i.i.not.i.i33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit36, label %42
+  br i1 %.not.i.i.not.i.i33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit36, label %46
 
-42:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit
-  %43 = invoke noundef zeroext i1 %.val.i.i32(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
-          to label %44 unwind label %46
+46:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit
+  %47 = invoke noundef zeroext i1 %.val.i.i32(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
+          to label %48 unwind label %52
 
-44:                                               ; preds = %42
-  %45 = load <2 x ptr>, ptr %19, align 8
-  store <2 x ptr> %45, ptr %41, align 8
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds i8, ptr %4, i64 24
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %45, align 8
+  %51 = load ptr, ptr %19, align 8
+  store ptr %51, ptr %44, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit36
 
-46:                                               ; preds = %42
-  %47 = landingpad { ptr, i32 }
+52:                                               ; preds = %46
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %48 = load ptr, ptr %41, align 8
-  %.not.i.i.i34 = icmp eq ptr %48, null
-  br i1 %.not.i.i.i34, label %common.resume, label %49
+  %54 = load ptr, ptr %44, align 8
+  %.not.i.i.i34 = icmp eq ptr %54, null
+  br i1 %.not.i.i.i34, label %common.resume, label %55
 
-49:                                               ; preds = %46
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %common.resume unwind label %51
+55:                                               ; preds = %52
+  %56 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+          to label %common.resume unwind label %57
 
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+57:                                               ; preds = %55
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #27
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit36: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, %44
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit36: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, %48
   invoke fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lNS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_T1_T2_(ptr %17, ptr %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %7)
-          to label %54 unwind label %69
+          to label %60 unwind label %75
 
-54:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit36
-  %55 = load ptr, ptr %41, align 8
-  %.not.i.i.i37 = icmp eq ptr %55, null
-  br i1 %.not.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38, label %56
+60:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit36
+  %61 = load ptr, ptr %44, align 8
+  %.not.i.i.i37 = icmp eq ptr %61, null
+  br i1 %.not.i.i.i37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38, label %62
 
-56:                                               ; preds = %54
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38 unwind label %58
+62:                                               ; preds = %60
+  %63 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38 unwind label %64
 
-58:                                               ; preds = %56
-  %59 = landingpad { ptr, i32 }
+64:                                               ; preds = %62
+  %65 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #27
+  %66 = extractvalue { ptr, i32 } %65, 0
+  call void @__clang_call_terminate(ptr %66) #27
   unreachable
 
-61:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
-  %62 = landingpad { ptr, i32 }
+67:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %63 = load ptr, ptr %21, align 8
-  %.not.i.i.i39 = icmp eq ptr %63, null
-  br i1 %.not.i.i.i39, label %common.resume, label %64
+  %69 = load ptr, ptr %21, align 8
+  %.not.i.i.i39 = icmp eq ptr %69, null
+  br i1 %.not.i.i.i39, label %common.resume, label %70
 
-64:                                               ; preds = %61
-  %65 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %common.resume unwind label %66
+70:                                               ; preds = %67
+  %71 = invoke noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %common.resume unwind label %72
 
-66:                                               ; preds = %64
-  %67 = landingpad { ptr, i32 }
+72:                                               ; preds = %70
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #27
+  %74 = extractvalue { ptr, i32 } %73, 0
+  call void @__clang_call_terminate(ptr %74) #27
   unreachable
 
-69:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit36
-  %70 = landingpad { ptr, i32 }
+75:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit36
+  %76 = landingpad { ptr, i32 }
           cleanup
-  %71 = load ptr, ptr %41, align 8
-  %.not.i.i.i41 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i41, label %common.resume, label %72
+  %77 = load ptr, ptr %44, align 8
+  %.not.i.i.i41 = icmp eq ptr %77, null
+  br i1 %.not.i.i.i41, label %common.resume, label %78
 
-72:                                               ; preds = %69
-  %73 = invoke noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %common.resume unwind label %74
+78:                                               ; preds = %75
+  %79 = invoke noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+          to label %common.resume unwind label %80
 
-74:                                               ; preds = %72
-  %75 = landingpad { ptr, i32 }
+80:                                               ; preds = %78
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #27
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #27
   unreachable
 
-77:                                               ; preds = %5
-  %78 = getelementptr inbounds i8, ptr %8, i64 16
+83:                                               ; preds = %5
+  %84 = getelementptr inbounds i8, ptr %8, i64 16
+  %85 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %.val.i.i43 = load ptr, ptr %19, align 8
   %.not.i.i.not.i.i44 = icmp eq ptr %.val.i.i43, null
-  br i1 %.not.i.i.not.i.i44, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit47, label %79
-
-79:                                               ; preds = %77
-  %80 = invoke noundef zeroext i1 %.val.i.i43(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
-          to label %81 unwind label %83
-
-81:                                               ; preds = %79
-  %82 = load <2 x ptr>, ptr %19, align 8
-  store <2 x ptr> %82, ptr %78, align 8
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit47
-
-83:                                               ; preds = %79
-  %84 = landingpad { ptr, i32 }
-          cleanup
-  %85 = load ptr, ptr %78, align 8
-  %.not.i.i.i45 = icmp eq ptr %85, null
-  br i1 %.not.i.i.i45, label %common.resume, label %86
+  br i1 %.not.i.i.not.i.i44, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit47, label %86
 
 86:                                               ; preds = %83
-  %87 = invoke noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %common.resume unwind label %88
+  %87 = invoke noundef zeroext i1 %.val.i.i43(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
+          to label %88 unwind label %92
 
 88:                                               ; preds = %86
-  %89 = landingpad { ptr, i32 }
+  %89 = getelementptr inbounds i8, ptr %4, i64 24
+  %90 = load ptr, ptr %89, align 8
+  store ptr %90, ptr %85, align 8
+  %91 = load ptr, ptr %19, align 8
+  store ptr %91, ptr %84, align 8
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit47
+
+92:                                               ; preds = %86
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = load ptr, ptr %84, align 8
+  %.not.i.i.i45 = icmp eq ptr %94, null
+  br i1 %.not.i.i.i45, label %common.resume, label %95
+
+95:                                               ; preds = %92
+  %96 = invoke noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+          to label %common.resume unwind label %97
+
+97:                                               ; preds = %95
+  %98 = landingpad { ptr, i32 }
           catch ptr null
-  %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #27
+  %99 = extractvalue { ptr, i32 } %98, 0
+  call void @__clang_call_terminate(ptr %99) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit47: ; preds = %77, %81
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit47: ; preds = %83, %88
   invoke fastcc void @_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_T1_(ptr %0, ptr %17, ptr noundef %2, ptr noundef nonnull %8)
-          to label %91 unwind label %118
+          to label %100 unwind label %130
 
-91:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit47
-  %92 = load ptr, ptr %78, align 8
-  %.not.i.i.i48 = icmp eq ptr %92, null
-  br i1 %.not.i.i.i48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit49, label %93
+100:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit47
+  %101 = load ptr, ptr %84, align 8
+  %.not.i.i.i48 = icmp eq ptr %101, null
+  br i1 %.not.i.i.i48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit49, label %102
 
-93:                                               ; preds = %91
-  %94 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit49 unwind label %95
+102:                                              ; preds = %100
+  %103 = invoke noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit49 unwind label %104
 
-95:                                               ; preds = %93
-  %96 = landingpad { ptr, i32 }
+104:                                              ; preds = %102
+  %105 = landingpad { ptr, i32 }
           catch ptr null
-  %97 = extractvalue { ptr, i32 } %96, 0
-  call void @__clang_call_terminate(ptr %97) #27
+  %106 = extractvalue { ptr, i32 } %105, 0
+  call void @__clang_call_terminate(ptr %106) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit49: ; preds = %91, %93
-  %98 = getelementptr inbounds i8, ptr %9, i64 16
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit49: ; preds = %100, %102
+  %107 = getelementptr inbounds i8, ptr %9, i64 16
+  %108 = getelementptr inbounds i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %.val.i.i50 = load ptr, ptr %19, align 8
   %.not.i.i.not.i.i51 = icmp eq ptr %.val.i.i50, null
-  br i1 %.not.i.i.not.i.i51, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit54, label %99
+  br i1 %.not.i.i.not.i.i51, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit54, label %109
 
-99:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit49
-  %100 = invoke noundef zeroext i1 %.val.i.i50(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
-          to label %101 unwind label %103
+109:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit49
+  %110 = invoke noundef zeroext i1 %.val.i.i50(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
+          to label %111 unwind label %115
 
-101:                                              ; preds = %99
-  %102 = load <2 x ptr>, ptr %19, align 8
-  store <2 x ptr> %102, ptr %98, align 8
+111:                                              ; preds = %109
+  %112 = getelementptr inbounds i8, ptr %4, i64 24
+  %113 = load ptr, ptr %112, align 8
+  store ptr %113, ptr %108, align 8
+  %114 = load ptr, ptr %19, align 8
+  store ptr %114, ptr %107, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit54
 
-103:                                              ; preds = %99
-  %104 = landingpad { ptr, i32 }
-          cleanup
-  %105 = load ptr, ptr %98, align 8
-  %.not.i.i.i52 = icmp eq ptr %105, null
-  br i1 %.not.i.i.i52, label %common.resume, label %106
-
-106:                                              ; preds = %103
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %common.resume unwind label %108
-
-108:                                              ; preds = %106
-  %109 = landingpad { ptr, i32 }
-          catch ptr null
-  %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #27
-  unreachable
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit54: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit49, %101
-  invoke fastcc void @_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_T1_(ptr %17, ptr %1, ptr noundef %2, ptr noundef nonnull %9)
-          to label %111 unwind label %126
-
-111:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit54
-  %112 = load ptr, ptr %98, align 8
-  %.not.i.i.i55 = icmp eq ptr %112, null
-  br i1 %.not.i.i.i55, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38, label %113
-
-113:                                              ; preds = %111
-  %114 = invoke noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38 unwind label %115
-
-115:                                              ; preds = %113
+115:                                              ; preds = %109
   %116 = landingpad { ptr, i32 }
-          catch ptr null
-  %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #27
-  unreachable
-
-118:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit47
-  %119 = landingpad { ptr, i32 }
           cleanup
-  %120 = load ptr, ptr %78, align 8
-  %.not.i.i.i57 = icmp eq ptr %120, null
-  br i1 %.not.i.i.i57, label %common.resume, label %121
+  %117 = load ptr, ptr %107, align 8
+  %.not.i.i.i52 = icmp eq ptr %117, null
+  br i1 %.not.i.i.i52, label %common.resume, label %118
 
-121:                                              ; preds = %118
-  %122 = invoke noundef zeroext i1 %120(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %common.resume unwind label %123
+118:                                              ; preds = %115
+  %119 = invoke noundef zeroext i1 %117(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+          to label %common.resume unwind label %120
 
-123:                                              ; preds = %121
-  %124 = landingpad { ptr, i32 }
+120:                                              ; preds = %118
+  %121 = landingpad { ptr, i32 }
           catch ptr null
-  %125 = extractvalue { ptr, i32 } %124, 0
-  call void @__clang_call_terminate(ptr %125) #27
+  %122 = extractvalue { ptr, i32 } %121, 0
+  call void @__clang_call_terminate(ptr %122) #27
   unreachable
 
-126:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit54
-  %127 = landingpad { ptr, i32 }
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit54: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit49, %111
+  invoke fastcc void @_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_T1_(ptr %17, ptr %1, ptr noundef %2, ptr noundef nonnull %9)
+          to label %123 unwind label %138
+
+123:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit54
+  %124 = load ptr, ptr %107, align 8
+  %.not.i.i.i55 = icmp eq ptr %124, null
+  br i1 %.not.i.i.i55, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38, label %125
+
+125:                                              ; preds = %123
+  %126 = invoke noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38 unwind label %127
+
+127:                                              ; preds = %125
+  %128 = landingpad { ptr, i32 }
+          catch ptr null
+  %129 = extractvalue { ptr, i32 } %128, 0
+  call void @__clang_call_terminate(ptr %129) #27
+  unreachable
+
+130:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit47
+  %131 = landingpad { ptr, i32 }
           cleanup
-  %128 = load ptr, ptr %98, align 8
-  %.not.i.i.i59 = icmp eq ptr %128, null
-  br i1 %.not.i.i.i59, label %common.resume, label %129
+  %132 = load ptr, ptr %84, align 8
+  %.not.i.i.i57 = icmp eq ptr %132, null
+  br i1 %.not.i.i.i57, label %common.resume, label %133
 
-129:                                              ; preds = %126
-  %130 = invoke noundef zeroext i1 %128(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %common.resume unwind label %131
+133:                                              ; preds = %130
+  %134 = invoke noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+          to label %common.resume unwind label %135
 
-131:                                              ; preds = %129
-  %132 = landingpad { ptr, i32 }
+135:                                              ; preds = %133
+  %136 = landingpad { ptr, i32 }
           catch ptr null
-  %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #27
+  %137 = extractvalue { ptr, i32 } %136, 0
+  call void @__clang_call_terminate(ptr %137) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38: ; preds = %113, %111, %56, %54
-  %134 = ptrtoint ptr %17 to i64
-  %135 = sub i64 %11, %134
-  %136 = ashr exact i64 %135, 4
-  %137 = getelementptr inbounds i8, ptr %10, i64 16
-  %138 = getelementptr inbounds i8, ptr %4, i64 16
+138:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit54
+  %139 = landingpad { ptr, i32 }
+          cleanup
+  %140 = load ptr, ptr %107, align 8
+  %.not.i.i.i59 = icmp eq ptr %140, null
+  br i1 %.not.i.i.i59, label %common.resume, label %141
+
+141:                                              ; preds = %138
+  %142 = invoke noundef zeroext i1 %140(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+          to label %common.resume unwind label %143
+
+143:                                              ; preds = %141
+  %144 = landingpad { ptr, i32 }
+          catch ptr null
+  %145 = extractvalue { ptr, i32 } %144, 0
+  call void @__clang_call_terminate(ptr %145) #27
+  unreachable
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38: ; preds = %125, %123, %62, %60
+  %146 = ptrtoint ptr %17 to i64
+  %147 = sub i64 %11, %146
+  %148 = ashr exact i64 %147, 4
+  %149 = getelementptr inbounds i8, ptr %10, i64 16
+  %150 = getelementptr inbounds i8, ptr %10, i64 24
+  %151 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
-  %.val.i.i61 = load ptr, ptr %138, align 8
+  %.val.i.i61 = load ptr, ptr %151, align 8
   %.not.i.i.not.i.i62 = icmp eq ptr %.val.i.i61, null
-  br i1 %.not.i.i.not.i.i62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit65, label %139
+  br i1 %.not.i.i.not.i.i62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit65, label %152
 
-139:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38
-  %140 = invoke noundef zeroext i1 %.val.i.i61(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
-          to label %141 unwind label %143
+152:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38
+  %153 = invoke noundef zeroext i1 %.val.i.i61(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
+          to label %154 unwind label %158
 
-141:                                              ; preds = %139
-  %142 = load <2 x ptr>, ptr %138, align 8
-  store <2 x ptr> %142, ptr %137, align 8
+154:                                              ; preds = %152
+  %155 = getelementptr inbounds i8, ptr %4, i64 24
+  %156 = load ptr, ptr %155, align 8
+  store ptr %156, ptr %150, align 8
+  %157 = load ptr, ptr %151, align 8
+  store ptr %157, ptr %149, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit65
 
-143:                                              ; preds = %139
-  %144 = landingpad { ptr, i32 }
-          cleanup
-  %145 = load ptr, ptr %137, align 8
-  %.not.i.i.i63 = icmp eq ptr %145, null
-  br i1 %.not.i.i.i63, label %common.resume, label %146
-
-146:                                              ; preds = %143
-  %147 = invoke noundef zeroext i1 %145(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %common.resume unwind label %148
-
-148:                                              ; preds = %146
-  %149 = landingpad { ptr, i32 }
-          catch ptr null
-  %150 = extractvalue { ptr, i32 } %149, 0
-  call void @__clang_call_terminate(ptr %150) #27
-  unreachable
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit65: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38, %141
-  invoke fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElS8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_SL_T0_SM_T1_SM_T2_(ptr %0, ptr %17, ptr %1, i64 noundef %16, i64 noundef %136, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %10)
-          to label %151 unwind label %158
-
-151:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit65
-  %152 = load ptr, ptr %137, align 8
-  %.not.i.i.i66 = icmp eq ptr %152, null
-  br i1 %.not.i.i.i66, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit67, label %153
-
-153:                                              ; preds = %151
-  %154 = invoke noundef zeroext i1 %152(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit67 unwind label %155
-
-155:                                              ; preds = %153
-  %156 = landingpad { ptr, i32 }
-          catch ptr null
-  %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #27
-  unreachable
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit67: ; preds = %151, %153
-  ret void
-
-158:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit65
+158:                                              ; preds = %152
   %159 = landingpad { ptr, i32 }
           cleanup
-  %160 = load ptr, ptr %137, align 8
-  %.not.i.i.i68 = icmp eq ptr %160, null
-  br i1 %.not.i.i.i68, label %common.resume, label %161
+  %160 = load ptr, ptr %149, align 8
+  %.not.i.i.i63 = icmp eq ptr %160, null
+  br i1 %.not.i.i.i63, label %common.resume, label %161
 
 161:                                              ; preds = %158
   %162 = invoke noundef zeroext i1 %160(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
@@ -7890,6 +7899,47 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
           catch ptr null
   %165 = extractvalue { ptr, i32 } %164, 0
   call void @__clang_call_terminate(ptr %165) #27
+  unreachable
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit65: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit38, %154
+  invoke fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElS8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_SL_T0_SM_T1_SM_T2_(ptr %0, ptr %17, ptr %1, i64 noundef %16, i64 noundef %148, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %10)
+          to label %166 unwind label %173
+
+166:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit65
+  %167 = load ptr, ptr %149, align 8
+  %.not.i.i.i66 = icmp eq ptr %167, null
+  br i1 %.not.i.i.i66, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit67, label %168
+
+168:                                              ; preds = %166
+  %169 = invoke noundef zeroext i1 %167(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit67 unwind label %170
+
+170:                                              ; preds = %168
+  %171 = landingpad { ptr, i32 }
+          catch ptr null
+  %172 = extractvalue { ptr, i32 } %171, 0
+  call void @__clang_call_terminate(ptr %172) #27
+  unreachable
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit67: ; preds = %166, %168
+  ret void
+
+173:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit65
+  %174 = landingpad { ptr, i32 }
+          cleanup
+  %175 = load ptr, ptr %149, align 8
+  %.not.i.i.i68 = icmp eq ptr %175, null
+  br i1 %.not.i.i.i68, label %common.resume, label %176
+
+176:                                              ; preds = %173
+  %177 = invoke noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+          to label %common.resume unwind label %178
+
+178:                                              ; preds = %176
+  %179 = landingpad { ptr, i32 }
+          catch ptr null
+  %180 = extractvalue { ptr, i32 } %179, 0
+  call void @__clang_call_terminate(ptr %180) #27
   unreachable
 }
 
@@ -8239,8 +8289,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   call void @__clang_call_terminate(ptr %49) #27
   unreachable
 
-common.resume:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit62, %97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit92, %164, %214, %217, %222, %225, %199, %202, %177, %180, %109, %112, %42, %45
-  %common.resume.op = phi { ptr, i32 } [ %43, %45 ], [ %43, %42 ], [ %110, %112 ], [ %110, %109 ], [ %178, %180 ], [ %178, %177 ], [ %200, %202 ], [ %200, %199 ], [ %lpad.phi, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit62 ], [ %lpad.phi, %97 ], [ %lpad.phi122, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit92 ], [ %lpad.phi122, %164 ], [ %215, %214 ], [ %215, %217 ], [ %223, %222 ], [ %223, %225 ]
+common.resume:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit62, %97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit92, %164, %220, %223, %228, %231, %205, %208, %180, %183, %109, %112, %42, %45
+  %common.resume.op = phi { ptr, i32 } [ %43, %45 ], [ %43, %42 ], [ %110, %112 ], [ %110, %109 ], [ %181, %183 ], [ %181, %180 ], [ %206, %208 ], [ %206, %205 ], [ %lpad.phi, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit62 ], [ %lpad.phi, %97 ], [ %lpad.phi122, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit92 ], [ %lpad.phi122, %164 ], [ %221, %220 ], [ %221, %223 ], [ %229, %228 ], [ %229, %231 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %40
@@ -8587,152 +8637,160 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL_
   %.0 = phi i64 [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit ], [ %155, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit90 ]
   %170 = call fastcc ptr @_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS8_SaIS8_EEEEEET_SE_SE_SE_(ptr %.sroa.0114.0, ptr %1, ptr %.sroa.0.0)
   %171 = getelementptr inbounds i8, ptr %11, i64 16
-  %172 = getelementptr inbounds i8, ptr %5, i64 16
+  %172 = getelementptr inbounds i8, ptr %11, i64 24
+  %173 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
-  %.val.i.i95 = load ptr, ptr %172, align 8
+  %.val.i.i95 = load ptr, ptr %173, align 8
   %.not.i.i.not.i.i96 = icmp eq ptr %.val.i.i95, null
-  br i1 %.not.i.i.not.i.i96, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit99, label %173
+  br i1 %.not.i.i.not.i.i96, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit99, label %174
 
-173:                                              ; preds = %169
-  %174 = invoke noundef zeroext i1 %.val.i.i95(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2)
-          to label %175 unwind label %177
+174:                                              ; preds = %169
+  %175 = invoke noundef zeroext i1 %.val.i.i95(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2)
+          to label %176 unwind label %180
 
-175:                                              ; preds = %173
-  %176 = load <2 x ptr>, ptr %172, align 8
-  store <2 x ptr> %176, ptr %171, align 8
+176:                                              ; preds = %174
+  %177 = getelementptr inbounds i8, ptr %5, i64 24
+  %178 = load ptr, ptr %177, align 8
+  store ptr %178, ptr %172, align 8
+  %179 = load ptr, ptr %173, align 8
+  store ptr %179, ptr %171, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit99
 
-177:                                              ; preds = %173
-  %178 = landingpad { ptr, i32 }
+180:                                              ; preds = %174
+  %181 = landingpad { ptr, i32 }
           cleanup
-  %179 = load ptr, ptr %171, align 8
-  %.not.i.i.i97 = icmp eq ptr %179, null
-  br i1 %.not.i.i.i97, label %common.resume, label %180
+  %182 = load ptr, ptr %171, align 8
+  %.not.i.i.i97 = icmp eq ptr %182, null
+  br i1 %.not.i.i.i97, label %common.resume, label %183
 
-180:                                              ; preds = %177
-  %181 = invoke noundef zeroext i1 %179(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
-          to label %common.resume unwind label %182
+183:                                              ; preds = %180
+  %184 = invoke noundef zeroext i1 %182(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+          to label %common.resume unwind label %185
 
-182:                                              ; preds = %180
-  %183 = landingpad { ptr, i32 }
+185:                                              ; preds = %183
+  %186 = landingpad { ptr, i32 }
           catch ptr null
-  %184 = extractvalue { ptr, i32 } %183, 0
-  call void @__clang_call_terminate(ptr %184) #27
+  %187 = extractvalue { ptr, i32 } %186, 0
+  call void @__clang_call_terminate(ptr %187) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit99: ; preds = %169, %175
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit99: ; preds = %169, %176
   invoke fastcc void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_SL_T0_SM_T1_(ptr %0, ptr %.sroa.0114.0, ptr %170, i64 noundef %.0, i64 noundef %.044, ptr noundef nonnull %11)
-          to label %185 unwind label %214
+          to label %188 unwind label %220
 
-185:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit99
-  %186 = load ptr, ptr %171, align 8
-  %.not.i.i.i100 = icmp eq ptr %186, null
-  br i1 %.not.i.i.i100, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit101, label %187
+188:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit99
+  %189 = load ptr, ptr %171, align 8
+  %.not.i.i.i100 = icmp eq ptr %189, null
+  br i1 %.not.i.i.i100, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit101, label %190
 
-187:                                              ; preds = %185
-  %188 = invoke noundef zeroext i1 %186(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit101 unwind label %189
+190:                                              ; preds = %188
+  %191 = invoke noundef zeroext i1 %189(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit101 unwind label %192
 
-189:                                              ; preds = %187
-  %190 = landingpad { ptr, i32 }
+192:                                              ; preds = %190
+  %193 = landingpad { ptr, i32 }
           catch ptr null
-  %191 = extractvalue { ptr, i32 } %190, 0
-  call void @__clang_call_terminate(ptr %191) #27
+  %194 = extractvalue { ptr, i32 } %193, 0
+  call void @__clang_call_terminate(ptr %194) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit101: ; preds = %185, %187
-  %192 = sub nsw i64 %3, %.0
-  %193 = sub nsw i64 %4, %.044
-  %194 = getelementptr inbounds i8, ptr %12, i64 16
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit101: ; preds = %188, %190
+  %195 = sub nsw i64 %3, %.0
+  %196 = sub nsw i64 %4, %.044
+  %197 = getelementptr inbounds i8, ptr %12, i64 16
+  %198 = getelementptr inbounds i8, ptr %12, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
-  %.val.i.i102 = load ptr, ptr %172, align 8
+  %.val.i.i102 = load ptr, ptr %173, align 8
   %.not.i.i.not.i.i103 = icmp eq ptr %.val.i.i102, null
-  br i1 %.not.i.i.not.i.i103, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit106, label %195
+  br i1 %.not.i.i.not.i.i103, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit106, label %199
 
-195:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit101
-  %196 = invoke noundef zeroext i1 %.val.i.i102(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2)
-          to label %197 unwind label %199
+199:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit101
+  %200 = invoke noundef zeroext i1 %.val.i.i102(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2)
+          to label %201 unwind label %205
 
-197:                                              ; preds = %195
-  %198 = load <2 x ptr>, ptr %172, align 8
-  store <2 x ptr> %198, ptr %194, align 8
+201:                                              ; preds = %199
+  %202 = getelementptr inbounds i8, ptr %5, i64 24
+  %203 = load ptr, ptr %202, align 8
+  store ptr %203, ptr %198, align 8
+  %204 = load ptr, ptr %173, align 8
+  store ptr %204, ptr %197, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit106
 
-199:                                              ; preds = %195
-  %200 = landingpad { ptr, i32 }
+205:                                              ; preds = %199
+  %206 = landingpad { ptr, i32 }
           cleanup
-  %201 = load ptr, ptr %194, align 8
-  %.not.i.i.i104 = icmp eq ptr %201, null
-  br i1 %.not.i.i.i104, label %common.resume, label %202
+  %207 = load ptr, ptr %197, align 8
+  %.not.i.i.i104 = icmp eq ptr %207, null
+  br i1 %.not.i.i.i104, label %common.resume, label %208
 
-202:                                              ; preds = %199
-  %203 = invoke noundef zeroext i1 %201(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %common.resume unwind label %204
+208:                                              ; preds = %205
+  %209 = invoke noundef zeroext i1 %207(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+          to label %common.resume unwind label %210
 
-204:                                              ; preds = %202
-  %205 = landingpad { ptr, i32 }
+210:                                              ; preds = %208
+  %211 = landingpad { ptr, i32 }
           catch ptr null
-  %206 = extractvalue { ptr, i32 } %205, 0
-  call void @__clang_call_terminate(ptr %206) #27
+  %212 = extractvalue { ptr, i32 } %211, 0
+  call void @__clang_call_terminate(ptr %212) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit106: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit101, %197
-  invoke fastcc void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_SL_T0_SM_T1_(ptr %170, ptr %.sroa.0.0, ptr %2, i64 noundef %192, i64 noundef %193, ptr noundef nonnull %12)
-          to label %207 unwind label %222
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit106: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit101, %201
+  invoke fastcc void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_SL_T0_SM_T1_(ptr %170, ptr %.sroa.0.0, ptr %2, i64 noundef %195, i64 noundef %196, ptr noundef nonnull %12)
+          to label %213 unwind label %228
 
-207:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit106
-  %208 = load ptr, ptr %194, align 8
-  %.not.i.i.i107 = icmp eq ptr %208, null
-  br i1 %.not.i.i.i107, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit108, label %209
+213:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit106
+  %214 = load ptr, ptr %197, align 8
+  %.not.i.i.i107 = icmp eq ptr %214, null
+  br i1 %.not.i.i.i107, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit108, label %215
 
-209:                                              ; preds = %207
-  %210 = invoke noundef zeroext i1 %208(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit108 unwind label %211
+215:                                              ; preds = %213
+  %216 = invoke noundef zeroext i1 %214(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit108 unwind label %217
 
-211:                                              ; preds = %209
-  %212 = landingpad { ptr, i32 }
+217:                                              ; preds = %215
+  %218 = landingpad { ptr, i32 }
           catch ptr null
-  %213 = extractvalue { ptr, i32 } %212, 0
-  call void @__clang_call_terminate(ptr %213) #27
+  %219 = extractvalue { ptr, i32 } %218, 0
+  call void @__clang_call_terminate(ptr %219) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit108: ; preds = %209, %207, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit, %25, %6
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit108: ; preds = %215, %213, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit, %25, %6
   ret void
 
-214:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit99
-  %215 = landingpad { ptr, i32 }
+220:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit99
+  %221 = landingpad { ptr, i32 }
           cleanup
-  %216 = load ptr, ptr %171, align 8
-  %.not.i.i.i109 = icmp eq ptr %216, null
-  br i1 %.not.i.i.i109, label %common.resume, label %217
+  %222 = load ptr, ptr %171, align 8
+  %.not.i.i.i109 = icmp eq ptr %222, null
+  br i1 %.not.i.i.i109, label %common.resume, label %223
 
-217:                                              ; preds = %214
-  %218 = invoke noundef zeroext i1 %216(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
-          to label %common.resume unwind label %219
+223:                                              ; preds = %220
+  %224 = invoke noundef zeroext i1 %222(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+          to label %common.resume unwind label %225
 
-219:                                              ; preds = %217
-  %220 = landingpad { ptr, i32 }
+225:                                              ; preds = %223
+  %226 = landingpad { ptr, i32 }
           catch ptr null
-  %221 = extractvalue { ptr, i32 } %220, 0
-  call void @__clang_call_terminate(ptr %221) #27
+  %227 = extractvalue { ptr, i32 } %226, 0
+  call void @__clang_call_terminate(ptr %227) #27
   unreachable
 
-222:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit106
-  %223 = landingpad { ptr, i32 }
+228:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit106
+  %229 = landingpad { ptr, i32 }
           cleanup
-  %224 = load ptr, ptr %194, align 8
-  %.not.i.i.i111 = icmp eq ptr %224, null
-  br i1 %.not.i.i.i111, label %common.resume, label %225
+  %230 = load ptr, ptr %197, align 8
+  %.not.i.i.i111 = icmp eq ptr %230, null
+  br i1 %.not.i.i.i111, label %common.resume, label %231
 
-225:                                              ; preds = %222
-  %226 = invoke noundef zeroext i1 %224(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %common.resume unwind label %227
+231:                                              ; preds = %228
+  %232 = invoke noundef zeroext i1 %230(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+          to label %common.resume unwind label %233
 
-227:                                              ; preds = %225
-  %228 = landingpad { ptr, i32 }
+233:                                              ; preds = %231
+  %234 = landingpad { ptr, i32 }
           catch ptr null
-  %229 = extractvalue { ptr, i32 } %228, 0
-  call void @__clang_call_terminate(ptr %229) #27
+  %235 = extractvalue { ptr, i32 } %234, 0
+  call void @__clang_call_terminate(ptr %235) #27
   unreachable
 }
 
@@ -8890,132 +8948,138 @@ define internal fastcc void @_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norma
   %17 = ashr exact i64 %16, 4
   %18 = getelementptr inbounds i8, ptr %2, i64 %16
   %19 = getelementptr inbounds i8, ptr %11, i64 16
-  %20 = getelementptr inbounds i8, ptr %3, i64 16
+  %20 = getelementptr inbounds i8, ptr %11, i64 24
+  %21 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
-  %.val.i.i = load ptr, ptr %20, align 8
+  %.val.i.i = load ptr, ptr %21, align 8
   %.not.i.i.not.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit, label %21
+  br i1 %.not.i.i.not.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit, label %22
 
-21:                                               ; preds = %4
-  %22 = invoke noundef zeroext i1 %.val.i.i(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
-          to label %23 unwind label %26
+22:                                               ; preds = %4
+  %23 = invoke noundef zeroext i1 %.val.i.i(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+          to label %24 unwind label %28
 
-23:                                               ; preds = %21
-  %24 = load <2 x ptr>, ptr %20, align 8
-  %25 = load ptr, ptr %20, align 8
-  store <2 x ptr> %24, ptr %19, align 8
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %20, align 8
+  %27 = load ptr, ptr %21, align 8
+  store ptr %27, ptr %19, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
 
-26:                                               ; preds = %21
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %22
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %28 = load ptr, ptr %19, align 8
-  %.not.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i, label %common.resume, label %29
+  %30 = load ptr, ptr %19, align 8
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %common.resume, label %31
 
-29:                                               ; preds = %26
-  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
-          to label %common.resume unwind label %31
+31:                                               ; preds = %28
+  %32 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+          to label %common.resume unwind label %33
 
-31:                                               ; preds = %29
-  %32 = landingpad { ptr, i32 }
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #27
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #27
   unreachable
 
-common.resume:                                    ; preds = %.body, %423, %.body36, %429, %.body80, %435, %266, %269, %121, %124, %26, %29
-  %common.resume.op = phi { ptr, i32 } [ %27, %29 ], [ %27, %26 ], [ %122, %124 ], [ %122, %121 ], [ %267, %269 ], [ %267, %266 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %423 ], [ %eh.lpad-body37, %.body36 ], [ %eh.lpad-body37, %429 ], [ %eh.lpad-body81, %.body80 ], [ %eh.lpad-body81, %435 ]
+common.resume:                                    ; preds = %.body, %436, %.body36, %442, %.body80, %448, %277, %280, %130, %133, %28, %31
+  %common.resume.op = phi { ptr, i32 } [ %29, %31 ], [ %29, %28 ], [ %131, %133 ], [ %131, %130 ], [ %278, %280 ], [ %278, %277 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %436 ], [ %eh.lpad-body37, %.body36 ], [ %eh.lpad-body37, %442 ], [ %eh.lpad-body81, %.body80 ], [ %eh.lpad-body81, %448 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %4, %23
-  %.val.i.i15.i207 = phi ptr [ null, %4 ], [ %25, %23 ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %4, %24
+  %.val.i.i15.i207 = phi ptr [ null, %4 ], [ %27, %24 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  %34 = icmp sgt i64 %16, 96
-  br i1 %34, label %.lr.ph.i, label %._crit_edge.i
+  %36 = icmp sgt i64 %16, 96
+  br i1 %36, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
-  %35 = getelementptr inbounds i8, ptr %9, i64 16
-  br label %36
+  %37 = getelementptr inbounds i8, ptr %9, i64 16
+  %38 = getelementptr inbounds i8, ptr %9, i64 24
+  br label %39
 
-36:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i, %.lr.ph.i
-  %.sroa.024.030.i = phi ptr [ %0, %.lr.ph.i ], [ %37, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i ]
-  %37 = getelementptr inbounds i8, ptr %.sroa.024.030.i, i64 112
+39:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i, %.lr.ph.i
+  %.sroa.024.030.i = phi ptr [ %0, %.lr.ph.i ], [ %40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i ]
+  %40 = getelementptr inbounds i8, ptr %.sroa.024.030.i, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %.val.i.i.i = load ptr, ptr %19, align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.not.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i, label %38
+  br i1 %.not.i.i.not.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i, label %41
 
-38:                                               ; preds = %36
-  %39 = invoke noundef zeroext i1 %.val.i.i.i(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 2)
-          to label %40 unwind label %42
+41:                                               ; preds = %39
+  %42 = invoke noundef zeroext i1 %.val.i.i.i(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 2)
+          to label %43 unwind label %46
 
-40:                                               ; preds = %38
-  %41 = load <2 x ptr>, ptr %19, align 8
-  store <2 x ptr> %41, ptr %35, align 8
+43:                                               ; preds = %41
+  %44 = load ptr, ptr %20, align 8
+  store ptr %44, ptr %38, align 8
+  %45 = load ptr, ptr %19, align 8
+  store ptr %45, ptr %37, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i
 
-42:                                               ; preds = %38
-  %43 = landingpad { ptr, i32 }
+46:                                               ; preds = %41
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %44 = load ptr, ptr %35, align 8
-  %.not.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i, label %.body, label %45
+  %48 = load ptr, ptr %37, align 8
+  %.not.i.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i.i, label %.body, label %49
 
-45:                                               ; preds = %42
-  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %.body unwind label %47
+49:                                               ; preds = %46
+  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+          to label %.body unwind label %51
 
-47:                                               ; preds = %45
-  %48 = landingpad { ptr, i32 }
+51:                                               ; preds = %49
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #27
+  %53 = extractvalue { ptr, i32 } %52, 0
+  call void @__clang_call_terminate(ptr %53) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i: ; preds = %40, %36
-  invoke fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_(ptr %.sroa.024.030.i, ptr nonnull %37, ptr noundef nonnull %9)
-          to label %50 unwind label %60
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i: ; preds = %43, %39
+  invoke fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_(ptr %.sroa.024.030.i, ptr nonnull %40, ptr noundef nonnull %9)
+          to label %54 unwind label %64
 
-50:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i
-  %51 = load ptr, ptr %35, align 8
-  %.not.i.i.i12.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i12.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i, label %52
+54:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i
+  %55 = load ptr, ptr %37, align 8
+  %.not.i.i.i12.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i12.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i, label %56
 
-52:                                               ; preds = %50
-  %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i unwind label %54
+56:                                               ; preds = %54
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i unwind label %58
 
-54:                                               ; preds = %52
-  %55 = landingpad { ptr, i32 }
+58:                                               ; preds = %56
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #27
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i: ; preds = %52, %50
-  %57 = ptrtoint ptr %37 to i64
-  %58 = sub i64 %14, %57
-  %59 = icmp sgt i64 %58, 96
-  br i1 %59, label %36, label %._crit_edge.i.loopexit, !llvm.loop !99
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i: ; preds = %56, %54
+  %61 = ptrtoint ptr %40 to i64
+  %62 = sub i64 %14, %61
+  %63 = icmp sgt i64 %62, 96
+  br i1 %63, label %39, label %._crit_edge.i.loopexit, !llvm.loop !99
 
-60:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i
-  %61 = landingpad { ptr, i32 }
+64:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit.i
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %62 = load ptr, ptr %35, align 8
-  %.not.i.i.i13.i = icmp eq ptr %62, null
-  br i1 %.not.i.i.i13.i, label %.body, label %63
+  %66 = load ptr, ptr %37, align 8
+  %.not.i.i.i13.i = icmp eq ptr %66, null
+  br i1 %.not.i.i.i13.i, label %.body, label %67
 
-63:                                               ; preds = %60
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %.body unwind label %65
+67:                                               ; preds = %64
+  %68 = invoke noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+          to label %.body unwind label %69
 
-65:                                               ; preds = %63
-  %66 = landingpad { ptr, i32 }
+69:                                               ; preds = %67
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #27
+  %71 = extractvalue { ptr, i32 } %70, 0
+  call void @__clang_call_terminate(ptr %71) #27
   unreachable
 
 ._crit_edge.i.loopexit:                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i
@@ -9024,995 +9088,973 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
   %.val.i.i15.i = phi ptr [ %.val.i.i15.i207, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit ], [ %.val.i.i15.i.pre, %._crit_edge.i.loopexit ]
-  %.sroa.024.0.lcssa.i = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit ], [ %37, %._crit_edge.i.loopexit ]
-  %68 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.024.0.lcssa.i = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit ], [ %40, %._crit_edge.i.loopexit ]
+  %72 = getelementptr inbounds i8, ptr %10, i64 16
+  %73 = getelementptr inbounds i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %.not.i.i.not.i.i16.i = icmp eq ptr %.val.i.i15.i, null
-  br i1 %.not.i.i.not.i.i16.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit19.i, label %69
+  br i1 %.not.i.i.not.i.i16.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit19.i, label %74
 
-69:                                               ; preds = %._crit_edge.i
-  %70 = invoke noundef zeroext i1 %.val.i.i15.i(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 2)
-          to label %71 unwind label %73
+74:                                               ; preds = %._crit_edge.i
+  %75 = invoke noundef zeroext i1 %.val.i.i15.i(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 2)
+          to label %76 unwind label %79
 
-71:                                               ; preds = %69
-  %72 = load <2 x ptr>, ptr %19, align 8
-  store <2 x ptr> %72, ptr %68, align 8
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %20, align 8
+  store ptr %77, ptr %73, align 8
+  %78 = load ptr, ptr %19, align 8
+  store ptr %78, ptr %72, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit19.i
 
-73:                                               ; preds = %69
-  %74 = landingpad { ptr, i32 }
+79:                                               ; preds = %74
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %75 = load ptr, ptr %68, align 8
-  %.not.i.i.i17.i = icmp eq ptr %75, null
-  br i1 %.not.i.i.i17.i, label %.body, label %76
+  %81 = load ptr, ptr %72, align 8
+  %.not.i.i.i17.i = icmp eq ptr %81, null
+  br i1 %.not.i.i.i17.i, label %.body, label %82
 
-76:                                               ; preds = %73
-  %77 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %.body unwind label %78
+82:                                               ; preds = %79
+  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+          to label %.body unwind label %84
 
-78:                                               ; preds = %76
-  %79 = landingpad { ptr, i32 }
+84:                                               ; preds = %82
+  %85 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #27
+  %86 = extractvalue { ptr, i32 } %85, 0
+  call void @__clang_call_terminate(ptr %86) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit19.i: ; preds = %71, %._crit_edge.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit19.i: ; preds = %76, %._crit_edge.i
   invoke fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_(ptr %.sroa.024.0.lcssa.i, ptr %1, ptr noundef nonnull %10)
-          to label %81 unwind label %88
+          to label %87 unwind label %94
 
-81:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit19.i
-  %82 = load ptr, ptr %68, align 8
-  %.not.i.i.i20.i = icmp eq ptr %82, null
-  br i1 %.not.i.i.i20.i, label %96, label %83
+87:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit19.i
+  %88 = load ptr, ptr %72, align 8
+  %.not.i.i.i20.i = icmp eq ptr %88, null
+  br i1 %.not.i.i.i20.i, label %102, label %89
 
-83:                                               ; preds = %81
-  %84 = invoke noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %96 unwind label %85
+89:                                               ; preds = %87
+  %90 = invoke noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+          to label %102 unwind label %91
 
-85:                                               ; preds = %83
-  %86 = landingpad { ptr, i32 }
+91:                                               ; preds = %89
+  %92 = landingpad { ptr, i32 }
           catch ptr null
-  %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #27
+  %93 = extractvalue { ptr, i32 } %92, 0
+  call void @__clang_call_terminate(ptr %93) #27
   unreachable
 
-88:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit19.i
-  %89 = landingpad { ptr, i32 }
+94:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit19.i
+  %95 = landingpad { ptr, i32 }
           cleanup
-  %90 = load ptr, ptr %68, align 8
-  %.not.i.i.i22.i = icmp eq ptr %90, null
-  br i1 %.not.i.i.i22.i, label %.body, label %91
+  %96 = load ptr, ptr %72, align 8
+  %.not.i.i.i22.i = icmp eq ptr %96, null
+  br i1 %.not.i.i.i22.i, label %.body, label %97
 
-91:                                               ; preds = %88
-  %92 = invoke noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %.body unwind label %93
+97:                                               ; preds = %94
+  %98 = invoke noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+          to label %.body unwind label %99
 
-93:                                               ; preds = %91
-  %94 = landingpad { ptr, i32 }
+99:                                               ; preds = %97
+  %100 = landingpad { ptr, i32 }
           catch ptr null
-  %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #27
+  %101 = extractvalue { ptr, i32 } %100, 0
+  call void @__clang_call_terminate(ptr %101) #27
   unreachable
 
-96:                                               ; preds = %83, %81
+102:                                              ; preds = %89, %87
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  %97 = load ptr, ptr %19, align 8
-  %.not.i.i.i21 = icmp eq ptr %97, null
-  br i1 %.not.i.i.i21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %98
+  %103 = load ptr, ptr %19, align 8
+  %.not.i.i.i21 = icmp eq ptr %103, null
+  br i1 %.not.i.i.i21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %104
 
-98:                                               ; preds = %96
-  %99 = invoke noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %100
+104:                                              ; preds = %102
+  %105 = invoke noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %106
 
-100:                                              ; preds = %98
-  %101 = landingpad { ptr, i32 }
+106:                                              ; preds = %104
+  %107 = landingpad { ptr, i32 }
           catch ptr null
-  %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #27
+  %108 = extractvalue { ptr, i32 } %107, 0
+  call void @__clang_call_terminate(ptr %108) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit: ; preds = %96, %98
-  %103 = icmp sgt i64 %17, 7
-  br i1 %103, label %.lr.ph, label %._crit_edge
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit: ; preds = %102, %104
+  %109 = icmp sgt i64 %17, 7
+  br i1 %109, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit
-  %104 = getelementptr inbounds i8, ptr %12, i64 16
-  %105 = getelementptr inbounds i8, ptr %7, i64 16
-  %106 = getelementptr inbounds i8, ptr %7, i64 24
-  %107 = getelementptr inbounds i8, ptr %8, i64 16
-  %108 = getelementptr inbounds i8, ptr %8, i64 24
-  %109 = getelementptr inbounds i8, ptr %13, i64 16
-  %110 = ptrtoint ptr %18 to i64
-  %111 = getelementptr inbounds i8, ptr %5, i64 16
-  %112 = getelementptr inbounds i8, ptr %5, i64 24
-  %113 = getelementptr inbounds i8, ptr %6, i64 16
-  %114 = getelementptr inbounds i8, ptr %6, i64 24
-  br label %115
+  %110 = getelementptr inbounds i8, ptr %12, i64 16
+  %111 = getelementptr inbounds i8, ptr %12, i64 24
+  %112 = getelementptr inbounds i8, ptr %3, i64 24
+  %113 = getelementptr inbounds i8, ptr %7, i64 16
+  %114 = getelementptr inbounds i8, ptr %7, i64 24
+  %115 = getelementptr inbounds i8, ptr %8, i64 16
+  %116 = getelementptr inbounds i8, ptr %8, i64 24
+  %117 = getelementptr inbounds i8, ptr %13, i64 16
+  %118 = getelementptr inbounds i8, ptr %13, i64 24
+  %119 = ptrtoint ptr %18 to i64
+  %120 = getelementptr inbounds i8, ptr %5, i64 16
+  %121 = getelementptr inbounds i8, ptr %5, i64 24
+  %122 = getelementptr inbounds i8, ptr %6, i64 16
+  %123 = getelementptr inbounds i8, ptr %6, i64 24
+  br label %124
 
-115:                                              ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit83
-  %.0177 = phi i64 [ 7, %.lr.ph ], [ %274, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit83 ]
+124:                                              ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit83
+  %.0177 = phi i64 [ 7, %.lr.ph ], [ %285, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit83 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
-  %.val.i.i22 = load ptr, ptr %20, align 8
+  %.val.i.i22 = load ptr, ptr %21, align 8
   %.not.i.i.not.i.i23 = icmp eq ptr %.val.i.i22, null
-  br i1 %.not.i.i.not.i.i23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26, label %116
+  br i1 %.not.i.i.not.i.i23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26, label %125
 
-116:                                              ; preds = %115
-  %117 = invoke noundef zeroext i1 %.val.i.i22(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
-          to label %118 unwind label %121
+125:                                              ; preds = %124
+  %126 = invoke noundef zeroext i1 %.val.i.i22(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+          to label %127 unwind label %130
 
-118:                                              ; preds = %116
-  %119 = load <2 x ptr>, ptr %20, align 8
-  %120 = load ptr, ptr %20, align 8
-  store <2 x ptr> %119, ptr %104, align 8
+127:                                              ; preds = %125
+  %128 = load ptr, ptr %112, align 8
+  store ptr %128, ptr %111, align 8
+  %129 = load ptr, ptr %21, align 8
+  store ptr %129, ptr %110, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26
 
-121:                                              ; preds = %116
-  %122 = landingpad { ptr, i32 }
+130:                                              ; preds = %125
+  %131 = landingpad { ptr, i32 }
           cleanup
-  %123 = load ptr, ptr %104, align 8
-  %.not.i.i.i24 = icmp eq ptr %123, null
-  br i1 %.not.i.i.i24, label %common.resume, label %124
+  %132 = load ptr, ptr %110, align 8
+  %.not.i.i.i24 = icmp eq ptr %132, null
+  br i1 %.not.i.i.i24, label %common.resume, label %133
 
-124:                                              ; preds = %121
-  %125 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %common.resume unwind label %126
+133:                                              ; preds = %130
+  %134 = invoke noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+          to label %common.resume unwind label %135
 
-126:                                              ; preds = %124
-  %127 = landingpad { ptr, i32 }
+135:                                              ; preds = %133
+  %136 = landingpad { ptr, i32 }
           catch ptr null
-  %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #27
+  %137 = extractvalue { ptr, i32 } %136, 0
+  call void @__clang_call_terminate(ptr %137) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26: ; preds = %115, %118
-  %.val.i.i29.i209 = phi ptr [ null, %115 ], [ %120, %118 ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26: ; preds = %124, %127
+  %.val.i.i29.i209 = phi ptr [ null, %124 ], [ %129, %127 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %129 = shl nsw i64 %.0177, 1
-  %.not108.i = icmp slt i64 %17, %129
+  %138 = shl nsw i64 %.0177, 1
+  %.not108.i = icmp slt i64 %17, %138
   br i1 %.not108.i, label %._crit_edge.i35, label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i34
   %.0110.i = phi ptr [ %.08.lcssa.i.i.i.i.i14.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i34 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26 ]
-  %.sroa.075.0109.i = phi ptr [ %131, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i34 ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26 ]
-  %130 = getelementptr inbounds %"struct.std::pair.150", ptr %.sroa.075.0109.i, i64 %.0177
-  %131 = getelementptr inbounds %"struct.std::pair.150", ptr %.sroa.075.0109.i, i64 %129
+  %.sroa.075.0109.i = phi ptr [ %140, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i34 ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26 ]
+  %139 = getelementptr inbounds %"struct.std::pair.150", ptr %.sroa.075.0109.i, i64 %.0177
+  %140 = getelementptr inbounds %"struct.std::pair.150", ptr %.sroa.075.0109.i, i64 %138
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %.val.i.i.i28 = load ptr, ptr %104, align 8
+  %.val.i.i.i28 = load ptr, ptr %110, align 8
   %.not.i.i.not.i.i.i29 = icmp eq ptr %.val.i.i.i28, null
-  br i1 %.not.i.i.not.i.i.i29, label %.lr.ph.i.i.preheader, label %132
+  br i1 %.not.i.i.not.i.i.i29, label %.lr.ph.i.i.preheader, label %141
 
-.lr.ph.i.i.preheader:                             ; preds = %134, %.lr.ph.i27
+.lr.ph.i.i.preheader:                             ; preds = %143, %.lr.ph.i27
   br label %.lr.ph.i.i
 
-132:                                              ; preds = %.lr.ph.i27
-  %133 = invoke noundef zeroext i1 %.val.i.i.i28(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 2)
-          to label %134 unwind label %136
+141:                                              ; preds = %.lr.ph.i27
+  %142 = invoke noundef zeroext i1 %.val.i.i.i28(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 2)
+          to label %143 unwind label %146
 
-134:                                              ; preds = %132
-  %135 = load <2 x ptr>, ptr %104, align 8
-  store <2 x ptr> %135, ptr %105, align 8
+143:                                              ; preds = %141
+  %144 = load ptr, ptr %111, align 8
+  store ptr %144, ptr %114, align 8
+  %145 = load ptr, ptr %110, align 8
+  store ptr %145, ptr %113, align 8
   br label %.lr.ph.i.i.preheader
 
-136:                                              ; preds = %132
-  %137 = landingpad { ptr, i32 }
+146:                                              ; preds = %141
+  %147 = landingpad { ptr, i32 }
           cleanup
-  %138 = load ptr, ptr %105, align 8
-  %.not.i.i.i.i30 = icmp eq ptr %138, null
-  br i1 %.not.i.i.i.i30, label %.body36, label %139
+  %148 = load ptr, ptr %113, align 8
+  %.not.i.i.i.i30 = icmp eq ptr %148, null
+  br i1 %.not.i.i.i.i30, label %.body36, label %149
 
-139:                                              ; preds = %136
-  %140 = invoke noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %.body36 unwind label %141
+149:                                              ; preds = %146
+  %150 = invoke noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+          to label %.body36 unwind label %151
 
-141:                                              ; preds = %139
-  %142 = landingpad { ptr, i32 }
+151:                                              ; preds = %149
+  %152 = landingpad { ptr, i32 }
           catch ptr null
-  %143 = extractvalue { ptr, i32 } %142, 0
-  call void @__clang_call_terminate(ptr %143) #27
+  %153 = extractvalue { ptr, i32 } %152, 0
+  call void @__clang_call_terminate(ptr %153) #27
   unreachable
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.noexc25.i
-  %.030.i.i = phi ptr [ %149, %.noexc25.i ], [ %.0110.i, %.lr.ph.i.i.preheader ]
+  %.030.i.i = phi ptr [ %159, %.noexc25.i ], [ %.0110.i, %.lr.ph.i.i.preheader ]
   %.sroa.022.029.i.i = phi ptr [ %.sroa.022.1.i.i, %.noexc25.i ], [ %.sroa.075.0109.i, %.lr.ph.i.i.preheader ]
-  %.sroa.020.028.i.i = phi ptr [ %.sroa.020.1.i.i, %.noexc25.i ], [ %130, %.lr.ph.i.i.preheader ]
-  %144 = load ptr, ptr %105, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %144, null
-  br i1 %.not.i.i.i.i.i, label %145, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i.i
+  %.sroa.020.028.i.i = phi ptr [ %.sroa.020.1.i.i, %.noexc25.i ], [ %139, %.lr.ph.i.i.preheader ]
+  %154 = load ptr, ptr %113, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %154, null
+  br i1 %.not.i.i.i.i.i, label %155, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i.i
 
-145:                                              ; preds = %.lr.ph.i.i
+155:                                              ; preds = %.lr.ph.i.i
   invoke void @_ZSt25__throw_bad_function_callv() #25
           to label %.noexc.i unwind label %.loopexit.split-lp78.i
 
-.noexc.i:                                         ; preds = %145
+.noexc.i:                                         ; preds = %155
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i.i: ; preds = %.lr.ph.i.i
-  %146 = load ptr, ptr %106, align 8
-  %147 = invoke noundef zeroext i1 %146(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.020.028.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.022.029.i.i)
+  %156 = load ptr, ptr %114, align 8
+  %157 = invoke noundef zeroext i1 %156(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.020.028.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.022.029.i.i)
           to label %.noexc25.i unwind label %.loopexit77.i
 
 .noexc25.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i.i
-  %.sroa.020.028.pn.i.i = select i1 %147, ptr %.sroa.020.028.i.i, ptr %.sroa.022.029.i.i
-  %.sroa.020.1.i.idx.i = select i1 %147, i64 16, i64 0
+  %.sroa.020.028.pn.i.i = select i1 %157, ptr %.sroa.020.028.i.i, ptr %.sroa.022.029.i.i
+  %.sroa.020.1.i.idx.i = select i1 %157, i64 16, i64 0
   %.sroa.020.1.i.i = getelementptr inbounds i8, ptr %.sroa.020.028.i.i, i64 %.sroa.020.1.i.idx.i
-  %.sroa.022.1.i.idx.i = select i1 %147, i64 0, i64 16
+  %.sroa.022.1.i.idx.i = select i1 %157, i64 0, i64 16
   %.sroa.022.1.i.i = getelementptr inbounds i8, ptr %.sroa.022.029.i.i, i64 %.sroa.022.1.i.idx.i
   %.sink.i = load ptr, ptr %.sroa.020.028.pn.i.i, align 8
   store ptr %.sink.i, ptr %.030.i.i, align 8
   %.sink.in.i.i = getelementptr inbounds i8, ptr %.sroa.020.028.pn.i.i, i64 8
   %.sink.i.i = load i32, ptr %.sink.in.i.i, align 4
-  %148 = getelementptr inbounds i8, ptr %.030.i.i, i64 8
-  store i32 %.sink.i.i, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %.030.i.i, i64 16
-  %150 = icmp ne ptr %.sroa.022.1.i.i, %130
-  %151 = icmp ne ptr %.sroa.020.1.i.i, %131
-  %or.cond.i.i = select i1 %150, i1 %151, i1 false
+  %158 = getelementptr inbounds i8, ptr %.030.i.i, i64 8
+  store i32 %.sink.i.i, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %.030.i.i, i64 16
+  %160 = icmp ne ptr %.sroa.022.1.i.i, %139
+  %161 = icmp ne ptr %.sroa.020.1.i.i, %140
+  %or.cond.i.i = select i1 %160, i1 %161, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !100
 
 .critedge.i.i:                                    ; preds = %.noexc25.i
-  %152 = ptrtoint ptr %130 to i64
-  %153 = ptrtoint ptr %.sroa.022.1.i.i to i64
-  %154 = sub i64 %152, %153
-  %155 = ashr exact i64 %154, 4
-  %156 = icmp sgt i64 %155, 0
-  br i1 %156, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i
+  %162 = ptrtoint ptr %139 to i64
+  %163 = ptrtoint ptr %.sroa.022.1.i.i to i64
+  %164 = sub i64 %162, %163
+  %165 = ashr exact i64 %164, 4
+  %166 = icmp sgt i64 %165, 0
+  br i1 %166, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.critedge.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi i64 [ %163, %.lr.ph.i.i.i.i.i.i.i ], [ %155, %.critedge.i.i ]
-  %.0811.i.i.i.i.i.i.i = phi ptr [ %162, %.lr.ph.i.i.i.i.i.i.i ], [ %149, %.critedge.i.i ]
-  %.0910.i.i.i.i.i.i.i = phi ptr [ %161, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.022.1.i.i, %.critedge.i.i ]
-  %157 = load ptr, ptr %.0910.i.i.i.i.i.i.i, align 8
-  store ptr %157, ptr %.0811.i.i.i.i.i.i.i, align 8
-  %158 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
-  %159 = load i32, ptr %158, align 4
-  %160 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
-  store i32 %159, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
-  %162 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
-  %163 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %164 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %164, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i, !llvm.loop !101
+  %.012.i.i.i.i.i.i.i = phi i64 [ %173, %.lr.ph.i.i.i.i.i.i.i ], [ %165, %.critedge.i.i ]
+  %.0811.i.i.i.i.i.i.i = phi ptr [ %172, %.lr.ph.i.i.i.i.i.i.i ], [ %159, %.critedge.i.i ]
+  %.0910.i.i.i.i.i.i.i = phi ptr [ %171, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.022.1.i.i, %.critedge.i.i ]
+  %167 = load ptr, ptr %.0910.i.i.i.i.i.i.i, align 8
+  store ptr %167, ptr %.0811.i.i.i.i.i.i.i, align 8
+  %168 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
+  %169 = load i32, ptr %168, align 4
+  %170 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
+  store i32 %169, ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
+  %172 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
+  %173 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
+  %174 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  br i1 %174, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i, !llvm.loop !101
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.critedge.i.i
-  %.08.lcssa.i.i.i.i.i.i.i = phi ptr [ %149, %.critedge.i.i ], [ %162, %.lr.ph.i.i.i.i.i.i.i ]
-  %165 = ptrtoint ptr %131 to i64
-  %166 = ptrtoint ptr %.sroa.020.1.i.i to i64
-  %167 = sub i64 %165, %166
-  %168 = ashr exact i64 %167, 4
-  %169 = icmp sgt i64 %168, 0
-  br i1 %169, label %.lr.ph.i.i.i.i.i15.i.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit.i
+  %.08.lcssa.i.i.i.i.i.i.i = phi ptr [ %159, %.critedge.i.i ], [ %172, %.lr.ph.i.i.i.i.i.i.i ]
+  %175 = ptrtoint ptr %140 to i64
+  %176 = ptrtoint ptr %.sroa.020.1.i.i to i64
+  %177 = sub i64 %175, %176
+  %178 = ashr exact i64 %177, 4
+  %179 = icmp sgt i64 %178, 0
+  br i1 %179, label %.lr.ph.i.i.i.i.i15.i.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit.i
 
 .lr.ph.i.i.i.i.i15.i.i:                           ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i, %.lr.ph.i.i.i.i.i15.i.i
-  %.012.i.i.i.i.i16.i.i = phi i64 [ %176, %.lr.ph.i.i.i.i.i15.i.i ], [ %168, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i ]
-  %.0811.i.i.i.i.i17.i.i = phi ptr [ %175, %.lr.ph.i.i.i.i.i15.i.i ], [ %.08.lcssa.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i ]
-  %.0910.i.i.i.i.i18.i.i = phi ptr [ %174, %.lr.ph.i.i.i.i.i15.i.i ], [ %.sroa.020.1.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i ]
-  %170 = load ptr, ptr %.0910.i.i.i.i.i18.i.i, align 8
-  store ptr %170, ptr %.0811.i.i.i.i.i17.i.i, align 8
-  %171 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i18.i.i, i64 8
-  %172 = load i32, ptr %171, align 4
-  %173 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i17.i.i, i64 8
-  store i32 %172, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i18.i.i, i64 16
-  %175 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i17.i.i, i64 16
-  %176 = add nsw i64 %.012.i.i.i.i.i16.i.i, -1
-  %177 = icmp ugt i64 %.012.i.i.i.i.i16.i.i, 1
-  br i1 %177, label %.lr.ph.i.i.i.i.i15.i.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit.i, !llvm.loop !101
+  %.012.i.i.i.i.i16.i.i = phi i64 [ %186, %.lr.ph.i.i.i.i.i15.i.i ], [ %178, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i ]
+  %.0811.i.i.i.i.i17.i.i = phi ptr [ %185, %.lr.ph.i.i.i.i.i15.i.i ], [ %.08.lcssa.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i ]
+  %.0910.i.i.i.i.i18.i.i = phi ptr [ %184, %.lr.ph.i.i.i.i.i15.i.i ], [ %.sroa.020.1.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i ]
+  %180 = load ptr, ptr %.0910.i.i.i.i.i18.i.i, align 8
+  store ptr %180, ptr %.0811.i.i.i.i.i17.i.i, align 8
+  %181 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i18.i.i, i64 8
+  %182 = load i32, ptr %181, align 4
+  %183 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i17.i.i, i64 8
+  store i32 %182, ptr %183, align 8
+  %184 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i18.i.i, i64 16
+  %185 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i17.i.i, i64 16
+  %186 = add nsw i64 %.012.i.i.i.i.i16.i.i, -1
+  %187 = icmp ugt i64 %.012.i.i.i.i.i16.i.i, 1
+  br i1 %187, label %.lr.ph.i.i.i.i.i15.i.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit.i, !llvm.loop !101
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit.i: ; preds = %.lr.ph.i.i.i.i.i15.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i
-  %.08.lcssa.i.i.i.i.i14.i.i = phi ptr [ %.08.lcssa.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i ], [ %175, %.lr.ph.i.i.i.i.i15.i.i ]
-  %178 = load ptr, ptr %105, align 8
-  %.not.i.i.i26.i = icmp eq ptr %178, null
-  br i1 %.not.i.i.i26.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i34, label %179
+  %.08.lcssa.i.i.i.i.i14.i.i = phi ptr [ %.08.lcssa.i.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i ], [ %185, %.lr.ph.i.i.i.i.i15.i.i ]
+  %188 = load ptr, ptr %113, align 8
+  %.not.i.i.i26.i = icmp eq ptr %188, null
+  br i1 %.not.i.i.i26.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i34, label %189
 
-179:                                              ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit.i
-  %180 = invoke noundef zeroext i1 %178(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i34 unwind label %181
+189:                                              ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit.i
+  %190 = invoke noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i34 unwind label %191
 
-181:                                              ; preds = %179
-  %182 = landingpad { ptr, i32 }
+191:                                              ; preds = %189
+  %192 = landingpad { ptr, i32 }
           catch ptr null
-  %183 = extractvalue { ptr, i32 } %182, 0
-  call void @__clang_call_terminate(ptr %183) #27
+  %193 = extractvalue { ptr, i32 } %192, 0
+  call void @__clang_call_terminate(ptr %193) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i34: ; preds = %179, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit.i
-  %184 = sub i64 %14, %165
-  %185 = ashr exact i64 %184, 4
-  %.not.i = icmp slt i64 %185, %129
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i34: ; preds = %189, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit.i
+  %194 = sub i64 %14, %175
+  %195 = ashr exact i64 %194, 4
+  %.not.i = icmp slt i64 %195, %138
   br i1 %.not.i, label %._crit_edge.i35.loopexit, label %.lr.ph.i27, !llvm.loop !102
 
 .loopexit77.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i.i
   %lpad.loopexit79.i = landingpad { ptr, i32 }
           cleanup
-  br label %186
+  br label %196
 
-.loopexit.split-lp78.i:                           ; preds = %145
+.loopexit.split-lp78.i:                           ; preds = %155
   %lpad.loopexit.split-lp80.i = landingpad { ptr, i32 }
           cleanup
-  br label %186
+  br label %196
 
-186:                                              ; preds = %.loopexit.split-lp78.i, %.loopexit77.i
+196:                                              ; preds = %.loopexit.split-lp78.i, %.loopexit77.i
   %lpad.phi81.i = phi { ptr, i32 } [ %lpad.loopexit79.i, %.loopexit77.i ], [ %lpad.loopexit.split-lp80.i, %.loopexit.split-lp78.i ]
-  %187 = load ptr, ptr %105, align 8
-  %.not.i.i.i27.i = icmp eq ptr %187, null
-  br i1 %.not.i.i.i27.i, label %.body36, label %188
+  %197 = load ptr, ptr %113, align 8
+  %.not.i.i.i27.i = icmp eq ptr %197, null
+  br i1 %.not.i.i.i27.i, label %.body36, label %198
 
-188:                                              ; preds = %186
-  %189 = invoke noundef zeroext i1 %187(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %.body36 unwind label %190
+198:                                              ; preds = %196
+  %199 = invoke noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+          to label %.body36 unwind label %200
 
-190:                                              ; preds = %188
-  %191 = landingpad { ptr, i32 }
+200:                                              ; preds = %198
+  %201 = landingpad { ptr, i32 }
           catch ptr null
-  %192 = extractvalue { ptr, i32 } %191, 0
-  call void @__clang_call_terminate(ptr %192) #27
+  %202 = extractvalue { ptr, i32 } %201, 0
+  call void @__clang_call_terminate(ptr %202) #27
   unreachable
 
 ._crit_edge.i35.loopexit:                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i34
-  %.val.i.i29.i.pre = load ptr, ptr %104, align 8
+  %.val.i.i29.i.pre = load ptr, ptr %110, align 8
   br label %._crit_edge.i35
 
 ._crit_edge.i35:                                  ; preds = %._crit_edge.i35.loopexit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26
   %.val.i.i29.i = phi ptr [ %.val.i.i29.i209, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26 ], [ %.val.i.i29.i.pre, %._crit_edge.i35.loopexit ]
-  %.sroa.075.0.lcssa.i = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26 ], [ %131, %._crit_edge.i35.loopexit ]
+  %.sroa.075.0.lcssa.i = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26 ], [ %140, %._crit_edge.i35.loopexit ]
   %.0.lcssa.i = phi ptr [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26 ], [ %.08.lcssa.i.i.i.i.i14.i.i, %._crit_edge.i35.loopexit ]
-  %.lcssa86.i = phi i64 [ %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26 ], [ %185, %._crit_edge.i35.loopexit ]
+  %.lcssa86.i = phi i64 [ %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit26 ], [ %195, %._crit_edge.i35.loopexit ]
   %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %.lcssa86.i, i64 %.0177)
-  %193 = getelementptr inbounds %"struct.std::pair.150", ptr %.sroa.075.0.lcssa.i, i64 %.sroa.speculated.i
+  %203 = getelementptr inbounds %"struct.std::pair.150", ptr %.sroa.075.0.lcssa.i, i64 %.sroa.speculated.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %.not.i.i.not.i.i30.i = icmp eq ptr %.val.i.i29.i, null
-  br i1 %.not.i.i.not.i.i30.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i, label %194
+  br i1 %.not.i.i.not.i.i30.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i, label %204
 
-194:                                              ; preds = %._crit_edge.i35
-  %195 = invoke noundef zeroext i1 %.val.i.i29.i(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 2)
-          to label %196 unwind label %198
+204:                                              ; preds = %._crit_edge.i35
+  %205 = invoke noundef zeroext i1 %.val.i.i29.i(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 2)
+          to label %206 unwind label %209
 
-196:                                              ; preds = %194
-  %197 = load <2 x ptr>, ptr %104, align 8
-  store <2 x ptr> %197, ptr %107, align 8
+206:                                              ; preds = %204
+  %207 = load ptr, ptr %111, align 8
+  store ptr %207, ptr %116, align 8
+  %208 = load ptr, ptr %110, align 8
+  store ptr %208, ptr %115, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i
 
-198:                                              ; preds = %194
-  %199 = landingpad { ptr, i32 }
+209:                                              ; preds = %204
+  %210 = landingpad { ptr, i32 }
           cleanup
-  %200 = load ptr, ptr %107, align 8
-  %.not.i.i.i31.i = icmp eq ptr %200, null
-  br i1 %.not.i.i.i31.i, label %.body36, label %201
+  %211 = load ptr, ptr %115, align 8
+  %.not.i.i.i31.i = icmp eq ptr %211, null
+  br i1 %.not.i.i.i31.i, label %.body36, label %212
 
-201:                                              ; preds = %198
-  %202 = invoke noundef zeroext i1 %200(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %.body36 unwind label %203
+212:                                              ; preds = %209
+  %213 = invoke noundef zeroext i1 %211(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+          to label %.body36 unwind label %214
 
-203:                                              ; preds = %201
-  %204 = landingpad { ptr, i32 }
+214:                                              ; preds = %212
+  %215 = landingpad { ptr, i32 }
           catch ptr null
-  %205 = extractvalue { ptr, i32 } %204, 0
-  call void @__clang_call_terminate(ptr %205) #27
+  %216 = extractvalue { ptr, i32 } %215, 0
+  call void @__clang_call_terminate(ptr %216) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i: ; preds = %196, %._crit_edge.i35
-  %206 = icmp ne i64 %.sroa.speculated.i, 0
-  %207 = icmp ne ptr %193, %1
-  %or.cond27.i34.i = select i1 %206, i1 %207, i1 false
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i: ; preds = %206, %._crit_edge.i35
+  %217 = icmp ne i64 %.sroa.speculated.i, 0
+  %218 = icmp ne ptr %203, %1
+  %or.cond27.i34.i = select i1 %217, i1 %218, i1 false
   br i1 %or.cond27.i34.i, label %.lr.ph.i50.i, label %.critedge.i35.i
 
 .lr.ph.i50.i:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i, %.noexc63.i
-  %.030.i51.i = phi ptr [ %213, %.noexc63.i ], [ %.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ]
+  %.030.i51.i = phi ptr [ %224, %.noexc63.i ], [ %.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ]
   %.sroa.022.029.i52.i = phi ptr [ %.sroa.022.1.i58.i, %.noexc63.i ], [ %.sroa.075.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ]
-  %.sroa.020.028.i53.i = phi ptr [ %.sroa.020.1.i57.i, %.noexc63.i ], [ %193, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ]
-  %208 = load ptr, ptr %107, align 8
-  %.not.i.i.i.i54.i = icmp eq ptr %208, null
-  br i1 %.not.i.i.i.i54.i, label %209, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i55.i
+  %.sroa.020.028.i53.i = phi ptr [ %.sroa.020.1.i57.i, %.noexc63.i ], [ %203, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ]
+  %219 = load ptr, ptr %115, align 8
+  %.not.i.i.i.i54.i = icmp eq ptr %219, null
+  br i1 %.not.i.i.i.i54.i, label %220, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i55.i
 
-209:                                              ; preds = %.lr.ph.i50.i
+220:                                              ; preds = %.lr.ph.i50.i
   invoke void @_ZSt25__throw_bad_function_callv() #25
           to label %.noexc62.i unwind label %.loopexit.split-lp.i
 
-.noexc62.i:                                       ; preds = %209
+.noexc62.i:                                       ; preds = %220
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i55.i: ; preds = %.lr.ph.i50.i
-  %210 = load ptr, ptr %108, align 8
-  %211 = invoke noundef zeroext i1 %210(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.020.028.i53.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.022.029.i52.i)
+  %221 = load ptr, ptr %116, align 8
+  %222 = invoke noundef zeroext i1 %221(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.020.028.i53.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.022.029.i52.i)
           to label %.noexc63.i unwind label %.loopexit.i
 
 .noexc63.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i55.i
-  %.sroa.020.028.pn.i56.i = select i1 %211, ptr %.sroa.020.028.i53.i, ptr %.sroa.022.029.i52.i
-  %.sroa.020.1.i57.idx.i = select i1 %211, i64 16, i64 0
+  %.sroa.020.028.pn.i56.i = select i1 %222, ptr %.sroa.020.028.i53.i, ptr %.sroa.022.029.i52.i
+  %.sroa.020.1.i57.idx.i = select i1 %222, i64 16, i64 0
   %.sroa.020.1.i57.i = getelementptr inbounds i8, ptr %.sroa.020.028.i53.i, i64 %.sroa.020.1.i57.idx.i
-  %.sroa.022.1.i58.idx.i = select i1 %211, i64 0, i64 16
+  %.sroa.022.1.i58.idx.i = select i1 %222, i64 0, i64 16
   %.sroa.022.1.i58.i = getelementptr inbounds i8, ptr %.sroa.022.029.i52.i, i64 %.sroa.022.1.i58.idx.i
   %.sink125.i = load ptr, ptr %.sroa.020.028.pn.i56.i, align 8
   store ptr %.sink125.i, ptr %.030.i51.i, align 8
   %.sink.in.i59.i = getelementptr inbounds i8, ptr %.sroa.020.028.pn.i56.i, i64 8
   %.sink.i60.i = load i32, ptr %.sink.in.i59.i, align 4
-  %212 = getelementptr inbounds i8, ptr %.030.i51.i, i64 8
-  store i32 %.sink.i60.i, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %.030.i51.i, i64 16
-  %214 = icmp ne ptr %.sroa.022.1.i58.i, %193
-  %215 = icmp ne ptr %.sroa.020.1.i57.i, %1
-  %or.cond.i61.i = select i1 %214, i1 %215, i1 false
+  %223 = getelementptr inbounds i8, ptr %.030.i51.i, i64 8
+  store i32 %.sink.i60.i, ptr %223, align 8
+  %224 = getelementptr inbounds i8, ptr %.030.i51.i, i64 16
+  %225 = icmp ne ptr %.sroa.022.1.i58.i, %203
+  %226 = icmp ne ptr %.sroa.020.1.i57.i, %1
+  %or.cond.i61.i = select i1 %225, i1 %226, i1 false
   br i1 %or.cond.i61.i, label %.lr.ph.i50.i, label %.critedge.i35.i, !llvm.loop !100
 
 .critedge.i35.i:                                  ; preds = %.noexc63.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i
-  %.sroa.020.0.lcssa.i36.i = phi ptr [ %193, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ], [ %.sroa.020.1.i57.i, %.noexc63.i ]
+  %.sroa.020.0.lcssa.i36.i = phi ptr [ %203, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ], [ %.sroa.020.1.i57.i, %.noexc63.i ]
   %.sroa.022.0.lcssa.i37.i = phi ptr [ %.sroa.075.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ], [ %.sroa.022.1.i58.i, %.noexc63.i ]
-  %.0.lcssa.i38.i = phi ptr [ %.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ], [ %213, %.noexc63.i ]
-  %216 = ptrtoint ptr %193 to i64
-  %217 = ptrtoint ptr %.sroa.022.0.lcssa.i37.i to i64
-  %218 = sub i64 %216, %217
-  %219 = ashr exact i64 %218, 4
-  %220 = icmp sgt i64 %219, 0
-  br i1 %220, label %.lr.ph.i.i.i.i.i.i46.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i
+  %.0.lcssa.i38.i = phi ptr [ %.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ], [ %224, %.noexc63.i ]
+  %227 = ptrtoint ptr %203 to i64
+  %228 = ptrtoint ptr %.sroa.022.0.lcssa.i37.i to i64
+  %229 = sub i64 %227, %228
+  %230 = ashr exact i64 %229, 4
+  %231 = icmp sgt i64 %230, 0
+  br i1 %231, label %.lr.ph.i.i.i.i.i.i46.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i
 
 .lr.ph.i.i.i.i.i.i46.i:                           ; preds = %.critedge.i35.i, %.lr.ph.i.i.i.i.i.i46.i
-  %.012.i.i.i.i.i.i47.i = phi i64 [ %227, %.lr.ph.i.i.i.i.i.i46.i ], [ %219, %.critedge.i35.i ]
-  %.0811.i.i.i.i.i.i48.i = phi ptr [ %226, %.lr.ph.i.i.i.i.i.i46.i ], [ %.0.lcssa.i38.i, %.critedge.i35.i ]
-  %.0910.i.i.i.i.i.i49.i = phi ptr [ %225, %.lr.ph.i.i.i.i.i.i46.i ], [ %.sroa.022.0.lcssa.i37.i, %.critedge.i35.i ]
-  %221 = load ptr, ptr %.0910.i.i.i.i.i.i49.i, align 8
-  store ptr %221, ptr %.0811.i.i.i.i.i.i48.i, align 8
-  %222 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i49.i, i64 8
-  %223 = load i32, ptr %222, align 4
-  %224 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i48.i, i64 8
-  store i32 %223, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i49.i, i64 16
-  %226 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i48.i, i64 16
-  %227 = add nsw i64 %.012.i.i.i.i.i.i47.i, -1
-  %228 = icmp ugt i64 %.012.i.i.i.i.i.i47.i, 1
-  br i1 %228, label %.lr.ph.i.i.i.i.i.i46.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i, !llvm.loop !101
+  %.012.i.i.i.i.i.i47.i = phi i64 [ %238, %.lr.ph.i.i.i.i.i.i46.i ], [ %230, %.critedge.i35.i ]
+  %.0811.i.i.i.i.i.i48.i = phi ptr [ %237, %.lr.ph.i.i.i.i.i.i46.i ], [ %.0.lcssa.i38.i, %.critedge.i35.i ]
+  %.0910.i.i.i.i.i.i49.i = phi ptr [ %236, %.lr.ph.i.i.i.i.i.i46.i ], [ %.sroa.022.0.lcssa.i37.i, %.critedge.i35.i ]
+  %232 = load ptr, ptr %.0910.i.i.i.i.i.i49.i, align 8
+  store ptr %232, ptr %.0811.i.i.i.i.i.i48.i, align 8
+  %233 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i49.i, i64 8
+  %234 = load i32, ptr %233, align 4
+  %235 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i48.i, i64 8
+  store i32 %234, ptr %235, align 8
+  %236 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i49.i, i64 16
+  %237 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i48.i, i64 16
+  %238 = add nsw i64 %.012.i.i.i.i.i.i47.i, -1
+  %239 = icmp ugt i64 %.012.i.i.i.i.i.i47.i, 1
+  br i1 %239, label %.lr.ph.i.i.i.i.i.i46.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i, !llvm.loop !101
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i: ; preds = %.lr.ph.i.i.i.i.i.i46.i, %.critedge.i35.i
-  %.08.lcssa.i.i.i.i.i.i40.i = phi ptr [ %.0.lcssa.i38.i, %.critedge.i35.i ], [ %226, %.lr.ph.i.i.i.i.i.i46.i ]
-  %229 = ptrtoint ptr %.sroa.020.0.lcssa.i36.i to i64
-  %230 = sub i64 %14, %229
-  %231 = ashr exact i64 %230, 4
-  %232 = icmp sgt i64 %231, 0
-  br i1 %232, label %.lr.ph.i.i.i.i.i15.i42.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit64.i
+  %.08.lcssa.i.i.i.i.i.i40.i = phi ptr [ %.0.lcssa.i38.i, %.critedge.i35.i ], [ %237, %.lr.ph.i.i.i.i.i.i46.i ]
+  %240 = ptrtoint ptr %.sroa.020.0.lcssa.i36.i to i64
+  %241 = sub i64 %14, %240
+  %242 = ashr exact i64 %241, 4
+  %243 = icmp sgt i64 %242, 0
+  br i1 %243, label %.lr.ph.i.i.i.i.i15.i42.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit64.i
 
 .lr.ph.i.i.i.i.i15.i42.i:                         ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i, %.lr.ph.i.i.i.i.i15.i42.i
-  %.012.i.i.i.i.i16.i43.i = phi i64 [ %239, %.lr.ph.i.i.i.i.i15.i42.i ], [ %231, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i ]
-  %.0811.i.i.i.i.i17.i44.i = phi ptr [ %238, %.lr.ph.i.i.i.i.i15.i42.i ], [ %.08.lcssa.i.i.i.i.i.i40.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i ]
-  %.0910.i.i.i.i.i18.i45.i = phi ptr [ %237, %.lr.ph.i.i.i.i.i15.i42.i ], [ %.sroa.020.0.lcssa.i36.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i ]
-  %233 = load ptr, ptr %.0910.i.i.i.i.i18.i45.i, align 8
-  store ptr %233, ptr %.0811.i.i.i.i.i17.i44.i, align 8
-  %234 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i18.i45.i, i64 8
-  %235 = load i32, ptr %234, align 4
-  %236 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i17.i44.i, i64 8
-  store i32 %235, ptr %236, align 8
-  %237 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i18.i45.i, i64 16
-  %238 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i17.i44.i, i64 16
-  %239 = add nsw i64 %.012.i.i.i.i.i16.i43.i, -1
-  %240 = icmp ugt i64 %.012.i.i.i.i.i16.i43.i, 1
-  br i1 %240, label %.lr.ph.i.i.i.i.i15.i42.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit64.i, !llvm.loop !101
+  %.012.i.i.i.i.i16.i43.i = phi i64 [ %250, %.lr.ph.i.i.i.i.i15.i42.i ], [ %242, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i ]
+  %.0811.i.i.i.i.i17.i44.i = phi ptr [ %249, %.lr.ph.i.i.i.i.i15.i42.i ], [ %.08.lcssa.i.i.i.i.i.i40.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i ]
+  %.0910.i.i.i.i.i18.i45.i = phi ptr [ %248, %.lr.ph.i.i.i.i.i15.i42.i ], [ %.sroa.020.0.lcssa.i36.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i ]
+  %244 = load ptr, ptr %.0910.i.i.i.i.i18.i45.i, align 8
+  store ptr %244, ptr %.0811.i.i.i.i.i17.i44.i, align 8
+  %245 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i18.i45.i, i64 8
+  %246 = load i32, ptr %245, align 4
+  %247 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i17.i44.i, i64 8
+  store i32 %246, ptr %247, align 8
+  %248 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i18.i45.i, i64 16
+  %249 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i17.i44.i, i64 16
+  %250 = add nsw i64 %.012.i.i.i.i.i16.i43.i, -1
+  %251 = icmp ugt i64 %.012.i.i.i.i.i16.i43.i, 1
+  br i1 %251, label %.lr.ph.i.i.i.i.i15.i42.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit64.i, !llvm.loop !101
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit64.i: ; preds = %.lr.ph.i.i.i.i.i15.i42.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i
-  %241 = load ptr, ptr %107, align 8
-  %.not.i.i.i65.i = icmp eq ptr %241, null
-  br i1 %.not.i.i.i65.i, label %254, label %242
+  %252 = load ptr, ptr %115, align 8
+  %.not.i.i.i65.i = icmp eq ptr %252, null
+  br i1 %.not.i.i.i65.i, label %265, label %253
 
-242:                                              ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit64.i
-  %243 = invoke noundef zeroext i1 %241(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %254 unwind label %244
+253:                                              ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit64.i
+  %254 = invoke noundef zeroext i1 %252(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+          to label %265 unwind label %255
 
-244:                                              ; preds = %242
-  %245 = landingpad { ptr, i32 }
+255:                                              ; preds = %253
+  %256 = landingpad { ptr, i32 }
           catch ptr null
-  %246 = extractvalue { ptr, i32 } %245, 0
-  call void @__clang_call_terminate(ptr %246) #27
+  %257 = extractvalue { ptr, i32 } %256, 0
+  call void @__clang_call_terminate(ptr %257) #27
   unreachable
 
 .loopexit.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i55.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %247
+  br label %258
 
-.loopexit.split-lp.i:                             ; preds = %209
+.loopexit.split-lp.i:                             ; preds = %220
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %247
+  br label %258
 
-247:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
+258:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  %248 = load ptr, ptr %107, align 8
-  %.not.i.i.i67.i = icmp eq ptr %248, null
-  br i1 %.not.i.i.i67.i, label %.body36, label %249
+  %259 = load ptr, ptr %115, align 8
+  %.not.i.i.i67.i = icmp eq ptr %259, null
+  br i1 %.not.i.i.i67.i, label %.body36, label %260
 
-249:                                              ; preds = %247
-  %250 = invoke noundef zeroext i1 %248(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
-          to label %.body36 unwind label %251
+260:                                              ; preds = %258
+  %261 = invoke noundef zeroext i1 %259(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+          to label %.body36 unwind label %262
 
-251:                                              ; preds = %249
-  %252 = landingpad { ptr, i32 }
+262:                                              ; preds = %260
+  %263 = landingpad { ptr, i32 }
           catch ptr null
-  %253 = extractvalue { ptr, i32 } %252, 0
-  call void @__clang_call_terminate(ptr %253) #27
+  %264 = extractvalue { ptr, i32 } %263, 0
+  call void @__clang_call_terminate(ptr %264) #27
   unreachable
 
-254:                                              ; preds = %242, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit64.i
+265:                                              ; preds = %253, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit64.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  %255 = load ptr, ptr %104, align 8
-  %.not.i.i.i38 = icmp eq ptr %255, null
-  br i1 %.not.i.i.i38, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit39, label %256
+  %266 = load ptr, ptr %110, align 8
+  %.not.i.i.i38 = icmp eq ptr %266, null
+  br i1 %.not.i.i.i38, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit39, label %267
 
-256:                                              ; preds = %254
-  %257 = invoke noundef zeroext i1 %255(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit39 unwind label %258
+267:                                              ; preds = %265
+  %268 = invoke noundef zeroext i1 %266(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit39 unwind label %269
 
-258:                                              ; preds = %256
-  %259 = landingpad { ptr, i32 }
+269:                                              ; preds = %267
+  %270 = landingpad { ptr, i32 }
           catch ptr null
-  %260 = extractvalue { ptr, i32 } %259, 0
-  call void @__clang_call_terminate(ptr %260) #27
+  %271 = extractvalue { ptr, i32 } %270, 0
+  call void @__clang_call_terminate(ptr %271) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit39: ; preds = %254, %256
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit39: ; preds = %265, %267
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  %.val.i.i40 = load ptr, ptr %20, align 8
+  %.val.i.i40 = load ptr, ptr %21, align 8
   %.not.i.i.not.i.i41 = icmp eq ptr %.val.i.i40, null
-  br i1 %.not.i.i.not.i.i41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44, label %261
+  br i1 %.not.i.i.not.i.i41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44, label %272
 
-261:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit39
-  %262 = invoke noundef zeroext i1 %.val.i.i40(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
-          to label %263 unwind label %266
+272:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit39
+  %273 = invoke noundef zeroext i1 %.val.i.i40(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+          to label %274 unwind label %277
 
-263:                                              ; preds = %261
-  %264 = load <2 x ptr>, ptr %20, align 8
-  %265 = load ptr, ptr %20, align 8
-  store <2 x ptr> %264, ptr %109, align 8
+274:                                              ; preds = %272
+  %275 = load ptr, ptr %112, align 8
+  store ptr %275, ptr %118, align 8
+  %276 = load ptr, ptr %21, align 8
+  store ptr %276, ptr %117, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44
 
-266:                                              ; preds = %261
-  %267 = landingpad { ptr, i32 }
+277:                                              ; preds = %272
+  %278 = landingpad { ptr, i32 }
           cleanup
-  %268 = load ptr, ptr %109, align 8
-  %.not.i.i.i42 = icmp eq ptr %268, null
-  br i1 %.not.i.i.i42, label %common.resume, label %269
+  %279 = load ptr, ptr %117, align 8
+  %.not.i.i.i42 = icmp eq ptr %279, null
+  br i1 %.not.i.i.i42, label %common.resume, label %280
 
-269:                                              ; preds = %266
-  %270 = invoke noundef zeroext i1 %268(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
-          to label %common.resume unwind label %271
+280:                                              ; preds = %277
+  %281 = invoke noundef zeroext i1 %279(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+          to label %common.resume unwind label %282
 
-271:                                              ; preds = %269
-  %272 = landingpad { ptr, i32 }
+282:                                              ; preds = %280
+  %283 = landingpad { ptr, i32 }
           catch ptr null
-  %273 = extractvalue { ptr, i32 } %272, 0
-  call void @__clang_call_terminate(ptr %273) #27
+  %284 = extractvalue { ptr, i32 } %283, 0
+  call void @__clang_call_terminate(ptr %284) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit39, %263
-  %.val.i.i30.i211 = phi ptr [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit39 ], [ %265, %263 ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit39, %274
+  %.val.i.i30.i211 = phi ptr [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit39 ], [ %276, %274 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %274 = shl nsw i64 %.0177, 2
-  %.not105.i = icmp slt i64 %17, %274
+  %285 = shl nsw i64 %.0177, 2
+  %.not105.i = icmp slt i64 %17, %285
   br i1 %.not105.i, label %._crit_edge.i61, label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i59
-  %.sroa.020.0107.i = phi ptr [ %331, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i59 ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44 ]
-  %.0106.i = phi ptr [ %276, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i59 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44 ]
-  %275 = getelementptr inbounds %"struct.std::pair.150", ptr %.0106.i, i64 %129
-  %276 = getelementptr inbounds %"struct.std::pair.150", ptr %.0106.i, i64 %274
+  %.sroa.020.0107.i = phi ptr [ %343, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i59 ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44 ]
+  %.0106.i = phi ptr [ %287, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i59 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44 ]
+  %286 = getelementptr inbounds %"struct.std::pair.150", ptr %.0106.i, i64 %138
+  %287 = getelementptr inbounds %"struct.std::pair.150", ptr %.0106.i, i64 %285
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %.val.i.i.i46 = load ptr, ptr %109, align 8
+  %.val.i.i.i46 = load ptr, ptr %117, align 8
   %.not.i.i.not.i.i.i47 = icmp eq ptr %.val.i.i.i46, null
-  br i1 %.not.i.i.not.i.i.i47, label %.lr.ph.i.i52.preheader, label %277
+  br i1 %.not.i.i.not.i.i.i47, label %.lr.ph.i.i52.preheader, label %288
 
-.lr.ph.i.i52.preheader:                           ; preds = %279, %.lr.ph.i45
+.lr.ph.i.i52.preheader:                           ; preds = %290, %.lr.ph.i45
   br label %.lr.ph.i.i52
 
-277:                                              ; preds = %.lr.ph.i45
-  %278 = invoke noundef zeroext i1 %.val.i.i.i46(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 2)
-          to label %279 unwind label %281
+288:                                              ; preds = %.lr.ph.i45
+  %289 = invoke noundef zeroext i1 %.val.i.i.i46(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 2)
+          to label %290 unwind label %293
 
-279:                                              ; preds = %277
-  %280 = load <2 x ptr>, ptr %109, align 8
-  store <2 x ptr> %280, ptr %111, align 8
+290:                                              ; preds = %288
+  %291 = load ptr, ptr %118, align 8
+  store ptr %291, ptr %121, align 8
+  %292 = load ptr, ptr %117, align 8
+  store ptr %292, ptr %120, align 8
   br label %.lr.ph.i.i52.preheader
 
-281:                                              ; preds = %277
-  %282 = landingpad { ptr, i32 }
+293:                                              ; preds = %288
+  %294 = landingpad { ptr, i32 }
           cleanup
-  %283 = load ptr, ptr %111, align 8
-  %.not.i.i.i.i48 = icmp eq ptr %283, null
-  br i1 %.not.i.i.i.i48, label %.body80, label %284
+  %295 = load ptr, ptr %120, align 8
+  %.not.i.i.i.i48 = icmp eq ptr %295, null
+  br i1 %.not.i.i.i.i48, label %.body80, label %296
 
-284:                                              ; preds = %281
-  %285 = invoke noundef zeroext i1 %283(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %.body80 unwind label %286
+296:                                              ; preds = %293
+  %297 = invoke noundef zeroext i1 %295(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %.body80 unwind label %298
 
-286:                                              ; preds = %284
-  %287 = landingpad { ptr, i32 }
+298:                                              ; preds = %296
+  %299 = landingpad { ptr, i32 }
           catch ptr null
-  %288 = extractvalue { ptr, i32 } %287, 0
-  call void @__clang_call_terminate(ptr %288) #27
+  %300 = extractvalue { ptr, i32 } %299, 0
+  call void @__clang_call_terminate(ptr %300) #27
   unreachable
 
 .lr.ph.i.i52:                                     ; preds = %.lr.ph.i.i52.preheader, %.noexc26.i
   %.031.i.i = phi ptr [ %.1.i.i, %.noexc26.i ], [ %.0106.i, %.lr.ph.i.i52.preheader ]
-  %.01630.i.i = phi ptr [ %.117.i.i, %.noexc26.i ], [ %275, %.lr.ph.i.i52.preheader ]
-  %.sroa.0.029.i.i = phi ptr [ %294, %.noexc26.i ], [ %.sroa.020.0107.i, %.lr.ph.i.i52.preheader ]
-  %289 = load ptr, ptr %111, align 8
-  %.not.i.i.i.i.i53 = icmp eq ptr %289, null
-  br i1 %.not.i.i.i.i.i53, label %290, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_SF_EEbT_T0_.exit.i.i
+  %.01630.i.i = phi ptr [ %.117.i.i, %.noexc26.i ], [ %286, %.lr.ph.i.i52.preheader ]
+  %.sroa.0.029.i.i = phi ptr [ %306, %.noexc26.i ], [ %.sroa.020.0107.i, %.lr.ph.i.i52.preheader ]
+  %301 = load ptr, ptr %120, align 8
+  %.not.i.i.i.i.i53 = icmp eq ptr %301, null
+  br i1 %.not.i.i.i.i.i53, label %302, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_SF_EEbT_T0_.exit.i.i
 
-290:                                              ; preds = %.lr.ph.i.i52
+302:                                              ; preds = %.lr.ph.i.i52
   invoke void @_ZSt25__throw_bad_function_callv() #25
           to label %.noexc.i79 unwind label %.loopexit.split-lp75.i
 
-.noexc.i79:                                       ; preds = %290
+.noexc.i79:                                       ; preds = %302
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_SF_EEbT_T0_.exit.i.i: ; preds = %.lr.ph.i.i52
-  %291 = load ptr, ptr %112, align 8
-  %292 = invoke noundef zeroext i1 %291(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(12) %.01630.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.031.i.i)
+  %303 = load ptr, ptr %121, align 8
+  %304 = invoke noundef zeroext i1 %303(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(12) %.01630.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.031.i.i)
           to label %.noexc26.i unwind label %.loopexit74.i
 
 .noexc26.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_SF_EEbT_T0_.exit.i.i
-  %.01630.pn.i.i = select i1 %292, ptr %.01630.i.i, ptr %.031.i.i
-  %.117.i.idx.i = select i1 %292, i64 16, i64 0
+  %.01630.pn.i.i = select i1 %304, ptr %.01630.i.i, ptr %.031.i.i
+  %.117.i.idx.i = select i1 %304, i64 16, i64 0
   %.117.i.i = getelementptr inbounds i8, ptr %.01630.i.i, i64 %.117.i.idx.i
-  %.1.i.idx.i = select i1 %292, i64 0, i64 16
+  %.1.i.idx.i = select i1 %304, i64 0, i64 16
   %.1.i.i = getelementptr inbounds i8, ptr %.031.i.i, i64 %.1.i.idx.i
   %.sink.i54 = load ptr, ptr %.01630.pn.i.i, align 8
   store ptr %.sink.i54, ptr %.sroa.0.029.i.i, align 8
   %.sink.in.i.i55 = getelementptr inbounds i8, ptr %.01630.pn.i.i, i64 8
   %.sink.i.i56 = load i32, ptr %.sink.in.i.i55, align 4
-  %293 = getelementptr inbounds i8, ptr %.sroa.0.029.i.i, i64 8
-  store i32 %.sink.i.i56, ptr %293, align 8
-  %294 = getelementptr inbounds i8, ptr %.sroa.0.029.i.i, i64 16
-  %295 = icmp ne ptr %.1.i.i, %275
-  %296 = icmp ne ptr %.117.i.i, %276
-  %297 = select i1 %295, i1 %296, i1 false
-  br i1 %297, label %.lr.ph.i.i52, label %._crit_edge.i.i, !llvm.loop !103
+  %305 = getelementptr inbounds i8, ptr %.sroa.0.029.i.i, i64 8
+  store i32 %.sink.i.i56, ptr %305, align 8
+  %306 = getelementptr inbounds i8, ptr %.sroa.0.029.i.i, i64 16
+  %307 = icmp ne ptr %.1.i.i, %286
+  %308 = icmp ne ptr %.117.i.i, %287
+  %309 = select i1 %307, i1 %308, i1 false
+  br i1 %309, label %.lr.ph.i.i52, label %._crit_edge.i.i, !llvm.loop !103
 
 ._crit_edge.i.i:                                  ; preds = %.noexc26.i
-  %298 = ptrtoint ptr %275 to i64
-  %299 = ptrtoint ptr %.1.i.i to i64
-  %300 = sub i64 %298, %299
-  %301 = ashr exact i64 %300, 4
-  %302 = icmp sgt i64 %301, 0
-  br i1 %302, label %.lr.ph.i.i.i.i.i.i.i75, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i
+  %310 = ptrtoint ptr %286 to i64
+  %311 = ptrtoint ptr %.1.i.i to i64
+  %312 = sub i64 %310, %311
+  %313 = ashr exact i64 %312, 4
+  %314 = icmp sgt i64 %313, 0
+  br i1 %314, label %.lr.ph.i.i.i.i.i.i.i75, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i
 
 .lr.ph.i.i.i.i.i.i.i75:                           ; preds = %._crit_edge.i.i, %.lr.ph.i.i.i.i.i.i.i75
-  %.012.i.i.i.i.i.i.i76 = phi i64 [ %309, %.lr.ph.i.i.i.i.i.i.i75 ], [ %301, %._crit_edge.i.i ]
-  %.0811.i.i.i.i.i.i.i77 = phi ptr [ %308, %.lr.ph.i.i.i.i.i.i.i75 ], [ %294, %._crit_edge.i.i ]
-  %.0910.i.i.i.i.i.i.i78 = phi ptr [ %307, %.lr.ph.i.i.i.i.i.i.i75 ], [ %.1.i.i, %._crit_edge.i.i ]
-  %303 = load ptr, ptr %.0910.i.i.i.i.i.i.i78, align 8
-  store ptr %303, ptr %.0811.i.i.i.i.i.i.i77, align 8
-  %304 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i78, i64 8
-  %305 = load i32, ptr %304, align 4
-  %306 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i77, i64 8
-  store i32 %305, ptr %306, align 8
-  %307 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i78, i64 16
-  %308 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i77, i64 16
-  %309 = add nsw i64 %.012.i.i.i.i.i.i.i76, -1
-  %310 = icmp ugt i64 %.012.i.i.i.i.i.i.i76, 1
-  br i1 %310, label %.lr.ph.i.i.i.i.i.i.i75, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i, !llvm.loop !101
+  %.012.i.i.i.i.i.i.i76 = phi i64 [ %321, %.lr.ph.i.i.i.i.i.i.i75 ], [ %313, %._crit_edge.i.i ]
+  %.0811.i.i.i.i.i.i.i77 = phi ptr [ %320, %.lr.ph.i.i.i.i.i.i.i75 ], [ %306, %._crit_edge.i.i ]
+  %.0910.i.i.i.i.i.i.i78 = phi ptr [ %319, %.lr.ph.i.i.i.i.i.i.i75 ], [ %.1.i.i, %._crit_edge.i.i ]
+  %315 = load ptr, ptr %.0910.i.i.i.i.i.i.i78, align 8
+  store ptr %315, ptr %.0811.i.i.i.i.i.i.i77, align 8
+  %316 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i78, i64 8
+  %317 = load i32, ptr %316, align 4
+  %318 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i77, i64 8
+  store i32 %317, ptr %318, align 8
+  %319 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i78, i64 16
+  %320 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i77, i64 16
+  %321 = add nsw i64 %.012.i.i.i.i.i.i.i76, -1
+  %322 = icmp ugt i64 %.012.i.i.i.i.i.i.i76, 1
+  br i1 %322, label %.lr.ph.i.i.i.i.i.i.i75, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i, !llvm.loop !101
 
 _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i75, %._crit_edge.i.i
-  %.08.lcssa.i.i.i.i.i.i.i57 = phi ptr [ %294, %._crit_edge.i.i ], [ %308, %.lr.ph.i.i.i.i.i.i.i75 ]
-  %311 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i.i57 to i64
-  %312 = ptrtoint ptr %294 to i64
-  %313 = sub i64 %311, %312
-  %314 = getelementptr inbounds i8, ptr %294, i64 %313
-  %315 = ptrtoint ptr %276 to i64
-  %316 = ptrtoint ptr %.117.i.i to i64
-  %317 = sub i64 %315, %316
-  %318 = ashr exact i64 %317, 4
-  %319 = icmp sgt i64 %318, 0
-  br i1 %319, label %.lr.ph.i.i.i.i.i20.i.i, label %329
+  %.08.lcssa.i.i.i.i.i.i.i57 = phi ptr [ %306, %._crit_edge.i.i ], [ %320, %.lr.ph.i.i.i.i.i.i.i75 ]
+  %323 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i.i57 to i64
+  %324 = ptrtoint ptr %306 to i64
+  %325 = sub i64 %323, %324
+  %326 = getelementptr inbounds i8, ptr %306, i64 %325
+  %327 = ptrtoint ptr %287 to i64
+  %328 = ptrtoint ptr %.117.i.i to i64
+  %329 = sub i64 %327, %328
+  %330 = ashr exact i64 %329, 4
+  %331 = icmp sgt i64 %330, 0
+  br i1 %331, label %.lr.ph.i.i.i.i.i20.i.i, label %341
 
 .lr.ph.i.i.i.i.i20.i.i:                           ; preds = %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i, %.lr.ph.i.i.i.i.i20.i.i
-  %.012.i.i.i.i.i21.i.i = phi i64 [ %326, %.lr.ph.i.i.i.i.i20.i.i ], [ %318, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i ]
-  %.0811.i.i.i.i.i22.i.i = phi ptr [ %325, %.lr.ph.i.i.i.i.i20.i.i ], [ %314, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i ]
-  %.0910.i.i.i.i.i23.i.i = phi ptr [ %324, %.lr.ph.i.i.i.i.i20.i.i ], [ %.117.i.i, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i ]
-  %320 = load ptr, ptr %.0910.i.i.i.i.i23.i.i, align 8
-  store ptr %320, ptr %.0811.i.i.i.i.i22.i.i, align 8
-  %321 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i.i, i64 8
-  %322 = load i32, ptr %321, align 4
-  %323 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i.i, i64 8
-  store i32 %322, ptr %323, align 8
-  %324 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i.i, i64 16
-  %325 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i.i, i64 16
-  %326 = add nsw i64 %.012.i.i.i.i.i21.i.i, -1
-  %327 = icmp ugt i64 %.012.i.i.i.i.i21.i.i, 1
-  br i1 %327, label %.lr.ph.i.i.i.i.i20.i.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i.i, !llvm.loop !101
+  %.012.i.i.i.i.i21.i.i = phi i64 [ %338, %.lr.ph.i.i.i.i.i20.i.i ], [ %330, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i ]
+  %.0811.i.i.i.i.i22.i.i = phi ptr [ %337, %.lr.ph.i.i.i.i.i20.i.i ], [ %326, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i ]
+  %.0910.i.i.i.i.i23.i.i = phi ptr [ %336, %.lr.ph.i.i.i.i.i20.i.i ], [ %.117.i.i, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i ]
+  %332 = load ptr, ptr %.0910.i.i.i.i.i23.i.i, align 8
+  store ptr %332, ptr %.0811.i.i.i.i.i22.i.i, align 8
+  %333 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i.i, i64 8
+  %334 = load i32, ptr %333, align 4
+  %335 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i.i, i64 8
+  store i32 %334, ptr %335, align 8
+  %336 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i.i, i64 16
+  %337 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i.i, i64 16
+  %338 = add nsw i64 %.012.i.i.i.i.i21.i.i, -1
+  %339 = icmp ugt i64 %.012.i.i.i.i.i21.i.i, 1
+  br i1 %339, label %.lr.ph.i.i.i.i.i20.i.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i.i, !llvm.loop !101
 
 _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i20.i.i
-  %328 = ptrtoint ptr %325 to i64
-  br label %329
+  %340 = ptrtoint ptr %337 to i64
+  br label %341
 
-329:                                              ; preds = %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i.i, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i
-  %.08.lcssa.i.i.i.i.i19.i.i = phi i64 [ %311, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i ], [ %328, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i.i ]
-  %330 = sub i64 %.08.lcssa.i.i.i.i.i19.i.i, %311
-  %331 = getelementptr inbounds i8, ptr %314, i64 %330
-  %332 = load ptr, ptr %111, align 8
-  %.not.i.i.i27.i58 = icmp eq ptr %332, null
-  br i1 %.not.i.i.i27.i58, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i59, label %333
+341:                                              ; preds = %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i.i, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i
+  %.08.lcssa.i.i.i.i.i19.i.i = phi i64 [ %323, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i ], [ %340, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i.i ]
+  %342 = sub i64 %.08.lcssa.i.i.i.i.i19.i.i, %323
+  %343 = getelementptr inbounds i8, ptr %326, i64 %342
+  %344 = load ptr, ptr %120, align 8
+  %.not.i.i.i27.i58 = icmp eq ptr %344, null
+  br i1 %.not.i.i.i27.i58, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i59, label %345
 
-333:                                              ; preds = %329
-  %334 = invoke noundef zeroext i1 %332(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i59 unwind label %335
+345:                                              ; preds = %341
+  %346 = invoke noundef zeroext i1 %344(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i59 unwind label %347
 
-335:                                              ; preds = %333
-  %336 = landingpad { ptr, i32 }
+347:                                              ; preds = %345
+  %348 = landingpad { ptr, i32 }
           catch ptr null
-  %337 = extractvalue { ptr, i32 } %336, 0
-  call void @__clang_call_terminate(ptr %337) #27
+  %349 = extractvalue { ptr, i32 } %348, 0
+  call void @__clang_call_terminate(ptr %349) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i59: ; preds = %333, %329
-  %338 = sub i64 %110, %315
-  %339 = ashr exact i64 %338, 4
-  %.not.i60 = icmp slt i64 %339, %274
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i59: ; preds = %345, %341
+  %350 = sub i64 %119, %327
+  %351 = ashr exact i64 %350, 4
+  %.not.i60 = icmp slt i64 %351, %285
   br i1 %.not.i60, label %._crit_edge.i61.loopexit, label %.lr.ph.i45, !llvm.loop !104
 
 .loopexit74.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_SF_EEbT_T0_.exit.i.i
   %lpad.loopexit76.i = landingpad { ptr, i32 }
           cleanup
-  br label %340
+  br label %352
 
-.loopexit.split-lp75.i:                           ; preds = %290
+.loopexit.split-lp75.i:                           ; preds = %302
   %lpad.loopexit.split-lp77.i = landingpad { ptr, i32 }
           cleanup
-  br label %340
+  br label %352
 
-340:                                              ; preds = %.loopexit.split-lp75.i, %.loopexit74.i
+352:                                              ; preds = %.loopexit.split-lp75.i, %.loopexit74.i
   %lpad.phi78.i = phi { ptr, i32 } [ %lpad.loopexit76.i, %.loopexit74.i ], [ %lpad.loopexit.split-lp77.i, %.loopexit.split-lp75.i ]
-  %341 = load ptr, ptr %111, align 8
-  %.not.i.i.i28.i = icmp eq ptr %341, null
-  br i1 %.not.i.i.i28.i, label %.body80, label %342
+  %353 = load ptr, ptr %120, align 8
+  %.not.i.i.i28.i = icmp eq ptr %353, null
+  br i1 %.not.i.i.i28.i, label %.body80, label %354
 
-342:                                              ; preds = %340
-  %343 = invoke noundef zeroext i1 %341(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %.body80 unwind label %344
+354:                                              ; preds = %352
+  %355 = invoke noundef zeroext i1 %353(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %.body80 unwind label %356
 
-344:                                              ; preds = %342
-  %345 = landingpad { ptr, i32 }
+356:                                              ; preds = %354
+  %357 = landingpad { ptr, i32 }
           catch ptr null
-  %346 = extractvalue { ptr, i32 } %345, 0
-  call void @__clang_call_terminate(ptr %346) #27
+  %358 = extractvalue { ptr, i32 } %357, 0
+  call void @__clang_call_terminate(ptr %358) #27
   unreachable
 
 ._crit_edge.i61.loopexit:                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit.i59
-  %.val.i.i30.i.pre = load ptr, ptr %109, align 8
+  %.val.i.i30.i.pre = load ptr, ptr %117, align 8
   br label %._crit_edge.i61
 
 ._crit_edge.i61:                                  ; preds = %._crit_edge.i61.loopexit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44
   %.val.i.i30.i = phi ptr [ %.val.i.i30.i211, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44 ], [ %.val.i.i30.i.pre, %._crit_edge.i61.loopexit ]
-  %.0.lcssa.i62 = phi ptr [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44 ], [ %276, %._crit_edge.i61.loopexit ]
-  %.sroa.020.0.lcssa.i = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44 ], [ %331, %._crit_edge.i61.loopexit ]
-  %.lcssa83.i = phi i64 [ %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44 ], [ %339, %._crit_edge.i61.loopexit ]
-  %.sroa.speculated.i63 = call i64 @llvm.smin.i64(i64 %.lcssa83.i, i64 %129)
-  %347 = getelementptr inbounds %"struct.std::pair.150", ptr %.0.lcssa.i62, i64 %.sroa.speculated.i63
+  %.0.lcssa.i62 = phi ptr [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44 ], [ %287, %._crit_edge.i61.loopexit ]
+  %.sroa.020.0.lcssa.i = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44 ], [ %343, %._crit_edge.i61.loopexit ]
+  %.lcssa83.i = phi i64 [ %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit44 ], [ %351, %._crit_edge.i61.loopexit ]
+  %.sroa.speculated.i63 = call i64 @llvm.smin.i64(i64 %.lcssa83.i, i64 %138)
+  %359 = getelementptr inbounds %"struct.std::pair.150", ptr %.0.lcssa.i62, i64 %.sroa.speculated.i63
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %.not.i.i.not.i.i31.i = icmp eq ptr %.val.i.i30.i, null
-  br i1 %.not.i.i.not.i.i31.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i, label %348
+  br i1 %.not.i.i.not.i.i31.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i, label %360
 
-348:                                              ; preds = %._crit_edge.i61
-  %349 = invoke noundef zeroext i1 %.val.i.i30.i(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 2)
-          to label %350 unwind label %352
+360:                                              ; preds = %._crit_edge.i61
+  %361 = invoke noundef zeroext i1 %.val.i.i30.i(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 2)
+          to label %362 unwind label %365
 
-350:                                              ; preds = %348
-  %351 = load <2 x ptr>, ptr %109, align 8
-  store <2 x ptr> %351, ptr %113, align 8
+362:                                              ; preds = %360
+  %363 = load ptr, ptr %118, align 8
+  store ptr %363, ptr %123, align 8
+  %364 = load ptr, ptr %117, align 8
+  store ptr %364, ptr %122, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i
 
-352:                                              ; preds = %348
-  %353 = landingpad { ptr, i32 }
+365:                                              ; preds = %360
+  %366 = landingpad { ptr, i32 }
           cleanup
-  %354 = load ptr, ptr %113, align 8
-  %.not.i.i.i32.i = icmp eq ptr %354, null
-  br i1 %.not.i.i.i32.i, label %.body80, label %355
+  %367 = load ptr, ptr %122, align 8
+  %.not.i.i.i32.i = icmp eq ptr %367, null
+  br i1 %.not.i.i.i32.i, label %.body80, label %368
 
-355:                                              ; preds = %352
-  %356 = invoke noundef zeroext i1 %354(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %.body80 unwind label %357
+368:                                              ; preds = %365
+  %369 = invoke noundef zeroext i1 %367(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %.body80 unwind label %370
 
-357:                                              ; preds = %355
-  %358 = landingpad { ptr, i32 }
+370:                                              ; preds = %368
+  %371 = landingpad { ptr, i32 }
           catch ptr null
-  %359 = extractvalue { ptr, i32 } %358, 0
-  call void @__clang_call_terminate(ptr %359) #27
+  %372 = extractvalue { ptr, i32 } %371, 0
+  call void @__clang_call_terminate(ptr %372) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i: ; preds = %350, %._crit_edge.i61
-  %360 = icmp ne i64 %.sroa.speculated.i63, 0
-  %361 = icmp ne ptr %347, %18
-  %362 = and i1 %360, %361
-  br i1 %362, label %.lr.ph.i51.i, label %._crit_edge.i35.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i: ; preds = %362, %._crit_edge.i61
+  %373 = icmp ne i64 %.sroa.speculated.i63, 0
+  %374 = icmp ne ptr %359, %18
+  %375 = and i1 %373, %374
+  br i1 %375, label %.lr.ph.i51.i, label %._crit_edge.i35.i
 
 .lr.ph.i51.i:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i, %.noexc63.i71
   %.031.i52.i = phi ptr [ %.1.i59.i, %.noexc63.i71 ], [ %.0.lcssa.i62, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i ]
-  %.01630.i53.i = phi ptr [ %.117.i58.i, %.noexc63.i71 ], [ %347, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i ]
-  %.sroa.0.029.i54.i = phi ptr [ %368, %.noexc63.i71 ], [ %.sroa.020.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i ]
-  %363 = load ptr, ptr %113, align 8
-  %.not.i.i.i.i55.i = icmp eq ptr %363, null
-  br i1 %.not.i.i.i.i55.i, label %364, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_SF_EEbT_T0_.exit.i56.i
+  %.01630.i53.i = phi ptr [ %.117.i58.i, %.noexc63.i71 ], [ %359, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i ]
+  %.sroa.0.029.i54.i = phi ptr [ %381, %.noexc63.i71 ], [ %.sroa.020.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i ]
+  %376 = load ptr, ptr %122, align 8
+  %.not.i.i.i.i55.i = icmp eq ptr %376, null
+  br i1 %.not.i.i.i.i55.i, label %377, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_SF_EEbT_T0_.exit.i56.i
 
-364:                                              ; preds = %.lr.ph.i51.i
+377:                                              ; preds = %.lr.ph.i51.i
   invoke void @_ZSt25__throw_bad_function_callv() #25
           to label %.noexc62.i74 unwind label %.loopexit.split-lp.i72
 
-.noexc62.i74:                                     ; preds = %364
+.noexc62.i74:                                     ; preds = %377
   unreachable
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_SF_EEbT_T0_.exit.i56.i: ; preds = %.lr.ph.i51.i
-  %365 = load ptr, ptr %114, align 8
-  %366 = invoke noundef zeroext i1 %365(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(12) %.01630.i53.i, ptr noundef nonnull align 8 dereferenceable(12) %.031.i52.i)
+  %378 = load ptr, ptr %123, align 8
+  %379 = invoke noundef zeroext i1 %378(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(12) %.01630.i53.i, ptr noundef nonnull align 8 dereferenceable(12) %.031.i52.i)
           to label %.noexc63.i71 unwind label %.loopexit.i67
 
 .noexc63.i71:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_SF_EEbT_T0_.exit.i56.i
-  %.01630.pn.i57.i = select i1 %366, ptr %.01630.i53.i, ptr %.031.i52.i
-  %.117.i58.idx.i = select i1 %366, i64 16, i64 0
+  %.01630.pn.i57.i = select i1 %379, ptr %.01630.i53.i, ptr %.031.i52.i
+  %.117.i58.idx.i = select i1 %379, i64 16, i64 0
   %.117.i58.i = getelementptr inbounds i8, ptr %.01630.i53.i, i64 %.117.i58.idx.i
-  %.1.i59.idx.i = select i1 %366, i64 0, i64 16
+  %.1.i59.idx.i = select i1 %379, i64 0, i64 16
   %.1.i59.i = getelementptr inbounds i8, ptr %.031.i52.i, i64 %.1.i59.idx.i
   %.sink123.i = load ptr, ptr %.01630.pn.i57.i, align 8
   store ptr %.sink123.i, ptr %.sroa.0.029.i54.i, align 8
   %.sink.in.i60.i = getelementptr inbounds i8, ptr %.01630.pn.i57.i, i64 8
   %.sink.i61.i = load i32, ptr %.sink.in.i60.i, align 4
-  %367 = getelementptr inbounds i8, ptr %.sroa.0.029.i54.i, i64 8
-  store i32 %.sink.i61.i, ptr %367, align 8
-  %368 = getelementptr inbounds i8, ptr %.sroa.0.029.i54.i, i64 16
-  %369 = icmp ne ptr %.1.i59.i, %347
-  %370 = icmp ne ptr %.117.i58.i, %18
-  %371 = select i1 %369, i1 %370, i1 false
-  br i1 %371, label %.lr.ph.i51.i, label %._crit_edge.i35.i, !llvm.loop !103
+  %380 = getelementptr inbounds i8, ptr %.sroa.0.029.i54.i, i64 8
+  store i32 %.sink.i61.i, ptr %380, align 8
+  %381 = getelementptr inbounds i8, ptr %.sroa.0.029.i54.i, i64 16
+  %382 = icmp ne ptr %.1.i59.i, %359
+  %383 = icmp ne ptr %.117.i58.i, %18
+  %384 = select i1 %382, i1 %383, i1 false
+  br i1 %384, label %.lr.ph.i51.i, label %._crit_edge.i35.i, !llvm.loop !103
 
 ._crit_edge.i35.i:                                ; preds = %.noexc63.i71, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i
-  %.sroa.0.0.lcssa.i36.i = phi ptr [ %.sroa.020.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i ], [ %368, %.noexc63.i71 ]
-  %.016.lcssa.i37.i = phi ptr [ %347, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i ], [ %.117.i58.i, %.noexc63.i71 ]
+  %.sroa.0.0.lcssa.i36.i = phi ptr [ %.sroa.020.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i ], [ %381, %.noexc63.i71 ]
+  %.016.lcssa.i37.i = phi ptr [ %359, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i ], [ %.117.i58.i, %.noexc63.i71 ]
   %.0.lcssa.i38.i64 = phi ptr [ %.0.lcssa.i62, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit34.i ], [ %.1.i59.i, %.noexc63.i71 ]
-  %372 = ptrtoint ptr %347 to i64
-  %373 = ptrtoint ptr %.0.lcssa.i38.i64 to i64
-  %374 = sub i64 %372, %373
-  %375 = ashr exact i64 %374, 4
-  %376 = icmp sgt i64 %375, 0
-  br i1 %376, label %.lr.ph.i.i.i.i.i.i47.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i39.i
+  %385 = ptrtoint ptr %359 to i64
+  %386 = ptrtoint ptr %.0.lcssa.i38.i64 to i64
+  %387 = sub i64 %385, %386
+  %388 = ashr exact i64 %387, 4
+  %389 = icmp sgt i64 %388, 0
+  br i1 %389, label %.lr.ph.i.i.i.i.i.i47.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i39.i
 
 .lr.ph.i.i.i.i.i.i47.i:                           ; preds = %._crit_edge.i35.i, %.lr.ph.i.i.i.i.i.i47.i
-  %.012.i.i.i.i.i.i48.i = phi i64 [ %383, %.lr.ph.i.i.i.i.i.i47.i ], [ %375, %._crit_edge.i35.i ]
-  %.0811.i.i.i.i.i.i49.i = phi ptr [ %382, %.lr.ph.i.i.i.i.i.i47.i ], [ %.sroa.0.0.lcssa.i36.i, %._crit_edge.i35.i ]
-  %.0910.i.i.i.i.i.i50.i = phi ptr [ %381, %.lr.ph.i.i.i.i.i.i47.i ], [ %.0.lcssa.i38.i64, %._crit_edge.i35.i ]
-  %377 = load ptr, ptr %.0910.i.i.i.i.i.i50.i, align 8
-  store ptr %377, ptr %.0811.i.i.i.i.i.i49.i, align 8
-  %378 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i50.i, i64 8
-  %379 = load i32, ptr %378, align 4
-  %380 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i49.i, i64 8
-  store i32 %379, ptr %380, align 8
-  %381 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i50.i, i64 16
-  %382 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i49.i, i64 16
-  %383 = add nsw i64 %.012.i.i.i.i.i.i48.i, -1
-  %384 = icmp ugt i64 %.012.i.i.i.i.i.i48.i, 1
-  br i1 %384, label %.lr.ph.i.i.i.i.i.i47.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i39.i, !llvm.loop !101
+  %.012.i.i.i.i.i.i48.i = phi i64 [ %396, %.lr.ph.i.i.i.i.i.i47.i ], [ %388, %._crit_edge.i35.i ]
+  %.0811.i.i.i.i.i.i49.i = phi ptr [ %395, %.lr.ph.i.i.i.i.i.i47.i ], [ %.sroa.0.0.lcssa.i36.i, %._crit_edge.i35.i ]
+  %.0910.i.i.i.i.i.i50.i = phi ptr [ %394, %.lr.ph.i.i.i.i.i.i47.i ], [ %.0.lcssa.i38.i64, %._crit_edge.i35.i ]
+  %390 = load ptr, ptr %.0910.i.i.i.i.i.i50.i, align 8
+  store ptr %390, ptr %.0811.i.i.i.i.i.i49.i, align 8
+  %391 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i50.i, i64 8
+  %392 = load i32, ptr %391, align 4
+  %393 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i49.i, i64 8
+  store i32 %392, ptr %393, align 8
+  %394 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i50.i, i64 16
+  %395 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i49.i, i64 16
+  %396 = add nsw i64 %.012.i.i.i.i.i.i48.i, -1
+  %397 = icmp ugt i64 %.012.i.i.i.i.i.i48.i, 1
+  br i1 %397, label %.lr.ph.i.i.i.i.i.i47.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i39.i, !llvm.loop !101
 
 _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i39.i: ; preds = %.lr.ph.i.i.i.i.i.i47.i, %._crit_edge.i35.i
-  %.08.lcssa.i.i.i.i.i.i40.i65 = phi ptr [ %.sroa.0.0.lcssa.i36.i, %._crit_edge.i35.i ], [ %382, %.lr.ph.i.i.i.i.i.i47.i ]
-  %385 = ptrtoint ptr %.016.lcssa.i37.i to i64
-  %386 = sub i64 %110, %385
-  %387 = ashr exact i64 %386, 4
-  %388 = icmp sgt i64 %387, 0
-  br i1 %388, label %.lr.ph.i.i.i.i.i20.i42.preheader.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i46.i
+  %.08.lcssa.i.i.i.i.i.i40.i65 = phi ptr [ %.sroa.0.0.lcssa.i36.i, %._crit_edge.i35.i ], [ %395, %.lr.ph.i.i.i.i.i.i47.i ]
+  %398 = ptrtoint ptr %.016.lcssa.i37.i to i64
+  %399 = sub i64 %119, %398
+  %400 = ashr exact i64 %399, 4
+  %401 = icmp sgt i64 %400, 0
+  br i1 %401, label %.lr.ph.i.i.i.i.i20.i42.preheader.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i46.i
 
 .lr.ph.i.i.i.i.i20.i42.preheader.i:               ; preds = %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i39.i
-  %389 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i40.i65 to i64
-  %390 = ptrtoint ptr %.sroa.0.0.lcssa.i36.i to i64
-  %391 = sub i64 %389, %390
-  %392 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i36.i, i64 %391
+  %402 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i40.i65 to i64
+  %403 = ptrtoint ptr %.sroa.0.0.lcssa.i36.i to i64
+  %404 = sub i64 %402, %403
+  %405 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i36.i, i64 %404
   br label %.lr.ph.i.i.i.i.i20.i42.i
 
 .lr.ph.i.i.i.i.i20.i42.i:                         ; preds = %.lr.ph.i.i.i.i.i20.i42.i, %.lr.ph.i.i.i.i.i20.i42.preheader.i
-  %.012.i.i.i.i.i21.i43.i = phi i64 [ %399, %.lr.ph.i.i.i.i.i20.i42.i ], [ %387, %.lr.ph.i.i.i.i.i20.i42.preheader.i ]
-  %.0811.i.i.i.i.i22.i44.i = phi ptr [ %398, %.lr.ph.i.i.i.i.i20.i42.i ], [ %392, %.lr.ph.i.i.i.i.i20.i42.preheader.i ]
-  %.0910.i.i.i.i.i23.i45.i = phi ptr [ %397, %.lr.ph.i.i.i.i.i20.i42.i ], [ %.016.lcssa.i37.i, %.lr.ph.i.i.i.i.i20.i42.preheader.i ]
-  %393 = load ptr, ptr %.0910.i.i.i.i.i23.i45.i, align 8
-  store ptr %393, ptr %.0811.i.i.i.i.i22.i44.i, align 8
-  %394 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i45.i, i64 8
-  %395 = load i32, ptr %394, align 4
-  %396 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i44.i, i64 8
-  store i32 %395, ptr %396, align 8
-  %397 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i45.i, i64 16
-  %398 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i44.i, i64 16
-  %399 = add nsw i64 %.012.i.i.i.i.i21.i43.i, -1
-  %400 = icmp ugt i64 %.012.i.i.i.i.i21.i43.i, 1
-  br i1 %400, label %.lr.ph.i.i.i.i.i20.i42.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i46.i, !llvm.loop !101
+  %.012.i.i.i.i.i21.i43.i = phi i64 [ %412, %.lr.ph.i.i.i.i.i20.i42.i ], [ %400, %.lr.ph.i.i.i.i.i20.i42.preheader.i ]
+  %.0811.i.i.i.i.i22.i44.i = phi ptr [ %411, %.lr.ph.i.i.i.i.i20.i42.i ], [ %405, %.lr.ph.i.i.i.i.i20.i42.preheader.i ]
+  %.0910.i.i.i.i.i23.i45.i = phi ptr [ %410, %.lr.ph.i.i.i.i.i20.i42.i ], [ %.016.lcssa.i37.i, %.lr.ph.i.i.i.i.i20.i42.preheader.i ]
+  %406 = load ptr, ptr %.0910.i.i.i.i.i23.i45.i, align 8
+  store ptr %406, ptr %.0811.i.i.i.i.i22.i44.i, align 8
+  %407 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i45.i, i64 8
+  %408 = load i32, ptr %407, align 4
+  %409 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i44.i, i64 8
+  store i32 %408, ptr %409, align 8
+  %410 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i45.i, i64 16
+  %411 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i44.i, i64 16
+  %412 = add nsw i64 %.012.i.i.i.i.i21.i43.i, -1
+  %413 = icmp ugt i64 %.012.i.i.i.i.i21.i43.i, 1
+  br i1 %413, label %.lr.ph.i.i.i.i.i20.i42.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i46.i, !llvm.loop !101
 
 _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i46.i: ; preds = %.lr.ph.i.i.i.i.i20.i42.i, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i39.i
-  %401 = load ptr, ptr %113, align 8
-  %.not.i.i.i65.i66 = icmp eq ptr %401, null
-  br i1 %.not.i.i.i65.i66, label %414, label %402
+  %414 = load ptr, ptr %122, align 8
+  %.not.i.i.i65.i66 = icmp eq ptr %414, null
+  br i1 %.not.i.i.i65.i66, label %427, label %415
 
-402:                                              ; preds = %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i46.i
-  %403 = invoke noundef zeroext i1 %401(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %414 unwind label %404
+415:                                              ; preds = %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i46.i
+  %416 = invoke noundef zeroext i1 %414(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %427 unwind label %417
 
-404:                                              ; preds = %402
-  %405 = landingpad { ptr, i32 }
+417:                                              ; preds = %415
+  %418 = landingpad { ptr, i32 }
           catch ptr null
-  %406 = extractvalue { ptr, i32 } %405, 0
-  call void @__clang_call_terminate(ptr %406) #27
+  %419 = extractvalue { ptr, i32 } %418, 0
+  call void @__clang_call_terminate(ptr %419) #27
   unreachable
 
 .loopexit.i67:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_SF_EEbT_T0_.exit.i56.i
   %lpad.loopexit.i68 = landingpad { ptr, i32 }
           cleanup
-  br label %407
+  br label %420
 
-.loopexit.split-lp.i72:                           ; preds = %364
+.loopexit.split-lp.i72:                           ; preds = %377
   %lpad.loopexit.split-lp.i73 = landingpad { ptr, i32 }
           cleanup
-  br label %407
+  br label %420
 
-407:                                              ; preds = %.loopexit.split-lp.i72, %.loopexit.i67
+420:                                              ; preds = %.loopexit.split-lp.i72, %.loopexit.i67
   %lpad.phi.i69 = phi { ptr, i32 } [ %lpad.loopexit.i68, %.loopexit.i67 ], [ %lpad.loopexit.split-lp.i73, %.loopexit.split-lp.i72 ]
-  %408 = load ptr, ptr %113, align 8
-  %.not.i.i.i67.i70 = icmp eq ptr %408, null
-  br i1 %.not.i.i.i67.i70, label %.body80, label %409
+  %421 = load ptr, ptr %122, align 8
+  %.not.i.i.i67.i70 = icmp eq ptr %421, null
+  br i1 %.not.i.i.i67.i70, label %.body80, label %422
 
-409:                                              ; preds = %407
-  %410 = invoke noundef zeroext i1 %408(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
-          to label %.body80 unwind label %411
+422:                                              ; preds = %420
+  %423 = invoke noundef zeroext i1 %421(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
+          to label %.body80 unwind label %424
 
-411:                                              ; preds = %409
-  %412 = landingpad { ptr, i32 }
+424:                                              ; preds = %422
+  %425 = landingpad { ptr, i32 }
           catch ptr null
-  %413 = extractvalue { ptr, i32 } %412, 0
-  call void @__clang_call_terminate(ptr %413) #27
+  %426 = extractvalue { ptr, i32 } %425, 0
+  call void @__clang_call_terminate(ptr %426) #27
   unreachable
 
-414:                                              ; preds = %402, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i46.i
+427:                                              ; preds = %415, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i46.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %415 = load ptr, ptr %109, align 8
-  %.not.i.i.i82 = icmp eq ptr %415, null
-  br i1 %.not.i.i.i82, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit83, label %416
+  %428 = load ptr, ptr %117, align 8
+  %.not.i.i.i82 = icmp eq ptr %428, null
+  br i1 %.not.i.i.i82, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit83, label %429
 
-416:                                              ; preds = %414
-  %417 = invoke noundef zeroext i1 %415(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit83 unwind label %418
-
-418:                                              ; preds = %416
-  %419 = landingpad { ptr, i32 }
-          catch ptr null
-  %420 = extractvalue { ptr, i32 } %419, 0
-  call void @__clang_call_terminate(ptr %420) #27
-  unreachable
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit83: ; preds = %414, %416
-  %421 = icmp slt i64 %274, %17
-  br i1 %421, label %115, label %._crit_edge, !llvm.loop !105
-
-.body:                                            ; preds = %42, %45, %60, %63, %73, %76, %88, %91
-  %eh.lpad-body = phi { ptr, i32 } [ %43, %45 ], [ %43, %42 ], [ %74, %76 ], [ %74, %73 ], [ %61, %60 ], [ %61, %63 ], [ %89, %88 ], [ %89, %91 ]
-  %422 = load ptr, ptr %19, align 8
-  %.not.i.i.i84 = icmp eq ptr %422, null
-  br i1 %.not.i.i.i84, label %common.resume, label %423
-
-423:                                              ; preds = %.body
-  %424 = invoke noundef zeroext i1 %422(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
-          to label %common.resume unwind label %425
-
-425:                                              ; preds = %423
-  %426 = landingpad { ptr, i32 }
-          catch ptr null
-  %427 = extractvalue { ptr, i32 } %426, 0
-  call void @__clang_call_terminate(ptr %427) #27
-  unreachable
-
-.body36:                                          ; preds = %136, %139, %186, %188, %198, %201, %247, %249
-  %eh.lpad-body37 = phi { ptr, i32 } [ %137, %139 ], [ %137, %136 ], [ %199, %201 ], [ %199, %198 ], [ %lpad.phi81.i, %186 ], [ %lpad.phi81.i, %188 ], [ %lpad.phi.i, %247 ], [ %lpad.phi.i, %249 ]
-  %428 = load ptr, ptr %104, align 8
-  %.not.i.i.i86 = icmp eq ptr %428, null
-  br i1 %.not.i.i.i86, label %common.resume, label %429
-
-429:                                              ; preds = %.body36
-  %430 = invoke noundef zeroext i1 %428(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %common.resume unwind label %431
+429:                                              ; preds = %427
+  %430 = invoke noundef zeroext i1 %428(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit83 unwind label %431
 
 431:                                              ; preds = %429
   %432 = landingpad { ptr, i32 }
@@ -10021,21 +10063,59 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   call void @__clang_call_terminate(ptr %433) #27
   unreachable
 
-.body80:                                          ; preds = %281, %284, %340, %342, %352, %355, %407, %409
-  %eh.lpad-body81 = phi { ptr, i32 } [ %282, %284 ], [ %282, %281 ], [ %353, %355 ], [ %353, %352 ], [ %lpad.phi78.i, %340 ], [ %lpad.phi78.i, %342 ], [ %lpad.phi.i69, %407 ], [ %lpad.phi.i69, %409 ]
-  %434 = load ptr, ptr %109, align 8
-  %.not.i.i.i88 = icmp eq ptr %434, null
-  br i1 %.not.i.i.i88, label %common.resume, label %435
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit83: ; preds = %427, %429
+  %434 = icmp slt i64 %285, %17
+  br i1 %434, label %124, label %._crit_edge, !llvm.loop !105
 
-435:                                              ; preds = %.body80
-  %436 = invoke noundef zeroext i1 %434(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
-          to label %common.resume unwind label %437
+.body:                                            ; preds = %46, %49, %64, %67, %79, %82, %94, %97
+  %eh.lpad-body = phi { ptr, i32 } [ %47, %49 ], [ %47, %46 ], [ %80, %82 ], [ %80, %79 ], [ %65, %64 ], [ %65, %67 ], [ %95, %94 ], [ %95, %97 ]
+  %435 = load ptr, ptr %19, align 8
+  %.not.i.i.i84 = icmp eq ptr %435, null
+  br i1 %.not.i.i.i84, label %common.resume, label %436
 
-437:                                              ; preds = %435
-  %438 = landingpad { ptr, i32 }
+436:                                              ; preds = %.body
+  %437 = invoke noundef zeroext i1 %435(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+          to label %common.resume unwind label %438
+
+438:                                              ; preds = %436
+  %439 = landingpad { ptr, i32 }
           catch ptr null
-  %439 = extractvalue { ptr, i32 } %438, 0
-  call void @__clang_call_terminate(ptr %439) #27
+  %440 = extractvalue { ptr, i32 } %439, 0
+  call void @__clang_call_terminate(ptr %440) #27
+  unreachable
+
+.body36:                                          ; preds = %146, %149, %196, %198, %209, %212, %258, %260
+  %eh.lpad-body37 = phi { ptr, i32 } [ %147, %149 ], [ %147, %146 ], [ %210, %212 ], [ %210, %209 ], [ %lpad.phi81.i, %196 ], [ %lpad.phi81.i, %198 ], [ %lpad.phi.i, %258 ], [ %lpad.phi.i, %260 ]
+  %441 = load ptr, ptr %110, align 8
+  %.not.i.i.i86 = icmp eq ptr %441, null
+  br i1 %.not.i.i.i86, label %common.resume, label %442
+
+442:                                              ; preds = %.body36
+  %443 = invoke noundef zeroext i1 %441(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+          to label %common.resume unwind label %444
+
+444:                                              ; preds = %442
+  %445 = landingpad { ptr, i32 }
+          catch ptr null
+  %446 = extractvalue { ptr, i32 } %445, 0
+  call void @__clang_call_terminate(ptr %446) #27
+  unreachable
+
+.body80:                                          ; preds = %293, %296, %352, %354, %365, %368, %420, %422
+  %eh.lpad-body81 = phi { ptr, i32 } [ %294, %296 ], [ %294, %293 ], [ %366, %368 ], [ %366, %365 ], [ %lpad.phi78.i, %352 ], [ %lpad.phi78.i, %354 ], [ %lpad.phi.i69, %420 ], [ %lpad.phi.i69, %422 ]
+  %447 = load ptr, ptr %117, align 8
+  %.not.i.i.i88 = icmp eq ptr %447, null
+  br i1 %.not.i.i.i88, label %common.resume, label %448
+
+448:                                              ; preds = %.body80
+  %449 = invoke noundef zeroext i1 %447(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+          to label %common.resume unwind label %450
+
+450:                                              ; preds = %448
+  %451 = landingpad { ptr, i32 }
+          catch ptr null
+  %452 = extractvalue { ptr, i32 } %451, 0
+  call void @__clang_call_terminate(ptr %452) #27
   unreachable
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit83, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit
@@ -10055,7 +10135,7 @@ define internal fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iterat
   %.not = icmp sgt i64 %3, %4
   %.not75 = icmp sgt i64 %3, %6
   %or.cond = or i1 %.not, %.not75
-  br i1 %or.cond, label %79, label %17
+  br i1 %or.cond, label %81, label %17
 
 17:                                               ; preds = %8
   %18 = ptrtoint ptr %1 to i64
@@ -10093,33 +10173,36 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
 
 34:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit
   %35 = invoke noundef zeroext i1 %.val.i.i(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
-          to label %36 unwind label %38
+          to label %36 unwind label %40
 
 36:                                               ; preds = %34
-  %37 = load <2 x ptr>, ptr %33, align 8
-  store <2 x ptr> %37, ptr %31, align 8
+  %37 = getelementptr inbounds i8, ptr %7, i64 24
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr %32, align 8
+  %39 = load ptr, ptr %33, align 8
+  store ptr %39, ptr %31, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
 
-38:                                               ; preds = %34
-  %39 = landingpad { ptr, i32 }
+40:                                               ; preds = %34
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %40 = load ptr, ptr %31, align 8
-  %.not.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i, label %common.resume, label %41
+  %42 = load ptr, ptr %31, align 8
+  %.not.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i, label %common.resume, label %43
 
-41:                                               ; preds = %38
-  %42 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %common.resume unwind label %43
+43:                                               ; preds = %40
+  %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+          to label %common.resume unwind label %45
 
-43:                                               ; preds = %41
-  %44 = landingpad { ptr, i32 }
+45:                                               ; preds = %43
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #27
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #27
   unreachable
 
-common.resume:                                    ; preds = %72, %74, %172, %174, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit121, %243, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit152, %310, %447, %450, %455, %458, %432, %435, %411, %414, %255, %258, %188, %191, %103, %106, %38, %41
-  %common.resume.op = phi { ptr, i32 } [ %39, %41 ], [ %39, %38 ], [ %104, %106 ], [ %104, %103 ], [ %189, %191 ], [ %189, %188 ], [ %256, %258 ], [ %256, %255 ], [ %412, %414 ], [ %412, %411 ], [ %433, %435 ], [ %433, %432 ], [ %lpad.phi202, %72 ], [ %lpad.phi202, %74 ], [ %lpad.phi196, %172 ], [ %lpad.phi196, %174 ], [ %lpad.phi, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit121 ], [ %lpad.phi, %243 ], [ %lpad.phi190, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit152 ], [ %lpad.phi190, %310 ], [ %448, %447 ], [ %448, %450 ], [ %456, %455 ], [ %456, %458 ]
+common.resume:                                    ; preds = %74, %76, %175, %177, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit121, %246, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit152, %313, %456, %459, %464, %467, %441, %444, %417, %420, %258, %261, %191, %194, %106, %109, %40, %43
+  %common.resume.op = phi { ptr, i32 } [ %41, %43 ], [ %41, %40 ], [ %107, %109 ], [ %107, %106 ], [ %192, %194 ], [ %192, %191 ], [ %259, %261 ], [ %259, %258 ], [ %418, %420 ], [ %418, %417 ], [ %442, %444 ], [ %442, %441 ], [ %lpad.phi202, %74 ], [ %lpad.phi202, %76 ], [ %lpad.phi196, %175 ], [ %lpad.phi196, %177 ], [ %lpad.phi, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit121 ], [ %lpad.phi, %246 ], [ %lpad.phi190, %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit152 ], [ %lpad.phi190, %313 ], [ %457, %456 ], [ %457, %459 ], [ %465, %464 ], [ %465, %467 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit, %36
@@ -10128,1057 +10211,1067 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 
 .lr.ph.i:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit, %.noexc83
   %.028.i = phi ptr [ %.1.i, %.noexc83 ], [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit ]
-  %.sroa.0.027.i = phi ptr [ %52, %.noexc83 ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit ]
+  %.sroa.0.027.i = phi ptr [ %54, %.noexc83 ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit ]
   %.sroa.018.026.i = phi ptr [ %.sroa.018.1.i, %.noexc83 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit ]
   %.not19.i = icmp eq ptr %.sroa.018.026.i, %2
-  br i1 %.not19.i, label %.critedge.i, label %46
+  br i1 %.not19.i, label %.critedge.i, label %48
 
-46:                                               ; preds = %.lr.ph.i
-  %47 = load ptr, ptr %31, align 8
-  %.not.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i, label %48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESG_EEbT_T0_.exit.i
+48:                                               ; preds = %.lr.ph.i
+  %49 = load ptr, ptr %31, align 8
+  %.not.i.i.i.i = icmp eq ptr %49, null
+  br i1 %.not.i.i.i.i, label %50, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESG_EEbT_T0_.exit.i
 
-48:                                               ; preds = %46
+50:                                               ; preds = %48
   invoke void @_ZSt25__throw_bad_function_callv() #25
           to label %.noexc unwind label %.loopexit.split-lp199
 
-.noexc:                                           ; preds = %48
+.noexc:                                           ; preds = %50
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESG_EEbT_T0_.exit.i: ; preds = %46
-  %49 = load ptr, ptr %32, align 8
-  %50 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.018.026.i, ptr noundef nonnull align 8 dereferenceable(12) %.028.i)
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESG_EEbT_T0_.exit.i: ; preds = %48
+  %51 = load ptr, ptr %32, align 8
+  %52 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.018.026.i, ptr noundef nonnull align 8 dereferenceable(12) %.028.i)
           to label %.noexc83 unwind label %.loopexit198
 
 .noexc83:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESG_EEbT_T0_.exit.i
-  %.sroa.018.026.pn.i = select i1 %50, ptr %.sroa.018.026.i, ptr %.028.i
-  %.sroa.018.1.i.idx = select i1 %50, i64 16, i64 0
+  %.sroa.018.026.pn.i = select i1 %52, ptr %.sroa.018.026.i, ptr %.028.i
+  %.sroa.018.1.i.idx = select i1 %52, i64 16, i64 0
   %.sroa.018.1.i = getelementptr inbounds i8, ptr %.sroa.018.026.i, i64 %.sroa.018.1.i.idx
-  %.1.i.idx = select i1 %50, i64 0, i64 16
+  %.1.i.idx = select i1 %52, i64 0, i64 16
   %.1.i = getelementptr inbounds i8, ptr %.028.i, i64 %.1.i.idx
   %.sink = load ptr, ptr %.sroa.018.026.pn.i, align 8
   store ptr %.sink, ptr %.sroa.0.027.i, align 8
   %.sink.in.i = getelementptr inbounds i8, ptr %.sroa.018.026.pn.i, i64 8
   %.sink.i = load i32, ptr %.sink.in.i, align 4
-  %51 = getelementptr inbounds i8, ptr %.sroa.0.027.i, i64 8
-  store i32 %.sink.i, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.027.i, i64 16
+  %53 = getelementptr inbounds i8, ptr %.sroa.0.027.i, i64 8
+  store i32 %.sink.i, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %.sroa.0.027.i, i64 16
   %.not.i = icmp eq ptr %.1.i, %.08.lcssa.i.i.i.i.i
   br i1 %.not.i, label %_ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEESC_NS7_5__ops15_Iter_comp_iterISt8functionIFbRKS5_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, label %.lr.ph.i, !llvm.loop !106
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %53 = ptrtoint ptr %.08.lcssa.i.i.i.i.i to i64
-  %54 = ptrtoint ptr %.028.i to i64
-  %55 = sub i64 %53, %54
-  %56 = ashr exact i64 %55, 4
-  %57 = icmp sgt i64 %56, 0
-  br i1 %57, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEESC_NS7_5__ops15_Iter_comp_iterISt8functionIFbRKS5_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit
+  %55 = ptrtoint ptr %.08.lcssa.i.i.i.i.i to i64
+  %56 = ptrtoint ptr %.028.i to i64
+  %57 = sub i64 %55, %56
+  %58 = ashr exact i64 %57, 4
+  %59 = icmp sgt i64 %58, 0
+  br i1 %59, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEESC_NS7_5__ops15_Iter_comp_iterISt8functionIFbRKS5_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.critedge.i, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi i64 [ %64, %.lr.ph.i.i.i.i.i.i ], [ %56, %.critedge.i ]
-  %.0811.i.i.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.027.i, %.critedge.i ]
-  %.0910.i.i.i.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i.i.i ], [ %.028.i, %.critedge.i ]
-  %58 = load ptr, ptr %.0910.i.i.i.i.i.i, align 8
-  store ptr %58, ptr %.0811.i.i.i.i.i.i, align 8
-  %59 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 8
-  %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 8
-  store i32 %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
-  %63 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
-  %64 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %65 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
-  br i1 %65, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEESC_NS7_5__ops15_Iter_comp_iterISt8functionIFbRKS5_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, !llvm.loop !101
+  %.012.i.i.i.i.i.i = phi i64 [ %66, %.lr.ph.i.i.i.i.i.i ], [ %58, %.critedge.i ]
+  %.0811.i.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.027.i, %.critedge.i ]
+  %.0910.i.i.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i.i.i ], [ %.028.i, %.critedge.i ]
+  %60 = load ptr, ptr %.0910.i.i.i.i.i.i, align 8
+  store ptr %60, ptr %.0811.i.i.i.i.i.i, align 8
+  %61 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 8
+  %62 = load i32, ptr %61, align 4
+  %63 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 8
+  store i32 %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
+  %65 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
+  %66 = add nsw i64 %.012.i.i.i.i.i.i, -1
+  %67 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  br i1 %67, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEESC_NS7_5__ops15_Iter_comp_iterISt8functionIFbRKS5_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, !llvm.loop !101
 
 _ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEESC_NS7_5__ops15_Iter_comp_iterISt8functionIFbRKS5_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit: ; preds = %.noexc83, %.lr.ph.i.i.i.i.i.i, %.critedge.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
-  %66 = load ptr, ptr %31, align 8
-  %.not.i.i.i84 = icmp eq ptr %66, null
-  br i1 %.not.i.i.i84, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %67
+  %68 = load ptr, ptr %31, align 8
+  %.not.i.i.i84 = icmp eq ptr %68, null
+  br i1 %.not.i.i.i84, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %69
 
-67:                                               ; preds = %_ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEESC_NS7_5__ops15_Iter_comp_iterISt8functionIFbRKS5_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit
-  %68 = invoke noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %69
+69:                                               ; preds = %_ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEESC_NS7_5__ops15_Iter_comp_iterISt8functionIFbRKS5_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit
+  %70 = invoke noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %71
 
-69:                                               ; preds = %67
-  %70 = landingpad { ptr, i32 }
+71:                                               ; preds = %69
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #27
+  %73 = extractvalue { ptr, i32 } %72, 0
+  call void @__clang_call_terminate(ptr %73) #27
   unreachable
 
 .loopexit198:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESG_EEbT_T0_.exit.i
   %lpad.loopexit200 = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %74
 
-.loopexit.split-lp199:                            ; preds = %48
+.loopexit.split-lp199:                            ; preds = %50
   %lpad.loopexit.split-lp201 = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %74
 
-72:                                               ; preds = %.loopexit.split-lp199, %.loopexit198
+74:                                               ; preds = %.loopexit.split-lp199, %.loopexit198
   %lpad.phi202 = phi { ptr, i32 } [ %lpad.loopexit200, %.loopexit198 ], [ %lpad.loopexit.split-lp201, %.loopexit.split-lp199 ]
-  %73 = load ptr, ptr %31, align 8
-  %.not.i.i.i85 = icmp eq ptr %73, null
-  br i1 %.not.i.i.i85, label %common.resume, label %74
-
-74:                                               ; preds = %72
-  %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
-          to label %common.resume unwind label %76
+  %75 = load ptr, ptr %31, align 8
+  %.not.i.i.i85 = icmp eq ptr %75, null
+  br i1 %.not.i.i.i85, label %common.resume, label %76
 
 76:                                               ; preds = %74
-  %77 = landingpad { ptr, i32 }
+  %77 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+          to label %common.resume unwind label %78
+
+78:                                               ; preds = %76
+  %79 = landingpad { ptr, i32 }
           catch ptr null
-  %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #27
+  %80 = extractvalue { ptr, i32 } %79, 0
+  call void @__clang_call_terminate(ptr %80) #27
   unreachable
 
-79:                                               ; preds = %8
+81:                                               ; preds = %8
   %.not76 = icmp sgt i64 %4, %6
-  br i1 %.not76, label %179, label %80
+  br i1 %.not76, label %182, label %82
 
-80:                                               ; preds = %79
-  %81 = ptrtoint ptr %2 to i64
-  %82 = ptrtoint ptr %1 to i64
-  %83 = sub i64 %81, %82
-  %84 = ashr exact i64 %83, 4
-  %85 = icmp sgt i64 %84, 0
-  br i1 %85, label %.lr.ph.i.i.i.i.i88, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92
+82:                                               ; preds = %81
+  %83 = ptrtoint ptr %2 to i64
+  %84 = ptrtoint ptr %1 to i64
+  %85 = sub i64 %83, %84
+  %86 = ashr exact i64 %85, 4
+  %87 = icmp sgt i64 %86, 0
+  br i1 %87, label %.lr.ph.i.i.i.i.i88, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92
 
-.lr.ph.i.i.i.i.i88:                               ; preds = %80, %.lr.ph.i.i.i.i.i88
-  %.012.i.i.i.i.i89 = phi i64 [ %92, %.lr.ph.i.i.i.i.i88 ], [ %84, %80 ]
-  %.0811.i.i.i.i.i90 = phi ptr [ %91, %.lr.ph.i.i.i.i.i88 ], [ %5, %80 ]
-  %.0910.i.i.i.i.i91 = phi ptr [ %90, %.lr.ph.i.i.i.i.i88 ], [ %1, %80 ]
-  %86 = load ptr, ptr %.0910.i.i.i.i.i91, align 8
-  store ptr %86, ptr %.0811.i.i.i.i.i90, align 8
-  %87 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i91, i64 8
-  %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i90, i64 8
-  store i32 %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i91, i64 16
-  %91 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i90, i64 16
-  %92 = add nsw i64 %.012.i.i.i.i.i89, -1
-  %93 = icmp ugt i64 %.012.i.i.i.i.i89, 1
-  br i1 %93, label %.lr.ph.i.i.i.i.i88, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92, !llvm.loop !101
+.lr.ph.i.i.i.i.i88:                               ; preds = %82, %.lr.ph.i.i.i.i.i88
+  %.012.i.i.i.i.i89 = phi i64 [ %94, %.lr.ph.i.i.i.i.i88 ], [ %86, %82 ]
+  %.0811.i.i.i.i.i90 = phi ptr [ %93, %.lr.ph.i.i.i.i.i88 ], [ %5, %82 ]
+  %.0910.i.i.i.i.i91 = phi ptr [ %92, %.lr.ph.i.i.i.i.i88 ], [ %1, %82 ]
+  %88 = load ptr, ptr %.0910.i.i.i.i.i91, align 8
+  store ptr %88, ptr %.0811.i.i.i.i.i90, align 8
+  %89 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i91, i64 8
+  %90 = load i32, ptr %89, align 4
+  %91 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i90, i64 8
+  store i32 %90, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i91, i64 16
+  %93 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i90, i64 16
+  %94 = add nsw i64 %.012.i.i.i.i.i89, -1
+  %95 = icmp ugt i64 %.012.i.i.i.i.i89, 1
+  br i1 %95, label %.lr.ph.i.i.i.i.i88, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92, !llvm.loop !101
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92: ; preds = %.lr.ph.i.i.i.i.i88, %80
-  %.08.lcssa.i.i.i.i.i87 = phi ptr [ %5, %80 ], [ %91, %.lr.ph.i.i.i.i.i88 ]
-  %94 = getelementptr inbounds i8, ptr %10, i64 16
-  %95 = getelementptr inbounds i8, ptr %10, i64 24
-  %96 = getelementptr inbounds i8, ptr %7, i64 16
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92: ; preds = %.lr.ph.i.i.i.i.i88, %82
+  %.08.lcssa.i.i.i.i.i87 = phi ptr [ %5, %82 ], [ %93, %.lr.ph.i.i.i.i.i88 ]
+  %96 = getelementptr inbounds i8, ptr %10, i64 16
+  %97 = getelementptr inbounds i8, ptr %10, i64 24
+  %98 = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
-  %.val.i.i93 = load ptr, ptr %96, align 8
+  %.val.i.i93 = load ptr, ptr %98, align 8
   %.not.i.i.not.i.i94 = icmp eq ptr %.val.i.i93, null
-  br i1 %.not.i.i.not.i.i94, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit97, label %97
+  br i1 %.not.i.i.not.i.i94, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit97, label %99
 
-97:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92
-  %98 = invoke noundef zeroext i1 %.val.i.i93(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
-          to label %99 unwind label %103
+99:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92
+  %100 = invoke noundef zeroext i1 %.val.i.i93(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
+          to label %101 unwind label %106
 
-99:                                               ; preds = %97
-  %100 = load <2 x ptr>, ptr %96, align 8
-  %101 = load ptr, ptr %96, align 8
-  store <2 x ptr> %100, ptr %94, align 8
-  %102 = icmp eq ptr %101, null
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds i8, ptr %7, i64 24
+  %103 = load ptr, ptr %102, align 8
+  store ptr %103, ptr %97, align 8
+  %104 = load ptr, ptr %98, align 8
+  store ptr %104, ptr %96, align 8
+  %105 = icmp eq ptr %104, null
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit97
 
-103:                                              ; preds = %97
-  %104 = landingpad { ptr, i32 }
+106:                                              ; preds = %99
+  %107 = landingpad { ptr, i32 }
           cleanup
-  %105 = load ptr, ptr %94, align 8
-  %.not.i.i.i95 = icmp eq ptr %105, null
-  br i1 %.not.i.i.i95, label %common.resume, label %106
+  %108 = load ptr, ptr %96, align 8
+  %.not.i.i.i95 = icmp eq ptr %108, null
+  br i1 %.not.i.i.i95, label %common.resume, label %109
 
-106:                                              ; preds = %103
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %common.resume unwind label %108
+109:                                              ; preds = %106
+  %110 = invoke noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+          to label %common.resume unwind label %111
 
-108:                                              ; preds = %106
-  %109 = landingpad { ptr, i32 }
+111:                                              ; preds = %109
+  %112 = landingpad { ptr, i32 }
           catch ptr null
-  %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #27
+  %113 = extractvalue { ptr, i32 } %112, 0
+  call void @__clang_call_terminate(ptr %113) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit97: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92, %99
-  %.not.i.i.i38.i = phi i1 [ true, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92 ], [ %102, %99 ]
-  %111 = icmp eq ptr %0, %1
-  br i1 %111, label %112, label %126
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit97: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92, %101
+  %.not.i.i.i38.i = phi i1 [ true, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92 ], [ %105, %101 ]
+  %114 = icmp eq ptr %0, %1
+  br i1 %114, label %115, label %129
 
-112:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit97
-  %113 = ptrtoint ptr %.08.lcssa.i.i.i.i.i87 to i64
-  %114 = ptrtoint ptr %5 to i64
-  %115 = sub i64 %113, %114
-  %116 = ashr exact i64 %115, 4
-  %117 = icmp sgt i64 %116, 0
-  br i1 %117, label %.lr.ph.i.i.i.i.i.i100, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit
+115:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit97
+  %116 = ptrtoint ptr %.08.lcssa.i.i.i.i.i87 to i64
+  %117 = ptrtoint ptr %5 to i64
+  %118 = sub i64 %116, %117
+  %119 = ashr exact i64 %118, 4
+  %120 = icmp sgt i64 %119, 0
+  br i1 %120, label %.lr.ph.i.i.i.i.i.i100, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit
 
-.lr.ph.i.i.i.i.i.i100:                            ; preds = %112, %.lr.ph.i.i.i.i.i.i100
-  %.010.i.i.i.i.i.i = phi i64 [ %124, %.lr.ph.i.i.i.i.i.i100 ], [ %116, %112 ]
-  %.069.i.i.i.i.i.i = phi ptr [ %119, %.lr.ph.i.i.i.i.i.i100 ], [ %2, %112 ]
-  %.078.i.i.i.i.i.i = phi ptr [ %118, %.lr.ph.i.i.i.i.i.i100 ], [ %.08.lcssa.i.i.i.i.i87, %112 ]
-  %118 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -16
-  %119 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
-  %120 = load ptr, ptr %118, align 8
-  store ptr %120, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
-  %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
-  store i32 %122, ptr %123, align 8
-  %124 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %125 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
-  br i1 %125, label %.lr.ph.i.i.i.i.i.i100, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, !llvm.loop !81
+.lr.ph.i.i.i.i.i.i100:                            ; preds = %115, %.lr.ph.i.i.i.i.i.i100
+  %.010.i.i.i.i.i.i = phi i64 [ %127, %.lr.ph.i.i.i.i.i.i100 ], [ %119, %115 ]
+  %.069.i.i.i.i.i.i = phi ptr [ %122, %.lr.ph.i.i.i.i.i.i100 ], [ %2, %115 ]
+  %.078.i.i.i.i.i.i = phi ptr [ %121, %.lr.ph.i.i.i.i.i.i100 ], [ %.08.lcssa.i.i.i.i.i87, %115 ]
+  %121 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -16
+  %122 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
+  %123 = load ptr, ptr %121, align 8
+  store ptr %123, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
+  %125 = load i32, ptr %124, align 4
+  %126 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
+  store i32 %125, ptr %126, align 8
+  %127 = add nsw i64 %.010.i.i.i.i.i.i, -1
+  %128 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  br i1 %128, label %.lr.ph.i.i.i.i.i.i100, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, !llvm.loop !81
 
-126:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit97
-  %127 = icmp eq ptr %.08.lcssa.i.i.i.i.i87, %5
-  br i1 %127, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, label %128
+129:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit97
+  %130 = icmp eq ptr %.08.lcssa.i.i.i.i.i87, %5
+  br i1 %130, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, label %131
 
-128:                                              ; preds = %126
+131:                                              ; preds = %129
   br i1 %.not.i.i.i38.i, label %._crit_edge.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.lr.ph.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.lr.ph.i: ; preds = %128
-  %129 = getelementptr inbounds i8, ptr %.08.lcssa.i.i.i.i.i87, i64 -16
-  %130 = getelementptr inbounds i8, ptr %1, i64 -16
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.lr.ph.i: ; preds = %131
+  %132 = getelementptr inbounds i8, ptr %.08.lcssa.i.i.i.i.i87, i64 -16
+  %133 = getelementptr inbounds i8, ptr %1, i64 -16
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.i
 
-._crit_edge.i:                                    ; preds = %164, %128
+._crit_edge.i:                                    ; preds = %167, %131
   invoke void @_ZSt25__throw_bad_function_callv() #25
           to label %.noexc101 unwind label %.loopexit.split-lp193
 
 .noexc101:                                        ; preds = %._crit_edge.i
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.i: ; preds = %164, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.lr.ph.i
-  %.041.i = phi ptr [ %129, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.lr.ph.i ], [ %.1.i98, %164 ]
-  %.sroa.0.040.i = phi ptr [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.lr.ph.i ], [ %133, %164 ]
-  %.sroa.031.039.i = phi ptr [ %130, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.lr.ph.i ], [ %.sroa.031.1.i, %164 ]
-  %131 = load ptr, ptr %95, align 8
-  %132 = invoke noundef zeroext i1 %131(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(12) %.041.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.031.039.i)
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.i: ; preds = %167, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.lr.ph.i
+  %.041.i = phi ptr [ %132, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.lr.ph.i ], [ %.1.i98, %167 ]
+  %.sroa.0.040.i = phi ptr [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.lr.ph.i ], [ %136, %167 ]
+  %.sroa.031.039.i = phi ptr [ %133, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.lr.ph.i ], [ %.sroa.031.1.i, %167 ]
+  %134 = load ptr, ptr %97, align 8
+  %135 = invoke noundef zeroext i1 %134(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(12) %.041.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.031.039.i)
           to label %.noexc102 unwind label %.loopexit192
 
 .noexc102:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.i
-  %133 = getelementptr inbounds i8, ptr %.sroa.0.040.i, i64 -16
-  %134 = getelementptr inbounds i8, ptr %.sroa.0.040.i, i64 -8
-  br i1 %132, label %135, label %157
+  %136 = getelementptr inbounds i8, ptr %.sroa.0.040.i, i64 -16
+  %137 = getelementptr inbounds i8, ptr %.sroa.0.040.i, i64 -8
+  br i1 %135, label %138, label %160
 
-135:                                              ; preds = %.noexc102
-  %136 = load ptr, ptr %.sroa.031.039.i, align 8
-  store ptr %136, ptr %133, align 8
-  %137 = getelementptr inbounds i8, ptr %.sroa.031.039.i, i64 8
-  %138 = load i32, ptr %137, align 4
-  store i32 %138, ptr %134, align 8
-  %139 = icmp eq ptr %.sroa.031.039.i, %0
-  br i1 %139, label %140, label %155
+138:                                              ; preds = %.noexc102
+  %139 = load ptr, ptr %.sroa.031.039.i, align 8
+  store ptr %139, ptr %136, align 8
+  %140 = getelementptr inbounds i8, ptr %.sroa.031.039.i, i64 8
+  %141 = load i32, ptr %140, align 4
+  store i32 %141, ptr %137, align 8
+  %142 = icmp eq ptr %.sroa.031.039.i, %0
+  br i1 %142, label %143, label %158
 
-140:                                              ; preds = %135
-  %141 = getelementptr inbounds i8, ptr %.041.i, i64 16
-  %142 = ptrtoint ptr %141 to i64
-  %143 = ptrtoint ptr %5 to i64
-  %144 = sub i64 %142, %143
-  %145 = ashr exact i64 %144, 4
-  %146 = icmp sgt i64 %145, 0
-  br i1 %146, label %.lr.ph.i.i.i.i.i25.i, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit
+143:                                              ; preds = %138
+  %144 = getelementptr inbounds i8, ptr %.041.i, i64 16
+  %145 = ptrtoint ptr %144 to i64
+  %146 = ptrtoint ptr %5 to i64
+  %147 = sub i64 %145, %146
+  %148 = ashr exact i64 %147, 4
+  %149 = icmp sgt i64 %148, 0
+  br i1 %149, label %.lr.ph.i.i.i.i.i25.i, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit
 
-.lr.ph.i.i.i.i.i25.i:                             ; preds = %140, %.lr.ph.i.i.i.i.i25.i
-  %.010.i.i.i.i.i26.i = phi i64 [ %153, %.lr.ph.i.i.i.i.i25.i ], [ %145, %140 ]
-  %.069.i.i.i.i.i27.i = phi ptr [ %148, %.lr.ph.i.i.i.i.i25.i ], [ %133, %140 ]
-  %.078.i.i.i.i.i28.i = phi ptr [ %147, %.lr.ph.i.i.i.i.i25.i ], [ %141, %140 ]
-  %147 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i28.i, i64 -16
-  %148 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i27.i, i64 -16
-  %149 = load ptr, ptr %147, align 8
-  store ptr %149, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i28.i, i64 -8
-  %151 = load i32, ptr %150, align 4
-  %152 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i27.i, i64 -8
-  store i32 %151, ptr %152, align 8
-  %153 = add nsw i64 %.010.i.i.i.i.i26.i, -1
-  %154 = icmp ugt i64 %.010.i.i.i.i.i26.i, 1
-  br i1 %154, label %.lr.ph.i.i.i.i.i25.i, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, !llvm.loop !81
+.lr.ph.i.i.i.i.i25.i:                             ; preds = %143, %.lr.ph.i.i.i.i.i25.i
+  %.010.i.i.i.i.i26.i = phi i64 [ %156, %.lr.ph.i.i.i.i.i25.i ], [ %148, %143 ]
+  %.069.i.i.i.i.i27.i = phi ptr [ %151, %.lr.ph.i.i.i.i.i25.i ], [ %136, %143 ]
+  %.078.i.i.i.i.i28.i = phi ptr [ %150, %.lr.ph.i.i.i.i.i25.i ], [ %144, %143 ]
+  %150 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i28.i, i64 -16
+  %151 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i27.i, i64 -16
+  %152 = load ptr, ptr %150, align 8
+  store ptr %152, ptr %151, align 8
+  %153 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i28.i, i64 -8
+  %154 = load i32, ptr %153, align 4
+  %155 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i27.i, i64 -8
+  store i32 %154, ptr %155, align 8
+  %156 = add nsw i64 %.010.i.i.i.i.i26.i, -1
+  %157 = icmp ugt i64 %.010.i.i.i.i.i26.i, 1
+  br i1 %157, label %.lr.ph.i.i.i.i.i25.i, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, !llvm.loop !81
 
-155:                                              ; preds = %135
-  %156 = getelementptr inbounds i8, ptr %.sroa.031.039.i, i64 -16
-  br label %164
+158:                                              ; preds = %138
+  %159 = getelementptr inbounds i8, ptr %.sroa.031.039.i, i64 -16
+  br label %167
 
-157:                                              ; preds = %.noexc102
-  %158 = load ptr, ptr %.041.i, align 8
-  store ptr %158, ptr %133, align 8
-  %159 = getelementptr inbounds i8, ptr %.041.i, i64 8
-  %160 = load i32, ptr %159, align 4
-  store i32 %160, ptr %134, align 8
-  %161 = icmp eq ptr %.041.i, %5
-  br i1 %161, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, label %162
+160:                                              ; preds = %.noexc102
+  %161 = load ptr, ptr %.041.i, align 8
+  store ptr %161, ptr %136, align 8
+  %162 = getelementptr inbounds i8, ptr %.041.i, i64 8
+  %163 = load i32, ptr %162, align 4
+  store i32 %163, ptr %137, align 8
+  %164 = icmp eq ptr %.041.i, %5
+  br i1 %164, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, label %165
 
-162:                                              ; preds = %157
-  %163 = getelementptr inbounds i8, ptr %.041.i, i64 -16
-  br label %164
+165:                                              ; preds = %160
+  %166 = getelementptr inbounds i8, ptr %.041.i, i64 -16
+  br label %167
 
-164:                                              ; preds = %162, %155
-  %.sroa.031.1.i = phi ptr [ %156, %155 ], [ %.sroa.031.039.i, %162 ]
-  %.1.i98 = phi ptr [ %.041.i, %155 ], [ %163, %162 ]
-  %165 = load ptr, ptr %94, align 8
-  %.not.i.i.i.i99 = icmp eq ptr %165, null
+167:                                              ; preds = %165, %158
+  %.sroa.031.1.i = phi ptr [ %159, %158 ], [ %.sroa.031.039.i, %165 ]
+  %.1.i98 = phi ptr [ %.041.i, %158 ], [ %166, %165 ]
+  %168 = load ptr, ptr %96, align 8
+  %.not.i.i.i.i99 = icmp eq ptr %168, null
   br i1 %.not.i.i.i.i99, label %._crit_edge.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.i, !llvm.loop !107
 
-_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit: ; preds = %157, %.lr.ph.i.i.i.i.i25.i, %.lr.ph.i.i.i.i.i.i100, %140, %126, %112
-  %166 = load ptr, ptr %94, align 8
-  %.not.i.i.i103 = icmp eq ptr %166, null
-  br i1 %.not.i.i.i103, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %167
+_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit: ; preds = %160, %.lr.ph.i.i.i.i.i25.i, %.lr.ph.i.i.i.i.i.i100, %143, %129, %115
+  %169 = load ptr, ptr %96, align 8
+  %.not.i.i.i103 = icmp eq ptr %169, null
+  br i1 %.not.i.i.i103, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %170
 
-167:                                              ; preds = %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit
-  %168 = invoke noundef zeroext i1 %166(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %169
+170:                                              ; preds = %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit
+  %171 = invoke noundef zeroext i1 %169(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %172
 
-169:                                              ; preds = %167
-  %170 = landingpad { ptr, i32 }
+172:                                              ; preds = %170
+  %173 = landingpad { ptr, i32 }
           catch ptr null
-  %171 = extractvalue { ptr, i32 } %170, 0
-  call void @__clang_call_terminate(ptr %171) #27
+  %174 = extractvalue { ptr, i32 } %173, 0
+  call void @__clang_call_terminate(ptr %174) #27
   unreachable
 
 .loopexit192:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIPS8_NS_17__normal_iteratorISF_St6vectorIS8_SaIS8_EEEEEEbT_T0_.exit.i
   %lpad.loopexit194 = landingpad { ptr, i32 }
           cleanup
-  br label %172
+  br label %175
 
 .loopexit.split-lp193:                            ; preds = %._crit_edge.i
   %lpad.loopexit.split-lp195 = landingpad { ptr, i32 }
           cleanup
-  br label %172
+  br label %175
 
-172:                                              ; preds = %.loopexit.split-lp193, %.loopexit192
+175:                                              ; preds = %.loopexit.split-lp193, %.loopexit192
   %lpad.phi196 = phi { ptr, i32 } [ %lpad.loopexit194, %.loopexit192 ], [ %lpad.loopexit.split-lp195, %.loopexit.split-lp193 ]
-  %173 = load ptr, ptr %94, align 8
-  %.not.i.i.i105 = icmp eq ptr %173, null
-  br i1 %.not.i.i.i105, label %common.resume, label %174
+  %176 = load ptr, ptr %96, align 8
+  %.not.i.i.i105 = icmp eq ptr %176, null
+  br i1 %.not.i.i.i105, label %common.resume, label %177
 
-174:                                              ; preds = %172
-  %175 = invoke noundef zeroext i1 %173(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
-          to label %common.resume unwind label %176
+177:                                              ; preds = %175
+  %178 = invoke noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+          to label %common.resume unwind label %179
 
-176:                                              ; preds = %174
-  %177 = landingpad { ptr, i32 }
+179:                                              ; preds = %177
+  %180 = landingpad { ptr, i32 }
           catch ptr null
-  %178 = extractvalue { ptr, i32 } %177, 0
-  call void @__clang_call_terminate(ptr %178) #27
+  %181 = extractvalue { ptr, i32 } %180, 0
+  call void @__clang_call_terminate(ptr %181) #27
   unreachable
 
-179:                                              ; preds = %79
-  %180 = getelementptr inbounds i8, ptr %7, i64 16
+182:                                              ; preds = %81
+  %183 = getelementptr inbounds i8, ptr %7, i64 16
   br i1 %.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit127
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit: ; preds = %179
-  %181 = sdiv i64 %3, 2
-  %182 = getelementptr inbounds %"struct.std::pair.150", ptr %0, i64 %181
-  %183 = getelementptr inbounds i8, ptr %12, i64 16
-  %184 = getelementptr inbounds i8, ptr %12, i64 24
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit: ; preds = %182
+  %184 = sdiv i64 %3, 2
+  %185 = getelementptr inbounds %"struct.std::pair.150", ptr %0, i64 %184
+  %186 = getelementptr inbounds i8, ptr %12, i64 16
+  %187 = getelementptr inbounds i8, ptr %12, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
-  %.val.i.i107 = load ptr, ptr %180, align 8
+  %.val.i.i107 = load ptr, ptr %183, align 8
   %.not.i.i.not.i.i108 = icmp eq ptr %.val.i.i107, null
-  br i1 %.not.i.i.not.i.i108, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111.thread, label %186
+  br i1 %.not.i.i.not.i.i108, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111.thread, label %189
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111.thread: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit
-  %185 = getelementptr inbounds i8, ptr %11, i64 24
+  %188 = getelementptr inbounds i8, ptr %11, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   br label %_ZN9__gnu_cxx5__ops15__iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Iter_comp_valIT_EENS0_15_Iter_comp_iterISE_EE.exit
 
-186:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit
-  %187 = invoke noundef zeroext i1 %.val.i.i107(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111 unwind label %188
+189:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit
+  %190 = invoke noundef zeroext i1 %.val.i.i107(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111 unwind label %191
 
-188:                                              ; preds = %186
-  %189 = landingpad { ptr, i32 }
+191:                                              ; preds = %189
+  %192 = landingpad { ptr, i32 }
           cleanup
-  %190 = load ptr, ptr %183, align 8
-  %.not.i.i.i109 = icmp eq ptr %190, null
-  br i1 %.not.i.i.i109, label %common.resume, label %191
+  %193 = load ptr, ptr %186, align 8
+  %.not.i.i.i109 = icmp eq ptr %193, null
+  br i1 %.not.i.i.i109, label %common.resume, label %194
 
-191:                                              ; preds = %188
-  %192 = invoke noundef zeroext i1 %190(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %common.resume unwind label %193
+194:                                              ; preds = %191
+  %195 = invoke noundef zeroext i1 %193(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+          to label %common.resume unwind label %196
 
-193:                                              ; preds = %191
-  %194 = landingpad { ptr, i32 }
+196:                                              ; preds = %194
+  %197 = landingpad { ptr, i32 }
           catch ptr null
-  %195 = extractvalue { ptr, i32 } %194, 0
-  call void @__clang_call_terminate(ptr %195) #27
+  %198 = extractvalue { ptr, i32 } %197, 0
+  call void @__clang_call_terminate(ptr %198) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111: ; preds = %186
-  %196 = getelementptr inbounds i8, ptr %7, i64 24
-  %197 = load ptr, ptr %196, align 8
-  store ptr %197, ptr %184, align 8
-  %198 = load ptr, ptr %180, align 8
-  store ptr %198, ptr %183, align 8
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111: ; preds = %189
+  %199 = getelementptr inbounds i8, ptr %7, i64 24
+  %200 = load ptr, ptr %199, align 8
+  store ptr %200, ptr %187, align 8
+  %201 = load ptr, ptr %183, align 8
+  store ptr %201, ptr %186, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  %199 = getelementptr inbounds i8, ptr %11, i64 24
+  %202 = getelementptr inbounds i8, ptr %11, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !alias.scope !108
-  store ptr %197, ptr %199, align 8, !alias.scope !108
-  %.not.i.i.not.i.i.i = icmp eq ptr %198, null
-  br i1 %.not.i.i.not.i.i.i, label %_ZN9__gnu_cxx5__ops15__iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Iter_comp_valIT_EENS0_15_Iter_comp_iterISE_EE.exit, label %200
+  store ptr %200, ptr %202, align 8, !alias.scope !108
+  %.not.i.i.not.i.i.i = icmp eq ptr %201, null
+  br i1 %.not.i.i.not.i.i.i, label %_ZN9__gnu_cxx5__ops15__iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Iter_comp_valIT_EENS0_15_Iter_comp_iterISE_EE.exit, label %203
 
-200:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111
-  %201 = getelementptr inbounds i8, ptr %11, i64 16
+203:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111
+  %204 = getelementptr inbounds i8, ptr %11, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
-  store ptr %198, ptr %201, align 8, !alias.scope !108
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, i8 0, i64 16, i1 false), !noalias !108
+  store ptr %201, ptr %204, align 8, !alias.scope !108
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %186, i8 0, i64 16, i1 false), !noalias !108
   br label %_ZN9__gnu_cxx5__ops15__iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Iter_comp_valIT_EENS0_15_Iter_comp_iterISE_EE.exit
 
-_ZN9__gnu_cxx5__ops15__iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Iter_comp_valIT_EENS0_15_Iter_comp_iterISE_EE.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111.thread, %200, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111
-  %202 = phi ptr [ %199, %200 ], [ %199, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111 ], [ %185, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111.thread ]
-  %203 = phi ptr [ %198, %200 ], [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111 ], [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111.thread ]
-  %204 = ptrtoint ptr %2 to i64
-  %205 = ptrtoint ptr %1 to i64
-  %206 = sub i64 %204, %205
-  %207 = ashr exact i64 %206, 4
-  %208 = icmp sgt i64 %207, 0
-  br i1 %208, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit
+_ZN9__gnu_cxx5__ops15__iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Iter_comp_valIT_EENS0_15_Iter_comp_iterISE_EE.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111.thread, %203, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111
+  %205 = phi ptr [ %202, %203 ], [ %202, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111 ], [ %188, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111.thread ]
+  %206 = phi ptr [ %201, %203 ], [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111 ], [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit111.thread ]
+  %207 = ptrtoint ptr %2 to i64
+  %208 = ptrtoint ptr %1 to i64
+  %209 = sub i64 %207, %208
+  %210 = ashr exact i64 %209, 4
+  %211 = icmp sgt i64 %210, 0
+  br i1 %211, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZN9__gnu_cxx5__ops15__iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Iter_comp_valIT_EENS0_15_Iter_comp_iterISE_EE.exit
-  %209 = getelementptr inbounds i8, ptr %11, i64 16
+  %212 = getelementptr inbounds i8, ptr %11, i64 16
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i: ; preds = %.noexc116, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i
-  %.014.i = phi i64 [ %207, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i114, %.noexc116 ]
+  %.014.i = phi i64 [ %210, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i114, %.noexc116 ]
   %.sroa.011.013.i = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %.noexc116 ]
-  %210 = lshr i64 %.014.i, 1
-  %211 = load ptr, ptr %209, align 8
-  %.not.i.i.i.i113 = icmp eq ptr %211, null
-  br i1 %.not.i.i.i.i113, label %212, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEES9_EEbT_RT0_.exit.i
+  %213 = lshr i64 %.014.i, 1
+  %214 = load ptr, ptr %212, align 8
+  %.not.i.i.i.i113 = icmp eq ptr %214, null
+  br i1 %.not.i.i.i.i113, label %215, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEES9_EEbT_RT0_.exit.i
 
-212:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i
+215:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i
   invoke void @_ZSt25__throw_bad_function_callv() #25
           to label %.noexc115 unwind label %.loopexit.split-lp
 
-.noexc115:                                        ; preds = %212
+.noexc115:                                        ; preds = %215
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEES9_EEbT_RT0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i
-  %213 = getelementptr inbounds %"struct.std::pair.150", ptr %.sroa.011.013.i, i64 %210
-  %214 = load ptr, ptr %202, align 8
-  %215 = invoke noundef zeroext i1 %214(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(12) %213, ptr noundef nonnull align 8 dereferenceable(12) %182)
+  %216 = getelementptr inbounds %"struct.std::pair.150", ptr %.sroa.011.013.i, i64 %213
+  %217 = load ptr, ptr %205, align 8
+  %218 = invoke noundef zeroext i1 %217(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(12) %216, ptr noundef nonnull align 8 dereferenceable(12) %185)
           to label %.noexc116 unwind label %.loopexit
 
 .noexc116:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEES9_EEbT_RT0_.exit.i
-  %216 = getelementptr inbounds i8, ptr %213, i64 16
-  %217 = xor i64 %210, -1
-  %218 = add nsw i64 %.014.i, %217
-  %.sroa.011.1.i = select i1 %215, ptr %216, ptr %.sroa.011.013.i
-  %.1.i114 = select i1 %215, i64 %218, i64 %210
-  %219 = icmp sgt i64 %.1.i114, 0
-  br i1 %219, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit, !llvm.loop !90
+  %219 = getelementptr inbounds i8, ptr %216, i64 16
+  %220 = xor i64 %213, -1
+  %221 = add nsw i64 %.014.i, %220
+  %.sroa.011.1.i = select i1 %218, ptr %219, ptr %.sroa.011.013.i
+  %.1.i114 = select i1 %218, i64 %221, i64 %213
+  %222 = icmp sgt i64 %.1.i114, 0
+  br i1 %222, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit, !llvm.loop !90
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit: ; preds = %.noexc116
-  %.pre242 = load ptr, ptr %209, align 8
+  %.pre242 = load ptr, ptr %212, align 8
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit, %_ZN9__gnu_cxx5__ops15__iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Iter_comp_valIT_EENS0_15_Iter_comp_iterISE_EE.exit
-  %220 = phi ptr [ %203, %_ZN9__gnu_cxx5__ops15__iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Iter_comp_valIT_EENS0_15_Iter_comp_iterISE_EE.exit ], [ %.pre242, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit ]
+  %223 = phi ptr [ %206, %_ZN9__gnu_cxx5__ops15__iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Iter_comp_valIT_EENS0_15_Iter_comp_iterISE_EE.exit ], [ %.pre242, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit ]
   %.sroa.011.0.lcssa.i = phi ptr [ %1, %_ZN9__gnu_cxx5__ops15__iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Iter_comp_valIT_EENS0_15_Iter_comp_iterISE_EE.exit ], [ %.sroa.011.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit ]
-  %.not.i.i.i117 = icmp eq ptr %220, null
-  br i1 %.not.i.i.i117, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %221
+  %.not.i.i.i117 = icmp eq ptr %223, null
+  br i1 %.not.i.i.i117, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %224
 
-221:                                              ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit
-  %222 = invoke noundef zeroext i1 %220(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %223
+224:                                              ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit
+  %225 = invoke noundef zeroext i1 %223(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %226
 
-223:                                              ; preds = %221
-  %224 = landingpad { ptr, i32 }
+226:                                              ; preds = %224
+  %227 = landingpad { ptr, i32 }
           catch ptr null
-  %225 = extractvalue { ptr, i32 } %224, 0
-  call void @__clang_call_terminate(ptr %225) #27
+  %228 = extractvalue { ptr, i32 } %227, 0
+  call void @__clang_call_terminate(ptr %228) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit, %221
-  %226 = load ptr, ptr %183, align 8
-  %.not.i.i.i118 = icmp eq ptr %226, null
-  br i1 %.not.i.i.i118, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119, label %227
+_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Iter_comp_valISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit, %224
+  %229 = load ptr, ptr %186, align 8
+  %.not.i.i.i118 = icmp eq ptr %229, null
+  br i1 %.not.i.i.i118, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119, label %230
 
-227:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit
-  %228 = invoke noundef zeroext i1 %226(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119 unwind label %229
+230:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit
+  %231 = invoke noundef zeroext i1 %229(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119 unwind label %232
 
-229:                                              ; preds = %227
-  %230 = landingpad { ptr, i32 }
+232:                                              ; preds = %230
+  %233 = landingpad { ptr, i32 }
           catch ptr null
-  %231 = extractvalue { ptr, i32 } %230, 0
-  call void @__clang_call_terminate(ptr %231) #27
+  %234 = extractvalue { ptr, i32 } %233, 0
+  call void @__clang_call_terminate(ptr %234) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, %227
-  %232 = ptrtoint ptr %.sroa.011.0.lcssa.i to i64
-  %233 = sub i64 %232, %205
-  %234 = ashr exact i64 %233, 4
-  br label %315
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, %230
+  %235 = ptrtoint ptr %.sroa.011.0.lcssa.i to i64
+  %236 = sub i64 %235, %208
+  %237 = ashr exact i64 %236, 4
+  br label %318
 
 .loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEES9_EEbT_RT0_.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %235
+  br label %238
 
-.loopexit.split-lp:                               ; preds = %212
+.loopexit.split-lp:                               ; preds = %215
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %235
+  br label %238
 
-235:                                              ; preds = %.loopexit.split-lp, %.loopexit
+238:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %236 = load ptr, ptr %209, align 8
-  %.not.i.i.i120 = icmp eq ptr %236, null
-  br i1 %.not.i.i.i120, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit121, label %237
+  %239 = load ptr, ptr %212, align 8
+  %.not.i.i.i120 = icmp eq ptr %239, null
+  br i1 %.not.i.i.i120, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit121, label %240
 
-237:                                              ; preds = %235
-  %238 = invoke noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit121 unwind label %239
+240:                                              ; preds = %238
+  %241 = invoke noundef zeroext i1 %239(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit121 unwind label %242
 
-239:                                              ; preds = %237
-  %240 = landingpad { ptr, i32 }
+242:                                              ; preds = %240
+  %243 = landingpad { ptr, i32 }
           catch ptr null
-  %241 = extractvalue { ptr, i32 } %240, 0
-  call void @__clang_call_terminate(ptr %241) #27
+  %244 = extractvalue { ptr, i32 } %243, 0
+  call void @__clang_call_terminate(ptr %244) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit121: ; preds = %237, %235
-  %242 = load ptr, ptr %183, align 8
-  %.not.i.i.i122 = icmp eq ptr %242, null
-  br i1 %.not.i.i.i122, label %common.resume, label %243
+_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit121: ; preds = %240, %238
+  %245 = load ptr, ptr %186, align 8
+  %.not.i.i.i122 = icmp eq ptr %245, null
+  br i1 %.not.i.i.i122, label %common.resume, label %246
 
-243:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit121
-  %244 = invoke noundef zeroext i1 %242(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
-          to label %common.resume unwind label %245
+246:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit121
+  %247 = invoke noundef zeroext i1 %245(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+          to label %common.resume unwind label %248
 
-245:                                              ; preds = %243
-  %246 = landingpad { ptr, i32 }
+248:                                              ; preds = %246
+  %249 = landingpad { ptr, i32 }
           catch ptr null
-  %247 = extractvalue { ptr, i32 } %246, 0
-  call void @__clang_call_terminate(ptr %247) #27
+  %250 = extractvalue { ptr, i32 } %249, 0
+  call void @__clang_call_terminate(ptr %250) #27
   unreachable
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit127: ; preds = %179
-  %248 = sdiv i64 %4, 2
-  %249 = getelementptr inbounds %"struct.std::pair.150", ptr %1, i64 %248
-  %250 = getelementptr inbounds i8, ptr %14, i64 16
-  %251 = getelementptr inbounds i8, ptr %14, i64 24
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit127: ; preds = %182
+  %251 = sdiv i64 %4, 2
+  %252 = getelementptr inbounds %"struct.std::pair.150", ptr %1, i64 %251
+  %253 = getelementptr inbounds i8, ptr %14, i64 16
+  %254 = getelementptr inbounds i8, ptr %14, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
-  %.val.i.i128 = load ptr, ptr %180, align 8
+  %.val.i.i128 = load ptr, ptr %183, align 8
   %.not.i.i.not.i.i129 = icmp eq ptr %.val.i.i128, null
-  br i1 %.not.i.i.not.i.i129, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132.thread, label %253
+  br i1 %.not.i.i.not.i.i129, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132.thread, label %256
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132.thread: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit127
-  %252 = getelementptr inbounds i8, ptr %13, i64 24
+  %255 = getelementptr inbounds i8, ptr %13, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   br label %_ZN9__gnu_cxx5__ops15__val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterISE_EE.exit
 
-253:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit127
-  %254 = invoke noundef zeroext i1 %.val.i.i128(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132 unwind label %255
+256:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit127
+  %257 = invoke noundef zeroext i1 %.val.i.i128(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132 unwind label %258
 
-255:                                              ; preds = %253
-  %256 = landingpad { ptr, i32 }
+258:                                              ; preds = %256
+  %259 = landingpad { ptr, i32 }
           cleanup
-  %257 = load ptr, ptr %250, align 8
-  %.not.i.i.i130 = icmp eq ptr %257, null
-  br i1 %.not.i.i.i130, label %common.resume, label %258
+  %260 = load ptr, ptr %253, align 8
+  %.not.i.i.i130 = icmp eq ptr %260, null
+  br i1 %.not.i.i.i130, label %common.resume, label %261
 
-258:                                              ; preds = %255
-  %259 = invoke noundef zeroext i1 %257(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
-          to label %common.resume unwind label %260
+261:                                              ; preds = %258
+  %262 = invoke noundef zeroext i1 %260(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
+          to label %common.resume unwind label %263
 
-260:                                              ; preds = %258
-  %261 = landingpad { ptr, i32 }
+263:                                              ; preds = %261
+  %264 = landingpad { ptr, i32 }
           catch ptr null
-  %262 = extractvalue { ptr, i32 } %261, 0
-  call void @__clang_call_terminate(ptr %262) #27
+  %265 = extractvalue { ptr, i32 } %264, 0
+  call void @__clang_call_terminate(ptr %265) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132: ; preds = %253
-  %263 = getelementptr inbounds i8, ptr %7, i64 24
-  %264 = load ptr, ptr %263, align 8
-  store ptr %264, ptr %251, align 8
-  %265 = load ptr, ptr %180, align 8
-  store ptr %265, ptr %250, align 8
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132: ; preds = %256
+  %266 = getelementptr inbounds i8, ptr %7, i64 24
+  %267 = load ptr, ptr %266, align 8
+  store ptr %267, ptr %254, align 8
+  %268 = load ptr, ptr %183, align 8
+  store ptr %268, ptr %253, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  %266 = getelementptr inbounds i8, ptr %13, i64 24
+  %269 = getelementptr inbounds i8, ptr %13, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false), !alias.scope !111
-  store ptr %264, ptr %266, align 8, !alias.scope !111
-  %.not.i.i.not.i.i.i134 = icmp eq ptr %265, null
-  br i1 %.not.i.i.not.i.i.i134, label %_ZN9__gnu_cxx5__ops15__val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterISE_EE.exit, label %267
+  store ptr %267, ptr %269, align 8, !alias.scope !111
+  %.not.i.i.not.i.i.i134 = icmp eq ptr %268, null
+  br i1 %.not.i.i.not.i.i.i134, label %_ZN9__gnu_cxx5__ops15__val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterISE_EE.exit, label %270
 
-267:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132
-  %268 = getelementptr inbounds i8, ptr %13, i64 16
+270:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132
+  %271 = getelementptr inbounds i8, ptr %13, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
-  store ptr %265, ptr %268, align 8, !alias.scope !111
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %250, i8 0, i64 16, i1 false), !noalias !111
+  store ptr %268, ptr %271, align 8, !alias.scope !111
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %253, i8 0, i64 16, i1 false), !noalias !111
   br label %_ZN9__gnu_cxx5__ops15__val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterISE_EE.exit
 
-_ZN9__gnu_cxx5__ops15__val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterISE_EE.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132.thread, %267, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132
-  %269 = phi ptr [ %266, %267 ], [ %266, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132 ], [ %252, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132.thread ]
-  %270 = phi ptr [ %265, %267 ], [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132 ], [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132.thread ]
-  %271 = ptrtoint ptr %1 to i64
-  %272 = ptrtoint ptr %0 to i64
-  %273 = sub i64 %271, %272
-  %274 = ashr exact i64 %273, 4
-  %275 = icmp sgt i64 %274, 0
-  br i1 %275, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i137, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit
+_ZN9__gnu_cxx5__ops15__val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterISE_EE.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132.thread, %270, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132
+  %272 = phi ptr [ %269, %270 ], [ %269, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132 ], [ %255, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132.thread ]
+  %273 = phi ptr [ %268, %270 ], [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132 ], [ null, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit132.thread ]
+  %274 = ptrtoint ptr %1 to i64
+  %275 = ptrtoint ptr %0 to i64
+  %276 = sub i64 %274, %275
+  %277 = ashr exact i64 %276, 4
+  %278 = icmp sgt i64 %277, 0
+  br i1 %278, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i137, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i137: ; preds = %_ZN9__gnu_cxx5__ops15__val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterISE_EE.exit
-  %276 = getelementptr inbounds i8, ptr %13, i64 16
+  %279 = getelementptr inbounds i8, ptr %13, i64 16
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i138
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i138: ; preds = %.noexc147, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i137
-  %.014.i139 = phi i64 [ %274, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i137 ], [ %.1.i145, %.noexc147 ]
+  %.014.i139 = phi i64 [ %277, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i137 ], [ %.1.i145, %.noexc147 ]
   %.sroa.011.013.i140 = phi ptr [ %0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i137 ], [ %.sroa.011.1.i144, %.noexc147 ]
-  %277 = lshr i64 %.014.i139, 1
-  %278 = load ptr, ptr %276, align 8
-  %.not.i.i.i.i141 = icmp eq ptr %278, null
-  br i1 %.not.i.i.i.i141, label %279, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIS9_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i
+  %280 = lshr i64 %.014.i139, 1
+  %281 = load ptr, ptr %279, align 8
+  %.not.i.i.i.i141 = icmp eq ptr %281, null
+  br i1 %.not.i.i.i.i141, label %282, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIS9_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i
 
-279:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i138
+282:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i138
   invoke void @_ZSt25__throw_bad_function_callv() #25
           to label %.noexc146 unwind label %.loopexit.split-lp187
 
-.noexc146:                                        ; preds = %279
+.noexc146:                                        ; preds = %282
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIS9_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i138
-  %280 = getelementptr inbounds %"struct.std::pair.150", ptr %.sroa.011.013.i140, i64 %277
-  %281 = load ptr, ptr %269, align 8
-  %282 = invoke noundef zeroext i1 %281(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(12) %249, ptr noundef nonnull align 8 dereferenceable(12) %280)
+  %283 = getelementptr inbounds %"struct.std::pair.150", ptr %.sroa.011.013.i140, i64 %280
+  %284 = load ptr, ptr %272, align 8
+  %285 = invoke noundef zeroext i1 %284(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(12) %252, ptr noundef nonnull align 8 dereferenceable(12) %283)
           to label %.noexc147 unwind label %.loopexit186
 
 .noexc147:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIS9_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i
-  %283 = getelementptr inbounds i8, ptr %280, i64 16
-  %284 = xor i64 %277, -1
-  %285 = add nsw i64 %.014.i139, %284
-  %.sroa.011.1.i144 = select i1 %282, ptr %.sroa.011.013.i140, ptr %283
-  %.1.i145 = select i1 %282, i64 %277, i64 %285
-  %286 = icmp sgt i64 %.1.i145, 0
-  br i1 %286, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i138, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit, !llvm.loop !94
+  %286 = getelementptr inbounds i8, ptr %283, i64 16
+  %287 = xor i64 %280, -1
+  %288 = add nsw i64 %.014.i139, %287
+  %.sroa.011.1.i144 = select i1 %285, ptr %.sroa.011.013.i140, ptr %286
+  %.1.i145 = select i1 %285, i64 %280, i64 %288
+  %289 = icmp sgt i64 %.1.i145, 0
+  br i1 %289, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i138, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit, !llvm.loop !94
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit: ; preds = %.noexc147
-  %.pre = load ptr, ptr %276, align 8
+  %.pre = load ptr, ptr %279, align 8
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit, %_ZN9__gnu_cxx5__ops15__val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterISE_EE.exit
-  %287 = phi ptr [ %270, %_ZN9__gnu_cxx5__ops15__val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterISE_EE.exit ], [ %.pre, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit ]
+  %290 = phi ptr [ %273, %_ZN9__gnu_cxx5__ops15__val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterISE_EE.exit ], [ %.pre, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit ]
   %.sroa.011.0.lcssa.i136 = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15__val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterISE_EE.exit ], [ %.sroa.011.1.i144, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit.loopexit ]
-  %.not.i.i.i148 = icmp eq ptr %287, null
-  br i1 %.not.i.i.i148, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %288
+  %.not.i.i.i148 = icmp eq ptr %290, null
+  br i1 %.not.i.i.i148, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %291
 
-288:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit
-  %289 = invoke noundef zeroext i1 %287(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %290
+291:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit
+  %292 = invoke noundef zeroext i1 %290(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %293
 
-290:                                              ; preds = %288
-  %291 = landingpad { ptr, i32 }
+293:                                              ; preds = %291
+  %294 = landingpad { ptr, i32 }
           catch ptr null
-  %292 = extractvalue { ptr, i32 } %291, 0
-  call void @__clang_call_terminate(ptr %292) #27
+  %295 = extractvalue { ptr, i32 } %294, 0
+  call void @__clang_call_terminate(ptr %295) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit, %288
-  %293 = load ptr, ptr %250, align 8
-  %.not.i.i.i149 = icmp eq ptr %293, null
-  br i1 %.not.i.i.i149, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150, label %294
+_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES7_NS0_5__ops14_Val_comp_iterISt8functionIFbRKS7_SH_EEEEET_SL_SL_RKT0_T1_.exit, %291
+  %296 = load ptr, ptr %253, align 8
+  %.not.i.i.i149 = icmp eq ptr %296, null
+  br i1 %.not.i.i.i149, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150, label %297
 
-294:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit
-  %295 = invoke noundef zeroext i1 %293(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150 unwind label %296
+297:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit
+  %298 = invoke noundef zeroext i1 %296(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150 unwind label %299
 
-296:                                              ; preds = %294
-  %297 = landingpad { ptr, i32 }
+299:                                              ; preds = %297
+  %300 = landingpad { ptr, i32 }
           catch ptr null
-  %298 = extractvalue { ptr, i32 } %297, 0
-  call void @__clang_call_terminate(ptr %298) #27
+  %301 = extractvalue { ptr, i32 } %300, 0
+  call void @__clang_call_terminate(ptr %301) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, %294
-  %299 = ptrtoint ptr %.sroa.011.0.lcssa.i136 to i64
-  %300 = sub i64 %299, %272
-  %301 = ashr exact i64 %300, 4
-  br label %315
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, %297
+  %302 = ptrtoint ptr %.sroa.011.0.lcssa.i136 to i64
+  %303 = sub i64 %302, %275
+  %304 = ashr exact i64 %303, 4
+  br label %318
 
 .loopexit186:                                     ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIS9_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i
   %lpad.loopexit188 = landingpad { ptr, i32 }
           cleanup
-  br label %302
+  br label %305
 
-.loopexit.split-lp187:                            ; preds = %279
+.loopexit.split-lp187:                            ; preds = %282
   %lpad.loopexit.split-lp189 = landingpad { ptr, i32 }
           cleanup
-  br label %302
+  br label %305
 
-302:                                              ; preds = %.loopexit.split-lp187, %.loopexit186
+305:                                              ; preds = %.loopexit.split-lp187, %.loopexit186
   %lpad.phi190 = phi { ptr, i32 } [ %lpad.loopexit188, %.loopexit186 ], [ %lpad.loopexit.split-lp189, %.loopexit.split-lp187 ]
-  %303 = load ptr, ptr %276, align 8
-  %.not.i.i.i151 = icmp eq ptr %303, null
-  br i1 %.not.i.i.i151, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit152, label %304
+  %306 = load ptr, ptr %279, align 8
+  %.not.i.i.i151 = icmp eq ptr %306, null
+  br i1 %.not.i.i.i151, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit152, label %307
 
-304:                                              ; preds = %302
-  %305 = invoke noundef zeroext i1 %303(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit152 unwind label %306
+307:                                              ; preds = %305
+  %308 = invoke noundef zeroext i1 %306(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit152 unwind label %309
 
-306:                                              ; preds = %304
-  %307 = landingpad { ptr, i32 }
+309:                                              ; preds = %307
+  %310 = landingpad { ptr, i32 }
           catch ptr null
-  %308 = extractvalue { ptr, i32 } %307, 0
-  call void @__clang_call_terminate(ptr %308) #27
+  %311 = extractvalue { ptr, i32 } %310, 0
+  call void @__clang_call_terminate(ptr %311) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit152: ; preds = %304, %302
-  %309 = load ptr, ptr %250, align 8
-  %.not.i.i.i153 = icmp eq ptr %309, null
-  br i1 %.not.i.i.i153, label %common.resume, label %310
+_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit152: ; preds = %307, %305
+  %312 = load ptr, ptr %253, align 8
+  %.not.i.i.i153 = icmp eq ptr %312, null
+  br i1 %.not.i.i.i153, label %common.resume, label %313
 
-310:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit152
-  %311 = invoke noundef zeroext i1 %309(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
-          to label %common.resume unwind label %312
+313:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit152
+  %314 = invoke noundef zeroext i1 %312(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3)
+          to label %common.resume unwind label %315
 
-312:                                              ; preds = %310
-  %313 = landingpad { ptr, i32 }
+315:                                              ; preds = %313
+  %316 = landingpad { ptr, i32 }
           catch ptr null
-  %314 = extractvalue { ptr, i32 } %313, 0
-  call void @__clang_call_terminate(ptr %314) #27
+  %317 = extractvalue { ptr, i32 } %316, 0
+  call void @__clang_call_terminate(ptr %317) #27
   unreachable
 
-315:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119
-  %.sroa.0182.0 = phi ptr [ %182, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119 ], [ %.sroa.011.0.lcssa.i136, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119 ], [ %249, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150 ]
-  %.070 = phi i64 [ %234, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119 ], [ %248, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150 ]
-  %.069 = phi i64 [ %181, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119 ], [ %301, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150 ]
-  %316 = sub nsw i64 %3, %.069
-  %317 = icmp sle i64 %316, %.070
+318:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119
+  %.sroa.0182.0 = phi ptr [ %185, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119 ], [ %.sroa.011.0.lcssa.i136, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119 ], [ %252, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150 ]
+  %.070 = phi i64 [ %237, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119 ], [ %251, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150 ]
+  %.069 = phi i64 [ %184, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit119 ], [ %304, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit150 ]
+  %319 = sub nsw i64 %3, %.069
+  %320 = icmp sle i64 %319, %.070
   %.not.i155 = icmp sgt i64 %.070, %6
-  %or.cond.i = or i1 %.not.i155, %317
-  br i1 %or.cond.i, label %360, label %318
+  %or.cond.i = or i1 %.not.i155, %320
+  br i1 %or.cond.i, label %363, label %321
 
-318:                                              ; preds = %315
+321:                                              ; preds = %318
   %.not36.i = icmp eq i64 %.070, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit, label %319
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit, label %322
 
-319:                                              ; preds = %318
-  %320 = ptrtoint ptr %.sroa.0.0 to i64
-  %321 = ptrtoint ptr %1 to i64
-  %322 = sub i64 %320, %321
-  %323 = ashr exact i64 %322, 4
-  %324 = icmp sgt i64 %323, 0
-  br i1 %324, label %.lr.ph.i.i.i.i.i.i159, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i
+322:                                              ; preds = %321
+  %323 = ptrtoint ptr %.sroa.0.0 to i64
+  %324 = ptrtoint ptr %1 to i64
+  %325 = sub i64 %323, %324
+  %326 = ashr exact i64 %325, 4
+  %327 = icmp sgt i64 %326, 0
+  br i1 %327, label %.lr.ph.i.i.i.i.i.i159, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i
 
-.lr.ph.i.i.i.i.i.i159:                            ; preds = %319, %.lr.ph.i.i.i.i.i.i159
-  %.012.i.i.i.i.i.i160 = phi i64 [ %331, %.lr.ph.i.i.i.i.i.i159 ], [ %323, %319 ]
-  %.0811.i.i.i.i.i.i161 = phi ptr [ %330, %.lr.ph.i.i.i.i.i.i159 ], [ %5, %319 ]
-  %.0910.i.i.i.i.i.i162 = phi ptr [ %329, %.lr.ph.i.i.i.i.i.i159 ], [ %1, %319 ]
-  %325 = load ptr, ptr %.0910.i.i.i.i.i.i162, align 8
-  store ptr %325, ptr %.0811.i.i.i.i.i.i161, align 8
-  %326 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i162, i64 8
-  %327 = load i32, ptr %326, align 4
-  %328 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i161, i64 8
-  store i32 %327, ptr %328, align 8
-  %329 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i162, i64 16
-  %330 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i161, i64 16
-  %331 = add nsw i64 %.012.i.i.i.i.i.i160, -1
-  %332 = icmp ugt i64 %.012.i.i.i.i.i.i160, 1
-  br i1 %332, label %.lr.ph.i.i.i.i.i.i159, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i, !llvm.loop !101
+.lr.ph.i.i.i.i.i.i159:                            ; preds = %322, %.lr.ph.i.i.i.i.i.i159
+  %.012.i.i.i.i.i.i160 = phi i64 [ %334, %.lr.ph.i.i.i.i.i.i159 ], [ %326, %322 ]
+  %.0811.i.i.i.i.i.i161 = phi ptr [ %333, %.lr.ph.i.i.i.i.i.i159 ], [ %5, %322 ]
+  %.0910.i.i.i.i.i.i162 = phi ptr [ %332, %.lr.ph.i.i.i.i.i.i159 ], [ %1, %322 ]
+  %328 = load ptr, ptr %.0910.i.i.i.i.i.i162, align 8
+  store ptr %328, ptr %.0811.i.i.i.i.i.i161, align 8
+  %329 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i162, i64 8
+  %330 = load i32, ptr %329, align 4
+  %331 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i161, i64 8
+  store i32 %330, ptr %331, align 8
+  %332 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i162, i64 16
+  %333 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i161, i64 16
+  %334 = add nsw i64 %.012.i.i.i.i.i.i160, -1
+  %335 = icmp ugt i64 %.012.i.i.i.i.i.i160, 1
+  br i1 %335, label %.lr.ph.i.i.i.i.i.i159, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i, !llvm.loop !101
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i159, %319
-  %.08.lcssa.i.i.i.i.i.i = phi ptr [ %5, %319 ], [ %330, %.lr.ph.i.i.i.i.i.i159 ]
-  %333 = ptrtoint ptr %.sroa.0182.0 to i64
-  %334 = sub i64 %321, %333
-  %335 = ashr exact i64 %334, 4
-  %336 = icmp sgt i64 %335, 0
-  br i1 %336, label %.lr.ph.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i159, %322
+  %.08.lcssa.i.i.i.i.i.i = phi ptr [ %5, %322 ], [ %333, %.lr.ph.i.i.i.i.i.i159 ]
+  %336 = ptrtoint ptr %.sroa.0182.0 to i64
+  %337 = sub i64 %324, %336
+  %338 = ashr exact i64 %337, 4
+  %339 = icmp sgt i64 %338, 0
+  br i1 %339, label %.lr.ph.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i
 
 .lr.ph.i.i.i.i.i37.i:                             ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i, %.lr.ph.i.i.i.i.i37.i
-  %.010.i.i.i.i.i.i156 = phi i64 [ %343, %.lr.ph.i.i.i.i.i37.i ], [ %335, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ]
-  %.069.i.i.i.i.i.i157 = phi ptr [ %338, %.lr.ph.i.i.i.i.i37.i ], [ %.sroa.0.0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ]
-  %.078.i.i.i.i.i.i158 = phi ptr [ %337, %.lr.ph.i.i.i.i.i37.i ], [ %1, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ]
-  %337 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i158, i64 -16
-  %338 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i157, i64 -16
-  %339 = load ptr, ptr %337, align 8
-  store ptr %339, ptr %338, align 8
-  %340 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i158, i64 -8
-  %341 = load i32, ptr %340, align 4
-  %342 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i157, i64 -8
-  store i32 %341, ptr %342, align 8
-  %343 = add nsw i64 %.010.i.i.i.i.i.i156, -1
-  %344 = icmp ugt i64 %.010.i.i.i.i.i.i156, 1
-  br i1 %344, label %.lr.ph.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !81
+  %.010.i.i.i.i.i.i156 = phi i64 [ %346, %.lr.ph.i.i.i.i.i37.i ], [ %338, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ]
+  %.069.i.i.i.i.i.i157 = phi ptr [ %341, %.lr.ph.i.i.i.i.i37.i ], [ %.sroa.0.0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ]
+  %.078.i.i.i.i.i.i158 = phi ptr [ %340, %.lr.ph.i.i.i.i.i37.i ], [ %1, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ]
+  %340 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i158, i64 -16
+  %341 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i157, i64 -16
+  %342 = load ptr, ptr %340, align 8
+  store ptr %342, ptr %341, align 8
+  %343 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i158, i64 -8
+  %344 = load i32, ptr %343, align 4
+  %345 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i157, i64 -8
+  store i32 %344, ptr %345, align 8
+  %346 = add nsw i64 %.010.i.i.i.i.i.i156, -1
+  %347 = icmp ugt i64 %.010.i.i.i.i.i.i156, 1
+  br i1 %347, label %.lr.ph.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !81
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i37.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i
-  %345 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i to i64
-  %346 = ptrtoint ptr %5 to i64
-  %347 = sub i64 %345, %346
-  %348 = ashr exact i64 %347, 4
-  %349 = icmp sgt i64 %348, 0
-  br i1 %349, label %.lr.ph.i.i.i.i.i39.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i
+  %348 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i to i64
+  %349 = ptrtoint ptr %5 to i64
+  %350 = sub i64 %348, %349
+  %351 = ashr exact i64 %350, 4
+  %352 = icmp sgt i64 %351, 0
+  br i1 %352, label %.lr.ph.i.i.i.i.i39.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i
 
 .lr.ph.i.i.i.i.i39.i:                             ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, %.lr.ph.i.i.i.i.i39.i
-  %.012.i.i.i.i.i40.i = phi i64 [ %356, %.lr.ph.i.i.i.i.i39.i ], [ %348, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
-  %.0811.i.i.i.i.i41.i = phi ptr [ %355, %.lr.ph.i.i.i.i.i39.i ], [ %.sroa.0182.0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
-  %.0910.i.i.i.i.i42.i = phi ptr [ %354, %.lr.ph.i.i.i.i.i39.i ], [ %5, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
-  %350 = load ptr, ptr %.0910.i.i.i.i.i42.i, align 8
-  store ptr %350, ptr %.0811.i.i.i.i.i41.i, align 8
-  %351 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i42.i, i64 8
-  %352 = load i32, ptr %351, align 4
-  %353 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i41.i, i64 8
-  store i32 %352, ptr %353, align 8
-  %354 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i42.i, i64 16
-  %355 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i41.i, i64 16
-  %356 = add nsw i64 %.012.i.i.i.i.i40.i, -1
-  %357 = icmp ugt i64 %.012.i.i.i.i.i40.i, 1
-  br i1 %357, label %.lr.ph.i.i.i.i.i39.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i, !llvm.loop !101
+  %.012.i.i.i.i.i40.i = phi i64 [ %359, %.lr.ph.i.i.i.i.i39.i ], [ %351, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
+  %.0811.i.i.i.i.i41.i = phi ptr [ %358, %.lr.ph.i.i.i.i.i39.i ], [ %.sroa.0182.0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
+  %.0910.i.i.i.i.i42.i = phi ptr [ %357, %.lr.ph.i.i.i.i.i39.i ], [ %5, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
+  %353 = load ptr, ptr %.0910.i.i.i.i.i42.i, align 8
+  store ptr %353, ptr %.0811.i.i.i.i.i41.i, align 8
+  %354 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i42.i, i64 8
+  %355 = load i32, ptr %354, align 4
+  %356 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i41.i, i64 8
+  store i32 %355, ptr %356, align 8
+  %357 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i42.i, i64 16
+  %358 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i41.i, i64 16
+  %359 = add nsw i64 %.012.i.i.i.i.i40.i, -1
+  %360 = icmp ugt i64 %.012.i.i.i.i.i40.i, 1
+  br i1 %360, label %.lr.ph.i.i.i.i.i39.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i, !llvm.loop !101
 
 _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i39.i
-  %.pre65.i = ptrtoint ptr %355 to i64
+  %.pre65.i = ptrtoint ptr %358 to i64
   br label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i
 
 _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i: ; preds = %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i
-  %.pre-phi66.i = phi i64 [ %.pre65.i, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i ], [ %333, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
-  %358 = sub i64 %.pre-phi66.i, %333
-  %359 = getelementptr inbounds i8, ptr %.sroa.0182.0, i64 %358
+  %.pre-phi66.i = phi i64 [ %.pre65.i, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i ], [ %336, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
+  %361 = sub i64 %.pre-phi66.i, %336
+  %362 = getelementptr inbounds i8, ptr %.sroa.0182.0, i64 %361
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit
 
-360:                                              ; preds = %315
-  %.not34.i = icmp sgt i64 %316, %6
-  br i1 %.not34.i, label %403, label %361
+363:                                              ; preds = %318
+  %.not34.i = icmp sgt i64 %319, %6
+  br i1 %.not34.i, label %406, label %364
 
-361:                                              ; preds = %360
+364:                                              ; preds = %363
   %.not35.i = icmp eq i64 %.069, %3
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit, label %362
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit, label %365
 
-362:                                              ; preds = %361
-  %363 = ptrtoint ptr %1 to i64
-  %364 = ptrtoint ptr %.sroa.0182.0 to i64
-  %365 = sub i64 %363, %364
-  %366 = ashr exact i64 %365, 4
-  %367 = icmp sgt i64 %366, 0
-  br i1 %367, label %.lr.ph.i.i.i.i.i44.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i
+365:                                              ; preds = %364
+  %366 = ptrtoint ptr %1 to i64
+  %367 = ptrtoint ptr %.sroa.0182.0 to i64
+  %368 = sub i64 %366, %367
+  %369 = ashr exact i64 %368, 4
+  %370 = icmp sgt i64 %369, 0
+  br i1 %370, label %.lr.ph.i.i.i.i.i44.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i
 
-.lr.ph.i.i.i.i.i44.i:                             ; preds = %362, %.lr.ph.i.i.i.i.i44.i
-  %.012.i.i.i.i.i45.i = phi i64 [ %374, %.lr.ph.i.i.i.i.i44.i ], [ %366, %362 ]
-  %.0811.i.i.i.i.i46.i = phi ptr [ %373, %.lr.ph.i.i.i.i.i44.i ], [ %5, %362 ]
-  %.0910.i.i.i.i.i47.i = phi ptr [ %372, %.lr.ph.i.i.i.i.i44.i ], [ %.sroa.0182.0, %362 ]
-  %368 = load ptr, ptr %.0910.i.i.i.i.i47.i, align 8
-  store ptr %368, ptr %.0811.i.i.i.i.i46.i, align 8
-  %369 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i47.i, i64 8
-  %370 = load i32, ptr %369, align 4
-  %371 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i46.i, i64 8
-  store i32 %370, ptr %371, align 8
-  %372 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i47.i, i64 16
-  %373 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i46.i, i64 16
-  %374 = add nsw i64 %.012.i.i.i.i.i45.i, -1
-  %375 = icmp ugt i64 %.012.i.i.i.i.i45.i, 1
-  br i1 %375, label %.lr.ph.i.i.i.i.i44.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i, !llvm.loop !101
+.lr.ph.i.i.i.i.i44.i:                             ; preds = %365, %.lr.ph.i.i.i.i.i44.i
+  %.012.i.i.i.i.i45.i = phi i64 [ %377, %.lr.ph.i.i.i.i.i44.i ], [ %369, %365 ]
+  %.0811.i.i.i.i.i46.i = phi ptr [ %376, %.lr.ph.i.i.i.i.i44.i ], [ %5, %365 ]
+  %.0910.i.i.i.i.i47.i = phi ptr [ %375, %.lr.ph.i.i.i.i.i44.i ], [ %.sroa.0182.0, %365 ]
+  %371 = load ptr, ptr %.0910.i.i.i.i.i47.i, align 8
+  store ptr %371, ptr %.0811.i.i.i.i.i46.i, align 8
+  %372 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i47.i, i64 8
+  %373 = load i32, ptr %372, align 4
+  %374 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i46.i, i64 8
+  store i32 %373, ptr %374, align 8
+  %375 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i47.i, i64 16
+  %376 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i46.i, i64 16
+  %377 = add nsw i64 %.012.i.i.i.i.i45.i, -1
+  %378 = icmp ugt i64 %.012.i.i.i.i.i45.i, 1
+  br i1 %378, label %.lr.ph.i.i.i.i.i44.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i, !llvm.loop !101
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i: ; preds = %.lr.ph.i.i.i.i.i44.i, %362
-  %.08.lcssa.i.i.i.i.i43.i = phi ptr [ %5, %362 ], [ %373, %.lr.ph.i.i.i.i.i44.i ]
-  %376 = ptrtoint ptr %.sroa.0.0 to i64
-  %377 = sub i64 %376, %363
-  %378 = ashr exact i64 %377, 4
-  %379 = icmp sgt i64 %378, 0
-  br i1 %379, label %.lr.ph.i.i.i.i.i50.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i: ; preds = %.lr.ph.i.i.i.i.i44.i, %365
+  %.08.lcssa.i.i.i.i.i43.i = phi ptr [ %5, %365 ], [ %376, %.lr.ph.i.i.i.i.i44.i ]
+  %379 = ptrtoint ptr %.sroa.0.0 to i64
+  %380 = sub i64 %379, %366
+  %381 = ashr exact i64 %380, 4
+  %382 = icmp sgt i64 %381, 0
+  br i1 %382, label %.lr.ph.i.i.i.i.i50.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i
 
 .lr.ph.i.i.i.i.i50.i:                             ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i, %.lr.ph.i.i.i.i.i50.i
-  %.012.i.i.i.i.i51.i = phi i64 [ %386, %.lr.ph.i.i.i.i.i50.i ], [ %378, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i ]
-  %.0811.i.i.i.i.i52.i = phi ptr [ %385, %.lr.ph.i.i.i.i.i50.i ], [ %.sroa.0182.0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i ]
-  %.0910.i.i.i.i.i53.i = phi ptr [ %384, %.lr.ph.i.i.i.i.i50.i ], [ %1, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i ]
-  %380 = load ptr, ptr %.0910.i.i.i.i.i53.i, align 8
-  store ptr %380, ptr %.0811.i.i.i.i.i52.i, align 8
-  %381 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53.i, i64 8
-  %382 = load i32, ptr %381, align 4
-  %383 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52.i, i64 8
-  store i32 %382, ptr %383, align 8
-  %384 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53.i, i64 16
-  %385 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52.i, i64 16
-  %386 = add nsw i64 %.012.i.i.i.i.i51.i, -1
-  %387 = icmp ugt i64 %.012.i.i.i.i.i51.i, 1
-  br i1 %387, label %.lr.ph.i.i.i.i.i50.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !101
+  %.012.i.i.i.i.i51.i = phi i64 [ %389, %.lr.ph.i.i.i.i.i50.i ], [ %381, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i ]
+  %.0811.i.i.i.i.i52.i = phi ptr [ %388, %.lr.ph.i.i.i.i.i50.i ], [ %.sroa.0182.0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i ]
+  %.0910.i.i.i.i.i53.i = phi ptr [ %387, %.lr.ph.i.i.i.i.i50.i ], [ %1, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i ]
+  %383 = load ptr, ptr %.0910.i.i.i.i.i53.i, align 8
+  store ptr %383, ptr %.0811.i.i.i.i.i52.i, align 8
+  %384 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53.i, i64 8
+  %385 = load i32, ptr %384, align 4
+  %386 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52.i, i64 8
+  store i32 %385, ptr %386, align 8
+  %387 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53.i, i64 16
+  %388 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52.i, i64 16
+  %389 = add nsw i64 %.012.i.i.i.i.i51.i, -1
+  %390 = icmp ugt i64 %.012.i.i.i.i.i51.i, 1
+  br i1 %390, label %.lr.ph.i.i.i.i.i50.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !101
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i50.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i
-  %388 = ptrtoint ptr %.08.lcssa.i.i.i.i.i43.i to i64
-  %389 = ptrtoint ptr %5 to i64
-  %390 = sub i64 %388, %389
-  %391 = ashr exact i64 %390, 4
-  %392 = icmp sgt i64 %391, 0
-  br i1 %392, label %.lr.ph.i.i.i.i.i55.i, label %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i
+  %391 = ptrtoint ptr %.08.lcssa.i.i.i.i.i43.i to i64
+  %392 = ptrtoint ptr %5 to i64
+  %393 = sub i64 %391, %392
+  %394 = ashr exact i64 %393, 4
+  %395 = icmp sgt i64 %394, 0
+  br i1 %395, label %.lr.ph.i.i.i.i.i55.i, label %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i
 
 .lr.ph.i.i.i.i.i55.i:                             ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, %.lr.ph.i.i.i.i.i55.i
-  %.010.i.i.i.i.i56.i = phi i64 [ %399, %.lr.ph.i.i.i.i.i55.i ], [ %391, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
-  %.069.i.i.i.i.i57.i = phi ptr [ %394, %.lr.ph.i.i.i.i.i55.i ], [ %.sroa.0.0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
-  %.078.i.i.i.i.i58.i = phi ptr [ %393, %.lr.ph.i.i.i.i.i55.i ], [ %.08.lcssa.i.i.i.i.i43.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
-  %393 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i58.i, i64 -16
-  %394 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i57.i, i64 -16
-  %395 = load ptr, ptr %393, align 8
-  store ptr %395, ptr %394, align 8
-  %396 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i58.i, i64 -8
-  %397 = load i32, ptr %396, align 4
-  %398 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i57.i, i64 -8
-  store i32 %397, ptr %398, align 8
-  %399 = add nsw i64 %.010.i.i.i.i.i56.i, -1
-  %400 = icmp ugt i64 %.010.i.i.i.i.i56.i, 1
-  br i1 %400, label %.lr.ph.i.i.i.i.i55.i, label %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i, !llvm.loop !81
+  %.010.i.i.i.i.i56.i = phi i64 [ %402, %.lr.ph.i.i.i.i.i55.i ], [ %394, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
+  %.069.i.i.i.i.i57.i = phi ptr [ %397, %.lr.ph.i.i.i.i.i55.i ], [ %.sroa.0.0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
+  %.078.i.i.i.i.i58.i = phi ptr [ %396, %.lr.ph.i.i.i.i.i55.i ], [ %.08.lcssa.i.i.i.i.i43.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
+  %396 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i58.i, i64 -16
+  %397 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i57.i, i64 -16
+  %398 = load ptr, ptr %396, align 8
+  store ptr %398, ptr %397, align 8
+  %399 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i58.i, i64 -8
+  %400 = load i32, ptr %399, align 4
+  %401 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i57.i, i64 -8
+  store i32 %400, ptr %401, align 8
+  %402 = add nsw i64 %.010.i.i.i.i.i56.i, -1
+  %403 = icmp ugt i64 %.010.i.i.i.i.i56.i, 1
+  br i1 %403, label %.lr.ph.i.i.i.i.i55.i, label %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i, !llvm.loop !81
 
 _ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i55.i
-  %.pre.i = ptrtoint ptr %394 to i64
+  %.pre.i = ptrtoint ptr %397 to i64
   br label %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i
 
 _ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i: ; preds = %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i ], [ %376, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
-  %401 = sub i64 %.pre-phi.i, %376
-  %402 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %401
+  %.pre-phi.i = phi i64 [ %.pre.i, %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i ], [ %379, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ]
+  %404 = sub i64 %.pre-phi.i, %379
+  %405 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %404
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit
 
-403:                                              ; preds = %360
-  %404 = call fastcc ptr @_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS8_SaIS8_EEEEEET_SE_SE_SE_(ptr %.sroa.0182.0, ptr %1, ptr %.sroa.0.0)
+406:                                              ; preds = %363
+  %407 = call fastcc ptr @_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS8_SaIS8_EEEEEET_SE_SE_SE_(ptr %.sroa.0182.0, ptr %1, ptr %.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit: ; preds = %318, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i, %361, %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i, %403
-  %.sroa.032.0.i = phi ptr [ %359, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %402, %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %404, %403 ], [ %.sroa.0182.0, %318 ], [ %.sroa.0.0, %361 ]
-  %405 = getelementptr inbounds i8, ptr %15, i64 16
-  %406 = getelementptr inbounds i8, ptr %7, i64 16
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit: ; preds = %321, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i, %364, %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i, %406
+  %.sroa.032.0.i = phi ptr [ %362, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %405, %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %407, %406 ], [ %.sroa.0182.0, %321 ], [ %.sroa.0.0, %364 ]
+  %408 = getelementptr inbounds i8, ptr %15, i64 16
+  %409 = getelementptr inbounds i8, ptr %15, i64 24
+  %410 = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
-  %.val.i.i163 = load ptr, ptr %406, align 8
+  %.val.i.i163 = load ptr, ptr %410, align 8
   %.not.i.i.not.i.i164 = icmp eq ptr %.val.i.i163, null
-  br i1 %.not.i.i.not.i.i164, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit167, label %407
+  br i1 %.not.i.i.not.i.i164, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit167, label %411
 
-407:                                              ; preds = %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit
-  %408 = invoke noundef zeroext i1 %.val.i.i163(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
-          to label %409 unwind label %411
+411:                                              ; preds = %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit
+  %412 = invoke noundef zeroext i1 %.val.i.i163(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
+          to label %413 unwind label %417
 
-409:                                              ; preds = %407
-  %410 = load <2 x ptr>, ptr %406, align 8
-  store <2 x ptr> %410, ptr %405, align 8
+413:                                              ; preds = %411
+  %414 = getelementptr inbounds i8, ptr %7, i64 24
+  %415 = load ptr, ptr %414, align 8
+  store ptr %415, ptr %409, align 8
+  %416 = load ptr, ptr %410, align 8
+  store ptr %416, ptr %408, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit167
 
-411:                                              ; preds = %407
-  %412 = landingpad { ptr, i32 }
+417:                                              ; preds = %411
+  %418 = landingpad { ptr, i32 }
           cleanup
-  %413 = load ptr, ptr %405, align 8
-  %.not.i.i.i165 = icmp eq ptr %413, null
-  br i1 %.not.i.i.i165, label %common.resume, label %414
+  %419 = load ptr, ptr %408, align 8
+  %.not.i.i.i165 = icmp eq ptr %419, null
+  br i1 %.not.i.i.i165, label %common.resume, label %420
 
-414:                                              ; preds = %411
-  %415 = invoke noundef zeroext i1 %413(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
-          to label %common.resume unwind label %416
+420:                                              ; preds = %417
+  %421 = invoke noundef zeroext i1 %419(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+          to label %common.resume unwind label %422
 
-416:                                              ; preds = %414
-  %417 = landingpad { ptr, i32 }
+422:                                              ; preds = %420
+  %423 = landingpad { ptr, i32 }
           catch ptr null
-  %418 = extractvalue { ptr, i32 } %417, 0
-  call void @__clang_call_terminate(ptr %418) #27
+  %424 = extractvalue { ptr, i32 } %423, 0
+  call void @__clang_call_terminate(ptr %424) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit167: ; preds = %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit, %409
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit167: ; preds = %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_lET_SD_SD_SD_T1_SE_T0_SE_.exit, %413
   invoke fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElS8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_SL_T0_SM_T1_SM_T2_(ptr %0, ptr %.sroa.0182.0, ptr %.sroa.032.0.i, i64 noundef %.069, i64 noundef %.070, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %15)
-          to label %419 unwind label %447
+          to label %425 unwind label %456
 
-419:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit167
-  %420 = load ptr, ptr %405, align 8
-  %.not.i.i.i168 = icmp eq ptr %420, null
-  br i1 %.not.i.i.i168, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit169, label %421
+425:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit167
+  %426 = load ptr, ptr %408, align 8
+  %.not.i.i.i168 = icmp eq ptr %426, null
+  br i1 %.not.i.i.i168, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit169, label %427
 
-421:                                              ; preds = %419
-  %422 = invoke noundef zeroext i1 %420(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit169 unwind label %423
+427:                                              ; preds = %425
+  %428 = invoke noundef zeroext i1 %426(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit169 unwind label %429
 
-423:                                              ; preds = %421
-  %424 = landingpad { ptr, i32 }
+429:                                              ; preds = %427
+  %430 = landingpad { ptr, i32 }
           catch ptr null
-  %425 = extractvalue { ptr, i32 } %424, 0
-  call void @__clang_call_terminate(ptr %425) #27
+  %431 = extractvalue { ptr, i32 } %430, 0
+  call void @__clang_call_terminate(ptr %431) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit169: ; preds = %419, %421
-  %426 = sub nsw i64 %4, %.070
-  %427 = getelementptr inbounds i8, ptr %16, i64 16
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit169: ; preds = %425, %427
+  %432 = sub nsw i64 %4, %.070
+  %433 = getelementptr inbounds i8, ptr %16, i64 16
+  %434 = getelementptr inbounds i8, ptr %16, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
-  %.val.i.i170 = load ptr, ptr %406, align 8
+  %.val.i.i170 = load ptr, ptr %410, align 8
   %.not.i.i.not.i.i171 = icmp eq ptr %.val.i.i170, null
-  br i1 %.not.i.i.not.i.i171, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit174, label %428
+  br i1 %.not.i.i.not.i.i171, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit174, label %435
 
-428:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit169
-  %429 = invoke noundef zeroext i1 %.val.i.i170(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
-          to label %430 unwind label %432
-
-430:                                              ; preds = %428
-  %431 = load <2 x ptr>, ptr %406, align 8
-  store <2 x ptr> %431, ptr %427, align 8
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit174
-
-432:                                              ; preds = %428
-  %433 = landingpad { ptr, i32 }
-          cleanup
-  %434 = load ptr, ptr %427, align 8
-  %.not.i.i.i172 = icmp eq ptr %434, null
-  br i1 %.not.i.i.i172, label %common.resume, label %435
-
-435:                                              ; preds = %432
-  %436 = invoke noundef zeroext i1 %434(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
-          to label %common.resume unwind label %437
+435:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit169
+  %436 = invoke noundef zeroext i1 %.val.i.i170(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2)
+          to label %437 unwind label %441
 
 437:                                              ; preds = %435
-  %438 = landingpad { ptr, i32 }
-          catch ptr null
-  %439 = extractvalue { ptr, i32 } %438, 0
-  call void @__clang_call_terminate(ptr %439) #27
-  unreachable
+  %438 = getelementptr inbounds i8, ptr %7, i64 24
+  %439 = load ptr, ptr %438, align 8
+  store ptr %439, ptr %434, align 8
+  %440 = load ptr, ptr %410, align 8
+  store ptr %440, ptr %433, align 8
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit174
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit174: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit169, %430
-  invoke fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElS8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_SL_T0_SM_T1_SM_T2_(ptr %.sroa.032.0.i, ptr %.sroa.0.0, ptr %2, i64 noundef %316, i64 noundef %426, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %16)
-          to label %440 unwind label %455
-
-440:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit174
-  %441 = load ptr, ptr %427, align 8
-  %.not.i.i.i175 = icmp eq ptr %441, null
-  br i1 %.not.i.i.i175, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %442
-
-442:                                              ; preds = %440
-  %443 = invoke noundef zeroext i1 %441(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
-          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %444
-
-444:                                              ; preds = %442
-  %445 = landingpad { ptr, i32 }
-          catch ptr null
-  %446 = extractvalue { ptr, i32 } %445, 0
-  call void @__clang_call_terminate(ptr %446) #27
-  unreachable
-
-447:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit167
-  %448 = landingpad { ptr, i32 }
+441:                                              ; preds = %435
+  %442 = landingpad { ptr, i32 }
           cleanup
-  %449 = load ptr, ptr %405, align 8
-  %.not.i.i.i177 = icmp eq ptr %449, null
-  br i1 %.not.i.i.i177, label %common.resume, label %450
+  %443 = load ptr, ptr %433, align 8
+  %.not.i.i.i172 = icmp eq ptr %443, null
+  br i1 %.not.i.i.i172, label %common.resume, label %444
 
-450:                                              ; preds = %447
-  %451 = invoke noundef zeroext i1 %449(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
-          to label %common.resume unwind label %452
+444:                                              ; preds = %441
+  %445 = invoke noundef zeroext i1 %443(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+          to label %common.resume unwind label %446
 
-452:                                              ; preds = %450
-  %453 = landingpad { ptr, i32 }
+446:                                              ; preds = %444
+  %447 = landingpad { ptr, i32 }
           catch ptr null
-  %454 = extractvalue { ptr, i32 } %453, 0
-  call void @__clang_call_terminate(ptr %454) #27
+  %448 = extractvalue { ptr, i32 } %447, 0
+  call void @__clang_call_terminate(ptr %448) #27
   unreachable
 
-455:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit174
-  %456 = landingpad { ptr, i32 }
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit174: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit169, %437
+  invoke fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElS8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_SL_T0_SM_T1_SM_T2_(ptr %.sroa.032.0.i, ptr %.sroa.0.0, ptr %2, i64 noundef %319, i64 noundef %432, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %16)
+          to label %449 unwind label %464
+
+449:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit174
+  %450 = load ptr, ptr %433, align 8
+  %.not.i.i.i175 = icmp eq ptr %450, null
+  br i1 %.not.i.i.i175, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit, label %451
+
+451:                                              ; preds = %449
+  %452 = invoke noundef zeroext i1 %450(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+          to label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit unwind label %453
+
+453:                                              ; preds = %451
+  %454 = landingpad { ptr, i32 }
+          catch ptr null
+  %455 = extractvalue { ptr, i32 } %454, 0
+  call void @__clang_call_terminate(ptr %455) #27
+  unreachable
+
+456:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit167
+  %457 = landingpad { ptr, i32 }
           cleanup
-  %457 = load ptr, ptr %427, align 8
-  %.not.i.i.i179 = icmp eq ptr %457, null
-  br i1 %.not.i.i.i179, label %common.resume, label %458
+  %458 = load ptr, ptr %408, align 8
+  %.not.i.i.i177 = icmp eq ptr %458, null
+  br i1 %.not.i.i.i177, label %common.resume, label %459
 
-458:                                              ; preds = %455
-  %459 = invoke noundef zeroext i1 %457(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
-          to label %common.resume unwind label %460
+459:                                              ; preds = %456
+  %460 = invoke noundef zeroext i1 %458(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+          to label %common.resume unwind label %461
 
-460:                                              ; preds = %458
-  %461 = landingpad { ptr, i32 }
+461:                                              ; preds = %459
+  %462 = landingpad { ptr, i32 }
           catch ptr null
-  %462 = extractvalue { ptr, i32 } %461, 0
-  call void @__clang_call_terminate(ptr %462) #27
+  %463 = extractvalue { ptr, i32 } %462, 0
+  call void @__clang_call_terminate(ptr %463) #27
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit: ; preds = %442, %440, %167, %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, %67, %_ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEESC_NS7_5__ops15_Iter_comp_iterISt8functionIFbRKS5_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit
+464:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit174
+  %465 = landingpad { ptr, i32 }
+          cleanup
+  %466 = load ptr, ptr %433, align 8
+  %.not.i.i.i179 = icmp eq ptr %466, null
+  br i1 %.not.i.i.i179, label %common.resume, label %467
+
+467:                                              ; preds = %464
+  %468 = invoke noundef zeroext i1 %466(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 3)
+          to label %common.resume unwind label %469
+
+469:                                              ; preds = %467
+  %470 = landingpad { ptr, i32 }
+          catch ptr null
+  %471 = extractvalue { ptr, i32 } %470, 0
+  call void @__clang_call_terminate(ptr %471) #27
+  unreachable
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEED2Ev.exit: ; preds = %451, %449, %170, %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, %69, %_ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEESC_NS7_5__ops15_Iter_comp_iterISt8functionIFbRKS5_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit
   ret void
 }
 

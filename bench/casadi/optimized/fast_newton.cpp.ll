@@ -726,8 +726,9 @@ define void @_ZN6casadi10FastNewton4initERKSt3mapINSt7__cxx1112basic_stringIcSt1
   %25 = getelementptr inbounds i8, ptr %0, i64 1592
   store i64 1000, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 1600
+  store double 0x3D719799812DEA11, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 1608
-  store <2 x double> <double 0x3D719799812DEA11, double 0x3D719799812DEA11>, ptr %26, align 8
+  store double 0x3D719799812DEA11, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 8

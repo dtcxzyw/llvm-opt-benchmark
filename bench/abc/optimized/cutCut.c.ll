@@ -27,24 +27,27 @@ define noundef ptr @Cut_CutAlloc(ptr nocapture noundef %0) local_unnamed_addr #0
   %12 = and i32 %11, 4194304
   %13 = or disjoint i32 %12, %8
   store i32 %13, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 228
-  %15 = load <2 x i32>, ptr %14, align 4
-  %16 = add nsw <2 x i32> %15, <i32 1, i32 1>
-  store <2 x i32> %16, ptr %14, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 240
-  %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 236
-  %20 = load i32, ptr %19, align 4
-  %21 = extractelement <2 x i32> %16, i64 1
-  %22 = sub nsw i32 %21, %20
-  %23 = icmp slt i32 %18, %22
-  br i1 %23, label %24, label %25
+  %14 = getelementptr inbounds i8, ptr %0, i64 232
+  %15 = load i32, ptr %14, align 8
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 228
+  %18 = load i32, ptr %17, align 4
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %17, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 240
+  %21 = load i32, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 236
+  %23 = load i32, ptr %22, align 4
+  %24 = sub nsw i32 %16, %23
+  %25 = icmp slt i32 %21, %24
+  br i1 %25, label %26, label %27
 
-24:                                               ; preds = %1
-  store i32 %22, ptr %17, align 8
-  br label %25
+26:                                               ; preds = %1
+  store i32 %24, ptr %20, align 8
+  br label %27
 
-25:                                               ; preds = %24, %1
+27:                                               ; preds = %26, %1
   ret ptr %4
 }
 
@@ -339,65 +342,68 @@ define noundef ptr @Cut_CutCreateTriv(ptr nocapture noundef %0, i32 noundef %1) 
   %17 = and i32 %16, 4194304
   %18 = or disjoint i32 %17, %13
   store i32 %18, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 228
-  %20 = load <2 x i32>, ptr %19, align 4
-  %21 = add nsw <2 x i32> %20, <i32 1, i32 1>
-  store <2 x i32> %21, ptr %19, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 240
-  %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 236
-  %25 = load i32, ptr %24, align 4
-  %26 = extractelement <2 x i32> %21, i64 1
-  %27 = sub nsw i32 %26, %25
-  %28 = icmp slt i32 %23, %27
-  br i1 %28, label %29, label %Cut_CutAlloc.exit
+  %19 = getelementptr inbounds i8, ptr %0, i64 232
+  %20 = load i32, ptr %19, align 8
+  %21 = add nsw i32 %20, 1
+  store i32 %21, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 228
+  %23 = load i32, ptr %22, align 4
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %22, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 240
+  %26 = load i32, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 236
+  %28 = load i32, ptr %27, align 4
+  %29 = sub nsw i32 %21, %28
+  %30 = icmp slt i32 %26, %29
+  br i1 %30, label %31, label %Cut_CutAlloc.exit
 
-29:                                               ; preds = %2
-  store i32 %27, ptr %22, align 8
+31:                                               ; preds = %2
+  store i32 %29, ptr %25, align 8
   br label %Cut_CutAlloc.exit
 
-Cut_CutAlloc.exit:                                ; preds = %2, %29
-  %30 = load i32, ptr %9, align 8
-  %31 = and i32 %30, 268435455
-  %32 = or disjoint i32 %31, 268435456
-  store i32 %32, ptr %9, align 8
-  %33 = getelementptr inbounds i8, ptr %9, i64 24
-  store i32 %spec.select, ptr %33, align 8
-  %34 = srem i32 %spec.select, 31
-  %35 = shl nuw nsw i32 1, %34
-  %36 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %35, ptr %36, align 4
-  %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 20
-  %39 = load i32, ptr %38, align 4
-  %.not17 = icmp eq i32 %39, 0
-  br i1 %.not17, label %.loopexit, label %40
+Cut_CutAlloc.exit:                                ; preds = %2, %31
+  %32 = load i32, ptr %9, align 8
+  %33 = and i32 %32, 268435455
+  %34 = or disjoint i32 %33, 268435456
+  store i32 %34, ptr %9, align 8
+  %35 = getelementptr inbounds i8, ptr %9, i64 24
+  store i32 %spec.select, ptr %35, align 8
+  %36 = srem i32 %spec.select, 31
+  %37 = shl nuw nsw i32 1, %36
+  %38 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %37, ptr %38, align 4
+  %39 = load ptr, ptr %0, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 20
+  %41 = load i32, ptr %40, align 4
+  %.not17 = icmp eq i32 %41, 0
+  br i1 %.not17, label %.loopexit, label %42
 
-40:                                               ; preds = %Cut_CutAlloc.exit
-  %41 = lshr i32 %30, 24
-  %42 = and i32 %41, 15
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %33, i64 %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 60
-  %46 = load i32, ptr %45, align 4
-  %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.lr.ph, label %.loopexit
+42:                                               ; preds = %Cut_CutAlloc.exit
+  %43 = lshr i32 %32, 24
+  %44 = and i32 %43, 15
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds i32, ptr %35, i64 %45
+  %47 = getelementptr inbounds i8, ptr %0, i64 60
+  %48 = load i32, ptr %47, align 4
+  %49 = icmp sgt i32 %48, 0
+  br i1 %49, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %40, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %40 ]
-  %48 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv
-  store i32 -1431655766, ptr %48, align 4
+.lr.ph:                                           ; preds = %42, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %42 ]
+  %50 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv
+  store i32 -1431655766, ptr %50, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = load i32, ptr %45, align 4
-  %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  %51 = load i32, ptr %47, align 4
+  %52 = sext i32 %51 to i64
+  %53 = icmp slt i64 %indvars.iv.next, %52
+  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %.lr.ph, %40, %Cut_CutAlloc.exit
-  %52 = getelementptr inbounds i8, ptr %0, i64 244
-  %53 = load i32, ptr %52, align 4
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %52, align 4
+.loopexit:                                        ; preds = %.lr.ph, %42, %Cut_CutAlloc.exit
+  %54 = getelementptr inbounds i8, ptr %0, i64 244
+  %55 = load i32, ptr %54, align 4
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %54, align 4
   ret ptr %9
 }
 

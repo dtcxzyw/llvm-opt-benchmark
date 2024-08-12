@@ -5326,7 +5326,13 @@ entry:
   %ref.tmp819 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %ref.tmp821 = alloca %"class.std::__cxx11::basic_string", align 8
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #21
-  store <4 x i8> <i8 1, i8 2, i8 3, i8 4>, ptr %call5.i.i.i.i2.i, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i, align 1
+  %ref.tmp1.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 1
+  store i8 2, ptr %ref.tmp1.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp1.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 2
+  store i8 3, ptr %ref.tmp1.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp1.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 3
+  store i8 4, ptr %ref.tmp1.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %m_value.i.i.i.i = getelementptr inbounds i8, ptr %binary, i64 8
   store ptr null, ptr %m_value.i.i.i.i, align 8, !alias.scope !56
@@ -5379,7 +5385,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i129:        ; preds = %_ZNSt6vectorIhSaIhE
   br label %ehcleanup846
 
 invoke.cont23:                                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit124
-  store <4 x i8> <i8 1, i8 2, i8 3, i8 4>, ptr %call5.i.i.i.i2.i125, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i125, align 1
+  %ref.tmp13.sroa.2.0.call5.i.i.i.i2.i125.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i125, i64 1
+  store i8 2, ptr %ref.tmp13.sroa.2.0.call5.i.i.i.i2.i125.sroa_idx, align 1
+  %ref.tmp13.sroa.3.0.call5.i.i.i.i2.i125.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i125, i64 2
+  store i8 3, ptr %ref.tmp13.sroa.3.0.call5.i.i.i.i2.i125.sroa_idx, align 1
+  %ref.tmp13.sroa.4.0.call5.i.i.i.i2.i125.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i125, i64 3
+  store i8 4, ptr %ref.tmp13.sroa.4.0.call5.i.i.i.i2.i125.sroa_idx, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   %m_value.i.i.i.i135 = getelementptr inbounds i8, ptr %binary_with_subtype, i64 8
   store ptr null, ptr %m_value.i.i.i.i135, align 8, !alias.scope !62
@@ -13555,12 +13567,21 @@ sw.bb99:                                          ; preds = %sw.bb85, %sw.bb85
   br i1 %cmp104, label %if.then105, label %for.inc
 
 if.then105:                                       ; preds = %sw.bb99
+  %inc109 = add i64 %bytes_after_last_accept.0111, 1
   %arrayidx.i.i77 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes_after_last_accept.0111
+  %inc112 = add i64 %bytes_after_last_accept.0111, 2
+  %arrayidx.i.i78 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc109
+  %inc115 = add i64 %bytes_after_last_accept.0111, 3
+  %arrayidx.i.i79 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc112
   br i1 %ensure_ascii, label %if.then107, label %if.else126
 
 if.then107:                                       ; preds = %if.then105
+  store i8 92, ptr %arrayidx.i.i77, align 1
+  store i8 117, ptr %arrayidx.i.i78, align 1
+  store i8 102, ptr %arrayidx.i.i79, align 1
   %inc118 = add i64 %bytes_after_last_accept.0111, 4
-  store <4 x i8> <i8 92, i8 117, i8 102, i8 102>, ptr %arrayidx.i.i77, align 1
+  %arrayidx.i.i80 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc115
+  store i8 102, ptr %arrayidx.i.i80, align 1
   %inc121 = add i64 %bytes_after_last_accept.0111, 5
   %arrayidx.i.i81 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc118
   store i8 102, ptr %arrayidx.i.i81, align 1
@@ -13570,11 +13591,6 @@ if.then107:                                       ; preds = %if.then105
   br label %if.end139
 
 if.else126:                                       ; preds = %if.then105
-  %inc112 = add i64 %bytes_after_last_accept.0111, 2
-  %arrayidx.i.i79 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc112
-  %inc115 = add i64 %bytes_after_last_accept.0111, 3
-  %inc109 = add i64 %bytes_after_last_accept.0111, 1
-  %arrayidx.i.i78 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc109
   store i8 -17, ptr %arrayidx.i.i77, align 1
   store i8 -65, ptr %arrayidx.i.i78, align 1
   store i8 -67, ptr %arrayidx.i.i79, align 1

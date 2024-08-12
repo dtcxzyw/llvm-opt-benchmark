@@ -2445,8 +2445,11 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit32
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit32: ; preds = %if.end, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit.thread65, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit.thread68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit.thread71, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit
-  %1 = phi <2 x i32> [ <i32 10, i32 10>, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit.thread65 ], [ <i32 12, i32 12>, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit.thread68 ], [ <i32 -16, i32 16>, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit.thread71 ], [ zeroinitializer, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit ], [ <i32 8, i32 8>, %if.end ]
-  store <2 x i32> %1, ptr %srcBitDepth, align 8
+  %.sink = phi i32 [ 10, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit.thread65 ], [ 12, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit.thread68 ], [ -16, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit.thread71 ], [ 0, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit ], [ 8, %if.end ]
+  %retval.0.i28 = phi i32 [ 10, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit.thread65 ], [ 12, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit.thread68 ], [ 16, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit.thread71 ], [ 0, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils24IMLutTableSizeToBitDepthEib.exit ], [ 8, %if.end ]
+  store i32 %.sink, ptr %srcBitDepth, align 8
+  %targetBitDepth = getelementptr inbounds i8, ptr %call, i64 12
+  store i32 %retval.0.i28, ptr %targetBitDepth, align 4
   %call8 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #30
   store ptr %call8, ptr %tables.i, align 8
   %cmp11 = icmp eq ptr %call8, null
@@ -2476,8 +2479,8 @@ for.body18.lr.ph:                                 ; preds = %for.cond16.preheade
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %2 = load ptr, ptr %tables.i, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %1 = load ptr, ptr %tables.i, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   store ptr null, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2489,29 +2492,29 @@ for.cond16:                                       ; preds = %for.body18
   br i1 %exitcond84.not, label %for.end34, label %for.body18, !llvm.loop !43
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %for.cond16
-  %3 = phi ptr [ %.pre, %for.body18.lr.ph ], [ %4, %for.cond16 ]
+  %2 = phi ptr [ %.pre, %for.body18.lr.ph ], [ %3, %for.cond16 ]
   %indvars.iv80 = phi i64 [ 0, %for.body18.lr.ph ], [ %indvars.iv.next81, %for.cond16 ]
   %call19 = tail call noalias ptr @malloc(i64 noundef %mul) #30
-  %arrayidx22 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv80
+  %arrayidx22 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv80
   store ptr %call19, ptr %arrayidx22, align 8
-  %4 = load ptr, ptr %tables.i, align 8
-  %arrayidx25 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv80
-  %5 = load ptr, ptr %arrayidx25, align 8
-  %cmp26 = icmp eq ptr %5, null
+  %3 = load ptr, ptr %tables.i, align 8
+  %arrayidx25 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv80
+  %4 = load ptr, ptr %arrayidx25, align 8
+  %cmp26 = icmp eq ptr %4, null
   br i1 %cmp26, label %for.cond.preheader.i36, label %for.cond16
 
 for.cond.preheader.i36:                           ; preds = %for.body18
-  %6 = load i32, ptr %call, align 8
-  %cmp13.i37 = icmp sgt i32 %6, 0
+  %5 = load i32, ptr %call, align 8
+  %cmp13.i37 = icmp sgt i32 %5, 0
   br i1 %cmp13.i37, label %for.body.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit62
 
 for.body.i39:                                     ; preds = %for.cond.preheader.i36, %for.inc23.i55
-  %7 = phi i32 [ %12, %for.inc23.i55 ], [ %6, %for.cond.preheader.i36 ]
+  %6 = phi i32 [ %11, %for.inc23.i55 ], [ %5, %for.cond.preheader.i36 ]
   %indvars.iv16.i40 = phi i64 [ %indvars.iv.next17.i56, %for.inc23.i55 ], [ 0, %for.cond.preheader.i36 ]
-  %8 = load ptr, ptr %tables.i, align 8
-  %arrayidx.i41 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv16.i40
-  %9 = load ptr, ptr %arrayidx.i41, align 8
-  %tobool3.not.i42 = icmp eq ptr %9, null
+  %7 = load ptr, ptr %tables.i, align 8
+  %arrayidx.i41 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv16.i40
+  %8 = load ptr, ptr %arrayidx.i41, align 8
+  %tobool3.not.i42 = icmp eq ptr %8, null
   br i1 %tobool3.not.i42, label %for.inc23.i55, label %for.cond5.preheader.i43
 
 for.cond5.preheader.i43:                          ; preds = %for.body.i39
@@ -2520,9 +2523,9 @@ for.cond5.preheader.i43:                          ; preds = %for.body.i39
 
 for.body7.i45:                                    ; preds = %for.cond5.preheader.i43, %for.inc.i49
   %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i50, %for.inc.i49 ], [ 0, %for.cond5.preheader.i43 ]
-  %arrayidx10.i47 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i46
-  %10 = load ptr, ptr %arrayidx10.i47, align 8
-  %cmp14.i48 = icmp eq ptr %10, %9
+  %arrayidx10.i47 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.i46
+  %9 = load ptr, ptr %arrayidx10.i47, align 8
+  %cmp14.i48 = icmp eq ptr %9, %8
   br i1 %cmp14.i48, label %for.end.i52, label %for.inc.i49
 
 for.inc.i49:                                      ; preds = %for.body7.i45
@@ -2532,20 +2535,20 @@ for.inc.i49:                                      ; preds = %for.body7.i45
 
 for.end.i52:                                      ; preds = %for.inc.i49, %for.body7.i45, %for.cond5.preheader.i43
   %j.0.lcssa.i53 = phi i64 [ 0, %for.cond5.preheader.i43 ], [ %indvars.iv16.i40, %for.inc.i49 ], [ %indvars.iv.i46, %for.body7.i45 ]
-  %11 = and i64 %j.0.lcssa.i53, 4294967295
-  %cmp16.i54 = icmp eq i64 %11, %indvars.iv16.i40
+  %10 = and i64 %j.0.lcssa.i53, 4294967295
+  %cmp16.i54 = icmp eq i64 %10, %indvars.iv16.i40
   br i1 %cmp16.i54, label %if.then17.i60, label %for.inc23.i55
 
 if.then17.i60:                                    ; preds = %for.end.i52
-  tail call void @free(ptr noundef %9) #24
+  tail call void @free(ptr noundef %8) #24
   %.pre.i61 = load i32, ptr %call, align 8
   br label %for.inc23.i55
 
 for.inc23.i55:                                    ; preds = %if.then17.i60, %for.end.i52, %for.body.i39
-  %12 = phi i32 [ %7, %for.body.i39 ], [ %.pre.i61, %if.then17.i60 ], [ %7, %for.end.i52 ]
+  %11 = phi i32 [ %6, %for.body.i39 ], [ %.pre.i61, %if.then17.i60 ], [ %6, %for.end.i52 ]
   %indvars.iv.next17.i56 = add nuw nsw i64 %indvars.iv16.i40, 1
-  %13 = sext i32 %12 to i64
-  %cmp.i57 = icmp slt i64 %indvars.iv.next17.i56, %13
+  %12 = sext i32 %11 to i64
+  %cmp.i57 = icmp slt i64 %indvars.iv.next17.i56, %12
   br i1 %cmp.i57, label %for.body.i39, label %for.end25.loopexit.i58, !llvm.loop !15
 
 for.end25.loopexit.i58:                           ; preds = %for.inc23.i55
@@ -2553,8 +2556,8 @@ for.end25.loopexit.i58:                           ; preds = %for.inc23.i55
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit62
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110Lut1dUtils11IMLutStructD2Ev.exit62: ; preds = %for.cond.preheader.i36, %for.end25.loopexit.i58
-  %14 = phi ptr [ %.pre19.i59, %for.end25.loopexit.i58 ], [ %4, %for.cond.preheader.i36 ]
-  tail call void @free(ptr noundef %14) #24
+  %13 = phi ptr [ %.pre19.i59, %for.end25.loopexit.i58 ], [ %3, %for.cond.preheader.i36 ]
+  tail call void @free(ptr noundef %13) #24
   tail call void @_ZdlPv(ptr noundef nonnull %call) #25
   br label %return
 

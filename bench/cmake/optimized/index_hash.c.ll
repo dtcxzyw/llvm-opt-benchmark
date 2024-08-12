@@ -70,7 +70,7 @@ define dso_local range(i32 0, 12) i32 @lzma_index_hash_append(ptr noundef %0, i6
   %or.cond3 = or i1 %8, %6
   %9 = icmp slt i64 %2, 0
   %or.cond5 = or i1 %9, %or.cond3
-  br i1 %or.cond5, label %49, label %10
+  br i1 %or.cond5, label %50, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
@@ -89,47 +89,49 @@ define dso_local range(i32 0, 12) i32 @lzma_index_hash_append(ptr noundef %0, i6
   %21 = add i32 %20, %19
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %0, i64 32
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
-  %25 = load <2 x i64>, ptr %24, align 8
-  %26 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %22, i64 1
-  %27 = add <2 x i64> %25, %26
-  store <2 x i64> %27, ptr %24, align 8
+  %24 = load i64, ptr %23, align 8
+  %25 = add i64 %24, %22
+  store i64 %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %26, align 8
   store i64 %1, ptr %4, align 16
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %2, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  call void @lzma_check_update(ptr noundef nonnull %29, i32 noundef 10, ptr noundef nonnull %4, i64 noundef 16) #9
+  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %2, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  call void @lzma_check_update(ptr noundef nonnull %30, i32 noundef 10, ptr noundef nonnull %4, i64 noundef 16) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %30 = load i64, ptr %11, align 8
-  %31 = icmp slt i64 %30, 0
-  br i1 %31, label %49, label %32
+  %31 = load i64, ptr %11, align 8
+  %32 = icmp slt i64 %31, 0
+  br i1 %32, label %50, label %33
 
-32:                                               ; preds = %10
-  %33 = load i64, ptr %16, align 8
-  %34 = icmp slt i64 %33, 0
-  br i1 %34, label %49, label %35
+33:                                               ; preds = %10
+  %34 = load i64, ptr %16, align 8
+  %35 = icmp slt i64 %34, 0
+  br i1 %35, label %50, label %36
 
-35:                                               ; preds = %32
-  %36 = load i64, ptr %24, align 8
-  %37 = load i64, ptr %23, align 8
-  %38 = call i32 @lzma_vli_size(i64 noundef %36) #10
-  %39 = add i32 %38, 1
-  %40 = zext i32 %39 to i64
-  %41 = add i64 %37, 7
-  %42 = add i64 %41, %40
-  %43 = and i64 %42, -4
-  %44 = icmp ugt i64 %43, 17179869184
-  br i1 %44, label %49, label %45
+36:                                               ; preds = %33
+  %37 = load i64, ptr %26, align 8
+  %38 = load i64, ptr %23, align 8
+  %39 = call i32 @lzma_vli_size(i64 noundef %37) #10
+  %40 = add i32 %39, 1
+  %41 = zext i32 %40 to i64
+  %42 = add i64 %38, 7
+  %43 = add i64 %42, %41
+  %44 = and i64 %43, -4
+  %45 = icmp ugt i64 %44, 17179869184
+  br i1 %45, label %50, label %46
 
-45:                                               ; preds = %35
-  %46 = add nuw i64 %30, 24
-  %47 = add nuw i64 %46, %43
-  %48 = icmp slt i64 %47, 0
-  %spec.select = select i1 %48, i32 9, i32 0
-  br label %49
+46:                                               ; preds = %36
+  %47 = add nuw i64 %31, 24
+  %48 = add nuw i64 %47, %44
+  %49 = icmp slt i64 %48, 0
+  %spec.select = select i1 %49, i32 9, i32 0
+  br label %50
 
-49:                                               ; preds = %45, %10, %32, %35, %3
-  %.0 = phi i32 [ 11, %3 ], [ 9, %35 ], [ 9, %32 ], [ 9, %10 ], [ %spec.select, %45 ]
+50:                                               ; preds = %46, %10, %33, %36, %3
+  %.0 = phi i32 [ 11, %3 ], [ 9, %36 ], [ 9, %33 ], [ 9, %10 ], [ %spec.select, %46 ]
   ret i32 %.0
 }
 
@@ -157,22 +159,22 @@ define dso_local i32 @lzma_index_hash_decode(ptr noundef %0, ptr noundef %1, ptr
   %20 = getelementptr inbounds i8, ptr %0, i64 24
   br label %21
 
-21:                                               ; preds = %.lr.ph, %130
-  %22 = phi i64 [ %6, %.lr.ph ], [ %131, %130 ]
+21:                                               ; preds = %.lr.ph, %131
+  %22 = phi i64 [ %6, %.lr.ph ], [ %132, %131 ]
   %23 = load i32, ptr %0, align 8
   switch i32 %23, label %.loopexit [
     i32 0, label %24
     i32 1, label %28
     i32 2, label %36
     i32 3, label %36
-    i32 4, label %77
+    i32 4, label %78
     i32 5, label %._crit_edge117
     i32 6, label %.loopexit110
   ]
 
 ._crit_edge117:                                   ; preds = %21
   %.pre = load i64, ptr %9, align 8
-  br label %85
+  br label %86
 
 24:                                               ; preds = %21
   %25 = add nuw i64 %22, 1
@@ -233,160 +235,162 @@ define dso_local i32 @lzma_index_hash_decode(ptr noundef %0, ptr noundef %1, ptr
   %55 = call i32 @lzma_vli_size(i64 noundef %47) #10
   %56 = add i32 %55, %54
   %57 = zext i32 %56 to i64
-  %58 = load <2 x i64>, ptr %7, align 8
-  %59 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %57, i64 1
-  %60 = add <2 x i64> %58, %59
-  store <2 x i64> %60, ptr %7, align 8
+  %58 = load i64, ptr %8, align 8
+  %59 = add i64 %58, %57
+  store i64 %59, ptr %8, align 8
+  %60 = load i64, ptr %7, align 8
+  %61 = add i64 %60, 1
+  store i64 %61, ptr %7, align 8
   store i64 %43, ptr %5, align 16
   store i64 %47, ptr %14, align 8
   call void @lzma_check_update(ptr noundef nonnull %15, i32 noundef 10, ptr noundef nonnull %5, i64 noundef 16) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %61 = load i64, ptr %16, align 8
-  %62 = load i64, ptr %12, align 8
-  %63 = icmp ult i64 %61, %62
-  br i1 %63, label %.loopexit, label %64
+  %62 = load i64, ptr %16, align 8
+  %63 = load i64, ptr %12, align 8
+  %64 = icmp ult i64 %62, %63
+  br i1 %64, label %.loopexit, label %65
 
-64:                                               ; preds = %46
-  %65 = load i64, ptr %17, align 8
-  %66 = load i64, ptr %13, align 8
-  %67 = icmp ult i64 %65, %66
-  br i1 %67, label %.loopexit, label %68
+65:                                               ; preds = %46
+  %66 = load i64, ptr %17, align 8
+  %67 = load i64, ptr %13, align 8
+  %68 = icmp ult i64 %66, %67
+  br i1 %68, label %.loopexit, label %69
 
-68:                                               ; preds = %64
-  %69 = load i64, ptr %18, align 8
-  %70 = load i64, ptr %8, align 8
-  %71 = icmp ult i64 %69, %70
-  br i1 %71, label %.loopexit, label %72
+69:                                               ; preds = %65
+  %70 = load i64, ptr %18, align 8
+  %71 = load i64, ptr %8, align 8
+  %72 = icmp ult i64 %70, %71
+  br i1 %72, label %.loopexit, label %73
 
-72:                                               ; preds = %68
-  %73 = load i64, ptr %19, align 8
-  %74 = add i64 %73, -1
-  store i64 %74, ptr %19, align 8
-  %75 = icmp eq i64 %74, 0
-  %76 = select i1 %75, i32 4, i32 2
+73:                                               ; preds = %69
+  %74 = load i64, ptr %19, align 8
+  %75 = add i64 %74, -1
+  store i64 %75, ptr %19, align 8
+  %76 = icmp eq i64 %75, 0
+  %77 = select i1 %76, i32 4, i32 2
   br label %.sink.split
 
-77:                                               ; preds = %21
-  %78 = load i64, ptr %7, align 8
-  %79 = load i64, ptr %8, align 8
-  %80 = call i32 @lzma_vli_size(i64 noundef %78) #10
-  %81 = add i32 %80, 1
-  %82 = zext i32 %81 to i64
-  %83 = add i64 %79, %82
-  %.neg107 = sub i64 0, %83
-  %84 = and i64 %.neg107, 3
-  store i64 %84, ptr %9, align 8
+78:                                               ; preds = %21
+  %79 = load i64, ptr %7, align 8
+  %80 = load i64, ptr %8, align 8
+  %81 = call i32 @lzma_vli_size(i64 noundef %79) #10
+  %82 = add i32 %81, 1
+  %83 = zext i32 %82 to i64
+  %84 = add i64 %80, %83
+  %.neg107 = sub i64 0, %84
+  %85 = and i64 %.neg107, 3
+  store i64 %85, ptr %9, align 8
   store i32 5, ptr %0, align 8
-  br label %85
+  br label %86
 
-85:                                               ; preds = %._crit_edge117, %77
-  %86 = phi i64 [ %.pre, %._crit_edge117 ], [ %84, %77 ]
-  %.not96 = icmp eq i64 %86, 0
-  br i1 %.not96, label %93, label %87
+86:                                               ; preds = %._crit_edge117, %78
+  %87 = phi i64 [ %.pre, %._crit_edge117 ], [ %85, %78 ]
+  %.not96 = icmp eq i64 %87, 0
+  br i1 %.not96, label %94, label %88
 
-87:                                               ; preds = %85
-  %88 = add i64 %86, -1
-  store i64 %88, ptr %9, align 8
-  %89 = load i64, ptr %2, align 8
-  %90 = add i64 %89, 1
-  store i64 %90, ptr %2, align 8
-  %91 = getelementptr inbounds i8, ptr %1, i64 %89
-  %92 = load i8, ptr %91, align 1
-  %.not102 = icmp eq i8 %92, 0
-  br i1 %.not102, label %130, label %.loopexit
+88:                                               ; preds = %86
+  %89 = add i64 %87, -1
+  store i64 %89, ptr %9, align 8
+  %90 = load i64, ptr %2, align 8
+  %91 = add i64 %90, 1
+  store i64 %91, ptr %2, align 8
+  %92 = getelementptr inbounds i8, ptr %1, i64 %90
+  %93 = load i8, ptr %92, align 1
+  %.not102 = icmp eq i8 %93, 0
+  br i1 %.not102, label %131, label %.loopexit
 
-93:                                               ; preds = %85
-  %94 = load i64, ptr %16, align 8
-  %95 = load i64, ptr %12, align 8
-  %.not97 = icmp eq i64 %94, %95
-  br i1 %.not97, label %96, label %.loopexit
+94:                                               ; preds = %86
+  %95 = load i64, ptr %16, align 8
+  %96 = load i64, ptr %12, align 8
+  %.not97 = icmp eq i64 %95, %96
+  br i1 %.not97, label %97, label %.loopexit
 
-96:                                               ; preds = %93
-  %97 = load i64, ptr %17, align 8
-  %98 = load i64, ptr %13, align 8
-  %.not98 = icmp eq i64 %97, %98
-  br i1 %.not98, label %99, label %.loopexit
+97:                                               ; preds = %94
+  %98 = load i64, ptr %17, align 8
+  %99 = load i64, ptr %13, align 8
+  %.not98 = icmp eq i64 %98, %99
+  br i1 %.not98, label %100, label %.loopexit
 
-99:                                               ; preds = %96
-  %100 = load i64, ptr %18, align 8
-  %101 = load i64, ptr %8, align 8
-  %.not99 = icmp eq i64 %100, %101
-  br i1 %.not99, label %102, label %.loopexit
+100:                                              ; preds = %97
+  %101 = load i64, ptr %18, align 8
+  %102 = load i64, ptr %8, align 8
+  %.not99 = icmp eq i64 %101, %102
+  br i1 %.not99, label %103, label %.loopexit
 
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %0, i64 40
-  call void @lzma_check_finish(ptr noundef nonnull %103, i32 noundef 10) #9
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds i8, ptr %0, i64 40
+  call void @lzma_check_finish(ptr noundef nonnull %104, i32 noundef 10) #9
   call void @lzma_check_finish(ptr noundef nonnull %15, i32 noundef 10) #9
-  %104 = call i32 @lzma_check_size(i32 noundef 10) #11
-  %105 = zext i32 %104 to i64
-  %bcmp = call i32 @bcmp(ptr nonnull %103, ptr nonnull %15, i64 %105)
+  %105 = call i32 @lzma_check_size(i32 noundef 10) #11
+  %106 = zext i32 %105 to i64
+  %bcmp = call i32 @bcmp(ptr nonnull %104, ptr nonnull %15, i64 %106)
   %.not100 = icmp eq i32 %bcmp, 0
-  br i1 %.not100, label %106, label %.loopexit
+  br i1 %.not100, label %107, label %.loopexit
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %1, i64 %6
-  %108 = load i64, ptr %2, align 8
-  %109 = sub i64 %108, %6
-  %110 = getelementptr inbounds i8, ptr %0, i64 312
-  %111 = load i32, ptr %110, align 8
-  %112 = call i32 @lzma_crc32(ptr noundef %107, i64 noundef %109, i32 noundef %111) #10
-  store i32 %112, ptr %110, align 8
+107:                                              ; preds = %103
+  %108 = getelementptr inbounds i8, ptr %1, i64 %6
+  %109 = load i64, ptr %2, align 8
+  %110 = sub i64 %109, %6
+  %111 = getelementptr inbounds i8, ptr %0, i64 312
+  %112 = load i32, ptr %111, align 8
+  %113 = call i32 @lzma_crc32(ptr noundef %108, i64 noundef %110, i32 noundef %112) #10
+  store i32 %113, ptr %111, align 8
   store i32 6, ptr %0, align 8
   br label %.loopexit110
 
-.loopexit110:                                     ; preds = %21, %106
-  %113 = getelementptr inbounds i8, ptr %0, i64 312
-  br label %114
+.loopexit110:                                     ; preds = %21, %107
+  %114 = getelementptr inbounds i8, ptr %0, i64 312
+  br label %115
 
-114:                                              ; preds = %126, %.loopexit110
-  %115 = load i64, ptr %2, align 8
-  %116 = icmp eq i64 %115, %3
-  br i1 %116, label %.loopexit, label %117
+115:                                              ; preds = %127, %.loopexit110
+  %116 = load i64, ptr %2, align 8
+  %117 = icmp eq i64 %116, %3
+  br i1 %117, label %.loopexit, label %118
 
-117:                                              ; preds = %114
-  %118 = load i32, ptr %113, align 8
-  %119 = load i64, ptr %9, align 8
-  %.tr = trunc i64 %119 to i32
-  %120 = shl i32 %.tr, 3
-  %121 = lshr i32 %118, %120
-  %122 = add i64 %115, 1
-  store i64 %122, ptr %2, align 8
-  %123 = getelementptr inbounds i8, ptr %1, i64 %115
-  %124 = load i8, ptr %123, align 1
-  %125 = trunc i32 %121 to i8
-  %.not101 = icmp eq i8 %124, %125
-  br i1 %.not101, label %126, label %.loopexit
+118:                                              ; preds = %115
+  %119 = load i32, ptr %114, align 8
+  %120 = load i64, ptr %9, align 8
+  %.tr = trunc i64 %120 to i32
+  %121 = shl i32 %.tr, 3
+  %122 = lshr i32 %119, %121
+  %123 = add i64 %116, 1
+  store i64 %123, ptr %2, align 8
+  %124 = getelementptr inbounds i8, ptr %1, i64 %116
+  %125 = load i8, ptr %124, align 1
+  %126 = trunc i32 %122 to i8
+  %.not101 = icmp eq i8 %125, %126
+  br i1 %.not101, label %127, label %.loopexit
 
-126:                                              ; preds = %117
-  %127 = load i64, ptr %9, align 8
-  %128 = add i64 %127, 1
-  store i64 %128, ptr %9, align 8
-  %129 = icmp ult i64 %128, 4
-  br i1 %129, label %114, label %.loopexit, !llvm.loop !5
+127:                                              ; preds = %118
+  %128 = load i64, ptr %9, align 8
+  %129 = add i64 %128, 1
+  store i64 %129, ptr %9, align 8
+  %130 = icmp ult i64 %129, 4
+  br i1 %130, label %115, label %.loopexit, !llvm.loop !5
 
-.sink.split:                                      ; preds = %44, %24, %33, %72
-  %.sink = phi i32 [ %76, %72 ], [ %35, %33 ], [ 1, %24 ], [ 3, %44 ]
+.sink.split:                                      ; preds = %44, %24, %33, %73
+  %.sink = phi i32 [ %77, %73 ], [ %35, %33 ], [ 1, %24 ], [ 3, %44 ]
   store i32 %.sink, ptr %0, align 8
-  br label %130
+  br label %131
 
-130:                                              ; preds = %.sink.split, %87
-  %131 = load i64, ptr %2, align 8
-  %132 = icmp ult i64 %131, %3
-  br i1 %132, label %21, label %._crit_edge, !llvm.loop !7
+131:                                              ; preds = %.sink.split, %88
+  %132 = load i64, ptr %2, align 8
+  %133 = icmp ult i64 %132, %3
+  br i1 %133, label %21, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %28, %36, %130
-  %.2.ph = phi i32 [ %29, %28 ], [ %39, %36 ], [ 0, %130 ]
+._crit_edge:                                      ; preds = %28, %36, %131
+  %.2.ph = phi i32 [ %29, %28 ], [ %39, %36 ], [ 0, %131 ]
   %.pre118 = load i64, ptr %2, align 8
-  %133 = getelementptr inbounds i8, ptr %1, i64 %6
-  %134 = sub i64 %.pre118, %6
-  %135 = getelementptr inbounds i8, ptr %0, i64 312
-  %136 = load i32, ptr %135, align 8
-  %137 = call i32 @lzma_crc32(ptr noundef %133, i64 noundef %134, i32 noundef %136) #10
-  store i32 %137, ptr %135, align 8
+  %134 = getelementptr inbounds i8, ptr %1, i64 %6
+  %135 = sub i64 %.pre118, %6
+  %136 = getelementptr inbounds i8, ptr %0, i64 312
+  %137 = load i32, ptr %136, align 8
+  %138 = call i32 @lzma_crc32(ptr noundef %134, i64 noundef %135, i32 noundef %137) #10
+  store i32 %138, ptr %136, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %21, %87, %46, %64, %68, %44, %30, %24, %126, %117, %114, %102, %93, %96, %99, %4, %._crit_edge
-  %.0 = phi i32 [ %.2.ph, %._crit_edge ], [ 10, %4 ], [ 9, %99 ], [ 9, %96 ], [ 9, %93 ], [ 9, %102 ], [ 1, %126 ], [ 9, %117 ], [ 0, %114 ], [ 11, %21 ], [ 9, %87 ], [ 9, %46 ], [ 9, %64 ], [ 9, %68 ], [ 9, %44 ], [ 9, %30 ], [ 9, %24 ]
+.loopexit:                                        ; preds = %21, %88, %46, %65, %69, %44, %30, %24, %127, %118, %115, %103, %94, %97, %100, %4, %._crit_edge
+  %.0 = phi i32 [ %.2.ph, %._crit_edge ], [ 10, %4 ], [ 9, %100 ], [ 9, %97 ], [ 9, %94 ], [ 9, %103 ], [ 1, %127 ], [ 9, %118 ], [ 0, %115 ], [ 11, %21 ], [ 9, %88 ], [ 9, %46 ], [ 9, %65 ], [ 9, %69 ], [ 9, %44 ], [ 9, %30 ], [ 9, %24 ]
   ret i32 %.0
 }
 

@@ -2070,7 +2070,13 @@ if.then.i52.i:                                    ; preds = %create_fdt_virtio.e
   br label %do.body30.i.i
 
 do.body30.i.i:                                    ; preds = %if.then.i52.i, %create_fdt_virtio.exit.i
-  store <4 x i32> <i32 0, i32 805306368, i32 0, i32 268435456>, ptr %qdt_tmp31.i.i, align 16
+  store i32 0, ptr %qdt_tmp31.i.i, align 16
+  %arrayinit.element33.i.i = getelementptr inbounds i8, ptr %qdt_tmp31.i.i, i64 4
+  store i32 805306368, ptr %arrayinit.element33.i.i, align 4
+  %arrayinit.element37.i.i = getelementptr inbounds i8, ptr %qdt_tmp31.i.i, i64 8
+  store i32 0, ptr %arrayinit.element37.i.i, align 8
+  %arrayinit.element38.i.i = getelementptr inbounds i8, ptr %qdt_tmp31.i.i, i64 12
+  store i32 268435456, ptr %arrayinit.element38.i.i, align 4
   br label %for.body47.i34.i
 
 for.body47.i34.i:                                 ; preds = %for.body47.i34.i, %do.body30.i.i
@@ -2223,7 +2229,13 @@ create_fdt_pcie.exit.i:                           ; preds = %for.body38.i.i.i
   %call2.i59.i = call i32 @qemu_fdt_add_subnode(ptr noundef %160, ptr noundef %call1.i57.i) #14
   %161 = load ptr, ptr %fdt.i58.i, align 8
   %call4.i60.i = call i32 @qemu_fdt_setprop_string_array(ptr noundef %161, ptr noundef %call1.i57.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @create_fdt_reset.compat, i32 noundef 3) #14
-  store <4 x i32> <i32 0, i32 1048576, i32 0, i32 4096>, ptr %qdt_tmp.i54.i, align 16
+  store i32 0, ptr %qdt_tmp.i54.i, align 16
+  %arrayinit.element.i61.i = getelementptr inbounds i8, ptr %qdt_tmp.i54.i, i64 4
+  store i32 1048576, ptr %arrayinit.element.i61.i, align 4
+  %arrayinit.element7.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i54.i, i64 8
+  store i32 0, ptr %arrayinit.element7.i.i, align 8
+  %arrayinit.element8.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i54.i, i64 12
+  store i32 4096, ptr %arrayinit.element8.i.i, align 4
   br label %for.body.i62.i
 
 for.body.i62.i:                                   ; preds = %for.body.i62.i, %create_fdt_pcie.exit.i
@@ -2278,7 +2290,13 @@ create_fdt_reset.exit.i:                          ; preds = %for.body.i62.i
   %call2.i72.i = call i32 @qemu_fdt_add_subnode(ptr noundef %177, ptr noundef %call1.i70.i) #14
   %178 = load ptr, ptr %fdt.i71.i, align 8
   %call4.i73.i = call i32 @qemu_fdt_setprop_string(ptr noundef %178, ptr noundef %call1.i70.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.167) #14
-  store <4 x i32> <i32 0, i32 268435456, i32 0, i32 256>, ptr %qdt_tmp.i68.i, align 16
+  store i32 0, ptr %qdt_tmp.i68.i, align 16
+  %arrayinit.element.i74.i = getelementptr inbounds i8, ptr %qdt_tmp.i68.i, i64 4
+  store i32 268435456, ptr %arrayinit.element.i74.i, align 4
+  %arrayinit.element7.i75.i = getelementptr inbounds i8, ptr %qdt_tmp.i68.i, i64 8
+  store i32 0, ptr %arrayinit.element7.i75.i, align 8
+  %arrayinit.element8.i76.i = getelementptr inbounds i8, ptr %qdt_tmp.i68.i, i64 12
+  store i32 256, ptr %arrayinit.element8.i76.i, align 4
   br label %for.body.i77.i
 
 for.body.i77.i:                                   ; preds = %for.body.i77.i, %create_fdt_reset.exit.i
@@ -2328,7 +2346,13 @@ create_fdt_uart.exit.i:                           ; preds = %do.body27.i.i, %if.
   %call2.i95.i = call i32 @qemu_fdt_add_subnode(ptr noundef %188, ptr noundef %call1.i93.i) #14
   %189 = load ptr, ptr %fdt.i94.i, align 8
   %call4.i96.i = call i32 @qemu_fdt_setprop_string(ptr noundef %189, ptr noundef %call1.i93.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.171) #14
-  store <4 x i32> <i32 0, i32 1052672, i32 0, i32 4096>, ptr %qdt_tmp.i91.i, align 16
+  store i32 0, ptr %qdt_tmp.i91.i, align 16
+  %arrayinit.element.i97.i = getelementptr inbounds i8, ptr %qdt_tmp.i91.i, i64 4
+  store i32 1052672, ptr %arrayinit.element.i97.i, align 4
+  %arrayinit.element7.i98.i = getelementptr inbounds i8, ptr %qdt_tmp.i91.i, i64 8
+  store i32 0, ptr %arrayinit.element7.i98.i, align 8
+  %arrayinit.element8.i99.i = getelementptr inbounds i8, ptr %qdt_tmp.i91.i, i64 12
+  store i32 4096, ptr %arrayinit.element8.i99.i, align 4
   br label %for.body.i100.i
 
 for.body.i100.i:                                  ; preds = %for.body.i100.i, %create_fdt_uart.exit.i

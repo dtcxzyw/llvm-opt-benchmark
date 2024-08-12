@@ -889,9 +889,9 @@ for.body33.us:                                    ; preds = %for.cond31.preheade
   %normal_x.us = getelementptr inbounds i8, ptr %src.138.us, i64 2
   %26 = load i8, ptr %normal_x.us, align 1
   %conv46.us = sitofp i8 %26 to float
-  %normal_y.us = getelementptr inbounds i8, ptr %src.138.us, i64 3
   %div47.us = fmul float %conv46.us, 7.812500e-03
   store float %div47.us, ptr %pcNorOut.140.us, align 4
+  %normal_y.us = getelementptr inbounds i8, ptr %src.138.us, i64 3
   %27 = load i8, ptr %normal_y.us, align 1
   %conv49.us = sitofp i8 %27 to float
   %div50.us = fmul float %conv49.us, 7.812500e-03
@@ -908,12 +908,10 @@ for.body33.us:                                    ; preds = %for.cond31.preheade
 _ZN10aiVector3tIfEdVEf.exit.i.us:                 ; preds = %for.body33.us
   %sqrt.i.i.us = tail call noundef float @llvm.sqrt.f32(float %29)
   %div.i.i.us = fdiv float 1.000000e+00, %sqrt.i.i.us
-  %30 = insertelement <2 x float> poison, float %div47.us, i64 0
-  %31 = insertelement <2 x float> %30, float %div50.us, i64 1
-  %32 = insertelement <2 x float> poison, float %div.i.i.us, i64 0
-  %33 = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> zeroinitializer
-  %34 = fmul <2 x float> %31, %33
-  store <2 x float> %34, ptr %pcNorOut.140.us, align 4
+  %mul.i.i.us = fmul float %div47.us, %div.i.i.us
+  store float %mul.i.i.us, ptr %pcNorOut.140.us, align 4
+  %mul2.i.i.us = fmul float %div50.us, %div.i.i.us
+  store float %mul2.i.i.us, ptr %y51.us, align 4
   store float %div.i.i.us, ptr %z52.us, align 4
   br label %_ZN10aiVector3tIfE9NormalizeEv.exit.us
 
@@ -932,18 +930,18 @@ for.cond31.for.inc56_crit_edge.us:                ; preds = %_ZN10aiVector3tIfE9
 
 for.end58:                                        ; preds = %for.cond31.for.inc56_crit_edge.us, %for.cond31.preheader.lr.ph, %arrayctor.cont18
   %numskins = getelementptr inbounds i8, ptr %0, i64 48
-  %35 = load i32, ptr %numskins, align 1
-  %tobool.not = icmp eq i32 %35, 0
+  %30 = load i32, ptr %numskins, align 1
+  %tobool.not = icmp eq i32 %30, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end58
-  %36 = load ptr, ptr %pScene, align 8
-  %mMeshes.i = getelementptr inbounds i8, ptr %36, i64 24
-  %37 = load ptr, ptr %mMeshes.i, align 8
-  %38 = load ptr, ptr %37, align 8
-  %mTextureCoords.i = getelementptr inbounds i8, ptr %38, i64 112
-  %39 = load ptr, ptr %mTextureCoords.i, align 8
-  %cmp.i35 = icmp eq ptr %39, null
+  %31 = load ptr, ptr %pScene, align 8
+  %mMeshes.i = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = load ptr, ptr %mMeshes.i, align 8
+  %33 = load ptr, ptr %32, align 8
+  %mTextureCoords.i = getelementptr inbounds i8, ptr %33, i64 112
+  %34 = load ptr, ptr %mTextureCoords.i, align 8
+  %cmp.i35 = icmp eq ptr %34, null
   %cmp5.i = icmp eq i32 %conv23, 0
   %or.cond.i = or i1 %cmp5.i, %cmp44.not
   %or.cond = select i1 %cmp.i35, i1 true, i1 %or.cond.i
@@ -962,7 +960,7 @@ if.end7.i:                                        ; preds = %if.then
 
 for.cond21.preheader.us.i:                        ; preds = %for.cond21.for.inc29_crit_edge.us.i, %if.end7.i
   %y.021.us.i = phi i32 [ 0, %if.end7.i ], [ %inc30.us.i, %for.cond21.for.inc29_crit_edge.us.i ]
-  %uv.020.us.i = phi ptr [ %39, %if.end7.i ], [ %incdec.ptr.us.i, %for.cond21.for.inc29_crit_edge.us.i ]
+  %uv.020.us.i = phi ptr [ %34, %if.end7.i ], [ %incdec.ptr.us.i, %for.cond21.for.inc29_crit_edge.us.i ]
   %conv24.us.i = uitofp i32 %y.021.us.i to float
   %mul.us.i = fmul float %add.i, %conv24.us.i
   br label %for.body23.us.i
@@ -994,41 +992,41 @@ if.end:                                           ; preds = %for.cond21.for.inc2
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %40 = load ptr, ptr %pScene, align 8
-  %mRootNode = getelementptr inbounds i8, ptr %40, i64 8
+  %35 = load ptr, ptr %pScene, align 8
+  %mRootNode = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %call59, ptr %mRootNode, align 8
-  %41 = load ptr, ptr %pScene, align 8
-  %mRootNode62 = getelementptr inbounds i8, ptr %41, i64 8
-  %42 = load ptr, ptr %mRootNode62, align 8
-  store i32 12, ptr %42, align 4
-  %data.i = getelementptr inbounds i8, ptr %42, i64 4
+  %36 = load ptr, ptr %pScene, align 8
+  %mRootNode62 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = load ptr, ptr %mRootNode62, align 8
+  store i32 12, ptr %37, align 4
+  %data.i = getelementptr inbounds i8, ptr %37, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %data.i, ptr noundef nonnull align 1 dereferenceable(12) @.str.21, i64 12, i1 false)
-  %arrayidx.i = getelementptr inbounds i8, ptr %42, i64 16
+  %arrayidx.i = getelementptr inbounds i8, ptr %37, i64 16
   store i8 0, ptr %arrayidx.i, align 1
-  %43 = load ptr, ptr %pScene, align 8
-  %mRootNode64 = getelementptr inbounds i8, ptr %43, i64 8
-  %44 = load ptr, ptr %mRootNode64, align 8
-  %mNumMeshes65 = getelementptr inbounds i8, ptr %44, i64 1120
+  %38 = load ptr, ptr %pScene, align 8
+  %mRootNode64 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = load ptr, ptr %mRootNode64, align 8
+  %mNumMeshes65 = getelementptr inbounds i8, ptr %39, i64 1120
   store i32 1, ptr %mNumMeshes65, align 8
   %call66 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #19
-  %45 = load ptr, ptr %pScene, align 8
-  %mRootNode68 = getelementptr inbounds i8, ptr %45, i64 8
-  %46 = load ptr, ptr %mRootNode68, align 8
-  %mMeshes69 = getelementptr inbounds i8, ptr %46, i64 1128
+  %40 = load ptr, ptr %pScene, align 8
+  %mRootNode68 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = load ptr, ptr %mRootNode68, align 8
+  %mMeshes69 = getelementptr inbounds i8, ptr %41, i64 1128
   store ptr %call66, ptr %mMeshes69, align 8
-  %47 = load ptr, ptr %pScene, align 8
-  %mRootNode71 = getelementptr inbounds i8, ptr %47, i64 8
-  %48 = load ptr, ptr %mRootNode71, align 8
-  %mMeshes72 = getelementptr inbounds i8, ptr %48, i64 1128
-  %49 = load ptr, ptr %mMeshes72, align 8
-  store i32 0, ptr %49, align 4
+  %42 = load ptr, ptr %pScene, align 8
+  %mRootNode71 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = load ptr, ptr %mRootNode71, align 8
+  %mMeshes72 = getelementptr inbounds i8, ptr %43, i64 1128
+  %44 = load ptr, ptr %mMeshes72, align 8
+  store i32 0, ptr %44, align 4
   ret void
 
 lpad:                                             ; preds = %if.end
-  %50 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call59) #17
-  resume { ptr, i32 } %50
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1240,7 +1238,7 @@ define hidden void @_ZN6Assimp11HMPImporter14CreateMaterialEPKhPS2_(ptr noundef 
 entry:
   %szCurrent.addr = alloca ptr, align 8
   %iMode = alloca i32, align 4
-  %clr = alloca %struct.aiColor3D, align 8
+  %clr = alloca %struct.aiColor3D, align 4
   %szName = alloca %struct.aiString, align 4
   store ptr %szCurrent, ptr %szCurrent.addr, align 8
   %pScene = getelementptr inbounds i8, ptr %this, i64 136
@@ -1294,13 +1292,16 @@ if.end:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.end
   %call.i = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call5, ptr noundef nonnull %iMode, i32 noundef 4, ptr noundef nonnull @.str.22, i32 noundef 0, i32 noundef 0, i32 noundef 4)
+  %g.i = getelementptr inbounds i8, ptr %clr, i64 4
   %b.i = getelementptr inbounds i8, ptr %clr, i64 8
-  store <2 x float> <float 0x3FE3333340000000, float 0x3FE3333340000000>, ptr %clr, align 8
-  store float 0x3FE3333340000000, ptr %b.i, align 8
+  store float 0x3FE3333340000000, ptr %clr, align 4
+  store float 0x3FE3333340000000, ptr %g.i, align 4
+  store float 0x3FE3333340000000, ptr %b.i, align 4
   %call.i10 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call5, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %call.i11 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call5, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.24, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  store <2 x float> <float 0x3FA99999A0000000, float 0x3FA99999A0000000>, ptr %clr, align 8
-  store float 0x3FA99999A0000000, ptr %b.i, align 8
+  store float 0x3FA99999A0000000, ptr %clr, align 4
+  store float 0x3FA99999A0000000, ptr %g.i, align 4
+  store float 0x3FA99999A0000000, ptr %b.i, align 4
   %call.i12 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call5, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.25, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %data.i = getelementptr inbounds i8, ptr %szName, i64 4
   store i32 15, ptr %szName, align 4

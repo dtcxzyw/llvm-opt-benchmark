@@ -494,16 +494,28 @@ declare void @hashadjustmembers(i32 noundef, i32 noundef, ptr noundef, ptr nound
 define dso_local ptr @hashbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = tail call ptr @RelationGetIndexScan(ptr noundef %0, i32 noundef %1, i32 noundef %2) #7
   %5 = tail call ptr @palloc(i64 noundef 3320) #7
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 0>, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %7, i8 0, i64 10, i1 false)
-  store ptr %5, ptr %10, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 28
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  store i32 -1, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %5, i64 36
+  store i32 -1, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %5, i64 40
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %5, i64 44
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %5, i64 48
+  store i32 0, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %5, i64 52
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr null, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %4, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %13, i8 0, i64 10, i1 false)
+  store ptr %5, ptr %16, align 8
   ret ptr %4
 }
 
@@ -531,35 +543,40 @@ define dso_local void @hashrescan(ptr noundef %0, ptr noundef readonly %1, i32 %
 
 18:                                               ; preds = %13, %17, %5
   tail call void @_hash_dropscanbuf(ptr noundef %9, ptr noundef nonnull %7) #7
-  store <4 x i32> <i32 0, i32 -1, i32 -1, i32 -1>, ptr %10, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 44
-  store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 48
-  store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 52
+  store i32 0, ptr %10, align 4
+  store i32 -1, ptr %11, align 4
+  %19 = getelementptr inbounds i8, ptr %7, i64 36
+  store i32 -1, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %7, i64 40
+  store i32 -1, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %7, i64 44
   store i32 0, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %7, i64 48
+  store i32 0, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %7, i64 52
+  store i32 0, ptr %23, align 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %31, label %22
+  br i1 %.not, label %33, label %24
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %26, label %31
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %28, label %33
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = zext nneg i32 %24 to i64
-  %30 = mul nuw nsw i64 %29, 72
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %28, ptr nonnull align 8 %1, i64 %30, i1 false)
-  br label %31
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = load ptr, ptr %29, align 8
+  %31 = zext nneg i32 %26 to i64
+  %32 = mul nuw nsw i64 %31, 72
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr nonnull align 8 %1, i64 %32, i1 false)
+  br label %33
 
-31:                                               ; preds = %26, %22, %18
-  %32 = getelementptr inbounds i8, ptr %7, i64 12
-  store i8 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %7, i64 13
-  store i8 0, ptr %33, align 1
+33:                                               ; preds = %28, %24, %18
+  %34 = getelementptr inbounds i8, ptr %7, i64 12
+  store i8 0, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %7, i64 13
+  store i8 0, ptr %35, align 1
   ret void
 }
 

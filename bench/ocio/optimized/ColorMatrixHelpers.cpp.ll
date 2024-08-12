@@ -44,13 +44,13 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZN19OpenColorIO_v2_4dev15CIE_XYZ_ILLUM_E9primariesE = hidden global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
-@_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
-@_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
-@_ZN19OpenColorIO_v2_4dev6REC7099primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
-@_ZN19OpenColorIO_v2_4dev7REC20209primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
-@_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
-@_ZN19OpenColorIO_v2_4dev6P3_D659primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
-@_ZN19OpenColorIO_v2_4dev6P3_D609primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
+@_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
+@_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
+@_ZN19OpenColorIO_v2_4dev6REC7099primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
+@_ZN19OpenColorIO_v2_4dev7REC20209primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
+@_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
+@_ZN19OpenColorIO_v2_4dev6P3_D659primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
+@_ZN19OpenColorIO_v2_4dev6P3_D609primariesE = hidden local_unnamed_addr global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
 @_ZN19OpenColorIO_v2_4dev10WHITEPOINT7D60_XYZE = hidden global %"class.OpenColorIO_v2_4dev::MatrixOpData::Offsets" zeroinitializer, align 8
 @_ZN19OpenColorIO_v2_4dev10WHITEPOINT7D65_XYZE = hidden global %"class.OpenColorIO_v2_4dev::MatrixOpData::Offsets" zeroinitializer, align 8
 @_ZN19OpenColorIO_v2_4dev10WHITEPOINT7DCI_XYZE = hidden global %"class.OpenColorIO_v2_4dev::MatrixOpData::Offsets" zeroinitializer, align 8
@@ -1797,35 +1797,64 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev15CIE_XYZ_ILLUM_E9primariesE, i64 8), i8 0, i64 16, i1 false)
   store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev15CIE_XYZ_ILLUM_E9primariesE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev15CIE_XYZ_ILLUM_E9primariesE, i64 32), i8 0, i64 16, i1 false)
-  store <2 x double> <double 0x3FD5555555555555, double 0x3FD5555555555555>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev15CIE_XYZ_ILLUM_E9primariesE, i64 48), align 8
-  store <2 x double> <double 7.347000e-01, double 2.653000e-01>, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE, align 16
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE, i64 16), align 16
-  store <2 x double> <double 1.000000e-04, double 0xBFB3B645A1CAC083>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE, i64 32), align 16
-  store <2 x double> <double 3.216800e-01, double 3.376700e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE, i64 48), align 16
-  store <2 x double> <double 7.130000e-01, double 2.930000e-01>, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE, align 16
-  store <2 x double> <double 1.650000e-01, double 8.300000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE, i64 16), align 16
-  store <2 x double> <double 1.280000e-01, double 4.400000e-02>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE, i64 32), align 16
-  store <2 x double> <double 3.216800e-01, double 3.376700e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE, i64 48), align 16
-  store <2 x double> <double 6.400000e-01, double 3.300000e-01>, ptr @_ZN19OpenColorIO_v2_4dev6REC7099primariesE, align 16
-  store <2 x double> <double 3.000000e-01, double 6.000000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6REC7099primariesE, i64 16), align 16
-  store <2 x double> <double 1.500000e-01, double 6.000000e-02>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6REC7099primariesE, i64 32), align 16
-  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6REC7099primariesE, i64 48), align 16
-  store <2 x double> <double 0x3FE6A7EF9DB22D0E, double 2.920000e-01>, ptr @_ZN19OpenColorIO_v2_4dev7REC20209primariesE, align 16
-  store <2 x double> <double 1.700000e-01, double 7.970000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev7REC20209primariesE, i64 16), align 16
-  store <2 x double> <double 1.310000e-01, double 4.600000e-02>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev7REC20209primariesE, i64 32), align 16
-  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev7REC20209primariesE, i64 48), align 16
-  store <2 x double> <double 6.800000e-01, double 3.200000e-01>, ptr @_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE, align 16
-  store <2 x double> <double 2.650000e-01, double 6.900000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE, i64 16), align 16
-  store <2 x double> <double 1.500000e-01, double 6.000000e-02>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE, i64 32), align 16
-  store <2 x double> <double 3.140000e-01, double 3.510000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE, i64 48), align 16
-  store <2 x double> <double 6.800000e-01, double 3.200000e-01>, ptr @_ZN19OpenColorIO_v2_4dev6P3_D659primariesE, align 16
-  store <2 x double> <double 2.650000e-01, double 6.900000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D659primariesE, i64 16), align 16
-  store <2 x double> <double 1.500000e-01, double 6.000000e-02>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D659primariesE, i64 32), align 16
-  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D659primariesE, i64 48), align 16
-  store <2 x double> <double 6.800000e-01, double 3.200000e-01>, ptr @_ZN19OpenColorIO_v2_4dev6P3_D609primariesE, align 16
-  store <2 x double> <double 2.650000e-01, double 6.900000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D609primariesE, i64 16), align 16
-  store <2 x double> <double 1.500000e-01, double 6.000000e-02>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D609primariesE, i64 32), align 16
-  store <2 x double> <double 3.216800e-01, double 3.376700e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D609primariesE, i64 48), align 16
+  store double 0x3FD5555555555555, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev15CIE_XYZ_ILLUM_E9primariesE, i64 48), align 8
+  store double 0x3FD5555555555555, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev15CIE_XYZ_ILLUM_E9primariesE, i64 56), align 8
+  store double 7.347000e-01, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE, align 8
+  store double 2.653000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE, i64 8), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE, i64 16), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE, i64 24), align 8
+  store double 1.000000e-04, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE, i64 32), align 8
+  store double 0xBFB3B645A1CAC083, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE, i64 40), align 8
+  store double 3.216800e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE, i64 48), align 8
+  store double 3.376700e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP09primariesE, i64 56), align 8
+  store double 7.130000e-01, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE, align 8
+  store double 2.930000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE, i64 8), align 8
+  store double 1.650000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE, i64 16), align 8
+  store double 8.300000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE, i64 24), align 8
+  store double 1.280000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE, i64 32), align 8
+  store double 4.400000e-02, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE, i64 40), align 8
+  store double 3.216800e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE, i64 48), align 8
+  store double 3.376700e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev8ACES_AP19primariesE, i64 56), align 8
+  store double 6.400000e-01, ptr @_ZN19OpenColorIO_v2_4dev6REC7099primariesE, align 8
+  store double 3.300000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6REC7099primariesE, i64 8), align 8
+  store double 3.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6REC7099primariesE, i64 16), align 8
+  store double 6.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6REC7099primariesE, i64 24), align 8
+  store double 1.500000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6REC7099primariesE, i64 32), align 8
+  store double 6.000000e-02, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6REC7099primariesE, i64 40), align 8
+  store double 3.127000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6REC7099primariesE, i64 48), align 8
+  store double 3.290000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6REC7099primariesE, i64 56), align 8
+  store double 0x3FE6A7EF9DB22D0E, ptr @_ZN19OpenColorIO_v2_4dev7REC20209primariesE, align 8
+  store double 2.920000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev7REC20209primariesE, i64 8), align 8
+  store double 1.700000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev7REC20209primariesE, i64 16), align 8
+  store double 7.970000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev7REC20209primariesE, i64 24), align 8
+  store double 1.310000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev7REC20209primariesE, i64 32), align 8
+  store double 4.600000e-02, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev7REC20209primariesE, i64 40), align 8
+  store double 3.127000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev7REC20209primariesE, i64 48), align 8
+  store double 3.290000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev7REC20209primariesE, i64 56), align 8
+  store double 6.800000e-01, ptr @_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE, align 8
+  store double 3.200000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE, i64 8), align 8
+  store double 2.650000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE, i64 16), align 8
+  store double 6.900000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE, i64 24), align 8
+  store double 1.500000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE, i64 32), align 8
+  store double 6.000000e-02, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE, i64 40), align 8
+  store double 3.140000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE, i64 48), align 8
+  store double 3.510000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_DCI9primariesE, i64 56), align 8
+  store double 6.800000e-01, ptr @_ZN19OpenColorIO_v2_4dev6P3_D659primariesE, align 8
+  store double 3.200000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D659primariesE, i64 8), align 8
+  store double 2.650000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D659primariesE, i64 16), align 8
+  store double 6.900000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D659primariesE, i64 24), align 8
+  store double 1.500000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D659primariesE, i64 32), align 8
+  store double 6.000000e-02, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D659primariesE, i64 40), align 8
+  store double 3.127000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D659primariesE, i64 48), align 8
+  store double 3.290000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D659primariesE, i64 56), align 8
+  store double 6.800000e-01, ptr @_ZN19OpenColorIO_v2_4dev6P3_D609primariesE, align 8
+  store double 3.200000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D609primariesE, i64 8), align 8
+  store double 2.650000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D609primariesE, i64 16), align 8
+  store double 6.900000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D609primariesE, i64 24), align 8
+  store double 1.500000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D609primariesE, i64 32), align 8
+  store double 6.000000e-02, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D609primariesE, i64 40), align 8
+  store double 3.216800e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D609primariesE, i64 48), align 8
+  store double 3.376700e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev6P3_D609primariesE, i64 56), align 8
   tail call void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7OffsetsC1Edddd(ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev10WHITEPOINT7D60_XYZE, double noundef 0x3FEE7C139EDE16CC, double noundef 1.000000e+00, double noundef 0x3FF02425E062BD71, double noundef 0.000000e+00)
   tail call void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7OffsetsC1Edddd(ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev10WHITEPOINT7D65_XYZE, double noundef 0x3FEE6A228C5F3DB9, double noundef 1.000000e+00, double noundef 0x3FF16CC7D1EF810A, double noundef 0.000000e+00)
   tail call void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7OffsetsC1Edddd(ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev10WHITEPOINT7DCI_XYZE, double noundef 0x3FECA074B1F5C9DE, double noundef 1.000000e+00, double noundef 0x3FEE8A9353DFE881, double noundef 0.000000e+00)

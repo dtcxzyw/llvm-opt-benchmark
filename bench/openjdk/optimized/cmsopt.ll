@@ -1574,130 +1574,186 @@ WhitesAreEqual.exit:                              ; preds = %39
   br label %PatchLUT.exit
 
 99:                                               ; preds = %.loopexit
-  switch i32 %90, label %174 [
+  switch i32 %90, label %228 [
     i32 4, label %100
-    i32 3, label %120
-    i32 1, label %158
+    i32 3, label %164
+    i32 1, label %212
   ]
 
 100:                                              ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %94, i64 80
-  %102 = load <4 x i16>, ptr %6, align 16
-  %103 = uitofp <4 x i16> %102 to <4 x double>
-  %104 = load <4 x i32>, ptr %101, align 8
-  %105 = uitofp <4 x i32> %104 to <4 x double>
-  %106 = fmul <4 x double> %103, %105
-  %107 = fdiv <4 x double> %106, <double 6.553500e+04, double 6.553500e+04, double 6.553500e+04, double 6.553500e+04>
-  %108 = call <4 x double> @llvm.floor.v4f64(<4 x double> %107)
-  %109 = fptosi <4 x double> %108 to <4 x i32>
-  %110 = sitofp <4 x i32> %109 to <4 x double>
-  %111 = fcmp une <4 x double> %107, %110
-  %112 = freeze <4 x i1> %111
-  %113 = bitcast <4 x i1> %112 to i4
-  %.not90 = icmp eq i4 %113, 0
-  br i1 %.not90, label %114, label %PatchLUT.exit
+  %101 = load i16, ptr %6, align 16
+  %102 = uitofp i16 %101 to double
+  %103 = getelementptr inbounds i8, ptr %94, i64 80
+  %104 = load i32, ptr %103, align 8
+  %105 = uitofp i32 %104 to double
+  %106 = fmul double %102, %105
+  %107 = fdiv double %106, 6.553500e+04
+  %108 = getelementptr inbounds i8, ptr %6, i64 2
+  %109 = load i16, ptr %108, align 2
+  %110 = uitofp i16 %109 to double
+  %111 = getelementptr inbounds i8, ptr %94, i64 84
+  %112 = load i32, ptr %111, align 4
+  %113 = uitofp i32 %112 to double
+  %114 = fmul double %110, %113
+  %115 = fdiv double %114, 6.553500e+04
+  %116 = getelementptr inbounds i8, ptr %6, i64 4
+  %117 = load i16, ptr %116, align 4
+  %118 = uitofp i16 %117 to double
+  %119 = getelementptr inbounds i8, ptr %94, i64 88
+  %120 = load i32, ptr %119, align 8
+  %121 = uitofp i32 %120 to double
+  %122 = fmul double %118, %121
+  %123 = fdiv double %122, 6.553500e+04
+  %124 = getelementptr inbounds i8, ptr %6, i64 6
+  %125 = load i16, ptr %124, align 2
+  %126 = uitofp i16 %125 to double
+  %127 = getelementptr inbounds i8, ptr %94, i64 92
+  %128 = load i32, ptr %127, align 4
+  %129 = uitofp i32 %128 to double
+  %130 = fmul double %126, %129
+  %131 = fdiv double %130, 6.553500e+04
+  %132 = call double @llvm.floor.f64(double %107)
+  %133 = fptosi double %132 to i32
+  %134 = call double @llvm.floor.f64(double %115)
+  %135 = fptosi double %134 to i32
+  %136 = call double @llvm.floor.f64(double %123)
+  %137 = fptosi double %136 to i32
+  %138 = call double @llvm.floor.f64(double %131)
+  %139 = fptosi double %138 to i32
+  %140 = sitofp i32 %133 to double
+  %141 = fcmp une double %107, %140
+  %142 = sitofp i32 %135 to double
+  %143 = fcmp une double %115, %142
+  %or.cond.i = select i1 %141, i1 true, i1 %143
+  %144 = sitofp i32 %137 to double
+  %145 = fcmp une double %123, %144
+  %or.cond78.i = select i1 %or.cond.i, i1 true, i1 %145
+  %146 = sitofp i32 %139 to double
+  %147 = fcmp une double %131, %146
+  %or.cond80.i = select i1 %or.cond78.i, i1 true, i1 %147
+  br i1 %or.cond80.i, label %PatchLUT.exit, label %148
 
-114:                                              ; preds = %100
-  %115 = getelementptr inbounds i8, ptr %94, i64 140
-  %116 = load <4 x i32>, ptr %115, align 4
-  %117 = shufflevector <4 x i32> %116, <4 x i32> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  %118 = mul nsw <4 x i32> %117, %109
-  %119 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %118)
-  br label %176
+148:                                              ; preds = %100
+  %149 = getelementptr inbounds i8, ptr %94, i64 140
+  %150 = getelementptr inbounds i8, ptr %94, i64 152
+  %151 = load i32, ptr %150, align 4
+  %152 = mul nsw i32 %151, %133
+  %153 = getelementptr inbounds i8, ptr %94, i64 148
+  %154 = load i32, ptr %153, align 4
+  %155 = mul nsw i32 %154, %135
+  %156 = add nsw i32 %155, %152
+  %157 = getelementptr inbounds i8, ptr %94, i64 144
+  %158 = load i32, ptr %157, align 4
+  %159 = mul nsw i32 %158, %137
+  %160 = add nsw i32 %156, %159
+  %161 = load i32, ptr %149, align 4
+  %162 = mul nsw i32 %161, %139
+  %163 = add nsw i32 %160, %162
+  br label %230
 
-120:                                              ; preds = %99
-  %121 = load i16, ptr %6, align 16
-  %122 = uitofp i16 %121 to double
-  %123 = getelementptr inbounds i8, ptr %94, i64 80
-  %124 = load i32, ptr %123, align 8
-  %125 = uitofp i32 %124 to double
-  %126 = fmul double %122, %125
-  %127 = fdiv double %126, 6.553500e+04
-  %128 = getelementptr inbounds i8, ptr %6, i64 2
-  %129 = getelementptr inbounds i8, ptr %94, i64 84
-  %130 = call double @llvm.floor.f64(double %127)
-  %131 = fptosi double %130 to i32
-  %132 = load <2 x i16>, ptr %128, align 2
-  %133 = uitofp <2 x i16> %132 to <2 x double>
-  %134 = load <2 x i32>, ptr %129, align 4
-  %135 = uitofp <2 x i32> %134 to <2 x double>
-  %136 = fmul <2 x double> %133, %135
-  %137 = fdiv <2 x double> %136, <double 6.553500e+04, double 6.553500e+04>
-  %138 = call <2 x double> @llvm.floor.v2f64(<2 x double> %137)
-  %139 = fptosi <2 x double> %138 to <2 x i32>
-  %140 = sitofp i32 %131 to double
-  %141 = fcmp une double %127, %140
-  %142 = sitofp <2 x i32> %139 to <2 x double>
-  %143 = fcmp une <2 x double> %137, %142
-  %144 = extractelement <2 x i1> %143, i64 0
-  %or.cond82.i = select i1 %141, i1 true, i1 %144
-  %145 = extractelement <2 x i1> %143, i64 1
-  %or.cond84.i = select i1 %or.cond82.i, i1 true, i1 %145
-  br i1 %or.cond84.i, label %PatchLUT.exit, label %146
+164:                                              ; preds = %99
+  %165 = load i16, ptr %6, align 16
+  %166 = uitofp i16 %165 to double
+  %167 = getelementptr inbounds i8, ptr %94, i64 80
+  %168 = load i32, ptr %167, align 8
+  %169 = uitofp i32 %168 to double
+  %170 = fmul double %166, %169
+  %171 = fdiv double %170, 6.553500e+04
+  %172 = getelementptr inbounds i8, ptr %6, i64 2
+  %173 = load i16, ptr %172, align 2
+  %174 = uitofp i16 %173 to double
+  %175 = getelementptr inbounds i8, ptr %94, i64 84
+  %176 = load i32, ptr %175, align 4
+  %177 = uitofp i32 %176 to double
+  %178 = fmul double %174, %177
+  %179 = fdiv double %178, 6.553500e+04
+  %180 = getelementptr inbounds i8, ptr %6, i64 4
+  %181 = load i16, ptr %180, align 4
+  %182 = uitofp i16 %181 to double
+  %183 = getelementptr inbounds i8, ptr %94, i64 88
+  %184 = load i32, ptr %183, align 8
+  %185 = uitofp i32 %184 to double
+  %186 = fmul double %182, %185
+  %187 = fdiv double %186, 6.553500e+04
+  %188 = call double @llvm.floor.f64(double %171)
+  %189 = fptosi double %188 to i32
+  %190 = call double @llvm.floor.f64(double %179)
+  %191 = fptosi double %190 to i32
+  %192 = call double @llvm.floor.f64(double %187)
+  %193 = fptosi double %192 to i32
+  %194 = sitofp i32 %189 to double
+  %195 = fcmp une double %171, %194
+  %196 = sitofp i32 %191 to double
+  %197 = fcmp une double %179, %196
+  %or.cond82.i = select i1 %195, i1 true, i1 %197
+  %198 = sitofp i32 %193 to double
+  %199 = fcmp une double %187, %198
+  %or.cond84.i = select i1 %or.cond82.i, i1 true, i1 %199
+  br i1 %or.cond84.i, label %PatchLUT.exit, label %200
 
-146:                                              ; preds = %120
-  %147 = getelementptr inbounds i8, ptr %94, i64 140
-  %148 = getelementptr inbounds i8, ptr %94, i64 148
-  %149 = load i32, ptr %148, align 4
-  %150 = mul nsw i32 %149, %131
-  %151 = load <2 x i32>, ptr %147, align 4
-  %152 = shufflevector <2 x i32> %151, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %153 = mul nsw <2 x i32> %152, %139
-  %154 = extractelement <2 x i32> %153, i64 0
-  %155 = add nsw i32 %154, %150
-  %156 = extractelement <2 x i32> %153, i64 1
-  %157 = add nsw i32 %155, %156
-  br label %176
+200:                                              ; preds = %164
+  %201 = getelementptr inbounds i8, ptr %94, i64 140
+  %202 = getelementptr inbounds i8, ptr %94, i64 148
+  %203 = load i32, ptr %202, align 4
+  %204 = mul nsw i32 %203, %189
+  %205 = getelementptr inbounds i8, ptr %94, i64 144
+  %206 = load i32, ptr %205, align 4
+  %207 = mul nsw i32 %206, %191
+  %208 = add nsw i32 %207, %204
+  %209 = load i32, ptr %201, align 4
+  %210 = mul nsw i32 %209, %193
+  %211 = add nsw i32 %208, %210
+  br label %230
 
-158:                                              ; preds = %99
-  %159 = load i16, ptr %6, align 16
-  %160 = uitofp i16 %159 to double
-  %161 = getelementptr inbounds i8, ptr %94, i64 80
-  %162 = load i32, ptr %161, align 8
-  %163 = uitofp i32 %162 to double
-  %164 = fmul double %160, %163
-  %165 = fdiv double %164, 6.553500e+04
-  %166 = call double @llvm.floor.f64(double %165)
-  %167 = fptosi double %166 to i32
-  %168 = sitofp i32 %167 to double
-  %169 = fcmp une double %165, %168
-  br i1 %169, label %PatchLUT.exit, label %170
+212:                                              ; preds = %99
+  %213 = load i16, ptr %6, align 16
+  %214 = uitofp i16 %213 to double
+  %215 = getelementptr inbounds i8, ptr %94, i64 80
+  %216 = load i32, ptr %215, align 8
+  %217 = uitofp i32 %216 to double
+  %218 = fmul double %214, %217
+  %219 = fdiv double %218, 6.553500e+04
+  %220 = call double @llvm.floor.f64(double %219)
+  %221 = fptosi double %220 to i32
+  %222 = sitofp i32 %221 to double
+  %223 = fcmp une double %219, %222
+  br i1 %223, label %PatchLUT.exit, label %224
 
-170:                                              ; preds = %158
-  %171 = getelementptr inbounds i8, ptr %94, i64 140
-  %172 = load i32, ptr %171, align 4
-  %173 = mul nsw i32 %172, %167
-  br label %176
+224:                                              ; preds = %212
+  %225 = getelementptr inbounds i8, ptr %94, i64 140
+  %226 = load i32, ptr %225, align 4
+  %227 = mul nsw i32 %226, %221
+  br label %230
 
-174:                                              ; preds = %99
-  %175 = load ptr, ptr %89, align 8
-  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %175, i32 noundef 3, ptr noundef nonnull @.str.1, i32 noundef %90) #10
+228:                                              ; preds = %99
+  %229 = load ptr, ptr %89, align 8
+  call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %229, i32 noundef 3, ptr noundef nonnull @.str.1, i32 noundef %90) #10
   br label %PatchLUT.exit
 
-176:                                              ; preds = %170, %146, %114
-  %.0.i = phi i32 [ %119, %114 ], [ %157, %146 ], [ %173, %170 ]
-  %177 = icmp sgt i32 %88, 0
-  br i1 %177, label %.lr.ph.preheader.i49, label %PatchLUT.exit
+230:                                              ; preds = %224, %200, %148
+  %.0.i = phi i32 [ %163, %148 ], [ %211, %200 ], [ %227, %224 ]
+  %231 = icmp sgt i32 %88, 0
+  br i1 %231, label %.lr.ph.preheader.i49, label %PatchLUT.exit
 
-.lr.ph.preheader.i49:                             ; preds = %176
-  %178 = sext i32 %.0.i to i64
+.lr.ph.preheader.i49:                             ; preds = %230
+  %232 = sext i32 %.0.i to i64
   %wide.trip.count.i50 = zext nneg i32 %88 to i64
   br label %.lr.ph.i51
 
 .lr.ph.i51:                                       ; preds = %.lr.ph.i51, %.lr.ph.preheader.i49
   %indvars.iv.i52 = phi i64 [ 0, %.lr.ph.preheader.i49 ], [ %indvars.iv.next.i53, %.lr.ph.i51 ]
-  %179 = getelementptr inbounds i16, ptr %7, i64 %indvars.iv.i52
-  %180 = load i16, ptr %179, align 2
-  %181 = load ptr, ptr %92, align 8
-  %182 = getelementptr i16, ptr %181, i64 %indvars.iv.i52
-  %183 = getelementptr i16, ptr %182, i64 %178
-  store i16 %180, ptr %183, align 2
+  %233 = getelementptr inbounds i16, ptr %7, i64 %indvars.iv.i52
+  %234 = load i16, ptr %233, align 2
+  %235 = load ptr, ptr %92, align 8
+  %236 = getelementptr i16, ptr %235, i64 %indvars.iv.i52
+  %237 = getelementptr i16, ptr %236, i64 %232
+  store i16 %234, ptr %237, align 2
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i50
   br i1 %exitcond.not.i54, label %PatchLUT.exit, label %.lr.ph.i51, !llvm.loop !29
 
-PatchLUT.exit:                                    ; preds = %.lr.ph.i, %29, %.lr.ph.i51, %25, %176, %174, %158, %120, %100, %97, %45, %21, %17, %15, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %15 ], [ 0, %17 ], [ 0, %21 ], [ 0, %45 ], [ 1, %97 ], [ 1, %100 ], [ 1, %120 ], [ 1, %158 ], [ 1, %174 ], [ 1, %176 ], [ 1, %25 ], [ 1, %.lr.ph.i51 ], [ 1, %29 ], [ 1, %.lr.ph.i ]
+PatchLUT.exit:                                    ; preds = %.lr.ph.i, %29, %.lr.ph.i51, %25, %230, %228, %212, %164, %100, %97, %45, %21, %17, %15, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %15 ], [ 0, %17 ], [ 0, %21 ], [ 0, %45 ], [ 1, %97 ], [ 1, %100 ], [ 1, %164 ], [ 1, %212 ], [ 1, %228 ], [ 1, %230 ], [ 1, %25 ], [ 1, %.lr.ph.i51 ], [ 1, %29 ], [ 1, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -4097,15 +4153,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x double> @llvm.floor.v4f64(<4 x double>) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.floor.v2f64(<2 x double>) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

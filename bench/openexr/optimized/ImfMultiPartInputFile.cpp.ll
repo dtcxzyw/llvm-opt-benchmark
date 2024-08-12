@@ -1028,7 +1028,7 @@ declare void @_ZN7Imf_3_211StdIFStreamC1EPKc(ptr noundef nonnull align 8 derefer
 define hidden void @_ZN7Imf_3_218MultiPartInputFile10initializeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %header = alloca %"class.Imf_3_2::Header", align 8
-  %ref.tmp = alloca %"class.Imath_3_2::Vec2.29", align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec2.29", align 4
   %names = alloca %"class.std::set", align 8
   %ref.tmp126 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp127 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1058,10 +1058,12 @@ entry:
   br i1 %brmerge.not, label %if.then, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   br i1 %tobool.i, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.preheader, %invoke.cont21.us
-  store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
+  store float 0.000000e+00, ptr %ref.tmp, align 4
+  store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %header, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %5 = load ptr, ptr %_data, align 8
   %is11.us = getelementptr inbounds i8, ptr %5, i64 40
@@ -1126,7 +1128,8 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 while.body:                                       ; preds = %while.body.preheader
-  store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
+  store float 0.000000e+00, ptr %ref.tmp, align 4
+  store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %header, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %13 = load ptr, ptr %_data, align 8
   %is11 = getelementptr inbounds i8, ptr %13, i64 40

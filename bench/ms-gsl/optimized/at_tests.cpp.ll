@@ -1648,7 +1648,7 @@ declare noundef zeroext i1 @_ZN7testing8internal9DeathTest6CreateEPKcNS_7Matcher
 define linkonce_odr dso_local void @_ZN7testing8internal20MakeDeathTestMatcherB5cxx11EPKc(ptr noalias sret(%"class.testing::Matcher") align 8 %agg.result, ptr noundef %regex) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %regex.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.testing::PolymorphicMatcher", align 16
+  %ref.tmp = alloca %"class.testing::PolymorphicMatcher", align 8
   store ptr %regex, ptr %regex.addr, align 8
   call void @_ZN7testing13ContainsRegexIPKcEENS_18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEEERKT_(ptr nonnull sret(%"class.testing::PolymorphicMatcher") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %regex.addr)
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
@@ -1658,15 +1658,17 @@ entry:
 call.i.noexc:                                     ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %call.i1, align 8, !noalias !5
   %impl_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
+  %0 = load ptr, ptr %ref.tmp, align 8, !noalias !5
+  store ptr %0, ptr %impl_.i.i, align 8, !noalias !5
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !5
-  %1 = load <2 x ptr>, ptr %ref.tmp, align 16, !noalias !5
-  store <2 x ptr> %1, ptr %impl_.i.i, align 8, !noalias !5
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !5
+  store ptr %1, ptr %_M_refcount.i.i.i.i.i, align 8, !noalias !5
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.noexc
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !5
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -1684,7 +1686,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
 _ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %call.i.noexc
   %full_match_.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 24
   %full_match_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %5 = load i8, ptr %full_match_3.i.i.i, align 16, !noalias !5
+  %5 = load i8, ptr %full_match_3.i.i.i, align 8, !noalias !5
   %frombool.i.i.i = and i8 %5, 1
   store i8 %frombool.i.i.i, ptr %full_match_.i.i.i, align 8, !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %agg.result, align 8, !alias.scope !5
@@ -4204,13 +4206,13 @@ terminate.lpad:                                   ; preds = %lpad424, %lpad414, 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN29at_tests_InitializerList_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca [4 x i32], align 16
+  %ref.tmp = alloca [4 x i32], align 4
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp7 = alloca %"class.testing::Message", align 8
   %ref.tmp9 = alloca %"class.testing::internal::AssertHelper", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   %gtest_ar_20 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp23 = alloca [4 x i32], align 16
+  %ref.tmp23 = alloca [4 x i32], align 4
   %ref.tmp41 = alloca %"class.testing::Message", align 8
   %ref.tmp43 = alloca %"class.testing::internal::AssertHelper", align 8
   %ref.tmp44 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4234,8 +4236,17 @@ entry:
   %ref.tmp429 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp462 = alloca %"class.testing::Message", align 8
   %ref.tmp463 = alloca %"class.testing::internal::AssertHelper", align 8
-  store <4 x i32> <i32 1, i32 2, i32 3, i32 4>, ptr %ref.tmp, align 16
+  store i32 1, ptr %ref.tmp, align 4
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store i32 2, ptr %arrayinit.element, align 4
+  %arrayinit.element2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i32 3, ptr %arrayinit.element2, align 4
+  %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  store i32 4, ptr %arrayinit.element3, align 4
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
+  %arrayinit.element25 = getelementptr inbounds i8, ptr %ref.tmp23, i64 4
+  %arrayinit.element26 = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  %arrayinit.element27 = getelementptr inbounds i8, ptr %ref.tmp23, i64 12
   %message_.i64 = getelementptr inbounds i8, ptr %gtest_ar_20, i64 8
   br label %_ZN3gsl2atIiEET_St16initializer_listIS1_El.exit
 
@@ -4338,7 +4349,10 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZN3gsl2atIiEET_St16initializer_listIS1_El.exit, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store <4 x i32> <i32 1, i32 2, i32 3, i32 4>, ptr %ref.tmp23, align 16
+  store i32 1, ptr %ref.tmp23, align 4
+  store i32 2, ptr %arrayinit.element25, align 4
+  store i32 3, ptr %arrayinit.element26, align 4
+  store i32 4, ptr %arrayinit.element27, align 4
   %add.ptr.i61 = getelementptr inbounds i32, ptr %ref.tmp23, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr.i61, align 4
   %11 = zext i32 %10 to i64

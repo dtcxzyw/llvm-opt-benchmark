@@ -2250,40 +2250,58 @@ declare ptr @makeFuncExpr(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i3
 ; Function Attrs: nounwind uwtable
 define dso_local void @build_aggregate_serialfn_expr(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 28) #10
-  store <4 x i32> <i32 8, i32 1, i32 -1, i32 2281>, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 -1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 20
-  store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 -1, ptr %6, align 4
-  %7 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %3) #10
-  %8 = tail call ptr @makeFuncExpr(i32 noundef %0, i32 noundef 17, ptr noundef %7, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
-  store ptr %8, ptr %1, align 8
+  store i32 8, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 1, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 -1, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 2281, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 -1, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 -1, ptr %9, align 4
+  %10 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %3) #10
+  %11 = tail call ptr @makeFuncExpr(i32 noundef %0, i32 noundef 17, ptr noundef %10, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
+  store ptr %11, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @build_aggregate_deserialfn_expr(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 28) #10
-  store <4 x i32> <i32 8, i32 1, i32 -1, i32 17>, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 -1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 20
-  store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 -1, ptr %6, align 4
-  %7 = tail call noundef ptr @palloc0(i64 noundef 28) #10
-  store <4 x i32> <i32 8, i32 1, i32 -1, i32 2281>, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 -1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 20
-  store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  store i32 -1, ptr %10, align 4
-  %11 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %3, ptr nonnull %7) #10
-  %12 = tail call ptr @makeFuncExpr(i32 noundef %0, i32 noundef 2281, ptr noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
-  store ptr %12, ptr %1, align 8
+  store i32 8, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 1, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 -1, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 17, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 -1, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 -1, ptr %9, align 4
+  %10 = tail call noundef ptr @palloc0(i64 noundef 28) #10
+  store i32 8, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 1, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  store i32 -1, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %10, i64 12
+  store i32 2281, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  store i32 -1, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %10, i64 20
+  store i32 0, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  store i32 -1, ptr %16, align 4
+  %17 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %3, ptr nonnull %10) #10
+  %18 = tail call ptr @makeFuncExpr(i32 noundef %0, i32 noundef 2281, ptr noundef %17, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
+  store ptr %18, ptr %1, align 8
   ret void
 }
 

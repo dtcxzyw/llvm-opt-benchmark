@@ -61,7 +61,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental12PipeWakeupFd4InitEv(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pipefd = alloca [2 x i32], align 8
+  %pipefd = alloca [2 x i32], align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp3 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -117,7 +117,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad
   br label %eh.resume
 
 invoke.cont11:                                    ; preds = %entry
-  %9 = load i32, ptr %pipefd, align 8
+  %9 = load i32, ptr %pipefd, align 4
   call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_120SetSocketNonBlockingEi(ptr noalias nonnull align 8 %status, i32 noundef %9)
   %10 = load i64, ptr %status, align 8
   %cmp.i = icmp eq i64 %10, 0
@@ -196,9 +196,12 @@ lpad18:                                           ; preds = %if.then.i.i
   br label %ehcleanup30
 
 if.end25:                                         ; preds = %invoke.cont22
+  %20 = load i32, ptr %pipefd, align 4
+  %21 = load i32, ptr %arrayidx16, align 4
   %read_fd_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %20 = load <2 x i32>, ptr %pipefd, align 8
-  store <2 x i32> %20, ptr %read_fd_.i, align 8
+  store i32 %20, ptr %read_fd_.i, align 8
+  %write_fd_.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 %21, ptr %write_fd_.i, align 4
   store i64 0, ptr %agg.result, align 8, !alias.scope !4
   br label %return
 

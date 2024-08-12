@@ -9007,40 +9007,42 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i8, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i8 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i11 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i11, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i11, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i11, align 8
-  store ptr %14, ptr %retval.i.0.i11, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 16
   %_has_bits_3 = getelementptr inbounds i8, ptr %other, i64 16
-  %18 = load i32, ptr %_has_bits_, align 8
-  %19 = load i32, ptr %_has_bits_3, align 4
-  store i32 %19, ptr %_has_bits_, align 8
-  store i32 %18, ptr %_has_bits_3, align 4
+  %19 = load i32, ptr %_has_bits_, align 8
+  %20 = load i32, ptr %_has_bits_3, align 4
+  store i32 %20, ptr %_has_bits_, align 8
+  store i32 %19, ptr %_has_bits_3, align 4
   %corecursive_ = getelementptr inbounds i8, ptr %this, i64 24
   %corecursive_5 = getelementptr inbounds i8, ptr %other, i64 24
   %tmp.0.copyload.i.i = load i64, ptr %corecursive_, align 8
-  %20 = load i64, ptr %corecursive_5, align 1
-  store i64 %20, ptr %corecursive_, align 8
+  %21 = load i64, ptr %corecursive_5, align 1
+  store i64 %21, ptr %corecursive_, align 8
   store i64 %tmp.0.copyload.i.i, ptr %corecursive_5, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 32
   %add.ptr1.i = getelementptr inbounds i8, ptr %other, i64 32
   %tmp.0.copyload.i.i.i = load i32, ptr %add.ptr.i, align 8
-  %21 = load i32, ptr %add.ptr1.i, align 1
-  store i32 %21, ptr %add.ptr.i, align 8
+  %22 = load i32, ptr %add.ptr1.i, align 1
+  store i32 %22, ptr %add.ptr.i, align 8
   store i32 %tmp.0.copyload.i.i.i, ptr %add.ptr1.i, align 1
   ret void
 }
@@ -12420,34 +12422,36 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i8, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i8 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i11 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i11, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i11, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i11, align 8
-  store ptr %14, ptr %retval.i.0.i11, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 16
   %_has_bits_3 = getelementptr inbounds i8, ptr %other, i64 16
-  %18 = load i32, ptr %_has_bits_, align 8
-  %19 = load i32, ptr %_has_bits_3, align 4
-  store i32 %19, ptr %_has_bits_, align 8
-  store i32 %18, ptr %_has_bits_3, align 4
+  %19 = load i32, ptr %_has_bits_, align 8
+  %20 = load i32, ptr %_has_bits_3, align 4
+  store i32 %20, ptr %_has_bits_, align 8
+  store i32 %19, ptr %_has_bits_3, align 4
   %group_int32_ = getelementptr inbounds i8, ptr %this, i64 24
   %group_int32_5 = getelementptr inbounds i8, ptr %other, i64 24
   %tmp.0.copyload.i.i = load i64, ptr %group_int32_, align 8
-  %20 = load i64, ptr %group_int32_5, align 1
-  store i64 %20, ptr %group_int32_, align 8
+  %21 = load i64, ptr %group_int32_5, align 1
+  store i64 %21, ptr %group_int32_, align 8
   store i64 %tmp.0.copyload.i.i, ptr %group_int32_5, align 1
   ret void
 }
@@ -12857,9 +12861,12 @@ if.end.i:                                         ; preds = %if.then5
   %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %group_depth_.i7, align 4
   %call.i11 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet19ParseMessageSetItemEPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %retval.0.i30, ptr noundef %containing_type, ptr noundef %metadata, ptr noundef nonnull %ctx)
-  %12 = load <2 x i32>, ptr %depth_.i, align 8
-  %13 = add nsw <2 x i32> %12, <i32 1, i32 -1>
-  store <2 x i32> %13, ptr %depth_.i, align 8
+  %12 = load i32, ptr %group_depth_.i7, align 4
+  %dec3.i = add nsw i32 %12, -1
+  store i32 %dec3.i, ptr %group_depth_.i7, align 4
+  %13 = load i32, ptr %depth_.i, align 8
+  %inc5.i = add nsw i32 %13, 1
+  store i32 %inc5.i, ptr %depth_.i, align 8
   %14 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i12 = icmp ne i32 %14, 11
   store i32 0, ptr %last_tag_minus_1_.i, align 8
@@ -13252,20 +13259,22 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i7, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i7 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i10 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i10, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i10, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i10, align 8
-  store ptr %14, ptr %retval.i.0.i10, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
@@ -14238,35 +14247,37 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i8, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i8 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i11 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i11, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i11, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i11, align 8
-  store ptr %14, ptr %retval.i.0.i11, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 16
   %_has_bits_3 = getelementptr inbounds i8, ptr %other, i64 16
-  %18 = load i32, ptr %_has_bits_, align 8
-  %19 = load i32, ptr %_has_bits_3, align 4
-  store i32 %19, ptr %_has_bits_, align 8
-  store i32 %18, ptr %_has_bits_3, align 4
+  %19 = load i32, ptr %_has_bits_, align 8
+  %20 = load i32, ptr %_has_bits_3, align 4
+  store i32 %20, ptr %_has_bits_, align 8
+  store i32 %19, ptr %_has_bits_3, align 4
   %str_5 = getelementptr inbounds i8, ptr %other, i64 24
   %str_ = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %str_, align 8
-  %21 = load ptr, ptr %str_5, align 8
-  store ptr %21, ptr %str_, align 8
-  store ptr %20, ptr %str_5, align 8
+  %21 = load ptr, ptr %str_, align 8
+  %22 = load ptr, ptr %str_5, align 8
+  store ptr %22, ptr %str_, align 8
+  store ptr %21, ptr %str_5, align 8
   ret void
 }
 
@@ -15163,35 +15174,37 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i8, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i8 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i11 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i11, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i11, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i11, align 8
-  store ptr %14, ptr %retval.i.0.i11, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 16
   %_has_bits_3 = getelementptr inbounds i8, ptr %other, i64 16
-  %18 = load i32, ptr %_has_bits_, align 8
-  %19 = load i32, ptr %_has_bits_3, align 4
-  store i32 %19, ptr %_has_bits_, align 8
-  store i32 %18, ptr %_has_bits_3, align 4
+  %19 = load i32, ptr %_has_bits_, align 8
+  %20 = load i32, ptr %_has_bits_3, align 4
+  store i32 %20, ptr %_has_bits_, align 8
+  store i32 %19, ptr %_has_bits_3, align 4
   %i_ = getelementptr inbounds i8, ptr %this, i64 24
   %i_5 = getelementptr inbounds i8, ptr %other, i64 24
-  %20 = load i32, ptr %i_, align 8
-  %21 = load i32, ptr %i_5, align 4
-  store i32 %21, ptr %i_, align 8
-  store i32 %20, ptr %i_5, align 4
+  %21 = load i32, ptr %i_, align 8
+  %22 = load i32, ptr %i_5, align 4
+  store i32 %22, ptr %i_, align 8
+  store i32 %21, ptr %i_5, align 4
   ret void
 }
 
@@ -27250,9 +27263,12 @@ if.end.i:                                         ; preds = %_ZN22protobuf_test_
   %inc.i = add nsw i32 %521, 1
   store i32 %inc.i, ptr %group_depth_.i156, align 4
   %call.i = call noundef ptr @_ZN22protobuf_test_messages6proto223TestAllTypesProto2_Data14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %519, ptr noundef nonnull %ptr.addr.1, ptr noundef nonnull %ctx)
-  %522 = load <2 x i32>, ptr %depth_.i, align 8
-  %523 = add nsw <2 x i32> %522, <i32 1, i32 -1>
-  store <2 x i32> %523, ptr %depth_.i, align 8
+  %522 = load i32, ptr %group_depth_.i156, align 4
+  %dec3.i = add nsw i32 %522, -1
+  store i32 %dec3.i, ptr %group_depth_.i156, align 4
+  %523 = load i32, ptr %depth_.i, align 8
+  %inc5.i = add nsw i32 %523, 1
+  store i32 %inc5.i, ptr %depth_.i, align 8
   %524 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i1474 = icmp ne i32 %524, 1611
   store i32 0, ptr %last_tag_minus_1_.i, align 8
@@ -48958,36 +48974,36 @@ if.then1080:                                      ; preds = %if.end1077
   %tobool1092.not = icmp eq i32 %and1091, 0
   %add1094 = add i64 %total_size.57, 9
   %total_size.58 = select i1 %tobool1092.not, i64 %total_size.57, i64 %add1094
-  %430 = insertelement <4 x i32> poison, i32 %371, i64 0
-  %431 = shufflevector <4 x i32> %430, <4 x i32> poison, <4 x i32> zeroinitializer
-  %432 = and <4 x i32> %431, <i32 8388608, i32 2097152, i32 1048576, i32 524288>
+  %and1096 = and i32 %371, 524288
+  %tobool1097.not = icmp eq i32 %and1096, 0
   %add1099 = add i64 %total_size.58, 5
-  %and1111 = lshr i32 %371, 21
-  %433 = and i32 %and1111, 2
-  %434 = zext nneg i32 %433 to i64
-  %435 = icmp eq <4 x i32> %432, zeroinitializer
-  %436 = extractelement <4 x i1> %435, i64 3
-  %total_size.59 = select i1 %436, i64 %total_size.58, i64 %add1099
+  %total_size.59 = select i1 %tobool1097.not, i64 %total_size.58, i64 %add1099
+  %and1101 = and i32 %371, 1048576
+  %tobool1102.not = icmp eq i32 %and1101, 0
   %add1104 = add i64 %total_size.59, 5
-  %437 = extractelement <4 x i1> %435, i64 2
-  %total_size.60 = select i1 %437, i64 %total_size.59, i64 %add1104
+  %total_size.60 = select i1 %tobool1102.not, i64 %total_size.59, i64 %add1104
+  %and1106 = and i32 %371, 2097152
+  %tobool1107.not = icmp eq i32 %and1106, 0
   %add1109 = add i64 %total_size.60, 9
-  %438 = extractelement <4 x i1> %435, i64 1
-  %total_size.61 = select i1 %438, i64 %total_size.60, i64 %add1109
-  %total_size.62 = add i64 %total_size.61, %434
-  %439 = extractelement <4 x i1> %435, i64 0
-  br i1 %439, label %if.end1124, label %if.then1118
+  %total_size.61 = select i1 %tobool1107.not, i64 %total_size.60, i64 %add1109
+  %and1111 = lshr i32 %371, 21
+  %430 = and i32 %and1111, 2
+  %431 = zext nneg i32 %430 to i64
+  %total_size.62 = add i64 %total_size.61, %431
+  %and1116 = and i32 %371, 8388608
+  %tobool1117.not = icmp eq i32 %and1116, 0
+  br i1 %tobool1117.not, label %if.end1124, label %if.then1118
 
 if.then1118:                                      ; preds = %if.then1080
   %optional_nested_enum_.i = getelementptr inbounds i8, ptr %this, i64 2980
-  %440 = load i32, ptr %optional_nested_enum_.i, align 4
-  %cmp.i.i1728 = icmp slt i32 %440, 0
+  %432 = load i32, ptr %optional_nested_enum_.i, align 4
+  %cmp.i.i1728 = icmp slt i32 %432, 0
   br i1 %cmp.i.i1728, label %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit1737, label %if.else.i.i1729
 
 if.else.i.i1729:                                  ; preds = %if.then1118
-  %or.i.i.i1730 = or i32 %440, 1
-  %441 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1730, i1 true)
-  %xor.i.i.i.i1731 = xor i32 %441, 31
+  %or.i.i.i1730 = or i32 %432, 1
+  %433 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1730, i1 true)
+  %xor.i.i.i.i1731 = xor i32 %433, 31
   %mul.i.i.i1732 = mul nuw nsw i32 %xor.i.i.i.i1731, 9
   %add.i.i.i1733 = add nuw nsw i32 %mul.i.i.i1732, 73
   %div1.i.i.i1734 = lshr i32 %add.i.i.i1733, 6
@@ -49012,14 +49028,14 @@ if.then1127:                                      ; preds = %if.end1124
 
 if.then1130:                                      ; preds = %if.then1127
   %field_name18___.i = getelementptr inbounds i8, ptr %this, i64 2984
-  %442 = load i32, ptr %field_name18___.i, align 8
-  %cmp.i.i1738 = icmp slt i32 %442, 0
+  %434 = load i32, ptr %field_name18___.i, align 8
+  %cmp.i.i1738 = icmp slt i32 %434, 0
   br i1 %cmp.i.i1738, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1747, label %if.else.i.i1739
 
 if.else.i.i1739:                                  ; preds = %if.then1130
-  %or.i.i.i1740 = or i32 %442, 1
-  %443 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1740, i1 true)
-  %xor.i.i.i.i1741 = xor i32 %443, 31
+  %or.i.i.i1740 = or i32 %434, 1
+  %435 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1740, i1 true)
+  %xor.i.i.i.i1741 = xor i32 %435, 31
   %mul.i.i.i1742 = mul nuw nsw i32 %xor.i.i.i.i1741, 9
   %add.i.i.i1743 = add nuw nsw i32 %mul.i.i.i1742, 73
   %div1.i.i.i1744 = lshr i32 %add.i.i.i1743, 6
@@ -49040,14 +49056,14 @@ if.end1135:                                       ; preds = %_ZN6google8protobuf
 
 if.then1138:                                      ; preds = %if.end1135
   %optional_foreign_enum_.i = getelementptr inbounds i8, ptr %this, i64 2988
-  %444 = load i32, ptr %optional_foreign_enum_.i, align 4
-  %cmp.i.i1748 = icmp slt i32 %444, 0
+  %436 = load i32, ptr %optional_foreign_enum_.i, align 4
+  %cmp.i.i1748 = icmp slt i32 %436, 0
   br i1 %cmp.i.i1748, label %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit1757, label %if.else.i.i1749
 
 if.else.i.i1749:                                  ; preds = %if.then1138
-  %or.i.i.i1750 = or i32 %444, 1
-  %445 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1750, i1 true)
-  %xor.i.i.i.i1751 = xor i32 %445, 31
+  %or.i.i.i1750 = or i32 %436, 1
+  %437 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1750, i1 true)
+  %xor.i.i.i.i1751 = xor i32 %437, 31
   %mul.i.i.i1752 = mul nuw nsw i32 %xor.i.i.i.i1751, 9
   %add.i.i.i1753 = add nuw nsw i32 %mul.i.i.i1752, 73
   %div1.i.i.i1754 = lshr i32 %add.i.i.i1753, 6
@@ -49068,14 +49084,14 @@ if.end1143:                                       ; preds = %_ZN6google8protobuf
 
 if.then1146:                                      ; preds = %if.end1143
   %fieldname1_.i = getelementptr inbounds i8, ptr %this, i64 2992
-  %446 = load i32, ptr %fieldname1_.i, align 8
-  %cmp.i.i1758 = icmp slt i32 %446, 0
+  %438 = load i32, ptr %fieldname1_.i, align 8
+  %cmp.i.i1758 = icmp slt i32 %438, 0
   br i1 %cmp.i.i1758, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1767, label %if.else.i.i1759
 
 if.else.i.i1759:                                  ; preds = %if.then1146
-  %or.i.i.i1760 = or i32 %446, 1
-  %447 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1760, i1 true)
-  %xor.i.i.i.i1761 = xor i32 %447, 31
+  %or.i.i.i1760 = or i32 %438, 1
+  %439 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1760, i1 true)
+  %xor.i.i.i.i1761 = xor i32 %439, 31
   %mul.i.i.i1762 = mul nuw nsw i32 %xor.i.i.i.i1761, 9
   %add.i.i.i1763 = add nuw nsw i32 %mul.i.i.i1762, 73
   %div1.i.i.i1764 = lshr i32 %add.i.i.i1763, 6
@@ -49096,14 +49112,14 @@ if.end1151:                                       ; preds = %_ZN6google8protobuf
 
 if.then1154:                                      ; preds = %if.end1151
   %field_name2_.i = getelementptr inbounds i8, ptr %this, i64 2996
-  %448 = load i32, ptr %field_name2_.i, align 4
-  %cmp.i.i1768 = icmp slt i32 %448, 0
+  %440 = load i32, ptr %field_name2_.i, align 4
+  %cmp.i.i1768 = icmp slt i32 %440, 0
   br i1 %cmp.i.i1768, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1777, label %if.else.i.i1769
 
 if.else.i.i1769:                                  ; preds = %if.then1154
-  %or.i.i.i1770 = or i32 %448, 1
-  %449 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1770, i1 true)
-  %xor.i.i.i.i1771 = xor i32 %449, 31
+  %or.i.i.i1770 = or i32 %440, 1
+  %441 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1770, i1 true)
+  %xor.i.i.i.i1771 = xor i32 %441, 31
   %mul.i.i.i1772 = mul nuw nsw i32 %xor.i.i.i.i1771, 9
   %add.i.i.i1773 = add nuw nsw i32 %mul.i.i.i1772, 73
   %div1.i.i.i1774 = lshr i32 %add.i.i.i1773, 6
@@ -49124,14 +49140,14 @@ if.end1159:                                       ; preds = %_ZN6google8protobuf
 
 if.then1162:                                      ; preds = %if.end1159
   %_field_name3_.i = getelementptr inbounds i8, ptr %this, i64 3000
-  %450 = load i32, ptr %_field_name3_.i, align 8
-  %cmp.i.i1778 = icmp slt i32 %450, 0
+  %442 = load i32, ptr %_field_name3_.i, align 8
+  %cmp.i.i1778 = icmp slt i32 %442, 0
   br i1 %cmp.i.i1778, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1787, label %if.else.i.i1779
 
 if.else.i.i1779:                                  ; preds = %if.then1162
-  %or.i.i.i1780 = or i32 %450, 1
-  %451 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1780, i1 true)
-  %xor.i.i.i.i1781 = xor i32 %451, 31
+  %or.i.i.i1780 = or i32 %442, 1
+  %443 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1780, i1 true)
+  %xor.i.i.i.i1781 = xor i32 %443, 31
   %mul.i.i.i1782 = mul nuw nsw i32 %xor.i.i.i.i1781, 9
   %add.i.i.i1783 = add nuw nsw i32 %mul.i.i.i1782, 73
   %div1.i.i.i1784 = lshr i32 %add.i.i.i1783, 6
@@ -49152,14 +49168,14 @@ if.end1167:                                       ; preds = %_ZN6google8protobuf
 
 if.then1170:                                      ; preds = %if.end1167
   %field__name4__.i = getelementptr inbounds i8, ptr %this, i64 3004
-  %452 = load i32, ptr %field__name4__.i, align 4
-  %cmp.i.i1788 = icmp slt i32 %452, 0
+  %444 = load i32, ptr %field__name4__.i, align 4
+  %cmp.i.i1788 = icmp slt i32 %444, 0
   br i1 %cmp.i.i1788, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1797, label %if.else.i.i1789
 
 if.else.i.i1789:                                  ; preds = %if.then1170
-  %or.i.i.i1790 = or i32 %452, 1
-  %453 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1790, i1 true)
-  %xor.i.i.i.i1791 = xor i32 %453, 31
+  %or.i.i.i1790 = or i32 %444, 1
+  %445 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1790, i1 true)
+  %xor.i.i.i.i1791 = xor i32 %445, 31
   %mul.i.i.i1792 = mul nuw nsw i32 %xor.i.i.i.i1791, 9
   %add.i.i.i1793 = add nuw nsw i32 %mul.i.i.i1792, 73
   %div1.i.i.i1794 = lshr i32 %add.i.i.i1793, 6
@@ -49180,14 +49196,14 @@ if.end1175:                                       ; preds = %_ZN6google8protobuf
 
 if.then1178:                                      ; preds = %if.end1175
   %field0name5_.i = getelementptr inbounds i8, ptr %this, i64 3008
-  %454 = load i32, ptr %field0name5_.i, align 8
-  %cmp.i.i1798 = icmp slt i32 %454, 0
+  %446 = load i32, ptr %field0name5_.i, align 8
+  %cmp.i.i1798 = icmp slt i32 %446, 0
   br i1 %cmp.i.i1798, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1807, label %if.else.i.i1799
 
 if.else.i.i1799:                                  ; preds = %if.then1178
-  %or.i.i.i1800 = or i32 %454, 1
-  %455 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1800, i1 true)
-  %xor.i.i.i.i1801 = xor i32 %455, 31
+  %or.i.i.i1800 = or i32 %446, 1
+  %447 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1800, i1 true)
+  %xor.i.i.i.i1801 = xor i32 %447, 31
   %mul.i.i.i1802 = mul nuw nsw i32 %xor.i.i.i.i1801, 9
   %add.i.i.i1803 = add nuw nsw i32 %mul.i.i.i1802, 73
   %div1.i.i.i1804 = lshr i32 %add.i.i.i1803, 6
@@ -49207,14 +49223,14 @@ if.end1183:                                       ; preds = %_ZN6google8protobuf
 
 if.then1186:                                      ; preds = %if.end1183
   %field_0_name6_.i = getelementptr inbounds i8, ptr %this, i64 3012
-  %456 = load i32, ptr %field_0_name6_.i, align 4
-  %cmp.i.i1808 = icmp slt i32 %456, 0
+  %448 = load i32, ptr %field_0_name6_.i, align 4
+  %cmp.i.i1808 = icmp slt i32 %448, 0
   br i1 %cmp.i.i1808, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1817, label %if.else.i.i1809
 
 if.else.i.i1809:                                  ; preds = %if.then1186
-  %or.i.i.i1810 = or i32 %456, 1
-  %457 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1810, i1 true)
-  %xor.i.i.i.i1811 = xor i32 %457, 31
+  %or.i.i.i1810 = or i32 %448, 1
+  %449 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1810, i1 true)
+  %xor.i.i.i.i1811 = xor i32 %449, 31
   %mul.i.i.i1812 = mul nuw nsw i32 %xor.i.i.i.i1811, 9
   %add.i.i.i1813 = add nuw nsw i32 %mul.i.i.i1812, 73
   %div1.i.i.i1814 = lshr i32 %add.i.i.i1813, 6
@@ -49230,26 +49246,26 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1817: ; preds = %if
 if.end1192:                                       ; preds = %if.end1183, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1817, %if.end1124
   %total_size.63 = phi i64 [ %add1190, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1817 ], [ %total_size.70, %if.end1183 ], [ %total_size.55, %if.end1124 ]
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 44
-  %458 = load i32, ptr %arrayidx.i, align 4
-  %and1195 = and i32 %458, 255
+  %450 = load i32, ptr %arrayidx.i, align 4
+  %and1195 = and i32 %450, 255
   %tobool1196.not = icmp eq i32 %and1195, 0
   br i1 %tobool1196.not, label %if.end1262, label %if.then1197
 
 if.then1197:                                      ; preds = %if.end1192
-  %and1198 = and i32 %458, 1
+  %and1198 = and i32 %450, 1
   %tobool1199.not = icmp eq i32 %and1198, 0
   br i1 %tobool1199.not, label %if.end1205, label %if.then1200
 
 if.then1200:                                      ; preds = %if.then1197
   %fieldname7_.i = getelementptr inbounds i8, ptr %this, i64 3016
-  %459 = load i32, ptr %fieldname7_.i, align 8
-  %cmp.i.i1818 = icmp slt i32 %459, 0
+  %451 = load i32, ptr %fieldname7_.i, align 8
+  %cmp.i.i1818 = icmp slt i32 %451, 0
   br i1 %cmp.i.i1818, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1827, label %if.else.i.i1819
 
 if.else.i.i1819:                                  ; preds = %if.then1200
-  %or.i.i.i1820 = or i32 %459, 1
-  %460 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1820, i1 true)
-  %xor.i.i.i.i1821 = xor i32 %460, 31
+  %or.i.i.i1820 = or i32 %451, 1
+  %452 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1820, i1 true)
+  %xor.i.i.i.i1821 = xor i32 %452, 31
   %mul.i.i.i1822 = mul nuw nsw i32 %xor.i.i.i.i1821, 9
   %add.i.i.i1823 = add nuw nsw i32 %mul.i.i.i1822, 73
   %div1.i.i.i1824 = lshr i32 %add.i.i.i1823, 6
@@ -49264,20 +49280,20 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1827: ; preds = %if
 
 if.end1205:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1827, %if.then1197
   %total_size.72 = phi i64 [ %add1204, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1827 ], [ %total_size.63, %if.then1197 ]
-  %and1206 = and i32 %458, 2
+  %and1206 = and i32 %450, 2
   %tobool1207.not = icmp eq i32 %and1206, 0
   br i1 %tobool1207.not, label %if.end1213, label %if.then1208
 
 if.then1208:                                      ; preds = %if.end1205
   %fieldname8_.i = getelementptr inbounds i8, ptr %this, i64 3020
-  %461 = load i32, ptr %fieldname8_.i, align 4
-  %cmp.i.i1828 = icmp slt i32 %461, 0
+  %453 = load i32, ptr %fieldname8_.i, align 4
+  %cmp.i.i1828 = icmp slt i32 %453, 0
   br i1 %cmp.i.i1828, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1837, label %if.else.i.i1829
 
 if.else.i.i1829:                                  ; preds = %if.then1208
-  %or.i.i.i1830 = or i32 %461, 1
-  %462 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1830, i1 true)
-  %xor.i.i.i.i1831 = xor i32 %462, 31
+  %or.i.i.i1830 = or i32 %453, 1
+  %454 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1830, i1 true)
+  %xor.i.i.i.i1831 = xor i32 %454, 31
   %mul.i.i.i1832 = mul nuw nsw i32 %xor.i.i.i.i1831, 9
   %add.i.i.i1833 = add nuw nsw i32 %mul.i.i.i1832, 73
   %div1.i.i.i1834 = lshr i32 %add.i.i.i1833, 6
@@ -49292,20 +49308,20 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1837: ; preds = %if
 
 if.end1213:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1837, %if.end1205
   %total_size.73 = phi i64 [ %add1212, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1837 ], [ %total_size.72, %if.end1205 ]
-  %and1214 = and i32 %458, 4
+  %and1214 = and i32 %450, 4
   %tobool1215.not = icmp eq i32 %and1214, 0
   br i1 %tobool1215.not, label %if.end1221, label %if.then1216
 
 if.then1216:                                      ; preds = %if.end1213
   %field_name9_.i = getelementptr inbounds i8, ptr %this, i64 3024
-  %463 = load i32, ptr %field_name9_.i, align 8
-  %cmp.i.i1838 = icmp slt i32 %463, 0
+  %455 = load i32, ptr %field_name9_.i, align 8
+  %cmp.i.i1838 = icmp slt i32 %455, 0
   br i1 %cmp.i.i1838, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1847, label %if.else.i.i1839
 
 if.else.i.i1839:                                  ; preds = %if.then1216
-  %or.i.i.i1840 = or i32 %463, 1
-  %464 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1840, i1 true)
-  %xor.i.i.i.i1841 = xor i32 %464, 31
+  %or.i.i.i1840 = or i32 %455, 1
+  %456 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1840, i1 true)
+  %xor.i.i.i.i1841 = xor i32 %456, 31
   %mul.i.i.i1842 = mul nuw nsw i32 %xor.i.i.i.i1841, 9
   %add.i.i.i1843 = add nuw nsw i32 %mul.i.i.i1842, 73
   %div1.i.i.i1844 = lshr i32 %add.i.i.i1843, 6
@@ -49320,20 +49336,20 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1847: ; preds = %if
 
 if.end1221:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1847, %if.end1213
   %total_size.74 = phi i64 [ %add1220, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1847 ], [ %total_size.73, %if.end1213 ]
-  %and1222 = and i32 %458, 8
+  %and1222 = and i32 %450, 8
   %tobool1223.not = icmp eq i32 %and1222, 0
   br i1 %tobool1223.not, label %if.end1229, label %if.then1224
 
 if.then1224:                                      ; preds = %if.end1221
   %field_name10_.i = getelementptr inbounds i8, ptr %this, i64 3028
-  %465 = load i32, ptr %field_name10_.i, align 4
-  %cmp.i.i1848 = icmp slt i32 %465, 0
+  %457 = load i32, ptr %field_name10_.i, align 4
+  %cmp.i.i1848 = icmp slt i32 %457, 0
   br i1 %cmp.i.i1848, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1857, label %if.else.i.i1849
 
 if.else.i.i1849:                                  ; preds = %if.then1224
-  %or.i.i.i1850 = or i32 %465, 1
-  %466 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1850, i1 true)
-  %xor.i.i.i.i1851 = xor i32 %466, 31
+  %or.i.i.i1850 = or i32 %457, 1
+  %458 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1850, i1 true)
+  %xor.i.i.i.i1851 = xor i32 %458, 31
   %mul.i.i.i1852 = mul nuw nsw i32 %xor.i.i.i.i1851, 9
   %add.i.i.i1853 = add nuw nsw i32 %mul.i.i.i1852, 73
   %div1.i.i.i1854 = lshr i32 %add.i.i.i1853, 6
@@ -49348,20 +49364,20 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1857: ; preds = %if
 
 if.end1229:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1857, %if.end1221
   %total_size.75 = phi i64 [ %add1228, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1857 ], [ %total_size.74, %if.end1221 ]
-  %and1230 = and i32 %458, 16
+  %and1230 = and i32 %450, 16
   %tobool1231.not = icmp eq i32 %and1230, 0
   br i1 %tobool1231.not, label %if.end1237, label %if.then1232
 
 if.then1232:                                      ; preds = %if.end1229
   %field_name11_.i = getelementptr inbounds i8, ptr %this, i64 3032
-  %467 = load i32, ptr %field_name11_.i, align 8
-  %cmp.i.i1858 = icmp slt i32 %467, 0
+  %459 = load i32, ptr %field_name11_.i, align 8
+  %cmp.i.i1858 = icmp slt i32 %459, 0
   br i1 %cmp.i.i1858, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1867, label %if.else.i.i1859
 
 if.else.i.i1859:                                  ; preds = %if.then1232
-  %or.i.i.i1860 = or i32 %467, 1
-  %468 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1860, i1 true)
-  %xor.i.i.i.i1861 = xor i32 %468, 31
+  %or.i.i.i1860 = or i32 %459, 1
+  %460 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1860, i1 true)
+  %xor.i.i.i.i1861 = xor i32 %460, 31
   %mul.i.i.i1862 = mul nuw nsw i32 %xor.i.i.i.i1861, 9
   %add.i.i.i1863 = add nuw nsw i32 %mul.i.i.i1862, 73
   %div1.i.i.i1864 = lshr i32 %add.i.i.i1863, 6
@@ -49376,20 +49392,20 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1867: ; preds = %if
 
 if.end1237:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1867, %if.end1229
   %total_size.76 = phi i64 [ %add1236, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1867 ], [ %total_size.75, %if.end1229 ]
-  %and1238 = and i32 %458, 32
+  %and1238 = and i32 %450, 32
   %tobool1239.not = icmp eq i32 %and1238, 0
   br i1 %tobool1239.not, label %if.end1245, label %if.then1240
 
 if.then1240:                                      ; preds = %if.end1237
   %field_name12_.i = getelementptr inbounds i8, ptr %this, i64 3036
-  %469 = load i32, ptr %field_name12_.i, align 4
-  %cmp.i.i1868 = icmp slt i32 %469, 0
+  %461 = load i32, ptr %field_name12_.i, align 4
+  %cmp.i.i1868 = icmp slt i32 %461, 0
   br i1 %cmp.i.i1868, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1877, label %if.else.i.i1869
 
 if.else.i.i1869:                                  ; preds = %if.then1240
-  %or.i.i.i1870 = or i32 %469, 1
-  %470 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1870, i1 true)
-  %xor.i.i.i.i1871 = xor i32 %470, 31
+  %or.i.i.i1870 = or i32 %461, 1
+  %462 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1870, i1 true)
+  %xor.i.i.i.i1871 = xor i32 %462, 31
   %mul.i.i.i1872 = mul nuw nsw i32 %xor.i.i.i.i1871, 9
   %add.i.i.i1873 = add nuw nsw i32 %mul.i.i.i1872, 73
   %div1.i.i.i1874 = lshr i32 %add.i.i.i1873, 6
@@ -49404,20 +49420,20 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1877: ; preds = %if
 
 if.end1245:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1877, %if.end1237
   %total_size.77 = phi i64 [ %add1244, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1877 ], [ %total_size.76, %if.end1237 ]
-  %and1246 = and i32 %458, 64
+  %and1246 = and i32 %450, 64
   %tobool1247.not = icmp eq i32 %and1246, 0
   br i1 %tobool1247.not, label %if.end1253, label %if.then1248
 
 if.then1248:                                      ; preds = %if.end1245
   %__field_name13_.i = getelementptr inbounds i8, ptr %this, i64 3040
-  %471 = load i32, ptr %__field_name13_.i, align 8
-  %cmp.i.i1878 = icmp slt i32 %471, 0
+  %463 = load i32, ptr %__field_name13_.i, align 8
+  %cmp.i.i1878 = icmp slt i32 %463, 0
   br i1 %cmp.i.i1878, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1887, label %if.else.i.i1879
 
 if.else.i.i1879:                                  ; preds = %if.then1248
-  %or.i.i.i1880 = or i32 %471, 1
-  %472 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1880, i1 true)
-  %xor.i.i.i.i1881 = xor i32 %472, 31
+  %or.i.i.i1880 = or i32 %463, 1
+  %464 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1880, i1 true)
+  %xor.i.i.i.i1881 = xor i32 %464, 31
   %mul.i.i.i1882 = mul nuw nsw i32 %xor.i.i.i.i1881, 9
   %add.i.i.i1883 = add nuw nsw i32 %mul.i.i.i1882, 73
   %div1.i.i.i1884 = lshr i32 %add.i.i.i1883, 6
@@ -49432,20 +49448,20 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1887: ; preds = %if
 
 if.end1253:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1887, %if.end1245
   %total_size.78 = phi i64 [ %add1252, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1887 ], [ %total_size.77, %if.end1245 ]
-  %and1254 = and i32 %458, 128
+  %and1254 = and i32 %450, 128
   %tobool1255.not = icmp eq i32 %and1254, 0
   br i1 %tobool1255.not, label %if.end1262, label %if.then1256
 
 if.then1256:                                      ; preds = %if.end1253
   %__field_name14_.i = getelementptr inbounds i8, ptr %this, i64 3044
-  %473 = load i32, ptr %__field_name14_.i, align 4
-  %cmp.i.i1888 = icmp slt i32 %473, 0
+  %465 = load i32, ptr %__field_name14_.i, align 4
+  %cmp.i.i1888 = icmp slt i32 %465, 0
   br i1 %cmp.i.i1888, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1897, label %if.else.i.i1889
 
 if.else.i.i1889:                                  ; preds = %if.then1256
-  %or.i.i.i1890 = or i32 %473, 1
-  %474 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1890, i1 true)
-  %xor.i.i.i.i1891 = xor i32 %474, 31
+  %or.i.i.i1890 = or i32 %465, 1
+  %466 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1890, i1 true)
+  %xor.i.i.i.i1891 = xor i32 %466, 31
   %mul.i.i.i1892 = mul nuw nsw i32 %xor.i.i.i.i1891, 9
   %add.i.i.i1893 = add nuw nsw i32 %mul.i.i.i1892, 73
   %div1.i.i.i1894 = lshr i32 %add.i.i.i1893, 6
@@ -49460,25 +49476,25 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1897: ; preds = %if
 
 if.end1262:                                       ; preds = %if.end1253, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1897, %if.end1192
   %total_size.71 = phi i64 [ %add1260, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1897 ], [ %total_size.78, %if.end1253 ], [ %total_size.63, %if.end1192 ]
-  %and1263 = and i32 %458, 65280
+  %and1263 = and i32 %450, 65280
   %tobool1264.not = icmp eq i32 %and1263, 0
   br i1 %tobool1264.not, label %if.end1327, label %if.then1265
 
 if.then1265:                                      ; preds = %if.end1262
-  %and1266 = and i32 %458, 256
+  %and1266 = and i32 %450, 256
   %tobool1267.not = icmp eq i32 %and1266, 0
   br i1 %tobool1267.not, label %if.end1273, label %if.then1268
 
 if.then1268:                                      ; preds = %if.then1265
   %field__name15_.i = getelementptr inbounds i8, ptr %this, i64 3048
-  %475 = load i32, ptr %field__name15_.i, align 8
-  %cmp.i.i1898 = icmp slt i32 %475, 0
+  %467 = load i32, ptr %field__name15_.i, align 8
+  %cmp.i.i1898 = icmp slt i32 %467, 0
   br i1 %cmp.i.i1898, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1907, label %if.else.i.i1899
 
 if.else.i.i1899:                                  ; preds = %if.then1268
-  %or.i.i.i1900 = or i32 %475, 1
-  %476 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1900, i1 true)
-  %xor.i.i.i.i1901 = xor i32 %476, 31
+  %or.i.i.i1900 = or i32 %467, 1
+  %468 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1900, i1 true)
+  %xor.i.i.i.i1901 = xor i32 %468, 31
   %mul.i.i.i1902 = mul nuw nsw i32 %xor.i.i.i.i1901, 9
   %add.i.i.i1903 = add nuw nsw i32 %mul.i.i.i1902, 73
   %div1.i.i.i1904 = lshr i32 %add.i.i.i1903, 6
@@ -49493,20 +49509,20 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1907: ; preds = %if
 
 if.end1273:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1907, %if.then1265
   %total_size.80 = phi i64 [ %add1272, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1907 ], [ %total_size.71, %if.then1265 ]
-  %and1274 = and i32 %458, 512
+  %and1274 = and i32 %450, 512
   %tobool1275.not = icmp eq i32 %and1274, 0
   br i1 %tobool1275.not, label %if.end1281, label %if.then1276
 
 if.then1276:                                      ; preds = %if.end1273
   %field__name16_.i = getelementptr inbounds i8, ptr %this, i64 3052
-  %477 = load i32, ptr %field__name16_.i, align 4
-  %cmp.i.i1908 = icmp slt i32 %477, 0
+  %469 = load i32, ptr %field__name16_.i, align 4
+  %cmp.i.i1908 = icmp slt i32 %469, 0
   br i1 %cmp.i.i1908, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1917, label %if.else.i.i1909
 
 if.else.i.i1909:                                  ; preds = %if.then1276
-  %or.i.i.i1910 = or i32 %477, 1
-  %478 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1910, i1 true)
-  %xor.i.i.i.i1911 = xor i32 %478, 31
+  %or.i.i.i1910 = or i32 %469, 1
+  %470 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1910, i1 true)
+  %xor.i.i.i.i1911 = xor i32 %470, 31
   %mul.i.i.i1912 = mul nuw nsw i32 %xor.i.i.i.i1911, 9
   %add.i.i.i1913 = add nuw nsw i32 %mul.i.i.i1912, 73
   %div1.i.i.i1914 = lshr i32 %add.i.i.i1913, 6
@@ -49521,20 +49537,20 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1917: ; preds = %if
 
 if.end1281:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1917, %if.end1273
   %total_size.81 = phi i64 [ %add1280, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1917 ], [ %total_size.80, %if.end1273 ]
-  %and1282 = and i32 %458, 1024
+  %and1282 = and i32 %450, 1024
   %tobool1283.not = icmp eq i32 %and1282, 0
   br i1 %tobool1283.not, label %if.end1289, label %if.then1284
 
 if.then1284:                                      ; preds = %if.end1281
   %field_name17___.i = getelementptr inbounds i8, ptr %this, i64 3056
-  %479 = load i32, ptr %field_name17___.i, align 8
-  %cmp.i.i1918 = icmp slt i32 %479, 0
+  %471 = load i32, ptr %field_name17___.i, align 8
+  %cmp.i.i1918 = icmp slt i32 %471, 0
   br i1 %cmp.i.i1918, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1927, label %if.else.i.i1919
 
 if.else.i.i1919:                                  ; preds = %if.then1284
-  %or.i.i.i1920 = or i32 %479, 1
-  %480 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1920, i1 true)
-  %xor.i.i.i.i1921 = xor i32 %480, 31
+  %or.i.i.i1920 = or i32 %471, 1
+  %472 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1920, i1 true)
+  %xor.i.i.i.i1921 = xor i32 %472, 31
   %mul.i.i.i1922 = mul nuw nsw i32 %xor.i.i.i.i1921, 9
   %add.i.i.i1923 = add nuw nsw i32 %mul.i.i.i1922, 73
   %div1.i.i.i1924 = lshr i32 %add.i.i.i1923, 6
@@ -49549,20 +49565,20 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1927: ; preds = %if
 
 if.end1289:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1927, %if.end1281
   %total_size.82 = phi i64 [ %add1288, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1927 ], [ %total_size.81, %if.end1281 ]
-  %and1290 = and i32 %458, 2048
+  %and1290 = and i32 %450, 2048
   %tobool1291.not = icmp eq i32 %and1290, 0
   %add1293 = add i64 %total_size.82, 3
   %spec.select374 = select i1 %tobool1291.not, i64 %total_size.82, i64 %add1293
-  %and1295 = and i32 %458, 4096
+  %and1295 = and i32 %450, 4096
   %tobool1296.not = icmp eq i32 %and1295, 0
   br i1 %tobool1296.not, label %if.end1302, label %if.then1297
 
 if.then1297:                                      ; preds = %if.end1289
   %default_int64_.i = getelementptr inbounds i8, ptr %this, i64 3064
-  %481 = load i64, ptr %default_int64_.i, align 8
-  %or.i.i1928 = or i64 %481, 1
-  %482 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i1928, i1 true)
-  %xor.i.i.i1929 = xor i64 %482, 63
+  %473 = load i64, ptr %default_int64_.i, align 8
+  %or.i.i1928 = or i64 %473, 1
+  %474 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i1928, i1 true)
+  %xor.i.i.i1929 = xor i64 %474, 63
   %mul.i.i1930 = mul nuw nsw i64 %xor.i.i.i1929, 9
   %add.i.i1931 = add nuw nsw i64 %mul.i.i1930, 73
   %div1.i.i1932 = lshr i64 %add.i.i1931, 6
@@ -49572,20 +49588,20 @@ if.then1297:                                      ; preds = %if.end1289
 
 if.end1302:                                       ; preds = %if.then1297, %if.end1289
   %total_size.84 = phi i64 [ %add1301, %if.then1297 ], [ %spec.select374, %if.end1289 ]
-  %and1303 = and i32 %458, 8192
+  %and1303 = and i32 %450, 8192
   %tobool1304.not = icmp eq i32 %and1303, 0
   br i1 %tobool1304.not, label %if.end1310, label %if.then1305
 
 if.then1305:                                      ; preds = %if.end1302
   %default_int32_.i = getelementptr inbounds i8, ptr %this, i64 3072
-  %483 = load i32, ptr %default_int32_.i, align 8
-  %cmp.i.i1933 = icmp slt i32 %483, 0
+  %475 = load i32, ptr %default_int32_.i, align 8
+  %cmp.i.i1933 = icmp slt i32 %475, 0
   br i1 %cmp.i.i1933, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1942, label %if.else.i.i1934
 
 if.else.i.i1934:                                  ; preds = %if.then1305
-  %or.i.i.i1935 = or i32 %483, 1
-  %484 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1935, i1 true)
-  %xor.i.i.i.i1936 = xor i32 %484, 31
+  %or.i.i.i1935 = or i32 %475, 1
+  %476 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1935, i1 true)
+  %xor.i.i.i.i1936 = xor i32 %476, 31
   %mul.i.i.i1937 = mul nuw nsw i32 %xor.i.i.i.i1936, 9
   %add.i.i.i1938 = add nuw nsw i32 %mul.i.i.i1937, 73
   %div1.i.i.i1939 = lshr i32 %add.i.i.i1938, 6
@@ -49600,16 +49616,16 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1942: ; preds = %if
 
 if.end1310:                                       ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1942, %if.end1302
   %total_size.85 = phi i64 [ %add1309, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit1942 ], [ %total_size.84, %if.end1302 ]
-  %and1311 = and i32 %458, 16384
+  %and1311 = and i32 %450, 16384
   %tobool1312.not = icmp eq i32 %and1311, 0
   br i1 %tobool1312.not, label %if.end1318, label %if.then1313
 
 if.then1313:                                      ; preds = %if.end1310
   %default_uint32_.i = getelementptr inbounds i8, ptr %this, i64 3076
-  %485 = load i32, ptr %default_uint32_.i, align 4
-  %or.i.i1943 = or i32 %485, 1
-  %486 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i1943, i1 true)
-  %xor.i.i.i1944 = xor i32 %486, 31
+  %477 = load i32, ptr %default_uint32_.i, align 4
+  %or.i.i1943 = or i32 %477, 1
+  %478 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i1943, i1 true)
+  %xor.i.i.i1944 = xor i32 %478, 31
   %mul.i.i1945 = mul nuw nsw i32 %xor.i.i.i1944, 9
   %add.i.i1946 = add nuw nsw i32 %mul.i.i1945, 73
   %div1.i.i1947 = lshr i32 %add.i.i1946, 6
@@ -49620,16 +49636,16 @@ if.then1313:                                      ; preds = %if.end1310
 
 if.end1318:                                       ; preds = %if.then1313, %if.end1310
   %total_size.86 = phi i64 [ %add1317, %if.then1313 ], [ %total_size.85, %if.end1310 ]
-  %and1319 = and i32 %458, 32768
+  %and1319 = and i32 %450, 32768
   %tobool1320.not = icmp eq i32 %and1319, 0
   br i1 %tobool1320.not, label %if.end1327, label %if.then1321
 
 if.then1321:                                      ; preds = %if.end1318
   %default_uint64_.i = getelementptr inbounds i8, ptr %this, i64 3080
-  %487 = load i64, ptr %default_uint64_.i, align 8
-  %or.i.i1949 = or i64 %487, 1
-  %488 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i1949, i1 true)
-  %xor.i.i.i1950 = xor i64 %488, 63
+  %479 = load i64, ptr %default_uint64_.i, align 8
+  %or.i.i1949 = or i64 %479, 1
+  %480 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i1949, i1 true)
+  %xor.i.i.i1950 = xor i64 %480, 63
   %mul.i.i1951 = mul nuw nsw i64 %xor.i.i.i1950, 9
   %add.i.i1952 = add nuw nsw i64 %mul.i.i1951, 73
   %div1.i.i1953 = lshr i64 %add.i.i1952, 6
@@ -49639,24 +49655,24 @@ if.then1321:                                      ; preds = %if.end1318
 
 if.end1327:                                       ; preds = %if.end1318, %if.then1321, %if.end1262
   %total_size.79 = phi i64 [ %add1325, %if.then1321 ], [ %total_size.86, %if.end1318 ], [ %total_size.71, %if.end1262 ]
-  %and1328 = and i32 %458, 16711680
+  %and1328 = and i32 %450, 16711680
   %tobool1329.not = icmp eq i32 %and1328, 0
   br i1 %tobool1329.not, label %if.end1377, label %if.then1330
 
 if.then1330:                                      ; preds = %if.end1327
-  %and1331 = and i32 %458, 65536
+  %and1331 = and i32 %450, 65536
   %tobool1332.not = icmp eq i32 %and1331, 0
   br i1 %tobool1332.not, label %if.end1338, label %if.then1333
 
 if.then1333:                                      ; preds = %if.then1330
   %default_sint64_.i = getelementptr inbounds i8, ptr %this, i64 3088
-  %489 = load i64, ptr %default_sint64_.i, align 8
-  %shl.i.i1954 = shl i64 %489, 1
-  %shr.i.i1955 = ashr i64 %489, 63
+  %481 = load i64, ptr %default_sint64_.i, align 8
+  %shl.i.i1954 = shl i64 %481, 1
+  %shr.i.i1955 = ashr i64 %481, 63
   %xor.i.i1956 = xor i64 %shl.i.i1954, %shr.i.i1955
   %or.i.i1957 = or i64 %xor.i.i1956, 1
-  %490 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i1957, i1 true)
-  %xor.i.i.i1958 = xor i64 %490, 63
+  %482 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i1957, i1 true)
+  %xor.i.i.i1958 = xor i64 %482, 63
   %mul.i.i1959 = mul nuw nsw i64 %xor.i.i.i1958, 9
   %add.i.i1960 = add nuw nsw i64 %mul.i.i1959, 73
   %div1.i.i1961 = lshr i64 %add.i.i1960, 6
@@ -49666,19 +49682,19 @@ if.then1333:                                      ; preds = %if.then1330
 
 if.end1338:                                       ; preds = %if.then1333, %if.then1330
   %total_size.88 = phi i64 [ %add1337, %if.then1333 ], [ %total_size.79, %if.then1330 ]
-  %and1339 = and i32 %458, 131072
+  %and1339 = and i32 %450, 131072
   %tobool1340.not = icmp eq i32 %and1339, 0
   br i1 %tobool1340.not, label %if.end1346, label %if.then1341
 
 if.then1341:                                      ; preds = %if.end1338
   %default_sint32_.i = getelementptr inbounds i8, ptr %this, i64 3096
-  %491 = load i32, ptr %default_sint32_.i, align 8
-  %shl.i.i1962 = shl i32 %491, 1
-  %shr.i.i1963 = ashr i32 %491, 31
+  %483 = load i32, ptr %default_sint32_.i, align 8
+  %shl.i.i1962 = shl i32 %483, 1
+  %shr.i.i1963 = ashr i32 %483, 31
   %xor.i.i1964 = xor i32 %shl.i.i1962, %shr.i.i1963
   %or.i.i1965 = or i32 %xor.i.i1964, 1
-  %492 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i1965, i1 true)
-  %xor.i.i.i1966 = xor i32 %492, 31
+  %484 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i1965, i1 true)
+  %xor.i.i.i1966 = xor i32 %484, 31
   %mul.i.i1967 = mul nuw nsw i32 %xor.i.i.i1966, 9
   %add.i.i1968 = add nuw nsw i32 %mul.i.i1967, 73
   %div1.i.i1969 = lshr i32 %add.i.i1968, 6
@@ -49689,37 +49705,37 @@ if.then1341:                                      ; preds = %if.end1338
 
 if.end1346:                                       ; preds = %if.then1341, %if.end1338
   %total_size.89 = phi i64 [ %add1345, %if.then1341 ], [ %total_size.88, %if.end1338 ]
-  %and1347 = and i32 %458, 262144
+  %and1347 = and i32 %450, 262144
   %tobool1348.not = icmp eq i32 %and1347, 0
   %add1350 = add i64 %total_size.89, 6
   %spec.select375 = select i1 %tobool1348.not, i64 %total_size.89, i64 %add1350
-  %and1352 = and i32 %458, 524288
+  %and1352 = and i32 %450, 524288
   %tobool1353.not = icmp eq i32 %and1352, 0
   %add1355 = add i64 %spec.select375, 10
   %total_size.91 = select i1 %tobool1353.not, i64 %spec.select375, i64 %add1355
-  %493 = insertelement <4 x i32> poison, i32 %458, i64 0
-  %494 = shufflevector <4 x i32> %493, <4 x i32> poison, <4 x i32> zeroinitializer
-  %495 = and <4 x i32> %494, <i32 8388608, i32 4194304, i32 2097152, i32 1048576>
+  %and1357 = and i32 %450, 1048576
+  %tobool1358.not = icmp eq i32 %and1357, 0
   %add1360 = add i64 %total_size.91, 10
-  %496 = icmp eq <4 x i32> %495, zeroinitializer
-  %497 = extractelement <4 x i1> %496, i64 3
-  %total_size.92 = select i1 %497, i64 %total_size.91, i64 %add1360
+  %total_size.92 = select i1 %tobool1358.not, i64 %total_size.91, i64 %add1360
+  %and1362 = and i32 %450, 2097152
+  %tobool1363.not = icmp eq i32 %and1362, 0
   %add1365 = add i64 %total_size.92, 6
-  %498 = extractelement <4 x i1> %496, i64 2
-  %total_size.93 = select i1 %498, i64 %total_size.92, i64 %add1365
+  %total_size.93 = select i1 %tobool1363.not, i64 %total_size.92, i64 %add1365
+  %and1367 = and i32 %450, 4194304
+  %tobool1368.not = icmp eq i32 %and1367, 0
   %add1370 = add i64 %total_size.93, 6
-  %499 = extractelement <4 x i1> %496, i64 1
-  %total_size.94 = select i1 %499, i64 %total_size.93, i64 %add1370
+  %total_size.94 = select i1 %tobool1368.not, i64 %total_size.93, i64 %add1370
+  %and1372 = and i32 %450, 8388608
+  %tobool1373.not = icmp eq i32 %and1372, 0
   %add1375 = add i64 %total_size.94, 10
-  %500 = extractelement <4 x i1> %496, i64 0
-  %spec.select376 = select i1 %500, i64 %total_size.94, i64 %add1375
+  %spec.select376 = select i1 %tobool1373.not, i64 %total_size.94, i64 %add1375
   br label %if.end1377
 
 if.end1377:                                       ; preds = %if.end1346, %if.end1327
   %total_size.87 = phi i64 [ %total_size.79, %if.end1327 ], [ %spec.select376, %if.end1346 ]
   %_oneof_case_.i = getelementptr inbounds i8, ptr %this, i64 3144
-  %501 = load i32, ptr %_oneof_case_.i, align 8
-  switch i32 %501, label %sw.epilog [
+  %485 = load i32, ptr %_oneof_case_.i, align 8
+  switch i32 %485, label %sw.epilog [
     i32 111, label %sw.bb
     i32 112, label %sw.bb1383
     i32 113, label %sw.bb1387
@@ -49733,10 +49749,10 @@ if.end1377:                                       ; preds = %if.end1346, %if.end
 
 sw.bb:                                            ; preds = %if.end1377
   %oneof_field_.i = getelementptr inbounds i8, ptr %this, i64 3136
-  %502 = load i32, ptr %oneof_field_.i, align 8
-  %or.i.i1972 = or i32 %502, 1
-  %503 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i1972, i1 true)
-  %xor.i.i.i1973 = xor i32 %503, 31
+  %486 = load i32, ptr %oneof_field_.i, align 8
+  %or.i.i1972 = or i32 %486, 1
+  %487 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i1972, i1 true)
+  %xor.i.i.i1973 = xor i32 %487, 31
   %mul.i.i1974 = mul nuw nsw i32 %xor.i.i.i1973, 9
   %add.i.i1975 = add nuw nsw i32 %mul.i.i1974, 73
   %div1.i.i1976 = lshr i32 %add.i.i1975, 6
@@ -49747,26 +49763,26 @@ sw.bb:                                            ; preds = %if.end1377
 
 sw.bb1383:                                        ; preds = %if.end1377
   %oneof_field_ = getelementptr inbounds i8, ptr %this, i64 3136
-  %504 = load ptr, ptr %oneof_field_, align 8
-  %_has_bits_.i2133 = getelementptr inbounds i8, ptr %504, i64 16
-  %505 = load i32, ptr %_has_bits_.i2133, align 4
-  %and.i2134 = and i32 %505, 3
+  %488 = load ptr, ptr %oneof_field_, align 8
+  %_has_bits_.i2133 = getelementptr inbounds i8, ptr %488, i64 16
+  %489 = load i32, ptr %_has_bits_.i2133, align 4
+  %and.i2134 = and i32 %489, 3
   %tobool.not.i2135 = icmp eq i32 %and.i2134, 0
   br i1 %tobool.not.i2135, label %if.end15.i2169, label %if.then.i2136
 
 if.then.i2136:                                    ; preds = %sw.bb1383
-  %and2.i2137 = and i32 %505, 1
+  %and2.i2137 = and i32 %489, 1
   %tobool3.not.i2138 = icmp eq i32 %and2.i2137, 0
   br i1 %tobool3.not.i2138, label %if.end.i2151, label %if.then4.i2139
 
 if.then4.i2139:                                   ; preds = %if.then.i2136
-  %corecursive_.i2140 = getelementptr inbounds i8, ptr %504, i64 24
-  %506 = load ptr, ptr %corecursive_.i2140, align 8
-  %call.i.i2141 = call noundef i64 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto212ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(3152) %506)
+  %corecursive_.i2140 = getelementptr inbounds i8, ptr %488, i64 24
+  %490 = load ptr, ptr %corecursive_.i2140, align 8
+  %call.i.i2141 = call noundef i64 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto212ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(3152) %490)
   %conv.i8.i2142 = trunc i64 %call.i.i2141 to i32
   %or.i.i.i2143 = or i32 %conv.i8.i2142, 1
-  %507 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i2143, i1 true)
-  %xor.i.i.i.i2144 = xor i32 %507, 31
+  %491 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i2143, i1 true)
+  %xor.i.i.i.i2144 = xor i32 %491, 31
   %mul.i.i.i2145 = mul nuw nsw i32 %xor.i.i.i.i2144, 9
   %add.i.i.i2146 = add nuw nsw i32 %mul.i.i.i2145, 73
   %div1.i.i.i2147 = lshr i32 %add.i.i.i2146, 6
@@ -49777,50 +49793,50 @@ if.then4.i2139:                                   ; preds = %if.then.i2136
 
 if.end.i2151:                                     ; preds = %if.then4.i2139, %if.then.i2136
   %total_size.1.i2152 = phi i64 [ %add.i2150, %if.then4.i2139 ], [ 0, %if.then.i2136 ]
-  %and7.i2153 = and i32 %505, 2
+  %and7.i2153 = and i32 %489, 2
   %tobool8.not.i2154 = icmp eq i32 %and7.i2153, 0
   br i1 %tobool8.not.i2154, label %if.end15.i2169, label %if.then9.i2155
 
 if.then9.i2155:                                   ; preds = %if.end.i2151
-  %a_.i.i2156 = getelementptr inbounds i8, ptr %504, i64 32
-  %508 = load i32, ptr %a_.i.i2156, align 8
-  %cmp.i.i.i2157 = icmp slt i32 %508, 0
+  %a_.i.i2156 = getelementptr inbounds i8, ptr %488, i64 32
+  %492 = load i32, ptr %a_.i.i2156, align 8
+  %cmp.i.i.i2157 = icmp slt i32 %492, 0
   br i1 %cmp.i.i.i2157, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i2165, label %if.else.i.i.i2158
 
 if.else.i.i.i2158:                                ; preds = %if.then9.i2155
-  %or.i.i.i.i2159 = or i32 %508, 1
-  %509 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i2159, i1 true)
-  %xor.i.i.i.i.i2160 = xor i32 %509, 31
+  %or.i.i.i.i2159 = or i32 %492, 1
+  %493 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i2159, i1 true)
+  %xor.i.i.i.i.i2160 = xor i32 %493, 31
   %mul.i.i.i.i2161 = mul nuw nsw i32 %xor.i.i.i.i.i2160, 9
   %add.i.i.i.i2162 = add nuw nsw i32 %mul.i.i.i.i2161, 73
   %div1.i.i.i.i2163 = lshr i32 %add.i.i.i.i2162, 6
   %narrow2191 = add nuw nsw i32 %div1.i.i.i.i2163, 1
-  %510 = zext nneg i32 %narrow2191 to i64
+  %494 = zext nneg i32 %narrow2191 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i2165
 
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i2165: ; preds = %if.else.i.i.i2158, %if.then9.i2155
-  %retval.0.i.i.i2166 = phi i64 [ %510, %if.else.i.i.i2158 ], [ 11, %if.then9.i2155 ]
+  %retval.0.i.i.i2166 = phi i64 [ %494, %if.else.i.i.i2158 ], [ 11, %if.then9.i2155 ]
   %add13.i2168 = add i64 %retval.0.i.i.i2166, %total_size.1.i2152
   br label %if.end15.i2169
 
 if.end15.i2169:                                   ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i2165, %if.end.i2151, %sw.bb1383
   %total_size.0.i2170 = phi i64 [ %add13.i2168, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i2165 ], [ %total_size.1.i2152, %if.end.i2151 ], [ 0, %sw.bb1383 ]
-  %_internal_metadata_.i2171 = getelementptr inbounds i8, ptr %504, i64 8
-  %511 = load ptr, ptr %_internal_metadata_.i2171, align 8
-  %512 = ptrtoint ptr %511 to i64
-  %conv.i7.i2172 = and i64 %512, 1
+  %_internal_metadata_.i2171 = getelementptr inbounds i8, ptr %488, i64 8
+  %495 = load ptr, ptr %_internal_metadata_.i2171, align 8
+  %496 = ptrtoint ptr %495 to i64
+  %conv.i7.i2172 = and i64 %496, 1
   %cmp.i.not.i2173 = icmp eq i64 %conv.i7.i2172, 0
   br i1 %cmp.i.not.i2173, label %if.end20.i2178, label %if.then17.i2174
 
 if.then17.i2174:                                  ; preds = %if.end15.i2169
-  %_cached_size_.i2175 = getelementptr inbounds i8, ptr %504, i64 20
+  %_cached_size_.i2175 = getelementptr inbounds i8, ptr %488, i64 20
   %call19.i2176 = call noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i2171, i64 noundef %total_size.0.i2170, ptr noundef nonnull %_cached_size_.i2175)
   %.pre = trunc i64 %call19.i2176 to i32
   br label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage12ByteSizeLongEv.exit2181
 
 if.end20.i2178:                                   ; preds = %if.end15.i2169
   %conv.i.i2179 = trunc i64 %total_size.0.i2170 to i32
-  %_cached_size_.i.i2180 = getelementptr inbounds i8, ptr %504, i64 20
+  %_cached_size_.i.i2180 = getelementptr inbounds i8, ptr %488, i64 20
   store atomic i32 %conv.i.i2179, ptr %_cached_size_.i.i2180 monotonic, align 4
   br label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage12ByteSizeLongEv.exit2181
 
@@ -49828,8 +49844,8 @@ _ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage12ByteSizeL
   %conv.i2125.pre-phi = phi i32 [ %.pre, %if.then17.i2174 ], [ %conv.i.i2179, %if.end20.i2178 ]
   %retval.0.i2177 = phi i64 [ %call19.i2176, %if.then17.i2174 ], [ %total_size.0.i2170, %if.end20.i2178 ]
   %or.i.i2126 = or i32 %conv.i2125.pre-phi, 1
-  %513 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i2126, i1 true)
-  %xor.i.i.i2127 = xor i32 %513, 31
+  %497 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i2126, i1 true)
+  %xor.i.i.i2127 = xor i32 %497, 31
   %mul.i.i2128 = mul nuw nsw i32 %xor.i.i.i2127, 9
   %add.i.i2129 = add nuw nsw i32 %mul.i.i2128, 73
   %div1.i.i2130 = lshr i32 %add.i.i2129, 6
@@ -49841,37 +49857,37 @@ _ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage12ByteSizeL
 
 sw.bb1387:                                        ; preds = %if.end1377
   %oneof_field_.i1982 = getelementptr inbounds i8, ptr %this, i64 3136
-  %514 = load ptr, ptr %oneof_field_.i1982, align 8
-  %_M_string_length.i.i1984 = getelementptr inbounds i8, ptr %514, i64 8
-  %515 = load i64, ptr %_M_string_length.i.i1984, align 8
-  %conv.i.i1985 = trunc i64 %515 to i32
+  %498 = load ptr, ptr %oneof_field_.i1982, align 8
+  %_M_string_length.i.i1984 = getelementptr inbounds i8, ptr %498, i64 8
+  %499 = load i64, ptr %_M_string_length.i.i1984, align 8
+  %conv.i.i1985 = trunc i64 %499 to i32
   %or.i.i.i1986 = or i32 %conv.i.i1985, 1
-  %516 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1986, i1 true)
-  %xor.i.i.i.i1987 = xor i32 %516, 31
+  %500 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1986, i1 true)
+  %xor.i.i.i.i1987 = xor i32 %500, 31
   %mul.i.i.i1988 = mul nuw nsw i32 %xor.i.i.i.i1987, 9
   %add.i.i.i1989 = add nuw nsw i32 %mul.i.i.i1988, 73
   %div1.i.i.i1990 = lshr i32 %add.i.i.i1989, 6
   %conv.i.i.i1991 = zext nneg i32 %div1.i.i.i1990 to i64
   %add.i.i1992 = add i64 %total_size.87, 2
-  %add1390 = add i64 %add.i.i1992, %515
+  %add1390 = add i64 %add.i.i1992, %499
   %add1391 = add i64 %add1390, %conv.i.i.i1991
   br label %sw.epilog
 
 sw.bb1392:                                        ; preds = %if.end1377
   %oneof_field_.i1995 = getelementptr inbounds i8, ptr %this, i64 3136
-  %517 = load ptr, ptr %oneof_field_.i1995, align 8
-  %_M_string_length.i.i1997 = getelementptr inbounds i8, ptr %517, i64 8
-  %518 = load i64, ptr %_M_string_length.i.i1997, align 8
-  %conv.i.i1998 = trunc i64 %518 to i32
+  %501 = load ptr, ptr %oneof_field_.i1995, align 8
+  %_M_string_length.i.i1997 = getelementptr inbounds i8, ptr %501, i64 8
+  %502 = load i64, ptr %_M_string_length.i.i1997, align 8
+  %conv.i.i1998 = trunc i64 %502 to i32
   %or.i.i.i1999 = or i32 %conv.i.i1998, 1
-  %519 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1999, i1 true)
-  %xor.i.i.i.i2000 = xor i32 %519, 31
+  %503 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i1999, i1 true)
+  %xor.i.i.i.i2000 = xor i32 %503, 31
   %mul.i.i.i2001 = mul nuw nsw i32 %xor.i.i.i.i2000, 9
   %add.i.i.i2002 = add nuw nsw i32 %mul.i.i.i2001, 73
   %div1.i.i.i2003 = lshr i32 %add.i.i.i2002, 6
   %conv.i.i.i2004 = zext nneg i32 %div1.i.i.i2003 to i64
   %add.i.i2005 = add i64 %total_size.87, 2
-  %add1395 = add i64 %add.i.i2005, %518
+  %add1395 = add i64 %add.i.i2005, %502
   %add1396 = add i64 %add1395, %conv.i.i.i2004
   br label %sw.epilog
 
@@ -49881,10 +49897,10 @@ sw.bb1397:                                        ; preds = %if.end1377
 
 sw.bb1399:                                        ; preds = %if.end1377
   %oneof_field_.i2008 = getelementptr inbounds i8, ptr %this, i64 3136
-  %520 = load i64, ptr %oneof_field_.i2008, align 8
-  %or.i.i2010 = or i64 %520, 1
-  %521 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i2010, i1 true)
-  %xor.i.i.i2011 = xor i64 %521, 63
+  %504 = load i64, ptr %oneof_field_.i2008, align 8
+  %or.i.i2010 = or i64 %504, 1
+  %505 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i2010, i1 true)
+  %xor.i.i.i2011 = xor i64 %505, 63
   %mul.i.i2012 = mul nuw nsw i64 %xor.i.i.i2011, 9
   %add.i.i2013 = add nuw nsw i64 %mul.i.i2012, 73
   %div1.i.i2014 = lshr i64 %add.i.i2013, 6
@@ -49902,32 +49918,32 @@ sw.bb1406:                                        ; preds = %if.end1377
 
 sw.bb1408:                                        ; preds = %if.end1377
   %oneof_field_.i2017 = getelementptr inbounds i8, ptr %this, i64 3136
-  %522 = load i32, ptr %oneof_field_.i2017, align 8
-  %cmp.i.i2019 = icmp slt i32 %522, 0
+  %506 = load i32, ptr %oneof_field_.i2017, align 8
+  %cmp.i.i2019 = icmp slt i32 %506, 0
   br i1 %cmp.i.i2019, label %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit2028, label %if.else.i.i2020
 
 if.else.i.i2020:                                  ; preds = %sw.bb1408
-  %or.i.i.i2021 = or i32 %522, 1
-  %523 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i2021, i1 true)
-  %xor.i.i.i.i2022 = xor i32 %523, 31
+  %or.i.i.i2021 = or i32 %506, 1
+  %507 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i2021, i1 true)
+  %xor.i.i.i.i2022 = xor i32 %507, 31
   %mul.i.i.i2023 = mul nuw nsw i32 %xor.i.i.i.i2022, 9
   %add.i.i.i2024 = add nuw nsw i32 %mul.i.i.i2023, 73
   %div1.i.i.i2025 = lshr i32 %add.i.i.i2024, 6
   %narrow2190 = add nuw nsw i32 %div1.i.i.i2025, 2
-  %524 = zext nneg i32 %narrow2190 to i64
+  %508 = zext nneg i32 %narrow2190 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit2028
 
 _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit2028: ; preds = %sw.bb1408, %if.else.i.i2020
-  %retval.0.i.i2027 = phi i64 [ %524, %if.else.i.i2020 ], [ 12, %sw.bb1408 ]
+  %retval.0.i.i2027 = phi i64 [ %508, %if.else.i.i2020 ], [ 12, %sw.bb1408 ]
   %add1412 = add i64 %retval.0.i.i2027, %total_size.87
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit2028, %sw.bb1406, %sw.bb1404, %sw.bb1399, %sw.bb1397, %sw.bb1392, %sw.bb1387, %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage12ByteSizeLongEv.exit2181, %sw.bb, %if.end1377
   %total_size.95 = phi i64 [ %total_size.87, %if.end1377 ], [ %add1412, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit2028 ], [ %add1407, %sw.bb1406 ], [ %add1405, %sw.bb1404 ], [ %add1403, %sw.bb1399 ], [ %add1398, %sw.bb1397 ], [ %add1396, %sw.bb1392 ], [ %add1391, %sw.bb1387 ], [ %add1386, %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage12ByteSizeLongEv.exit2181 ], [ %add1382, %sw.bb ]
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
-  %525 = load ptr, ptr %_internal_metadata_, align 8
-  %526 = ptrtoint ptr %525 to i64
-  %conv.i373 = and i64 %526, 1
+  %509 = load ptr, ptr %_internal_metadata_, align 8
+  %510 = ptrtoint ptr %509 to i64
+  %conv.i373 = and i64 %510, 1
   %cmp.i.not = icmp eq i64 %conv.i373, 0
   br i1 %cmp.i.not, label %if.end1419, label %if.then1416
 
@@ -50240,35 +50256,37 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i99, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i99 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i102 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i102, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i102, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i102, align 8
-  store ptr %14, ptr %retval.i.0.i102, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 40
   %_has_bits_4 = getelementptr inbounds i8, ptr %other, i64 40
-  %18 = load i32, ptr %_has_bits_, align 8
-  %19 = load i32, ptr %_has_bits_4, align 4
-  store i32 %19, ptr %_has_bits_, align 8
-  store i32 %18, ptr %_has_bits_4, align 4
+  %19 = load i32, ptr %_has_bits_, align 8
+  %20 = load i32, ptr %_has_bits_4, align 4
+  store i32 %20, ptr %_has_bits_, align 8
+  store i32 %19, ptr %_has_bits_4, align 4
   %arrayidx.i147 = getelementptr inbounds i8, ptr %this, i64 44
   %arrayidx.i = getelementptr inbounds i8, ptr %other, i64 44
-  %20 = load i32, ptr %arrayidx.i147, align 4
-  %21 = load i32, ptr %arrayidx.i, align 4
-  store i32 %21, ptr %arrayidx.i147, align 4
-  store i32 %20, ptr %arrayidx.i, align 4
+  %21 = load i32, ptr %arrayidx.i147, align 4
+  %22 = load i32, ptr %arrayidx.i, align 4
+  store i32 %22, ptr %arrayidx.i147, align 4
+  store i32 %21, ptr %arrayidx.i, align 4
   %repeated_int32_ = getelementptr inbounds i8, ptr %this, i64 56
   %repeated_int32_10 = getelementptr inbounds i8, ptr %other, i64 56
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %repeated_int32_, ptr noundef nonnull %repeated_int32_10)
@@ -50338,259 +50356,259 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InternalSwapEPS8_(ptr noundef nonnull align 8 dereferenceable(24) %repeated_cord_, ptr noundef nonnull %repeated_cord_30)
   %repeated_field_.i = getelementptr inbounds i8, ptr %this, i64 456
   %repeated_field_2.i = getelementptr inbounds i8, ptr %other, i64 456
-  %22 = load ptr, ptr %repeated_field_.i, align 8
-  %23 = load ptr, ptr %repeated_field_2.i, align 8
-  store ptr %23, ptr %repeated_field_.i, align 8
-  store ptr %22, ptr %repeated_field_2.i, align 8
+  %23 = load ptr, ptr %repeated_field_.i, align 8
+  %24 = load ptr, ptr %repeated_field_2.i, align 8
+  store ptr %24, ptr %repeated_field_.i, align 8
+  store ptr %23, ptr %repeated_field_2.i, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 512
   %impl_3.i = getelementptr inbounds i8, ptr %other, i64 512
   tail call void @_ZN6google8protobuf3MapIiiE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i)
   %state_.i = getelementptr inbounds i8, ptr %other, i64 504
-  %24 = load atomic i32, ptr %state_.i monotonic, align 4
+  %25 = load atomic i32, ptr %state_.i monotonic, align 4
   %state_5.i = getelementptr inbounds i8, ptr %this, i64 504
-  %25 = load atomic i32, ptr %state_5.i monotonic, align 8
-  store atomic i32 %25, ptr %state_.i monotonic, align 4
-  store atomic i32 %24, ptr %state_5.i monotonic, align 8
+  %26 = load atomic i32, ptr %state_5.i monotonic, align 8
+  store atomic i32 %26, ptr %state_.i monotonic, align 4
+  store atomic i32 %25, ptr %state_5.i monotonic, align 8
   %repeated_field_.i106 = getelementptr inbounds i8, ptr %this, i64 552
   %repeated_field_2.i107 = getelementptr inbounds i8, ptr %other, i64 552
-  %26 = load ptr, ptr %repeated_field_.i106, align 8
-  %27 = load ptr, ptr %repeated_field_2.i107, align 8
-  store ptr %27, ptr %repeated_field_.i106, align 8
-  store ptr %26, ptr %repeated_field_2.i107, align 8
+  %27 = load ptr, ptr %repeated_field_.i106, align 8
+  %28 = load ptr, ptr %repeated_field_2.i107, align 8
+  store ptr %28, ptr %repeated_field_.i106, align 8
+  store ptr %27, ptr %repeated_field_2.i107, align 8
   %impl_.i108 = getelementptr inbounds i8, ptr %this, i64 608
   %impl_3.i109 = getelementptr inbounds i8, ptr %other, i64 608
   tail call void @_ZN6google8protobuf3MapIllE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i108, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i109)
   %state_.i110 = getelementptr inbounds i8, ptr %other, i64 600
-  %28 = load atomic i32, ptr %state_.i110 monotonic, align 4
+  %29 = load atomic i32, ptr %state_.i110 monotonic, align 4
   %state_5.i111 = getelementptr inbounds i8, ptr %this, i64 600
-  %29 = load atomic i32, ptr %state_5.i111 monotonic, align 8
-  store atomic i32 %29, ptr %state_.i110 monotonic, align 4
-  store atomic i32 %28, ptr %state_5.i111 monotonic, align 8
+  %30 = load atomic i32, ptr %state_5.i111 monotonic, align 8
+  store atomic i32 %30, ptr %state_.i110 monotonic, align 4
+  store atomic i32 %29, ptr %state_5.i111 monotonic, align 8
   %repeated_field_.i112 = getelementptr inbounds i8, ptr %this, i64 648
   %repeated_field_2.i113 = getelementptr inbounds i8, ptr %other, i64 648
-  %30 = load ptr, ptr %repeated_field_.i112, align 8
-  %31 = load ptr, ptr %repeated_field_2.i113, align 8
-  store ptr %31, ptr %repeated_field_.i112, align 8
-  store ptr %30, ptr %repeated_field_2.i113, align 8
+  %31 = load ptr, ptr %repeated_field_.i112, align 8
+  %32 = load ptr, ptr %repeated_field_2.i113, align 8
+  store ptr %32, ptr %repeated_field_.i112, align 8
+  store ptr %31, ptr %repeated_field_2.i113, align 8
   %impl_.i114 = getelementptr inbounds i8, ptr %this, i64 704
   %impl_3.i115 = getelementptr inbounds i8, ptr %other, i64 704
   tail call void @_ZN6google8protobuf3MapIjjE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i114, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i115)
   %state_.i116 = getelementptr inbounds i8, ptr %other, i64 696
-  %32 = load atomic i32, ptr %state_.i116 monotonic, align 4
+  %33 = load atomic i32, ptr %state_.i116 monotonic, align 4
   %state_5.i117 = getelementptr inbounds i8, ptr %this, i64 696
-  %33 = load atomic i32, ptr %state_5.i117 monotonic, align 8
-  store atomic i32 %33, ptr %state_.i116 monotonic, align 4
-  store atomic i32 %32, ptr %state_5.i117 monotonic, align 8
+  %34 = load atomic i32, ptr %state_5.i117 monotonic, align 8
+  store atomic i32 %34, ptr %state_.i116 monotonic, align 4
+  store atomic i32 %33, ptr %state_5.i117 monotonic, align 8
   %repeated_field_.i118 = getelementptr inbounds i8, ptr %this, i64 744
   %repeated_field_2.i119 = getelementptr inbounds i8, ptr %other, i64 744
-  %34 = load ptr, ptr %repeated_field_.i118, align 8
-  %35 = load ptr, ptr %repeated_field_2.i119, align 8
-  store ptr %35, ptr %repeated_field_.i118, align 8
-  store ptr %34, ptr %repeated_field_2.i119, align 8
+  %35 = load ptr, ptr %repeated_field_.i118, align 8
+  %36 = load ptr, ptr %repeated_field_2.i119, align 8
+  store ptr %36, ptr %repeated_field_.i118, align 8
+  store ptr %35, ptr %repeated_field_2.i119, align 8
   %impl_.i120 = getelementptr inbounds i8, ptr %this, i64 800
   %impl_3.i121 = getelementptr inbounds i8, ptr %other, i64 800
   tail call void @_ZN6google8protobuf3MapImmE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i120, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i121)
   %state_.i122 = getelementptr inbounds i8, ptr %other, i64 792
-  %36 = load atomic i32, ptr %state_.i122 monotonic, align 4
+  %37 = load atomic i32, ptr %state_.i122 monotonic, align 4
   %state_5.i123 = getelementptr inbounds i8, ptr %this, i64 792
-  %37 = load atomic i32, ptr %state_5.i123 monotonic, align 8
-  store atomic i32 %37, ptr %state_.i122 monotonic, align 4
-  store atomic i32 %36, ptr %state_5.i123 monotonic, align 8
+  %38 = load atomic i32, ptr %state_5.i123 monotonic, align 8
+  store atomic i32 %38, ptr %state_.i122 monotonic, align 4
+  store atomic i32 %37, ptr %state_5.i123 monotonic, align 8
   %repeated_field_.i124 = getelementptr inbounds i8, ptr %this, i64 840
   %repeated_field_2.i125 = getelementptr inbounds i8, ptr %other, i64 840
-  %38 = load ptr, ptr %repeated_field_.i124, align 8
-  %39 = load ptr, ptr %repeated_field_2.i125, align 8
-  store ptr %39, ptr %repeated_field_.i124, align 8
-  store ptr %38, ptr %repeated_field_2.i125, align 8
+  %39 = load ptr, ptr %repeated_field_.i124, align 8
+  %40 = load ptr, ptr %repeated_field_2.i125, align 8
+  store ptr %40, ptr %repeated_field_.i124, align 8
+  store ptr %39, ptr %repeated_field_2.i125, align 8
   %impl_.i126 = getelementptr inbounds i8, ptr %this, i64 896
   %impl_3.i127 = getelementptr inbounds i8, ptr %other, i64 896
   tail call void @_ZN6google8protobuf3MapIiiE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i126, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i127)
   %state_.i128 = getelementptr inbounds i8, ptr %other, i64 888
-  %40 = load atomic i32, ptr %state_.i128 monotonic, align 4
+  %41 = load atomic i32, ptr %state_.i128 monotonic, align 4
   %state_5.i129 = getelementptr inbounds i8, ptr %this, i64 888
-  %41 = load atomic i32, ptr %state_5.i129 monotonic, align 8
-  store atomic i32 %41, ptr %state_.i128 monotonic, align 4
-  store atomic i32 %40, ptr %state_5.i129 monotonic, align 8
+  %42 = load atomic i32, ptr %state_5.i129 monotonic, align 8
+  store atomic i32 %42, ptr %state_.i128 monotonic, align 4
+  store atomic i32 %41, ptr %state_5.i129 monotonic, align 8
   %repeated_field_.i130 = getelementptr inbounds i8, ptr %this, i64 936
   %repeated_field_2.i131 = getelementptr inbounds i8, ptr %other, i64 936
-  %42 = load ptr, ptr %repeated_field_.i130, align 8
-  %43 = load ptr, ptr %repeated_field_2.i131, align 8
-  store ptr %43, ptr %repeated_field_.i130, align 8
-  store ptr %42, ptr %repeated_field_2.i131, align 8
+  %43 = load ptr, ptr %repeated_field_.i130, align 8
+  %44 = load ptr, ptr %repeated_field_2.i131, align 8
+  store ptr %44, ptr %repeated_field_.i130, align 8
+  store ptr %43, ptr %repeated_field_2.i131, align 8
   %impl_.i132 = getelementptr inbounds i8, ptr %this, i64 992
   %impl_3.i133 = getelementptr inbounds i8, ptr %other, i64 992
   tail call void @_ZN6google8protobuf3MapIllE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i132, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i133)
   %state_.i134 = getelementptr inbounds i8, ptr %other, i64 984
-  %44 = load atomic i32, ptr %state_.i134 monotonic, align 4
+  %45 = load atomic i32, ptr %state_.i134 monotonic, align 4
   %state_5.i135 = getelementptr inbounds i8, ptr %this, i64 984
-  %45 = load atomic i32, ptr %state_5.i135 monotonic, align 8
-  store atomic i32 %45, ptr %state_.i134 monotonic, align 4
-  store atomic i32 %44, ptr %state_5.i135 monotonic, align 8
+  %46 = load atomic i32, ptr %state_5.i135 monotonic, align 8
+  store atomic i32 %46, ptr %state_.i134 monotonic, align 4
+  store atomic i32 %45, ptr %state_5.i135 monotonic, align 8
   %repeated_field_.i136 = getelementptr inbounds i8, ptr %this, i64 1032
   %repeated_field_2.i137 = getelementptr inbounds i8, ptr %other, i64 1032
-  %46 = load ptr, ptr %repeated_field_.i136, align 8
-  %47 = load ptr, ptr %repeated_field_2.i137, align 8
-  store ptr %47, ptr %repeated_field_.i136, align 8
-  store ptr %46, ptr %repeated_field_2.i137, align 8
+  %47 = load ptr, ptr %repeated_field_.i136, align 8
+  %48 = load ptr, ptr %repeated_field_2.i137, align 8
+  store ptr %48, ptr %repeated_field_.i136, align 8
+  store ptr %47, ptr %repeated_field_2.i137, align 8
   %impl_.i138 = getelementptr inbounds i8, ptr %this, i64 1088
   %impl_3.i139 = getelementptr inbounds i8, ptr %other, i64 1088
   tail call void @_ZN6google8protobuf3MapIjjE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i138, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i139)
   %state_.i140 = getelementptr inbounds i8, ptr %other, i64 1080
-  %48 = load atomic i32, ptr %state_.i140 monotonic, align 4
+  %49 = load atomic i32, ptr %state_.i140 monotonic, align 4
   %state_5.i141 = getelementptr inbounds i8, ptr %this, i64 1080
-  %49 = load atomic i32, ptr %state_5.i141 monotonic, align 8
-  store atomic i32 %49, ptr %state_.i140 monotonic, align 4
-  store atomic i32 %48, ptr %state_5.i141 monotonic, align 8
+  %50 = load atomic i32, ptr %state_5.i141 monotonic, align 8
+  store atomic i32 %50, ptr %state_.i140 monotonic, align 4
+  store atomic i32 %49, ptr %state_5.i141 monotonic, align 8
   %repeated_field_.i142 = getelementptr inbounds i8, ptr %this, i64 1128
   %repeated_field_2.i143 = getelementptr inbounds i8, ptr %other, i64 1128
-  %50 = load ptr, ptr %repeated_field_.i142, align 8
-  %51 = load ptr, ptr %repeated_field_2.i143, align 8
-  store ptr %51, ptr %repeated_field_.i142, align 8
-  store ptr %50, ptr %repeated_field_2.i143, align 8
+  %51 = load ptr, ptr %repeated_field_.i142, align 8
+  %52 = load ptr, ptr %repeated_field_2.i143, align 8
+  store ptr %52, ptr %repeated_field_.i142, align 8
+  store ptr %51, ptr %repeated_field_2.i143, align 8
   %impl_.i144 = getelementptr inbounds i8, ptr %this, i64 1184
   %impl_3.i145 = getelementptr inbounds i8, ptr %other, i64 1184
   tail call void @_ZN6google8protobuf3MapImmE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i144, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i145)
   %state_.i146 = getelementptr inbounds i8, ptr %other, i64 1176
-  %52 = load atomic i32, ptr %state_.i146 monotonic, align 4
+  %53 = load atomic i32, ptr %state_.i146 monotonic, align 4
   %state_5.i147 = getelementptr inbounds i8, ptr %this, i64 1176
-  %53 = load atomic i32, ptr %state_5.i147 monotonic, align 8
-  store atomic i32 %53, ptr %state_.i146 monotonic, align 4
-  store atomic i32 %52, ptr %state_5.i147 monotonic, align 8
+  %54 = load atomic i32, ptr %state_5.i147 monotonic, align 8
+  store atomic i32 %54, ptr %state_.i146 monotonic, align 4
+  store atomic i32 %53, ptr %state_5.i147 monotonic, align 8
   %repeated_field_.i148 = getelementptr inbounds i8, ptr %this, i64 1224
   %repeated_field_2.i149 = getelementptr inbounds i8, ptr %other, i64 1224
-  %54 = load ptr, ptr %repeated_field_.i148, align 8
-  %55 = load ptr, ptr %repeated_field_2.i149, align 8
-  store ptr %55, ptr %repeated_field_.i148, align 8
-  store ptr %54, ptr %repeated_field_2.i149, align 8
+  %55 = load ptr, ptr %repeated_field_.i148, align 8
+  %56 = load ptr, ptr %repeated_field_2.i149, align 8
+  store ptr %56, ptr %repeated_field_.i148, align 8
+  store ptr %55, ptr %repeated_field_2.i149, align 8
   %impl_.i150 = getelementptr inbounds i8, ptr %this, i64 1280
   %impl_3.i151 = getelementptr inbounds i8, ptr %other, i64 1280
   tail call void @_ZN6google8protobuf3MapIiiE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i150, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i151)
   %state_.i152 = getelementptr inbounds i8, ptr %other, i64 1272
-  %56 = load atomic i32, ptr %state_.i152 monotonic, align 4
+  %57 = load atomic i32, ptr %state_.i152 monotonic, align 4
   %state_5.i153 = getelementptr inbounds i8, ptr %this, i64 1272
-  %57 = load atomic i32, ptr %state_5.i153 monotonic, align 8
-  store atomic i32 %57, ptr %state_.i152 monotonic, align 4
-  store atomic i32 %56, ptr %state_5.i153 monotonic, align 8
+  %58 = load atomic i32, ptr %state_5.i153 monotonic, align 8
+  store atomic i32 %58, ptr %state_.i152 monotonic, align 4
+  store atomic i32 %57, ptr %state_5.i153 monotonic, align 8
   %repeated_field_.i154 = getelementptr inbounds i8, ptr %this, i64 1320
   %repeated_field_2.i155 = getelementptr inbounds i8, ptr %other, i64 1320
-  %58 = load ptr, ptr %repeated_field_.i154, align 8
-  %59 = load ptr, ptr %repeated_field_2.i155, align 8
-  store ptr %59, ptr %repeated_field_.i154, align 8
-  store ptr %58, ptr %repeated_field_2.i155, align 8
+  %59 = load ptr, ptr %repeated_field_.i154, align 8
+  %60 = load ptr, ptr %repeated_field_2.i155, align 8
+  store ptr %60, ptr %repeated_field_.i154, align 8
+  store ptr %59, ptr %repeated_field_2.i155, align 8
   %impl_.i156 = getelementptr inbounds i8, ptr %this, i64 1376
   %impl_3.i157 = getelementptr inbounds i8, ptr %other, i64 1376
   tail call void @_ZN6google8protobuf3MapIllE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i156, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i157)
   %state_.i158 = getelementptr inbounds i8, ptr %other, i64 1368
-  %60 = load atomic i32, ptr %state_.i158 monotonic, align 4
+  %61 = load atomic i32, ptr %state_.i158 monotonic, align 4
   %state_5.i159 = getelementptr inbounds i8, ptr %this, i64 1368
-  %61 = load atomic i32, ptr %state_5.i159 monotonic, align 8
-  store atomic i32 %61, ptr %state_.i158 monotonic, align 4
-  store atomic i32 %60, ptr %state_5.i159 monotonic, align 8
+  %62 = load atomic i32, ptr %state_5.i159 monotonic, align 8
+  store atomic i32 %62, ptr %state_.i158 monotonic, align 4
+  store atomic i32 %61, ptr %state_5.i159 monotonic, align 8
   %repeated_field_.i160 = getelementptr inbounds i8, ptr %this, i64 1416
   %repeated_field_2.i161 = getelementptr inbounds i8, ptr %other, i64 1416
-  %62 = load ptr, ptr %repeated_field_.i160, align 8
-  %63 = load ptr, ptr %repeated_field_2.i161, align 8
-  store ptr %63, ptr %repeated_field_.i160, align 8
-  store ptr %62, ptr %repeated_field_2.i161, align 8
+  %63 = load ptr, ptr %repeated_field_.i160, align 8
+  %64 = load ptr, ptr %repeated_field_2.i161, align 8
+  store ptr %64, ptr %repeated_field_.i160, align 8
+  store ptr %63, ptr %repeated_field_2.i161, align 8
   %impl_.i162 = getelementptr inbounds i8, ptr %this, i64 1472
   %impl_3.i163 = getelementptr inbounds i8, ptr %other, i64 1472
   tail call void @_ZN6google8protobuf3MapIifE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i162, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i163)
   %state_.i164 = getelementptr inbounds i8, ptr %other, i64 1464
-  %64 = load atomic i32, ptr %state_.i164 monotonic, align 4
+  %65 = load atomic i32, ptr %state_.i164 monotonic, align 4
   %state_5.i165 = getelementptr inbounds i8, ptr %this, i64 1464
-  %65 = load atomic i32, ptr %state_5.i165 monotonic, align 8
-  store atomic i32 %65, ptr %state_.i164 monotonic, align 4
-  store atomic i32 %64, ptr %state_5.i165 monotonic, align 8
+  %66 = load atomic i32, ptr %state_5.i165 monotonic, align 8
+  store atomic i32 %66, ptr %state_.i164 monotonic, align 4
+  store atomic i32 %65, ptr %state_5.i165 monotonic, align 8
   %repeated_field_.i166 = getelementptr inbounds i8, ptr %this, i64 1512
   %repeated_field_2.i167 = getelementptr inbounds i8, ptr %other, i64 1512
-  %66 = load ptr, ptr %repeated_field_.i166, align 8
-  %67 = load ptr, ptr %repeated_field_2.i167, align 8
-  store ptr %67, ptr %repeated_field_.i166, align 8
-  store ptr %66, ptr %repeated_field_2.i167, align 8
+  %67 = load ptr, ptr %repeated_field_.i166, align 8
+  %68 = load ptr, ptr %repeated_field_2.i167, align 8
+  store ptr %68, ptr %repeated_field_.i166, align 8
+  store ptr %67, ptr %repeated_field_2.i167, align 8
   %impl_.i168 = getelementptr inbounds i8, ptr %this, i64 1568
   %impl_3.i169 = getelementptr inbounds i8, ptr %other, i64 1568
   tail call void @_ZN6google8protobuf3MapIidE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i168, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i169)
   %state_.i170 = getelementptr inbounds i8, ptr %other, i64 1560
-  %68 = load atomic i32, ptr %state_.i170 monotonic, align 4
+  %69 = load atomic i32, ptr %state_.i170 monotonic, align 4
   %state_5.i171 = getelementptr inbounds i8, ptr %this, i64 1560
-  %69 = load atomic i32, ptr %state_5.i171 monotonic, align 8
-  store atomic i32 %69, ptr %state_.i170 monotonic, align 4
-  store atomic i32 %68, ptr %state_5.i171 monotonic, align 8
+  %70 = load atomic i32, ptr %state_5.i171 monotonic, align 8
+  store atomic i32 %70, ptr %state_.i170 monotonic, align 4
+  store atomic i32 %69, ptr %state_5.i171 monotonic, align 8
   %repeated_field_.i172 = getelementptr inbounds i8, ptr %this, i64 1608
   %repeated_field_2.i173 = getelementptr inbounds i8, ptr %other, i64 1608
-  %70 = load ptr, ptr %repeated_field_.i172, align 8
-  %71 = load ptr, ptr %repeated_field_2.i173, align 8
-  store ptr %71, ptr %repeated_field_.i172, align 8
-  store ptr %70, ptr %repeated_field_2.i173, align 8
+  %71 = load ptr, ptr %repeated_field_.i172, align 8
+  %72 = load ptr, ptr %repeated_field_2.i173, align 8
+  store ptr %72, ptr %repeated_field_.i172, align 8
+  store ptr %71, ptr %repeated_field_2.i173, align 8
   %impl_.i174 = getelementptr inbounds i8, ptr %this, i64 1664
   %impl_3.i175 = getelementptr inbounds i8, ptr %other, i64 1664
   tail call void @_ZN6google8protobuf3MapIbbE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i174, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i175)
   %state_.i176 = getelementptr inbounds i8, ptr %other, i64 1656
-  %72 = load atomic i32, ptr %state_.i176 monotonic, align 4
+  %73 = load atomic i32, ptr %state_.i176 monotonic, align 4
   %state_5.i177 = getelementptr inbounds i8, ptr %this, i64 1656
-  %73 = load atomic i32, ptr %state_5.i177 monotonic, align 8
-  store atomic i32 %73, ptr %state_.i176 monotonic, align 4
-  store atomic i32 %72, ptr %state_5.i177 monotonic, align 8
+  %74 = load atomic i32, ptr %state_5.i177 monotonic, align 8
+  store atomic i32 %74, ptr %state_.i176 monotonic, align 4
+  store atomic i32 %73, ptr %state_5.i177 monotonic, align 8
   %repeated_field_.i178 = getelementptr inbounds i8, ptr %this, i64 1704
   %repeated_field_2.i179 = getelementptr inbounds i8, ptr %other, i64 1704
-  %74 = load ptr, ptr %repeated_field_.i178, align 8
-  %75 = load ptr, ptr %repeated_field_2.i179, align 8
-  store ptr %75, ptr %repeated_field_.i178, align 8
-  store ptr %74, ptr %repeated_field_2.i179, align 8
+  %75 = load ptr, ptr %repeated_field_.i178, align 8
+  %76 = load ptr, ptr %repeated_field_2.i179, align 8
+  store ptr %76, ptr %repeated_field_.i178, align 8
+  store ptr %75, ptr %repeated_field_2.i179, align 8
   %impl_.i180 = getelementptr inbounds i8, ptr %this, i64 1760
   %impl_3.i181 = getelementptr inbounds i8, ptr %other, i64 1760
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E4swapERS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i180, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i181)
   %state_.i182 = getelementptr inbounds i8, ptr %other, i64 1752
-  %76 = load atomic i32, ptr %state_.i182 monotonic, align 4
+  %77 = load atomic i32, ptr %state_.i182 monotonic, align 4
   %state_5.i183 = getelementptr inbounds i8, ptr %this, i64 1752
-  %77 = load atomic i32, ptr %state_5.i183 monotonic, align 8
-  store atomic i32 %77, ptr %state_.i182 monotonic, align 4
-  store atomic i32 %76, ptr %state_5.i183 monotonic, align 8
+  %78 = load atomic i32, ptr %state_5.i183 monotonic, align 8
+  store atomic i32 %78, ptr %state_.i182 monotonic, align 4
+  store atomic i32 %77, ptr %state_5.i183 monotonic, align 8
   %repeated_field_.i184 = getelementptr inbounds i8, ptr %this, i64 1800
   %repeated_field_2.i185 = getelementptr inbounds i8, ptr %other, i64 1800
-  %78 = load ptr, ptr %repeated_field_.i184, align 8
-  %79 = load ptr, ptr %repeated_field_2.i185, align 8
-  store ptr %79, ptr %repeated_field_.i184, align 8
-  store ptr %78, ptr %repeated_field_2.i185, align 8
+  %79 = load ptr, ptr %repeated_field_.i184, align 8
+  %80 = load ptr, ptr %repeated_field_2.i185, align 8
+  store ptr %80, ptr %repeated_field_.i184, align 8
+  store ptr %79, ptr %repeated_field_2.i185, align 8
   %impl_.i186 = getelementptr inbounds i8, ptr %this, i64 1856
   %impl_3.i187 = getelementptr inbounds i8, ptr %other, i64 1856
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E4swapERS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i186, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i187)
   %state_.i188 = getelementptr inbounds i8, ptr %other, i64 1848
-  %80 = load atomic i32, ptr %state_.i188 monotonic, align 4
+  %81 = load atomic i32, ptr %state_.i188 monotonic, align 4
   %state_5.i189 = getelementptr inbounds i8, ptr %this, i64 1848
-  %81 = load atomic i32, ptr %state_5.i189 monotonic, align 8
-  store atomic i32 %81, ptr %state_.i188 monotonic, align 4
-  store atomic i32 %80, ptr %state_5.i189 monotonic, align 8
+  %82 = load atomic i32, ptr %state_5.i189 monotonic, align 8
+  store atomic i32 %82, ptr %state_.i188 monotonic, align 4
+  store atomic i32 %81, ptr %state_5.i189 monotonic, align 8
   %repeated_field_.i190 = getelementptr inbounds i8, ptr %this, i64 1896
   %repeated_field_2.i191 = getelementptr inbounds i8, ptr %other, i64 1896
-  %82 = load ptr, ptr %repeated_field_.i190, align 8
-  %83 = load ptr, ptr %repeated_field_2.i191, align 8
-  store ptr %83, ptr %repeated_field_.i190, align 8
-  store ptr %82, ptr %repeated_field_2.i191, align 8
+  %83 = load ptr, ptr %repeated_field_.i190, align 8
+  %84 = load ptr, ptr %repeated_field_2.i191, align 8
+  store ptr %84, ptr %repeated_field_.i190, align 8
+  store ptr %83, ptr %repeated_field_2.i191, align 8
   %impl_.i192 = getelementptr inbounds i8, ptr %this, i64 1952
   %impl_3.i193 = getelementptr inbounds i8, ptr %other, i64 1952
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE4swapERSB_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i192, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i193)
   %state_.i194 = getelementptr inbounds i8, ptr %other, i64 1944
-  %84 = load atomic i32, ptr %state_.i194 monotonic, align 4
+  %85 = load atomic i32, ptr %state_.i194 monotonic, align 4
   %state_5.i195 = getelementptr inbounds i8, ptr %this, i64 1944
-  %85 = load atomic i32, ptr %state_5.i195 monotonic, align 8
-  store atomic i32 %85, ptr %state_.i194 monotonic, align 4
-  store atomic i32 %84, ptr %state_5.i195 monotonic, align 8
+  %86 = load atomic i32, ptr %state_5.i195 monotonic, align 8
+  store atomic i32 %86, ptr %state_.i194 monotonic, align 4
+  store atomic i32 %85, ptr %state_5.i195 monotonic, align 8
   %repeated_field_.i196 = getelementptr inbounds i8, ptr %this, i64 1992
   %repeated_field_2.i197 = getelementptr inbounds i8, ptr %other, i64 1992
-  %86 = load ptr, ptr %repeated_field_.i196, align 8
-  %87 = load ptr, ptr %repeated_field_2.i197, align 8
-  store ptr %87, ptr %repeated_field_.i196, align 8
-  store ptr %86, ptr %repeated_field_2.i197, align 8
+  %87 = load ptr, ptr %repeated_field_.i196, align 8
+  %88 = load ptr, ptr %repeated_field_2.i197, align 8
+  store ptr %88, ptr %repeated_field_.i196, align 8
+  store ptr %87, ptr %repeated_field_2.i197, align 8
   %impl_.i198 = getelementptr inbounds i8, ptr %this, i64 2048
   %impl_3.i199 = getelementptr inbounds i8, ptr %other, i64 2048
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE4swapERSB_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i198, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i199)
   %state_.i200 = getelementptr inbounds i8, ptr %other, i64 2040
-  %88 = load atomic i32, ptr %state_.i200 monotonic, align 4
+  %89 = load atomic i32, ptr %state_.i200 monotonic, align 4
   %state_5.i201 = getelementptr inbounds i8, ptr %this, i64 2040
-  %89 = load atomic i32, ptr %state_5.i201 monotonic, align 8
-  store atomic i32 %89, ptr %state_.i200 monotonic, align 4
-  store atomic i32 %88, ptr %state_5.i201 monotonic, align 8
+  %90 = load atomic i32, ptr %state_5.i201 monotonic, align 8
+  store atomic i32 %90, ptr %state_.i200 monotonic, align 4
+  store atomic i32 %89, ptr %state_5.i201 monotonic, align 8
   %map_string_nested_enum_ = getelementptr inbounds i8, ptr %this, i64 2072
   %map_string_nested_enum_48 = getelementptr inbounds i8, ptr %other, i64 2072
   tail call void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto252TestAllTypesProto2_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto2_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE4SwapEPNS1_12MapFieldBaseE(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_, ptr noundef nonnull %map_string_nested_enum_48)
@@ -50683,40 +50701,40 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %unpacked_nested_enum_, ptr noundef nonnull %unpacked_nested_enum_77)
   %optional_string_ = getelementptr inbounds i8, ptr %this, i64 2824
   %optional_string_78 = getelementptr inbounds i8, ptr %other, i64 2824
-  %90 = load ptr, ptr %optional_string_, align 8
-  %91 = load ptr, ptr %optional_string_78, align 8
-  store ptr %91, ptr %optional_string_, align 8
-  store ptr %90, ptr %optional_string_78, align 8
+  %91 = load ptr, ptr %optional_string_, align 8
+  %92 = load ptr, ptr %optional_string_78, align 8
+  store ptr %92, ptr %optional_string_, align 8
+  store ptr %91, ptr %optional_string_78, align 8
   %optional_bytes_ = getelementptr inbounds i8, ptr %this, i64 2832
   %optional_bytes_81 = getelementptr inbounds i8, ptr %other, i64 2832
-  %92 = load ptr, ptr %optional_bytes_, align 8
-  %93 = load ptr, ptr %optional_bytes_81, align 8
-  store ptr %93, ptr %optional_bytes_, align 8
-  store ptr %92, ptr %optional_bytes_81, align 8
+  %93 = load ptr, ptr %optional_bytes_, align 8
+  %94 = load ptr, ptr %optional_bytes_81, align 8
+  store ptr %94, ptr %optional_bytes_, align 8
+  store ptr %93, ptr %optional_bytes_81, align 8
   %optional_string_piece_ = getelementptr inbounds i8, ptr %this, i64 2840
   %optional_string_piece_84 = getelementptr inbounds i8, ptr %other, i64 2840
-  %94 = load ptr, ptr %optional_string_piece_, align 8
-  %95 = load ptr, ptr %optional_string_piece_84, align 8
-  store ptr %95, ptr %optional_string_piece_, align 8
-  store ptr %94, ptr %optional_string_piece_84, align 8
+  %95 = load ptr, ptr %optional_string_piece_, align 8
+  %96 = load ptr, ptr %optional_string_piece_84, align 8
+  store ptr %96, ptr %optional_string_piece_, align 8
+  store ptr %95, ptr %optional_string_piece_84, align 8
   %optional_cord_ = getelementptr inbounds i8, ptr %this, i64 2848
   %optional_cord_87 = getelementptr inbounds i8, ptr %other, i64 2848
-  %96 = load ptr, ptr %optional_cord_, align 8
-  %97 = load ptr, ptr %optional_cord_87, align 8
-  store ptr %97, ptr %optional_cord_, align 8
-  store ptr %96, ptr %optional_cord_87, align 8
+  %97 = load ptr, ptr %optional_cord_, align 8
+  %98 = load ptr, ptr %optional_cord_87, align 8
+  store ptr %98, ptr %optional_cord_, align 8
+  store ptr %97, ptr %optional_cord_87, align 8
   %default_string_ = getelementptr inbounds i8, ptr %this, i64 2856
   %default_string_90 = getelementptr inbounds i8, ptr %other, i64 2856
-  %98 = load ptr, ptr %default_string_, align 8
-  %99 = load ptr, ptr %default_string_90, align 8
-  store ptr %99, ptr %default_string_, align 8
-  store ptr %98, ptr %default_string_90, align 8
+  %99 = load ptr, ptr %default_string_, align 8
+  %100 = load ptr, ptr %default_string_90, align 8
+  store ptr %100, ptr %default_string_, align 8
+  store ptr %99, ptr %default_string_90, align 8
   %default_bytes_93 = getelementptr inbounds i8, ptr %other, i64 2864
   %default_bytes_ = getelementptr inbounds i8, ptr %this, i64 2864
-  %100 = load ptr, ptr %default_bytes_, align 8
-  %101 = load ptr, ptr %default_bytes_93, align 8
-  store ptr %101, ptr %default_bytes_, align 8
-  store ptr %100, ptr %default_bytes_93, align 8
+  %101 = load ptr, ptr %default_bytes_, align 8
+  %102 = load ptr, ptr %default_bytes_93, align 8
+  store ptr %102, ptr %default_bytes_, align 8
+  store ptr %101, ptr %default_bytes_93, align 8
   %optional_nested_message_ = getelementptr inbounds i8, ptr %this, i64 2872
   %optional_nested_message_96 = getelementptr inbounds i8, ptr %other, i64 2872
   %tmp.0.copyload.i.i = load i128, ptr %optional_nested_message_, align 8
@@ -50775,107 +50793,107 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 3048
   %add.ptr1.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 3048
   %tmp.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %102 = load i64, ptr %add.ptr1.i.i.i.i.i.i.i.i.i.i.i, align 1
-  store i64 %102, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %103 = load i64, ptr %add.ptr1.i.i.i.i.i.i.i.i.i.i.i, align 1
+  store i64 %103, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 %tmp.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr1.i.i.i.i.i.i.i.i.i.i.i, align 1
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 3056
   %add.ptr1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 3056
   %tmp.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %103 = load i32, ptr %add.ptr1.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  store i32 %103, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %104 = load i32, ptr %add.ptr1.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  store i32 %104, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i32 %tmp.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr1.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %default_bool_ = getelementptr inbounds i8, ptr %this, i64 3060
   %default_bool_97 = getelementptr inbounds i8, ptr %other, i64 3060
-  %104 = load i8, ptr %default_bool_, align 4
-  %frombool.i = and i8 %104, 1
-  %105 = load i8, ptr %default_bool_97, align 1
-  %frombool2.i = and i8 %105, 1
+  %105 = load i8, ptr %default_bool_, align 4
+  %frombool.i = and i8 %105, 1
+  %106 = load i8, ptr %default_bool_97, align 1
+  %frombool2.i = and i8 %106, 1
   store i8 %frombool2.i, ptr %default_bool_, align 4
   store i8 %frombool.i, ptr %default_bool_97, align 1
   %default_int64_ = getelementptr inbounds i8, ptr %this, i64 3064
   %default_int64_98 = getelementptr inbounds i8, ptr %other, i64 3064
-  %106 = load i64, ptr %default_int64_, align 8
-  %107 = load i64, ptr %default_int64_98, align 8
-  store i64 %107, ptr %default_int64_, align 8
-  store i64 %106, ptr %default_int64_98, align 8
+  %107 = load i64, ptr %default_int64_, align 8
+  %108 = load i64, ptr %default_int64_98, align 8
+  store i64 %108, ptr %default_int64_, align 8
+  store i64 %107, ptr %default_int64_98, align 8
   %default_int32_ = getelementptr inbounds i8, ptr %this, i64 3072
   %default_int32_99 = getelementptr inbounds i8, ptr %other, i64 3072
-  %108 = load i32, ptr %default_int32_, align 8
-  %109 = load i32, ptr %default_int32_99, align 4
-  store i32 %109, ptr %default_int32_, align 8
-  store i32 %108, ptr %default_int32_99, align 4
+  %109 = load i32, ptr %default_int32_, align 8
+  %110 = load i32, ptr %default_int32_99, align 4
+  store i32 %110, ptr %default_int32_, align 8
+  store i32 %109, ptr %default_int32_99, align 4
   %default_uint32_ = getelementptr inbounds i8, ptr %this, i64 3076
   %default_uint32_100 = getelementptr inbounds i8, ptr %other, i64 3076
-  %110 = load i32, ptr %default_uint32_, align 4
-  %111 = load i32, ptr %default_uint32_100, align 4
-  store i32 %111, ptr %default_uint32_, align 4
-  store i32 %110, ptr %default_uint32_100, align 4
+  %111 = load i32, ptr %default_uint32_, align 4
+  %112 = load i32, ptr %default_uint32_100, align 4
+  store i32 %112, ptr %default_uint32_, align 4
+  store i32 %111, ptr %default_uint32_100, align 4
   %default_uint64_ = getelementptr inbounds i8, ptr %this, i64 3080
   %default_uint64_101 = getelementptr inbounds i8, ptr %other, i64 3080
-  %112 = load i64, ptr %default_uint64_, align 8
-  %113 = load i64, ptr %default_uint64_101, align 8
-  store i64 %113, ptr %default_uint64_, align 8
-  store i64 %112, ptr %default_uint64_101, align 8
+  %113 = load i64, ptr %default_uint64_, align 8
+  %114 = load i64, ptr %default_uint64_101, align 8
+  store i64 %114, ptr %default_uint64_, align 8
+  store i64 %113, ptr %default_uint64_101, align 8
   %default_sint64_ = getelementptr inbounds i8, ptr %this, i64 3088
   %default_sint64_102 = getelementptr inbounds i8, ptr %other, i64 3088
-  %114 = load i64, ptr %default_sint64_, align 8
-  %115 = load i64, ptr %default_sint64_102, align 8
-  store i64 %115, ptr %default_sint64_, align 8
-  store i64 %114, ptr %default_sint64_102, align 8
+  %115 = load i64, ptr %default_sint64_, align 8
+  %116 = load i64, ptr %default_sint64_102, align 8
+  store i64 %116, ptr %default_sint64_, align 8
+  store i64 %115, ptr %default_sint64_102, align 8
   %default_sint32_ = getelementptr inbounds i8, ptr %this, i64 3096
   %default_sint32_103 = getelementptr inbounds i8, ptr %other, i64 3096
-  %116 = load i32, ptr %default_sint32_, align 8
-  %117 = load i32, ptr %default_sint32_103, align 4
-  store i32 %117, ptr %default_sint32_, align 8
-  store i32 %116, ptr %default_sint32_103, align 4
+  %117 = load i32, ptr %default_sint32_, align 8
+  %118 = load i32, ptr %default_sint32_103, align 4
+  store i32 %118, ptr %default_sint32_, align 8
+  store i32 %117, ptr %default_sint32_103, align 4
   %default_fixed32_ = getelementptr inbounds i8, ptr %this, i64 3100
   %default_fixed32_104 = getelementptr inbounds i8, ptr %other, i64 3100
-  %118 = load i32, ptr %default_fixed32_, align 4
-  %119 = load i32, ptr %default_fixed32_104, align 4
-  store i32 %119, ptr %default_fixed32_, align 4
-  store i32 %118, ptr %default_fixed32_104, align 4
+  %119 = load i32, ptr %default_fixed32_, align 4
+  %120 = load i32, ptr %default_fixed32_104, align 4
+  store i32 %120, ptr %default_fixed32_, align 4
+  store i32 %119, ptr %default_fixed32_104, align 4
   %default_fixed64_ = getelementptr inbounds i8, ptr %this, i64 3104
   %default_fixed64_105 = getelementptr inbounds i8, ptr %other, i64 3104
-  %120 = load i64, ptr %default_fixed64_, align 8
-  %121 = load i64, ptr %default_fixed64_105, align 8
-  store i64 %121, ptr %default_fixed64_, align 8
-  store i64 %120, ptr %default_fixed64_105, align 8
+  %121 = load i64, ptr %default_fixed64_, align 8
+  %122 = load i64, ptr %default_fixed64_105, align 8
+  store i64 %122, ptr %default_fixed64_, align 8
+  store i64 %121, ptr %default_fixed64_105, align 8
   %default_sfixed64_ = getelementptr inbounds i8, ptr %this, i64 3112
   %default_sfixed64_106 = getelementptr inbounds i8, ptr %other, i64 3112
-  %122 = load i64, ptr %default_sfixed64_, align 8
-  %123 = load i64, ptr %default_sfixed64_106, align 8
-  store i64 %123, ptr %default_sfixed64_, align 8
-  store i64 %122, ptr %default_sfixed64_106, align 8
+  %123 = load i64, ptr %default_sfixed64_, align 8
+  %124 = load i64, ptr %default_sfixed64_106, align 8
+  store i64 %124, ptr %default_sfixed64_, align 8
+  store i64 %123, ptr %default_sfixed64_106, align 8
   %default_sfixed32_ = getelementptr inbounds i8, ptr %this, i64 3120
   %default_sfixed32_107 = getelementptr inbounds i8, ptr %other, i64 3120
-  %124 = load i32, ptr %default_sfixed32_, align 8
-  %125 = load i32, ptr %default_sfixed32_107, align 4
-  store i32 %125, ptr %default_sfixed32_, align 8
-  store i32 %124, ptr %default_sfixed32_107, align 4
+  %125 = load i32, ptr %default_sfixed32_, align 8
+  %126 = load i32, ptr %default_sfixed32_107, align 4
+  store i32 %126, ptr %default_sfixed32_, align 8
+  store i32 %125, ptr %default_sfixed32_107, align 4
   %default_float_ = getelementptr inbounds i8, ptr %this, i64 3124
   %default_float_108 = getelementptr inbounds i8, ptr %other, i64 3124
-  %126 = load float, ptr %default_float_, align 4
-  %127 = load float, ptr %default_float_108, align 4
-  store float %127, ptr %default_float_, align 4
-  store float %126, ptr %default_float_108, align 4
+  %127 = load float, ptr %default_float_, align 4
+  %128 = load float, ptr %default_float_108, align 4
+  store float %128, ptr %default_float_, align 4
+  store float %127, ptr %default_float_108, align 4
   %default_double_ = getelementptr inbounds i8, ptr %this, i64 3128
   %default_double_109 = getelementptr inbounds i8, ptr %other, i64 3128
-  %128 = load double, ptr %default_double_, align 8
-  %129 = load double, ptr %default_double_109, align 8
-  store double %129, ptr %default_double_, align 8
-  store double %128, ptr %default_double_109, align 8
+  %129 = load double, ptr %default_double_, align 8
+  %130 = load double, ptr %default_double_109, align 8
+  store double %130, ptr %default_double_, align 8
+  store double %129, ptr %default_double_109, align 8
   %oneof_field_ = getelementptr inbounds i8, ptr %this, i64 3136
   %oneof_field_110 = getelementptr inbounds i8, ptr %other, i64 3136
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %oneof_field_, align 8
-  %130 = load i64, ptr %oneof_field_110, align 8
-  store i64 %130, ptr %oneof_field_, align 8
+  %131 = load i64, ptr %oneof_field_110, align 8
+  store i64 %131, ptr %oneof_field_, align 8
   store ptr %__tmp.sroa.0.0.copyload.i, ptr %oneof_field_110, align 8
   %_oneof_case_ = getelementptr inbounds i8, ptr %this, i64 3144
   %_oneof_case_111 = getelementptr inbounds i8, ptr %other, i64 3144
-  %131 = load i32, ptr %_oneof_case_, align 8
-  %132 = load i32, ptr %_oneof_case_111, align 4
-  store i32 %132, ptr %_oneof_case_, align 8
-  store i32 %131, ptr %_oneof_case_111, align 4
+  %132 = load i32, ptr %_oneof_case_, align 8
+  %133 = load i32, ptr %_oneof_case_111, align 4
+  store i32 %133, ptr %_oneof_case_, align 8
+  store i32 %132, ptr %_oneof_case_111, align 4
   ret void
 }
 
@@ -52152,35 +52170,37 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i8, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i8 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i11 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i11, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i11, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i11, align 8
-  store ptr %14, ptr %retval.i.0.i11, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 16
   %_has_bits_3 = getelementptr inbounds i8, ptr %other, i64 16
-  %18 = load i32, ptr %_has_bits_, align 8
-  %19 = load i32, ptr %_has_bits_3, align 4
-  store i32 %19, ptr %_has_bits_, align 8
-  store i32 %18, ptr %_has_bits_3, align 4
+  %19 = load i32, ptr %_has_bits_, align 8
+  %20 = load i32, ptr %_has_bits_3, align 4
+  store i32 %20, ptr %_has_bits_, align 8
+  store i32 %19, ptr %_has_bits_3, align 4
   %c_ = getelementptr inbounds i8, ptr %this, i64 24
   %c_5 = getelementptr inbounds i8, ptr %other, i64 24
-  %20 = load i32, ptr %c_, align 8
-  %21 = load i32, ptr %c_5, align 4
-  store i32 %21, ptr %c_, align 8
-  store i32 %20, ptr %c_5, align 4
+  %21 = load i32, ptr %c_, align 8
+  %22 = load i32, ptr %c_5, align 4
+  store i32 %22, ptr %c_, align 8
+  store i32 %21, ptr %c_5, align 4
   ret void
 }
 
@@ -53077,35 +53097,37 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i8, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i8 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i11 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i11, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i11, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i11, align 8
-  store ptr %14, ptr %retval.i.0.i11, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 16
   %_has_bits_3 = getelementptr inbounds i8, ptr %other, i64 16
-  %18 = load i32, ptr %_has_bits_, align 8
-  %19 = load i32, ptr %_has_bits_3, align 4
-  store i32 %19, ptr %_has_bits_, align 8
-  store i32 %18, ptr %_has_bits_3, align 4
+  %19 = load i32, ptr %_has_bits_, align 8
+  %20 = load i32, ptr %_has_bits_3, align 4
+  store i32 %20, ptr %_has_bits_, align 8
+  store i32 %19, ptr %_has_bits_3, align 4
   %a_ = getelementptr inbounds i8, ptr %this, i64 24
   %a_5 = getelementptr inbounds i8, ptr %other, i64 24
-  %20 = load i32, ptr %a_, align 8
-  %21 = load i32, ptr %a_5, align 4
-  store i32 %21, ptr %a_, align 8
-  store i32 %20, ptr %a_5, align 4
+  %21 = load i32, ptr %a_, align 8
+  %22 = load i32, ptr %a_5, align 4
+  store i32 %22, ptr %a_, align 8
+  store i32 %21, ptr %a_5, align 4
   ret void
 }
 
@@ -54200,9 +54222,12 @@ if.end.i:                                         ; preds = %_ZN22protobuf_test_
   %inc.i = add nsw i32 %46, 1
   store i32 %inc.i, ptr %group_depth_.i10, align 4
   %call.i = call noundef ptr @_ZN22protobuf_test_messages6proto235UnknownToTestAllTypes_OptionalGroup14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull %retval.0.i155, ptr noundef nonnull %ctx)
-  %47 = load <2 x i32>, ptr %depth_.i, align 8
-  %48 = add nsw <2 x i32> %47, <i32 1, i32 -1>
-  store <2 x i32> %48, ptr %depth_.i, align 8
+  %47 = load i32, ptr %group_depth_.i10, align 4
+  %dec3.i = add nsw i32 %47, -1
+  store i32 %dec3.i, ptr %group_depth_.i10, align 4
+  %48 = load i32, ptr %depth_.i, align 8
+  %inc5.i = add nsw i32 %48, 1
+  store i32 %inc5.i, ptr %depth_.i, align 8
   %49 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i73 = icmp ne i32 %49, 8035
   store i32 0, ptr %last_tag_minus_1_.i, align 8
@@ -55614,38 +55639,40 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i10, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i10 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i13 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i13, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i13, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i13, align 8
-  store ptr %14, ptr %retval.i.0.i13, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 16
   %_has_bits_3 = getelementptr inbounds i8, ptr %other, i64 16
-  %18 = load i32, ptr %_has_bits_, align 8
-  %19 = load i32, ptr %_has_bits_3, align 4
-  store i32 %19, ptr %_has_bits_, align 8
-  store i32 %18, ptr %_has_bits_3, align 4
+  %19 = load i32, ptr %_has_bits_, align 8
+  %20 = load i32, ptr %_has_bits_3, align 4
+  store i32 %20, ptr %_has_bits_, align 8
+  store i32 %19, ptr %_has_bits_3, align 4
   %repeated_int32_ = getelementptr inbounds i8, ptr %this, i64 24
   %repeated_int32_5 = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %repeated_int32_, ptr noundef nonnull %repeated_int32_5)
   %optional_string_6 = getelementptr inbounds i8, ptr %other, i64 40
   %optional_string_ = getelementptr inbounds i8, ptr %this, i64 40
-  %20 = load ptr, ptr %optional_string_, align 8
-  %21 = load ptr, ptr %optional_string_6, align 8
-  store ptr %21, ptr %optional_string_, align 8
-  store ptr %20, ptr %optional_string_6, align 8
+  %21 = load ptr, ptr %optional_string_, align 8
+  %22 = load ptr, ptr %optional_string_6, align 8
+  store ptr %22, ptr %optional_string_, align 8
+  store ptr %21, ptr %optional_string_6, align 8
   %nested_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %nested_message_9 = getelementptr inbounds i8, ptr %other, i64 48
   %tmp.0.copyload.i.i = load i128, ptr %nested_message_, align 8
@@ -55654,14 +55681,14 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 64
   %add.ptr1.i = getelementptr inbounds i8, ptr %other, i64 64
   %tmp.0.copyload.i.i.i = load i32, ptr %add.ptr.i, align 8
-  %22 = load i32, ptr %add.ptr1.i, align 1
-  store i32 %22, ptr %add.ptr.i, align 8
+  %23 = load i32, ptr %add.ptr1.i, align 1
+  store i32 %23, ptr %add.ptr.i, align 8
   store i32 %tmp.0.copyload.i.i.i, ptr %add.ptr1.i, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %other, i64 68
   %tmp.0.copyload.i.i.i.i = load i8, ptr %add.ptr.i.i, align 4
-  %23 = load i8, ptr %add.ptr1.i.i, align 1
-  store i8 %23, ptr %add.ptr.i.i, align 4
+  %24 = load i8, ptr %add.ptr1.i.i, align 1
+  store i8 %24, ptr %add.ptr.i.i, align 4
   store i8 %tmp.0.copyload.i.i.i.i, ptr %add.ptr1.i.i, align 1
   ret void
 }
@@ -56476,20 +56503,22 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i6, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i6 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i9 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i9, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i9, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i9, align 8
-  store ptr %14, ptr %retval.i.0.i9, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
@@ -57306,20 +57335,22 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i6, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i6 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i9 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i9, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i9, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i9, align 8
-  store ptr %14, ptr %retval.i.0.i9, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
@@ -58236,35 +58267,37 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i8, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i8 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i11 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i11, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i11, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i11, align 8
-  store ptr %14, ptr %retval.i.0.i11, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 16
   %_has_bits_3 = getelementptr inbounds i8, ptr %other, i64 16
-  %18 = load i32, ptr %_has_bits_, align 8
-  %19 = load i32, ptr %_has_bits_3, align 4
-  store i32 %19, ptr %_has_bits_, align 8
-  store i32 %18, ptr %_has_bits_3, align 4
+  %19 = load i32, ptr %_has_bits_, align 8
+  %20 = load i32, ptr %_has_bits_3, align 4
+  store i32 %20, ptr %_has_bits_, align 8
+  store i32 %19, ptr %_has_bits_3, align 4
   %data_5 = getelementptr inbounds i8, ptr %other, i64 24
   %data_ = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %data_, align 8
-  %21 = load ptr, ptr %data_5, align 8
-  store ptr %21, ptr %data_, align 8
-  store ptr %20, ptr %data_5, align 8
+  %21 = load ptr, ptr %data_, align 8
+  %22 = load ptr, ptr %data_5, align 8
+  store ptr %22, ptr %data_, align 8
+  store ptr %21, ptr %data_5, align 8
   ret void
 }
 
@@ -59161,35 +59194,37 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i8, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i8 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i11 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i11, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i11, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i11, align 8
-  store ptr %14, ptr %retval.i.0.i11, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 16
   %_has_bits_3 = getelementptr inbounds i8, ptr %other, i64 16
-  %18 = load i32, ptr %_has_bits_, align 8
-  %19 = load i32, ptr %_has_bits_3, align 4
-  store i32 %19, ptr %_has_bits_, align 8
-  store i32 %18, ptr %_has_bits_3, align 4
+  %19 = load i32, ptr %_has_bits_, align 8
+  %20 = load i32, ptr %_has_bits_3, align 4
+  store i32 %20, ptr %_has_bits_, align 8
+  store i32 %19, ptr %_has_bits_3, align 4
   %inline__ = getelementptr inbounds i8, ptr %this, i64 24
   %inline__5 = getelementptr inbounds i8, ptr %other, i64 24
-  %20 = load i32, ptr %inline__, align 8
-  %21 = load i32, ptr %inline__5, align 4
-  store i32 %21, ptr %inline__, align 8
-  store i32 %20, ptr %inline__5, align 4
+  %21 = load i32, ptr %inline__, align 8
+  %22 = load i32, ptr %inline__5, align 4
+  store i32 %22, ptr %inline__, align 8
+  store i32 %21, ptr %inline__5, align 4
   ret void
 }
 
@@ -75831,8 +75866,8 @@ declare void @_ZN6google8protobuf8internal9ArenaImpl10AddCleanupEPvPFvS3_E(ptr n
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignEnumProto2>::InnerMap::iterator_base.300", align 8
-  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignEnumProto2>::iterator", align 16
-  %ref.tmp.i.i = alloca %"struct.std::pair.302", align 16
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignEnumProto2>::iterator", align 8
+  %ref.tmp.i.i = alloca %"struct.std::pair.302", align 8
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -75840,24 +75875,27 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !925
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !925
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.302") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !928
-  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !928
-  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !928
+  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !928
+  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !928
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !928
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !928
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !925
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %2, null
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %i.sroa.0.i)
-  store <2 x ptr> %1, ptr %agg.tmp1, align 16
+  store ptr %1, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
+  store ptr %2, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx, align 8
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 16
-  %v_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 8
+  %v_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %v_.i.i.i.i, align 8, !noalias !931
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !931
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !931
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1), !noalias !934
   %5 = load ptr, ptr %elements_.i, align 8, !noalias !931
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignEnumProto2>::InnerMap::iterator_base.300") align 8 %i.sroa.0.i), !noalias !931
@@ -79145,8 +79183,8 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedEnum>::InnerMap::iterator_base.328", align 8
-  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedEnum>::iterator", align 16
-  %ref.tmp.i.i = alloca %"struct.std::pair.329", align 16
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedEnum>::iterator", align 8
+  %ref.tmp.i.i = alloca %"struct.std::pair.329", align 8
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -79154,24 +79192,27 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !1051
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1051
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.329") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !1054
-  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !1054
-  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !1054
+  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !1054
+  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !1054
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !1054
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !1054
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1051
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %2, null
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %i.sroa.0.i)
-  store <2 x ptr> %1, ptr %agg.tmp1, align 16
+  store ptr %1, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
+  store ptr %2, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx, align 8
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 16
-  %v_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 8
+  %v_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %v_.i.i.i.i, align 8, !noalias !1057
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1057
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1057
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1), !noalias !1060
   %5 = load ptr, ptr %elements_.i, align 8, !noalias !1057
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedEnum>::InnerMap::iterator_base.328") align 8 %i.sroa.0.i), !noalias !1057
@@ -82475,8 +82516,8 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 {
 entry:
   %i.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignMessageProto2>::InnerMap::iterator_base.339", align 8
-  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignMessageProto2>::iterator", align 16
-  %ref.tmp.i.i = alloca %"struct.std::pair.340", align 16
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignMessageProto2>::iterator", align 8
+  %ref.tmp.i.i = alloca %"struct.std::pair.340", align 8
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -82484,24 +82525,27 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !1179
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1179
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.340") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !1182
-  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !1182
-  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !1182
+  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !1182
+  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !1182
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !1182
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !1182
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1179
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %2, null
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %i.sroa.0.i)
-  store <2 x ptr> %1, ptr %agg.tmp1, align 16
+  store ptr %1, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
+  store ptr %2, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx, align 8
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 16
-  %v_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 8
+  %v_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %v_.i.i.i.i, align 8, !noalias !1185
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1185
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1185
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1), !noalias !1188
   %5 = load ptr, ptr %elements_.i, align 8, !noalias !1185
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::ForeignMessageProto2>::InnerMap::iterator_base.339") align 8 %i.sroa.0.i), !noalias !1185
@@ -85913,8 +85957,8 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 {
 entry:
   %i.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedMessage>::InnerMap::iterator_base.350", align 8
-  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedMessage>::iterator", align 16
-  %ref.tmp.i.i = alloca %"struct.std::pair.351", align 16
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedMessage>::iterator", align 8
+  %ref.tmp.i.i = alloca %"struct.std::pair.351", align 8
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -85922,24 +85966,27 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !1319
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1319
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.351") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !1322
-  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !1322
-  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !1322
+  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !1322
+  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !1322
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !1322
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !1322
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1319
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %2, null
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %i.sroa.0.i)
-  store <2 x ptr> %1, ptr %agg.tmp1, align 16
+  store ptr %1, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
+  store ptr %2, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx, align 8
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 16
-  %v_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 8
+  %v_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %v_.i.i.i.i, align 8, !noalias !1325
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1325
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1325
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1), !noalias !1328
   %5 = load ptr, ptr %elements_.i, align 8, !noalias !1325
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto2::TestAllTypesProto2_NestedMessage>::InnerMap::iterator_base.350") align 8 %i.sroa.0.i), !noalias !1325
@@ -86312,9 +86359,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto247TestAllTypesProto2_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EE14DeleteMapValueERKNS0_6MapKeyE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(36) %map_key) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i.i = alloca %"struct.std::pair.362", align 16
+  %ref.tmp.i.i.i = alloca %"struct.std::pair.362", align 8
   %ref.tmp2.i.i = alloca %"class.google::protobuf::internal::KeyView", align 8
-  %agg.tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 16
+  %agg.tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   %tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %map_key), !noalias !1354
@@ -86337,19 +86384,22 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  %2 = load <2 x ptr>, ptr %ref.tmp.i.i.i, align 16, !noalias !1360
-  %3 = load ptr, ptr %ref.tmp.i.i.i, align 16, !noalias !1360
+  %2 = load ptr, ptr %ref.tmp.i.i.i, align 8, !noalias !1360
+  %m_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
+  %3 = load ptr, ptr %m_3.i.i.i.i, align 8, !noalias !1360
   %bucket_index_4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
-  %4 = load i64, ptr %bucket_index_4.i.i.i.i, align 16, !noalias !1360
+  %4 = load i64, ptr %bucket_index_4.i.i.i.i, align 8, !noalias !1360
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !1357
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i)
-  %cmp.i.i.i = icmp ne ptr %3, null
+  %cmp.i.i.i = icmp ne ptr %2, null
   br i1 %cmp.i.i.i, label %if.else.i, label %invoke.cont2
 
 if.else.i:                                        ; preds = %.noexc
-  store <2 x ptr> %2, ptr %agg.tmp.i, align 16
+  store ptr %2, ptr %agg.tmp.i, align 8
+  %it.sroa.3.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  store ptr %3, ptr %it.sroa.3.0.agg.tmp.sroa_idx.i, align 8
   %it.sroa.4.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  store i64 %4, ptr %it.sroa.4.0.agg.tmp.sroa_idx.i, align 16
+  store i64 %4, ptr %it.sroa.4.0.agg.tmp.sroa_idx.i, align 8
   invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5eraseENS8_8iteratorE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %agg.tmp.i)
           to label %invoke.cont2 unwind label %lpad
 
@@ -89163,9 +89213,9 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %ref.tmp.i.i = alloca %"struct.std::pair.362", align 16
+  %ref.tmp.i.i = alloca %"struct.std::pair.362", align 8
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
-  %agg.tmp = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 16
+  %agg.tmp = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   %tmp = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -89173,19 +89223,22 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !1455
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1455
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSC_E(ptr nonnull sret(%"struct.std::pair.362") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !1458
-  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !1458
-  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !1458
+  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !1458
+  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !1458
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !1458
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !1458
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1455
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %2, null
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  store ptr %1, ptr %agg.tmp, align 8
+  %it.sroa.3.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store ptr %2, ptr %it.sroa.3.0.agg.tmp.sroa_idx, align 8
   %it.sroa.4.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store i64 %3, ptr %it.sroa.4.0.agg.tmp.sroa_idx, align 16
+  store i64 %3, ptr %it.sroa.4.0.agg.tmp.sroa_idx, align 8
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5eraseENS8_8iteratorE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %agg.tmp)
   br label %return
 
@@ -89532,9 +89585,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto248TestAllTypesProto2_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EE14DeleteMapValueERKNS0_6MapKeyE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(36) %map_key) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i.i = alloca %"struct.std::pair.362", align 16
+  %ref.tmp.i.i.i = alloca %"struct.std::pair.362", align 8
   %ref.tmp2.i.i = alloca %"class.google::protobuf::internal::KeyView", align 8
-  %agg.tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 16
+  %agg.tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   %tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %map_key), !noalias !1482
@@ -89557,19 +89610,22 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  %2 = load <2 x ptr>, ptr %ref.tmp.i.i.i, align 16, !noalias !1488
-  %3 = load ptr, ptr %ref.tmp.i.i.i, align 16, !noalias !1488
+  %2 = load ptr, ptr %ref.tmp.i.i.i, align 8, !noalias !1488
+  %m_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
+  %3 = load ptr, ptr %m_3.i.i.i.i, align 8, !noalias !1488
   %bucket_index_4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
-  %4 = load i64, ptr %bucket_index_4.i.i.i.i, align 16, !noalias !1488
+  %4 = load i64, ptr %bucket_index_4.i.i.i.i, align 8, !noalias !1488
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !1485
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i)
-  %cmp.i.i.i = icmp ne ptr %3, null
+  %cmp.i.i.i = icmp ne ptr %2, null
   br i1 %cmp.i.i.i, label %if.else.i, label %invoke.cont2
 
 if.else.i:                                        ; preds = %.noexc
-  store <2 x ptr> %2, ptr %agg.tmp.i, align 16
+  store ptr %2, ptr %agg.tmp.i, align 8
+  %it.sroa.3.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  store ptr %3, ptr %it.sroa.3.0.agg.tmp.sroa_idx.i, align 8
   %it.sroa.4.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  store i64 %4, ptr %it.sroa.4.0.agg.tmp.sroa_idx.i, align 16
+  store i64 %4, ptr %it.sroa.4.0.agg.tmp.sroa_idx.i, align 8
   invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5eraseENS8_8iteratorE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %agg.tmp.i)
           to label %invoke.cont2 unwind label %lpad
 

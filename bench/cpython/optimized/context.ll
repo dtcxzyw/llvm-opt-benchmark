@@ -79,8 +79,14 @@ entry:
   store i64 999999999999999999, ptr %emax.i, align 8
   %emin.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store i64 -999999999999999999, ptr %emin.i, align 8
+  %round.i = getelementptr inbounds i8, ptr %ctx, i64 36
+  store i32 4, ptr %round.i, align 4
   %traps.i = getelementptr inbounds i8, ptr %ctx, i64 24
-  store <4 x i32> <i32 19390, i32 0, i32 0, i32 4>, ptr %traps.i, align 8
+  store i32 19390, ptr %traps.i, align 8
+  %status.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  store i32 0, ptr %status.i, align 4
+  %newtrap.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  store i32 0, ptr %newtrap.i, align 8
   %clamp.i = getelementptr inbounds i8, ptr %ctx, i64 40
   store i32 0, ptr %clamp.i, align 8
   %allcr.i = getelementptr inbounds i8, ptr %ctx, i64 44
@@ -90,8 +96,6 @@ entry:
   br i1 %or.cond.i, label %mpd_addstatus_raise.exit, label %if.end
 
 mpd_addstatus_raise.exit:                         ; preds = %entry
-  %newtrap.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %status.i = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 128, ptr %status.i, align 4
   store i32 128, ptr %newtrap.i, align 8
   %1 = load ptr, ptr @mpd_traphandler, align 8
@@ -119,8 +123,14 @@ entry:
   store i64 999999999999999999, ptr %emax, align 8
   %emin = getelementptr inbounds i8, ptr %ctx, i64 16
   store i64 -999999999999999999, ptr %emin, align 8
+  %round = getelementptr inbounds i8, ptr %ctx, i64 36
+  store i32 4, ptr %round, align 4
   %traps = getelementptr inbounds i8, ptr %ctx, i64 24
-  store <4 x i32> <i32 19390, i32 0, i32 0, i32 4>, ptr %traps, align 8
+  store i32 19390, ptr %traps, align 8
+  %status = getelementptr inbounds i8, ptr %ctx, i64 28
+  store i32 0, ptr %status, align 4
+  %newtrap = getelementptr inbounds i8, ptr %ctx, i64 32
+  store i32 0, ptr %newtrap, align 8
   %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
   store i32 0, ptr %clamp, align 8
   %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
@@ -176,8 +186,14 @@ entry:
   store i64 999999999999999999, ptr %emax, align 8
   %emin = getelementptr inbounds i8, ptr %ctx, i64 16
   store i64 -999999999999999999, ptr %emin, align 8
+  %round = getelementptr inbounds i8, ptr %ctx, i64 36
+  store i32 6, ptr %round, align 4
   %traps = getelementptr inbounds i8, ptr %ctx, i64 24
-  store <4 x i32> <i32 19390, i32 0, i32 0, i32 6>, ptr %traps, align 8
+  store i32 19390, ptr %traps, align 8
+  %status = getelementptr inbounds i8, ptr %ctx, i64 28
+  store i32 0, ptr %status, align 4
+  %newtrap = getelementptr inbounds i8, ptr %ctx, i64 32
+  store i32 0, ptr %newtrap, align 8
   %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
   store i32 0, ptr %clamp, align 8
   %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
@@ -193,8 +209,14 @@ entry:
   store i64 999999999999999999, ptr %emax, align 8
   %emin = getelementptr inbounds i8, ptr %ctx, i64 16
   store i64 -999999999999999999, ptr %emin, align 8
+  %round = getelementptr inbounds i8, ptr %ctx, i64 36
+  store i32 4, ptr %round, align 4
   %traps = getelementptr inbounds i8, ptr %ctx, i64 24
-  store <4 x i32> <i32 19391, i32 0, i32 0, i32 4>, ptr %traps, align 8
+  store i32 19391, ptr %traps, align 8
+  %status = getelementptr inbounds i8, ptr %ctx, i64 28
+  store i32 0, ptr %status, align 4
+  %newtrap = getelementptr inbounds i8, ptr %ctx, i64 32
+  store i32 0, ptr %newtrap, align 8
   %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
   store i32 0, ptr %clamp, align 8
   %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
@@ -227,8 +249,14 @@ if.end:                                           ; preds = %entry
   %sub6 = sub nsw i64 1, %mul416
   %emin = getelementptr inbounds i8, ptr %ctx, i64 16
   store i64 %sub6, ptr %emin, align 8
+  %round = getelementptr inbounds i8, ptr %ctx, i64 36
+  store i32 6, ptr %round, align 4
   %traps = getelementptr inbounds i8, ptr %ctx, i64 24
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 6>, ptr %traps, align 8
+  store i32 0, ptr %traps, align 8
+  %status = getelementptr inbounds i8, ptr %ctx, i64 28
+  store i32 0, ptr %status, align 4
+  %newtrap = getelementptr inbounds i8, ptr %ctx, i64 32
+  store i32 0, ptr %newtrap, align 8
   %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
   store i32 1, ptr %clamp, align 8
   %allcr = getelementptr inbounds i8, ptr %ctx, i64 44

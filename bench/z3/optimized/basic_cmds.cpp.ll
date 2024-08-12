@@ -4240,35 +4240,61 @@ if.then11:                                        ; preds = %if.else8
 
 if.else13:                                        ; preds = %if.else8
   %m_print_success.i = getelementptr inbounds i8, ptr %this, i64 40
-  %4 = load <8 x ptr>, ptr %m_print_success.i, align 8
-  %5 = insertelement <8 x ptr> poison, ptr %0, i64 0
-  %6 = shufflevector <8 x ptr> %5, <8 x ptr> poison, <8 x i32> zeroinitializer
-  %7 = icmp eq <8 x ptr> %6, %4
+  %4 = load ptr, ptr %m_print_success.i, align 8
+  %cmp.i.i = icmp eq ptr %0, %4
+  %m_print_warning.i = getelementptr inbounds i8, ptr %this, i64 48
+  %5 = load ptr, ptr %m_print_warning.i, align 8
+  %cmp.i17.i = icmp eq ptr %0, %5
+  %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.i17.i
+  %m_expand_definitions.i = getelementptr inbounds i8, ptr %this, i64 56
+  %6 = load ptr, ptr %m_expand_definitions.i, align 8
+  %cmp.i18.i = icmp eq ptr %0, %6
+  %or.cond33.i = select i1 %or.cond.i, i1 true, i1 %cmp.i18.i
+  %m_interactive_mode.i = getelementptr inbounds i8, ptr %this, i64 64
+  %7 = load ptr, ptr %m_interactive_mode.i, align 8
+  %cmp.i19.i = icmp eq ptr %0, %7
+  %or.cond34.i = select i1 %or.cond33.i, i1 true, i1 %cmp.i19.i
+  %m_produce_proofs.i = getelementptr inbounds i8, ptr %this, i64 72
+  %8 = load ptr, ptr %m_produce_proofs.i, align 8
+  %cmp.i20.i = icmp eq ptr %0, %8
+  %or.cond35.i = select i1 %or.cond34.i, i1 true, i1 %cmp.i20.i
+  %m_produce_unsat_cores.i = getelementptr inbounds i8, ptr %this, i64 80
+  %9 = load ptr, ptr %m_produce_unsat_cores.i, align 8
+  %cmp.i21.i = icmp eq ptr %0, %9
+  %or.cond36.i = select i1 %or.cond35.i, i1 true, i1 %cmp.i21.i
+  %m_produce_unsat_assumptions.i = getelementptr inbounds i8, ptr %this, i64 88
+  %10 = load ptr, ptr %m_produce_unsat_assumptions.i, align 8
+  %cmp.i22.i = icmp eq ptr %0, %10
+  %or.cond37.i = select i1 %or.cond36.i, i1 true, i1 %cmp.i22.i
+  %m_produce_models.i = getelementptr inbounds i8, ptr %this, i64 96
+  %11 = load ptr, ptr %m_produce_models.i, align 8
+  %cmp.i23.i = icmp eq ptr %0, %11
+  %or.cond38.i = select i1 %or.cond37.i, i1 true, i1 %cmp.i23.i
   %m_produce_assignments.i = getelementptr inbounds i8, ptr %this, i64 104
-  %8 = load ptr, ptr %m_produce_assignments.i, align 8
-  %cmp.i24.i = icmp eq ptr %0, %8
+  %12 = load ptr, ptr %m_produce_assignments.i, align 8
+  %cmp.i24.i = icmp eq ptr %0, %12
+  %or.cond39.i = select i1 %or.cond38.i, i1 true, i1 %cmp.i24.i
   %m_regular_output_channel.i = getelementptr inbounds i8, ptr %this, i64 120
-  %9 = load <2 x ptr>, ptr %m_regular_output_channel.i, align 8
+  %13 = load ptr, ptr %m_regular_output_channel.i, align 8
+  %cmp.i25.i = icmp eq ptr %0, %13
+  %or.cond40.i = select i1 %or.cond39.i, i1 true, i1 %cmp.i25.i
+  %m_diagnostic_output_channel.i = getelementptr inbounds i8, ptr %this, i64 128
+  %14 = load ptr, ptr %m_diagnostic_output_channel.i, align 8
+  %cmp.i26.i = icmp eq ptr %0, %14
+  %or.cond41.i = select i1 %or.cond40.i, i1 true, i1 %cmp.i26.i
   %m_global_decls.i = getelementptr inbounds i8, ptr %this, i64 152
-  %10 = load <2 x ptr>, ptr %m_global_decls.i, align 8
-  %11 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %12 = shufflevector <4 x ptr> %11, <4 x ptr> poison, <4 x i32> zeroinitializer
-  %13 = shufflevector <2 x ptr> %9, <2 x ptr> %10, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %14 = icmp eq <4 x ptr> %12, %13
+  %15 = load ptr, ptr %m_global_decls.i, align 8
+  %cmp.i29.i = icmp eq ptr %0, %15
+  %or.cond44.i = select i1 %or.cond41.i, i1 true, i1 %cmp.i29.i
+  %m_global_declarations.i = getelementptr inbounds i8, ptr %this, i64 160
+  %16 = load ptr, ptr %m_global_declarations.i, align 8
+  %cmp.i30.i = icmp eq ptr %0, %16
+  %or.cond45.i = select i1 %or.cond44.i, i1 true, i1 %cmp.i30.i
   %m_produce_assertions.i = getelementptr inbounds i8, ptr %this, i64 112
-  %15 = load ptr, ptr %m_produce_assertions.i, align 8
-  %cmp.i31.i = icmp eq ptr %0, %15
-  %16 = freeze <8 x i1> %7
-  %17 = bitcast <8 x i1> %16 to i8
-  %18 = icmp ne i8 %17, 0
-  %19 = freeze <4 x i1> %14
-  %20 = bitcast <4 x i1> %19 to i4
-  %21 = icmp ne i4 %20, 0
-  %op.rdx = or i1 %18, %21
-  %cmp.i24.i.fr = freeze i1 %cmp.i24.i
-  %op.rdx10 = or i1 %op.rdx, %cmp.i24.i.fr
-  %op.rdx11 = select i1 %op.rdx10, i1 true, i1 %cmp.i31.i
-  br i1 %op.rdx11, label %if.then16, label %if.else17
+  %17 = load ptr, ptr %m_produce_assertions.i, align 8
+  %cmp.i31.i = icmp eq ptr %0, %17
+  %or.cond46.i = select i1 %or.cond45.i, i1 true, i1 %cmp.i31.i
+  br i1 %or.cond46.i, label %if.then16, label %if.else17
 
 if.then16:                                        ; preds = %if.else13
   %exception = tail call ptr @__cxa_allocate_exception(i64 48) #18
@@ -4280,14 +4306,14 @@ invoke.cont:                                      ; preds = %if.then16
   unreachable
 
 lpad:                                             ; preds = %if.then16
-  %22 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #18
   br label %eh.resume
 
 if.else17:                                        ; preds = %if.else13
-  %23 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !9
-  call void @_ZNK11mpq_managerILb1EE9to_stringB5cxx11ERK3mpq(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %str, ptr noundef nonnull align 8 dereferenceable(728) %23, ptr noundef nonnull align 8 dereferenceable(32) %val)
+  %19 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !9
+  call void @_ZNK11mpq_managerILb1EE9to_stringB5cxx11ERK3mpq(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %str, ptr noundef nonnull align 8 dereferenceable(728) %19, ptr noundef nonnull align 8 dereferenceable(32) %val)
   %call18 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #18
   invoke void @_ZN14set_option_cmd9set_paramER11cmd_contextPKc(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %call18)
           to label %invoke.cont20 unwind label %lpad19
@@ -4297,7 +4323,7 @@ invoke.cont20:                                    ; preds = %if.else17
   br label %if.end23
 
 lpad19:                                           ; preds = %if.else17
-  %24 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str) #18
   br label %eh.resume
@@ -4306,7 +4332,7 @@ if.end23:                                         ; preds = %if.then5, %invoke.c
   ret void
 
 eh.resume:                                        ; preds = %lpad19, %lpad
-  %.pn = phi { ptr, i32 } [ %22, %lpad ], [ %24, %lpad19 ]
+  %.pn = phi { ptr, i32 } [ %18, %lpad ], [ %20, %lpad19 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -4337,45 +4363,65 @@ if.then4:                                         ; preds = %if.else
 
 if.else5:                                         ; preds = %if.else
   %m_print_success.i = getelementptr inbounds i8, ptr %this, i64 40
-  %3 = load <8 x ptr>, ptr %m_print_success.i, align 8
-  %4 = insertelement <8 x ptr> poison, ptr %0, i64 0
-  %5 = shufflevector <8 x ptr> %4, <8 x ptr> poison, <8 x i32> zeroinitializer
-  %6 = icmp eq <8 x ptr> %5, %3
+  %3 = load ptr, ptr %m_print_success.i, align 8
+  %cmp.i.i = icmp eq ptr %0, %3
+  %m_print_warning.i = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load ptr, ptr %m_print_warning.i, align 8
+  %cmp.i17.i = icmp eq ptr %0, %4
+  %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.i17.i
+  %m_expand_definitions.i = getelementptr inbounds i8, ptr %this, i64 56
+  %5 = load ptr, ptr %m_expand_definitions.i, align 8
+  %cmp.i18.i = icmp eq ptr %0, %5
+  %or.cond33.i = select i1 %or.cond.i, i1 true, i1 %cmp.i18.i
+  %m_interactive_mode.i = getelementptr inbounds i8, ptr %this, i64 64
+  %6 = load ptr, ptr %m_interactive_mode.i, align 8
+  %cmp.i19.i = icmp eq ptr %0, %6
+  %or.cond34.i = select i1 %or.cond33.i, i1 true, i1 %cmp.i19.i
+  %m_produce_proofs.i = getelementptr inbounds i8, ptr %this, i64 72
+  %7 = load ptr, ptr %m_produce_proofs.i, align 8
+  %cmp.i20.i = icmp eq ptr %0, %7
+  %or.cond35.i = select i1 %or.cond34.i, i1 true, i1 %cmp.i20.i
+  %m_produce_unsat_cores.i = getelementptr inbounds i8, ptr %this, i64 80
+  %8 = load ptr, ptr %m_produce_unsat_cores.i, align 8
+  %cmp.i21.i = icmp eq ptr %0, %8
+  %or.cond36.i = select i1 %or.cond35.i, i1 true, i1 %cmp.i21.i
+  %m_produce_unsat_assumptions.i = getelementptr inbounds i8, ptr %this, i64 88
+  %9 = load ptr, ptr %m_produce_unsat_assumptions.i, align 8
+  %cmp.i22.i = icmp eq ptr %0, %9
+  %or.cond37.i = select i1 %or.cond36.i, i1 true, i1 %cmp.i22.i
+  %m_produce_models.i = getelementptr inbounds i8, ptr %this, i64 96
+  %10 = load ptr, ptr %m_produce_models.i, align 8
+  %cmp.i23.i = icmp eq ptr %0, %10
+  %or.cond38.i = select i1 %or.cond37.i, i1 true, i1 %cmp.i23.i
   %m_produce_assignments.i = getelementptr inbounds i8, ptr %this, i64 104
-  %7 = load ptr, ptr %m_produce_assignments.i, align 8
+  %11 = load ptr, ptr %m_produce_assignments.i, align 8
+  %cmp.i24.i = icmp eq ptr %0, %11
+  %or.cond39.i = select i1 %or.cond38.i, i1 true, i1 %cmp.i24.i
   %m_random_seed.i = getelementptr inbounds i8, ptr %this, i64 136
-  %8 = load ptr, ptr %m_random_seed.i, align 8
+  %12 = load ptr, ptr %m_random_seed.i, align 8
+  %cmp.i27.i = icmp eq ptr %0, %12
+  %or.cond42.i = select i1 %or.cond39.i, i1 true, i1 %cmp.i27.i
   %m_verbosity.i = getelementptr inbounds i8, ptr %this, i64 144
-  %9 = load <2 x ptr>, ptr %m_verbosity.i, align 8
-  %10 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %11 = shufflevector <4 x ptr> %10, <4 x ptr> poison, <4 x i32> zeroinitializer
-  %12 = insertelement <4 x ptr> poison, ptr %7, i64 0
-  %13 = insertelement <4 x ptr> %12, ptr %8, i64 1
-  %14 = shufflevector <2 x ptr> %9, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %15 = shufflevector <4 x ptr> %13, <4 x ptr> %14, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %16 = icmp eq <4 x ptr> %11, %15
+  %13 = load ptr, ptr %m_verbosity.i, align 8
+  %cmp.i28.i = icmp eq ptr %0, %13
+  %or.cond43.i = select i1 %or.cond42.i, i1 true, i1 %cmp.i28.i
+  %m_global_decls.i = getelementptr inbounds i8, ptr %this, i64 152
+  %14 = load ptr, ptr %m_global_decls.i, align 8
+  %cmp.i29.i = icmp eq ptr %0, %14
+  %or.cond44.i = select i1 %or.cond43.i, i1 true, i1 %cmp.i29.i
   %m_global_declarations.i = getelementptr inbounds i8, ptr %this, i64 160
-  %17 = load ptr, ptr %m_global_declarations.i, align 8
-  %cmp.i30.i = icmp eq ptr %0, %17
+  %15 = load ptr, ptr %m_global_declarations.i, align 8
+  %cmp.i30.i = icmp eq ptr %0, %15
+  %or.cond45.i = select i1 %or.cond44.i, i1 true, i1 %cmp.i30.i
   %m_produce_assertions.i = getelementptr inbounds i8, ptr %this, i64 112
-  %18 = load ptr, ptr %m_produce_assertions.i, align 8
-  %cmp.i31.i = icmp eq ptr %0, %18
+  %16 = load ptr, ptr %m_produce_assertions.i, align 8
+  %cmp.i31.i = icmp eq ptr %0, %16
+  %or.cond46.i = select i1 %or.cond45.i, i1 true, i1 %cmp.i31.i
   %m_reproducible_resource_limit.i = getelementptr inbounds i8, ptr %this, i64 192
-  %19 = load ptr, ptr %m_reproducible_resource_limit.i, align 8
-  %cmp.i32.i = icmp eq ptr %0, %19
-  %20 = freeze <8 x i1> %6
-  %21 = bitcast <8 x i1> %20 to i8
-  %22 = icmp ne i8 %21, 0
-  %23 = freeze <4 x i1> %16
-  %24 = bitcast <4 x i1> %23 to i4
-  %25 = icmp ne i4 %24, 0
-  %op.rdx = or i1 %22, %25
-  %cmp.i30.i.fr = freeze i1 %cmp.i30.i
-  %op.rdx6 = or i1 %op.rdx, %cmp.i30.i.fr
-  %26 = freeze i1 %cmp.i31.i
-  %27 = or i1 %op.rdx6, %26
-  %op.rdx8 = select i1 %27, i1 true, i1 %cmp.i32.i
-  br i1 %op.rdx8, label %if.then8, label %if.else9
+  %17 = load ptr, ptr %m_reproducible_resource_limit.i, align 8
+  %cmp.i32.i = icmp eq ptr %0, %17
+  %or.cond = select i1 %or.cond46.i, i1 true, i1 %cmp.i32.i
+  br i1 %or.cond, label %if.then8, label %if.else9
 
 if.then8:                                         ; preds = %if.else5
   %exception = tail call ptr @__cxa_allocate_exception(i64 48) #18
@@ -4387,10 +4433,10 @@ invoke.cont:                                      ; preds = %if.then8
   unreachable
 
 lpad:                                             ; preds = %if.then8
-  %28 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #18
-  resume { ptr, i32 } %28
+  resume { ptr, i32 } %18
 
 if.else9:                                         ; preds = %if.else5
   tail call void @_ZN14set_option_cmd9set_paramER11cmd_contextPKc(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %value)
@@ -4530,18 +4576,79 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK18set_get_option_cmd17is_buil
 entry:
   %m_print_success = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %s, align 8
-  %1 = load <16 x ptr>, ptr %m_print_success, align 8
-  %2 = insertelement <16 x ptr> poison, ptr %0, i64 0
-  %3 = shufflevector <16 x ptr> %2, <16 x ptr> poison, <16 x i32> zeroinitializer
-  %4 = icmp eq <16 x ptr> %3, %1
-  %5 = freeze <16 x i1> %4
-  %6 = bitcast <16 x i1> %5 to i16
-  %.not = icmp eq i16 %6, 0
+  %1 = load ptr, ptr %m_print_success, align 8
+  %cmp.i = icmp eq ptr %0, %1
+  %m_print_warning = getelementptr inbounds i8, ptr %this, i64 48
+  %2 = load ptr, ptr %m_print_warning, align 8
+  %cmp.i17 = icmp eq ptr %0, %2
+  %or.cond = select i1 %cmp.i, i1 true, i1 %cmp.i17
+  %m_expand_definitions = getelementptr inbounds i8, ptr %this, i64 56
+  %3 = load ptr, ptr %m_expand_definitions, align 8
+  %cmp.i18 = icmp eq ptr %0, %3
+  %or.cond33 = select i1 %or.cond, i1 true, i1 %cmp.i18
+  %m_interactive_mode = getelementptr inbounds i8, ptr %this, i64 64
+  %4 = load ptr, ptr %m_interactive_mode, align 8
+  %cmp.i19 = icmp eq ptr %0, %4
+  %or.cond34 = select i1 %or.cond33, i1 true, i1 %cmp.i19
+  %m_produce_proofs = getelementptr inbounds i8, ptr %this, i64 72
+  %5 = load ptr, ptr %m_produce_proofs, align 8
+  %cmp.i20 = icmp eq ptr %0, %5
+  %or.cond35 = select i1 %or.cond34, i1 true, i1 %cmp.i20
+  %m_produce_unsat_cores = getelementptr inbounds i8, ptr %this, i64 80
+  %6 = load ptr, ptr %m_produce_unsat_cores, align 8
+  %cmp.i21 = icmp eq ptr %0, %6
+  %or.cond36 = select i1 %or.cond35, i1 true, i1 %cmp.i21
+  %m_produce_unsat_assumptions = getelementptr inbounds i8, ptr %this, i64 88
+  %7 = load ptr, ptr %m_produce_unsat_assumptions, align 8
+  %cmp.i22 = icmp eq ptr %0, %7
+  %or.cond37 = select i1 %or.cond36, i1 true, i1 %cmp.i22
+  %m_produce_models = getelementptr inbounds i8, ptr %this, i64 96
+  %8 = load ptr, ptr %m_produce_models, align 8
+  %cmp.i23 = icmp eq ptr %0, %8
+  %or.cond38 = select i1 %or.cond37, i1 true, i1 %cmp.i23
+  %m_produce_assignments = getelementptr inbounds i8, ptr %this, i64 104
+  %9 = load ptr, ptr %m_produce_assignments, align 8
+  %cmp.i24 = icmp eq ptr %0, %9
+  %or.cond39 = select i1 %or.cond38, i1 true, i1 %cmp.i24
+  %m_regular_output_channel = getelementptr inbounds i8, ptr %this, i64 120
+  %10 = load ptr, ptr %m_regular_output_channel, align 8
+  %cmp.i25 = icmp eq ptr %0, %10
+  %or.cond40 = select i1 %or.cond39, i1 true, i1 %cmp.i25
+  %m_diagnostic_output_channel = getelementptr inbounds i8, ptr %this, i64 128
+  %11 = load ptr, ptr %m_diagnostic_output_channel, align 8
+  %cmp.i26 = icmp eq ptr %0, %11
+  %or.cond41 = select i1 %or.cond40, i1 true, i1 %cmp.i26
+  %m_random_seed = getelementptr inbounds i8, ptr %this, i64 136
+  %12 = load ptr, ptr %m_random_seed, align 8
+  %cmp.i27 = icmp eq ptr %0, %12
+  %or.cond42 = select i1 %or.cond41, i1 true, i1 %cmp.i27
+  %m_verbosity = getelementptr inbounds i8, ptr %this, i64 144
+  %13 = load ptr, ptr %m_verbosity, align 8
+  %cmp.i28 = icmp eq ptr %0, %13
+  %or.cond43 = select i1 %or.cond42, i1 true, i1 %cmp.i28
+  %m_global_decls = getelementptr inbounds i8, ptr %this, i64 152
+  %14 = load ptr, ptr %m_global_decls, align 8
+  %cmp.i29 = icmp eq ptr %0, %14
+  %or.cond44 = select i1 %or.cond43, i1 true, i1 %cmp.i29
+  %m_global_declarations = getelementptr inbounds i8, ptr %this, i64 160
+  %15 = load ptr, ptr %m_global_declarations, align 8
+  %cmp.i30 = icmp eq ptr %0, %15
+  %or.cond45 = select i1 %or.cond44, i1 true, i1 %cmp.i30
+  %m_produce_assertions = getelementptr inbounds i8, ptr %this, i64 112
+  %16 = load ptr, ptr %m_produce_assertions, align 8
+  %cmp.i31 = icmp eq ptr %0, %16
+  %or.cond46 = select i1 %or.cond45, i1 true, i1 %cmp.i31
+  br i1 %or.cond46, label %lor.end, label %lor.rhs
+
+lor.rhs:                                          ; preds = %entry
   %m_reproducible_resource_limit = getelementptr inbounds i8, ptr %this, i64 192
-  %7 = load ptr, ptr %m_reproducible_resource_limit, align 8
-  %cmp.i32 = icmp eq ptr %0, %7
-  %8 = select i1 %.not, i1 %cmp.i32, i1 true
-  ret i1 %8
+  %17 = load ptr, ptr %m_reproducible_resource_limit, align 8
+  %cmp.i32 = icmp eq ptr %0, %17
+  br label %lor.end
+
+lor.end:                                          ; preds = %lor.rhs, %entry
+  %18 = phi i1 [ true, %entry ], [ %cmp.i32, %lor.rhs ]
+  ret i1 %18
 }
 
 ; Function Attrs: mustprogress uwtable

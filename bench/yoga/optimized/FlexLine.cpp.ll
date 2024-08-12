@@ -91,17 +91,18 @@ for.cond.preheader:                               ; preds = %_ZN8facebook4yoga16
   br i1 %cmp20141, label %for.body, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit77
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %5 = phi ptr [ %20, %for.inc ], [ %3, %for.cond.preheader ]
+  %5 = phi ptr [ %13, %for.inc ], [ %3, %for.cond.preheader ]
   %sub.ptr.rhs.cast.i42151 = phi i64 [ %sub.ptr.rhs.cast.i42, %for.inc ], [ %sub.ptr.rhs.cast.i42138, %for.cond.preheader ]
-  %6 = phi ptr [ %21, %for.inc ], [ %4, %for.cond.preheader ]
+  %6 = phi ptr [ %14, %for.inc ], [ %4, %for.cond.preheader ]
   %sizeConsumed.0150 = phi float [ %sizeConsumed.1, %for.inc ], [ 0.000000e+00, %for.cond.preheader ]
+  %totalFlexGrowFactors.0149 = phi float [ %totalFlexGrowFactors.1, %for.inc ], [ 0.000000e+00, %for.cond.preheader ]
+  %totalFlexShrinkScaledFactors.0148 = phi float [ %totalFlexShrinkScaledFactors.1, %for.inc ], [ 0.000000e+00, %for.cond.preheader ]
   %endOfLineIndex.0147 = phi i64 [ %inc78, %for.inc ], [ %startOfLineIndex, %for.cond.preheader ]
   %firstElementInLineIndex.0146 = phi i64 [ %firstElementInLineIndex.1, %for.inc ], [ %startOfLineIndex, %for.cond.preheader ]
   %sizeConsumedIncludingMinConstraint.0145 = phi float [ %sizeConsumedIncludingMinConstraint.1, %for.inc ], [ 0.000000e+00, %for.cond.preheader ]
   %itemsInFlow.sroa.0.1144 = phi ptr [ %itemsInFlow.sroa.0.2, %for.inc ], [ %itemsInFlow.sroa.10.2, %for.cond.preheader ]
   %itemsInFlow.sroa.10.0143 = phi ptr [ %itemsInFlow.sroa.10.1, %for.inc ], [ %itemsInFlow.sroa.10.2, %for.cond.preheader ]
   %itemsInFlow.sroa.18.0142 = phi ptr [ %itemsInFlow.sroa.18.1, %for.inc ], [ %itemsInFlow.sroa.18.2, %for.cond.preheader ]
-  %7 = phi <2 x float> [ %19, %for.inc ], [ zeroinitializer, %for.cond.preheader ]
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i42151
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
@@ -117,13 +118,13 @@ if.then.i.i.i:                                    ; preds = %for.body
 
 invoke.cont21:                                    ; preds = %for.body
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %endOfLineIndex.0147
-  %8 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %display_.i = getelementptr inbounds i8, ptr %8, i64 49
+  %7 = load ptr, ptr %add.ptr.i.i.i, align 8
+  %display_.i = getelementptr inbounds i8, ptr %7, i64 49
   %bf.load.i48 = load i24, ptr %display_.i, align 1
-  %9 = and i24 %bf.load.i48, 262144
-  %cmp27.not = icmp ne i24 %9, 0
-  %10 = and i24 %bf.load.i48, 12288
-  %cmp32 = icmp eq i24 %10, 8192
+  %8 = and i24 %bf.load.i48, 262144
+  %cmp27.not = icmp ne i24 %8, 0
+  %9 = and i24 %bf.load.i48, 12288
+  %cmp32 = icmp eq i24 %9, 8192
   %or.cond110 = or i1 %cmp27.not, %cmp32
   br i1 %or.cond110, label %if.then, label %if.end35
 
@@ -158,17 +159,17 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %lpad, %if.then.
   resume { ptr, i32 } %lpad.phi
 
 if.end35:                                         ; preds = %invoke.cont21
-  %lineIndex_.i = getelementptr inbounds i8, ptr %8, i64 576
+  %lineIndex_.i = getelementptr inbounds i8, ptr %7, i64 576
   store i64 %lineCount, ptr %lineIndex_.i, align 8
-  %call40 = invoke noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %8, i8 noundef zeroext %retval.0.i, float noundef %availableInnerWidth)
+  %call40 = invoke noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %7, i8 noundef zeroext %retval.0.i, float noundef %availableInnerWidth)
           to label %invoke.cont39 unwind label %lpad.loopexit
 
 invoke.cont39:                                    ; preds = %if.end35
   %cmp36 = icmp eq i64 %endOfLineIndex.0147, %firstElementInLineIndex.0146
   %cond = select i1 %cmp36, float 0.000000e+00, float %call16
-  %computedFlexBasis = getelementptr inbounds i8, ptr %8, i64 256
+  %computedFlexBasis = getelementptr inbounds i8, ptr %7, i64 256
   %agg.tmp.sroa.0.0.copyload = load float, ptr %computedFlexBasis, align 4
-  %call44 = invoke float @_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf(ptr noundef nonnull %8, i8 noundef zeroext %retval.0.i, float %agg.tmp.sroa.0.0.copyload, float noundef %mainAxisownerSize)
+  %call44 = invoke float @_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf(ptr noundef nonnull %7, i8 noundef zeroext %retval.0.i, float %agg.tmp.sroa.0.0.copyload, float noundef %mainAxisownerSize)
           to label %invoke.cont43 unwind label %lpad.loopexit
 
 invoke.cont43:                                    ; preds = %invoke.cont39
@@ -186,38 +187,35 @@ if.end56:                                         ; preds = %invoke.cont43
   %add58 = fadd float %cond, %add57
   %add59 = fadd float %sizeConsumedIncludingMinConstraint.0145, %add58
   %add62 = fadd float %sizeConsumed.0150, %add58
-  %call64 = invoke noundef zeroext i1 @_ZN8facebook4yoga4Node14isNodeFlexibleEv(ptr noundef nonnull align 8 dereferenceable(640) %8)
+  %call64 = invoke noundef zeroext i1 @_ZN8facebook4yoga4Node14isNodeFlexibleEv(ptr noundef nonnull align 8 dereferenceable(640) %7)
           to label %invoke.cont63 unwind label %lpad.loopexit
 
 invoke.cont63:                                    ; preds = %if.end56
   br i1 %call64, label %if.then65, label %if.end76
 
 if.then65:                                        ; preds = %invoke.cont63
-  %call67 = invoke noundef float @_ZNK8facebook4yoga4Node15resolveFlexGrowEv(ptr noundef nonnull align 8 dereferenceable(640) %8)
+  %call67 = invoke noundef float @_ZNK8facebook4yoga4Node15resolveFlexGrowEv(ptr noundef nonnull align 8 dereferenceable(640) %7)
           to label %invoke.cont66 unwind label %lpad.loopexit
 
 invoke.cont66:                                    ; preds = %if.then65
-  %call70 = invoke noundef float @_ZNK8facebook4yoga4Node17resolveFlexShrinkEv(ptr noundef nonnull align 8 dereferenceable(640) %8)
+  %call70 = invoke noundef float @_ZNK8facebook4yoga4Node17resolveFlexShrinkEv(ptr noundef nonnull align 8 dereferenceable(640) %7)
           to label %invoke.cont69 unwind label %lpad.loopexit
 
 invoke.cont69:                                    ; preds = %invoke.cont66
-  %11 = extractelement <2 x float> %7, i64 0
-  %add68 = fadd float %11, %call67
+  %add68 = fadd float %totalFlexGrowFactors.0149, %call67
   %fneg = fneg float %call70
-  %12 = load float, ptr %computedFlexBasis, align 4
-  %13 = extractelement <2 x float> %7, i64 1
-  %14 = tail call float @llvm.fmuladd.f32(float %fneg, float %12, float %13)
-  %15 = insertelement <2 x float> poison, float %add68, i64 0
-  %16 = insertelement <2 x float> %15, float %14, i64 1
+  %10 = load float, ptr %computedFlexBasis, align 4
+  %11 = tail call float @llvm.fmuladd.f32(float %fneg, float %10, float %totalFlexShrinkScaledFactors.0148)
   br label %if.end76
 
 if.end76:                                         ; preds = %invoke.cont69, %invoke.cont63
-  %17 = phi <2 x float> [ %16, %invoke.cont69 ], [ %7, %invoke.cont63 ]
+  %totalFlexShrinkScaledFactors.2 = phi float [ %11, %invoke.cont69 ], [ %totalFlexShrinkScaledFactors.0148, %invoke.cont63 ]
+  %totalFlexGrowFactors.2 = phi float [ %add68, %invoke.cont69 ], [ %totalFlexGrowFactors.0149, %invoke.cont63 ]
   %cmp.not.i = icmp eq ptr %itemsInFlow.sroa.10.0143, %itemsInFlow.sroa.18.0142
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i63
 
 if.then.i63:                                      ; preds = %if.end76
-  store ptr %8, ptr %itemsInFlow.sroa.10.0143, align 8
+  store ptr %7, ptr %itemsInFlow.sroa.10.0143, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %itemsInFlow.sroa.10.0143, i64 8
   br label %for.inc
 
@@ -240,8 +238,8 @@ _ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; pred
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i68, i64 1)
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i68
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i68
-  %18 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %18
+  %12 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %12
   %cmp.not.i.i.i69 = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i69, label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -253,7 +251,7 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN8fa
 _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i73, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i68
-  store ptr %8, ptr %add.ptr.i.i, align 8
+  store ptr %7, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i67, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
@@ -281,13 +279,14 @@ for.inc:                                          ; preds = %_ZNSt6vectorIPN8fac
   %itemsInFlow.sroa.0.2 = phi ptr [ %itemsInFlow.sroa.0.1144, %if.then ], [ %cond.i10.i.i, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %itemsInFlow.sroa.0.1144, %if.then.i63 ]
   %sizeConsumedIncludingMinConstraint.1 = phi float [ %sizeConsumedIncludingMinConstraint.0145, %if.then ], [ %add59, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %add59, %if.then.i63 ]
   %firstElementInLineIndex.1 = phi i64 [ %spec.select, %if.then ], [ %firstElementInLineIndex.0146, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %firstElementInLineIndex.0146, %if.then.i63 ]
+  %totalFlexShrinkScaledFactors.1 = phi float [ %totalFlexShrinkScaledFactors.0148, %if.then ], [ %totalFlexShrinkScaledFactors.2, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %totalFlexShrinkScaledFactors.2, %if.then.i63 ]
+  %totalFlexGrowFactors.1 = phi float [ %totalFlexGrowFactors.0149, %if.then ], [ %totalFlexGrowFactors.2, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %totalFlexGrowFactors.2, %if.then.i63 ]
   %sizeConsumed.1 = phi float [ %sizeConsumed.0150, %if.then ], [ %add62, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %add62, %if.then.i63 ]
-  %19 = phi <2 x float> [ %7, %if.then ], [ %17, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %17, %if.then.i63 ]
   %inc78 = add nuw i64 %endOfLineIndex.0147, 1
-  %20 = load ptr, ptr %_M_finish.i, align 8
-  %21 = load ptr, ptr %children_.i, align 8
-  %sub.ptr.lhs.cast.i41 = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i42 = ptrtoint ptr %21 to i64
+  %13 = load ptr, ptr %_M_finish.i, align 8
+  %14 = load ptr, ptr %children_.i, align 8
+  %sub.ptr.lhs.cast.i41 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i42 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i43 = sub i64 %sub.ptr.lhs.cast.i41, %sub.ptr.rhs.cast.i42
   %sub.ptr.div.i44 = ashr exact i64 %sub.ptr.sub.i43, 3
   %cmp20 = icmp ult i64 %inc78, %sub.ptr.div.i44
@@ -298,10 +297,17 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit77: ; preds = %for.inc, %inv
   %itemsInFlow.sroa.10.0.lcssa = phi ptr [ %itemsInFlow.sroa.10.2, %for.cond.preheader ], [ %itemsInFlow.sroa.10.0143, %invoke.cont43 ], [ %itemsInFlow.sroa.10.1, %for.inc ]
   %itemsInFlow.sroa.0.1.lcssa = phi ptr [ %itemsInFlow.sroa.10.2, %for.cond.preheader ], [ %itemsInFlow.sroa.0.1144, %invoke.cont43 ], [ %itemsInFlow.sroa.0.2, %for.inc ]
   %endOfLineIndex.0.lcssa = phi i64 [ %startOfLineIndex, %for.cond.preheader ], [ %endOfLineIndex.0147, %invoke.cont43 ], [ %inc78, %for.inc ]
+  %totalFlexShrinkScaledFactors.0.lcssa = phi float [ 0.000000e+00, %for.cond.preheader ], [ %totalFlexShrinkScaledFactors.0148, %invoke.cont43 ], [ %totalFlexShrinkScaledFactors.1, %for.inc ]
+  %totalFlexGrowFactors.0.lcssa = phi float [ 0.000000e+00, %for.cond.preheader ], [ %totalFlexGrowFactors.0149, %invoke.cont43 ], [ %totalFlexGrowFactors.1, %for.inc ]
   %sizeConsumed.0.lcssa = phi float [ 0.000000e+00, %for.cond.preheader ], [ %sizeConsumed.0150, %invoke.cont43 ], [ %sizeConsumed.1, %for.inc ]
-  %22 = phi <2 x float> [ zeroinitializer, %for.cond.preheader ], [ %7, %invoke.cont43 ], [ %19, %for.inc ]
-  %23 = fcmp ogt <2 x float> %22, zeroinitializer
-  %24 = fcmp olt <2 x float> %22, <float 1.000000e+00, float 1.000000e+00>
+  %cmp79 = fcmp ogt float %totalFlexGrowFactors.0.lcssa, 0.000000e+00
+  %cmp81 = fcmp olt float %totalFlexGrowFactors.0.lcssa, 1.000000e+00
+  %or.cond = and i1 %cmp79, %cmp81
+  %spec.store.select = select i1 %or.cond, float 1.000000e+00, float %totalFlexGrowFactors.0.lcssa
+  %cmp84 = fcmp ogt float %totalFlexShrinkScaledFactors.0.lcssa, 0.000000e+00
+  %cmp86 = fcmp olt float %totalFlexShrinkScaledFactors.0.lcssa, 1.000000e+00
+  %or.cond1 = and i1 %cmp84, %cmp86
+  %spec.store.select2 = select i1 %or.cond1, float 1.000000e+00, float %totalFlexShrinkScaledFactors.0.lcssa
   store ptr %itemsInFlow.sroa.0.1.lcssa, ptr %agg.result, align 8
   %_M_finish.i.i.i.i74 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %itemsInFlow.sroa.10.0.lcssa, ptr %_M_finish.i.i.i.i74, align 8
@@ -312,11 +318,13 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit77: ; preds = %for.inc, %inv
   %endOfLineIndex91 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 %endOfLineIndex.0.lcssa, ptr %endOfLineIndex91, align 8
   %layout = getelementptr inbounds i8, ptr %agg.result, i64 40
-  %25 = and <2 x i1> %23, %24
-  %26 = select <2 x i1> %25, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %22
-  store <2 x float> %26, ptr %layout, align 8
+  store float %spec.store.select, ptr %layout, align 8
+  %totalFlexShrinkScaledFactors93 = getelementptr inbounds i8, ptr %agg.result, i64 44
+  store float %spec.store.select2, ptr %totalFlexShrinkScaledFactors93, align 4
   %remainingFreeSpace = getelementptr inbounds i8, ptr %agg.result, i64 48
-  store <2 x float> zeroinitializer, ptr %remainingFreeSpace, align 8
+  store float 0.000000e+00, ptr %remainingFreeSpace, align 8
+  %mainDim = getelementptr inbounds i8, ptr %agg.result, i64 52
+  store float 0.000000e+00, ptr %mainDim, align 4
   %crossDim = getelementptr inbounds i8, ptr %agg.result, i64 56
   store float 0.000000e+00, ptr %crossDim, align 8
   ret void

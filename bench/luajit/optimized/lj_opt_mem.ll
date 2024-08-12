@@ -1381,7 +1381,11 @@ for.end:                                          ; preds = %for.cond, %if.then3
   %prev = getelementptr inbounds i8, ptr %arrayidx13, i64 6
   %11 = load i16, ptr %prev, align 2
   store i16 %11, ptr %refp.034, align 2
-  store <4 x i16> <i16 0, i16 0, i16 3072, i16 0>, ptr %arrayidx13, align 8
+  %ot.i = getelementptr inbounds i8, ptr %arrayidx13, i64 4
+  store i16 3072, ptr %ot.i, align 4
+  store i16 0, ptr %op225, align 2
+  store i16 0, ptr %arrayidx13, align 8
+  store i16 0, ptr %prev, align 2
   br label %doemit
 
 sw.epilog:                                        ; preds = %sw.bb19, %while.body
@@ -1967,7 +1971,11 @@ for.end:                                          ; preds = %for.cond, %if.then3
   %prev = getelementptr inbounds i8, ptr %arrayidx10, i64 6
   %21 = load i16, ptr %prev, align 2
   store i16 %21, ptr %refp.053, align 2
-  store <4 x i16> <i16 0, i16 0, i16 3072, i16 0>, ptr %arrayidx10, align 8
+  %ot.i86 = getelementptr inbounds i8, ptr %arrayidx10, i64 4
+  store i16 3072, ptr %ot.i86, align 4
+  store i16 0, ptr %op222, align 2
+  store i16 0, ptr %arrayidx10, align 8
+  store i16 0, ptr %prev, align 2
   %add = add nuw nsw i32 %ref.0.le, 1
   %22 = load i32, ptr %nins, align 4
   %cmp47 = icmp ult i32 %add, %22
@@ -2003,7 +2011,12 @@ for.cond66:                                       ; preds = %for.cond66, %if.the
 for.end78:                                        ; preds = %for.cond66
   %26 = load i16, ptr %prev72, align 2
   store i16 %26, ptr %bp.0, align 2
-  store <4 x i16> <i16 0, i16 0, i16 3072, i16 0>, ptr %obar.0, align 8
+  %ot.i = getelementptr inbounds i8, ptr %obar.0, i64 4
+  store i16 3072, ptr %ot.i, align 4
+  %op2.i = getelementptr inbounds i8, ptr %obar.0, i64 2
+  store i16 0, ptr %op2.i, align 2
+  store i16 0, ptr %obar.0, align 8
+  store i16 0, ptr %prev72, align 2
   br label %doemit
 
 sw.epilog.sink.split:                             ; preds = %if.else32.i, %if.then22.i
@@ -2383,7 +2396,11 @@ for.end:                                          ; preds = %for.inc, %if.then42
   %prev = getelementptr inbounds i8, ptr %.us-phi45, i64 6
   %29 = load i16, ptr %prev, align 2
   store i16 %29, ptr %.us-phi, align 2
-  store <4 x i16> <i16 0, i16 0, i16 3072, i16 0>, ptr %.us-phi45, align 8
+  %ot.i = getelementptr inbounds i8, ptr %.us-phi45, i64 4
+  store i16 3072, ptr %ot.i, align 4
+  store i16 0, ptr %op222, align 2
+  store i16 0, ptr %.us-phi45, align 8
+  store i16 0, ptr %prev, align 2
   br label %doemit
 
 sw.epilog:                                        ; preds = %while.body, %if.else.i
@@ -3268,7 +3285,11 @@ for.end:                                          ; preds = %for.cond, %if.then6
   %prev = getelementptr inbounds i8, ptr %arrayidx38, i64 6
   %12 = load i16, ptr %prev, align 2
   store i16 %12, ptr %refp.042, align 2
-  store <4 x i16> <i16 0, i16 0, i16 3072, i16 0>, ptr %arrayidx38, align 8
+  %ot.i = getelementptr inbounds i8, ptr %arrayidx38, i64 4
+  store i16 3072, ptr %ot.i, align 4
+  store i16 0, ptr %op249, align 2
+  store i16 0, ptr %arrayidx38, align 8
+  store i16 0, ptr %prev, align 2
   br label %doemit
 
 sw.epilog:                                        ; preds = %sw.bb41, %while.body

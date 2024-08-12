@@ -405,25 +405,27 @@ define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr nocapture noundef nonnull ali
   %53 = getelementptr inbounds i8, ptr %52, i64 20
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds i8, ptr %52, i64 12
-  store <2 x float> zeroinitializer, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %52, i64 24
-  store i32 %1, ptr %56, align 4
-  %57 = and i8 %2, 3
-  %58 = zext nneg i8 %57 to i32
-  %59 = shl nuw nsw i32 %58, 24
-  %60 = and i32 %54, -536870912
-  %61 = or disjoint i32 %60, %59
-  store i32 %61, ptr %53, align 4
-  %62 = load ptr, ptr %21, align 8
-  %63 = getelementptr inbounds i16, ptr %62, i64 %23
-  %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i16, ptr %66, i64 %51
-  store i16 %64, ptr %67, align 2
-  %68 = load ptr, ptr %21, align 8
-  %69 = getelementptr inbounds i16, ptr %68, i64 %23
-  store i16 %48, ptr %69, align 2
+  store float 0.000000e+00, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %52, i64 16
+  store float 0.000000e+00, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %52, i64 24
+  store i32 %1, ptr %57, align 4
+  %58 = and i8 %2, 3
+  %59 = zext nneg i8 %58 to i32
+  %60 = shl nuw nsw i32 %59, 24
+  %61 = and i32 %54, -536870912
+  %62 = or disjoint i32 %61, %60
+  store i32 %62, ptr %53, align 4
+  %63 = load ptr, ptr %21, align 8
+  %64 = getelementptr inbounds i16, ptr %63, i64 %23
+  %65 = load i16, ptr %64, align 2
+  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i16, ptr %67, i64 %51
+  store i16 %65, ptr %68, align 2
+  %69 = load ptr, ptr %21, align 8
+  %70 = getelementptr inbounds i16, ptr %69, i64 %23
+  store i16 %48, ptr %70, align 2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %._crit_edge, %47

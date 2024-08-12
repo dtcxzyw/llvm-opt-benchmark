@@ -768,10 +768,13 @@ _ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_112_GLOBAL__N_11
   %48 = getelementptr inbounds i8, ptr %9, i64 32
   store i64 %.sroa.0.0.copyload, ptr %48, align 8, !alias.scope !27
   %49 = getelementptr inbounds i8, ptr %9, i64 40
+  store i8 1, ptr %49, align 8, !alias.scope !27
   %50 = getelementptr inbounds i8, ptr %9, i64 41
+  store i8 0, ptr %50, align 1, !alias.scope !27
   %51 = getelementptr inbounds i8, ptr %9, i64 42
+  store i8 1, ptr %51, align 2, !alias.scope !27
   %52 = getelementptr inbounds i8, ptr %9, i64 43
-  store <4 x i8> <i8 1, i8 0, i8 1, i8 0>, ptr %49, align 8, !alias.scope !27
+  store i8 0, ptr %52, align 1, !alias.scope !27
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)

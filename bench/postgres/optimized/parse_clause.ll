@@ -220,7 +220,7 @@ define internal fastcc ptr @transformFromClauseItem(ptr noundef %0, ptr noundef 
   %16 = alloca ptr, align 8
   tail call void @check_stack_depth() #9
   %17 = load i32, ptr %1, align 4
-  switch i32 %17, label %1094 [
+  switch i32 %17, label %1097 [
     i32 3, label %18
     i32 77, label %46
     i32 78, label %81
@@ -287,7 +287,7 @@ getNSItemForSpecialRelationTypes.exit:            ; preds = %25, %31
   %44 = load i32, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %42, i64 4
   store i32 %44, ptr %45, align 4
-  br label %1098
+  br label %1101
 
 46:                                               ; preds = %4
   %47 = getelementptr inbounds i8, ptr %0, i64 128
@@ -346,7 +346,7 @@ transformRangeSubselect.exit:                     ; preds = %66
   %79 = load i32, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %77, i64 4
   store i32 %79, ptr %80, align 4
-  br label %1098
+  br label %1101
 
 81:                                               ; preds = %4
   %82 = getelementptr inbounds i8, ptr %0, i64 64
@@ -651,7 +651,7 @@ transformRangeFunction.exit:                      ; preds = %236, %240
   %247 = load i32, ptr %246, align 8
   %248 = getelementptr inbounds i8, ptr %245, i64 4
   store i32 %247, ptr %248, align 4
-  br label %1098
+  br label %1101
 
 249:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -1025,7 +1025,7 @@ transformRangeTableFunc.exit:                     ; preds = %430, %437
   %446 = load i32, ptr %445, align 8
   %447 = getelementptr inbounds i8, ptr %444, i64 4
   store i32 %446, ptr %447, align 4
-  br label %1098
+  br label %1101
 
 448:                                              ; preds = %4
   %449 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1273,7 +1273,7 @@ transformRangeTableSample.exit:                   ; preds = %.thread.i, %574
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %578 = getelementptr inbounds i8, ptr %454, i64 24
   store ptr %493, ptr %578, align 8
-  br label %1098
+  br label %1101
 
 579:                                              ; preds = %4
   %580 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2221,7 +2221,7 @@ list_length.exit432:                              ; preds = %list_length.exit430
   store ptr %1056, ptr %1043, align 8
   %1057 = load ptr, ptr %660, align 8
   %.not374 = icmp eq ptr %1057, null
-  br i1 %.not374, label %1072, label %1058
+  br i1 %.not374, label %1075, label %1058
 
 1058:                                             ; preds = %._crit_edge616
   %1059 = tail call ptr @palloc(i64 noundef 48) #9
@@ -2240,73 +2240,79 @@ list_length.exit432:                              ; preds = %list_length.exit430
   %1068 = getelementptr inbounds i8, ptr %1059, i64 32
   store ptr %678, ptr %1068, align 8
   %1069 = getelementptr inbounds i8, ptr %1059, i64 40
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 1>, ptr %1069, align 8
-  %1070 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %1059) #9
-  tail call void @checkNameSpaceConflicts(ptr noundef nonnull %0, ptr noundef %1070, ptr noundef %612) #9
-  %1071 = tail call ptr @lappend(ptr noundef %612, ptr noundef nonnull %1059) #9
-  br label %1072
+  store i8 1, ptr %1069, align 8
+  %1070 = getelementptr inbounds i8, ptr %1059, i64 41
+  store i8 1, ptr %1070, align 1
+  %1071 = getelementptr inbounds i8, ptr %1059, i64 42
+  store i8 0, ptr %1071, align 2
+  %1072 = getelementptr inbounds i8, ptr %1059, i64 43
+  store i8 1, ptr %1072, align 1
+  %1073 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %1059) #9
+  tail call void @checkNameSpaceConflicts(ptr noundef nonnull %0, ptr noundef %1073, ptr noundef %612) #9
+  %1074 = tail call ptr @lappend(ptr noundef %612, ptr noundef nonnull %1059) #9
+  br label %1075
 
-1072:                                             ; preds = %1058, %._crit_edge616
-  %.0327 = phi ptr [ %1071, %1058 ], [ %612, %._crit_edge616 ]
-  %1073 = load ptr, ptr %1022, align 8
-  %.not375 = icmp eq ptr %1073, null
-  br i1 %.not375, label %1074, label %setNamespaceColumnVisibility.exit
+1075:                                             ; preds = %1058, %._crit_edge616
+  %.0327 = phi ptr [ %1074, %1058 ], [ %612, %._crit_edge616 ]
+  %1076 = load ptr, ptr %1022, align 8
+  %.not375 = icmp eq ptr %1076, null
+  br i1 %.not375, label %1077, label %setNamespaceColumnVisibility.exit
 
-1074:                                             ; preds = %1072
-  %1075 = getelementptr inbounds i8, ptr %.0327, i64 4
+1077:                                             ; preds = %1075
+  %1078 = getelementptr inbounds i8, ptr %.0327, i64 4
   %.not.i433 = icmp eq ptr %.0327, null
   br i1 %.not.i433, label %setNamespaceColumnVisibility.exit, label %.lr.ph.i434
 
-.lr.ph.i434:                                      ; preds = %1074
-  %1076 = getelementptr inbounds i8, ptr %.0327, i64 16
-  %1077 = load i32, ptr %1075, align 4
-  %1078 = icmp sgt i32 %1077, 0
-  br i1 %1078, label %.lr.ph14.i, label %setNamespaceColumnVisibility.exit
+.lr.ph.i434:                                      ; preds = %1077
+  %1079 = getelementptr inbounds i8, ptr %.0327, i64 16
+  %1080 = load i32, ptr %1078, align 4
+  %1081 = icmp sgt i32 %1080, 0
+  br i1 %1081, label %.lr.ph14.i, label %setNamespaceColumnVisibility.exit
 
 .lr.ph14.i:                                       ; preds = %.lr.ph.i434, %.lr.ph14.i
   %indvars.iv.i436 = phi i64 [ %indvars.iv.next.i437, %.lr.ph14.i ], [ 0, %.lr.ph.i434 ]
-  %1079 = load ptr, ptr %1076, align 8
-  %1080 = getelementptr %union.ListCell, ptr %1079, i64 %indvars.iv.i436
-  %1081 = load ptr, ptr %1080, align 8
-  %1082 = getelementptr inbounds i8, ptr %1081, i64 41
-  store i8 0, ptr %1082, align 1
+  %1082 = load ptr, ptr %1079, align 8
+  %1083 = getelementptr %union.ListCell, ptr %1082, i64 %indvars.iv.i436
+  %1084 = load ptr, ptr %1083, align 8
+  %1085 = getelementptr inbounds i8, ptr %1084, i64 41
+  store i8 0, ptr %1085, align 1
   %indvars.iv.next.i437 = add nuw nsw i64 %indvars.iv.i436, 1
-  %1083 = load i32, ptr %1075, align 4
-  %1084 = sext i32 %1083 to i64
-  %1085 = icmp slt i64 %indvars.iv.next.i437, %1084
-  br i1 %1085, label %.lr.ph14.i, label %setNamespaceColumnVisibility.exit.loopexit
+  %1086 = load i32, ptr %1078, align 4
+  %1087 = sext i32 %1086 to i64
+  %1088 = icmp slt i64 %indvars.iv.next.i437, %1087
+  br i1 %1088, label %.lr.ph14.i, label %setNamespaceColumnVisibility.exit.loopexit
 
 setNamespaceColumnVisibility.exit.loopexit:       ; preds = %.lr.ph14.i
   %.pre = load ptr, ptr %1022, align 8
-  %1086 = icmp ne ptr %.pre, null
-  %1087 = zext i1 %1086 to i8
+  %1089 = icmp ne ptr %.pre, null
+  %1090 = zext i1 %1089 to i8
   br label %setNamespaceColumnVisibility.exit
 
-setNamespaceColumnVisibility.exit:                ; preds = %setNamespaceColumnVisibility.exit.loopexit, %.lr.ph.i434, %1074, %1072
-  %1088 = phi i8 [ 1, %1072 ], [ 0, %1074 ], [ 0, %.lr.ph.i434 ], [ %1087, %setNamespaceColumnVisibility.exit.loopexit ]
-  %.1 = phi ptr [ null, %1072 ], [ null, %1074 ], [ %.0327, %.lr.ph.i434 ], [ %.0327, %setNamespaceColumnVisibility.exit.loopexit ]
-  %1089 = getelementptr inbounds i8, ptr %1042, i64 40
-  store i8 %1088, ptr %1089, align 8
-  %1090 = getelementptr inbounds i8, ptr %1042, i64 41
-  store i8 1, ptr %1090, align 1
-  %1091 = getelementptr inbounds i8, ptr %1042, i64 42
-  store i8 0, ptr %1091, align 2
-  %1092 = getelementptr inbounds i8, ptr %1042, i64 43
-  store i8 1, ptr %1092, align 1
+setNamespaceColumnVisibility.exit:                ; preds = %setNamespaceColumnVisibility.exit.loopexit, %.lr.ph.i434, %1077, %1075
+  %1091 = phi i8 [ 1, %1075 ], [ 0, %1077 ], [ 0, %.lr.ph.i434 ], [ %1090, %setNamespaceColumnVisibility.exit.loopexit ]
+  %.1 = phi ptr [ null, %1075 ], [ null, %1077 ], [ %.0327, %.lr.ph.i434 ], [ %.0327, %setNamespaceColumnVisibility.exit.loopexit ]
+  %1092 = getelementptr inbounds i8, ptr %1042, i64 40
+  store i8 %1091, ptr %1092, align 8
+  %1093 = getelementptr inbounds i8, ptr %1042, i64 41
+  store i8 1, ptr %1093, align 1
+  %1094 = getelementptr inbounds i8, ptr %1042, i64 42
+  store i8 0, ptr %1094, align 2
+  %1095 = getelementptr inbounds i8, ptr %1042, i64 43
+  store i8 1, ptr %1095, align 1
   store ptr %1042, ptr %2, align 8
-  %1093 = tail call ptr @lappend(ptr noundef %.1, ptr noundef %1042) #9
-  store ptr %1093, ptr %3, align 8
-  br label %1098
+  %1096 = tail call ptr @lappend(ptr noundef %.1, ptr noundef %1042) #9
+  store ptr %1096, ptr %3, align 8
+  br label %1101
 
-1094:                                             ; preds = %4
-  %1095 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %1095)
-  %1096 = load i32, ptr %1, align 4
-  %1097 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, i32 noundef %1096) #9
+1097:                                             ; preds = %4
+  %1098 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %1098)
+  %1099 = load i32, ptr %1, align 4
+  %1100 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, i32 noundef %1099) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1620, ptr noundef nonnull @__func__.transformFromClauseItem) #9
   unreachable
 
-1098:                                             ; preds = %setNamespaceColumnVisibility.exit, %transformRangeTableSample.exit, %transformRangeTableFunc.exit, %transformRangeFunction.exit, %transformRangeSubselect.exit, %40
+1101:                                             ; preds = %setNamespaceColumnVisibility.exit, %transformRangeTableSample.exit, %transformRangeTableFunc.exit, %transformRangeFunction.exit, %transformRangeSubselect.exit, %40
   %.0 = phi ptr [ %42, %40 ], [ %77, %transformRangeSubselect.exit ], [ %245, %transformRangeFunction.exit ], [ %444, %transformRangeTableFunc.exit ], [ %451, %transformRangeTableSample.exit ], [ %1, %setNamespaceColumnVisibility.exit ]
   ret ptr %.0
 }

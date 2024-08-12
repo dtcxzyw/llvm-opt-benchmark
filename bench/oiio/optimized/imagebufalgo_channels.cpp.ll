@@ -1131,7 +1131,13 @@ invoke.cont74:                                    ; preds = %for.end73
   br i1 %brmerge.not, label %if.then80, label %if.end84
 
 if.then80:                                        ; preds = %invoke.cont74
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp81, align 4
+  store i8 0, ptr %agg.tmp81, align 4
+  %aggregate.i = getelementptr inbounds i8, ptr %agg.tmp81, i64 1
+  store i8 1, ptr %aggregate.i, align 1
+  %vecsemantics.i = getelementptr inbounds i8, ptr %agg.tmp81, i64 2
+  store i8 0, ptr %vecsemantics.i, align 2
+  %reserved.i = getelementptr inbounds i8, ptr %agg.tmp81, i64 3
+  store i8 0, ptr %reserved.i, align 1
   %arraylen.i = getelementptr inbounds i8, ptr %agg.tmp81, i64 4
   store i32 0, ptr %arraylen.i, align 4
   %call83 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull %agg.tmp81)
@@ -4666,7 +4672,13 @@ invoke.cont248:                                   ; preds = %invoke.cont246
   br i1 %call249, label %if.then250, label %if.end254
 
 if.then250:                                       ; preds = %invoke.cont248
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp251, align 4
+  store i8 11, ptr %agg.tmp251, align 4
+  %aggregate.i965 = getelementptr inbounds i8, ptr %agg.tmp251, i64 1
+  store i8 1, ptr %aggregate.i965, align 1
+  %vecsemantics.i966 = getelementptr inbounds i8, ptr %agg.tmp251, i64 2
+  store i8 0, ptr %vecsemantics.i966, align 2
+  %reserved.i967 = getelementptr inbounds i8, ptr %agg.tmp251, i64 3
+  store i8 0, ptr %reserved.i967, align 1
   %arraylen4.i968 = getelementptr inbounds i8, ptr %agg.tmp251, i64 4
   store i32 0, ptr %arraylen4.i968, align 4
   %call253 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp251)
@@ -4683,7 +4695,13 @@ if.end254:                                        ; preds = %if.then250, %invoke
           to label %if.then260 unwind label %lpad247
 
 if.then260:                                       ; preds = %if.end254
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp261, align 4
+  store i8 0, ptr %agg.tmp261, align 4
+  %aggregate.i969 = getelementptr inbounds i8, ptr %agg.tmp261, i64 1
+  store i8 1, ptr %aggregate.i969, align 1
+  %vecsemantics.i970 = getelementptr inbounds i8, ptr %agg.tmp261, i64 2
+  store i8 0, ptr %vecsemantics.i970, align 2
+  %reserved.i971 = getelementptr inbounds i8, ptr %agg.tmp261, i64 3
+  store i8 0, ptr %reserved.i971, align 1
   %arraylen.i972 = getelementptr inbounds i8, ptr %agg.tmp261, i64 4
   store i32 0, ptr %arraylen.i972, align 4
   %call263 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp, ptr noundef nonnull %agg.tmp261)
@@ -4735,7 +4753,13 @@ invoke.cont303:                                   ; preds = %invoke.cont301
   br i1 %call304, label %if.then305, label %if.end309
 
 if.then305:                                       ; preds = %invoke.cont303
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp306, align 4
+  store i8 11, ptr %agg.tmp306, align 4
+  %aggregate.i973 = getelementptr inbounds i8, ptr %agg.tmp306, i64 1
+  store i8 1, ptr %aggregate.i973, align 1
+  %vecsemantics.i974 = getelementptr inbounds i8, ptr %agg.tmp306, i64 2
+  store i8 0, ptr %vecsemantics.i974, align 2
+  %reserved.i975 = getelementptr inbounds i8, ptr %agg.tmp306, i64 3
+  store i8 0, ptr %reserved.i975, align 1
   %arraylen4.i976 = getelementptr inbounds i8, ptr %agg.tmp306, i64 4
   store i32 0, ptr %arraylen4.i976, align 4
   %call308 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp300, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp306)
@@ -4752,7 +4776,13 @@ if.end309:                                        ; preds = %if.then305, %invoke
           to label %if.then315 unwind label %lpad302
 
 if.then315:                                       ; preds = %if.end309
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp316, align 4
+  store i8 0, ptr %agg.tmp316, align 4
+  %aggregate.i977 = getelementptr inbounds i8, ptr %agg.tmp316, i64 1
+  store i8 1, ptr %aggregate.i977, align 1
+  %vecsemantics.i978 = getelementptr inbounds i8, ptr %agg.tmp316, i64 2
+  store i8 0, ptr %vecsemantics.i978, align 2
+  %reserved.i979 = getelementptr inbounds i8, ptr %agg.tmp316, i64 3
+  store i8 0, ptr %reserved.i979, align 1
   %arraylen.i980 = getelementptr inbounds i8, ptr %agg.tmp316, i64 4
   store i32 0, ptr %arraylen.i980, align 4
   %call318 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp300, ptr noundef nonnull %agg.tmp316)
@@ -4804,7 +4834,13 @@ invoke.cont358:                                   ; preds = %invoke.cont356
   br i1 %call359, label %if.then360, label %if.end364
 
 if.then360:                                       ; preds = %invoke.cont358
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp361, align 4
+  store i8 11, ptr %agg.tmp361, align 4
+  %aggregate.i981 = getelementptr inbounds i8, ptr %agg.tmp361, i64 1
+  store i8 1, ptr %aggregate.i981, align 1
+  %vecsemantics.i982 = getelementptr inbounds i8, ptr %agg.tmp361, i64 2
+  store i8 0, ptr %vecsemantics.i982, align 2
+  %reserved.i983 = getelementptr inbounds i8, ptr %agg.tmp361, i64 3
+  store i8 0, ptr %reserved.i983, align 1
   %arraylen4.i984 = getelementptr inbounds i8, ptr %agg.tmp361, i64 4
   store i32 0, ptr %arraylen4.i984, align 4
   %call363 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp355, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp361)
@@ -4821,7 +4857,13 @@ if.end364:                                        ; preds = %if.then360, %invoke
           to label %if.then370 unwind label %lpad357
 
 if.then370:                                       ; preds = %if.end364
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp371, align 4
+  store i8 0, ptr %agg.tmp371, align 4
+  %aggregate.i985 = getelementptr inbounds i8, ptr %agg.tmp371, i64 1
+  store i8 1, ptr %aggregate.i985, align 1
+  %vecsemantics.i986 = getelementptr inbounds i8, ptr %agg.tmp371, i64 2
+  store i8 0, ptr %vecsemantics.i986, align 2
+  %reserved.i987 = getelementptr inbounds i8, ptr %agg.tmp371, i64 3
+  store i8 0, ptr %reserved.i987, align 1
   %arraylen.i988 = getelementptr inbounds i8, ptr %agg.tmp371, i64 4
   store i32 0, ptr %arraylen.i988, align 4
   %call373 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp355, ptr noundef nonnull %agg.tmp371)
@@ -4873,7 +4915,13 @@ invoke.cont413:                                   ; preds = %invoke.cont411
   br i1 %call414, label %if.then415, label %if.end419
 
 if.then415:                                       ; preds = %invoke.cont413
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp416, align 4
+  store i8 11, ptr %agg.tmp416, align 4
+  %aggregate.i989 = getelementptr inbounds i8, ptr %agg.tmp416, i64 1
+  store i8 1, ptr %aggregate.i989, align 1
+  %vecsemantics.i990 = getelementptr inbounds i8, ptr %agg.tmp416, i64 2
+  store i8 0, ptr %vecsemantics.i990, align 2
+  %reserved.i991 = getelementptr inbounds i8, ptr %agg.tmp416, i64 3
+  store i8 0, ptr %reserved.i991, align 1
   %arraylen4.i992 = getelementptr inbounds i8, ptr %agg.tmp416, i64 4
   store i32 0, ptr %arraylen4.i992, align 4
   %call418 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp410, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp416)
@@ -4890,7 +4938,13 @@ if.end419:                                        ; preds = %if.then415, %invoke
           to label %if.then425 unwind label %lpad412
 
 if.then425:                                       ; preds = %if.end419
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp426, align 4
+  store i8 0, ptr %agg.tmp426, align 4
+  %aggregate.i993 = getelementptr inbounds i8, ptr %agg.tmp426, i64 1
+  store i8 1, ptr %aggregate.i993, align 1
+  %vecsemantics.i994 = getelementptr inbounds i8, ptr %agg.tmp426, i64 2
+  store i8 0, ptr %vecsemantics.i994, align 2
+  %reserved.i995 = getelementptr inbounds i8, ptr %agg.tmp426, i64 3
+  store i8 0, ptr %reserved.i995, align 1
   %arraylen.i996 = getelementptr inbounds i8, ptr %agg.tmp426, i64 4
   store i32 0, ptr %arraylen.i996, align 4
   %call428 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp410, ptr noundef nonnull %agg.tmp426)
@@ -4905,7 +4959,13 @@ sw.default438:                                    ; preds = %invoke.cont214
           to label %invoke.cont439 unwind label %lpad
 
 invoke.cont439:                                   ; preds = %sw.default438
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp440, align 4
+  store i8 11, ptr %agg.tmp440, align 4
+  %aggregate.i997 = getelementptr inbounds i8, ptr %agg.tmp440, i64 1
+  store i8 1, ptr %aggregate.i997, align 1
+  %vecsemantics.i998 = getelementptr inbounds i8, ptr %agg.tmp440, i64 2
+  store i8 0, ptr %vecsemantics.i998, align 2
+  %reserved.i999 = getelementptr inbounds i8, ptr %agg.tmp440, i64 3
+  store i8 0, ptr %reserved.i999, align 1
   %arraylen4.i1000 = getelementptr inbounds i8, ptr %agg.tmp440, i64 4
   store i32 0, ptr %arraylen4.i1000, align 4
   %call443 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Btmp, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull %agg.tmp440)
@@ -4958,7 +5018,13 @@ invoke.cont473:                                   ; preds = %invoke.cont471
   br i1 %call474, label %if.then475, label %if.end479
 
 if.then475:                                       ; preds = %invoke.cont473
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp476, align 4
+  store i8 11, ptr %agg.tmp476, align 4
+  %aggregate.i1001 = getelementptr inbounds i8, ptr %agg.tmp476, i64 1
+  store i8 1, ptr %aggregate.i1001, align 1
+  %vecsemantics.i1002 = getelementptr inbounds i8, ptr %agg.tmp476, i64 2
+  store i8 0, ptr %vecsemantics.i1002, align 2
+  %reserved.i1003 = getelementptr inbounds i8, ptr %agg.tmp476, i64 3
+  store i8 0, ptr %reserved.i1003, align 1
   %arraylen4.i1004 = getelementptr inbounds i8, ptr %agg.tmp476, i64 4
   store i32 0, ptr %arraylen4.i1004, align 4
   %call478 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp470, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp476)
@@ -4975,7 +5041,13 @@ if.end479:                                        ; preds = %if.then475, %invoke
           to label %if.then485 unwind label %lpad472
 
 if.then485:                                       ; preds = %if.end479
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp486, align 4
+  store i8 0, ptr %agg.tmp486, align 4
+  %aggregate.i1005 = getelementptr inbounds i8, ptr %agg.tmp486, i64 1
+  store i8 1, ptr %aggregate.i1005, align 1
+  %vecsemantics.i1006 = getelementptr inbounds i8, ptr %agg.tmp486, i64 2
+  store i8 0, ptr %vecsemantics.i1006, align 2
+  %reserved.i1007 = getelementptr inbounds i8, ptr %agg.tmp486, i64 3
+  store i8 0, ptr %reserved.i1007, align 1
   %arraylen.i1008 = getelementptr inbounds i8, ptr %agg.tmp486, i64 4
   store i32 0, ptr %arraylen.i1008, align 4
   %call488 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp470, ptr noundef nonnull %agg.tmp486)
@@ -5050,7 +5122,13 @@ invoke.cont536:                                   ; preds = %invoke.cont534
   br i1 %call537, label %if.then538, label %if.end542
 
 if.then538:                                       ; preds = %invoke.cont536
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp539, align 4
+  store i8 11, ptr %agg.tmp539, align 4
+  %aggregate.i1009 = getelementptr inbounds i8, ptr %agg.tmp539, i64 1
+  store i8 1, ptr %aggregate.i1009, align 1
+  %vecsemantics.i1010 = getelementptr inbounds i8, ptr %agg.tmp539, i64 2
+  store i8 0, ptr %vecsemantics.i1010, align 2
+  %reserved.i1011 = getelementptr inbounds i8, ptr %agg.tmp539, i64 3
+  store i8 0, ptr %reserved.i1011, align 1
   %arraylen4.i1012 = getelementptr inbounds i8, ptr %agg.tmp539, i64 4
   store i32 0, ptr %arraylen4.i1012, align 4
   %call541 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp533, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp539)
@@ -5067,7 +5145,13 @@ if.end542:                                        ; preds = %if.then538, %invoke
           to label %if.then548 unwind label %lpad535
 
 if.then548:                                       ; preds = %if.end542
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp549, align 4
+  store i8 0, ptr %agg.tmp549, align 4
+  %aggregate.i1013 = getelementptr inbounds i8, ptr %agg.tmp549, i64 1
+  store i8 1, ptr %aggregate.i1013, align 1
+  %vecsemantics.i1014 = getelementptr inbounds i8, ptr %agg.tmp549, i64 2
+  store i8 0, ptr %vecsemantics.i1014, align 2
+  %reserved.i1015 = getelementptr inbounds i8, ptr %agg.tmp549, i64 3
+  store i8 0, ptr %reserved.i1015, align 1
   %arraylen.i1016 = getelementptr inbounds i8, ptr %agg.tmp549, i64 4
   store i32 0, ptr %arraylen.i1016, align 4
   %call551 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp533, ptr noundef nonnull %agg.tmp549)
@@ -5119,7 +5203,13 @@ invoke.cont591:                                   ; preds = %invoke.cont589
   br i1 %call592, label %if.then593, label %if.end597
 
 if.then593:                                       ; preds = %invoke.cont591
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp594, align 4
+  store i8 11, ptr %agg.tmp594, align 4
+  %aggregate.i1017 = getelementptr inbounds i8, ptr %agg.tmp594, i64 1
+  store i8 1, ptr %aggregate.i1017, align 1
+  %vecsemantics.i1018 = getelementptr inbounds i8, ptr %agg.tmp594, i64 2
+  store i8 0, ptr %vecsemantics.i1018, align 2
+  %reserved.i1019 = getelementptr inbounds i8, ptr %agg.tmp594, i64 3
+  store i8 0, ptr %reserved.i1019, align 1
   %arraylen4.i1020 = getelementptr inbounds i8, ptr %agg.tmp594, i64 4
   store i32 0, ptr %arraylen4.i1020, align 4
   %call596 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp588, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp594)
@@ -5136,7 +5226,13 @@ if.end597:                                        ; preds = %if.then593, %invoke
           to label %if.then603 unwind label %lpad590
 
 if.then603:                                       ; preds = %if.end597
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp604, align 4
+  store i8 0, ptr %agg.tmp604, align 4
+  %aggregate.i1021 = getelementptr inbounds i8, ptr %agg.tmp604, i64 1
+  store i8 1, ptr %aggregate.i1021, align 1
+  %vecsemantics.i1022 = getelementptr inbounds i8, ptr %agg.tmp604, i64 2
+  store i8 0, ptr %vecsemantics.i1022, align 2
+  %reserved.i1023 = getelementptr inbounds i8, ptr %agg.tmp604, i64 3
+  store i8 0, ptr %reserved.i1023, align 1
   %arraylen.i1024 = getelementptr inbounds i8, ptr %agg.tmp604, i64 4
   store i32 0, ptr %arraylen.i1024, align 4
   %call606 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp588, ptr noundef nonnull %agg.tmp604)
@@ -5188,7 +5284,13 @@ invoke.cont646:                                   ; preds = %invoke.cont644
   br i1 %call647, label %if.then648, label %if.end652
 
 if.then648:                                       ; preds = %invoke.cont646
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp649, align 4
+  store i8 11, ptr %agg.tmp649, align 4
+  %aggregate.i1025 = getelementptr inbounds i8, ptr %agg.tmp649, i64 1
+  store i8 1, ptr %aggregate.i1025, align 1
+  %vecsemantics.i1026 = getelementptr inbounds i8, ptr %agg.tmp649, i64 2
+  store i8 0, ptr %vecsemantics.i1026, align 2
+  %reserved.i1027 = getelementptr inbounds i8, ptr %agg.tmp649, i64 3
+  store i8 0, ptr %reserved.i1027, align 1
   %arraylen4.i1028 = getelementptr inbounds i8, ptr %agg.tmp649, i64 4
   store i32 0, ptr %arraylen4.i1028, align 4
   %call651 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp643, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp649)
@@ -5205,7 +5307,13 @@ if.end652:                                        ; preds = %if.then648, %invoke
           to label %if.then658 unwind label %lpad645
 
 if.then658:                                       ; preds = %if.end652
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp659, align 4
+  store i8 0, ptr %agg.tmp659, align 4
+  %aggregate.i1029 = getelementptr inbounds i8, ptr %agg.tmp659, i64 1
+  store i8 1, ptr %aggregate.i1029, align 1
+  %vecsemantics.i1030 = getelementptr inbounds i8, ptr %agg.tmp659, i64 2
+  store i8 0, ptr %vecsemantics.i1030, align 2
+  %reserved.i1031 = getelementptr inbounds i8, ptr %agg.tmp659, i64 3
+  store i8 0, ptr %reserved.i1031, align 1
   %arraylen.i1032 = getelementptr inbounds i8, ptr %agg.tmp659, i64 4
   store i32 0, ptr %arraylen.i1032, align 4
   %call661 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp643, ptr noundef nonnull %agg.tmp659)
@@ -5257,7 +5365,13 @@ invoke.cont701:                                   ; preds = %invoke.cont699
   br i1 %call702, label %if.then703, label %if.end707
 
 if.then703:                                       ; preds = %invoke.cont701
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp704, align 4
+  store i8 11, ptr %agg.tmp704, align 4
+  %aggregate.i1033 = getelementptr inbounds i8, ptr %agg.tmp704, i64 1
+  store i8 1, ptr %aggregate.i1033, align 1
+  %vecsemantics.i1034 = getelementptr inbounds i8, ptr %agg.tmp704, i64 2
+  store i8 0, ptr %vecsemantics.i1034, align 2
+  %reserved.i1035 = getelementptr inbounds i8, ptr %agg.tmp704, i64 3
+  store i8 0, ptr %reserved.i1035, align 1
   %arraylen4.i1036 = getelementptr inbounds i8, ptr %agg.tmp704, i64 4
   store i32 0, ptr %arraylen4.i1036, align 4
   %call706 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp698, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp704)
@@ -5274,7 +5388,13 @@ if.end707:                                        ; preds = %if.then703, %invoke
           to label %if.then713 unwind label %lpad700
 
 if.then713:                                       ; preds = %if.end707
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp714, align 4
+  store i8 0, ptr %agg.tmp714, align 4
+  %aggregate.i1037 = getelementptr inbounds i8, ptr %agg.tmp714, i64 1
+  store i8 1, ptr %aggregate.i1037, align 1
+  %vecsemantics.i1038 = getelementptr inbounds i8, ptr %agg.tmp714, i64 2
+  store i8 0, ptr %vecsemantics.i1038, align 2
+  %reserved.i1039 = getelementptr inbounds i8, ptr %agg.tmp714, i64 3
+  store i8 0, ptr %reserved.i1039, align 1
   %arraylen.i1040 = getelementptr inbounds i8, ptr %agg.tmp714, i64 4
   store i32 0, ptr %arraylen.i1040, align 4
   %call716 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp698, ptr noundef nonnull %agg.tmp714)
@@ -5289,7 +5409,13 @@ sw.default726:                                    ; preds = %invoke.cont501
           to label %invoke.cont728 unwind label %lpad
 
 invoke.cont728:                                   ; preds = %sw.default726
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp729, align 4
+  store i8 11, ptr %agg.tmp729, align 4
+  %aggregate.i1041 = getelementptr inbounds i8, ptr %agg.tmp729, i64 1
+  store i8 1, ptr %aggregate.i1041, align 1
+  %vecsemantics.i1042 = getelementptr inbounds i8, ptr %agg.tmp729, i64 2
+  store i8 0, ptr %vecsemantics.i1042, align 2
+  %reserved.i1043 = getelementptr inbounds i8, ptr %agg.tmp729, i64 3
+  store i8 0, ptr %reserved.i1043, align 1
   %arraylen4.i1044 = getelementptr inbounds i8, ptr %agg.tmp729, i64 4
   store i32 0, ptr %arraylen4.i1044, align 4
   %call732 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Btmp727, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull %agg.tmp729)
@@ -5342,7 +5468,13 @@ invoke.cont762:                                   ; preds = %invoke.cont760
   br i1 %call763, label %if.then764, label %if.end768
 
 if.then764:                                       ; preds = %invoke.cont762
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp765, align 4
+  store i8 11, ptr %agg.tmp765, align 4
+  %aggregate.i1045 = getelementptr inbounds i8, ptr %agg.tmp765, i64 1
+  store i8 1, ptr %aggregate.i1045, align 1
+  %vecsemantics.i1046 = getelementptr inbounds i8, ptr %agg.tmp765, i64 2
+  store i8 0, ptr %vecsemantics.i1046, align 2
+  %reserved.i1047 = getelementptr inbounds i8, ptr %agg.tmp765, i64 3
+  store i8 0, ptr %reserved.i1047, align 1
   %arraylen4.i1048 = getelementptr inbounds i8, ptr %agg.tmp765, i64 4
   store i32 0, ptr %arraylen4.i1048, align 4
   %call767 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp759, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp765)
@@ -5359,7 +5491,13 @@ if.end768:                                        ; preds = %if.then764, %invoke
           to label %if.then774 unwind label %lpad761
 
 if.then774:                                       ; preds = %if.end768
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp775, align 4
+  store i8 0, ptr %agg.tmp775, align 4
+  %aggregate.i1049 = getelementptr inbounds i8, ptr %agg.tmp775, i64 1
+  store i8 1, ptr %aggregate.i1049, align 1
+  %vecsemantics.i1050 = getelementptr inbounds i8, ptr %agg.tmp775, i64 2
+  store i8 0, ptr %vecsemantics.i1050, align 2
+  %reserved.i1051 = getelementptr inbounds i8, ptr %agg.tmp775, i64 3
+  store i8 0, ptr %reserved.i1051, align 1
   %arraylen.i1052 = getelementptr inbounds i8, ptr %agg.tmp775, i64 4
   store i32 0, ptr %arraylen.i1052, align 4
   %call777 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp759, ptr noundef nonnull %agg.tmp775)
@@ -5434,7 +5572,13 @@ invoke.cont825:                                   ; preds = %invoke.cont823
   br i1 %call826, label %if.then827, label %if.end831
 
 if.then827:                                       ; preds = %invoke.cont825
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp828, align 4
+  store i8 11, ptr %agg.tmp828, align 4
+  %aggregate.i1053 = getelementptr inbounds i8, ptr %agg.tmp828, i64 1
+  store i8 1, ptr %aggregate.i1053, align 1
+  %vecsemantics.i1054 = getelementptr inbounds i8, ptr %agg.tmp828, i64 2
+  store i8 0, ptr %vecsemantics.i1054, align 2
+  %reserved.i1055 = getelementptr inbounds i8, ptr %agg.tmp828, i64 3
+  store i8 0, ptr %reserved.i1055, align 1
   %arraylen4.i1056 = getelementptr inbounds i8, ptr %agg.tmp828, i64 4
   store i32 0, ptr %arraylen4.i1056, align 4
   %call830 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp822, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp828)
@@ -5451,7 +5595,13 @@ if.end831:                                        ; preds = %if.then827, %invoke
           to label %if.then837 unwind label %lpad824
 
 if.then837:                                       ; preds = %if.end831
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp838, align 4
+  store i8 0, ptr %agg.tmp838, align 4
+  %aggregate.i1057 = getelementptr inbounds i8, ptr %agg.tmp838, i64 1
+  store i8 1, ptr %aggregate.i1057, align 1
+  %vecsemantics.i1058 = getelementptr inbounds i8, ptr %agg.tmp838, i64 2
+  store i8 0, ptr %vecsemantics.i1058, align 2
+  %reserved.i1059 = getelementptr inbounds i8, ptr %agg.tmp838, i64 3
+  store i8 0, ptr %reserved.i1059, align 1
   %arraylen.i1060 = getelementptr inbounds i8, ptr %agg.tmp838, i64 4
   store i32 0, ptr %arraylen.i1060, align 4
   %call840 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp822, ptr noundef nonnull %agg.tmp838)
@@ -5503,7 +5653,13 @@ invoke.cont880:                                   ; preds = %invoke.cont878
   br i1 %call881, label %if.then882, label %if.end886
 
 if.then882:                                       ; preds = %invoke.cont880
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp883, align 4
+  store i8 11, ptr %agg.tmp883, align 4
+  %aggregate.i1061 = getelementptr inbounds i8, ptr %agg.tmp883, i64 1
+  store i8 1, ptr %aggregate.i1061, align 1
+  %vecsemantics.i1062 = getelementptr inbounds i8, ptr %agg.tmp883, i64 2
+  store i8 0, ptr %vecsemantics.i1062, align 2
+  %reserved.i1063 = getelementptr inbounds i8, ptr %agg.tmp883, i64 3
+  store i8 0, ptr %reserved.i1063, align 1
   %arraylen4.i1064 = getelementptr inbounds i8, ptr %agg.tmp883, i64 4
   store i32 0, ptr %arraylen4.i1064, align 4
   %call885 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp877, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp883)
@@ -5520,7 +5676,13 @@ if.end886:                                        ; preds = %if.then882, %invoke
           to label %if.then892 unwind label %lpad879
 
 if.then892:                                       ; preds = %if.end886
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp893, align 4
+  store i8 0, ptr %agg.tmp893, align 4
+  %aggregate.i1065 = getelementptr inbounds i8, ptr %agg.tmp893, i64 1
+  store i8 1, ptr %aggregate.i1065, align 1
+  %vecsemantics.i1066 = getelementptr inbounds i8, ptr %agg.tmp893, i64 2
+  store i8 0, ptr %vecsemantics.i1066, align 2
+  %reserved.i1067 = getelementptr inbounds i8, ptr %agg.tmp893, i64 3
+  store i8 0, ptr %reserved.i1067, align 1
   %arraylen.i1068 = getelementptr inbounds i8, ptr %agg.tmp893, i64 4
   store i32 0, ptr %arraylen.i1068, align 4
   %call895 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp877, ptr noundef nonnull %agg.tmp893)
@@ -5572,7 +5734,13 @@ invoke.cont935:                                   ; preds = %invoke.cont933
   br i1 %call936, label %if.then937, label %if.end941
 
 if.then937:                                       ; preds = %invoke.cont935
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp938, align 4
+  store i8 11, ptr %agg.tmp938, align 4
+  %aggregate.i1069 = getelementptr inbounds i8, ptr %agg.tmp938, i64 1
+  store i8 1, ptr %aggregate.i1069, align 1
+  %vecsemantics.i1070 = getelementptr inbounds i8, ptr %agg.tmp938, i64 2
+  store i8 0, ptr %vecsemantics.i1070, align 2
+  %reserved.i1071 = getelementptr inbounds i8, ptr %agg.tmp938, i64 3
+  store i8 0, ptr %reserved.i1071, align 1
   %arraylen4.i1072 = getelementptr inbounds i8, ptr %agg.tmp938, i64 4
   store i32 0, ptr %arraylen4.i1072, align 4
   %call940 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp932, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp938)
@@ -5589,7 +5757,13 @@ if.end941:                                        ; preds = %if.then937, %invoke
           to label %if.then947 unwind label %lpad934
 
 if.then947:                                       ; preds = %if.end941
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp948, align 4
+  store i8 0, ptr %agg.tmp948, align 4
+  %aggregate.i1073 = getelementptr inbounds i8, ptr %agg.tmp948, i64 1
+  store i8 1, ptr %aggregate.i1073, align 1
+  %vecsemantics.i1074 = getelementptr inbounds i8, ptr %agg.tmp948, i64 2
+  store i8 0, ptr %vecsemantics.i1074, align 2
+  %reserved.i1075 = getelementptr inbounds i8, ptr %agg.tmp948, i64 3
+  store i8 0, ptr %reserved.i1075, align 1
   %arraylen.i1076 = getelementptr inbounds i8, ptr %agg.tmp948, i64 4
   store i32 0, ptr %arraylen.i1076, align 4
   %call950 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp932, ptr noundef nonnull %agg.tmp948)
@@ -5641,7 +5815,13 @@ invoke.cont990:                                   ; preds = %invoke.cont988
   br i1 %call991, label %if.then992, label %if.end996
 
 if.then992:                                       ; preds = %invoke.cont990
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp993, align 4
+  store i8 11, ptr %agg.tmp993, align 4
+  %aggregate.i1077 = getelementptr inbounds i8, ptr %agg.tmp993, i64 1
+  store i8 1, ptr %aggregate.i1077, align 1
+  %vecsemantics.i1078 = getelementptr inbounds i8, ptr %agg.tmp993, i64 2
+  store i8 0, ptr %vecsemantics.i1078, align 2
+  %reserved.i1079 = getelementptr inbounds i8, ptr %agg.tmp993, i64 3
+  store i8 0, ptr %reserved.i1079, align 1
   %arraylen4.i1080 = getelementptr inbounds i8, ptr %agg.tmp993, i64 4
   store i32 0, ptr %arraylen4.i1080, align 4
   %call995 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp987, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp993)
@@ -5658,7 +5838,13 @@ if.end996:                                        ; preds = %if.then992, %invoke
           to label %if.then1002 unwind label %lpad989
 
 if.then1002:                                      ; preds = %if.end996
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1003, align 4
+  store i8 0, ptr %agg.tmp1003, align 4
+  %aggregate.i1081 = getelementptr inbounds i8, ptr %agg.tmp1003, i64 1
+  store i8 1, ptr %aggregate.i1081, align 1
+  %vecsemantics.i1082 = getelementptr inbounds i8, ptr %agg.tmp1003, i64 2
+  store i8 0, ptr %vecsemantics.i1082, align 2
+  %reserved.i1083 = getelementptr inbounds i8, ptr %agg.tmp1003, i64 3
+  store i8 0, ptr %reserved.i1083, align 1
   %arraylen.i1084 = getelementptr inbounds i8, ptr %agg.tmp1003, i64 4
   store i32 0, ptr %arraylen.i1084, align 4
   %call1005 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp987, ptr noundef nonnull %agg.tmp1003)
@@ -5673,7 +5859,13 @@ sw.default1015:                                   ; preds = %invoke.cont790
           to label %invoke.cont1017 unwind label %lpad
 
 invoke.cont1017:                                  ; preds = %sw.default1015
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1018, align 4
+  store i8 11, ptr %agg.tmp1018, align 4
+  %aggregate.i1085 = getelementptr inbounds i8, ptr %agg.tmp1018, i64 1
+  store i8 1, ptr %aggregate.i1085, align 1
+  %vecsemantics.i1086 = getelementptr inbounds i8, ptr %agg.tmp1018, i64 2
+  store i8 0, ptr %vecsemantics.i1086, align 2
+  %reserved.i1087 = getelementptr inbounds i8, ptr %agg.tmp1018, i64 3
+  store i8 0, ptr %reserved.i1087, align 1
   %arraylen4.i1088 = getelementptr inbounds i8, ptr %agg.tmp1018, i64 4
   store i32 0, ptr %arraylen4.i1088, align 4
   %call1021 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Btmp1016, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull %agg.tmp1018)
@@ -5726,7 +5918,13 @@ invoke.cont1051:                                  ; preds = %invoke.cont1049
   br i1 %call1052, label %if.then1053, label %if.end1057
 
 if.then1053:                                      ; preds = %invoke.cont1051
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1054, align 4
+  store i8 11, ptr %agg.tmp1054, align 4
+  %aggregate.i1089 = getelementptr inbounds i8, ptr %agg.tmp1054, i64 1
+  store i8 1, ptr %aggregate.i1089, align 1
+  %vecsemantics.i1090 = getelementptr inbounds i8, ptr %agg.tmp1054, i64 2
+  store i8 0, ptr %vecsemantics.i1090, align 2
+  %reserved.i1091 = getelementptr inbounds i8, ptr %agg.tmp1054, i64 3
+  store i8 0, ptr %reserved.i1091, align 1
   %arraylen4.i1092 = getelementptr inbounds i8, ptr %agg.tmp1054, i64 4
   store i32 0, ptr %arraylen4.i1092, align 4
   %call1056 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1048, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp1054)
@@ -5743,7 +5941,13 @@ if.end1057:                                       ; preds = %if.then1053, %invok
           to label %if.then1063 unwind label %lpad1050
 
 if.then1063:                                      ; preds = %if.end1057
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1064, align 4
+  store i8 0, ptr %agg.tmp1064, align 4
+  %aggregate.i1093 = getelementptr inbounds i8, ptr %agg.tmp1064, i64 1
+  store i8 1, ptr %aggregate.i1093, align 1
+  %vecsemantics.i1094 = getelementptr inbounds i8, ptr %agg.tmp1064, i64 2
+  store i8 0, ptr %vecsemantics.i1094, align 2
+  %reserved.i1095 = getelementptr inbounds i8, ptr %agg.tmp1064, i64 3
+  store i8 0, ptr %reserved.i1095, align 1
   %arraylen.i1096 = getelementptr inbounds i8, ptr %agg.tmp1064, i64 4
   store i32 0, ptr %arraylen.i1096, align 4
   %call1066 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1048, ptr noundef nonnull %agg.tmp1064)
@@ -5818,7 +6022,13 @@ invoke.cont1114:                                  ; preds = %invoke.cont1112
   br i1 %call1115, label %if.then1116, label %if.end1120
 
 if.then1116:                                      ; preds = %invoke.cont1114
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1117, align 4
+  store i8 11, ptr %agg.tmp1117, align 4
+  %aggregate.i1097 = getelementptr inbounds i8, ptr %agg.tmp1117, i64 1
+  store i8 1, ptr %aggregate.i1097, align 1
+  %vecsemantics.i1098 = getelementptr inbounds i8, ptr %agg.tmp1117, i64 2
+  store i8 0, ptr %vecsemantics.i1098, align 2
+  %reserved.i1099 = getelementptr inbounds i8, ptr %agg.tmp1117, i64 3
+  store i8 0, ptr %reserved.i1099, align 1
   %arraylen4.i1100 = getelementptr inbounds i8, ptr %agg.tmp1117, i64 4
   store i32 0, ptr %arraylen4.i1100, align 4
   %call1119 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1111, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp1117)
@@ -5835,7 +6045,13 @@ if.end1120:                                       ; preds = %if.then1116, %invok
           to label %if.then1126 unwind label %lpad1113
 
 if.then1126:                                      ; preds = %if.end1120
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1127, align 4
+  store i8 0, ptr %agg.tmp1127, align 4
+  %aggregate.i1101 = getelementptr inbounds i8, ptr %agg.tmp1127, i64 1
+  store i8 1, ptr %aggregate.i1101, align 1
+  %vecsemantics.i1102 = getelementptr inbounds i8, ptr %agg.tmp1127, i64 2
+  store i8 0, ptr %vecsemantics.i1102, align 2
+  %reserved.i1103 = getelementptr inbounds i8, ptr %agg.tmp1127, i64 3
+  store i8 0, ptr %reserved.i1103, align 1
   %arraylen.i1104 = getelementptr inbounds i8, ptr %agg.tmp1127, i64 4
   store i32 0, ptr %arraylen.i1104, align 4
   %call1129 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1111, ptr noundef nonnull %agg.tmp1127)
@@ -5887,7 +6103,13 @@ invoke.cont1169:                                  ; preds = %invoke.cont1167
   br i1 %call1170, label %if.then1171, label %if.end1175
 
 if.then1171:                                      ; preds = %invoke.cont1169
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1172, align 4
+  store i8 11, ptr %agg.tmp1172, align 4
+  %aggregate.i1105 = getelementptr inbounds i8, ptr %agg.tmp1172, i64 1
+  store i8 1, ptr %aggregate.i1105, align 1
+  %vecsemantics.i1106 = getelementptr inbounds i8, ptr %agg.tmp1172, i64 2
+  store i8 0, ptr %vecsemantics.i1106, align 2
+  %reserved.i1107 = getelementptr inbounds i8, ptr %agg.tmp1172, i64 3
+  store i8 0, ptr %reserved.i1107, align 1
   %arraylen4.i1108 = getelementptr inbounds i8, ptr %agg.tmp1172, i64 4
   store i32 0, ptr %arraylen4.i1108, align 4
   %call1174 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1166, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp1172)
@@ -5904,7 +6126,13 @@ if.end1175:                                       ; preds = %if.then1171, %invok
           to label %if.then1181 unwind label %lpad1168
 
 if.then1181:                                      ; preds = %if.end1175
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1182, align 4
+  store i8 0, ptr %agg.tmp1182, align 4
+  %aggregate.i1109 = getelementptr inbounds i8, ptr %agg.tmp1182, i64 1
+  store i8 1, ptr %aggregate.i1109, align 1
+  %vecsemantics.i1110 = getelementptr inbounds i8, ptr %agg.tmp1182, i64 2
+  store i8 0, ptr %vecsemantics.i1110, align 2
+  %reserved.i1111 = getelementptr inbounds i8, ptr %agg.tmp1182, i64 3
+  store i8 0, ptr %reserved.i1111, align 1
   %arraylen.i1112 = getelementptr inbounds i8, ptr %agg.tmp1182, i64 4
   store i32 0, ptr %arraylen.i1112, align 4
   %call1184 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1166, ptr noundef nonnull %agg.tmp1182)
@@ -5956,7 +6184,13 @@ invoke.cont1224:                                  ; preds = %invoke.cont1222
   br i1 %call1225, label %if.then1226, label %if.end1230
 
 if.then1226:                                      ; preds = %invoke.cont1224
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1227, align 4
+  store i8 11, ptr %agg.tmp1227, align 4
+  %aggregate.i1113 = getelementptr inbounds i8, ptr %agg.tmp1227, i64 1
+  store i8 1, ptr %aggregate.i1113, align 1
+  %vecsemantics.i1114 = getelementptr inbounds i8, ptr %agg.tmp1227, i64 2
+  store i8 0, ptr %vecsemantics.i1114, align 2
+  %reserved.i1115 = getelementptr inbounds i8, ptr %agg.tmp1227, i64 3
+  store i8 0, ptr %reserved.i1115, align 1
   %arraylen4.i1116 = getelementptr inbounds i8, ptr %agg.tmp1227, i64 4
   store i32 0, ptr %arraylen4.i1116, align 4
   %call1229 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1221, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp1227)
@@ -5973,7 +6207,13 @@ if.end1230:                                       ; preds = %if.then1226, %invok
           to label %if.then1236 unwind label %lpad1223
 
 if.then1236:                                      ; preds = %if.end1230
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1237, align 4
+  store i8 0, ptr %agg.tmp1237, align 4
+  %aggregate.i1117 = getelementptr inbounds i8, ptr %agg.tmp1237, i64 1
+  store i8 1, ptr %aggregate.i1117, align 1
+  %vecsemantics.i1118 = getelementptr inbounds i8, ptr %agg.tmp1237, i64 2
+  store i8 0, ptr %vecsemantics.i1118, align 2
+  %reserved.i1119 = getelementptr inbounds i8, ptr %agg.tmp1237, i64 3
+  store i8 0, ptr %reserved.i1119, align 1
   %arraylen.i1120 = getelementptr inbounds i8, ptr %agg.tmp1237, i64 4
   store i32 0, ptr %arraylen.i1120, align 4
   %call1239 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1221, ptr noundef nonnull %agg.tmp1237)
@@ -6025,7 +6265,13 @@ invoke.cont1279:                                  ; preds = %invoke.cont1277
   br i1 %call1280, label %if.then1281, label %if.end1285
 
 if.then1281:                                      ; preds = %invoke.cont1279
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1282, align 4
+  store i8 11, ptr %agg.tmp1282, align 4
+  %aggregate.i1121 = getelementptr inbounds i8, ptr %agg.tmp1282, i64 1
+  store i8 1, ptr %aggregate.i1121, align 1
+  %vecsemantics.i1122 = getelementptr inbounds i8, ptr %agg.tmp1282, i64 2
+  store i8 0, ptr %vecsemantics.i1122, align 2
+  %reserved.i1123 = getelementptr inbounds i8, ptr %agg.tmp1282, i64 3
+  store i8 0, ptr %reserved.i1123, align 1
   %arraylen4.i1124 = getelementptr inbounds i8, ptr %agg.tmp1282, i64 4
   store i32 0, ptr %arraylen4.i1124, align 4
   %call1284 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1276, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp1282)
@@ -6042,7 +6288,13 @@ if.end1285:                                       ; preds = %if.then1281, %invok
           to label %if.then1291 unwind label %lpad1278
 
 if.then1291:                                      ; preds = %if.end1285
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1292, align 4
+  store i8 0, ptr %agg.tmp1292, align 4
+  %aggregate.i1125 = getelementptr inbounds i8, ptr %agg.tmp1292, i64 1
+  store i8 1, ptr %aggregate.i1125, align 1
+  %vecsemantics.i1126 = getelementptr inbounds i8, ptr %agg.tmp1292, i64 2
+  store i8 0, ptr %vecsemantics.i1126, align 2
+  %reserved.i1127 = getelementptr inbounds i8, ptr %agg.tmp1292, i64 3
+  store i8 0, ptr %reserved.i1127, align 1
   %arraylen.i1128 = getelementptr inbounds i8, ptr %agg.tmp1292, i64 4
   store i32 0, ptr %arraylen.i1128, align 4
   %call1294 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1276, ptr noundef nonnull %agg.tmp1292)
@@ -6057,7 +6309,13 @@ sw.default1304:                                   ; preds = %invoke.cont1079
           to label %invoke.cont1306 unwind label %lpad
 
 invoke.cont1306:                                  ; preds = %sw.default1304
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1307, align 4
+  store i8 11, ptr %agg.tmp1307, align 4
+  %aggregate.i1129 = getelementptr inbounds i8, ptr %agg.tmp1307, i64 1
+  store i8 1, ptr %aggregate.i1129, align 1
+  %vecsemantics.i1130 = getelementptr inbounds i8, ptr %agg.tmp1307, i64 2
+  store i8 0, ptr %vecsemantics.i1130, align 2
+  %reserved.i1131 = getelementptr inbounds i8, ptr %agg.tmp1307, i64 3
+  store i8 0, ptr %reserved.i1131, align 1
   %arraylen4.i1132 = getelementptr inbounds i8, ptr %agg.tmp1307, i64 4
   store i32 0, ptr %arraylen4.i1132, align 4
   %call1310 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Btmp1305, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull %agg.tmp1307)
@@ -6110,7 +6368,13 @@ invoke.cont1340:                                  ; preds = %invoke.cont1338
   br i1 %call1341, label %if.then1342, label %if.end1346
 
 if.then1342:                                      ; preds = %invoke.cont1340
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1343, align 4
+  store i8 11, ptr %agg.tmp1343, align 4
+  %aggregate.i1133 = getelementptr inbounds i8, ptr %agg.tmp1343, i64 1
+  store i8 1, ptr %aggregate.i1133, align 1
+  %vecsemantics.i1134 = getelementptr inbounds i8, ptr %agg.tmp1343, i64 2
+  store i8 0, ptr %vecsemantics.i1134, align 2
+  %reserved.i1135 = getelementptr inbounds i8, ptr %agg.tmp1343, i64 3
+  store i8 0, ptr %reserved.i1135, align 1
   %arraylen4.i1136 = getelementptr inbounds i8, ptr %agg.tmp1343, i64 4
   store i32 0, ptr %arraylen4.i1136, align 4
   %call1345 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1337, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp1343)
@@ -6127,7 +6391,13 @@ if.end1346:                                       ; preds = %if.then1342, %invok
           to label %if.then1352 unwind label %lpad1339
 
 if.then1352:                                      ; preds = %if.end1346
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1353, align 4
+  store i8 0, ptr %agg.tmp1353, align 4
+  %aggregate.i1137 = getelementptr inbounds i8, ptr %agg.tmp1353, i64 1
+  store i8 1, ptr %aggregate.i1137, align 1
+  %vecsemantics.i1138 = getelementptr inbounds i8, ptr %agg.tmp1353, i64 2
+  store i8 0, ptr %vecsemantics.i1138, align 2
+  %reserved.i1139 = getelementptr inbounds i8, ptr %agg.tmp1353, i64 3
+  store i8 0, ptr %reserved.i1139, align 1
   %arraylen.i1140 = getelementptr inbounds i8, ptr %agg.tmp1353, i64 4
   store i32 0, ptr %arraylen.i1140, align 4
   %call1355 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1337, ptr noundef nonnull %agg.tmp1353)
@@ -6151,7 +6421,13 @@ sw.default1367:                                   ; preds = %invoke.cont208
           to label %invoke.cont1368 unwind label %lpad
 
 invoke.cont1368:                                  ; preds = %sw.default1367
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1369, align 4
+  store i8 11, ptr %agg.tmp1369, align 4
+  %aggregate.i1141 = getelementptr inbounds i8, ptr %agg.tmp1369, i64 1
+  store i8 1, ptr %aggregate.i1141, align 1
+  %vecsemantics.i1142 = getelementptr inbounds i8, ptr %agg.tmp1369, i64 2
+  store i8 0, ptr %vecsemantics.i1142, align 2
+  %reserved.i1143 = getelementptr inbounds i8, ptr %agg.tmp1369, i64 3
+  store i8 0, ptr %reserved.i1143, align 1
   %arraylen4.i1144 = getelementptr inbounds i8, ptr %agg.tmp1369, i64 4
   store i32 0, ptr %arraylen4.i1144, align 4
   %call1372 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Atmp, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull %agg.tmp1369)
@@ -6218,7 +6494,13 @@ invoke.cont1408:                                  ; preds = %invoke.cont1406
   br i1 %call1409, label %if.then1410, label %if.end1414
 
 if.then1410:                                      ; preds = %invoke.cont1408
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1411, align 4
+  store i8 11, ptr %agg.tmp1411, align 4
+  %aggregate.i1145 = getelementptr inbounds i8, ptr %agg.tmp1411, i64 1
+  store i8 1, ptr %aggregate.i1145, align 1
+  %vecsemantics.i1146 = getelementptr inbounds i8, ptr %agg.tmp1411, i64 2
+  store i8 0, ptr %vecsemantics.i1146, align 2
+  %reserved.i1147 = getelementptr inbounds i8, ptr %agg.tmp1411, i64 3
+  store i8 0, ptr %reserved.i1147, align 1
   %arraylen4.i1148 = getelementptr inbounds i8, ptr %agg.tmp1411, i64 4
   store i32 0, ptr %arraylen4.i1148, align 4
   %call1413 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1405, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp1411)
@@ -6235,7 +6517,13 @@ if.end1414:                                       ; preds = %if.then1410, %invok
           to label %if.then1420 unwind label %lpad1407
 
 if.then1420:                                      ; preds = %if.end1414
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1421, align 4
+  store i8 0, ptr %agg.tmp1421, align 4
+  %aggregate.i1149 = getelementptr inbounds i8, ptr %agg.tmp1421, i64 1
+  store i8 1, ptr %aggregate.i1149, align 1
+  %vecsemantics.i1150 = getelementptr inbounds i8, ptr %agg.tmp1421, i64 2
+  store i8 0, ptr %vecsemantics.i1150, align 2
+  %reserved.i1151 = getelementptr inbounds i8, ptr %agg.tmp1421, i64 3
+  store i8 0, ptr %reserved.i1151, align 1
   %arraylen.i1152 = getelementptr inbounds i8, ptr %agg.tmp1421, i64 4
   store i32 0, ptr %arraylen.i1152, align 4
   %call1423 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1405, ptr noundef nonnull %agg.tmp1421)
@@ -6283,7 +6571,13 @@ invoke.cont1463:                                  ; preds = %invoke.cont1461
   br i1 %call1464, label %if.then1465, label %if.end1469
 
 if.then1465:                                      ; preds = %invoke.cont1463
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1466, align 4
+  store i8 11, ptr %agg.tmp1466, align 4
+  %aggregate.i1153 = getelementptr inbounds i8, ptr %agg.tmp1466, i64 1
+  store i8 1, ptr %aggregate.i1153, align 1
+  %vecsemantics.i1154 = getelementptr inbounds i8, ptr %agg.tmp1466, i64 2
+  store i8 0, ptr %vecsemantics.i1154, align 2
+  %reserved.i1155 = getelementptr inbounds i8, ptr %agg.tmp1466, i64 3
+  store i8 0, ptr %reserved.i1155, align 1
   %arraylen4.i1156 = getelementptr inbounds i8, ptr %agg.tmp1466, i64 4
   store i32 0, ptr %arraylen4.i1156, align 4
   %call1468 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1460, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp1466)
@@ -6300,7 +6594,13 @@ if.end1469:                                       ; preds = %if.then1465, %invok
           to label %if.then1475 unwind label %lpad1462
 
 if.then1475:                                      ; preds = %if.end1469
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1476, align 4
+  store i8 0, ptr %agg.tmp1476, align 4
+  %aggregate.i1157 = getelementptr inbounds i8, ptr %agg.tmp1476, i64 1
+  store i8 1, ptr %aggregate.i1157, align 1
+  %vecsemantics.i1158 = getelementptr inbounds i8, ptr %agg.tmp1476, i64 2
+  store i8 0, ptr %vecsemantics.i1158, align 2
+  %reserved.i1159 = getelementptr inbounds i8, ptr %agg.tmp1476, i64 3
+  store i8 0, ptr %reserved.i1159, align 1
   %arraylen.i1160 = getelementptr inbounds i8, ptr %agg.tmp1476, i64 4
   store i32 0, ptr %arraylen.i1160, align 4
   %call1478 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1460, ptr noundef nonnull %agg.tmp1476)
@@ -6348,7 +6648,13 @@ invoke.cont1518:                                  ; preds = %invoke.cont1516
   br i1 %call1519, label %if.then1520, label %if.end1524
 
 if.then1520:                                      ; preds = %invoke.cont1518
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1521, align 4
+  store i8 11, ptr %agg.tmp1521, align 4
+  %aggregate.i1161 = getelementptr inbounds i8, ptr %agg.tmp1521, i64 1
+  store i8 1, ptr %aggregate.i1161, align 1
+  %vecsemantics.i1162 = getelementptr inbounds i8, ptr %agg.tmp1521, i64 2
+  store i8 0, ptr %vecsemantics.i1162, align 2
+  %reserved.i1163 = getelementptr inbounds i8, ptr %agg.tmp1521, i64 3
+  store i8 0, ptr %reserved.i1163, align 1
   %arraylen4.i1164 = getelementptr inbounds i8, ptr %agg.tmp1521, i64 4
   store i32 0, ptr %arraylen4.i1164, align 4
   %call1523 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1515, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp1521)
@@ -6365,7 +6671,13 @@ if.end1524:                                       ; preds = %if.then1520, %invok
           to label %if.then1530 unwind label %lpad1517
 
 if.then1530:                                      ; preds = %if.end1524
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1531, align 4
+  store i8 0, ptr %agg.tmp1531, align 4
+  %aggregate.i1165 = getelementptr inbounds i8, ptr %agg.tmp1531, i64 1
+  store i8 1, ptr %aggregate.i1165, align 1
+  %vecsemantics.i1166 = getelementptr inbounds i8, ptr %agg.tmp1531, i64 2
+  store i8 0, ptr %vecsemantics.i1166, align 2
+  %reserved.i1167 = getelementptr inbounds i8, ptr %agg.tmp1531, i64 3
+  store i8 0, ptr %reserved.i1167, align 1
   %arraylen.i1168 = getelementptr inbounds i8, ptr %agg.tmp1531, i64 4
   store i32 0, ptr %arraylen.i1168, align 4
   %call1533 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1515, ptr noundef nonnull %agg.tmp1531)
@@ -6413,7 +6725,13 @@ invoke.cont1573:                                  ; preds = %invoke.cont1571
   br i1 %call1574, label %if.then1575, label %if.end1579
 
 if.then1575:                                      ; preds = %invoke.cont1573
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1576, align 4
+  store i8 11, ptr %agg.tmp1576, align 4
+  %aggregate.i1169 = getelementptr inbounds i8, ptr %agg.tmp1576, i64 1
+  store i8 1, ptr %aggregate.i1169, align 1
+  %vecsemantics.i1170 = getelementptr inbounds i8, ptr %agg.tmp1576, i64 2
+  store i8 0, ptr %vecsemantics.i1170, align 2
+  %reserved.i1171 = getelementptr inbounds i8, ptr %agg.tmp1576, i64 3
+  store i8 0, ptr %reserved.i1171, align 1
   %arraylen4.i1172 = getelementptr inbounds i8, ptr %agg.tmp1576, i64 4
   store i32 0, ptr %arraylen4.i1172, align 4
   %call1578 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1570, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp1576)
@@ -6430,7 +6748,13 @@ if.end1579:                                       ; preds = %if.then1575, %invok
           to label %if.then1585 unwind label %lpad1572
 
 if.then1585:                                      ; preds = %if.end1579
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1586, align 4
+  store i8 0, ptr %agg.tmp1586, align 4
+  %aggregate.i1173 = getelementptr inbounds i8, ptr %agg.tmp1586, i64 1
+  store i8 1, ptr %aggregate.i1173, align 1
+  %vecsemantics.i1174 = getelementptr inbounds i8, ptr %agg.tmp1586, i64 2
+  store i8 0, ptr %vecsemantics.i1174, align 2
+  %reserved.i1175 = getelementptr inbounds i8, ptr %agg.tmp1586, i64 3
+  store i8 0, ptr %reserved.i1175, align 1
   %arraylen.i1176 = getelementptr inbounds i8, ptr %agg.tmp1586, i64 4
   store i32 0, ptr %arraylen.i1176, align 4
   %call1588 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1570, ptr noundef nonnull %agg.tmp1586)
@@ -6441,7 +6765,13 @@ sw.default1598:                                   ; preds = %invoke.cont1373
           to label %invoke.cont1600 unwind label %lpad1370
 
 invoke.cont1600:                                  ; preds = %sw.default1598
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1601, align 4
+  store i8 11, ptr %agg.tmp1601, align 4
+  %aggregate.i1177 = getelementptr inbounds i8, ptr %agg.tmp1601, i64 1
+  store i8 1, ptr %aggregate.i1177, align 1
+  %vecsemantics.i1178 = getelementptr inbounds i8, ptr %agg.tmp1601, i64 2
+  store i8 0, ptr %vecsemantics.i1178, align 2
+  %reserved.i1179 = getelementptr inbounds i8, ptr %agg.tmp1601, i64 3
+  store i8 0, ptr %reserved.i1179, align 1
   %arraylen4.i1180 = getelementptr inbounds i8, ptr %agg.tmp1601, i64 4
   store i32 0, ptr %arraylen4.i1180, align 4
   %call1604 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Btmp1599, ptr noundef nonnull align 8 dereferenceable(16) %B, ptr noundef nonnull %agg.tmp1601)
@@ -6494,7 +6824,13 @@ invoke.cont1634:                                  ; preds = %invoke.cont1632
   br i1 %call1635, label %if.then1636, label %if.end1640
 
 if.then1636:                                      ; preds = %invoke.cont1634
-  store <4 x i8> <i8 11, i8 1, i8 0, i8 0>, ptr %agg.tmp1637, align 4
+  store i8 11, ptr %agg.tmp1637, align 4
+  %aggregate.i1181 = getelementptr inbounds i8, ptr %agg.tmp1637, i64 1
+  store i8 1, ptr %aggregate.i1181, align 1
+  %vecsemantics.i1182 = getelementptr inbounds i8, ptr %agg.tmp1637, i64 2
+  store i8 0, ptr %vecsemantics.i1182, align 2
+  %reserved.i1183 = getelementptr inbounds i8, ptr %agg.tmp1637, i64 3
+  store i8 0, ptr %reserved.i1183, align 1
   %arraylen4.i1184 = getelementptr inbounds i8, ptr %agg.tmp1637, i64 4
   store i32 0, ptr %arraylen4.i1184, align 4
   %call1639 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1631, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull %agg.tmp1637)
@@ -6511,7 +6847,13 @@ if.end1640:                                       ; preds = %if.then1636, %invok
           to label %if.then1646 unwind label %lpad1633
 
 if.then1646:                                      ; preds = %if.end1640
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1647, align 4
+  store i8 0, ptr %agg.tmp1647, align 4
+  %aggregate.i1185 = getelementptr inbounds i8, ptr %agg.tmp1647, i64 1
+  store i8 1, ptr %aggregate.i1185, align 1
+  %vecsemantics.i1186 = getelementptr inbounds i8, ptr %agg.tmp1647, i64 2
+  store i8 0, ptr %vecsemantics.i1186, align 2
+  %reserved.i1187 = getelementptr inbounds i8, ptr %agg.tmp1647, i64 3
+  store i8 0, ptr %reserved.i1187, align 1
   %arraylen.i1188 = getelementptr inbounds i8, ptr %agg.tmp1647, i64 4
   store i32 0, ptr %arraylen.i1188, align 4
   %call1649 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %Rtmp1631, ptr noundef nonnull %agg.tmp1647)
@@ -12041,7 +12383,13 @@ _ZN3fmt2v86detail5writeIcNS0_8appenderEbTnNSt9enable_ifIXsr3std7is_sameIT1_bEE5v
   %align.i = getelementptr inbounds i8, ptr %ref.tmp, i64 9
   store i16 0, ptr %align.i, align 1
   %fill.i = getelementptr inbounds i8, ptr %ref.tmp, i64 11
-  store <4 x i8> <i8 32, i8 0, i8 0, i8 0>, ptr %fill.i, align 1
+  store i8 32, ptr %fill.i, align 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  store i8 0, ptr %arrayinit.element.i.i, align 4
+  %arrayinit.element2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 13
+  store i8 0, ptr %arrayinit.element2.i.i, align 1
+  %arrayinit.element3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 14
+  store i8 0, ptr %arrayinit.element3.i.i, align 2
   %size_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 15
   store i8 1, ptr %size_.i.i, align 1
   %cond14.i = select i1 %value, ptr @.str.21, ptr @.str.22
@@ -12239,7 +12587,13 @@ _ZN3fmt2v86detail23check_pointer_type_specINS1_13error_handlerEEEvNS0_17presenta
   %align.i = getelementptr inbounds i8, ptr %ref.tmp, i64 9
   store i16 0, ptr %align.i, align 1
   %fill.i = getelementptr inbounds i8, ptr %ref.tmp, i64 11
-  store <4 x i8> <i8 32, i8 0, i8 0, i8 0>, ptr %fill.i, align 1
+  store i8 32, ptr %fill.i, align 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  store i8 0, ptr %arrayinit.element.i.i, align 4
+  %arrayinit.element2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 13
+  store i8 0, ptr %arrayinit.element2.i.i, align 1
+  %arrayinit.element3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 14
+  store i8 0, ptr %arrayinit.element3.i.i, align 2
   %size_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 15
   store i8 1, ptr %size_.i.i, align 1
   %0 = ptrtoint ptr %value to i64
@@ -24435,14 +24789,14 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEeTnNSt9en
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.58, align 8
-  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp.i = alloca %class.anon.39, align 8
-  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp77 = alloca %"class.std::allocator", align 1
   %fp = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 16
+  store i64 %specs.coerce0, ptr %specs, align 8
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call4 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -24477,11 +24831,13 @@ if.end24:                                         ; preds = %if.else, %if.then9
 
 if.then26:                                        ; preds = %if.end24
   %6 = fcmp oeq x86_fp80 %value.addr.0, 0xK7FFF8000000000000000
+  %agg.tmp28.sroa.0.0.copyload = load i64, ptr %specs, align 8
+  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
-  %7 = load <2 x i64>, ptr %specs, align 16
-  store <2 x i64> %7, ptr %specs.i, align 16
+  store i64 %agg.tmp28.sroa.0.0.copyload, ptr %specs.i, align 8
+  %7 = getelementptr inbounds i8, ptr %specs.i, i64 8
+  store i64 %agg.tmp28.sroa.2.0.copyload, ptr %7, align 8
   %8 = and i64 %agg.tmp28.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %8, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -24548,13 +24904,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %if
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %12, ptr %arrayidx.i.i, align 1
   %bf.clear70 = and i32 %fspecs.sroa.5.0, -65281
-  %18 = load i32, ptr %specs, align 16
+  %18 = load i32, ptr %specs, align 8
   %cmp72.not = icmp eq i32 %18, 0
   br i1 %cmp72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %specs, align 16
+  store i32 %dec, ptr %specs, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
@@ -32268,7 +32624,13 @@ if.end:                                           ; preds = %_ZN3fmt2v86detail7g
   %bf.clear9.i = and i16 %bf.load.i141, -512
   store i16 %bf.clear9.i, ptr %align.i, align 1
   %fill.i = getelementptr inbounds i8, ptr %specs, i64 11
-  store <4 x i8> <i8 32, i8 0, i8 0, i8 0>, ptr %fill.i, align 1
+  store i8 32, ptr %fill.i, align 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 0, ptr %arrayinit.element.i.i, align 4
+  %arrayinit.element2.i.i = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 0, ptr %arrayinit.element2.i.i, align 1
+  %arrayinit.element3.i.i = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 0, ptr %arrayinit.element3.i.i, align 2
   %size_.i.i142 = getelementptr inbounds i8, ptr %specs, i64 15
   store i8 1, ptr %size_.i.i142, align 1
   %parse_context11 = getelementptr inbounds i8, ptr %this, i64 8
@@ -40649,14 +41011,14 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9en
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.58, align 8
-  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp.i = alloca %class.anon.39, align 8
-  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp77 = alloca %"class.std::allocator", align 1
   %fp = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 16
+  store i64 %specs.coerce0, ptr %specs, align 8
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call4 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -40691,11 +41053,13 @@ if.end24:                                         ; preds = %if.else, %if.then9
 
 if.then26:                                        ; preds = %if.end24
   %6 = fcmp oeq float %value.addr.0, 0x7FF0000000000000
+  %agg.tmp28.sroa.0.0.copyload = load i64, ptr %specs, align 8
+  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
-  %7 = load <2 x i64>, ptr %specs, align 16
-  store <2 x i64> %7, ptr %specs.i, align 16
+  store i64 %agg.tmp28.sroa.0.0.copyload, ptr %specs.i, align 8
+  %7 = getelementptr inbounds i8, ptr %specs.i, i64 8
+  store i64 %agg.tmp28.sroa.2.0.copyload, ptr %7, align 8
   %8 = and i64 %agg.tmp28.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %8, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -40762,13 +41126,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %if
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %12, ptr %arrayidx.i.i, align 1
   %bf.clear70 = and i32 %fspecs.sroa.5.0, -65281
-  %18 = load i32, ptr %specs, align 16
+  %18 = load i32, ptr %specs, align 8
   %cmp72.not = icmp eq i32 %18, 0
   br i1 %cmp72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %specs, align 16
+  store i32 %dec, ptr %specs, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
@@ -41848,14 +42212,14 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9en
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.58, align 8
-  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp.i = alloca %class.anon.39, align 8
-  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp77 = alloca %"class.std::allocator", align 1
   %fp = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 16
+  store i64 %specs.coerce0, ptr %specs, align 8
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call4 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -41890,11 +42254,13 @@ if.end24:                                         ; preds = %if.else, %if.then9
 
 if.then26:                                        ; preds = %if.end24
   %6 = fcmp oeq double %value.addr.0, 0x7FF0000000000000
+  %agg.tmp28.sroa.0.0.copyload = load i64, ptr %specs, align 8
+  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
-  %7 = load <2 x i64>, ptr %specs, align 16
-  store <2 x i64> %7, ptr %specs.i, align 16
+  store i64 %agg.tmp28.sroa.0.0.copyload, ptr %specs.i, align 8
+  %7 = getelementptr inbounds i8, ptr %specs.i, i64 8
+  store i64 %agg.tmp28.sroa.2.0.copyload, ptr %7, align 8
   %8 = and i64 %agg.tmp28.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %8, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -41961,13 +42327,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %if
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %12, ptr %arrayidx.i.i, align 1
   %bf.clear70 = and i32 %fspecs.sroa.5.0, -65281
-  %18 = load i32, ptr %specs, align 16
+  %18 = load i32, ptr %specs, align 8
   %cmp72.not = icmp eq i32 %18, 0
   br i1 %cmp72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %specs, align 16
+  store i32 %dec, ptr %specs, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
@@ -42665,30 +43031,46 @@ lor.lhs.false6.i:                                 ; preds = %land.rhs.i
   %or.cond2.i = icmp ult i32 %20, 30288
   %cmp10.i = icmp ne i32 %cond, 12351
   %or.cond3.i = and i1 %cmp10.i, %or.cond2.i
-  %21 = and i32 %cond, -65538
-  %22 = insertelement <8 x i32> poison, i32 %cond, i64 0
-  %23 = insertelement <8 x i32> %22, i32 %21, i64 1
-  %24 = shufflevector <8 x i32> %23, <8 x i32> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0>
-  %25 = add <8 x i32> %24, <i32 -44032, i32 -63744, i32 -65040, i32 -65072, i32 -65280, i32 -65504, i32 -131072, i32 -127744>
-  %26 = icmp ult <8 x i32> %25, <i32 11172, i32 512, i32 10, i32 64, i32 97, i32 7, i32 65534, i32 848>
-  %27 = bitcast <8 x i1> %26 to i8
-  %28 = icmp ne i8 %27, 0
-  %op.rdx = or i1 %28, %or.cond3.i
-  br i1 %op.rdx, label %_ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %lor.rhs.i
+  %21 = add i32 %cond, -44032
+  %or.cond4.i = icmp ult i32 %21, 11172
+  %or.cond.i = or i1 %or.cond4.i, %or.cond3.i
+  %22 = add i32 %cond, -63744
+  %or.cond5.i = icmp ult i32 %22, 512
+  %or.cond39.i = or i1 %or.cond5.i, %or.cond.i
+  %23 = add i32 %cond, -65040
+  %or.cond6.i = icmp ult i32 %23, 10
+  %or.cond40.i = or i1 %or.cond6.i, %or.cond39.i
+  %24 = add i32 %cond, -65072
+  %or.cond7.i = icmp ult i32 %24, 64
+  %or.cond41.i = or i1 %or.cond7.i, %or.cond40.i
+  %25 = add i32 %cond, -65280
+  %or.cond8.i = icmp ult i32 %25, 97
+  %or.cond42.i = or i1 %or.cond8.i, %or.cond41.i
+  %26 = add i32 %cond, -65504
+  %or.cond9.i = icmp ult i32 %26, 7
+  %or.cond43.i = or i1 %or.cond9.i, %or.cond42.i
+  %27 = and i32 %cond, -65538
+  %28 = add i32 %27, -131072
+  %29 = icmp ult i32 %28, 65534
+  %or.cond45.i = or i1 %29, %or.cond43.i
+  %30 = add i32 %cond, -127744
+  %or.cond12.i = icmp ult i32 %30, 848
+  %or.cond46.i = or i1 %or.cond12.i, %or.cond45.i
+  br i1 %or.cond46.i, label %_ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false6.i
-  %29 = and i32 %cond, -256
-  %30 = icmp eq i32 %29, 129280
-  %31 = select i1 %30, i64 2, i64 1
+  %31 = and i32 %cond, -256
+  %32 = icmp eq i32 %31, 129280
+  %33 = select i1 %32, i64 2, i64 1
   br label %_ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit
 
 _ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit: ; preds = %entry, %land.rhs.i, %lor.lhs.false6.i, %lor.rhs.i
-  %conv.i4 = phi i64 [ 1, %entry ], [ 2, %land.rhs.i ], [ %31, %lor.rhs.i ], [ 2, %lor.lhs.false6.i ]
+  %conv.i4 = phi i64 [ 1, %entry ], [ 2, %land.rhs.i ], [ %33, %lor.rhs.i ], [ 2, %lor.lhs.false6.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %buf_ptr, i64 %add.i.i
-  %32 = load ptr, ptr %this, align 8
-  %33 = load i64, ptr %32, align 8
-  %add52.i = add i64 %33, %conv.i4
-  store i64 %add52.i, ptr %32, align 8
+  %34 = load ptr, ptr %this, align 8
+  %35 = load i64, ptr %34, align 8
+  %add52.i = add i64 %35, %conv.i4
+  store i64 %add52.i, ptr %34, align 8
   ret ptr %add.ptr.i
 }
 
@@ -43114,7 +43496,13 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i.i.i.i)
   store ptr null, ptr %__cur.07.i.i.i.i, align 8
   %m_type.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %m_type.i.i.i.i.i.i, align 4
+  store i8 0, ptr %m_type.i.i.i.i.i.i, align 4
+  %aggregate.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 9
+  store i8 1, ptr %aggregate.i.i.i.i.i.i.i, align 1
+  %vecsemantics.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 10
+  store i8 0, ptr %vecsemantics.i.i.i.i.i.i.i, align 2
+  %reserved.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 11
+  store i8 0, ptr %reserved.i.i.i.i.i.i.i, align 1
   %arraylen4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 12
   store i32 0, ptr %arraylen4.i.i.i.i.i.i.i, align 4
   %m_nvalues.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
@@ -43551,20 +43939,32 @@ entry:
   %5 = getelementptr inbounds i8, ptr %__functor, i64 8
   %6 = load ptr, ptr %5, align 8
   %zbegin.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 4
-  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
-  %agg.tmp.sroa.4.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 12
-  %agg.tmp.sroa.5.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
-  %7 = load <4 x i32>, ptr %zbegin.i.i.i, align 4
+  %7 = load i32, ptr %zbegin.i.i.i, align 4
+  %zend.i.i.i = getelementptr inbounds i8, ptr %6, i64 20
+  %8 = load i32, ptr %zend.i.i.i, align 4
+  %chbegin.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = load i32, ptr %chbegin.i.i.i, align 4
+  %chend.i.i.i = getelementptr inbounds i8, ptr %6, i64 28
+  %10 = load i32, ptr %chend.i.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
   store i32 %conv.i.i.i, ptr %agg.tmp1.i.i.i, align 8
+  %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 4
   store i32 %conv2.i.i.i, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i.i.i, align 4
+  %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
   store i32 %conv3.i.i.i, ptr %agg.tmp.sroa.3.0.agg.tmp1.sroa_idx.i.i.i, align 8
+  %agg.tmp.sroa.4.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 12
   store i32 %conv4.i.i.i, ptr %agg.tmp.sroa.4.0.agg.tmp1.sroa_idx.i.i.i, align 4
-  store <4 x i32> %7, ptr %agg.tmp.sroa.5.0.agg.tmp1.sroa_idx.i.i.i, align 8
+  %agg.tmp.sroa.5.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
+  store i32 %7, ptr %agg.tmp.sroa.5.0.agg.tmp1.sroa_idx.i.i.i, align 8
+  %agg.tmp.sroa.6.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 20
+  store i32 %8, ptr %agg.tmp.sroa.6.0.agg.tmp1.sroa_idx.i.i.i, align 4
+  %agg.tmp.sroa.7.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
+  store i32 %9, ptr %agg.tmp.sroa.7.0.agg.tmp1.sroa_idx.i.i.i, align 8
+  %agg.tmp.sroa.8.0.agg.tmp1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 28
+  store i32 %10, ptr %agg.tmp.sroa.8.0.agg.tmp1.sroa_idx.i.i.i, align 4
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
-  %8 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
+  %11 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS0_3ROIENS0_6paroptESt8functionIFvS2_EEEUlllllE_JllllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
@@ -43573,8 +43973,8 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZSt10__invoke_rIvRZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS0_3ROIENS0_6paroptESt8functionIFvS2_EEEUlllllE_JllllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
-  %9 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i.i)
+  %12 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
   ret void
 }

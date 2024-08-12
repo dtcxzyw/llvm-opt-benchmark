@@ -19852,21 +19852,26 @@ if.else271.i:                                     ; preds = %if.else249.i
 if.end276.i:                                      ; preds = %if.else271.i
   %shr277.i = lshr i32 %82, 18
   %92 = trunc nuw i32 %shr277.i to i8
+  %conv279.i = or disjoint i8 %92, -16
+  %incdec.ptr280.i = getelementptr inbounds i8, ptr %utf8_output.addr.2328.i, i64 1
+  store i8 %conv279.i, ptr %utf8_output.addr.2328.i, align 1
   %shr281.i = lshr i32 %82, 12
   %93 = trunc i32 %shr281.i to i8
   %94 = and i8 %93, 63
+  %conv284.i = or disjoint i8 %94, -128
+  %incdec.ptr285.i = getelementptr inbounds i8, ptr %utf8_output.addr.2328.i, i64 2
+  store i8 %conv284.i, ptr %incdec.ptr280.i, align 1
   %shr286.i = lshr i32 %82, 6
   %95 = trunc i32 %shr286.i to i8
   %96 = and i8 %95, 63
+  %conv289.i = or disjoint i8 %96, -128
+  %incdec.ptr290.i = getelementptr inbounds i8, ptr %utf8_output.addr.2328.i, i64 3
+  store i8 %conv289.i, ptr %incdec.ptr285.i, align 1
   %97 = trunc i32 %82 to i8
   %98 = and i8 %97, 63
+  %conv293.i = or disjoint i8 %98, -128
   %incdec.ptr294.i = getelementptr inbounds i8, ptr %utf8_output.addr.2328.i, i64 4
-  %99 = insertelement <4 x i8> poison, i8 %92, i64 0
-  %100 = insertelement <4 x i8> %99, i8 %94, i64 1
-  %101 = insertelement <4 x i8> %100, i8 %96, i64 2
-  %102 = insertelement <4 x i8> %101, i8 %98, i64 3
-  %103 = or disjoint <4 x i8> %102, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %103, ptr %utf8_output.addr.2328.i, align 1
+  store i8 %conv293.i, ptr %incdec.ptr290.i, align 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end276.i, %if.end257.i, %if.then240.i, %if.then235.i
@@ -19895,14 +19900,14 @@ while.end.i:                                      ; preds = %if.end299.i, %while
   %.lcssa.i = phi <8 x i32> [ zeroinitializer, %entry ], [ %elt.max.i484.i, %while.cond.backedge.i ], [ %elt.max.i484.i, %if.end299.i ]
   %cmp.i.i = icmp ult <8 x i32> %.lcssa.i, <i32 1114112, i32 1114112, i32 1114112, i32 1114112, i32 1114112, i32 1114112, i32 1114112, i32 1114112>
   %sext.i.i = sext <8 x i1> %cmp.i.i to <8 x i32>
-  %104 = bitcast <8 x i32> %sext.i.i to <32 x i8>
-  %105 = icmp sgt <32 x i8> %104, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %106 = bitcast <32 x i1> %105 to i32
-  %cmp309.not.i = icmp ne i32 %106, 0
-  %107 = bitcast <4 x i64> %forbidden_bytemask.0.ph.lcssa315.i to <32 x i8>
-  %108 = icmp slt <32 x i8> %107, zeroinitializer
-  %109 = bitcast <32 x i1> %108 to i32
-  %cmp316.not.i = icmp ne i32 %109, 0
+  %99 = bitcast <8 x i32> %sext.i.i to <32 x i8>
+  %100 = icmp sgt <32 x i8> %99, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %101 = bitcast <32 x i1> %100 to i32
+  %cmp309.not.i = icmp ne i32 %101, 0
+  %102 = bitcast <4 x i64> %forbidden_bytemask.0.ph.lcssa315.i to <32 x i8>
+  %103 = icmp slt <32 x i8> %102, zeroinitializer
+  %104 = bitcast <32 x i1> %103 to i32
+  %cmp316.not.i = icmp ne i32 %104, 0
   %or.cond.not35 = select i1 %cmp309.not.i, i1 true, i1 %cmp316.not.i
   %cmp = icmp eq ptr %buf.addr.0.lcssa.i, null
   %or.cond19 = select i1 %or.cond.not35, i1 true, i1 %cmp
@@ -20245,21 +20250,26 @@ if.then296.i:                                     ; preds = %if.else294.i
 if.end303.i:                                      ; preds = %if.else294.i
   %shr304.i = lshr i32 %86, 18
   %96 = trunc nuw i32 %shr304.i to i8
+  %conv306.i = or disjoint i8 %96, -16
+  %incdec.ptr307.i = getelementptr inbounds i8, ptr %utf8_output.addr.2331.i, i64 1
+  store i8 %conv306.i, ptr %utf8_output.addr.2331.i, align 1, !noalias !165
   %shr308.i = lshr i32 %86, 12
   %97 = trunc i32 %shr308.i to i8
   %98 = and i8 %97, 63
+  %conv311.i = or disjoint i8 %98, -128
+  %incdec.ptr312.i = getelementptr inbounds i8, ptr %utf8_output.addr.2331.i, i64 2
+  store i8 %conv311.i, ptr %incdec.ptr307.i, align 1, !noalias !165
   %shr313.i = lshr i32 %86, 6
   %99 = trunc i32 %shr313.i to i8
   %100 = and i8 %99, 63
+  %conv316.i = or disjoint i8 %100, -128
+  %incdec.ptr317.i = getelementptr inbounds i8, ptr %utf8_output.addr.2331.i, i64 3
+  store i8 %conv316.i, ptr %incdec.ptr312.i, align 1, !noalias !165
   %101 = trunc i32 %86 to i8
   %102 = and i8 %101, 63
+  %conv320.i = or disjoint i8 %102, -128
   %incdec.ptr321.i = getelementptr inbounds i8, ptr %utf8_output.addr.2331.i, i64 4
-  %103 = insertelement <4 x i8> poison, i8 %96, i64 0
-  %104 = insertelement <4 x i8> %103, i8 %98, i64 1
-  %105 = insertelement <4 x i8> %104, i8 %100, i64 2
-  %106 = insertelement <4 x i8> %105, i8 %102, i64 3
-  %107 = or disjoint <4 x i8> %106, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %107, ptr %utf8_output.addr.2331.i, align 1, !noalias !165
+  store i8 %conv320.i, ptr %incdec.ptr317.i, align 1, !noalias !165
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end303.i, %if.end280.i, %if.then258.i, %if.then253.i
@@ -20293,17 +20303,17 @@ if.then:                                          ; preds = %_ZN7simdutf7icelake
   %add.ptr = getelementptr inbounds i32, ptr %buf, i64 %sub.ptr.div331.sink.i
   %sub = sub i64 %len, %sub.ptr.div331.sink.i
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf819convert_with_errorsEPKDimPc(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %utf8_output.addr.0.lcssa.sink.i)
-  %108 = extractvalue { i32, i64 } %call, 0
-  %109 = extractvalue { i32, i64 } %call, 1
-  %tobool.not = icmp eq i32 %108, 0
+  %103 = extractvalue { i32, i64 } %call, 0
+  %104 = extractvalue { i32, i64 } %call, 1
+  %tobool.not = icmp eq i32 %103, 0
   br i1 %tobool.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  %add = add i64 %109, %sub.ptr.div331.sink.i
+  %add = add i64 %104, %sub.ptr.div331.sink.i
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %add.ptr12 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.sink.i, i64 %109
+  %add.ptr12 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.sink.i, i64 %104
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %_ZN7simdutf7icelake12_GLOBAL__N_140avx512_convert_utf32_to_utf8_with_errorsEPKDimPc.exit
@@ -20314,7 +20324,7 @@ if.end13:                                         ; preds = %if.else, %_ZN7simdu
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then6
-  %retval.sroa.0.0 = phi i32 [ %108, %if.then6 ], [ %.sink.i, %if.end13 ]
+  %retval.sroa.0.0 = phi i32 [ %103, %if.then6 ], [ %.sink.i, %if.end13 ]
   %retval.sroa.45.0 = phi i64 [ %add, %if.then6 ], [ %sub.ptr.sub, %if.end13 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.45.0, 1
@@ -23140,8 +23150,22 @@ for.body.i:                                       ; preds = %while.end, %for.bod
 
 _ZN7simdutf6scalar12_GLOBAL__N_14utf817count_code_pointsEPKcm.exit: ; preds = %for.body.i, %while.end
   %counter.0.lcssa.i = phi i64 [ 0, %while.end ], [ %spec.select.i, %for.body.i ]
-  %30 = tail call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %unrolled_popcount.0.lcssa)
-  %sub56 = sub i64 %answer.0.lcssa, %30
+  %shift = shufflevector <8 x i64> %unrolled_popcount.0.lcssa, <8 x i64> poison, <8 x i32> <i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %30 = add <8 x i64> %unrolled_popcount.0.lcssa, %shift
+  %shift139 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa, <8 x i64> poison, <8 x i32> <i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %31 = add <8 x i64> %30, %shift139
+  %shift140 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa, <8 x i64> poison, <8 x i32> <i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %32 = add <8 x i64> %31, %shift140
+  %shift141 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa, <8 x i64> poison, <8 x i32> <i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %33 = add <8 x i64> %32, %shift141
+  %shift142 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa, <8 x i64> poison, <8 x i32> <i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %34 = add <8 x i64> %33, %shift142
+  %shift143 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa, <8 x i64> poison, <8 x i32> <i32 6, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %35 = add <8 x i64> %34, %shift143
+  %shift144 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa, <8 x i64> poison, <8 x i32> <i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %36 = add <8 x i64> %35, %shift144
+  %37 = extractelement <8 x i64> %36, i64 0
+  %sub56 = sub i64 %answer.0.lcssa, %37
   %add60 = add i64 %sub56, %counter.0.lcssa.i
   ret i64 %add60
 }
@@ -23264,8 +23288,22 @@ for.body.i.i:                                     ; preds = %while.end.i, %for.b
 
 _ZNK7simdutf7icelake14implementation10count_utf8EPKcm.exit: ; preds = %for.body.i.i, %while.end.i
   %counter.0.lcssa.i.i = phi i64 [ 0, %while.end.i ], [ %spec.select.i.i, %for.body.i.i ]
-  %30 = tail call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %unrolled_popcount.0.lcssa.i)
-  %sub56.i = sub i64 %answer.0.lcssa.i, %30
+  %shift = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %30 = add <8 x i64> %unrolled_popcount.0.lcssa.i, %shift
+  %shift15 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %31 = add <8 x i64> %30, %shift15
+  %shift16 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %32 = add <8 x i64> %31, %shift16
+  %shift17 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %33 = add <8 x i64> %32, %shift17
+  %shift18 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %34 = add <8 x i64> %33, %shift18
+  %shift19 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 6, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %35 = add <8 x i64> %34, %shift19
+  %shift20 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %36 = add <8 x i64> %35, %shift20
+  %37 = extractelement <8 x i64> %36, i64 0
+  %sub56.i = sub i64 %answer.0.lcssa.i, %37
   %add60.i = add i64 %sub56.i, %counter.0.lcssa.i.i
   ret i64 %add60.i
 }
@@ -23665,11 +23703,25 @@ for.body.i:                                       ; preds = %while.end, %for.bod
 _ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit: ; preds = %for.body.i, %while.end
   %answer.0.lcssa.i = phi i64 [ 0, %while.end ], [ %spec.select.i, %for.body.i ]
   %div357 = and i64 %length, -64
-  %9 = tail call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %eight_64bits.0.lcssa)
-  %op.rdx = add i64 %9, %answer.0.lcssa.i
-  %op.rdx379 = add i64 %sub82, %div357
-  %op.rdx380 = add i64 %op.rdx, %op.rdx379
-  ret i64 %op.rdx380
+  %9 = extractelement <8 x i64> %eight_64bits.0.lcssa, i64 0
+  %10 = extractelement <8 x i64> %eight_64bits.0.lcssa, i64 1
+  %11 = extractelement <8 x i64> %eight_64bits.0.lcssa, i64 2
+  %12 = extractelement <8 x i64> %eight_64bits.0.lcssa, i64 3
+  %13 = extractelement <8 x i64> %eight_64bits.0.lcssa, i64 4
+  %14 = extractelement <8 x i64> %eight_64bits.0.lcssa, i64 5
+  %15 = extractelement <8 x i64> %eight_64bits.0.lcssa, i64 6
+  %16 = extractelement <8 x i64> %eight_64bits.0.lcssa, i64 7
+  %add.i363 = add i64 %10, %div357
+  %add73 = add i64 %add.i363, %9
+  %add74 = add i64 %add73, %11
+  %add75 = add i64 %add74, %12
+  %add76 = add i64 %add75, %13
+  %add77 = add i64 %add76, %14
+  %add78 = add i64 %add77, %15
+  %add79 = add i64 %add78, %16
+  %add80 = add i64 %add79, %sub82
+  %add84 = add i64 %add80, %answer.0.lcssa.i
+  ret i64 %add84
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -23976,8 +24028,22 @@ for.body.i.i:                                     ; preds = %while.end.i, %for.b
 
 _ZNK7simdutf7icelake14implementation10count_utf8EPKcm.exit: ; preds = %for.body.i.i, %while.end.i
   %counter.0.lcssa.i.i = phi i64 [ 0, %while.end.i ], [ %spec.select.i.i, %for.body.i.i ]
-  %30 = tail call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %unrolled_popcount.0.lcssa.i)
-  %sub56.i = sub i64 %answer.0.lcssa.i, %30
+  %shift = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %30 = add <8 x i64> %unrolled_popcount.0.lcssa.i, %shift
+  %shift15 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %31 = add <8 x i64> %30, %shift15
+  %shift16 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %32 = add <8 x i64> %31, %shift16
+  %shift17 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %33 = add <8 x i64> %32, %shift17
+  %shift18 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %34 = add <8 x i64> %33, %shift18
+  %shift19 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 6, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %35 = add <8 x i64> %34, %shift19
+  %shift20 = shufflevector <8 x i64> %unrolled_popcount.0.lcssa.i, <8 x i64> poison, <8 x i32> <i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %36 = add <8 x i64> %35, %shift20
+  %37 = extractelement <8 x i64> %36, i64 0
+  %sub56.i = sub i64 %answer.0.lcssa.i, %37
   %add60.i = add i64 %sub56.i, %counter.0.lcssa.i.i
   ret i64 %add60.i
 }
@@ -30619,8 +30685,11 @@ if.then10.i:                                      ; preds = %while.body.i
   %7 = shufflevector <16 x i16> %6, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %8 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %7, <8 x i16> poison)
   %9 = bitcast <16 x i8> %8 to <2 x i64>
-  %10 = shufflevector <2 x i64> %5, <2 x i64> %9, <2 x i32> <i32 0, i32 2>
-  store <2 x i64> %10, ptr %latin1_output.addr.029.i, align 1
+  %vecext.i86.i = extractelement <2 x i64> %5, i64 0
+  store i64 %vecext.i86.i, ptr %latin1_output.addr.029.i, align 1
+  %add.ptr14.i = getelementptr inbounds i8, ptr %latin1_output.addr.029.i, i64 8
+  %vecext.i.i = extractelement <2 x i64> %9, i64 0
+  store i64 %vecext.i.i, ptr %add.ptr14.i, align 1
   %add.ptr16.i = getelementptr inbounds i8, ptr %latin1_output.addr.029.i, i64 16
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr131.i, i64 32
   %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.i
@@ -30689,8 +30758,11 @@ if.then10.i:                                      ; preds = %while.body.i
   %9 = shufflevector <16 x i16> %8, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %10 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %9, <8 x i16> poison)
   %11 = bitcast <16 x i8> %10 to <2 x i64>
-  %12 = shufflevector <2 x i64> %7, <2 x i64> %11, <2 x i32> <i32 0, i32 2>
-  store <2 x i64> %12, ptr %latin1_output.addr.029.i, align 1
+  %vecext.i86.i = extractelement <2 x i64> %7, i64 0
+  store i64 %vecext.i86.i, ptr %latin1_output.addr.029.i, align 1
+  %add.ptr14.i = getelementptr inbounds i8, ptr %latin1_output.addr.029.i, i64 8
+  %vecext.i.i = extractelement <2 x i64> %11, i64 0
+  store i64 %vecext.i.i, ptr %add.ptr14.i, align 1
   %add.ptr16.i = getelementptr inbounds i8, ptr %latin1_output.addr.029.i, i64 16
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr131.i, i64 32
   %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.i
@@ -30759,8 +30831,11 @@ if.then.i:                                        ; preds = %while.body.i
   %9 = shufflevector <16 x i16> %8, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %10 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %9, <8 x i16> poison)
   %11 = bitcast <16 x i8> %10 to <2 x i64>
-  %12 = shufflevector <2 x i64> %7, <2 x i64> %11, <2 x i32> <i32 0, i32 2>
-  store <2 x i64> %12, ptr %latin1_output.addr.051.i, align 1, !noalias !440
+  %vecext.i105.i = extractelement <2 x i64> %7, i64 0
+  store i64 %vecext.i105.i, ptr %latin1_output.addr.051.i, align 1, !noalias !440
+  %add.ptr12.i = getelementptr inbounds i8, ptr %latin1_output.addr.051.i, i64 8
+  %vecext.i.i = extractelement <2 x i64> %11, i64 0
+  store i64 %vecext.i.i, ptr %add.ptr12.i, align 1, !noalias !440
   %add.ptr14.i = getelementptr inbounds i8, ptr %latin1_output.addr.051.i, i64 16
   br label %if.end29.i
 
@@ -30768,12 +30843,12 @@ cond.end.i:                                       ; preds = %while.body.i, %if.t
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.then24.i ], [ 0, %while.body.i ]
   %latin1_output.addr.247.i = phi ptr [ %incdec.ptr.i, %if.then24.i ], [ %latin1_output.addr.051.i, %while.body.i ]
   %arrayidx19.i = getelementptr inbounds i16, ptr %buf.addr.052.i, i64 %indvars.iv.i
-  %13 = load i16, ptr %arrayidx19.i, align 2, !noalias !440
-  %cmp23.i = icmp ult i16 %13, 256
+  %12 = load i16, ptr %arrayidx19.i, align 2, !noalias !440
+  %cmp23.i = icmp ult i16 %12, 256
   br i1 %cmp23.i, label %if.then24.i, label %if.then
 
 if.then24.i:                                      ; preds = %cond.end.i
-  %conv25.i = trunc nuw i16 %13 to i8
+  %conv25.i = trunc nuw i16 %12 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %latin1_output.addr.247.i, i64 1
   store i8 %conv25.i, ptr %latin1_output.addr.247.i, align 1, !noalias !440
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -30830,12 +30905,12 @@ if.then.i15:                                      ; preds = %while.body.i13
   %v3.0.copyload.i = load i64, ptr %add.ptr5.i, align 2
   %add.ptr7.i = getelementptr inbounds i8, ptr %arrayidx47.phi.trans.insert.i, i64 24
   %v4.0.copyload.i = load i64, ptr %add.ptr7.i, align 2
-  %14 = or i64 %v2.0.copyload.i, %v3.0.copyload.i
-  %15 = or i64 %14, %v4.0.copyload.i
-  %or29.i = or i64 %15, %v1.0.copyload.i
+  %13 = or i64 %v2.0.copyload.i, %v3.0.copyload.i
+  %14 = or i64 %13, %v4.0.copyload.i
+  %or29.i = or i64 %14, %v1.0.copyload.i
   %and.i = and i64 %or29.i, -71777214294589696
   %cmp30.i = icmp eq i64 %and.i, 0
-  %16 = trunc i64 %v1.0.copyload.i to i16
+  %15 = trunc i64 %v1.0.copyload.i to i16
   br i1 %cmp30.i, label %while.cond33.preheader.i, label %cond.end48.i
 
 while.cond33.preheader.i:                         ; preds = %if.then.i15
@@ -30846,8 +30921,8 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   %latin_output.addr.140.i = phi ptr [ %incdec.ptr.i20, %cond.end.i19 ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
   %pos.139.i = phi i64 [ %inc.i, %cond.end.i19 ], [ %pos.043.i, %while.cond33.preheader.i ]
   %arrayidx38.i = getelementptr inbounds i16, ptr %add.ptr, i64 %pos.139.i
-  %17 = load i16, ptr %arrayidx38.i, align 2
-  %cond.i = trunc i16 %17 to i8
+  %16 = load i16, ptr %arrayidx38.i, align 2
+  %cond.i = trunc i16 %16 to i8
   %incdec.ptr.i20 = getelementptr inbounds i8, ptr %latin_output.addr.140.i, i64 1
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
   %inc.i = add nuw i64 %pos.139.i, 1
@@ -30855,12 +30930,12 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   br i1 %exitcond.not.i21, label %while.cond.backedge.i, label %cond.end.i19, !llvm.loop !56
 
 cond.end48.i:                                     ; preds = %if.then.i15, %while.body.cond.end48_crit_edge.i
-  %18 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %16, %if.then.i15 ]
-  %cmp52.i = icmp ult i16 %18, 256
+  %17 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %15, %if.then.i15 ]
+  %cmp52.i = icmp ult i16 %17, 256
   br i1 %cmp52.i, label %if.then53.i, label %if.then11
 
 if.then53.i:                                      ; preds = %cond.end48.i
-  %conv56.i = trunc nuw i16 %18 to i8
+  %conv56.i = trunc nuw i16 %17 to i8
   %incdec.ptr57.i = getelementptr inbounds i8, ptr %latin_output.addr.044.i, i64 1
   store i8 %conv56.i, ptr %latin_output.addr.044.i, align 1
   %inc58.i = add i64 %pos.043.i, 1
@@ -30928,8 +31003,11 @@ if.then.i:                                        ; preds = %while.body.i
   %7 = shufflevector <16 x i16> %6, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %8 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %7, <8 x i16> poison)
   %9 = bitcast <16 x i8> %8 to <2 x i64>
-  %10 = shufflevector <2 x i64> %5, <2 x i64> %9, <2 x i32> <i32 0, i32 2>
-  store <2 x i64> %10, ptr %latin1_output.addr.050.i, align 1, !noalias !445
+  %vecext.i46.i = extractelement <2 x i64> %5, i64 0
+  store i64 %vecext.i46.i, ptr %latin1_output.addr.050.i, align 1, !noalias !445
+  %add.ptr8.i = getelementptr inbounds i8, ptr %latin1_output.addr.050.i, i64 8
+  %vecext.i.i = extractelement <2 x i64> %9, i64 0
+  store i64 %vecext.i.i, ptr %add.ptr8.i, align 1, !noalias !445
   %add.ptr10.i = getelementptr inbounds i8, ptr %latin1_output.addr.050.i, i64 16
   br label %if.end25.i
 
@@ -30937,8 +31015,8 @@ cond.end.i:                                       ; preds = %while.body.i, %if.t
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.then20.i ], [ 0, %while.body.i ]
   %latin1_output.addr.246.i = phi ptr [ %incdec.ptr.i, %if.then20.i ], [ %latin1_output.addr.050.i, %while.body.i ]
   %arrayidx.i = getelementptr inbounds i16, ptr %buf.addr.051.i, i64 %indvars.iv.i
-  %11 = load i16, ptr %arrayidx.i, align 2, !noalias !445
-  %or.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %11)
+  %10 = load i16, ptr %arrayidx.i, align 2, !noalias !445
+  %or.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %10)
   %cmp19.i = icmp ult i16 %or.i.i, 256
   br i1 %cmp19.i, label %if.then20.i, label %if.then
 
@@ -31001,15 +31079,15 @@ if.then.i15:                                      ; preds = %while.body.i13
   %add.ptr7.i = getelementptr inbounds i8, ptr %arrayidx44.phi.trans.insert.i, i64 24
   %v4.0.copyload.i = load i64, ptr %add.ptr7.i, align 2
   %or.i = tail call i64 @llvm.fshl.i64(i64 %v1.0.copyload.i, i64 %v1.0.copyload.i, i64 56)
-  %12 = or i64 %v3.0.copyload.i, %v2.0.copyload.i
-  %13 = or i64 %v2.0.copyload.i, %v4.0.copyload.i
-  %14 = or i64 %13, %v3.0.copyload.i
-  %15 = or i64 %12, %or.i
-  %16 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %15, i64 56)
-  %or29.i = or i64 %16, %or.i
+  %11 = or i64 %v3.0.copyload.i, %v2.0.copyload.i
+  %12 = or i64 %v2.0.copyload.i, %v4.0.copyload.i
+  %13 = or i64 %12, %v3.0.copyload.i
+  %14 = or i64 %11, %or.i
+  %15 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %14, i64 56)
+  %or29.i = or i64 %15, %or.i
   %and.i = and i64 %or29.i, -71777214294589696
   %cmp30.i = icmp eq i64 %and.i, 0
-  %17 = trunc i64 %v1.0.copyload.i to i16
+  %16 = trunc i64 %v1.0.copyload.i to i16
   br i1 %cmp30.i, label %while.cond33.preheader.i, label %cond.end48.i
 
 while.cond33.preheader.i:                         ; preds = %if.then.i15
@@ -31020,8 +31098,8 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   %latin_output.addr.140.i = phi ptr [ %incdec.ptr.i22, %cond.end.i19 ], [ %latin_output.addr.044.i, %while.cond33.preheader.i ]
   %pos.139.i = phi i64 [ %inc.i, %cond.end.i19 ], [ %pos.043.i, %while.cond33.preheader.i ]
   %arrayidx.i20 = getelementptr inbounds i16, ptr %add.ptr, i64 %pos.139.i
-  %18 = load i16, ptr %arrayidx.i20, align 2
-  %or.i.i21 = lshr i16 %18, 8
+  %17 = load i16, ptr %arrayidx.i20, align 2
+  %or.i.i21 = lshr i16 %17, 8
   %cond.i = trunc nuw i16 %or.i.i21 to i8
   %incdec.ptr.i22 = getelementptr inbounds i8, ptr %latin_output.addr.140.i, i64 1
   store i8 %cond.i, ptr %latin_output.addr.140.i, align 1
@@ -31030,8 +31108,8 @@ cond.end.i19:                                     ; preds = %while.cond33.prehea
   br i1 %exitcond.not.i23, label %while.cond.backedge.i, label %cond.end.i19, !llvm.loop !58
 
 cond.end48.i:                                     ; preds = %if.then.i15, %while.body.cond.end48_crit_edge.i
-  %19 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %17, %if.then.i15 ]
-  %or.i35.i = tail call noundef i16 @llvm.bswap.i16(i16 %19)
+  %18 = phi i16 [ %.pre.i, %while.body.cond.end48_crit_edge.i ], [ %16, %if.then.i15 ]
+  %or.i35.i = tail call noundef i16 @llvm.bswap.i16(i16 %18)
   %cmp52.i = icmp ult i16 %or.i35.i, 256
   br i1 %cmp52.i, label %if.then53.i, label %if.then11
 
@@ -31106,8 +31184,11 @@ if.then10.i.i:                                    ; preds = %while.body.i.i
   %9 = shufflevector <16 x i16> %8, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %10 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %9, <8 x i16> poison)
   %11 = bitcast <16 x i8> %10 to <2 x i64>
-  %12 = shufflevector <2 x i64> %7, <2 x i64> %11, <2 x i32> <i32 0, i32 2>
-  store <2 x i64> %12, ptr %latin1_output.addr.029.i.i, align 1
+  %vecext.i86.i.i = extractelement <2 x i64> %7, i64 0
+  store i64 %vecext.i86.i.i, ptr %latin1_output.addr.029.i.i, align 1
+  %add.ptr14.i.i = getelementptr inbounds i8, ptr %latin1_output.addr.029.i.i, i64 8
+  %vecext.i.i.i = extractelement <2 x i64> %11, i64 0
+  store i64 %vecext.i.i.i, ptr %add.ptr14.i.i, align 1
   %add.ptr16.i.i = getelementptr inbounds i8, ptr %latin1_output.addr.029.i.i, i64 16
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr131.i.i, i64 32
   %cmp.not.i.i = icmp ugt ptr %add.ptr1.i.i, %add.ptr.i.i
@@ -31174,8 +31255,11 @@ if.then10.i.i:                                    ; preds = %while.body.i.i
   %7 = shufflevector <16 x i16> %6, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %8 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %7, <8 x i16> poison)
   %9 = bitcast <16 x i8> %8 to <2 x i64>
-  %10 = shufflevector <2 x i64> %5, <2 x i64> %9, <2 x i32> <i32 0, i32 2>
-  store <2 x i64> %10, ptr %latin1_output.addr.029.i.i, align 1
+  %vecext.i86.i.i = extractelement <2 x i64> %5, i64 0
+  store i64 %vecext.i86.i.i, ptr %latin1_output.addr.029.i.i, align 1
+  %add.ptr14.i.i = getelementptr inbounds i8, ptr %latin1_output.addr.029.i.i, i64 8
+  %vecext.i.i.i = extractelement <2 x i64> %9, i64 0
+  store i64 %vecext.i.i.i, ptr %add.ptr14.i.i, align 1
   %add.ptr16.i.i = getelementptr inbounds i8, ptr %latin1_output.addr.029.i.i, i64 16
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr131.i.i, i64 32
   %cmp.not.i.i = icmp ugt ptr %add.ptr1.i.i, %add.ptr.i.i
@@ -31473,21 +31557,26 @@ if.end260.i:                                      ; preds = %if.else243.i
   %add264.i = add nuw nsw i32 %add263.i, 65536
   %shr265.i = lshr i32 %add264.i, 18
   %83 = trunc nuw i32 %shr265.i to i8
+  %conv267.i = or i8 %83, -16
+  %incdec.ptr268.i = getelementptr inbounds i8, ptr %utf8_output.addr.2266.i, i64 1
+  store i8 %conv267.i, ptr %utf8_output.addr.2266.i, align 1
   %shr269.i = lshr i32 %add264.i, 12
   %84 = trunc i32 %shr269.i to i8
   %85 = and i8 %84, 63
+  %conv272.i = or disjoint i8 %85, -128
+  %incdec.ptr273.i = getelementptr inbounds i8, ptr %utf8_output.addr.2266.i, i64 2
+  store i8 %conv272.i, ptr %incdec.ptr268.i, align 1
   %shr274.i = lshr i32 %add263.i, 6
   %86 = trunc i32 %shr274.i to i8
   %87 = and i8 %86, 63
+  %conv277.i = or disjoint i8 %87, -128
+  %incdec.ptr278.i = getelementptr inbounds i8, ptr %utf8_output.addr.2266.i, i64 3
+  store i8 %conv277.i, ptr %incdec.ptr273.i, align 1
   %88 = trunc i16 %82 to i8
   %89 = and i8 %88, 63
+  %conv281.i = or disjoint i8 %89, -128
   %incdec.ptr282.i = getelementptr inbounds i8, ptr %utf8_output.addr.2266.i, i64 4
-  %90 = insertelement <4 x i8> poison, i8 %83, i64 0
-  %91 = insertelement <4 x i8> %90, i8 %85, i64 1
-  %92 = insertelement <4 x i8> %91, i8 %87, i64 2
-  %93 = insertelement <4 x i8> %92, i8 %89, i64 3
-  %94 = or <4 x i8> %93, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %94, ptr %utf8_output.addr.2266.i, align 1
+  store i8 %conv281.i, ptr %incdec.ptr278.i, align 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end260.i, %if.then226.i, %if.then211.i, %if.then205.i
@@ -31798,21 +31887,26 @@ if.end266.i:                                      ; preds = %if.else248.i
   %add270.i = add nuw nsw i32 %add269.i, 65536
   %shr271.i = lshr i32 %add270.i, 18
   %84 = trunc nuw i32 %shr271.i to i8
+  %conv273.i = or i8 %84, -16
+  %incdec.ptr274.i = getelementptr inbounds i8, ptr %utf8_output.addr.2270.i, i64 1
+  store i8 %conv273.i, ptr %utf8_output.addr.2270.i, align 1
   %shr275.i = lshr i32 %add270.i, 12
   %85 = trunc i32 %shr275.i to i8
   %86 = and i8 %85, 63
+  %conv278.i = or disjoint i8 %86, -128
+  %incdec.ptr279.i = getelementptr inbounds i8, ptr %utf8_output.addr.2270.i, i64 2
+  store i8 %conv278.i, ptr %incdec.ptr274.i, align 1
   %shr280.i = lshr i32 %add269.i, 6
   %87 = trunc i32 %shr280.i to i8
   %88 = and i8 %87, 63
+  %conv283.i = or disjoint i8 %88, -128
+  %incdec.ptr284.i = getelementptr inbounds i8, ptr %utf8_output.addr.2270.i, i64 3
+  store i8 %conv283.i, ptr %incdec.ptr279.i, align 1
   %89 = trunc i16 %or.i242.i to i8
   %90 = and i8 %89, 63
+  %conv287.i = or disjoint i8 %90, -128
   %incdec.ptr288.i = getelementptr inbounds i8, ptr %utf8_output.addr.2270.i, i64 4
-  %91 = insertelement <4 x i8> poison, i8 %84, i64 0
-  %92 = insertelement <4 x i8> %91, i8 %86, i64 1
-  %93 = insertelement <4 x i8> %92, i8 %88, i64 2
-  %94 = insertelement <4 x i8> %93, i8 %90, i64 3
-  %95 = or <4 x i8> %94, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %95, ptr %utf8_output.addr.2270.i, align 1
+  store i8 %conv287.i, ptr %incdec.ptr284.i, align 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end266.i, %if.then231.i, %if.then216.i, %if.then210.i
@@ -32118,21 +32212,26 @@ if.end265.i:                                      ; preds = %if.else243.i
   %add269.i = add nuw nsw i32 %add268.i, 65536
   %shr270.i = lshr i32 %add269.i, 18
   %83 = trunc nuw i32 %shr270.i to i8
+  %conv272.i = or i8 %83, -16
+  %incdec.ptr273.i = getelementptr inbounds i8, ptr %utf8_output.addr.2277.i, i64 1
+  store i8 %conv272.i, ptr %utf8_output.addr.2277.i, align 1, !noalias !454
   %shr274.i = lshr i32 %add269.i, 12
   %84 = trunc i32 %shr274.i to i8
   %85 = and i8 %84, 63
+  %conv277.i = or disjoint i8 %85, -128
+  %incdec.ptr278.i = getelementptr inbounds i8, ptr %utf8_output.addr.2277.i, i64 2
+  store i8 %conv277.i, ptr %incdec.ptr273.i, align 1, !noalias !454
   %shr279.i = lshr i32 %add268.i, 6
   %86 = trunc i32 %shr279.i to i8
   %87 = and i8 %86, 63
+  %conv282.i = or disjoint i8 %87, -128
+  %incdec.ptr283.i = getelementptr inbounds i8, ptr %utf8_output.addr.2277.i, i64 3
+  store i8 %conv282.i, ptr %incdec.ptr278.i, align 1, !noalias !454
   %88 = trunc i16 %82 to i8
   %89 = and i8 %88, 63
+  %conv286.i = or disjoint i8 %89, -128
   %incdec.ptr287.i = getelementptr inbounds i8, ptr %utf8_output.addr.2277.i, i64 4
-  %90 = insertelement <4 x i8> poison, i8 %83, i64 0
-  %91 = insertelement <4 x i8> %90, i8 %85, i64 1
-  %92 = insertelement <4 x i8> %91, i8 %87, i64 2
-  %93 = insertelement <4 x i8> %92, i8 %89, i64 3
-  %94 = or <4 x i8> %93, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %94, ptr %utf8_output.addr.2277.i, align 1, !noalias !454
+  store i8 %conv286.i, ptr %incdec.ptr283.i, align 1, !noalias !454
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end265.i, %if.then226.i, %if.then211.i, %if.then205.i
@@ -32169,17 +32268,17 @@ if.then4:                                         ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %sub.ptr.sub297.i
   %sub = sub i64 %len, %sub.ptr.div298.i
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsmPc(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %utf8_output.addr.0.lcssa.i)
-  %95 = extractvalue { i32, i64 } %call, 0
-  %96 = extractvalue { i32, i64 } %call, 1
-  %tobool10.not = icmp eq i32 %95, 0
+  %90 = extractvalue { i32, i64 } %call, 0
+  %91 = extractvalue { i32, i64 } %call, 1
+  %tobool10.not = icmp eq i32 %90, 0
   br i1 %tobool10.not, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %if.then4
-  %add = add i64 %96, %sub.ptr.div298.i
+  %add = add i64 %91, %sub.ptr.div298.i
   br label %return
 
 if.else:                                          ; preds = %if.then4
-  %add.ptr17 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.i, i64 %96
+  %add.ptr17 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.i, i64 %91
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.end
@@ -32190,7 +32289,7 @@ if.end19:                                         ; preds = %if.else, %if.end
   br label %return
 
 return:                                           ; preds = %if.end19, %if.then11, %if.then
-  %retval.sroa.0.0 = phi i32 [ 6, %if.then ], [ %95, %if.then11 ], [ 0, %if.end19 ]
+  %retval.sroa.0.0 = phi i32 [ 6, %if.then ], [ %90, %if.then11 ], [ 0, %if.end19 ]
   %retval.sroa.57.0 = phi i64 [ %sub264.i, %if.then ], [ %add, %if.then11 ], [ %sub.ptr.sub, %if.end19 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.57.0, 1
@@ -32459,21 +32558,26 @@ if.end271.i:                                      ; preds = %if.else248.i
   %add275.i = add nuw nsw i32 %add274.i, 65536
   %shr276.i = lshr i32 %add275.i, 18
   %84 = trunc nuw i32 %shr276.i to i8
+  %conv278.i = or i8 %84, -16
+  %incdec.ptr279.i = getelementptr inbounds i8, ptr %utf8_output.addr.2280.i, i64 1
+  store i8 %conv278.i, ptr %utf8_output.addr.2280.i, align 1, !noalias !459
   %shr280.i = lshr i32 %add275.i, 12
   %85 = trunc i32 %shr280.i to i8
   %86 = and i8 %85, 63
+  %conv283.i = or disjoint i8 %86, -128
+  %incdec.ptr284.i = getelementptr inbounds i8, ptr %utf8_output.addr.2280.i, i64 2
+  store i8 %conv283.i, ptr %incdec.ptr279.i, align 1, !noalias !459
   %shr285.i = lshr i32 %add274.i, 6
   %87 = trunc i32 %shr285.i to i8
   %88 = and i8 %87, 63
+  %conv288.i = or disjoint i8 %88, -128
+  %incdec.ptr289.i = getelementptr inbounds i8, ptr %utf8_output.addr.2280.i, i64 3
+  store i8 %conv288.i, ptr %incdec.ptr284.i, align 1, !noalias !459
   %89 = trunc i16 %or.i257.i to i8
   %90 = and i8 %89, 63
+  %conv292.i = or disjoint i8 %90, -128
   %incdec.ptr293.i = getelementptr inbounds i8, ptr %utf8_output.addr.2280.i, i64 4
-  %91 = insertelement <4 x i8> poison, i8 %84, i64 0
-  %92 = insertelement <4 x i8> %91, i8 %86, i64 1
-  %93 = insertelement <4 x i8> %92, i8 %88, i64 2
-  %94 = insertelement <4 x i8> %93, i8 %90, i64 3
-  %95 = or <4 x i8> %94, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %95, ptr %utf8_output.addr.2280.i, align 1, !noalias !459
+  store i8 %conv292.i, ptr %incdec.ptr289.i, align 1, !noalias !459
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end271.i, %if.then231.i, %if.then216.i, %if.then210.i
@@ -32510,17 +32614,17 @@ if.then4:                                         ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %sub.ptr.sub303.i
   %sub = sub i64 %len, %sub.ptr.div304.i
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsmPc(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %utf8_output.addr.0.lcssa.i)
-  %96 = extractvalue { i32, i64 } %call, 0
-  %97 = extractvalue { i32, i64 } %call, 1
-  %tobool10.not = icmp eq i32 %96, 0
+  %91 = extractvalue { i32, i64 } %call, 0
+  %92 = extractvalue { i32, i64 } %call, 1
+  %tobool10.not = icmp eq i32 %91, 0
   br i1 %tobool10.not, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %if.then4
-  %add = add i64 %97, %sub.ptr.div304.i
+  %add = add i64 %92, %sub.ptr.div304.i
   br label %return
 
 if.else:                                          ; preds = %if.then4
-  %add.ptr17 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.i, i64 %97
+  %add.ptr17 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.i, i64 %92
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.end
@@ -32531,7 +32635,7 @@ if.end19:                                         ; preds = %if.else, %if.end
   br label %return
 
 return:                                           ; preds = %if.end19, %if.then11, %if.then
-  %retval.sroa.0.0 = phi i32 [ 6, %if.then ], [ %96, %if.then11 ], [ 0, %if.end19 ]
+  %retval.sroa.0.0 = phi i32 [ 6, %if.then ], [ %91, %if.then11 ], [ 0, %if.end19 ]
   %retval.sroa.57.0 = phi i64 [ %sub270.i, %if.then ], [ %add, %if.then11 ], [ %sub.ptr.sub, %if.end19 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.57.0, 1
@@ -32831,21 +32935,26 @@ if.else271.i:                                     ; preds = %if.else249.i
 if.end276.i:                                      ; preds = %if.else271.i
   %shr277.i = lshr i32 %82, 18
   %92 = trunc nuw i32 %shr277.i to i8
+  %conv279.i = or disjoint i8 %92, -16
+  %incdec.ptr280.i = getelementptr inbounds i8, ptr %utf8_output.addr.2328.i, i64 1
+  store i8 %conv279.i, ptr %utf8_output.addr.2328.i, align 1
   %shr281.i = lshr i32 %82, 12
   %93 = trunc i32 %shr281.i to i8
   %94 = and i8 %93, 63
+  %conv284.i = or disjoint i8 %94, -128
+  %incdec.ptr285.i = getelementptr inbounds i8, ptr %utf8_output.addr.2328.i, i64 2
+  store i8 %conv284.i, ptr %incdec.ptr280.i, align 1
   %shr286.i = lshr i32 %82, 6
   %95 = trunc i32 %shr286.i to i8
   %96 = and i8 %95, 63
+  %conv289.i = or disjoint i8 %96, -128
+  %incdec.ptr290.i = getelementptr inbounds i8, ptr %utf8_output.addr.2328.i, i64 3
+  store i8 %conv289.i, ptr %incdec.ptr285.i, align 1
   %97 = trunc i32 %82 to i8
   %98 = and i8 %97, 63
+  %conv293.i = or disjoint i8 %98, -128
   %incdec.ptr294.i = getelementptr inbounds i8, ptr %utf8_output.addr.2328.i, i64 4
-  %99 = insertelement <4 x i8> poison, i8 %92, i64 0
-  %100 = insertelement <4 x i8> %99, i8 %94, i64 1
-  %101 = insertelement <4 x i8> %100, i8 %96, i64 2
-  %102 = insertelement <4 x i8> %101, i8 %98, i64 3
-  %103 = or disjoint <4 x i8> %102, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %103, ptr %utf8_output.addr.2328.i, align 1
+  store i8 %conv293.i, ptr %incdec.ptr290.i, align 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end276.i, %if.end257.i, %if.then240.i, %if.then235.i
@@ -32874,14 +32983,14 @@ while.end.i:                                      ; preds = %if.end299.i, %while
   %.lcssa.i = phi <8 x i32> [ zeroinitializer, %entry ], [ %elt.max.i484.i, %while.cond.backedge.i ], [ %elt.max.i484.i, %if.end299.i ]
   %cmp.i.i = icmp ult <8 x i32> %.lcssa.i, <i32 1114112, i32 1114112, i32 1114112, i32 1114112, i32 1114112, i32 1114112, i32 1114112, i32 1114112>
   %sext.i.i = sext <8 x i1> %cmp.i.i to <8 x i32>
-  %104 = bitcast <8 x i32> %sext.i.i to <32 x i8>
-  %105 = icmp sgt <32 x i8> %104, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %106 = bitcast <32 x i1> %105 to i32
-  %cmp309.not.i = icmp ne i32 %106, 0
-  %107 = bitcast <4 x i64> %forbidden_bytemask.0.ph.lcssa315.i to <32 x i8>
-  %108 = icmp slt <32 x i8> %107, zeroinitializer
-  %109 = bitcast <32 x i1> %108 to i32
-  %cmp316.not.i = icmp ne i32 %109, 0
+  %99 = bitcast <8 x i32> %sext.i.i to <32 x i8>
+  %100 = icmp sgt <32 x i8> %99, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %101 = bitcast <32 x i1> %100 to i32
+  %cmp309.not.i = icmp ne i32 %101, 0
+  %102 = bitcast <4 x i64> %forbidden_bytemask.0.ph.lcssa315.i to <32 x i8>
+  %103 = icmp slt <32 x i8> %102, zeroinitializer
+  %104 = bitcast <32 x i1> %103 to i32
+  %cmp316.not.i = icmp ne i32 %104, 0
   %or.cond.not35 = select i1 %cmp309.not.i, i1 true, i1 %cmp316.not.i
   %cmp = icmp eq ptr %buf.addr.0.lcssa.i, null
   %or.cond19 = select i1 %or.cond.not35, i1 true, i1 %cmp
@@ -33473,21 +33582,26 @@ if.then296.i:                                     ; preds = %if.else294.i
 if.end303.i:                                      ; preds = %if.else294.i
   %shr304.i = lshr i32 %86, 18
   %96 = trunc nuw i32 %shr304.i to i8
+  %conv306.i = or disjoint i8 %96, -16
+  %incdec.ptr307.i = getelementptr inbounds i8, ptr %utf8_output.addr.2331.i, i64 1
+  store i8 %conv306.i, ptr %utf8_output.addr.2331.i, align 1, !noalias !467
   %shr308.i = lshr i32 %86, 12
   %97 = trunc i32 %shr308.i to i8
   %98 = and i8 %97, 63
+  %conv311.i = or disjoint i8 %98, -128
+  %incdec.ptr312.i = getelementptr inbounds i8, ptr %utf8_output.addr.2331.i, i64 2
+  store i8 %conv311.i, ptr %incdec.ptr307.i, align 1, !noalias !467
   %shr313.i = lshr i32 %86, 6
   %99 = trunc i32 %shr313.i to i8
   %100 = and i8 %99, 63
+  %conv316.i = or disjoint i8 %100, -128
+  %incdec.ptr317.i = getelementptr inbounds i8, ptr %utf8_output.addr.2331.i, i64 3
+  store i8 %conv316.i, ptr %incdec.ptr312.i, align 1, !noalias !467
   %101 = trunc i32 %86 to i8
   %102 = and i8 %101, 63
+  %conv320.i = or disjoint i8 %102, -128
   %incdec.ptr321.i = getelementptr inbounds i8, ptr %utf8_output.addr.2331.i, i64 4
-  %103 = insertelement <4 x i8> poison, i8 %96, i64 0
-  %104 = insertelement <4 x i8> %103, i8 %98, i64 1
-  %105 = insertelement <4 x i8> %104, i8 %100, i64 2
-  %106 = insertelement <4 x i8> %105, i8 %102, i64 3
-  %107 = or disjoint <4 x i8> %106, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %107, ptr %utf8_output.addr.2331.i, align 1, !noalias !467
+  store i8 %conv320.i, ptr %incdec.ptr317.i, align 1, !noalias !467
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end303.i, %if.end280.i, %if.then258.i, %if.then253.i
@@ -33521,17 +33635,17 @@ if.then:                                          ; preds = %_ZN7simdutf7haswell
   %add.ptr = getelementptr inbounds i32, ptr %buf, i64 %sub.ptr.div331.sink.i
   %sub = sub i64 %len, %sub.ptr.div331.sink.i
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf819convert_with_errorsEPKDimPc(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %utf8_output.addr.0.lcssa.sink.i)
-  %108 = extractvalue { i32, i64 } %call, 0
-  %109 = extractvalue { i32, i64 } %call, 1
-  %tobool.not = icmp eq i32 %108, 0
+  %103 = extractvalue { i32, i64 } %call, 0
+  %104 = extractvalue { i32, i64 } %call, 1
+  %tobool.not = icmp eq i32 %103, 0
   br i1 %tobool.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  %add = add i64 %109, %sub.ptr.div331.sink.i
+  %add = add i64 %104, %sub.ptr.div331.sink.i
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %add.ptr12 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.sink.i, i64 %109
+  %add.ptr12 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.sink.i, i64 %104
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %_ZN7simdutf7haswell12_GLOBAL__N_138avx2_convert_utf32_to_utf8_with_errorsEPKDimPc.exit
@@ -33542,7 +33656,7 @@ if.end13:                                         ; preds = %if.else, %_ZN7simdu
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then6
-  %retval.sroa.0.0 = phi i32 [ %108, %if.then6 ], [ %.sink.i, %if.end13 ]
+  %retval.sroa.0.0 = phi i32 [ %103, %if.then6 ], [ %.sink.i, %if.end13 ]
   %retval.sroa.45.0 = phi i64 [ %add, %if.then6 ], [ %sub.ptr.sub, %if.end13 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.45.0, 1
@@ -36805,11 +36919,17 @@ for.body.i:                                       ; preds = %while.end, %for.bod
 _ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit: ; preds = %for.body.i, %while.end
   %answer.0.lcssa.i = phi i64 [ 0, %while.end ], [ %spec.select.i, %for.body.i ]
   %div31 = and i64 %len, -32
-  %9 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %four_64bits.0.lcssa)
-  %op.rdx = add i64 %9, %answer.0.lcssa.i
-  %op.rdx52 = add i64 %sub75, %div31
-  %op.rdx53 = add i64 %op.rdx, %op.rdx52
-  ret i64 %op.rdx53
+  %9 = extractelement <4 x i64> %four_64bits.0.lcssa, i64 0
+  %10 = extractelement <4 x i64> %four_64bits.0.lcssa, i64 1
+  %11 = extractelement <4 x i64> %four_64bits.0.lcssa, i64 2
+  %12 = extractelement <4 x i64> %four_64bits.0.lcssa, i64 3
+  %add.i = add i64 %10, %div31
+  %add70 = add i64 %add.i, %9
+  %add71 = add i64 %add70, %11
+  %add72 = add i64 %add71, %12
+  %add73 = add i64 %add72, %sub75
+  %add77 = add i64 %add73, %answer.0.lcssa.i
+  ret i64 %add77
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -45563,21 +45683,26 @@ if.end165.i:                                      ; preds = %if.else148.i
   %add169.i = add nuw nsw i32 %add168.i, 65536
   %shr170.i = lshr i32 %add169.i, 18
   %71 = trunc nuw i32 %shr170.i to i8
+  %conv172.i = or i8 %71, -16
+  %incdec.ptr173.i = getelementptr inbounds i8, ptr %utf8_output.addr.3147.i, i64 1
+  store i8 %conv172.i, ptr %utf8_output.addr.3147.i, align 1
   %shr174.i = lshr i32 %add169.i, 12
   %72 = trunc i32 %shr174.i to i8
   %73 = and i8 %72, 63
+  %conv177.i = or disjoint i8 %73, -128
+  %incdec.ptr178.i = getelementptr inbounds i8, ptr %utf8_output.addr.3147.i, i64 2
+  store i8 %conv177.i, ptr %incdec.ptr173.i, align 1
   %shr179.i = lshr i32 %add168.i, 6
   %74 = trunc i32 %shr179.i to i8
   %75 = and i8 %74, 63
+  %conv182.i = or disjoint i8 %75, -128
+  %incdec.ptr183.i = getelementptr inbounds i8, ptr %utf8_output.addr.3147.i, i64 3
+  store i8 %conv182.i, ptr %incdec.ptr178.i, align 1
   %76 = trunc i16 %70 to i8
   %77 = and i8 %76, 63
+  %conv186.i = or disjoint i8 %77, -128
   %incdec.ptr187.i = getelementptr inbounds i8, ptr %utf8_output.addr.3147.i, i64 4
-  %78 = insertelement <4 x i8> poison, i8 %71, i64 0
-  %79 = insertelement <4 x i8> %78, i8 %73, i64 1
-  %80 = insertelement <4 x i8> %79, i8 %75, i64 2
-  %81 = insertelement <4 x i8> %80, i8 %77, i64 3
-  %82 = or <4 x i8> %81, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %82, ptr %utf8_output.addr.3147.i, align 1
+  store i8 %conv186.i, ptr %incdec.ptr183.i, align 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end165.i, %if.then131.i, %if.then116.i, %if.then110.i
@@ -45877,21 +46002,26 @@ if.end172.i:                                      ; preds = %if.else154.i
   %add176.i = add nuw nsw i32 %add175.i, 65536
   %shr177.i = lshr i32 %add176.i, 18
   %75 = trunc nuw i32 %shr177.i to i8
+  %conv179.i = or i8 %75, -16
+  %incdec.ptr180.i = getelementptr inbounds i8, ptr %utf8_output.addr.3152.i, i64 1
+  store i8 %conv179.i, ptr %utf8_output.addr.3152.i, align 1
   %shr181.i = lshr i32 %add176.i, 12
   %76 = trunc i32 %shr181.i to i8
   %77 = and i8 %76, 63
+  %conv184.i = or disjoint i8 %77, -128
+  %incdec.ptr185.i = getelementptr inbounds i8, ptr %utf8_output.addr.3152.i, i64 2
+  store i8 %conv184.i, ptr %incdec.ptr180.i, align 1
   %shr186.i = lshr i32 %add175.i, 6
   %78 = trunc i32 %shr186.i to i8
   %79 = and i8 %78, 63
+  %conv189.i = or disjoint i8 %79, -128
+  %incdec.ptr190.i = getelementptr inbounds i8, ptr %utf8_output.addr.3152.i, i64 3
+  store i8 %conv189.i, ptr %incdec.ptr185.i, align 1
   %80 = trunc i16 %or.i118.i to i8
   %81 = and i8 %80, 63
+  %conv193.i = or disjoint i8 %81, -128
   %incdec.ptr194.i = getelementptr inbounds i8, ptr %utf8_output.addr.3152.i, i64 4
-  %82 = insertelement <4 x i8> poison, i8 %75, i64 0
-  %83 = insertelement <4 x i8> %82, i8 %77, i64 1
-  %84 = insertelement <4 x i8> %83, i8 %79, i64 2
-  %85 = insertelement <4 x i8> %84, i8 %81, i64 3
-  %86 = or <4 x i8> %85, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %86, ptr %utf8_output.addr.3152.i, align 1
+  store i8 %conv193.i, ptr %incdec.ptr190.i, align 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end172.i, %if.then137.i, %if.then122.i, %if.then116.i
@@ -46185,21 +46315,26 @@ if.end170.i:                                      ; preds = %if.else148.i
   %add174.i = add nuw nsw i32 %add173.i, 65536
   %shr175.i = lshr i32 %add174.i, 18
   %71 = trunc nuw i32 %shr175.i to i8
+  %conv177.i = or i8 %71, -16
+  %incdec.ptr178.i = getelementptr inbounds i8, ptr %utf8_output.addr.3158.i, i64 1
+  store i8 %conv177.i, ptr %utf8_output.addr.3158.i, align 1, !noalias !646
   %shr179.i = lshr i32 %add174.i, 12
   %72 = trunc i32 %shr179.i to i8
   %73 = and i8 %72, 63
+  %conv182.i = or disjoint i8 %73, -128
+  %incdec.ptr183.i = getelementptr inbounds i8, ptr %utf8_output.addr.3158.i, i64 2
+  store i8 %conv182.i, ptr %incdec.ptr178.i, align 1, !noalias !646
   %shr184.i = lshr i32 %add173.i, 6
   %74 = trunc i32 %shr184.i to i8
   %75 = and i8 %74, 63
+  %conv187.i = or disjoint i8 %75, -128
+  %incdec.ptr188.i = getelementptr inbounds i8, ptr %utf8_output.addr.3158.i, i64 3
+  store i8 %conv187.i, ptr %incdec.ptr183.i, align 1, !noalias !646
   %76 = trunc i16 %70 to i8
   %77 = and i8 %76, 63
+  %conv191.i = or disjoint i8 %77, -128
   %incdec.ptr192.i = getelementptr inbounds i8, ptr %utf8_output.addr.3158.i, i64 4
-  %78 = insertelement <4 x i8> poison, i8 %71, i64 0
-  %79 = insertelement <4 x i8> %78, i8 %73, i64 1
-  %80 = insertelement <4 x i8> %79, i8 %75, i64 2
-  %81 = insertelement <4 x i8> %80, i8 %77, i64 3
-  %82 = or <4 x i8> %81, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %82, ptr %utf8_output.addr.3158.i, align 1, !noalias !646
+  store i8 %conv191.i, ptr %incdec.ptr188.i, align 1, !noalias !646
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end170.i, %if.then131.i, %if.then116.i, %if.then110.i
@@ -46236,17 +46371,17 @@ if.then4:                                         ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %sub.ptr.sub202.i
   %sub = sub i64 %len, %sub.ptr.div203.i
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKDsmPc(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %utf8_output.addr.0.lcssa.i)
-  %83 = extractvalue { i32, i64 } %call, 0
-  %84 = extractvalue { i32, i64 } %call, 1
-  %tobool10.not = icmp eq i32 %83, 0
+  %78 = extractvalue { i32, i64 } %call, 0
+  %79 = extractvalue { i32, i64 } %call, 1
+  %tobool10.not = icmp eq i32 %78, 0
   br i1 %tobool10.not, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %if.then4
-  %add = add i64 %84, %sub.ptr.div203.i
+  %add = add i64 %79, %sub.ptr.div203.i
   br label %return
 
 if.else:                                          ; preds = %if.then4
-  %add.ptr17 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.i, i64 %84
+  %add.ptr17 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.i, i64 %79
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.end
@@ -46257,7 +46392,7 @@ if.end19:                                         ; preds = %if.else, %if.end
   br label %return
 
 return:                                           ; preds = %if.end19, %if.then11, %if.then
-  %retval.sroa.0.0 = phi i32 [ 6, %if.then ], [ %83, %if.then11 ], [ 0, %if.end19 ]
+  %retval.sroa.0.0 = phi i32 [ 6, %if.then ], [ %78, %if.then11 ], [ 0, %if.end19 ]
   %retval.sroa.57.0 = phi i64 [ %sub169.i, %if.then ], [ %add, %if.then11 ], [ %sub.ptr.sub, %if.end19 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.57.0, 1
@@ -46517,21 +46652,26 @@ if.end177.i:                                      ; preds = %if.else154.i
   %add181.i = add nuw nsw i32 %add180.i, 65536
   %shr182.i = lshr i32 %add181.i, 18
   %75 = trunc nuw i32 %shr182.i to i8
+  %conv184.i = or i8 %75, -16
+  %incdec.ptr185.i = getelementptr inbounds i8, ptr %utf8_output.addr.3162.i, i64 1
+  store i8 %conv184.i, ptr %utf8_output.addr.3162.i, align 1, !noalias !651
   %shr186.i = lshr i32 %add181.i, 12
   %76 = trunc i32 %shr186.i to i8
   %77 = and i8 %76, 63
+  %conv189.i = or disjoint i8 %77, -128
+  %incdec.ptr190.i = getelementptr inbounds i8, ptr %utf8_output.addr.3162.i, i64 2
+  store i8 %conv189.i, ptr %incdec.ptr185.i, align 1, !noalias !651
   %shr191.i = lshr i32 %add180.i, 6
   %78 = trunc i32 %shr191.i to i8
   %79 = and i8 %78, 63
+  %conv194.i = or disjoint i8 %79, -128
+  %incdec.ptr195.i = getelementptr inbounds i8, ptr %utf8_output.addr.3162.i, i64 3
+  store i8 %conv194.i, ptr %incdec.ptr190.i, align 1, !noalias !651
   %80 = trunc i16 %or.i136.i to i8
   %81 = and i8 %80, 63
+  %conv198.i = or disjoint i8 %81, -128
   %incdec.ptr199.i = getelementptr inbounds i8, ptr %utf8_output.addr.3162.i, i64 4
-  %82 = insertelement <4 x i8> poison, i8 %75, i64 0
-  %83 = insertelement <4 x i8> %82, i8 %77, i64 1
-  %84 = insertelement <4 x i8> %83, i8 %79, i64 2
-  %85 = insertelement <4 x i8> %84, i8 %81, i64 3
-  %86 = or <4 x i8> %85, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %86, ptr %utf8_output.addr.3162.i, align 1, !noalias !651
+  store i8 %conv198.i, ptr %incdec.ptr195.i, align 1, !noalias !651
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end177.i, %if.then137.i, %if.then122.i, %if.then116.i
@@ -46568,17 +46708,17 @@ if.then4:                                         ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %sub.ptr.sub209.i
   %sub = sub i64 %len, %sub.ptr.div210.i
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf16_to_utf819convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKDsmPc(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %utf8_output.addr.0.lcssa.i)
-  %87 = extractvalue { i32, i64 } %call, 0
-  %88 = extractvalue { i32, i64 } %call, 1
-  %tobool10.not = icmp eq i32 %87, 0
+  %82 = extractvalue { i32, i64 } %call, 0
+  %83 = extractvalue { i32, i64 } %call, 1
+  %tobool10.not = icmp eq i32 %82, 0
   br i1 %tobool10.not, label %if.else, label %if.then11
 
 if.then11:                                        ; preds = %if.then4
-  %add = add i64 %88, %sub.ptr.div210.i
+  %add = add i64 %83, %sub.ptr.div210.i
   br label %return
 
 if.else:                                          ; preds = %if.then4
-  %add.ptr17 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.i, i64 %88
+  %add.ptr17 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.i, i64 %83
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.end
@@ -46589,7 +46729,7 @@ if.end19:                                         ; preds = %if.else, %if.end
   br label %return
 
 return:                                           ; preds = %if.end19, %if.then11, %if.then
-  %retval.sroa.0.0 = phi i32 [ 6, %if.then ], [ %87, %if.then11 ], [ 0, %if.end19 ]
+  %retval.sroa.0.0 = phi i32 [ 6, %if.then ], [ %82, %if.then11 ], [ 0, %if.end19 ]
   %retval.sroa.57.0 = phi i64 [ %sub176.i, %if.then ], [ %add, %if.then11 ], [ %sub.ptr.sub, %if.end19 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.57.0, 1
@@ -47273,21 +47413,26 @@ if.else199.i:                                     ; preds = %if.else177.i
 if.end204.i:                                      ; preds = %if.else199.i
   %shr205.i = lshr i32 %76, 18
   %86 = trunc nuw i32 %shr205.i to i8
+  %conv207.i = or disjoint i8 %86, -16
+  %incdec.ptr208.i = getelementptr inbounds i8, ptr %utf8_output.addr.3227.i, i64 1
+  store i8 %conv207.i, ptr %utf8_output.addr.3227.i, align 1
   %shr209.i = lshr i32 %76, 12
   %87 = trunc i32 %shr209.i to i8
   %88 = and i8 %87, 63
+  %conv212.i = or disjoint i8 %88, -128
+  %incdec.ptr213.i = getelementptr inbounds i8, ptr %utf8_output.addr.3227.i, i64 2
+  store i8 %conv212.i, ptr %incdec.ptr208.i, align 1
   %shr214.i = lshr i32 %76, 6
   %89 = trunc i32 %shr214.i to i8
   %90 = and i8 %89, 63
+  %conv217.i = or disjoint i8 %90, -128
+  %incdec.ptr218.i = getelementptr inbounds i8, ptr %utf8_output.addr.3227.i, i64 3
+  store i8 %conv217.i, ptr %incdec.ptr213.i, align 1
   %91 = trunc i32 %76 to i8
   %92 = and i8 %91, 63
+  %conv221.i = or disjoint i8 %92, -128
   %incdec.ptr222.i = getelementptr inbounds i8, ptr %utf8_output.addr.3227.i, i64 4
-  %93 = insertelement <4 x i8> poison, i8 %86, i64 0
-  %94 = insertelement <4 x i8> %93, i8 %88, i64 1
-  %95 = insertelement <4 x i8> %94, i8 %90, i64 2
-  %96 = insertelement <4 x i8> %95, i8 %92, i64 3
-  %97 = or disjoint <4 x i8> %96, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %97, ptr %utf8_output.addr.3227.i, align 1
+  store i8 %conv221.i, ptr %incdec.ptr218.i, align 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end204.i, %if.end185.i, %if.then168.i, %if.then163.i
@@ -47308,14 +47453,14 @@ while.end.i:                                      ; preds = %while.cond.outer.ba
   %.lcssa.i = phi <4 x i32> [ zeroinitializer, %entry ], [ %.be.i, %while.cond.backedge.i ], [ %21, %while.cond.outer.backedge.i ]
   %cmp.i.i = icmp ult <4 x i32> %.lcssa.i, <i32 1114112, i32 1114112, i32 1114112, i32 1114112>
   %sext.i.i = sext <4 x i1> %cmp.i.i to <4 x i32>
-  %98 = bitcast <4 x i32> %sext.i.i to <16 x i8>
-  %99 = icmp sgt <16 x i8> %98, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %100 = bitcast <16 x i1> %99 to i16
-  %cmp234.not.i = icmp ne i16 %100, 0
-  %101 = bitcast <2 x i64> %forbidden_bytemask.0.ph.lcssa214.i to <16 x i8>
-  %102 = icmp slt <16 x i8> %101, zeroinitializer
-  %103 = bitcast <16 x i1> %102 to i16
-  %cmp240.not.i = icmp ne i16 %103, 0
+  %93 = bitcast <4 x i32> %sext.i.i to <16 x i8>
+  %94 = icmp sgt <16 x i8> %93, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %95 = bitcast <16 x i1> %94 to i16
+  %cmp234.not.i = icmp ne i16 %95, 0
+  %96 = bitcast <2 x i64> %forbidden_bytemask.0.ph.lcssa214.i to <16 x i8>
+  %97 = icmp slt <16 x i8> %96, zeroinitializer
+  %98 = bitcast <16 x i1> %97 to i16
+  %cmp240.not.i = icmp ne i16 %98, 0
   %or.cond.not28 = select i1 %cmp234.not.i, i1 true, i1 %cmp240.not.i
   %cmp = icmp eq ptr %buf.addr.0.lcssa.i, null
   %or.cond19 = or i1 %cmp, %or.cond.not28
@@ -47667,21 +47812,26 @@ if.then236.i:                                     ; preds = %if.else234.i
 if.end243.i:                                      ; preds = %if.else234.i
   %shr244.i = lshr i32 %82, 18
   %92 = trunc nuw i32 %shr244.i to i8
+  %conv246.i = or disjoint i8 %92, -16
+  %incdec.ptr247.i = getelementptr inbounds i8, ptr %utf8_output.addr.3243.i, i64 1
+  store i8 %conv246.i, ptr %utf8_output.addr.3243.i, align 1, !noalias !664
   %shr248.i = lshr i32 %82, 12
   %93 = trunc i32 %shr248.i to i8
   %94 = and i8 %93, 63
+  %conv251.i = or disjoint i8 %94, -128
+  %incdec.ptr252.i = getelementptr inbounds i8, ptr %utf8_output.addr.3243.i, i64 2
+  store i8 %conv251.i, ptr %incdec.ptr247.i, align 1, !noalias !664
   %shr253.i = lshr i32 %82, 6
   %95 = trunc i32 %shr253.i to i8
   %96 = and i8 %95, 63
+  %conv256.i = or disjoint i8 %96, -128
+  %incdec.ptr257.i = getelementptr inbounds i8, ptr %utf8_output.addr.3243.i, i64 3
+  store i8 %conv256.i, ptr %incdec.ptr252.i, align 1, !noalias !664
   %97 = trunc i32 %82 to i8
   %98 = and i8 %97, 63
+  %conv260.i = or disjoint i8 %98, -128
   %incdec.ptr261.i = getelementptr inbounds i8, ptr %utf8_output.addr.3243.i, i64 4
-  %99 = insertelement <4 x i8> poison, i8 %92, i64 0
-  %100 = insertelement <4 x i8> %99, i8 %94, i64 1
-  %101 = insertelement <4 x i8> %100, i8 %96, i64 2
-  %102 = insertelement <4 x i8> %101, i8 %98, i64 3
-  %103 = or disjoint <4 x i8> %102, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %103, ptr %utf8_output.addr.3243.i, align 1, !noalias !664
+  store i8 %conv260.i, ptr %incdec.ptr257.i, align 1, !noalias !664
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end243.i, %if.end220.i, %if.then198.i, %if.then193.i
@@ -47715,17 +47865,17 @@ if.then:                                          ; preds = %_ZN7simdutf8westmer
   %add.ptr = getelementptr inbounds i32, ptr %buf, i64 %sub.ptr.div271.sink.i
   %sub = sub i64 %len, %sub.ptr.div271.sink.i
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf32_to_utf819convert_with_errorsEPKDimPc(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef %utf8_output.addr.0.lcssa.sink.i)
-  %104 = extractvalue { i32, i64 } %call, 0
-  %105 = extractvalue { i32, i64 } %call, 1
-  %tobool.not = icmp eq i32 %104, 0
+  %99 = extractvalue { i32, i64 } %call, 0
+  %100 = extractvalue { i32, i64 } %call, 1
+  %tobool.not = icmp eq i32 %99, 0
   br i1 %tobool.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  %add = add i64 %105, %sub.ptr.div271.sink.i
+  %add = add i64 %100, %sub.ptr.div271.sink.i
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %add.ptr12 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.sink.i, i64 %105
+  %add.ptr12 = getelementptr inbounds i8, ptr %utf8_output.addr.0.lcssa.sink.i, i64 %100
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %_ZN7simdutf8westmere12_GLOBAL__N_137sse_convert_utf32_to_utf8_with_errorsEPKDimPc.exit
@@ -47736,7 +47886,7 @@ if.end13:                                         ; preds = %if.else, %_ZN7simdu
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then6
-  %retval.sroa.0.0 = phi i32 [ %104, %if.then6 ], [ %.sink.i, %if.end13 ]
+  %retval.sroa.0.0 = phi i32 [ %99, %if.then6 ], [ %.sink.i, %if.end13 ]
   %retval.sroa.45.0 = phi i64 [ %add, %if.then6 ], [ %sub.ptr.sub, %if.end13 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.45.0, 1
@@ -53466,12 +53616,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #49
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #50
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v8i64(<8 x i64>) #48
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v4i64(<4 x i64>) #48
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

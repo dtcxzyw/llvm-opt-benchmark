@@ -3322,17 +3322,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not6.i, label %if.then13, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %4 = load <2 x i32>, ptr %V, align 4
+  %4 = load i32, ptr %V, align 4
+  %second2.i.i = getelementptr inbounds i8, ptr %V, i64 4
+  %5 = load i32, ptr %second2.i.i, align 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %I.07.i = phi ptr [ %2, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
-  %5 = load <2 x i32>, ptr %I.07.i, align 4
-  %6 = icmp eq <2 x i32> %5, %4
-  %7 = extractelement <2 x i1> %6, i64 0
-  %8 = extractelement <2 x i1> %6, i64 1
-  %9 = select i1 %7, i1 %8, i1 false
-  br i1 %9, label %_ZNK4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EE5vfindERKS2_.exit, label %for.inc.i
+  %6 = load i32, ptr %I.07.i, align 4
+  %cmp.i.i = icmp eq i32 %6, %4
+  %second.i.i = getelementptr inbounds i8, ptr %I.07.i, i64 4
+  %7 = load i32, ptr %second.i.i, align 4
+  %cmp3.i.i = icmp eq i32 %7, %5
+  %8 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
+  br i1 %8, label %_ZNK4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EE5vfindERKS2_.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %I.07.i, i64 8
@@ -3349,8 +3352,8 @@ if.end9:                                          ; preds = %for.inc.i, %_ZNK4ll
 
 if.then13:                                        ; preds = %if.end, %if.end9
   %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
-  %10 = load i32, ptr %Capacity.i.i, align 4
-  %cmp.not.i12 = icmp ult i32 %3, %10
+  %9 = load i32, ptr %Capacity.i.i, align 4
+  %cmp.not.i12 = icmp ult i32 %3, %9
   br i1 %cmp.not.i12, label %_ZN4llvh23SmallVectorTemplateBaseISt4pairIiiELb1EE9push_backERKS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then13
@@ -3363,12 +3366,12 @@ if.then.i:                                        ; preds = %if.then13
 
 _ZN4llvh23SmallVectorTemplateBaseISt4pairIiiELb1EE9push_backERKS2_.exit: ; preds = %if.then13, %if.then.i
   %conv.i3.i.pre-phi = phi i64 [ %conv.i.i, %if.then13 ], [ %.pre38, %if.then.i ]
-  %11 = phi ptr [ %2, %if.then13 ], [ %.pre, %if.then.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.22", ptr %11, i64 %conv.i3.i.pre-phi
-  %12 = load i64, ptr %V, align 4
-  store i64 %12, ptr %add.ptr.i.i, align 1
-  %13 = load i32, ptr %Size.i.i, align 8
-  %add.i = add i32 %13, 1
+  %10 = phi ptr [ %2, %if.then13 ], [ %.pre, %if.then.i ]
+  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.22", ptr %10, i64 %conv.i3.i.pre-phi
+  %11 = load i64, ptr %V, align 4
+  store i64 %11, ptr %add.ptr.i.i, align 1
+  %12 = load i32, ptr %Size.i.i, align 8
+  %add.i = add i32 %12, 1
   store i32 %add.i, ptr %Size.i.i, align 8
   br label %return
 
@@ -3377,14 +3380,14 @@ while.body.lr.ph:                                 ; preds = %if.end9
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %14 = phi i32 [ %3, %while.body.lr.ph ], [ %sub.i, %while.body ]
-  %15 = load ptr, ptr %this, align 8
-  %conv.i.i19 = zext i32 %14 to i64
-  %add.ptr.i.i20 = getelementptr inbounds %"struct.std::pair.22", ptr %15, i64 %conv.i.i19
+  %13 = phi i32 [ %3, %while.body.lr.ph ], [ %sub.i, %while.body ]
+  %14 = load ptr, ptr %this, align 8
+  %conv.i.i19 = zext i32 %13 to i64
+  %add.ptr.i.i20 = getelementptr inbounds %"struct.std::pair.22", ptr %14, i64 %conv.i.i19
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i20, i64 -8
   %call.i21 = tail call { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE16_M_insert_uniqueIRKS1_EES0_ISt17_Rb_tree_iteratorIS1_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %Set20, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i)
-  %16 = load i32, ptr %Size.i.i, align 8
-  %sub.i = add i32 %16, -1
+  %15 = load i32, ptr %Size.i.i, align 8
+  %sub.i = add i32 %15, -1
   store i32 %sub.i, ptr %Size.i.i, align 8
   %tobool.not.i = icmp eq i32 %sub.i, 0
   br i1 %tobool.not.i, label %while.end, label %while.body, !llvm.loop !32

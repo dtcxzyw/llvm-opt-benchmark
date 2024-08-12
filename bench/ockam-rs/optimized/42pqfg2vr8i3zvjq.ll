@@ -1881,7 +1881,7 @@ define hidden void @"_ZN8tempfile4file22NamedTempFile$LT$F$GT$4keep17hd6c7e3aab0
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h051c129672c3552fE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %4) #24
-          to label %25 unwind label %23
+          to label %27 unwind label %25
 
 12:                                               ; preds = %2
   %13 = load i64, ptr %3, align 8, !range !41, !noundef !4
@@ -1898,34 +1898,38 @@ define hidden void @"_ZN8tempfile4file22NamedTempFile$LT$F$GT$4keep17hd6c7e3aab0
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.4, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.4)
-  br label %22
+  br label %24
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %3, i64 24
-  %19 = load i64, ptr %18, align 8, !noundef !4
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load <2 x ptr>, ptr %14, align 8
-  store <2 x ptr> %21, ptr %20, align 8
+  %18 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
+  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %20 = load ptr, ptr %19, align 8, !nonnull !4, !align !309, !noundef !4
+  %21 = getelementptr inbounds i8, ptr %3, i64 24
+  %22 = load i64, ptr %21, align 8, !noundef !4
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %18, ptr %23, align 8
+  %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %20, ptr %.sroa.43.0..sroa_idx, align 8
   %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %19, ptr %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx, align 8
+  store i64 %22, ptr %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx, align 8
   %.sroa.43.sroa.5.0..sroa.43.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %6, ptr %.sroa.43.sroa.5.0..sroa.43.0..sroa_idx.sroa_idx, align 8
-  br label %22
+  br label %24
 
-22:                                               ; preds = %17, %15
+24:                                               ; preds = %17, %15
   %.sink = phi i64 [ 1, %17 ], [ 0, %15 ]
   store i64 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 
-23:                                               ; preds = %10
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %10
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #25
   unreachable
 
-25:                                               ; preds = %10
+27:                                               ; preds = %10
   resume { ptr, i32 } %11
 }
 

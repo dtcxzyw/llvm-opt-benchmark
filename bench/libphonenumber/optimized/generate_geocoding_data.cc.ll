@@ -1474,7 +1474,7 @@ define dso_local void @_ZN4i18n12phonenumbers23WritePrefixDescriptionsERKNSt7__c
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %.noexc unwind label %122
+          to label %.noexc unwind label %125
 
 .noexc:                                           ; preds = %3
   %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.18)
@@ -1562,150 +1562,156 @@ _ZNK4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10ma
 .noexc34:                                         ; preds = %52
   store ptr %53, ptr %53, align 8, !noalias !14
   %54 = getelementptr inbounds i8, ptr %53, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %54, align 1, !noalias !14
+  store i8 0, ptr %54, align 1, !noalias !14
+  %55 = getelementptr inbounds i8, ptr %53, i64 9
+  store i8 0, ptr %55, align 1, !noalias !14
+  %56 = getelementptr inbounds i8, ptr %53, i64 10
+  store i8 0, ptr %56, align 1, !noalias !14
+  %57 = getelementptr inbounds i8, ptr %53, i64 11
+  store i8 1, ptr %57, align 1, !noalias !14
   store ptr %53, ptr %10, align 8, !noalias !14
   store ptr %53, ptr %5, align 8, !noalias !14
   br label %.preheader
 
 .preheader:                                       ; preds = %.noexc34, %_ZNK4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EptEv.exit33
-  br label %55
+  br label %58
 
-55:                                               ; preds = %.preheader, %69
-  %.sroa.0.0.in.i.i.i = phi ptr [ %72, %69 ], [ %5, %.preheader ]
+58:                                               ; preds = %.preheader, %72
+  %.sroa.0.0.in.i.i.i = phi ptr [ %75, %72 ], [ %5, %.preheader ]
   %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !noalias !14
-  %56 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 10
-  %57 = load i8, ptr %56, align 1, !noalias !14
-  %58 = zext i8 %57 to i32
-  %59 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 12
-  %.not.i.i.i.i.i = icmp eq i8 %57, 0
+  %59 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 10
+  %60 = load i8, ptr %59, align 1, !noalias !14
+  %61 = zext i8 %60 to i32
+  %62 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 12
+  %.not.i.i.i.i.i = icmp eq i8 %60, 0
   br i1 %.not.i.i.i.i.i, label %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %55
-  %zext.i.i.i.i.i = zext i8 %57 to i64
-  br label %60
+.lr.ph.i.i.i.i.i.i:                               ; preds = %58
+  %zext.i.i.i.i.i = zext i8 %60 to i64
+  br label %63
 
-60:                                               ; preds = %64, %.lr.ph.i.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %64 ]
-  %61 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv.i.i.i.i.i.i
-  %62 = load i32, ptr %61, align 4, !noalias !14
-  %63 = icmp slt i32 %62, %49
-  br i1 %63, label %64, label %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i
+63:                                               ; preds = %67, %.lr.ph.i.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %67 ]
+  %64 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv.i.i.i.i.i.i
+  %65 = load i32, ptr %64, align 4, !noalias !14
+  %66 = icmp slt i32 %65, %49
+  br i1 %66, label %67, label %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i
 
-64:                                               ; preds = %60
+67:                                               ; preds = %63
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %65 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %zext.i.i.i.i.i
-  br i1 %65, label %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i, label %60, !llvm.loop !19
+  %68 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %zext.i.i.i.i.i
+  br i1 %68, label %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i, label %63, !llvm.loop !19
 
-._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i: ; preds = %60
-  %66 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i to i32
+._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i: ; preds = %63
+  %69 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i to i32
   br label %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i
 
-_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i: ; preds = %64, %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i, %55
-  %.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %55 ], [ %66, %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i ], [ %58, %64 ]
-  %67 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 11
-  %68 = load i8, ptr %67, align 1, !noalias !14
-  %.not.i.i.i = icmp eq i8 %68, 0
-  br i1 %.not.i.i.i, label %69, label %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i
+_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i: ; preds = %67, %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i, %58
+  %.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %58 ], [ %69, %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i.i ], [ %61, %67 ]
+  %70 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 11
+  %71 = load i8, ptr %70, align 1, !noalias !14
+  %.not.i.i.i = icmp eq i8 %71, 0
+  br i1 %.not.i.i.i, label %72, label %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i
 
-69:                                               ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i
-  %70 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 256
-  %71 = sext i32 %.0.lcssa.i.i.i.i.i.i to i64
-  %72 = getelementptr inbounds ptr, ptr %70, i64 %71
-  br label %55, !llvm.loop !20
+72:                                               ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i
+  %73 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 256
+  %74 = sext i32 %.0.lcssa.i.i.i.i.i.i to i64
+  %75 = getelementptr inbounds ptr, ptr %73, i64 %74
+  br label %58, !llvm.loop !20
 
-_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i: ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i, %77
-  %.sroa.8.0.i.i.i = phi i32 [ %80, %77 ], [ %.0.lcssa.i.i.i.i.i.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i ]
-  %.sroa.0.0.i12.i.i = phi ptr [ %81, %77 ], [ %.sroa.0.0.i.i.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i ]
-  %73 = getelementptr inbounds i8, ptr %.sroa.0.0.i12.i.i, i64 10
-  %74 = load i8, ptr %73, align 1, !noalias !14
-  %75 = zext i8 %74 to i32
-  %76 = icmp eq i32 %.sroa.8.0.i.i.i, %75
-  br i1 %76, label %77, label %84
+_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i: ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i, %80
+  %.sroa.8.0.i.i.i = phi i32 [ %83, %80 ], [ %.0.lcssa.i.i.i.i.i.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i ]
+  %.sroa.0.0.i12.i.i = phi ptr [ %84, %80 ], [ %.sroa.0.0.i.i.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i ]
+  %76 = getelementptr inbounds i8, ptr %.sroa.0.0.i12.i.i, i64 10
+  %77 = load i8, ptr %76, align 1, !noalias !14
+  %78 = zext i8 %77 to i32
+  %79 = icmp eq i32 %.sroa.8.0.i.i.i, %78
+  br i1 %79, label %80, label %87
 
-77:                                               ; preds = %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i
-  %78 = getelementptr inbounds i8, ptr %.sroa.0.0.i12.i.i, i64 8
-  %79 = load i8, ptr %78, align 1, !noalias !14
-  %80 = zext i8 %79 to i32
-  %81 = load ptr, ptr %.sroa.0.0.i12.i.i, align 8, !noalias !14
-  %82 = getelementptr inbounds i8, ptr %81, i64 11
-  %83 = load i8, ptr %82, align 1, !noalias !14
-  %.not.i15.i.i = icmp eq i8 %83, 0
+80:                                               ; preds = %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i
+  %81 = getelementptr inbounds i8, ptr %.sroa.0.0.i12.i.i, i64 8
+  %82 = load i8, ptr %81, align 1, !noalias !14
+  %83 = zext i8 %82 to i32
+  %84 = load ptr, ptr %.sroa.0.0.i12.i.i, align 8, !noalias !14
+  %85 = getelementptr inbounds i8, ptr %84, i64 11
+  %86 = load i8, ptr %85, align 1, !noalias !14
+  %.not.i15.i.i = icmp eq i8 %86, 0
   br i1 %.not.i15.i.i, label %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i, label %_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEEET_SG_.exit.thread.i.i, !llvm.loop !21
 
-84:                                               ; preds = %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i
-  %85 = getelementptr inbounds i8, ptr %.sroa.0.0.i12.i.i, i64 12
-  %86 = sext i32 %.sroa.8.0.i.i.i to i64
-  %87 = getelementptr inbounds i32, ptr %85, i64 %86
-  %88 = load i32, ptr %87, align 4, !noalias !14
-  %89 = icmp sgt i32 %88, %49
-  br i1 %89, label %_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEEET_SG_.exit.thread.i.i, label %_ZN4absl7debian218container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertEOi.exit
+87:                                               ; preds = %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEELb0EEERKT_.exit.i.i
+  %88 = getelementptr inbounds i8, ptr %.sroa.0.0.i12.i.i, i64 12
+  %89 = sext i32 %.sroa.8.0.i.i.i to i64
+  %90 = getelementptr inbounds i32, ptr %88, i64 %89
+  %91 = load i32, ptr %90, align 4, !noalias !14
+  %92 = icmp sgt i32 %91, %49
+  br i1 %92, label %_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEEET_SG_.exit.thread.i.i, label %_ZN4absl7debian218container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertEOi.exit
 
-_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEEET_SG_.exit.thread.i.i: ; preds = %77, %84
-  %90 = invoke { ptr, i32 } @_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE16internal_emplaceIJiEEENS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEESF_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %.sroa.0.0.i.i.i, i32 %.0.lcssa.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %7)
+_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEEET_SG_.exit.thread.i.i: ; preds = %80, %87
+  %93 = invoke { ptr, i32 } @_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE16internal_emplaceIJiEEENS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEESF_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %.sroa.0.0.i.i.i, i32 %.0.lcssa.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %_ZN4absl7debian218container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertEOi.exit unwind label %.loopexit132
 
-_ZN4absl7debian218container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertEOi.exit: ; preds = %_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEEET_SG_.exit.thread.i.i, %84
-  %91 = getelementptr inbounds i8, ptr %.sroa.0110.0150, i64 11
-  %92 = load i8, ptr %91, align 1
-  %.not.i.i36 = icmp eq i8 %92, 0
-  br i1 %.not.i.i36, label %.thread.i.i, label %93
+_ZN4absl7debian218container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertEOi.exit: ; preds = %_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEEEET_SG_.exit.thread.i.i, %87
+  %94 = getelementptr inbounds i8, ptr %.sroa.0110.0150, i64 11
+  %95 = load i8, ptr %94, align 1
+  %.not.i.i36 = icmp eq i8 %95, 0
+  br i1 %.not.i.i36, label %.thread.i.i, label %96
 
-93:                                               ; preds = %_ZN4absl7debian218container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertEOi.exit
-  %94 = add nuw nsw i32 %.sroa.9.0151, 1
-  %95 = load i8, ptr %30, align 1
-  %96 = zext i8 %95 to i32
-  %97 = icmp eq i32 %94, %96
-  br i1 %97, label %.lr.ph.i.i.i, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit
+96:                                               ; preds = %_ZN4absl7debian218container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertEOi.exit
+  %97 = add nuw nsw i32 %.sroa.9.0151, 1
+  %98 = load i8, ptr %30, align 1
+  %99 = zext i8 %98 to i32
+  %100 = icmp eq i32 %97, %99
+  br i1 %100, label %.lr.ph.i.i.i, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit
 
-.lr.ph.i.i.i:                                     ; preds = %93, %102
-  %98 = phi ptr [ %99, %102 ], [ %.sroa.0110.0150, %93 ]
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 11
-  %101 = load i8, ptr %100, align 1
-  %.not2.i.i.i = icmp eq i8 %101, 0
-  br i1 %.not2.i.i.i, label %102, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit
-
-102:                                              ; preds = %.lr.ph.i.i.i
-  %103 = getelementptr inbounds i8, ptr %98, i64 8
+.lr.ph.i.i.i:                                     ; preds = %96, %105
+  %101 = phi ptr [ %102, %105 ], [ %.sroa.0110.0150, %96 ]
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 11
   %104 = load i8, ptr %103, align 1
-  %105 = getelementptr inbounds i8, ptr %99, i64 10
-  %106 = load i8, ptr %105, align 1
-  %107 = icmp eq i8 %104, %106
-  br i1 %107, label %.lr.ph.i.i.i, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit.loopexit131.split.loop.exit145, !llvm.loop !22
+  %.not2.i.i.i = icmp eq i8 %104, 0
+  br i1 %.not2.i.i.i, label %105, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit
+
+105:                                              ; preds = %.lr.ph.i.i.i
+  %106 = getelementptr inbounds i8, ptr %101, i64 8
+  %107 = load i8, ptr %106, align 1
+  %108 = getelementptr inbounds i8, ptr %102, i64 10
+  %109 = load i8, ptr %108, align 1
+  %110 = icmp eq i8 %107, %109
+  br i1 %110, label %.lr.ph.i.i.i, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit.loopexit131.split.loop.exit145, !llvm.loop !22
 
 .thread.i.i:                                      ; preds = %_ZN4absl7debian218container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertEOi.exit
-  %108 = getelementptr inbounds i8, ptr %.sroa.0110.0150, i64 256
-  %109 = getelementptr ptr, ptr %108, i64 %37
-  %110 = getelementptr i8, ptr %109, i64 8
-  br label %111
+  %111 = getelementptr inbounds i8, ptr %.sroa.0110.0150, i64 256
+  %112 = getelementptr ptr, ptr %111, i64 %37
+  %113 = getelementptr i8, ptr %112, i64 8
+  br label %114
 
-111:                                              ; preds = %111, %.thread.i.i
-  %storemerge.in.i.i.i = phi ptr [ %110, %.thread.i.i ], [ %114, %111 ]
+114:                                              ; preds = %114, %.thread.i.i
+  %storemerge.in.i.i.i = phi ptr [ %113, %.thread.i.i ], [ %117, %114 ]
   %storemerge.i.i.i = load ptr, ptr %storemerge.in.i.i.i, align 8
-  %112 = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 11
-  %113 = load i8, ptr %112, align 1
-  %.not1.i.i.i = icmp eq i8 %113, 0
-  %114 = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 256
-  br i1 %.not1.i.i.i, label %111, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit, !llvm.loop !23
+  %115 = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 11
+  %116 = load i8, ptr %115, align 1
+  %.not1.i.i.i = icmp eq i8 %116, 0
+  %117 = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 256
+  br i1 %.not1.i.i.i, label %114, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit, !llvm.loop !23
 
-_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit.loopexit131.split.loop.exit145: ; preds = %102
-  %115 = zext i8 %104 to i32
+_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit.loopexit131.split.loop.exit145: ; preds = %105
+  %118 = zext i8 %107 to i32
   br label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit
 
-_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit: ; preds = %.lr.ph.i.i.i, %111, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit.loopexit131.split.loop.exit145, %93
-  %.sroa.0110.2 = phi ptr [ %.sroa.0110.0150, %93 ], [ %99, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit.loopexit131.split.loop.exit145 ], [ %storemerge.i.i.i, %111 ], [ %.sroa.0110.0150, %.lr.ph.i.i.i ]
-  %.sroa.9.2 = phi i32 [ %94, %93 ], [ %115, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit.loopexit131.split.loop.exit145 ], [ 0, %111 ], [ %94, %.lr.ph.i.i.i ]
-  %116 = load ptr, ptr %20, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 10
-  %118 = load i8, ptr %117, align 1
-  %119 = zext i8 %118 to i32
-  %.not.i = icmp ne ptr %.sroa.0110.2, %116
-  %120 = icmp ne i32 %.sroa.9.2, %119
-  %121 = select i1 %.not.i, i1 true, i1 %120
-  br i1 %121, label %.lr.ph, label %._crit_edge
+_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit: ; preds = %.lr.ph.i.i.i, %114, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit.loopexit131.split.loop.exit145, %96
+  %.sroa.0110.2 = phi ptr [ %.sroa.0110.0150, %96 ], [ %102, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit.loopexit131.split.loop.exit145 ], [ %storemerge.i.i.i, %114 ], [ %.sroa.0110.0150, %.lr.ph.i.i.i ]
+  %.sroa.9.2 = phi i32 [ %97, %96 ], [ %118, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit.loopexit131.split.loop.exit145 ], [ 0, %114 ], [ %97, %.lr.ph.i.i.i ]
+  %119 = load ptr, ptr %20, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 10
+  %121 = load i8, ptr %120, align 1
+  %122 = zext i8 %121 to i32
+  %.not.i = icmp ne ptr %.sroa.0110.2, %119
+  %123 = icmp ne i32 %.sroa.9.2, %122
+  %124 = select i1 %.not.i, i1 true, i1 %123
+  br i1 %124, label %.lr.ph, label %._crit_edge
 
-122:                                              ; preds = %3
-  %123 = landingpad { ptr, i32 }
+125:                                              ; preds = %3
+  %126 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -1720,137 +1726,137 @@ _ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map
   br label %.body39
 
 ._crit_edge:                                      ; preds = %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit, %15
-  %124 = call i64 @fwrite(ptr nonnull @.str.21, i64 4, i64 1, ptr %2)
+  %127 = call i64 @fwrite(ptr nonnull @.str.21, i64 4, i64 1, ptr %2)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc38 unwind label %.loopexit.split-lp133
 
 .noexc38:                                         ; preds = %._crit_edge
-  %125 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.22)
-          to label %128 unwind label %126
+  %128 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.22)
+          to label %131 unwind label %129
 
-126:                                              ; preds = %.noexc38
-  %127 = landingpad { ptr, i32 }
+129:                                              ; preds = %.noexc38
+  %130 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   br label %.body39
 
-128:                                              ; preds = %.noexc38
-  %129 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
-  %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef %129) #21
-  %131 = load ptr, ptr %1, align 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = load ptr, ptr %20, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 10
-  %135 = load i8, ptr %134, align 1
-  %.not.i46155 = icmp ne ptr %132, %133
-  %136 = icmp ne i8 %135, 0
-  %137 = select i1 %.not.i46155, i1 true, i1 %136
-  br i1 %137, label %.lr.ph159, label %._crit_edge160
+131:                                              ; preds = %.noexc38
+  %132 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
+  %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef %132) #21
+  %134 = load ptr, ptr %1, align 8
+  %135 = load ptr, ptr %134, align 8
+  %136 = load ptr, ptr %20, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 10
+  %138 = load i8, ptr %137, align 1
+  %.not.i46155 = icmp ne ptr %135, %136
+  %139 = icmp ne i8 %138, 0
+  %140 = select i1 %.not.i46155, i1 true, i1 %139
+  br i1 %140, label %.lr.ph159, label %._crit_edge160
 
-.lr.ph159:                                        ; preds = %128, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63
-  %.sroa.8100.0157 = phi i32 [ %.sroa.8100.2, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63 ], [ 0, %128 ]
-  %.sroa.096.0156 = phi ptr [ %.sroa.096.2, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63 ], [ %132, %128 ]
-  %138 = call i64 @fwrite(ptr nonnull @.str.24, i64 2, i64 1, ptr %2)
+.lr.ph159:                                        ; preds = %131, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63
+  %.sroa.8100.0157 = phi i32 [ %.sroa.8100.2, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63 ], [ 0, %131 ]
+  %.sroa.096.0156 = phi ptr [ %.sroa.096.2, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63 ], [ %135, %131 ]
+  %141 = call i64 @fwrite(ptr nonnull @.str.24, i64 2, i64 1, ptr %2)
   %.not.i.i47 = icmp eq ptr %.sroa.096.0156, null
-  br i1 %.not.i.i47, label %139, label %140
+  br i1 %.not.i.i47, label %142, label %143
 
-139:                                              ; preds = %.lr.ph159
+142:                                              ; preds = %.lr.ph159
   call void @llvm.trap()
   unreachable
 
-140:                                              ; preds = %.lr.ph159
+143:                                              ; preds = %.lr.ph159
   %.not1.i.i48 = icmp slt i32 %.sroa.8100.0157, 0
-  br i1 %.not1.i.i48, label %141, label %142
+  br i1 %.not1.i.i48, label %144, label %145
 
-141:                                              ; preds = %140
+144:                                              ; preds = %143
   call void @llvm.trap()
   unreachable
 
-142:                                              ; preds = %140
-  %143 = getelementptr inbounds i8, ptr %.sroa.096.0156, i64 10
-  %144 = load i8, ptr %143, align 1
-  %145 = zext i8 %144 to i32
-  %146 = icmp ult i32 %.sroa.8100.0157, %145
-  br i1 %146, label %148, label %147
+145:                                              ; preds = %143
+  %146 = getelementptr inbounds i8, ptr %.sroa.096.0156, i64 10
+  %147 = load i8, ptr %146, align 1
+  %148 = zext i8 %147 to i32
+  %149 = icmp ult i32 %.sroa.8100.0157, %148
+  br i1 %149, label %151, label %150
 
-147:                                              ; preds = %142
+150:                                              ; preds = %145
   call void @llvm.trap()
   unreachable
 
-148:                                              ; preds = %142
-  %149 = getelementptr inbounds i8, ptr %.sroa.096.0156, i64 16
-  %150 = zext nneg i32 %.sroa.8100.0157 to i64
-  %151 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %149, i64 %150, i32 0, i32 1
+151:                                              ; preds = %145
+  %152 = getelementptr inbounds i8, ptr %.sroa.096.0156, i64 16
+  %153 = zext nneg i32 %.sroa.8100.0157 to i64
+  %154 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %152, i64 %153, i32 0, i32 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  invoke void @_ZN4i18n12phonenumbers17MakeStringLiteralERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %151)
-          to label %152 unwind label %.loopexit
+  invoke void @_ZN4i18n12phonenumbers17MakeStringLiteralERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %154)
+          to label %155 unwind label %.loopexit
 
-152:                                              ; preds = %148
-  %153 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
-  %fputs.i = call i32 @fputs(ptr %153, ptr %2)
+155:                                              ; preds = %151
+  %156 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
+  %fputs.i = call i32 @fputs(ptr %156, ptr %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %154 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %2)
-  %155 = getelementptr inbounds i8, ptr %.sroa.096.0156, i64 11
-  %156 = load i8, ptr %155, align 1
-  %.not.i.i51 = icmp eq i8 %156, 0
-  br i1 %.not.i.i51, label %.thread.i.i60, label %157
+  %157 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %2)
+  %158 = getelementptr inbounds i8, ptr %.sroa.096.0156, i64 11
+  %159 = load i8, ptr %158, align 1
+  %.not.i.i51 = icmp eq i8 %159, 0
+  br i1 %.not.i.i51, label %.thread.i.i60, label %160
 
-157:                                              ; preds = %152
-  %158 = add nuw nsw i32 %.sroa.8100.0157, 1
-  %159 = load i8, ptr %143, align 1
-  %160 = zext i8 %159 to i32
-  %161 = icmp eq i32 %158, %160
-  br i1 %161, label %.lr.ph.i.i.i55, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63
+160:                                              ; preds = %155
+  %161 = add nuw nsw i32 %.sroa.8100.0157, 1
+  %162 = load i8, ptr %146, align 1
+  %163 = zext i8 %162 to i32
+  %164 = icmp eq i32 %161, %163
+  br i1 %164, label %.lr.ph.i.i.i55, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63
 
-.lr.ph.i.i.i55:                                   ; preds = %157, %166
-  %162 = phi ptr [ %163, %166 ], [ %.sroa.096.0156, %157 ]
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 11
-  %165 = load i8, ptr %164, align 1
-  %.not2.i.i.i56 = icmp eq i8 %165, 0
-  br i1 %.not2.i.i.i56, label %166, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63
-
-166:                                              ; preds = %.lr.ph.i.i.i55
-  %167 = getelementptr inbounds i8, ptr %162, i64 8
+.lr.ph.i.i.i55:                                   ; preds = %160, %169
+  %165 = phi ptr [ %166, %169 ], [ %.sroa.096.0156, %160 ]
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 11
   %168 = load i8, ptr %167, align 1
-  %169 = getelementptr inbounds i8, ptr %163, i64 10
-  %170 = load i8, ptr %169, align 1
-  %171 = icmp eq i8 %168, %170
-  br i1 %171, label %.lr.ph.i.i.i55, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63.loopexit130.split.loop.exit152, !llvm.loop !22
+  %.not2.i.i.i56 = icmp eq i8 %168, 0
+  br i1 %.not2.i.i.i56, label %169, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63
 
-.thread.i.i60:                                    ; preds = %152
-  %172 = getelementptr inbounds i8, ptr %.sroa.096.0156, i64 256
-  %173 = getelementptr ptr, ptr %172, i64 %150
-  %174 = getelementptr i8, ptr %173, i64 8
-  br label %175
+169:                                              ; preds = %.lr.ph.i.i.i55
+  %170 = getelementptr inbounds i8, ptr %165, i64 8
+  %171 = load i8, ptr %170, align 1
+  %172 = getelementptr inbounds i8, ptr %166, i64 10
+  %173 = load i8, ptr %172, align 1
+  %174 = icmp eq i8 %171, %173
+  br i1 %174, label %.lr.ph.i.i.i55, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63.loopexit130.split.loop.exit152, !llvm.loop !22
 
-175:                                              ; preds = %175, %.thread.i.i60
-  %storemerge.in.i.i.i57 = phi ptr [ %174, %.thread.i.i60 ], [ %178, %175 ]
+.thread.i.i60:                                    ; preds = %155
+  %175 = getelementptr inbounds i8, ptr %.sroa.096.0156, i64 256
+  %176 = getelementptr ptr, ptr %175, i64 %153
+  %177 = getelementptr i8, ptr %176, i64 8
+  br label %178
+
+178:                                              ; preds = %178, %.thread.i.i60
+  %storemerge.in.i.i.i57 = phi ptr [ %177, %.thread.i.i60 ], [ %181, %178 ]
   %storemerge.i.i.i58 = load ptr, ptr %storemerge.in.i.i.i57, align 8
-  %176 = getelementptr inbounds i8, ptr %storemerge.i.i.i58, i64 11
-  %177 = load i8, ptr %176, align 1
-  %.not1.i.i.i59 = icmp eq i8 %177, 0
-  %178 = getelementptr inbounds i8, ptr %storemerge.i.i.i58, i64 256
-  br i1 %.not1.i.i.i59, label %175, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63, !llvm.loop !23
+  %179 = getelementptr inbounds i8, ptr %storemerge.i.i.i58, i64 11
+  %180 = load i8, ptr %179, align 1
+  %.not1.i.i.i59 = icmp eq i8 %180, 0
+  %181 = getelementptr inbounds i8, ptr %storemerge.i.i.i58, i64 256
+  br i1 %.not1.i.i.i59, label %178, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63, !llvm.loop !23
 
-_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63.loopexit130.split.loop.exit152: ; preds = %166
-  %179 = zext i8 %168 to i32
+_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63.loopexit130.split.loop.exit152: ; preds = %169
+  %182 = zext i8 %171 to i32
   br label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63
 
-_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63: ; preds = %.lr.ph.i.i.i55, %175, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63.loopexit130.split.loop.exit152, %157
-  %.sroa.096.2 = phi ptr [ %.sroa.096.0156, %157 ], [ %163, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63.loopexit130.split.loop.exit152 ], [ %storemerge.i.i.i58, %175 ], [ %.sroa.096.0156, %.lr.ph.i.i.i55 ]
-  %.sroa.8100.2 = phi i32 [ %158, %157 ], [ %179, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63.loopexit130.split.loop.exit152 ], [ 0, %175 ], [ %158, %.lr.ph.i.i.i55 ]
-  %180 = load ptr, ptr %20, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 10
-  %182 = load i8, ptr %181, align 1
-  %183 = zext i8 %182 to i32
-  %.not.i46 = icmp ne ptr %.sroa.096.2, %180
-  %184 = icmp ne i32 %.sroa.8100.2, %183
-  %185 = select i1 %.not.i46, i1 true, i1 %184
-  br i1 %185, label %.lr.ph159, label %._crit_edge160
+_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63: ; preds = %.lr.ph.i.i.i55, %178, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63.loopexit130.split.loop.exit152, %160
+  %.sroa.096.2 = phi ptr [ %.sroa.096.0156, %160 ], [ %166, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63.loopexit130.split.loop.exit152 ], [ %storemerge.i.i.i58, %178 ], [ %.sroa.096.0156, %.lr.ph.i.i.i55 ]
+  %.sroa.8100.2 = phi i32 [ %161, %160 ], [ %182, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63.loopexit130.split.loop.exit152 ], [ 0, %178 ], [ %161, %.lr.ph.i.i.i55 ]
+  %183 = load ptr, ptr %20, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 10
+  %185 = load i8, ptr %184, align 1
+  %186 = zext i8 %185 to i32
+  %.not.i46 = icmp ne ptr %.sroa.096.2, %183
+  %187 = icmp ne i32 %.sroa.8100.2, %186
+  %188 = select i1 %.not.i46, i1 true, i1 %187
+  br i1 %188, label %.lr.ph159, label %._crit_edge160
 
-.loopexit:                                        ; preds = %148
+.loopexit:                                        ; preds = %151
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body65
@@ -1860,168 +1866,168 @@ _ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map
           cleanup
   br label %.body65
 
-._crit_edge160:                                   ; preds = %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63, %128
-  %186 = call i64 @fwrite(ptr nonnull @.str.21, i64 4, i64 1, ptr %2)
+._crit_edge160:                                   ; preds = %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EppEv.exit63, %131
+  %189 = call i64 @fwrite(ptr nonnull @.str.21, i64 4, i64 1, ptr %2)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc64 unwind label %.loopexit.split-lp
 
 .noexc64:                                         ; preds = %._crit_edge160
-  %187 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.26)
-          to label %190 unwind label %188
+  %190 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.26)
+          to label %193 unwind label %191
 
-188:                                              ; preds = %.noexc64
-  %189 = landingpad { ptr, i32 }
+191:                                              ; preds = %.noexc64
+  %192 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   br label %.body65
 
-190:                                              ; preds = %.noexc64
-  %191 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
-  %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.27, ptr noundef %191) #21
-  %193 = load ptr, ptr %5, align 8
-  %194 = load ptr, ptr %193, align 8
-  %195 = load ptr, ptr %10, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 10
-  %197 = load i8, ptr %196, align 1
-  %.not.i72165 = icmp ne ptr %194, %195
-  %198 = icmp ne i8 %197, 0
-  %199 = select i1 %.not.i72165, i1 true, i1 %198
-  br i1 %199, label %.lr.ph169, label %._crit_edge170
+193:                                              ; preds = %.noexc64
+  %194 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
+  %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.27, ptr noundef %194) #21
+  %196 = load ptr, ptr %5, align 8
+  %197 = load ptr, ptr %196, align 8
+  %198 = load ptr, ptr %10, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 10
+  %200 = load i8, ptr %199, align 1
+  %.not.i72165 = icmp ne ptr %197, %198
+  %201 = icmp ne i8 %200, 0
+  %202 = select i1 %.not.i72165, i1 true, i1 %201
+  br i1 %202, label %.lr.ph169, label %._crit_edge170
 
-.lr.ph169:                                        ; preds = %190, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit
-  %.sroa.086.0167 = phi ptr [ %.sroa.086.2, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit ], [ %194, %190 ]
-  %.sroa.8.0166 = phi i32 [ %.sroa.8.2, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit ], [ 0, %190 ]
+.lr.ph169:                                        ; preds = %193, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit
+  %.sroa.086.0167 = phi ptr [ %.sroa.086.2, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit ], [ %197, %193 ]
+  %.sroa.8.0166 = phi i32 [ %.sroa.8.2, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit ], [ 0, %193 ]
   %.not.i73 = icmp eq ptr %.sroa.086.0167, null
-  br i1 %.not.i73, label %200, label %201
+  br i1 %.not.i73, label %203, label %204
 
-200:                                              ; preds = %.lr.ph169
+203:                                              ; preds = %.lr.ph169
   call void @llvm.trap()
   unreachable
 
-201:                                              ; preds = %.lr.ph169
+204:                                              ; preds = %.lr.ph169
   %.not1.i = icmp slt i32 %.sroa.8.0166, 0
-  br i1 %.not1.i, label %202, label %203
+  br i1 %.not1.i, label %205, label %206
 
-202:                                              ; preds = %201
+205:                                              ; preds = %204
   call void @llvm.trap()
   unreachable
 
-203:                                              ; preds = %201
-  %204 = getelementptr inbounds i8, ptr %.sroa.086.0167, i64 10
-  %205 = load i8, ptr %204, align 1
-  %206 = zext i8 %205 to i32
-  %207 = icmp ult i32 %.sroa.8.0166, %206
-  br i1 %207, label %209, label %208
+206:                                              ; preds = %204
+  %207 = getelementptr inbounds i8, ptr %.sroa.086.0167, i64 10
+  %208 = load i8, ptr %207, align 1
+  %209 = zext i8 %208 to i32
+  %210 = icmp ult i32 %.sroa.8.0166, %209
+  br i1 %210, label %212, label %211
 
-208:                                              ; preds = %203
+211:                                              ; preds = %206
   call void @llvm.trap()
   unreachable
 
-209:                                              ; preds = %203
-  %210 = getelementptr inbounds i8, ptr %.sroa.086.0167, i64 12
-  %211 = zext nneg i32 %.sroa.8.0166 to i64
-  %212 = getelementptr inbounds i32, ptr %210, i64 %211
-  %213 = load i32, ptr %212, align 4
-  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.28, i32 noundef %213) #21
-  %215 = getelementptr inbounds i8, ptr %.sroa.086.0167, i64 11
-  %216 = load i8, ptr %215, align 1
-  %.not.i.i74 = icmp eq i8 %216, 0
-  br i1 %.not.i.i74, label %.thread.i.i82, label %217
+212:                                              ; preds = %206
+  %213 = getelementptr inbounds i8, ptr %.sroa.086.0167, i64 12
+  %214 = zext nneg i32 %.sroa.8.0166 to i64
+  %215 = getelementptr inbounds i32, ptr %213, i64 %214
+  %216 = load i32, ptr %215, align 4
+  %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.28, i32 noundef %216) #21
+  %218 = getelementptr inbounds i8, ptr %.sroa.086.0167, i64 11
+  %219 = load i8, ptr %218, align 1
+  %.not.i.i74 = icmp eq i8 %219, 0
+  br i1 %.not.i.i74, label %.thread.i.i82, label %220
 
-217:                                              ; preds = %209
-  %218 = add nuw nsw i32 %.sroa.8.0166, 1
-  %219 = load i8, ptr %204, align 1
-  %220 = zext i8 %219 to i32
-  %221 = icmp eq i32 %218, %220
-  br i1 %221, label %.lr.ph.i.i.i77, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit
+220:                                              ; preds = %212
+  %221 = add nuw nsw i32 %.sroa.8.0166, 1
+  %222 = load i8, ptr %207, align 1
+  %223 = zext i8 %222 to i32
+  %224 = icmp eq i32 %221, %223
+  br i1 %224, label %.lr.ph.i.i.i77, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit
 
-.lr.ph.i.i.i77:                                   ; preds = %217, %226
-  %222 = phi ptr [ %223, %226 ], [ %.sroa.086.0167, %217 ]
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 11
-  %225 = load i8, ptr %224, align 1
-  %.not2.i.i.i78 = icmp eq i8 %225, 0
-  br i1 %.not2.i.i.i78, label %226, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit
-
-226:                                              ; preds = %.lr.ph.i.i.i77
-  %227 = getelementptr inbounds i8, ptr %222, i64 8
+.lr.ph.i.i.i77:                                   ; preds = %220, %229
+  %225 = phi ptr [ %226, %229 ], [ %.sroa.086.0167, %220 ]
+  %226 = load ptr, ptr %225, align 8
+  %227 = getelementptr inbounds i8, ptr %226, i64 11
   %228 = load i8, ptr %227, align 1
-  %229 = getelementptr inbounds i8, ptr %223, i64 10
-  %230 = load i8, ptr %229, align 1
-  %231 = icmp eq i8 %228, %230
-  br i1 %231, label %.lr.ph.i.i.i77, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit129.split.loop.exit161, !llvm.loop !24
+  %.not2.i.i.i78 = icmp eq i8 %228, 0
+  br i1 %.not2.i.i.i78, label %229, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit
 
-.thread.i.i82:                                    ; preds = %209
-  %232 = getelementptr inbounds i8, ptr %.sroa.086.0167, i64 256
-  %233 = getelementptr ptr, ptr %232, i64 %211
-  %234 = getelementptr i8, ptr %233, i64 8
-  br label %235
+229:                                              ; preds = %.lr.ph.i.i.i77
+  %230 = getelementptr inbounds i8, ptr %225, i64 8
+  %231 = load i8, ptr %230, align 1
+  %232 = getelementptr inbounds i8, ptr %226, i64 10
+  %233 = load i8, ptr %232, align 1
+  %234 = icmp eq i8 %231, %233
+  br i1 %234, label %.lr.ph.i.i.i77, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit129.split.loop.exit161, !llvm.loop !24
 
-235:                                              ; preds = %235, %.thread.i.i82
-  %storemerge.in.i.i.i79 = phi ptr [ %234, %.thread.i.i82 ], [ %238, %235 ]
+.thread.i.i82:                                    ; preds = %212
+  %235 = getelementptr inbounds i8, ptr %.sroa.086.0167, i64 256
+  %236 = getelementptr ptr, ptr %235, i64 %214
+  %237 = getelementptr i8, ptr %236, i64 8
+  br label %238
+
+238:                                              ; preds = %238, %.thread.i.i82
+  %storemerge.in.i.i.i79 = phi ptr [ %237, %.thread.i.i82 ], [ %241, %238 ]
   %storemerge.i.i.i80 = load ptr, ptr %storemerge.in.i.i.i79, align 8
-  %236 = getelementptr inbounds i8, ptr %storemerge.i.i.i80, i64 11
-  %237 = load i8, ptr %236, align 1
-  %.not1.i.i.i81 = icmp eq i8 %237, 0
-  %238 = getelementptr inbounds i8, ptr %storemerge.i.i.i80, i64 256
-  br i1 %.not1.i.i.i81, label %235, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit, !llvm.loop !25
+  %239 = getelementptr inbounds i8, ptr %storemerge.i.i.i80, i64 11
+  %240 = load i8, ptr %239, align 1
+  %.not1.i.i.i81 = icmp eq i8 %240, 0
+  %241 = getelementptr inbounds i8, ptr %storemerge.i.i.i80, i64 256
+  br i1 %.not1.i.i.i81, label %238, label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit, !llvm.loop !25
 
-_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit129.split.loop.exit161: ; preds = %226
-  %239 = zext i8 %228 to i32
+_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit129.split.loop.exit161: ; preds = %229
+  %242 = zext i8 %231 to i32
   br label %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit
 
-_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit: ; preds = %.lr.ph.i.i.i77, %235, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit129.split.loop.exit161, %217
-  %.sroa.8.2 = phi i32 [ %218, %217 ], [ %239, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit129.split.loop.exit161 ], [ 0, %235 ], [ %218, %.lr.ph.i.i.i77 ]
-  %.sroa.086.2 = phi ptr [ %.sroa.086.0167, %217 ], [ %223, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit129.split.loop.exit161 ], [ %storemerge.i.i.i80, %235 ], [ %.sroa.086.0167, %.lr.ph.i.i.i77 ]
-  %240 = load ptr, ptr %10, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 10
-  %242 = load i8, ptr %241, align 1
-  %243 = zext i8 %242 to i32
-  %.not.i72 = icmp ne ptr %.sroa.086.2, %240
-  %244 = icmp ne i32 %.sroa.8.2, %243
-  %245 = select i1 %.not.i72, i1 true, i1 %244
-  br i1 %245, label %.lr.ph169, label %._crit_edge170
+_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit: ; preds = %.lr.ph.i.i.i77, %238, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit129.split.loop.exit161, %220
+  %.sroa.8.2 = phi i32 [ %221, %220 ], [ %242, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit129.split.loop.exit161 ], [ 0, %238 ], [ %221, %.lr.ph.i.i.i77 ]
+  %.sroa.086.2 = phi ptr [ %.sroa.086.0167, %220 ], [ %226, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit.loopexit129.split.loop.exit161 ], [ %storemerge.i.i.i80, %238 ], [ %.sroa.086.0167, %.lr.ph.i.i.i77 ]
+  %243 = load ptr, ptr %10, align 8
+  %244 = getelementptr inbounds i8, ptr %243, i64 10
+  %245 = load i8, ptr %244, align 1
+  %246 = zext i8 %245 to i32
+  %.not.i72 = icmp ne ptr %.sroa.086.2, %243
+  %247 = icmp ne i32 %.sroa.8.2, %246
+  %248 = select i1 %.not.i72, i1 true, i1 %247
+  br i1 %248, label %.lr.ph169, label %._crit_edge170
 
-._crit_edge170:                                   ; preds = %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit, %190
-  %246 = call i64 @fwrite(ptr nonnull @.str.29, i64 5, i64 1, ptr %2)
+._crit_edge170:                                   ; preds = %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit, %193
+  %249 = call i64 @fwrite(ptr nonnull @.str.29, i64 5, i64 1, ptr %2)
   call void @_ZN4i18n12phonenumbers33WritePrefixDescriptionsDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_P8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %2)
   %fputc = call i32 @fputc(i32 10, ptr %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   invoke void @_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %_ZN4absl7debian29btree_setIiSt4lessIiESaIiEED2Ev.exit unwind label %247
+          to label %_ZN4absl7debian29btree_setIiSt4lessIiESaIiEED2Ev.exit unwind label %250
 
-247:                                              ; preds = %._crit_edge170
-  %248 = landingpad { ptr, i32 }
+250:                                              ; preds = %._crit_edge170
+  %251 = landingpad { ptr, i32 }
           catch ptr null
-  %249 = extractvalue { ptr, i32 } %248, 0
-  call void @__clang_call_terminate(ptr %249) #27
+  %252 = extractvalue { ptr, i32 } %251, 0
+  call void @__clang_call_terminate(ptr %252) #27
   unreachable
 
 _ZN4absl7debian29btree_setIiSt4lessIiESaIiEED2Ev.exit: ; preds = %._crit_edge170
   ret void
 
-.body65:                                          ; preds = %.loopexit, %.loopexit.split-lp, %188
-  %.pn = phi { ptr, i32 } [ %189, %188 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body65:                                          ; preds = %.loopexit, %.loopexit.split-lp, %191
+  %.pn = phi { ptr, i32 } [ %192, %191 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   br label %.body39
 
-.body39:                                          ; preds = %.loopexit132, %.loopexit.split-lp133, %126, %.body65
-  %.pn26 = phi { ptr, i32 } [ %.pn, %.body65 ], [ %127, %126 ], [ %lpad.loopexit134, %.loopexit132 ], [ %lpad.loopexit.split-lp135, %.loopexit.split-lp133 ]
+.body39:                                          ; preds = %.loopexit132, %.loopexit.split-lp133, %129, %.body65
+  %.pn26 = phi { ptr, i32 } [ %.pn, %.body65 ], [ %130, %129 ], [ %lpad.loopexit134, %.loopexit132 ], [ %lpad.loopexit.split-lp135, %.loopexit.split-lp133 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   br label %.body
 
-.body:                                            ; preds = %122, %13, %.body39
-  %.pn26.pn = phi { ptr, i32 } [ %.pn26, %.body39 ], [ %123, %122 ], [ %14, %13 ]
+.body:                                            ; preds = %125, %13, %.body39
+  %.pn26.pn = phi { ptr, i32 } [ %.pn26, %.body39 ], [ %126, %125 ], [ %14, %13 ]
   invoke void @_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %_ZN4absl7debian29btree_setIiSt4lessIiESaIiEED2Ev.exit85 unwind label %250
+          to label %_ZN4absl7debian29btree_setIiSt4lessIiESaIiEED2Ev.exit85 unwind label %253
 
-250:                                              ; preds = %.body
-  %251 = landingpad { ptr, i32 }
+253:                                              ; preds = %.body
+  %254 = landingpad { ptr, i32 }
           catch ptr null
-  %252 = extractvalue { ptr, i32 } %251, 0
-  call void @__clang_call_terminate(ptr %252) #27
+  %255 = extractvalue { ptr, i32 } %254, 0
+  call void @__clang_call_terminate(ptr %255) #27
   unreachable
 
 _ZN4absl7debian29btree_setIiSt4lessIiESaIiEED2Ev.exit85: ; preds = %.body
@@ -4847,107 +4853,113 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal19btree_
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noalias !81
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %13
+  br i1 %8, label %9, label %16
 
 9:                                                ; preds = %3
   %10 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24, !noalias !81
   store ptr %10, ptr %10, align 8, !noalias !81
   %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %11, align 1, !noalias !81
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %10, ptr %12, align 8, !noalias !81
+  store i8 0, ptr %11, align 1, !noalias !81
+  %12 = getelementptr inbounds i8, ptr %10, i64 9
+  store i8 0, ptr %12, align 1, !noalias !81
+  %13 = getelementptr inbounds i8, ptr %10, i64 10
+  store i8 0, ptr %13, align 1, !noalias !81
+  %14 = getelementptr inbounds i8, ptr %10, i64 11
+  store i8 1, ptr %14, align 1, !noalias !81
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %10, ptr %15, align 8, !noalias !81
   store ptr %10, ptr %1, align 8, !noalias !81
-  br label %13
+  br label %16
 
-13:                                               ; preds = %9, %3
-  %14 = load i32, ptr %2, align 4, !noalias !81
-  br label %15
+16:                                               ; preds = %9, %3
+  %17 = load i32, ptr %2, align 4, !noalias !81
+  br label %18
 
-15:                                               ; preds = %29, %13
-  %.sroa.0.0.in.i.i = phi ptr [ %1, %13 ], [ %32, %29 ]
+18:                                               ; preds = %32, %16
+  %.sroa.0.0.in.i.i = phi ptr [ %1, %16 ], [ %35, %32 ]
   %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !noalias !81
-  %16 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 10
-  %17 = load i8, ptr %16, align 1, !noalias !81
-  %18 = zext i8 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 16
-  %.not.i.i.i.i = icmp eq i8 %17, 0
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 10
+  %20 = load i8, ptr %19, align 1, !noalias !81
+  %21 = zext i8 %20 to i32
+  %22 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 16
+  %.not.i.i.i.i = icmp eq i8 %20, 0
   br i1 %.not.i.i.i.i, label %_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %15
-  %zext.i.i.i.i = zext i8 %17 to i64
-  br label %20
+.lr.ph.i.i.i.i.i:                                 ; preds = %18
+  %zext.i.i.i.i = zext i8 %20 to i64
+  br label %23
 
-20:                                               ; preds = %24, %.lr.ph.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %24 ]
-  %21 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %19, i64 %indvars.iv.i.i.i.i.i
-  %22 = load i32, ptr %21, align 4, !noalias !81
-  %23 = icmp slt i32 %22, %14
-  br i1 %23, label %24, label %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i
+23:                                               ; preds = %27, %.lr.ph.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %27 ]
+  %24 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %22, i64 %indvars.iv.i.i.i.i.i
+  %25 = load i32, ptr %24, align 4, !noalias !81
+  %26 = icmp slt i32 %25, %17
+  br i1 %26, label %27, label %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i
 
-24:                                               ; preds = %20
+27:                                               ; preds = %23
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %25 = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %zext.i.i.i.i
-  br i1 %25, label %_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i, label %20, !llvm.loop !84
+  %28 = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %zext.i.i.i.i
+  br i1 %28, label %_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i, label %23, !llvm.loop !84
 
-._crit_edge.loopexit.split.loop.exit.i.i.i.i.i:   ; preds = %20
-  %26 = trunc nsw i64 %indvars.iv.i.i.i.i.i to i32
+._crit_edge.loopexit.split.loop.exit.i.i.i.i.i:   ; preds = %23
+  %29 = trunc nsw i64 %indvars.iv.i.i.i.i.i to i32
   br label %_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i
 
-_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i: ; preds = %24, %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i, %15
-  %.0.lcssa.i.i.i.i.i = phi i32 [ 0, %15 ], [ %26, %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i ], [ %18, %24 ]
-  %27 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 11
-  %28 = load i8, ptr %27, align 1, !noalias !81
-  %.not.i.i = icmp eq i8 %28, 0
-  br i1 %.not.i.i, label %29, label %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb0EEERKT_.exit.i
+_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i: ; preds = %27, %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i, %18
+  %.0.lcssa.i.i.i.i.i = phi i32 [ 0, %18 ], [ %29, %._crit_edge.loopexit.split.loop.exit.i.i.i.i.i ], [ %21, %27 ]
+  %30 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 11
+  %31 = load i8, ptr %30, align 1, !noalias !81
+  %.not.i.i = icmp eq i8 %31, 0
+  br i1 %.not.i.i, label %32, label %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb0EEERKT_.exit.i
 
-29:                                               ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i
-  %30 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 256
-  %31 = sext i32 %.0.lcssa.i.i.i.i.i to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
-  br label %15, !llvm.loop !85
+32:                                               ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 256
+  %34 = sext i32 %.0.lcssa.i.i.i.i.i to i64
+  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  br label %18, !llvm.loop !85
 
-_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb0EEERKT_.exit.i: ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i, %37
-  %.sroa.8.0.i.i = phi i32 [ %40, %37 ], [ %.0.lcssa.i.i.i.i.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i ]
-  %.sroa.0.0.i14.i = phi ptr [ %41, %37 ], [ %.sroa.0.0.i.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i ]
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.0.i14.i, i64 10
-  %34 = load i8, ptr %33, align 1, !noalias !81
-  %35 = zext i8 %34 to i32
-  %36 = icmp eq i32 %.sroa.8.0.i.i, %35
-  br i1 %36, label %37, label %44
+_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb0EEERKT_.exit.i: ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i, %40
+  %.sroa.8.0.i.i = phi i32 [ %43, %40 ], [ %.0.lcssa.i.i.i.i.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i ]
+  %.sroa.0.0.i14.i = phi ptr [ %44, %40 ], [ %.sroa.0.0.i.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultIiLb0EEERKT_RKSB_.exit.i.i ]
+  %36 = getelementptr inbounds i8, ptr %.sroa.0.0.i14.i, i64 10
+  %37 = load i8, ptr %36, align 1, !noalias !81
+  %38 = zext i8 %37 to i32
+  %39 = icmp eq i32 %.sroa.8.0.i.i, %38
+  br i1 %39, label %40, label %47
 
-37:                                               ; preds = %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb0EEERKT_.exit.i
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.0.i14.i, i64 8
-  %39 = load i8, ptr %38, align 1, !noalias !81
-  %40 = zext i8 %39 to i32
-  %41 = load ptr, ptr %.sroa.0.0.i14.i, align 8, !noalias !81
-  %42 = getelementptr inbounds i8, ptr %41, i64 11
-  %43 = load i8, ptr %42, align 1, !noalias !81
-  %.not.i17.i = icmp eq i8 %43, 0
+40:                                               ; preds = %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb0EEERKT_.exit.i
+  %41 = getelementptr inbounds i8, ptr %.sroa.0.0.i14.i, i64 8
+  %42 = load i8, ptr %41, align 1, !noalias !81
+  %43 = zext i8 %42 to i32
+  %44 = load ptr, ptr %.sroa.0.0.i14.i, align 8, !noalias !81
+  %45 = getelementptr inbounds i8, ptr %44, i64 11
+  %46 = load i8, ptr %45, align 1, !noalias !81
+  %.not.i17.i = icmp eq i8 %46, 0
   br i1 %.not.i17.i, label %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb0EEERKT_.exit.i, label %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i, !llvm.loop !86
 
-44:                                               ; preds = %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb0EEERKT_.exit.i
-  %45 = getelementptr inbounds i8, ptr %.sroa.0.0.i14.i, i64 16
-  %46 = sext i32 %.sroa.8.0.i.i to i64
-  %47 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %45, i64 %46
-  %48 = load i32, ptr %47, align 4, !noalias !81
-  %49 = icmp slt i32 %14, %48
-  br i1 %49, label %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i, label %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13insert_uniqueIiJRKSt21piecewise_construct_tSt5tupleIJRSD_EESM_IJEEEEESC_INS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEbERKT_DpOT0_.exit
+47:                                               ; preds = %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb0EEERKT_.exit.i
+  %48 = getelementptr inbounds i8, ptr %.sroa.0.0.i14.i, i64 16
+  %49 = sext i32 %.sroa.8.0.i.i to i64
+  %50 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %48, i64 %49
+  %51 = load i32, ptr %50, align 4, !noalias !81
+  %52 = icmp slt i32 %17, %51
+  br i1 %52, label %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i, label %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13insert_uniqueIiJRKSt21piecewise_construct_tSt5tupleIJRSD_EESM_IJEEEEESC_INS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEbERKT_DpOT0_.exit
 
-_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i: ; preds = %37, %44
-  %50 = call { ptr, i32 } @_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE16internal_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRSD_EESM_IJEEEEENS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EESV_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %.sroa.0.0.i.i, i32 %.0.lcssa.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5), !noalias !81
-  %51 = extractvalue { ptr, i32 } %50, 0
-  %52 = extractvalue { ptr, i32 } %50, 1
+_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i: ; preds = %40, %47
+  %53 = call { ptr, i32 } @_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE16internal_emplaceIJRKSt21piecewise_construct_tSt5tupleIJRSD_EESM_IJEEEEENS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EESV_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %.sroa.0.0.i.i, i32 %.0.lcssa.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5), !noalias !81
+  %54 = extractvalue { ptr, i32 } %53, 0
+  %55 = extractvalue { ptr, i32 } %53, 1
   br label %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13insert_uniqueIiJRKSt21piecewise_construct_tSt5tupleIJRSD_EESM_IJEEEEESC_INS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEbERKT_DpOT0_.exit
 
-_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13insert_uniqueIiJRKSt21piecewise_construct_tSt5tupleIJRSD_EESM_IJEEEEESC_INS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEbERKT_DpOT0_.exit: ; preds = %44, %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i
-  %.sink37.i = phi ptr [ %51, %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i ], [ %.sroa.0.0.i14.i, %44 ]
-  %.sink36.i = phi i32 [ %52, %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i ], [ %.sroa.8.0.i.i, %44 ]
-  %.sink.i = phi i8 [ 1, %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i ], [ 0, %44 ]
+_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13insert_uniqueIiJRKSt21piecewise_construct_tSt5tupleIJRSD_EESM_IJEEEEESC_INS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEbERKT_DpOT0_.exit: ; preds = %47, %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i
+  %.sink37.i = phi ptr [ %54, %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i ], [ %.sroa.0.0.i14.i, %47 ]
+  %.sink36.i = phi i32 [ %55, %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i ], [ %.sroa.8.0.i.i, %47 ]
+  %.sink.i = phi i8 [ 1, %_ZN4absl7debian218container_internal5btreeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EEEET_SP_.exit.thread.i ], [ 0, %47 ]
   store ptr %.sink37.i, ptr %0, align 8, !alias.scope !81
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink36.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !81
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 %.sink.i, ptr %53, align 8, !alias.scope !81
+  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 %.sink.i, ptr %56, align 8, !alias.scope !81
   ret void
 }
 
@@ -5214,7 +5226,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %32 = sub nsw i32 %31, %.sroa.speculated81
   store i32 %32, ptr %4, align 4
   %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %108
+  br i1 %33, label %34, label %111
 
 34:                                               ; preds = %30
   %35 = load i8, ptr %18, align 1
@@ -5265,7 +5277,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = icmp sgt i32 %62, %66
-  br i1 %67, label %68, label %108
+  br i1 %67, label %68, label %111
 
 68:                                               ; preds = %61
   %69 = xor i32 %66, -1
@@ -5303,57 +5315,63 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %83 = getelementptr inbounds i8, ptr %82, i64 11
   %84 = load i8, ptr %83, align 1
   %.not93 = icmp eq i8 %84, 0
-  br i1 %.not93, label %94, label %85
+  br i1 %.not93, label %97, label %85
 
 85:                                               ; preds = %81
   %86 = call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #24
   store ptr %.071, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 6>, ptr %87, align 1
-  %88 = load i32, ptr %4, align 4
-  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE5splitEiPSH_PSF_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %88, ptr noundef nonnull %86, ptr noundef nonnull %0)
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %1, align 8
-  %92 = icmp eq ptr %90, %91
-  br i1 %92, label %93, label %98
+  store i8 0, ptr %87, align 1
+  %88 = getelementptr inbounds i8, ptr %86, i64 9
+  store i8 0, ptr %88, align 1
+  %89 = getelementptr inbounds i8, ptr %86, i64 10
+  store i8 0, ptr %89, align 1
+  %90 = getelementptr inbounds i8, ptr %86, i64 11
+  store i8 6, ptr %90, align 1
+  %91 = load i32, ptr %4, align 4
+  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE5splitEiPSH_PSF_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %91, ptr noundef nonnull %86, ptr noundef nonnull %0)
+  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %1, align 8
+  %95 = icmp eq ptr %93, %94
+  br i1 %95, label %96, label %101
 
-93:                                               ; preds = %85
-  store ptr %86, ptr %89, align 8
-  br label %98
+96:                                               ; preds = %85
+  store ptr %86, ptr %92, align 8
+  br label %101
 
-94:                                               ; preds = %81
-  %95 = call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #24
-  store ptr %.071, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
-  store i32 0, ptr %96, align 1
-  %97 = load i32, ptr %4, align 4
-  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE5splitEiPSH_PSF_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %97, ptr noundef nonnull %95, ptr noundef nonnull %0)
-  br label %98
+97:                                               ; preds = %81
+  %98 = call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #24
+  store ptr %.071, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  store i32 0, ptr %99, align 1
+  %100 = load i32, ptr %4, align 4
+  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE5splitEiPSH_PSF_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %100, ptr noundef nonnull %98, ptr noundef nonnull %0)
+  br label %101
 
-98:                                               ; preds = %85, %93, %94
-  %.0 = phi ptr [ %86, %93 ], [ %86, %85 ], [ %95, %94 ]
-  %99 = load i32, ptr %4, align 4
-  %100 = load ptr, ptr %1, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 10
-  %102 = load i8, ptr %101, align 1
-  %103 = zext i8 %102 to i32
-  %104 = icmp sgt i32 %99, %103
-  br i1 %104, label %105, label %108
+101:                                              ; preds = %85, %96, %97
+  %.0 = phi ptr [ %86, %96 ], [ %86, %85 ], [ %98, %97 ]
+  %102 = load i32, ptr %4, align 4
+  %103 = load ptr, ptr %1, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 10
+  %105 = load i8, ptr %104, align 1
+  %106 = zext i8 %105 to i32
+  %107 = icmp sgt i32 %102, %106
+  br i1 %107, label %108, label %111
 
-105:                                              ; preds = %98
-  %106 = xor i32 %103, -1
-  %107 = add nsw i32 %99, %106
+108:                                              ; preds = %101
+  %109 = xor i32 %106, -1
+  %110 = add nsw i32 %102, %109
   br label %.sink.split
 
-.sink.split:                                      ; preds = %105, %34, %68
-  %.sink94 = phi i32 [ %70, %68 ], [ %38, %34 ], [ %107, %105 ]
-  %.sink = phi ptr [ %47, %68 ], [ %17, %34 ], [ %.0, %105 ]
+.sink.split:                                      ; preds = %108, %34, %68
+  %.sink94 = phi i32 [ %70, %68 ], [ %38, %34 ], [ %110, %108 ]
+  %.sink = phi ptr [ %47, %68 ], [ %17, %34 ], [ %.0, %108 ]
   store i32 %.sink94, ptr %4, align 4
   store ptr %.sink, ptr %1, align 8
-  br label %108
+  br label %111
 
-108:                                              ; preds = %.sink.split, %61, %30, %98
+111:                                              ; preds = %.sink.split, %61, %30, %101
   ret void
 }
 
@@ -6148,7 +6166,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %32 = sub nsw i32 %31, %.sroa.speculated81
   store i32 %32, ptr %4, align 4
   %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %108
+  br i1 %33, label %34, label %111
 
 34:                                               ; preds = %30
   %35 = load i8, ptr %18, align 1
@@ -6199,7 +6217,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = icmp sgt i32 %62, %66
-  br i1 %67, label %68, label %108
+  br i1 %67, label %68, label %111
 
 68:                                               ; preds = %61
   %69 = xor i32 %66, -1
@@ -6237,57 +6255,63 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %83 = getelementptr inbounds i8, ptr %82, i64 11
   %84 = load i8, ptr %83, align 1
   %.not93 = icmp eq i8 %84, 0
-  br i1 %.not93, label %94, label %85
+  br i1 %.not93, label %97, label %85
 
 85:                                               ; preds = %81
   %86 = call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #24
   store ptr %.071, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 61>, ptr %87, align 1
-  %88 = load i32, ptr %4, align 4
-  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE5splitEiPS8_PS6_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %88, ptr noundef nonnull %86, ptr noundef nonnull %0)
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %1, align 8
-  %92 = icmp eq ptr %90, %91
-  br i1 %92, label %93, label %98
+  store i8 0, ptr %87, align 1
+  %88 = getelementptr inbounds i8, ptr %86, i64 9
+  store i8 0, ptr %88, align 1
+  %89 = getelementptr inbounds i8, ptr %86, i64 10
+  store i8 0, ptr %89, align 1
+  %90 = getelementptr inbounds i8, ptr %86, i64 11
+  store i8 61, ptr %90, align 1
+  %91 = load i32, ptr %4, align 4
+  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE5splitEiPS8_PS6_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %91, ptr noundef nonnull %86, ptr noundef nonnull %0)
+  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %1, align 8
+  %95 = icmp eq ptr %93, %94
+  br i1 %95, label %96, label %101
 
-93:                                               ; preds = %85
-  store ptr %86, ptr %89, align 8
-  br label %98
+96:                                               ; preds = %85
+  store ptr %86, ptr %92, align 8
+  br label %101
 
-94:                                               ; preds = %81
-  %95 = call noalias noundef nonnull dereferenceable(752) ptr @_Znwm(i64 noundef 752) #24
-  store ptr %.071, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
-  store i32 0, ptr %96, align 1
-  %97 = load i32, ptr %4, align 4
-  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE5splitEiPS8_PS6_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %97, ptr noundef nonnull %95, ptr noundef nonnull %0)
-  br label %98
+97:                                               ; preds = %81
+  %98 = call noalias noundef nonnull dereferenceable(752) ptr @_Znwm(i64 noundef 752) #24
+  store ptr %.071, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  store i32 0, ptr %99, align 1
+  %100 = load i32, ptr %4, align 4
+  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE5splitEiPS8_PS6_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %100, ptr noundef nonnull %98, ptr noundef nonnull %0)
+  br label %101
 
-98:                                               ; preds = %85, %93, %94
-  %.0 = phi ptr [ %86, %93 ], [ %86, %85 ], [ %95, %94 ]
-  %99 = load i32, ptr %4, align 4
-  %100 = load ptr, ptr %1, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 10
-  %102 = load i8, ptr %101, align 1
-  %103 = zext i8 %102 to i32
-  %104 = icmp sgt i32 %99, %103
-  br i1 %104, label %105, label %108
+101:                                              ; preds = %85, %96, %97
+  %.0 = phi ptr [ %86, %96 ], [ %86, %85 ], [ %98, %97 ]
+  %102 = load i32, ptr %4, align 4
+  %103 = load ptr, ptr %1, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 10
+  %105 = load i8, ptr %104, align 1
+  %106 = zext i8 %105 to i32
+  %107 = icmp sgt i32 %102, %106
+  br i1 %107, label %108, label %111
 
-105:                                              ; preds = %98
-  %106 = xor i32 %103, -1
-  %107 = add nsw i32 %99, %106
+108:                                              ; preds = %101
+  %109 = xor i32 %106, -1
+  %110 = add nsw i32 %102, %109
   br label %.sink.split
 
-.sink.split:                                      ; preds = %105, %34, %68
-  %.sink94 = phi i32 [ %70, %68 ], [ %38, %34 ], [ %107, %105 ]
-  %.sink = phi ptr [ %47, %68 ], [ %17, %34 ], [ %.0, %105 ]
+.sink.split:                                      ; preds = %108, %34, %68
+  %.sink94 = phi i32 [ %70, %68 ], [ %38, %34 ], [ %110, %108 ]
+  %.sink = phi ptr [ %47, %68 ], [ %17, %34 ], [ %.0, %108 ]
   store i32 %.sink94, ptr %4, align 4
   store ptr %.sink, ptr %1, align 8
-  br label %108
+  br label %111
 
-108:                                              ; preds = %.sink.split, %61, %30, %98
+111:                                              ; preds = %.sink.split, %61, %30, %101
   ret void
 }
 
@@ -6943,70 +6967,76 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.02.012.i.pre, i64 10
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !noalias !108
   %10 = zext i8 %.pre to i32
-  br label %15
+  br label %18
 
 11:                                               ; preds = %6
   %12 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #24
   store ptr %12, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %12, ptr %14, align 8
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %12, i64 9
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %12, i64 10
+  store i8 0, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %12, i64 11
+  store i8 1, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %12, ptr %17, align 8
   store ptr %12, ptr %1, align 8
-  br label %15
+  br label %18
 
-15:                                               ; preds = %._crit_edge, %11
-  %16 = phi i32 [ %10, %._crit_edge ], [ 0, %11 ]
+18:                                               ; preds = %._crit_edge, %11
+  %19 = phi i32 [ %10, %._crit_edge ], [ 0, %11 ]
   %.sroa.02.012.i = phi ptr [ %.sroa.02.012.i.pre, %._crit_edge ], [ %12, %11 ]
-  %17 = tail call i64 @_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE18binary_search_implIS9_NS1_22StringBtreeDefaultLessEEENS1_12SearchResultIiLb1EEERKT_iiRKT0_St17integral_constantIbLb1EE(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.02.012.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0, i32 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %1), !noalias !108
-  %18 = and i64 %17, 1095216660480
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %.loopexit, label %.lr.ph.i
+  %20 = tail call i64 @_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE18binary_search_implIS9_NS1_22StringBtreeDefaultLessEEENS1_12SearchResultIiLb1EEERKT_iiRKT0_St17integral_constantIbLb1EE(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.02.012.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0, i32 noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %1), !noalias !108
+  %21 = and i64 %20, 1095216660480
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %15, %23
-  %20 = phi i64 [ %30, %23 ], [ %17, %15 ]
-  %.sroa.02.013.i = phi ptr [ %.sroa.02.0.i, %23 ], [ %.sroa.02.012.i, %15 ]
-  %21 = getelementptr inbounds i8, ptr %.sroa.02.013.i, i64 11
-  %22 = load i8, ptr %21, align 1, !noalias !108
-  %.not.i = icmp eq i8 %22, 0
-  br i1 %.not.i, label %23, label %33
+.lr.ph.i:                                         ; preds = %18, %26
+  %23 = phi i64 [ %33, %26 ], [ %20, %18 ]
+  %.sroa.02.013.i = phi ptr [ %.sroa.02.0.i, %26 ], [ %.sroa.02.012.i, %18 ]
+  %24 = getelementptr inbounds i8, ptr %.sroa.02.013.i, i64 11
+  %25 = load i8, ptr %24, align 1, !noalias !108
+  %.not.i = icmp eq i8 %25, 0
+  br i1 %.not.i, label %26, label %36
 
-23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds i8, ptr %.sroa.02.013.i, i64 272
-  %sext.i = shl i64 %20, 32
-  %25 = ashr exact i64 %sext.i, 29
-  %26 = getelementptr inbounds i8, ptr %24, i64 %25
-  %.sroa.02.0.i = load ptr, ptr %26, align 8, !noalias !108
-  %27 = getelementptr inbounds i8, ptr %.sroa.02.0.i, i64 10
-  %28 = load i8, ptr %27, align 1, !noalias !108
-  %29 = zext i8 %28 to i32
-  %30 = tail call i64 @_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE18binary_search_implIS9_NS1_22StringBtreeDefaultLessEEENS1_12SearchResultIiLb1EEERKT_iiRKT0_St17integral_constantIbLb1EE(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.02.0.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0, i32 noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %1), !noalias !108
-  %31 = and i64 %30, 1095216660480
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %.loopexit, label %.lr.ph.i, !llvm.loop !111
+26:                                               ; preds = %.lr.ph.i
+  %27 = getelementptr inbounds i8, ptr %.sroa.02.013.i, i64 272
+  %sext.i = shl i64 %23, 32
+  %28 = ashr exact i64 %sext.i, 29
+  %29 = getelementptr inbounds i8, ptr %27, i64 %28
+  %.sroa.02.0.i = load ptr, ptr %29, align 8, !noalias !108
+  %30 = getelementptr inbounds i8, ptr %.sroa.02.0.i, i64 10
+  %31 = load i8, ptr %30, align 1, !noalias !108
+  %32 = zext i8 %31 to i32
+  %33 = tail call i64 @_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE18binary_search_implIS9_NS1_22StringBtreeDefaultLessEEENS1_12SearchResultIiLb1EEERKT_iiRKT0_St17integral_constantIbLb1EE(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.02.0.i, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0, i32 noundef %32, ptr noundef nonnull align 1 dereferenceable(1) %1), !noalias !108
+  %34 = and i64 %33, 1095216660480
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %.loopexit, label %.lr.ph.i, !llvm.loop !111
 
-.loopexit:                                        ; preds = %23, %15
-  %.lcssa.sink.i.ph = phi i64 [ %17, %15 ], [ %30, %23 ]
-  %.sroa.02.013.lcssa.sink.i.ph = phi ptr [ %.sroa.02.012.i, %15 ], [ %.sroa.02.0.i, %23 ]
+.loopexit:                                        ; preds = %26, %18
+  %.lcssa.sink.i.ph = phi i64 [ %20, %18 ], [ %33, %26 ]
+  %.sroa.02.013.lcssa.sink.i.ph = phi ptr [ %.sroa.02.012.i, %18 ], [ %.sroa.02.0.i, %26 ]
   %.sroa.0.0.extract.trunc.le.i22 = trunc i64 %.lcssa.sink.i.ph to i32
-  br label %37
+  br label %40
 
-33:                                               ; preds = %.lr.ph.i
-  %.sroa.0.0.extract.trunc.le.i = trunc i64 %20 to i32
-  %34 = tail call { ptr, i32 } @_ZN4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE16internal_emplaceIJRKSt21piecewise_construct_tSt5tupleIJOS9_EESM_IJEEEEENS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EESV_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull %.sroa.02.013.i, i32 %.sroa.0.0.extract.trunc.le.i, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  %35 = extractvalue { ptr, i32 } %34, 0
-  %36 = extractvalue { ptr, i32 } %34, 1
-  br label %37
+36:                                               ; preds = %.lr.ph.i
+  %.sroa.0.0.extract.trunc.le.i = trunc i64 %23 to i32
+  %37 = tail call { ptr, i32 } @_ZN4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE16internal_emplaceIJRKSt21piecewise_construct_tSt5tupleIJOS9_EESM_IJEEEEENS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EESV_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull %.sroa.02.013.i, i32 %.sroa.0.0.extract.trunc.le.i, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %38 = extractvalue { ptr, i32 } %37, 0
+  %39 = extractvalue { ptr, i32 } %37, 1
+  br label %40
 
-37:                                               ; preds = %33, %.loopexit
-  %.sink37 = phi ptr [ %35, %33 ], [ %.sroa.02.013.lcssa.sink.i.ph, %.loopexit ]
-  %.sink36 = phi i32 [ %36, %33 ], [ %.sroa.0.0.extract.trunc.le.i22, %.loopexit ]
-  %.sink = phi i8 [ 1, %33 ], [ 0, %.loopexit ]
+40:                                               ; preds = %36, %.loopexit
+  %.sink37 = phi ptr [ %38, %36 ], [ %.sroa.02.013.lcssa.sink.i.ph, %.loopexit ]
+  %.sink36 = phi i32 [ %39, %36 ], [ %.sroa.0.0.extract.trunc.le.i22, %.loopexit ]
+  %.sink = phi i8 [ 1, %36 ], [ 0, %.loopexit ]
   store ptr %.sink37, ptr %0, align 8
   %.sroa.2.0..sroa_idx6 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink36, ptr %.sroa.2.0..sroa_idx6, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 %.sink, ptr %38, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 %.sink, ptr %41, align 8
   ret void
 }
 
@@ -7281,7 +7311,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %32 = sub nsw i32 %31, %.sroa.speculated81
   store i32 %32, ptr %4, align 4
   %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %108
+  br i1 %33, label %34, label %111
 
 34:                                               ; preds = %30
   %35 = load i8, ptr %18, align 1
@@ -7332,7 +7362,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = icmp sgt i32 %62, %66
-  br i1 %67, label %68, label %108
+  br i1 %67, label %68, label %111
 
 68:                                               ; preds = %61
   %69 = xor i32 %66, -1
@@ -7370,57 +7400,63 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %83 = getelementptr inbounds i8, ptr %82, i64 11
   %84 = load i8, ptr %83, align 1
   %.not93 = icmp eq i8 %84, 0
-  br i1 %.not93, label %94, label %85
+  br i1 %.not93, label %97, label %85
 
 85:                                               ; preds = %81
   %86 = call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #24
   store ptr %.071, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 4>, ptr %87, align 1
-  %88 = load i32, ptr %4, align 4
-  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE5splitEiPSH_PSF_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %88, ptr noundef nonnull %86, ptr noundef nonnull %0)
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %1, align 8
-  %92 = icmp eq ptr %90, %91
-  br i1 %92, label %93, label %98
+  store i8 0, ptr %87, align 1
+  %88 = getelementptr inbounds i8, ptr %86, i64 9
+  store i8 0, ptr %88, align 1
+  %89 = getelementptr inbounds i8, ptr %86, i64 10
+  store i8 0, ptr %89, align 1
+  %90 = getelementptr inbounds i8, ptr %86, i64 11
+  store i8 4, ptr %90, align 1
+  %91 = load i32, ptr %4, align 4
+  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE5splitEiPSH_PSF_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %91, ptr noundef nonnull %86, ptr noundef nonnull %0)
+  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %1, align 8
+  %95 = icmp eq ptr %93, %94
+  br i1 %95, label %96, label %101
 
-93:                                               ; preds = %85
-  store ptr %86, ptr %89, align 8
-  br label %98
+96:                                               ; preds = %85
+  store ptr %86, ptr %92, align 8
+  br label %101
 
-94:                                               ; preds = %81
-  %95 = call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #24
-  store ptr %.071, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
-  store i32 0, ptr %96, align 1
-  %97 = load i32, ptr %4, align 4
-  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE5splitEiPSH_PSF_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %97, ptr noundef nonnull %95, ptr noundef nonnull %0)
-  br label %98
+97:                                               ; preds = %81
+  %98 = call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #24
+  store ptr %.071, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  store i32 0, ptr %99, align 1
+  %100 = load i32, ptr %4, align 4
+  call void @_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE5splitEiPSH_PSF_(ptr noundef nonnull align 1 dereferenceable(1) %82, i32 noundef %100, ptr noundef nonnull %98, ptr noundef nonnull %0)
+  br label %101
 
-98:                                               ; preds = %85, %93, %94
-  %.0 = phi ptr [ %86, %93 ], [ %86, %85 ], [ %95, %94 ]
-  %99 = load i32, ptr %4, align 4
-  %100 = load ptr, ptr %1, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 10
-  %102 = load i8, ptr %101, align 1
-  %103 = zext i8 %102 to i32
-  %104 = icmp sgt i32 %99, %103
-  br i1 %104, label %105, label %108
+101:                                              ; preds = %85, %96, %97
+  %.0 = phi ptr [ %86, %96 ], [ %86, %85 ], [ %98, %97 ]
+  %102 = load i32, ptr %4, align 4
+  %103 = load ptr, ptr %1, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 10
+  %105 = load i8, ptr %104, align 1
+  %106 = zext i8 %105 to i32
+  %107 = icmp sgt i32 %102, %106
+  br i1 %107, label %108, label %111
 
-105:                                              ; preds = %98
-  %106 = xor i32 %103, -1
-  %107 = add nsw i32 %99, %106
+108:                                              ; preds = %101
+  %109 = xor i32 %106, -1
+  %110 = add nsw i32 %102, %109
   br label %.sink.split
 
-.sink.split:                                      ; preds = %105, %34, %68
-  %.sink94 = phi i32 [ %70, %68 ], [ %38, %34 ], [ %107, %105 ]
-  %.sink = phi ptr [ %47, %68 ], [ %17, %34 ], [ %.0, %105 ]
+.sink.split:                                      ; preds = %108, %34, %68
+  %.sink94 = phi i32 [ %70, %68 ], [ %38, %34 ], [ %110, %108 ]
+  %.sink = phi ptr [ %47, %68 ], [ %17, %34 ], [ %.0, %108 ]
   store i32 %.sink94, ptr %4, align 4
   store ptr %.sink, ptr %1, align 8
-  br label %108
+  br label %111
 
-108:                                              ; preds = %.sink.split, %61, %30, %98
+111:                                              ; preds = %.sink.split, %61, %30, %101
   ret void
 }
 

@@ -278,19 +278,46 @@ define hidden range(i32 0, 2) i32 @_cmsReadUInt64Number(ptr noundef %0, ptr noun
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8, i32 noundef 1) #12
   %.not = icmp eq i32 %6, 1
-  br i1 %.not, label %7, label %11
+  br i1 %.not, label %7, label %31
 
 7:                                                ; preds = %2
   %.not5 = icmp eq ptr %1, null
-  br i1 %.not5, label %11, label %8
+  br i1 %.not5, label %31, label %8
 
 8:                                                ; preds = %7
-  %9 = load <8 x i8>, ptr %3, align 8
-  %10 = shufflevector <8 x i8> %9, <8 x i8> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  store <8 x i8> %10, ptr %1, align 1
-  br label %11
+  %9 = load i8, ptr %3, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 7
+  store i8 %9, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = getelementptr inbounds i8, ptr %1, i64 6
+  store i8 %12, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 2
+  %15 = load i8, ptr %14, align 2
+  %16 = getelementptr inbounds i8, ptr %1, i64 5
+  store i8 %15, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %3, i64 3
+  %18 = load i8, ptr %17, align 1
+  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  store i8 %18, ptr %19, align 1
+  %20 = getelementptr inbounds i8, ptr %3, i64 4
+  %21 = load i8, ptr %20, align 4
+  %22 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 %21, ptr %22, align 1
+  %23 = getelementptr inbounds i8, ptr %3, i64 5
+  %24 = load i8, ptr %23, align 1
+  %25 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 %24, ptr %25, align 1
+  %26 = getelementptr inbounds i8, ptr %3, i64 6
+  %27 = load i8, ptr %26, align 2
+  %28 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 %27, ptr %28, align 1
+  %29 = getelementptr inbounds i8, ptr %3, i64 7
+  %30 = load i8, ptr %29, align 1
+  store i8 %30, ptr %1, align 1
+  br label %31
 
-11:                                               ; preds = %7, %8, %2
+31:                                               ; preds = %7, %8, %2
   %.0 = phi i32 [ 0, %2 ], [ 1, %8 ], [ 1, %7 ]
   ret i32 %.0
 }
@@ -330,33 +357,40 @@ define hidden noundef double @_cms15Fixed16toDouble(i32 noundef %0) local_unname
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsReadXYZNumber(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
-  %3 = alloca %struct.cmsEncodedXYZNumber, align 8
+  %3 = alloca %struct.cmsEncodedXYZNumber, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 12, i32 noundef 1) #12
   %.not = icmp eq i32 %6, 1
-  br i1 %.not, label %7, label %18
+  br i1 %.not, label %7, label %22
 
 7:                                                ; preds = %2
   %.not7 = icmp eq ptr %1, null
-  br i1 %.not7, label %18, label %8
+  br i1 %.not7, label %22, label %8
 
 8:                                                ; preds = %7
-  %9 = load <2 x i32>, ptr %3, align 8
-  %10 = call <2 x i32> @llvm.bswap.v2i32(<2 x i32> %9)
-  %11 = sitofp <2 x i32> %10 to <2 x double>
-  %12 = fmul <2 x double> %11, <double 0x3EF0000000000000, double 0x3EF0000000000000>
-  store <2 x double> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = load i32, ptr %13, align 8
-  %.sroa.0.0.insert.insert.i9 = call noundef i32 @llvm.bswap.i32(i32 %14)
-  %15 = sitofp i32 %.sroa.0.0.insert.insert.i9 to double
-  %16 = fmul double %15, 0x3EF0000000000000
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
-  store double %16, ptr %17, align 8
-  br label %18
+  %9 = load i32, ptr %3, align 4
+  %.sroa.0.0.insert.insert.i = call noundef i32 @llvm.bswap.i32(i32 %9)
+  %10 = sitofp i32 %.sroa.0.0.insert.insert.i to double
+  %11 = fmul double %10, 0x3EF0000000000000
+  store double %11, ptr %1, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = load i32, ptr %12, align 4
+  %.sroa.0.0.insert.insert.i8 = call noundef i32 @llvm.bswap.i32(i32 %13)
+  %14 = sitofp i32 %.sroa.0.0.insert.insert.i8 to double
+  %15 = fmul double %14, 0x3EF0000000000000
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store double %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = load i32, ptr %17, align 4
+  %.sroa.0.0.insert.insert.i9 = call noundef i32 @llvm.bswap.i32(i32 %18)
+  %19 = sitofp i32 %.sroa.0.0.insert.insert.i9 to double
+  %20 = fmul double %19, 0x3EF0000000000000
+  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  store double %20, ptr %21, align 8
+  br label %22
 
-18:                                               ; preds = %7, %8, %2
+22:                                               ; preds = %7, %8, %2
   %.0 = phi i32 [ 0, %2 ], [ 1, %8 ], [ 1, %7 ]
   ret i32 %.0
 }
@@ -450,13 +484,40 @@ define hidden range(i32 0, 2) i32 @_cmsWriteFloat32Number(ptr noundef %0, float 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsWriteUInt64Number(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
-  %4 = load <8 x i8>, ptr %1, align 1
-  %5 = shufflevector <8 x i8> %4, <8 x i8> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  store <8 x i8> %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 312
-  %7 = load ptr, ptr %6, align 8
-  %8 = call i32 %7(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %3) #12
-  %.not = icmp eq i32 %8, 1
+  %4 = load i8, ptr %1, align 1
+  %5 = getelementptr inbounds i8, ptr %3, i64 7
+  store i8 %4, ptr %5, align 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = load i8, ptr %6, align 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 6
+  store i8 %7, ptr %8, align 2
+  %9 = getelementptr inbounds i8, ptr %1, i64 2
+  %10 = load i8, ptr %9, align 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 5
+  store i8 %10, ptr %11, align 1
+  %12 = getelementptr inbounds i8, ptr %1, i64 3
+  %13 = load i8, ptr %12, align 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 4
+  store i8 %13, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = load i8, ptr %15, align 1
+  %17 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 %16, ptr %17, align 1
+  %18 = getelementptr inbounds i8, ptr %1, i64 5
+  %19 = load i8, ptr %18, align 1
+  %20 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 %19, ptr %20, align 2
+  %21 = getelementptr inbounds i8, ptr %1, i64 6
+  %22 = load i8, ptr %21, align 1
+  %23 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 %22, ptr %23, align 1
+  %24 = getelementptr inbounds i8, ptr %1, i64 7
+  %25 = load i8, ptr %24, align 1
+  store i8 %25, ptr %3, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 312
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 %27(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %3) #12
+  %.not = icmp eq i32 %28, 1
   %. = zext i1 %.not to i32
   ret i32 %.
 }
@@ -487,25 +548,33 @@ define hidden i32 @_cmsDoubleTo15Fixed16(double noundef %0) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_cmsWriteXYZNumber(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = alloca %struct.cmsEncodedXYZNumber, align 8
-  %4 = load <2 x double>, ptr %1, align 8
-  %5 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %4, <2 x double> <double 6.553600e+04, double 6.553600e+04>, <2 x double> <double 5.000000e-01, double 5.000000e-01>)
-  %6 = tail call <2 x double> @llvm.floor.v2f64(<2 x double> %5)
-  %7 = fptosi <2 x double> %6 to <2 x i32>
-  %8 = tail call <2 x i32> @llvm.bswap.v2i32(<2 x i32> %7)
-  store <2 x i32> %8, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = load double, ptr %9, align 8
-  %11 = tail call double @llvm.fmuladd.f64(double %10, double 6.553600e+04, double 5.000000e-01)
-  %12 = tail call double @llvm.floor.f64(double %11)
-  %13 = fptosi double %12 to i32
-  %.sroa.0.0.insert.insert.i6 = tail call noundef i32 @llvm.bswap.i32(i32 %13)
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %.sroa.0.0.insert.insert.i6, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 312
-  %16 = load ptr, ptr %15, align 8
-  %17 = call i32 %16(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %3) #12
-  ret i32 %17
+  %3 = alloca %struct.cmsEncodedXYZNumber, align 4
+  %4 = load double, ptr %1, align 8
+  %5 = tail call double @llvm.fmuladd.f64(double %4, double 6.553600e+04, double 5.000000e-01)
+  %6 = tail call double @llvm.floor.f64(double %5)
+  %7 = fptosi double %6 to i32
+  %.sroa.0.0.insert.insert.i = tail call noundef i32 @llvm.bswap.i32(i32 %7)
+  store i32 %.sroa.0.0.insert.insert.i, ptr %3, align 4
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load double, ptr %8, align 8
+  %10 = tail call double @llvm.fmuladd.f64(double %9, double 6.553600e+04, double 5.000000e-01)
+  %11 = tail call double @llvm.floor.f64(double %10)
+  %12 = fptosi double %11 to i32
+  %.sroa.0.0.insert.insert.i5 = tail call noundef i32 @llvm.bswap.i32(i32 %12)
+  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %.sroa.0.0.insert.insert.i5, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = load double, ptr %14, align 8
+  %16 = tail call double @llvm.fmuladd.f64(double %15, double 6.553600e+04, double 5.000000e-01)
+  %17 = tail call double @llvm.floor.f64(double %16)
+  %18 = fptosi double %17 to i32
+  %.sroa.0.0.insert.insert.i6 = tail call noundef i32 @llvm.bswap.i32(i32 %18)
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %.sroa.0.0.insert.insert.i6, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 312
+  %21 = load ptr, ptr %20, align 8
+  %22 = call i32 %21(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %3) #12
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1628,15 +1697,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.bswap.v2i32(<2 x i32>) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.floor.v2f64(<2 x double>) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

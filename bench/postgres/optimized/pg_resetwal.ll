@@ -971,7 +971,10 @@ CheckDataVersion.exit:                            ; preds = %278
   store i32 1, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 52), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 56), align 8
   store i64 3, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 64), align 8
-  store <4 x i32> <i32 10000, i32 1, i32 0, i32 3>, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 72), align 8
+  store i32 10000, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 72), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 76), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 80), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 84), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 88), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 92), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 96), align 8
@@ -987,12 +990,21 @@ CheckDataVersion.exit:                            ; preds = %278
   store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 172), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 176), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 200), align 8
-  store <4 x i32> <i32 100, i32 8, i32 10, i32 0>, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 180), align 4
+  store i32 100, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 180), align 4
+  store i32 10, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 188), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 184), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 192), align 8
   store i32 64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 196), align 4
   store i32 8, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 204), align 4
   store double 0x4132D68700000000, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 208), align 8
-  store <4 x i32> <i32 8192, i32 131072, i32 8192, i32 16777216>, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 216), align 8
-  store <4 x i32> <i32 64, i32 32, i32 1996, i32 2048>, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 232), align 8
+  store i32 8192, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 216), align 8
+  store i32 131072, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 220), align 4
+  store i32 8192, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 224), align 8
+  store i32 16777216, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 228), align 4
+  store i32 64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 232), align 8
+  store i32 32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 236), align 4
+  store i32 1996, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 240), align 8
+  store i32 2048, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 244), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 248), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br label %read_controlfile.exit
@@ -1385,7 +1397,10 @@ FindEndOfXLOG.exit:                               ; preds = %393
   store i8 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 176), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 200), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @ControlFile, i64 152), i8 0, i64 17, i1 false)
-  store <4 x i32> <i32 100, i32 8, i32 10, i32 0>, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 180), align 4
+  store i32 100, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 180), align 4
+  store i32 10, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 188), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 184), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 192), align 8
   store i32 64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 196), align 4
   call void @update_controlfile(ptr noundef nonnull @.str.118, ptr noundef nonnull @ControlFile, i1 noundef zeroext true) #15
   call void @llvm.lifetime.start.p0(i64 1031, ptr nonnull %7)

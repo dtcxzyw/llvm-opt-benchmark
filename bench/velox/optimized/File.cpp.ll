@@ -399,19 +399,21 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox17InMemoryWriteFile6appendESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %data) unnamed_addr #0 align 2 {
 entry:
-  %rangeIter = alloca %"class.folly::IOBuf::Iterator", align 16
-  %ref.tmp = alloca %"class.folly::IOBuf::Iterator", align 16
+  %rangeIter = alloca %"class.folly::IOBuf::Iterator", align 8
+  %ref.tmp = alloca %"class.folly::IOBuf::Iterator", align 8
   %0 = load ptr, ptr %data, align 8
   call void @_ZNK5folly5IOBuf6cbeginEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %rangeIter, ptr noundef nonnull align 8 dereferenceable(56) %0)
   %1 = load ptr, ptr %data, align 8
   call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %1)
+  %2 = load ptr, ptr %rangeIter, align 8
+  %3 = load ptr, ptr %ref.tmp, align 8
+  %cmp.i.i.i.i2 = icmp ne ptr %2, %3
   %end_.i.i.i.i = getelementptr inbounds i8, ptr %rangeIter, i64 8
-  %2 = load <2 x ptr>, ptr %rangeIter, align 16
-  %3 = load <2 x ptr>, ptr %ref.tmp, align 16
-  %4 = icmp ne <2 x ptr> %2, %3
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %.not.i4 = select i1 %5, i1 true, i1 %6
+  %4 = load ptr, ptr %end_.i.i.i.i, align 8
+  %end_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %5 = load ptr, ptr %end_3.i.i.i.i, align 8
+  %cmp4.i.i.i.i3 = icmp ne ptr %4, %5
+  %.not.i4 = select i1 %cmp.i.i.i.i2, i1 true, i1 %cmp4.i.i.i.i3
   br i1 %.not.i4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -421,43 +423,44 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
-  %7 = load ptr, ptr %file_, align 8
-  %8 = load ptr, ptr %val_.i.i.i, align 16
-  %9 = load ptr, ptr %e_.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
+  %6 = load ptr, ptr %file_, align 8
+  %7 = load ptr, ptr %val_.i.i.i, align 8
+  %8 = load ptr, ptr %e_.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, i64 noundef %sub.ptr.sub.i)
-  %10 = load ptr, ptr %rangeIter, align 16
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %rangeIter, align 16
-  %12 = load ptr, ptr %end_.i.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %11, %12
+  %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %7, i64 noundef %sub.ptr.sub.i)
+  %9 = load ptr, ptr %rangeIter, align 8
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %rangeIter, align 8
+  %11 = load ptr, ptr %end_.i.i.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %rangeIter, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %rangeIter, i8 0, i64 32, i1 false)
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.body
-  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
-  %13 = load ptr, ptr %data_.i.i.i.i.i, align 8
-  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
-  %14 = load i64, ptr %length_.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 %14
-  store ptr %13, ptr %val_.i.i.i, align 16
+  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = load ptr, ptr %data_.i.i.i.i.i, align 8
+  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = load i64, ptr %length_.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 %13
+  store ptr %12, ptr %val_.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i, ptr %e_.i, align 8
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 _ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %15 = load ptr, ptr %data, align 8
-  call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %15)
-  %16 = load <2 x ptr>, ptr %rangeIter, align 16
-  %17 = load <2 x ptr>, ptr %ref.tmp, align 16
-  %18 = icmp ne <2 x ptr> %16, %17
-  %19 = extractelement <2 x i1> %18, i64 0
-  %20 = extractelement <2 x i1> %18, i64 1
-  %.not.i = select i1 %19, i1 true, i1 %20
+  %14 = load ptr, ptr %data, align 8
+  call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %14)
+  %15 = load ptr, ptr %rangeIter, align 8
+  %16 = load ptr, ptr %ref.tmp, align 8
+  %cmp.i.i.i.i = icmp ne ptr %15, %16
+  %17 = load ptr, ptr %end_.i.i.i.i, align 8
+  %18 = load ptr, ptr %end_3.i.i.i.i, align 8
+  %cmp4.i.i.i.i = icmp ne ptr %17, %18
+  %.not.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i
   br i1 %.not.i, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit, %entry
@@ -1586,8 +1589,8 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox14LocalWriteFile6appendESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %data) unnamed_addr #0 align 2 {
 entry:
-  %rangeIter = alloca %"class.folly::IOBuf::Iterator", align 16
-  %ref.tmp = alloca %"class.folly::IOBuf::Iterator", align 16
+  %rangeIter = alloca %"class.folly::IOBuf::Iterator", align 8
+  %ref.tmp = alloca %"class.folly::IOBuf::Iterator", align 8
   %closed_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %closed_, align 8
   %tobool = trunc i8 %0 to i1
@@ -1602,13 +1605,15 @@ if.end:                                           ; preds = %entry
   call void @_ZNK5folly5IOBuf6cbeginEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %rangeIter, ptr noundef nonnull align 8 dereferenceable(56) %1)
   %2 = load ptr, ptr %data, align 8
   call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  %3 = load ptr, ptr %rangeIter, align 8
+  %4 = load ptr, ptr %ref.tmp, align 8
+  %cmp.i.i.i.i10 = icmp ne ptr %3, %4
   %end_.i.i.i.i = getelementptr inbounds i8, ptr %rangeIter, i64 8
-  %3 = load <2 x ptr>, ptr %rangeIter, align 16
-  %4 = load <2 x ptr>, ptr %ref.tmp, align 16
-  %5 = icmp ne <2 x ptr> %3, %4
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  %.not.i12 = select i1 %6, i1 true, i1 %7
+  %5 = load ptr, ptr %end_.i.i.i.i, align 8
+  %end_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %6 = load ptr, ptr %end_3.i.i.i.i, align 8
+  %cmp4.i.i.i.i11 = icmp ne ptr %5, %6
+  %.not.i12 = select i1 %cmp.i.i.i.i10, i1 true, i1 %cmp4.i.i.i.i11
   br i1 %.not.i12, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
@@ -1619,13 +1624,13 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
   %totalBytesWritten.013 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %8 = load ptr, ptr %e_.i, align 8
-  %9 = load ptr, ptr %val_.i.i.i, align 16
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
+  %7 = load ptr, ptr %e_.i, align 8
+  %8 = load ptr, ptr %val_.i.i.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %10 = load ptr, ptr %file_, align 8
-  %call11 = call i64 @fwrite(ptr noundef %9, i64 noundef 1, i64 noundef %sub.ptr.sub.i, ptr noundef %10)
+  %9 = load ptr, ptr %file_, align 8
+  %call11 = call i64 @fwrite(ptr noundef %8, i64 noundef 1, i64 noundef %sub.ptr.sub.i, ptr noundef %9)
   %cmp.not = icmp eq i64 %call11, %sub.ptr.sub.i
   br i1 %cmp.not, label %for.inc, label %if.then12
 
@@ -1635,42 +1640,43 @@ if.then12:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %add = add i64 %sub.ptr.sub.i, %totalBytesWritten.013
-  %11 = load ptr, ptr %rangeIter, align 16
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %rangeIter, align 16
-  %13 = load ptr, ptr %end_.i.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %12, %13
+  %10 = load ptr, ptr %rangeIter, align 8
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %rangeIter, align 8
+  %12 = load ptr, ptr %end_.i.i.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.inc
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %rangeIter, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %rangeIter, i8 0, i64 32, i1 false)
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.inc
-  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %14 = load ptr, ptr %data_.i.i.i.i.i, align 8
-  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
-  %15 = load i64, ptr %length_.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 %15
-  store ptr %14, ptr %val_.i.i.i, align 16
+  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = load ptr, ptr %data_.i.i.i.i.i, align 8
+  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
+  %14 = load i64, ptr %length_.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 %14
+  store ptr %13, ptr %val_.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i, ptr %e_.i, align 8
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 _ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %16 = load ptr, ptr %data, align 8
-  call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %16)
-  %17 = load <2 x ptr>, ptr %rangeIter, align 16
-  %18 = load <2 x ptr>, ptr %ref.tmp, align 16
-  %19 = icmp ne <2 x ptr> %17, %18
-  %20 = extractelement <2 x i1> %19, i64 0
-  %21 = extractelement <2 x i1> %19, i64 1
-  %.not.i = select i1 %20, i1 true, i1 %21
+  %15 = load ptr, ptr %data, align 8
+  call void @_ZNK5folly5IOBuf4cendEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %15)
+  %16 = load ptr, ptr %rangeIter, align 8
+  %17 = load ptr, ptr %ref.tmp, align 8
+  %cmp.i.i.i.i = icmp ne ptr %16, %17
+  %18 = load ptr, ptr %end_.i.i.i.i, align 8
+  %19 = load ptr, ptr %end_3.i.i.i.i, align 8
+  %cmp4.i.i.i.i = icmp ne ptr %18, %19
+  %.not.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i
   br i1 %.not.i, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit, %if.end
   %totalBytesWritten.0.lcssa = phi i64 [ 0, %if.end ], [ %add, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %22 = load ptr, ptr %data, align 8
-  %call16 = call noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %22)
+  %20 = load ptr, ptr %data, align 8
+  %call16 = call noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %20)
   %cmp17.not = icmp eq i64 %totalBytesWritten.0.lcssa, %call16
   br i1 %cmp17.not, label %if.end20, label %if.then19
 

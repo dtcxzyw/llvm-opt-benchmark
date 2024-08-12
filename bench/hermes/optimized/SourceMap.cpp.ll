@@ -279,23 +279,28 @@ if.then:                                          ; preds = %lor.lhs.false.i, %l
 if.end:                                           ; preds = %lor.lhs.false.i
   %seg.sroa.1.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 -24
   %seg.sroa.1.0.copyload.i = load i32, ptr %seg.sroa.1.0.cond-lvalue.i.sroa_idx.i, align 4
+  %seg.sroa.3.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 -16
+  %seg.sroa.3.0.copyload.i = load i32, ptr %seg.sroa.3.0.cond-lvalue.i.sroa_idx.i, align 4
   %seg.sroa.2.0.cond-lvalue.i.sroa_idx.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i, i64 -20
+  %seg.sroa.2.0.copyload.i = load i32, ptr %seg.sroa.2.0.cond-lvalue.i.sroa_idx.i, align 4
+  %add.i = add i32 %seg.sroa.2.0.copyload.i, 1
+  %add15.i = add i32 %seg.sroa.3.0.copyload.i, 1
   %sources_.i = getelementptr inbounds i8, ptr %this, i64 32
   %conv.i = zext i32 %seg.sroa.1.0.copyload.i to i64
   %5 = load ptr, ptr %sources_.i, align 8, !noalias !12
   %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 %conv.i
-  %line4 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %6 = load <2 x i32>, ptr %seg.sroa.2.0.cond-lvalue.i.sroa_idx.i, align 4
-  %7 = add <2 x i32> %6, <i32 1, i32 1>
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this) #6
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #6
-  store <2 x i32> %7, ptr %line4, align 8
+  %line4 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  store i32 %add.i, ptr %line4, align 8
+  %column7 = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  store i32 %add15.i, ptr %column7, align 4
   %hasVal.i.i1 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i8 1, ptr %hasVal.i.i1, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
   %line.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %8 = load i64, ptr %line4, align 8
-  store i64 %8, ptr %line.i.i.i, align 8
+  %6 = load i64, ptr %line4, align 8
+  store i64 %6, ptr %line.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
   br label %return
 

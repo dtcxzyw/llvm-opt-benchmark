@@ -1402,27 +1402,36 @@ _ZN4absl12_GLOBAL__N_112ParseYearAndINS_13time_internal4cctz6detail10civil_timeI
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4absl21ParseLenientCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr nocapture noundef writeonly %c) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %t1.i43.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.0", align 16
-  %t1.i32.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.3", align 16
-  %t1.i21.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 16
+  %t1.i43.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.0", align 8
+  %t1.i32.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.3", align 8
+  %t1.i21.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.1", align 8
   %t1.i13.i = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
-  %t1.i.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 16
+  %t1.i.i = alloca %"class.absl::time_internal::cctz::detail::civil_time.2", align 8
   %call.i = tail call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %c)
   br i1 %call.i, label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i.i)
-  store i64 1970, ptr %t1.i.i, align 16
+  store i64 1970, ptr %t1.i.i, align 8
   %m.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i.i, align 8
+  store i8 1, ptr %m.i.i.i.i, align 8
+  %d.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 9
+  store i8 1, ptr %d.i.i.i.i, align 1
+  %hh.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 10
+  store i8 0, ptr %hh.i.i.i.i, align 2
+  %mm.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 11
+  store i8 0, ptr %mm.i.i.i.i, align 1
   %ss.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 12
   store i8 0, ptr %ss.i.i.i.i, align 4
   %call.i.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i.i)
   br i1 %call.i.i, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %if.end4.i
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_7day_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %if.end.i
-  %0 = load <2 x i64>, ptr %t1.i.i, align 16
-  store <2 x i64> %0, ptr %c, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %t1.i.i, align 8
+  %agg.tmp.sroa.2.0.copyload.i.i.i = load i64, ptr %m.i.i.i.i, align 8
+  store i64 %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %c, align 8
+  %ref.tmp.sroa.2.0.c.sroa_idx.i.i = getelementptr inbounds i8, ptr %c, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload.i.i.i, ptr %ref.tmp.sroa.2.0.c.sroa_idx.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i.i)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
@@ -1431,7 +1440,13 @@ if.end4.i:                                        ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i13.i)
   store i64 1970, ptr %t1.i13.i, align 8
   %m.i.i.i14.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i14.i, align 8
+  store i8 1, ptr %m.i.i.i14.i, align 8
+  %d.i.i.i15.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 9
+  store i8 1, ptr %d.i.i.i15.i, align 1
+  %hh.i.i.i16.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 10
+  store i8 0, ptr %hh.i.i.i16.i, align 2
+  %mm.i.i.i17.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 11
+  store i8 0, ptr %mm.i.i.i17.i, align 1
   %ss.i.i.i18.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 12
   store i8 0, ptr %ss.i.i.i18.i, align 4
   %call.i19.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i13.i)
@@ -1445,51 +1460,78 @@ _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10
 if.end8.i:                                        ; preds = %if.end4.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i13.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i21.i)
-  store i64 1970, ptr %t1.i21.i, align 16
+  store i64 1970, ptr %t1.i21.i, align 8
   %m.i.i.i22.i = getelementptr inbounds i8, ptr %t1.i21.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i22.i, align 8
+  store i8 1, ptr %m.i.i.i22.i, align 8
+  %d.i.i.i23.i = getelementptr inbounds i8, ptr %t1.i21.i, i64 9
+  store i8 1, ptr %d.i.i.i23.i, align 1
+  %hh.i.i.i24.i = getelementptr inbounds i8, ptr %t1.i21.i, i64 10
+  store i8 0, ptr %hh.i.i.i24.i, align 2
+  %mm.i.i.i25.i = getelementptr inbounds i8, ptr %t1.i21.i, i64 11
+  store i8 0, ptr %mm.i.i.i25.i, align 1
   %ss.i.i.i26.i = getelementptr inbounds i8, ptr %t1.i21.i, i64 12
   store i8 0, ptr %ss.i.i.i26.i, align 4
   %call.i27.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i21.i)
   br i1 %call.i27.i, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %if.end12.i
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8hour_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %if.end8.i
-  %1 = load <2 x i64>, ptr %t1.i21.i, align 16
-  store <2 x i64> %1, ptr %c, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i29.i = load i64, ptr %t1.i21.i, align 8
+  %agg.tmp.sroa.2.0.copyload.i.i30.i = load i64, ptr %m.i.i.i22.i, align 8
+  store i64 %agg.tmp.sroa.0.0.copyload.i.i29.i, ptr %c, align 8
+  %ref.tmp.sroa.2.0.c.sroa_idx.i31.i = getelementptr inbounds i8, ptr %c, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload.i.i30.i, ptr %ref.tmp.sroa.2.0.c.sroa_idx.i31.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i21.i)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 if.end12.i:                                       ; preds = %if.end8.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i21.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i32.i)
-  store i64 1970, ptr %t1.i32.i, align 16
+  store i64 1970, ptr %t1.i32.i, align 8
   %m.i.i.i33.i = getelementptr inbounds i8, ptr %t1.i32.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i33.i, align 8
+  store i8 1, ptr %m.i.i.i33.i, align 8
+  %d.i.i.i34.i = getelementptr inbounds i8, ptr %t1.i32.i, i64 9
+  store i8 1, ptr %d.i.i.i34.i, align 1
+  %hh.i.i.i35.i = getelementptr inbounds i8, ptr %t1.i32.i, i64 10
+  store i8 0, ptr %hh.i.i.i35.i, align 2
+  %mm.i.i.i36.i = getelementptr inbounds i8, ptr %t1.i32.i, i64 11
+  store i8 0, ptr %mm.i.i.i36.i, align 1
   %ss.i.i.i37.i = getelementptr inbounds i8, ptr %t1.i32.i, i64 12
   store i8 0, ptr %ss.i.i.i37.i, align 4
   %call.i38.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i32.i)
   br i1 %call.i38.i, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %if.end16.i
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_9month_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %if.end12.i
-  %2 = load <2 x i64>, ptr %t1.i32.i, align 16
-  store <2 x i64> %2, ptr %c, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i40.i = load i64, ptr %t1.i32.i, align 8
+  %agg.tmp.sroa.2.0.copyload.i.i41.i = load i64, ptr %m.i.i.i33.i, align 8
+  store i64 %agg.tmp.sroa.0.0.copyload.i.i40.i, ptr %c, align 8
+  %ref.tmp.sroa.2.0.c.sroa_idx.i42.i = getelementptr inbounds i8, ptr %c, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload.i.i41.i, ptr %ref.tmp.sroa.2.0.c.sroa_idx.i42.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i32.i)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i32.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i43.i)
-  store i64 1970, ptr %t1.i43.i, align 16
+  store i64 1970, ptr %t1.i43.i, align 8
   %m.i.i.i44.i = getelementptr inbounds i8, ptr %t1.i43.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i44.i, align 8
+  store i8 1, ptr %m.i.i.i44.i, align 8
+  %d.i.i.i45.i = getelementptr inbounds i8, ptr %t1.i43.i, i64 9
+  store i8 1, ptr %d.i.i.i45.i, align 1
+  %hh.i.i.i46.i = getelementptr inbounds i8, ptr %t1.i43.i, i64 10
+  store i8 0, ptr %hh.i.i.i46.i, align 2
+  %mm.i.i.i47.i = getelementptr inbounds i8, ptr %t1.i43.i, i64 11
+  store i8 0, ptr %mm.i.i.i47.i, align 1
   %ss.i.i.i48.i = getelementptr inbounds i8, ptr %t1.i43.i, i64 12
   store i8 0, ptr %ss.i.i.i48.i, align 4
   %call.i49.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i43.i)
   br i1 %call.i49.i, label %_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i, label %if.end20.i
 
 _ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_10minute_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_.exit.thread.i: ; preds = %if.end16.i
-  %3 = load <2 x i64>, ptr %t1.i43.i, align 16
-  store <2 x i64> %3, ptr %c, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i51.i = load i64, ptr %t1.i43.i, align 8
+  %agg.tmp.sroa.2.0.copyload.i.i52.i = load i64, ptr %m.i.i.i44.i, align 8
+  store i64 %agg.tmp.sroa.0.0.copyload.i.i51.i, ptr %c, align 8
+  %ref.tmp.sroa.2.0.c.sroa_idx.i53.i = getelementptr inbounds i8, ptr %c, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload.i.i52.i, ptr %ref.tmp.sroa.2.0.c.sroa_idx.i53.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t1.i43.i)
   br label %_ZN4absl12_GLOBAL__N_112ParseLenientINS_13time_internal4cctz6detail10civil_timeINS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.exit
 
@@ -1518,7 +1560,13 @@ if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i.i)
   store i64 1970, ptr %t1.i.i, align 8
   %m.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i.i, align 8
+  store i8 1, ptr %m.i.i.i.i, align 8
+  %d.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 9
+  store i8 1, ptr %d.i.i.i.i, align 1
+  %hh.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 10
+  store i8 0, ptr %hh.i.i.i.i, align 2
+  %mm.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 11
+  store i8 0, ptr %mm.i.i.i.i, align 1
   %ss.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 12
   store i8 0, ptr %ss.i.i.i.i, align 4
   %call.i.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i.i)
@@ -1539,7 +1587,13 @@ if.end4.i:                                        ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i13.i)
   store i64 1970, ptr %t1.i13.i, align 8
   %m.i.i.i14.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i14.i, align 8
+  store i8 1, ptr %m.i.i.i14.i, align 8
+  %d.i.i.i15.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 9
+  store i8 1, ptr %d.i.i.i15.i, align 1
+  %hh.i.i.i16.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 10
+  store i8 0, ptr %hh.i.i.i16.i, align 2
+  %mm.i.i.i17.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 11
+  store i8 0, ptr %mm.i.i.i17.i, align 1
   %ss.i.i.i18.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 12
   store i8 0, ptr %ss.i.i.i18.i, align 4
   %call.i19.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i13.i)
@@ -1560,7 +1614,13 @@ if.end8.i:                                        ; preds = %if.end4.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i25.i)
   store i64 1970, ptr %t1.i25.i, align 8
   %m.i.i.i26.i = getelementptr inbounds i8, ptr %t1.i25.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i26.i, align 8
+  store i8 1, ptr %m.i.i.i26.i, align 8
+  %d.i.i.i27.i = getelementptr inbounds i8, ptr %t1.i25.i, i64 9
+  store i8 1, ptr %d.i.i.i27.i, align 1
+  %hh.i.i.i28.i = getelementptr inbounds i8, ptr %t1.i25.i, i64 10
+  store i8 0, ptr %hh.i.i.i28.i, align 2
+  %mm.i.i.i29.i = getelementptr inbounds i8, ptr %t1.i25.i, i64 11
+  store i8 0, ptr %mm.i.i.i29.i, align 1
   %ss.i.i.i30.i = getelementptr inbounds i8, ptr %t1.i25.i, i64 12
   store i8 0, ptr %ss.i.i.i30.i, align 4
   %call.i31.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i25.i)
@@ -1581,7 +1641,13 @@ if.end12.i:                                       ; preds = %if.end8.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i37.i)
   store i64 1970, ptr %t1.i37.i, align 8
   %m.i.i.i38.i = getelementptr inbounds i8, ptr %t1.i37.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i38.i, align 8
+  store i8 1, ptr %m.i.i.i38.i, align 8
+  %d.i.i.i39.i = getelementptr inbounds i8, ptr %t1.i37.i, i64 9
+  store i8 1, ptr %d.i.i.i39.i, align 1
+  %hh.i.i.i40.i = getelementptr inbounds i8, ptr %t1.i37.i, i64 10
+  store i8 0, ptr %hh.i.i.i40.i, align 2
+  %mm.i.i.i41.i = getelementptr inbounds i8, ptr %t1.i37.i, i64 11
+  store i8 0, ptr %mm.i.i.i41.i, align 1
   %ss.i.i.i42.i = getelementptr inbounds i8, ptr %t1.i37.i, i64 12
   store i8 0, ptr %ss.i.i.i42.i, align 4
   %call.i43.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i37.i)
@@ -1602,7 +1668,13 @@ if.end16.i:                                       ; preds = %if.end12.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i49.i)
   store i64 1970, ptr %t1.i49.i, align 8
   %m.i.i.i50.i = getelementptr inbounds i8, ptr %t1.i49.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i50.i, align 8
+  store i8 1, ptr %m.i.i.i50.i, align 8
+  %d.i.i.i51.i = getelementptr inbounds i8, ptr %t1.i49.i, i64 9
+  store i8 1, ptr %d.i.i.i51.i, align 1
+  %hh.i.i.i52.i = getelementptr inbounds i8, ptr %t1.i49.i, i64 10
+  store i8 0, ptr %hh.i.i.i52.i, align 2
+  %mm.i.i.i53.i = getelementptr inbounds i8, ptr %t1.i49.i, i64 11
+  store i8 0, ptr %mm.i.i.i53.i, align 1
   %ss.i.i.i54.i = getelementptr inbounds i8, ptr %t1.i49.i, i64 12
   store i8 0, ptr %ss.i.i.i54.i, align 4
   %call.i55.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i49.i)
@@ -1638,7 +1710,13 @@ if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i.i)
   store i64 1970, ptr %t1.i.i, align 8
   %m.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i.i, align 8
+  store i8 1, ptr %m.i.i.i.i, align 8
+  %d.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 9
+  store i8 1, ptr %d.i.i.i.i, align 1
+  %hh.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 10
+  store i8 0, ptr %hh.i.i.i.i, align 2
+  %mm.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 11
+  store i8 0, ptr %mm.i.i.i.i, align 1
   %ss.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 12
   store i8 0, ptr %ss.i.i.i.i, align 4
   %call.i.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i.i)
@@ -1659,7 +1737,13 @@ if.end4.i:                                        ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i13.i)
   store i64 1970, ptr %t1.i13.i, align 8
   %m.i.i.i14.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i14.i, align 8
+  store i8 1, ptr %m.i.i.i14.i, align 8
+  %d.i.i.i15.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 9
+  store i8 1, ptr %d.i.i.i15.i, align 1
+  %hh.i.i.i16.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 10
+  store i8 0, ptr %hh.i.i.i16.i, align 2
+  %mm.i.i.i17.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 11
+  store i8 0, ptr %mm.i.i.i17.i, align 1
   %ss.i.i.i18.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 12
   store i8 0, ptr %ss.i.i.i18.i, align 4
   %call.i19.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i13.i)
@@ -1680,7 +1764,13 @@ if.end8.i:                                        ; preds = %if.end4.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i25.i)
   store i64 1970, ptr %t1.i25.i, align 8
   %m.i.i.i26.i = getelementptr inbounds i8, ptr %t1.i25.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i26.i, align 8
+  store i8 1, ptr %m.i.i.i26.i, align 8
+  %d.i.i.i27.i = getelementptr inbounds i8, ptr %t1.i25.i, i64 9
+  store i8 1, ptr %d.i.i.i27.i, align 1
+  %hh.i.i.i28.i = getelementptr inbounds i8, ptr %t1.i25.i, i64 10
+  store i8 0, ptr %hh.i.i.i28.i, align 2
+  %mm.i.i.i29.i = getelementptr inbounds i8, ptr %t1.i25.i, i64 11
+  store i8 0, ptr %mm.i.i.i29.i, align 1
   %ss.i.i.i30.i = getelementptr inbounds i8, ptr %t1.i25.i, i64 12
   store i8 0, ptr %ss.i.i.i30.i, align 4
   %call.i31.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i25.i)
@@ -1696,7 +1786,13 @@ if.end12.i:                                       ; preds = %if.end8.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i33.i)
   store i64 1970, ptr %t1.i33.i, align 8
   %m.i.i.i34.i = getelementptr inbounds i8, ptr %t1.i33.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i34.i, align 8
+  store i8 1, ptr %m.i.i.i34.i, align 8
+  %d.i.i.i35.i = getelementptr inbounds i8, ptr %t1.i33.i, i64 9
+  store i8 1, ptr %d.i.i.i35.i, align 1
+  %hh.i.i.i36.i = getelementptr inbounds i8, ptr %t1.i33.i, i64 10
+  store i8 0, ptr %hh.i.i.i36.i, align 2
+  %mm.i.i.i37.i = getelementptr inbounds i8, ptr %t1.i33.i, i64 11
+  store i8 0, ptr %mm.i.i.i37.i, align 1
   %ss.i.i.i38.i = getelementptr inbounds i8, ptr %t1.i33.i, i64 12
   store i8 0, ptr %ss.i.i.i38.i, align 4
   %call.i39.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i33.i)
@@ -1717,7 +1813,13 @@ if.end16.i:                                       ; preds = %if.end12.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i45.i)
   store i64 1970, ptr %t1.i45.i, align 8
   %m.i.i.i46.i = getelementptr inbounds i8, ptr %t1.i45.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i46.i, align 8
+  store i8 1, ptr %m.i.i.i46.i, align 8
+  %d.i.i.i47.i = getelementptr inbounds i8, ptr %t1.i45.i, i64 9
+  store i8 1, ptr %d.i.i.i47.i, align 1
+  %hh.i.i.i48.i = getelementptr inbounds i8, ptr %t1.i45.i, i64 10
+  store i8 0, ptr %hh.i.i.i48.i, align 2
+  %mm.i.i.i49.i = getelementptr inbounds i8, ptr %t1.i45.i, i64 11
+  store i8 0, ptr %mm.i.i.i49.i, align 1
   %ss.i.i.i50.i = getelementptr inbounds i8, ptr %t1.i45.i, i64 12
   store i8 0, ptr %ss.i.i.i50.i, align 4
   %call.i51.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i45.i)
@@ -1758,7 +1860,13 @@ if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i.i)
   store i64 1970, ptr %t1.i.i, align 8
   %m.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i.i, align 8
+  store i8 1, ptr %m.i.i.i.i, align 8
+  %d.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 9
+  store i8 1, ptr %d.i.i.i.i, align 1
+  %hh.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 10
+  store i8 0, ptr %hh.i.i.i.i, align 2
+  %mm.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 11
+  store i8 0, ptr %mm.i.i.i.i, align 1
   %ss.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 12
   store i8 0, ptr %ss.i.i.i.i, align 4
   %call.i.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i.i)
@@ -1774,7 +1882,13 @@ if.end4.i:                                        ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i13.i)
   store i64 1970, ptr %t1.i13.i, align 8
   %m.i.i.i14.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i14.i, align 8
+  store i8 1, ptr %m.i.i.i14.i, align 8
+  %d.i.i.i15.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 9
+  store i8 1, ptr %d.i.i.i15.i, align 1
+  %hh.i.i.i16.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 10
+  store i8 0, ptr %hh.i.i.i16.i, align 2
+  %mm.i.i.i17.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 11
+  store i8 0, ptr %mm.i.i.i17.i, align 1
   %ss.i.i.i18.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 12
   store i8 0, ptr %ss.i.i.i18.i, align 4
   %call.i19.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i13.i)
@@ -1795,7 +1909,13 @@ if.end8.i:                                        ; preds = %if.end4.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i21.i)
   store i64 1970, ptr %t1.i21.i, align 8
   %m.i.i.i22.i = getelementptr inbounds i8, ptr %t1.i21.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i22.i, align 8
+  store i8 1, ptr %m.i.i.i22.i, align 8
+  %d.i.i.i23.i = getelementptr inbounds i8, ptr %t1.i21.i, i64 9
+  store i8 1, ptr %d.i.i.i23.i, align 1
+  %hh.i.i.i24.i = getelementptr inbounds i8, ptr %t1.i21.i, i64 10
+  store i8 0, ptr %hh.i.i.i24.i, align 2
+  %mm.i.i.i25.i = getelementptr inbounds i8, ptr %t1.i21.i, i64 11
+  store i8 0, ptr %mm.i.i.i25.i, align 1
   %ss.i.i.i26.i = getelementptr inbounds i8, ptr %t1.i21.i, i64 12
   store i8 0, ptr %ss.i.i.i26.i, align 4
   %call.i27.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i21.i)
@@ -1816,7 +1936,13 @@ if.end12.i:                                       ; preds = %if.end8.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i33.i)
   store i64 1970, ptr %t1.i33.i, align 8
   %m.i.i.i34.i = getelementptr inbounds i8, ptr %t1.i33.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i34.i, align 8
+  store i8 1, ptr %m.i.i.i34.i, align 8
+  %d.i.i.i35.i = getelementptr inbounds i8, ptr %t1.i33.i, i64 9
+  store i8 1, ptr %d.i.i.i35.i, align 1
+  %hh.i.i.i36.i = getelementptr inbounds i8, ptr %t1.i33.i, i64 10
+  store i8 0, ptr %hh.i.i.i36.i, align 2
+  %mm.i.i.i37.i = getelementptr inbounds i8, ptr %t1.i33.i, i64 11
+  store i8 0, ptr %mm.i.i.i37.i, align 1
   %ss.i.i.i38.i = getelementptr inbounds i8, ptr %t1.i33.i, i64 12
   store i8 0, ptr %ss.i.i.i38.i, align 4
   %call.i39.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i33.i)
@@ -1837,7 +1963,13 @@ if.end16.i:                                       ; preds = %if.end12.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i45.i)
   store i64 1970, ptr %t1.i45.i, align 8
   %m.i.i.i46.i = getelementptr inbounds i8, ptr %t1.i45.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i46.i, align 8
+  store i8 1, ptr %m.i.i.i46.i, align 8
+  %d.i.i.i47.i = getelementptr inbounds i8, ptr %t1.i45.i, i64 9
+  store i8 1, ptr %d.i.i.i47.i, align 1
+  %hh.i.i.i48.i = getelementptr inbounds i8, ptr %t1.i45.i, i64 10
+  store i8 0, ptr %hh.i.i.i48.i, align 2
+  %mm.i.i.i49.i = getelementptr inbounds i8, ptr %t1.i45.i, i64 11
+  store i8 0, ptr %mm.i.i.i49.i, align 1
   %ss.i.i.i50.i = getelementptr inbounds i8, ptr %t1.i45.i, i64 12
   store i8 0, ptr %ss.i.i.i50.i, align 4
   %call.i51.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i45.i)
@@ -1878,7 +2010,13 @@ if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i.i)
   store i64 1970, ptr %t1.i.i, align 8
   %m.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i.i, align 8
+  store i8 1, ptr %m.i.i.i.i, align 8
+  %d.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 9
+  store i8 1, ptr %d.i.i.i.i, align 1
+  %hh.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 10
+  store i8 0, ptr %hh.i.i.i.i, align 2
+  %mm.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 11
+  store i8 0, ptr %mm.i.i.i.i, align 1
   %ss.i.i.i.i = getelementptr inbounds i8, ptr %t1.i.i, i64 12
   store i8 0, ptr %ss.i.i.i.i, align 4
   %call.i.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_7day_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i.i)
@@ -1900,7 +2038,13 @@ if.end4.i:                                        ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i13.i)
   store i64 1970, ptr %t1.i13.i, align 8
   %m.i.i.i14.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i14.i, align 8
+  store i8 1, ptr %m.i.i.i14.i, align 8
+  %d.i.i.i15.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 9
+  store i8 1, ptr %d.i.i.i15.i, align 1
+  %hh.i.i.i16.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 10
+  store i8 0, ptr %hh.i.i.i16.i, align 2
+  %mm.i.i.i17.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 11
+  store i8 0, ptr %mm.i.i.i17.i, align 1
   %ss.i.i.i18.i = getelementptr inbounds i8, ptr %t1.i13.i, i64 12
   store i8 0, ptr %ss.i.i.i18.i, align 4
   %call.i19.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10second_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i13.i)
@@ -1922,7 +2066,13 @@ if.end8.i:                                        ; preds = %if.end4.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i26.i)
   store i64 1970, ptr %t1.i26.i, align 8
   %m.i.i.i27.i = getelementptr inbounds i8, ptr %t1.i26.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i27.i, align 8
+  store i8 1, ptr %m.i.i.i27.i, align 8
+  %d.i.i.i28.i = getelementptr inbounds i8, ptr %t1.i26.i, i64 9
+  store i8 1, ptr %d.i.i.i28.i, align 1
+  %hh.i.i.i29.i = getelementptr inbounds i8, ptr %t1.i26.i, i64 10
+  store i8 0, ptr %hh.i.i.i29.i, align 2
+  %mm.i.i.i30.i = getelementptr inbounds i8, ptr %t1.i26.i, i64 11
+  store i8 0, ptr %mm.i.i.i30.i, align 1
   %ss.i.i.i31.i = getelementptr inbounds i8, ptr %t1.i26.i, i64 12
   store i8 0, ptr %ss.i.i.i31.i, align 4
   %call.i32.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8hour_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i26.i)
@@ -1944,7 +2094,13 @@ if.end12.i:                                       ; preds = %if.end8.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i39.i)
   store i64 1970, ptr %t1.i39.i, align 8
   %m.i.i.i40.i = getelementptr inbounds i8, ptr %t1.i39.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i40.i, align 8
+  store i8 1, ptr %m.i.i.i40.i, align 8
+  %d.i.i.i41.i = getelementptr inbounds i8, ptr %t1.i39.i, i64 9
+  store i8 1, ptr %d.i.i.i41.i, align 1
+  %hh.i.i.i42.i = getelementptr inbounds i8, ptr %t1.i39.i, i64 10
+  store i8 0, ptr %hh.i.i.i42.i, align 2
+  %mm.i.i.i43.i = getelementptr inbounds i8, ptr %t1.i39.i, i64 11
+  store i8 0, ptr %mm.i.i.i43.i, align 1
   %ss.i.i.i44.i = getelementptr inbounds i8, ptr %t1.i39.i, i64 12
   store i8 0, ptr %ss.i.i.i44.i, align 4
   %call.i45.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_9month_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i39.i)
@@ -1960,7 +2116,13 @@ if.end16.i:                                       ; preds = %if.end12.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t1.i47.i)
   store i64 1970, ptr %t1.i47.i, align 8
   %m.i.i.i48.i = getelementptr inbounds i8, ptr %t1.i47.i, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i48.i, align 8
+  store i8 1, ptr %m.i.i.i48.i, align 8
+  %d.i.i.i49.i = getelementptr inbounds i8, ptr %t1.i47.i, i64 9
+  store i8 1, ptr %d.i.i.i49.i, align 1
+  %hh.i.i.i50.i = getelementptr inbounds i8, ptr %t1.i47.i, i64 10
+  store i8 0, ptr %hh.i.i.i50.i, align 2
+  %mm.i.i.i51.i = getelementptr inbounds i8, ptr %t1.i47.i, i64 11
+  store i8 0, ptr %mm.i.i.i51.i, align 1
   %ss.i.i.i52.i = getelementptr inbounds i8, ptr %t1.i47.i, i64 12
   store i8 0, ptr %ss.i.i.i52.i, align 4
   %call.i53.i = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_10minute_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1.i47.i)
@@ -2814,18 +2976,27 @@ declare void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr sret(%"struct.absl::TimeZone::
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_17ParseAsINS_13time_internal4cctz6detail10civil_timeINS2_8year_tagEEENS5_INS2_10second_tagEEEEEbSt17basic_string_viewIcSt11char_traitsIcEEPT0_(i64 %s.coerce0, ptr %s.coerce1, ptr nocapture noundef writeonly %c) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %t1 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 16
-  store i64 1970, ptr %t1, align 16
+  %t1 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
+  store i64 1970, ptr %t1, align 8
   %m.i.i = getelementptr inbounds i8, ptr %t1, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i, align 8
+  store i8 1, ptr %m.i.i, align 8
+  %d.i.i = getelementptr inbounds i8, ptr %t1, i64 9
+  store i8 1, ptr %d.i.i, align 1
+  %hh.i.i = getelementptr inbounds i8, ptr %t1, i64 10
+  store i8 0, ptr %hh.i.i, align 2
+  %mm.i.i = getelementptr inbounds i8, ptr %t1, i64 11
+  store i8 0, ptr %mm.i.i, align 1
   %ss.i.i = getelementptr inbounds i8, ptr %t1, i64 12
   store i8 0, ptr %ss.i.i, align 4
   %call = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1)
   br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %0 = load <2 x i64>, ptr %t1, align 16
-  store <2 x i64> %0, ptr %c, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %t1, align 8
+  %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %m.i.i, align 8
+  store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %c, align 8
+  %ref.tmp.sroa.2.0.c.sroa_idx = getelementptr inbounds i8, ptr %c, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload.i, ptr %ref.tmp.sroa.2.0.c.sroa_idx, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -2838,7 +3009,13 @@ entry:
   %t1 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
   store i64 1970, ptr %t1, align 8
   %m.i.i = getelementptr inbounds i8, ptr %t1, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i, align 8
+  store i8 1, ptr %m.i.i, align 8
+  %d.i.i = getelementptr inbounds i8, ptr %t1, i64 9
+  store i8 1, ptr %d.i.i, align 1
+  %hh.i.i = getelementptr inbounds i8, ptr %t1, i64 10
+  store i8 0, ptr %hh.i.i, align 2
+  %mm.i.i = getelementptr inbounds i8, ptr %t1, i64 11
+  store i8 0, ptr %mm.i.i, align 1
   %ss.i.i = getelementptr inbounds i8, ptr %t1, i64 12
   store i8 0, ptr %ss.i.i, align 4
   %call = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1)
@@ -2863,7 +3040,13 @@ entry:
   %t1 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
   store i64 1970, ptr %t1, align 8
   %m.i.i = getelementptr inbounds i8, ptr %t1, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i, align 8
+  store i8 1, ptr %m.i.i, align 8
+  %d.i.i = getelementptr inbounds i8, ptr %t1, i64 9
+  store i8 1, ptr %d.i.i, align 1
+  %hh.i.i = getelementptr inbounds i8, ptr %t1, i64 10
+  store i8 0, ptr %hh.i.i, align 2
+  %mm.i.i = getelementptr inbounds i8, ptr %t1, i64 11
+  store i8 0, ptr %mm.i.i, align 1
   %ss.i.i = getelementptr inbounds i8, ptr %t1, i64 12
   store i8 0, ptr %ss.i.i, align 4
   %call = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1)
@@ -2888,7 +3071,13 @@ entry:
   %t1 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
   store i64 1970, ptr %t1, align 8
   %m.i.i = getelementptr inbounds i8, ptr %t1, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i, align 8
+  store i8 1, ptr %m.i.i, align 8
+  %d.i.i = getelementptr inbounds i8, ptr %t1, i64 9
+  store i8 1, ptr %d.i.i, align 1
+  %hh.i.i = getelementptr inbounds i8, ptr %t1, i64 10
+  store i8 0, ptr %hh.i.i, align 2
+  %mm.i.i = getelementptr inbounds i8, ptr %t1, i64 11
+  store i8 0, ptr %mm.i.i, align 1
   %ss.i.i = getelementptr inbounds i8, ptr %t1, i64 12
   store i8 0, ptr %ss.i.i, align 4
   %call = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1)
@@ -2913,7 +3102,13 @@ entry:
   %t1 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
   store i64 1970, ptr %t1, align 8
   %m.i.i = getelementptr inbounds i8, ptr %t1, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i, align 8
+  store i8 1, ptr %m.i.i, align 8
+  %d.i.i = getelementptr inbounds i8, ptr %t1, i64 9
+  store i8 1, ptr %d.i.i, align 1
+  %hh.i.i = getelementptr inbounds i8, ptr %t1, i64 10
+  store i8 0, ptr %hh.i.i, align 2
+  %mm.i.i = getelementptr inbounds i8, ptr %t1, i64 11
+  store i8 0, ptr %mm.i.i, align 1
   %ss.i.i = getelementptr inbounds i8, ptr %t1, i64 12
   store i8 0, ptr %ss.i.i, align 4
   %call = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1)
@@ -2939,7 +3134,13 @@ entry:
   %t1 = alloca %"class.absl::time_internal::cctz::detail::civil_time.4", align 8
   store i64 1970, ptr %t1, align 8
   %m.i.i = getelementptr inbounds i8, ptr %t1, i64 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i, align 8
+  store i8 1, ptr %m.i.i, align 8
+  %d.i.i = getelementptr inbounds i8, ptr %t1, i64 9
+  store i8 1, ptr %d.i.i, align 1
+  %hh.i.i = getelementptr inbounds i8, ptr %t1, i64 10
+  store i8 0, ptr %hh.i.i, align 2
+  %mm.i.i = getelementptr inbounds i8, ptr %t1, i64 11
+  store i8 0, ptr %mm.i.i, align 1
   %ss.i.i = getelementptr inbounds i8, ptr %t1, i64 12
   store i8 0, ptr %ss.i.i, align 4
   %call = call noundef zeroext i1 @_ZN4absl14ParseCivilTimeESt17basic_string_viewIcSt11char_traitsIcEEPNS_13time_internal4cctz6detail10civil_timeINS4_8year_tagEEE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %t1)

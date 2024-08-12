@@ -3273,7 +3273,7 @@ check_collation_set.exit:                         ; preds = %3
 
 .thread:                                          ; preds = %12
   store ptr @namefastcmp_c, ptr %13, align 8
-  br label %47
+  br label %50
 
 14:                                               ; preds = %12
   br label %22
@@ -3294,7 +3294,7 @@ check_collation_set.exit:                         ; preds = %3
   %bpcharfastcmp_c.sink = phi ptr [ @varstrfastcmp_c, %14 ], [ @bpcharfastcmp_c, %12 ]
   store ptr %bpcharfastcmp_c.sink, ptr %13, align 8
   %23 = trunc i8 %5 to i1
-  br i1 %23, label %24, label %47
+  br i1 %23, label %24, label %50
 
 24:                                               ; preds = %.thread46, %22
   %25 = phi i1 [ %21, %.thread46 ], [ true, %22 ]
@@ -3308,39 +3308,45 @@ check_collation_set.exit:                         ; preds = %3
   %30 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %29, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %26, i64 20
-  store <4 x i32> <i32 1024, i32 -1, i32 -1, i32 0>, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %26, i64 136
-  store ptr %.04551, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %26, i64 36
-  store i8 1, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %26, i64 37
-  %35 = zext i1 %11 to i8
-  store i8 %35, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %26, i64 40
-  store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %26, ptr %37, align 8
-  br i1 %25, label %38, label %47
+  store i32 1024, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %26, i64 24
+  store i32 -1, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %26, i64 28
+  store i32 -1, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %26, i64 32
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %26, i64 136
+  store ptr %.04551, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %26, i64 36
+  store i8 1, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %26, i64 37
+  %38 = zext i1 %11 to i8
+  store i8 %38, ptr %37, align 1
+  %39 = getelementptr inbounds i8, ptr %26, i64 40
+  store i32 %1, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %26, ptr %40, align 8
+  br i1 %25, label %41, label %50
 
-38:                                               ; preds = %24
-  %39 = getelementptr inbounds i8, ptr %26, i64 128
-  store double 2.000000e-01, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %26, i64 48
-  tail call void @initHyperLogLog(ptr noundef nonnull %40, i8 noundef zeroext 10) #19
-  %41 = getelementptr inbounds i8, ptr %26, i64 88
-  tail call void @initHyperLogLog(ptr noundef nonnull %41, i8 noundef zeroext 10) #19
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %43, ptr %44, align 8
-  store ptr @ssup_datum_unsigned_cmp, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr @varstr_abbrev_convert, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr @varstr_abbrev_abort, ptr %46, align 8
-  br label %47
+41:                                               ; preds = %24
+  %42 = getelementptr inbounds i8, ptr %26, i64 128
+  store double 2.000000e-01, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %26, i64 48
+  tail call void @initHyperLogLog(ptr noundef nonnull %43, i8 noundef zeroext 10) #19
+  %44 = getelementptr inbounds i8, ptr %26, i64 88
+  tail call void @initHyperLogLog(ptr noundef nonnull %44, i8 noundef zeroext 10) #19
+  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %46, ptr %47, align 8
+  store ptr @ssup_datum_unsigned_cmp, ptr %45, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr @varstr_abbrev_convert, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr @varstr_abbrev_abort, ptr %49, align 8
+  br label %50
 
-47:                                               ; preds = %.thread, %22, %24, %38
+50:                                               ; preds = %.thread, %22, %24, %41
   ret void
 }
 
@@ -9365,10 +9371,14 @@ define dso_local noundef i64 @text_to_table(ptr noundef %0) local_unnamed_addr #
   store ptr null, ptr %2, align 8
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 1) #19
   %5 = getelementptr inbounds i8, ptr %4, i64 40
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %7, ptr %6, align 8
-  %8 = call fastcc zeroext i1 @split_text(ptr noundef %0, ptr noundef nonnull %2)
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %9, ptr %10, align 8
+  %11 = call fastcc zeroext i1 @split_text(ptr noundef %0, ptr noundef nonnull %2)
   ret i64 0
 }
 
@@ -9383,10 +9393,14 @@ define dso_local noundef i64 @text_to_table_null(ptr noundef %0) local_unnamed_a
   store ptr null, ptr %2, align 8
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 1) #19
   %5 = getelementptr inbounds i8, ptr %4, i64 40
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %7, ptr %6, align 8
-  %8 = call fastcc zeroext i1 @split_text(ptr noundef %0, ptr noundef nonnull %2)
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %9, ptr %10, align 8
+  %11 = call fastcc zeroext i1 @split_text(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret i64 0
 }

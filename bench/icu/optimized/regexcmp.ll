@@ -9390,11 +9390,15 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %fEOLComments = getelementptr inbounds i8, ptr %this, i64 42
   %12 = load i8, ptr %fEOLComments, align 2
   %fLineNum = getelementptr inbounds i8, ptr %this, i64 48
-  %13 = load <2 x i64>, ptr %fLineNum, align 8
+  %13 = load i64, ptr %fLineNum, align 8
+  %fCharNum = getelementptr inbounds i8, ptr %this, i64 56
+  %14 = load i64, ptr %fCharNum, align 8
   %fLastChar = getelementptr inbounds i8, ptr %this, i64 64
-  %14 = load <2 x i32>, ptr %fLastChar, align 8
+  %15 = load i32, ptr %fLastChar, align 8
+  %fPeekChar = getelementptr inbounds i8, ptr %this, i64 68
+  %16 = load i32, ptr %fPeekChar, align 4
   %fC = getelementptr inbounds i8, ptr %this, i64 72
-  %15 = load i64, ptr %fC, align 8
+  %17 = load i64, ptr %fC, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %propName, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %propName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
@@ -9402,8 +9406,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %cond.end
-  %16 = load i32, ptr %fC, align 8
-  %cmp16 = icmp eq i32 %16, 94
+  %18 = load i32, ptr %fC, align 8
+  %cmp16 = icmp eq i32 %18, 94
   br i1 %cmp16, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %invoke.cont
@@ -9430,14 +9434,14 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end20:                                         ; preds = %if.then17.if.end20_crit_edge, %invoke.cont
-  %.pre = phi i32 [ %.pre.pre, %if.then17.if.end20_crit_edge ], [ %16, %invoke.cont ]
+  %.pre = phi i32 [ %.pre.pre, %if.then17.if.end20_crit_edge ], [ %18, %invoke.cont ]
   %negated.0 = phi i8 [ 1, %if.then17.if.end20_crit_edge ], [ 0, %invoke.cont ]
   %fQuoted = getelementptr inbounds i8, ptr %this, i64 76
   br label %for.cond
 
 for.cond:                                         ; preds = %lor.lhs.false, %if.end20
-  %17 = phi i32 [ %19, %lor.lhs.false ], [ %.pre, %if.end20 ]
-  %call24 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %propName, i32 noundef %17)
+  %19 = phi i32 [ %21, %lor.lhs.false ], [ %.pre, %if.end20 ]
+  %call24 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %propName, i32 noundef %19)
           to label %invoke.cont23 unwind label %lpad.loopexit
 
 invoke.cont23:                                    ; preds = %for.cond
@@ -9445,13 +9449,13 @@ invoke.cont23:                                    ; preds = %for.cond
           to label %invoke.cont26 unwind label %lpad.loopexit
 
 invoke.cont26:                                    ; preds = %invoke.cont23
-  %18 = load i8, ptr %fQuoted, align 4
-  %tobool28.not = icmp eq i8 %18, 0
+  %20 = load i8, ptr %fQuoted, align 4
+  %tobool28.not = icmp eq i8 %20, 0
   br i1 %tobool28.not, label %lor.lhs.false, label %if.else
 
 lor.lhs.false:                                    ; preds = %invoke.cont26
-  %19 = load i32, ptr %fC, align 8
-  switch i32 %19, label %for.cond [
+  %21 = load i32, ptr %fC, align 8
+  switch i32 %21, label %for.cond [
     i32 -1, label %if.else
     i32 58, label %if.then37
   ]
@@ -9461,8 +9465,8 @@ if.then37:                                        ; preds = %lor.lhs.false
           to label %invoke.cont39 unwind label %lpad.loopexit.split-lp
 
 invoke.cont39:                                    ; preds = %if.then37
-  %20 = load i32, ptr %fC, align 8
-  %cmp42.not = icmp eq i32 %20, 93
+  %22 = load i32, ptr %fC, align 8
+  %cmp42.not = icmp eq i32 %22, 93
   br i1 %cmp42.not, label %if.then47, label %if.else
 
 if.then47:                                        ; preds = %invoke.cont39
@@ -9474,41 +9478,43 @@ if.else:                                          ; preds = %invoke.cont26, %lor
   store i8 %10, ptr %fQuoteMode, align 8
   store i8 %11, ptr %fInBackslashQuote, align 1
   store i8 %12, ptr %fEOLComments, align 2
-  store <2 x i64> %13, ptr %fLineNum, align 8
-  store <2 x i32> %14, ptr %fLastChar, align 8
-  store i64 %15, ptr %fC, align 8
-  %21 = load ptr, ptr %fRXPat, align 8
-  %fPattern60 = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load ptr, ptr %fPattern60, align 8
-  %chunkNativeStart61 = getelementptr inbounds i8, ptr %22, i64 32
-  %23 = load i64, ptr %chunkNativeStart61, align 8
-  %sub = sub nsw i64 %cond, %23
+  store i64 %13, ptr %fLineNum, align 8
+  store i64 %14, ptr %fCharNum, align 8
+  store i32 %15, ptr %fLastChar, align 8
+  store i32 %16, ptr %fPeekChar, align 4
+  store i64 %17, ptr %fC, align 8
+  %23 = load ptr, ptr %fRXPat, align 8
+  %fPattern60 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = load ptr, ptr %fPattern60, align 8
+  %chunkNativeStart61 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = load i64, ptr %chunkNativeStart61, align 8
+  %sub = sub nsw i64 %cond, %25
   %cmp62 = icmp sgt i64 %sub, -1
   br i1 %cmp62, label %land.lhs.true, label %if.else78
 
 land.lhs.true:                                    ; preds = %if.else
-  %nativeIndexingLimit65 = getelementptr inbounds i8, ptr %22, i64 28
-  %24 = load i32, ptr %nativeIndexingLimit65, align 4
-  %conv66 = sext i32 %24 to i64
+  %nativeIndexingLimit65 = getelementptr inbounds i8, ptr %24, i64 28
+  %26 = load i32, ptr %nativeIndexingLimit65, align 4
+  %conv66 = sext i32 %26 to i64
   %cmp67 = icmp slt i64 %sub, %conv66
   br i1 %cmp67, label %land.lhs.true68, label %if.else78
 
 land.lhs.true68:                                  ; preds = %land.lhs.true
-  %chunkContents = getelementptr inbounds i8, ptr %22, i64 48
-  %25 = load ptr, ptr %chunkContents, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %25, i64 %sub
-  %26 = load i16, ptr %arrayidx, align 2
-  %cmp72 = icmp ult i16 %26, -9216
+  %chunkContents = getelementptr inbounds i8, ptr %24, i64 48
+  %27 = load ptr, ptr %chunkContents, align 8
+  %arrayidx = getelementptr inbounds i16, ptr %27, i64 %sub
+  %28 = load i16, ptr %arrayidx, align 2
+  %cmp72 = icmp ult i16 %28, -9216
   br i1 %cmp72, label %if.then73, label %if.else78
 
 if.then73:                                        ; preds = %land.lhs.true68
   %conv74 = trunc nuw nsw i64 %sub to i32
-  %chunkOffset77 = getelementptr inbounds i8, ptr %22, i64 40
+  %chunkOffset77 = getelementptr inbounds i8, ptr %24, i64 40
   store i32 %conv74, ptr %chunkOffset77, align 8
   br label %if.end83
 
 if.else78:                                        ; preds = %land.lhs.true68, %land.lhs.true, %if.else
-  invoke void @utext_setNativeIndex_75(ptr noundef nonnull %22, i64 noundef %cond)
+  invoke void @utext_setNativeIndex_75(ptr noundef nonnull %24, i64 noundef %cond)
           to label %if.end83 unwind label %lpad.loopexit.split-lp
 
 if.end83:                                         ; preds = %if.then47, %if.then73, %if.else78

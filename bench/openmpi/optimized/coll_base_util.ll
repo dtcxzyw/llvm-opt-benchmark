@@ -237,11 +237,14 @@ opal_thread_add_fetch_32.exit29:                  ; preds = %29, %31
 
 45:                                               ; preds = %37
   %46 = getelementptr inbounds i8, ptr %0, i64 136
-  %47 = getelementptr inbounds i8, ptr %0, i64 144
-  %48 = load <2 x ptr>, ptr %46, align 8
-  store <2 x ptr> %48, ptr %41, align 8
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %41, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 144
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 168
+  store ptr %49, ptr %50, align 8
   store ptr @complete_objs_callback, ptr %46, align 8
-  store ptr %0, ptr %47, align 8
+  store ptr %0, ptr %48, align 8
   br label %.thread33
 
 .thread33:                                        ; preds = %.thread, %36, %45, %42, %3
@@ -290,7 +293,7 @@ define noundef i32 @ompi_coll_base_retain_datatypes(ptr noundef %0, ptr noundef 
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, inttoptr (i64 1 to ptr)
-  br i1 %6, label %50, label %7
+  br i1 %6, label %52, label %7
 
 7:                                                ; preds = %3
   %.not = icmp eq ptr %1, null
@@ -360,7 +363,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %15, %17
   br label %38
 
 37:                                               ; preds = %23, %22
-  br i1 %.0, label %38, label %50
+  br i1 %.0, label %38, label %52
 
 38:                                               ; preds = %.thread, %37
   %39 = getelementptr inbounds i8, ptr %0, i64 100
@@ -374,18 +377,21 @@ opal_thread_add_fetch_32.exit:                    ; preds = %15, %17
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr %42, align 8
   store ptr @free_objs_callback, ptr %44, align 8
-  br label %50
+  br label %52
 
 46:                                               ; preds = %38
   %47 = getelementptr inbounds i8, ptr %0, i64 136
-  %48 = getelementptr inbounds i8, ptr %0, i64 144
-  %49 = load <2 x ptr>, ptr %47, align 8
-  store <2 x ptr> %49, ptr %42, align 8
+  %48 = load ptr, ptr %47, align 8
+  store ptr %48, ptr %42, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 144
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 168
+  store ptr %50, ptr %51, align 8
   store ptr @complete_objs_callback, ptr %47, align 8
-  store ptr %0, ptr %48, align 8
-  br label %50
+  store ptr %0, ptr %49, align 8
+  br label %52
 
-50:                                               ; preds = %37, %46, %43, %3
+52:                                               ; preds = %37, %46, %43, %3
   ret i32 0
 }
 
@@ -398,7 +404,7 @@ define noundef i32 @ompi_coll_base_retain_datatypes_w(ptr noundef %0, ptr nounde
   %9 = getelementptr inbounds i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, inttoptr (i64 1 to ptr)
-  br i1 %11, label %94, label %12
+  br i1 %11, label %96, label %12
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %8, i64 224
@@ -580,7 +586,7 @@ opal_thread_add_fetch_32.exit78:                  ; preds = %66
   %77 = load i32, ptr %22, align 8
   %78 = or i32 %76, %77
   %.not69 = icmp eq i32 %78, 0
-  br i1 %.not69, label %94, label %79
+  br i1 %.not69, label %96, label %79
 
 79:                                               ; preds = %.loopexit
   store ptr %1, ptr %21, align 8
@@ -601,18 +607,21 @@ opal_thread_add_fetch_32.exit78:                  ; preds = %66
   %89 = load ptr, ptr %88, align 8
   store ptr %89, ptr %86, align 8
   store ptr @free_vecs_callback, ptr %88, align 8
-  br label %94
+  br label %96
 
 90:                                               ; preds = %79
   %91 = getelementptr inbounds i8, ptr %0, i64 136
-  %92 = getelementptr inbounds i8, ptr %0, i64 144
-  %93 = load <2 x ptr>, ptr %91, align 8
-  store <2 x ptr> %93, ptr %86, align 8
+  %92 = load ptr, ptr %91, align 8
+  store ptr %92, ptr %86, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 144
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %0, i64 168
+  store ptr %94, ptr %95, align 8
   store ptr @complete_vecs_callback, ptr %91, align 8
-  store ptr %0, ptr %92, align 8
-  br label %94
+  store ptr %0, ptr %93, align 8
+  br label %96
 
-94:                                               ; preds = %.loopexit, %90, %87, %4
+96:                                               ; preds = %.loopexit, %90, %87, %4
   ret i32 0
 }
 

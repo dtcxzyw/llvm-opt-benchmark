@@ -107,7 +107,6 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %invariant.gep745 = getelementptr i32, ptr %invariant.gep569, i64 %71
   %invariant.gep747 = getelementptr float, ptr %50, i64 %77
   %invariant.gep749 = getelementptr float, ptr %50, i64 %73
-  %invariant.gep765 = getelementptr i8, ptr %49, i64 -4
   br label %80
 
 80:                                               ; preds = %.lr.ph641, %._crit_edge630
@@ -868,19 +867,21 @@ define void @slarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %435 = shl i32 %.0449638, 1
   %436 = sext i32 %435 to i64
   %437 = add i32 %.0483.lcssa, 1
-  %438 = insertelement <2 x i32> poison, i32 %109, i64 0
-  %439 = shufflevector <2 x i32> %438, <2 x i32> poison, <2 x i32> zeroinitializer
   br label %.lr.ph629
 
 .lr.ph629:                                        ; preds = %.lr.ph629.preheader, %.lr.ph629
   %indvars.iv703 = phi i64 [ %436, %.lr.ph629.preheader ], [ %indvars.iv.next704, %.lr.ph629 ]
-  %.3456627 = phi i32 [ %.0449638, %.lr.ph629.preheader ], [ %442, %.lr.ph629 ]
-  %gep766 = getelementptr i32, ptr %invariant.gep765, i64 %indvars.iv703
-  %440 = load <2 x i32>, ptr %gep766, align 4
-  %441 = add nsw <2 x i32> %440, %439
-  store <2 x i32> %441, ptr %gep766, align 4
+  %.3456627 = phi i32 [ %.0449638, %.lr.ph629.preheader ], [ %444, %.lr.ph629 ]
+  %438 = getelementptr i32, ptr %49, i64 %indvars.iv703
+  %439 = getelementptr i8, ptr %438, i64 -4
+  %440 = load i32, ptr %439, align 4
+  %441 = add nsw i32 %440, %109
+  store i32 %441, ptr %439, align 4
+  %442 = load i32, ptr %438, align 4
+  %443 = add nsw i32 %442, %109
+  store i32 %443, ptr %438, align 4
   %indvars.iv.next704 = add nsw i64 %indvars.iv703, 2
-  %442 = add i32 %.3456627, 1
+  %444 = add i32 %.3456627, 1
   %exitcond706.not = icmp eq i32 %.3456627, %.0483.lcssa
   br i1 %exitcond706.not, label %._crit_edge630, label %.lr.ph629, !llvm.loop !17
 

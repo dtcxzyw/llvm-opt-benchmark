@@ -1221,9 +1221,12 @@ inittapestate.exit:                               ; preds = %22, %33
   %61 = sext i32 %60 to i64
   %62 = getelementptr ptr, ptr %59, i64 %61
   store ptr %57, ptr %62, align 8
-  %63 = load <2 x i32>, ptr %51, align 8
-  %64 = add <2 x i32> %63, <i32 1, i32 1>
-  store <2 x i32> %64, ptr %51, align 8
+  %63 = load i32, ptr %51, align 8
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %51, align 8
+  %65 = load i32, ptr %52, align 4
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %52, align 4
   ret void
 }
 
@@ -2102,10 +2105,11 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
 111:                                              ; preds = %._crit_edge, %101
   %112 = load ptr, ptr %82, align 8
   store ptr %112, ptr %81, align 8
-  %113 = load <2 x i32>, ptr %56, align 8
-  %114 = load i32, ptr %56, align 8
-  store <2 x i32> %113, ptr %80, align 8
-  %115 = sext i32 %114 to i64
+  %113 = load i32, ptr %56, align 8
+  store i32 %113, ptr %80, align 8
+  %114 = load i32, ptr %83, align 4
+  store i32 %114, ptr %79, align 4
+  %115 = sext i32 %113 to i64
   %116 = shl nsw i64 %115, 3
   %117 = call ptr @palloc0(i64 noundef %116) #12
   store ptr %117, ptr %82, align 8

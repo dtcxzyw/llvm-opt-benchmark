@@ -6645,7 +6645,12 @@ if.end:                                           ; preds = %entry
   %pvMajor.i.i = getelementptr inbounds i8, ptr %call3, i64 1
   store i8 %0, ptr %pvMajor.i.i, align 1
   %pvMinor.i.i = getelementptr inbounds i8, ptr %call3, i64 2
-  store <4 x i8> <i8 3, i8 0, i8 5, i8 24>, ptr %pvMinor.i.i, align 1
+  store i8 3, ptr %pvMinor.i.i, align 1
+  %length2.i.i = getelementptr inbounds i8, ptr %call3, i64 3
+  store i8 0, ptr %length2.i.i, align 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %call3, i64 4
+  store i8 5, ptr %arrayidx5.i.i.i, align 1
+  store i8 24, ptr %add.ptr, align 1
   %length2.i5.i = getelementptr inbounds i8, ptr %call3, i64 6
   store i8 0, ptr %length2.i5.i, align 1
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %call3, i64 7

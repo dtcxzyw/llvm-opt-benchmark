@@ -556,20 +556,22 @@ _ZN8G1Policy19create_ihop_controlEPK25G1OldGenAllocationTrackerPK13G1Predictions
   store double 0.000000e+00, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %49, i8 0, i64 17, i1 false)
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 232
-  %53 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
-  store ptr %1, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 256
-  %55 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
-  %56 = load i32, ptr @MaxTenuringThreshold, align 4
-  store i32 %56, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 284
-  store i32 0, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 288
-  tail call void @_ZN8AgeTableC1Eb(ptr noundef nonnull align 8 dereferenceable(264) %58, i1 noundef zeroext true) #18
+  store double -1.000000e+00, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 216
+  store double -1.000000e+00, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 232
+  %54 = getelementptr inbounds i8, ptr %0, i64 248
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
+  store ptr %1, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 256
+  %56 = getelementptr inbounds i8, ptr %0, i64 280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
+  %57 = load i32, ptr @MaxTenuringThreshold, align 4
+  store i32 %57, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 284
+  store i32 0, ptr %58, align 4
+  %59 = getelementptr inbounds i8, ptr %0, i64 288
+  tail call void @_ZN8AgeTableC1Eb(ptr noundef nonnull align 8 dereferenceable(264) %59, i1 noundef zeroext true) #18
   ret void
 }
 
@@ -1807,7 +1809,9 @@ _ZN8G1Policy23need_to_start_conc_markEPKcm.exit:  ; preds = %1, %_ZNK8G1Policy26
   %90 = getelementptr inbounds i8, ptr %0, i64 224
   store double 0.000000e+00, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %0, i64 208
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %91, align 8
+  store double -1.000000e+00, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %0, i64 216
+  store double -1.000000e+00, ptr %92, align 8
   ret void
 }
 
@@ -1928,15 +1932,15 @@ define hidden void @_ZN8G1Policy12record_pauseE13G1GCPauseTypeddb(ptr nocapture 
   br label %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit
 
 _ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit: ; preds = %22, %18, %9
-  switch i32 %1, label %52 [
+  switch i32 %1, label %53 [
     i32 7, label %25
-    i32 4, label %29
-    i32 5, label %29
-    i32 0, label %29
-    i32 1, label %29
-    i32 2, label %38
+    i32 4, label %30
+    i32 5, label %30
+    i32 0, label %30
+    i32 1, label %30
+    i32 2, label %39
     i32 3, label %_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit
-    i32 6, label %46
+    i32 6, label %47
   ]
 
 25:                                               ; preds = %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit
@@ -1945,57 +1949,59 @@ _ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit: ; preds = %22,
   %27 = getelementptr inbounds i8, ptr %0, i64 224
   store double 0.000000e+00, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 208
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %28, align 8
+  store double -1.000000e+00, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 216
+  store double -1.000000e+00, ptr %29, align 8
   br label %_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit
 
-29:                                               ; preds = %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit, %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit, %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit, %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit
-  %30 = getelementptr inbounds i8, ptr %0, i64 200
-  %31 = load i8, ptr %30, align 8
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit
+30:                                               ; preds = %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit, %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit, %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit, %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit
+  %31 = getelementptr inbounds i8, ptr %0, i64 200
+  %32 = load i8, ptr %31, align 8
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit
 
-33:                                               ; preds = %29
-  %34 = fsub double %3, %2
-  %35 = getelementptr inbounds i8, ptr %0, i64 224
-  %36 = load double, ptr %35, align 8
-  %37 = fadd double %34, %36
-  store double %37, ptr %35, align 8
+34:                                               ; preds = %30
+  %35 = fsub double %3, %2
+  %36 = getelementptr inbounds i8, ptr %0, i64 224
+  %37 = load double, ptr %36, align 8
+  %38 = fadd double %35, %37
+  store double %38, ptr %36, align 8
   br label %_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit
 
-38:                                               ; preds = %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 240
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 80
-  %42 = load i32, ptr %41, align 8
-  %.not.i = icmp eq i32 %42, 22
-  br i1 %.not.i, label %_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit, label %43
+39:                                               ; preds = %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit
+  %40 = getelementptr inbounds i8, ptr %0, i64 240
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 80
+  %43 = load i32, ptr %42, align 8
+  %.not.i = icmp eq i32 %43, 22
+  br i1 %.not.i, label %_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit, label %44
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %0, i64 200
-  %45 = getelementptr inbounds i8, ptr %0, i64 208
-  store double %3, ptr %45, align 8
-  store i8 1, ptr %44, align 8
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds i8, ptr %0, i64 200
+  %46 = getelementptr inbounds i8, ptr %0, i64 208
+  store double %3, ptr %46, align 8
+  store i8 1, ptr %45, align 8
   br label %_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit
 
-46:                                               ; preds = %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit
-  %47 = getelementptr inbounds i8, ptr %0, i64 200
-  %48 = load i8, ptr %47, align 8
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit
+47:                                               ; preds = %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit
+  %48 = getelementptr inbounds i8, ptr %0, i64 200
+  %49 = load i8, ptr %48, align 8
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 216
-  store double %2, ptr %51, align 8
-  store i8 0, ptr %47, align 8
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds i8, ptr %0, i64 216
+  store double %2, ptr %52, align 8
+  store i8 0, ptr %48, align 8
   br label %_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit
 
-52:                                               ; preds = %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit
-  %53 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %53, align 1
+53:                                               ; preds = %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit
+  %54 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %54, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 1417) #19
   unreachable
 
-_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit: ; preds = %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit, %25, %29, %33, %38, %43, %46, %50
+_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit: ; preds = %_ZN8G1Policy27update_gc_pause_time_ratiosE13G1GCPauseTypedd.exit, %25, %30, %34, %39, %44, %47, %51
   ret void
 }
 
@@ -3469,7 +3475,8 @@ _ZNK8G1Policy23non_young_other_time_msEv.exit:    ; preds = %336, %_ZNK8G1Policy
   %400 = fsub double %397, %399
   store i8 0, ptr %396, align 8
   store double 0.000000e+00, ptr %398, align 8
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %391, align 8
+  store double -1.000000e+00, ptr %391, align 8
+  store double -1.000000e+00, ptr %388, align 8
   %401 = fcmp ogt double %400, 0x3EB0C6F7A0B5ED8D
   br i1 %401, label %414, label %_ZN8G1Policy22update_ihop_predictionEdb.exit
 
@@ -3519,7 +3526,7 @@ _ZN8G1Policy22update_ihop_predictionEdb.exit:     ; preds = %387, %395, %402, %4
   %432 = getelementptr inbounds i8, ptr %431, i64 64
   %433 = load ptr, ptr %432, align 8
   tail call void %433(ptr noundef nonnull align 8 dereferenceable(40) %427, ptr noundef %430) #18
-  br label %438
+  br label %439
 
 434:                                              ; preds = %371
   %435 = getelementptr inbounds i8, ptr %0, i64 200
@@ -3527,55 +3534,57 @@ _ZN8G1Policy22update_ihop_predictionEdb.exit:     ; preds = %387, %395, %402, %4
   %436 = getelementptr inbounds i8, ptr %0, i64 224
   store double 0.000000e+00, ptr %436, align 8
   %437 = getelementptr inbounds i8, ptr %0, i64 208
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %437, align 8
-  br label %438
+  store double -1.000000e+00, ptr %437, align 8
+  %438 = getelementptr inbounds i8, ptr %0, i64 216
+  store double -1.000000e+00, ptr %438, align 8
+  br label %439
 
-438:                                              ; preds = %434, %_ZN8G1Policy22update_ihop_predictionEdb.exit
-  %439 = getelementptr inbounds i8, ptr %0, i64 32
-  %440 = load ptr, ptr %439, align 8
-  %441 = getelementptr inbounds i8, ptr %440, i64 8
-  %442 = load double, ptr %441, align 8
-  %443 = fmul double %442, 1.000000e+03
-  %444 = load i32, ptr @G1RSetUpdatingPauseTimePercent, align 4
-  %445 = uitofp i32 %444 to double
-  %446 = fmul double %443, %445
-  %447 = fdiv double %446, 1.000000e+02
-  %448 = tail call noundef double @_ZNK8G1Policy28logged_cards_processing_timeEv(ptr noundef nonnull align 8 dereferenceable(552) %0)
-  %449 = load ptr, ptr %4, align 8
-  %450 = icmp eq ptr %449, null
-  br i1 %450, label %451, label %_ZNK8G1Policy11phase_timesEv.exit111
+439:                                              ; preds = %434, %_ZN8G1Policy22update_ihop_predictionEdb.exit
+  %440 = getelementptr inbounds i8, ptr %0, i64 32
+  %441 = load ptr, ptr %440, align 8
+  %442 = getelementptr inbounds i8, ptr %441, i64 8
+  %443 = load double, ptr %442, align 8
+  %444 = fmul double %443, 1.000000e+03
+  %445 = load i32, ptr @G1RSetUpdatingPauseTimePercent, align 4
+  %446 = uitofp i32 %445 to double
+  %447 = fmul double %444, %446
+  %448 = fdiv double %447, 1.000000e+02
+  %449 = tail call noundef double @_ZNK8G1Policy28logged_cards_processing_timeEv(ptr noundef nonnull align 8 dereferenceable(552) %0)
+  %450 = load ptr, ptr %4, align 8
+  %451 = icmp eq ptr %450, null
+  br i1 %451, label %452, label %_ZNK8G1Policy11phase_timesEv.exit111
 
-451:                                              ; preds = %438
-  %452 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 872, i8 noundef zeroext 5, i32 noundef 0) #18
-  %453 = getelementptr inbounds i8, ptr %0, i64 248
-  %454 = load ptr, ptr %453, align 8
-  %455 = load i32, ptr @ParallelGCThreads, align 4
-  tail call void @_ZN14G1GCPhaseTimesC1EP10STWGCTimerj(ptr noundef nonnull align 8 dereferenceable(872) %452, ptr noundef %454, i32 noundef %455) #18
-  store ptr %452, ptr %4, align 8
+452:                                              ; preds = %439
+  %453 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 872, i8 noundef zeroext 5, i32 noundef 0) #18
+  %454 = getelementptr inbounds i8, ptr %0, i64 248
+  %455 = load ptr, ptr %454, align 8
+  %456 = load i32, ptr @ParallelGCThreads, align 4
+  tail call void @_ZN14G1GCPhaseTimesC1EP10STWGCTimerj(ptr noundef nonnull align 8 dereferenceable(872) %453, ptr noundef %455, i32 noundef %456) #18
+  store ptr %453, ptr %4, align 8
   br label %_ZNK8G1Policy11phase_timesEv.exit111
 
-_ZNK8G1Policy11phase_timesEv.exit111:             ; preds = %438, %451
-  %456 = phi ptr [ %452, %451 ], [ %449, %438 ]
-  %457 = tail call noundef i64 @_ZN14G1GCPhaseTimes21sum_thread_work_itemsENS_11GCParPhasesEj(ptr noundef nonnull align 8 dereferenceable(872) %456, i32 noundef 15, i32 noundef 0) #18
-  %458 = load ptr, ptr %78, align 8
-  %459 = tail call noundef i64 @_ZNK11G1Analytics39predict_dirtied_cards_in_thread_buffersEv(ptr noundef nonnull align 8 dereferenceable(2048) %458) #18
-  %460 = load ptr, ptr %20, align 8
-  %461 = getelementptr inbounds i8, ptr %460, i64 1336
-  %462 = load ptr, ptr %461, align 8
-  %463 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_127ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not113 = icmp eq ptr %463, null
-  br i1 %.not113, label %469, label %464
+_ZNK8G1Policy11phase_timesEv.exit111:             ; preds = %439, %452
+  %457 = phi ptr [ %453, %452 ], [ %450, %439 ]
+  %458 = tail call noundef i64 @_ZN14G1GCPhaseTimes21sum_thread_work_itemsENS_11GCParPhasesEj(ptr noundef nonnull align 8 dereferenceable(872) %457, i32 noundef 15, i32 noundef 0) #18
+  %459 = load ptr, ptr %78, align 8
+  %460 = tail call noundef i64 @_ZNK11G1Analytics39predict_dirtied_cards_in_thread_buffersEv(ptr noundef nonnull align 8 dereferenceable(2048) %459) #18
+  %461 = load ptr, ptr %20, align 8
+  %462 = getelementptr inbounds i8, ptr %461, i64 1336
+  %463 = load ptr, ptr %462, align 8
+  %464 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_127ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not113 = icmp eq ptr %464, null
+  br i1 %.not113, label %470, label %465
 
-464:                                              ; preds = %_ZNK8G1Policy11phase_timesEv.exit111
-  %465 = fcmp olt double %447, %448
-  %466 = getelementptr inbounds i8, ptr %462, i64 16
-  %467 = load i64, ptr %466, align 8
-  %468 = select i1 %465, ptr @.str.28, ptr @.str.29
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_127ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.27, i64 noundef %467, i64 noundef %459, double noundef %447, i64 noundef %457, double noundef %448, ptr noundef nonnull %468)
-  br label %469
+465:                                              ; preds = %_ZNK8G1Policy11phase_timesEv.exit111
+  %466 = fcmp olt double %448, %449
+  %467 = getelementptr inbounds i8, ptr %463, i64 16
+  %468 = load i64, ptr %467, align 8
+  %469 = select i1 %466, ptr @.str.28, ptr @.str.29
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_127ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.27, i64 noundef %468, i64 noundef %460, double noundef %448, i64 noundef %458, double noundef %449, ptr noundef nonnull %469)
+  br label %470
 
-469:                                              ; preds = %_ZNK8G1Policy11phase_timesEv.exit111, %464
-  tail call void @_ZN18G1ConcurrentRefine15adjust_after_gcEdmmd(ptr noundef nonnull align 8 dereferenceable(136) %462, double noundef %448, i64 noundef %457, i64 noundef %459, double noundef %447) #18
+470:                                              ; preds = %_ZNK8G1Policy11phase_timesEv.exit111, %465
+  tail call void @_ZN18G1ConcurrentRefine15adjust_after_gcEdmmd(ptr noundef nonnull align 8 dereferenceable(136) %463, double noundef %449, i64 noundef %458, i64 noundef %460, double noundef %448) #18
   ret void
 }
 
@@ -3719,7 +3728,8 @@ define hidden void @_ZN8G1Policy22update_ihop_predictionEdb(ptr noundef nonnull 
   %17 = fsub double %14, %16
   store i8 0, ptr %13, align 8
   store double 0.000000e+00, ptr %15, align 8
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %8, align 8
+  store double -1.000000e+00, ptr %8, align 8
+  store double -1.000000e+00, ptr %5, align 8
   %18 = fcmp ogt double %17, 0x3EB0C6F7A0B5ED8D
   br i1 %18, label %31, label %.thread14
 
@@ -3770,7 +3780,9 @@ define hidden void @_ZN8G1Policy28abort_time_to_mixed_trackingEv(ptr nocapture n
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   store double 0.000000e+00, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 208
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %4, align 8
+  store double -1.000000e+00, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  store double -1.000000e+00, ptr %5, align 8
   ret void
 }
 
@@ -4189,14 +4201,14 @@ define hidden void @_ZN8G1Policy32decide_on_concurrent_start_pauseEv(ptr nocaptu
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZNK15G1CollectedHeap30concurrent_mark_is_terminatingEv(ptr noundef nonnull align 8 dereferenceable(1488) %3) #18
-  br i1 %4, label %78, label %5
+  br i1 %4, label %79, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 971
   %8 = load volatile i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %78
+  br i1 %9, label %10, label %79
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %6, i64 80
@@ -4215,11 +4227,11 @@ define hidden void @_ZN8G1Policy32decide_on_concurrent_start_pauseEv(ptr nocaptu
 15:                                               ; preds = %13
   %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not12 = icmp eq ptr %16, null
-  br i1 %.not12, label %78, label %17
+  br i1 %.not12, label %79, label %17
 
 17:                                               ; preds = %15
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.33)
-  br label %78
+  br label %79
 
 18:                                               ; preds = %._crit_edge, %10
   %19 = phi ptr [ %.pre, %._crit_edge ], [ %6, %10 ]
@@ -4256,18 +4268,18 @@ _ZNK8G1Policy26about_to_start_mixed_phaseEv.exit: ; preds = %18
   store volatile i8 0, ptr %39, align 1
   %40 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not13 = icmp eq ptr %40, null
-  br i1 %.not13, label %78, label %41
+  br i1 %.not13, label %79, label %41
 
 41:                                               ; preds = %36
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.34)
-  br label %78
+  br label %79
 
 _ZNK8G1Policy26about_to_start_mixed_phaseEv.exit.thread: ; preds = %18, %28, %_ZNK8G1Policy26about_to_start_mixed_phaseEv.exit
   %42 = tail call noundef zeroext i1 @_ZN15G1CollectedHeap36is_user_requested_concurrent_full_gcEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(1488) %19, i32 noundef %12) #18
   br i1 %42, label %43, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZNK8G1Policy26about_to_start_mixed_phaseEv.exit.thread
-  switch i32 %12, label %75 [
+  switch i32 %12, label %76 [
     i32 15, label %43
     i32 14, label %43
     i32 10, label %43
@@ -4316,32 +4328,34 @@ _ZN8G1Policy33abandon_collection_set_candidatesEv.exit: ; preds = %.lr.ph.i, %43
   %66 = getelementptr inbounds i8, ptr %0, i64 224
   store double 0.000000e+00, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 208
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %67, align 8
-  %68 = load ptr, ptr %2, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 970
-  store volatile i8 1, ptr %69, align 1
-  %70 = load ptr, ptr %2, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 971
-  store volatile i8 0, ptr %71, align 1
-  %72 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not15 = icmp eq ptr %72, null
-  br i1 %.not15, label %78, label %73
+  store double -1.000000e+00, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 216
+  store double -1.000000e+00, ptr %68, align 8
+  %69 = load ptr, ptr %2, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 970
+  store volatile i8 1, ptr %70, align 1
+  %71 = load ptr, ptr %2, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 971
+  store volatile i8 0, ptr %72, align 1
+  %73 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not15 = icmp eq ptr %73, null
+  br i1 %.not15, label %79, label %74
 
-73:                                               ; preds = %_ZN8G1Policy33abandon_collection_set_candidatesEv.exit
-  %74 = select i1 %.not, ptr @.str.36, ptr @.str.37
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.35, ptr noundef nonnull %74)
-  br label %78
+74:                                               ; preds = %_ZN8G1Policy33abandon_collection_set_candidatesEv.exit
+  %75 = select i1 %.not, ptr @.str.36, ptr @.str.37
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.35, ptr noundef nonnull %75)
+  br label %79
 
-75:                                               ; preds = %switch.early.test
-  %76 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not14 = icmp eq ptr %76, null
-  br i1 %.not14, label %78, label %77
+76:                                               ; preds = %switch.early.test
+  %77 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not14 = icmp eq ptr %77, null
+  br i1 %.not14, label %79, label %78
 
-77:                                               ; preds = %75
+78:                                               ; preds = %76
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.38)
-  br label %78
+  br label %79
 
-78:                                               ; preds = %15, %17, %_ZN8G1Policy33abandon_collection_set_candidatesEv.exit, %73, %75, %77, %41, %36, %1, %5
+79:                                               ; preds = %15, %17, %_ZN8G1Policy33abandon_collection_set_candidatesEv.exit, %74, %76, %78, %41, %36, %1, %5
   ret void
 }
 
@@ -4417,7 +4431,7 @@ define hidden void @_ZN8G1Policy34record_concurrent_mark_cleanup_endEb(ptr nocap
   br label %16
 
 16:                                               ; preds = %13, %11
-  br i1 %.0, label %23, label %17
+  br i1 %.0, label %24, label %17
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds i8, ptr %0, i64 200
@@ -4425,63 +4439,65 @@ define hidden void @_ZN8G1Policy34record_concurrent_mark_cleanup_endEb(ptr nocap
   %19 = getelementptr inbounds i8, ptr %0, i64 224
   store double 0.000000e+00, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 208
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %20, align 8
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not6 = icmp eq ptr %21, null
-  br i1 %.not6, label %23, label %22
+  store double -1.000000e+00, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 216
+  store double -1.000000e+00, ptr %21, align 8
+  %22 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not6 = icmp eq ptr %22, null
+  br i1 %.not6, label %24, label %23
 
-22:                                               ; preds = %17
+23:                                               ; preds = %17
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.40)
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %17, %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 240
-  %25 = load ptr, ptr %24, align 8
-  %26 = zext i1 %.0 to i8
-  %27 = getelementptr inbounds i8, ptr %25, i64 969
-  store i8 %26, ptr %27, align 1
-  %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 972
-  store i8 0, ptr %29, align 1
-  %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 973
-  store i8 1, ptr %31, align 1
-  %32 = call noundef double @_ZN2os11elapsedTimeEv() #18
-  %33 = getelementptr inbounds i8, ptr %0, i64 272
-  %34 = load double, ptr %33, align 8
-  %35 = fsub double %32, %34
-  %36 = fmul double %35, 1.000000e+03
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  %38 = load ptr, ptr %37, align 8
-  call void @_ZN11G1Analytics39report_concurrent_mark_cleanup_times_msEd(ptr noundef nonnull align 8 dereferenceable(2048) %38, double noundef %36) #18
-  %39 = load double, ptr %33, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
-  %41 = load ptr, ptr %40, align 8
-  call void @_ZN12G1MMUTracker9add_pauseEdd(ptr noundef nonnull align 8 dereferenceable(1052) %41, double noundef %39, double noundef %32) #18
-  %42 = fsub double %32, %39
-  %43 = fmul double %42, 1.000000e+03
-  %44 = load ptr, ptr %37, align 8
-  call void @_ZN11G1Analytics25compute_pause_time_ratiosEdd(ptr noundef nonnull align 8 dereferenceable(2048) %44, double noundef %32, double noundef %43) #18
-  %45 = load ptr, ptr %37, align 8
-  call void @_ZN11G1Analytics22update_recent_gc_timesEdd(ptr noundef nonnull align 8 dereferenceable(2048) %45, double noundef %32, double noundef %43) #18
-  %46 = load ptr, ptr %37, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 296
-  %48 = load double, ptr %47, align 8
-  %49 = fadd double %43, %48
-  store double %49, ptr %47, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 200
-  %51 = load i8, ptr %50, align 8
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %_ZN8G1Policy12record_pauseE13G1GCPauseTypeddb.exit
+24:                                               ; preds = %23, %17, %16
+  %25 = getelementptr inbounds i8, ptr %0, i64 240
+  %26 = load ptr, ptr %25, align 8
+  %27 = zext i1 %.0 to i8
+  %28 = getelementptr inbounds i8, ptr %26, i64 969
+  store i8 %27, ptr %28, align 1
+  %29 = load ptr, ptr %25, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 972
+  store i8 0, ptr %30, align 1
+  %31 = load ptr, ptr %25, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 973
+  store i8 1, ptr %32, align 1
+  %33 = call noundef double @_ZN2os11elapsedTimeEv() #18
+  %34 = getelementptr inbounds i8, ptr %0, i64 272
+  %35 = load double, ptr %34, align 8
+  %36 = fsub double %33, %35
+  %37 = fmul double %36, 1.000000e+03
+  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8
+  call void @_ZN11G1Analytics39report_concurrent_mark_cleanup_times_msEd(ptr noundef nonnull align 8 dereferenceable(2048) %39, double noundef %37) #18
+  %40 = load double, ptr %34, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = load ptr, ptr %41, align 8
+  call void @_ZN12G1MMUTracker9add_pauseEdd(ptr noundef nonnull align 8 dereferenceable(1052) %42, double noundef %40, double noundef %33) #18
+  %43 = fsub double %33, %40
+  %44 = fmul double %43, 1.000000e+03
+  %45 = load ptr, ptr %38, align 8
+  call void @_ZN11G1Analytics25compute_pause_time_ratiosEdd(ptr noundef nonnull align 8 dereferenceable(2048) %45, double noundef %33, double noundef %44) #18
+  %46 = load ptr, ptr %38, align 8
+  call void @_ZN11G1Analytics22update_recent_gc_timesEdd(ptr noundef nonnull align 8 dereferenceable(2048) %46, double noundef %33, double noundef %44) #18
+  %47 = load ptr, ptr %38, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 296
+  %49 = load double, ptr %48, align 8
+  %50 = fadd double %44, %49
+  store double %50, ptr %48, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 200
+  %52 = load i8, ptr %51, align 8
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %_ZN8G1Policy12record_pauseE13G1GCPauseTypeddb.exit
 
-53:                                               ; preds = %23
-  %54 = getelementptr inbounds i8, ptr %0, i64 224
-  %55 = load double, ptr %54, align 8
-  %56 = fadd double %42, %55
-  store double %56, ptr %54, align 8
+54:                                               ; preds = %24
+  %55 = getelementptr inbounds i8, ptr %0, i64 224
+  %56 = load double, ptr %55, align 8
+  %57 = fadd double %43, %56
+  store double %57, ptr %55, align 8
   br label %_ZN8G1Policy12record_pauseE13G1GCPauseTypeddb.exit
 
-_ZN8G1Policy12record_pauseE13G1GCPauseTypeddb.exit: ; preds = %23, %53
+_ZN8G1Policy12record_pauseE13G1GCPauseTypeddb.exit: ; preds = %24, %54
   ret void
 }
 
@@ -4537,15 +4553,15 @@ declare void @_ZN12G1MMUTracker9add_pauseEdd(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd(ptr nocapture noundef nonnull align 8 dereferenceable(552) %0, i32 noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #1 align 2 {
-  switch i32 %1, label %32 [
+  switch i32 %1, label %33 [
     i32 7, label %5
-    i32 4, label %9
-    i32 5, label %9
-    i32 0, label %9
-    i32 1, label %9
-    i32 2, label %18
+    i32 4, label %10
+    i32 5, label %10
+    i32 0, label %10
+    i32 1, label %10
+    i32 2, label %19
     i32 3, label %_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit
-    i32 6, label %26
+    i32 6, label %27
   ]
 
 5:                                                ; preds = %4
@@ -4554,57 +4570,59 @@ define hidden void @_ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTyped
   %7 = getelementptr inbounds i8, ptr %0, i64 224
   store double 0.000000e+00, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 208
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %8, align 8
+  store double -1.000000e+00, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  store double -1.000000e+00, ptr %9, align 8
   br label %_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit
 
-9:                                                ; preds = %4, %4, %4, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 200
-  %11 = load i8, ptr %10, align 8
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit
+10:                                               ; preds = %4, %4, %4, %4
+  %11 = getelementptr inbounds i8, ptr %0, i64 200
+  %12 = load i8, ptr %11, align 8
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit
 
-13:                                               ; preds = %9
-  %14 = fsub double %3, %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 224
-  %16 = load double, ptr %15, align 8
-  %17 = fadd double %14, %16
-  store double %17, ptr %15, align 8
+14:                                               ; preds = %10
+  %15 = fsub double %3, %2
+  %16 = getelementptr inbounds i8, ptr %0, i64 224
+  %17 = load double, ptr %16, align 8
+  %18 = fadd double %15, %17
+  store double %18, ptr %16, align 8
   br label %_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit
 
-18:                                               ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %0, i64 240
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 80
-  %22 = load i32, ptr %21, align 8
-  %.not = icmp eq i32 %22, 22
-  br i1 %.not, label %_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit, label %23
+19:                                               ; preds = %4
+  %20 = getelementptr inbounds i8, ptr %0, i64 240
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %23 = load i32, ptr %22, align 8
+  %.not = icmp eq i32 %23, 22
+  br i1 %.not, label %_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit, label %24
 
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 200
-  %25 = getelementptr inbounds i8, ptr %0, i64 208
-  store double %3, ptr %25, align 8
-  store i8 1, ptr %24, align 8
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds i8, ptr %0, i64 200
+  %26 = getelementptr inbounds i8, ptr %0, i64 208
+  store double %3, ptr %26, align 8
+  store i8 1, ptr %25, align 8
   br label %_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit
 
-26:                                               ; preds = %4
-  %27 = getelementptr inbounds i8, ptr %0, i64 200
-  %28 = load i8, ptr %27, align 8
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit
+27:                                               ; preds = %4
+  %28 = getelementptr inbounds i8, ptr %0, i64 200
+  %29 = load i8, ptr %28, align 8
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 216
-  store double %2, ptr %31, align 8
-  store i8 0, ptr %27, align 8
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %0, i64 216
+  store double %2, ptr %32, align 8
+  store i8 0, ptr %28, align 8
   br label %_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit
 
-32:                                               ; preds = %4
-  %33 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %33, align 1
+33:                                               ; preds = %4
+  %34 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %34, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 1417) #19
   unreachable
 
-_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit: ; preds = %30, %26, %13, %9, %4, %18, %23, %5
+_ZN35G1ConcurrentStartToMixedTimeTracker9add_pauseEd.exit: ; preds = %31, %27, %14, %10, %4, %19, %24, %5
   ret void
 }
 
@@ -4905,192 +4923,191 @@ define hidden void @_ZN8G1Policy31select_candidates_from_retainedEP25G1Collectio
 18:                                               ; preds = %6, %16
   %19 = load i32, ptr %1, align 4
   %.not7986 = icmp eq i32 %19, 0
-  %20 = insertelement <2 x double> poison, double %12, i64 0
-  %21 = insertelement <2 x double> %20, double %14, i64 1
   br i1 %.not7986, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 240
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %25
+  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 240
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %23
 
-25:                                               ; preds = %.lr.ph, %84
-  %.05494 = phi i32 [ 0, %.lr.ph ], [ %.155, %84 ]
-  %.05693 = phi i32 [ 0, %.lr.ph ], [ %.157, %84 ]
-  %.05992 = phi i32 [ 0, %.lr.ph ], [ %.160, %84 ]
-  %.06291 = phi i32 [ 0, %.lr.ph ], [ %.163, %84 ]
-  %.06490 = phi double [ 0.000000e+00, %.lr.ph ], [ %.165, %84 ]
-  %.06988 = phi double [ 0.000000e+00, %.lr.ph ], [ %.170, %84 ]
-  %.sroa.2.087 = phi i32 [ 0, %.lr.ph ], [ %86, %84 ]
-  %26 = phi <2 x double> [ %21, %.lr.ph ], [ %85, %84 ]
-  %27 = load ptr, ptr %22, align 8
-  %28 = sext i32 %.sroa.2.087 to i64
-  %29 = getelementptr inbounds %struct.G1CollectionSetCandidateInfo, ptr %27, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %23, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 968
+23:                                               ; preds = %.lr.ph, %80
+  %.095 = phi double [ %14, %.lr.ph ], [ %.1, %80 ]
+  %.05494 = phi i32 [ 0, %.lr.ph ], [ %.155, %80 ]
+  %.05693 = phi i32 [ 0, %.lr.ph ], [ %.157, %80 ]
+  %.05992 = phi i32 [ 0, %.lr.ph ], [ %.160, %80 ]
+  %.06291 = phi i32 [ 0, %.lr.ph ], [ %.163, %80 ]
+  %.06490 = phi double [ 0.000000e+00, %.lr.ph ], [ %.165, %80 ]
+  %.06789 = phi double [ %12, %.lr.ph ], [ %.168, %80 ]
+  %.06988 = phi double [ 0.000000e+00, %.lr.ph ], [ %.170, %80 ]
+  %.sroa.2.087 = phi i32 [ 0, %.lr.ph ], [ %81, %80 ]
+  %24 = load ptr, ptr %20, align 8
+  %25 = sext i32 %.sroa.2.087 to i64
+  %26 = getelementptr inbounds %struct.G1CollectionSetCandidateInfo, ptr %24, i64 %25
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %21, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 968
+  %30 = load i8, ptr %29, align 1
+  %31 = trunc i8 %30 to i1
+  %32 = getelementptr inbounds i8, ptr %28, i64 974
   %33 = load i8, ptr %32, align 1
   %34 = trunc i8 %33 to i1
-  %35 = getelementptr inbounds i8, ptr %31, i64 974
-  %36 = load i8, ptr %35, align 1
-  %37 = trunc i8 %36 to i1
-  %38 = xor i1 %37, true
-  %39 = select i1 %34, i1 %38, i1 false
-  %40 = tail call noundef double @_ZNK8G1Policy31predict_region_non_copy_time_msEP12G1HeapRegionb(ptr noundef nonnull readonly align 8 dereferenceable(552) %0, ptr noundef %30, i1 noundef zeroext %39)
-  %41 = tail call noundef i64 @_ZNK8G1Policy21predict_bytes_to_copyEP12G1HeapRegion(ptr noundef nonnull readonly align 8 dereferenceable(552) %0, ptr noundef %30)
-  %42 = load ptr, ptr %24, align 8
-  %43 = tail call noundef double @_ZNK11G1Analytics27predict_object_copy_time_msEmb(ptr noundef nonnull align 8 dereferenceable(2048) %42, i64 noundef %41, i1 noundef zeroext %39) #18
-  %44 = fadd double %40, %43
-  %45 = extractelement <2 x double> %26, i64 1
-  %46 = fcmp ole double %44, %45
-  %47 = getelementptr inbounds i8, ptr %30, i64 128
-  %48 = load volatile i64, ptr %47, align 8
-  %.not80 = icmp eq i64 %48, 0
-  br i1 %.not80, label %66, label %49
+  %35 = xor i1 %34, true
+  %36 = select i1 %31, i1 %35, i1 false
+  %37 = tail call noundef double @_ZNK8G1Policy31predict_region_non_copy_time_msEP12G1HeapRegionb(ptr noundef nonnull readonly align 8 dereferenceable(552) %0, ptr noundef %27, i1 noundef zeroext %36)
+  %38 = tail call noundef i64 @_ZNK8G1Policy21predict_bytes_to_copyEP12G1HeapRegion(ptr noundef nonnull readonly align 8 dereferenceable(552) %0, ptr noundef %27)
+  %39 = load ptr, ptr %22, align 8
+  %40 = tail call noundef double @_ZNK11G1Analytics27predict_object_copy_time_msEmb(ptr noundef nonnull align 8 dereferenceable(2048) %39, i64 noundef %38, i1 noundef zeroext %36) #18
+  %41 = fadd double %37, %40
+  %42 = fcmp ole double %41, %.095
+  %43 = getelementptr inbounds i8, ptr %27, i64 128
+  %44 = load volatile i64, ptr %43, align 8
+  %.not80 = icmp eq i64 %44, 0
+  br i1 %.not80, label %62, label %45
 
-49:                                               ; preds = %25
-  %50 = add i32 %.06291, 1
-  %51 = getelementptr inbounds i8, ptr %29, i64 16
-  %52 = load i32, ptr %51, align 8
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %51, align 8
-  %54 = load i32, ptr @G1NumCollectionsKeepPinned, align 4
-  %55 = icmp ult i32 %53, %54
-  %56 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not85 = icmp eq ptr %56, null
-  br i1 %55, label %57, label %61
+45:                                               ; preds = %23
+  %46 = add i32 %.06291, 1
+  %47 = getelementptr inbounds i8, ptr %26, i64 16
+  %48 = load i32, ptr %47, align 8
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %47, align 8
+  %50 = load i32, ptr @G1NumCollectionsKeepPinned, align 4
+  %51 = icmp ult i32 %49, %50
+  %52 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not85 = icmp eq ptr %52, null
+  br i1 %51, label %53, label %57
 
-57:                                               ; preds = %49
-  br i1 %.not85, label %84, label %58
+53:                                               ; preds = %45
+  br i1 %.not85, label %80, label %54
+
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds i8, ptr %27, i64 48
+  %56 = load i32, ptr %55, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.51, i32 noundef %56)
+  br label %80
+
+57:                                               ; preds = %45
+  br i1 %.not85, label %61, label %58
 
 58:                                               ; preds = %57
-  %59 = getelementptr inbounds i8, ptr %30, i64 48
+  %59 = getelementptr inbounds i8, ptr %27, i64 48
   %60 = load i32, ptr %59, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.51, i32 noundef %60)
-  br label %84
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.52, i32 noundef %60)
+  br label %61
 
-61:                                               ; preds = %49
-  br i1 %.not85, label %65, label %62
+61:                                               ; preds = %57, %58
+  tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %27) #18
+  br label %80
 
-62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %30, i64 48
-  %64 = load i32, ptr %63, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.52, i32 noundef %64)
-  br label %65
+62:                                               ; preds = %23
+  %63 = icmp eq i32 %.05992, 0
+  %or.cond = select i1 %42, i1 true, i1 %63
+  br i1 %or.cond, label %64, label %68
 
-65:                                               ; preds = %61, %62
-  tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %30) #18
-  br label %84
+64:                                               ; preds = %62
+  %65 = fadd double %.06490, %41
+  %not. = xor i1 %42, true
+  %66 = zext i1 %not. to i32
+  %.261 = add i32 %.05992, %66
+  tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %27) #18
+  %67 = add i32 %.05494, 1
+  br label %73
 
-66:                                               ; preds = %25
-  %67 = icmp eq i32 %.05992, 0
-  %or.cond = select i1 %46, i1 true, i1 %67
-  br i1 %or.cond, label %68, label %72
+68:                                               ; preds = %62
+  %69 = fcmp ugt double %41, %.06789
+  br i1 %69, label %._crit_edge.loopexit, label %70
 
-68:                                               ; preds = %66
-  %69 = fadd double %.06490, %44
-  %not. = xor i1 %46, true
-  %70 = zext i1 %not. to i32
-  %.261 = add i32 %.05992, %70
-  tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %30) #18
-  %71 = add i32 %.05494, 1
-  br label %78
+70:                                               ; preds = %68
+  %71 = fadd double %.06988, %41
+  tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %27) #18
+  %72 = add i32 %.05693, 1
+  br label %73
 
-72:                                               ; preds = %66
-  %73 = extractelement <2 x double> %26, i64 0
-  %74 = fcmp ugt double %44, %73
-  br i1 %74, label %._crit_edge.loopexit, label %75
+73:                                               ; preds = %70, %64
+  %.271 = phi double [ %.06988, %64 ], [ %71, %70 ]
+  %.266 = phi double [ %65, %64 ], [ %.06490, %70 ]
+  %.3 = phi i32 [ %.261, %64 ], [ %.05992, %70 ]
+  %.258 = phi i32 [ %.05693, %64 ], [ %72, %70 ]
+  %.2 = phi i32 [ %67, %64 ], [ %.05494, %70 ]
+  %74 = fsub double %.095, %41
+  %75 = fcmp olt double %74, 0.000000e+00
+  %76 = select i1 %75, double 0.000000e+00, double %74
+  %77 = fsub double %.06789, %41
+  %78 = fcmp olt double %77, 0.000000e+00
+  %79 = select i1 %78, double 0.000000e+00, double %77
+  br label %80
 
-75:                                               ; preds = %72
-  %76 = fadd double %.06988, %44
-  tail call void @_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %30) #18
-  %77 = add i32 %.05693, 1
-  br label %78
+80:                                               ; preds = %61, %53, %54, %73
+  %.170 = phi double [ %.06988, %54 ], [ %.06988, %53 ], [ %.06988, %61 ], [ %.271, %73 ]
+  %.168 = phi double [ %.06789, %54 ], [ %.06789, %53 ], [ %.06789, %61 ], [ %79, %73 ]
+  %.165 = phi double [ %.06490, %54 ], [ %.06490, %53 ], [ %.06490, %61 ], [ %.266, %73 ]
+  %.163 = phi i32 [ %46, %54 ], [ %46, %53 ], [ %46, %61 ], [ %.06291, %73 ]
+  %.160 = phi i32 [ %.05992, %54 ], [ %.05992, %53 ], [ %.05992, %61 ], [ %.3, %73 ]
+  %.157 = phi i32 [ %.05693, %54 ], [ %.05693, %53 ], [ %.05693, %61 ], [ %.258, %73 ]
+  %.155 = phi i32 [ %.05494, %54 ], [ %.05494, %53 ], [ %.05494, %61 ], [ %.2, %73 ]
+  %.1 = phi double [ %.095, %54 ], [ %.095, %53 ], [ %.095, %61 ], [ %76, %73 ]
+  %81 = add nuw i32 %.sroa.2.087, 1
+  %.not79 = icmp eq i32 %81, %19
+  br i1 %.not79, label %._crit_edge.loopexit, label %23
 
-78:                                               ; preds = %75, %68
-  %.271 = phi double [ %.06988, %68 ], [ %76, %75 ]
-  %.266 = phi double [ %69, %68 ], [ %.06490, %75 ]
-  %.3 = phi i32 [ %.261, %68 ], [ %.05992, %75 ]
-  %.258 = phi i32 [ %.05693, %68 ], [ %77, %75 ]
-  %.2 = phi i32 [ %71, %68 ], [ %.05494, %75 ]
-  %79 = insertelement <2 x double> poison, double %44, i64 0
-  %80 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> zeroinitializer
-  %81 = fsub <2 x double> %26, %80
-  %82 = fcmp olt <2 x double> %81, zeroinitializer
-  %83 = select <2 x i1> %82, <2 x double> zeroinitializer, <2 x double> %81
-  br label %84
-
-84:                                               ; preds = %65, %57, %58, %78
-  %.170 = phi double [ %.06988, %58 ], [ %.06988, %57 ], [ %.06988, %65 ], [ %.271, %78 ]
-  %.165 = phi double [ %.06490, %58 ], [ %.06490, %57 ], [ %.06490, %65 ], [ %.266, %78 ]
-  %.163 = phi i32 [ %50, %58 ], [ %50, %57 ], [ %50, %65 ], [ %.06291, %78 ]
-  %.160 = phi i32 [ %.05992, %58 ], [ %.05992, %57 ], [ %.05992, %65 ], [ %.3, %78 ]
-  %.157 = phi i32 [ %.05693, %58 ], [ %.05693, %57 ], [ %.05693, %65 ], [ %.258, %78 ]
-  %.155 = phi i32 [ %.05494, %58 ], [ %.05494, %57 ], [ %.05494, %65 ], [ %.2, %78 ]
-  %85 = phi <2 x double> [ %26, %58 ], [ %26, %57 ], [ %26, %65 ], [ %83, %78 ]
-  %86 = add nuw i32 %.sroa.2.087, 1
-  %.not79 = icmp eq i32 %86, %19
-  br i1 %.not79, label %._crit_edge.loopexit, label %25
-
-._crit_edge.loopexit:                             ; preds = %72, %84
-  %.069.lcssa.ph = phi double [ %.170, %84 ], [ %.06988, %72 ]
-  %.064.lcssa.ph = phi double [ %.165, %84 ], [ %.06490, %72 ]
-  %.062.lcssa.ph = phi i32 [ %.163, %84 ], [ %.06291, %72 ]
-  %.059.lcssa.ph = phi i32 [ %.160, %84 ], [ %.05992, %72 ]
-  %.056.lcssa.ph = phi i32 [ %.157, %84 ], [ %.05693, %72 ]
-  %.054.lcssa.ph = phi i32 [ %.155, %84 ], [ %.05494, %72 ]
-  %87 = phi <2 x double> [ %85, %84 ], [ %26, %72 ]
+._crit_edge.loopexit:                             ; preds = %68, %80
+  %.069.lcssa.ph = phi double [ %.170, %80 ], [ %.06988, %68 ]
+  %.067.lcssa.ph = phi double [ %.168, %80 ], [ %.06789, %68 ]
+  %.064.lcssa.ph = phi double [ %.165, %80 ], [ %.06490, %68 ]
+  %.062.lcssa.ph = phi i32 [ %.163, %80 ], [ %.06291, %68 ]
+  %.059.lcssa.ph = phi i32 [ %.160, %80 ], [ %.05992, %68 ]
+  %.056.lcssa.ph = phi i32 [ %.157, %80 ], [ %.05693, %68 ]
+  %.054.lcssa.ph = phi i32 [ %.155, %80 ], [ %.05494, %68 ]
+  %.0.lcssa.ph = phi double [ %.1, %80 ], [ %.095, %68 ]
   %.pre = load i32, ptr %1, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
-  %88 = phi i32 [ 0, %18 ], [ %.pre, %._crit_edge.loopexit ]
+  %82 = phi i32 [ 0, %18 ], [ %.pre, %._crit_edge.loopexit ]
   %.069.lcssa = phi double [ 0.000000e+00, %18 ], [ %.069.lcssa.ph, %._crit_edge.loopexit ]
+  %.067.lcssa = phi double [ %12, %18 ], [ %.067.lcssa.ph, %._crit_edge.loopexit ]
   %.064.lcssa = phi double [ 0.000000e+00, %18 ], [ %.064.lcssa.ph, %._crit_edge.loopexit ]
   %.062.lcssa = phi i32 [ 0, %18 ], [ %.062.lcssa.ph, %._crit_edge.loopexit ]
   %.059.lcssa = phi i32 [ 0, %18 ], [ %.059.lcssa.ph, %._crit_edge.loopexit ]
   %.056.lcssa = phi i32 [ 0, %18 ], [ %.056.lcssa.ph, %._crit_edge.loopexit ]
   %.054.lcssa = phi i32 [ 0, %18 ], [ %.054.lcssa.ph, %._crit_edge.loopexit ]
-  %89 = phi <2 x double> [ %21, %18 ], [ %87, %._crit_edge.loopexit ]
-  %90 = add i32 %.054.lcssa, %.056.lcssa
-  %91 = icmp eq i32 %90, %88
-  br i1 %91, label %92, label %95
+  %.0.lcssa = phi double [ %14, %18 ], [ %.0.lcssa.ph, %._crit_edge.loopexit ]
+  %83 = add i32 %.054.lcssa, %.056.lcssa
+  %84 = icmp eq i32 %83, %82
+  br i1 %84, label %85, label %88
 
-92:                                               ; preds = %._crit_edge
+85:                                               ; preds = %._crit_edge
+  %86 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not81 = icmp eq ptr %86, null
+  br i1 %.not81, label %88, label %87
+
+87:                                               ; preds = %85
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.53)
+  br label %88
+
+88:                                               ; preds = %87, %85, %._crit_edge
+  %.not = icmp eq i32 %.059.lcssa, 0
+  br i1 %.not, label %92, label %89
+
+89:                                               ; preds = %88
+  %90 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not82 = icmp eq ptr %90, null
+  br i1 %.not82, label %92, label %91
+
+91:                                               ; preds = %89
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.54, i32 noundef %.059.lcssa)
+  br label %92
+
+92:                                               ; preds = %91, %89, %88
   %93 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not81 = icmp eq ptr %93, null
-  br i1 %.not81, label %95, label %94
+  %.not83 = icmp eq ptr %93, null
+  br i1 %.not83, label %95, label %94
 
 94:                                               ; preds = %92
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.53)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.55, i32 noundef %.054.lcssa, i32 noundef %.056.lcssa, i32 noundef %.062.lcssa, double noundef %.064.lcssa, double noundef %.069.lcssa, double noundef %.0.lcssa, double noundef %.067.lcssa)
   br label %95
 
-95:                                               ; preds = %94, %92, %._crit_edge
-  %.not = icmp eq i32 %.059.lcssa, 0
-  br i1 %.not, label %99, label %96
-
-96:                                               ; preds = %95
-  %97 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not82 = icmp eq ptr %97, null
-  br i1 %.not82, label %99, label %98
-
-98:                                               ; preds = %96
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.54, i32 noundef %.059.lcssa)
-  br label %99
-
-99:                                               ; preds = %98, %96, %95
-  %100 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not83 = icmp eq ptr %100, null
-  br i1 %.not83, label %104, label %101
-
-101:                                              ; preds = %99
-  %102 = extractelement <2 x double> %89, i64 0
-  %103 = extractelement <2 x double> %89, i64 1
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_29ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.55, i32 noundef %.054.lcssa, i32 noundef %.056.lcssa, i32 noundef %.062.lcssa, double noundef %.064.lcssa, double noundef %.069.lcssa, double noundef %103, double noundef %102)
-  br label %104
-
-104:                                              ; preds = %99, %101
+95:                                               ; preds = %92, %94
   ret void
 }
 

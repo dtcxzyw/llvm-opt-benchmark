@@ -327,19 +327,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = load i8, ptr %5, align 1, !range !7, !noundef !3
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %11, label %8
+  br i1 %7, label %13, label %8
 
 8:                                                ; preds = %2
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h582a15f2c429633dE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %3, ptr nonnull align 8 %1)
   %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = load <2 x i64>, ptr %9, align 8
-  br label %11
+  %10 = load i64, ptr %9, align 8, !range !8, !noundef !3
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = load i64, ptr %11, align 8
+  br label %13
 
-11:                                               ; preds = %2, %8
-  %12 = phi <2 x i64> [ %10, %8 ], [ <i64 1, i64 0>, %2 ]
+13:                                               ; preds = %2, %8
+  %.sink1 = phi i64 [ %10, %8 ], [ 1, %2 ]
+  %.sink = phi i64 [ %12, %8 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %15, align 8
   ret void
 }
 
@@ -350,19 +355,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = load i8, ptr %5, align 1, !range !7, !noundef !3
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %11, label %8
+  br i1 %7, label %13, label %8
 
 8:                                                ; preds = %2
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1ef818342b49fd5fE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %3, ptr nonnull align 8 %1)
   %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = load <2 x i64>, ptr %9, align 8
-  br label %11
+  %10 = load i64, ptr %9, align 8, !range !8, !noundef !3
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = load i64, ptr %11, align 8
+  br label %13
 
-11:                                               ; preds = %2, %8
-  %12 = phi <2 x i64> [ %10, %8 ], [ <i64 1, i64 0>, %2 ]
+13:                                               ; preds = %2, %8
+  %.sink1 = phi i64 [ %10, %8 ], [ 1, %2 ]
+  %.sink = phi i64 [ %12, %8 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %15, align 8
   ret void
 }
 
@@ -373,19 +383,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = load i8, ptr %5, align 1, !range !7, !noundef !3
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %11, label %8
+  br i1 %7, label %13, label %8
 
 8:                                                ; preds = %2
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h36eb1d031603fde1E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %3, ptr nonnull align 8 %1)
   %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = load <2 x i64>, ptr %9, align 8
-  br label %11
+  %10 = load i64, ptr %9, align 8, !range !8, !noundef !3
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = load i64, ptr %11, align 8
+  br label %13
 
-11:                                               ; preds = %2, %8
-  %12 = phi <2 x i64> [ %10, %8 ], [ <i64 1, i64 0>, %2 ]
+13:                                               ; preds = %2, %8
+  %.sink1 = phi i64 [ %10, %8 ], [ 1, %2 ]
+  %.sink = phi i64 [ %12, %8 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %15, align 8
   ret void
 }
 
@@ -664,3 +679,4 @@ attributes #7 = { cold noreturn nounwind }
 !5 = !{i64 0, i64 10}
 !6 = !{i64 0, i64 9}
 !7 = !{i8 0, i8 2}
+!8 = !{i64 0, i64 2}

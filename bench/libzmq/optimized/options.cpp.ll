@@ -171,13 +171,31 @@ entry:
   %routing_id_size = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %routing_id_size, align 8
   %rate = getelementptr inbounds i8, ptr %this, i64 276
-  store <4 x i32> <i32 100, i32 10000, i32 1, i32 1500>, ptr %rate, align 4
+  store i32 100, ptr %rate, align 4
+  %recovery_ivl = getelementptr inbounds i8, ptr %this, i64 280
+  store i32 10000, ptr %recovery_ivl, align 8
+  %multicast_hops = getelementptr inbounds i8, ptr %this, i64 284
+  store i32 1, ptr %multicast_hops, align 4
+  %multicast_maxtpdu = getelementptr inbounds i8, ptr %this, i64 288
+  store i32 1500, ptr %multicast_maxtpdu, align 8
   %sndbuf = getelementptr inbounds i8, ptr %this, i64 292
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 0>, ptr %sndbuf, align 4
+  store i32 -1, ptr %sndbuf, align 4
+  %rcvbuf = getelementptr inbounds i8, ptr %this, i64 296
+  store i32 -1, ptr %rcvbuf, align 8
+  %tos = getelementptr inbounds i8, ptr %this, i64 300
+  store i32 0, ptr %tos, align 4
+  %priority = getelementptr inbounds i8, ptr %this, i64 304
+  store i32 0, ptr %priority, align 8
   %type = getelementptr inbounds i8, ptr %this, i64 308
   store i8 -1, ptr %type, align 4
   %linger = getelementptr inbounds i8, ptr %this, i64 312
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 0>, ptr %linger, align 8
+  store i32 -1, ptr %linger, align 8
+  %connect_timeout = getelementptr inbounds i8, ptr %this, i64 316
+  store i32 0, ptr %connect_timeout, align 4
+  %tcp_maxrt = getelementptr inbounds i8, ptr %this, i64 320
+  store i32 0, ptr %tcp_maxrt, align 8
+  %reconnect_stop = getelementptr inbounds i8, ptr %this, i64 324
+  store i32 0, ptr %reconnect_stop, align 4
   %reconnect_ivl = getelementptr inbounds i8, ptr %this, i64 328
   store i32 100, ptr %reconnect_ivl, align 8
   %reconnect_ivl_max = getelementptr inbounds i8, ptr %this, i64 332
@@ -309,7 +327,13 @@ entry:
   %norm_unicast_nacks = getelementptr inbounds i8, ptr %this, i64 1304
   store i8 0, ptr %norm_unicast_nacks, align 8
   %norm_buffer_size = getelementptr inbounds i8, ptr %this, i64 1308
-  store <4 x i32> <i32 2048, i32 1400, i32 16, i32 4>, ptr %norm_buffer_size, align 4
+  store i32 2048, ptr %norm_buffer_size, align 4
+  %norm_segment_size = getelementptr inbounds i8, ptr %this, i64 1312
+  store i32 1400, ptr %norm_segment_size, align 8
+  %norm_block_size = getelementptr inbounds i8, ptr %this, i64 1316
+  store i32 16, ptr %norm_block_size, align 4
+  %norm_num_parity = getelementptr inbounds i8, ptr %this, i64 1320
+  store i32 4, ptr %norm_num_parity, align 8
   %norm_num_autoparity = getelementptr inbounds i8, ptr %this, i64 1324
   store i32 0, ptr %norm_num_autoparity, align 4
   %norm_push_enable = getelementptr inbounds i8, ptr %this, i64 1328
@@ -435,11 +459,11 @@ entry:
   %ref.tmp379 = alloca %"class.std::allocator", align 1
   %ref.tmp385 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp386 = alloca %"class.std::allocator", align 1
-  %ref.tmp396 = alloca %"class.std::vector.21", align 16
+  %ref.tmp396 = alloca %"class.std::vector.21", align 8
   %ref.tmp397 = alloca %"class.std::allocator.23", align 1
-  %ref.tmp411 = alloca %"class.std::vector.21", align 16
+  %ref.tmp411 = alloca %"class.std::vector.21", align 8
   %ref.tmp413 = alloca %"class.std::allocator.23", align 1
-  %ref.tmp433 = alloca %"class.std::vector.21", align 16
+  %ref.tmp433 = alloca %"class.std::vector.21", align 8
   %ref.tmp435 = alloca %"class.std::allocator.23", align 1
   %cmp = icmp eq i64 %optvallen_, 4
   br i1 %cmp, label %if.then, label %if.end
@@ -1346,19 +1370,23 @@ if.then395:                                       ; preds = %sw.bb393
   call void @_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp396, ptr noundef %optval_, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp397)
   %hello_msg = getelementptr inbounds i8, ptr %this, i64 1208
   %27 = load ptr, ptr %hello_msg, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1216
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1224
-  %28 = load <2 x ptr>, ptr %ref.tmp396, align 16
-  store <2 x ptr> %28, ptr %hello_msg, align 8
+  %28 = load ptr, ptr %ref.tmp396, align 8
+  store ptr %28, ptr %hello_msg, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp396, i64 8
+  %29 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %29, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp396, i64 16
-  %29 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %29, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %30 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %30, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %27, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp396, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp396, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %return, label %_ZNSt6vectorIhSaIhEEaSEOS1_.exit
 
 _ZNSt6vectorIhSaIhEEaSEOS1_.exit:                 ; preds = %if.then395
   call void @_ZdlPv(ptr noundef nonnull %27) #16
-  %.pr = load ptr, ptr %ref.tmp396, align 16
+  %.pr = load ptr, ptr %ref.tmp396, align 8
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
@@ -1368,13 +1396,13 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIhSaIhE
 
 if.else402:                                       ; preds = %sw.bb393
   %hello_msg404 = getelementptr inbounds i8, ptr %this, i64 1208
-  %30 = load ptr, ptr %hello_msg404, align 8
-  %tobool.not.i.i.i.i.i290 = icmp eq ptr %30, null
+  %31 = load ptr, ptr %hello_msg404, align 8
+  %tobool.not.i.i.i.i.i290 = icmp eq ptr %31, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %hello_msg404, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i290, label %return, label %if.then.i.i.i.i.i291
 
 if.then.i.i.i.i.i291:                             ; preds = %if.else402
-  tail call void @_ZdlPv(ptr noundef nonnull %30) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %31) #16
   br label %return
 
 sw.bb407:                                         ; preds = %if.end
@@ -1385,20 +1413,24 @@ if.then409:                                       ; preds = %sw.bb407
   %add.ptr412 = getelementptr inbounds i8, ptr %optval_, i64 %optvallen_
   call void @_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp411, ptr noundef %optval_, ptr noundef nonnull %add.ptr412, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp413)
   %disconnect_msg = getelementptr inbounds i8, ptr %this, i64 1240
-  %31 = load ptr, ptr %disconnect_msg, align 8
+  %32 = load ptr, ptr %disconnect_msg, align 8
+  %_M_finish.i.i.i.i296 = getelementptr inbounds i8, ptr %this, i64 1248
   %_M_end_of_storage.i.i.i.i297 = getelementptr inbounds i8, ptr %this, i64 1256
-  %32 = load <2 x ptr>, ptr %ref.tmp411, align 16
-  store <2 x ptr> %32, ptr %disconnect_msg, align 8
+  %33 = load ptr, ptr %ref.tmp411, align 8
+  store ptr %33, ptr %disconnect_msg, align 8
+  %_M_finish.i2.i.i.i298 = getelementptr inbounds i8, ptr %ref.tmp411, i64 8
+  %34 = load ptr, ptr %_M_finish.i2.i.i.i298, align 8
+  store ptr %34, ptr %_M_finish.i.i.i.i296, align 8
   %_M_end_of_storage.i4.i.i.i299 = getelementptr inbounds i8, ptr %ref.tmp411, i64 16
-  %33 = load ptr, ptr %_M_end_of_storage.i4.i.i.i299, align 16
-  store ptr %33, ptr %_M_end_of_storage.i.i.i.i297, align 8
-  %tobool.not.i.i.i.i.i300 = icmp eq ptr %31, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp411, i8 0, i64 24, i1 false)
+  %35 = load ptr, ptr %_M_end_of_storage.i4.i.i.i299, align 8
+  store ptr %35, ptr %_M_end_of_storage.i.i.i.i297, align 8
+  %tobool.not.i.i.i.i.i300 = icmp eq ptr %32, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp411, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i300, label %return, label %_ZNSt6vectorIhSaIhEEaSEOS1_.exit302
 
 _ZNSt6vectorIhSaIhEEaSEOS1_.exit302:              ; preds = %if.then409
-  call void @_ZdlPv(ptr noundef nonnull %31) #16
-  %.pr359 = load ptr, ptr %ref.tmp411, align 16
+  call void @_ZdlPv(ptr noundef nonnull %32) #16
+  %.pr359 = load ptr, ptr %ref.tmp411, align 8
   %tobool.not.i.i.i303 = icmp eq ptr %.pr359, null
   br i1 %tobool.not.i.i.i303, label %return, label %if.then.i.i.i304
 
@@ -1408,13 +1440,13 @@ if.then.i.i.i304:                                 ; preds = %_ZNSt6vectorIhSaIhE
 
 if.else418:                                       ; preds = %sw.bb407
   %disconnect_msg420 = getelementptr inbounds i8, ptr %this, i64 1240
-  %34 = load ptr, ptr %disconnect_msg420, align 8
-  %tobool.not.i.i.i.i.i310 = icmp eq ptr %34, null
+  %36 = load ptr, ptr %disconnect_msg420, align 8
+  %tobool.not.i.i.i.i.i310 = icmp eq ptr %36, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %disconnect_msg420, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i310, label %return, label %if.then.i.i.i.i.i311
 
 if.then.i.i.i.i.i311:                             ; preds = %if.else418
-  tail call void @_ZdlPv(ptr noundef nonnull %34) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %36) #16
   br label %return
 
 sw.bb423:                                         ; preds = %if.end
@@ -1435,20 +1467,24 @@ if.then431:                                       ; preds = %sw.bb429
   %add.ptr434 = getelementptr inbounds i8, ptr %optval_, i64 %optvallen_
   call void @_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp433, ptr noundef %optval_, ptr noundef nonnull %add.ptr434, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp435)
   %hiccup_msg = getelementptr inbounds i8, ptr %this, i64 1272
-  %35 = load ptr, ptr %hiccup_msg, align 8
+  %37 = load ptr, ptr %hiccup_msg, align 8
+  %_M_finish.i.i.i.i316 = getelementptr inbounds i8, ptr %this, i64 1280
   %_M_end_of_storage.i.i.i.i317 = getelementptr inbounds i8, ptr %this, i64 1288
-  %36 = load <2 x ptr>, ptr %ref.tmp433, align 16
-  store <2 x ptr> %36, ptr %hiccup_msg, align 8
+  %38 = load ptr, ptr %ref.tmp433, align 8
+  store ptr %38, ptr %hiccup_msg, align 8
+  %_M_finish.i2.i.i.i318 = getelementptr inbounds i8, ptr %ref.tmp433, i64 8
+  %39 = load ptr, ptr %_M_finish.i2.i.i.i318, align 8
+  store ptr %39, ptr %_M_finish.i.i.i.i316, align 8
   %_M_end_of_storage.i4.i.i.i319 = getelementptr inbounds i8, ptr %ref.tmp433, i64 16
-  %37 = load ptr, ptr %_M_end_of_storage.i4.i.i.i319, align 16
-  store ptr %37, ptr %_M_end_of_storage.i.i.i.i317, align 8
-  %tobool.not.i.i.i.i.i320 = icmp eq ptr %35, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp433, i8 0, i64 24, i1 false)
+  %40 = load ptr, ptr %_M_end_of_storage.i4.i.i.i319, align 8
+  store ptr %40, ptr %_M_end_of_storage.i.i.i.i317, align 8
+  %tobool.not.i.i.i.i.i320 = icmp eq ptr %37, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp433, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i320, label %return, label %_ZNSt6vectorIhSaIhEEaSEOS1_.exit322
 
 _ZNSt6vectorIhSaIhEEaSEOS1_.exit322:              ; preds = %if.then431
-  call void @_ZdlPv(ptr noundef nonnull %35) #16
-  %.pr360 = load ptr, ptr %ref.tmp433, align 16
+  call void @_ZdlPv(ptr noundef nonnull %37) #16
+  %.pr360 = load ptr, ptr %ref.tmp433, align 8
   %tobool.not.i.i.i323 = icmp eq ptr %.pr360, null
   br i1 %tobool.not.i.i.i323, label %return, label %if.then.i.i.i324
 
@@ -1458,13 +1494,13 @@ if.then.i.i.i324:                                 ; preds = %_ZNSt6vectorIhSaIhE
 
 if.else440:                                       ; preds = %sw.bb429
   %hiccup_msg442 = getelementptr inbounds i8, ptr %this, i64 1272
-  %38 = load ptr, ptr %hiccup_msg442, align 8
-  %tobool.not.i.i.i.i.i330 = icmp eq ptr %38, null
+  %41 = load ptr, ptr %hiccup_msg442, align 8
+  %tobool.not.i.i.i.i.i330 = icmp eq ptr %41, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %hiccup_msg442, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i330, label %return, label %if.then.i.i.i.i.i331
 
 if.then.i.i.i.i.i331:                             ; preds = %if.else440
-  tail call void @_ZdlPv(ptr noundef nonnull %38) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %41) #16
   br label %return
 
 sw.epilog:                                        ; preds = %if.end, %sw.bb423, %sw.bb359, %sw.bb353, %sw.bb347, %sw.bb291, %sw.bb285, %sw.bb276, %sw.bb270, %sw.bb262, %if.else246, %if.else228, %sw.bb213, %sw.bb178, %sw.bb170, %sw.bb162, %sw.bb154, %sw.bb144, %sw.bb111, %sw.bb105, %sw.bb99, %sw.bb93, %sw.bb85, %sw.bb79, %sw.bb73, %sw.bb69, %sw.bb63, %sw.bb57, %sw.bb51, %sw.bb45, %sw.bb39, %sw.bb33, %sw.bb27, %sw.bb21, %sw.bb13, %sw.bb6, %sw.bb

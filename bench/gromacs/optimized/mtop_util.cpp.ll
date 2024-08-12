@@ -5680,7 +5680,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %49, %52
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorI14gmx_molblock_tSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %52, label %3
+  br i1 %.not, label %57, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5716,7 +5716,7 @@ define linkonce_odr void @_ZNSt6vectorI14gmx_molblock_tSaIS0_EE17_M_default_appe
 
 _ZSt27__uninitialized_default_n_aIP14gmx_molblock_tmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i
   store ptr %21, ptr %4, align 8
-  br label %52
+  br label %57
 
 22:                                               ; preds = %3
   %23 = icmp ult i64 %17, %1
@@ -5751,51 +5751,60 @@ _ZSt27__uninitialized_default_n_aIP14gmx_molblock_tmS0_ET_S2_T0_RSaIT1_E.exit35:
   br i1 %.not10.i.i.i, label %_ZNSt6vectorI14gmx_molblock_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i37
 
 .lr.ph.i.i.i37:                                   ; preds = %_ZSt27__uninitialized_default_n_aIP14gmx_molblock_tmS0_ET_S2_T0_RSaIT1_E.exit35, %.lr.ph.i.i.i37
-  %.012.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i37 ], [ %28, %_ZSt27__uninitialized_default_n_aIP14gmx_molblock_tmS0_ET_S2_T0_RSaIT1_E.exit35 ]
-  %.0911.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i37 ], [ %6, %_ZSt27__uninitialized_default_n_aIP14gmx_molblock_tmS0_ET_S2_T0_RSaIT1_E.exit35 ]
+  %.012.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i37 ], [ %28, %_ZSt27__uninitialized_default_n_aIP14gmx_molblock_tmS0_ET_S2_T0_RSaIT1_E.exit35 ]
+  %.0911.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i37 ], [ %6, %_ZSt27__uninitialized_default_n_aIP14gmx_molblock_tmS0_ET_S2_T0_RSaIT1_E.exit35 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %33 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !83, !noalias !80
   store i64 %33, ptr %.012.i.i.i, align 8, !alias.scope !80, !noalias !83
   %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
   %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %38 = load <2 x ptr>, ptr %35, align 8, !alias.scope !83, !noalias !80
-  %39 = load ptr, ptr %36, align 8, !alias.scope !83, !noalias !80
+  %36 = load ptr, ptr %35, align 8, !alias.scope !83, !noalias !80
+  store ptr %36, ptr %34, align 8, !alias.scope !80, !noalias !83
+  %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %39 = load ptr, ptr %38, align 8, !alias.scope !83, !noalias !80
+  store ptr %39, ptr %37, align 8, !alias.scope !80, !noalias !83
+  %40 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %42 = load ptr, ptr %41, align 8, !alias.scope !83, !noalias !80
+  store ptr %42, ptr %40, align 8, !alias.scope !80, !noalias !83
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !83, !noalias !80
-  %40 = load ptr, ptr %37, align 8, !alias.scope !83, !noalias !80
-  %41 = shufflevector <2 x ptr> %38, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %42 = insertelement <4 x ptr> %41, ptr %39, i64 2
-  %43 = insertelement <4 x ptr> %42, ptr %40, i64 3
-  store <4 x ptr> %43, ptr %34, align 8, !alias.scope !80, !noalias !83
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
-  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  %46 = load <2 x ptr>, ptr %45, align 8, !alias.scope !83, !noalias !80
-  store <2 x ptr> %46, ptr %44, align 8, !alias.scope !80, !noalias !83
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !83, !noalias !80
-  %47 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
-  %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
-  %.not.i.i.i38 = icmp eq ptr %47, %5
+  %43 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
+  %45 = load ptr, ptr %44, align 8, !alias.scope !83, !noalias !80
+  store ptr %45, ptr %43, align 8, !alias.scope !80, !noalias !83
+  %46 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
+  %47 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
+  %48 = load ptr, ptr %47, align 8, !alias.scope !83, !noalias !80
+  store ptr %48, ptr %46, align 8, !alias.scope !80, !noalias !83
+  %49 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
+  %50 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
+  %51 = load ptr, ptr %50, align 8, !alias.scope !83, !noalias !80
+  store ptr %51, ptr %49, align 8, !alias.scope !80, !noalias !83
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false), !alias.scope !83, !noalias !80
+  %52 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
+  %53 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
+  %.not.i.i.i38 = icmp eq ptr %52, %5
   br i1 %.not.i.i.i38, label %_ZNSt6vectorI14gmx_molblock_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i37, !llvm.loop !85
 
 _ZNSt6vectorI14gmx_molblock_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i37, %_ZSt27__uninitialized_default_n_aIP14gmx_molblock_tmS0_ET_S2_T0_RSaIT1_E.exit35
   %.not.i40 = icmp eq ptr %6, null
-  br i1 %.not.i40, label %_ZNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE13_M_deallocateEPS0_m.exit41, label %49
+  br i1 %.not.i40, label %_ZNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE13_M_deallocateEPS0_m.exit41, label %54
 
-49:                                               ; preds = %_ZNSt6vectorI14gmx_molblock_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
+54:                                               ; preds = %_ZNSt6vectorI14gmx_molblock_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   br label %_ZNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE13_M_deallocateEPS0_m.exit41
 
-_ZNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE13_M_deallocateEPS0_m.exit41: ; preds = %_ZNSt6vectorI14gmx_molblock_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %49
+_ZNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE13_M_deallocateEPS0_m.exit41: ; preds = %_ZNSt6vectorI14gmx_molblock_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %54
   store ptr %28, ptr %0, align 8
-  %50 = getelementptr inbounds %struct.gmx_molblock_t, ptr %29, i64 %1
-  store ptr %50, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.gmx_molblock_t, ptr %28, i64 %26
-  store ptr %51, ptr %11, align 8
-  br label %52
+  %55 = getelementptr inbounds %struct.gmx_molblock_t, ptr %29, i64 %1
+  store ptr %55, ptr %4, align 8
+  %56 = getelementptr inbounds %struct.gmx_molblock_t, ptr %28, i64 %26
+  store ptr %56, ptr %11, align 8
+  br label %57
 
-52:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP14gmx_molblock_tmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE13_M_deallocateEPS0_m.exit41, %2
+57:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP14gmx_molblock_tmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseI14gmx_molblock_tSaIS0_EE13_M_deallocateEPS0_m.exit41, %2
   ret void
 }
 

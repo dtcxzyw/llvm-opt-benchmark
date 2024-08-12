@@ -4066,16 +4066,19 @@ if.else.i:                                        ; preds = %do.end
 
 bdrv_child_set_perm.exit:                         ; preds = %do.end
   %perm2.i = getelementptr inbounds i8, ptr %c, i64 40
+  %0 = load i64, ptr %perm2.i, align 8
   %shared_perm.i = getelementptr inbounds i8, ptr %c, i64 48
+  %1 = load i64, ptr %shared_perm.i, align 8
   store ptr %c, ptr %call.i, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %0 = load <2 x i64>, ptr %perm2.i, align 8
-  store <2 x i64> %0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
+  store i64 %0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
+  %.compoundliteral.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  store i64 %1, ptr %.compoundliteral.sroa.3.0..sroa_idx.i, align 8
   store i64 %perm, ptr %perm2.i, align 8
   store i64 %shared, ptr %shared_perm.i, align 8
   tail call void @tran_add(ptr noundef %call, ptr noundef nonnull @bdrv_child_set_pem_drv, ptr noundef nonnull %call.i) #31
-  %1 = load ptr, ptr %c, align 8
-  %call2 = call fastcc i32 @bdrv_refresh_perms(ptr noundef %1, ptr noundef %call, ptr noundef nonnull %local_err)
+  %2 = load ptr, ptr %c, align 8
+  %call2 = call fastcc i32 @bdrv_refresh_perms(ptr noundef %2, ptr noundef %call, ptr noundef nonnull %local_err)
   %cmp.i = icmp slt i32 %call2, 0
   br i1 %cmp.i, label %if.then3, label %tran_finalize.exit
 
@@ -4085,27 +4088,27 @@ tran_finalize.exit:                               ; preds = %bdrv_child_set_perm
 
 if.then3:                                         ; preds = %bdrv_child_set_perm.exit
   call void @tran_abort(ptr noundef %call) #31
-  %2 = load i64, ptr %perm2.i, align 8
-  %not = xor i64 %2, -1
+  %3 = load i64, ptr %perm2.i, align 8
+  %not = xor i64 %3, -1
   %and = and i64 %not, %perm
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then8
 
 lor.lhs.false:                                    ; preds = %if.then3
-  %3 = load i64, ptr %shared_perm.i, align 8
+  %4 = load i64, ptr %shared_perm.i, align 8
   %not5 = xor i64 %shared, -1
-  %and6 = and i64 %3, %not5
+  %and6 = and i64 %4, %not5
   %tobool7.not = icmp eq i64 %and6, 0
   br i1 %tobool7.not, label %if.else9, label %if.then8
 
 if.then8:                                         ; preds = %lor.lhs.false, %if.then3
-  %4 = load ptr, ptr %local_err, align 8
-  call void @error_propagate(ptr noundef %errp, ptr noundef %4) #31
+  %5 = load ptr, ptr %local_err, align 8
+  call void @error_propagate(ptr noundef %errp, ptr noundef %5) #31
   br label %if.end11
 
 if.else9:                                         ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %local_err, align 8
-  call void @error_free(ptr noundef %5) #31
+  %6 = load ptr, ptr %local_err, align 8
+  call void @error_free(ptr noundef %6) #31
   br label %if.end11
 
 if.end11:                                         ; preds = %tran_finalize.exit, %if.then8, %if.else9
@@ -16544,7 +16547,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %list.addr.052 = phi ptr [ %list, %for.body.lr.ph ], [ %38, %for.inc ]
+  %list.addr.052 = phi ptr [ %list, %for.body.lr.ph ], [ %39, %for.inc ]
   %0 = load ptr, ptr %list.addr.052, align 8
   %call.i = call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call.i, label %do.end.i, label %if.else.i
@@ -16934,11 +16937,14 @@ if.else.i39.i:                                    ; preds = %bdrv_child_perm.exi
 
 bdrv_child_set_perm.exit.i:                       ; preds = %bdrv_child_perm.exit.i
   %perm2.i.i = getelementptr inbounds i8, ptr %c.066.i, i64 40
+  %37 = load i64, ptr %perm2.i.i, align 8
   %shared_perm.i.i21 = getelementptr inbounds i8, ptr %c.066.i, i64 48
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i38.i, i64 8
-  %37 = load <2 x i64>, ptr %perm2.i.i, align 8
+  %38 = load i64, ptr %shared_perm.i.i21, align 8
   store ptr %c.066.i, ptr %call.i38.i, align 8
-  store <2 x i64> %37, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 8
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i38.i, i64 8
+  store i64 %37, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 8
+  %.compoundliteral.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i38.i, i64 16
+  store i64 %38, ptr %.compoundliteral.sroa.3.0..sroa_idx.i.i, align 8
   store i64 %35, ptr %perm2.i.i, align 8
   store i64 %36, ptr %shared_perm.i.i21, align 8
   call void @tran_add(ptr noundef %tran, ptr noundef nonnull @bdrv_child_set_pem_drv, ptr noundef nonnull %call.i38.i) #31
@@ -16957,8 +16963,8 @@ for.inc:                                          ; preds = %bdrv_child_set_perm
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cur_perm.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cur_shared.i)
   %next = getelementptr inbounds i8, ptr %list.addr.052, i64 8
-  %38 = load ptr, ptr %next, align 8
-  %tobool.not = icmp eq ptr %38, null
+  %39 = load ptr, ptr %next, align 8
+  %tobool.not = icmp eq ptr %39, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !100
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %bdrv_node_refresh_perm.exit.thread, %bdrv_parent_perms_conflict.exit

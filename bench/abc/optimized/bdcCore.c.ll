@@ -1157,7 +1157,7 @@ Kit_TruthIsConst0.exit:                           ; preds = %select.unfold.i
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %35, ptr %36, align 8
-  br label %192
+  br label %194
 
 37:                                               ; preds = %27
   store i32 0, ptr %9, align 8
@@ -1433,31 +1433,34 @@ Abc_Clock.exit72:                                 ; preds = %Kit_TruthSharp.exit
   %178 = add nsw i64 %175, %177
   store i64 %178, ptr %176, align 8
   %179 = getelementptr inbounds i8, ptr %0, i64 256
-  %180 = getelementptr inbounds i8, ptr %0, i64 40
-  %181 = load i32, ptr %180, align 8
-  %182 = load <2 x i32>, ptr %179, align 8
-  %183 = insertelement <2 x i32> <i32 1, i32 poison>, i32 %181, i64 1
-  %184 = add nsw <2 x i32> %182, %183
-  store <2 x i32> %184, ptr %179, align 8
-  %185 = load ptr, ptr %165, align 8
-  %186 = icmp eq ptr %185, null
-  br i1 %186, label %192, label %187
+  %180 = load i32, ptr %179, align 8
+  %181 = add nsw i32 %180, 1
+  store i32 %181, ptr %179, align 8
+  %182 = getelementptr inbounds i8, ptr %0, i64 40
+  %183 = load i32, ptr %182, align 8
+  %184 = getelementptr inbounds i8, ptr %0, i64 260
+  %185 = load i32, ptr %184, align 4
+  %186 = add nsw i32 %185, %183
+  store i32 %186, ptr %184, align 4
+  %187 = load ptr, ptr %165, align 8
+  %188 = icmp eq ptr %187, null
+  br i1 %188, label %194, label %189
 
-187:                                              ; preds = %Abc_Clock.exit72
-  %188 = call i32 @Bdc_ManNodeVerify(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %185) #19
-  %.not48 = icmp eq i32 %188, 0
-  br i1 %.not48, label %189, label %190
+189:                                              ; preds = %Abc_Clock.exit72
+  %190 = call i32 @Bdc_ManNodeVerify(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %187) #19
+  %.not48 = icmp eq i32 %190, 0
+  br i1 %.not48, label %191, label %192
 
-189:                                              ; preds = %187
+191:                                              ; preds = %189
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %190
-
-190:                                              ; preds = %189, %187
-  %191 = load i32, ptr %180, align 8
   br label %192
 
-192:                                              ; preds = %Abc_Clock.exit72, %190, %Kit_TruthIsConst0.exit
-  %.0 = phi i32 [ 0, %Kit_TruthIsConst0.exit ], [ %191, %190 ], [ -1, %Abc_Clock.exit72 ]
+192:                                              ; preds = %191, %189
+  %193 = load i32, ptr %182, align 8
+  br label %194
+
+194:                                              ; preds = %Abc_Clock.exit72, %192, %Kit_TruthIsConst0.exit
+  %.0 = phi i32 [ 0, %Kit_TruthIsConst0.exit ], [ %193, %192 ], [ -1, %Abc_Clock.exit72 ]
   ret i32 %.0
 }
 

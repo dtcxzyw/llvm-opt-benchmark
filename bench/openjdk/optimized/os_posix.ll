@@ -1224,34 +1224,38 @@ define hidden void @_ZN2os5Posix11print_umaskEP12outputStreamj(ptr noundef nonnu
   %.not = icmp eq i32 %3, 0
   %.str.38..str.39 = select i1 %.not, ptr @.str.39, ptr @.str.38
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.str.38..str.39) #27
-  %4 = insertelement <8 x i32> poison, i32 %1, i64 0
-  %5 = shufflevector <8 x i32> %4, <8 x i32> poison, <8 x i32> zeroinitializer
-  %6 = and <8 x i32> %5, <i32 1, i32 2, i32 4, i32 8, i32 16, i32 32, i32 64, i32 128>
-  %7 = icmp eq <8 x i32> %6, zeroinitializer
-  %8 = extractelement <8 x i1> %7, i64 7
-  %9 = select i1 %8, ptr @.str.39, ptr @.str.40
+  %4 = and i32 %1, 128
+  %.not17 = icmp eq i32 %4, 0
+  %5 = select i1 %.not17, ptr @.str.39, ptr @.str.40
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %5) #27
+  %6 = and i32 %1, 64
+  %.not18 = icmp eq i32 %6, 0
+  %7 = select i1 %.not18, ptr @.str.39, ptr @.str.41
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %7) #27
+  %8 = and i32 %1, 32
+  %.not19 = icmp eq i32 %8, 0
+  %9 = select i1 %.not19, ptr @.str.39, ptr @.str.38
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %9) #27
-  %10 = extractelement <8 x i1> %7, i64 6
-  %11 = select i1 %10, ptr @.str.39, ptr @.str.41
+  %10 = and i32 %1, 16
+  %.not20 = icmp eq i32 %10, 0
+  %11 = select i1 %.not20, ptr @.str.39, ptr @.str.40
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %11) #27
-  %12 = extractelement <8 x i1> %7, i64 5
-  %13 = select i1 %12, ptr @.str.39, ptr @.str.38
+  %12 = and i32 %1, 8
+  %.not21 = icmp eq i32 %12, 0
+  %13 = select i1 %.not21, ptr @.str.39, ptr @.str.41
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %13) #27
-  %14 = extractelement <8 x i1> %7, i64 4
-  %15 = select i1 %14, ptr @.str.39, ptr @.str.40
+  %14 = and i32 %1, 4
+  %.not22 = icmp eq i32 %14, 0
+  %15 = select i1 %.not22, ptr @.str.39, ptr @.str.38
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %15) #27
-  %16 = extractelement <8 x i1> %7, i64 3
-  %17 = select i1 %16, ptr @.str.39, ptr @.str.41
+  %16 = and i32 %1, 2
+  %.not23 = icmp eq i32 %16, 0
+  %17 = select i1 %.not23, ptr @.str.39, ptr @.str.40
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %17) #27
-  %18 = extractelement <8 x i1> %7, i64 2
-  %19 = select i1 %18, ptr @.str.39, ptr @.str.38
+  %18 = and i32 %1, 1
+  %.not24 = icmp eq i32 %18, 0
+  %19 = select i1 %.not24, ptr @.str.39, ptr @.str.41
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %19) #27
-  %20 = extractelement <8 x i1> %7, i64 1
-  %21 = select i1 %20, ptr @.str.39, ptr @.str.40
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %21) #27
-  %22 = extractelement <8 x i1> %7, i64 0
-  %23 = select i1 %22, ptr @.str.39, ptr @.str.41
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %23) #27
   ret void
 }
 

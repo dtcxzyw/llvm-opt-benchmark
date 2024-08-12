@@ -270,7 +270,7 @@ H5HF__huge_bt2_create.exit:                       ; preds = %59
   %67 = load i64, ptr @H5E_HEAP_g, align 8
   %68 = load i64, ptr @H5E_CANTCREATE_g, align 8
   %69 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__huge_insert, i32 noundef 300, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.1) #6
-  br label %380
+  br label %382
 
 70:                                               ; preds = %4
   %71 = getelementptr inbounds i8, ptr %0, i64 664
@@ -290,7 +290,7 @@ H5HF__huge_bt2_create.exit:                       ; preds = %59
   %80 = load i64, ptr @H5E_HEAP_g, align 8
   %81 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8
   %82 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__huge_insert, i32 noundef 308, i64 noundef %80, i64 noundef %81, ptr noundef nonnull @.str.2) #6
-  br label %380
+  br label %382
 
 83:                                               ; preds = %H5HF__huge_bt2_create.exit, %70, %74
   %84 = getelementptr inbounds i8, ptr %0, i64 252
@@ -309,7 +309,7 @@ H5HF__huge_bt2_create.exit:                       ; preds = %59
   %90 = load i64, ptr @H5E_HEAP_g, align 8
   %91 = load i64, ptr @H5E_NOSPACE_g, align 8
   %92 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__huge_insert, i32 noundef 325, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.3) #6
-  br label %380
+  br label %382
 
 93:                                               ; preds = %86
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr align 1 %2, i64 %1, i1 false)
@@ -323,7 +323,7 @@ H5HF__huge_bt2_create.exit:                       ; preds = %59
   %98 = load i64, ptr @H5E_HEAP_g, align 8
   %99 = load i64, ptr @H5E_CANTFILTER_g, align 8
   %100 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__huge_insert, i32 noundef 332, i64 noundef %98, i64 noundef %99, ptr noundef nonnull @.str.4) #6
-  br label %380
+  br label %382
 
 101:                                              ; preds = %93
   %102 = load i64, ptr %10, align 8
@@ -346,7 +346,7 @@ H5HF__huge_bt2_create.exit:                       ; preds = %59
   %110 = load i64, ptr @H5E_HEAP_g, align 8
   %111 = load i64, ptr @H5E_NOSPACE_g, align 8
   %112 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__huge_insert, i32 noundef 344, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.5) #6
-  br label %380
+  br label %382
 
 113:                                              ; preds = %104
   %114 = load ptr, ptr %105, align 8
@@ -360,7 +360,7 @@ H5HF__huge_bt2_create.exit:                       ; preds = %59
   %120 = load i64, ptr @H5E_HEAP_g, align 8
   %121 = load i64, ptr @H5E_WRITEERROR_g, align 8
   %122 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__huge_insert, i32 noundef 348, i64 noundef %120, i64 noundef %121, ptr noundef nonnull @.str.6) #6
-  br label %380
+  br label %382
 
 123:                                              ; preds = %113
   %124 = load ptr, ptr %7, align 8
@@ -402,7 +402,7 @@ H5HF__huge_bt2_create.exit:                       ; preds = %59
   %144 = load i64, ptr @H5E_HEAP_g, align 8
   %145 = load i64, ptr @H5E_CANTINSERT_g, align 8
   %146 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__huge_insert, i32 noundef 370, i64 noundef %144, i64 noundef %145, ptr noundef nonnull @.str.7) #6
-  br label %380
+  br label %382
 
 147:                                              ; preds = %133
   %148 = load ptr, ptr %6, align 8
@@ -610,7 +610,7 @@ H5HF__huge_bt2_create.exit:                       ; preds = %59
   %263 = load i64, ptr @H5E_HEAP_g, align 8
   %264 = load i64, ptr @H5E_CANTINSERT_g, align 8
   %265 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__huge_insert, i32 noundef 389, i64 noundef %263, i64 noundef %264, ptr noundef nonnull @.str.7) #6
-  br label %380
+  br label %382
 
 266:                                              ; preds = %255
   %267 = load ptr, ptr %6, align 8
@@ -732,7 +732,7 @@ H5HF__huge_new_id.exit:                           ; preds = %322, %329
   %332 = load i64, ptr @H5E_HEAP_g, align 8
   %333 = load i64, ptr @H5E_CANTINIT_g, align 8
   %334 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__huge_insert, i32 noundef 405, i64 noundef %332, i64 noundef %333, ptr noundef nonnull @.str.8) #6
-  br label %380
+  br label %382
 
 335:                                              ; preds = %H5HF__huge_new_id.exit
   %336 = load i32, ptr %84, align 4
@@ -774,7 +774,7 @@ H5HF__huge_new_id.exit:                           ; preds = %322, %329
   %354 = load i64, ptr @H5E_HEAP_g, align 8
   %355 = load i64, ptr @H5E_CANTINSERT_g, align 8
   %356 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__huge_insert, i32 noundef 431, i64 noundef %354, i64 noundef %355, ptr noundef nonnull @.str.7) #6
-  br label %380
+  br label %382
 
 357:                                              ; preds = %348
   %358 = getelementptr inbounds i8, ptr %3, i64 1
@@ -806,22 +806,25 @@ H5HF__huge_new_id.exit:                           ; preds = %322, %329
 
 369:                                              ; preds = %219, %243, %246, %196, %272, %301, %304, %266, %._crit_edge
   %370 = getelementptr inbounds i8, ptr %0, i64 536
-  %371 = load <2 x i64>, ptr %370, align 8
-  %372 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %1, i64 0
-  %373 = add <2 x i64> %371, %372
-  store <2 x i64> %373, ptr %370, align 8
-  %374 = call i32 @H5HF__hdr_dirty(ptr noundef %0) #6
-  %375 = icmp slt i32 %374, 0
-  br i1 %375, label %376, label %380
+  %371 = load i64, ptr %370, align 8
+  %372 = add i64 %371, %1
+  store i64 %372, ptr %370, align 8
+  %373 = getelementptr inbounds i8, ptr %0, i64 544
+  %374 = load i64, ptr %373, align 8
+  %375 = add i64 %374, 1
+  store i64 %375, ptr %373, align 8
+  %376 = call i32 @H5HF__hdr_dirty(ptr noundef %0) #6
+  %377 = icmp slt i32 %376, 0
+  br i1 %377, label %378, label %382
 
-376:                                              ; preds = %369
-  %377 = load i64, ptr @H5E_HEAP_g, align 8
-  %378 = load i64, ptr @H5E_CANTDIRTY_g, align 8
-  %379 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__huge_insert, i32 noundef 444, i64 noundef %377, i64 noundef %378, ptr noundef nonnull @.str.9) #6
-  br label %380
+378:                                              ; preds = %369
+  %379 = load i64, ptr @H5E_HEAP_g, align 8
+  %380 = load i64, ptr @H5E_CANTDIRTY_g, align 8
+  %381 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__huge_insert, i32 noundef 444, i64 noundef %379, i64 noundef %380, ptr noundef nonnull @.str.9) #6
+  br label %382
 
-380:                                              ; preds = %369, %376, %353, %331, %262, %143, %119, %109, %97, %89, %79, %66
-  %.097 = phi i32 [ -1, %79 ], [ -1, %89 ], [ -1, %97 ], [ -1, %109 ], [ -1, %119 ], [ -1, %143 ], [ -1, %376 ], [ 0, %369 ], [ -1, %262 ], [ -1, %331 ], [ -1, %353 ], [ -1, %66 ]
+382:                                              ; preds = %369, %378, %353, %331, %262, %143, %119, %109, %97, %89, %79, %66
+  %.097 = phi i32 [ -1, %79 ], [ -1, %89 ], [ -1, %97 ], [ -1, %109 ], [ -1, %119 ], [ -1, %143 ], [ -1, %378 ], [ 0, %369 ], [ -1, %262 ], [ -1, %331 ], [ -1, %353 ], [ -1, %66 ]
   ret i32 %.097
 }
 

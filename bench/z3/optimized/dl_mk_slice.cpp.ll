@@ -624,10 +624,12 @@ invoke.cont3:                                     ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store ptr %h, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %8 = load i32, ptr %bv, align 8
+  store i32 %8, ptr %m_value.i.i, align 8
+  %m_capacity.i.i.i4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 12
   %m_capacity3.i.i.i = getelementptr inbounds i8, ptr %bv, i64 4
-  %8 = load i32, ptr %m_capacity3.i.i.i, align 4
-  %9 = load <2 x i32>, ptr %bv, align 8
-  store <2 x i32> %9, ptr %m_value.i.i, align 8
+  %9 = load i32, ptr %m_capacity3.i.i.i, align 4
+  store i32 %9, ptr %m_capacity.i.i.i4, align 4
   %m_data.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store ptr null, ptr %m_data.i.i.i, align 8
   %m_data4.i.i.i = getelementptr inbounds i8, ptr %bv, i64 8
@@ -636,7 +638,7 @@ invoke.cont3:                                     ; preds = %if.then
   br i1 %tobool.not.i.i.i, label %_ZN7obj_mapI9func_decl10bit_vectorE8key_dataC2EPS0_RKS1_.exit.i, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %invoke.cont3
-  %conv.i.i.i = zext i32 %8 to i64
+  %conv.i.i.i = zext i32 %9 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %call.i.i.i6 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %mul.i.i.i)
           to label %call.i.i.i.noexc unwind label %lpad
@@ -7123,10 +7125,12 @@ _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store ptr %f, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %8 = load i32, ptr %bv, align 8
+  store i32 %8, ptr %m_value.i.i, align 8
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 12
   %m_capacity3.i.i.i = getelementptr inbounds i8, ptr %bv, i64 4
-  %8 = load i32, ptr %m_capacity3.i.i.i, align 4
-  %9 = load <2 x i32>, ptr %bv, align 8
-  store <2 x i32> %9, ptr %m_value.i.i, align 8
+  %9 = load i32, ptr %m_capacity3.i.i.i, align 4
+  store i32 %9, ptr %m_capacity.i.i.i, align 4
   %m_data.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store ptr null, ptr %m_data.i.i.i, align 8
   %m_data4.i.i.i = getelementptr inbounds i8, ptr %bv, i64 8
@@ -7135,7 +7139,7 @@ _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   br i1 %tobool.not.i.i.i, label %_ZN7obj_mapI9func_decl10bit_vectorE8key_dataC2EPS0_RKS1_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
-  %conv.i.i.i = zext i32 %8 to i64
+  %conv.i.i.i = zext i32 %9 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %call.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %mul.i.i.i)
   store ptr %call.i.i.i, ptr %m_data.i.i.i, align 8

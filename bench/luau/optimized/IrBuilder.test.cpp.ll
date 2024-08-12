@@ -28186,7 +28186,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %127, %_ZNSt6vectorI
   %141 = getelementptr inbounds i8, ptr %137, i64 16
   %142 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %141, ptr %142, align 8
-  store <4 x i32> <i32 0, i32 2, i32 3, i32 6>, ptr %137, align 4
+  store i32 0, ptr %137, align 4
+  %.sroa.2178.0..sroa_idx.i = getelementptr inbounds i8, ptr %137, i64 4
+  store i32 2, ptr %.sroa.2178.0..sroa_idx.i, align 4
+  %.sroa.3179.0..sroa_idx.i = getelementptr inbounds i8, ptr %137, i64 8
+  store i32 3, ptr %.sroa.3179.0..sroa_idx.i, align 4
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %137, i64 12
+  store i32 6, ptr %.sroa.4.0..sroa_idx.i, align 4
   %143 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %141, ptr %143, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -29007,7 +29013,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %158, %_ZNSt6vectorI
   %172 = getelementptr inbounds i8, ptr %168, i64 16
   %173 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %172, ptr %173, align 8
-  store <4 x i32> <i32 4, i32 5, i32 7, i32 12>, ptr %168, align 4
+  store i32 4, ptr %168, align 4
+  %.sroa.2269.0..sroa_idx.i = getelementptr inbounds i8, ptr %168, i64 4
+  store i32 5, ptr %.sroa.2269.0..sroa_idx.i, align 4
+  %.sroa.3270.0..sroa_idx.i = getelementptr inbounds i8, ptr %168, i64 8
+  store i32 7, ptr %.sroa.3270.0..sroa_idx.i, align 4
+  %.sroa.4271.0..sroa_idx.i = getelementptr inbounds i8, ptr %168, i64 12
+  store i32 12, ptr %.sroa.4271.0..sroa_idx.i, align 4
   %174 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %172, ptr %174, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -29302,7 +29314,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit208.i:               ; preds = %274, %212, %209
   %291 = getelementptr inbounds i8, ptr %287, i64 16
   %292 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %291, ptr %292, align 8
-  store <4 x i32> <i32 4, i32 5, i32 7, i32 12>, ptr %287, align 4
+  store i32 4, ptr %287, align 4
+  %.sroa.2263.0..sroa_idx.i = getelementptr inbounds i8, ptr %287, i64 4
+  store i32 5, ptr %.sroa.2263.0..sroa_idx.i, align 4
+  %.sroa.3264.0..sroa_idx.i = getelementptr inbounds i8, ptr %287, i64 8
+  store i32 7, ptr %.sroa.3264.0..sroa_idx.i, align 4
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %287, i64 12
+  store i32 12, ptr %.sroa.4.0..sroa_idx.i, align 4
   %293 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %291, ptr %293, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)

@@ -1677,8 +1677,11 @@ _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %arrayctor.loop.i.i
   %ipv4_component.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 72
   %len.i1.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 76
   %num_hex_components.i.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 64
+  store i32 0, ptr %num_hex_components.i.i.i, align 4
   %index_of_contraction.i.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 68
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %num_hex_components.i.i.i, align 4
+  store i32 -1, ptr %index_of_contraction.i.i.i, align 4
+  store i32 0, ptr %ipv4_component.i.i, align 4
+  store i32 -1, ptr %len.i1.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %host.val1, 2
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit
 
@@ -2039,8 +2042,11 @@ _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %arrayctor.loop.i.i
   %ipv4_component.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 72
   %len.i1.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 76
   %num_hex_components.i.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 64
+  store i32 0, ptr %num_hex_components.i.i.i, align 4
   %index_of_contraction.i.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 68
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %num_hex_components.i.i.i, align 4
+  store i32 -1, ptr %index_of_contraction.i.i.i, align 4
+  store i32 0, ptr %ipv4_component.i.i, align 4
+  store i32 -1, ptr %len.i1.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %host.val1, 2
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit
 

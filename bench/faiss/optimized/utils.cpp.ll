@@ -798,13 +798,13 @@ define void @_ZN5faiss10reflectionEPKfPfmmm(ptr noalias nocapture noundef readon
   br i1 %or.cond80, label %._crit_edge, label %.preheader40.us.us.us
 
 .preheader40.us.us.us:                            ; preds = %5, %._crit_edge51.split.us.us.us.split.us.us
-  %.059.us.us.us = phi ptr [ %27, %._crit_edge51.split.us.us.us.split.us.us ], [ %1, %5 ]
-  %.03858.us.us.us = phi i64 [ %28, %._crit_edge51.split.us.us.us.split.us.us ], [ 0, %5 ]
+  %.059.us.us.us = phi ptr [ %31, %._crit_edge51.split.us.us.us.split.us.us ], [ %1, %5 ]
+  %.03858.us.us.us = phi i64 [ %32, %._crit_edge51.split.us.us.us.split.us.us ], [ 0, %5 ]
   br label %.preheader.us.us.us.us.us
 
 .preheader.us.us.us.us.us:                        ; preds = %._crit_edge48.us.us.us.us.us, %.preheader40.us.us.us
-  %.03550.us.us.us.us.us = phi ptr [ %0, %.preheader40.us.us.us ], [ %25, %._crit_edge48.us.us.us.us.us ]
-  %.03649.us.us.us.us.us = phi i64 [ 0, %.preheader40.us.us.us ], [ %26, %._crit_edge48.us.us.us.us.us ]
+  %.03550.us.us.us.us.us = phi ptr [ %0, %.preheader40.us.us.us ], [ %29, %._crit_edge48.us.us.us.us.us ]
+  %.03649.us.us.us.us.us = phi i64 [ 0, %.preheader40.us.us.us ], [ %30, %._crit_edge48.us.us.us.us.us ]
   br label %13
 
 6:                                                ; preds = %._crit_edge.us.us.us.us.us, %6
@@ -813,41 +813,46 @@ define void @_ZN5faiss10reflectionEPKfPfmmm(ptr noalias nocapture noundef readon
   %8 = load float, ptr %7, align 4
   %9 = getelementptr inbounds float, ptr %.059.us.us.us, i64 %.145.us.us.us.us.us
   %10 = load float, ptr %9, align 4
-  %11 = tail call float @llvm.fmuladd.f32(float %24, float %8, float %10)
+  %11 = tail call float @llvm.fmuladd.f32(float %28, float %8, float %10)
   store float %11, ptr %9, align 4
   %12 = add nuw i64 %.145.us.us.us.us.us, 1
   %exitcond.not = icmp eq i64 %12, %3
   br i1 %exitcond.not, label %._crit_edge48.us.us.us.us.us, label %6, !llvm.loop !18
 
 13:                                               ; preds = %13, %.preheader.us.us.us.us.us
-  %.03741.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us ], [ %20, %13 ]
-  %14 = phi <2 x float> [ zeroinitializer, %.preheader.us.us.us.us.us ], [ %19, %13 ]
-  %15 = getelementptr inbounds float, ptr %.03550.us.us.us.us.us, i64 %.03741.us.us.us.us.us
+  %.03343.us.us.us.us.us = phi float [ 0.000000e+00, %.preheader.us.us.us.us.us ], [ %24, %13 ]
+  %.03442.us.us.us.us.us = phi float [ 0.000000e+00, %.preheader.us.us.us.us.us ], [ %18, %13 ]
+  %.03741.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us ], [ %25, %13 ]
+  %14 = getelementptr inbounds float, ptr %.03550.us.us.us.us.us, i64 %.03741.us.us.us.us.us
+  %15 = load float, ptr %14, align 4
   %16 = getelementptr inbounds float, ptr %.059.us.us.us, i64 %.03741.us.us.us.us.us
-  %17 = load <2 x float>, ptr %15, align 4
-  %18 = load <2 x float>, ptr %16, align 4
-  %19 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %17, <2 x float> %18, <2 x float> %14)
-  %20 = add nuw i64 %.03741.us.us.us.us.us, 2
-  %21 = icmp ult i64 %20, %3
-  br i1 %21, label %13, label %._crit_edge.us.us.us.us.us, !llvm.loop !19
+  %17 = load float, ptr %16, align 4
+  %18 = tail call float @llvm.fmuladd.f32(float %15, float %17, float %.03442.us.us.us.us.us)
+  %19 = or disjoint i64 %.03741.us.us.us.us.us, 1
+  %20 = getelementptr inbounds float, ptr %.03550.us.us.us.us.us, i64 %19
+  %21 = load float, ptr %20, align 4
+  %22 = getelementptr inbounds float, ptr %.059.us.us.us, i64 %19
+  %23 = load float, ptr %22, align 4
+  %24 = tail call float @llvm.fmuladd.f32(float %21, float %23, float %.03343.us.us.us.us.us)
+  %25 = add nuw i64 %.03741.us.us.us.us.us, 2
+  %26 = icmp ult i64 %25, %3
+  br i1 %26, label %13, label %._crit_edge.us.us.us.us.us, !llvm.loop !19
 
 ._crit_edge.us.us.us.us.us:                       ; preds = %13
-  %shift = shufflevector <2 x float> %19, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %22 = fadd <2 x float> %19, %shift
-  %23 = extractelement <2 x float> %22, i64 0
-  %24 = fmul float %23, -2.000000e+00
+  %27 = fadd float %18, %24
+  %28 = fmul float %27, -2.000000e+00
   br label %6
 
 ._crit_edge48.us.us.us.us.us:                     ; preds = %6
-  %25 = getelementptr inbounds float, ptr %.03550.us.us.us.us.us, i64 %3
-  %26 = add nuw i64 %.03649.us.us.us.us.us, 1
-  %exitcond77.not = icmp eq i64 %26, %4
+  %29 = getelementptr inbounds float, ptr %.03550.us.us.us.us.us, i64 %3
+  %30 = add nuw i64 %.03649.us.us.us.us.us, 1
+  %exitcond77.not = icmp eq i64 %30, %4
   br i1 %exitcond77.not, label %._crit_edge51.split.us.us.us.split.us.us, label %.preheader.us.us.us.us.us, !llvm.loop !20
 
 ._crit_edge51.split.us.us.us.split.us.us:         ; preds = %._crit_edge48.us.us.us.us.us
-  %27 = getelementptr inbounds float, ptr %.059.us.us.us, i64 %3
-  %28 = add nuw i64 %.03858.us.us.us, 1
-  %exitcond78.not = icmp eq i64 %28, %2
+  %31 = getelementptr inbounds float, ptr %.059.us.us.us, i64 %3
+  %32 = add nuw i64 %.03858.us.us.us, 1
+  %exitcond78.not = icmp eq i64 %32, %2
   br i1 %exitcond78.not, label %._crit_edge, label %.preheader40.us.us.us, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %._crit_edge51.split.us.us.us.split.us.us, %5
@@ -3456,9 +3461,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #23
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

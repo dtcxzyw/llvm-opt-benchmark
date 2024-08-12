@@ -31,8 +31,10 @@ _ZNSt6vectorIN6Assimp11SpatialSort5EntryESaIS2_EE5clearEv.exit.i:
   %mCentroid = getelementptr inbounds i8, ptr %this, i64 12
   %mFinalized = getelementptr inbounds i8, ptr %this, i64 48
   %z.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %y.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %mCentroid, i8 0, i64 36, i1 false)
-  store <2 x float> <float 0x3FE92E0560000000, float 0x3FD44774C0000000>, ptr %this, align 8
+  store float 0x3FE92E0560000000, ptr %this, align 8
+  store float 0x3FD44774C0000000, ptr %y.i.i.i, align 4
   store float 0x3FE0F23020000000, ptr %z.i.i.i, align 8
   store i8 0, ptr %mFinalized, align 8
   invoke void @_ZN6Assimp11SpatialSort6AppendEPK10aiVector3tIfEjjb(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef readonly %pPositions, i32 noundef %pNumPositions, i32 noundef %pElementOffset, i1 noundef zeroext true)
@@ -91,8 +93,10 @@ define void @_ZN6Assimp11SpatialSortC2Ev(ptr nocapture noundef nonnull writeonly
 invoke.cont:
   %mCentroid = getelementptr inbounds i8, ptr %this, i64 12
   %z.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %y.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %mCentroid, i8 0, i64 37, i1 false)
-  store <2 x float> <float 0x3FE92E0560000000, float 0x3FD44774C0000000>, ptr %this, align 8
+  store float 0x3FE92E0560000000, ptr %this, align 8
+  store float 0x3FD44774C0000000, ptr %y.i.i.i, align 4
   store float 0x3FE0F23020000000, ptr %z.i.i.i, align 8
   ret void
 }
@@ -332,11 +336,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %mCentroid = getelementptr inbounds i8, ptr %this, i64 12
+  %y3.i = getelementptr inbounds i8, ptr %this, i64 16
   %z5.i = getelementptr inbounds i8, ptr %this, i64 20
-  %2 = load <2 x float>, ptr %mCentroid, align 4
+  %mCentroid.promoted = load float, ptr %mCentroid, align 4
+  %y3.i.promoted = load float, ptr %y3.i, align 8
   %z5.i.promoted = load float, ptr %z5.i, align 4
-  %3 = insertelement <2 x float> poison, float %div, i64 0
-  %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> zeroinitializer
   br label %for.body
 
 for.cond11.preheader:                             ; preds = %for.body
@@ -351,19 +355,25 @@ for.body16.lr.ph:                                 ; preds = %for.cond11.preheade
   br label %for.body16
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %5 = phi float [ %z5.i.promoted, %for.body.lr.ph ], [ %add6.i, %for.body ]
+  %2 = phi float [ %z5.i.promoted, %for.body.lr.ph ], [ %add6.i, %for.body ]
+  %3 = phi float [ %y3.i.promoted, %for.body.lr.ph ], [ %add4.i, %for.body ]
+  %add.i25 = phi float [ %mCentroid.promoted, %for.body.lr.ph ], [ %add.i, %for.body ]
   %conv224 = phi i64 [ 0, %for.body.lr.ph ], [ %conv2, %for.body ]
   %i.023 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %6 = phi <2 x float> [ %2, %for.body.lr.ph ], [ %10, %for.body ]
   %mPosition = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %1, i64 %conv224, i32 1
+  %4 = load float, ptr %mPosition, align 4
+  %mul.i = fmul float %div, %4
+  %y.i = getelementptr inbounds i8, ptr %mPosition, i64 4
+  %5 = load float, ptr %y.i, align 4
+  %mul1.i = fmul float %div, %5
   %z.i = getelementptr inbounds i8, ptr %mPosition, i64 8
-  %7 = load float, ptr %z.i, align 4
-  %mul2.i = fmul float %div, %7
-  %8 = load <2 x float>, ptr %mPosition, align 4
-  %9 = fmul <2 x float> %4, %8
-  %10 = fadd <2 x float> %9, %6
-  store <2 x float> %10, ptr %mCentroid, align 4
-  %add6.i = fadd float %mul2.i, %5
+  %6 = load float, ptr %z.i, align 4
+  %mul2.i = fmul float %div, %6
+  %add.i = fadd float %mul.i, %add.i25
+  store float %add.i, ptr %mCentroid, align 4
+  %add4.i = fadd float %mul1.i, %3
+  store float %add4.i, ptr %y3.i, align 8
+  %add6.i = fadd float %mul2.i, %2
   store float %add6.i, ptr %z5.i, align 4
   %inc = add i32 %i.023, 1
   %conv2 = zext i32 %inc to i64
@@ -371,51 +381,51 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.cond11.preheader, !llvm.loop !15
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.body16
-  %11 = phi ptr [ %1, %for.body16.lr.ph ], [ %24, %for.body16 ]
+  %7 = phi ptr [ %1, %for.body16.lr.ph ], [ %20, %for.body16 ]
   %conv1232 = phi i64 [ 0, %for.body16.lr.ph ], [ %conv12, %for.body16 ]
   %i10.031 = phi i32 [ 0, %for.body16.lr.ph ], [ %inc26, %for.body16 ]
-  %add.ptr.i18 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %11, i64 %conv1232
+  %add.ptr.i18 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %7, i64 %conv1232
   %mPosition20 = getelementptr inbounds i8, ptr %add.ptr.i18, i64 4
-  %12 = load float, ptr %mPosition20, align 4
-  %13 = load float, ptr %mCentroid.i, align 4
-  %sub.i.i = fsub float %12, %13
+  %8 = load float, ptr %mPosition20, align 4
+  %9 = load float, ptr %mCentroid.i, align 4
+  %sub.i.i = fsub float %8, %9
   %y.i.i = getelementptr inbounds i8, ptr %add.ptr.i18, i64 8
-  %14 = load float, ptr %y.i.i, align 4
-  %15 = load float, ptr %y2.i.i, align 8
-  %sub3.i.i = fsub float %14, %15
+  %10 = load float, ptr %y.i.i, align 4
+  %11 = load float, ptr %y2.i.i, align 8
+  %sub3.i.i = fsub float %10, %11
   %z.i.i = getelementptr inbounds i8, ptr %add.ptr.i18, i64 12
-  %16 = load float, ptr %z.i.i, align 4
-  %17 = load float, ptr %z4.i.i, align 4
-  %sub5.i.i = fsub float %16, %17
-  %18 = load float, ptr %this, align 8
-  %19 = load float, ptr %y2.i2.i, align 4
-  %mul3.i.i = fmul float %sub3.i.i, %19
-  %20 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %18, float %mul3.i.i)
-  %21 = load float, ptr %z4.i4.i, align 8
-  %22 = tail call noundef float @llvm.fmuladd.f32(float %sub5.i.i, float %21, float %20)
+  %12 = load float, ptr %z.i.i, align 4
+  %13 = load float, ptr %z4.i.i, align 4
+  %sub5.i.i = fsub float %12, %13
+  %14 = load float, ptr %this, align 8
+  %15 = load float, ptr %y2.i2.i, align 4
+  %mul3.i.i = fmul float %sub3.i.i, %15
+  %16 = tail call float @llvm.fmuladd.f32(float %sub.i.i, float %14, float %mul3.i.i)
+  %17 = load float, ptr %z4.i4.i, align 8
+  %18 = tail call noundef float @llvm.fmuladd.f32(float %sub5.i.i, float %17, float %16)
   %mDistance = getelementptr inbounds i8, ptr %add.ptr.i18, i64 16
-  store float %22, ptr %mDistance, align 4
+  store float %18, ptr %mDistance, align 4
   %inc26 = add i32 %i10.031, 1
   %conv12 = zext i32 %inc26 to i64
-  %23 = load ptr, ptr %_M_finish.i, align 8
-  %24 = load ptr, ptr %mPositions, align 8
-  %sub.ptr.lhs.cast.i14 = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i15 = ptrtoint ptr %24 to i64
+  %19 = load ptr, ptr %_M_finish.i, align 8
+  %20 = load ptr, ptr %mPositions, align 8
+  %sub.ptr.lhs.cast.i14 = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i15 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
   %sub.ptr.div.i17 = sdiv exact i64 %sub.ptr.sub.i16, 20
   %cmp15 = icmp ugt i64 %sub.ptr.div.i17, %conv12
   br i1 %cmp15, label %for.body16, label %for.end27, !llvm.loop !16
 
 for.end27:                                        ; preds = %for.body16, %entry, %for.cond11.preheader
-  %.lcssa21 = phi ptr [ %0, %for.cond11.preheader ], [ %0, %entry ], [ %23, %for.body16 ]
-  %.lcssa = phi ptr [ %1, %for.cond11.preheader ], [ %1, %entry ], [ %24, %for.body16 ]
+  %.lcssa21 = phi ptr [ %0, %for.cond11.preheader ], [ %0, %entry ], [ %19, %for.body16 ]
+  %.lcssa = phi ptr [ %1, %for.cond11.preheader ], [ %1, %entry ], [ %20, %for.body16 ]
   %sub.ptr.div.i17.lcssa = phi i64 [ %sub.ptr.div.i, %for.cond11.preheader ], [ %sub.ptr.div.i, %entry ], [ %sub.ptr.div.i17, %for.body16 ]
   %cmp.i.not.i.i = icmp eq ptr %.lcssa, %.lcssa21
   br i1 %cmp.i.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end27
-  %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i17.lcssa, i1 true)
-  %sub.i.i.i = shl nuw nsw i64 %25, 1
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i17.lcssa, i1 true)
+  %sub.i.i.i = shl nuw nsw i64 %21, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %.lcssa, ptr %.lcssa21, i64 noundef %mul.i.i)
   tail call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %.lcssa, ptr %.lcssa21)

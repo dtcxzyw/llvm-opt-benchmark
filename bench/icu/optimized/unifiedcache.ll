@@ -177,7 +177,13 @@ entry:
   %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %fHashtable, align 8
   %fEvictPos = getelementptr inbounds i8, ptr %this, i64 16
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 1000>, ptr %fEvictPos, align 8
+  store i32 -1, ptr %fEvictPos, align 8
+  %fNumValuesTotal = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 0, ptr %fNumValuesTotal, align 4
+  %fNumValuesInUse = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 0, ptr %fNumValuesInUse, align 8
+  %fMaxUnused = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 1000, ptr %fMaxUnused, align 4
   %fMaxPercentageOfInUse = getelementptr inbounds i8, ptr %this, i64 32
   store i32 100, ptr %fMaxPercentageOfInUse, align 8
   %fAutoEvictedCount = getelementptr inbounds i8, ptr %this, i64 40
@@ -970,9 +976,13 @@ if.then6:                                         ; preds = %if.end4
   %cachePtr.i = getelementptr inbounds i8, ptr %value, i64 16
   store ptr %this, ptr %cachePtr.i, align 8
   %fNumValuesTotal.i = getelementptr inbounds i8, ptr %this, i64 20
-  %3 = load <2 x i32>, ptr %fNumValuesTotal.i, align 4
-  %4 = add nsw <2 x i32> %3, <i32 1, i32 1>
-  store <2 x i32> %4, ptr %fNumValuesTotal.i, align 4
+  %3 = load i32, ptr %fNumValuesTotal.i, align 4
+  %inc.i = add nsw i32 %3, 1
+  store i32 %inc.i, ptr %fNumValuesTotal.i, align 4
+  %fNumValuesInUse.i = getelementptr inbounds i8, ptr %this, i64 24
+  %4 = load i32, ptr %fNumValuesInUse.i, align 8
+  %inc2.i = add nsw i32 %4, 1
+  store i32 %inc2.i, ptr %fNumValuesInUse.i, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end4
@@ -1001,9 +1011,13 @@ entry:
   %cachePtr = getelementptr inbounds i8, ptr %value, i64 16
   store ptr %this, ptr %cachePtr, align 8
   %fNumValuesTotal = getelementptr inbounds i8, ptr %this, i64 20
-  %0 = load <2 x i32>, ptr %fNumValuesTotal, align 4
-  %1 = add nsw <2 x i32> %0, <i32 1, i32 1>
-  store <2 x i32> %1, ptr %fNumValuesTotal, align 4
+  %0 = load i32, ptr %fNumValuesTotal, align 4
+  %inc = add nsw i32 %0, 1
+  store i32 %inc, ptr %fNumValuesTotal, align 4
+  %fNumValuesInUse = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = load i32, ptr %fNumValuesInUse, align 8
+  %inc2 = add nsw i32 %1, 1
+  store i32 %inc2, ptr %fNumValuesInUse, align 8
   ret void
 }
 
@@ -1162,9 +1176,13 @@ if.then6.i:                                       ; preds = %if.end4.i
   %cachePtr.i.i = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %this, ptr %cachePtr.i.i, align 8
   %fNumValuesTotal.i.i = getelementptr inbounds i8, ptr %this, i64 20
-  %26 = load <2 x i32>, ptr %fNumValuesTotal.i.i, align 4
-  %27 = add nsw <2 x i32> %26, <i32 1, i32 1>
-  store <2 x i32> %27, ptr %fNumValuesTotal.i.i, align 4
+  %26 = load i32, ptr %fNumValuesTotal.i.i, align 4
+  %inc.i.i20 = add nsw i32 %26, 1
+  store i32 %inc.i.i20, ptr %fNumValuesTotal.i.i, align 4
+  %fNumValuesInUse.i.i21 = getelementptr inbounds i8, ptr %this, i64 24
+  %27 = load i32, ptr %fNumValuesInUse.i.i21, align 8
+  %inc2.i.i = add nsw i32 %27, 1
+  store i32 %inc2.i.i, ptr %fNumValuesInUse.i.i21, align 8
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %if.end4.i
@@ -1201,9 +1219,13 @@ if.then.i:                                        ; preds = %if.else
   %cachePtr.i.i35 = getelementptr inbounds i8, ptr %31, i64 16
   store ptr %this, ptr %cachePtr.i.i35, align 8
   %fNumValuesTotal.i.i36 = getelementptr inbounds i8, ptr %this, i64 20
-  %36 = load <2 x i32>, ptr %fNumValuesTotal.i.i36, align 4
-  %37 = add nsw <2 x i32> %36, <i32 1, i32 1>
-  store <2 x i32> %37, ptr %fNumValuesTotal.i.i36, align 4
+  %36 = load i32, ptr %fNumValuesTotal.i.i36, align 4
+  %inc.i.i37 = add nsw i32 %36, 1
+  store i32 %inc.i.i37, ptr %fNumValuesTotal.i.i36, align 4
+  %fNumValuesInUse.i.i38 = getelementptr inbounds i8, ptr %this, i64 24
+  %37 = load i32, ptr %fNumValuesInUse.i.i38, align 8
+  %inc2.i.i39 = add nsw i32 %37, 1
+  store i32 %inc2.i.i39, ptr %fNumValuesInUse.i.i38, align 8
   %.pre.i = load i32, ptr %softRefCount.i27, align 8
   br label %if.end.i29
 
@@ -1384,9 +1406,13 @@ if.then:                                          ; preds = %entry
   %cachePtr.i = getelementptr inbounds i8, ptr %value, i64 16
   store ptr %this, ptr %cachePtr.i, align 8
   %fNumValuesTotal.i = getelementptr inbounds i8, ptr %this, i64 20
-  %3 = load <2 x i32>, ptr %fNumValuesTotal.i, align 4
-  %4 = add nsw <2 x i32> %3, <i32 1, i32 1>
-  store <2 x i32> %4, ptr %fNumValuesTotal.i, align 4
+  %3 = load i32, ptr %fNumValuesTotal.i, align 4
+  %inc.i = add nsw i32 %3, 1
+  store i32 %inc.i, ptr %fNumValuesTotal.i, align 4
+  %fNumValuesInUse.i = getelementptr inbounds i8, ptr %this, i64 24
+  %4 = load i32, ptr %fNumValuesInUse.i, align 8
+  %inc2.i = add nsw i32 %4, 1
+  store i32 %inc2.i, ptr %fNumValuesInUse.i, align 8
   %.pre = load i32, ptr %softRefCount, align 8
   br label %if.end
 
@@ -1622,9 +1648,12 @@ if.then6.i:                                       ; preds = %if.end4.i
   %cachePtr.i.i = getelementptr inbounds i8, ptr %25, i64 16
   store ptr %this, ptr %cachePtr.i.i, align 8
   %fNumValuesTotal.i.i = getelementptr inbounds i8, ptr %this, i64 20
-  %29 = load <2 x i32>, ptr %fNumValuesTotal.i.i, align 4
-  %30 = add nsw <2 x i32> %29, <i32 1, i32 1>
-  store <2 x i32> %30, ptr %fNumValuesTotal.i.i, align 4
+  %29 = load i32, ptr %fNumValuesTotal.i.i, align 4
+  %inc.i.i16 = add nsw i32 %29, 1
+  store i32 %inc.i.i16, ptr %fNumValuesTotal.i.i, align 4
+  %30 = load i32, ptr %fNumValuesInUse.i10.i.i, align 8
+  %inc2.i.i = add nsw i32 %30, 1
+  store i32 %inc2.i.i, ptr %fNumValuesInUse.i10.i.i, align 8
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %if.end4.i

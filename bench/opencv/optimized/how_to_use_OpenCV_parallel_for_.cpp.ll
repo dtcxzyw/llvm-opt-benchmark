@@ -757,100 +757,102 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZ4mainE3$_0E9_M_
   br label %11
 
 11:                                               ; preds = %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i, %.lr.ph.i.i.i
-  %.017.i.i.i = phi i32 [ %3, %.lr.ph.i.i.i ], [ %74, %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i ]
+  %.017.i.i.i = phi i32 [ %3, %.lr.ph.i.i.i ], [ %70, %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i ]
   %12 = load ptr, ptr %.val, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = sdiv i32 %.017.i.i.i, %14
   %16 = srem i32 %.017.i.i.i, %14
-  %17 = load ptr, ptr %7, align 8
-  %18 = load float, ptr %17, align 4
-  %19 = load ptr, ptr %8, align 8
-  %20 = load float, ptr %19, align 4
-  %21 = load ptr, ptr %9, align 8
+  %17 = sitofp i32 %16 to float
+  %18 = load ptr, ptr %7, align 8
+  %19 = load float, ptr %18, align 4
+  %20 = fdiv float %17, %19
+  %21 = load ptr, ptr %8, align 8
   %22 = load float, ptr %21, align 4
-  %23 = load ptr, ptr %10, align 8
-  %24 = load float, ptr %23, align 4
-  %25 = insertelement <2 x i32> poison, i32 %16, i64 0
-  %26 = insertelement <2 x i32> %25, i32 %15, i64 1
-  %27 = sitofp <2 x i32> %26 to <2 x float>
-  %28 = insertelement <2 x float> poison, float %18, i64 0
-  %29 = insertelement <2 x float> %28, float %22, i64 1
-  %30 = fdiv <2 x float> %27, %29
-  %31 = insertelement <2 x float> poison, float %20, i64 0
-  %32 = insertelement <2 x float> %31, float %24, i64 1
-  %33 = fadd <2 x float> %30, %32
-  br label %34
+  %23 = fadd float %20, %22
+  %24 = sitofp i32 %15 to float
+  %25 = load ptr, ptr %9, align 8
+  %26 = load float, ptr %25, align 4
+  %27 = fdiv float %24, %26
+  %28 = load ptr, ptr %10, align 8
+  %29 = load float, ptr %28, align 4
+  %30 = fadd float %27, %29
+  %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %23, i64 0
+  %.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i, float %30, i64 1
+  br label %31
 
-34:                                               ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, %11
-  %.0725.i.i.i.i.i = phi i32 [ 0, %11 ], [ %54, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
-  %.sroa.013.024.i.i.i.i.i = phi <2 x float> [ %33, %11 ], [ %53, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
+31:                                               ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, %11
+  %.0725.i.i.i.i.i = phi i32 [ 0, %11 ], [ %50, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
+  %.sroa.013.024.i.i.i.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i, %11 ], [ %.sroa.0.4.vec.insert.i12.i.i.i.i.i, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
   %.sroa.013.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.013.024.i.i.i.i.i, i64 0
   %.sroa.013.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.013.024.i.i.i.i.i, i64 1
-  %35 = fmul float %.sroa.013.4.vec.extract.i.i.i.i.i, %.sroa.013.4.vec.extract.i.i.i.i.i
-  %36 = tail call float @llvm.fmuladd.f32(float %.sroa.013.0.vec.extract.i.i.i.i.i, float %.sroa.013.0.vec.extract.i.i.i.i.i, float %35)
-  %37 = fcmp ogt float %36, 4.000000e+00
-  br i1 %37, label %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i, label %38
+  %32 = fmul float %.sroa.013.4.vec.extract.i.i.i.i.i, %.sroa.013.4.vec.extract.i.i.i.i.i
+  %33 = tail call float @llvm.fmuladd.f32(float %.sroa.013.0.vec.extract.i.i.i.i.i, float %.sroa.013.0.vec.extract.i.i.i.i.i, float %32)
+  %34 = fcmp ogt float %33, 4.000000e+00
+  br i1 %34, label %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i, label %35
 
-38:                                               ; preds = %34
-  %39 = shufflevector <2 x float> %.sroa.013.024.i.i.i.i.i, <2 x float> poison, <2 x i32> zeroinitializer
-  %40 = fmul <2 x float> %39, %.sroa.013.024.i.i.i.i.i
-  %41 = insertelement <2 x float> %40, float %35, i64 0
-  %42 = fsub <2 x float> %40, %41
-  %43 = fadd <2 x float> %40, %41
-  %44 = shufflevector <2 x float> %42, <2 x float> %43, <2 x i32> <i32 0, i32 3>
-  %45 = extractelement <2 x float> %42, i64 0
-  %46 = fcmp uno float %45, 0.000000e+00
-  br i1 %46, label %47, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, !prof !5
+35:                                               ; preds = %31
+  %36 = fmul <2 x float> %.sroa.013.024.i.i.i.i.i, %.sroa.013.024.i.i.i.i.i
+  %37 = extractelement <2 x float> %36, i64 0
+  %38 = fmul float %.sroa.013.0.vec.extract.i.i.i.i.i, %.sroa.013.4.vec.extract.i.i.i.i.i
+  %39 = fsub float %37, %32
+  %40 = fadd float %38, %38
+  %41 = fcmp uno float %39, 0.000000e+00
+  br i1 %41, label %42, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, !prof !5
 
-47:                                               ; preds = %38
-  %48 = extractelement <2 x float> %43, i64 1
-  %49 = fcmp uno float %48, 0.000000e+00
-  br i1 %49, label %50, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, !prof !5
+42:                                               ; preds = %35
+  %43 = fcmp uno float %40, 0.000000e+00
+  br i1 %43, label %44, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, !prof !5
 
-50:                                               ; preds = %47
-  %51 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.013.0.vec.extract.i.i.i.i.i, float noundef %.sroa.013.4.vec.extract.i.i.i.i.i, float noundef %.sroa.013.0.vec.extract.i.i.i.i.i, float noundef %.sroa.013.4.vec.extract.i.i.i.i.i) #19
+44:                                               ; preds = %42
+  %45 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.013.0.vec.extract.i.i.i.i.i, float noundef %.sroa.013.4.vec.extract.i.i.i.i.i, float noundef %.sroa.013.0.vec.extract.i.i.i.i.i, float noundef %.sroa.013.4.vec.extract.i.i.i.i.i) #19
+  %.sroa.0.0.vec.extract.i.i.i.i.i.i.i = extractelement <2 x float> %45, i64 0
+  %.sroa.0.4.vec.extract.i.i.i.i.i.i.i = extractelement <2 x float> %45, i64 1
   br label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i
 
-_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i:   ; preds = %50, %47, %38
-  %52 = phi <2 x float> [ %44, %38 ], [ %44, %47 ], [ %51, %50 ]
-  %53 = fadd <2 x float> %33, %52
-  %54 = add nuw nsw i32 %.0725.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i32 %54, 500
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i, label %34, !llvm.loop !6
+_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i:   ; preds = %44, %42, %35
+  %46 = phi float [ %39, %35 ], [ %39, %42 ], [ %.sroa.0.0.vec.extract.i.i.i.i.i.i.i, %44 ]
+  %47 = phi float [ %40, %35 ], [ %40, %42 ], [ %.sroa.0.4.vec.extract.i.i.i.i.i.i.i, %44 ]
+  %48 = fadd float %23, %46
+  %49 = fadd float %30, %47
+  %.sroa.0.0.vec.insert.i11.i.i.i.i.i = insertelement <2 x float> poison, float %48, i64 0
+  %.sroa.0.4.vec.insert.i12.i.i.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i11.i.i.i.i.i, float %49, i64 1
+  %50 = add nuw nsw i32 %.0725.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i32 %50, 500
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i, label %31, !llvm.loop !6
 
-_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i: ; preds = %34
-  %55 = icmp eq i32 %.0725.i.i.i.i.i, 500
-  br i1 %55, label %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i, label %56
+_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i: ; preds = %31
+  %51 = icmp eq i32 %.0725.i.i.i.i.i, 500
+  br i1 %51, label %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i, label %52
 
-56:                                               ; preds = %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i
-  %57 = uitofp nneg i32 %.0725.i.i.i.i.i to float
-  %58 = fdiv float %57, 5.000000e+02
-  %sqrt.i.i.i.i = tail call float @llvm.sqrt.f32(float %58)
-  %59 = fmul float %sqrt.i.i.i.i, 2.550000e+02
-  %60 = insertelement <4 x float> poison, float %59, i64 0
-  %61 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %60)
+52:                                               ; preds = %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i
+  %53 = uitofp nneg i32 %.0725.i.i.i.i.i to float
+  %54 = fdiv float %53, 5.000000e+02
+  %sqrt.i.i.i.i = tail call float @llvm.sqrt.f32(float %54)
+  %55 = fmul float %sqrt.i.i.i.i, 2.550000e+02
+  %56 = insertelement <4 x float> poison, float %55, i64 0
+  %57 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %56)
   br label %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i
 
-_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i: ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, %56, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i
-  %.0.i.i.i.i = phi i32 [ %61, %56 ], [ 0, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i ], [ 0, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
-  %62 = trunc i32 %.0.i.i.i.i to i8
-  %63 = load ptr, ptr %.val, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %63, i64 72
-  %67 = load ptr, ptr %66, align 8
-  %68 = load i64, ptr %67, align 8
-  %69 = sext i32 %15 to i64
-  %70 = mul i64 %68, %69
-  %71 = getelementptr inbounds i8, ptr %65, i64 %70
-  %72 = sext i32 %16 to i64
-  %73 = getelementptr inbounds i8, ptr %71, i64 %72
-  store i8 %62, ptr %73, align 1
-  %74 = add nsw i32 %.017.i.i.i, 1
-  %75 = load i32, ptr %4, align 4
-  %76 = icmp slt i32 %74, %75
-  br i1 %76, label %11, label %"_ZSt10__invoke_rIvRZ4mainE3$_0JRKN2cv5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.exit", !llvm.loop !11
+_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i: ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, %52, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i
+  %.0.i.i.i.i = phi i32 [ %57, %52 ], [ 0, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i ], [ 0, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
+  %58 = trunc i32 %.0.i.i.i.i to i8
+  %59 = load ptr, ptr %.val, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %59, i64 72
+  %63 = load ptr, ptr %62, align 8
+  %64 = load i64, ptr %63, align 8
+  %65 = sext i32 %15 to i64
+  %66 = mul i64 %64, %65
+  %67 = getelementptr inbounds i8, ptr %61, i64 %66
+  %68 = sext i32 %16 to i64
+  %69 = getelementptr inbounds i8, ptr %67, i64 %68
+  store i8 %58, ptr %69, align 1
+  %70 = add nsw i32 %.017.i.i.i, 1
+  %71 = load i32, ptr %4, align 4
+  %72 = icmp slt i32 %70, %71
+  br i1 %72, label %11, label %"_ZSt10__invoke_rIvRZ4mainE3$_0JRKN2cv5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.exit", !llvm.loop !11
 
 "_ZSt10__invoke_rIvRZ4mainE3$_0JRKN2cv5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.exit": ; preds = %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i, %2
   ret void

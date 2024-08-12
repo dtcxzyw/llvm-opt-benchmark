@@ -12,7 +12,7 @@ define void @dlarrc_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   store i32 0, ptr %10, align 4, !tbaa !3
   %14 = load i32, ptr %1, align 4, !tbaa !3
   %15 = icmp slt i32 %14, 1
-  br i1 %15, label %130, label %16
+  br i1 %15, label %129, label %16
 
 16:                                               ; preds = %11
   store i32 0, ptr %8, align 4, !tbaa !3
@@ -97,115 +97,114 @@ define void @dlarrc_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 66:                                               ; preds = %16
   %67 = load double, ptr %2, align 8, !tbaa !7
-  %68 = load double, ptr %3, align 8, !tbaa !7
-  %69 = insertelement <2 x double> poison, double %67, i64 0
-  %70 = insertelement <2 x double> %69, double %68, i64 1
-  %71 = fneg <2 x double> %70
-  %72 = load i32, ptr %1, align 4, !tbaa !3
-  %73 = icmp sgt i32 %72, 1
-  br i1 %73, label %74, label %.loopexit
+  %68 = fneg double %67
+  %69 = load double, ptr %3, align 8, !tbaa !7
+  %70 = fneg double %69
+  %71 = load i32, ptr %1, align 4, !tbaa !3
+  %72 = icmp sgt i32 %71, 1
+  br i1 %72, label %73, label %.loopexit
 
-74:                                               ; preds = %66
-  %75 = zext nneg i32 %72 to i64
-  br label %76
+73:                                               ; preds = %66
+  %74 = zext nneg i32 %71 to i64
+  br label %75
 
-76:                                               ; preds = %95, %74
-  %77 = phi i64 [ 1, %74 ], [ %107, %95 ]
-  %78 = phi <2 x double> [ %71, %74 ], [ %106, %95 ]
-  %79 = getelementptr inbounds double, ptr %13, i64 %77
+75:                                               ; preds = %92, %73
+  %76 = phi i64 [ 1, %73 ], [ %107, %92 ]
+  %77 = phi double [ %70, %73 ], [ %106, %92 ]
+  %78 = phi double [ %68, %73 ], [ %101, %92 ]
+  %79 = getelementptr inbounds double, ptr %13, i64 %76
   %80 = load double, ptr %79, align 8, !tbaa !7
-  %81 = insertelement <2 x double> poison, double %80, i64 0
-  %82 = shufflevector <2 x double> %81, <2 x double> poison, <2 x i32> zeroinitializer
-  %83 = fadd <2 x double> %78, %82
-  %84 = extractelement <2 x double> %83, i64 0
-  %85 = fcmp ugt double %84, 0.000000e+00
-  br i1 %85, label %89, label %86
+  %81 = fadd double %78, %80
+  %82 = fadd double %77, %80
+  %83 = fcmp ugt double %81, 0.000000e+00
+  br i1 %83, label %87, label %84
 
-86:                                               ; preds = %76
-  %87 = load i32, ptr %8, align 4, !tbaa !3
-  %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %8, align 4, !tbaa !3
-  br label %89
+84:                                               ; preds = %75
+  %85 = load i32, ptr %8, align 4, !tbaa !3
+  %86 = add nsw i32 %85, 1
+  store i32 %86, ptr %8, align 4, !tbaa !3
+  br label %87
 
-89:                                               ; preds = %86, %76
-  %90 = extractelement <2 x double> %83, i64 1
-  %91 = fcmp ugt double %90, 0.000000e+00
-  br i1 %91, label %95, label %92
+87:                                               ; preds = %84, %75
+  %88 = fcmp ugt double %82, 0.000000e+00
+  br i1 %88, label %92, label %89
 
-92:                                               ; preds = %89
-  %93 = load i32, ptr %9, align 4, !tbaa !3
-  %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %9, align 4, !tbaa !3
-  br label %95
+89:                                               ; preds = %87
+  %90 = load i32, ptr %9, align 4, !tbaa !3
+  %91 = add nsw i32 %90, 1
+  store i32 %91, ptr %9, align 4, !tbaa !3
+  br label %92
 
-95:                                               ; preds = %92, %89
-  %96 = getelementptr inbounds double, ptr %12, i64 %77
-  %97 = load double, ptr %96, align 8, !tbaa !7
-  %98 = fmul double %80, %97
-  %99 = fmul double %97, %98
-  %100 = insertelement <2 x double> poison, double %99, i64 0
-  %101 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> zeroinitializer
-  %102 = fdiv <2 x double> %101, %83
-  %103 = fcmp oeq <2 x double> %102, zeroinitializer
-  %104 = fsub <2 x double> %101, %70
-  %105 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %78, <2 x double> %102, <2 x double> %71)
-  %106 = select <2 x i1> %103, <2 x double> %104, <2 x double> %105
-  %107 = add nuw nsw i64 %77, 1
-  %108 = icmp eq i64 %107, %75
-  br i1 %108, label %.loopexit.loopexit, label %76, !llvm.loop !12
+92:                                               ; preds = %89, %87
+  %93 = getelementptr inbounds double, ptr %12, i64 %76
+  %94 = load double, ptr %93, align 8, !tbaa !7
+  %95 = fmul double %80, %94
+  %96 = fmul double %94, %95
+  %97 = fdiv double %96, %81
+  %98 = fcmp oeq double %97, 0.000000e+00
+  %99 = fsub double %96, %67
+  %100 = tail call double @llvm.fmuladd.f64(double %78, double %97, double %68)
+  %101 = select i1 %98, double %99, double %100
+  %102 = fdiv double %96, %82
+  %103 = fcmp oeq double %102, 0.000000e+00
+  %104 = fsub double %96, %69
+  %105 = tail call double @llvm.fmuladd.f64(double %77, double %102, double %70)
+  %106 = select i1 %103, double %104, double %105
+  %107 = add nuw nsw i64 %76, 1
+  %108 = icmp eq i64 %107, %74
+  br i1 %108, label %.loopexit.loopexit, label %75, !llvm.loop !12
 
-.loopexit.loopexit:                               ; preds = %95
+.loopexit.loopexit:                               ; preds = %92
   %.pre = load i32, ptr %1, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %66
-  %109 = phi i32 [ %72, %66 ], [ %.pre, %.loopexit.loopexit ]
-  %110 = phi <2 x double> [ %71, %66 ], [ %106, %.loopexit.loopexit ]
-  %111 = sext i32 %109 to i64
-  %112 = getelementptr inbounds double, ptr %13, i64 %111
-  %113 = load double, ptr %112, align 8, !tbaa !7
-  %114 = extractelement <2 x double> %110, i64 0
-  %115 = fadd double %114, %113
-  %116 = extractelement <2 x double> %110, i64 1
-  %117 = fadd double %116, %113
-  %118 = fcmp ugt double %115, 0.000000e+00
-  br i1 %118, label %122, label %119
+  %109 = phi i32 [ %71, %66 ], [ %.pre, %.loopexit.loopexit ]
+  %110 = phi double [ %68, %66 ], [ %101, %.loopexit.loopexit ]
+  %111 = phi double [ %70, %66 ], [ %106, %.loopexit.loopexit ]
+  %112 = sext i32 %109 to i64
+  %113 = getelementptr inbounds double, ptr %13, i64 %112
+  %114 = load double, ptr %113, align 8, !tbaa !7
+  %115 = fadd double %110, %114
+  %116 = fadd double %111, %114
+  %117 = fcmp ugt double %115, 0.000000e+00
+  br i1 %117, label %121, label %118
 
-119:                                              ; preds = %.loopexit
-  %120 = load i32, ptr %8, align 4, !tbaa !3
-  %121 = add nsw i32 %120, 1
-  store i32 %121, ptr %8, align 4, !tbaa !3
-  br label %122
+118:                                              ; preds = %.loopexit
+  %119 = load i32, ptr %8, align 4, !tbaa !3
+  %120 = add nsw i32 %119, 1
+  store i32 %120, ptr %8, align 4, !tbaa !3
+  br label %121
 
-122:                                              ; preds = %119, %.loopexit
-  %123 = fcmp ugt double %117, 0.000000e+00
-  br i1 %123, label %.loopexit4, label %124
+121:                                              ; preds = %118, %.loopexit
+  %122 = fcmp ugt double %116, 0.000000e+00
+  br i1 %122, label %.loopexit4, label %123
 
-124:                                              ; preds = %122
-  %125 = load i32, ptr %9, align 4, !tbaa !3
-  %126 = add nsw i32 %125, 1
-  store i32 %126, ptr %9, align 4, !tbaa !3
+123:                                              ; preds = %121
+  %124 = load i32, ptr %9, align 4, !tbaa !3
+  %125 = add nsw i32 %124, 1
+  store i32 %125, ptr %9, align 4, !tbaa !3
   br label %.loopexit4
 
-.loopexit4:                                       ; preds = %64, %124, %122, %34
-  %127 = load i32, ptr %9, align 4, !tbaa !3
-  %128 = load i32, ptr %8, align 4, !tbaa !3
-  %129 = sub nsw i32 %127, %128
-  store i32 %129, ptr %7, align 4, !tbaa !3
-  br label %130
+.loopexit4:                                       ; preds = %64, %123, %121, %34
+  %126 = load i32, ptr %9, align 4, !tbaa !3
+  %127 = load i32, ptr %8, align 4, !tbaa !3
+  %128 = sub nsw i32 %126, %127
+  store i32 %128, ptr %7, align 4, !tbaa !3
+  br label %129
 
-130:                                              ; preds = %.loopexit4, %11
+129:                                              ; preds = %.loopexit4, %11
   ret void
 }
 
 declare i32 @lsame_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

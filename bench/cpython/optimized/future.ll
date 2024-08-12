@@ -24,6 +24,9 @@ define hidden range(i32 0, 2) i32 @_PyFuture_FromAST(ptr nocapture noundef reado
 entry:
   store i32 0, ptr %ff, align 4
   %ff_location = getelementptr inbounds i8, ptr %ff, i64 4
+  %.compoundliteral.sroa.2.0.ff_location.sroa_idx = getelementptr inbounds i8, ptr %ff, i64 8
+  %.compoundliteral.sroa.3.0.ff_location.sroa_idx = getelementptr inbounds i8, ptr %ff, i64 12
+  %.compoundliteral.sroa.4.0.ff_location.sroa_idx = getelementptr inbounds i8, ptr %ff, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ff_location, i8 -1, i64 16, i1 false)
   %0 = load i32, ptr %mod, align 8
   %.off.i = add i32 %0, -1
@@ -184,16 +187,24 @@ return.sink.split.i.i:                            ; preds = %if.else61.i.i, %if.
 
 if.end27.i:                                       ; preds = %cond.end.i.i
   %lineno28.i = getelementptr inbounds i8, ptr %4, i64 64
-  %15 = load <4 x i32>, ptr %lineno28.i, align 8
-  %16 = shufflevector <4 x i32> %15, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  store <4 x i32> %16, ptr %ff_location, align 4
+  %15 = load i32, ptr %lineno28.i, align 8
+  %end_lineno29.i = getelementptr inbounds i8, ptr %4, i64 72
+  %16 = load i32, ptr %end_lineno29.i, align 8
+  %col_offset30.i = getelementptr inbounds i8, ptr %4, i64 68
+  %17 = load i32, ptr %col_offset30.i, align 4
+  %end_col_offset31.i = getelementptr inbounds i8, ptr %4, i64 76
+  %18 = load i32, ptr %end_col_offset31.i, align 4
+  store i32 %15, ptr %ff_location, align 4
+  store i32 %16, ptr %.compoundliteral.sroa.2.0.ff_location.sroa_idx, align 4
+  store i32 %17, ptr %.compoundliteral.sroa.3.0.ff_location.sroa_idx, align 4
+  store i32 %18, ptr %.compoundliteral.sroa.4.0.ff_location.sroa_idx, align 4
   %inc35.i = add nuw i64 %i.128.i, 1
   %exitcond.not.i = icmp eq i64 %inc35.i, %2
   br i1 %exitcond.not.i, label %future_parse.exit, label %for.body.i, !llvm.loop !7
 
 future_parse.exit:                                ; preds = %land.lhs.true.i, %if.then19.i, %for.body.i, %if.end27.i, %for.body.i.i, %if.end8.i, %if.end.i, %cond.end.i, %entry, %return.sink.split.i.i
-  %17 = phi i32 [ 0, %return.sink.split.i.i ], [ 1, %entry ], [ 1, %cond.end.i ], [ 1, %if.end.i ], [ 1, %if.end8.i ], [ 0, %for.body.i.i ], [ 1, %if.end27.i ], [ 1, %for.body.i ], [ 1, %if.then19.i ], [ 1, %land.lhs.true.i ]
-  ret i32 %17
+  %19 = phi i32 [ 0, %return.sink.split.i.i ], [ 1, %entry ], [ 1, %cond.end.i ], [ 1, %if.end.i ], [ 1, %if.end8.i ], [ 0, %for.body.i.i ], [ 1, %if.end27.i ], [ 1, %for.body.i ], [ 1, %if.then19.i ], [ 1, %land.lhs.true.i ]
+  ret i32 %19
 }
 
 declare ptr @_PyAST_GetDocString(ptr noundef) local_unnamed_addr #1

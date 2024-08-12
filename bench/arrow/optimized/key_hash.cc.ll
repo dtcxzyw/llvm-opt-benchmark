@@ -86,7 +86,7 @@ declare noundef i32 @_ZN5arrow7compute9Hashing3215HashVarLen_avx2EbjPKjPKhPjS6_(
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow7compute9Hashing3213HashVarLenImpIjLb1EEEvjPKT_PKhPj(i32 noundef %num_rows, ptr noundef %offsets, ptr noundef %concatenated_keys, ptr noundef %hashes) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %last_stripe_copy.sroa.0 = alloca <4 x i32>, align 16
+  %last_stripe_copy = alloca [4 x i32], align 16
   %cmp.not187 = icmp eq i32 %num_rows, 0
   br i1 %cmp.not187, label %for.cond33.preheader, label %land.rhs.lr.ph
 
@@ -122,6 +122,9 @@ for.cond33.preheader:                             ; preds = %while.body, %if.end
 for.body35.lr.ph:                                 ; preds = %for.cond33.preheader
   %2 = zext i32 %num_rows_safe.0.lcssa206 to i64
   %wide.trip.count202 = zext i32 %num_rows to i64
+  %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i123.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 4
+  %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i125.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 8
+  %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.add.ptr4.i127.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 12
   br label %for.body35
 
 for.body:                                         ; preds = %for.body.preheader, %if.end
@@ -149,53 +152,112 @@ for.body:                                         ; preds = %for.body.preheader,
   %add18.neg = select i1 %cmp11, i64 15, i64 16
   %sub.i49 = sub nuw nsw i64 %add18.neg, %and
   %add.ptr.i = getelementptr inbounds i8, ptr @_ZZN5arrow7compute9Hashing3210StripeMaskEiPjS2_S2_S2_E5bytes, i64 %sub.i49
-  %5 = load <4 x i32>, ptr %add.ptr.i, align 1
+  %ret.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
+  %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %ret.0.copyload.i4.i = load i32, ptr %add.ptr7.i, align 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %ret.0.copyload.i5.i = load i32, ptr %add.ptr9.i, align 1
+  %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
+  %ret.0.copyload.i6.i = load i32, ptr %add.ptr11.i, align 1
   %idx.ext = zext i32 %4 to i64
   %add.ptr = getelementptr inbounds i8, ptr %concatenated_keys, i64 %idx.ext
   %cmp25.i = icmp ugt i64 %add14, 1
   br i1 %cmp25.i, label %for.body.preheader.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
 
 for.body.preheader.i:                             ; preds = %for.body
-  %6 = add nsw i64 %add14, -2
+  %5 = add nsw i64 %add14, -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %acc1.030.i = phi i32 [ %mul1.i.i, %for.body.i ], [ 606290984, %for.body.preheader.i ]
+  %acc2.029.i = phi i32 [ %mul1.i16.i, %for.body.i ], [ -2048144777, %for.body.preheader.i ]
+  %acc3.028.i = phi i32 [ %mul1.i20.i, %for.body.i ], [ 0, %for.body.preheader.i ]
+  %acc4.027.i = phi i32 [ %mul1.i24.i, %for.body.i ], [ 1640531535, %for.body.preheader.i ]
   %istripe.026.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.preheader.i ]
-  %7 = phi <4 x i32> [ %12, %for.body.i ], [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.preheader.i ]
   %mul1.i = shl i64 %istripe.026.i, 4
   %add.ptr.i50 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul1.i
-  %8 = load <4 x i32>, ptr %add.ptr.i50, align 1
-  %9 = mul <4 x i32> %8, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %10 = add <4 x i32> %9, %7
-  %11 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %10, <4 x i32> %10, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %12 = mul <4 x i32> %11, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %ret.0.copyload.i.i51 = load i32, ptr %add.ptr.i50, align 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i50, i64 4
+  %ret.0.copyload.i10.i = load i32, ptr %add.ptr2.i, align 1
+  %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i50, i64 8
+  %ret.0.copyload.i11.i = load i32, ptr %add.ptr4.i, align 1
+  %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i50, i64 12
+  %ret.0.copyload.i12.i = load i32, ptr %add.ptr6.i, align 1
+  %mul.i.i = mul i32 %ret.0.copyload.i.i51, -2048144777
+  %add.i.i = add i32 %mul.i.i, %acc1.030.i
+  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %add.i.i, i32 %add.i.i, i32 13)
+  %mul1.i.i = mul i32 %or.i.i, -1640531535
+  %mul.i13.i = mul i32 %ret.0.copyload.i10.i, -2048144777
+  %add.i14.i = add i32 %mul.i13.i, %acc2.029.i
+  %or.i15.i = tail call i32 @llvm.fshl.i32(i32 %add.i14.i, i32 %add.i14.i, i32 13)
+  %mul1.i16.i = mul i32 %or.i15.i, -1640531535
+  %mul.i17.i = mul i32 %ret.0.copyload.i11.i, -2048144777
+  %add.i18.i = add i32 %mul.i17.i, %acc3.028.i
+  %or.i19.i = tail call i32 @llvm.fshl.i32(i32 %add.i18.i, i32 %add.i18.i, i32 13)
+  %mul1.i20.i = mul i32 %or.i19.i, -1640531535
+  %mul.i21.i = mul i32 %ret.0.copyload.i12.i, -2048144777
+  %add.i22.i = add i32 %mul.i21.i, %acc4.027.i
+  %or.i23.i = tail call i32 @llvm.fshl.i32(i32 %add.i22.i, i32 %add.i22.i, i32 13)
+  %mul1.i24.i = mul i32 %or.i23.i, -1640531535
   %inc.i = add nuw nsw i64 %istripe.026.i, 1
-  %exitcond.not.i = icmp eq i64 %istripe.026.i, %6
+  %exitcond.not.i = icmp eq i64 %istripe.026.i, %5
   br i1 %exitcond.not.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit, label %for.body.i, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit: ; preds = %for.body.i, %for.body
-  %13 = phi <4 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body ], [ %12, %for.body.i ]
+  %acc4.0.lcssa.i = phi i32 [ 1640531535, %for.body ], [ %mul1.i24.i, %for.body.i ]
+  %acc3.0.lcssa.i = phi i32 [ 0, %for.body ], [ %mul1.i20.i, %for.body.i ]
+  %acc2.0.lcssa.i = phi i32 [ -2048144777, %for.body ], [ %mul1.i16.i, %for.body.i ]
+  %acc1.0.lcssa.i = phi i32 [ 606290984, %for.body ], [ %mul1.i.i, %for.body.i ]
   %cmp22.not = icmp eq i64 %add14, 0
   br i1 %cmp22.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
   %sub23 = shl nuw nsw i64 %add14, 4
-  %14 = getelementptr i8, ptr %add.ptr, i64 %sub23
-  %add.ptr24 = getelementptr i8, ptr %14, i64 -16
-  %15 = load <4 x i32>, ptr %add.ptr24, align 1
-  %16 = and <4 x i32> %15, %5
-  %17 = mul <4 x i32> %16, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %18 = add <4 x i32> %17, %13
-  %19 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %18, <4 x i32> %18, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %20 = mul <4 x i32> %19, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %6 = getelementptr i8, ptr %add.ptr, i64 %sub23
+  %add.ptr24 = getelementptr i8, ptr %6, i64 -16
+  %ret.0.copyload.i.i52 = load i32, ptr %add.ptr24, align 1
+  %add.ptr.i53 = getelementptr i8, ptr %6, i64 -12
+  %ret.0.copyload.i12.i54 = load i32, ptr %add.ptr.i53, align 1
+  %add.ptr2.i55 = getelementptr i8, ptr %6, i64 -8
+  %ret.0.copyload.i13.i = load i32, ptr %add.ptr2.i55, align 1
+  %add.ptr4.i56 = getelementptr i8, ptr %6, i64 -4
+  %ret.0.copyload.i14.i = load i32, ptr %add.ptr4.i56, align 1
+  %and.i = and i32 %ret.0.copyload.i.i52, %ret.0.copyload.i.i
+  %and6.i = and i32 %ret.0.copyload.i12.i54, %ret.0.copyload.i4.i
+  %and7.i = and i32 %ret.0.copyload.i13.i, %ret.0.copyload.i5.i
+  %and8.i = and i32 %ret.0.copyload.i14.i, %ret.0.copyload.i6.i
+  %mul.i.i57 = mul i32 %and.i, -2048144777
+  %add.i.i58 = add i32 %mul.i.i57, %acc1.0.lcssa.i
+  %or.i.i59 = tail call i32 @llvm.fshl.i32(i32 %add.i.i58, i32 %add.i.i58, i32 13)
+  %mul1.i.i60 = mul i32 %or.i.i59, -1640531535
+  %mul.i15.i = mul i32 %and6.i, -2048144777
+  %add.i16.i = add i32 %mul.i15.i, %acc2.0.lcssa.i
+  %or.i17.i = tail call i32 @llvm.fshl.i32(i32 %add.i16.i, i32 %add.i16.i, i32 13)
+  %mul1.i18.i = mul i32 %or.i17.i, -1640531535
+  %mul.i19.i = mul i32 %and7.i, -2048144777
+  %add.i20.i = add i32 %mul.i19.i, %acc3.0.lcssa.i
+  %or.i21.i = tail call i32 @llvm.fshl.i32(i32 %add.i20.i, i32 %add.i20.i, i32 13)
+  %mul1.i22.i = mul i32 %or.i21.i, -1640531535
+  %mul.i23.i = mul i32 %and8.i, -2048144777
+  %add.i24.i = add i32 %mul.i23.i, %acc4.0.lcssa.i
+  %or.i25.i = tail call i32 @llvm.fshl.i32(i32 %add.i24.i, i32 %add.i24.i, i32 13)
+  %mul1.i26.i = mul i32 %or.i25.i, -1640531535
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
-  %21 = phi <4 x i32> [ %13, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %20, %if.then ]
-  %22 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %21, <4 x i32> %21, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %23 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %22)
-  %shr.i = lshr i32 %23, 15
-  %xor.i = xor i32 %shr.i, %23
+  %acc4.0 = phi i32 [ %acc4.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i26.i, %if.then ]
+  %acc3.0 = phi i32 [ %acc3.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i22.i, %if.then ]
+  %acc2.0 = phi i32 [ %acc2.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i18.i, %if.then ]
+  %acc1.0 = phi i32 [ %acc1.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i.i60, %if.then ]
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %acc1.0, i32 %acc1.0, i32 1)
+  %or3.i = tail call i32 @llvm.fshl.i32(i32 %acc2.0, i32 %acc2.0, i32 7)
+  %or6.i = tail call i32 @llvm.fshl.i32(i32 %acc3.0, i32 %acc3.0, i32 12)
+  %or10.i = tail call i32 @llvm.fshl.i32(i32 %acc4.0, i32 %acc4.0, i32 18)
+  %add.i61 = add i32 %or6.i, %or10.i
+  %add7.i = add i32 %add.i61, %or3.i
+  %add11.i = add i32 %add7.i, %or.i
+  %shr.i = lshr i32 %add11.i, 15
+  %xor.i = xor i32 %shr.i, %add11.i
   %mul.i = mul i32 %xor.i, -2048144777
   %shr1.i = lshr i32 %mul.i, 13
   %xor2.i = xor i32 %shr1.i, %mul.i
@@ -203,13 +265,13 @@ if.end:                                           ; preds = %if.then, %_ZN5arrow
   %shr4.i = lshr i32 %mul3.i, 16
   %xor5.i = xor i32 %shr4.i, %mul3.i
   %arrayidx28 = getelementptr inbounds i32, ptr %hashes, i64 %indvars.iv
-  %24 = load i32, ptr %arrayidx28, align 4
-  %shl.i = shl i32 %24, 6
-  %shr.i63 = lshr i32 %24, 2
+  %7 = load i32, ptr %arrayidx28, align 4
+  %shl.i = shl i32 %7, 6
+  %shr.i63 = lshr i32 %7, 2
   %add.i62 = add i32 %shl.i, -1640531527
   %add1.i = add i32 %add.i62, %shr.i63
   %add2.i = add i32 %add1.i, %xor5.i
-  %xor.i64 = xor i32 %add2.i, %24
+  %xor.i64 = xor i32 %add2.i, %7
   store i32 %xor.i64, ptr %arrayidx28, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond33.preheader, label %for.body, !llvm.loop !7
@@ -218,13 +280,13 @@ for.body35:                                       ; preds = %for.body35.lr.ph, %
   %indvars.iv199 = phi i64 [ %2, %for.body35.lr.ph ], [ %indvars.iv.next200, %if.end83 ]
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %arrayidx39 = getelementptr inbounds i32, ptr %offsets, i64 %indvars.iv.next200
-  %25 = load i32, ptr %arrayidx39, align 4
+  %8 = load i32, ptr %arrayidx39, align 4
   %arrayidx41 = getelementptr inbounds i32, ptr %offsets, i64 %indvars.iv199
-  %26 = load i32, ptr %arrayidx41, align 4
-  %sub42 = sub i32 %25, %26
+  %9 = load i32, ptr %arrayidx41, align 4
+  %sub42 = sub i32 %8, %9
   %conv43 = zext i32 %sub42 to i64
-  %cmp45 = icmp ne i32 %25, %26
-  %cmp.i65 = icmp eq i32 %25, %26
+  %cmp45 = icmp ne i32 %8, %9
+  %cmp.i65 = icmp eq i32 %8, %9
   %sub.i67 = add i32 %sub42, -1
   %div.i68180181182 = lshr i32 %sub.i67, 4
   %narrow = add nuw nsw i32 %div.i68180181182, 1
@@ -239,32 +301,62 @@ for.body35:                                       ; preds = %for.body35.lr.ph, %
   %add60.neg = select i1 %cmp45, i64 15, i64 16
   %sub.i72 = sub nuw nsw i64 %add60.neg, %and58
   %add.ptr.i74 = getelementptr inbounds i8, ptr @_ZZN5arrow7compute9Hashing3210StripeMaskEiPjS2_S2_S2_E5bytes, i64 %sub.i72
-  %27 = load <4 x i32>, ptr %add.ptr.i74, align 1
-  %idx.ext65 = zext i32 %26 to i64
+  %ret.0.copyload.i.i75 = load i32, ptr %add.ptr.i74, align 1
+  %add.ptr7.i76 = getelementptr inbounds i8, ptr %add.ptr.i74, i64 4
+  %ret.0.copyload.i4.i77 = load i32, ptr %add.ptr7.i76, align 1
+  %add.ptr9.i78 = getelementptr inbounds i8, ptr %add.ptr.i74, i64 8
+  %ret.0.copyload.i5.i79 = load i32, ptr %add.ptr9.i78, align 1
+  %add.ptr11.i80 = getelementptr inbounds i8, ptr %add.ptr.i74, i64 12
+  %ret.0.copyload.i6.i81 = load i32, ptr %add.ptr11.i80, align 1
+  %idx.ext65 = zext i32 %9 to i64
   %add.ptr66 = getelementptr inbounds i8, ptr %concatenated_keys, i64 %idx.ext65
   %cmp25.i82 = icmp ugt i64 %add51, 1
   br i1 %cmp25.i82, label %for.body.preheader.i87, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit121
 
 for.body.preheader.i87:                           ; preds = %for.body35
-  %28 = add nsw i64 %add51, -2
+  %10 = add nsw i64 %add51, -2
   br label %for.body.i88
 
 for.body.i88:                                     ; preds = %for.body.i88, %for.body.preheader.i87
+  %acc1.030.i89 = phi i32 [ %mul1.i.i106, %for.body.i88 ], [ 606290984, %for.body.preheader.i87 ]
+  %acc2.029.i90 = phi i32 [ %mul1.i16.i110, %for.body.i88 ], [ -2048144777, %for.body.preheader.i87 ]
+  %acc3.028.i91 = phi i32 [ %mul1.i20.i114, %for.body.i88 ], [ 0, %for.body.preheader.i87 ]
+  %acc4.027.i92 = phi i32 [ %mul1.i24.i118, %for.body.i88 ], [ 1640531535, %for.body.preheader.i87 ]
   %istripe.026.i93 = phi i64 [ %inc.i119, %for.body.i88 ], [ 0, %for.body.preheader.i87 ]
-  %29 = phi <4 x i32> [ %34, %for.body.i88 ], [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.preheader.i87 ]
   %mul1.i94 = shl i64 %istripe.026.i93, 4
   %add.ptr.i95 = getelementptr inbounds i8, ptr %add.ptr66, i64 %mul1.i94
-  %30 = load <4 x i32>, ptr %add.ptr.i95, align 1
-  %31 = mul <4 x i32> %30, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %32 = add <4 x i32> %31, %29
-  %33 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %32, <4 x i32> %32, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %34 = mul <4 x i32> %33, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %ret.0.copyload.i.i96 = load i32, ptr %add.ptr.i95, align 1
+  %add.ptr2.i97 = getelementptr inbounds i8, ptr %add.ptr.i95, i64 4
+  %ret.0.copyload.i10.i98 = load i32, ptr %add.ptr2.i97, align 1
+  %add.ptr4.i99 = getelementptr inbounds i8, ptr %add.ptr.i95, i64 8
+  %ret.0.copyload.i11.i100 = load i32, ptr %add.ptr4.i99, align 1
+  %add.ptr6.i101 = getelementptr inbounds i8, ptr %add.ptr.i95, i64 12
+  %ret.0.copyload.i12.i102 = load i32, ptr %add.ptr6.i101, align 1
+  %mul.i.i103 = mul i32 %ret.0.copyload.i.i96, -2048144777
+  %add.i.i104 = add i32 %mul.i.i103, %acc1.030.i89
+  %or.i.i105 = tail call i32 @llvm.fshl.i32(i32 %add.i.i104, i32 %add.i.i104, i32 13)
+  %mul1.i.i106 = mul i32 %or.i.i105, -1640531535
+  %mul.i13.i107 = mul i32 %ret.0.copyload.i10.i98, -2048144777
+  %add.i14.i108 = add i32 %mul.i13.i107, %acc2.029.i90
+  %or.i15.i109 = tail call i32 @llvm.fshl.i32(i32 %add.i14.i108, i32 %add.i14.i108, i32 13)
+  %mul1.i16.i110 = mul i32 %or.i15.i109, -1640531535
+  %mul.i17.i111 = mul i32 %ret.0.copyload.i11.i100, -2048144777
+  %add.i18.i112 = add i32 %mul.i17.i111, %acc3.028.i91
+  %or.i19.i113 = tail call i32 @llvm.fshl.i32(i32 %add.i18.i112, i32 %add.i18.i112, i32 13)
+  %mul1.i20.i114 = mul i32 %or.i19.i113, -1640531535
+  %mul.i21.i115 = mul i32 %ret.0.copyload.i12.i102, -2048144777
+  %add.i22.i116 = add i32 %mul.i21.i115, %acc4.027.i92
+  %or.i23.i117 = tail call i32 @llvm.fshl.i32(i32 %add.i22.i116, i32 %add.i22.i116, i32 13)
+  %mul1.i24.i118 = mul i32 %or.i23.i117, -1640531535
   %inc.i119 = add nuw nsw i64 %istripe.026.i93, 1
-  %exitcond.not.i120 = icmp eq i64 %istripe.026.i93, %28
+  %exitcond.not.i120 = icmp eq i64 %istripe.026.i93, %10
   br i1 %exitcond.not.i120, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit121, label %for.body.i88, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit121: ; preds = %for.body.i88, %for.body35
-  %35 = phi <4 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body35 ], [ %34, %for.body.i88 ]
+  %acc4.0.lcssa.i83 = phi i32 [ 1640531535, %for.body35 ], [ %mul1.i24.i118, %for.body.i88 ]
+  %acc3.0.lcssa.i84 = phi i32 [ 0, %for.body35 ], [ %mul1.i20.i114, %for.body.i88 ]
+  %acc2.0.lcssa.i85 = phi i32 [ -2048144777, %for.body35 ], [ %mul1.i16.i110, %for.body.i88 ]
+  %acc1.0.lcssa.i86 = phi i32 [ 606290984, %for.body35 ], [ %mul1.i.i106, %for.body.i88 ]
   br i1 %cmp.i65, label %if.end79, label %if.then72
 
 if.then72:                                        ; preds = %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit121
@@ -272,7 +364,7 @@ if.then72:                                        ; preds = %_ZN5arrow7compute9H
   %mul74 = add nsw i64 %sub73, -16
   %add.ptr75 = getelementptr inbounds i8, ptr %add.ptr66, i64 %mul74
   %sub78 = sub nsw i64 %conv43, %mul74
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_stripe_copy.sroa.0, ptr align 1 %add.ptr75, i64 %sub78, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_stripe_copy, ptr align 1 %add.ptr75, i64 %sub78, i1 false)
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then72, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit121
@@ -280,20 +372,46 @@ if.end79:                                         ; preds = %if.then72, %_ZN5arr
   br i1 %cmp80.not, label %if.end83, label %if.then81
 
 if.then81:                                        ; preds = %if.end79
-  %last_stripe_copy.sroa.0.0.last_stripe_copy.sroa.0.0. = load <4 x i32>, ptr %last_stripe_copy.sroa.0, align 16
-  %36 = and <4 x i32> %last_stripe_copy.sroa.0.0.last_stripe_copy.sroa.0.0., %27
-  %37 = mul <4 x i32> %36, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %38 = add <4 x i32> %37, %35
-  %39 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %38, <4 x i32> %38, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %40 = mul <4 x i32> %39, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %last_stripe_copy.0.last_stripe_copy.0.last_stripe_copy.0.ret.0.copyload.i.i122 = load i32, ptr %last_stripe_copy, align 16
+  %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.ret.0.copyload.i12.i124 = load i32, ptr %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i123.sroa_idx, align 4
+  %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.ret.0.copyload.i13.i126 = load i32, ptr %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i125.sroa_idx, align 8
+  %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.ret.0.copyload.i14.i128 = load i32, ptr %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.add.ptr4.i127.sroa_idx, align 4
+  %and.i129 = and i32 %last_stripe_copy.0.last_stripe_copy.0.last_stripe_copy.0.ret.0.copyload.i.i122, %ret.0.copyload.i.i75
+  %and6.i130 = and i32 %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.ret.0.copyload.i12.i124, %ret.0.copyload.i4.i77
+  %and7.i131 = and i32 %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.ret.0.copyload.i13.i126, %ret.0.copyload.i5.i79
+  %and8.i132 = and i32 %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.ret.0.copyload.i14.i128, %ret.0.copyload.i6.i81
+  %mul.i.i133 = mul i32 %and.i129, -2048144777
+  %add.i.i134 = add i32 %mul.i.i133, %acc1.0.lcssa.i86
+  %or.i.i135 = tail call i32 @llvm.fshl.i32(i32 %add.i.i134, i32 %add.i.i134, i32 13)
+  %mul1.i.i136 = mul i32 %or.i.i135, -1640531535
+  %mul.i15.i137 = mul i32 %and6.i130, -2048144777
+  %add.i16.i138 = add i32 %mul.i15.i137, %acc2.0.lcssa.i85
+  %or.i17.i139 = tail call i32 @llvm.fshl.i32(i32 %add.i16.i138, i32 %add.i16.i138, i32 13)
+  %mul1.i18.i140 = mul i32 %or.i17.i139, -1640531535
+  %mul.i19.i141 = mul i32 %and7.i131, -2048144777
+  %add.i20.i142 = add i32 %mul.i19.i141, %acc3.0.lcssa.i84
+  %or.i21.i143 = tail call i32 @llvm.fshl.i32(i32 %add.i20.i142, i32 %add.i20.i142, i32 13)
+  %mul1.i22.i144 = mul i32 %or.i21.i143, -1640531535
+  %mul.i23.i145 = mul i32 %and8.i132, -2048144777
+  %add.i24.i146 = add i32 %mul.i23.i145, %acc4.0.lcssa.i83
+  %or.i25.i147 = tail call i32 @llvm.fshl.i32(i32 %add.i24.i146, i32 %add.i24.i146, i32 13)
+  %mul1.i26.i148 = mul i32 %or.i25.i147, -1640531535
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then81, %if.end79
-  %41 = phi <4 x i32> [ %35, %if.end79 ], [ %40, %if.then81 ]
-  %42 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %41, <4 x i32> %41, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %43 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %42)
-  %shr.i156 = lshr i32 %43, 15
-  %xor.i157 = xor i32 %shr.i156, %43
+  %acc167.0 = phi i32 [ %acc1.0.lcssa.i86, %if.end79 ], [ %mul1.i.i136, %if.then81 ]
+  %acc268.0 = phi i32 [ %acc2.0.lcssa.i85, %if.end79 ], [ %mul1.i18.i140, %if.then81 ]
+  %acc369.0 = phi i32 [ %acc3.0.lcssa.i84, %if.end79 ], [ %mul1.i22.i144, %if.then81 ]
+  %acc470.0 = phi i32 [ %acc4.0.lcssa.i83, %if.end79 ], [ %mul1.i26.i148, %if.then81 ]
+  %or.i149 = tail call i32 @llvm.fshl.i32(i32 %acc167.0, i32 %acc167.0, i32 1)
+  %or3.i150 = tail call i32 @llvm.fshl.i32(i32 %acc268.0, i32 %acc268.0, i32 7)
+  %add.i151 = add i32 %or3.i150, %or.i149
+  %or6.i152 = tail call i32 @llvm.fshl.i32(i32 %acc369.0, i32 %acc369.0, i32 12)
+  %add7.i153 = add i32 %add.i151, %or6.i152
+  %or10.i154 = tail call i32 @llvm.fshl.i32(i32 %acc470.0, i32 %acc470.0, i32 18)
+  %add11.i155 = add i32 %add7.i153, %or10.i154
+  %shr.i156 = lshr i32 %add11.i155, 15
+  %xor.i157 = xor i32 %shr.i156, %add11.i155
   %mul.i158 = mul i32 %xor.i157, -2048144777
   %shr1.i159 = lshr i32 %mul.i158, 13
   %xor2.i160 = xor i32 %shr1.i159, %mul.i158
@@ -301,13 +419,13 @@ if.end83:                                         ; preds = %if.then81, %if.end7
   %shr4.i162 = lshr i32 %mul3.i161, 16
   %xor5.i163 = xor i32 %shr4.i162, %mul3.i161
   %arrayidx88 = getelementptr inbounds i32, ptr %hashes, i64 %indvars.iv199
-  %44 = load i32, ptr %arrayidx88, align 4
-  %shl.i165 = shl i32 %44, 6
-  %shr.i167 = lshr i32 %44, 2
+  %11 = load i32, ptr %arrayidx88, align 4
+  %shl.i165 = shl i32 %11, 6
+  %shr.i167 = lshr i32 %11, 2
   %add.i164 = add i32 %shl.i165, -1640531527
   %add1.i166 = add i32 %add.i164, %shr.i167
   %add2.i168 = add i32 %add1.i166, %xor5.i163
-  %xor.i169 = xor i32 %add2.i168, %44
+  %xor.i169 = xor i32 %add2.i168, %11
   store i32 %xor.i169, ptr %arrayidx88, align 4
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
   br i1 %exitcond203.not, label %for.end94, label %for.body35, !llvm.loop !8
@@ -319,7 +437,7 @@ for.end94:                                        ; preds = %if.end83, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow7compute9Hashing3213HashVarLenImpIjLb0EEEvjPKT_PKhPj(i32 noundef %num_rows, ptr noundef %offsets, ptr noundef %concatenated_keys, ptr noundef %hashes) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %last_stripe_copy.sroa.0 = alloca <4 x i32>, align 16
+  %last_stripe_copy = alloca [4 x i32], align 16
   %cmp.not174 = icmp eq i32 %num_rows, 0
   br i1 %cmp.not174, label %for.cond30.preheader, label %land.rhs.lr.ph
 
@@ -355,6 +473,9 @@ for.cond30.preheader:                             ; preds = %while.body, %if.end
 for.body32.lr.ph:                                 ; preds = %for.cond30.preheader
   %2 = zext i32 %num_rows_safe.0.lcssa193 to i64
   %wide.trip.count189 = zext i32 %num_rows to i64
+  %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i116.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 4
+  %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i118.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 8
+  %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.add.ptr4.i120.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 12
   br label %for.body32
 
 for.body:                                         ; preds = %for.body.preheader, %if.end
@@ -382,53 +503,112 @@ for.body:                                         ; preds = %for.body.preheader,
   %add18.neg = select i1 %cmp11, i64 15, i64 16
   %sub.i45 = sub nuw nsw i64 %add18.neg, %and
   %add.ptr.i = getelementptr inbounds i8, ptr @_ZZN5arrow7compute9Hashing3210StripeMaskEiPjS2_S2_S2_E5bytes, i64 %sub.i45
-  %5 = load <4 x i32>, ptr %add.ptr.i, align 1
+  %ret.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
+  %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %ret.0.copyload.i4.i = load i32, ptr %add.ptr7.i, align 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %ret.0.copyload.i5.i = load i32, ptr %add.ptr9.i, align 1
+  %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
+  %ret.0.copyload.i6.i = load i32, ptr %add.ptr11.i, align 1
   %idx.ext = zext i32 %4 to i64
   %add.ptr = getelementptr inbounds i8, ptr %concatenated_keys, i64 %idx.ext
   %cmp25.i = icmp ugt i64 %add14, 1
   br i1 %cmp25.i, label %for.body.preheader.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
 
 for.body.preheader.i:                             ; preds = %for.body
-  %6 = add nsw i64 %add14, -2
+  %5 = add nsw i64 %add14, -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %acc1.030.i = phi i32 [ %mul1.i.i, %for.body.i ], [ 606290984, %for.body.preheader.i ]
+  %acc2.029.i = phi i32 [ %mul1.i16.i, %for.body.i ], [ -2048144777, %for.body.preheader.i ]
+  %acc3.028.i = phi i32 [ %mul1.i20.i, %for.body.i ], [ 0, %for.body.preheader.i ]
+  %acc4.027.i = phi i32 [ %mul1.i24.i, %for.body.i ], [ 1640531535, %for.body.preheader.i ]
   %istripe.026.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.preheader.i ]
-  %7 = phi <4 x i32> [ %12, %for.body.i ], [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.preheader.i ]
   %mul1.i = shl i64 %istripe.026.i, 4
   %add.ptr.i46 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul1.i
-  %8 = load <4 x i32>, ptr %add.ptr.i46, align 1
-  %9 = mul <4 x i32> %8, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %10 = add <4 x i32> %9, %7
-  %11 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %10, <4 x i32> %10, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %12 = mul <4 x i32> %11, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %ret.0.copyload.i.i47 = load i32, ptr %add.ptr.i46, align 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i46, i64 4
+  %ret.0.copyload.i10.i = load i32, ptr %add.ptr2.i, align 1
+  %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i46, i64 8
+  %ret.0.copyload.i11.i = load i32, ptr %add.ptr4.i, align 1
+  %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i46, i64 12
+  %ret.0.copyload.i12.i = load i32, ptr %add.ptr6.i, align 1
+  %mul.i.i = mul i32 %ret.0.copyload.i.i47, -2048144777
+  %add.i.i = add i32 %mul.i.i, %acc1.030.i
+  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %add.i.i, i32 %add.i.i, i32 13)
+  %mul1.i.i = mul i32 %or.i.i, -1640531535
+  %mul.i13.i = mul i32 %ret.0.copyload.i10.i, -2048144777
+  %add.i14.i = add i32 %mul.i13.i, %acc2.029.i
+  %or.i15.i = tail call i32 @llvm.fshl.i32(i32 %add.i14.i, i32 %add.i14.i, i32 13)
+  %mul1.i16.i = mul i32 %or.i15.i, -1640531535
+  %mul.i17.i = mul i32 %ret.0.copyload.i11.i, -2048144777
+  %add.i18.i = add i32 %mul.i17.i, %acc3.028.i
+  %or.i19.i = tail call i32 @llvm.fshl.i32(i32 %add.i18.i, i32 %add.i18.i, i32 13)
+  %mul1.i20.i = mul i32 %or.i19.i, -1640531535
+  %mul.i21.i = mul i32 %ret.0.copyload.i12.i, -2048144777
+  %add.i22.i = add i32 %mul.i21.i, %acc4.027.i
+  %or.i23.i = tail call i32 @llvm.fshl.i32(i32 %add.i22.i, i32 %add.i22.i, i32 13)
+  %mul1.i24.i = mul i32 %or.i23.i, -1640531535
   %inc.i = add nuw nsw i64 %istripe.026.i, 1
-  %exitcond.not.i = icmp eq i64 %istripe.026.i, %6
+  %exitcond.not.i = icmp eq i64 %istripe.026.i, %5
   br i1 %exitcond.not.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit, label %for.body.i, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit: ; preds = %for.body.i, %for.body
-  %13 = phi <4 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body ], [ %12, %for.body.i ]
+  %acc4.0.lcssa.i = phi i32 [ 1640531535, %for.body ], [ %mul1.i24.i, %for.body.i ]
+  %acc3.0.lcssa.i = phi i32 [ 0, %for.body ], [ %mul1.i20.i, %for.body.i ]
+  %acc2.0.lcssa.i = phi i32 [ -2048144777, %for.body ], [ %mul1.i16.i, %for.body.i ]
+  %acc1.0.lcssa.i = phi i32 [ 606290984, %for.body ], [ %mul1.i.i, %for.body.i ]
   %cmp22.not = icmp eq i64 %add14, 0
   br i1 %cmp22.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
   %sub23 = shl nuw nsw i64 %add14, 4
-  %14 = getelementptr i8, ptr %add.ptr, i64 %sub23
-  %add.ptr24 = getelementptr i8, ptr %14, i64 -16
-  %15 = load <4 x i32>, ptr %add.ptr24, align 1
-  %16 = and <4 x i32> %15, %5
-  %17 = mul <4 x i32> %16, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %18 = add <4 x i32> %17, %13
-  %19 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %18, <4 x i32> %18, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %20 = mul <4 x i32> %19, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %6 = getelementptr i8, ptr %add.ptr, i64 %sub23
+  %add.ptr24 = getelementptr i8, ptr %6, i64 -16
+  %ret.0.copyload.i.i48 = load i32, ptr %add.ptr24, align 1
+  %add.ptr.i49 = getelementptr i8, ptr %6, i64 -12
+  %ret.0.copyload.i12.i50 = load i32, ptr %add.ptr.i49, align 1
+  %add.ptr2.i51 = getelementptr i8, ptr %6, i64 -8
+  %ret.0.copyload.i13.i = load i32, ptr %add.ptr2.i51, align 1
+  %add.ptr4.i52 = getelementptr i8, ptr %6, i64 -4
+  %ret.0.copyload.i14.i = load i32, ptr %add.ptr4.i52, align 1
+  %and.i = and i32 %ret.0.copyload.i.i48, %ret.0.copyload.i.i
+  %and6.i = and i32 %ret.0.copyload.i12.i50, %ret.0.copyload.i4.i
+  %and7.i = and i32 %ret.0.copyload.i13.i, %ret.0.copyload.i5.i
+  %and8.i = and i32 %ret.0.copyload.i14.i, %ret.0.copyload.i6.i
+  %mul.i.i53 = mul i32 %and.i, -2048144777
+  %add.i.i54 = add i32 %mul.i.i53, %acc1.0.lcssa.i
+  %or.i.i55 = tail call i32 @llvm.fshl.i32(i32 %add.i.i54, i32 %add.i.i54, i32 13)
+  %mul1.i.i56 = mul i32 %or.i.i55, -1640531535
+  %mul.i15.i = mul i32 %and6.i, -2048144777
+  %add.i16.i = add i32 %mul.i15.i, %acc2.0.lcssa.i
+  %or.i17.i = tail call i32 @llvm.fshl.i32(i32 %add.i16.i, i32 %add.i16.i, i32 13)
+  %mul1.i18.i = mul i32 %or.i17.i, -1640531535
+  %mul.i19.i = mul i32 %and7.i, -2048144777
+  %add.i20.i = add i32 %mul.i19.i, %acc3.0.lcssa.i
+  %or.i21.i = tail call i32 @llvm.fshl.i32(i32 %add.i20.i, i32 %add.i20.i, i32 13)
+  %mul1.i22.i = mul i32 %or.i21.i, -1640531535
+  %mul.i23.i = mul i32 %and8.i, -2048144777
+  %add.i24.i = add i32 %mul.i23.i, %acc4.0.lcssa.i
+  %or.i25.i = tail call i32 @llvm.fshl.i32(i32 %add.i24.i, i32 %add.i24.i, i32 13)
+  %mul1.i26.i = mul i32 %or.i25.i, -1640531535
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
-  %21 = phi <4 x i32> [ %13, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %20, %if.then ]
-  %22 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %21, <4 x i32> %21, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %23 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %22)
-  %shr.i = lshr i32 %23, 15
-  %xor.i = xor i32 %shr.i, %23
+  %acc4.0 = phi i32 [ %acc4.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i26.i, %if.then ]
+  %acc3.0 = phi i32 [ %acc3.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i22.i, %if.then ]
+  %acc2.0 = phi i32 [ %acc2.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i18.i, %if.then ]
+  %acc1.0 = phi i32 [ %acc1.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i.i56, %if.then ]
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %acc1.0, i32 %acc1.0, i32 1)
+  %or3.i = tail call i32 @llvm.fshl.i32(i32 %acc2.0, i32 %acc2.0, i32 7)
+  %or6.i = tail call i32 @llvm.fshl.i32(i32 %acc3.0, i32 %acc3.0, i32 12)
+  %or10.i = tail call i32 @llvm.fshl.i32(i32 %acc4.0, i32 %acc4.0, i32 18)
+  %add.i57 = add i32 %or6.i, %or10.i
+  %add7.i = add i32 %add.i57, %or3.i
+  %add11.i = add i32 %add7.i, %or.i
+  %shr.i = lshr i32 %add11.i, 15
+  %xor.i = xor i32 %shr.i, %add11.i
   %mul.i = mul i32 %xor.i, -2048144777
   %shr1.i = lshr i32 %mul.i, 13
   %xor2.i = xor i32 %shr1.i, %mul.i
@@ -444,13 +624,13 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
   %indvars.iv186 = phi i64 [ %2, %for.body32.lr.ph ], [ %indvars.iv.next187, %if.end80 ]
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %arrayidx36 = getelementptr inbounds i32, ptr %offsets, i64 %indvars.iv.next187
-  %24 = load i32, ptr %arrayidx36, align 4
+  %7 = load i32, ptr %arrayidx36, align 4
   %arrayidx38 = getelementptr inbounds i32, ptr %offsets, i64 %indvars.iv186
-  %25 = load i32, ptr %arrayidx38, align 4
-  %sub39 = sub i32 %24, %25
+  %8 = load i32, ptr %arrayidx38, align 4
+  %sub39 = sub i32 %7, %8
   %conv40 = zext i32 %sub39 to i64
-  %cmp42 = icmp ne i32 %24, %25
-  %cmp.i58 = icmp eq i32 %24, %25
+  %cmp42 = icmp ne i32 %7, %8
+  %cmp.i58 = icmp eq i32 %7, %8
   %sub.i60 = add i32 %sub39, -1
   %div.i61167168169 = lshr i32 %sub.i60, 4
   %narrow = add nuw nsw i32 %div.i61167168169, 1
@@ -465,32 +645,62 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
   %add57.neg = select i1 %cmp42, i64 15, i64 16
   %sub.i65 = sub nuw nsw i64 %add57.neg, %and55
   %add.ptr.i67 = getelementptr inbounds i8, ptr @_ZZN5arrow7compute9Hashing3210StripeMaskEiPjS2_S2_S2_E5bytes, i64 %sub.i65
-  %26 = load <4 x i32>, ptr %add.ptr.i67, align 1
-  %idx.ext62 = zext i32 %25 to i64
+  %ret.0.copyload.i.i68 = load i32, ptr %add.ptr.i67, align 1
+  %add.ptr7.i69 = getelementptr inbounds i8, ptr %add.ptr.i67, i64 4
+  %ret.0.copyload.i4.i70 = load i32, ptr %add.ptr7.i69, align 1
+  %add.ptr9.i71 = getelementptr inbounds i8, ptr %add.ptr.i67, i64 8
+  %ret.0.copyload.i5.i72 = load i32, ptr %add.ptr9.i71, align 1
+  %add.ptr11.i73 = getelementptr inbounds i8, ptr %add.ptr.i67, i64 12
+  %ret.0.copyload.i6.i74 = load i32, ptr %add.ptr11.i73, align 1
+  %idx.ext62 = zext i32 %8 to i64
   %add.ptr63 = getelementptr inbounds i8, ptr %concatenated_keys, i64 %idx.ext62
   %cmp25.i75 = icmp ugt i64 %add48, 1
   br i1 %cmp25.i75, label %for.body.preheader.i80, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit114
 
 for.body.preheader.i80:                           ; preds = %for.body32
-  %27 = add nsw i64 %add48, -2
+  %9 = add nsw i64 %add48, -2
   br label %for.body.i81
 
 for.body.i81:                                     ; preds = %for.body.i81, %for.body.preheader.i80
+  %acc1.030.i82 = phi i32 [ %mul1.i.i99, %for.body.i81 ], [ 606290984, %for.body.preheader.i80 ]
+  %acc2.029.i83 = phi i32 [ %mul1.i16.i103, %for.body.i81 ], [ -2048144777, %for.body.preheader.i80 ]
+  %acc3.028.i84 = phi i32 [ %mul1.i20.i107, %for.body.i81 ], [ 0, %for.body.preheader.i80 ]
+  %acc4.027.i85 = phi i32 [ %mul1.i24.i111, %for.body.i81 ], [ 1640531535, %for.body.preheader.i80 ]
   %istripe.026.i86 = phi i64 [ %inc.i112, %for.body.i81 ], [ 0, %for.body.preheader.i80 ]
-  %28 = phi <4 x i32> [ %33, %for.body.i81 ], [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.preheader.i80 ]
   %mul1.i87 = shl i64 %istripe.026.i86, 4
   %add.ptr.i88 = getelementptr inbounds i8, ptr %add.ptr63, i64 %mul1.i87
-  %29 = load <4 x i32>, ptr %add.ptr.i88, align 1
-  %30 = mul <4 x i32> %29, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %31 = add <4 x i32> %30, %28
-  %32 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %31, <4 x i32> %31, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %33 = mul <4 x i32> %32, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %ret.0.copyload.i.i89 = load i32, ptr %add.ptr.i88, align 1
+  %add.ptr2.i90 = getelementptr inbounds i8, ptr %add.ptr.i88, i64 4
+  %ret.0.copyload.i10.i91 = load i32, ptr %add.ptr2.i90, align 1
+  %add.ptr4.i92 = getelementptr inbounds i8, ptr %add.ptr.i88, i64 8
+  %ret.0.copyload.i11.i93 = load i32, ptr %add.ptr4.i92, align 1
+  %add.ptr6.i94 = getelementptr inbounds i8, ptr %add.ptr.i88, i64 12
+  %ret.0.copyload.i12.i95 = load i32, ptr %add.ptr6.i94, align 1
+  %mul.i.i96 = mul i32 %ret.0.copyload.i.i89, -2048144777
+  %add.i.i97 = add i32 %mul.i.i96, %acc1.030.i82
+  %or.i.i98 = tail call i32 @llvm.fshl.i32(i32 %add.i.i97, i32 %add.i.i97, i32 13)
+  %mul1.i.i99 = mul i32 %or.i.i98, -1640531535
+  %mul.i13.i100 = mul i32 %ret.0.copyload.i10.i91, -2048144777
+  %add.i14.i101 = add i32 %mul.i13.i100, %acc2.029.i83
+  %or.i15.i102 = tail call i32 @llvm.fshl.i32(i32 %add.i14.i101, i32 %add.i14.i101, i32 13)
+  %mul1.i16.i103 = mul i32 %or.i15.i102, -1640531535
+  %mul.i17.i104 = mul i32 %ret.0.copyload.i11.i93, -2048144777
+  %add.i18.i105 = add i32 %mul.i17.i104, %acc3.028.i84
+  %or.i19.i106 = tail call i32 @llvm.fshl.i32(i32 %add.i18.i105, i32 %add.i18.i105, i32 13)
+  %mul1.i20.i107 = mul i32 %or.i19.i106, -1640531535
+  %mul.i21.i108 = mul i32 %ret.0.copyload.i12.i95, -2048144777
+  %add.i22.i109 = add i32 %mul.i21.i108, %acc4.027.i85
+  %or.i23.i110 = tail call i32 @llvm.fshl.i32(i32 %add.i22.i109, i32 %add.i22.i109, i32 13)
+  %mul1.i24.i111 = mul i32 %or.i23.i110, -1640531535
   %inc.i112 = add nuw nsw i64 %istripe.026.i86, 1
-  %exitcond.not.i113 = icmp eq i64 %istripe.026.i86, %27
+  %exitcond.not.i113 = icmp eq i64 %istripe.026.i86, %9
   br i1 %exitcond.not.i113, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit114, label %for.body.i81, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit114: ; preds = %for.body.i81, %for.body32
-  %34 = phi <4 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body32 ], [ %33, %for.body.i81 ]
+  %acc4.0.lcssa.i76 = phi i32 [ 1640531535, %for.body32 ], [ %mul1.i24.i111, %for.body.i81 ]
+  %acc3.0.lcssa.i77 = phi i32 [ 0, %for.body32 ], [ %mul1.i20.i107, %for.body.i81 ]
+  %acc2.0.lcssa.i78 = phi i32 [ -2048144777, %for.body32 ], [ %mul1.i16.i103, %for.body.i81 ]
+  %acc1.0.lcssa.i79 = phi i32 [ 606290984, %for.body32 ], [ %mul1.i.i99, %for.body.i81 ]
   br i1 %cmp.i58, label %if.end76, label %if.then69
 
 if.then69:                                        ; preds = %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit114
@@ -498,7 +708,7 @@ if.then69:                                        ; preds = %_ZN5arrow7compute9H
   %mul71 = add nsw i64 %sub70, -16
   %add.ptr72 = getelementptr inbounds i8, ptr %add.ptr63, i64 %mul71
   %sub75 = sub nsw i64 %conv40, %mul71
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_stripe_copy.sroa.0, ptr align 1 %add.ptr72, i64 %sub75, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_stripe_copy, ptr align 1 %add.ptr72, i64 %sub75, i1 false)
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then69, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit114
@@ -506,20 +716,46 @@ if.end76:                                         ; preds = %if.then69, %_ZN5arr
   br i1 %cmp77.not, label %if.end80, label %if.then78
 
 if.then78:                                        ; preds = %if.end76
-  %last_stripe_copy.sroa.0.0.last_stripe_copy.sroa.0.0. = load <4 x i32>, ptr %last_stripe_copy.sroa.0, align 16
-  %35 = and <4 x i32> %last_stripe_copy.sroa.0.0.last_stripe_copy.sroa.0.0., %26
-  %36 = mul <4 x i32> %35, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %37 = add <4 x i32> %36, %34
-  %38 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %37, <4 x i32> %37, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %39 = mul <4 x i32> %38, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %last_stripe_copy.0.last_stripe_copy.0.last_stripe_copy.0.ret.0.copyload.i.i115 = load i32, ptr %last_stripe_copy, align 16
+  %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.ret.0.copyload.i12.i117 = load i32, ptr %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i116.sroa_idx, align 4
+  %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.ret.0.copyload.i13.i119 = load i32, ptr %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i118.sroa_idx, align 8
+  %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.ret.0.copyload.i14.i121 = load i32, ptr %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.add.ptr4.i120.sroa_idx, align 4
+  %and.i122 = and i32 %last_stripe_copy.0.last_stripe_copy.0.last_stripe_copy.0.ret.0.copyload.i.i115, %ret.0.copyload.i.i68
+  %and6.i123 = and i32 %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.ret.0.copyload.i12.i117, %ret.0.copyload.i4.i70
+  %and7.i124 = and i32 %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.ret.0.copyload.i13.i119, %ret.0.copyload.i5.i72
+  %and8.i125 = and i32 %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.ret.0.copyload.i14.i121, %ret.0.copyload.i6.i74
+  %mul.i.i126 = mul i32 %and.i122, -2048144777
+  %add.i.i127 = add i32 %mul.i.i126, %acc1.0.lcssa.i79
+  %or.i.i128 = tail call i32 @llvm.fshl.i32(i32 %add.i.i127, i32 %add.i.i127, i32 13)
+  %mul1.i.i129 = mul i32 %or.i.i128, -1640531535
+  %mul.i15.i130 = mul i32 %and6.i123, -2048144777
+  %add.i16.i131 = add i32 %mul.i15.i130, %acc2.0.lcssa.i78
+  %or.i17.i132 = tail call i32 @llvm.fshl.i32(i32 %add.i16.i131, i32 %add.i16.i131, i32 13)
+  %mul1.i18.i133 = mul i32 %or.i17.i132, -1640531535
+  %mul.i19.i134 = mul i32 %and7.i124, -2048144777
+  %add.i20.i135 = add i32 %mul.i19.i134, %acc3.0.lcssa.i77
+  %or.i21.i136 = tail call i32 @llvm.fshl.i32(i32 %add.i20.i135, i32 %add.i20.i135, i32 13)
+  %mul1.i22.i137 = mul i32 %or.i21.i136, -1640531535
+  %mul.i23.i138 = mul i32 %and8.i125, -2048144777
+  %add.i24.i139 = add i32 %mul.i23.i138, %acc4.0.lcssa.i76
+  %or.i25.i140 = tail call i32 @llvm.fshl.i32(i32 %add.i24.i139, i32 %add.i24.i139, i32 13)
+  %mul1.i26.i141 = mul i32 %or.i25.i140, -1640531535
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then78, %if.end76
-  %40 = phi <4 x i32> [ %34, %if.end76 ], [ %39, %if.then78 ]
-  %41 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %40, <4 x i32> %40, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %42 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %41)
-  %shr.i149 = lshr i32 %42, 15
-  %xor.i150 = xor i32 %shr.i149, %42
+  %acc164.0 = phi i32 [ %acc1.0.lcssa.i79, %if.end76 ], [ %mul1.i.i129, %if.then78 ]
+  %acc265.0 = phi i32 [ %acc2.0.lcssa.i78, %if.end76 ], [ %mul1.i18.i133, %if.then78 ]
+  %acc366.0 = phi i32 [ %acc3.0.lcssa.i77, %if.end76 ], [ %mul1.i22.i137, %if.then78 ]
+  %acc467.0 = phi i32 [ %acc4.0.lcssa.i76, %if.end76 ], [ %mul1.i26.i141, %if.then78 ]
+  %or.i142 = tail call i32 @llvm.fshl.i32(i32 %acc164.0, i32 %acc164.0, i32 1)
+  %or3.i143 = tail call i32 @llvm.fshl.i32(i32 %acc265.0, i32 %acc265.0, i32 7)
+  %add.i144 = add i32 %or3.i143, %or.i142
+  %or6.i145 = tail call i32 @llvm.fshl.i32(i32 %acc366.0, i32 %acc366.0, i32 12)
+  %add7.i146 = add i32 %add.i144, %or6.i145
+  %or10.i147 = tail call i32 @llvm.fshl.i32(i32 %acc467.0, i32 %acc467.0, i32 18)
+  %add11.i148 = add i32 %add7.i146, %or10.i147
+  %shr.i149 = lshr i32 %add11.i148, 15
+  %xor.i150 = xor i32 %shr.i149, %add11.i148
   %mul.i151 = mul i32 %xor.i150, -2048144777
   %shr1.i152 = lshr i32 %mul.i151, 13
   %xor2.i153 = xor i32 %shr1.i152, %mul.i151
@@ -571,7 +807,7 @@ declare noundef i32 @_ZN5arrow7compute9Hashing3215HashVarLen_avx2EbjPKmPKhPjS6_(
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow7compute9Hashing3213HashVarLenImpImLb1EEEvjPKT_PKhPj(i32 noundef %num_rows, ptr noundef %offsets, ptr noundef %concatenated_keys, ptr noundef %hashes) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %last_stripe_copy.sroa.0 = alloca <4 x i32>, align 16
+  %last_stripe_copy = alloca [4 x i32], align 16
   %cmp.not178 = icmp eq i32 %num_rows, 0
   br i1 %cmp.not178, label %for.cond31.preheader, label %land.rhs.lr.ph
 
@@ -607,6 +843,9 @@ for.cond31.preheader:                             ; preds = %while.body, %if.end
 for.body33.lr.ph:                                 ; preds = %for.cond31.preheader
   %2 = zext i32 %num_rows_safe.0.lcssa197 to i64
   %wide.trip.count193 = zext i32 %num_rows to i64
+  %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i123.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 4
+  %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i125.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 8
+  %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.add.ptr4.i127.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 12
   br label %for.body33
 
 for.body:                                         ; preds = %for.body.preheader, %if.end
@@ -638,52 +877,111 @@ _ZN5arrow8bit_util7CeilDivEll.exit:               ; preds = %for.body, %cond.fal
   %add16.neg = select i1 %cmp10, i64 15, i64 16
   %sub.i49 = sub nuw nsw i64 %add16.neg, %and
   %add.ptr.i = getelementptr inbounds i8, ptr @_ZZN5arrow7compute9Hashing3210StripeMaskEiPjS2_S2_S2_E5bytes, i64 %sub.i49
-  %5 = load <4 x i32>, ptr %add.ptr.i, align 1
+  %ret.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
+  %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %ret.0.copyload.i4.i = load i32, ptr %add.ptr7.i, align 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %ret.0.copyload.i5.i = load i32, ptr %add.ptr9.i, align 1
+  %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
+  %ret.0.copyload.i6.i = load i32, ptr %add.ptr11.i, align 1
   %add.ptr = getelementptr inbounds i8, ptr %concatenated_keys, i64 %4
   %cmp25.i = icmp sgt i64 %add12, 1
   br i1 %cmp25.i, label %for.body.preheader.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
 
 for.body.preheader.i:                             ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit
-  %6 = add nsw i64 %add12, -2
+  %5 = add nsw i64 %add12, -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %acc1.030.i = phi i32 [ %mul1.i.i, %for.body.i ], [ 606290984, %for.body.preheader.i ]
+  %acc2.029.i = phi i32 [ %mul1.i16.i, %for.body.i ], [ -2048144777, %for.body.preheader.i ]
+  %acc3.028.i = phi i32 [ %mul1.i20.i, %for.body.i ], [ 0, %for.body.preheader.i ]
+  %acc4.027.i = phi i32 [ %mul1.i24.i, %for.body.i ], [ 1640531535, %for.body.preheader.i ]
   %istripe.026.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.preheader.i ]
-  %7 = phi <4 x i32> [ %12, %for.body.i ], [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.preheader.i ]
   %mul1.i = shl i64 %istripe.026.i, 4
   %add.ptr.i50 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul1.i
-  %8 = load <4 x i32>, ptr %add.ptr.i50, align 1
-  %9 = mul <4 x i32> %8, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %10 = add <4 x i32> %9, %7
-  %11 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %10, <4 x i32> %10, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %12 = mul <4 x i32> %11, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %ret.0.copyload.i.i51 = load i32, ptr %add.ptr.i50, align 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i50, i64 4
+  %ret.0.copyload.i10.i = load i32, ptr %add.ptr2.i, align 1
+  %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i50, i64 8
+  %ret.0.copyload.i11.i = load i32, ptr %add.ptr4.i, align 1
+  %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i50, i64 12
+  %ret.0.copyload.i12.i = load i32, ptr %add.ptr6.i, align 1
+  %mul.i.i = mul i32 %ret.0.copyload.i.i51, -2048144777
+  %add.i.i = add i32 %mul.i.i, %acc1.030.i
+  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %add.i.i, i32 %add.i.i, i32 13)
+  %mul1.i.i = mul i32 %or.i.i, -1640531535
+  %mul.i13.i = mul i32 %ret.0.copyload.i10.i, -2048144777
+  %add.i14.i = add i32 %mul.i13.i, %acc2.029.i
+  %or.i15.i = tail call i32 @llvm.fshl.i32(i32 %add.i14.i, i32 %add.i14.i, i32 13)
+  %mul1.i16.i = mul i32 %or.i15.i, -1640531535
+  %mul.i17.i = mul i32 %ret.0.copyload.i11.i, -2048144777
+  %add.i18.i = add i32 %mul.i17.i, %acc3.028.i
+  %or.i19.i = tail call i32 @llvm.fshl.i32(i32 %add.i18.i, i32 %add.i18.i, i32 13)
+  %mul1.i20.i = mul i32 %or.i19.i, -1640531535
+  %mul.i21.i = mul i32 %ret.0.copyload.i12.i, -2048144777
+  %add.i22.i = add i32 %mul.i21.i, %acc4.027.i
+  %or.i23.i = tail call i32 @llvm.fshl.i32(i32 %add.i22.i, i32 %add.i22.i, i32 13)
+  %mul1.i24.i = mul i32 %or.i23.i, -1640531535
   %inc.i = add nuw nsw i64 %istripe.026.i, 1
-  %exitcond.not.i = icmp eq i64 %istripe.026.i, %6
+  %exitcond.not.i = icmp eq i64 %istripe.026.i, %5
   br i1 %exitcond.not.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit, label %for.body.i, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit: ; preds = %for.body.i, %_ZN5arrow8bit_util7CeilDivEll.exit
-  %13 = phi <4 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %_ZN5arrow8bit_util7CeilDivEll.exit ], [ %12, %for.body.i ]
+  %acc4.0.lcssa.i = phi i32 [ 1640531535, %_ZN5arrow8bit_util7CeilDivEll.exit ], [ %mul1.i24.i, %for.body.i ]
+  %acc3.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit ], [ %mul1.i20.i, %for.body.i ]
+  %acc2.0.lcssa.i = phi i32 [ -2048144777, %_ZN5arrow8bit_util7CeilDivEll.exit ], [ %mul1.i16.i, %for.body.i ]
+  %acc1.0.lcssa.i = phi i32 [ 606290984, %_ZN5arrow8bit_util7CeilDivEll.exit ], [ %mul1.i.i, %for.body.i ]
   %cmp20.not = icmp eq i64 %add12, 0
   br i1 %cmp20.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
   %sub21 = shl i64 %add12, 4
-  %14 = getelementptr i8, ptr %add.ptr, i64 %sub21
-  %add.ptr22 = getelementptr i8, ptr %14, i64 -16
-  %15 = load <4 x i32>, ptr %add.ptr22, align 1
-  %16 = and <4 x i32> %15, %5
-  %17 = mul <4 x i32> %16, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %18 = add <4 x i32> %17, %13
-  %19 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %18, <4 x i32> %18, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %20 = mul <4 x i32> %19, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %6 = getelementptr i8, ptr %add.ptr, i64 %sub21
+  %add.ptr22 = getelementptr i8, ptr %6, i64 -16
+  %ret.0.copyload.i.i52 = load i32, ptr %add.ptr22, align 1
+  %add.ptr.i53 = getelementptr i8, ptr %6, i64 -12
+  %ret.0.copyload.i12.i54 = load i32, ptr %add.ptr.i53, align 1
+  %add.ptr2.i55 = getelementptr i8, ptr %6, i64 -8
+  %ret.0.copyload.i13.i = load i32, ptr %add.ptr2.i55, align 1
+  %add.ptr4.i56 = getelementptr i8, ptr %6, i64 -4
+  %ret.0.copyload.i14.i = load i32, ptr %add.ptr4.i56, align 1
+  %and.i = and i32 %ret.0.copyload.i.i52, %ret.0.copyload.i.i
+  %and6.i = and i32 %ret.0.copyload.i12.i54, %ret.0.copyload.i4.i
+  %and7.i = and i32 %ret.0.copyload.i13.i, %ret.0.copyload.i5.i
+  %and8.i = and i32 %ret.0.copyload.i14.i, %ret.0.copyload.i6.i
+  %mul.i.i57 = mul i32 %and.i, -2048144777
+  %add.i.i58 = add i32 %mul.i.i57, %acc1.0.lcssa.i
+  %or.i.i59 = tail call i32 @llvm.fshl.i32(i32 %add.i.i58, i32 %add.i.i58, i32 13)
+  %mul1.i.i60 = mul i32 %or.i.i59, -1640531535
+  %mul.i15.i = mul i32 %and6.i, -2048144777
+  %add.i16.i = add i32 %mul.i15.i, %acc2.0.lcssa.i
+  %or.i17.i = tail call i32 @llvm.fshl.i32(i32 %add.i16.i, i32 %add.i16.i, i32 13)
+  %mul1.i18.i = mul i32 %or.i17.i, -1640531535
+  %mul.i19.i = mul i32 %and7.i, -2048144777
+  %add.i20.i = add i32 %mul.i19.i, %acc3.0.lcssa.i
+  %or.i21.i = tail call i32 @llvm.fshl.i32(i32 %add.i20.i, i32 %add.i20.i, i32 13)
+  %mul1.i22.i = mul i32 %or.i21.i, -1640531535
+  %mul.i23.i = mul i32 %and8.i, -2048144777
+  %add.i24.i = add i32 %mul.i23.i, %acc4.0.lcssa.i
+  %or.i25.i = tail call i32 @llvm.fshl.i32(i32 %add.i24.i, i32 %add.i24.i, i32 13)
+  %mul1.i26.i = mul i32 %or.i25.i, -1640531535
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
-  %21 = phi <4 x i32> [ %13, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %20, %if.then ]
-  %22 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %21, <4 x i32> %21, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %23 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %22)
-  %shr.i = lshr i32 %23, 15
-  %xor.i = xor i32 %shr.i, %23
+  %acc4.0 = phi i32 [ %acc4.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i26.i, %if.then ]
+  %acc3.0 = phi i32 [ %acc3.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i22.i, %if.then ]
+  %acc2.0 = phi i32 [ %acc2.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i18.i, %if.then ]
+  %acc1.0 = phi i32 [ %acc1.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i.i60, %if.then ]
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %acc1.0, i32 %acc1.0, i32 1)
+  %or3.i = tail call i32 @llvm.fshl.i32(i32 %acc2.0, i32 %acc2.0, i32 7)
+  %or6.i = tail call i32 @llvm.fshl.i32(i32 %acc3.0, i32 %acc3.0, i32 12)
+  %or10.i = tail call i32 @llvm.fshl.i32(i32 %acc4.0, i32 %acc4.0, i32 18)
+  %add.i61 = add i32 %or6.i, %or10.i
+  %add7.i = add i32 %add.i61, %or3.i
+  %add11.i = add i32 %add7.i, %or.i
+  %shr.i = lshr i32 %add11.i, 15
+  %xor.i = xor i32 %shr.i, %add11.i
   %mul.i = mul i32 %xor.i, -2048144777
   %shr1.i = lshr i32 %mul.i, 13
   %xor2.i = xor i32 %shr1.i, %mul.i
@@ -691,13 +989,13 @@ if.end:                                           ; preds = %if.then, %_ZN5arrow
   %shr4.i = lshr i32 %mul3.i, 16
   %xor5.i = xor i32 %shr4.i, %mul3.i
   %arrayidx26 = getelementptr inbounds i32, ptr %hashes, i64 %indvars.iv
-  %24 = load i32, ptr %arrayidx26, align 4
-  %shl.i = shl i32 %24, 6
-  %shr.i63 = lshr i32 %24, 2
+  %7 = load i32, ptr %arrayidx26, align 4
+  %shl.i = shl i32 %7, 6
+  %shr.i63 = lshr i32 %7, 2
   %add.i62 = add i32 %shl.i, -1640531527
   %add1.i = add i32 %add.i62, %shr.i63
   %add2.i = add i32 %add1.i, %xor5.i
-  %xor.i64 = xor i32 %add2.i, %24
+  %xor.i64 = xor i32 %add2.i, %7
   store i32 %xor.i64, ptr %arrayidx26, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond31.preheader, label %for.body, !llvm.loop !13
@@ -706,12 +1004,12 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %indvars.iv190 = phi i64 [ %2, %for.body33.lr.ph ], [ %indvars.iv.next191, %if.end79 ]
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %arrayidx37 = getelementptr inbounds i64, ptr %offsets, i64 %indvars.iv.next191
-  %25 = load i64, ptr %arrayidx37, align 8
+  %8 = load i64, ptr %arrayidx37, align 8
   %arrayidx39 = getelementptr inbounds i64, ptr %offsets, i64 %indvars.iv190
-  %26 = load i64, ptr %arrayidx39, align 8
-  %sub40 = sub i64 %25, %26
-  %cmp42 = icmp ne i64 %25, %26
-  %cmp.i65 = icmp eq i64 %25, %26
+  %9 = load i64, ptr %arrayidx39, align 8
+  %sub40 = sub i64 %8, %9
+  %cmp42 = icmp ne i64 %8, %9
+  %cmp.i65 = icmp eq i64 %8, %9
   br i1 %cmp.i65, label %_ZN5arrow8bit_util7CeilDivEll.exit71, label %cond.false.i66
 
 cond.false.i66:                                   ; preds = %for.body33
@@ -731,31 +1029,61 @@ _ZN5arrow8bit_util7CeilDivEll.exit71:             ; preds = %for.body33, %cond.f
   %add57.neg = select i1 %cmp42, i64 15, i64 16
   %sub.i72 = sub nuw nsw i64 %add57.neg, %and55
   %add.ptr.i74 = getelementptr inbounds i8, ptr @_ZZN5arrow7compute9Hashing3210StripeMaskEiPjS2_S2_S2_E5bytes, i64 %sub.i72
-  %27 = load <4 x i32>, ptr %add.ptr.i74, align 1
-  %add.ptr62 = getelementptr inbounds i8, ptr %concatenated_keys, i64 %26
+  %ret.0.copyload.i.i75 = load i32, ptr %add.ptr.i74, align 1
+  %add.ptr7.i76 = getelementptr inbounds i8, ptr %add.ptr.i74, i64 4
+  %ret.0.copyload.i4.i77 = load i32, ptr %add.ptr7.i76, align 1
+  %add.ptr9.i78 = getelementptr inbounds i8, ptr %add.ptr.i74, i64 8
+  %ret.0.copyload.i5.i79 = load i32, ptr %add.ptr9.i78, align 1
+  %add.ptr11.i80 = getelementptr inbounds i8, ptr %add.ptr.i74, i64 12
+  %ret.0.copyload.i6.i81 = load i32, ptr %add.ptr11.i80, align 1
+  %add.ptr62 = getelementptr inbounds i8, ptr %concatenated_keys, i64 %9
   %cmp25.i82 = icmp sgt i64 %add48, 1
   br i1 %cmp25.i82, label %for.body.preheader.i87, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit121
 
 for.body.preheader.i87:                           ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit71
-  %28 = add nsw i64 %add48, -2
+  %10 = add nsw i64 %add48, -2
   br label %for.body.i88
 
 for.body.i88:                                     ; preds = %for.body.i88, %for.body.preheader.i87
+  %acc1.030.i89 = phi i32 [ %mul1.i.i106, %for.body.i88 ], [ 606290984, %for.body.preheader.i87 ]
+  %acc2.029.i90 = phi i32 [ %mul1.i16.i110, %for.body.i88 ], [ -2048144777, %for.body.preheader.i87 ]
+  %acc3.028.i91 = phi i32 [ %mul1.i20.i114, %for.body.i88 ], [ 0, %for.body.preheader.i87 ]
+  %acc4.027.i92 = phi i32 [ %mul1.i24.i118, %for.body.i88 ], [ 1640531535, %for.body.preheader.i87 ]
   %istripe.026.i93 = phi i64 [ %inc.i119, %for.body.i88 ], [ 0, %for.body.preheader.i87 ]
-  %29 = phi <4 x i32> [ %34, %for.body.i88 ], [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.preheader.i87 ]
   %mul1.i94 = shl i64 %istripe.026.i93, 4
   %add.ptr.i95 = getelementptr inbounds i8, ptr %add.ptr62, i64 %mul1.i94
-  %30 = load <4 x i32>, ptr %add.ptr.i95, align 1
-  %31 = mul <4 x i32> %30, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %32 = add <4 x i32> %31, %29
-  %33 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %32, <4 x i32> %32, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %34 = mul <4 x i32> %33, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %ret.0.copyload.i.i96 = load i32, ptr %add.ptr.i95, align 1
+  %add.ptr2.i97 = getelementptr inbounds i8, ptr %add.ptr.i95, i64 4
+  %ret.0.copyload.i10.i98 = load i32, ptr %add.ptr2.i97, align 1
+  %add.ptr4.i99 = getelementptr inbounds i8, ptr %add.ptr.i95, i64 8
+  %ret.0.copyload.i11.i100 = load i32, ptr %add.ptr4.i99, align 1
+  %add.ptr6.i101 = getelementptr inbounds i8, ptr %add.ptr.i95, i64 12
+  %ret.0.copyload.i12.i102 = load i32, ptr %add.ptr6.i101, align 1
+  %mul.i.i103 = mul i32 %ret.0.copyload.i.i96, -2048144777
+  %add.i.i104 = add i32 %mul.i.i103, %acc1.030.i89
+  %or.i.i105 = tail call i32 @llvm.fshl.i32(i32 %add.i.i104, i32 %add.i.i104, i32 13)
+  %mul1.i.i106 = mul i32 %or.i.i105, -1640531535
+  %mul.i13.i107 = mul i32 %ret.0.copyload.i10.i98, -2048144777
+  %add.i14.i108 = add i32 %mul.i13.i107, %acc2.029.i90
+  %or.i15.i109 = tail call i32 @llvm.fshl.i32(i32 %add.i14.i108, i32 %add.i14.i108, i32 13)
+  %mul1.i16.i110 = mul i32 %or.i15.i109, -1640531535
+  %mul.i17.i111 = mul i32 %ret.0.copyload.i11.i100, -2048144777
+  %add.i18.i112 = add i32 %mul.i17.i111, %acc3.028.i91
+  %or.i19.i113 = tail call i32 @llvm.fshl.i32(i32 %add.i18.i112, i32 %add.i18.i112, i32 13)
+  %mul1.i20.i114 = mul i32 %or.i19.i113, -1640531535
+  %mul.i21.i115 = mul i32 %ret.0.copyload.i12.i102, -2048144777
+  %add.i22.i116 = add i32 %mul.i21.i115, %acc4.027.i92
+  %or.i23.i117 = tail call i32 @llvm.fshl.i32(i32 %add.i22.i116, i32 %add.i22.i116, i32 13)
+  %mul1.i24.i118 = mul i32 %or.i23.i117, -1640531535
   %inc.i119 = add nuw nsw i64 %istripe.026.i93, 1
-  %exitcond.not.i120 = icmp eq i64 %istripe.026.i93, %28
+  %exitcond.not.i120 = icmp eq i64 %istripe.026.i93, %10
   br i1 %exitcond.not.i120, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit121, label %for.body.i88, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit121: ; preds = %for.body.i88, %_ZN5arrow8bit_util7CeilDivEll.exit71
-  %35 = phi <4 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %_ZN5arrow8bit_util7CeilDivEll.exit71 ], [ %34, %for.body.i88 ]
+  %acc4.0.lcssa.i83 = phi i32 [ 1640531535, %_ZN5arrow8bit_util7CeilDivEll.exit71 ], [ %mul1.i24.i118, %for.body.i88 ]
+  %acc3.0.lcssa.i84 = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit71 ], [ %mul1.i20.i114, %for.body.i88 ]
+  %acc2.0.lcssa.i85 = phi i32 [ -2048144777, %_ZN5arrow8bit_util7CeilDivEll.exit71 ], [ %mul1.i16.i110, %for.body.i88 ]
+  %acc1.0.lcssa.i86 = phi i32 [ 606290984, %_ZN5arrow8bit_util7CeilDivEll.exit71 ], [ %mul1.i.i106, %for.body.i88 ]
   br i1 %cmp.i65, label %if.end75, label %if.then68
 
 if.then68:                                        ; preds = %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit121
@@ -763,7 +1091,7 @@ if.then68:                                        ; preds = %_ZN5arrow7compute9H
   %mul70 = add i64 %sub69, -16
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr62, i64 %mul70
   %sub74 = sub i64 %sub40, %mul70
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_stripe_copy.sroa.0, ptr align 1 %add.ptr71, i64 %sub74, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_stripe_copy, ptr align 1 %add.ptr71, i64 %sub74, i1 false)
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then68, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit121
@@ -771,20 +1099,46 @@ if.end75:                                         ; preds = %if.then68, %_ZN5arr
   br i1 %cmp76.not, label %if.end79, label %if.then77
 
 if.then77:                                        ; preds = %if.end75
-  %last_stripe_copy.sroa.0.0.last_stripe_copy.sroa.0.0. = load <4 x i32>, ptr %last_stripe_copy.sroa.0, align 16
-  %36 = and <4 x i32> %last_stripe_copy.sroa.0.0.last_stripe_copy.sroa.0.0., %27
-  %37 = mul <4 x i32> %36, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %38 = add <4 x i32> %37, %35
-  %39 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %38, <4 x i32> %38, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %40 = mul <4 x i32> %39, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %last_stripe_copy.0.last_stripe_copy.0.last_stripe_copy.0.ret.0.copyload.i.i122 = load i32, ptr %last_stripe_copy, align 16
+  %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.ret.0.copyload.i12.i124 = load i32, ptr %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i123.sroa_idx, align 4
+  %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.ret.0.copyload.i13.i126 = load i32, ptr %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i125.sroa_idx, align 8
+  %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.ret.0.copyload.i14.i128 = load i32, ptr %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.add.ptr4.i127.sroa_idx, align 4
+  %and.i129 = and i32 %last_stripe_copy.0.last_stripe_copy.0.last_stripe_copy.0.ret.0.copyload.i.i122, %ret.0.copyload.i.i75
+  %and6.i130 = and i32 %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.ret.0.copyload.i12.i124, %ret.0.copyload.i4.i77
+  %and7.i131 = and i32 %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.ret.0.copyload.i13.i126, %ret.0.copyload.i5.i79
+  %and8.i132 = and i32 %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.ret.0.copyload.i14.i128, %ret.0.copyload.i6.i81
+  %mul.i.i133 = mul i32 %and.i129, -2048144777
+  %add.i.i134 = add i32 %mul.i.i133, %acc1.0.lcssa.i86
+  %or.i.i135 = tail call i32 @llvm.fshl.i32(i32 %add.i.i134, i32 %add.i.i134, i32 13)
+  %mul1.i.i136 = mul i32 %or.i.i135, -1640531535
+  %mul.i15.i137 = mul i32 %and6.i130, -2048144777
+  %add.i16.i138 = add i32 %mul.i15.i137, %acc2.0.lcssa.i85
+  %or.i17.i139 = tail call i32 @llvm.fshl.i32(i32 %add.i16.i138, i32 %add.i16.i138, i32 13)
+  %mul1.i18.i140 = mul i32 %or.i17.i139, -1640531535
+  %mul.i19.i141 = mul i32 %and7.i131, -2048144777
+  %add.i20.i142 = add i32 %mul.i19.i141, %acc3.0.lcssa.i84
+  %or.i21.i143 = tail call i32 @llvm.fshl.i32(i32 %add.i20.i142, i32 %add.i20.i142, i32 13)
+  %mul1.i22.i144 = mul i32 %or.i21.i143, -1640531535
+  %mul.i23.i145 = mul i32 %and8.i132, -2048144777
+  %add.i24.i146 = add i32 %mul.i23.i145, %acc4.0.lcssa.i83
+  %or.i25.i147 = tail call i32 @llvm.fshl.i32(i32 %add.i24.i146, i32 %add.i24.i146, i32 13)
+  %mul1.i26.i148 = mul i32 %or.i25.i147, -1640531535
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then77, %if.end75
-  %41 = phi <4 x i32> [ %35, %if.end75 ], [ %40, %if.then77 ]
-  %42 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %41, <4 x i32> %41, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %43 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %42)
-  %shr.i156 = lshr i32 %43, 15
-  %xor.i157 = xor i32 %shr.i156, %43
+  %acc163.0 = phi i32 [ %acc1.0.lcssa.i86, %if.end75 ], [ %mul1.i.i136, %if.then77 ]
+  %acc264.0 = phi i32 [ %acc2.0.lcssa.i85, %if.end75 ], [ %mul1.i18.i140, %if.then77 ]
+  %acc365.0 = phi i32 [ %acc3.0.lcssa.i84, %if.end75 ], [ %mul1.i22.i144, %if.then77 ]
+  %acc466.0 = phi i32 [ %acc4.0.lcssa.i83, %if.end75 ], [ %mul1.i26.i148, %if.then77 ]
+  %or.i149 = tail call i32 @llvm.fshl.i32(i32 %acc163.0, i32 %acc163.0, i32 1)
+  %or3.i150 = tail call i32 @llvm.fshl.i32(i32 %acc264.0, i32 %acc264.0, i32 7)
+  %add.i151 = add i32 %or3.i150, %or.i149
+  %or6.i152 = tail call i32 @llvm.fshl.i32(i32 %acc365.0, i32 %acc365.0, i32 12)
+  %add7.i153 = add i32 %add.i151, %or6.i152
+  %or10.i154 = tail call i32 @llvm.fshl.i32(i32 %acc466.0, i32 %acc466.0, i32 18)
+  %add11.i155 = add i32 %add7.i153, %or10.i154
+  %shr.i156 = lshr i32 %add11.i155, 15
+  %xor.i157 = xor i32 %shr.i156, %add11.i155
   %mul.i158 = mul i32 %xor.i157, -2048144777
   %shr1.i159 = lshr i32 %mul.i158, 13
   %xor2.i160 = xor i32 %shr1.i159, %mul.i158
@@ -792,13 +1146,13 @@ if.end79:                                         ; preds = %if.then77, %if.end7
   %shr4.i162 = lshr i32 %mul3.i161, 16
   %xor5.i163 = xor i32 %shr4.i162, %mul3.i161
   %arrayidx84 = getelementptr inbounds i32, ptr %hashes, i64 %indvars.iv190
-  %44 = load i32, ptr %arrayidx84, align 4
-  %shl.i165 = shl i32 %44, 6
-  %shr.i167 = lshr i32 %44, 2
+  %11 = load i32, ptr %arrayidx84, align 4
+  %shl.i165 = shl i32 %11, 6
+  %shr.i167 = lshr i32 %11, 2
   %add.i164 = add i32 %shl.i165, -1640531527
   %add1.i166 = add i32 %add.i164, %shr.i167
   %add2.i168 = add i32 %add1.i166, %xor5.i163
-  %xor.i169 = xor i32 %add2.i168, %44
+  %xor.i169 = xor i32 %add2.i168, %11
   store i32 %xor.i169, ptr %arrayidx84, align 4
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
   br i1 %exitcond194.not, label %for.end90, label %for.body33, !llvm.loop !14
@@ -810,7 +1164,7 @@ for.end90:                                        ; preds = %if.end79, %for.cond
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow7compute9Hashing3213HashVarLenImpImLb0EEEvjPKT_PKhPj(i32 noundef %num_rows, ptr noundef %offsets, ptr noundef %concatenated_keys, ptr noundef %hashes) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %last_stripe_copy.sroa.0 = alloca <4 x i32>, align 16
+  %last_stripe_copy = alloca [4 x i32], align 16
   %cmp.not165 = icmp eq i32 %num_rows, 0
   br i1 %cmp.not165, label %for.cond28.preheader, label %land.rhs.lr.ph
 
@@ -846,6 +1200,9 @@ for.cond28.preheader:                             ; preds = %while.body, %if.end
 for.body30.lr.ph:                                 ; preds = %for.cond28.preheader
   %2 = zext i32 %num_rows_safe.0.lcssa184 to i64
   %wide.trip.count180 = zext i32 %num_rows to i64
+  %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i116.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 4
+  %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i118.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 8
+  %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.add.ptr4.i120.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 12
   br label %for.body30
 
 for.body:                                         ; preds = %for.body.preheader, %if.end
@@ -877,52 +1234,111 @@ _ZN5arrow8bit_util7CeilDivEll.exit:               ; preds = %for.body, %cond.fal
   %add16.neg = select i1 %cmp10, i64 15, i64 16
   %sub.i45 = sub nuw nsw i64 %add16.neg, %and
   %add.ptr.i = getelementptr inbounds i8, ptr @_ZZN5arrow7compute9Hashing3210StripeMaskEiPjS2_S2_S2_E5bytes, i64 %sub.i45
-  %5 = load <4 x i32>, ptr %add.ptr.i, align 1
+  %ret.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
+  %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %ret.0.copyload.i4.i = load i32, ptr %add.ptr7.i, align 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %ret.0.copyload.i5.i = load i32, ptr %add.ptr9.i, align 1
+  %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
+  %ret.0.copyload.i6.i = load i32, ptr %add.ptr11.i, align 1
   %add.ptr = getelementptr inbounds i8, ptr %concatenated_keys, i64 %4
   %cmp25.i = icmp sgt i64 %add12, 1
   br i1 %cmp25.i, label %for.body.preheader.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
 
 for.body.preheader.i:                             ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit
-  %6 = add nsw i64 %add12, -2
+  %5 = add nsw i64 %add12, -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %acc1.030.i = phi i32 [ %mul1.i.i, %for.body.i ], [ 606290984, %for.body.preheader.i ]
+  %acc2.029.i = phi i32 [ %mul1.i16.i, %for.body.i ], [ -2048144777, %for.body.preheader.i ]
+  %acc3.028.i = phi i32 [ %mul1.i20.i, %for.body.i ], [ 0, %for.body.preheader.i ]
+  %acc4.027.i = phi i32 [ %mul1.i24.i, %for.body.i ], [ 1640531535, %for.body.preheader.i ]
   %istripe.026.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.preheader.i ]
-  %7 = phi <4 x i32> [ %12, %for.body.i ], [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.preheader.i ]
   %mul1.i = shl i64 %istripe.026.i, 4
   %add.ptr.i46 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul1.i
-  %8 = load <4 x i32>, ptr %add.ptr.i46, align 1
-  %9 = mul <4 x i32> %8, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %10 = add <4 x i32> %9, %7
-  %11 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %10, <4 x i32> %10, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %12 = mul <4 x i32> %11, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %ret.0.copyload.i.i47 = load i32, ptr %add.ptr.i46, align 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i46, i64 4
+  %ret.0.copyload.i10.i = load i32, ptr %add.ptr2.i, align 1
+  %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i46, i64 8
+  %ret.0.copyload.i11.i = load i32, ptr %add.ptr4.i, align 1
+  %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i46, i64 12
+  %ret.0.copyload.i12.i = load i32, ptr %add.ptr6.i, align 1
+  %mul.i.i = mul i32 %ret.0.copyload.i.i47, -2048144777
+  %add.i.i = add i32 %mul.i.i, %acc1.030.i
+  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %add.i.i, i32 %add.i.i, i32 13)
+  %mul1.i.i = mul i32 %or.i.i, -1640531535
+  %mul.i13.i = mul i32 %ret.0.copyload.i10.i, -2048144777
+  %add.i14.i = add i32 %mul.i13.i, %acc2.029.i
+  %or.i15.i = tail call i32 @llvm.fshl.i32(i32 %add.i14.i, i32 %add.i14.i, i32 13)
+  %mul1.i16.i = mul i32 %or.i15.i, -1640531535
+  %mul.i17.i = mul i32 %ret.0.copyload.i11.i, -2048144777
+  %add.i18.i = add i32 %mul.i17.i, %acc3.028.i
+  %or.i19.i = tail call i32 @llvm.fshl.i32(i32 %add.i18.i, i32 %add.i18.i, i32 13)
+  %mul1.i20.i = mul i32 %or.i19.i, -1640531535
+  %mul.i21.i = mul i32 %ret.0.copyload.i12.i, -2048144777
+  %add.i22.i = add i32 %mul.i21.i, %acc4.027.i
+  %or.i23.i = tail call i32 @llvm.fshl.i32(i32 %add.i22.i, i32 %add.i22.i, i32 13)
+  %mul1.i24.i = mul i32 %or.i23.i, -1640531535
   %inc.i = add nuw nsw i64 %istripe.026.i, 1
-  %exitcond.not.i = icmp eq i64 %istripe.026.i, %6
+  %exitcond.not.i = icmp eq i64 %istripe.026.i, %5
   br i1 %exitcond.not.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit, label %for.body.i, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit: ; preds = %for.body.i, %_ZN5arrow8bit_util7CeilDivEll.exit
-  %13 = phi <4 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %_ZN5arrow8bit_util7CeilDivEll.exit ], [ %12, %for.body.i ]
+  %acc4.0.lcssa.i = phi i32 [ 1640531535, %_ZN5arrow8bit_util7CeilDivEll.exit ], [ %mul1.i24.i, %for.body.i ]
+  %acc3.0.lcssa.i = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit ], [ %mul1.i20.i, %for.body.i ]
+  %acc2.0.lcssa.i = phi i32 [ -2048144777, %_ZN5arrow8bit_util7CeilDivEll.exit ], [ %mul1.i16.i, %for.body.i ]
+  %acc1.0.lcssa.i = phi i32 [ 606290984, %_ZN5arrow8bit_util7CeilDivEll.exit ], [ %mul1.i.i, %for.body.i ]
   %cmp20.not = icmp eq i64 %add12, 0
   br i1 %cmp20.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
   %sub21 = shl i64 %add12, 4
-  %14 = getelementptr i8, ptr %add.ptr, i64 %sub21
-  %add.ptr22 = getelementptr i8, ptr %14, i64 -16
-  %15 = load <4 x i32>, ptr %add.ptr22, align 1
-  %16 = and <4 x i32> %15, %5
-  %17 = mul <4 x i32> %16, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %18 = add <4 x i32> %17, %13
-  %19 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %18, <4 x i32> %18, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %20 = mul <4 x i32> %19, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %6 = getelementptr i8, ptr %add.ptr, i64 %sub21
+  %add.ptr22 = getelementptr i8, ptr %6, i64 -16
+  %ret.0.copyload.i.i48 = load i32, ptr %add.ptr22, align 1
+  %add.ptr.i49 = getelementptr i8, ptr %6, i64 -12
+  %ret.0.copyload.i12.i50 = load i32, ptr %add.ptr.i49, align 1
+  %add.ptr2.i51 = getelementptr i8, ptr %6, i64 -8
+  %ret.0.copyload.i13.i = load i32, ptr %add.ptr2.i51, align 1
+  %add.ptr4.i52 = getelementptr i8, ptr %6, i64 -4
+  %ret.0.copyload.i14.i = load i32, ptr %add.ptr4.i52, align 1
+  %and.i = and i32 %ret.0.copyload.i.i48, %ret.0.copyload.i.i
+  %and6.i = and i32 %ret.0.copyload.i12.i50, %ret.0.copyload.i4.i
+  %and7.i = and i32 %ret.0.copyload.i13.i, %ret.0.copyload.i5.i
+  %and8.i = and i32 %ret.0.copyload.i14.i, %ret.0.copyload.i6.i
+  %mul.i.i53 = mul i32 %and.i, -2048144777
+  %add.i.i54 = add i32 %mul.i.i53, %acc1.0.lcssa.i
+  %or.i.i55 = tail call i32 @llvm.fshl.i32(i32 %add.i.i54, i32 %add.i.i54, i32 13)
+  %mul1.i.i56 = mul i32 %or.i.i55, -1640531535
+  %mul.i15.i = mul i32 %and6.i, -2048144777
+  %add.i16.i = add i32 %mul.i15.i, %acc2.0.lcssa.i
+  %or.i17.i = tail call i32 @llvm.fshl.i32(i32 %add.i16.i, i32 %add.i16.i, i32 13)
+  %mul1.i18.i = mul i32 %or.i17.i, -1640531535
+  %mul.i19.i = mul i32 %and7.i, -2048144777
+  %add.i20.i = add i32 %mul.i19.i, %acc3.0.lcssa.i
+  %or.i21.i = tail call i32 @llvm.fshl.i32(i32 %add.i20.i, i32 %add.i20.i, i32 13)
+  %mul1.i22.i = mul i32 %or.i21.i, -1640531535
+  %mul.i23.i = mul i32 %and8.i, -2048144777
+  %add.i24.i = add i32 %mul.i23.i, %acc4.0.lcssa.i
+  %or.i25.i = tail call i32 @llvm.fshl.i32(i32 %add.i24.i, i32 %add.i24.i, i32 13)
+  %mul1.i26.i = mul i32 %or.i25.i, -1640531535
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
-  %21 = phi <4 x i32> [ %13, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %20, %if.then ]
-  %22 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %21, <4 x i32> %21, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %23 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %22)
-  %shr.i = lshr i32 %23, 15
-  %xor.i = xor i32 %shr.i, %23
+  %acc4.0 = phi i32 [ %acc4.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i26.i, %if.then ]
+  %acc3.0 = phi i32 [ %acc3.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i22.i, %if.then ]
+  %acc2.0 = phi i32 [ %acc2.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i18.i, %if.then ]
+  %acc1.0 = phi i32 [ %acc1.0.lcssa.i, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit ], [ %mul1.i.i56, %if.then ]
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %acc1.0, i32 %acc1.0, i32 1)
+  %or3.i = tail call i32 @llvm.fshl.i32(i32 %acc2.0, i32 %acc2.0, i32 7)
+  %or6.i = tail call i32 @llvm.fshl.i32(i32 %acc3.0, i32 %acc3.0, i32 12)
+  %or10.i = tail call i32 @llvm.fshl.i32(i32 %acc4.0, i32 %acc4.0, i32 18)
+  %add.i57 = add i32 %or6.i, %or10.i
+  %add7.i = add i32 %add.i57, %or3.i
+  %add11.i = add i32 %add7.i, %or.i
+  %shr.i = lshr i32 %add11.i, 15
+  %xor.i = xor i32 %shr.i, %add11.i
   %mul.i = mul i32 %xor.i, -2048144777
   %shr1.i = lshr i32 %mul.i, 13
   %xor2.i = xor i32 %shr1.i, %mul.i
@@ -938,12 +1354,12 @@ for.body30:                                       ; preds = %for.body30.lr.ph, %
   %indvars.iv177 = phi i64 [ %2, %for.body30.lr.ph ], [ %indvars.iv.next178, %if.end76 ]
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %arrayidx34 = getelementptr inbounds i64, ptr %offsets, i64 %indvars.iv.next178
-  %24 = load i64, ptr %arrayidx34, align 8
+  %7 = load i64, ptr %arrayidx34, align 8
   %arrayidx36 = getelementptr inbounds i64, ptr %offsets, i64 %indvars.iv177
-  %25 = load i64, ptr %arrayidx36, align 8
-  %sub37 = sub i64 %24, %25
-  %cmp39 = icmp ne i64 %24, %25
-  %cmp.i58 = icmp eq i64 %24, %25
+  %8 = load i64, ptr %arrayidx36, align 8
+  %sub37 = sub i64 %7, %8
+  %cmp39 = icmp ne i64 %7, %8
+  %cmp.i58 = icmp eq i64 %7, %8
   br i1 %cmp.i58, label %_ZN5arrow8bit_util7CeilDivEll.exit64, label %cond.false.i59
 
 cond.false.i59:                                   ; preds = %for.body30
@@ -963,31 +1379,61 @@ _ZN5arrow8bit_util7CeilDivEll.exit64:             ; preds = %for.body30, %cond.f
   %add54.neg = select i1 %cmp39, i64 15, i64 16
   %sub.i65 = sub nuw nsw i64 %add54.neg, %and52
   %add.ptr.i67 = getelementptr inbounds i8, ptr @_ZZN5arrow7compute9Hashing3210StripeMaskEiPjS2_S2_S2_E5bytes, i64 %sub.i65
-  %26 = load <4 x i32>, ptr %add.ptr.i67, align 1
-  %add.ptr59 = getelementptr inbounds i8, ptr %concatenated_keys, i64 %25
+  %ret.0.copyload.i.i68 = load i32, ptr %add.ptr.i67, align 1
+  %add.ptr7.i69 = getelementptr inbounds i8, ptr %add.ptr.i67, i64 4
+  %ret.0.copyload.i4.i70 = load i32, ptr %add.ptr7.i69, align 1
+  %add.ptr9.i71 = getelementptr inbounds i8, ptr %add.ptr.i67, i64 8
+  %ret.0.copyload.i5.i72 = load i32, ptr %add.ptr9.i71, align 1
+  %add.ptr11.i73 = getelementptr inbounds i8, ptr %add.ptr.i67, i64 12
+  %ret.0.copyload.i6.i74 = load i32, ptr %add.ptr11.i73, align 1
+  %add.ptr59 = getelementptr inbounds i8, ptr %concatenated_keys, i64 %8
   %cmp25.i75 = icmp sgt i64 %add45, 1
   br i1 %cmp25.i75, label %for.body.preheader.i80, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit114
 
 for.body.preheader.i80:                           ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit64
-  %27 = add nsw i64 %add45, -2
+  %9 = add nsw i64 %add45, -2
   br label %for.body.i81
 
 for.body.i81:                                     ; preds = %for.body.i81, %for.body.preheader.i80
+  %acc1.030.i82 = phi i32 [ %mul1.i.i99, %for.body.i81 ], [ 606290984, %for.body.preheader.i80 ]
+  %acc2.029.i83 = phi i32 [ %mul1.i16.i103, %for.body.i81 ], [ -2048144777, %for.body.preheader.i80 ]
+  %acc3.028.i84 = phi i32 [ %mul1.i20.i107, %for.body.i81 ], [ 0, %for.body.preheader.i80 ]
+  %acc4.027.i85 = phi i32 [ %mul1.i24.i111, %for.body.i81 ], [ 1640531535, %for.body.preheader.i80 ]
   %istripe.026.i86 = phi i64 [ %inc.i112, %for.body.i81 ], [ 0, %for.body.preheader.i80 ]
-  %28 = phi <4 x i32> [ %33, %for.body.i81 ], [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.preheader.i80 ]
   %mul1.i87 = shl i64 %istripe.026.i86, 4
   %add.ptr.i88 = getelementptr inbounds i8, ptr %add.ptr59, i64 %mul1.i87
-  %29 = load <4 x i32>, ptr %add.ptr.i88, align 1
-  %30 = mul <4 x i32> %29, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %31 = add <4 x i32> %30, %28
-  %32 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %31, <4 x i32> %31, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %33 = mul <4 x i32> %32, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %ret.0.copyload.i.i89 = load i32, ptr %add.ptr.i88, align 1
+  %add.ptr2.i90 = getelementptr inbounds i8, ptr %add.ptr.i88, i64 4
+  %ret.0.copyload.i10.i91 = load i32, ptr %add.ptr2.i90, align 1
+  %add.ptr4.i92 = getelementptr inbounds i8, ptr %add.ptr.i88, i64 8
+  %ret.0.copyload.i11.i93 = load i32, ptr %add.ptr4.i92, align 1
+  %add.ptr6.i94 = getelementptr inbounds i8, ptr %add.ptr.i88, i64 12
+  %ret.0.copyload.i12.i95 = load i32, ptr %add.ptr6.i94, align 1
+  %mul.i.i96 = mul i32 %ret.0.copyload.i.i89, -2048144777
+  %add.i.i97 = add i32 %mul.i.i96, %acc1.030.i82
+  %or.i.i98 = tail call i32 @llvm.fshl.i32(i32 %add.i.i97, i32 %add.i.i97, i32 13)
+  %mul1.i.i99 = mul i32 %or.i.i98, -1640531535
+  %mul.i13.i100 = mul i32 %ret.0.copyload.i10.i91, -2048144777
+  %add.i14.i101 = add i32 %mul.i13.i100, %acc2.029.i83
+  %or.i15.i102 = tail call i32 @llvm.fshl.i32(i32 %add.i14.i101, i32 %add.i14.i101, i32 13)
+  %mul1.i16.i103 = mul i32 %or.i15.i102, -1640531535
+  %mul.i17.i104 = mul i32 %ret.0.copyload.i11.i93, -2048144777
+  %add.i18.i105 = add i32 %mul.i17.i104, %acc3.028.i84
+  %or.i19.i106 = tail call i32 @llvm.fshl.i32(i32 %add.i18.i105, i32 %add.i18.i105, i32 13)
+  %mul1.i20.i107 = mul i32 %or.i19.i106, -1640531535
+  %mul.i21.i108 = mul i32 %ret.0.copyload.i12.i95, -2048144777
+  %add.i22.i109 = add i32 %mul.i21.i108, %acc4.027.i85
+  %or.i23.i110 = tail call i32 @llvm.fshl.i32(i32 %add.i22.i109, i32 %add.i22.i109, i32 13)
+  %mul1.i24.i111 = mul i32 %or.i23.i110, -1640531535
   %inc.i112 = add nuw nsw i64 %istripe.026.i86, 1
-  %exitcond.not.i113 = icmp eq i64 %istripe.026.i86, %27
+  %exitcond.not.i113 = icmp eq i64 %istripe.026.i86, %9
   br i1 %exitcond.not.i113, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit114, label %for.body.i81, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit114: ; preds = %for.body.i81, %_ZN5arrow8bit_util7CeilDivEll.exit64
-  %34 = phi <4 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %_ZN5arrow8bit_util7CeilDivEll.exit64 ], [ %33, %for.body.i81 ]
+  %acc4.0.lcssa.i76 = phi i32 [ 1640531535, %_ZN5arrow8bit_util7CeilDivEll.exit64 ], [ %mul1.i24.i111, %for.body.i81 ]
+  %acc3.0.lcssa.i77 = phi i32 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit64 ], [ %mul1.i20.i107, %for.body.i81 ]
+  %acc2.0.lcssa.i78 = phi i32 [ -2048144777, %_ZN5arrow8bit_util7CeilDivEll.exit64 ], [ %mul1.i16.i103, %for.body.i81 ]
+  %acc1.0.lcssa.i79 = phi i32 [ 606290984, %_ZN5arrow8bit_util7CeilDivEll.exit64 ], [ %mul1.i.i99, %for.body.i81 ]
   br i1 %cmp.i58, label %if.end72, label %if.then65
 
 if.then65:                                        ; preds = %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit114
@@ -995,7 +1441,7 @@ if.then65:                                        ; preds = %_ZN5arrow7compute9H
   %mul67 = add i64 %sub66, -16
   %add.ptr68 = getelementptr inbounds i8, ptr %add.ptr59, i64 %mul67
   %sub71 = sub i64 %sub37, %mul67
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_stripe_copy.sroa.0, ptr align 1 %add.ptr68, i64 %sub71, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_stripe_copy, ptr align 1 %add.ptr68, i64 %sub71, i1 false)
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then65, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit114
@@ -1003,20 +1449,46 @@ if.end72:                                         ; preds = %if.then65, %_ZN5arr
   br i1 %cmp73.not, label %if.end76, label %if.then74
 
 if.then74:                                        ; preds = %if.end72
-  %last_stripe_copy.sroa.0.0.last_stripe_copy.sroa.0.0. = load <4 x i32>, ptr %last_stripe_copy.sroa.0, align 16
-  %35 = and <4 x i32> %last_stripe_copy.sroa.0.0.last_stripe_copy.sroa.0.0., %26
-  %36 = mul <4 x i32> %35, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %37 = add <4 x i32> %36, %34
-  %38 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %37, <4 x i32> %37, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %39 = mul <4 x i32> %38, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %last_stripe_copy.0.last_stripe_copy.0.last_stripe_copy.0.ret.0.copyload.i.i115 = load i32, ptr %last_stripe_copy, align 16
+  %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.ret.0.copyload.i12.i117 = load i32, ptr %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i116.sroa_idx, align 4
+  %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.ret.0.copyload.i13.i119 = load i32, ptr %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i118.sroa_idx, align 8
+  %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.ret.0.copyload.i14.i121 = load i32, ptr %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.add.ptr4.i120.sroa_idx, align 4
+  %and.i122 = and i32 %last_stripe_copy.0.last_stripe_copy.0.last_stripe_copy.0.ret.0.copyload.i.i115, %ret.0.copyload.i.i68
+  %and6.i123 = and i32 %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.ret.0.copyload.i12.i117, %ret.0.copyload.i4.i70
+  %and7.i124 = and i32 %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.ret.0.copyload.i13.i119, %ret.0.copyload.i5.i72
+  %and8.i125 = and i32 %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.ret.0.copyload.i14.i121, %ret.0.copyload.i6.i74
+  %mul.i.i126 = mul i32 %and.i122, -2048144777
+  %add.i.i127 = add i32 %mul.i.i126, %acc1.0.lcssa.i79
+  %or.i.i128 = tail call i32 @llvm.fshl.i32(i32 %add.i.i127, i32 %add.i.i127, i32 13)
+  %mul1.i.i129 = mul i32 %or.i.i128, -1640531535
+  %mul.i15.i130 = mul i32 %and6.i123, -2048144777
+  %add.i16.i131 = add i32 %mul.i15.i130, %acc2.0.lcssa.i78
+  %or.i17.i132 = tail call i32 @llvm.fshl.i32(i32 %add.i16.i131, i32 %add.i16.i131, i32 13)
+  %mul1.i18.i133 = mul i32 %or.i17.i132, -1640531535
+  %mul.i19.i134 = mul i32 %and7.i124, -2048144777
+  %add.i20.i135 = add i32 %mul.i19.i134, %acc3.0.lcssa.i77
+  %or.i21.i136 = tail call i32 @llvm.fshl.i32(i32 %add.i20.i135, i32 %add.i20.i135, i32 13)
+  %mul1.i22.i137 = mul i32 %or.i21.i136, -1640531535
+  %mul.i23.i138 = mul i32 %and8.i125, -2048144777
+  %add.i24.i139 = add i32 %mul.i23.i138, %acc4.0.lcssa.i76
+  %or.i25.i140 = tail call i32 @llvm.fshl.i32(i32 %add.i24.i139, i32 %add.i24.i139, i32 13)
+  %mul1.i26.i141 = mul i32 %or.i25.i140, -1640531535
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then74, %if.end72
-  %40 = phi <4 x i32> [ %34, %if.end72 ], [ %39, %if.then74 ]
-  %41 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %40, <4 x i32> %40, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %42 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %41)
-  %shr.i149 = lshr i32 %42, 15
-  %xor.i150 = xor i32 %shr.i149, %42
+  %acc160.0 = phi i32 [ %acc1.0.lcssa.i79, %if.end72 ], [ %mul1.i.i129, %if.then74 ]
+  %acc261.0 = phi i32 [ %acc2.0.lcssa.i78, %if.end72 ], [ %mul1.i18.i133, %if.then74 ]
+  %acc362.0 = phi i32 [ %acc3.0.lcssa.i77, %if.end72 ], [ %mul1.i22.i137, %if.then74 ]
+  %acc463.0 = phi i32 [ %acc4.0.lcssa.i76, %if.end72 ], [ %mul1.i26.i141, %if.then74 ]
+  %or.i142 = tail call i32 @llvm.fshl.i32(i32 %acc160.0, i32 %acc160.0, i32 1)
+  %or3.i143 = tail call i32 @llvm.fshl.i32(i32 %acc261.0, i32 %acc261.0, i32 7)
+  %add.i144 = add i32 %or3.i143, %or.i142
+  %or6.i145 = tail call i32 @llvm.fshl.i32(i32 %acc362.0, i32 %acc362.0, i32 12)
+  %add7.i146 = add i32 %add.i144, %or6.i145
+  %or10.i147 = tail call i32 @llvm.fshl.i32(i32 %acc463.0, i32 %acc463.0, i32 18)
+  %add11.i148 = add i32 %add7.i146, %or10.i147
+  %shr.i149 = lshr i32 %add11.i148, 15
+  %xor.i150 = xor i32 %shr.i149, %add11.i148
   %mul.i151 = mul i32 %xor.i150, -2048144777
   %shr1.i152 = lshr i32 %mul.i151, 13
   %xor2.i153 = xor i32 %shr1.i152, %mul.i151
@@ -1375,7 +1847,7 @@ declare noundef i32 @_ZN5arrow7compute9Hashing3217HashFixedLen_avx2EbjmPKhPjS4_(
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow7compute9Hashing3215HashFixedLenImpILb1EEEvjmPKhPj(i32 noundef %num_rows, i64 noundef %length, ptr noundef %keys, ptr noundef %hashes) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %last_stripe_copy.sroa.0 = alloca <4 x i32>, align 16
+  %last_stripe_copy = alloca [4 x i32], align 16
   %cmp.not148 = icmp eq i32 %num_rows, 0
   br i1 %cmp.not148, label %while.end, label %land.rhs.preheader
 
@@ -1415,13 +1887,19 @@ _ZN5arrow8bit_util7CeilDivEll.exit:               ; preds = %while.end, %cond.fa
   %4 = and i64 %3, 15
   %sub.i32 = xor i64 %4, 15
   %add.ptr.i = getelementptr inbounds i8, ptr @_ZZN5arrow7compute9Hashing3210StripeMaskEiPjS2_S2_S2_E5bytes, i64 %sub.i32
-  %5 = load <4 x i32>, ptr %add.ptr.i, align 1
+  %ret.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
+  %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %ret.0.copyload.i4.i = load i32, ptr %add.ptr7.i, align 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %ret.0.copyload.i5.i = load i32, ptr %add.ptr9.i, align 1
+  %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
+  %ret.0.copyload.i6.i = load i32, ptr %add.ptr11.i, align 1
   %cmp4151.not = icmp eq i32 %num_rows_safe.0.lcssa, 0
   br i1 %cmp4151.not, label %for.cond16.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit
   %cmp25.i = icmp sgt i64 %cond.i, 1
-  %6 = add nsw i64 %cond.i, -2
+  %5 = add nsw i64 %cond.i, -2
   %sub7 = shl i64 %cond.i, 4
   %wide.trip.count = zext i32 %num_rows_safe.0.lcssa to i64
   br label %for.body
@@ -1432,12 +1910,15 @@ for.cond16.preheader:                             ; preds = %_ZN5arrow7compute9H
 
 for.body18.lr.ph:                                 ; preds = %for.cond16.preheader
   %cmp25.i48 = icmp sgt i64 %cond.i, 1
-  %7 = add nsw i64 %cond.i, -2
+  %6 = add nsw i64 %cond.i, -2
   %sub27 = shl i64 %cond.i, 4
   %mul28 = add i64 %sub27, -16
   %sub32 = sub i64 %length, %mul28
-  %8 = zext i32 %num_rows_safe.0.lcssa to i64
+  %7 = zext i32 %num_rows_safe.0.lcssa to i64
   %wide.trip.count164 = zext i32 %num_rows to i64
+  %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i89.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 4
+  %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i91.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 8
+  %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.add.ptr4.i93.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 12
   br label %for.body18
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
@@ -1447,33 +1928,83 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp25.i, label %for.body.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit
 
 for.body.i:                                       ; preds = %for.body, %for.body.i
+  %acc1.030.i = phi i32 [ %mul1.i.i, %for.body.i ], [ 606290984, %for.body ]
+  %acc2.029.i = phi i32 [ %mul1.i16.i, %for.body.i ], [ -2048144777, %for.body ]
+  %acc3.028.i = phi i32 [ %mul1.i20.i, %for.body.i ], [ 0, %for.body ]
+  %acc4.027.i = phi i32 [ %mul1.i24.i, %for.body.i ], [ 1640531535, %for.body ]
   %istripe.026.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body ]
-  %9 = phi <4 x i32> [ %14, %for.body.i ], [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body ]
   %mul1.i = shl i64 %istripe.026.i, 4
   %add.ptr.i33 = getelementptr inbounds i8, ptr %add.ptr, i64 %mul1.i
-  %10 = load <4 x i32>, ptr %add.ptr.i33, align 1
-  %11 = mul <4 x i32> %10, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %12 = add <4 x i32> %11, %9
-  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %14 = mul <4 x i32> %13, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %ret.0.copyload.i.i34 = load i32, ptr %add.ptr.i33, align 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i33, i64 4
+  %ret.0.copyload.i10.i = load i32, ptr %add.ptr2.i, align 1
+  %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i33, i64 8
+  %ret.0.copyload.i11.i = load i32, ptr %add.ptr4.i, align 1
+  %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i33, i64 12
+  %ret.0.copyload.i12.i = load i32, ptr %add.ptr6.i, align 1
+  %mul.i.i = mul i32 %ret.0.copyload.i.i34, -2048144777
+  %add.i.i = add i32 %mul.i.i, %acc1.030.i
+  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %add.i.i, i32 %add.i.i, i32 13)
+  %mul1.i.i = mul i32 %or.i.i, -1640531535
+  %mul.i13.i = mul i32 %ret.0.copyload.i10.i, -2048144777
+  %add.i14.i = add i32 %mul.i13.i, %acc2.029.i
+  %or.i15.i = tail call i32 @llvm.fshl.i32(i32 %add.i14.i, i32 %add.i14.i, i32 13)
+  %mul1.i16.i = mul i32 %or.i15.i, -1640531535
+  %mul.i17.i = mul i32 %ret.0.copyload.i11.i, -2048144777
+  %add.i18.i = add i32 %mul.i17.i, %acc3.028.i
+  %or.i19.i = tail call i32 @llvm.fshl.i32(i32 %add.i18.i, i32 %add.i18.i, i32 13)
+  %mul1.i20.i = mul i32 %or.i19.i, -1640531535
+  %mul.i21.i = mul i32 %ret.0.copyload.i12.i, -2048144777
+  %add.i22.i = add i32 %mul.i21.i, %acc4.027.i
+  %or.i23.i = tail call i32 @llvm.fshl.i32(i32 %add.i22.i, i32 %add.i22.i, i32 13)
+  %mul1.i24.i = mul i32 %or.i23.i, -1640531535
   %inc.i = add nuw nsw i64 %istripe.026.i, 1
-  %exitcond.not.i = icmp eq i64 %istripe.026.i, %6
+  %exitcond.not.i = icmp eq i64 %istripe.026.i, %5
   br i1 %exitcond.not.i, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit, label %for.body.i, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit: ; preds = %for.body.i, %for.body
-  %15 = phi <4 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body ], [ %14, %for.body.i ]
-  %16 = getelementptr i8, ptr %add.ptr, i64 %sub7
-  %add.ptr9 = getelementptr i8, ptr %16, i64 -16
-  %17 = load <4 x i32>, ptr %add.ptr9, align 1
-  %18 = and <4 x i32> %17, %5
-  %19 = mul <4 x i32> %18, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %20 = add <4 x i32> %19, %15
-  %21 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %20, <4 x i32> %20, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %22 = mul <4 x i32> %21, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
-  %23 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %22, <4 x i32> %22, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %24 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %23)
-  %shr.i = lshr i32 %24, 15
-  %xor.i = xor i32 %shr.i, %24
+  %acc4.0.lcssa.i = phi i32 [ 1640531535, %for.body ], [ %mul1.i24.i, %for.body.i ]
+  %acc3.0.lcssa.i = phi i32 [ 0, %for.body ], [ %mul1.i20.i, %for.body.i ]
+  %acc2.0.lcssa.i = phi i32 [ -2048144777, %for.body ], [ %mul1.i16.i, %for.body.i ]
+  %acc1.0.lcssa.i = phi i32 [ 606290984, %for.body ], [ %mul1.i.i, %for.body.i ]
+  %8 = getelementptr i8, ptr %add.ptr, i64 %sub7
+  %add.ptr9 = getelementptr i8, ptr %8, i64 -16
+  %ret.0.copyload.i.i35 = load i32, ptr %add.ptr9, align 1
+  %add.ptr.i36 = getelementptr i8, ptr %8, i64 -12
+  %ret.0.copyload.i12.i37 = load i32, ptr %add.ptr.i36, align 1
+  %add.ptr2.i38 = getelementptr i8, ptr %8, i64 -8
+  %ret.0.copyload.i13.i = load i32, ptr %add.ptr2.i38, align 1
+  %add.ptr4.i39 = getelementptr i8, ptr %8, i64 -4
+  %ret.0.copyload.i14.i = load i32, ptr %add.ptr4.i39, align 1
+  %and.i = and i32 %ret.0.copyload.i.i35, %ret.0.copyload.i.i
+  %and6.i = and i32 %ret.0.copyload.i12.i37, %ret.0.copyload.i4.i
+  %and7.i = and i32 %ret.0.copyload.i13.i, %ret.0.copyload.i5.i
+  %and8.i = and i32 %ret.0.copyload.i14.i, %ret.0.copyload.i6.i
+  %mul.i.i40 = mul i32 %and.i, -2048144777
+  %add.i.i41 = add i32 %mul.i.i40, %acc1.0.lcssa.i
+  %or.i.i42 = tail call i32 @llvm.fshl.i32(i32 %add.i.i41, i32 %add.i.i41, i32 13)
+  %mul1.i.i43 = mul i32 %or.i.i42, -1640531535
+  %mul.i15.i = mul i32 %and6.i, -2048144777
+  %add.i16.i = add i32 %mul.i15.i, %acc2.0.lcssa.i
+  %or.i17.i = tail call i32 @llvm.fshl.i32(i32 %add.i16.i, i32 %add.i16.i, i32 13)
+  %mul1.i18.i = mul i32 %or.i17.i, -1640531535
+  %mul.i19.i = mul i32 %and7.i, -2048144777
+  %add.i20.i = add i32 %mul.i19.i, %acc3.0.lcssa.i
+  %or.i21.i = tail call i32 @llvm.fshl.i32(i32 %add.i20.i, i32 %add.i20.i, i32 13)
+  %mul1.i22.i = mul i32 %or.i21.i, -1640531535
+  %mul.i23.i = mul i32 %and8.i, -2048144777
+  %add.i24.i = add i32 %mul.i23.i, %acc4.0.lcssa.i
+  %or.i25.i = tail call i32 @llvm.fshl.i32(i32 %add.i24.i, i32 %add.i24.i, i32 13)
+  %mul1.i26.i = mul i32 %or.i25.i, -1640531535
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %mul1.i.i43, i32 %mul1.i.i43, i32 1)
+  %or3.i = tail call i32 @llvm.fshl.i32(i32 %mul1.i18.i, i32 %mul1.i18.i, i32 7)
+  %add.i44 = add i32 %or3.i, %or.i
+  %or6.i = tail call i32 @llvm.fshl.i32(i32 %mul1.i22.i, i32 %mul1.i22.i, i32 12)
+  %add7.i = add i32 %add.i44, %or6.i
+  %or10.i = tail call i32 @llvm.fshl.i32(i32 %mul1.i26.i, i32 %mul1.i26.i, i32 18)
+  %add11.i = add i32 %add7.i, %or10.i
+  %shr.i = lshr i32 %add11.i, 15
+  %xor.i = xor i32 %shr.i, %add11.i
   %mul.i = mul i32 %xor.i, -2048144777
   %shr1.i = lshr i32 %mul.i, 13
   %xor2.i = xor i32 %shr1.i, %mul.i
@@ -1481,52 +2012,99 @@ _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit: ; preds = 
   %shr4.i = lshr i32 %mul3.i, 16
   %xor5.i = xor i32 %shr4.i, %mul3.i
   %arrayidx = getelementptr inbounds i32, ptr %hashes, i64 %indvars.iv156
-  %25 = load i32, ptr %arrayidx, align 4
-  %shl.i = shl i32 %25, 6
-  %shr.i46 = lshr i32 %25, 2
+  %9 = load i32, ptr %arrayidx, align 4
+  %shl.i = shl i32 %9, 6
+  %shr.i46 = lshr i32 %9, 2
   %add.i45 = add i32 %shl.i, -1640531527
   %add1.i = add i32 %add.i45, %shr.i46
   %add2.i = add i32 %add1.i, %xor5.i
-  %xor.i47 = xor i32 %add2.i, %25
+  %xor.i47 = xor i32 %add2.i, %9
   store i32 %xor.i47, ptr %arrayidx, align 4
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count
   br i1 %exitcond.not, label %for.cond16.preheader, label %for.body, !llvm.loop !29
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87
-  %indvars.iv160 = phi i64 [ %8, %for.body18.lr.ph ], [ %indvars.iv.next161, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87 ]
+  %indvars.iv160 = phi i64 [ %7, %for.body18.lr.ph ], [ %indvars.iv.next161, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87 ]
   %mul21 = mul i64 %indvars.iv160, %length
   %add.ptr22 = getelementptr inbounds i8, ptr %keys, i64 %mul21
   br i1 %cmp25.i48, label %for.body.i54, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87
 
 for.body.i54:                                     ; preds = %for.body18, %for.body.i54
+  %acc1.030.i55 = phi i32 [ %mul1.i.i72, %for.body.i54 ], [ 606290984, %for.body18 ]
+  %acc2.029.i56 = phi i32 [ %mul1.i16.i76, %for.body.i54 ], [ -2048144777, %for.body18 ]
+  %acc3.028.i57 = phi i32 [ %mul1.i20.i80, %for.body.i54 ], [ 0, %for.body18 ]
+  %acc4.027.i58 = phi i32 [ %mul1.i24.i84, %for.body.i54 ], [ 1640531535, %for.body18 ]
   %istripe.026.i59 = phi i64 [ %inc.i85, %for.body.i54 ], [ 0, %for.body18 ]
-  %26 = phi <4 x i32> [ %31, %for.body.i54 ], [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body18 ]
   %mul1.i60 = shl i64 %istripe.026.i59, 4
   %add.ptr.i61 = getelementptr inbounds i8, ptr %add.ptr22, i64 %mul1.i60
-  %27 = load <4 x i32>, ptr %add.ptr.i61, align 1
-  %28 = mul <4 x i32> %27, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %29 = add <4 x i32> %28, %26
-  %30 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %29, <4 x i32> %29, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %31 = mul <4 x i32> %30, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %ret.0.copyload.i.i62 = load i32, ptr %add.ptr.i61, align 1
+  %add.ptr2.i63 = getelementptr inbounds i8, ptr %add.ptr.i61, i64 4
+  %ret.0.copyload.i10.i64 = load i32, ptr %add.ptr2.i63, align 1
+  %add.ptr4.i65 = getelementptr inbounds i8, ptr %add.ptr.i61, i64 8
+  %ret.0.copyload.i11.i66 = load i32, ptr %add.ptr4.i65, align 1
+  %add.ptr6.i67 = getelementptr inbounds i8, ptr %add.ptr.i61, i64 12
+  %ret.0.copyload.i12.i68 = load i32, ptr %add.ptr6.i67, align 1
+  %mul.i.i69 = mul i32 %ret.0.copyload.i.i62, -2048144777
+  %add.i.i70 = add i32 %mul.i.i69, %acc1.030.i55
+  %or.i.i71 = tail call i32 @llvm.fshl.i32(i32 %add.i.i70, i32 %add.i.i70, i32 13)
+  %mul1.i.i72 = mul i32 %or.i.i71, -1640531535
+  %mul.i13.i73 = mul i32 %ret.0.copyload.i10.i64, -2048144777
+  %add.i14.i74 = add i32 %mul.i13.i73, %acc2.029.i56
+  %or.i15.i75 = tail call i32 @llvm.fshl.i32(i32 %add.i14.i74, i32 %add.i14.i74, i32 13)
+  %mul1.i16.i76 = mul i32 %or.i15.i75, -1640531535
+  %mul.i17.i77 = mul i32 %ret.0.copyload.i11.i66, -2048144777
+  %add.i18.i78 = add i32 %mul.i17.i77, %acc3.028.i57
+  %or.i19.i79 = tail call i32 @llvm.fshl.i32(i32 %add.i18.i78, i32 %add.i18.i78, i32 13)
+  %mul1.i20.i80 = mul i32 %or.i19.i79, -1640531535
+  %mul.i21.i81 = mul i32 %ret.0.copyload.i12.i68, -2048144777
+  %add.i22.i82 = add i32 %mul.i21.i81, %acc4.027.i58
+  %or.i23.i83 = tail call i32 @llvm.fshl.i32(i32 %add.i22.i82, i32 %add.i22.i82, i32 13)
+  %mul1.i24.i84 = mul i32 %or.i23.i83, -1640531535
   %inc.i85 = add nuw nsw i64 %istripe.026.i59, 1
-  %exitcond.not.i86 = icmp eq i64 %istripe.026.i59, %7
+  %exitcond.not.i86 = icmp eq i64 %istripe.026.i59, %6
   br i1 %exitcond.not.i86, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87, label %for.body.i54, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87: ; preds = %for.body.i54, %for.body18
-  %32 = phi <4 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body18 ], [ %31, %for.body.i54 ]
+  %acc4.0.lcssa.i49 = phi i32 [ 1640531535, %for.body18 ], [ %mul1.i24.i84, %for.body.i54 ]
+  %acc3.0.lcssa.i50 = phi i32 [ 0, %for.body18 ], [ %mul1.i20.i80, %for.body.i54 ]
+  %acc2.0.lcssa.i51 = phi i32 [ -2048144777, %for.body18 ], [ %mul1.i16.i76, %for.body.i54 ]
+  %acc1.0.lcssa.i52 = phi i32 [ 606290984, %for.body18 ], [ %mul1.i.i72, %for.body.i54 ]
   %add.ptr29 = getelementptr inbounds i8, ptr %add.ptr22, i64 %mul28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_stripe_copy.sroa.0, ptr align 1 %add.ptr29, i64 %sub32, i1 false)
-  %last_stripe_copy.sroa.0.0.last_stripe_copy.sroa.0.0. = load <4 x i32>, ptr %last_stripe_copy.sroa.0, align 16
-  %33 = and <4 x i32> %last_stripe_copy.sroa.0.0.last_stripe_copy.sroa.0.0., %5
-  %34 = mul <4 x i32> %33, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %35 = add <4 x i32> %34, %32
-  %36 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %35, <4 x i32> %35, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %37 = mul <4 x i32> %36, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
-  %38 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %37, <4 x i32> %37, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %39 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %38)
-  %shr.i122 = lshr i32 %39, 15
-  %xor.i123 = xor i32 %shr.i122, %39
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_stripe_copy, ptr align 1 %add.ptr29, i64 %sub32, i1 false)
+  %last_stripe_copy.0.last_stripe_copy.0.last_stripe_copy.0.ret.0.copyload.i.i88 = load i32, ptr %last_stripe_copy, align 16
+  %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.ret.0.copyload.i12.i90 = load i32, ptr %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i89.sroa_idx, align 4
+  %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.ret.0.copyload.i13.i92 = load i32, ptr %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i91.sroa_idx, align 8
+  %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.ret.0.copyload.i14.i94 = load i32, ptr %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.add.ptr4.i93.sroa_idx, align 4
+  %and.i95 = and i32 %last_stripe_copy.0.last_stripe_copy.0.last_stripe_copy.0.ret.0.copyload.i.i88, %ret.0.copyload.i.i
+  %and6.i96 = and i32 %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.ret.0.copyload.i12.i90, %ret.0.copyload.i4.i
+  %and7.i97 = and i32 %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.ret.0.copyload.i13.i92, %ret.0.copyload.i5.i
+  %and8.i98 = and i32 %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.ret.0.copyload.i14.i94, %ret.0.copyload.i6.i
+  %mul.i.i99 = mul i32 %and.i95, -2048144777
+  %add.i.i100 = add i32 %mul.i.i99, %acc1.0.lcssa.i52
+  %or.i.i101 = tail call i32 @llvm.fshl.i32(i32 %add.i.i100, i32 %add.i.i100, i32 13)
+  %mul1.i.i102 = mul i32 %or.i.i101, -1640531535
+  %mul.i15.i103 = mul i32 %and6.i96, -2048144777
+  %add.i16.i104 = add i32 %mul.i15.i103, %acc2.0.lcssa.i51
+  %or.i17.i105 = tail call i32 @llvm.fshl.i32(i32 %add.i16.i104, i32 %add.i16.i104, i32 13)
+  %mul1.i18.i106 = mul i32 %or.i17.i105, -1640531535
+  %mul.i19.i107 = mul i32 %and7.i97, -2048144777
+  %add.i20.i108 = add i32 %mul.i19.i107, %acc3.0.lcssa.i50
+  %or.i21.i109 = tail call i32 @llvm.fshl.i32(i32 %add.i20.i108, i32 %add.i20.i108, i32 13)
+  %mul1.i22.i110 = mul i32 %or.i21.i109, -1640531535
+  %mul.i23.i111 = mul i32 %and8.i98, -2048144777
+  %add.i24.i112 = add i32 %mul.i23.i111, %acc4.0.lcssa.i49
+  %or.i25.i113 = tail call i32 @llvm.fshl.i32(i32 %add.i24.i112, i32 %add.i24.i112, i32 13)
+  %mul1.i26.i114 = mul i32 %or.i25.i113, -1640531535
+  %or.i115 = tail call i32 @llvm.fshl.i32(i32 %mul1.i.i102, i32 %mul1.i.i102, i32 1)
+  %or3.i116 = tail call i32 @llvm.fshl.i32(i32 %mul1.i18.i106, i32 %mul1.i18.i106, i32 7)
+  %add.i117 = add i32 %or3.i116, %or.i115
+  %or6.i118 = tail call i32 @llvm.fshl.i32(i32 %mul1.i22.i110, i32 %mul1.i22.i110, i32 12)
+  %add7.i119 = add i32 %add.i117, %or6.i118
+  %or10.i120 = tail call i32 @llvm.fshl.i32(i32 %mul1.i26.i114, i32 %mul1.i26.i114, i32 18)
+  %add11.i121 = add i32 %add7.i119, %or10.i120
+  %shr.i122 = lshr i32 %add11.i121, 15
+  %xor.i123 = xor i32 %shr.i122, %add11.i121
   %mul.i124 = mul i32 %xor.i123, -2048144777
   %shr1.i125 = lshr i32 %mul.i124, 13
   %xor2.i126 = xor i32 %shr1.i125, %mul.i124
@@ -1534,13 +2112,13 @@ _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit87: ; preds 
   %shr4.i128 = lshr i32 %mul3.i127, 16
   %xor5.i129 = xor i32 %shr4.i128, %mul3.i127
   %arrayidx38 = getelementptr inbounds i32, ptr %hashes, i64 %indvars.iv160
-  %40 = load i32, ptr %arrayidx38, align 4
-  %shl.i131 = shl i32 %40, 6
-  %shr.i133 = lshr i32 %40, 2
+  %10 = load i32, ptr %arrayidx38, align 4
+  %shl.i131 = shl i32 %10, 6
+  %shr.i133 = lshr i32 %10, 2
   %add.i130 = add i32 %shl.i131, -1640531527
   %add1.i132 = add i32 %add.i130, %shr.i133
   %add2.i134 = add i32 %add1.i132, %xor5.i129
-  %xor.i135 = xor i32 %add2.i134, %40
+  %xor.i135 = xor i32 %add2.i134, %10
   store i32 %xor.i135, ptr %arrayidx38, align 4
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count164
@@ -1553,7 +2131,7 @@ for.end44:                                        ; preds = %_ZN5arrow7compute9H
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow7compute9Hashing3215HashFixedLenImpILb0EEEvjmPKhPj(i32 noundef %num_rows, i64 noundef %length, ptr noundef %keys, ptr noundef %hashes) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %last_stripe_copy.sroa.0 = alloca <4 x i32>, align 16
+  %last_stripe_copy = alloca [4 x i32], align 16
   %cmp.not135 = icmp eq i32 %num_rows, 0
   br i1 %cmp.not135, label %while.end, label %land.rhs.preheader
 
@@ -1593,13 +2171,19 @@ _ZN5arrow8bit_util7CeilDivEll.exit:               ; preds = %while.end, %cond.fa
   %4 = and i64 %3, 15
   %sub.i28 = xor i64 %4, 15
   %add.ptr.i = getelementptr inbounds i8, ptr @_ZZN5arrow7compute9Hashing3210StripeMaskEiPjS2_S2_S2_E5bytes, i64 %sub.i28
-  %5 = load <4 x i32>, ptr %add.ptr.i, align 1
+  %ret.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
+  %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %ret.0.copyload.i4.i = load i32, ptr %add.ptr7.i, align 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %ret.0.copyload.i5.i = load i32, ptr %add.ptr9.i, align 1
+  %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
+  %ret.0.copyload.i6.i = load i32, ptr %add.ptr11.i, align 1
   %cmp4138.not = icmp eq i32 %num_rows_safe.0.lcssa, 0
   br i1 %cmp4138.not, label %for.cond13.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit
   %cmp25.i = icmp sgt i64 %cond.i, 1
-  %6 = add nsw i64 %cond.i, -2
+  %5 = add nsw i64 %cond.i, -2
   %sub7 = shl i64 %cond.i, 4
   br i1 %cmp25.i, label %for.body.us.preheader, label %for.body.lr.ph.split
 
@@ -1614,32 +2198,79 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   br label %for.body.i.us
 
 for.body.i.us:                                    ; preds = %for.body.i.us, %for.body.us
+  %acc1.030.i.us = phi i32 [ %mul1.i.i.us, %for.body.i.us ], [ 606290984, %for.body.us ]
+  %acc2.029.i.us = phi i32 [ %mul1.i16.i.us, %for.body.i.us ], [ -2048144777, %for.body.us ]
+  %acc3.028.i.us = phi i32 [ %mul1.i20.i.us, %for.body.i.us ], [ 0, %for.body.us ]
+  %acc4.027.i.us = phi i32 [ %mul1.i24.i.us, %for.body.i.us ], [ 1640531535, %for.body.us ]
   %istripe.026.i.us = phi i64 [ %inc.i.us, %for.body.i.us ], [ 0, %for.body.us ]
-  %7 = phi <4 x i32> [ %12, %for.body.i.us ], [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.us ]
   %mul1.i.us = shl i64 %istripe.026.i.us, 4
   %add.ptr.i29.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 %mul1.i.us
-  %8 = load <4 x i32>, ptr %add.ptr.i29.us, align 1
-  %9 = mul <4 x i32> %8, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %10 = add <4 x i32> %9, %7
-  %11 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %10, <4 x i32> %10, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %12 = mul <4 x i32> %11, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %ret.0.copyload.i.i30.us = load i32, ptr %add.ptr.i29.us, align 1
+  %add.ptr2.i.us = getelementptr inbounds i8, ptr %add.ptr.i29.us, i64 4
+  %ret.0.copyload.i10.i.us = load i32, ptr %add.ptr2.i.us, align 1
+  %add.ptr4.i.us = getelementptr inbounds i8, ptr %add.ptr.i29.us, i64 8
+  %ret.0.copyload.i11.i.us = load i32, ptr %add.ptr4.i.us, align 1
+  %add.ptr6.i.us = getelementptr inbounds i8, ptr %add.ptr.i29.us, i64 12
+  %ret.0.copyload.i12.i.us = load i32, ptr %add.ptr6.i.us, align 1
+  %mul.i.i.us = mul i32 %ret.0.copyload.i.i30.us, -2048144777
+  %add.i.i.us = add i32 %mul.i.i.us, %acc1.030.i.us
+  %or.i.i.us = tail call i32 @llvm.fshl.i32(i32 %add.i.i.us, i32 %add.i.i.us, i32 13)
+  %mul1.i.i.us = mul i32 %or.i.i.us, -1640531535
+  %mul.i13.i.us = mul i32 %ret.0.copyload.i10.i.us, -2048144777
+  %add.i14.i.us = add i32 %mul.i13.i.us, %acc2.029.i.us
+  %or.i15.i.us = tail call i32 @llvm.fshl.i32(i32 %add.i14.i.us, i32 %add.i14.i.us, i32 13)
+  %mul1.i16.i.us = mul i32 %or.i15.i.us, -1640531535
+  %mul.i17.i.us = mul i32 %ret.0.copyload.i11.i.us, -2048144777
+  %add.i18.i.us = add i32 %mul.i17.i.us, %acc3.028.i.us
+  %or.i19.i.us = tail call i32 @llvm.fshl.i32(i32 %add.i18.i.us, i32 %add.i18.i.us, i32 13)
+  %mul1.i20.i.us = mul i32 %or.i19.i.us, -1640531535
+  %mul.i21.i.us = mul i32 %ret.0.copyload.i12.i.us, -2048144777
+  %add.i22.i.us = add i32 %mul.i21.i.us, %acc4.027.i.us
+  %or.i23.i.us = tail call i32 @llvm.fshl.i32(i32 %add.i22.i.us, i32 %add.i22.i.us, i32 13)
+  %mul1.i24.i.us = mul i32 %or.i23.i.us, -1640531535
   %inc.i.us = add nuw nsw i64 %istripe.026.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %istripe.026.i.us, %6
+  %exitcond.not.i.us = icmp eq i64 %istripe.026.i.us, %5
   br i1 %exitcond.not.i.us, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit.loopexit.us, label %for.body.i.us, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit.loopexit.us: ; preds = %for.body.i.us
-  %13 = getelementptr i8, ptr %add.ptr.us, i64 %sub7
-  %add.ptr9.us = getelementptr i8, ptr %13, i64 -16
-  %14 = load <4 x i32>, ptr %add.ptr9.us, align 1
-  %15 = and <4 x i32> %14, %5
-  %16 = mul <4 x i32> %15, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %17 = add <4 x i32> %16, %12
-  %18 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %17, <4 x i32> %17, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %19 = mul <4 x i32> %18, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
-  %20 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %19, <4 x i32> %19, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %21 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %20)
-  %shr.i.us = lshr i32 %21, 15
-  %xor.i.us = xor i32 %shr.i.us, %21
+  %6 = getelementptr i8, ptr %add.ptr.us, i64 %sub7
+  %add.ptr9.us = getelementptr i8, ptr %6, i64 -16
+  %ret.0.copyload.i.i31.us = load i32, ptr %add.ptr9.us, align 1
+  %add.ptr.i32.us = getelementptr i8, ptr %6, i64 -12
+  %ret.0.copyload.i12.i33.us = load i32, ptr %add.ptr.i32.us, align 1
+  %add.ptr2.i34.us = getelementptr i8, ptr %6, i64 -8
+  %ret.0.copyload.i13.i.us = load i32, ptr %add.ptr2.i34.us, align 1
+  %add.ptr4.i35.us = getelementptr i8, ptr %6, i64 -4
+  %ret.0.copyload.i14.i.us = load i32, ptr %add.ptr4.i35.us, align 1
+  %and.i.us = and i32 %ret.0.copyload.i.i31.us, %ret.0.copyload.i.i
+  %and6.i.us = and i32 %ret.0.copyload.i12.i33.us, %ret.0.copyload.i4.i
+  %and7.i.us = and i32 %ret.0.copyload.i13.i.us, %ret.0.copyload.i5.i
+  %and8.i.us = and i32 %ret.0.copyload.i14.i.us, %ret.0.copyload.i6.i
+  %mul.i.i36.us = mul i32 %and.i.us, -2048144777
+  %add.i.i37.us = add i32 %mul.i.i36.us, %mul1.i.i.us
+  %or.i.i38.us = tail call i32 @llvm.fshl.i32(i32 %add.i.i37.us, i32 %add.i.i37.us, i32 13)
+  %mul1.i.i39.us = mul i32 %or.i.i38.us, -1640531535
+  %mul.i15.i.us = mul i32 %and6.i.us, -2048144777
+  %add.i16.i.us = add i32 %mul.i15.i.us, %mul1.i16.i.us
+  %or.i17.i.us = tail call i32 @llvm.fshl.i32(i32 %add.i16.i.us, i32 %add.i16.i.us, i32 13)
+  %mul1.i18.i.us = mul i32 %or.i17.i.us, -1640531535
+  %mul.i19.i.us = mul i32 %and7.i.us, -2048144777
+  %add.i20.i.us = add i32 %mul.i19.i.us, %mul1.i20.i.us
+  %or.i21.i.us = tail call i32 @llvm.fshl.i32(i32 %add.i20.i.us, i32 %add.i20.i.us, i32 13)
+  %mul1.i22.i.us = mul i32 %or.i21.i.us, -1640531535
+  %mul.i23.i.us = mul i32 %and8.i.us, -2048144777
+  %add.i24.i.us = add i32 %mul.i23.i.us, %mul1.i24.i.us
+  %or.i25.i.us = tail call i32 @llvm.fshl.i32(i32 %add.i24.i.us, i32 %add.i24.i.us, i32 13)
+  %mul1.i26.i.us = mul i32 %or.i25.i.us, -1640531535
+  %or.i.us = tail call i32 @llvm.fshl.i32(i32 %mul1.i.i39.us, i32 %mul1.i.i39.us, i32 1)
+  %or3.i.us = tail call i32 @llvm.fshl.i32(i32 %mul1.i18.i.us, i32 %mul1.i18.i.us, i32 7)
+  %add.i40.us = add i32 %or3.i.us, %or.i.us
+  %or6.i.us = tail call i32 @llvm.fshl.i32(i32 %mul1.i22.i.us, i32 %mul1.i22.i.us, i32 12)
+  %add7.i.us = add i32 %add.i40.us, %or6.i.us
+  %or10.i.us = tail call i32 @llvm.fshl.i32(i32 %mul1.i26.i.us, i32 %mul1.i26.i.us, i32 18)
+  %add11.i.us = add i32 %add7.i.us, %or10.i.us
+  %shr.i.us = lshr i32 %add11.i.us, 15
+  %xor.i.us = xor i32 %shr.i.us, %add11.i.us
   %mul.i.us = mul i32 %xor.i.us, -2048144777
   %shr1.i.us = lshr i32 %mul.i.us, 13
   %xor2.i.us = xor i32 %shr1.i.us, %mul.i.us
@@ -1655,10 +2286,6 @@ _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit.loopexit.us
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   %invariant.gep = getelementptr i8, ptr %keys, i64 %sub7
   %wide.trip.count = zext i32 %num_rows_safe.0.lcssa to i64
-  %22 = extractelement <4 x i32> %5, i64 0
-  %23 = extractelement <4 x i32> %5, i64 1
-  %24 = extractelement <4 x i32> %5, i64 2
-  %25 = extractelement <4 x i32> %5, i64 3
   br label %for.body
 
 for.cond13.preheader:                             ; preds = %for.body, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit.loopexit.us, %_ZN5arrow8bit_util7CeilDivEll.exit
@@ -1667,12 +2294,15 @@ for.cond13.preheader:                             ; preds = %for.body, %_ZN5arro
 
 for.body15.lr.ph:                                 ; preds = %for.cond13.preheader
   %cmp25.i41 = icmp sgt i64 %cond.i, 1
-  %26 = add nsw i64 %cond.i, -2
+  %7 = add nsw i64 %cond.i, -2
   %sub24 = shl i64 %cond.i, 4
   %mul25 = add i64 %sub24, -16
   %sub29 = sub i64 %length, %mul25
-  %27 = zext i32 %num_rows_safe.0.lcssa to i64
+  %8 = zext i32 %num_rows_safe.0.lcssa to i64
   %wide.trip.count158 = zext i32 %num_rows to i64
+  %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i82.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 4
+  %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i84.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 8
+  %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.add.ptr4.i86.sroa_idx = getelementptr inbounds i8, ptr %last_stripe_copy, i64 12
   br label %for.body15
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.body
@@ -1687,10 +2317,10 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %ret.0.copyload.i13.i = load i32, ptr %add.ptr2.i34, align 1
   %add.ptr4.i35 = getelementptr i8, ptr %gep, i64 -4
   %ret.0.copyload.i14.i = load i32, ptr %add.ptr4.i35, align 1
-  %and.i = and i32 %ret.0.copyload.i.i31, %22
-  %and6.i = and i32 %ret.0.copyload.i12.i33, %23
-  %and7.i = and i32 %ret.0.copyload.i13.i, %24
-  %and8.i = and i32 %ret.0.copyload.i14.i, %25
+  %and.i = and i32 %ret.0.copyload.i.i31, %ret.0.copyload.i.i
+  %and6.i = and i32 %ret.0.copyload.i12.i33, %ret.0.copyload.i4.i
+  %and7.i = and i32 %ret.0.copyload.i13.i, %ret.0.copyload.i5.i
+  %and8.i = and i32 %ret.0.copyload.i14.i, %ret.0.copyload.i6.i
   %mul.i.i36 = mul i32 %and.i, -2048144777
   %add.i.i37 = add i32 %mul.i.i36, 606290984
   %or.i.i38 = tail call i32 @llvm.fshl.i32(i32 %add.i.i37, i32 %add.i.i37, i32 13)
@@ -1728,39 +2358,86 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %exitcond.not, label %for.cond13.preheader, label %for.body, !llvm.loop !32
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80
-  %indvars.iv154 = phi i64 [ %27, %for.body15.lr.ph ], [ %indvars.iv.next155, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80 ]
+  %indvars.iv154 = phi i64 [ %8, %for.body15.lr.ph ], [ %indvars.iv.next155, %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80 ]
   %mul18 = mul i64 %indvars.iv154, %length
   %add.ptr19 = getelementptr inbounds i8, ptr %keys, i64 %mul18
   br i1 %cmp25.i41, label %for.body.i47, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80
 
 for.body.i47:                                     ; preds = %for.body15, %for.body.i47
+  %acc1.030.i48 = phi i32 [ %mul1.i.i65, %for.body.i47 ], [ 606290984, %for.body15 ]
+  %acc2.029.i49 = phi i32 [ %mul1.i16.i69, %for.body.i47 ], [ -2048144777, %for.body15 ]
+  %acc3.028.i50 = phi i32 [ %mul1.i20.i73, %for.body.i47 ], [ 0, %for.body15 ]
+  %acc4.027.i51 = phi i32 [ %mul1.i24.i77, %for.body.i47 ], [ 1640531535, %for.body15 ]
   %istripe.026.i52 = phi i64 [ %inc.i78, %for.body.i47 ], [ 0, %for.body15 ]
-  %28 = phi <4 x i32> [ %33, %for.body.i47 ], [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body15 ]
   %mul1.i53 = shl i64 %istripe.026.i52, 4
   %add.ptr.i54 = getelementptr inbounds i8, ptr %add.ptr19, i64 %mul1.i53
-  %29 = load <4 x i32>, ptr %add.ptr.i54, align 1
-  %30 = mul <4 x i32> %29, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %31 = add <4 x i32> %30, %28
-  %32 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %31, <4 x i32> %31, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %33 = mul <4 x i32> %32, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
+  %ret.0.copyload.i.i55 = load i32, ptr %add.ptr.i54, align 1
+  %add.ptr2.i56 = getelementptr inbounds i8, ptr %add.ptr.i54, i64 4
+  %ret.0.copyload.i10.i57 = load i32, ptr %add.ptr2.i56, align 1
+  %add.ptr4.i58 = getelementptr inbounds i8, ptr %add.ptr.i54, i64 8
+  %ret.0.copyload.i11.i59 = load i32, ptr %add.ptr4.i58, align 1
+  %add.ptr6.i60 = getelementptr inbounds i8, ptr %add.ptr.i54, i64 12
+  %ret.0.copyload.i12.i61 = load i32, ptr %add.ptr6.i60, align 1
+  %mul.i.i62 = mul i32 %ret.0.copyload.i.i55, -2048144777
+  %add.i.i63 = add i32 %mul.i.i62, %acc1.030.i48
+  %or.i.i64 = tail call i32 @llvm.fshl.i32(i32 %add.i.i63, i32 %add.i.i63, i32 13)
+  %mul1.i.i65 = mul i32 %or.i.i64, -1640531535
+  %mul.i13.i66 = mul i32 %ret.0.copyload.i10.i57, -2048144777
+  %add.i14.i67 = add i32 %mul.i13.i66, %acc2.029.i49
+  %or.i15.i68 = tail call i32 @llvm.fshl.i32(i32 %add.i14.i67, i32 %add.i14.i67, i32 13)
+  %mul1.i16.i69 = mul i32 %or.i15.i68, -1640531535
+  %mul.i17.i70 = mul i32 %ret.0.copyload.i11.i59, -2048144777
+  %add.i18.i71 = add i32 %mul.i17.i70, %acc3.028.i50
+  %or.i19.i72 = tail call i32 @llvm.fshl.i32(i32 %add.i18.i71, i32 %add.i18.i71, i32 13)
+  %mul1.i20.i73 = mul i32 %or.i19.i72, -1640531535
+  %mul.i21.i74 = mul i32 %ret.0.copyload.i12.i61, -2048144777
+  %add.i22.i75 = add i32 %mul.i21.i74, %acc4.027.i51
+  %or.i23.i76 = tail call i32 @llvm.fshl.i32(i32 %add.i22.i75, i32 %add.i22.i75, i32 13)
+  %mul1.i24.i77 = mul i32 %or.i23.i76, -1640531535
   %inc.i78 = add nuw nsw i64 %istripe.026.i52, 1
-  %exitcond.not.i79 = icmp eq i64 %istripe.026.i52, %26
+  %exitcond.not.i79 = icmp eq i64 %istripe.026.i52, %7
   br i1 %exitcond.not.i79, label %_ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80, label %for.body.i47, !llvm.loop !6
 
 _ZN5arrow7compute9Hashing3218ProcessFullStripesEmPKhPjS4_S4_S4_.exit80: ; preds = %for.body.i47, %for.body15
-  %34 = phi <4 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body15 ], [ %33, %for.body.i47 ]
+  %acc4.0.lcssa.i42 = phi i32 [ 1640531535, %for.body15 ], [ %mul1.i24.i77, %for.body.i47 ]
+  %acc3.0.lcssa.i43 = phi i32 [ 0, %for.body15 ], [ %mul1.i20.i73, %for.body.i47 ]
+  %acc2.0.lcssa.i44 = phi i32 [ -2048144777, %for.body15 ], [ %mul1.i16.i69, %for.body.i47 ]
+  %acc1.0.lcssa.i45 = phi i32 [ 606290984, %for.body15 ], [ %mul1.i.i65, %for.body.i47 ]
   %add.ptr26 = getelementptr inbounds i8, ptr %add.ptr19, i64 %mul25
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_stripe_copy.sroa.0, ptr align 1 %add.ptr26, i64 %sub29, i1 false)
-  %last_stripe_copy.sroa.0.0.last_stripe_copy.sroa.0.0. = load <4 x i32>, ptr %last_stripe_copy.sroa.0, align 16
-  %35 = and <4 x i32> %last_stripe_copy.sroa.0.0.last_stripe_copy.sroa.0.0., %5
-  %36 = mul <4 x i32> %35, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %37 = add <4 x i32> %36, %34
-  %38 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %37, <4 x i32> %37, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %39 = mul <4 x i32> %38, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
-  %40 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %39, <4 x i32> %39, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %41 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %40)
-  %shr.i115 = lshr i32 %41, 15
-  %xor.i116 = xor i32 %shr.i115, %41
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %last_stripe_copy, ptr align 1 %add.ptr26, i64 %sub29, i1 false)
+  %last_stripe_copy.0.last_stripe_copy.0.last_stripe_copy.0.ret.0.copyload.i.i81 = load i32, ptr %last_stripe_copy, align 16
+  %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.ret.0.copyload.i12.i83 = load i32, ptr %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.add.ptr.i82.sroa_idx, align 4
+  %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.ret.0.copyload.i13.i85 = load i32, ptr %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.add.ptr2.i84.sroa_idx, align 8
+  %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.ret.0.copyload.i14.i87 = load i32, ptr %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.add.ptr4.i86.sroa_idx, align 4
+  %and.i88 = and i32 %last_stripe_copy.0.last_stripe_copy.0.last_stripe_copy.0.ret.0.copyload.i.i81, %ret.0.copyload.i.i
+  %and6.i89 = and i32 %last_stripe_copy.4.last_stripe_copy.4.last_stripe_copy.4.ret.0.copyload.i12.i83, %ret.0.copyload.i4.i
+  %and7.i90 = and i32 %last_stripe_copy.8.last_stripe_copy.8.last_stripe_copy.8.ret.0.copyload.i13.i85, %ret.0.copyload.i5.i
+  %and8.i91 = and i32 %last_stripe_copy.12.last_stripe_copy.12.last_stripe_copy.12.ret.0.copyload.i14.i87, %ret.0.copyload.i6.i
+  %mul.i.i92 = mul i32 %and.i88, -2048144777
+  %add.i.i93 = add i32 %mul.i.i92, %acc1.0.lcssa.i45
+  %or.i.i94 = tail call i32 @llvm.fshl.i32(i32 %add.i.i93, i32 %add.i.i93, i32 13)
+  %mul1.i.i95 = mul i32 %or.i.i94, -1640531535
+  %mul.i15.i96 = mul i32 %and6.i89, -2048144777
+  %add.i16.i97 = add i32 %mul.i15.i96, %acc2.0.lcssa.i44
+  %or.i17.i98 = tail call i32 @llvm.fshl.i32(i32 %add.i16.i97, i32 %add.i16.i97, i32 13)
+  %mul1.i18.i99 = mul i32 %or.i17.i98, -1640531535
+  %mul.i19.i100 = mul i32 %and7.i90, -2048144777
+  %add.i20.i101 = add i32 %mul.i19.i100, %acc3.0.lcssa.i43
+  %or.i21.i102 = tail call i32 @llvm.fshl.i32(i32 %add.i20.i101, i32 %add.i20.i101, i32 13)
+  %mul1.i22.i103 = mul i32 %or.i21.i102, -1640531535
+  %mul.i23.i104 = mul i32 %and8.i91, -2048144777
+  %add.i24.i105 = add i32 %mul.i23.i104, %acc4.0.lcssa.i42
+  %or.i25.i106 = tail call i32 @llvm.fshl.i32(i32 %add.i24.i105, i32 %add.i24.i105, i32 13)
+  %mul1.i26.i107 = mul i32 %or.i25.i106, -1640531535
+  %or.i108 = tail call i32 @llvm.fshl.i32(i32 %mul1.i.i95, i32 %mul1.i.i95, i32 1)
+  %or3.i109 = tail call i32 @llvm.fshl.i32(i32 %mul1.i18.i99, i32 %mul1.i18.i99, i32 7)
+  %add.i110 = add i32 %or3.i109, %or.i108
+  %or6.i111 = tail call i32 @llvm.fshl.i32(i32 %mul1.i22.i103, i32 %mul1.i22.i103, i32 12)
+  %add7.i112 = add i32 %add.i110, %or6.i111
+  %or10.i113 = tail call i32 @llvm.fshl.i32(i32 %mul1.i26.i107, i32 %mul1.i26.i107, i32 18)
+  %add11.i114 = add i32 %add7.i112, %or10.i113
+  %shr.i115 = lshr i32 %add11.i114, 15
+  %xor.i116 = xor i32 %shr.i115, %add11.i114
   %mul.i117 = mul i32 %xor.i116, -2048144777
   %shr1.i118 = lshr i32 %mul.i117, 13
   %xor2.i119 = xor i32 %shr1.i118, %mul.i117
@@ -5704,12 +6381,6 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

@@ -287,9 +287,13 @@ recff_stitch.exit:                                ; preds = %sw.default
   store i64 ptrtoint (ptr @lj_cont_stitch to i64), ptr %add.ptr, align 8
   store i64 %5, ptr %4, align 8
   store i64 -1, ptr %arrayidx13.i, align 8
-  %15 = load <2 x ptr>, ptr %base, align 8
-  %16 = getelementptr i8, <2 x ptr> %15, <2 x i64> <i64 24, i64 24>
-  store <2 x ptr> %16, ptr %base, align 8
+  %15 = load ptr, ptr %base, align 8
+  %add.ptr20.i = getelementptr inbounds i8, ptr %15, i64 24
+  store ptr %add.ptr20.i, ptr %base, align 8
+  %top.i = getelementptr inbounds i8, ptr %3, i64 40
+  %16 = load ptr, ptr %top.i, align 8
+  %add.ptr21.i = getelementptr inbounds i8, ptr %16, i64 24
+  store ptr %add.ptr21.i, ptr %top.i, align 8
   %base22.i = getelementptr inbounds i8, ptr %J, i64 160
   %17 = load ptr, ptr %base22.i, align 8
   %arrayidx23.i = getelementptr inbounds i8, ptr %17, i64 4
@@ -327,9 +331,12 @@ recff_stitch.exit:                                ; preds = %sw.default
   tail call void @lj_record_stop(ptr noundef nonnull %J, i32 noundef 8, i32 noundef 0) #9
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %arrayidx13.i, ptr nonnull align 8 %add.ptr.i, i64 %mul.i, i1 false)
   store i64 %5, ptr %add.ptr, align 8
-  %25 = load <2 x ptr>, ptr %base, align 8
-  %26 = getelementptr i8, <2 x ptr> %25, <2 x i64> <i64 -24, i64 -24>
-  store <2 x ptr> %26, ptr %base, align 8
+  %25 = load ptr, ptr %base, align 8
+  %add.ptr48.i = getelementptr inbounds i8, ptr %25, i64 -24
+  store ptr %add.ptr48.i, ptr %base, align 8
+  %26 = load ptr, ptr %top.i, align 8
+  %add.ptr50.i = getelementptr inbounds i8, ptr %26, i64 -24
+  store ptr %add.ptr50.i, ptr %top.i, align 8
   br label %if.end16
 
 if.end14:                                         ; preds = %switch.early.test, %switch.early.test, %if.then2, %if.then13, %if.then13, %if.then13, %land.lhs.true, %if.else
@@ -903,8 +910,12 @@ if.then:                                          ; preds = %entry
   store i64 %or.i, ptr %ix, align 8
   %keyv = getelementptr inbounds i8, ptr %ix, i64 8
   %arrayidx14 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = load <2 x i64>, ptr %arrayidx14, align 8
-  store <2 x i64> %6, ptr %keyv, align 8
+  %6 = load i64, ptr %arrayidx14, align 8
+  store i64 %6, ptr %keyv, align 8
+  %valv = getelementptr inbounds i8, ptr %ix, i64 16
+  %arrayidx17 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = load i64, ptr %arrayidx17, align 8
+  store i64 %7, ptr %valv, align 8
   %call = call i32 @lj_record_idx(ptr noundef nonnull %J, ptr noundef nonnull %ix) #9
   br label %if.end
 

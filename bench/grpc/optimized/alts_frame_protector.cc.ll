@@ -259,16 +259,16 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define internal noundef i32 @_ZL12alts_protectP19tsi_frame_protectorPKhPmPhS3_(ptr noundef %self, ptr noundef readonly %unprotected_bytes, ptr noundef %unprotected_bytes_size, ptr noundef %protected_output_frames, ptr noundef %protected_output_frames_size) #0 {
 entry:
   %still_pending_size = alloca i64, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %self, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %unprotected_bytes, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %unprotected_bytes_size, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %protected_output_frames, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
+  %cmp = icmp eq ptr %self, null
+  %cmp1 = icmp eq ptr %unprotected_bytes, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %unprotected_bytes_size, null
+  %or.cond1 = or i1 %or.cond, %cmp3
+  %cmp5 = icmp eq ptr %protected_output_frames, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
   %cmp7 = icmp eq ptr %protected_output_frames_size, null
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp ne i4 %5, 0
-  %op.rdx = or i1 %6, %cmp7
-  br i1 %op.rdx, label %if.then, label %if.end
+  %or.cond3 = or i1 %or.cond2, %cmp7
+  br i1 %or.cond3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 153, i32 noundef 2, ptr noundef nonnull @.str.3)
@@ -276,20 +276,20 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %in_place_protect_bytes_buffered = getelementptr inbounds i8, ptr %self, i64 56
-  %7 = load i64, ptr %in_place_protect_bytes_buffered, align 8
+  %0 = load i64, ptr %in_place_protect_bytes_buffered, align 8
   %overhead_length = getelementptr inbounds i8, ptr %self, i64 88
-  %8 = load i64, ptr %overhead_length, align 8
-  %add = add i64 %8, %7
-  %9 = getelementptr i8, ptr %self, i64 72
-  %self.val = load i64, ptr %9, align 8
+  %1 = load i64, ptr %overhead_length, align 8
+  %add = add i64 %1, %0
+  %2 = getelementptr i8, ptr %self, i64 72
+  %self.val = load i64, ptr %2, align 8
   %sub.i = add i64 %self.val, -8
   %cmp8 = icmp ult i64 %add, %sub.i
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end
   %sub13 = sub nuw i64 %sub.i, %add
-  %10 = load i64, ptr %unprotected_bytes_size, align 8
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub13, i64 %10)
+  %3 = load i64, ptr %unprotected_bytes_size, align 8
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub13, i64 %3)
   store i64 %.sroa.speculated, ptr %unprotected_bytes_size, align 8
   %cmp15.not = icmp eq i64 %.sroa.speculated, 0
   %.pre37 = load i64, ptr %in_place_protect_bytes_buffered, align 8
@@ -297,11 +297,11 @@ if.then9:                                         ; preds = %if.end
 
 if.then16:                                        ; preds = %if.then9
   %in_place_protect_buffer = getelementptr inbounds i8, ptr %self, i64 40
-  %11 = load ptr, ptr %in_place_protect_buffer, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %11, i64 %.pre37
+  %4 = load ptr, ptr %in_place_protect_buffer, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %.pre37
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %unprotected_bytes, i64 %.sroa.speculated, i1 false)
-  %12 = load i64, ptr %in_place_protect_bytes_buffered, align 8
-  %add19 = add i64 %12, %.sroa.speculated
+  %5 = load i64, ptr %in_place_protect_bytes_buffered, align 8
+  %add19 = add i64 %5, %.sroa.speculated
   store i64 %add19, ptr %in_place_protect_bytes_buffered, align 8
   br label %if.end21
 
@@ -311,13 +311,13 @@ if.else:                                          ; preds = %if.end
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then9, %if.then16, %if.else
-  %13 = phi i64 [ %.pre37, %if.then9 ], [ %add19, %if.then16 ], [ %.pre, %if.else ]
-  %self.val30 = load i64, ptr %9, align 8
+  %6 = phi i64 [ %.pre37, %if.then9 ], [ %add19, %if.then16 ], [ %.pre, %if.else ]
+  %self.val30 = load i64, ptr %2, align 8
   %sub.i33 = add i64 %self.val30, -8
-  %14 = load i64, ptr %overhead_length, align 8
-  %add25 = add i64 %14, %13
+  %7 = load i64, ptr %overhead_length, align 8
+  %add25 = add i64 %7, %6
   %cmp26 = icmp eq i64 %sub.i33, %add25
-  %cmp30 = icmp eq i64 %sub.i33, %13
+  %cmp30 = icmp eq i64 %sub.i33, %6
   %or.cond36 = or i1 %cmp30, %cmp26
   br i1 %or.cond36, label %if.then31, label %if.else33
 
@@ -340,14 +340,14 @@ entry:
   %error_details.i = alloca ptr, align 8
   %output_size.i = alloca i64, align 8
   %written_frame_bytes = alloca i64, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %self, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %protected_output_frames, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %protected_output_frames_size, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %still_pending_size, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %if.end, label %if.then
+  %cmp = icmp eq ptr %self, null
+  %cmp1 = icmp eq ptr %protected_output_frames, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %protected_output_frames_size, null
+  %or.cond1 = or i1 %or.cond, %cmp3
+  %cmp5 = icmp eq ptr %still_pending_size, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
+  br i1 %or.cond2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 92, i32 noundef 2, ptr noundef nonnull @.str.4)
@@ -355,8 +355,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %in_place_protect_bytes_buffered = getelementptr inbounds i8, ptr %self, i64 56
-  %6 = load i64, ptr %in_place_protect_bytes_buffered, align 8
-  %cmp6 = icmp eq i64 %6, 0
+  %0 = load i64, ptr %in_place_protect_bytes_buffered, align 8
+  %cmp6 = icmp eq i64 %0, 0
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
@@ -366,8 +366,8 @@ if.then7:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end
   %writer = getelementptr inbounds i8, ptr %self, i64 24
-  %7 = load ptr, ptr %writer, align 8
-  %call = tail call noundef zeroext i1 @_Z25alts_is_frame_writer_doneP17alts_frame_writer(ptr noundef %7)
+  %1 = load ptr, ptr %writer, align 8
+  %call = tail call noundef zeroext i1 @_Z25alts_is_frame_writer_doneP17alts_frame_writer(ptr noundef %1)
   br i1 %call, label %if.then9, label %if.end19
 
 if.then9:                                         ; preds = %if.end8
@@ -376,23 +376,23 @@ if.then9:                                         ; preds = %if.end8
   store ptr null, ptr %error_details.i, align 8
   store i64 0, ptr %output_size.i, align 8
   %seal_crypter.i = getelementptr inbounds i8, ptr %self, i64 8
-  %8 = load ptr, ptr %seal_crypter.i, align 8
+  %2 = load ptr, ptr %seal_crypter.i, align 8
   %in_place_protect_buffer.i = getelementptr inbounds i8, ptr %self, i64 40
-  %9 = load ptr, ptr %in_place_protect_buffer.i, align 8
+  %3 = load ptr, ptr %in_place_protect_buffer.i, align 8
   %max_protected_frame_size.i = getelementptr inbounds i8, ptr %self, i64 72
-  %10 = load i64, ptr %max_protected_frame_size.i, align 8
-  %11 = load i64, ptr %in_place_protect_bytes_buffered, align 8
-  %call.i = call noundef i32 @_Z29alts_crypter_process_in_placeP12alts_crypterPhmmPmPPc(ptr noundef %8, ptr noundef %9, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %output_size.i, ptr noundef nonnull %error_details.i)
-  %12 = load i64, ptr %output_size.i, align 8
-  store i64 %12, ptr %in_place_protect_bytes_buffered, align 8
+  %4 = load i64, ptr %max_protected_frame_size.i, align 8
+  %5 = load i64, ptr %in_place_protect_bytes_buffered, align 8
+  %call.i = call noundef i32 @_Z29alts_crypter_process_in_placeP12alts_crypterPhmmPmPPc(ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %output_size.i, ptr noundef nonnull %error_details.i)
+  %6 = load i64, ptr %output_size.i, align 8
+  store i64 %6, ptr %in_place_protect_bytes_buffered, align 8
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end13, label %_ZL4sealP20alts_frame_protector.exit
 
 _ZL4sealP20alts_frame_protector.exit:             ; preds = %if.then9
-  %13 = load ptr, ptr %error_details.i, align 8
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 74, i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef %13)
-  %14 = load ptr, ptr %error_details.i, align 8
-  call void @gpr_free(ptr noundef %14)
+  %7 = load ptr, ptr %error_details.i, align 8
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 74, i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef %7)
+  %8 = load ptr, ptr %error_details.i, align 8
+  call void @gpr_free(ptr noundef %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %error_details.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %output_size.i)
   br label %return
@@ -400,9 +400,9 @@ _ZL4sealP20alts_frame_protector.exit:             ; preds = %if.then9
 if.end13:                                         ; preds = %if.then9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %error_details.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %output_size.i)
-  %15 = load ptr, ptr %writer, align 8
-  %16 = load ptr, ptr %in_place_protect_buffer.i, align 8
-  %call16 = call noundef zeroext i1 @_Z23alts_reset_frame_writerP17alts_frame_writerPKhm(ptr noundef %15, ptr noundef %16, i64 noundef %12)
+  %9 = load ptr, ptr %writer, align 8
+  %10 = load ptr, ptr %in_place_protect_buffer.i, align 8
+  %call16 = call noundef zeroext i1 @_Z23alts_reset_frame_writerP17alts_frame_writerPKhm(ptr noundef %9, ptr noundef %10, i64 noundef %6)
   br i1 %call16, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %if.end13
@@ -410,10 +410,10 @@ if.then17:                                        ; preds = %if.end13
   br label %return
 
 if.end19:                                         ; preds = %if.end13, %if.end8
-  %17 = load i64, ptr %protected_output_frames_size, align 8
-  store i64 %17, ptr %written_frame_bytes, align 8
-  %18 = load ptr, ptr %writer, align 8
-  %call21 = call noundef zeroext i1 @_Z22alts_write_frame_bytesP17alts_frame_writerPhPm(ptr noundef %18, ptr noundef nonnull %protected_output_frames, ptr noundef nonnull %written_frame_bytes)
+  %11 = load i64, ptr %protected_output_frames_size, align 8
+  store i64 %11, ptr %written_frame_bytes, align 8
+  %12 = load ptr, ptr %writer, align 8
+  %call21 = call noundef zeroext i1 @_Z22alts_write_frame_bytesP17alts_frame_writerPhPm(ptr noundef %12, ptr noundef nonnull %protected_output_frames, ptr noundef nonnull %written_frame_bytes)
   br i1 %call21, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
@@ -421,13 +421,13 @@ if.then22:                                        ; preds = %if.end19
   br label %return
 
 if.end23:                                         ; preds = %if.end19
-  %19 = load i64, ptr %written_frame_bytes, align 8
-  store i64 %19, ptr %protected_output_frames_size, align 8
-  %20 = load ptr, ptr %writer, align 8
-  %call25 = call noundef i64 @_Z35alts_get_num_writer_bytes_remainingP17alts_frame_writer(ptr noundef %20)
+  %13 = load i64, ptr %written_frame_bytes, align 8
+  store i64 %13, ptr %protected_output_frames_size, align 8
+  %14 = load ptr, ptr %writer, align 8
+  %call25 = call noundef i64 @_Z35alts_get_num_writer_bytes_remainingP17alts_frame_writer(ptr noundef %14)
   store i64 %call25, ptr %still_pending_size, align 8
-  %21 = load ptr, ptr %writer, align 8
-  %call27 = call noundef zeroext i1 @_Z25alts_is_frame_writer_doneP17alts_frame_writer(ptr noundef %21)
+  %15 = load ptr, ptr %writer, align 8
+  %call27 = call noundef zeroext i1 @_Z25alts_is_frame_writer_doneP17alts_frame_writer(ptr noundef %15)
   br i1 %call27, label %if.then28, label %return
 
 if.then28:                                        ; preds = %if.end23
@@ -445,16 +445,16 @@ entry:
   %error_details.i = alloca ptr, align 8
   %output_size.i = alloca i64, align 8
   %read_frames_bytes_size = alloca i64, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %self, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %protected_frames_bytes, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %protected_frames_bytes_size, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %unprotected_bytes, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
+  %cmp = icmp eq ptr %self, null
+  %cmp1 = icmp eq ptr %protected_frames_bytes, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %protected_frames_bytes_size, null
+  %or.cond1 = or i1 %or.cond, %cmp3
+  %cmp5 = icmp eq ptr %unprotected_bytes, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
   %cmp7 = icmp eq ptr %unprotected_bytes_size, null
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp ne i4 %5, 0
-  %op.rdx = or i1 %6, %cmp7
-  br i1 %op.rdx, label %if.then, label %if.end
+  %or.cond3 = or i1 %or.cond2, %cmp7
+  br i1 %or.cond3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 245, i32 noundef 2, ptr noundef nonnull @.str.8)
@@ -462,32 +462,32 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %reader = getelementptr inbounds i8, ptr %self, i64 32
-  %7 = load ptr, ptr %reader, align 8
-  %call = tail call noundef zeroext i1 @_Z25alts_is_frame_reader_doneP17alts_frame_reader(ptr noundef %7)
+  %0 = load ptr, ptr %reader, align 8
+  %call = tail call noundef zeroext i1 @_Z25alts_is_frame_reader_doneP17alts_frame_reader(ptr noundef %0)
   br i1 %call, label %land.lhs.true, label %if.end21
 
 land.lhs.true:                                    ; preds = %if.end
-  %8 = load ptr, ptr %reader, align 8
-  %call9 = tail call noundef ptr @_Z22alts_get_output_bufferP17alts_frame_reader(ptr noundef %8)
+  %1 = load ptr, ptr %reader, align 8
+  %call9 = tail call noundef ptr @_Z22alts_get_output_bufferP17alts_frame_reader(ptr noundef %1)
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %if.then15, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %land.lhs.true
-  %9 = load ptr, ptr %reader, align 8
-  %call13 = tail call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %9)
+  %2 = load ptr, ptr %reader, align 8
+  %call13 = tail call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %2)
   %in_place_unprotect_bytes_processed = getelementptr inbounds i8, ptr %self, i64 64
-  %10 = load i64, ptr %in_place_unprotect_bytes_processed, align 8
+  %3 = load i64, ptr %in_place_unprotect_bytes_processed, align 8
   %overhead_length = getelementptr inbounds i8, ptr %self, i64 88
-  %11 = load i64, ptr %overhead_length, align 8
-  %add = add i64 %11, %10
+  %4 = load i64, ptr %overhead_length, align 8
+  %add = add i64 %4, %3
   %cmp14 = icmp eq i64 %call13, %add
   br i1 %cmp14, label %if.then15, label %if.end21
 
 if.then15:                                        ; preds = %lor.lhs.false11, %land.lhs.true
-  %12 = load ptr, ptr %reader, align 8
+  %5 = load ptr, ptr %reader, align 8
   %in_place_unprotect_buffer = getelementptr inbounds i8, ptr %self, i64 48
-  %13 = load ptr, ptr %in_place_unprotect_buffer, align 8
-  %call17 = tail call noundef zeroext i1 @_Z23alts_reset_frame_readerP17alts_frame_readerPh(ptr noundef %12, ptr noundef %13)
+  %6 = load ptr, ptr %in_place_unprotect_buffer, align 8
+  %call17 = tail call noundef zeroext i1 @_Z23alts_reset_frame_readerP17alts_frame_readerPh(ptr noundef %5, ptr noundef %6)
   br i1 %call17, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %if.then15
@@ -500,60 +500,60 @@ if.end19:                                         ; preds = %if.then15
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end19, %lor.lhs.false11, %if.end
-  %14 = load ptr, ptr %reader, align 8
-  %call23 = tail call noundef zeroext i1 @_Z25alts_is_frame_reader_doneP17alts_frame_reader(ptr noundef %14)
+  %7 = load ptr, ptr %reader, align 8
+  %call23 = tail call noundef zeroext i1 @_Z25alts_is_frame_reader_doneP17alts_frame_reader(ptr noundef %7)
   br i1 %call23, label %if.end32, label %if.then24
 
 if.then24:                                        ; preds = %if.end21
-  %15 = load ptr, ptr %reader, align 8
-  %call.i = tail call noundef zeroext i1 @_Z26alts_has_read_frame_lengthP17alts_frame_reader(ptr noundef %15)
+  %8 = load ptr, ptr %reader, align 8
+  %call.i = tail call noundef zeroext i1 @_Z26alts_has_read_frame_lengthP17alts_frame_reader(ptr noundef %8)
   br i1 %call.i, label %if.end.i, label %_ZL18ensure_buffer_sizeP20alts_frame_protector.exit
 
 if.end.i:                                         ; preds = %if.then24
   %max_unprotected_frame_size.i = getelementptr inbounds i8, ptr %self, i64 80
-  %16 = load i64, ptr %max_unprotected_frame_size.i, align 8
-  %17 = load ptr, ptr %reader, align 8
-  %call2.i = tail call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %17)
-  %sub.i = sub i64 %16, %call2.i
-  %18 = load ptr, ptr %reader, align 8
-  %call4.i = tail call noundef i64 @_Z31alts_get_reader_bytes_remainingP17alts_frame_reader(ptr noundef %18)
+  %9 = load i64, ptr %max_unprotected_frame_size.i, align 8
+  %10 = load ptr, ptr %reader, align 8
+  %call2.i = tail call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %10)
+  %sub.i = sub i64 %9, %call2.i
+  %11 = load ptr, ptr %reader, align 8
+  %call4.i = tail call noundef i64 @_Z31alts_get_reader_bytes_remainingP17alts_frame_reader(ptr noundef %11)
   %cmp.i = icmp ult i64 %sub.i, %call4.i
   br i1 %cmp.i, label %if.then5.i, label %_ZL18ensure_buffer_sizeP20alts_frame_protector.exit
 
 if.then5.i:                                       ; preds = %if.end.i
-  %19 = load ptr, ptr %reader, align 8
-  %call7.i = tail call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %19)
-  %20 = load ptr, ptr %reader, align 8
-  %call9.i = tail call noundef i64 @_Z31alts_get_reader_bytes_remainingP17alts_frame_reader(ptr noundef %20)
+  %12 = load ptr, ptr %reader, align 8
+  %call7.i = tail call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %12)
+  %13 = load ptr, ptr %reader, align 8
+  %call9.i = tail call noundef i64 @_Z31alts_get_reader_bytes_remainingP17alts_frame_reader(ptr noundef %13)
   %add.i = add i64 %call9.i, %call7.i
   %call10.i = tail call ptr @gpr_malloc(i64 noundef %add.i)
   %in_place_unprotect_buffer.i = getelementptr inbounds i8, ptr %self, i64 48
-  %21 = load ptr, ptr %in_place_unprotect_buffer.i, align 8
-  %22 = load ptr, ptr %reader, align 8
-  %call12.i = tail call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %22)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call10.i, ptr align 1 %21, i64 %call12.i, i1 false)
+  %14 = load ptr, ptr %in_place_unprotect_buffer.i, align 8
+  %15 = load ptr, ptr %reader, align 8
+  %call12.i = tail call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %15)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call10.i, ptr align 1 %14, i64 %call12.i, i1 false)
   store i64 %add.i, ptr %max_unprotected_frame_size.i, align 8
-  %23 = load ptr, ptr %in_place_unprotect_buffer.i, align 8
-  tail call void @gpr_free(ptr noundef %23)
+  %16 = load ptr, ptr %in_place_unprotect_buffer.i, align 8
+  tail call void @gpr_free(ptr noundef %16)
   store ptr %call10.i, ptr %in_place_unprotect_buffer.i, align 8
-  %24 = load ptr, ptr %reader, align 8
-  %call18.i = tail call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %24)
+  %17 = load ptr, ptr %reader, align 8
+  %call18.i = tail call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %17)
   %add.ptr.i = getelementptr inbounds i8, ptr %call10.i, i64 %call18.i
-  tail call void @_Z31alts_reset_reader_output_bufferP17alts_frame_readerPh(ptr noundef %24, ptr noundef %add.ptr.i)
+  tail call void @_Z31alts_reset_reader_output_bufferP17alts_frame_readerPh(ptr noundef %17, ptr noundef %add.ptr.i)
   br label %_ZL18ensure_buffer_sizeP20alts_frame_protector.exit
 
 _ZL18ensure_buffer_sizeP20alts_frame_protector.exit: ; preds = %if.then24, %if.end.i, %if.then5.i
   %max_unprotected_frame_size = getelementptr inbounds i8, ptr %self, i64 80
-  %25 = load i64, ptr %max_unprotected_frame_size, align 8
-  %26 = load ptr, ptr %reader, align 8
-  %call26 = tail call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %26)
-  %sub = sub i64 %25, %call26
-  %27 = load i64, ptr %protected_frames_bytes_size, align 8
-  %.sroa.speculated49 = tail call i64 @llvm.umin.i64(i64 %27, i64 %sub)
+  %18 = load i64, ptr %max_unprotected_frame_size, align 8
+  %19 = load ptr, ptr %reader, align 8
+  %call26 = tail call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %19)
+  %sub = sub i64 %18, %call26
+  %20 = load i64, ptr %protected_frames_bytes_size, align 8
+  %.sroa.speculated49 = tail call i64 @llvm.umin.i64(i64 %20, i64 %sub)
   store i64 %.sroa.speculated49, ptr %protected_frames_bytes_size, align 8
   store i64 %.sroa.speculated49, ptr %read_frames_bytes_size, align 8
-  %28 = load ptr, ptr %reader, align 8
-  %call29 = call noundef zeroext i1 @_Z21alts_read_frame_bytesP17alts_frame_readerPKhPm(ptr noundef %28, ptr noundef nonnull %protected_frames_bytes, ptr noundef nonnull %read_frames_bytes_size)
+  %21 = load ptr, ptr %reader, align 8
+  %call29 = call noundef zeroext i1 @_Z21alts_read_frame_bytesP17alts_frame_readerPKhPm(ptr noundef %21, ptr noundef nonnull %protected_frames_bytes, ptr noundef nonnull %read_frames_bytes_size)
   br i1 %call29, label %if.end31, label %if.then30
 
 if.then30:                                        ; preds = %_ZL18ensure_buffer_sizeP20alts_frame_protector.exit
@@ -561,20 +561,20 @@ if.then30:                                        ; preds = %_ZL18ensure_buffer_
   br label %return
 
 if.end31:                                         ; preds = %_ZL18ensure_buffer_sizeP20alts_frame_protector.exit
-  %29 = load i64, ptr %read_frames_bytes_size, align 8
+  %22 = load i64, ptr %read_frames_bytes_size, align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end21, %if.end31
-  %storemerge = phi i64 [ %29, %if.end31 ], [ 0, %if.end21 ]
+  %storemerge = phi i64 [ %22, %if.end31 ], [ 0, %if.end21 ]
   store i64 %storemerge, ptr %protected_frames_bytes_size, align 8
-  %30 = load ptr, ptr %reader, align 8
-  %call34 = call noundef zeroext i1 @_Z25alts_is_frame_reader_doneP17alts_frame_reader(ptr noundef %30)
+  %23 = load ptr, ptr %reader, align 8
+  %call34 = call noundef zeroext i1 @_Z25alts_is_frame_reader_doneP17alts_frame_reader(ptr noundef %23)
   br i1 %call34, label %if.then35, label %if.else59
 
 if.then35:                                        ; preds = %if.end32
   %in_place_unprotect_bytes_processed36 = getelementptr inbounds i8, ptr %self, i64 64
-  %31 = load i64, ptr %in_place_unprotect_bytes_processed36, align 8
-  %cmp37 = icmp eq i64 %31, 0
+  %24 = load i64, ptr %in_place_unprotect_bytes_processed36, align 8
+  %cmp37 = icmp eq i64 %24, 0
   br i1 %cmp37, label %if.then38, label %if.end43
 
 if.then38:                                        ; preds = %if.then35
@@ -583,14 +583,14 @@ if.then38:                                        ; preds = %if.then35
   store ptr null, ptr %error_details.i, align 8
   store i64 0, ptr %output_size.i, align 8
   %unseal_crypter.i = getelementptr inbounds i8, ptr %self, i64 16
-  %32 = load ptr, ptr %unseal_crypter.i, align 8
+  %25 = load ptr, ptr %unseal_crypter.i, align 8
   %in_place_unprotect_buffer.i41 = getelementptr inbounds i8, ptr %self, i64 48
-  %33 = load ptr, ptr %in_place_unprotect_buffer.i41, align 8
+  %26 = load ptr, ptr %in_place_unprotect_buffer.i41, align 8
   %max_unprotected_frame_size.i42 = getelementptr inbounds i8, ptr %self, i64 80
-  %34 = load i64, ptr %max_unprotected_frame_size.i42, align 8
-  %35 = load ptr, ptr %reader, align 8
-  %call.i44 = call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %35)
-  %call1.i = call noundef i32 @_Z29alts_crypter_process_in_placeP12alts_crypterPhmmPmPPc(ptr noundef %32, ptr noundef %33, i64 noundef %34, i64 noundef %call.i44, ptr noundef nonnull %output_size.i, ptr noundef nonnull %error_details.i)
+  %27 = load i64, ptr %max_unprotected_frame_size.i42, align 8
+  %28 = load ptr, ptr %reader, align 8
+  %call.i44 = call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %28)
+  %call1.i = call noundef i32 @_Z29alts_crypter_process_in_placeP12alts_crypterPhmmPmPPc(ptr noundef %25, ptr noundef %26, i64 noundef %27, i64 noundef %call.i44, ptr noundef nonnull %output_size.i, ptr noundef nonnull %error_details.i)
   %cmp.not.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.not.i, label %_ZL6unsealP20alts_frame_protector.exit.thread, label %_ZL6unsealP20alts_frame_protector.exit
 
@@ -600,38 +600,38 @@ _ZL6unsealP20alts_frame_protector.exit.thread:    ; preds = %if.then38
   br label %if.end43
 
 _ZL6unsealP20alts_frame_protector.exit:           ; preds = %if.then38
-  %36 = load ptr, ptr %error_details.i, align 8
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 206, i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef %36)
-  %37 = load ptr, ptr %error_details.i, align 8
-  call void @gpr_free(ptr noundef %37)
+  %29 = load ptr, ptr %error_details.i, align 8
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 206, i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef %29)
+  %30 = load ptr, ptr %error_details.i, align 8
+  call void @gpr_free(ptr noundef %30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %error_details.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %output_size.i)
   br label %return
 
 if.end43:                                         ; preds = %_ZL6unsealP20alts_frame_protector.exit.thread, %if.then35
-  %38 = load ptr, ptr %reader, align 8
-  %call46 = call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %38)
-  %39 = load i64, ptr %in_place_unprotect_bytes_processed36, align 8
+  %31 = load ptr, ptr %reader, align 8
+  %call46 = call noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef %31)
+  %32 = load i64, ptr %in_place_unprotect_bytes_processed36, align 8
   %overhead_length49 = getelementptr inbounds i8, ptr %self, i64 88
-  %40 = load i64, ptr %overhead_length49, align 8
-  %41 = add i64 %39, %40
-  %sub50 = sub i64 %call46, %41
-  %42 = load i64, ptr %unprotected_bytes_size, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub50, i64 %42)
+  %33 = load i64, ptr %overhead_length49, align 8
+  %34 = add i64 %32, %33
+  %sub50 = sub i64 %call46, %34
+  %35 = load i64, ptr %unprotected_bytes_size, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub50, i64 %35)
   %cmp52.not = icmp eq i64 %.sroa.speculated, 0
   br i1 %cmp52.not, label %if.end56, label %if.then53
 
 if.then53:                                        ; preds = %if.end43
   %in_place_unprotect_buffer54 = getelementptr inbounds i8, ptr %self, i64 48
-  %43 = load ptr, ptr %in_place_unprotect_buffer54, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %43, i64 %39
+  %36 = load ptr, ptr %in_place_unprotect_buffer54, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %36, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %unprotected_bytes, ptr align 1 %add.ptr, i64 %.sroa.speculated, i1 false)
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then53, %if.end43
   store i64 %.sroa.speculated, ptr %unprotected_bytes_size, align 8
-  %44 = load i64, ptr %in_place_unprotect_bytes_processed36, align 8
-  %add58 = add i64 %44, %.sroa.speculated
+  %37 = load i64, ptr %in_place_unprotect_bytes_processed36, align 8
+  %add58 = add i64 %37, %.sroa.speculated
   store i64 %add58, ptr %in_place_unprotect_bytes_processed36, align 8
   br label %return
 

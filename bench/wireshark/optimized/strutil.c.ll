@@ -1289,7 +1289,7 @@ define i64 @ws_label_strcpy(ptr nocapture noundef writeonly %0, i64 noundef %1, 
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %14
-  switch i32 %19, label %111 [
+  switch i32 %19, label %114 [
     i32 1, label %23
     i32 2, label %85
   ]
@@ -1321,10 +1321,10 @@ define i64 @ws_label_strcpy(ptr nocapture noundef writeonly %0, i64 noundef %1, 
   %36 = add i64 %.0124141, -1
   br label %.backedge
 
-.backedge:                                        ; preds = %33, %46, %59, %81, %107, %120
-  %.0126.be = phi i64 [ %35, %33 ], [ %48, %46 ], [ %61, %59 ], [ %83, %81 ], [ %109, %107 ], [ %122, %120 ]
-  %.0124.be = phi i64 [ %36, %33 ], [ %49, %46 ], [ %62, %59 ], [ %84, %81 ], [ %110, %107 ], [ %123, %120 ]
-  %.0123.be = phi i64 [ %34, %33 ], [ %47, %46 ], [ %60, %59 ], [ %82, %81 ], [ %108, %107 ], [ %121, %120 ]
+.backedge:                                        ; preds = %33, %46, %59, %81, %110, %123
+  %.0126.be = phi i64 [ %35, %33 ], [ %48, %46 ], [ %61, %59 ], [ %83, %81 ], [ %112, %110 ], [ %125, %123 ]
+  %.0124.be = phi i64 [ %36, %33 ], [ %49, %46 ], [ %62, %59 ], [ %84, %81 ], [ %113, %110 ], [ %126, %123 ]
+  %.0123.be = phi i64 [ %34, %33 ], [ %47, %46 ], [ %60, %59 ], [ %82, %81 ], [ %111, %110 ], [ %124, %123 ]
   %37 = icmp slt i64 %.0126.be, %8
   br i1 %37, label %14, label %.loopexit, !llvm.loop !17
 
@@ -1415,74 +1415,80 @@ switch.lookup:                                    ; preds = %38
 
 85:                                               ; preds = %22
   %86 = icmp eq i8 %16, -62
-  br i1 %86, label %87, label %111
+  br i1 %86, label %87, label %114
 
 87:                                               ; preds = %85
   %88 = getelementptr i8, ptr %15, i64 1
   %89 = load i8, ptr %88, align 1
   %or.cond = icmp slt i8 %89, -96
-  br i1 %or.cond, label %90, label %111
+  br i1 %or.cond, label %90, label %114
 
 90:                                               ; preds = %87
   %91 = icmp sgt i64 %.0124141, 5
-  br i1 %91, label %92, label %107
+  br i1 %91, label %92, label %110
 
 92:                                               ; preds = %90
   %93 = getelementptr i8, ptr %0, i64 %.0123142
-  store <4 x i8> <i8 92, i8 117, i8 48, i8 48>, ptr %93, align 1
-  %94 = load i8, ptr %88, align 1
-  %95 = zext i8 %94 to i32
-  %96 = lshr i32 %95, 4
-  %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr [16 x i8], ptr @_hex, i64 0, i64 %97
-  %99 = load i8, ptr %98, align 1
-  %100 = getelementptr i8, ptr %93, i64 4
-  store i8 %99, ptr %100, align 1
-  %101 = and i32 %95, 15
-  %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr [16 x i8], ptr @_hex, i64 0, i64 %102
-  %104 = load i8, ptr %103, align 1
-  %105 = getelementptr i8, ptr %93, i64 5
-  store i8 %104, ptr %105, align 1
-  %106 = getelementptr i8, ptr %93, i64 6
-  store i8 0, ptr %106, align 1
-  br label %107
+  store i8 92, ptr %93, align 1
+  %94 = getelementptr i8, ptr %93, i64 1
+  store i8 117, ptr %94, align 1
+  %95 = getelementptr i8, ptr %93, i64 2
+  store i8 48, ptr %95, align 1
+  %96 = getelementptr i8, ptr %93, i64 3
+  store i8 48, ptr %96, align 1
+  %97 = load i8, ptr %88, align 1
+  %98 = zext i8 %97 to i32
+  %99 = lshr i32 %98, 4
+  %100 = zext nneg i32 %99 to i64
+  %101 = getelementptr [16 x i8], ptr @_hex, i64 0, i64 %100
+  %102 = load i8, ptr %101, align 1
+  %103 = getelementptr i8, ptr %93, i64 4
+  store i8 %102, ptr %103, align 1
+  %104 = and i32 %98, 15
+  %105 = zext nneg i32 %104 to i64
+  %106 = getelementptr [16 x i8], ptr @_hex, i64 0, i64 %105
+  %107 = load i8, ptr %106, align 1
+  %108 = getelementptr i8, ptr %93, i64 5
+  store i8 %107, ptr %108, align 1
+  %109 = getelementptr i8, ptr %93, i64 6
+  store i8 0, ptr %109, align 1
+  br label %110
 
-107:                                              ; preds = %92, %90
-  %108 = add i64 %.0123142, 6
-  %109 = add i64 %.0126140, 2
-  %110 = add i64 %.0124141, -6
+110:                                              ; preds = %92, %90
+  %111 = add i64 %.0123142, 6
+  %112 = add i64 %.0126140, 2
+  %113 = add i64 %.0124141, -6
   br label %.backedge
 
-111:                                              ; preds = %22, %87, %85
+114:                                              ; preds = %22, %87, %85
   %.not131 = icmp slt i64 %.0124141, %20
-  br i1 %.not131, label %120, label %.lr.ph
+  br i1 %.not131, label %123, label %.lr.ph
 
-.lr.ph:                                           ; preds = %111
-  %112 = getelementptr i8, ptr %0, i64 %.0123142
+.lr.ph:                                           ; preds = %114
+  %115 = getelementptr i8, ptr %0, i64 %.0123142
   %smax = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
-  br label %113
+  br label %116
 
-113:                                              ; preds = %.lr.ph, %113
-  %.0139 = phi i64 [ 0, %.lr.ph ], [ %117, %113 ]
-  %114 = getelementptr i8, ptr %15, i64 %.0139
-  %115 = load i8, ptr %114, align 1
-  %116 = getelementptr i8, ptr %112, i64 %.0139
-  store i8 %115, ptr %116, align 1
-  %117 = add nuw nsw i64 %.0139, 1
-  %exitcond.not = icmp eq i64 %117, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %113, !llvm.loop !18
+116:                                              ; preds = %.lr.ph, %116
+  %.0139 = phi i64 [ 0, %.lr.ph ], [ %120, %116 ]
+  %117 = getelementptr i8, ptr %15, i64 %.0139
+  %118 = load i8, ptr %117, align 1
+  %119 = getelementptr i8, ptr %115, i64 %.0139
+  store i8 %118, ptr %119, align 1
+  %120 = add nuw nsw i64 %.0139, 1
+  %exitcond.not = icmp eq i64 %120, %smax
+  br i1 %exitcond.not, label %._crit_edge, label %116, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %113
-  %118 = getelementptr i8, ptr %0, i64 %.0123142
-  %119 = getelementptr i8, ptr %118, i64 %20
-  store i8 0, ptr %119, align 1
-  br label %120
+._crit_edge:                                      ; preds = %116
+  %121 = getelementptr i8, ptr %0, i64 %.0123142
+  %122 = getelementptr i8, ptr %121, i64 %20
+  store i8 0, ptr %122, align 1
+  br label %123
 
-120:                                              ; preds = %._crit_edge, %111
-  %121 = add i64 %.0123142, %20
-  %122 = add i64 %.0126140, %20
-  %123 = sub i64 %.0124141, %20
+123:                                              ; preds = %._crit_edge, %114
+  %124 = add i64 %.0123142, %20
+  %125 = add i64 %.0126140, %20
+  %126 = sub i64 %.0124141, %20
   br label %.backedge
 
 .loopexit:                                        ; preds = %14, %.backedge, %6, %5

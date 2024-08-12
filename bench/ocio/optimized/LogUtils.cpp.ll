@@ -363,17 +363,14 @@ entry:
   %div = fdiv double %2, 1.023000e+03
   %add.ptr.i15 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load double, ptr %add.ptr.i15, align 8
+  %div3 = fdiv double %3, 1.023000e+03
   %add.ptr.i16 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load double, ptr %add.ptr.i16, align 8
   %add.ptr.i17 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load double, ptr %add.ptr.i17, align 8
-  %6 = insertelement <2 x double> <double 0x40005E353F7CED92, double poison>, double %3, i64 1
-  %7 = insertelement <2 x double> <double poison, double 1.023000e+03>, double %1, i64 0
-  %8 = fdiv <2 x double> %6, %7
-  %9 = extractelement <2 x double> %8, i64 1
-  %sub = fsub double %9, %div
-  %10 = extractelement <2 x double> %8, i64 0
-  %mul = fmul double %10, %sub
+  %div6 = fdiv double 0x40005E353F7CED92, %1
+  %sub = fsub double %div3, %div
+  %mul = fmul double %div6, %sub
   %cmp.i = fcmp ogt double %mul, -1.000000e-04
   %.sroa.speculated = select i1 %cmp.i, double -1.000000e-04, double %mul
   %sub8 = fsub double %4, %5
@@ -381,20 +378,20 @@ entry:
   %sub10 = fsub double 1.000000e+00, %call9
   %div11 = fdiv double %sub8, %sub10
   %sub13 = fsub double %div11, %sub8
-  %div14 = fdiv double 1.000000e+00, %10
-  %11 = load ptr, ptr %ocioParams, align 8
-  store double %div14, ptr %11, align 8
+  %div14 = fdiv double 1.000000e+00, %div6
+  %6 = load ptr, ptr %ocioParams, align 8
+  store double %div14, ptr %6, align 8
   %div16 = fdiv double 1.000000e+00, %div11
-  %12 = load ptr, ptr %ocioParams, align 8
-  %add.ptr.i19 = getelementptr inbounds i8, ptr %12, i64 16
+  %7 = load ptr, ptr %ocioParams, align 8
+  %add.ptr.i19 = getelementptr inbounds i8, ptr %7, i64 16
   store double %div16, ptr %add.ptr.i19, align 8
   %sub18 = fsub double %sub13, %5
   %div19 = fdiv double %sub18, %div11
-  %13 = load ptr, ptr %ocioParams, align 8
-  %add.ptr.i20 = getelementptr inbounds i8, ptr %13, i64 24
+  %8 = load ptr, ptr %ocioParams, align 8
+  %add.ptr.i20 = getelementptr inbounds i8, ptr %8, i64 24
   store double %div19, ptr %add.ptr.i20, align 8
-  %14 = load ptr, ptr %ocioParams, align 8
-  %add.ptr.i21 = getelementptr inbounds i8, ptr %14, i64 8
+  %9 = load ptr, ptr %ocioParams, align 8
+  %add.ptr.i21 = getelementptr inbounds i8, ptr %9, i64 8
   store double %div, ptr %add.ptr.i21, align 8
   ret void
 }
@@ -834,17 +831,14 @@ sw.bb15:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %div.i = fdiv double %21, 1.023000e+03
   %add.ptr.i15.i = getelementptr inbounds i8, ptr %19, i64 16
   %22 = load double, ptr %add.ptr.i15.i, align 8
+  %div3.i = fdiv double %22, 1.023000e+03
   %add.ptr.i16.i = getelementptr inbounds i8, ptr %19, i64 24
   %23 = load double, ptr %add.ptr.i16.i, align 8
   %add.ptr.i17.i = getelementptr inbounds i8, ptr %19, i64 32
   %24 = load double, ptr %add.ptr.i17.i, align 8
-  %25 = insertelement <2 x double> <double 0x40005E353F7CED92, double poison>, double %22, i64 1
-  %26 = insertelement <2 x double> <double poison, double 1.023000e+03>, double %20, i64 0
-  %27 = fdiv <2 x double> %25, %26
-  %28 = extractelement <2 x double> %27, i64 1
-  %sub.i73 = fsub double %28, %div.i
-  %29 = extractelement <2 x double> %27, i64 0
-  %mul.i = fmul double %29, %sub.i73
+  %div6.i = fdiv double 0x40005E353F7CED92, %20
+  %sub.i73 = fsub double %div3.i, %div.i
+  %mul.i = fmul double %div6.i, %sub.i73
   %cmp.i.i = fcmp ogt double %mul.i, -1.000000e-04
   %.sroa.speculated.i = select i1 %cmp.i.i, double -1.000000e-04, double %mul.i
   %sub8.i = fsub double %23, %24
@@ -852,100 +846,94 @@ sw.bb15:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %sub10.i = fsub double 1.000000e+00, %call9.i
   %div11.i = fdiv double %sub8.i, %sub10.i
   %sub13.i = fsub double %div11.i, %sub8.i
-  %div14.i = fdiv double 1.000000e+00, %29
-  %30 = load ptr, ptr %redParams, align 8
-  store double %div14.i, ptr %30, align 8
+  %div14.i = fdiv double 1.000000e+00, %div6.i
+  %25 = load ptr, ptr %redParams, align 8
+  store double %div14.i, ptr %25, align 8
   %div16.i = fdiv double 1.000000e+00, %div11.i
-  %31 = load ptr, ptr %redParams, align 8
-  %add.ptr.i19.i = getelementptr inbounds i8, ptr %31, i64 16
+  %26 = load ptr, ptr %redParams, align 8
+  %add.ptr.i19.i = getelementptr inbounds i8, ptr %26, i64 16
   store double %div16.i, ptr %add.ptr.i19.i, align 8
   %sub18.i = fsub double %sub13.i, %24
   %div19.i = fdiv double %sub18.i, %div11.i
-  %32 = load ptr, ptr %redParams, align 8
-  %add.ptr.i20.i = getelementptr inbounds i8, ptr %32, i64 24
+  %27 = load ptr, ptr %redParams, align 8
+  %add.ptr.i20.i = getelementptr inbounds i8, ptr %27, i64 24
   store double %div19.i, ptr %add.ptr.i20.i, align 8
-  %33 = load ptr, ptr %redParams, align 8
-  %add.ptr.i21.i = getelementptr inbounds i8, ptr %33, i64 8
+  %28 = load ptr, ptr %redParams, align 8
+  %add.ptr.i21.i = getelementptr inbounds i8, ptr %28, i64 8
   store double %div.i, ptr %add.ptr.i21.i, align 8
-  %34 = load ptr, ptr %arrayidx.i, align 8
-  %35 = load double, ptr %34, align 8
-  %add.ptr.i.i76 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = load double, ptr %add.ptr.i.i76, align 8
-  %div.i77 = fdiv double %36, 1.023000e+03
-  %add.ptr.i15.i78 = getelementptr inbounds i8, ptr %34, i64 16
-  %37 = load double, ptr %add.ptr.i15.i78, align 8
-  %add.ptr.i16.i80 = getelementptr inbounds i8, ptr %34, i64 24
-  %38 = load double, ptr %add.ptr.i16.i80, align 8
-  %add.ptr.i17.i81 = getelementptr inbounds i8, ptr %34, i64 32
-  %39 = load double, ptr %add.ptr.i17.i81, align 8
-  %40 = insertelement <2 x double> <double 0x40005E353F7CED92, double poison>, double %37, i64 1
-  %41 = insertelement <2 x double> <double poison, double 1.023000e+03>, double %35, i64 0
-  %42 = fdiv <2 x double> %40, %41
-  %43 = extractelement <2 x double> %42, i64 1
-  %sub.i83 = fsub double %43, %div.i77
-  %44 = extractelement <2 x double> %42, i64 0
-  %mul.i84 = fmul double %44, %sub.i83
+  %29 = load ptr, ptr %arrayidx.i, align 8
+  %30 = load double, ptr %29, align 8
+  %add.ptr.i.i76 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = load double, ptr %add.ptr.i.i76, align 8
+  %div.i77 = fdiv double %31, 1.023000e+03
+  %add.ptr.i15.i78 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = load double, ptr %add.ptr.i15.i78, align 8
+  %div3.i79 = fdiv double %32, 1.023000e+03
+  %add.ptr.i16.i80 = getelementptr inbounds i8, ptr %29, i64 24
+  %33 = load double, ptr %add.ptr.i16.i80, align 8
+  %add.ptr.i17.i81 = getelementptr inbounds i8, ptr %29, i64 32
+  %34 = load double, ptr %add.ptr.i17.i81, align 8
+  %div6.i82 = fdiv double 0x40005E353F7CED92, %30
+  %sub.i83 = fsub double %div3.i79, %div.i77
+  %mul.i84 = fmul double %div6.i82, %sub.i83
   %cmp.i.i85 = fcmp ogt double %mul.i84, -1.000000e-04
   %.sroa.speculated.i86 = select i1 %cmp.i.i85, double -1.000000e-04, double %mul.i84
-  %sub8.i87 = fsub double %38, %39
+  %sub8.i87 = fsub double %33, %34
   %call9.i88 = tail call double @pow(double noundef 1.000000e+01, double noundef %.sroa.speculated.i86) #15
   %sub10.i89 = fsub double 1.000000e+00, %call9.i88
   %div11.i90 = fdiv double %sub8.i87, %sub10.i89
   %sub13.i91 = fsub double %div11.i90, %sub8.i87
-  %div14.i92 = fdiv double 1.000000e+00, %44
-  %45 = load ptr, ptr %greenParams, align 8
-  store double %div14.i92, ptr %45, align 8
+  %div14.i92 = fdiv double 1.000000e+00, %div6.i82
+  %35 = load ptr, ptr %greenParams, align 8
+  store double %div14.i92, ptr %35, align 8
   %div16.i93 = fdiv double 1.000000e+00, %div11.i90
-  %46 = load ptr, ptr %greenParams, align 8
-  %add.ptr.i19.i94 = getelementptr inbounds i8, ptr %46, i64 16
+  %36 = load ptr, ptr %greenParams, align 8
+  %add.ptr.i19.i94 = getelementptr inbounds i8, ptr %36, i64 16
   store double %div16.i93, ptr %add.ptr.i19.i94, align 8
-  %sub18.i95 = fsub double %sub13.i91, %39
+  %sub18.i95 = fsub double %sub13.i91, %34
   %div19.i96 = fdiv double %sub18.i95, %div11.i90
-  %47 = load ptr, ptr %greenParams, align 8
-  %add.ptr.i20.i97 = getelementptr inbounds i8, ptr %47, i64 24
+  %37 = load ptr, ptr %greenParams, align 8
+  %add.ptr.i20.i97 = getelementptr inbounds i8, ptr %37, i64 24
   store double %div19.i96, ptr %add.ptr.i20.i97, align 8
-  %48 = load ptr, ptr %greenParams, align 8
-  %add.ptr.i21.i98 = getelementptr inbounds i8, ptr %48, i64 8
+  %38 = load ptr, ptr %greenParams, align 8
+  %add.ptr.i21.i98 = getelementptr inbounds i8, ptr %38, i64 8
   store double %div.i77, ptr %add.ptr.i21.i98, align 8
-  %49 = load ptr, ptr %arrayidx.i70, align 8
-  %50 = load double, ptr %49, align 8
-  %add.ptr.i.i101 = getelementptr inbounds i8, ptr %49, i64 8
-  %51 = load double, ptr %add.ptr.i.i101, align 8
-  %div.i102 = fdiv double %51, 1.023000e+03
-  %add.ptr.i15.i103 = getelementptr inbounds i8, ptr %49, i64 16
-  %52 = load double, ptr %add.ptr.i15.i103, align 8
-  %add.ptr.i16.i105 = getelementptr inbounds i8, ptr %49, i64 24
-  %53 = load double, ptr %add.ptr.i16.i105, align 8
-  %add.ptr.i17.i106 = getelementptr inbounds i8, ptr %49, i64 32
-  %54 = load double, ptr %add.ptr.i17.i106, align 8
-  %55 = insertelement <2 x double> <double 0x40005E353F7CED92, double poison>, double %52, i64 1
-  %56 = insertelement <2 x double> <double poison, double 1.023000e+03>, double %50, i64 0
-  %57 = fdiv <2 x double> %55, %56
-  %58 = extractelement <2 x double> %57, i64 1
-  %sub.i108 = fsub double %58, %div.i102
-  %59 = extractelement <2 x double> %57, i64 0
-  %mul.i109 = fmul double %59, %sub.i108
+  %39 = load ptr, ptr %arrayidx.i70, align 8
+  %40 = load double, ptr %39, align 8
+  %add.ptr.i.i101 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = load double, ptr %add.ptr.i.i101, align 8
+  %div.i102 = fdiv double %41, 1.023000e+03
+  %add.ptr.i15.i103 = getelementptr inbounds i8, ptr %39, i64 16
+  %42 = load double, ptr %add.ptr.i15.i103, align 8
+  %div3.i104 = fdiv double %42, 1.023000e+03
+  %add.ptr.i16.i105 = getelementptr inbounds i8, ptr %39, i64 24
+  %43 = load double, ptr %add.ptr.i16.i105, align 8
+  %add.ptr.i17.i106 = getelementptr inbounds i8, ptr %39, i64 32
+  %44 = load double, ptr %add.ptr.i17.i106, align 8
+  %div6.i107 = fdiv double 0x40005E353F7CED92, %40
+  %sub.i108 = fsub double %div3.i104, %div.i102
+  %mul.i109 = fmul double %div6.i107, %sub.i108
   %cmp.i.i110 = fcmp ogt double %mul.i109, -1.000000e-04
   %.sroa.speculated.i111 = select i1 %cmp.i.i110, double -1.000000e-04, double %mul.i109
-  %sub8.i112 = fsub double %53, %54
+  %sub8.i112 = fsub double %43, %44
   %call9.i113 = tail call double @pow(double noundef 1.000000e+01, double noundef %.sroa.speculated.i111) #15
   %sub10.i114 = fsub double 1.000000e+00, %call9.i113
   %div11.i115 = fdiv double %sub8.i112, %sub10.i114
   %sub13.i116 = fsub double %div11.i115, %sub8.i112
-  %div14.i117 = fdiv double 1.000000e+00, %59
-  %60 = load ptr, ptr %blueParams, align 8
-  store double %div14.i117, ptr %60, align 8
+  %div14.i117 = fdiv double 1.000000e+00, %div6.i107
+  %45 = load ptr, ptr %blueParams, align 8
+  store double %div14.i117, ptr %45, align 8
   %div16.i118 = fdiv double 1.000000e+00, %div11.i115
-  %61 = load ptr, ptr %blueParams, align 8
-  %add.ptr.i19.i119 = getelementptr inbounds i8, ptr %61, i64 16
+  %46 = load ptr, ptr %blueParams, align 8
+  %add.ptr.i19.i119 = getelementptr inbounds i8, ptr %46, i64 16
   store double %div16.i118, ptr %add.ptr.i19.i119, align 8
-  %sub18.i120 = fsub double %sub13.i116, %54
+  %sub18.i120 = fsub double %sub13.i116, %44
   %div19.i121 = fdiv double %sub18.i120, %div11.i115
-  %62 = load ptr, ptr %blueParams, align 8
-  %add.ptr.i20.i122 = getelementptr inbounds i8, ptr %62, i64 24
+  %47 = load ptr, ptr %blueParams, align 8
+  %add.ptr.i20.i122 = getelementptr inbounds i8, ptr %47, i64 24
   store double %div19.i121, ptr %add.ptr.i20.i122, align 8
-  %63 = load ptr, ptr %blueParams, align 8
-  %add.ptr.i21.i123 = getelementptr inbounds i8, ptr %63, i64 8
+  %48 = load ptr, ptr %blueParams, align 8
+  %add.ptr.i21.i123 = getelementptr inbounds i8, ptr %48, i64 8
   store double %div.i102, ptr %add.ptr.i21.i123, align 8
   br label %sw.epilog
 

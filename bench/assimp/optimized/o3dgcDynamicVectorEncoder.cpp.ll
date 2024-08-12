@@ -1593,9 +1593,11 @@ for.cond.preheader.i:                             ; preds = %_ZN5o3dgc6UpdateEPl
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
   %i.09.i = phi i64 [ %a.012.i, %for.cond.preheader.i ], [ %add3.i21, %for.body.i ]
   %arrayidx.i19 = getelementptr inbounds i64, ptr %data, i64 %i.09.i
-  %16 = load <2 x i64>, ptr %arrayidx.i19, align 8
-  %17 = shufflevector <2 x i64> %16, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %17, ptr %arrayidx.i19, align 8
+  %arrayidx2.i20 = getelementptr inbounds i8, ptr %arrayidx.i19, i64 8
+  %16 = load i64, ptr %arrayidx.i19, align 8
+  %17 = load i64, ptr %arrayidx2.i20, align 8
+  store i64 %17, ptr %arrayidx.i19, align 8
+  store i64 %16, ptr %arrayidx2.i20, align 8
   %add3.i21 = add nuw nsw i64 %i.09.i, 2
   %cmp1.i = icmp slt i64 %add3.i21, %b.013.i
   br i1 %cmp1.i, label %for.body.i, label %for.end.i, !llvm.loop !22

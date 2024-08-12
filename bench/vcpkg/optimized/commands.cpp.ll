@@ -2059,9 +2059,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %56
-  %61 = load <2 x ptr>, ptr %0, align 8
-  %62 = shufflevector <2 x ptr> %61, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %62, ptr %0, align 8
+  %61 = load ptr, ptr %0, align 8
+  %62 = load ptr, ptr %9, align 8
+  store ptr %62, ptr %0, align 8
+  store ptr %61, ptr %9, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN5vcpkg15CommandMetadataESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_23print_full_command_listEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
 63:                                               ; preds = %56

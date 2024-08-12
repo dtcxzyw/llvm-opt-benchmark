@@ -606,56 +606,61 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %call7 = tail call i64 @lseek64(i32 noundef %fd, i64 noundef %call, i32 noundef 0) #20
   %cmp8 = icmp ne i64 %call7, -1
-  %1 = load <4 x i8>, ptr %ehdr, align 8
-  %.fr = freeze <4 x i8> %1
+  %1 = load i8, ptr %ehdr, align 8
+  %cmp.i = icmp eq i8 %1, 127
+  %or.cond = select i1 %cmp8, i1 %cmp.i, i1 false
+  %arrayidx3.i = getelementptr inbounds i8, ptr %ehdr, i64 1
+  %2 = load i8, ptr %arrayidx3.i, align 1
+  %cmp5.i = icmp eq i8 %2, 69
+  %or.cond8 = select i1 %or.cond, i1 %cmp5.i, i1 false
+  %arrayidx9.i = getelementptr inbounds i8, ptr %ehdr, i64 2
+  %3 = load i8, ptr %arrayidx9.i, align 2
+  %cmp11.i = icmp eq i8 %3, 76
+  %or.cond9 = select i1 %or.cond8, i1 %cmp11.i, i1 false
+  %arrayidx15.i = getelementptr inbounds i8, ptr %ehdr, i64 3
+  %4 = load i8, ptr %arrayidx15.i, align 1
+  %cmp17.i = icmp eq i8 %4, 70
+  %or.cond10 = select i1 %or.cond9, i1 %cmp17.i, i1 false
   %arrayidx21.i = getelementptr inbounds i8, ptr %ehdr, i64 4
-  %2 = load i8, ptr %arrayidx21.i, align 4
-  %.fr25 = freeze i8 %2
-  %cmp23.i = icmp eq i8 %.fr25, 2
+  %5 = load i8, ptr %arrayidx21.i, align 4
+  %cmp23.i = icmp eq i8 %5, 2
+  %or.cond11 = select i1 %or.cond10, i1 %cmp23.i, i1 false
   %arrayidx27.i = getelementptr inbounds i8, ptr %ehdr, i64 5
-  %3 = load i8, ptr %arrayidx27.i, align 1
-  %.fr23 = freeze i8 %3
-  %cmp29.i = icmp eq i8 %.fr23, 1
+  %6 = load i8, ptr %arrayidx27.i, align 1
+  %cmp29.i = icmp eq i8 %6, 1
+  %or.cond12 = select i1 %or.cond11, i1 %cmp29.i, i1 false
   %arrayidx32.i = getelementptr inbounds i8, ptr %ehdr, i64 6
-  %4 = load i8, ptr %arrayidx32.i, align 2
-  %.fr27 = freeze i8 %4
-  %cmp34.i = icmp eq i8 %.fr27, 1
+  %7 = load i8, ptr %arrayidx32.i, align 2
+  %cmp34.i = icmp eq i8 %7, 1
+  %or.cond13 = select i1 %or.cond12, i1 %cmp34.i, i1 false
   %e_machine.i = getelementptr inbounds i8, ptr %ehdr, i64 18
-  %5 = load i16, ptr %e_machine.i, align 2
-  %.fr24 = freeze i16 %5
-  %cmp.i5 = icmp eq i16 %.fr24, 243
+  %8 = load i16, ptr %e_machine.i, align 2
+  %cmp.i5 = icmp eq i16 %8, 243
+  %or.cond14 = select i1 %or.cond13, i1 %cmp.i5, i1 false
   %e_ehsize.i = getelementptr inbounds i8, ptr %ehdr, i64 52
-  %6 = load i16, ptr %e_ehsize.i, align 4
-  %.fr26 = freeze i16 %6
-  %cmp3.i = icmp eq i16 %.fr26, 64
+  %9 = load i16, ptr %e_ehsize.i, align 4
+  %cmp3.i = icmp eq i16 %9, 64
+  %or.cond15 = select i1 %or.cond14, i1 %cmp3.i, i1 false
   %e_phentsize.i = getelementptr inbounds i8, ptr %ehdr, i64 54
-  %7 = load i16, ptr %e_phentsize.i, align 2
-  %cmp7.i = icmp eq i16 %7, 56
-  %.fr.scalar = bitcast <4 x i8> %.fr to i32
-  %8 = icmp eq i32 %.fr.scalar, 1179403647
-  %op.rdx = and i1 %8, %cmp23.i
-  %op.rdx18 = and i1 %cmp.i5, %cmp3.i
-  %9 = and i1 %op.rdx, %cmp29.i
-  %op.rdx20 = and i1 %9, %cmp34.i
-  %10 = and i1 %op.rdx20, %op.rdx18
-  %11 = select i1 %10, i1 %cmp8, i1 false
-  %op.rdx22 = select i1 %11, i1 %cmp7.i, i1 false
-  br i1 %op.rdx22, label %elf_check_ehdr.exit, label %return
+  %10 = load i16, ptr %e_phentsize.i, align 2
+  %cmp7.i = icmp eq i16 %10, 56
+  %or.cond16 = select i1 %or.cond15, i1 %cmp7.i, i1 false
+  br i1 %or.cond16, label %elf_check_ehdr.exit, label %return
 
 elf_check_ehdr.exit:                              ; preds = %if.end6
   %e_type.i = getelementptr inbounds i8, ptr %ehdr, i64 16
-  %12 = load i16, ptr %e_type.i, align 8
-  %13 = and i16 %12, -2
-  %spec.select.i = icmp eq i16 %13, 2
+  %11 = load i16, ptr %e_type.i, align 8
+  %12 = and i16 %11, -2
+  %spec.select.i = icmp eq i16 %12, 2
   br i1 %spec.select.i, label %if.end17, label %return
 
 if.end17:                                         ; preds = %elf_check_ehdr.exit
   %e_flags = getelementptr inbounds i8, ptr %ehdr, i64 48
-  %14 = load i32, ptr %e_flags, align 8
+  %13 = load i32, ptr %e_flags, align 8
   br label %return
 
 return:                                           ; preds = %elf_check_ehdr.exit, %if.end6, %if.end, %entry, %if.end17
-  %retval.0 = phi i32 [ %14, %if.end17 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end6 ], [ 0, %elf_check_ehdr.exit ]
+  %retval.0 = phi i32 [ %13, %if.end17 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end6 ], [ 0, %elf_check_ehdr.exit ]
   ret i32 %retval.0
 }
 

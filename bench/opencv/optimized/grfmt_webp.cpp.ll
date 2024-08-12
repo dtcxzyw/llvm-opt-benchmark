@@ -387,7 +387,7 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPDecoder10readHeaderEv(ptr noundef 
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  %7 = alloca %struct.WebPBitstreamFeatures, align 8
+  %7 = alloca %struct.WebPBitstreamFeatures, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 88
   %9 = tail call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
@@ -426,13 +426,13 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPDecoder10readHeaderEv(ptr noundef 
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
           cleanup
-  br label %77
+  br label %80
 
 29:                                               ; preds = %25
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
-  br label %77
+  br label %80
 
 31:                                               ; preds = %10
   %32 = load i64, ptr %17, align 8
@@ -476,13 +476,13 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPDecoder10readHeaderEv(ptr noundef 
 48:                                               ; preds = %45
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %77
+  br label %80
 
 50:                                               ; preds = %46
   %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  br label %77
+  br label %80
 
 52:                                               ; preds = %1
   %53 = tail call noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
@@ -505,7 +505,7 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPDecoder10readHeaderEv(ptr noundef 
 62:                                               ; preds = %38, %57
   %63 = call noundef i32 @WebPGetFeaturesInternal(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull %7, i32 noundef 521)
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %76
+  br i1 %64, label %65, label %79
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds i8, ptr %7, i64 12
@@ -518,24 +518,28 @@ define hidden noundef zeroext i1 @_ZN2cv11WebPDecoder10readHeaderEv(ptr noundef 
   unreachable
 
 .sink.split:                                      ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
-  %71 = load <2 x i32>, ptr %7, align 8
-  store <2 x i32> %71, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %7, i64 8
-  %73 = load i32, ptr %72, align 8
-  %.not15 = icmp eq i32 %73, 0
-  %74 = getelementptr inbounds i8, ptr %0, i64 16
-  %75 = getelementptr inbounds i8, ptr %0, i64 896
+  %70 = load i32, ptr %7, align 4
+  %71 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %70, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %7, i64 4
+  %73 = load i32, ptr %72, align 4
+  %74 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %73, ptr %74, align 4
+  %75 = getelementptr inbounds i8, ptr %7, i64 8
+  %76 = load i32, ptr %75, align 4
+  %.not15 = icmp eq i32 %76, 0
+  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %78 = getelementptr inbounds i8, ptr %0, i64 896
   %. = select i1 %.not15, i32 16, i32 24
   %.18 = select i1 %.not15, i32 3, i32 4
-  store i32 %., ptr %74, align 8
-  store i32 %.18, ptr %75, align 8
-  br label %76
+  store i32 %., ptr %77, align 8
+  store i32 %.18, ptr %78, align 8
+  br label %79
 
-76:                                               ; preds = %.sink.split, %62
+79:                                               ; preds = %.sink.split, %62
   ret i1 %64
 
-77:                                               ; preds = %48, %50, %27, %29
+80:                                               ; preds = %48, %50, %27, %29
   %.sink17 = phi ptr [ %4, %29 ], [ %4, %27 ], [ %6, %50 ], [ %6, %48 ]
   %.pn12.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ], [ %51, %50 ], [ %49, %48 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink17) #17

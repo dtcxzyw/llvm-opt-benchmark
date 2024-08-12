@@ -8765,30 +8765,42 @@ define internal range(i32 0, 2) i32 @someip_segment_equal(ptr nocapture noundef 
 define internal noalias noundef ptr @someip_segment_temporary_key(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(72) ptr @g_slice_alloc(i64 noundef 72) #18
   %5 = getelementptr inbounds i8, ptr %0, i64 208
-  %6 = getelementptr inbounds i8, ptr %0, i64 216
-  %7 = load ptr, ptr %6, align 8
-  %8 = load <2 x i32>, ptr %5, align 8
-  store <2 x i32> %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 232
-  %13 = getelementptr inbounds i8, ptr %0, i64 240
-  %14 = load ptr, ptr %13, align 8
-  %15 = load <2 x i32>, ptr %12, align 8
-  store <2 x i32> %15, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 284
-  %19 = getelementptr inbounds i8, ptr %4, i64 48
-  %20 = load <2 x i32>, ptr %18, align 4
-  store <2 x i32> %20, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %21, ptr noundef nonnull align 2 dereferenceable(10) %2, i64 10, i1 false)
+  %6 = load i32, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 212
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %10 = load ptr, ptr %9, align 8
+  store i32 %6, ptr %4, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %8, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %10, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr null, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds i8, ptr %0, i64 232
+  %16 = load i32, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 236
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 240
+  %20 = load ptr, ptr %19, align 8
+  store i32 %16, ptr %14, align 8
+  %21 = getelementptr inbounds i8, ptr %4, i64 28
+  store i32 %18, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 284
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 %25, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 288
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %4, i64 52
+  store i32 %28, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %4, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %30, ptr noundef nonnull align 2 dereferenceable(10) %2, i64 10, i1 false)
   ret ptr %4
 }
 
@@ -8843,11 +8855,15 @@ copy_address.exit:                                ; preds = %3, %12
 
 copy_address.exit12:                              ; preds = %copy_address.exit, %26
   %32 = getelementptr inbounds i8, ptr %0, i64 284
-  %33 = getelementptr inbounds i8, ptr %4, i64 48
-  %34 = load <2 x i32>, ptr %32, align 4
-  store <2 x i32> %34, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %35, ptr noundef nonnull align 2 dereferenceable(10) %2, i64 10, i1 false)
+  %33 = load i32, ptr %32, align 4
+  %34 = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 %33, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 288
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %4, i64 52
+  store i32 %36, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %4, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %38, ptr noundef nonnull align 2 dereferenceable(10) %2, i64 10, i1 false)
   ret ptr %4
 }
 
@@ -9507,9 +9523,15 @@ get_param_attributes.exit:                        ; preds = %get_string_config.e
   %151 = getelementptr inbounds i8, ptr %139, i64 28
   store i32 %.sroa.23.0.i, ptr %151, align 4
   %152 = getelementptr inbounds i8, ptr %139, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %139, i64 72
-  store ptr null, ptr %153, align 8
+  store i32 -1, ptr %152, align 8
+  %153 = getelementptr inbounds i8, ptr %139, i64 60
+  store i32 0, ptr %153, align 4
+  %154 = getelementptr inbounds i8, ptr %139, i64 64
+  store i32 0, ptr %154, align 8
+  %155 = getelementptr inbounds i8, ptr %139, i64 68
+  store i32 -1, ptr %155, align 4
+  %156 = getelementptr inbounds i8, ptr %139, i64 72
+  store ptr null, ptr %156, align 8
   br label %get_param_attributes.exit.thread
 
 get_param_attributes.exit.thread:                 ; preds = %.lr.ph.i, %get_enum_config.exit.thread.i, %get_enum_config.exit.i, %get_base_type_config.exit.thread.i, %get_base_type_config.exit.i, %43, %get_param_attributes.exit, %147

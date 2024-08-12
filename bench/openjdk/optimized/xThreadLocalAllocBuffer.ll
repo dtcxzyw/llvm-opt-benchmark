@@ -222,53 +222,67 @@ declare void @_ZN21ThreadLocalAllocStats7publishEv(ptr noundef nonnull align 8 d
 define hidden void @_ZN23XThreadLocalAllocBuffer6retireEP10JavaThreadP21ThreadLocalAllocStats(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @UseTLAB, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %39
+  br i1 %4, label %5, label %51
 
 5:                                                ; preds = %2
   tail call void @_ZN21ThreadLocalAllocStats5resetEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #6
   %6 = getelementptr inbounds i8, ptr %0, i64 432
-  %7 = load i64, ptr @XAddressOffsetMask, align 8
-  %8 = load i64, ptr @XAddressGoodMask, align 8
-  %9 = load <2 x ptr>, ptr %6, align 8
-  %10 = ptrtoint <2 x ptr> %9 to <2 x i64>
-  %11 = icmp eq <2 x ptr> %9, zeroinitializer
-  %12 = insertelement <2 x i64> poison, i64 %7, i64 0
-  %13 = shufflevector <2 x i64> %12, <2 x i64> poison, <2 x i32> zeroinitializer
-  %14 = and <2 x i64> %13, %10
-  %15 = insertelement <2 x i64> poison, i64 %8, i64 0
-  %16 = shufflevector <2 x i64> %15, <2 x i64> poison, <2 x i32> zeroinitializer
-  %17 = or <2 x i64> %14, %16
-  %18 = inttoptr <2 x i64> %17 to <2 x ptr>
-  %19 = select <2 x i1> %11, <2 x ptr> zeroinitializer, <2 x ptr> %18
-  store <2 x ptr> %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 448
-  %21 = load <2 x ptr>, ptr %20, align 8
-  %22 = ptrtoint <2 x ptr> %21 to <2 x i64>
-  %23 = icmp eq <2 x ptr> %21, zeroinitializer
-  %24 = and <2 x i64> %13, %22
-  %25 = or <2 x i64> %24, %16
-  %26 = inttoptr <2 x i64> %25 to <2 x ptr>
-  %27 = select <2 x i1> %23, <2 x ptr> zeroinitializer, <2 x ptr> %26
-  store <2 x ptr> %27, ptr %20, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 464
-  %29 = load ptr, ptr %28, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = icmp eq ptr %29, null
-  %32 = and i64 %7, %30
-  %33 = or i64 %32, %8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = select i1 %31, ptr null, ptr %34
-  store ptr %35, ptr %28, align 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %9 = icmp eq ptr %7, null
+  %10 = load i64, ptr @XAddressOffsetMask, align 8
+  %11 = and i64 %10, %8
+  %12 = load i64, ptr @XAddressGoodMask, align 8
+  %13 = or i64 %11, %12
+  %14 = inttoptr i64 %13 to ptr
+  %15 = select i1 %9, ptr null, ptr %14
+  store ptr %15, ptr %6, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 440
+  %17 = load ptr, ptr %16, align 8
+  %18 = ptrtoint ptr %17 to i64
+  %19 = icmp eq ptr %17, null
+  %20 = and i64 %10, %18
+  %21 = or i64 %20, %12
+  %22 = inttoptr i64 %21 to ptr
+  %23 = select i1 %19, ptr null, ptr %22
+  store ptr %23, ptr %16, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 448
+  %25 = load ptr, ptr %24, align 8
+  %26 = ptrtoint ptr %25 to i64
+  %27 = icmp eq ptr %25, null
+  %28 = and i64 %10, %26
+  %29 = or i64 %28, %12
+  %30 = inttoptr i64 %29 to ptr
+  %31 = select i1 %27, ptr null, ptr %30
+  store ptr %31, ptr %24, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 456
+  %33 = load ptr, ptr %32, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %35 = icmp eq ptr %33, null
+  %36 = and i64 %10, %34
+  %37 = or i64 %36, %12
+  %38 = inttoptr i64 %37 to ptr
+  %39 = select i1 %35, ptr null, ptr %38
+  store ptr %39, ptr %32, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 464
+  %41 = load ptr, ptr %40, align 8
+  %42 = ptrtoint ptr %41 to i64
+  %43 = icmp eq ptr %41, null
+  %44 = and i64 %10, %42
+  %45 = or i64 %44, %12
+  %46 = inttoptr i64 %45 to ptr
+  %47 = select i1 %43, ptr null, ptr %46
+  store ptr %47, ptr %40, align 8
   tail call void @_ZN22ThreadLocalAllocBuffer6retireEP21ThreadLocalAllocStats(ptr noundef nonnull align 8 dereferenceable(116) %6, ptr noundef nonnull %1) #6
-  %36 = load i8, ptr @ResizeTLAB, align 1
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %38, label %39
+  %48 = load i8, ptr @ResizeTLAB, align 1
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %51
 
-38:                                               ; preds = %5
+50:                                               ; preds = %5
   tail call void @_ZN22ThreadLocalAllocBuffer6resizeEv(ptr noundef nonnull align 8 dereferenceable(116) %6) #6
-  br label %39
+  br label %51
 
-39:                                               ; preds = %5, %38, %2
+51:                                               ; preds = %5, %50, %2
   ret void
 }
 
@@ -280,45 +294,59 @@ declare void @_ZN22ThreadLocalAllocBuffer6resizeEv(ptr noundef nonnull align 8 d
 define hidden void @_ZN23XThreadLocalAllocBuffer5remapEP10JavaThread(ptr nocapture noundef %0) local_unnamed_addr #2 align 2 {
   %2 = load i8, ptr @UseTLAB, align 1
   %3 = trunc i8 %2 to i1
-  br i1 %3, label %4, label %35
+  br i1 %3, label %4, label %47
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 432
-  %6 = load i64, ptr @XAddressOffsetMask, align 8
-  %7 = load i64, ptr @XAddressGoodMask, align 8
-  %8 = load <2 x ptr>, ptr %5, align 8
-  %9 = ptrtoint <2 x ptr> %8 to <2 x i64>
-  %10 = icmp eq <2 x ptr> %8, zeroinitializer
-  %11 = insertelement <2 x i64> poison, i64 %6, i64 0
-  %12 = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> zeroinitializer
-  %13 = and <2 x i64> %12, %9
-  %14 = insertelement <2 x i64> poison, i64 %7, i64 0
-  %15 = shufflevector <2 x i64> %14, <2 x i64> poison, <2 x i32> zeroinitializer
-  %16 = or <2 x i64> %13, %15
-  %17 = inttoptr <2 x i64> %16 to <2 x ptr>
-  %18 = select <2 x i1> %10, <2 x ptr> zeroinitializer, <2 x ptr> %17
-  store <2 x ptr> %18, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 448
-  %20 = load <2 x ptr>, ptr %19, align 8
-  %21 = ptrtoint <2 x ptr> %20 to <2 x i64>
-  %22 = icmp eq <2 x ptr> %20, zeroinitializer
-  %23 = and <2 x i64> %12, %21
-  %24 = or <2 x i64> %23, %15
-  %25 = inttoptr <2 x i64> %24 to <2 x ptr>
-  %26 = select <2 x i1> %22, <2 x ptr> zeroinitializer, <2 x ptr> %25
-  store <2 x ptr> %26, ptr %19, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 464
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %30 = icmp eq ptr %28, null
-  %31 = and i64 %6, %29
-  %32 = or i64 %31, %7
-  %33 = inttoptr i64 %32 to ptr
-  %34 = select i1 %30, ptr null, ptr %33
-  store ptr %34, ptr %27, align 8
-  br label %35
+  %6 = load ptr, ptr %5, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %8 = icmp eq ptr %6, null
+  %9 = load i64, ptr @XAddressOffsetMask, align 8
+  %10 = and i64 %9, %7
+  %11 = load i64, ptr @XAddressGoodMask, align 8
+  %12 = or i64 %10, %11
+  %13 = inttoptr i64 %12 to ptr
+  %14 = select i1 %8, ptr null, ptr %13
+  store ptr %14, ptr %5, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 440
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = icmp eq ptr %16, null
+  %19 = and i64 %9, %17
+  %20 = or i64 %19, %11
+  %21 = inttoptr i64 %20 to ptr
+  %22 = select i1 %18, ptr null, ptr %21
+  store ptr %22, ptr %15, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 448
+  %24 = load ptr, ptr %23, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %26 = icmp eq ptr %24, null
+  %27 = and i64 %9, %25
+  %28 = or i64 %27, %11
+  %29 = inttoptr i64 %28 to ptr
+  %30 = select i1 %26, ptr null, ptr %29
+  store ptr %30, ptr %23, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 456
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = icmp eq ptr %32, null
+  %35 = and i64 %9, %33
+  %36 = or i64 %35, %11
+  %37 = inttoptr i64 %36 to ptr
+  %38 = select i1 %34, ptr null, ptr %37
+  store ptr %38, ptr %31, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 464
+  %40 = load ptr, ptr %39, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = icmp eq ptr %40, null
+  %43 = and i64 %9, %41
+  %44 = or i64 %43, %11
+  %45 = inttoptr i64 %44 to ptr
+  %46 = select i1 %42, ptr null, ptr %45
+  store ptr %46, ptr %39, align 8
+  br label %47
 
-35:                                               ; preds = %4, %1
+47:                                               ; preds = %4, %1
   ret void
 }
 

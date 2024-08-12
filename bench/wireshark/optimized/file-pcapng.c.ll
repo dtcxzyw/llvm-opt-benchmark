@@ -3618,7 +3618,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_pcapng(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca %struct.info, align 16
+  %5 = alloca %struct.info, align 8
   %6 = alloca i32, align 4
   store volatile i32 0, ptr %6, align 4
   %7 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcapng.pcapng_premagic, i64 noundef 4) #8
@@ -3628,19 +3628,22 @@ define internal noundef i32 @dissect_pcapng(ptr noundef %0, ptr noundef %1, ptr 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %5, i64 20
   store i32 0, ptr %9, align 4
+  store i32 1, ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 0, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 12
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %5, align 16
+  store i32 0, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 1, ptr %13, align 16
+  store i32 1, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noalias ptr @wmem_array_new(ptr noundef %16, i64 noundef 4) #8
   %18 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %17, ptr %18, align 16
+  store ptr %17, ptr %18, align 8
   %19 = load i32, ptr @proto_pcapng, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #8
   %21 = load i32, ptr @ett_pcapng, align 4
@@ -3668,7 +3671,7 @@ define internal noundef i32 @dissect_pcapng(ptr noundef %0, ptr noundef %1, ptr 
   store i32 %34, ptr %10, align 4
   store i32 0, ptr %11, align 8
   store i32 0, ptr %12, align 4
-  store i32 1, ptr %13, align 16
+  store i32 1, ptr %13, align 8
   %35 = load ptr, ptr %14, align 8
   %.not35 = icmp eq ptr %35, null
   br i1 %.not35, label %38, label %36

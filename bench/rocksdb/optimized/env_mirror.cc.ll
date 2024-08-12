@@ -3270,17 +3270,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 if.then.i:                                        ; preds = %for.body
   %4 = load i8, ptr %ref.tmp, align 8
   store i8 %4, ptr %status, align 8
+  store i8 0, ptr %ref.tmp, align 8
   %5 = load i8, ptr %subcode_.i, align 1
   %subcode_4.i = getelementptr inbounds i8, ptr %arrayidx, i64 41
   store i8 %5, ptr %subcode_4.i, align 1
+  store i8 0, ptr %subcode_.i, align 1
   %6 = load i8, ptr %sev_.i, align 2
   %sev_6.i = getelementptr inbounds i8, ptr %arrayidx, i64 42
   store i8 %6, ptr %sev_6.i, align 2
+  store i8 0, ptr %sev_.i, align 2
   %7 = load i8, ptr %retryable_.i, align 1
   %retryable_8.i = getelementptr inbounds i8, ptr %arrayidx, i64 43
   %frombool.i = and i8 %7, 1
   store i8 %frombool.i, ptr %retryable_8.i, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp, align 8
+  store i8 0, ptr %retryable_.i, align 1
   %8 = load i8, ptr %data_loss_.i, align 4
   %data_loss_11.i = getelementptr inbounds i8, ptr %arrayidx, i64 44
   %frombool12.i = and i8 %8, 1

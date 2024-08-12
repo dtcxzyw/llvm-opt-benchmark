@@ -872,9 +872,11 @@ define void @rb_Digest_SHA512_Last(ptr nocapture noundef %0) local_unnamed_addr 
 30:                                               ; preds = %17, %28, %29
   %31 = getelementptr inbounds i8, ptr %0, i64 80
   %32 = getelementptr inbounds i8, ptr %0, i64 192
-  %33 = load <2 x i64>, ptr %2, align 8
-  %34 = shufflevector <2 x i64> %33, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %34, ptr %32, align 8
+  %33 = load i64, ptr %8, align 8
+  store i64 %33, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 200
+  %35 = load i64, ptr %2, align 8
+  store i64 %35, ptr %34, align 8
   tail call void @rb_Digest_SHA512_Transform(ptr noundef nonnull %0, ptr noundef nonnull %31)
   ret void
 }
@@ -940,26 +942,28 @@ define noundef i32 @rb_Digest_SHA512_Finish(ptr nocapture noundef %0, ptr nounde
 
 rb_Digest_SHA512_Last.exit:                       ; preds = %19, %30, %31
   %32 = getelementptr inbounds i8, ptr %0, i64 192
-  %33 = load <2 x i64>, ptr %4, align 8
-  %34 = shufflevector <2 x i64> %33, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %34, ptr %32, align 8
+  %33 = load i64, ptr %10, align 8
+  store i64 %33, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 200
+  %35 = load i64, ptr %4, align 8
+  store i64 %35, ptr %34, align 8
   tail call void @rb_Digest_SHA512_Transform(ptr noundef nonnull %0, ptr noundef nonnull %13)
-  br label %35
+  br label %36
 
-35:                                               ; preds = %rb_Digest_SHA512_Last.exit, %35
-  %indvars.iv = phi i64 [ 0, %rb_Digest_SHA512_Last.exit ], [ %indvars.iv.next, %35 ]
-  %.021 = phi ptr [ %1, %rb_Digest_SHA512_Last.exit ], [ %39, %35 ]
-  %36 = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv
-  %37 = load i64, ptr %36, align 8
-  %38 = tail call i64 @llvm.bswap.i64(i64 %37)
-  store i64 %38, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %.021, i64 8
-  store i64 %38, ptr %.021, align 8
+36:                                               ; preds = %rb_Digest_SHA512_Last.exit, %36
+  %indvars.iv = phi i64 [ 0, %rb_Digest_SHA512_Last.exit ], [ %indvars.iv.next, %36 ]
+  %.021 = phi ptr [ %1, %rb_Digest_SHA512_Last.exit ], [ %40, %36 ]
+  %37 = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %38 = load i64, ptr %37, align 8
+  %39 = tail call i64 @llvm.bswap.i64(i64 %38)
+  store i64 %39, ptr %37, align 8
+  %40 = getelementptr inbounds i8, ptr %.021, i64 8
+  store i64 %39, ptr %.021, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %35, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !15
 
-.loopexit:                                        ; preds = %35, %2
+.loopexit:                                        ; preds = %36, %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false)
   ret i32 1
 }
@@ -968,7 +972,7 @@ rb_Digest_SHA512_Last.exit:                       ; preds = %19, %30, %31
 define ptr @rb_Digest_SHA512_End(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = alloca [64 x i8], align 16
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %54, label %4
+  br i1 %.not, label %55, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1026,60 +1030,62 @@ define ptr @rb_Digest_SHA512_End(ptr nocapture noundef %0, ptr noundef writeonly
 
 rb_Digest_SHA512_Last.exit.i:                     ; preds = %32, %31, %20
   %33 = getelementptr inbounds i8, ptr %0, i64 192
-  %34 = load <2 x i64>, ptr %5, align 8
-  %35 = shufflevector <2 x i64> %34, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %35, ptr %33, align 8
+  %34 = load i64, ptr %11, align 8
+  store i64 %34, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 200
+  %36 = load i64, ptr %5, align 8
+  store i64 %36, ptr %35, align 8
   tail call void @rb_Digest_SHA512_Transform(ptr noundef nonnull %0, ptr noundef nonnull %14)
-  br label %36
+  br label %37
 
-36:                                               ; preds = %36, %rb_Digest_SHA512_Last.exit.i
-  %indvars.iv.i = phi i64 [ 0, %rb_Digest_SHA512_Last.exit.i ], [ %indvars.iv.next.i, %36 ]
-  %.021.i = phi ptr [ %3, %rb_Digest_SHA512_Last.exit.i ], [ %40, %36 ]
-  %37 = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv.i
-  %38 = load i64, ptr %37, align 8
-  %39 = tail call i64 @llvm.bswap.i64(i64 %38)
-  store i64 %39, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %.021.i, i64 8
-  store i64 %39, ptr %.021.i, align 8
+37:                                               ; preds = %37, %rb_Digest_SHA512_Last.exit.i
+  %indvars.iv.i = phi i64 [ 0, %rb_Digest_SHA512_Last.exit.i ], [ %indvars.iv.next.i, %37 ]
+  %.021.i = phi ptr [ %3, %rb_Digest_SHA512_Last.exit.i ], [ %41, %37 ]
+  %38 = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv.i
+  %39 = load i64, ptr %38, align 8
+  %40 = tail call i64 @llvm.bswap.i64(i64 %39)
+  store i64 %40, ptr %38, align 8
+  %41 = getelementptr inbounds i8, ptr %.021.i, i64 8
+  store i64 %40, ptr %.021.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %rb_Digest_SHA512_Finish.exit, label %36, !llvm.loop !15
+  br i1 %exitcond.not.i, label %rb_Digest_SHA512_Finish.exit, label %37, !llvm.loop !15
 
-rb_Digest_SHA512_Finish.exit:                     ; preds = %36
+rb_Digest_SHA512_Finish.exit:                     ; preds = %37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false)
-  br label %41
+  br label %42
 
-41:                                               ; preds = %rb_Digest_SHA512_Finish.exit, %41
-  %.01116.idx = phi i64 [ 0, %rb_Digest_SHA512_Finish.exit ], [ %.01116.add, %41 ]
-  %.01215 = phi ptr [ %1, %rb_Digest_SHA512_Finish.exit ], [ %52, %41 ]
+42:                                               ; preds = %rb_Digest_SHA512_Finish.exit, %42
+  %.01116.idx = phi i64 [ 0, %rb_Digest_SHA512_Finish.exit ], [ %.01116.add, %42 ]
+  %.01215 = phi ptr [ %1, %rb_Digest_SHA512_Finish.exit ], [ %53, %42 ]
   %.01116.ptr = getelementptr inbounds i8, ptr %3, i64 %.01116.idx
-  %42 = load i8, ptr %.01116.ptr, align 1
-  %43 = lshr i8 %42, 4
-  %44 = zext nneg i8 %43 to i64
-  %45 = getelementptr inbounds i8, ptr @.str, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %.01215, i64 1
-  store i8 %46, ptr %.01215, align 1
-  %48 = and i8 %42, 15
-  %49 = zext nneg i8 %48 to i64
-  %50 = getelementptr inbounds i8, ptr @.str, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %.01215, i64 2
-  store i8 %51, ptr %47, align 1
+  %43 = load i8, ptr %.01116.ptr, align 1
+  %44 = lshr i8 %43, 4
+  %45 = zext nneg i8 %44 to i64
+  %46 = getelementptr inbounds i8, ptr @.str, i64 %45
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds i8, ptr %.01215, i64 1
+  store i8 %47, ptr %.01215, align 1
+  %49 = and i8 %43, 15
+  %50 = zext nneg i8 %49 to i64
+  %51 = getelementptr inbounds i8, ptr @.str, i64 %50
+  %52 = load i8, ptr %51, align 1
+  %53 = getelementptr inbounds i8, ptr %.01215, i64 2
+  store i8 %52, ptr %48, align 1
   %.01116.add = add nuw nsw i64 %.01116.idx, 1
   %exitcond.not = icmp eq i64 %.01116.idx, 63
-  br i1 %exitcond.not, label %53, label %41, !llvm.loop !16
+  br i1 %exitcond.not, label %54, label %42, !llvm.loop !16
 
-53:                                               ; preds = %41
-  store i8 0, ptr %52, align 1
-  br label %55
+54:                                               ; preds = %42
+  store i8 0, ptr %53, align 1
+  br label %56
 
-54:                                               ; preds = %2
+55:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false)
-  br label %55
+  br label %56
 
-55:                                               ; preds = %54, %53
-  %.1 = phi ptr [ %52, %53 ], [ null, %54 ]
+56:                                               ; preds = %55, %54
+  %.1 = phi ptr [ %53, %54 ], [ null, %55 ]
   ret ptr %.1
 }
 
@@ -1177,26 +1183,28 @@ define noundef i32 @rb_Digest_SHA384_Finish(ptr nocapture noundef %0, ptr nounde
 
 rb_Digest_SHA512_Last.exit:                       ; preds = %19, %30, %31
   %32 = getelementptr inbounds i8, ptr %0, i64 192
-  %33 = load <2 x i64>, ptr %4, align 8
-  %34 = shufflevector <2 x i64> %33, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %34, ptr %32, align 8
+  %33 = load i64, ptr %10, align 8
+  store i64 %33, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 200
+  %35 = load i64, ptr %4, align 8
+  store i64 %35, ptr %34, align 8
   tail call void @rb_Digest_SHA512_Transform(ptr noundef nonnull %0, ptr noundef nonnull %13)
-  br label %35
+  br label %36
 
-35:                                               ; preds = %rb_Digest_SHA512_Last.exit, %35
-  %indvars.iv = phi i64 [ 0, %rb_Digest_SHA512_Last.exit ], [ %indvars.iv.next, %35 ]
-  %.021 = phi ptr [ %1, %rb_Digest_SHA512_Last.exit ], [ %39, %35 ]
-  %36 = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv
-  %37 = load i64, ptr %36, align 8
-  %38 = tail call i64 @llvm.bswap.i64(i64 %37)
-  store i64 %38, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %.021, i64 8
-  store i64 %38, ptr %.021, align 8
+36:                                               ; preds = %rb_Digest_SHA512_Last.exit, %36
+  %indvars.iv = phi i64 [ 0, %rb_Digest_SHA512_Last.exit ], [ %indvars.iv.next, %36 ]
+  %.021 = phi ptr [ %1, %rb_Digest_SHA512_Last.exit ], [ %40, %36 ]
+  %37 = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %38 = load i64, ptr %37, align 8
+  %39 = tail call i64 @llvm.bswap.i64(i64 %38)
+  store i64 %39, ptr %37, align 8
+  %40 = getelementptr inbounds i8, ptr %.021, i64 8
+  store i64 %39, ptr %.021, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit, label %35, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !17
 
-.loopexit:                                        ; preds = %35, %2
+.loopexit:                                        ; preds = %36, %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false)
   ret i32 1
 }
@@ -1205,7 +1213,7 @@ rb_Digest_SHA512_Last.exit:                       ; preds = %19, %30, %31
 define ptr @rb_Digest_SHA384_End(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = alloca [48 x i8], align 16
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %54, label %4
+  br i1 %.not, label %55, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1263,60 +1271,62 @@ define ptr @rb_Digest_SHA384_End(ptr nocapture noundef %0, ptr noundef writeonly
 
 rb_Digest_SHA512_Last.exit.i:                     ; preds = %32, %31, %20
   %33 = getelementptr inbounds i8, ptr %0, i64 192
-  %34 = load <2 x i64>, ptr %5, align 8
-  %35 = shufflevector <2 x i64> %34, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %35, ptr %33, align 8
+  %34 = load i64, ptr %11, align 8
+  store i64 %34, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 200
+  %36 = load i64, ptr %5, align 8
+  store i64 %36, ptr %35, align 8
   tail call void @rb_Digest_SHA512_Transform(ptr noundef nonnull %0, ptr noundef nonnull %14)
-  br label %36
+  br label %37
 
-36:                                               ; preds = %36, %rb_Digest_SHA512_Last.exit.i
-  %indvars.iv.i = phi i64 [ 0, %rb_Digest_SHA512_Last.exit.i ], [ %indvars.iv.next.i, %36 ]
-  %.021.i = phi ptr [ %3, %rb_Digest_SHA512_Last.exit.i ], [ %40, %36 ]
-  %37 = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv.i
-  %38 = load i64, ptr %37, align 8
-  %39 = tail call i64 @llvm.bswap.i64(i64 %38)
-  store i64 %39, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %.021.i, i64 8
-  store i64 %39, ptr %.021.i, align 8
+37:                                               ; preds = %37, %rb_Digest_SHA512_Last.exit.i
+  %indvars.iv.i = phi i64 [ 0, %rb_Digest_SHA512_Last.exit.i ], [ %indvars.iv.next.i, %37 ]
+  %.021.i = phi ptr [ %3, %rb_Digest_SHA512_Last.exit.i ], [ %41, %37 ]
+  %38 = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %indvars.iv.i
+  %39 = load i64, ptr %38, align 8
+  %40 = tail call i64 @llvm.bswap.i64(i64 %39)
+  store i64 %40, ptr %38, align 8
+  %41 = getelementptr inbounds i8, ptr %.021.i, i64 8
+  store i64 %40, ptr %.021.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %rb_Digest_SHA384_Finish.exit, label %36, !llvm.loop !17
+  br i1 %exitcond.not.i, label %rb_Digest_SHA384_Finish.exit, label %37, !llvm.loop !17
 
-rb_Digest_SHA384_Finish.exit:                     ; preds = %36
+rb_Digest_SHA384_Finish.exit:                     ; preds = %37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false)
-  br label %41
+  br label %42
 
-41:                                               ; preds = %rb_Digest_SHA384_Finish.exit, %41
-  %.01116.idx = phi i64 [ 0, %rb_Digest_SHA384_Finish.exit ], [ %.01116.add, %41 ]
-  %.01215 = phi ptr [ %1, %rb_Digest_SHA384_Finish.exit ], [ %52, %41 ]
+42:                                               ; preds = %rb_Digest_SHA384_Finish.exit, %42
+  %.01116.idx = phi i64 [ 0, %rb_Digest_SHA384_Finish.exit ], [ %.01116.add, %42 ]
+  %.01215 = phi ptr [ %1, %rb_Digest_SHA384_Finish.exit ], [ %53, %42 ]
   %.01116.ptr = getelementptr inbounds i8, ptr %3, i64 %.01116.idx
-  %42 = load i8, ptr %.01116.ptr, align 1
-  %43 = lshr i8 %42, 4
-  %44 = zext nneg i8 %43 to i64
-  %45 = getelementptr inbounds i8, ptr @.str, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %.01215, i64 1
-  store i8 %46, ptr %.01215, align 1
-  %48 = and i8 %42, 15
-  %49 = zext nneg i8 %48 to i64
-  %50 = getelementptr inbounds i8, ptr @.str, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %.01215, i64 2
-  store i8 %51, ptr %47, align 1
+  %43 = load i8, ptr %.01116.ptr, align 1
+  %44 = lshr i8 %43, 4
+  %45 = zext nneg i8 %44 to i64
+  %46 = getelementptr inbounds i8, ptr @.str, i64 %45
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds i8, ptr %.01215, i64 1
+  store i8 %47, ptr %.01215, align 1
+  %49 = and i8 %43, 15
+  %50 = zext nneg i8 %49 to i64
+  %51 = getelementptr inbounds i8, ptr @.str, i64 %50
+  %52 = load i8, ptr %51, align 1
+  %53 = getelementptr inbounds i8, ptr %.01215, i64 2
+  store i8 %52, ptr %48, align 1
   %.01116.add = add nuw nsw i64 %.01116.idx, 1
   %exitcond.not = icmp eq i64 %.01116.idx, 47
-  br i1 %exitcond.not, label %53, label %41, !llvm.loop !18
+  br i1 %exitcond.not, label %54, label %42, !llvm.loop !18
 
-53:                                               ; preds = %41
-  store i8 0, ptr %52, align 1
-  br label %55
+54:                                               ; preds = %42
+  store i8 0, ptr %53, align 1
+  br label %56
 
-54:                                               ; preds = %2
+55:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false)
-  br label %55
+  br label %56
 
-55:                                               ; preds = %54, %53
-  %.1 = phi ptr [ %52, %53 ], [ null, %54 ]
+56:                                               ; preds = %55, %54
+  %.1 = phi ptr [ %53, %54 ], [ null, %55 ]
   ret ptr %.1
 }
 

@@ -3509,7 +3509,7 @@ define internal i32 @dissect_drda_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 21:                                               ; preds = %4
   %22 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_drda_opcode_invalid_length, ptr noundef nonnull @.str.795, i32 noundef %19) #6
-  br label %300
+  br label %303
 
 23:                                               ; preds = %4
   %24 = load i32, ptr @hf_drda_ddm_magic, align 4
@@ -3581,7 +3581,7 @@ define internal i32 @dissect_drda_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %drda_packet_from_server.exit
 
 74:                                               ; preds = %23
-  switch i32 %38, label %114 [
+  switch i32 %38, label %117 [
     i32 4161, label %75
     i32 8193, label %75
     i32 5187, label %96
@@ -3626,335 +3626,339 @@ drda_set_server.exit.i:                           ; preds = %88, %75
 96:                                               ; preds = %74, %74
   %97 = getelementptr inbounds i8, ptr %1, i64 208
   %98 = getelementptr inbounds i8, ptr %1, i64 280
-  %99 = load <2 x i32>, ptr %98, align 8
-  %100 = call ptr @wmem_file_scope() #6
-  %101 = load i32, ptr %97, align 8
-  %102 = getelementptr inbounds i8, ptr %1, i64 212
-  %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds i8, ptr %1, i64 216
-  %105 = load ptr, ptr %104, align 8
+  %99 = load i32, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %1, i64 284
+  %101 = load i32, ptr %100, align 4
+  %102 = call ptr @wmem_file_scope() #6
+  %103 = load i32, ptr %97, align 8
+  %104 = getelementptr inbounds i8, ptr %1, i64 212
+  %105 = load i32, ptr %104, align 4
+  %106 = getelementptr inbounds i8, ptr %1, i64 216
+  %107 = load ptr, ptr %106, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
-  store i32 %101, ptr %40, align 8
-  %106 = icmp eq i32 %103, 0
-  br i1 %106, label %drda_set_server.exit26.i, label %107
+  store i32 %103, ptr %40, align 8
+  %108 = icmp eq i32 %105, 0
+  br i1 %108, label %drda_set_server.exit26.i, label %109
 
-107:                                              ; preds = %96
-  %108 = sext i32 %103 to i64
-  %109 = call noalias ptr @wmem_memdup(ptr noundef %100, ptr noundef %105, i64 noundef %108) #6
-  %110 = getelementptr inbounds i8, ptr %39, i64 32
-  store ptr %109, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %39, i64 24
-  store ptr %109, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %39, i64 20
-  store i32 %103, ptr %112, align 4
+109:                                              ; preds = %96
+  %110 = sext i32 %105 to i64
+  %111 = call noalias ptr @wmem_memdup(ptr noundef %102, ptr noundef %107, i64 noundef %110) #6
+  %112 = getelementptr inbounds i8, ptr %39, i64 32
+  store ptr %111, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %39, i64 24
+  store ptr %111, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %39, i64 20
+  store i32 %105, ptr %114, align 4
   br label %drda_set_server.exit26.i
 
-drda_set_server.exit26.i:                         ; preds = %107, %96
-  %113 = getelementptr inbounds i8, ptr %39, i64 40
-  store <2 x i32> %99, ptr %113, align 8
+drda_set_server.exit26.i:                         ; preds = %109, %96
+  %115 = getelementptr inbounds i8, ptr %39, i64 40
+  store i32 %99, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %39, i64 44
+  store i32 %101, ptr %116, align 4
   br label %drda_packet_from_server.exit
 
-114:                                              ; preds = %74
+117:                                              ; preds = %74
   switch i8 %31, label %drda_packet_from_server.exit [
-    i8 1, label %115
-    i8 5, label %115
-    i8 2, label %136
+    i8 1, label %118
+    i8 5, label %118
+    i8 2, label %139
   ]
 
-115:                                              ; preds = %114, %114
-  %116 = getelementptr inbounds i8, ptr %1, i64 232
-  %117 = getelementptr inbounds i8, ptr %1, i64 280
-  %118 = load i32, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %1, i64 288
-  %120 = load i32, ptr %119, align 8
-  %121 = call ptr @wmem_file_scope() #6
-  %122 = load i32, ptr %116, align 8
-  %123 = getelementptr inbounds i8, ptr %1, i64 236
-  %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds i8, ptr %1, i64 240
-  %126 = load ptr, ptr %125, align 8
+118:                                              ; preds = %117, %117
+  %119 = getelementptr inbounds i8, ptr %1, i64 232
+  %120 = getelementptr inbounds i8, ptr %1, i64 280
+  %121 = load i32, ptr %120, align 8
+  %122 = getelementptr inbounds i8, ptr %1, i64 288
+  %123 = load i32, ptr %122, align 8
+  %124 = call ptr @wmem_file_scope() #6
+  %125 = load i32, ptr %119, align 8
+  %126 = getelementptr inbounds i8, ptr %1, i64 236
+  %127 = load i32, ptr %126, align 4
+  %128 = getelementptr inbounds i8, ptr %1, i64 240
+  %129 = load ptr, ptr %128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
-  store i32 %122, ptr %40, align 8
-  %127 = icmp eq i32 %124, 0
-  br i1 %127, label %drda_set_server.exit27.i, label %128
+  store i32 %125, ptr %40, align 8
+  %130 = icmp eq i32 %127, 0
+  br i1 %130, label %drda_set_server.exit27.i, label %131
 
-128:                                              ; preds = %115
-  %129 = sext i32 %124 to i64
-  %130 = call noalias ptr @wmem_memdup(ptr noundef %121, ptr noundef %126, i64 noundef %129) #6
-  %131 = getelementptr inbounds i8, ptr %39, i64 32
-  store ptr %130, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %39, i64 24
-  store ptr %130, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %39, i64 20
-  store i32 %124, ptr %133, align 4
+131:                                              ; preds = %118
+  %132 = sext i32 %127 to i64
+  %133 = call noalias ptr @wmem_memdup(ptr noundef %124, ptr noundef %129, i64 noundef %132) #6
+  %134 = getelementptr inbounds i8, ptr %39, i64 32
+  store ptr %133, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %39, i64 24
+  store ptr %133, ptr %135, align 8
+  %136 = getelementptr inbounds i8, ptr %39, i64 20
+  store i32 %127, ptr %136, align 4
   br label %drda_set_server.exit27.i
 
-drda_set_server.exit27.i:                         ; preds = %128, %115
-  %134 = getelementptr inbounds i8, ptr %39, i64 40
-  store i32 %118, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %39, i64 44
-  store i32 %120, ptr %135, align 4
+drda_set_server.exit27.i:                         ; preds = %131, %118
+  %137 = getelementptr inbounds i8, ptr %39, i64 40
+  store i32 %121, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %39, i64 44
+  store i32 %123, ptr %138, align 4
   br label %drda_packet_from_server.exit
 
-136:                                              ; preds = %114
-  %137 = getelementptr inbounds i8, ptr %1, i64 208
-  %138 = getelementptr inbounds i8, ptr %1, i64 280
-  %139 = load i32, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %1, i64 284
-  %141 = load i32, ptr %140, align 4
-  call fastcc void @drda_set_server(ptr noundef nonnull %39, ptr noundef nonnull %137, i32 noundef %139, i32 noundef %141)
+139:                                              ; preds = %117
+  %140 = getelementptr inbounds i8, ptr %1, i64 208
+  %141 = getelementptr inbounds i8, ptr %1, i64 280
+  %142 = load i32, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %1, i64 284
+  %144 = load i32, ptr %143, align 4
+  call fastcc void @drda_set_server(ptr noundef nonnull %39, ptr noundef nonnull %140, i32 noundef %142, i32 noundef %144)
   br label %drda_packet_from_server.exit
 
-drda_packet_from_server.exit:                     ; preds = %42, %48, %64, %66, %73, %drda_set_server.exit.i, %drda_set_server.exit26.i, %114, %drda_set_server.exit27.i, %136
-  %.not30.i = phi i64 [ 8, %136 ], [ 0, %drda_set_server.exit27.i ], [ 8, %drda_set_server.exit26.i ], [ 0, %drda_set_server.exit.i ], [ 0, %48 ], [ 0, %42 ], [ 0, %114 ], [ 0, %73 ], [ 8, %66 ], [ 8, %64 ]
-  %142 = load i32, ptr %9, align 4
-  %143 = call ptr @val_to_str_ext(i32 noundef %142, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.797) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.796, ptr noundef %143) #6
-  %144 = load ptr, ptr %6, align 8
+drda_packet_from_server.exit:                     ; preds = %42, %48, %64, %66, %73, %drda_set_server.exit.i, %drda_set_server.exit26.i, %117, %drda_set_server.exit27.i, %139
+  %.not30.i = phi i64 [ 8, %139 ], [ 0, %drda_set_server.exit27.i ], [ 8, %drda_set_server.exit26.i ], [ 0, %drda_set_server.exit.i ], [ 0, %48 ], [ 0, %42 ], [ 0, %117 ], [ 0, %73 ], [ 8, %66 ], [ 8, %64 ]
   %145 = load i32, ptr %9, align 4
-  %146 = call ptr @val_to_str_ext(i32 noundef %145, ptr noundef nonnull @drda_opcode_abbr_ext, ptr noundef nonnull @.str.797) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %144, ptr noundef nonnull @.str.796, ptr noundef %146) #6
-  %147 = getelementptr inbounds i8, ptr %1, i64 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = load i32, ptr %9, align 4
-  %150 = call ptr @val_to_str_ext(i32 noundef %149, ptr noundef nonnull @drda_opcode_abbr_ext, ptr noundef nonnull @.str.797) #6
-  call void @col_append_sep_str(ptr noundef %148, i32 noundef 25, ptr noundef nonnull @.str.798, ptr noundef %150) #6
-  %151 = load ptr, ptr %147, align 8
-  call void @col_set_fence(ptr noundef %151, i32 noundef 25) #6
-  %152 = load i32, ptr %10, align 4
-  %153 = getelementptr inbounds i8, ptr %1, i64 408
-  %154 = load ptr, ptr %153, align 8
-  %155 = load i32, ptr @proto_drda, align 4
-  %156 = call ptr @p_get_proto_data(ptr noundef %154, ptr noundef %1, i32 noundef %155, i32 noundef %152) #6
-  %.not.i102 = icmp eq ptr %156, null
-  br i1 %.not.i102, label %157, label %drda_get_pdu_info.exit
+  %146 = call ptr @val_to_str_ext(i32 noundef %145, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.797) #6
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.796, ptr noundef %146) #6
+  %147 = load ptr, ptr %6, align 8
+  %148 = load i32, ptr %9, align 4
+  %149 = call ptr @val_to_str_ext(i32 noundef %148, ptr noundef nonnull @drda_opcode_abbr_ext, ptr noundef nonnull @.str.797) #6
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %147, ptr noundef nonnull @.str.796, ptr noundef %149) #6
+  %150 = getelementptr inbounds i8, ptr %1, i64 8
+  %151 = load ptr, ptr %150, align 8
+  %152 = load i32, ptr %9, align 4
+  %153 = call ptr @val_to_str_ext(i32 noundef %152, ptr noundef nonnull @drda_opcode_abbr_ext, ptr noundef nonnull @.str.797) #6
+  call void @col_append_sep_str(ptr noundef %151, i32 noundef 25, ptr noundef nonnull @.str.798, ptr noundef %153) #6
+  %154 = load ptr, ptr %150, align 8
+  call void @col_set_fence(ptr noundef %154, i32 noundef 25) #6
+  %155 = load i32, ptr %10, align 4
+  %156 = getelementptr inbounds i8, ptr %1, i64 408
+  %157 = load ptr, ptr %156, align 8
+  %158 = load i32, ptr @proto_drda, align 4
+  %159 = call ptr @p_get_proto_data(ptr noundef %157, ptr noundef %1, i32 noundef %158, i32 noundef %155) #6
+  %.not.i102 = icmp eq ptr %159, null
+  br i1 %.not.i102, label %160, label %drda_get_pdu_info.exit
 
-157:                                              ; preds = %drda_packet_from_server.exit
-  %158 = load ptr, ptr %153, align 8
-  %159 = call noalias ptr @wmem_alloc(ptr noundef %158, i64 noundef 16) #6
-  %160 = call fastcc ptr @drda_get_conv_info(ptr noundef nonnull %1)
-  %.in.i = getelementptr inbounds i8, ptr %160, i64 %.not30.i
-  %161 = load ptr, ptr %.in.i, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 8
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %1, i64 20
-  %165 = load i32, ptr %164, align 4
-  %166 = call ptr @wmem_tree_lookup32_le(ptr noundef %163, i32 noundef %165) #6
-  %167 = ptrtoint ptr %166 to i64
-  %168 = trunc i64 %167 to i32
-  store i32 %168, ptr %159, align 4
-  %169 = load ptr, ptr %161, align 8
-  %170 = load i32, ptr %164, align 4
-  %171 = call ptr @wmem_tree_lookup32_le(ptr noundef %169, i32 noundef %170) #6
-  %.not31.i = icmp eq ptr %171, null
-  %172 = getelementptr inbounds i8, ptr %159, i64 4
-  %173 = getelementptr inbounds i8, ptr %159, i64 8
-  br i1 %.not31.i, label %180, label %174
+160:                                              ; preds = %drda_packet_from_server.exit
+  %161 = load ptr, ptr %156, align 8
+  %162 = call noalias ptr @wmem_alloc(ptr noundef %161, i64 noundef 16) #6
+  %163 = call fastcc ptr @drda_get_conv_info(ptr noundef nonnull %1)
+  %.in.i = getelementptr inbounds i8, ptr %163, i64 %.not30.i
+  %164 = load ptr, ptr %.in.i, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds i8, ptr %1, i64 20
+  %168 = load i32, ptr %167, align 4
+  %169 = call ptr @wmem_tree_lookup32_le(ptr noundef %166, i32 noundef %168) #6
+  %170 = ptrtoint ptr %169 to i64
+  %171 = trunc i64 %170 to i32
+  store i32 %171, ptr %162, align 4
+  %172 = load ptr, ptr %164, align 8
+  %173 = load i32, ptr %167, align 4
+  %174 = call ptr @wmem_tree_lookup32_le(ptr noundef %172, i32 noundef %173) #6
+  %.not31.i = icmp eq ptr %174, null
+  %175 = getelementptr inbounds i8, ptr %162, i64 4
+  %176 = getelementptr inbounds i8, ptr %162, i64 8
+  br i1 %.not31.i, label %183, label %177
 
-174:                                              ; preds = %157
-  %175 = load i32, ptr %171, align 4
-  store i32 %175, ptr %172, align 4
-  %176 = getelementptr inbounds i8, ptr %171, i64 4
-  %177 = load i32, ptr %176, align 4
-  store i32 %177, ptr %173, align 4
-  %178 = getelementptr inbounds i8, ptr %171, i64 8
-  %179 = load i32, ptr %178, align 4
-  br label %186
+177:                                              ; preds = %160
+  %178 = load i32, ptr %174, align 4
+  store i32 %178, ptr %175, align 4
+  %179 = getelementptr inbounds i8, ptr %174, i64 4
+  %180 = load i32, ptr %179, align 4
+  store i32 %180, ptr %176, align 4
+  %181 = getelementptr inbounds i8, ptr %174, i64 8
+  %182 = load i32, ptr %181, align 4
+  br label %189
 
-180:                                              ; preds = %157
-  %181 = load i32, ptr @drda_default_typdefnam, align 4
-  store i32 %181, ptr %172, align 4
-  %182 = load i32, ptr @drda_default_ccsidsbc, align 4
-  %183 = call i32 @mibenum_charset_to_encoding(i32 noundef %182) #6
-  store i32 %183, ptr %173, align 4
-  %184 = load i32, ptr @drda_default_ccsidmbc, align 4
-  %185 = call i32 @mibenum_charset_to_encoding(i32 noundef %184) #6
-  br label %186
+183:                                              ; preds = %160
+  %184 = load i32, ptr @drda_default_typdefnam, align 4
+  store i32 %184, ptr %175, align 4
+  %185 = load i32, ptr @drda_default_ccsidsbc, align 4
+  %186 = call i32 @mibenum_charset_to_encoding(i32 noundef %185) #6
+  store i32 %186, ptr %176, align 4
+  %187 = load i32, ptr @drda_default_ccsidmbc, align 4
+  %188 = call i32 @mibenum_charset_to_encoding(i32 noundef %187) #6
+  br label %189
 
-186:                                              ; preds = %180, %174
-  %.sink.i = phi i32 [ %185, %180 ], [ %179, %174 ]
-  %187 = getelementptr inbounds i8, ptr %159, i64 12
-  store i32 %.sink.i, ptr %187, align 4
-  %188 = load ptr, ptr %153, align 8
-  %189 = load i32, ptr @proto_drda, align 4
-  call void @p_set_proto_data(ptr noundef %188, ptr noundef nonnull %1, i32 noundef %189, i32 noundef %152, ptr noundef nonnull %159) #6
+189:                                              ; preds = %183, %177
+  %.sink.i = phi i32 [ %188, %183 ], [ %182, %177 ]
+  %190 = getelementptr inbounds i8, ptr %162, i64 12
+  store i32 %.sink.i, ptr %190, align 4
+  %191 = load ptr, ptr %156, align 8
+  %192 = load i32, ptr @proto_drda, align 4
+  call void @p_set_proto_data(ptr noundef %191, ptr noundef nonnull %1, i32 noundef %192, i32 noundef %155, ptr noundef nonnull %162) #6
   br label %drda_get_pdu_info.exit
 
-drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_server.exit, %186
-  %.0.i103 = phi ptr [ %156, %drda_packet_from_server.exit ], [ %159, %186 ]
-  %190 = load ptr, ptr @drda_opcode_table, align 8
-  %191 = load i32, ptr %9, align 4
-  %192 = load i32, ptr %8, align 4
-  %193 = add i32 %192, -10
-  %194 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 10, i32 noundef %193) #6
-  %195 = call i32 @dissector_try_uint_new(ptr noundef %190, i32 noundef %191, ptr noundef %194, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, ptr noundef nonnull %.0.i103) #6
-  %.not = icmp eq i32 %195, 0
+drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_server.exit, %189
+  %.0.i103 = phi ptr [ %159, %drda_packet_from_server.exit ], [ %162, %189 ]
+  %193 = load ptr, ptr @drda_opcode_table, align 8
+  %194 = load i32, ptr %9, align 4
+  %195 = load i32, ptr %8, align 4
+  %196 = add i32 %195, -10
+  %197 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 10, i32 noundef %196) #6
+  %198 = call i32 @dissector_try_uint_new(ptr noundef %193, i32 noundef %194, ptr noundef %197, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, ptr noundef nonnull %.0.i103) #6
+  %.not = icmp eq i32 %198, 0
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %drda_get_pdu_info.exit
-  %196 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 10) #6
-  %197 = icmp sgt i32 %196, 1
-  br i1 %197, label %.lr.ph, label %.loopexit
+  %199 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 10) #6
+  %200 = icmp sgt i32 %199, 1
+  br i1 %200, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %225
-  %.092105 = phi i32 [ %226, %225 ], [ 10, %.preheader ]
-  %198 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.092105) #6
-  %199 = zext i16 %198 to i32
-  %or.cond = icmp ult i16 %198, 2
-  %200 = load i32, ptr %8, align 4
-  %201 = add i32 %200, -10
-  %.0 = select i1 %or.cond, i32 %201, i32 %199
-  %202 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.092105) #6
-  %.not98 = icmp slt i32 %202, %.0
-  br i1 %.not98, label %225, label %203
+.lr.ph:                                           ; preds = %.preheader, %228
+  %.092105 = phi i32 [ %229, %228 ], [ 10, %.preheader ]
+  %201 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.092105) #6
+  %202 = zext i16 %201 to i32
+  %or.cond = icmp ult i16 %201, 2
+  %203 = load i32, ptr %8, align 4
+  %204 = add i32 %203, -10
+  %.0 = select i1 %or.cond, i32 %204, i32 %202
+  %205 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.092105) #6
+  %.not98 = icmp slt i32 %205, %.0
+  br i1 %.not98, label %228, label %206
 
-203:                                              ; preds = %.lr.ph
-  %204 = add i32 %.092105, 2
-  %205 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %204) #6
-  %206 = load i32, ptr @ett_drda_param, align 4
-  %207 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef %.092105, i32 noundef %.0, i32 noundef %206, ptr noundef nonnull %5, ptr noundef nonnull @.str.799) #6
-  %208 = load ptr, ptr %5, align 8
-  %209 = zext i16 %205 to i32
-  %210 = call ptr @val_to_str_ext(i32 noundef %209, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.797) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.796, ptr noundef %210) #6
-  %211 = load i32, ptr @hf_drda_param_length, align 4
-  %212 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %211, ptr noundef %0, i32 noundef %.092105, i32 noundef 2, i32 noundef 0) #6
-  %213 = load i32, ptr @hf_drda_param_codepoint, align 4
-  %214 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %213, ptr noundef %0, i32 noundef %204, i32 noundef 2, i32 noundef 0) #6
-  %215 = load ptr, ptr @drda_opcode_table, align 8
-  %216 = add i32 %.092105, 4
-  %217 = add i32 %.0, -4
-  %218 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %216, i32 noundef %217) #6
-  %219 = call i32 @dissector_try_uint_new(ptr noundef %215, i32 noundef %209, ptr noundef %218, ptr noundef %1, ptr noundef %207, i32 noundef 0, ptr noundef nonnull %.0.i103) #6
-  %.not99 = icmp eq i32 %219, 0
-  br i1 %.not99, label %220, label %225
+206:                                              ; preds = %.lr.ph
+  %207 = add i32 %.092105, 2
+  %208 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %207) #6
+  %209 = load i32, ptr @ett_drda_param, align 4
+  %210 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef %.092105, i32 noundef %.0, i32 noundef %209, ptr noundef nonnull %5, ptr noundef nonnull @.str.799) #6
+  %211 = load ptr, ptr %5, align 8
+  %212 = zext i16 %208 to i32
+  %213 = call ptr @val_to_str_ext(i32 noundef %212, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.797) #6
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %211, ptr noundef nonnull @.str.796, ptr noundef %213) #6
+  %214 = load i32, ptr @hf_drda_param_length, align 4
+  %215 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %214, ptr noundef %0, i32 noundef %.092105, i32 noundef 2, i32 noundef 0) #6
+  %216 = load i32, ptr @hf_drda_param_codepoint, align 4
+  %217 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %216, ptr noundef %0, i32 noundef %207, i32 noundef 2, i32 noundef 0) #6
+  %218 = load ptr, ptr @drda_opcode_table, align 8
+  %219 = add i32 %.092105, 4
+  %220 = add i32 %.0, -4
+  %221 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %219, i32 noundef %220) #6
+  %222 = call i32 @dissector_try_uint_new(ptr noundef %218, i32 noundef %212, ptr noundef %221, ptr noundef %1, ptr noundef %210, i32 noundef 0, ptr noundef nonnull %.0.i103) #6
+  %.not99 = icmp eq i32 %222, 0
+  br i1 %.not99, label %223, label %228
 
-220:                                              ; preds = %203
-  %221 = load i32, ptr @hf_drda_param_data, align 4
-  %222 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %221, ptr noundef %0, i32 noundef %216, i32 noundef %217, i32 noundef 2) #6
-  %223 = load i32, ptr @hf_drda_param_data_ebcdic, align 4
-  %224 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %223, ptr noundef %0, i32 noundef %216, i32 noundef %217, i32 noundef 96) #6
-  br label %225
+223:                                              ; preds = %206
+  %224 = load i32, ptr @hf_drda_param_data, align 4
+  %225 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %224, ptr noundef %0, i32 noundef %219, i32 noundef %220, i32 noundef 2) #6
+  %226 = load i32, ptr @hf_drda_param_data_ebcdic, align 4
+  %227 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %226, ptr noundef %0, i32 noundef %219, i32 noundef %220, i32 noundef 96) #6
+  br label %228
 
-225:                                              ; preds = %203, %220, %.lr.ph
-  %226 = add i32 %.0, %.092105
-  %227 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %226) #6
-  %228 = icmp sgt i32 %227, 1
-  br i1 %228, label %.lr.ph, label %.loopexit, !llvm.loop !13
+228:                                              ; preds = %206, %223, %.lr.ph
+  %229 = add i32 %.0, %.092105
+  %230 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %229) #6
+  %231 = icmp sgt i32 %230, 1
+  br i1 %231, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %225, %.preheader, %drda_get_pdu_info.exit
-  %229 = call fastcc ptr @drda_get_conv_info(ptr noundef %1)
-  %230 = load i32, ptr %9, align 4
-  switch i32 %230, label %drda_update_flow_encoding.exit [
-    i32 5187, label %231
-    i32 8193, label %263
-    i32 8705, label %261
+.loopexit:                                        ; preds = %228, %.preheader, %drda_get_pdu_info.exit
+  %232 = call fastcc ptr @drda_get_conv_info(ptr noundef %1)
+  %233 = load i32, ptr %9, align 4
+  switch i32 %233, label %drda_update_flow_encoding.exit [
+    i32 5187, label %234
+    i32 8193, label %266
+    i32 8705, label %264
   ]
 
-231:                                              ; preds = %.loopexit
-  %232 = getelementptr inbounds i8, ptr %229, i64 8
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 8
-  %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %1, i64 20
-  %237 = load i32, ptr %236, align 4
-  %238 = call ptr @wmem_tree_lookup32_le(ptr noundef %235, i32 noundef %237) #6
-  %239 = ptrtoint ptr %238 to i64
-  %240 = trunc i64 %239 to i32
-  %241 = load i32, ptr %.0.i103, align 4
-  %.not100 = icmp eq i32 %241, %240
-  br i1 %.not100, label %247, label %242
+234:                                              ; preds = %.loopexit
+  %235 = getelementptr inbounds i8, ptr %232, i64 8
+  %236 = load ptr, ptr %235, align 8
+  %237 = getelementptr inbounds i8, ptr %236, i64 8
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds i8, ptr %1, i64 20
+  %240 = load i32, ptr %239, align 4
+  %241 = call ptr @wmem_tree_lookup32_le(ptr noundef %238, i32 noundef %240) #6
+  %242 = ptrtoint ptr %241 to i64
+  %243 = trunc i64 %242 to i32
+  %244 = load i32, ptr %.0.i103, align 4
+  %.not100 = icmp eq i32 %244, %243
+  br i1 %.not100, label %250, label %245
 
-242:                                              ; preds = %231
-  %243 = load ptr, ptr %234, align 8
-  %244 = load i32, ptr %236, align 4
-  %245 = zext i32 %241 to i64
-  %246 = inttoptr i64 %245 to ptr
-  call void @wmem_tree_insert32(ptr noundef %243, i32 noundef %244, ptr noundef %246) #6
-  br label %247
+245:                                              ; preds = %234
+  %246 = load ptr, ptr %237, align 8
+  %247 = load i32, ptr %239, align 4
+  %248 = zext i32 %244 to i64
+  %249 = inttoptr i64 %248 to ptr
+  call void @wmem_tree_insert32(ptr noundef %246, i32 noundef %247, ptr noundef %249) #6
+  br label %250
 
-247:                                              ; preds = %242, %231
-  %248 = load ptr, ptr %229, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 8
-  %250 = load ptr, ptr %249, align 8
-  %251 = load i32, ptr %236, align 4
-  %252 = call ptr @wmem_tree_lookup32_le(ptr noundef %250, i32 noundef %251) #6
-  %253 = ptrtoint ptr %252 to i64
-  %254 = trunc i64 %253 to i32
-  %255 = load i32, ptr %.0.i103, align 4
-  %.not101 = icmp eq i32 %255, %254
-  br i1 %.not101, label %drda_update_flow_encoding.exit, label %256
+250:                                              ; preds = %245, %234
+  %251 = load ptr, ptr %232, align 8
+  %252 = getelementptr inbounds i8, ptr %251, i64 8
+  %253 = load ptr, ptr %252, align 8
+  %254 = load i32, ptr %239, align 4
+  %255 = call ptr @wmem_tree_lookup32_le(ptr noundef %253, i32 noundef %254) #6
+  %256 = ptrtoint ptr %255 to i64
+  %257 = trunc i64 %256 to i32
+  %258 = load i32, ptr %.0.i103, align 4
+  %.not101 = icmp eq i32 %258, %257
+  br i1 %.not101, label %drda_update_flow_encoding.exit, label %259
 
-256:                                              ; preds = %247
-  %257 = load ptr, ptr %249, align 8
-  %258 = load i32, ptr %236, align 4
-  %259 = zext i32 %255 to i64
-  %260 = inttoptr i64 %259 to ptr
-  call void @wmem_tree_insert32(ptr noundef %257, i32 noundef %258, ptr noundef %260) #6
+259:                                              ; preds = %250
+  %260 = load ptr, ptr %252, align 8
+  %261 = load i32, ptr %239, align 4
+  %262 = zext i32 %258 to i64
+  %263 = inttoptr i64 %262 to ptr
+  call void @wmem_tree_insert32(ptr noundef %260, i32 noundef %261, ptr noundef %263) #6
   br label %drda_update_flow_encoding.exit
 
-261:                                              ; preds = %.loopexit
-  %262 = getelementptr inbounds i8, ptr %229, i64 8
-  br label %263
+264:                                              ; preds = %.loopexit
+  %265 = getelementptr inbounds i8, ptr %232, i64 8
+  br label %266
 
-263:                                              ; preds = %.loopexit, %261
-  %.in = phi ptr [ %262, %261 ], [ %229, %.loopexit ]
-  %264 = load ptr, ptr %.in, align 8
-  %265 = load ptr, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %1, i64 20
-  %267 = load i32, ptr %266, align 4
-  %268 = call ptr @wmem_tree_lookup32_le(ptr noundef %265, i32 noundef %267) #6
-  %.not.i104 = icmp eq ptr %268, null
-  br i1 %.not.i104, label %286, label %269
+266:                                              ; preds = %.loopexit, %264
+  %.in = phi ptr [ %265, %264 ], [ %232, %.loopexit ]
+  %267 = load ptr, ptr %.in, align 8
+  %268 = load ptr, ptr %267, align 8
+  %269 = getelementptr inbounds i8, ptr %1, i64 20
+  %270 = load i32, ptr %269, align 4
+  %271 = call ptr @wmem_tree_lookup32_le(ptr noundef %268, i32 noundef %270) #6
+  %.not.i104 = icmp eq ptr %271, null
+  br i1 %.not.i104, label %289, label %272
 
-269:                                              ; preds = %263
-  %270 = load i32, ptr %268, align 4
-  %271 = getelementptr inbounds i8, ptr %.0.i103, i64 4
-  %272 = load i32, ptr %271, align 4
-  %273 = icmp eq i32 %270, %272
-  br i1 %273, label %274, label %286
+272:                                              ; preds = %266
+  %273 = load i32, ptr %271, align 4
+  %274 = getelementptr inbounds i8, ptr %.0.i103, i64 4
+  %275 = load i32, ptr %274, align 4
+  %276 = icmp eq i32 %273, %275
+  br i1 %276, label %277, label %289
 
-274:                                              ; preds = %269
-  %275 = getelementptr inbounds i8, ptr %268, i64 4
-  %276 = load i32, ptr %275, align 4
-  %277 = getelementptr inbounds i8, ptr %.0.i103, i64 8
-  %278 = load i32, ptr %277, align 4
-  %279 = icmp eq i32 %276, %278
-  br i1 %279, label %280, label %286
+277:                                              ; preds = %272
+  %278 = getelementptr inbounds i8, ptr %271, i64 4
+  %279 = load i32, ptr %278, align 4
+  %280 = getelementptr inbounds i8, ptr %.0.i103, i64 8
+  %281 = load i32, ptr %280, align 4
+  %282 = icmp eq i32 %279, %281
+  br i1 %282, label %283, label %289
 
-280:                                              ; preds = %274
-  %281 = getelementptr inbounds i8, ptr %268, i64 8
-  %282 = load i32, ptr %281, align 4
-  %283 = getelementptr inbounds i8, ptr %.0.i103, i64 12
-  %284 = load i32, ptr %283, align 4
-  %285 = icmp eq i32 %282, %284
-  br i1 %285, label %drda_update_flow_encoding.exit, label %286
+283:                                              ; preds = %277
+  %284 = getelementptr inbounds i8, ptr %271, i64 8
+  %285 = load i32, ptr %284, align 4
+  %286 = getelementptr inbounds i8, ptr %.0.i103, i64 12
+  %287 = load i32, ptr %286, align 4
+  %288 = icmp eq i32 %285, %287
+  br i1 %288, label %drda_update_flow_encoding.exit, label %289
 
-286:                                              ; preds = %280, %274, %269, %263
-  %287 = call ptr @wmem_file_scope() #6
-  %288 = call noalias ptr @wmem_alloc(ptr noundef %287, i64 noundef 12) #6
-  %289 = getelementptr inbounds i8, ptr %.0.i103, i64 12
-  %290 = load i32, ptr %289, align 4
-  %291 = getelementptr inbounds i8, ptr %288, i64 8
-  store i32 %290, ptr %291, align 4
-  %292 = getelementptr inbounds i8, ptr %.0.i103, i64 8
+289:                                              ; preds = %283, %277, %272, %266
+  %290 = call ptr @wmem_file_scope() #6
+  %291 = call noalias ptr @wmem_alloc(ptr noundef %290, i64 noundef 12) #6
+  %292 = getelementptr inbounds i8, ptr %.0.i103, i64 12
   %293 = load i32, ptr %292, align 4
-  %294 = getelementptr inbounds i8, ptr %288, i64 4
+  %294 = getelementptr inbounds i8, ptr %291, i64 8
   store i32 %293, ptr %294, align 4
-  %295 = getelementptr inbounds i8, ptr %.0.i103, i64 4
+  %295 = getelementptr inbounds i8, ptr %.0.i103, i64 8
   %296 = load i32, ptr %295, align 4
-  store i32 %296, ptr %288, align 4
-  %297 = load ptr, ptr %264, align 8
-  %298 = load i32, ptr %266, align 4
-  call void @wmem_tree_insert32(ptr noundef %297, i32 noundef %298, ptr noundef nonnull %288) #6
+  %297 = getelementptr inbounds i8, ptr %291, i64 4
+  store i32 %296, ptr %297, align 4
+  %298 = getelementptr inbounds i8, ptr %.0.i103, i64 4
+  %299 = load i32, ptr %298, align 4
+  store i32 %299, ptr %291, align 4
+  %300 = load ptr, ptr %267, align 8
+  %301 = load i32, ptr %269, align 4
+  call void @wmem_tree_insert32(ptr noundef %300, i32 noundef %301, ptr noundef nonnull %291) #6
   br label %drda_update_flow_encoding.exit
 
-drda_update_flow_encoding.exit:                   ; preds = %.loopexit, %286, %280, %247, %256
-  %299 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %300
+drda_update_flow_encoding.exit:                   ; preds = %.loopexit, %289, %283, %250, %259
+  %302 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  br label %303
 
-300:                                              ; preds = %drda_update_flow_encoding.exit, %21
-  %.091 = phi i32 [ 2, %21 ], [ %299, %drda_update_flow_encoding.exit ]
+303:                                              ; preds = %drda_update_flow_encoding.exit, %21
+  %.091 = phi i32 [ 2, %21 ], [ %302, %drda_update_flow_encoding.exit ]
   ret i32 %.091
 }
 

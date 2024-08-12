@@ -1382,13 +1382,18 @@ define void @_ZN5uu_nl6uu_app17ha5583e78941f2f8cE(ptr noalias nocapture noundef 
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %119)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(700) %121, ptr noundef nonnull align 8 dereferenceable(700) %120, i64 700, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %120, i64 700
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %120, i64 704
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %120, i64 708
   %159 = load i32, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.427.0..sroa_idx = getelementptr inbounds i8, ptr %121, i64 700
-  %160 = load <2 x i32>, ptr %.sroa.4.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %120)
-  %161 = or <2 x i32> %160, <i32 262272, i32 262272>
-  store <2 x i32> %161, ptr %.sroa.427.0..sroa_idx, align 4
+  %160 = or i32 %.sroa.4.0.copyload, 262272
+  %161 = or i32 %.sroa.6.0.copyload, 262272
+  %.sroa.427.0..sroa_idx = getelementptr inbounds i8, ptr %121, i64 700
+  store i32 %160, ptr %.sroa.427.0..sroa_idx, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %121, i64 704
+  store i32 %161, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %121, i64 708
   store i32 %159, ptr %.sroa.10.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.5411)

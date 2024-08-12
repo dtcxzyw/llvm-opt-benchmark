@@ -154,21 +154,24 @@ pgstat_report_checksum_failures_in_db.exit:       ; preds = %0, %3
 define dso_local void @pgstat_report_tempfile(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @pgstat_track_counts, align 1
   %3 = trunc i8 %2 to i1
-  br i1 %3, label %4, label %13
+  br i1 %3, label %4, label %15
 
 4:                                                ; preds = %1
   %5 = load i32, ptr @MyDatabaseId, align 4
   %6 = tail call ptr @pgstat_prep_pending_entry(i32 noundef 1, i32 noundef %5, i32 noundef 0, ptr noundef null) #5
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
-  %10 = load <2 x i64>, ptr %9, align 8
-  %11 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %0, i64 1
-  %12 = add <2 x i64> %10, %11
-  store <2 x i64> %12, ptr %9, align 8
-  br label %13
+  %9 = getelementptr inbounds i8, ptr %8, i64 136
+  %10 = load i64, ptr %9, align 8
+  %11 = add i64 %10, %0
+  store i64 %11, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %8, i64 128
+  %13 = load i64, ptr %12, align 8
+  %14 = add i64 %13, 1
+  store i64 %14, ptr %12, align 8
+  br label %15
 
-13:                                               ; preds = %1, %4
+15:                                               ; preds = %1, %4
   ret void
 }
 

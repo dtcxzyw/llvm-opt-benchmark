@@ -51,88 +51,91 @@ define hidden void @VP8LBitsEntropyUnrefined(ptr nocapture noundef readonly %0, 
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds i8, ptr %2, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 12
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 12
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %8
+  br label %9
 
-8:                                                ; preds = %.lr.ph, %34
-  %9 = phi i32 [ 0, %.lr.ph ], [ %35, %34 ]
-  %10 = phi float [ 0.000000e+00, %.lr.ph ], [ %36, %34 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
-  %12 = load i32, ptr %11, align 4
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %34, label %13
+9:                                                ; preds = %.lr.ph, %36
+  %10 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
+  %11 = phi float [ 0.000000e+00, %.lr.ph ], [ %38, %36 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+  %12 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %13 = load i32, ptr %12, align 4
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %36, label %14
 
-13:                                               ; preds = %8
-  %14 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %14, ptr %4, align 4
-  %15 = load <2 x i32>, ptr %6, align 4
-  %16 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %12, i64 0
-  %17 = add <2 x i32> %15, %16
-  store <2 x i32> %17, ptr %6, align 4
-  %18 = load i32, ptr %11, align 4
-  %19 = icmp ult i32 %18, 256
-  br i1 %19, label %20, label %24
+14:                                               ; preds = %9
+  %15 = load i32, ptr %6, align 4
+  %16 = add i32 %15, %13
+  store i32 %16, ptr %6, align 4
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %17, ptr %4, align 4
+  %18 = load i32, ptr %7, align 4
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %7, align 4
+  %20 = load i32, ptr %12, align 4
+  %21 = icmp ult i32 %20, 256
+  br i1 %21, label %22, label %26
 
-20:                                               ; preds = %13
-  %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %21
-  %23 = load float, ptr %22, align 4
+22:                                               ; preds = %14
+  %23 = zext nneg i32 %20 to i64
+  %24 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %23
+  %25 = load float, ptr %24, align 4
   br label %VP8LFastSLog2.exit
 
-24:                                               ; preds = %13
-  %25 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %26 = tail call float %25(i32 noundef %18) #11
+26:                                               ; preds = %14
+  %27 = load ptr, ptr @VP8LFastSLog2Slow, align 8
+  %28 = tail call float %27(i32 noundef %20) #11
   %.pre = load float, ptr %2, align 4
-  %.pre27 = load i32, ptr %7, align 4
+  %.pre27 = load i32, ptr %8, align 4
   br label %VP8LFastSLog2.exit
 
-VP8LFastSLog2.exit:                               ; preds = %20, %24
-  %27 = phi i32 [ %9, %20 ], [ %.pre27, %24 ]
-  %28 = phi float [ %10, %20 ], [ %.pre, %24 ]
-  %29 = phi float [ %23, %20 ], [ %26, %24 ]
-  %30 = fsub float %28, %29
-  store float %30, ptr %2, align 4
-  %31 = load i32, ptr %11, align 4
-  %32 = icmp ult i32 %27, %31
-  br i1 %32, label %33, label %34
+VP8LFastSLog2.exit:                               ; preds = %22, %26
+  %29 = phi i32 [ %10, %22 ], [ %.pre27, %26 ]
+  %30 = phi float [ %11, %22 ], [ %.pre, %26 ]
+  %31 = phi float [ %25, %22 ], [ %28, %26 ]
+  %32 = fsub float %30, %31
+  store float %32, ptr %2, align 4
+  %33 = load i32, ptr %12, align 4
+  %34 = icmp ult i32 %29, %33
+  br i1 %34, label %35, label %36
 
-33:                                               ; preds = %VP8LFastSLog2.exit
-  store i32 %31, ptr %7, align 4
-  br label %34
+35:                                               ; preds = %VP8LFastSLog2.exit
+  store i32 %33, ptr %8, align 4
+  br label %36
 
-34:                                               ; preds = %8, %33, %VP8LFastSLog2.exit
-  %35 = phi i32 [ %9, %8 ], [ %31, %33 ], [ %27, %VP8LFastSLog2.exit ]
-  %36 = phi float [ %10, %8 ], [ %30, %33 ], [ %30, %VP8LFastSLog2.exit ]
+36:                                               ; preds = %9, %35, %VP8LFastSLog2.exit
+  %37 = phi i32 [ %10, %9 ], [ %33, %35 ], [ %29, %VP8LFastSLog2.exit ]
+  %38 = phi float [ %11, %9 ], [ %32, %35 ], [ %32, %VP8LFastSLog2.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %34
+._crit_edge:                                      ; preds = %36
   %.pre28 = load i32, ptr %6, align 4
-  %37 = icmp ult i32 %.pre28, 256
-  br i1 %37, label %._crit_edge.thread, label %43
+  %39 = icmp ult i32 %.pre28, 256
+  br i1 %39, label %._crit_edge.thread, label %45
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
-  %38 = phi i32 [ %.pre28, %._crit_edge ], [ 0, %3 ]
-  %39 = phi float [ %36, %._crit_edge ], [ 0.000000e+00, %3 ]
-  %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %40
-  %42 = load float, ptr %41, align 4
+  %40 = phi i32 [ %.pre28, %._crit_edge ], [ 0, %3 ]
+  %41 = phi float [ %38, %._crit_edge ], [ 0.000000e+00, %3 ]
+  %42 = zext nneg i32 %40 to i64
+  %43 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %42
+  %44 = load float, ptr %43, align 4
   br label %VP8LFastSLog2.exit24
 
-43:                                               ; preds = %._crit_edge
-  %44 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %45 = tail call float %44(i32 noundef %.pre28) #11
+45:                                               ; preds = %._crit_edge
+  %46 = load ptr, ptr @VP8LFastSLog2Slow, align 8
+  %47 = tail call float %46(i32 noundef %.pre28) #11
   %.pre29 = load float, ptr %2, align 4
   br label %VP8LFastSLog2.exit24
 
-VP8LFastSLog2.exit24:                             ; preds = %._crit_edge.thread, %43
-  %46 = phi float [ %39, %._crit_edge.thread ], [ %.pre29, %43 ]
-  %47 = phi float [ %42, %._crit_edge.thread ], [ %45, %43 ]
-  %48 = fadd float %47, %46
-  store float %48, ptr %2, align 4
+VP8LFastSLog2.exit24:                             ; preds = %._crit_edge.thread, %45
+  %48 = phi float [ %41, %._crit_edge.thread ], [ %.pre29, %45 ]
+  %49 = phi float [ %44, %._crit_edge.thread ], [ %47, %45 ]
+  %50 = fadd float %49, %48
+  store float %50, ptr %2, align 4
   ret void
 }
 

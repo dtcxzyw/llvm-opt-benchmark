@@ -1162,7 +1162,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::Compile::Constant") align 8 %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #1 {
-  switch i32 %1, label %794 [
+  switch i32 %1, label %796 [
     i32 2, label %5
     i32 3, label %16
     i32 4, label %27
@@ -1211,12 +1211,12 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 
 5:                                                ; preds = %4
   %6 = icmp eq i64 %3, 1
-  br i1 %6, label %7, label %794
+  br i1 %6, label %7, label %796
 
 7:                                                ; preds = %5
   %8 = load i32, ptr %2, align 8
   %9 = icmp eq i32 %8, 3
-  br i1 %9, label %10, label %794
+  br i1 %9, label %10, label %796
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1227,16 +1227,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %14, align 4, !alias.scope !5
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store double %13, ptr %15, align 8, !alias.scope !5
-  br label %795
+  br label %797
 
 16:                                               ; preds = %4
   %17 = icmp eq i64 %3, 1
-  br i1 %17, label %18, label %794
+  br i1 %17, label %18, label %796
 
 18:                                               ; preds = %16
   %19 = load i32, ptr %2, align 8
   %20 = icmp eq i32 %19, 3
-  br i1 %20, label %21, label %794
+  br i1 %20, label %21, label %796
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1247,16 +1247,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %25, align 4, !alias.scope !8
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   store double %24, ptr %26, align 8, !alias.scope !8
-  br label %795
+  br label %797
 
 27:                                               ; preds = %4
   %28 = icmp eq i64 %3, 1
-  br i1 %28, label %29, label %794
+  br i1 %28, label %29, label %796
 
 29:                                               ; preds = %27
   %30 = load i32, ptr %2, align 8
   %31 = icmp eq i32 %30, 3
-  br i1 %31, label %32, label %794
+  br i1 %31, label %32, label %796
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1267,22 +1267,22 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %36, align 4, !alias.scope !11
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   store double %35, ptr %37, align 8, !alias.scope !11
-  br label %795
+  br label %797
 
 38:                                               ; preds = %4
   %39 = icmp eq i64 %3, 2
-  br i1 %39, label %40, label %794
+  br i1 %39, label %40, label %796
 
 40:                                               ; preds = %38
   %41 = load i32, ptr %2, align 8
   %42 = icmp eq i32 %41, 3
-  br i1 %42, label %43, label %794
+  br i1 %42, label %43, label %796
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %2, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 3
-  br i1 %46, label %47, label %794
+  br i1 %46, label %47, label %796
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1295,16 +1295,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %53, align 4, !alias.scope !14
   %54 = getelementptr inbounds i8, ptr %0, i64 8
   store double %52, ptr %54, align 8, !alias.scope !14
-  br label %795
+  br label %797
 
 55:                                               ; preds = %4
   %56 = icmp eq i64 %3, 1
-  br i1 %56, label %57, label %794
+  br i1 %56, label %57, label %796
 
 57:                                               ; preds = %55
   %58 = load i32, ptr %2, align 8
   %59 = icmp eq i32 %58, 3
-  br i1 %59, label %60, label %794
+  br i1 %59, label %60, label %796
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1315,16 +1315,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %64, align 4, !alias.scope !17
   %65 = getelementptr inbounds i8, ptr %0, i64 8
   store double %63, ptr %65, align 8, !alias.scope !17
-  br label %795
+  br label %797
 
 66:                                               ; preds = %4
   %67 = icmp eq i64 %3, 1
-  br i1 %67, label %68, label %794
+  br i1 %67, label %68, label %796
 
 68:                                               ; preds = %66
   %69 = load i32, ptr %2, align 8
   %70 = icmp eq i32 %69, 3
-  br i1 %70, label %71, label %794
+  br i1 %70, label %71, label %796
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1335,16 +1335,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %75, align 4, !alias.scope !20
   %76 = getelementptr inbounds i8, ptr %0, i64 8
   store double %74, ptr %76, align 8, !alias.scope !20
-  br label %795
+  br label %797
 
 77:                                               ; preds = %4
   %78 = icmp eq i64 %3, 1
-  br i1 %78, label %79, label %794
+  br i1 %78, label %79, label %796
 
 79:                                               ; preds = %77
   %80 = load i32, ptr %2, align 8
   %81 = icmp eq i32 %80, 3
-  br i1 %81, label %82, label %794
+  br i1 %81, label %82, label %796
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1355,16 +1355,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %86, align 4, !alias.scope !23
   %87 = getelementptr inbounds i8, ptr %0, i64 8
   store double %85, ptr %87, align 8, !alias.scope !23
-  br label %795
+  br label %797
 
 88:                                               ; preds = %4
   %89 = icmp eq i64 %3, 1
-  br i1 %89, label %90, label %794
+  br i1 %89, label %90, label %796
 
 90:                                               ; preds = %88
   %91 = load i32, ptr %2, align 8
   %92 = icmp eq i32 %91, 3
-  br i1 %92, label %93, label %794
+  br i1 %92, label %93, label %796
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1375,16 +1375,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %97, align 4, !alias.scope !26
   %98 = getelementptr inbounds i8, ptr %0, i64 8
   store double %96, ptr %98, align 8, !alias.scope !26
-  br label %795
+  br label %797
 
 99:                                               ; preds = %4
   %100 = icmp eq i64 %3, 1
-  br i1 %100, label %101, label %794
+  br i1 %100, label %101, label %796
 
 101:                                              ; preds = %99
   %102 = load i32, ptr %2, align 8
   %103 = icmp eq i32 %102, 3
-  br i1 %103, label %104, label %794
+  br i1 %103, label %104, label %796
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1395,16 +1395,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %108, align 4, !alias.scope !29
   %109 = getelementptr inbounds i8, ptr %0, i64 8
   store double %107, ptr %109, align 8, !alias.scope !29
-  br label %795
+  br label %797
 
 110:                                              ; preds = %4
   %111 = icmp eq i64 %3, 1
-  br i1 %111, label %112, label %794
+  br i1 %111, label %112, label %796
 
 112:                                              ; preds = %110
   %113 = load i32, ptr %2, align 8
   %114 = icmp eq i32 %113, 3
-  br i1 %114, label %115, label %794
+  br i1 %114, label %115, label %796
 
 115:                                              ; preds = %112
   %116 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1415,16 +1415,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %119, align 4, !alias.scope !32
   %120 = getelementptr inbounds i8, ptr %0, i64 8
   store double %118, ptr %120, align 8, !alias.scope !32
-  br label %795
+  br label %797
 
 121:                                              ; preds = %4
   %122 = icmp eq i64 %3, 1
-  br i1 %122, label %123, label %794
+  br i1 %122, label %123, label %796
 
 123:                                              ; preds = %121
   %124 = load i32, ptr %2, align 8
   %125 = icmp eq i32 %124, 3
-  br i1 %125, label %126, label %794
+  br i1 %125, label %126, label %796
 
 126:                                              ; preds = %123
   %127 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1435,22 +1435,22 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %130, align 4, !alias.scope !35
   %131 = getelementptr inbounds i8, ptr %0, i64 8
   store double %129, ptr %131, align 8, !alias.scope !35
-  br label %795
+  br label %797
 
 132:                                              ; preds = %4
   %133 = icmp eq i64 %3, 2
-  br i1 %133, label %134, label %794
+  br i1 %133, label %134, label %796
 
 134:                                              ; preds = %132
   %135 = load i32, ptr %2, align 8
   %136 = icmp eq i32 %135, 3
-  br i1 %136, label %137, label %794
+  br i1 %136, label %137, label %796
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds i8, ptr %2, i64 24
   %139 = load i32, ptr %138, align 8
   %140 = icmp eq i32 %139, 3
-  br i1 %140, label %141, label %794
+  br i1 %140, label %141, label %796
 
 141:                                              ; preds = %137
   %142 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1463,22 +1463,22 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %147, align 4, !alias.scope !38
   %148 = getelementptr inbounds i8, ptr %0, i64 8
   store double %146, ptr %148, align 8, !alias.scope !38
-  br label %795
+  br label %797
 
 149:                                              ; preds = %4
   %150 = icmp eq i64 %3, 2
-  br i1 %150, label %151, label %794
+  br i1 %150, label %151, label %796
 
 151:                                              ; preds = %149
   %152 = load i32, ptr %2, align 8
   %153 = icmp eq i32 %152, 3
-  br i1 %153, label %154, label %794
+  br i1 %153, label %154, label %796
 
 154:                                              ; preds = %151
   %155 = getelementptr inbounds i8, ptr %2, i64 24
   %156 = load i32, ptr %155, align 8
   %157 = icmp eq i32 %156, 3
-  br i1 %157, label %158, label %794
+  br i1 %157, label %158, label %796
 
 158:                                              ; preds = %154
   %159 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1492,16 +1492,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %165, align 4, !alias.scope !41
   %166 = getelementptr inbounds i8, ptr %0, i64 8
   store double %164, ptr %166, align 8, !alias.scope !41
-  br label %795
+  br label %797
 
 167:                                              ; preds = %4
   %168 = icmp eq i64 %3, 1
-  br i1 %168, label %169, label %794
+  br i1 %168, label %169, label %796
 
 169:                                              ; preds = %167
   %170 = load i32, ptr %2, align 8
   %171 = icmp eq i32 %170, 3
-  br i1 %171, label %172, label %794
+  br i1 %171, label %172, label %796
 
 172:                                              ; preds = %169
   %173 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1512,10 +1512,10 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %176, align 4, !alias.scope !44
   %177 = getelementptr inbounds i8, ptr %0, i64 8
   store double %175, ptr %177, align 8, !alias.scope !44
-  br label %795
+  br label %797
 
 178:                                              ; preds = %4
-  switch i64 %3, label %794 [
+  switch i64 %3, label %796 [
     i64 1, label %179
     i64 2, label %188
   ]
@@ -1523,7 +1523,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 179:                                              ; preds = %178
   %180 = load i32, ptr %2, align 8
   %181 = icmp eq i32 %180, 3
-  br i1 %181, label %182, label %794
+  br i1 %181, label %182, label %796
 
 182:                                              ; preds = %179
   %183 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1534,18 +1534,18 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %186, align 4, !alias.scope !47
   %187 = getelementptr inbounds i8, ptr %0, i64 8
   store double %185, ptr %187, align 8, !alias.scope !47
-  br label %795
+  br label %797
 
 188:                                              ; preds = %178
   %189 = load i32, ptr %2, align 8
   %190 = icmp eq i32 %189, 3
-  br i1 %190, label %191, label %794
+  br i1 %190, label %191, label %796
 
 191:                                              ; preds = %188
   %192 = getelementptr inbounds i8, ptr %2, i64 24
   %193 = load i32, ptr %192, align 8
   %194 = icmp eq i32 %193, 3
-  br i1 %194, label %195, label %794
+  br i1 %194, label %195, label %796
 
 195:                                              ; preds = %191
   %196 = getelementptr inbounds i8, ptr %2, i64 32
@@ -1562,7 +1562,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %203, align 4, !alias.scope !50
   %204 = getelementptr inbounds i8, ptr %0, i64 8
   store double %202, ptr %204, align 8, !alias.scope !50
-  br label %795
+  br label %797
 
 205:                                              ; preds = %195
   %206 = fcmp oeq double %197, 1.000000e+01
@@ -1577,7 +1577,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %211, align 4, !alias.scope !53
   %212 = getelementptr inbounds i8, ptr %0, i64 8
   store double %210, ptr %212, align 8, !alias.scope !53
-  br label %795
+  br label %797
 
 213:                                              ; preds = %205
   %214 = tail call double @log(double noundef %208) #10
@@ -1589,16 +1589,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %218, align 4, !alias.scope !56
   %219 = getelementptr inbounds i8, ptr %0, i64 8
   store double %217, ptr %219, align 8, !alias.scope !56
-  br label %795
+  br label %797
 
 220:                                              ; preds = %4
   %.not347 = icmp eq i64 %3, 0
-  br i1 %.not347, label %794, label %221
+  br i1 %.not347, label %796, label %221
 
 221:                                              ; preds = %220
   %222 = load i32, ptr %2, align 8
   %223 = icmp eq i32 %222, 3
-  br i1 %223, label %224, label %794
+  br i1 %223, label %224, label %796
 
 224:                                              ; preds = %221
   %225 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1616,7 +1616,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 
 229:                                              ; preds = %.lr.ph394
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !59
-  br label %795
+  br label %797
 
 230:                                              ; preds = %.lr.ph394
   %231 = getelementptr inbounds i8, ptr %227, i64 8
@@ -1634,16 +1634,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %236, align 4, !alias.scope !64
   %237 = getelementptr inbounds i8, ptr %0, i64 8
   store double %.0.lcssa, ptr %237, align 8, !alias.scope !64
-  br label %795
+  br label %797
 
 238:                                              ; preds = %4
   %.not345 = icmp eq i64 %3, 0
-  br i1 %.not345, label %794, label %239
+  br i1 %.not345, label %796, label %239
 
 239:                                              ; preds = %238
   %240 = load i32, ptr %2, align 8
   %241 = icmp eq i32 %240, 3
-  br i1 %241, label %242, label %794
+  br i1 %241, label %242, label %796
 
 242:                                              ; preds = %239
   %243 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1661,7 +1661,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 
 247:                                              ; preds = %.lr.ph388
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !67
-  br label %795
+  br label %797
 
 248:                                              ; preds = %.lr.ph388
   %249 = getelementptr inbounds i8, ptr %245, i64 8
@@ -1679,22 +1679,22 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %254, align 4, !alias.scope !71
   %255 = getelementptr inbounds i8, ptr %0, i64 8
   store double %.0311.lcssa, ptr %255, align 8, !alias.scope !71
-  br label %795
+  br label %797
 
 256:                                              ; preds = %4
   %257 = icmp eq i64 %3, 2
-  br i1 %257, label %258, label %794
+  br i1 %257, label %258, label %796
 
 258:                                              ; preds = %256
   %259 = load i32, ptr %2, align 8
   %260 = icmp eq i32 %259, 3
-  br i1 %260, label %261, label %794
+  br i1 %260, label %261, label %796
 
 261:                                              ; preds = %258
   %262 = getelementptr inbounds i8, ptr %2, i64 24
   %263 = load i32, ptr %262, align 8
   %264 = icmp eq i32 %263, 3
-  br i1 %264, label %265, label %794
+  br i1 %264, label %265, label %796
 
 265:                                              ; preds = %261
   %266 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1707,16 +1707,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %271, align 4, !alias.scope !74
   %272 = getelementptr inbounds i8, ptr %0, i64 8
   store double %270, ptr %272, align 8, !alias.scope !74
-  br label %795
+  br label %797
 
 273:                                              ; preds = %4
   %274 = icmp eq i64 %3, 1
-  br i1 %274, label %275, label %794
+  br i1 %274, label %275, label %796
 
 275:                                              ; preds = %273
   %276 = load i32, ptr %2, align 8
   %277 = icmp eq i32 %276, 3
-  br i1 %277, label %278, label %794
+  br i1 %277, label %278, label %796
 
 278:                                              ; preds = %275
   %279 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1727,16 +1727,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %282, align 4, !alias.scope !77
   %283 = getelementptr inbounds i8, ptr %0, i64 8
   store double %281, ptr %283, align 8, !alias.scope !77
-  br label %795
+  br label %797
 
 284:                                              ; preds = %4
   %285 = icmp eq i64 %3, 1
-  br i1 %285, label %286, label %794
+  br i1 %285, label %286, label %796
 
 286:                                              ; preds = %284
   %287 = load i32, ptr %2, align 8
   %288 = icmp eq i32 %287, 3
-  br i1 %288, label %289, label %794
+  br i1 %288, label %289, label %796
 
 289:                                              ; preds = %286
   %290 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1747,16 +1747,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %293, align 4, !alias.scope !80
   %294 = getelementptr inbounds i8, ptr %0, i64 8
   store double %292, ptr %294, align 8, !alias.scope !80
-  br label %795
+  br label %797
 
 295:                                              ; preds = %4
   %296 = icmp eq i64 %3, 1
-  br i1 %296, label %297, label %794
+  br i1 %296, label %297, label %796
 
 297:                                              ; preds = %295
   %298 = load i32, ptr %2, align 8
   %299 = icmp eq i32 %298, 3
-  br i1 %299, label %300, label %794
+  br i1 %299, label %300, label %796
 
 300:                                              ; preds = %297
   %301 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1767,16 +1767,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %304, align 4, !alias.scope !83
   %305 = getelementptr inbounds i8, ptr %0, i64 8
   store double %303, ptr %305, align 8, !alias.scope !83
-  br label %795
+  br label %797
 
 306:                                              ; preds = %4
   %307 = icmp eq i64 %3, 1
-  br i1 %307, label %308, label %794
+  br i1 %307, label %308, label %796
 
 308:                                              ; preds = %306
   %309 = load i32, ptr %2, align 8
   %310 = icmp eq i32 %309, 3
-  br i1 %310, label %311, label %794
+  br i1 %310, label %311, label %796
 
 311:                                              ; preds = %308
   %312 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1787,16 +1787,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %315, align 4, !alias.scope !86
   %316 = getelementptr inbounds i8, ptr %0, i64 8
   store double %314, ptr %316, align 8, !alias.scope !86
-  br label %795
+  br label %797
 
 317:                                              ; preds = %4
   %318 = icmp eq i64 %3, 1
-  br i1 %318, label %319, label %794
+  br i1 %318, label %319, label %796
 
 319:                                              ; preds = %317
   %320 = load i32, ptr %2, align 8
   %321 = icmp eq i32 %320, 3
-  br i1 %321, label %322, label %794
+  br i1 %321, label %322, label %796
 
 322:                                              ; preds = %319
   %323 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1807,16 +1807,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %326, align 4, !alias.scope !89
   %327 = getelementptr inbounds i8, ptr %0, i64 8
   store double %325, ptr %327, align 8, !alias.scope !89
-  br label %795
+  br label %797
 
 328:                                              ; preds = %4
   %329 = icmp eq i64 %3, 1
-  br i1 %329, label %330, label %794
+  br i1 %329, label %330, label %796
 
 330:                                              ; preds = %328
   %331 = load i32, ptr %2, align 8
   %332 = icmp eq i32 %331, 3
-  br i1 %332, label %333, label %794
+  br i1 %332, label %333, label %796
 
 333:                                              ; preds = %330
   %334 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1827,29 +1827,29 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %337, align 4, !alias.scope !92
   %338 = getelementptr inbounds i8, ptr %0, i64 8
   store double %336, ptr %338, align 8, !alias.scope !92
-  br label %795
+  br label %797
 
 339:                                              ; preds = %4
   %340 = icmp eq i64 %3, 2
-  br i1 %340, label %341, label %794
+  br i1 %340, label %341, label %796
 
 341:                                              ; preds = %339
   %342 = load i32, ptr %2, align 8
   %343 = icmp eq i32 %342, 3
-  br i1 %343, label %344, label %794
+  br i1 %343, label %344, label %796
 
 344:                                              ; preds = %341
   %345 = getelementptr inbounds i8, ptr %2, i64 24
   %346 = load i32, ptr %345, align 8
   %347 = icmp eq i32 %346, 3
-  br i1 %347, label %348, label %794
+  br i1 %347, label %348, label %796
 
 348:                                              ; preds = %344
   %349 = getelementptr inbounds i8, ptr %2, i64 32
   %350 = load double, ptr %349, align 8
   %351 = fptosi double %350 to i32
   %352 = icmp ult i32 %351, 32
-  br i1 %352, label %353, label %794
+  br i1 %352, label %353, label %796
 
 353:                                              ; preds = %348
   %354 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1863,16 +1863,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %360, align 4, !alias.scope !95
   %361 = getelementptr inbounds i8, ptr %0, i64 8
   store double %359, ptr %361, align 8, !alias.scope !95
-  br label %795
+  br label %797
 
 362:                                              ; preds = %4
   %.not343 = icmp eq i64 %3, 0
-  br i1 %.not343, label %794, label %363
+  br i1 %.not343, label %796, label %363
 
 363:                                              ; preds = %362
   %364 = load i32, ptr %2, align 8
   %365 = icmp eq i32 %364, 3
-  br i1 %365, label %366, label %794
+  br i1 %365, label %366, label %796
 
 366:                                              ; preds = %363
   %367 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1892,7 +1892,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 
 373:                                              ; preds = %.lr.ph382
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !98
-  br label %795
+  br label %797
 
 374:                                              ; preds = %.lr.ph382
   %375 = getelementptr inbounds i8, ptr %371, i64 8
@@ -1912,16 +1912,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %382, align 4, !alias.scope !102
   %383 = getelementptr inbounds i8, ptr %0, i64 8
   store double %381, ptr %383, align 8, !alias.scope !102
-  br label %795
+  br label %797
 
 384:                                              ; preds = %4
   %385 = icmp eq i64 %3, 1
-  br i1 %385, label %386, label %794
+  br i1 %385, label %386, label %796
 
 386:                                              ; preds = %384
   %387 = load i32, ptr %2, align 8
   %388 = icmp eq i32 %387, 3
-  br i1 %388, label %389, label %794
+  br i1 %388, label %389, label %796
 
 389:                                              ; preds = %386
   %390 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1935,16 +1935,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %396, align 4, !alias.scope !105
   %397 = getelementptr inbounds i8, ptr %0, i64 8
   store double %395, ptr %397, align 8, !alias.scope !105
-  br label %795
+  br label %797
 
 398:                                              ; preds = %4
   %.not341 = icmp eq i64 %3, 0
-  br i1 %.not341, label %794, label %399
+  br i1 %.not341, label %796, label %399
 
 399:                                              ; preds = %398
   %400 = load i32, ptr %2, align 8
   %401 = icmp eq i32 %400, 3
-  br i1 %401, label %402, label %794
+  br i1 %401, label %402, label %796
 
 402:                                              ; preds = %399
   %403 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1964,7 +1964,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 
 409:                                              ; preds = %.lr.ph376
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !108
-  br label %795
+  br label %797
 
 410:                                              ; preds = %.lr.ph376
   %411 = getelementptr inbounds i8, ptr %407, i64 8
@@ -1984,16 +1984,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %418, align 4, !alias.scope !112
   %419 = getelementptr inbounds i8, ptr %0, i64 8
   store double %417, ptr %419, align 8, !alias.scope !112
-  br label %795
+  br label %797
 
 420:                                              ; preds = %4
   %.not339 = icmp eq i64 %3, 0
-  br i1 %.not339, label %794, label %421
+  br i1 %.not339, label %796, label %421
 
 421:                                              ; preds = %420
   %422 = load i32, ptr %2, align 8
   %423 = icmp eq i32 %422, 3
-  br i1 %423, label %424, label %794
+  br i1 %423, label %424, label %796
 
 424:                                              ; preds = %421
   %425 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2013,7 +2013,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 
 431:                                              ; preds = %.lr.ph370
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !115
-  br label %795
+  br label %797
 
 432:                                              ; preds = %.lr.ph370
   %433 = getelementptr inbounds i8, ptr %429, i64 8
@@ -2033,16 +2033,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %440, align 4, !alias.scope !119
   %441 = getelementptr inbounds i8, ptr %0, i64 8
   store double %439, ptr %441, align 8, !alias.scope !119
-  br label %795
+  br label %797
 
 442:                                              ; preds = %4
   %.not337 = icmp eq i64 %3, 0
-  br i1 %.not337, label %794, label %443
+  br i1 %.not337, label %796, label %443
 
 443:                                              ; preds = %442
   %444 = load i32, ptr %2, align 8
   %445 = icmp eq i32 %444, 3
-  br i1 %445, label %446, label %794
+  br i1 %445, label %446, label %796
 
 446:                                              ; preds = %443
   %447 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2062,7 +2062,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 
 453:                                              ; preds = %.lr.ph
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !122
-  br label %795
+  br label %797
 
 454:                                              ; preds = %.lr.ph
   %455 = getelementptr inbounds i8, ptr %451, i64 8
@@ -2084,22 +2084,22 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %464 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %464, align 8, !alias.scope !126
   store i8 %462, ptr %464, align 8, !alias.scope !126
-  br label %795
+  br label %797
 
 465:                                              ; preds = %4
   %466 = icmp ugt i64 %3, 1
-  br i1 %466, label %467, label %794
+  br i1 %466, label %467, label %796
 
 467:                                              ; preds = %465
   %468 = load i32, ptr %2, align 8
   %469 = icmp eq i32 %468, 3
-  br i1 %469, label %470, label %794
+  br i1 %469, label %470, label %796
 
 470:                                              ; preds = %467
   %471 = getelementptr inbounds i8, ptr %2, i64 24
   %472 = load i32, ptr %471, align 8
   %473 = icmp eq i32 %472, 3
-  br i1 %473, label %474, label %794
+  br i1 %473, label %474, label %796
 
 474:                                              ; preds = %470
   %475 = icmp eq i64 %3, 2
@@ -2109,7 +2109,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %477 = getelementptr inbounds i8, ptr %2, i64 48
   %478 = load i32, ptr %477, align 8
   %479 = icmp eq i32 %478, 3
-  br i1 %479, label %480, label %794
+  br i1 %479, label %480, label %796
 
 480:                                              ; preds = %476
   %481 = getelementptr inbounds i8, ptr %2, i64 56
@@ -2128,7 +2128,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %488 = add nuw nsw i32 %484, %485
   %489 = icmp slt i32 %488, 33
   %or.cond350 = select i1 %or.cond, i1 %489, i1 false
-  br i1 %or.cond350, label %490, label %794
+  br i1 %or.cond350, label %490, label %796
 
 490:                                              ; preds = %.thread
   %.in358.in.in = getelementptr inbounds i8, ptr %2, i64 8
@@ -2146,22 +2146,22 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %498, align 4, !alias.scope !129
   %499 = getelementptr inbounds i8, ptr %0, i64 8
   store double %497, ptr %499, align 8, !alias.scope !129
-  br label %795
+  br label %797
 
 500:                                              ; preds = %4
   %501 = icmp eq i64 %3, 2
-  br i1 %501, label %502, label %794
+  br i1 %501, label %502, label %796
 
 502:                                              ; preds = %500
   %503 = load i32, ptr %2, align 8
   %504 = icmp eq i32 %503, 3
-  br i1 %504, label %505, label %794
+  br i1 %504, label %505, label %796
 
 505:                                              ; preds = %502
   %506 = getelementptr inbounds i8, ptr %2, i64 24
   %507 = load i32, ptr %506, align 8
   %508 = icmp eq i32 %507, 3
-  br i1 %508, label %509, label %794
+  br i1 %508, label %509, label %796
 
 509:                                              ; preds = %505
   %510 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2178,29 +2178,29 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %519, align 4, !alias.scope !132
   %520 = getelementptr inbounds i8, ptr %0, i64 8
   store double %518, ptr %520, align 8, !alias.scope !132
-  br label %795
+  br label %797
 
 521:                                              ; preds = %4
   %522 = icmp eq i64 %3, 2
-  br i1 %522, label %523, label %794
+  br i1 %522, label %523, label %796
 
 523:                                              ; preds = %521
   %524 = load i32, ptr %2, align 8
   %525 = icmp eq i32 %524, 3
-  br i1 %525, label %526, label %794
+  br i1 %525, label %526, label %796
 
 526:                                              ; preds = %523
   %527 = getelementptr inbounds i8, ptr %2, i64 24
   %528 = load i32, ptr %527, align 8
   %529 = icmp eq i32 %528, 3
-  br i1 %529, label %530, label %794
+  br i1 %529, label %530, label %796
 
 530:                                              ; preds = %526
   %531 = getelementptr inbounds i8, ptr %2, i64 32
   %532 = load double, ptr %531, align 8
   %533 = fptosi double %532 to i32
   %534 = icmp ult i32 %533, 32
-  br i1 %534, label %535, label %794
+  br i1 %534, label %535, label %796
 
 535:                                              ; preds = %530
   %536 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2214,28 +2214,28 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %542, align 4, !alias.scope !135
   %543 = getelementptr inbounds i8, ptr %0, i64 8
   store double %541, ptr %543, align 8, !alias.scope !135
-  br label %795
+  br label %797
 
 544:                                              ; preds = %4
   %545 = icmp ugt i64 %3, 2
-  br i1 %545, label %546, label %794
+  br i1 %545, label %546, label %796
 
 546:                                              ; preds = %544
   %547 = load i32, ptr %2, align 8
   %548 = icmp eq i32 %547, 3
-  br i1 %548, label %549, label %794
+  br i1 %548, label %549, label %796
 
 549:                                              ; preds = %546
   %550 = getelementptr inbounds i8, ptr %2, i64 24
   %551 = load i32, ptr %550, align 8
   %552 = icmp eq i32 %551, 3
-  br i1 %552, label %553, label %794
+  br i1 %552, label %553, label %796
 
 553:                                              ; preds = %549
   %554 = getelementptr inbounds i8, ptr %2, i64 48
   %555 = load i32, ptr %554, align 8
   %556 = icmp eq i32 %555, 3
-  br i1 %556, label %557, label %794
+  br i1 %556, label %557, label %796
 
 557:                                              ; preds = %553
   %558 = icmp eq i64 %3, 3
@@ -2245,7 +2245,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %560 = getelementptr inbounds i8, ptr %2, i64 72
   %561 = load i32, ptr %560, align 8
   %562 = icmp eq i32 %561, 3
-  br i1 %562, label %563, label %794
+  br i1 %562, label %563, label %796
 
 563:                                              ; preds = %559
   %564 = getelementptr inbounds i8, ptr %2, i64 80
@@ -2264,7 +2264,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %571 = add nuw nsw i32 %567, %568
   %572 = icmp slt i32 %571, 33
   %or.cond352 = select i1 %or.cond3, i1 %572, i1 false
-  br i1 %or.cond352, label %573, label %794
+  br i1 %or.cond352, label %573, label %796
 
 573:                                              ; preds = %.thread354
   %.in356.in.in = getelementptr inbounds i8, ptr %2, i64 8
@@ -2290,22 +2290,22 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %586, align 4, !alias.scope !138
   %587 = getelementptr inbounds i8, ptr %0, i64 8
   store double %585, ptr %587, align 8, !alias.scope !138
-  br label %795
+  br label %797
 
 588:                                              ; preds = %4
   %589 = icmp eq i64 %3, 2
-  br i1 %589, label %590, label %794
+  br i1 %589, label %590, label %796
 
 590:                                              ; preds = %588
   %591 = load i32, ptr %2, align 8
   %592 = icmp eq i32 %591, 3
-  br i1 %592, label %593, label %794
+  br i1 %592, label %593, label %796
 
 593:                                              ; preds = %590
   %594 = getelementptr inbounds i8, ptr %2, i64 24
   %595 = load i32, ptr %594, align 8
   %596 = icmp eq i32 %595, 3
-  br i1 %596, label %597, label %794
+  br i1 %596, label %597, label %796
 
 597:                                              ; preds = %593
   %598 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2322,29 +2322,29 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %607, align 4, !alias.scope !141
   %608 = getelementptr inbounds i8, ptr %0, i64 8
   store double %606, ptr %608, align 8, !alias.scope !141
-  br label %795
+  br label %797
 
 609:                                              ; preds = %4
   %610 = icmp eq i64 %3, 2
-  br i1 %610, label %611, label %794
+  br i1 %610, label %611, label %796
 
 611:                                              ; preds = %609
   %612 = load i32, ptr %2, align 8
   %613 = icmp eq i32 %612, 3
-  br i1 %613, label %614, label %794
+  br i1 %613, label %614, label %796
 
 614:                                              ; preds = %611
   %615 = getelementptr inbounds i8, ptr %2, i64 24
   %616 = load i32, ptr %615, align 8
   %617 = icmp eq i32 %616, 3
-  br i1 %617, label %618, label %794
+  br i1 %617, label %618, label %796
 
 618:                                              ; preds = %614
   %619 = getelementptr inbounds i8, ptr %2, i64 32
   %620 = load double, ptr %619, align 8
   %621 = fptosi double %620 to i32
   %622 = icmp ult i32 %621, 32
-  br i1 %622, label %623, label %794
+  br i1 %622, label %623, label %796
 
 623:                                              ; preds = %618
   %624 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2358,23 +2358,23 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %630, align 4, !alias.scope !144
   %631 = getelementptr inbounds i8, ptr %0, i64 8
   store double %629, ptr %631, align 8, !alias.scope !144
-  br label %795
+  br label %797
 
 632:                                              ; preds = %4
   %633 = icmp eq i64 %3, 1
-  br i1 %633, label %634, label %794
+  br i1 %633, label %634, label %796
 
 634:                                              ; preds = %632
   %635 = load i32, ptr %2, align 8
   %.not336 = icmp eq i32 %635, 0
-  br i1 %.not336, label %794, label %636
+  br i1 %.not336, label %796, label %636
 
 636:                                              ; preds = %634
   tail call fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias writable align 8 %0, i32 %635)
-  br label %795
+  br label %797
 
 637:                                              ; preds = %4
-  switch i64 %3, label %794 [
+  switch i64 %3, label %796 [
     i64 1, label %638
     i64 2, label %651
   ]
@@ -2382,13 +2382,13 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 638:                                              ; preds = %637
   %639 = load i32, ptr %2, align 8
   %640 = icmp eq i32 %639, 5
-  br i1 %640, label %641, label %794
+  br i1 %640, label %641, label %796
 
 641:                                              ; preds = %638
   %642 = getelementptr inbounds i8, ptr %2, i64 4
   %643 = load i32, ptr %642, align 4
   %.not335 = icmp eq i32 %643, 0
-  br i1 %.not335, label %794, label %644
+  br i1 %.not335, label %796, label %644
 
 644:                                              ; preds = %641
   %645 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2400,31 +2400,31 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %649, align 4, !alias.scope !147
   %650 = getelementptr inbounds i8, ptr %0, i64 8
   store double %648, ptr %650, align 8, !alias.scope !147
-  br label %795
+  br label %797
 
 651:                                              ; preds = %637
   %652 = load i32, ptr %2, align 8
   %653 = icmp eq i32 %652, 5
-  br i1 %653, label %654, label %794
+  br i1 %653, label %654, label %796
 
 654:                                              ; preds = %651
   %655 = getelementptr inbounds i8, ptr %2, i64 24
   %656 = load i32, ptr %655, align 8
   %657 = icmp eq i32 %656, 3
-  br i1 %657, label %658, label %794
+  br i1 %657, label %658, label %796
 
 658:                                              ; preds = %654
   %659 = getelementptr inbounds i8, ptr %2, i64 32
   %660 = load double, ptr %659, align 8
   %661 = fptosi double %660 to i32
   %662 = icmp sgt i32 %661, 0
-  br i1 %662, label %663, label %794
+  br i1 %662, label %663, label %796
 
 663:                                              ; preds = %658
   %664 = getelementptr inbounds i8, ptr %2, i64 4
   %665 = load i32, ptr %664, align 4
   %.not334 = icmp ult i32 %665, %661
-  br i1 %.not334, label %794, label %666
+  br i1 %.not334, label %796, label %666
 
 666:                                              ; preds = %663
   %667 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2439,16 +2439,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %674, align 4, !alias.scope !150
   %675 = getelementptr inbounds i8, ptr %0, i64 8
   store double %673, ptr %675, align 8, !alias.scope !150
-  br label %795
+  br label %797
 
 676:                                              ; preds = %4
   %677 = icmp eq i64 %3, 1
-  br i1 %677, label %678, label %794
+  br i1 %677, label %678, label %796
 
 678:                                              ; preds = %676
   %679 = load i32, ptr %2, align 8
   %680 = icmp eq i32 %679, 5
-  br i1 %680, label %681, label %794
+  br i1 %680, label %681, label %796
 
 681:                                              ; preds = %678
   %682 = getelementptr inbounds i8, ptr %2, i64 4
@@ -2459,41 +2459,41 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %685, align 4, !alias.scope !153
   %686 = getelementptr inbounds i8, ptr %0, i64 8
   store double %684, ptr %686, align 8, !alias.scope !153
-  br label %795
+  br label %797
 
 687:                                              ; preds = %4
   %688 = icmp eq i64 %3, 1
-  br i1 %688, label %689, label %794
+  br i1 %688, label %689, label %796
 
 689:                                              ; preds = %687
   %690 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %690, 0
-  br i1 %.not, label %794, label %691
+  br i1 %.not, label %796, label %691
 
 691:                                              ; preds = %689
   tail call fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias writable align 8 %0, i32 %690)
-  br label %795
+  br label %797
 
 692:                                              ; preds = %4
   %693 = icmp eq i64 %3, 3
-  br i1 %693, label %694, label %794
+  br i1 %693, label %694, label %796
 
 694:                                              ; preds = %692
   %695 = load i32, ptr %2, align 8
   %696 = icmp eq i32 %695, 3
-  br i1 %696, label %697, label %794
+  br i1 %696, label %697, label %796
 
 697:                                              ; preds = %694
   %698 = getelementptr inbounds i8, ptr %2, i64 24
   %699 = load i32, ptr %698, align 8
   %700 = icmp eq i32 %699, 3
-  br i1 %700, label %701, label %794
+  br i1 %700, label %701, label %796
 
 701:                                              ; preds = %697
   %702 = getelementptr inbounds i8, ptr %2, i64 48
   %703 = load i32, ptr %702, align 8
   %704 = icmp eq i32 %703, 3
-  br i1 %704, label %705, label %794
+  br i1 %704, label %705, label %796
 
 705:                                              ; preds = %701
   %706 = getelementptr inbounds i8, ptr %2, i64 32
@@ -2501,7 +2501,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %708 = getelementptr inbounds i8, ptr %2, i64 56
   %709 = load double, ptr %708, align 8
   %710 = fcmp ugt double %707, %709
-  br i1 %710, label %794, label %711
+  br i1 %710, label %796, label %711
 
 711:                                              ; preds = %705
   %712 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2515,16 +2515,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %718, align 4, !alias.scope !156
   %719 = getelementptr inbounds i8, ptr %0, i64 8
   store double %717, ptr %719, align 8, !alias.scope !156
-  br label %795
+  br label %797
 
 720:                                              ; preds = %4
   %721 = icmp eq i64 %3, 1
-  br i1 %721, label %722, label %794
+  br i1 %721, label %722, label %796
 
 722:                                              ; preds = %720
   %723 = load i32, ptr %2, align 8
   %724 = icmp eq i32 %723, 3
-  br i1 %724, label %725, label %794
+  br i1 %724, label %725, label %796
 
 725:                                              ; preds = %722
   %726 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2538,16 +2538,16 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %732, align 4, !alias.scope !159
   %733 = getelementptr inbounds i8, ptr %0, i64 8
   store double %731, ptr %733, align 8, !alias.scope !159
-  br label %795
+  br label %797
 
 734:                                              ; preds = %4
   %735 = icmp eq i64 %3, 1
-  br i1 %735, label %736, label %794
+  br i1 %735, label %736, label %796
 
 736:                                              ; preds = %734
   %737 = load i32, ptr %2, align 8
   %738 = icmp eq i32 %737, 3
-  br i1 %738, label %739, label %794
+  br i1 %738, label %739, label %796
 
 739:                                              ; preds = %736
   %740 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2558,31 +2558,31 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %743, align 4, !alias.scope !162
   %744 = getelementptr inbounds i8, ptr %0, i64 8
   store double %742, ptr %744, align 8, !alias.scope !162
-  br label %795
+  br label %797
 
 745:                                              ; preds = %4
   %746 = icmp ugt i64 %3, 2
-  br i1 %746, label %747, label %794
+  br i1 %746, label %747, label %796
 
 747:                                              ; preds = %745
   %748 = load i32, ptr %2, align 8
   %749 = icmp eq i32 %748, 3
-  br i1 %749, label %750, label %794
+  br i1 %749, label %750, label %796
 
 750:                                              ; preds = %747
   %751 = getelementptr inbounds i8, ptr %2, i64 24
   %752 = load i32, ptr %751, align 8
   %753 = icmp eq i32 %752, 3
-  br i1 %753, label %754, label %794
+  br i1 %753, label %754, label %796
 
 754:                                              ; preds = %750
   %755 = getelementptr inbounds i8, ptr %2, i64 48
   %756 = load i32, ptr %755, align 8
   %757 = icmp eq i32 %756, 3
-  br i1 %757, label %758, label %794
+  br i1 %757, label %758, label %796
 
 758:                                              ; preds = %754
-  switch i64 %3, label %794 [
+  switch i64 %3, label %796 [
     i64 3, label %759
     i64 4, label %774
   ]
@@ -2598,22 +2598,23 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %766 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %766, align 4, !alias.scope !165
   %767 = getelementptr inbounds i8, ptr %0, i64 8
-  %768 = insertelement <2 x double> poison, double %761, i64 0
-  %769 = insertelement <2 x double> %768, double %763, i64 1
-  %770 = fptrunc <2 x double> %769 to <2 x float>
-  store <2 x float> %770, ptr %767, align 8, !alias.scope !165
+  %768 = fptrunc double %761 to float
+  store float %768, ptr %767, align 8, !alias.scope !165
+  %769 = fptrunc double %763 to float
+  %770 = getelementptr inbounds i8, ptr %0, i64 12
+  store float %769, ptr %770, align 4, !alias.scope !165
   %771 = fptrunc double %765 to float
   %772 = getelementptr inbounds i8, ptr %0, i64 16
   store float %771, ptr %772, align 8, !alias.scope !165
   %773 = getelementptr inbounds i8, ptr %0, i64 20
   store float 0.000000e+00, ptr %773, align 4, !alias.scope !165
-  br label %795
+  br label %797
 
 774:                                              ; preds = %758
   %775 = getelementptr inbounds i8, ptr %2, i64 72
   %776 = load i32, ptr %775, align 8
   %777 = icmp eq i32 %776, 3
-  br i1 %777, label %778, label %794
+  br i1 %777, label %778, label %796
 
 778:                                              ; preds = %774
   %779 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2628,19 +2629,24 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %787 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %787, align 4, !alias.scope !168
   %788 = getelementptr inbounds i8, ptr %0, i64 8
-  %789 = insertelement <4 x double> poison, double %780, i64 0
-  %790 = insertelement <4 x double> %789, double %782, i64 1
-  %791 = insertelement <4 x double> %790, double %784, i64 2
-  %792 = insertelement <4 x double> %791, double %786, i64 3
-  %793 = fptrunc <4 x double> %792 to <4 x float>
-  store <4 x float> %793, ptr %788, align 8, !alias.scope !168
-  br label %795
+  %789 = fptrunc double %780 to float
+  store float %789, ptr %788, align 8, !alias.scope !168
+  %790 = fptrunc double %782 to float
+  %791 = getelementptr inbounds i8, ptr %0, i64 12
+  store float %790, ptr %791, align 4, !alias.scope !168
+  %792 = fptrunc double %784 to float
+  %793 = getelementptr inbounds i8, ptr %0, i64 16
+  store float %792, ptr %793, align 8, !alias.scope !168
+  %794 = fptrunc double %786 to float
+  %795 = getelementptr inbounds i8, ptr %0, i64 20
+  store float %794, ptr %795, align 4, !alias.scope !168
+  br label %797
 
-794:                                              ; preds = %638, %179, %758, %637, %178, %745, %747, %750, %754, %774, %734, %736, %720, %722, %692, %694, %697, %701, %705, %687, %689, %676, %678, %641, %658, %663, %654, %651, %632, %634, %609, %611, %614, %618, %588, %590, %593, %544, %546, %549, %553, %559, %.thread354, %521, %523, %526, %530, %500, %502, %505, %465, %467, %470, %476, %.thread, %442, %443, %420, %421, %398, %399, %384, %386, %362, %363, %339, %341, %344, %348, %328, %330, %317, %319, %306, %308, %295, %297, %284, %286, %273, %275, %256, %258, %261, %238, %239, %220, %221, %191, %188, %167, %169, %149, %151, %154, %132, %134, %137, %121, %123, %110, %112, %99, %101, %88, %90, %77, %79, %66, %68, %55, %57, %38, %40, %43, %27, %29, %16, %18, %5, %7, %4
+796:                                              ; preds = %638, %179, %758, %637, %178, %745, %747, %750, %754, %774, %734, %736, %720, %722, %692, %694, %697, %701, %705, %687, %689, %676, %678, %641, %658, %663, %654, %651, %632, %634, %609, %611, %614, %618, %588, %590, %593, %544, %546, %549, %553, %559, %.thread354, %521, %523, %526, %530, %500, %502, %505, %465, %467, %470, %476, %.thread, %442, %443, %420, %421, %398, %399, %384, %386, %362, %363, %339, %341, %344, %348, %328, %330, %317, %319, %306, %308, %295, %297, %284, %286, %273, %275, %256, %258, %261, %238, %239, %220, %221, %191, %188, %167, %169, %149, %151, %154, %132, %134, %137, %121, %123, %110, %112, %99, %101, %88, %90, %77, %79, %66, %68, %55, %57, %38, %40, %43, %27, %29, %16, %18, %5, %7, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !171
-  br label %795
+  br label %797
 
-795:                                              ; preds = %794, %778, %759, %739, %725, %711, %691, %681, %666, %644, %636, %623, %597, %573, %535, %509, %490, %._crit_edge, %453, %._crit_edge371, %431, %._crit_edge377, %409, %389, %._crit_edge383, %373, %353, %333, %322, %311, %300, %289, %278, %265, %._crit_edge389, %247, %._crit_edge395, %229, %213, %209, %199, %182, %172, %158, %141, %126, %115, %104, %93, %82, %71, %60, %47, %32, %21, %10
+797:                                              ; preds = %796, %778, %759, %739, %725, %711, %691, %681, %666, %644, %636, %623, %597, %573, %535, %509, %490, %._crit_edge, %453, %._crit_edge371, %431, %._crit_edge377, %409, %389, %._crit_edge383, %373, %353, %333, %322, %311, %300, %289, %278, %265, %._crit_edge389, %247, %._crit_edge395, %229, %213, %209, %199, %182, %172, %158, %141, %126, %115, %104, %93, %82, %71, %60, %47, %32, %21, %10
   ret void
 }
 

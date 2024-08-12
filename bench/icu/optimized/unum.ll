@@ -580,9 +580,12 @@ invoke.cont11:                                    ; preds = %if.end10
   br i1 %cmp6.not, label %if.end19, label %if.then14
 
 if.then14:                                        ; preds = %invoke.cont11
+  %5 = load i32, ptr %fBeginIndex.i, align 4
   %beginIndex = getelementptr inbounds i8, ptr %pos, i64 4
-  %5 = load <2 x i32>, ptr %fBeginIndex.i, align 4
-  store <2 x i32> %5, ptr %beginIndex, align 4
+  store i32 %5, ptr %beginIndex, align 4
+  %6 = load i32, ptr %fEndIndex.i, align 8
+  %endIndex = getelementptr inbounds i8, ptr %pos, i64 8
+  store i32 %6, ptr %endIndex, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then14, %invoke.cont11
@@ -591,21 +594,21 @@ if.end19:                                         ; preds = %if.then14, %invoke.
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %if.end19
-  %6 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #10, !srcloc !4
+  %7 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #10, !srcloc !4
   call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #10
   br label %return
 
 lpad21:                                           ; preds = %if.end19
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #10, !srcloc !4
+  %9 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #10, !srcloc !4
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad21, %lpad8
-  %.pn = phi { ptr, i32 } [ %7, %lpad21 ], [ %3, %lpad8 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad21 ], [ %3, %lpad8 ]
   call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #10
   br label %ehcleanup24
 
@@ -686,9 +689,12 @@ invoke.cont11:                                    ; preds = %if.end10
   br i1 %cmp6.not, label %if.end19, label %if.then14
 
 if.then14:                                        ; preds = %invoke.cont11
+  %5 = load i32, ptr %fBeginIndex.i, align 4
   %beginIndex = getelementptr inbounds i8, ptr %pos, i64 4
-  %5 = load <2 x i32>, ptr %fBeginIndex.i, align 4
-  store <2 x i32> %5, ptr %beginIndex, align 4
+  store i32 %5, ptr %beginIndex, align 4
+  %6 = load i32, ptr %fEndIndex.i, align 8
+  %endIndex = getelementptr inbounds i8, ptr %pos, i64 8
+  store i32 %6, ptr %endIndex, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then14, %invoke.cont11
@@ -697,21 +703,21 @@ if.end19:                                         ; preds = %if.then14, %invoke.
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %if.end19
-  %6 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #10, !srcloc !4
+  %7 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #10, !srcloc !4
   call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #10
   br label %return
 
 lpad21:                                           ; preds = %if.end19
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #10, !srcloc !4
+  %9 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #10, !srcloc !4
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad21, %lpad8
-  %.pn = phi { ptr, i32 } [ %7, %lpad21 ], [ %3, %lpad8 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad21 ], [ %3, %lpad8 ]
   call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #10
   br label %ehcleanup24
 
@@ -888,9 +894,12 @@ invoke.cont22:                                    ; preds = %if.end21
   br i1 %cmp5.not, label %if.end30, label %if.then25
 
 if.then25:                                        ; preds = %invoke.cont22
+  %5 = load i32, ptr %fBeginIndex.i, align 4
   %beginIndex = getelementptr inbounds i8, ptr %pos, i64 4
-  %5 = load <2 x i32>, ptr %fBeginIndex.i, align 4
-  store <2 x i32> %5, ptr %beginIndex, align 4
+  store i32 %5, ptr %beginIndex, align 4
+  %6 = load i32, ptr %fEndIndex.i, align 8
+  %endIndex = getelementptr inbounds i8, ptr %pos, i64 8
+  store i32 %6, ptr %endIndex, align 4
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then25, %invoke.cont22
@@ -899,22 +908,22 @@ if.end30:                                         ; preds = %if.then25, %invoke.
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %if.end30
-  %6 = load ptr, ptr %agg.tmp31, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #10, !srcloc !4
+  %7 = load ptr, ptr %agg.tmp31, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #10, !srcloc !4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %resultStr) #10
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %numFmtbl) #10
   call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #10
   br label %return
 
 lpad33:                                           ; preds = %if.end30
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %agg.tmp31, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #10, !srcloc !4
+  %9 = load ptr, ptr %agg.tmp31, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #10, !srcloc !4
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad33, %lpad18
-  %.pn = phi { ptr, i32 } [ %7, %lpad33 ], [ %3, %lpad18 ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad33 ], [ %3, %lpad18 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %resultStr) #10
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %numFmtbl) #10
   br label %ehcleanup37
@@ -1027,13 +1036,16 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   br i1 %cmp6.not, label %if.end36, label %if.then31
 
 if.then31:                                        ; preds = %invoke.cont28
+  %8 = load i32, ptr %fBeginIndex.i, align 4
   %beginIndex = getelementptr inbounds i8, ptr %pos, i64 4
-  %8 = load <2 x i32>, ptr %fBeginIndex.i, align 4
-  store <2 x i32> %8, ptr %beginIndex, align 4
+  store i32 %8, ptr %beginIndex, align 4
+  %9 = load i32, ptr %fEndIndex.i, align 8
+  %endIndex = getelementptr inbounds i8, ptr %pos, i64 8
+  store i32 %9, ptr %endIndex, align 4
   br label %if.end36
 
 lpad27:                                           ; preds = %invoke.cont26
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup43
 
@@ -1043,20 +1055,20 @@ if.end36:                                         ; preds = %if.then31, %invoke.
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %if.end36
-  %10 = load ptr, ptr %agg.tmp37, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #10, !srcloc !4
+  %11 = load ptr, ptr %agg.tmp37, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #10, !srcloc !4
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %n) #10
   br label %cleanup
 
 lpad39:                                           ; preds = %if.end36
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %agg.tmp37, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #10, !srcloc !4
+  %13 = load ptr, ptr %agg.tmp37, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #10, !srcloc !4
   br label %ehcleanup43
 
 ehcleanup43:                                      ; preds = %lpad39, %lpad27
-  %.pn = phi { ptr, i32 } [ %11, %lpad39 ], [ %9, %lpad27 ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad39 ], [ %10, %lpad27 ]
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %n) #10
   br label %ehcleanup44
 
@@ -2640,9 +2652,12 @@ invoke.cont15:                                    ; preds = %if.end12
   br i1 %cmp8.not, label %if.end23, label %if.then18
 
 if.then18:                                        ; preds = %invoke.cont15
+  %4 = load i32, ptr %fBeginIndex.i, align 4
   %beginIndex = getelementptr inbounds i8, ptr %pos, i64 4
-  %4 = load <2 x i32>, ptr %fBeginIndex.i, align 4
-  store <2 x i32> %4, ptr %beginIndex, align 4
+  store i32 %4, ptr %beginIndex, align 4
+  %5 = load i32, ptr %fEndIndex.i, align 8
+  %endIndex = getelementptr inbounds i8, ptr %pos, i64 8
+  store i32 %5, ptr %endIndex, align 4
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then18, %invoke.cont15
@@ -2651,21 +2666,21 @@ if.end23:                                         ; preds = %if.then18, %invoke.
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end23
-  %5 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #10, !srcloc !4
+  %6 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #10, !srcloc !4
   call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #10
   br label %return
 
 lpad25:                                           ; preds = %if.end23
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #10, !srcloc !4
+  %8 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #10, !srcloc !4
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad25, %lpad10
-  %.pn = phi { ptr, i32 } [ %6, %lpad25 ], [ %2, %lpad10 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad25 ], [ %2, %lpad10 ]
   call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #10
   resume { ptr, i32 } %.pn

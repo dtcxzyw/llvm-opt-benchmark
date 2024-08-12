@@ -610,9 +610,15 @@ entry:
   %show_stash = getelementptr inbounds i8, ptr %s, i64 804
   store i32 0, ptr %show_stash, align 4
   %ahead_behind_flags = getelementptr inbounds i8, ptr %s, i64 812
+  store i32 -1, ptr %ahead_behind_flags, align 4
   %display_comment_prefix = getelementptr inbounds i8, ptr %s, i64 80
   store i32 0, ptr %display_comment_prefix, align 8
-  store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 -1>, ptr %ahead_behind_flags, align 4
+  %detect_rename = getelementptr inbounds i8, ptr %s, i64 816
+  store i32 -1, ptr %detect_rename, align 8
+  %rename_score = getelementptr inbounds i8, ptr %s, i64 820
+  store i32 -1, ptr %rename_score, align 4
+  %rename_limit = getelementptr inbounds i8, ptr %s, i64 824
+  store i32 -1, ptr %rename_limit, align 8
   ret void
 }
 
@@ -695,13 +701,20 @@ wt_status_collect_changes_worktree.exit:          ; preds = %if.else.i, %if.end1
   %cmp2115.i = icmp slt i32 %6, 0
   %cond.i = select i1 %cmp2115.i, i32 %7, i32 %6
   store i32 %cond.i, ptr %detect_rename24.i, align 4
+  %rename_limit.i = getelementptr inbounds i8, ptr %s, i64 824
+  %8 = load i32, ptr %rename_limit.i, align 8
+  %rename_limit32.i = getelementptr inbounds i8, ptr %rev.i, i64 1764
+  %9 = load i32, ptr %rename_limit32.i, align 4
+  %cmp2716.i = icmp slt i32 %8, 0
+  %cond34.i = select i1 %cmp2716.i, i32 %9, i32 %8
+  store i32 %cond34.i, ptr %rename_limit32.i, align 4
   %rename_score.i = getelementptr inbounds i8, ptr %s, i64 820
+  %10 = load i32, ptr %rename_score.i, align 4
   %rename_score42.i = getelementptr inbounds i8, ptr %rev.i, i64 1760
-  %8 = load <2 x i32>, ptr %rename_score.i, align 4
-  %9 = load <2 x i32>, ptr %rename_score42.i, align 8
-  %10 = icmp slt <2 x i32> %8, zeroinitializer
-  %11 = select <2 x i1> %10, <2 x i32> %9, <2 x i32> %8
-  store <2 x i32> %11, ptr %rename_score42.i, align 8
+  %11 = load i32, ptr %rename_score42.i, align 8
+  %cmp3717.i = icmp slt i32 %10, 0
+  %cond44.i = select i1 %cmp3717.i, i32 %11, i32 %10
+  store i32 %cond44.i, ptr %rename_score42.i, align 8
   %prune_data.i = getelementptr inbounds i8, ptr %rev.i, i64 240
   %pathspec.i = getelementptr inbounds i8, ptr %s, i64 32
   call void @copy_pathspec(ptr noundef nonnull %prune_data.i, ptr noundef nonnull %pathspec.i) #19
@@ -899,13 +912,19 @@ wt_status_collect_changes_index.exit:             ; preds = %cond.true.i, %cond.
   %cmp16.i = icmp slt i32 %43, 0
   %cond16.i = select i1 %cmp16.i, i32 %44, i32 %43
   store i32 %cond16.i, ptr %detect_rename14.i, align 4
+  %45 = load i32, ptr %rename_limit.i, align 8
+  %rename_limit24.i = getelementptr inbounds i8, ptr %rev.i25, i64 1764
+  %46 = load i32, ptr %rename_limit24.i, align 4
+  %cmp1917.i = icmp slt i32 %45, 0
+  %cond26.i = select i1 %cmp1917.i, i32 %46, i32 %45
+  store i32 %cond26.i, ptr %rename_limit24.i, align 4
+  %47 = load i32, ptr %rename_score.i, align 4
   %rename_score34.i = getelementptr inbounds i8, ptr %rev.i25, i64 1760
+  %48 = load i32, ptr %rename_score34.i, align 8
+  %cmp2918.i = icmp slt i32 %47, 0
+  %cond36.i = select i1 %cmp2918.i, i32 %48, i32 %47
   %flags.i = getelementptr inbounds i8, ptr %rev.i25, i64 1576
-  %45 = load <2 x i32>, ptr %rename_score.i, align 4
-  %46 = load <2 x i32>, ptr %rename_score34.i, align 8
-  %47 = icmp slt <2 x i32> %45, zeroinitializer
-  %48 = select <2 x i1> %47, <2 x i32> %46, <2 x i32> %45
-  store <2 x i32> %48, ptr %rename_score34.i, align 8
+  store i32 %cond36.i, ptr %rename_score34.i, align 8
   store i32 1, ptr %flags.i, align 8
   %prune_data.i40 = getelementptr inbounds i8, ptr %rev.i25, i64 240
   call void @copy_pathspec(ptr noundef nonnull %prune_data.i40, ptr noundef nonnull %pathspec.i) #19
@@ -4548,13 +4567,20 @@ cond.end.i.i32:                                   ; preds = %cond.false.i.i37, %
   %cmp35.i.i = icmp slt i32 %336, 0
   %cond11.i.i = select i1 %cmp35.i.i, i32 %337, i32 %336
   store i32 %cond11.i.i, ptr %detect_rename9.i.i, align 4
+  %rename_limit.i.i = getelementptr inbounds i8, ptr %s, i64 824
+  %338 = load i32, ptr %rename_limit.i.i, align 8
+  %rename_limit19.i.i = getelementptr inbounds i8, ptr %rev.i.i, i64 1764
+  %339 = load i32, ptr %rename_limit19.i.i, align 4
+  %cmp1436.i.i = icmp slt i32 %338, 0
+  %cond21.i.i = select i1 %cmp1436.i.i, i32 %339, i32 %338
+  store i32 %cond21.i.i, ptr %rename_limit19.i.i, align 4
   %rename_score.i.i34 = getelementptr inbounds i8, ptr %s, i64 820
+  %340 = load i32, ptr %rename_score.i.i34, align 4
   %rename_score29.i.i = getelementptr inbounds i8, ptr %rev.i.i, i64 1760
-  %338 = load <2 x i32>, ptr %rename_score.i.i34, align 4
-  %339 = load <2 x i32>, ptr %rename_score29.i.i, align 8
-  %340 = icmp slt <2 x i32> %338, zeroinitializer
-  %341 = select <2 x i1> %340, <2 x i32> %339, <2 x i32> %338
-  store <2 x i32> %341, ptr %rename_score29.i.i, align 8
+  %341 = load i32, ptr %rename_score29.i.i, align 8
+  %cmp2437.i.i = icmp slt i32 %340, 0
+  %cond31.i.i = select i1 %cmp2437.i.i, i32 %341, i32 %340
+  store i32 %cond31.i.i, ptr %rename_score29.i.i, align 8
   %fp.i344.i = getelementptr inbounds i8, ptr %s, i64 1072
   %342 = load ptr, ptr %fp.i344.i, align 8
   %file.i.i = getelementptr inbounds i8, ptr %rev.i.i, i64 1920

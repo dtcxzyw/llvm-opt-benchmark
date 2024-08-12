@@ -38797,12 +38797,15 @@ entry:
   br i1 %cmp.i.i.i, label %_ZSteqIJPKaS1_PKN4absl18container_internal12_GLOBAL__N_16Int128EEJS1_S1_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.i, label %if.end.i
 
 _ZSteqIJPKaS1_PKN4absl18container_internal12_GLOBAL__N_16Int128EEJS1_S1_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.i: ; preds = %entry
-  %2 = load <2 x ptr>, ptr %lhs, align 8, !noalias !265
-  %3 = load <2 x ptr>, ptr %rhs, align 8, !noalias !265
-  %4 = icmp eq <2 x ptr> %2, %3
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %spec.select.i.i.i.i = select i1 %6, i1 %5, i1 false
+  %__t.val.i.i.i = load ptr, ptr %lhs, align 8, !noalias !265
+  %2 = getelementptr inbounds i8, ptr %lhs, i64 8
+  %__t.val3.i.i.i = load ptr, ptr %2, align 8, !noalias !265
+  %__u.val.i.i.i = load ptr, ptr %rhs, align 8, !noalias !265
+  %3 = getelementptr inbounds i8, ptr %rhs, i64 8
+  %__u.val4.i.i.i = load ptr, ptr %3, align 8, !noalias !265
+  %cmp.i.i.i.i = icmp eq ptr %__t.val3.i.i.i, %__u.val4.i.i.i
+  %cmp.i.i.i.i.i = icmp eq ptr %__t.val.i.i.i, %__u.val.i.i.i
+  %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZSteqIJPKaS1_PKN4absl18container_internal12_GLOBAL__N_16Int128EEJS1_S1_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.i
@@ -38821,18 +38824,18 @@ invoke.cont.i.i:                                  ; preds = %if.end.i
           to label %_ZN7testing8internal18CmpHelperEQFailureISt5tupleIJPKaS4_PKN4absl18container_internal12_GLOBAL__N_16Int128EEESB_EENS_15AssertionResultEPKcSE_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %if.end.i
-  %7 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
 
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
-  %8 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #21
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %8, %lpad2.i.i ], [ %7, %lpad.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %5, %lpad2.i.i ], [ %4, %lpad.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #21
   resume { ptr, i32 } %.pn.i.i
 
@@ -39511,12 +39514,15 @@ entry:
   br i1 %cmp.i.i.i, label %_ZSteqIJPaS0_PN4absl18container_internal12_GLOBAL__N_16Int128EEJS0_S0_S5_EEbRKSt5tupleIJDpT_EERKS6_IJDpT0_EE.exit.i, label %if.end.i
 
 _ZSteqIJPaS0_PN4absl18container_internal12_GLOBAL__N_16Int128EEJS0_S0_S5_EEbRKSt5tupleIJDpT_EERKS6_IJDpT0_EE.exit.i: ; preds = %entry
-  %2 = load <2 x ptr>, ptr %lhs, align 8, !noalias !295
-  %3 = load <2 x ptr>, ptr %rhs, align 8, !noalias !295
-  %4 = icmp eq <2 x ptr> %2, %3
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %spec.select.i.i.i.i = select i1 %6, i1 %5, i1 false
+  %__t.val.i.i.i = load ptr, ptr %lhs, align 8, !noalias !295
+  %2 = getelementptr inbounds i8, ptr %lhs, i64 8
+  %__t.val3.i.i.i = load ptr, ptr %2, align 8, !noalias !295
+  %__u.val.i.i.i = load ptr, ptr %rhs, align 8, !noalias !295
+  %3 = getelementptr inbounds i8, ptr %rhs, i64 8
+  %__u.val4.i.i.i = load ptr, ptr %3, align 8, !noalias !295
+  %cmp.i.i.i.i = icmp eq ptr %__t.val3.i.i.i, %__u.val4.i.i.i
+  %cmp.i.i.i.i.i = icmp eq ptr %__t.val.i.i.i, %__u.val.i.i.i
+  %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZSteqIJPaS0_PN4absl18container_internal12_GLOBAL__N_16Int128EEJS0_S0_S5_EEbRKSt5tupleIJDpT_EERKS6_IJDpT0_EE.exit.i
@@ -39535,18 +39541,18 @@ invoke.cont.i.i:                                  ; preds = %if.end.i
           to label %_ZN7testing8internal18CmpHelperEQFailureISt5tupleIJPaS3_PN4absl18container_internal12_GLOBAL__N_16Int128EEES9_EENS_15AssertionResultEPKcSC_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %if.end.i
-  %7 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
 
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
-  %8 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #21
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %8, %lpad2.i.i ], [ %7, %lpad.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %5, %lpad2.i.i ], [ %4, %lpad.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #21
   resume { ptr, i32 } %.pn.i.i
 

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PgStat_SLRUStats = type { i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.PgStat_WalStats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 
-@PendingBgWriterStats = dso_local global %struct.PgStat_BgWriterStats zeroinitializer, align 16
+@PendingBgWriterStats = dso_local global %struct.PgStat_BgWriterStats zeroinitializer, align 8
 @pgStatLocal = external global %struct.PgStat_LocalState, align 8
 @pgstat_report_bgwriter.all_zeroes = internal constant %struct.PgStat_BgWriterStats zeroinitializer, align 8
 @CritSectionCount = external global i32, align 4
@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @pgstat_report_bgwriter() local_unnamed_addr #0 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) @PendingBgWriterStats, ptr noundef nonnull dereferenceable(32) @pgstat_report_bgwriter.all_zeroes, i64 32)
   %1 = icmp eq i32 %bcmp, 0
-  br i1 %1, label %22, label %2
+  br i1 %1, label %26, label %2
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @pgStatLocal, align 8
@@ -35,28 +35,33 @@ define dso_local void @pgstat_report_bgwriter() local_unnamed_addr #0 {
   %8 = add i32 %7, 1
   store i32 %8, ptr %4, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !5
-  %9 = getelementptr inbounds i8, ptr %3, i64 352
-  %10 = load <2 x i64>, ptr @PendingBgWriterStats, align 16
-  %11 = load <2 x i64>, ptr %9, align 8
-  %12 = add <2 x i64> %11, %10
-  store <2 x i64> %12, ptr %9, align 8
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 16), align 16
-  %14 = getelementptr inbounds i8, ptr %3, i64 368
+  %9 = load i64, ptr @PendingBgWriterStats, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 352
+  %11 = load i64, ptr %10, align 8
+  %12 = add i64 %11, %9
+  store i64 %12, ptr %10, align 8
+  %13 = load i64, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 8), align 8
+  %14 = getelementptr inbounds i8, ptr %3, i64 360
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %13
   store i64 %16, ptr %14, align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 16), align 8
+  %18 = getelementptr inbounds i8, ptr %3, i64 368
+  %19 = load i64, ptr %18, align 8
+  %20 = add i64 %19, %17
+  store i64 %20, ptr %18, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
-  %17 = load i32, ptr %4, align 4
-  %18 = add i32 %17, 1
-  store i32 %18, ptr %4, align 4
-  %19 = load volatile i32, ptr @CritSectionCount, align 4
-  %20 = add i32 %19, -1
-  store volatile i32 %20, ptr @CritSectionCount, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @PendingBgWriterStats, i8 0, i64 32, i1 false)
-  %21 = tail call zeroext i1 @pgstat_flush_io(i1 noundef zeroext false) #5
-  br label %22
+  %21 = load i32, ptr %4, align 4
+  %22 = add i32 %21, 1
+  store i32 %22, ptr %4, align 4
+  %23 = load volatile i32, ptr @CritSectionCount, align 4
+  %24 = add i32 %23, -1
+  store volatile i32 %24, ptr @CritSectionCount, align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @PendingBgWriterStats, i8 0, i64 32, i1 false)
+  %25 = tail call zeroext i1 @pgstat_flush_io(i1 noundef zeroext false) #5
+  br label %26
 
-22:                                               ; preds = %0, %2
+26:                                               ; preds = %0, %2
   ret void
 }
 
@@ -154,16 +159,21 @@ pgstat_copy_changecounted_stats.exit:             ; preds = %8
   %11 = getelementptr inbounds i8, ptr %1, i64 384
   %12 = getelementptr inbounds i8, ptr %1, i64 328
   %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %12, i32 noundef 1) #5
+  %.sroa.0.0.copyload = load i64, ptr %11, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 392
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 400
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %14 = load <2 x i64>, ptr %11, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %12) #5
-  %15 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 192), align 8
-  %16 = sub <2 x i64> %15, %14
-  store <2 x i64> %16, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 192), align 8
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 208), align 8
-  %18 = sub i64 %17, %.sroa.3.0.copyload
-  store i64 %18, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 208), align 8
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 192), align 8
+  %15 = sub i64 %14, %.sroa.0.0.copyload
+  store i64 %15, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 192), align 8
+  %16 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 200), align 8
+  %17 = sub i64 %16, %.sroa.2.0.copyload
+  store i64 %17, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 200), align 8
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 208), align 8
+  %19 = sub i64 %18, %.sroa.3.0.copyload
+  store i64 %19, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 208), align 8
   ret void
 }
 

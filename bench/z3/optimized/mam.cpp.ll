@@ -13801,9 +13801,10 @@ if.end134:                                        ; preds = %if.end.i.i.i.i.i, %
   br label %if.end135
 
 if.end135:                                        ; preds = %_ZN6vectorIjLb0EjE5resetEv.exit, %_ZN6vectorIjLb0EjE3endEv.exit, %if.end134, %for.end
-  %159 = load <2 x ptr>, ptr %m_todo, align 8
-  %160 = shufflevector <2 x ptr> %159, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %160, ptr %m_todo, align 8
+  %159 = load ptr, ptr %m_todo, align 8
+  %160 = load ptr, ptr %m_aux, align 8
+  store ptr %160, ptr %m_todo, align 8
+  store ptr %159, ptr %m_aux, align 8
   ret void
 }
 

@@ -1410,11 +1410,17 @@ _ZStmiRKSt15_Deque_iteratorIN3net10HpackEntryERS1_PS1_El.exit: ; preds = %if.the
   store ptr %ref.tmp.sroa.4.0, ptr %ref.tmp.sroa.4.0.begin_out.sroa_idx, align 8
   %ref.tmp.sroa.6.0.begin_out.sroa_idx = getelementptr inbounds i8, ptr %begin_out, i64 24
   store ptr %ref.tmp.sroa.6.0, ptr %ref.tmp.sroa.6.0.begin_out.sroa_idx, align 8
-  %16 = load <2 x ptr>, ptr %_M_finish.i, align 8, !noalias !55
+  %16 = load ptr, ptr %_M_finish.i, align 8, !noalias !55
+  %17 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !55
+  %18 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !55
+  %19 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !55
+  store ptr %16, ptr %end_out, align 8
+  %ref.tmp4.sroa.2.0.end_out.sroa_idx = getelementptr inbounds i8, ptr %end_out, i64 8
+  store ptr %17, ptr %ref.tmp4.sroa.2.0.end_out.sroa_idx, align 8
   %ref.tmp4.sroa.3.0.end_out.sroa_idx = getelementptr inbounds i8, ptr %end_out, i64 16
-  %17 = load <2 x ptr>, ptr %_M_last4.i.i, align 8, !noalias !55
-  store <2 x ptr> %16, ptr %end_out, align 8
-  store <2 x ptr> %17, ptr %ref.tmp4.sroa.3.0.end_out.sroa_idx, align 8
+  store ptr %18, ptr %ref.tmp4.sroa.3.0.end_out.sroa_idx, align 8
+  %ref.tmp4.sroa.4.0.end_out.sroa_idx = getelementptr inbounds i8, ptr %end_out, i64 24
+  store ptr %19, ptr %ref.tmp4.sroa.4.0.end_out.sroa_idx, align 8
   ret void
 }
 

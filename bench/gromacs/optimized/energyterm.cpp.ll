@@ -621,59 +621,55 @@ define i64 @_ZNK3gmx10EnergyTerm13errorEstimateEj(ptr nocapture noundef nonnull 
 
 9:                                                ; preds = %.lr.ph46, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %._crit_edge ]
-  %10 = phi <2 x double> [ zeroinitializer, %.lr.ph46 ], [ %50, %._crit_edge ]
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %6, align 8
+  %.02345 = phi double [ 0.000000e+00, %.lr.ph46 ], [ %.1, %._crit_edge ]
+  %.02543 = phi double [ 0.000000e+00, %.lr.ph46 ], [ %.126, %._crit_edge ]
+  %10 = load ptr, ptr %7, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
-  %14 = ptrtoint ptr %12 to i64
-  %15 = sub i64 %13, %14
-  %16 = sdiv exact i64 %15, 48
-  %17 = mul nsw i64 %16, %indvars.iv
-  %18 = sdiv i64 %17, %8
-  %19 = tail call ptr @_ZNK3gmx10EnergyTerm9findFrameEl(ptr noundef nonnull align 8 dereferenceable(177) %0, i64 noundef %18)
+  %14 = sub i64 %12, %13
+  %15 = sdiv exact i64 %14, 48
+  %16 = mul nsw i64 %15, %indvars.iv
+  %17 = sdiv i64 %16, %8
+  %18 = tail call ptr @_ZNK3gmx10EnergyTerm9findFrameEl(ptr noundef nonnull align 8 dereferenceable(177) %0, i64 noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = load ptr, ptr %7, align 8
-  %21 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
-  %23 = ptrtoint ptr %21 to i64
-  %24 = sub i64 %22, %23
-  %25 = sdiv exact i64 %24, 48
-  %26 = mul nsw i64 %25, %indvars.iv.next
-  %27 = sdiv i64 %26, %8
-  %28 = tail call ptr @_ZNK3gmx10EnergyTerm9findFrameEl(ptr noundef nonnull align 8 dereferenceable(177) %0, i64 noundef %27)
-  %29 = icmp ult ptr %19, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge
+  %23 = sub i64 %21, %22
+  %24 = sdiv exact i64 %23, 48
+  %25 = mul nsw i64 %24, %indvars.iv.next
+  %26 = sdiv i64 %25, %8
+  %27 = tail call ptr @_ZNK3gmx10EnergyTerm9findFrameEl(ptr noundef nonnull align 8 dereferenceable(177) %0, i64 noundef %26)
+  %28 = icmp ult ptr %18, %27
+  br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
-  %.041 = phi i64 [ %36, %.lr.ph ], [ 0, %9 ]
-  %.02240 = phi double [ %32, %.lr.ph ], [ 0.000000e+00, %9 ]
-  %.sroa.029.039 = phi ptr [ %37, %.lr.ph ], [ %19, %9 ]
-  %30 = getelementptr inbounds i8, ptr %.sroa.029.039, i64 32
-  %31 = load double, ptr %30, align 8
-  %32 = fadd double %.02240, %31
-  %33 = getelementptr inbounds i8, ptr %.sroa.029.039, i64 24
-  %34 = load i32, ptr %33, align 8
-  %35 = sext i32 %34 to i64
-  %36 = add nsw i64 %.041, %35
-  %37 = getelementptr inbounds i8, ptr %.sroa.029.039, i64 48
-  %38 = icmp ult ptr %37, %28
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  %.041 = phi i64 [ %35, %.lr.ph ], [ 0, %9 ]
+  %.02240 = phi double [ %31, %.lr.ph ], [ 0.000000e+00, %9 ]
+  %.sroa.029.039 = phi ptr [ %36, %.lr.ph ], [ %18, %9 ]
+  %29 = getelementptr inbounds i8, ptr %.sroa.029.039, i64 32
+  %30 = load double, ptr %29, align 8
+  %31 = fadd double %.02240, %30
+  %32 = getelementptr inbounds i8, ptr %.sroa.029.039, i64 24
+  %33 = load i32, ptr %32, align 8
+  %34 = sext i32 %33 to i64
+  %35 = add nsw i64 %.041, %34
+  %36 = getelementptr inbounds i8, ptr %.sroa.029.039, i64 48
+  %37 = icmp ult ptr %36, %27
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
-  %.022.lcssa = phi double [ 0.000000e+00, %9 ], [ %32, %.lr.ph ]
-  %.0.lcssa = phi i64 [ 0, %9 ], [ %36, %.lr.ph ]
-  %39 = icmp sgt i64 %.0.lcssa, 0
-  %40 = uitofp nneg i64 %.0.lcssa to double
-  %41 = fdiv double %.022.lcssa, %40
-  %42 = extractelement <2 x double> %10, i64 1
-  %43 = fadd double %42, %41
-  %44 = extractelement <2 x double> %10, i64 0
-  %45 = tail call double @llvm.fmuladd.f64(double %41, double %41, double %44)
-  %46 = insertelement <2 x i1> poison, i1 %39, i64 0
-  %47 = shufflevector <2 x i1> %46, <2 x i1> poison, <2 x i32> zeroinitializer
-  %48 = insertelement <2 x double> poison, double %45, i64 0
-  %49 = insertelement <2 x double> %48, double %43, i64 1
-  %50 = select <2 x i1> %47, <2 x double> %49, <2 x double> %10
+  %.022.lcssa = phi double [ 0.000000e+00, %9 ], [ %31, %.lr.ph ]
+  %.0.lcssa = phi i64 [ 0, %9 ], [ %35, %.lr.ph ]
+  %38 = icmp sgt i64 %.0.lcssa, 0
+  %39 = uitofp nneg i64 %.0.lcssa to double
+  %40 = fdiv double %.022.lcssa, %39
+  %41 = fadd double %.02345, %40
+  %42 = tail call double @llvm.fmuladd.f64(double %40, double %40, double %.02543)
+  %.126 = select i1 %38, double %42, double %.02543
+  %.1 = select i1 %38, double %41, double %.02345
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
   br i1 %exitcond.not, label %._crit_edge47, label %9, !llvm.loop !12
 
@@ -681,22 +677,19 @@ define i64 @_ZNK3gmx10EnergyTerm13errorEstimateEj(ptr nocapture noundef nonnull 
   br i1 %.not50, label %_ZNSt8optionalIfEC2IdTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIfT_EESt16is_constructibleIfJS5_EESt14is_convertibleIS5_fES3_ISt5__or_IJS8_IfJRKS_IS5_EEES8_IfJRSD_EES8_IfJOSE_EES8_IfJOSD_EESA_ISF_fESA_ISH_fESA_ISJ_fESA_ISL_fEEEEEEbE4typeELb1EEESL_.exit, label %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i
 
 _ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i: ; preds = %._crit_edge47
-  %51 = uitofp i32 %1 to double
-  %52 = insertelement <2 x double> poison, double %51, i64 0
-  %53 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> zeroinitializer
-  %54 = fdiv <2 x double> %50, %53
-  %55 = fmul <2 x double> %54, %54
-  %shift = shufflevector <2 x double> %55, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %56 = fsub <2 x double> %54, %shift
-  %57 = extractelement <2 x double> %56, i64 0
-  %58 = tail call double @sqrt(double noundef %57) #16
-  %59 = fptrunc double %58 to float
-  %60 = bitcast float %59 to i32
-  %61 = zext i32 %60 to i64
+  %43 = uitofp i32 %1 to double
+  %44 = fdiv double %.126, %43
+  %45 = fdiv double %.1, %43
+  %46 = fmul double %45, %45
+  %47 = fsub double %44, %46
+  %48 = tail call double @sqrt(double noundef %47) #16
+  %49 = fptrunc double %48 to float
+  %50 = bitcast float %49 to i32
+  %51 = zext i32 %50 to i64
   br label %_ZNSt8optionalIfEC2IdTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIfT_EESt16is_constructibleIfJS5_EESt14is_convertibleIS5_fES3_ISt5__or_IJS8_IfJRKS_IS5_EEES8_IfJRSD_EES8_IfJOSE_EES8_IfJOSD_EESA_ISF_fESA_ISH_fESA_ISJ_fESA_ISL_fEEEEEEbE4typeELb1EEESL_.exit
 
 _ZNSt8optionalIfEC2IdTnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIfT_EESt16is_constructibleIfJS5_EESt14is_convertibleIS5_fES3_ISt5__or_IJS8_IfJRKS_IS5_EEES8_IfJRSD_EES8_IfJOSE_EES8_IfJOSD_EESA_ISF_fESA_ISH_fESA_ISJ_fESA_ISL_fEEEEEEbE4typeELb1EEESL_.exit: ; preds = %.preheader, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i, %._crit_edge47, %2
-  %.sroa.034.0 = phi i64 [ 0, %2 ], [ %61, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i ], [ 0, %._crit_edge47 ], [ 0, %.preheader ]
+  %.sroa.034.0 = phi i64 [ 0, %2 ], [ %51, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i ], [ 0, %._crit_edge47 ], [ 0, %.preheader ]
   %.sroa.235.0 = phi i64 [ 0, %2 ], [ 4294967296, %_ZNSt8optionalIfE7emplaceIJdEEENSt9enable_ifIX18is_constructible_vIfDpT_EERfE4typeEDpOS3_.exit.i ], [ 0, %._crit_edge47 ], [ 0, %.preheader ]
   %.sroa.034.0.insert.insert = or disjoint i64 %.sroa.235.0, %.sroa.034.0
   ret i64 %.sroa.034.0.insert.insert

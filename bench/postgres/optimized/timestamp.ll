@@ -1486,12 +1486,17 @@ tm2timestamp.exit.thread:                         ; preds = %103, %106, %.thread
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @PGTYPEStimestamp_sub_interval(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
-  %4 = alloca %struct.interval, align 16
-  %5 = load <2 x i64>, ptr %1, align 8
-  %6 = sub <2 x i64> zeroinitializer, %5
-  store <2 x i64> %6, ptr %4, align 16
-  %7 = call i32 @PGTYPEStimestamp_add_interval(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2)
-  ret i32 %7
+  %4 = alloca %struct.interval, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = load i64, ptr %5, align 8
+  %7 = sub i64 0, %6
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %7, ptr %8, align 8
+  %9 = load i64, ptr %1, align 8
+  %10 = sub i64 0, %9
+  store i64 %10, ptr %4, align 8
+  %11 = call i32 @PGTYPEStimestamp_add_interval(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2)
+  ret i32 %11
 }
 
 declare i32 @GetEpochTime(ptr noundef) local_unnamed_addr #1

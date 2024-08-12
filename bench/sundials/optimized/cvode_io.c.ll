@@ -1044,116 +1044,128 @@ define range(i32 -22, 1) i32 @CVodeSetConstraints(ptr noundef %0, ptr noundef %1
 
 4:                                                ; preds = %2
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 936, ptr noundef nonnull @__func__.CVodeSetConstraints, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #7
-  br label %62
+  br label %72
 
 5:                                                ; preds = %2
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %7, label %20
+  br i1 %6, label %7, label %25
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 1136
   %9 = load i32, ptr %8, align 8
   %.not35 = icmp eq i32 %9, 0
-  br i1 %.not35, label %18, label %10
+  br i1 %.not35, label %23, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 264
   %12 = load ptr, ptr %11, align 8
   tail call void @N_VDestroy(ptr noundef %12) #7
   %13 = getelementptr inbounds i8, ptr %0, i64 944
-  %14 = getelementptr inbounds i8, ptr %0, i64 960
-  %15 = load <2 x i64>, ptr %13, align 8
-  %16 = load <2 x i64>, ptr %14, align 8
-  %17 = sub nsw <2 x i64> %16, %15
-  store <2 x i64> %17, ptr %14, align 8
-  br label %18
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 960
+  %16 = load i64, ptr %15, align 8
+  %17 = sub nsw i64 %16, %14
+  store i64 %17, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 952
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 968
+  %21 = load i64, ptr %20, align 8
+  %22 = sub nsw i64 %21, %19
+  store i64 %22, ptr %20, align 8
+  br label %23
 
-18:                                               ; preds = %10, %7
+23:                                               ; preds = %10, %7
   store i32 0, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 0, ptr %19, align 8
-  br label %62
+  %24 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 0, ptr %24, align 8
+  br label %72
 
-20:                                               ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 112
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %42, label %26
+25:                                               ; preds = %5
+  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 112
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %47, label %31
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %22, i64 160
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %42, label %30
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds i8, ptr %27, i64 160
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %47, label %35
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %22, i64 208
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %42, label %34
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %27, i64 208
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %47, label %39
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %22, i64 224
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %42, label %38
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds i8, ptr %27, i64 224
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %47, label %43
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %22, i64 232
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %43
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %27, i64 232
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %48
 
-42:                                               ; preds = %38, %34, %30, %26, %20
+47:                                               ; preds = %43, %39, %35, %31, %25
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 963, ptr noundef nonnull @__func__.CVodeSetConstraints, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14) #7
-  br label %62
-
-43:                                               ; preds = %38
-  %44 = tail call double @N_VMaxNorm(ptr noundef nonnull %1) #7
-  %45 = fcmp ogt double %44, 2.500000e+00
-  %46 = fcmp olt double %44, 5.000000e-01
-  %or.cond = or i1 %45, %46
-  br i1 %or.cond, label %47, label %48
-
-47:                                               ; preds = %43
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 972, ptr noundef nonnull @__func__.CVodeSetConstraints, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15) #7
-  br label %62
+  br label %72
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 1136
-  %50 = load i32, ptr %49, align 8
-  %.not = icmp eq i32 %50, 0
-  br i1 %.not, label %51, label %._crit_edge
+  %49 = tail call double @N_VMaxNorm(ptr noundef nonnull %1) #7
+  %50 = fcmp ogt double %49, 2.500000e+00
+  %51 = fcmp olt double %49, 5.000000e-01
+  %or.cond = or i1 %50, %51
+  br i1 %or.cond, label %52, label %53
 
-._crit_edge:                                      ; preds = %48
+52:                                               ; preds = %48
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 972, ptr noundef nonnull @__func__.CVodeSetConstraints, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15) #7
+  br label %72
+
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds i8, ptr %0, i64 1136
+  %55 = load i32, ptr %54, align 8
+  %.not = icmp eq i32 %55, 0
+  br i1 %.not, label %56, label %._crit_edge
+
+._crit_edge:                                      ; preds = %53
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 264
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %59
+  br label %69
 
-51:                                               ; preds = %48
-  %52 = tail call ptr @N_VClone(ptr noundef nonnull %1) #7
-  %53 = getelementptr inbounds i8, ptr %0, i64 264
-  store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 944
-  %55 = getelementptr inbounds i8, ptr %0, i64 960
-  %56 = load <2 x i64>, ptr %54, align 8
-  %57 = load <2 x i64>, ptr %55, align 8
-  %58 = add nsw <2 x i64> %57, %56
-  store <2 x i64> %58, ptr %55, align 8
-  store i32 1, ptr %49, align 8
-  br label %59
+56:                                               ; preds = %53
+  %57 = tail call ptr @N_VClone(ptr noundef nonnull %1) #7
+  %58 = getelementptr inbounds i8, ptr %0, i64 264
+  store ptr %57, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 944
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = load i64, ptr %61, align 8
+  %63 = add nsw i64 %62, %60
+  store i64 %63, ptr %61, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 952
+  %65 = load i64, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 968
+  %67 = load i64, ptr %66, align 8
+  %68 = add nsw i64 %67, %65
+  store i64 %68, ptr %66, align 8
+  store i32 1, ptr %54, align 8
+  br label %69
 
-59:                                               ; preds = %._crit_edge, %51
-  %60 = phi ptr [ %.pre, %._crit_edge ], [ %52, %51 ]
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %1, ptr noundef %60) #7
-  %61 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 1, ptr %61, align 8
-  br label %62
+69:                                               ; preds = %._crit_edge, %56
+  %70 = phi ptr [ %.pre, %._crit_edge ], [ %57, %56 ]
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %1, ptr noundef %70) #7
+  %71 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 1, ptr %71, align 8
+  br label %72
 
-62:                                               ; preds = %59, %47, %42, %18, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %18 ], [ -22, %42 ], [ -22, %47 ], [ 0, %59 ]
+72:                                               ; preds = %69, %52, %47, %23, %4
+  %.0 = phi i32 [ -21, %4 ], [ 0, %23 ], [ -22, %47 ], [ -22, %52 ], [ 0, %69 ]
   ret i32 %.0
 }
 

@@ -1287,7 +1287,7 @@ define linkonce_odr dso_local void @_ZN15cmDocumentation10SetSectionI20cmDocumen
 
 10:                                               ; preds = %3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %.noexc unwind label %41
+          to label %.noexc unwind label %42
 
 .noexc:                                           ; preds = %10
   %11 = getelementptr inbounds i8, ptr %7, i64 32
@@ -1314,64 +1314,66 @@ _ZNSt16allocator_traitsISaI20cmDocumentationEntryEE9constructIS0_JRKS0_EEEvRS1_P
 20:                                               ; preds = %3
   %21 = getelementptr inbounds i8, ptr %4, i64 32
   invoke void @_ZNSt6vectorI20cmDocumentationEntrySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr %7, ptr noundef nonnull align 8 dereferenceable(65) %2)
-          to label %_ZN22cmDocumentationSection6AppendERK20cmDocumentationEntry.exit unwind label %41
+          to label %_ZN22cmDocumentationSection6AppendERK20cmDocumentationEntry.exit unwind label %42
 
 _ZN22cmDocumentationSection6AppendERK20cmDocumentationEntry.exit: ; preds = %_ZNSt16allocator_traitsISaI20cmDocumentationEntryEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit.i.i, %20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %22 = getelementptr inbounds i8, ptr %5, i64 32
   %23 = getelementptr inbounds i8, ptr %4, i64 32
-  %24 = load <2 x ptr>, ptr %23, align 8
-  store <2 x ptr> %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 48
-  %26 = load ptr, ptr %8, align 8
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %22, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 40
+  %26 = load ptr, ptr %6, align 8
   store ptr %26, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %5, i64 48
+  %28 = load ptr, ptr %8, align 8
+  store ptr %28, ptr %27, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   invoke void @_ZN15cmDocumentation10SetSectionEPKc22cmDocumentationSection(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, ptr noundef nonnull %5)
-          to label %27 unwind label %43
+          to label %29 unwind label %44
 
-27:                                               ; preds = %_ZN22cmDocumentationSection6AppendERK20cmDocumentationEntry.exit
-  %28 = getelementptr inbounds i8, ptr %5, i64 40
-  %29 = load ptr, ptr %22, align 8
-  %30 = load ptr, ptr %28, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %29, %30
+29:                                               ; preds = %_ZN22cmDocumentationSection6AppendERK20cmDocumentationEntry.exit
+  %30 = load ptr, ptr %22, align 8
+  %31 = load ptr, ptr %25, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %30, %31
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %27, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %29, %27 ]
-  %31 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #21
+.lr.ph.i.i.i.i.i:                                 ; preds = %29, %.lr.ph.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %30, %29 ]
+  %32 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #21
-  %32 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 72
-  %.not.i.i.i.i.i = icmp eq ptr %32, %30
+  %33 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 72
+  %.not.i.i.i.i.i = icmp eq ptr %33, %31
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !5
 
 _ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %22, align 8
   br label %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i, %27
-  %33 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i ], [ %29, %27 ]
-  %.not.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i.i, label %_ZN22cmDocumentationSectionD2Ev.exit, label %34
+_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i, %29
+  %34 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i ], [ %30, %29 ]
+  %.not.i.i.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i.i.i, label %_ZN22cmDocumentationSectionD2Ev.exit, label %35
 
-34:                                               ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %33) #22
+35:                                               ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %34) #22
   br label %_ZN22cmDocumentationSectionD2Ev.exit
 
-_ZN22cmDocumentationSectionD2Ev.exit:             ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i, %34
+_ZN22cmDocumentationSectionD2Ev.exit:             ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i, %35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  %35 = load ptr, ptr %23, align 8
-  %36 = load ptr, ptr %6, align 8
-  %.not4.i.i.i.i.i8 = icmp eq ptr %35, %36
+  %36 = load ptr, ptr %23, align 8
+  %37 = load ptr, ptr %6, align 8
+  %.not4.i.i.i.i.i8 = icmp eq ptr %36, %37
   br i1 %.not4.i.i.i.i.i8, label %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i14, label %.lr.ph.i.i.i.i.i9
 
 .lr.ph.i.i.i.i.i9:                                ; preds = %_ZN22cmDocumentationSectionD2Ev.exit, %.lr.ph.i.i.i.i.i9
-  %.05.i.i.i.i.i10 = phi ptr [ %38, %.lr.ph.i.i.i.i.i9 ], [ %35, %_ZN22cmDocumentationSectionD2Ev.exit ]
-  %37 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i10, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #21
+  %.05.i.i.i.i.i10 = phi ptr [ %39, %.lr.ph.i.i.i.i.i9 ], [ %36, %_ZN22cmDocumentationSectionD2Ev.exit ]
+  %38 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i10, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i10) #21
-  %38 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i10, i64 72
-  %.not.i.i.i.i.i11 = icmp eq ptr %38, %36
+  %39 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i10, i64 72
+  %.not.i.i.i.i.i11 = icmp eq ptr %39, %37
   br i1 %.not.i.i.i.i.i11, label %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i12, label %.lr.ph.i.i.i.i.i9, !llvm.loop !5
 
 _ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i12: ; preds = %.lr.ph.i.i.i.i.i9
@@ -1379,31 +1381,31 @@ _ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i
   br label %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i14
 
 _ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i14: ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i12, %_ZN22cmDocumentationSectionD2Ev.exit
-  %39 = phi ptr [ %.pr.i.i13, %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i12 ], [ %35, %_ZN22cmDocumentationSectionD2Ev.exit ]
-  %.not.i.i.i.i15 = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.i15, label %_ZN22cmDocumentationSectionD2Ev.exit16, label %40
+  %40 = phi ptr [ %.pr.i.i13, %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i12 ], [ %36, %_ZN22cmDocumentationSectionD2Ev.exit ]
+  %.not.i.i.i.i15 = icmp eq ptr %40, null
+  br i1 %.not.i.i.i.i15, label %_ZN22cmDocumentationSectionD2Ev.exit16, label %41
 
-40:                                               ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i14
-  call void @_ZdlPv(ptr noundef nonnull %39) #22
+41:                                               ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i14
+  call void @_ZdlPv(ptr noundef nonnull %40) #22
   br label %_ZN22cmDocumentationSectionD2Ev.exit16
 
-_ZN22cmDocumentationSectionD2Ev.exit16:           ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i14, %40
+_ZN22cmDocumentationSectionD2Ev.exit16:           ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i14, %41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   ret void
 
-41:                                               ; preds = %20, %10
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %20, %10
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-43:                                               ; preds = %_ZN22cmDocumentationSection6AppendERK20cmDocumentationEntry.exit
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %_ZN22cmDocumentationSection6AppendERK20cmDocumentationEntry.exit
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN22cmDocumentationSectionD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #21
   br label %.body
 
-.body:                                            ; preds = %41, %13, %43
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ], [ %14, %13 ]
+.body:                                            ; preds = %42, %13, %44
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ], [ %14, %13 ]
   call void @_ZN22cmDocumentationSectionD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   resume { ptr, i32 } %.pn
 }
@@ -1423,64 +1425,66 @@ define linkonce_odr dso_local void @_ZN15cmDocumentation10SetSectionIA2_20cmDocu
   %13 = sub i64 %11, %12
   %14 = getelementptr inbounds i8, ptr %10, i64 %13
   invoke void @_ZNSt6vectorI20cmDocumentationEntrySaIS0_EE15_M_range_insertIPKS0_EEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EET_SA_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %14, ptr noundef nonnull %2, ptr noundef nonnull %9)
-          to label %_ZN22cmDocumentationSection6AppendIA2_20cmDocumentationEntryEEvRKT_.exit unwind label %34
+          to label %_ZN22cmDocumentationSection6AppendIA2_20cmDocumentationEntryEEvRKT_.exit unwind label %35
 
 _ZN22cmDocumentationSection6AppendIA2_20cmDocumentationEntryEEvRKT_.exit: ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %15 = getelementptr inbounds i8, ptr %5, i64 32
-  %16 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %16, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 48
-  %18 = getelementptr inbounds i8, ptr %4, i64 48
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %17, align 8
+  %16 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 40
+  %18 = load ptr, ptr %7, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 48
+  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %19, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZN15cmDocumentation10SetSectionEPKc22cmDocumentationSection(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, ptr noundef nonnull %5)
-          to label %20 unwind label %36
+          to label %22 unwind label %37
 
-20:                                               ; preds = %_ZN22cmDocumentationSection6AppendIA2_20cmDocumentationEntryEEvRKT_.exit
-  %21 = getelementptr inbounds i8, ptr %5, i64 40
-  %22 = load ptr, ptr %15, align 8
-  %23 = load ptr, ptr %21, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %22, %23
+22:                                               ; preds = %_ZN22cmDocumentationSection6AppendIA2_20cmDocumentationEntryEEvRKT_.exit
+  %23 = load ptr, ptr %15, align 8
+  %24 = load ptr, ptr %17, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %23, %24
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %20, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %22, %20 ]
-  %24 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
+.lr.ph.i.i.i.i.i:                                 ; preds = %22, %.lr.ph.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %23, %22 ]
+  %25 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #21
-  %25 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 72
-  %.not.i.i.i.i.i = icmp eq ptr %25, %23
+  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 72
+  %.not.i.i.i.i.i = icmp eq ptr %26, %24
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !5
 
 _ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %15, align 8
   br label %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i, %20
-  %26 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i ], [ %22, %20 ]
-  %.not.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i, label %_ZN22cmDocumentationSectionD2Ev.exit, label %27
+_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i, %22
+  %27 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i ], [ %23, %22 ]
+  %.not.i.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i.i, label %_ZN22cmDocumentationSectionD2Ev.exit, label %28
 
-27:                                               ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %26) #22
+28:                                               ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %27) #22
   br label %_ZN22cmDocumentationSectionD2Ev.exit
 
-_ZN22cmDocumentationSectionD2Ev.exit:             ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i, %27
+_ZN22cmDocumentationSectionD2Ev.exit:             ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i, %28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  %28 = load ptr, ptr %6, align 8
-  %29 = load ptr, ptr %7, align 8
-  %.not4.i.i.i.i.i7 = icmp eq ptr %28, %29
+  %29 = load ptr, ptr %6, align 8
+  %30 = load ptr, ptr %7, align 8
+  %.not4.i.i.i.i.i7 = icmp eq ptr %29, %30
   br i1 %.not4.i.i.i.i.i7, label %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i13, label %.lr.ph.i.i.i.i.i8
 
 .lr.ph.i.i.i.i.i8:                                ; preds = %_ZN22cmDocumentationSectionD2Ev.exit, %.lr.ph.i.i.i.i.i8
-  %.05.i.i.i.i.i9 = phi ptr [ %31, %.lr.ph.i.i.i.i.i8 ], [ %28, %_ZN22cmDocumentationSectionD2Ev.exit ]
-  %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i9, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #21
+  %.05.i.i.i.i.i9 = phi ptr [ %32, %.lr.ph.i.i.i.i.i8 ], [ %29, %_ZN22cmDocumentationSectionD2Ev.exit ]
+  %31 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i9, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i9) #21
-  %31 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i9, i64 72
-  %.not.i.i.i.i.i10 = icmp eq ptr %31, %29
+  %32 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i9, i64 72
+  %.not.i.i.i.i.i10 = icmp eq ptr %32, %30
   br i1 %.not.i.i.i.i.i10, label %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i11, label %.lr.ph.i.i.i.i.i8, !llvm.loop !5
 
 _ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i11: ; preds = %.lr.ph.i.i.i.i.i8
@@ -1488,31 +1492,31 @@ _ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i
   br label %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i13
 
 _ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i13: ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i11, %_ZN22cmDocumentationSectionD2Ev.exit
-  %32 = phi ptr [ %.pr.i.i12, %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i11 ], [ %28, %_ZN22cmDocumentationSectionD2Ev.exit ]
-  %.not.i.i.i.i14 = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i14, label %_ZN22cmDocumentationSectionD2Ev.exit15, label %33
+  %33 = phi ptr [ %.pr.i.i12, %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i.i11 ], [ %29, %_ZN22cmDocumentationSectionD2Ev.exit ]
+  %.not.i.i.i.i14 = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i14, label %_ZN22cmDocumentationSectionD2Ev.exit15, label %34
 
-33:                                               ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i13
-  call void @_ZdlPv(ptr noundef nonnull %32) #22
+34:                                               ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i13
+  call void @_ZdlPv(ptr noundef nonnull %33) #22
   br label %_ZN22cmDocumentationSectionD2Ev.exit15
 
-_ZN22cmDocumentationSectionD2Ev.exit15:           ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i13, %33
+_ZN22cmDocumentationSectionD2Ev.exit15:           ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit.i.i13, %34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   ret void
 
-34:                                               ; preds = %3
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %3
+  %36 = landingpad { ptr, i32 }
           cleanup
-  br label %38
+  br label %39
 
-36:                                               ; preds = %_ZN22cmDocumentationSection6AppendIA2_20cmDocumentationEntryEEvRKT_.exit
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %_ZN22cmDocumentationSection6AppendIA2_20cmDocumentationEntryEEvRKT_.exit
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN22cmDocumentationSectionD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #21
-  br label %38
+  br label %39
 
-38:                                               ; preds = %36, %34
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
+39:                                               ; preds = %37, %35
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
   call void @_ZN22cmDocumentationSectionD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   resume { ptr, i32 } %.pn
 }

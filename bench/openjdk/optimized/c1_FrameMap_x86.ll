@@ -335,28 +335,52 @@ define hidden i32 @_ZN8FrameMap9nr2xmmregEi(i32 noundef %0) local_unnamed_addr #
 define hidden void @_ZN8FrameMap10initializeEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %class.VMRegPair, align 8
   %2 = alloca i8, align 1
+  store i32 6, ptr @_ZN8FrameMap12_cpu_rnr2regE, align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 24), align 8
   store i64 11, ptr @_ZN8FrameMap7rsi_oprE, align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 28), align 4
   store i64 16395, ptr @_ZN8FrameMap7rdi_oprE, align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 8), align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 12), align 4
   store i64 32779, ptr @_ZN8FrameMap7rbx_oprE, align 8
-  store <4 x i32> <i32 6, i32 7, i32 3, i32 0>, ptr @_ZN8FrameMap12_cpu_rnr2regE, align 16
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 12), align 4
+  store i32 3, ptr @_ZN8FrameMap12_cpu_reg2rnrE, align 16
   store i64 49163, ptr @_ZN8FrameMap7rax_oprE, align 8
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 16), align 16
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 8), align 8
   store i64 65547, ptr @_ZN8FrameMap7rdx_oprE, align 8
-  store <4 x i32> <i32 3, i32 5, i32 4, i32 2>, ptr @_ZN8FrameMap12_cpu_reg2rnrE, align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 20), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 4), align 4
   store i64 81931, ptr @_ZN8FrameMap7rcx_oprE, align 8
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 24), align 8
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 32), align 16
   store i64 98315, ptr @_ZN8FrameMap6r8_oprE, align 8
-  store <4 x i32> <i32 2, i32 1, i32 8, i32 9>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 16), align 16
+  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 28), align 4
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 36), align 4
   store i64 114699, ptr @_ZN8FrameMap6r9_oprE, align 8
+  store i32 11, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 32), align 16
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 44), align 4
   store i64 131083, ptr @_ZN8FrameMap7r11_oprE, align 8
+  store i32 13, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 36), align 4
+  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 52), align 4
   store i64 147467, ptr @_ZN8FrameMap7r13_oprE, align 8
+  store i32 14, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 40), align 8
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 56), align 8
   store i64 163851, ptr @_ZN8FrameMap7r14_oprE, align 8
-  store <4 x i32> <i32 11, i32 13, i32 14, i32 12>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 32), align 16
+  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 44), align 4
+  store i32 11, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 48), align 16
   store i64 180235, ptr @_ZN8FrameMap7r12_oprE, align 8
-  store <4 x i32> <i32 6, i32 7, i32 12, i32 8>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 32), align 16
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 48), align 16
+  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 40), align 8
   store i64 196619, ptr @_ZN8FrameMap7r10_oprE, align 8
-  store <4 x i32> <i32 11, i32 9, i32 10, i32 13>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 48), align 16
+  store i32 15, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 52), align 4
+  store i32 13, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 60), align 4
   store i64 213003, ptr @_ZN8FrameMap7r15_oprE, align 8
-  store <4 x i32> <i32 10, i32 15, i32 4, i32 5>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 48), align 16
-  store <4 x i32> <i32 14, i32 15, i32 0, i32 1>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 16), align 16
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 56), align 8
+  store i32 14, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 16), align 16
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_rnr2regE, i64 60), align 4
+  store i32 15, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 20), align 4
   store i64 25215123, ptr @_ZN8FrameMap9long0_oprE, align 8
   store i64 16810131, ptr @_ZN8FrameMap9long1_oprE, align 8
   store i64 45, ptr @_ZN8FrameMap14fpu0_float_oprE, align 8
@@ -388,14 +412,38 @@ define hidden void @_ZN8FrameMap10initializeEv() local_unnamed_addr #0 align 2 {
   store i64 %14, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap21_caller_save_cpu_regsE, i64 80), align 16
   %15 = load i64, ptr @_ZN8FrameMap7r12_oprE, align 8
   store i64 %15, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap21_caller_save_cpu_regsE, i64 88), align 8
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr @_ZN8FrameMap9_xmm_regsE, align 16
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 16), align 16
-  store <4 x i32> <i32 8, i32 9, i32 10, i32 11>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 32), align 16
-  store <4 x i32> <i32 12, i32 13, i32 14, i32 15>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 48), align 16
-  store <4 x i32> <i32 16, i32 17, i32 18, i32 19>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 64), align 16
-  store <4 x i32> <i32 20, i32 21, i32 22, i32 23>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 80), align 16
-  store <4 x i32> <i32 24, i32 25, i32 26, i32 27>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 96), align 16
-  store <4 x i32> <i32 28, i32 29, i32 30, i32 31>, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 112), align 16
+  store i32 0, ptr @_ZN8FrameMap9_xmm_regsE, align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 8), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 12), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 16), align 16
+  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 20), align 4
+  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 24), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 28), align 4
+  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 32), align 16
+  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 36), align 4
+  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 40), align 8
+  store i32 11, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 44), align 4
+  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 48), align 16
+  store i32 13, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 52), align 4
+  store i32 14, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 56), align 8
+  store i32 15, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 60), align 4
+  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 64), align 16
+  store i32 17, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 68), align 4
+  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 72), align 8
+  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 76), align 4
+  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 80), align 16
+  store i32 21, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 84), align 4
+  store i32 22, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 88), align 8
+  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 92), align 4
+  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 96), align 16
+  store i32 25, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 100), align 4
+  store i32 26, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 104), align 8
+  store i32 27, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 108), align 4
+  store i32 28, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 112), align 16
+  store i32 29, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 116), align 4
+  store i32 30, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 120), align 8
+  store i32 31, ptr getelementptr inbounds (i8, ptr @_ZN8FrameMap9_xmm_regsE, i64 124), align 4
   br label %16
 
 16:                                               ; preds = %0, %16
@@ -567,17 +615,23 @@ declare noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9V
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZNK8FrameMap16make_new_addressE8ByteSize(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
-  store <4 x i32> <i32 4, i32 -1, i32 -1, i32 -1>, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 0, ptr %8, align 8
+  store i32 4, ptr %0, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -1, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i8 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 0, ptr %11, align 8
   ret void
 }
 

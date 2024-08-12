@@ -85,20 +85,30 @@ entry:
   store i32 %3, ptr %MsgContext3, align 1
   %MsgLength = getelementptr inbounds i8, ptr %reply, i64 2
   store i8 6, ptr %MsgLength, align 1
+  %PageType = getelementptr inbounds i8, ptr %req, i64 23
+  %4 = load i8, ptr %PageType, align 1
+  %PageType4 = getelementptr inbounds i8, ptr %reply, i64 23
+  store i8 %4, ptr %PageType4, align 1
+  %PageNumber = getelementptr inbounds i8, ptr %req, i64 22
+  %5 = load i8, ptr %PageNumber, align 1
+  %PageNumber5 = getelementptr inbounds i8, ptr %reply, i64 22
+  store i8 %5, ptr %PageNumber5, align 1
+  %PageLength = getelementptr inbounds i8, ptr %req, i64 21
+  %6 = load i8, ptr %PageLength, align 1
   %PageLength6 = getelementptr inbounds i8, ptr %reply, i64 21
+  store i8 %6, ptr %PageLength6, align 1
   %PageVersion = getelementptr inbounds i8, ptr %req, i64 20
+  %7 = load i8, ptr %PageVersion, align 1
   %PageVersion7 = getelementptr inbounds i8, ptr %reply, i64 20
-  %4 = load <4 x i8>, ptr %PageVersion, align 1
-  store <4 x i8> %4, ptr %PageVersion7, align 1
-  %5 = extractelement <4 x i8> %4, i64 3
-  %6 = and i8 %5, 15
-  %cmp = icmp eq i8 %6, 15
+  store i8 %7, ptr %PageVersion7, align 1
+  %8 = and i8 %4, 15
+  %cmp = icmp eq i8 %8, 15
   br i1 %cmp, label %if.then, label %if.end18
 
 if.then:                                          ; preds = %entry
   %ExtPageType = getelementptr inbounds i8, ptr %req, i64 6
-  %7 = load i8, ptr %ExtPageType, align 1
-  %cmp13 = icmp ult i8 %7, 16
+  %9 = load i8, ptr %ExtPageType, align 1
+  %cmp13 = icmp ult i8 %9, 16
   br i1 %cmp13, label %if.then15, label %if.end
 
 if.then15:                                        ; preds = %if.then
@@ -108,25 +118,24 @@ if.then15:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %ExtPageType17 = getelementptr inbounds i8, ptr %reply, i64 6
-  store i8 %7, ptr %ExtPageType17, align 1
+  store i8 %9, ptr %ExtPageType17, align 1
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %entry
-  %type.0 = phi i8 [ %7, %if.end ], [ %6, %entry ]
-  %8 = extractelement <4 x i8> %4, i64 2
+  %type.0 = phi i8 [ %9, %if.end ], [ %8, %entry ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end18
   %indvars.iv.i = phi i64 [ 0, %if.end18 ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr [32 x %struct.MPTSASConfigPage], ptr @mptsas_config_pages, i64 0, i64 %indvars.iv.i
   %type2.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
-  %9 = load i8, ptr %type2.i, align 1
-  %cmp4.i = icmp eq i8 %9, %type.0
+  %10 = load i8, ptr %type2.i, align 1
+  %cmp4.i = icmp eq i8 %10, %type.0
   br i1 %cmp4.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %10 = load i8, ptr %arrayidx.i, align 16
-  %cmp8.i = icmp eq i8 %10, %8
+  %11 = load i8, ptr %arrayidx.i, align 16
+  %cmp8.i = icmp eq i8 %11, %5
   br i1 %cmp8.i, label %mptsas_find_config_page.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
@@ -151,13 +160,13 @@ for.body.i52:                                     ; preds = %mptsas_find_config_
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i59, %for.inc.i58 ], [ 0, %mptsas_find_config_page.exit.thread ]
   %arrayidx.i54 = getelementptr [32 x %struct.MPTSASConfigPage], ptr @mptsas_config_pages, i64 0, i64 %indvars.iv.i53
   %type2.i55 = getelementptr inbounds i8, ptr %arrayidx.i54, i64 1
-  %11 = load i8, ptr %type2.i55, align 1
-  %cmp4.i57 = icmp eq i8 %11, %type.0
+  %12 = load i8, ptr %type2.i55, align 1
+  %cmp4.i57 = icmp eq i8 %12, %type.0
   br i1 %cmp4.i57, label %land.lhs.true.i62, label %for.inc.i58
 
 land.lhs.true.i62:                                ; preds = %for.body.i52
-  %12 = load i8, ptr %arrayidx.i54, align 16
-  %cmp8.i64 = icmp eq i8 %12, 1
+  %13 = load i8, ptr %arrayidx.i54, align 16
+  %cmp8.i64 = icmp eq i8 %13, 1
   br i1 %cmp8.i64, label %if.then30, label %for.inc.i58
 
 for.inc.i58:                                      ; preds = %land.lhs.true.i62, %for.body.i52
@@ -185,10 +194,10 @@ if.end34:                                         ; preds = %mptsas_find_config_
 
 if.then43:                                        ; preds = %if.end34, %if.end34
   %mpt_config_build = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %13 = load ptr, ptr %mpt_config_build, align 8
+  %14 = load ptr, ptr %mpt_config_build, align 8
   %PageAddress = getelementptr inbounds i8, ptr %req, i64 24
-  %14 = load i32, ptr %PageAddress, align 1
-  %call44 = tail call i64 %13(ptr noundef %s, ptr noundef null, i32 noundef %14) #13
+  %15 = load i32, ptr %PageAddress, align 1
+  %call44 = tail call i64 %14(ptr noundef %s, ptr noundef null, i32 noundef %15) #13
   %cmp45 = icmp slt i64 %call44, 0
   br i1 %cmp45, label %if.then47, label %done
 
@@ -199,10 +208,10 @@ if.then47:                                        ; preds = %if.then43
 
 if.then60:                                        ; preds = %if.end34, %if.end34
   %mpt_config_build61 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %15 = load ptr, ptr %mpt_config_build61, align 8
+  %16 = load ptr, ptr %mpt_config_build61, align 8
   %PageAddress62 = getelementptr inbounds i8, ptr %req, i64 24
-  %16 = load i32, ptr %PageAddress62, align 1
-  %call63 = tail call i64 %15(ptr noundef %s, ptr noundef null, i32 noundef %16) #13
+  %17 = load i32, ptr %PageAddress62, align 1
+  %call63 = tail call i64 %16(ptr noundef %s, ptr noundef null, i32 noundef %17) #13
   %cmp64 = icmp slt i64 %call63, 0
   %IOCStatus67 = getelementptr inbounds i8, ptr %reply, i64 14
   br i1 %cmp64, label %if.then66, label %if.else68
@@ -217,17 +226,17 @@ if.else68:                                        ; preds = %if.then60
 
 if.end71:                                         ; preds = %if.end34
   %PageBufferSGE = getelementptr inbounds i8, ptr %req, i64 28
-  %17 = load i32, ptr %PageBufferSGE, align 1
-  %and72 = and i32 %17, 16777215
+  %18 = load i32, ptr %PageBufferSGE, align 1
+  %and72 = and i32 %18, 16777215
   %cmp73 = icmp eq i32 %and72, 0
   br i1 %cmp73, label %if.then75, label %if.end84
 
 if.then75:                                        ; preds = %if.end71
   %mpt_config_build76 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %18 = load ptr, ptr %mpt_config_build76, align 8
+  %19 = load ptr, ptr %mpt_config_build76, align 8
   %PageAddress77 = getelementptr inbounds i8, ptr %req, i64 24
-  %19 = load i32, ptr %PageAddress77, align 1
-  %call78 = tail call i64 %18(ptr noundef %s, ptr noundef null, i32 noundef %19) #13
+  %20 = load i32, ptr %PageAddress77, align 1
+  %call78 = tail call i64 %19(ptr noundef %s, ptr noundef null, i32 noundef %20) #13
   %cmp79 = icmp slt i64 %call78, 0
   br i1 %cmp79, label %if.then81, label %done
 
@@ -237,27 +246,27 @@ if.then81:                                        ; preds = %if.then75
   br label %out
 
 if.end84:                                         ; preds = %if.end71
-  %and85 = and i32 %17, 33554432
+  %and85 = and i32 %18, 33554432
   %tobool86.not = icmp eq i32 %and85, 0
   %u91 = getelementptr inbounds i8, ptr %req, i64 32
   br i1 %tobool86.not, label %if.else89, label %if.then87
 
 if.then87:                                        ; preds = %if.end84
-  %20 = load i64, ptr %u91, align 1
+  %21 = load i64, ptr %u91, align 1
   br label %if.end93
 
 if.else89:                                        ; preds = %if.end84
-  %21 = load i32, ptr %u91, align 1
-  %conv92 = zext i32 %21 to i64
+  %22 = load i32, ptr %u91, align 1
+  %conv92 = zext i32 %22 to i64
   br label %if.end93
 
 if.end93:                                         ; preds = %if.else89, %if.then87
-  %pa.0 = phi i64 [ %20, %if.then87 ], [ %conv92, %if.else89 ]
+  %pa.0 = phi i64 [ %21, %if.then87 ], [ %conv92, %if.else89 ]
   %mpt_config_build94 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %22 = load ptr, ptr %mpt_config_build94, align 8
+  %23 = load ptr, ptr %mpt_config_build94, align 8
   %PageAddress95 = getelementptr inbounds i8, ptr %req, i64 24
-  %23 = load i32, ptr %PageAddress95, align 1
-  %call96 = call i64 %22(ptr noundef %s, ptr noundef nonnull %data, i32 noundef %23) #13
+  %24 = load i32, ptr %PageAddress95, align 1
+  %call96 = call i64 %23(ptr noundef %s, ptr noundef nonnull %data, i32 noundef %24) #13
   %cmp97 = icmp slt i64 %call96, 0
   br i1 %cmp97, label %if.then99, label %if.else101
 
@@ -267,10 +276,10 @@ if.then99:                                        ; preds = %if.end93
   br label %out
 
 if.else101:                                       ; preds = %if.end93
-  %24 = load ptr, ptr %data, align 8
-  %arrayidx = getelementptr i8, ptr %24, i64 2
-  %25 = load i8, ptr %arrayidx, align 1
-  %cmp104 = icmp eq i8 %25, %8
+  %25 = load ptr, ptr %data, align 8
+  %arrayidx = getelementptr i8, ptr %25, i64 2
+  %26 = load i8, ptr %arrayidx, align 1
+  %cmp104 = icmp eq i8 %26, %5
   br i1 %cmp104, label %if.end108, label %if.else107
 
 if.else107:                                       ; preds = %if.else101
@@ -283,7 +292,7 @@ if.end108:                                        ; preds = %if.else101
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %pa.0, i32 1, ptr noundef nonnull %24, i64 noundef %cond, i1 noundef zeroext true) #13
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %pa.0, i32 1, ptr noundef nonnull %25, i64 noundef %cond, i1 noundef zeroext true) #13
   br label %done
 
 done:                                             ; preds = %if.then75, %if.then43, %if.end108
@@ -297,9 +306,9 @@ if.then116:                                       ; preds = %done
   %ExtPageLength = getelementptr inbounds i8, ptr %reply, i64 4
   store i16 %conv117, ptr %ExtPageLength, align 1
   %ExtPageType118 = getelementptr inbounds i8, ptr %req, i64 6
-  %26 = load i8, ptr %ExtPageType118, align 1
+  %27 = load i8, ptr %ExtPageType118, align 1
   %ExtPageType119 = getelementptr inbounds i8, ptr %reply, i64 6
-  store i8 %26, ptr %ExtPageType119, align 1
+  store i8 %27, ptr %ExtPageType119, align 1
   br label %out
 
 if.else120:                                       ; preds = %done
@@ -310,8 +319,8 @@ if.else120:                                       ; preds = %done
 out:                                              ; preds = %if.then116, %if.else120, %if.then66, %if.else68, %if.then30, %if.else, %if.then99, %if.then81, %if.then47, %sw.default, %if.then15
   call void @mptsas_fix_config_reply_endianness(ptr noundef nonnull %reply) #13
   call void @mptsas_reply(ptr noundef %s, ptr noundef nonnull %reply) #13
-  %27 = load ptr, ptr %data, align 8
-  call void @g_free(ptr noundef %27) #13
+  %28 = load ptr, ptr %data, align 8
+  call void @g_free(ptr noundef %28) #13
   ret void
 }
 

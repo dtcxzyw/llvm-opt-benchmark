@@ -268,7 +268,7 @@ define internal ptr @adjust_appendrel_attrs_mutator(ptr noundef %0, ptr noundef 
 
 8:                                                ; preds = %2
   %9 = load i32, ptr %0, align 4
-  switch i32 %9, label %335 [
+  switch i32 %9, label %338 [
     i32 6, label %10
     i32 51, label %176
     i32 303, label %191
@@ -921,21 +921,27 @@ adjust_child_relids.exit240:                      ; preds = %328, %adjust_child_
   %330 = getelementptr inbounds i8, ptr %216, i64 112
   store double -1.000000e+00, ptr %330, align 8
   %331 = getelementptr inbounds i8, ptr %216, i64 128
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %331, align 8
-  %332 = getelementptr inbounds i8, ptr %216, i64 168
-  %333 = getelementptr inbounds i8, ptr %216, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %332, i8 0, i64 24, i1 false)
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %333, align 8
-  %334 = getelementptr inbounds i8, ptr %216, i64 216
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %334, align 8
+  store double -1.000000e+00, ptr %331, align 8
+  %332 = getelementptr inbounds i8, ptr %216, i64 136
+  store double -1.000000e+00, ptr %332, align 8
+  %333 = getelementptr inbounds i8, ptr %216, i64 168
+  %334 = getelementptr inbounds i8, ptr %216, i64 200
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %333, i8 0, i64 24, i1 false)
+  store double -1.000000e+00, ptr %334, align 8
+  %335 = getelementptr inbounds i8, ptr %216, i64 208
+  store double -1.000000e+00, ptr %335, align 8
+  %336 = getelementptr inbounds i8, ptr %216, i64 216
+  store double -1.000000e+00, ptr %336, align 8
+  %337 = getelementptr inbounds i8, ptr %216, i64 224
+  store double -1.000000e+00, ptr %337, align 8
   br label %.loopexit
 
-335:                                              ; preds = %8
-  %336 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %0, ptr noundef nonnull @adjust_appendrel_attrs_mutator, ptr noundef nonnull %1) #8
+338:                                              ; preds = %8
+  %339 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %0, ptr noundef nonnull @adjust_appendrel_attrs_mutator, ptr noundef nonnull %1) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %181, %.preheader, %129, %176, %191, %adjust_child_relids.exit, %188, %78, %83, %._crit_edge253, %161, %._crit_edge, %95, %72, %74, %10, %2, %335, %adjust_child_relids.exit240, %168, %86
-  %.0 = phi ptr [ %87, %86 ], [ %175, %168 ], [ %216, %adjust_child_relids.exit240 ], [ %336, %335 ], [ null, %2 ], [ %11, %10 ], [ %57, %74 ], [ %57, %72 ], [ %110, %95 ], [ %11, %83 ], [ %11, %78 ], [ %164, %161 ], [ %11, %._crit_edge253 ], [ %11, %._crit_edge ], [ %177, %188 ], [ %192, %adjust_child_relids.exit ], [ %192, %191 ], [ %177, %176 ], [ %11, %129 ], [ %11, %.preheader ], [ %177, %181 ]
+.loopexit:                                        ; preds = %181, %.preheader, %129, %176, %191, %adjust_child_relids.exit, %188, %78, %83, %._crit_edge253, %161, %._crit_edge, %95, %72, %74, %10, %2, %338, %adjust_child_relids.exit240, %168, %86
+  %.0 = phi ptr [ %87, %86 ], [ %175, %168 ], [ %216, %adjust_child_relids.exit240 ], [ %339, %338 ], [ null, %2 ], [ %11, %10 ], [ %57, %74 ], [ %57, %72 ], [ %110, %95 ], [ %11, %83 ], [ %11, %78 ], [ %164, %161 ], [ %11, %._crit_edge253 ], [ %11, %._crit_edge ], [ %177, %188 ], [ %192, %adjust_child_relids.exit ], [ %192, %191 ], [ %177, %176 ], [ %11, %129 ], [ %11, %.preheader ], [ %177, %181 ]
   ret ptr %.0
 }
 

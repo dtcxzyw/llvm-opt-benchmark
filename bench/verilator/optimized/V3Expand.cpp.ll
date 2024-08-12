@@ -16228,7 +16228,7 @@ define linkonce_odr dso_local void @_ZN8V3Number6setBitEic(ptr noundef nonnull a
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %.not = icmp sgt i32 %5, %1
-  br i1 %.not, label %6, label %47
+  br i1 %.not, label %6, label %49
 
 6:                                                ; preds = %3
   %7 = and i32 %1, 31
@@ -16254,55 +16254,59 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
   %19 = sdiv i32 %1, 32
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %20
-  switch i8 %2, label %42 [
+  switch i8 %2, label %43 [
     i8 48, label %22
     i8 0, label %22
-    i8 49, label %28
-    i8 1, label %28
-    i8 122, label %35
-    i8 2, label %35
+    i8 49, label %29
+    i8 1, label %29
+    i8 122, label %36
+    i8 2, label %36
   ]
 
 22:                                               ; preds = %_ZN12V3NumberData3numEv.exit, %_ZN12V3NumberData3numEv.exit
   %23 = xor i32 %8, -1
-  %24 = load <2 x i32>, ptr %21, align 4
-  %25 = insertelement <2 x i32> poison, i32 %23, i64 0
-  %26 = shufflevector <2 x i32> %25, <2 x i32> poison, <2 x i32> zeroinitializer
-  %27 = and <2 x i32> %24, %26
-  store <2 x i32> %27, ptr %21, align 4
-  br label %47
+  %24 = load i32, ptr %21, align 4
+  %25 = and i32 %24, %23
+  store i32 %25, ptr %21, align 4
+  %26 = getelementptr inbounds i8, ptr %21, i64 4
+  %27 = load i32, ptr %26, align 4
+  %28 = and i32 %27, %23
+  store i32 %28, ptr %26, align 4
+  br label %49
 
-28:                                               ; preds = %_ZN12V3NumberData3numEv.exit, %_ZN12V3NumberData3numEv.exit
-  %29 = load i32, ptr %21, align 4
-  %30 = or i32 %29, %8
-  store i32 %30, ptr %21, align 4
-  %31 = xor i32 %8, -1
-  %32 = getelementptr inbounds i8, ptr %21, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = and i32 %33, %31
-  store i32 %34, ptr %32, align 4
-  br label %47
+29:                                               ; preds = %_ZN12V3NumberData3numEv.exit, %_ZN12V3NumberData3numEv.exit
+  %30 = load i32, ptr %21, align 4
+  %31 = or i32 %30, %8
+  store i32 %31, ptr %21, align 4
+  %32 = xor i32 %8, -1
+  %33 = getelementptr inbounds i8, ptr %21, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = and i32 %34, %32
+  store i32 %35, ptr %33, align 4
+  br label %49
 
-35:                                               ; preds = %_ZN12V3NumberData3numEv.exit, %_ZN12V3NumberData3numEv.exit
-  %36 = xor i32 %8, -1
-  %37 = load i32, ptr %21, align 4
-  %38 = and i32 %37, %36
-  store i32 %38, ptr %21, align 4
-  %39 = getelementptr inbounds i8, ptr %21, i64 4
-  %40 = load i32, ptr %39, align 4
-  %41 = or i32 %40, %8
-  store i32 %41, ptr %39, align 4
-  br label %47
+36:                                               ; preds = %_ZN12V3NumberData3numEv.exit, %_ZN12V3NumberData3numEv.exit
+  %37 = xor i32 %8, -1
+  %38 = load i32, ptr %21, align 4
+  %39 = and i32 %38, %37
+  store i32 %39, ptr %21, align 4
+  %40 = getelementptr inbounds i8, ptr %21, i64 4
+  %41 = load i32, ptr %40, align 4
+  %42 = or i32 %41, %8
+  store i32 %42, ptr %40, align 4
+  br label %49
 
-42:                                               ; preds = %_ZN12V3NumberData3numEv.exit
-  %43 = load <2 x i32>, ptr %21, align 4
-  %44 = insertelement <2 x i32> poison, i32 %8, i64 0
-  %45 = shufflevector <2 x i32> %44, <2 x i32> poison, <2 x i32> zeroinitializer
-  %46 = or <2 x i32> %43, %45
-  store <2 x i32> %46, ptr %21, align 4
-  br label %47
+43:                                               ; preds = %_ZN12V3NumberData3numEv.exit
+  %44 = load i32, ptr %21, align 4
+  %45 = or i32 %44, %8
+  store i32 %45, ptr %21, align 4
+  %46 = getelementptr inbounds i8, ptr %21, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = or i32 %47, %8
+  store i32 %48, ptr %46, align 4
+  br label %49
 
-47:                                               ; preds = %28, %42, %35, %3, %22
+49:                                               ; preds = %29, %43, %36, %3, %22
   ret void
 }
 

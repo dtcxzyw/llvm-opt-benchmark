@@ -2325,14 +2325,17 @@ entry:
 define hidden void @_ZN7datalog3bmc10get_answerEv(ptr noalias nocapture writeonly sret(%class.obj_ref.25) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) unnamed_addr #7 align 2 {
 entry:
   %m_answer = getelementptr inbounds i8, ptr %this, i64 336
-  %0 = load <2 x ptr>, ptr %m_answer, align 8
-  %1 = load ptr, ptr %m_answer, align 8
-  store <2 x ptr> %0, ptr %agg.result, align 8
-  %tobool.not.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %m_answer, align 8
+  store ptr %0, ptr %agg.result, align 8
+  %m_manager.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %m_manager3.i = getelementptr inbounds i8, ptr %this, i64 344
+  %1 = load ptr, ptr %m_manager3.i, align 8
+  store ptr %1, ptr %m_manager.i, align 8
+  %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refI4expr11ast_managerEC2ERKS2_.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %entry
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i32, ptr %m_ref_count.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %2, 1
   store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4

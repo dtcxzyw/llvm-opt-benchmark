@@ -640,256 +640,267 @@ declare void @_ZN3gmx24TrajectoryAnalysisModule11startFramesERKNS_27AnalysisData
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate12analyzeFrameEiRK10t_trxframeP5t_pbcPNS_28TrajectoryAnalysisModuleDataE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #6 align 2 {
   %6 = alloca %"class.gmx::AnalysisDataHandle", align 8
-  %7 = alloca %"class.gmx::BasicVector", align 8
-  %8 = alloca %"class.gmx::BasicVector", align 8
+  %7 = alloca %"class.gmx::BasicVector", align 4
+  %8 = alloca %"class.gmx::BasicVector", align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = tail call ptr @_ZN3gmx28TrajectoryAnalysisModuleData17parallelSelectionERKNS_9SelectionE(ptr noundef nonnull align 8 dereferenceable(8) %9)
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   %12 = tail call ptr @_ZN3gmx28TrajectoryAnalysisModuleData10dataHandleERKNS_12AnalysisDataE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(24) %11)
   store ptr %12, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 112
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph, label %._crit_edge
+  %13 = getelementptr inbounds i8, ptr %7, i64 4
+  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds i8, ptr %10, i64 112
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 64
-  %switch = icmp ult i64 %18, 3
-  br i1 %switch, label %.lr.ph.split, label %61
+  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %10, i64 64
+  %switch = icmp ult i64 %19, 3
+  br i1 %switch, label %.lr.ph.split, label %72
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  switch i64 %18, label %.lr.ph.split.split [
+  switch i64 %19, label %.lr.ph.split.split [
     i64 2, label %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader
     i64 0, label %.lr.ph.split.split.us109
   ]
 
 _ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader: ; preds = %.lr.ph.split
-  %wide.trip.count144 = zext nneg i32 %15 to i64
-  %.pre155 = load ptr, ptr %19, align 8
+  %wide.trip.count144 = zext nneg i32 %16 to i64
+  %.pre155 = load ptr, ptr %20, align 8
   br label %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us
 
 _ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us: ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us
+  %21 = phi float [ 0.000000e+00, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader ], [ %31, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ]
+  %22 = phi float [ 0.000000e+00, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader ], [ %30, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ]
   %indvars.iv141 = phi i64 [ 0, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader ], [ %indvars.iv.next142, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ]
-  %.091107.us = phi float [ 0.000000e+00, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader ], [ %28, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ]
-  %20 = phi float [ 0.000000e+00, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader ], [ %27, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ]
-  %21 = phi <2 x float> [ zeroinitializer, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader ], [ %26, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ]
-  %22 = getelementptr inbounds [3 x float], ptr %.pre155, i64 %indvars.iv141
-  %23 = load <2 x float>, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %.091107.us = phi float [ 0.000000e+00, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader ], [ %33, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ]
+  %23 = phi float [ 0.000000e+00, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader ], [ %32, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ]
+  %24 = getelementptr inbounds [3 x float], ptr %.pre155, i64 %indvars.iv141
   %25 = load float, ptr %24, align 4
-  %26 = fadd <2 x float> %23, %21
-  %27 = fadd float %25, %20
-  %28 = fadd float %.091107.us, 1.000000e+00
+  %26 = getelementptr inbounds i8, ptr %24, i64 4
+  %27 = load float, ptr %26, align 4
+  %28 = getelementptr inbounds i8, ptr %24, i64 8
+  %29 = load float, ptr %28, align 4
+  %30 = fadd float %25, %22
+  %31 = fadd float %27, %21
+  %32 = fadd float %29, %23
+  %33 = fadd float %.091107.us, 1.000000e+00
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
   br i1 %exitcond145.not, label %._crit_edge, label %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us, !llvm.loop !5
 
 .lr.ph.split.split.us109:                         ; preds = %.lr.ph.split
-  %29 = getelementptr inbounds i8, ptr %10, i64 216
-  %wide.trip.count = zext nneg i32 %15 to i64
-  %.pre = load ptr, ptr %29, align 8
-  %.pre154 = load ptr, ptr %19, align 8
+  %34 = getelementptr inbounds i8, ptr %10, i64 216
+  %wide.trip.count = zext nneg i32 %16 to i64
+  %.pre = load ptr, ptr %34, align 8
+  %.pre154 = load ptr, ptr %20, align 8
   br label %.sink.split.i.us112
 
 .sink.split.i.us112:                              ; preds = %.sink.split.i.us112, %.lr.ph.split.split.us109
+  %35 = phi float [ %50, %.sink.split.i.us112 ], [ 0.000000e+00, %.lr.ph.split.split.us109 ]
+  %36 = phi float [ %49, %.sink.split.i.us112 ], [ 0.000000e+00, %.lr.ph.split.split.us109 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.sink.split.i.us112 ], [ 0, %.lr.ph.split.split.us109 ]
-  %.091107.us111 = phi float [ %44, %.sink.split.i.us112 ], [ 0.000000e+00, %.lr.ph.split.split.us109 ]
-  %30 = phi float [ %43, %.sink.split.i.us112 ], [ 0.000000e+00, %.lr.ph.split.split.us109 ]
-  %31 = phi <2 x float> [ %42, %.sink.split.i.us112 ], [ zeroinitializer, %.lr.ph.split.split.us109 ]
-  %32 = getelementptr inbounds float, ptr %.pre, i64 %indvars.iv
-  %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds [3 x float], ptr %.pre154, i64 %indvars.iv
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = load float, ptr %35, align 4
-  %37 = load <2 x float>, ptr %34, align 4
-  %38 = insertelement <2 x float> poison, float %33, i64 0
-  %39 = shufflevector <2 x float> %38, <2 x float> poison, <2 x i32> zeroinitializer
-  %40 = fmul <2 x float> %39, %37
-  %41 = fmul float %33, %36
-  %42 = fadd <2 x float> %40, %31
-  %43 = fadd float %41, %30
-  %44 = fadd float %.091107.us111, %33
+  %.091107.us111 = phi float [ %52, %.sink.split.i.us112 ], [ 0.000000e+00, %.lr.ph.split.split.us109 ]
+  %37 = phi float [ %51, %.sink.split.i.us112 ], [ 0.000000e+00, %.lr.ph.split.split.us109 ]
+  %38 = getelementptr inbounds float, ptr %.pre, i64 %indvars.iv
+  %39 = load float, ptr %38, align 4
+  %40 = getelementptr inbounds [3 x float], ptr %.pre154, i64 %indvars.iv
+  %41 = load float, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %40, i64 4
+  %43 = load float, ptr %42, align 4
+  %44 = getelementptr inbounds i8, ptr %40, i64 8
+  %45 = load float, ptr %44, align 4
+  %46 = fmul float %39, %41
+  %47 = fmul float %39, %43
+  %48 = fmul float %39, %45
+  %49 = fadd float %46, %36
+  %50 = fadd float %47, %35
+  %51 = fadd float %48, %37
+  %52 = fadd float %.091107.us111, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.sink.split.i.us112, !llvm.loop !5
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %45 = getelementptr inbounds i8, ptr %10, i64 240
-  %wide.trip.count149 = zext nneg i32 %15 to i64
-  %.pre156 = load ptr, ptr %45, align 8
-  %.pre157 = load ptr, ptr %19, align 8
+  %53 = getelementptr inbounds i8, ptr %10, i64 240
+  %wide.trip.count149 = zext nneg i32 %16 to i64
+  %.pre156 = load ptr, ptr %53, align 8
+  %.pre157 = load ptr, ptr %20, align 8
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.lr.ph.split.split, %.sink.split.i
+  %54 = phi float [ 0.000000e+00, %.lr.ph.split.split ], [ %69, %.sink.split.i ]
+  %55 = phi float [ 0.000000e+00, %.lr.ph.split.split ], [ %68, %.sink.split.i ]
   %indvars.iv146 = phi i64 [ 0, %.lr.ph.split.split ], [ %indvars.iv.next147, %.sink.split.i ]
-  %.091107 = phi float [ 0.000000e+00, %.lr.ph.split.split ], [ %60, %.sink.split.i ]
-  %46 = phi float [ 0.000000e+00, %.lr.ph.split.split ], [ %59, %.sink.split.i ]
-  %47 = phi <2 x float> [ zeroinitializer, %.lr.ph.split.split ], [ %58, %.sink.split.i ]
-  %48 = getelementptr inbounds float, ptr %.pre156, i64 %indvars.iv146
-  %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds [3 x float], ptr %.pre157, i64 %indvars.iv146
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
-  %52 = load float, ptr %51, align 4
-  %53 = load <2 x float>, ptr %50, align 4
-  %54 = insertelement <2 x float> poison, float %49, i64 0
-  %55 = shufflevector <2 x float> %54, <2 x float> poison, <2 x i32> zeroinitializer
-  %56 = fmul <2 x float> %55, %53
-  %57 = fmul float %49, %52
-  %58 = fadd <2 x float> %56, %47
-  %59 = fadd float %57, %46
-  %60 = fadd float %.091107, %49
+  %.091107 = phi float [ 0.000000e+00, %.lr.ph.split.split ], [ %71, %.sink.split.i ]
+  %56 = phi float [ 0.000000e+00, %.lr.ph.split.split ], [ %70, %.sink.split.i ]
+  %57 = getelementptr inbounds float, ptr %.pre156, i64 %indvars.iv146
+  %58 = load float, ptr %57, align 4
+  %59 = getelementptr inbounds [3 x float], ptr %.pre157, i64 %indvars.iv146
+  %60 = load float, ptr %59, align 4
+  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %62 = load float, ptr %61, align 4
+  %63 = getelementptr inbounds i8, ptr %59, i64 8
+  %64 = load float, ptr %63, align 4
+  %65 = fmul float %58, %60
+  %66 = fmul float %58, %62
+  %67 = fmul float %58, %64
+  %68 = fadd float %65, %55
+  %69 = fadd float %66, %54
+  %70 = fadd float %67, %56
+  %71 = fadd float %.091107, %58
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
   br i1 %exitcond150.not, label %._crit_edge, label %.sink.split.i, !llvm.loop !5
 
-61:                                               ; preds = %.lr.ph
+72:                                               ; preds = %.lr.ph
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeEENK3$_0clEv", ptr noundef nonnull @.str.32, i32 noundef 123) #20
   unreachable
 
 ._crit_edge:                                      ; preds = %.sink.split.i.us112, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us, %.sink.split.i, %5
-  %62 = phi float [ 0.000000e+00, %5 ], [ %59, %.sink.split.i ], [ %27, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %43, %.sink.split.i.us112 ]
-  %.091.lcssa = phi float [ 0.000000e+00, %5 ], [ %60, %.sink.split.i ], [ %28, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %44, %.sink.split.i.us112 ]
-  %63 = phi <2 x float> [ zeroinitializer, %5 ], [ %58, %.sink.split.i ], [ %26, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %42, %.sink.split.i.us112 ]
-  %64 = fdiv float 1.000000e+00, %.091.lcssa
-  %65 = insertelement <2 x float> poison, float %64, i64 0
-  %66 = shufflevector <2 x float> %65, <2 x float> poison, <2 x i32> zeroinitializer
-  %67 = fmul <2 x float> %66, %63
-  store <2 x float> %67, ptr %7, align 8
-  %68 = fmul float %64, %62
-  store float %68, ptr %13, align 8
-  br i1 %16, label %.lr.ph126, label %._crit_edge127
+  %73 = phi float [ 0.000000e+00, %5 ], [ %70, %.sink.split.i ], [ %32, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %51, %.sink.split.i.us112 ]
+  %74 = phi float [ 0.000000e+00, %5 ], [ %69, %.sink.split.i ], [ %31, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %50, %.sink.split.i.us112 ]
+  %75 = phi float [ 0.000000e+00, %5 ], [ %68, %.sink.split.i ], [ %30, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %49, %.sink.split.i.us112 ]
+  %.091.lcssa = phi float [ 0.000000e+00, %5 ], [ %71, %.sink.split.i ], [ %33, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ], [ %52, %.sink.split.i.us112 ]
+  %76 = fdiv float 1.000000e+00, %.091.lcssa
+  %77 = fmul float %76, %75
+  store float %77, ptr %7, align 4
+  %78 = fmul float %76, %74
+  store float %78, ptr %13, align 4
+  %79 = fmul float %76, %73
+  store float %79, ptr %14, align 4
+  br i1 %17, label %.lr.ph126, label %._crit_edge127
 
 .lr.ph126:                                        ; preds = %._crit_edge
   %.not = icmp eq ptr %3, null
-  %69 = getelementptr inbounds i8, ptr %10, i64 64
-  %70 = getelementptr inbounds i8, ptr %8, i64 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 80
-  %72 = getelementptr inbounds i8, ptr %10, i64 240
-  %73 = getelementptr inbounds i8, ptr %10, i64 216
-  br label %74
+  %80 = getelementptr inbounds i8, ptr %10, i64 64
+  %81 = getelementptr inbounds i8, ptr %8, i64 4
+  %82 = getelementptr inbounds i8, ptr %8, i64 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 80
+  %84 = getelementptr inbounds i8, ptr %10, i64 240
+  %85 = getelementptr inbounds i8, ptr %10, i64 216
+  br label %86
 
-74:                                               ; preds = %.lr.ph126, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62
+86:                                               ; preds = %.lr.ph126, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62
   %indvars.iv151 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next152, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62 ]
-  %.0124 = phi float [ 0.000000e+00, %.lr.ph126 ], [ %127, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62 ]
-  %.sroa.8.0122 = phi float [ 0.000000e+00, %.lr.ph126 ], [ %129, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62 ]
-  %75 = phi <2 x float> [ zeroinitializer, %.lr.ph126 ], [ %128, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62 ]
-  %76 = load ptr, ptr %69, align 8
-  %77 = getelementptr inbounds [3 x float], ptr %76, i64 %indvars.iv151
-  br i1 %.not, label %80, label %78
+  %.0124 = phi float [ 0.000000e+00, %.lr.ph126 ], [ %137, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62 ]
+  %.sroa.8.0122 = phi float [ 0.000000e+00, %.lr.ph126 ], [ %139, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62 ]
+  %.sroa.478.0121 = phi float [ 0.000000e+00, %.lr.ph126 ], [ %136, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62 ]
+  %.sroa.076.0120 = phi float [ 0.000000e+00, %.lr.ph126 ], [ %138, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62 ]
+  %87 = load ptr, ptr %80, align 8
+  %88 = getelementptr inbounds [3 x float], ptr %87, i64 %indvars.iv151
+  br i1 %.not, label %90, label %89
 
-78:                                               ; preds = %74
-  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %77, ptr noundef nonnull %8)
-  %79 = load <2 x float>, ptr %8, align 8
-  %.pre160 = load float, ptr %70, align 8
-  br label %88
+89:                                               ; preds = %86
+  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %88, ptr noundef nonnull %8)
+  %.pre158 = load float, ptr %8, align 4
+  %.pre159 = load float, ptr %81, align 4
+  %.pre160 = load float, ptr %82, align 4
+  br label %102
 
-80:                                               ; preds = %74
-  %81 = load <2 x float>, ptr %7, align 8
-  %82 = load <2 x float>, ptr %77, align 4
-  %83 = fsub <2 x float> %81, %82
-  %84 = load float, ptr %13, align 8
-  %85 = getelementptr inbounds i8, ptr %77, i64 8
-  %86 = load float, ptr %85, align 4
-  %87 = fsub float %84, %86
-  store <2 x float> %83, ptr %8, align 8
-  store float %87, ptr %70, align 8
-  br label %88
+90:                                               ; preds = %86
+  %91 = load float, ptr %7, align 4
+  %92 = load float, ptr %88, align 4
+  %93 = fsub float %91, %92
+  %94 = load float, ptr %13, align 4
+  %95 = getelementptr inbounds i8, ptr %88, i64 4
+  %96 = load float, ptr %95, align 4
+  %97 = fsub float %94, %96
+  %98 = load float, ptr %14, align 4
+  %99 = getelementptr inbounds i8, ptr %88, i64 8
+  %100 = load float, ptr %99, align 4
+  %101 = fsub float %98, %100
+  store float %93, ptr %8, align 4
+  store float %97, ptr %81, align 4
+  store float %101, ptr %82, align 4
+  br label %102
 
-88:                                               ; preds = %80, %78
-  %89 = phi float [ %87, %80 ], [ %.pre160, %78 ]
-  %90 = phi <2 x float> [ %83, %80 ], [ %79, %78 ]
-  %91 = fmul <2 x float> %90, %90
-  %92 = extractelement <2 x float> %91, i64 1
-  %93 = extractelement <2 x float> %90, i64 0
-  %94 = call float @llvm.fmuladd.f32(float %93, float %93, float %92)
-  %95 = call noundef float @llvm.fmuladd.f32(float %89, float %89, float %94)
-  %96 = load i64, ptr %71, align 8
-  switch i64 %96, label %114 [
+102:                                              ; preds = %90, %89
+  %103 = phi float [ %101, %90 ], [ %.pre160, %89 ]
+  %104 = phi float [ %97, %90 ], [ %.pre159, %89 ]
+  %105 = phi float [ %93, %90 ], [ %.pre158, %89 ]
+  %106 = fmul float %104, %104
+  %107 = call float @llvm.fmuladd.f32(float %105, float %105, float %106)
+  %108 = call noundef float @llvm.fmuladd.f32(float %103, float %103, float %107)
+  %109 = load i64, ptr %83, align 8
+  switch i64 %109, label %125 [
     i64 2, label %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread
     i64 0, label %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread99
-    i64 1, label %115
+    i64 1, label %126
   ]
 
-_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread99: ; preds = %88
-  %97 = load ptr, ptr %73, align 8
-  %98 = getelementptr inbounds float, ptr %97, i64 %indvars.iv151
-  %99 = load float, ptr %98, align 4
-  %100 = call float @llvm.fmuladd.f32(float %95, float %99, float %.0124)
-  %101 = fmul float %89, %89
-  %102 = insertelement <2 x float> poison, float %101, i64 0
-  %103 = shufflevector <2 x float> %102, <2 x float> poison, <2 x i32> zeroinitializer
-  %104 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %90, <2 x float> %90, <2 x float> %103)
-  %105 = insertelement <2 x float> poison, float %99, i64 0
-  %106 = shufflevector <2 x float> %105, <2 x float> poison, <2 x i32> zeroinitializer
-  %107 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %104, <2 x float> %106, <2 x float> %75)
+_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread99: ; preds = %102
+  %110 = load ptr, ptr %85, align 8
+  %111 = getelementptr inbounds float, ptr %110, i64 %indvars.iv151
+  %112 = load float, ptr %111, align 4
+  %113 = call float @llvm.fmuladd.f32(float %108, float %112, float %.0124)
+  %114 = fmul float %103, %103
+  %115 = call float @llvm.fmuladd.f32(float %104, float %104, float %114)
+  %116 = call float @llvm.fmuladd.f32(float %115, float %112, float %.sroa.076.0120)
+  %117 = call float @llvm.fmuladd.f32(float %105, float %105, float %114)
+  %118 = call float @llvm.fmuladd.f32(float %117, float %112, float %.sroa.478.0121)
   br label %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62
 
-_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread: ; preds = %88
-  %108 = fadd float %.0124, %95
-  %109 = fmul float %89, %89
-  %110 = insertelement <2 x float> poison, float %109, i64 0
-  %111 = shufflevector <2 x float> %110, <2 x float> poison, <2 x i32> zeroinitializer
-  %112 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %90, <2 x float> %90, <2 x float> %111)
-  %113 = fadd <2 x float> %75, %112
+_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread: ; preds = %102
+  %119 = fadd float %.0124, %108
+  %120 = fmul float %103, %103
+  %121 = call float @llvm.fmuladd.f32(float %104, float %104, float %120)
+  %122 = fadd float %.sroa.076.0120, %121
+  %123 = call float @llvm.fmuladd.f32(float %105, float %105, float %120)
+  %124 = fadd float %.sroa.478.0121, %123
   br label %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62
 
-114:                                              ; preds = %88
+125:                                              ; preds = %102
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeEENK3$_0clEv", ptr noundef nonnull @.str.32, i32 noundef 123) #20
   unreachable
 
-115:                                              ; preds = %88
-  %116 = load ptr, ptr %72, align 8
-  %117 = getelementptr inbounds float, ptr %116, i64 %indvars.iv151
-  %118 = load float, ptr %117, align 4
-  %119 = call float @llvm.fmuladd.f32(float %95, float %118, float %.0124)
-  %120 = fmul float %89, %89
-  %121 = insertelement <2 x float> poison, float %120, i64 0
-  %122 = shufflevector <2 x float> %121, <2 x float> poison, <2 x i32> zeroinitializer
-  %123 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %90, <2 x float> %90, <2 x float> %122)
-  %124 = insertelement <2 x float> poison, float %118, i64 0
-  %125 = shufflevector <2 x float> %124, <2 x float> poison, <2 x i32> zeroinitializer
-  %126 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %123, <2 x float> %125, <2 x float> %75)
+126:                                              ; preds = %102
+  %127 = load ptr, ptr %84, align 8
+  %128 = getelementptr inbounds float, ptr %127, i64 %indvars.iv151
+  %129 = load float, ptr %128, align 4
+  %130 = call float @llvm.fmuladd.f32(float %108, float %129, float %.0124)
+  %131 = fmul float %103, %103
+  %132 = call float @llvm.fmuladd.f32(float %104, float %104, float %131)
+  %133 = call float @llvm.fmuladd.f32(float %132, float %129, float %.sroa.076.0120)
+  %134 = call float @llvm.fmuladd.f32(float %105, float %105, float %131)
+  %135 = call float @llvm.fmuladd.f32(float %134, float %129, float %.sroa.478.0121)
   br label %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62
 
-_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62: ; preds = %115, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread99, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread
-  %127 = phi float [ %108, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread ], [ %119, %115 ], [ %100, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread99 ]
-  %.0.i61 = phi float [ 1.000000e+00, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread ], [ %118, %115 ], [ %99, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread99 ]
-  %128 = phi <2 x float> [ %113, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread ], [ %126, %115 ], [ %107, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread99 ]
-  %129 = call float @llvm.fmuladd.f32(float %94, float %.0.i61, float %.sroa.8.0122)
+_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62: ; preds = %126, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread99, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread
+  %136 = phi float [ %124, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread ], [ %135, %126 ], [ %118, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread99 ]
+  %137 = phi float [ %119, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread ], [ %130, %126 ], [ %113, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread99 ]
+  %138 = phi float [ %122, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread ], [ %133, %126 ], [ %116, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread99 ]
+  %.0.i61 = phi float [ 1.000000e+00, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread ], [ %129, %126 ], [ %112, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit58.thread99 ]
+  %139 = call float @llvm.fmuladd.f32(float %107, float %.0.i61, float %.sroa.8.0122)
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
-  %130 = load i32, ptr %14, align 8
-  %131 = sext i32 %130 to i64
-  %132 = icmp slt i64 %indvars.iv.next152, %131
-  br i1 %132, label %74, label %._crit_edge127.loopexit, !llvm.loop !7
+  %140 = load i32, ptr %15, align 8
+  %141 = sext i32 %140 to i64
+  %142 = icmp slt i64 %indvars.iv.next152, %141
+  br i1 %142, label %86, label %._crit_edge127, !llvm.loop !7
 
-._crit_edge127.loopexit:                          ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62
-  %133 = extractelement <2 x float> %128, i64 1
-  %134 = extractelement <2 x float> %128, i64 0
-  br label %._crit_edge127
-
-._crit_edge127:                                   ; preds = %._crit_edge127.loopexit, %._crit_edge
-  %.sroa.076.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %133, %._crit_edge127.loopexit ]
-  %.sroa.478.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %134, %._crit_edge127.loopexit ]
-  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %129, %._crit_edge127.loopexit ]
-  %.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %127, %._crit_edge127.loopexit ]
-  %135 = fdiv float %.0.lcssa, %.091.lcssa
-  %136 = call noundef float @sqrtf(float noundef %135) #18
-  %137 = fdiv float %.sroa.076.0.lcssa, %.091.lcssa
-  %138 = call noundef float @sqrtf(float noundef %137) #18
-  %139 = fdiv float %.sroa.478.0.lcssa, %.091.lcssa
-  %140 = call noundef float @sqrtf(float noundef %139) #18
-  %141 = fdiv float %.sroa.8.0.lcssa, %.091.lcssa
-  %142 = call noundef float @sqrtf(float noundef %141) #18
-  %143 = getelementptr inbounds i8, ptr %2, i64 28
-  %144 = load float, ptr %143, align 4
-  call void @_ZN3gmx18AnalysisDataHandle10startFrameEiff(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %1, float noundef %144, float noundef 0.000000e+00)
-  call void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0, float noundef %136, i1 noundef zeroext true)
-  call void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 1, float noundef %138, i1 noundef zeroext true)
-  call void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 2, float noundef %140, i1 noundef zeroext true)
-  call void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 3, float noundef %142, i1 noundef zeroext true)
+._crit_edge127:                                   ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62, %._crit_edge
+  %.sroa.076.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %138, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62 ]
+  %.sroa.478.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %136, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62 ]
+  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %139, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62 ]
+  %.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %137, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit62 ]
+  %143 = fdiv float %.0.lcssa, %.091.lcssa
+  %144 = call noundef float @sqrtf(float noundef %143) #18
+  %145 = fdiv float %.sroa.076.0.lcssa, %.091.lcssa
+  %146 = call noundef float @sqrtf(float noundef %145) #18
+  %147 = fdiv float %.sroa.478.0.lcssa, %.091.lcssa
+  %148 = call noundef float @sqrtf(float noundef %147) #18
+  %149 = fdiv float %.sroa.8.0.lcssa, %.091.lcssa
+  %150 = call noundef float @sqrtf(float noundef %149) #18
+  %151 = getelementptr inbounds i8, ptr %2, i64 28
+  %152 = load float, ptr %151, align 4
+  call void @_ZN3gmx18AnalysisDataHandle10startFrameEiff(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %1, float noundef %152, float noundef 0.000000e+00)
+  call void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0, float noundef %144, i1 noundef zeroext true)
+  call void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 1, float noundef %146, i1 noundef zeroext true)
+  call void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 2, float noundef %148, i1 noundef zeroext true)
+  call void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 3, float noundef %150, i1 noundef zeroext true)
   call void @_ZN3gmx18AnalysisDataHandle11finishFrameEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
   ret void
 }
@@ -1795,9 +1806,6 @@ declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

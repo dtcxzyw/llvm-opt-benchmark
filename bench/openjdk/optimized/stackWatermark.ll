@@ -406,223 +406,225 @@ define hidden void @_ZN28StackWatermarkFramesIterator11process_allEPv(ptr nounde
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load <2 x ptr>, ptr %10, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %22, label %16
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = load i64, ptr %14, align 8
+  %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %23, label %17
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 792
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 192
-  %21 = load i32, ptr %20, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str, i32 noundef %21)
-  br label %22
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 792
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 192
+  %22 = load i32, ptr %21, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str, i32 noundef %22)
+  br label %23
 
-22:                                               ; preds = %2, %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 5080
-  %24 = load i8, ptr %23, align 8
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %._crit_edge, label %.lr.ph
+23:                                               ; preds = %2, %17
+  %24 = getelementptr inbounds i8, ptr %0, i64 5080
+  %25 = load i8, ptr %24, align 8
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
-  %29 = getelementptr inbounds i8, ptr %0, i64 5072
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %33
+.lr.ph:                                           ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds i8, ptr %0, i64 5072
+  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %34
 
-33:                                               ; preds = %.lr.ph, %112
-  %.09 = phi i32 [ 0, %.lr.ph ], [ %.1, %112 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %26, i64 56, i1 false)
-  %34 = load ptr, ptr %3, align 8
-  %35 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
-  %.not.i.i.i = icmp eq ptr %35, null
+34:                                               ; preds = %.lr.ph, %113
+  %.09 = phi i32 [ 0, %.lr.ph ], [ %.1, %113 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %27, i64 56, i1 false)
+  %35 = load ptr, ptr %3, align 8
+  %36 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
+  %.not.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i, label %_ZNK5frame20is_interpreted_frameEv.exit.i
 
-_ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %33
-  %36 = load ptr, ptr %27, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %.not.i.i.i.i = icmp ule ptr %38, %36
-  %39 = getelementptr inbounds i8, ptr %35, i64 20
-  %40 = load i32, ptr %39, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  %43 = icmp ugt ptr %42, %36
-  %44 = select i1 %.not.i.i.i.i, i1 %43, i1 false
-  br i1 %44, label %_ZN14StackWatermark11has_barrierERK5frame.exit, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
+_ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %34
+  %37 = load ptr, ptr %28, align 8
+  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %.not.i.i.i.i = icmp ule ptr %39, %37
+  %40 = getelementptr inbounds i8, ptr %36, i64 20
+  %41 = load i32, ptr %40, align 4
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i8, ptr %39, i64 %42
+  %44 = icmp ugt ptr %43, %37
+  %45 = select i1 %.not.i.i.i.i, i1 %44, i1 false
+  br i1 %45, label %_ZN14StackWatermark11has_barrierERK5frame.exit, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
 
-_ZNK5frame20is_interpreted_frameEv.exit.thread.i: ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i, %33
-  %45 = load ptr, ptr %28, align 8
-  %.not.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i, label %_ZNK5frame17is_compiled_frameEv.exit.i, label %46
+_ZNK5frame20is_interpreted_frameEv.exit.thread.i: ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i, %34
+  %46 = load ptr, ptr %29, align 8
+  %.not.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i, label %_ZNK5frame17is_compiled_frameEv.exit.i, label %47
 
-46:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
-  %47 = getelementptr inbounds i8, ptr %45, i64 52
-  %48 = load i8, ptr %47, align 4
-  %49 = icmp eq i8 %48, 1
-  br i1 %49, label %50, label %_ZNK5frame17is_compiled_frameEv.exit.i
+47:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
+  %48 = getelementptr inbounds i8, ptr %46, i64 52
+  %49 = load i8, ptr %48, align 4
+  %50 = icmp eq i8 %49, 1
+  br i1 %50, label %51, label %_ZNK5frame17is_compiled_frameEv.exit.i
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %45, i64 72
-  %52 = load ptr, ptr %51, align 8
-  %.not.i.i7.i = icmp eq ptr %52, null
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds i8, ptr %46, i64 72
+  %53 = load ptr, ptr %52, align 8
+  %.not.i.i7.i = icmp eq ptr %53, null
   br i1 %.not.i.i7.i, label %_ZNK5frame17is_compiled_frameEv.exit.i, label %_ZNK7nmethod14is_java_methodEv.exit.i.i
 
-_ZNK7nmethod14is_java_methodEv.exit.i.i:          ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %52, i64 40
-  %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %53, align 8
-  %54 = and i32 %.sroa.0.0.copyload.i.i.i.i.i, 256
-  %.not1.i.i.i = icmp eq i32 %54, 0
-  br i1 %.not1.i.i.i, label %55, label %_ZNK5frame17is_compiled_frameEv.exit.i
+_ZNK7nmethod14is_java_methodEv.exit.i.i:          ; preds = %51
+  %54 = getelementptr inbounds i8, ptr %53, i64 40
+  %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %54, align 8
+  %55 = and i32 %.sroa.0.0.copyload.i.i.i.i.i, 256
+  %.not1.i.i.i = icmp eq i32 %55, 0
+  br i1 %.not1.i.i.i, label %56, label %_ZNK5frame17is_compiled_frameEv.exit.i
 
-55:                                               ; preds = %_ZNK7nmethod14is_java_methodEv.exit.i.i
-  %56 = getelementptr inbounds i8, ptr %45, i64 209
-  %57 = load i8, ptr %56, align 1
-  %.off.i = add i8 %57, -1
+56:                                               ; preds = %_ZNK7nmethod14is_java_methodEv.exit.i.i
+  %57 = getelementptr inbounds i8, ptr %46, i64 209
+  %58 = load i8, ptr %57, align 1
+  %.off.i = add i8 %58, -1
   %switch.i = icmp ult i8 %.off.i, 2
   br i1 %switch.i, label %_ZN14StackWatermark11has_barrierERK5frame.exit, label %_ZNK5frame17is_compiled_frameEv.exit.i
 
-_ZNK5frame17is_compiled_frameEv.exit.i:           ; preds = %55, %_ZNK7nmethod14is_java_methodEv.exit.i.i, %50, %46, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
-  %58 = load ptr, ptr %29, align 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(176) %58, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(4983) %30, ptr noundef %1) #16
+_ZNK5frame17is_compiled_frameEv.exit.i:           ; preds = %56, %_ZNK7nmethod14is_java_methodEv.exit.i.i, %51, %47, %_ZNK5frame20is_interpreted_frameEv.exit.thread.i
+  %59 = load ptr, ptr %30, align 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(176) %59, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(4983) %31, ptr noundef %1) #16
   call void @_ZN28StackWatermarkFramesIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(5081) %0)
-  br label %112
+  br label %113
 
-_ZN14StackWatermark11has_barrierERK5frame.exit:   ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i, %55
-  %62 = load ptr, ptr %29, align 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(176) %62, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(4983) %30, ptr noundef %1) #16
+_ZN14StackWatermark11has_barrierERK5frame.exit:   ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i, %56
+  %63 = load ptr, ptr %30, align 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %66 = load ptr, ptr %65, align 8
+  call void %66(ptr noundef nonnull align 8 dereferenceable(176) %63, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(4983) %31, ptr noundef %1) #16
   call void @_ZN28StackWatermarkFramesIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(5081) %0)
-  %66 = ptrtoint ptr %34 to i64
-  %67 = load i8, ptr %23, align 8
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %_ZN28StackWatermarkFramesIterator13set_watermarkEm.exit, label %69
+  %67 = ptrtoint ptr %35 to i64
+  %68 = load i8, ptr %24, align 8
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %_ZN28StackWatermarkFramesIterator13set_watermarkEm.exit, label %70
 
-69:                                               ; preds = %_ZN14StackWatermark11has_barrierERK5frame.exit
-  %70 = load i64, ptr %31, align 8
-  %71 = icmp eq i64 %70, 0
-  br i1 %71, label %.sink.split.i, label %72
+70:                                               ; preds = %_ZN14StackWatermark11has_barrierERK5frame.exit
+  %71 = load i64, ptr %32, align 8
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %.sink.split.i, label %73
 
-72:                                               ; preds = %69
-  %73 = load i64, ptr %32, align 8
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %.sink.split.i, label %75
+73:                                               ; preds = %70
+  %74 = load i64, ptr %33, align 8
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %.sink.split.i, label %76
 
-75:                                               ; preds = %72
-  store i64 %73, ptr %31, align 8
+76:                                               ; preds = %73
+  store i64 %74, ptr %32, align 8
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %75, %72, %69
-  %.sink.i = phi ptr [ %32, %75 ], [ %31, %69 ], [ %32, %72 ]
-  store i64 %66, ptr %.sink.i, align 8
+.sink.split.i:                                    ; preds = %76, %73, %70
+  %.sink.i = phi ptr [ %33, %76 ], [ %32, %70 ], [ %33, %73 ]
+  store i64 %67, ptr %.sink.i, align 8
   br label %_ZN28StackWatermarkFramesIterator13set_watermarkEm.exit
 
 _ZN28StackWatermarkFramesIterator13set_watermarkEm.exit: ; preds = %_ZN14StackWatermark11has_barrierERK5frame.exit, %.sink.split.i
-  %76 = add i32 %.09, 1
-  %77 = icmp eq i32 %76, 5
-  br i1 %77, label %78, label %112
+  %77 = add i32 %.09, 1
+  %78 = icmp eq i32 %77, 5
+  br i1 %78, label %79, label %113
 
-78:                                               ; preds = %_ZN28StackWatermarkFramesIterator13set_watermarkEm.exit
-  %79 = load ptr, ptr %29, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 40
-  %81 = load ptr, ptr %80, align 8
-  %.not.i.i4 = icmp eq ptr %81, null
-  br i1 %.not.i.i4, label %95, label %82
+79:                                               ; preds = %_ZN28StackWatermarkFramesIterator13set_watermarkEm.exit
+  %80 = load ptr, ptr %30, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 40
+  %82 = load ptr, ptr %81, align 8
+  %.not.i.i4 = icmp eq ptr %82, null
+  br i1 %.not.i.i4, label %96, label %83
 
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %81, i64 5080
-  %84 = load i8, ptr %83, align 8
-  %85 = trunc i8 %84 to i1
-  br i1 %85, label %95, label %86
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds i8, ptr %82, i64 5080
+  %85 = load i8, ptr %84, align 8
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %96, label %87
 
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %79, i64 16
-  %88 = getelementptr inbounds i8, ptr %81, i64 16
-  %89 = load i64, ptr %88, align 8
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds i8, ptr %80, i64 16
+  %89 = getelementptr inbounds i8, ptr %82, i64 16
+  %90 = load i64, ptr %89, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !9
-  store volatile i64 %89, ptr %87, align 8
-  %90 = getelementptr inbounds i8, ptr %79, i64 8
-  %91 = load ptr, ptr %79, align 8
-  %92 = load ptr, ptr %91, align 8
-  %93 = call noundef i32 %92(ptr noundef nonnull align 8 dereferenceable(176) %79) #16
-  %94 = shl i32 %93, 1
+  store volatile i64 %90, ptr %88, align 8
+  %91 = getelementptr inbounds i8, ptr %80, i64 8
+  %92 = load ptr, ptr %80, align 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = call noundef i32 %93(ptr noundef nonnull align 8 dereferenceable(176) %80) #16
+  %95 = shl i32 %94, 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !9
-  store volatile i32 %94, ptr %90, align 4
+  store volatile i32 %95, ptr %91, align 4
   br label %_ZN14StackWatermark16yield_processingEv.exit
 
-95:                                               ; preds = %82, %78
-  %96 = getelementptr inbounds i8, ptr %79, i64 16
+96:                                               ; preds = %83, %79
+  %97 = getelementptr inbounds i8, ptr %80, i64 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !9
-  store volatile i64 0, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %79, i64 8
-  %98 = load ptr, ptr %79, align 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = call noundef i32 %99(ptr noundef nonnull align 8 dereferenceable(176) %79) #16
-  %101 = shl i32 %100, 1
-  %102 = or disjoint i32 %101, 1
+  store volatile i64 0, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %80, i64 8
+  %99 = load ptr, ptr %80, align 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = call noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(176) %80) #16
+  %102 = shl i32 %101, 1
+  %103 = or disjoint i32 %102, 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !9
-  store volatile i32 %102, ptr %97, align 4
-  %103 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not1.i.i = icmp eq ptr %103, null
-  br i1 %.not1.i.i, label %_ZN14StackWatermark16yield_processingEv.exit, label %104
+  store volatile i32 %103, ptr %98, align 4
+  %104 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not1.i.i = icmp eq ptr %104, null
+  br i1 %.not1.i.i, label %_ZN14StackWatermark16yield_processingEv.exit, label %105
 
-104:                                              ; preds = %95
-  %105 = getelementptr inbounds i8, ptr %79, i64 32
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 792
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 192
-  %110 = load i32, ptr %109, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.6, i32 noundef %110)
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds i8, ptr %80, i64 32
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 792
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 192
+  %111 = load i32, ptr %110, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE138ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.6, i32 noundef %111)
   br label %_ZN14StackWatermark16yield_processingEv.exit
 
-_ZN14StackWatermark16yield_processingEv.exit:     ; preds = %86, %95, %104
-  %111 = getelementptr inbounds i8, ptr %79, i64 48
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %111) #16
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %111) #16
-  br label %112
+_ZN14StackWatermark16yield_processingEv.exit:     ; preds = %87, %96, %105
+  %112 = getelementptr inbounds i8, ptr %80, i64 48
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %112) #16
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %112) #16
+  br label %113
 
-112:                                              ; preds = %_ZNK5frame17is_compiled_frameEv.exit.i, %_ZN28StackWatermarkFramesIterator13set_watermarkEm.exit, %_ZN14StackWatermark16yield_processingEv.exit
-  %.1 = phi i32 [ 0, %_ZN14StackWatermark16yield_processingEv.exit ], [ %76, %_ZN28StackWatermarkFramesIterator13set_watermarkEm.exit ], [ %.09, %_ZNK5frame17is_compiled_frameEv.exit.i ]
-  %113 = load i8, ptr %23, align 8
-  %114 = trunc i8 %113 to i1
-  br i1 %114, label %._crit_edge, label %33, !llvm.loop !10
+113:                                              ; preds = %_ZNK5frame17is_compiled_frameEv.exit.i, %_ZN28StackWatermarkFramesIterator13set_watermarkEm.exit, %_ZN14StackWatermark16yield_processingEv.exit
+  %.1 = phi i32 [ 0, %_ZN14StackWatermark16yield_processingEv.exit ], [ %77, %_ZN28StackWatermarkFramesIterator13set_watermarkEm.exit ], [ %.09, %_ZNK5frame17is_compiled_frameEv.exit.i ]
+  %114 = load i8, ptr %24, align 8
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %._crit_edge, label %34, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %112, %22
-  %115 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i5 = icmp eq ptr %115, null
-  br i1 %.not.i.i.i.i5, label %117, label %116
+._crit_edge:                                      ; preds = %113, %23
+  %116 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i5 = icmp eq ptr %116, null
+  br i1 %.not.i.i.i.i5, label %118, label %117
 
-116:                                              ; preds = %._crit_edge
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %14) #16
+117:                                              ; preds = %._crit_edge
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #16
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #16
-  br label %117
+  br label %118
 
-117:                                              ; preds = %116, %._crit_edge
-  %118 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %118, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %119
+118:                                              ; preds = %117, %._crit_edge
+  %119 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %119, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %120
 
-119:                                              ; preds = %117
+120:                                              ; preds = %118
   store ptr %9, ptr %8, align 8
-  store <2 x ptr> %11, ptr %10, align 8
+  store ptr %11, ptr %10, align 8
+  store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %117, %119
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %118, %120
   ret void
 }
 

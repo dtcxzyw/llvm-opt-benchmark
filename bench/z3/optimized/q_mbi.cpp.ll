@@ -333,7 +333,13 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   %m_num_deleted.i.i = getelementptr inbounds i8, ptr %this, i64 232
   store i32 0, ptr %m_num_deleted.i.i, align 8
   %m_max_cex = getelementptr inbounds i8, ptr %this, i64 240
-  store <4 x i32> <i32 1, i32 100, i32 10, i32 10>, ptr %m_max_cex, align 8
+  store i32 1, ptr %m_max_cex, align 8
+  %m_max_quick_check_rounds = getelementptr inbounds i8, ptr %this, i64 244
+  store i32 100, ptr %m_max_quick_check_rounds, align 4
+  %m_max_unbounded_equalities = getelementptr inbounds i8, ptr %this, i64 248
+  store i32 10, ptr %m_max_unbounded_equalities, align 8
+  %m_max_choose_candidates = getelementptr inbounds i8, ptr %this, i64 252
+  store i32 10, ptr %m_max_choose_candidates, align 4
   %m_generation_bound = getelementptr inbounds i8, ptr %this, i64 256
   store i32 -1, ptr %m_generation_bound, align 8
   %m_generation_max = getelementptr inbounds i8, ptr %this, i64 260
@@ -6551,15 +6557,17 @@ lpad.i.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt11_Tuple_implILm2EJ10ref_vectorI4expr11ast_managerEjEEC2IRS3_JRjEvEEOT_DpOT0_.exit.i.i.i: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i.i.i.i.i.i
   %29 = getelementptr inbounds i8, ptr %ref.tmp35, i64 24
+  %30 = load ptr, ptr %proj, align 8
+  store ptr %30, ptr %29, align 8
   %m_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp35, i64 32
-  %30 = load <2 x ptr>, ptr %proj, align 8
-  %31 = load ptr, ptr %proj, align 8
-  store <2 x ptr> %30, ptr %29, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %31, null
+  %m_manager3.i.i.i.i.i = getelementptr inbounds i8, ptr %proj, i64 8
+  %31 = load ptr, ptr %m_manager3.i.i.i.i.i, align 8
+  store ptr %31, ptr %m_manager.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont37, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i.i:  ; preds = %_ZNSt11_Tuple_implILm2EJ10ref_vectorI4expr11ast_managerEjEEC2IRS3_JRjEvEEOT_DpOT0_.exit.i.i.i
-  %m_ref_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
+  %m_ref_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load i32, ptr %m_ref_count.i.i.i.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i.i.i = add i32 %32, 1
   store i32 %inc.i.i.i.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i.i.i.i, align 4

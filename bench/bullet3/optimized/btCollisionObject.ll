@@ -33,7 +33,13 @@ invoke.cont13:
   %m_interpolationLinearVelocity = getelementptr inbounds i8, ptr %this, i64 136
   %m_anisotropicFriction = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_interpolationLinearVelocity, i8 0, i64 32, i1 false)
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_anisotropicFriction, align 8
+  store float 1.000000e+00, ptr %m_anisotropicFriction, align 8
+  %arrayidx3.i4 = getelementptr inbounds i8, ptr %this, i64 172
+  store float 1.000000e+00, ptr %arrayidx3.i4, align 4
+  %arrayidx5.i5 = getelementptr inbounds i8, ptr %this, i64 176
+  store float 1.000000e+00, ptr %arrayidx5.i5, align 8
+  %arrayidx7.i6 = getelementptr inbounds i8, ptr %this, i64 180
+  store float 0.000000e+00, ptr %arrayidx7.i6, align 4
   %m_hasAnisotropicFriction = getelementptr inbounds i8, ptr %this, i64 184
   store i32 0, ptr %m_hasAnisotropicFriction, align 8
   %m_contactProcessingThreshold = getelementptr inbounds i8, ptr %this, i64 188
@@ -41,13 +47,27 @@ invoke.cont13:
   %m_broadphaseHandle = getelementptr inbounds i8, ptr %this, i64 192
   %m_collisionFlags = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_broadphaseHandle, i8 0, i64 32, i1 false)
-  store <4 x i32> <i32 1, i32 -1, i32 -1, i32 -1>, ptr %m_collisionFlags, align 8
+  store i32 1, ptr %m_collisionFlags, align 8
+  %m_islandTag1 = getelementptr inbounds i8, ptr %this, i64 228
+  store i32 -1, ptr %m_islandTag1, align 4
+  %m_companionId = getelementptr inbounds i8, ptr %this, i64 232
+  store i32 -1, ptr %m_companionId, align 8
+  %m_worldArrayIndex = getelementptr inbounds i8, ptr %this, i64 236
+  store i32 -1, ptr %m_worldArrayIndex, align 4
   %m_activationState1 = getelementptr inbounds i8, ptr %this, i64 240
   store i32 1, ptr %m_activationState1, align 8
   %m_deactivationTime = getelementptr inbounds i8, ptr %this, i64 244
-  store <4 x float> <float 0.000000e+00, float 5.000000e-01, float 0.000000e+00, float 0.000000e+00>, ptr %m_deactivationTime, align 4
+  store float 0.000000e+00, ptr %m_deactivationTime, align 4
+  %m_friction = getelementptr inbounds i8, ptr %this, i64 248
+  store float 5.000000e-01, ptr %m_friction, align 8
+  %m_restitution = getelementptr inbounds i8, ptr %this, i64 252
+  store float 0.000000e+00, ptr %m_restitution, align 4
+  %m_rollingFriction = getelementptr inbounds i8, ptr %this, i64 256
+  store float 0.000000e+00, ptr %m_rollingFriction, align 8
   %m_spinningFriction = getelementptr inbounds i8, ptr %this, i64 260
-  store <2 x float> <float 0.000000e+00, float 0x3FB99999A0000000>, ptr %m_spinningFriction, align 4
+  store float 0.000000e+00, ptr %m_spinningFriction, align 4
+  %m_contactDamping = getelementptr inbounds i8, ptr %this, i64 264
+  store float 0x3FB99999A0000000, ptr %m_contactDamping, align 8
   %m_contactStiffness = getelementptr inbounds i8, ptr %this, i64 268
   store float 0x43ABC16D60000000, ptr %m_contactStiffness, align 4
   %m_internalType = getelementptr inbounds i8, ptr %this, i64 272
@@ -61,7 +81,9 @@ invoke.cont13:
   %m_userIndex3 = getelementptr inbounds i8, ptr %this, i64 296
   store i32 -1, ptr %m_userIndex3, align 8
   %m_hitFraction = getelementptr inbounds i8, ptr %this, i64 300
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %m_hitFraction, align 4
+  store float 1.000000e+00, ptr %m_hitFraction, align 4
+  %m_ccdSweptSphereRadius = getelementptr inbounds i8, ptr %this, i64 304
+  store float 0.000000e+00, ptr %m_ccdSweptSphereRadius, align 8
   %m_ccdMotionThreshold = getelementptr inbounds i8, ptr %this, i64 308
   store float 0.000000e+00, ptr %m_ccdMotionThreshold, align 4
   %m_checkCollideWith = getelementptr inbounds i8, ptr %this, i64 312

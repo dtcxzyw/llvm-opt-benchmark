@@ -352,7 +352,7 @@ define hidden noundef i32 @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$10allo
   %31 = getelementptr inbounds [0 x { i8, [63 x i8] }], ptr %30, i64 0, i64 %24
   %32 = load i8, ptr %31, align 4, !range !22, !noundef !5
   %33 = icmp eq i8 %32, 2
-  br i1 %33, label %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit", label %37
+  br i1 %33, label %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit", label %39
 
 34:                                               ; preds = %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit", %"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h37222c7fa085ce55E.exit"
   %.0 = phi i32 [ %23, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit" ], [ %15, %"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h37222c7fa085ce55E.exit" ]
@@ -360,27 +360,30 @@ define hidden noundef i32 @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$10allo
 
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit"
   %35 = getelementptr inbounds i8, ptr %31, i64 4
-  %36 = load <2 x i32>, ptr %35, align 4
-  store <2 x i32> %36, ptr %6, align 8
+  %36 = load i32, ptr %35, align 4, !range !7, !noundef !5
+  %37 = getelementptr inbounds i8, ptr %31, i64 8
+  %38 = load i32, ptr %37, align 4
+  store i32 %36, ptr %6, align 8
+  store i32 %38, ptr %22, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %31, ptr noundef nonnull align 4 dereferenceable(64) %1, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %34
 
-37:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit"
+39:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h6b7f42cb91f95902E.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN62_$LT$cranelift_bforest..Node$u20$as$u20$core..fmt..Display$GT$3fmt17hbb4c72be22f2c4feE", ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN62_$LT$cranelift_bforest..Node$u20$as$u20$core..fmt..Display$GT$3fmt17hbb4c72be22f2c4feE", ptr %40, align 8
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.5.llvm.1715581770924364745, ptr %4, align 8, !alias.scope !23, !noalias !26
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %39, align 8, !alias.scope !23, !noalias !26
-  %40 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %40, align 8, !alias.scope !23, !noalias !26
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %41, align 8, !alias.scope !23, !noalias !26
-  %42 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %42, align 8, !alias.scope !23, !noalias !26
+  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %41, align 8, !alias.scope !23, !noalias !26
+  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %42, align 8, !alias.scope !23, !noalias !26
+  %43 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %43, align 8, !alias.scope !23, !noalias !26
+  %44 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %44, align 8, !alias.scope !23, !noalias !26
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.6.llvm.1715581770924364745) #32
   unreachable
 }
@@ -440,7 +443,7 @@ define hidden noundef i32 @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$10allo
   %31 = getelementptr inbounds [0 x { i8, [63 x i8] }], ptr %30, i64 0, i64 %24
   %32 = load i8, ptr %31, align 4, !range !22, !noundef !5
   %33 = icmp eq i8 %32, 2
-  br i1 %33, label %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h5760c34940dd89c9E.exit", label %37
+  br i1 %33, label %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h5760c34940dd89c9E.exit", label %39
 
 34:                                               ; preds = %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h5760c34940dd89c9E.exit", %"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17hc27887003cf1f64bE.exit"
   %.0 = phi i32 [ %23, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h5760c34940dd89c9E.exit" ], [ %15, %"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17hc27887003cf1f64bE.exit" ]
@@ -448,27 +451,30 @@ define hidden noundef i32 @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$10allo
 
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h5760c34940dd89c9E.exit": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17he0a2a177c7fe48e1E.exit"
   %35 = getelementptr inbounds i8, ptr %31, i64 4
-  %36 = load <2 x i32>, ptr %35, align 4
-  store <2 x i32> %36, ptr %6, align 8
+  %36 = load i32, ptr %35, align 4, !range !7, !noundef !5
+  %37 = getelementptr inbounds i8, ptr %31, i64 8
+  %38 = load i32, ptr %37, align 4
+  store i32 %36, ptr %6, align 8
+  store i32 %38, ptr %22, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %31, ptr noundef nonnull align 4 dereferenceable(64) %1, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %34
 
-37:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17he0a2a177c7fe48e1E.exit"
+39:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17he0a2a177c7fe48e1E.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN62_$LT$cranelift_bforest..Node$u20$as$u20$core..fmt..Display$GT$3fmt17hbb4c72be22f2c4feE", ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN62_$LT$cranelift_bforest..Node$u20$as$u20$core..fmt..Display$GT$3fmt17hbb4c72be22f2c4feE", ptr %40, align 8
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.5.llvm.1715581770924364745, ptr %4, align 8, !alias.scope !42, !noalias !45
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %39, align 8, !alias.scope !42, !noalias !45
-  %40 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %40, align 8, !alias.scope !42, !noalias !45
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %41, align 8, !alias.scope !42, !noalias !45
-  %42 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %42, align 8, !alias.scope !42, !noalias !45
+  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %41, align 8, !alias.scope !42, !noalias !45
+  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %42, align 8, !alias.scope !42, !noalias !45
+  %43 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %43, align 8, !alias.scope !42, !noalias !45
+  %44 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %44, align 8, !alias.scope !42, !noalias !45
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.6.llvm.1715581770924364745) #32
   unreachable
 }
@@ -509,27 +515,30 @@ define hidden void @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$9free_tree17h
 20:                                               ; preds = %._crit_edge, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17he0a2a177c7fe48e1E.exit"
   %21 = phi i64 [ %.pre, %._crit_edge ], [ %6, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17he0a2a177c7fe48e1E.exit" ]
   %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = load <2 x i32>, ptr %22, align 8
+  %23 = load i32, ptr %22, align 8, !range !7, !noundef !5
+  %24 = getelementptr inbounds i8, ptr %0, i64 28
+  %25 = load i32, ptr %24, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %24 = icmp ugt i64 %21, %4
-  br i1 %24, label %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h5760c34940dd89c9E.exit", label %25, !prof !18
+  %26 = icmp ugt i64 %21, %4
+  br i1 %26, label %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h5760c34940dd89c9E.exit", label %27, !prof !18
 
-25:                                               ; preds = %20
+27:                                               ; preds = %20
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %4, i64 noundef %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.10.llvm.1715581770924364745) #32, !noalias !53
   unreachable
 
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h5760c34940dd89c9E.exit": ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 28
-  %27 = load ptr, ptr %9, align 8, !alias.scope !53, !noalias !56, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds [0 x { i8, [63 x i8] }], ptr %27, i64 0, i64 %4
-  store i8 2, ptr %28, align 4
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 4
-  store <2 x i32> %23, ptr %.sroa.46.0..sroa_idx, align 4
+  %28 = load ptr, ptr %9, align 8, !alias.scope !53, !noalias !56, !nonnull !5, !noundef !5
+  %29 = getelementptr inbounds [0 x { i8, [63 x i8] }], ptr %28, i64 0, i64 %4
+  store i8 2, ptr %29, align 4
+  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
+  store i32 %23, ptr %.sroa.46.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
+  store i32 %25, ptr %.sroa.5.0..sroa_idx, align 4
   store i32 1, ptr %22, align 8
-  store i32 %1, ptr %26, align 4
+  store i32 %1, ptr %24, align 4
   ret void
 
-._crit_edge.loopexit:                             ; preds = %29
+._crit_edge.loopexit:                             ; preds = %30
   %.pre.pre = load i64, ptr %5, align 8, !alias.scope !53, !noalias !56
   br label %._crit_edge
 
@@ -538,20 +547,20 @@ define hidden void @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$9free_tree17h
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %20
 
-.lr.ph:                                           ; preds = %14, %29
-  %.sroa.01.013 = phi i64 [ %30, %29 ], [ 0, %14 ]
+.lr.ph:                                           ; preds = %14, %30
+  %.sroa.01.013 = phi i64 [ %31, %30 ], [ 0, %14 ]
   %exitcond.not = icmp eq i64 %.sroa.01.013, 8
-  br i1 %exitcond.not, label %33, label %29, !prof !58
+  br i1 %exitcond.not, label %34, label %30, !prof !58
 
-29:                                               ; preds = %.lr.ph
-  %30 = add nuw nsw i64 %.sroa.01.013, 1
-  %31 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %.sroa.01.013
-  %32 = load i32, ptr %31, align 4, !noundef !5
-  tail call void @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$9free_tree17h6c2497cca72f7833E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %32)
-  %exitcond15.not = icmp eq i64 %30, %19
+30:                                               ; preds = %.lr.ph
+  %31 = add nuw nsw i64 %.sroa.01.013, 1
+  %32 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %.sroa.01.013
+  %33 = load i32, ptr %32, align 4, !noundef !5
+  tail call void @"_ZN17cranelift_bforest4pool17NodePool$LT$F$GT$9free_tree17h6c2497cca72f7833E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %33)
+  %exitcond15.not = icmp eq i64 %31, %19
   br i1 %exitcond15.not, label %._crit_edge.loopexit, label %.lr.ph
 
-33:                                               ; preds = %.lr.ph
+34:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 8, i64 noundef 8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.9.llvm.1715581770924364745) #32
   unreachable
 }
@@ -2838,10 +2847,14 @@ define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam4uext17h871a7532022f938dE
   %4 = load i16, ptr %3, align 4, !noundef !5
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %4, ptr %5, align 4
-  %6 = load <2 x i32>, ptr %1, align 4
-  store <2 x i32> %6, ptr %0, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 10
-  store i8 1, ptr %7, align 2
+  %6 = load i32, ptr %1, align 4, !range !72, !noundef !5
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = load i32, ptr %7, align 4
+  store i32 %6, ptr %0, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %8, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 10
+  store i8 1, ptr %10, align 2
   ret void
 }
 
@@ -2851,10 +2864,14 @@ define void @_ZN17cranelift_codegen2ir7extfunc8AbiParam4sext17h1a610fe652584dfcE
   %4 = load i16, ptr %3, align 4, !noundef !5
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %4, ptr %5, align 4
-  %6 = load <2 x i32>, ptr %1, align 4
-  store <2 x i32> %6, ptr %0, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 10
-  store i8 2, ptr %7, align 2
+  %6 = load i32, ptr %1, align 4, !range !72, !noundef !5
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = load i32, ptr %7, align 4
+  store i32 %6, ptr %0, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %8, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 10
+  store i8 2, ptr %10, align 2
   ret void
 }
 

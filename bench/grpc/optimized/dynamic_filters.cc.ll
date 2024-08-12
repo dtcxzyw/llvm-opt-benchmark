@@ -490,29 +490,32 @@ define void @_ZN9grpc_core14DynamicFilters6CreateERKNS_11ChannelArgsESt6vectorIP
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %p = alloca %"class.absl::lts_20230802::StatusOr", align 8
-  %agg.tmp = alloca %"class.std::vector", align 16
+  %agg.tmp = alloca %"class.std::vector", align 8
   %error = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %ref.tmp6 = alloca %"class.grpc_core::ChannelArgs", align 8
   %agg.tmp7 = alloca %struct.grpc_arg, align 8
   %agg.tmp11 = alloca %"class.std::vector", align 8
-  %0 = load <2 x ptr>, ptr %filters, align 8
-  %1 = load ptr, ptr %filters, align 8
-  store <2 x ptr> %0, ptr %agg.tmp, align 16
+  %0 = load ptr, ptr %filters, align 8
+  store ptr %0, ptr %agg.tmp, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %filters, i64 8
+  %1 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
+  store ptr %1, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %filters, i64 16
   %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
-  store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 16
+  store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %filters, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118CreateChannelStackERKNS_11ChannelArgsESt6vectorIPK19grpc_channel_filterSaIS7_EE(ptr noalias nonnull align 8 %p, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %tobool.not.i.i.i = icmp eq ptr %1, null
+  %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef nonnull %1) #19
+  call void @_ZdlPv(ptr noundef nonnull %0) #19
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i.i
@@ -641,11 +644,11 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i17
 lpad:                                             ; preds = %entry
   %19 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i.i18 = icmp eq ptr %1, null
+  %tobool.not.i.i.i18 = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i18, label %eh.resume, label %if.then.i.i.i19
 
 if.then.i.i.i19:                                  ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %1) #19
+  call void @_ZdlPv(ptr noundef nonnull %0) #19
   br label %eh.resume
 
 lpad1:                                            ; preds = %invoke.cont25

@@ -9,38 +9,40 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZN5ceres8internal24TrustRegionStepEvaluatorC2Edi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, double noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = insertelement <4 x double> poison, double %1, i64 0
-  %6 = shufflevector <4 x double> %5, <4 x double> poison, <4 x i32> zeroinitializer
-  store <4 x double> %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
+  store double %1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %1, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  store double %1, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZNK5ceres8internal24TrustRegionStepEvaluator11StepQualityEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %0, double noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
   %4 = fcmp ult double %1, 0x7FEFFFFFFFFFFFFF
-  br i1 %4, label %5, label %20
+  br i1 %4, label %5, label %18
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = load double, ptr %7, align 8
-  %9 = fadd double %8, %2
-  %10 = load <2 x double>, ptr %6, align 8
-  %11 = insertelement <2 x double> poison, double %1, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fsub <2 x double> %10, %12
-  %14 = insertelement <2 x double> poison, double %2, i64 0
-  %15 = insertelement <2 x double> %14, double %9, i64 1
-  %16 = fdiv <2 x double> %13, %15
-  %17 = extractelement <2 x double> %16, i64 0
-  %18 = extractelement <2 x double> %16, i64 1
-  %19 = fcmp olt double %17, %18
-  %.sroa.speculated = select i1 %19, double %18, double %17
-  br label %20
+  %7 = load double, ptr %6, align 8
+  %8 = fsub double %7, %1
+  %9 = fdiv double %8, %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load double, ptr %10, align 8
+  %12 = fsub double %11, %1
+  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = load double, ptr %13, align 8
+  %15 = fadd double %14, %2
+  %16 = fdiv double %12, %15
+  %17 = fcmp olt double %9, %16
+  %.sroa.speculated = select i1 %17, double %16, double %9
+  br label %18
 
-20:                                               ; preds = %3, %5
+18:                                               ; preds = %3, %5
   %.0 = phi double [ %.sroa.speculated, %5 ], [ 0xFFEFFFFFFFFFFFFF, %3 ]
   ret double %.0
 }
@@ -50,12 +52,13 @@ define hidden void @_ZN5ceres8internal24TrustRegionStepEvaluator12StepAcceptedEd
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store double %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = load <2 x double>, ptr %6, align 8
-  %8 = insertelement <2 x double> poison, double %2, i64 0
-  %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
-  %10 = fadd <2 x double> %7, %9
-  store <2 x double> %10, ptr %6, align 8
+  %6 = load double, ptr %5, align 8
+  %7 = fadd double %6, %2
+  store double %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = load double, ptr %8, align 8
+  %10 = fadd double %9, %2
+  store double %10, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load double, ptr %11, align 8
   %13 = fcmp ogt double %12, %1
@@ -76,31 +79,30 @@ define hidden void @_ZN5ceres8internal24TrustRegionStepEvaluator12StepAcceptedEd
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load double, ptr %21, align 8
   %23 = fcmp olt double %22, %1
-  %24 = extractelement <2 x double> %10, i64 1
-  br i1 %23, label %.sink.split, label %25
+  br i1 %23, label %.sink.split, label %24
 
 .sink.split:                                      ; preds = %17, %14
   %.sink = phi ptr [ %16, %14 ], [ %21, %17 ]
   %.ph = phi i32 [ 0, %14 ], [ %20, %17 ]
   store double %1, ptr %.sink, align 8
   store double 0.000000e+00, ptr %5, align 8
-  br label %25
+  br label %24
 
-25:                                               ; preds = %.sink.split, %17
-  %26 = phi double [ %24, %17 ], [ 0.000000e+00, %.sink.split ]
-  %27 = phi double [ %22, %17 ], [ %1, %.sink.split ]
-  %28 = phi i32 [ %20, %17 ], [ %.ph, %.sink.split ]
-  %29 = load i32, ptr %0, align 8
-  %30 = icmp eq i32 %28, %29
-  br i1 %30, label %31, label %33
+24:                                               ; preds = %.sink.split, %17
+  %25 = phi double [ %7, %17 ], [ 0.000000e+00, %.sink.split ]
+  %26 = phi double [ %22, %17 ], [ %1, %.sink.split ]
+  %27 = phi i32 [ %20, %17 ], [ %.ph, %.sink.split ]
+  %28 = load i32, ptr %0, align 8
+  %29 = icmp eq i32 %27, %28
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store double %27, ptr %32, align 8
-  store double %26, ptr %6, align 8
-  br label %33
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %26, ptr %31, align 8
+  store double %25, ptr %8, align 8
+  br label %32
 
-33:                                               ; preds = %31, %25
+32:                                               ; preds = %30, %24
   ret void
 }
 

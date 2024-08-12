@@ -54,28 +54,34 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN4pkpy4DictC2EPNS_2VME(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8, i32 7, i32 0, i32 5>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 -1, ptr %5, align 4
-  %6 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 128) #16
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %6, ptr %7, align 8
-  %8 = load i32, ptr %3, align 8
-  %9 = sext i32 %8 to i64
-  %10 = shl nsw i64 %9, 4
-  tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %10, i1 false)
+  store i32 8, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 7, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 5, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 -1, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 -1, ptr %8, align 4
+  %9 = tail call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 128) #16
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %9, ptr %10, align 8
   %11 = load i32, ptr %3, align 8
   %12 = sext i32 %11 to i64
-  %13 = shl nsw i64 %12, 3
-  %14 = tail call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef %13) #16
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %14, ptr %15, align 8
-  %16 = load i32, ptr %3, align 8
-  %17 = sext i32 %16 to i64
-  %18 = shl nsw i64 %17, 3
-  tail call void @llvm.memset.p0.i64(ptr align 4 %14, i8 -1, i64 %18, i1 false)
+  %13 = shl nsw i64 %12, 4
+  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %13, i1 false)
+  %14 = load i32, ptr %3, align 8
+  %15 = sext i32 %14 to i64
+  %16 = shl nsw i64 %15, 3
+  %17 = tail call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef %16) #16
+  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %17, ptr %18, align 8
+  %19 = load i32, ptr %3, align 8
+  %20 = sext i32 %19 to i64
+  %21 = shl nsw i64 %20, 3
+  tail call void @llvm.memset.p0.i64(ptr align 4 %17, i8 -1, i64 %21, i1 false)
   ret void
 }
 

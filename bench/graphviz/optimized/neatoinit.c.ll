@@ -2012,7 +2012,7 @@ define internal fastcc void @neatoLayout(ptr noundef %0, ptr noundef %1, i32 nou
   %23 = load i32, ptr @MaxIter, align 4
   %24 = icmp slt i32 %23, 0
   %or.cond = select i1 %22, i1 true, i1 %24
-  br i1 %or.cond, label %366, label %25
+  br i1 %or.cond, label %371, label %25
 
 25:                                               ; preds = %20
   switch i32 %2, label %101 [
@@ -2175,11 +2175,11 @@ mds_model.exit.i:                                 ; preds = %._crit_edge.i.i, %9
 
 kkNeato.exit:                                     ; preds = %mds_model.exit.i, %95
   tail call void @solve_model(ptr noundef %1, i32 noundef %21) #20
-  br label %366
+  br label %371
 
 100:                                              ; preds = %25
   tail call void @sgd(ptr noundef %1, i32 noundef %3) #20
-  br label %366
+  br label %371
 
 101:                                              ; preds = %25
   %102 = load i32, ptr @Ndim, align 4
@@ -2263,7 +2263,7 @@ checkExp.exit.i:                                  ; preds = %110, %101
 
 144:                                              ; preds = %140, %137
   %.not98.i = icmp eq i32 %2, 1
-  br i1 %.not98.i, label %333, label %145
+  br i1 %.not98.i, label %338, label %145
 
 145:                                              ; preds = %144
   %146 = call ptr @agattr(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @.str.65, ptr noundef null) #20
@@ -2275,7 +2275,7 @@ checkExp.exit.i:                                  ; preds = %110, %101
   %150 = load i32, ptr @Ndim, align 4
   %151 = load i32, ptr @MaxIter, align 4
   %152 = call i32 @stress_majorization_with_hierarchy(ptr noundef %138, i32 noundef %21, ptr noundef nonnull %115, ptr noundef %149, i32 noundef %150, i32 noundef %spec.select.i, i32 noundef %3, i32 noundef %151, double noundef %147) #20
-  br label %338
+  br label %343
 
 153:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -2585,146 +2585,158 @@ cluster_map.exit.i:                               ; preds = %256, %._crit_edge98
   %294 = call { <2 x float>, i8 } @sepFactor(ptr noundef %1) #20
   %.fca.1.extract.i = extractvalue { <2 x float>, i8 } %294, 1
   %295 = trunc i8 %.fca.1.extract.i to i1
+  br i1 %295, label %296, label %303
+
+296:                                              ; preds = %293
   %.fca.0.extract.i = extractvalue { <2 x float>, i8 } %294, 0
-  %296 = fpext <2 x float> %.fca.0.extract.i to <2 x double>
-  %297 = fdiv <2 x double> %296, <double 7.200000e+01, double 7.200000e+01>
-  %298 = fmul <2 x double> %297, <double 2.000000e+00, double 2.000000e+00>
-  %299 = select i1 %295, <2 x double> %298, <2 x double> <double 0x3FBC71C71C71C71C, double 0x3FBC71C71C71C71C>
-  %300 = getelementptr inbounds i8, ptr %10, i64 24
-  store <2 x double> %299, ptr %300, align 8
-  %301 = load i8, ptr @Verbose, align 1
-  %.not105.i = icmp eq i8 %301, 0
-  br i1 %.not105.i, label %307, label %302
+  %.sroa.040.0.vec.extract.i = extractelement <2 x float> %.fca.0.extract.i, i64 0
+  %297 = fpext float %.sroa.040.0.vec.extract.i to double
+  %298 = fdiv double %297, 7.200000e+01
+  %299 = fmul double %298, 2.000000e+00
+  %.sroa.040.4.vec.extract.i = extractelement <2 x float> %.fca.0.extract.i, i64 1
+  %300 = fpext float %.sroa.040.4.vec.extract.i to double
+  %301 = fdiv double %300, 7.200000e+01
+  %302 = fmul double %301, 2.000000e+00
+  br label %303
 
-302:                                              ; preds = %293
-  %303 = load ptr, ptr @stderr, align 8
-  %304 = extractelement <2 x double> %299, i64 0
-  %305 = extractelement <2 x double> %299, i64 1
-  %306 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %303, ptr noundef nonnull @.str.71, double noundef %304, double noundef %305) #22
-  br label %307
+303:                                              ; preds = %296, %293
+  %304 = phi double [ %299, %296 ], [ 0x3FBC71C71C71C71C, %293 ]
+  %305 = phi double [ %302, %296 ], [ 0x3FBC71C71C71C71C, %293 ]
+  %306 = getelementptr inbounds i8, ptr %10, i64 24
+  store double %304, ptr %306, align 8
+  %307 = getelementptr inbounds i8, ptr %10, i64 32
+  store double %305, ptr %307, align 8
+  %308 = load i8, ptr @Verbose, align 1
+  %.not105.i = icmp eq i8 %308, 0
+  br i1 %.not105.i, label %312, label %309
 
-307:                                              ; preds = %302, %293
-  %308 = call ptr @agfstnode(ptr noundef %1) #20
-  %.not106109.i = icmp eq ptr %308, null
+309:                                              ; preds = %303
+  %310 = load ptr, ptr @stderr, align 8
+  %311 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.71, double noundef %304, double noundef %305) #22
+  br label %312
+
+312:                                              ; preds = %309, %303
+  %313 = call ptr @agfstnode(ptr noundef %1) #20
+  %.not106109.i = icmp eq ptr %313, null
   br i1 %.not106109.i, label %._crit_edge114.i, label %.lr.ph113.i
 
-.lr.ph113.i:                                      ; preds = %307, %.lr.ph113.i
-  %.091111.i = phi i64 [ %319, %.lr.ph113.i ], [ 0, %307 ]
-  %.092110.i = phi ptr [ %318, %.lr.ph113.i ], [ %308, %307 ]
-  %309 = getelementptr inbounds i8, ptr %.092110.i, i64 16
-  %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 48
-  %312 = load double, ptr %311, align 8
-  %313 = getelementptr inbounds %struct.pointf_s, ptr %259, i64 %.091111.i
-  store double %312, ptr %313, align 8
-  %314 = load ptr, ptr %309, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 56
-  %316 = load double, ptr %315, align 8
-  %317 = getelementptr inbounds i8, ptr %313, i64 8
-  store double %316, ptr %317, align 8
-  %318 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.092110.i) #20
-  %319 = add i64 %.091111.i, 1
-  %.not106.i = icmp eq ptr %318, null
+.lr.ph113.i:                                      ; preds = %312, %.lr.ph113.i
+  %.091111.i = phi i64 [ %324, %.lr.ph113.i ], [ 0, %312 ]
+  %.092110.i = phi ptr [ %323, %.lr.ph113.i ], [ %313, %312 ]
+  %314 = getelementptr inbounds i8, ptr %.092110.i, i64 16
+  %315 = load ptr, ptr %314, align 8
+  %316 = getelementptr inbounds i8, ptr %315, i64 48
+  %317 = load double, ptr %316, align 8
+  %318 = getelementptr inbounds %struct.pointf_s, ptr %259, i64 %.091111.i
+  store double %317, ptr %318, align 8
+  %319 = load ptr, ptr %314, align 8
+  %320 = getelementptr inbounds i8, ptr %319, i64 56
+  %321 = load double, ptr %320, align 8
+  %322 = getelementptr inbounds i8, ptr %318, i64 8
+  store double %321, ptr %322, align 8
+  %323 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.092110.i) #20
+  %324 = add i64 %.091111.i, 1
+  %.not106.i = icmp eq ptr %323, null
   br i1 %.not106.i, label %._crit_edge114.i, label %.lr.ph113.i
 
-._crit_edge114.i:                                 ; preds = %.lr.ph113.i, %307
-  %320 = load ptr, ptr %9, align 8
-  %321 = load i32, ptr @Ndim, align 4
-  %322 = load i32, ptr @MaxIter, align 4
-  %323 = call i32 @stress_majorization_cola(ptr noundef %138, i32 noundef %21, ptr noundef nonnull %115, ptr noundef %320, i32 noundef %321, i32 noundef %3, i32 noundef %322, ptr noundef nonnull %10) #20
-  %324 = load i32, ptr %182, align 4
-  %325 = icmp sgt i32 %324, 0
-  br i1 %325, label %326, label %freeClusterData.exit.i
+._crit_edge114.i:                                 ; preds = %.lr.ph113.i, %312
+  %325 = load ptr, ptr %9, align 8
+  %326 = load i32, ptr @Ndim, align 4
+  %327 = load i32, ptr @MaxIter, align 4
+  %328 = call i32 @stress_majorization_cola(ptr noundef %138, i32 noundef %21, ptr noundef nonnull %115, ptr noundef %325, i32 noundef %326, i32 noundef %3, i32 noundef %327, ptr noundef nonnull %10) #20
+  %329 = load i32, ptr %182, align 4
+  %330 = icmp sgt i32 %329, 0
+  br i1 %330, label %331, label %freeClusterData.exit.i
 
-326:                                              ; preds = %._crit_edge114.i
-  %327 = load ptr, ptr %185, align 8
-  %328 = load ptr, ptr %327, align 8
-  call void @free(ptr noundef %328) #20
-  %329 = load ptr, ptr %185, align 8
-  call void @free(ptr noundef %329) #20
-  %330 = load ptr, ptr %187, align 8
-  call void @free(ptr noundef %330) #20
-  %331 = load ptr, ptr %232, align 8
-  call void @free(ptr noundef %331) #20
-  %332 = load ptr, ptr %228, align 8
-  call void @free(ptr noundef %332) #20
+331:                                              ; preds = %._crit_edge114.i
+  %332 = load ptr, ptr %185, align 8
+  %333 = load ptr, ptr %332, align 8
+  call void @free(ptr noundef %333) #20
+  %334 = load ptr, ptr %185, align 8
+  call void @free(ptr noundef %334) #20
+  %335 = load ptr, ptr %187, align 8
+  call void @free(ptr noundef %335) #20
+  %336 = load ptr, ptr %232, align 8
+  call void @free(ptr noundef %336) #20
+  %337 = load ptr, ptr %228, align 8
+  call void @free(ptr noundef %337) #20
   br label %freeClusterData.exit.i
 
-freeClusterData.exit.i:                           ; preds = %326, %._crit_edge114.i
+freeClusterData.exit.i:                           ; preds = %331, %._crit_edge114.i
   call void @free(ptr noundef nonnull %169) #20
   call void @free(ptr noundef %259) #20
-  br label %338
+  br label %343
 
-333:                                              ; preds = %144
-  %334 = load ptr, ptr %9, align 8
-  %335 = load i32, ptr @Ndim, align 4
-  %336 = load i32, ptr @MaxIter, align 4
-  %337 = call i32 @stress_majorization_kD_mkernel(ptr noundef %138, i32 noundef %21, ptr noundef nonnull %115, ptr noundef %334, i32 noundef %335, i32 noundef %spec.select.i, i32 noundef %3, i32 noundef %336) #20
-  br label %338
+338:                                              ; preds = %144
+  %339 = load ptr, ptr %9, align 8
+  %340 = load i32, ptr @Ndim, align 4
+  %341 = load i32, ptr @MaxIter, align 4
+  %342 = call i32 @stress_majorization_kD_mkernel(ptr noundef %138, i32 noundef %21, ptr noundef nonnull %115, ptr noundef %339, i32 noundef %340, i32 noundef %spec.select.i, i32 noundef %3, i32 noundef %341) #20
+  br label %343
 
-338:                                              ; preds = %333, %freeClusterData.exit.i, %148
-  %.090.i = phi i32 [ %152, %148 ], [ %323, %freeClusterData.exit.i ], [ %337, %333 ]
-  %339 = icmp slt i32 %.090.i, 0
-  br i1 %339, label %340, label %342
+343:                                              ; preds = %338, %freeClusterData.exit.i, %148
+  %.090.i = phi i32 [ %152, %148 ], [ %328, %freeClusterData.exit.i ], [ %342, %338 ]
+  %344 = icmp slt i32 %.090.i, 0
+  br i1 %344, label %345, label %347
 
-340:                                              ; preds = %338
-  %341 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.72) #20
+345:                                              ; preds = %343
+  %346 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.72) #20
   br label %majorization.exit
 
-342:                                              ; preds = %338
-  %343 = call ptr @agfstnode(ptr noundef %1) #20
-  %.not107119.i = icmp eq ptr %343, null
+347:                                              ; preds = %343
+  %348 = call ptr @agfstnode(ptr noundef %1) #20
+  %.not107119.i = icmp eq ptr %348, null
   br i1 %.not107119.i, label %majorization.exit, label %.lr.ph122.i
 
-.lr.ph122.i:                                      ; preds = %342, %._crit_edge118.i
-  %.1120.i = phi ptr [ %363, %._crit_edge118.i ], [ %343, %342 ]
-  %344 = getelementptr inbounds i8, ptr %.1120.i, i64 16
-  %345 = load i32, ptr @Ndim, align 4
-  %346 = icmp sgt i32 %345, 0
-  br i1 %346, label %.lr.ph117.i, label %._crit_edge118.i
+.lr.ph122.i:                                      ; preds = %347, %._crit_edge118.i
+  %.1120.i = phi ptr [ %368, %._crit_edge118.i ], [ %348, %347 ]
+  %349 = getelementptr inbounds i8, ptr %.1120.i, i64 16
+  %350 = load i32, ptr @Ndim, align 4
+  %351 = icmp sgt i32 %350, 0
+  br i1 %351, label %.lr.ph117.i, label %._crit_edge118.i
 
 .lr.ph117.i:                                      ; preds = %.lr.ph122.i
-  %347 = load ptr, ptr %344, align 8
-  %348 = getelementptr inbounds i8, ptr %347, i64 164
-  %349 = load i32, ptr %348, align 4
-  %350 = sext i32 %349 to i64
-  br label %351
+  %352 = load ptr, ptr %349, align 8
+  %353 = getelementptr inbounds i8, ptr %352, i64 164
+  %354 = load i32, ptr %353, align 4
+  %355 = sext i32 %354 to i64
+  br label %356
 
-351:                                              ; preds = %351, %.lr.ph117.i
-  %indvars.iv124.i = phi i64 [ 0, %.lr.ph117.i ], [ %indvars.iv.next125.i, %351 ]
-  %352 = getelementptr inbounds ptr, ptr %115, i64 %indvars.iv124.i
-  %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds double, ptr %353, i64 %350
-  %355 = load double, ptr %354, align 8
-  %356 = load ptr, ptr %344, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 176
+356:                                              ; preds = %356, %.lr.ph117.i
+  %indvars.iv124.i = phi i64 [ 0, %.lr.ph117.i ], [ %indvars.iv.next125.i, %356 ]
+  %357 = getelementptr inbounds ptr, ptr %115, i64 %indvars.iv124.i
   %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr inbounds double, ptr %358, i64 %indvars.iv124.i
-  store double %355, ptr %359, align 8
+  %359 = getelementptr inbounds double, ptr %358, i64 %355
+  %360 = load double, ptr %359, align 8
+  %361 = load ptr, ptr %349, align 8
+  %362 = getelementptr inbounds i8, ptr %361, i64 176
+  %363 = load ptr, ptr %362, align 8
+  %364 = getelementptr inbounds double, ptr %363, i64 %indvars.iv124.i
+  store double %360, ptr %364, align 8
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
-  %360 = load i32, ptr @Ndim, align 4
-  %361 = sext i32 %360 to i64
-  %362 = icmp slt i64 %indvars.iv.next125.i, %361
-  br i1 %362, label %351, label %._crit_edge118.i
+  %365 = load i32, ptr @Ndim, align 4
+  %366 = sext i32 %365 to i64
+  %367 = icmp slt i64 %indvars.iv.next125.i, %366
+  br i1 %367, label %356, label %._crit_edge118.i
 
-._crit_edge118.i:                                 ; preds = %351, %.lr.ph122.i
-  %363 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.1120.i) #20
-  %.not107.i = icmp eq ptr %363, null
+._crit_edge118.i:                                 ; preds = %356, %.lr.ph122.i
+  %368 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.1120.i) #20
+  %.not107.i = icmp eq ptr %368, null
   br i1 %.not107.i, label %majorization.exit, label %.lr.ph122.i
 
-majorization.exit:                                ; preds = %._crit_edge118.i, %340, %342
+majorization.exit:                                ; preds = %._crit_edge118.i, %345, %347
   call void @freeGraphData(ptr noundef %138) #20
-  %364 = load ptr, ptr %115, align 8
-  call void @free(ptr noundef %364) #20
+  %369 = load ptr, ptr %115, align 8
+  call void @free(ptr noundef %369) #20
   call void @free(ptr noundef %115) #20
-  %365 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %365) #20
+  %370 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %370) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
-  br label %366
+  br label %371
 
-366:                                              ; preds = %100, %majorization.exit, %20, %kkNeato.exit
+371:                                              ; preds = %100, %majorization.exit, %20, %kkNeato.exit
   ret void
 }
 

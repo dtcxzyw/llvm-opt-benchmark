@@ -1962,18 +1962,24 @@ define noundef i32 @_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_(pt
 define void @_ZN5faiss9NNDescentC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #10 align 2 {
   store i8 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
-  store <4 x i32> <i32 10, i32 100, i32 10, i32 0>, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 2021, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 %1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
-  %9 = add nsw i32 %2, 50
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %8, i8 0, i64 52, i1 false)
-  store i32 %9, ptr %10, align 8
+  store i32 10, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 100, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 10, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 2021, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %2, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %1, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 36
+  %12 = add nsw i32 %2, 50
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %11, i8 0, i64 52, i1 false)
+  store i32 %12, ptr %13, align 8
   ret void
 }
 
@@ -6396,7 +6402,7 @@ _ZNSt15__new_allocatorIN5faiss9nndescent5NhoodEE7destroyIS2_EEvPT_.exit: ; preds
 define void @_ZN5faiss9NNDescent5buildERNS_16DistanceComputerEib(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  %7 = alloca %"class.std::vector.7", align 16
+  %7 = alloca %"class.std::vector.7", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6425,18 +6431,18 @@ define void @_ZN5faiss9NNDescent5buildERNS_16DistanceComputerEib(ptr noundef non
 
 22:                                               ; preds = %18
   invoke void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
-          to label %129 unwind label %23
+          to label %132 unwind label %23
 
 23:                                               ; preds = %22, %16, %12
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %128
+  br label %131
 
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %21) #13
-  br label %128
+  br label %131
 
 27:                                               ; preds = %4
   %28 = icmp sgt i32 %2, 100
@@ -6463,18 +6469,18 @@ define void @_ZN5faiss9NNDescent5buildERNS_16DistanceComputerEib(ptr noundef non
 
 39:                                               ; preds = %35
   invoke void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #24
-          to label %129 unwind label %40
+          to label %132 unwind label %40
 
 40:                                               ; preds = %39, %33, %29
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %128
+  br label %131
 
 42:                                               ; preds = %35
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %38) #13
-  br label %128
+  br label %131
 
 44:                                               ; preds = %27
   br i1 %3, label %45, label %53
@@ -6609,32 +6615,36 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5faiss9nndescent8NeighborESt6vectorIS
 
 ._crit_edge40:                                    ; preds = %._crit_edge, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %119 = getelementptr inbounds i8, ptr %0, i64 40
-  %120 = getelementptr inbounds i8, ptr %7, i64 16
-  %121 = load <2 x ptr>, ptr %119, align 8
-  store <2 x ptr> %121, ptr %7, align 16
-  %122 = getelementptr inbounds i8, ptr %0, i64 56
-  %123 = load ptr, ptr %122, align 8
-  store ptr %123, ptr %120, align 16
+  %120 = getelementptr inbounds i8, ptr %7, i64 8
+  %121 = getelementptr inbounds i8, ptr %7, i64 16
+  %122 = load ptr, ptr %119, align 8
+  store ptr %122, ptr %7, align 8
+  %123 = getelementptr inbounds i8, ptr %0, i64 48
+  %124 = load ptr, ptr %123, align 8
+  store ptr %124, ptr %120, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 56
+  %126 = load ptr, ptr %125, align 8
+  store ptr %126, ptr %121, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN5faiss9nndescent5NhoodESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   store i8 1, ptr %0, align 8
-  br i1 %3, label %124, label %127
+  br i1 %3, label %127, label %130
 
-124:                                              ; preds = %._crit_edge40
-  %125 = load i32, ptr %54, align 4
-  %126 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %125)
-  br label %127
+127:                                              ; preds = %._crit_edge40
+  %128 = load i32, ptr %54, align 4
+  %129 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %128)
+  br label %130
 
-127:                                              ; preds = %124, %._crit_edge40
+130:                                              ; preds = %127, %._crit_edge40
   ret void
 
-128:                                              ; preds = %40, %42, %23, %25
+131:                                              ; preds = %40, %42, %23, %25
   %.sink = phi ptr [ %5, %25 ], [ %5, %23 ], [ %6, %42 ], [ %6, %40 ]
   %.pn33.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ], [ %43, %42 ], [ %41, %40 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #13
   resume { ptr, i32 } %.pn33.pn
 
-129:                                              ; preds = %39, %22
+132:                                              ; preds = %39, %22
   unreachable
 }
 

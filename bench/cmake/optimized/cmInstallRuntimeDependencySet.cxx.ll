@@ -765,7 +765,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIPK17cmGeneratorTargetS
   %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %11 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %12, %11 ], [ %.02024.i, %._crit_edge.i ]
   %15 = icmp ult ptr %14, %.pre.i.pre.pre
-  br i1 %15, label %select.unfold, label %48
+  br i1 %15, label %select.unfold, label %50
 
 select.unfold:                                    ; preds = %13, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %13 ]
@@ -787,7 +787,7 @@ select.unfold:                                    ; preds = %13, %._crit_edge.th
   %26 = getelementptr inbounds i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %40, label %28
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %42, label %28
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %1, i64 16
@@ -796,43 +796,46 @@ select.unfold:                                    ; preds = %13, %._crit_edge.th
   %31 = getelementptr inbounds i8, ptr %23, i64 56
   store ptr %27, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 32
-  %33 = getelementptr inbounds i8, ptr %23, i64 64
-  %34 = getelementptr inbounds i8, ptr %1, i64 40
-  %35 = load <2 x ptr>, ptr %32, align 8
-  store <2 x ptr> %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %25, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 48
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %23, i64 80
-  store i64 %38, ptr %39, align 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %23, i64 64
+  store ptr %33, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %23, i64 72
+  store ptr %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %27, i64 8
+  store ptr %25, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 48
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %23, i64 80
+  store i64 %40, ptr %41, align 8
   store ptr null, ptr %26, align 8
   store ptr %29, ptr %32, align 8
-  store ptr %29, ptr %34, align 8
+  store ptr %29, ptr %35, align 8
   br label %_ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setIS2_St4lessIS2_ESaIS2_EEESt10_Select1stISA_ES7_SaISA_EE10_M_insert_ISA_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit
 
-40:                                               ; preds = %21
+42:                                               ; preds = %21
   store i32 0, ptr %25, align 8
-  %41 = getelementptr inbounds i8, ptr %23, i64 56
-  store ptr null, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %23, i64 64
-  store ptr %25, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %23, i64 72
-  store ptr %25, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %23, i64 80
+  %43 = getelementptr inbounds i8, ptr %23, i64 56
+  store ptr null, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %23, i64 64
+  store ptr %25, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %23, i64 72
+  store ptr %25, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %23, i64 80
   br label %_ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setIS2_St4lessIS2_ESaIS2_EEESt10_Select1stISA_ES7_SaISA_EE10_M_insert_ISA_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit
 
-_ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setIS2_St4lessIS2_ESaIS2_EEESt10_Select1stISA_ES7_SaISA_EE10_M_insert_ISA_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit: ; preds = %28, %40
-  %.sink.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %44, %40 ], [ %37, %28 ]
+_ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setIS2_St4lessIS2_ESaIS2_EEESt10_Select1stISA_ES7_SaISA_EE10_M_insert_ISA_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit: ; preds = %28, %42
+  %.sink.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %46, %42 ], [ %39, %28 ]
   store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %22, ptr noundef nonnull %23, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #14
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %45, align 8
-  br label %48
+  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = load i64, ptr %47, align 8
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %47, align 8
+  br label %50
 
-48:                                               ; preds = %13, %_ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setIS2_St4lessIS2_ESaIS2_EEESt10_Select1stISA_ES7_SaISA_EE10_M_insert_ISA_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit
+50:                                               ; preds = %13, %_ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setIS2_St4lessIS2_ESaIS2_EEESt10_Select1stISA_ES7_SaISA_EE10_M_insert_ISA_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit
   %.sroa.09.0 = phi ptr [ %23, %_ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setIS2_St4lessIS2_ESaIS2_EEESt10_Select1stISA_ES7_SaISA_EE10_M_insert_ISA_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit ], [ %.sroa.05.0.i, %13 ]
   %.sroa.3.0 = phi i8 [ 1, %_ZNSt8_Rb_treeIPK17cmGeneratorTargetSt4pairIKS2_St3setIS2_St4lessIS2_ESaIS2_EEESt10_Select1stISA_ES7_SaISA_EE10_M_insert_ISA_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit ], [ 0, %13 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.09.0, 0

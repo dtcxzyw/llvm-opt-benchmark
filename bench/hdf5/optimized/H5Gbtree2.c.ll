@@ -53,7 +53,7 @@ define internal range(i32 -1, 1) i32 @H5G__dense_btree2_name_compare(ptr nocaptu
 
 10:                                               ; preds = %3
   store i32 -1, ptr %2, align 4
-  br label %33
+  br label %36
 
 11:                                               ; preds = %3
   %12 = icmp ugt i32 %6, %8
@@ -61,7 +61,7 @@ define internal range(i32 -1, 1) i32 @H5G__dense_btree2_name_compare(ptr nocaptu
 
 13:                                               ; preds = %11
   store i32 1, ptr %2, align 4
-  br label %33
+  br label %36
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %0, align 8
@@ -71,30 +71,34 @@ define internal range(i32 -1, 1) i32 @H5G__dense_btree2_name_compare(ptr nocaptu
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 40
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
-  %21 = load <2 x ptr>, ptr %19, align 8
-  store <2 x ptr> %21, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @H5HF_op(ptr noundef %24, ptr noundef nonnull %1, ptr noundef nonnull @H5G__dense_fh_name_cmp, ptr noundef nonnull %4) #8
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %31
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %20, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 @H5HF_op(ptr noundef %27, ptr noundef nonnull %1, ptr noundef nonnull @H5G__dense_fh_name_cmp, ptr noundef nonnull %4) #8
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %30, label %34
 
-27:                                               ; preds = %14
-  %28 = load i64, ptr @H5E_HEAP_g, align 8
-  %29 = load i64, ptr @H5E_CANTCOMPARE_g, align 8
-  %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5G__dense_btree2_name_compare, i32 noundef 241, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.3) #8
-  br label %33
+30:                                               ; preds = %14
+  %31 = load i64, ptr @H5E_HEAP_g, align 8
+  %32 = load i64, ptr @H5E_CANTCOMPARE_g, align 8
+  %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5G__dense_btree2_name_compare, i32 noundef 241, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.3) #8
+  br label %36
 
-31:                                               ; preds = %14
-  %32 = load i32, ptr %22, align 8
-  store i32 %32, ptr %2, align 4
-  br label %33
+34:                                               ; preds = %14
+  %35 = load i32, ptr %25, align 8
+  store i32 %35, ptr %2, align 4
+  br label %36
 
-33:                                               ; preds = %10, %31, %13, %27
-  %.0 = phi i32 [ 0, %10 ], [ 0, %13 ], [ -1, %27 ], [ 0, %31 ]
+36:                                               ; preds = %10, %34, %13, %30
+  %.0 = phi i32 [ 0, %10 ], [ 0, %13 ], [ -1, %30 ], [ 0, %34 ]
   ret i32 %.0
 }
 

@@ -157,7 +157,7 @@ entry:
   %line = alloca [4096 x i8], align 16
   %vec = alloca [3 x ptr], align 16
   %w = alloca float, align 4
-  %clr = alloca %class.aiColor4t, align 16
+  %clr = alloca %class.aiColor4t, align 4
   %twosided = alloca i32, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #15
   %call.i108 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -1913,7 +1913,13 @@ invoke.cont419:                                   ; preds = %invoke.cont417
           to label %invoke.cont422 unwind label %lpad421
 
 invoke.cont422:                                   ; preds = %invoke.cont419
-  store <4 x float> <float 0x3FE3333340000000, float 0x3FE3333340000000, float 0x3FE3333340000000, float 1.000000e+00>, ptr %clr, align 16
+  store float 0x3FE3333340000000, ptr %clr, align 4
+  %g.i = getelementptr inbounds i8, ptr %clr, i64 4
+  store float 0x3FE3333340000000, ptr %g.i, align 4
+  %b.i = getelementptr inbounds i8, ptr %clr, i64 8
+  store float 0x3FE3333340000000, ptr %b.i, align 4
+  %a.i = getelementptr inbounds i8, ptr %clr, i64 12
+  store float 1.000000e+00, ptr %a.i, align 4
   %call3.i494 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call420, ptr noundef nonnull %clr, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef 0, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont425 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

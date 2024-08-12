@@ -2697,7 +2697,7 @@ define dso_local i64 @gist_point_distance(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = alloca %struct.Point, align 16
+  %4 = alloca %struct.Point, align 8
   br i1 %0, label %5, label %11
 
 5:                                                ; preds = %3
@@ -2861,20 +2861,21 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   %105 = bitcast i64 %104 to double
   %106 = fcmp ogt double %102, %105
   %.1 = select i1 %106, double %105, double %102
-  %107 = getelementptr inbounds i8, ptr %4, i64 8
-  %108 = load <2 x double>, ptr %63, align 8
-  %109 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %109, ptr %4, align 16
+  %107 = load double, ptr %99, align 8
+  store double %107, ptr %4, align 8
+  %108 = load double, ptr %63, align 8
+  %109 = getelementptr inbounds i8, ptr %4, i64 8
+  store double %108, ptr %109, align 8
   %110 = ptrtoint ptr %4 to i64
   %111 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %98, i64 noundef %110) #14
   %112 = bitcast i64 %111 to double
   %113 = fcmp ogt double %.1, %112
   %.2 = select i1 %113, double %112, double %.1
   %114 = load double, ptr %1, align 8
-  store double %114, ptr %4, align 16
+  store double %114, ptr %4, align 8
   %115 = getelementptr inbounds i8, ptr %1, i64 24
   %116 = load double, ptr %115, align 8
-  store double %116, ptr %107, align 8
+  store double %116, ptr %109, align 8
   %117 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %98, i64 noundef %110) #14
   %118 = bitcast i64 %117 to double
   %119 = fcmp ogt double %.2, %118
@@ -3056,30 +3057,39 @@ ieee_float32_to_uint32.exit.i:                    ; preds = %11, %2
 
 point_zorder_internal.exit:                       ; preds = %ieee_float32_to_uint32.exit.i, %18
   %.0.i5.i = phi i64 [ %23, %18 ], [ 4294967295, %ieee_float32_to_uint32.exit.i ]
-  %24 = insertelement <2 x i64> poison, i64 %.0.i5.i, i64 0
-  %25 = insertelement <2 x i64> %24, i64 %.0.i.i, i64 1
-  %26 = shl nuw nsw <2 x i64> %25, <i64 16, i64 16>
-  %27 = or <2 x i64> %26, %25
-  %28 = and <2 x i64> %27, <i64 281470681808895, i64 281470681808895>
-  %29 = shl nuw nsw <2 x i64> %28, <i64 8, i64 8>
-  %30 = or <2 x i64> %29, %28
-  %31 = and <2 x i64> %30, <i64 71777214294589695, i64 71777214294589695>
-  %32 = shl nuw nsw <2 x i64> %31, <i64 4, i64 4>
-  %33 = or <2 x i64> %32, %31
-  %34 = and <2 x i64> %33, <i64 1085102592571150095, i64 1085102592571150095>
-  %35 = shl nuw nsw <2 x i64> %34, <i64 2, i64 2>
-  %36 = or <2 x i64> %35, %34
-  %37 = and <2 x i64> %36, <i64 3689348814741910323, i64 3689348814741910323>
-  %38 = shl nuw <2 x i64> %37, <i64 2, i64 1>
-  %39 = extractelement <2 x i64> %37, i64 0
-  %40 = shl nuw nsw i64 %39, 1
-  %41 = insertelement <2 x i64> %37, i64 %40, i64 0
-  %42 = or <2 x i64> %38, %41
-  %43 = and <2 x i64> %42, <i64 -6148914691236517206, i64 6148914691236517205>
-  %shift = shufflevector <2 x i64> %43, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %44 = or disjoint <2 x i64> %43, %shift
-  %45 = extractelement <2 x i64> %44, i64 0
-  ret i64 %45
+  %24 = shl nuw nsw i64 %.0.i.i, 16
+  %25 = or i64 %24, %.0.i.i
+  %26 = and i64 %25, 281470681808895
+  %27 = shl nuw nsw i64 %26, 8
+  %28 = or i64 %27, %26
+  %29 = and i64 %28, 71777214294589695
+  %30 = shl nuw nsw i64 %29, 4
+  %31 = or i64 %30, %29
+  %32 = and i64 %31, 1085102592571150095
+  %33 = shl nuw nsw i64 %32, 2
+  %34 = or i64 %33, %32
+  %35 = and i64 %34, 3689348814741910323
+  %36 = shl nuw nsw i64 %35, 1
+  %37 = or i64 %36, %35
+  %38 = and i64 %37, 6148914691236517205
+  %39 = shl nuw nsw i64 %.0.i5.i, 16
+  %40 = or i64 %39, %.0.i5.i
+  %41 = and i64 %40, 281470681808895
+  %42 = shl nuw nsw i64 %41, 8
+  %43 = or i64 %42, %41
+  %44 = and i64 %43, 71777214294589695
+  %45 = shl nuw nsw i64 %44, 4
+  %46 = or i64 %45, %44
+  %47 = and i64 %46, 1085102592571150095
+  %48 = shl nuw nsw i64 %47, 2
+  %49 = or i64 %48, %47
+  %50 = and i64 %49, 3689348814741910323
+  %51 = shl nuw i64 %50, 2
+  %52 = shl nuw nsw i64 %50, 1
+  %53 = or i64 %51, %52
+  %54 = and i64 %53, -6148914691236517206
+  %55 = or disjoint i64 %54, %38
+  ret i64 %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -3104,7 +3114,7 @@ define internal range(i32 -1, 2) i32 @gist_bbox_zorder_cmp(i64 noundef %0, i64 n
   %14 = getelementptr inbounds i8, ptr %6, i64 24
   %15 = load double, ptr %14, align 8
   %16 = fcmp oeq double %12, %15
-  br i1 %16, label %108, label %._crit_edge
+  br i1 %16, label %118, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3, %13
   %17 = fptrunc double %8 to float
@@ -3205,39 +3215,48 @@ ieee_float32_to_uint32.exit.i18:                  ; preds = %70, %point_zorder_i
 
 point_zorder_internal.exit23:                     ; preds = %ieee_float32_to_uint32.exit.i18, %77
   %.0.i5.i22 = phi i64 [ %82, %77 ], [ 4294967295, %ieee_float32_to_uint32.exit.i18 ]
-  %83 = insertelement <2 x i64> poison, i64 %.0.i5.i22, i64 0
-  %84 = insertelement <2 x i64> %83, i64 %.0.i.i19, i64 1
-  %85 = shl nuw nsw <2 x i64> %84, <i64 16, i64 16>
-  %86 = or <2 x i64> %85, %84
-  %87 = and <2 x i64> %86, <i64 281470681808895, i64 281470681808895>
-  %88 = shl nuw nsw <2 x i64> %87, <i64 8, i64 8>
-  %89 = or <2 x i64> %88, %87
-  %90 = and <2 x i64> %89, <i64 71777214294589695, i64 71777214294589695>
-  %91 = shl nuw nsw <2 x i64> %90, <i64 4, i64 4>
-  %92 = or <2 x i64> %91, %90
-  %93 = and <2 x i64> %92, <i64 1085102592571150095, i64 1085102592571150095>
-  %94 = shl nuw nsw <2 x i64> %93, <i64 2, i64 2>
-  %95 = or <2 x i64> %94, %93
-  %96 = and <2 x i64> %95, <i64 3689348814741910323, i64 3689348814741910323>
-  %97 = shl nuw <2 x i64> %96, <i64 2, i64 1>
-  %98 = extractelement <2 x i64> %96, i64 0
-  %99 = shl nuw nsw i64 %98, 1
-  %100 = insertelement <2 x i64> %96, i64 %99, i64 0
-  %101 = or <2 x i64> %97, %100
-  %102 = and <2 x i64> %101, <i64 -6148914691236517206, i64 6148914691236517205>
-  %shift = shufflevector <2 x i64> %102, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %103 = or disjoint <2 x i64> %102, %shift
-  %104 = extractelement <2 x i64> %103, i64 0
-  %105 = icmp ugt i64 %64, %104
-  br i1 %105, label %108, label %106
+  %83 = shl nuw nsw i64 %.0.i.i19, 16
+  %84 = or i64 %83, %.0.i.i19
+  %85 = and i64 %84, 281470681808895
+  %86 = shl nuw nsw i64 %85, 8
+  %87 = or i64 %86, %85
+  %88 = and i64 %87, 71777214294589695
+  %89 = shl nuw nsw i64 %88, 4
+  %90 = or i64 %89, %88
+  %91 = and i64 %90, 1085102592571150095
+  %92 = shl nuw nsw i64 %91, 2
+  %93 = or i64 %92, %91
+  %94 = and i64 %93, 3689348814741910323
+  %95 = shl nuw nsw i64 %94, 1
+  %96 = or i64 %95, %94
+  %97 = and i64 %96, 6148914691236517205
+  %98 = shl nuw nsw i64 %.0.i5.i22, 16
+  %99 = or i64 %98, %.0.i5.i22
+  %100 = and i64 %99, 281470681808895
+  %101 = shl nuw nsw i64 %100, 8
+  %102 = or i64 %101, %100
+  %103 = and i64 %102, 71777214294589695
+  %104 = shl nuw nsw i64 %103, 4
+  %105 = or i64 %104, %103
+  %106 = and i64 %105, 1085102592571150095
+  %107 = shl nuw nsw i64 %106, 2
+  %108 = or i64 %107, %106
+  %109 = and i64 %108, 3689348814741910323
+  %110 = shl nuw i64 %109, 2
+  %111 = shl nuw nsw i64 %109, 1
+  %112 = or i64 %110, %111
+  %113 = and i64 %112, -6148914691236517206
+  %114 = or disjoint i64 %113, %97
+  %115 = icmp ugt i64 %64, %114
+  br i1 %115, label %118, label %116
 
-106:                                              ; preds = %point_zorder_internal.exit23
-  %107 = icmp ult i64 %64, %104
-  %. = sext i1 %107 to i32
-  br label %108
+116:                                              ; preds = %point_zorder_internal.exit23
+  %117 = icmp ult i64 %64, %114
+  %. = sext i1 %117 to i32
+  br label %118
 
-108:                                              ; preds = %106, %point_zorder_internal.exit23, %13
-  %.0 = phi i32 [ 0, %13 ], [ 1, %point_zorder_internal.exit23 ], [ %., %106 ]
+118:                                              ; preds = %116, %point_zorder_internal.exit23, %13
+  %.0 = phi i32 [ 0, %13 ], [ 1, %point_zorder_internal.exit23 ], [ %., %116 ]
   ret i32 %.0
 }
 

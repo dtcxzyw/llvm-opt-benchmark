@@ -993,7 +993,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit88.i:                ; preds = %183, %153, %_ZNSt6v
   %202 = getelementptr inbounds i8, ptr %198, i64 4
   %203 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %202, ptr %203, align 8
-  store <4 x i8> <i8 72, i8 -9, i8 36, i8 24>, ptr %198, align 1
+  store i8 72, ptr %198, align 1
+  %.sroa.2261.0..sroa_idx.i = getelementptr inbounds i8, ptr %198, i64 1
+  store i8 -9, ptr %.sroa.2261.0..sroa_idx.i, align 1
+  %.sroa.3262.0..sroa_idx.i = getelementptr inbounds i8, ptr %198, i64 2
+  store i8 36, ptr %.sroa.3262.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %198, i64 3
+  store i8 24, ptr %.sroa.4.0..sroa_idx.i, align 1
   %204 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %202, ptr %204, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
@@ -2608,7 +2614,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit60.i:                ; preds = %110, %81, %_ZNSt6ve
   %129 = getelementptr inbounds i8, ptr %125, i64 4
   %130 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %129, ptr %130, align 8
-  store <4 x i8> <i8 77, i8 15, i8 -66, i8 34>, ptr %125, align 1
+  store i8 77, ptr %125, align 1
+  %.sroa.2239.0..sroa_idx.i = getelementptr inbounds i8, ptr %125, i64 1
+  store i8 15, ptr %.sroa.2239.0..sroa_idx.i, align 1
+  %.sroa.3240.0..sroa_idx.i = getelementptr inbounds i8, ptr %125, i64 2
+  store i8 -66, ptr %.sroa.3240.0..sroa_idx.i, align 1
+  %.sroa.4241.0..sroa_idx.i = getelementptr inbounds i8, ptr %125, i64 3
+  store i8 34, ptr %.sroa.4241.0..sroa_idx.i, align 1
   %131 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %129, ptr %131, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
@@ -2782,7 +2794,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit81.i:                ; preds = %176, %146, %_ZNSt6v
   %195 = getelementptr inbounds i8, ptr %191, i64 4
   %196 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %195, ptr %196, align 8
-  store <4 x i8> <i8 65, i8 15, i8 -65, i8 27>, ptr %191, align 1
+  store i8 65, ptr %191, align 1
+  %.sroa.2234.0..sroa_idx.i = getelementptr inbounds i8, ptr %191, i64 1
+  store i8 15, ptr %.sroa.2234.0..sroa_idx.i, align 1
+  %.sroa.3235.0..sroa_idx.i = getelementptr inbounds i8, ptr %191, i64 2
+  store i8 -65, ptr %.sroa.3235.0..sroa_idx.i, align 1
+  %.sroa.4236.0..sroa_idx.i = getelementptr inbounds i8, ptr %191, i64 3
+  store i8 27, ptr %.sroa.4236.0..sroa_idx.i, align 1
   %197 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %195, ptr %197, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
@@ -2956,7 +2974,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit102.i:               ; preds = %242, %212, %_ZNSt6v
   %261 = getelementptr inbounds i8, ptr %257, i64 4
   %262 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %261, ptr %262, align 8
-  store <4 x i8> <i8 72, i8 15, i8 -65, i8 17>, ptr %257, align 1
+  store i8 72, ptr %257, align 1
+  %.sroa.2229.0..sroa_idx.i = getelementptr inbounds i8, ptr %257, i64 1
+  store i8 15, ptr %.sroa.2229.0..sroa_idx.i, align 1
+  %.sroa.3230.0..sroa_idx.i = getelementptr inbounds i8, ptr %257, i64 2
+  store i8 -65, ptr %.sroa.3230.0..sroa_idx.i, align 1
+  %.sroa.4231.0..sroa_idx.i = getelementptr inbounds i8, ptr %257, i64 3
+  store i8 17, ptr %.sroa.4231.0..sroa_idx.i, align 1
   %263 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %261, ptr %263, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
@@ -3308,7 +3332,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit144.i:               ; preds = %374, %344, %_ZNSt6v
   %393 = getelementptr inbounds i8, ptr %389, i64 4
   %394 = getelementptr inbounds i8, ptr %41, i64 16
   store ptr %393, ptr %394, align 8
-  store <4 x i8> <i8 77, i8 15, i8 -74, i8 34>, ptr %389, align 1
+  store i8 77, ptr %389, align 1
+  %.sroa.2220.0..sroa_idx.i = getelementptr inbounds i8, ptr %389, i64 1
+  store i8 15, ptr %.sroa.2220.0..sroa_idx.i, align 1
+  %.sroa.3221.0..sroa_idx.i = getelementptr inbounds i8, ptr %389, i64 2
+  store i8 -74, ptr %.sroa.3221.0..sroa_idx.i, align 1
+  %.sroa.4222.0..sroa_idx.i = getelementptr inbounds i8, ptr %389, i64 3
+  store i8 34, ptr %.sroa.4222.0..sroa_idx.i, align 1
   %395 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %393, ptr %395, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
@@ -3482,7 +3512,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit165.i:               ; preds = %440, %410, %_ZNSt6v
   %459 = getelementptr inbounds i8, ptr %455, i64 4
   %460 = getelementptr inbounds i8, ptr %48, i64 16
   store ptr %459, ptr %460, align 8
-  store <4 x i8> <i8 65, i8 15, i8 -73, i8 27>, ptr %455, align 1
+  store i8 65, ptr %455, align 1
+  %.sroa.2215.0..sroa_idx.i = getelementptr inbounds i8, ptr %455, i64 1
+  store i8 15, ptr %.sroa.2215.0..sroa_idx.i, align 1
+  %.sroa.3216.0..sroa_idx.i = getelementptr inbounds i8, ptr %455, i64 2
+  store i8 -73, ptr %.sroa.3216.0..sroa_idx.i, align 1
+  %.sroa.4217.0..sroa_idx.i = getelementptr inbounds i8, ptr %455, i64 3
+  store i8 27, ptr %.sroa.4217.0..sroa_idx.i, align 1
   %461 = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %459, ptr %461, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
@@ -3656,7 +3692,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit186.i:               ; preds = %506, %476, %_ZNSt6v
   %525 = getelementptr inbounds i8, ptr %521, i64 4
   %526 = getelementptr inbounds i8, ptr %55, i64 16
   store ptr %525, ptr %526, align 8
-  store <4 x i8> <i8 72, i8 15, i8 -73, i8 17>, ptr %521, align 1
+  store i8 72, ptr %521, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %521, i64 1
+  store i8 15, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %521, i64 2
+  store i8 -73, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %521, i64 3
+  store i8 17, ptr %.sroa.4.0..sroa_idx.i, align 1
   %527 = getelementptr inbounds i8, ptr %55, i64 8
   store ptr %525, ptr %527, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
@@ -4165,7 +4207,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit46.i:                ; preds = %96, %67, %_ZNSt6vec
   %115 = getelementptr inbounds i8, ptr %111, i64 6
   %116 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %115, ptr %116, align 8
-  store <4 x i8> <i8 -9, i8 -64, i8 8, i8 0>, ptr %111, align 1
+  store i8 -9, ptr %111, align 1
+  %.sroa.2175.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 1
+  store i8 -64, ptr %.sroa.2175.0..sroa_idx.i, align 1
+  %.sroa.3176.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 2
+  store i8 8, ptr %.sroa.3176.0..sroa_idx.i, align 1
+  %.sroa.4177.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 3
+  store i8 0, ptr %.sroa.4177.0..sroa_idx.i, align 1
   %.sroa.5178.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 4
   store i8 0, ptr %.sroa.5178.0..sroa_idx.i, align 1
   %.sroa.6179.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 5
@@ -4343,7 +4391,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit67.i:                ; preds = %162, %132, %_ZNSt6v
   %181 = getelementptr inbounds i8, ptr %177, i64 7
   %182 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %181, ptr %182, align 8
-  store <4 x i8> <i8 72, i8 -9, i8 -64, i8 8>, ptr %177, align 1
+  store i8 72, ptr %177, align 1
+  %.sroa.2167.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 1
+  store i8 -9, ptr %.sroa.2167.0..sroa_idx.i, align 1
+  %.sroa.3168.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 2
+  store i8 -64, ptr %.sroa.3168.0..sroa_idx.i, align 1
+  %.sroa.4169.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 3
+  store i8 8, ptr %.sroa.4169.0..sroa_idx.i, align 1
   %.sroa.5170.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 4
   store i8 0, ptr %.sroa.5170.0..sroa_idx.i, align 1
   %.sroa.6171.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 5
@@ -4523,7 +4577,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit88.i:                ; preds = %228, %198, %_ZNSt6v
   %247 = getelementptr inbounds i8, ptr %243, i64 7
   %248 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %247, ptr %248, align 8
-  store <4 x i8> <i8 72, i8 -9, i8 -63, i8 -85>, ptr %243, align 1
+  store i8 72, ptr %243, align 1
+  %.sroa.2163.0..sroa_idx.i = getelementptr inbounds i8, ptr %243, i64 1
+  store i8 -9, ptr %.sroa.2163.0..sroa_idx.i, align 1
+  %.sroa.3164.0..sroa_idx.i = getelementptr inbounds i8, ptr %243, i64 2
+  store i8 -63, ptr %.sroa.3164.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %243, i64 3
+  store i8 -85, ptr %.sroa.4.0..sroa_idx.i, align 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %243, i64 4
   store i8 -85, ptr %.sroa.5.0..sroa_idx.i, align 1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %243, i64 5
@@ -5172,7 +5232,13 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_22Ev() #2 personality
   %29 = getelementptr inbounds i8, ptr %25, i64 4
   %30 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %29, ptr %30, align 8
-  store <4 x i8> <i8 72, i8 -115, i8 4, i8 10>, ptr %25, align 1
+  store i8 72, ptr %25, align 1
+  %.sroa.280.0..sroa_idx.i = getelementptr inbounds i8, ptr %25, i64 1
+  store i8 -115, ptr %.sroa.280.0..sroa_idx.i, align 1
+  %.sroa.381.0..sroa_idx.i = getelementptr inbounds i8, ptr %25, i64 2
+  store i8 4, ptr %.sroa.381.0..sroa_idx.i, align 1
+  %.sroa.482.0..sroa_idx.i = getelementptr inbounds i8, ptr %25, i64 3
+  store i8 10, ptr %.sroa.482.0..sroa_idx.i, align 1
   %31 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %29, ptr %31, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -5341,7 +5407,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit25.i:                ; preds = %75, %46, %_ZNSt6vec
   %94 = getelementptr inbounds i8, ptr %90, i64 4
   %95 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %94, ptr %95, align 8
-  store <4 x i8> <i8 72, i8 -115, i8 4, i8 -126>, ptr %90, align 1
+  store i8 72, ptr %90, align 1
+  %.sroa.275.0..sroa_idx.i = getelementptr inbounds i8, ptr %90, i64 1
+  store i8 -115, ptr %.sroa.275.0..sroa_idx.i, align 1
+  %.sroa.376.0..sroa_idx.i = getelementptr inbounds i8, ptr %90, i64 2
+  store i8 4, ptr %.sroa.376.0..sroa_idx.i, align 1
+  %.sroa.477.0..sroa_idx.i = getelementptr inbounds i8, ptr %90, i64 3
+  store i8 -126, ptr %.sroa.477.0..sroa_idx.i, align 1
   %96 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %94, ptr %96, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
@@ -5515,7 +5587,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit46.i:                ; preds = %141, %111, %_ZNSt6v
   %160 = getelementptr inbounds i8, ptr %156, i64 5
   %161 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %160, ptr %161, align 8
-  store <4 x i8> <i8 75, i8 -115, i8 68, i8 -91>, ptr %156, align 1
+  store i8 75, ptr %156, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %156, i64 1
+  store i8 -115, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %156, i64 2
+  store i8 68, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %156, i64 3
+  store i8 -91, ptr %.sroa.4.0..sroa_idx.i, align 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %156, i64 4
   store i8 4, ptr %.sroa.5.0..sroa_idx.i, align 1
   %162 = getelementptr inbounds i8, ptr %20, i64 8
@@ -5949,7 +6027,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit25.i:                ; preds = %75, %46, %_ZNSt6vec
   %94 = getelementptr inbounds i8, ptr %90, i64 4
   %95 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %94, ptr %95, align 8
-  store <4 x i8> <i8 72, i8 15, i8 -107, i8 -57>, ptr %90, align 1
+  store i8 72, ptr %90, align 1
+  %.sroa.275.0..sroa_idx.i = getelementptr inbounds i8, ptr %90, i64 1
+  store i8 15, ptr %.sroa.275.0..sroa_idx.i, align 1
+  %.sroa.376.0..sroa_idx.i = getelementptr inbounds i8, ptr %90, i64 2
+  store i8 -107, ptr %.sroa.376.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %90, i64 3
+  store i8 -57, ptr %.sroa.4.0..sroa_idx.i, align 1
   %96 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %94, ptr %96, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
@@ -6573,7 +6657,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit32.i:                ; preds = %82, %53, %_ZNSt6vec
   %101 = getelementptr inbounds i8, ptr %97, i64 4
   %102 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %101, ptr %102, align 8
-  store <4 x i8> <i8 72, i8 15, i8 69, i8 24>, ptr %97, align 1
+  store i8 72, ptr %97, align 1
+  %.sroa.2108.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 1
+  store i8 15, ptr %.sroa.2108.0..sroa_idx.i, align 1
+  %.sroa.3109.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 2
+  store i8 69, ptr %.sroa.3109.0..sroa_idx.i, align 1
+  %.sroa.4110.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 3
+  store i8 24, ptr %.sroa.4110.0..sroa_idx.i, align 1
   %103 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %101, ptr %103, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
@@ -6747,7 +6837,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit53.i:                ; preds = %148, %118, %_ZNSt6v
   %167 = getelementptr inbounds i8, ptr %163, i64 5
   %168 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %167, ptr %168, align 8
-  store <4 x i8> <i8 72, i8 15, i8 68, i8 28>, ptr %163, align 1
+  store i8 72, ptr %163, align 1
+  %.sroa.2103.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 1
+  store i8 15, ptr %.sroa.2103.0..sroa_idx.i, align 1
+  %.sroa.3104.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 2
+  store i8 68, ptr %.sroa.3104.0..sroa_idx.i, align 1
+  %.sroa.4105.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 3
+  store i8 28, ptr %.sroa.4105.0..sroa_idx.i, align 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 4
   store i8 8, ptr %.sroa.5.0..sroa_idx.i, align 1
   %169 = getelementptr inbounds i8, ptr %20, i64 8
@@ -6923,7 +7019,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit74.i:                ; preds = %214, %184, %_ZNSt6v
   %233 = getelementptr inbounds i8, ptr %229, i64 4
   %234 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %233, ptr %234, align 8
-  store <4 x i8> <i8 69, i8 15, i8 70, i8 -9>, ptr %229, align 1
+  store i8 69, ptr %229, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 1
+  store i8 15, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 2
+  store i8 70, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 3
+  store i8 -9, ptr %.sroa.4.0..sroa_idx.i, align 1
   %235 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %233, ptr %235, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
@@ -7580,7 +7682,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit67.i:                ; preds = %162, %132, %_ZNSt6v
   %181 = getelementptr inbounds i8, ptr %177, i64 4
   %182 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %181, ptr %182, align 8
-  store <4 x i8> <i8 65, i8 -1, i8 36, i8 -106>, ptr %177, align 1
+  store i8 65, ptr %177, align 1
+  %.sroa.2166.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 1
+  store i8 -1, ptr %.sroa.2166.0..sroa_idx.i, align 1
+  %.sroa.3167.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 2
+  store i8 36, ptr %.sroa.3167.0..sroa_idx.i, align 1
+  %.sroa.4168.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 3
+  store i8 -106, ptr %.sroa.4168.0..sroa_idx.i, align 1
   %183 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %181, ptr %183, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
@@ -8108,7 +8216,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit130.i:               ; preds = %360, %330, %_ZNSt6v
   %379 = getelementptr inbounds i8, ptr %375, i64 4
   %380 = getelementptr inbounds i8, ptr %41, i64 16
   store ptr %379, ptr %380, align 8
-  store <4 x i8> <i8 65, i8 -1, i8 20, i8 -106>, ptr %375, align 1
+  store i8 65, ptr %375, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %375, i64 1
+  store i8 -1, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %375, i64 2
+  store i8 20, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %375, i64 3
+  store i8 -106, ptr %.sroa.4.0..sroa_idx.i, align 1
   %381 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %379, ptr %381, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
@@ -8645,7 +8759,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit67.i:                ; preds = %117, %88, %_ZNSt6ve
   %136 = getelementptr inbounds i8, ptr %132, i64 4
   %137 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %136, ptr %137, align 8
-  store <4 x i8> <i8 76, i8 15, i8 -81, i8 -32>, ptr %132, align 1
+  store i8 76, ptr %132, align 1
+  %.sroa.2276.0..sroa_idx.i = getelementptr inbounds i8, ptr %132, i64 1
+  store i8 15, ptr %.sroa.2276.0..sroa_idx.i, align 1
+  %.sroa.3277.0..sroa_idx.i = getelementptr inbounds i8, ptr %132, i64 2
+  store i8 -81, ptr %.sroa.3277.0..sroa_idx.i, align 1
+  %.sroa.4278.0..sroa_idx.i = getelementptr inbounds i8, ptr %132, i64 3
+  store i8 -32, ptr %.sroa.4278.0..sroa_idx.i, align 1
   %138 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %136, ptr %138, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
@@ -8819,7 +8939,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit88.i:                ; preds = %183, %153, %_ZNSt6v
   %202 = getelementptr inbounds i8, ptr %198, i64 5
   %203 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %202, ptr %203, align 8
-  store <4 x i8> <i8 76, i8 15, i8 -81, i8 36>, ptr %198, align 1
+  store i8 76, ptr %198, align 1
+  %.sroa.2270.0..sroa_idx.i = getelementptr inbounds i8, ptr %198, i64 1
+  store i8 15, ptr %.sroa.2270.0..sroa_idx.i, align 1
+  %.sroa.3271.0..sroa_idx.i = getelementptr inbounds i8, ptr %198, i64 2
+  store i8 -81, ptr %.sroa.3271.0..sroa_idx.i, align 1
+  %.sroa.4272.0..sroa_idx.i = getelementptr inbounds i8, ptr %198, i64 3
+  store i8 36, ptr %.sroa.4272.0..sroa_idx.i, align 1
   %.sroa.5273.0..sroa_idx.i = getelementptr inbounds i8, ptr %198, i64 4
   store i8 58, ptr %.sroa.5273.0..sroa_idx.i, align 1
   %204 = getelementptr inbounds i8, ptr %20, i64 8
@@ -9173,7 +9299,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit130.i:               ; preds = %315, %285, %_ZNSt6v
   %334 = getelementptr inbounds i8, ptr %330, i64 7
   %335 = getelementptr inbounds i8, ptr %34, i64 16
   store ptr %334, ptr %335, align 8
-  store <4 x i8> <i8 65, i8 105, i8 -55, i8 -51>, ptr %330, align 1
+  store i8 65, ptr %330, align 1
+  %.sroa.2258.0..sroa_idx.i = getelementptr inbounds i8, ptr %330, i64 1
+  store i8 105, ptr %.sroa.2258.0..sroa_idx.i, align 1
+  %.sroa.3259.0..sroa_idx.i = getelementptr inbounds i8, ptr %330, i64 2
+  store i8 -55, ptr %.sroa.3259.0..sroa_idx.i, align 1
+  %.sroa.4260.0..sroa_idx.i = getelementptr inbounds i8, ptr %330, i64 3
+  store i8 -51, ptr %.sroa.4260.0..sroa_idx.i, align 1
   %.sroa.5261.0..sroa_idx.i = getelementptr inbounds i8, ptr %330, i64 4
   store i8 -85, ptr %.sroa.5261.0..sroa_idx.i, align 1
   %.sroa.6262.0..sroa_idx.i = getelementptr inbounds i8, ptr %330, i64 5
@@ -9353,7 +9485,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit151.i:               ; preds = %381, %351, %_ZNSt6v
   %400 = getelementptr inbounds i8, ptr %396, i64 4
   %401 = getelementptr inbounds i8, ptr %41, i64 16
   store ptr %400, ptr %401, align 8
-  store <4 x i8> <i8 68, i8 107, i8 -64, i8 -9>, ptr %396, align 1
+  store i8 68, ptr %396, align 1
+  %.sroa.2253.0..sroa_idx.i = getelementptr inbounds i8, ptr %396, i64 1
+  store i8 107, ptr %.sroa.2253.0..sroa_idx.i, align 1
+  %.sroa.3254.0..sroa_idx.i = getelementptr inbounds i8, ptr %396, i64 2
+  store i8 -64, ptr %.sroa.3254.0..sroa_idx.i, align 1
+  %.sroa.4255.0..sroa_idx.i = getelementptr inbounds i8, ptr %396, i64 3
+  store i8 -9, ptr %.sroa.4255.0..sroa_idx.i, align 1
   %402 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %400, ptr %402, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
@@ -9527,7 +9665,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit172.i:               ; preds = %447, %417, %_ZNSt6v
   %466 = getelementptr inbounds i8, ptr %462, i64 4
   %467 = getelementptr inbounds i8, ptr %48, i64 16
   store ptr %466, ptr %467, align 8
-  store <4 x i8> <i8 72, i8 107, i8 -54, i8 17>, ptr %462, align 1
+  store i8 72, ptr %462, align 1
+  %.sroa.2248.0..sroa_idx.i = getelementptr inbounds i8, ptr %462, i64 1
+  store i8 107, ptr %.sroa.2248.0..sroa_idx.i, align 1
+  %.sroa.3249.0..sroa_idx.i = getelementptr inbounds i8, ptr %462, i64 2
+  store i8 -54, ptr %.sroa.3249.0..sroa_idx.i, align 1
+  %.sroa.4250.0..sroa_idx.i = getelementptr inbounds i8, ptr %462, i64 3
+  store i8 17, ptr %.sroa.4250.0..sroa_idx.i, align 1
   %468 = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %466, ptr %468, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
@@ -9701,7 +9845,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit193.i:               ; preds = %513, %483, %_ZNSt6v
   %532 = getelementptr inbounds i8, ptr %528, i64 7
   %533 = getelementptr inbounds i8, ptr %55, i64 16
   store ptr %532, ptr %533, align 8
-  store <4 x i8> <i8 73, i8 105, i8 -52, i8 -51>, ptr %528, align 1
+  store i8 73, ptr %528, align 1
+  %.sroa.2243.0..sroa_idx.i = getelementptr inbounds i8, ptr %528, i64 1
+  store i8 105, ptr %.sroa.2243.0..sroa_idx.i, align 1
+  %.sroa.3244.0..sroa_idx.i = getelementptr inbounds i8, ptr %528, i64 2
+  store i8 -52, ptr %.sroa.3244.0..sroa_idx.i, align 1
+  %.sroa.4245.0..sroa_idx.i = getelementptr inbounds i8, ptr %528, i64 3
+  store i8 -51, ptr %.sroa.4245.0..sroa_idx.i, align 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %528, i64 4
   store i8 -85, ptr %.sroa.5.0..sroa_idx.i, align 1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %528, i64 5
@@ -9881,7 +10031,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit214.i:               ; preds = %579, %549, %_ZNSt6v
   %598 = getelementptr inbounds i8, ptr %594, i64 4
   %599 = getelementptr inbounds i8, ptr %62, i64 16
   store ptr %598, ptr %599, align 8
-  store <4 x i8> <i8 76, i8 107, i8 -32, i8 -13>, ptr %594, align 1
+  store i8 76, ptr %594, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %594, i64 1
+  store i8 107, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %594, i64 2
+  store i8 -32, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %594, i64 3
+  store i8 -13, ptr %.sroa.4.0..sroa_idx.i, align 1
   %600 = getelementptr inbounds i8, ptr %62, i64 8
   store ptr %598, ptr %600, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
@@ -10803,7 +10959,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit116.i:               ; preds = %256, %226, %_ZNSt6v
   %275 = getelementptr inbounds i8, ptr %271, i64 4
   %276 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %275, ptr %276, align 8
-  store <4 x i8> <i8 15, i8 31, i8 64, i8 0>, ptr %271, align 1
+  store i8 15, ptr %271, align 1
+  %.sroa.2311.0..sroa_idx.i = getelementptr inbounds i8, ptr %271, i64 1
+  store i8 31, ptr %.sroa.2311.0..sroa_idx.i, align 1
+  %.sroa.3312.0..sroa_idx.i = getelementptr inbounds i8, ptr %271, i64 2
+  store i8 64, ptr %.sroa.3312.0..sroa_idx.i, align 1
+  %.sroa.4313.0..sroa_idx.i = getelementptr inbounds i8, ptr %271, i64 3
+  store i8 0, ptr %.sroa.4313.0..sroa_idx.i, align 1
   %277 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %275, ptr %277, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
@@ -10977,7 +11139,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit137.i:               ; preds = %322, %292, %_ZNSt6v
   %341 = getelementptr inbounds i8, ptr %337, i64 5
   %342 = getelementptr inbounds i8, ptr %34, i64 16
   store ptr %341, ptr %342, align 8
-  store <4 x i8> <i8 15, i8 31, i8 68, i8 0>, ptr %337, align 1
+  store i8 15, ptr %337, align 1
+  %.sroa.2305.0..sroa_idx.i = getelementptr inbounds i8, ptr %337, i64 1
+  store i8 31, ptr %.sroa.2305.0..sroa_idx.i, align 1
+  %.sroa.3306.0..sroa_idx.i = getelementptr inbounds i8, ptr %337, i64 2
+  store i8 68, ptr %.sroa.3306.0..sroa_idx.i, align 1
+  %.sroa.4307.0..sroa_idx.i = getelementptr inbounds i8, ptr %337, i64 3
+  store i8 0, ptr %.sroa.4307.0..sroa_idx.i, align 1
   %.sroa.5308.0..sroa_idx.i = getelementptr inbounds i8, ptr %337, i64 4
   store i8 0, ptr %.sroa.5308.0..sroa_idx.i, align 1
   %343 = getelementptr inbounds i8, ptr %34, i64 8
@@ -11153,7 +11321,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit158.i:               ; preds = %388, %358, %_ZNSt6v
   %407 = getelementptr inbounds i8, ptr %403, i64 6
   %408 = getelementptr inbounds i8, ptr %41, i64 16
   store ptr %407, ptr %408, align 8
-  store <4 x i8> <i8 102, i8 15, i8 31, i8 68>, ptr %403, align 1
+  store i8 102, ptr %403, align 1
+  %.sroa.2298.0..sroa_idx.i = getelementptr inbounds i8, ptr %403, i64 1
+  store i8 15, ptr %.sroa.2298.0..sroa_idx.i, align 1
+  %.sroa.3299.0..sroa_idx.i = getelementptr inbounds i8, ptr %403, i64 2
+  store i8 31, ptr %.sroa.3299.0..sroa_idx.i, align 1
+  %.sroa.4300.0..sroa_idx.i = getelementptr inbounds i8, ptr %403, i64 3
+  store i8 68, ptr %.sroa.4300.0..sroa_idx.i, align 1
   %.sroa.5301.0..sroa_idx.i = getelementptr inbounds i8, ptr %403, i64 4
   store i8 0, ptr %.sroa.5301.0..sroa_idx.i, align 1
   %.sroa.6302.0..sroa_idx.i = getelementptr inbounds i8, ptr %403, i64 5
@@ -11691,7 +11865,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit221.i:               ; preds = %586, %556, %_ZNSt6v
   %605 = getelementptr inbounds i8, ptr %601, i64 9
   %606 = getelementptr inbounds i8, ptr %62, i64 16
   store ptr %605, ptr %606, align 8
-  store <4 x i8> <i8 102, i8 15, i8 31, i8 -124>, ptr %601, align 1
+  store i8 102, ptr %601, align 1
+  %.sroa.2271.0..sroa_idx.i = getelementptr inbounds i8, ptr %601, i64 1
+  store i8 15, ptr %.sroa.2271.0..sroa_idx.i, align 1
+  %.sroa.3272.0..sroa_idx.i = getelementptr inbounds i8, ptr %601, i64 2
+  store i8 31, ptr %.sroa.3272.0..sroa_idx.i, align 1
+  %.sroa.4273.0..sroa_idx.i = getelementptr inbounds i8, ptr %601, i64 3
+  store i8 -124, ptr %.sroa.4273.0..sroa_idx.i, align 1
   %.sroa.5274.0..sroa_idx.i = getelementptr inbounds i8, ptr %601, i64 4
   %607 = getelementptr inbounds i8, ptr %62, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.5274.0..sroa_idx.i, i8 0, i64 5, i1 false)
@@ -11867,11 +12047,23 @@ _ZNSt6vectorIhSaIhEED2Ev.exit242.i:               ; preds = %652, %622, %_ZNSt6v
   %671 = getelementptr inbounds i8, ptr %667, i64 15
   %672 = getelementptr inbounds i8, ptr %69, i64 16
   store ptr %671, ptr %672, align 8
-  store <4 x i8> <i8 102, i8 15, i8 31, i8 -124>, ptr %667, align 1
+  store i8 102, ptr %667, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %667, i64 1
+  store i8 15, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %667, i64 2
+  store i8 31, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %667, i64 3
+  store i8 -124, ptr %.sroa.4.0..sroa_idx.i, align 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %667, i64 4
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %667, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.5.0..sroa_idx.i, i8 0, i64 5, i1 false)
-  store <4 x i8> <i8 102, i8 15, i8 31, i8 68>, ptr %.sroa.10.0..sroa_idx.i, align 1
+  store i8 102, ptr %.sroa.10.0..sroa_idx.i, align 1
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %667, i64 10
+  store i8 15, ptr %.sroa.11.0..sroa_idx.i, align 1
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %667, i64 11
+  store i8 31, ptr %.sroa.12.0..sroa_idx.i, align 1
+  %.sroa.13.0..sroa_idx.i = getelementptr inbounds i8, ptr %667, i64 12
+  store i8 68, ptr %.sroa.13.0..sroa_idx.i, align 1
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds i8, ptr %667, i64 13
   store i8 0, ptr %.sroa.14.0..sroa_idx.i, align 1
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds i8, ptr %667, i64 14
@@ -12197,7 +12389,13 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_40Ev() #2 personality
   %36 = getelementptr inbounds i8, ptr %32, i64 8
   %37 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %36, ptr %37, align 8
-  store <4 x i8> <i8 -61, i8 15, i8 31, i8 -128>, ptr %32, align 1
+  store i8 -61, ptr %32, align 1
+  %.sroa.2113.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 1
+  store i8 15, ptr %.sroa.2113.0..sroa_idx.i, align 1
+  %.sroa.3114.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 2
+  store i8 31, ptr %.sroa.3114.0..sroa_idx.i, align 1
+  %.sroa.4115.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 3
+  store i8 -128, ptr %.sroa.4115.0..sroa_idx.i, align 1
   %.sroa.5116.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 4
   %38 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %.sroa.5116.0..sroa_idx.i, align 1
@@ -12718,7 +12916,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit74.i:                ; preds = %214, %184, %_ZNSt6v
   %233 = getelementptr inbounds i8, ptr %229, i64 8
   %234 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %233, ptr %234, align 8
-  store <8 x i8> <i8 -61, i8 15, i8 11, i8 15, i8 11, i8 15, i8 11, i8 -52>, ptr %229, align 1
+  store i8 -61, ptr %229, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 1
+  store i8 15, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 2
+  store i8 11, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 3
+  store i8 15, ptr %.sroa.4.0..sroa_idx.i, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 4
+  store i8 11, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 5
+  store i8 15, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 6
+  store i8 11, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 7
+  store i8 -52, ptr %.sroa.8.0..sroa_idx.i, align 1
   %235 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %233, ptr %235, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
@@ -13107,9 +13319,29 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_46Ev() #2 personality
   %36 = getelementptr inbounds i8, ptr %32, i64 13
   %37 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %36, ptr %37, align 8
-  store <8 x i8> <i8 72, i8 -125, i8 -58, i8 1, i8 72, i8 59, i8 -9, i8 15>, ptr %32, align 1
+  store i8 72, ptr %32, align 1
+  %.sroa.2127.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 1
+  store i8 -125, ptr %.sroa.2127.0..sroa_idx.i, align 1
+  %.sroa.3128.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 2
+  store i8 -58, ptr %.sroa.3128.0..sroa_idx.i, align 1
+  %.sroa.4129.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 3
+  store i8 1, ptr %.sroa.4129.0..sroa_idx.i, align 1
+  %.sroa.5130.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 4
+  store i8 72, ptr %.sroa.5130.0..sroa_idx.i, align 1
+  %.sroa.6131.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 5
+  store i8 59, ptr %.sroa.6131.0..sroa_idx.i, align 1
+  %.sroa.7132.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 6
+  store i8 -9, ptr %.sroa.7132.0..sroa_idx.i, align 1
+  %.sroa.8133.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 7
+  store i8 15, ptr %.sroa.8133.0..sroa_idx.i, align 1
   %.sroa.9134.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 8
-  store <4 x i8> <i8 -124, i8 -13, i8 -1, i8 -1>, ptr %.sroa.9134.0..sroa_idx.i, align 1
+  store i8 -124, ptr %.sroa.9134.0..sroa_idx.i, align 1
+  %.sroa.10135.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 9
+  store i8 -13, ptr %.sroa.10135.0..sroa_idx.i, align 1
+  %.sroa.11136.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 10
+  store i8 -1, ptr %.sroa.11136.0..sroa_idx.i, align 1
+  %.sroa.12137.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 11
+  store i8 -1, ptr %.sroa.12137.0..sroa_idx.i, align 1
   %.sroa.13138.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 12
   store i8 -1, ptr %.sroa.13138.0..sroa_idx.i, align 1
   %38 = getelementptr inbounds i8, ptr %6, i64 8
@@ -13280,9 +13512,29 @@ _ZNSt6vectorIhSaIhEED2Ev.exit32.i:                ; preds = %82, %53, %_ZNSt6vec
   %101 = getelementptr inbounds i8, ptr %97, i64 13
   %102 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %101, ptr %102, align 8
-  store <8 x i8> <i8 72, i8 -125, i8 -58, i8 1, i8 72, i8 59, i8 -9, i8 15>, ptr %97, align 1
+  store i8 72, ptr %97, align 1
+  %.sroa.2113.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 1
+  store i8 -125, ptr %.sroa.2113.0..sroa_idx.i, align 1
+  %.sroa.3114.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 2
+  store i8 -58, ptr %.sroa.3114.0..sroa_idx.i, align 1
+  %.sroa.4115.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 3
+  store i8 1, ptr %.sroa.4115.0..sroa_idx.i, align 1
+  %.sroa.5116.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 4
+  store i8 72, ptr %.sroa.5116.0..sroa_idx.i, align 1
+  %.sroa.6117.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 5
+  store i8 59, ptr %.sroa.6117.0..sroa_idx.i, align 1
+  %.sroa.7118.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 6
+  store i8 -9, ptr %.sroa.7118.0..sroa_idx.i, align 1
+  %.sroa.8119.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 7
+  store i8 15, ptr %.sroa.8119.0..sroa_idx.i, align 1
   %.sroa.9120.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 8
-  store <4 x i8> <i8 -124, i8 -9, i8 -1, i8 -1>, ptr %.sroa.9120.0..sroa_idx.i, align 1
+  store i8 -124, ptr %.sroa.9120.0..sroa_idx.i, align 1
+  %.sroa.10121.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 9
+  store i8 -9, ptr %.sroa.10121.0..sroa_idx.i, align 1
+  %.sroa.11122.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 10
+  store i8 -1, ptr %.sroa.11122.0..sroa_idx.i, align 1
+  %.sroa.12123.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 11
+  store i8 -1, ptr %.sroa.12123.0..sroa_idx.i, align 1
   %.sroa.13124.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 12
   store i8 -1, ptr %.sroa.13124.0..sroa_idx.i, align 1
   %103 = getelementptr inbounds i8, ptr %13, i64 8
@@ -13458,9 +13710,29 @@ _ZNSt6vectorIhSaIhEED2Ev.exit53.i:                ; preds = %148, %118, %_ZNSt6v
   %167 = getelementptr inbounds i8, ptr %163, i64 13
   %168 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %167, ptr %168, align 8
-  store <8 x i8> <i8 72, i8 59, i8 -9, i8 15, i8 -113, i8 4, i8 0, i8 0>, ptr %163, align 1
+  store i8 72, ptr %163, align 1
+  %.sroa.2103.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 1
+  store i8 59, ptr %.sroa.2103.0..sroa_idx.i, align 1
+  %.sroa.3104.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 2
+  store i8 -9, ptr %.sroa.3104.0..sroa_idx.i, align 1
+  %.sroa.4105.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 3
+  store i8 15, ptr %.sroa.4105.0..sroa_idx.i, align 1
+  %.sroa.5106.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 4
+  store i8 -113, ptr %.sroa.5106.0..sroa_idx.i, align 1
+  %.sroa.6107.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 5
+  store i8 4, ptr %.sroa.6107.0..sroa_idx.i, align 1
+  %.sroa.7108.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 6
+  store i8 0, ptr %.sroa.7108.0..sroa_idx.i, align 1
+  %.sroa.8109.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 7
+  store i8 0, ptr %.sroa.8109.0..sroa_idx.i, align 1
   %.sroa.9110.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 8
-  store <4 x i8> <i8 0, i8 72, i8 -125, i8 -49>, ptr %.sroa.9110.0..sroa_idx.i, align 1
+  store i8 0, ptr %.sroa.9110.0..sroa_idx.i, align 1
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 9
+  store i8 72, ptr %.sroa.10.0..sroa_idx.i, align 1
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 10
+  store i8 -125, ptr %.sroa.11.0..sroa_idx.i, align 1
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 11
+  store i8 -49, ptr %.sroa.12.0..sroa_idx.i, align 1
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 12
   store i8 62, ptr %.sroa.13.0..sroa_idx.i, align 1
   %169 = getelementptr inbounds i8, ptr %20, i64 8
@@ -13636,7 +13908,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit74.i:                ; preds = %214, %184, %_ZNSt6v
   %233 = getelementptr inbounds i8, ptr %229, i64 9
   %234 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %233, ptr %234, align 8
-  store <8 x i8> <i8 -23, i8 4, i8 0, i8 0, i8 0, i8 72, i8 -125, i8 -25>, ptr %229, align 1
+  store i8 -23, ptr %229, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 1
+  store i8 4, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 2
+  store i8 0, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 3
+  store i8 0, ptr %.sroa.4.0..sroa_idx.i, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 4
+  store i8 0, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 5
+  store i8 72, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 6
+  store i8 -125, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 7
+  store i8 -25, ptr %.sroa.8.0..sroa_idx.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %229, i64 8
   store i8 62, ptr %.sroa.9.0..sroa_idx.i, align 1
   %235 = getelementptr inbounds i8, ptr %27, i64 8
@@ -13876,9 +14162,29 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_49Ev() #2 personality
   %15 = getelementptr inbounds i8, ptr %11, i64 15
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %15, ptr %16, align 8
-  store <8 x i8> <i8 72, i8 -125, i8 -31, i8 62, i8 -24, i8 1, i8 0, i8 0>, ptr %11, align 1
+  store i8 72, ptr %11, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 1
+  store i8 -125, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 2
+  store i8 -31, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 3
+  store i8 62, ptr %.sroa.4.0..sroa_idx.i, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 4
+  store i8 -24, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 5
+  store i8 1, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 6
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 7
+  store i8 0, ptr %.sroa.8.0..sroa_idx.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
-  store <4 x i8> <i8 0, i8 -61, i8 72, i8 -115>, ptr %.sroa.9.0..sroa_idx.i, align 1
+  store i8 0, ptr %.sroa.9.0..sroa_idx.i, align 1
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 9
+  store i8 -61, ptr %.sroa.10.0..sroa_idx.i, align 1
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 10
+  store i8 72, ptr %.sroa.11.0..sroa_idx.i, align 1
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 11
+  store i8 -115, ptr %.sroa.12.0..sroa_idx.i, align 1
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 12
   store i8 65, ptr %.sroa.13.0..sroa_idx.i, align 1
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 13
@@ -14243,7 +14549,13 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
   %85 = getelementptr inbounds i8, ptr %81, i64 5
   %86 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %85, ptr %86, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 121, i8 81>, ptr %81, align 1
+  store i8 -60, ptr %81, align 1
+  %.sroa.2353.0..sroa_idx.i = getelementptr inbounds i8, ptr %81, i64 1
+  store i8 65, ptr %.sroa.2353.0..sroa_idx.i, align 1
+  %.sroa.3354.0..sroa_idx.i = getelementptr inbounds i8, ptr %81, i64 2
+  store i8 121, ptr %.sroa.3354.0..sroa_idx.i, align 1
+  %.sroa.4355.0..sroa_idx.i = getelementptr inbounds i8, ptr %81, i64 3
+  store i8 81, ptr %.sroa.4355.0..sroa_idx.i, align 1
   %.sroa.5356.0..sroa_idx.i = getelementptr inbounds i8, ptr %81, i64 4
   store i8 -62, ptr %.sroa.5356.0..sroa_idx.i, align 1
   %87 = getelementptr inbounds i8, ptr %6, i64 8
@@ -14414,7 +14726,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit81.i:                ; preds = %131, %102, %_ZNSt6v
   %150 = getelementptr inbounds i8, ptr %146, i64 5
   %151 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %150, ptr %151, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 121, i8 81>, ptr %146, align 1
+  store i8 -60, ptr %146, align 1
+  %.sroa.2347.0..sroa_idx.i = getelementptr inbounds i8, ptr %146, i64 1
+  store i8 65, ptr %.sroa.2347.0..sroa_idx.i, align 1
+  %.sroa.3348.0..sroa_idx.i = getelementptr inbounds i8, ptr %146, i64 2
+  store i8 121, ptr %.sroa.3348.0..sroa_idx.i, align 1
+  %.sroa.4349.0..sroa_idx.i = getelementptr inbounds i8, ptr %146, i64 3
+  store i8 81, ptr %.sroa.4349.0..sroa_idx.i, align 1
   %.sroa.5350.0..sroa_idx.i = getelementptr inbounds i8, ptr %146, i64 4
   store i8 1, ptr %.sroa.5350.0..sroa_idx.i, align 1
   %152 = getelementptr inbounds i8, ptr %13, i64 8
@@ -14590,7 +14908,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit102.i:               ; preds = %197, %167, %_ZNSt6v
   %216 = getelementptr inbounds i8, ptr %212, i64 5
   %217 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %216, ptr %217, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 125, i8 81>, ptr %212, align 1
+  store i8 -60, ptr %212, align 1
+  %.sroa.2341.0..sroa_idx.i = getelementptr inbounds i8, ptr %212, i64 1
+  store i8 65, ptr %.sroa.2341.0..sroa_idx.i, align 1
+  %.sroa.3342.0..sroa_idx.i = getelementptr inbounds i8, ptr %212, i64 2
+  store i8 125, ptr %.sroa.3342.0..sroa_idx.i, align 1
+  %.sroa.4343.0..sroa_idx.i = getelementptr inbounds i8, ptr %212, i64 3
+  store i8 81, ptr %.sroa.4343.0..sroa_idx.i, align 1
   %.sroa.5344.0..sroa_idx.i = getelementptr inbounds i8, ptr %212, i64 4
   store i8 -62, ptr %.sroa.5344.0..sroa_idx.i, align 1
   %218 = getelementptr inbounds i8, ptr %20, i64 8
@@ -14766,7 +15090,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit123.i:               ; preds = %263, %233, %_ZNSt6v
   %282 = getelementptr inbounds i8, ptr %278, i64 5
   %283 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %282, ptr %283, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 125, i8 81>, ptr %278, align 1
+  store i8 -60, ptr %278, align 1
+  %.sroa.2335.0..sroa_idx.i = getelementptr inbounds i8, ptr %278, i64 1
+  store i8 65, ptr %.sroa.2335.0..sroa_idx.i, align 1
+  %.sroa.3336.0..sroa_idx.i = getelementptr inbounds i8, ptr %278, i64 2
+  store i8 125, ptr %.sroa.3336.0..sroa_idx.i, align 1
+  %.sroa.4337.0..sroa_idx.i = getelementptr inbounds i8, ptr %278, i64 3
+  store i8 81, ptr %.sroa.4337.0..sroa_idx.i, align 1
   %.sroa.5338.0..sroa_idx.i = getelementptr inbounds i8, ptr %278, i64 4
   store i8 1, ptr %.sroa.5338.0..sroa_idx.i, align 1
   %284 = getelementptr inbounds i8, ptr %27, i64 8
@@ -14942,7 +15272,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit144.i:               ; preds = %329, %299, %_ZNSt6v
   %348 = getelementptr inbounds i8, ptr %344, i64 5
   %349 = getelementptr inbounds i8, ptr %34, i64 16
   store ptr %348, ptr %349, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 120, i8 81>, ptr %344, align 1
+  store i8 -60, ptr %344, align 1
+  %.sroa.2329.0..sroa_idx.i = getelementptr inbounds i8, ptr %344, i64 1
+  store i8 65, ptr %.sroa.2329.0..sroa_idx.i, align 1
+  %.sroa.3330.0..sroa_idx.i = getelementptr inbounds i8, ptr %344, i64 2
+  store i8 120, ptr %.sroa.3330.0..sroa_idx.i, align 1
+  %.sroa.4331.0..sroa_idx.i = getelementptr inbounds i8, ptr %344, i64 3
+  store i8 81, ptr %.sroa.4331.0..sroa_idx.i, align 1
   %.sroa.5332.0..sroa_idx.i = getelementptr inbounds i8, ptr %344, i64 4
   store i8 -62, ptr %.sroa.5332.0..sroa_idx.i, align 1
   %350 = getelementptr inbounds i8, ptr %34, i64 8
@@ -15118,7 +15454,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit165.i:               ; preds = %395, %365, %_ZNSt6v
   %414 = getelementptr inbounds i8, ptr %410, i64 5
   %415 = getelementptr inbounds i8, ptr %41, i64 16
   store ptr %414, ptr %415, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 120, i8 81>, ptr %410, align 1
+  store i8 -60, ptr %410, align 1
+  %.sroa.2323.0..sroa_idx.i = getelementptr inbounds i8, ptr %410, i64 1
+  store i8 65, ptr %.sroa.2323.0..sroa_idx.i, align 1
+  %.sroa.3324.0..sroa_idx.i = getelementptr inbounds i8, ptr %410, i64 2
+  store i8 120, ptr %.sroa.3324.0..sroa_idx.i, align 1
+  %.sroa.4325.0..sroa_idx.i = getelementptr inbounds i8, ptr %410, i64 3
+  store i8 81, ptr %.sroa.4325.0..sroa_idx.i, align 1
   %.sroa.5326.0..sroa_idx.i = getelementptr inbounds i8, ptr %410, i64 4
   store i8 1, ptr %.sroa.5326.0..sroa_idx.i, align 1
   %416 = getelementptr inbounds i8, ptr %41, i64 8
@@ -15294,7 +15636,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit186.i:               ; preds = %461, %431, %_ZNSt6v
   %480 = getelementptr inbounds i8, ptr %476, i64 5
   %481 = getelementptr inbounds i8, ptr %48, i64 16
   store ptr %480, ptr %481, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 43, i8 81>, ptr %476, align 1
+  store i8 -60, ptr %476, align 1
+  %.sroa.2317.0..sroa_idx.i = getelementptr inbounds i8, ptr %476, i64 1
+  store i8 65, ptr %.sroa.2317.0..sroa_idx.i, align 1
+  %.sroa.3318.0..sroa_idx.i = getelementptr inbounds i8, ptr %476, i64 2
+  store i8 43, ptr %.sroa.3318.0..sroa_idx.i, align 1
+  %.sroa.4319.0..sroa_idx.i = getelementptr inbounds i8, ptr %476, i64 3
+  store i8 81, ptr %.sroa.4319.0..sroa_idx.i, align 1
   %.sroa.5320.0..sroa_idx.i = getelementptr inbounds i8, ptr %476, i64 4
   store i8 -58, ptr %.sroa.5320.0..sroa_idx.i, align 1
   %482 = getelementptr inbounds i8, ptr %48, i64 8
@@ -15470,7 +15818,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit207.i:               ; preds = %527, %497, %_ZNSt6v
   %546 = getelementptr inbounds i8, ptr %542, i64 5
   %547 = getelementptr inbounds i8, ptr %55, i64 16
   store ptr %546, ptr %547, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 43, i8 81>, ptr %542, align 1
+  store i8 -60, ptr %542, align 1
+  %.sroa.2311.0..sroa_idx.i = getelementptr inbounds i8, ptr %542, i64 1
+  store i8 65, ptr %.sroa.2311.0..sroa_idx.i, align 1
+  %.sroa.3312.0..sroa_idx.i = getelementptr inbounds i8, ptr %542, i64 2
+  store i8 43, ptr %.sroa.3312.0..sroa_idx.i, align 1
+  %.sroa.4313.0..sroa_idx.i = getelementptr inbounds i8, ptr %542, i64 3
+  store i8 81, ptr %.sroa.4313.0..sroa_idx.i, align 1
   %.sroa.5314.0..sroa_idx.i = getelementptr inbounds i8, ptr %542, i64 4
   store i8 1, ptr %.sroa.5314.0..sroa_idx.i, align 1
   %548 = getelementptr inbounds i8, ptr %55, i64 8
@@ -15646,7 +16000,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit228.i:               ; preds = %593, %563, %_ZNSt6v
   %612 = getelementptr inbounds i8, ptr %608, i64 5
   %613 = getelementptr inbounds i8, ptr %62, i64 16
   store ptr %612, ptr %613, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 42, i8 81>, ptr %608, align 1
+  store i8 -60, ptr %608, align 1
+  %.sroa.2305.0..sroa_idx.i = getelementptr inbounds i8, ptr %608, i64 1
+  store i8 65, ptr %.sroa.2305.0..sroa_idx.i, align 1
+  %.sroa.3306.0..sroa_idx.i = getelementptr inbounds i8, ptr %608, i64 2
+  store i8 42, ptr %.sroa.3306.0..sroa_idx.i, align 1
+  %.sroa.4307.0..sroa_idx.i = getelementptr inbounds i8, ptr %608, i64 3
+  store i8 81, ptr %.sroa.4307.0..sroa_idx.i, align 1
   %.sroa.5308.0..sroa_idx.i = getelementptr inbounds i8, ptr %608, i64 4
   store i8 -58, ptr %.sroa.5308.0..sroa_idx.i, align 1
   %614 = getelementptr inbounds i8, ptr %62, i64 8
@@ -15822,7 +16182,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit249.i:               ; preds = %659, %629, %_ZNSt6v
   %678 = getelementptr inbounds i8, ptr %674, i64 5
   %679 = getelementptr inbounds i8, ptr %69, i64 16
   store ptr %678, ptr %679, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 42, i8 81>, ptr %674, align 1
+  store i8 -60, ptr %674, align 1
+  %.sroa.2299.0..sroa_idx.i = getelementptr inbounds i8, ptr %674, i64 1
+  store i8 65, ptr %.sroa.2299.0..sroa_idx.i, align 1
+  %.sroa.3300.0..sroa_idx.i = getelementptr inbounds i8, ptr %674, i64 2
+  store i8 42, ptr %.sroa.3300.0..sroa_idx.i, align 1
+  %.sroa.4301.0..sroa_idx.i = getelementptr inbounds i8, ptr %674, i64 3
+  store i8 81, ptr %.sroa.4301.0..sroa_idx.i, align 1
   %.sroa.5302.0..sroa_idx.i = getelementptr inbounds i8, ptr %674, i64 4
   store i8 1, ptr %.sroa.5302.0..sroa_idx.i, align 1
   %680 = getelementptr inbounds i8, ptr %69, i64 8
@@ -15998,7 +16364,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit270.i:               ; preds = %725, %695, %_ZNSt6v
   %744 = getelementptr inbounds i8, ptr %740, i64 5
   %745 = getelementptr inbounds i8, ptr %76, i64 16
   store ptr %744, ptr %745, align 8
-  store <4 x i8> <i8 -60, i8 -31, i8 121, i8 46>, ptr %740, align 1
+  store i8 -60, ptr %740, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %740, i64 1
+  store i8 -31, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %740, i64 2
+  store i8 121, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %740, i64 3
+  store i8 46, ptr %.sroa.4.0..sroa_idx.i, align 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %740, i64 4
   store i8 -52, ptr %.sroa.5.0..sroa_idx.i, align 1
   %746 = getelementptr inbounds i8, ptr %76, i64 8
@@ -16448,7 +16820,13 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_61Ev() #2 personality
   %92 = getelementptr inbounds i8, ptr %88, i64 5
   %93 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %92, ptr %93, align 8
-  store <4 x i8> <i8 -60, i8 -31, i8 123, i8 44>, ptr %88, align 1
+  store i8 -60, ptr %88, align 1
+  %.sroa.2392.0..sroa_idx.i = getelementptr inbounds i8, ptr %88, i64 1
+  store i8 -31, ptr %.sroa.2392.0..sroa_idx.i, align 1
+  %.sroa.3393.0..sroa_idx.i = getelementptr inbounds i8, ptr %88, i64 2
+  store i8 123, ptr %.sroa.3393.0..sroa_idx.i, align 1
+  %.sroa.4394.0..sroa_idx.i = getelementptr inbounds i8, ptr %88, i64 3
+  store i8 44, ptr %.sroa.4394.0..sroa_idx.i, align 1
   %.sroa.5395.0..sroa_idx.i = getelementptr inbounds i8, ptr %88, i64 4
   store i8 -56, ptr %.sroa.5395.0..sroa_idx.i, align 1
   %94 = getelementptr inbounds i8, ptr %6, i64 8
@@ -16619,7 +16997,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit88.i:                ; preds = %138, %109, %_ZNSt6v
   %157 = getelementptr inbounds i8, ptr %153, i64 6
   %158 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %157, ptr %158, align 8
-  store <4 x i8> <i8 -60, i8 97, i8 123, i8 44>, ptr %153, align 1
+  store i8 -60, ptr %153, align 1
+  %.sroa.2385.0..sroa_idx.i = getelementptr inbounds i8, ptr %153, i64 1
+  store i8 97, ptr %.sroa.2385.0..sroa_idx.i, align 1
+  %.sroa.3386.0..sroa_idx.i = getelementptr inbounds i8, ptr %153, i64 2
+  store i8 123, ptr %.sroa.3386.0..sroa_idx.i, align 1
+  %.sroa.4387.0..sroa_idx.i = getelementptr inbounds i8, ptr %153, i64 3
+  store i8 44, ptr %.sroa.4387.0..sroa_idx.i, align 1
   %.sroa.5388.0..sroa_idx.i = getelementptr inbounds i8, ptr %153, i64 4
   store i8 12, ptr %.sroa.5388.0..sroa_idx.i, align 1
   %.sroa.6389.0..sroa_idx.i = getelementptr inbounds i8, ptr %153, i64 5
@@ -16797,7 +17181,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit109.i:               ; preds = %204, %174, %_ZNSt6v
   %223 = getelementptr inbounds i8, ptr %219, i64 5
   %224 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %223, ptr %224, align 8
-  store <4 x i8> <i8 -60, i8 -31, i8 -5, i8 44>, ptr %219, align 1
+  store i8 -60, ptr %219, align 1
+  %.sroa.2379.0..sroa_idx.i = getelementptr inbounds i8, ptr %219, i64 1
+  store i8 -31, ptr %.sroa.2379.0..sroa_idx.i, align 1
+  %.sroa.3380.0..sroa_idx.i = getelementptr inbounds i8, ptr %219, i64 2
+  store i8 -5, ptr %.sroa.3380.0..sroa_idx.i, align 1
+  %.sroa.4381.0..sroa_idx.i = getelementptr inbounds i8, ptr %219, i64 3
+  store i8 44, ptr %.sroa.4381.0..sroa_idx.i, align 1
   %.sroa.5382.0..sroa_idx.i = getelementptr inbounds i8, ptr %219, i64 4
   store i8 -48, ptr %.sroa.5382.0..sroa_idx.i, align 1
   %225 = getelementptr inbounds i8, ptr %20, i64 8
@@ -16973,7 +17363,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit130.i:               ; preds = %270, %240, %_ZNSt6v
   %289 = getelementptr inbounds i8, ptr %285, i64 6
   %290 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %289, ptr %290, align 8
-  store <4 x i8> <i8 -60, i8 97, i8 -5, i8 44>, ptr %285, align 1
+  store i8 -60, ptr %285, align 1
+  %.sroa.2372.0..sroa_idx.i = getelementptr inbounds i8, ptr %285, i64 1
+  store i8 97, ptr %.sroa.2372.0..sroa_idx.i, align 1
+  %.sroa.3373.0..sroa_idx.i = getelementptr inbounds i8, ptr %285, i64 2
+  store i8 -5, ptr %.sroa.3373.0..sroa_idx.i, align 1
+  %.sroa.4374.0..sroa_idx.i = getelementptr inbounds i8, ptr %285, i64 3
+  store i8 44, ptr %.sroa.4374.0..sroa_idx.i, align 1
   %.sroa.5375.0..sroa_idx.i = getelementptr inbounds i8, ptr %285, i64 4
   store i8 44, ptr %.sroa.5375.0..sroa_idx.i, align 1
   %.sroa.6376.0..sroa_idx.i = getelementptr inbounds i8, ptr %285, i64 5
@@ -17151,7 +17547,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit151.i:               ; preds = %336, %306, %_ZNSt6v
   %355 = getelementptr inbounds i8, ptr %351, i64 5
   %356 = getelementptr inbounds i8, ptr %34, i64 16
   store ptr %355, ptr %356, align 8
-  store <4 x i8> <i8 -60, i8 -31, i8 43, i8 42>, ptr %351, align 1
+  store i8 -60, ptr %351, align 1
+  %.sroa.2366.0..sroa_idx.i = getelementptr inbounds i8, ptr %351, i64 1
+  store i8 -31, ptr %.sroa.2366.0..sroa_idx.i, align 1
+  %.sroa.3367.0..sroa_idx.i = getelementptr inbounds i8, ptr %351, i64 2
+  store i8 43, ptr %.sroa.3367.0..sroa_idx.i, align 1
+  %.sroa.4368.0..sroa_idx.i = getelementptr inbounds i8, ptr %351, i64 3
+  store i8 42, ptr %.sroa.4368.0..sroa_idx.i, align 1
   %.sroa.5369.0..sroa_idx.i = getelementptr inbounds i8, ptr %351, i64 4
   store i8 -23, ptr %.sroa.5369.0..sroa_idx.i, align 1
   %357 = getelementptr inbounds i8, ptr %34, i64 8
@@ -17327,7 +17729,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit172.i:               ; preds = %402, %372, %_ZNSt6v
   %421 = getelementptr inbounds i8, ptr %417, i64 6
   %422 = getelementptr inbounds i8, ptr %41, i64 16
   store ptr %421, ptr %422, align 8
-  store <4 x i8> <i8 -60, i8 -31, i8 35, i8 42>, ptr %417, align 1
+  store i8 -60, ptr %417, align 1
+  %.sroa.2359.0..sroa_idx.i = getelementptr inbounds i8, ptr %417, i64 1
+  store i8 -31, ptr %.sroa.2359.0..sroa_idx.i, align 1
+  %.sroa.3360.0..sroa_idx.i = getelementptr inbounds i8, ptr %417, i64 2
+  store i8 35, ptr %.sroa.3360.0..sroa_idx.i, align 1
+  %.sroa.4361.0..sroa_idx.i = getelementptr inbounds i8, ptr %417, i64 3
+  store i8 42, ptr %.sroa.4361.0..sroa_idx.i, align 1
   %.sroa.5362.0..sroa_idx.i = getelementptr inbounds i8, ptr %417, i64 4
   store i8 52, ptr %.sroa.5362.0..sroa_idx.i, align 1
   %.sroa.6363.0..sroa_idx.i = getelementptr inbounds i8, ptr %417, i64 5
@@ -17505,7 +17913,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit193.i:               ; preds = %468, %438, %_ZNSt6v
   %487 = getelementptr inbounds i8, ptr %483, i64 5
   %488 = getelementptr inbounds i8, ptr %48, i64 16
   store ptr %487, ptr %488, align 8
-  store <4 x i8> <i8 -60, i8 -63, i8 -85, i8 42>, ptr %483, align 1
+  store i8 -60, ptr %483, align 1
+  %.sroa.2353.0..sroa_idx.i = getelementptr inbounds i8, ptr %483, i64 1
+  store i8 -63, ptr %.sroa.2353.0..sroa_idx.i, align 1
+  %.sroa.3354.0..sroa_idx.i = getelementptr inbounds i8, ptr %483, i64 2
+  store i8 -85, ptr %.sroa.3354.0..sroa_idx.i, align 1
+  %.sroa.4355.0..sroa_idx.i = getelementptr inbounds i8, ptr %483, i64 3
+  store i8 42, ptr %.sroa.4355.0..sroa_idx.i, align 1
   %.sroa.5356.0..sroa_idx.i = getelementptr inbounds i8, ptr %483, i64 4
   store i8 -19, ptr %.sroa.5356.0..sroa_idx.i, align 1
   %489 = getelementptr inbounds i8, ptr %48, i64 8
@@ -17681,7 +18095,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit214.i:               ; preds = %534, %504, %_ZNSt6v
   %553 = getelementptr inbounds i8, ptr %549, i64 6
   %554 = getelementptr inbounds i8, ptr %55, i64 16
   store ptr %553, ptr %554, align 8
-  store <4 x i8> <i8 -60, i8 -31, i8 -93, i8 42>, ptr %549, align 1
+  store i8 -60, ptr %549, align 1
+  %.sroa.2346.0..sroa_idx.i = getelementptr inbounds i8, ptr %549, i64 1
+  store i8 -31, ptr %.sroa.2346.0..sroa_idx.i, align 1
+  %.sroa.3347.0..sroa_idx.i = getelementptr inbounds i8, ptr %549, i64 2
+  store i8 -93, ptr %.sroa.3347.0..sroa_idx.i, align 1
+  %.sroa.4348.0..sroa_idx.i = getelementptr inbounds i8, ptr %549, i64 3
+  store i8 42, ptr %.sroa.4348.0..sroa_idx.i, align 1
   %.sroa.5349.0..sroa_idx.i = getelementptr inbounds i8, ptr %549, i64 4
   store i8 52, ptr %.sroa.5349.0..sroa_idx.i, align 1
   %.sroa.6350.0..sroa_idx.i = getelementptr inbounds i8, ptr %549, i64 5
@@ -17859,7 +18279,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit235.i:               ; preds = %600, %570, %_ZNSt6v
   %619 = getelementptr inbounds i8, ptr %615, i64 5
   %620 = getelementptr inbounds i8, ptr %62, i64 16
   store ptr %619, ptr %620, align 8
-  store <4 x i8> <i8 -60, i8 -63, i8 43, i8 90>, ptr %615, align 1
+  store i8 -60, ptr %615, align 1
+  %.sroa.2340.0..sroa_idx.i = getelementptr inbounds i8, ptr %615, i64 1
+  store i8 -63, ptr %.sroa.2340.0..sroa_idx.i, align 1
+  %.sroa.3341.0..sroa_idx.i = getelementptr inbounds i8, ptr %615, i64 2
+  store i8 43, ptr %.sroa.3341.0..sroa_idx.i, align 1
+  %.sroa.4342.0..sroa_idx.i = getelementptr inbounds i8, ptr %615, i64 3
+  store i8 90, ptr %.sroa.4342.0..sroa_idx.i, align 1
   %.sroa.5343.0..sroa_idx.i = getelementptr inbounds i8, ptr %615, i64 4
   store i8 -21, ptr %.sroa.5343.0..sroa_idx.i, align 1
   %621 = getelementptr inbounds i8, ptr %62, i64 8
@@ -18035,7 +18461,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit256.i:               ; preds = %666, %636, %_ZNSt6v
   %685 = getelementptr inbounds i8, ptr %681, i64 6
   %686 = getelementptr inbounds i8, ptr %69, i64 16
   store ptr %685, ptr %686, align 8
-  store <4 x i8> <i8 -60, i8 -31, i8 -93, i8 90>, ptr %681, align 1
+  store i8 -60, ptr %681, align 1
+  %.sroa.2333.0..sroa_idx.i = getelementptr inbounds i8, ptr %681, i64 1
+  store i8 -31, ptr %.sroa.2333.0..sroa_idx.i, align 1
+  %.sroa.3334.0..sroa_idx.i = getelementptr inbounds i8, ptr %681, i64 2
+  store i8 -93, ptr %.sroa.3334.0..sroa_idx.i, align 1
+  %.sroa.4335.0..sroa_idx.i = getelementptr inbounds i8, ptr %681, i64 3
+  store i8 90, ptr %.sroa.4335.0..sroa_idx.i, align 1
   %.sroa.5336.0..sroa_idx.i = getelementptr inbounds i8, ptr %681, i64 4
   store i8 52, ptr %.sroa.5336.0..sroa_idx.i, align 1
   %.sroa.6337.0..sroa_idx.i = getelementptr inbounds i8, ptr %681, i64 5
@@ -18213,7 +18645,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit277.i:               ; preds = %732, %702, %_ZNSt6v
   %751 = getelementptr inbounds i8, ptr %747, i64 5
   %752 = getelementptr inbounds i8, ptr %76, i64 16
   store ptr %751, ptr %752, align 8
-  store <4 x i8> <i8 -60, i8 -63, i8 58, i8 90>, ptr %747, align 1
+  store i8 -60, ptr %747, align 1
+  %.sroa.2327.0..sroa_idx.i = getelementptr inbounds i8, ptr %747, i64 1
+  store i8 -63, ptr %.sroa.2327.0..sroa_idx.i, align 1
+  %.sroa.3328.0..sroa_idx.i = getelementptr inbounds i8, ptr %747, i64 2
+  store i8 58, ptr %.sroa.3328.0..sroa_idx.i, align 1
+  %.sroa.4329.0..sroa_idx.i = getelementptr inbounds i8, ptr %747, i64 3
+  store i8 90, ptr %.sroa.4329.0..sroa_idx.i, align 1
   %.sroa.5330.0..sroa_idx.i = getelementptr inbounds i8, ptr %747, i64 4
   store i8 -36, ptr %.sroa.5330.0..sroa_idx.i, align 1
   %753 = getelementptr inbounds i8, ptr %76, i64 8
@@ -18389,7 +18827,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit298.i:               ; preds = %798, %768, %_ZNSt6v
   %817 = getelementptr inbounds i8, ptr %813, i64 6
   %818 = getelementptr inbounds i8, ptr %83, i64 16
   store ptr %817, ptr %818, align 8
-  store <4 x i8> <i8 -60, i8 -31, i8 50, i8 90>, ptr %813, align 1
+  store i8 -60, ptr %813, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %813, i64 1
+  store i8 -31, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %813, i64 2
+  store i8 50, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %813, i64 3
+  store i8 90, ptr %.sroa.4.0..sroa_idx.i, align 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %813, i64 4
   store i8 36, ptr %.sroa.5.0..sroa_idx.i, align 1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %813, i64 5
@@ -18757,7 +19201,13 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_64Ev() #2 personality
   %50 = getelementptr inbounds i8, ptr %46, i64 6
   %51 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %50, ptr %51, align 8
-  store <4 x i8> <i8 -60, i8 -29, i8 25, i8 11>, ptr %46, align 1
+  store i8 -60, ptr %46, align 1
+  %.sroa.2191.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 1
+  store i8 -29, ptr %.sroa.2191.0..sroa_idx.i, align 1
+  %.sroa.3192.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 2
+  store i8 25, ptr %.sroa.3192.0..sroa_idx.i, align 1
+  %.sroa.4193.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 3
+  store i8 11, ptr %.sroa.4193.0..sroa_idx.i, align 1
   %.sroa.5194.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 4
   store i8 -5, ptr %.sroa.5194.0..sroa_idx.i, align 1
   %.sroa.6195.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 5
@@ -18930,7 +19380,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit46.i:                ; preds = %96, %67, %_ZNSt6vec
   %115 = getelementptr inbounds i8, ptr %111, i64 8
   %116 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %115, ptr %116, align 8
-  store <8 x i8> <i8 -60, i8 67, i8 17, i8 11, i8 68, i8 21, i8 0, i8 10>, ptr %111, align 1
+  store i8 -60, ptr %111, align 1
+  %.sroa.2183.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 1
+  store i8 67, ptr %.sroa.2183.0..sroa_idx.i, align 1
+  %.sroa.3184.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 2
+  store i8 17, ptr %.sroa.3184.0..sroa_idx.i, align 1
+  %.sroa.4185.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 3
+  store i8 11, ptr %.sroa.4185.0..sroa_idx.i, align 1
+  %.sroa.5186.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 4
+  store i8 68, ptr %.sroa.5186.0..sroa_idx.i, align 1
+  %.sroa.6187.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 5
+  store i8 21, ptr %.sroa.6187.0..sroa_idx.i, align 1
+  %.sroa.7188.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 6
+  store i8 0, ptr %.sroa.7188.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 7
+  store i8 10, ptr %.sroa.8.0..sroa_idx.i, align 1
   %117 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %115, ptr %117, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
@@ -19104,7 +19568,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit67.i:                ; preds = %162, %132, %_ZNSt6v
   %181 = getelementptr inbounds i8, ptr %177, i64 7
   %182 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %181, ptr %182, align 8
-  store <4 x i8> <i8 -60, i8 35, i8 9, i8 11>, ptr %177, align 1
+  store i8 -60, ptr %177, align 1
+  %.sroa.2175.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 1
+  store i8 35, ptr %.sroa.2175.0..sroa_idx.i, align 1
+  %.sroa.3176.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 2
+  store i8 9, ptr %.sroa.3176.0..sroa_idx.i, align 1
+  %.sroa.4177.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 3
+  store i8 11, ptr %.sroa.4177.0..sroa_idx.i, align 1
   %.sroa.5178.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 4
   store i8 12, ptr %.sroa.5178.0..sroa_idx.i, align 1
   %.sroa.6179.0..sroa_idx.i = getelementptr inbounds i8, ptr %177, i64 5
@@ -19284,7 +19754,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit88.i:                ; preds = %228, %198, %_ZNSt6v
   %247 = getelementptr inbounds i8, ptr %243, i64 7
   %248 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %247, ptr %248, align 8
-  store <4 x i8> <i8 -60, i8 -93, i8 25, i8 75>, ptr %243, align 1
+  store i8 -60, ptr %243, align 1
+  %.sroa.2167.0..sroa_idx.i = getelementptr inbounds i8, ptr %243, i64 1
+  store i8 -93, ptr %.sroa.2167.0..sroa_idx.i, align 1
+  %.sroa.3168.0..sroa_idx.i = getelementptr inbounds i8, ptr %243, i64 2
+  store i8 25, ptr %.sroa.3168.0..sroa_idx.i, align 1
+  %.sroa.4169.0..sroa_idx.i = getelementptr inbounds i8, ptr %243, i64 3
+  store i8 75, ptr %.sroa.4169.0..sroa_idx.i, align 1
   %.sroa.5170.0..sroa_idx.i = getelementptr inbounds i8, ptr %243, i64 4
   store i8 60, ptr %.sroa.5170.0..sroa_idx.i, align 1
   %.sroa.6171.0..sroa_idx.i = getelementptr inbounds i8, ptr %243, i64 5
@@ -19464,7 +19940,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit109.i:               ; preds = %294, %264, %_ZNSt6v
   %313 = getelementptr inbounds i8, ptr %309, i64 7
   %314 = getelementptr inbounds i8, ptr %34, i64 16
   store ptr %313, ptr %314, align 8
-  store <4 x i8> <i8 -60, i8 -95, i8 24, i8 -58>, ptr %309, align 1
+  store i8 -60, ptr %309, align 1
+  %.sroa.2159.0..sroa_idx.i = getelementptr inbounds i8, ptr %309, i64 1
+  store i8 -95, ptr %.sroa.2159.0..sroa_idx.i, align 1
+  %.sroa.3160.0..sroa_idx.i = getelementptr inbounds i8, ptr %309, i64 2
+  store i8 24, ptr %.sroa.3160.0..sroa_idx.i, align 1
+  %.sroa.4161.0..sroa_idx.i = getelementptr inbounds i8, ptr %309, i64 3
+  store i8 -58, ptr %.sroa.4161.0..sroa_idx.i, align 1
   %.sroa.5162.0..sroa_idx.i = getelementptr inbounds i8, ptr %309, i64 4
   store i8 60, ptr %.sroa.5162.0..sroa_idx.i, align 1
   %.sroa.6163.0..sroa_idx.i = getelementptr inbounds i8, ptr %309, i64 5
@@ -19644,7 +20126,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit130.i:               ; preds = %360, %330, %_ZNSt6v
   %379 = getelementptr inbounds i8, ptr %375, i64 7
   %380 = getelementptr inbounds i8, ptr %41, i64 16
   store ptr %379, ptr %380, align 8
-  store <4 x i8> <i8 -60, i8 -93, i8 25, i8 34>, ptr %375, align 1
+  store i8 -60, ptr %375, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %375, i64 1
+  store i8 -93, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %375, i64 2
+  store i8 25, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %375, i64 3
+  store i8 34, ptr %.sroa.4.0..sroa_idx.i, align 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %375, i64 4
   store i8 60, ptr %.sroa.5.0..sroa_idx.i, align 1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %375, i64 5
@@ -21503,7 +21991,21 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_70Ev() #2 personality
   %15 = getelementptr inbounds i8, ptr %11, i64 9
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %15, ptr %16, align 8
-  store <8 x i8> <i8 72, i8 -115, i8 5, i8 1, i8 0, i8 0, i8 0, i8 -61>, ptr %11, align 1
+  store i8 72, ptr %11, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 1
+  store i8 -115, ptr %.sroa.2.0..sroa_idx.i, align 1
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 2
+  store i8 5, ptr %.sroa.3.0..sroa_idx.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 3
+  store i8 1, ptr %.sroa.4.0..sroa_idx.i, align 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 4
+  store i8 0, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 5
+  store i8 0, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 6
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 7
+  store i8 -61, ptr %.sroa.8.0..sroa_idx.i, align 1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
   store i8 -61, ptr %.sroa.9.0..sroa_idx.i, align 1
   %17 = getelementptr inbounds i8, ptr %6, i64 8
@@ -24810,7 +25312,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit697:                 ; preds = %807, %_ZNSt6vectorI
   %856 = getelementptr inbounds i8, ptr %852, i64 4
   %857 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %856, ptr %857, align 8
-  store <4 x i8> <i8 72, i8 -125, i8 -64, i8 0>, ptr %852, align 1
+  store i8 72, ptr %852, align 1
+  %.sroa.23176.0..sroa_idx = getelementptr inbounds i8, ptr %852, i64 1
+  store i8 -125, ptr %.sroa.23176.0..sroa_idx, align 1
+  %.sroa.33177.0..sroa_idx = getelementptr inbounds i8, ptr %852, i64 2
+  store i8 -64, ptr %.sroa.33177.0..sroa_idx, align 1
+  %.sroa.43178.0..sroa_idx = getelementptr inbounds i8, ptr %852, i64 3
+  store i8 0, ptr %.sroa.43178.0..sroa_idx, align 1
   %858 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %856, ptr %858, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
@@ -24984,7 +25492,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit718:                 ; preds = %873, %_ZNSt6vectorI
   %922 = getelementptr inbounds i8, ptr %918, i64 4
   %923 = getelementptr inbounds i8, ptr %35, i64 16
   store ptr %922, ptr %923, align 8
-  store <4 x i8> <i8 72, i8 -125, i8 -64, i8 127>, ptr %918, align 1
+  store i8 72, ptr %918, align 1
+  %.sroa.23171.0..sroa_idx = getelementptr inbounds i8, ptr %918, i64 1
+  store i8 -125, ptr %.sroa.23171.0..sroa_idx, align 1
+  %.sroa.33172.0..sroa_idx = getelementptr inbounds i8, ptr %918, i64 2
+  store i8 -64, ptr %.sroa.33172.0..sroa_idx, align 1
+  %.sroa.43173.0..sroa_idx = getelementptr inbounds i8, ptr %918, i64 3
+  store i8 127, ptr %.sroa.43173.0..sroa_idx, align 1
   %924 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %922, ptr %924, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
@@ -25158,7 +25672,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit739:                 ; preds = %939, %_ZNSt6vectorI
   %988 = getelementptr inbounds i8, ptr %984, i64 7
   %989 = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %988, ptr %989, align 8
-  store <4 x i8> <i8 72, i8 -127, i8 -64, i8 -128>, ptr %984, align 1
+  store i8 72, ptr %984, align 1
+  %.sroa.23163.0..sroa_idx = getelementptr inbounds i8, ptr %984, i64 1
+  store i8 -127, ptr %.sroa.23163.0..sroa_idx, align 1
+  %.sroa.33164.0..sroa_idx = getelementptr inbounds i8, ptr %984, i64 2
+  store i8 -64, ptr %.sroa.33164.0..sroa_idx, align 1
+  %.sroa.43165.0..sroa_idx = getelementptr inbounds i8, ptr %984, i64 3
+  store i8 -128, ptr %.sroa.43165.0..sroa_idx, align 1
   %.sroa.53166.0..sroa_idx = getelementptr inbounds i8, ptr %984, i64 4
   store i8 0, ptr %.sroa.53166.0..sroa_idx, align 1
   %.sroa.63167.0..sroa_idx = getelementptr inbounds i8, ptr %984, i64 5
@@ -25338,7 +25858,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit760:                 ; preds = %1005, %_ZNSt6vector
   %1054 = getelementptr inbounds i8, ptr %1050, i64 7
   %1055 = getelementptr inbounds i8, ptr %49, i64 16
   store ptr %1054, ptr %1055, align 8
-  store <4 x i8> <i8 73, i8 -127, i8 -62, i8 -1>, ptr %1050, align 1
+  store i8 73, ptr %1050, align 1
+  %.sroa.23155.0..sroa_idx = getelementptr inbounds i8, ptr %1050, i64 1
+  store i8 -127, ptr %.sroa.23155.0..sroa_idx, align 1
+  %.sroa.33156.0..sroa_idx = getelementptr inbounds i8, ptr %1050, i64 2
+  store i8 -62, ptr %.sroa.33156.0..sroa_idx, align 1
+  %.sroa.43157.0..sroa_idx = getelementptr inbounds i8, ptr %1050, i64 3
+  store i8 -1, ptr %.sroa.43157.0..sroa_idx, align 1
   %.sroa.53158.0..sroa_idx = getelementptr inbounds i8, ptr %1050, i64 4
   store i8 -1, ptr %.sroa.53158.0..sroa_idx, align 1
   %.sroa.63159.0..sroa_idx = getelementptr inbounds i8, ptr %1050, i64 5
@@ -25696,7 +26222,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit802:                 ; preds = %1137, %_ZNSt6vector
   %1186 = getelementptr inbounds i8, ptr %1182, i64 4
   %1187 = getelementptr inbounds i8, ptr %63, i64 16
   store ptr %1186, ptr %1187, align 8
-  store <4 x i8> <i8 72, i8 -128, i8 -58, i8 3>, ptr %1182, align 1
+  store i8 72, ptr %1182, align 1
+  %.sroa.23146.0..sroa_idx = getelementptr inbounds i8, ptr %1182, i64 1
+  store i8 -128, ptr %.sroa.23146.0..sroa_idx, align 1
+  %.sroa.33147.0..sroa_idx = getelementptr inbounds i8, ptr %1182, i64 2
+  store i8 -58, ptr %.sroa.33147.0..sroa_idx, align 1
+  %.sroa.43148.0..sroa_idx = getelementptr inbounds i8, ptr %1182, i64 3
+  store i8 3, ptr %.sroa.43148.0..sroa_idx, align 1
   %1188 = getelementptr inbounds i8, ptr %63, i64 8
   store ptr %1186, ptr %1188, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
@@ -25870,7 +26402,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit823:                 ; preds = %1203, %_ZNSt6vector
   %1252 = getelementptr inbounds i8, ptr %1248, i64 4
   %1253 = getelementptr inbounds i8, ptr %70, i64 16
   store ptr %1252, ptr %1253, align 8
-  store <4 x i8> <i8 73, i8 -128, i8 -61, i8 3>, ptr %1248, align 1
+  store i8 73, ptr %1248, align 1
+  %.sroa.23141.0..sroa_idx = getelementptr inbounds i8, ptr %1248, i64 1
+  store i8 -128, ptr %.sroa.23141.0..sroa_idx, align 1
+  %.sroa.33142.0..sroa_idx = getelementptr inbounds i8, ptr %1248, i64 2
+  store i8 -61, ptr %.sroa.33142.0..sroa_idx, align 1
+  %.sroa.43143.0..sroa_idx = getelementptr inbounds i8, ptr %1248, i64 3
+  store i8 3, ptr %.sroa.43143.0..sroa_idx, align 1
   %1254 = getelementptr inbounds i8, ptr %70, i64 8
   store ptr %1252, ptr %1254, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
@@ -26400,7 +26938,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit886:                 ; preds = %1401, %_ZNSt6vector
   %1450 = getelementptr inbounds i8, ptr %1446, i64 4
   %1451 = getelementptr inbounds i8, ptr %91, i64 16
   store ptr %1450, ptr %1451, align 8
-  store <4 x i8> <i8 72, i8 3, i8 4, i8 36>, ptr %1446, align 1
+  store i8 72, ptr %1446, align 1
+  %.sroa.23128.0..sroa_idx = getelementptr inbounds i8, ptr %1446, i64 1
+  store i8 3, ptr %.sroa.23128.0..sroa_idx, align 1
+  %.sroa.33129.0..sroa_idx = getelementptr inbounds i8, ptr %1446, i64 2
+  store i8 4, ptr %.sroa.33129.0..sroa_idx, align 1
+  %.sroa.43130.0..sroa_idx = getelementptr inbounds i8, ptr %1446, i64 3
+  store i8 36, ptr %.sroa.43130.0..sroa_idx, align 1
   %1452 = getelementptr inbounds i8, ptr %91, i64 8
   store ptr %1450, ptr %1452, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
@@ -26574,7 +27118,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit907:                 ; preds = %1467, %_ZNSt6vector
   %1516 = getelementptr inbounds i8, ptr %1512, i64 4
   %1517 = getelementptr inbounds i8, ptr %98, i64 16
   store ptr %1516, ptr %1517, align 8
-  store <4 x i8> <i8 72, i8 3, i8 69, i8 0>, ptr %1512, align 1
+  store i8 72, ptr %1512, align 1
+  %.sroa.23123.0..sroa_idx = getelementptr inbounds i8, ptr %1512, i64 1
+  store i8 3, ptr %.sroa.23123.0..sroa_idx, align 1
+  %.sroa.33124.0..sroa_idx = getelementptr inbounds i8, ptr %1512, i64 2
+  store i8 69, ptr %.sroa.33124.0..sroa_idx, align 1
+  %.sroa.43125.0..sroa_idx = getelementptr inbounds i8, ptr %1512, i64 3
+  store i8 0, ptr %.sroa.43125.0..sroa_idx, align 1
   %1518 = getelementptr inbounds i8, ptr %98, i64 8
   store ptr %1516, ptr %1518, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
@@ -26926,7 +27476,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit949:                 ; preds = %1599, %_ZNSt6vector
   %1648 = getelementptr inbounds i8, ptr %1644, i64 4
   %1649 = getelementptr inbounds i8, ptr %112, i64 16
   store ptr %1648, ptr %1649, align 8
-  store <4 x i8> <i8 73, i8 3, i8 4, i8 36>, ptr %1644, align 1
+  store i8 73, ptr %1644, align 1
+  %.sroa.23114.0..sroa_idx = getelementptr inbounds i8, ptr %1644, i64 1
+  store i8 3, ptr %.sroa.23114.0..sroa_idx, align 1
+  %.sroa.33115.0..sroa_idx = getelementptr inbounds i8, ptr %1644, i64 2
+  store i8 4, ptr %.sroa.33115.0..sroa_idx, align 1
+  %.sroa.43116.0..sroa_idx = getelementptr inbounds i8, ptr %1644, i64 3
+  store i8 36, ptr %.sroa.43116.0..sroa_idx, align 1
   %1650 = getelementptr inbounds i8, ptr %112, i64 8
   store ptr %1648, ptr %1650, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
@@ -27100,7 +27656,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit970:                 ; preds = %1665, %_ZNSt6vector
   %1714 = getelementptr inbounds i8, ptr %1710, i64 4
   %1715 = getelementptr inbounds i8, ptr %119, i64 16
   store ptr %1714, ptr %1715, align 8
-  store <4 x i8> <i8 73, i8 3, i8 69, i8 0>, ptr %1710, align 1
+  store i8 73, ptr %1710, align 1
+  %.sroa.23109.0..sroa_idx = getelementptr inbounds i8, ptr %1710, i64 1
+  store i8 3, ptr %.sroa.23109.0..sroa_idx, align 1
+  %.sroa.33110.0..sroa_idx = getelementptr inbounds i8, ptr %1710, i64 2
+  store i8 69, ptr %.sroa.33110.0..sroa_idx, align 1
+  %.sroa.43111.0..sroa_idx = getelementptr inbounds i8, ptr %1710, i64 3
+  store i8 0, ptr %.sroa.43111.0..sroa_idx, align 1
   %1716 = getelementptr inbounds i8, ptr %119, i64 8
   store ptr %1714, ptr %1716, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
@@ -27630,7 +28192,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1033:                ; preds = %1863, %_ZNSt6vector
   %1912 = getelementptr inbounds i8, ptr %1908, i64 4
   %1913 = getelementptr inbounds i8, ptr %140, i64 16
   store ptr %1912, ptr %1913, align 8
-  store <4 x i8> <i8 76, i8 3, i8 36, i8 36>, ptr %1908, align 1
+  store i8 76, ptr %1908, align 1
+  %.sroa.23096.0..sroa_idx = getelementptr inbounds i8, ptr %1908, i64 1
+  store i8 3, ptr %.sroa.23096.0..sroa_idx, align 1
+  %.sroa.33097.0..sroa_idx = getelementptr inbounds i8, ptr %1908, i64 2
+  store i8 36, ptr %.sroa.33097.0..sroa_idx, align 1
+  %.sroa.43098.0..sroa_idx = getelementptr inbounds i8, ptr %1908, i64 3
+  store i8 36, ptr %.sroa.43098.0..sroa_idx, align 1
   %1914 = getelementptr inbounds i8, ptr %140, i64 8
   store ptr %1912, ptr %1914, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false)
@@ -27804,7 +28372,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1054:                ; preds = %1929, %_ZNSt6vector
   %1978 = getelementptr inbounds i8, ptr %1974, i64 4
   %1979 = getelementptr inbounds i8, ptr %147, i64 16
   store ptr %1978, ptr %1979, align 8
-  store <4 x i8> <i8 76, i8 3, i8 101, i8 0>, ptr %1974, align 1
+  store i8 76, ptr %1974, align 1
+  %.sroa.23091.0..sroa_idx = getelementptr inbounds i8, ptr %1974, i64 1
+  store i8 3, ptr %.sroa.23091.0..sroa_idx, align 1
+  %.sroa.33092.0..sroa_idx = getelementptr inbounds i8, ptr %1974, i64 2
+  store i8 101, ptr %.sroa.33092.0..sroa_idx, align 1
+  %.sroa.43093.0..sroa_idx = getelementptr inbounds i8, ptr %1974, i64 3
+  store i8 0, ptr %.sroa.43093.0..sroa_idx, align 1
   %1980 = getelementptr inbounds i8, ptr %147, i64 8
   store ptr %1978, ptr %1980, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %148, i8 0, i64 24, i1 false)
@@ -28156,7 +28730,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1096:                ; preds = %2061, %_ZNSt6vector
   %2110 = getelementptr inbounds i8, ptr %2106, i64 4
   %2111 = getelementptr inbounds i8, ptr %161, i64 16
   store ptr %2110, ptr %2111, align 8
-  store <4 x i8> <i8 77, i8 3, i8 36, i8 36>, ptr %2106, align 1
+  store i8 77, ptr %2106, align 1
+  %.sroa.23082.0..sroa_idx = getelementptr inbounds i8, ptr %2106, i64 1
+  store i8 3, ptr %.sroa.23082.0..sroa_idx, align 1
+  %.sroa.33083.0..sroa_idx = getelementptr inbounds i8, ptr %2106, i64 2
+  store i8 36, ptr %.sroa.33083.0..sroa_idx, align 1
+  %.sroa.43084.0..sroa_idx = getelementptr inbounds i8, ptr %2106, i64 3
+  store i8 36, ptr %.sroa.43084.0..sroa_idx, align 1
   %2112 = getelementptr inbounds i8, ptr %161, i64 8
   store ptr %2110, ptr %2112, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %162, i8 0, i64 24, i1 false)
@@ -28330,7 +28910,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1117:                ; preds = %2127, %_ZNSt6vector
   %2176 = getelementptr inbounds i8, ptr %2172, i64 4
   %2177 = getelementptr inbounds i8, ptr %168, i64 16
   store ptr %2176, ptr %2177, align 8
-  store <4 x i8> <i8 77, i8 3, i8 101, i8 0>, ptr %2172, align 1
+  store i8 77, ptr %2172, align 1
+  %.sroa.23077.0..sroa_idx = getelementptr inbounds i8, ptr %2172, i64 1
+  store i8 3, ptr %.sroa.23077.0..sroa_idx, align 1
+  %.sroa.33078.0..sroa_idx = getelementptr inbounds i8, ptr %2172, i64 2
+  store i8 101, ptr %.sroa.33078.0..sroa_idx, align 1
+  %.sroa.43079.0..sroa_idx = getelementptr inbounds i8, ptr %2172, i64 3
+  store i8 0, ptr %.sroa.43079.0..sroa_idx, align 1
   %2178 = getelementptr inbounds i8, ptr %168, i64 8
   store ptr %2176, ptr %2178, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %169, i8 0, i64 24, i1 false)
@@ -28504,7 +29090,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1138:                ; preds = %2193, %_ZNSt6vector
   %2242 = getelementptr inbounds i8, ptr %2238, i64 4
   %2243 = getelementptr inbounds i8, ptr %175, i64 16
   store ptr %2242, ptr %2243, align 8
-  store <4 x i8> <i8 72, i8 3, i8 64, i8 27>, ptr %2238, align 1
+  store i8 72, ptr %2238, align 1
+  %.sroa.23072.0..sroa_idx = getelementptr inbounds i8, ptr %2238, i64 1
+  store i8 3, ptr %.sroa.23072.0..sroa_idx, align 1
+  %.sroa.33073.0..sroa_idx = getelementptr inbounds i8, ptr %2238, i64 2
+  store i8 64, ptr %.sroa.33073.0..sroa_idx, align 1
+  %.sroa.43074.0..sroa_idx = getelementptr inbounds i8, ptr %2238, i64 3
+  store i8 27, ptr %.sroa.43074.0..sroa_idx, align 1
   %2244 = getelementptr inbounds i8, ptr %175, i64 8
   store ptr %2242, ptr %2244, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %176, i8 0, i64 24, i1 false)
@@ -28678,7 +29270,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1159:                ; preds = %2259, %_ZNSt6vector
   %2308 = getelementptr inbounds i8, ptr %2304, i64 4
   %2309 = getelementptr inbounds i8, ptr %182, i64 16
   store ptr %2308, ptr %2309, align 8
-  store <4 x i8> <i8 72, i8 3, i8 67, i8 27>, ptr %2304, align 1
+  store i8 72, ptr %2304, align 1
+  %.sroa.23067.0..sroa_idx = getelementptr inbounds i8, ptr %2304, i64 1
+  store i8 3, ptr %.sroa.23067.0..sroa_idx, align 1
+  %.sroa.33068.0..sroa_idx = getelementptr inbounds i8, ptr %2304, i64 2
+  store i8 67, ptr %.sroa.33068.0..sroa_idx, align 1
+  %.sroa.43069.0..sroa_idx = getelementptr inbounds i8, ptr %2304, i64 3
+  store i8 27, ptr %.sroa.43069.0..sroa_idx, align 1
   %2310 = getelementptr inbounds i8, ptr %182, i64 8
   store ptr %2308, ptr %2310, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %183, i8 0, i64 24, i1 false)
@@ -28852,7 +29450,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1180:                ; preds = %2325, %_ZNSt6vector
   %2374 = getelementptr inbounds i8, ptr %2370, i64 5
   %2375 = getelementptr inbounds i8, ptr %189, i64 16
   store ptr %2374, ptr %2375, align 8
-  store <4 x i8> <i8 72, i8 3, i8 68, i8 36>, ptr %2370, align 1
+  store i8 72, ptr %2370, align 1
+  %.sroa.23061.0..sroa_idx = getelementptr inbounds i8, ptr %2370, i64 1
+  store i8 3, ptr %.sroa.23061.0..sroa_idx, align 1
+  %.sroa.33062.0..sroa_idx = getelementptr inbounds i8, ptr %2370, i64 2
+  store i8 68, ptr %.sroa.33062.0..sroa_idx, align 1
+  %.sroa.43063.0..sroa_idx = getelementptr inbounds i8, ptr %2370, i64 3
+  store i8 36, ptr %.sroa.43063.0..sroa_idx, align 1
   %.sroa.53064.0..sroa_idx = getelementptr inbounds i8, ptr %2370, i64 4
   store i8 27, ptr %.sroa.53064.0..sroa_idx, align 1
   %2376 = getelementptr inbounds i8, ptr %189, i64 8
@@ -29028,7 +29632,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1201:                ; preds = %2391, %_ZNSt6vector
   %2440 = getelementptr inbounds i8, ptr %2436, i64 4
   %2441 = getelementptr inbounds i8, ptr %196, i64 16
   store ptr %2440, ptr %2441, align 8
-  store <4 x i8> <i8 72, i8 3, i8 69, i8 27>, ptr %2436, align 1
+  store i8 72, ptr %2436, align 1
+  %.sroa.23056.0..sroa_idx = getelementptr inbounds i8, ptr %2436, i64 1
+  store i8 3, ptr %.sroa.23056.0..sroa_idx, align 1
+  %.sroa.33057.0..sroa_idx = getelementptr inbounds i8, ptr %2436, i64 2
+  store i8 69, ptr %.sroa.33057.0..sroa_idx, align 1
+  %.sroa.43058.0..sroa_idx = getelementptr inbounds i8, ptr %2436, i64 3
+  store i8 27, ptr %.sroa.43058.0..sroa_idx, align 1
   %2442 = getelementptr inbounds i8, ptr %196, i64 8
   store ptr %2440, ptr %2442, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %197, i8 0, i64 24, i1 false)
@@ -29202,7 +29812,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1222:                ; preds = %2457, %_ZNSt6vector
   %2506 = getelementptr inbounds i8, ptr %2502, i64 4
   %2507 = getelementptr inbounds i8, ptr %203, i64 16
   store ptr %2506, ptr %2507, align 8
-  store <4 x i8> <i8 73, i8 3, i8 66, i8 27>, ptr %2502, align 1
+  store i8 73, ptr %2502, align 1
+  %.sroa.23051.0..sroa_idx = getelementptr inbounds i8, ptr %2502, i64 1
+  store i8 3, ptr %.sroa.23051.0..sroa_idx, align 1
+  %.sroa.33052.0..sroa_idx = getelementptr inbounds i8, ptr %2502, i64 2
+  store i8 66, ptr %.sroa.33052.0..sroa_idx, align 1
+  %.sroa.43053.0..sroa_idx = getelementptr inbounds i8, ptr %2502, i64 3
+  store i8 27, ptr %.sroa.43053.0..sroa_idx, align 1
   %2508 = getelementptr inbounds i8, ptr %203, i64 8
   store ptr %2506, ptr %2508, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %204, i8 0, i64 24, i1 false)
@@ -29376,7 +29992,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1243:                ; preds = %2523, %_ZNSt6vector
   %2572 = getelementptr inbounds i8, ptr %2568, i64 5
   %2573 = getelementptr inbounds i8, ptr %210, i64 16
   store ptr %2572, ptr %2573, align 8
-  store <4 x i8> <i8 73, i8 3, i8 68, i8 36>, ptr %2568, align 1
+  store i8 73, ptr %2568, align 1
+  %.sroa.23045.0..sroa_idx = getelementptr inbounds i8, ptr %2568, i64 1
+  store i8 3, ptr %.sroa.23045.0..sroa_idx, align 1
+  %.sroa.33046.0..sroa_idx = getelementptr inbounds i8, ptr %2568, i64 2
+  store i8 68, ptr %.sroa.33046.0..sroa_idx, align 1
+  %.sroa.43047.0..sroa_idx = getelementptr inbounds i8, ptr %2568, i64 3
+  store i8 36, ptr %.sroa.43047.0..sroa_idx, align 1
   %.sroa.53048.0..sroa_idx = getelementptr inbounds i8, ptr %2568, i64 4
   store i8 27, ptr %.sroa.53048.0..sroa_idx, align 1
   %2574 = getelementptr inbounds i8, ptr %210, i64 8
@@ -29552,7 +30174,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1264:                ; preds = %2589, %_ZNSt6vector
   %2638 = getelementptr inbounds i8, ptr %2634, i64 4
   %2639 = getelementptr inbounds i8, ptr %217, i64 16
   store ptr %2638, ptr %2639, align 8
-  store <4 x i8> <i8 73, i8 3, i8 69, i8 27>, ptr %2634, align 1
+  store i8 73, ptr %2634, align 1
+  %.sroa.23040.0..sroa_idx = getelementptr inbounds i8, ptr %2634, i64 1
+  store i8 3, ptr %.sroa.23040.0..sroa_idx, align 1
+  %.sroa.33041.0..sroa_idx = getelementptr inbounds i8, ptr %2634, i64 2
+  store i8 69, ptr %.sroa.33041.0..sroa_idx, align 1
+  %.sroa.43042.0..sroa_idx = getelementptr inbounds i8, ptr %2634, i64 3
+  store i8 27, ptr %.sroa.43042.0..sroa_idx, align 1
   %2640 = getelementptr inbounds i8, ptr %217, i64 8
   store ptr %2638, ptr %2640, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %218, i8 0, i64 24, i1 false)
@@ -29726,7 +30354,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1285:                ; preds = %2655, %_ZNSt6vector
   %2704 = getelementptr inbounds i8, ptr %2700, i64 4
   %2705 = getelementptr inbounds i8, ptr %224, i64 16
   store ptr %2704, ptr %2705, align 8
-  store <4 x i8> <i8 76, i8 3, i8 96, i8 27>, ptr %2700, align 1
+  store i8 76, ptr %2700, align 1
+  %.sroa.23035.0..sroa_idx = getelementptr inbounds i8, ptr %2700, i64 1
+  store i8 3, ptr %.sroa.23035.0..sroa_idx, align 1
+  %.sroa.33036.0..sroa_idx = getelementptr inbounds i8, ptr %2700, i64 2
+  store i8 96, ptr %.sroa.33036.0..sroa_idx, align 1
+  %.sroa.43037.0..sroa_idx = getelementptr inbounds i8, ptr %2700, i64 3
+  store i8 27, ptr %.sroa.43037.0..sroa_idx, align 1
   %2706 = getelementptr inbounds i8, ptr %224, i64 8
   store ptr %2704, ptr %2706, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %225, i8 0, i64 24, i1 false)
@@ -29900,7 +30534,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1306:                ; preds = %2721, %_ZNSt6vector
   %2770 = getelementptr inbounds i8, ptr %2766, i64 4
   %2771 = getelementptr inbounds i8, ptr %231, i64 16
   store ptr %2770, ptr %2771, align 8
-  store <4 x i8> <i8 76, i8 3, i8 99, i8 27>, ptr %2766, align 1
+  store i8 76, ptr %2766, align 1
+  %.sroa.23030.0..sroa_idx = getelementptr inbounds i8, ptr %2766, i64 1
+  store i8 3, ptr %.sroa.23030.0..sroa_idx, align 1
+  %.sroa.33031.0..sroa_idx = getelementptr inbounds i8, ptr %2766, i64 2
+  store i8 99, ptr %.sroa.33031.0..sroa_idx, align 1
+  %.sroa.43032.0..sroa_idx = getelementptr inbounds i8, ptr %2766, i64 3
+  store i8 27, ptr %.sroa.43032.0..sroa_idx, align 1
   %2772 = getelementptr inbounds i8, ptr %231, i64 8
   store ptr %2770, ptr %2772, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %232, i8 0, i64 24, i1 false)
@@ -30074,7 +30714,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1327:                ; preds = %2787, %_ZNSt6vector
   %2836 = getelementptr inbounds i8, ptr %2832, i64 5
   %2837 = getelementptr inbounds i8, ptr %238, i64 16
   store ptr %2836, ptr %2837, align 8
-  store <4 x i8> <i8 76, i8 3, i8 100, i8 36>, ptr %2832, align 1
+  store i8 76, ptr %2832, align 1
+  %.sroa.23024.0..sroa_idx = getelementptr inbounds i8, ptr %2832, i64 1
+  store i8 3, ptr %.sroa.23024.0..sroa_idx, align 1
+  %.sroa.33025.0..sroa_idx = getelementptr inbounds i8, ptr %2832, i64 2
+  store i8 100, ptr %.sroa.33025.0..sroa_idx, align 1
+  %.sroa.43026.0..sroa_idx = getelementptr inbounds i8, ptr %2832, i64 3
+  store i8 36, ptr %.sroa.43026.0..sroa_idx, align 1
   %.sroa.53027.0..sroa_idx = getelementptr inbounds i8, ptr %2832, i64 4
   store i8 27, ptr %.sroa.53027.0..sroa_idx, align 1
   %2838 = getelementptr inbounds i8, ptr %238, i64 8
@@ -30250,7 +30896,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1348:                ; preds = %2853, %_ZNSt6vector
   %2902 = getelementptr inbounds i8, ptr %2898, i64 4
   %2903 = getelementptr inbounds i8, ptr %245, i64 16
   store ptr %2902, ptr %2903, align 8
-  store <4 x i8> <i8 76, i8 3, i8 101, i8 27>, ptr %2898, align 1
+  store i8 76, ptr %2898, align 1
+  %.sroa.23019.0..sroa_idx = getelementptr inbounds i8, ptr %2898, i64 1
+  store i8 3, ptr %.sroa.23019.0..sroa_idx, align 1
+  %.sroa.33020.0..sroa_idx = getelementptr inbounds i8, ptr %2898, i64 2
+  store i8 101, ptr %.sroa.33020.0..sroa_idx, align 1
+  %.sroa.43021.0..sroa_idx = getelementptr inbounds i8, ptr %2898, i64 3
+  store i8 27, ptr %.sroa.43021.0..sroa_idx, align 1
   %2904 = getelementptr inbounds i8, ptr %245, i64 8
   store ptr %2902, ptr %2904, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %246, i8 0, i64 24, i1 false)
@@ -30424,7 +31076,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1369:                ; preds = %2919, %_ZNSt6vector
   %2968 = getelementptr inbounds i8, ptr %2964, i64 4
   %2969 = getelementptr inbounds i8, ptr %252, i64 16
   store ptr %2968, ptr %2969, align 8
-  store <4 x i8> <i8 77, i8 3, i8 98, i8 27>, ptr %2964, align 1
+  store i8 77, ptr %2964, align 1
+  %.sroa.23014.0..sroa_idx = getelementptr inbounds i8, ptr %2964, i64 1
+  store i8 3, ptr %.sroa.23014.0..sroa_idx, align 1
+  %.sroa.33015.0..sroa_idx = getelementptr inbounds i8, ptr %2964, i64 2
+  store i8 98, ptr %.sroa.33015.0..sroa_idx, align 1
+  %.sroa.43016.0..sroa_idx = getelementptr inbounds i8, ptr %2964, i64 3
+  store i8 27, ptr %.sroa.43016.0..sroa_idx, align 1
   %2970 = getelementptr inbounds i8, ptr %252, i64 8
   store ptr %2968, ptr %2970, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %253, i8 0, i64 24, i1 false)
@@ -30598,7 +31256,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1390:                ; preds = %2985, %_ZNSt6vector
   %3034 = getelementptr inbounds i8, ptr %3030, i64 5
   %3035 = getelementptr inbounds i8, ptr %259, i64 16
   store ptr %3034, ptr %3035, align 8
-  store <4 x i8> <i8 77, i8 3, i8 100, i8 36>, ptr %3030, align 1
+  store i8 77, ptr %3030, align 1
+  %.sroa.23008.0..sroa_idx = getelementptr inbounds i8, ptr %3030, i64 1
+  store i8 3, ptr %.sroa.23008.0..sroa_idx, align 1
+  %.sroa.33009.0..sroa_idx = getelementptr inbounds i8, ptr %3030, i64 2
+  store i8 100, ptr %.sroa.33009.0..sroa_idx, align 1
+  %.sroa.43010.0..sroa_idx = getelementptr inbounds i8, ptr %3030, i64 3
+  store i8 36, ptr %.sroa.43010.0..sroa_idx, align 1
   %.sroa.53011.0..sroa_idx = getelementptr inbounds i8, ptr %3030, i64 4
   store i8 27, ptr %.sroa.53011.0..sroa_idx, align 1
   %3036 = getelementptr inbounds i8, ptr %259, i64 8
@@ -30774,7 +31438,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1411:                ; preds = %3051, %_ZNSt6vector
   %3100 = getelementptr inbounds i8, ptr %3096, i64 4
   %3101 = getelementptr inbounds i8, ptr %266, i64 16
   store ptr %3100, ptr %3101, align 8
-  store <4 x i8> <i8 77, i8 3, i8 101, i8 27>, ptr %3096, align 1
+  store i8 77, ptr %3096, align 1
+  %.sroa.23003.0..sroa_idx = getelementptr inbounds i8, ptr %3096, i64 1
+  store i8 3, ptr %.sroa.23003.0..sroa_idx, align 1
+  %.sroa.33004.0..sroa_idx = getelementptr inbounds i8, ptr %3096, i64 2
+  store i8 101, ptr %.sroa.33004.0..sroa_idx, align 1
+  %.sroa.43005.0..sroa_idx = getelementptr inbounds i8, ptr %3096, i64 3
+  store i8 27, ptr %.sroa.43005.0..sroa_idx, align 1
   %3102 = getelementptr inbounds i8, ptr %266, i64 8
   store ptr %3100, ptr %3102, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %267, i8 0, i64 24, i1 false)
@@ -30948,7 +31618,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1432:                ; preds = %3117, %_ZNSt6vector
   %3166 = getelementptr inbounds i8, ptr %3162, i64 7
   %3167 = getelementptr inbounds i8, ptr %273, i64 16
   store ptr %3166, ptr %3167, align 8
-  store <4 x i8> <i8 72, i8 3, i8 -128, i8 -85>, ptr %3162, align 1
+  store i8 72, ptr %3162, align 1
+  %.sroa.22995.0..sroa_idx = getelementptr inbounds i8, ptr %3162, i64 1
+  store i8 3, ptr %.sroa.22995.0..sroa_idx, align 1
+  %.sroa.32996.0..sroa_idx = getelementptr inbounds i8, ptr %3162, i64 2
+  store i8 -128, ptr %.sroa.32996.0..sroa_idx, align 1
+  %.sroa.42997.0..sroa_idx = getelementptr inbounds i8, ptr %3162, i64 3
+  store i8 -85, ptr %.sroa.42997.0..sroa_idx, align 1
   %.sroa.52998.0..sroa_idx = getelementptr inbounds i8, ptr %3162, i64 4
   store i8 -85, ptr %.sroa.52998.0..sroa_idx, align 1
   %.sroa.62999.0..sroa_idx = getelementptr inbounds i8, ptr %3162, i64 5
@@ -31128,7 +31804,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1453:                ; preds = %3183, %_ZNSt6vector
   %3232 = getelementptr inbounds i8, ptr %3228, i64 7
   %3233 = getelementptr inbounds i8, ptr %280, i64 16
   store ptr %3232, ptr %3233, align 8
-  store <4 x i8> <i8 72, i8 3, i8 -125, i8 -85>, ptr %3228, align 1
+  store i8 72, ptr %3228, align 1
+  %.sroa.22987.0..sroa_idx = getelementptr inbounds i8, ptr %3228, i64 1
+  store i8 3, ptr %.sroa.22987.0..sroa_idx, align 1
+  %.sroa.32988.0..sroa_idx = getelementptr inbounds i8, ptr %3228, i64 2
+  store i8 -125, ptr %.sroa.32988.0..sroa_idx, align 1
+  %.sroa.42989.0..sroa_idx = getelementptr inbounds i8, ptr %3228, i64 3
+  store i8 -85, ptr %.sroa.42989.0..sroa_idx, align 1
   %.sroa.52990.0..sroa_idx = getelementptr inbounds i8, ptr %3228, i64 4
   store i8 -85, ptr %.sroa.52990.0..sroa_idx, align 1
   %.sroa.62991.0..sroa_idx = getelementptr inbounds i8, ptr %3228, i64 5
@@ -31308,7 +31990,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1474:                ; preds = %3249, %_ZNSt6vector
   %3298 = getelementptr inbounds i8, ptr %3294, i64 8
   %3299 = getelementptr inbounds i8, ptr %287, i64 16
   store ptr %3298, ptr %3299, align 8
-  store <8 x i8> <i8 72, i8 3, i8 -124, i8 36, i8 -85, i8 -85, i8 0, i8 0>, ptr %3294, align 1
+  store i8 72, ptr %3294, align 1
+  %.sroa.22978.0..sroa_idx = getelementptr inbounds i8, ptr %3294, i64 1
+  store i8 3, ptr %.sroa.22978.0..sroa_idx, align 1
+  %.sroa.32979.0..sroa_idx = getelementptr inbounds i8, ptr %3294, i64 2
+  store i8 -124, ptr %.sroa.32979.0..sroa_idx, align 1
+  %.sroa.42980.0..sroa_idx = getelementptr inbounds i8, ptr %3294, i64 3
+  store i8 36, ptr %.sroa.42980.0..sroa_idx, align 1
+  %.sroa.52981.0..sroa_idx = getelementptr inbounds i8, ptr %3294, i64 4
+  store i8 -85, ptr %.sroa.52981.0..sroa_idx, align 1
+  %.sroa.62982.0..sroa_idx = getelementptr inbounds i8, ptr %3294, i64 5
+  store i8 -85, ptr %.sroa.62982.0..sroa_idx, align 1
+  %.sroa.72983.0..sroa_idx = getelementptr inbounds i8, ptr %3294, i64 6
+  store i8 0, ptr %.sroa.72983.0..sroa_idx, align 1
+  %.sroa.82984.0..sroa_idx = getelementptr inbounds i8, ptr %3294, i64 7
+  store i8 0, ptr %.sroa.82984.0..sroa_idx, align 1
   %3300 = getelementptr inbounds i8, ptr %287, i64 8
   store ptr %3298, ptr %3300, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %288, i8 0, i64 24, i1 false)
@@ -31482,7 +32178,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1495:                ; preds = %3315, %_ZNSt6vector
   %3364 = getelementptr inbounds i8, ptr %3360, i64 7
   %3365 = getelementptr inbounds i8, ptr %294, i64 16
   store ptr %3364, ptr %3365, align 8
-  store <4 x i8> <i8 72, i8 3, i8 -123, i8 -85>, ptr %3360, align 1
+  store i8 72, ptr %3360, align 1
+  %.sroa.22970.0..sroa_idx = getelementptr inbounds i8, ptr %3360, i64 1
+  store i8 3, ptr %.sroa.22970.0..sroa_idx, align 1
+  %.sroa.32971.0..sroa_idx = getelementptr inbounds i8, ptr %3360, i64 2
+  store i8 -123, ptr %.sroa.32971.0..sroa_idx, align 1
+  %.sroa.42972.0..sroa_idx = getelementptr inbounds i8, ptr %3360, i64 3
+  store i8 -85, ptr %.sroa.42972.0..sroa_idx, align 1
   %.sroa.52973.0..sroa_idx = getelementptr inbounds i8, ptr %3360, i64 4
   store i8 -85, ptr %.sroa.52973.0..sroa_idx, align 1
   %.sroa.62974.0..sroa_idx = getelementptr inbounds i8, ptr %3360, i64 5
@@ -31662,7 +32364,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1516:                ; preds = %3381, %_ZNSt6vector
   %3430 = getelementptr inbounds i8, ptr %3426, i64 7
   %3431 = getelementptr inbounds i8, ptr %301, i64 16
   store ptr %3430, ptr %3431, align 8
-  store <4 x i8> <i8 73, i8 3, i8 -126, i8 -85>, ptr %3426, align 1
+  store i8 73, ptr %3426, align 1
+  %.sroa.22962.0..sroa_idx = getelementptr inbounds i8, ptr %3426, i64 1
+  store i8 3, ptr %.sroa.22962.0..sroa_idx, align 1
+  %.sroa.32963.0..sroa_idx = getelementptr inbounds i8, ptr %3426, i64 2
+  store i8 -126, ptr %.sroa.32963.0..sroa_idx, align 1
+  %.sroa.42964.0..sroa_idx = getelementptr inbounds i8, ptr %3426, i64 3
+  store i8 -85, ptr %.sroa.42964.0..sroa_idx, align 1
   %.sroa.52965.0..sroa_idx = getelementptr inbounds i8, ptr %3426, i64 4
   store i8 -85, ptr %.sroa.52965.0..sroa_idx, align 1
   %.sroa.62966.0..sroa_idx = getelementptr inbounds i8, ptr %3426, i64 5
@@ -31842,7 +32550,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1537:                ; preds = %3447, %_ZNSt6vector
   %3496 = getelementptr inbounds i8, ptr %3492, i64 8
   %3497 = getelementptr inbounds i8, ptr %308, i64 16
   store ptr %3496, ptr %3497, align 8
-  store <8 x i8> <i8 73, i8 3, i8 -124, i8 36, i8 -85, i8 -85, i8 0, i8 0>, ptr %3492, align 1
+  store i8 73, ptr %3492, align 1
+  %.sroa.22953.0..sroa_idx = getelementptr inbounds i8, ptr %3492, i64 1
+  store i8 3, ptr %.sroa.22953.0..sroa_idx, align 1
+  %.sroa.32954.0..sroa_idx = getelementptr inbounds i8, ptr %3492, i64 2
+  store i8 -124, ptr %.sroa.32954.0..sroa_idx, align 1
+  %.sroa.42955.0..sroa_idx = getelementptr inbounds i8, ptr %3492, i64 3
+  store i8 36, ptr %.sroa.42955.0..sroa_idx, align 1
+  %.sroa.52956.0..sroa_idx = getelementptr inbounds i8, ptr %3492, i64 4
+  store i8 -85, ptr %.sroa.52956.0..sroa_idx, align 1
+  %.sroa.62957.0..sroa_idx = getelementptr inbounds i8, ptr %3492, i64 5
+  store i8 -85, ptr %.sroa.62957.0..sroa_idx, align 1
+  %.sroa.72958.0..sroa_idx = getelementptr inbounds i8, ptr %3492, i64 6
+  store i8 0, ptr %.sroa.72958.0..sroa_idx, align 1
+  %.sroa.82959.0..sroa_idx = getelementptr inbounds i8, ptr %3492, i64 7
+  store i8 0, ptr %.sroa.82959.0..sroa_idx, align 1
   %3498 = getelementptr inbounds i8, ptr %308, i64 8
   store ptr %3496, ptr %3498, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %309, i8 0, i64 24, i1 false)
@@ -32016,7 +32738,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1558:                ; preds = %3513, %_ZNSt6vector
   %3562 = getelementptr inbounds i8, ptr %3558, i64 7
   %3563 = getelementptr inbounds i8, ptr %315, i64 16
   store ptr %3562, ptr %3563, align 8
-  store <4 x i8> <i8 73, i8 3, i8 -123, i8 -85>, ptr %3558, align 1
+  store i8 73, ptr %3558, align 1
+  %.sroa.22945.0..sroa_idx = getelementptr inbounds i8, ptr %3558, i64 1
+  store i8 3, ptr %.sroa.22945.0..sroa_idx, align 1
+  %.sroa.32946.0..sroa_idx = getelementptr inbounds i8, ptr %3558, i64 2
+  store i8 -123, ptr %.sroa.32946.0..sroa_idx, align 1
+  %.sroa.42947.0..sroa_idx = getelementptr inbounds i8, ptr %3558, i64 3
+  store i8 -85, ptr %.sroa.42947.0..sroa_idx, align 1
   %.sroa.52948.0..sroa_idx = getelementptr inbounds i8, ptr %3558, i64 4
   store i8 -85, ptr %.sroa.52948.0..sroa_idx, align 1
   %.sroa.62949.0..sroa_idx = getelementptr inbounds i8, ptr %3558, i64 5
@@ -32196,7 +32924,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1579:                ; preds = %3579, %_ZNSt6vector
   %3628 = getelementptr inbounds i8, ptr %3624, i64 7
   %3629 = getelementptr inbounds i8, ptr %322, i64 16
   store ptr %3628, ptr %3629, align 8
-  store <4 x i8> <i8 76, i8 3, i8 -96, i8 -85>, ptr %3624, align 1
+  store i8 76, ptr %3624, align 1
+  %.sroa.22937.0..sroa_idx = getelementptr inbounds i8, ptr %3624, i64 1
+  store i8 3, ptr %.sroa.22937.0..sroa_idx, align 1
+  %.sroa.32938.0..sroa_idx = getelementptr inbounds i8, ptr %3624, i64 2
+  store i8 -96, ptr %.sroa.32938.0..sroa_idx, align 1
+  %.sroa.42939.0..sroa_idx = getelementptr inbounds i8, ptr %3624, i64 3
+  store i8 -85, ptr %.sroa.42939.0..sroa_idx, align 1
   %.sroa.52940.0..sroa_idx = getelementptr inbounds i8, ptr %3624, i64 4
   store i8 -85, ptr %.sroa.52940.0..sroa_idx, align 1
   %.sroa.62941.0..sroa_idx = getelementptr inbounds i8, ptr %3624, i64 5
@@ -32376,7 +33110,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1600:                ; preds = %3645, %_ZNSt6vector
   %3694 = getelementptr inbounds i8, ptr %3690, i64 7
   %3695 = getelementptr inbounds i8, ptr %329, i64 16
   store ptr %3694, ptr %3695, align 8
-  store <4 x i8> <i8 76, i8 3, i8 -93, i8 -85>, ptr %3690, align 1
+  store i8 76, ptr %3690, align 1
+  %.sroa.22929.0..sroa_idx = getelementptr inbounds i8, ptr %3690, i64 1
+  store i8 3, ptr %.sroa.22929.0..sroa_idx, align 1
+  %.sroa.32930.0..sroa_idx = getelementptr inbounds i8, ptr %3690, i64 2
+  store i8 -93, ptr %.sroa.32930.0..sroa_idx, align 1
+  %.sroa.42931.0..sroa_idx = getelementptr inbounds i8, ptr %3690, i64 3
+  store i8 -85, ptr %.sroa.42931.0..sroa_idx, align 1
   %.sroa.52932.0..sroa_idx = getelementptr inbounds i8, ptr %3690, i64 4
   store i8 -85, ptr %.sroa.52932.0..sroa_idx, align 1
   %.sroa.62933.0..sroa_idx = getelementptr inbounds i8, ptr %3690, i64 5
@@ -32556,7 +33296,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1621:                ; preds = %3711, %_ZNSt6vector
   %3760 = getelementptr inbounds i8, ptr %3756, i64 8
   %3761 = getelementptr inbounds i8, ptr %336, i64 16
   store ptr %3760, ptr %3761, align 8
-  store <8 x i8> <i8 76, i8 3, i8 -92, i8 36, i8 -85, i8 -85, i8 0, i8 0>, ptr %3756, align 1
+  store i8 76, ptr %3756, align 1
+  %.sroa.22920.0..sroa_idx = getelementptr inbounds i8, ptr %3756, i64 1
+  store i8 3, ptr %.sroa.22920.0..sroa_idx, align 1
+  %.sroa.32921.0..sroa_idx = getelementptr inbounds i8, ptr %3756, i64 2
+  store i8 -92, ptr %.sroa.32921.0..sroa_idx, align 1
+  %.sroa.42922.0..sroa_idx = getelementptr inbounds i8, ptr %3756, i64 3
+  store i8 36, ptr %.sroa.42922.0..sroa_idx, align 1
+  %.sroa.52923.0..sroa_idx = getelementptr inbounds i8, ptr %3756, i64 4
+  store i8 -85, ptr %.sroa.52923.0..sroa_idx, align 1
+  %.sroa.62924.0..sroa_idx = getelementptr inbounds i8, ptr %3756, i64 5
+  store i8 -85, ptr %.sroa.62924.0..sroa_idx, align 1
+  %.sroa.72925.0..sroa_idx = getelementptr inbounds i8, ptr %3756, i64 6
+  store i8 0, ptr %.sroa.72925.0..sroa_idx, align 1
+  %.sroa.82926.0..sroa_idx = getelementptr inbounds i8, ptr %3756, i64 7
+  store i8 0, ptr %.sroa.82926.0..sroa_idx, align 1
   %3762 = getelementptr inbounds i8, ptr %336, i64 8
   store ptr %3760, ptr %3762, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %337, i8 0, i64 24, i1 false)
@@ -32730,7 +33484,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1642:                ; preds = %3777, %_ZNSt6vector
   %3826 = getelementptr inbounds i8, ptr %3822, i64 7
   %3827 = getelementptr inbounds i8, ptr %343, i64 16
   store ptr %3826, ptr %3827, align 8
-  store <4 x i8> <i8 76, i8 3, i8 -91, i8 -85>, ptr %3822, align 1
+  store i8 76, ptr %3822, align 1
+  %.sroa.22912.0..sroa_idx = getelementptr inbounds i8, ptr %3822, i64 1
+  store i8 3, ptr %.sroa.22912.0..sroa_idx, align 1
+  %.sroa.32913.0..sroa_idx = getelementptr inbounds i8, ptr %3822, i64 2
+  store i8 -91, ptr %.sroa.32913.0..sroa_idx, align 1
+  %.sroa.42914.0..sroa_idx = getelementptr inbounds i8, ptr %3822, i64 3
+  store i8 -85, ptr %.sroa.42914.0..sroa_idx, align 1
   %.sroa.52915.0..sroa_idx = getelementptr inbounds i8, ptr %3822, i64 4
   store i8 -85, ptr %.sroa.52915.0..sroa_idx, align 1
   %.sroa.62916.0..sroa_idx = getelementptr inbounds i8, ptr %3822, i64 5
@@ -32910,7 +33670,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1663:                ; preds = %3843, %_ZNSt6vector
   %3892 = getelementptr inbounds i8, ptr %3888, i64 7
   %3893 = getelementptr inbounds i8, ptr %350, i64 16
   store ptr %3892, ptr %3893, align 8
-  store <4 x i8> <i8 77, i8 3, i8 -94, i8 -85>, ptr %3888, align 1
+  store i8 77, ptr %3888, align 1
+  %.sroa.22904.0..sroa_idx = getelementptr inbounds i8, ptr %3888, i64 1
+  store i8 3, ptr %.sroa.22904.0..sroa_idx, align 1
+  %.sroa.32905.0..sroa_idx = getelementptr inbounds i8, ptr %3888, i64 2
+  store i8 -94, ptr %.sroa.32905.0..sroa_idx, align 1
+  %.sroa.42906.0..sroa_idx = getelementptr inbounds i8, ptr %3888, i64 3
+  store i8 -85, ptr %.sroa.42906.0..sroa_idx, align 1
   %.sroa.52907.0..sroa_idx = getelementptr inbounds i8, ptr %3888, i64 4
   store i8 -85, ptr %.sroa.52907.0..sroa_idx, align 1
   %.sroa.62908.0..sroa_idx = getelementptr inbounds i8, ptr %3888, i64 5
@@ -33090,7 +33856,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1684:                ; preds = %3909, %_ZNSt6vector
   %3958 = getelementptr inbounds i8, ptr %3954, i64 8
   %3959 = getelementptr inbounds i8, ptr %357, i64 16
   store ptr %3958, ptr %3959, align 8
-  store <8 x i8> <i8 77, i8 3, i8 -92, i8 36, i8 -85, i8 -85, i8 0, i8 0>, ptr %3954, align 1
+  store i8 77, ptr %3954, align 1
+  %.sroa.22895.0..sroa_idx = getelementptr inbounds i8, ptr %3954, i64 1
+  store i8 3, ptr %.sroa.22895.0..sroa_idx, align 1
+  %.sroa.32896.0..sroa_idx = getelementptr inbounds i8, ptr %3954, i64 2
+  store i8 -92, ptr %.sroa.32896.0..sroa_idx, align 1
+  %.sroa.42897.0..sroa_idx = getelementptr inbounds i8, ptr %3954, i64 3
+  store i8 36, ptr %.sroa.42897.0..sroa_idx, align 1
+  %.sroa.52898.0..sroa_idx = getelementptr inbounds i8, ptr %3954, i64 4
+  store i8 -85, ptr %.sroa.52898.0..sroa_idx, align 1
+  %.sroa.62899.0..sroa_idx = getelementptr inbounds i8, ptr %3954, i64 5
+  store i8 -85, ptr %.sroa.62899.0..sroa_idx, align 1
+  %.sroa.72900.0..sroa_idx = getelementptr inbounds i8, ptr %3954, i64 6
+  store i8 0, ptr %.sroa.72900.0..sroa_idx, align 1
+  %.sroa.82901.0..sroa_idx = getelementptr inbounds i8, ptr %3954, i64 7
+  store i8 0, ptr %.sroa.82901.0..sroa_idx, align 1
   %3960 = getelementptr inbounds i8, ptr %357, i64 8
   store ptr %3958, ptr %3960, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %358, i8 0, i64 24, i1 false)
@@ -33264,7 +34044,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1705:                ; preds = %3975, %_ZNSt6vector
   %4024 = getelementptr inbounds i8, ptr %4020, i64 7
   %4025 = getelementptr inbounds i8, ptr %364, i64 16
   store ptr %4024, ptr %4025, align 8
-  store <4 x i8> <i8 77, i8 3, i8 -91, i8 -85>, ptr %4020, align 1
+  store i8 77, ptr %4020, align 1
+  %.sroa.22887.0..sroa_idx = getelementptr inbounds i8, ptr %4020, i64 1
+  store i8 3, ptr %.sroa.22887.0..sroa_idx, align 1
+  %.sroa.32888.0..sroa_idx = getelementptr inbounds i8, ptr %4020, i64 2
+  store i8 -91, ptr %.sroa.32888.0..sroa_idx, align 1
+  %.sroa.42889.0..sroa_idx = getelementptr inbounds i8, ptr %4020, i64 3
+  store i8 -85, ptr %.sroa.42889.0..sroa_idx, align 1
   %.sroa.52890.0..sroa_idx = getelementptr inbounds i8, ptr %4020, i64 4
   store i8 -85, ptr %.sroa.52890.0..sroa_idx, align 1
   %.sroa.62891.0..sroa_idx = getelementptr inbounds i8, ptr %4020, i64 5
@@ -33444,7 +34230,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1726:                ; preds = %4041, %_ZNSt6vector
   %4090 = getelementptr inbounds i8, ptr %4086, i64 8
   %4091 = getelementptr inbounds i8, ptr %371, i64 16
   store ptr %4090, ptr %4091, align 8
-  store <4 x i8> <i8 72, i8 3, i8 4, i8 69>, ptr %4086, align 1
+  store i8 72, ptr %4086, align 1
+  %.sroa.22878.0..sroa_idx = getelementptr inbounds i8, ptr %4086, i64 1
+  store i8 3, ptr %.sroa.22878.0..sroa_idx, align 1
+  %.sroa.32879.0..sroa_idx = getelementptr inbounds i8, ptr %4086, i64 2
+  store i8 4, ptr %.sroa.32879.0..sroa_idx, align 1
+  %.sroa.42880.0..sroa_idx = getelementptr inbounds i8, ptr %4086, i64 3
+  store i8 69, ptr %.sroa.42880.0..sroa_idx, align 1
   %.sroa.52881.0..sroa_idx = getelementptr inbounds i8, ptr %4086, i64 4
   %4092 = getelementptr inbounds i8, ptr %371, i64 8
   store i32 0, ptr %.sroa.52881.0..sroa_idx, align 1
@@ -33620,7 +34412,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1747:                ; preds = %4107, %_ZNSt6vector
   %4156 = getelementptr inbounds i8, ptr %4152, i64 8
   %4157 = getelementptr inbounds i8, ptr %378, i64 16
   store ptr %4156, ptr %4157, align 8
-  store <4 x i8> <i8 72, i8 3, i8 4, i8 93>, ptr %4152, align 1
+  store i8 72, ptr %4152, align 1
+  %.sroa.22869.0..sroa_idx = getelementptr inbounds i8, ptr %4152, i64 1
+  store i8 3, ptr %.sroa.22869.0..sroa_idx, align 1
+  %.sroa.32870.0..sroa_idx = getelementptr inbounds i8, ptr %4152, i64 2
+  store i8 4, ptr %.sroa.32870.0..sroa_idx, align 1
+  %.sroa.42871.0..sroa_idx = getelementptr inbounds i8, ptr %4152, i64 3
+  store i8 93, ptr %.sroa.42871.0..sroa_idx, align 1
   %.sroa.52872.0..sroa_idx = getelementptr inbounds i8, ptr %4152, i64 4
   %4158 = getelementptr inbounds i8, ptr %378, i64 8
   store i32 0, ptr %.sroa.52872.0..sroa_idx, align 1
@@ -33796,7 +34594,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1768:                ; preds = %4173, %_ZNSt6vector
   %4222 = getelementptr inbounds i8, ptr %4218, i64 8
   %4223 = getelementptr inbounds i8, ptr %385, i64 16
   store ptr %4222, ptr %4223, align 8
-  store <4 x i8> <i8 72, i8 3, i8 4, i8 109>, ptr %4218, align 1
+  store i8 72, ptr %4218, align 1
+  %.sroa.22860.0..sroa_idx = getelementptr inbounds i8, ptr %4218, i64 1
+  store i8 3, ptr %.sroa.22860.0..sroa_idx, align 1
+  %.sroa.32861.0..sroa_idx = getelementptr inbounds i8, ptr %4218, i64 2
+  store i8 4, ptr %.sroa.32861.0..sroa_idx, align 1
+  %.sroa.42862.0..sroa_idx = getelementptr inbounds i8, ptr %4218, i64 3
+  store i8 109, ptr %.sroa.42862.0..sroa_idx, align 1
   %.sroa.52863.0..sroa_idx = getelementptr inbounds i8, ptr %4218, i64 4
   %4224 = getelementptr inbounds i8, ptr %385, i64 8
   store i32 0, ptr %.sroa.52863.0..sroa_idx, align 1
@@ -33972,7 +34776,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1789:                ; preds = %4239, %_ZNSt6vector
   %4288 = getelementptr inbounds i8, ptr %4284, i64 8
   %4289 = getelementptr inbounds i8, ptr %392, i64 16
   store ptr %4288, ptr %4289, align 8
-  store <4 x i8> <i8 74, i8 3, i8 4, i8 85>, ptr %4284, align 1
+  store i8 74, ptr %4284, align 1
+  %.sroa.22851.0..sroa_idx = getelementptr inbounds i8, ptr %4284, i64 1
+  store i8 3, ptr %.sroa.22851.0..sroa_idx, align 1
+  %.sroa.32852.0..sroa_idx = getelementptr inbounds i8, ptr %4284, i64 2
+  store i8 4, ptr %.sroa.32852.0..sroa_idx, align 1
+  %.sroa.42853.0..sroa_idx = getelementptr inbounds i8, ptr %4284, i64 3
+  store i8 85, ptr %.sroa.42853.0..sroa_idx, align 1
   %.sroa.52854.0..sroa_idx = getelementptr inbounds i8, ptr %4284, i64 4
   %4290 = getelementptr inbounds i8, ptr %392, i64 8
   store i32 0, ptr %.sroa.52854.0..sroa_idx, align 1
@@ -34148,7 +34958,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1810:                ; preds = %4305, %_ZNSt6vector
   %4354 = getelementptr inbounds i8, ptr %4350, i64 8
   %4355 = getelementptr inbounds i8, ptr %399, i64 16
   store ptr %4354, ptr %4355, align 8
-  store <4 x i8> <i8 74, i8 3, i8 4, i8 101>, ptr %4350, align 1
+  store i8 74, ptr %4350, align 1
+  %.sroa.22842.0..sroa_idx = getelementptr inbounds i8, ptr %4350, i64 1
+  store i8 3, ptr %.sroa.22842.0..sroa_idx, align 1
+  %.sroa.32843.0..sroa_idx = getelementptr inbounds i8, ptr %4350, i64 2
+  store i8 4, ptr %.sroa.32843.0..sroa_idx, align 1
+  %.sroa.42844.0..sroa_idx = getelementptr inbounds i8, ptr %4350, i64 3
+  store i8 101, ptr %.sroa.42844.0..sroa_idx, align 1
   %.sroa.52845.0..sroa_idx = getelementptr inbounds i8, ptr %4350, i64 4
   %4356 = getelementptr inbounds i8, ptr %399, i64 8
   store i32 0, ptr %.sroa.52845.0..sroa_idx, align 1
@@ -34324,7 +35140,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1831:                ; preds = %4371, %_ZNSt6vector
   %4420 = getelementptr inbounds i8, ptr %4416, i64 8
   %4421 = getelementptr inbounds i8, ptr %406, i64 16
   store ptr %4420, ptr %4421, align 8
-  store <4 x i8> <i8 74, i8 3, i8 4, i8 109>, ptr %4416, align 1
+  store i8 74, ptr %4416, align 1
+  %.sroa.22833.0..sroa_idx = getelementptr inbounds i8, ptr %4416, i64 1
+  store i8 3, ptr %.sroa.22833.0..sroa_idx, align 1
+  %.sroa.32834.0..sroa_idx = getelementptr inbounds i8, ptr %4416, i64 2
+  store i8 4, ptr %.sroa.32834.0..sroa_idx, align 1
+  %.sroa.42835.0..sroa_idx = getelementptr inbounds i8, ptr %4416, i64 3
+  store i8 109, ptr %.sroa.42835.0..sroa_idx, align 1
   %.sroa.52836.0..sroa_idx = getelementptr inbounds i8, ptr %4416, i64 4
   %4422 = getelementptr inbounds i8, ptr %406, i64 8
   store i32 0, ptr %.sroa.52836.0..sroa_idx, align 1
@@ -34500,7 +35322,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1852:                ; preds = %4437, %_ZNSt6vector
   %4486 = getelementptr inbounds i8, ptr %4482, i64 8
   %4487 = getelementptr inbounds i8, ptr %413, i64 16
   store ptr %4486, ptr %4487, align 8
-  store <4 x i8> <i8 76, i8 3, i8 36, i8 69>, ptr %4482, align 1
+  store i8 76, ptr %4482, align 1
+  %.sroa.22824.0..sroa_idx = getelementptr inbounds i8, ptr %4482, i64 1
+  store i8 3, ptr %.sroa.22824.0..sroa_idx, align 1
+  %.sroa.32825.0..sroa_idx = getelementptr inbounds i8, ptr %4482, i64 2
+  store i8 36, ptr %.sroa.32825.0..sroa_idx, align 1
+  %.sroa.42826.0..sroa_idx = getelementptr inbounds i8, ptr %4482, i64 3
+  store i8 69, ptr %.sroa.42826.0..sroa_idx, align 1
   %.sroa.52827.0..sroa_idx = getelementptr inbounds i8, ptr %4482, i64 4
   %4488 = getelementptr inbounds i8, ptr %413, i64 8
   store i32 0, ptr %.sroa.52827.0..sroa_idx, align 1
@@ -34676,7 +35504,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1873:                ; preds = %4503, %_ZNSt6vector
   %4552 = getelementptr inbounds i8, ptr %4548, i64 8
   %4553 = getelementptr inbounds i8, ptr %420, i64 16
   store ptr %4552, ptr %4553, align 8
-  store <4 x i8> <i8 76, i8 3, i8 36, i8 93>, ptr %4548, align 1
+  store i8 76, ptr %4548, align 1
+  %.sroa.22815.0..sroa_idx = getelementptr inbounds i8, ptr %4548, i64 1
+  store i8 3, ptr %.sroa.22815.0..sroa_idx, align 1
+  %.sroa.32816.0..sroa_idx = getelementptr inbounds i8, ptr %4548, i64 2
+  store i8 36, ptr %.sroa.32816.0..sroa_idx, align 1
+  %.sroa.42817.0..sroa_idx = getelementptr inbounds i8, ptr %4548, i64 3
+  store i8 93, ptr %.sroa.42817.0..sroa_idx, align 1
   %.sroa.52818.0..sroa_idx = getelementptr inbounds i8, ptr %4548, i64 4
   %4554 = getelementptr inbounds i8, ptr %420, i64 8
   store i32 0, ptr %.sroa.52818.0..sroa_idx, align 1
@@ -34852,7 +35686,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1894:                ; preds = %4569, %_ZNSt6vector
   %4618 = getelementptr inbounds i8, ptr %4614, i64 8
   %4619 = getelementptr inbounds i8, ptr %427, i64 16
   store ptr %4618, ptr %4619, align 8
-  store <4 x i8> <i8 76, i8 3, i8 36, i8 109>, ptr %4614, align 1
+  store i8 76, ptr %4614, align 1
+  %.sroa.22806.0..sroa_idx = getelementptr inbounds i8, ptr %4614, i64 1
+  store i8 3, ptr %.sroa.22806.0..sroa_idx, align 1
+  %.sroa.32807.0..sroa_idx = getelementptr inbounds i8, ptr %4614, i64 2
+  store i8 36, ptr %.sroa.32807.0..sroa_idx, align 1
+  %.sroa.42808.0..sroa_idx = getelementptr inbounds i8, ptr %4614, i64 3
+  store i8 109, ptr %.sroa.42808.0..sroa_idx, align 1
   %.sroa.52809.0..sroa_idx = getelementptr inbounds i8, ptr %4614, i64 4
   %4620 = getelementptr inbounds i8, ptr %427, i64 8
   store i32 0, ptr %.sroa.52809.0..sroa_idx, align 1
@@ -35028,7 +35868,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1915:                ; preds = %4635, %_ZNSt6vector
   %4684 = getelementptr inbounds i8, ptr %4680, i64 8
   %4685 = getelementptr inbounds i8, ptr %434, i64 16
   store ptr %4684, ptr %4685, align 8
-  store <4 x i8> <i8 78, i8 3, i8 36, i8 85>, ptr %4680, align 1
+  store i8 78, ptr %4680, align 1
+  %.sroa.22797.0..sroa_idx = getelementptr inbounds i8, ptr %4680, i64 1
+  store i8 3, ptr %.sroa.22797.0..sroa_idx, align 1
+  %.sroa.32798.0..sroa_idx = getelementptr inbounds i8, ptr %4680, i64 2
+  store i8 36, ptr %.sroa.32798.0..sroa_idx, align 1
+  %.sroa.42799.0..sroa_idx = getelementptr inbounds i8, ptr %4680, i64 3
+  store i8 85, ptr %.sroa.42799.0..sroa_idx, align 1
   %.sroa.52800.0..sroa_idx = getelementptr inbounds i8, ptr %4680, i64 4
   %4686 = getelementptr inbounds i8, ptr %434, i64 8
   store i32 0, ptr %.sroa.52800.0..sroa_idx, align 1
@@ -35204,7 +36050,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1936:                ; preds = %4701, %_ZNSt6vector
   %4750 = getelementptr inbounds i8, ptr %4746, i64 8
   %4751 = getelementptr inbounds i8, ptr %441, i64 16
   store ptr %4750, ptr %4751, align 8
-  store <4 x i8> <i8 78, i8 3, i8 36, i8 101>, ptr %4746, align 1
+  store i8 78, ptr %4746, align 1
+  %.sroa.22788.0..sroa_idx = getelementptr inbounds i8, ptr %4746, i64 1
+  store i8 3, ptr %.sroa.22788.0..sroa_idx, align 1
+  %.sroa.32789.0..sroa_idx = getelementptr inbounds i8, ptr %4746, i64 2
+  store i8 36, ptr %.sroa.32789.0..sroa_idx, align 1
+  %.sroa.42790.0..sroa_idx = getelementptr inbounds i8, ptr %4746, i64 3
+  store i8 101, ptr %.sroa.42790.0..sroa_idx, align 1
   %.sroa.52791.0..sroa_idx = getelementptr inbounds i8, ptr %4746, i64 4
   %4752 = getelementptr inbounds i8, ptr %441, i64 8
   store i32 0, ptr %.sroa.52791.0..sroa_idx, align 1
@@ -35380,7 +36232,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1957:                ; preds = %4767, %_ZNSt6vector
   %4816 = getelementptr inbounds i8, ptr %4812, i64 8
   %4817 = getelementptr inbounds i8, ptr %448, i64 16
   store ptr %4816, ptr %4817, align 8
-  store <4 x i8> <i8 78, i8 3, i8 36, i8 109>, ptr %4812, align 1
+  store i8 78, ptr %4812, align 1
+  %.sroa.22779.0..sroa_idx = getelementptr inbounds i8, ptr %4812, i64 1
+  store i8 3, ptr %.sroa.22779.0..sroa_idx, align 1
+  %.sroa.32780.0..sroa_idx = getelementptr inbounds i8, ptr %4812, i64 2
+  store i8 36, ptr %.sroa.32780.0..sroa_idx, align 1
+  %.sroa.42781.0..sroa_idx = getelementptr inbounds i8, ptr %4812, i64 3
+  store i8 109, ptr %.sroa.42781.0..sroa_idx, align 1
   %.sroa.52782.0..sroa_idx = getelementptr inbounds i8, ptr %4812, i64 4
   %4818 = getelementptr inbounds i8, ptr %448, i64 8
   store i32 0, ptr %.sroa.52782.0..sroa_idx, align 1
@@ -35556,7 +36414,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1978:                ; preds = %4833, %_ZNSt6vector
   %4882 = getelementptr inbounds i8, ptr %4878, i64 4
   %4883 = getelementptr inbounds i8, ptr %455, i64 16
   store ptr %4882, ptr %4883, align 8
-  store <4 x i8> <i8 72, i8 3, i8 4, i8 64>, ptr %4878, align 1
+  store i8 72, ptr %4878, align 1
+  %.sroa.22774.0..sroa_idx = getelementptr inbounds i8, ptr %4878, i64 1
+  store i8 3, ptr %.sroa.22774.0..sroa_idx, align 1
+  %.sroa.32775.0..sroa_idx = getelementptr inbounds i8, ptr %4878, i64 2
+  store i8 4, ptr %.sroa.32775.0..sroa_idx, align 1
+  %.sroa.42776.0..sroa_idx = getelementptr inbounds i8, ptr %4878, i64 3
+  store i8 64, ptr %.sroa.42776.0..sroa_idx, align 1
   %4884 = getelementptr inbounds i8, ptr %455, i64 8
   store ptr %4882, ptr %4884, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %456, i8 0, i64 24, i1 false)
@@ -35730,7 +36594,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit1999:                ; preds = %4899, %_ZNSt6vector
   %4948 = getelementptr inbounds i8, ptr %4944, i64 5
   %4949 = getelementptr inbounds i8, ptr %462, i64 16
   store ptr %4948, ptr %4949, align 8
-  store <4 x i8> <i8 72, i8 3, i8 68, i8 88>, ptr %4944, align 1
+  store i8 72, ptr %4944, align 1
+  %.sroa.22768.0..sroa_idx = getelementptr inbounds i8, ptr %4944, i64 1
+  store i8 3, ptr %.sroa.22768.0..sroa_idx, align 1
+  %.sroa.32769.0..sroa_idx = getelementptr inbounds i8, ptr %4944, i64 2
+  store i8 68, ptr %.sroa.32769.0..sroa_idx, align 1
+  %.sroa.42770.0..sroa_idx = getelementptr inbounds i8, ptr %4944, i64 3
+  store i8 88, ptr %.sroa.42770.0..sroa_idx, align 1
   %.sroa.52771.0..sroa_idx = getelementptr inbounds i8, ptr %4944, i64 4
   store i8 27, ptr %.sroa.52771.0..sroa_idx, align 1
   %4950 = getelementptr inbounds i8, ptr %462, i64 8
@@ -35906,7 +36776,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2020:                ; preds = %4965, %_ZNSt6vector
   %5014 = getelementptr inbounds i8, ptr %5010, i64 4
   %5015 = getelementptr inbounds i8, ptr %469, i64 16
   store ptr %5014, ptr %5015, align 8
-  store <4 x i8> <i8 72, i8 3, i8 4, i8 104>, ptr %5010, align 1
+  store i8 72, ptr %5010, align 1
+  %.sroa.22763.0..sroa_idx = getelementptr inbounds i8, ptr %5010, i64 1
+  store i8 3, ptr %.sroa.22763.0..sroa_idx, align 1
+  %.sroa.32764.0..sroa_idx = getelementptr inbounds i8, ptr %5010, i64 2
+  store i8 4, ptr %.sroa.32764.0..sroa_idx, align 1
+  %.sroa.42765.0..sroa_idx = getelementptr inbounds i8, ptr %5010, i64 3
+  store i8 104, ptr %.sroa.42765.0..sroa_idx, align 1
   %5016 = getelementptr inbounds i8, ptr %469, i64 8
   store ptr %5014, ptr %5016, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %470, i8 0, i64 24, i1 false)
@@ -36080,7 +36956,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2041:                ; preds = %5031, %_ZNSt6vector
   %5080 = getelementptr inbounds i8, ptr %5076, i64 8
   %5081 = getelementptr inbounds i8, ptr %476, i64 16
   store ptr %5080, ptr %5081, align 8
-  store <8 x i8> <i8 72, i8 3, i8 -124, i8 40, i8 -85, i8 -85, i8 0, i8 0>, ptr %5076, align 1
+  store i8 72, ptr %5076, align 1
+  %.sroa.22754.0..sroa_idx = getelementptr inbounds i8, ptr %5076, i64 1
+  store i8 3, ptr %.sroa.22754.0..sroa_idx, align 1
+  %.sroa.32755.0..sroa_idx = getelementptr inbounds i8, ptr %5076, i64 2
+  store i8 -124, ptr %.sroa.32755.0..sroa_idx, align 1
+  %.sroa.42756.0..sroa_idx = getelementptr inbounds i8, ptr %5076, i64 3
+  store i8 40, ptr %.sroa.42756.0..sroa_idx, align 1
+  %.sroa.52757.0..sroa_idx = getelementptr inbounds i8, ptr %5076, i64 4
+  store i8 -85, ptr %.sroa.52757.0..sroa_idx, align 1
+  %.sroa.62758.0..sroa_idx = getelementptr inbounds i8, ptr %5076, i64 5
+  store i8 -85, ptr %.sroa.62758.0..sroa_idx, align 1
+  %.sroa.72759.0..sroa_idx = getelementptr inbounds i8, ptr %5076, i64 6
+  store i8 0, ptr %.sroa.72759.0..sroa_idx, align 1
+  %.sroa.82760.0..sroa_idx = getelementptr inbounds i8, ptr %5076, i64 7
+  store i8 0, ptr %.sroa.82760.0..sroa_idx, align 1
   %5082 = getelementptr inbounds i8, ptr %476, i64 8
   store ptr %5080, ptr %5082, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %477, i8 0, i64 24, i1 false)
@@ -36254,7 +37144,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2062:                ; preds = %5097, %_ZNSt6vector
   %5146 = getelementptr inbounds i8, ptr %5142, i64 5
   %5147 = getelementptr inbounds i8, ptr %483, i64 16
   store ptr %5146, ptr %5147, align 8
-  store <4 x i8> <i8 74, i8 3, i8 68, i8 32>, ptr %5142, align 1
+  store i8 74, ptr %5142, align 1
+  %.sroa.22748.0..sroa_idx = getelementptr inbounds i8, ptr %5142, i64 1
+  store i8 3, ptr %.sroa.22748.0..sroa_idx, align 1
+  %.sroa.32749.0..sroa_idx = getelementptr inbounds i8, ptr %5142, i64 2
+  store i8 68, ptr %.sroa.32749.0..sroa_idx, align 1
+  %.sroa.42750.0..sroa_idx = getelementptr inbounds i8, ptr %5142, i64 3
+  store i8 32, ptr %.sroa.42750.0..sroa_idx, align 1
   %.sroa.52751.0..sroa_idx = getelementptr inbounds i8, ptr %5142, i64 4
   store i8 27, ptr %.sroa.52751.0..sroa_idx, align 1
   %5148 = getelementptr inbounds i8, ptr %483, i64 8
@@ -36430,7 +37326,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2083:                ; preds = %5163, %_ZNSt6vector
   %5212 = getelementptr inbounds i8, ptr %5208, i64 8
   %5213 = getelementptr inbounds i8, ptr %490, i64 16
   store ptr %5212, ptr %5213, align 8
-  store <8 x i8> <i8 74, i8 3, i8 -124, i8 -96, i8 -85, i8 -85, i8 0, i8 0>, ptr %5208, align 1
+  store i8 74, ptr %5208, align 1
+  %.sroa.22739.0..sroa_idx = getelementptr inbounds i8, ptr %5208, i64 1
+  store i8 3, ptr %.sroa.22739.0..sroa_idx, align 1
+  %.sroa.32740.0..sroa_idx = getelementptr inbounds i8, ptr %5208, i64 2
+  store i8 -124, ptr %.sroa.32740.0..sroa_idx, align 1
+  %.sroa.42741.0..sroa_idx = getelementptr inbounds i8, ptr %5208, i64 3
+  store i8 -96, ptr %.sroa.42741.0..sroa_idx, align 1
+  %.sroa.52742.0..sroa_idx = getelementptr inbounds i8, ptr %5208, i64 4
+  store i8 -85, ptr %.sroa.52742.0..sroa_idx, align 1
+  %.sroa.62743.0..sroa_idx = getelementptr inbounds i8, ptr %5208, i64 5
+  store i8 -85, ptr %.sroa.62743.0..sroa_idx, align 1
+  %.sroa.72744.0..sroa_idx = getelementptr inbounds i8, ptr %5208, i64 6
+  store i8 0, ptr %.sroa.72744.0..sroa_idx, align 1
+  %.sroa.82745.0..sroa_idx = getelementptr inbounds i8, ptr %5208, i64 7
+  store i8 0, ptr %.sroa.82745.0..sroa_idx, align 1
   %5214 = getelementptr inbounds i8, ptr %490, i64 8
   store ptr %5212, ptr %5214, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %491, i8 0, i64 24, i1 false)
@@ -36604,7 +37514,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2104:                ; preds = %5229, %_ZNSt6vector
   %5278 = getelementptr inbounds i8, ptr %5274, i64 5
   %5279 = getelementptr inbounds i8, ptr %497, i64 16
   store ptr %5278, ptr %5279, align 8
-  store <4 x i8> <i8 74, i8 3, i8 68, i8 104>, ptr %5274, align 1
+  store i8 74, ptr %5274, align 1
+  %.sroa.22733.0..sroa_idx = getelementptr inbounds i8, ptr %5274, i64 1
+  store i8 3, ptr %.sroa.22733.0..sroa_idx, align 1
+  %.sroa.32734.0..sroa_idx = getelementptr inbounds i8, ptr %5274, i64 2
+  store i8 68, ptr %.sroa.32734.0..sroa_idx, align 1
+  %.sroa.42735.0..sroa_idx = getelementptr inbounds i8, ptr %5274, i64 3
+  store i8 104, ptr %.sroa.42735.0..sroa_idx, align 1
   %.sroa.52736.0..sroa_idx = getelementptr inbounds i8, ptr %5274, i64 4
   store i8 27, ptr %.sroa.52736.0..sroa_idx, align 1
   %5280 = getelementptr inbounds i8, ptr %497, i64 8
@@ -36780,7 +37696,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2125:                ; preds = %5295, %_ZNSt6vector
   %5344 = getelementptr inbounds i8, ptr %5340, i64 8
   %5345 = getelementptr inbounds i8, ptr %504, i64 16
   store ptr %5344, ptr %5345, align 8
-  store <8 x i8> <i8 74, i8 3, i8 -124, i8 40, i8 -85, i8 -85, i8 0, i8 0>, ptr %5340, align 1
+  store i8 74, ptr %5340, align 1
+  %.sroa.22724.0..sroa_idx = getelementptr inbounds i8, ptr %5340, i64 1
+  store i8 3, ptr %.sroa.22724.0..sroa_idx, align 1
+  %.sroa.32725.0..sroa_idx = getelementptr inbounds i8, ptr %5340, i64 2
+  store i8 -124, ptr %.sroa.32725.0..sroa_idx, align 1
+  %.sroa.42726.0..sroa_idx = getelementptr inbounds i8, ptr %5340, i64 3
+  store i8 40, ptr %.sroa.42726.0..sroa_idx, align 1
+  %.sroa.52727.0..sroa_idx = getelementptr inbounds i8, ptr %5340, i64 4
+  store i8 -85, ptr %.sroa.52727.0..sroa_idx, align 1
+  %.sroa.62728.0..sroa_idx = getelementptr inbounds i8, ptr %5340, i64 5
+  store i8 -85, ptr %.sroa.62728.0..sroa_idx, align 1
+  %.sroa.72729.0..sroa_idx = getelementptr inbounds i8, ptr %5340, i64 6
+  store i8 0, ptr %.sroa.72729.0..sroa_idx, align 1
+  %.sroa.82730.0..sroa_idx = getelementptr inbounds i8, ptr %5340, i64 7
+  store i8 0, ptr %.sroa.82730.0..sroa_idx, align 1
   %5346 = getelementptr inbounds i8, ptr %504, i64 8
   store ptr %5344, ptr %5346, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %505, i8 0, i64 24, i1 false)
@@ -36954,7 +37884,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2146:                ; preds = %5361, %_ZNSt6vector
   %5410 = getelementptr inbounds i8, ptr %5406, i64 4
   %5411 = getelementptr inbounds i8, ptr %511, i64 16
   store ptr %5410, ptr %5411, align 8
-  store <4 x i8> <i8 78, i8 3, i8 36, i8 96>, ptr %5406, align 1
+  store i8 78, ptr %5406, align 1
+  %.sroa.22719.0..sroa_idx = getelementptr inbounds i8, ptr %5406, i64 1
+  store i8 3, ptr %.sroa.22719.0..sroa_idx, align 1
+  %.sroa.32720.0..sroa_idx = getelementptr inbounds i8, ptr %5406, i64 2
+  store i8 36, ptr %.sroa.32720.0..sroa_idx, align 1
+  %.sroa.42721.0..sroa_idx = getelementptr inbounds i8, ptr %5406, i64 3
+  store i8 96, ptr %.sroa.42721.0..sroa_idx, align 1
   %5412 = getelementptr inbounds i8, ptr %511, i64 8
   store ptr %5410, ptr %5412, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %512, i8 0, i64 24, i1 false)
@@ -37128,7 +38064,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2167:                ; preds = %5427, %_ZNSt6vector
   %5476 = getelementptr inbounds i8, ptr %5472, i64 8
   %5477 = getelementptr inbounds i8, ptr %518, i64 16
   store ptr %5476, ptr %5477, align 8
-  store <8 x i8> <i8 78, i8 3, i8 -92, i8 40, i8 -85, i8 -85, i8 0, i8 0>, ptr %5472, align 1
+  store i8 78, ptr %5472, align 1
+  %.sroa.22710.0..sroa_idx = getelementptr inbounds i8, ptr %5472, i64 1
+  store i8 3, ptr %.sroa.22710.0..sroa_idx, align 1
+  %.sroa.32711.0..sroa_idx = getelementptr inbounds i8, ptr %5472, i64 2
+  store i8 -92, ptr %.sroa.32711.0..sroa_idx, align 1
+  %.sroa.42712.0..sroa_idx = getelementptr inbounds i8, ptr %5472, i64 3
+  store i8 40, ptr %.sroa.42712.0..sroa_idx, align 1
+  %.sroa.52713.0..sroa_idx = getelementptr inbounds i8, ptr %5472, i64 4
+  store i8 -85, ptr %.sroa.52713.0..sroa_idx, align 1
+  %.sroa.62714.0..sroa_idx = getelementptr inbounds i8, ptr %5472, i64 5
+  store i8 -85, ptr %.sroa.62714.0..sroa_idx, align 1
+  %.sroa.72715.0..sroa_idx = getelementptr inbounds i8, ptr %5472, i64 6
+  store i8 0, ptr %.sroa.72715.0..sroa_idx, align 1
+  %.sroa.82716.0..sroa_idx = getelementptr inbounds i8, ptr %5472, i64 7
+  store i8 0, ptr %.sroa.82716.0..sroa_idx, align 1
   %5478 = getelementptr inbounds i8, ptr %518, i64 8
   store ptr %5476, ptr %5478, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %519, i8 0, i64 24, i1 false)
@@ -37302,7 +38252,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2188:                ; preds = %5493, %_ZNSt6vector
   %5542 = getelementptr inbounds i8, ptr %5538, i64 5
   %5543 = getelementptr inbounds i8, ptr %525, i64 16
   store ptr %5542, ptr %5543, align 8
-  store <4 x i8> <i8 76, i8 3, i8 100, i8 104>, ptr %5538, align 1
+  store i8 76, ptr %5538, align 1
+  %.sroa.22704.0..sroa_idx = getelementptr inbounds i8, ptr %5538, i64 1
+  store i8 3, ptr %.sroa.22704.0..sroa_idx, align 1
+  %.sroa.32705.0..sroa_idx = getelementptr inbounds i8, ptr %5538, i64 2
+  store i8 100, ptr %.sroa.32705.0..sroa_idx, align 1
+  %.sroa.42706.0..sroa_idx = getelementptr inbounds i8, ptr %5538, i64 3
+  store i8 104, ptr %.sroa.42706.0..sroa_idx, align 1
   %.sroa.52707.0..sroa_idx = getelementptr inbounds i8, ptr %5538, i64 4
   store i8 27, ptr %.sroa.52707.0..sroa_idx, align 1
   %5544 = getelementptr inbounds i8, ptr %525, i64 8
@@ -37478,7 +38434,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2209:                ; preds = %5559, %_ZNSt6vector
   %5608 = getelementptr inbounds i8, ptr %5604, i64 8
   %5609 = getelementptr inbounds i8, ptr %532, i64 16
   store ptr %5608, ptr %5609, align 8
-  store <4 x i8> <i8 72, i8 3, i8 4, i8 37>, ptr %5604, align 1
+  store i8 72, ptr %5604, align 1
+  %.sroa.22695.0..sroa_idx = getelementptr inbounds i8, ptr %5604, i64 1
+  store i8 3, ptr %.sroa.22695.0..sroa_idx, align 1
+  %.sroa.32696.0..sroa_idx = getelementptr inbounds i8, ptr %5604, i64 2
+  store i8 4, ptr %.sroa.32696.0..sroa_idx, align 1
+  %.sroa.42697.0..sroa_idx = getelementptr inbounds i8, ptr %5604, i64 3
+  store i8 37, ptr %.sroa.42697.0..sroa_idx, align 1
   %.sroa.52698.0..sroa_idx = getelementptr inbounds i8, ptr %5604, i64 4
   %5610 = getelementptr inbounds i8, ptr %532, i64 8
   store i32 0, ptr %.sroa.52698.0..sroa_idx, align 1
@@ -37654,7 +38616,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2230:                ; preds = %5625, %_ZNSt6vector
   %5674 = getelementptr inbounds i8, ptr %5670, i64 8
   %5675 = getelementptr inbounds i8, ptr %539, i64 16
   store ptr %5674, ptr %5675, align 8
-  store <8 x i8> <i8 72, i8 3, i8 4, i8 37, i8 -85, i8 -85, i8 0, i8 0>, ptr %5670, align 1
+  store i8 72, ptr %5670, align 1
+  %.sroa.22686.0..sroa_idx = getelementptr inbounds i8, ptr %5670, i64 1
+  store i8 3, ptr %.sroa.22686.0..sroa_idx, align 1
+  %.sroa.32687.0..sroa_idx = getelementptr inbounds i8, ptr %5670, i64 2
+  store i8 4, ptr %.sroa.32687.0..sroa_idx, align 1
+  %.sroa.42688.0..sroa_idx = getelementptr inbounds i8, ptr %5670, i64 3
+  store i8 37, ptr %.sroa.42688.0..sroa_idx, align 1
+  %.sroa.52689.0..sroa_idx = getelementptr inbounds i8, ptr %5670, i64 4
+  store i8 -85, ptr %.sroa.52689.0..sroa_idx, align 1
+  %.sroa.62690.0..sroa_idx = getelementptr inbounds i8, ptr %5670, i64 5
+  store i8 -85, ptr %.sroa.62690.0..sroa_idx, align 1
+  %.sroa.72691.0..sroa_idx = getelementptr inbounds i8, ptr %5670, i64 6
+  store i8 0, ptr %.sroa.72691.0..sroa_idx, align 1
+  %.sroa.82692.0..sroa_idx = getelementptr inbounds i8, ptr %5670, i64 7
+  store i8 0, ptr %.sroa.82692.0..sroa_idx, align 1
   %5676 = getelementptr inbounds i8, ptr %539, i64 8
   store ptr %5674, ptr %5676, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %540, i8 0, i64 24, i1 false)
@@ -38006,7 +38982,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2272:                ; preds = %5757, %_ZNSt6vector
   %5806 = getelementptr inbounds i8, ptr %5802, i64 8
   %5807 = getelementptr inbounds i8, ptr %553, i64 16
   store ptr %5806, ptr %5807, align 8
-  store <8 x i8> <i8 72, i8 1, i8 -124, i8 -128, i8 -85, i8 -85, i8 0, i8 0>, ptr %5802, align 1
+  store i8 72, ptr %5802, align 1
+  %.sroa.22673.0..sroa_idx = getelementptr inbounds i8, ptr %5802, i64 1
+  store i8 1, ptr %.sroa.22673.0..sroa_idx, align 1
+  %.sroa.32674.0..sroa_idx = getelementptr inbounds i8, ptr %5802, i64 2
+  store i8 -124, ptr %.sroa.32674.0..sroa_idx, align 1
+  %.sroa.42675.0..sroa_idx = getelementptr inbounds i8, ptr %5802, i64 3
+  store i8 -128, ptr %.sroa.42675.0..sroa_idx, align 1
+  %.sroa.52676.0..sroa_idx = getelementptr inbounds i8, ptr %5802, i64 4
+  store i8 -85, ptr %.sroa.52676.0..sroa_idx, align 1
+  %.sroa.62677.0..sroa_idx = getelementptr inbounds i8, ptr %5802, i64 5
+  store i8 -85, ptr %.sroa.62677.0..sroa_idx, align 1
+  %.sroa.72678.0..sroa_idx = getelementptr inbounds i8, ptr %5802, i64 6
+  store i8 0, ptr %.sroa.72678.0..sroa_idx, align 1
+  %.sroa.82679.0..sroa_idx = getelementptr inbounds i8, ptr %5802, i64 7
+  store i8 0, ptr %.sroa.82679.0..sroa_idx, align 1
   %5808 = getelementptr inbounds i8, ptr %553, i64 8
   store ptr %5806, ptr %5808, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %554, i8 0, i64 24, i1 false)
@@ -38180,7 +39170,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2293:                ; preds = %5823, %_ZNSt6vector
   %5872 = getelementptr inbounds i8, ptr %5868, i64 5
   %5873 = getelementptr inbounds i8, ptr %560, i64 16
   store ptr %5872, ptr %5873, align 8
-  store <4 x i8> <i8 72, i8 1, i8 68, i8 67>, ptr %5868, align 1
+  store i8 72, ptr %5868, align 1
+  %.sroa.22667.0..sroa_idx = getelementptr inbounds i8, ptr %5868, i64 1
+  store i8 1, ptr %.sroa.22667.0..sroa_idx, align 1
+  %.sroa.32668.0..sroa_idx = getelementptr inbounds i8, ptr %5868, i64 2
+  store i8 68, ptr %.sroa.32668.0..sroa_idx, align 1
+  %.sroa.42669.0..sroa_idx = getelementptr inbounds i8, ptr %5868, i64 3
+  store i8 67, ptr %.sroa.42669.0..sroa_idx, align 1
   %.sroa.52670.0..sroa_idx = getelementptr inbounds i8, ptr %5868, i64 4
   store i8 27, ptr %.sroa.52670.0..sroa_idx, align 1
   %5874 = getelementptr inbounds i8, ptr %560, i64 8
@@ -38356,7 +39352,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2314:                ; preds = %5889, %_ZNSt6vector
   %5938 = getelementptr inbounds i8, ptr %5934, i64 5
   %5939 = getelementptr inbounds i8, ptr %567, i64 16
   store ptr %5938, ptr %5939, align 8
-  store <4 x i8> <i8 72, i8 1, i8 68, i8 107>, ptr %5934, align 1
+  store i8 72, ptr %5934, align 1
+  %.sroa.22661.0..sroa_idx = getelementptr inbounds i8, ptr %5934, i64 1
+  store i8 1, ptr %.sroa.22661.0..sroa_idx, align 1
+  %.sroa.32662.0..sroa_idx = getelementptr inbounds i8, ptr %5934, i64 2
+  store i8 68, ptr %.sroa.32662.0..sroa_idx, align 1
+  %.sroa.42663.0..sroa_idx = getelementptr inbounds i8, ptr %5934, i64 3
+  store i8 107, ptr %.sroa.42663.0..sroa_idx, align 1
   %.sroa.52664.0..sroa_idx = getelementptr inbounds i8, ptr %5934, i64 4
   store i8 27, ptr %.sroa.52664.0..sroa_idx, align 1
   %5940 = getelementptr inbounds i8, ptr %567, i64 8
@@ -38532,7 +39534,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2335:                ; preds = %5955, %_ZNSt6vector
   %6004 = getelementptr inbounds i8, ptr %6000, i64 8
   %6005 = getelementptr inbounds i8, ptr %574, i64 16
   store ptr %6004, ptr %6005, align 8
-  store <8 x i8> <i8 72, i8 1, i8 -124, i8 -83, i8 -85, i8 -85, i8 0, i8 0>, ptr %6000, align 1
+  store i8 72, ptr %6000, align 1
+  %.sroa.22652.0..sroa_idx = getelementptr inbounds i8, ptr %6000, i64 1
+  store i8 1, ptr %.sroa.22652.0..sroa_idx, align 1
+  %.sroa.32653.0..sroa_idx = getelementptr inbounds i8, ptr %6000, i64 2
+  store i8 -124, ptr %.sroa.32653.0..sroa_idx, align 1
+  %.sroa.42654.0..sroa_idx = getelementptr inbounds i8, ptr %6000, i64 3
+  store i8 -83, ptr %.sroa.42654.0..sroa_idx, align 1
+  %.sroa.52655.0..sroa_idx = getelementptr inbounds i8, ptr %6000, i64 4
+  store i8 -85, ptr %.sroa.52655.0..sroa_idx, align 1
+  %.sroa.62656.0..sroa_idx = getelementptr inbounds i8, ptr %6000, i64 5
+  store i8 -85, ptr %.sroa.62656.0..sroa_idx, align 1
+  %.sroa.72657.0..sroa_idx = getelementptr inbounds i8, ptr %6000, i64 6
+  store i8 0, ptr %.sroa.72657.0..sroa_idx, align 1
+  %.sroa.82658.0..sroa_idx = getelementptr inbounds i8, ptr %6000, i64 7
+  store i8 0, ptr %.sroa.82658.0..sroa_idx, align 1
   %6006 = getelementptr inbounds i8, ptr %574, i64 8
   store ptr %6004, ptr %6006, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %575, i8 0, i64 24, i1 false)
@@ -38706,7 +39722,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2356:                ; preds = %6021, %_ZNSt6vector
   %6070 = getelementptr inbounds i8, ptr %6066, i64 5
   %6071 = getelementptr inbounds i8, ptr %581, i64 16
   store ptr %6070, ptr %6071, align 8
-  store <4 x i8> <i8 74, i8 1, i8 68, i8 37>, ptr %6066, align 1
+  store i8 74, ptr %6066, align 1
+  %.sroa.22646.0..sroa_idx = getelementptr inbounds i8, ptr %6066, i64 1
+  store i8 1, ptr %.sroa.22646.0..sroa_idx, align 1
+  %.sroa.32647.0..sroa_idx = getelementptr inbounds i8, ptr %6066, i64 2
+  store i8 68, ptr %.sroa.32647.0..sroa_idx, align 1
+  %.sroa.42648.0..sroa_idx = getelementptr inbounds i8, ptr %6066, i64 3
+  store i8 37, ptr %.sroa.42648.0..sroa_idx, align 1
   %.sroa.52649.0..sroa_idx = getelementptr inbounds i8, ptr %6066, i64 4
   store i8 27, ptr %.sroa.52649.0..sroa_idx, align 1
   %6072 = getelementptr inbounds i8, ptr %581, i64 8
@@ -38882,7 +39904,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2377:                ; preds = %6087, %_ZNSt6vector
   %6136 = getelementptr inbounds i8, ptr %6132, i64 4
   %6137 = getelementptr inbounds i8, ptr %588, i64 16
   store ptr %6136, ptr %6137, align 8
-  store <4 x i8> <i8 73, i8 1, i8 4, i8 36>, ptr %6132, align 1
+  store i8 73, ptr %6132, align 1
+  %.sroa.22641.0..sroa_idx = getelementptr inbounds i8, ptr %6132, i64 1
+  store i8 1, ptr %.sroa.22641.0..sroa_idx, align 1
+  %.sroa.32642.0..sroa_idx = getelementptr inbounds i8, ptr %6132, i64 2
+  store i8 4, ptr %.sroa.32642.0..sroa_idx, align 1
+  %.sroa.42643.0..sroa_idx = getelementptr inbounds i8, ptr %6132, i64 3
+  store i8 36, ptr %.sroa.42643.0..sroa_idx, align 1
   %6138 = getelementptr inbounds i8, ptr %588, i64 8
   store ptr %6136, ptr %6138, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %589, i8 0, i64 24, i1 false)
@@ -39056,7 +40084,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2398:                ; preds = %6153, %_ZNSt6vector
   %6202 = getelementptr inbounds i8, ptr %6198, i64 8
   %6203 = getelementptr inbounds i8, ptr %595, i64 16
   store ptr %6202, ptr %6203, align 8
-  store <8 x i8> <i8 73, i8 1, i8 -124, i8 29, i8 -85, i8 -85, i8 0, i8 0>, ptr %6198, align 1
+  store i8 73, ptr %6198, align 1
+  %.sroa.22633.0..sroa_idx = getelementptr inbounds i8, ptr %6198, i64 1
+  store i8 1, ptr %.sroa.22633.0..sroa_idx, align 1
+  %.sroa.32634.0..sroa_idx = getelementptr inbounds i8, ptr %6198, i64 2
+  store i8 -124, ptr %.sroa.32634.0..sroa_idx, align 1
+  %.sroa.42635.0..sroa_idx = getelementptr inbounds i8, ptr %6198, i64 3
+  store i8 29, ptr %.sroa.42635.0..sroa_idx, align 1
+  %.sroa.52636.0..sroa_idx = getelementptr inbounds i8, ptr %6198, i64 4
+  store i8 -85, ptr %.sroa.52636.0..sroa_idx, align 1
+  %.sroa.62637.0..sroa_idx = getelementptr inbounds i8, ptr %6198, i64 5
+  store i8 -85, ptr %.sroa.62637.0..sroa_idx, align 1
+  %.sroa.72638.0..sroa_idx = getelementptr inbounds i8, ptr %6198, i64 6
+  store i8 0, ptr %.sroa.72638.0..sroa_idx, align 1
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %6198, i64 7
+  store i8 0, ptr %.sroa.8.0..sroa_idx, align 1
   %6204 = getelementptr inbounds i8, ptr %595, i64 8
   store ptr %6202, ptr %6204, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %596, i8 0, i64 24, i1 false)
@@ -39230,7 +40272,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2419:                ; preds = %6219, %_ZNSt6vector
   %6268 = getelementptr inbounds i8, ptr %6264, i64 5
   %6269 = getelementptr inbounds i8, ptr %602, i64 16
   store ptr %6268, ptr %6269, align 8
-  store <4 x i8> <i8 74, i8 1, i8 116, i8 104>, ptr %6264, align 1
+  store i8 74, ptr %6264, align 1
+  %.sroa.22627.0..sroa_idx = getelementptr inbounds i8, ptr %6264, i64 1
+  store i8 1, ptr %.sroa.22627.0..sroa_idx, align 1
+  %.sroa.32628.0..sroa_idx = getelementptr inbounds i8, ptr %6264, i64 2
+  store i8 116, ptr %.sroa.32628.0..sroa_idx, align 1
+  %.sroa.42629.0..sroa_idx = getelementptr inbounds i8, ptr %6264, i64 3
+  store i8 104, ptr %.sroa.42629.0..sroa_idx, align 1
   %.sroa.52630.0..sroa_idx = getelementptr inbounds i8, ptr %6264, i64 4
   store i8 27, ptr %.sroa.52630.0..sroa_idx, align 1
   %6270 = getelementptr inbounds i8, ptr %602, i64 8
@@ -39406,7 +40454,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2440:                ; preds = %6285, %_ZNSt6vector
   %6334 = getelementptr inbounds i8, ptr %6330, i64 5
   %6335 = getelementptr inbounds i8, ptr %609, i64 16
   store ptr %6334, ptr %6335, align 8
-  store <4 x i8> <i8 72, i8 1, i8 116, i8 93>, ptr %6330, align 1
+  store i8 72, ptr %6330, align 1
+  %.sroa.22621.0..sroa_idx = getelementptr inbounds i8, ptr %6330, i64 1
+  store i8 1, ptr %.sroa.22621.0..sroa_idx, align 1
+  %.sroa.32622.0..sroa_idx = getelementptr inbounds i8, ptr %6330, i64 2
+  store i8 116, ptr %.sroa.32622.0..sroa_idx, align 1
+  %.sroa.42623.0..sroa_idx = getelementptr inbounds i8, ptr %6330, i64 3
+  store i8 93, ptr %.sroa.42623.0..sroa_idx, align 1
   %.sroa.52624.0..sroa_idx = getelementptr inbounds i8, ptr %6330, i64 4
   store i8 0, ptr %.sroa.52624.0..sroa_idx, align 1
   %6336 = getelementptr inbounds i8, ptr %609, i64 8
@@ -39582,7 +40636,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2461:                ; preds = %6351, %_ZNSt6vector
   %6400 = getelementptr inbounds i8, ptr %6396, i64 5
   %6401 = getelementptr inbounds i8, ptr %616, i64 16
   store ptr %6400, ptr %6401, align 8
-  store <4 x i8> <i8 78, i8 1, i8 84, i8 84>, ptr %6396, align 1
+  store i8 78, ptr %6396, align 1
+  %.sroa.22615.0..sroa_idx = getelementptr inbounds i8, ptr %6396, i64 1
+  store i8 1, ptr %.sroa.22615.0..sroa_idx, align 1
+  %.sroa.32616.0..sroa_idx = getelementptr inbounds i8, ptr %6396, i64 2
+  store i8 84, ptr %.sroa.32616.0..sroa_idx, align 1
+  %.sroa.42617.0..sroa_idx = getelementptr inbounds i8, ptr %6396, i64 3
+  store i8 84, ptr %.sroa.42617.0..sroa_idx, align 1
   %.sroa.52618.0..sroa_idx = getelementptr inbounds i8, ptr %6396, i64 4
   store i8 27, ptr %.sroa.52618.0..sroa_idx, align 1
   %6402 = getelementptr inbounds i8, ptr %616, i64 8
@@ -40114,7 +41174,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2524:                ; preds = %6549, %_ZNSt6vector
   %6598 = getelementptr inbounds i8, ptr %6594, i64 6
   %6599 = getelementptr inbounds i8, ptr %637, i64 16
   store ptr %6598, ptr %6599, align 8
-  store <4 x i8> <i8 -127, i8 0, i8 -51, i8 -85>, ptr %6594, align 1
+  store i8 -127, ptr %6594, align 1
+  %.sroa.22600.0..sroa_idx = getelementptr inbounds i8, ptr %6594, i64 1
+  store i8 0, ptr %.sroa.22600.0..sroa_idx, align 1
+  %.sroa.32601.0..sroa_idx = getelementptr inbounds i8, ptr %6594, i64 2
+  store i8 -51, ptr %.sroa.32601.0..sroa_idx, align 1
+  %.sroa.42602.0..sroa_idx = getelementptr inbounds i8, ptr %6594, i64 3
+  store i8 -85, ptr %.sroa.42602.0..sroa_idx, align 1
   %.sroa.52603.0..sroa_idx = getelementptr inbounds i8, ptr %6594, i64 4
   store i8 0, ptr %.sroa.52603.0..sroa_idx, align 1
   %.sroa.62604.0..sroa_idx = getelementptr inbounds i8, ptr %6594, i64 5
@@ -40292,7 +41358,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2545:                ; preds = %6615, %_ZNSt6vector
   %6664 = getelementptr inbounds i8, ptr %6660, i64 4
   %6665 = getelementptr inbounds i8, ptr %644, i64 16
   store ptr %6664, ptr %6665, align 8
-  store <4 x i8> <i8 72, i8 -125, i8 0, i8 2>, ptr %6660, align 1
+  store i8 72, ptr %6660, align 1
+  %.sroa.22595.0..sroa_idx = getelementptr inbounds i8, ptr %6660, i64 1
+  store i8 -125, ptr %.sroa.22595.0..sroa_idx, align 1
+  %.sroa.32596.0..sroa_idx = getelementptr inbounds i8, ptr %6660, i64 2
+  store i8 0, ptr %.sroa.32596.0..sroa_idx, align 1
+  %.sroa.42597.0..sroa_idx = getelementptr inbounds i8, ptr %6660, i64 3
+  store i8 2, ptr %.sroa.42597.0..sroa_idx, align 1
   %6666 = getelementptr inbounds i8, ptr %644, i64 8
   store ptr %6664, ptr %6666, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %645, i8 0, i64 24, i1 false)
@@ -40466,7 +41538,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit2566:                ; preds = %6681, %_ZNSt6vector
   %6730 = getelementptr inbounds i8, ptr %6726, i64 7
   %6731 = getelementptr inbounds i8, ptr %651, i64 16
   store ptr %6730, ptr %6731, align 8
-  store <4 x i8> <i8 72, i8 -127, i8 0, i8 -51>, ptr %6726, align 1
+  store i8 72, ptr %6726, align 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6726, i64 1
+  store i8 -127, ptr %.sroa.2.0..sroa_idx, align 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6726, i64 2
+  store i8 0, ptr %.sroa.3.0..sroa_idx, align 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6726, i64 3
+  store i8 -51, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6726, i64 4
   store i8 -85, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6726, i64 5
@@ -42108,7 +43186,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit165:                 ; preds = %186, %_ZNSt6vectorI
   %234 = getelementptr inbounds i8, ptr %230, i64 10
   %235 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %234, ptr %235, align 8
-  store <8 x i8> <i8 72, i8 -71, i8 120, i8 86, i8 52, i8 18, i8 120, i8 86>, ptr %230, align 1
+  store i8 72, ptr %230, align 1
+  %.sroa.2738.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 1
+  store i8 -71, ptr %.sroa.2738.0..sroa_idx, align 1
+  %.sroa.3739.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 2
+  store i8 120, ptr %.sroa.3739.0..sroa_idx, align 1
+  %.sroa.4740.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 3
+  store i8 86, ptr %.sroa.4740.0..sroa_idx, align 1
+  %.sroa.5741.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 4
+  store i8 52, ptr %.sroa.5741.0..sroa_idx, align 1
+  %.sroa.6742.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 5
+  store i8 18, ptr %.sroa.6742.0..sroa_idx, align 1
+  %.sroa.7743.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 6
+  store i8 120, ptr %.sroa.7743.0..sroa_idx, align 1
+  %.sroa.8744.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 7
+  store i8 86, ptr %.sroa.8744.0..sroa_idx, align 1
   %.sroa.9745.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 8
   store i8 52, ptr %.sroa.9745.0..sroa_idx, align 1
   %.sroa.10746.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 9
@@ -42286,7 +43378,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit186:                 ; preds = %251, %_ZNSt6vectorI
   %300 = getelementptr inbounds i8, ptr %296, i64 5
   %301 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %300, ptr %301, align 8
-  store <4 x i8> <i8 -71, i8 2, i8 0, i8 0>, ptr %296, align 1
+  store i8 -71, ptr %296, align 1
+  %.sroa.2732.0..sroa_idx = getelementptr inbounds i8, ptr %296, i64 1
+  store i8 2, ptr %.sroa.2732.0..sroa_idx, align 1
+  %.sroa.3733.0..sroa_idx = getelementptr inbounds i8, ptr %296, i64 2
+  store i8 0, ptr %.sroa.3733.0..sroa_idx, align 1
+  %.sroa.4734.0..sroa_idx = getelementptr inbounds i8, ptr %296, i64 3
+  store i8 0, ptr %.sroa.4734.0..sroa_idx, align 1
   %.sroa.5735.0..sroa_idx = getelementptr inbounds i8, ptr %296, i64 4
   store i8 0, ptr %.sroa.5735.0..sroa_idx, align 1
   %302 = getelementptr inbounds i8, ptr %21, i64 8
@@ -43172,7 +44270,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit291:                 ; preds = %581, %_ZNSt6vectorI
   %630 = getelementptr inbounds i8, ptr %626, i64 6
   %631 = getelementptr inbounds i8, ptr %56, i64 16
   store ptr %630, ptr %631, align 8
-  store <4 x i8> <i8 -57, i8 0, i8 -51, i8 -85>, ptr %626, align 1
+  store i8 -57, ptr %626, align 1
+  %.sroa.2710.0..sroa_idx = getelementptr inbounds i8, ptr %626, i64 1
+  store i8 0, ptr %.sroa.2710.0..sroa_idx, align 1
+  %.sroa.3711.0..sroa_idx = getelementptr inbounds i8, ptr %626, i64 2
+  store i8 -51, ptr %.sroa.3711.0..sroa_idx, align 1
+  %.sroa.4712.0..sroa_idx = getelementptr inbounds i8, ptr %626, i64 3
+  store i8 -85, ptr %.sroa.4712.0..sroa_idx, align 1
   %.sroa.5713.0..sroa_idx = getelementptr inbounds i8, ptr %626, i64 4
   store i8 0, ptr %.sroa.5713.0..sroa_idx, align 1
   %.sroa.6714.0..sroa_idx = getelementptr inbounds i8, ptr %626, i64 5
@@ -43530,7 +44634,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit333:                 ; preds = %713, %_ZNSt6vectorI
   %762 = getelementptr inbounds i8, ptr %758, i64 10
   %763 = getelementptr inbounds i8, ptr %70, i64 16
   store ptr %762, ptr %763, align 8
-  store <8 x i8> <i8 73, i8 -67, i8 120, i8 86, i8 52, i8 18, i8 120, i8 86>, ptr %758, align 1
+  store i8 73, ptr %758, align 1
+  %.sroa.2690.0..sroa_idx = getelementptr inbounds i8, ptr %758, i64 1
+  store i8 -67, ptr %.sroa.2690.0..sroa_idx, align 1
+  %.sroa.3691.0..sroa_idx = getelementptr inbounds i8, ptr %758, i64 2
+  store i8 120, ptr %.sroa.3691.0..sroa_idx, align 1
+  %.sroa.4692.0..sroa_idx = getelementptr inbounds i8, ptr %758, i64 3
+  store i8 86, ptr %.sroa.4692.0..sroa_idx, align 1
+  %.sroa.5693.0..sroa_idx = getelementptr inbounds i8, ptr %758, i64 4
+  store i8 52, ptr %.sroa.5693.0..sroa_idx, align 1
+  %.sroa.6694.0..sroa_idx = getelementptr inbounds i8, ptr %758, i64 5
+  store i8 18, ptr %.sroa.6694.0..sroa_idx, align 1
+  %.sroa.7695.0..sroa_idx = getelementptr inbounds i8, ptr %758, i64 6
+  store i8 120, ptr %.sroa.7695.0..sroa_idx, align 1
+  %.sroa.8696.0..sroa_idx = getelementptr inbounds i8, ptr %758, i64 7
+  store i8 86, ptr %.sroa.8696.0..sroa_idx, align 1
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %758, i64 8
   store i8 52, ptr %.sroa.9.0..sroa_idx, align 1
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %758, i64 9
@@ -43708,7 +44826,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit354:                 ; preds = %779, %_ZNSt6vectorI
   %828 = getelementptr inbounds i8, ptr %824, i64 6
   %829 = getelementptr inbounds i8, ptr %77, i64 16
   store ptr %828, ptr %829, align 8
-  store <4 x i8> <i8 65, i8 -67, i8 2, i8 0>, ptr %824, align 1
+  store i8 65, ptr %824, align 1
+  %.sroa.2683.0..sroa_idx = getelementptr inbounds i8, ptr %824, i64 1
+  store i8 -67, ptr %.sroa.2683.0..sroa_idx, align 1
+  %.sroa.3684.0..sroa_idx = getelementptr inbounds i8, ptr %824, i64 2
+  store i8 2, ptr %.sroa.3684.0..sroa_idx, align 1
+  %.sroa.4685.0..sroa_idx = getelementptr inbounds i8, ptr %824, i64 3
+  store i8 0, ptr %.sroa.4685.0..sroa_idx, align 1
   %.sroa.5686.0..sroa_idx = getelementptr inbounds i8, ptr %824, i64 4
   store i8 0, ptr %.sroa.5686.0..sroa_idx, align 1
   %.sroa.6687.0..sroa_idx = getelementptr inbounds i8, ptr %824, i64 5
@@ -43886,7 +45010,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit375:                 ; preds = %845, %_ZNSt6vectorI
   %894 = getelementptr inbounds i8, ptr %890, i64 4
   %895 = getelementptr inbounds i8, ptr %84, i64 16
   store ptr %894, ptr %895, align 8
-  store <4 x i8> <i8 77, i8 -117, i8 44, i8 36>, ptr %890, align 1
+  store i8 77, ptr %890, align 1
+  %.sroa.2678.0..sroa_idx = getelementptr inbounds i8, ptr %890, i64 1
+  store i8 -117, ptr %.sroa.2678.0..sroa_idx, align 1
+  %.sroa.3679.0..sroa_idx = getelementptr inbounds i8, ptr %890, i64 2
+  store i8 44, ptr %.sroa.3679.0..sroa_idx, align 1
+  %.sroa.4680.0..sroa_idx = getelementptr inbounds i8, ptr %890, i64 3
+  store i8 36, ptr %.sroa.4680.0..sroa_idx, align 1
   %896 = getelementptr inbounds i8, ptr %84, i64 8
   store ptr %894, ptr %896, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
@@ -44060,7 +45190,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit396:                 ; preds = %911, %_ZNSt6vectorI
   %960 = getelementptr inbounds i8, ptr %956, i64 8
   %961 = getelementptr inbounds i8, ptr %91, i64 16
   store ptr %960, ptr %961, align 8
-  store <8 x i8> <i8 65, i8 -57, i8 69, i8 0, i8 -51, i8 -85, i8 0, i8 0>, ptr %956, align 1
+  store i8 65, ptr %956, align 1
+  %.sroa.2672.0..sroa_idx = getelementptr inbounds i8, ptr %956, i64 1
+  store i8 -57, ptr %.sroa.2672.0..sroa_idx, align 1
+  %.sroa.3673.0..sroa_idx = getelementptr inbounds i8, ptr %956, i64 2
+  store i8 69, ptr %.sroa.3673.0..sroa_idx, align 1
+  %.sroa.4674.0..sroa_idx = getelementptr inbounds i8, ptr %956, i64 3
+  store i8 0, ptr %.sroa.4674.0..sroa_idx, align 1
+  %.sroa.5675.0..sroa_idx = getelementptr inbounds i8, ptr %956, i64 4
+  store i8 -51, ptr %.sroa.5675.0..sroa_idx, align 1
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %956, i64 5
+  store i8 -85, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %956, i64 6
+  store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %956, i64 7
+  store i8 0, ptr %.sroa.8.0..sroa_idx, align 1
   %962 = getelementptr inbounds i8, ptr %91, i64 8
   store ptr %960, ptr %962, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
@@ -45122,7 +46266,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit522:                 ; preds = %1307, %_ZNSt6vector
   %1356 = getelementptr inbounds i8, ptr %1352, i64 4
   %1357 = getelementptr inbounds i8, ptr %133, i64 16
   store ptr %1356, ptr %1357, align 8
-  store <4 x i8> <i8 102, i8 -69, i8 61, i8 58>, ptr %1352, align 1
+  store i8 102, ptr %1352, align 1
+  %.sroa.2648.0..sroa_idx = getelementptr inbounds i8, ptr %1352, i64 1
+  store i8 -69, ptr %.sroa.2648.0..sroa_idx, align 1
+  %.sroa.3649.0..sroa_idx = getelementptr inbounds i8, ptr %1352, i64 2
+  store i8 61, ptr %.sroa.3649.0..sroa_idx, align 1
+  %.sroa.4650.0..sroa_idx = getelementptr inbounds i8, ptr %1352, i64 3
+  store i8 58, ptr %.sroa.4650.0..sroa_idx, align 1
   %1358 = getelementptr inbounds i8, ptr %133, i64 8
   store ptr %1356, ptr %1358, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
@@ -45296,7 +46446,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit543:                 ; preds = %1373, %_ZNSt6vector
   %1422 = getelementptr inbounds i8, ptr %1418, i64 5
   %1423 = getelementptr inbounds i8, ptr %140, i64 16
   store ptr %1422, ptr %1423, align 8
-  store <4 x i8> <i8 102, i8 -57, i8 6, i8 61>, ptr %1418, align 1
+  store i8 102, ptr %1418, align 1
+  %.sroa.2643.0..sroa_idx = getelementptr inbounds i8, ptr %1418, i64 1
+  store i8 -57, ptr %.sroa.2643.0..sroa_idx, align 1
+  %.sroa.3644.0..sroa_idx = getelementptr inbounds i8, ptr %1418, i64 2
+  store i8 6, ptr %.sroa.3644.0..sroa_idx, align 1
+  %.sroa.4645.0..sroa_idx = getelementptr inbounds i8, ptr %1418, i64 3
+  store i8 61, ptr %.sroa.4645.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1418, i64 4
   store i8 58, ptr %.sroa.5.0..sroa_idx, align 1
   %1424 = getelementptr inbounds i8, ptr %140, i64 8
@@ -45828,7 +46984,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit606:                 ; preds = %1571, %_ZNSt6vector
   %1620 = getelementptr inbounds i8, ptr %1616, i64 4
   %1621 = getelementptr inbounds i8, ptr %161, i64 16
   store ptr %1620, ptr %1621, align 8
-  store <4 x i8> <i8 102, i8 68, i8 -119, i8 22>, ptr %1616, align 1
+  store i8 102, ptr %1616, align 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1616, i64 1
+  store i8 68, ptr %.sroa.2.0..sroa_idx, align 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1616, i64 2
+  store i8 -119, ptr %.sroa.3.0..sroa_idx, align 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1616, i64 3
+  store i8 22, ptr %.sroa.4.0..sroa_idx, align 1
   %1622 = getelementptr inbounds i8, ptr %161, i64 8
   store ptr %1620, ptr %1622, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %162, i8 0, i64 24, i1 false)
@@ -47764,7 +48926,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit249:                 ; preds = %584, %_ZNSt6vectorI
   %633 = getelementptr inbounds i8, ptr %629, i64 4
   %634 = getelementptr inbounds i8, ptr %63, i64 16
   store ptr %633, ptr %634, align 8
-  store <4 x i8> <i8 72, i8 -63, i8 -8, i8 4>, ptr %629, align 1
+  store i8 72, ptr %629, align 1
+  %.sroa.2395.0..sroa_idx = getelementptr inbounds i8, ptr %629, i64 1
+  store i8 -63, ptr %.sroa.2395.0..sroa_idx, align 1
+  %.sroa.3396.0..sroa_idx = getelementptr inbounds i8, ptr %629, i64 2
+  store i8 -8, ptr %.sroa.3396.0..sroa_idx, align 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %629, i64 3
+  store i8 4, ptr %.sroa.4.0..sroa_idx, align 1
   %635 = getelementptr inbounds i8, ptr %63, i64 8
   store ptr %633, ptr %635, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
@@ -49483,7 +50651,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_511fEv(ptr no
   %204 = getelementptr inbounds i8, ptr %200, i64 5
   %205 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %204, ptr %205, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 41, i8 88>, ptr %200, align 1
+  store i8 -60, ptr %200, align 1
+  %.sroa.2934.0..sroa_idx = getelementptr inbounds i8, ptr %200, i64 1
+  store i8 65, ptr %.sroa.2934.0..sroa_idx, align 1
+  %.sroa.3935.0..sroa_idx = getelementptr inbounds i8, ptr %200, i64 2
+  store i8 41, ptr %.sroa.3935.0..sroa_idx, align 1
+  %.sroa.4936.0..sroa_idx = getelementptr inbounds i8, ptr %200, i64 3
+  store i8 88, ptr %.sroa.4936.0..sroa_idx, align 1
   %.sroa.5937.0..sroa_idx = getelementptr inbounds i8, ptr %200, i64 4
   store i8 -58, ptr %.sroa.5937.0..sroa_idx, align 1
   %206 = getelementptr inbounds i8, ptr %7, i64 8
@@ -49654,7 +50828,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit200:                 ; preds = %221, %_ZNSt6vectorI
   %269 = getelementptr inbounds i8, ptr %265, i64 5
   %270 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %269, ptr %270, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 41, i8 88>, ptr %265, align 1
+  store i8 -60, ptr %265, align 1
+  %.sroa.2928.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 1
+  store i8 65, ptr %.sroa.2928.0..sroa_idx, align 1
+  %.sroa.3929.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 2
+  store i8 41, ptr %.sroa.3929.0..sroa_idx, align 1
+  %.sroa.4930.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 3
+  store i8 88, ptr %.sroa.4930.0..sroa_idx, align 1
   %.sroa.5931.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 4
   store i8 1, ptr %.sroa.5931.0..sroa_idx, align 1
   %271 = getelementptr inbounds i8, ptr %14, i64 8
@@ -49830,7 +51010,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit221:                 ; preds = %286, %_ZNSt6vectorI
   %335 = getelementptr inbounds i8, ptr %331, i64 5
   %336 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %335, ptr %336, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 45, i8 88>, ptr %331, align 1
+  store i8 -60, ptr %331, align 1
+  %.sroa.2922.0..sroa_idx = getelementptr inbounds i8, ptr %331, i64 1
+  store i8 65, ptr %.sroa.2922.0..sroa_idx, align 1
+  %.sroa.3923.0..sroa_idx = getelementptr inbounds i8, ptr %331, i64 2
+  store i8 45, ptr %.sroa.3923.0..sroa_idx, align 1
+  %.sroa.4924.0..sroa_idx = getelementptr inbounds i8, ptr %331, i64 3
+  store i8 88, ptr %.sroa.4924.0..sroa_idx, align 1
   %.sroa.5925.0..sroa_idx = getelementptr inbounds i8, ptr %331, i64 4
   store i8 -58, ptr %.sroa.5925.0..sroa_idx, align 1
   %337 = getelementptr inbounds i8, ptr %21, i64 8
@@ -50006,7 +51192,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit242:                 ; preds = %352, %_ZNSt6vectorI
   %401 = getelementptr inbounds i8, ptr %397, i64 5
   %402 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %401, ptr %402, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 45, i8 88>, ptr %397, align 1
+  store i8 -60, ptr %397, align 1
+  %.sroa.2916.0..sroa_idx = getelementptr inbounds i8, ptr %397, i64 1
+  store i8 65, ptr %.sroa.2916.0..sroa_idx, align 1
+  %.sroa.3917.0..sroa_idx = getelementptr inbounds i8, ptr %397, i64 2
+  store i8 45, ptr %.sroa.3917.0..sroa_idx, align 1
+  %.sroa.4918.0..sroa_idx = getelementptr inbounds i8, ptr %397, i64 3
+  store i8 88, ptr %.sroa.4918.0..sroa_idx, align 1
   %.sroa.5919.0..sroa_idx = getelementptr inbounds i8, ptr %397, i64 4
   store i8 1, ptr %.sroa.5919.0..sroa_idx, align 1
   %403 = getelementptr inbounds i8, ptr %28, i64 8
@@ -50182,7 +51374,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit263:                 ; preds = %418, %_ZNSt6vectorI
   %467 = getelementptr inbounds i8, ptr %463, i64 5
   %468 = getelementptr inbounds i8, ptr %35, i64 16
   store ptr %467, ptr %468, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 40, i8 88>, ptr %463, align 1
+  store i8 -60, ptr %463, align 1
+  %.sroa.2910.0..sroa_idx = getelementptr inbounds i8, ptr %463, i64 1
+  store i8 65, ptr %.sroa.2910.0..sroa_idx, align 1
+  %.sroa.3911.0..sroa_idx = getelementptr inbounds i8, ptr %463, i64 2
+  store i8 40, ptr %.sroa.3911.0..sroa_idx, align 1
+  %.sroa.4912.0..sroa_idx = getelementptr inbounds i8, ptr %463, i64 3
+  store i8 88, ptr %.sroa.4912.0..sroa_idx, align 1
   %.sroa.5913.0..sroa_idx = getelementptr inbounds i8, ptr %463, i64 4
   store i8 -58, ptr %.sroa.5913.0..sroa_idx, align 1
   %469 = getelementptr inbounds i8, ptr %35, i64 8
@@ -50358,7 +51556,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit284:                 ; preds = %484, %_ZNSt6vectorI
   %533 = getelementptr inbounds i8, ptr %529, i64 5
   %534 = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %533, ptr %534, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 40, i8 88>, ptr %529, align 1
+  store i8 -60, ptr %529, align 1
+  %.sroa.2904.0..sroa_idx = getelementptr inbounds i8, ptr %529, i64 1
+  store i8 65, ptr %.sroa.2904.0..sroa_idx, align 1
+  %.sroa.3905.0..sroa_idx = getelementptr inbounds i8, ptr %529, i64 2
+  store i8 40, ptr %.sroa.3905.0..sroa_idx, align 1
+  %.sroa.4906.0..sroa_idx = getelementptr inbounds i8, ptr %529, i64 3
+  store i8 88, ptr %.sroa.4906.0..sroa_idx, align 1
   %.sroa.5907.0..sroa_idx = getelementptr inbounds i8, ptr %529, i64 4
   store i8 1, ptr %.sroa.5907.0..sroa_idx, align 1
   %535 = getelementptr inbounds i8, ptr %42, i64 8
@@ -50534,7 +51738,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit305:                 ; preds = %550, %_ZNSt6vectorI
   %599 = getelementptr inbounds i8, ptr %595, i64 5
   %600 = getelementptr inbounds i8, ptr %49, i64 16
   store ptr %599, ptr %600, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 43, i8 88>, ptr %595, align 1
+  store i8 -60, ptr %595, align 1
+  %.sroa.2898.0..sroa_idx = getelementptr inbounds i8, ptr %595, i64 1
+  store i8 65, ptr %.sroa.2898.0..sroa_idx, align 1
+  %.sroa.3899.0..sroa_idx = getelementptr inbounds i8, ptr %595, i64 2
+  store i8 43, ptr %.sroa.3899.0..sroa_idx, align 1
+  %.sroa.4900.0..sroa_idx = getelementptr inbounds i8, ptr %595, i64 3
+  store i8 88, ptr %.sroa.4900.0..sroa_idx, align 1
   %.sroa.5901.0..sroa_idx = getelementptr inbounds i8, ptr %595, i64 4
   store i8 -58, ptr %.sroa.5901.0..sroa_idx, align 1
   %601 = getelementptr inbounds i8, ptr %49, i64 8
@@ -50710,7 +51920,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit326:                 ; preds = %616, %_ZNSt6vectorI
   %665 = getelementptr inbounds i8, ptr %661, i64 5
   %666 = getelementptr inbounds i8, ptr %56, i64 16
   store ptr %665, ptr %666, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 43, i8 88>, ptr %661, align 1
+  store i8 -60, ptr %661, align 1
+  %.sroa.2892.0..sroa_idx = getelementptr inbounds i8, ptr %661, i64 1
+  store i8 65, ptr %.sroa.2892.0..sroa_idx, align 1
+  %.sroa.3893.0..sroa_idx = getelementptr inbounds i8, ptr %661, i64 2
+  store i8 43, ptr %.sroa.3893.0..sroa_idx, align 1
+  %.sroa.4894.0..sroa_idx = getelementptr inbounds i8, ptr %661, i64 3
+  store i8 88, ptr %.sroa.4894.0..sroa_idx, align 1
   %.sroa.5895.0..sroa_idx = getelementptr inbounds i8, ptr %661, i64 4
   store i8 1, ptr %.sroa.5895.0..sroa_idx, align 1
   %667 = getelementptr inbounds i8, ptr %56, i64 8
@@ -50886,7 +52102,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit347:                 ; preds = %682, %_ZNSt6vectorI
   %731 = getelementptr inbounds i8, ptr %727, i64 5
   %732 = getelementptr inbounds i8, ptr %63, i64 16
   store ptr %731, ptr %732, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 42, i8 88>, ptr %727, align 1
+  store i8 -60, ptr %727, align 1
+  %.sroa.2886.0..sroa_idx = getelementptr inbounds i8, ptr %727, i64 1
+  store i8 65, ptr %.sroa.2886.0..sroa_idx, align 1
+  %.sroa.3887.0..sroa_idx = getelementptr inbounds i8, ptr %727, i64 2
+  store i8 42, ptr %.sroa.3887.0..sroa_idx, align 1
+  %.sroa.4888.0..sroa_idx = getelementptr inbounds i8, ptr %727, i64 3
+  store i8 88, ptr %.sroa.4888.0..sroa_idx, align 1
   %.sroa.5889.0..sroa_idx = getelementptr inbounds i8, ptr %727, i64 4
   store i8 -58, ptr %.sroa.5889.0..sroa_idx, align 1
   %733 = getelementptr inbounds i8, ptr %63, i64 8
@@ -51062,7 +52284,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit368:                 ; preds = %748, %_ZNSt6vectorI
   %797 = getelementptr inbounds i8, ptr %793, i64 5
   %798 = getelementptr inbounds i8, ptr %70, i64 16
   store ptr %797, ptr %798, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 42, i8 88>, ptr %793, align 1
+  store i8 -60, ptr %793, align 1
+  %.sroa.2880.0..sroa_idx = getelementptr inbounds i8, ptr %793, i64 1
+  store i8 65, ptr %.sroa.2880.0..sroa_idx, align 1
+  %.sroa.3881.0..sroa_idx = getelementptr inbounds i8, ptr %793, i64 2
+  store i8 42, ptr %.sroa.3881.0..sroa_idx, align 1
+  %.sroa.4882.0..sroa_idx = getelementptr inbounds i8, ptr %793, i64 3
+  store i8 88, ptr %.sroa.4882.0..sroa_idx, align 1
   %.sroa.5883.0..sroa_idx = getelementptr inbounds i8, ptr %793, i64 4
   store i8 1, ptr %.sroa.5883.0..sroa_idx, align 1
   %799 = getelementptr inbounds i8, ptr %70, i64 8
@@ -51238,7 +52466,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit389:                 ; preds = %814, %_ZNSt6vectorI
   %863 = getelementptr inbounds i8, ptr %859, i64 5
   %864 = getelementptr inbounds i8, ptr %77, i64 16
   store ptr %863, ptr %864, align 8
-  store <4 x i8> <i8 -60, i8 -31, i8 104, i8 88>, ptr %859, align 1
+  store i8 -60, ptr %859, align 1
+  %.sroa.2874.0..sroa_idx = getelementptr inbounds i8, ptr %859, i64 1
+  store i8 -31, ptr %.sroa.2874.0..sroa_idx, align 1
+  %.sroa.3875.0..sroa_idx = getelementptr inbounds i8, ptr %859, i64 2
+  store i8 104, ptr %.sroa.3875.0..sroa_idx, align 1
+  %.sroa.4876.0..sroa_idx = getelementptr inbounds i8, ptr %859, i64 3
+  store i8 88, ptr %.sroa.4876.0..sroa_idx, align 1
   %.sroa.5877.0..sroa_idx = getelementptr inbounds i8, ptr %859, i64 4
   store i8 -53, ptr %.sroa.5877.0..sroa_idx, align 1
   %865 = getelementptr inbounds i8, ptr %77, i64 8
@@ -51414,7 +52648,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit410:                 ; preds = %880, %_ZNSt6vectorI
   %929 = getelementptr inbounds i8, ptr %925, i64 7
   %930 = getelementptr inbounds i8, ptr %84, i64 16
   store ptr %929, ptr %930, align 8
-  store <4 x i8> <i8 -60, i8 1, i8 24, i8 88>, ptr %925, align 1
+  store i8 -60, ptr %925, align 1
+  %.sroa.2866.0..sroa_idx = getelementptr inbounds i8, ptr %925, i64 1
+  store i8 1, ptr %.sroa.2866.0..sroa_idx, align 1
+  %.sroa.3867.0..sroa_idx = getelementptr inbounds i8, ptr %925, i64 2
+  store i8 24, ptr %.sroa.3867.0..sroa_idx, align 1
+  %.sroa.4868.0..sroa_idx = getelementptr inbounds i8, ptr %925, i64 3
+  store i8 88, ptr %.sroa.4868.0..sroa_idx, align 1
   %.sroa.5869.0..sroa_idx = getelementptr inbounds i8, ptr %925, i64 4
   store i8 76, ptr %.sroa.5869.0..sroa_idx, align 1
   %.sroa.6870.0..sroa_idx = getelementptr inbounds i8, ptr %925, i64 5
@@ -51594,7 +52834,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit431:                 ; preds = %946, %_ZNSt6vectorI
   %995 = getelementptr inbounds i8, ptr %991, i64 5
   %996 = getelementptr inbounds i8, ptr %91, i64 16
   store ptr %995, ptr %996, align 8
-  store <4 x i8> <i8 -60, i8 -31, i8 108, i8 88>, ptr %991, align 1
+  store i8 -60, ptr %991, align 1
+  %.sroa.2860.0..sroa_idx = getelementptr inbounds i8, ptr %991, i64 1
+  store i8 -31, ptr %.sroa.2860.0..sroa_idx, align 1
+  %.sroa.3861.0..sroa_idx = getelementptr inbounds i8, ptr %991, i64 2
+  store i8 108, ptr %.sroa.3861.0..sroa_idx, align 1
+  %.sroa.4862.0..sroa_idx = getelementptr inbounds i8, ptr %991, i64 3
+  store i8 88, ptr %.sroa.4862.0..sroa_idx, align 1
   %.sroa.5863.0..sroa_idx = getelementptr inbounds i8, ptr %991, i64 4
   store i8 -53, ptr %.sroa.5863.0..sroa_idx, align 1
   %997 = getelementptr inbounds i8, ptr %91, i64 8
@@ -51770,7 +53016,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit452:                 ; preds = %1012, %_ZNSt6vector
   %1061 = getelementptr inbounds i8, ptr %1057, i64 7
   %1062 = getelementptr inbounds i8, ptr %98, i64 16
   store ptr %1061, ptr %1062, align 8
-  store <4 x i8> <i8 -60, i8 1, i8 28, i8 88>, ptr %1057, align 1
+  store i8 -60, ptr %1057, align 1
+  %.sroa.2853.0..sroa_idx = getelementptr inbounds i8, ptr %1057, i64 1
+  store i8 1, ptr %.sroa.2853.0..sroa_idx, align 1
+  %.sroa.3854.0..sroa_idx = getelementptr inbounds i8, ptr %1057, i64 2
+  store i8 28, ptr %.sroa.3854.0..sroa_idx, align 1
+  %.sroa.4855.0..sroa_idx = getelementptr inbounds i8, ptr %1057, i64 3
+  store i8 88, ptr %.sroa.4855.0..sroa_idx, align 1
   %.sroa.5856.0..sroa_idx = getelementptr inbounds i8, ptr %1057, i64 4
   store i8 76, ptr %.sroa.5856.0..sroa_idx, align 1
   %.sroa.6857.0..sroa_idx = getelementptr inbounds i8, ptr %1057, i64 5
@@ -51950,7 +53202,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit473:                 ; preds = %1078, %_ZNSt6vector
   %1127 = getelementptr inbounds i8, ptr %1123, i64 5
   %1128 = getelementptr inbounds i8, ptr %105, i64 16
   store ptr %1127, ptr %1128, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 43, i8 92>, ptr %1123, align 1
+  store i8 -60, ptr %1123, align 1
+  %.sroa.2847.0..sroa_idx = getelementptr inbounds i8, ptr %1123, i64 1
+  store i8 65, ptr %.sroa.2847.0..sroa_idx, align 1
+  %.sroa.3848.0..sroa_idx = getelementptr inbounds i8, ptr %1123, i64 2
+  store i8 43, ptr %.sroa.3848.0..sroa_idx, align 1
+  %.sroa.4849.0..sroa_idx = getelementptr inbounds i8, ptr %1123, i64 3
+  store i8 92, ptr %.sroa.4849.0..sroa_idx, align 1
   %.sroa.5850.0..sroa_idx = getelementptr inbounds i8, ptr %1123, i64 4
   store i8 -58, ptr %.sroa.5850.0..sroa_idx, align 1
   %1129 = getelementptr inbounds i8, ptr %105, i64 8
@@ -52126,7 +53384,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit494:                 ; preds = %1144, %_ZNSt6vector
   %1193 = getelementptr inbounds i8, ptr %1189, i64 5
   %1194 = getelementptr inbounds i8, ptr %112, i64 16
   store ptr %1193, ptr %1194, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 43, i8 89>, ptr %1189, align 1
+  store i8 -60, ptr %1189, align 1
+  %.sroa.2841.0..sroa_idx = getelementptr inbounds i8, ptr %1189, i64 1
+  store i8 65, ptr %.sroa.2841.0..sroa_idx, align 1
+  %.sroa.3842.0..sroa_idx = getelementptr inbounds i8, ptr %1189, i64 2
+  store i8 43, ptr %.sroa.3842.0..sroa_idx, align 1
+  %.sroa.4843.0..sroa_idx = getelementptr inbounds i8, ptr %1189, i64 3
+  store i8 89, ptr %.sroa.4843.0..sroa_idx, align 1
   %.sroa.5844.0..sroa_idx = getelementptr inbounds i8, ptr %1189, i64 4
   store i8 -58, ptr %.sroa.5844.0..sroa_idx, align 1
   %1195 = getelementptr inbounds i8, ptr %112, i64 8
@@ -52302,7 +53566,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit515:                 ; preds = %1210, %_ZNSt6vector
   %1259 = getelementptr inbounds i8, ptr %1255, i64 5
   %1260 = getelementptr inbounds i8, ptr %119, i64 16
   store ptr %1259, ptr %1260, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 43, i8 94>, ptr %1255, align 1
+  store i8 -60, ptr %1255, align 1
+  %.sroa.2835.0..sroa_idx = getelementptr inbounds i8, ptr %1255, i64 1
+  store i8 65, ptr %.sroa.2835.0..sroa_idx, align 1
+  %.sroa.3836.0..sroa_idx = getelementptr inbounds i8, ptr %1255, i64 2
+  store i8 43, ptr %.sroa.3836.0..sroa_idx, align 1
+  %.sroa.4837.0..sroa_idx = getelementptr inbounds i8, ptr %1255, i64 3
+  store i8 94, ptr %.sroa.4837.0..sroa_idx, align 1
   %.sroa.5838.0..sroa_idx = getelementptr inbounds i8, ptr %1255, i64 4
   store i8 -58, ptr %.sroa.5838.0..sroa_idx, align 1
   %1261 = getelementptr inbounds i8, ptr %119, i64 8
@@ -52478,7 +53748,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit536:                 ; preds = %1276, %_ZNSt6vector
   %1325 = getelementptr inbounds i8, ptr %1321, i64 5
   %1326 = getelementptr inbounds i8, ptr %126, i64 16
   store ptr %1325, ptr %1326, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 40, i8 92>, ptr %1321, align 1
+  store i8 -60, ptr %1321, align 1
+  %.sroa.2829.0..sroa_idx = getelementptr inbounds i8, ptr %1321, i64 1
+  store i8 65, ptr %.sroa.2829.0..sroa_idx, align 1
+  %.sroa.3830.0..sroa_idx = getelementptr inbounds i8, ptr %1321, i64 2
+  store i8 40, ptr %.sroa.3830.0..sroa_idx, align 1
+  %.sroa.4831.0..sroa_idx = getelementptr inbounds i8, ptr %1321, i64 3
+  store i8 92, ptr %.sroa.4831.0..sroa_idx, align 1
   %.sroa.5832.0..sroa_idx = getelementptr inbounds i8, ptr %1321, i64 4
   store i8 -58, ptr %.sroa.5832.0..sroa_idx, align 1
   %1327 = getelementptr inbounds i8, ptr %126, i64 8
@@ -52654,7 +53930,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit557:                 ; preds = %1342, %_ZNSt6vector
   %1391 = getelementptr inbounds i8, ptr %1387, i64 5
   %1392 = getelementptr inbounds i8, ptr %133, i64 16
   store ptr %1391, ptr %1392, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 40, i8 89>, ptr %1387, align 1
+  store i8 -60, ptr %1387, align 1
+  %.sroa.2823.0..sroa_idx = getelementptr inbounds i8, ptr %1387, i64 1
+  store i8 65, ptr %.sroa.2823.0..sroa_idx, align 1
+  %.sroa.3824.0..sroa_idx = getelementptr inbounds i8, ptr %1387, i64 2
+  store i8 40, ptr %.sroa.3824.0..sroa_idx, align 1
+  %.sroa.4825.0..sroa_idx = getelementptr inbounds i8, ptr %1387, i64 3
+  store i8 89, ptr %.sroa.4825.0..sroa_idx, align 1
   %.sroa.5826.0..sroa_idx = getelementptr inbounds i8, ptr %1387, i64 4
   store i8 -58, ptr %.sroa.5826.0..sroa_idx, align 1
   %1393 = getelementptr inbounds i8, ptr %133, i64 8
@@ -52830,7 +54112,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit578:                 ; preds = %1408, %_ZNSt6vector
   %1457 = getelementptr inbounds i8, ptr %1453, i64 5
   %1458 = getelementptr inbounds i8, ptr %140, i64 16
   store ptr %1457, ptr %1458, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 40, i8 94>, ptr %1453, align 1
+  store i8 -60, ptr %1453, align 1
+  %.sroa.2817.0..sroa_idx = getelementptr inbounds i8, ptr %1453, i64 1
+  store i8 65, ptr %.sroa.2817.0..sroa_idx, align 1
+  %.sroa.3818.0..sroa_idx = getelementptr inbounds i8, ptr %1453, i64 2
+  store i8 40, ptr %.sroa.3818.0..sroa_idx, align 1
+  %.sroa.4819.0..sroa_idx = getelementptr inbounds i8, ptr %1453, i64 3
+  store i8 94, ptr %.sroa.4819.0..sroa_idx, align 1
   %.sroa.5820.0..sroa_idx = getelementptr inbounds i8, ptr %1453, i64 4
   store i8 -58, ptr %.sroa.5820.0..sroa_idx, align 1
   %1459 = getelementptr inbounds i8, ptr %140, i64 8
@@ -53006,7 +54294,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit599:                 ; preds = %1474, %_ZNSt6vector
   %1523 = getelementptr inbounds i8, ptr %1519, i64 5
   %1524 = getelementptr inbounds i8, ptr %147, i64 16
   store ptr %1523, ptr %1524, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 41, i8 86>, ptr %1519, align 1
+  store i8 -60, ptr %1519, align 1
+  %.sroa.2811.0..sroa_idx = getelementptr inbounds i8, ptr %1519, i64 1
+  store i8 65, ptr %.sroa.2811.0..sroa_idx, align 1
+  %.sroa.3812.0..sroa_idx = getelementptr inbounds i8, ptr %1519, i64 2
+  store i8 41, ptr %.sroa.3812.0..sroa_idx, align 1
+  %.sroa.4813.0..sroa_idx = getelementptr inbounds i8, ptr %1519, i64 3
+  store i8 86, ptr %.sroa.4813.0..sroa_idx, align 1
   %.sroa.5814.0..sroa_idx = getelementptr inbounds i8, ptr %1519, i64 4
   store i8 -58, ptr %.sroa.5814.0..sroa_idx, align 1
   %1525 = getelementptr inbounds i8, ptr %147, i64 8
@@ -53182,7 +54476,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit620:                 ; preds = %1540, %_ZNSt6vector
   %1589 = getelementptr inbounds i8, ptr %1585, i64 5
   %1590 = getelementptr inbounds i8, ptr %154, i64 16
   store ptr %1589, ptr %1590, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 41, i8 87>, ptr %1585, align 1
+  store i8 -60, ptr %1585, align 1
+  %.sroa.2805.0..sroa_idx = getelementptr inbounds i8, ptr %1585, i64 1
+  store i8 65, ptr %.sroa.2805.0..sroa_idx, align 1
+  %.sroa.3806.0..sroa_idx = getelementptr inbounds i8, ptr %1585, i64 2
+  store i8 41, ptr %.sroa.3806.0..sroa_idx, align 1
+  %.sroa.4807.0..sroa_idx = getelementptr inbounds i8, ptr %1585, i64 3
+  store i8 87, ptr %.sroa.4807.0..sroa_idx, align 1
   %.sroa.5808.0..sroa_idx = getelementptr inbounds i8, ptr %1585, i64 4
   store i8 -58, ptr %.sroa.5808.0..sroa_idx, align 1
   %1591 = getelementptr inbounds i8, ptr %154, i64 8
@@ -53358,7 +54658,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit641:                 ; preds = %1606, %_ZNSt6vector
   %1655 = getelementptr inbounds i8, ptr %1651, i64 5
   %1656 = getelementptr inbounds i8, ptr %161, i64 16
   store ptr %1655, ptr %1656, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 40, i8 86>, ptr %1651, align 1
+  store i8 -60, ptr %1651, align 1
+  %.sroa.2799.0..sroa_idx = getelementptr inbounds i8, ptr %1651, i64 1
+  store i8 65, ptr %.sroa.2799.0..sroa_idx, align 1
+  %.sroa.3800.0..sroa_idx = getelementptr inbounds i8, ptr %1651, i64 2
+  store i8 40, ptr %.sroa.3800.0..sroa_idx, align 1
+  %.sroa.4801.0..sroa_idx = getelementptr inbounds i8, ptr %1651, i64 3
+  store i8 86, ptr %.sroa.4801.0..sroa_idx, align 1
   %.sroa.5802.0..sroa_idx = getelementptr inbounds i8, ptr %1651, i64 4
   store i8 -58, ptr %.sroa.5802.0..sroa_idx, align 1
   %1657 = getelementptr inbounds i8, ptr %161, i64 8
@@ -53534,7 +54840,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit662:                 ; preds = %1672, %_ZNSt6vector
   %1721 = getelementptr inbounds i8, ptr %1717, i64 5
   %1722 = getelementptr inbounds i8, ptr %168, i64 16
   store ptr %1721, ptr %1722, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 41, i8 84>, ptr %1717, align 1
+  store i8 -60, ptr %1717, align 1
+  %.sroa.2793.0..sroa_idx = getelementptr inbounds i8, ptr %1717, i64 1
+  store i8 65, ptr %.sroa.2793.0..sroa_idx, align 1
+  %.sroa.3794.0..sroa_idx = getelementptr inbounds i8, ptr %1717, i64 2
+  store i8 41, ptr %.sroa.3794.0..sroa_idx, align 1
+  %.sroa.4795.0..sroa_idx = getelementptr inbounds i8, ptr %1717, i64 3
+  store i8 84, ptr %.sroa.4795.0..sroa_idx, align 1
   %.sroa.5796.0..sroa_idx = getelementptr inbounds i8, ptr %1717, i64 4
   store i8 -58, ptr %.sroa.5796.0..sroa_idx, align 1
   %1723 = getelementptr inbounds i8, ptr %168, i64 8
@@ -53710,7 +55022,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit683:                 ; preds = %1738, %_ZNSt6vector
   %1787 = getelementptr inbounds i8, ptr %1783, i64 5
   %1788 = getelementptr inbounds i8, ptr %175, i64 16
   store ptr %1787, ptr %1788, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 41, i8 85>, ptr %1783, align 1
+  store i8 -60, ptr %1783, align 1
+  %.sroa.2787.0..sroa_idx = getelementptr inbounds i8, ptr %1783, i64 1
+  store i8 65, ptr %.sroa.2787.0..sroa_idx, align 1
+  %.sroa.3788.0..sroa_idx = getelementptr inbounds i8, ptr %1783, i64 2
+  store i8 41, ptr %.sroa.3788.0..sroa_idx, align 1
+  %.sroa.4789.0..sroa_idx = getelementptr inbounds i8, ptr %1783, i64 3
+  store i8 85, ptr %.sroa.4789.0..sroa_idx, align 1
   %.sroa.5790.0..sroa_idx = getelementptr inbounds i8, ptr %1783, i64 4
   store i8 -58, ptr %.sroa.5790.0..sroa_idx, align 1
   %1789 = getelementptr inbounds i8, ptr %175, i64 8
@@ -53886,7 +55204,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit704:                 ; preds = %1804, %_ZNSt6vector
   %1853 = getelementptr inbounds i8, ptr %1849, i64 5
   %1854 = getelementptr inbounds i8, ptr %182, i64 16
   store ptr %1853, ptr %1854, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 43, i8 95>, ptr %1849, align 1
+  store i8 -60, ptr %1849, align 1
+  %.sroa.2781.0..sroa_idx = getelementptr inbounds i8, ptr %1849, i64 1
+  store i8 65, ptr %.sroa.2781.0..sroa_idx, align 1
+  %.sroa.3782.0..sroa_idx = getelementptr inbounds i8, ptr %1849, i64 2
+  store i8 43, ptr %.sroa.3782.0..sroa_idx, align 1
+  %.sroa.4783.0..sroa_idx = getelementptr inbounds i8, ptr %1849, i64 3
+  store i8 95, ptr %.sroa.4783.0..sroa_idx, align 1
   %.sroa.5784.0..sroa_idx = getelementptr inbounds i8, ptr %1849, i64 4
   store i8 -58, ptr %.sroa.5784.0..sroa_idx, align 1
   %1855 = getelementptr inbounds i8, ptr %182, i64 8
@@ -54062,7 +55386,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit725:                 ; preds = %1870, %_ZNSt6vector
   %1919 = getelementptr inbounds i8, ptr %1915, i64 5
   %1920 = getelementptr inbounds i8, ptr %189, i64 16
   store ptr %1919, ptr %1920, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 43, i8 93>, ptr %1915, align 1
+  store i8 -60, ptr %1915, align 1
+  %.sroa.2775.0..sroa_idx = getelementptr inbounds i8, ptr %1915, i64 1
+  store i8 65, ptr %.sroa.2775.0..sroa_idx, align 1
+  %.sroa.3776.0..sroa_idx = getelementptr inbounds i8, ptr %1915, i64 2
+  store i8 43, ptr %.sroa.3776.0..sroa_idx, align 1
+  %.sroa.4777.0..sroa_idx = getelementptr inbounds i8, ptr %1915, i64 3
+  store i8 93, ptr %.sroa.4777.0..sroa_idx, align 1
   %.sroa.5778.0..sroa_idx = getelementptr inbounds i8, ptr %1915, i64 4
   store i8 -58, ptr %.sroa.5778.0..sroa_idx, align 1
   %1921 = getelementptr inbounds i8, ptr %189, i64 8
@@ -54238,7 +55568,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit746:                 ; preds = %1936, %_ZNSt6vector
   %1985 = getelementptr inbounds i8, ptr %1981, i64 6
   %1986 = getelementptr inbounds i8, ptr %196, i64 16
   store ptr %1985, ptr %1986, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 43, i8 -62>, ptr %1981, align 1
+  store i8 -60, ptr %1981, align 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1981, i64 1
+  store i8 65, ptr %.sroa.2.0..sroa_idx, align 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1981, i64 2
+  store i8 43, ptr %.sroa.3.0..sroa_idx, align 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1981, i64 3
+  store i8 -62, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1981, i64 4
   store i8 -58, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1981, i64 5
@@ -54871,7 +56207,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_571fEv(ptr no
   %162 = getelementptr inbounds i8, ptr %158, i64 5
   %163 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %162, ptr %163, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 123, i8 17>, ptr %158, align 1
+  store i8 -60, ptr %158, align 1
+  %.sroa.2727.0..sroa_idx = getelementptr inbounds i8, ptr %158, i64 1
+  store i8 65, ptr %.sroa.2727.0..sroa_idx, align 1
+  %.sroa.3728.0..sroa_idx = getelementptr inbounds i8, ptr %158, i64 2
+  store i8 123, ptr %.sroa.3728.0..sroa_idx, align 1
+  %.sroa.4729.0..sroa_idx = getelementptr inbounds i8, ptr %158, i64 3
+  store i8 17, ptr %.sroa.4729.0..sroa_idx, align 1
   %.sroa.5730.0..sroa_idx = getelementptr inbounds i8, ptr %158, i64 4
   store i8 17, ptr %.sroa.5730.0..sroa_idx, align 1
   %164 = getelementptr inbounds i8, ptr %7, i64 8
@@ -55042,7 +56384,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit158:                 ; preds = %179, %_ZNSt6vectorI
   %227 = getelementptr inbounds i8, ptr %223, i64 5
   %228 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %227, ptr %228, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 123, i8 16>, ptr %223, align 1
+  store i8 -60, ptr %223, align 1
+  %.sroa.2721.0..sroa_idx = getelementptr inbounds i8, ptr %223, i64 1
+  store i8 65, ptr %.sroa.2721.0..sroa_idx, align 1
+  %.sroa.3722.0..sroa_idx = getelementptr inbounds i8, ptr %223, i64 2
+  store i8 123, ptr %.sroa.3722.0..sroa_idx, align 1
+  %.sroa.4723.0..sroa_idx = getelementptr inbounds i8, ptr %223, i64 3
+  store i8 16, ptr %.sroa.4723.0..sroa_idx, align 1
   %.sroa.5724.0..sroa_idx = getelementptr inbounds i8, ptr %223, i64 4
   store i8 1, ptr %.sroa.5724.0..sroa_idx, align 1
   %229 = getelementptr inbounds i8, ptr %14, i64 8
@@ -55218,7 +56566,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit179:                 ; preds = %244, %_ZNSt6vectorI
   %293 = getelementptr inbounds i8, ptr %289, i64 5
   %294 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %293, ptr %294, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 43, i8 16>, ptr %289, align 1
+  store i8 -60, ptr %289, align 1
+  %.sroa.2715.0..sroa_idx = getelementptr inbounds i8, ptr %289, i64 1
+  store i8 65, ptr %.sroa.2715.0..sroa_idx, align 1
+  %.sroa.3716.0..sroa_idx = getelementptr inbounds i8, ptr %289, i64 2
+  store i8 43, ptr %.sroa.3716.0..sroa_idx, align 1
+  %.sroa.4717.0..sroa_idx = getelementptr inbounds i8, ptr %289, i64 3
+  store i8 16, ptr %.sroa.4717.0..sroa_idx, align 1
   %.sroa.5718.0..sroa_idx = getelementptr inbounds i8, ptr %289, i64 4
   store i8 -58, ptr %.sroa.5718.0..sroa_idx, align 1
   %295 = getelementptr inbounds i8, ptr %21, i64 8
@@ -55394,7 +56748,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit200:                 ; preds = %310, %_ZNSt6vectorI
   %359 = getelementptr inbounds i8, ptr %355, i64 5
   %360 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %359, ptr %360, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 122, i8 17>, ptr %355, align 1
+  store i8 -60, ptr %355, align 1
+  %.sroa.2709.0..sroa_idx = getelementptr inbounds i8, ptr %355, i64 1
+  store i8 65, ptr %.sroa.2709.0..sroa_idx, align 1
+  %.sroa.3710.0..sroa_idx = getelementptr inbounds i8, ptr %355, i64 2
+  store i8 122, ptr %.sroa.3710.0..sroa_idx, align 1
+  %.sroa.4711.0..sroa_idx = getelementptr inbounds i8, ptr %355, i64 3
+  store i8 17, ptr %.sroa.4711.0..sroa_idx, align 1
   %.sroa.5712.0..sroa_idx = getelementptr inbounds i8, ptr %355, i64 4
   store i8 17, ptr %.sroa.5712.0..sroa_idx, align 1
   %361 = getelementptr inbounds i8, ptr %28, i64 8
@@ -55570,7 +56930,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit221:                 ; preds = %376, %_ZNSt6vectorI
   %425 = getelementptr inbounds i8, ptr %421, i64 5
   %426 = getelementptr inbounds i8, ptr %35, i64 16
   store ptr %425, ptr %426, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 122, i8 16>, ptr %421, align 1
+  store i8 -60, ptr %421, align 1
+  %.sroa.2703.0..sroa_idx = getelementptr inbounds i8, ptr %421, i64 1
+  store i8 65, ptr %.sroa.2703.0..sroa_idx, align 1
+  %.sroa.3704.0..sroa_idx = getelementptr inbounds i8, ptr %421, i64 2
+  store i8 122, ptr %.sroa.3704.0..sroa_idx, align 1
+  %.sroa.4705.0..sroa_idx = getelementptr inbounds i8, ptr %421, i64 3
+  store i8 16, ptr %.sroa.4705.0..sroa_idx, align 1
   %.sroa.5706.0..sroa_idx = getelementptr inbounds i8, ptr %421, i64 4
   store i8 1, ptr %.sroa.5706.0..sroa_idx, align 1
   %427 = getelementptr inbounds i8, ptr %35, i64 8
@@ -55746,7 +57112,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit242:                 ; preds = %442, %_ZNSt6vectorI
   %491 = getelementptr inbounds i8, ptr %487, i64 5
   %492 = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %491, ptr %492, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 42, i8 16>, ptr %487, align 1
+  store i8 -60, ptr %487, align 1
+  %.sroa.2697.0..sroa_idx = getelementptr inbounds i8, ptr %487, i64 1
+  store i8 65, ptr %.sroa.2697.0..sroa_idx, align 1
+  %.sroa.3698.0..sroa_idx = getelementptr inbounds i8, ptr %487, i64 2
+  store i8 42, ptr %.sroa.3698.0..sroa_idx, align 1
+  %.sroa.4699.0..sroa_idx = getelementptr inbounds i8, ptr %487, i64 3
+  store i8 16, ptr %.sroa.4699.0..sroa_idx, align 1
   %.sroa.5700.0..sroa_idx = getelementptr inbounds i8, ptr %487, i64 4
   store i8 -58, ptr %.sroa.5700.0..sroa_idx, align 1
   %493 = getelementptr inbounds i8, ptr %42, i64 8
@@ -55922,7 +57294,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit263:                 ; preds = %508, %_ZNSt6vectorI
   %557 = getelementptr inbounds i8, ptr %553, i64 5
   %558 = getelementptr inbounds i8, ptr %49, i64 16
   store ptr %557, ptr %558, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 121, i8 40>, ptr %553, align 1
+  store i8 -60, ptr %553, align 1
+  %.sroa.2691.0..sroa_idx = getelementptr inbounds i8, ptr %553, i64 1
+  store i8 65, ptr %.sroa.2691.0..sroa_idx, align 1
+  %.sroa.3692.0..sroa_idx = getelementptr inbounds i8, ptr %553, i64 2
+  store i8 121, ptr %.sroa.3692.0..sroa_idx, align 1
+  %.sroa.4693.0..sroa_idx = getelementptr inbounds i8, ptr %553, i64 3
+  store i8 40, ptr %.sroa.4693.0..sroa_idx, align 1
   %.sroa.5694.0..sroa_idx = getelementptr inbounds i8, ptr %553, i64 4
   store i8 1, ptr %.sroa.5694.0..sroa_idx, align 1
   %559 = getelementptr inbounds i8, ptr %49, i64 8
@@ -56098,7 +57476,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit284:                 ; preds = %574, %_ZNSt6vectorI
   %623 = getelementptr inbounds i8, ptr %619, i64 5
   %624 = getelementptr inbounds i8, ptr %56, i64 16
   store ptr %623, ptr %624, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 121, i8 41>, ptr %619, align 1
+  store i8 -60, ptr %619, align 1
+  %.sroa.2685.0..sroa_idx = getelementptr inbounds i8, ptr %619, i64 1
+  store i8 65, ptr %.sroa.2685.0..sroa_idx, align 1
+  %.sroa.3686.0..sroa_idx = getelementptr inbounds i8, ptr %619, i64 2
+  store i8 121, ptr %.sroa.3686.0..sroa_idx, align 1
+  %.sroa.4687.0..sroa_idx = getelementptr inbounds i8, ptr %619, i64 3
+  store i8 41, ptr %.sroa.4687.0..sroa_idx, align 1
   %.sroa.5688.0..sroa_idx = getelementptr inbounds i8, ptr %619, i64 4
   store i8 17, ptr %.sroa.5688.0..sroa_idx, align 1
   %625 = getelementptr inbounds i8, ptr %56, i64 8
@@ -56274,7 +57658,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit305:                 ; preds = %640, %_ZNSt6vectorI
   %689 = getelementptr inbounds i8, ptr %685, i64 5
   %690 = getelementptr inbounds i8, ptr %63, i64 16
   store ptr %689, ptr %690, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 125, i8 40>, ptr %685, align 1
+  store i8 -60, ptr %685, align 1
+  %.sroa.2679.0..sroa_idx = getelementptr inbounds i8, ptr %685, i64 1
+  store i8 65, ptr %.sroa.2679.0..sroa_idx, align 1
+  %.sroa.3680.0..sroa_idx = getelementptr inbounds i8, ptr %685, i64 2
+  store i8 125, ptr %.sroa.3680.0..sroa_idx, align 1
+  %.sroa.4681.0..sroa_idx = getelementptr inbounds i8, ptr %685, i64 3
+  store i8 40, ptr %.sroa.4681.0..sroa_idx, align 1
   %.sroa.5682.0..sroa_idx = getelementptr inbounds i8, ptr %685, i64 4
   store i8 1, ptr %.sroa.5682.0..sroa_idx, align 1
   %691 = getelementptr inbounds i8, ptr %63, i64 8
@@ -56450,7 +57840,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit326:                 ; preds = %706, %_ZNSt6vectorI
   %755 = getelementptr inbounds i8, ptr %751, i64 5
   %756 = getelementptr inbounds i8, ptr %70, i64 16
   store ptr %755, ptr %756, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 120, i8 40>, ptr %751, align 1
+  store i8 -60, ptr %751, align 1
+  %.sroa.2673.0..sroa_idx = getelementptr inbounds i8, ptr %751, i64 1
+  store i8 65, ptr %.sroa.2673.0..sroa_idx, align 1
+  %.sroa.3674.0..sroa_idx = getelementptr inbounds i8, ptr %751, i64 2
+  store i8 120, ptr %.sroa.3674.0..sroa_idx, align 1
+  %.sroa.4675.0..sroa_idx = getelementptr inbounds i8, ptr %751, i64 3
+  store i8 40, ptr %.sroa.4675.0..sroa_idx, align 1
   %.sroa.5676.0..sroa_idx = getelementptr inbounds i8, ptr %751, i64 4
   store i8 1, ptr %.sroa.5676.0..sroa_idx, align 1
   %757 = getelementptr inbounds i8, ptr %70, i64 8
@@ -56626,7 +58022,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit347:                 ; preds = %772, %_ZNSt6vectorI
   %821 = getelementptr inbounds i8, ptr %817, i64 5
   %822 = getelementptr inbounds i8, ptr %77, i64 16
   store ptr %821, ptr %822, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 120, i8 41>, ptr %817, align 1
+  store i8 -60, ptr %817, align 1
+  %.sroa.2667.0..sroa_idx = getelementptr inbounds i8, ptr %817, i64 1
+  store i8 65, ptr %.sroa.2667.0..sroa_idx, align 1
+  %.sroa.3668.0..sroa_idx = getelementptr inbounds i8, ptr %817, i64 2
+  store i8 120, ptr %.sroa.3668.0..sroa_idx, align 1
+  %.sroa.4669.0..sroa_idx = getelementptr inbounds i8, ptr %817, i64 3
+  store i8 41, ptr %.sroa.4669.0..sroa_idx, align 1
   %.sroa.5670.0..sroa_idx = getelementptr inbounds i8, ptr %817, i64 4
   store i8 17, ptr %.sroa.5670.0..sroa_idx, align 1
   %823 = getelementptr inbounds i8, ptr %77, i64 8
@@ -56802,7 +58204,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit368:                 ; preds = %838, %_ZNSt6vectorI
   %887 = getelementptr inbounds i8, ptr %883, i64 5
   %888 = getelementptr inbounds i8, ptr %84, i64 16
   store ptr %887, ptr %888, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 124, i8 40>, ptr %883, align 1
+  store i8 -60, ptr %883, align 1
+  %.sroa.2661.0..sroa_idx = getelementptr inbounds i8, ptr %883, i64 1
+  store i8 65, ptr %.sroa.2661.0..sroa_idx, align 1
+  %.sroa.3662.0..sroa_idx = getelementptr inbounds i8, ptr %883, i64 2
+  store i8 124, ptr %.sroa.3662.0..sroa_idx, align 1
+  %.sroa.4663.0..sroa_idx = getelementptr inbounds i8, ptr %883, i64 3
+  store i8 40, ptr %.sroa.4663.0..sroa_idx, align 1
   %.sroa.5664.0..sroa_idx = getelementptr inbounds i8, ptr %883, i64 4
   store i8 1, ptr %.sroa.5664.0..sroa_idx, align 1
   %889 = getelementptr inbounds i8, ptr %84, i64 8
@@ -56978,7 +58386,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit389:                 ; preds = %904, %_ZNSt6vectorI
   %953 = getelementptr inbounds i8, ptr %949, i64 5
   %954 = getelementptr inbounds i8, ptr %91, i64 16
   store ptr %953, ptr %954, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 121, i8 16>, ptr %949, align 1
+  store i8 -60, ptr %949, align 1
+  %.sroa.2655.0..sroa_idx = getelementptr inbounds i8, ptr %949, i64 1
+  store i8 65, ptr %.sroa.2655.0..sroa_idx, align 1
+  %.sroa.3656.0..sroa_idx = getelementptr inbounds i8, ptr %949, i64 2
+  store i8 121, ptr %.sroa.3656.0..sroa_idx, align 1
+  %.sroa.4657.0..sroa_idx = getelementptr inbounds i8, ptr %949, i64 3
+  store i8 16, ptr %.sroa.4657.0..sroa_idx, align 1
   %.sroa.5658.0..sroa_idx = getelementptr inbounds i8, ptr %949, i64 4
   store i8 1, ptr %.sroa.5658.0..sroa_idx, align 1
   %955 = getelementptr inbounds i8, ptr %91, i64 8
@@ -57154,7 +58568,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit410:                 ; preds = %970, %_ZNSt6vectorI
   %1019 = getelementptr inbounds i8, ptr %1015, i64 5
   %1020 = getelementptr inbounds i8, ptr %98, i64 16
   store ptr %1019, ptr %1020, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 121, i8 17>, ptr %1015, align 1
+  store i8 -60, ptr %1015, align 1
+  %.sroa.2649.0..sroa_idx = getelementptr inbounds i8, ptr %1015, i64 1
+  store i8 65, ptr %.sroa.2649.0..sroa_idx, align 1
+  %.sroa.3650.0..sroa_idx = getelementptr inbounds i8, ptr %1015, i64 2
+  store i8 121, ptr %.sroa.3650.0..sroa_idx, align 1
+  %.sroa.4651.0..sroa_idx = getelementptr inbounds i8, ptr %1015, i64 3
+  store i8 17, ptr %.sroa.4651.0..sroa_idx, align 1
   %.sroa.5652.0..sroa_idx = getelementptr inbounds i8, ptr %1015, i64 4
   store i8 17, ptr %.sroa.5652.0..sroa_idx, align 1
   %1021 = getelementptr inbounds i8, ptr %98, i64 8
@@ -57330,7 +58750,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit431:                 ; preds = %1036, %_ZNSt6vector
   %1085 = getelementptr inbounds i8, ptr %1081, i64 5
   %1086 = getelementptr inbounds i8, ptr %105, i64 16
   store ptr %1085, ptr %1086, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 125, i8 16>, ptr %1081, align 1
+  store i8 -60, ptr %1081, align 1
+  %.sroa.2643.0..sroa_idx = getelementptr inbounds i8, ptr %1081, i64 1
+  store i8 65, ptr %.sroa.2643.0..sroa_idx, align 1
+  %.sroa.3644.0..sroa_idx = getelementptr inbounds i8, ptr %1081, i64 2
+  store i8 125, ptr %.sroa.3644.0..sroa_idx, align 1
+  %.sroa.4645.0..sroa_idx = getelementptr inbounds i8, ptr %1081, i64 3
+  store i8 16, ptr %.sroa.4645.0..sroa_idx, align 1
   %.sroa.5646.0..sroa_idx = getelementptr inbounds i8, ptr %1081, i64 4
   store i8 1, ptr %.sroa.5646.0..sroa_idx, align 1
   %1087 = getelementptr inbounds i8, ptr %105, i64 8
@@ -57506,7 +58932,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit452:                 ; preds = %1102, %_ZNSt6vector
   %1151 = getelementptr inbounds i8, ptr %1147, i64 5
   %1152 = getelementptr inbounds i8, ptr %112, i64 16
   store ptr %1151, ptr %1152, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 120, i8 16>, ptr %1147, align 1
+  store i8 -60, ptr %1147, align 1
+  %.sroa.2637.0..sroa_idx = getelementptr inbounds i8, ptr %1147, i64 1
+  store i8 65, ptr %.sroa.2637.0..sroa_idx, align 1
+  %.sroa.3638.0..sroa_idx = getelementptr inbounds i8, ptr %1147, i64 2
+  store i8 120, ptr %.sroa.3638.0..sroa_idx, align 1
+  %.sroa.4639.0..sroa_idx = getelementptr inbounds i8, ptr %1147, i64 3
+  store i8 16, ptr %.sroa.4639.0..sroa_idx, align 1
   %.sroa.5640.0..sroa_idx = getelementptr inbounds i8, ptr %1147, i64 4
   store i8 1, ptr %.sroa.5640.0..sroa_idx, align 1
   %1153 = getelementptr inbounds i8, ptr %112, i64 8
@@ -57682,7 +59114,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit473:                 ; preds = %1168, %_ZNSt6vector
   %1217 = getelementptr inbounds i8, ptr %1213, i64 5
   %1218 = getelementptr inbounds i8, ptr %119, i64 16
   store ptr %1217, ptr %1218, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 120, i8 17>, ptr %1213, align 1
+  store i8 -60, ptr %1213, align 1
+  %.sroa.2631.0..sroa_idx = getelementptr inbounds i8, ptr %1213, i64 1
+  store i8 65, ptr %.sroa.2631.0..sroa_idx, align 1
+  %.sroa.3632.0..sroa_idx = getelementptr inbounds i8, ptr %1213, i64 2
+  store i8 120, ptr %.sroa.3632.0..sroa_idx, align 1
+  %.sroa.4633.0..sroa_idx = getelementptr inbounds i8, ptr %1213, i64 3
+  store i8 17, ptr %.sroa.4633.0..sroa_idx, align 1
   %.sroa.5634.0..sroa_idx = getelementptr inbounds i8, ptr %1213, i64 4
   store i8 17, ptr %.sroa.5634.0..sroa_idx, align 1
   %1219 = getelementptr inbounds i8, ptr %119, i64 8
@@ -57858,7 +59296,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit494:                 ; preds = %1234, %_ZNSt6vector
   %1283 = getelementptr inbounds i8, ptr %1279, i64 5
   %1284 = getelementptr inbounds i8, ptr %126, i64 16
   store ptr %1283, ptr %1284, align 8
-  store <4 x i8> <i8 -60, i8 65, i8 124, i8 16>, ptr %1279, align 1
+  store i8 -60, ptr %1279, align 1
+  %.sroa.2625.0..sroa_idx = getelementptr inbounds i8, ptr %1279, i64 1
+  store i8 65, ptr %.sroa.2625.0..sroa_idx, align 1
+  %.sroa.3626.0..sroa_idx = getelementptr inbounds i8, ptr %1279, i64 2
+  store i8 124, ptr %.sroa.3626.0..sroa_idx, align 1
+  %.sroa.4627.0..sroa_idx = getelementptr inbounds i8, ptr %1279, i64 3
+  store i8 16, ptr %.sroa.4627.0..sroa_idx, align 1
   %.sroa.5628.0..sroa_idx = getelementptr inbounds i8, ptr %1279, i64 4
   store i8 1, ptr %.sroa.5628.0..sroa_idx, align 1
   %1285 = getelementptr inbounds i8, ptr %126, i64 8
@@ -58034,7 +59478,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit515:                 ; preds = %1300, %_ZNSt6vector
   %1349 = getelementptr inbounds i8, ptr %1345, i64 5
   %1350 = getelementptr inbounds i8, ptr %133, i64 16
   store ptr %1349, ptr %1350, align 8
-  store <4 x i8> <i8 -60, i8 -31, i8 -7, i8 110>, ptr %1345, align 1
+  store i8 -60, ptr %1345, align 1
+  %.sroa.2619.0..sroa_idx = getelementptr inbounds i8, ptr %1345, i64 1
+  store i8 -31, ptr %.sroa.2619.0..sroa_idx, align 1
+  %.sroa.3620.0..sroa_idx = getelementptr inbounds i8, ptr %1345, i64 2
+  store i8 -7, ptr %.sroa.3620.0..sroa_idx, align 1
+  %.sroa.4621.0..sroa_idx = getelementptr inbounds i8, ptr %1345, i64 3
+  store i8 110, ptr %.sroa.4621.0..sroa_idx, align 1
   %.sroa.5622.0..sroa_idx = getelementptr inbounds i8, ptr %1345, i64 4
   store i8 -53, ptr %.sroa.5622.0..sroa_idx, align 1
   %1351 = getelementptr inbounds i8, ptr %133, i64 8
@@ -58210,7 +59660,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit536:                 ; preds = %1366, %_ZNSt6vector
   %1415 = getelementptr inbounds i8, ptr %1411, i64 5
   %1416 = getelementptr inbounds i8, ptr %140, i64 16
   store ptr %1415, ptr %1416, align 8
-  store <4 x i8> <i8 -60, i8 -31, i8 -7, i8 126>, ptr %1411, align 1
+  store i8 -60, ptr %1411, align 1
+  %.sroa.2613.0..sroa_idx = getelementptr inbounds i8, ptr %1411, i64 1
+  store i8 -31, ptr %.sroa.2613.0..sroa_idx, align 1
+  %.sroa.3614.0..sroa_idx = getelementptr inbounds i8, ptr %1411, i64 2
+  store i8 -7, ptr %.sroa.3614.0..sroa_idx, align 1
+  %.sroa.4615.0..sroa_idx = getelementptr inbounds i8, ptr %1411, i64 3
+  store i8 126, ptr %.sroa.4615.0..sroa_idx, align 1
   %.sroa.5616.0..sroa_idx = getelementptr inbounds i8, ptr %1411, i64 4
   store i8 -53, ptr %.sroa.5616.0..sroa_idx, align 1
   %1417 = getelementptr inbounds i8, ptr %140, i64 8
@@ -58386,7 +59842,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit557:                 ; preds = %1432, %_ZNSt6vector
   %1481 = getelementptr inbounds i8, ptr %1477, i64 5
   %1482 = getelementptr inbounds i8, ptr %147, i64 16
   store ptr %1481, ptr %1482, align 8
-  store <4 x i8> <i8 -60, i8 -63, i8 -7, i8 110>, ptr %1477, align 1
+  store i8 -60, ptr %1477, align 1
+  %.sroa.2607.0..sroa_idx = getelementptr inbounds i8, ptr %1477, i64 1
+  store i8 -63, ptr %.sroa.2607.0..sroa_idx, align 1
+  %.sroa.3608.0..sroa_idx = getelementptr inbounds i8, ptr %1477, i64 2
+  store i8 -7, ptr %.sroa.3608.0..sroa_idx, align 1
+  %.sroa.4609.0..sroa_idx = getelementptr inbounds i8, ptr %1477, i64 3
+  store i8 110, ptr %.sroa.4609.0..sroa_idx, align 1
   %.sroa.5610.0..sroa_idx = getelementptr inbounds i8, ptr %1477, i64 4
   store i8 9, ptr %.sroa.5610.0..sroa_idx, align 1
   %1483 = getelementptr inbounds i8, ptr %147, i64 8
@@ -58562,7 +60024,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit578:                 ; preds = %1498, %_ZNSt6vector
   %1547 = getelementptr inbounds i8, ptr %1543, i64 5
   %1548 = getelementptr inbounds i8, ptr %154, i64 16
   store ptr %1547, ptr %1548, align 8
-  store <4 x i8> <i8 -60, i8 -63, i8 -7, i8 126>, ptr %1543, align 1
+  store i8 -60, ptr %1543, align 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1543, i64 1
+  store i8 -63, ptr %.sroa.2.0..sroa_idx, align 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1543, i64 2
+  store i8 -7, ptr %.sroa.3.0..sroa_idx, align 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1543, i64 3
+  store i8 126, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1543, i64 4
   store i8 9, ptr %.sroa.5.0..sroa_idx, align 1
   %1549 = getelementptr inbounds i8, ptr %154, i64 8

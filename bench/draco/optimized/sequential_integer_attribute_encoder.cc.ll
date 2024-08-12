@@ -9084,7 +9084,7 @@ define linkonce_odr noundef i32 @_ZNK5draco48MeshPredictionSchemeGeometricNormal
 define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapEncodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE21ComputePredictedValueENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPi(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.draco::VertexCornersIterator", align 8
   %5 = alloca %"class.draco::VectorD.153", align 8
-  %6 = alloca %"class.draco::VectorD.153", align 16
+  %6 = alloca %"class.draco::VectorD.153", align 8
   %7 = alloca %"class.draco::VectorD.153", align 8
   %8 = alloca %"class.draco::VectorD.153", align 8
   %9 = alloca %"class.draco::VectorD.153", align 8
@@ -9374,12 +9374,12 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit58:         ; preds = %157
 
 ._crit_edge:                                      ; preds = %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit58
   store i64 %180, ptr %66, align 8
-  store i64 %181, ptr %67, align 16
+  store i64 %181, ptr %67, align 8
   br label %184
 
 184:                                              ; preds = %._crit_edge, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_37PredictionSchemeWrapEncodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %.lcssa98 = phi i64 [ %179, %._crit_edge ], [ 0, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_37PredictionSchemeWrapEncodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
-  store i64 %.lcssa98, ptr %6, align 16
+  store i64 %.lcssa98, ptr %6, align 8
   %185 = getelementptr inbounds i8, ptr %0, i64 56
   %186 = load i32, ptr %185, align 8
   %187 = icmp eq i32 %186, 0
@@ -9464,18 +9464,23 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit70.thread: ; preds = %.preheader90, %_ZNK
 
 _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread.sink.split: ; preds = %213, %199
   %.sink = phi ptr [ %11, %199 ], [ %12, %213 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
   br label %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread
 
 _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread:   ; preds = %.preheader, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread.sink.split, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit70, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit
-  %218 = load <2 x i64>, ptr %6, align 16
-  %219 = trunc <2 x i64> %218 to <2 x i32>
-  store <2 x i32> %219, ptr %2, align 4
-  %220 = getelementptr inbounds i8, ptr %6, i64 16
-  %221 = load i64, ptr %220, align 16
+  %218 = load i64, ptr %6, align 8
+  %219 = trunc i64 %218 to i32
+  store i32 %219, ptr %2, align 4
+  %220 = getelementptr inbounds i8, ptr %6, i64 8
+  %221 = load i64, ptr %220, align 8
   %222 = trunc i64 %221 to i32
-  %223 = getelementptr inbounds i8, ptr %2, i64 8
+  %223 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %222, ptr %223, align 4
+  %224 = getelementptr inbounds i8, ptr %6, i64 16
+  %225 = load i64, ptr %224, align 8
+  %226 = trunc i64 %225 to i32
+  %227 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %226, ptr %227, align 4
   ret void
 }
 
@@ -14401,7 +14406,7 @@ define linkonce_odr noundef i32 @_ZNK5draco48MeshPredictionSchemeGeometricNormal
 define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapEncodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE21ComputePredictedValueENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPi(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.draco::VertexCornersIterator.170", align 8
   %5 = alloca %"class.draco::VectorD.153", align 8
-  %6 = alloca %"class.draco::VectorD.153", align 16
+  %6 = alloca %"class.draco::VectorD.153", align 8
   %7 = alloca %"class.draco::VectorD.153", align 8
   %8 = alloca %"class.draco::VectorD.153", align 8
   %9 = alloca %"class.draco::VectorD.153", align 8
@@ -14713,12 +14718,12 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit62:         ; preds = %160
 
 ._crit_edge:                                      ; preds = %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit62
   store i64 %183, ptr %66, align 8
-  store i64 %184, ptr %67, align 16
+  store i64 %184, ptr %67, align 8
   br label %187
 
 187:                                              ; preds = %._crit_edge, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_37PredictionSchemeWrapEncodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %.lcssa103 = phi i64 [ %182, %._crit_edge ], [ 0, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_37PredictionSchemeWrapEncodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
-  store i64 %.lcssa103, ptr %6, align 16
+  store i64 %.lcssa103, ptr %6, align 8
   %188 = getelementptr inbounds i8, ptr %0, i64 56
   %189 = load i32, ptr %188, align 8
   %190 = icmp eq i32 %189, 0
@@ -14803,18 +14808,23 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit74.thread: ; preds = %.preheader97, %_ZNK
 
 _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread.sink.split: ; preds = %216, %202
   %.sink = phi ptr [ %11, %202 ], [ %12, %216 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
   br label %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread
 
 _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread:   ; preds = %.preheader, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread.sink.split, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit74, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit
-  %221 = load <2 x i64>, ptr %6, align 16
-  %222 = trunc <2 x i64> %221 to <2 x i32>
-  store <2 x i32> %222, ptr %2, align 4
-  %223 = getelementptr inbounds i8, ptr %6, i64 16
-  %224 = load i64, ptr %223, align 16
+  %221 = load i64, ptr %6, align 8
+  %222 = trunc i64 %221 to i32
+  store i32 %222, ptr %2, align 4
+  %223 = getelementptr inbounds i8, ptr %6, i64 8
+  %224 = load i64, ptr %223, align 8
   %225 = trunc i64 %224 to i32
-  %226 = getelementptr inbounds i8, ptr %2, i64 8
+  %226 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %225, ptr %226, align 4
+  %227 = getelementptr inbounds i8, ptr %6, i64 16
+  %228 = load i64, ptr %227, align 8
+  %229 = trunc i64 %228 to i32
+  %230 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %229, ptr %230, align 4
   ret void
 }
 

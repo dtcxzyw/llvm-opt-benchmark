@@ -823,69 +823,71 @@ gv_alloc.exit17:                                  ; preds = %gv_alloc.exit
   store i8 1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 112
   store double 1.000000e+00, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 96
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 344
-  store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 264
-  store i64 0, ptr %19, align 8
-  %20 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 5, i64 noundef 8) #18
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %gv_calloc.exit
+  %17 = getelementptr inbounds i8, ptr %7, i64 104
+  store double 1.000000e+00, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 96
+  store double 1.000000e+00, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 344
+  store i32 1, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 264
+  store i64 0, ptr %20, align 8
+  %21 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 5, i64 noundef 8) #18
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %gv_calloc.exit
 
-22:                                               ; preds = %gv_alloc.exit17
-  %23 = load ptr, ptr @stderr, align 8
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.2, i64 noundef 40) #14
+23:                                               ; preds = %gv_alloc.exit17
+  %24 = load ptr, ptr @stderr, align 8
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.2, i64 noundef 40) #14
   tail call fastcc void @graphviz_exit() #15
   unreachable
 
 gv_calloc.exit:                                   ; preds = %gv_alloc.exit17
-  %25 = getelementptr inbounds i8, ptr %7, i64 256
-  store ptr %20, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 280
-  store i64 0, ptr %26, align 8
-  %27 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 5, i64 noundef 8) #18
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %gv_calloc.exit18
+  %26 = getelementptr inbounds i8, ptr %7, i64 256
+  store ptr %21, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 280
+  store i64 0, ptr %27, align 8
+  %28 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 5, i64 noundef 8) #18
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %gv_calloc.exit18
 
-29:                                               ; preds = %gv_calloc.exit
-  %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.2, i64 noundef 40) #14
+30:                                               ; preds = %gv_calloc.exit
+  %31 = load ptr, ptr @stderr, align 8
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.2, i64 noundef 40) #14
   tail call fastcc void @graphviz_exit() #15
   unreachable
 
 gv_calloc.exit18:                                 ; preds = %gv_calloc.exit
-  %32 = getelementptr inbounds i8, ptr %7, i64 272
-  store ptr %27, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 256
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 240
-  store ptr %36, ptr %37, align 8
-  %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %fast_node.exit, label %38
+  %33 = getelementptr inbounds i8, ptr %7, i64 272
+  store ptr %28, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 256
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %7, i64 240
+  store ptr %37, ptr %38, align 8
+  %.not.i = icmp eq ptr %37, null
+  br i1 %.not.i, label %fast_node.exit, label %39
 
-38:                                               ; preds = %gv_calloc.exit18
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 248
-  store ptr %2, ptr %41, align 8
-  %.pre = load ptr, ptr %33, align 8
+39:                                               ; preds = %gv_calloc.exit18
+  %40 = getelementptr inbounds i8, ptr %37, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 248
+  store ptr %2, ptr %42, align 8
+  %.pre = load ptr, ptr %34, align 8
   br label %fast_node.exit
 
-fast_node.exit:                                   ; preds = %gv_calloc.exit18, %38
-  %42 = phi ptr [ %34, %gv_calloc.exit18 ], [ %.pre, %38 ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 256
-  store ptr %2, ptr %43, align 8
-  %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 248
-  store ptr null, ptr %45, align 8
-  %46 = load ptr, ptr %33, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 336
-  %48 = load i64, ptr %47, align 8
-  %49 = add i64 %48, 1
-  store i64 %49, ptr %47, align 8
+fast_node.exit:                                   ; preds = %gv_calloc.exit18, %39
+  %43 = phi ptr [ %35, %gv_calloc.exit18 ], [ %.pre, %39 ]
+  %44 = getelementptr inbounds i8, ptr %43, i64 256
+  store ptr %2, ptr %44, align 8
+  %45 = load ptr, ptr %12, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 248
+  store ptr null, ptr %46, align 8
+  %47 = load ptr, ptr %34, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 336
+  %49 = load i64, ptr %48, align 8
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %48, align 8
   ret ptr %2
 }
 

@@ -1588,90 +1588,105 @@ _ZNSt6vectorIN3gmx15ChangeAtomsTypeESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK3gmx31OutputRequirementOptionDirector7processEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.gmx::OutputRequirements") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 3>, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %6 = getelementptr inbounds i8, ptr %1, i64 56
-  %7 = load i8, ptr %6, align 8
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %.loopexit
+  store i32 0, ptr %0, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 0, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 3, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %6, i8 0, i64 56, i1 false)
+  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = load i8, ptr %7, align 8
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %.loopexit
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %11, i8 0, i64 36, i1 false)
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
-  %13 = load ptr, ptr %12, align 8
-  br label %14
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 1, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %12, i8 0, i64 36, i1 false)
+  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = load ptr, ptr %13, align 8
+  br label %15
 
-14:                                               ; preds = %9, %14
-  %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds float, ptr %13, i64 %indvars.iv
-  %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds [3 x [3 x float]], ptr %11, i64 0, i64 %indvars.iv, i64 %indvars.iv
-  store float %16, ptr %17, align 4
+15:                                               ; preds = %10, %15
+  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %15 ]
+  %16 = getelementptr inbounds float, ptr %14, i64 %indvars.iv
+  %17 = load float, ptr %16, align 4
+  %18 = getelementptr inbounds [3 x [3 x float]], ptr %12, i64 0, i64 %indvars.iv, i64 %indvars.iv
+  store float %17, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !11
 
-.loopexit:                                        ; preds = %14, %2
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
-  %19 = load i8, ptr %18, align 4
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %24
+.loopexit:                                        ; preds = %15, %2
+  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %20 = load i8, ptr %19, align 4
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %25
 
-21:                                               ; preds = %.loopexit
-  store i32 1, ptr %3, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %23 = load i32, ptr %22, align 8
-  store i32 %23, ptr %4, align 4
-  br label %24
+22:                                               ; preds = %.loopexit
+  store i32 1, ptr %4, align 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = load i32, ptr %23, align 8
+  store i32 %24, ptr %5, align 4
+  br label %25
 
-24:                                               ; preds = %21, %.loopexit
-  %25 = getelementptr inbounds i8, ptr %1, i64 25
-  %26 = load i8, ptr %25, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %32, label %28
+25:                                               ; preds = %22, %.loopexit
+  %26 = getelementptr inbounds i8, ptr %1, i64 25
+  %27 = load i8, ptr %26, align 1
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %33, label %29
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
-  %30 = load i8, ptr %29, align 8
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %39, label %43
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = load i8, ptr %30, align 8
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %43, label %50
 
-32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
-  %34 = getelementptr inbounds i8, ptr %0, i64 20
-  %35 = load <2 x float>, ptr %33, align 8
-  store <2 x float> %35, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
-  %37 = load i8, ptr %36, align 8
-  %38 = trunc i8 %37 to i1
-  %. = select i1 %38, i32 3, i32 2
+33:                                               ; preds = %25
+  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = load float, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 20
+  store float %35, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %1, i64 20
+  %38 = load float, ptr %37, align 4
+  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  store float %38, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = load i8, ptr %40, align 8
+  %42 = trunc i8 %41 to i1
+  %. = select i1 %42, i32 3, i32 2
   br label %.sink.split
 
-39:                                               ; preds = %28
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
-  %41 = getelementptr inbounds i8, ptr %0, i64 20
-  %42 = load <2 x float>, ptr %40, align 8
-  store <2 x float> %42, ptr %41, align 4
+43:                                               ; preds = %29
+  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %45 = load float, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 20
+  store float %45, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %1, i64 20
+  %48 = load float, ptr %47, align 4
+  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  store float %48, ptr %49, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %32, %39
-  %.sink = phi i32 [ 1, %39 ], [ %., %32 ]
-  store i32 %.sink, ptr %5, align 4
-  br label %43
+.sink.split:                                      ; preds = %33, %43
+  %.sink = phi i32 [ 1, %43 ], [ %., %33 ]
+  store i32 %.sink, ptr %6, align 4
+  br label %50
 
-43:                                               ; preds = %.sink.split, %28
-  %44 = getelementptr inbounds i8, ptr %1, i64 60
-  %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %45, ptr %46, align 4
-  %47 = load <2 x i32>, ptr %1, align 8
-  store <2 x i32> %47, ptr %0, align 4
+50:                                               ; preds = %.sink.split, %29
+  %51 = getelementptr inbounds i8, ptr %1, i64 60
+  %52 = load i32, ptr %51, align 4
+  %53 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %52, ptr %53, align 4
+  %54 = load i32, ptr %1, align 8
+  store i32 %54, ptr %0, align 4
+  %55 = getelementptr inbounds i8, ptr %1, i64 4
+  %56 = load i32, ptr %55, align 4
+  store i32 %56, ptr %3, align 4
   ret void
 }
 

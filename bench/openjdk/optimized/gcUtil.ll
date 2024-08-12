@@ -31,16 +31,12 @@ define hidden noundef float @_ZN23AdaptiveWeightedAverage24compute_adaptive_aver
   %14 = tail call noundef i32 @llvm.umax.i32(i32 %13, i32 %.0)
   %15 = uitofp i32 %14 to float
   %16 = fsub float 1.000000e+02, %15
-  %17 = insertelement <2 x float> poison, float %15, i64 0
-  %18 = insertelement <2 x float> %17, float %16, i64 1
-  %19 = insertelement <2 x float> poison, float %1, i64 0
-  %20 = insertelement <2 x float> %19, float %2, i64 1
-  %21 = fmul <2 x float> %18, %20
-  %22 = fdiv <2 x float> %21, <float 1.000000e+02, float 1.000000e+02>
-  %shift = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %23 = fadd <2 x float> %22, %shift
-  %24 = extractelement <2 x float> %23, i64 0
-  ret float %24
+  %17 = fmul float %16, %2
+  %18 = fdiv float %17, 1.000000e+02
+  %19 = fmul float %15, %1
+  %20 = fdiv float %19, 1.000000e+02
+  %21 = fadd float %20, %18
+  ret float %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -264,7 +260,7 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit:       ; preds = %_ZN23AdaptiveWeight
 _ZN23AdaptiveWeightedAverage6sampleEf.exit._crit_edge: ; preds = %_ZN23AdaptiveWeightedAverage6sampleEf.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
   %.pre = load float, ptr %.phi.trans.insert, align 4
-  br label %46
+  br label %43
 
 27:                                               ; preds = %_ZN23AdaptiveWeightedAverage6sampleEf.exit
   %28 = fsub float %1, %25
@@ -283,28 +279,24 @@ _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %27, %
   %35 = tail call noundef i32 @llvm.umax.i32(i32 %17, i32 %.0.i)
   %36 = uitofp i32 %35 to float
   %37 = fsub float 1.000000e+02, %36
-  %38 = insertelement <2 x float> poison, float %29, i64 0
-  %39 = insertelement <2 x float> %38, float %31, i64 1
-  %40 = insertelement <2 x float> poison, float %36, i64 0
-  %41 = insertelement <2 x float> %40, float %37, i64 1
-  %42 = fmul <2 x float> %39, %41
-  %43 = fdiv <2 x float> %42, <float 1.000000e+02, float 1.000000e+02>
-  %shift = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %44 = fadd <2 x float> %43, %shift
-  %45 = extractelement <2 x float> %44, i64 0
-  store float %45, ptr %30, align 4
-  br label %46
+  %38 = fmul float %31, %37
+  %39 = fdiv float %38, 1.000000e+02
+  %40 = fmul float %29, %36
+  %41 = fdiv float %40, 1.000000e+02
+  %42 = fadd float %41, %39
+  store float %42, ptr %30, align 4
+  br label %43
 
-46:                                               ; preds = %_ZN23AdaptiveWeightedAverage6sampleEf.exit._crit_edge, %_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit
-  %47 = phi float [ %.pre, %_ZN23AdaptiveWeightedAverage6sampleEf.exit._crit_edge ], [ %45, %_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = getelementptr inbounds i8, ptr %0, i64 28
-  %50 = load i32, ptr %49, align 4
-  %51 = uitofp i32 %50 to float
-  %52 = tail call float @llvm.fmuladd.f32(float %51, float %47, float %25)
-  %53 = getelementptr inbounds i8, ptr %0, i64 20
-  store float %52, ptr %53, align 4
-  store float %1, ptr %48, align 4
+43:                                               ; preds = %_ZN23AdaptiveWeightedAverage6sampleEf.exit._crit_edge, %_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit
+  %44 = phi float [ %.pre, %_ZN23AdaptiveWeightedAverage6sampleEf.exit._crit_edge ], [ %42, %_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit ]
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds i8, ptr %0, i64 28
+  %47 = load i32, ptr %46, align 4
+  %48 = uitofp i32 %47 to float
+  %49 = tail call float @llvm.fmuladd.f32(float %48, float %44, float %25)
+  %50 = getelementptr inbounds i8, ptr %0, i64 20
+  store float %49, ptr %50, align 4
+  store float %1, ptr %45, align 4
   ret void
 }
 
@@ -316,15 +308,17 @@ define hidden void @_ZN20LinearLeastSquareFitC2Ej(ptr nocapture noundef nonnull 
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   store i8 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
-  store <2 x float> zeroinitializer, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 %1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 84
-  store float 0.000000e+00, ptr %9, align 4
+  store float 0.000000e+00, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 68
+  store float 0.000000e+00, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 %1, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 84
+  store float 0.000000e+00, ptr %10, align 4
   ret void
 }
 

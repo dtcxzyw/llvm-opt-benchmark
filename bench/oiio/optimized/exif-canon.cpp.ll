@@ -894,6 +894,9 @@ entry:
   %ref.tmp = alloca %"class.OpenImageIO_v2_6_0::ustring", align 8
   %ref.tmp8 = alloca %"class.OpenImageIO_v2_6_0::ustring", align 8
   %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %aggregate.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 1
+  %vecsemantics.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 2
+  %reserved.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 3
   %arraylen4.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 4
   br label %for.body
 
@@ -919,7 +922,10 @@ cond.true.i:                                      ; preds = %if.end
 _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; preds = %if.end, %cond.true.i
   %cond.i = phi i64 [ %call.i.i.i, %cond.true.i ], [ 0, %if.end ]
   store i64 %cond.i, ptr %m_len.i, align 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp1, align 4
+  store i8 0, ptr %agg.tmp1, align 4
+  store i8 1, ptr %aggregate.i, align 1
+  store i8 0, ptr %vecsemantics.i, align 2
+  store i8 0, ptr %reserved.i, align 1
   store i32 0, ptr %arraylen4.i, align 4
   %call = call noundef ptr @_ZNK18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, i1 noundef zeroext false)
   %tobool2.not = icmp eq ptr %call, null
@@ -1006,6 +1012,9 @@ for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorItSaItE
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 1
   %conv6.i = trunc i64 %sub.ptr.div.i.i to i32
   %m_len.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %aggregate.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i, i64 1
+  %vecsemantics.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i, i64 2
+  %reserved.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i, i64 3
   %arraylen4.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i, i64 4
   br label %for.body.outer.i
 
@@ -1035,7 +1044,10 @@ cond.true.i.i:                                    ; preds = %if.then.i
 _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.i: ; preds = %cond.true.i.i, %if.then.i
   %cond.i.i = phi i64 [ %call.i.i.i.i, %cond.true.i.i ], [ 0, %if.then.i ]
   store i64 %cond.i.i, ptr %m_len.i.i, align 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp8.i, align 4
+  store i8 0, ptr %agg.tmp8.i, align 4
+  store i8 1, ptr %aggregate.i.i, align 1
+  store i8 0, ptr %vecsemantics.i.i, align 2
+  store i8 0, ptr %reserved.i.i, align 1
   store i32 0, ptr %arraylen4.i.i, align 4
   %call11.i = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp8.i, i1 noundef zeroext false)
           to label %invoke.cont10.i unwind label %lpad9.loopexit.loopexit.i
@@ -1163,6 +1175,9 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 1
   %conv6 = trunc i64 %sub.ptr.div.i to i32
   %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %aggregate.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 1
+  %vecsemantics.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 2
+  %reserved.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 3
   %arraylen4.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 4
   br label %for.body.outer
 
@@ -1191,7 +1206,10 @@ cond.true.i:                                      ; preds = %if.then
 _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; preds = %if.then, %cond.true.i
   %cond.i = phi i64 [ %call.i.i.i, %cond.true.i ], [ 0, %if.then ]
   store i64 %cond.i, ptr %m_len.i, align 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp8, align 4
+  store i8 0, ptr %agg.tmp8, align 4
+  store i8 1, ptr %aggregate.i, align 1
+  store i8 0, ptr %vecsemantics.i, align 2
+  store i8 0, ptr %reserved.i, align 1
   store i32 0, ptr %arraylen4.i, align 4
   %call11 = invoke noundef ptr @_ZNK18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp8, i1 noundef zeroext false)
           to label %invoke.cont10 unwind label %lpad9.loopexit.loopexit
@@ -3066,6 +3084,9 @@ if.end5:                                          ; preds = %lor.lhs.false.i, %i
 for.body.lr.ph:                                   ; preds = %if.end5
   %tdir_count = getelementptr inbounds i8, ptr %dir, i64 4
   %m_len.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %aggregate.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 1
+  %vecsemantics.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 2
+  %reserved.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 3
   %arraylen4.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 4
   br i1 %swapendian, label %for.body.us, label %for.body
 
@@ -3103,7 +3124,10 @@ _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us: ;
   store i32 %conv15.us, ptr %value.addr.i, align 4
   store ptr %6, ptr %agg.tmp.i, align 8
   store i64 %cond.i.us, ptr %m_len.i.i, align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i, align 4
+  store i8 7, ptr %agg.tmp2.i, align 4
+  store i8 1, ptr %aggregate.i.i, align 1
+  store i8 0, ptr %vecsemantics.i.i, align 2
+  store i8 0, ptr %reserved.i.i, align 1
   store i32 0, ptr %arraylen4.i.i, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i, ptr noundef nonnull %value.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
@@ -3149,7 +3173,10 @@ _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; pr
   store i32 %conv15, ptr %value.addr.i, align 4
   store ptr %10, ptr %agg.tmp.i, align 8
   store i64 %cond.i, ptr %m_len.i.i, align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i, align 4
+  store i8 7, ptr %agg.tmp2.i, align 4
+  store i8 1, ptr %aggregate.i.i, align 1
+  store i8 0, ptr %vecsemantics.i.i, align 2
+  store i8 0, ptr %reserved.i.i, align 1
   store i32 0, ptr %arraylen4.i.i, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i, ptr noundef nonnull %value.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
@@ -3216,6 +3243,9 @@ if.end5:                                          ; preds = %lor.lhs.false.i, %i
 for.body.lr.ph:                                   ; preds = %if.end5
   %tdir_count = getelementptr inbounds i8, ptr %dir, i64 4
   %m_len.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %aggregate.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 1
+  %vecsemantics.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 2
+  %reserved.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 3
   %arraylen4.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 4
   br i1 %swapendian, label %for.body.us, label %for.body
 
@@ -3253,7 +3283,10 @@ _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us: ;
   store i32 %conv15.us, ptr %value.addr.i, align 4
   store ptr %6, ptr %agg.tmp.i, align 8
   store i64 %cond.i.us, ptr %m_len.i.i, align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i, align 4
+  store i8 7, ptr %agg.tmp2.i, align 4
+  store i8 1, ptr %aggregate.i.i, align 1
+  store i8 0, ptr %vecsemantics.i.i, align 2
+  store i8 0, ptr %reserved.i.i, align 1
   store i32 0, ptr %arraylen4.i.i, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i, ptr noundef nonnull %value.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
@@ -3299,7 +3332,10 @@ _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; pr
   store i32 %conv15, ptr %value.addr.i, align 4
   store ptr %10, ptr %agg.tmp.i, align 8
   store i64 %cond.i, ptr %m_len.i.i, align 8
-  store <4 x i8> <i8 7, i8 1, i8 0, i8 0>, ptr %agg.tmp2.i, align 4
+  store i8 7, ptr %agg.tmp2.i, align 4
+  store i8 1, ptr %aggregate.i.i, align 1
+  store i8 0, ptr %vecsemantics.i.i, align 2
+  store i8 0, ptr %reserved.i.i, align 1
   store i32 0, ptr %arraylen4.i.i, align 4
   call void @_ZN18OpenImageIO_v2_6_09ImageSpec9attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPKv(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i, ptr noundef nonnull %value.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)

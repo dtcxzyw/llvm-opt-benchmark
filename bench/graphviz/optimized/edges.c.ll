@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @edgeinit() local_unnamed_addr #0 {
-  tail call void @freeinit(ptr noundef nonnull @efl, i32 noundef 64) #5
+  tail call void @freeinit(ptr noundef nonnull @efl, i32 noundef 64) #4
   store i32 0, ptr @nedges, align 4
   ret void
 }
@@ -23,42 +23,42 @@ declare void @freeinit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @gvbisect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @getfree(ptr noundef nonnull @efl) #5
+  %3 = tail call ptr @getfree(ptr noundef nonnull @efl) #4
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr %1, ptr %5, align 8
-  tail call void @ref(ptr noundef %0) #5
-  tail call void @ref(ptr noundef %1) #5
+  tail call void @ref(ptr noundef %0) #4
+  tail call void @ref(ptr noundef %1) #4
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %7 = load <2 x double>, ptr %1, align 8
-  %8 = load <2 x double>, ptr %0, align 8
-  %9 = fsub <2 x double> %7, %8
-  %10 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %9)
-  %11 = extractelement <2 x double> %9, i64 1
-  %12 = fmul <2 x double> %8, %9
-  %13 = extractelement <2 x double> %12, i64 1
-  %14 = extractelement <2 x double> %9, i64 0
-  %15 = extractelement <2 x double> %8, i64 0
-  %16 = tail call double @llvm.fmuladd.f64(double %15, double %14, double %13)
-  %17 = fmul double %11, %11
-  %18 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %17)
-  %19 = tail call double @llvm.fmuladd.f64(double %18, double 5.000000e-01, double %16)
-  %20 = getelementptr inbounds i8, ptr %3, i64 16
-  %21 = extractelement <2 x double> %10, i64 0
-  %22 = extractelement <2 x double> %10, i64 1
-  %23 = fcmp ogt double %21, %22
-  %24 = fdiv double %11, %14
-  %25 = fdiv double %14, %11
+  %7 = load double, ptr %1, align 8
+  %8 = load double, ptr %0, align 8
+  %9 = fsub double %7, %8
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = load double, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load double, ptr %12, align 8
+  %14 = fsub double %11, %13
+  %15 = tail call double @llvm.fabs.f64(double %9)
+  %16 = tail call double @llvm.fabs.f64(double %14)
+  %17 = fmul double %13, %14
+  %18 = tail call double @llvm.fmuladd.f64(double %8, double %9, double %17)
+  %19 = fmul double %14, %14
+  %20 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %19)
+  %21 = tail call double @llvm.fmuladd.f64(double %20, double 5.000000e-01, double %18)
+  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = fcmp ogt double %15, %16
+  %24 = fdiv double %14, %9
+  %25 = fdiv double %9, %14
   %.sink39 = select i1 %23, double 1.000000e+00, double %25
   %.sink = select i1 %23, double %24, double 1.000000e+00
-  %.pn = select i1 %23, double %14, double %11
+  %.pn = select i1 %23, double %9, double %14
   store double %.sink39, ptr %3, align 8
   %26 = getelementptr inbounds i8, ptr %3, i64 8
   store double %.sink, ptr %26, align 8
-  %storemerge = fdiv double %19, %.pn
-  store double %storemerge, ptr %20, align 8
+  %storemerge = fdiv double %21, %.pn
+  store double %storemerge, ptr %22, align 8
   %27 = load i32, ptr @nedges, align 4
   %28 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 %27, ptr %28, align 8
@@ -70,6 +70,9 @@ define ptr @gvbisect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 declare ptr @getfree(ptr noundef) local_unnamed_addr #1
 
 declare void @ref(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #2
@@ -372,14 +375,14 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   %.2 = phi double [ %84, %80 ], [ %.1, %78 ], [ %136, %160 ], [ %.4, %158 ]
   %166 = getelementptr inbounds i8, ptr %0, i64 40
   %167 = load ptr, ptr %166, align 8
-  tail call void @addVertex(ptr noundef %167, double noundef %.3109, double noundef %.399) #5
+  tail call void @addVertex(ptr noundef %167, double noundef %.3109, double noundef %.399) #4
   %168 = load ptr, ptr %166, align 8
-  tail call void @addVertex(ptr noundef %168, double noundef %.2103, double noundef %.2) #5
+  tail call void @addVertex(ptr noundef %168, double noundef %.2103, double noundef %.2) #4
   %169 = getelementptr inbounds i8, ptr %0, i64 48
   %170 = load ptr, ptr %169, align 8
-  tail call void @addVertex(ptr noundef %170, double noundef %.3109, double noundef %.399) #5
+  tail call void @addVertex(ptr noundef %170, double noundef %.3109, double noundef %.399) #4
   %171 = load ptr, ptr %169, align 8
-  tail call void @addVertex(ptr noundef %171, double noundef %.2103, double noundef %.2) #5
+  tail call void @addVertex(ptr noundef %171, double noundef %.2103, double noundef %.2) #4
   br label %172
 
 172:                                              ; preds = %135, %131, %55, %51, %111, %88, %31, %8, %165
@@ -392,7 +395,7 @@ define void @endpoint(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %5
   store ptr %2, ptr %6, align 8
-  tail call void @ref(ptr noundef %2) #5
+  tail call void @ref(ptr noundef %2) #4
   %7 = sub nsw i32 1, %1
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %8
@@ -404,11 +407,11 @@ define void @endpoint(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   tail call void @clip_line(ptr noundef nonnull %0)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
-  tail call void @deref(ptr noundef %14) #5
+  tail call void @deref(ptr noundef %14) #4
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
-  tail call void @deref(ptr noundef %16) #5
-  tail call void @makefree(ptr noundef nonnull %0, ptr noundef nonnull @efl) #5
+  tail call void @deref(ptr noundef %16) #4
+  tail call void @makefree(ptr noundef nonnull %0, ptr noundef nonnull @efl) #4
   br label %17
 
 17:                                               ; preds = %3, %12
@@ -424,15 +427,11 @@ declare void @addVertex(ptr noundef, double noundef, double noundef) local_unnam
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #4
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

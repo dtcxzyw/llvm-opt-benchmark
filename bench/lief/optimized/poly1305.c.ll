@@ -572,50 +572,67 @@ define hidden noundef i32 @mbedtls_poly1305_mac(ptr nocapture noundef readonly %
   %17 = or disjoint i32 %12, %.masked.i
   store i32 %17, ptr %5, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 4
-  %20 = load <2 x i32>, ptr %18, align 1
-  %21 = and <2 x i32> %20, <i32 268435452, i32 268435452>
-  store <2 x i32> %21, ptr %19, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = load i32, ptr %18, align 1
+  %20 = and i32 %19, 268435452
+  %21 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %20, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 1
   %24 = and i32 %23, 268435452
-  %25 = getelementptr inbounds i8, ptr %5, i64 12
-  store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
-  %28 = load <4 x i32>, ptr %26, align 1
-  store <4 x i32> %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
-  %30 = getelementptr inbounds i8, ptr %5, i64 52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %29, i8 0, i64 20, i1 false)
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %30, i64 noundef 16) #8
-  %31 = getelementptr inbounds i8, ptr %5, i64 72
-  store i64 0, ptr %31, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 12
+  %27 = load i32, ptr %26, align 1
+  %28 = and i32 %27, 268435452
+  %29 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %28, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = load i32, ptr %30, align 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = load i32, ptr %33, align 1
+  %35 = getelementptr inbounds i8, ptr %5, i64 20
+  store i32 %34, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = load i32, ptr %36, align 1
+  %38 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 28
+  %40 = load i32, ptr %39, align 1
+  %41 = getelementptr inbounds i8, ptr %5, i64 28
+  store i32 %40, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %5, i64 32
+  %43 = getelementptr inbounds i8, ptr %5, i64 52
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %42, i8 0, i64 20, i1 false)
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %43, i64 noundef 16) #8
+  %44 = getelementptr inbounds i8, ptr %5, i64 72
+  store i64 0, ptr %44, align 8
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %mbedtls_poly1305_update.exit, label %32
+  br i1 %.not.i, label %mbedtls_poly1305_update.exit, label %45
 
-32:                                               ; preds = %4
-  %33 = icmp ugt i64 %2, 15
-  br i1 %33, label %34, label %.thread
+45:                                               ; preds = %4
+  %46 = icmp ugt i64 %2, 15
+  br i1 %46, label %47, label %.thread
 
-34:                                               ; preds = %32
-  %35 = lshr i64 %2, 4
-  call fastcc void @poly1305_process(ptr noundef nonnull %5, i64 noundef %35, ptr noundef readonly %1, i32 noundef 1)
-  %36 = and i64 %2, -16
-  %37 = and i64 %2, 15
-  %.not45.i = icmp eq i64 %37, 0
+47:                                               ; preds = %45
+  %48 = lshr i64 %2, 4
+  call fastcc void @poly1305_process(ptr noundef nonnull %5, i64 noundef %48, ptr noundef readonly %1, i32 noundef 1)
+  %49 = and i64 %2, -16
+  %50 = and i64 %2, 15
+  %.not45.i = icmp eq i64 %50, 0
   br i1 %.not45.i, label %mbedtls_poly1305_update.exit, label %.thread
 
-.thread:                                          ; preds = %32, %34
-  %.1.i12 = phi i64 [ %36, %34 ], [ 0, %32 ]
-  %.139.i11 = phi i64 [ %37, %34 ], [ %2, %32 ]
-  store i64 %.139.i11, ptr %31, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 %.1.i12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %30, ptr readonly align 1 %38, i64 %.139.i11, i1 false)
+.thread:                                          ; preds = %45, %47
+  %.1.i12 = phi i64 [ %49, %47 ], [ 0, %45 ]
+  %.139.i11 = phi i64 [ %50, %47 ], [ %2, %45 ]
+  store i64 %.139.i11, ptr %44, align 8
+  %51 = getelementptr inbounds i8, ptr %1, i64 %.1.i12
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %43, ptr readonly align 1 %51, i64 %.139.i11, i1 false)
   br label %mbedtls_poly1305_update.exit
 
-mbedtls_poly1305_update.exit:                     ; preds = %4, %34, %.thread
-  %39 = call i32 @mbedtls_poly1305_finish(ptr noundef nonnull %5, ptr noundef %3)
+mbedtls_poly1305_update.exit:                     ; preds = %4, %47, %.thread
+  %52 = call i32 @mbedtls_poly1305_finish(ptr noundef nonnull %5, ptr noundef %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 80) #8
   ret i32 0
 }

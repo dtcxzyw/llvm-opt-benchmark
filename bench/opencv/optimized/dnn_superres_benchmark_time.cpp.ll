@@ -107,12 +107,12 @@ define hidden noundef range(i32 -2, 1) i32 @main(i32 noundef %0, ptr nocapture n
   %9 = alloca %"class.cv::_OutputArray", align 8
   %10 = alloca %"class.cv::_InputOutputArray", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  %12 = alloca %"class.cv::Scalar_", align 16
+  %12 = alloca %"class.cv::Scalar_", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::allocator", align 1
   %15 = alloca %"class.cv::_InputOutputArray", align 8
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
-  %17 = alloca %"class.cv::Scalar_", align 16
+  %17 = alloca %"class.cv::Scalar_", align 8
   %18 = alloca %"class.cv::_OutputArray", align 8
   %19 = alloca %"class.cv::Mat", align 8
   %20 = alloca %"class.cv::_InputArray", align 8
@@ -1096,8 +1096,12 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc159
   %438 = getelementptr inbounds i8, ptr %18, i64 8
   %439 = getelementptr inbounds i8, ptr %18, i64 16
   %wide.trip.count.i = and i64 %407, 2147483647
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 24
+  %.sroa.3.0..sroa_idx70.i = getelementptr inbounds i8, ptr %17, i64 8
   %.sroa.4.0..sroa_idx72.i = getelementptr inbounds i8, ptr %17, i64 16
+  %.sroa.5.0..sroa_idx74.i = getelementptr inbounds i8, ptr %17, i64 24
   br label %442
 
 440:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit.i
@@ -1146,8 +1150,10 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc159
           to label %.preheader64.preheader.i unwind label %472
 
 .preheader64.preheader.i:                         ; preds = %455
-  store <2 x double> <double 2.550000e+02, double 2.550000e+02>, ptr %12, align 16
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr %.sroa.4.0..sroa_idx.i, align 16
+  store double 2.550000e+02, ptr %12, align 8
+  store double 2.550000e+02, ptr %.sroa.3.0..sroa_idx.i, align 8
+  store double 2.550000e+02, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store double 0.000000e+00, ptr %.sroa.5.0..sroa_idx.i, align 8
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 64424509445, i32 noundef 5, double noundef 1.000000e+00, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 16, i1 noundef zeroext false)
           to label %456 unwind label %474
 
@@ -1177,8 +1183,10 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc159
           to label %.preheader.preheader.i unwind label %481
 
 .preheader.preheader.i:                           ; preds = %462
-  store <2 x double> <double 2.550000e+02, double 2.550000e+02>, ptr %17, align 16
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr %.sroa.4.0..sroa_idx72.i, align 16
+  store double 2.550000e+02, ptr %17, align 8
+  store double 2.550000e+02, ptr %.sroa.3.0..sroa_idx70.i, align 8
+  store double 2.550000e+02, ptr %.sroa.4.0..sroa_idx72.i, align 8
+  store double 0.000000e+00, ptr %.sroa.5.0..sroa_idx74.i, align 8
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 150323855365, i32 noundef 5, double noundef 1.000000e+00, ptr noundef nonnull %17, i32 noundef 1, i32 noundef 16, i1 noundef zeroext false)
           to label %463 unwind label %483
 

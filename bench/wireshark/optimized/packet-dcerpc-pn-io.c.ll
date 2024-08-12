@@ -8230,7 +8230,7 @@ define internal fastcc void @dissect_ARBlockReq_block(ptr noundef %0, i32 nounde
   %24 = zext i8 %7 to i32
   %25 = zext i8 %6 to i32
   %26 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %4, ptr noundef nonnull @ei_pn_io_block_version, ptr noundef nonnull @.str.1317, i32 noundef %25, i32 noundef %24) #11
-  br label %211
+  br label %223
 
 27:                                               ; preds = %9
   %28 = load i8, ptr %5, align 1
@@ -8303,7 +8303,7 @@ decode_ARType_spezial.exit:                       ; preds = %44, %44, %47, %48, 
   %55 = icmp eq i16 %.in, 32
   %56 = load i32, ptr @hf_pn_io_ar_uuid, align 4
   %57 = call i32 @dissect_dcerpc_uuid_t(ptr noundef %0, i32 noundef %54, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %56, ptr noundef nonnull %10) #11
-  br i1 %55, label %58, label %137
+  br i1 %55, label %58, label %149
 
 58:                                               ; preds = %53
   %59 = load i32, ptr @hf_pn_io_ar_uuid, align 4
@@ -8332,7 +8332,7 @@ decode_ARType_spezial.exit:                       ; preds = %44, %44, %47, %48, 
   %82 = load i16, ptr %81, align 2
   %83 = and i16 %82, 8
   %.not156 = icmp eq i16 %83, 0
-  br i1 %.not156, label %84, label %137
+  br i1 %.not156, label %84, label %149
 
 84:                                               ; preds = %58
   %85 = getelementptr inbounds i8, ptr %2, i64 20
@@ -8353,7 +8353,7 @@ decode_ARType_spezial.exit:                       ; preds = %44, %44, %47, %48, 
   %95 = load i32, ptr @proto_pn_io_apdu_status, align 4
   %96 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.0, i32 noundef %95) #11
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %98, label %119
+  br i1 %97, label %98, label %125
 
 98:                                               ; preds = %94
   %99 = call ptr @wmem_file_scope() #11
@@ -8362,191 +8362,207 @@ decode_ARType_spezial.exit:                       ; preds = %44, %44, %47, %48, 
   %102 = getelementptr inbounds i8, ptr %.0, i64 64
   %103 = load ptr, ptr %102, align 8
   %104 = call ptr @conversation_key_addr1(ptr noundef %103) #11
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = load <2 x i32>, ptr %104, align 8
-  store <2 x i32> %107, ptr %101, align 8
-  %108 = getelementptr inbounds i8, ptr %100, i64 40
-  store ptr %106, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %100, i64 48
-  store ptr null, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %100, i64 8
-  %111 = load ptr, ptr %102, align 8
-  %112 = call ptr @conversation_key_addr2(ptr noundef %111) #11
-  %113 = getelementptr inbounds i8, ptr %112, i64 8
-  %114 = load ptr, ptr %113, align 8
-  %115 = load <2 x i32>, ptr %112, align 8
-  store <2 x i32> %115, ptr %110, align 8
-  %116 = getelementptr inbounds i8, ptr %100, i64 16
-  store ptr %114, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %100, i64 24
-  store ptr null, ptr %117, align 8
+  %105 = load i32, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %104, i64 4
+  %107 = load i32, ptr %106, align 4
+  %108 = getelementptr inbounds i8, ptr %104, i64 8
+  %109 = load ptr, ptr %108, align 8
+  store i32 %105, ptr %101, align 8
+  %110 = getelementptr inbounds i8, ptr %100, i64 36
+  store i32 %107, ptr %110, align 4
+  %111 = getelementptr inbounds i8, ptr %100, i64 40
+  store ptr %109, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %100, i64 48
+  store ptr null, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %100, i64 8
+  %114 = load ptr, ptr %102, align 8
+  %115 = call ptr @conversation_key_addr2(ptr noundef %114) #11
+  %116 = load i32, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %115, i64 4
+  %118 = load i32, ptr %117, align 4
+  %119 = getelementptr inbounds i8, ptr %115, i64 8
+  %120 = load ptr, ptr %119, align 8
+  store i32 %116, ptr %113, align 8
+  %121 = getelementptr inbounds i8, ptr %100, i64 12
+  store i32 %118, ptr %121, align 4
+  %122 = getelementptr inbounds i8, ptr %100, i64 16
+  store ptr %120, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %100, i64 24
+  store ptr null, ptr %123, align 8
   store i32 1, ptr %100, align 8
-  %118 = load i32, ptr @proto_pn_io_apdu_status, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %.0, i32 noundef %118, ptr noundef nonnull %100) #11
-  br label %137
-
-119:                                              ; preds = %94
-  %120 = getelementptr inbounds i8, ptr %96, i64 32
-  %121 = getelementptr inbounds i8, ptr %.0, i64 64
-  %122 = load ptr, ptr %121, align 8
-  %123 = call ptr @conversation_key_addr1(ptr noundef %122) #11
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = load <2 x i32>, ptr %123, align 8
-  store <2 x i32> %126, ptr %120, align 8
-  %127 = getelementptr inbounds i8, ptr %96, i64 40
-  store ptr %125, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %96, i64 48
-  store ptr null, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %96, i64 8
-  %130 = load ptr, ptr %121, align 8
-  %131 = call ptr @conversation_key_addr2(ptr noundef %130) #11
-  %132 = getelementptr inbounds i8, ptr %131, i64 8
-  %133 = load ptr, ptr %132, align 8
-  %134 = load <2 x i32>, ptr %131, align 8
-  store <2 x i32> %134, ptr %129, align 8
-  %135 = getelementptr inbounds i8, ptr %96, i64 16
-  store ptr %133, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %96, i64 24
-  store ptr null, ptr %136, align 8
-  store i32 1, ptr %96, align 8
-  br label %137
-
-137:                                              ; preds = %53, %58, %119, %98
-  %.0147 = phi i32 [ %78, %58 ], [ %78, %98 ], [ %78, %119 ], [ %57, %53 ]
-  %138 = getelementptr inbounds i8, ptr %2, i64 80
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 50
-  %141 = load i16, ptr %140, align 2
-  %142 = and i16 %141, 8
-  %.not157 = icmp eq i16 %142, 0
-  br i1 %.not157, label %143, label %149
-
-143:                                              ; preds = %137
-  %144 = getelementptr inbounds i8, ptr %2, i64 20
-  %145 = load i32, ptr %144, align 4
-  %146 = load i64, ptr %10, align 8
-  %147 = getelementptr inbounds i8, ptr %10, i64 8
-  %148 = load i64, ptr %147, align 8
-  call void @pn_init_append_aruuid_frame_setup_list(i64 %146, i64 %148, i32 noundef %145) #11
+  %124 = load i32, ptr @proto_pn_io_apdu_status, align 4
+  call void @conversation_add_proto_data(ptr noundef nonnull %.0, i32 noundef %124, ptr noundef nonnull %100) #11
   br label %149
 
-149:                                              ; preds = %143, %137
-  %150 = load i32, ptr @hf_pn_io_sessionkey, align 4
-  %151 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.0147, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %150, ptr noundef nonnull %12) #11
-  %152 = load i32, ptr @hf_pn_io_cminitiator_macadd, align 4
-  %153 = call i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %151, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %152, ptr noundef nonnull %13) #11
-  %154 = load i32, ptr @hf_pn_io_cminitiator_objectuuid, align 4
-  %155 = call i32 @dissect_dcerpc_uuid_t(ptr noundef %0, i32 noundef %153, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %154, ptr noundef nonnull %11) #11
-  %156 = call fastcc i32 @dissect_ARProperties(ptr noundef %0, i32 noundef %155, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5)
-  %157 = load i32, ptr @hf_pn_io_cminitiator_activitytimeoutfactor, align 4
-  %158 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %156, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %157, ptr noundef nonnull %14) #11
-  %159 = load i32, ptr @hf_pn_io_cminitiator_udprtport, align 4
-  %160 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %158, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %159, ptr noundef nonnull %15) #11
-  %161 = load i32, ptr @hf_pn_io_station_name_length, align 4
-  %162 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %160, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %161, ptr noundef nonnull %16) #11
-  %163 = load i32, ptr @hf_pn_io_cminitiator_station_name, align 4
-  %164 = load i16, ptr %16, align 2
-  %165 = zext i16 %164 to i32
-  %166 = getelementptr inbounds i8, ptr %2, i64 408
-  %167 = load ptr, ptr %166, align 8
-  %168 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %3, i32 noundef %163, ptr noundef %0, i32 noundef %162, i32 noundef %165, i32 noundef 0, ptr noundef %167, ptr noundef nonnull %17) #11
-  switch i16 %.in, label %173 [
+125:                                              ; preds = %94
+  %126 = getelementptr inbounds i8, ptr %96, i64 32
+  %127 = getelementptr inbounds i8, ptr %.0, i64 64
+  %128 = load ptr, ptr %127, align 8
+  %129 = call ptr @conversation_key_addr1(ptr noundef %128) #11
+  %130 = load i32, ptr %129, align 8
+  %131 = getelementptr inbounds i8, ptr %129, i64 4
+  %132 = load i32, ptr %131, align 4
+  %133 = getelementptr inbounds i8, ptr %129, i64 8
+  %134 = load ptr, ptr %133, align 8
+  store i32 %130, ptr %126, align 8
+  %135 = getelementptr inbounds i8, ptr %96, i64 36
+  store i32 %132, ptr %135, align 4
+  %136 = getelementptr inbounds i8, ptr %96, i64 40
+  store ptr %134, ptr %136, align 8
+  %137 = getelementptr inbounds i8, ptr %96, i64 48
+  store ptr null, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %96, i64 8
+  %139 = load ptr, ptr %127, align 8
+  %140 = call ptr @conversation_key_addr2(ptr noundef %139) #11
+  %141 = load i32, ptr %140, align 8
+  %142 = getelementptr inbounds i8, ptr %140, i64 4
+  %143 = load i32, ptr %142, align 4
+  %144 = getelementptr inbounds i8, ptr %140, i64 8
+  %145 = load ptr, ptr %144, align 8
+  store i32 %141, ptr %138, align 8
+  %146 = getelementptr inbounds i8, ptr %96, i64 12
+  store i32 %143, ptr %146, align 4
+  %147 = getelementptr inbounds i8, ptr %96, i64 16
+  store ptr %145, ptr %147, align 8
+  %148 = getelementptr inbounds i8, ptr %96, i64 24
+  store ptr null, ptr %148, align 8
+  store i32 1, ptr %96, align 8
+  br label %149
+
+149:                                              ; preds = %53, %58, %125, %98
+  %.0147 = phi i32 [ %78, %58 ], [ %78, %98 ], [ %78, %125 ], [ %57, %53 ]
+  %150 = getelementptr inbounds i8, ptr %2, i64 80
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 50
+  %153 = load i16, ptr %152, align 2
+  %154 = and i16 %153, 8
+  %.not157 = icmp eq i16 %154, 0
+  br i1 %.not157, label %155, label %161
+
+155:                                              ; preds = %149
+  %156 = getelementptr inbounds i8, ptr %2, i64 20
+  %157 = load i32, ptr %156, align 4
+  %158 = load i64, ptr %10, align 8
+  %159 = getelementptr inbounds i8, ptr %10, i64 8
+  %160 = load i64, ptr %159, align 8
+  call void @pn_init_append_aruuid_frame_setup_list(i64 %158, i64 %160, i32 noundef %157) #11
+  br label %161
+
+161:                                              ; preds = %155, %149
+  %162 = load i32, ptr @hf_pn_io_sessionkey, align 4
+  %163 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.0147, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %162, ptr noundef nonnull %12) #11
+  %164 = load i32, ptr @hf_pn_io_cminitiator_macadd, align 4
+  %165 = call i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %163, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %164, ptr noundef nonnull %13) #11
+  %166 = load i32, ptr @hf_pn_io_cminitiator_objectuuid, align 4
+  %167 = call i32 @dissect_dcerpc_uuid_t(ptr noundef %0, i32 noundef %165, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %166, ptr noundef nonnull %11) #11
+  %168 = call fastcc i32 @dissect_ARProperties(ptr noundef %0, i32 noundef %167, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5)
+  %169 = load i32, ptr @hf_pn_io_cminitiator_activitytimeoutfactor, align 4
+  %170 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %168, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %169, ptr noundef nonnull %14) #11
+  %171 = load i32, ptr @hf_pn_io_cminitiator_udprtport, align 4
+  %172 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %170, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %171, ptr noundef nonnull %15) #11
+  %173 = load i32, ptr @hf_pn_io_station_name_length, align 4
+  %174 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %172, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %173, ptr noundef nonnull %16) #11
+  %175 = load i32, ptr @hf_pn_io_cminitiator_station_name, align 4
+  %176 = load i16, ptr %16, align 2
+  %177 = zext i16 %176 to i32
+  %178 = getelementptr inbounds i8, ptr %2, i64 408
+  %179 = load ptr, ptr %178, align 8
+  %180 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %3, i32 noundef %175, ptr noundef %0, i32 noundef %174, i32 noundef %177, i32 noundef 0, ptr noundef %179, ptr noundef nonnull %17) #11
+  switch i16 %.in, label %185 [
     i16 1, label %decode_ARType_spezial.exit162
     i16 3, label %decode_ARType_spezial.exit162
-    i16 16, label %169
-    i16 32, label %170
-    i16 6, label %171
+    i16 16, label %181
+    i16 32, label %182
+    i16 6, label %183
   ]
 
-169:                                              ; preds = %149
+181:                                              ; preds = %161
   br label %decode_ARType_spezial.exit162
 
-170:                                              ; preds = %149
+182:                                              ; preds = %161
   br label %decode_ARType_spezial.exit162
 
-171:                                              ; preds = %149
-  %172 = and i32 %36, 65535
-  %.not.i159 = icmp eq i32 %172, 0
+183:                                              ; preds = %161
+  %184 = and i32 %36, 65535
+  %.not.i159 = icmp eq i32 %184, 0
   %.str.1367..str.1366.i160 = select i1 %.not.i159, ptr @.str.1367, ptr @.str.1366
   br label %decode_ARType_spezial.exit162
 
-173:                                              ; preds = %149
+185:                                              ; preds = %161
   br label %decode_ARType_spezial.exit162
 
-decode_ARType_spezial.exit162:                    ; preds = %149, %149, %169, %170, %171, %173
-  %.0.i161 = phi ptr [ @.str.1364, %169 ], [ @.str.1365, %170 ], [ @.str.1368, %173 ], [ @.str.1363, %149 ], [ @.str.1363, %149 ], [ %.str.1367..str.1366.i160, %171 ]
-  %174 = load i16, ptr %12, align 2
-  %175 = zext i16 %174 to i32
-  %176 = load i8, ptr %13, align 1
-  %177 = zext i8 %176 to i32
-  %178 = getelementptr inbounds i8, ptr %13, i64 1
-  %179 = load i8, ptr %178, align 1
-  %180 = zext i8 %179 to i32
-  %181 = getelementptr inbounds i8, ptr %13, i64 2
-  %182 = load i8, ptr %181, align 1
-  %183 = zext i8 %182 to i32
-  %184 = getelementptr inbounds i8, ptr %13, i64 3
-  %185 = load i8, ptr %184, align 1
-  %186 = zext i8 %185 to i32
-  %187 = getelementptr inbounds i8, ptr %13, i64 4
-  %188 = load i8, ptr %187, align 1
+decode_ARType_spezial.exit162:                    ; preds = %161, %161, %181, %182, %183, %185
+  %.0.i161 = phi ptr [ @.str.1364, %181 ], [ @.str.1365, %182 ], [ @.str.1368, %185 ], [ @.str.1363, %161 ], [ @.str.1363, %161 ], [ %.str.1367..str.1366.i160, %183 ]
+  %186 = load i16, ptr %12, align 2
+  %187 = zext i16 %186 to i32
+  %188 = load i8, ptr %13, align 1
   %189 = zext i8 %188 to i32
-  %190 = getelementptr inbounds i8, ptr %13, i64 5
+  %190 = getelementptr inbounds i8, ptr %13, i64 1
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i32
-  %193 = load i16, ptr %15, align 2
-  %194 = zext i16 %193 to i32
-  %195 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1362, ptr noundef nonnull %.0.i161, i32 noundef %175, i32 noundef %177, i32 noundef %180, i32 noundef %183, i32 noundef %186, i32 noundef %189, i32 noundef %192, i32 noundef %194, ptr noundef %195) #11
-  br i1 %55, label %210, label %196
+  %193 = getelementptr inbounds i8, ptr %13, i64 2
+  %194 = load i8, ptr %193, align 1
+  %195 = zext i8 %194 to i32
+  %196 = getelementptr inbounds i8, ptr %13, i64 3
+  %197 = load i8, ptr %196, align 1
+  %198 = zext i8 %197 to i32
+  %199 = getelementptr inbounds i8, ptr %13, i64 4
+  %200 = load i8, ptr %199, align 1
+  %201 = zext i8 %200 to i32
+  %202 = getelementptr inbounds i8, ptr %13, i64 5
+  %203 = load i8, ptr %202, align 1
+  %204 = zext i8 %203 to i32
+  %205 = load i16, ptr %15, align 2
+  %206 = zext i16 %205 to i32
+  %207 = load ptr, ptr %17, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1362, ptr noundef nonnull %.0.i161, i32 noundef %187, i32 noundef %189, i32 noundef %192, i32 noundef %195, i32 noundef %198, i32 noundef %201, i32 noundef %204, i32 noundef %206, ptr noundef %207) #11
+  br i1 %55, label %222, label %208
 
-196:                                              ; preds = %decode_ARType_spezial.exit162
+208:                                              ; preds = %decode_ARType_spezial.exit162
   %.081.i = load ptr, ptr @pnio_ars, align 8
   %.not2.i = icmp eq ptr %.081.i, null
   br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i
 
-197:                                              ; preds = %.lr.ph.i
-  %198 = getelementptr inbounds i8, ptr %.083.i, i64 8
-  %.08.i = load ptr, ptr %198, align 8
+209:                                              ; preds = %.lr.ph.i
+  %210 = getelementptr inbounds i8, ptr %.083.i, i64 8
+  %.08.i = load ptr, ptr %210, align 8
   %.not.i163 = icmp eq ptr %.08.i, null
   br i1 %.not.i163, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i, !llvm.loop !15
 
-.lr.ph.i:                                         ; preds = %196, %197
-  %.083.i = phi ptr [ %.08.i, %197 ], [ %.081.i, %196 ]
-  %199 = load ptr, ptr %.083.i, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %199, ptr noundef nonnull readonly dereferenceable(16) %10, i64 16)
-  %200 = icmp eq i32 %bcmp.i, 0
-  br i1 %200, label %pnio_ar_find_by_aruuid.exit, label %197
+.lr.ph.i:                                         ; preds = %208, %209
+  %.083.i = phi ptr [ %.08.i, %209 ], [ %.081.i, %208 ]
+  %211 = load ptr, ptr %.083.i, align 8
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %211, ptr noundef nonnull readonly dereferenceable(16) %10, i64 16)
+  %212 = icmp eq i32 %bcmp.i, 0
+  br i1 %212, label %pnio_ar_find_by_aruuid.exit, label %209
 
 pnio_ar_find_by_aruuid.exit:                      ; preds = %.lr.ph.i
-  %201 = icmp eq ptr %199, null
-  br i1 %201, label %pnio_ar_find_by_aruuid.exit.thread, label %210
+  %213 = icmp eq ptr %211, null
+  br i1 %213, label %pnio_ar_find_by_aruuid.exit.thread, label %222
 
-pnio_ar_find_by_aruuid.exit.thread:               ; preds = %197, %196, %pnio_ar_find_by_aruuid.exit
-  %202 = call ptr @wmem_file_scope() #11
-  %203 = call noalias ptr @wmem_alloc0(ptr noundef %202, i64 noundef 40) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %203, ptr noundef nonnull readonly align 8 dereferenceable(16) %10, i64 16, i1 false)
-  %204 = getelementptr inbounds i8, ptr %203, i64 26
-  store i16 -1, ptr %204, align 2
-  %205 = getelementptr inbounds i8, ptr %203, i64 34
-  store i16 -1, ptr %205, align 2
-  %206 = load ptr, ptr @pnio_ars, align 8
-  %207 = call ptr @g_list_append(ptr noundef %206, ptr noundef %203) #11
-  store ptr %207, ptr @pnio_ars, align 8
-  %208 = getelementptr inbounds i8, ptr %203, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %208, ptr noundef nonnull align 1 dereferenceable(6) %13, i64 6, i1 false)
-  %209 = getelementptr inbounds i8, ptr %203, i64 36
-  store i16 %.in, ptr %209, align 4
-  br label %210
+pnio_ar_find_by_aruuid.exit.thread:               ; preds = %209, %208, %pnio_ar_find_by_aruuid.exit
+  %214 = call ptr @wmem_file_scope() #11
+  %215 = call noalias ptr @wmem_alloc0(ptr noundef %214, i64 noundef 40) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %215, ptr noundef nonnull readonly align 8 dereferenceable(16) %10, i64 16, i1 false)
+  %216 = getelementptr inbounds i8, ptr %215, i64 26
+  store i16 -1, ptr %216, align 2
+  %217 = getelementptr inbounds i8, ptr %215, i64 34
+  store i16 -1, ptr %217, align 2
+  %218 = load ptr, ptr @pnio_ars, align 8
+  %219 = call ptr @g_list_append(ptr noundef %218, ptr noundef %215) #11
+  store ptr %219, ptr @pnio_ars, align 8
+  %220 = getelementptr inbounds i8, ptr %215, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %220, ptr noundef nonnull align 1 dereferenceable(6) %13, i64 6, i1 false)
+  %221 = getelementptr inbounds i8, ptr %215, i64 36
+  store i16 %.in, ptr %221, align 4
+  br label %222
 
-210:                                              ; preds = %decode_ARType_spezial.exit162, %pnio_ar_find_by_aruuid.exit.thread, %pnio_ar_find_by_aruuid.exit
-  %storemerge = phi ptr [ %203, %pnio_ar_find_by_aruuid.exit.thread ], [ %199, %pnio_ar_find_by_aruuid.exit ], [ null, %decode_ARType_spezial.exit162 ]
+222:                                              ; preds = %decode_ARType_spezial.exit162, %pnio_ar_find_by_aruuid.exit.thread, %pnio_ar_find_by_aruuid.exit
+  %storemerge = phi ptr [ %215, %pnio_ar_find_by_aruuid.exit.thread ], [ %211, %pnio_ar_find_by_aruuid.exit ], [ null, %decode_ARType_spezial.exit162 ]
   store ptr %storemerge, ptr %8, align 8
-  br label %211
+  br label %223
 
-211:                                              ; preds = %210, %23
+223:                                              ; preds = %222, %23
   ret void
 }
 

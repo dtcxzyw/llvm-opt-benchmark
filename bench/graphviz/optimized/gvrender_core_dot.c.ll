@@ -1717,8 +1717,10 @@ agxbuse.exit111:                                  ; preds = %agxbclear.exit.thre
 142:                                              ; preds = %119, %agxbuse.exit111, %agxblen.exit95
   store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @penwidth, i64 72), align 8
   store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @penwidth, i64 88), align 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @penwidth, i64 16), align 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @penwidth, i64 48), align 16
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @penwidth, i64 16), align 16
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @penwidth, i64 24), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @penwidth, i64 48), align 16
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @penwidth, i64 56), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @textflags, i64 36), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @textflags, i64 44), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @textflags, i64 8), align 8

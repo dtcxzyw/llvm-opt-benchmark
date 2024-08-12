@@ -1060,10 +1060,10 @@ define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly %0, ptr no
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   br label %17
 
-17:                                               ; preds = %92, %8
-  %.sroa.16.0 = phi i32 [ 0, %8 ], [ %104, %92 ]
-  %.069 = phi i32 [ 1, %8 ], [ %93, %92 ]
-  %.0 = phi ptr [ null, %8 ], [ %103, %92 ]
+17:                                               ; preds = %89, %8
+  %.sroa.16.0 = phi i32 [ 0, %8 ], [ %101, %89 ]
+  %.069 = phi i32 [ 1, %8 ], [ %90, %89 ]
+  %.0 = phi ptr [ null, %8 ], [ %100, %89 ]
   br i1 %.not, label %25, label %18
 
 18:                                               ; preds = %17
@@ -1124,104 +1124,103 @@ define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly %0, ptr no
 
 52:                                               ; preds = %43, %45, %48
   %53 = phi ptr [ %51, %48 ], [ null, %45 ], [ null, %43 ]
-  %54 = insertelement <4 x ptr> poison, ptr %26, i64 0
-  %55 = insertelement <4 x ptr> %54, ptr %35, i64 1
-  %56 = insertelement <4 x ptr> %55, ptr %44, i64 2
-  %57 = insertelement <4 x ptr> %56, ptr %53, i64 3
-  %.fr = freeze <4 x ptr> %57
-  %58 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %59 = bitcast <4 x i1> %58 to i4
-  %60 = icmp eq i4 %59, 0
-  br i1 %60, label %61, label %.critedge
+  %54 = icmp ne ptr %26, null
+  %55 = icmp ne ptr %35, null
+  %or.cond = select i1 %54, i1 %55, i1 false
+  %56 = icmp ne ptr %44, null
+  %or.cond3 = select i1 %or.cond, i1 %56, i1 false
+  %57 = icmp ne ptr %53, null
+  %or.cond5 = select i1 %or.cond3, i1 %57, i1 false
+  br i1 %or.cond5, label %58, label %.critedge
 
-61:                                               ; preds = %52
-  %62 = load i32, ptr %26, align 8
-  %63 = load i32, ptr %35, align 8
-  %64 = load ptr, ptr %44, align 8
-  %65 = load ptr, ptr %53, align 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 8
-  %67 = load ptr, ptr %66, align 8
-  br i1 %4, label %68, label %._crit_edge
+58:                                               ; preds = %52
+  %59 = load i32, ptr %26, align 8
+  %60 = load i32, ptr %35, align 8
+  %61 = load ptr, ptr %44, align 8
+  %62 = load ptr, ptr %53, align 8
+  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %64 = load ptr, ptr %63, align 8
+  br i1 %4, label %65, label %._crit_edge
 
-68:                                               ; preds = %61
-  %.not87 = icmp eq ptr %67, null
-  br i1 %.not87, label %._crit_edge, label %69
+65:                                               ; preds = %58
+  %.not87 = icmp eq ptr %64, null
+  br i1 %.not87, label %._crit_edge, label %66
 
-69:                                               ; preds = %68
-  %70 = load i32, ptr %67, align 4
-  %71 = icmp eq i32 %70, 7
-  br i1 %71, label %82, label %._crit_edge
+66:                                               ; preds = %65
+  %67 = load i32, ptr %64, align 4
+  %68 = icmp eq i32 %67, 7
+  br i1 %68, label %79, label %._crit_edge
 
-._crit_edge:                                      ; preds = %61, %69, %68
-  %72 = phi ptr [ %67, %69 ], [ null, %68 ], [ %67, %61 ]
-  %73 = getelementptr inbounds i8, ptr %64, i64 16
-  %74 = load i16, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %64, i64 8
-  %76 = tail call i32 @exprType(ptr noundef %72) #7
-  %77 = load ptr, ptr %75, align 8
-  %78 = tail call i32 @exprTypmod(ptr noundef %77) #7
-  %79 = load ptr, ptr %75, align 8
-  %80 = tail call i32 @exprCollation(ptr noundef %79) #7
-  %81 = tail call ptr @makeVar(i32 noundef %3, i16 noundef signext %74, i32 noundef %76, i32 noundef %78, i32 noundef %80, i32 noundef 0) #7
-  br label %82
+._crit_edge:                                      ; preds = %58, %66, %65
+  %69 = phi ptr [ %64, %66 ], [ null, %65 ], [ %64, %58 ]
+  %70 = getelementptr inbounds i8, ptr %61, i64 16
+  %71 = load i16, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %61, i64 8
+  %73 = tail call i32 @exprType(ptr noundef %69) #7
+  %74 = load ptr, ptr %72, align 8
+  %75 = tail call i32 @exprTypmod(ptr noundef %74) #7
+  %76 = load ptr, ptr %72, align 8
+  %77 = tail call i32 @exprCollation(ptr noundef %76) #7
+  %78 = tail call ptr @makeVar(i32 noundef %3, i16 noundef signext %71, i32 noundef %73, i32 noundef %75, i32 noundef %77, i32 noundef 0) #7
+  br label %79
 
-82:                                               ; preds = %69, %._crit_edge
-  %.070 = phi ptr [ %81, %._crit_edge ], [ %67, %69 ]
-  %83 = tail call i32 @exprType(ptr noundef %.070) #7
-  %.not88 = icmp eq i32 %83, %62
-  br i1 %.not88, label %86, label %84
+79:                                               ; preds = %66, %._crit_edge
+  %.070 = phi ptr [ %78, %._crit_edge ], [ %64, %66 ]
+  %80 = tail call i32 @exprType(ptr noundef %.070) #7
+  %.not88 = icmp eq i32 %80, %59
+  br i1 %.not88, label %83, label %81
 
-84:                                               ; preds = %82
-  %85 = tail call ptr @coerce_to_common_type(ptr noundef null, ptr noundef %.070, i32 noundef %62, ptr noundef nonnull @.str.3) #7
+81:                                               ; preds = %79
+  %82 = tail call ptr @coerce_to_common_type(ptr noundef null, ptr noundef %.070, i32 noundef %59, ptr noundef nonnull @.str.3) #7
   store i8 0, ptr %7, align 1
-  br label %86
+  br label %83
 
-86:                                               ; preds = %84, %82
-  %.171 = phi ptr [ %85, %84 ], [ %.070, %82 ]
-  %87 = tail call i32 @exprCollation(ptr noundef %.171) #7
-  %.not89 = icmp eq i32 %87, %63
-  br i1 %.not89, label %92, label %88
+83:                                               ; preds = %81, %79
+  %.171 = phi ptr [ %82, %81 ], [ %.070, %79 ]
+  %84 = tail call i32 @exprCollation(ptr noundef %.171) #7
+  %.not89 = icmp eq i32 %84, %60
+  br i1 %.not89, label %89, label %85
 
-88:                                               ; preds = %86
-  %89 = tail call i32 @exprType(ptr noundef %.171) #7
-  %90 = tail call i32 @exprTypmod(ptr noundef %.171) #7
-  %91 = tail call ptr @applyRelabelType(ptr noundef %.171, i32 noundef %89, i32 noundef %90, i32 noundef %63, i32 noundef 2, i32 noundef -1, i1 noundef zeroext false) #7
+85:                                               ; preds = %83
+  %86 = tail call i32 @exprType(ptr noundef %.171) #7
+  %87 = tail call i32 @exprTypmod(ptr noundef %.171) #7
+  %88 = tail call ptr @applyRelabelType(ptr noundef %.171, i32 noundef %86, i32 noundef %87, i32 noundef %60, i32 noundef 2, i32 noundef -1, i1 noundef zeroext false) #7
   store i8 0, ptr %7, align 1
-  br label %92
+  br label %89
 
-92:                                               ; preds = %88, %86
-  %.2 = phi ptr [ %91, %88 ], [ %.171, %86 ]
-  %93 = add i32 %.069, 1
-  %94 = trunc i32 %.069 to i16
-  %95 = getelementptr inbounds i8, ptr %65, i64 24
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call ptr @pstrdup(ptr noundef %96) #7
-  %98 = tail call ptr @makeTargetEntry(ptr noundef %.2, i16 noundef signext %94, ptr noundef %97, i1 noundef zeroext false) #7
-  %99 = getelementptr inbounds i8, ptr %98, i64 16
-  %100 = load i16, ptr %99, align 8
-  %101 = sext i16 %100 to i32
-  %102 = getelementptr inbounds i8, ptr %98, i64 32
-  store i32 %101, ptr %102, align 8
-  %103 = tail call ptr @lappend(ptr noundef %.0, ptr noundef %98) #7
-  %104 = add i32 %.sroa.16.0, 1
+89:                                               ; preds = %85, %83
+  %.2 = phi ptr [ %88, %85 ], [ %.171, %83 ]
+  %90 = add i32 %.069, 1
+  %91 = trunc i32 %.069 to i16
+  %92 = getelementptr inbounds i8, ptr %62, i64 24
+  %93 = load ptr, ptr %92, align 8
+  %94 = tail call ptr @pstrdup(ptr noundef %93) #7
+  %95 = tail call ptr @makeTargetEntry(ptr noundef %.2, i16 noundef signext %91, ptr noundef %94, i1 noundef zeroext false) #7
+  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %97 = load i16, ptr %96, align 8
+  %98 = sext i16 %97 to i32
+  %99 = getelementptr inbounds i8, ptr %95, i64 32
+  store i32 %98, ptr %99, align 8
+  %100 = tail call ptr @lappend(ptr noundef %.0, ptr noundef %95) #7
+  %101 = add i32 %.sroa.16.0, 1
   br label %17, !llvm.loop !8
 
 .critedge:                                        ; preds = %52
-  %105 = icmp sgt i32 %2, -1
-  br i1 %105, label %106, label %113
+  %102 = icmp sgt i32 %2, -1
+  br i1 %102, label %103, label %110
 
-106:                                              ; preds = %.critedge
-  %107 = zext nneg i32 %2 to i64
-  %108 = tail call ptr @makeConst(i32 noundef 23, i32 noundef -1, i32 noundef 0, i32 noundef 4, i64 noundef %107, i1 noundef zeroext false, i1 noundef zeroext true) #7
-  %109 = trunc i32 %.069 to i16
-  %110 = tail call ptr @pstrdup(ptr noundef nonnull @.str.4) #7
-  %111 = tail call ptr @makeTargetEntry(ptr noundef %108, i16 noundef signext %109, ptr noundef %110, i1 noundef zeroext true) #7
-  %112 = tail call ptr @lappend(ptr noundef %.0, ptr noundef %111) #7
+103:                                              ; preds = %.critedge
+  %104 = zext nneg i32 %2 to i64
+  %105 = tail call ptr @makeConst(i32 noundef 23, i32 noundef -1, i32 noundef 0, i32 noundef 4, i64 noundef %104, i1 noundef zeroext false, i1 noundef zeroext true) #7
+  %106 = trunc i32 %.069 to i16
+  %107 = tail call ptr @pstrdup(ptr noundef nonnull @.str.4) #7
+  %108 = tail call ptr @makeTargetEntry(ptr noundef %105, i16 noundef signext %106, ptr noundef %107, i1 noundef zeroext true) #7
+  %109 = tail call ptr @lappend(ptr noundef %.0, ptr noundef %108) #7
   store i8 0, ptr %7, align 1
-  br label %113
+  br label %110
 
-113:                                              ; preds = %106, %.critedge
-  %.1 = phi ptr [ %112, %106 ], [ %.0, %.critedge ]
+110:                                              ; preds = %103, %.critedge
+  %.1 = phi ptr [ %109, %103 ], [ %.0, %.critedge ]
   ret ptr %.1
 }
 
@@ -1686,19 +1685,20 @@ list_length.exit:                                 ; preds = %6, %9
   %45 = load double, ptr %44, align 8
   %46 = sitofp i32 %30 to double
   call void @cost_agg(ptr noundef nonnull %7, ptr noundef %0, i32 noundef 2, ptr noundef null, i32 noundef %12, double noundef %3, ptr noundef null, double noundef %41, double noundef %43, double noundef %45, double noundef %46) #7
-  %47 = getelementptr inbounds i8, ptr %8, i64 48
-  %48 = getelementptr inbounds i8, ptr %8, i64 56
+  %47 = load double, ptr %40, align 8
+  %48 = getelementptr inbounds i8, ptr %8, i64 48
+  store double %47, ptr %48, align 8
   %49 = load double, ptr %42, align 8
-  %50 = load <2 x double>, ptr %40, align 8
-  store <2 x double> %50, ptr %47, align 8
+  %50 = getelementptr inbounds i8, ptr %8, i64 56
+  store double %49, ptr %50, align 8
   %51 = load double, ptr %44, align 8
   %52 = load ptr, ptr %27, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 40
   %54 = load i32, ptr %53, align 8
   %55 = load i32, ptr @work_mem, align 4
   call void @cost_sort(ptr noundef nonnull %8, ptr noundef %0, ptr noundef null, double noundef %49, double noundef %51, i32 noundef %54, double noundef 0.000000e+00, i32 noundef %55, double noundef -1.000000e+00) #7
-  %56 = load double, ptr %47, align 8
-  %57 = load double, ptr %48, align 8
+  %56 = load double, ptr %48, align 8
+  %57 = load double, ptr %50, align 8
   %58 = load double, ptr %44, align 8
   call void @cost_group(ptr noundef nonnull %8, ptr noundef %0, i32 noundef %12, double noundef %3, ptr noundef null, double noundef %56, double noundef %57, double noundef %58) #7
   %59 = getelementptr inbounds i8, ptr %0, i64 568

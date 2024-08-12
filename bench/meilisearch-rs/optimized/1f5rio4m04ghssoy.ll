@@ -570,7 +570,13 @@ define void @_ZN10meili_snap13hash_snapshot17h10d601d0b496e874E(ptr dead_on_unwi
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 84
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 4
   %12 = getelementptr inbounds i8, ptr %8, i64 64
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %12, align 4
+  store i32 1732584193, ptr %12, align 4
+  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 68
+  store i32 -271733879, ptr %.sroa.42.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 72
+  store i32 -1732584194, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 76
+  store i32 271733878, ptr %.sroa.6.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !58
   %13 = icmp eq i64 %2, 0
   br i1 %13, label %_ZN5alloc3fmt6format17h7fed6a266585da9dE.exit, label %.lr.ph.i

@@ -1384,10 +1384,10 @@ define void @_ZN5uu_dd5Input9new_stdin17h972c5e9aafad773dE(ptr noalias nocapture
   %6 = alloca [1 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca { i64, [21 x i64] }, align 8
-  %9 = alloca { i32, [1 x i32] }, align 8
+  %9 = alloca { i32, [1 x i32] }, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %10 = tail call noundef nonnull align 8 ptr @_ZN3std2io5stdio5stdin17h662b61da6fbe6128E()
-  store i32 1, ptr %9, align 8
+  store i32 1, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 0, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %8)
@@ -1398,9 +1398,9 @@ define void @_ZN5uu_dd5Input9new_stdin17h972c5e9aafad773dE(ptr noalias nocapture
   %13 = getelementptr inbounds i8, ptr %1, i64 128
   %14 = load i64, ptr %13, align 8, !noundef !5
   %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %55, label %58
+  br i1 %.not, label %55, label %59
 
-15:                                               ; preds = %.invoke, %58, %47, %42, %33, %31, %2
+15:                                               ; preds = %.invoke, %59, %47, %42, %33, %31, %2
   %16 = landingpad { ptr, i32 }
           cleanup
   %.val32 = load i32, ptr %11, align 4
@@ -1497,34 +1497,38 @@ define void @_ZN5uu_dd5Input9new_stdin17h972c5e9aafad773dE(ptr noalias nocapture
   br label %66
 
 55:                                               ; preds = %._crit_edge, %12
-  %56 = phi <2 x i32> [ %63, %._crit_edge ], [ <i32 1, i32 0>, %12 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i32> %56, ptr %57, align 8
+  %56 = phi i32 [ %.pre36, %._crit_edge ], [ 0, %12 ]
+  %57 = phi i32 [ %.pre, %._crit_edge ], [ 1, %12 ]
+  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %57, ptr %58, align 8
+  %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %56, ptr %.sroa.414.0..sroa_idx, align 4
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %.sroa.515.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %66
 
-58:                                               ; preds = %12
+59:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   invoke fastcc void @_ZN5uu_dd6Source4skip17h84cdbc5fe6031e52E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 4 dereferenceable(8) %9, i64 noundef %14)
-          to label %59 unwind label %15
+          to label %60 unwind label %15
 
-59:                                               ; preds = %58
-  %60 = load i64, ptr %3, align 8, !range !189, !noundef !5
-  %trunc = trunc nuw i64 %60 to i1
-  %61 = getelementptr inbounds i8, ptr %3, i64 8
-  %62 = load ptr, ptr %61, align 8, !nonnull !5
+60:                                               ; preds = %59
+  %61 = load i64, ptr %3, align 8, !range !189, !noundef !5
+  %trunc = trunc nuw i64 %61 to i1
+  %62 = getelementptr inbounds i8, ptr %3, i64 8
+  %63 = load ptr, ptr %62, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %trunc, label %.invoke, label %._crit_edge
 
-._crit_edge:                                      ; preds = %59
-  %63 = load <2 x i32>, ptr %9, align 8
+._crit_edge:                                      ; preds = %60
+  %.pre = load i32, ptr %9, align 4, !range !182
+  %.pre36 = load i32, ptr %11, align 4
   br label %55
 
-.invoke:                                          ; preds = %59, %24
-  %64 = phi ptr [ %26, %24 ], [ %62, %59 ]
+.invoke:                                          ; preds = %60, %24
+  %64 = phi ptr [ %26, %24 ], [ %63, %60 ]
   %65 = invoke { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %64)
           to label %49 unwind label %15
 
@@ -6028,12 +6032,17 @@ define void @_ZN5uu_dd6uu_app17h4fbc7db1d7590147E(ptr noalias nocapture noundef 
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(700) %10, ptr noundef nonnull align 8 dereferenceable(700) %9, i64 700, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 700
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 704
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 708
   %37 = load i32, ptr %.sroa.8.0..sroa_idx, align 4
+  %38 = or i32 %.sroa.4.0.copyload, 128
+  %39 = or i32 %.sroa.6.0.copyload, 128
   %.sroa.4.0..sroa_idx2 = getelementptr inbounds i8, ptr %10, i64 700
-  %38 = load <2 x i32>, ptr %.sroa.4.0..sroa_idx, align 4
-  %39 = or <2 x i32> %38, <i32 128, i32 128>
-  store <2 x i32> %39, ptr %.sroa.4.0..sroa_idx2, align 4
+  store i32 %38, ptr %.sroa.4.0..sroa_idx2, align 4
+  %.sroa.6.0..sroa_idx4 = getelementptr inbounds i8, ptr %10, i64 704
+  store i32 %39, ptr %.sroa.6.0..sroa_idx4, align 8
   %.sroa.8.0..sroa_idx6 = getelementptr inbounds i8, ptr %10, i64 708
   store i32 %37, ptr %.sroa.8.0..sroa_idx6, align 4
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %9)

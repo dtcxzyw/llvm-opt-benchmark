@@ -605,7 +605,13 @@ define dso_local i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr no
   %.sroa.37.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 2
   store i16 0, ptr %.sroa.37.0..sroa_idx, align 2
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 4
-  store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 0>, ptr %.sroa.4.0..sroa_idx, align 4
+  store i32 -1, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 -1, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 -1, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 0, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 20
   store i32 -1, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
@@ -646,7 +652,13 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen7IrBlockESaIS2_EE11_M_allocateEm.exit.i.i.i: ;
   %.sroa.37.0..sroa_idx8 = getelementptr inbounds i8, ptr %31, i64 2
   store i16 0, ptr %.sroa.37.0..sroa_idx8, align 2
   %.sroa.4.0..sroa_idx10 = getelementptr inbounds i8, ptr %31, i64 4
-  store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 0>, ptr %.sroa.4.0..sroa_idx10, align 4
+  store i32 -1, ptr %.sroa.4.0..sroa_idx10, align 4
+  %.sroa.5.0..sroa_idx12 = getelementptr inbounds i8, ptr %31, i64 8
+  store i32 -1, ptr %.sroa.5.0..sroa_idx12, align 4
+  %.sroa.6.0..sroa_idx14 = getelementptr inbounds i8, ptr %31, i64 12
+  store i32 -1, ptr %.sroa.6.0..sroa_idx14, align 4
+  %.sroa.7.0..sroa_idx16 = getelementptr inbounds i8, ptr %31, i64 16
+  store i32 0, ptr %.sroa.7.0..sroa_idx16, align 4
   %.sroa.8.0..sroa_idx18 = getelementptr inbounds i8, ptr %31, i64 20
   store i32 -1, ptr %.sroa.8.0..sroa_idx18, align 4
   %.sroa.9.0..sroa_idx20 = getelementptr inbounds i8, ptr %31, i64 24

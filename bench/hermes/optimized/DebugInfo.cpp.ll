@@ -3105,19 +3105,22 @@ _ZN6hermes3hbc21UniquingFilenameTableC2EOS1_.exit: ; preds = %entry, %if.then.i.
   store ptr null, ptr %stringsToIndex_3.i.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
   %NumEntries3.i.i.i.i = getelementptr inbounds i8, ptr %filenameTable, i64 88
-  %NumTombstones4.i.i.i.i = getelementptr inbounds i8, ptr %filenameTable, i64 92
-  %2 = load <2 x i32>, ptr %NumEntries3.i.i.i.i, align 8
+  %2 = load i32, ptr %NumEntries3.i.i.i.i, align 8
+  store i32 %2, ptr %NumEntries.i.i.i.i, align 8
   store i32 0, ptr %NumEntries3.i.i.i.i, align 8
-  store <2 x i32> %2, ptr %NumEntries.i.i.i.i, align 8
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 92
+  %NumTombstones4.i.i.i.i = getelementptr inbounds i8, ptr %filenameTable, i64 92
+  %3 = load i32, ptr %NumTombstones4.i.i.i.i, align 4
+  store i32 %3, ptr %NumTombstones.i.i.i.i, align 4
   store i32 0, ptr %NumTombstones4.i.i.i.i, align 4
   %NumBuckets.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 96
   %NumBuckets5.i.i.i.i = getelementptr inbounds i8, ptr %filenameTable, i64 96
-  %3 = load i32, ptr %NumBuckets5.i.i.i.i, align 8
-  store i32 %3, ptr %NumBuckets.i.i.i.i, align 8
+  %4 = load i32, ptr %NumBuckets5.i.i.i.i, align 8
+  store i32 %4, ptr %NumBuckets.i.i.i.i, align 8
   store i32 0, ptr %NumBuckets5.i.i.i.i, align 8
   call void @_ZN6hermes3hbc21UniquingFilenameTable9toStorageES1_(ptr nonnull sret(%"class.hermes::hbc::ConsecutiveStringStorage") align 8 %filenameStrings_, ptr noundef nonnull %agg.tmp) #16
-  %4 = load ptr, ptr %stringsToIndex_.i.i, align 8
-  call void @_ZdlPv(ptr noundef %4) #16
+  %5 = load ptr, ptr %stringsToIndex_.i.i, align 8
+  call void @_ZdlPv(ptr noundef %5) #16
   call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp) #16
   %files_ = getelementptr inbounds i8, ptr %this, i64 88
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -3354,33 +3357,41 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %if.end.i, %_ZNSt12_
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %combinedData, ptr %add.ptr.i.i42, ptr %20, ptr %21)
   %22 = load ptr, ptr %combinedData, align 8
   %filenameStrings_ = getelementptr inbounds i8, ptr %this, i64 32
-  %23 = load <2 x ptr>, ptr %_M_finish.i.i.i.i, align 8
-  %24 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %23 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %24 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %combinedData, i8 0, i64 24, i1 false)
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %24 to i64
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %isTableValid_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %isTableValid_.i.i, align 8, !noalias !67
-  %25 = load <2 x ptr>, ptr %filenameStrings_, align 8, !noalias !67
-  store <2 x ptr> %25, ptr %agg.result, align 8, !alias.scope !67
+  %25 = load ptr, ptr %filenameStrings_, align 8, !noalias !67
+  store ptr %25, ptr %agg.result, align 8, !alias.scope !67
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_finish3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %26 = load ptr, ptr %_M_finish3.i.i.i.i.i.i, align 8, !noalias !67
+  store ptr %26, ptr %_M_finish.i.i.i.i.i.i, align 8, !alias.scope !67
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %26 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8, !noalias !67
-  store ptr %26, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !alias.scope !67
+  %27 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8, !noalias !67
+  store ptr %27, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !alias.scope !67
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %filenameStrings_, i8 0, i64 24, i1 false), !noalias !67
   %filenameStorage_.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %isStorageValid_.i.i = getelementptr inbounds i8, ptr %this, i64 81
   store i8 0, ptr %isStorageValid_.i.i, align 1, !noalias !70
   %storage_.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %27 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !70
-  store <2 x ptr> %27, ptr %filenameStorage_.i, align 8, !alias.scope !70
+  %28 = load ptr, ptr %storage_.i.i, align 8, !noalias !70
+  store ptr %28, ptr %filenameStorage_.i, align 8, !alias.scope !70
+  %_M_finish.i.i.i.i.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_finish3.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %this, i64 64
+  %29 = load ptr, ptr %_M_finish3.i.i.i.i.i3.i, align 8, !noalias !70
+  store ptr %29, ptr %_M_finish.i.i.i.i.i2.i, align 8, !alias.scope !70
   %_M_end_of_storage.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %_M_end_of_storage4.i.i.i.i.i5.i = getelementptr inbounds i8, ptr %this, i64 72
-  %28 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i5.i, align 8, !noalias !70
-  store ptr %28, ptr %_M_end_of_storage.i.i.i.i.i4.i, align 8, !alias.scope !70
+  %30 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i5.i, align 8, !noalias !70
+  store ptr %30, ptr %_M_end_of_storage.i.i.i.i.i4.i, align 8, !alias.scope !70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %storage_.i.i, i8 0, i64 24, i1 false), !noalias !70
   %files_.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
@@ -3390,8 +3401,8 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %if.end.i, %_ZNSt12_
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 60
   store i32 1, ptr %Capacity2.i.i.i.i.i.i, align 4
   %Size.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %29 = load i32, ptr %Size.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq i32 %29, 0
+  %31 = load i32, ptr %Size.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq i32 %31, 0
   br i1 %tobool.not.i.i.i, label %_ZN6hermes3hbc12StreamVectorIhED2Ev.exit, label %if.then.i.i44
 
 if.then.i.i44:                                    ; preds = %_ZNSt6vectorIhSaIhEE7reserveEm.exit
@@ -3401,7 +3412,7 @@ if.then.i.i44:                                    ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZN6hermes3hbc12StreamVectorIhED2Ev.exit
 
 _ZN6hermes3hbc12StreamVectorIhED2Ev.exit:         ; preds = %if.then.i.i44, %_ZNSt6vectorIhSaIhEE7reserveEm.exit
-  %30 = phi ptr [ %.pre51, %if.then.i.i44 ], [ null, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
+  %32 = phi ptr [ %.pre51, %if.then.i.i44 ], [ null, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
   %scopeDescDataOffset_.i = getelementptr inbounds i8, ptr %agg.result, i64 80
   store i32 %conv, ptr %scopeDescDataOffset_.i, align 8
   %textifiedCalleeOffset_.i = getelementptr inbounds i8, ptr %agg.result, i64 84
@@ -3411,16 +3422,18 @@ _ZN6hermes3hbc12StreamVectorIhED2Ev.exit:         ; preds = %if.then.i.i44, %_ZN
   %data_.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store ptr %22, ptr %data_.i, align 8
   %_M_finish.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 104
-  store <2 x ptr> %23, ptr %_M_finish.i.i.i.i.i6.i, align 8
+  store ptr %23, ptr %_M_finish.i.i.i.i.i6.i, align 8
+  %_M_end_of_storage.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %agg.result, i64 112
+  store ptr %24, ptr %_M_end_of_storage.i.i.i.i.i8.i, align 8
   %ref_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 120
   store ptr %22, ptr %ref_.i.i, align 8
   %ref.tmp62.sroa.12.24.ref_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 128
   store i64 %sub.ptr.sub.i.i.i, ptr %ref.tmp62.sroa.12.24.ref_.i.i.sroa_idx, align 8
-  %tobool.not.i.i.i46 = icmp eq ptr %30, null
+  %tobool.not.i.i.i46 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i46, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6hermes3hbc12StreamVectorIhED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %30) #19
+  call void @_ZdlPv(ptr noundef nonnull %32) #19
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZN6hermes3hbc12StreamVectorIhED2Ev.exit, %if.then.i.i.i

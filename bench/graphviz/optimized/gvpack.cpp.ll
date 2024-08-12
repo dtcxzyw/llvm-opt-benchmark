@@ -746,7 +746,7 @@ _ZL10readGraphsP5GVC_s.exit:                      ; preds = %158
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %229, %236, %_ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit, %585, %586, %240, %.noexc, %_ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i, %._crit_edge.i
+.loopexit.split-lp:                               ; preds = %229, %236, %_ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit, %580, %581, %240, %.noexc, %_ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i, %._crit_edge.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1516,60 +1516,80 @@ _ZNSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ES
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %557 = load i8, ptr @_ZL6doPack, align 1
   %558 = trunc nuw i8 %557 to i1
-  br i1 %558, label %559, label %586
+  br i1 %558, label %559, label %581
 
 559:                                              ; preds = %556
   %560 = load ptr, ptr %.sroa.038.2, align 8, !noalias !15
   %561 = getelementptr inbounds i8, ptr %560, i64 16
   %562 = load ptr, ptr %561, align 8, !noalias !15
   %563 = getelementptr inbounds i8, ptr %562, i64 32
-  %564 = load <2 x double>, ptr %563, align 8
+  %.sroa.0.0.copyload31 = load double, ptr %563, align 8
+  %.sroa.4.0..sroa_idx32 = getelementptr inbounds i8, ptr %562, i64 40
+  %.sroa.4.0.copyload33 = load double, ptr %.sroa.4.0..sroa_idx32, align 8
   %.sroa.6.0..sroa_idx34 = getelementptr inbounds i8, ptr %562, i64 48
-  %565 = load <2 x double>, ptr %.sroa.6.0..sroa_idx34, align 8
-  %566 = icmp ugt i64 %267, 1
-  br i1 %566, label %.lr.ph.i28, label %_ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit
+  %.sroa.6.0.copyload35 = load double, ptr %.sroa.6.0..sroa_idx34, align 8
+  %.sroa.8.0..sroa_idx36 = getelementptr inbounds i8, ptr %562, i64 56
+  %.sroa.8.0.copyload37 = load double, ptr %.sroa.8.0..sroa_idx36, align 8
+  %564 = icmp ugt i64 %267, 1
+  br i1 %564, label %.lr.ph.i28, label %_ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit
 
 .lr.ph.i28:                                       ; preds = %559, %.lr.ph.i28
-  %.010.i = phi i64 [ %580, %.lr.ph.i28 ], [ 1, %559 ]
-  %567 = phi <2 x double> [ %576, %.lr.ph.i28 ], [ %564, %559 ]
-  %568 = phi <2 x double> [ %579, %.lr.ph.i28 ], [ %565, %559 ]
-  %569 = getelementptr inbounds ptr, ptr %.sroa.038.2, i64 %.010.i
-  %570 = load ptr, ptr %569, align 8, !noalias !15
-  %571 = getelementptr inbounds i8, ptr %570, i64 16
-  %572 = load ptr, ptr %571, align 8, !noalias !15
-  %573 = getelementptr inbounds i8, ptr %572, i64 32
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %572, i64 48
-  %574 = load <2 x double>, ptr %573, align 8, !noalias !15
-  %575 = fcmp olt <2 x double> %574, %567
-  %576 = select <2 x i1> %575, <2 x double> %574, <2 x double> %567
-  %577 = load <2 x double>, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !15
-  %578 = fcmp olt <2 x double> %568, %577
-  %579 = select <2 x i1> %578, <2 x double> %577, <2 x double> %568
-  %580 = add nuw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %580, %267
+  %565 = phi double [ %.sroa.speculated.i, %.lr.ph.i28 ], [ %.sroa.8.0.copyload37, %559 ]
+  %566 = phi double [ %.sroa.speculated3.i, %.lr.ph.i28 ], [ %.sroa.6.0.copyload35, %559 ]
+  %567 = phi double [ %.sroa.speculated6.i, %.lr.ph.i28 ], [ %.sroa.4.0.copyload33, %559 ]
+  %.sroa.speculated911.i = phi double [ %.sroa.speculated9.i, %.lr.ph.i28 ], [ %.sroa.0.0.copyload31, %559 ]
+  %.010.i = phi i64 [ %577, %.lr.ph.i28 ], [ 1, %559 ]
+  %568 = getelementptr inbounds ptr, ptr %.sroa.038.2, i64 %.010.i
+  %569 = load ptr, ptr %568, align 8, !noalias !15
+  %570 = getelementptr inbounds i8, ptr %569, i64 16
+  %571 = load ptr, ptr %570, align 8, !noalias !15
+  %572 = getelementptr inbounds i8, ptr %571, i64 32
+  %.sroa.0.0.copyload.i29 = load double, ptr %572, align 8, !noalias !15
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %571, i64 40
+  %.sroa.3.0.copyload.i = load double, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !15
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %571, i64 48
+  %.sroa.5.0.copyload.i = load double, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !15
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %571, i64 56
+  %.sroa.7.0.copyload.i = load double, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !15
+  %573 = fcmp olt double %.sroa.0.0.copyload.i29, %.sroa.speculated911.i
+  %.sroa.speculated9.i = select i1 %573, double %.sroa.0.0.copyload.i29, double %.sroa.speculated911.i
+  %574 = fcmp olt double %.sroa.3.0.copyload.i, %567
+  %.sroa.speculated6.i = select i1 %574, double %.sroa.3.0.copyload.i, double %567
+  %575 = fcmp olt double %566, %.sroa.5.0.copyload.i
+  %.sroa.speculated3.i = select i1 %575, double %.sroa.5.0.copyload.i, double %566
+  %576 = fcmp olt double %565, %.sroa.7.0.copyload.i
+  %.sroa.speculated.i = select i1 %576, double %.sroa.7.0.copyload.i, double %565
+  %577 = add nuw i64 %.010.i, 1
+  %exitcond.not.i = icmp eq i64 %577, %267
   br i1 %exitcond.not.i, label %_ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit, label %.lr.ph.i28, !llvm.loop !18
 
 _ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit:     ; preds = %.lr.ph.i28, %559
-  %581 = phi <2 x double> [ %564, %559 ], [ %576, %.lr.ph.i28 ]
-  %582 = phi <2 x double> [ %565, %559 ], [ %579, %.lr.ph.i28 ]
-  %583 = load ptr, ptr %333, align 8
-  %584 = getelementptr inbounds i8, ptr %583, i64 32
-  store <2 x double> %581, ptr %584, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %583, i64 48
-  store <2 x double> %582, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.8.0 = phi double [ %.sroa.8.0.copyload37, %559 ], [ %.sroa.speculated.i, %.lr.ph.i28 ]
+  %.sroa.6.0 = phi double [ %.sroa.6.0.copyload35, %559 ], [ %.sroa.speculated3.i, %.lr.ph.i28 ]
+  %.sroa.4.0 = phi double [ %.sroa.4.0.copyload33, %559 ], [ %.sroa.speculated6.i, %.lr.ph.i28 ]
+  %.sroa.0.0 = phi double [ %.sroa.0.0.copyload31, %559 ], [ %.sroa.speculated9.i, %.lr.ph.i28 ]
+  %578 = load ptr, ptr %333, align 8
+  %579 = getelementptr inbounds i8, ptr %578, i64 32
+  store double %.sroa.0.0, ptr %579, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %578, i64 40
+  store double %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %578, i64 48
+  store double %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %578, i64 56
+  store double %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8
   invoke void @dotneato_postprocess(ptr noundef nonnull %243)
-          to label %585 unwind label %.loopexit.split-lp
+          to label %580 unwind label %.loopexit.split-lp
 
-585:                                              ; preds = %_ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit
+580:                                              ; preds = %_ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit
   invoke void @attach_attrs(ptr noundef nonnull %243)
-          to label %586 unwind label %.loopexit.split-lp
+          to label %581 unwind label %.loopexit.split-lp
 
-586:                                              ; preds = %585, %556
-  %587 = load ptr, ptr @_ZL5outfp, align 8
-  %588 = invoke i32 @agwrite(ptr noundef %243, ptr noundef %587)
-          to label %589 unwind label %.loopexit.split-lp
+581:                                              ; preds = %580, %556
+  %582 = load ptr, ptr @_ZL5outfp, align 8
+  %583 = invoke i32 @agwrite(ptr noundef %243, ptr noundef %582)
+          to label %584 unwind label %.loopexit.split-lp
 
-589:                                              ; preds = %586
+584:                                              ; preds = %581
   call fastcc void @_ZL13graphviz_exiti(i32 noundef 0) #29
   unreachable
 }

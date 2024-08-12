@@ -1013,8 +1013,9 @@ if.then:                                          ; preds = %entry
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV14AMFCoordinates, i64 16), ptr %call2, align 8
   %Coordinate.i = getelementptr inbounds i8, ptr %call2, i64 80
+  store float 0.000000e+00, ptr %Coordinate.i, align 4
   %y.i.i = getelementptr inbounds i8, ptr %call2, i64 84
-  store <2 x float> zeroinitializer, ptr %Coordinate.i, align 4
+  store float 0.000000e+00, ptr %y.i.i, align 4
   %z.i.i = getelementptr inbounds i8, ptr %call2, i64 88
   store float 0.000000e+00, ptr %z.i.i, align 4
   tail call void @_ZN6Assimp11AMFImporter22ParseHelper_Node_EnterEP18AMFNodeElementBase(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull %call2)
@@ -1287,7 +1288,9 @@ if.else35:                                        ; preds = %entry
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i92, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV14AMFCoordinates, i64 16), ptr %call38, align 8
   %Coordinate.i93 = getelementptr inbounds i8, ptr %call38, i64 80
-  store <2 x float> zeroinitializer, ptr %Coordinate.i93, align 4
+  store float 0.000000e+00, ptr %Coordinate.i93, align 4
+  %y.i.i94 = getelementptr inbounds i8, ptr %call38, i64 84
+  store float 0.000000e+00, ptr %y.i.i94, align 4
   %z.i.i95 = getelementptr inbounds i8, ptr %call38, i64 88
   store float 0.000000e+00, ptr %z.i.i95, align 4
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17

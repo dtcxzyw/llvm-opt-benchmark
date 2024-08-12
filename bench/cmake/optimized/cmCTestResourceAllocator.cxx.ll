@@ -531,13 +531,16 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_N24cmCTestRe
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK24cmCTestResourceAllocator8ResourceeqERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
-  %3 = load <2 x i32>, ptr %0, align 4
-  %4 = load <2 x i32>, ptr %1, align 4
-  %5 = icmp eq <2 x i32> %3, %4
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  %8 = select i1 %6, i1 %7, i1 false
-  ret i1 %8
+  %3 = load i32, ptr %0, align 4
+  %4 = load i32, ptr %1, align 4
+  %5 = icmp eq i32 %3, %4
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %7, %9
+  %11 = select i1 %5, i1 %10, i1 false
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

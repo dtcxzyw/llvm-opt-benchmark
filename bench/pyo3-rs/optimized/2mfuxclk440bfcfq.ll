@@ -59,10 +59,14 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = load <2 x ptr>, ptr %0, align 8
+  %8 = load ptr, ptr %0, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  store <2 x ptr> %9, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %10, ptr %12, align 8
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17h63de98b0d5b506dcE(i64 %5, i64 %7, ptr nonnull align 8 %3)
   ret void
 }
@@ -232,10 +236,14 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
   %4 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = load <2 x ptr>, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  store <2 x ptr> %7, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %6, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %8, ptr %10, align 8
   call void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h431e6dc34bd4d530E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
   ret void
 }
@@ -255,10 +263,14 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = load <2 x ptr>, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = load ptr, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  store <2 x ptr> %9, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %10, ptr %12, align 8
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h49f37c912e6cbbadE"(ptr %4, ptr %6, ptr nonnull align 8 %3)
   ret void
 }
@@ -1724,9 +1736,13 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h3639e1a789db4b88E
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %10, ptr %12, align 8
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h49f37c912e6cbbadE"(ptr %4, ptr %6, ptr nonnull align 8 %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
@@ -1816,9 +1832,13 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h8f386b09b9c7f5e5E
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %7, ptr %6, align 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %6, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %8, ptr %10, align 8
   call void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h431e6dc34bd4d530E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -2044,9 +2064,13 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hee44bd8d9ce7d7ebE
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  %8 = load ptr, ptr %0, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %8, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %10, ptr %12, align 8
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17h63de98b0d5b506dcE(i64 %5, i64 %7, ptr nonnull align 8 %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void

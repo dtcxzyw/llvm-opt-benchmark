@@ -910,8 +910,8 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
 
 28:                                               ; preds = %.lr.ph52, %._crit_edge
   %indvars.iv67 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next68, %._crit_edge ]
-  %.03851 = phi double [ 0.000000e+00, %.lr.ph52 ], [ %59, %._crit_edge ]
-  %.03950 = phi double [ 0.000000e+00, %.lr.ph52 ], [ %60, %._crit_edge ]
+  %.03851 = phi double [ 0.000000e+00, %.lr.ph52 ], [ %55, %._crit_edge ]
+  %.03950 = phi double [ 0.000000e+00, %.lr.ph52 ], [ %56, %._crit_edge ]
   %29 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv67
   %30 = load i32, ptr %29, align 4
   %31 = sitofp i32 %30 to double
@@ -946,59 +946,54 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %.043.lcssa = phi double [ 0.000000e+00, %28 ], [ %45, %.lr.ph ]
   %.041.lcssa = phi double [ 0.000000e+00, %28 ], [ %44, %.lr.ph ]
-  %46 = fmul double %.041.lcssa, %.041.lcssa
-  %47 = insertelement <2 x double> poison, double %.043.lcssa, i64 0
-  %48 = insertelement <2 x double> %47, double %46, i64 1
-  %49 = insertelement <2 x double> poison, double %32, i64 0
-  %50 = insertelement <2 x double> %49, double %33, i64 1
-  %51 = fdiv <2 x double> %48, %50
-  %shift = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %52 = fsub <2 x double> %51, %shift
-  %53 = extractelement <2 x double> %52, i64 0
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds double, ptr %54, i64 %indvars.iv67
-  store double %53, ptr %55, align 8
-  %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds double, ptr %56, i64 %indvars.iv67
-  %58 = load double, ptr %57, align 8
-  %59 = fadd double %.03851, %58
-  %60 = tail call double @llvm.fmuladd.f64(double %58, double %58, double %.03950)
+  %46 = fdiv double %.043.lcssa, %32
+  %47 = fmul double %.041.lcssa, %.041.lcssa
+  %48 = fdiv double %47, %33
+  %49 = fsub double %46, %48
+  %50 = load ptr, ptr %2, align 8
+  %51 = getelementptr inbounds double, ptr %50, i64 %indvars.iv67
+  store double %49, ptr %51, align 8
+  %52 = load ptr, ptr %2, align 8
+  %53 = getelementptr inbounds double, ptr %52, i64 %indvars.iv67
+  %54 = load double, ptr %53, align 8
+  %55 = fadd double %.03851, %54
+  %56 = tail call double @llvm.fmuladd.f64(double %54, double %54, double %.03950)
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %61 = load i32, ptr %3, align 8
-  %62 = sext i32 %61 to i64
-  %63 = icmp slt i64 %indvars.iv.next68, %62
-  br i1 %63, label %28, label %._crit_edge53, !llvm.loop !11
+  %57 = load i32, ptr %3, align 8
+  %58 = sext i32 %57 to i64
+  %59 = icmp slt i64 %indvars.iv.next68, %58
+  br i1 %59, label %28, label %._crit_edge53, !llvm.loop !11
 
 ._crit_edge53:                                    ; preds = %._crit_edge, %_ZNSt6vectorIdSaIdEE6resizeEm.exit
-  %.039.lcssa = phi double [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %60, %._crit_edge ]
-  %.038.lcssa = phi double [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %59, %._crit_edge ]
-  %.lcssa = phi i32 [ %21, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %61, %._crit_edge ]
-  %64 = mul nsw i32 %.lcssa, %.lcssa
-  %65 = uitofp nneg i32 %64 to double
-  %66 = sitofp i32 %.lcssa to double
-  %67 = fdiv double %.038.lcssa, %66
-  %68 = fdiv double %.039.lcssa, %66
-  %69 = fmul double %.038.lcssa, %.038.lcssa
-  %70 = fdiv double %69, %65
-  %71 = fsub double %68, %70
-  %72 = tail call double @sqrt(double noundef %71) #21
-  %73 = load i32, ptr %3, align 8
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.lr.ph59, label %._crit_edge60
+  %.039.lcssa = phi double [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %56, %._crit_edge ]
+  %.038.lcssa = phi double [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %55, %._crit_edge ]
+  %.lcssa = phi i32 [ %21, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %57, %._crit_edge ]
+  %60 = mul nsw i32 %.lcssa, %.lcssa
+  %61 = uitofp nneg i32 %60 to double
+  %62 = sitofp i32 %.lcssa to double
+  %63 = fdiv double %.038.lcssa, %62
+  %64 = fdiv double %.039.lcssa, %62
+  %65 = fmul double %.038.lcssa, %.038.lcssa
+  %66 = fdiv double %65, %61
+  %67 = fsub double %64, %66
+  %68 = tail call double @sqrt(double noundef %67) #21
+  %69 = load i32, ptr %3, align 8
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %.lr.ph59, label %._crit_edge60
 
 .lr.ph59:                                         ; preds = %._crit_edge53, %.lr.ph59
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.lr.ph59 ], [ 0, %._crit_edge53 ]
-  %75 = load ptr, ptr %2, align 8
-  %76 = getelementptr inbounds double, ptr %75, i64 %indvars.iv70
-  %77 = load double, ptr %76, align 8
-  %78 = fsub double %77, %67
-  %79 = fdiv double %78, %72
-  store double %79, ptr %76, align 8
+  %71 = load ptr, ptr %2, align 8
+  %72 = getelementptr inbounds double, ptr %71, i64 %indvars.iv70
+  %73 = load double, ptr %72, align 8
+  %74 = fsub double %73, %63
+  %75 = fdiv double %74, %68
+  store double %75, ptr %72, align 8
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %80 = load i32, ptr %3, align 8
-  %81 = sext i32 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.next71, %81
-  br i1 %82, label %.lr.ph59, label %._crit_edge60, !llvm.loop !12
+  %76 = load i32, ptr %3, align 8
+  %77 = sext i32 %76 to i64
+  %78 = icmp slt i64 %indvars.iv.next71, %77
+  br i1 %78, label %.lr.ph59, label %._crit_edge60, !llvm.loop !12
 
 ._crit_edge60:                                    ; preds = %.lr.ph59, %._crit_edge53
   ret void

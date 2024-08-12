@@ -169,7 +169,7 @@ declare void @_ZN7GCTimer23register_gc_pause_startEPKcRK11TimeInstantI30Composit
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ShenandoahGCSessionC2EN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.TimeInstant, align 8
-  %4 = alloca %class.TimeInstant, align 16
+  %4 = alloca %class.TimeInstant, align 8
   %5 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -199,8 +199,12 @@ define hidden void @_ZN19ShenandoahGCSessionC2EN7GCCause5CauseE(ptr noundef nonn
   %23 = load ptr, ptr %8, align 8
   %24 = load ptr, ptr %6, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = load <2 x i64>, ptr %25, align 8
-  store <2 x i64> %26, ptr %4, align 16
+  %.sroa.0.0.copyload.i = load i64, ptr %25, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %24, i64 16
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
+  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %26, align 8
   call void @_ZN8GCTracer15report_gc_startEN7GCCause5CauseERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(80) %23, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   %27 = load ptr, ptr %0, align 8
   %28 = load ptr, ptr %8, align 8
@@ -235,7 +239,7 @@ declare void @_ZN23TraceMemoryManagerStats10initializeEP15GCMemoryManagerN7GCCau
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ShenandoahGCSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.TimeInstant, align 8
-  %3 = alloca %class.TimeInstant, align 16
+  %3 = alloca %class.TimeInstant, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1648
   %6 = load ptr, ptr %5, align 8
@@ -268,8 +272,12 @@ define hidden void @_ZN19ShenandoahGCSessionD2Ev(ptr noundef nonnull align 8 der
   %27 = load ptr, ptr %20, align 8
   %28 = load ptr, ptr %10, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 24
-  %30 = load <2 x i64>, ptr %29, align 8
-  store <2 x i64> %30, ptr %3, align 16
+  %.sroa.0.0.copyload.i = load i64, ptr %29, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 32
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i64 %.sroa.0.0.copyload.i, ptr %3, align 8
+  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 40
   call void @_ZN8GCTracer13report_gc_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %31) #12
   %32 = load ptr, ptr %0, align 8

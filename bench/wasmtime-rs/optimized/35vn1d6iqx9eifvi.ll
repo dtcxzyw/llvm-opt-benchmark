@@ -1152,71 +1152,75 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
 
 .lr.ph:                                           ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 24
-  br label %32
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds i8, ptr %6, i64 24
+  br label %34
 
-._crit_edge:                                      ; preds = %32, %2
-  %21 = getelementptr inbounds i8, ptr %9, i64 32
-  %22 = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
-  %23 = getelementptr inbounds i8, ptr %9, i64 40
-  %24 = load i64, ptr %23, align 8, !noundef !3
-  %25 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %22, i64 %24
-  store ptr %22, ptr %5, align 8
+._crit_edge:                                      ; preds = %34, %2
+  %23 = getelementptr inbounds i8, ptr %9, i64 32
+  %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
+  %25 = getelementptr inbounds i8, ptr %9, i64 40
+  %26 = load i64, ptr %25, align 8, !noundef !3
+  %27 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %24, i64 %26
+  store ptr %24, ptr %5, align 8
   %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %25, ptr %.sroa.27.0..sroa_idx, align 8
+  store ptr %27, ptr %.sroa.27.0..sroa_idx, align 8
   %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.38.0..sroa_idx, align 8
-  %26 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4a3e53ea5c67aa44E"(ptr nonnull align 8 %5)
-  %27 = extractvalue { i64, ptr } %26, 1
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %._crit_edge27, label %.lr.ph26
+  %28 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4a3e53ea5c67aa44E"(ptr nonnull align 8 %5)
+  %29 = extractvalue { i64, ptr } %28, 1
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %._crit_edge27, label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %40
+  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds i8, ptr %3, i64 16
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %43
 
-32:                                               ; preds = %.lr.ph, %32
-  %33 = phi ptr [ %16, %.lr.ph ], [ %38, %32 ]
-  %34 = phi { i64, ptr } [ %15, %.lr.ph ], [ %37, %32 ]
-  %35 = extractvalue { i64, ptr } %34, 0
-  store i64 %35, ptr %7, align 8
+34:                                               ; preds = %.lr.ph, %34
+  %35 = phi ptr [ %16, %.lr.ph ], [ %41, %34 ]
+  %36 = phi { i64, ptr } [ %15, %.lr.ph ], [ %40, %34 ]
+  %37 = extractvalue { i64, ptr } %36, 0
+  store i64 %37, ptr %7, align 8
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %1, ptr nonnull align 1 @anon.c160ce05be1254bab33d8aa99a7c1e66.90, i64 20)
-  store ptr %33, ptr %6, align 8
-  %36 = load <2 x ptr>, ptr %18, align 8
-  store <2 x ptr> %36, ptr %19, align 8
-  store ptr %7, ptr %20, align 8
+  %38 = load ptr, ptr %18, align 8, !nonnull !3, !align !4, !noundef !3
+  %39 = load ptr, ptr %19, align 8, !nonnull !3, !align !4, !noundef !3
+  store ptr %35, ptr %6, align 8
+  store ptr %38, ptr %20, align 8
+  store ptr %39, ptr %21, align 8
+  store ptr %7, ptr %22, align 8
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h9d0924dd88e42af5E(ptr align 8 %1, ptr nonnull align 8 %6)
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %1, ptr nonnull align 1 @anon.c160ce05be1254bab33d8aa99a7c1e66.91, i64 2)
-  %37 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3cbf9b4a378107f5E"(ptr nonnull align 8 %8)
-  %38 = extractvalue { i64, ptr } %37, 1
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %._crit_edge, label %32
+  %40 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3cbf9b4a378107f5E"(ptr nonnull align 8 %8)
+  %41 = extractvalue { i64, ptr } %40, 1
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %._crit_edge, label %34
 
-._crit_edge27:                                    ; preds = %40, %._crit_edge
+._crit_edge27:                                    ; preds = %43, %._crit_edge
   ret void
 
-40:                                               ; preds = %.lr.ph26, %40
-  %41 = phi ptr [ %27, %.lr.ph26 ], [ %49, %40 ]
-  %42 = phi { i64, ptr } [ %26, %.lr.ph26 ], [ %48, %40 ]
-  %43 = extractvalue { i64, ptr } %42, 0
-  store i64 %43, ptr %4, align 8
+43:                                               ; preds = %.lr.ph26, %43
+  %44 = phi ptr [ %29, %.lr.ph26 ], [ %52, %43 ]
+  %45 = phi { i64, ptr } [ %28, %.lr.ph26 ], [ %51, %43 ]
+  %46 = extractvalue { i64, ptr } %45, 0
+  store i64 %46, ptr %4, align 8
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %1, ptr nonnull align 1 @anon.c160ce05be1254bab33d8aa99a7c1e66.90, i64 20)
-  store ptr %41, ptr %3, align 8
-  store ptr %4, ptr %29, align 8
-  store ptr %9, ptr %30, align 8
+  store ptr %44, ptr %3, align 8
+  store ptr %4, ptr %31, align 8
+  store ptr %9, ptr %32, align 8
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h1406c2d413d330b9E(ptr align 8 %1, ptr nonnull align 8 %3)
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %1, ptr nonnull align 1 @anon.c160ce05be1254bab33d8aa99a7c1e66.91, i64 2)
-  %44 = load i64, ptr %4, align 8, !noundef !3
-  %45 = add i64 %44, %13
-  %46 = load ptr, ptr %31, align 8, !nonnull !3, !align !4, !noundef !3
-  %47 = call { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hcfe648cf74d5b86cE"(ptr nonnull align 8 %46, i64 1, ptr nonnull %41, i64 %45)
-  %48 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4a3e53ea5c67aa44E"(ptr nonnull align 8 %5)
-  %49 = extractvalue { i64, ptr } %48, 1
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %._crit_edge27, label %40
+  %47 = load i64, ptr %4, align 8, !noundef !3
+  %48 = add i64 %47, %13
+  %49 = load ptr, ptr %33, align 8, !nonnull !3, !align !4, !noundef !3
+  %50 = call { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hcfe648cf74d5b86cE"(ptr nonnull align 8 %49, i64 1, ptr nonnull %44, i64 %48)
+  %51 = call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4a3e53ea5c67aa44E"(ptr nonnull align 8 %5)
+  %52 = extractvalue { i64, ptr } %51, 1
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %._crit_edge27, label %43
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

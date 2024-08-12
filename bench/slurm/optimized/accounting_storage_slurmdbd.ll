@@ -4465,7 +4465,7 @@ define range(i32 -1, 1) i32 @clusteracct_storage_p_node_update(ptr noundef %0, p
   %11 = and i32 %8, 4096
   %.not = icmp eq i32 %11, 0
   %or.cond = and i1 %10, %.not
-  br i1 %or.cond, label %12, label %29
+  br i1 %or.cond, label %12, label %32
 
 12:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 64, i1 false)
@@ -4478,25 +4478,29 @@ define range(i32 -1, 1) i32 @clusteracct_storage_p_node_update(ptr noundef %0, p
   %18 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 200
-  %20 = getelementptr inbounds i8, ptr %5, i64 24
-  %21 = load <2 x ptr>, ptr %19, align 8
-  store <2 x ptr> %21, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 40
-  store i16 3, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 480
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 16
-  store i16 1432, ptr %26, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %20, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 208
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 40
+  store i16 3, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 480
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %5, i64 64
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
+  store i16 1432, ptr %29, align 8
   store ptr %0, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %5, ptr %27, align 8
-  %28 = call i32 @slurmdbd_agent_send(i16 noundef zeroext 10496, ptr noundef nonnull %4) #14
-  %.lobit = ashr i32 %28, 31
-  br label %29
+  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %5, ptr %30, align 8
+  %31 = call i32 @slurmdbd_agent_send(i16 noundef zeroext 10496, ptr noundef nonnull %4) #14
+  %.lobit = ashr i32 %31, 31
+  br label %32
 
-29:                                               ; preds = %12, %3
+32:                                               ; preds = %12, %3
   %.0 = phi i32 [ 0, %3 ], [ %.lobit, %12 ]
   ret i32 %.0
 }
@@ -5681,7 +5685,7 @@ define range(i32 -1, 1) i32 @jobacct_storage_p_step_start(ptr noundef %0, ptr no
 
 33:                                               ; preds = %30, %27
   %34 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.87) #14
-  br label %79
+  br label %82
 
 35:                                               ; preds = %30, %23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 72, i1 false)
@@ -5746,23 +5750,27 @@ define range(i32 -1, 1) i32 @jobacct_storage_p_step_start(ptr noundef %0, ptr no
   %69 = getelementptr inbounds i8, ptr %4, i64 112
   store ptr %68, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %1, i64 60
-  %71 = getelementptr inbounds i8, ptr %4, i64 72
-  %72 = load <2 x i32>, ptr %70, align 4
-  store <2 x i32> %72, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 68
-  %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %4, i64 80
-  store i32 %74, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %3, i64 16
-  store i16 1442, ptr %76, align 8
+  %71 = load i32, ptr %70, align 4
+  %72 = getelementptr inbounds i8, ptr %4, i64 72
+  store i32 %71, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %1, i64 64
+  %74 = load i32, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %4, i64 76
+  store i32 %74, ptr %75, align 4
+  %76 = getelementptr inbounds i8, ptr %1, i64 68
+  %77 = load i32, ptr %76, align 4
+  %78 = getelementptr inbounds i8, ptr %4, i64 80
+  store i32 %77, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %3, i64 16
+  store i16 1442, ptr %79, align 8
   store ptr %0, ptr %3, align 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %4, ptr %77, align 8
-  %78 = call i32 @slurmdbd_agent_send(i16 noundef zeroext 10496, ptr noundef nonnull %3) #14
-  %.lobit = ashr i32 %78, 31
-  br label %79
+  %80 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %4, ptr %80, align 8
+  %81 = call i32 @slurmdbd_agent_send(i16 noundef zeroext 10496, ptr noundef nonnull %3) #14
+  %.lobit = ashr i32 %81, 31
+  br label %82
 
-79:                                               ; preds = %59, %33
+82:                                               ; preds = %59, %33
   %.040 = phi i32 [ -1, %33 ], [ %.lobit, %59 ]
   ret i32 %.040
 }

@@ -185,26 +185,44 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %storage, i64 %sub
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 1024
   %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 1088
-  %1 = load <2 x i64>, ptr %m, align 8
-  %2 = sub <2 x i64> <i64 0, i64 poison>, %1
-  %3 = xor <2 x i64> %1, <i64 poison, i64 -1>
-  %4 = shufflevector <2 x i64> %2, <2 x i64> %3, <2 x i32> <i32 0, i32 3>
-  store <2 x i64> %4, ptr %add.ptr4, align 16
+  %1 = load i64, ptr %m, align 8
+  %sub5 = sub i64 0, %1
+  store i64 %sub5, ptr %add.ptr4, align 16
+  %arrayidx7 = getelementptr inbounds i8, ptr %m, i64 8
+  %2 = load i64, ptr %arrayidx7, align 8
+  %not = xor i64 %2, -1
+  %arrayidx8 = getelementptr inbounds i8, ptr %add.ptr, i64 1096
+  store i64 %not, ptr %arrayidx8, align 8
   %arrayidx9 = getelementptr inbounds i8, ptr %m, i64 16
+  %3 = load i64, ptr %arrayidx9, align 8
+  %not10 = xor i64 %3, -1
   %arrayidx11 = getelementptr inbounds i8, ptr %add.ptr, i64 1104
-  %5 = load <2 x i64>, ptr %arrayidx9, align 8
-  %6 = xor <2 x i64> %5, <i64 -1, i64 -1>
-  store <2 x i64> %6, ptr %arrayidx11, align 16
+  store i64 %not10, ptr %arrayidx11, align 16
+  %arrayidx12 = getelementptr inbounds i8, ptr %m, i64 24
+  %4 = load i64, ptr %arrayidx12, align 8
+  %not13 = xor i64 %4, -1
+  %arrayidx14 = getelementptr inbounds i8, ptr %add.ptr, i64 1112
+  store i64 %not13, ptr %arrayidx14, align 8
   %arrayidx15 = getelementptr inbounds i8, ptr %m, i64 32
+  %5 = load i64, ptr %arrayidx15, align 8
+  %not16 = xor i64 %5, -1
   %arrayidx17 = getelementptr inbounds i8, ptr %add.ptr, i64 1120
-  %7 = load <2 x i64>, ptr %arrayidx15, align 8
-  %8 = xor <2 x i64> %7, <i64 -1, i64 -1>
-  store <2 x i64> %8, ptr %arrayidx17, align 16
+  store i64 %not16, ptr %arrayidx17, align 16
+  %arrayidx18 = getelementptr inbounds i8, ptr %m, i64 40
+  %6 = load i64, ptr %arrayidx18, align 8
+  %not19 = xor i64 %6, -1
+  %arrayidx20 = getelementptr inbounds i8, ptr %add.ptr, i64 1128
+  store i64 %not19, ptr %arrayidx20, align 8
   %arrayidx21 = getelementptr inbounds i8, ptr %m, i64 48
+  %7 = load i64, ptr %arrayidx21, align 8
+  %not22 = xor i64 %7, -1
   %arrayidx23 = getelementptr inbounds i8, ptr %add.ptr, i64 1136
-  %9 = load <2 x i64>, ptr %arrayidx21, align 8
-  %10 = xor <2 x i64> %9, <i64 -1, i64 -1>
-  store <2 x i64> %10, ptr %arrayidx23, align 16
+  store i64 %not22, ptr %arrayidx23, align 16
+  %arrayidx24 = getelementptr inbounds i8, ptr %m, i64 56
+  %8 = load i64, ptr %arrayidx24, align 8
+  %not25 = xor i64 %8, -1
+  %arrayidx26 = getelementptr inbounds i8, ptr %add.ptr, i64 1144
+  store i64 %not25, ptr %arrayidx26, align 8
   call void @rsaz_512_scatter4(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr4, i32 noundef 0) #2
   call void @rsaz_512_mul(ptr noundef nonnull %add.ptr2, ptr noundef %base, ptr noundef %RR, ptr noundef nonnull %m, i64 noundef %k0) #2
   call void @rsaz_512_scatter4(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef 1) #2
@@ -221,8 +239,8 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   %arrayidx27 = getelementptr inbounds i8, ptr %exponent, i64 63
-  %11 = load i8, ptr %arrayidx27, align 1
-  %conv = zext i8 %11 to i32
+  %9 = load i8, ptr %arrayidx27, align 1
+  %conv = zext i8 %9 to i32
   %shr = lshr i32 %conv, 4
   call void @rsaz_512_gather4(ptr noundef nonnull %add.ptr4, ptr noundef nonnull %add.ptr, i32 noundef %shr) #2
   call void @rsaz_512_sqr(ptr noundef nonnull %add.ptr4, ptr noundef nonnull %add.ptr4, ptr noundef nonnull %m, i64 noundef %k0, i32 noundef 4) #2
@@ -233,8 +251,8 @@ for.end:                                          ; preds = %for.body
 for.body31:                                       ; preds = %for.end, %for.body31
   %indvars.iv = phi i64 [ 62, %for.end ], [ %indvars.iv.next, %for.body31 ]
   %arrayidx32 = getelementptr inbounds i8, ptr %exponent, i64 %indvars.iv
-  %12 = load i8, ptr %arrayidx32, align 1
-  %conv33 = zext i8 %12 to i32
+  %10 = load i8, ptr %arrayidx32, align 1
+  %conv33 = zext i8 %10 to i32
   call void @rsaz_512_sqr(ptr noundef nonnull %add.ptr4, ptr noundef nonnull %add.ptr4, ptr noundef nonnull %m, i64 noundef %k0, i32 noundef 4) #2
   %shr34 = lshr i32 %conv33, 4
   call void @rsaz_512_mul_gather4(ptr noundef nonnull %add.ptr4, ptr noundef nonnull %add.ptr4, ptr noundef nonnull %add.ptr, ptr noundef nonnull %m, i64 noundef %k0, i32 noundef %shr34) #2
@@ -249,19 +267,19 @@ for.end37:                                        ; preds = %for.body31
   call void @rsaz_512_mul_by_one(ptr noundef %result, ptr noundef nonnull %add.ptr4, ptr noundef nonnull %m, i64 noundef %k0) #2
   %call.i = call i64 @bn_sub_words(ptr noundef nonnull %tmp, ptr noundef %result, ptr noundef nonnull %m, i32 noundef 8) #2
   %sub.i = sub i64 0, %call.i
-  %13 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %sub.i) #3, !srcloc !6
+  %11 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %sub.i) #3, !srcloc !6
   %not.i.i.i = add i64 %call.i, -1
-  %14 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %not.i.i.i) #3, !srcloc !6
+  %12 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %not.i.i.i) #3, !srcloc !6
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.end37
   %i.06.i.i = phi i64 [ 0, %for.end37 ], [ %inc.i.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds i64, ptr %result, i64 %i.06.i.i
-  %15 = load i64, ptr %arrayidx.i.i, align 8
+  %13 = load i64, ptr %arrayidx.i.i, align 8
   %arrayidx1.i.i = getelementptr inbounds i64, ptr %tmp, i64 %i.06.i.i
-  %16 = load i64, ptr %arrayidx1.i.i, align 8
-  %and.i.i.i = and i64 %15, %13
-  %and2.i.i.i = and i64 %16, %14
+  %14 = load i64, ptr %arrayidx1.i.i, align 8
+  %and.i.i.i = and i64 %13, %11
+  %and2.i.i.i = and i64 %14, %12
   %or.i.i.i = or i64 %and2.i.i.i, %and.i.i.i
   store i64 %or.i.i.i, ptr %arrayidx.i.i, align 8
   %inc.i.i = add nuw nsw i64 %i.06.i.i, 1

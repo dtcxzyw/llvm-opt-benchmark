@@ -1435,10 +1435,16 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %mixins_, ptr noundef nonnull %mixins_9)
   %name_ = getelementptr inbounds i8, ptr %this, i64 96
   %name_10 = getelementptr inbounds i8, ptr %other, i64 96
-  %6 = load <2 x ptr>, ptr %name_10, align 8
-  %7 = load <2 x i64>, ptr %name_, align 8
-  store <2 x i64> %7, ptr %name_10, align 8
-  store <2 x ptr> %6, ptr %name_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_10, align 8
+  %6 = load i64, ptr %name_, align 8
+  store i64 %6, ptr %name_10, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
+  %version_ = getelementptr inbounds i8, ptr %this, i64 104
+  %version_11 = getelementptr inbounds i8, ptr %other, i64 104
+  %__tmp.sroa.0.0.copyload.i9 = load ptr, ptr %version_11, align 8
+  %7 = load i64, ptr %version_, align 8
+  store i64 %7, ptr %version_11, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i9, ptr %version_, align 8
   %source_context_ = getelementptr inbounds i8, ptr %this, i64 112
   %source_context_12 = getelementptr i8, ptr %other, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
@@ -2495,10 +2501,16 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %2, ptr noundef nonnull %3)
   %name_ = getelementptr inbounds i8, ptr %this, i64 40
   %name_5 = getelementptr inbounds i8, ptr %other, i64 40
-  %4 = load <2 x ptr>, ptr %name_5, align 8
-  %5 = load <2 x i64>, ptr %name_, align 8
-  store <2 x i64> %5, ptr %name_5, align 8
-  store <2 x ptr> %4, ptr %name_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_5, align 8
+  %4 = load i64, ptr %name_, align 8
+  store i64 %4, ptr %name_5, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
+  %request_type_url_ = getelementptr inbounds i8, ptr %this, i64 48
+  %request_type_url_6 = getelementptr inbounds i8, ptr %other, i64 48
+  %__tmp.sroa.0.0.copyload.i8 = load ptr, ptr %request_type_url_6, align 8
+  %5 = load i64, ptr %request_type_url_, align 8
+  store i64 %5, ptr %request_type_url_6, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i8, ptr %request_type_url_, align 8
   %response_type_url_ = getelementptr inbounds i8, ptr %this, i64 56
   %response_type_url_7 = getelementptr inbounds i8, ptr %other, i64 56
   %__tmp.sroa.0.0.copyload.i9 = load ptr, ptr %response_type_url_7, align 8
@@ -2995,19 +3007,23 @@ entry:
 define void @_ZN6google8protobuf5Mixin12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noalias nocapture noundef %other) local_unnamed_addr #11 align 2 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load i64, ptr %_internal_metadata_.i, align 8
   %_internal_metadata_3 = getelementptr inbounds i8, ptr %other, i64 8
-  %0 = load i64, ptr %_internal_metadata_3, align 8
-  %1 = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = getelementptr inbounds i8, ptr %other, i64 16
+  %1 = load i64, ptr %_internal_metadata_3, align 8
+  store i64 %1, ptr %_internal_metadata_.i, align 8
+  store i64 %0, ptr %_internal_metadata_3, align 8
+  %2 = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = getelementptr inbounds i8, ptr %other, i64 16
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %3, align 8
+  %4 = load i64, ptr %2, align 8
+  store i64 %4, ptr %3, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %2, align 8
   %root_ = getelementptr inbounds i8, ptr %this, i64 24
   %root_5 = getelementptr inbounds i8, ptr %other, i64 24
-  %3 = load i64, ptr %root_, align 8
-  %4 = load <2 x ptr>, ptr %2, align 8
-  %5 = load <2 x i64>, ptr %_internal_metadata_.i, align 8
-  store i64 %0, ptr %_internal_metadata_.i, align 8
-  store <2 x i64> %5, ptr %_internal_metadata_3, align 8
-  store i64 %3, ptr %root_5, align 8
-  store <2 x ptr> %4, ptr %1, align 8
+  %__tmp.sroa.0.0.copyload.i4 = load ptr, ptr %root_5, align 8
+  %5 = load i64, ptr %root_, align 8
+  store i64 %5, ptr %root_5, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i4, ptr %root_, align 8
   ret void
 }
 

@@ -1053,7 +1053,7 @@ Cec_ManFraCreateInfo.exit:                        ; preds = %Cec_ManFraCreateInf
 
 Vec_PtrFree.exit:                                 ; preds = %85, %87
   call void @free(ptr noundef nonnull %20) #19
-  br label %334
+  br label %337
 
 ._crit_edge:                                      ; preds = %48, %40
   %88 = getelementptr inbounds i8, ptr %20, i64 8
@@ -1477,24 +1477,30 @@ Abc_Clock.exit173:                                ; preds = %91, %94
   br i1 %324, label %254, label %.critedge8.loopexit, !llvm.loop !15
 
 .critedge8.loopexit:                              ; preds = %320, %254
-  %325 = load <2 x i32>, ptr %247, align 8
+  %.pre226 = load i32, ptr %247, align 8
+  %.pre227 = load i32, ptr %246, align 4
   %.pre228 = load i32, ptr %245, align 8
   br label %.critedge8
 
 .critedge8:                                       ; preds = %.critedge8.loopexit, %.critedge6
-  %326 = phi i32 [ %.pre228, %.critedge8.loopexit ], [ 0, %.critedge6 ]
-  %327 = phi <2 x i32> [ %325, %.critedge8.loopexit ], [ zeroinitializer, %.critedge6 ]
+  %325 = phi i32 [ %.pre228, %.critedge8.loopexit ], [ 0, %.critedge6 ]
+  %326 = phi i32 [ %.pre227, %.critedge8.loopexit ], [ 0, %.critedge6 ]
+  %327 = phi i32 [ %.pre226, %.critedge8.loopexit ], [ 0, %.critedge6 ]
   %328 = getelementptr inbounds i8, ptr %0, i64 36
-  %329 = load <2 x i32>, ptr %328, align 4
-  %330 = add nsw <2 x i32> %329, %327
-  store <2 x i32> %330, ptr %328, align 4
-  %331 = getelementptr inbounds i8, ptr %0, i64 44
-  %332 = load i32, ptr %331, align 4
+  %329 = load i32, ptr %328, align 4
+  %330 = add nsw i32 %329, %327
+  store i32 %330, ptr %328, align 4
+  %331 = getelementptr inbounds i8, ptr %0, i64 40
+  %332 = load i32, ptr %331, align 8
   %333 = add nsw i32 %332, %326
-  store i32 %333, ptr %331, align 4
-  br label %334
+  store i32 %333, ptr %331, align 8
+  %334 = getelementptr inbounds i8, ptr %0, i64 44
+  %335 = load i32, ptr %334, align 4
+  %336 = add nsw i32 %335, %325
+  store i32 %336, ptr %334, align 4
+  br label %337
 
-334:                                              ; preds = %.critedge8, %Vec_PtrFree.exit
+337:                                              ; preds = %.critedge8, %Vec_PtrFree.exit
   %.0118 = phi i32 [ 1, %Vec_PtrFree.exit ], [ 0, %.critedge8 ]
   ret i32 %.0118
 }

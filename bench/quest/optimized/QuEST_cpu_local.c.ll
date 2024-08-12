@@ -110,11 +110,15 @@ declare double @densmatr_calcInnerProductLocal(ptr noundef byval(%struct.Qureg) 
 ; Function Attrs: nounwind uwtable
 define double @densmatr_calcFidelity(ptr noundef byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
-  %5 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %5, ptr %3, align 8
-  %6 = tail call double @densmatr_calcFidelityLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1) #14
-  ret double %6
+  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %3, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %4, align 8
+  %9 = tail call double @densmatr_calcFidelityLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1) #14
+  ret double %9
 }
 
 declare double @densmatr_calcFidelityLocal(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.Qureg) align 8) local_unnamed_addr #1
@@ -122,9 +126,13 @@ declare double @densmatr_calcFidelityLocal(ptr noundef byval(%struct.Qureg) alig
 ; Function Attrs: nounwind uwtable
 define void @densmatr_initPureState(ptr noundef byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.Qureg) align 8 %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
-  %5 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %5, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %3, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %4, align 8
   tail call void @densmatr_initPureStateLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1) #14
   ret void
 }
@@ -519,9 +527,13 @@ declare void @statevec_swapQubitAmpsLocal(ptr noundef byval(%struct.Qureg) align
 ; Function Attrs: nounwind uwtable
 define void @densmatr_applyDiagonalOp(ptr noundef byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.DiagonalOp) align 8 %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
-  %5 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %5, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %3, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %4, align 8
   tail call void @densmatr_applyDiagonalOpLocal(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.DiagonalOp) align 8 %1) #14
   ret void
 }

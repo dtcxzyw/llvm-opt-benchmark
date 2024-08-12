@@ -258,7 +258,13 @@ define noundef i32 @SHA1_Init(ptr nocapture noundef writeonly %c) local_unnamed_
 entry:
   %0 = getelementptr inbounds i8, ptr %c, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %c, align 4
+  store i32 1732584193, ptr %c, align 4
+  %h1 = getelementptr inbounds i8, ptr %c, i64 4
+  store i32 -271733879, ptr %h1, align 4
+  %h2 = getelementptr inbounds i8, ptr %c, i64 8
+  store i32 -1732584194, ptr %h2, align 4
+  %h3 = getelementptr inbounds i8, ptr %c, i64 12
+  store i32 271733878, ptr %h3, align 4
   %h4 = getelementptr inbounds i8, ptr %c, i64 16
   store i32 -1009589776, ptr %h4, align 4
   ret i32 1
@@ -406,7 +412,13 @@ SHA1_Update.exit158:                              ; preds = %if.else.i25, %if.en
   %call16 = call i32 @SHA1_Final(ptr noundef nonnull %sha1tmp, ptr noundef nonnull %sha1)
   %10 = getelementptr inbounds i8, ptr %sha1, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %10, i8 0, i64 64, i1 false)
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %sha1, align 4
+  store i32 1732584193, ptr %sha1, align 4
+  %h1.i = getelementptr inbounds i8, ptr %sha1, i64 4
+  store i32 -271733879, ptr %h1.i, align 4
+  %h2.i = getelementptr inbounds i8, ptr %sha1, i64 8
+  store i32 -1732584194, ptr %h2.i, align 4
+  %h3.i = getelementptr inbounds i8, ptr %sha1, i64 12
+  store i32 271733878, ptr %h3.i, align 4
   %h4.i = getelementptr inbounds i8, ptr %sha1, i64 16
   store i32 -1009589776, ptr %h4.i, align 4
   store i32 0, ptr %Nh.i, align 4

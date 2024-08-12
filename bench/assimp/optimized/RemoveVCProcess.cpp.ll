@@ -75,7 +75,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Assimp15RemoveVCProcess7ExecuteEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %pScene) unnamed_addr #3 align 2 {
 entry:
-  %clr = alloca %struct.aiColor3D, align 8
+  %clr = alloca %struct.aiColor3D, align 4
   %s = alloca %struct.aiString, align 4
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str)
@@ -237,12 +237,15 @@ for.end:                                          ; preds = %for.inc, %land.lhs.
   %24 = load ptr, ptr %mMaterials14, align 8
   %25 = load ptr, ptr %24, align 8
   tail call void @_ZN10aiMaterial5ClearEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
-  store <2 x float> <float 0x3FE3333340000000, float 0x3FE3333340000000>, ptr %clr, align 8
+  store float 0x3FE3333340000000, ptr %clr, align 4
+  %g.i = getelementptr inbounds i8, ptr %clr, i64 4
+  store float 0x3FE3333340000000, ptr %g.i, align 4
   %b.i = getelementptr inbounds i8, ptr %clr, i64 8
-  store float 0x3FE3333340000000, ptr %b.i, align 8
+  store float 0x3FE3333340000000, ptr %b.i, align 4
   %call3.i = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.1, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  store <2 x float> <float 0x3FA99999A0000000, float 0x3FA99999A0000000>, ptr %clr, align 8
-  store float 0x3FA99999A0000000, ptr %b.i, align 8
+  store float 0x3FA99999A0000000, ptr %clr, align 4
+  store float 0x3FA99999A0000000, ptr %g.i, align 4
+  store float 0x3FA99999A0000000, ptr %b.i, align 4
   %call3.i47 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.2, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %data.i = getelementptr inbounds i8, ptr %s, i64 4
   store i32 22, ptr %s, align 4

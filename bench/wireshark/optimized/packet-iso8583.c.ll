@@ -214,51 +214,57 @@ define hidden void @proto_register_iso8583() local_unnamed_addr #0 {
   %3 = getelementptr [128 x %struct.hf_register_info], ptr @proto_register_iso8583.hf_data, i64 0, i64 %indvars.iv
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = getelementptr inbounds i8, ptr %3, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr [128 x i32], ptr @iso8583_data_bit, i64 0, i64 %indvars.iv
-  store ptr %7, ptr %3, align 16
-  %8 = tail call ptr @wmem_epan_scope() #6
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %8, ptr noundef nonnull @.str.119, i32 noundef %9) #6
-  store ptr %10, ptr %4, align 8
+  store i32 -1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 60
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %3, i64 64
+  store i32 0, ptr %7, align 16
+  %8 = getelementptr inbounds i8, ptr %3, i64 68
+  store i32 -1, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %3, i64 72
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr [128 x i32], ptr @iso8583_data_bit, i64 0, i64 %indvars.iv
+  store ptr %10, ptr %3, align 16
   %11 = tail call ptr @wmem_epan_scope() #6
-  %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %11, ptr noundef nonnull @.str.120, i32 noundef %9) #6
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %12, ptr %13, align 16
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %12 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %13 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %11, ptr noundef nonnull @.str.119, i32 noundef %12) #6
+  store ptr %13, ptr %4, align 8
+  %14 = tail call ptr @wmem_epan_scope() #6
+  %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %14, ptr noundef nonnull @.str.120, i32 noundef %12) #6
+  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %15, ptr %16, align 16
   %.not = icmp eq i64 %indvars.iv, 0
   %spec.select = select i1 %.not, i32 2, i32 26
   %spec.select28 = select i1 %.not, i32 8, i32 0
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 %spec.select, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 28
-  store i32 %spec.select28, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
-  %17 = getelementptr [128 x ptr], ptr @proto_register_iso8583.hf_data_blurb, i64 0, i64 %indvars.iv
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr %18, ptr %19, align 16
+  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 %spec.select, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 %spec.select28, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %3, i64 32
+  %20 = getelementptr [128 x ptr], ptr @proto_register_iso8583.hf_data_blurb, i64 0, i64 %indvars.iv
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, i8 0, i64 16, i1 false)
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %21, ptr %22, align 16
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
-  br i1 %exitcond.not, label %20, label %2, !llvm.loop !4
+  br i1 %exitcond.not, label %23, label %2, !llvm.loop !4
 
-20:                                               ; preds = %2
-  %21 = load i32, ptr @proto_iso8583, align 4
-  tail call void @proto_register_field_array(i32 noundef %21, ptr noundef nonnull @proto_register_iso8583.hf_data, i32 noundef 128) #6
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_iso8583.ett, i32 noundef 1) #6
-  %22 = load i32, ptr @proto_iso8583, align 4
-  %23 = tail call ptr @expert_register_protocol(i32 noundef %22) #6
-  tail call void @expert_register_field_array(ptr noundef %23, ptr noundef nonnull @proto_register_iso8583.ei, i32 noundef 1) #6
+23:                                               ; preds = %2
   %24 = load i32, ptr @proto_iso8583, align 4
-  %25 = tail call ptr @register_dissector(ptr noundef nonnull @.str.118, ptr noundef nonnull @dissect_iso8583, i32 noundef %24) #6
-  store ptr %25, ptr @iso8583_handle, align 8
-  %26 = load i32, ptr @proto_iso8583, align 4
-  %27 = tail call ptr @prefs_register_protocol(i32 noundef %26, ptr noundef null) #6
-  tail call void @prefs_register_enum_preference(ptr noundef %27, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, ptr noundef nonnull @len_byte_order, ptr noundef nonnull @enumendians, i32 noundef 1) #6
-  tail call void @prefs_register_enum_preference(ptr noundef %27, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef nonnull @charset_pref, ptr noundef nonnull @enum_charset, i32 noundef 1) #6
-  tail call void @prefs_register_enum_preference(ptr noundef %27, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.129, ptr noundef nonnull @bin_encode_pref, ptr noundef nonnull @enum_bin_encode, i32 noundef 1) #6
+  tail call void @proto_register_field_array(i32 noundef %24, ptr noundef nonnull @proto_register_iso8583.hf_data, i32 noundef 128) #6
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_iso8583.ett, i32 noundef 1) #6
+  %25 = load i32, ptr @proto_iso8583, align 4
+  %26 = tail call ptr @expert_register_protocol(i32 noundef %25) #6
+  tail call void @expert_register_field_array(ptr noundef %26, ptr noundef nonnull @proto_register_iso8583.ei, i32 noundef 1) #6
+  %27 = load i32, ptr @proto_iso8583, align 4
+  %28 = tail call ptr @register_dissector(ptr noundef nonnull @.str.118, ptr noundef nonnull @dissect_iso8583, i32 noundef %27) #6
+  store ptr %28, ptr @iso8583_handle, align 8
+  %29 = load i32, ptr @proto_iso8583, align 4
+  %30 = tail call ptr @prefs_register_protocol(i32 noundef %29, ptr noundef null) #6
+  tail call void @prefs_register_enum_preference(ptr noundef %30, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, ptr noundef nonnull @len_byte_order, ptr noundef nonnull @enumendians, i32 noundef 1) #6
+  tail call void @prefs_register_enum_preference(ptr noundef %30, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef nonnull @charset_pref, ptr noundef nonnull @enum_charset, i32 noundef 1) #6
+  tail call void @prefs_register_enum_preference(ptr noundef %30, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.129, ptr noundef nonnull @bin_encode_pref, ptr noundef nonnull @enum_bin_encode, i32 noundef 1) #6
   ret void
 }
 

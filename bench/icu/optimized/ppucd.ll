@@ -634,7 +634,13 @@ entry:
   %file = getelementptr inbounds i8, ptr %this, i64 8
   %defaultLineIndex = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 0>, ptr %defaultLineIndex, align 8
+  store i32 -1, ptr %defaultLineIndex, align 8
+  %blockLineIndex = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 -1, ptr %blockLineIndex, align 4
+  %lineIndex = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 0, ptr %lineIndex, align 8
+  %lineNumber = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 0, ptr %lineNumber, align 4
   %lineType = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %lineType, align 8
   %fieldLimit = getelementptr inbounds i8, ptr %this, i64 40

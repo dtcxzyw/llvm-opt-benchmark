@@ -529,22 +529,22 @@ define void @_ZN13sentencepiece11TrainerSpecC2EPN6google8protobuf5ArenaE(ptr nou
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %1)
-          to label %7 unwind label %34
+          to label %7 unwind label %37
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %1)
-          to label %9 unwind label %36
+          to label %9 unwind label %39
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 104
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %1)
-          to label %11 unwind label %38
+          to label %11 unwind label %41
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %0, i64 128
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %1)
-          to label %13 unwind label %40
+          to label %13 unwind label %43
 
 13:                                               ; preds = %11
   %14 = load atomic i32, ptr @scc_info_TrainerSpec_sentencepiece_5fmodel_2eproto acquire, align 8
@@ -553,7 +553,7 @@ define void @_ZN13sentencepiece11TrainerSpecC2EPN6google8protobuf5ArenaE(ptr nou
 
 15:                                               ; preds = %13
   invoke void @_ZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseE(ptr noundef nonnull @scc_info_TrainerSpec_sentencepiece_5fmodel_2eproto)
-          to label %16 unwind label %42
+          to label %16 unwind label %45
 
 16:                                               ; preds = %13, %15
   %17 = getelementptr inbounds i8, ptr %0, i64 152
@@ -581,60 +581,66 @@ define void @_ZN13sentencepiece11TrainerSpecC2EPN6google8protobuf5ArenaE(ptr nou
   %28 = getelementptr inbounds i8, ptr %0, i64 296
   store float 7.500000e-01, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 300
-  store <4 x i32> <i32 16, i32 2, i32 4192, i32 16>, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 316
-  %31 = getelementptr inbounds i8, ptr %0, i64 324
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %30, i8 1, i64 6, i1 false)
-  store i32 1, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 328
-  store i32 2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 332
-  store i32 -1, ptr %33, align 4
+  store i32 16, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 304
+  store i32 2, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 308
+  store i32 4192, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %0, i64 312
+  store i32 16, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 316
+  %34 = getelementptr inbounds i8, ptr %0, i64 324
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %33, i8 1, i64 6, i1 false)
+  store i32 1, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 328
+  store i32 2, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 332
+  store i32 -1, ptr %36, align 4
   ret void
 
-34:                                               ; preds = %2
-  %35 = landingpad { ptr, i32 }
+37:                                               ; preds = %2
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  br label %50
+
+39:                                               ; preds = %7
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  br label %49
+
+41:                                               ; preds = %9
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  br label %48
+
+43:                                               ; preds = %11
+  %44 = landingpad { ptr, i32 }
           cleanup
   br label %47
 
-36:                                               ; preds = %7
-  %37 = landingpad { ptr, i32 }
-          cleanup
-  br label %46
-
-38:                                               ; preds = %9
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  br label %45
-
-40:                                               ; preds = %11
-  %41 = landingpad { ptr, i32 }
-          cleanup
-  br label %44
-
-42:                                               ; preds = %15
-  %43 = landingpad { ptr, i32 }
+45:                                               ; preds = %15
+  %46 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  br label %44
-
-44:                                               ; preds = %42, %40
-  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ]
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  br label %45
-
-45:                                               ; preds = %44, %38
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %44 ], [ %39, %38 ]
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
-  br label %46
-
-46:                                               ; preds = %45, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %45 ], [ %37, %36 ]
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
   br label %47
 
-47:                                               ; preds = %46, %34
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %46 ], [ %35, %34 ]
+47:                                               ; preds = %45, %43
+  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ]
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
+  br label %48
+
+48:                                               ; preds = %47, %41
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %47 ], [ %42, %41 ]
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  br label %49
+
+49:                                               ; preds = %48, %39
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %48 ], [ %40, %39 ]
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
+  br label %50
+
+50:                                               ; preds = %49, %37
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %49 ], [ %38, %37 ]
   tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
@@ -6511,7 +6517,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit192: ; preds = %334
   %.12 = phi i64 [ %.4, %245 ], [ %spec.select188, %348 ]
   %354 = and i32 %83, 16711680
   %.not152 = icmp eq i32 %354, 0
-  br i1 %.not152, label %400, label %355
+  br i1 %.not152, label %396, label %355
 
 355:                                              ; preds = %353
   %356 = and i32 %83, 65536
@@ -6522,416 +6528,416 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit192: ; preds = %334
   %.not154 = icmp eq i32 %358, 0
   %359 = add i64 %spec.select183, 3
   %.22 = select i1 %.not154, i64 %spec.select183, i64 %359
-  %360 = insertelement <4 x i32> poison, i32 %83, i64 0
-  %361 = shufflevector <4 x i32> %360, <4 x i32> poison, <4 x i32> zeroinitializer
-  %362 = and <4 x i32> %361, <i32 2097152, i32 1048576, i32 524288, i32 262144>
-  %363 = add i64 %.22, 3
-  %364 = icmp eq <4 x i32> %362, zeroinitializer
-  %365 = extractelement <4 x i1> %364, i64 3
-  %.23 = select i1 %365, i64 %.22, i64 %363
-  %366 = add i64 %.23, 3
-  %367 = extractelement <4 x i1> %364, i64 2
-  %.24 = select i1 %367, i64 %.23, i64 %366
-  %368 = add i64 %.24, 3
-  %369 = extractelement <4 x i1> %364, i64 1
-  %.25 = select i1 %369, i64 %.24, i64 %368
-  %370 = extractelement <4 x i1> %364, i64 0
-  br i1 %370, label %385, label %371
+  %360 = and i32 %83, 262144
+  %.not155 = icmp eq i32 %360, 0
+  %361 = add i64 %.22, 3
+  %.23 = select i1 %.not155, i64 %.22, i64 %361
+  %362 = and i32 %83, 524288
+  %.not156 = icmp eq i32 %362, 0
+  %363 = add i64 %.23, 3
+  %.24 = select i1 %.not156, i64 %.23, i64 %363
+  %364 = and i32 %83, 1048576
+  %.not157 = icmp eq i32 %364, 0
+  %365 = add i64 %.24, 3
+  %.25 = select i1 %.not157, i64 %.24, i64 %365
+  %366 = and i32 %83, 2097152
+  %.not158 = icmp eq i32 %366, 0
+  br i1 %.not158, label %381, label %367
 
-371:                                              ; preds = %355
-  %372 = getelementptr inbounds i8, ptr %0, i64 260
-  %373 = load i32, ptr %372, align 4
-  %374 = icmp slt i32 %373, 0
-  br i1 %374, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit194, label %375
+367:                                              ; preds = %355
+  %368 = getelementptr inbounds i8, ptr %0, i64 260
+  %369 = load i32, ptr %368, align 4
+  %370 = icmp slt i32 %369, 0
+  br i1 %370, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit194, label %371
 
-375:                                              ; preds = %371
-  %376 = or i32 %373, 1
-  %377 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %376, i1 true)
-  %378 = xor i32 %377, 31
-  %379 = mul nuw nsw i32 %378, 9
-  %380 = add nuw nsw i32 %379, 73
-  %381 = lshr i32 %380, 6
-  %382 = zext nneg i32 %381 to i64
+371:                                              ; preds = %367
+  %372 = or i32 %369, 1
+  %373 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %372, i1 true)
+  %374 = xor i32 %373, 31
+  %375 = mul nuw nsw i32 %374, 9
+  %376 = add nuw nsw i32 %375, 73
+  %377 = lshr i32 %376, 6
+  %378 = zext nneg i32 %377 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit194
 
-_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit194: ; preds = %371, %375
-  %.0.i.i193 = phi i64 [ %382, %375 ], [ 10, %371 ]
-  %383 = add i64 %.25, 2
-  %384 = add i64 %383, %.0.i.i193
-  br label %385
+_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit194: ; preds = %367, %371
+  %.0.i.i193 = phi i64 [ %378, %371 ], [ 10, %367 ]
+  %379 = add i64 %.25, 2
+  %380 = add i64 %379, %.0.i.i193
+  br label %381
 
-385:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit194, %355
-  %.26 = phi i64 [ %384, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit194 ], [ %.25, %355 ]
-  %386 = and i32 %83, 4194304
-  %.not159 = icmp eq i32 %386, 0
-  %387 = add i64 %.26, 6
-  %spec.select184 = select i1 %.not159, i64 %.26, i64 %387
-  %388 = and i32 %83, 8388608
-  %.not160 = icmp eq i32 %388, 0
-  br i1 %.not160, label %400, label %389
+381:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit194, %355
+  %.26 = phi i64 [ %380, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit194 ], [ %.25, %355 ]
+  %382 = and i32 %83, 4194304
+  %.not159 = icmp eq i32 %382, 0
+  %383 = add i64 %.26, 6
+  %spec.select184 = select i1 %.not159, i64 %.26, i64 %383
+  %384 = and i32 %83, 8388608
+  %.not160 = icmp eq i32 %384, 0
+  br i1 %.not160, label %396, label %385
 
-389:                                              ; preds = %385
-  %390 = getelementptr inbounds i8, ptr %0, i64 272
-  %391 = load i64, ptr %390, align 8
-  %392 = or i64 %391, 1
-  %393 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %392, i1 true)
-  %394 = xor i64 %393, 63
-  %395 = mul nuw nsw i64 %394, 9
-  %396 = add nuw nsw i64 %395, 73
-  %397 = lshr i64 %396, 6
-  %398 = add i64 %spec.select184, 2
-  %399 = add i64 %398, %397
-  br label %400
+385:                                              ; preds = %381
+  %386 = getelementptr inbounds i8, ptr %0, i64 272
+  %387 = load i64, ptr %386, align 8
+  %388 = or i64 %387, 1
+  %389 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %388, i1 true)
+  %390 = xor i64 %389, 63
+  %391 = mul nuw nsw i64 %390, 9
+  %392 = add nuw nsw i64 %391, 73
+  %393 = lshr i64 %392, 6
+  %394 = add i64 %spec.select184, 2
+  %395 = add i64 %394, %393
+  br label %396
 
-400:                                              ; preds = %385, %389, %353
-  %.20 = phi i64 [ %399, %389 ], [ %spec.select184, %385 ], [ %.12, %353 ]
+396:                                              ; preds = %381, %385, %353
+  %.20 = phi i64 [ %395, %385 ], [ %spec.select184, %381 ], [ %.12, %353 ]
   %.not161 = icmp ult i32 %83, 16777216
-  br i1 %.not161, label %497, label %401
+  br i1 %.not161, label %493, label %397
 
-401:                                              ; preds = %400
-  %402 = and i32 %83, 16777216
-  %.not162 = icmp eq i32 %402, 0
-  br i1 %.not162, label %417, label %403
+397:                                              ; preds = %396
+  %398 = and i32 %83, 16777216
+  %.not162 = icmp eq i32 %398, 0
+  br i1 %.not162, label %413, label %399
 
-403:                                              ; preds = %401
-  %404 = getelementptr inbounds i8, ptr %0, i64 280
-  %405 = load i32, ptr %404, align 8
-  %406 = icmp slt i32 %405, 0
-  br i1 %406, label %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, label %407
+399:                                              ; preds = %397
+  %400 = getelementptr inbounds i8, ptr %0, i64 280
+  %401 = load i32, ptr %400, align 8
+  %402 = icmp slt i32 %401, 0
+  br i1 %402, label %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, label %403
 
-407:                                              ; preds = %403
-  %408 = or i32 %405, 1
-  %409 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %408, i1 true)
-  %410 = xor i32 %409, 31
-  %411 = mul nuw nsw i32 %410, 9
-  %412 = add nuw nsw i32 %411, 73
-  %413 = lshr i32 %412, 6
-  %414 = zext nneg i32 %413 to i64
+403:                                              ; preds = %399
+  %404 = or i32 %401, 1
+  %405 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %404, i1 true)
+  %406 = xor i32 %405, 31
+  %407 = mul nuw nsw i32 %406, 9
+  %408 = add nuw nsw i32 %407, 73
+  %409 = lshr i32 %408, 6
+  %410 = zext nneg i32 %409 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit
 
-_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit: ; preds = %403, %407
-  %.0.i.i195 = phi i64 [ %414, %407 ], [ 10, %403 ]
-  %415 = add i64 %.20, 1
-  %416 = add i64 %415, %.0.i.i195
-  br label %417
+_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit: ; preds = %399, %403
+  %.0.i.i195 = phi i64 [ %410, %403 ], [ 10, %399 ]
+  %411 = add i64 %.20, 1
+  %412 = add i64 %411, %.0.i.i195
+  br label %413
 
-417:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, %401
-  %.29 = phi i64 [ %416, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit ], [ %.20, %401 ]
-  %418 = and i32 %83, 33554432
-  %.not163 = icmp eq i32 %418, 0
-  br i1 %.not163, label %433, label %419
+413:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, %397
+  %.29 = phi i64 [ %412, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit ], [ %.20, %397 ]
+  %414 = and i32 %83, 33554432
+  %.not163 = icmp eq i32 %414, 0
+  br i1 %.not163, label %429, label %415
 
-419:                                              ; preds = %417
-  %420 = getelementptr inbounds i8, ptr %0, i64 284
-  %421 = load i32, ptr %420, align 4
-  %422 = icmp slt i32 %421, 0
-  br i1 %422, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit197, label %423
+415:                                              ; preds = %413
+  %416 = getelementptr inbounds i8, ptr %0, i64 284
+  %417 = load i32, ptr %416, align 4
+  %418 = icmp slt i32 %417, 0
+  br i1 %418, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit197, label %419
 
-423:                                              ; preds = %419
-  %424 = or i32 %421, 1
-  %425 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %424, i1 true)
-  %426 = xor i32 %425, 31
-  %427 = mul nuw nsw i32 %426, 9
-  %428 = add nuw nsw i32 %427, 73
-  %429 = lshr i32 %428, 6
-  %430 = zext nneg i32 %429 to i64
+419:                                              ; preds = %415
+  %420 = or i32 %417, 1
+  %421 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %420, i1 true)
+  %422 = xor i32 %421, 31
+  %423 = mul nuw nsw i32 %422, 9
+  %424 = add nuw nsw i32 %423, 73
+  %425 = lshr i32 %424, 6
+  %426 = zext nneg i32 %425 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit197
 
-_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit197: ; preds = %419, %423
-  %.0.i.i196 = phi i64 [ %430, %423 ], [ 10, %419 ]
-  %431 = add i64 %.29, 1
-  %432 = add i64 %431, %.0.i.i196
-  br label %433
+_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit197: ; preds = %415, %419
+  %.0.i.i196 = phi i64 [ %426, %419 ], [ 10, %415 ]
+  %427 = add i64 %.29, 1
+  %428 = add i64 %427, %.0.i.i196
+  br label %429
 
-433:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit197, %417
-  %.30 = phi i64 [ %432, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit197 ], [ %.29, %417 ]
-  %434 = and i32 %83, 67108864
-  %.not164 = icmp eq i32 %434, 0
-  %435 = add i64 %.30, 5
-  %spec.select185 = select i1 %.not164, i64 %.30, i64 %435
-  %436 = and i32 %83, 134217728
-  %.not165 = icmp eq i32 %436, 0
-  br i1 %.not165, label %451, label %437
+429:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit197, %413
+  %.30 = phi i64 [ %428, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit197 ], [ %.29, %413 ]
+  %430 = and i32 %83, 67108864
+  %.not164 = icmp eq i32 %430, 0
+  %431 = add i64 %.30, 5
+  %spec.select185 = select i1 %.not164, i64 %.30, i64 %431
+  %432 = and i32 %83, 134217728
+  %.not165 = icmp eq i32 %432, 0
+  br i1 %.not165, label %447, label %433
+
+433:                                              ; preds = %429
+  %434 = getelementptr inbounds i8, ptr %0, i64 292
+  %435 = load i32, ptr %434, align 4
+  %436 = icmp slt i32 %435, 0
+  br i1 %436, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit199, label %437
 
 437:                                              ; preds = %433
-  %438 = getelementptr inbounds i8, ptr %0, i64 292
-  %439 = load i32, ptr %438, align 4
-  %440 = icmp slt i32 %439, 0
-  br i1 %440, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit199, label %441
-
-441:                                              ; preds = %437
-  %442 = or i32 %439, 1
-  %443 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %442, i1 true)
-  %444 = xor i32 %443, 31
-  %445 = mul nuw nsw i32 %444, 9
-  %446 = add nuw nsw i32 %445, 73
-  %447 = lshr i32 %446, 6
-  %448 = zext nneg i32 %447 to i64
+  %438 = or i32 %435, 1
+  %439 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %438, i1 true)
+  %440 = xor i32 %439, 31
+  %441 = mul nuw nsw i32 %440, 9
+  %442 = add nuw nsw i32 %441, 73
+  %443 = lshr i32 %442, 6
+  %444 = zext nneg i32 %443 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit199
 
-_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit199: ; preds = %437, %441
-  %.0.i.i198 = phi i64 [ %448, %441 ], [ 10, %437 ]
-  %449 = add i64 %spec.select185, 1
-  %450 = add i64 %449, %.0.i.i198
-  br label %451
+_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit199: ; preds = %433, %437
+  %.0.i.i198 = phi i64 [ %444, %437 ], [ 10, %433 ]
+  %445 = add i64 %spec.select185, 1
+  %446 = add i64 %445, %.0.i.i198
+  br label %447
 
-451:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit199, %433
-  %.32 = phi i64 [ %450, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit199 ], [ %spec.select185, %433 ]
-  %452 = and i32 %83, 268435456
-  %.not166 = icmp eq i32 %452, 0
-  %453 = add i64 %.32, 5
-  %spec.select186 = select i1 %.not166, i64 %.32, i64 %453
-  %454 = and i32 %83, 536870912
-  %.not167 = icmp eq i32 %454, 0
-  br i1 %.not167, label %468, label %455
+447:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit199, %429
+  %.32 = phi i64 [ %446, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit199 ], [ %spec.select185, %429 ]
+  %448 = and i32 %83, 268435456
+  %.not166 = icmp eq i32 %448, 0
+  %449 = add i64 %.32, 5
+  %spec.select186 = select i1 %.not166, i64 %.32, i64 %449
+  %450 = and i32 %83, 536870912
+  %.not167 = icmp eq i32 %450, 0
+  br i1 %.not167, label %464, label %451
+
+451:                                              ; preds = %447
+  %452 = getelementptr inbounds i8, ptr %0, i64 300
+  %453 = load i32, ptr %452, align 4
+  %454 = icmp slt i32 %453, 0
+  br i1 %454, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit201, label %455
 
 455:                                              ; preds = %451
-  %456 = getelementptr inbounds i8, ptr %0, i64 300
-  %457 = load i32, ptr %456, align 4
-  %458 = icmp slt i32 %457, 0
-  br i1 %458, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit201, label %459
-
-459:                                              ; preds = %455
-  %460 = or i32 %457, 1
-  %461 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %460, i1 true)
-  %462 = xor i32 %461, 31
-  %463 = mul nuw nsw i32 %462, 9
-  %464 = add nuw nsw i32 %463, 73
-  %465 = lshr i32 %464, 6
-  %narrow = add nuw nsw i32 %465, 2
-  %466 = zext nneg i32 %narrow to i64
+  %456 = or i32 %453, 1
+  %457 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %456, i1 true)
+  %458 = xor i32 %457, 31
+  %459 = mul nuw nsw i32 %458, 9
+  %460 = add nuw nsw i32 %459, 73
+  %461 = lshr i32 %460, 6
+  %narrow = add nuw nsw i32 %461, 2
+  %462 = zext nneg i32 %narrow to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit201
 
-_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit201: ; preds = %455, %459
-  %.0.i.i200 = phi i64 [ %466, %459 ], [ 12, %455 ]
-  %467 = add i64 %.0.i.i200, %spec.select186
-  br label %468
+_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit201: ; preds = %451, %455
+  %.0.i.i200 = phi i64 [ %462, %455 ], [ 12, %451 ]
+  %463 = add i64 %.0.i.i200, %spec.select186
+  br label %464
 
-468:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit201, %451
-  %.34 = phi i64 [ %467, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit201 ], [ %spec.select186, %451 ]
-  %469 = and i32 %83, 1073741824
-  %.not168 = icmp eq i32 %469, 0
-  br i1 %.not168, label %483, label %470
+464:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit201, %447
+  %.34 = phi i64 [ %463, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit201 ], [ %spec.select186, %447 ]
+  %465 = and i32 %83, 1073741824
+  %.not168 = icmp eq i32 %465, 0
+  br i1 %.not168, label %479, label %466
 
-470:                                              ; preds = %468
-  %471 = getelementptr inbounds i8, ptr %0, i64 304
-  %472 = load i32, ptr %471, align 8
-  %473 = icmp slt i32 %472, 0
-  br i1 %473, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit203, label %474
+466:                                              ; preds = %464
+  %467 = getelementptr inbounds i8, ptr %0, i64 304
+  %468 = load i32, ptr %467, align 8
+  %469 = icmp slt i32 %468, 0
+  br i1 %469, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit203, label %470
 
-474:                                              ; preds = %470
-  %475 = or i32 %472, 1
-  %476 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %475, i1 true)
-  %477 = xor i32 %476, 31
-  %478 = mul nuw nsw i32 %477, 9
-  %479 = add nuw nsw i32 %478, 73
-  %480 = lshr i32 %479, 6
-  %narrow214 = add nuw nsw i32 %480, 2
-  %481 = zext nneg i32 %narrow214 to i64
+470:                                              ; preds = %466
+  %471 = or i32 %468, 1
+  %472 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %471, i1 true)
+  %473 = xor i32 %472, 31
+  %474 = mul nuw nsw i32 %473, 9
+  %475 = add nuw nsw i32 %474, 73
+  %476 = lshr i32 %475, 6
+  %narrow214 = add nuw nsw i32 %476, 2
+  %477 = zext nneg i32 %narrow214 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit203
 
-_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit203: ; preds = %470, %474
-  %.0.i.i202 = phi i64 [ %481, %474 ], [ 12, %470 ]
-  %482 = add i64 %.0.i.i202, %.34
-  br label %483
+_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit203: ; preds = %466, %470
+  %.0.i.i202 = phi i64 [ %477, %470 ], [ 12, %466 ]
+  %478 = add i64 %.0.i.i202, %.34
+  br label %479
 
-483:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit203, %468
-  %.35 = phi i64 [ %482, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit203 ], [ %.34, %468 ]
+479:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit203, %464
+  %.35 = phi i64 [ %478, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit203 ], [ %.34, %464 ]
   %.not169 = icmp sgt i32 %83, -1
-  br i1 %.not169, label %497, label %484
+  br i1 %.not169, label %493, label %480
 
-484:                                              ; preds = %483
-  %485 = getelementptr inbounds i8, ptr %0, i64 308
-  %486 = load i32, ptr %485, align 4
-  %487 = icmp slt i32 %486, 0
-  br i1 %487, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit205, label %488
+480:                                              ; preds = %479
+  %481 = getelementptr inbounds i8, ptr %0, i64 308
+  %482 = load i32, ptr %481, align 4
+  %483 = icmp slt i32 %482, 0
+  br i1 %483, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit205, label %484
 
-488:                                              ; preds = %484
-  %489 = or i32 %486, 1
-  %490 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %489, i1 true)
-  %491 = xor i32 %490, 31
-  %492 = mul nuw nsw i32 %491, 9
-  %493 = add nuw nsw i32 %492, 73
-  %494 = lshr i32 %493, 6
-  %narrow215 = add nuw nsw i32 %494, 2
-  %495 = zext nneg i32 %narrow215 to i64
+484:                                              ; preds = %480
+  %485 = or i32 %482, 1
+  %486 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %485, i1 true)
+  %487 = xor i32 %486, 31
+  %488 = mul nuw nsw i32 %487, 9
+  %489 = add nuw nsw i32 %488, 73
+  %490 = lshr i32 %489, 6
+  %narrow215 = add nuw nsw i32 %490, 2
+  %491 = zext nneg i32 %narrow215 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit205
 
-_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit205: ; preds = %484, %488
-  %.0.i.i204 = phi i64 [ %495, %488 ], [ 12, %484 ]
-  %496 = add i64 %.0.i.i204, %.35
-  br label %497
+_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit205: ; preds = %480, %484
+  %.0.i.i204 = phi i64 [ %491, %484 ], [ 12, %480 ]
+  %492 = add i64 %.0.i.i204, %.35
+  br label %493
 
-497:                                              ; preds = %483, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit205, %400
-  %.28 = phi i64 [ %496, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit205 ], [ %.35, %483 ], [ %.20, %400 ]
-  %498 = getelementptr inbounds i8, ptr %0, i64 44
-  %499 = load i32, ptr %498, align 4
-  %500 = and i32 %499, 255
-  %.not170 = icmp eq i32 %500, 0
-  br i1 %.not170, label %547, label %501
+493:                                              ; preds = %479, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit205, %396
+  %.28 = phi i64 [ %492, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit205 ], [ %.35, %479 ], [ %.20, %396 ]
+  %494 = getelementptr inbounds i8, ptr %0, i64 44
+  %495 = load i32, ptr %494, align 4
+  %496 = and i32 %495, 255
+  %.not170 = icmp eq i32 %496, 0
+  br i1 %.not170, label %539, label %497
 
-501:                                              ; preds = %497
-  %502 = and i32 %499, 1
-  %.not171 = icmp eq i32 %502, 0
-  br i1 %.not171, label %516, label %503
+497:                                              ; preds = %493
+  %498 = and i32 %495, 1
+  %.not171 = icmp eq i32 %498, 0
+  br i1 %.not171, label %512, label %499
 
-503:                                              ; preds = %501
-  %504 = getelementptr inbounds i8, ptr %0, i64 312
-  %505 = load i32, ptr %504, align 8
-  %506 = icmp slt i32 %505, 0
-  br i1 %506, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit207, label %507
+499:                                              ; preds = %497
+  %500 = getelementptr inbounds i8, ptr %0, i64 312
+  %501 = load i32, ptr %500, align 8
+  %502 = icmp slt i32 %501, 0
+  br i1 %502, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit207, label %503
 
-507:                                              ; preds = %503
-  %508 = or i32 %505, 1
-  %509 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %508, i1 true)
-  %510 = xor i32 %509, 31
-  %511 = mul nuw nsw i32 %510, 9
-  %512 = add nuw nsw i32 %511, 73
-  %513 = lshr i32 %512, 6
-  %narrow216 = add nuw nsw i32 %513, 2
-  %514 = zext nneg i32 %narrow216 to i64
+503:                                              ; preds = %499
+  %504 = or i32 %501, 1
+  %505 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %504, i1 true)
+  %506 = xor i32 %505, 31
+  %507 = mul nuw nsw i32 %506, 9
+  %508 = add nuw nsw i32 %507, 73
+  %509 = lshr i32 %508, 6
+  %narrow216 = add nuw nsw i32 %509, 2
+  %510 = zext nneg i32 %narrow216 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit207
 
-_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit207: ; preds = %503, %507
-  %.0.i.i206 = phi i64 [ %514, %507 ], [ 12, %503 ]
-  %515 = add i64 %.0.i.i206, %.28
-  br label %516
+_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit207: ; preds = %499, %503
+  %.0.i.i206 = phi i64 [ %510, %503 ], [ 12, %499 ]
+  %511 = add i64 %.0.i.i206, %.28
+  br label %512
 
-516:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit207, %501
-  %.37 = phi i64 [ %515, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit207 ], [ %.28, %501 ]
-  %517 = and i32 %499, 2
-  %.not172 = icmp eq i32 %517, 0
-  %518 = add i64 %.37, 3
-  %spec.select187 = select i1 %.not172, i64 %.37, i64 %518
-  %519 = and i32 %499, 4
-  %.not173 = icmp eq i32 %519, 0
-  %520 = add i64 %spec.select187, 3
-  %.39 = select i1 %.not173, i64 %spec.select187, i64 %520
-  %521 = and i32 %499, 8
-  %.not174 = icmp eq i32 %521, 0
-  %522 = add i64 %.39, 3
-  %.40 = select i1 %.not174, i64 %.39, i64 %522
-  %523 = insertelement <4 x i32> poison, i32 %499, i64 0
-  %524 = shufflevector <4 x i32> %523, <4 x i32> poison, <4 x i32> zeroinitializer
-  %525 = and <4 x i32> %524, <i32 128, i32 64, i32 32, i32 16>
-  %526 = add i64 %.40, 3
-  %527 = icmp eq <4 x i32> %525, zeroinitializer
-  %528 = extractelement <4 x i1> %527, i64 3
-  %.41 = select i1 %528, i64 %.40, i64 %526
-  %529 = add i64 %.41, 3
-  %530 = extractelement <4 x i1> %527, i64 2
-  %.42 = select i1 %530, i64 %.41, i64 %529
-  %531 = add i64 %.42, 3
-  %532 = extractelement <4 x i1> %527, i64 1
-  %.43 = select i1 %532, i64 %.42, i64 %531
-  %533 = extractelement <4 x i1> %527, i64 0
-  br i1 %533, label %547, label %534
+512:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit207, %497
+  %.37 = phi i64 [ %511, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit207 ], [ %.28, %497 ]
+  %513 = and i32 %495, 2
+  %.not172 = icmp eq i32 %513, 0
+  %514 = add i64 %.37, 3
+  %spec.select187 = select i1 %.not172, i64 %.37, i64 %514
+  %515 = and i32 %495, 4
+  %.not173 = icmp eq i32 %515, 0
+  %516 = add i64 %spec.select187, 3
+  %.39 = select i1 %.not173, i64 %spec.select187, i64 %516
+  %517 = and i32 %495, 8
+  %.not174 = icmp eq i32 %517, 0
+  %518 = add i64 %.39, 3
+  %.40 = select i1 %.not174, i64 %.39, i64 %518
+  %519 = and i32 %495, 16
+  %.not175 = icmp eq i32 %519, 0
+  %520 = add i64 %.40, 3
+  %.41 = select i1 %.not175, i64 %.40, i64 %520
+  %521 = and i32 %495, 32
+  %.not176 = icmp eq i32 %521, 0
+  %522 = add i64 %.41, 3
+  %.42 = select i1 %.not176, i64 %.41, i64 %522
+  %523 = and i32 %495, 64
+  %.not177 = icmp eq i32 %523, 0
+  %524 = add i64 %.42, 3
+  %.43 = select i1 %.not177, i64 %.42, i64 %524
+  %525 = and i32 %495, 128
+  %.not178 = icmp eq i32 %525, 0
+  br i1 %.not178, label %539, label %526
 
-534:                                              ; preds = %516
-  %535 = getelementptr inbounds i8, ptr %0, i64 324
-  %536 = load i32, ptr %535, align 4
-  %537 = icmp slt i32 %536, 0
-  br i1 %537, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit209, label %538
+526:                                              ; preds = %512
+  %527 = getelementptr inbounds i8, ptr %0, i64 324
+  %528 = load i32, ptr %527, align 4
+  %529 = icmp slt i32 %528, 0
+  br i1 %529, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit209, label %530
 
-538:                                              ; preds = %534
-  %539 = or i32 %536, 1
-  %540 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %539, i1 true)
-  %541 = xor i32 %540, 31
-  %542 = mul nuw nsw i32 %541, 9
-  %543 = add nuw nsw i32 %542, 73
-  %544 = lshr i32 %543, 6
-  %narrow217 = add nuw nsw i32 %544, 2
-  %545 = zext nneg i32 %narrow217 to i64
+530:                                              ; preds = %526
+  %531 = or i32 %528, 1
+  %532 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %531, i1 true)
+  %533 = xor i32 %532, 31
+  %534 = mul nuw nsw i32 %533, 9
+  %535 = add nuw nsw i32 %534, 73
+  %536 = lshr i32 %535, 6
+  %narrow217 = add nuw nsw i32 %536, 2
+  %537 = zext nneg i32 %narrow217 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit209
 
-_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit209: ; preds = %534, %538
-  %.0.i.i208 = phi i64 [ %545, %538 ], [ 12, %534 ]
-  %546 = add i64 %.0.i.i208, %.43
-  br label %547
+_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit209: ; preds = %526, %530
+  %.0.i.i208 = phi i64 [ %537, %530 ], [ 12, %526 ]
+  %538 = add i64 %.0.i.i208, %.43
+  br label %539
 
-547:                                              ; preds = %516, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit209, %497
-  %.36 = phi i64 [ %546, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit209 ], [ %.43, %516 ], [ %.28, %497 ]
-  %548 = and i32 %499, 768
-  %.not179 = icmp eq i32 %548, 0
-  br i1 %.not179, label %579, label %549
+539:                                              ; preds = %512, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit209, %493
+  %.36 = phi i64 [ %538, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit209 ], [ %.43, %512 ], [ %.28, %493 ]
+  %540 = and i32 %495, 768
+  %.not179 = icmp eq i32 %540, 0
+  br i1 %.not179, label %571, label %541
 
-549:                                              ; preds = %547
-  %550 = and i32 %499, 256
-  %.not180 = icmp eq i32 %550, 0
-  br i1 %.not180, label %564, label %551
+541:                                              ; preds = %539
+  %542 = and i32 %495, 256
+  %.not180 = icmp eq i32 %542, 0
+  br i1 %.not180, label %556, label %543
 
-551:                                              ; preds = %549
-  %552 = getelementptr inbounds i8, ptr %0, i64 328
-  %553 = load i32, ptr %552, align 8
-  %554 = icmp slt i32 %553, 0
-  br i1 %554, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit211, label %555
+543:                                              ; preds = %541
+  %544 = getelementptr inbounds i8, ptr %0, i64 328
+  %545 = load i32, ptr %544, align 8
+  %546 = icmp slt i32 %545, 0
+  br i1 %546, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit211, label %547
 
-555:                                              ; preds = %551
-  %556 = or i32 %553, 1
-  %557 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %556, i1 true)
-  %558 = xor i32 %557, 31
-  %559 = mul nuw nsw i32 %558, 9
-  %560 = add nuw nsw i32 %559, 73
-  %561 = lshr i32 %560, 6
-  %narrow218 = add nuw nsw i32 %561, 2
-  %562 = zext nneg i32 %narrow218 to i64
+547:                                              ; preds = %543
+  %548 = or i32 %545, 1
+  %549 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %548, i1 true)
+  %550 = xor i32 %549, 31
+  %551 = mul nuw nsw i32 %550, 9
+  %552 = add nuw nsw i32 %551, 73
+  %553 = lshr i32 %552, 6
+  %narrow218 = add nuw nsw i32 %553, 2
+  %554 = zext nneg i32 %narrow218 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit211
 
-_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit211: ; preds = %551, %555
-  %.0.i.i210 = phi i64 [ %562, %555 ], [ 12, %551 ]
-  %563 = add i64 %.0.i.i210, %.36
-  br label %564
+_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit211: ; preds = %543, %547
+  %.0.i.i210 = phi i64 [ %554, %547 ], [ 12, %543 ]
+  %555 = add i64 %.0.i.i210, %.36
+  br label %556
 
-564:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit211, %549
-  %.45 = phi i64 [ %563, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit211 ], [ %.36, %549 ]
-  %565 = and i32 %499, 512
-  %.not181 = icmp eq i32 %565, 0
-  br i1 %.not181, label %579, label %566
+556:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit211, %541
+  %.45 = phi i64 [ %555, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit211 ], [ %.36, %541 ]
+  %557 = and i32 %495, 512
+  %.not181 = icmp eq i32 %557, 0
+  br i1 %.not181, label %571, label %558
 
-566:                                              ; preds = %564
-  %567 = getelementptr inbounds i8, ptr %0, i64 332
-  %568 = load i32, ptr %567, align 4
-  %569 = icmp slt i32 %568, 0
-  br i1 %569, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit213, label %570
+558:                                              ; preds = %556
+  %559 = getelementptr inbounds i8, ptr %0, i64 332
+  %560 = load i32, ptr %559, align 4
+  %561 = icmp slt i32 %560, 0
+  br i1 %561, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit213, label %562
 
-570:                                              ; preds = %566
-  %571 = or i32 %568, 1
-  %572 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %571, i1 true)
-  %573 = xor i32 %572, 31
-  %574 = mul nuw nsw i32 %573, 9
-  %575 = add nuw nsw i32 %574, 73
-  %576 = lshr i32 %575, 6
-  %narrow219 = add nuw nsw i32 %576, 2
-  %577 = zext nneg i32 %narrow219 to i64
+562:                                              ; preds = %558
+  %563 = or i32 %560, 1
+  %564 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %563, i1 true)
+  %565 = xor i32 %564, 31
+  %566 = mul nuw nsw i32 %565, 9
+  %567 = add nuw nsw i32 %566, 73
+  %568 = lshr i32 %567, 6
+  %narrow219 = add nuw nsw i32 %568, 2
+  %569 = zext nneg i32 %narrow219 to i64
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit213
 
-_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit213: ; preds = %566, %570
-  %.0.i.i212 = phi i64 [ %577, %570 ], [ 12, %566 ]
-  %578 = add i64 %.0.i.i212, %.45
-  br label %579
+_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit213: ; preds = %558, %562
+  %.0.i.i212 = phi i64 [ %569, %562 ], [ 12, %558 ]
+  %570 = add i64 %.0.i.i212, %.45
+  br label %571
 
-579:                                              ; preds = %564, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit213, %547
-  %.44 = phi i64 [ %578, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit213 ], [ %.45, %564 ], [ %.36, %547 ]
-  %580 = getelementptr inbounds i8, ptr %0, i64 8
-  %581 = load ptr, ptr %580, align 8
-  %582 = ptrtoint ptr %581 to i64
-  %583 = and i64 %582, 1
-  %.not182 = icmp eq i64 %583, 0
-  br i1 %.not182, label %590, label %584
+571:                                              ; preds = %556, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit213, %539
+  %.44 = phi i64 [ %570, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit213 ], [ %.45, %556 ], [ %.36, %539 ]
+  %572 = getelementptr inbounds i8, ptr %0, i64 8
+  %573 = load ptr, ptr %572, align 8
+  %574 = ptrtoint ptr %573 to i64
+  %575 = and i64 %574, 1
+  %.not182 = icmp eq i64 %575, 0
+  br i1 %.not182, label %582, label %576
 
-584:                                              ; preds = %579
-  %585 = and i64 %582, -2
-  %586 = inttoptr i64 %585 to ptr
-  %587 = getelementptr inbounds i8, ptr %586, i64 8
-  %588 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %587) #18
-  %589 = add i64 %588, %.44
-  br label %590
+576:                                              ; preds = %571
+  %577 = and i64 %574, -2
+  %578 = inttoptr i64 %577 to ptr
+  %579 = getelementptr inbounds i8, ptr %578, i64 8
+  %580 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %579) #18
+  %581 = add i64 %580, %.44
+  br label %582
 
-590:                                              ; preds = %584, %579
-  %.46 = phi i64 [ %589, %584 ], [ %.44, %579 ]
-  %591 = trunc i64 %.46 to i32
-  %592 = getelementptr inbounds i8, ptr %0, i64 48
-  store atomic i32 %591, ptr %592 monotonic, align 8
+582:                                              ; preds = %576, %571
+  %.46 = phi i64 [ %581, %576 ], [ %.44, %571 ]
+  %583 = trunc i64 %.46 to i32
+  %584 = getelementptr inbounds i8, ptr %0, i64 48
+  store atomic i32 %583, ptr %584 monotonic, align 8
   ret i64 %.46
 }
 

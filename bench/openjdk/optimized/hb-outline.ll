@@ -31,200 +31,205 @@ define hidden void @_ZNK12hb_outline_t6replayEP15hb_draw_funcs_tPv(ptr nocapture
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = getelementptr inbounds i8, ptr %0, i64 4
   %13 = getelementptr inbounds i8, ptr %4, i64 12
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 56
-  %16 = getelementptr inbounds i8, ptr %4, i64 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
-  %21 = getelementptr inbounds i8, ptr %1, i64 48
-  br label %22
+  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %17 = getelementptr inbounds i8, ptr %4, i64 4
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds i8, ptr %1, i64 48
+  br label %23
 
-22:                                               ; preds = %.lr.ph, %._crit_edge.thread
-  %.0207 = phi i32 [ 0, %.lr.ph ], [ %23, %._crit_edge.thread ]
-  %.0117206 = phi ptr [ %6, %.lr.ph ], [ %150, %._crit_edge.thread ]
-  %23 = load i32, ptr %.0117206, align 4
-  %24 = load i32, ptr %12, align 4
-  %25 = sub i32 %23, %.0207
-  %storemerge.i.i = call i32 @llvm.usub.sat.i32(i32 %24, i32 %.0207)
-  %.sroa.speculated.i.i = call i32 @llvm.umin.i32(i32 %storemerge.i.i, i32 %25)
+23:                                               ; preds = %.lr.ph, %._crit_edge.thread
+  %.0207 = phi i32 [ 0, %.lr.ph ], [ %24, %._crit_edge.thread ]
+  %.0117206 = phi ptr [ %6, %.lr.ph ], [ %144, %._crit_edge.thread ]
+  %24 = load i32, ptr %.0117206, align 4
+  %25 = load i32, ptr %12, align 4
+  %26 = sub i32 %24, %.0207
+  %storemerge.i.i = call i32 @llvm.usub.sat.i32(i32 %25, i32 %.0207)
+  %.sroa.speculated.i.i = call i32 @llvm.umin.i32(i32 %storemerge.i.i, i32 %26)
   %.not200201 = icmp eq i32 %.sroa.speculated.i.i, 0
   br i1 %.not200201, label %._crit_edge.thread, label %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader
 
-_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader: ; preds = %22
-  %26 = load ptr, ptr %11, align 8
-  %27 = zext i32 %.0207 to i64
-  %28 = getelementptr inbounds %struct.hb_outline_point_t, ptr %26, i64 %27
+_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader: ; preds = %23
+  %27 = load ptr, ptr %11, align 8
+  %28 = zext i32 %.0207 to i64
+  %29 = getelementptr inbounds %struct.hb_outline_point_t, ptr %27, i64 %28
   br label %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit
 
-_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit: ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader, %121
-  %29 = phi float [ %122, %121 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %30 = phi float [ %123, %121 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %31 = phi float [ %124, %121 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %32 = phi float [ %125, %121 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %33 = phi float [ %126, %121 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %34 = phi float [ %127, %121 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %35 = phi float [ %128, %121 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %36 = phi float [ %129, %121 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %37 = phi float [ %130, %121 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %38 = phi float [ %131, %121 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %.sroa.9.0203 = phi i32 [ %.sroa.9.1, %121 ], [ %.sroa.speculated.i.i, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %.sroa.0178.0202 = phi ptr [ %.sroa.0178.1, %121 ], [ %28, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
-  %39 = add i32 %.sroa.9.0203, -1
-  %40 = getelementptr inbounds i8, ptr %.sroa.0178.0202, i64 12
-  %41 = load <2 x float>, ptr %.sroa.0178.0202, align 4
-  %42 = extractelement <2 x float> %41, i64 1
-  %43 = extractelement <2 x float> %41, i64 0
+_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit: ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader, %115
+  %30 = phi float [ %116, %115 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %31 = phi float [ %117, %115 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %32 = phi float [ %118, %115 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %33 = phi float [ %119, %115 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %34 = phi float [ %120, %115 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %35 = phi float [ %121, %115 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %36 = phi float [ %122, %115 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %37 = phi float [ %123, %115 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %38 = phi float [ %124, %115 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %39 = phi float [ %125, %115 ], [ 0.000000e+00, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %.sroa.9.0203 = phi i32 [ %.sroa.9.1, %115 ], [ %.sroa.speculated.i.i, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %.sroa.0178.0202 = phi ptr [ %.sroa.0178.1, %115 ], [ %29, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader ]
+  %40 = add i32 %.sroa.9.0203, -1
+  %41 = getelementptr inbounds i8, ptr %.sroa.0178.0202, i64 12
+  %.sroa.07.0.copyload = load float, ptr %.sroa.0178.0202, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0178.0202, i64 4
+  %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0178.0202, i64 8
   %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 4
-  switch i32 %.sroa.9.0.copyload, label %121 [
-    i32 0, label %44
-    i32 1, label %64
+  switch i32 %.sroa.9.0.copyload, label %115 [
+    i32 0, label %42
+    i32 1, label %62
     i32 2, label %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit135
     i32 3, label %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit147
   ]
 
-44:                                               ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit
-  %45 = load i32, ptr %4, align 4
-  %.not122 = icmp eq i32 %45, 0
-  br i1 %.not122, label %.sink.split, label %46
+42:                                               ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit
+  %43 = load i32, ptr %4, align 4
+  %.not122 = icmp eq i32 %43, 0
+  br i1 %.not122, label %.sink.split, label %44
 
-46:                                               ; preds = %44
-  %47 = load float, ptr %16, align 4
-  %48 = fcmp une float %47, %32
-  %.pre = load float, ptr %17, align 4
-  %49 = fcmp une float %.pre, %31
-  %or.cond = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond, label %50, label %57
+44:                                               ; preds = %42
+  %45 = load float, ptr %17, align 4
+  %46 = fcmp une float %45, %33
+  %.pre = load float, ptr %18, align 4
+  %47 = fcmp une float %.pre, %32
+  %or.cond = select i1 %46, i1 true, i1 %47
+  br i1 %or.cond, label %48, label %55
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %20, align 8
-  %52 = load ptr, ptr %15, align 8
-  %.not.i = icmp eq ptr %52, null
-  br i1 %.not.i, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit, label %53
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %21, align 8
+  %50 = load ptr, ptr %16, align 8
+  %.not.i = icmp eq ptr %50, null
+  br i1 %.not.i, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit, label %51
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
-  %55 = load ptr, ptr %54, align 8
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = load ptr, ptr %52, align 8
   br label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
 
-_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %50, %53
-  %56 = phi ptr [ %55, %53 ], [ null, %50 ]
-  call void %51(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %47, float noundef %.pre, ptr noundef %56)
-  br label %57
+_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %48, %51
+  %54 = phi ptr [ %53, %51 ], [ null, %48 ]
+  call void %49(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %45, float noundef %.pre, ptr noundef %54)
+  br label %55
 
-57:                                               ; preds = %46, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
-  %58 = load ptr, ptr %21, align 8
-  %59 = load ptr, ptr %15, align 8
-  %.not.i125 = icmp eq ptr %59, null
-  br i1 %.not.i125, label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit, label %60
+55:                                               ; preds = %44, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
+  %56 = load ptr, ptr %22, align 8
+  %57 = load ptr, ptr %16, align 8
+  %.not.i125 = icmp eq ptr %57, null
+  br i1 %.not.i125, label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit, label %58
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %59, i64 32
-  %62 = load ptr, ptr %61, align 8
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds i8, ptr %57, i64 32
+  %60 = load ptr, ptr %59, align 8
   br label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit
 
-_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %57, %60
-  %63 = phi ptr [ %62, %60 ], [ null, %57 ]
-  call void %58(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef %63)
+_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %55, %58
+  %61 = phi ptr [ %60, %58 ], [ null, %55 ]
+  call void %56(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef %61)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   br label %.sink.split
 
-64:                                               ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit
-  %65 = load i32, ptr %4, align 4
-  %.not121 = icmp eq i32 %65, 0
-  br i1 %.not121, label %66, label %73
+62:                                               ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit
+  %63 = load i32, ptr %4, align 4
+  %.not121 = icmp eq i32 %63, 0
+  br i1 %.not121, label %64, label %72
 
-66:                                               ; preds = %64
-  %67 = load ptr, ptr %14, align 8
-  %68 = load ptr, ptr %15, align 8
-  %.not.i.i126 = icmp eq ptr %68, null
-  br i1 %.not.i.i126, label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit, label %69
+64:                                               ; preds = %62
+  %65 = load ptr, ptr %15, align 8
+  %66 = load ptr, ptr %16, align 8
+  %.not.i.i126 = icmp eq ptr %66, null
+  br i1 %.not.i.i126, label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit, label %67
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr %68, align 8
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %66, align 8
   br label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit
 
-_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %66, %69
-  %71 = phi ptr [ %70, %69 ], [ null, %66 ]
-  call void %67(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %34, float noundef %33, ptr noundef %71)
+_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %64, %67
+  %69 = phi ptr [ %68, %67 ], [ null, %64 ]
+  call void %65(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %35, float noundef %34, ptr noundef %69)
   store i32 1, ptr %4, align 4
-  %72 = load <2 x float>, ptr %13, align 4
-  store <2 x float> %72, ptr %16, align 4
-  br label %73
+  %70 = load float, ptr %13, align 4
+  store float %70, ptr %17, align 4
+  %71 = load float, ptr %14, align 4
+  store float %71, ptr %18, align 4
+  br label %72
 
-73:                                               ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit, %64
-  %74 = load ptr, ptr %20, align 8
-  %75 = load ptr, ptr %15, align 8
-  %.not.i127 = icmp eq ptr %75, null
-  br i1 %.not.i127, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128, label %76
+72:                                               ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit, %62
+  %73 = load ptr, ptr %21, align 8
+  %74 = load ptr, ptr %16, align 8
+  %.not.i127 = icmp eq ptr %74, null
+  br i1 %.not.i127, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128, label %75
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %75, i64 8
-  %78 = load ptr, ptr %77, align 8
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds i8, ptr %74, i64 8
+  %77 = load ptr, ptr %76, align 8
   br label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128
 
-_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128: ; preds = %73, %76
-  %79 = phi ptr [ %78, %76 ], [ null, %73 ]
-  call void %74(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %43, float noundef %42, ptr noundef %79)
+_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128: ; preds = %72, %75
+  %78 = phi ptr [ %77, %75 ], [ null, %72 ]
+  call void %73(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %.sroa.07.0.copyload, float noundef %.sroa.5.0.copyload, ptr noundef %78)
   br label %.sink.split
 
 _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit135: ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit
-  %.not.i.i.i132 = icmp eq i32 %39, 0
-  %80 = add i32 %.sroa.9.0203, -2
-  %81 = getelementptr inbounds i8, ptr %.sroa.0178.0202, i64 24
-  %.sroa.0178.3 = select i1 %.not.i.i.i132, ptr %40, ptr %81
-  %.sroa.9.3 = select i1 %.not.i.i.i132, i32 0, i32 %80
-  %spec.select.i.i137 = select i1 %.not.i.i.i132, ptr @_hb_NullPool, ptr %40
-  %82 = load <2 x float>, ptr %spec.select.i.i137, align 4
-  %83 = extractelement <2 x float> %82, i64 1
-  %84 = extractelement <2 x float> %82, i64 0
-  %85 = load i32, ptr %4, align 4
-  %.not120 = icmp eq i32 %85, 0
-  br i1 %.not120, label %86, label %93
+  %.not.i.i.i132 = icmp eq i32 %40, 0
+  %79 = add i32 %.sroa.9.0203, -2
+  %80 = getelementptr inbounds i8, ptr %.sroa.0178.0202, i64 24
+  %.sroa.0178.3 = select i1 %.not.i.i.i132, ptr %41, ptr %80
+  %.sroa.9.3 = select i1 %.not.i.i.i132, i32 0, i32 %79
+  %spec.select.i.i137 = select i1 %.not.i.i.i132, ptr @_hb_NullPool, ptr %41
+  %.sroa.04.0.copyload = load float, ptr %spec.select.i.i137, align 4
+  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %spec.select.i.i137, i64 4
+  %.sroa.25.0.copyload = load float, ptr %.sroa.25.0..sroa_idx, align 4
+  %81 = load i32, ptr %4, align 4
+  %.not120 = icmp eq i32 %81, 0
+  br i1 %.not120, label %82, label %90
 
-86:                                               ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit135
-  %87 = load ptr, ptr %14, align 8
-  %88 = load ptr, ptr %15, align 8
-  %.not.i.i138 = icmp eq ptr %88, null
-  br i1 %.not.i.i138, label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit139, label %89
+82:                                               ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit135
+  %83 = load ptr, ptr %15, align 8
+  %84 = load ptr, ptr %16, align 8
+  %.not.i.i138 = icmp eq ptr %84, null
+  br i1 %.not.i.i138, label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit139, label %85
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %88, align 8
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %84, align 8
   br label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit139
 
-_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit139: ; preds = %86, %89
-  %91 = phi ptr [ %90, %89 ], [ null, %86 ]
-  call void %87(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %36, float noundef %35, ptr noundef %91)
+_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit139: ; preds = %82, %85
+  %87 = phi ptr [ %86, %85 ], [ null, %82 ]
+  call void %83(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %37, float noundef %36, ptr noundef %87)
   store i32 1, ptr %4, align 4
-  %92 = load <2 x float>, ptr %13, align 4
-  store <2 x float> %92, ptr %16, align 4
-  br label %93
+  %88 = load float, ptr %13, align 4
+  store float %88, ptr %17, align 4
+  %89 = load float, ptr %14, align 4
+  store float %89, ptr %18, align 4
+  br label %90
 
-93:                                               ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit139, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit135
-  %94 = load ptr, ptr %19, align 8
-  %95 = load ptr, ptr %15, align 8
-  %.not.i140 = icmp eq ptr %95, null
-  br i1 %.not.i140, label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit, label %96
+90:                                               ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit139, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit135
+  %91 = load ptr, ptr %20, align 8
+  %92 = load ptr, ptr %16, align 8
+  %.not.i140 = icmp eq ptr %92, null
+  br i1 %.not.i140, label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit, label %93
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %95, i64 16
-  %98 = load ptr, ptr %97, align 8
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds i8, ptr %92, i64 16
+  %95 = load ptr, ptr %94, align 8
   br label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit
 
-_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds = %93, %96
-  %99 = phi ptr [ %98, %96 ], [ null, %93 ]
-  call void %94(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %43, float noundef %42, float noundef %84, float noundef %83, ptr noundef %99)
+_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds = %90, %93
+  %96 = phi ptr [ %95, %93 ], [ null, %90 ]
+  call void %91(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %.sroa.07.0.copyload, float noundef %.sroa.5.0.copyload, float noundef %.sroa.04.0.copyload, float noundef %.sroa.25.0.copyload, ptr noundef %96)
   br label %.sink.split
 
 _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit147: ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit
-  %.not.i.i.i144 = icmp eq i32 %39, 0
-  %100 = add i32 %.sroa.9.0203, -2
-  %101 = getelementptr inbounds i8, ptr %.sroa.0178.0202, i64 24
-  %.sroa.0178.4 = select i1 %.not.i.i.i144, ptr %40, ptr %101
-  %.sroa.9.4 = select i1 %.not.i.i.i144, i32 0, i32 %100
-  %spec.select.i.i149 = select i1 %.not.i.i.i144, ptr @_hb_NullPool, ptr %40
+  %.not.i.i.i144 = icmp eq i32 %40, 0
+  %97 = add i32 %.sroa.9.0203, -2
+  %98 = getelementptr inbounds i8, ptr %.sroa.0178.0202, i64 24
+  %.sroa.0178.4 = select i1 %.not.i.i.i144, ptr %41, ptr %98
+  %.sroa.9.4 = select i1 %.not.i.i.i144, i32 0, i32 %97
+  %spec.select.i.i149 = select i1 %.not.i.i.i144, ptr @_hb_NullPool, ptr %41
   %.sroa.01.0.copyload = load float, ptr %spec.select.i.i149, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %spec.select.i.i149, i64 4
   %.sroa.22.0.copyload = load float, ptr %.sroa.22.0..sroa_idx, align 4
@@ -233,122 +238,124 @@ _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit147: ; preds = %_
   %.sroa.0178.5 = getelementptr inbounds i8, ptr %.sroa.0178.4, i64 %.sroa.0178.5.idx
   %.sroa.9.5 = call i32 @llvm.usub.sat.i32(i32 %.sroa.9.4, i32 1)
   %spec.select.i.i158 = select i1 %.not.i.i.i153.not, ptr @_hb_NullPool, ptr %.sroa.0178.4
-  %102 = load <2 x float>, ptr %spec.select.i.i158, align 4
-  %103 = extractelement <2 x float> %102, i64 1
-  %104 = extractelement <2 x float> %102, i64 0
-  %105 = load i32, ptr %4, align 4
-  %.not119 = icmp eq i32 %105, 0
-  br i1 %.not119, label %106, label %113
+  %.sroa.0.0.copyload = load float, ptr %spec.select.i.i158, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %spec.select.i.i158, i64 4
+  %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4
+  %99 = load i32, ptr %4, align 4
+  %.not119 = icmp eq i32 %99, 0
+  br i1 %.not119, label %100, label %108
 
-106:                                              ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit147
-  %107 = load ptr, ptr %14, align 8
-  %108 = load ptr, ptr %15, align 8
-  %.not.i.i159 = icmp eq ptr %108, null
-  br i1 %.not.i.i159, label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit160, label %109
+100:                                              ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit147
+  %101 = load ptr, ptr %15, align 8
+  %102 = load ptr, ptr %16, align 8
+  %.not.i.i159 = icmp eq ptr %102, null
+  br i1 %.not.i.i159, label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit160, label %103
 
-109:                                              ; preds = %106
-  %110 = load ptr, ptr %108, align 8
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %102, align 8
   br label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit160
 
-_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit160: ; preds = %106, %109
-  %111 = phi ptr [ %110, %109 ], [ null, %106 ]
-  call void %107(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %38, float noundef %37, ptr noundef %111)
+_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit160: ; preds = %100, %103
+  %105 = phi ptr [ %104, %103 ], [ null, %100 ]
+  call void %101(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %39, float noundef %38, ptr noundef %105)
   store i32 1, ptr %4, align 4
-  %112 = load <2 x float>, ptr %13, align 4
-  store <2 x float> %112, ptr %16, align 4
-  br label %113
+  %106 = load float, ptr %13, align 4
+  store float %106, ptr %17, align 4
+  %107 = load float, ptr %14, align 4
+  store float %107, ptr %18, align 4
+  br label %108
 
-113:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit160, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit147
-  %114 = load ptr, ptr %18, align 8
-  %115 = load ptr, ptr %15, align 8
-  %.not.i161 = icmp eq ptr %115, null
-  br i1 %.not.i161, label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit, label %116
+108:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit160, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit147
+  %109 = load ptr, ptr %19, align 8
+  %110 = load ptr, ptr %16, align 8
+  %.not.i161 = icmp eq ptr %110, null
+  br i1 %.not.i161, label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit, label %111
 
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %115, i64 24
-  %118 = load ptr, ptr %117, align 8
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds i8, ptr %110, i64 24
+  %113 = load ptr, ptr %112, align 8
   br label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit
 
-_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %113, %116
-  %119 = phi ptr [ %118, %116 ], [ null, %113 ]
-  call void %114(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %43, float noundef %42, float noundef %.sroa.01.0.copyload, float noundef %.sroa.22.0.copyload, float noundef %104, float noundef %103, ptr noundef %119)
+_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %108, %111
+  %114 = phi ptr [ %113, %111 ], [ null, %108 ]
+  call void %109(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %.sroa.07.0.copyload, float noundef %.sroa.5.0.copyload, float noundef %.sroa.01.0.copyload, float noundef %.sroa.22.0.copyload, float noundef %.sroa.0.0.copyload, float noundef %.sroa.2.0.copyload, ptr noundef %114)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %44, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit
-  %.sroa.0.0.copyload.sink = phi float [ %104, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %84, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %43, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %43, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %43, %44 ]
-  %.sroa.2.0.copyload.sink = phi float [ %103, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %83, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %42, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %42, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %42, %44 ]
-  %.sroa.0178.1.ph = phi ptr [ %.sroa.0178.5, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %.sroa.0178.3, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %40, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %40, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %40, %44 ]
-  %.sroa.9.1.ph = phi i32 [ %.sroa.9.5, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %.sroa.9.3, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %39, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %39, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %39, %44 ]
-  %120 = phi <2 x float> [ %102, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %82, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %41, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %41, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %41, %44 ]
-  store <2 x float> %120, ptr %13, align 4
-  br label %121
+.sink.split:                                      ; preds = %42, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit
+  %.sroa.0.0.copyload.sink = phi float [ %.sroa.0.0.copyload, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %.sroa.04.0.copyload, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %.sroa.07.0.copyload, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %.sroa.07.0.copyload, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %.sroa.07.0.copyload, %42 ]
+  %.sroa.2.0.copyload.sink = phi float [ %.sroa.2.0.copyload, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %.sroa.25.0.copyload, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %.sroa.5.0.copyload, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %.sroa.5.0.copyload, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %.sroa.5.0.copyload, %42 ]
+  %.sroa.0178.1.ph = phi ptr [ %.sroa.0178.5, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %.sroa.0178.3, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %41, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %41, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %41, %42 ]
+  %.sroa.9.1.ph = phi i32 [ %.sroa.9.5, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit ], [ %.sroa.9.3, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit ], [ %40, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit128 ], [ %40, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit ], [ %40, %42 ]
+  store float %.sroa.0.0.copyload.sink, ptr %13, align 4
+  store float %.sroa.2.0.copyload.sink, ptr %14, align 4
+  br label %115
 
-121:                                              ; preds = %.sink.split, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit
-  %122 = phi float [ %29, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.2.0.copyload.sink, %.sink.split ]
-  %123 = phi float [ %30, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0.0.copyload.sink, %.sink.split ]
-  %124 = phi float [ %31, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.2.0.copyload.sink, %.sink.split ]
-  %125 = phi float [ %32, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0.0.copyload.sink, %.sink.split ]
-  %126 = phi float [ %33, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.2.0.copyload.sink, %.sink.split ]
-  %127 = phi float [ %34, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0.0.copyload.sink, %.sink.split ]
-  %128 = phi float [ %35, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.2.0.copyload.sink, %.sink.split ]
-  %129 = phi float [ %36, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0.0.copyload.sink, %.sink.split ]
-  %130 = phi float [ %37, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.2.0.copyload.sink, %.sink.split ]
-  %131 = phi float [ %38, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0.0.copyload.sink, %.sink.split ]
-  %.sroa.0178.1 = phi ptr [ %40, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0178.1.ph, %.sink.split ]
-  %.sroa.9.1 = phi i32 [ %39, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.9.1.ph, %.sink.split ]
+115:                                              ; preds = %.sink.split, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit
+  %116 = phi float [ %30, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.2.0.copyload.sink, %.sink.split ]
+  %117 = phi float [ %31, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0.0.copyload.sink, %.sink.split ]
+  %118 = phi float [ %32, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.2.0.copyload.sink, %.sink.split ]
+  %119 = phi float [ %33, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0.0.copyload.sink, %.sink.split ]
+  %120 = phi float [ %34, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.2.0.copyload.sink, %.sink.split ]
+  %121 = phi float [ %35, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0.0.copyload.sink, %.sink.split ]
+  %122 = phi float [ %36, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.2.0.copyload.sink, %.sink.split ]
+  %123 = phi float [ %37, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0.0.copyload.sink, %.sink.split ]
+  %124 = phi float [ %38, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.2.0.copyload.sink, %.sink.split ]
+  %125 = phi float [ %39, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0.0.copyload.sink, %.sink.split ]
+  %.sroa.0178.1 = phi ptr [ %41, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.0178.1.ph, %.sink.split ]
+  %.sroa.9.1 = phi i32 [ %40, %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit ], [ %.sroa.9.1.ph, %.sink.split ]
   %.not200 = icmp eq i32 %.sroa.9.1, 0
   br i1 %.not200, label %._crit_edge, label %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %121
+._crit_edge:                                      ; preds = %115
   %.pre210 = load i32, ptr %4, align 4
   %.not118 = icmp eq i32 %.pre210, 0
-  br i1 %.not118, label %._crit_edge.thread, label %132
+  br i1 %.not118, label %._crit_edge.thread, label %126
 
-132:                                              ; preds = %._crit_edge
-  %133 = load float, ptr %16, align 4
-  %134 = fcmp une float %133, %123
-  %.pre211 = load float, ptr %17, align 4
-  %135 = fcmp une float %.pre211, %122
-  %or.cond223 = select i1 %134, i1 true, i1 %135
-  br i1 %or.cond223, label %136, label %143
+126:                                              ; preds = %._crit_edge
+  %127 = load float, ptr %17, align 4
+  %128 = fcmp une float %127, %117
+  %.pre211 = load float, ptr %18, align 4
+  %129 = fcmp une float %.pre211, %116
+  %or.cond223 = select i1 %128, i1 true, i1 %129
+  br i1 %or.cond223, label %130, label %137
 
-136:                                              ; preds = %132
-  %137 = load ptr, ptr %20, align 8
-  %138 = load ptr, ptr %15, align 8
-  %.not.i162 = icmp eq ptr %138, null
-  br i1 %.not.i162, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163, label %139
+130:                                              ; preds = %126
+  %131 = load ptr, ptr %21, align 8
+  %132 = load ptr, ptr %16, align 8
+  %.not.i162 = icmp eq ptr %132, null
+  br i1 %.not.i162, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163, label %133
 
-139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %138, i64 8
-  %141 = load ptr, ptr %140, align 8
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds i8, ptr %132, i64 8
+  %135 = load ptr, ptr %134, align 8
   br label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163
 
-_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163: ; preds = %136, %139
-  %142 = phi ptr [ %141, %139 ], [ null, %136 ]
-  call void %137(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %133, float noundef %.pre211, ptr noundef %142)
-  br label %143
+_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163: ; preds = %130, %133
+  %136 = phi ptr [ %135, %133 ], [ null, %130 ]
+  call void %131(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %127, float noundef %.pre211, ptr noundef %136)
+  br label %137
 
-143:                                              ; preds = %132, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163
-  %144 = load ptr, ptr %21, align 8
-  %145 = load ptr, ptr %15, align 8
-  %.not.i164 = icmp eq ptr %145, null
-  br i1 %.not.i164, label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165, label %146
+137:                                              ; preds = %126, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163
+  %138 = load ptr, ptr %22, align 8
+  %139 = load ptr, ptr %16, align 8
+  %.not.i164 = icmp eq ptr %139, null
+  br i1 %.not.i164, label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165, label %140
 
-146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %145, i64 32
-  %148 = load ptr, ptr %147, align 8
+140:                                              ; preds = %137
+  %141 = getelementptr inbounds i8, ptr %139, i64 32
+  %142 = load ptr, ptr %141, align 8
   br label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165
 
-_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165: ; preds = %143, %146
-  %149 = phi ptr [ %148, %146 ], [ null, %143 ]
-  call void %144(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef %149)
+_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165: ; preds = %137, %140
+  %143 = phi ptr [ %142, %140 ], [ null, %137 ]
+  call void %138(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef %143)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %22, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165, %._crit_edge
-  %150 = getelementptr inbounds i8, ptr %.0117206, i64 4
-  %.not = icmp eq ptr %150, %10
+._crit_edge.thread:                               ; preds = %23, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165, %._crit_edge
+  %144 = getelementptr inbounds i8, ptr %.0117206, i64 4
+  %.not = icmp eq ptr %144, %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  br i1 %.not, label %._crit_edge209, label %22
+  br i1 %.not, label %._crit_edge209, label %23
 
 ._crit_edge209:                                   ; preds = %._crit_edge.thread, %3
   ret void
@@ -525,7 +532,7 @@ _ZNK12hb_outline_t12control_areaEv.exit:          ; preds = %._crit_edge.i
   br label %49
 
 49:                                               ; preds = %.lr.ph137, %._crit_edge
-  %50 = phi i32 [ %17, %.lr.ph137 ], [ %180, %._crit_edge ]
+  %50 = phi i32 [ %17, %.lr.ph137 ], [ %164, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next, %._crit_edge ]
   %.086135 = phi i32 [ 0, %.lr.ph137 ], [ %56, %._crit_edge ]
   %51 = zext i32 %50 to i64
@@ -552,235 +559,237 @@ _ZN11hb_vector_tIjLb0EEixEi.exit:                 ; preds = %52, %53
 
 .lr.ph134:                                        ; preds = %_ZN11hb_vector_tIjLb0EEixEi.exit, %.loopexit
   %.0133 = phi i32 [ %.1, %.loopexit ], [ -1, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
-  %.075132 = phi i32 [ %176, %.loopexit ], [ %.086135, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
+  %.075132 = phi i32 [ %160, %.loopexit ], [ %.086135, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
   %.076131 = phi i32 [ %.177, %.loopexit ], [ %57, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
   %.081130 = phi float [ %.182, %.loopexit ], [ 0.000000e+00, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
+  %.sroa.047.0129 = phi float [ %.sroa.047.1, %.loopexit ], [ 0.000000e+00, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
+  %.sroa.3.0128 = phi float [ %.sroa.3.1, %.loopexit ], [ 0.000000e+00, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
+  %.sroa.051.0127 = phi float [ %.sroa.051.1, %.loopexit ], [ 0.000000e+00, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
+  %.sroa.6.0126 = phi float [ %.sroa.6.1, %.loopexit ], [ 0.000000e+00, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
   %.0117125 = phi float [ %.1118, %.loopexit ], [ 0.000000e+00, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
-  %61 = phi <2 x float> [ %172, %.loopexit ], [ zeroinitializer, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
-  %62 = phi <2 x float> [ %173, %.loopexit ], [ zeroinitializer, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
   %.not = icmp eq i32 %.075132, %.0133
-  br i1 %.not, label %107, label %63
+  br i1 %.not, label %99, label %61
 
-63:                                               ; preds = %.lr.ph134
-  %64 = load i32, ptr %9, align 4
-  %.not.i91 = icmp ugt i32 %64, %.075132
-  br i1 %.not.i91, label %66, label %65
+61:                                               ; preds = %.lr.ph134
+  %62 = load i32, ptr %9, align 4
+  %.not.i91 = icmp ugt i32 %62, %.075132
+  br i1 %.not.i91, label %64, label %63
 
-65:                                               ; preds = %63
+63:                                               ; preds = %61
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(12) @_hb_NullPool, i64 12, i1 false)
   %.pre141 = load i32, ptr %9, align 4
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %48, align 8
-  %68 = zext i32 %.075132 to i64
-  %69 = getelementptr inbounds %struct.hb_outline_point_t, ptr %67, i64 %68
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %48, align 8
+  %66 = zext i32 %.075132 to i64
+  %67 = getelementptr inbounds %struct.hb_outline_point_t, ptr %65, i64 %66
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit
 
-_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit: ; preds = %65, %66
-  %70 = phi i32 [ %.pre141, %65 ], [ %64, %66 ]
-  %.0.i92 = phi ptr [ @_hb_CrapPool, %65 ], [ %69, %66 ]
-  %71 = load float, ptr %.0.i92, align 4
-  %.not.i93 = icmp ugt i32 %70, %.076131
-  br i1 %.not.i93, label %73, label %72
+_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit: ; preds = %63, %64
+  %68 = phi i32 [ %.pre141, %63 ], [ %62, %64 ]
+  %.0.i92 = phi ptr [ @_hb_CrapPool, %63 ], [ %67, %64 ]
+  %69 = load float, ptr %.0.i92, align 4
+  %.not.i93 = icmp ugt i32 %68, %.076131
+  br i1 %.not.i93, label %71, label %70
 
-72:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit
+70:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(12) @_hb_NullPool, i64 12, i1 false)
   %.pre142 = load i32, ptr %9, align 4
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95
 
-73:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit
-  %74 = load ptr, ptr %48, align 8
-  %75 = zext i32 %.076131 to i64
-  %76 = getelementptr inbounds %struct.hb_outline_point_t, ptr %74, i64 %75
+71:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit
+  %72 = load ptr, ptr %48, align 8
+  %73 = zext i32 %.076131 to i64
+  %74 = getelementptr inbounds %struct.hb_outline_point_t, ptr %72, i64 %73
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95
 
-_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95: ; preds = %72, %73
-  %77 = phi i32 [ %.pre142, %72 ], [ %70, %73 ]
-  %.0.i94 = phi ptr [ @_hb_CrapPool, %72 ], [ %76, %73 ]
-  %78 = load float, ptr %.0.i94, align 4
-  %79 = fsub float %71, %78
-  %.not.i96 = icmp ugt i32 %77, %.075132
-  br i1 %.not.i96, label %81, label %80
+_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95: ; preds = %70, %71
+  %75 = phi i32 [ %.pre142, %70 ], [ %68, %71 ]
+  %.0.i94 = phi ptr [ @_hb_CrapPool, %70 ], [ %74, %71 ]
+  %76 = load float, ptr %.0.i94, align 4
+  %77 = fsub float %69, %76
+  %.not.i96 = icmp ugt i32 %75, %.075132
+  br i1 %.not.i96, label %79, label %78
 
-80:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95
+78:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(12) @_hb_NullPool, i64 12, i1 false)
   %.pre143 = load i32, ptr %9, align 4
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98
 
-81:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95
-  %82 = load ptr, ptr %48, align 8
-  %83 = zext i32 %.075132 to i64
-  %84 = getelementptr inbounds %struct.hb_outline_point_t, ptr %82, i64 %83
+79:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95
+  %80 = load ptr, ptr %48, align 8
+  %81 = zext i32 %.075132 to i64
+  %82 = getelementptr inbounds %struct.hb_outline_point_t, ptr %80, i64 %81
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98
 
-_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98: ; preds = %80, %81
-  %85 = phi i32 [ %.pre143, %80 ], [ %77, %81 ]
-  %.0.i97 = phi ptr [ @_hb_CrapPool, %80 ], [ %84, %81 ]
-  %86 = getelementptr inbounds i8, ptr %.0.i97, i64 4
-  %87 = load float, ptr %86, align 4
-  %.not.i99 = icmp ugt i32 %85, %.076131
-  br i1 %.not.i99, label %89, label %88
+_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98: ; preds = %78, %79
+  %83 = phi i32 [ %.pre143, %78 ], [ %75, %79 ]
+  %.0.i97 = phi ptr [ @_hb_CrapPool, %78 ], [ %82, %79 ]
+  %84 = getelementptr inbounds i8, ptr %.0.i97, i64 4
+  %85 = load float, ptr %84, align 4
+  %.not.i99 = icmp ugt i32 %83, %.076131
+  br i1 %.not.i99, label %87, label %86
 
-88:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98
+86:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(12) @_hb_NullPool, i64 12, i1 false)
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101
 
-89:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98
-  %90 = load ptr, ptr %48, align 8
-  %91 = zext i32 %.076131 to i64
-  %92 = getelementptr inbounds %struct.hb_outline_point_t, ptr %90, i64 %91
+87:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98
+  %88 = load ptr, ptr %48, align 8
+  %89 = zext i32 %.076131 to i64
+  %90 = getelementptr inbounds %struct.hb_outline_point_t, ptr %88, i64 %89
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101
 
-_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101: ; preds = %88, %89
-  %.0.i100 = phi ptr [ @_hb_CrapPool, %88 ], [ %92, %89 ]
-  %93 = getelementptr inbounds i8, ptr %.0.i100, i64 4
-  %94 = load float, ptr %93, align 4
-  %95 = fsub float %87, %94
-  %96 = tail call float @hypotf(float noundef %79, float noundef %95) #10
-  %97 = fcmp une float %96, 0.000000e+00
-  %98 = insertelement <2 x float> poison, float %95, i64 0
-  %99 = insertelement <2 x float> %98, float %79, i64 1
-  %100 = insertelement <2 x float> poison, float %96, i64 0
-  %101 = shufflevector <2 x float> %100, <2 x float> poison, <2 x i32> zeroinitializer
-  %102 = fdiv <2 x float> %99, %101
-  %103 = insertelement <2 x i1> poison, i1 %97, i64 0
-  %104 = shufflevector <2 x i1> %103, <2 x i1> poison, <2 x i32> zeroinitializer
-  %105 = select <2 x i1> %104, <2 x float> %102, <2 x float> %99
-  %106 = fcmp oeq float %96, 0.000000e+00
-  br i1 %106, label %.loopexit, label %107
+_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101: ; preds = %86, %87
+  %.0.i100 = phi ptr [ @_hb_CrapPool, %86 ], [ %90, %87 ]
+  %91 = getelementptr inbounds i8, ptr %.0.i100, i64 4
+  %92 = load float, ptr %91, align 4
+  %93 = fsub float %85, %92
+  %94 = tail call float @hypotf(float noundef %77, float noundef %93) #10
+  %95 = fcmp une float %94, 0.000000e+00
+  %96 = fdiv float %77, %94
+  %97 = fdiv float %93, %94
+  %.sroa.8.1 = select i1 %95, float %97, float %93
+  %.sroa.0.1120 = select i1 %95, float %96, float %77
+  %98 = fcmp oeq float %94, 0.000000e+00
+  br i1 %98, label %.loopexit, label %99
 
-107:                                              ; preds = %.lr.ph134, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101
-  %.0116 = phi float [ %96, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.081130, %.lr.ph134 ]
-  %108 = phi <2 x float> [ %105, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %61, %.lr.ph134 ]
-  %109 = fcmp une float %.0117125, 0.000000e+00
-  br i1 %109, label %110, label %.loopexit
+99:                                               ; preds = %.lr.ph134, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101
+  %.sroa.8.0 = phi float [ %.sroa.8.1, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.sroa.3.0128, %.lr.ph134 ]
+  %.sroa.0.0119 = phi float [ %.sroa.0.1120, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.sroa.047.0129, %.lr.ph134 ]
+  %.0116 = phi float [ %94, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.081130, %.lr.ph134 ]
+  %100 = fcmp une float %.0117125, 0.000000e+00
+  br i1 %100, label %101, label %.loopexit
 
-110:                                              ; preds = %107
-  %111 = icmp slt i32 %.0133, 0
-  %.283 = select i1 %111, float %.0117125, float %.081130
-  %.2 = select i1 %111, i32 %.076131, i32 %.0133
-  %112 = select i1 %111, <2 x float> %62, <2 x float> %61
-  %113 = fmul <2 x float> %62, %108
-  %114 = extractelement <2 x float> %113, i64 0
-  %115 = extractelement <2 x float> %62, i64 1
-  %116 = extractelement <2 x float> %108, i64 1
-  %117 = tail call float @llvm.fmuladd.f32(float %115, float %116, float %114)
-  %118 = fcmp ogt float %117, -9.375000e-01
-  br i1 %118, label %119, label %148
+101:                                              ; preds = %99
+  %102 = icmp slt i32 %.0133, 0
+  br i1 %102, label %103, label %104
 
-119:                                              ; preds = %110
-  %120 = extractelement <2 x float> %108, i64 0
-  %121 = extractelement <2 x float> %62, i64 0
-  %122 = fadd float %117, 1.000000e+00
-  %123 = fadd <2 x float> %62, %108
-  %124 = extractelement <2 x float> %123, i64 0
-  %125 = fadd float %115, %116
-  %126 = fneg float %124
-  %127 = fneg float %125
-  %.sroa.9.0 = select i1 %46, float %125, float %127
-  %.sroa.0.0 = select i1 %46, float %126, float %124
-  %128 = fneg float %120
-  %129 = fmul float %115, %128
-  %130 = tail call float @llvm.fmuladd.f32(float %116, float %121, float %129)
-  %131 = fneg float %130
-  %.080 = select i1 %46, float %131, float %130
-  %132 = fcmp ole float %.0117125, %.0116
-  %.sroa.speculated = select i1 %132, float %.0117125, float %.0116
-  %133 = fmul float %12, %.080
-  %134 = fmul float %122, %.sroa.speculated
-  %135 = fcmp ugt float %133, %134
-  %136 = fmul float %12, %.sroa.0.0
-  %137 = fdiv float %136, %122
-  %138 = fmul float %.sroa.0.0, %.sroa.speculated
-  %139 = fdiv float %138, %.080
-  %.sroa.0.1 = select i1 %135, float %139, float %137
-  %140 = fmul float %13, %.080
-  %141 = fcmp ugt float %140, %134
-  br i1 %141, label %145, label %142
+103:                                              ; preds = %101
+  br label %104
 
-142:                                              ; preds = %119
-  %143 = fmul float %13, %.sroa.9.0
-  %144 = fdiv float %143, %122
-  br label %148
+104:                                              ; preds = %103, %101
+  %.sroa.3.2 = phi float [ %.sroa.6.0126, %103 ], [ %.sroa.3.0128, %101 ]
+  %.sroa.047.2 = phi float [ %.sroa.051.0127, %103 ], [ %.sroa.047.0129, %101 ]
+  %.283 = phi float [ %.0117125, %103 ], [ %.081130, %101 ]
+  %.2 = phi i32 [ %.076131, %103 ], [ %.0133, %101 ]
+  %105 = fmul float %.sroa.6.0126, %.sroa.8.0
+  %106 = tail call float @llvm.fmuladd.f32(float %.sroa.051.0127, float %.sroa.0.0119, float %105)
+  %107 = fcmp ogt float %106, -9.375000e-01
+  br i1 %107, label %108, label %134
 
-145:                                              ; preds = %119
-  %146 = fmul float %.sroa.9.0, %.sroa.speculated
-  %147 = fdiv float %146, %.080
-  br label %148
+108:                                              ; preds = %104
+  %109 = fadd float %106, 1.000000e+00
+  %110 = fadd float %.sroa.6.0126, %.sroa.8.0
+  %111 = fadd float %.sroa.051.0127, %.sroa.0.0119
+  %112 = fneg float %110
+  %113 = fneg float %111
+  %.sroa.9.0 = select i1 %46, float %111, float %113
+  %.sroa.0.0 = select i1 %46, float %112, float %110
+  %114 = fneg float %.sroa.8.0
+  %115 = fmul float %.sroa.051.0127, %114
+  %116 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0119, float %.sroa.6.0126, float %115)
+  %117 = fneg float %116
+  %.080 = select i1 %46, float %117, float %116
+  %118 = fcmp ole float %.0117125, %.0116
+  %.sroa.speculated = select i1 %118, float %.0117125, float %.0116
+  %119 = fmul float %12, %.080
+  %120 = fmul float %109, %.sroa.speculated
+  %121 = fcmp ugt float %119, %120
+  %122 = fmul float %12, %.sroa.0.0
+  %123 = fdiv float %122, %109
+  %124 = fmul float %.sroa.0.0, %.sroa.speculated
+  %125 = fdiv float %124, %.080
+  %.sroa.0.1 = select i1 %121, float %125, float %123
+  %126 = fmul float %13, %.080
+  %127 = fcmp ugt float %126, %120
+  br i1 %127, label %131, label %128
 
-148:                                              ; preds = %110, %142, %145
-  %.sroa.9.1 = phi float [ %144, %142 ], [ %147, %145 ], [ 0.000000e+00, %110 ]
-  %.sroa.0.2 = phi float [ %.sroa.0.1, %142 ], [ %.sroa.0.1, %145 ], [ 0.000000e+00, %110 ]
+128:                                              ; preds = %108
+  %129 = fmul float %13, %.sroa.9.0
+  %130 = fdiv float %129, %109
+  br label %134
+
+131:                                              ; preds = %108
+  %132 = fmul float %.sroa.9.0, %.sroa.speculated
+  %133 = fdiv float %132, %.080
+  br label %134
+
+134:                                              ; preds = %104, %128, %131
+  %.sroa.9.1 = phi float [ %130, %128 ], [ %133, %131 ], [ 0.000000e+00, %104 ]
+  %.sroa.0.2 = phi float [ %.sroa.0.1, %128 ], [ %.sroa.0.1, %131 ], [ 0.000000e+00, %104 ]
   %.not89123 = icmp eq i32 %.076131, %.075132
   br i1 %.not89123, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %148
-  %149 = fadd float %.sroa.0.2, %3
-  %150 = fadd float %.sroa.9.1, %4
-  br label %151
+.lr.ph:                                           ; preds = %134
+  %135 = fadd float %.sroa.0.2, %3
+  %136 = fadd float %.sroa.9.1, %4
+  br label %137
 
-151:                                              ; preds = %.lr.ph, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107
-  %.278124 = phi i32 [ %.076131, %.lr.ph ], [ %171, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
-  %152 = load i32, ptr %9, align 4
-  %.not.i102 = icmp ugt i32 %152, %.278124
-  br i1 %.not.i102, label %154, label %153
+137:                                              ; preds = %.lr.ph, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107
+  %.278124 = phi i32 [ %.076131, %.lr.ph ], [ %157, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %138 = load i32, ptr %9, align 4
+  %.not.i102 = icmp ugt i32 %138, %.278124
+  br i1 %.not.i102, label %140, label %139
 
-153:                                              ; preds = %151
+139:                                              ; preds = %137
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(12) @_hb_NullPool, i64 12, i1 false)
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104
 
-154:                                              ; preds = %151
-  %155 = load ptr, ptr %48, align 8
-  %156 = zext i32 %.278124 to i64
-  %157 = getelementptr inbounds %struct.hb_outline_point_t, ptr %155, i64 %156
+140:                                              ; preds = %137
+  %141 = load ptr, ptr %48, align 8
+  %142 = zext i32 %.278124 to i64
+  %143 = getelementptr inbounds %struct.hb_outline_point_t, ptr %141, i64 %142
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104
 
-_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104: ; preds = %153, %154
-  %.0.i103 = phi ptr [ @_hb_CrapPool, %153 ], [ %157, %154 ]
-  %158 = load float, ptr %.0.i103, align 4
-  %159 = fadd float %149, %158
-  store float %159, ptr %.0.i103, align 4
-  %160 = load i32, ptr %9, align 4
-  %.not.i105 = icmp ugt i32 %160, %.278124
-  br i1 %.not.i105, label %162, label %161
+_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104: ; preds = %139, %140
+  %.0.i103 = phi ptr [ @_hb_CrapPool, %139 ], [ %143, %140 ]
+  %144 = load float, ptr %.0.i103, align 4
+  %145 = fadd float %135, %144
+  store float %145, ptr %.0.i103, align 4
+  %146 = load i32, ptr %9, align 4
+  %.not.i105 = icmp ugt i32 %146, %.278124
+  br i1 %.not.i105, label %148, label %147
 
-161:                                              ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104
+147:                                              ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(12) @_hb_NullPool, i64 12, i1 false)
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107
 
-162:                                              ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104
-  %163 = load ptr, ptr %48, align 8
-  %164 = zext i32 %.278124 to i64
-  %165 = getelementptr inbounds %struct.hb_outline_point_t, ptr %163, i64 %164
+148:                                              ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104
+  %149 = load ptr, ptr %48, align 8
+  %150 = zext i32 %.278124 to i64
+  %151 = getelementptr inbounds %struct.hb_outline_point_t, ptr %149, i64 %150
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107
 
-_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107: ; preds = %161, %162
-  %.0.i106 = phi ptr [ @_hb_CrapPool, %161 ], [ %165, %162 ]
-  %166 = getelementptr inbounds i8, ptr %.0.i106, i64 4
-  %167 = load float, ptr %166, align 4
-  %168 = fadd float %150, %167
-  store float %168, ptr %166, align 4
-  %169 = icmp slt i32 %.278124, %57
-  %170 = add nsw i32 %.278124, 1
-  %171 = select i1 %169, i32 %170, i32 %.086135
-  %.not89 = icmp eq i32 %171, %.075132
-  br i1 %.not89, label %.loopexit, label %151, !llvm.loop !9
+_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107: ; preds = %147, %148
+  %.0.i106 = phi ptr [ @_hb_CrapPool, %147 ], [ %151, %148 ]
+  %152 = getelementptr inbounds i8, ptr %.0.i106, i64 4
+  %153 = load float, ptr %152, align 4
+  %154 = fadd float %136, %153
+  store float %154, ptr %152, align 4
+  %155 = icmp slt i32 %.278124, %57
+  %156 = add nsw i32 %.278124, 1
+  %157 = select i1 %155, i32 %156, i32 %.086135
+  %.not89 = icmp eq i32 %157, %.075132
+  br i1 %.not89, label %.loopexit, label %137, !llvm.loop !9
 
-.loopexit:                                        ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107, %148, %107, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101
-  %.1118 = phi float [ %.0117125, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.0116, %107 ], [ %.0116, %148 ], [ %.0116, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
-  %.182 = phi float [ %.081130, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.081130, %107 ], [ %.283, %148 ], [ %.283, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
-  %.177 = phi i32 [ %.076131, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.075132, %107 ], [ %.075132, %148 ], [ %.075132, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
-  %.1 = phi i32 [ %.0133, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.0133, %107 ], [ %.2, %148 ], [ %.2, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
-  %172 = phi <2 x float> [ %61, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %61, %107 ], [ %112, %148 ], [ %112, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
-  %173 = phi <2 x float> [ %62, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %108, %107 ], [ %108, %148 ], [ %108, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
-  %174 = icmp slt i32 %.075132, %57
-  %175 = add nsw i32 %.075132, 1
-  %176 = select i1 %174, i32 %175, i32 %.086135
-  %177 = icmp ne i32 %176, %.177
-  %178 = icmp ne i32 %.177, %.1
-  %179 = and i1 %177, %178
-  br i1 %179, label %.lr.ph134, label %._crit_edge.loopexit, !llvm.loop !10
+.loopexit:                                        ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107, %134, %99, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101
+  %.1118 = phi float [ %.0117125, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.0116, %99 ], [ %.0116, %134 ], [ %.0116, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %.sroa.6.1 = phi float [ %.sroa.6.0126, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.sroa.8.0, %99 ], [ %.sroa.8.0, %134 ], [ %.sroa.8.0, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %.sroa.051.1 = phi float [ %.sroa.051.0127, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.sroa.0.0119, %99 ], [ %.sroa.0.0119, %134 ], [ %.sroa.0.0119, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %.sroa.3.1 = phi float [ %.sroa.3.0128, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.sroa.3.0128, %99 ], [ %.sroa.3.2, %134 ], [ %.sroa.3.2, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %.sroa.047.1 = phi float [ %.sroa.047.0129, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.sroa.047.0129, %99 ], [ %.sroa.047.2, %134 ], [ %.sroa.047.2, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %.182 = phi float [ %.081130, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.081130, %99 ], [ %.283, %134 ], [ %.283, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %.177 = phi i32 [ %.076131, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.075132, %99 ], [ %.075132, %134 ], [ %.075132, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %.1 = phi i32 [ %.0133, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101 ], [ %.0133, %99 ], [ %.2, %134 ], [ %.2, %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107 ]
+  %158 = icmp slt i32 %.075132, %57
+  %159 = add nsw i32 %.075132, 1
+  %160 = select i1 %158, i32 %159, i32 %.086135
+  %161 = icmp ne i32 %160, %.177
+  %162 = icmp ne i32 %.177, %.1
+  %163 = and i1 %161, %162
+  br i1 %163, label %.lr.ph134, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre144 = load i32, ptr %16, align 4
@@ -789,10 +798,10 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107: ; preds = %161, %162
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN11hb_vector_tIjLb0EEixEi.exit
   %.pre-phi = phi i64 [ %.pre145, %._crit_edge.loopexit ], [ %51, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
-  %180 = phi i32 [ %.pre144, %._crit_edge.loopexit ], [ %50, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
+  %164 = phi i32 [ %.pre144, %._crit_edge.loopexit ], [ %50, %_ZN11hb_vector_tIjLb0EEixEi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %181 = icmp ult i64 %indvars.iv.next, %.pre-phi
-  br i1 %181, label %49, label %.loopexit122, !llvm.loop !11
+  %165 = icmp ult i64 %indvars.iv.next, %.pre-phi
+  br i1 %165, label %49, label %.loopexit122, !llvm.loop !11
 
 .loopexit122:                                     ; preds = %._crit_edge, %11, %_ZNK12hb_outline_t12control_areaEv.exit, %8, %5
   ret void

@@ -52,7 +52,9 @@ entry:
   %m_rbB = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %rbB, ptr %m_rbB, align 8
   %m_appliedImpulse = getelementptr inbounds i8, ptr %this, i64 44
-  store <2 x float> <float 0.000000e+00, float 0x3FD3333340000000>, ptr %m_appliedImpulse, align 4
+  store float 0.000000e+00, ptr %m_appliedImpulse, align 4
+  %m_dbgDrawSize = getelementptr inbounds i8, ptr %this, i64 48
+  store float 0x3FD3333340000000, ptr %m_dbgDrawSize, align 16
   %m_jointFeedback = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %m_jointFeedback, align 8
   ret void

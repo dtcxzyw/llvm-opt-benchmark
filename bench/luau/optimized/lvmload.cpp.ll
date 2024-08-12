@@ -400,6 +400,7 @@ _ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit:     ; preds = %_ZL10readVarIntPKcm
   br i1 %.not847, label %.preheader.preheader, label %.lr.ph843
 
 .lr.ph843:                                        ; preds = %_ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit
+  %invariant.gep = getelementptr i8, ptr %2, i64 5
   %invariant.gep808 = getelementptr i8, ptr %2, i64 9
   %147 = getelementptr inbounds i8, ptr %6, i64 8
   %148 = getelementptr inbounds i8, ptr %0, i64 88
@@ -923,13 +924,17 @@ _ZL10readVarIntPKcmRm.exit519:                    ; preds = %333
 
 372:                                              ; preds = %.lr.ph812
   %373 = getelementptr inbounds i8, ptr %2, i64 %358
+  %.0.copyload.i523 = load float, ptr %373, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.7810
+  %.0.copyload.i524 = load float, ptr %gep, align 1
   %gep809 = getelementptr i8, ptr %invariant.gep808, i64 %.7810
   %.0.copyload.i525 = load float, ptr %gep809, align 1
   %374 = add i64 %.7810, 17
   %375 = load ptr, ptr %349, align 8
   %376 = getelementptr inbounds %struct.lua_TValue, ptr %375, i64 %indvars.iv922
-  %377 = load <2 x float>, ptr %373, align 1
-  store <2 x float> %377, ptr %376, align 4
+  store float %.0.copyload.i523, ptr %376, align 4
+  %377 = getelementptr inbounds i8, ptr %376, i64 4
+  store float %.0.copyload.i524, ptr %377, align 4
   %378 = getelementptr inbounds i8, ptr %376, i64 8
   store float %.0.copyload.i525, ptr %378, align 4
   %379 = getelementptr inbounds i8, ptr %376, i64 12

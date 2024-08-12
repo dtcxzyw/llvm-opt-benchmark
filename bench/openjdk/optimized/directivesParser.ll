@@ -424,59 +424,61 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser21parse_from_file_innerEP
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = load <2 x ptr>, ptr %11, align 8
-  %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %0, ptr noundef nonnull %4) #17
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %33
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %0, ptr noundef nonnull %4) #17
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %34
 
-18:                                               ; preds = %3
-  %19 = call noundef i32 @_ZN2os4openEPKcii(ptr noundef %0, i32 noundef 0, i32 noundef 0) #17
-  %.not = icmp eq i32 %19, -1
-  br i1 %.not, label %33, label %20
+19:                                               ; preds = %3
+  %20 = call noundef i32 @_ZN2os4openEPKcii(ptr noundef %0, i32 noundef 0, i32 noundef 0) #17
+  %.not = icmp eq i32 %20, -1
+  br i1 %.not, label %34, label %21
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %4, i64 48
-  %22 = load i64, ptr %21, align 8
-  %23 = add nsw i64 %22, 1
-  %24 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %23, i32 noundef 0) #17
-  %25 = load i64, ptr %21, align 8
-  %26 = call i64 @read(i32 noundef %19, ptr noundef %24, i64 noundef %25) #17
-  %27 = call i32 @close(i32 noundef %19) #17
-  %28 = icmp sgt i64 %26, -1
-  br i1 %28, label %29, label %33
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds i8, ptr %4, i64 48
+  %23 = load i64, ptr %22, align 8
+  %24 = add nsw i64 %23, 1
+  %25 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %24, i32 noundef 0) #17
+  %26 = load i64, ptr %22, align 8
+  %27 = call i64 @read(i32 noundef %20, ptr noundef %25, i64 noundef %26) #17
+  %28 = call i32 @close(i32 noundef %20) #17
+  %29 = icmp sgt i64 %27, -1
+  br i1 %29, label %30, label %34
 
-29:                                               ; preds = %20
-  %30 = getelementptr inbounds i8, ptr %24, i64 %26
-  store i8 0, ptr %30, align 1
-  %31 = call noundef i32 @_ZN16DirectivesParser12parse_stringEPKcP12outputStreamb(ptr noundef %24, ptr noundef %1, i1 noundef zeroext %2)
-  %32 = icmp sgt i32 %31, 0
-  br label %33
+30:                                               ; preds = %21
+  %31 = getelementptr inbounds i8, ptr %25, i64 %27
+  store i8 0, ptr %31, align 1
+  %32 = call noundef i32 @_ZN16DirectivesParser12parse_stringEPKcP12outputStreamb(ptr noundef %25, ptr noundef %1, i1 noundef zeroext %2)
+  %33 = icmp sgt i32 %32, 0
+  br label %34
 
-33:                                               ; preds = %3, %20, %18, %29
-  %.0 = phi i1 [ %32, %29 ], [ false, %18 ], [ false, %20 ], [ false, %3 ]
-  %34 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i, label %36, label %35
+34:                                               ; preds = %3, %21, %19, %30
+  %.0 = phi i1 [ %33, %30 ], [ false, %19 ], [ false, %21 ], [ false, %3 ]
+  %35 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i, label %37, label %36
 
-35:                                               ; preds = %33
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %15) #17
+36:                                               ; preds = %34
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #17
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #17
-  br label %36
+  br label %37
 
-36:                                               ; preds = %35, %33
-  %37 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %37, %13
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %38
+37:                                               ; preds = %36, %34
+  %38 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %38, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %39
 
-38:                                               ; preds = %36
+39:                                               ; preds = %37
   store ptr %10, ptr %9, align 8
-  store <2 x ptr> %12, ptr %11, align 8
+  store ptr %12, ptr %11, align 8
+  store ptr %14, ptr %13, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %36, %38
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %37, %39
   ret i1 %.0
 }
 

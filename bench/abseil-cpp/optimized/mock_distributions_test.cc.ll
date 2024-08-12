@@ -12369,12 +12369,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl13MockingBitGen18FunctionHolderImplIN7testing12MockFunctionIFiiiEEEiSt5tupleIJiiEEE5ApplyEPvS9_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %args_tuple, ptr noundef %result) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.156", align 8
+  %ref.tmp.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.156", align 4
   %mock_fn_ = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load <2 x i32>, ptr %args_tuple, align 4
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %args_tuple, i64 4
+  %0 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
+  %1 = load i32, ptr %args_tuple, align 4
   tail call void @_ZN7testing8internal25UntypedFunctionMockerBase15SetOwnerAndNameEPKvPKc(ptr noundef nonnull align 8 dereferenceable(72) %mock_fn_, ptr noundef nonnull %mock_fn_, ptr noundef nonnull @.str.100)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  store <2 x i32> %0, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
+  store i32 %1, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 4
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 4
+  store i32 %0, ptr %2, align 4
   %call.i.i.i.i.i.i.i.i = call noundef i32 @_ZN7testing8internal14FunctionMockerIFiiiEE10InvokeWithEOSt5tupleIJiiEE(ptr noundef nonnull align 8 dereferenceable(72) %mock_fn_, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   store i32 %call.i.i.i.i.i.i.i.i, ptr %result, align 4
@@ -16606,15 +16610,17 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.203", ptr %cond.i10, i64 %sub.ptr.div.i
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  %4 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %4, ptr %add.ptr, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  store ptr %4, ptr %_M_refcount.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -16638,10 +16644,13 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
+  %8 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !149, !noalias !146
+  store ptr %8, ptr %__cur.07.i.i.i, align 8, !alias.scope !146, !noalias !149
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
-  %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !149, !noalias !146
+  %9 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !149, !noalias !146
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !149, !noalias !146
-  store <2 x ptr> %8, ptr %__cur.07.i.i.i, align 8, !alias.scope !146, !noalias !149
+  store ptr %9, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !alias.scope !146, !noalias !149
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !149, !noalias !146
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
@@ -16659,10 +16668,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10sh
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
+  %10 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !155, !noalias !152
+  store ptr %10, ptr %__cur.07.i.i.i13, align 8, !alias.scope !152, !noalias !155
+  %_M_refcount.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %9 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !155, !noalias !152
+  %11 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !155, !noalias !152
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !155, !noalias !152
-  store <2 x ptr> %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !152, !noalias !155
+  store ptr %11, ptr %_M_refcount.i.i.i.i.i.i.i.i15, align 8, !alias.scope !152, !noalias !155
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !155, !noalias !152
   %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
@@ -17554,17 +17566,18 @@ _ZNSt10shared_ptrIN7testing8internal12ReturnActionIiE4ImplIiE5StateEEC2IS6_vEEPT
 define linkonce_odr dso_local void @_ZN7testing10OnceActionIFiiiEEC2INS_8internal12ReturnActionIiE4ImplIiEETnNSt9enable_ifIXsr8internal11conjunctionINS4_8negationISt7is_sameIS2_NSt5decayIT_E4typeEEEENSA_INS4_11conjunctionIJSt16is_constructibleISF_JSD_EENS4_18is_callable_r_implIviSF_JiiEEEEEEEENSI_IJSK_NSL_IviSF_JEEEEEEEE5valueEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %callable) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::OnceAction<int (int, int)>::StdFunctionAdaptor", align 8
-  %ref.tmp = alloca %"struct.testing::OnceAction<int (int, int)>::IgnoreIncomingArguments", align 16
+  %ref.tmp = alloca %"struct.testing::OnceAction<int (int, int)>::IgnoreIncomingArguments", align 8
+  %0 = load ptr, ptr %callable, align 8
+  store ptr %0, ptr %ref.tmp, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %callable, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %1 = load <2 x ptr>, ptr %callable, align 8
-  store <2 x ptr> %1, ptr %ref.tmp, align 16
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing8internal12ReturnActionIiE4ImplIiEC2EOS4_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -17593,14 +17606,16 @@ call5.i.i.i2.i.i.i.i.i.i.noexc:                   ; preds = %_ZN7testing8interna
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !157
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7testing10OnceActionIFiiiEE23IgnoreIncomingArgumentsINS0_8internal12ReturnActionIiE4ImplIiEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i.i.i1, align 8, !noalias !157
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 16
-  %5 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !157
-  %6 = load <2 x ptr>, ptr %ref.tmp, align 16, !noalias !157
-  store <2 x ptr> %6, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !157
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %5 = load ptr, ptr %ref.tmp, align 8, !noalias !157
+  store ptr %5, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !157
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 24
+  %6 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !157
+  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !157
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7testing10OnceActionIFiiiEE18StdFunctionAdaptorINS2_23IgnoreIncomingArgumentsINS_8internal12ReturnActionIiE4ImplIiEEEEEC2ISA_EENSB_11CallableTagEOT_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %call5.i.i.i2.i.i.i.i.i.i.noexc
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !157
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -19524,12 +19539,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl13MockingBitGen18FunctionHolderImplIN7testing12MockFunctionIFdddEEEdSt5tupleIJddEEE5ApplyEPvS9_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %args_tuple, ptr noundef %result) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.253", align 16
+  %ref.tmp.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.253", align 8
   %mock_fn_ = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load <2 x double>, ptr %args_tuple, align 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %args_tuple, i64 8
+  %0 = load double, ptr %add.ptr.i.i.i.i.i, align 8
+  %1 = load double, ptr %args_tuple, align 8
   tail call void @_ZN7testing8internal25UntypedFunctionMockerBase15SetOwnerAndNameEPKvPKc(ptr noundef nonnull align 8 dereferenceable(72) %mock_fn_, ptr noundef nonnull %mock_fn_, ptr noundef nonnull @.str.100)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  store <2 x double> %0, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 16
+  store double %1, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
+  store double %0, ptr %2, align 8
   %call.i.i.i.i.i.i.i.i = call noundef double @_ZN7testing8internal14FunctionMockerIFdddEE10InvokeWithEOSt5tupleIJddEE(ptr noundef nonnull align 8 dereferenceable(72) %mock_fn_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   store double %call.i.i.i.i.i.i.i.i, ptr %result, align 8
@@ -23943,17 +23962,18 @@ _ZNSt10shared_ptrIN7testing8internal12ReturnActionIdE4ImplIdE5StateEEC2IS6_vEEPT
 define linkonce_odr dso_local void @_ZN7testing10OnceActionIFdddEEC2INS_8internal12ReturnActionIdE4ImplIdEETnNSt9enable_ifIXsr8internal11conjunctionINS4_8negationISt7is_sameIS2_NSt5decayIT_E4typeEEEENSA_INS4_11conjunctionIJSt16is_constructibleISF_JSD_EENS4_18is_callable_r_implIvdSF_JddEEEEEEEENSI_IJSK_NSL_IvdSF_JEEEEEEEE5valueEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %callable) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::OnceAction<double (double, double)>::StdFunctionAdaptor", align 8
-  %ref.tmp = alloca %"struct.testing::OnceAction<double (double, double)>::IgnoreIncomingArguments", align 16
+  %ref.tmp = alloca %"struct.testing::OnceAction<double (double, double)>::IgnoreIncomingArguments", align 8
+  %0 = load ptr, ptr %callable, align 8
+  store ptr %0, ptr %ref.tmp, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %callable, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %1 = load <2 x ptr>, ptr %callable, align 8
-  store <2 x ptr> %1, ptr %ref.tmp, align 16
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing8internal12ReturnActionIdE4ImplIdEC2EOS4_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -23982,14 +24002,16 @@ call5.i.i.i2.i.i.i.i.i.i.noexc:                   ; preds = %_ZN7testing8interna
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !238
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7testing10OnceActionIFdddEE23IgnoreIncomingArgumentsINS0_8internal12ReturnActionIdE4ImplIdEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i.i.i1, align 8, !noalias !238
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 16
-  %5 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !238
-  %6 = load <2 x ptr>, ptr %ref.tmp, align 16, !noalias !238
-  store <2 x ptr> %6, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !238
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %5 = load ptr, ptr %ref.tmp, align 8, !noalias !238
+  store ptr %5, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !238
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 24
+  %6 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !238
+  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !238
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7testing10OnceActionIFdddEE18StdFunctionAdaptorINS2_23IgnoreIncomingArgumentsINS_8internal12ReturnActionIdE4ImplIdEEEEEC2ISA_EENSB_11CallableTagEOT_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %call5.i.i.i2.i.i.i.i.i.i.noexc
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !238
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -29463,17 +29485,18 @@ _ZNSt10shared_ptrIN7testing8internal12ReturnActionIiE4ImplIdE5StateEEC2IS6_vEEPT
 define linkonce_odr dso_local void @_ZN7testing10OnceActionIFddEEC2INS_8internal12ReturnActionIiE4ImplIdEETnNSt9enable_ifIXsr8internal11conjunctionINS4_8negationISt7is_sameIS2_NSt5decayIT_E4typeEEEENSA_INS4_11conjunctionIJSt16is_constructibleISF_JSD_EENS4_18is_callable_r_implIvdSF_JdEEEEEEEENSI_IJSK_NSL_IvdSF_JEEEEEEEE5valueEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %callable) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::OnceAction<double (double)>::StdFunctionAdaptor", align 8
-  %ref.tmp = alloca %"struct.testing::OnceAction<double (double)>::IgnoreIncomingArguments", align 16
+  %ref.tmp = alloca %"struct.testing::OnceAction<double (double)>::IgnoreIncomingArguments", align 8
+  %0 = load ptr, ptr %callable, align 8
+  store ptr %0, ptr %ref.tmp, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %callable, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %1 = load <2 x ptr>, ptr %callable, align 8
-  store <2 x ptr> %1, ptr %ref.tmp, align 16
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing8internal12ReturnActionIiE4ImplIdEC2EOS4_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -29502,14 +29525,16 @@ call5.i.i.i2.i.i.i.i.i.i.noexc:                   ; preds = %_ZN7testing8interna
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !315
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7testing10OnceActionIFddEE23IgnoreIncomingArgumentsINS0_8internal12ReturnActionIiE4ImplIdEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i.i.i1, align 8, !noalias !315
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 16
-  %5 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !315
-  %6 = load <2 x ptr>, ptr %ref.tmp, align 16, !noalias !315
-  store <2 x ptr> %6, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !315
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %5 = load ptr, ptr %ref.tmp, align 8, !noalias !315
+  store ptr %5, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !315
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 24
+  %6 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !315
+  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !315
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7testing10OnceActionIFddEE18StdFunctionAdaptorINS2_23IgnoreIncomingArgumentsINS_8internal12ReturnActionIiE4ImplIdEEEEEC2ISA_EENSB_11CallableTagEOT_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %call5.i.i.i2.i.i.i.i.i.i.noexc
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !315
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -34178,17 +34203,18 @@ sw.epilog:                                        ; preds = %_ZN7testing8interna
 define linkonce_odr dso_local void @_ZN7testing10OnceActionIFidEEC2INS_8internal12ReturnActionIiE4ImplIiEETnNSt9enable_ifIXsr8internal11conjunctionINS4_8negationISt7is_sameIS2_NSt5decayIT_E4typeEEEENSA_INS4_11conjunctionIJSt16is_constructibleISF_JSD_EENS4_18is_callable_r_implIviSF_JdEEEEEEEENSI_IJSK_NSL_IviSF_JEEEEEEEE5valueEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %callable) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::OnceAction<int (double)>::StdFunctionAdaptor", align 8
-  %ref.tmp = alloca %"struct.testing::OnceAction<int (double)>::IgnoreIncomingArguments", align 16
+  %ref.tmp = alloca %"struct.testing::OnceAction<int (double)>::IgnoreIncomingArguments", align 8
+  %0 = load ptr, ptr %callable, align 8
+  store ptr %0, ptr %ref.tmp, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %callable, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %1 = load <2 x ptr>, ptr %callable, align 8
-  store <2 x ptr> %1, ptr %ref.tmp, align 16
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing8internal12ReturnActionIiE4ImplIiEC2EOS4_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -34217,14 +34243,16 @@ call5.i.i.i2.i.i.i.i.i.i.noexc:                   ; preds = %_ZN7testing8interna
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !379
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7testing10OnceActionIFidEE23IgnoreIncomingArgumentsINS0_8internal12ReturnActionIiE4ImplIiEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i.i.i1, align 8, !noalias !379
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 16
-  %5 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !379
-  %6 = load <2 x ptr>, ptr %ref.tmp, align 16, !noalias !379
-  store <2 x ptr> %6, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !379
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %5 = load ptr, ptr %ref.tmp, align 8, !noalias !379
+  store ptr %5, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !379
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 24
+  %6 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !379
+  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !379
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7testing10OnceActionIFidEE18StdFunctionAdaptorINS2_23IgnoreIncomingArgumentsINS_8internal12ReturnActionIiE4ImplIiEEEEEC2ISA_EENSB_11CallableTagEOT_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %call5.i.i.i2.i.i.i.i.i.i.noexc
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !379
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -39037,17 +39065,18 @@ _ZNSt10shared_ptrIN7testing8internal12ReturnActionIbE4ImplIbE5StateEEC2IS6_vEEPT
 define linkonce_odr dso_local void @_ZN7testing10OnceActionIFbdEEC2INS_8internal12ReturnActionIbE4ImplIbEETnNSt9enable_ifIXsr8internal11conjunctionINS4_8negationISt7is_sameIS2_NSt5decayIT_E4typeEEEENSA_INS4_11conjunctionIJSt16is_constructibleISF_JSD_EENS4_18is_callable_r_implIvbSF_JdEEEEEEEENSI_IJSK_NSL_IvbSF_JEEEEEEEE5valueEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %callable) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::OnceAction<bool (double)>::StdFunctionAdaptor", align 8
-  %ref.tmp = alloca %"struct.testing::OnceAction<bool (double)>::IgnoreIncomingArguments", align 16
+  %ref.tmp = alloca %"struct.testing::OnceAction<bool (double)>::IgnoreIncomingArguments", align 8
+  %0 = load ptr, ptr %callable, align 8
+  store ptr %0, ptr %ref.tmp, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %callable, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %1 = load <2 x ptr>, ptr %callable, align 8
-  store <2 x ptr> %1, ptr %ref.tmp, align 16
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing8internal12ReturnActionIbE4ImplIbEC2EOS4_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -39076,14 +39105,16 @@ call5.i.i.i2.i.i.i.i.i.i.noexc:                   ; preds = %_ZN7testing8interna
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !441
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7testing10OnceActionIFbdEE23IgnoreIncomingArgumentsINS0_8internal12ReturnActionIbE4ImplIbEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i.i.i1, align 8, !noalias !441
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 16
-  %5 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !441
-  %6 = load <2 x ptr>, ptr %ref.tmp, align 16, !noalias !441
-  store <2 x ptr> %6, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !441
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %5 = load ptr, ptr %ref.tmp, align 8, !noalias !441
+  store ptr %5, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !441
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 24
+  %6 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !441
+  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !441
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7testing10OnceActionIFbdEE18StdFunctionAdaptorINS2_23IgnoreIncomingArgumentsINS_8internal12ReturnActionIbE4ImplIbEEEEEC2ISA_EENSB_11CallableTagEOT_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %call5.i.i.i2.i.i.i.i.i.i.noexc
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !441
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -40042,15 +40073,15 @@ if.end19:                                         ; preds = %if.end
 if.then30:                                        ; preds = %if.end19
   %method_31 = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %method_31, align 8
-  %5 = insertelement <2 x double> poison, double %alpha, i64 0
-  %6 = insertelement <2 x double> %5, double %beta, i64 1
-  %7 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %6
-  store <2 x double> %7, ptr %3, align 8
-  %8 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %7)
-  %9 = fcmp oeq <2 x double> %8, <double 0x7FF0000000000000, double 0x7FF0000000000000>
-  %shift = shufflevector <2 x i1> %9, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %10 = or <2 x i1> %9, %shift
-  %or.cond18 = extractelement <2 x i1> %10, i64 0
+  %div = fdiv double 1.000000e+00, %alpha
+  store double %div, ptr %3, align 8
+  %div35 = fdiv double 1.000000e+00, %beta
+  store double %div35, ptr %4, align 8
+  %5 = tail call double @llvm.fabs.f64(double %div)
+  %6 = fcmp oeq double %5, 0x7FF0000000000000
+  %7 = tail call double @llvm.fabs.f64(double %div35)
+  %8 = fcmp oeq double %7, 0x7FF0000000000000
+  %or.cond18 = or i1 %6, %8
   br i1 %or.cond18, label %if.then42, label %return
 
 if.then42:                                        ; preds = %if.then30
@@ -40077,37 +40108,37 @@ if.end64:                                         ; preds = %if.end49
   %call70 = tail call double @log(double noundef %add) #24
   %log_x_ = getelementptr inbounds i8, ptr %this, i64 40
   store double %call70, ptr %log_x_, align 8
-  %11 = load double, ptr %3, align 8
-  %cmp72 = fcmp ugt double %11, 1.000000e+00
+  %9 = load double, ptr %3, align 8
+  %cmp72 = fcmp ugt double %9, 1.000000e+00
   %method_81 = getelementptr inbounds i8, ptr %this, i64 64
   br i1 %cmp72, label %if.end80, label %if.then73
 
 if.then73:                                        ; preds = %if.end64
   store i32 1, ptr %method_81, align 8
-  %div76 = fdiv double 1.000000e+00, %11
+  %div76 = fdiv double 1.000000e+00, %9
   %y_ = getelementptr inbounds i8, ptr %this, i64 48
   store double %div76, ptr %y_, align 8
-  %add79 = fadd double %11, %11
+  %add79 = fadd double %9, %9
   br label %return.sink.split
 
 if.end80:                                         ; preds = %if.end64
   store i32 2, ptr %method_81, align 8
-  %sub = fadd double %11, -1.000000e+00
-  %12 = load double, ptr %4, align 8
-  %sub85 = fadd double %12, -1.000000e+00
+  %sub = fadd double %9, -1.000000e+00
+  %10 = load double, ptr %4, align 8
+  %sub85 = fadd double %10, -1.000000e+00
   %div86 = fdiv double %sub, %sub85
   %add87 = fadd double %div86, 1.000000e+00
-  %mul = fmul double %12, %div86
+  %mul = fmul double %10, %div86
   %neg = fneg double %div86
-  %13 = tail call double @llvm.fmuladd.f64(double %mul, double 2.000000e+00, double %neg)
-  %add90 = fadd double %13, 1.000000e+00
+  %11 = tail call double @llvm.fmuladd.f64(double %mul, double 2.000000e+00, double %neg)
+  %add90 = fadd double %11, 1.000000e+00
   %div91 = fdiv double %add87, %add90
   %call92 = tail call double @sqrt(double noundef %div91) #24
   %y_93 = getelementptr inbounds i8, ptr %this, i64 48
   store double %call92, ptr %y_93, align 8
-  %14 = load double, ptr %3, align 8
+  %12 = load double, ptr %3, align 8
   %div96 = fdiv double 1.000000e+00, %call92
-  %add97 = fadd double %div96, %14
+  %add97 = fadd double %div96, %12
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then, %if.then14, %if.then53, %if.then73, %if.end80, %if.then42
@@ -41086,16 +41117,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl13MockingBitGen18FunctionHolderImplIN7testing12MockFunctionIFiiddEEEiSt5tupleIJiddEEE5ApplyEPvS9_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %args_tuple, ptr noundef %result) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.439", align 16
+  %ref.tmp.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.439", align 8
   %mock_fn_ = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %args_tuple, i64 16
+  %add.ptr.i.i.i3.i.i = getelementptr inbounds i8, ptr %args_tuple, i64 8
   %0 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
-  %1 = load <2 x double>, ptr %args_tuple, align 8
+  %1 = load double, ptr %add.ptr.i.i.i3.i.i, align 8
+  %2 = load double, ptr %args_tuple, align 8
   tail call void @_ZN7testing8internal25UntypedFunctionMockerBase15SetOwnerAndNameEPKvPKc(ptr noundef nonnull align 8 dereferenceable(72) %mock_fn_, ptr noundef nonnull %mock_fn_, ptr noundef nonnull @.str.100)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  store <2 x double> %1, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 16
-  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 16
-  store i32 %0, ptr %2, align 16
+  store double %2, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
+  store double %1, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 16
+  store i32 %0, ptr %4, align 8
   %call.i.i.i.i.i.i.i.i = call noundef i32 @_ZN7testing8internal14FunctionMockerIFiiddEE10InvokeWithEOSt5tupleIJiddEE(ptr noundef nonnull align 8 dereferenceable(72) %mock_fn_, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   store i32 %call.i.i.i.i.i.i.i.i, ptr %result, align 4
@@ -45506,17 +45541,18 @@ sw.epilog:                                        ; preds = %_ZN7testing8interna
 define linkonce_odr dso_local void @_ZN7testing10OnceActionIFiiddEEC2INS_8internal12ReturnActionIiE4ImplIiEETnNSt9enable_ifIXsr8internal11conjunctionINS4_8negationISt7is_sameIS2_NSt5decayIT_E4typeEEEENSA_INS4_11conjunctionIJSt16is_constructibleISF_JSD_EENS4_18is_callable_r_implIviSF_JiddEEEEEEEENSI_IJSK_NSL_IviSF_JEEEEEEEE5valueEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %callable) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::OnceAction<int (int, double, double)>::StdFunctionAdaptor", align 8
-  %ref.tmp = alloca %"struct.testing::OnceAction<int (int, double, double)>::IgnoreIncomingArguments", align 16
+  %ref.tmp = alloca %"struct.testing::OnceAction<int (int, double, double)>::IgnoreIncomingArguments", align 8
+  %0 = load ptr, ptr %callable, align 8
+  store ptr %0, ptr %ref.tmp, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %callable, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %1 = load <2 x ptr>, ptr %callable, align 8
-  store <2 x ptr> %1, ptr %ref.tmp, align 16
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing8internal12ReturnActionIiE4ImplIiEC2EOS4_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -45545,14 +45581,16 @@ call5.i.i.i2.i.i.i.i.i.i.noexc:                   ; preds = %_ZN7testing8interna
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !508
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7testing10OnceActionIFiiddEE23IgnoreIncomingArgumentsINS0_8internal12ReturnActionIiE4ImplIiEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i.i.i1, align 8, !noalias !508
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 16
-  %5 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !508
-  %6 = load <2 x ptr>, ptr %ref.tmp, align 16, !noalias !508
-  store <2 x ptr> %6, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !508
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %5 = load ptr, ptr %ref.tmp, align 8, !noalias !508
+  store ptr %5, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !508
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 24
+  %6 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !508
+  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !508
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7testing10OnceActionIFiiddEE18StdFunctionAdaptorINS2_23IgnoreIncomingArgumentsINS_8internal12ReturnActionIiE4ImplIiEEEEEC2ISA_EENSB_11CallableTagEOT_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %call5.i.i.i2.i.i.i.i.i.i.noexc
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !508
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -46825,16 +46863,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl13MockingBitGen18FunctionHolderImplIN7testing12MockFunctionIFiiiiEEEiSt5tupleIJiiiEEE5ApplyEPvS9_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %args_tuple, ptr noundef %result) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.488", align 8
+  %ref.tmp.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.488", align 4
   %mock_fn_ = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %args_tuple, i64 8
+  %add.ptr.i.i.i3.i.i = getelementptr inbounds i8, ptr %args_tuple, i64 4
   %0 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
-  %1 = load <2 x i32>, ptr %args_tuple, align 4
+  %1 = load i32, ptr %add.ptr.i.i.i3.i.i, align 4
+  %2 = load i32, ptr %args_tuple, align 4
   tail call void @_ZN7testing8internal25UntypedFunctionMockerBase15SetOwnerAndNameEPKvPKc(ptr noundef nonnull align 8 dereferenceable(72) %mock_fn_, ptr noundef nonnull %mock_fn_, ptr noundef nonnull @.str.100)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  store <2 x i32> %1, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
-  store i32 %0, ptr %2, align 8
+  store i32 %2, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 4
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 4
+  store i32 %1, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
+  store i32 %0, ptr %4, align 4
   %call.i.i.i.i.i.i.i.i = call noundef i32 @_ZN7testing8internal14FunctionMockerIFiiiiEE10InvokeWithEOSt5tupleIJiiiEE(ptr noundef nonnull align 8 dereferenceable(72) %mock_fn_, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   store i32 %call.i.i.i.i.i.i.i.i, ptr %result, align 4
@@ -51245,17 +51287,18 @@ sw.epilog:                                        ; preds = %_ZN7testing8interna
 define linkonce_odr dso_local void @_ZN7testing10OnceActionIFiiiiEEC2INS_8internal12ReturnActionIiE4ImplIiEETnNSt9enable_ifIXsr8internal11conjunctionINS4_8negationISt7is_sameIS2_NSt5decayIT_E4typeEEEENSA_INS4_11conjunctionIJSt16is_constructibleISF_JSD_EENS4_18is_callable_r_implIviSF_JiiiEEEEEEEENSI_IJSK_NSL_IviSF_JEEEEEEEE5valueEiE4typeELi0EEEOSD_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %callable) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::OnceAction<int (int, int, int)>::StdFunctionAdaptor", align 8
-  %ref.tmp = alloca %"struct.testing::OnceAction<int (int, int, int)>::IgnoreIncomingArguments", align 16
+  %ref.tmp = alloca %"struct.testing::OnceAction<int (int, int, int)>::IgnoreIncomingArguments", align 8
+  %0 = load ptr, ptr %callable, align 8
+  store ptr %0, ptr %ref.tmp, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %callable, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %1 = load <2 x ptr>, ptr %callable, align 8
-  store <2 x ptr> %1, ptr %ref.tmp, align 16
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing8internal12ReturnActionIiE4ImplIiEC2EOS4_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -51284,14 +51327,16 @@ call5.i.i.i2.i.i.i.i.i.i.noexc:                   ; preds = %_ZN7testing8interna
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !noalias !568
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7testing10OnceActionIFiiiiEE23IgnoreIncomingArgumentsINS0_8internal12ReturnActionIiE4ImplIiEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i.i.i1, align 8, !noalias !568
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 16
-  %5 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !568
-  %6 = load <2 x ptr>, ptr %ref.tmp, align 16, !noalias !568
-  store <2 x ptr> %6, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !568
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %5 = load ptr, ptr %ref.tmp, align 8, !noalias !568
+  store ptr %5, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !noalias !568
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i.i.i1, i64 24
+  %6 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !568
+  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !568
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN7testing10OnceActionIFiiiiEE18StdFunctionAdaptorINS2_23IgnoreIncomingArgumentsINS_8internal12ReturnActionIiE4ImplIiEEEEEC2ISA_EENSB_11CallableTagEOT_.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %call5.i.i.i2.i.i.i.i.i.i.noexc
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !568
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -52097,9 +52142,6 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #23
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

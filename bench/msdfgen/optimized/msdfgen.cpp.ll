@@ -2453,7 +2453,7 @@ declare noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7msdfgen24generatePseudoSDF_legacyERKNS_9BitmapRefIfLi1EEERKNS_5ShapeEdRKNS_7Vector2ES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %shape, double noundef %range, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %scale, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %translate) local_unnamed_addr #0 {
 entry:
-  %minDistance = alloca %"class.msdfgen::SignedDistance", align 16
+  %minDistance = alloca %"class.msdfgen::SignedDistance", align 8
   %param = alloca double, align 8
   %height = getelementptr inbounds i8, ptr %output, i64 12
   %0 = load i32, ptr %height, align 4
@@ -2500,7 +2500,8 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %i
   %agg.tmp10.sroa.2.0.copyload = load double, ptr %agg.tmp10.sroa.2.0..sroa_idx, align 8
   %sub.i = fsub double %div.i, %agg.tmp10.sroa.0.0.copyload
   %sub3.i = fsub double %div3.i, %agg.tmp10.sroa.2.0.copyload
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0.000000e+00>, ptr %minDistance, align 16
+  store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance, align 8
+  store double 0.000000e+00, ptr %dot.i, align 8
   %7 = load ptr, ptr %shape, align 8
   %8 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not31 = icmp eq ptr %7, %8
@@ -2529,7 +2530,7 @@ for.body29:                                       ; preds = %for.body18, %for.in
   %call33 = call { double, double } %13(ptr noundef nonnull align 8 dereferenceable(12) %call31, double %sub.i, double %sub3.i, ptr noundef nonnull align 8 dereferenceable(8) %param)
   %14 = extractvalue { double, double } %call33, 0
   %15 = extractvalue { double, double } %call33, 1
-  %agg.tmp35.sroa.0.0.copyload = load double, ptr %minDistance, align 16
+  %agg.tmp35.sroa.0.0.copyload = load double, ptr %minDistance, align 8
   %16 = call double @llvm.fabs.f64(double %14)
   %17 = call double @llvm.fabs.f64(double %agg.tmp35.sroa.0.0.copyload)
   %cmp.i18 = fcmp olt double %16, %17
@@ -2543,7 +2544,7 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %for.body29
   br i1 %18, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body29, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
-  store double %14, ptr %minDistance, align 16
+  store double %14, ptr %minDistance, align 8
   store double %15, ptr %dot.i, align 8
   %19 = load double, ptr %param, align 8
   br label %for.inc
@@ -2580,7 +2581,7 @@ if.then43:                                        ; preds = %for.end41
   %vfn47 = getelementptr inbounds i8, ptr %vtable46, i64 72
   %24 = load ptr, ptr %vfn47, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(12) %call44, ptr noundef nonnull align 8 dereferenceable(16) %minDistance, double %sub.i, double %sub3.i, double noundef %nearParam.1.lcssa)
-  %.pre42 = load double, ptr %minDistance, align 16
+  %.pre42 = load double, ptr %minDistance, align 8
   br label %if.end48
 
 if.end48:                                         ; preds = %for.body5, %if.then43, %for.end41
@@ -2618,8 +2619,8 @@ for.end57:                                        ; preds = %for.inc55, %for.bod
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7msdfgen19generateMSDF_legacyERKNS_9BitmapRefIfLi3EEERKNS_5ShapeEdRKNS_7Vector2ES9_NS_21ErrorCorrectionConfigE(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate, ptr nocapture noundef byval(%"struct.msdfgen::ErrorCorrectionConfig") align 8 %errorCorrectionConfig) local_unnamed_addr #0 {
 entry:
-  %r = alloca %struct.anon, align 16
-  %g = alloca %struct.anon, align 16
+  %r = alloca %struct.anon, align 8
+  %g = alloca %struct.anon, align 8
   %b = alloca %struct.anon, align 8
   %param = alloca double, align 8
   %ref.tmp141 = alloca %"class.msdfgen::Projection", align 8
@@ -2677,12 +2678,14 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %i
   %agg.tmp10.sroa.2.0.copyload = load double, ptr %agg.tmp10.sroa.2.0..sroa_idx, align 8
   %sub.i = fsub double %div.i, %agg.tmp10.sroa.0.0.copyload
   %sub3.i = fsub double %div3.i, %agg.tmp10.sroa.2.0.copyload
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0.000000e+00>, ptr %r, align 16
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0.000000e+00>, ptr %g, align 16
+  store double 0xFFEFFFFFFFFFFFFF, ptr %r, align 8
+  store double 0.000000e+00, ptr %dot.i.i, align 8
+  store double 0xFFEFFFFFFFFFFFFF, ptr %g, align 8
+  store double 0.000000e+00, ptr %dot.i.i35, align 8
   store double 0xFFEFFFFFFFFFFFFF, ptr %b, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dot.i.i36, i8 0, i64 16, i1 false)
-  store ptr null, ptr %nearEdge12, align 16
-  store ptr null, ptr %nearEdge13, align 16
+  store ptr null, ptr %nearEdge12, align 8
+  store ptr null, ptr %nearEdge13, align 8
   store double 0.000000e+00, ptr %nearParam, align 8
   store double 0.000000e+00, ptr %nearParam14, align 8
   store double 0.000000e+00, ptr %nearParam15, align 8
@@ -2717,7 +2720,7 @@ for.body33:                                       ; preds = %for.body22, %for.in
   br i1 %tobool40.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body33
-  %agg.tmp42.sroa.0.0.copyload = load double, ptr %r, align 16
+  %agg.tmp42.sroa.0.0.copyload = load double, ptr %r, align 8
   %16 = call double @llvm.fabs.f64(double %13)
   %17 = call double @llvm.fabs.f64(double %agg.tmp42.sroa.0.0.copyload)
   %cmp.i39 = fcmp olt double %16, %17
@@ -2731,9 +2734,9 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit:       ; preds = %land.lhs.true
   br i1 %18, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit
-  store double %13, ptr %r, align 16
+  store double %13, ptr %r, align 8
   store double %14, ptr %dot.i.i, align 8
-  store ptr %edge.sroa.0.075, ptr %nearEdge13, align 16
+  store ptr %edge.sroa.0.075, ptr %nearEdge13, align 8
   %19 = load double, ptr %param, align 8
   store double %19, ptr %nearParam15, align 8
   br label %if.end
@@ -2747,7 +2750,7 @@ if.end:                                           ; preds = %if.then, %_ZN7msdfg
   br i1 %tobool52.not, label %if.end63, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end
-  %agg.tmp55.sroa.0.0.copyload = load double, ptr %g, align 16
+  %agg.tmp55.sroa.0.0.copyload = load double, ptr %g, align 8
   %21 = call double @llvm.fabs.f64(double %13)
   %22 = call double @llvm.fabs.f64(double %agg.tmp55.sroa.0.0.copyload)
   %cmp.i40 = fcmp olt double %21, %22
@@ -2761,9 +2764,9 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit44:     ; preds = %land.lhs.true53
   br i1 %23, label %if.then58, label %if.end63
 
 if.then58:                                        ; preds = %land.lhs.true53, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit44
-  store double %13, ptr %g, align 16
+  store double %13, ptr %g, align 8
   store double %14, ptr %dot.i.i35, align 8
-  store ptr %edge.sroa.0.075, ptr %nearEdge12, align 16
+  store ptr %edge.sroa.0.075, ptr %nearEdge12, align 8
   %24 = load double, ptr %param, align 8
   store double %24, ptr %nearParam14, align 8
   br label %if.end63
@@ -2815,7 +2818,7 @@ for.inc81:                                        ; preds = %for.inc81.loopexit,
   br i1 %cmp.i.not, label %for.end83, label %for.body22, !llvm.loop !60
 
 for.end83:                                        ; preds = %for.inc81
-  %.pre83 = load ptr, ptr %nearEdge13, align 16
+  %.pre83 = load ptr, ptr %nearEdge13, align 8
   %tobool85.not = icmp eq ptr %.pre83, null
   br i1 %tobool85.not, label %if.end94, label %if.then86
 
@@ -2829,7 +2832,7 @@ if.then86:                                        ; preds = %for.end83
   br label %if.end94
 
 if.end94:                                         ; preds = %for.body5, %if.then86, %for.end83
-  %34 = load ptr, ptr %nearEdge12, align 16
+  %34 = load ptr, ptr %nearEdge12, align 8
   %tobool96.not = icmp eq ptr %34, null
   br i1 %tobool96.not, label %if.end105, label %if.then97
 
@@ -2857,7 +2860,7 @@ if.then108:                                       ; preds = %if.end105
   br label %if.end116
 
 if.end116:                                        ; preds = %if.then108, %if.end105
-  %40 = load double, ptr %r, align 16
+  %40 = load double, ptr %r, align 8
   %div = fdiv double %40, %range
   %add119 = fadd double %div, 5.000000e-01
   %conv120 = fptrunc double %add119 to float
@@ -2869,7 +2872,7 @@ if.end116:                                        ; preds = %if.then108, %if.end
   %idx.ext.i = sext i32 %mul2.i to i64
   %add.ptr.i = getelementptr inbounds float, ptr %41, i64 %idx.ext.i
   store float %conv120, ptr %add.ptr.i, align 4
-  %43 = load double, ptr %g, align 16
+  %43 = load double, ptr %g, align 8
   %div124 = fdiv double %43, %range
   %add125 = fadd double %div124, 5.000000e-01
   %conv126 = fptrunc double %add125 to float
@@ -2925,8 +2928,8 @@ for.end140:                                       ; preds = %for.inc138, %for.bo
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7msdfgen20generateMTSDF_legacyERKNS_9BitmapRefIfLi4EEERKNS_5ShapeEdRKNS_7Vector2ES9_NS_21ErrorCorrectionConfigE(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate, ptr nocapture noundef byval(%"struct.msdfgen::ErrorCorrectionConfig") align 8 %errorCorrectionConfig) local_unnamed_addr #0 {
 entry:
-  %r = alloca %struct.anon.8, align 16
-  %g = alloca %struct.anon.8, align 16
+  %r = alloca %struct.anon.8, align 8
+  %g = alloca %struct.anon.8, align 8
   %b = alloca %struct.anon.8, align 8
   %param = alloca double, align 8
   %ref.tmp153 = alloca %"class.msdfgen::Projection", align 8
@@ -2984,12 +2987,14 @@ for.body5:                                        ; preds = %for.body5.lr.ph, %i
   %agg.tmp10.sroa.2.0.copyload = load double, ptr %agg.tmp10.sroa.2.0..sroa_idx, align 8
   %sub.i = fsub double %div.i, %agg.tmp10.sroa.0.0.copyload
   %sub3.i = fsub double %div3.i, %agg.tmp10.sroa.2.0.copyload
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0.000000e+00>, ptr %r, align 16
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0.000000e+00>, ptr %g, align 16
+  store double 0xFFEFFFFFFFFFFFFF, ptr %r, align 8
+  store double 0.000000e+00, ptr %dot.i.i, align 8
+  store double 0xFFEFFFFFFFFFFFFF, ptr %g, align 8
+  store double 0.000000e+00, ptr %dot.i.i41, align 8
   store double 0xFFEFFFFFFFFFFFFF, ptr %b, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dot.i.i42, i8 0, i64 16, i1 false)
-  store ptr null, ptr %nearEdge12, align 16
-  store ptr null, ptr %nearEdge13, align 16
+  store ptr null, ptr %nearEdge12, align 8
+  store ptr null, ptr %nearEdge13, align 8
   store double 0.000000e+00, ptr %nearParam, align 8
   store double 0.000000e+00, ptr %nearParam14, align 8
   store double 0.000000e+00, ptr %nearParam15, align 8
@@ -3045,7 +3050,7 @@ if.end:                                           ; preds = %if.then, %_ZN7msdfg
   br i1 %tobool43.not, label %if.end53, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %agg.tmp45.sroa.0.0.copyload = load double, ptr %r, align 16
+  %agg.tmp45.sroa.0.0.copyload = load double, ptr %r, align 8
   %19 = call double @llvm.fabs.f64(double %agg.tmp45.sroa.0.0.copyload)
   %cmp.i46 = fcmp olt double %15, %19
   br i1 %cmp.i46, label %if.then48, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit50
@@ -3058,9 +3063,9 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit50:     ; preds = %land.lhs.true
   br i1 %20, label %if.then48, label %if.end53
 
 if.then48:                                        ; preds = %land.lhs.true, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit50
-  store double %13, ptr %r, align 16
+  store double %13, ptr %r, align 8
   store double %14, ptr %dot.i.i, align 8
-  store ptr %edge.sroa.0.093, ptr %nearEdge13, align 16
+  store ptr %edge.sroa.0.093, ptr %nearEdge13, align 8
   %21 = load double, ptr %param, align 8
   store double %21, ptr %nearParam15, align 8
   br label %if.end53
@@ -3074,7 +3079,7 @@ if.end53:                                         ; preds = %if.then48, %_ZN7msd
   br i1 %tobool58.not, label %if.end69, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %if.end53
-  %agg.tmp61.sroa.0.0.copyload = load double, ptr %g, align 16
+  %agg.tmp61.sroa.0.0.copyload = load double, ptr %g, align 8
   %23 = call double @llvm.fabs.f64(double %agg.tmp61.sroa.0.0.copyload)
   %cmp.i51 = fcmp olt double %15, %23
   br i1 %cmp.i51, label %if.then64, label %_ZN7msdfgenltENS_14SignedDistanceES0_.exit55
@@ -3087,9 +3092,9 @@ _ZN7msdfgenltENS_14SignedDistanceES0_.exit55:     ; preds = %land.lhs.true59
   br i1 %24, label %if.then64, label %if.end69
 
 if.then64:                                        ; preds = %land.lhs.true59, %_ZN7msdfgenltENS_14SignedDistanceES0_.exit55
-  store double %13, ptr %g, align 16
+  store double %13, ptr %g, align 8
   store double %14, ptr %dot.i.i41, align 8
-  store ptr %edge.sroa.0.093, ptr %nearEdge12, align 16
+  store ptr %edge.sroa.0.093, ptr %nearEdge12, align 8
   %25 = load double, ptr %param, align 8
   store double %25, ptr %nearParam14, align 8
   br label %if.end69
@@ -3142,7 +3147,7 @@ for.inc87:                                        ; preds = %for.inc87.loopexit,
   br i1 %cmp.i.not, label %for.end89, label %for.body22, !llvm.loop !64
 
 for.end89:                                        ; preds = %for.inc87
-  %.pre106 = load ptr, ptr %nearEdge13, align 16
+  %.pre106 = load ptr, ptr %nearEdge13, align 8
   %tobool91.not = icmp eq ptr %.pre106, null
   br i1 %tobool91.not, label %if.end100, label %if.then92
 
@@ -3157,7 +3162,7 @@ if.then92:                                        ; preds = %for.end89
 
 if.end100:                                        ; preds = %for.body5, %if.then92, %for.end89
   %minDistance.sroa.0.0.lcssa110 = phi double [ %minDistance.sroa.0.1.lcssa, %if.then92 ], [ %minDistance.sroa.0.1.lcssa, %for.end89 ], [ 0xFFEFFFFFFFFFFFFF, %for.body5 ]
-  %34 = load ptr, ptr %nearEdge12, align 16
+  %34 = load ptr, ptr %nearEdge12, align 8
   %tobool102.not = icmp eq ptr %34, null
   br i1 %tobool102.not, label %if.end111, label %if.then103
 
@@ -3185,7 +3190,7 @@ if.then114:                                       ; preds = %if.end111
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then114, %if.end111
-  %40 = load double, ptr %r, align 16
+  %40 = load double, ptr %r, align 8
   %div = fdiv double %40, %range
   %add125 = fadd double %div, 5.000000e-01
   %conv126 = fptrunc double %add125 to float
@@ -3197,7 +3202,7 @@ if.end122:                                        ; preds = %if.then114, %if.end
   %idx.ext.i = sext i32 %mul2.i to i64
   %add.ptr.i = getelementptr inbounds float, ptr %41, i64 %idx.ext.i
   store float %conv126, ptr %add.ptr.i, align 4
-  %43 = load double, ptr %g, align 16
+  %43 = load double, ptr %g, align 8
   %div130 = fdiv double %43, %range
   %add131 = fadd double %div130, 5.000000e-01
   %conv132 = fptrunc double %add131 to float

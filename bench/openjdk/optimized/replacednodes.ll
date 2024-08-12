@@ -69,25 +69,28 @@ define hidden noundef zeroext i1 @_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNo
 .lr.ph.i:                                         ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = load <2 x ptr>, ptr %1, align 8
+  %8 = load ptr, ptr %1, align 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8
   %wide.trip.count.i = zext nneg i32 %4 to i64
-  br label %9
+  br label %11
 
-9:                                                ; preds = %9, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
-  %10 = getelementptr inbounds %"class.ReplacedNodes::ReplacedNode", ptr %7, i64 %indvars.iv.i
-  %11 = load <2 x ptr>, ptr %10, align 8
-  %12 = icmp eq <2 x ptr> %11, %8
-  %13 = extractelement <2 x i1> %12, i64 0
-  %14 = extractelement <2 x i1> %12, i64 1
-  %15 = select i1 %13, i1 %14, i1 false
+11:                                               ; preds = %11, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
+  %12 = getelementptr inbounds %"class.ReplacedNodes::ReplacedNode", ptr %7, i64 %indvars.iv.i
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, %8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, %10
+  %18 = select i1 %14, i1 %17, i1 false
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  %or.cond = select i1 %15, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %_ZNK17GrowableArrayViewIN13ReplacedNodes12ReplacedNodeEE4findERKS1_.exit, label %9, !llvm.loop !6
+  %or.cond = select i1 %18, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond, label %_ZNK17GrowableArrayViewIN13ReplacedNodes12ReplacedNodeEE4findERKS1_.exit, label %11, !llvm.loop !6
 
-_ZNK17GrowableArrayViewIN13ReplacedNodes12ReplacedNodeEE4findERKS1_.exit: ; preds = %9, %2
-  %.06.i = phi i1 [ false, %2 ], [ %15, %9 ]
+_ZNK17GrowableArrayViewIN13ReplacedNodes12ReplacedNodeEE4findERKS1_.exit: ; preds = %11, %2
+  %.06.i = phi i1 [ false, %2 ], [ %18, %11 ]
   ret i1 %.06.i
 }
 
@@ -2046,9 +2049,9 @@ _ZN13ReplacedNodes5resetEv.exit:                  ; preds = %7, %_ZNK13ReplacedN
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %40
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %40 ]
-  %.01418 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %40 ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %43
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %43 ]
+  %.01418 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %43 ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -2061,56 +2064,59 @@ _ZN13ReplacedNodes5resetEv.exit:                  ; preds = %7, %_ZNK13ReplacedN
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split
   %22 = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = load <2 x ptr>, ptr %18, align 8
+  %24 = load ptr, ptr %18, align 8
+  %25 = getelementptr inbounds i8, ptr %18, i64 8
+  %26 = load ptr, ptr %25, align 8
   %wide.trip.count.i.i = zext nneg i32 %20 to i64
-  br label %25
+  br label %27
 
-25:                                               ; preds = %32, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
-  %26 = getelementptr inbounds %"class.ReplacedNodes::ReplacedNode", ptr %23, i64 %indvars.iv.i.i
-  %27 = load <2 x ptr>, ptr %26, align 8
-  %28 = icmp eq <2 x ptr> %27, %24
-  %29 = extractelement <2 x i1> %28, i64 0
-  %30 = extractelement <2 x i1> %28, i64 1
-  %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit, label %32
+27:                                               ; preds = %35, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %35 ]
+  %28 = getelementptr inbounds %"class.ReplacedNodes::ReplacedNode", ptr %23, i64 %indvars.iv.i.i
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %29, %24
+  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, %26
+  %34 = select i1 %30, i1 %33, i1 false
+  br i1 %34, label %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit, label %35
 
-32:                                               ; preds = %25
+35:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %25, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !6
 
-.loopexit:                                        ; preds = %32, %.lr.ph.split
-  %33 = add nsw i32 %.01418, 1
-  br label %40
+.loopexit:                                        ; preds = %35, %.lr.ph.split
+  %36 = add nsw i32 %.01418, 1
+  br label %43
 
-_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit: ; preds = %25
-  %34 = icmp sgt i32 %.01418, 0
-  br i1 %34, label %35, label %40
+_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit: ; preds = %27
+  %37 = icmp sgt i32 %.01418, 0
+  br i1 %37, label %38, label %43
 
-35:                                               ; preds = %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit
-  %36 = trunc nuw nsw i64 %indvars.iv to i32
-  %37 = sub nsw i32 %36, %.01418
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %"class.ReplacedNodes::ReplacedNode", ptr %17, i64 %38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
-  br label %40
+38:                                               ; preds = %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
+  %40 = sub nsw i32 %39, %.01418
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds %"class.ReplacedNodes::ReplacedNode", ptr %17, i64 %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
+  br label %43
 
-40:                                               ; preds = %.loopexit, %35, %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit
-  %.1 = phi i32 [ %.01418, %35 ], [ %.01418, %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit ], [ %33, %.loopexit ]
+43:                                               ; preds = %.loopexit, %38, %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit
+  %.1 = phi i32 [ %.01418, %38 ], [ %.01418, %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit ], [ %36, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %40
-  %41 = icmp sgt i32 %.1, 0
-  br i1 %41, label %._crit_edge.thread, label %_ZNK13ReplacedNodes8is_emptyEv.exit.thread
+._crit_edge:                                      ; preds = %43
+  %44 = icmp sgt i32 %.1, 0
+  br i1 %44, label %._crit_edge.thread, label %_ZNK13ReplacedNodes8is_emptyEv.exit.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge
   %.014.lcssa24 = phi i32 [ %.1, %._crit_edge ], [ %5, %.lr.ph ]
-  %42 = load ptr, ptr %0, align 8
-  %43 = sub nsw i32 %5, %.014.lcssa24
-  store i32 %43, ptr %42, align 4
+  %45 = load ptr, ptr %0, align 8
+  %46 = sub nsw i32 %5, %.014.lcssa24
+  store i32 %46, ptr %45, align 4
   br label %_ZNK13ReplacedNodes8is_emptyEv.exit.thread
 
 _ZNK13ReplacedNodes8is_emptyEv.exit.thread:       ; preds = %12, %2, %_ZNK13ReplacedNodes8is_emptyEv.exit, %._crit_edge.thread, %._crit_edge, %_ZN13ReplacedNodes5resetEv.exit

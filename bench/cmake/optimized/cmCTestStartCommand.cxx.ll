@@ -1380,17 +1380,21 @@ _ZNSt10unique_ptrI19cmCTestStartCommandSt14default_deleteIS0_EED2Ev.exit:
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   %5 = getelementptr inbounds i8, ptr %2, i64 41
   %6 = getelementptr inbounds i8, ptr %1, i64 24
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
-  %8 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
-  %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  store i8 %11, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 41
-  %13 = load i8, ptr %12, align 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  store ptr %7, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr %10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = load i8, ptr %12, align 8
   %14 = and i8 %13, 1
-  store i8 %14, ptr %5, align 1
+  store i8 %14, ptr %4, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 41
+  %16 = load i8, ptr %15, align 1
+  %17 = and i8 %16, 1
+  store i8 %17, ptr %5, align 1
   store ptr %2, ptr %0, align 8
   ret void
 }

@@ -808,8 +808,13 @@ entry:
   %reldyn_offset = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %reldyn_offset, align 8
   %uncompressed = getelementptr inbounds i8, ptr %this, i64 68
+  store i8 0, ptr %uncompressed, align 4
+  %is_alive = getelementptr inbounds i8, ptr %this, i64 69
+  store i8 1, ptr %is_alive, align 1
   %p2align = getelementptr inbounds i8, ptr %this, i64 70
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %uncompressed, align 4
+  store i8 0, ptr %p2align, align 2
+  %address_taken = getelementptr inbounds i8, ptr %this, i64 71
+  store i8 0, ptr %address_taken, align 1
   %is_visited = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %is_visited, align 8
   %leader = getelementptr inbounds i8, ptr %this, i64 80

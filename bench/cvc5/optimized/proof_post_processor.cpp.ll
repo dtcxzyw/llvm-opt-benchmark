@@ -156,7 +156,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt10shared_ptrINS1_9ProofNodeEESt4
 define hidden noundef zeroext i1 @_ZN4cvc58internal4prop24ProofPostprocessCallback12shouldUpdateESt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %pn, ptr nocapture nonnull readnone align 8 %fa, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %continueUpdate) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %agg.tmp59 = alloca %"class.std::shared_ptr", align 16
+  %agg.tmp59 = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %pn, align 8
   %call2 = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %0)
   %cmp = icmp eq i32 %call2, 0
@@ -210,16 +210,17 @@ if.end:                                           ; preds = %entry, %cleanup.act
   %9 = phi i1 [ false, %entry ], [ %call4, %cleanup.action ], [ %call4, %if.then.i.i ], [ %call4, %if.then13.i.i ]
   %d_proofCnfStream58 = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load ptr, ptr %d_proofCnfStream58, align 8
+  %11 = load ptr, ptr %pn, align 8
+  store ptr %11, ptr %agg.tmp59, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp59, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %pn, i64 8
-  %11 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %12 = load <2 x ptr>, ptr %pn, align 8
-  store <2 x ptr> %12, ptr %agg.tmp59, align 16
-  %cmp.not.i.i.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %12, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1350,7 +1351,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 define hidden void @_ZN4cvc58internal4prop16ProofPostprocess7processESt10shared_ptrINS0_9ProofNodeEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef readonly %pf) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %updater = alloca %"class.cvc5::internal::ProofNodeUpdater", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %d_assumpToProof.i = getelementptr inbounds i8, ptr %this, i64 48
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -1377,16 +1378,17 @@ _ZN4cvc58internal4prop24ProofPostprocessCallback16initializeUpdateEv.exit: ; pre
   %3 = load ptr, ptr %d_env, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 32
   call void @_ZN4cvc58internal16ProofNodeUpdaterC1ERNS0_3EnvERNS0_24ProofNodeUpdaterCallbackEbb(ptr noundef nonnull align 8 dereferenceable(58) %updater, ptr noundef nonnull align 1 %3, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i1 noundef zeroext false, i1 noundef zeroext true)
+  %4 = load ptr, ptr %pf, align 8
+  store ptr %4, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %pf, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %5 = load <2 x ptr>, ptr %pf, align 8
-  store <2 x ptr> %5, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %5, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4cvc58internal4prop24ProofPostprocessCallback16initializeUpdateEv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

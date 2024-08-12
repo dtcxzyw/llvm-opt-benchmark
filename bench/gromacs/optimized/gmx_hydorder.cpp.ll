@@ -194,7 +194,7 @@ define noundef i32 @_Z12gmx_hydorderiPPc(i32 noundef %0, ptr noundef %1) local_u
   %25 = alloca %"class.std::allocator.0", align 1
   %26 = alloca %"class.std::__cxx11::basic_string", align 8
   %27 = alloca %"class.std::allocator.0", align 1
-  %28 = alloca %struct.t_rgb, align 16
+  %28 = alloca %struct.t_rgb, align 8
   %29 = alloca %"class.std::__cxx11::basic_string", align 8
   %30 = alloca %"class.std::allocator.0", align 1
   %31 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -203,7 +203,7 @@ define noundef i32 @_Z12gmx_hydorderiPPc(i32 noundef %0, ptr noundef %1) local_u
   %34 = alloca %"class.std::allocator.0", align 1
   %35 = alloca %"class.std::__cxx11::basic_string", align 8
   %36 = alloca %"class.std::allocator.0", align 1
-  %37 = alloca %struct.t_rgb, align 16
+  %37 = alloca %struct.t_rgb, align 8
   %38 = alloca [4 x ptr], align 16
   %39 = alloca [3 x float], align 4
   %40 = alloca [3 x float], align 4
@@ -2144,7 +2144,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit140.i:     ; preds = %781, %778
   br i1 %701, label %.lr.ph219.i, label %._crit_edge220.i
 
 .lr.ph219.i:                                      ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit140.i
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 16
+  %.sroa.3.0..sroa_idx6.i = getelementptr inbounds i8, ptr %37, i64 8
   %.sroa.4.0..sroa_idx8.i = getelementptr inbounds i8, ptr %37, i64 16
   %wide.trip.count241.i = zext nneg i32 %.1 to i64
   br label %782
@@ -2378,8 +2380,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit151.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit156.i: ; preds = %848
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %28, align 16
-  store double 1.000000e+00, ptr %.sroa.4.0..sroa_idx.i, align 16
+  store double 1.000000e+00, ptr %28, align 8
+  store double 1.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
+  store double 1.000000e+00, ptr %.sroa.4.0..sroa_idx.i, align 8
   invoke void @_Z9write_xpmP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPKfSA_PKSA_ff5t_rgbSD_Pi(ptr noundef %771, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %26, i32 noundef %184, i32 noundef %189, ptr noundef %759, ptr noundef %762, ptr noundef %763, float noundef %.1119.lcssa.i, float noundef %.1107.lcssa.i, ptr noundef nonnull byval(%struct.t_rgb) align 8 %28, ptr noundef nonnull byval(%struct.t_rgb) align 8 %17, ptr noundef nonnull %15)
           to label %850 unwind label %892
 
@@ -2533,8 +2536,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit171.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit176.i: ; preds = %881
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %37, align 16
-  store double 1.000000e+00, ptr %.sroa.4.0..sroa_idx8.i, align 16
+  store double 1.000000e+00, ptr %37, align 8
+  store double 1.000000e+00, ptr %.sroa.3.0..sroa_idx6.i, align 8
+  store double 1.000000e+00, ptr %.sroa.4.0..sroa_idx8.i, align 8
   invoke void @_Z9write_xpmP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPKfSA_PKSA_ff5t_rgbSD_Pi(ptr noundef %777, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef %184, i32 noundef %189, ptr noundef %759, ptr noundef %762, ptr noundef %764, float noundef %.1115.lcssa.i, float noundef %.1111.lcssa.i, ptr noundef nonnull byval(%struct.t_rgb) align 8 %37, ptr noundef nonnull byval(%struct.t_rgb) align 8 %17, ptr noundef nonnull %15)
           to label %883 unwind label %902
 

@@ -1082,8 +1082,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK18btSimpleBroadphase17getBroadphaseAabbER9btVector3S1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax) unnamed_addr #1 comdat align 2 {
 entry:
-  store <4 x float> <float 0xC3ABC16D60000000, float 0xC3ABC16D60000000, float 0xC3ABC16D60000000, float 0.000000e+00>, ptr %aabbMin, align 4
-  store <4 x float> <float 0x43ABC16D60000000, float 0x43ABC16D60000000, float 0x43ABC16D60000000, float 0.000000e+00>, ptr %aabbMax, align 4
+  store float 0xC3ABC16D60000000, ptr %aabbMin, align 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %aabbMin, i64 4
+  store float 0xC3ABC16D60000000, ptr %arrayidx3.i, align 4
+  %arrayidx5.i = getelementptr inbounds i8, ptr %aabbMin, i64 8
+  store float 0xC3ABC16D60000000, ptr %arrayidx5.i, align 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %aabbMin, i64 12
+  store float 0.000000e+00, ptr %arrayidx7.i, align 4
+  store float 0x43ABC16D60000000, ptr %aabbMax, align 4
+  %arrayidx3.i1 = getelementptr inbounds i8, ptr %aabbMax, i64 4
+  store float 0x43ABC16D60000000, ptr %arrayidx3.i1, align 4
+  %arrayidx5.i2 = getelementptr inbounds i8, ptr %aabbMax, i64 8
+  store float 0x43ABC16D60000000, ptr %arrayidx5.i2, align 4
+  %arrayidx7.i3 = getelementptr inbounds i8, ptr %aabbMax, i64 12
+  store float 0.000000e+00, ptr %arrayidx7.i3, align 4
   ret void
 }
 

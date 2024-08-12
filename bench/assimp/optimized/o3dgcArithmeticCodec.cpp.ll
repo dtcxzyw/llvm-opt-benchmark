@@ -1983,18 +1983,30 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5o3dgc18Adaptive_Bit_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this) unnamed_addr #3 align 2 {
 entry:
+  %bit_0_count.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 1, ptr %bit_0_count.i, align 4
   %bit_count.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %bit_count.i, align 4
-  store <4 x i32> <i32 4, i32 4, i32 4096, i32 1>, ptr %this, align 4
+  %bit_0_prob.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i32 4096, ptr %bit_0_prob.i, align 4
+  %bits_until_update.i = getelementptr inbounds i8, ptr %this, i64 4
+  store i32 4, ptr %bits_until_update.i, align 4
+  store i32 4, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5o3dgc18Adaptive_Bit_Model5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this) local_unnamed_addr #3 align 2 {
 entry:
+  %bit_0_count = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 1, ptr %bit_0_count, align 4
   %bit_count = getelementptr inbounds i8, ptr %this, i64 16
   store i32 2, ptr %bit_count, align 4
-  store <4 x i32> <i32 4, i32 4, i32 4096, i32 1>, ptr %this, align 4
+  %bit_0_prob = getelementptr inbounds i8, ptr %this, i64 8
+  store i32 4096, ptr %bit_0_prob, align 4
+  %bits_until_update = getelementptr inbounds i8, ptr %this, i64 4
+  store i32 4, ptr %bits_until_update, align 4
+  store i32 4, ptr %this, align 4
   ret void
 }
 

@@ -65,7 +65,7 @@ $_ZTVN6snappy17SnappyIOVecReaderE = comdat any
 @_ZTVN6snappy22UncheckedByteArraySinkE = external unnamed_addr constant { [8 x ptr] }, align 8
 @_ZTVN6snappy17SnappyIOVecReaderE = linkonce_odr dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZN6snappy17SnappyIOVecReaderD2Ev, ptr @_ZN6snappy17SnappyIOVecReaderD0Ev, ptr @_ZNK6snappy17SnappyIOVecReader9AvailableEv, ptr @_ZN6snappy17SnappyIOVecReader4PeekEPm, ptr @_ZN6snappy17SnappyIOVecReader4SkipEm] }, comdat, align 8
 @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE = internal unnamed_addr constant %"struct.std::array" { [256 x i16] [i16 -255, i16 4, i16 1, i16 255, i16 -254, i16 5, i16 2, i16 255, i16 -253, i16 6, i16 3, i16 255, i16 -252, i16 7, i16 4, i16 255, i16 -251, i16 8, i16 5, i16 255, i16 -250, i16 9, i16 6, i16 255, i16 -249, i16 10, i16 7, i16 255, i16 -248, i16 11, i16 8, i16 255, i16 -247, i16 -252, i16 9, i16 255, i16 -246, i16 -251, i16 10, i16 255, i16 -245, i16 -250, i16 11, i16 255, i16 -244, i16 -249, i16 12, i16 255, i16 -243, i16 -248, i16 13, i16 255, i16 -242, i16 -247, i16 14, i16 255, i16 -241, i16 -246, i16 15, i16 255, i16 -240, i16 -245, i16 16, i16 255, i16 -239, i16 -508, i16 17, i16 255, i16 -238, i16 -507, i16 18, i16 255, i16 -237, i16 -506, i16 19, i16 255, i16 -236, i16 -505, i16 20, i16 255, i16 -235, i16 -504, i16 21, i16 255, i16 -234, i16 -503, i16 22, i16 255, i16 -233, i16 -502, i16 23, i16 255, i16 -232, i16 -501, i16 24, i16 255, i16 -231, i16 -764, i16 25, i16 255, i16 -230, i16 -763, i16 26, i16 255, i16 -229, i16 -762, i16 27, i16 255, i16 -228, i16 -761, i16 28, i16 255, i16 -227, i16 -760, i16 29, i16 255, i16 -226, i16 -759, i16 30, i16 255, i16 -225, i16 -758, i16 31, i16 255, i16 -224, i16 -757, i16 32, i16 255, i16 -223, i16 -1020, i16 33, i16 255, i16 -222, i16 -1019, i16 34, i16 255, i16 -221, i16 -1018, i16 35, i16 255, i16 -220, i16 -1017, i16 36, i16 255, i16 -219, i16 -1016, i16 37, i16 255, i16 -218, i16 -1015, i16 38, i16 255, i16 -217, i16 -1014, i16 39, i16 255, i16 -216, i16 -1013, i16 40, i16 255, i16 -215, i16 -1276, i16 41, i16 255, i16 -214, i16 -1275, i16 42, i16 255, i16 -213, i16 -1274, i16 43, i16 255, i16 -212, i16 -1273, i16 44, i16 255, i16 -211, i16 -1272, i16 45, i16 255, i16 -210, i16 -1271, i16 46, i16 255, i16 -209, i16 -1270, i16 47, i16 255, i16 -208, i16 -1269, i16 48, i16 255, i16 -207, i16 -1532, i16 49, i16 255, i16 -206, i16 -1531, i16 50, i16 255, i16 -205, i16 -1530, i16 51, i16 255, i16 -204, i16 -1529, i16 52, i16 255, i16 -203, i16 -1528, i16 53, i16 255, i16 -202, i16 -1527, i16 54, i16 255, i16 -201, i16 -1526, i16 55, i16 255, i16 -200, i16 -1525, i16 56, i16 255, i16 -199, i16 -1788, i16 57, i16 255, i16 -198, i16 -1787, i16 58, i16 255, i16 -197, i16 -1786, i16 59, i16 255, i16 -196, i16 -1785, i16 60, i16 255, i16 255, i16 -1784, i16 61, i16 255, i16 255, i16 -1783, i16 62, i16 255, i16 255, i16 -1782, i16 63, i16 255, i16 255, i16 -1781, i16 64, i16 255] }, align 64
-@_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes = internal unnamed_addr global %"struct.std::array.10" zeroinitializer, align 16
+@_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes = internal unnamed_addr global %"struct.std::array.10" zeroinitializer, align 8
 @_ZGVZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes = internal global i64 0, align 8
 @.str.2 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
@@ -2854,7 +2854,7 @@ exit:                                             ; preds = %while.end, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { ptr, i64 } @_ZN6snappy20DecompressBranchlessIPcEESt4pairIPKhlES4_S4_lT_l(ptr noundef %ip, ptr noundef %ip_limit, i64 noundef %op, ptr noundef %op_base, i64 noundef %op_limit_min_slop) local_unnamed_addr #2 comdat {
 entry:
-  %retval.i = alloca %"struct.std::array.10", align 16
+  %retval.i = alloca %"struct.std::array.10", align 8
   %kExtractMasksCombined.i = alloca i64, align 8
   %safe_source = alloca [64 x i8], align 16
   %sub = add nsw i64 %op_limit_min_slop, -64
@@ -2871,6 +2871,7 @@ if.then:                                          ; preds = %entry
   %incdec.ptr = getelementptr inbounds i8, ptr %ip, i64 1
   %0 = load i8, ptr %ip, align 1
   %conv = zext i8 %0 to i64
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.then
@@ -3009,23 +3010,25 @@ for.body.i66:                                     ; preds = %for.body.i66, %init
   br i1 %exitcond.not.i, label %_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit, label %for.body.i66, !llvm.loop !31
 
 _ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit: ; preds = %for.body.i66
-  %10 = load <2 x i64>, ptr %retval.i, align 16
+  %.fca.0.load.i = load i64, ptr %retval.i, align 8
+  %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
-  store <2 x i64> %10, ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, align 16
+  store i64 %.fca.0.load.i, ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, align 8
+  store i64 %.fca.1.load.i, ptr getelementptr inbounds (i8, ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes) #19
   br label %init.end.i
 
 init.end.i:                                       ; preds = %_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit, %init.check.i, %for.end.i
   %arrayidx.i.i69 = getelementptr inbounds [16 x i8], ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, i64 0, i64 %sub23
-  %11 = load i8, ptr %arrayidx.i.i69, align 1
-  %conv.i58 = zext i8 %11 to i64
+  %10 = load i8, ptr %arrayidx.i.i69, align 1
+  %conv.i58 = zext i8 %10 to i64
   %idx.neg16.i = sub nsw i64 0, %conv.i58
   br label %for.body11.i
 
 for.body11.i:                                     ; preds = %init.end.i, %for.body11.i
   %indvars.iv174 = phi i64 [ 1, %init.end.i ], [ %indvars.iv.next175, %for.body11.i ]
-  %12 = shl nuw nsw i64 %indvars.iv174, 4
-  %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr22, i64 %12
+  %11 = shl nuw nsw i64 %indvars.iv174, 4
+  %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr22, i64 %11
   %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 %idx.neg16.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr12.i, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr17.i, i64 16, i1 false)
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
@@ -3034,8 +3037,8 @@ for.body11.i:                                     ; preds = %init.end.i, %for.bo
 
 for.body25.i:                                     ; preds = %for.cond23.i.preheader, %for.body25.i
   %indvars.iv = phi i64 [ 0, %for.cond23.i.preheader ], [ %indvars.iv.next, %for.body25.i ]
-  %13 = shl nuw nsw i64 %indvars.iv, 4
-  %add.ptr28.i = getelementptr inbounds i8, ptr %add.ptr22, i64 %13
+  %12 = shl nuw nsw i64 %indvars.iv, 4
+  %add.ptr28.i = getelementptr inbounds i8, ptr %add.ptr22, i64 %12
   %add.ptr33.i = getelementptr inbounds i8, ptr %add.ptr28.i, i64 %idx.neg32.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr28.i, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr33.i, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

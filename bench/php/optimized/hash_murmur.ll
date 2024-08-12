@@ -127,12 +127,12 @@ declare i32 @PMurHash32_Result(i32 noundef, i32 noundef, i32 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define void @PHP_MURMUR3CInit(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %21, label %3
+  br i1 %.not, label %22, label %3
 
 3:                                                ; preds = %2
   %4 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 4) #5
   %.not27 = icmp eq ptr %4, null
-  br i1 %.not27, label %20, label %5
+  br i1 %.not27, label %21, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 8
@@ -151,27 +151,31 @@ define void @PHP_MURMUR3CInit(ptr nocapture noundef writeonly %0, ptr noundef %1
   %13 = phi i8 [ %7, %5 ], [ %.pre, %9 ]
   %.0.ph = phi ptr [ %4, %5 ], [ %11, %9 ]
   %14 = icmp eq i8 %13, 4
-  br i1 %14, label %15, label %20
+  br i1 %14, label %15, label %21
 
 15:                                               ; preds = %12
   %16 = load i64, ptr %.0.ph, align 8
   %17 = trunc i64 %16 to i32
-  %18 = insertelement <4 x i32> poison, i32 %17, i64 0
-  %19 = shufflevector <4 x i32> %18, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %19, ptr %0, align 4
-  br label %22
+  store i32 %17, ptr %0, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %17, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %17, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %17, ptr %20, align 4
+  br label %23
 
-20:                                               ; preds = %3, %12
+21:                                               ; preds = %3, %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %22
+  br label %23
 
-21:                                               ; preds = %2
+22:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %22
+  br label %23
 
-22:                                               ; preds = %15, %20, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %23, i8 0, i64 20, i1 false)
+23:                                               ; preds = %15, %21, %22
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %24, i8 0, i64 20, i1 false)
   ret void
 }
 

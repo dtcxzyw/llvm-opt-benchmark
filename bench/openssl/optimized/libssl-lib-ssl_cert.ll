@@ -470,47 +470,51 @@ if.end111:                                        ; preds = %if.end108, %if.end9
   %cert_flags112 = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %28, ptr %cert_flags112, align 4
   %cert_cb = getelementptr inbounds i8, ptr %cert, i64 96
+  %29 = load ptr, ptr %cert_cb, align 8
   %cert_cb113 = getelementptr inbounds i8, ptr %call, i64 96
-  %29 = load <2 x ptr>, ptr %cert_cb, align 8
-  store <2 x ptr> %29, ptr %cert_cb113, align 8
+  store ptr %29, ptr %cert_cb113, align 8
+  %cert_cb_arg = getelementptr inbounds i8, ptr %cert, i64 104
+  %30 = load ptr, ptr %cert_cb_arg, align 8
+  %cert_cb_arg114 = getelementptr inbounds i8, ptr %call, i64 104
+  store ptr %30, ptr %cert_cb_arg114, align 8
   %verify_store = getelementptr inbounds i8, ptr %cert, i64 120
-  %30 = load ptr, ptr %verify_store, align 8
-  %tobool115.not = icmp eq ptr %30, null
+  %31 = load ptr, ptr %verify_store, align 8
+  %tobool115.not = icmp eq ptr %31, null
   br i1 %tobool115.not, label %if.end121, label %if.then116
 
 if.then116:                                       ; preds = %if.end111
-  %call118 = tail call i32 @X509_STORE_up_ref(ptr noundef nonnull %30) #13
-  %31 = load ptr, ptr %verify_store, align 8
+  %call118 = tail call i32 @X509_STORE_up_ref(ptr noundef nonnull %31) #13
+  %32 = load ptr, ptr %verify_store, align 8
   %verify_store120 = getelementptr inbounds i8, ptr %call, i64 120
-  store ptr %31, ptr %verify_store120, align 8
+  store ptr %32, ptr %verify_store120, align 8
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then116, %if.end111
   %chain_store = getelementptr inbounds i8, ptr %cert, i64 112
-  %32 = load ptr, ptr %chain_store, align 8
-  %tobool122.not = icmp eq ptr %32, null
+  %33 = load ptr, ptr %chain_store, align 8
+  %tobool122.not = icmp eq ptr %33, null
   br i1 %tobool122.not, label %if.end128, label %if.then123
 
 if.then123:                                       ; preds = %if.end121
-  %call125 = tail call i32 @X509_STORE_up_ref(ptr noundef nonnull %32) #13
-  %33 = load ptr, ptr %chain_store, align 8
+  %call125 = tail call i32 @X509_STORE_up_ref(ptr noundef nonnull %33) #13
+  %34 = load ptr, ptr %chain_store, align 8
   %chain_store127 = getelementptr inbounds i8, ptr %call, i64 112
-  store ptr %33, ptr %chain_store127, align 8
+  store ptr %34, ptr %chain_store127, align 8
   br label %if.end128
 
 if.end128:                                        ; preds = %if.then123, %if.end121
   %sec_cb = getelementptr inbounds i8, ptr %cert, i64 144
-  %34 = load ptr, ptr %sec_cb, align 8
+  %35 = load ptr, ptr %sec_cb, align 8
   %sec_cb129 = getelementptr inbounds i8, ptr %call, i64 144
-  store ptr %34, ptr %sec_cb129, align 8
+  store ptr %35, ptr %sec_cb129, align 8
   %sec_level = getelementptr inbounds i8, ptr %cert, i64 152
-  %35 = load i32, ptr %sec_level, align 8
+  %36 = load i32, ptr %sec_level, align 8
   %sec_level130 = getelementptr inbounds i8, ptr %call, i64 152
-  store i32 %35, ptr %sec_level130, align 8
+  store i32 %36, ptr %sec_level130, align 8
   %sec_ex = getelementptr inbounds i8, ptr %cert, i64 160
-  %36 = load ptr, ptr %sec_ex, align 8
+  %37 = load ptr, ptr %sec_ex, align 8
   %sec_ex131 = getelementptr inbounds i8, ptr %call, i64 160
-  store ptr %36, ptr %sec_ex131, align 8
+  store ptr %37, ptr %sec_ex131, align 8
   %custext = getelementptr inbounds i8, ptr %call, i64 128
   %custext132 = getelementptr inbounds i8, ptr %cert, i64 128
   %call133 = tail call i32 @custom_exts_copy(ptr noundef nonnull %custext, ptr noundef nonnull %custext132) #13
@@ -519,12 +523,12 @@ if.end128:                                        ; preds = %if.then123, %if.end
 
 if.end136:                                        ; preds = %if.end128
   %psk_identity_hint = getelementptr inbounds i8, ptr %cert, i64 168
-  %37 = load ptr, ptr %psk_identity_hint, align 8
-  %tobool137.not = icmp eq ptr %37, null
+  %38 = load ptr, ptr %psk_identity_hint, align 8
+  %tobool137.not = icmp eq ptr %38, null
   br i1 %tobool137.not, label %return, label %if.then138
 
 if.then138:                                       ; preds = %if.end136
-  %call140 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %37, ptr noundef nonnull @.str, i32 noundef 218) #13
+  %call140 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %38, ptr noundef nonnull @.str, i32 noundef 218) #13
   %psk_identity_hint141 = getelementptr inbounds i8, ptr %call, i64 168
   store ptr %call140, ptr %psk_identity_hint141, align 8
   %cmp143 = icmp eq ptr %call140, null

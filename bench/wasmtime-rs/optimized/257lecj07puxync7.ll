@@ -154,65 +154,69 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_81_$LT$impl$u20$syn..parse.
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %28, label %11
+  br i1 %.not.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.1, ptr %4, align 8
-  %14 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %17 unwind label %15
-
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
-          to label %27 unwind label %25
+  %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %19 unwind label %17
 
 17:                                               ; preds = %11
-  br i1 %14, label %18, label %.thread
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
+          to label %29 unwind label %27
 
-.thread:                                          ; preds = %17
+19:                                               ; preds = %11
+  br i1 %16, label %20, label %.thread
+
+.thread:                                          ; preds = %19
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %28
+  br label %30
 
-18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8, !range !5, !noundef !3
-  %20 = icmp eq i64 %19, -9223372036854775808
-  %21 = getelementptr inbounds i8, ptr %5, i64 12
-  %22 = load i32, ptr %21, align 4, !range !6
-  %.0 = select i1 %20, i32 %22, i32 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.0, ptr %23, align 8
+20:                                               ; preds = %19
+  %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
+  %22 = icmp eq i64 %21, -9223372036854775808
+  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %24 = load i32, ptr %23, align 4, !range !6
+  %.0 = select i1 %22, i32 %24, i32 0
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.0, ptr %25, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %13, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %28, %18
+26:                                               ; preds = %30, %20
   ret void
 
-25:                                               ; preds = %15
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %17
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
 
-27:                                               ; preds = %15
-  resume { ptr, i32 } %16
+29:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-28:                                               ; preds = %2, %.thread
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load i32, ptr %29, align 8, !noundef !3
-  %31 = load ptr, ptr %1, align 8, !noundef !3
-  %32 = load ptr, ptr %8, align 8, !noundef !3
-  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %30, ptr %31, ptr %32, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.2, i64 15)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+30:                                               ; preds = %2, %.thread
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load i32, ptr %31, align 8, !noundef !3
+  %33 = load ptr, ptr %1, align 8, !noundef !3
+  %34 = load ptr, ptr %8, align 8, !noundef !3
+  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.2, i64 15)
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %24
+  br label %26
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -227,65 +231,69 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse.
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %28, label %11
+  br i1 %.not.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.4, ptr %4, align 8
-  %14 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %17 unwind label %15
-
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
-          to label %27 unwind label %25
+  %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %19 unwind label %17
 
 17:                                               ; preds = %11
-  br i1 %14, label %18, label %.thread
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
+          to label %29 unwind label %27
 
-.thread:                                          ; preds = %17
+19:                                               ; preds = %11
+  br i1 %16, label %20, label %.thread
+
+.thread:                                          ; preds = %19
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %28
+  br label %30
 
-18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8, !range !5, !noundef !3
-  %20 = icmp eq i64 %19, -9223372036854775808
-  %21 = getelementptr inbounds i8, ptr %5, i64 12
-  %22 = load i32, ptr %21, align 4, !range !6
-  %.0 = select i1 %20, i32 %22, i32 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.0, ptr %23, align 8
+20:                                               ; preds = %19
+  %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
+  %22 = icmp eq i64 %21, -9223372036854775808
+  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %24 = load i32, ptr %23, align 4, !range !6
+  %.0 = select i1 %22, i32 %24, i32 0
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.0, ptr %25, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %13, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %28, %18
+26:                                               ; preds = %30, %20
   ret void
 
-25:                                               ; preds = %15
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %17
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
 
-27:                                               ; preds = %15
-  resume { ptr, i32 } %16
+29:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-28:                                               ; preds = %2, %.thread
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load i32, ptr %29, align 8, !noundef !3
-  %31 = load ptr, ptr %1, align 8, !noundef !3
-  %32 = load ptr, ptr %8, align 8, !noundef !3
-  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %30, ptr %31, ptr %32, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.5, i64 23)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+30:                                               ; preds = %2, %.thread
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load i32, ptr %31, align 8, !noundef !3
+  %33 = load ptr, ptr %1, align 8, !noundef !3
+  %34 = load ptr, ptr %8, align 8, !noundef !3
+  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.5, i64 23)
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %24
+  br label %26
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -300,65 +308,69 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %28, label %11
+  br i1 %.not.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.7, ptr %4, align 8
-  %14 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %17 unwind label %15
-
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
-          to label %27 unwind label %25
+  %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %19 unwind label %17
 
 17:                                               ; preds = %11
-  br i1 %14, label %18, label %.thread
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
+          to label %29 unwind label %27
 
-.thread:                                          ; preds = %17
+19:                                               ; preds = %11
+  br i1 %16, label %20, label %.thread
+
+.thread:                                          ; preds = %19
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %28
+  br label %30
 
-18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8, !range !5, !noundef !3
-  %20 = icmp eq i64 %19, -9223372036854775808
-  %21 = getelementptr inbounds i8, ptr %5, i64 12
-  %22 = load i32, ptr %21, align 4, !range !6
-  %.0 = select i1 %20, i32 %22, i32 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.0, ptr %23, align 8
+20:                                               ; preds = %19
+  %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
+  %22 = icmp eq i64 %21, -9223372036854775808
+  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %24 = load i32, ptr %23, align 4, !range !6
+  %.0 = select i1 %22, i32 %24, i32 0
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.0, ptr %25, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %13, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %28, %18
+26:                                               ; preds = %30, %20
   ret void
 
-25:                                               ; preds = %15
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %17
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
 
-27:                                               ; preds = %15
-  resume { ptr, i32 } %16
+29:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-28:                                               ; preds = %2, %.thread
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load i32, ptr %29, align 8, !noundef !3
-  %31 = load ptr, ptr %1, align 8, !noundef !3
-  %32 = load ptr, ptr %8, align 8, !noundef !3
-  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %30, ptr %31, ptr %32, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.8, i64 19)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+30:                                               ; preds = %2, %.thread
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load i32, ptr %31, align 8, !noundef !3
+  %33 = load ptr, ptr %1, align 8, !noundef !3
+  %34 = load ptr, ptr %8, align 8, !noundef !3
+  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.8, i64 19)
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %24
+  br label %26
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -373,65 +385,69 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %28, label %11
+  br i1 %.not.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.10, ptr %4, align 8
-  %14 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %17 unwind label %15
-
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
-          to label %27 unwind label %25
+  %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %19 unwind label %17
 
 17:                                               ; preds = %11
-  br i1 %14, label %18, label %.thread
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
+          to label %29 unwind label %27
 
-.thread:                                          ; preds = %17
+19:                                               ; preds = %11
+  br i1 %16, label %20, label %.thread
+
+.thread:                                          ; preds = %19
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %28
+  br label %30
 
-18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8, !range !5, !noundef !3
-  %20 = icmp eq i64 %19, -9223372036854775808
-  %21 = getelementptr inbounds i8, ptr %5, i64 12
-  %22 = load i32, ptr %21, align 4, !range !6
-  %.0 = select i1 %20, i32 %22, i32 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.0, ptr %23, align 8
+20:                                               ; preds = %19
+  %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
+  %22 = icmp eq i64 %21, -9223372036854775808
+  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %24 = load i32, ptr %23, align 4, !range !6
+  %.0 = select i1 %22, i32 %24, i32 0
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.0, ptr %25, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %13, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %28, %18
+26:                                               ; preds = %30, %20
   ret void
 
-25:                                               ; preds = %15
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %17
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
 
-27:                                               ; preds = %15
-  resume { ptr, i32 } %16
+29:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-28:                                               ; preds = %2, %.thread
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load i32, ptr %29, align 8, !noundef !3
-  %31 = load ptr, ptr %1, align 8, !noundef !3
-  %32 = load ptr, ptr %8, align 8, !noundef !3
-  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %30, ptr %31, ptr %32, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.11, i64 17)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+30:                                               ; preds = %2, %.thread
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load i32, ptr %31, align 8, !noundef !3
+  %33 = load ptr, ptr %1, align 8, !noundef !3
+  %34 = load ptr, ptr %8, align 8, !noundef !3
+  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.11, i64 17)
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %24
+  br label %26
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -446,65 +462,69 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %28, label %11
+  br i1 %.not.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.13, ptr %4, align 8
-  %14 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %17 unwind label %15
-
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
-          to label %27 unwind label %25
+  %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %19 unwind label %17
 
 17:                                               ; preds = %11
-  br i1 %14, label %18, label %.thread
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
+          to label %29 unwind label %27
 
-.thread:                                          ; preds = %17
+19:                                               ; preds = %11
+  br i1 %16, label %20, label %.thread
+
+.thread:                                          ; preds = %19
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %28
+  br label %30
 
-18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8, !range !5, !noundef !3
-  %20 = icmp eq i64 %19, -9223372036854775808
-  %21 = getelementptr inbounds i8, ptr %5, i64 12
-  %22 = load i32, ptr %21, align 4, !range !6
-  %.0 = select i1 %20, i32 %22, i32 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.0, ptr %23, align 8
+20:                                               ; preds = %19
+  %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
+  %22 = icmp eq i64 %21, -9223372036854775808
+  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %24 = load i32, ptr %23, align 4, !range !6
+  %.0 = select i1 %22, i32 %24, i32 0
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.0, ptr %25, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %13, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %28, %18
+26:                                               ; preds = %30, %20
   ret void
 
-25:                                               ; preds = %15
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %17
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
 
-27:                                               ; preds = %15
-  resume { ptr, i32 } %16
+29:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-28:                                               ; preds = %2, %.thread
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load i32, ptr %29, align 8, !noundef !3
-  %31 = load ptr, ptr %1, align 8, !noundef !3
-  %32 = load ptr, ptr %8, align 8, !noundef !3
-  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %30, ptr %31, ptr %32, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.14, i64 17)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+30:                                               ; preds = %2, %.thread
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load i32, ptr %31, align 8, !noundef !3
+  %33 = load ptr, ptr %1, align 8, !noundef !3
+  %34 = load ptr, ptr %8, align 8, !noundef !3
+  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.14, i64 17)
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %24
+  br label %26
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -519,65 +539,69 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %28, label %11
+  br i1 %.not.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.16, ptr %4, align 8
-  %14 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %17 unwind label %15
-
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
-          to label %27 unwind label %25
+  %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %19 unwind label %17
 
 17:                                               ; preds = %11
-  br i1 %14, label %18, label %.thread
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
+          to label %29 unwind label %27
 
-.thread:                                          ; preds = %17
+19:                                               ; preds = %11
+  br i1 %16, label %20, label %.thread
+
+.thread:                                          ; preds = %19
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %28
+  br label %30
 
-18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8, !range !5, !noundef !3
-  %20 = icmp eq i64 %19, -9223372036854775808
-  %21 = getelementptr inbounds i8, ptr %5, i64 12
-  %22 = load i32, ptr %21, align 4, !range !6
-  %.0 = select i1 %20, i32 %22, i32 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.0, ptr %23, align 8
+20:                                               ; preds = %19
+  %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
+  %22 = icmp eq i64 %21, -9223372036854775808
+  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %24 = load i32, ptr %23, align 4, !range !6
+  %.0 = select i1 %22, i32 %24, i32 0
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.0, ptr %25, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %13, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %28, %18
+26:                                               ; preds = %30, %20
   ret void
 
-25:                                               ; preds = %15
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %17
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
 
-27:                                               ; preds = %15
-  resume { ptr, i32 } %16
+29:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-28:                                               ; preds = %2, %.thread
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load i32, ptr %29, align 8, !noundef !3
-  %31 = load ptr, ptr %1, align 8, !noundef !3
-  %32 = load ptr, ptr %8, align 8, !noundef !3
-  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %30, ptr %31, ptr %32, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.17, i64 19)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+30:                                               ; preds = %2, %.thread
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load i32, ptr %31, align 8, !noundef !3
+  %33 = load ptr, ptr %1, align 8, !noundef !3
+  %34 = load ptr, ptr %8, align 8, !noundef !3
+  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.17, i64 19)
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %24
+  br label %26
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -592,65 +616,69 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %28, label %11
+  br i1 %.not.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.19, ptr %4, align 8
-  %14 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %17 unwind label %15
-
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
-          to label %27 unwind label %25
+  %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %19 unwind label %17
 
 17:                                               ; preds = %11
-  br i1 %14, label %18, label %.thread
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
+          to label %29 unwind label %27
 
-.thread:                                          ; preds = %17
+19:                                               ; preds = %11
+  br i1 %16, label %20, label %.thread
+
+.thread:                                          ; preds = %19
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %28
+  br label %30
 
-18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8, !range !5, !noundef !3
-  %20 = icmp eq i64 %19, -9223372036854775808
-  %21 = getelementptr inbounds i8, ptr %5, i64 12
-  %22 = load i32, ptr %21, align 4, !range !6
-  %.0 = select i1 %20, i32 %22, i32 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.0, ptr %23, align 8
+20:                                               ; preds = %19
+  %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
+  %22 = icmp eq i64 %21, -9223372036854775808
+  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %24 = load i32, ptr %23, align 4, !range !6
+  %.0 = select i1 %22, i32 %24, i32 0
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.0, ptr %25, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %13, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %28, %18
+26:                                               ; preds = %30, %20
   ret void
 
-25:                                               ; preds = %15
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %17
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
 
-27:                                               ; preds = %15
-  resume { ptr, i32 } %16
+29:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-28:                                               ; preds = %2, %.thread
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load i32, ptr %29, align 8, !noundef !3
-  %31 = load ptr, ptr %1, align 8, !noundef !3
-  %32 = load ptr, ptr %8, align 8, !noundef !3
-  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %30, ptr %31, ptr %32, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.20, i64 18)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+30:                                               ; preds = %2, %.thread
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load i32, ptr %31, align 8, !noundef !3
+  %33 = load ptr, ptr %1, align 8, !noundef !3
+  %34 = load ptr, ptr %8, align 8, !noundef !3
+  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.20, i64 18)
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %24
+  br label %26
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -665,65 +693,69 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %28, label %11
+  br i1 %.not.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.22, ptr %4, align 8
-  %14 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %17 unwind label %15
-
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
-          to label %27 unwind label %25
+  %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %19 unwind label %17
 
 17:                                               ; preds = %11
-  br i1 %14, label %18, label %.thread
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
+          to label %29 unwind label %27
 
-.thread:                                          ; preds = %17
+19:                                               ; preds = %11
+  br i1 %16, label %20, label %.thread
+
+.thread:                                          ; preds = %19
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %28
+  br label %30
 
-18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8, !range !5, !noundef !3
-  %20 = icmp eq i64 %19, -9223372036854775808
-  %21 = getelementptr inbounds i8, ptr %5, i64 12
-  %22 = load i32, ptr %21, align 4, !range !6
-  %.0 = select i1 %20, i32 %22, i32 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.0, ptr %23, align 8
+20:                                               ; preds = %19
+  %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
+  %22 = icmp eq i64 %21, -9223372036854775808
+  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %24 = load i32, ptr %23, align 4, !range !6
+  %.0 = select i1 %22, i32 %24, i32 0
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.0, ptr %25, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %13, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %28, %18
+26:                                               ; preds = %30, %20
   ret void
 
-25:                                               ; preds = %15
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %17
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
 
-27:                                               ; preds = %15
-  resume { ptr, i32 } %16
+29:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-28:                                               ; preds = %2, %.thread
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load i32, ptr %29, align 8, !noundef !3
-  %31 = load ptr, ptr %1, align 8, !noundef !3
-  %32 = load ptr, ptr %8, align 8, !noundef !3
-  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %30, ptr %31, ptr %32, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.23, i64 18)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+30:                                               ; preds = %2, %.thread
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load i32, ptr %31, align 8, !noundef !3
+  %33 = load ptr, ptr %1, align 8, !noundef !3
+  %34 = load ptr, ptr %8, align 8, !noundef !3
+  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.23, i64 18)
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %24
+  br label %26
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -738,65 +770,69 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$syn..parse.
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %28, label %11
+  br i1 %.not.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.25, ptr %4, align 8
-  %14 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %17 unwind label %15
-
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
-          to label %27 unwind label %25
+  %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %19 unwind label %17
 
 17:                                               ; preds = %11
-  br i1 %14, label %18, label %.thread
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
+          to label %29 unwind label %27
 
-.thread:                                          ; preds = %17
+19:                                               ; preds = %11
+  br i1 %16, label %20, label %.thread
+
+.thread:                                          ; preds = %19
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %28
+  br label %30
 
-18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8, !range !5, !noundef !3
-  %20 = icmp eq i64 %19, -9223372036854775808
-  %21 = getelementptr inbounds i8, ptr %5, i64 12
-  %22 = load i32, ptr %21, align 4, !range !6
-  %.0 = select i1 %20, i32 %22, i32 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.0, ptr %23, align 8
+20:                                               ; preds = %19
+  %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
+  %22 = icmp eq i64 %21, -9223372036854775808
+  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %24 = load i32, ptr %23, align 4, !range !6
+  %.0 = select i1 %22, i32 %24, i32 0
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.0, ptr %25, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %13, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %28, %18
+26:                                               ; preds = %30, %20
   ret void
 
-25:                                               ; preds = %15
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %17
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
 
-27:                                               ; preds = %15
-  resume { ptr, i32 } %16
+29:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-28:                                               ; preds = %2, %.thread
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load i32, ptr %29, align 8, !noundef !3
-  %31 = load ptr, ptr %1, align 8, !noundef !3
-  %32 = load ptr, ptr %8, align 8, !noundef !3
-  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %30, ptr %31, ptr %32, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.26, i64 22)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+30:                                               ; preds = %2, %.thread
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load i32, ptr %31, align 8, !noundef !3
+  %33 = load ptr, ptr %1, align 8, !noundef !3
+  %34 = load ptr, ptr %8, align 8, !noundef !3
+  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.26, i64 22)
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %24
+  br label %26
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -811,65 +847,69 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$syn..parse.
   call void @_ZN3syn6buffer6Cursor5ident17hc5b8e3ee3beec73aE(ptr nonnull sret({ i64, [5 x i64] }) align 8 %6, ptr %7, ptr %9)
   %10 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %.not.not = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not.not, label %28, label %11
+  br i1 %.not.not, label %30, label %11
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = load ptr, ptr %14, align 8, !noundef !3
   store ptr @anon.e67be1aaff1d310ba57d6bd4da82a214.28, ptr %4, align 8
-  %14 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %17 unwind label %15
-
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
-          to label %27 unwind label %25
+  %16 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h83518ee1d887689eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %19 unwind label %17
 
 17:                                               ; preds = %11
-  br i1 %14, label %18, label %.thread
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #4
+          to label %29 unwind label %27
 
-.thread:                                          ; preds = %17
+19:                                               ; preds = %11
+  br i1 %16, label %20, label %.thread
+
+.thread:                                          ; preds = %19
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %28
+  br label %30
 
-18:                                               ; preds = %17
-  %19 = load i64, ptr %5, align 8, !range !5, !noundef !3
-  %20 = icmp eq i64 %19, -9223372036854775808
-  %21 = getelementptr inbounds i8, ptr %5, i64 12
-  %22 = load i32, ptr %21, align 4, !range !6
-  %.0 = select i1 %20, i32 %22, i32 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.0, ptr %23, align 8
+20:                                               ; preds = %19
+  %21 = load i64, ptr %5, align 8, !range !5, !noundef !3
+  %22 = icmp eq i64 %21, -9223372036854775808
+  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %24 = load i32, ptr %23, align 4, !range !6
+  %.0 = select i1 %22, i32 %24, i32 0
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.0, ptr %25, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %13, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %28, %18
+26:                                               ; preds = %30, %20
   ret void
 
-25:                                               ; preds = %15
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %17
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
 
-27:                                               ; preds = %15
-  resume { ptr, i32 } %16
+29:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-28:                                               ; preds = %2, %.thread
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load i32, ptr %29, align 8, !noundef !3
-  %31 = load ptr, ptr %1, align 8, !noundef !3
-  %32 = load ptr, ptr %8, align 8, !noundef !3
-  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %30, ptr %31, ptr %32, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.29, i64 20)
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+30:                                               ; preds = %2, %.thread
+  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = load i32, ptr %31, align 8, !noundef !3
+  %33 = load ptr, ptr %1, align 8, !noundef !3
+  %34 = load ptr, ptr %8, align 8, !noundef !3
+  call void @_ZN3syn5error6new_at17h57b91627ae2fa74fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, i32 %32, ptr %33, ptr %34, ptr nonnull align 1 @anon.e67be1aaff1d310ba57d6bd4da82a214.29, i64 20)
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %24
+  br label %26
 }
 
 ; Function Attrs: nonlazybind uwtable

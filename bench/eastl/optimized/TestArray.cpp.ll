@@ -913,13 +913,13 @@ return:                                           ; preds = %if.end, %if.then, %
 define dso_local noundef i32 @_Z9TestArrayv() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %nErrorCount = alloca i32, align 4
-  %a = alloca %"struct.eastl::array.1", align 16
-  %b = alloca %"struct.eastl::array.1", align 16
-  %c = alloca %"struct.eastl::array.1", align 16
+  %a = alloca %"struct.eastl::array.1", align 4
+  %b = alloca %"struct.eastl::array.1", align 4
+  %c = alloca %"struct.eastl::array.1", align 4
   store i32 0, ptr %nErrorCount, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %a, ptr noundef nonnull align 4 dereferenceable(20) @__const._Z9TestArrayv.a, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %b, ptr noundef nonnull align 4 dereferenceable(20) @__const._Z9TestArrayv.b, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %c, ptr noundef nonnull align 4 dereferenceable(20) @__const._Z9TestArrayv.c, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %a, ptr noundef nonnull align 4 dereferenceable(20) @__const._Z9TestArrayv.a, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %b, ptr noundef nonnull align 4 dereferenceable(20) @__const._Z9TestArrayv.b, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %c, ptr noundef nonnull align 4 dereferenceable(20) @__const._Z9TestArrayv.c, i64 20, i1 false)
   %call1 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 44, ptr noundef nonnull @.str.1)
   %call3 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 45, ptr noundef nonnull @.str.2)
   %call6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @.str.3)
@@ -928,6 +928,7 @@ entry:
   %call12 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 49, ptr noundef nonnull @.str.5)
   %call15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 50, ptr noundef nonnull @.str.6)
   %call18 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 51, ptr noundef nonnull @.str.7)
+  %arrayidx.i36 = getelementptr inbounds i8, ptr %b, i64 12
   %call21 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull @.str.8)
   %call23 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 54, ptr noundef nonnull @.str.9)
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 55, ptr noundef nonnull @.str.10)
@@ -947,10 +948,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %cmp.not.i.i, label %_ZNK5eastl5arrayIiLm5EE17validate_iteratorEPKi.exit, label %for.body.i.i, !llvm.loop !6
 
 _ZNK5eastl5arrayIiLm5EE17validate_iteratorEPKi.exit: ; preds = %for.body.i.i
-  %2 = load i32, ptr %a, align 16
+  %2 = load i32, ptr %a, align 4
   %cmp28 = icmp eq i32 %2, 4
   %call29 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp28, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 59, ptr noundef nonnull @.str.11)
-  %3 = load i32, ptr %c, align 16
+  %3 = load i32, ptr %c, align 4
   %cmp31 = icmp eq i32 %3, 0
   %call32 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp31, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @.str.12)
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @.str.13)
@@ -960,12 +961,12 @@ _ZNK5eastl5arrayIiLm5EE17validate_iteratorEPKi.exit: ; preds = %for.body.i.i
   %cmp39 = icmp eq i32 %4, 3
   %call40 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp39, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 68, ptr noundef nonnull @.str.15)
   %incdec.ptr41 = getelementptr inbounds i8, ptr %a, i64 8
-  %5 = load i32, ptr %incdec.ptr41, align 8
+  %5 = load i32, ptr %incdec.ptr41, align 4
   %cmp42 = icmp eq i32 %5, 2
   %call43 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp42, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @.str.16)
   %call46 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp39, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @.str.15)
   %call50 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @.str.13)
-  %6 = load i32, ptr %arrayidx.i, align 16
+  %6 = load i32, ptr %arrayidx.i, align 4
   %cmp51 = icmp eq i32 %6, 0
   %call52 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp51, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 78, ptr noundef nonnull @.str.17)
   %call56 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 81, ptr noundef nonnull @.str.18)
@@ -981,14 +982,28 @@ _ZNK5eastl5arrayIiLm5EE17validate_iteratorEPKi.exit: ; preds = %for.body.i.i
   %call79 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp28, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 99, ptr noundef nonnull @.str.25)
   %call82 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp51, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 103, ptr noundef nonnull @.str.26)
   %call86 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @.str.27)
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %a, align 16
-  store i32 4, ptr %arrayidx.i, align 16
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %b, align 16
+  store i32 0, ptr %a, align 4
+  store i32 1, ptr %incdec.ptr, align 4
+  store i32 2, ptr %incdec.ptr41, align 4
+  store i32 3, ptr %incdec.ptr.i45, align 4
+  store i32 4, ptr %arrayidx.i, align 4
+  store i32 0, ptr %b, align 4
+  %arrayidx.i55 = getelementptr inbounds i8, ptr %b, i64 4
+  store i32 1, ptr %arrayidx.i55, align 4
+  %arrayidx.i56 = getelementptr inbounds i8, ptr %b, i64 8
+  store i32 2, ptr %arrayidx.i56, align 4
+  store i32 3, ptr %arrayidx.i36, align 4
   %arrayidx.i58 = getelementptr inbounds i8, ptr %b, i64 16
-  store i32 4, ptr %arrayidx.i58, align 16
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %c, align 16
+  store i32 4, ptr %arrayidx.i58, align 4
+  store i32 0, ptr %c, align 4
+  %arrayidx.i60 = getelementptr inbounds i8, ptr %c, i64 4
+  store i32 1, ptr %arrayidx.i60, align 4
+  %arrayidx.i61 = getelementptr inbounds i8, ptr %c, i64 8
+  store i32 2, ptr %arrayidx.i61, align 4
+  %arrayidx.i62 = getelementptr inbounds i8, ptr %c, i64 12
+  store i32 3, ptr %arrayidx.i62, align 4
   %arrayidx.i63 = getelementptr inbounds i8, ptr %c, i64 16
-  store i32 9, ptr %arrayidx.i63, align 16
+  store i32 9, ptr %arrayidx.i63, align 4
   br label %for.body.i.i64
 
 for.body.i.i64:                                   ; preds = %for.body.i.i64, %_ZNK5eastl5arrayIiLm5EE17validate_iteratorEPKi.exit

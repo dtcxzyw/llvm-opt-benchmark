@@ -4301,8 +4301,21 @@ if.end70:                                         ; preds = %if.end63
   store i32 %add65, ptr %out_len, align 4
   store i64 727905341920923785, ptr %call67, align 1
   %add.ptr73 = getelementptr inbounds i8, ptr %call67, i64 8
+  store i8 0, ptr %add.ptr73, align 1
+  %arrayidx75 = getelementptr inbounds i8, ptr %call67, i64 9
+  store i8 0, ptr %arrayidx75, align 1
+  %arrayidx76 = getelementptr inbounds i8, ptr %call67, i64 10
+  store i8 0, ptr %arrayidx76, align 1
+  %arrayidx77 = getelementptr inbounds i8, ptr %call67, i64 11
+  store i8 13, ptr %arrayidx77, align 1
   %add.ptr78 = getelementptr inbounds i8, ptr %call67, i64 12
-  store <8 x i8> <i8 0, i8 0, i8 0, i8 13, i8 73, i8 72, i8 68, i8 82>, ptr %add.ptr73, align 1
+  store i8 73, ptr %add.ptr78, align 1
+  %arrayidx85 = getelementptr inbounds i8, ptr %call67, i64 13
+  store i8 72, ptr %arrayidx85, align 1
+  %arrayidx89 = getelementptr inbounds i8, ptr %call67, i64 14
+  store i8 68, ptr %arrayidx89, align 1
+  %arrayidx93 = getelementptr inbounds i8, ptr %call67, i64 15
+  store i8 82, ptr %arrayidx93, align 1
   %add.ptr94 = getelementptr inbounds i8, ptr %call67, i64 16
   %shr = lshr i32 %x, 24
   %conv96 = trunc nuw i32 %shr to i8
@@ -4399,7 +4412,13 @@ stbiw__wpcrc.exit:                                ; preds = %for.body.i.i
   %arrayidx148 = getelementptr inbounds i8, ptr %call67, i64 36
   store i8 %conv147, ptr %arrayidx148, align 1
   %add.ptr149 = getelementptr inbounds i8, ptr %call67, i64 37
-  store <4 x i8> <i8 73, i8 68, i8 65, i8 84>, ptr %add.ptr149, align 1
+  store i8 73, ptr %add.ptr149, align 1
+  %arrayidx157 = getelementptr inbounds i8, ptr %call67, i64 38
+  store i8 68, ptr %arrayidx157, align 1
+  %arrayidx161 = getelementptr inbounds i8, ptr %call67, i64 39
+  store i8 65, ptr %arrayidx161, align 1
+  %arrayidx165 = getelementptr inbounds i8, ptr %call67, i64 40
+  store i8 84, ptr %arrayidx165, align 1
   %add.ptr166 = getelementptr inbounds i8, ptr %call67, i64 41
   %conv167 = sext i32 %14 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr166, ptr nonnull align 1 %call60, i64 %conv167, i1 false)
@@ -4453,7 +4472,13 @@ stbiw__wpcrc.exit104:                             ; preds = %stbiw__wpcrc.exit, 
   %add.ptr13.i90 = getelementptr inbounds i8, ptr %add.ptr169, i64 4
   %add.ptr174 = getelementptr inbounds i8, ptr %add.ptr169, i64 8
   store i32 0, ptr %add.ptr13.i90, align 1
-  store <4 x i8> <i8 73, i8 69, i8 78, i8 68>, ptr %add.ptr174, align 1
+  store i8 73, ptr %add.ptr174, align 1
+  %arrayidx182 = getelementptr inbounds i8, ptr %add.ptr169, i64 9
+  store i8 69, ptr %arrayidx182, align 1
+  %arrayidx186 = getelementptr inbounds i8, ptr %add.ptr169, i64 10
+  store i8 78, ptr %arrayidx186, align 1
+  %arrayidx190 = getelementptr inbounds i8, ptr %add.ptr169, i64 11
+  store i8 68, ptr %arrayidx190, align 1
   br label %for.body.i.i108
 
 for.body.i.i108:                                  ; preds = %for.body.i.i108, %stbiw__wpcrc.exit104
@@ -5557,7 +5582,13 @@ for.inc106:                                       ; preds = %for.body71
 for.end108:                                       ; preds = %for.inc106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %head0, ptr noundef nonnull align 16 dereferenceable(25) @__const.stbi_write_jpg_core.head0, i64 25, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %head2, ptr noundef nonnull align 1 dereferenceable(14) @__const.stbi_write_jpg_core.head2, i64 14, i1 false)
-  store <4 x i8> <i8 -1, i8 -64, i8 0, i8 17>, ptr %head1, align 16
+  store i8 -1, ptr %head1, align 16
+  %arrayinit.element = getelementptr inbounds i8, ptr %head1, i64 1
+  store i8 -64, ptr %arrayinit.element, align 1
+  %arrayinit.element109 = getelementptr inbounds i8, ptr %head1, i64 2
+  store i8 0, ptr %arrayinit.element109, align 2
+  %arrayinit.element110 = getelementptr inbounds i8, ptr %head1, i64 3
+  store i8 17, ptr %arrayinit.element110, align 1
   %arrayinit.element111 = getelementptr inbounds i8, ptr %head1, i64 4
   store i8 8, ptr %arrayinit.element111, align 4
   %arrayinit.element112 = getelementptr inbounds i8, ptr %head1, i64 5
@@ -5582,9 +5613,29 @@ for.end108:                                       ; preds = %for.inc106
   %conv127 = select i1 %cmp8, i8 34, i8 17
   store i8 %conv127, ptr %arrayinit.element124, align 1
   %arrayinit.element128 = getelementptr inbounds i8, ptr %head1, i64 12
-  store <8 x i8> <i8 0, i8 2, i8 17, i8 1, i8 3, i8 17, i8 1, i8 -1>, ptr %arrayinit.element128, align 4
+  store i8 0, ptr %arrayinit.element128, align 4
+  %arrayinit.element129 = getelementptr inbounds i8, ptr %head1, i64 13
+  store i8 2, ptr %arrayinit.element129, align 1
+  %arrayinit.element130 = getelementptr inbounds i8, ptr %head1, i64 14
+  store i8 17, ptr %arrayinit.element130, align 2
+  %arrayinit.element131 = getelementptr inbounds i8, ptr %head1, i64 15
+  store i8 1, ptr %arrayinit.element131, align 1
+  %arrayinit.element132 = getelementptr inbounds i8, ptr %head1, i64 16
+  store i8 3, ptr %arrayinit.element132, align 16
+  %arrayinit.element133 = getelementptr inbounds i8, ptr %head1, i64 17
+  store i8 17, ptr %arrayinit.element133, align 1
+  %arrayinit.element134 = getelementptr inbounds i8, ptr %head1, i64 18
+  store i8 1, ptr %arrayinit.element134, align 2
+  %arrayinit.element135 = getelementptr inbounds i8, ptr %head1, i64 19
+  store i8 -1, ptr %arrayinit.element135, align 1
   %arrayinit.element136 = getelementptr inbounds i8, ptr %head1, i64 20
-  store <4 x i8> <i8 -60, i8 1, i8 -94, i8 0>, ptr %arrayinit.element136, align 4
+  store i8 -60, ptr %arrayinit.element136, align 4
+  %arrayinit.element137 = getelementptr inbounds i8, ptr %head1, i64 21
+  store i8 1, ptr %arrayinit.element137, align 1
+  %arrayinit.element138 = getelementptr inbounds i8, ptr %head1, i64 22
+  store i8 -94, ptr %arrayinit.element138, align 2
+  %arrayinit.element139 = getelementptr inbounds i8, ptr %head1, i64 23
+  store i8 0, ptr %arrayinit.element139, align 1
   %11 = load ptr, ptr %s, align 8
   %context = getelementptr inbounds i8, ptr %s, i64 8
   %12 = load ptr, ptr %context, align 8

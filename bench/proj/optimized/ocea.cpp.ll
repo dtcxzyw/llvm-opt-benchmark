@@ -265,22 +265,21 @@ define internal { double, double } @_ZL14ocea_s_forward5PJ_LPP8PJconsts(double %
   %17 = fcmp olt double %7, 0.000000e+00
   %18 = fadd double %16, 0x400921FB54442D18
   %.sroa.012.0 = select i1 %17, double %18, double %16
-  %19 = load double, ptr %11, align 8
-  %20 = load <2 x double>, ptr %5, align 8
-  %21 = tail call double @sin(double noundef %1) #7
-  %22 = load double, ptr %9, align 8
-  %23 = tail call double @cos(double noundef %1) #7
-  %24 = fneg double %22
-  %25 = fmul double %23, %24
-  %26 = fmul double %6, %25
-  %27 = tail call double @llvm.fmuladd.f64(double %19, double %21, double %26)
-  %28 = insertelement <2 x double> poison, double %27, i64 0
-  %29 = insertelement <2 x double> %28, double %.sroa.012.0, i64 1
-  %30 = fmul <2 x double> %20, %29
-  %31 = extractelement <2 x double> %30, i64 1
-  %.fca.0.insert = insertvalue { double, double } poison, double %31, 0
-  %32 = extractelement <2 x double> %30, i64 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %32, 1
+  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = load double, ptr %19, align 8
+  %21 = fmul double %20, %.sroa.012.0
+  %22 = load double, ptr %5, align 8
+  %23 = load double, ptr %11, align 8
+  %24 = tail call double @sin(double noundef %1) #7
+  %25 = load double, ptr %9, align 8
+  %26 = tail call double @cos(double noundef %1) #7
+  %27 = fneg double %25
+  %28 = fmul double %26, %27
+  %29 = fmul double %6, %28
+  %30 = tail call double @llvm.fmuladd.f64(double %23, double %24, double %29)
+  %31 = fmul double %22, %30
+  %.fca.0.insert = insertvalue { double, double } poison, double %21, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %31, 1
   ret { double, double } %.fca.1.insert
 }
 

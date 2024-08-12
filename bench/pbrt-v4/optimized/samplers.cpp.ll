@@ -1804,7 +1804,7 @@ if.then:                                          ; preds = %entry
           to label %_ZN4pbrt12StringPrintfIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit.i unwind label %lpad.i.i
 
 common.resume:                                    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %common.resume.i22, %common.resume.i
-  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %common.resume.op.i23, %common.resume.i22 ], [ %28, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %common.resume.op.i23, %common.resume.i22 ], [ %21, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   resume { ptr, i32 } %common.resume.op
 
 common.resume.i:                                  ; preds = %lpad.i, %lpad.i.i
@@ -1981,25 +1981,27 @@ do.body.preheader:                                ; preds = %for.cond74.preheade
 invoke.cont19:                                    ; preds = %invoke.cont, %for.inc
   %indvars.iv = phi i64 [ 0, %invoke.cont ], [ %indvars.iv.next, %for.inc ]
   %arrayidx3.i = getelementptr inbounds [5 x [65536 x [2 x i32]]], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 0, i64 0, i64 %indvars.iv
-  %17 = load i32, ptr %pixelTileSize, align 8
-  %conv.i30 = sitofp i32 %17 to float
-  %18 = load <2 x i32>, ptr %arrayidx3.i, align 8
-  %19 = uitofp <2 x i32> %18 to <2 x double>
-  %20 = fmul <2 x double> %19, <double 0x3DF0000000000000, double 0x3DF0000000000000>
-  %21 = fptrunc <2 x double> %20 to <2 x float>
-  %22 = insertelement <2 x float> poison, float %conv.i30, i64 0
-  %23 = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> zeroinitializer
-  %24 = fmul <2 x float> %23, %21
-  %25 = extractelement <2 x float> %24, i64 0
-  %conv25 = fptosi float %25 to i32
-  %26 = extractelement <2 x float> %24, i64 1
-  %conv26 = fptosi float %26 to i32
-  %mul28 = mul nsw i32 %17, %conv26
+  %17 = load i32, ptr %arrayidx3.i, align 8
+  %conv.i = uitofp i32 %17 to double
+  %mul.i = fmul double %conv.i, 0x3DF0000000000000
+  %conv5.i = fptrunc double %mul.i to float
+  %arrayidx10.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 4
+  %18 = load i32, ptr %arrayidx10.i, align 4
+  %conv11.i = uitofp i32 %18 to double
+  %mul12.i = fmul double %conv11.i, 0x3DF0000000000000
+  %conv13.i = fptrunc double %mul12.i to float
+  %19 = load i32, ptr %pixelTileSize, align 8
+  %conv.i30 = sitofp i32 %19 to float
+  %mul.i31 = fmul float %conv5.i, %conv.i30
+  %mul3.i = fmul float %conv.i30, %conv13.i
+  %conv25 = fptosi float %mul.i31 to i32
+  %conv26 = fptosi float %mul3.i to i32
+  %mul28 = mul nsw i32 %19, %conv26
   %add = add nsw i32 %mul28, %conv25
   %conv29 = sext i32 %add to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %nStored.sroa.0.0, i64 %conv29
-  %27 = load i32, ptr %add.ptr.i, align 4
-  %cmp31 = icmp eq i32 %27, %samplesPerPixel
+  %20 = load i32, ptr %add.ptr.i, align 4
+  %cmp31 = icmp eq i32 %20, %samplesPerPixel
   br i1 %cmp31, label %invoke.cont33, label %invoke.cont45
 
 invoke.cont33:                                    ; preds = %invoke.cont19
@@ -2013,26 +2015,26 @@ invoke.cont35:                                    ; preds = %land.rhs
   unreachable
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %if.then82, %land.rhs49, %land.rhs
-  %28 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %nStored.sroa.0.0) #25
   br label %common.resume
 
 invoke.cont45:                                    ; preds = %invoke.cont19
   %mul37 = mul nsw i32 %add, %samplesPerPixel
-  %add40 = add nsw i32 %mul37, %27
-  %29 = load ptr, ptr %pixelSamples, align 8
+  %add40 = add nsw i32 %mul37, %20
+  %22 = load ptr, ptr %pixelSamples, align 8
   %conv42 = sext i32 %add40 to i64
-  %ptr.i = getelementptr inbounds i8, ptr %29, i64 8
-  %30 = load ptr, ptr %ptr.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.pbrt::Point2.14", ptr %30, i64 %conv42
-  %31 = load float, ptr %arrayidx.i, align 4
-  %cmp.i37 = fcmp oeq float %31, 0.000000e+00
+  %ptr.i = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = load ptr, ptr %ptr.i, align 8
+  %arrayidx.i = getelementptr inbounds %"class.pbrt::Point2.14", ptr %23, i64 %conv42
+  %24 = load float, ptr %arrayidx.i, align 4
+  %cmp.i37 = fcmp oeq float %24, 0.000000e+00
   %y.i38 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %32 = load float, ptr %y.i38, align 4
-  %cmp4.i = fcmp oeq float %32, 0.000000e+00
-  %33 = select i1 %cmp.i37, i1 %cmp4.i, i1 false
-  br i1 %33, label %invoke.cont61, label %land.rhs49
+  %25 = load float, ptr %y.i38, align 4
+  %cmp4.i = fcmp oeq float %25, 0.000000e+00
+  %26 = select i1 %cmp.i37, i1 %cmp4.i, i1 false
+  br i1 %26, label %invoke.cont61, label %land.rhs49
 
 land.rhs49:                                       ; preds = %invoke.cont45
   invoke void @_ZN4pbrt8LogFatalIJRA47_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef 198, ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(47) @.str.21) #22
@@ -2042,11 +2044,14 @@ invoke.cont50:                                    ; preds = %land.rhs49
   unreachable
 
 invoke.cont61:                                    ; preds = %invoke.cont45
-  %34 = call <2 x float> @llvm.floor.v2f32(<2 x float> %24)
-  %35 = fsub <2 x float> %24, %34
-  store <2 x float> %35, ptr %arrayidx.i, align 4
-  %36 = load i32, ptr %add.ptr.i, align 4
-  %inc = add nsw i32 %36, 1
+  %27 = call noundef float @llvm.floor.f32(float %mul.i31)
+  %28 = call noundef float @llvm.floor.f32(float %mul3.i)
+  %sub.i = fsub float %mul.i31, %27
+  %sub4.i = fsub float %mul3.i, %28
+  store float %sub.i, ptr %arrayidx.i, align 4
+  store float %sub4.i, ptr %y.i38, align 4
+  %29 = load i32, ptr %add.ptr.i, align 4
+  %inc = add nsw i32 %29, 1
   store i32 %inc, ptr %add.ptr.i, align 4
   br label %for.inc
 
@@ -2063,12 +2068,12 @@ for.cond74:                                       ; preds = %do.body
 do.body:                                          ; preds = %do.body.preheader, %for.cond74
   %indvars.iv90 = phi i64 [ 0, %do.body.preheader ], [ %indvars.iv.next91, %for.cond74 ]
   %add.ptr.i48 = getelementptr inbounds i32, ptr %nStored.sroa.0.0, i64 %indvars.iv90
-  %37 = load i32, ptr %add.ptr.i48, align 4
-  %cmp81 = icmp eq i32 %37, %samplesPerPixel
+  %30 = load i32, ptr %add.ptr.i48, align 4
+  %cmp81 = icmp eq i32 %30, %samplesPerPixel
   br i1 %cmp81, label %for.cond74, label %if.then82
 
 if.then82:                                        ; preds = %do.body
-  store i32 %37, ptr %va, align 4
+  store i32 %30, ptr %va, align 4
   store i32 %samplesPerPixel, ptr %vb, align 4
   invoke void @_ZN4pbrt8LogFatalIJRA11_KcRA16_S1_S3_RiS5_S6_EEEvNS_8LogLevelEPS1_iS8_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef 204, ptr noundef nonnull @.str.22, ptr noundef nonnull align 1 dereferenceable(11) @.str.23, ptr noundef nonnull align 1 dereferenceable(16) @.str.24, ptr noundef nonnull align 1 dereferenceable(11) @.str.23, ptr noundef nonnull align 4 dereferenceable(4) %va, ptr noundef nonnull align 1 dereferenceable(16) @.str.24, ptr noundef nonnull align 4 dereferenceable(4) %vb) #22
           to label %invoke.cont83 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -3768,7 +3773,9 @@ entry:
   %add.i3.i.i.i.i.i = add i64 %mul.i1.i.i.i.i.i, %or.i.i.i.i.i
   store i64 %add.i3.i.i.i.i.i, ptr %rng.i.i, align 8
   %sigma5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %sigma5.i.i, align 8
+  store float 5.000000e-01, ptr %sigma5.i.i, align 8
+  %largeStepProbability6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 28
+  store float 5.000000e-01, ptr %largeStepProbability6.i.i, align 4
   %streamCount7.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i32 %nSampleStreams, ptr %streamCount7.i.i, align 8
   %X.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
@@ -18020,9 +18027,6 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.floor.v2f32(<2 x float>) #19
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

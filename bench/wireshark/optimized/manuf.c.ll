@@ -58806,13 +58806,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @ws_manuf_lookup(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
-  %4 = alloca [6 x i8], align 4
+  %4 = alloca [6 x i8], align 1
   %5 = alloca [6 x i8], align 1
-  %6 = alloca [6 x i8], align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %6, ptr noundef nonnull align 1 dereferenceable(6) %0, i64 6, i1 false)
-  %7 = load i8, ptr %6, align 4
+  %6 = alloca [6 x i8], align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %6, ptr noundef nonnull align 1 dereferenceable(6) %0, i64 6, i1 false)
+  %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, -2
-  store i8 %8, ptr %6, align 4
+  store i8 %8, ptr %6, align 1
   %9 = call ptr @bsearch(ptr noundef nonnull %6, ptr noundef nonnull @ieee_registry_table, i64 noundef 350, i64 noundef 4, ptr noundef nonnull @compare_oui24_registry) #11
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %select_registry.exit.thread, label %select_registry.exit
@@ -58820,7 +58820,7 @@ define ptr @ws_manuf_lookup(ptr nocapture noundef readonly %0, ptr noundef write
 select_registry.exit:                             ; preds = %3
   %10 = getelementptr inbounds i8, ptr %9, i64 3
   %11 = load i8, ptr %10, align 1
-  switch i8 %11, label %33 [
+  switch i8 %11, label %42 [
     i8 0, label %select_registry.exit.thread
     i8 1, label %13
     i8 2, label %26
@@ -58829,11 +58829,11 @@ select_registry.exit:                             ; preds = %3
 select_registry.exit.thread:                      ; preds = %3, %select_registry.exit
   %12 = call ptr @bsearch(ptr noundef nonnull %6, ptr noundef nonnull @global_manuf_oui24_table, i64 noundef 34910, i64 noundef 24, ptr noundef nonnull @compare_oui24_entry) #11
   %.not24 = icmp eq ptr %12, null
-  br i1 %.not24, label %38, label %.sink.split
+  br i1 %.not24, label %47, label %.sink.split
 
 13:                                               ; preds = %select_registry.exit
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5)
-  %14 = load i8, ptr %6, align 4
+  %14 = load i8, ptr %6, align 1
   store i8 %14, ptr %5, align 1
   %15 = getelementptr inbounds i8, ptr %5, i64 1
   %16 = getelementptr inbounds i8, ptr %6, i64 1
@@ -58841,7 +58841,7 @@ select_registry.exit.thread:                      ; preds = %3, %select_registry
   store i8 %17, ptr %15, align 1
   %18 = getelementptr inbounds i8, ptr %5, i64 2
   %19 = getelementptr inbounds i8, ptr %6, i64 2
-  %20 = load i8, ptr %19, align 2
+  %20 = load i8, ptr %19, align 1
   store i8 %20, ptr %18, align 1
   %21 = getelementptr inbounds i8, ptr %5, i64 3
   %22 = getelementptr inbounds i8, ptr %6, i64 3
@@ -58853,57 +58853,69 @@ select_registry.exit.thread:                      ; preds = %3, %select_registry
   %25 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef nonnull @global_manuf_oui28_table, i64 noundef 5137, i64 noundef 24, ptr noundef nonnull @compare_oui28_entry) #11
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5)
   %.not23 = icmp eq ptr %25, null
-  br i1 %.not23, label %38, label %.sink.split
+  br i1 %.not23, label %47, label %.sink.split
 
 26:                                               ; preds = %select_registry.exit
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
-  %27 = load <4 x i8>, ptr %6, align 4
-  store <4 x i8> %27, ptr %4, align 4
-  %28 = getelementptr inbounds i8, ptr %4, i64 4
-  %29 = getelementptr inbounds i8, ptr %6, i64 4
-  %30 = load i8, ptr %29, align 4
-  %31 = and i8 %30, -16
-  store i8 %31, ptr %28, align 4
+  %27 = load i8, ptr %6, align 1
+  store i8 %27, ptr %4, align 1
+  %28 = getelementptr inbounds i8, ptr %4, i64 1
+  %29 = getelementptr inbounds i8, ptr %6, i64 1
+  %30 = load i8, ptr %29, align 1
+  store i8 %30, ptr %28, align 1
+  %31 = getelementptr inbounds i8, ptr %4, i64 2
+  %32 = getelementptr inbounds i8, ptr %6, i64 2
+  %33 = load i8, ptr %32, align 1
+  store i8 %33, ptr %31, align 1
+  %34 = getelementptr inbounds i8, ptr %4, i64 3
+  %35 = getelementptr inbounds i8, ptr %6, i64 3
+  %36 = load i8, ptr %35, align 1
+  store i8 %36, ptr %34, align 1
+  %37 = getelementptr inbounds i8, ptr %4, i64 4
+  %38 = getelementptr inbounds i8, ptr %6, i64 4
+  %39 = load i8, ptr %38, align 1
+  %40 = and i8 %39, -16
+  store i8 %40, ptr %37, align 1
   %.ptr.i = getelementptr inbounds i8, ptr %4, i64 5
   store i8 0, ptr %.ptr.i, align 1
-  %32 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef nonnull @global_manuf_oui36_table, i64 noundef 10404, i64 noundef 24, ptr noundef nonnull @compare_oui36_entry) #11
+  %41 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef nonnull @global_manuf_oui36_table, i64 noundef 10404, i64 noundef 24, ptr noundef nonnull @compare_oui36_entry) #11
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4)
-  %.not = icmp eq ptr %32, null
-  br i1 %.not, label %38, label %.sink.split
+  %.not = icmp eq ptr %41, null
+  br i1 %.not, label %47, label %.sink.split
 
-33:                                               ; preds = %select_registry.exit
+42:                                               ; preds = %select_registry.exit
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 167, ptr noundef nonnull @__func__.ws_manuf_lookup, ptr noundef nonnull @.str.2) #12
   unreachable
 
 .sink.split:                                      ; preds = %26, %13, %select_registry.exit.thread
-  %.sink30 = phi ptr [ %12, %select_registry.exit.thread ], [ %25, %13 ], [ %32, %26 ]
+  %.sink30 = phi ptr [ %12, %select_registry.exit.thread ], [ %25, %13 ], [ %41, %26 ]
   %.017.ph = phi i32 [ 24, %select_registry.exit.thread ], [ 28, %13 ], [ 36, %26 ]
-  %34 = getelementptr inbounds i8, ptr %.sink30, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.sink30, i64 16
-  %37 = load ptr, ptr %36, align 8
-  br label %38
+  %43 = getelementptr inbounds i8, ptr %.sink30, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %.sink30, i64 16
+  %46 = load ptr, ptr %45, align 8
+  br label %47
 
-38:                                               ; preds = %.sink.split, %26, %13, %select_registry.exit.thread
+47:                                               ; preds = %.sink.split, %26, %13, %select_registry.exit.thread
   %.017 = phi i32 [ 0, %26 ], [ 0, %13 ], [ 0, %select_registry.exit.thread ], [ %.017.ph, %.sink.split ]
-  %.016 = phi ptr [ null, %26 ], [ null, %13 ], [ null, %select_registry.exit.thread ], [ %37, %.sink.split ]
-  %.0 = phi ptr [ null, %26 ], [ null, %13 ], [ null, %select_registry.exit.thread ], [ %35, %.sink.split ]
+  %.016 = phi ptr [ null, %26 ], [ null, %13 ], [ null, %select_registry.exit.thread ], [ %46, %.sink.split ]
+  %.0 = phi ptr [ null, %26 ], [ null, %13 ], [ null, %select_registry.exit.thread ], [ %44, %.sink.split ]
   %.not25 = icmp eq ptr %2, null
-  br i1 %.not25, label %40, label %39
+  br i1 %.not25, label %49, label %48
 
-39:                                               ; preds = %38
+48:                                               ; preds = %47
   store i32 %.017, ptr %2, align 4
-  br label %40
+  br label %49
 
-40:                                               ; preds = %39, %38
+49:                                               ; preds = %48, %47
   %.not26 = icmp eq ptr %1, null
-  br i1 %.not26, label %42, label %41
+  br i1 %.not26, label %51, label %50
 
-41:                                               ; preds = %40
+50:                                               ; preds = %49
   store ptr %.016, ptr %1, align 8
-  br label %42
+  br label %51
 
-42:                                               ; preds = %41, %40
+51:                                               ; preds = %50, %49
   ret ptr %.0
 }
 

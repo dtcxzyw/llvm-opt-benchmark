@@ -2048,7 +2048,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %355, %351, %"_ZN55_
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  br label %406
+  br label %408
 
 .thread19:                                        ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit", %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit"
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
@@ -2083,8 +2083,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %355, %351, %"_ZN55_
   %373 = trunc i32 %2 to i8
   %374 = and i8 %373, 63
   %375 = or disjoint i8 %374, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx214 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
-  store i8 %375, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx214, align 1, !alias.scope !391, !noalias !389
+  %.sroa.0.i.1.i.1.i.1..sroa_idx215 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
+  store i8 %375, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx215, align 1, !alias.scope !391, !noalias !389
   br label %"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.exit"
 
 376:                                              ; preds = %365
@@ -2096,49 +2096,57 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %355, %351, %"_ZN55_
   %381 = trunc i32 %380 to i8
   %382 = and i8 %381, 63
   %383 = or disjoint i8 %382, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
-  store i8 %383, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx, align 1, !alias.scope !391, !noalias !389
+  %.sroa.0.i.1.i.1.i.1..sroa_idx214 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
+  store i8 %383, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx214, align 1, !alias.scope !391, !noalias !389
   %384 = trunc i32 %2 to i8
   %385 = and i8 %384, 63
   %386 = or disjoint i8 %385, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 2
-  store i8 %386, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx, align 2, !alias.scope !391, !noalias !389
+  %.sroa.0.i.2.i.2.i.2..sroa_idx216 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 2
+  store i8 %386, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx216, align 2, !alias.scope !391, !noalias !389
   br label %"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.exit"
 
 387:                                              ; preds = %365
   %388 = lshr i32 %2, 18
-  %389 = lshr i32 %2, 12
-  %390 = lshr i32 %2, 6
-  %391 = trunc i32 %2 to i8
-  %392 = trunc i32 %388 to i8
-  %393 = insertelement <4 x i8> poison, i8 %392, i64 0
-  %394 = trunc i32 %389 to i8
-  %395 = insertelement <4 x i8> %393, i8 %394, i64 1
-  %396 = trunc i32 %390 to i8
-  %397 = insertelement <4 x i8> %395, i8 %396, i64 2
-  %398 = insertelement <4 x i8> %397, i8 %391, i64 3
-  %399 = and <4 x i8> %398, <i8 7, i8 63, i8 63, i8 63>
-  %400 = or disjoint <4 x i8> %399, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %400, ptr %.sroa.0.i, align 4, !alias.scope !391, !noalias !389
+  %389 = trunc i32 %388 to i8
+  %390 = and i8 %389, 7
+  %391 = or disjoint i8 %390, -16
+  store i8 %391, ptr %.sroa.0.i, align 4, !alias.scope !391, !noalias !389
+  %392 = lshr i32 %2, 12
+  %393 = trunc i32 %392 to i8
+  %394 = and i8 %393, 63
+  %395 = or disjoint i8 %394, -128
+  %.sroa.0.i.1.i.1.i.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
+  store i8 %395, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx, align 1, !alias.scope !391, !noalias !389
+  %396 = lshr i32 %2, 6
+  %397 = trunc i32 %396 to i8
+  %398 = and i8 %397, 63
+  %399 = or disjoint i8 %398, -128
+  %.sroa.0.i.2.i.2.i.2..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 2
+  store i8 %399, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx, align 2, !alias.scope !391, !noalias !389
+  %400 = trunc i32 %2 to i8
+  %401 = and i8 %400, 63
+  %402 = or disjoint i8 %401, -128
+  %.sroa.0.i.3.i.3.i.3..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 3
+  store i8 %402, ptr %.sroa.0.i.3.i.3.i.3..sroa_idx, align 1, !alias.scope !391, !noalias !389
   br label %"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.exit"
 
 "_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.exit": ; preds = %367, %369, %376, %387
-  %401 = phi i64 [ 4, %387 ], [ 3, %376 ], [ 2, %369 ], [ 1, %367 ]
-  %402 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4f56f1cd31108130E"(i64 noundef %401, i1 noundef zeroext false), !noalias !389
-  %403 = extractvalue { i64, ptr } %402, 0
-  %404 = extractvalue { i64, ptr } %402, 1
-  %405 = icmp ne ptr %404, null
-  call void @llvm.assume(i1 %405)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %404, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %401, i1 false)
-  store i64 %403, ptr %0, align 8, !alias.scope !389
+  %403 = phi i64 [ 4, %387 ], [ 3, %376 ], [ 2, %369 ], [ 1, %367 ]
+  %404 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4f56f1cd31108130E"(i64 noundef %403, i1 noundef zeroext false), !noalias !389
+  %405 = extractvalue { i64, ptr } %404, 0
+  %406 = extractvalue { i64, ptr } %404, 1
+  %407 = icmp ne ptr %406, null
+  call void @llvm.assume(i1 %407)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %406, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %403, i1 false)
+  store i64 %405, ptr %0, align 8, !alias.scope !389
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %404, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !389
+  store ptr %406, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !389
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %401, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !389
+  store i64 %403, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !389
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i)
-  br label %406
+  br label %408
 
-406:                                              ; preds = %"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.exit", %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
+408:                                              ; preds = %"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.exit", %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
   ret void
 }
 

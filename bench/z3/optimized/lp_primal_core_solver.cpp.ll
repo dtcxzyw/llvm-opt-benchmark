@@ -2249,14 +2249,17 @@ _ZN6vectorI8rationalLb1EjE7destroyEv.exit:        ; preds = %if.end, %_ZN6vector
   br i1 %tobool.not, label %if.else, label %_ZNK6vectorI8rationalLb1EjE8capacityEv.exit.i
 
 _ZNK6vectorI8rationalLb1EjE8capacityEv.exit.i:    ; preds = %_ZN6vectorI8rationalLb1EjE7destroyEv.exit
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %6, i64 -4
+  %7 = load i32, ptr %arrayidx.i.i, align 4
   %arrayidx.i11.i = getelementptr inbounds i8, ptr %6, i64 -8
-  %7 = load <2 x i32>, ptr %arrayidx.i11.i, align 4
   %8 = load i32, ptr %arrayidx.i11.i, align 4
   %conv.i = zext i32 %8 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 5
   %add.i = or disjoint i64 %mul.i, 8
   %call3.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i)
-  store <2 x i32> %7, ptr %call3.i, align 4
+  store i32 %8, ptr %call3.i, align 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %call3.i, i64 4
+  store i32 %7, ptr %incdec.ptr.i, align 4
   %incdec.ptr4.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   store ptr %incdec.ptr4.i, ptr %this, align 8
   %9 = load ptr, ptr %source, align 8

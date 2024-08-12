@@ -118,11 +118,41 @@ for.end117:                                       ; preds = %for.end117.loopexit
   %.lcssa251 = phi <4 x i32> [ zeroinitializer, %for.end ], [ %add.i434, %for.end117.loopexit ]
   %.lcssa250 = phi <4 x i32> [ zeroinitializer, %for.end ], [ %add.i431, %for.end117.loopexit ]
   %.lcssa = phi <4 x i32> [ zeroinitializer, %for.end ], [ %add.i, %for.end117.loopexit ]
-  %29 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %.lcssa253)
-  %30 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %.lcssa252)
-  %31 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %.lcssa251)
-  %32 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %.lcssa250)
-  %33 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %.lcssa)
+  %shift = shufflevector <4 x i32> %.lcssa253, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %29 = add nsw <4 x i32> %.lcssa253, %shift
+  %shift295 = shufflevector <4 x i32> %.lcssa253, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %30 = add nsw <4 x i32> %29, %shift295
+  %shift296 = shufflevector <4 x i32> %.lcssa253, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %31 = add nsw <4 x i32> %30, %shift296
+  %add125 = extractelement <4 x i32> %31, i64 0
+  %shift297 = shufflevector <4 x i32> %.lcssa252, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %32 = add nsw <4 x i32> %.lcssa252, %shift297
+  %shift298 = shufflevector <4 x i32> %.lcssa252, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %33 = add nsw <4 x i32> %32, %shift298
+  %shift299 = shufflevector <4 x i32> %.lcssa252, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %34 = add nsw <4 x i32> %33, %shift299
+  %add133 = extractelement <4 x i32> %34, i64 0
+  %shift300 = shufflevector <4 x i32> %.lcssa251, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %35 = add nsw <4 x i32> %.lcssa251, %shift300
+  %shift301 = shufflevector <4 x i32> %.lcssa251, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %36 = add nsw <4 x i32> %35, %shift301
+  %shift302 = shufflevector <4 x i32> %.lcssa251, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %37 = add nsw <4 x i32> %36, %shift302
+  %add141 = extractelement <4 x i32> %37, i64 0
+  %shift303 = shufflevector <4 x i32> %.lcssa250, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %38 = add nsw <4 x i32> %.lcssa250, %shift303
+  %shift304 = shufflevector <4 x i32> %.lcssa250, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %39 = add nsw <4 x i32> %38, %shift304
+  %shift305 = shufflevector <4 x i32> %.lcssa250, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %40 = add nsw <4 x i32> %39, %shift305
+  %add149 = extractelement <4 x i32> %40, i64 0
+  %shift306 = shufflevector <4 x i32> %.lcssa, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %41 = add nsw <4 x i32> %.lcssa, %shift306
+  %shift307 = shufflevector <4 x i32> %.lcssa, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %42 = add nsw <4 x i32> %41, %shift307
+  %shift308 = shufflevector <4 x i32> %.lcssa, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %43 = add nsw <4 x i32> %42, %shift308
+  %add157 = extractelement <4 x i32> %43, i64 0
   %rem = and i32 %data_len, 3
   %cmp159.not = icmp ne i32 %rem, 0
   %cmp192262 = icmp slt i32 %i.1.lcssa, %data_len
@@ -130,41 +160,41 @@ for.end117:                                       ; preds = %for.end117.loopexit
   br i1 %or.cond, label %for.body193.preheader, label %if.end
 
 for.body193.preheader:                            ; preds = %for.end117
-  %34 = zext nneg i32 %i.1.lcssa to i64
-  %35 = getelementptr i32, ptr %data, i64 %34
-  %arrayidx175 = getelementptr i8, ptr %35, i64 -12
-  %36 = load i32, ptr %arrayidx175, align 4
-  %mul184.neg278.neg = shl i32 %36, 1
-  %arrayidx168 = getelementptr i8, ptr %35, i64 -8
-  %37 = load i32, ptr %arrayidx168, align 4
-  %arrayidx188 = getelementptr i8, ptr %35, i64 -16
-  %38 = load i32, ptr %arrayidx188, align 4
-  %39 = add i32 %37, %38
-  %add189.neg = sub i32 %mul184.neg278.neg, %39
-  %sub176.neg = sub i32 %36, %37
-  %arrayidx162 = getelementptr i8, ptr %35, i64 -4
-  %40 = load i32, ptr %arrayidx162, align 4
-  %sub169 = sub nsw i32 %40, %37
+  %44 = zext nneg i32 %i.1.lcssa to i64
+  %45 = getelementptr i32, ptr %data, i64 %44
+  %arrayidx175 = getelementptr i8, ptr %45, i64 -12
+  %46 = load i32, ptr %arrayidx175, align 4
+  %mul184.neg278.neg = shl i32 %46, 1
+  %arrayidx168 = getelementptr i8, ptr %45, i64 -8
+  %47 = load i32, ptr %arrayidx168, align 4
+  %arrayidx188 = getelementptr i8, ptr %45, i64 -16
+  %48 = load i32, ptr %arrayidx188, align 4
+  %49 = add i32 %47, %48
+  %add189.neg = sub i32 %mul184.neg278.neg, %49
+  %sub176.neg = sub i32 %46, %47
+  %arrayidx162 = getelementptr i8, ptr %45, i64 -4
+  %50 = load i32, ptr %arrayidx162, align 4
+  %sub169 = sub nsw i32 %50, %47
   %sub177 = add i32 %sub176.neg, %sub169
   %sub190 = add i32 %add189.neg, %sub177
   br label %for.body193
 
 for.body193:                                      ; preds = %for.body193.preheader, %for.body193
-  %indvars.iv288 = phi i64 [ %34, %for.body193.preheader ], [ %indvars.iv.next289, %for.body193 ]
-  %total_error_0.1272 = phi i32 [ %29, %for.body193.preheader ], [ %add198, %for.body193 ]
-  %total_error_1.1271 = phi i32 [ %30, %for.body193.preheader ], [ %add206, %for.body193 ]
+  %indvars.iv288 = phi i64 [ %44, %for.body193.preheader ], [ %indvars.iv.next289, %for.body193 ]
+  %total_error_0.1272 = phi i32 [ %add125, %for.body193.preheader ], [ %add198, %for.body193 ]
+  %total_error_1.1271 = phi i32 [ %add133, %for.body193.preheader ], [ %add206, %for.body193 ]
   %last_error_3.0270 = phi i32 [ %sub190, %for.body193.preheader ], [ %sub215, %for.body193 ]
   %last_error_2.0269 = phi i32 [ %sub177, %for.body193.preheader ], [ %sub207, %for.body193 ]
   %last_error_1.0268 = phi i32 [ %sub169, %for.body193.preheader ], [ %sub199, %for.body193 ]
-  %last_error_0.0267 = phi i32 [ %40, %for.body193.preheader ], [ %41, %for.body193 ]
-  %total_error_2.1266 = phi i32 [ %31, %for.body193.preheader ], [ %add214, %for.body193 ]
-  %total_error_3.1265 = phi i32 [ %32, %for.body193.preheader ], [ %add222, %for.body193 ]
-  %total_error_4.1264 = phi i32 [ %33, %for.body193.preheader ], [ %add230, %for.body193 ]
+  %last_error_0.0267 = phi i32 [ %50, %for.body193.preheader ], [ %51, %for.body193 ]
+  %total_error_2.1266 = phi i32 [ %add141, %for.body193.preheader ], [ %add214, %for.body193 ]
+  %total_error_3.1265 = phi i32 [ %add149, %for.body193.preheader ], [ %add222, %for.body193 ]
+  %total_error_4.1264 = phi i32 [ %add157, %for.body193.preheader ], [ %add230, %for.body193 ]
   %arrayidx195 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv288
-  %41 = load i32, ptr %arrayidx195, align 4
-  %cond = tail call i32 @llvm.abs.i32(i32 %41, i1 true)
+  %51 = load i32, ptr %arrayidx195, align 4
+  %cond = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
   %add198 = add i32 %cond, %total_error_0.1272
-  %sub199 = sub nsw i32 %41, %last_error_0.0267
+  %sub199 = sub nsw i32 %51, %last_error_0.0267
   %cond205 = tail call i32 @llvm.abs.i32(i32 %sub199, i1 true)
   %add206 = add i32 %cond205, %total_error_1.1271
   %sub207 = sub nsw i32 %sub199, %last_error_1.0268
@@ -177,16 +207,16 @@ for.body193:                                      ; preds = %for.body193.prehead
   %cond229 = tail call i32 @llvm.abs.i32(i32 %sub223, i1 true)
   %add230 = add i32 %cond229, %total_error_4.1264
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
-  %42 = trunc nuw i64 %indvars.iv.next289 to i32
-  %cmp192 = icmp slt i32 %42, %data_len
+  %52 = trunc nuw i64 %indvars.iv.next289 to i32
+  %cmp192 = icmp slt i32 %52, %data_len
   br i1 %cmp192, label %for.body193, label %if.end, !llvm.loop !7
 
 if.end:                                           ; preds = %for.body193, %for.end117
-  %total_error_4.0 = phi i32 [ %33, %for.end117 ], [ %add230, %for.body193 ]
-  %total_error_3.0 = phi i32 [ %32, %for.end117 ], [ %add222, %for.body193 ]
-  %total_error_2.0 = phi i32 [ %31, %for.end117 ], [ %add214, %for.body193 ]
-  %total_error_1.0 = phi i32 [ %30, %for.end117 ], [ %add206, %for.body193 ]
-  %total_error_0.0 = phi i32 [ %29, %for.end117 ], [ %add198, %for.body193 ]
+  %total_error_4.0 = phi i32 [ %add157, %for.end117 ], [ %add230, %for.body193 ]
+  %total_error_3.0 = phi i32 [ %add149, %for.end117 ], [ %add222, %for.body193 ]
+  %total_error_2.0 = phi i32 [ %add141, %for.end117 ], [ %add214, %for.body193 ]
+  %total_error_1.0 = phi i32 [ %add133, %for.end117 ], [ %add206, %for.body193 ]
+  %total_error_0.0 = phi i32 [ %add125, %for.end117 ], [ %add198, %for.body193 ]
   %cond238 = tail call i32 @llvm.umin.i32(i32 %total_error_1.0, i32 %total_error_2.0)
   %cond238.total_error_3.0 = tail call i32 @llvm.umin.i32(i32 %cond238, i32 %total_error_3.0)
   %cond268 = tail call i32 @llvm.umin.i32(i32 %cond238.total_error_3.0, i32 %total_error_4.0)
@@ -221,12 +251,12 @@ cond.true305:                                     ; preds = %if.else, %if.else28
   %div308 = fdiv reassoc nsz arcp double %mul306, %conv307
   %call309 = tail call reassoc nsz arcp double @log(double noundef %div308) #3
   %div310 = fmul reassoc nsz arcp double %call309, 0x3FF71547652B82FE
-  %43 = fptrunc double %div310 to float
+  %53 = fptrunc double %div310 to float
   br label %cond.end312
 
 cond.end312:                                      ; preds = %if.end303, %cond.true305
   %order.0246 = phi i32 [ %order.0245, %cond.true305 ], [ 0, %if.end303 ]
-  %cond313 = phi float [ %43, %cond.true305 ], [ 0.000000e+00, %if.end303 ]
+  %cond313 = phi float [ %53, %cond.true305 ], [ 0.000000e+00, %if.end303 ]
   store float %cond313, ptr %residual_bits_per_sample, align 4
   %cmp316.not = icmp eq i32 %total_error_1.0, 0
   br i1 %cmp316.not, label %cond.end326, label %cond.true318
@@ -238,11 +268,11 @@ cond.true318:                                     ; preds = %cond.end312
   %div322 = fdiv reassoc nsz arcp double %mul320, %conv321
   %call323 = tail call reassoc nsz arcp double @log(double noundef %div322) #3
   %div324 = fmul reassoc nsz arcp double %call323, 0x3FF71547652B82FE
-  %44 = fptrunc double %div324 to float
+  %54 = fptrunc double %div324 to float
   br label %cond.end326
 
 cond.end326:                                      ; preds = %cond.end312, %cond.true318
-  %cond327 = phi float [ %44, %cond.true318 ], [ 0.000000e+00, %cond.end312 ]
+  %cond327 = phi float [ %54, %cond.true318 ], [ 0.000000e+00, %cond.end312 ]
   %arrayidx329 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 4
   store float %cond327, ptr %arrayidx329, align 4
   %cmp330.not = icmp eq i32 %total_error_2.0, 0
@@ -255,11 +285,11 @@ cond.true332:                                     ; preds = %cond.end326
   %div336 = fdiv reassoc nsz arcp double %mul334, %conv335
   %call337 = tail call reassoc nsz arcp double @log(double noundef %div336) #3
   %div338 = fmul reassoc nsz arcp double %call337, 0x3FF71547652B82FE
-  %45 = fptrunc double %div338 to float
+  %55 = fptrunc double %div338 to float
   br label %cond.end340
 
 cond.end340:                                      ; preds = %cond.end326, %cond.true332
-  %cond341 = phi float [ %45, %cond.true332 ], [ 0.000000e+00, %cond.end326 ]
+  %cond341 = phi float [ %55, %cond.true332 ], [ 0.000000e+00, %cond.end326 ]
   %arrayidx343 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
   store float %cond341, ptr %arrayidx343, align 4
   %cmp344.not = icmp eq i32 %total_error_3.0, 0
@@ -272,11 +302,11 @@ cond.true346:                                     ; preds = %cond.end340
   %div350 = fdiv reassoc nsz arcp double %mul348, %conv349
   %call351 = tail call reassoc nsz arcp double @log(double noundef %div350) #3
   %div352 = fmul reassoc nsz arcp double %call351, 0x3FF71547652B82FE
-  %46 = fptrunc double %div352 to float
+  %56 = fptrunc double %div352 to float
   br label %cond.end354
 
 cond.end354:                                      ; preds = %cond.end340, %cond.true346
-  %cond355 = phi float [ %46, %cond.true346 ], [ 0.000000e+00, %cond.end340 ]
+  %cond355 = phi float [ %56, %cond.true346 ], [ 0.000000e+00, %cond.end340 ]
   %arrayidx357 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
   store float %cond355, ptr %arrayidx357, align 4
   %cmp358.not = icmp eq i32 %total_error_4.0, 0
@@ -289,11 +319,11 @@ cond.true360:                                     ; preds = %cond.end354
   %div364 = fdiv reassoc nsz arcp double %mul362, %conv363
   %call365 = tail call reassoc nsz arcp double @log(double noundef %div364) #3
   %div366 = fmul reassoc nsz arcp double %call365, 0x3FF71547652B82FE
-  %47 = fptrunc double %div366 to float
+  %57 = fptrunc double %div366 to float
   br label %cond.end368
 
 cond.end368:                                      ; preds = %cond.end354, %cond.true360
-  %cond369 = phi float [ %47, %cond.true360 ], [ 0.000000e+00, %cond.end354 ]
+  %cond369 = phi float [ %57, %cond.true360 ], [ 0.000000e+00, %cond.end354 ]
   %arrayidx371 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 16
   store float %cond369, ptr %arrayidx371, align 4
   ret i32 %order.0246
@@ -310,9 +340,6 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x i32> @llvm.abs.v4i32(<4 x i32>, i1 immarg) #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #2
 
 attributes #0 = { nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

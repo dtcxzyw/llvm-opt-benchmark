@@ -2149,36 +2149,42 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_cmWindowsRegistry.cxx() #14 section ".text.startup" {
-  %1 = alloca [4 x i8], align 4
+  %1 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  store <4 x i8> <i8 0, i8 1, i8 3, i8 4>, ptr %1, align 4
+  store i8 0, ptr %1, align 1
+  %2 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 1, ptr %2, align 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 3, ptr %3, align 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 4, ptr %4, align 1
   store i64 0, ptr @_ZN17cmWindowsRegistry11SimpleTypesE, align 8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6bitsetILm8EE3setEmb.exit.i.i.i, %0
   %.09.i.i.idx.i = phi i64 [ %.09.i.i.add.i, %_ZNSt6bitsetILm8EE3setEmb.exit.i.i.i ], [ 0, %0 ]
-  %2 = phi i64 [ %8, %_ZNSt6bitsetILm8EE3setEmb.exit.i.i.i ], [ 0, %0 ]
+  %5 = phi i64 [ %11, %_ZNSt6bitsetILm8EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %.09.i.i.ptr.i = getelementptr inbounds i8, ptr %1, i64 %.09.i.i.idx.i
-  %3 = load i8, ptr %.09.i.i.ptr.i, align 1
-  %4 = zext i8 %3 to i64
-  %5 = icmp ugt i8 %3, 7
-  br i1 %5, label %6, label %_ZNSt6bitsetILm8EE3setEmb.exit.i.i.i
+  %6 = load i8, ptr %.09.i.i.ptr.i, align 1
+  %7 = zext i8 %6 to i64
+  %8 = icmp ugt i8 %6, 7
+  br i1 %8, label %9, label %_ZNSt6bitsetILm8EE3setEmb.exit.i.i.i
 
-6:                                                ; preds = %.lr.ph.i.i.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, i64 noundef %4, i64 noundef 8) #20
+9:                                                ; preds = %.lr.ph.i.i.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, i64 noundef %7, i64 noundef 8) #20
   unreachable
 
 _ZNSt6bitsetILm8EE3setEmb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
-  %7 = shl nuw nsw i64 1, %4
-  %8 = or i64 %7, %2
-  store i64 %8, ptr @_ZN17cmWindowsRegistry11SimpleTypesE, align 8
+  %10 = shl nuw nsw i64 1, %7
+  %11 = or i64 %10, %5
+  store i64 %11, ptr @_ZN17cmWindowsRegistry11SimpleTypesE, align 8
   %.09.i.i.add.i = add nuw nsw i64 %.09.i.i.idx.i, 1
   %.not.i.i.i = icmp eq i64 %.09.i.i.add.i, 4
   br i1 %.not.i.i.i, label %__cxx_global_var_init.exit, label %.lr.ph.i.i.i
 
 __cxx_global_var_init.exit:                       ; preds = %_ZNSt6bitsetILm8EE3setEmb.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
-  %spec.select.i.i = or i64 %8, 4
+  %spec.select.i.i = or i64 %11, 4
   store i64 %spec.select.i.i, ptr @_ZN17cmWindowsRegistry8AllTypesE, align 8, !alias.scope !23
   ret void
 }

@@ -2019,13 +2019,15 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %source_file_descriptors_, ptr noundef nonnull %source_file_descriptors_9)
   %parameter_ = getelementptr inbounds i8, ptr %this, i64 96
   %parameter_10 = getelementptr inbounds i8, ptr %other, i64 96
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %parameter_10, align 8
   %6 = load i64, ptr %parameter_, align 8
+  store i64 %6, ptr %parameter_10, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %parameter_, align 8
   %compiler_version_ = getelementptr inbounds i8, ptr %this, i64 104
   %compiler_version_11 = getelementptr inbounds i8, ptr %other, i64 104
   %7 = load ptr, ptr %compiler_version_, align 8
-  %8 = load <2 x ptr>, ptr %parameter_10, align 8
-  store i64 %6, ptr %parameter_10, align 8
-  store <2 x ptr> %8, ptr %parameter_, align 8
+  %8 = load ptr, ptr %compiler_version_11, align 8
+  store ptr %8, ptr %compiler_version_, align 8
   store ptr %7, ptr %compiler_version_11, align 8
   ret void
 }
@@ -2840,19 +2842,27 @@ entry:
   store i32 %4, ptr %3, align 4
   %name_ = getelementptr inbounds i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds i8, ptr %other, i64 24
-  %6 = load <2 x ptr>, ptr %name_7, align 8
-  %7 = load <2 x i64>, ptr %name_, align 8
-  store <2 x i64> %7, ptr %name_7, align 8
-  store <2 x ptr> %6, ptr %name_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_7, align 8
+  %6 = load i64, ptr %name_, align 8
+  store i64 %6, ptr %name_7, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
+  %insertion_point_ = getelementptr inbounds i8, ptr %this, i64 32
+  %insertion_point_8 = getelementptr inbounds i8, ptr %other, i64 32
+  %__tmp.sroa.0.0.copyload.i8 = load ptr, ptr %insertion_point_8, align 8
+  %7 = load i64, ptr %insertion_point_, align 8
+  store i64 %7, ptr %insertion_point_8, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i8, ptr %insertion_point_, align 8
   %content_ = getelementptr inbounds i8, ptr %this, i64 40
   %content_9 = getelementptr inbounds i8, ptr %other, i64 40
+  %__tmp.sroa.0.0.copyload.i9 = load ptr, ptr %content_9, align 8
   %8 = load i64, ptr %content_, align 8
+  store i64 %8, ptr %content_9, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i9, ptr %content_, align 8
   %generated_code_info_ = getelementptr inbounds i8, ptr %this, i64 48
   %generated_code_info_10 = getelementptr inbounds i8, ptr %other, i64 48
   %9 = load ptr, ptr %generated_code_info_, align 8
-  %10 = load <2 x ptr>, ptr %content_9, align 8
-  store i64 %8, ptr %content_9, align 8
-  store <2 x ptr> %10, ptr %content_, align 8
+  %10 = load ptr, ptr %generated_code_info_10, align 8
+  store ptr %10, ptr %generated_code_info_, align 8
   store ptr %9, ptr %generated_code_info_10, align 8
   ret void
 }

@@ -22,10 +22,12 @@ $_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5Ent
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6Assimp13SGSpatialSortC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
+  %y.i = getelementptr inbounds i8, ptr %this, i64 4
   %z.i = getelementptr inbounds i8, ptr %this, i64 8
   %mPositions = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mPositions, i8 0, i64 24, i1 false)
-  store <2 x float> <float 0x3FE92E0560000000, float 0x3FD44774C0000000>, ptr %this, align 8
+  store float 0x3FE92E0560000000, ptr %this, align 8
+  store float 0x3FD44774C0000000, ptr %y.i, align 4
   store float 0x3FE0F23020000000, ptr %z.i, align 8
   ret void
 }

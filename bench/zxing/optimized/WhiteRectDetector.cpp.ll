@@ -115,7 +115,7 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
   br i1 %.not.i.i.i.i27.i, label %_ZNK5ZXing9BitMatrix3getEii.exit28.i, label %47
 
 47:                                               ; preds = %44
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %46, i64 noundef %30) #8
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %46, i64 noundef %30) #9
   unreachable
 
 _ZNK5ZXing9BitMatrix3getEii.exit28.i:             ; preds = %44
@@ -189,7 +189,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i:             ; preds = %44
 69:                                               ; preds = %67
   %70 = add nsw i64 %55, %65
   %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 %70)
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %umax, i64 noundef %30) #8
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %umax, i64 noundef %30) #9
   unreachable
 
 _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %67
@@ -264,7 +264,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %67
   br i1 %.not.i.i.i.i27.i231, label %_ZNK5ZXing9BitMatrix3getEii.exit28.i232, label %93
 
 93:                                               ; preds = %90
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %92, i64 noundef %30) #8
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %92, i64 noundef %30) #9
   unreachable
 
 _ZNK5ZXing9BitMatrix3getEii.exit28.i232:          ; preds = %90
@@ -335,7 +335,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit28.i232:          ; preds = %90
 113:                                              ; preds = %111
   %114 = add nsw i64 %98, %109
   %umax429 = tail call i64 @llvm.umax.i64(i64 %30, i64 %114)
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %umax429, i64 noundef %30) #8
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %umax429, i64 noundef %30) #9
   unreachable
 
 _ZNK5ZXing9BitMatrix3getEii.exit.i246:            ; preds = %111
@@ -460,149 +460,153 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i246:            ; preds = %111
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5ZXingL22GetBlackPointOnSegmentERKNS_9BitMatrixEiiiiRNS_11ResultPointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %7 = insertelement <2 x i32> poison, i32 %1, i64 0
-  %8 = insertelement <2 x i32> %7, i32 %2, i64 1
-  %9 = sitofp <2 x i32> %8 to <2 x double>
-  %10 = insertelement <2 x i32> poison, i32 %3, i64 0
-  %11 = insertelement <2 x i32> %10, i32 %4, i64 1
-  %12 = sitofp <2 x i32> %11 to <2 x double>
-  %13 = fsub <2 x double> %12, %9
-  %14 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %13)
-  %15 = extractelement <2 x double> %14, i64 0
-  %16 = extractelement <2 x double> %14, i64 1
-  %17 = fcmp olt double %15, %16
-  %.sroa.speculated.i.i.i.i = select i1 %17, double %16, double %15
-  %18 = insertelement <2 x double> poison, double %.sroa.speculated.i.i.i.i, i64 0
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %20 = fdiv <2 x double> %13, %19
-  %21 = fsub <2 x double> %9, %12
-  %22 = fsub <2 x double> %9, %12
-  %23 = shufflevector <2 x double> %20, <2 x double> %22, <2 x i32> <i32 3, i32 1>
-  %24 = fmul <2 x double> %23, %23
-  %25 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %26 = shufflevector <2 x double> %21, <2 x double> %25, <2 x i32> <i32 0, i32 3>
-  %27 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %26, <2 x double> %26, <2 x double> %24)
-  %28 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %27)
-  %29 = extractelement <2 x double> %28, i64 0
-  %30 = extractelement <2 x double> %28, i64 1
-  %31 = fdiv double %29, %30
-  %32 = tail call i64 @lround(double noundef %31) #9
-  %33 = icmp sgt i64 %32, 0
-  br i1 %33, label %.lr.ph, label %.loopexit
+  %7 = sitofp i32 %1 to double
+  %8 = sitofp i32 %2 to double
+  %9 = sitofp i32 %3 to double
+  %10 = sitofp i32 %4 to double
+  %11 = fsub double %9, %7
+  %12 = fsub double %10, %8
+  %13 = tail call noundef double @llvm.fabs.f64(double %11)
+  %14 = tail call noundef double @llvm.fabs.f64(double %12)
+  %15 = fcmp olt double %13, %14
+  %.sroa.speculated.i.i.i.i = select i1 %15, double %14, double %13
+  %16 = fdiv double %11, %.sroa.speculated.i.i.i.i
+  %17 = fdiv double %12, %.sroa.speculated.i.i.i.i
+  %18 = fsub double %7, %9
+  %19 = fsub double %8, %10
+  %20 = fmul double %19, %19
+  %21 = tail call noundef double @llvm.fmuladd.f64(double %18, double %18, double %20)
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %21)
+  %22 = fmul double %17, %17
+  %23 = tail call noundef double @llvm.fmuladd.f64(double %16, double %16, double %22)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %23)
+  %24 = fdiv double %sqrt.i.i, %sqrt.i
+  %25 = tail call i64 @lround(double noundef %24) #10
+  %26 = icmp sgt i64 %25, 0
+  br i1 %26, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6
-  %34 = load i32, ptr %0, align 8
-  %35 = sitofp i32 %34 to double
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
-  %37 = load i32, ptr %36, align 4
-  %38 = sitofp i32 %37 to double
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %39, align 8
-  %43 = ptrtoint ptr %41 to i64
-  %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  br label %46
+  %27 = load i32, ptr %0, align 8
+  %28 = sitofp i32 %27 to double
+  %29 = getelementptr inbounds i8, ptr %0, i64 4
+  %30 = load i32, ptr %29, align 4
+  %31 = sitofp i32 %30 to double
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %32, align 8
+  %36 = ptrtoint ptr %34 to i64
+  %37 = ptrtoint ptr %35 to i64
+  %38 = sub i64 %36, %37
+  br label %39
 
-46:                                               ; preds = %.lr.ph, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread
+39:                                               ; preds = %.lr.ph, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
-  %47 = phi i1 [ true, %.lr.ph ], [ %70, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
-  %48 = phi <2 x double> [ %9, %.lr.ph ], [ %69, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
-  %49 = extractelement <2 x double> %48, i64 0
-  %50 = fcmp ult double %49, 0.000000e+00
-  br i1 %50, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread, label %51
+  %40 = phi i1 [ true, %.lr.ph ], [ %61, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
+  %.sroa.8.040 = phi double [ %8, %.lr.ph ], [ %60, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
+  %.sroa.3.039 = phi double [ %7, %.lr.ph ], [ %59, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
+  %41 = fcmp ult double %.sroa.3.039, 0.000000e+00
+  br i1 %41, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread, label %42
 
-51:                                               ; preds = %46
-  %52 = fcmp olt double %49, %35
-  %53 = extractelement <2 x double> %48, i64 1
-  %54 = fcmp oge double %53, 0.000000e+00
-  %or.cond.i.i.i.i.not44 = select i1 %52, i1 %54, i1 false
-  %55 = fcmp olt double %53, %38
-  %or.cond = select i1 %or.cond.i.i.i.i.not44, i1 %55, i1 false
-  br i1 %or.cond, label %56, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread
+42:                                               ; preds = %39
+  %43 = fcmp olt double %.sroa.3.039, %28
+  %44 = fcmp oge double %.sroa.8.040, 0.000000e+00
+  %or.cond.i.i.i.i.not44 = select i1 %43, i1 %44, i1 false
+  %45 = fcmp olt double %.sroa.8.040, %31
+  %or.cond = select i1 %or.cond.i.i.i.i.not44, i1 %45, i1 false
+  br i1 %or.cond, label %46, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread
 
-56:                                               ; preds = %51
-  %57 = fptosi double %49 to i32
-  %58 = fptosi double %53 to i32
-  %59 = mul nsw i32 %34, %58
-  %60 = add nsw i32 %59, %57
-  %61 = sext i32 %60 to i64
-  %.not.i.i.i.i.i.i.i.i.i = icmp ugt i64 %45, %61
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit, label %62
+46:                                               ; preds = %42
+  %47 = fptosi double %.sroa.3.039 to i32
+  %48 = fptosi double %.sroa.8.040 to i32
+  %49 = mul nsw i32 %27, %48
+  %50 = add nsw i32 %49, %47
+  %51 = sext i32 %50 to i64
+  %.not.i.i.i.i.i.i.i.i.i = icmp ugt i64 %38, %51
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit, label %52
 
-62:                                               ; preds = %56
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %61, i64 noundef %45) #8
-          to label %.noexc.i.i unwind label %63
+52:                                               ; preds = %46
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %51, i64 noundef %38) #9
+          to label %.noexc.i.i unwind label %53
 
-.noexc.i.i:                                       ; preds = %62
+.noexc.i.i:                                       ; preds = %52
   unreachable
 
-63:                                               ; preds = %62
-  %64 = landingpad { ptr, i32 }
+53:                                               ; preds = %52
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  tail call void @__clang_call_terminate(ptr %65) #10
+  %55 = extractvalue { ptr, i32 } %54, 0
+  tail call void @__clang_call_terminate(ptr %55) #11
   unreachable
 
-_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit: ; preds = %56
-  %66 = getelementptr inbounds i8, ptr %42, i64 %61
-  %67 = load i8, ptr %66, align 1
-  %.not = icmp eq i8 %67, 0
-  br i1 %.not, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread, label %68
+_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit: ; preds = %46
+  %56 = getelementptr inbounds i8, ptr %35, i64 %51
+  %57 = load i8, ptr %56, align 1
+  %.not = icmp eq i8 %57, 0
+  br i1 %.not, label %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread, label %58
 
-68:                                               ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit
-  store <2 x double> %48, ptr %5, align 8
+58:                                               ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit
+  store double %.sroa.3.039, ptr %5, align 8
+  %.sroa.2.0..sroa_idx21 = getelementptr inbounds i8, ptr %5, i64 8
+  store double %.sroa.8.040, ptr %.sroa.2.0..sroa_idx21, align 8
   br label %.loopexit
 
-_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread: ; preds = %46, %51, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit
-  %69 = fadd <2 x double> %20, %48
+_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread: ; preds = %39, %42, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit
+  %59 = fadd double %16, %.sroa.3.039
+  %60 = fadd double %17, %.sroa.8.040
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = icmp sgt i64 %32, %indvars.iv.next
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %32
-  br i1 %exitcond.not, label %.loopexit, label %46, !llvm.loop !16
+  %61 = icmp sgt i64 %25, %indvars.iv.next
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %25
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !16
 
-.loopexit:                                        ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread, %6, %68
-  %71 = phi i1 [ %47, %68 ], [ false, %6 ], [ %70, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
-  ret i1 %71
+.loopexit:                                        ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread, %6, %58
+  %62 = phi i1 [ %40, %58 ], [ false, %6 ], [ %61, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread ]
+  ret i1 %62
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal fastcc void @_ZN5ZXingL11CenterEdgesERKNS_11ResultPointES2_S2_S2_iRS0_S3_S3_S3_(double %.0.val, double %.8.val, double %.0.val1, double %.8.val3, double %.0.val5, double %.8.val7, double %.0.val9, double %.8.val11, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %4) unnamed_addr #2 {
-  %6 = insertelement <2 x double> poison, double %.0.val, i64 0
-  %7 = insertelement <2 x double> %6, double %.8.val, i64 1
-  %8 = fptrunc <2 x double> %7 to <2 x float>
-  %9 = insertelement <2 x double> poison, double %.0.val1, i64 0
-  %10 = insertelement <2 x double> %9, double %.8.val3, i64 1
-  %11 = fptrunc <2 x double> %10 to <2 x float>
-  %12 = insertelement <2 x double> poison, double %.0.val5, i64 0
-  %13 = insertelement <2 x double> %12, double %.8.val7, i64 1
-  %14 = fptrunc <2 x double> %13 to <2 x float>
-  %15 = insertelement <2 x double> poison, double %.0.val9, i64 0
-  %16 = insertelement <2 x double> %15, double %.8.val11, i64 1
-  %17 = fptrunc <2 x double> %16 to <2 x float>
-  %18 = sitofp i32 %0 to float
-  %19 = fmul float %18, 5.000000e-01
-  %20 = extractelement <2 x float> %8, i64 0
-  %21 = fcmp ogt float %19, %20
-  %. = select i1 %21, float -1.000000e+00, float 1.000000e+00
-  %.38 = select i1 %21, float 1.000000e+00, float -1.000000e+00
-  %22 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %., i64 0
-  %23 = fadd <2 x float> %22, %17
-  %24 = fpext <2 x float> %23 to <2 x double>
-  store <2 x double> %24, ptr %1, align 8
-  %25 = insertelement <2 x float> <float 1.000000e+00, float poison>, float %.38, i64 1
-  %26 = fadd <2 x float> %25, %11
-  %27 = fpext <2 x float> %26 to <2 x double>
-  store <2 x double> %27, ptr %2, align 8
-  %28 = insertelement <2 x float> <float -1.000000e+00, float poison>, float %., i64 1
-  %29 = fadd <2 x float> %28, %14
-  %30 = fpext <2 x float> %29 to <2 x double>
-  store <2 x double> %30, ptr %3, align 8
-  %31 = insertelement <2 x float> <float poison, float -1.000000e+00>, float %.38, i64 0
-  %32 = fadd <2 x float> %31, %8
-  %33 = fpext <2 x float> %32 to <2 x double>
-  store <2 x double> %33, ptr %4, align 8
+  %6 = fptrunc double %.0.val to float
+  %7 = fptrunc double %.8.val3 to float
+  %8 = fptrunc double %.8.val7 to float
+  %9 = fptrunc double %.0.val9 to float
+  %10 = sitofp i32 %0 to float
+  %11 = fmul float %10, 5.000000e-01
+  %12 = fcmp ogt float %11, %6
+  %. = select i1 %12, float -1.000000e+00, float 1.000000e+00
+  %.38 = select i1 %12, float 1.000000e+00, float -1.000000e+00
+  %13 = fadd float %., %9
+  %14 = fadd float %.38, %7
+  %15 = fadd float %., %8
+  %16 = fadd float %.38, %6
+  %17 = fptrunc double %.8.val to float
+  %.sink.in = fadd float %17, -1.000000e+00
+  %.sink = fpext float %.sink.in to double
+  %.sink27 = fpext float %16 to double
+  %.sink28 = fpext float %15 to double
+  %18 = fptrunc double %.0.val5 to float
+  %.sink29.in = fadd float %18, -1.000000e+00
+  %.sink29 = fpext float %.sink29.in to double
+  %.sink30 = fpext float %14 to double
+  %19 = fptrunc double %.0.val1 to float
+  %.sink31.in = fadd float %19, 1.000000e+00
+  %.sink31 = fpext float %.sink31.in to double
+  %20 = fptrunc double %.8.val11 to float
+  %.sink32.in = fadd float %20, 1.000000e+00
+  %.sink32 = fpext float %.sink32.in to double
+  %.sink33 = fpext float %13 to double
+  store double %.sink33, ptr %1, align 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  store double %.sink32, ptr %21, align 8
+  store double %.sink31, ptr %2, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %.sink30, ptr %22, align 8
+  store double %.sink29, ptr %3, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  store double %.sink28, ptr %23, align 8
+  store double %.sink27, ptr %4, align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  store double %.sink, ptr %24, align 8
   ret void
 }
 
@@ -612,12 +616,18 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 ; Function Attrs: nounwind
 declare i64 @lround(double noundef) local_unnamed_addr #4
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #5
+
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
-  tail call void @_ZSt9terminatev() #10
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+  tail call void @_ZSt9terminatev() #11
   unreachable
 }
 
@@ -626,37 +636,32 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #7
+declare double @llvm.sqrt.f64(double) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #7
+declare i64 @llvm.umax.i64(i64, i64) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { noreturn }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { noreturn }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

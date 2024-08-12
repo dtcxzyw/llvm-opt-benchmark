@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PgStat_WalStats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.WalUsage = type { i64, i64, i64 }
 
-@PendingWalStats = dso_local local_unnamed_addr global %struct.PgStat_PendingWalStats zeroinitializer, align 16
+@PendingWalStats = dso_local local_unnamed_addr global %struct.PgStat_PendingWalStats zeroinitializer, align 8
 @pgStatLocal = external global %struct.PgStat_LocalState, align 8
 @pgWalUsage = external global %struct.WalUsage, align 8
 @prevWalUsage = internal global %struct.WalUsage zeroinitializer, align 8
@@ -31,17 +31,17 @@ define dso_local void @pgstat_report_wal(i1 noundef zeroext %0) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @pgstat_flush_wal(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = alloca %struct.WalUsage, align 16
+  %2 = alloca %struct.WalUsage, align 8
   %3 = load ptr, ptr @pgStatLocal, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 17760
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %5 = load i64, ptr @pgWalUsage, align 8
   %6 = load i64, ptr @prevWalUsage, align 8
   %7 = icmp ne i64 %5, %6
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 8), align 8
   %9 = icmp ne i64 %8, 0
   %or.cond.i = select i1 %7, i1 true, i1 %9
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 16), align 16
+  %10 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 16), align 8
   %11 = icmp ne i64 %10, 0
   %or.cond = select i1 %or.cond.i, i1 true, i1 %11
   br i1 %or.cond, label %pgstat_have_pending_wal.exit.thread, label %.loopexit
@@ -59,42 +59,53 @@ pgstat_have_pending_wal.exit.thread:              ; preds = %1
   br i1 %15, label %.loopexit.loopexit, label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %14, %12
-  %16 = getelementptr inbounds i8, ptr %3, i64 17776
-  %17 = load <2 x i64>, ptr %2, align 16
-  %18 = load <2 x i64>, ptr %16, align 8
-  %19 = add <2 x i64> %18, %17
-  store <2 x i64> %19, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
-  %21 = load i64, ptr %20, align 16
-  %22 = getelementptr inbounds i8, ptr %3, i64 17792
+  %16 = load i64, ptr %2, align 8
+  %17 = getelementptr inbounds i8, ptr %3, i64 17776
+  %18 = load i64, ptr %17, align 8
+  %19 = add i64 %18, %16
+  store i64 %19, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %3, i64 17784
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, %21
   store i64 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 17800
-  %26 = load <2 x i64>, ptr @PendingWalStats, align 16
-  %27 = load <2 x i64>, ptr %25, align 8
-  %28 = add <2 x i64> %27, %26
-  store <2 x i64> %28, ptr %25, align 8
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 16), align 16
-  %30 = getelementptr inbounds i8, ptr %3, i64 17816
-  %31 = load i64, ptr %30, align 8
-  %32 = add i64 %31, %29
-  store i64 %32, ptr %30, align 8
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 24), align 8
-  %34 = sdiv i64 %33, 1000
-  %35 = getelementptr inbounds i8, ptr %3, i64 17824
+  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %3, i64 17792
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %28, %26
+  store i64 %29, ptr %27, align 8
+  %30 = load i64, ptr @PendingWalStats, align 8
+  %31 = getelementptr inbounds i8, ptr %3, i64 17800
+  %32 = load i64, ptr %31, align 8
+  %33 = add i64 %32, %30
+  store i64 %33, ptr %31, align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 8), align 8
+  %35 = getelementptr inbounds i8, ptr %3, i64 17808
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, %34
   store i64 %37, ptr %35, align 8
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 32), align 16
-  %39 = sdiv i64 %38, 1000
-  %40 = getelementptr inbounds i8, ptr %3, i64 17832
-  %41 = load i64, ptr %40, align 8
-  %42 = add i64 %41, %39
-  store i64 %42, ptr %40, align 8
+  %38 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 16), align 8
+  %39 = getelementptr inbounds i8, ptr %3, i64 17816
+  %40 = load i64, ptr %39, align 8
+  %41 = add i64 %40, %38
+  store i64 %41, ptr %39, align 8
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 24), align 8
+  %43 = sdiv i64 %42, 1000
+  %44 = getelementptr inbounds i8, ptr %3, i64 17824
+  %45 = load i64, ptr %44, align 8
+  %46 = add i64 %45, %43
+  store i64 %46, ptr %44, align 8
+  %47 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 32), align 8
+  %48 = sdiv i64 %47, 1000
+  %49 = getelementptr inbounds i8, ptr %3, i64 17832
+  %50 = load i64, ptr %49, align 8
+  %51 = add i64 %50, %48
+  store i64 %51, ptr %49, align 8
   call void @LWLockRelease(ptr noundef nonnull %4) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @prevWalUsage, ptr noundef nonnull align 8 dereferenceable(24) @pgWalUsage, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @PendingWalStats, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @PendingWalStats, i8 0, i64 40, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %1, %14
@@ -126,7 +137,7 @@ define dso_local zeroext i1 @pgstat_have_pending_wal() local_unnamed_addr #3 {
   br i1 %or.cond, label %9, label %6
 
 6:                                                ; preds = %0
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 16), align 16
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 16), align 8
   %8 = icmp ne i64 %7, 0
   br label %9
 

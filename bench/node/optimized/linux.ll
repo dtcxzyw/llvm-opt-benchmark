@@ -4582,13 +4582,19 @@ if.end7:                                          ; preds = %if.then, %entry
 
 if.end11:                                         ; preds = %if.end7
   %loads = getelementptr inbounds i8, ptr %info, i64 8
-  %0 = load <2 x i64>, ptr %loads, align 8
-  %1 = uitofp <2 x i64> %0 to <2 x double>
-  %2 = fmul <2 x double> %1, <double 0x3EF0000000000000, double 0x3EF0000000000000>
-  store <2 x double> %2, ptr %avg, align 8
+  %0 = load i64, ptr %loads, align 8
+  %conv = uitofp i64 %0 to double
+  %div = fmul double %conv, 0x3EF0000000000000
+  store double %div, ptr %avg, align 8
+  %arrayidx15 = getelementptr inbounds i8, ptr %info, i64 16
+  %1 = load i64, ptr %arrayidx15, align 8
+  %conv16 = uitofp i64 %1 to double
+  %div17 = fmul double %conv16, 0x3EF0000000000000
+  %arrayidx18 = getelementptr inbounds i8, ptr %avg, i64 8
+  store double %div17, ptr %arrayidx18, align 8
   %arrayidx20 = getelementptr inbounds i8, ptr %info, i64 24
-  %3 = load i64, ptr %arrayidx20, align 8
-  %conv21 = uitofp i64 %3 to double
+  %2 = load i64, ptr %arrayidx20, align 8
+  %conv21 = uitofp i64 %2 to double
   %div22 = fmul double %conv21, 0x3EF0000000000000
   %arrayidx23 = getelementptr inbounds i8, ptr %avg, i64 16
   store double %div22, ptr %arrayidx23, align 8

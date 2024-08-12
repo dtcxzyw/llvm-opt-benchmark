@@ -228,12 +228,13 @@ define linkonce_odr hidden void @_ZN2cv4usac15GammaValuesImplC2Eii(ptr noundef n
 
 11:                                               ; preds = %3
   %12 = sitofp i32 %2 to double
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
-  %14 = fmul double %12, 3.040000e+00
-  %15 = insertelement <2 x double> poison, double %12, i64 0
-  %16 = insertelement <2 x double> %15, double %14, i64 1
-  %17 = fdiv <2 x double> %16, <double 7.500000e+00, double 7.500000e+00>
-  store <2 x double> %17, ptr %13, align 8
+  %13 = fdiv double %12, 7.500000e+00
+  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  store double %13, ptr %14, align 8
+  %15 = fmul double %12, 3.040000e+00
+  %16 = fdiv double %15, 7.500000e+00
+  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  store double %16, ptr %17, align 8
   %18 = invoke noalias noundef nonnull dereferenceable(400) ptr @_Znwm(i64 noundef 400) #13
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit unwind label %_ZNSt12_Vector_baseIdSaIdEED2Ev.exit.i
 
@@ -268,12 +269,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit90:                  ; preds = %_ZNSt6vectorIdSaIdE
 
 24:                                               ; preds = %3
   %25 = sitofp i32 %2 to double
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
-  %27 = fmul double %25, 3.640000e+00
-  %28 = insertelement <2 x double> poison, double %25, i64 0
-  %29 = insertelement <2 x double> %28, double %27, i64 1
-  %30 = fdiv <2 x double> %29, <double 2.500000e+00, double 2.500000e+00>
-  store <2 x double> %30, ptr %26, align 8
+  %26 = fdiv double %25, 2.500000e+00
+  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  store double %26, ptr %27, align 8
+  %28 = fmul double %25, 3.640000e+00
+  %29 = fdiv double %28, 2.500000e+00
+  %30 = getelementptr inbounds i8, ptr %0, i64 88
+  store double %29, ptr %30, align 8
   %31 = invoke noalias noundef nonnull dereferenceable(400) ptr @_Znwm(i64 noundef 400) #13
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit100 unwind label %_ZNSt12_Vector_baseIdSaIdEED2Ev.exit.i92
 

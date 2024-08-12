@@ -85,7 +85,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qmp_chardev_open_serial(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture readnone %be_opened, ptr noundef %errp) #0 {
 entry:
-  %tty.i = alloca %struct.termios, align 8
+  %tty.i = alloca %struct.termios, align 4
   %u = getelementptr inbounds i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
   %device = getelementptr inbounds i8, ptr %0, i64 16
@@ -107,22 +107,26 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %tty.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %tty.i, i8 0, i64 60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %tty.i, i8 0, i64 60, i1 false)
   %call.i = call i32 @tcgetattr(i32 noundef %call, ptr noundef nonnull %tty.i) #7
   %call88.i = call i32 @cfsetispeed(ptr noundef nonnull %tty.i, i32 noundef 4098) #7
   %call89.i = call i32 @cfsetospeed(ptr noundef nonnull %tty.i, i32 noundef 4098) #7
-  %3 = load <2 x i32>, ptr %tty.i, align 8
-  %4 = and <2 x i32> %3, <i32 -1516, i32 -2>
-  store <2 x i32> %4, ptr %tty.i, align 8
+  %3 = load i32, ptr %tty.i, align 4
+  %and.i = and i32 %3, -1516
+  store i32 %and.i, ptr %tty.i, align 4
+  %c_oflag.i = getelementptr inbounds i8, ptr %tty.i, i64 4
+  %4 = load i32, ptr %c_oflag.i, align 4
+  %and90.i = and i32 %4, -2
+  store i32 %and90.i, ptr %c_oflag.i, align 4
   %c_lflag.i = getelementptr inbounds i8, ptr %tty.i, i64 12
   %5 = load i32, ptr %c_lflag.i, align 4
   %and91.i = and i32 %5, -32844
   store i32 %and91.i, ptr %c_lflag.i, align 4
   %c_cflag.i = getelementptr inbounds i8, ptr %tty.i, i64 8
-  %6 = load i32, ptr %c_cflag.i, align 8
+  %6 = load i32, ptr %c_cflag.i, align 4
   %and92.i = and i32 %6, 2147482767
   %or.i = or disjoint i32 %and92.i, 48
-  store i32 %or.i, ptr %c_cflag.i, align 8
+  store i32 %or.i, ptr %c_cflag.i, align 4
   %call117.i = call i32 @tcsetattr(i32 noundef %call, i32 noundef 0, ptr noundef nonnull %tty.i) #7
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %tty.i)
   call void @qemu_chr_open_fd(ptr noundef %chr, i32 noundef %call, i32 noundef %call) #7
@@ -234,8 +238,8 @@ declare ptr @__errno_location() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @tty_serial_init(i32 noundef %fd, i32 noundef %speed, i32 noundef %parity, i32 noundef %data_bits, i32 noundef %stop_bits) unnamed_addr #0 {
 entry:
-  %tty = alloca %struct.termios, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %tty, i8 0, i64 60, i1 false)
+  %tty = alloca %struct.termios, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %tty, i8 0, i64 60, i1 false)
   %call = call i32 @tcgetattr(i32 noundef %fd, ptr noundef nonnull %tty) #7
   %mul = mul i32 %speed, 10
   %cmp = icmp slt i32 %mul, 561
@@ -362,15 +366,19 @@ done:                                             ; preds = %if.end84, %if.end81
   %spd.0 = phi i32 [ 1, %entry ], [ 2, %if.end ], [ 3, %if.end3 ], [ 4, %if.end6 ], [ 5, %if.end9 ], [ 6, %if.end12 ], [ 7, %if.end15 ], [ 8, %if.end18 ], [ 9, %if.end21 ], [ 10, %if.end24 ], [ 11, %if.end27 ], [ 12, %if.end30 ], [ 13, %if.end33 ], [ 14, %if.end36 ], [ 15, %if.end39 ], [ 4097, %if.end42 ], [ 4098, %if.end45 ], [ 4099, %if.end48 ], [ 4100, %if.end51 ], [ 4101, %if.end54 ], [ 4102, %if.end57 ], [ 4103, %if.end60 ], [ 4104, %if.end63 ], [ 4105, %if.end66 ], [ 4106, %if.end69 ], [ 4107, %if.end72 ], [ 4108, %if.end75 ], [ 4109, %if.end78 ], [ 4110, %if.end81 ], [ %., %if.end84 ]
   %call88 = call i32 @cfsetispeed(ptr noundef nonnull %tty, i32 noundef %spd.0) #7
   %call89 = call i32 @cfsetospeed(ptr noundef nonnull %tty, i32 noundef %spd.0) #7
-  %0 = load <2 x i32>, ptr %tty, align 8
-  %1 = and <2 x i32> %0, <i32 -1516, i32 -2>
-  store <2 x i32> %1, ptr %tty, align 8
+  %0 = load i32, ptr %tty, align 4
+  %and = and i32 %0, -1516
+  store i32 %and, ptr %tty, align 4
+  %c_oflag = getelementptr inbounds i8, ptr %tty, i64 4
+  %1 = load i32, ptr %c_oflag, align 4
+  %and90 = and i32 %1, -2
+  store i32 %and90, ptr %c_oflag, align 4
   %c_lflag = getelementptr inbounds i8, ptr %tty, i64 12
   %2 = load i32, ptr %c_lflag, align 4
   %and91 = and i32 %2, -32844
   store i32 %and91, ptr %c_lflag, align 4
   %c_cflag = getelementptr inbounds i8, ptr %tty, i64 8
-  %3 = load i32, ptr %c_cflag, align 8
+  %3 = load i32, ptr %c_cflag, align 4
   %and92 = and i32 %3, 2147482767
   switch i32 %data_bits, label %sw.bb [
     i32 5, label %sw.epilog
@@ -392,7 +400,7 @@ sw.bb97:                                          ; preds = %done
 
 sw.epilog:                                        ; preds = %done, %sw.bb97, %sw.bb94, %sw.bb
   %and92.sink = phi i32 [ %or99, %sw.bb97 ], [ %or96, %sw.bb94 ], [ %or, %sw.bb ], [ %and92, %done ]
-  store i32 %and92.sink, ptr %c_cflag, align 8
+  store i32 %and92.sink, ptr %c_cflag, align 4
   switch i32 %parity, label %sw.epilog111 [
     i32 79, label %sw.bb108
     i32 69, label %sw.epilog111.sink.split
@@ -404,7 +412,7 @@ sw.bb108:                                         ; preds = %sw.epilog
 sw.epilog111.sink.split:                          ; preds = %sw.epilog, %sw.bb108
   %.sink = phi i32 [ 768, %sw.bb108 ], [ 256, %sw.epilog ]
   %or110 = or i32 %and92.sink, %.sink
-  store i32 %or110, ptr %c_cflag, align 8
+  store i32 %or110, ptr %c_cflag, align 4
   br label %sw.epilog111
 
 sw.epilog111:                                     ; preds = %sw.epilog111.sink.split, %sw.epilog
@@ -414,7 +422,7 @@ sw.epilog111:                                     ; preds = %sw.epilog111.sink.s
 
 if.then113:                                       ; preds = %sw.epilog111
   %or115 = or i32 %4, 64
-  store i32 %or115, ptr %c_cflag, align 8
+  store i32 %or115, ptr %c_cflag, align 4
   br label %if.end116
 
 if.end116:                                        ; preds = %if.then113, %sw.epilog111

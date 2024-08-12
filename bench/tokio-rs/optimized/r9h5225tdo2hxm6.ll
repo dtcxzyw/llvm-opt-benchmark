@@ -818,17 +818,20 @@ define hidden { i64, i64 } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
-  %8 = load i64, ptr %7, align 8, !range !59, !noundef !10
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
-  %10 = load i64, ptr %9, align 8
-  %11 = load <2 x i64>, ptr %1, align 8
-  store <2 x i64> %11, ptr %7, align 8
+  %.val = load i64, ptr %1, align 8, !range !59, !noundef !10
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %.val10 = load i64, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = load i64, ptr %8, align 8, !range !59, !noundef !10
+  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = load i64, ptr %10, align 8
+  store i64 %.val, ptr %8, align 8
+  store i64 %.val10, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %2, %6
-  %.sroa.3.0 = phi i64 [ %10, %6 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %8, %6 ], [ 2, %2 ]
+  %.sroa.3.0 = phi i64 [ %11, %6 ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ %9, %6 ], [ 2, %2 ]
   %13 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %14 = insertvalue { i64, i64 } %13, i64 %.sroa.3.0, 1
   ret { i64, i64 } %14

@@ -563,14 +563,14 @@ define internal i32 @socketTransport_startListening(ptr nocapture readnone %0, p
   %5 = alloca [20 x i8], align 16
   %6 = alloca %struct.sockaddr_storage, align 8
   %7 = alloca i32, align 4
-  %8 = alloca %struct.in6_addr, align 16
+  %8 = alloca %struct.in6_addr, align 8
   %9 = alloca %struct.sockaddr_in6, align 4
-  %10 = alloca %struct.in6_addr, align 16
+  %10 = alloca %struct.in6_addr, align 8
   %11 = alloca %struct.sockaddr_in6, align 4
   %12 = alloca ptr, align 8
-  %13 = alloca %struct.in6_addr, align 16
+  %13 = alloca %struct.in6_addr, align 8
   store ptr null, ptr %12, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = icmp eq ptr %1, null
   br i1 %14, label %18, label %15
 
@@ -586,7 +586,7 @@ define internal i32 @socketTransport_startListening(ptr nocapture readnone %0, p
   %.022 = phi ptr [ @.str.23, %18 ], [ %1, %15 ]
   %20 = call fastcc i32 @parseAddress(ptr noundef nonnull %.022, ptr noundef nonnull %12)
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %21, label %104
+  br i1 %.not, label %21, label %109
 
 21:                                               ; preds = %19
   %22 = load i32, ptr @preferredAddressFamily, align 4
@@ -619,15 +619,19 @@ define internal i32 @socketTransport_startListening(ptr nocapture readnone %0, p
 
 30:                                               ; preds = %.loopexit48
   %31 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull @.str.24, ptr noundef nonnull %13) #13
-  %32 = getelementptr i8, ptr %spec.select, i64 24
-  %spec.select.val = load ptr, ptr %32, align 8
+  %32 = load i64, ptr %13, align 8
+  %33 = getelementptr inbounds i8, ptr %13, i64 8
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr i8, ptr %spec.select, i64 24
+  %spec.select.val = load ptr, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %11)
-  %33 = load <2 x i64>, ptr %13, align 16
-  store <2 x i64> %33, ptr %10, align 16
-  %34 = load i16, ptr %spec.select.val, align 2
-  %35 = icmp eq i16 %34, 10
-  br i1 %35, label %isEqualIPv6Addr.exit, label %isEqualIPv6Addr.exit.thread
+  store i64 %32, ptr %10, align 8
+  %36 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 %34, ptr %36, align 8
+  %37 = load i16, ptr %spec.select.val, align 2
+  %38 = icmp eq i16 %37, 10
+  br i1 %38, label %isEqualIPv6Addr.exit, label %isEqualIPv6Addr.exit.thread
 
 isEqualIPv6Addr.exit.thread:                      ; preds = %30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -636,8 +640,8 @@ isEqualIPv6Addr.exit.thread:                      ; preds = %30
 
 isEqualIPv6Addr.exit:                             ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull readonly align 4 dereferenceable(28) %spec.select.val, i64 28, i1 false)
-  %36 = getelementptr inbounds i8, ptr %11, i64 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %36, ptr noundef nonnull dereferenceable(16) %10, i64 16)
+  %39 = getelementptr inbounds i8, ptr %11, i64 8
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %39, ptr noundef nonnull dereferenceable(16) %10, i64 16)
   %.not45 = icmp eq i32 %bcmp.i, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11)
@@ -649,178 +653,181 @@ isEqualIPv6Addr.exit:                             ; preds = %30
   br i1 %.not3155, label %.loopexit, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.preheader
-  %37 = load <2 x i64>, ptr @in6addr_any, align 4
-  %38 = getelementptr inbounds i8, ptr %9, i64 8
-  br label %39
+  %40 = load i64, ptr @in6addr_any, align 4
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @in6addr_any, i64 8), align 4
+  %42 = getelementptr inbounds i8, ptr %8, i64 8
+  %43 = getelementptr inbounds i8, ptr %9, i64 8
+  br label %44
 
-39:                                               ; preds = %.lr.ph57, %43
-  %.156 = phi ptr [ %.154, %.lr.ph57 ], [ %.1, %43 ]
-  %40 = getelementptr i8, ptr %.156, i64 24
-  %.1.val = load ptr, ptr %40, align 8
+44:                                               ; preds = %.lr.ph57, %48
+  %.156 = phi ptr [ %.154, %.lr.ph57 ], [ %.1, %48 ]
+  %45 = getelementptr i8, ptr %.156, i64 24
+  %.1.val = load ptr, ptr %45, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9)
-  store <2 x i64> %37, ptr %8, align 16
-  %41 = load i16, ptr %.1.val, align 2
-  %42 = icmp eq i16 %41, 10
-  br i1 %42, label %isEqualIPv6Addr.exit36, label %isEqualIPv6Addr.exit36.thread
+  store i64 %40, ptr %8, align 8
+  store i64 %41, ptr %42, align 8
+  %46 = load i16, ptr %.1.val, align 2
+  %47 = icmp eq i16 %46, 10
+  br i1 %47, label %isEqualIPv6Addr.exit36, label %isEqualIPv6Addr.exit36.thread
 
-isEqualIPv6Addr.exit36.thread:                    ; preds = %39
+isEqualIPv6Addr.exit36.thread:                    ; preds = %44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9)
-  br label %43
+  br label %48
 
-isEqualIPv6Addr.exit36:                           ; preds = %39
+isEqualIPv6Addr.exit36:                           ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull readonly align 4 dereferenceable(28) %.1.val, i64 28, i1 false)
-  %bcmp.i35 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %38, ptr noundef nonnull dereferenceable(16) %8, i64 16)
+  %bcmp.i35 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %43, ptr noundef nonnull dereferenceable(16) %8, i64 16)
   %.not46 = icmp eq i32 %bcmp.i35, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9)
-  br i1 %.not46, label %.loopexit, label %43
+  br i1 %.not46, label %.loopexit, label %48
 
-43:                                               ; preds = %isEqualIPv6Addr.exit36.thread, %isEqualIPv6Addr.exit36
-  %44 = getelementptr inbounds i8, ptr %.156, i64 40
-  %.1 = load ptr, ptr %44, align 8
+48:                                               ; preds = %isEqualIPv6Addr.exit36.thread, %isEqualIPv6Addr.exit36
+  %49 = getelementptr inbounds i8, ptr %.156, i64 40
+  %.1 = load ptr, ptr %49, align 8
   %.not31 = icmp eq ptr %.1, null
-  br i1 %.not31, label %.loopexit, label %39, !llvm.loop !11
+  br i1 %.not31, label %.loopexit, label %44, !llvm.loop !11
 
-.loopexit:                                        ; preds = %43, %isEqualIPv6Addr.exit36, %.preheader, %isEqualIPv6Addr.exit.thread, %isEqualIPv6Addr.exit, %.loopexit48
-  %.2 = phi ptr [ %spec.select, %.loopexit48 ], [ %spec.select, %isEqualIPv6Addr.exit ], [ %spec.select, %isEqualIPv6Addr.exit.thread ], [ %spec.select, %.preheader ], [ %spec.select, %43 ], [ %.156, %isEqualIPv6Addr.exit36 ]
+.loopexit:                                        ; preds = %48, %isEqualIPv6Addr.exit36, %.preheader, %isEqualIPv6Addr.exit.thread, %isEqualIPv6Addr.exit, %.loopexit48
+  %.2 = phi ptr [ %spec.select, %.loopexit48 ], [ %spec.select, %isEqualIPv6Addr.exit ], [ %spec.select, %isEqualIPv6Addr.exit.thread ], [ %spec.select, %.preheader ], [ %spec.select, %48 ], [ %.156, %isEqualIPv6Addr.exit36 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %45 = getelementptr inbounds i8, ptr %.2, i64 4
-  %46 = load i32, ptr %45, align 4
-  %47 = call i32 @dbgsysSocket(i32 noundef %46, i32 noundef 1, i32 noundef 6) #13
-  store i32 %47, ptr @serverSocketFD, align 4
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %49, label %50
+  %50 = getelementptr inbounds i8, ptr %.2, i64 4
+  %51 = load i32, ptr %50, align 4
+  %52 = call i32 @dbgsysSocket(i32 noundef %51, i32 noundef 1, i32 noundef 6) #13
+  store i32 %52, ptr @serverSocketFD, align 4
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %54, label %55
 
-49:                                               ; preds = %.loopexit
+54:                                               ; preds = %.loopexit
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.25)
-  br label %98
+  br label %103
 
-50:                                               ; preds = %.loopexit
-  %51 = load i32, ptr %45, align 4
+55:                                               ; preds = %.loopexit
+  %56 = load i32, ptr %50, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %52 = icmp eq i32 %51, 10
-  br i1 %52, label %53, label %55
-
-53:                                               ; preds = %50
-  store i32 0, ptr %4, align 4
-  %54 = call i32 @setsockopt(i32 noundef %47, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %4, i32 noundef 4) #13
-  br label %55
-
-55:                                               ; preds = %53, %50
-  %56 = call i32 @dbgsysSetSocketOption(i32 noundef %47, i32 noundef 1, i8 noundef zeroext 1, i64 0) #13
-  %57 = icmp slt i32 %56, 0
-  br i1 %57, label %setOptionsCommon.exit.i, label %58
-
-setOptionsCommon.exit.i:                          ; preds = %55
-  call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %98
+  %57 = icmp eq i32 %56, 10
+  br i1 %57, label %58, label %60
 
 58:                                               ; preds = %55
+  store i32 0, ptr %4, align 4
+  %59 = call i32 @setsockopt(i32 noundef %52, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %4, i32 noundef 4) #13
+  br label %60
+
+60:                                               ; preds = %58, %55
+  %61 = call i32 @dbgsysSetSocketOption(i32 noundef %52, i32 noundef 1, i8 noundef zeroext 1, i64 0) #13
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %setOptionsCommon.exit.i, label %63
+
+setOptionsCommon.exit.i:                          ; preds = %60
+  call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %59 = getelementptr inbounds i8, ptr %.2, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr i8, ptr %60, i64 2
-  %.val.i = load i16, ptr %61, align 2
-  %62 = call zeroext i16 @dbgsysNetworkToHostShort(i16 noundef zeroext %.val.i) #13
-  %.not27.i = icmp eq i16 %62, 0
-  br i1 %.not27.i, label %setReuseAddrOption.exit.thread.i, label %63
+  br label %103
 
-63:                                               ; preds = %58
-  %64 = load i32, ptr @serverSocketFD, align 4
-  %65 = call i32 @dbgsysSetSocketOption(i32 noundef %64, i32 noundef 2, i8 noundef zeroext 1, i64 0) #13
-  %66 = icmp slt i32 %65, 0
-  br i1 %66, label %setReuseAddrOption.exit.i, label %setReuseAddrOption.exit.thread.i
+63:                                               ; preds = %60
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  %64 = getelementptr inbounds i8, ptr %.2, i64 24
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr i8, ptr %65, i64 2
+  %.val.i = load i16, ptr %66, align 2
+  %67 = call zeroext i16 @dbgsysNetworkToHostShort(i16 noundef zeroext %.val.i) #13
+  %.not27.i = icmp eq i16 %67, 0
+  br i1 %.not27.i, label %setReuseAddrOption.exit.thread.i, label %68
 
-setReuseAddrOption.exit.i:                        ; preds = %63
+68:                                               ; preds = %63
+  %69 = load i32, ptr @serverSocketFD, align 4
+  %70 = call i32 @dbgsysSetSocketOption(i32 noundef %69, i32 noundef 2, i8 noundef zeroext 1, i64 0) #13
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %setReuseAddrOption.exit.i, label %setReuseAddrOption.exit.thread.i
+
+setReuseAddrOption.exit.i:                        ; preds = %68
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.30)
-  br label %98
+  br label %103
 
-setReuseAddrOption.exit.thread.i:                 ; preds = %63, %58
-  %67 = load i32, ptr @serverSocketFD, align 4
-  %68 = load ptr, ptr %59, align 8
-  %69 = getelementptr inbounds i8, ptr %.2, i64 16
-  %70 = load i32, ptr %69, align 8
-  %71 = call i32 @dbgsysBind(i32 noundef %67, ptr noundef %68, i32 noundef %70) #13
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %73, label %74
-
-73:                                               ; preds = %setReuseAddrOption.exit.thread.i
-  call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.26)
-  br label %98
-
-74:                                               ; preds = %setReuseAddrOption.exit.thread.i
-  %75 = load i32, ptr @serverSocketFD, align 4
-  %76 = call i32 @dbgsysListen(i32 noundef %75, i32 noundef 1) #13
+setReuseAddrOption.exit.thread.i:                 ; preds = %68, %63
+  %72 = load i32, ptr @serverSocketFD, align 4
+  %73 = load ptr, ptr %64, align 8
+  %74 = getelementptr inbounds i8, ptr %.2, i64 16
+  %75 = load i32, ptr %74, align 8
+  %76 = call i32 @dbgsysBind(i32 noundef %72, ptr noundef %73, i32 noundef %75) #13
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %78, label %79
 
-78:                                               ; preds = %74
-  call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.27)
-  br label %98
+78:                                               ; preds = %setReuseAddrOption.exit.thread.i
+  call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.26)
+  br label %103
 
-79:                                               ; preds = %74
-  store i32 128, ptr %7, align 4
+79:                                               ; preds = %setReuseAddrOption.exit.thread.i
   %80 = load i32, ptr @serverSocketFD, align 4
-  %81 = call i32 @dbgsysGetSocketName(i32 noundef %80, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
-  %.not29.i = icmp eq i32 %81, 0
-  br i1 %.not29.i, label %83, label %82
-
-82:                                               ; preds = %79
-  call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.28)
-  br label %98
+  %81 = call i32 @dbgsysListen(i32 noundef %80, i32 noundef 1) #13
+  %82 = icmp slt i32 %81, 0
+  br i1 %82, label %83, label %84
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %6, i64 2
-  %.val30.i = load i16, ptr %84, align 2
-  %85 = call zeroext i16 @dbgsysNetworkToHostShort(i16 noundef zeroext %.val30.i) #13
-  %86 = zext i16 %85 to i32
-  %87 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 20, ptr noundef nonnull @.str.29, i32 noundef %86) #13
-  %88 = load ptr, ptr @callback, align 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
-  %91 = trunc i64 %90 to i32
-  %92 = add nsw i32 %91, 1
-  %93 = call ptr %89(i32 noundef %92) #13
-  store ptr %93, ptr %2, align 8
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %95, label %startListening.exit
+  call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.27)
+  br label %103
 
-95:                                               ; preds = %83
+84:                                               ; preds = %79
+  store i32 128, ptr %7, align 4
+  %85 = load i32, ptr @serverSocketFD, align 4
+  %86 = call i32 @dbgsysGetSocketName(i32 noundef %85, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
+  %.not29.i = icmp eq i32 %86, 0
+  br i1 %.not29.i, label %88, label %87
+
+87:                                               ; preds = %84
+  call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.28)
+  br label %103
+
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds i8, ptr %6, i64 2
+  %.val30.i = load i16, ptr %89, align 2
+  %90 = call zeroext i16 @dbgsysNetworkToHostShort(i16 noundef zeroext %.val30.i) #13
+  %91 = zext i16 %90 to i32
+  %92 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 20, ptr noundef nonnull @.str.29, i32 noundef %91) #13
+  %93 = load ptr, ptr @callback, align 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
+  %96 = trunc i64 %95 to i32
+  %97 = add nsw i32 %96, 1
+  %98 = call ptr %94(i32 noundef %97) #13
+  store ptr %98, ptr %2, align 8
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %startListening.exit
+
+100:                                              ; preds = %88
   call fastcc void @setLastError(i32 noundef 110, ptr noundef nonnull @.str.8)
-  br label %98
+  br label %103
 
-startListening.exit:                              ; preds = %83
-  %96 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) %5) #13
+startListening.exit:                              ; preds = %88
+  %101 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) %5) #13
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %97 = load ptr, ptr %12, align 8
-  call void @dbgsysFreeAddrInfo(ptr noundef %97) #13
-  br label %104
+  %102 = load ptr, ptr %12, align 8
+  call void @dbgsysFreeAddrInfo(ptr noundef %102) #13
+  br label %109
 
-98:                                               ; preds = %49, %73, %78, %82, %95, %setOptionsCommon.exit.i, %setReuseAddrOption.exit.i
-  %.0.i37.ph = phi i32 [ 202, %setReuseAddrOption.exit.i ], [ 202, %setOptionsCommon.exit.i ], [ 110, %95 ], [ 202, %82 ], [ 202, %78 ], [ 202, %73 ], [ 202, %49 ]
+103:                                              ; preds = %54, %78, %83, %87, %100, %setOptionsCommon.exit.i, %setReuseAddrOption.exit.i
+  %.0.i37.ph = phi i32 [ 202, %setReuseAddrOption.exit.i ], [ 202, %setOptionsCommon.exit.i ], [ 110, %100 ], [ 202, %87 ], [ 202, %83 ], [ 202, %78 ], [ 202, %54 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %99 = load ptr, ptr %12, align 8
-  call void @dbgsysFreeAddrInfo(ptr noundef %99) #13
-  %100 = load i32, ptr @serverSocketFD, align 4
-  %101 = icmp sgt i32 %100, -1
-  br i1 %101, label %102, label %104
+  %104 = load ptr, ptr %12, align 8
+  call void @dbgsysFreeAddrInfo(ptr noundef %104) #13
+  %105 = load i32, ptr @serverSocketFD, align 4
+  %106 = icmp sgt i32 %105, -1
+  br i1 %106, label %107, label %109
 
-102:                                              ; preds = %98
-  %103 = call i32 @dbgsysSocketClose(i32 noundef %100) #13
+107:                                              ; preds = %103
+  %108 = call i32 @dbgsysSocketClose(i32 noundef %105) #13
   store i32 -1, ptr @serverSocketFD, align 4
-  br label %104
+  br label %109
 
-104:                                              ; preds = %startListening.exit, %98, %102, %19
-  %.021 = phi i32 [ %20, %19 ], [ %.0.i37.ph, %102 ], [ %.0.i37.ph, %98 ], [ 0, %startListening.exit ]
+109:                                              ; preds = %startListening.exit, %103, %107, %19
+  %.021 = phi i32 [ %20, %19 ], [ %.0.i37.ph, %107 ], [ %.0.i37.ph, %103 ], [ 0, %startListening.exit ]
   ret i32 %.021
 }
 

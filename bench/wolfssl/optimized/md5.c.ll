@@ -15,7 +15,13 @@ if.end:                                           ; preds = %entry
   %heap1 = getelementptr inbounds i8, ptr %md5, i64 96
   store ptr %heap, ptr %heap1, align 8
   %digest.i = getelementptr inbounds i8, ptr %md5, i64 76
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %digest.i, align 4
+  store i32 1732584193, ptr %digest.i, align 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %md5, i64 80
+  store i32 -271733879, ptr %arrayidx2.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %md5, i64 84
+  store i32 -1732584194, ptr %arrayidx4.i, align 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %md5, i64 88
+  store i32 271733878, ptr %arrayidx6.i, align 4
   store i32 0, ptr %md5, align 8
   %loLen.i = getelementptr inbounds i8, ptr %md5, i64 4
   store i32 0, ptr %loLen.i, align 4
@@ -730,7 +736,13 @@ if.end17:                                         ; preds = %if.then8, %if.end4
   tail call fastcc void @Transform(ptr noundef nonnull %md5, ptr noundef nonnull %buffer)
   %digest = getelementptr inbounds i8, ptr %md5, i64 76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %hash, ptr noundef nonnull align 4 dereferenceable(16) %digest, i64 16, i1 false)
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %digest, align 4
+  store i32 1732584193, ptr %digest, align 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %md5, i64 80
+  store i32 -271733879, ptr %arrayidx2.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %md5, i64 84
+  store i32 -1732584194, ptr %arrayidx4.i, align 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %md5, i64 88
+  store i32 271733878, ptr %arrayidx6.i, align 4
   store i32 0, ptr %md5, align 8
   store i32 0, ptr %loLen, align 4
   store i32 0, ptr %hiLen, align 8
@@ -754,7 +766,13 @@ wc_InitMd5_ex.exit:                               ; preds = %entry
   %heap1.i = getelementptr inbounds i8, ptr %md5, i64 96
   store ptr null, ptr %heap1.i, align 8
   %digest.i.i = getelementptr inbounds i8, ptr %md5, i64 76
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %digest.i.i, align 4
+  store i32 1732584193, ptr %digest.i.i, align 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %md5, i64 80
+  store i32 -271733879, ptr %arrayidx2.i.i, align 4
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %md5, i64 84
+  store i32 -1732584194, ptr %arrayidx4.i.i, align 4
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %md5, i64 88
+  store i32 271733878, ptr %arrayidx6.i.i, align 4
   store i32 0, ptr %md5, align 8
   %loLen.i.i = getelementptr inbounds i8, ptr %md5, i64 4
   store i32 0, ptr %loLen.i.i, align 4

@@ -8781,9 +8781,12 @@ invoke.cont65:                                    ; preds = %invoke.cont55
   store ptr %60, ptr %other, align 8, !tbaa !33
   %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %_M_finish3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 8
-  %61 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i.i.i.i.i, align 8, !tbaa !40
-  %62 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i, align 8, !tbaa !55
-  store <2 x ptr> %61, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8, !tbaa !40
+  %61 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i, align 8, !tbaa !55
+  store ptr %61, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8, !tbaa !55
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
+  %62 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8, !tbaa !100
+  store ptr %62, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8, !tbaa !100
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
   %packed.i355 = getelementptr inbounds i8, ptr %other, i64 24
   %packed9.i = getelementptr inbounds i8, ptr %temp, i64 24
@@ -8791,9 +8794,12 @@ invoke.cont65:                                    ; preds = %invoke.cont55
   store ptr %63, ptr %packed.i355, align 8, !tbaa !32
   %_M_finish.i.i.i.i.i.i.i22.i = getelementptr inbounds i8, ptr %other, i64 32
   %_M_finish3.i.i.i.i.i.i.i23.i = getelementptr inbounds i8, ptr %temp, i64 32
-  %64 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i.i.i.i23.i, align 8, !tbaa !40
-  %65 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i23.i, align 8, !tbaa !54
-  store <2 x ptr> %64, ptr %_M_finish.i.i.i.i.i.i.i22.i, align 8, !tbaa !40
+  %64 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i23.i, align 8, !tbaa !54
+  store ptr %64, ptr %_M_finish.i.i.i.i.i.i.i22.i, align 8, !tbaa !54
+  %_M_end_of_storage.i.i.i.i.i.i.i24.i = getelementptr inbounds i8, ptr %other, i64 40
+  %_M_end_of_storage4.i.i.i.i.i.i.i25.i = getelementptr inbounds i8, ptr %temp, i64 40
+  %65 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i25.i, align 8, !tbaa !101
+  store ptr %65, ptr %_M_end_of_storage.i.i.i.i.i.i.i24.i, align 8, !tbaa !101
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %packed9.i, i8 0, i64 24, i1 false)
   %threshold.i356 = getelementptr inbounds i8, ptr %other, i64 48
   %threshold14.i = getelementptr inbounds i8, ptr %temp, i64 48
@@ -9001,7 +9007,7 @@ cleanup.cont100:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar68) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar102) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp103) #22
-  %sub.ptr.lhs.cast.i.i406 = ptrtoint ptr %65 to i64
+  %sub.ptr.lhs.cast.i.i406 = ptrtoint ptr %64 to i64
   %sub.ptr.rhs.cast.i.i407 = ptrtoint ptr %63 to i64
   %sub.ptr.sub.i.i408 = sub i64 %sub.ptr.lhs.cast.i.i406, %sub.ptr.rhs.cast.i.i407
   %sub.ptr.div.i.i409 = ashr exact i64 %sub.ptr.sub.i.i408, 4
@@ -9351,7 +9357,7 @@ cleanup.cont170:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar136) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar172) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp173) #22
-  %sub.ptr.lhs.cast.i.i501 = ptrtoint ptr %62 to i64
+  %sub.ptr.lhs.cast.i.i501 = ptrtoint ptr %61 to i64
   %sub.ptr.rhs.cast.i.i502 = ptrtoint ptr %60 to i64
   %sub.ptr.sub.i.i503 = sub i64 %sub.ptr.lhs.cast.i.i501, %sub.ptr.rhs.cast.i.i502
   %sub.ptr.div.i.i504 = ashr exact i64 %sub.ptr.sub.i.i503, 3

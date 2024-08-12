@@ -7078,31 +7078,35 @@ define hidden noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime12traphandlers24c
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17h1419f13e78bd0511E(ptr noalias nocapture noundef sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [5 x i64] }, align 16
+  %3 = alloca { [5 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !970
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !noalias !974
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !noalias !974
   invoke void @_ZN3std9panicking3try7do_call17ha03b155bff486e91E.llvm.7073302902749960574(ptr nonnull %3)
-          to label %4 unwind label %6, !noalias !970
+          to label %4 unwind label %5, !noalias !970
 
 4:                                                ; preds = %2
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !975
+  %.sroa.4.8.copyload1 = load ptr, ptr %3, align 8, !noalias !975
+  %.sroa.8.8..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.8.copyload3 = load ptr, ptr %.sroa.8.8..sroa_idx2, align 8, !noalias !975
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !970
-  store <2 x ptr> %5, ptr %0, align 8
-  br label %12
+  store ptr %.sroa.4.8.copyload1, ptr %0, align 8
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.8.copyload3, ptr %.sroa.8.8..sroa_idx, align 8
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17h80d3c2ca237024afE.llvm.7073302902749960574(ptr nonnull %3, ptr %8)
-  %9 = load ptr, ptr %3, align 16, !noalias !970, !nonnull !14, !align !88, !noundef !14
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !970, !nonnull !14, !align !89, !noundef !14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @_ZN3std9panicking3try8do_catch17h80d3c2ca237024afE.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
+  %8 = load ptr, ptr %3, align 8, !noalias !970, !nonnull !14, !align !88, !noundef !14
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !970, !nonnull !14, !align !89, !noundef !14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !970
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17hcc96da510b76a861E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  br label %12
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17hcc96da510b76a861E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  br label %11
 
-12:                                               ; preds = %6, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
@@ -7197,61 +7201,69 @@ define hidden noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime12traphandlers24c
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17h1f1de1a09182a843E(ptr noalias nocapture noundef sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [3 x i64] }, align 16
+  %3 = alloca { [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !990
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !994
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !994
   invoke void @_ZN3std9panicking3try7do_call17h5ac9b742e1574628E.llvm.7073302902749960574(ptr nonnull %3)
-          to label %4 unwind label %6, !noalias !990
+          to label %4 unwind label %5, !noalias !990
 
 4:                                                ; preds = %2
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !995
+  %.sroa.4.8.copyload1 = load ptr, ptr %3, align 8, !noalias !995
+  %.sroa.8.8..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.8.copyload3 = load ptr, ptr %.sroa.8.8..sroa_idx2, align 8, !noalias !995
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !990
-  store <2 x ptr> %5, ptr %0, align 8
-  br label %12
+  store ptr %.sroa.4.8.copyload1, ptr %0, align 8
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.8.copyload3, ptr %.sroa.8.8..sroa_idx, align 8
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17hefe315e1347bd831E.llvm.7073302902749960574(ptr nonnull %3, ptr %8)
-  %9 = load ptr, ptr %3, align 16, !noalias !990, !nonnull !14, !align !88, !noundef !14
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !990, !nonnull !14, !align !89, !noundef !14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @_ZN3std9panicking3try8do_catch17hefe315e1347bd831E.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
+  %8 = load ptr, ptr %3, align 8, !noalias !990, !nonnull !14, !align !88, !noundef !14
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !990, !nonnull !14, !align !89, !noundef !14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !990
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h08d246b3ddd583ebE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  br label %12
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h08d246b3ddd583ebE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  br label %11
 
-12:                                               ; preds = %6, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17h2ac50515587ce794E(ptr noalias nocapture noundef sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [5 x i64] }, align 16
+  %3 = alloca { [5 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !996
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !noalias !1000
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !noalias !1000
   invoke void @_ZN3std9panicking3try7do_call17hd84b27105e30cebbE.llvm.7073302902749960574(ptr nonnull %3)
-          to label %4 unwind label %6, !noalias !996
+          to label %4 unwind label %5, !noalias !996
 
 4:                                                ; preds = %2
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !1001
+  %.sroa.4.8.copyload1 = load ptr, ptr %3, align 8, !noalias !1001
+  %.sroa.8.8..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.8.copyload3 = load ptr, ptr %.sroa.8.8..sroa_idx2, align 8, !noalias !1001
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !996
-  store <2 x ptr> %5, ptr %0, align 8
-  br label %12
+  store ptr %.sroa.4.8.copyload1, ptr %0, align 8
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.8.copyload3, ptr %.sroa.8.8..sroa_idx, align 8
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17h555bac4db27d4664E.llvm.7073302902749960574(ptr nonnull %3, ptr %8)
-  %9 = load ptr, ptr %3, align 16, !noalias !996, !nonnull !14, !align !88, !noundef !14
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !996, !nonnull !14, !align !89, !noundef !14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @_ZN3std9panicking3try8do_catch17h555bac4db27d4664E.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
+  %8 = load ptr, ptr %3, align 8, !noalias !996, !nonnull !14, !align !88, !noundef !14
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !996, !nonnull !14, !align !89, !noundef !14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !996
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h3af655ff0d7f5d57E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  br label %12
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h3af655ff0d7f5d57E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  br label %11
 
-12:                                               ; preds = %6, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
@@ -7434,31 +7446,35 @@ _ZN3std9panicking3try17h56501593b280241fE.exit.thread: ; preds = %2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17h453607e47e719026E(ptr noalias nocapture noundef sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [2 x i64] }, align 16
+  %3 = alloca { [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1028
-  store ptr %1, ptr %3, align 16, !noalias !1028
+  store ptr %1, ptr %3, align 8, !noalias !1028
   invoke void @_ZN3std9panicking3try7do_call17hcfe5f786becb65adE.llvm.7073302902749960574(ptr nonnull %3)
-          to label %4 unwind label %6, !noalias !1032
+          to label %4 unwind label %5, !noalias !1032
 
 4:                                                ; preds = %2
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !1033
+  %.sroa.4.8.copyload1 = load ptr, ptr %3, align 8, !noalias !1033
+  %.sroa.8.8..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.8.copyload3 = load ptr, ptr %.sroa.8.8..sroa_idx2, align 8, !noalias !1033
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1028
-  store <2 x ptr> %5, ptr %0, align 8
-  br label %12
+  store ptr %.sroa.4.8.copyload1, ptr %0, align 8
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.8.copyload3, ptr %.sroa.8.8..sroa_idx, align 8
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17h8d8637dcd1abdec3E.llvm.7073302902749960574(ptr nonnull %3, ptr %8)
-  %9 = load ptr, ptr %3, align 16, !noalias !1028, !nonnull !14, !align !88, !noundef !14
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !1028, !nonnull !14, !align !89, !noundef !14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @_ZN3std9panicking3try8do_catch17h8d8637dcd1abdec3E.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
+  %8 = load ptr, ptr %3, align 8, !noalias !1028, !nonnull !14, !align !88, !noundef !14
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !1028, !nonnull !14, !align !89, !noundef !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1028
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h0a9d30e84b8f46b3E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  br label %12
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h0a9d30e84b8f46b3E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  br label %11
 
-12:                                               ; preds = %6, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
@@ -7582,31 +7598,35 @@ _ZN3std9panicking3try17h5889df9094805bcaE.exit:   ; preds = %2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17h673058b17c65bb13E(ptr noalias nocapture noundef sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [3 x i64] }, align 16
+  %3 = alloca { [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1051
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !1055
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !1055
   invoke void @_ZN3std9panicking3try7do_call17h0d7612676f4779c5E.llvm.7073302902749960574(ptr nonnull %3)
-          to label %4 unwind label %6, !noalias !1051
+          to label %4 unwind label %5, !noalias !1051
 
 4:                                                ; preds = %2
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !1056
+  %.sroa.4.8.copyload1 = load ptr, ptr %3, align 8, !noalias !1056
+  %.sroa.8.8..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.8.copyload3 = load ptr, ptr %.sroa.8.8..sroa_idx2, align 8, !noalias !1056
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1051
-  store <2 x ptr> %5, ptr %0, align 8
-  br label %12
+  store ptr %.sroa.4.8.copyload1, ptr %0, align 8
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.8.copyload3, ptr %.sroa.8.8..sroa_idx, align 8
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17hd757fd480586bd6cE.llvm.7073302902749960574(ptr nonnull %3, ptr %8)
-  %9 = load ptr, ptr %3, align 16, !noalias !1051, !nonnull !14, !align !88, !noundef !14
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !1051, !nonnull !14, !align !89, !noundef !14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @_ZN3std9panicking3try8do_catch17hd757fd480586bd6cE.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
+  %8 = load ptr, ptr %3, align 8, !noalias !1051, !nonnull !14, !align !88, !noundef !14
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !1051, !nonnull !14, !align !89, !noundef !14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1051
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h1446dbb4c9abfe25E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  br label %12
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h1446dbb4c9abfe25E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  br label %11
 
-12:                                               ; preds = %6, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
@@ -7778,31 +7798,35 @@ define hidden noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime12traphandlers24c
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17h94d825511767e6f7E(ptr noalias nocapture noundef sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [4 x i64] }, align 16
+  %3 = alloca { [4 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1079
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !1083
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !1083
   invoke void @_ZN3std9panicking3try7do_call17hf290dcf7ada53455E.llvm.7073302902749960574(ptr nonnull %3)
-          to label %4 unwind label %6, !noalias !1079
+          to label %4 unwind label %5, !noalias !1079
 
 4:                                                ; preds = %2
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !1084
+  %.sroa.4.8.copyload1 = load ptr, ptr %3, align 8, !noalias !1084
+  %.sroa.8.8..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.8.copyload3 = load ptr, ptr %.sroa.8.8..sroa_idx2, align 8, !noalias !1084
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1079
-  store <2 x ptr> %5, ptr %0, align 8
-  br label %12
+  store ptr %.sroa.4.8.copyload1, ptr %0, align 8
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.8.copyload3, ptr %.sroa.8.8..sroa_idx, align 8
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17h657130e43920e8b8E.llvm.7073302902749960574(ptr nonnull %3, ptr %8)
-  %9 = load ptr, ptr %3, align 16, !noalias !1079, !nonnull !14, !align !88, !noundef !14
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !1079, !nonnull !14, !align !89, !noundef !14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @_ZN3std9panicking3try8do_catch17h657130e43920e8b8E.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
+  %8 = load ptr, ptr %3, align 8, !noalias !1079, !nonnull !14, !align !88, !noundef !14
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !1079, !nonnull !14, !align !89, !noundef !14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1079
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h34908e5a6f0baaa1E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  br label %12
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h34908e5a6f0baaa1E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  br label %11
 
-12:                                               ; preds = %6, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
@@ -7950,31 +7974,35 @@ _ZN3std9panicking3try17h006024deaf2179a0E.exit:   ; preds = %2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17hc85a2493912e47abE(ptr noalias nocapture noundef sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [3 x i64] }, align 16
+  %3 = alloca { [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1107
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !1111
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !1111
   invoke void @_ZN3std9panicking3try7do_call17h4ca643067639308fE.llvm.7073302902749960574(ptr nonnull %3)
-          to label %4 unwind label %6, !noalias !1107
+          to label %4 unwind label %5, !noalias !1107
 
 4:                                                ; preds = %2
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !1112
+  %.sroa.4.8.copyload1 = load ptr, ptr %3, align 8, !noalias !1112
+  %.sroa.8.8..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.8.copyload3 = load ptr, ptr %.sroa.8.8..sroa_idx2, align 8, !noalias !1112
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1107
-  store <2 x ptr> %5, ptr %0, align 8
-  br label %12
+  store ptr %.sroa.4.8.copyload1, ptr %0, align 8
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.8.copyload3, ptr %.sroa.8.8..sroa_idx, align 8
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17h6bd36eb313faf8b0E.llvm.7073302902749960574(ptr nonnull %3, ptr %8)
-  %9 = load ptr, ptr %3, align 16, !noalias !1107, !nonnull !14, !align !88, !noundef !14
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !1107, !nonnull !14, !align !89, !noundef !14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @_ZN3std9panicking3try8do_catch17h6bd36eb313faf8b0E.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
+  %8 = load ptr, ptr %3, align 8, !noalias !1107, !nonnull !14, !align !88, !noundef !14
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !1107, !nonnull !14, !align !89, !noundef !14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1107
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h6c2372a2da89222bE(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  br label %12
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h6c2372a2da89222bE(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  br label %11
 
-12:                                               ; preds = %6, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
@@ -8068,91 +8096,103 @@ define hidden noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime12traphandlers24c
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17hd6b181ec30432d3bE(ptr noalias nocapture noundef sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [4 x i64] }, align 16
+  %3 = alloca { [4 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1126
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !1130
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !1130
   invoke void @_ZN3std9panicking3try7do_call17h46c9863e93455766E.llvm.7073302902749960574(ptr nonnull %3)
-          to label %4 unwind label %6, !noalias !1126
+          to label %4 unwind label %5, !noalias !1126
 
 4:                                                ; preds = %2
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !1131
+  %.sroa.4.8.copyload1 = load ptr, ptr %3, align 8, !noalias !1131
+  %.sroa.8.8..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.8.copyload3 = load ptr, ptr %.sroa.8.8..sroa_idx2, align 8, !noalias !1131
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1126
-  store <2 x ptr> %5, ptr %0, align 8
-  br label %12
+  store ptr %.sroa.4.8.copyload1, ptr %0, align 8
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.8.copyload3, ptr %.sroa.8.8..sroa_idx, align 8
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17hb76cff440a8ddd0dE.llvm.7073302902749960574(ptr nonnull %3, ptr %8)
-  %9 = load ptr, ptr %3, align 16, !noalias !1126, !nonnull !14, !align !88, !noundef !14
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !1126, !nonnull !14, !align !89, !noundef !14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @_ZN3std9panicking3try8do_catch17hb76cff440a8ddd0dE.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
+  %8 = load ptr, ptr %3, align 8, !noalias !1126, !nonnull !14, !align !88, !noundef !14
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !1126, !nonnull !14, !align !89, !noundef !14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1126
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17hd6700ade73780839E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  br label %12
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17hd6700ade73780839E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  br label %11
 
-12:                                               ; preds = %6, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17hd745c11443be4eabE(ptr noalias nocapture noundef sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [3 x i64] }, align 16
+  %3 = alloca { [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !1136
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !1136
   invoke void @_ZN3std9panicking3try7do_call17hf7cdf6994282685bE.llvm.7073302902749960574(ptr nonnull %3)
-          to label %4 unwind label %6, !noalias !1132
+          to label %4 unwind label %5, !noalias !1132
 
 4:                                                ; preds = %2
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !1137
+  %.sroa.4.8.copyload1 = load ptr, ptr %3, align 8, !noalias !1137
+  %.sroa.8.8..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.8.copyload3 = load ptr, ptr %.sroa.8.8..sroa_idx2, align 8, !noalias !1137
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1132
-  store <2 x ptr> %5, ptr %0, align 8
-  br label %12
+  store ptr %.sroa.4.8.copyload1, ptr %0, align 8
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.8.copyload3, ptr %.sroa.8.8..sroa_idx, align 8
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17hdf987f5aacc361faE.llvm.7073302902749960574(ptr nonnull %3, ptr %8)
-  %9 = load ptr, ptr %3, align 16, !noalias !1132, !nonnull !14, !align !88, !noundef !14
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !1132, !nonnull !14, !align !89, !noundef !14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @_ZN3std9panicking3try8do_catch17hdf987f5aacc361faE.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
+  %8 = load ptr, ptr %3, align 8, !noalias !1132, !nonnull !14, !align !88, !noundef !14
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !1132, !nonnull !14, !align !89, !noundef !14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1132
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h7b5aa45c1b168f24E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  br label %12
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h7b5aa45c1b168f24E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  br label %11
 
-12:                                               ; preds = %6, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17hde31626349d670b8E(ptr noalias nocapture noundef sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [3 x i64] }, align 16
+  %3 = alloca { [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1138
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !1142
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !1142
   invoke void @_ZN3std9panicking3try7do_call17hfd7cff1a349d911dE.llvm.7073302902749960574(ptr nonnull %3)
-          to label %4 unwind label %6, !noalias !1138
+          to label %4 unwind label %5, !noalias !1138
 
 4:                                                ; preds = %2
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !1143
+  %.sroa.4.8.copyload1 = load ptr, ptr %3, align 8, !noalias !1143
+  %.sroa.8.8..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.8.copyload3 = load ptr, ptr %.sroa.8.8..sroa_idx2, align 8, !noalias !1143
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1138
-  store <2 x ptr> %5, ptr %0, align 8
-  br label %12
+  store ptr %.sroa.4.8.copyload1, ptr %0, align 8
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.8.copyload3, ptr %.sroa.8.8..sroa_idx, align 8
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17h403932f0776b5928E.llvm.7073302902749960574(ptr nonnull %3, ptr %8)
-  %9 = load ptr, ptr %3, align 16, !noalias !1138, !nonnull !14, !align !88, !noundef !14
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !1138, !nonnull !14, !align !89, !noundef !14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @_ZN3std9panicking3try8do_catch17h403932f0776b5928E.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
+  %8 = load ptr, ptr %3, align 8, !noalias !1138, !nonnull !14, !align !88, !noundef !14
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !1138, !nonnull !14, !align !89, !noundef !14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1138
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h6069f7227623804eE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  br label %12
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h6069f7227623804eE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  br label %11
 
-12:                                               ; preds = %6, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
@@ -8188,31 +8228,35 @@ define hidden noundef ptr @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17he41517b4e1039101E(ptr noalias nocapture noundef sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [4 x i64] }, align 16
+  %3 = alloca { [4 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !1153
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !1153
   invoke void @_ZN3std9panicking3try7do_call17hcc002a7c6b7392ceE.llvm.7073302902749960574(ptr nonnull %3)
-          to label %4 unwind label %6, !noalias !1149
+          to label %4 unwind label %5, !noalias !1149
 
 4:                                                ; preds = %2
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !1154
+  %.sroa.4.8.copyload1 = load ptr, ptr %3, align 8, !noalias !1154
+  %.sroa.8.8..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.8.copyload3 = load ptr, ptr %.sroa.8.8..sroa_idx2, align 8, !noalias !1154
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1149
-  store <2 x ptr> %5, ptr %0, align 8
-  br label %12
+  store ptr %.sroa.4.8.copyload1, ptr %0, align 8
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.8.copyload3, ptr %.sroa.8.8..sroa_idx, align 8
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17hd3578c27d651289bE.llvm.7073302902749960574(ptr nonnull %3, ptr %8)
-  %9 = load ptr, ptr %3, align 16, !noalias !1149, !nonnull !14, !align !88, !noundef !14
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !1149, !nonnull !14, !align !89, !noundef !14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @_ZN3std9panicking3try8do_catch17hd3578c27d651289bE.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
+  %8 = load ptr, ptr %3, align 8, !noalias !1149, !nonnull !14, !align !88, !noundef !14
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !1149, !nonnull !14, !align !89, !noundef !14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1149
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h66a064427de4782aE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  br label %12
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17h66a064427de4782aE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  br label %11
 
-12:                                               ; preds = %6, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
@@ -8248,31 +8292,35 @@ define hidden noundef range(i8 0, 18) i8 @_ZN16wasmtime_runtime12traphandlers24c
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN16wasmtime_runtime12traphandlers24catch_unwind_and_longjmp17hf653efd02d1db5f7E(ptr noalias nocapture noundef sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = alloca { [4 x i64] }, align 16
+  %3 = alloca { [4 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !1164
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !1164
   invoke void @_ZN3std9panicking3try7do_call17h6406eb9cadd7f952E.llvm.7073302902749960574(ptr nonnull %3)
-          to label %4 unwind label %6, !noalias !1160
+          to label %4 unwind label %5, !noalias !1160
 
 4:                                                ; preds = %2
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !1165
+  %.sroa.4.8.copyload1 = load ptr, ptr %3, align 8, !noalias !1165
+  %.sroa.8.8..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.8.copyload3 = load ptr, ptr %.sroa.8.8..sroa_idx2, align 8, !noalias !1165
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1160
-  store <2 x ptr> %5, ptr %0, align 8
-  br label %12
+  store ptr %.sroa.4.8.copyload1, ptr %0, align 8
+  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.8.copyload3, ptr %.sroa.8.8..sroa_idx, align 8
+  br label %11
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @_ZN3std9panicking3try8do_catch17hbf22ad1bc3d20988E.llvm.7073302902749960574(ptr nonnull %3, ptr %8)
-  %9 = load ptr, ptr %3, align 16, !noalias !1160, !nonnull !14, !align !88, !noundef !14
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !1160, !nonnull !14, !align !89, !noundef !14
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @_ZN3std9panicking3try8do_catch17hbf22ad1bc3d20988E.llvm.7073302902749960574(ptr nonnull %3, ptr %7)
+  %8 = load ptr, ptr %3, align 8, !noalias !1160, !nonnull !14, !align !88, !noundef !14
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !1160, !nonnull !14, !align !89, !noundef !14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1160
-  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17hec6488f00ea9fb01E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  br label %12
+  call void @_ZN16wasmtime_runtime12traphandlers3tls4with17hec6488f00ea9fb01E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  br label %11
 
-12:                                               ; preds = %6, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 

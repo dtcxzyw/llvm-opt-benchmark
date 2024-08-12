@@ -246,7 +246,9 @@ invoke.cont8:                                     ; preds = %for.end
   %m_score.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 20
   %m_slow_break.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %m_score.i, i8 0, i64 56, i1 false)
-  store <2 x double> <double 1.000000e-05, double 1.000000e+00>, ptr %m_slow_break.i, align 8
+  store double 1.000000e-05, ptr %m_slow_break.i, align 8
+  %m_beta.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 88
+  store double 1.000000e+00, ptr %m_beta.i.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_value.i.i, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %m_vars, align 8
@@ -3343,7 +3345,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %m_score.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 20
   %m_slow_break.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %m_score.i.i.i, i8 0, i64 56, i1 false)
-  store <2 x double> <double 1.000000e-05, double 1.000000e+00>, ptr %m_slow_break.i.i.i, align 8
+  store double 1.000000e-05, ptr %m_slow_break.i.i.i, align 8
+  %m_beta.i.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 88
+  store double 1.000000e+00, ptr %m_beta.i.i.i.i, align 8
   %m_value.i.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_value.i.i.i.i, i8 0, i64 24, i1 false)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 120
@@ -3552,7 +3556,9 @@ for.body.i.i61:                                   ; preds = %for.body.i.i61, %fo
   %m_score.i.i.i68 = getelementptr inbounds i8, ptr %it.018.i.i62, i64 20
   %m_slow_break.i.i.i69 = getelementptr inbounds i8, ptr %it.018.i.i62, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %m_score.i.i.i68, i8 0, i64 56, i1 false)
-  store <2 x double> <double 1.000000e-05, double 1.000000e+00>, ptr %m_slow_break.i.i.i69, align 8
+  store double 1.000000e-05, ptr %m_slow_break.i.i.i69, align 8
+  %m_beta.i.i.i.i70 = getelementptr inbounds i8, ptr %it.018.i.i62, i64 88
+  store double 1.000000e+00, ptr %m_beta.i.i.i.i70, align 8
   %m_value.i.i.i.i71 = getelementptr inbounds i8, ptr %it.018.i.i62, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_value.i.i.i.i71, i8 0, i64 24, i1 false)
   %incdec.ptr.i.i72 = getelementptr inbounds i8, ptr %it.018.i.i62, i64 120
@@ -3866,7 +3872,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %m_score.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 20
   %m_slow_break.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %m_score.i.i.i, i8 0, i64 56, i1 false)
-  store <2 x double> <double 1.000000e-05, double 1.000000e+00>, ptr %m_slow_break.i.i.i, align 8
+  store double 1.000000e-05, ptr %m_slow_break.i.i.i, align 8
+  %m_beta.i.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 88
+  store double 1.000000e+00, ptr %m_beta.i.i.i.i, align 8
   %m_value.i.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_value.i.i.i.i, i8 0, i64 24, i1 false)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 120
@@ -4013,7 +4021,9 @@ invoke.cont:
   %m_max_steps = getelementptr inbounds i8, ptr %this, i64 148
   store i32 1073741824, ptr %m_max_steps, align 4
   %m_noise = getelementptr inbounds i8, ptr %this, i64 152
-  store <2 x double> <double 9.800000e+03, double 5.000000e-02>, ptr %m_noise, align 8
+  store double 9.800000e+03, ptr %m_noise, align 8
+  %m_noise_delta = getelementptr inbounds i8, ptr %this, i64 160
+  store double 5.000000e-02, ptr %m_noise_delta, align 8
   %m_limit = getelementptr inbounds i8, ptr %this, i64 168
   invoke void @_ZN8reslimitC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_limit)
           to label %invoke.cont18 unwind label %lpad17
@@ -4469,7 +4479,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %m_score.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 20
   %m_slow_break.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %m_score.i.i.i, i8 0, i64 56, i1 false)
-  store <2 x double> <double 1.000000e-05, double 1.000000e+00>, ptr %m_slow_break.i.i.i, align 8
+  store double 1.000000e-05, ptr %m_slow_break.i.i.i, align 8
+  %m_beta.i.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 88
+  store double 1.000000e+00, ptr %m_beta.i.i.i.i, align 8
   %m_value.i.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_value.i.i.i.i, i8 0, i64 24, i1 false)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 120
@@ -5263,8 +5275,9 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
   %m_best_unsat_rate = getelementptr inbounds i8, ptr %this, i64 128
+  store double 1.000000e+00, ptr %m_best_unsat_rate, align 8
   %m_last_best_unsat_rate = getelementptr inbounds i8, ptr %this, i64 136
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_best_unsat_rate, align 8
+  store double 1.000000e+00, ptr %m_last_best_unsat_rate, align 8
   tail call void @_ZN3sat12local_search6reinitEv(ptr noundef nonnull align 8 dereferenceable(232) %this)
   %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
   %m_unsat_stack = getelementptr inbounds i8, ptr %this, i64 96

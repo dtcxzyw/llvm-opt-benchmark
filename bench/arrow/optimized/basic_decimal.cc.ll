@@ -140,8 +140,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5arrow19GenericBasicDecimalINS_15BasicDecimal128ELi128ELi2EEC2ENS2_20LittleEndianArrayTagERKSt5arrayImLm2EE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %array) unnamed_addr #0 comdat($_ZN5arrow19GenericBasicDecimalINS_15BasicDecimal128ELi128ELi2EEC5ENS2_20LittleEndianArrayTagERKSt5arrayImLm2EE) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load <2 x i64>, ptr %array, align 8
-  store <2 x i64> %0, ptr %this, align 8
+  %agg.tmp.sroa.0.0.copyload = load i64, ptr %array, align 8
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %array, i64 8
+  %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  store i64 %agg.tmp.sroa.0.0.copyload, ptr %this, align 8
+  %ref.tmp.sroa.2.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload, ptr %ref.tmp.sroa.2.0.this.sroa_idx, align 8
   ret void
 }
 
@@ -511,7 +515,7 @@ define noundef range(i32 0, 3) i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_
 entry:
   %result_array.i160.sroa.0.i = alloca i64, align 8
   %result_array.i160.sroa.4.i = alloca i64, align 8
-  %result_array.i157.i = alloca %"struct.std::array", align 16
+  %result_array.i157.i = alloca %"struct.std::array", align 8
   %result_array.i.i.sroa.0.i = alloca i64, align 8
   %result_array.i.i.sroa.5.i = alloca i64, align 8
   %result_array.i.i = alloca [33 x i32], align 16
@@ -1102,14 +1106,16 @@ if.end133.i.loopexit.critedge.critedge:           ; preds = %for.end.i.i.i
   br label %if.end133.i
 
 if.end133.i:                                      ; preds = %for.body20.i.i.i.preheader, %if.end133.i.loopexit.critedge.critedge, %for.cond18.preheader.i.i.i
+  %38 = load i64, ptr %i4.019.i.sroa.gep.i.i, align 8
+  %39 = load i64, ptr %result_array.i157.i, align 8
+  store i64 %39, ptr %result, align 8
   %ref.tmp.sroa.2.0.value.sroa_idx.i.i = getelementptr inbounds i8, ptr %result, i64 8
-  %38 = load <2 x i64>, ptr %result_array.i157.i, align 16
-  store <2 x i64> %38, ptr %result, align 8
+  store i64 %38, ptr %ref.tmp.sroa.2.0.value.sroa_idx.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_array.i157.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result_array.i160.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result_array.i160.sroa.4.i)
-  %39 = load i32, ptr %dividend_array.i, align 16
-  %cmp2.not.i.i192.i = icmp eq i32 %39, 0
+  %40 = load i32, ptr %dividend_array.i, align 16
+  %cmp2.not.i.i192.i = icmp eq i32 %40, 0
   %or.cond13.i = select i1 %3, i1 true, i1 %cmp2.not.i.i192.i
   br i1 %or.cond13.i, label %for.body8.i.i175.i, label %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit193.i
 
@@ -1131,8 +1137,8 @@ for.body8.i.i175.i:                               ; preds = %if.end133.i, %cond.
   %i4.019.i.sroa.phi.i177.i = phi ptr [ %result_array.i160.sroa.4.i, %cond.end.i.i182.i ], [ %result_array.i160.sroa.0.i, %if.end133.i ]
   %next_index.018.i.i178.i = phi i64 [ %dec12.i.i183.i, %cond.end.i.i182.i ], [ %retval.0.i.i, %if.end133.i ]
   %arrayidx10.i.i179.i = getelementptr inbounds i32, ptr %dividend_array.i, i64 %next_index.018.i.i178.i
-  %40 = load i32, ptr %arrayidx10.i.i179.i, align 4
-  %conv.i.i180.i = zext i32 %40 to i64
+  %41 = load i32, ptr %arrayidx10.i.i179.i, align 4
+  %conv.i.i180.i = zext i32 %41 to i64
   %cmp11.i.i181.i = icmp eq i64 %next_index.018.i.i178.i, 0
   br i1 %cmp11.i.i181.i, label %cond.end.thread.i.i190.i, label %cond.end.i.i182.i
 
@@ -1143,14 +1149,14 @@ cond.end.thread.i.i190.i:                         ; preds = %for.body8.i.i175.i
 cond.end.i.i182.i:                                ; preds = %for.body8.i.i175.i
   %dec12.i.i183.i = add nsw i64 %next_index.018.i.i178.i, -2
   %arrayidx13.i.i184.i = getelementptr i8, ptr %arrayidx10.i.i179.i, i64 -4
-  %41 = load i32, ptr %arrayidx13.i.i184.i, align 4
-  %conv14.i.i185.i = zext i32 %41 to i64
+  %42 = load i32, ptr %arrayidx13.i.i184.i, align 4
+  %conv14.i.i185.i = zext i32 %42 to i64
   %shl.i.i186.i = shl nuw i64 %conv14.i.i185.i, 32
   %add.i.i187.i = or disjoint i64 %shl.i.i186.i, %conv.i.i180.i
   store i64 %add.i.i187.i, ptr %i4.019.i.sroa.phi.i177.i, align 8
   %cmp7.i.i188.i = icmp ne i64 %next_index.018.i.i178.i, 1
-  %42 = and i1 %cmp6.i.i176.i, %cmp7.i.i188.i
-  br i1 %42, label %for.body8.i.i175.i, label %for.cond18.preheader.i.i189.i, !llvm.loop !6
+  %43 = and i1 %cmp6.i.i176.i, %cmp7.i.i188.i
+  br i1 %43, label %for.body8.i.i175.i, label %for.cond18.preheader.i.i189.i, !llvm.loop !6
 
 _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit193.i: ; preds = %if.end133.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_array.i160.sroa.0.i)
@@ -1158,12 +1164,12 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit193.i: ; preds = %if.e
   br label %_ZN5arrowL13DecimalDivideINS_15BasicDecimal128EEENS_13DecimalStatusERKT_S5_PS3_S6_.exit
 
 if.then.i195.i:                                   ; preds = %for.cond18.preheader.i.i189.i
-  %43 = load i64, ptr %result, align 8
-  %44 = load i64, ptr %ref.tmp.sroa.2.0.value.sroa_idx.i.i, align 8
-  %not3.i.i.i = xor i64 %44, -1
-  %cmp.i.i.i = icmp eq i64 %43, 0
-  %add.i.i.i196.i = sub i64 0, %44
-  %add.i.i197.i = sub i64 0, %43
+  %44 = load i64, ptr %result, align 8
+  %45 = load i64, ptr %ref.tmp.sroa.2.0.value.sroa_idx.i.i, align 8
+  %not3.i.i.i = xor i64 %45, -1
+  %cmp.i.i.i = icmp eq i64 %44, 0
+  %add.i.i.i196.i = sub i64 0, %45
+  %add.i.i197.i = sub i64 0, %44
   %ref.tmp.sroa.3.0.i.i.i = select i1 %cmp.i.i.i, i64 %add.i.i.i196.i, i64 %not3.i.i.i
   store i64 %add.i.i197.i, ptr %result, align 8
   store i64 %ref.tmp.sroa.3.0.i.i.i, ptr %ref.tmp.sroa.2.0.value.sroa_idx.i.i, align 8
@@ -1173,12 +1179,12 @@ if.end.i194.i:                                    ; preds = %if.then.i195.i, %fo
   br i1 %tobool139.i, label %if.then5.i.i, label %_ZN5arrowL13DecimalDivideINS_15BasicDecimal128EEENS_13DecimalStatusERKT_S5_PS3_S6_.exit
 
 if.then5.i.i:                                     ; preds = %if.end.i194.i
-  %45 = load i64, ptr %remainder, align 8
-  %46 = load i64, ptr %ref.tmp.sroa.2.0.value.sroa_idx.i171.i, align 8
-  %not3.i3.i.i = xor i64 %46, -1
-  %cmp.i4.i.i = icmp eq i64 %45, 0
-  %add.i.i5.i.i = sub i64 0, %46
-  %add.i6.i.i = sub i64 0, %45
+  %46 = load i64, ptr %remainder, align 8
+  %47 = load i64, ptr %ref.tmp.sroa.2.0.value.sroa_idx.i171.i, align 8
+  %not3.i3.i.i = xor i64 %47, -1
+  %cmp.i4.i.i = icmp eq i64 %46, 0
+  %add.i.i5.i.i = sub i64 0, %47
+  %add.i6.i.i = sub i64 0, %46
   %ref.tmp.sroa.3.0.i7.i.i = select i1 %cmp.i4.i.i, i64 %add.i.i5.i.i, i64 %not3.i3.i.i
   store i64 %add.i6.i.i, ptr %remainder, align 8
   store i64 %ref.tmp.sroa.3.0.i7.i.i, ptr %ref.tmp.sroa.2.0.value.sroa_idx.i171.i, align 8
@@ -3753,14 +3759,24 @@ _ZN5arrow15BasicDecimal256pLERKS0_.exit:          ; preds = %for.body.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5arrowcoERKNS_15BasicDecimal256E(ptr noalias nocapture writeonly sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %operand) local_unnamed_addr #4 {
 entry:
+  %0 = load i64, ptr %operand, align 8
+  %not = xor i64 %0, -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %operand, i64 8
+  %1 = load i64, ptr %arrayidx.i.i, align 8
+  %not3 = xor i64 %1, -1
   %arrayidx.i.i4 = getelementptr inbounds i8, ptr %operand, i64 16
-  %0 = load <2 x i64>, ptr %operand, align 8
-  %1 = xor <2 x i64> %0, <i64 -1, i64 -1>
-  store <2 x i64> %1, ptr %agg.result, align 8
+  %2 = load i64, ptr %arrayidx.i.i4, align 8
+  %not6 = xor i64 %2, -1
+  %arrayidx.i.i5 = getelementptr inbounds i8, ptr %operand, i64 24
+  %3 = load i64, ptr %arrayidx.i.i5, align 8
+  %not9 = xor i64 %3, -1
+  store i64 %not, ptr %agg.result, align 8
+  %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 %not3, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 8
   %ref.tmp.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %2 = load <2 x i64>, ptr %arrayidx.i.i4, align 8
-  %3 = xor <2 x i64> %2, <i64 -1, i64 -1>
-  store <2 x i64> %3, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx, align 8
+  store i64 %not6, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx, align 8
+  %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  store i64 %not9, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx, align 8
   ret void
 }
 

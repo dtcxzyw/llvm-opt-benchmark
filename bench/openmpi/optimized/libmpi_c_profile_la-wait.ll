@@ -42,40 +42,43 @@ define i32 @PMPI_Wait(ptr noundef %0, ptr noundef %1) #0 {
 
 11:                                               ; preds = %10
   %12 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 7, ptr noundef nonnull @FUNC_NAME) #2
-  br label %29
+  br label %31
 
 13:                                               ; preds = %10, %2
   %14 = load ptr, ptr %0, align 8
   %15 = icmp eq ptr %14, @ompi_request_null
-  br i1 %15, label %16, label %23
+  br i1 %15, label %16, label %25
 
 16:                                               ; preds = %13
   %.not16 = icmp eq ptr %1, null
-  br i1 %.not16, label %29, label %17
+  br i1 %.not16, label %31, label %17
 
 17:                                               ; preds = %16
-  %18 = load <2 x i32>, ptr @ompi_status_empty, align 8
-  store <2 x i32> %18, ptr %1, align 8
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
-  store i64 %19, ptr %20, align 8
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 12
-  store i32 %21, ptr %22, align 4
-  br label %29
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 4), align 4
+  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 %18, ptr %19, align 4
+  %20 = load i32, ptr @ompi_status_empty, align 8
+  store i32 %20, ptr %1, align 8
+  %21 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  store i64 %21, ptr %22, align 8
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
+  %24 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 %23, ptr %24, align 4
+  br label %31
 
-23:                                               ; preds = %13
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
-  %25 = tail call i32 %24(ptr noundef nonnull %0, ptr noundef %1) #2
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %29, label %27
+25:                                               ; preds = %13
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %27 = tail call i32 %26(ptr noundef nonnull %0, ptr noundef %1) #2
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %31, label %29
 
-27:                                               ; preds = %23
-  %28 = tail call i32 @ompi_errhandler_request_invoke(i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull @FUNC_NAME) #2
-  br label %29
+29:                                               ; preds = %25
+  %30 = tail call i32 @ompi_errhandler_request_invoke(i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull @FUNC_NAME) #2
+  br label %31
 
-29:                                               ; preds = %23, %16, %17, %27, %11
-  %.0 = phi i32 [ 7, %11 ], [ %28, %27 ], [ 0, %17 ], [ 0, %16 ], [ 0, %23 ]
+31:                                               ; preds = %25, %16, %17, %29, %11
+  %.0 = phi i32 [ 7, %11 ], [ %30, %29 ], [ 0, %17 ], [ 0, %16 ], [ 0, %25 ]
   ret i32 %.0
 }
 

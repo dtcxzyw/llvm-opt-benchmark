@@ -135,73 +135,65 @@ define hidden void @_ZNK5zxing6qrcode13FinderPattern15combineEstimateEfff(ptr de
   %17 = getelementptr inbounds i8, ptr %1, i64 20
   %18 = load float, ptr %17, align 4
   %19 = icmp slt i32 %7, 3
-  %20 = insertelement <2 x float> poison, float %16, i64 0
-  %21 = insertelement <2 x float> %20, float %12, i64 1
-  br i1 %19, label %22, label %50
+  br i1 %19, label %20, label %43
 
-22:                                               ; preds = %5
-  %23 = load i32, ptr %6, align 8
-  %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef float %26(ptr noundef nonnull align 8 dereferenceable(20) %1)
+20:                                               ; preds = %5
+  %21 = load i32, ptr %6, align 8
+  %22 = sitofp i32 %21 to float
+  %23 = load ptr, ptr %1, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call noundef float %25(ptr noundef nonnull align 8 dereferenceable(20) %1)
+  %27 = tail call float @llvm.fmuladd.f32(float %22, float %26, float %3)
   %28 = sitofp i32 %8 to float
-  %29 = load <4 x i32>, ptr %6, align 8
-  %30 = shufflevector <4 x i32> %29, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %31 = load ptr, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef float %33(ptr noundef nonnull align 8 dereferenceable(20) %1)
-  %35 = insertelement <2 x i32> %30, i32 %23, i64 1
-  %36 = sitofp <2 x i32> %35 to <2 x float>
-  %37 = insertelement <2 x float> poison, float %34, i64 0
-  %38 = insertelement <2 x float> %37, float %27, i64 1
-  %39 = insertelement <2 x float> poison, float %2, i64 0
-  %40 = insertelement <2 x float> %39, float %3, i64 1
-  %41 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %36, <2 x float> %38, <2 x float> %40)
-  %42 = insertelement <2 x float> poison, float %28, i64 0
-  %43 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> zeroinitializer
-  %44 = fdiv <2 x float> %41, %43
-  %45 = load i32, ptr %6, align 8
-  %46 = sitofp i32 %45 to float
-  %47 = load float, ptr %17, align 4
-  %48 = tail call float @llvm.fmuladd.f32(float %46, float %47, float %4)
-  %49 = fdiv float %48, %28
-  br label %50
+  %29 = fdiv float %27, %28
+  %30 = load i32, ptr %6, align 8
+  %31 = sitofp i32 %30 to float
+  %32 = load ptr, ptr %1, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef float %34(ptr noundef nonnull align 8 dereferenceable(20) %1)
+  %36 = tail call float @llvm.fmuladd.f32(float %31, float %35, float %2)
+  %37 = fdiv float %36, %28
+  %38 = load i32, ptr %6, align 8
+  %39 = sitofp i32 %38 to float
+  %40 = load float, ptr %17, align 4
+  %41 = tail call float @llvm.fmuladd.f32(float %39, float %40, float %4)
+  %42 = fdiv float %41, %28
+  br label %43
 
-50:                                               ; preds = %22, %5
-  %.014 = phi float [ %49, %22 ], [ %18, %5 ]
-  %51 = phi <2 x float> [ %44, %22 ], [ %21, %5 ]
-  %52 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
-  %53 = extractelement <2 x float> %51, i64 0
-  %54 = extractelement <2 x float> %51, i64 1
-  invoke void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(20) %52, float noundef %54, float noundef %53)
-          to label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_.exit unwind label %63
+43:                                               ; preds = %20, %5
+  %.014 = phi float [ %42, %20 ], [ %18, %5 ]
+  %.013 = phi float [ %37, %20 ], [ %16, %5 ]
+  %.0 = phi float [ %29, %20 ], [ %12, %5 ]
+  %44 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
+  invoke void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(20) %44, float noundef %.0, float noundef %.013)
+          to label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_.exit unwind label %53
 
-_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_.exit: ; preds = %50
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i64 16), ptr %52, align 8
-  %55 = getelementptr inbounds i8, ptr %52, i64 20
-  store float %.014, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %52, i64 24
-  store i32 %8, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %52, i64 32
-  store i32 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %52, i64 36
-  store i32 3, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %52, i64 28
-  store float -1.000000e+00, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %52, i64 8
-  %61 = load i32, ptr %60, align 8
-  %62 = add i32 %61, 1
-  store i32 %62, ptr %60, align 8
-  store ptr %52, ptr %0, align 8
+_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_.exit: ; preds = %43
+  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i64 16), ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 20
+  store float %.014, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %44, i64 24
+  store i32 %8, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %44, i64 32
+  store i32 0, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %44, i64 36
+  store i32 3, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %44, i64 28
+  store float -1.000000e+00, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %44, i64 8
+  %51 = load i32, ptr %50, align 8
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %50, align 8
+  store ptr %44, ptr %0, align 8
   ret void
 
-63:                                               ; preds = %50
-  %64 = landingpad { ptr, i32 }
+53:                                               ; preds = %43
+  %54 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %52) #12
-  resume { ptr, i32 } %64
+  tail call void @_ZdlPv(ptr noundef nonnull %44) #11
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -246,14 +238,14 @@ switch.lookup:                                    ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing6qrcode13FinderPatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN5zxing11ResultPointD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #13
+  tail call void @_ZN5zxing11ResultPointD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing6qrcode13FinderPatternD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN5zxing11ResultPointD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
+  tail call void @_ZN5zxing11ResultPointD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }
 
@@ -271,9 +263,6 @@ declare float @llvm.fabs.f32(float) #4
 ; Function Attrs: nounwind
 declare void @_ZN5zxing11ResultPointD2Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #10
-
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -284,10 +273,9 @@ attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { builtin allocsize(0) }
-attributes #12 = { builtin nounwind }
-attributes #13 = { nounwind }
+attributes #10 = { builtin allocsize(0) }
+attributes #11 = { builtin nounwind }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

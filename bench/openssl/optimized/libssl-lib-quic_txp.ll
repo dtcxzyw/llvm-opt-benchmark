@@ -618,13 +618,13 @@ entry:
 define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_generate(ptr noundef %txp, ptr nocapture noundef %status) local_unnamed_addr #0 {
 entry:
   %chunks.i.i = alloca [2 x %struct.chunk_info], align 16
-  %chunk.i.i221 = alloca %struct.quic_txpim_chunk_st, align 16
+  %chunk.i.i221 = alloca %struct.quic_txpim_chunk_st, align 8
   %hdr_len_implicit.i.i = alloca i64, align 8
   %payload_len_implicit.i.i = alloca i64, align 8
   %hdr_len_explicit.i.i = alloca i64, align 8
   %payload_len_explicit.i.i = alloca i64, align 8
   %it.i222 = alloca %struct.quic_stream_iter_st, align 8
-  %f.i = alloca %struct.ossl_quic_frame_stop_sending_st, align 16
+  %f.i = alloca %struct.ossl_quic_frame_stop_sending_st, align 8
   %f37.i = alloca %struct.ossl_quic_frame_reset_stream_st, align 8
   %txpkt.i = alloca %struct.ossl_qtx_pkt_st, align 8
   %chunk.i = alloca %struct.quic_txpim_chunk_st, align 8
@@ -724,8 +724,10 @@ txp_determine_archetype.exit:                     ; preds = %for.body.i, %for.en
   %has_fin.i.i = getelementptr inbounds i8, ptr %chunk.i.i, i64 24
   %i.0166.i.sroa.gep108.i = getelementptr inbounds i8, ptr %chunks.i.i, i64 96
   %stream2.i = getelementptr inbounds i8, ptr %it.i222, i64 16
+  %app_error_code.i = getelementptr inbounds i8, ptr %f.i, i64 8
   %app_error_code57.i = getelementptr inbounds i8, ptr %f37.i, i64 8
   %final_size.i = getelementptr inbounds i8, ptr %f37.i, i64 16
+  %start.i.i231 = getelementptr inbounds i8, ptr %chunk.i.i221, i64 8
   %end.i.i232 = getelementptr inbounds i8, ptr %chunk.i.i221, i64 16
   %has_fin.i.i233 = getelementptr inbounds i8, ptr %chunk.i.i221, i64 24
   %now.i = getelementptr inbounds i8, ptr %txp, i64 248
@@ -1661,20 +1663,20 @@ if.end166.i:                                      ; preds = %if.end.i177.i, %if.
 for.body.lr.ph.i102:                              ; preds = %if.end166.i
   %92 = and i32 %a.sroa.0.0.copyload.i, 32
   %tobool205.not.i = icmp eq i32 %92, 0
-  %93 = insertelement <4 x i32> poison, i32 %a.sroa.0.0.copyload.i, i64 0
-  %94 = shufflevector <4 x i32> %93, <4 x i32> poison, <4 x i32> zeroinitializer
-  %95 = and <4 x i32> %94, <i32 2048, i32 64, i32 128, i32 4096>
-  %96 = icmp eq <4 x i32> %95, zeroinitializer
-  %97 = extractelement <4 x i1> %96, i64 0
-  %98 = extractelement <4 x i1> %96, i64 1
-  %99 = extractelement <4 x i1> %96, i64 2
-  %100 = extractelement <4 x i1> %96, i64 3
+  %93 = and i32 %a.sroa.0.0.copyload.i, 4096
+  %tobool191.not.i104 = icmp eq i32 %93, 0
+  %94 = and i32 %a.sroa.0.0.copyload.i, 128
+  %tobool184.not.i = icmp eq i32 %94, 0
+  %95 = and i32 %a.sroa.0.0.copyload.i, 64
+  %tobool177.not.i105 = icmp eq i32 %95, 0
+  %96 = and i32 %a.sroa.0.0.copyload.i, 2048
+  %tobool211.not.i = icmp eq i32 %96, 0
   br label %for.body.i107
 
 for.body.i107:                                    ; preds = %for.inc.i, %for.body.lr.ph.i102
   %done_pre_token.0257.i = phi i32 [ 0, %for.body.lr.ph.i102 ], [ %done_pre_token.2.i, %for.inc.i ]
   %cfq_item.0256.i = phi ptr [ %call168.i, %for.body.lr.ph.i102 ], [ %call227.i, %for.inc.i ]
-  %101 = phi i32 [ %have_ack_eliciting.promoted.i, %for.body.lr.ph.i102 ], [ %118, %for.inc.i ]
+  %97 = phi i32 [ %have_ack_eliciting.promoted.i, %for.body.lr.ph.i102 ], [ %114, %for.inc.i ]
   %call171.i = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %cfq_item.0256.i) #10
   %call172.i = call ptr @ossl_quic_cfq_item_get_encoded(ptr noundef nonnull %cfq_item.0256.i) #10
   %call173.i = call i64 @ossl_quic_cfq_item_get_encoded_len(ptr noundef nonnull %cfq_item.0256.i) #10
@@ -1686,13 +1688,13 @@ for.body.i107:                                    ; preds = %for.inc.i, %for.bod
   ]
 
 sw.bb.i:                                          ; preds = %for.body.i107
-  br i1 %98, label %for.inc.i, label %sw.epilog.i
+  br i1 %tobool177.not.i105, label %for.inc.i, label %sw.epilog.i
 
 sw.bb180.i:                                       ; preds = %for.body.i107
-  br i1 %99, label %for.inc.i, label %sw.epilog.i
+  br i1 %tobool184.not.i, label %for.inc.i, label %sw.epilog.i
 
 sw.bb187.i:                                       ; preds = %for.body.i107
-  br i1 %100, label %for.inc.i, label %if.end193.i
+  br i1 %tobool191.not.i104, label %for.inc.i, label %if.end193.i
 
 if.end193.i:                                      ; preds = %sw.bb187.i
   %tobool194.not.i = icmp eq i32 %done_pre_token.0257.i, 0
@@ -1710,48 +1712,48 @@ if.end207.i:                                      ; preds = %sw.bb201.i
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %for.body.i107
-  br i1 %97, label %for.inc.i, label %sw.epilog.i
+  br i1 %tobool211.not.i, label %for.inc.i, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.default.i, %if.end207.i, %if.then195.i, %if.end193.i, %sw.bb180.i, %sw.bb.i
   %done_pre_token.3.i = phi i32 [ %done_pre_token.0257.i, %sw.default.i ], [ %done_pre_token.0257.i, %if.end207.i ], [ 1, %if.end193.i ], [ %done_pre_token.0257.i, %sw.bb180.i ], [ %done_pre_token.0257.i, %sw.bb.i ], [ %call196.i, %if.then195.i ]
-  %102 = load i64, ptr %max_ppl3.i.i, align 8
+  %98 = load i64, ptr %max_ppl3.i.i, align 8
   %bf.load.i185.i = load i8, ptr %reserve_allowed.i.i, align 4
   %bf.clear.i186.i = and i8 %bf.load.i185.i, 1
   %tobool.not.i187.i = icmp eq i8 %bf.clear.i186.i, 0
   br i1 %tobool.not.i187.i, label %cond.false.i191.i, label %tx_helper_get_space_left.exit193.i
 
 cond.false.i191.i:                                ; preds = %sw.epilog.i
-  %103 = load i64, ptr %reserve4.i.i, align 8
+  %99 = load i64, ptr %reserve4.i.i, align 8
   br label %tx_helper_get_space_left.exit193.i
 
 tx_helper_get_space_left.exit193.i:               ; preds = %cond.false.i191.i, %sw.epilog.i
-  %cond.i188.i = phi i64 [ %103, %cond.false.i191.i ], [ 0, %sw.epilog.i ]
-  %104 = load i64, ptr %bytes_appended.i.i, align 8
-  %105 = add i64 %cond.i188.i, %104
-  %sub1.i190.i = sub i64 %102, %105
+  %cond.i188.i = phi i64 [ %99, %cond.false.i191.i ], [ 0, %sw.epilog.i ]
+  %100 = load i64, ptr %bytes_appended.i.i, align 8
+  %101 = add i64 %cond.i188.i, %100
+  %sub1.i190.i = sub i64 %98, %101
   %cmp215.i = icmp ugt i64 %call173.i, %sub1.i190.i
   br i1 %cmp215.i, label %for.end.i110, label %if.end218.i
 
 if.end218.i:                                      ; preds = %tx_helper_get_space_left.exit193.i
-  %106 = load ptr, ptr %arrayidx11354, align 8
-  %el1.i.i = getelementptr inbounds i8, ptr %106, i64 504
-  %107 = load i32, ptr %enc_level2.i.i, align 8
-  %idxprom.i.i108 = zext i32 %107 to i64
+  %102 = load ptr, ptr %arrayidx11354, align 8
+  %el1.i.i = getelementptr inbounds i8, ptr %102, i64 504
+  %103 = load i32, ptr %enc_level2.i.i, align 8
+  %idxprom.i.i108 = zext i32 %103 to i64
   %arrayidx.i.i109 = getelementptr inbounds [4 x %struct.txp_el], ptr %el1.i.i, i64 0, i64 %idxprom.i.i108
   %cmp.i194.i = icmp eq i64 %call173.i, 0
   br i1 %cmp.i194.i, label %if.end222.i, label %if.end.i195.i
 
 if.end.i195.i:                                    ; preds = %if.end218.i
-  %108 = and i8 %bf.load.i185.i, 2
-  %tobool.not.i197.i = icmp eq i8 %108, 0
+  %104 = and i8 %bf.load.i185.i, 2
+  %tobool.not.i197.i = icmp eq i8 %104, 0
   br i1 %tobool.not.i197.i, label %if.end9.i.i, label %if.then337.i
 
 if.end9.i.i:                                      ; preds = %if.end.i195.i
-  %109 = load i64, ptr %num_iovec.i.i, align 8
-  %add.i.i = add i64 %109, 1
+  %105 = load i64, ptr %num_iovec.i.i, align 8
+  %add.i.i = add i64 %105, 1
   %alloc_iovec.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i109, i64 24
-  %110 = load i64, ptr %alloc_iovec.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ult i64 %110, %add.i.i
+  %106 = load i64, ptr %alloc_iovec.i.i.i, align 8
+  %cmp.not.i.i.i = icmp ult i64 %106, %add.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.end9.if.end12_crit_edge.i.i
 
 if.end9.if.end12_crit_edge.i.i:                   ; preds = %if.end9.i.i
@@ -1760,13 +1762,13 @@ if.end9.if.end12_crit_edge.i.i:                   ; preds = %if.end9.i.i
   br label %if.end12.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end9.i.i
-  %cmp2.not.i.i.i = icmp eq i64 %110, 0
-  %mul.i.i.i = shl i64 %110, 1
+  %cmp2.not.i.i.i = icmp eq i64 %106, 0
+  %mul.i.i.i = shl i64 %106, 1
   %spec.select.i.i.i = select i1 %cmp2.not.i.i.i, i64 8, i64 %mul.i.i.i
   %iovec4.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i109, i64 16
-  %111 = load ptr, ptr %iovec4.i.i.i, align 8
+  %107 = load ptr, ptr %iovec4.i.i.i, align 8
   %mul5.i.i.i = shl i64 %spec.select.i.i.i, 4
-  %call.i.i.i125 = call ptr @CRYPTO_realloc(ptr noundef %111, i64 noundef %mul5.i.i.i, ptr noundef nonnull @.str, i32 noundef 3041) #10
+  %call.i.i.i125 = call ptr @CRYPTO_realloc(ptr noundef %107, i64 noundef %mul5.i.i.i, ptr noundef nonnull @.str, i32 noundef 3041) #10
   %cmp6.i.i.i = icmp eq ptr %call.i.i.i125, null
   br i1 %cmp6.i.i.i, label %if.then337.i, label %if.end8.i.i.i
 
@@ -1777,20 +1779,20 @@ if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.end8.i.i.i, %if.end9.if.end12_crit_edge.i.i
-  %112 = phi i64 [ %109, %if.end9.if.end12_crit_edge.i.i ], [ %.pre14.i.i, %if.end8.i.i.i ]
-  %113 = phi ptr [ %.pre.i.i, %if.end9.if.end12_crit_edge.i.i ], [ %call.i.i.i125, %if.end8.i.i.i ]
+  %108 = phi i64 [ %105, %if.end9.if.end12_crit_edge.i.i ], [ %.pre14.i.i, %if.end8.i.i.i ]
+  %109 = phi ptr [ %.pre.i.i, %if.end9.if.end12_crit_edge.i.i ], [ %call.i.i.i125, %if.end8.i.i.i ]
   %iovec.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i109, i64 16
-  %arrayidx14.i.i = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %113, i64 %112
+  %arrayidx14.i.i = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %109, i64 %108
   store ptr %call172.i, ptr %arrayidx14.i.i, align 8
-  %114 = load ptr, ptr %iovec.i.i, align 8
-  %115 = load i64, ptr %num_iovec.i.i, align 8
-  %buf_len19.i.i = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %114, i64 %115, i32 1
+  %110 = load ptr, ptr %iovec.i.i, align 8
+  %111 = load i64, ptr %num_iovec.i.i, align 8
+  %buf_len19.i.i = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %110, i64 %111, i32 1
   store i64 %call173.i, ptr %buf_len19.i.i, align 8
-  %116 = load i64, ptr %num_iovec.i.i, align 8
-  %inc.i.i = add i64 %116, 1
+  %112 = load i64, ptr %num_iovec.i.i, align 8
+  %inc.i.i = add i64 %112, 1
   store i64 %inc.i.i, ptr %num_iovec.i.i, align 8
-  %117 = load i64, ptr %bytes_appended.i.i, align 8
-  %add21.i.i = add i64 %117, %call173.i
+  %113 = load i64, ptr %bytes_appended.i.i, align 8
+  %add21.i.i = add i64 %113, %call173.i
   store i64 %add21.i.i, ptr %bytes_appended.i.i, align 8
   br label %if.end222.i
 
@@ -1811,14 +1813,14 @@ if.then225.i:                                     ; preds = %if.end222.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then225.i, %if.end222.i, %if.end222.i, %if.end222.i, %if.end222.i, %if.end222.i, %sw.default.i, %sw.bb201.i, %sw.bb187.i, %sw.bb180.i, %sw.bb.i
-  %118 = phi i32 [ 1, %if.then225.i ], [ %101, %sw.default.i ], [ %101, %sw.bb201.i ], [ %101, %sw.bb187.i ], [ %101, %sw.bb180.i ], [ %101, %sw.bb.i ], [ %101, %if.end222.i ], [ %101, %if.end222.i ], [ %101, %if.end222.i ], [ %101, %if.end222.i ], [ %101, %if.end222.i ]
+  %114 = phi i32 [ 1, %if.then225.i ], [ %97, %sw.default.i ], [ %97, %sw.bb201.i ], [ %97, %sw.bb187.i ], [ %97, %sw.bb180.i ], [ %97, %sw.bb.i ], [ %97, %if.end222.i ], [ %97, %if.end222.i ], [ %97, %if.end222.i ], [ %97, %if.end222.i ], [ %97, %if.end222.i ]
   %done_pre_token.2.i = phi i32 [ %done_pre_token.3.i, %if.then225.i ], [ %done_pre_token.0257.i, %sw.default.i ], [ %done_pre_token.0257.i, %sw.bb201.i ], [ %done_pre_token.0257.i, %sw.bb187.i ], [ %done_pre_token.0257.i, %sw.bb180.i ], [ %done_pre_token.0257.i, %sw.bb.i ], [ %done_pre_token.3.i, %if.end222.i ], [ %done_pre_token.3.i, %if.end222.i ], [ %done_pre_token.3.i, %if.end222.i ], [ %done_pre_token.3.i, %if.end222.i ], [ %done_pre_token.3.i, %if.end222.i ]
   %call227.i = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %cfq_item.0256.i, i32 noundef %retval.0.i.i86) #10
   %cmp169.not.i = icmp eq ptr %call227.i, null
   br i1 %cmp169.not.i, label %for.end.i110, label %for.body.i107, !llvm.loop !9
 
 for.end.i110:                                     ; preds = %for.inc.i, %tx_helper_get_space_left.exit193.i
-  %have_ack_eliciting.promoted261.i = phi i32 [ %118, %for.inc.i ], [ %101, %tx_helper_get_space_left.exit193.i ]
+  %have_ack_eliciting.promoted261.i = phi i32 [ %114, %for.inc.i ], [ %97, %tx_helper_get_space_left.exit193.i ]
   %done_pre_token.1.i = phi i32 [ %done_pre_token.2.i, %for.inc.i ], [ %done_pre_token.3.i, %tx_helper_get_space_left.exit193.i ]
   %tobool228.not.i = icmp eq i32 %done_pre_token.1.i, 0
   br i1 %tobool228.not.i, label %if.then229.i, label %if.end234.i
@@ -1830,8 +1832,8 @@ if.then229.i:                                     ; preds = %if.end166.i, %for.e
 
 if.end234.i:                                      ; preds = %if.then229.i, %for.end.i110
   %have_ack_eliciting.i.0 = phi i32 [ %have_ack_eliciting.i.4, %if.then229.i ], [ %have_ack_eliciting.promoted261.i, %for.end.i110 ]
-  %119 = and i32 %a.sroa.0.0.copyload.i, 4
-  %tobool238.not.i = icmp eq i32 %119, 0
+  %115 = and i32 %a.sroa.0.0.copyload.i, 4
+  %tobool238.not.i = icmp eq i32 %115, 0
   br i1 %tobool238.not.i, label %if.end244.i, label %if.then239.i
 
 if.then239.i:                                     ; preds = %if.end234.i
@@ -1841,94 +1843,94 @@ if.then239.i:                                     ; preds = %if.end234.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %iov.i.i83)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hdr_bytes.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %chunk.i.i)
-  %120 = load i32, ptr %enc_level2.i.i, align 8
-  %121 = icmp ult i32 %120, 4
-  br i1 %121, label %switch.lookup928, label %ossl_quic_enc_level_to_pn_space.exit.i.i
+  %116 = load i32, ptr %enc_level2.i.i, align 8
+  %117 = icmp ult i32 %116, 4
+  br i1 %117, label %switch.lookup928, label %ossl_quic_enc_level_to_pn_space.exit.i.i
 
 switch.lookup928:                                 ; preds = %if.then239.i
-  %122 = zext nneg i32 %120 to i64
-  %switch.gep929 = getelementptr inbounds [4 x i64], ptr @switch.table.ossl_quic_tx_packetiser_generate.11, i64 0, i64 %122
+  %118 = zext nneg i32 %116 to i64
+  %switch.gep929 = getelementptr inbounds [4 x i64], ptr @switch.table.ossl_quic_tx_packetiser_generate.11, i64 0, i64 %118
   %switch.load930 = load i64, ptr %switch.gep929, align 8
   br label %ossl_quic_enc_level_to_pn_space.exit.i.i
 
 ossl_quic_enc_level_to_pn_space.exit.i.i:         ; preds = %if.then239.i, %switch.lookup928
   %retval.0.i.i.i = phi i64 [ %switch.load930, %switch.lookup928 ], [ 2, %if.then239.i ]
-  %123 = load ptr, ptr %tpkt.i, align 8
+  %119 = load ptr, ptr %tpkt.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %shdr.i.i, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chdr.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %chunk.i.i, i8 0, i64 32, i1 false)
   %arrayidx.i205.i = getelementptr inbounds [3 x ptr], ptr %crypto.i, i64 0, i64 %retval.0.i.i.i
-  %idxprom22.i.i = zext i32 %120 to i64
+  %idxprom22.i.i = zext i32 %116 to i64
   %arrayidx23.i.i = getelementptr inbounds [4 x %struct.txp_el], ptr %el.i.i, i64 0, i64 %idxprom22.i.i
   %alloc_iovec.i.i207.i = getelementptr inbounds i8, ptr %arrayidx23.i.i, i64 24
   %iovec4.i.i208.i = getelementptr inbounds i8, ptr %arrayidx23.i.i, i64 16
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.end.i.i, %ossl_quic_enc_level_to_pn_space.exit.i.i
-  %124 = phi i32 [ %have_ack_eliciting.i.0, %ossl_quic_enc_level_to_pn_space.exit.i.i ], [ 1, %for.end.i.i ]
+  %120 = phi i32 [ %have_ack_eliciting.i.0, %ossl_quic_enc_level_to_pn_space.exit.i.i ], [ 1, %for.end.i.i ]
   %i.0.i.i = phi i64 [ 0, %ossl_quic_enc_level_to_pn_space.exit.i.i ], [ %inc54.i.i, %for.end.i.i ]
-  %125 = load i64, ptr %max_ppl3.i.i, align 8
+  %121 = load i64, ptr %max_ppl3.i.i, align 8
   %bf.load.i.i209.i = load i8, ptr %reserve_allowed.i.i, align 4
   %bf.clear.i.i210.i = and i8 %bf.load.i.i209.i, 1
   %tobool.not.i.i.i114 = icmp eq i8 %bf.clear.i.i210.i, 0
   br i1 %tobool.not.i.i.i114, label %cond.false.i.i.i, label %tx_helper_get_space_left.exit.i.i
 
 cond.false.i.i.i:                                 ; preds = %for.cond.i.i
-  %126 = load i64, ptr %reserve4.i.i, align 8
+  %122 = load i64, ptr %reserve4.i.i, align 8
   br label %tx_helper_get_space_left.exit.i.i
 
 tx_helper_get_space_left.exit.i.i:                ; preds = %cond.false.i.i.i, %for.cond.i.i
-  %cond.i.i.i = phi i64 [ %126, %cond.false.i.i.i ], [ 0, %for.cond.i.i ]
-  %127 = load i64, ptr %bytes_appended.i.i, align 8
-  %128 = add i64 %cond.i.i.i, %127
-  %sub1.i.i.i = sub i64 %125, %128
+  %cond.i.i.i = phi i64 [ %122, %cond.false.i.i.i ], [ 0, %for.cond.i.i ]
+  %123 = load i64, ptr %bytes_appended.i.i, align 8
+  %124 = add i64 %cond.i.i.i, %123
+  %sub1.i.i.i = sub i64 %121, %124
   %cmp.i211.i = icmp ult i64 %sub1.i.i.i, 4
   br i1 %cmp.i211.i, label %txp_generate_crypto_frames.exit.thread.i, label %if.end.i212.i
 
 if.end.i212.i:                                    ; preds = %tx_helper_get_space_left.exit.i.i
   store i64 2, ptr %num_stream_iovec.i.i, align 8
-  %129 = load ptr, ptr %arrayidx.i205.i, align 8
-  %call6.i.i = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %129, i64 noundef %i.0.i.i, ptr noundef nonnull %shdr.i.i, ptr noundef nonnull %iov.i.i83, ptr noundef nonnull %num_stream_iovec.i.i) #10
+  %125 = load ptr, ptr %arrayidx.i205.i, align 8
+  %call6.i.i = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %125, i64 noundef %i.0.i.i, ptr noundef nonnull %shdr.i.i, ptr noundef nonnull %iov.i.i83, ptr noundef nonnull %num_stream_iovec.i.i) #10
   %tobool.not.i213.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool.not.i213.i, label %txp_generate_crypto_frames.exit.thread.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end.i212.i
-  %130 = load i64, ptr %offset.i.i, align 8
-  store i64 %130, ptr %chdr.i.i, align 8
-  %131 = load i64, ptr %len.i.i112, align 8
-  %cmp12.i.i = icmp eq i64 %131, 0
+  %126 = load i64, ptr %offset.i.i, align 8
+  store i64 %126, ptr %chdr.i.i, align 8
+  %127 = load i64, ptr %len.i.i112, align 8
+  %cmp12.i.i = icmp eq i64 %127, 0
   br i1 %cmp12.i.i, label %txp_generate_crypto_frames.exit.thread.i, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.end8.i.i
   store i64 0, ptr %len10.i.i, align 8
   %call.i.i214.i = call i64 @ossl_quic_wire_get_encoded_frame_len_crypto_hdr(ptr noundef nonnull %chdr.i.i) #10
-  store i64 %131, ptr %len10.i.i, align 8
+  store i64 %127, ptr %len10.i.i, align 8
   %cmp5.i.i.i = icmp eq i64 %call.i.i214.i, 0
   br i1 %cmp5.i.i.i, label %txp_generate_crypto_frames.exit.thread.i, label %determine_crypto_len.exit.i.i
 
 determine_crypto_len.exit.i.i:                    ; preds = %if.end14.i.i
   %dec.i.i.i = add i64 %call.i.i214.i, -1
-  %call8.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i, i64 noundef %131, i64 noundef %dec.i.i.i, ptr noundef nonnull %hdr_bytes.i.i, ptr noundef nonnull %len10.i.i)
+  %call8.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i, i64 noundef %127, i64 noundef %dec.i.i.i, ptr noundef nonnull %hdr_bytes.i.i, ptr noundef nonnull %len10.i.i)
   %tobool17.not.i.i = icmp eq i32 %call8.i.i.i, 0
   br i1 %tobool17.not.i.i, label %txp_generate_crypto_frames.exit.thread.i, label %if.end19.i.i
 
 if.end19.i.i:                                     ; preds = %determine_crypto_len.exit.i.i
-  %132 = load i64, ptr %len10.i.i, align 8
-  %133 = load i64, ptr %num_stream_iovec.i.i, align 8
-  call void @ossl_quic_sstream_adjust_iov(i64 noundef %132, ptr noundef nonnull %iov.i.i83, i64 noundef %133) #10
-  %134 = load i64, ptr %num_iovec.i.i, align 8
-  %add.i215.i = add i64 %134, 3
-  %135 = load i64, ptr %alloc_iovec.i.i207.i, align 8
-  %cmp.not.i.i216.i = icmp ult i64 %135, %add.i215.i
+  %128 = load i64, ptr %len10.i.i, align 8
+  %129 = load i64, ptr %num_stream_iovec.i.i, align 8
+  call void @ossl_quic_sstream_adjust_iov(i64 noundef %128, ptr noundef nonnull %iov.i.i83, i64 noundef %129) #10
+  %130 = load i64, ptr %num_iovec.i.i, align 8
+  %add.i215.i = add i64 %130, 3
+  %131 = load i64, ptr %alloc_iovec.i.i207.i, align 8
+  %cmp.not.i.i216.i = icmp ult i64 %131, %add.i215.i
   br i1 %cmp.not.i.i216.i, label %if.end.i.i221.i, label %if.end27.i.i115
 
 if.end.i.i221.i:                                  ; preds = %if.end19.i.i
-  %cmp2.not.i.i222.i = icmp eq i64 %135, 0
-  %mul.i.i223.i = shl i64 %135, 1
+  %cmp2.not.i.i222.i = icmp eq i64 %131, 0
+  %mul.i.i223.i = shl i64 %131, 1
   %spec.select.i.i224.i = select i1 %cmp2.not.i.i222.i, i64 8, i64 %mul.i.i223.i
-  %136 = load ptr, ptr %iovec4.i.i208.i, align 8
+  %132 = load ptr, ptr %iovec4.i.i208.i, align 8
   %mul5.i.i225.i = shl i64 %spec.select.i.i224.i, 4
-  %call.i21.i.i = call ptr @CRYPTO_realloc(ptr noundef %136, i64 noundef %mul5.i.i225.i, ptr noundef nonnull @.str, i32 noundef 3041) #10
+  %call.i21.i.i = call ptr @CRYPTO_realloc(ptr noundef %132, i64 noundef %mul5.i.i225.i, ptr noundef nonnull @.str, i32 noundef 3041) #10
   %cmp6.i.i226.i = icmp eq ptr %call.i21.i.i, null
   br i1 %cmp6.i.i226.i, label %txp_generate_crypto_frames.exit.i, label %if.end8.i.i227.i
 
@@ -1968,36 +1970,36 @@ if.end35.i.i116:                                  ; preds = %if.end31.i.i
   br i1 %tobool37.not.i.i, label %txp_generate_crypto_frames.exit.i, label %for.cond40.preheader.i.i
 
 for.cond40.preheader.i.i:                         ; preds = %if.end35.i.i116
-  %137 = load i64, ptr %num_stream_iovec.i.i, align 8
-  %cmp4138.not.i.i = icmp eq i64 %137, 0
+  %133 = load i64, ptr %num_stream_iovec.i.i, align 8
+  %cmp4138.not.i.i = icmp eq i64 %133, 0
   br i1 %cmp4138.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond40.preheader.i.i, %tx_helper_append_iovec.exit.i.i
   %i.139.i.i = phi i64 [ %inc.i217.i, %tx_helper_append_iovec.exit.i.i ], [ 0, %for.cond40.preheader.i.i ]
   %arrayidx42.i.i = getelementptr inbounds [2 x %struct.ossl_qtx_iovec_st], ptr %iov.i.i83, i64 0, i64 %i.139.i.i
-  %138 = load ptr, ptr %arrayidx42.i.i, align 16
+  %134 = load ptr, ptr %arrayidx42.i.i, align 16
   %buf_len.i.i = getelementptr inbounds i8, ptr %arrayidx42.i.i, i64 8
-  %139 = load i64, ptr %buf_len.i.i, align 8
-  %140 = load ptr, ptr %arrayidx11354, align 8
-  %el1.i.i.i = getelementptr inbounds i8, ptr %140, i64 504
-  %141 = load i32, ptr %enc_level2.i.i, align 8
-  %idxprom.i.i.i117 = zext i32 %141 to i64
+  %135 = load i64, ptr %buf_len.i.i, align 8
+  %136 = load ptr, ptr %arrayidx11354, align 8
+  %el1.i.i.i = getelementptr inbounds i8, ptr %136, i64 504
+  %137 = load i32, ptr %enc_level2.i.i, align 8
+  %idxprom.i.i.i117 = zext i32 %137 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4 x %struct.txp_el], ptr %el1.i.i.i, i64 0, i64 %idxprom.i.i.i117
-  %cmp.i.i.i118 = icmp eq i64 %139, 0
+  %cmp.i.i.i118 = icmp eq i64 %135, 0
   br i1 %cmp.i.i.i118, label %tx_helper_append_iovec.exit.i.i, label %if.end.i26.i.i
 
 if.end.i26.i.i:                                   ; preds = %for.body.i.i
   %bf.load.i27.i.i = load i8, ptr %reserve_allowed.i.i, align 4
-  %142 = and i8 %bf.load.i27.i.i, 2
-  %tobool.not.i28.i.i = icmp eq i8 %142, 0
+  %138 = and i8 %bf.load.i27.i.i, 2
+  %tobool.not.i28.i.i = icmp eq i8 %138, 0
   br i1 %tobool.not.i28.i.i, label %if.end9.i.i.i, label %tx_helper_append_iovec.exit.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end.i26.i.i
-  %143 = load i64, ptr %num_iovec.i.i, align 8
-  %add.i.i.i = add i64 %143, 1
+  %139 = load i64, ptr %num_iovec.i.i, align 8
+  %add.i.i.i = add i64 %139, 1
   %alloc_iovec.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 24
-  %144 = load i64, ptr %alloc_iovec.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ult i64 %144, %add.i.i.i
+  %140 = load i64, ptr %alloc_iovec.i.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp ult i64 %140, %add.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.end9.if.end12_crit_edge.i.i.i
 
 if.end9.if.end12_crit_edge.i.i.i:                 ; preds = %if.end9.i.i.i
@@ -2006,13 +2008,13 @@ if.end9.if.end12_crit_edge.i.i.i:                 ; preds = %if.end9.i.i.i
   br label %if.end12.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end9.i.i.i
-  %cmp2.not.i.i.i.i = icmp eq i64 %144, 0
-  %mul.i.i.i.i = shl i64 %144, 1
+  %cmp2.not.i.i.i.i = icmp eq i64 %140, 0
+  %mul.i.i.i.i = shl i64 %140, 1
   %spec.select.i.i.i.i = select i1 %cmp2.not.i.i.i.i, i64 8, i64 %mul.i.i.i.i
   %iovec4.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
-  %145 = load ptr, ptr %iovec4.i.i.i.i, align 8
+  %141 = load ptr, ptr %iovec4.i.i.i.i, align 8
   %mul5.i.i.i.i = shl i64 %spec.select.i.i.i.i, 4
-  %call.i.i.i.i = call ptr @CRYPTO_realloc(ptr noundef %145, i64 noundef %mul5.i.i.i.i, ptr noundef nonnull @.str, i32 noundef 3041) #10
+  %call.i.i.i.i = call ptr @CRYPTO_realloc(ptr noundef %141, i64 noundef %mul5.i.i.i.i, ptr noundef nonnull @.str, i32 noundef 3041) #10
   %cmp6.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp6.i.i.i.i, label %tx_helper_append_iovec.exit.i.i, label %if.end8.i.i.i.i
 
@@ -2023,27 +2025,27 @@ if.end8.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end8.i.i.i.i, %if.end9.if.end12_crit_edge.i.i.i
-  %146 = phi i64 [ %143, %if.end9.if.end12_crit_edge.i.i.i ], [ %.pre14.i.i.i, %if.end8.i.i.i.i ]
-  %147 = phi ptr [ %.pre.i.i.i, %if.end9.if.end12_crit_edge.i.i.i ], [ %call.i.i.i.i, %if.end8.i.i.i.i ]
+  %142 = phi i64 [ %139, %if.end9.if.end12_crit_edge.i.i.i ], [ %.pre14.i.i.i, %if.end8.i.i.i.i ]
+  %143 = phi ptr [ %.pre.i.i.i, %if.end9.if.end12_crit_edge.i.i.i ], [ %call.i.i.i.i, %if.end8.i.i.i.i ]
   %iovec.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
-  %arrayidx14.i.i.i = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %147, i64 %146
-  store ptr %138, ptr %arrayidx14.i.i.i, align 8
-  %148 = load ptr, ptr %iovec.i.i.i, align 8
-  %149 = load i64, ptr %num_iovec.i.i, align 8
-  %buf_len19.i.i.i = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %148, i64 %149, i32 1
-  store i64 %139, ptr %buf_len19.i.i.i, align 8
-  %150 = load i64, ptr %num_iovec.i.i, align 8
-  %inc.i.i.i = add i64 %150, 1
+  %arrayidx14.i.i.i = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %143, i64 %142
+  store ptr %134, ptr %arrayidx14.i.i.i, align 8
+  %144 = load ptr, ptr %iovec.i.i.i, align 8
+  %145 = load i64, ptr %num_iovec.i.i, align 8
+  %buf_len19.i.i.i = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %144, i64 %145, i32 1
+  store i64 %135, ptr %buf_len19.i.i.i, align 8
+  %146 = load i64, ptr %num_iovec.i.i, align 8
+  %inc.i.i.i = add i64 %146, 1
   store i64 %inc.i.i.i, ptr %num_iovec.i.i, align 8
-  %151 = load i64, ptr %bytes_appended.i.i, align 8
-  %add21.i.i.i = add i64 %151, %139
+  %147 = load i64, ptr %bytes_appended.i.i, align 8
+  %add21.i.i.i = add i64 %147, %135
   store i64 %add21.i.i.i, ptr %bytes_appended.i.i, align 8
   br label %tx_helper_append_iovec.exit.i.i
 
 tx_helper_append_iovec.exit.i.i:                  ; preds = %if.end12.i.i.i, %if.end.i.i.i.i, %if.end.i26.i.i, %for.body.i.i
   %inc.i217.i = add nuw i64 %i.139.i.i, 1
-  %152 = load i64, ptr %num_stream_iovec.i.i, align 8
-  %cmp41.i.i = icmp ult i64 %inc.i217.i, %152
+  %148 = load i64, ptr %num_stream_iovec.i.i, align 8
+  %cmp41.i.i = icmp ult i64 %inc.i217.i, %148
   br i1 %cmp41.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !10
 
 for.end.i.i:                                      ; preds = %tx_helper_append_iovec.exit.i.i, %for.cond40.preheader.i.i
@@ -2052,16 +2054,16 @@ for.end.i.i:                                      ; preds = %tx_helper_append_io
   %bf.set.i.i.i = or i8 %bf.load.i32.i.i, 1
   store i8 %bf.set.i.i.i, ptr %reserve_allowed.i.i, align 4
   store i64 -1, ptr %chunk.i.i, align 8
-  %153 = load i64, ptr %chdr.i.i, align 8
-  store i64 %153, ptr %start.i.i, align 8
-  %154 = load i64, ptr %len10.i.i, align 8
-  %add48.i.i = add i64 %153, -1
-  %sub.i.i = add i64 %add48.i.i, %154
+  %149 = load i64, ptr %chdr.i.i, align 8
+  store i64 %149, ptr %start.i.i, align 8
+  %150 = load i64, ptr %len10.i.i, align 8
+  %add48.i.i = add i64 %149, -1
+  %sub.i.i = add i64 %add48.i.i, %150
   store i64 %sub.i.i, ptr %end.i.i, align 8
   %bf.load.i218.i = load i8, ptr %has_fin.i.i, align 8
   %bf.clear.i219.i = and i8 %bf.load.i218.i, -2
   store i8 %bf.clear.i219.i, ptr %has_fin.i.i, align 8
-  %call49.i.i = call i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef %123, ptr noundef nonnull %chunk.i.i) #10
+  %call49.i.i = call i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef %119, ptr noundef nonnull %chunk.i.i) #10
   %tobool50.not.i.i = icmp eq i32 %call49.i.i, 0
   %inc54.i.i = add i64 %i.1.lcssa.i.i, 1
   br i1 %tobool50.not.i.i, label %txp_generate_crypto_frames.exit.i, label %for.cond.i.i
@@ -2085,15 +2087,15 @@ txp_generate_crypto_frames.exit.i:                ; preds = %for.end.i.i, %if.en
   br label %if.then337.i
 
 if.end244.i:                                      ; preds = %txp_generate_crypto_frames.exit.thread.i, %if.end234.i
-  %have_ack_eliciting.i.2 = phi i32 [ %have_ack_eliciting.i.0, %if.end234.i ], [ %124, %txp_generate_crypto_frames.exit.thread.i ]
-  %155 = and i32 %a.sroa.0.0.copyload.i, 256
-  %tobool248.not.i = icmp eq i32 %155, 0
+  %have_ack_eliciting.i.2 = phi i32 [ %have_ack_eliciting.i.0, %if.end234.i ], [ %120, %txp_generate_crypto_frames.exit.thread.i ]
+  %151 = and i32 %a.sroa.0.0.copyload.i, 256
+  %tobool248.not.i = icmp eq i32 %151, 0
   br i1 %tobool248.not.i, label %if.end260.i, label %land.lhs.true249.i
 
 land.lhs.true249.i:                               ; preds = %if.end244.i
   %bf.load250.i = load i16, ptr %want_ack.i, align 8
-  %156 = and i16 %bf.load250.i, 2048
-  %tobool254.not.i = icmp eq i16 %156, 0
+  %152 = and i16 %bf.load250.i, 2048
+  %tobool254.not.i = icmp eq i16 %152, 0
   br i1 %tobool254.not.i, label %if.end260.i, label %if.then255.i
 
 if.then255.i:                                     ; preds = %land.lhs.true249.i
@@ -2101,26 +2103,26 @@ if.then255.i:                                     ; preds = %land.lhs.true249.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %it.i222)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %f.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %f37.i)
-  %157 = load ptr, ptr %qsm.i, align 8
-  call void @ossl_quic_stream_iter_init(ptr noundef nonnull %it.i222, ptr noundef %157, i32 noundef 1) #10
-  %158 = load ptr, ptr %stream2.i, align 8
-  %cmp.not161.i = icmp eq ptr %158, null
+  %153 = load ptr, ptr %qsm.i, align 8
+  call void @ossl_quic_stream_iter_init(ptr noundef nonnull %it.i222, ptr noundef %153, i32 noundef 1) #10
+  %154 = load ptr, ptr %stream2.i, align 8
+  %cmp.not161.i = icmp eq ptr %154, null
   br i1 %cmp.not161.i, label %txp_generate_stream_related.exit.thread371, label %for.body.i234
 
 for.body.i234:                                    ; preds = %if.then255.i, %if.end163.i255
   %have_ack_eliciting.i.5 = phi i32 [ %have_ack_eliciting.i.9, %if.end163.i255 ], [ %have_ack_eliciting.i.2, %if.then255.i ]
-  %159 = phi ptr [ %240, %if.end163.i255 ], [ %158, %if.then255.i ]
+  %155 = phi ptr [ %237, %if.end163.i255 ], [ %154, %if.then255.i ]
   %conn_consumed.0162.i = phi i64 [ %conn_consumed.1.i, %if.end163.i255 ], [ 0, %if.then255.i ]
   call void @ossl_quic_stream_iter_next(ptr noundef nonnull %it.i222) #10
-  %160 = load ptr, ptr %stream2.i, align 8
-  %txp_sent_fc.i235 = getelementptr inbounds i8, ptr %159, i64 256
+  %156 = load ptr, ptr %stream2.i, align 8
+  %txp_sent_fc.i235 = getelementptr inbounds i8, ptr %155, i64 256
   %bf.load.i236 = load i64, ptr %txp_sent_fc.i235, align 8
   %bf.clear12.i = and i64 %bf.load.i236, -6174015489
   store i64 %bf.clear12.i, ptr %txp_sent_fc.i235, align 8
-  %txp_txfc_new_credit_consumed.i237 = getelementptr inbounds i8, ptr %159, i64 96
+  %txp_txfc_new_credit_consumed.i237 = getelementptr inbounds i8, ptr %155, i64 96
   store i64 0, ptr %txp_txfc_new_credit_consumed.i237, align 8
-  %161 = and i64 %bf.load.i236, 17179869184
-  %tobool.not.i238 = icmp eq i64 %161, 0
+  %157 = and i64 %bf.load.i236, 17179869184
+  %tobool.not.i238 = icmp eq i64 %157, 0
   br i1 %tobool.not.i238, label %if.end30.i245, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i234
@@ -2129,9 +2131,12 @@ if.then.i:                                        ; preds = %for.body.i234
   br i1 %cmp16.i, label %txp_generate_stream_related.exit.thread, label %if.end.i240
 
 if.end.i240:                                      ; preds = %if.then.i
-  %id.i241 = getelementptr inbounds i8, ptr %159, i64 56
-  %162 = load <2 x i64>, ptr %id.i241, align 8
-  store <2 x i64> %162, ptr %f.i, align 16
+  %id.i241 = getelementptr inbounds i8, ptr %155, i64 56
+  %158 = load i64, ptr %id.i241, align 8
+  store i64 %158, ptr %f.i, align 8
+  %stop_sending_aec.i = getelementptr inbounds i8, ptr %155, i64 64
+  %159 = load i64, ptr %stop_sending_aec.i, align 8
+  store i64 %159, ptr %app_error_code.i, align 8
   %call18.i = call i32 @ossl_quic_wire_encode_frame_stop_sending(ptr noundef nonnull %call.i239, ptr noundef nonnull %f.i) #10
   %tobool19.not.i242 = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i242, label %if.then20.i, label %if.end21.i
@@ -2168,13 +2173,13 @@ if.end25.i243:                                    ; preds = %if.end21.i
 if.end30.i245:                                    ; preds = %if.end25.i243, %for.body.i234
   %have_ack_eliciting.i.6 = phi i32 [ %have_ack_eliciting.i.5, %for.body.i234 ], [ 1, %if.end25.i243 ]
   %bf.load31.i = phi i64 [ %bf.clear12.i, %for.body.i234 ], [ %bf.set29.i, %if.end25.i243 ]
-  %163 = and i64 %bf.load31.i, 34359738368
-  %tobool35.not.i246 = icmp eq i64 %163, 0
+  %160 = and i64 %bf.load31.i, 34359738368
+  %tobool35.not.i246 = icmp eq i64 %160, 0
   br i1 %tobool35.not.i246, label %if.end92.i, label %if.then36.i
 
 if.then36.i:                                      ; preds = %if.end30.i245
-  %164 = and i64 %bf.load31.i, 65280
-  %cmp42.i = icmp eq i64 %164, 1280
+  %161 = and i64 %bf.load31.i, 65280
+  %cmp42.i = icmp eq i64 %161, 1280
   br i1 %cmp42.i, label %if.end49.i, label %txp_generate_stream_related.exit.thread
 
 if.end49.i:                                       ; preds = %if.then36.i
@@ -2183,15 +2188,15 @@ if.end49.i:                                       ; preds = %if.then36.i
   br i1 %cmp51.i, label %txp_generate_stream_related.exit.thread, label %if.end54.i249
 
 if.end54.i249:                                    ; preds = %if.end49.i
-  %id55.i = getelementptr inbounds i8, ptr %159, i64 56
-  %165 = load i64, ptr %id55.i, align 8
-  store i64 %165, ptr %f37.i, align 8
-  %reset_stream_aec.i = getelementptr inbounds i8, ptr %159, i64 72
-  %166 = load i64, ptr %reset_stream_aec.i, align 8
-  store i64 %166, ptr %app_error_code57.i, align 8
+  %id55.i = getelementptr inbounds i8, ptr %155, i64 56
+  %162 = load i64, ptr %id55.i, align 8
+  store i64 %162, ptr %f37.i, align 8
+  %reset_stream_aec.i = getelementptr inbounds i8, ptr %155, i64 72
+  %163 = load i64, ptr %reset_stream_aec.i, align 8
+  store i64 %163, ptr %app_error_code57.i, align 8
   %bf.load.i71.i = load i64, ptr %txp_sent_fc.i235, align 8
-  %167 = lshr i64 %bf.load.i71.i, 8
-  %trunc.i.i250 = trunc i64 %167 to i8
+  %164 = lshr i64 %bf.load.i71.i, 8
+  %trunc.i.i250 = trunc i64 %164 to i8
   switch i8 %trunc.i.i250, label %txp_generate_stream_related.exit.thread [
     i8 6, label %ossl_quic_stream_send_get_final_size.exit.thread111.i
     i8 2, label %ossl_quic_stream_send_get_final_size.exit.i
@@ -2201,15 +2206,15 @@ if.end54.i249:                                    ; preds = %if.end49.i
   ]
 
 ossl_quic_stream_send_get_final_size.exit.thread111.i: ; preds = %if.end54.i249, %if.end54.i249, %if.end54.i249, %if.end54.i249
-  %send_final_size.i.i = getelementptr inbounds i8, ptr %159, i64 104
-  %168 = load i64, ptr %send_final_size.i.i, align 8
-  store i64 %168, ptr %final_size.i, align 8
+  %send_final_size.i.i = getelementptr inbounds i8, ptr %155, i64 104
+  %165 = load i64, ptr %send_final_size.i.i, align 8
+  store i64 %165, ptr %final_size.i, align 8
   br label %if.end61.i
 
 ossl_quic_stream_send_get_final_size.exit.i:      ; preds = %if.end54.i249
-  %sstream.i.i = getelementptr inbounds i8, ptr %159, i64 112
-  %169 = load ptr, ptr %sstream.i.i, align 8
-  %call.i.i335 = call i32 @ossl_quic_sstream_get_final_size(ptr noundef %169, ptr noundef nonnull %final_size.i) #10
+  %sstream.i.i = getelementptr inbounds i8, ptr %155, i64 112
+  %166 = load ptr, ptr %sstream.i.i, align 8
+  %call.i.i335 = call i32 @ossl_quic_sstream_get_final_size(ptr noundef %166, ptr noundef nonnull %final_size.i) #10
   %tobool59.not.i = icmp eq i32 %call.i.i335, 0
   br i1 %tobool59.not.i, label %txp_generate_stream_related.exit.thread, label %if.end61.i
 
@@ -2245,16 +2250,16 @@ if.end69.i:                                       ; preds = %if.end65.i
   %bf.load71.i = load i64, ptr %txp_sent_fc.i235, align 8
   %bf.set73.i = or i64 %bf.load71.i, 1073741824
   store i64 %bf.set73.i, ptr %txp_sent_fc.i235, align 8
-  %170 = load i64, ptr %final_size.i, align 8
-  %txfc.i252 = getelementptr inbounds i8, ptr %159, i64 128
+  %167 = load i64, ptr %final_size.i, align 8
+  %txfc.i252 = getelementptr inbounds i8, ptr %155, i64 128
   %call75.i = call i64 @ossl_quic_txfc_get_swm(ptr noundef nonnull %txfc.i252) #10
-  %cmp76.not.i = icmp ugt i64 %170, %call75.i
+  %cmp76.not.i = icmp ugt i64 %167, %call75.i
   br i1 %cmp76.not.i, label %txp_generate_stream_related.exit.thread, label %if.end87.i
 
 if.end87.i:                                       ; preds = %if.end69.i
-  %171 = load i64, ptr %final_size.i, align 8
+  %168 = load i64, ptr %final_size.i, align 8
   %call90.i = call i64 @ossl_quic_txfc_get_swm(ptr noundef nonnull %txfc.i252) #10
-  %sub.i253 = sub i64 %171, %call90.i
+  %sub.i253 = sub i64 %168, %call90.i
   store i64 %sub.i253, ptr %txp_txfc_new_credit_consumed.i237, align 8
   %bf.load93.pre.i = load i64, ptr %txp_sent_fc.i235, align 8
   br label %if.end92.i
@@ -2262,17 +2267,17 @@ if.end87.i:                                       ; preds = %if.end69.i
 if.end92.i:                                       ; preds = %if.end87.i, %if.end30.i245
   %have_ack_eliciting.i.7 = phi i32 [ %have_ack_eliciting.i.6, %if.end30.i245 ], [ 1, %if.end87.i ]
   %bf.load93.i = phi i64 [ %bf.load31.i, %if.end30.i245 ], [ %bf.load93.pre.i, %if.end87.i ]
-  %172 = and i64 %bf.load93.i, 16711680
-  %cmp97.i = icmp eq i64 %172, 65536
+  %169 = and i64 %bf.load93.i, 16711680
+  %cmp97.i = icmp eq i64 %169, 65536
   br i1 %cmp97.i, label %land.lhs.true.i324, label %if.end127.i
 
 land.lhs.true.i324:                               ; preds = %if.end92.i
-  %173 = and i64 %bf.load93.i, 8589934592
-  %tobool103.not.i = icmp eq i64 %173, 0
+  %170 = and i64 %bf.load93.i, 8589934592
+  %tobool103.not.i = icmp eq i64 %170, 0
   br i1 %tobool103.not.i, label %lor.lhs.false.i332, label %if.then106.i
 
 lor.lhs.false.i332:                               ; preds = %land.lhs.true.i324
-  %rxfc.i333 = getelementptr inbounds i8, ptr %159, i64 160
+  %rxfc.i333 = getelementptr inbounds i8, ptr %155, i64 160
   %call104.i334 = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef nonnull %rxfc.i333, i32 noundef 0) #10
   %tobool105.not.i = icmp eq i32 %call104.i334, 0
   br i1 %tobool105.not.i, label %lor.lhs.false.if.end127_crit_edge.i, label %if.then106.i
@@ -2287,11 +2292,11 @@ if.then106.i:                                     ; preds = %lor.lhs.false.i332,
   br i1 %cmp108.i326, label %txp_generate_stream_related.exit.thread, label %if.end111.i327
 
 if.end111.i327:                                   ; preds = %if.then106.i
-  %rxfc112.i = getelementptr inbounds i8, ptr %159, i64 160
+  %rxfc112.i = getelementptr inbounds i8, ptr %155, i64 160
   %call113.i = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef nonnull %rxfc112.i) #10
-  %id114.i = getelementptr inbounds i8, ptr %159, i64 56
-  %174 = load i64, ptr %id114.i, align 8
-  %call115.i328 = call i32 @ossl_quic_wire_encode_frame_max_stream_data(ptr noundef nonnull %call107.i325, i64 noundef %174, i64 noundef %call113.i) #10
+  %id114.i = getelementptr inbounds i8, ptr %155, i64 56
+  %171 = load i64, ptr %id114.i, align 8
+  %call115.i328 = call i32 @ossl_quic_wire_encode_frame_max_stream_data(ptr noundef nonnull %call107.i325, i64 noundef %171, i64 noundef %call113.i) #10
   %tobool116.not.i329 = icmp eq i32 %call115.i328, 0
   br i1 %tobool116.not.i329, label %if.then117.i, label %if.end118.i330
 
@@ -2327,31 +2332,31 @@ if.end122.i:                                      ; preds = %if.end118.i330
 if.end127.i:                                      ; preds = %if.end122.i, %lor.lhs.false.if.end127_crit_edge.i, %if.end92.i
   %have_ack_eliciting.i.8 = phi i32 [ %have_ack_eliciting.i.7, %lor.lhs.false.if.end127_crit_edge.i ], [ 1, %if.end122.i ], [ %have_ack_eliciting.i.7, %if.end92.i ]
   %.val.i = phi i64 [ %.val.pre.i, %lor.lhs.false.if.end127_crit_edge.i ], [ %bf.set126.i, %if.end122.i ], [ %bf.load93.i, %if.end92.i ]
-  %175 = lshr i64 %.val.i, 8
-  %trunc.i100.i = trunc i64 %175 to i8
-  %176 = add i8 %trunc.i100.i, -4
-  %switch.i.i254 = icmp ult i8 %176, -3
+  %172 = lshr i64 %.val.i, 8
+  %trunc.i100.i = trunc i64 %172 to i8
+  %173 = add i8 %trunc.i100.i, -4
+  %switch.i.i254 = icmp ult i8 %173, -3
   br i1 %switch.i.i254, label %if.end163.i255, label %land.lhs.true130.i
 
 land.lhs.true130.i:                               ; preds = %if.end127.i
-  %177 = trunc i64 %.val.i to i32
-  %178 = lshr i32 %177, 8
-  %bf.cast.i.i = and i32 %178, 255
-  %179 = add nsw i32 %bf.cast.i.i, -7
-  %narrow.i.i = icmp ult i32 %179, -2
+  %174 = trunc i64 %.val.i to i32
+  %175 = lshr i32 %174, 8
+  %bf.cast.i.i = and i32 %175, 255
+  %176 = add nsw i32 %bf.cast.i.i, -7
+  %narrow.i.i = icmp ult i32 %176, -2
   br i1 %narrow.i.i, label %if.then133.i257, label %if.end163.i255
 
 if.then133.i257:                                  ; preds = %land.lhs.true130.i
-  %180 = and i64 %.val.i, 34359738368
-  %tobool139.not.i258 = icmp eq i64 %180, 0
+  %177 = and i64 %.val.i, 34359738368
+  %tobool139.not.i258 = icmp eq i64 %177, 0
   br i1 %tobool139.not.i258, label %if.end151.i, label %txp_generate_stream_related.exit.thread
 
 if.end151.i:                                      ; preds = %if.then133.i257
-  %id152.i = getelementptr inbounds i8, ptr %159, i64 56
-  %181 = load i64, ptr %id152.i, align 8
-  %sstream.i259 = getelementptr inbounds i8, ptr %159, i64 112
-  %182 = load ptr, ptr %sstream.i259, align 8
-  %txfc153.i = getelementptr inbounds i8, ptr %159, i64 128
+  %id152.i = getelementptr inbounds i8, ptr %155, i64 56
+  %178 = load i64, ptr %id152.i, align 8
+  %sstream.i259 = getelementptr inbounds i8, ptr %155, i64 112
+  %179 = load ptr, ptr %sstream.i259, align 8
+  %txfc153.i = getelementptr inbounds i8, ptr %155, i64 128
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %chunks.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %chunk.i.i221)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hdr_len_implicit.i.i)
@@ -2359,14 +2364,14 @@ if.end151.i:                                      ; preds = %if.then133.i257
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hdr_len_explicit.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %payload_len_explicit.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %chunks.i.i, i8 0, i64 192, i1 false)
-  %183 = load i32, ptr %enc_level2.i.i, align 8
-  %184 = load ptr, ptr %tpkt.i, align 8
+  %180 = load i32, ptr %enc_level2.i.i, align 8
+  %181 = load ptr, ptr %tpkt.i, align 8
   %call.i101.i = call i64 @ossl_quic_txfc_get_swm(ptr noundef nonnull %txfc153.i) #10
   br label %for.body.i.i260
 
 for.cond11.preheader.i.i:                         ; preds = %if.end.i102.i
-  %cmp56.not.i.i = icmp eq ptr %160, null
-  %idxprom.i.i266 = zext i32 %183 to i64
+  %cmp56.not.i.i = icmp eq ptr %156, null
+  %idxprom.i.i266 = zext i32 %180 to i64
   %arrayidx111.i.i = getelementptr inbounds [4 x %struct.txp_el], ptr %el.i.i, i64 0, i64 %idxprom.i.i266
   %alloc_iovec.i.i.i267 = getelementptr inbounds i8, ptr %arrayidx111.i.i, i64 24
   %iovec4.i.i.i268 = getelementptr inbounds i8, ptr %arrayidx111.i.i, i64 16
@@ -2379,7 +2384,7 @@ for.body.i.i260:                                  ; preds = %land.lhs.true.i.i, 
   %num_stream_iovec.i.i.i = getelementptr inbounds i8, ptr %i.0166.i.sroa.phi.i, i64 80
   store i64 2, ptr %num_stream_iovec.i.i.i, align 8
   %iov.i.i.i = getelementptr inbounds i8, ptr %i.0166.i.sroa.phi.i, i64 48
-  %call.i.i.i261 = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %182, i64 noundef %i.0166.i.i, ptr noundef nonnull %i.0166.i.sroa.phi.i, ptr noundef nonnull %iov.i.i.i, ptr noundef nonnull %num_stream_iovec.i.i.i) #10
+  %call.i.i.i261 = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %179, i64 noundef %i.0166.i.i, ptr noundef nonnull %i.0166.i.sroa.phi.i, ptr noundef nonnull %iov.i.i.i, ptr noundef nonnull %num_stream_iovec.i.i.i) #10
   %valid.i.i.i = getelementptr inbounds i8, ptr %i.0166.i.sroa.phi.i, i64 88
   store i32 %call.i.i.i261, ptr %valid.i.i.i, align 8
   %tobool.not.i.i.i262 = icmp eq i32 %call.i.i.i261, 0
@@ -2387,25 +2392,25 @@ for.body.i.i260:                                  ; preds = %land.lhs.true.i.i, 
 
 if.end.i.i.i263:                                  ; preds = %for.body.i.i260
   %len.i.i.i = getelementptr inbounds i8, ptr %i.0166.i.sroa.phi.i, i64 16
-  %185 = load i64, ptr %len.i.i.i, align 8
-  %cmp.not.i.i.i264 = icmp eq i64 %185, 0
+  %182 = load i64, ptr %len.i.i.i, align 8
+  %cmp.not.i.i.i264 = icmp eq i64 %182, 0
   br i1 %cmp.not.i.i.i264, label %lor.rhs.i.i.i, label %if.end10.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.end.i.i.i263
   %is_fin.i.i.i = getelementptr inbounds i8, ptr %i.0166.i.sroa.phi.i, i64 32
   %bf.load.i.i104.i = load i8, ptr %is_fin.i.i.i, align 8
-  %186 = and i8 %bf.load.i.i104.i, 2
-  %tobool5.not.i.i.i = icmp eq i8 %186, 0
+  %183 = and i8 %bf.load.i.i104.i, 2
+  %tobool5.not.i.i.i = icmp eq i8 %183, 0
   br i1 %tobool5.not.i.i.i, label %txp_generate_stream_related.exit, label %if.end10.i.i.i
 
 if.end10.i.i.i:                                   ; preds = %lor.rhs.i.i.i, %if.end.i.i.i263
   %orig_len.i.i.i = getelementptr inbounds i8, ptr %i.0166.i.sroa.phi.i, i64 40
-  store i64 %185, ptr %orig_len.i.i.i, align 8
+  store i64 %182, ptr %orig_len.i.i.i, align 8
   %call13.i.i.i = call i64 @ossl_quic_txfc_get_credit(ptr noundef nonnull %txfc153.i, i64 noundef %conn_consumed.0162.i) #10
   %call14.i.i.i = call i64 @ossl_quic_txfc_get_swm(ptr noundef nonnull %txfc153.i) #10
   %add.i.i.i265 = add i64 %call14.i.i.i, %call13.i.i.i
-  %187 = load i64, ptr %len.i.i.i, align 8
-  %cmp17.not.i.i.i = icmp eq i64 %187, 0
+  %184 = load i64, ptr %len.i.i.i, align 8
+  %cmp17.not.i.i.i = icmp eq i64 %184, 0
   br i1 %cmp17.not.i.i.i, label %if.end10.i.land.lhs.true43.i_crit_edge.i.i, label %land.lhs.true.i.i.i
 
 if.end10.i.land.lhs.true43.i_crit_edge.i.i:       ; preds = %if.end10.i.i.i
@@ -2415,25 +2420,25 @@ if.end10.i.land.lhs.true43.i_crit_edge.i.i:       ; preds = %if.end10.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end10.i.i.i
   %offset.i.i.i = getelementptr inbounds i8, ptr %i.0166.i.sroa.phi.i, i64 8
-  %188 = load i64, ptr %offset.i.i.i, align 8
-  %add22.i.i.i = add i64 %188, %187
+  %185 = load i64, ptr %offset.i.i.i, align 8
+  %add22.i.i.i = add i64 %185, %184
   %cmp23.i.i.i = icmp ugt i64 %add22.i.i.i, %add.i.i.i265
   br i1 %cmp23.i.i.i, label %if.end38.i.i.i, label %if.end.i102.i
 
 if.end38.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %spec.select.i.i.i323 = call i64 @llvm.usub.sat.i64(i64 %add.i.i.i265, i64 %188)
+  %spec.select.i.i.i323 = call i64 @llvm.usub.sat.i64(i64 %add.i.i.i265, i64 %185)
   store i64 %spec.select.i.i.i323, ptr %len.i.i.i, align 8
   %is_fin35.i.i.i = getelementptr inbounds i8, ptr %i.0166.i.sroa.phi.i, i64 32
   %bf.load36.i.i.i = load i8, ptr %is_fin35.i.i.i, align 8
   %bf.clear37.i.i.i = and i8 %bf.load36.i.i.i, -3
   store i8 %bf.clear37.i.i.i, ptr %is_fin35.i.i.i, align 8
-  %.not.i.i.i = icmp ugt i64 %add.i.i.i265, %188
+  %.not.i.i.i = icmp ugt i64 %add.i.i.i265, %185
   br i1 %.not.i.i.i, label %if.end.i102.i, label %land.lhs.true43.i.i.i
 
 land.lhs.true43.i.i.i:                            ; preds = %if.end38.i.i.i, %if.end10.i.land.lhs.true43.i_crit_edge.i.i
   %bf.load46.i.i.i = phi i8 [ %bf.load46.i.pre.i.i, %if.end10.i.land.lhs.true43.i_crit_edge.i.i ], [ %bf.clear37.i.i.i, %if.end38.i.i.i ]
-  %189 = and i8 %bf.load46.i.i.i, 2
-  %tobool50.not.i.i.i = icmp eq i8 %189, 0
+  %186 = and i8 %bf.load46.i.i.i, 2
+  %tobool50.not.i.i.i = icmp eq i8 %186, 0
   br i1 %tobool50.not.i.i.i, label %if.then51.i.i.i, label %if.end.i102.i
 
 if.then51.i.i.i:                                  ; preds = %land.lhs.true43.i.i.i
@@ -2444,8 +2449,8 @@ if.end.i102.i:                                    ; preds = %if.then51.i.i.i, %l
   br i1 %cmp6.i.i, label %land.lhs.true.i.i, label %for.cond11.preheader.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i102.i
-  %190 = load i32, ptr %valid.i.i.i, align 8
-  %tobool8.not.i.i = icmp eq i32 %190, 0
+  %187 = load i32, ptr %valid.i.i.i, align 8
+  %tobool8.not.i.i = icmp eq i32 %187, 0
   br i1 %tobool8.not.i.i, label %if.end158.thread125.i, label %for.body.i.i260, !llvm.loop !11
 
 if.end158.thread125.i:                            ; preds = %land.lhs.true.i.i
@@ -2456,8 +2461,8 @@ if.end158.thread125.i:                            ; preds = %land.lhs.true.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %payload_len_implicit.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hdr_len_explicit.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %payload_len_explicit.i.i)
-  %191 = load i64, ptr %txp_txfc_new_credit_consumed.i237, align 8
-  %add129.i = add i64 %191, %conn_consumed.0162.i
+  %188 = load i64, ptr %txp_txfc_new_credit_consumed.i237, align 8
+  %add129.i = add i64 %188, %conn_consumed.0162.i
   br label %if.end163.i255
 
 for.cond11.i.i:                                   ; preds = %if.end203.i.i, %for.cond11.preheader.i.i
@@ -2465,26 +2470,26 @@ for.cond11.i.i:                                   ; preds = %if.end203.i.i, %for
   %packet_full.0.i = phi i32 [ 0, %for.cond11.preheader.i.i ], [ %packet_full.1.i, %if.end203.i.i ]
   %i.1.i.i = phi i64 [ 0, %for.cond11.preheader.i.i ], [ %inc210.i.i, %if.end203.i.i ]
   %fc_new_hwm.1.i.i = phi i64 [ %call.i101.i, %for.cond11.preheader.i.i ], [ %fc_new_hwm.2.i.i, %if.end203.i.i ]
-  %192 = load i64, ptr %max_ppl3.i.i, align 8
+  %189 = load i64, ptr %max_ppl3.i.i, align 8
   %bf.load.i79.i.i = load i8, ptr %reserve_allowed.i.i, align 4
   %bf.clear.i.i103.i = and i8 %bf.load.i79.i.i, 1
   %tobool.not.i80.i.i = icmp eq i8 %bf.clear.i.i103.i, 0
   br i1 %tobool.not.i80.i.i, label %cond.false.i.i.i322, label %tx_helper_get_space_left.exit.i.i269
 
 cond.false.i.i.i322:                              ; preds = %for.cond11.i.i
-  %193 = load i64, ptr %reserve4.i.i, align 8
+  %190 = load i64, ptr %reserve4.i.i, align 8
   br label %tx_helper_get_space_left.exit.i.i269
 
 tx_helper_get_space_left.exit.i.i269:             ; preds = %cond.false.i.i.i322, %for.cond11.i.i
-  %cond.i.i.i270 = phi i64 [ %193, %cond.false.i.i.i322 ], [ 0, %for.cond11.i.i ]
-  %194 = load i64, ptr %bytes_appended.i.i, align 8
-  %195 = add i64 %cond.i.i.i270, %194
-  %sub1.i.i.i271 = sub i64 %192, %195
+  %cond.i.i.i270 = phi i64 [ %190, %cond.false.i.i.i322 ], [ 0, %for.cond11.i.i ]
+  %191 = load i64, ptr %bytes_appended.i.i, align 8
+  %192 = add i64 %cond.i.i.i270, %191
+  %sub1.i.i.i271 = sub i64 %189, %192
   %rem.i.i = and i64 %i.1.i.i, 1
   %arrayidx13.i.i = getelementptr inbounds [2 x %struct.chunk_info], ptr %chunks.i.i, i64 0, i64 %rem.i.i
   %valid14.i.i = getelementptr inbounds i8, ptr %arrayidx13.i.i, i64 88
-  %196 = load i32, ptr %valid14.i.i, align 8
-  %tobool15.not.i.i = icmp eq i32 %196, 0
+  %193 = load i32, ptr %valid14.i.i, align 8
+  %tobool15.not.i.i = icmp eq i32 %193, 0
   br i1 %tobool15.not.i.i, label %if.end158.i, label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %tx_helper_get_space_left.exit.i.i269
@@ -2492,13 +2497,13 @@ if.end17.i.i:                                     ; preds = %tx_helper_get_space
   br i1 %cmp18.i.i, label %if.end158.thread.i, label %if.end20.i.i
 
 if.end20.i.i:                                     ; preds = %if.end17.i.i
-  %197 = and i8 %bf.load.i79.i.i, 2
-  %tobool21.not.i.i = icmp eq i8 %197, 0
+  %194 = and i8 %bf.load.i79.i.i, 2
+  %tobool21.not.i.i = icmp eq i8 %194, 0
   br i1 %tobool21.not.i.i, label %if.end29.i.i, label %txp_generate_stream_related.exit
 
 if.end29.i.i:                                     ; preds = %if.end20.i.i
   %orig_len35.i.i = getelementptr inbounds i8, ptr %arrayidx13.i.i, i64 40
-  %198 = load i64, ptr %orig_len35.i.i, align 8
+  %195 = load i64, ptr %orig_len35.i.i, align 8
   %cmp36.not.i.i = icmp eq i64 %i.1.i.i, 0
   br i1 %cmp36.not.i.i, label %if.end46.i.i, label %if.then38.i.i
 
@@ -2509,7 +2514,7 @@ if.then38.i.i:                                    ; preds = %if.end29.i.i
   %num_stream_iovec.i81.i.i = getelementptr inbounds i8, ptr %arrayidx41.i.i, i64 80
   store i64 2, ptr %num_stream_iovec.i81.i.i, align 16
   %iov.i82.i.i = getelementptr inbounds i8, ptr %arrayidx41.i.i, i64 48
-  %call.i83.i.i = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %182, i64 noundef %add.i.i272, ptr noundef nonnull %arrayidx41.i.i, ptr noundef nonnull %iov.i82.i.i, ptr noundef nonnull %num_stream_iovec.i81.i.i) #10
+  %call.i83.i.i = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %179, i64 noundef %add.i.i272, ptr noundef nonnull %arrayidx41.i.i, ptr noundef nonnull %iov.i82.i.i, ptr noundef nonnull %num_stream_iovec.i81.i.i) #10
   %valid.i84.i.i = getelementptr inbounds i8, ptr %arrayidx41.i.i, i64 88
   store i32 %call.i83.i.i, ptr %valid.i84.i.i, align 8
   %tobool.not.i85.i.i = icmp eq i32 %call.i83.i.i, 0
@@ -2517,25 +2522,25 @@ if.then38.i.i:                                    ; preds = %if.end29.i.i
 
 if.end.i86.i.i:                                   ; preds = %if.then38.i.i
   %len.i87.i.i = getelementptr inbounds i8, ptr %arrayidx41.i.i, i64 16
-  %199 = load i64, ptr %len.i87.i.i, align 16
-  %cmp.not.i88.i.i = icmp eq i64 %199, 0
+  %196 = load i64, ptr %len.i87.i.i, align 16
+  %cmp.not.i88.i.i = icmp eq i64 %196, 0
   br i1 %cmp.not.i88.i.i, label %lor.rhs.i111.i.i, label %if.end10.i89.i.i
 
 lor.rhs.i111.i.i:                                 ; preds = %if.end.i86.i.i
   %is_fin.i112.i.i = getelementptr inbounds i8, ptr %arrayidx41.i.i, i64 32
   %bf.load.i113.i.i = load i8, ptr %is_fin.i112.i.i, align 16
-  %200 = and i8 %bf.load.i113.i.i, 2
-  %tobool5.not.i114.i.i = icmp eq i8 %200, 0
+  %197 = and i8 %bf.load.i113.i.i, 2
+  %tobool5.not.i114.i.i = icmp eq i8 %197, 0
   br i1 %tobool5.not.i114.i.i, label %txp_generate_stream_related.exit, label %if.end10.i89.i.i
 
 if.end10.i89.i.i:                                 ; preds = %lor.rhs.i111.i.i, %if.end.i86.i.i
   %orig_len.i90.i.i = getelementptr inbounds i8, ptr %arrayidx41.i.i, i64 40
-  store i64 %199, ptr %orig_len.i90.i.i, align 8
+  store i64 %196, ptr %orig_len.i90.i.i, align 8
   %call13.i91.i.i = call i64 @ossl_quic_txfc_get_credit(ptr noundef nonnull %txfc153.i, i64 noundef %conn_consumed.0162.i) #10
   %call14.i92.i.i = call i64 @ossl_quic_txfc_get_swm(ptr noundef nonnull %txfc153.i) #10
   %add.i93.i.i = add i64 %call14.i92.i.i, %call13.i91.i.i
-  %201 = load i64, ptr %len.i87.i.i, align 16
-  %cmp17.not.i94.i.i = icmp eq i64 %201, 0
+  %198 = load i64, ptr %len.i87.i.i, align 16
+  %cmp17.not.i94.i.i = icmp eq i64 %198, 0
   br i1 %cmp17.not.i94.i.i, label %if.end10.i89.land.lhs.true43.i106_crit_edge.i.i, label %land.lhs.true.i95.i.i
 
 if.end10.i89.land.lhs.true43.i106_crit_edge.i.i:  ; preds = %if.end10.i89.i.i
@@ -2545,25 +2550,25 @@ if.end10.i89.land.lhs.true43.i106_crit_edge.i.i:  ; preds = %if.end10.i89.i.i
 
 land.lhs.true.i95.i.i:                            ; preds = %if.end10.i89.i.i
   %offset.i96.i.i = getelementptr inbounds i8, ptr %arrayidx41.i.i, i64 8
-  %202 = load i64, ptr %offset.i96.i.i, align 8
-  %add22.i97.i.i = add i64 %202, %201
+  %199 = load i64, ptr %offset.i96.i.i, align 8
+  %add22.i97.i.i = add i64 %199, %198
   %cmp23.i98.i.i = icmp ugt i64 %add22.i97.i.i, %add.i93.i.i
   br i1 %cmp23.i98.i.i, label %if.end38.i100.i.i, label %if.end46.i.i
 
 if.end38.i100.i.i:                                ; preds = %land.lhs.true.i95.i.i
-  %spec.select.i101.i.i = call i64 @llvm.usub.sat.i64(i64 %add.i93.i.i, i64 %202)
+  %spec.select.i101.i.i = call i64 @llvm.usub.sat.i64(i64 %add.i93.i.i, i64 %199)
   store i64 %spec.select.i101.i.i, ptr %len.i87.i.i, align 16
   %is_fin35.i102.i.i = getelementptr inbounds i8, ptr %arrayidx41.i.i, i64 32
   %bf.load36.i103.i.i = load i8, ptr %is_fin35.i102.i.i, align 16
   %bf.clear37.i104.i.i = and i8 %bf.load36.i103.i.i, -3
   store i8 %bf.clear37.i104.i.i, ptr %is_fin35.i102.i.i, align 16
-  %.not.i105.i.i = icmp ugt i64 %add.i93.i.i, %202
+  %.not.i105.i.i = icmp ugt i64 %add.i93.i.i, %199
   br i1 %.not.i105.i.i, label %if.end46.i.i, label %land.lhs.true43.i106.i.i
 
 land.lhs.true43.i106.i.i:                         ; preds = %if.end38.i100.i.i, %if.end10.i89.land.lhs.true43.i106_crit_edge.i.i
   %bf.load46.i108.i.i = phi i8 [ %bf.load46.i108.pre.i.i, %if.end10.i89.land.lhs.true43.i106_crit_edge.i.i ], [ %bf.clear37.i104.i.i, %if.end38.i100.i.i ]
-  %203 = and i8 %bf.load46.i108.i.i, 2
-  %tobool50.not.i109.i.i = icmp eq i8 %203, 0
+  %200 = and i8 %bf.load46.i108.i.i, 2
+  %tobool50.not.i109.i.i = icmp eq i8 %200, 0
   br i1 %tobool50.not.i109.i.i, label %if.then51.i110.i.i, label %if.end46.i.i
 
 if.then51.i110.i.i:                               ; preds = %land.lhs.true43.i106.i.i
@@ -2578,7 +2583,7 @@ if.end46.i.i:                                     ; preds = %if.then51.i110.i.i,
   store i64 0, ptr %payload_len_implicit.i.i, align 8
   store i64 0, ptr %hdr_len_implicit.i.i, align 8
   %len1.i.i.i = getelementptr inbounds i8, ptr %arrayidx13.i.i, i64 16
-  %204 = load i64, ptr %len1.i.i.i, align 16
+  %201 = load i64, ptr %len1.i.i.i, align 16
   store i64 0, ptr %len1.i.i.i, align 16
   %call.i116.i.i = call i64 @ossl_quic_wire_get_encoded_frame_len_stream_hdr(ptr noundef nonnull %arrayidx13.i.i) #10
   %cmp5.i.i.i273 = icmp eq i64 %call.i116.i.i, 0
@@ -2586,36 +2591,36 @@ if.end46.i.i:                                     ; preds = %if.then51.i110.i.i,
 
 determine_stream_len.exit.i.i:                    ; preds = %if.end46.i.i
   %bf.load.i117.i.i = load i8, ptr %has_explicit_len.i.i, align 16
-  %205 = and i8 %bf.load.i117.i.i, 1
-  %sext.i.i.i = sub nsw i8 0, %205
+  %202 = and i8 %bf.load.i117.i.i, 1
+  %sext.i.i.i = sub nsw i8 0, %202
   %dec.i.i.i274 = sext i8 %sext.i.i.i to i64
   %spec.select.i118.i.i = add i64 %call.i116.i.i, %dec.i.i.i274
-  %call10.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %204, i64 noundef %spec.select.i118.i.i, ptr noundef nonnull %hdr_len_implicit.i.i, ptr noundef nonnull %payload_len_implicit.i.i)
+  %call10.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %201, i64 noundef %spec.select.i118.i.i, ptr noundef nonnull %hdr_len_implicit.i.i, ptr noundef nonnull %payload_len_implicit.i.i)
   %tobool50.not.i.i275 = icmp eq i32 %call10.i.i.i, 0
   br i1 %tobool50.not.i.i275, label %if.end158.thread.i, label %if.end52.i.i
 
 if.end52.i.i:                                     ; preds = %determine_stream_len.exit.i.i
-  %206 = load i64, ptr %hdr_len_implicit.i.i, align 8
-  %207 = load i64, ptr %payload_len_implicit.i.i, align 8
-  %add53.i.i = add i64 %207, %206
+  %203 = load i64, ptr %hdr_len_implicit.i.i, align 8
+  %204 = load i64, ptr %payload_len_implicit.i.i, align 8
+  %add53.i.i = add i64 %204, %203
   %cmp54.not.i.i = icmp ult i64 %add53.i.i, %sub1.i.i.i271
   br i1 %cmp56.not.i.i, label %lor.rhs.i.i, label %lor.end.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.end52.i.i
   %rem59.i.i = xor i64 %rem.i.i, 1
   %valid61.i.i = getelementptr inbounds [2 x %struct.chunk_info], ptr %chunks.i.i, i64 0, i64 %rem59.i.i, i32 4
-  %208 = load i32, ptr %valid61.i.i, align 8
-  %tobool62.i.i = icmp ne i32 %208, 0
+  %205 = load i32, ptr %valid61.i.i, align 8
+  %tobool62.i.i = icmp ne i32 %205, 0
   br label %lor.end.i.i
 
 lor.end.i.i:                                      ; preds = %lor.rhs.i.i, %if.end52.i.i
-  %209 = phi i1 [ true, %if.end52.i.i ], [ %tobool62.i.i, %lor.rhs.i.i ]
-  %or.cond.i.i = select i1 %cmp54.not.i.i, i1 %209, i1 false
+  %206 = phi i1 [ true, %if.end52.i.i ], [ %tobool62.i.i, %lor.rhs.i.i ]
+  %or.cond.i.i = select i1 %cmp54.not.i.i, i1 %206, i1 false
   br i1 %or.cond.i.i, label %if.then71.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %lor.end.i.i
-  %210 = load i32, ptr %force_pad.i, align 8
-  %tobool65.not.i.i = icmp eq i32 %210, 0
+  %207 = load i32, ptr %force_pad.i, align 8
+  %tobool65.not.i.i = icmp eq i32 %207, 0
   br i1 %tobool65.not.i.i, label %if.else.i.i321, label %if.then71.i.i
 
 if.then71.i.i:                                    ; preds = %land.rhs.i.i, %lor.end.i.i
@@ -2629,16 +2634,16 @@ if.then71.i.i:                                    ; preds = %land.rhs.i.i, %lor.
 
 determine_stream_len.exit131.i.i:                 ; preds = %if.then71.i.i
   %bf.load.i125.i.i = load i8, ptr %has_explicit_len.i.i, align 16
-  %211 = and i8 %bf.load.i125.i.i, 1
-  %sext.i126.i.i = sub nsw i8 0, %211
+  %208 = and i8 %bf.load.i125.i.i, 1
+  %sext.i126.i.i = sub nsw i8 0, %208
   %dec.i127.i.i = sext i8 %sext.i126.i.i to i64
   %spec.select.i128.i.i = add i64 %call.i121.i.i, %dec.i127.i.i
-  %call10.i129.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %204, i64 noundef %spec.select.i128.i.i, ptr noundef nonnull %hdr_len_explicit.i.i, ptr noundef nonnull %payload_len_explicit.i.i)
+  %call10.i129.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i271, i64 noundef %201, i64 noundef %spec.select.i128.i.i, ptr noundef nonnull %hdr_len_explicit.i.i, ptr noundef nonnull %payload_len_explicit.i.i)
   %tobool77.not.i.i = icmp eq i32 %call10.i129.i.i, 0
   br i1 %tobool77.not.i.i, label %if.end158.thread.i, label %if.end79.i.i
 
 if.end79.i.i:                                     ; preds = %determine_stream_len.exit131.i.i
-  %212 = load i64, ptr %payload_len_explicit.i.i, align 8
+  %209 = load i64, ptr %payload_len_explicit.i.i, align 8
   br label %if.end85.i.i
 
 if.else.i.i321:                                   ; preds = %land.rhs.i.i
@@ -2649,10 +2654,10 @@ if.else.i.i321:                                   ; preds = %land.rhs.i.i
 if.end85.i.i:                                     ; preds = %if.else.i.i321, %if.end79.i.i
   %packet_full.1.i = phi i32 [ %packet_full.0.i, %if.end79.i.i ], [ 1, %if.else.i.i321 ]
   %bf.load102.i.i = phi i8 [ %bf.load.i125.i.i, %if.end79.i.i ], [ %bf.clear82.i.i, %if.else.i.i321 ]
-  %213 = phi i64 [ %212, %if.end79.i.i ], [ %207, %if.else.i.i321 ]
-  store i64 %213, ptr %len1.i.i.i, align 16
-  %214 = and i8 %bf.load102.i.i, 2
-  %tobool90.not.i.i = icmp eq i8 %214, 0
+  %210 = phi i64 [ %209, %if.end79.i.i ], [ %204, %if.else.i.i321 ]
+  store i64 %210, ptr %len1.i.i.i, align 16
+  %211 = and i8 %bf.load102.i.i, 2
+  %tobool90.not.i.i = icmp eq i8 %211, 0
   br i1 %tobool90.not.i.i, label %if.end96.i.i, label %if.then91.i.i
 
 if.then91.i.i:                                    ; preds = %if.end85.i.i
@@ -2662,7 +2667,7 @@ if.then91.i.i:                                    ; preds = %if.end85.i.i
   br label %if.end96.i.i
 
 if.end96.i.i:                                     ; preds = %if.then91.i.i, %if.end85.i.i
-  %cmp98.i.i = icmp ult i64 %213, %198
+  %cmp98.i.i = icmp ult i64 %210, %195
   br i1 %cmp98.i.i, label %if.then100.i.i, label %if.end105.i.i
 
 if.then100.i.i:                                   ; preds = %if.end96.i.i
@@ -2673,21 +2678,21 @@ if.then100.i.i:                                   ; preds = %if.end96.i.i
 if.end105.i.i:                                    ; preds = %if.then100.i.i, %if.end96.i.i
   %iov.i.i276 = getelementptr inbounds i8, ptr %arrayidx13.i.i, i64 48
   %num_stream_iovec.i.i277 = getelementptr inbounds i8, ptr %arrayidx13.i.i, i64 80
-  %215 = load i64, ptr %num_stream_iovec.i.i277, align 16
-  call void @ossl_quic_sstream_adjust_iov(i64 noundef %213, ptr noundef nonnull %iov.i.i276, i64 noundef %215) #10
-  %216 = load i64, ptr %num_iovec.i.i, align 8
-  %add112.i.i = add i64 %216, 3
-  %217 = load i64, ptr %alloc_iovec.i.i.i267, align 8
-  %cmp.not.i132.i.i = icmp ult i64 %217, %add112.i.i
+  %212 = load i64, ptr %num_stream_iovec.i.i277, align 16
+  call void @ossl_quic_sstream_adjust_iov(i64 noundef %210, ptr noundef nonnull %iov.i.i276, i64 noundef %212) #10
+  %213 = load i64, ptr %num_iovec.i.i, align 8
+  %add112.i.i = add i64 %213, 3
+  %214 = load i64, ptr %alloc_iovec.i.i.i267, align 8
+  %cmp.not.i132.i.i = icmp ult i64 %214, %add112.i.i
   br i1 %cmp.not.i132.i.i, label %if.end.i134.i.i, label %if.end116.i.i
 
 if.end.i134.i.i:                                  ; preds = %if.end105.i.i
-  %cmp2.not.i.i.i316 = icmp eq i64 %217, 0
-  %mul.i.i.i317 = shl i64 %217, 1
+  %cmp2.not.i.i.i316 = icmp eq i64 %214, 0
+  %mul.i.i.i317 = shl i64 %214, 1
   %spec.select.i135.i.i = select i1 %cmp2.not.i.i.i316, i64 8, i64 %mul.i.i.i317
-  %218 = load ptr, ptr %iovec4.i.i.i268, align 8
+  %215 = load ptr, ptr %iovec4.i.i.i268, align 8
   %mul5.i.i.i318 = shl i64 %spec.select.i135.i.i, 4
-  %call.i136.i.i = call ptr @CRYPTO_realloc(ptr noundef %218, i64 noundef %mul5.i.i.i318, ptr noundef nonnull @.str, i32 noundef 3041) #10
+  %call.i136.i.i = call ptr @CRYPTO_realloc(ptr noundef %215, i64 noundef %mul5.i.i.i318, ptr noundef nonnull @.str, i32 noundef 3041) #10
   %cmp6.i.i.i319 = icmp eq ptr %call.i136.i.i, null
   br i1 %cmp6.i.i.i319, label %txp_generate_stream_related.exit, label %if.end8.i.i.i320
 
@@ -2702,7 +2707,7 @@ if.end116.i.i:                                    ; preds = %if.end8.i.i.i320, %
   br i1 %cmp118.i.i, label %txp_generate_stream_related.exit, label %if.end121.i.i
 
 if.end121.i.i:                                    ; preds = %if.end116.i.i
-  store i64 %181, ptr %arrayidx13.i.i, align 16
+  store i64 %178, ptr %arrayidx13.i.i, align 16
   %call122.i.i = call i32 @ossl_quic_wire_encode_frame_stream_hdr(ptr noundef nonnull %call117.i.i, ptr noundef nonnull %arrayidx13.i.i) #10
   %cmp123.not.i.i = icmp eq i32 %call122.i.i, 0
   br i1 %cmp123.not.i.i, label %if.then131.i.i, label %if.end132.i.i
@@ -2728,36 +2733,36 @@ if.end132.i.i:                                    ; preds = %if.end121.i.i
   br i1 %tobool134.not.i.i, label %txp_generate_stream_related.exit, label %for.cond137.preheader.i.i
 
 for.cond137.preheader.i.i:                        ; preds = %if.end132.i.i
-  %219 = load i64, ptr %num_stream_iovec.i.i277, align 16
-  %cmp141167.not.i.i = icmp eq i64 %219, 0
+  %216 = load i64, ptr %num_stream_iovec.i.i277, align 16
+  %cmp141167.not.i.i = icmp eq i64 %216, 0
   br i1 %cmp141167.not.i.i, label %for.end155.i.i, label %for.body143.i.i
 
 for.body143.i.i:                                  ; preds = %for.cond137.preheader.i.i, %tx_helper_append_iovec.exit.i.i283
   %j.0168.i.i = phi i64 [ %inc154.i.i, %tx_helper_append_iovec.exit.i.i283 ], [ 0, %for.cond137.preheader.i.i ]
   %arrayidx147.i.i = getelementptr inbounds [2 x %struct.ossl_qtx_iovec_st], ptr %iov.i.i276, i64 0, i64 %j.0168.i.i
-  %220 = load ptr, ptr %arrayidx147.i.i, align 16
+  %217 = load ptr, ptr %arrayidx147.i.i, align 16
   %buf_len.i.i278 = getelementptr inbounds i8, ptr %arrayidx147.i.i, i64 8
-  %221 = load i64, ptr %buf_len.i.i278, align 8
-  %222 = load ptr, ptr %arrayidx11354, align 8
-  %el1.i.i.i279 = getelementptr inbounds i8, ptr %222, i64 504
-  %223 = load i32, ptr %enc_level2.i.i, align 8
-  %idxprom.i.i.i280 = zext i32 %223 to i64
+  %218 = load i64, ptr %buf_len.i.i278, align 8
+  %219 = load ptr, ptr %arrayidx11354, align 8
+  %el1.i.i.i279 = getelementptr inbounds i8, ptr %219, i64 504
+  %220 = load i32, ptr %enc_level2.i.i, align 8
+  %idxprom.i.i.i280 = zext i32 %220 to i64
   %arrayidx.i.i.i281 = getelementptr inbounds [4 x %struct.txp_el], ptr %el1.i.i.i279, i64 0, i64 %idxprom.i.i.i280
-  %cmp.i.i.i282 = icmp eq i64 %221, 0
+  %cmp.i.i.i282 = icmp eq i64 %218, 0
   br i1 %cmp.i.i.i282, label %tx_helper_append_iovec.exit.i.i283, label %if.end.i141.i.i
 
 if.end.i141.i.i:                                  ; preds = %for.body143.i.i
   %bf.load.i142.i.i = load i8, ptr %reserve_allowed.i.i, align 4
-  %224 = and i8 %bf.load.i142.i.i, 2
-  %tobool.not.i143.i.i = icmp eq i8 %224, 0
+  %221 = and i8 %bf.load.i142.i.i, 2
+  %tobool.not.i143.i.i = icmp eq i8 %221, 0
   br i1 %tobool.not.i143.i.i, label %if.end9.i.i.i289, label %tx_helper_append_iovec.exit.i.i283
 
 if.end9.i.i.i289:                                 ; preds = %if.end.i141.i.i
-  %225 = load i64, ptr %num_iovec.i.i, align 8
-  %add.i145.i.i = add i64 %225, 1
+  %222 = load i64, ptr %num_iovec.i.i, align 8
+  %add.i145.i.i = add i64 %222, 1
   %alloc_iovec.i.i.i.i290 = getelementptr inbounds i8, ptr %arrayidx.i.i.i281, i64 24
-  %226 = load i64, ptr %alloc_iovec.i.i.i.i290, align 8
-  %cmp.not.i.i.i.i291 = icmp ult i64 %226, %add.i145.i.i
+  %223 = load i64, ptr %alloc_iovec.i.i.i.i290, align 8
+  %cmp.not.i.i.i.i291 = icmp ult i64 %223, %add.i145.i.i
   br i1 %cmp.not.i.i.i.i291, label %if.end.i.i.i.i301, label %if.end9.if.end12_crit_edge.i.i.i292
 
 if.end9.if.end12_crit_edge.i.i.i292:              ; preds = %if.end9.i.i.i289
@@ -2766,13 +2771,13 @@ if.end9.if.end12_crit_edge.i.i.i292:              ; preds = %if.end9.i.i.i289
   br label %if.end12.i.i.i295
 
 if.end.i.i.i.i301:                                ; preds = %if.end9.i.i.i289
-  %cmp2.not.i.i.i.i302 = icmp eq i64 %226, 0
-  %mul.i.i.i.i303 = shl i64 %226, 1
+  %cmp2.not.i.i.i.i302 = icmp eq i64 %223, 0
+  %mul.i.i.i.i303 = shl i64 %223, 1
   %spec.select.i.i.i.i304 = select i1 %cmp2.not.i.i.i.i302, i64 8, i64 %mul.i.i.i.i303
   %iovec4.i.i.i.i305 = getelementptr inbounds i8, ptr %arrayidx.i.i.i281, i64 16
-  %227 = load ptr, ptr %iovec4.i.i.i.i305, align 8
+  %224 = load ptr, ptr %iovec4.i.i.i.i305, align 8
   %mul5.i.i.i.i306 = shl i64 %spec.select.i.i.i.i304, 4
-  %call.i.i.i.i307 = call ptr @CRYPTO_realloc(ptr noundef %227, i64 noundef %mul5.i.i.i.i306, ptr noundef nonnull @.str, i32 noundef 3041) #10
+  %call.i.i.i.i307 = call ptr @CRYPTO_realloc(ptr noundef %224, i64 noundef %mul5.i.i.i.i306, ptr noundef nonnull @.str, i32 noundef 3041) #10
   %cmp6.i.i.i.i308 = icmp eq ptr %call.i.i.i.i307, null
   br i1 %cmp6.i.i.i.i308, label %tx_helper_append_iovec.exit.i.i283, label %if.end8.i.i.i.i309
 
@@ -2783,27 +2788,27 @@ if.end8.i.i.i.i309:                               ; preds = %if.end.i.i.i.i301
   br label %if.end12.i.i.i295
 
 if.end12.i.i.i295:                                ; preds = %if.end8.i.i.i.i309, %if.end9.if.end12_crit_edge.i.i.i292
-  %228 = phi i64 [ %225, %if.end9.if.end12_crit_edge.i.i.i292 ], [ %.pre14.i.i.i310, %if.end8.i.i.i.i309 ]
-  %229 = phi ptr [ %.pre.i.i.i294, %if.end9.if.end12_crit_edge.i.i.i292 ], [ %call.i.i.i.i307, %if.end8.i.i.i.i309 ]
+  %225 = phi i64 [ %222, %if.end9.if.end12_crit_edge.i.i.i292 ], [ %.pre14.i.i.i310, %if.end8.i.i.i.i309 ]
+  %226 = phi ptr [ %.pre.i.i.i294, %if.end9.if.end12_crit_edge.i.i.i292 ], [ %call.i.i.i.i307, %if.end8.i.i.i.i309 ]
   %iovec.i.i.i296 = getelementptr inbounds i8, ptr %arrayidx.i.i.i281, i64 16
-  %arrayidx14.i.i.i297 = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %229, i64 %228
-  store ptr %220, ptr %arrayidx14.i.i.i297, align 8
-  %230 = load ptr, ptr %iovec.i.i.i296, align 8
-  %231 = load i64, ptr %num_iovec.i.i, align 8
-  %buf_len19.i.i.i298 = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %230, i64 %231, i32 1
-  store i64 %221, ptr %buf_len19.i.i.i298, align 8
-  %232 = load i64, ptr %num_iovec.i.i, align 8
-  %inc.i.i.i299 = add i64 %232, 1
+  %arrayidx14.i.i.i297 = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %226, i64 %225
+  store ptr %217, ptr %arrayidx14.i.i.i297, align 8
+  %227 = load ptr, ptr %iovec.i.i.i296, align 8
+  %228 = load i64, ptr %num_iovec.i.i, align 8
+  %buf_len19.i.i.i298 = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %227, i64 %228, i32 1
+  store i64 %218, ptr %buf_len19.i.i.i298, align 8
+  %229 = load i64, ptr %num_iovec.i.i, align 8
+  %inc.i.i.i299 = add i64 %229, 1
   store i64 %inc.i.i.i299, ptr %num_iovec.i.i, align 8
-  %233 = load i64, ptr %bytes_appended.i.i, align 8
-  %add21.i.i.i300 = add i64 %233, %221
+  %230 = load i64, ptr %bytes_appended.i.i, align 8
+  %add21.i.i.i300 = add i64 %230, %218
   store i64 %add21.i.i.i300, ptr %bytes_appended.i.i, align 8
   br label %tx_helper_append_iovec.exit.i.i283
 
 tx_helper_append_iovec.exit.i.i283:               ; preds = %if.end12.i.i.i295, %if.end.i.i.i.i301, %if.end.i141.i.i, %for.body143.i.i
   %inc154.i.i = add nuw i64 %j.0168.i.i, 1
-  %234 = load i64, ptr %num_stream_iovec.i.i277, align 16
-  %cmp141.i.i = icmp ult i64 %inc154.i.i, %234
+  %231 = load i64, ptr %num_stream_iovec.i.i277, align 16
+  %cmp141.i.i = icmp ult i64 %inc154.i.i, %231
   br i1 %cmp141.i.i, label %for.body143.i.i, label %for.end155.i.i, !llvm.loop !12
 
 for.end155.i.i:                                   ; preds = %tx_helper_append_iovec.exit.i.i283, %for.cond137.preheader.i.i
@@ -2821,30 +2826,31 @@ if.then161.i.i:                                   ; preds = %for.end155.i.i
   br label %if.end166.i.i
 
 if.end166.i.i:                                    ; preds = %if.then161.i.i, %for.end155.i.i
-  %235 = load i64, ptr %len1.i.i.i, align 16
-  %cmp168.not.i.i = icmp eq i64 %235, 0
+  %232 = load i64, ptr %len1.i.i.i, align 16
+  %cmp168.not.i.i = icmp eq i64 %232, 0
   %offset182.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %arrayidx13.i.i, i64 8
   %.pre.i.i285 = load i64, ptr %offset182.phi.trans.insert.i.i, align 8
-  %236 = load <2 x i64>, ptr %arrayidx13.i.i, align 16
-  %add172.i.i = add i64 %.pre.i.i285, %235
+  %add172.i.i = add i64 %.pre.i.i285, %232
   %spec.select.i.i = call i64 @llvm.umax.i64(i64 %add172.i.i, i64 %fc_new_hwm.1.i.i)
   %fc_new_hwm.2.i.i = select i1 %cmp168.not.i.i, i64 %fc_new_hwm.1.i.i, i64 %spec.select.i.i
-  store <2 x i64> %236, ptr %chunk.i.i221, align 16
+  %233 = load i64, ptr %arrayidx13.i.i, align 16
+  store i64 %233, ptr %chunk.i.i221, align 8
+  store i64 %.pre.i.i285, ptr %start.i.i231, align 8
   %sub.i.i286 = add i64 %add172.i.i, -1
-  store i64 %sub.i.i286, ptr %end.i.i232, align 16
+  store i64 %sub.i.i286, ptr %end.i.i232, align 8
   %bf.lshr188.i.i = lshr i8 %bf.load157.i.i, 1
   %bf.clear189.i.i = and i8 %bf.lshr188.i.i, 1
   %bf.load191.i.i = load i8, ptr %has_fin.i.i233, align 8
   %bf.clear192.i.i = and i8 %bf.load191.i.i, -8
   %bf.set193.i.i = or disjoint i8 %bf.clear192.i.i, %bf.clear189.i.i
   store i8 %bf.set193.i.i, ptr %has_fin.i.i233, align 8
-  %call200.i.i = call i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef %184, ptr noundef nonnull %chunk.i.i221) #10
+  %call200.i.i = call i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef %181, ptr noundef nonnull %chunk.i.i221) #10
   %tobool201.not.i.i = icmp eq i32 %call200.i.i, 0
   br i1 %tobool201.not.i.i, label %txp_generate_stream_related.exit, label %if.end203.i.i
 
 if.end203.i.i:                                    ; preds = %if.end166.i.i
-  %237 = load i64, ptr %len1.i.i.i, align 16
-  %cmp205.i.i = icmp ult i64 %237, %198
+  %234 = load i64, ptr %len1.i.i.i, align 16
+  %cmp205.i.i = icmp ult i64 %234, %195
   %inc210.i.i = add i64 %i.1.i.i, 1
   br i1 %cmp205.i.i, label %if.end158.i, label %for.cond11.i.i
 
@@ -2871,20 +2877,20 @@ if.end158.i:                                      ; preds = %if.end203.i.i, %tx_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %payload_len_implicit.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hdr_len_explicit.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %payload_len_explicit.i.i)
-  %238 = load i64, ptr %txp_txfc_new_credit_consumed.i237, align 8
-  %add.i287 = add i64 %238, %conn_consumed.0162.i
+  %235 = load i64, ptr %txp_txfc_new_credit_consumed.i237, align 8
+  %add.i287 = add i64 %235, %conn_consumed.0162.i
   %tobool160.not.i288 = icmp eq i32 %packet_full.2.ph.i, 0
   br i1 %tobool160.not.i288, label %if.end163.i255, label %txp_generate_stream_related.exit.thread376
 
 if.end163.i255:                                   ; preds = %if.end158.i, %if.end158.thread125.i, %land.lhs.true130.i, %if.end127.i
   %have_ack_eliciting.i.9 = phi i32 [ %have_ack_eliciting.i.8, %if.end127.i ], [ %have_ack_eliciting.i.8, %if.end158.thread125.i ], [ %have_ack_eliciting.i.13, %if.end158.i ], [ %have_ack_eliciting.i.8, %land.lhs.true130.i ]
   %conn_consumed.1.i = phi i64 [ %conn_consumed.0162.i, %if.end127.i ], [ %add129.i, %if.end158.thread125.i ], [ %add.i287, %if.end158.i ], [ %conn_consumed.0162.i, %land.lhs.true130.i ]
-  %239 = load ptr, ptr %stream_head.i, align 8
-  %txp_next.i107.i = getelementptr inbounds i8, ptr %159, i64 48
-  store ptr %239, ptr %txp_next.i107.i, align 8
-  store ptr %159, ptr %stream_head.i, align 8
-  %240 = load ptr, ptr %stream2.i, align 8
-  %cmp.not.i256 = icmp eq ptr %240, null
+  %236 = load ptr, ptr %stream_head.i, align 8
+  %txp_next.i107.i = getelementptr inbounds i8, ptr %155, i64 48
+  store ptr %236, ptr %txp_next.i107.i, align 8
+  store ptr %155, ptr %stream_head.i, align 8
+  %237 = load ptr, ptr %stream2.i, align 8
+  %cmp.not.i256 = icmp eq ptr %237, null
   br i1 %cmp.not.i256, label %txp_generate_stream_related.exit.thread371, label %for.body.i234, !llvm.loop !13
 
 txp_generate_stream_related.exit.thread:          ; preds = %if.then.i, %if.end21.i, %if.then36.i, %if.end49.i, %ossl_quic_stream_send_get_final_size.exit.i, %if.end65.i, %if.end69.i, %if.then106.i, %if.end118.i330, %if.then133.i257, %if.end54.i249
@@ -2902,10 +2908,10 @@ txp_generate_stream_related.exit.thread371:       ; preds = %if.end163.i255, %if
 
 txp_generate_stream_related.exit.thread376:       ; preds = %if.end158.i, %if.then20.i, %if.end.i.i340, %if.then64.i, %if.end.i76.i, %if.then117.i, %if.end.i90.i, %if.end158.thread.i
   %have_ack_eliciting.i.12.ph = phi i32 [ %have_ack_eliciting.i.5, %if.end.i.i340 ], [ %have_ack_eliciting.i.5, %if.then20.i ], [ %have_ack_eliciting.i.6, %if.end.i76.i ], [ %have_ack_eliciting.i.6, %if.then64.i ], [ %have_ack_eliciting.i.7, %if.end.i90.i ], [ %have_ack_eliciting.i.7, %if.then117.i ], [ %have_ack_eliciting.i.10, %if.end158.thread.i ], [ %have_ack_eliciting.i.13, %if.end158.i ]
-  %241 = load ptr, ptr %stream_head.i, align 8
-  %txp_next.i.i379 = getelementptr inbounds i8, ptr %159, i64 48
-  store ptr %241, ptr %txp_next.i.i379, align 8
-  store ptr %159, ptr %stream_head.i, align 8
+  %238 = load ptr, ptr %stream_head.i, align 8
+  %txp_next.i.i379 = getelementptr inbounds i8, ptr %155, i64 48
+  store ptr %238, ptr %txp_next.i.i379, align 8
+  store ptr %155, ptr %stream_head.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i222)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %f.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %f37.i)
@@ -2921,10 +2927,10 @@ txp_generate_stream_related.exit:                 ; preds = %lor.rhs.i.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %payload_len_implicit.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hdr_len_explicit.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %payload_len_explicit.i.i)
-  %242 = load ptr, ptr %stream_head.i, align 8
-  %txp_next.i.i = getelementptr inbounds i8, ptr %159, i64 48
-  store ptr %242, ptr %txp_next.i.i, align 8
-  store ptr %159, ptr %stream_head.i, align 8
+  %239 = load ptr, ptr %stream_head.i, align 8
+  %txp_next.i.i = getelementptr inbounds i8, ptr %155, i64 48
+  store ptr %239, ptr %txp_next.i.i, align 8
+  store ptr %155, ptr %stream_head.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i222)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %f.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %f37.i)
@@ -2935,8 +2941,8 @@ if.end260.i:                                      ; preds = %txp_generate_stream
   %bf.load.i229.i = load i8, ptr %reserve_allowed.i.i, align 4
   %bf.set.i230.i = or i8 %bf.load.i229.i, 1
   store i8 %bf.set.i230.i, ptr %reserve_allowed.i.i, align 4
-  %243 = and i32 %a.sroa.0.0.copyload.i, 32768
-  %tobool264.not.i = icmp eq i32 %243, 0
+  %240 = and i32 %a.sroa.0.0.copyload.i, 32768
+  %tobool264.not.i = icmp eq i32 %240, 0
   br i1 %tobool264.not.i, label %lor.lhs.false265.i, label %land.lhs.true273.i
 
 lor.lhs.false265.i:                               ; preds = %if.end260.i
@@ -2956,8 +2962,8 @@ land.lhs.true273.i:                               ; preds = %if.end260.i
   br i1 %tobool274.old.not.i, label %land.lhs.true275.i, label %if.then296.i
 
 land.lhs.true275.i:                               ; preds = %land.lhs.true273.i, %lor.lhs.false265.i
-  %244 = and i32 %a.sroa.0.0.copyload.i, 2
-  %tobool279.not.i = icmp eq i32 %244, 0
+  %241 = and i32 %a.sroa.0.0.copyload.i, 2
+  %tobool279.not.i = icmp eq i32 %241, 0
   br i1 %tobool279.not.i, label %if.end294.if.end297_crit_edge.i, label %if.then280.i
 
 if.then280.i:                                     ; preds = %land.lhs.true275.i
@@ -2981,20 +2987,20 @@ if.end294.i:                                      ; preds = %lor.lhs.false265.i
 
 if.end294.if.end297_crit_edge.i:                  ; preds = %if.end294.i, %land.lhs.true275.i
   %.pre.i = load i32, ptr %can_be_non_inflight.i, align 4
-  %245 = icmp eq i32 %.pre.i, 0
-  %246 = select i1 %245, i8 4, i8 0
+  %242 = icmp eq i32 %.pre.i, 0
+  %243 = select i1 %242, i8 4, i8 0
   br label %if.end28
 
 if.then296.i:                                     ; preds = %if.end294.i, %lor.lhs.false289.i, %land.lhs.true273.i
-  %247 = phi i32 [ %have_ack_eliciting.i.3, %if.end294.i ], [ %have_ack_eliciting.i.3, %land.lhs.true273.i ], [ 1, %lor.lhs.false289.i ]
-  %248 = trunc nuw nsw i32 %247 to i8
-  %249 = shl nuw nsw i8 %248, 3
-  %250 = and i8 %249, 8
+  %244 = phi i32 [ %have_ack_eliciting.i.3, %if.end294.i ], [ %have_ack_eliciting.i.3, %land.lhs.true273.i ], [ 1, %lor.lhs.false289.i ]
+  %245 = trunc nuw nsw i32 %244 to i8
+  %246 = shl nuw nsw i8 %245, 3
+  %247 = and i8 %246, 8
   br label %if.end28
 
 if.then337.i:                                     ; preds = %lor.lhs.false289.i, %if.end286.i, %if.then280.i, %if.then156.i, %if.then143.i, %if.then114.i, %if.then102.i, %if.then73.i, %if.then61.i, %if.then35.i, %if.then27.i, %if.end.i.i.i, %if.end.i195.i, %txp_generate_stream_related.exit, %txp_generate_stream_related.exit.thread, %txp_generate_crypto_frames.exit.i
-  %251 = load ptr, ptr %txpim.i, align 8
-  call void @ossl_quic_txpim_pkt_release(ptr noundef %251, ptr noundef nonnull %call13.i) #10
+  %248 = load ptr, ptr %txpim.i, align 8
+  call void @ossl_quic_txpim_pkt_release(ptr noundef %248, ptr noundef nonnull %call13.i) #10
   store ptr null, ptr %tpkt.i, align 8
   br label %txp_generate_for_el.exit.thread
 
@@ -3003,36 +3009,36 @@ txp_generate_for_el.exit.thread:                  ; preds = %if.end12.i, %ossl_q
   br label %out
 
 if.end28:                                         ; preds = %if.then296.i, %if.end294.if.end297_crit_edge.i
-  %tobool307.not.i = phi i8 [ 4, %if.then296.i ], [ %246, %if.end294.if.end297_crit_edge.i ]
-  %bf.value318.i = phi i8 [ %250, %if.then296.i ], [ 0, %if.end294.if.end297_crit_edge.i ]
-  %252 = load i64, ptr %bytes_appended.i.i, align 8
-  %253 = load i64, ptr %pkt_overhead.i.i, align 8
-  %add.i = add i64 %253, %252
+  %tobool307.not.i = phi i8 [ 4, %if.then296.i ], [ %243, %if.end294.if.end297_crit_edge.i ]
+  %bf.value318.i = phi i8 [ %247, %if.then296.i ], [ 0, %if.end294.if.end297_crit_edge.i ]
+  %249 = load i64, ptr %bytes_appended.i.i, align 8
+  %250 = load i64, ptr %pkt_overhead.i.i, align 8
+  %add.i = add i64 %250, %249
   %num_bytes.i = getelementptr inbounds i8, ptr %call13.i, i64 8
   store i64 %add.i, ptr %num_bytes.i, align 8
-  %254 = load i64, ptr %arrayidx.i88, align 8
-  store i64 %254, ptr %call13.i, align 8
+  %251 = load i64, ptr %arrayidx.i88, align 8
+  store i64 %251, ptr %call13.i, align 8
   %pkt_space.i = getelementptr inbounds i8, ptr %call13.i, i64 32
-  %255 = trunc nuw nsw i32 %retval.0.i.i86 to i8
+  %252 = trunc nuw nsw i32 %retval.0.i.i86 to i8
   %bf.load304.i = load i8, ptr %pkt_space.i, align 8
   %bf.clear305.i = and i8 %bf.load304.i, -64
-  %bf.set306.i = or disjoint i8 %tobool307.not.i, %255
+  %bf.set306.i = or disjoint i8 %tobool307.not.i, %252
   %bf.set314.i = or disjoint i8 %bf.set306.i, %bf.value318.i
   %bf.set321.i = or disjoint i8 %bf.set314.i, %bf.clear305.i
   store i8 %bf.set321.i, ptr %pkt_space.i, align 8
   %time.i = getelementptr inbounds i8, ptr %call13.i, i64 16
-  %256 = load ptr, ptr %now.i, align 8
-  %257 = load ptr, ptr %now_arg.i, align 8
-  %call334.i = call i64 %256(ptr noundef %257) #10
+  %253 = load ptr, ptr %now.i, align 8
+  %254 = load ptr, ptr %now_arg.i, align 8
+  %call334.i = call i64 %253(ptr noundef %254) #10
   store i64 %call334.i, ptr %time.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %can_be_non_inflight.i)
-  %258 = load i32, ptr %force_pad.i, align 8
-  %tobool31.not = icmp eq i32 %258, 0
+  %255 = load i32, ptr %force_pad.i, align 8
+  %tobool31.not = icmp eq i32 %255, 0
   %spec.select = select i1 %tobool31.not, i32 %need_padding.0551, i32 1
-  %259 = load i64, ptr %bytes_appended.i.i, align 16
-  %add = add i64 %259, %cond352
-  %260 = load i64, ptr %pkt_overhead.i.i, align 8
-  %add39 = add i64 %add, %260
+  %256 = load i64, ptr %bytes_appended.i.i, align 16
+  %add = add i64 %256, %cond352
+  %257 = load i64, ptr %pkt_overhead.i.i, align 8
+  %add39 = add i64 %add, %257
   store i64 %add39, ptr %hwm13355, align 16
   br label %for.inc44
 
@@ -3046,11 +3052,11 @@ for.inc44:                                        ; preds = %txp_should_try_stag
 for.end46:                                        ; preds = %if.then14.i.i, %if.end.i, %if.end27.i.i, %for.inc44, %txp_determine_ppl_from_pl.exit.thread.i.i
   %need_padding.0522 = phi i32 [ %need_padding.0551, %txp_determine_ppl_from_pl.exit.thread.i.i ], [ %need_padding.1, %for.inc44 ], [ %need_padding.0551, %if.end27.i.i ], [ %need_padding.0551, %if.end.i ], [ %need_padding.0551, %if.then14.i.i ]
   %h_valid48 = getelementptr inbounds i8, ptr %pkt, i64 128
-  %261 = load i32, ptr %h_valid48, align 16
-  %tobool49 = icmp eq i32 %261, 0
+  %258 = load i32, ptr %h_valid48, align 16
+  %tobool49 = icmp eq i32 %258, 0
   %bytes_appended52 = getelementptr inbounds i8, ptr %pkt, i64 16
-  %262 = load i64, ptr %bytes_appended52, align 16
-  %cmp53 = icmp eq i64 %262, 0
+  %259 = load i64, ptr %bytes_appended52, align 16
+  %cmp53 = icmp eq i64 %259, 0
   %or.cond.not = select i1 %tobool49, i1 true, i1 %cmp53
   %tobool57.not409 = icmp eq i32 %need_padding.0522, 0
   %tobool57.not = select i1 %or.cond.not, i1 %tobool57.not409, i1 false
@@ -3062,14 +3068,14 @@ for.body62:                                       ; preds = %for.end46, %for.inc
   %total_dgram_size.0557 = phi i64 [ %total_dgram_size.1, %for.inc106 ], [ 0, %for.end46 ]
   %arrayidx64 = getelementptr inbounds [4 x %struct.txp_pkt], ptr %pkt, i64 0, i64 %indvars.iv682
   %h_valid65 = getelementptr inbounds i8, ptr %arrayidx64, i64 128
-  %263 = load i32, ptr %h_valid65, align 16
-  %tobool66.not = icmp eq i32 %263, 0
+  %260 = load i32, ptr %h_valid65, align 16
+  %tobool66.not = icmp eq i32 %260, 0
   br i1 %tobool66.not, label %for.inc106, label %land.lhs.true67
 
 land.lhs.true67:                                  ; preds = %for.body62
   %bytes_appended71 = getelementptr inbounds i8, ptr %arrayidx64, i64 16
-  %264 = load i64, ptr %bytes_appended71, align 16
-  %cmp72.not = icmp eq i64 %264, 0
+  %261 = load i64, ptr %bytes_appended71, align 16
+  %cmp72.not = icmp eq i64 %261, 0
   br i1 %cmp72.not, label %for.inc106, label %if.then74
 
 if.then74:                                        ; preds = %land.lhs.true67
@@ -3079,30 +3085,30 @@ if.then74:                                        ; preds = %land.lhs.true67
 land.lhs.true77:                                  ; preds = %if.then74
   %adata = getelementptr inbounds i8, ptr %arrayidx64, i64 276
   %bf.load = load i32, ptr %adata, align 4
-  %265 = and i32 %bf.load, 16384
-  %tobool81.not = icmp eq i32 %265, 0
+  %262 = and i32 %bf.load, 16384
+  %tobool81.not = icmp eq i32 %262, 0
   br i1 %tobool81.not, label %if.end91, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %land.lhs.true77
   %done_implicit = getelementptr inbounds i8, ptr %arrayidx64, i64 52
   %bf.load86 = load i8, ptr %done_implicit, align 4
-  %266 = and i8 %bf.load86, 2
-  %tobool89.not = icmp eq i8 %266, 0
-  %267 = trunc nuw nsw i64 %indvars.iv682 to i32
-  %spec.select73 = select i1 %tobool89.not, i32 %267, i32 4
+  %263 = and i8 %bf.load86, 2
+  %tobool89.not = icmp eq i8 %263, 0
+  %264 = trunc nuw nsw i64 %indvars.iv682 to i32
+  %spec.select73 = select i1 %tobool89.not, i32 %264, i32 4
   br label %if.end91
 
 if.end91:                                         ; preds = %land.lhs.true82, %land.lhs.true77, %if.then74
   %pad_el.1 = phi i32 [ 4, %land.lhs.true77 ], [ %pad_el.0558, %if.then74 ], [ %spec.select73, %land.lhs.true82 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ciphertext_len.i)
   %enc_level.i = getelementptr inbounds i8, ptr %arrayidx64, i64 48
-  %268 = load i32, ptr %enc_level.i, align 16
-  %cmp.i135 = icmp eq i32 %268, 0
+  %265 = load i32, ptr %enc_level.i, align 16
+  %cmp.i135 = icmp eq i32 %265, 0
   br i1 %cmp.i135, label %txp_pkt_postgen_update_pkt_overhead.exit, label %if.end.i136
 
 if.end.i136:                                      ; preds = %if.end91
-  %269 = load ptr, ptr %qtx, align 8
-  %call.i139 = call i32 @ossl_qtx_calculate_ciphertext_payload_len(ptr noundef %269, i32 noundef %268, i64 noundef %264, ptr noundef nonnull %ciphertext_len.i) #10
+  %266 = load ptr, ptr %qtx, align 8
+  %call.i139 = call i32 @ossl_qtx_calculate_ciphertext_payload_len(ptr noundef %266, i32 noundef %265, i64 noundef %261, ptr noundef nonnull %ciphertext_len.i) #10
   %tobool.not.i140 = icmp eq i32 %call.i139, 0
   br i1 %tobool.not.i140, label %if.end.i136.txp_pkt_postgen_update_pkt_overhead.exit_crit_edge, label %if.end5.i141
 
@@ -3111,30 +3117,30 @@ if.end.i136.txp_pkt_postgen_update_pkt_overhead.exit_crit_edge: ; preds = %if.en
   br label %txp_pkt_postgen_update_pkt_overhead.exit
 
 if.end5.i141:                                     ; preds = %if.end.i136
-  %270 = load i64, ptr %ciphertext_len.i, align 8
+  %267 = load i64, ptr %ciphertext_len.i, align 8
   %phdr.i142 = getelementptr inbounds i8, ptr %arrayidx64, i64 152
   %len.i = getelementptr inbounds i8, ptr %arrayidx64, i64 224
-  store i64 %270, ptr %len.i, align 16
+  store i64 %267, ptr %len.i, align 16
   %dst_conn_id.i = getelementptr inbounds i8, ptr %arrayidx64, i64 160
-  %271 = load i8, ptr %dst_conn_id.i, align 16
-  %conv.i143 = zext i8 %271 to i64
+  %268 = load i8, ptr %dst_conn_id.i, align 16
+  %conv.i143 = zext i8 %268 to i64
   %call8.i = call i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %conv.i143, ptr noundef nonnull %phdr.i142) #10
   %conv9.i = sext i32 %call8.i to i64
-  %272 = load i64, ptr %ciphertext_len.i, align 8
-  %add.i144 = add i64 %272, %conv9.i
-  %273 = load i64, ptr %bytes_appended71, align 16
-  %sub.i = sub i64 %add.i144, %273
+  %269 = load i64, ptr %ciphertext_len.i, align 8
+  %add.i144 = add i64 %269, %conv9.i
+  %270 = load i64, ptr %bytes_appended71, align 16
+  %sub.i = sub i64 %add.i144, %270
   %pkt_overhead.i145 = getelementptr inbounds i8, ptr %arrayidx64, i64 264
   store i64 %sub.i, ptr %pkt_overhead.i145, align 8
   br label %txp_pkt_postgen_update_pkt_overhead.exit
 
 txp_pkt_postgen_update_pkt_overhead.exit:         ; preds = %if.end.i136.txp_pkt_postgen_update_pkt_overhead.exit_crit_edge, %if.end91, %if.end5.i141
-  %274 = phi i64 [ %.pre694, %if.end.i136.txp_pkt_postgen_update_pkt_overhead.exit_crit_edge ], [ %264, %if.end91 ], [ %273, %if.end5.i141 ]
+  %271 = phi i64 [ %.pre694, %if.end.i136.txp_pkt_postgen_update_pkt_overhead.exit_crit_edge ], [ %261, %if.end91 ], [ %270, %if.end5.i141 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ciphertext_len.i)
   %pkt_overhead98 = getelementptr inbounds i8, ptr %arrayidx64, i64 264
-  %275 = load i64, ptr %pkt_overhead98, align 8
-  %add103 = add i64 %275, %total_dgram_size.0557
-  %add104 = add i64 %add103, %274
+  %272 = load i64, ptr %pkt_overhead98, align 8
+  %add103 = add i64 %272, %total_dgram_size.0557
+  %add104 = add i64 %add103, %271
   br label %for.inc106
 
 for.inc106:                                       ; preds = %for.body62, %land.lhs.true67, %txp_pkt_postgen_update_pkt_overhead.exit
@@ -3155,14 +3161,14 @@ if.then114:                                       ; preds = %for.end108
   %idxprom116 = zext nneg i32 %pad_el.2 to i64
   %arrayidx117 = getelementptr inbounds [4 x %struct.txp_pkt], ptr %pkt, i64 0, i64 %idxprom116
   %h_valid.i147 = getelementptr inbounds i8, ptr %arrayidx117, i64 128
-  %276 = load i32, ptr %h_valid.i147, align 16
-  %cmp1.not.i148 = icmp eq i32 %276, 0
+  %273 = load i32, ptr %h_valid.i147, align 16
+  %cmp1.not.i148 = icmp eq i32 %273, 0
   br i1 %cmp1.not.i148, label %out, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then114
   %tpkt.i149 = getelementptr inbounds i8, ptr %arrayidx117, i64 136
-  %277 = load ptr, ptr %tpkt.i149, align 8
-  %cmp5.not.i = icmp eq ptr %277, null
+  %274 = load ptr, ptr %tpkt.i149, align 8
+  %cmp5.not.i = icmp eq ptr %274, null
   br i1 %cmp5.not.i, label %out, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end4.i
@@ -3198,18 +3204,18 @@ if.end25.i:                                       ; preds = %if.end20.i
   br i1 %tobool28.not.i, label %out, label %if.end127.thread
 
 if.end127.thread:                                 ; preds = %if.end25.i
-  %278 = load ptr, ptr %tpkt.i149, align 8
-  %num_bytes32.i = getelementptr inbounds i8, ptr %278, i64 8
-  %279 = load i64, ptr %num_bytes32.i, align 8
-  %add.i152 = add i64 %279, %sub115
+  %275 = load ptr, ptr %tpkt.i149, align 8
+  %num_bytes32.i = getelementptr inbounds i8, ptr %275, i64 8
+  %276 = load i64, ptr %num_bytes32.i, align 8
+  %add.i152 = add i64 %276, %sub115
   store i64 %add.i152, ptr %num_bytes32.i, align 8
-  %280 = load ptr, ptr %tpkt.i149, align 8
-  %is_inflight.i = getelementptr inbounds i8, ptr %280, i64 32
+  %277 = load ptr, ptr %tpkt.i149, align 8
+  %is_inflight.i = getelementptr inbounds i8, ptr %277, i64 32
   %bf.load.i153 = load i8, ptr %is_inflight.i, align 8
   %bf.set.i154 = or i8 %bf.load.i153, 4
   store i8 %bf.set.i154, ptr %is_inflight.i, align 8
-  %281 = load ptr, ptr %tpkt.i149, align 8
-  %is_inflight = getelementptr inbounds i8, ptr %281, i64 32
+  %278 = load ptr, ptr %tpkt.i149, align 8
+  %is_inflight = getelementptr inbounds i8, ptr %278, i64 32
   %bf.load125 = load i8, ptr %is_inflight, align 8
   %bf.set = or i8 %bf.load125, 4
   store i8 %bf.set, ptr %is_inflight, align 8
@@ -3238,41 +3244,41 @@ for.body136:                                      ; preds = %if.end132, %for.inc
   %pkts_done.1559 = phi i64 [ 0, %if.end132 ], [ %pkts_done.2, %for.inc192 ]
   %arrayidx138 = getelementptr inbounds [4 x %struct.txp_pkt], ptr %pkt, i64 0, i64 %indvars.iv686
   %h_valid139 = getelementptr inbounds i8, ptr %arrayidx138, i64 128
-  %282 = load i32, ptr %h_valid139, align 16
-  %tobool140.not = icmp eq i32 %282, 0
+  %279 = load i32, ptr %h_valid139, align 16
+  %tobool140.not = icmp eq i32 %279, 0
   br i1 %tobool140.not, label %for.inc192, label %if.end142
 
 if.end142:                                        ; preds = %for.body136
   %bytes_appended146 = getelementptr inbounds i8, ptr %arrayidx138, i64 16
-  %283 = load i64, ptr %bytes_appended146, align 16
-  %cmp147 = icmp eq i64 %283, 0
+  %280 = load i64, ptr %bytes_appended146, align 16
+  %cmp147 = icmp eq i64 %280, 0
   br i1 %cmp147, label %for.inc192, label %if.end150
 
 if.end150:                                        ; preds = %if.end142
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %txpkt.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %chunk.i)
   %enc_level1.i165 = getelementptr inbounds i8, ptr %arrayidx138, i64 48
-  %284 = load i32, ptr %enc_level1.i165, align 16
-  %285 = icmp ult i32 %284, 4
-  br i1 %285, label %switch.lookup931, label %if.end187.thread
+  %281 = load i32, ptr %enc_level1.i165, align 16
+  %282 = icmp ult i32 %281, 4
+  br i1 %282, label %switch.lookup931, label %if.end187.thread
 
 switch.lookup931:                                 ; preds = %if.end150
-  %286 = zext nneg i32 %284 to i64
-  %switch.gep932 = getelementptr inbounds [4 x i32], ptr @switch.table.ossl_quic_tx_packetiser_get_deadline, i64 0, i64 %286
+  %283 = zext nneg i32 %281 to i64
+  %switch.gep932 = getelementptr inbounds [4 x i32], ptr @switch.table.ossl_quic_tx_packetiser_get_deadline, i64 0, i64 %283
   %switch.load933 = load i32, ptr %switch.gep932, align 4
   %tpkt2.i = getelementptr inbounds i8, ptr %arrayidx138, i64 136
-  %287 = load ptr, ptr %tpkt2.i, align 8
-  %idxprom.i.i171 = zext nneg i32 %284 to i64
+  %284 = load ptr, ptr %tpkt2.i, align 8
+  %idxprom.i.i171 = zext nneg i32 %281 to i64
   %arrayidx3.i.i173 = getelementptr inbounds [4 x [3 x %struct.archetype_data]], ptr @archetypes, i64 0, i64 %idxprom.i.i171, i64 %idxprom2.i.i
-  %288 = load i32, ptr %arrayidx3.i.i173, align 4
+  %285 = load i32, ptr %arrayidx3.i.i173, align 4
   %phdr.i174 = getelementptr inbounds i8, ptr %arrayidx138, i64 152
   store ptr %phdr.i174, ptr %txpkt.i, align 8
   %iovec.i = getelementptr inbounds [4 x %struct.txp_el], ptr %el.i.i, i64 0, i64 %idxprom.i.i171, i32 2
-  %289 = load ptr, ptr %iovec.i, align 8
-  store ptr %289, ptr %iovec7.i, align 8
+  %286 = load ptr, ptr %iovec.i, align 8
+  store ptr %286, ptr %iovec7.i, align 8
   %num_iovec.i = getelementptr inbounds i8, ptr %arrayidx138, i64 40
-  %290 = load i64, ptr %num_iovec.i, align 8
-  store i64 %290, ptr %num_iovec9.i, align 8
+  %287 = load i64, ptr %num_iovec.i, align 8
+  store i64 %287, ptr %num_iovec9.i, align 8
   store ptr null, ptr %local.i, align 8
   %call10.i = call i32 @BIO_ADDR_family(ptr noundef nonnull %peer.i) #10
   %cmp11.i = icmp eq i32 %call10.i, 0
@@ -3280,8 +3286,8 @@ switch.lookup931:                                 ; preds = %if.end150
   store ptr %cond.i175, ptr %peer14.i, align 8
   %idxprom15.i = zext nneg i32 %switch.load933 to i64
   %arrayidx16.i = getelementptr inbounds [3 x i64], ptr %next_pn.i, i64 0, i64 %idxprom15.i
-  %291 = load i64, ptr %arrayidx16.i, align 8
-  store i64 %291, ptr %pn.i, align 8
+  %288 = load i64, ptr %arrayidx16.i, align 8
+  store i64 %288, ptr %pn.i, align 8
   store i32 1, ptr %flags.i, align 8
   %stream_head.i177 = getelementptr inbounds i8, ptr %arrayidx138, i64 144
   %stream.084.i = load ptr, ptr %stream_head.i177, align 16
@@ -3292,25 +3298,25 @@ for.body.i179:                                    ; preds = %switch.lookup931, %
   %stream.086.i = phi ptr [ %stream.0.i, %for.inc.i183 ], [ %stream.084.i, %switch.lookup931 ]
   %txp_sent_stop_sending.i = getelementptr inbounds i8, ptr %stream.086.i, i64 256
   %bf.load.i180 = load i64, ptr %txp_sent_stop_sending.i, align 8
-  %292 = and i64 %bf.load.i180, 1610612736
-  %or.cond.i181 = icmp eq i64 %292, 0
+  %289 = and i64 %bf.load.i180, 1610612736
+  %or.cond.i181 = icmp eq i64 %289, 0
   br i1 %or.cond.i181, label %for.inc.i183, label %if.then24.i
 
 if.then24.i:                                      ; preds = %for.body.i179
   %id.i = getelementptr inbounds i8, ptr %stream.086.i, i64 56
-  %293 = load i64, ptr %id.i, align 8
-  store i64 %293, ptr %chunk.i, align 8
+  %290 = load i64, ptr %id.i, align 8
+  store i64 %290, ptr %chunk.i, align 8
   store i64 -1, ptr %start.i, align 8
   store i64 0, ptr %end.i, align 8
   %bf.load25.i = load i8, ptr %has_fin.i, align 8
-  %294 = trunc i64 %bf.load.i180 to i32
-  %sh.diff.i = lshr i32 %294, 28
+  %291 = trunc i64 %bf.load.i180 to i32
+  %sh.diff.i = lshr i32 %291, 28
   %tr.sh.diff.i = trunc nuw nsw i32 %sh.diff.i to i8
   %bf.clear33.i = and i8 %bf.load25.i, -8
-  %295 = and i8 %tr.sh.diff.i, 6
-  %bf.set44.i = or disjoint i8 %bf.clear33.i, %295
+  %292 = and i8 %tr.sh.diff.i, 6
+  %bf.set44.i = or disjoint i8 %bf.clear33.i, %292
   store i8 %bf.set44.i, ptr %has_fin.i, align 8
-  %call46.i = call i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef %287, ptr noundef nonnull %chunk.i) #10
+  %call46.i = call i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef %284, ptr noundef nonnull %chunk.i) #10
   %tobool47.not.i182 = icmp eq i32 %call46.i, 0
   br i1 %tobool47.not.i182, label %if.end187.thread, label %for.inc.i183
 
@@ -3321,16 +3327,16 @@ for.inc.i183:                                     ; preds = %if.then24.i, %for.b
   br i1 %cmp17.not.i, label %for.end.i184, label %for.body.i179, !llvm.loop !16
 
 for.end.i184:                                     ; preds = %for.inc.i183, %switch.lookup931
-  %call51.i = call i32 @ossl_quic_fifd_pkt_commit(ptr noundef nonnull %fifd.i, ptr noundef %287) #10
+  %call51.i = call i32 @ossl_quic_fifd_pkt_commit(ptr noundef nonnull %fifd.i, ptr noundef %284) #10
   %tobool52.not.i = icmp eq i32 %call51.i, 0
   br i1 %tobool52.not.i, label %if.end187.thread, label %if.end54.i
 
 if.end54.i:                                       ; preds = %for.end.i184
-  %296 = load i64, ptr %arrayidx16.i, align 8
-  %inc.i = add i64 %296, 1
+  %293 = load i64, ptr %arrayidx16.i, align 8
+  %inc.i = add i64 %293, 1
   store i64 %inc.i, ptr %arrayidx16.i, align 8
-  %297 = load ptr, ptr %qtx, align 8
-  %call59.i = call i32 @ossl_qtx_write_pkt(ptr noundef %297, ptr noundef nonnull %txpkt.i) #10
+  %294 = load ptr, ptr %qtx, align 8
+  %call59.i = call i32 @ossl_qtx_write_pkt(ptr noundef %294, ptr noundef nonnull %txpkt.i) #10
   %tobool60.not.i = icmp eq i32 %call59.i, 0
   br i1 %tobool60.not.i, label %if.end187.thread402, label %for.cond64.preheader.i
 
@@ -3344,8 +3350,8 @@ for.body66.i:                                     ; preds = %for.cond64.preheade
   %rc.089.i = phi i32 [ %rc.1.i, %for.inc125.i ], [ 1, %for.cond64.preheader.i ]
   %txp_sent_fc.i = getelementptr inbounds i8, ptr %stream.190.i, i64 256
   %bf.load67.i = load i64, ptr %txp_sent_fc.i, align 8
-  %298 = and i64 %bf.load67.i, 268435456
-  %tobool71.not.i = icmp eq i64 %298, 0
+  %295 = and i64 %bf.load67.i, 268435456
+  %tobool71.not.i = icmp eq i64 %295, 0
   br i1 %tobool71.not.i, label %if.end77.i, label %if.then72.i
 
 if.then72.i:                                      ; preds = %for.body66.i
@@ -3358,63 +3364,63 @@ if.then72.i:                                      ; preds = %for.body66.i
 
 if.end77.i:                                       ; preds = %if.then72.i, %for.body66.i
   %bf.load79.i = phi i64 [ %bf.load79.pre.i, %if.then72.i ], [ %bf.load67.i, %for.body66.i ]
-  %299 = and i64 %bf.load79.i, 536870912
-  %tobool83.not.not.i = icmp eq i64 %299, 0
+  %296 = and i64 %bf.load79.i, 536870912
+  %tobool83.not.not.i = icmp eq i64 %296, 0
   %bf.clear86.i = and i64 %bf.load79.i, -17179869185
   %bf.load90.i = select i1 %tobool83.not.not.i, i64 %bf.load79.i, i64 %bf.clear86.i
-  %300 = and i64 %bf.load90.i, 1073741824
-  %301 = or disjoint i64 %300, %299
-  %.not.i = icmp eq i64 %301, 0
-  br i1 %.not.i, label %303, label %302
+  %297 = and i64 %bf.load90.i, 1073741824
+  %298 = or disjoint i64 %297, %296
+  %.not.i = icmp eq i64 %298, 0
+  br i1 %.not.i, label %300, label %299
 
-302:                                              ; preds = %if.end77.i
-  %tobool94.not.not.i = icmp eq i64 %300, 0
+299:                                              ; preds = %if.end77.i
+  %tobool94.not.not.i = icmp eq i64 %297, 0
   %bf.clear97.i = and i64 %bf.load90.i, -34359738369
   %simplifycfg.merge.i = select i1 %tobool94.not.not.i, i64 %bf.load90.i, i64 %bf.clear97.i
   store i64 %simplifycfg.merge.i, ptr %txp_sent_fc.i, align 8
-  br label %303
+  br label %300
 
-303:                                              ; preds = %302, %if.end77.i
+300:                                              ; preds = %299, %if.end77.i
   %txp_txfc_new_credit_consumed.i = getelementptr inbounds i8, ptr %stream.190.i, i64 96
-  %304 = load i64, ptr %txp_txfc_new_credit_consumed.i, align 8
-  %cmp100.not.i = icmp eq i64 %304, 0
+  %301 = load i64, ptr %txp_txfc_new_credit_consumed.i, align 8
+  %cmp100.not.i = icmp eq i64 %301, 0
   br i1 %cmp100.not.i, label %if.end110.i, label %if.then101.i
 
-if.then101.i:                                     ; preds = %303
+if.then101.i:                                     ; preds = %300
   %txfc.i = getelementptr inbounds i8, ptr %stream.190.i, i64 128
-  %call103.i = call i32 @ossl_quic_txfc_consume_credit(ptr noundef nonnull %txfc.i, i64 noundef %304) #10
+  %call103.i = call i32 @ossl_quic_txfc_consume_credit(ptr noundef nonnull %txfc.i, i64 noundef %301) #10
   %cmp104.not.i = icmp eq i32 %call103.i, 0
   %spec.select.i = select i1 %cmp104.not.i, i32 0, i32 %rc.089.i
   store i64 0, ptr %txp_txfc_new_credit_consumed.i, align 8
   br label %if.end110.i
 
-if.end110.i:                                      ; preds = %if.then101.i, %303
-  %rc.1.i = phi i32 [ %spec.select.i, %if.then101.i ], [ %rc.089.i, %303 ]
-  %305 = load ptr, ptr %qsm.i, align 8
-  call void @ossl_quic_stream_map_update_state(ptr noundef %305, ptr noundef nonnull %stream.190.i) #10
+if.end110.i:                                      ; preds = %if.then101.i, %300
+  %rc.1.i = phi i32 [ %spec.select.i, %if.then101.i ], [ %rc.089.i, %300 ]
+  %302 = load ptr, ptr %qsm.i, align 8
+  call void @ossl_quic_stream_map_update_state(ptr noundef %302, ptr noundef nonnull %stream.190.i) #10
   %stream.1.val.i = load i64, ptr %txp_sent_fc.i, align 8
-  %306 = lshr i64 %stream.1.val.i, 8
-  %trunc.i.i = trunc i64 %306 to i8
-  %307 = add i8 %trunc.i.i, -4
-  %switch.i.i = icmp ult i8 %307, -3
+  %303 = lshr i64 %stream.1.val.i, 8
+  %trunc.i.i = trunc i64 %303 to i8
+  %304 = add i8 %trunc.i.i, -4
+  %switch.i.i = icmp ult i8 %304, -3
   br i1 %switch.i.i, label %for.inc125.i, label %land.lhs.true.i187
 
 land.lhs.true.i187:                               ; preds = %if.end110.i
   %sstream.i = getelementptr inbounds i8, ptr %stream.190.i, i64 112
-  %308 = load ptr, ptr %sstream.i, align 8
-  %call114.i = call i32 @ossl_quic_sstream_has_pending(ptr noundef %308) #10
+  %305 = load ptr, ptr %sstream.i, align 8
+  %call114.i = call i32 @ossl_quic_sstream_has_pending(ptr noundef %305) #10
   %tobool115.not.i = icmp eq i32 %call114.i, 0
   br i1 %tobool115.not.i, label %land.lhs.true116.i, label %for.inc125.i
 
 land.lhs.true116.i:                               ; preds = %land.lhs.true.i187
-  %309 = load ptr, ptr %sstream.i, align 8
-  %call118.i203 = call i32 @ossl_quic_sstream_get_final_size(ptr noundef %309, ptr noundef null) #10
+  %306 = load ptr, ptr %sstream.i, align 8
+  %call118.i203 = call i32 @ossl_quic_sstream_get_final_size(ptr noundef %306, ptr noundef null) #10
   %tobool119.not.i204 = icmp eq i32 %call118.i203, 0
   br i1 %tobool119.not.i204, label %for.inc125.i, label %if.then120.i
 
 if.then120.i:                                     ; preds = %land.lhs.true116.i
-  %310 = load ptr, ptr %qsm.i, align 8
-  %call123.i = call i32 @ossl_quic_stream_map_notify_all_data_sent(ptr noundef %310, ptr noundef nonnull %stream.190.i) #10
+  %307 = load ptr, ptr %qsm.i, align 8
+  %call123.i = call i32 @ossl_quic_stream_map_notify_all_data_sent(ptr noundef %307, ptr noundef nonnull %stream.190.i) #10
   br label %for.inc125.i
 
 for.inc125.i:                                     ; preds = %if.then120.i, %land.lhs.true116.i, %land.lhs.true.i187, %if.end110.i
@@ -3425,25 +3431,25 @@ for.inc125.i:                                     ; preds = %if.then120.i, %land
 
 for.end127.i:                                     ; preds = %for.inc125.i, %for.cond64.preheader.i
   %rc.0.lcssa.i = phi i32 [ 1, %for.cond64.preheader.i ], [ %rc.1.i, %for.inc125.i ]
-  %is_ack_eliciting.i = getelementptr inbounds i8, ptr %287, i64 32
+  %is_ack_eliciting.i = getelementptr inbounds i8, ptr %284, i64 32
   %bf.load128.i = load i8, ptr %is_ack_eliciting.i, align 8
-  %311 = and i8 %bf.load128.i, 8
-  %tobool132.not.i = icmp eq i8 %311, 0
+  %308 = and i8 %bf.load128.i, 8
+  %tobool132.not.i = icmp eq i8 %308, 0
   br i1 %tobool132.not.i, label %if.end146.i, label %if.then133.i
 
 if.then133.i:                                     ; preds = %for.end127.i
   %shl.i188 = shl nuw nsw i32 1, %switch.load933
   %bf.load134.i = load i16, ptr %want_ack.i, align 8
-  %312 = trunc nuw nsw i32 %shl.i188 to i16
-  %313 = xor i16 %312, -1
-  %314 = shl nsw i16 %313, 7
-  %bf.shl14291.i = or i16 %314, -897
+  %309 = trunc nuw nsw i32 %shl.i188 to i16
+  %310 = xor i16 %309, -1
+  %311 = shl nsw i16 %310, 7
+  %bf.shl14291.i = or i16 %311, -897
   %bf.set144.i = and i16 %bf.load134.i, %bf.shl14291.i
   store i16 %bf.set144.i, ptr %want_ack.i, align 8
   br label %if.end146.i
 
 if.end146.i:                                      ; preds = %if.then133.i, %for.end127.i
-  %had_handshake_done_frame.i190 = getelementptr inbounds i8, ptr %287, i64 120
+  %had_handshake_done_frame.i190 = getelementptr inbounds i8, ptr %284, i64 120
   %bf.load147.i = load i8, ptr %had_handshake_done_frame.i190, align 8
   %bf.clear148.i = and i8 %bf.load147.i, 1
   %tobool150.not.i = icmp eq i8 %bf.clear148.i, 0
@@ -3458,62 +3464,62 @@ if.then151.i:                                     ; preds = %if.end146.i
 
 if.end155.i:                                      ; preds = %if.then151.i, %if.end146.i
   %bf.load156.i = phi i8 [ %bf.load156.pre.i, %if.then151.i ], [ %bf.load147.i, %if.end146.i ]
-  %315 = and i8 %bf.load156.i, 2
-  %tobool160.not.i = icmp eq i8 %315, 0
+  %312 = and i8 %bf.load156.i, 2
+  %tobool160.not.i = icmp eq i8 %312, 0
   br i1 %tobool160.not.i, label %if.end167.i, label %if.then161.i
 
 if.then161.i:                                     ; preds = %if.end155.i
   %bf.load162.i = load i16, ptr %want_ack.i, align 8
   %bf.clear163.i = and i16 %bf.load162.i, -3
   store i16 %bf.clear163.i, ptr %want_ack.i, align 8
-  %316 = load ptr, ptr %conn_rxfc.i, align 8
-  %call166.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef %316, i32 noundef 1) #10
+  %313 = load ptr, ptr %conn_rxfc.i, align 8
+  %call166.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef %313, i32 noundef 1) #10
   %bf.load168.pre.i = load i8, ptr %had_handshake_done_frame.i190, align 8
   br label %if.end167.i
 
 if.end167.i:                                      ; preds = %if.then161.i, %if.end155.i
   %bf.load168.i = phi i8 [ %bf.load168.pre.i, %if.then161.i ], [ %bf.load156.i, %if.end155.i ]
-  %317 = and i8 %bf.load168.i, 4
-  %tobool172.not.i = icmp eq i8 %317, 0
+  %314 = and i8 %bf.load168.i, 4
+  %tobool172.not.i = icmp eq i8 %314, 0
   br i1 %tobool172.not.i, label %if.end179.i, label %if.then173.i
 
 if.then173.i:                                     ; preds = %if.end167.i
   %bf.load174.i = load i16, ptr %want_ack.i, align 8
   %bf.clear175.i = and i16 %bf.load174.i, -5
   store i16 %bf.clear175.i, ptr %want_ack.i, align 8
-  %318 = load ptr, ptr %max_streams_bidi_rxfc.i, align 8
-  %call178.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef %318, i32 noundef 1) #10
+  %315 = load ptr, ptr %max_streams_bidi_rxfc.i, align 8
+  %call178.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef %315, i32 noundef 1) #10
   %bf.load180.pre.i = load i8, ptr %had_handshake_done_frame.i190, align 8
   br label %if.end179.i
 
 if.end179.i:                                      ; preds = %if.then173.i, %if.end167.i
   %bf.load180.i = phi i8 [ %bf.load180.pre.i, %if.then173.i ], [ %bf.load168.i, %if.end167.i ]
-  %319 = and i8 %bf.load180.i, 8
-  %tobool184.not.i195 = icmp eq i8 %319, 0
+  %316 = and i8 %bf.load180.i, 8
+  %tobool184.not.i195 = icmp eq i8 %316, 0
   br i1 %tobool184.not.i195, label %if.end191.i, label %if.then185.i
 
 if.then185.i:                                     ; preds = %if.end179.i
   %bf.load186.i = load i16, ptr %want_ack.i, align 8
   %bf.clear187.i = and i16 %bf.load186.i, -9
   store i16 %bf.clear187.i, ptr %want_ack.i, align 8
-  %320 = load ptr, ptr %max_streams_uni_rxfc.i, align 8
-  %call190.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef %320, i32 noundef 1) #10
+  %317 = load ptr, ptr %max_streams_uni_rxfc.i, align 8
+  %call190.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef %317, i32 noundef 1) #10
   %bf.load192.pre.i = load i8, ptr %had_handshake_done_frame.i190, align 8
   br label %if.end191.i
 
 if.end191.i:                                      ; preds = %if.then185.i, %if.end179.i
   %bf.load192.i = phi i8 [ %bf.load192.pre.i, %if.then185.i ], [ %bf.load180.i, %if.end179.i ]
-  %321 = and i8 %bf.load192.i, 16
-  %tobool196.not.i = icmp eq i8 %321, 0
+  %318 = and i8 %bf.load192.i, 16
+  %tobool196.not.i = icmp eq i8 %318, 0
   br i1 %tobool196.not.i, label %if.end214.i, label %if.then197.i
 
 if.then197.i:                                     ; preds = %if.end191.i
   %shl199.i = shl nuw nsw i32 1, %switch.load933
   %bf.load201.i = load i16, ptr %want_ack.i, align 8
-  %322 = trunc nuw nsw i32 %shl199.i to i16
-  %323 = xor i16 %322, -1
-  %324 = shl nsw i16 %323, 4
-  %bf.shl21092.i = or i16 %324, -113
+  %319 = trunc nuw nsw i32 %shl199.i to i16
+  %320 = xor i16 %319, -1
+  %321 = shl nsw i16 %320, 4
+  %bf.shl21092.i = or i16 %321, -113
   %bf.set212.i = and i16 %bf.load201.i, %bf.shl21092.i
   store i16 %bf.set212.i, ptr %want_ack.i, align 8
   %bf.load215.pre.i = load i8, ptr %had_handshake_done_frame.i190, align 8
@@ -3521,8 +3527,8 @@ if.then197.i:                                     ; preds = %if.end191.i
 
 if.end214.i:                                      ; preds = %if.then197.i, %if.end191.i
   %bf.load215.i = phi i8 [ %bf.load215.pre.i, %if.then197.i ], [ %bf.load192.i, %if.end191.i ]
-  %325 = and i8 %bf.load215.i, 32
-  %tobool219.not.i = icmp eq i8 %325, 0
+  %322 = and i8 %bf.load215.i, 32
+  %tobool219.not.i = icmp eq i8 %322, 0
   br i1 %tobool219.not.i, label %if.end224.i, label %if.then220.i
 
 if.then220.i:                                     ; preds = %if.end214.i
@@ -3533,50 +3539,50 @@ if.then220.i:                                     ; preds = %if.end214.i
 
 if.end224.i:                                      ; preds = %if.then220.i, %if.end214.i
   %bf.load227.i = load i8, ptr %is_ack_eliciting.i, align 8
-  %326 = and i8 %bf.load227.i, 8
-  %tobool231.not.i = icmp eq i8 %326, 0
+  %323 = and i8 %bf.load227.i, 8
+  %tobool231.not.i = icmp eq i8 %323, 0
   br i1 %tobool231.not.i, label %txp_pkt_commit.exit, label %if.then232.i
 
 if.then232.i:                                     ; preds = %if.end224.i
-  %327 = load ptr, ptr %4, align 8
-  %call234.i = call ptr @ossl_ackm_get0_probe_request(ptr noundef %327) #10
-  switch i32 %284, label %if.end251.i [
+  %324 = load ptr, ptr %4, align 8
+  %call234.i = call ptr @ossl_ackm_get0_probe_request(ptr noundef %324) #10
+  switch i32 %281, label %if.end251.i [
     i32 0, label %land.lhs.true237.i
     i32 1, label %land.lhs.true245.i
   ]
 
 land.lhs.true237.i:                               ; preds = %if.then232.i
-  %328 = load i32, ptr %call234.i, align 4
-  %cmp238.not.i = icmp eq i32 %328, 0
+  %325 = load i32, ptr %call234.i, align 4
+  %cmp238.not.i = icmp eq i32 %325, 0
   br i1 %cmp238.not.i, label %if.end251.i, label %if.end251.sink.split.i
 
 land.lhs.true245.i:                               ; preds = %if.then232.i
   %anti_deadlock_handshake.i200 = getelementptr inbounds i8, ptr %call234.i, i64 4
-  %329 = load i32, ptr %anti_deadlock_handshake.i200, align 4
-  %cmp246.not.i = icmp eq i32 %329, 0
+  %326 = load i32, ptr %anti_deadlock_handshake.i200, align 4
+  %cmp246.not.i = icmp eq i32 %326, 0
   br i1 %cmp246.not.i, label %if.end251.i, label %if.end251.sink.split.i
 
 if.end251.sink.split.i:                           ; preds = %land.lhs.true245.i, %land.lhs.true237.i
-  %.sink.i = phi i32 [ %328, %land.lhs.true237.i ], [ %329, %land.lhs.true245.i ]
+  %.sink.i = phi i32 [ %325, %land.lhs.true237.i ], [ %326, %land.lhs.true245.i ]
   %call234.sink.i = phi ptr [ %call234.i, %land.lhs.true237.i ], [ %anti_deadlock_handshake.i200, %land.lhs.true245.i ]
   %dec.i = add i32 %.sink.i, -1
   store i32 %dec.i, ptr %call234.sink.i, align 4
   br label %if.end251.i
 
 if.end251.i:                                      ; preds = %if.end251.sink.split.i, %land.lhs.true245.i, %land.lhs.true237.i, %if.then232.i
-  %330 = and i32 %288, 8192
-  %tobool255.not.i = icmp eq i32 %330, 0
+  %327 = and i32 %285, 8192
+  %tobool255.not.i = icmp eq i32 %327, 0
   br i1 %tobool255.not.i, label %txp_pkt_commit.exit, label %land.lhs.true256.i
 
 land.lhs.true256.i:                               ; preds = %if.end251.i
   %pto.i201 = getelementptr inbounds i8, ptr %call234.i, i64 8
   %arrayidx258.i = getelementptr inbounds [3 x i32], ptr %pto.i201, i64 0, i64 %idxprom15.i
-  %331 = load i32, ptr %arrayidx258.i, align 4
-  %cmp259.not.i = icmp eq i32 %331, 0
+  %328 = load i32, ptr %arrayidx258.i, align 4
+  %cmp259.not.i = icmp eq i32 %328, 0
   br i1 %cmp259.not.i, label %txp_pkt_commit.exit, label %if.then261.i
 
 if.then261.i:                                     ; preds = %land.lhs.true256.i
-  %dec265.i = add i32 %331, -1
+  %dec265.i = add i32 %328, -1
   store i32 %dec265.i, ptr %arrayidx258.i, align 4
   br label %txp_pkt_commit.exit
 
@@ -3587,38 +3593,38 @@ txp_pkt_commit.exit:                              ; preds = %if.end224.i, %if.en
   br i1 %tobool154.not, label %if.end187, label %if.then155
 
 if.then155:                                       ; preds = %txp_pkt_commit.exit
-  %332 = load i32, ptr %status, align 8
-  %tobool156.not = icmp eq i32 %332, 0
+  %329 = load i32, ptr %status, align 8
+  %tobool156.not = icmp eq i32 %329, 0
   br i1 %tobool156.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %if.then155
-  %333 = load ptr, ptr %tpkt2.i, align 8
-  %is_ack_eliciting = getelementptr inbounds i8, ptr %333, i64 32
+  %330 = load ptr, ptr %tpkt2.i, align 8
+  %is_ack_eliciting = getelementptr inbounds i8, ptr %330, i64 32
   %bf.load161 = load i8, ptr %is_ack_eliciting, align 8
-  %334 = and i8 %bf.load161, 8
-  %tobool165 = icmp ne i8 %334, 0
+  %331 = and i8 %bf.load161, 8
+  %tobool165 = icmp ne i8 %331, 0
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.then155
-  %335 = phi i1 [ true, %if.then155 ], [ %tobool165, %lor.rhs ]
-  %lor.ext = zext i1 %335 to i32
+  %332 = phi i1 [ true, %if.then155 ], [ %tobool165, %lor.rhs ]
+  %lor.ext = zext i1 %332 to i32
   store i32 %lor.ext, ptr %status, align 8
   %cmp167 = icmp eq i64 %indvars.iv686, 1
   br i1 %cmp167, label %if.then169, label %if.end190
 
 if.then169:                                       ; preds = %lor.end
-  %336 = load i32, ptr %h_valid139, align 16
-  %tobool173.not = icmp eq i32 %336, 0
+  %333 = load i32, ptr %h_valid139, align 16
+  %tobool173.not = icmp eq i32 %333, 0
   br i1 %tobool173.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then169
-  %337 = load i64, ptr %bytes_appended146, align 16
-  %cmp178 = icmp ne i64 %337, 0
+  %334 = load i64, ptr %bytes_appended146, align 16
+  %cmp178 = icmp ne i64 %334, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then169
-  %338 = phi i1 [ false, %if.then169 ], [ %cmp178, %land.rhs ]
-  %land.ext = zext i1 %338 to i32
+  %335 = phi i1 [ false, %if.then169 ], [ %cmp178, %land.rhs ]
+  %land.ext = zext i1 %335 to i32
   store i32 %land.ext, ptr %sent_handshake, align 4
   br label %if.end190
 
@@ -3651,16 +3657,16 @@ for.inc192:                                       ; preds = %if.end142, %for.bod
 out:                                              ; preds = %for.inc192, %if.end.i.i160, %if.then23.i, %if.end25.i, %if.end16.i, %if.end4.i, %if.then114, %if.end187, %if.end187.thread402, %if.end187.thread, %txp_generate_for_el.exit.thread, %if.end127
   %pkts_done.0 = phi i64 [ %pkts_done.1559, %if.end187 ], [ 0, %if.end127 ], [ 0, %txp_generate_for_el.exit.thread ], [ %pkts_done.1559, %if.end187.thread ], [ %pkts_done.1559, %if.end187.thread402 ], [ 0, %if.then114 ], [ 0, %if.end4.i ], [ 0, %if.end16.i ], [ 0, %if.end25.i ], [ 0, %if.then23.i ], [ 0, %if.end.i.i160 ], [ %pkts_done.2, %for.inc192 ]
   %res.0 = phi i32 [ 0, %if.end187 ], [ 1, %if.end127 ], [ 0, %txp_generate_for_el.exit.thread ], [ 0, %if.end187.thread ], [ 0, %if.end187.thread402 ], [ 0, %if.then114 ], [ 0, %if.end4.i ], [ 0, %if.end16.i ], [ 0, %if.end25.i ], [ 0, %if.then23.i ], [ 0, %if.end.i.i160 ], [ 1, %for.inc192 ]
-  %339 = load ptr, ptr %qtx, align 8
-  call void @ossl_qtx_finish_dgram(ptr noundef %339) #10
+  %336 = load ptr, ptr %qtx, align 8
+  call void @ossl_qtx_finish_dgram(ptr noundef %336) #10
   br label %for.body200
 
 for.body200:                                      ; preds = %out, %txp_pkt_cleanup.exit
   %indvars.iv690 = phi i64 [ 0, %out ], [ %indvars.iv.next691, %txp_pkt_cleanup.exit ]
   %arrayidx202 = getelementptr inbounds [4 x %struct.txp_pkt], ptr %pkt, i64 0, i64 %indvars.iv690
   %h_valid.i206 = getelementptr inbounds i8, ptr %arrayidx202, i64 128
-  %340 = load i32, ptr %h_valid.i206, align 16
-  %tobool.not.i207 = icmp eq i32 %340, 0
+  %337 = load i32, ptr %h_valid.i206, align 16
+  %tobool.not.i207 = icmp eq i32 %337, 0
   br i1 %tobool.not.i207, label %txp_pkt_cleanup.exit, label %if.end.i208
 
 if.end.i208:                                      ; preds = %for.body200
@@ -3684,13 +3690,13 @@ tx_helper_cleanup.exit.i:                         ; preds = %tx_helper_rollback.
   store ptr null, ptr %arrayidx202, align 16
   store i32 0, ptr %h_valid.i206, align 16
   %tpkt.i217 = getelementptr inbounds i8, ptr %arrayidx202, i64 136
-  %341 = load ptr, ptr %tpkt.i217, align 8
-  %cmp.not.i218 = icmp eq ptr %341, null
+  %338 = load ptr, ptr %tpkt.i217, align 8
+  %cmp.not.i218 = icmp eq ptr %338, null
   br i1 %cmp.not.i218, label %txp_pkt_cleanup.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %tx_helper_cleanup.exit.i
-  %342 = load ptr, ptr %txpim.i, align 8
-  call void @ossl_quic_txpim_pkt_release(ptr noundef %342, ptr noundef nonnull %341) #10
+  %339 = load ptr, ptr %txpim.i, align 8
+  call void @ossl_quic_txpim_pkt_release(ptr noundef %339, ptr noundef nonnull %338) #10
   store ptr null, ptr %tpkt.i217, align 8
   br label %txp_pkt_cleanup.exit
 

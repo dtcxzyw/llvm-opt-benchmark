@@ -4465,35 +4465,39 @@ define linkonce_odr dso_local noundef ptr @_ZNK13V3GraphVertex5cloneEP7V3Graph(p
   store double %8, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 64
   %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = load <2 x i32>, ptr %10, align 8
-  store <2 x i32> %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 68
+  %13 = getelementptr inbounds i8, ptr %0, i64 68
+  %14 = load i32, ptr %13, align 4
+  store i32 %14, ptr %12, align 4
+  %15 = getelementptr inbounds i8, ptr %3, i64 72
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %15, ptr %16, align 8
-  %.not.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i, label %19, label %17
+  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %18, ptr %19, align 8
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %22, label %20
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %3, ptr %18, align 8
-  br label %19
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  store ptr %3, ptr %21, align 8
+  br label %22
 
-19:                                               ; preds = %17, %2
-  store ptr %3, ptr %14, align 8
-  %20 = load ptr, ptr %13, align 8
-  %.not8.i.i = icmp eq ptr %20, null
-  br i1 %.not8.i.i, label %21, label %_ZN13V3GraphVertexC2EP7V3GraphRKS_.exit
+22:                                               ; preds = %20, %2
+  store ptr %3, ptr %17, align 8
+  %23 = load ptr, ptr %16, align 8
+  %.not8.i.i = icmp eq ptr %23, null
+  br i1 %.not8.i.i, label %24, label %_ZN13V3GraphVertexC2EP7V3GraphRKS_.exit
 
-21:                                               ; preds = %19
-  store ptr %3, ptr %13, align 8
+24:                                               ; preds = %22
+  store ptr %3, ptr %16, align 8
   br label %_ZN13V3GraphVertexC2EP7V3GraphRKS_.exit
 
-_ZN13V3GraphVertexC2EP7V3GraphRKS_.exit:          ; preds = %21, %19
+_ZN13V3GraphVertexC2EP7V3GraphRKS_.exit:          ; preds = %24, %22
   ret ptr %3
 }
 

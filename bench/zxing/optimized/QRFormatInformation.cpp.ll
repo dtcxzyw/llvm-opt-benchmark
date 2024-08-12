@@ -26,22 +26,24 @@ _ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i26:         ; preds = %2
   resume { ptr, i32 } %5
 
 .preheader.lr.ph.us.preheader.i:                  ; preds = %2
-  %6 = lshr i32 %1, 1
-  %7 = and i32 %6, 32512
-  %8 = and i32 %1, 255
-  %9 = or disjoint i32 %7, %8
-  %10 = and i32 %6, 32640
-  %11 = and i32 %1, 127
-  %12 = or disjoint i32 %10, %11
+  %6 = tail call noundef i32 @llvm.bitreverse.i32(i32 %0)
+  %7 = lshr i32 %6, 17
+  %8 = lshr i32 %1, 1
+  %9 = and i32 %8, 32512
+  %10 = and i32 %1, 255
+  %11 = or disjoint i32 %9, %10
+  %12 = and i32 %8, 32640
+  %13 = and i32 %1, 127
+  %14 = or disjoint i32 %12, %13
+  %15 = tail call noundef i32 @llvm.bitreverse.i32(i32 %14)
+  %16 = lshr exact i32 %15, 17
   store i32 %0, ptr %4, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 %9, ptr %.sroa.2.0..sroa_idx, align 4
+  store i32 %11, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %13 = insertelement <2 x i32> poison, i32 %0, i64 0
-  %14 = insertelement <2 x i32> %13, i32 %12, i64 1
-  %15 = tail call <2 x i32> @llvm.bitreverse.v2i32(<2 x i32> %14)
-  %16 = lshr <2 x i32> %15, <i32 17, i32 17>
-  store <2 x i32> %16, ptr %.sroa.3.0..sroa_idx, align 4
+  store i32 %7, ptr %.sroa.3.0..sroa_idx, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %16, ptr %.sroa.4.0..sroa_idx, align 4
   br label %.preheader.lr.ph.us.i
 
 .preheader.lr.ph.us.i:                            ; preds = %._crit_edge.us.i, %.preheader.lr.ph.us.preheader.i
@@ -369,9 +371,6 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bitreverse.i32(i32) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.bitreverse.v2i32(<2 x i32>) #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

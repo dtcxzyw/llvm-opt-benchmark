@@ -765,14 +765,13 @@ define internal { double, double } @_ZL15igh_o_s_forward5PJ_LPP8PJconsts(double 
   %36 = extractvalue { double, double } %34, 1
   %37 = load ptr, ptr %27, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 456
-  %39 = load <2 x double>, ptr %38, align 8
-  %40 = insertelement <2 x double> poison, double %35, i64 0
-  %41 = insertelement <2 x double> %40, double %36, i64 1
-  %42 = fadd <2 x double> %41, %39
-  %43 = extractelement <2 x double> %42, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %43, 0
-  %44 = extractelement <2 x double> %42, i64 1
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %44, 1
+  %39 = load double, ptr %38, align 8
+  %40 = fadd double %35, %39
+  %41 = getelementptr inbounds i8, ptr %37, i64 464
+  %42 = load double, ptr %41, align 8
+  %43 = fadd double %36, %42
+  %.fca.0.insert = insertvalue { double, double } poison, double %40, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %43, 1
   ret { double, double } %.fca.1.insert
 }
 

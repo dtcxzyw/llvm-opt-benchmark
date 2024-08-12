@@ -14876,11 +14876,11 @@ define internal fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expressi
     i64 4, label %tailrecurse.backedge
     i64 5, label %45
     i64 6, label %52
-    i64 7, label %77
+    i64 7, label %79
   ]
 
-.critedge:                                        ; preds = %tailrecurse.backedge, %22, %111, %110, %109, %2, %14, %73, %70, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i", %60, %52, %28, %85, %91, %97, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h8bf7786a08aee965E.exit", %103, %81, %77, %20
-  %.0 = phi i1 [ %80, %77 ], [ %108, %103 ], [ %21, %20 ], [ %84, %81 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h8bf7786a08aee965E.exit" ], [ false, %97 ], [ false, %91 ], [ false, %85 ], [ false, %28 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i" ], [ false, %52 ], [ %76, %73 ], [ false, %70 ], [ false, %60 ], [ false, %14 ], [ false, %2 ], [ false, %109 ], [ false, %110 ], [ false, %111 ], [ false, %22 ], [ false, %tailrecurse.backedge ]
+.critedge:                                        ; preds = %tailrecurse.backedge, %22, %113, %112, %111, %2, %14, %75, %72, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i", %62, %52, %28, %87, %93, %99, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h8bf7786a08aee965E.exit", %105, %83, %79, %20
+  %.0 = phi i1 [ %82, %79 ], [ %110, %105 ], [ %21, %20 ], [ %86, %83 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h8bf7786a08aee965E.exit" ], [ false, %99 ], [ false, %93 ], [ false, %87 ], [ false, %28 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i" ], [ false, %52 ], [ %78, %75 ], [ false, %72 ], [ false, %62 ], [ false, %14 ], [ false, %2 ], [ false, %111 ], [ false, %112 ], [ false, %113 ], [ false, %22 ], [ false, %tailrecurse.backedge ]
   ret i1 %.0
 
 13:                                               ; preds = %.lr.ph
@@ -14901,7 +14901,7 @@ define internal fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expressi
   %.val = load ptr, ptr %18, align 8, !nonnull !9, !noundef !9
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val6, i64 %.val5), !alias.scope !2501
   %19 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %19, label %81, label %.critedge
+  br i1 %19, label %83, label %.critedge
 
 20:                                               ; preds = %.lr.ph
   %21 = tail call noundef zeroext i1 @"_ZN59_$LT$just..thunk..Thunk$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbb6917276c9b50c3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.tr30, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.tr1131)
@@ -14921,10 +14921,10 @@ define internal fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expressi
   %31 = getelementptr inbounds i8, ptr %.tr1131, i64 8
   %32 = load ptr, ptr %31, align 8, !nonnull !9, !noundef !9
   %33 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b71bf801589eb50E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %32)
-  br i1 %33, label %85, label %.critedge
+  br i1 %33, label %87, label %.critedge
 
-tailrecurse.backedge:                             ; preds = %.lr.ph, %111, %109, %22
-  %.sink65 = phi i64 [ 16, %22 ], [ 8, %109 ], [ 8, %111 ], [ 8, %.lr.ph ]
+tailrecurse.backedge:                             ; preds = %.lr.ph, %113, %111, %22
+  %.sink65 = phi i64 [ 16, %22 ], [ 8, %111 ], [ 8, %113 ], [ 8, %.lr.ph ]
   %34 = getelementptr inbounds i8, ptr %.tr30, i64 %.sink65
   %35 = getelementptr inbounds i8, ptr %.tr1131, i64 %.sink65
   %.tr11.be = load ptr, ptr %35, align 8, !nonnull !9, !noundef !9
@@ -14947,108 +14947,111 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %111, %109,
   %49 = getelementptr inbounds i8, ptr %.tr1131, i64 16
   %50 = load ptr, ptr %49, align 8, !noundef !9
   %51 = icmp eq ptr %50, null
-  br i1 %48, label %109, label %110
+  br i1 %48, label %111, label %112
 
 52:                                               ; preds = %.lr.ph
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2505)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2508)
-  %53 = getelementptr inbounds i8, ptr %.tr1131, i64 48
-  %54 = getelementptr inbounds i8, ptr %.tr30, i64 48
-  %55 = load <2 x i8>, ptr %54, align 8, !alias.scope !2505, !noalias !2508
-  %56 = load <2 x i8>, ptr %53, align 8, !alias.scope !2508, !noalias !2505
-  %57 = icmp eq <2 x i8> %55, %56
-  %58 = extractelement <2 x i1> %57, i64 0
-  %59 = extractelement <2 x i1> %57, i64 1
-  %.04.i = select i1 %59, i1 %58, i1 false
-  br i1 %.04.i, label %60, label %.critedge
+  %53 = getelementptr inbounds i8, ptr %.tr30, i64 49
+  %54 = load i8, ptr %53, align 1, !range !333, !alias.scope !2505, !noalias !2508, !noundef !9
+  %55 = getelementptr inbounds i8, ptr %.tr1131, i64 49
+  %56 = load i8, ptr %55, align 1, !range !333, !alias.scope !2508, !noalias !2505, !noundef !9
+  %57 = icmp eq i8 %54, %56
+  %58 = getelementptr inbounds i8, ptr %.tr1131, i64 48
+  %59 = getelementptr inbounds i8, ptr %.tr30, i64 48
+  %60 = load i8, ptr %59, align 8, !range !219, !alias.scope !2505, !noalias !2508
+  %61 = load i8, ptr %58, align 8, !range !219, !alias.scope !2508, !noalias !2505
+  %.not.i = icmp eq i8 %60, %61
+  %.04.i = select i1 %57, i1 %.not.i, i1 false
+  br i1 %.04.i, label %62, label %.critedge
 
-60:                                               ; preds = %52
-  %61 = getelementptr inbounds i8, ptr %.tr30, i64 40
-  %62 = load i64, ptr %61, align 8, !alias.scope !2505, !noalias !2508, !noundef !9
-  %63 = getelementptr inbounds i8, ptr %.tr1131, i64 40
-  %64 = load i64, ptr %63, align 8, !alias.scope !2508, !noalias !2505, !noundef !9
-  %.not.i.i8 = icmp eq i64 %62, %64
+62:                                               ; preds = %52
+  %63 = getelementptr inbounds i8, ptr %.tr30, i64 40
+  %64 = load i64, ptr %63, align 8, !alias.scope !2505, !noalias !2508, !noundef !9
+  %65 = getelementptr inbounds i8, ptr %.tr1131, i64 40
+  %66 = load i64, ptr %65, align 8, !alias.scope !2508, !noalias !2505, !noundef !9
+  %.not.i.i8 = icmp eq i64 %64, %66
   br i1 %.not.i.i8, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i", label %.critedge
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i": ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %.tr1131, i64 32
-  %66 = load ptr, ptr %65, align 8, !alias.scope !2508, !noalias !2505, !nonnull !9, !align !211, !noundef !9
-  %67 = getelementptr inbounds i8, ptr %.tr30, i64 32
-  %68 = load ptr, ptr %67, align 8, !alias.scope !2505, !noalias !2508, !nonnull !9, !align !211, !noundef !9
-  %bcmp.i.i9 = tail call i32 @bcmp(ptr nonnull readonly %68, ptr nonnull readonly %66, i64 %62), !alias.scope !2510, !noalias !2514
-  %69 = icmp eq i32 %bcmp.i.i9, 0
-  br i1 %69, label %70, label %.critedge
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i": ; preds = %62
+  %67 = getelementptr inbounds i8, ptr %.tr1131, i64 32
+  %68 = load ptr, ptr %67, align 8, !alias.scope !2508, !noalias !2505, !nonnull !9, !align !211, !noundef !9
+  %69 = getelementptr inbounds i8, ptr %.tr30, i64 32
+  %70 = load ptr, ptr %69, align 8, !alias.scope !2505, !noalias !2508, !nonnull !9, !align !211, !noundef !9
+  %bcmp.i.i9 = tail call i32 @bcmp(ptr nonnull readonly %70, ptr nonnull readonly %68, i64 %64), !alias.scope !2510, !noalias !2514
+  %71 = icmp eq i32 %bcmp.i.i9, 0
+  br i1 %71, label %72, label %.critedge
 
-70:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i"
-  %71 = getelementptr inbounds i8, ptr %.tr30, i64 24
-  %.val5.i = load i64, ptr %71, align 8, !alias.scope !2505, !noalias !2508, !noundef !9
-  %72 = getelementptr inbounds i8, ptr %.tr1131, i64 24
-  %.val7.i = load i64, ptr %72, align 8, !alias.scope !2508, !noalias !2505, !noundef !9
+72:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i"
+  %73 = getelementptr inbounds i8, ptr %.tr30, i64 24
+  %.val5.i = load i64, ptr %73, align 8, !alias.scope !2505, !noalias !2508, !noundef !9
+  %74 = getelementptr inbounds i8, ptr %.tr1131, i64 24
+  %.val7.i = load i64, ptr %74, align 8, !alias.scope !2508, !noalias !2505, !noundef !9
   %.not.i.i.i = icmp eq i64 %.val5.i, %.val7.i
-  br i1 %.not.i.i.i, label %73, label %.critedge
+  br i1 %.not.i.i.i, label %75, label %.critedge
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %.tr1131, i64 16
-  %.val6.i = load ptr, ptr %74, align 8, !alias.scope !2508, !noalias !2505, !nonnull !9, !noundef !9
-  %75 = getelementptr inbounds i8, ptr %.tr30, i64 16
-  %.val.i = load ptr, ptr %75, align 8, !alias.scope !2505, !noalias !2508, !nonnull !9, !noundef !9
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds i8, ptr %.tr1131, i64 16
+  %.val6.i = load ptr, ptr %76, align 8, !alias.scope !2508, !noalias !2505, !nonnull !9, !noundef !9
+  %77 = getelementptr inbounds i8, ptr %.tr30, i64 16
+  %.val.i = load ptr, ptr %77, align 8, !alias.scope !2505, !noalias !2508, !nonnull !9, !noundef !9
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %.val6.i, i64 %.val5.i), !alias.scope !2515, !noalias !2514
-  %76 = icmp eq i32 %bcmp.i.i.i, 0
+  %78 = icmp eq i32 %bcmp.i.i.i, 0
   br label %.critedge
 
-77:                                               ; preds = %.lr.ph
-  %78 = getelementptr inbounds i8, ptr %.tr30, i64 8
-  %79 = getelementptr inbounds i8, ptr %.tr1131, i64 8
-  %80 = tail call fastcc noundef zeroext i1 @"_ZN59_$LT$just..token..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17he666c7c652cf29f0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %79)
+79:                                               ; preds = %.lr.ph
+  %80 = getelementptr inbounds i8, ptr %.tr30, i64 8
+  %81 = getelementptr inbounds i8, ptr %.tr1131, i64 8
+  %82 = tail call fastcc noundef zeroext i1 @"_ZN59_$LT$just..token..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17he666c7c652cf29f0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %81)
   br label %.critedge
 
-81:                                               ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h8bf7786a08aee965E.exit"
-  %82 = getelementptr inbounds i8, ptr %.tr30, i64 32
-  %83 = getelementptr inbounds i8, ptr %.tr1131, i64 32
-  %84 = tail call fastcc noundef zeroext i1 @"_ZN59_$LT$just..token..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17he666c7c652cf29f0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %83)
+83:                                               ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h8bf7786a08aee965E.exit"
+  %84 = getelementptr inbounds i8, ptr %.tr30, i64 32
+  %85 = getelementptr inbounds i8, ptr %.tr1131, i64 32
+  %86 = tail call fastcc noundef zeroext i1 @"_ZN59_$LT$just..token..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17he666c7c652cf29f0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %85)
   br label %.critedge
 
-85:                                               ; preds = %28
-  %86 = getelementptr inbounds i8, ptr %.tr30, i64 16
-  %87 = load ptr, ptr %86, align 8, !nonnull !9, !noundef !9
-  %88 = getelementptr inbounds i8, ptr %.tr1131, i64 16
+87:                                               ; preds = %28
+  %88 = getelementptr inbounds i8, ptr %.tr30, i64 16
   %89 = load ptr, ptr %88, align 8, !nonnull !9, !noundef !9
-  %90 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b71bf801589eb50E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %87, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %89)
-  br i1 %90, label %91, label %.critedge
+  %90 = getelementptr inbounds i8, ptr %.tr1131, i64 16
+  %91 = load ptr, ptr %90, align 8, !nonnull !9, !noundef !9
+  %92 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b71bf801589eb50E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %89, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %91)
+  br i1 %92, label %93, label %.critedge
 
-91:                                               ; preds = %85
-  %92 = getelementptr inbounds i8, ptr %.tr30, i64 24
-  %93 = load ptr, ptr %92, align 8, !nonnull !9, !noundef !9
-  %94 = getelementptr inbounds i8, ptr %.tr1131, i64 24
+93:                                               ; preds = %87
+  %94 = getelementptr inbounds i8, ptr %.tr30, i64 24
   %95 = load ptr, ptr %94, align 8, !nonnull !9, !noundef !9
-  %96 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b71bf801589eb50E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %93, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %95)
-  br i1 %96, label %97, label %.critedge
+  %96 = getelementptr inbounds i8, ptr %.tr1131, i64 24
+  %97 = load ptr, ptr %96, align 8, !nonnull !9, !noundef !9
+  %98 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b71bf801589eb50E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %97)
+  br i1 %98, label %99, label %.critedge
 
-97:                                               ; preds = %91
-  %98 = getelementptr inbounds i8, ptr %.tr30, i64 32
-  %99 = load ptr, ptr %98, align 8, !nonnull !9, !noundef !9
-  %100 = getelementptr inbounds i8, ptr %.tr1131, i64 32
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds i8, ptr %.tr30, i64 32
   %101 = load ptr, ptr %100, align 8, !nonnull !9, !noundef !9
-  %102 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b71bf801589eb50E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %101)
-  br i1 %102, label %103, label %.critedge
+  %102 = getelementptr inbounds i8, ptr %.tr1131, i64 32
+  %103 = load ptr, ptr %102, align 8, !nonnull !9, !noundef !9
+  %104 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b71bf801589eb50E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %101, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %103)
+  br i1 %104, label %105, label %.critedge
 
-103:                                              ; preds = %97
-  %104 = getelementptr inbounds i8, ptr %.tr30, i64 40
-  %105 = load i8, ptr %104, align 8, !range !333, !noundef !9
-  %106 = getelementptr inbounds i8, ptr %.tr1131, i64 40
+105:                                              ; preds = %99
+  %106 = getelementptr inbounds i8, ptr %.tr30, i64 40
   %107 = load i8, ptr %106, align 8, !range !333, !noundef !9
-  %108 = icmp eq i8 %105, %107
+  %108 = getelementptr inbounds i8, ptr %.tr1131, i64 40
+  %109 = load i8, ptr %108, align 8, !range !333, !noundef !9
+  %110 = icmp eq i8 %107, %109
   br label %.critedge
 
-109:                                              ; preds = %45
+111:                                              ; preds = %45
   br i1 %51, label %tailrecurse.backedge, label %.critedge
 
-110:                                              ; preds = %45
-  br i1 %51, label %.critedge, label %111
+112:                                              ; preds = %45
+  br i1 %51, label %.critedge, label %113
 
-111:                                              ; preds = %110
-  %112 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b71bf801589eb50E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %50)
-  br i1 %112, label %tailrecurse.backedge, label %.critedge
+113:                                              ; preds = %112
+  %114 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$just..expression..Expression$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b71bf801589eb50E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %50)
+  br i1 %114, label %tailrecurse.backedge, label %.critedge
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -34743,11 +34743,11 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal5proof22AletheProofPostprocess7processESt10shared_ptrINS0_9ProofNodeEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %pf) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %definitionsScope = alloca %"class.std::shared_ptr", align 16
+  %definitionsScope = alloca %"class.std::shared_ptr", align 8
   %assumptionsScope = alloca %"class.std::shared_ptr", align 8
-  %internalProof = alloca %"class.std::shared_ptr", align 16
+  %internalProof = alloca %"class.std::shared_ptr", align 8
   %updater = alloca %"class.cvc5::internal::ProofNodeUpdater", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %cpf = alloca %"class.cvc5::internal::CDProof", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp14 = alloca %"class.std::allocator.39", align 1
@@ -34758,16 +34758,17 @@ entry:
   %agg.tmp89 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %npn = alloca %"class.std::shared_ptr", align 8
   %agg.tmp96 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %0 = load ptr, ptr %pf, align 8
+  store ptr %0, ptr %definitionsScope, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %definitionsScope, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %pf, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %1 = load <2 x ptr>, ptr %pf, align 8
-  store <2 x ptr> %1, ptr %definitionsScope, align 16
-  %cmp.not.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -34822,16 +34823,17 @@ _ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit19: ; preds = %invoke.
 
 invoke.cont6:                                     ; preds = %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit19
   %13 = load ptr, ptr %call7, align 8
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %internalProof, align 8
   %_M_refcount.i.i20 = getelementptr inbounds i8, ptr %internalProof, i64 8
   %_M_refcount3.i.i21 = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load ptr, ptr %_M_refcount3.i.i21, align 8
-  %15 = load <2 x ptr>, ptr %13, align 8
-  store <2 x ptr> %15, ptr %internalProof, align 16
-  %cmp.not.i.i.i22 = icmp eq ptr %14, null
+  %15 = load ptr, ptr %_M_refcount3.i.i21, align 8
+  store ptr %15, ptr %_M_refcount.i.i20, align 8
+  %cmp.not.i.i.i22 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i22, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit29, label %if.then.i.i.i23
 
 if.then.i.i.i23:                                  ; preds = %invoke.cont6
-  %_M_use_count.i.i.i.i24 = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i24 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i25 = icmp eq i8 %16, 0
   br i1 %tobool.i.i.not.i.i.i.i25, label %if.else.i.i.i.i.i28, label %if.then.i.i.i.i.i26
@@ -34855,15 +34857,16 @@ _ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit29: ; preds = %invoke.
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit29
+  %20 = load ptr, ptr %internalProof, align 8
+  store ptr %20, ptr %agg.tmp, align 8
   %_M_refcount.i.i30 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %20 = load ptr, ptr %_M_refcount.i.i20, align 8
-  %21 = load <2 x ptr>, ptr %internalProof, align 16
-  store <2 x ptr> %21, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i32 = icmp eq ptr %20, null
+  %21 = load ptr, ptr %_M_refcount.i.i20, align 8
+  store ptr %21, ptr %_M_refcount.i.i30, align 8
+  %cmp.not.i.i.i32 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i32, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit39, label %if.then.i.i.i33
 
 if.then.i.i.i33:                                  ; preds = %invoke.cont10
-  %_M_use_count.i.i.i.i34 = getelementptr inbounds i8, ptr %20, i64 8
+  %_M_use_count.i.i.i.i34 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i35 = icmp eq i8 %22, 0
   br i1 %tobool.i.i.not.i.i.i.i35, label %if.else.i.i.i.i.i38, label %if.then.i.i.i.i.i36
@@ -34982,7 +34985,7 @@ invoke.cont16:                                    ; preds = %.noexc
 invoke.cont18:                                    ; preds = %invoke.cont16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #17
-  %38 = load ptr, ptr %internalProof, align 16
+  %38 = load ptr, ptr %internalProof, align 8
   invoke void @_ZNK4cvc58internal9ProofNode9getResultEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(65) %38)
           to label %invoke.cont23 unwind label %lpad22
 
@@ -35142,7 +35145,7 @@ if.end8.sink.split.i.i.i.i82:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit91
 
 _ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit91: ; preds = %invoke.cont44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i69, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i79, %if.end8.sink.split.i.i.i.i82
-  %60 = load ptr, ptr %definitionsScope, align 16
+  %60 = load ptr, ptr %definitionsScope, align 8
   %call51 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode12getArgumentsEv(ptr noundef nonnull align 8 dereferenceable(65) %60)
           to label %invoke.cont50 unwind label %lpad49
 

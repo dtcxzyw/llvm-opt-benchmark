@@ -3184,8 +3184,9 @@ define internal fastcc void @HUF_simpleQuickSort(ptr noundef %0, i32 noundef %1,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge ]
   %12 = getelementptr inbounds %struct.nodeElt_s, ptr %9, i64 %indvars.iv
-  %13 = load <2 x i32>, ptr %12, align 4
   %.sroa.0.0.copyload = load i32, ptr %12, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   br label %14
 
 14:                                               ; preds = %.lr.ph, %19
@@ -3209,7 +3210,9 @@ define internal fastcc void @HUF_simpleQuickSort(ptr noundef %0, i32 noundef %1,
   %sext = shl i64 %.046.in.lcssa, 32
   %23 = ashr exact i64 %sext, 29
   %24 = getelementptr inbounds i8, ptr %9, i64 %23
-  store <2 x i32> %13, ptr %24, align 4
+  store i32 %.sroa.0.0.copyload, ptr %24, align 4
+  %.sroa.3.0..sroa_idx28 = getelementptr inbounds i8, ptr %24, i64 4
+  store i32 %13, ptr %.sroa.3.0..sroa_idx28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !45

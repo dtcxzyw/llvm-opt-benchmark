@@ -197,7 +197,7 @@ define dso_local void @pgstat_drop_relation(ptr noundef %0) local_unnamed_addr #
   %15 = getelementptr inbounds i8, ptr %0, i64 468
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %52
+  br i1 %17, label %18, label %55
 
 18:                                               ; preds = %14
   %19 = load i32, ptr %10, align 8
@@ -225,35 +225,39 @@ define dso_local void @pgstat_drop_relation(ptr noundef %0) local_unnamed_addr #
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not12 = icmp eq ptr %35, null
-  br i1 %.not12, label %52, label %36
+  br i1 %.not12, label %55, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %35, i64 56
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, %2
-  br i1 %39, label %40, label %52
+  br i1 %39, label %40, label %55
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %35, i64 24
-  %42 = getelementptr inbounds i8, ptr %35, i64 32
-  %43 = load <2 x i64>, ptr %35, align 8
-  store <2 x i64> %43, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %35, i64 16
+  %42 = load i64, ptr %35, align 8
+  %43 = getelementptr inbounds i8, ptr %35, i64 32
+  store i64 %42, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %35, i64 8
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %35, i64 48
+  %46 = getelementptr inbounds i8, ptr %35, i64 40
   store i64 %45, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %35, i64 16
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %35, i64 48
+  store i64 %48, ptr %49, align 8
   store i8 1, ptr %41, align 8
-  %47 = load ptr, ptr %34, align 8
-  store i64 0, ptr %47, align 8
-  %48 = load ptr, ptr %34, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
-  store i64 0, ptr %49, align 8
   %50 = load ptr, ptr %34, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
-  store i64 0, ptr %51, align 8
-  br label %52
+  store i64 0, ptr %50, align 8
+  %51 = load ptr, ptr %34, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  store i64 0, ptr %52, align 8
+  %53 = load ptr, ptr %34, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  store i64 0, ptr %54, align 8
+  br label %55
 
-52:                                               ; preds = %14, %40, %36, %32
+55:                                               ; preds = %14, %40, %36, %32
   ret void
 }
 
@@ -686,7 +690,7 @@ define dso_local void @pgstat_count_truncate(ptr noundef %0) local_unnamed_addr 
   %5 = getelementptr inbounds i8, ptr %0, i64 468
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %59
+  br i1 %7, label %8, label %62
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 72
@@ -752,29 +756,33 @@ ensure_tabstat_xact_level.exit:                   ; preds = %30, %33
   br i1 %47, label %save_truncdrop_counters.exit, label %48
 
 48:                                               ; preds = %ensure_tabstat_xact_level.exit
-  %49 = getelementptr inbounds i8, ptr %44, i64 32
-  %50 = load <2 x i64>, ptr %44, align 8
-  store <2 x i64> %50, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %44, i64 16
+  %49 = load i64, ptr %44, align 8
+  %50 = getelementptr inbounds i8, ptr %44, i64 32
+  store i64 %49, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %44, i64 8
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %44, i64 48
+  %53 = getelementptr inbounds i8, ptr %44, i64 40
   store i64 %52, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %44, i64 16
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %44, i64 48
+  store i64 %55, ptr %56, align 8
   store i8 1, ptr %45, align 8
   %.pre10 = load ptr, ptr %27, align 8
   br label %save_truncdrop_counters.exit
 
 save_truncdrop_counters.exit:                     ; preds = %ensure_tabstat_xact_level.exit, %48
-  %54 = phi ptr [ %44, %ensure_tabstat_xact_level.exit ], [ %.pre10, %48 ]
-  store i64 0, ptr %54, align 8
-  %55 = load ptr, ptr %27, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
-  store i64 0, ptr %56, align 8
-  %57 = load ptr, ptr %27, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
-  store i64 0, ptr %58, align 8
-  br label %59
+  %57 = phi ptr [ %44, %ensure_tabstat_xact_level.exit ], [ %.pre10, %48 ]
+  store i64 0, ptr %57, align 8
+  %58 = load ptr, ptr %27, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  store i64 0, ptr %59, align 8
+  %60 = load ptr, ptr %27, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  store i64 0, ptr %61, align 8
+  br label %62
 
-59:                                               ; preds = %4, %save_truncdrop_counters.exit
+62:                                               ; preds = %4, %save_truncdrop_counters.exit
   ret void
 }
 
@@ -1001,44 +1009,47 @@ restore_truncdrop_counters.exit.us._crit_edge:    ; preds = %restore_truncdrop_c
 
 56:                                               ; preds = %.lr.ph.split
   %57 = getelementptr inbounds i8, ptr %.033, i64 32
-  %58 = load <2 x i64>, ptr %57, align 8
-  %59 = load i64, ptr %57, align 8
-  store <2 x i64> %58, ptr %.033, align 8
-  %60 = getelementptr inbounds i8, ptr %.033, i64 48
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.033, i64 16
-  store i64 %61, ptr %62, align 8
+  %58 = load i64, ptr %57, align 8
+  store i64 %58, ptr %.033, align 8
+  %59 = getelementptr inbounds i8, ptr %.033, i64 40
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %.033, i64 8
+  store i64 %60, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %.033, i64 48
+  %63 = load i64, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %.033, i64 16
+  store i64 %63, ptr %64, align 8
   br label %restore_truncdrop_counters.exit
 
 restore_truncdrop_counters.exit:                  ; preds = %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge, %56
-  %63 = phi i64 [ %.pre, %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge ], [ %59, %56 ]
-  %64 = getelementptr inbounds i8, ptr %52, i64 40
-  %65 = load i64, ptr %64, align 8
-  %66 = add i64 %65, %63
-  store i64 %66, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %.033, i64 8
-  %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %52, i64 48
+  %65 = phi i64 [ %.pre, %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge ], [ %58, %56 ]
+  %66 = getelementptr inbounds i8, ptr %52, i64 40
+  %67 = load i64, ptr %66, align 8
+  %68 = add i64 %67, %65
+  store i64 %68, ptr %66, align 8
+  %69 = getelementptr inbounds i8, ptr %.033, i64 8
   %70 = load i64, ptr %69, align 8
-  %71 = add i64 %70, %68
-  store i64 %71, ptr %69, align 8
-  %72 = getelementptr inbounds i8, ptr %.033, i64 16
-  %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %52, i64 56
+  %71 = getelementptr inbounds i8, ptr %52, i64 48
+  %72 = load i64, ptr %71, align 8
+  %73 = add i64 %72, %70
+  store i64 %73, ptr %71, align 8
+  %74 = getelementptr inbounds i8, ptr %.033, i64 16
   %75 = load i64, ptr %74, align 8
-  %76 = add i64 %75, %73
-  store i64 %76, ptr %74, align 8
-  %77 = load i64, ptr %.033, align 8
-  %78 = load i64, ptr %67, align 8
-  %79 = add i64 %78, %77
-  %80 = getelementptr inbounds i8, ptr %52, i64 96
-  %81 = load i64, ptr %80, align 8
-  %82 = add i64 %79, %81
-  store i64 %82, ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %52, i64 8
-  store ptr null, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %.033, i64 80
-  %.0 = load ptr, ptr %84, align 8
+  %76 = getelementptr inbounds i8, ptr %52, i64 56
+  %77 = load i64, ptr %76, align 8
+  %78 = add i64 %77, %75
+  store i64 %78, ptr %76, align 8
+  %79 = load i64, ptr %.033, align 8
+  %80 = load i64, ptr %69, align 8
+  %81 = add i64 %80, %79
+  %82 = getelementptr inbounds i8, ptr %52, i64 96
+  %83 = load i64, ptr %82, align 8
+  %84 = add i64 %81, %83
+  store i64 %84, ptr %82, align 8
+  %85 = getelementptr inbounds i8, ptr %52, i64 8
+  store ptr null, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %.033, i64 80
+  %.0 = load ptr, ptr %86, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
@@ -1057,8 +1068,8 @@ define dso_local void @AtEOSubXact_PgStat_Relations(ptr nocapture noundef readon
   %6 = add i32 %2, -1
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %65
-  %.048.us = phi ptr [ %8, %65 ], [ %5, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %68
+  %.048.us = phi ptr [ %8, %68 ], [ %5, %.lr.ph ]
   %7 = getelementptr inbounds i8, ptr %.048.us, i64 80
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %.048.us, i64 72
@@ -1066,13 +1077,13 @@ define dso_local void @AtEOSubXact_PgStat_Relations(ptr nocapture noundef readon
   %11 = getelementptr inbounds i8, ptr %.048.us, i64 64
   %12 = load ptr, ptr %11, align 8
   %.not46.us = icmp eq ptr %12, null
-  br i1 %.not46.us, label %60, label %13
+  br i1 %.not46.us, label %63, label %13
 
 13:                                               ; preds = %.lr.ph.split.us
   %14 = getelementptr inbounds i8, ptr %12, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %6
-  br i1 %16, label %17, label %60
+  br i1 %16, label %17, label %63
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %.048.us, i64 24
@@ -1099,7 +1110,7 @@ define dso_local void @AtEOSubXact_PgStat_Relations(ptr nocapture noundef readon
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %32
   store i64 %36, ptr %34, align 8
-  br label %57
+  br label %60
 
 37:                                               ; preds = %17
   %38 = getelementptr inbounds i8, ptr %12, i64 24
@@ -1108,114 +1119,121 @@ define dso_local void @AtEOSubXact_PgStat_Relations(ptr nocapture noundef readon
   br i1 %40, label %save_truncdrop_counters.exit.us, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %12, i64 32
-  %43 = load <2 x i64>, ptr %12, align 8
-  store <2 x i64> %43, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %12, i64 16
+  %42 = load i64, ptr %12, align 8
+  %43 = getelementptr inbounds i8, ptr %12, i64 32
+  store i64 %42, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %12, i64 8
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %12, i64 48
+  %46 = getelementptr inbounds i8, ptr %12, i64 40
   store i64 %45, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %12, i64 16
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %12, i64 48
+  store i64 %48, ptr %49, align 8
   store i8 1, ptr %38, align 8
   %.pre50 = load ptr, ptr %11, align 8
   br label %save_truncdrop_counters.exit.us
 
 save_truncdrop_counters.exit.us:                  ; preds = %41, %37
-  %47 = phi ptr [ %.pre50, %41 ], [ %12, %37 ]
-  %48 = load i64, ptr %.048.us, align 8
-  store i64 %48, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.048.us, i64 8
-  %50 = load i64, ptr %49, align 8
-  %51 = load ptr, ptr %11, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
-  store i64 %50, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %.048.us, i64 16
-  %54 = load i64, ptr %53, align 8
-  %55 = load ptr, ptr %11, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  store i64 %54, ptr %56, align 8
-  br label %57
-
-57:                                               ; preds = %save_truncdrop_counters.exit.us, %21
+  %50 = phi ptr [ %.pre50, %41 ], [ %12, %37 ]
+  %51 = load i64, ptr %.048.us, align 8
+  store i64 %51, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %.048.us, i64 8
+  %53 = load i64, ptr %52, align 8
+  %54 = load ptr, ptr %11, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  store i64 %53, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %.048.us, i64 16
+  %57 = load i64, ptr %56, align 8
   %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %58, ptr %59, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  store i64 %57, ptr %59, align 8
+  br label %60
+
+60:                                               ; preds = %save_truncdrop_counters.exit.us, %21
+  %61 = load ptr, ptr %11, align 8
+  %62 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %61, ptr %62, align 8
   tail call void @pfree(ptr noundef nonnull %.048.us) #9
-  br label %65
+  br label %68
 
-60:                                               ; preds = %13, %.lr.ph.split.us
-  %61 = tail call ptr @pgstat_get_xact_stack_level(i32 noundef %6) #9
-  %62 = getelementptr inbounds i8, ptr %61, i64 40
-  %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr %7, align 8
-  store ptr %.048.us, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.048.us, i64 56
-  store i32 %6, ptr %64, align 8
-  br label %65
+63:                                               ; preds = %13, %.lr.ph.split.us
+  %64 = tail call ptr @pgstat_get_xact_stack_level(i32 noundef %6) #9
+  %65 = getelementptr inbounds i8, ptr %64, i64 40
+  %66 = load ptr, ptr %65, align 8
+  store ptr %66, ptr %7, align 8
+  store ptr %.048.us, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %.048.us, i64 56
+  store i32 %6, ptr %67, align 8
+  br label %68
 
-65:                                               ; preds = %60, %57
+68:                                               ; preds = %63, %60
   %.not.us = icmp eq ptr %8, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %restore_truncdrop_counters.exit
-  %.048 = phi ptr [ %67, %restore_truncdrop_counters.exit ], [ %5, %.lr.ph ]
-  %66 = getelementptr inbounds i8, ptr %.048, i64 80
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.048, i64 72
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %.048, i64 24
-  %71 = load i8, ptr %70, align 8
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge
+  %.048 = phi ptr [ %70, %restore_truncdrop_counters.exit ], [ %5, %.lr.ph ]
+  %69 = getelementptr inbounds i8, ptr %.048, i64 80
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %.048, i64 72
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %.048, i64 24
+  %74 = load i8, ptr %73, align 8
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge
 
 .lr.ph.split.restore_truncdrop_counters.exit_crit_edge: ; preds = %.lr.ph.split
   %.pre = load i64, ptr %.048, align 8
   br label %restore_truncdrop_counters.exit
 
-73:                                               ; preds = %.lr.ph.split
-  %74 = getelementptr inbounds i8, ptr %.048, i64 32
-  %75 = load <2 x i64>, ptr %74, align 8
-  %76 = load i64, ptr %74, align 8
-  store <2 x i64> %75, ptr %.048, align 8
-  %77 = getelementptr inbounds i8, ptr %.048, i64 48
+76:                                               ; preds = %.lr.ph.split
+  %77 = getelementptr inbounds i8, ptr %.048, i64 32
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.048, i64 16
-  store i64 %78, ptr %79, align 8
+  store i64 %78, ptr %.048, align 8
+  %79 = getelementptr inbounds i8, ptr %.048, i64 40
+  %80 = load i64, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %.048, i64 8
+  store i64 %80, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %.048, i64 48
+  %83 = load i64, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %.048, i64 16
+  store i64 %83, ptr %84, align 8
   br label %restore_truncdrop_counters.exit
 
-restore_truncdrop_counters.exit:                  ; preds = %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge, %73
-  %80 = phi i64 [ %.pre, %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge ], [ %76, %73 ]
-  %81 = getelementptr inbounds i8, ptr %69, i64 40
-  %82 = load i64, ptr %81, align 8
-  %83 = add i64 %82, %80
-  store i64 %83, ptr %81, align 8
-  %84 = getelementptr inbounds i8, ptr %.048, i64 8
-  %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %69, i64 48
+restore_truncdrop_counters.exit:                  ; preds = %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge, %76
+  %85 = phi i64 [ %.pre, %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge ], [ %78, %76 ]
+  %86 = getelementptr inbounds i8, ptr %72, i64 40
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %87, %85
   store i64 %88, ptr %86, align 8
-  %89 = getelementptr inbounds i8, ptr %.048, i64 16
+  %89 = getelementptr inbounds i8, ptr %.048, i64 8
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %69, i64 56
+  %91 = getelementptr inbounds i8, ptr %72, i64 48
   %92 = load i64, ptr %91, align 8
   %93 = add i64 %92, %90
   store i64 %93, ptr %91, align 8
-  %94 = load i64, ptr %.048, align 8
-  %95 = load i64, ptr %84, align 8
-  %96 = add i64 %95, %94
-  %97 = getelementptr inbounds i8, ptr %69, i64 96
-  %98 = load i64, ptr %97, align 8
-  %99 = add i64 %96, %98
-  store i64 %99, ptr %97, align 8
-  %100 = getelementptr inbounds i8, ptr %.048, i64 64
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %69, i64 8
-  store ptr %101, ptr %102, align 8
+  %94 = getelementptr inbounds i8, ptr %.048, i64 16
+  %95 = load i64, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %72, i64 56
+  %97 = load i64, ptr %96, align 8
+  %98 = add i64 %97, %95
+  store i64 %98, ptr %96, align 8
+  %99 = load i64, ptr %.048, align 8
+  %100 = load i64, ptr %89, align 8
+  %101 = add i64 %100, %99
+  %102 = getelementptr inbounds i8, ptr %72, i64 96
+  %103 = load i64, ptr %102, align 8
+  %104 = add i64 %101, %103
+  store i64 %104, ptr %102, align 8
+  %105 = getelementptr inbounds i8, ptr %.048, i64 64
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %72, i64 8
+  store ptr %106, ptr %107, align 8
   tail call void @pfree(ptr noundef nonnull %.048) #9
-  %.not = icmp eq ptr %67, null
+  %.not = icmp eq ptr %70, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %restore_truncdrop_counters.exit, %65, %3
+._crit_edge:                                      ; preds = %restore_truncdrop_counters.exit, %68, %3
   ret void
 }
 
@@ -1225,53 +1243,61 @@ declare ptr @pgstat_get_xact_stack_level(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtPrepare_PgStat_Relations(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = alloca %struct.TwoPhasePgStatRecord, align 16
+  %2 = alloca %struct.TwoPhasePgStatRecord, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %.013 = load ptr, ptr %3, align 8
   %.not14 = icmp eq ptr %.013, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  %6 = getelementptr inbounds i8, ptr %2, i64 40
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
-  %8 = getelementptr inbounds i8, ptr %2, i64 52
-  %9 = getelementptr inbounds i8, ptr %2, i64 53
-  br label %10
+  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds i8, ptr %2, i64 40
+  %9 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds i8, ptr %2, i64 52
+  %11 = getelementptr inbounds i8, ptr %2, i64 53
+  br label %12
 
-10:                                               ; preds = %.lr.ph, %10
-  %.015 = phi ptr [ %.013, %.lr.ph ], [ %.0, %10 ]
-  %11 = getelementptr inbounds i8, ptr %.015, i64 72
-  %12 = load ptr, ptr %11, align 8
-  %13 = load <2 x i64>, ptr %.015, align 8
-  store <2 x i64> %13, ptr %2, align 16
-  %14 = getelementptr inbounds i8, ptr %.015, i64 16
-  %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr %4, align 16
-  %16 = getelementptr inbounds i8, ptr %.015, i64 32
-  %17 = load <2 x i64>, ptr %16, align 8
-  store <2 x i64> %17, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %.015, i64 48
+12:                                               ; preds = %.lr.ph, %12
+  %.015 = phi ptr [ %.013, %.lr.ph ], [ %.0, %12 ]
+  %13 = getelementptr inbounds i8, ptr %.015, i64 72
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i64, ptr %.015, align 8
+  store i64 %15, ptr %2, align 8
+  %16 = getelementptr inbounds i8, ptr %.015, i64 8
+  %17 = load i64, ptr %16, align 8
+  store i64 %17, ptr %4, align 8
+  %18 = getelementptr inbounds i8, ptr %.015, i64 16
   %19 = load i64, ptr %18, align 8
-  store i64 %19, ptr %6, align 8
-  %20 = load i32, ptr %12, align 8
-  store i32 %20, ptr %7, align 16
-  %21 = getelementptr inbounds i8, ptr %12, i64 4
-  %22 = load i8, ptr %21, align 4
-  %23 = and i8 %22, 1
-  store i8 %23, ptr %8, align 4
-  %24 = getelementptr inbounds i8, ptr %.015, i64 24
-  %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  store i8 %26, ptr %9, align 1
+  store i64 %19, ptr %5, align 8
+  %20 = getelementptr inbounds i8, ptr %.015, i64 32
+  %21 = load i64, ptr %20, align 8
+  store i64 %21, ptr %6, align 8
+  %22 = getelementptr inbounds i8, ptr %.015, i64 40
+  %23 = load i64, ptr %22, align 8
+  store i64 %23, ptr %7, align 8
+  %24 = getelementptr inbounds i8, ptr %.015, i64 48
+  %25 = load i64, ptr %24, align 8
+  store i64 %25, ptr %8, align 8
+  %26 = load i32, ptr %14, align 8
+  store i32 %26, ptr %9, align 8
+  %27 = getelementptr inbounds i8, ptr %14, i64 4
+  %28 = load i8, ptr %27, align 4
+  %29 = and i8 %28, 1
+  store i8 %29, ptr %10, align 4
+  %30 = getelementptr inbounds i8, ptr %.015, i64 24
+  %31 = load i8, ptr %30, align 8
+  %32 = and i8 %31, 1
+  store i8 %32, ptr %11, align 1
   call void @RegisterTwoPhaseRecord(i8 noundef zeroext 2, i16 noundef zeroext 0, ptr noundef nonnull %2, i32 noundef 56) #9
-  %27 = getelementptr inbounds i8, ptr %.015, i64 80
-  %.0 = load ptr, ptr %27, align 8
+  %33 = getelementptr inbounds i8, ptr %.015, i64 80
+  %.0 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %10, %1
+._crit_edge:                                      ; preds = %12, %1
   ret void
 }
 
@@ -1402,44 +1428,47 @@ define dso_local void @pgstat_twophase_postabort(i32 noundef %0, i16 noundef zer
 
 ._crit_edge:                                      ; preds = %4
   %.pre = load i64, ptr %2, align 8
-  br label %27
+  br label %29
 
 20:                                               ; preds = %4
   %21 = getelementptr inbounds i8, ptr %2, i64 24
-  %22 = load <2 x i64>, ptr %21, align 8
-  %23 = load i64, ptr %21, align 8
-  store <2 x i64> %22, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 40
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
-  store i64 %25, ptr %26, align 8
-  br label %27
+  %22 = load i64, ptr %21, align 8
+  store i64 %22, ptr %2, align 8
+  %23 = getelementptr inbounds i8, ptr %2, i64 32
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %2, i64 40
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  store i64 %27, ptr %28, align 8
+  br label %29
 
-27:                                               ; preds = %._crit_edge, %20
-  %28 = phi i64 [ %.pre, %._crit_edge ], [ %23, %20 ]
-  %29 = getelementptr inbounds i8, ptr %15, i64 40
-  %30 = load i64, ptr %29, align 8
-  %31 = add i64 %30, %28
-  store i64 %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %15, i64 48
+29:                                               ; preds = %._crit_edge, %20
+  %30 = phi i64 [ %.pre, %._crit_edge ], [ %22, %20 ]
+  %31 = getelementptr inbounds i8, ptr %15, i64 40
+  %32 = load i64, ptr %31, align 8
+  %33 = add i64 %32, %30
+  store i64 %33, ptr %31, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8
-  %36 = add i64 %35, %33
-  store i64 %36, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %15, i64 56
+  %36 = getelementptr inbounds i8, ptr %15, i64 48
+  %37 = load i64, ptr %36, align 8
+  %38 = add i64 %37, %35
+  store i64 %38, ptr %36, align 8
+  %39 = getelementptr inbounds i8, ptr %2, i64 16
   %40 = load i64, ptr %39, align 8
-  %41 = add i64 %40, %38
-  store i64 %41, ptr %39, align 8
-  %42 = load i64, ptr %2, align 8
-  %43 = load i64, ptr %32, align 8
-  %44 = add i64 %43, %42
-  %45 = getelementptr inbounds i8, ptr %15, i64 96
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %44, %46
-  store i64 %47, ptr %45, align 8
+  %41 = getelementptr inbounds i8, ptr %15, i64 56
+  %42 = load i64, ptr %41, align 8
+  %43 = add i64 %42, %40
+  store i64 %43, ptr %41, align 8
+  %44 = load i64, ptr %2, align 8
+  %45 = load i64, ptr %34, align 8
+  %46 = add i64 %45, %44
+  %47 = getelementptr inbounds i8, ptr %15, i64 96
+  %48 = load i64, ptr %47, align 8
+  %49 = add i64 %46, %48
+  store i64 %49, ptr %47, align 8
   ret void
 }
 

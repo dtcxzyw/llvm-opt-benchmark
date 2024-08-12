@@ -8,7 +8,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Hacl_Hash_Core_MD5_legacy_init(ptr nocapture noundef writeonly %s) local_unnamed_addr #0 {
 entry:
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %s, align 4
+  store i32 1732584193, ptr %s, align 4
+  %arrayidx6 = getelementptr i8, ptr %s, i64 4
+  store i32 -271733879, ptr %arrayidx6, align 4
+  %arrayidx11 = getelementptr i8, ptr %s, i64 8
+  store i32 -1732584194, ptr %arrayidx11, align 4
+  %arrayidx16 = getelementptr i8, ptr %s, i64 12
+  store i32 271733878, ptr %arrayidx16, align 4
   ret void
 }
 
@@ -841,8 +847,20 @@ Hacl_Hash_MD5_legacy_update_last.exit:            ; preds = %entry, %for.body.pr
   %div1214.i = lshr i32 %add7.i, 6
   call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef nonnull %s, ptr noundef nonnull %tmp_twoblocks.i, i32 noundef %div1214.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %tmp_twoblocks.i)
-  %2 = load <4 x i32>, ptr %s, align 16
-  store <4 x i32> %2, ptr %dst, align 1
+  %2 = load i32, ptr %s, align 16
+  store i32 %2, ptr %dst, align 1
+  %add.ptr3.i = getelementptr i8, ptr %dst, i64 4
+  %arrayidx5.i = getelementptr inbounds i8, ptr %s, i64 4
+  %3 = load i32, ptr %arrayidx5.i, align 4
+  store i32 %3, ptr %add.ptr3.i, align 1
+  %add.ptr10.i = getelementptr i8, ptr %dst, i64 8
+  %arrayidx12.i = getelementptr inbounds i8, ptr %s, i64 8
+  %4 = load i32, ptr %arrayidx12.i, align 8
+  store i32 %4, ptr %add.ptr10.i, align 1
+  %add.ptr17.i = getelementptr i8, ptr %dst, i64 12
+  %arrayidx19.i = getelementptr inbounds i8, ptr %s, i64 12
+  %5 = load i32, ptr %arrayidx19.i, align 4
+  store i32 %5, ptr %add.ptr17.i, align 1
   ret void
 }
 
@@ -857,7 +875,13 @@ entry:
   store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
   %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %call1, align 4
+  store i32 1732584193, ptr %call1, align 4
+  %arrayidx6.i = getelementptr i8, ptr %call1, i64 4
+  store i32 -271733879, ptr %arrayidx6.i, align 4
+  %arrayidx11.i = getelementptr i8, ptr %call1, i64 8
+  store i32 -1732584194, ptr %arrayidx11.i, align 4
+  %arrayidx16.i = getelementptr i8, ptr %call1, i64 12
+  store i32 271733878, ptr %arrayidx16.i, align 4
   ret ptr %call4
 }
 
@@ -870,11 +894,19 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @Hacl_Streaming_MD5_legacy_init(ptr nocapture noundef %s) local_unnamed_addr #8 {
 entry:
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
-  %0 = load <2 x ptr>, ptr %s, align 8
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %scrut.sroa.0.0.copyload, align 4
-  store <2 x ptr> %0, ptr %s, align 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
+  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
+  store i32 1732584193, ptr %scrut.sroa.0.0.copyload, align 4
+  %arrayidx6.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 4
+  store i32 -271733879, ptr %arrayidx6.i, align 4
+  %arrayidx11.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
+  store i32 -1732584194, ptr %arrayidx11.i, align 4
+  %arrayidx16.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 12
+  store i32 271733878, ptr %arrayidx16.i, align 4
+  store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
+  store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
   store i64 0, ptr %scrut.sroa.3.0..sroa_idx, align 8
   ret void
 }
@@ -901,14 +933,15 @@ if.end:                                           ; preds = %entry
   br i1 %cmp12.not, label %if.else34, label %if.then14
 
 if.then14:                                        ; preds = %if.end
+  %s1.sroa.0.0.copyload = load ptr, ptr %p, align 8
   %s1.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
-  %.rem18 = select i1 %or.cond, i64 64, i64 %rem
-  %add = add i64 %s.sroa.1.0.copyload, %conv
   %s1.sroa.2.0.copyload = load ptr, ptr %s1.sroa.2.0..sroa_idx, align 8
-  %0 = load <2 x ptr>, ptr %p, align 8
+  %.rem18 = select i1 %or.cond, i64 64, i64 %rem
   %add.ptr = getelementptr i8, ptr %s1.sroa.2.0.copyload, i64 %.rem18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %data, i64 %conv, i1 false)
-  store <2 x ptr> %0, ptr %p, align 8
+  %add = add i64 %s.sroa.1.0.copyload, %conv
+  store ptr %s1.sroa.0.0.copyload, ptr %p, align 8
+  store ptr %s1.sroa.2.0.copyload, ptr %s1.sroa.2.0..sroa_idx, align 8
   br label %return.sink.split
 
 if.else34:                                        ; preds = %if.end
@@ -1056,8 +1089,20 @@ Hacl_Hash_MD5_legacy_update_last.exit:            ; preds = %entry, %for.body.pr
   %div1214.i = lshr i32 %add7.i, 6
   call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef nonnull %tmp_block_state, ptr noundef nonnull %tmp_twoblocks.i, i32 noundef %div1214.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %tmp_twoblocks.i)
-  %4 = load <4 x i32>, ptr %tmp_block_state, align 16
-  store <4 x i32> %4, ptr %dst, align 1
+  %4 = load i32, ptr %tmp_block_state, align 16
+  store i32 %4, ptr %dst, align 1
+  %add.ptr3.i = getelementptr i8, ptr %dst, i64 4
+  %arrayidx5.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 4
+  %5 = load i32, ptr %arrayidx5.i, align 4
+  store i32 %5, ptr %add.ptr3.i, align 1
+  %add.ptr10.i = getelementptr i8, ptr %dst, i64 8
+  %arrayidx12.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 8
+  %6 = load i32, ptr %arrayidx12.i, align 8
+  store i32 %6, ptr %add.ptr10.i, align 1
+  %add.ptr17.i = getelementptr i8, ptr %dst, i64 12
+  %arrayidx19.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 12
+  %7 = load i32, ptr %arrayidx19.i, align 4
+  store i32 %7, ptr %add.ptr17.i, align 1
   ret void
 }
 

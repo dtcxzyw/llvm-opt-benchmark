@@ -2399,17 +2399,21 @@ _ZN9grpc_core12XdsExtensionC2EOS0_.exit:          ; preds = %entry, %sw.bb.i.i.i
   store i8 %6, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   %validation_fields.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %validation_fields4.i = getelementptr inbounds i8, ptr %extension, i64 80
-  %7 = load <2 x ptr>, ptr %validation_fields4.i, align 8
-  store <2 x ptr> %7, ptr %validation_fields.i, align 8
+  %7 = load ptr, ptr %validation_fields4.i, align 8
+  store ptr %7, ptr %validation_fields.i, align 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
+  %_M_finish3.i.i.i.i.i = getelementptr inbounds i8, ptr %extension, i64 88
+  %8 = load ptr, ptr %_M_finish3.i.i.i.i.i, align 8
+  store ptr %8, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 96
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %extension, i64 96
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
+  store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validation_fields4.i, i8 0, i64 24, i1 false)
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %9 = load ptr, ptr %vfn, align 8
-  invoke void %9(ptr sret(%"class.std::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %agg.tmp, ptr noundef %errors)
+  %10 = load ptr, ptr %vfn, align 8
+  invoke void %10(ptr sret(%"class.std::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %agg.tmp, ptr noundef %errors)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN9grpc_core12XdsExtensionC2EOS0_.exit
@@ -2417,10 +2421,10 @@ invoke.cont:                                      ; preds = %_ZN9grpc_core12XdsE
   ret void
 
 lpad:                                             ; preds = %_ZN9grpc_core12XdsExtensionC2EOS0_.exit
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core12XdsExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp) #18
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -791,17 +791,21 @@ define void @_ZN5arrow8internal11TrieBuilder9SplitNodeEll(ptr noalias nocapture 
 entry:
   %retval.i11.sroa.4 = alloca [11 x i8], align 8
   %retval.i.sroa.4 = alloca [11 x i8], align 8
-  %child_node = alloca %"struct.arrow::internal::Trie::Node", align 4
+  %child_node = alloca %"struct.arrow::internal::Trie::Node", align 2
   %ref.tmp21 = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds %"struct.arrow::internal::Trie::Node", ptr %0, i64 %node_index
-  %1 = load <2 x i16>, ptr %add.ptr.i, align 2
-  store <2 x i16> %1, ptr %child_node, align 4
+  %1 = load i16, ptr %add.ptr.i, align 2
+  store i16 %1, ptr %child_node, align 2
+  %child_lookup_ = getelementptr inbounds i8, ptr %child_node, i64 2
+  %child_lookup_10 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
+  %2 = load i16, ptr %child_lookup_10, align 2
+  store i16 %2, ptr %child_lookup_, align 2
   %substring_11 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %add = add nsw i64 %split_at, 1
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %retval.i.sroa.4)
-  %2 = load i8, ptr %substring_11, align 1
-  %conv.i.i = zext i8 %2 to i64
+  %3 = load i8, ptr %substring_11, align 1
+  %conv.i.i = zext i8 %3 to i64
   %cmp.i.i.i = icmp ugt i64 %add, %conv.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN5arrow6StatusD2Ev.exit
 
@@ -810,7 +814,6 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
-  %child_lookup_10 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %substring_ = getelementptr inbounds i8, ptr %child_node, i64 4
   %data_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
   %sub.i.i = sub nuw nsw i64 %conv.i.i, %add
@@ -821,13 +824,13 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %retval.i.sroa.4.7.retval.i.8.retval.8.retval.8.retval.sroa_idx65 = getelementptr inbounds i8, ptr %retval.i.sroa.4, i64 7
   %retval.i.sroa.4.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i = load i32, ptr %retval.i.sroa.4.7.retval.i.8.retval.8.retval.8.retval.sroa_idx65, align 1
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %retval.i.sroa.4)
-  store i8 %conv.i.i.i, ptr %substring_, align 4
+  store i8 %conv.i.i.i, ptr %substring_, align 2
   %substring_.sroa_idx = getelementptr inbounds i8, ptr %child_node, i64 5
   store i56 %retval.i.sroa.4.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i62, ptr %substring_.sroa_idx, align 1
   %tmp.coerce.sroa.2.0.substring_.sroa_idx = getelementptr inbounds i8, ptr %child_node, i64 12
-  store i32 %retval.i.sroa.4.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i, ptr %tmp.coerce.sroa.2.0.substring_.sroa_idx, align 4
+  store i32 %retval.i.sroa.4.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i, ptr %tmp.coerce.sroa.2.0.substring_.sroa_idx, align 2
   %arrayidx.i = getelementptr inbounds [11 x i8], ptr %data_.i.i, i64 0, i64 %split_at
-  %3 = load i8, ptr %arrayidx.i, align 1
+  %4 = load i8, ptr %arrayidx.i, align 1
   store i16 -1, ptr %child_lookup_10, align 2
   store i16 -1, ptr %add.ptr.i, align 2
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %retval.i11.sroa.4)
@@ -843,9 +846,9 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   store i56 %retval.i11.sroa.4.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i1964, ptr %substring_11.sroa_idx, align 1
   %ref.tmp.sroa.2.0.substring_20.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   store i32 %retval.i11.sroa.4.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i21, ptr %ref.tmp.sroa.2.0.substring_20.sroa_idx, align 2
-  call void @_ZN5arrow8internal11TrieBuilder15AppendChildNodeEPNS0_4Trie4NodeEhOS3_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %3, ptr noundef nonnull align 2 dereferenceable(16) %child_node)
-  %4 = load ptr, ptr %ref.tmp21, align 8, !noalias !52
-  store ptr %4, ptr %agg.result, align 8
+  call void @_ZN5arrow8internal11TrieBuilder15AppendChildNodeEPNS0_4Trie4NodeEhOS3_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %4, ptr noundef nonnull align 2 dereferenceable(16) %child_node)
+  %5 = load ptr, ptr %ref.tmp21, align 8, !noalias !52
+  store ptr %5, ptr %agg.result, align 8
   ret void
 }
 
@@ -859,11 +862,11 @@ entry:
   %ref.tmp22.i.i = alloca %"class.arrow::Status", align 8
   %retval.i11.sroa.4.i72 = alloca [11 x i8], align 8
   %retval.i.sroa.4.i73 = alloca [11 x i8], align 8
-  %child_node.i74 = alloca %"struct.arrow::internal::Trie::Node", align 4
+  %child_node.i74 = alloca %"struct.arrow::internal::Trie::Node", align 2
   %ref.tmp21.i75 = alloca %"class.arrow::Status", align 8
   %retval.i11.sroa.4.i = alloca [11 x i8], align 8
   %retval.i.sroa.4.i = alloca [11 x i8], align 8
-  %child_node.i = alloca %"struct.arrow::internal::Trie::Node", align 4
+  %child_node.i = alloca %"struct.arrow::internal::Trie::Node", align 2
   %ref.tmp21.i = alloca %"class.arrow::Status", align 8
   %ref.tmp75 = alloca %"class.arrow::Status", align 8
   %lookup_table_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -898,8 +901,12 @@ for.body:                                         ; preds = %for.body.preheader,
 do.body:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %child_node.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp21.i)
-  %4 = load <2 x i16>, ptr %add.ptr.i, align 2, !noalias !55
-  store <2 x i16> %4, ptr %child_node.i, align 4, !noalias !55
+  %4 = load i16, ptr %add.ptr.i, align 2, !noalias !55
+  store i16 %4, ptr %child_node.i, align 2, !noalias !55
+  %child_lookup_.i = getelementptr inbounds i8, ptr %child_node.i, i64 2
+  %child_lookup_10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
+  %5 = load i16, ptr %child_lookup_10.i, align 2, !noalias !55
+  store i16 %5, ptr %child_lookup_.i, align 2, !noalias !55
   %add.i = add nuw nsw i64 %remaining.0, 1
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %retval.i.sroa.4.i)
   %cmp.i.i.i.i.not = icmp ult i64 %remaining.0, %conv.i.i
@@ -910,7 +917,6 @@ if.then.i.i.i.i:                                  ; preds = %do.body
   unreachable
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
-  %child_lookup_10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %substring_.i.le365 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %substring_.i33 = getelementptr inbounds i8, ptr %child_node.i, i64 4
   %sub.i.i.i = sub nuw nsw i64 %conv.i.i, %add.i
@@ -921,13 +927,13 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
   %retval.i.sroa.4.i.7.i.7.i.7.retval.i.8.retval.8.retval.8.retval.sroa_idx = getelementptr inbounds i8, ptr %retval.i.sroa.4.i, i64 7
   %retval.i.sroa.4.i.7.retval.i.sroa.4.i.7.retval.i.sroa.4.i.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i.i = load i32, ptr %retval.i.sroa.4.i.7.i.7.i.7.retval.i.8.retval.8.retval.8.retval.sroa_idx, align 1, !noalias !55
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %retval.i.sroa.4.i)
-  store i8 %conv.i.i.i.i, ptr %substring_.i33, align 4, !noalias !55
+  store i8 %conv.i.i.i.i, ptr %substring_.i33, align 2, !noalias !55
   %substring_.sroa_idx.i = getelementptr inbounds i8, ptr %child_node.i, i64 5
   store i56 %retval.i.sroa.4.i.0.retval.i.sroa.4.i.0.retval.i.sroa.4.i.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i62.i, ptr %substring_.sroa_idx.i, align 1, !noalias !55
   %tmp.coerce.sroa.2.0.substring_.sroa_idx.i = getelementptr inbounds i8, ptr %child_node.i, i64 12
-  store i32 %retval.i.sroa.4.i.7.retval.i.sroa.4.i.7.retval.i.sroa.4.i.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i.i, ptr %tmp.coerce.sroa.2.0.substring_.sroa_idx.i, align 4, !noalias !55
+  store i32 %retval.i.sroa.4.i.7.retval.i.sroa.4.i.7.retval.i.sroa.4.i.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i.i, ptr %tmp.coerce.sroa.2.0.substring_.sroa_idx.i, align 2, !noalias !55
   %arrayidx.i.i = getelementptr inbounds [11 x i8], ptr %data_.i.i, i64 0, i64 %remaining.0
-  %5 = load i8, ptr %arrayidx.i.i, align 1, !noalias !55
+  %6 = load i8, ptr %arrayidx.i.i, align 1, !noalias !55
   store i16 -1, ptr %child_lookup_10.i, align 2, !noalias !55
   store i16 -1, ptr %add.ptr.i, align 2, !noalias !55
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %retval.i11.sroa.4.i)
@@ -941,39 +947,43 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
   store i56 %retval.i11.sroa.4.i.0.retval.i11.sroa.4.i.0.retval.i11.sroa.4.i.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i1964.i, ptr %data_.i.i, align 1, !noalias !55
   %ref.tmp.sroa.2.0.substring_20.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   store i32 %retval.i11.sroa.4.i.7.retval.i11.sroa.4.i.7.retval.i11.sroa.4.i.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i21.i, ptr %ref.tmp.sroa.2.0.substring_20.sroa_idx.i, align 2, !noalias !55
-  call void @_ZN5arrow8internal11TrieBuilder15AppendChildNodeEPNS0_4Trie4NodeEhOS3_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp21.i, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %5, ptr noundef nonnull align 2 dereferenceable(16) %child_node.i), !noalias !55
-  %6 = load ptr, ptr %ref.tmp21.i, align 8, !noalias !58
+  call void @_ZN5arrow8internal11TrieBuilder15AppendChildNodeEPNS0_4Trie4NodeEhOS3_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp21.i, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %6, ptr noundef nonnull align 2 dereferenceable(16) %child_node.i), !noalias !55
+  %7 = load ptr, ptr %ref.tmp21.i, align 8, !noalias !58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %child_node.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp21.i)
-  store ptr %6, ptr %agg.result, align 8, !alias.scope !61
-  %cmp.i = icmp eq ptr %6, null
+  store ptr %7, ptr %agg.result, align 8, !alias.scope !61
+  %cmp.i = icmp eq ptr %7, null
   br i1 %cmp.i, label %do.end14, label %return
 
 do.end14:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit
-  %7 = load ptr, ptr %this, align 8
-  %add.ptr.i70 = getelementptr inbounds %"struct.arrow::internal::Trie::Node", ptr %7, i64 %node_index.0
+  %8 = load ptr, ptr %this, align 8
+  %add.ptr.i70 = getelementptr inbounds %"struct.arrow::internal::Trie::Node", ptr %8, i64 %node_index.0
   %size_ = getelementptr inbounds i8, ptr %this, i64 48
-  %8 = load i16, ptr %size_, align 8
-  %inc = add i16 %8, 1
+  %9 = load i16, ptr %size_, align 8
+  %inc = add i16 %9, 1
   store i16 %inc, ptr %size_, align 8
-  store i16 %8, ptr %add.ptr.i70, align 2
+  store i16 %9, ptr %add.ptr.i70, align 2
   store ptr null, ptr %agg.result, align 8, !alias.scope !64
   br label %return
 
 if.end19:                                         ; preds = %for.body
   %add.ptr.i71 = getelementptr inbounds i8, ptr %s.coerce1, i64 %pos.1310
-  %9 = load i8, ptr %add.ptr.i71, align 1
+  %10 = load i8, ptr %add.ptr.i71, align 1
   %arrayidx = getelementptr inbounds i8, ptr %data_.i.i, i64 %i.0308
-  %10 = load i8, ptr %arrayidx, align 1
-  %cmp22.not = icmp eq i8 %9, %10
+  %11 = load i8, ptr %arrayidx, align 1
+  %cmp22.not = icmp eq i8 %10, %11
   br i1 %cmp22.not, label %if.end54, label %do.body24
 
 do.body24:                                        ; preds = %if.end19
   %add.ptr.i71.le = getelementptr inbounds i8, ptr %s.coerce1, i64 %pos.1310
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %child_node.i74)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp21.i75)
-  %11 = load <2 x i16>, ptr %add.ptr.i, align 2, !noalias !67
-  store <2 x i16> %11, ptr %child_node.i74, align 4, !noalias !67
+  %12 = load i16, ptr %add.ptr.i, align 2, !noalias !67
+  store i16 %12, ptr %child_node.i74, align 2, !noalias !67
+  %child_lookup_.i77 = getelementptr inbounds i8, ptr %child_node.i74, i64 2
+  %child_lookup_10.i78 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
+  %13 = load i16, ptr %child_lookup_10.i78, align 2, !noalias !67
+  store i16 %13, ptr %child_lookup_.i77, align 2, !noalias !67
   %add.i80 = add nuw nsw i64 %i.0308, 1
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %retval.i.sroa.4.i73)
   %cmp.i.i.i.i82.not = icmp ult i64 %i.0308, %conv.i.i
@@ -984,7 +994,6 @@ if.then.i.i.i.i101:                               ; preds = %do.body24
   unreachable
 
 _ZN5arrow6StatusD2Ev.exit138:                     ; preds = %do.body24
-  %child_lookup_10.i78 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %substring_.i.le = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %substring_.i83 = getelementptr inbounds i8, ptr %child_node.i74, i64 4
   %sub.i.i.i85 = sub nuw nsw i64 %conv.i.i, %add.i80
@@ -995,11 +1004,11 @@ _ZN5arrow6StatusD2Ev.exit138:                     ; preds = %do.body24
   %retval.i.sroa.4.i73.7.i73.7.i73.7.retval.i.8.retval.8.retval.8.retval.sroa_idx = getelementptr inbounds i8, ptr %retval.i.sroa.4.i73, i64 7
   %retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i.i90 = load i32, ptr %retval.i.sroa.4.i73.7.i73.7.i73.7.retval.i.8.retval.8.retval.8.retval.sroa_idx, align 1, !noalias !67
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %retval.i.sroa.4.i73)
-  store i8 %conv.i.i.i.i87, ptr %substring_.i83, align 4, !noalias !67
+  store i8 %conv.i.i.i.i87, ptr %substring_.i83, align 2, !noalias !67
   %substring_.sroa_idx.i91 = getelementptr inbounds i8, ptr %child_node.i74, i64 5
   store i56 %retval.i.sroa.4.i73.0.retval.i.sroa.4.i73.0.retval.i.sroa.4.i73.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i62.i88, ptr %substring_.sroa_idx.i91, align 1, !noalias !67
   %tmp.coerce.sroa.2.0.substring_.sroa_idx.i92 = getelementptr inbounds i8, ptr %child_node.i74, i64 12
-  store i32 %retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i.i90, ptr %tmp.coerce.sroa.2.0.substring_.sroa_idx.i92, align 4, !noalias !67
+  store i32 %retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i.i90, ptr %tmp.coerce.sroa.2.0.substring_.sroa_idx.i92, align 2, !noalias !67
   store i16 -1, ptr %child_lookup_10.i78, align 2, !noalias !67
   store i16 -1, ptr %add.ptr.i, align 2, !noalias !67
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %retval.i11.sroa.4.i72)
@@ -1013,18 +1022,18 @@ _ZN5arrow6StatusD2Ev.exit138:                     ; preds = %do.body24
   store i56 %retval.i11.sroa.4.i72.0.retval.i11.sroa.4.i72.0.retval.i11.sroa.4.i72.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i1964.i96, ptr %data_.i.i, align 1, !noalias !67
   %ref.tmp.sroa.2.0.substring_20.sroa_idx.i100 = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   store i32 %retval.i11.sroa.4.i72.7.retval.i11.sroa.4.i72.7.retval.i11.sroa.4.i72.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i21.i98, ptr %ref.tmp.sroa.2.0.substring_20.sroa_idx.i100, align 2, !noalias !67
-  call void @_ZN5arrow8internal11TrieBuilder15AppendChildNodeEPNS0_4Trie4NodeEhOS3_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp21.i75, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %10, ptr noundef nonnull align 2 dereferenceable(16) %child_node.i74), !noalias !67
-  %12 = load ptr, ptr %ref.tmp21.i75, align 8, !noalias !70
+  call void @_ZN5arrow8internal11TrieBuilder15AppendChildNodeEPNS0_4Trie4NodeEhOS3_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp21.i75, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %11, ptr noundef nonnull align 2 dereferenceable(16) %child_node.i74), !noalias !67
+  %14 = load ptr, ptr %ref.tmp21.i75, align 8, !noalias !70
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %child_node.i74)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp21.i75)
-  store ptr %12, ptr %agg.result, align 8, !alias.scope !73
-  %cmp.i139 = icmp eq ptr %12, null
+  store ptr %14, ptr %agg.result, align 8, !alias.scope !73
+  %cmp.i139 = icmp eq ptr %14, null
   br i1 %cmp.i139, label %do.end48, label %return
 
 do.end48:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit138
-  %13 = load ptr, ptr %this, align 8
-  %add.ptr.i176 = getelementptr inbounds %"struct.arrow::internal::Trie::Node", ptr %13, i64 %node_index.0
-  %14 = load i8, ptr %add.ptr.i71.le, align 1
+  %15 = load ptr, ptr %this, align 8
+  %add.ptr.i176 = getelementptr inbounds %"struct.arrow::internal::Trie::Node", ptr %15, i64 %node_index.0
+  %16 = load i8, ptr %add.ptr.i71.le, align 1
   %add = add nsw i64 %pos.1310, 1
   %cmp.i.i = icmp ugt i64 %add, %s.coerce0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
@@ -1054,7 +1063,7 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i.i:              ; preds = %_ZNKSt17basic_strin
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i
   %parent.addr.0139.i.i = phi ptr [ %add.ptr.i176, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %add.ptr.i.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %ch.addr.0138.i.i = phi i8 [ %14, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %17, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+  %ch.addr.0138.i.i = phi i8 [ %16, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %19, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
   %storemerge137.i.i = phi ptr [ %add.ptr.i180, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %add.ptr.i44.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
   %substring.sroa.0.0136.i.i = phi i64 [ %sub.i, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %sub.i.i.i182, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
   store i16 -1, ptr %mid_node.i.i, align 2, !noalias !82
@@ -1063,17 +1072,17 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %_ZNKSt17basic_strin
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %data_.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(11) %storemerge137.i.i, i64 11, i1 false), !noalias !82
   call void @_ZN5arrow8internal11TrieBuilder15AppendChildNodeEPNS0_4Trie4NodeEhOS3_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp3.i.i, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %parent.addr.0139.i.i, i8 noundef zeroext %ch.addr.0138.i.i, ptr noundef nonnull align 2 dereferenceable(16) %mid_node.i.i), !noalias !82
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  %15 = load ptr, ptr %ref.tmp3.i.i, align 8, !noalias !86
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !86
+  %17 = load ptr, ptr %ref.tmp3.i.i, align 8, !noalias !86
+  store ptr %17, ptr %agg.result, align 8, !alias.scope !86
   store ptr null, ptr %ref.tmp3.i.i, align 8, !noalias !86
-  %cmp.i.i.i = icmp eq ptr %15, null
+  %cmp.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i, label %_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEcSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
-  %16 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !82
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !82
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 -16
   %add.ptr.i.i.i181 = getelementptr inbounds i8, ptr %storemerge137.i.i, i64 11
-  %17 = load i8, ptr %add.ptr.i.i.i181, align 1, !noalias !82
+  %19 = load i8, ptr %add.ptr.i.i.i181, align 1, !noalias !82
   %sub.i.i.i182 = add i64 %substring.sroa.0.0136.i.i, -12
   %add.ptr.i44.i.i = getelementptr inbounds i8, ptr %storemerge137.i.i, i64 12
   %cmp.i.i183 = icmp ugt i64 %sub.i.i.i182, 11
@@ -1082,11 +1091,11 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %_Z
 _ZN5arrow6StatusD2Ev.exit88.i.i:                  ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %substring.sroa.0.0.lcssa.i.i = phi i64 [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %sub.i.i.i182, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
   %storemerge.lcssa.i.i = phi ptr [ %add.ptr.i180, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr.i44.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %ch.addr.0.lcssa.i.i = phi i8 [ %14, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %17, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+  %ch.addr.0.lcssa.i.i = phi i8 [ %16, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %19, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
   %parent.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i176, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr.i.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
   %size_.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %18 = load i16, ptr %size_.i.i, align 8, !noalias !82
-  store i16 %18, ptr %child_node.i.i, align 2, !noalias !82
+  %20 = load i16, ptr %size_.i.i, align 8, !noalias !82
+  store i16 %20, ptr %child_node.i.i, align 2, !noalias !82
   %child_lookup_18.i.i = getelementptr inbounds i8, ptr %child_node.i.i, i64 2
   store i16 -1, ptr %child_lookup_18.i.i, align 2, !noalias !82
   %substring_19.i.i = getelementptr inbounds i8, ptr %child_node.i.i, i64 4
@@ -1096,14 +1105,14 @@ _ZN5arrow6StatusD2Ev.exit88.i.i:                  ; preds = %_ZNKSt17basic_strin
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i51.i.i, ptr align 1 %storemerge.lcssa.i.i, i64 %substring.sroa.0.0.lcssa.i.i, i1 false), !noalias !82
   call void @_ZN5arrow8internal11TrieBuilder15AppendChildNodeEPNS0_4Trie4NodeEhOS3_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp22.i.i, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %parent.addr.0.lcssa.i.i, i8 noundef zeroext %ch.addr.0.lcssa.i.i, ptr noundef nonnull align 2 dereferenceable(16) %child_node.i.i), !noalias !82
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %19 = load ptr, ptr %ref.tmp22.i.i, align 8, !noalias !90
-  store ptr %19, ptr %agg.result, align 8, !alias.scope !90
-  %cmp.i89.i.i = icmp eq ptr %19, null
+  %21 = load ptr, ptr %ref.tmp22.i.i, align 8, !noalias !90
+  store ptr %21, ptr %agg.result, align 8, !alias.scope !90
+  %cmp.i89.i.i = icmp eq ptr %21, null
   br i1 %cmp.i89.i.i, label %do.end43.i.i, label %_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEcSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 do.end43.i.i:                                     ; preds = %_ZN5arrow6StatusD2Ev.exit88.i.i
-  %20 = load i16, ptr %size_.i.i, align 8, !noalias !82
-  %inc.i.i = add i16 %20, 1
+  %22 = load i16, ptr %size_.i.i, align 8, !noalias !82
+  %inc.i.i = add i16 %22, 1
   store i16 %inc.i.i, ptr %size_.i.i, align 8, !noalias !82
   store ptr null, ptr %agg.result, align 8, !alias.scope !91
   br label %_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEcSt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -1129,8 +1138,8 @@ for.end:                                          ; preds = %if.end54, %while.bo
   br i1 %cmp57, label %if.then58, label %if.end69
 
 if.then58:                                        ; preds = %for.end
-  %21 = load i16, ptr %add.ptr.i, align 2
-  %cmp61 = icmp sgt i16 %21, -1
+  %23 = load i16, ptr %add.ptr.i, align 2
+  %cmp61 = icmp sgt i16 %23, -1
   br i1 %cmp61, label %if.then62, label %if.end64
 
 if.then62:                                        ; preds = %if.then58
@@ -1146,25 +1155,25 @@ if.else:                                          ; preds = %if.then62
 
 if.end64:                                         ; preds = %if.then58
   %size_66 = getelementptr inbounds i8, ptr %this, i64 48
-  %22 = load i16, ptr %size_66, align 8
-  %inc67 = add i16 %22, 1
+  %24 = load i16, ptr %size_66, align 8
+  %inc67 = add i16 %24, 1
   store i16 %inc67, ptr %size_66, align 8
-  store i16 %22, ptr %add.ptr.i, align 2
+  store i16 %24, ptr %add.ptr.i, align 2
   store ptr null, ptr %agg.result, align 8, !alias.scope !98
   br label %return
 
 if.end69:                                         ; preds = %for.end
   %child_lookup_ = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
-  %23 = load i16, ptr %child_lookup_, align 2
-  %cmp71 = icmp eq i16 %23, -1
+  %25 = load i16, ptr %child_lookup_, align 2
+  %cmp71 = icmp eq i16 %25, -1
   br i1 %cmp71, label %do.body73, label %if.end99
 
 do.body73:                                        ; preds = %if.end69
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp.i)
-  %24 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !101
-  %25 = load ptr, ptr %lookup_table_.i, align 8, !noalias !101
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %25 to i64
+  %26 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !101
+  %27 = load ptr, ptr %lookup_table_.i, align 8, !noalias !101
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
   %cmp.i184 = icmp ugt i64 %sub.ptr.div.i.i, 8388607
@@ -1173,7 +1182,7 @@ do.body73:                                        ; preds = %if.end69
 nrvo.skipdtor94.thread:                           ; preds = %do.body73
   %div3.i = lshr i64 %sub.ptr.div.i.i, 8
   store i16 -1, ptr %ref.tmp.i, align 2, !noalias !101
-  call void @_ZNSt6vectorIsSaIsEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPsS1_EEmRKs(ptr noundef nonnull align 8 dereferenceable(24) %lookup_table_.i, ptr %24, i64 noundef 256, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp.i), !noalias !101
+  call void @_ZNSt6vectorIsSaIsEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPsS1_EEmRKs(ptr noundef nonnull align 8 dereferenceable(24) %lookup_table_.i, ptr %26, i64 noundef 256, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp.i), !noalias !101
   %conv.i = trunc nuw nsw i64 %div3.i to i16
   store i16 %conv.i, ptr %child_lookup_, align 2, !noalias !101
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ref.tmp.i)
@@ -1195,18 +1204,18 @@ _ZN5arrow6StatusD2Ev.exit220:                     ; preds = %do.body73
 if.end99:                                         ; preds = %nrvo.skipdtor94.thread, %_ZN5arrow6StatusD2Ev.exit220, %if.end69
   %inc100 = add nsw i64 %pos.1.lcssa, 1
   %add.ptr.i259 = getelementptr inbounds i8, ptr %s.coerce1, i64 %pos.1.lcssa
-  %26 = load i8, ptr %add.ptr.i259, align 1
-  %27 = load i16, ptr %child_lookup_, align 2
-  %conv105 = sext i16 %27 to i32
+  %28 = load i8, ptr %add.ptr.i259, align 1
+  %29 = load i16, ptr %child_lookup_, align 2
+  %conv105 = sext i16 %29 to i32
   %mul = shl nsw i32 %conv105, 8
-  %conv106 = zext i8 %26 to i32
+  %conv106 = zext i8 %28 to i32
   %add107 = or disjoint i32 %mul, %conv106
   %conv108 = sext i32 %add107 to i64
-  %28 = load ptr, ptr %lookup_table_.i, align 8
-  %add.ptr.i260 = getelementptr inbounds i16, ptr %28, i64 %conv108
-  %29 = load i16, ptr %add.ptr.i260, align 2
-  %cmp111 = icmp eq i16 %29, -1
-  %conv110 = sext i16 %29 to i64
+  %30 = load ptr, ptr %lookup_table_.i, align 8
+  %add.ptr.i260 = getelementptr inbounds i16, ptr %30, i64 %conv108
+  %31 = load i16, ptr %add.ptr.i260, align 2
+  %cmp111 = icmp eq i16 %31, -1
+  %conv110 = sext i16 %31 to i64
   %dec102 = add nsw i64 %remaining.1.lcssa, -1
   br i1 %cmp111, label %if.then112, label %while.body, !llvm.loop !109
 
@@ -1221,7 +1230,7 @@ if.then.i.i267:                                   ; preds = %if.then112
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit268: ; preds = %if.then112
   %sub.i262 = sub nuw i64 %s.coerce0, %inc100
   %add.ptr.i264 = getelementptr inbounds i8, ptr %s.coerce1, i64 %inc100
-  call void @_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEhSt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %26, i64 %sub.i262, ptr %add.ptr.i264)
+  call void @_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEhSt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %28, i64 %sub.i262, ptr %add.ptr.i264)
   br label %return
 
 return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit220, %_ZN5arrow6StatusD2Ev.exit138, %_ZN5arrow6StatusD2Ev.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit268, %if.end64, %if.else, %if.then63, %_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEcSt17basic_string_viewIcSt11char_traitsIcEE.exit, %do.end14
@@ -1231,26 +1240,34 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5arrow8internal11TrieBuilder6FinishEv(ptr noalias nocapture writeonly sret(%"class.arrow::internal::Trie") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %0 = load <2 x ptr>, ptr %this, align 8
-  store <2 x ptr> %0, ptr %agg.result, align 8
+  %0 = load ptr, ptr %this, align 8
+  store ptr %0, ptr %agg.result, align 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_finish3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load ptr, ptr %_M_finish3.i.i.i.i.i, align 8
+  store ptr %1, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
-  store ptr %1, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %lookup_table_.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %lookup_table_3.i = getelementptr inbounds i8, ptr %this, i64 24
-  %2 = load <2 x ptr>, ptr %lookup_table_3.i, align 8
-  store <2 x ptr> %2, ptr %lookup_table_.i, align 8
+  %3 = load ptr, ptr %lookup_table_3.i, align 8
+  store ptr %3, ptr %lookup_table_.i, align 8
+  %_M_finish.i.i.i.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_finish3.i.i.i.i4.i = getelementptr inbounds i8, ptr %this, i64 32
+  %4 = load ptr, ptr %_M_finish3.i.i.i.i4.i, align 8
+  store ptr %4, ptr %_M_finish.i.i.i.i3.i, align 8
   %_M_end_of_storage.i.i.i.i5.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %_M_end_of_storage4.i.i.i.i6.i = getelementptr inbounds i8, ptr %this, i64 40
-  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i, align 8
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i5.i, align 8
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i, align 8
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i5.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lookup_table_3.i, i8 0, i64 24, i1 false)
   %size_.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %size_4.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load i16, ptr %size_4.i, align 8
-  store i16 %4, ptr %size_.i, align 8
+  %6 = load i16, ptr %size_4.i, align 8
+  store i16 %6, ptr %size_.i, align 8
   ret void
 }
 

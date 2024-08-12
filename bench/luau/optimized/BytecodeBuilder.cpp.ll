@@ -343,39 +343,56 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4Luau15BytecodeBuilde
   %3 = load i32, ptr %1, align 8
   %4 = icmp eq i32 %3, 3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %4, label %6, label %12
+  br i1 %4, label %6, label %22
 
 6:                                                ; preds = %2
-  %7 = load <4 x i32>, ptr %5, align 8
-  %8 = lshr <4 x i32> %7, <i32 17, i32 17, i32 17, i32 17>
-  %9 = xor <4 x i32> %8, %7
-  %10 = mul <4 x i32> %9, <i32 73856093, i32 19349663, i32 83492791, i32 39916801>
-  %11 = tail call i32 @llvm.vector.reduce.xor.v4i32(<4 x i32> %10)
-  br label %31
+  %.sroa.0.0.copyload = load i32, ptr %5, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 8
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
+  %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 4
+  %7 = lshr i32 %.sroa.0.0.copyload, 17
+  %8 = xor i32 %7, %.sroa.0.0.copyload
+  %9 = lshr i32 %.sroa.5.0.copyload, 17
+  %10 = xor i32 %9, %.sroa.5.0.copyload
+  %11 = lshr i32 %.sroa.9.0.copyload, 17
+  %12 = xor i32 %11, %.sroa.9.0.copyload
+  %13 = lshr i32 %.sroa.13.0.copyload, 17
+  %14 = xor i32 %13, %.sroa.13.0.copyload
+  %15 = mul i32 %8, 73856093
+  %16 = mul i32 %10, 19349663
+  %17 = xor i32 %16, %15
+  %18 = mul i32 %12, 83492791
+  %19 = xor i32 %17, %18
+  %20 = mul i32 %14, 39916801
+  %21 = xor i32 %19, %20
+  br label %41
 
-12:                                               ; preds = %2
-  %13 = load i64, ptr %5, align 8
-  %14 = trunc i64 %13 to i32
-  %15 = lshr i64 %13, 32
-  %16 = trunc nuw i64 %15 to i32
-  %17 = mul i32 %3, 1540483477
-  %18 = xor i32 %17, %16
-  %19 = lshr i32 %18, 18
-  %20 = xor i32 %19, %14
-  %21 = mul i32 %20, 1540483477
-  %22 = lshr i32 %21, 22
-  %23 = xor i32 %22, %18
-  %24 = mul i32 %23, 1540483477
-  %25 = lshr i32 %24, 17
-  %26 = xor i32 %25, %21
-  %27 = mul i32 %26, 1540483477
-  %28 = lshr i32 %27, 19
-  %29 = xor i32 %28, %24
-  %30 = mul i32 %29, 1540483477
-  br label %31
+22:                                               ; preds = %2
+  %23 = load i64, ptr %5, align 8
+  %24 = trunc i64 %23 to i32
+  %25 = lshr i64 %23, 32
+  %26 = trunc nuw i64 %25 to i32
+  %27 = mul i32 %3, 1540483477
+  %28 = xor i32 %27, %26
+  %29 = lshr i32 %28, 18
+  %30 = xor i32 %29, %24
+  %31 = mul i32 %30, 1540483477
+  %32 = lshr i32 %31, 22
+  %33 = xor i32 %32, %28
+  %34 = mul i32 %33, 1540483477
+  %35 = lshr i32 %34, 17
+  %36 = xor i32 %35, %31
+  %37 = mul i32 %36, 1540483477
+  %38 = lshr i32 %37, 19
+  %39 = xor i32 %38, %34
+  %40 = mul i32 %39, 1540483477
+  br label %41
 
-31:                                               ; preds = %12, %6
-  %.0.in = phi i32 [ %11, %6 ], [ %30, %12 ]
+41:                                               ; preds = %22, %6
+  %.0.in = phi i32 [ %21, %6 ], [ %40, %22 ]
   %.0 = zext i32 %.0.in to i64
   ret i64 %.0
 }
@@ -9750,30 +9767,34 @@ define linkonce_odr dso_local void @_ZSt19__relocate_object_aIN4Luau15BytecodeBu
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #29
   %10 = getelementptr inbounds i8, ptr %0, i64 112
   %11 = getelementptr inbounds i8, ptr %1, i64 112
-  %12 = load <2 x ptr>, ptr %11, align 8
-  store <2 x ptr> %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
-  %14 = getelementptr inbounds i8, ptr %1, i64 128
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %14 = getelementptr inbounds i8, ptr %1, i64 120
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %17 = getelementptr inbounds i8, ptr %1, i64 128
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %16, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 136
-  %17 = getelementptr inbounds i8, ptr %1, i64 136
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17) #29
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #29
-  %18 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4Luau15BytecodeBuilder8FunctionEEE7destroyIS2_EEvRS3_PT_.exit, label %19
+  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %20 = getelementptr inbounds i8, ptr %1, i64 136
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20) #29
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #29
+  %21 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4Luau15BytecodeBuilder8FunctionEEE7destroyIS2_EEvRS3_PT_.exit, label %22
 
-19:                                               ; preds = %3
-  %20 = load ptr, ptr %14, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %18 to i64
-  %23 = sub i64 %21, %22
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %23) #31
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %17, align 8
+  %24 = ptrtoint ptr %23 to i64
+  %25 = ptrtoint ptr %21 to i64
+  %26 = sub i64 %24, %25
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %26) #31
   br label %_ZNSt16allocator_traitsISaIN4Luau15BytecodeBuilder8FunctionEEE7destroyIS2_EEvRS3_PT_.exit
 
-_ZNSt16allocator_traitsISaIN4Luau15BytecodeBuilder8FunctionEEE7destroyIS2_EEvRS3_PT_.exit: ; preds = %3, %19
+_ZNSt16allocator_traitsISaIN4Luau15BytecodeBuilder8FunctionEEE7destroyIS2_EEvRS3_PT_.exit: ; preds = %3, %22
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #29
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #29
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #29
@@ -10101,97 +10122,114 @@ _ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread: ;
   %24 = add i64 %23, -1
   %25 = icmp eq i32 %8, 3
   %26 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %25, label %27, label %33
+  br i1 %25, label %27, label %43
 
 27:                                               ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread
-  %28 = load <4 x i32>, ptr %26, align 8
-  %29 = lshr <4 x i32> %28, <i32 17, i32 17, i32 17, i32 17>
-  %30 = xor <4 x i32> %29, %28
-  %31 = mul <4 x i32> %30, <i32 73856093, i32 19349663, i32 83492791, i32 39916801>
-  %32 = tail call i32 @llvm.vector.reduce.xor.v4i32(<4 x i32> %31)
+  %.sroa.0.0.copyload.i = load i32, ptr %26, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.9.0.copyload.i = load i32, ptr %.sroa.9.0..sroa_idx.i, align 8
+  %.sroa.13.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 20
+  %.sroa.13.0.copyload.i = load i32, ptr %.sroa.13.0..sroa_idx.i, align 4
+  %28 = lshr i32 %.sroa.0.0.copyload.i, 17
+  %29 = xor i32 %28, %.sroa.0.0.copyload.i
+  %30 = lshr i32 %.sroa.5.0.copyload.i, 17
+  %31 = xor i32 %30, %.sroa.5.0.copyload.i
+  %32 = lshr i32 %.sroa.9.0.copyload.i, 17
+  %33 = xor i32 %32, %.sroa.9.0.copyload.i
+  %34 = lshr i32 %.sroa.13.0.copyload.i, 17
+  %35 = xor i32 %34, %.sroa.13.0.copyload.i
+  %36 = mul i32 %29, 73856093
+  %37 = mul i32 %31, 19349663
+  %38 = xor i32 %37, %36
+  %39 = mul i32 %33, 83492791
+  %40 = xor i32 %38, %39
+  %41 = mul i32 %35, 39916801
+  %42 = xor i32 %40, %41
   %.pre = load i64, ptr %26, align 8
   br label %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit
 
-33:                                               ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread
-  %34 = load i64, ptr %26, align 8
-  %35 = trunc i64 %34 to i32
-  %36 = lshr i64 %34, 32
-  %37 = trunc nuw i64 %36 to i32
-  %38 = mul i32 %8, 1540483477
-  %39 = xor i32 %38, %37
-  %40 = lshr i32 %39, 18
-  %41 = xor i32 %40, %35
-  %42 = mul i32 %41, 1540483477
-  %43 = lshr i32 %42, 22
-  %44 = xor i32 %43, %39
-  %45 = mul i32 %44, 1540483477
-  %46 = lshr i32 %45, 17
-  %47 = xor i32 %46, %42
-  %48 = mul i32 %47, 1540483477
-  %49 = lshr i32 %48, 19
-  %50 = xor i32 %49, %45
-  %51 = mul i32 %50, 1540483477
+43:                                               ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread
+  %44 = load i64, ptr %26, align 8
+  %45 = trunc i64 %44 to i32
+  %46 = lshr i64 %44, 32
+  %47 = trunc nuw i64 %46 to i32
+  %48 = mul i32 %8, 1540483477
+  %49 = xor i32 %48, %47
+  %50 = lshr i32 %49, 18
+  %51 = xor i32 %50, %45
+  %52 = mul i32 %51, 1540483477
+  %53 = lshr i32 %52, 22
+  %54 = xor i32 %53, %49
+  %55 = mul i32 %54, 1540483477
+  %56 = lshr i32 %55, 17
+  %57 = xor i32 %56, %52
+  %58 = mul i32 %57, 1540483477
+  %59 = lshr i32 %58, 19
+  %60 = xor i32 %59, %55
+  %61 = mul i32 %60, 1540483477
   br label %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit
 
-_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit: ; preds = %27, %33
-  %52 = phi i64 [ %.pre, %27 ], [ %34, %33 ]
-  %.0.in.i = phi i32 [ %32, %27 ], [ %51, %33 ]
+_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit: ; preds = %27, %43
+  %62 = phi i64 [ %.pre, %27 ], [ %44, %43 ]
+  %.0.in.i = phi i32 [ %42, %27 ], [ %61, %43 ]
   %.0.i = zext i32 %.0.in.i to i64
   %.01620 = and i64 %24, %.0.i
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 16
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
-  %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
-  %59 = load i64, ptr %58, align 8
-  br label %60
-
-60:                                               ; preds = %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread
-  %.01622 = phi i64 [ %.01620, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %.016, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread ]
-  %.01521 = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %79, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread ]
-  %61 = getelementptr inbounds %"struct.std::pair.112", ptr %53, i64 %.01622
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp eq i32 %62, %8
-  br i1 %63, label %64, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread
-
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %61, i64 8
-  %66 = load i64, ptr %65, align 8
-  %67 = icmp eq i64 %66, %52
-  br i1 %67, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread
-
-_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18: ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %61, i64 16
+  %63 = load ptr, ptr %0, align 8
+  %64 = getelementptr inbounds i8, ptr %1, i64 16
+  %65 = load i64, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 40
   %69 = load i64, ptr %68, align 8
-  %70 = icmp eq i64 %69, %55
-  br i1 %70, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread
+  br label %70
 
-_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread: ; preds = %60, %64, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18
-  %71 = icmp eq i32 %62, %9
-  br i1 %71, label %72, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread
+70:                                               ; preds = %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread
+  %.01622 = phi i64 [ %.01620, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %.016, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread ]
+  %.01521 = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %89, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread ]
+  %71 = getelementptr inbounds %"struct.std::pair.112", ptr %63, i64 %.01622
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp eq i32 %72, %8
+  br i1 %73, label %74, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread
 
-72:                                               ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread
-  %73 = getelementptr inbounds i8, ptr %61, i64 8
-  %74 = load i64, ptr %73, align 8
-  %75 = icmp eq i64 %74, %57
-  br i1 %75, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds i8, ptr %71, i64 8
+  %76 = load i64, ptr %75, align 8
+  %77 = icmp eq i64 %76, %62
+  br i1 %77, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread
 
-_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19: ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %61, i64 16
-  %77 = load i64, ptr %76, align 8
-  %78 = icmp eq i64 %77, %59
-  br i1 %78, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread
+_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18: ; preds = %74
+  %78 = getelementptr inbounds i8, ptr %71, i64 16
+  %79 = load i64, ptr %78, align 8
+  %80 = icmp eq i64 %79, %65
+  br i1 %80, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread
 
-_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread, %72, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19
-  %79 = add i64 %.01521, 1
-  %80 = add i64 %79, %.01622
-  %.016 = and i64 %80, %24
-  %.not = icmp ugt i64 %79, %24
-  br i1 %.not, label %.loopexit, label %60, !llvm.loop !77
+_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread: ; preds = %70, %74, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18
+  %81 = icmp eq i32 %72, %9
+  br i1 %81, label %82, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread
+
+82:                                               ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread
+  %83 = getelementptr inbounds i8, ptr %71, i64 8
+  %84 = load i64, ptr %83, align 8
+  %85 = icmp eq i64 %84, %67
+  br i1 %85, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread
+
+_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19: ; preds = %82
+  %86 = getelementptr inbounds i8, ptr %71, i64 16
+  %87 = load i64, ptr %86, align 8
+  %88 = icmp eq i64 %87, %69
+  br i1 %88, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread
+
+_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18.thread, %82, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19
+  %89 = add i64 %.01521, 1
+  %90 = add i64 %89, %.01622
+  %.016 = and i64 %90, %24
+  %.not = icmp ugt i64 %89, %24
+  br i1 %.not, label %.loopexit, label %70, !llvm.loop !77
 
 .loopexit:                                        ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19 ], [ %61, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19.thread ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit19 ], [ %71, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit18 ]
   ret ptr %.0
 }
 
@@ -10203,107 +10241,124 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau6detail14DenseHashTableINS_15
   %6 = load i32, ptr %1, align 8
   %7 = icmp eq i32 %6, 3
   %8 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %7, label %9, label %15
+  br i1 %7, label %9, label %25
 
 9:                                                ; preds = %2
-  %10 = load <4 x i32>, ptr %8, align 8
-  %11 = lshr <4 x i32> %10, <i32 17, i32 17, i32 17, i32 17>
-  %12 = xor <4 x i32> %11, %10
-  %13 = mul <4 x i32> %12, <i32 73856093, i32 19349663, i32 83492791, i32 39916801>
-  %14 = tail call i32 @llvm.vector.reduce.xor.v4i32(<4 x i32> %13)
+  %.sroa.0.0.copyload.i = load i32, ptr %8, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.9.0.copyload.i = load i32, ptr %.sroa.9.0..sroa_idx.i, align 8
+  %.sroa.13.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 20
+  %.sroa.13.0.copyload.i = load i32, ptr %.sroa.13.0..sroa_idx.i, align 4
+  %10 = lshr i32 %.sroa.0.0.copyload.i, 17
+  %11 = xor i32 %10, %.sroa.0.0.copyload.i
+  %12 = lshr i32 %.sroa.5.0.copyload.i, 17
+  %13 = xor i32 %12, %.sroa.5.0.copyload.i
+  %14 = lshr i32 %.sroa.9.0.copyload.i, 17
+  %15 = xor i32 %14, %.sroa.9.0.copyload.i
+  %16 = lshr i32 %.sroa.13.0.copyload.i, 17
+  %17 = xor i32 %16, %.sroa.13.0.copyload.i
+  %18 = mul i32 %11, 73856093
+  %19 = mul i32 %13, 19349663
+  %20 = xor i32 %19, %18
+  %21 = mul i32 %15, 83492791
+  %22 = xor i32 %20, %21
+  %23 = mul i32 %17, 39916801
+  %24 = xor i32 %22, %23
   %.pre = load i64, ptr %8, align 8
   br label %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit
 
-15:                                               ; preds = %2
-  %16 = load i64, ptr %8, align 8
-  %17 = trunc i64 %16 to i32
-  %18 = lshr i64 %16, 32
-  %19 = trunc nuw i64 %18 to i32
-  %20 = mul i32 %6, 1540483477
-  %21 = xor i32 %20, %19
-  %22 = lshr i32 %21, 18
-  %23 = xor i32 %22, %17
-  %24 = mul i32 %23, 1540483477
-  %25 = lshr i32 %24, 22
-  %26 = xor i32 %25, %21
-  %27 = mul i32 %26, 1540483477
-  %28 = lshr i32 %27, 17
-  %29 = xor i32 %28, %24
-  %30 = mul i32 %29, 1540483477
-  %31 = lshr i32 %30, 19
-  %32 = xor i32 %31, %27
-  %33 = mul i32 %32, 1540483477
+25:                                               ; preds = %2
+  %26 = load i64, ptr %8, align 8
+  %27 = trunc i64 %26 to i32
+  %28 = lshr i64 %26, 32
+  %29 = trunc nuw i64 %28 to i32
+  %30 = mul i32 %6, 1540483477
+  %31 = xor i32 %30, %29
+  %32 = lshr i32 %31, 18
+  %33 = xor i32 %32, %27
+  %34 = mul i32 %33, 1540483477
+  %35 = lshr i32 %34, 22
+  %36 = xor i32 %35, %31
+  %37 = mul i32 %36, 1540483477
+  %38 = lshr i32 %37, 17
+  %39 = xor i32 %38, %34
+  %40 = mul i32 %39, 1540483477
+  %41 = lshr i32 %40, 19
+  %42 = xor i32 %41, %37
+  %43 = mul i32 %42, 1540483477
   br label %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit
 
-_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit: ; preds = %9, %15
-  %34 = phi i64 [ %.pre, %9 ], [ %16, %15 ]
-  %.0.in.i = phi i32 [ %14, %9 ], [ %33, %15 ]
+_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit: ; preds = %9, %25
+  %44 = phi i64 [ %.pre, %9 ], [ %26, %25 ]
+  %.0.in.i = phi i32 [ %24, %9 ], [ %43, %25 ]
   %.0.i = zext i32 %.0.in.i to i64
   %.01821 = and i64 %5, %.0.i
-  %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
-  %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
-  %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
-  %43 = load i64, ptr %42, align 8
-  br label %44
-
-44:                                               ; preds = %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread
-  %.01823 = phi i64 [ %.01821, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %.018, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread ]
-  %.01722 = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %67, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread ]
-  %45 = getelementptr inbounds %"struct.std::pair.112", ptr %35, i64 %.01823
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp eq i32 %46, %37
-  br i1 %47, label %48, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread
-
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %45, i64 8
-  %50 = load i64, ptr %49, align 8
-  %51 = icmp eq i64 %50, %39
-  br i1 %51, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread
-
-_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit: ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %45, i64 16
+  %45 = load ptr, ptr %0, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %1, i64 16
   %53 = load i64, ptr %52, align 8
-  %54 = icmp eq i64 %53, %41
-  br i1 %54, label %55, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread
+  br label %54
 
-55:                                               ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
-  %57 = load i64, ptr %56, align 8
-  %58 = add i64 %57, 1
-  store i64 %58, ptr %56, align 8
+54:                                               ; preds = %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread
+  %.01823 = phi i64 [ %.01821, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %.018, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread ]
+  %.01722 = phi i64 [ 0, %_ZNK4Luau15BytecodeBuilder15ConstantKeyHashclERKNS0_11ConstantKeyE.exit ], [ %77, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread ]
+  %55 = getelementptr inbounds %"struct.std::pair.112", ptr %45, i64 %.01823
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp eq i32 %56, %47
+  br i1 %57, label %58, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread
+
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds i8, ptr %55, i64 8
+  %60 = load i64, ptr %59, align 8
+  %61 = icmp eq i64 %60, %49
+  br i1 %61, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread
+
+_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit: ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %55, i64 16
+  %63 = load i64, ptr %62, align 8
+  %64 = icmp eq i64 %63, %51
+  br i1 %64, label %65, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread
+
+65:                                               ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = load i64, ptr %66, align 8
+  %68 = add i64 %67, 1
+  store i64 %68, ptr %66, align 8
   br label %.loopexit
 
-_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread: ; preds = %44, %48, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit
-  %59 = icmp eq i32 %46, %6
-  br i1 %59, label %60, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread
+_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread: ; preds = %54, %58, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit
+  %69 = icmp eq i32 %56, %6
+  br i1 %69, label %70, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread
 
-60:                                               ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread
-  %61 = getelementptr inbounds i8, ptr %45, i64 8
-  %62 = load i64, ptr %61, align 8
-  %63 = icmp eq i64 %62, %34
-  br i1 %63, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread
+70:                                               ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread
+  %71 = getelementptr inbounds i8, ptr %55, i64 8
+  %72 = load i64, ptr %71, align 8
+  %73 = icmp eq i64 %72, %44
+  br i1 %73, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread
 
-_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20: ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %45, i64 16
-  %65 = load i64, ptr %64, align 8
-  %66 = icmp eq i64 %65, %43
-  br i1 %66, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread
+_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20: ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %55, i64 16
+  %75 = load i64, ptr %74, align 8
+  %76 = icmp eq i64 %75, %53
+  br i1 %76, label %.loopexit, label %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread
 
-_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread, %60, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20
-  %67 = add i64 %.01722, 1
-  %68 = add i64 %67, %.01823
-  %.018 = and i64 %68, %5
-  %.not = icmp ugt i64 %67, %5
-  br i1 %.not, label %.loopexit, label %44, !llvm.loop !78
+_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread: ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit.thread, %70, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20
+  %77 = add i64 %.01722, 1
+  %78 = add i64 %77, %.01823
+  %.018 = and i64 %78, %5
+  %.not = icmp ugt i64 %77, %5
+  br i1 %.not, label %.loopexit, label %54, !llvm.loop !78
 
-.loopexit:                                        ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20, %55
-  %.0 = phi ptr [ %45, %55 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread ], [ %45, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20 ]
+.loopexit:                                        ; preds = %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20, %65
+  %.0 = phi ptr [ %55, %65 ], [ null, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20.thread ], [ %55, %_ZNKSt8equal_toIN4Luau15BytecodeBuilder11ConstantKeyEEclERKS2_S5_.exit20 ]
   ret ptr %.0
 }
 
@@ -11842,9 +11897,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %126
-  %129 = load <2 x i64>, ptr %.fr27, align 4
-  %130 = shufflevector <2 x i64> %129, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %130, ptr %.fr27, align 4
+  %129 = load i64, ptr %.fr27, align 4
+  %130 = load i64, ptr %9, align 4
+  store i64 %130, ptr %.fr27, align 4
+  store i64 %129, ptr %9, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
 131:                                              ; preds = %126
@@ -13036,9 +13092,6 @@ declare i32 @llvm.smax.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #28
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.xor.v4i32(<4 x i32>) #26
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

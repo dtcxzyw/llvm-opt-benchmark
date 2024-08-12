@@ -678,12 +678,12 @@ define dso_local void @_ZN26cmCTestMultiProcessHandlerC2Ev(ptr noundef nonnull a
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
   %71 = getelementptr inbounds i8, ptr %0, i64 808
   invoke void @_ZN2cm19uv_handle_ptr_base_I9uv_idle_sEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %71)
-          to label %_ZN2cm11uv_idle_ptrC2Ev.exit unwind label %102
+          to label %_ZN2cm11uv_idle_ptrC2Ev.exit unwind label %103
 
 _ZN2cm11uv_idle_ptrC2Ev.exit:                     ; preds = %1
   %72 = getelementptr inbounds i8, ptr %0, i64 824
   invoke void @_ZN2cm19uv_handle_ptr_base_I10uv_timer_sEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %72)
-          to label %_ZN2cm12uv_timer_ptrC2Ev.exit unwind label %104
+          to label %_ZN2cm12uv_timer_ptrC2Ev.exit unwind label %105
 
 _ZN2cm12uv_timer_ptrC2Ev.exit:                    ; preds = %_ZN2cm11uv_idle_ptrC2Ev.exit
   %73 = getelementptr inbounds i8, ptr %0, i64 860
@@ -697,7 +697,7 @@ _ZN2cm12uv_timer_ptrC2Ev.exit:                    ; preds = %_ZN2cm11uv_idle_ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
   invoke void @_ZN10cmAffinity22GetProcessorsAvailableEv(ptr dead_on_unwind nonnull writable sret(%"class.std::set") align 8 %2)
-          to label %78 unwind label %106
+          to label %78 unwind label %107
 
 78:                                               ; preds = %_ZN2cm12uv_timer_ptrC2Ev.exit
   %79 = load ptr, ptr %23, align 8
@@ -727,89 +727,91 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5clearEv.exit.i.i.i: ; preds = %
   store i32 %87, ptr %22, align 8
   store ptr %84, ptr %23, align 8
   %88 = getelementptr inbounds i8, ptr %2, i64 24
-  %89 = getelementptr inbounds i8, ptr %2, i64 32
-  %90 = load <2 x ptr>, ptr %88, align 8
-  store <2 x ptr> %90, ptr %24, align 8
-  %91 = getelementptr inbounds i8, ptr %84, i64 8
-  store ptr %22, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %2, i64 40
-  %93 = load i64, ptr %92, align 8
-  store i64 %93, ptr %26, align 8
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %24, align 8
+  %90 = getelementptr inbounds i8, ptr %2, i64 32
+  %91 = load ptr, ptr %90, align 8
+  store ptr %91, ptr %25, align 8
+  %92 = getelementptr inbounds i8, ptr %84, i64 8
+  store ptr %22, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %2, i64 40
+  %94 = load i64, ptr %93, align 8
+  store i64 %94, ptr %26, align 8
   store ptr null, ptr %83, align 8
   store ptr %86, ptr %88, align 8
-  store ptr %86, ptr %89, align 8
-  store i64 0, ptr %92, align 8
+  store ptr %86, ptr %90, align 8
+  store i64 0, ptr %93, align 8
   br label %_ZNSt3setImSt4lessImESaImEEaSEOS3_.exit
 
 _ZNSt3setImSt4lessImESaImEEaSEOS3_.exit:          ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5clearEv.exit.i.i.i, %85
   invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef null)
-          to label %_ZNSt3setImSt4lessImESaImEED2Ev.exit unwind label %94
+          to label %_ZNSt3setImSt4lessImESaImEED2Ev.exit unwind label %95
 
-94:                                               ; preds = %_ZNSt3setImSt4lessImESaImEEaSEOS3_.exit
-  %95 = landingpad { ptr, i32 }
+95:                                               ; preds = %_ZNSt3setImSt4lessImESaImEEaSEOS3_.exit
+  %96 = landingpad { ptr, i32 }
           catch ptr null
-  %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #26
+  %97 = extractvalue { ptr, i32 } %96, 0
+  call void @__clang_call_terminate(ptr %97) #26
   unreachable
 
 _ZNSt3setImSt4lessImESaImEED2Ev.exit:             ; preds = %_ZNSt3setImSt4lessImESaImEEaSEOS3_.exit
-  %97 = load i64, ptr %26, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 376
-  store i64 %97, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 856
-  store i8 0, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 224
+  %98 = load i64, ptr %26, align 8
+  %99 = getelementptr inbounds i8, ptr %0, i64 376
+  store i64 %98, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 856
   store i8 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 869
-  store i8 0, ptr %101, align 1
+  %101 = getelementptr inbounds i8, ptr %0, i64 224
+  store i8 0, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %0, i64 869
+  store i8 0, ptr %102, align 1
   ret void
 
-102:                                              ; preds = %1
-  %103 = landingpad { ptr, i32 }
+103:                                              ; preds = %1
+  %104 = landingpad { ptr, i32 }
+          cleanup
+  br label %110
+
+105:                                              ; preds = %_ZN2cm11uv_idle_ptrC2Ev.exit
+  %106 = landingpad { ptr, i32 }
           cleanup
   br label %109
 
-104:                                              ; preds = %_ZN2cm11uv_idle_ptrC2Ev.exit
-  %105 = landingpad { ptr, i32 }
-          cleanup
-  br label %108
-
-106:                                              ; preds = %_ZN2cm12uv_timer_ptrC2Ev.exit
-  %107 = landingpad { ptr, i32 }
+107:                                              ; preds = %_ZN2cm12uv_timer_ptrC2Ev.exit
+  %108 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cm19uv_handle_ptr_base_I10uv_timer_sED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %72) #25
-  br label %108
-
-108:                                              ; preds = %106, %104
-  %.pn = phi { ptr, i32 } [ %107, %106 ], [ %105, %104 ]
-  call void @_ZN2cm19uv_handle_ptr_base_I9uv_idle_sED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %71) #25
   br label %109
 
-109:                                              ; preds = %108, %102
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %108 ], [ %103, %102 ]
+109:                                              ; preds = %107, %105
+  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %106, %105 ]
+  call void @_ZN2cm19uv_handle_ptr_base_I9uv_idle_sED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %71) #25
+  br label %110
+
+110:                                              ; preds = %109, %103
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %109 ], [ %104, %103 ]
   call void @_ZN2cm11uv_loop_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %70) #25
-  %110 = load ptr, ptr %67, align 8
-  %.not8.i.i.i = icmp eq ptr %110, %67
+  %111 = load ptr, ptr %67, align 8
+  %.not8.i.i.i = icmp eq ptr %111, %67
   br i1 %.not8.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %109, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %111, %.lr.ph.i.i.i ], [ %110, %109 ]
-  %111 = load ptr, ptr %.09.i.i.i, align 8
+.lr.ph.i.i.i:                                     ; preds = %110, %.lr.ph.i.i.i
+  %.09.i.i.i = phi ptr [ %112, %.lr.ph.i.i.i ], [ %111, %110 ]
+  %112 = load ptr, ptr %.09.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %.09.i.i.i) #27
-  %.not.i.i.i6 = icmp eq ptr %111, %67
+  %.not.i.i.i6 = icmp eq ptr %112, %67
   br i1 %.not.i.i.i6, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !5
 
-_ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i, %109
-  %112 = load i8, ptr %66, align 8
-  %113 = trunc i8 %112 to i1
-  br i1 %113, label %114, label %_ZNSt8optionalI19cmUVJobServerClientED2Ev.exit
+_ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i, %110
+  %113 = load i8, ptr %66, align 8
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %115, label %_ZNSt8optionalI19cmUVJobServerClientED2Ev.exit
 
-114:                                              ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit
+115:                                              ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit
   store i8 0, ptr %66, align 8
   call void @_ZN19cmUVJobServerClientD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #25
   br label %_ZNSt8optionalI19cmUVJobServerClientED2Ev.exit
 
-_ZNSt8optionalI19cmUVJobServerClientED2Ev.exit:   ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, %114
+_ZNSt8optionalI19cmUVJobServerClientED2Ev.exit:   ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, %115
   call void @_ZN24cmCTestResourceAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %59) #25
   call void @_ZNSt3mapIiS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN26cmCTestMultiProcessHandler25ResourceAvailabilityErrorESt4lessIS5_ESaISt4pairIKS5_S7_EEES8_IiESaISA_IKiSE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %53) #25
   call void @_ZNSt3mapIiSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_IN26cmCTestMultiProcessHandler18ResourceAllocationESaIS8_EESt4lessIS6_ESaISt4pairIKS6_SA_EEESaISH_EESB_IiESaISD_IKiSJ_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %47) #25
@@ -818,24 +820,24 @@ _ZNSt8optionalI19cmUVJobServerClientED2Ev.exit:   ; preds = %_ZNSt7__cxx114listI
   call void @_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %34) #25
   call void @_ZN26cmCTestMultiProcessHandler13PropertiesMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %28) #25
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #25
-  %115 = load ptr, ptr %18, align 8
-  %.not8.i.i.i7 = icmp eq ptr %115, %18
+  %116 = load ptr, ptr %18, align 8
+  %.not8.i.i.i7 = icmp eq ptr %116, %18
   br i1 %.not8.i.i.i7, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit11, label %.lr.ph.i.i.i8
 
 .lr.ph.i.i.i8:                                    ; preds = %_ZNSt8optionalI19cmUVJobServerClientED2Ev.exit, %.lr.ph.i.i.i8
-  %.09.i.i.i9 = phi ptr [ %116, %.lr.ph.i.i.i8 ], [ %115, %_ZNSt8optionalI19cmUVJobServerClientED2Ev.exit ]
-  %116 = load ptr, ptr %.09.i.i.i9, align 8
+  %.09.i.i.i9 = phi ptr [ %117, %.lr.ph.i.i.i8 ], [ %116, %_ZNSt8optionalI19cmUVJobServerClientED2Ev.exit ]
+  %117 = load ptr, ptr %.09.i.i.i9, align 8
   call void @_ZdlPv(ptr noundef %.09.i.i.i9) #27
-  %.not.i.i.i10 = icmp eq ptr %116, %18
+  %.not.i.i.i10 = icmp eq ptr %117, %18
   br i1 %.not.i.i.i10, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit11, label %.lr.ph.i.i.i8, !llvm.loop !5
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit11:            ; preds = %.lr.ph.i.i.i8, %_ZNSt8optionalI19cmUVJobServerClientED2Ev.exit
-  %117 = getelementptr inbounds i8, ptr %0, i64 232
-  %118 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @_ZN26cmCTestMultiProcessHandler7TestMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %117) #25
+  %118 = getelementptr inbounds i8, ptr %0, i64 232
+  %119 = getelementptr inbounds i8, ptr %0, i64 16
+  call void @_ZN26cmCTestMultiProcessHandler7TestMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %118) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
-  call void @_ZN19cmCTestResourceSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %118) #25
+  call void @_ZN19cmCTestResourceSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %119) #25
   resume { ptr, i32 } %.pn.pn
 }
 

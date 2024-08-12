@@ -1696,7 +1696,7 @@ declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %42, label %3
+  br i1 %.not, label %48, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1717,57 +1717,69 @@ define linkonce_odr void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default_append
   %18 = icmp ule i64 %15, %17
   tail call void @llvm.assume(i1 %18)
   %.not28 = icmp ult i64 %15, %1
-  br i1 %.not28, label %24, label %.lr.ph.i.i.i
+  br i1 %.not28, label %27, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
-  %.013.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i ], [ %5, %3 ]
-  %.01012.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i ], [ %1, %3 ]
-  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float -1.000000e+00>, ptr %.013.i.i.i, align 4
-  %19 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 16
+  %.013.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %5, %3 ]
+  %.01012.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i ], [ %1, %3 ]
+  store float 0.000000e+00, ptr %.013.i.i.i, align 4
+  %19 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 4
   store float 0.000000e+00, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 20
-  store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 24
-  store i32 -1, ptr %21, align 4
-  %22 = add i64 %.01012.i.i.i, -1
-  %23 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 28
-  %.not.i.i.i = icmp eq i64 %22, 0
+  %20 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 8
+  store float 0.000000e+00, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 12
+  store float -1.000000e+00, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 16
+  store float 0.000000e+00, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 20
+  store i32 0, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 24
+  store i32 -1, ptr %24, align 4
+  %25 = add i64 %.01012.i.i.i, -1
+  %26 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 28
+  %.not.i.i.i = icmp eq i64 %25, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !25
 
 _ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i
-  store ptr %23, ptr %4, align 8
-  br label %42
+  store ptr %26, ptr %4, align 8
+  br label %48
 
-24:                                               ; preds = %3
-  %25 = icmp ult i64 %17, %1
-  br i1 %25, label %26, label %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit
+27:                                               ; preds = %3
+  %28 = icmp ult i64 %17, %1
+  br i1 %28, label %29, label %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit
 
-26:                                               ; preds = %24
+29:                                               ; preds = %27
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #21
   unreachable
 
-_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %24
+_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %27
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %10, i64 %1)
-  %27 = add nuw nsw i64 %.sroa.speculated.i, %10
-  %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 329406144173384850)
-  %29 = mul nuw nsw i64 %28, 28
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #17
-  %31 = getelementptr inbounds i8, ptr %30, i64 %9
+  %30 = add nuw nsw i64 %.sroa.speculated.i, %10
+  %31 = tail call i64 @llvm.umin.i64(i64 %30, i64 329406144173384850)
+  %32 = mul nuw nsw i64 %31, 28
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #17
+  %34 = getelementptr inbounds i8, ptr %33, i64 %9
   br label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
-  %.013.i.i.i31 = phi ptr [ %36, %.lr.ph.i.i.i30 ], [ %31, %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %.01012.i.i.i32 = phi i64 [ %35, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit ]
-  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float -1.000000e+00>, ptr %.013.i.i.i31, align 4
-  %32 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 16
-  store float 0.000000e+00, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 20
-  store i32 0, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 24
-  store i32 -1, ptr %34, align 4
-  %35 = add i64 %.01012.i.i.i32, -1
-  %36 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 28
-  %.not.i.i.i33 = icmp eq i64 %35, 0
+  %.013.i.i.i31 = phi ptr [ %42, %.lr.ph.i.i.i30 ], [ %34, %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %.01012.i.i.i32 = phi i64 [ %41, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit ]
+  store float 0.000000e+00, ptr %.013.i.i.i31, align 4
+  %35 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 4
+  store float 0.000000e+00, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 8
+  store float 0.000000e+00, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 12
+  store float -1.000000e+00, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 16
+  store float 0.000000e+00, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 20
+  store i32 0, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 24
+  store i32 -1, ptr %40, align 4
+  %41 = add i64 %.01012.i.i.i32, -1
+  %42 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 28
+  %.not.i.i.i33 = icmp eq i64 %41, 0
   br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !25
 
 _ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i30
@@ -1775,31 +1787,31 @@ _ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35: ;
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %30, %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
-  %.0911.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
+  %.012.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %33, %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
+  %.0911.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.012.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(28) %.0911.i.i.i.i, i64 28, i1 false), !alias.scope !26
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 28
-  %38 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 28
-  %.not.i.i.i.i = icmp eq ptr %37, %5
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 28
+  %44 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 28
+  %.not.i.i.i.i = icmp eq ptr %43, %5
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !30
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35
   %.not.i37 = icmp eq ptr %6, null
-  br i1 %.not.i37, label %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit38, label %39
+  br i1 %.not.i37, label %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit38, label %45
 
-39:                                               ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
+45:                                               ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #18
   br label %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit38
 
-_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %39
-  store ptr %30, ptr %0, align 8
-  %40 = getelementptr inbounds %"class.cv::KeyPoint", ptr %31, i64 %1
-  store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds %"class.cv::KeyPoint", ptr %30, i64 %28
-  store ptr %41, ptr %11, align 8
-  br label %42
+_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %45
+  store ptr %33, ptr %0, align 8
+  %46 = getelementptr inbounds %"class.cv::KeyPoint", ptr %34, i64 %1
+  store ptr %46, ptr %4, align 8
+  %47 = getelementptr inbounds %"class.cv::KeyPoint", ptr %33, i64 %31
+  store ptr %47, ptr %11, align 8
+  br label %48
 
-42:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit38, %2
+48:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit38, %2
   ret void
 }
 

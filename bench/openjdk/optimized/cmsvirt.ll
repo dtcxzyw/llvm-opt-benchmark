@@ -50,12 +50,12 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden ptr @cmsCreateRGBProfileTHR(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.cmsMAT3, align 8
   %6 = alloca %struct.cmsCIEXYZTRIPLE, align 8
-  %7 = alloca %struct.cmsCIExyY, align 16
+  %7 = alloca %struct.cmsCIExyY, align 8
   %8 = alloca %struct.cmsMAT3, align 8
   %9 = alloca %struct.cmsCIEXYZ, align 8
   %10 = tail call ptr @cmsCreateProfilePlaceholder(ptr noundef %0) #7
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %86, label %11
+  br i1 %.not, label %89, label %11
 
 11:                                               ; preds = %4
   tail call void @cmsSetProfileVersion(ptr noundef nonnull %10, double noundef 4.400000e+00) #7
@@ -65,7 +65,7 @@ define hidden ptr @cmsCreateRGBProfileTHR(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @cmsSetHeaderRenderingIntent(ptr noundef nonnull %10, i32 noundef 0) #7
   %12 = tail call fastcc i32 @SetTextTags(ptr noundef nonnull %10, ptr noundef nonnull @.str)
   %.not48 = icmp eq i32 %12, 0
-  br i1 %.not48, label %84, label %13
+  br i1 %.not48, label %87, label %13
 
 13:                                               ; preds = %11
   %.not63 = icmp eq ptr %1, null
@@ -73,13 +73,13 @@ define hidden ptr @cmsCreateRGBProfileTHR(ptr noundef %0, ptr noundef %1, ptr no
 
 .thread:                                          ; preds = %13
   %14 = icmp ne ptr %2, null
-  br label %58
+  br label %61
 
 15:                                               ; preds = %13
   %16 = tail call ptr @cmsD50_XYZ() #7
   %17 = tail call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 2004119668, ptr noundef %16) #7
   %.not49 = icmp eq i32 %17, 0
-  br i1 %.not49, label %84, label %18
+  br i1 %.not49, label %87, label %18
 
 18:                                               ; preds = %15
   call void @cmsxyY2XYZ(ptr noundef nonnull %9, ptr noundef nonnull %1) #7
@@ -87,129 +87,133 @@ define hidden ptr @cmsCreateRGBProfileTHR(ptr noundef %0, ptr noundef %1, ptr no
   %20 = call i32 @_cmsAdaptationMatrix(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %9, ptr noundef %19) #7
   %21 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1667785060, ptr noundef nonnull %8) #7
   %.not50 = icmp eq i32 %21, 0
-  br i1 %.not50, label %84, label %22
+  br i1 %.not50, label %87, label %22
 
 22:                                               ; preds = %18
   %.not64 = icmp eq ptr %2, null
-  br i1 %.not64, label %58, label %23
+  br i1 %.not64, label %61, label %23
 
 23:                                               ; preds = %22
-  %24 = load <2 x double>, ptr %1, align 8
-  store <2 x double> %24, ptr %7, align 16
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
-  store double 1.000000e+00, ptr %25, align 16
-  %26 = call i32 @_cmsBuildRGB2XYZtransferMatrix(ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %2) #7
-  %.not51 = icmp eq i32 %26, 0
-  br i1 %.not51, label %84, label %27
+  %24 = load double, ptr %1, align 8
+  store double %24, ptr %7, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = load double, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %26, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  store double 1.000000e+00, ptr %28, align 8
+  %29 = call i32 @_cmsBuildRGB2XYZtransferMatrix(ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %2) #7
+  %.not51 = icmp eq i32 %29, 0
+  br i1 %.not51, label %87, label %30
 
-27:                                               ; preds = %23
-  %28 = load double, ptr %5, align 8
-  store double %28, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
-  %30 = load double, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
-  store double %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 48
+30:                                               ; preds = %23
+  %31 = load double, ptr %5, align 8
+  store double %31, ptr %6, align 8
+  %32 = getelementptr inbounds i8, ptr %5, i64 24
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 16
+  %34 = getelementptr inbounds i8, ptr %6, i64 8
   store double %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds i8, ptr %5, i64 48
   %36 = load double, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 24
+  %37 = getelementptr inbounds i8, ptr %6, i64 16
   store double %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 32
+  %38 = getelementptr inbounds i8, ptr %5, i64 8
   %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 32
+  %40 = getelementptr inbounds i8, ptr %6, i64 24
   store double %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 56
+  %41 = getelementptr inbounds i8, ptr %5, i64 32
   %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 40
+  %43 = getelementptr inbounds i8, ptr %6, i64 32
   store double %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %5, i64 16
+  %44 = getelementptr inbounds i8, ptr %5, i64 56
   %45 = load double, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 48
+  %46 = getelementptr inbounds i8, ptr %6, i64 40
   store double %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %5, i64 40
+  %47 = getelementptr inbounds i8, ptr %5, i64 16
   %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 56
+  %49 = getelementptr inbounds i8, ptr %6, i64 48
   store double %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %5, i64 64
+  %50 = getelementptr inbounds i8, ptr %5, i64 40
   %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %6, i64 64
+  %52 = getelementptr inbounds i8, ptr %6, i64 56
   store double %51, ptr %52, align 8
-  %53 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1918392666, ptr noundef nonnull %6) #7
-  %.not52 = icmp eq i32 %53, 0
-  br i1 %.not52, label %84, label %54
+  %53 = getelementptr inbounds i8, ptr %5, i64 64
+  %54 = load double, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %6, i64 64
+  store double %54, ptr %55, align 8
+  %56 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1918392666, ptr noundef nonnull %6) #7
+  %.not52 = icmp eq i32 %56, 0
+  br i1 %.not52, label %87, label %57
 
-54:                                               ; preds = %27
-  %55 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1649957210, ptr noundef nonnull %46) #7
-  %.not53 = icmp eq i32 %55, 0
-  br i1 %.not53, label %84, label %56
+57:                                               ; preds = %30
+  %58 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1649957210, ptr noundef nonnull %49) #7
+  %.not53 = icmp eq i32 %58, 0
+  br i1 %.not53, label %87, label %59
 
-56:                                               ; preds = %54
-  %57 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1733843290, ptr noundef nonnull %37) #7
-  %.not54 = icmp eq i32 %57, 0
-  br i1 %.not54, label %84, label %58
+59:                                               ; preds = %57
+  %60 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1733843290, ptr noundef nonnull %40) #7
+  %.not54 = icmp eq i32 %60, 0
+  br i1 %.not54, label %87, label %61
 
-58:                                               ; preds = %.thread, %56, %22
-  %59 = phi i1 [ %14, %.thread ], [ true, %56 ], [ false, %22 ]
+61:                                               ; preds = %.thread, %59, %22
+  %62 = phi i1 [ %14, %.thread ], [ true, %59 ], [ false, %22 ]
   %.not55 = icmp eq ptr %3, null
-  br i1 %.not55, label %81, label %60
+  br i1 %.not55, label %84, label %63
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %3, align 8
-  %62 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1918128707, ptr noundef %61) #7
-  %.not56 = icmp eq i32 %62, 0
-  br i1 %.not56, label %84, label %63
+63:                                               ; preds = %61
+  %64 = load ptr, ptr %3, align 8
+  %65 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1918128707, ptr noundef %64) #7
+  %.not56 = icmp eq i32 %65, 0
+  br i1 %.not56, label %87, label %66
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %3, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %3, align 8
-  %67 = icmp eq ptr %65, %66
-  br i1 %67, label %68, label %70
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds i8, ptr %3, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %3, align 8
+  %70 = icmp eq ptr %68, %69
+  br i1 %70, label %71, label %73
 
-68:                                               ; preds = %63
-  %69 = call i32 @cmsLinkTag(ptr noundef nonnull %10, i32 noundef 1733579331, i32 noundef 1918128707) #7
-  %.not58 = icmp eq i32 %69, 0
-  br i1 %.not58, label %84, label %72
+71:                                               ; preds = %66
+  %72 = call i32 @cmsLinkTag(ptr noundef nonnull %10, i32 noundef 1733579331, i32 noundef 1918128707) #7
+  %.not58 = icmp eq i32 %72, 0
+  br i1 %.not58, label %87, label %75
 
-70:                                               ; preds = %63
-  %71 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1733579331, ptr noundef %65) #7
-  %.not57 = icmp eq i32 %71, 0
-  br i1 %.not57, label %84, label %72
+73:                                               ; preds = %66
+  %74 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1733579331, ptr noundef %68) #7
+  %.not57 = icmp eq i32 %74, 0
+  br i1 %.not57, label %87, label %75
 
-72:                                               ; preds = %70, %68
-  %73 = getelementptr inbounds i8, ptr %3, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %3, align 8
-  %76 = icmp eq ptr %74, %75
-  br i1 %76, label %77, label %79
+75:                                               ; preds = %73, %71
+  %76 = getelementptr inbounds i8, ptr %3, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %3, align 8
+  %79 = icmp eq ptr %77, %78
+  br i1 %79, label %80, label %82
 
-77:                                               ; preds = %72
-  %78 = call i32 @cmsLinkTag(ptr noundef nonnull %10, i32 noundef 1649693251, i32 noundef 1918128707) #7
-  %.not60 = icmp eq i32 %78, 0
-  br i1 %.not60, label %84, label %81
+80:                                               ; preds = %75
+  %81 = call i32 @cmsLinkTag(ptr noundef nonnull %10, i32 noundef 1649693251, i32 noundef 1918128707) #7
+  %.not60 = icmp eq i32 %81, 0
+  br i1 %.not60, label %87, label %84
 
-79:                                               ; preds = %72
-  %80 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1649693251, ptr noundef %74) #7
-  %.not59 = icmp eq i32 %80, 0
-  br i1 %.not59, label %84, label %81
+82:                                               ; preds = %75
+  %83 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1649693251, ptr noundef %77) #7
+  %.not59 = icmp eq i32 %83, 0
+  br i1 %.not59, label %87, label %84
 
-81:                                               ; preds = %77, %79, %58
-  br i1 %59, label %82, label %86
+84:                                               ; preds = %80, %82, %61
+  br i1 %62, label %85, label %89
 
-82:                                               ; preds = %81
-  %83 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1667789421, ptr noundef nonnull %2) #7
-  %.not61 = icmp eq i32 %83, 0
-  br i1 %.not61, label %84, label %86
+85:                                               ; preds = %84
+  %86 = call i32 @cmsWriteTag(ptr noundef nonnull %10, i32 noundef 1667789421, ptr noundef nonnull %2) #7
+  %.not61 = icmp eq i32 %86, 0
+  br i1 %.not61, label %87, label %89
 
-84:                                               ; preds = %11, %15, %18, %23, %27, %54, %56, %60, %68, %70, %77, %79, %82
-  %85 = call i32 @cmsCloseProfile(ptr noundef nonnull %10) #7
-  br label %86
+87:                                               ; preds = %11, %15, %18, %23, %30, %57, %59, %63, %71, %73, %80, %82, %85
+  %88 = call i32 @cmsCloseProfile(ptr noundef nonnull %10) #7
+  br label %89
 
-86:                                               ; preds = %81, %82, %4, %84
-  %.0 = phi ptr [ null, %84 ], [ null, %4 ], [ %10, %82 ], [ %10, %81 ]
+89:                                               ; preds = %84, %85, %4, %87
+  %.0 = phi ptr [ null, %87 ], [ null, %4 ], [ %10, %85 ], [ %10, %84 ]
   ret ptr %.0
 }
 
@@ -574,13 +578,12 @@ declare i32 @cmsStageSampleCLut16bit(ptr noundef, ptr noundef, ptr noundef, i32 
 define internal noundef i32 @InkLimitingSampler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #2 {
   %4 = load double, ptr %2, align 8
   %5 = fmul double %4, 6.553500e+02
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
-  %7 = load <2 x i16>, ptr %0, align 2
-  %8 = uitofp <2 x i16> %7 to <2 x double>
-  %9 = extractelement <2 x double> %8, i64 0
-  %shift = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %10 = fadd <2 x double> %shift, %8
-  %11 = extractelement <2 x double> %10, i64 0
+  %6 = load i16, ptr %0, align 2
+  %7 = uitofp i16 %6 to double
+  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = uitofp i16 %9 to double
+  %11 = fadd double %7, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 4
   %13 = load i16, ptr %12, align 2
   %14 = uitofp i16 %13 to double
@@ -604,7 +607,7 @@ define internal noundef i32 @InkLimitingSampler(ptr nocapture noundef readonly %
 
 27:                                               ; preds = %3, %21, %26
   %.0 = phi double [ 0.000000e+00, %26 ], [ %24, %21 ], [ 1.000000e+00, %3 ]
-  %28 = fmul double %.0, %9
+  %28 = fmul double %.0, %7
   %29 = fadd double %28, 5.000000e-01
   %30 = fcmp ugt double %29, 0.000000e+00
   br i1 %30, label %31, label %_cmsQuickSaturateWord.exit
@@ -624,7 +627,7 @@ define internal noundef i32 @InkLimitingSampler(ptr nocapture noundef readonly %
 _cmsQuickSaturateWord.exit:                       ; preds = %27, %31, %33
   %.0.i = phi i16 [ %38, %33 ], [ 0, %27 ], [ -1, %31 ]
   store i16 %.0.i, ptr %1, align 2
-  %39 = load i16, ptr %6, align 2
+  %39 = load i16, ptr %8, align 2
   %40 = uitofp i16 %39 to double
   %41 = fmul double %.0, %40
   %42 = fadd double %41, 5.000000e-01
@@ -878,38 +881,42 @@ define hidden ptr @cmsCreate_sRGBProfileTHR(ptr noundef %0) local_unnamed_addr #
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.cmsCreate_sRGBProfileTHR.D65, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) @__const.cmsCreate_sRGBProfileTHR.Rec709Primaries, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
-  store <2 x double> <double 2.400000e+00, double 0x3FEE54EDCD0AEB60>, ptr %2, align 16
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
-  store <2 x double> <double 0x3FAAB1232F514A03, double 0x3FB3D0722149B580>, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
-  store double 4.045000e-02, ptr %7, align 16
-  %8 = call ptr @cmsBuildParametricToneCurve(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %2) #7
+  store double 2.400000e+00, ptr %2, align 16
+  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  store double 0x3FEE54EDCD0AEB60, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  store double 0x3FAAB1232F514A03, ptr %7, align 16
+  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  store double 0x3FB3D0722149B580, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  store double 4.045000e-02, ptr %9, align 16
+  %10 = call ptr @cmsBuildParametricToneCurve(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %2) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %8, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %8, ptr %10, align 8
-  store ptr %8, ptr %5, align 16
-  %11 = icmp eq ptr %8, null
-  br i1 %11, label %19, label %12
+  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %10, ptr %11, align 16
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %10, ptr %12, align 8
+  store ptr %10, ptr %5, align 16
+  %13 = icmp eq ptr %10, null
+  br i1 %13, label %21, label %14
 
-12:                                               ; preds = %1
-  %13 = call ptr @cmsCreateRGBProfileTHR(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  call void @cmsFreeToneCurve(ptr noundef nonnull %8) #7
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %19, label %15
+14:                                               ; preds = %1
+  %15 = call ptr @cmsCreateRGBProfileTHR(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call void @cmsFreeToneCurve(ptr noundef nonnull %10) #7
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %21, label %17
 
-15:                                               ; preds = %12
-  %16 = call fastcc i32 @SetTextTags(ptr noundef nonnull %13, ptr noundef nonnull @.str.10)
-  %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %19
+17:                                               ; preds = %14
+  %18 = call fastcc i32 @SetTextTags(ptr noundef nonnull %15, ptr noundef nonnull @.str.10)
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %19, label %21
 
-17:                                               ; preds = %15
-  %18 = call i32 @cmsCloseProfile(ptr noundef nonnull %13) #7
-  br label %19
+19:                                               ; preds = %17
+  %20 = call i32 @cmsCloseProfile(ptr noundef nonnull %15) #7
+  br label %21
 
-19:                                               ; preds = %15, %12, %1, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %1 ], [ null, %12 ], [ %13, %15 ]
+21:                                               ; preds = %17, %14, %1, %19
+  %.0 = phi ptr [ null, %19 ], [ null, %1 ], [ null, %14 ], [ %15, %17 ]
   ret ptr %.0
 }
 
@@ -1172,27 +1179,33 @@ define internal noundef i32 @bchswSampler(ptr noundef %0, ptr noundef %1, ptr no
   %13 = call double @llvm.fmuladd.f64(double %9, double %11, double %12)
   store double %13, ptr %7, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
-  %17 = load <2 x double>, ptr %14, align 8
-  %18 = load <2 x double>, ptr %16, align 8
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %20 = fadd <2 x double> %17, %19
-  store <2 x double> %20, ptr %15, align 8
+  %15 = load double, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = load double, ptr %16, align 8
+  %18 = fadd double %15, %17
+  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  store double %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = load double, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = load double, ptr %22, align 8
+  %24 = fadd double %21, %23
+  %25 = getelementptr inbounds i8, ptr %7, i64 16
+  store double %24, ptr %25, align 8
   call void @cmsLCh2Lab(ptr noundef nonnull %5, ptr noundef nonnull %7) #7
-  %21 = getelementptr inbounds i8, ptr %2, i64 32
-  %22 = load i32, ptr %21, align 8
-  %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %26, label %23
+  %26 = getelementptr inbounds i8, ptr %2, i64 32
+  %27 = load i32, ptr %26, align 8
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %31, label %28
 
-23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %2, i64 40
-  call void @cmsLab2XYZ(ptr noundef nonnull %24, ptr noundef nonnull %8, ptr noundef nonnull %5) #7
-  %25 = getelementptr inbounds i8, ptr %2, i64 64
-  call void @cmsXYZ2Lab(ptr noundef nonnull %25, ptr noundef nonnull %5, ptr noundef nonnull %8) #7
-  br label %26
+28:                                               ; preds = %3
+  %29 = getelementptr inbounds i8, ptr %2, i64 40
+  call void @cmsLab2XYZ(ptr noundef nonnull %29, ptr noundef nonnull %8, ptr noundef nonnull %5) #7
+  %30 = getelementptr inbounds i8, ptr %2, i64 64
+  call void @cmsXYZ2Lab(ptr noundef nonnull %30, ptr noundef nonnull %5, ptr noundef nonnull %8) #7
+  br label %31
 
-26:                                               ; preds = %23, %3
+31:                                               ; preds = %28, %3
   call void @cmsFloat2LabEncoded(ptr noundef %1, ptr noundef nonnull %5) #7
   ret i32 1
 }

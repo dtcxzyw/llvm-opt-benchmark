@@ -343,16 +343,15 @@ _ZN7msdfgen9readCharFEP8_IO_FILE.exit:            ; preds = %do.body.i
   br label %return
 
 if.end6:                                          ; preds = %if.else, %if.then
+  %start.sroa.0.0.copyload = load double, ptr %p, align 16
   %start.sroa.5.0.p.sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
-  %0 = load <2 x double>, ptr %p, align 16
+  %start.sroa.5.0.copyload = load double, ptr %start.sroa.5.0.p.sroa_idx, align 8
   %arrayidx14 = getelementptr inbounds i8, ptr %p, i64 16
   %y.i39 = getelementptr inbounds i8, ptr %p, i64 24
   %arrayidx3.i = getelementptr inbounds i8, ptr %p, i64 32
   %y.i9.i = getelementptr inbounds i8, ptr %p, i64 40
   %arrayidx103 = getelementptr inbounds i8, ptr %p, i64 48
   %agg.tmp102.sroa.2.0.arrayidx103.sroa_idx = getelementptr inbounds i8, ptr %p, i64 56
-  %1 = extractelement <2 x double> %0, i64 0
-  %2 = extractelement <2 x double> %0, i64 1
   br label %do.body.i35
 
 do.body.i35:                                      ; preds = %do.body.i35.backedge, %if.end6
@@ -401,7 +400,7 @@ default.unreachable:                              ; preds = %if.end71
   unreachable
 
 lpad:                                             ; preds = %if.then17
-  %3 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -431,18 +430,19 @@ do.body.i42.backedge:                             ; preds = %do.body.i42, %do.bo
 sw.bb:                                            ; preds = %do.body.i42
   %agg.tmp29.sroa.0.0.copyload = load double, ptr %p, align 16
   %agg.tmp29.sroa.2.0.copyload = load double, ptr %start.sroa.5.0.p.sroa_idx, align 8
-  %call.i46 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp29.sroa.0.0.copyload, double %agg.tmp29.sroa.2.0.copyload, double %1, double %2, i32 noundef 7)
+  %call.i46 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp29.sroa.0.0.copyload, double %agg.tmp29.sroa.2.0.copyload, double %start.sroa.0.0.copyload, double %start.sroa.5.0.copyload, i32 noundef 7)
   store ptr %call.i46, ptr %ref.tmp28, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %sw.bb
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28) #12
-  store <2 x double> %0, ptr %p, align 16
+  store double %start.sroa.0.0.copyload, ptr %p, align 16
+  store double %start.sroa.5.0.copyload, ptr %start.sroa.5.0.p.sroa_idx, align 8
   br label %do.body.i35.backedge
 
 lpad32:                                           ; preds = %sw.bb
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -575,7 +575,8 @@ do.body.i57.backedge:                             ; preds = %do.body.i57, %do.bo
   br label %do.body.i57
 
 if.then64:                                        ; preds = %do.body.i57
-  store <2 x double> %0, ptr %arrayidx55, align 16
+  store double %start.sroa.0.0.copyload, ptr %arrayidx55, align 16
+  store double %start.sroa.5.0.copyload, ptr %y.i55, align 8
   br label %if.end71
 
 if.end71:                                         ; preds = %FINISH_EDGE, %if.then64
@@ -601,7 +602,7 @@ invoke.cont79:                                    ; preds = %sw.bb72
   br label %do.body.i35.backedge
 
 lpad78:                                           ; preds = %sw.bb72
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -619,7 +620,7 @@ invoke.cont91:                                    ; preds = %sw.bb82
   br label %do.body.i35.backedge
 
 lpad90:                                           ; preds = %sw.bb82
-  %6 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -639,7 +640,7 @@ invoke.cont105:                                   ; preds = %sw.bb94
   br label %do.body.i35.backedge
 
 lpad104:                                          ; preds = %sw.bb94
-  %7 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -649,7 +650,7 @@ return:                                           ; preds = %sw.epilog.i, %READ_
 
 eh.resume:                                        ; preds = %lpad104, %lpad90, %lpad78, %lpad32, %lpad
   %ref.tmp95.sink = phi ptr [ %ref.tmp95, %lpad104 ], [ %ref.tmp83, %lpad90 ], [ %ref.tmp73, %lpad78 ], [ %ref.tmp28, %lpad32 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %7, %lpad104 ], [ %6, %lpad90 ], [ %5, %lpad78 ], [ %4, %lpad32 ], [ %3, %lpad ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad104 ], [ %3, %lpad90 ], [ %2, %lpad78 ], [ %1, %lpad32 ], [ %0, %lpad ]
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95.sink) #12
   resume { ptr, i32 } %.pn
 }

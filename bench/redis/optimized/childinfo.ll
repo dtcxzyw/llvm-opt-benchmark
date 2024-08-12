@@ -353,20 +353,20 @@ if.end7.i:                                        ; preds = %if.then6.i, %if.end
 
 while.body:                                       ; preds = %if.end7.i
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 32), align 8
-  %7 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 8), align 8
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 8), align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 8), align 8
+  %8 = load i64, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 16), align 8
   %9 = load i64, ptr @readChildInfo.buffer, align 8
   %10 = load double, ptr getelementptr inbounds (i8, ptr @readChildInfo.buffer, i64 24), align 8
   %11 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2304), align 8
-  %cmp.i1 = icmp ult i64 %11, %8
+  %cmp.i1 = icmp ult i64 %11, %7
   br i1 %cmp.i1, label %if.then.i3, label %if.end.i2
 
 if.then.i3:                                       ; preds = %while.body
-  store i64 %8, ptr getelementptr inbounds (i8, ptr @server, i64 2304), align 8
+  store i64 %7, ptr getelementptr inbounds (i8, ptr @server, i64 2304), align 8
   br label %if.end.i2
 
 if.end.i2:                                        ; preds = %if.then.i3, %while.body
-  %12 = phi i64 [ %8, %if.then.i3 ], [ %11, %while.body ]
+  %12 = phi i64 [ %7, %if.then.i3 ], [ %11, %while.body ]
   switch i32 %6, label %while.cond.backedge [
     i32 0, label %if.then2.i
     i32 1, label %if.then7.i
@@ -378,7 +378,8 @@ while.cond.backedge:                              ; preds = %if.end.i2, %if.then
   br label %while.cond, !llvm.loop !5
 
 if.then2.i:                                       ; preds = %if.end.i2
-  store <2 x i64> %7, ptr getelementptr inbounds (i8, ptr @server, i64 2312), align 8
+  store i64 %7, ptr getelementptr inbounds (i8, ptr @server, i64 2312), align 8
+  store i64 %8, ptr getelementptr inbounds (i8, ptr @server, i64 2320), align 8
   store i64 %9, ptr getelementptr inbounds (i8, ptr @server, i64 2328), align 8
   %cmp3.i = fcmp une double %10, -1.000000e+00
   br i1 %cmp3.i, label %if.then4.i, label %while.cond.backedge

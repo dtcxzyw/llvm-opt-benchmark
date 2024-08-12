@@ -195,16 +195,19 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN2cv2ml6SVMSGD6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_2ml10SVMSGDImplEED2Ev.exit:
   %1 = alloca %"class.std::allocator.12", align 1
-  %2 = alloca %"class.std::shared_ptr.1", align 16
+  %2 = alloca %"class.std::shared_ptr.1", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1), !noalias !4
-  store ptr null, ptr %2, align 16, !alias.scope !7, !noalias !4
+  store ptr null, ptr %2, align 8, !alias.scope !7, !noalias !4
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv2ml10SVMSGDImplESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nonnull %1), !noalias !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1), !noalias !4
-  %4 = load <2 x ptr>, ptr %2, align 16, !noalias !4
+  %4 = load ptr, ptr %2, align 8, !noalias !4
+  %5 = load ptr, ptr %3, align 8, !noalias !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  store <2 x ptr> %4, ptr %0, align 8
+  store ptr %4, ptr %0, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
@@ -3932,7 +3935,7 @@ define hidden void @_ZN2cv2ml10SVMSGDImplC2Ev(ptr noundef nonnull align 8 derefe
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   invoke void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
-          to label %4 unwind label %10
+          to label %4 unwind label %11
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 112
@@ -3942,9 +3945,11 @@ define hidden void @_ZN2cv2ml10SVMSGDImplC2Ev(ptr noundef nonnull align 8 derefe
   store i32 1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 148
   store i32 0, ptr %8, align 4
-  store <2 x float> <float 0x3EE4F8B580000000, float 0x3FA99999A0000000>, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
-  store float 7.500000e-01, ptr %9, align 8
+  store float 0x3EE4F8B580000000, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 116
+  store float 0x3FA99999A0000000, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 120
+  store float 7.500000e-01, ptr %10, align 8
   store i32 3, ptr %3, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 132
   store i32 100000, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -3952,12 +3957,12 @@ define hidden void @_ZN2cv2ml10SVMSGDImplC2Ev(ptr noundef nonnull align 8 derefe
   store double 1.000000e-05, ptr %.sroa.3.0..sroa_idx.i, align 8
   ret void
 
-10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #18
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4220,7 +4225,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv2ml10SVMSGDImplESaIv
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml10SVMSGDImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %.noexc unwind label %15
+          to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv2ml10SVMSGDImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTVN2cv2ml10SVMSGDImplE, i64 16), ptr %6, align 8
@@ -4246,9 +4251,11 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml10SVMSGDImplESaIvEL
   store i32 1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 164
   store i32 0, ptr %13, align 4
-  store <2 x float> <float 0x3EE4F8B580000000, float 0x3FA99999A0000000>, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 136
-  store float 7.500000e-01, ptr %14, align 8
+  store float 0x3EE4F8B580000000, ptr %10, align 8
+  %14 = getelementptr inbounds i8, ptr %3, i64 132
+  store float 0x3FA99999A0000000, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %3, i64 136
+  store float 7.500000e-01, ptr %15, align 8
   store i32 3, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 148
   store i32 100000, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 4
@@ -4258,13 +4265,13 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml10SVMSGDImplESaIvEL
   store ptr %6, ptr %1, align 8
   ret void
 
-15:                                               ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv2ml10SVMSGDImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv2ml10SVMSGDImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml10SVMSGDImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml10SVMSGDImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9: ; preds = %.body.i, %15
-  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %9, %.body.i ]
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml10SVMSGDImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9: ; preds = %.body.i, %16
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %9, %.body.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %3) #20
   resume { ptr, i32 } %eh.lpad-body
 }

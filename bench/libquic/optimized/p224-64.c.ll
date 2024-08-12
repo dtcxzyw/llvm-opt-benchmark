@@ -3128,8 +3128,12 @@ if.end210:                                        ; preds = %for.body.i192, %if.
   %arrayidx51.i = getelementptr inbounds i8, ptr %tmp.i, i64 32
   %arrayidx53.i = getelementptr inbounds i8, ptr %tmp.i, i64 64
   %arrayidx155.i = getelementptr inbounds i8, ptr %tmp.i, i64 96
+  %arrayidx2.i228.i = getelementptr inbounds i8, ptr %tmp.i, i64 40
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 104
   %arrayidx5.i.i201 = getelementptr inbounds i8, ptr %tmp.i, i64 48
   %arrayidx7.i.i202 = getelementptr inbounds i8, ptr %tmp.i, i64 112
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 56
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 120
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end188.i, %if.end210
@@ -3456,12 +3460,18 @@ for.inc16.i217.i:                                 ; preds = %for.body11.us.i220.
   br i1 %exitcond21.not.i219.i, label %select_point.exit227.i, label %for.body.i207.i, !llvm.loop !19
 
 select_point.exit227.i:                           ; preds = %for.inc16.i217.i
-  %68 = load <2 x i64>, ptr %arrayidx51.i, align 16
-  %69 = sub <2 x i64> <i64 288230376151711748, i64 288225978105200636>, %68
-  store <2 x i64> %69, ptr %arrayidx155.i, align 16
-  %70 = load <2 x i64>, ptr %arrayidx5.i.i201, align 16
-  %71 = sub <2 x i64> <i64 288230376151711740, i64 288230376151711740>, %70
-  store <2 x i64> %71, ptr %arrayidx7.i.i202, align 16
+  %68 = load i64, ptr %arrayidx51.i, align 16
+  %sub.i.i = sub i64 288230376151711748, %68
+  store i64 %sub.i.i, ptr %arrayidx155.i, align 16
+  %69 = load i64, ptr %arrayidx2.i228.i, align 8
+  %sub3.i.i = sub i64 288225978105200636, %69
+  store i64 %sub3.i.i, ptr %arrayidx4.i.i, align 8
+  %70 = load i64, ptr %arrayidx5.i.i201, align 16
+  %sub6.i.i = sub i64 288230376151711740, %70
+  store i64 %sub6.i.i, ptr %arrayidx7.i.i202, align 16
+  %71 = load i64, ptr %arrayidx8.i.i, align 8
+  %sub9.i.i = sub i64 288230376151711740, %71
+  store i64 %sub9.i.i, ptr %arrayidx10.i.i, align 8
   %72 = load i8, ptr %sign.i, align 1
   %conv163.i = zext i8 %72 to i64
   %sub.i229.i = sub nsw i64 0, %conv163.i
@@ -5252,21 +5262,39 @@ for.body.i1868:                                   ; preds = %for.body.i1857, %fo
   br i1 %exitcond.not.i1876, label %copy_conditional.exit1877, label %for.body.i1868, !llvm.loop !20
 
 copy_conditional.exit1877:                        ; preds = %for.body.i1868
-  %116 = load <2 x i64>, ptr %x_out, align 16
-  store <2 x i64> %116, ptr %x3, align 8
+  %116 = load i64, ptr %x_out, align 16
+  store i64 %116, ptr %x3, align 8
+  %117 = load i64, ptr %arrayidx81.i1669, align 8
+  %arrayidx3.i1879 = getelementptr inbounds i8, ptr %x3, i64 8
+  store i64 %117, ptr %arrayidx3.i1879, align 8
+  %118 = load i64, ptr %arrayidx89.i1673, align 16
   %arrayidx5.i1881 = getelementptr inbounds i8, ptr %x3, i64 16
-  %117 = load <2 x i64>, ptr %arrayidx89.i1673, align 16
-  store <2 x i64> %117, ptr %arrayidx5.i1881, align 8
-  %118 = load <2 x i64>, ptr %y_out, align 16
-  store <2 x i64> %118, ptr %y3, align 8
+  store i64 %118, ptr %arrayidx5.i1881, align 8
+  %119 = load i64, ptr %arrayidx92.i1675, align 8
+  %arrayidx7.i1883 = getelementptr inbounds i8, ptr %x3, i64 24
+  store i64 %119, ptr %arrayidx7.i1883, align 8
+  %120 = load i64, ptr %y_out, align 16
+  store i64 %120, ptr %y3, align 8
+  %121 = load i64, ptr %arrayidx81.i1812, align 8
+  %arrayidx3.i1885 = getelementptr inbounds i8, ptr %y3, i64 8
+  store i64 %121, ptr %arrayidx3.i1885, align 8
+  %122 = load i64, ptr %arrayidx89.i1816, align 16
   %arrayidx5.i1887 = getelementptr inbounds i8, ptr %y3, i64 16
-  %119 = load <2 x i64>, ptr %arrayidx89.i1816, align 16
-  store <2 x i64> %119, ptr %arrayidx5.i1887, align 8
-  %120 = load <2 x i64>, ptr %z_out, align 16
-  store <2 x i64> %120, ptr %z3, align 8
+  store i64 %122, ptr %arrayidx5.i1887, align 8
+  %123 = load i64, ptr %arrayidx92.i1818, align 8
+  %arrayidx7.i1889 = getelementptr inbounds i8, ptr %y3, i64 24
+  store i64 %123, ptr %arrayidx7.i1889, align 8
+  %124 = load i64, ptr %z_out, align 16
+  store i64 %124, ptr %z3, align 8
+  %125 = load i64, ptr %arrayidx81.i1132, align 8
+  %arrayidx3.i1891 = getelementptr inbounds i8, ptr %z3, i64 8
+  store i64 %125, ptr %arrayidx3.i1891, align 8
+  %126 = load i64, ptr %arrayidx89.i1136, align 16
   %arrayidx5.i1893 = getelementptr inbounds i8, ptr %z3, i64 16
-  %121 = load <2 x i64>, ptr %arrayidx89.i1136, align 16
-  store <2 x i64> %121, ptr %arrayidx5.i1893, align 8
+  store i64 %126, ptr %arrayidx5.i1893, align 8
+  %127 = load i64, ptr %arrayidx92.i1138, align 8
+  %arrayidx7.i1895 = getelementptr inbounds i8, ptr %z3, i64 24
+  store i64 %127, ptr %arrayidx7.i1895, align 8
   br label %return
 
 return:                                           ; preds = %copy_conditional.exit1877, %if.then47

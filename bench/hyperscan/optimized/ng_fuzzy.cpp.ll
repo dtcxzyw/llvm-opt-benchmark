@@ -8768,15 +8768,18 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   store ptr %0, ptr %__tmp, align 8
   %m_size.i.i.i3.i = getelementptr inbounds i8, ptr %__a, i64 8
-  %1 = load <2 x i64>, ptr %m_size.i.i.i3.i, align 8
-  store <2 x i64> %1, ptr %m_size.i.i.i.i, align 8
+  %1 = load i64, ptr %m_size.i.i.i3.i, align 8
+  store i64 %1, ptr %m_size.i.i.i.i, align 8
+  %m_capacity.i.i.i4.i = getelementptr inbounds i8, ptr %__a, i64 16
+  %2 = load i64, ptr %m_capacity.i.i.i4.i, align 8
+  store i64 %2, ptr %m_capacity.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__a, i8 0, i64 24, i1 false)
   br label %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEC2EOSC_.exit
 
 if.else.i.i:                                      ; preds = %entry
   %m_size.i.i.i = getelementptr inbounds i8, ptr %__a, i64 8
-  %2 = load i64, ptr %m_size.i.i.i, align 8, !noalias !297
-  %add.ptr.i.i.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %0, i64 %2
+  %3 = load i64, ptr %m_size.i.i.i, align 8, !noalias !297
+  %add.ptr.i.i.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %0, i64 %3
   invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %__tmp, ptr %0, ptr %add.ptr.i.i.i, ptr noundef null)
           to label %.noexc.i unwind label %lpad.i
 
@@ -8785,65 +8788,65 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEC2EOSC_.exit
 
 lpad.i:                                           ; preds = %if.else.i.i
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = load i64, ptr %m_capacity.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq i64 %4, 0
+  %5 = load i64, ptr %m_capacity.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN5boost9container17small_vector_baseIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESaISA_EvED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %lpad.i
-  %5 = load ptr, ptr %__tmp, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %m_storage_start.i.i.i, %5
+  %6 = load ptr, ptr %__tmp, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %m_storage_start.i.i.i, %6
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN5boost9container17small_vector_baseIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESaISA_EvED2Ev.exit.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i
-  call void @_ZdlPv(ptr noundef %5) #20
+  call void @_ZdlPv(ptr noundef %6) #20
   br label %_ZN5boost9container17small_vector_baseIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESaISA_EvED2Ev.exit.i
 
 _ZN5boost9container17small_vector_baseIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESaISA_EvED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i, %lpad.i
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %4
 
 _ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEC2EOSC_.exit: ; preds = %if.then.i.i, %.noexc.i
   %cmp.not.i.i.i = icmp eq ptr %__b, %__a
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEC2EOSC_.exit
-  %6 = load ptr, ptr %__b, align 8
+  %7 = load ptr, ptr %__b, align 8
   %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 24
-  %cmp.i.i.i.i.i.i.not.i.i.i.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i, %6
+  %cmp.i.i.i.i.i.i.not.i.i.i.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i, %7
   br i1 %cmp.i.i.i.i.i.i.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i3
 
 if.then.i.i.i.i3:                                 ; preds = %if.then.i.i.i
   %m_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__a, i64 8
   store i64 0, ptr %m_size.i.i.i.i.i.i, align 8
-  %7 = load ptr, ptr %__a, align 8
-  %tobool8.not.i.i.i.i = icmp eq ptr %7, null
-  %cmp.i.i.i.i.i.i.i.i5 = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i, %7
+  %8 = load ptr, ptr %__a, align 8
+  %tobool8.not.i.i.i.i = icmp eq ptr %8, null
+  %cmp.i.i.i.i.i.i.i.i5 = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i, %8
   %or.cond.i.i.i.i = or i1 %tobool8.not.i.i.i.i, %cmp.i.i.i.i.i.i.i.i5
   br i1 %or.cond.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i.i.i.i6
 
 if.then.i.i.i.i.i.i.i6:                           ; preds = %if.then.i.i.i.i3
-  call void @_ZdlPv(ptr noundef nonnull %7) #20
+  call void @_ZdlPv(ptr noundef nonnull %8) #20
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i.i.i6, %if.then.i.i.i.i3
-  %8 = load ptr, ptr %__b, align 8
-  store ptr %8, ptr %__a, align 8
+  %9 = load ptr, ptr %__b, align 8
+  store ptr %9, ptr %__a, align 8
   %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 8
-  %9 = load i64, ptr %m_size.i.i.i.i.i, align 8
-  store i64 %9, ptr %m_size.i.i.i.i.i.i, align 8
+  %10 = load i64, ptr %m_size.i.i.i.i.i, align 8
+  store i64 %10, ptr %m_size.i.i.i.i.i.i, align 8
   %m_capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 16
-  %10 = load i64, ptr %m_capacity.i.i.i.i.i, align 8
+  %11 = load i64, ptr %m_capacity.i.i.i.i.i, align 8
   %m_capacity4.i.i.i.i.i = getelementptr inbounds i8, ptr %__a, i64 16
-  store i64 %10, ptr %m_capacity4.i.i.i.i.i, align 8
+  store i64 %11, ptr %m_capacity4.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__b, i8 0, i64 24, i1 false)
   br label %invoke.cont
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %m_size.i8.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 8
-  %11 = load i64, ptr %m_size.i8.i.i.i.i, align 8, !noalias !300
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %6, i64 %11
-  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %__a, ptr %6, ptr %add.ptr.i.i.i.i.i, ptr noundef null)
+  %12 = load i64, ptr %m_size.i8.i.i.i.i, align 8, !noalias !300
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %7, i64 %12
+  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %__a, ptr %7, ptr %add.ptr.i.i.i.i.i, ptr noundef null)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %if.else.i.i.i.i
@@ -8851,10 +8854,10 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
   br label %invoke.cont
 
 terminate.lpad.i.i.i:                             ; preds = %if.else.i.i.i.i
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #21
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
   unreachable
 
 invoke.cont:                                      ; preds = %.noexc.i.i.i, %if.end.i.i.i.i, %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvEC2EOSC_.exit
@@ -8862,37 +8865,40 @@ invoke.cont:                                      ; preds = %.noexc.i.i.i, %if.e
   br i1 %cmp.not.i.i.i7, label %invoke.cont1, label %if.then.i.i.i8
 
 if.then.i.i.i8:                                   ; preds = %invoke.cont
-  %14 = load ptr, ptr %__tmp, align 8
-  %cmp.i.i.i.i.i.i.not.i.i.i.i10 = icmp eq ptr %m_storage_start.i.i.i, %14
+  %15 = load ptr, ptr %__tmp, align 8
+  %cmp.i.i.i.i.i.i.not.i.i.i.i10 = icmp eq ptr %m_storage_start.i.i.i, %15
   br i1 %cmp.i.i.i.i.i.i.not.i.i.i.i10, label %if.else.i.i.i.i22, label %if.then.i.i.i.i11
 
 if.then.i.i.i.i11:                                ; preds = %if.then.i.i.i8
   %m_size.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %__b, i64 8
   store i64 0, ptr %m_size.i.i.i.i.i.i12, align 8
-  %15 = load ptr, ptr %__b, align 8
-  %tobool8.not.i.i.i.i13 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %__b, align 8
+  %tobool8.not.i.i.i.i13 = icmp eq ptr %16, null
   %m_storage_start.i.i.i.i.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %__b, i64 24
-  %cmp.i.i.i.i.i.i.i.i15 = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i14, %15
+  %cmp.i.i.i.i.i.i.i.i15 = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i14, %16
   %or.cond.i.i.i.i16 = select i1 %tobool8.not.i.i.i.i13, i1 true, i1 %cmp.i.i.i.i.i.i.i.i15
   br i1 %or.cond.i.i.i.i16, label %if.end.i.i.i.i18, label %if.then.i.i.i.i.i.i.i17
 
 if.then.i.i.i.i.i.i.i17:                          ; preds = %if.then.i.i.i.i11
-  call void @_ZdlPv(ptr noundef nonnull %15) #20
+  call void @_ZdlPv(ptr noundef nonnull %16) #20
   %.pre = load ptr, ptr %__tmp, align 8
   br label %if.end.i.i.i.i18
 
 if.end.i.i.i.i18:                                 ; preds = %if.then.i.i.i.i.i.i.i17, %if.then.i.i.i.i11
-  %16 = phi ptr [ %.pre, %if.then.i.i.i.i.i.i.i17 ], [ %14, %if.then.i.i.i.i11 ]
-  store ptr %16, ptr %__b, align 8
-  %17 = load <2 x i64>, ptr %m_size.i.i.i.i, align 8
-  store <2 x i64> %17, ptr %m_size.i.i.i.i.i.i12, align 8
+  %17 = phi ptr [ %.pre, %if.then.i.i.i.i.i.i.i17 ], [ %15, %if.then.i.i.i.i11 ]
+  store ptr %17, ptr %__b, align 8
+  %18 = load i64, ptr %m_size.i.i.i.i, align 8
+  store i64 %18, ptr %m_size.i.i.i.i.i.i12, align 8
+  %19 = load i64, ptr %m_capacity.i.i.i.i, align 8
+  %m_capacity4.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__b, i64 16
+  store i64 %19, ptr %m_capacity4.i.i.i.i.i21, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp, i8 0, i64 24, i1 false)
   br label %invoke.cont1
 
 if.else.i.i.i.i22:                                ; preds = %if.then.i.i.i8
-  %18 = load i64, ptr %m_size.i.i.i.i, align 8, !noalias !303
-  %add.ptr.i.i.i.i.i24 = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %14, i64 %18
-  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %__b, ptr %14, ptr %add.ptr.i.i.i.i.i24, ptr noundef null)
+  %20 = load i64, ptr %m_size.i.i.i.i, align 8, !noalias !303
+  %add.ptr.i.i.i.i.i24 = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %15, i64 %20
+  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %__b, ptr %15, ptr %add.ptr.i.i.i.i.i24, ptr noundef null)
           to label %.noexc.i.i.i26 unwind label %terminate.lpad.i.i.i25
 
 .noexc.i.i.i26:                                   ; preds = %if.else.i.i.i.i22
@@ -8900,24 +8906,24 @@ if.else.i.i.i.i22:                                ; preds = %if.then.i.i.i8
   br label %invoke.cont1
 
 terminate.lpad.i.i.i25:                           ; preds = %if.else.i.i.i.i22
-  %19 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #21
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #21
   unreachable
 
 invoke.cont1:                                     ; preds = %.noexc.i.i.i26, %if.end.i.i.i.i18, %invoke.cont
-  %21 = load i64, ptr %m_capacity.i.i.i.i, align 8
-  %tobool.not.i.i.i.i29 = icmp eq i64 %21, 0
+  %23 = load i64, ptr %m_capacity.i.i.i.i, align 8
+  %tobool.not.i.i.i.i29 = icmp eq i64 %23, 0
   br i1 %tobool.not.i.i.i.i29, label %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvED2Ev.exit, label %if.then.i.i.i.i30
 
 if.then.i.i.i.i30:                                ; preds = %invoke.cont1
-  %22 = load ptr, ptr %__tmp, align 8
-  %cmp.i.i.i.i.i.i.i.i32 = icmp eq ptr %m_storage_start.i.i.i, %22
+  %24 = load ptr, ptr %__tmp, align 8
+  %cmp.i.i.i.i.i.i.i.i32 = icmp eq ptr %m_storage_start.i.i.i, %24
   br i1 %cmp.i.i.i.i.i.i.i.i32, label %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvED2Ev.exit, label %if.then.i.i.i.i.i.i.i33
 
 if.then.i.i.i.i.i.i.i33:                          ; preds = %if.then.i.i.i.i30
-  call void @_ZdlPv(ptr noundef %22) #20
+  call void @_ZdlPv(ptr noundef %24) #20
   br label %_ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvED2Ev.exit
 
 _ZN5boost9container12small_vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEELm1ESaISA_EvED2Ev.exit: ; preds = %invoke.cont1, %if.then.i.i.i.i30, %if.then.i.i.i.i.i.i.i33

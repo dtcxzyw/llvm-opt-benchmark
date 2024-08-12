@@ -66,7 +66,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %17, %13
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %15)
-  br label %99
+  br label %102
 
 .critedge:                                        ; preds = %31
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
@@ -92,7 +92,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 29:                                               ; preds = %25
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %27)
-  br label %99
+  br label %102
 
 31:                                               ; preds = %25
   %32 = getelementptr i8, ptr %27, i64 16
@@ -102,7 +102,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %31
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %27)
-  br label %99
+  br label %102
 
 .lr.ph136:                                        ; preds = %.critedge2.preheader, %.critedge2
   %35 = phi ptr [ %68, %.critedge2 ], [ %22, %.critedge2.preheader ]
@@ -142,7 +142,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 54:                                               ; preds = %50, %45
   %55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %38)
-  br label %99
+  br label %102
 
 56:                                               ; preds = %50
   %57 = inttoptr i64 %53 to ptr
@@ -155,10 +155,10 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 62:                                               ; preds = %56
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %38)
-  br label %99
+  br label %102
 
 64:                                               ; preds = %56
-  %65 = tail call ptr @Aig_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %38) #6
+  %65 = tail call ptr @Aig_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %38) #5
   %.not74 = icmp eq ptr %65, %38
   br i1 %.not74, label %..critedge2_crit_edge, label %66
 
@@ -168,7 +168,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 66:                                               ; preds = %64
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef nonnull %38)
-  br label %99
+  br label %102
 
 .critedge2:                                       ; preds = %..critedge2_crit_edge, %.lr.ph136, %40
   %68 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %35, %.lr.ph136 ], [ %35, %40 ]
@@ -185,58 +185,63 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   %.val94 = load i32, ptr %72, align 4
   %73 = sub nsw i32 %.val80.lcssa, %.val94
   %74 = getelementptr i8, ptr %0, i64 136
-  %75 = getelementptr i8, ptr %0, i64 148
-  %76 = load <4 x i32>, ptr %74, align 8
-  %77 = getelementptr i8, ptr %0, i64 152
-  %.val112 = load i32, ptr %77, align 8
-  %78 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %76)
-  %op.rdx = add i32 %78, %.val112
-  %op.rdx173 = add i32 %op.rdx, 1
-  %.not = icmp eq i32 %73, %op.rdx173
-  br i1 %.not, label %92, label %79
+  %.val97 = load i32, ptr %74, align 8
+  %75 = add nsw i32 %.val97, 1
+  %76 = getelementptr i8, ptr %0, i64 140
+  %.val100 = load i32, ptr %76, align 4
+  %77 = add nsw i32 %75, %.val100
+  %78 = getelementptr i8, ptr %0, i64 144
+  %.val103 = load i32, ptr %78, align 8
+  %79 = add nsw i32 %77, %.val103
+  %80 = getelementptr i8, ptr %0, i64 148
+  %.val106 = load i32, ptr %80, align 4
+  %81 = add nsw i32 %79, %.val106
+  %82 = getelementptr i8, ptr %0, i64 152
+  %.val112 = load i32, ptr %82, align 8
+  %83 = add nsw i32 %81, %.val112
+  %.not = icmp eq i32 %73, %83
+  br i1 %.not, label %95, label %84
 
-79:                                               ; preds = %.critedge4
-  %80 = getelementptr i8, ptr %0, i64 144
-  %81 = getelementptr i8, ptr %0, i64 140
+84:                                               ; preds = %.critedge4
   %puts69 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %.val98 = load i32, ptr %74, align 8
-  %.val101 = load i32, ptr %81, align 4
-  %.val104 = load i32, ptr %80, align 8
-  %.val107 = load i32, ptr %75, align 4
-  %.val113 = load i32, ptr %77, align 8
-  %82 = add nsw i32 %.val98, 1
-  %83 = add nsw i32 %82, %.val101
-  %84 = add nsw i32 %83, %.val104
-  %85 = add nsw i32 %84, %.val107
-  %86 = add nsw i32 %85, %.val113
-  %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef 1, i32 noundef %.val98, i32 noundef %.val101, i32 noundef %.val104, i32 noundef %.val107, i32 noundef %.val113, i32 noundef %86)
+  %.val101 = load i32, ptr %76, align 4
+  %.val104 = load i32, ptr %78, align 8
+  %.val107 = load i32, ptr %80, align 4
+  %.val113 = load i32, ptr %82, align 8
+  %85 = add nsw i32 %.val98, 1
+  %86 = add nsw i32 %85, %.val101
+  %87 = add nsw i32 %86, %.val104
+  %88 = add nsw i32 %87, %.val107
+  %89 = add nsw i32 %88, %.val113
+  %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef 1, i32 noundef %.val98, i32 noundef %.val101, i32 noundef %.val104, i32 noundef %.val107, i32 noundef %.val113, i32 noundef %89)
   %.val118 = load ptr, ptr %21, align 8
-  %88 = getelementptr i8, ptr %.val118, i64 4
-  %.val118.val = load i32, ptr %88, align 4
-  %89 = load i32, ptr %72, align 4
-  %90 = sub nsw i32 %.val118.val, %89
-  %91 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.val118.val, i32 noundef %89, i32 noundef %90)
-  br label %99
+  %91 = getelementptr i8, ptr %.val118, i64 4
+  %.val118.val = load i32, ptr %91, align 4
+  %92 = load i32, ptr %72, align 4
+  %93 = sub nsw i32 %.val118.val, %92
+  %94 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.val118.val, i32 noundef %92, i32 noundef %93)
+  br label %102
 
-92:                                               ; preds = %.critedge4
-  %93 = tail call i32 @Aig_TableCountEntries(ptr noundef nonnull %0) #6
-  %.val109 = load i32, ptr %75, align 4
-  %.val115 = load i32, ptr %77, align 8
-  %94 = add nsw i32 %.val115, %.val109
-  %.not68 = icmp eq i32 %93, %94
-  br i1 %.not68, label %99, label %95
+95:                                               ; preds = %.critedge4
+  %96 = tail call i32 @Aig_TableCountEntries(ptr noundef nonnull %0) #5
+  %.val109 = load i32, ptr %80, align 4
+  %.val115 = load i32, ptr %82, align 8
+  %97 = add nsw i32 %.val115, %.val109
+  %.not68 = icmp eq i32 %96, %97
+  br i1 %.not68, label %102, label %98
 
-95:                                               ; preds = %92
+98:                                               ; preds = %95
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %96 = tail call i32 @Aig_TableCountEntries(ptr noundef nonnull %0) #6
-  %.val110 = load i32, ptr %75, align 4
-  %.val116 = load i32, ptr %77, align 8
-  %97 = add nsw i32 %.val116, %.val110
-  %98 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %96, i32 noundef %.val110, i32 noundef %.val116, i32 noundef %97)
-  br label %99
+  %99 = tail call i32 @Aig_TableCountEntries(ptr noundef nonnull %0) #5
+  %.val110 = load i32, ptr %80, align 4
+  %.val116 = load i32, ptr %82, align 8
+  %100 = add nsw i32 %.val116, %.val110
+  %101 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %99, i32 noundef %.val110, i32 noundef %.val116, i32 noundef %100)
+  br label %102
 
-99:                                               ; preds = %92, %95, %79, %66, %62, %54, %33, %29, %19
-  %.066 = phi i32 [ 0, %19 ], [ 0, %33 ], [ 0, %29 ], [ 0, %62 ], [ 0, %66 ], [ 0, %54 ], [ 0, %79 ], [ 0, %95 ], [ 1, %92 ]
+102:                                              ; preds = %95, %98, %84, %66, %62, %54, %33, %29, %19
+  %.066 = phi i32 [ 0, %19 ], [ 0, %33 ], [ 0, %29 ], [ 0, %62 ], [ 0, %66 ], [ 0, %54 ], [ 0, %84 ], [ 0, %98 ], [ 1, %95 ]
   ret i32 %.066
 }
 
@@ -262,16 +267,12 @@ define void @Aig_ManCheckPhase(ptr nocapture noundef readonly %0) local_unnamed_
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #5
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

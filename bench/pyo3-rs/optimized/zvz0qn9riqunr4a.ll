@@ -17,7 +17,7 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %30, label %7
+  br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -41,29 +41,32 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %17 = trunc i32 %16 to i16
   %18 = xor i16 %17, -1
   store i16 %18, ptr %8, align 8
-  %19 = load <2 x ptr>, ptr %0, align 8
-  %20 = getelementptr i8, <2 x ptr> %19, <2 x i64> <i64 -768, i64 16>
-  store <2 x ptr> %20, ptr %0, align 8
-  %21 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %8)
-  %22 = extractvalue { i64, i64 } %21, 0
-  %23 = icmp eq i64 %22, 1
-  br i1 %23, label %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hee32b76c079234b8E.exit", label %13
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 -768
+  store ptr %20, ptr %0, align 8
+  %21 = load ptr, ptr %12, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr %22, ptr %12, align 8
+  %23 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %8)
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hee32b76c079234b8E.exit", label %13
 
 "_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hee32b76c079234b8E.exit": ; preds = %13, %7
-  %.lcssa.i = phi { i64, i64 } [ %9, %7 ], [ %21, %13 ]
-  %24 = extractvalue { i64, i64 } %.lcssa.i, 1
-  %25 = load ptr, ptr %0, align 8
-  %26 = sub nsw i64 0, %24
-  %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %25, i64 %26
+  %.lcssa.i = phi { i64, i64 } [ %9, %7 ], [ %23, %13 ]
+  %26 = extractvalue { i64, i64 } %.lcssa.i, 1
+  %27 = load ptr, ptr %0, align 8
+  %28 = sub nsw i64 0, %26
+  %29 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %27, i64 %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %28 = load i64, ptr %4, align 8
-  %29 = add i64 %28, -1
-  store i64 %29, ptr %4, align 8
-  br label %30
+  %30 = load i64, ptr %4, align 8
+  %31 = add i64 %30, -1
+  store i64 %31, ptr %4, align 8
+  br label %32
 
-30:                                               ; preds = %1, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hee32b76c079234b8E.exit"
-  %.sroa.0.0 = phi ptr [ %27, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hee32b76c079234b8E.exit" ], [ null, %1 ]
+32:                                               ; preds = %1, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hee32b76c079234b8E.exit"
+  %.sroa.0.0 = phi ptr [ %29, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hee32b76c079234b8E.exit" ], [ null, %1 ]
   ret ptr %.sroa.0.0
 }
 
@@ -74,7 +77,7 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %30, label %7
+  br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -98,29 +101,32 @@ define ptr @"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..t
   %17 = trunc i32 %16 to i16
   %18 = xor i16 %17, -1
   store i16 %18, ptr %8, align 8
-  %19 = load <2 x ptr>, ptr %0, align 8
-  %20 = getelementptr i8, <2 x ptr> %19, <2 x i64> <i64 -384, i64 16>
-  store <2 x ptr> %20, ptr %0, align 8
-  %21 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %8)
-  %22 = extractvalue { i64, i64 } %21, 0
-  %23 = icmp eq i64 %22, 1
-  br i1 %23, label %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17he55574e3b10eafd4E.exit", label %13
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 -384
+  store ptr %20, ptr %0, align 8
+  %21 = load ptr, ptr %12, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr %22, ptr %12, align 8
+  %23 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %8)
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17he55574e3b10eafd4E.exit", label %13
 
 "_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17he55574e3b10eafd4E.exit": ; preds = %13, %7
-  %.lcssa.i = phi { i64, i64 } [ %9, %7 ], [ %21, %13 ]
-  %24 = extractvalue { i64, i64 } %.lcssa.i, 1
-  %25 = load ptr, ptr %0, align 8
-  %26 = sub nsw i64 0, %24
-  %27 = getelementptr inbounds { { i64, [2 x i64] }, {} }, ptr %25, i64 %26
+  %.lcssa.i = phi { i64, i64 } [ %9, %7 ], [ %23, %13 ]
+  %26 = extractvalue { i64, i64 } %.lcssa.i, 1
+  %27 = load ptr, ptr %0, align 8
+  %28 = sub nsw i64 0, %26
+  %29 = getelementptr inbounds { { i64, [2 x i64] }, {} }, ptr %27, i64 %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %28 = load i64, ptr %4, align 8
-  %29 = add i64 %28, -1
-  store i64 %29, ptr %4, align 8
-  br label %30
+  %30 = load i64, ptr %4, align 8
+  %31 = add i64 %30, -1
+  store i64 %31, ptr %4, align 8
+  br label %32
 
-30:                                               ; preds = %1, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17he55574e3b10eafd4E.exit"
-  %.sroa.0.0 = phi ptr [ %27, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17he55574e3b10eafd4E.exit" ], [ null, %1 ]
+32:                                               ; preds = %1, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17he55574e3b10eafd4E.exit"
+  %.sroa.0.0 = phi ptr [ %29, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17he55574e3b10eafd4E.exit" ], [ null, %1 ]
   ret ptr %.sroa.0.0
 }
 
@@ -130,7 +136,7 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h2cba9decacb25f25E
   %3 = alloca [16 x i8], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca [16 x i8], align 16
-  %6 = alloca [40 x i8], align 16
+  %6 = alloca [40 x i8], align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
@@ -154,22 +160,22 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h2cba9decacb25f25E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %21 = load i64, ptr %7, align 8
-  store ptr %11, ptr %6, align 16
+  store ptr %11, ptr %6, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %20, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %15, ptr %.sroa.0.sroa.3.0..sroa_idx, align 16
+  store ptr %15, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
   store i16 %19, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
-  store i64 %21, ptr %.sroa.2.0..sroa_idx, align 16
+  store i64 %21, ptr %.sroa.2.0..sroa_idx, align 8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit.thread", label %.lr.ph
 
-"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit.thread": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit", %40, %10, %1
+"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit.thread": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit", %42, %10, %1
   ret void
 
-.lr.ph:                                           ; preds = %10, %40
+.lr.ph:                                           ; preds = %10, %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %23 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %.sroa.0.sroa.4.0..sroa_idx)
@@ -186,34 +192,37 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h2cba9decacb25f25E
   %29 = trunc i32 %28 to i16
   %30 = xor i16 %29, -1
   store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  %31 = load <2 x ptr>, ptr %6, align 16
-  %32 = getelementptr i8, <2 x ptr> %31, <2 x i64> <i64 -384, i64 16>
-  store <2 x ptr> %32, ptr %6, align 16
-  %33 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %.sroa.0.sroa.4.0..sroa_idx)
-  %34 = extractvalue { i64, i64 } %33, 0
-  %35 = icmp eq i64 %34, 1
-  br i1 %35, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit", label %.lr.ph.i.i
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 -384
+  store ptr %32, ptr %6, align 8
+  %33 = load ptr, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  store ptr %34, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
+  %35 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %.sroa.0.sroa.4.0..sroa_idx)
+  %36 = extractvalue { i64, i64 } %35, 0
+  %37 = icmp eq i64 %36, 1
+  br i1 %37, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit", label %.lr.ph.i.i
 
 "_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit": ; preds = %.lr.ph.i.i, %.lr.ph
-  %.lcssa.i.i = phi { i64, i64 } [ %23, %.lr.ph ], [ %33, %.lr.ph.i.i ]
-  %36 = load ptr, ptr %6, align 16
+  %.lcssa.i.i = phi { i64, i64 } [ %23, %.lr.ph ], [ %35, %.lr.ph.i.i ]
+  %38 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %37 = load i64, ptr %.sroa.2.0..sroa_idx, align 16
-  %38 = add i64 %37, -1
-  store i64 %38, ptr %.sroa.2.0..sroa_idx, align 16
-  %39 = icmp eq ptr %36, null
-  br i1 %39, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit.thread", label %40
+  %39 = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %40 = add i64 %39, -1
+  store i64 %40, ptr %.sroa.2.0..sroa_idx, align 8
+  %41 = icmp eq ptr %38, null
+  br i1 %41, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit.thread", label %42
 
-40:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit"
-  %41 = extractvalue { i64, i64 } %.lcssa.i.i, 1
-  %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { i64, [2 x i64] }, {} }, ptr %36, i64 %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 -24
-  call void @"_ZN4core3ptr75drop_in_place$LT$$LP$pyo3_build_config..impl_..BuildFlag$C$$LP$$RP$$RP$$GT$17hddb24981b9f07c06E"(ptr nonnull align 8 %44)
-  %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 16
-  %45 = icmp eq i64 %.pr, 0
-  br i1 %45, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit.thread", label %.lr.ph
+42:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit"
+  %43 = extractvalue { i64, i64 } %.lcssa.i.i, 1
+  %44 = sub nsw i64 0, %43
+  %45 = getelementptr inbounds { { i64, [2 x i64] }, {} }, ptr %38, i64 %44
+  %46 = getelementptr inbounds i8, ptr %45, i64 -24
+  call void @"_ZN4core3ptr75drop_in_place$LT$$LP$pyo3_build_config..impl_..BuildFlag$C$$LP$$RP$$RP$$GT$17hddb24981b9f07c06E"(ptr nonnull align 8 %46)
+  %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %47 = icmp eq i64 %.pr, 0
+  br i1 %47, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0c5bd8f518c2642E.exit.thread", label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -222,7 +231,7 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hd07f9ac7bbc57338E
   %3 = alloca [16 x i8], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca [16 x i8], align 16
-  %6 = alloca [40 x i8], align 16
+  %6 = alloca [40 x i8], align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
@@ -246,22 +255,22 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hd07f9ac7bbc57338E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %21 = load i64, ptr %7, align 8
-  store ptr %11, ptr %6, align 16
+  store ptr %11, ptr %6, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %20, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %15, ptr %.sroa.0.sroa.3.0..sroa_idx, align 16
+  store ptr %15, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
   store i16 %19, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
-  store i64 %21, ptr %.sroa.2.0..sroa_idx, align 16
+  store i64 %21, ptr %.sroa.2.0..sroa_idx, align 8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit.thread", label %.lr.ph
 
-"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit.thread": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit", %40, %10, %1
+"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit.thread": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit", %42, %10, %1
   ret void
 
-.lr.ph:                                           ; preds = %10, %40
+.lr.ph:                                           ; preds = %10, %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %23 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %.sroa.0.sroa.4.0..sroa_idx)
@@ -278,34 +287,37 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hd07f9ac7bbc57338E
   %29 = trunc i32 %28 to i16
   %30 = xor i16 %29, -1
   store i16 %30, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  %31 = load <2 x ptr>, ptr %6, align 16
-  %32 = getelementptr i8, <2 x ptr> %31, <2 x i64> <i64 -768, i64 16>
-  store <2 x ptr> %32, ptr %6, align 16
-  %33 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %.sroa.0.sroa.4.0..sroa_idx)
-  %34 = extractvalue { i64, i64 } %33, 0
-  %35 = icmp eq i64 %34, 1
-  br i1 %35, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit", label %.lr.ph.i.i
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 -768
+  store ptr %32, ptr %6, align 8
+  %33 = load ptr, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  store ptr %34, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
+  %35 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %.sroa.0.sroa.4.0..sroa_idx)
+  %36 = extractvalue { i64, i64 } %35, 0
+  %37 = icmp eq i64 %36, 1
+  br i1 %37, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit", label %.lr.ph.i.i
 
 "_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit": ; preds = %.lr.ph.i.i, %.lr.ph
-  %.lcssa.i.i = phi { i64, i64 } [ %23, %.lr.ph ], [ %33, %.lr.ph.i.i ]
-  %36 = load ptr, ptr %6, align 16
+  %.lcssa.i.i = phi { i64, i64 } [ %23, %.lr.ph ], [ %35, %.lr.ph.i.i ]
+  %38 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %37 = load i64, ptr %.sroa.2.0..sroa_idx, align 16
-  %38 = add i64 %37, -1
-  store i64 %38, ptr %.sroa.2.0..sroa_idx, align 16
-  %39 = icmp eq ptr %36, null
-  br i1 %39, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit.thread", label %40
+  %39 = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %40 = add i64 %39, -1
+  store i64 %40, ptr %.sroa.2.0..sroa_idx, align 8
+  %41 = icmp eq ptr %38, null
+  br i1 %41, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit.thread", label %42
 
-40:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit"
-  %41 = extractvalue { i64, i64 } %.lcssa.i.i, 1
-  %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %36, i64 %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 -48
-  call void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h9ddcc6b44a2ed6adE"(ptr nonnull align 8 %44)
-  %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 16
-  %45 = icmp eq i64 %.pr, 0
-  br i1 %45, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit.thread", label %.lr.ph
+42:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit"
+  %43 = extractvalue { i64, i64 } %.lcssa.i.i, 1
+  %44 = sub nsw i64 0, %43
+  %45 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %38, i64 %44
+  %46 = getelementptr inbounds i8, ptr %45, i64 -48
+  call void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h9ddcc6b44a2ed6adE"(ptr nonnull align 8 %46)
+  %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %47 = icmp eq i64 %.pr, 0
+  br i1 %47, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h814722fb804429e2E.exit.thread", label %.lr.ph
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -801,7 +813,7 @@ define ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17he55574e3b10eaf
   br label %13
 
 ._crit_edge:                                      ; preds = %13, %1
-  %.lcssa = phi { i64, i64 } [ %5, %1 ], [ %21, %13 ]
+  %.lcssa = phi { i64, i64 } [ %5, %1 ], [ %23, %13 ]
   %9 = extractvalue { i64, i64 } %.lcssa, 1
   %10 = load ptr, ptr %0, align 8
   %11 = sub nsw i64 0, %9
@@ -817,13 +829,16 @@ define ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17he55574e3b10eaf
   %17 = trunc i32 %16 to i16
   %18 = xor i16 %17, -1
   store i16 %18, ptr %4, align 8
-  %19 = load <2 x ptr>, ptr %0, align 8
-  %20 = getelementptr i8, <2 x ptr> %19, <2 x i64> <i64 -384, i64 16>
-  store <2 x ptr> %20, ptr %0, align 8
-  %21 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %4)
-  %22 = extractvalue { i64, i64 } %21, 0
-  %23 = icmp eq i64 %22, 1
-  br i1 %23, label %._crit_edge, label %13
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 -384
+  store ptr %20, ptr %0, align 8
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr %22, ptr %8, align 8
+  %23 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %4)
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %._crit_edge, label %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -841,7 +856,7 @@ define ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hee32b76c079234
   br label %13
 
 ._crit_edge:                                      ; preds = %13, %1
-  %.lcssa = phi { i64, i64 } [ %5, %1 ], [ %21, %13 ]
+  %.lcssa = phi { i64, i64 } [ %5, %1 ], [ %23, %13 ]
   %9 = extractvalue { i64, i64 } %.lcssa, 1
   %10 = load ptr, ptr %0, align 8
   %11 = sub nsw i64 0, %9
@@ -857,13 +872,16 @@ define ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hee32b76c079234
   %17 = trunc i32 %16 to i16
   %18 = xor i16 %17, -1
   store i16 %18, ptr %4, align 8
-  %19 = load <2 x ptr>, ptr %0, align 8
-  %20 = getelementptr i8, <2 x ptr> %19, <2 x i64> <i64 -768, i64 16>
-  store <2 x ptr> %20, ptr %0, align 8
-  %21 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %4)
-  %22 = extractvalue { i64, i64 } %21, 0
-  %23 = icmp eq i64 %22, 1
-  br i1 %23, label %._crit_edge, label %13
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 -768
+  store ptr %20, ptr %0, align 8
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr %22, ptr %8, align 8
+  %23 = call { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7472029d8d2b8bbaE"(ptr nonnull align 2 %4)
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %._crit_edge, label %13
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable

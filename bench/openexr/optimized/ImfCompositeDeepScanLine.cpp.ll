@@ -172,7 +172,13 @@ entry:
   %_channeldata = getelementptr inbounds i8, ptr %this, i64 104
   %_dataWindow = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %_channeldata, i8 0, i64 48, i1 false)
-  store <4 x i32> <i32 2147483647, i32 2147483647, i32 -2147483648, i32 -2147483648>, ptr %_dataWindow, align 8
+  store i32 2147483647, ptr %_dataWindow, align 8
+  %y3.i.i.i = getelementptr inbounds i8, ptr %this, i64 156
+  store i32 2147483647, ptr %y3.i.i.i, align 4
+  %max.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  store i32 -2147483648, ptr %max.i.i, align 8
+  %y3.i4.i.i = getelementptr inbounds i8, ptr %this, i64 164
+  store i32 -2147483648, ptr %y3.i4.i.i, align 4
   %_comp = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %_comp, i8 0, i64 56, i1 false)
   ret void
@@ -199,7 +205,13 @@ entry:
   %_channeldata.i = getelementptr inbounds i8, ptr %call, i64 104
   %_dataWindow.i = getelementptr inbounds i8, ptr %call, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %_channeldata.i, i8 0, i64 48, i1 false)
-  store <4 x i32> <i32 2147483647, i32 2147483647, i32 -2147483648, i32 -2147483648>, ptr %_dataWindow.i, align 4
+  store i32 2147483647, ptr %_dataWindow.i, align 4
+  %y3.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 156
+  store i32 2147483647, ptr %y3.i.i.i.i, align 4
+  %max.i.i.i = getelementptr inbounds i8, ptr %call, i64 160
+  store i32 -2147483648, ptr %max.i.i.i, align 4
+  %y3.i4.i.i.i = getelementptr inbounds i8, ptr %call, i64 164
+  store i32 -2147483648, ptr %y3.i4.i.i.i, align 4
   %_comp.i = getelementptr inbounds i8, ptr %call, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %_comp.i, i8 0, i64 56, i1 false)
   %_Data = getelementptr inbounds i8, ptr %this, i64 8
@@ -4245,12 +4257,16 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIS_IPf
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIS_IPfSaIS0_EESaIS2_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %6 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !47, !noalias !44
-  store <2 x ptr> %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !44, !noalias !47
+  %6 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !47, !noalias !44
+  store ptr %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !44, !noalias !47
+  %_M_finish.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !47, !noalias !44
+  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !44, !noalias !47
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !47, !noalias !44
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !44, !noalias !47
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !47, !noalias !44
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !44, !noalias !47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !47, !noalias !44
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24

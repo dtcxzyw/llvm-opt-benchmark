@@ -2302,12 +2302,12 @@ _Z17process_live_listI17ConcurrentWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN10JfrStorage5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = alloca %class.DiscardOp, align 16
+  %2 = alloca %class.DiscardOp, align 8
   %3 = alloca %class.ScavengingReleaseOp, align 8
   %4 = tail call noundef i64 @_ZN10JfrStorage10clear_fullEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 2, ptr %5, align 16
+  store i32 2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 424
@@ -2357,67 +2357,73 @@ _Z17process_live_listI18CompositeOperationI9DiscardOpI16DefaultDiscarderI9JfrBuf
   %.not.i.i.i13 = icmp eq ptr %23, null
   br i1 %.not.i.i.i13, label %_Z17process_live_listI9DiscardOpI16DefaultDiscarderI9JfrBufferEE14JfrMemorySpaceI10JfrStorage18JfrMspaceRetrieval13JfrLinkedListIS2_11JfrCHeapObjESA_Lb0EEEvRT_PT0_b.exit, label %.lr.ph5
 
-.lr.ph5:                                          ; preds = %_Z17process_live_listI18CompositeOperationI9DiscardOpI16DefaultDiscarderI9JfrBufferEE19ScavengingReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EESE_E21CompositeOperationAndESF_EvRT_PT0_b.exit, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit
-  %.0.i.i.i4 = phi ptr [ %24, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit ], [ %23, %_Z17process_live_listI18CompositeOperationI9DiscardOpI16DefaultDiscarderI9JfrBufferEE19ScavengingReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EESE_E21CompositeOperationAndESF_EvRT_PT0_b.exit ]
-  %24 = load ptr, ptr %.0.i.i.i4, align 8
-  %25 = load i32, ptr %5, align 16
-  %26 = icmp eq i32 %25, 2
-  br i1 %26, label %27, label %29
+.lr.ph5:                                          ; preds = %_Z17process_live_listI18CompositeOperationI9DiscardOpI16DefaultDiscarderI9JfrBufferEE19ScavengingReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EESE_E21CompositeOperationAndESF_EvRT_PT0_b.exit
+  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  br label %25
 
-27:                                               ; preds = %.lr.ph5
-  %28 = call noundef ptr @_ZNK9JfrBuffer28acquire_critical_section_topEv(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i4) #16
-  br label %31
+25:                                               ; preds = %.lr.ph5, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit
+  %.0.i.i.i4 = phi ptr [ %23, %.lr.ph5 ], [ %26, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit ]
+  %26 = load ptr, ptr %.0.i.i.i4, align 8
+  %27 = load i32, ptr %5, align 8
+  %28 = icmp eq i32 %27, 2
+  br i1 %28, label %29, label %31
 
-29:                                               ; preds = %.lr.ph5
-  %30 = call noundef ptr @_ZNK9JfrBuffer3topEv(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i4) #16
-  br label %31
+29:                                               ; preds = %25
+  %30 = call noundef ptr @_ZNK9JfrBuffer28acquire_critical_section_topEv(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i4) #16
+  br label %33
 
-31:                                               ; preds = %29, %27
-  %32 = phi ptr [ %28, %27 ], [ %30, %29 ]
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i4, i64 16
-  %34 = load volatile ptr, ptr %33, align 8
+31:                                               ; preds = %25
+  %32 = call noundef ptr @_ZNK9JfrBuffer3topEv(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i4) #16
+  br label %33
+
+33:                                               ; preds = %31, %29
+  %34 = phi ptr [ %30, %29 ], [ %32, %31 ]
+  %35 = getelementptr inbounds i8, ptr %.0.i.i.i4, i64 16
+  %36 = load volatile ptr, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
-  %35 = icmp eq ptr %34, %32
-  br i1 %35, label %36, label %40
+  %37 = icmp eq ptr %36, %34
+  br i1 %37, label %38, label %42
 
-36:                                               ; preds = %31
-  %37 = load i32, ptr %5, align 16
-  %38 = icmp eq i32 %37, 2
-  br i1 %38, label %39, label %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit
+38:                                               ; preds = %33
+  %39 = load i32, ptr %5, align 8
+  %40 = icmp eq i32 %39, 2
+  br i1 %40, label %41, label %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit
 
-39:                                               ; preds = %36
-  call void @_ZN9JfrBuffer28release_critical_section_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i4, ptr noundef %32) #16
+41:                                               ; preds = %38
+  call void @_ZN9JfrBuffer28release_critical_section_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i4, ptr noundef %34) #16
   br label %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit
 
-40:                                               ; preds = %31
-  %41 = ptrtoint ptr %34 to i64
-  %42 = ptrtoint ptr %32 to i64
-  %43 = sub i64 %41, %42
-  %44 = load <2 x i64>, ptr %2, align 16
-  %45 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %43, i64 1
-  %46 = add <2 x i64> %44, %45
-  store <2 x i64> %46, ptr %2, align 16
-  %47 = load i32, ptr %5, align 16
-  %48 = icmp eq i32 %47, 2
-  %49 = getelementptr inbounds i8, ptr %32, i64 %43
-  br i1 %48, label %50, label %51
+42:                                               ; preds = %33
+  %43 = ptrtoint ptr %36 to i64
+  %44 = ptrtoint ptr %34 to i64
+  %45 = sub i64 %43, %44
+  %46 = load i64, ptr %2, align 8
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %2, align 8
+  %48 = load i64, ptr %24, align 8
+  %49 = add i64 %48, %45
+  store i64 %49, ptr %24, align 8
+  %50 = load i32, ptr %5, align 8
+  %51 = icmp eq i32 %50, 2
+  %52 = getelementptr inbounds i8, ptr %34, i64 %45
+  br i1 %51, label %53, label %54
 
-50:                                               ; preds = %40
-  call void @_ZN9JfrBuffer28release_critical_section_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i4, ptr noundef nonnull %49) #16
+53:                                               ; preds = %42
+  call void @_ZN9JfrBuffer28release_critical_section_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i4, ptr noundef nonnull %52) #16
   br label %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit
 
-51:                                               ; preds = %40
-  call void @_ZN9JfrBuffer7set_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i4, ptr noundef nonnull %49) #16
+54:                                               ; preds = %42
+  call void @_ZN9JfrBuffer7set_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i4, ptr noundef nonnull %52) #16
   br label %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit
 
-_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit: ; preds = %36, %39, %50, %51
-  %.not.i.i.i1 = icmp eq ptr %24, null
-  br i1 %.not.i.i.i1, label %_Z17process_live_listI9DiscardOpI16DefaultDiscarderI9JfrBufferEE14JfrMemorySpaceI10JfrStorage18JfrMspaceRetrieval13JfrLinkedListIS2_11JfrCHeapObjESA_Lb0EEEvRT_PT0_b.exit, label %.lr.ph5, !llvm.loop !33
+_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit: ; preds = %38, %41, %53, %54
+  %.not.i.i.i1 = icmp eq ptr %26, null
+  br i1 %.not.i.i.i1, label %_Z17process_live_listI9DiscardOpI16DefaultDiscarderI9JfrBufferEE14JfrMemorySpaceI10JfrStorage18JfrMspaceRetrieval13JfrLinkedListIS2_11JfrCHeapObjESA_Lb0EEEvRT_PT0_b.exit, label %25, !llvm.loop !33
 
 _Z17process_live_listI9DiscardOpI16DefaultDiscarderI9JfrBufferEE14JfrMemorySpaceI10JfrStorage18JfrMspaceRetrieval13JfrLinkedListIS2_11JfrCHeapObjESA_Lb0EEEvRT_PT0_b.exit: ; preds = %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit, %_Z17process_live_listI18CompositeOperationI9DiscardOpI16DefaultDiscarderI9JfrBufferEE19ScavengingReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EESE_E21CompositeOperationAndESF_EvRT_PT0_b.exit
-  %52 = load i64, ptr %2, align 16
-  %53 = add i64 %52, %4
-  ret i64 %53
+  %55 = load i64, ptr %2, align 8
+  %56 = add i64 %55, %4
+  ret i64 %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4763,10 +4769,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN22UnBufferedWriteToChunkI9JfrB
 
 _ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE16write_unbufferedEPKvl.exit: ; preds = %.critedge.i.i, %4
   %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load <2 x i64>, ptr %25, align 8
-  %27 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %3, i64 1
-  %28 = add <2 x i64> %26, %27
-  store <2 x i64> %28, ptr %25, align 8
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, 1
+  store i64 %27, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = load i64, ptr %28, align 8
+  %30 = add i64 %29, %3
+  store i64 %30, ptr %28, align 8
   ret i1 true
 }
 
@@ -4987,34 +4996,37 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9DiscardOpI16DefaultDiscarderI
 15:                                               ; preds = %10
   %16 = load i32, ptr %3, align 8
   %17 = icmp eq i32 %16, 2
-  br i1 %17, label %18, label %31
+  br i1 %17, label %18, label %33
 
 18:                                               ; preds = %15
   tail call void @_ZN9JfrBuffer28release_critical_section_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %11) #16
-  br label %31
+  br label %33
 
 19:                                               ; preds = %10
   %20 = ptrtoint ptr %13 to i64
   %21 = ptrtoint ptr %11 to i64
   %22 = sub i64 %20, %21
-  %23 = load <2 x i64>, ptr %0, align 8
-  %24 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %22, i64 1
-  %25 = add <2 x i64> %23, %24
-  store <2 x i64> %25, ptr %0, align 8
-  %26 = load i32, ptr %3, align 8
-  %27 = icmp eq i32 %26, 2
-  %28 = getelementptr inbounds i8, ptr %11, i64 %22
-  br i1 %27, label %29, label %30
+  %23 = load i64, ptr %0, align 8
+  %24 = add i64 %23, 1
+  store i64 %24, ptr %0, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, %22
+  store i64 %27, ptr %25, align 8
+  %28 = load i32, ptr %3, align 8
+  %29 = icmp eq i32 %28, 2
+  %30 = getelementptr inbounds i8, ptr %11, i64 %22
+  br i1 %29, label %31, label %32
 
-29:                                               ; preds = %19
-  tail call void @_ZN9JfrBuffer28release_critical_section_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %28) #16
-  br label %31
+31:                                               ; preds = %19
+  tail call void @_ZN9JfrBuffer28release_critical_section_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %30) #16
+  br label %33
 
-30:                                               ; preds = %19
-  tail call void @_ZN9JfrBuffer7set_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %28) #16
-  br label %31
+32:                                               ; preds = %19
+  tail call void @_ZN9JfrBuffer7set_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %30) #16
+  br label %33
 
-31:                                               ; preds = %29, %30, %15, %18
+33:                                               ; preds = %31, %32, %15, %18
   ret i1 true
 }
 

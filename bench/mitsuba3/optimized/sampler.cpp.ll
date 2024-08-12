@@ -655,52 +655,58 @@ define weak_odr void @_ZN7mitsuba7SamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   store i32 0, ptr %7, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba7SamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i64 16), ptr %0, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @.str.8, i64 noundef 12)
-          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit unwind label %15
+          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit unwind label %18
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit: ; preds = %2
   store i32 4, ptr %4, align 4
   %8 = invoke noundef i32 @_ZNK7mitsuba10Properties3getIjEET_RKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %9 unwind label %17
+          to label %9 unwind label %20
 
 9:                                                ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %8, ptr %10, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull @.str.9, i64 noundef 4)
-          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit13 unwind label %15
+          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit13 unwind label %18
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit13: ; preds = %9
   store i32 0, ptr %6, align 4
   %11 = invoke noundef i32 @_ZNK7mitsuba10Properties3getIjEET_RKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %12 unwind label %19
+          to label %12 unwind label %22
 
 12:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit13
   %13 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %11, ptr %13, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %14, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 1, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %17, align 8
   ret void
 
-15:                                               ; preds = %9, %2
-  %16 = landingpad { ptr, i32 }
+18:                                               ; preds = %9, %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  br label %21
+  br label %24
 
-17:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit
-  %18 = landingpad { ptr, i32 }
+20:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
-  br label %21
+  br label %24
 
-19:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit13
-  %20 = landingpad { ptr, i32 }
+22:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit13
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
-  br label %21
+  br label %24
 
-21:                                               ; preds = %19, %17, %15
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %16, %15 ], [ %18, %17 ]
+24:                                               ; preds = %22, %20, %18
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %19, %18 ], [ %21, %20 ]
   call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #16
   resume { ptr, i32 } %.pn
 }

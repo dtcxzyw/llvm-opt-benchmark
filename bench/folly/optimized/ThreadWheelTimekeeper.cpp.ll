@@ -3849,14 +3849,14 @@ invoke.cont:                                      ; preds = %if.end7.i.i.i.i.i.i
   br i1 %tobool.not, label %cleanup, label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %invoke.cont
+  %7 = load ptr, ptr %self, align 8, !tbaa !7
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %self, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !28
-  %8 = load <2 x ptr>, ptr %self, align 8, !tbaa !49
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !28
+  %cmp.not.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEEEEC2ERKSA_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont2
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !29
   %tobool.i.not.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3876,7 +3876,9 @@ _ZNSt10shared_ptrIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8duration
   store i64 0, ptr %ew, align 8, !noalias !168
   %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
   %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
-  store <2 x ptr> %8, ptr %agg.tmp, align 16, !tbaa !49
+  store ptr %7, ptr %agg.tmp, align 16, !tbaa !7
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store ptr %8, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !28
   %13 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store i64 %12, ptr %13, align 16, !alias.scope !171
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_10WTCallbackINS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE16interruptHandlerESt10shared_ptrISE_ENS_17exception_wrapperEEUlvE_EEvRNS1_4DataE, ptr %call_.i, align 16, !tbaa !38

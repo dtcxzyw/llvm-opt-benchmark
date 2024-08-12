@@ -75,68 +75,92 @@ define i32 @cli_check_mydoom_log(ptr noundef %0) local_unnamed_addr #0 {
   %23 = xor i32 %22, -1
   %24 = tail call i32 @llvm.bswap.i32(i32 %23)
   %25 = getelementptr inbounds i8, ptr %14, i64 4
-  %26 = load <4 x i32>, ptr %25, align 4
-  %27 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %26)
-  %28 = insertelement <4 x i32> poison, i32 %24, i64 0
-  %29 = shufflevector <4 x i32> %28, <4 x i32> poison, <4 x i32> zeroinitializer
-  %30 = xor <4 x i32> %27, %29
-  %31 = getelementptr inbounds i8, ptr %14, i64 20
-  %32 = load i32, ptr %31, align 4
-  %33 = tail call i32 @llvm.bswap.i32(i32 %32)
-  %34 = xor i32 %33, %24
-  %35 = getelementptr inbounds i8, ptr %14, i64 24
-  %36 = load i32, ptr %35, align 4
-  %37 = tail call i32 @llvm.bswap.i32(i32 %36)
-  %38 = xor i32 %37, %24
-  %39 = getelementptr inbounds i8, ptr %14, i64 28
+  %26 = load i32, ptr %25, align 4
+  %27 = tail call i32 @llvm.bswap.i32(i32 %26)
+  %28 = xor i32 %27, %24
+  %29 = getelementptr inbounds i8, ptr %14, i64 8
+  %30 = load i32, ptr %29, align 4
+  %31 = tail call i32 @llvm.bswap.i32(i32 %30)
+  %32 = xor i32 %31, %24
+  %33 = add i32 %32, %28
+  %34 = getelementptr inbounds i8, ptr %14, i64 12
+  %35 = load i32, ptr %34, align 4
+  %36 = tail call i32 @llvm.bswap.i32(i32 %35)
+  %37 = xor i32 %36, %24
+  %38 = add i32 %33, %37
+  %39 = getelementptr inbounds i8, ptr %14, i64 16
   %40 = load i32, ptr %39, align 4
   %41 = tail call i32 @llvm.bswap.i32(i32 %40)
   %42 = xor i32 %41, %24
-  %43 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %30)
-  %op.rdx100 = add i32 %43, %34
-  %op.rdx101 = add i32 %38, %42
-  %op.rdx102 = add i32 %op.rdx100, %op.rdx101
-  %44 = xor i32 %op.rdx102, %24
-  %.not96 = icmp eq i32 %44, -1
-  br i1 %.not96, label %45, label %.loopexit
+  %43 = add i32 %38, %42
+  %44 = getelementptr inbounds i8, ptr %14, i64 20
+  %45 = load i32, ptr %44, align 4
+  %46 = tail call i32 @llvm.bswap.i32(i32 %45)
+  %47 = xor i32 %46, %24
+  %48 = add i32 %43, %47
+  %49 = getelementptr inbounds i8, ptr %14, i64 24
+  %50 = load i32, ptr %49, align 4
+  %51 = tail call i32 @llvm.bswap.i32(i32 %50)
+  %52 = xor i32 %51, %24
+  %53 = add i32 %48, %52
+  %54 = getelementptr inbounds i8, ptr %14, i64 28
+  %55 = load i32, ptr %54, align 4
+  %56 = tail call i32 @llvm.bswap.i32(i32 %55)
+  %57 = xor i32 %56, %24
+  %58 = add i32 %53, %57
+  %59 = xor i32 %58, %24
+  %.not96 = icmp eq i32 %59, -1
+  br i1 %.not96, label %60, label %.loopexit
 
-45:                                               ; preds = %21
-  %46 = getelementptr inbounds i8, ptr %14, i64 32
-  %47 = load i32, ptr %46, align 4
-  %48 = xor i32 %47, -1
-  %49 = tail call i32 @llvm.bswap.i32(i32 %48)
-  %50 = getelementptr inbounds i8, ptr %14, i64 36
-  %51 = load <4 x i32>, ptr %50, align 4
-  %52 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %51)
-  %53 = insertelement <4 x i32> poison, i32 %49, i64 0
-  %54 = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> zeroinitializer
-  %55 = xor <4 x i32> %52, %54
-  %56 = getelementptr inbounds i8, ptr %14, i64 52
-  %57 = load i32, ptr %56, align 4
-  %58 = tail call i32 @llvm.bswap.i32(i32 %57)
-  %59 = xor i32 %58, %49
-  %60 = getelementptr inbounds i8, ptr %14, i64 56
-  %61 = load i32, ptr %60, align 4
-  %62 = tail call i32 @llvm.bswap.i32(i32 %61)
-  %63 = xor i32 %62, %49
-  %64 = getelementptr inbounds i8, ptr %14, i64 60
-  %65 = load i32, ptr %64, align 4
-  %66 = tail call i32 @llvm.bswap.i32(i32 %65)
-  %67 = xor i32 %66, %49
-  %68 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %55)
-  %op.rdx = add i32 %68, %59
-  %op.rdx98 = add i32 %63, %67
-  %op.rdx99 = add i32 %op.rdx, %op.rdx98
-  %69 = xor i32 %op.rdx99, %49
-  %.not97 = icmp eq i32 %69, -1
-  br i1 %.not97, label %70, label %.loopexit
+60:                                               ; preds = %21
+  %61 = getelementptr inbounds i8, ptr %14, i64 32
+  %62 = load i32, ptr %61, align 4
+  %63 = xor i32 %62, -1
+  %64 = tail call i32 @llvm.bswap.i32(i32 %63)
+  %65 = getelementptr inbounds i8, ptr %14, i64 36
+  %66 = load i32, ptr %65, align 4
+  %67 = tail call i32 @llvm.bswap.i32(i32 %66)
+  %68 = xor i32 %67, %64
+  %69 = getelementptr inbounds i8, ptr %14, i64 40
+  %70 = load i32, ptr %69, align 4
+  %71 = tail call i32 @llvm.bswap.i32(i32 %70)
+  %72 = xor i32 %71, %64
+  %73 = add i32 %72, %68
+  %74 = getelementptr inbounds i8, ptr %14, i64 44
+  %75 = load i32, ptr %74, align 4
+  %76 = tail call i32 @llvm.bswap.i32(i32 %75)
+  %77 = xor i32 %76, %64
+  %78 = add i32 %73, %77
+  %79 = getelementptr inbounds i8, ptr %14, i64 48
+  %80 = load i32, ptr %79, align 4
+  %81 = tail call i32 @llvm.bswap.i32(i32 %80)
+  %82 = xor i32 %81, %64
+  %83 = add i32 %78, %82
+  %84 = getelementptr inbounds i8, ptr %14, i64 52
+  %85 = load i32, ptr %84, align 4
+  %86 = tail call i32 @llvm.bswap.i32(i32 %85)
+  %87 = xor i32 %86, %64
+  %88 = add i32 %83, %87
+  %89 = getelementptr inbounds i8, ptr %14, i64 56
+  %90 = load i32, ptr %89, align 4
+  %91 = tail call i32 @llvm.bswap.i32(i32 %90)
+  %92 = xor i32 %91, %64
+  %93 = add i32 %88, %92
+  %94 = getelementptr inbounds i8, ptr %14, i64 60
+  %95 = load i32, ptr %94, align 4
+  %96 = tail call i32 @llvm.bswap.i32(i32 %95)
+  %97 = xor i32 %96, %64
+  %98 = add i32 %93, %97
+  %99 = xor i32 %98, %64
+  %.not97 = icmp eq i32 %99, -1
+  br i1 %.not97, label %100, label %.loopexit
 
-70:                                               ; preds = %45
-  %71 = tail call i32 @cli_append_potentially_unwanted(ptr noundef %0, ptr noundef nonnull @.str.1) #7
+100:                                              ; preds = %60
+  %101 = tail call i32 @cli_append_potentially_unwanted(ptr noundef %0, ptr noundef nonnull @.str.1) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %45, %21, %9, %1, %70
-  %.093 = phi i32 [ %71, %70 ], [ 0, %1 ], [ 0, %9 ], [ 0, %21 ], [ 0, %45 ], [ 0, %16 ]
+.loopexit:                                        ; preds = %16, %60, %21, %9, %1, %100
+  %.093 = phi i32 [ %101, %100 ], [ 0, %1 ], [ 0, %9 ], [ 0, %21 ], [ 0, %60 ], [ 0, %16 ]
   ret i32 %.093
 }
 
@@ -779,12 +803,6 @@ declare i8 @llvm.umin.i8(i8, i8) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.bswap.v4i32(<4 x i32>) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

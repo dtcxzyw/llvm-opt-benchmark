@@ -189,8 +189,8 @@ $_ZZN4node5Realm14AddBindingDataINS_7process11BindingDataEJRPNS3_17InternalField
 @.str.5 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 @_ZTVN4node7process11BindingDataE = dso_local unnamed_addr constant { [21 x ptr] } { [21 x ptr] [ptr null, ptr null, ptr @_ZN4node7process11BindingDataD2Ev, ptr @_ZN4node7process11BindingDataD0Ev, ptr @_ZNK4node7process11BindingData10MemoryInfoEPNS_13MemoryTrackerE, ptr @_ZNK4node7process11BindingData14MemoryInfoNameEv, ptr @_ZNK4node7process11BindingData8SelfSizeEv, ptr @_ZNK4node10BaseObject13WrappedObjectEv, ptr @_ZNK4node10BaseObject10IsRootNodeEv, ptr @_ZNK4node10BaseObject15GetDetachednessEv, ptr @_ZNK4node10BaseObject18IsDoneInitializingEv, ptr @_ZNK4node10BaseObject15GetTransferModeEv, ptr @_ZN4node10BaseObject20TransferForMessagingEv, ptr @_ZNK4node10BaseObject17CloneForMessagingEv, ptr @_ZNK4node10BaseObject19NestedTransferablesEv, ptr @_ZN4node10BaseObject20FinalizeTransferReadEN2v85LocalINS1_7ContextEEEPNS1_17ValueDeserializerE, ptr @_ZNK4node10BaseObject33IsNotIndicativeOfMemoryLeakAtExitEv, ptr @_ZN4node10BaseObject11OnGCCollectEv, ptr @_ZNK4node18SnapshotableObject15is_snapshotableEv, ptr @_ZN4node7process11BindingData23PrepareForSerializationEN2v85LocalINS2_7ContextEEEPNS2_15SnapshotCreatorE, ptr @_ZN4node7process11BindingData9SerializeEi] }, align 8
 @.str.6 = private unnamed_addr constant [13 x i8] c"hrtimeBuffer\00", align 1
-@_ZN4node7process11BindingData12fast_number_E = dso_local global %"class.v8::CFunction" zeroinitializer, align 16
-@_ZN4node7process11BindingData12fast_bigint_E = dso_local global %"class.v8::CFunction" zeroinitializer, align 16
+@_ZN4node7process11BindingData12fast_number_E = dso_local global %"class.v8::CFunction" zeroinitializer, align 8
+@_ZN4node7process11BindingData12fast_bigint_E = dso_local global %"class.v8::CFunction" zeroinitializer, align 8
 @.str.9 = private unnamed_addr constant [7 x i8] c"hrtime\00", align 1
 @.str.10 = private unnamed_addr constant [13 x i8] c"hrtimeBigInt\00", align 1
 @.str.11 = private unnamed_addr constant [14 x i8] c"hrtime_buffer\00", align 1
@@ -7472,9 +7472,9 @@ declare noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(p
 define internal void @_GLOBAL__sub_I_node_process_methods.cc() #19 section ".text.startup" {
 entry:
   %ref.tmp.i.i.i.i.i1 = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i.i2 = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i.i2 = alloca %"class.v8::CFunction", align 8
   %ref.tmp.i.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i.i = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i.i = alloca %"class.v8::CFunction", align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #24
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
   %call.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull @_ZN4node11per_process11umask_mutexE) #24
@@ -7509,17 +7509,20 @@ init.i.i.i.i:                                     ; preds = %init.check.i.i.i.i
 
 __cxx_global_var_init.7.exit:                     ; preds = %__cxx_global_var_init.1.exit, %init.check.i.i.i.i, %init.i.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i, ptr noundef nonnull @_ZN4node7process11BindingData10FastNumberEN2v85LocalINS2_5ValueEEE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIvJEEEJNS2_INS_5LocalINS_5ValueEEEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #24
-  %4 = load <2 x ptr>, ptr %retval.i.i.i.i, align 16
+  %.fca.0.load.i.i.i.i = load ptr, ptr %retval.i.i.i.i, align 8
+  %.fca.1.gep.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i.i, i64 8
+  %.fca.1.load.i.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i)
-  store <2 x ptr> %4, ptr @_ZN4node7process11BindingData12fast_number_E, align 16
+  store ptr %.fca.0.load.i.i.i.i, ptr @_ZN4node7process11BindingData12fast_number_E, align 8
+  store ptr %.fca.1.load.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4node7process11BindingData12fast_number_E, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i2)
-  %5 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIvJEEEJNS2_INS_5LocalINS_5ValueEEEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
-  %guard.uninitialized.i.i.i.i3 = icmp eq i8 %5, 0
+  %4 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIvJEEEJNS2_INS_5LocalINS_5ValueEEEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
+  %guard.uninitialized.i.i.i.i3 = icmp eq i8 %4, 0
   br i1 %guard.uninitialized.i.i.i.i3, label %init.check.i.i.i.i7, label %__cxx_global_var_init.8.exit, !prof !101
 
 init.check.i.i.i.i7:                              ; preds = %__cxx_global_var_init.7.exit
-  %6 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIvJEEEJNS2_INS_5LocalINS_5ValueEEEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #24
-  %tobool.not.i.i.i.i8 = icmp eq i32 %6, 0
+  %5 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIvJEEEJNS2_INS_5LocalINS_5ValueEEEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #24
+  %tobool.not.i.i.i.i8 = icmp eq i32 %5, 0
   br i1 %tobool.not.i.i.i.i8, label %__cxx_global_var_init.8.exit, label %init.i.i.i.i9
 
 init.i.i.i.i9:                                    ; preds = %init.check.i.i.i.i7
@@ -7533,9 +7536,12 @@ init.i.i.i.i9:                                    ; preds = %init.check.i.i.i.i7
 
 __cxx_global_var_init.8.exit:                     ; preds = %__cxx_global_var_init.7.exit, %init.check.i.i.i.i7, %init.i.i.i.i9
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i2, ptr noundef nonnull @_ZN4node7process11BindingData10FastBigIntEN2v85LocalINS2_5ValueEEE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIvJEEEJNS2_INS_5LocalINS_5ValueEEEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #24
-  %7 = load <2 x ptr>, ptr %retval.i.i.i.i2, align 16
+  %.fca.0.load.i.i.i.i4 = load ptr, ptr %retval.i.i.i.i2, align 8
+  %.fca.1.gep.i.i.i.i5 = getelementptr inbounds i8, ptr %retval.i.i.i.i2, i64 8
+  %.fca.1.load.i.i.i.i6 = load ptr, ptr %.fca.1.gep.i.i.i.i5, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i2)
-  store <2 x ptr> %7, ptr @_ZN4node7process11BindingData12fast_bigint_E, align 16
+  store ptr %.fca.0.load.i.i.i.i4, ptr @_ZN4node7process11BindingData12fast_bigint_E, align 8
+  store ptr %.fca.1.load.i.i.i.i6, ptr getelementptr inbounds (i8, ptr @_ZN4node7process11BindingData12fast_bigint_E, i64 8), align 8
   ret void
 }
 

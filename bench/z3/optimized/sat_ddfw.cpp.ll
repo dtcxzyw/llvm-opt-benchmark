@@ -755,20 +755,25 @@ for.end:                                          ; preds = %_ZNK3sat4ddfw8num_v
   %m_reinit_count = getelementptr inbounds i8, ptr %this, i64 788
   store i32 0, ptr %m_reinit_count, align 4
   %m_reinit_base = getelementptr inbounds i8, ptr %this, i64 24
+  %18 = load i32, ptr %m_reinit_base, align 8
+  %conv = zext i32 %18 to i64
   %m_reinit_next = getelementptr inbounds i8, ptr %this, i64 808
+  store i64 %conv, ptr %m_reinit_next, align 8
   %m_restart_count = getelementptr inbounds i8, ptr %this, i64 784
   store i32 0, ptr %m_restart_count, align 8
   %m_restart_base = getelementptr inbounds i8, ptr %this, i64 20
-  %18 = load i32, ptr %m_restart_base, align 4
-  %mul = shl i32 %18, 1
+  %19 = load i32, ptr %m_restart_base, align 4
+  %mul = shl i32 %19, 1
   %conv7 = zext i32 %mul to i64
   %m_restart_next = getelementptr inbounds i8, ptr %this, i64 800
   store i64 %conv7, ptr %m_restart_next, align 8
   %m_parsync_count = getelementptr inbounds i8, ptr %this, i64 792
   store i32 0, ptr %m_parsync_count, align 8
-  %19 = load <2 x i32>, ptr %m_reinit_base, align 8
-  %20 = zext <2 x i32> %19 to <2 x i64>
-  store <2 x i64> %20, ptr %m_reinit_next, align 8
+  %m_parsync_base = getelementptr inbounds i8, ptr %this, i64 28
+  %20 = load i32, ptr %m_parsync_base, align 4
+  %conv9 = zext i32 %20 to i64
+  %m_parsync_next = getelementptr inbounds i8, ptr %this, i64 816
+  store i64 %conv9, ptr %m_parsync_next, align 8
   %m_unsat = getelementptr inbounds i8, ptr %this, i64 728
   %21 = load i32, ptr %m_unsat, align 8
   %m_min_sz = getelementptr inbounds i8, ptr %this, i64 848
@@ -2422,7 +2427,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %m_reward.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 8
   %m_reward_avg.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_reward.i.i.i, i8 0, i64 25, i1 false)
-  store <2 x double> <double 1.000000e-05, double 1.000000e+00>, ptr %m_reward_avg.i.i.i, align 8
+  store double 1.000000e-05, ptr %m_reward_avg.i.i.i, align 8
+  %m_beta.i.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 48
+  store double 1.000000e+00, ptr %m_beta.i.i.i.i, align 8
   %m_value.i.i.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_value.i.i.i.i, i8 0, i64 16, i1 false)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.018.i.i, i64 72
@@ -4082,120 +4089,119 @@ for.body41.lr.ph:                                 ; preds = %for.end30
   %m_index.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %shr.i.i107 = and i32 %v, 2147483647
   %idxprom.i.i.i109 = zext nneg i32 %shr.i.i107 to i64
-  %55 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %xor.i, i64 0
   br label %for.body41
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %sw.epilog78
   %__begin135.0191 = phi ptr [ %add.ptr.i71, %for.body41.lr.ph ], [ %incdec.ptr82, %sw.epilog78 ]
-  %56 = load i32, ptr %__begin135.0191, align 4
-  %57 = load ptr, ptr %m_clauses44, align 8
-  %idxprom.i80 = zext i32 %56 to i64
-  %arrayidx.i81 = getelementptr inbounds %"struct.sat::ddfw::clause_info", ptr %57, i64 %idxprom.i80
-  %58 = load double, ptr %arrayidx.i81, align 8
+  %55 = load i32, ptr %__begin135.0191, align 4
+  %56 = load ptr, ptr %m_clauses44, align 8
+  %idxprom.i80 = zext i32 %55 to i64
+  %arrayidx.i81 = getelementptr inbounds %"struct.sat::ddfw::clause_info", ptr %56, i64 %idxprom.i80
+  %57 = load double, ptr %arrayidx.i81, align 8
   %m_num_trues48 = getelementptr inbounds i8, ptr %arrayidx.i81, i64 12
-  %59 = load i32, ptr %m_num_trues48, align 4
-  switch i32 %59, label %sw.epilog78 [
+  %58 = load i32, ptr %m_num_trues48, align 4
+  switch i32 %58, label %sw.epilog78 [
     i32 0, label %sw.bb49
     i32 1, label %sw.bb71
   ]
 
 sw.bb49:                                          ; preds = %for.body41
-  %60 = load i32, ptr %m_unsat50, align 8
-  %dec.i82 = add i32 %60, -1
+  %59 = load i32, ptr %m_unsat50, align 8
+  %dec.i82 = add i32 %59, -1
   store i32 %dec.i82, ptr %m_unsat50, align 8
-  %61 = load ptr, ptr %m_elems.i, align 8
+  %60 = load ptr, ptr %m_elems.i, align 8
   %idxprom.i.i83 = zext i32 %dec.i82 to i64
-  %arrayidx.i.i84 = getelementptr inbounds i32, ptr %61, i64 %idxprom.i.i83
-  %62 = load i32, ptr %arrayidx.i.i84, align 4
-  %cmp.not.i = icmp eq i32 %62, %56
+  %arrayidx.i.i84 = getelementptr inbounds i32, ptr %60, i64 %idxprom.i.i83
+  %61 = load i32, ptr %arrayidx.i.i84, align 4
+  %cmp.not.i = icmp eq i32 %61, %55
   br i1 %cmp.not.i, label %_ZN16indexed_uint_set6removeEj.exit, label %if.then.i85
 
 if.then.i85:                                      ; preds = %sw.bb49
-  %63 = load ptr, ptr %m_index.i, align 8
-  %arrayidx.i8.i = getelementptr inbounds i32, ptr %63, i64 %idxprom.i80
-  %64 = load i32, ptr %arrayidx.i8.i, align 4
-  %idxprom.i9.i = zext i32 %62 to i64
-  %arrayidx.i10.i = getelementptr inbounds i32, ptr %63, i64 %idxprom.i9.i
-  store i32 %64, ptr %arrayidx.i10.i, align 4
-  %65 = load ptr, ptr %m_elems.i, align 8
-  %idxprom.i11.i = zext i32 %64 to i64
-  %arrayidx.i12.i = getelementptr inbounds i32, ptr %65, i64 %idxprom.i11.i
-  store i32 %62, ptr %arrayidx.i12.i, align 4
-  %66 = load i32, ptr %m_unsat50, align 8
-  %67 = load ptr, ptr %m_index.i, align 8
-  %arrayidx.i14.i = getelementptr inbounds i32, ptr %67, i64 %idxprom.i80
-  store i32 %66, ptr %arrayidx.i14.i, align 4
-  %68 = load ptr, ptr %m_elems.i, align 8
-  %idxprom.i15.i = zext i32 %66 to i64
-  %arrayidx.i16.i = getelementptr inbounds i32, ptr %68, i64 %idxprom.i15.i
-  store i32 %56, ptr %arrayidx.i16.i, align 4
+  %62 = load ptr, ptr %m_index.i, align 8
+  %arrayidx.i8.i = getelementptr inbounds i32, ptr %62, i64 %idxprom.i80
+  %63 = load i32, ptr %arrayidx.i8.i, align 4
+  %idxprom.i9.i = zext i32 %61 to i64
+  %arrayidx.i10.i = getelementptr inbounds i32, ptr %62, i64 %idxprom.i9.i
+  store i32 %63, ptr %arrayidx.i10.i, align 4
+  %64 = load ptr, ptr %m_elems.i, align 8
+  %idxprom.i11.i = zext i32 %63 to i64
+  %arrayidx.i12.i = getelementptr inbounds i32, ptr %64, i64 %idxprom.i11.i
+  store i32 %61, ptr %arrayidx.i12.i, align 4
+  %65 = load i32, ptr %m_unsat50, align 8
+  %66 = load ptr, ptr %m_index.i, align 8
+  %arrayidx.i14.i = getelementptr inbounds i32, ptr %66, i64 %idxprom.i80
+  store i32 %65, ptr %arrayidx.i14.i, align 4
+  %67 = load ptr, ptr %m_elems.i, align 8
+  %idxprom.i15.i = zext i32 %65 to i64
+  %arrayidx.i16.i = getelementptr inbounds i32, ptr %67, i64 %idxprom.i15.i
+  store i32 %55, ptr %arrayidx.i16.i, align 4
   %.pre196 = load ptr, ptr %m_clauses44, align 8
   br label %_ZN16indexed_uint_set6removeEj.exit
 
 _ZN16indexed_uint_set6removeEj.exit:              ; preds = %sw.bb49, %if.then.i85
-  %69 = phi ptr [ %57, %sw.bb49 ], [ %.pre196, %if.then.i85 ]
-  %m_clause.i88 = getelementptr inbounds %"struct.sat::ddfw::clause_info", ptr %69, i64 %idxprom.i80, i32 3
-  %70 = load ptr, ptr %m_clause.i88, align 8
-  %m_size.i91 = getelementptr inbounds i8, ptr %70, i64 4
-  %71 = load i32, ptr %m_size.i91, align 4
-  %idx.ext.i92 = zext i32 %71 to i64
+  %68 = phi ptr [ %56, %sw.bb49 ], [ %.pre196, %if.then.i85 ]
+  %m_clause.i88 = getelementptr inbounds %"struct.sat::ddfw::clause_info", ptr %68, i64 %idxprom.i80, i32 3
+  %69 = load ptr, ptr %m_clause.i88, align 8
+  %m_size.i91 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = load i32, ptr %m_size.i91, align 4
+  %idx.ext.i92 = zext i32 %70 to i64
   %add.ptr.i93.idx = shl nuw nsw i64 %idx.ext.i92, 2
-  %72 = getelementptr inbounds i8, ptr %70, i64 %add.ptr.i93.idx
-  %add.ptr.i93.ptr = getelementptr inbounds i8, ptr %72, i64 20
-  %cmp59.not188 = icmp eq i32 %71, 0
+  %71 = getelementptr inbounds i8, ptr %69, i64 %add.ptr.i93.idx
+  %add.ptr.i93.ptr = getelementptr inbounds i8, ptr %71, i64 20
+  %cmp59.not188 = icmp eq i32 %70, 0
   br i1 %cmp59.not188, label %for.end68, label %for.body60.preheader
 
 for.body60.preheader:                             ; preds = %_ZN16indexed_uint_set6removeEj.exit
-  %m_lits.i89.ptr = getelementptr inbounds i8, ptr %70, i64 20
+  %m_lits.i89.ptr = getelementptr inbounds i8, ptr %69, i64 20
   br label %for.body60
 
 for.body60:                                       ; preds = %for.body60.preheader, %_ZN3sat4ddfw8dec_makeENS_7literalE.exit
   %__begin454.0189 = phi ptr [ %incdec.ptr67, %_ZN3sat4ddfw8dec_makeENS_7literalE.exit ], [ %m_lits.i89.ptr, %for.body60.preheader ]
   %l61.sroa.0.0.copyload = load i32, ptr %__begin454.0189, align 4
   %shr.i.i94 = lshr i32 %l61.sroa.0.0.copyload, 1
-  %73 = load ptr, ptr %m_vars.i, align 8
+  %72 = load ptr, ptr %m_vars.i, align 8
   %idxprom.i.i.i96 = zext nneg i32 %shr.i.i94 to i64
-  %m_reward.i.i97 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %73, i64 %idxprom.i.i.i96, i32 1
-  %74 = load double, ptr %m_reward.i.i97, align 8
-  %sub.i98 = fsub double %74, %58
+  %m_reward.i.i97 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %72, i64 %idxprom.i.i.i96, i32 1
+  %73 = load double, ptr %m_reward.i.i97, align 8
+  %sub.i98 = fsub double %73, %57
   store double %sub.i98, ptr %m_reward.i.i97, align 8
-  %75 = load ptr, ptr %m_vars.i, align 8
-  %m_make_count.i.i102 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %75, i64 %idxprom.i.i.i96, i32 3
-  %76 = load i32, ptr %m_make_count.i.i102, align 4
-  %dec.i103 = add i32 %76, -1
+  %74 = load ptr, ptr %m_vars.i, align 8
+  %m_make_count.i.i102 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %74, i64 %idxprom.i.i.i96, i32 3
+  %75 = load i32, ptr %m_make_count.i.i102, align 4
+  %dec.i103 = add i32 %75, -1
   store i32 %dec.i103, ptr %m_make_count.i.i102, align 4
   %cmp.i104 = icmp eq i32 %dec.i103, 0
   br i1 %cmp.i104, label %if.then.i105, label %_ZN3sat4ddfw8dec_makeENS_7literalE.exit
 
 if.then.i105:                                     ; preds = %for.body60
-  %77 = load i32, ptr %m_unsat_vars.i106, align 8
-  %dec.i.i = add i32 %77, -1
+  %76 = load i32, ptr %m_unsat_vars.i106, align 8
+  %dec.i.i = add i32 %76, -1
   store i32 %dec.i.i, ptr %m_unsat_vars.i106, align 8
-  %78 = load ptr, ptr %m_elems.i.i, align 8
+  %77 = load ptr, ptr %m_elems.i.i, align 8
   %idxprom.i.i2.i = zext i32 %dec.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %78, i64 %idxprom.i.i2.i
-  %79 = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.not.i.i = icmp eq i32 %79, %shr.i.i94
+  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %77, i64 %idxprom.i.i2.i
+  %78 = load i32, ptr %arrayidx.i.i.i, align 4
+  %cmp.not.i.i = icmp eq i32 %78, %shr.i.i94
   br i1 %cmp.not.i.i, label %_ZN3sat4ddfw8dec_makeENS_7literalE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i105
-  %80 = load ptr, ptr %m_index.i.i, align 8
-  %arrayidx.i8.i.i = getelementptr inbounds i32, ptr %80, i64 %idxprom.i.i.i96
-  %81 = load i32, ptr %arrayidx.i8.i.i, align 4
-  %idxprom.i9.i.i = zext i32 %79 to i64
-  %arrayidx.i10.i.i = getelementptr inbounds i32, ptr %80, i64 %idxprom.i9.i.i
-  store i32 %81, ptr %arrayidx.i10.i.i, align 4
-  %82 = load ptr, ptr %m_elems.i.i, align 8
-  %idxprom.i11.i.i = zext i32 %81 to i64
-  %arrayidx.i12.i.i = getelementptr inbounds i32, ptr %82, i64 %idxprom.i11.i.i
-  store i32 %79, ptr %arrayidx.i12.i.i, align 4
-  %83 = load i32, ptr %m_unsat_vars.i106, align 8
-  %84 = load ptr, ptr %m_index.i.i, align 8
-  %arrayidx.i14.i.i = getelementptr inbounds i32, ptr %84, i64 %idxprom.i.i.i96
-  store i32 %83, ptr %arrayidx.i14.i.i, align 4
-  %85 = load ptr, ptr %m_elems.i.i, align 8
-  %idxprom.i15.i.i = zext i32 %83 to i64
-  %arrayidx.i16.i.i = getelementptr inbounds i32, ptr %85, i64 %idxprom.i15.i.i
+  %79 = load ptr, ptr %m_index.i.i, align 8
+  %arrayidx.i8.i.i = getelementptr inbounds i32, ptr %79, i64 %idxprom.i.i.i96
+  %80 = load i32, ptr %arrayidx.i8.i.i, align 4
+  %idxprom.i9.i.i = zext i32 %78 to i64
+  %arrayidx.i10.i.i = getelementptr inbounds i32, ptr %79, i64 %idxprom.i9.i.i
+  store i32 %80, ptr %arrayidx.i10.i.i, align 4
+  %81 = load ptr, ptr %m_elems.i.i, align 8
+  %idxprom.i11.i.i = zext i32 %80 to i64
+  %arrayidx.i12.i.i = getelementptr inbounds i32, ptr %81, i64 %idxprom.i11.i.i
+  store i32 %78, ptr %arrayidx.i12.i.i, align 4
+  %82 = load i32, ptr %m_unsat_vars.i106, align 8
+  %83 = load ptr, ptr %m_index.i.i, align 8
+  %arrayidx.i14.i.i = getelementptr inbounds i32, ptr %83, i64 %idxprom.i.i.i96
+  store i32 %82, ptr %arrayidx.i14.i.i, align 4
+  %84 = load ptr, ptr %m_elems.i.i, align 8
+  %idxprom.i15.i.i = zext i32 %82 to i64
+  %arrayidx.i16.i.i = getelementptr inbounds i32, ptr %84, i64 %idxprom.i15.i.i
   store i32 %shr.i.i94, ptr %arrayidx.i16.i.i, align 4
   br label %_ZN3sat4ddfw8dec_makeENS_7literalE.exit
 
@@ -4205,78 +4211,81 @@ _ZN3sat4ddfw8dec_makeENS_7literalE.exit:          ; preds = %for.body60, %if.the
   br i1 %cmp59.not, label %for.end68, label %for.body60
 
 for.end68:                                        ; preds = %_ZN3sat4ddfw8dec_makeENS_7literalE.exit, %_ZN16indexed_uint_set6removeEj.exit
-  %86 = load ptr, ptr %m_vars.i, align 8
-  %m_reward.i.i110 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %86, i64 %idxprom.i.i.i109, i32 1
-  %87 = load double, ptr %m_reward.i.i110, align 8
-  %sub.i111 = fsub double %87, %58
+  %85 = load ptr, ptr %m_vars.i, align 8
+  %m_reward.i.i110 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %85, i64 %idxprom.i.i.i109, i32 1
+  %86 = load double, ptr %m_reward.i.i110, align 8
+  %sub.i111 = fsub double %86, %57
   store double %sub.i111, ptr %m_reward.i.i110, align 8
   br label %sw.epilog78
 
 sw.bb71:                                          ; preds = %for.body41
   %m_trues73 = getelementptr inbounds i8, ptr %arrayidx.i81, i64 8
-  %88 = load i32, ptr %m_trues73, align 8
-  %shr.i.i112 = lshr i32 %88, 1
-  %89 = load ptr, ptr %m_vars.i, align 8
+  %87 = load i32, ptr %m_trues73, align 8
+  %shr.i.i112 = lshr i32 %87, 1
+  %88 = load ptr, ptr %m_vars.i, align 8
   %idxprom.i.i.i114 = zext nneg i32 %shr.i.i112 to i64
-  %m_reward.i.i115 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %89, i64 %idxprom.i.i.i114, i32 1
-  %90 = load double, ptr %m_reward.i.i115, align 8
-  %add.i116 = fadd double %58, %90
+  %m_reward.i.i115 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %88, i64 %idxprom.i.i.i114, i32 1
+  %89 = load double, ptr %m_reward.i.i115, align 8
+  %add.i116 = fadd double %57, %89
   store double %add.i116, ptr %m_reward.i.i115, align 8
   br label %sw.epilog78
 
 sw.epilog78:                                      ; preds = %for.body41, %sw.bb71, %for.end68
+  %90 = load i32, ptr %m_num_trues48, align 4
+  %inc.i118 = add i32 %90, 1
+  store i32 %inc.i118, ptr %m_num_trues48, align 4
   %m_trues.i119 = getelementptr inbounds i8, ptr %arrayidx.i81, i64 8
-  %91 = load <2 x i32>, ptr %m_trues.i119, align 8
-  %92 = add <2 x i32> %91, %55
-  store <2 x i32> %92, ptr %m_trues.i119, align 8
+  %91 = load i32, ptr %m_trues.i119, align 8
+  %add.i120 = add i32 %91, %xor.i
+  store i32 %add.i120, ptr %m_trues.i119, align 8
   %incdec.ptr82 = getelementptr inbounds i8, ptr %__begin135.0191, i64 4
   %cmp40.not = icmp eq ptr %incdec.ptr82, %add.ptr.i79
   br i1 %cmp40.not, label %for.end83, label %for.body41
 
 for.end83:                                        ; preds = %sw.epilog78, %for.end30
-  %93 = load ptr, ptr %m_vars.i, align 8
-  %arrayidx.i.i123 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %93, i64 %idxprom.i.i
-  %94 = load i8, ptr %arrayidx.i.i123, align 1
-  %lnot86 = and i8 %94, 1
+  %92 = load ptr, ptr %m_vars.i, align 8
+  %arrayidx.i.i123 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %92, i64 %idxprom.i.i
+  %93 = load i8, ptr %arrayidx.i.i123, align 1
+  %lnot86 = and i8 %93, 1
   %frombool = xor i8 %lnot86, 1
   store i8 %frombool, ptr %arrayidx.i.i123, align 1
-  %95 = load ptr, ptr %m_vars.i, align 8
-  %m_reward_avg.i = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %95, i64 %idxprom.i.i, i32 6
-  %m_reward.i.i129 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %95, i64 %idxprom.i.i, i32 1
-  %96 = load double, ptr %m_reward.i.i129, align 8
+  %94 = load ptr, ptr %m_vars.i, align 8
+  %m_reward_avg.i = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %94, i64 %idxprom.i.i, i32 6
+  %m_reward.i.i129 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %94, i64 %idxprom.i.i, i32 1
+  %95 = load double, ptr %m_reward.i.i129, align 8
   %m_beta.i.i = getelementptr inbounds i8, ptr %m_reward_avg.i, i64 8
-  %97 = load double, ptr %m_beta.i.i, align 8
+  %96 = load double, ptr %m_beta.i.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %m_reward_avg.i, i64 16
-  %98 = load double, ptr %m_value.i.i, align 8
-  %sub.i.i = fsub double %96, %98
-  %99 = tail call double @llvm.fmuladd.f64(double %97, double %sub.i.i, double %98)
-  store double %99, ptr %m_value.i.i, align 8
-  %100 = load double, ptr %m_reward_avg.i, align 8
-  %cmp.i.i = fcmp ugt double %97, %100
+  %97 = load double, ptr %m_value.i.i, align 8
+  %sub.i.i = fsub double %95, %97
+  %98 = tail call double @llvm.fmuladd.f64(double %96, double %sub.i.i, double %97)
+  store double %98, ptr %m_value.i.i, align 8
+  %99 = load double, ptr %m_reward_avg.i, align 8
+  %cmp.i.i = fcmp ugt double %96, %99
   br i1 %cmp.i.i, label %lor.lhs.false.i.i, label %_ZN3sat4ddfw17update_reward_avgEj.exit
 
 lor.lhs.false.i.i:                                ; preds = %for.end83
   %m_wait.i.i = getelementptr inbounds i8, ptr %m_reward_avg.i, i64 28
-  %101 = load i32, ptr %m_wait.i.i, align 4
-  %dec.i.i130 = add i32 %101, -1
+  %100 = load i32, ptr %m_wait.i.i, align 4
+  %dec.i.i130 = add i32 %100, -1
   store i32 %dec.i.i130, ptr %m_wait.i.i, align 4
-  %tobool.not.i.i = icmp eq i32 %101, 0
+  %tobool.not.i.i = icmp eq i32 %100, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %_ZN3sat4ddfw17update_reward_avgEj.exit
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %m_period.i.i = getelementptr inbounds i8, ptr %m_reward_avg.i, i64 24
-  %102 = load i32, ptr %m_period.i.i, align 8
-  %add.i.i = shl i32 %102, 1
+  %101 = load i32, ptr %m_period.i.i, align 8
+  %add.i.i = shl i32 %101, 1
   %sub4.i.i = or disjoint i32 %add.i.i, 1
   store i32 %sub4.i.i, ptr %m_period.i.i, align 8
   store i32 %sub4.i.i, ptr %m_wait.i.i, align 4
-  %mul8.i.i = fmul double %97, 5.000000e-01
+  %mul8.i.i = fmul double %96, 5.000000e-01
   store double %mul8.i.i, ptr %m_beta.i.i, align 8
-  %cmp11.i.i = fcmp olt double %mul8.i.i, %100
+  %cmp11.i.i = fcmp olt double %mul8.i.i, %99
   br i1 %cmp11.i.i, label %if.then12.i.i, label %_ZN3sat4ddfw17update_reward_avgEj.exit
 
 if.then12.i.i:                                    ; preds = %if.end.i.i
-  store double %100, ptr %m_beta.i.i, align 8
+  store double %99, ptr %m_beta.i.i, align 8
   br label %_ZN3sat4ddfw17update_reward_avgEj.exit
 
 _ZN3sat4ddfw17update_reward_avgEj.exit:           ; preds = %for.end83, %lor.lhs.false.i.i, %if.end.i.i, %if.then12.i.i

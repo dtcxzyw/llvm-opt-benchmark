@@ -133,20 +133,28 @@ entry:
   %idxprom = sext i32 %scanout to i64
   %arrayidx = getelementptr [16 x %struct.virtio_gpu_requested_state], ptr %req_state, i64 0, i64 %idxprom
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %info, i8 0, i64 24, i1 false)
-  %0 = load <2 x i16>, ptr %arrayidx, align 4
-  store <2 x i16> %0, ptr %width_mm, align 8
+  %0 = load i16, ptr %arrayidx, align 4
+  store i16 %0, ptr %width_mm, align 8
+  %height_mm = getelementptr inbounds i8, ptr %info, i64 26
+  %height_mm5 = getelementptr inbounds i8, ptr %arrayidx, i64 2
+  %1 = load i16, ptr %height_mm5, align 2
+  store i16 %1, ptr %height_mm, align 2
   %prefx = getelementptr inbounds i8, ptr %info, i64 28
   %width = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %1 = load <2 x i32>, ptr %width, align 4
-  store <2 x i32> %1, ptr %prefx, align 4
+  %2 = load i32, ptr %width, align 4
+  store i32 %2, ptr %prefx, align 4
+  %prefy = getelementptr inbounds i8, ptr %info, i64 32
+  %height = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %3 = load i32, ptr %height, align 4
+  store i32 %3, ptr %prefy, align 8
   %maxx = getelementptr inbounds i8, ptr %info, i64 36
   store i32 0, ptr %maxx, align 4
   %maxy = getelementptr inbounds i8, ptr %info, i64 40
   store i32 0, ptr %maxy, align 8
   %refresh_rate = getelementptr inbounds i8, ptr %info, i64 44
   %refresh_rate15 = getelementptr inbounds i8, ptr %arrayidx, i64 12
-  %2 = load i32, ptr %refresh_rate15, align 4
-  store i32 %2, ptr %refresh_rate, align 4
+  %4 = load i32, ptr %refresh_rate15, align 4
+  store i32 %4, ptr %refresh_rate, align 4
   %size = getelementptr inbounds i8, ptr %edid, i64 24
   store i32 1024, ptr %size, align 8
   %edid16 = getelementptr inbounds i8, ptr %edid, i64 32
@@ -203,13 +211,17 @@ if.end9:                                          ; preds = %if.then3.if.end9_cr
   %enabled_output_bitmask = getelementptr inbounds i8, ptr %call.i28, i64 2528
   store i32 1, ptr %enabled_output_bitmask, align 16
   %xres = getelementptr inbounds i8, ptr %call.i28, i64 536
+  %4 = load i32, ptr %xres, align 8
   %width = getelementptr inbounds i8, ptr %call.i28, i64 2536
-  %4 = load <2 x i32>, ptr %xres, align 8
-  store <2 x i32> %4, ptr %width, align 4
+  store i32 %4, ptr %width, align 4
+  %yres = getelementptr inbounds i8, ptr %call.i28, i64 540
+  %5 = load i32, ptr %yres, align 4
+  %height = getelementptr inbounds i8, ptr %call.i28, i64 2540
+  store i32 %5, ptr %height, align 4
   %hw_ops = getelementptr inbounds i8, ptr %call.i28, i64 568
   store ptr @virtio_gpu_ops, ptr %hw_ops, align 8
-  %5 = load i32, ptr %conf, align 16
-  %cmp3031.not = icmp eq i32 %5, 0
+  %6 = load i32, ptr %conf, align 16
+  %cmp3031.not = icmp eq i32 %6, 0
   br i1 %cmp3031.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end9
@@ -224,8 +236,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx33 = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout, i64 0, i64 %idxprom
   store ptr %call32, ptr %arrayidx33, align 8
   %inc = add nuw i32 %i.032, 1
-  %6 = load i32, ptr %conf, align 16
-  %cmp30 = icmp ult i32 %inc, %6
+  %7 = load i32, ptr %conf, align 16
+  %cmp30 = icmp ult i32 %inc, %7
   br i1 %cmp30, label %for.body, label %return, !llvm.loop !8
 
 return:                                           ; preds = %for.body, %if.end9, %if.then3, %if.then

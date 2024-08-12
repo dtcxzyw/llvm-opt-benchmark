@@ -10,10 +10,16 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden noundef nonnull ptr @MD5(ptr noundef %data, i64 noundef %len, ptr noundef writeonly %out) local_unnamed_addr #0 {
 entry:
-  %ctx = alloca %struct.md5_state_st, align 16
+  %ctx = alloca %struct.md5_state_st, align 4
   %0 = getelementptr inbounds i8, ptr %ctx, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(92) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %ctx, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %0, i8 0, i64 76, i1 false)
+  store i32 1732584193, ptr %ctx, align 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %ctx, i64 4
+  store i32 -271733879, ptr %arrayidx2.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  store i32 -1732584194, ptr %arrayidx4.i, align 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %ctx, i64 12
+  store i32 271733878, ptr %arrayidx6.i, align 4
   %cmp.i = icmp eq i64 %len, 0
   br i1 %cmp.i, label %MD5_Update.exit, label %if.end37.i
 
@@ -24,7 +30,7 @@ if.end37.i:                                       ; preds = %entry
   %shr.i = lshr i64 %len, 29
   %conv6.i = trunc i64 %shr.i to i32
   store i32 %conv6.i, ptr %Nh.i, align 4
-  store i32 %shl.i, ptr %0, align 16
+  store i32 %shl.i, ptr %0, align 4
   %num.i = getelementptr inbounds i8, ptr %ctx, i64 88
   %cmp38.not.i = icmp ult i64 %len, 64
   br i1 %cmp38.not.i, label %if.then48.i, label %if.end45.i
@@ -42,9 +48,9 @@ if.then48.i:                                      ; preds = %if.end37.i, %if.end
   %data.1.i7 = phi ptr [ %add.ptr43.i, %if.end45.i ], [ %data, %if.end37.i ]
   %len.addr.1.i6 = phi i64 [ %sub44.i, %if.end45.i ], [ %len, %if.end37.i ]
   %conv49.i = trunc nuw i64 %len.addr.1.i6 to i32
-  store i32 %conv49.i, ptr %num.i, align 8
+  store i32 %conv49.i, ptr %num.i, align 4
   %data51.i = getelementptr inbounds i8, ptr %ctx, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data51.i, ptr align 1 %data.1.i7, i64 %len.addr.1.i6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data51.i, ptr align 1 %data.1.i7, i64 %len.addr.1.i6, i1 false)
   br label %MD5_Update.exit
 
 MD5_Update.exit:                                  ; preds = %entry, %if.end45.i, %if.then48.i
@@ -59,7 +65,13 @@ define hidden noundef i32 @MD5_Init(ptr nocapture noundef writeonly %md5) local_
 entry:
   %0 = getelementptr inbounds i8, ptr %md5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %md5, align 4
+  store i32 1732584193, ptr %md5, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %md5, i64 4
+  store i32 -271733879, ptr %arrayidx2, align 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %md5, i64 8
+  store i32 -1732584194, ptr %arrayidx4, align 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %md5, i64 12
+  store i32 271733878, ptr %arrayidx6, align 4
   ret i32 1
 }
 

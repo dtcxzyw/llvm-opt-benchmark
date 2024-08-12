@@ -4084,10 +4084,16 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %weak_dependency_, ptr noundef nonnull %weak_dependency_13)
   %name_ = getelementptr inbounds i8, ptr %this, i64 176
   %name_14 = getelementptr inbounds i8, ptr %other, i64 176
-  %6 = load <2 x ptr>, ptr %name_14, align 8
-  %7 = load <2 x i64>, ptr %name_, align 8
-  store <2 x i64> %7, ptr %name_14, align 8
-  store <2 x ptr> %6, ptr %name_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_14, align 8
+  %6 = load i64, ptr %name_, align 8
+  store i64 %6, ptr %name_14, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
+  %package_ = getelementptr inbounds i8, ptr %this, i64 184
+  %package_15 = getelementptr inbounds i8, ptr %other, i64 184
+  %__tmp.sroa.0.0.copyload.i15 = load ptr, ptr %package_15, align 8
+  %7 = load i64, ptr %package_, align 8
+  store i64 %7, ptr %package_15, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i15, ptr %package_, align 8
   %syntax_ = getelementptr inbounds i8, ptr %this, i64 192
   %syntax_16 = getelementptr inbounds i8, ptr %other, i64 192
   %__tmp.sroa.0.0.copyload.i16 = load ptr, ptr %syntax_16, align 8
@@ -7767,13 +7773,15 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %reserved_name_, ptr noundef nonnull %reserved_name_14)
   %name_ = getelementptr inbounds i8, ptr %this, i64 216
   %name_15 = getelementptr inbounds i8, ptr %other, i64 216
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_15, align 8
   %6 = load i64, ptr %name_, align 8
+  store i64 %6, ptr %name_15, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 224
   %options_16 = getelementptr inbounds i8, ptr %other, i64 224
   %7 = load ptr, ptr %options_, align 8
-  %8 = load <2 x ptr>, ptr %name_15, align 8
-  store i64 %6, ptr %name_15, align 8
-  store <2 x ptr> %8, ptr %name_, align 8
+  %8 = load ptr, ptr %options_16, align 8
+  store ptr %8, ptr %options_, align 8
   store ptr %7, ptr %options_16, align 8
   ret void
 }
@@ -8525,10 +8533,16 @@ entry:
   store i32 %4, ptr %3, align 4
   %full_name_ = getelementptr inbounds i8, ptr %this, i64 24
   %full_name_7 = getelementptr inbounds i8, ptr %other, i64 24
-  %6 = load <2 x ptr>, ptr %full_name_7, align 8
-  %7 = load <2 x i64>, ptr %full_name_, align 8
-  store <2 x i64> %7, ptr %full_name_7, align 8
-  store <2 x ptr> %6, ptr %full_name_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %full_name_7, align 8
+  %6 = load i64, ptr %full_name_, align 8
+  store i64 %6, ptr %full_name_7, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %full_name_, align 8
+  %type_ = getelementptr inbounds i8, ptr %this, i64 32
+  %type_8 = getelementptr inbounds i8, ptr %other, i64 32
+  %__tmp.sroa.0.0.copyload.i6 = load ptr, ptr %type_8, align 8
+  %7 = load i64, ptr %type_, align 8
+  store i64 %7, ptr %type_8, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i6, ptr %type_, align 8
   %number_ = getelementptr inbounds i8, ptr %this, i64 40
   %number_9 = getelementptr i8, ptr %other, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
@@ -11151,16 +11165,28 @@ entry:
   store i32 %4, ptr %3, align 4
   %name_ = getelementptr inbounds i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds i8, ptr %other, i64 24
-  %6 = load <2 x ptr>, ptr %name_7, align 8
-  %7 = load <2 x i64>, ptr %name_, align 8
-  store <2 x i64> %7, ptr %name_7, align 8
-  store <2 x ptr> %6, ptr %name_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_7, align 8
+  %6 = load i64, ptr %name_, align 8
+  store i64 %6, ptr %name_7, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
+  %extendee_ = getelementptr inbounds i8, ptr %this, i64 32
+  %extendee_8 = getelementptr inbounds i8, ptr %other, i64 32
+  %__tmp.sroa.0.0.copyload.i12 = load ptr, ptr %extendee_8, align 8
+  %7 = load i64, ptr %extendee_, align 8
+  store i64 %7, ptr %extendee_8, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i12, ptr %extendee_, align 8
   %type_name_ = getelementptr inbounds i8, ptr %this, i64 40
   %type_name_9 = getelementptr inbounds i8, ptr %other, i64 40
-  %8 = load <2 x ptr>, ptr %type_name_9, align 8
-  %9 = load <2 x i64>, ptr %type_name_, align 8
-  store <2 x i64> %9, ptr %type_name_9, align 8
-  store <2 x ptr> %8, ptr %type_name_, align 8
+  %__tmp.sroa.0.0.copyload.i13 = load ptr, ptr %type_name_9, align 8
+  %8 = load i64, ptr %type_name_, align 8
+  store i64 %8, ptr %type_name_9, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i13, ptr %type_name_, align 8
+  %default_value_ = getelementptr inbounds i8, ptr %this, i64 48
+  %default_value_10 = getelementptr inbounds i8, ptr %other, i64 48
+  %__tmp.sroa.0.0.copyload.i14 = load ptr, ptr %default_value_10, align 8
+  %9 = load i64, ptr %default_value_, align 8
+  store i64 %9, ptr %default_value_10, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i14, ptr %default_value_, align 8
   %json_name_ = getelementptr inbounds i8, ptr %this, i64 56
   %json_name_11 = getelementptr inbounds i8, ptr %other, i64 56
   %__tmp.sroa.0.0.copyload.i15 = load ptr, ptr %json_name_11, align 8
@@ -11901,13 +11927,15 @@ entry:
   store i32 %4, ptr %3, align 4
   %name_ = getelementptr inbounds i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds i8, ptr %other, i64 24
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_7, align 8
   %6 = load i64, ptr %name_, align 8
+  store i64 %6, ptr %name_7, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 32
   %options_8 = getelementptr inbounds i8, ptr %other, i64 32
   %7 = load ptr, ptr %options_, align 8
-  %8 = load <2 x ptr>, ptr %name_7, align 8
-  store i64 %6, ptr %name_7, align 8
-  store <2 x ptr> %8, ptr %name_, align 8
+  %8 = load ptr, ptr %options_8, align 8
+  store ptr %8, ptr %options_, align 8
   store ptr %7, ptr %options_8, align 8
   ret void
 }
@@ -13658,13 +13686,15 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %reserved_name_, ptr noundef nonnull %reserved_name_9)
   %name_ = getelementptr inbounds i8, ptr %this, i64 96
   %name_10 = getelementptr inbounds i8, ptr %other, i64 96
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_10, align 8
   %6 = load i64, ptr %name_, align 8
+  store i64 %6, ptr %name_10, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 104
   %options_11 = getelementptr inbounds i8, ptr %other, i64 104
   %7 = load ptr, ptr %options_, align 8
-  %8 = load <2 x ptr>, ptr %name_10, align 8
-  store i64 %6, ptr %name_10, align 8
-  store <2 x ptr> %8, ptr %name_, align 8
+  %8 = load ptr, ptr %options_11, align 8
+  store ptr %8, ptr %options_, align 8
   store ptr %7, ptr %options_11, align 8
   ret void
 }
@@ -15459,13 +15489,15 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %method_, ptr noundef nonnull %method_7)
   %name_ = getelementptr inbounds i8, ptr %this, i64 48
   %name_8 = getelementptr inbounds i8, ptr %other, i64 48
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_8, align 8
   %6 = load i64, ptr %name_, align 8
+  store i64 %6, ptr %name_8, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 56
   %options_9 = getelementptr inbounds i8, ptr %other, i64 56
   %7 = load ptr, ptr %options_, align 8
-  %8 = load <2 x ptr>, ptr %name_8, align 8
-  store i64 %6, ptr %name_8, align 8
-  store <2 x ptr> %8, ptr %name_, align 8
+  %8 = load ptr, ptr %options_9, align 8
+  store ptr %8, ptr %options_, align 8
   store ptr %7, ptr %options_9, align 8
   ret void
 }
@@ -16522,10 +16554,16 @@ entry:
   store i32 %4, ptr %3, align 4
   %name_ = getelementptr inbounds i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds i8, ptr %other, i64 24
-  %6 = load <2 x ptr>, ptr %name_7, align 8
-  %7 = load <2 x i64>, ptr %name_, align 8
-  store <2 x i64> %7, ptr %name_7, align 8
-  store <2 x ptr> %6, ptr %name_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_7, align 8
+  %6 = load i64, ptr %name_, align 8
+  store i64 %6, ptr %name_7, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
+  %input_type_ = getelementptr inbounds i8, ptr %this, i64 32
+  %input_type_8 = getelementptr inbounds i8, ptr %other, i64 32
+  %__tmp.sroa.0.0.copyload.i8 = load ptr, ptr %input_type_8, align 8
+  %7 = load i64, ptr %input_type_, align 8
+  store i64 %7, ptr %input_type_8, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i8, ptr %input_type_, align 8
   %output_type_ = getelementptr inbounds i8, ptr %this, i64 40
   %output_type_9 = getelementptr inbounds i8, ptr %other, i64 40
   %__tmp.sroa.0.0.copyload.i9 = load ptr, ptr %output_type_9, align 8
@@ -18718,22 +18756,22 @@ if.end103:                                        ; preds = %if.then99, %if.end9
   %50 = and i32 %and104, 2
   %51 = zext nneg i32 %50 to i64
   %spec.select = add i64 %total_size.12, %51
-  %52 = insertelement <4 x i32> poison, i32 %7, i64 0
-  %53 = shufflevector <4 x i32> %52, <4 x i32> poison, <4 x i32> zeroinitializer
-  %54 = and <4 x i32> %53, <i32 32768, i32 16384, i32 8192, i32 4096>
+  %and109 = and i32 %7, 4096
+  %tobool110.not = icmp eq i32 %and109, 0
   %add112 = add i64 %spec.select, 3
-  %55 = icmp eq <4 x i32> %54, zeroinitializer
-  %56 = extractelement <4 x i1> %55, i64 3
-  %total_size.14 = select i1 %56, i64 %spec.select, i64 %add112
+  %total_size.14 = select i1 %tobool110.not, i64 %spec.select, i64 %add112
+  %and114 = and i32 %7, 8192
+  %tobool115.not = icmp eq i32 %and114, 0
   %add117 = add i64 %total_size.14, 3
-  %57 = extractelement <4 x i1> %55, i64 2
-  %total_size.15 = select i1 %57, i64 %total_size.14, i64 %add117
+  %total_size.15 = select i1 %tobool115.not, i64 %total_size.14, i64 %add117
+  %and119 = and i32 %7, 16384
+  %tobool120.not = icmp eq i32 %and119, 0
   %add122 = add i64 %total_size.15, 3
-  %58 = extractelement <4 x i1> %55, i64 1
-  %total_size.16 = select i1 %58, i64 %total_size.15, i64 %add122
+  %total_size.16 = select i1 %tobool120.not, i64 %total_size.15, i64 %add122
+  %and124 = and i32 %7, 32768
+  %tobool125.not = icmp eq i32 %and124, 0
   %add127 = add i64 %total_size.16, 3
-  %59 = extractelement <4 x i1> %55, i64 0
-  %spec.select51 = select i1 %59, i64 %total_size.16, i64 %add127
+  %spec.select51 = select i1 %tobool125.not, i64 %total_size.16, i64 %add127
   br label %if.end129
 
 if.end129:                                        ; preds = %if.end103, %if.end77
@@ -18743,29 +18781,29 @@ if.end129:                                        ; preds = %if.end103, %if.end7
   br i1 %tobool131.not, label %if.end161, label %if.then132
 
 if.then132:                                       ; preds = %if.end129
-  %60 = insertelement <4 x i32> poison, i32 %7, i64 0
-  %61 = shufflevector <4 x i32> %60, <4 x i32> poison, <4 x i32> zeroinitializer
-  %62 = and <4 x i32> %61, <i32 524288, i32 262144, i32 131072, i32 65536>
+  %and133 = and i32 %7, 65536
+  %tobool134.not = icmp eq i32 %and133, 0
   %add136 = add i64 %total_size.9, 3
-  %63 = icmp eq <4 x i32> %62, zeroinitializer
-  %64 = extractelement <4 x i1> %63, i64 3
-  %spec.select49 = select i1 %64, i64 %total_size.9, i64 %add136
+  %spec.select49 = select i1 %tobool134.not, i64 %total_size.9, i64 %add136
+  %and138 = and i32 %7, 131072
+  %tobool139.not = icmp eq i32 %and138, 0
   %add141 = add i64 %spec.select49, 3
-  %65 = extractelement <4 x i1> %63, i64 2
-  %total_size.19 = select i1 %65, i64 %spec.select49, i64 %add141
+  %total_size.19 = select i1 %tobool139.not, i64 %spec.select49, i64 %add141
+  %and143 = and i32 %7, 262144
+  %tobool144.not = icmp eq i32 %and143, 0
   %add146 = add i64 %total_size.19, 3
-  %66 = extractelement <4 x i1> %63, i64 1
-  %total_size.20 = select i1 %66, i64 %total_size.19, i64 %add146
-  %67 = extractelement <4 x i1> %63, i64 0
-  br i1 %67, label %if.end155, label %if.then150
+  %total_size.20 = select i1 %tobool144.not, i64 %total_size.19, i64 %add146
+  %and148 = and i32 %7, 524288
+  %tobool149.not = icmp eq i32 %and148, 0
+  br i1 %tobool149.not, label %if.end155, label %if.then150
 
 if.then150:                                       ; preds = %if.then132
   %optimize_for_.i = getelementptr inbounds i8, ptr %this, i64 168
-  %68 = load i32, ptr %optimize_for_.i, align 8
-  %69 = or i32 %68, 1
-  %or.i.i.i166 = sext i32 %69 to i64
-  %70 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i166, i1 true)
-  %sub.i.i.i167 = xor i64 %70, 63
+  %52 = load i32, ptr %optimize_for_.i, align 8
+  %53 = or i32 %52, 1
+  %or.i.i.i166 = sext i32 %53 to i64
+  %54 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i166, i1 true)
+  %sub.i.i.i167 = xor i64 %54, 63
   %mul.i.i.i168 = mul nuw nsw i64 %sub.i.i.i167, 9
   %add.i.i.i169 = add nuw nsw i64 %mul.i.i.i168, 73
   %div1.i.i.i170 = lshr i64 %add.i.i.i169, 6
@@ -18826,34 +18864,64 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_8)
   %java_package_ = getelementptr inbounds i8, ptr %this, i64 72
   %java_package_9 = getelementptr inbounds i8, ptr %other, i64 72
-  %6 = load <2 x ptr>, ptr %java_package_9, align 8
-  %7 = load <2 x i64>, ptr %java_package_, align 8
-  store <2 x i64> %7, ptr %java_package_9, align 8
-  store <2 x ptr> %6, ptr %java_package_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %java_package_9, align 8
+  %6 = load i64, ptr %java_package_, align 8
+  store i64 %6, ptr %java_package_9, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %java_package_, align 8
+  %java_outer_classname_ = getelementptr inbounds i8, ptr %this, i64 80
+  %java_outer_classname_10 = getelementptr inbounds i8, ptr %other, i64 80
+  %__tmp.sroa.0.0.copyload.i24 = load ptr, ptr %java_outer_classname_10, align 8
+  %7 = load i64, ptr %java_outer_classname_, align 8
+  store i64 %7, ptr %java_outer_classname_10, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i24, ptr %java_outer_classname_, align 8
   %go_package_ = getelementptr inbounds i8, ptr %this, i64 88
   %go_package_11 = getelementptr inbounds i8, ptr %other, i64 88
-  %8 = load <2 x ptr>, ptr %go_package_11, align 8
-  %9 = load <2 x i64>, ptr %go_package_, align 8
-  store <2 x i64> %9, ptr %go_package_11, align 8
-  store <2 x ptr> %8, ptr %go_package_, align 8
+  %__tmp.sroa.0.0.copyload.i25 = load ptr, ptr %go_package_11, align 8
+  %8 = load i64, ptr %go_package_, align 8
+  store i64 %8, ptr %go_package_11, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i25, ptr %go_package_, align 8
+  %objc_class_prefix_ = getelementptr inbounds i8, ptr %this, i64 96
+  %objc_class_prefix_12 = getelementptr inbounds i8, ptr %other, i64 96
+  %__tmp.sroa.0.0.copyload.i26 = load ptr, ptr %objc_class_prefix_12, align 8
+  %9 = load i64, ptr %objc_class_prefix_, align 8
+  store i64 %9, ptr %objc_class_prefix_12, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i26, ptr %objc_class_prefix_, align 8
   %csharp_namespace_ = getelementptr inbounds i8, ptr %this, i64 104
   %csharp_namespace_13 = getelementptr inbounds i8, ptr %other, i64 104
-  %10 = load <2 x ptr>, ptr %csharp_namespace_13, align 8
-  %11 = load <2 x i64>, ptr %csharp_namespace_, align 8
-  store <2 x i64> %11, ptr %csharp_namespace_13, align 8
-  store <2 x ptr> %10, ptr %csharp_namespace_, align 8
+  %__tmp.sroa.0.0.copyload.i27 = load ptr, ptr %csharp_namespace_13, align 8
+  %10 = load i64, ptr %csharp_namespace_, align 8
+  store i64 %10, ptr %csharp_namespace_13, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i27, ptr %csharp_namespace_, align 8
+  %swift_prefix_ = getelementptr inbounds i8, ptr %this, i64 112
+  %swift_prefix_14 = getelementptr inbounds i8, ptr %other, i64 112
+  %__tmp.sroa.0.0.copyload.i28 = load ptr, ptr %swift_prefix_14, align 8
+  %11 = load i64, ptr %swift_prefix_, align 8
+  store i64 %11, ptr %swift_prefix_14, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i28, ptr %swift_prefix_, align 8
   %php_class_prefix_ = getelementptr inbounds i8, ptr %this, i64 120
   %php_class_prefix_15 = getelementptr inbounds i8, ptr %other, i64 120
-  %12 = load <2 x ptr>, ptr %php_class_prefix_15, align 8
-  %13 = load <2 x i64>, ptr %php_class_prefix_, align 8
-  store <2 x i64> %13, ptr %php_class_prefix_15, align 8
-  store <2 x ptr> %12, ptr %php_class_prefix_, align 8
+  %__tmp.sroa.0.0.copyload.i29 = load ptr, ptr %php_class_prefix_15, align 8
+  %12 = load i64, ptr %php_class_prefix_, align 8
+  store i64 %12, ptr %php_class_prefix_15, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i29, ptr %php_class_prefix_, align 8
+  %php_namespace_ = getelementptr inbounds i8, ptr %this, i64 128
+  %php_namespace_16 = getelementptr inbounds i8, ptr %other, i64 128
+  %__tmp.sroa.0.0.copyload.i30 = load ptr, ptr %php_namespace_16, align 8
+  %13 = load i64, ptr %php_namespace_, align 8
+  store i64 %13, ptr %php_namespace_16, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i30, ptr %php_namespace_, align 8
   %php_metadata_namespace_ = getelementptr inbounds i8, ptr %this, i64 136
   %php_metadata_namespace_17 = getelementptr inbounds i8, ptr %other, i64 136
-  %14 = load <2 x ptr>, ptr %php_metadata_namespace_17, align 8
-  %15 = load <2 x i64>, ptr %php_metadata_namespace_, align 8
-  store <2 x i64> %15, ptr %php_metadata_namespace_17, align 8
-  store <2 x ptr> %14, ptr %php_metadata_namespace_, align 8
+  %__tmp.sroa.0.0.copyload.i31 = load ptr, ptr %php_metadata_namespace_17, align 8
+  %14 = load i64, ptr %php_metadata_namespace_, align 8
+  store i64 %14, ptr %php_metadata_namespace_17, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i31, ptr %php_metadata_namespace_, align 8
+  %ruby_package_ = getelementptr inbounds i8, ptr %this, i64 144
+  %ruby_package_18 = getelementptr inbounds i8, ptr %other, i64 144
+  %__tmp.sroa.0.0.copyload.i32 = load ptr, ptr %ruby_package_18, align 8
+  %15 = load i64, ptr %ruby_package_, align 8
+  store i64 %15, ptr %ruby_package_18, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i32, ptr %ruby_package_, align 8
   %features_ = getelementptr inbounds i8, ptr %this, i64 152
   %features_19 = getelementptr i8, ptr %other, i64 152
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
@@ -26069,10 +26137,16 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %name_, ptr noundef nonnull %name_7)
   %identifier_value_ = getelementptr inbounds i8, ptr %this, i64 48
   %identifier_value_8 = getelementptr inbounds i8, ptr %other, i64 48
-  %6 = load <2 x ptr>, ptr %identifier_value_8, align 8
-  %7 = load <2 x i64>, ptr %identifier_value_, align 8
-  store <2 x i64> %7, ptr %identifier_value_8, align 8
-  store <2 x ptr> %6, ptr %identifier_value_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %identifier_value_8, align 8
+  %6 = load i64, ptr %identifier_value_, align 8
+  store i64 %6, ptr %identifier_value_8, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %identifier_value_, align 8
+  %string_value_ = getelementptr inbounds i8, ptr %this, i64 56
+  %string_value_9 = getelementptr inbounds i8, ptr %other, i64 56
+  %__tmp.sroa.0.0.copyload.i9 = load ptr, ptr %string_value_9, align 8
+  %7 = load i64, ptr %string_value_, align 8
+  store i64 %7, ptr %string_value_9, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i9, ptr %string_value_, align 8
   %aggregate_value_ = getelementptr inbounds i8, ptr %this, i64 64
   %aggregate_value_10 = getelementptr inbounds i8, ptr %other, i64 64
   %__tmp.sroa.0.0.copyload.i10 = load ptr, ptr %aggregate_value_10, align 8
@@ -29261,10 +29335,16 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %leading_detached_comments_, ptr noundef nonnull %leading_detached_comments_9)
   %leading_comments_ = getelementptr inbounds i8, ptr %this, i64 96
   %leading_comments_10 = getelementptr inbounds i8, ptr %other, i64 96
-  %6 = load <2 x ptr>, ptr %leading_comments_10, align 8
-  %7 = load <2 x i64>, ptr %leading_comments_, align 8
-  store <2 x i64> %7, ptr %leading_comments_10, align 8
-  store <2 x ptr> %6, ptr %leading_comments_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %leading_comments_10, align 8
+  %6 = load i64, ptr %leading_comments_, align 8
+  store i64 %6, ptr %leading_comments_10, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %leading_comments_, align 8
+  %trailing_comments_ = getelementptr inbounds i8, ptr %this, i64 104
+  %trailing_comments_11 = getelementptr inbounds i8, ptr %other, i64 104
+  %__tmp.sroa.0.0.copyload.i8 = load ptr, ptr %trailing_comments_11, align 8
+  %7 = load i64, ptr %trailing_comments_, align 8
+  store i64 %7, ptr %trailing_comments_11, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i8, ptr %trailing_comments_, align 8
   ret void
 }
 

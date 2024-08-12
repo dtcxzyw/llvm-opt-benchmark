@@ -15962,7 +15962,7 @@ define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_128FormatConvert
 entry:
   %str_format_result.i = alloca %"class.std::__cxx11::basic_string", align 8
   %string_printf_result.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp4.i = alloca [8 x i8], align 8
+  %ref.tmp4.i = alloca [8 x i8], align 1
   %fmt_str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp16.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17.i = alloca %"class.std::allocator", align 1
@@ -15976,13 +15976,33 @@ entry:
   %ref.tmp51 = alloca [2 x i32], align 4
   %ref.tmp113 = alloca %"class.std::set", align 8
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(60) ptr @_Znwm(i64 noundef 60) #34
-  store <4 x float> <float 0.000000e+00, float -0.000000e+00, float 0x3FEFFFFFC0000000, float 0x416312CFE0000000>, ptr %call5.i.i.i.i2.i, align 4
+  store float 0.000000e+00, ptr %call5.i.i.i.i2.i, align 4
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 4
+  store float -0.000000e+00, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  store float 0x3FEFFFFFC0000000, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 12
+  store float 0x416312CFE0000000, ptr %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
-  store <4 x float> <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000, float 0x3810000000000000, float 0xB810000000000000>, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store float 0x47EFFFFFE0000000, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 20
+  store float 0xC7EFFFFFE0000000, ptr %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.7.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 24
+  store float 0x3810000000000000, ptr %ref.tmp.sroa.7.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.8.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 28
+  store float 0xB810000000000000, ptr %ref.tmp.sroa.8.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.9.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
-  store <4 x float> <float 0xC7EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x3E80000000000000, float 0x3FF0000020000000>, ptr %ref.tmp.sroa.9.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store float 0xC7EFFFFFE0000000, ptr %ref.tmp.sroa.9.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.10.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 36
+  store float 0x47EFFFFFE0000000, ptr %ref.tmp.sroa.10.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.11.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 40
+  store float 0x3E80000000000000, ptr %ref.tmp.sroa.11.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.12.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 44
+  store float 0x3FF0000020000000, ptr %ref.tmp.sroa.12.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 48
-  store <2 x float> <float 0x7FF0000000000000, float 0xFFF0000000000000>, ptr %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store float 0x7FF0000000000000, ptr %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.14.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 52
+  store float 0xFFF0000000000000, ptr %ref.tmp.sroa.14.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 56
   store float 0x7FF8000000000000, ptr %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %call5.i.i.i.i.i.i15 = invoke noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #34
@@ -15995,7 +16015,9 @@ invoke.cont31:                                    ; preds = %entry
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i) #33
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 64
   %add.ptr19.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 120
-  store <2 x float> <float 0x36A0000000000000, float 0xB6A0000000000000>, ptr %incdec.ptr.i.i.i, align 4
+  store float 0x36A0000000000000, ptr %incdec.ptr.i.i.i, align 4
+  %incdec.ptr.i.i20 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 68
+  store float 0xB6A0000000000000, ptr %incdec.ptr.i.i20, align 4
   %incdec.ptr.i.i56 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 72
   %arrayinit.element53 = getelementptr inbounds i8, ptr %ref.tmp51, i64 4
   br label %for.body
@@ -16463,6 +16485,13 @@ invoke.cont.i:                                    ; preds = %_ZN4absl19str_forma
           to label %for.cond.preheader.i unwind label %lpad1.i
 
 for.cond.preheader.i:                             ; preds = %invoke.cont.i
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 1
+  %arrayinit.element5.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 2
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 3
+  %arrayinit.element7.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 4
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 5
+  %arrayinit.element9.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 6
+  %arrayinit.element10.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 7
   %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %args.i, i64 8
   %arrayinit.element64.i = getelementptr inbounds i8, ptr %args.i, i64 16
   %dispatcher_.i.i50.i = getelementptr inbounds i8, ptr %args.i, i64 24
@@ -16476,7 +16505,14 @@ for.body.i:                                       ; preds = %for.inc142.i, %for.
   %__begin3.0.ptr.i = getelementptr inbounds i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_129TestWithMultipleFormatsHelperIdEEvRKSt6vectorIT_SaIS4_EERKSt3setIS4_St4lessIS4_ES5_E.kFormats, i64 %__begin3.0.idx121.i
   %39 = load ptr, ptr %__begin3.0.ptr.i, align 8
   %.fr.i = freeze ptr %39
-  store <8 x i8> <i8 102, i8 70, i8 103, i8 71, i8 97, i8 65, i8 101, i8 69>, ptr %ref.tmp4.i, align 8
+  store i8 102, ptr %ref.tmp4.i, align 1
+  store i8 70, ptr %arrayinit.element.i, align 1
+  store i8 103, ptr %arrayinit.element5.i, align 1
+  store i8 71, ptr %arrayinit.element6.i, align 1
+  store i8 97, ptr %arrayinit.element7.i, align 1
+  store i8 65, ptr %arrayinit.element8.i, align 1
+  store i8 101, ptr %arrayinit.element9.i, align 1
+  store i8 69, ptr %arrayinit.element10.i, align 1
   %cmp.i.i = icmp eq ptr %.fr.i, null
   br i1 %cmp.i.i, label %for.body15.us.i, label %for.body15.i
 
@@ -17993,7 +18029,7 @@ define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_129FormatConvert
 entry:
   %str_format_result.i = alloca %"class.std::__cxx11::basic_string", align 8
   %string_printf_result.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp4.i = alloca [8 x i8], align 8
+  %ref.tmp4.i = alloca [8 x i8], align 1
   %fmt_str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp16.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17.i = alloca %"class.std::allocator", align 1
@@ -18026,19 +18062,33 @@ _ZNSt12_Vector_baseIdSaIdEED2Ev.exit.i:           ; preds = %entry
   br label %ehcleanup158
 
 cond.true.i.i.i.i:                                ; preds = %entry
-  store <2 x double> <double 0.000000e+00, double -0.000000e+00>, ptr %call5.i.i.i.i2.i, align 8
+  store double 0.000000e+00, ptr %call5.i.i.i.i2.i, align 8
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  store double -0.000000e+00, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
-  store <2 x double> <double 0x3FEFFFFFFFFFFFA6, double 0x42D6BCC41E8FFFC0>, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 0x3FEFFFFFFFFFFFA6, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 24
+  store double 0x42D6BCC41E8FFFC0, ptr %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
-  store <2 x double> <double 0x7FEFFFFFFFFFFFFF, double 0xFFEFFFFFFFFFFFFF>, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 0x7FEFFFFFFFFFFFFF, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 40
+  store double 0xFFEFFFFFFFFFFFFF, ptr %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.7.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 48
-  store <2 x double> <double 0x10000000000000, double 0x8010000000000000>, ptr %ref.tmp.sroa.7.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 0x10000000000000, ptr %ref.tmp.sroa.7.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.8.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 56
+  store double 0x8010000000000000, ptr %ref.tmp.sroa.8.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.9.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 64
-  store <2 x double> <double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF>, ptr %ref.tmp.sroa.9.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 0xFFEFFFFFFFFFFFFF, ptr %ref.tmp.sroa.9.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.10.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 72
+  store double 0x7FEFFFFFFFFFFFFF, ptr %ref.tmp.sroa.10.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.11.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 80
-  store <2 x double> <double 0x3CB0000000000000, double 0x3FF0000000000001>, ptr %ref.tmp.sroa.11.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 0x3CB0000000000000, ptr %ref.tmp.sroa.11.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.12.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 88
+  store double 0x3FF0000000000001, ptr %ref.tmp.sroa.12.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 96
-  store <2 x double> <double 0x7FF0000000000000, double 0xFFF0000000000000>, ptr %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 0x7FF0000000000000, ptr %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.14.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 104
+  store double 0xFFF0000000000000, ptr %ref.tmp.sroa.14.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 112
   store double 0x7FF8000000000000, ptr %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %call5.i.i.i.i.i.i15 = invoke noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #34
@@ -18051,7 +18101,9 @@ invoke.cont31:                                    ; preds = %cond.true.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i) #33
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 128
   %add.ptr19.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 240
-  store <2 x double> <double 4.940660e-324, double -4.940660e-324>, ptr %incdec.ptr.i.i.i, align 8
+  store double 4.940660e-324, ptr %incdec.ptr.i.i.i, align 8
+  %incdec.ptr.i.i20 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 136
+  store double -4.940660e-324, ptr %incdec.ptr.i.i20, align 8
   %incdec.ptr.i.i56 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i15, i64 144
   %arrayinit.element53 = getelementptr inbounds i8, ptr %ref.tmp51, i64 4
   br label %for.body
@@ -18986,6 +19038,13 @@ invoke.cont.i:                                    ; preds = %_ZN4absl19str_forma
           to label %for.cond.preheader.i unwind label %lpad1.i
 
 for.cond.preheader.i:                             ; preds = %invoke.cont.i
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 1
+  %arrayinit.element5.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 2
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 3
+  %arrayinit.element7.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 4
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 5
+  %arrayinit.element9.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 6
+  %arrayinit.element10.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 7
   %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %args.i, i64 8
   %arrayinit.element64.i = getelementptr inbounds i8, ptr %args.i, i64 16
   %dispatcher_.i.i49.i = getelementptr inbounds i8, ptr %args.i, i64 24
@@ -18999,7 +19058,14 @@ for.body.i:                                       ; preds = %for.inc138.i, %for.
   %__begin3.0.ptr.i = getelementptr inbounds i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_129TestWithMultipleFormatsHelperIdEEvRKSt6vectorIT_SaIS4_EERKSt3setIS4_St4lessIS4_ES5_E.kFormats, i64 %__begin3.0.idx119.i
   %82 = load ptr, ptr %__begin3.0.ptr.i, align 8
   %.fr.i = freeze ptr %82
-  store <8 x i8> <i8 102, i8 70, i8 103, i8 71, i8 97, i8 65, i8 101, i8 69>, ptr %ref.tmp4.i, align 8
+  store i8 102, ptr %ref.tmp4.i, align 1
+  store i8 70, ptr %arrayinit.element.i, align 1
+  store i8 103, ptr %arrayinit.element5.i, align 1
+  store i8 71, ptr %arrayinit.element6.i, align 1
+  store i8 97, ptr %arrayinit.element7.i, align 1
+  store i8 65, ptr %arrayinit.element8.i, align 1
+  store i8 101, ptr %arrayinit.element9.i, align 1
+  store i8 69, ptr %arrayinit.element10.i, align 1
   %cmp.i.i445 = icmp eq ptr %.fr.i, null
   br i1 %cmp.i.i445, label %for.body15.us.i, label %for.body15.i
 
@@ -41122,7 +41188,7 @@ entry:
 define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_133FormatConvertTest_LongDouble_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp23 = alloca [2 x i32], align 4
-  %ref.tmp61 = alloca [8 x i8], align 8
+  %ref.tmp61 = alloca [8 x i8], align 1
   %fmt_str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp80 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp81 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -41424,6 +41490,13 @@ if.then.i18.i.i.i122:                             ; preds = %_ZNSt6vectorIeSaIeE
 _ZNSt6vectorIeSaIeEE9push_backEOe.exit130:        ; preds = %_ZNSt6vectorIeSaIeEE11_S_relocateEPeS2_S2_RS0_.exit17.i.i.i118, %if.then.i18.i.i.i122, %if.then.i.i98
   %doubles.sroa.12.5 = phi ptr [ %incdec.ptr.i.i99, %if.then.i.i98 ], [ %incdec.ptr.i.i.i120, %if.then.i18.i.i.i122 ], [ %incdec.ptr.i.i.i120, %_ZNSt6vectorIeSaIeEE11_S_relocateEPeS2_S2_RS0_.exit17.i.i.i118 ]
   %doubles.sroa.0.7 = phi ptr [ %doubles.sroa.0.6, %if.then.i.i98 ], [ %cond.i10.i.i.i115, %if.then.i18.i.i.i122 ], [ %cond.i10.i.i.i115, %_ZNSt6vectorIeSaIeEE11_S_relocateEPeS2_S2_RS0_.exit17.i.i.i118 ]
+  %arrayinit.element63 = getelementptr inbounds i8, ptr %ref.tmp61, i64 1
+  %arrayinit.element64 = getelementptr inbounds i8, ptr %ref.tmp61, i64 2
+  %arrayinit.element65 = getelementptr inbounds i8, ptr %ref.tmp61, i64 3
+  %arrayinit.element66 = getelementptr inbounds i8, ptr %ref.tmp61, i64 4
+  %arrayinit.element67 = getelementptr inbounds i8, ptr %ref.tmp61, i64 5
+  %arrayinit.element68 = getelementptr inbounds i8, ptr %ref.tmp61, i64 6
+  %arrayinit.element69 = getelementptr inbounds i8, ptr %ref.tmp61, i64 7
   %cmp.i150.not264 = icmp ne ptr %doubles.sroa.0.7, %doubles.sroa.12.5
   %dispatcher_.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %message_.i178 = getelementptr inbounds i8, ptr %gtest_ar, i64 8
@@ -41434,7 +41507,14 @@ for.body58:                                       ; preds = %_ZNSt6vectorIeSaIeE
   %__begin253.0.ptr = getelementptr inbounds i8, ptr @__const._ZN4absl19str_format_internal12_GLOBAL__N_133FormatConvertTest_LongDouble_Test8TestBodyEv.kFormats, i64 %__begin253.0.idx267
   %9 = load ptr, ptr %__begin253.0.ptr, align 8
   %.fr = freeze ptr %9
-  store <8 x i8> <i8 102, i8 70, i8 103, i8 71, i8 97, i8 65, i8 101, i8 69>, ptr %ref.tmp61, align 8
+  store i8 102, ptr %ref.tmp61, align 1
+  store i8 70, ptr %arrayinit.element63, align 1
+  store i8 103, ptr %arrayinit.element64, align 1
+  store i8 71, ptr %arrayinit.element65, align 1
+  store i8 97, ptr %arrayinit.element66, align 1
+  store i8 65, ptr %arrayinit.element67, align 1
+  store i8 101, ptr %arrayinit.element68, align 1
+  store i8 69, ptr %arrayinit.element69, align 1
   %cmp.i = icmp eq ptr %.fr, null
   br i1 %cmp.i, label %for.body79.us, label %for.body79
 
@@ -68567,7 +68647,13 @@ entry:
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 14
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %vals, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
-  store <4 x i16> <i16 1, i16 2, i16 10, i16 -1>, ptr %call5.i.i.i.i2.i, align 2
+  store i16 1, ptr %call5.i.i.i.i2.i, align 2
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 2
+  store i16 2, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 2
+  %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 4
+  store i16 10, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 2
+  %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 6
+  store i16 -1, ptr %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 2
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
   store i16 -2, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 2
   %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 10
@@ -69364,7 +69450,13 @@ entry:
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 14
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %vals, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
-  store <4 x i16> <i16 1, i16 2, i16 10, i16 -1>, ptr %call5.i.i.i.i2.i, align 2
+  store i16 1, ptr %call5.i.i.i.i2.i, align 2
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 2
+  store i16 2, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 2
+  %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 4
+  store i16 10, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 2
+  %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 6
+  store i16 -1, ptr %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 2
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
   store i16 -2, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 2
   %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 10
@@ -75225,7 +75317,13 @@ entry:
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 7
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %vals, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
-  store <4 x i8> <i8 1, i8 2, i8 10, i8 -1>, ptr %call5.i.i.i.i2.i, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i, align 1
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 1
+  store i8 2, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 2
+  store i8 10, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 3
+  store i8 -1, ptr %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 1
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 4
   store i8 -2, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 1
   %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 5
@@ -75981,7 +76079,13 @@ entry:
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 7
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %vals, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
-  store <4 x i8> <i8 1, i8 2, i8 10, i8 -1>, ptr %call5.i.i.i.i2.i, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i, align 1
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 1
+  store i8 2, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 2
+  store i8 10, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 3
+  store i8 -1, ptr %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 1
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 4
   store i8 -2, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 1
   %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 5
@@ -76755,7 +76859,13 @@ invoke.cont:                                      ; preds = %entry
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 7
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %vals, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
-  store <4 x i8> <i8 1, i8 2, i8 10, i8 -1>, ptr %call5.i.i.i.i2.i, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i, align 1
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 1
+  store i8 2, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 2
+  store i8 10, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 3
+  store i8 -1, ptr %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 1
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 4
   store i8 -2, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 1
   %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 5

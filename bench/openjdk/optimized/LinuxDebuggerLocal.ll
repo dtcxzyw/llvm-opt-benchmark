@@ -1029,7 +1029,7 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_getTh
   %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.25, i32 noundef %2) #13
   %16 = load ptr, ptr @stdout, align 8
   %17 = call i32 @fflush(ptr noundef %16)
-  br label %98
+  br label %108
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %0, align 8
@@ -1041,7 +1041,7 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_getTh
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr %25(ptr noundef nonnull %0)
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %27, label %98
+  br i1 %.not, label %27, label %108
 
 27:                                               ; preds = %18
   %28 = load ptr, ptr %0, align 8
@@ -1063,82 +1063,96 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_getTh
   %41 = getelementptr inbounds i8, ptr %31, i64 24
   store i64 %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %4, i64 32
-  %43 = getelementptr inbounds i8, ptr %31, i64 80
-  %44 = load <2 x i64>, ptr %42, align 8
-  store <2 x i64> %44, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 48
+  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %31, i64 80
+  store i64 %43, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %4, i64 40
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %31, i64 32
+  %47 = getelementptr inbounds i8, ptr %31, i64 88
   store i64 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 56
+  %48 = getelementptr inbounds i8, ptr %4, i64 48
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %31, i64 40
+  %50 = getelementptr inbounds i8, ptr %31, i64 32
   store i64 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %4, i64 64
+  %51 = getelementptr inbounds i8, ptr %4, i64 56
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %31, i64 48
+  %53 = getelementptr inbounds i8, ptr %31, i64 40
   store i64 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %4, i64 72
+  %54 = getelementptr inbounds i8, ptr %4, i64 64
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %31, i64 56
+  %56 = getelementptr inbounds i8, ptr %31, i64 48
   store i64 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %4, i64 80
+  %57 = getelementptr inbounds i8, ptr %4, i64 72
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %31, i64 112
+  %59 = getelementptr inbounds i8, ptr %31, i64 56
   store i64 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %4, i64 88
-  %61 = getelementptr inbounds i8, ptr %31, i64 96
-  %62 = load <2 x i64>, ptr %60, align 8
-  %63 = shufflevector <2 x i64> %62, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %63, ptr %61, align 8
-  %64 = getelementptr inbounds i8, ptr %4, i64 104
-  %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %31, i64 72
-  store i64 %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %4, i64 112
-  %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %31, i64 64
-  store i64 %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %4, i64 128
-  %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %31, i64 136
-  store i64 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %4, i64 136
-  %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %31, i64 144
-  store i64 %74, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %4, i64 152
-  %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %31, i64 160
-  store i64 %77, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %4, i64 160
-  %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %31, i64 168
-  store i64 %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %4, i64 168
-  %83 = getelementptr inbounds i8, ptr %31, i64 208
-  %84 = load <2 x i64>, ptr %82, align 8
-  store <2 x i64> %84, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %4, i64 184
-  %86 = getelementptr inbounds i8, ptr %31, i64 192
-  %87 = load <2 x i64>, ptr %85, align 8
-  %88 = shufflevector <2 x i64> %87, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %88, ptr %86, align 8
-  %89 = getelementptr inbounds i8, ptr %4, i64 200
-  %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %31, i64 176
-  store i64 %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %4, i64 208
-  %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %31, i64 184
-  store i64 %93, ptr %94, align 8
-  %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 1568
-  %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef nonnull %0, ptr noundef %22, ptr noundef nonnull %31, i32 noundef 0)
-  br label %98
+  %60 = getelementptr inbounds i8, ptr %4, i64 80
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %31, i64 112
+  store i64 %61, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %4, i64 88
+  %64 = load i64, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %31, i64 104
+  store i64 %64, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %4, i64 96
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %31, i64 96
+  store i64 %67, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %4, i64 104
+  %70 = load i64, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %31, i64 72
+  store i64 %70, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %4, i64 112
+  %73 = load i64, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %31, i64 64
+  store i64 %73, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %4, i64 128
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %31, i64 136
+  store i64 %76, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %4, i64 136
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %31, i64 144
+  store i64 %79, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %4, i64 152
+  %82 = load i64, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %31, i64 160
+  store i64 %82, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %4, i64 160
+  %85 = load i64, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %31, i64 168
+  store i64 %85, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %4, i64 168
+  %88 = load i64, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %31, i64 208
+  store i64 %88, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %4, i64 176
+  %91 = load i64, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %31, i64 216
+  store i64 %91, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %4, i64 184
+  %94 = load i64, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %31, i64 200
+  store i64 %94, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %4, i64 192
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %31, i64 192
+  store i64 %97, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %4, i64 200
+  %100 = load i64, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %31, i64 176
+  store i64 %100, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %4, i64 208
+  %103 = load i64, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %31, i64 184
+  store i64 %103, ptr %104, align 8
+  %105 = load ptr, ptr %0, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 1568
+  %107 = load ptr, ptr %106, align 8
+  call void %107(ptr noundef nonnull %0, ptr noundef %22, ptr noundef nonnull %31, i32 noundef 0)
+  br label %108
 
-98:                                               ; preds = %18, %27, %13
+108:                                              ; preds = %18, %27, %13
   %.0 = phi ptr [ null, %13 ], [ %22, %27 ], [ null, %18 ]
   ret ptr %.0
 }

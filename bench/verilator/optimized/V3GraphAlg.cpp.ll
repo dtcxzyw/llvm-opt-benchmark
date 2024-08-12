@@ -1670,7 +1670,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFjPK13V3GraphVertexEEC2IRS_IF
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.not = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.not, label %26, label %7
+  br i1 %.not.i.i.i.not, label %29, label %7
 
 7:                                                ; preds = %2
   %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
@@ -1698,34 +1698,38 @@ define linkonce_odr dso_local void @_ZNSt8functionIFjPK13V3GraphVertexEEC2IRS_IF
   unreachable
 
 19:                                               ; preds = %7
-  %20 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %20, ptr %9, align 8
+  %20 = getelementptr inbounds i8, ptr %8, i64 24
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = load ptr, ptr %5, align 8
+  store ptr %23, ptr %9, align 8
   store ptr %8, ptr %0, align 8
   store ptr @_ZNSt17_Function_handlerIFjPK13V3GraphVertexESt8functionIFmS2_EEE9_M_invokeERKSt9_Any_dataOS2_, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFjPK13V3GraphVertexESt8functionIFmS2_EEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %3, align 8
-  br label %26
+  br label %29
 
 .body:                                            ; preds = %11, %14
   tail call void @_ZdlPv(ptr noundef nonnull %8) #18
   %.pre = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %21
+  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %24
 
-21:                                               ; preds = %.body
-  %22 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %23
+24:                                               ; preds = %.body
+  %25 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %26
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #23
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #23
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %.body, %21
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %.body, %24
   resume { ptr, i32 } %12
 
-26:                                               ; preds = %19, %2
+29:                                               ; preds = %19, %2
   ret void
 }
 
@@ -2767,7 +2771,7 @@ define linkonce_odr dso_local void @_ZNSt8functionIFmPK13V3GraphVertexEEC2IRS_IF
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.not = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.not, label %26, label %7
+  br i1 %.not.i.i.i.not, label %29, label %7
 
 7:                                                ; preds = %2
   %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
@@ -2795,34 +2799,38 @@ define linkonce_odr dso_local void @_ZNSt8functionIFmPK13V3GraphVertexEEC2IRS_IF
   unreachable
 
 19:                                               ; preds = %7
-  %20 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %20, ptr %9, align 8
+  %20 = getelementptr inbounds i8, ptr %8, i64 24
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = load ptr, ptr %5, align 8
+  store ptr %23, ptr %9, align 8
   store ptr %8, ptr %0, align 8
   store ptr @_ZNSt17_Function_handlerIFmPK13V3GraphVertexESt8functionIFjS2_EEE9_M_invokeERKSt9_Any_dataOS2_, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFmPK13V3GraphVertexESt8functionIFjS2_EEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %3, align 8
-  br label %26
+  br label %29
 
 .body:                                            ; preds = %11, %14
   tail call void @_ZdlPv(ptr noundef nonnull %8) #18
   %.pre = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %21
+  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %24
 
-21:                                               ; preds = %.body
-  %22 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %23
+24:                                               ; preds = %.body
+  %25 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %26
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #23
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #23
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %.body, %21
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %.body, %24
   resume { ptr, i32 } %12
 
-26:                                               ; preds = %19, %2
+29:                                               ; preds = %19, %2
   ret void
 }
 

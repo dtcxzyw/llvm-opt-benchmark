@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define noundef i32 @udata_swap(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %dataFormatChars = alloca [4 x i8], align 4
-  %u = alloca [4 x i16], align 8
+  %u = alloca [4 x i16], align 2
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -57,12 +57,24 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.end5:                                          ; preds = %if.end
   %dataFormat = getelementptr inbounds i8, ptr %inData, i64 12
+  %2 = load i8, ptr %dataFormat, align 2
+  %conv = zext i8 %2 to i16
+  store i16 %conv, ptr %u, align 2
+  %arrayinit.element = getelementptr inbounds i8, ptr %u, i64 2
   %arrayidx7 = getelementptr inbounds i8, ptr %inData, i64 13
+  %3 = load i8, ptr %arrayidx7, align 1
+  %conv8 = zext i8 %3 to i16
+  store i16 %conv8, ptr %arrayinit.element, align 2
+  %arrayinit.element9 = getelementptr inbounds i8, ptr %u, i64 4
   %arrayidx11 = getelementptr inbounds i8, ptr %inData, i64 14
+  %4 = load i8, ptr %arrayidx11, align 2
+  %conv12 = zext i8 %4 to i16
+  store i16 %conv12, ptr %arrayinit.element9, align 2
+  %arrayinit.element13 = getelementptr inbounds i8, ptr %u, i64 6
   %arrayidx15 = getelementptr inbounds i8, ptr %inData, i64 15
-  %2 = load <4 x i8>, ptr %dataFormat, align 2
-  %3 = zext <4 x i8> %2 to <4 x i16>
-  store <4 x i16> %3, ptr %u, align 8
+  %5 = load i8, ptr %arrayidx15, align 1
+  %conv16 = zext i8 %5 to i16
+  store i16 %conv16, ptr %arrayinit.element13, align 2
   %call17 = call signext i8 @uprv_isInvariantUString_75(ptr noundef nonnull %u, i32 noundef 4)
   %tobool18.not = icmp eq i8 %call17, 0
   br i1 %tobool18.not, label %if.else, label %if.then19
@@ -92,33 +104,33 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then35:                                        ; preds = %for.body
   %swapFn = getelementptr inbounds i8, ptr %arrayidx28, i64 8
-  %4 = load ptr, ptr %swapFn, align 8
-  %call38 = call noundef i32 %4(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
-  %5 = load i32, ptr %pErrorCode, align 4
-  %cmp.i40 = icmp slt i32 %5, 1
+  %6 = load ptr, ptr %swapFn, align 8
+  %call38 = call noundef i32 %6(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
+  %7 = load i32, ptr %pErrorCode, align 4
+  %cmp.i40 = icmp slt i32 %7, 1
   br i1 %cmp.i40, label %if.else63, label %if.then41
 
 if.then41:                                        ; preds = %if.then35
-  %6 = load i8, ptr %dataFormat, align 2
-  %conv44 = zext i8 %6 to i32
-  %7 = load i8, ptr %arrayidx7, align 1
-  %conv47 = zext i8 %7 to i32
-  %8 = load i8, ptr %arrayidx11, align 2
-  %conv50 = zext i8 %8 to i32
-  %9 = load i8, ptr %arrayidx15, align 1
-  %conv53 = zext i8 %9 to i32
-  %10 = load i8, ptr %dataFormatChars, align 4
-  %conv55 = sext i8 %10 to i32
+  %8 = load i8, ptr %dataFormat, align 2
+  %conv44 = zext i8 %8 to i32
+  %9 = load i8, ptr %arrayidx7, align 1
+  %conv47 = zext i8 %9 to i32
+  %10 = load i8, ptr %arrayidx11, align 2
+  %conv50 = zext i8 %10 to i32
+  %11 = load i8, ptr %arrayidx15, align 1
+  %conv53 = zext i8 %11 to i32
+  %12 = load i8, ptr %dataFormatChars, align 4
+  %conv55 = sext i8 %12 to i32
   %arrayidx56 = getelementptr inbounds i8, ptr %dataFormatChars, i64 1
-  %11 = load i8, ptr %arrayidx56, align 1
-  %conv57 = sext i8 %11 to i32
+  %13 = load i8, ptr %arrayidx56, align 1
+  %conv57 = sext i8 %13 to i32
   %arrayidx58 = getelementptr inbounds i8, ptr %dataFormatChars, i64 2
-  %12 = load i8, ptr %arrayidx58, align 2
-  %conv59 = sext i8 %12 to i32
+  %14 = load i8, ptr %arrayidx58, align 2
+  %conv59 = sext i8 %14 to i32
   %arrayidx60 = getelementptr inbounds i8, ptr %dataFormatChars, i64 3
-  %13 = load i8, ptr %arrayidx60, align 1
-  %conv61 = sext i8 %13 to i32
-  %call62 = call ptr @u_errorName_75(i32 noundef %5)
+  %15 = load i8, ptr %arrayidx60, align 1
+  %conv61 = sext i8 %15 to i32
+  %call62 = call ptr @u_errorName_75(i32 noundef %7)
   call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %ds, ptr noundef nonnull @.str, i32 noundef %conv44, i32 noundef %conv47, i32 noundef %conv50, i32 noundef %conv53, i32 noundef %conv55, i32 noundef %conv57, i32 noundef %conv59, i32 noundef %conv61, ptr noundef %call62)
   br label %return
 
@@ -128,49 +140,49 @@ if.else63:                                        ; preds = %if.then35
   br i1 %cmp64, label %if.then65, label %return
 
 if.then65:                                        ; preds = %if.else63
-  %14 = load i8, ptr %dataFormat, align 2
-  %conv68 = zext i8 %14 to i32
-  %15 = load i8, ptr %arrayidx7, align 1
-  %conv71 = zext i8 %15 to i32
-  %16 = load i8, ptr %arrayidx11, align 2
-  %conv74 = zext i8 %16 to i32
-  %17 = load i8, ptr %arrayidx15, align 1
-  %conv77 = zext i8 %17 to i32
-  %18 = load i8, ptr %dataFormatChars, align 4
-  %conv79 = sext i8 %18 to i32
+  %16 = load i8, ptr %dataFormat, align 2
+  %conv68 = zext i8 %16 to i32
+  %17 = load i8, ptr %arrayidx7, align 1
+  %conv71 = zext i8 %17 to i32
+  %18 = load i8, ptr %arrayidx11, align 2
+  %conv74 = zext i8 %18 to i32
+  %19 = load i8, ptr %arrayidx15, align 1
+  %conv77 = zext i8 %19 to i32
+  %20 = load i8, ptr %dataFormatChars, align 4
+  %conv79 = sext i8 %20 to i32
   %arrayidx80 = getelementptr inbounds i8, ptr %dataFormatChars, i64 1
-  %19 = load i8, ptr %arrayidx80, align 1
-  %conv81 = sext i8 %19 to i32
+  %21 = load i8, ptr %arrayidx80, align 1
+  %conv81 = sext i8 %21 to i32
   %arrayidx82 = getelementptr inbounds i8, ptr %dataFormatChars, i64 2
-  %20 = load i8, ptr %arrayidx82, align 2
-  %conv83 = sext i8 %20 to i32
+  %22 = load i8, ptr %arrayidx82, align 2
+  %conv83 = sext i8 %22 to i32
   %arrayidx84 = getelementptr inbounds i8, ptr %dataFormatChars, i64 3
-  %21 = load i8, ptr %arrayidx84, align 1
-  %conv85 = sext i8 %21 to i32
-  %call86 = call ptr @u_errorName_75(i32 noundef %5)
+  %23 = load i8, ptr %arrayidx84, align 1
+  %conv85 = sext i8 %23 to i32
+  %call86 = call ptr @u_errorName_75(i32 noundef %7)
   call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %ds, ptr noundef nonnull @.str.1, i32 noundef %call38, i32 noundef %length, i32 noundef %conv68, i32 noundef %conv71, i32 noundef %conv74, i32 noundef %conv77, i32 noundef %conv79, i32 noundef %conv81, i32 noundef %conv83, i32 noundef %conv85, ptr noundef %call86)
   br label %return
 
 for.end:                                          ; preds = %for.cond
-  %22 = load i8, ptr %dataFormat, align 2
-  %conv92 = zext i8 %22 to i32
-  %23 = load i8, ptr %arrayidx7, align 1
-  %conv95 = zext i8 %23 to i32
-  %24 = load i8, ptr %arrayidx11, align 2
-  %conv98 = zext i8 %24 to i32
-  %25 = load i8, ptr %arrayidx15, align 1
-  %conv101 = zext i8 %25 to i32
-  %26 = load i8, ptr %dataFormatChars, align 4
-  %conv103 = sext i8 %26 to i32
+  %24 = load i8, ptr %dataFormat, align 2
+  %conv92 = zext i8 %24 to i32
+  %25 = load i8, ptr %arrayidx7, align 1
+  %conv95 = zext i8 %25 to i32
+  %26 = load i8, ptr %arrayidx11, align 2
+  %conv98 = zext i8 %26 to i32
+  %27 = load i8, ptr %arrayidx15, align 1
+  %conv101 = zext i8 %27 to i32
+  %28 = load i8, ptr %dataFormatChars, align 4
+  %conv103 = sext i8 %28 to i32
   %arrayidx104 = getelementptr inbounds i8, ptr %dataFormatChars, i64 1
-  %27 = load i8, ptr %arrayidx104, align 1
-  %conv105 = sext i8 %27 to i32
+  %29 = load i8, ptr %arrayidx104, align 1
+  %conv105 = sext i8 %29 to i32
   %arrayidx106 = getelementptr inbounds i8, ptr %dataFormatChars, i64 2
-  %28 = load i8, ptr %arrayidx106, align 2
-  %conv107 = sext i8 %28 to i32
+  %30 = load i8, ptr %arrayidx106, align 2
+  %conv107 = sext i8 %30 to i32
   %arrayidx108 = getelementptr inbounds i8, ptr %dataFormatChars, i64 3
-  %29 = load i8, ptr %arrayidx108, align 1
-  %conv109 = sext i8 %29 to i32
+  %31 = load i8, ptr %arrayidx108, align 1
+  %conv109 = sext i8 %31 to i32
   call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %ds, ptr noundef nonnull @.str.2, i32 noundef %conv92, i32 noundef %conv95, i32 noundef %conv98, i32 noundef %conv101, i32 noundef %conv103, i32 noundef %conv105, i32 noundef %conv107, i32 noundef %conv109)
   store i32 16, ptr %pErrorCode, align 4
   br label %return

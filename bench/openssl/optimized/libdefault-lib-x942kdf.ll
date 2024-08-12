@@ -857,7 +857,10 @@ for.cond.preheader:                               ; preds = %if.end17
   %arrayidx25 = getelementptr inbounds i8, ptr %ctr, i64 1
   %arrayidx29 = getelementptr inbounds i8, ptr %ctr, i64 2
   %arrayidx32 = getelementptr inbounds i8, ptr %ctr, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %ctr, align 1
+  store i8 0, ptr %ctr, align 1
+  store i8 0, ptr %arrayidx25, align 1
+  store i8 0, ptr %arrayidx29, align 1
+  store i8 1, ptr %arrayidx32, align 1
   %call3335 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call9, ptr noundef nonnull %call10) #6
   %tobool34.not36 = icmp eq i32 %call3335, 0
   br i1 %tobool34.not36, label %end, label %lor.lhs.false35

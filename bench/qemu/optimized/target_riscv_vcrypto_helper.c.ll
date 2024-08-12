@@ -3098,25 +3098,29 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
+  %add.ptr8 = getelementptr i8, ptr %vs2, i64 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %round_key, i64 8
   %arrayidx16 = getelementptr inbounds i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesenc_SB_SR_AK.exit
   %i.022 = phi i32 [ %conv3, %for.body.lr.ph ], [ %inc, %aesenc_SB_SR_AK.exit ]
-  %3 = load <2 x i64>, ptr %vs2, align 8
-  store <2 x i64> %3, ptr %round_key, align 16
+  %3 = load i64, ptr %vs2, align 8
+  store i64 %3, ptr %round_key, align 16
+  %4 = load i64, ptr %add.ptr8, align 8
+  store i64 %4, ptr %arrayidx9, align 8
   %mul = shl i32 %i.022, 1
   %idx.ext = zext i32 %mul to i64
   %add.ptr10 = getelementptr i64, ptr %vd, i64 %idx.ext
-  %4 = load i64, ptr %add.ptr10, align 8
-  store i64 %4, ptr %round_state, align 16
+  %5 = load i64, ptr %add.ptr10, align 8
+  store i64 %5, ptr %round_state, align 16
   %add13 = or disjoint i32 %mul, 1
   %idx.ext14 = zext i32 %add13 to i64
   %add.ptr15 = getelementptr i64, ptr %vd, i64 %idx.ext14
-  %5 = load i64, ptr %add.ptr15, align 8
-  store i64 %5, ptr %arrayidx16, align 8
-  %6 = load i32, ptr @cpuinfo, align 4
-  %and.i = and i32 %6, 262144
+  %6 = load i64, ptr %add.ptr15, align 8
+  store i64 %6, ptr %arrayidx16, align 8
+  %7 = load i32, ptr @cpuinfo, align 4
+  %and.i = and i32 %7, 262144
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
@@ -3129,14 +3133,14 @@ if.then7.i:                                       ; preds = %for.body
   br label %aesenc_SB_SR_AK.exit
 
 aesenc_SB_SR_AK.exit:                             ; preds = %if.then.i, %if.then7.i
-  %7 = load i64, ptr %round_state, align 16
-  store i64 %7, ptr %add.ptr10, align 8
-  %8 = load i64, ptr %arrayidx16, align 8
-  store i64 %8, ptr %add.ptr15, align 8
+  %8 = load i64, ptr %round_state, align 16
+  store i64 %8, ptr %add.ptr10, align 8
+  %9 = load i64, ptr %arrayidx16, align 8
+  store i64 %9, ptr %add.ptr15, align 8
   %inc = add i32 %i.022, 1
   %conv4 = zext i32 %inc to i64
-  %9 = load i64, ptr %vl1, align 16
-  %div617 = lshr i64 %9, 2
+  %10 = load i64, ptr %vl1, align 16
+  %div617 = lshr i64 %10, 2
   %cmp = icmp ugt i64 %div617, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !33
 
@@ -3146,14 +3150,14 @@ for.end:                                          ; preds = %aesenc_SB_SR_AK.exi
   %and.i.i.i = shl i32 %desc, 3
   %mul.i.i = and i32 %and.i.i.i, 2040
   %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %10 = shl i32 %desc, 18
-  %shr.i1.i.i = ashr i32 %10, 29
-  %11 = trunc i64 %env.val to i32
-  %12 = lshr i32 %11, 3
-  %sh_prom.i = and i32 %12, 7
+  %11 = shl i32 %desc, 18
+  %shr.i1.i.i = ashr i32 %11, 29
+  %12 = trunc i64 %env.val to i32
+  %13 = lshr i32 %12, 3
+  %sh_prom.i = and i32 %13, 7
   %reass.sub = sub nsw i32 %shr.i1.i.i, %sh_prom.i
-  %13 = call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
-  %cond.i = add nsw i32 %13, 2
+  %14 = call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
+  %cond.i = add nsw i32 %14, 2
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
@@ -3269,25 +3273,29 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
+  %add.ptr8 = getelementptr i8, ptr %vs2, i64 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %round_key, i64 8
   %arrayidx16 = getelementptr inbounds i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesdec_ISB_ISR_AK.exit
   %i.022 = phi i32 [ %conv3, %for.body.lr.ph ], [ %inc, %aesdec_ISB_ISR_AK.exit ]
-  %3 = load <2 x i64>, ptr %vs2, align 8
-  store <2 x i64> %3, ptr %round_key, align 16
+  %3 = load i64, ptr %vs2, align 8
+  store i64 %3, ptr %round_key, align 16
+  %4 = load i64, ptr %add.ptr8, align 8
+  store i64 %4, ptr %arrayidx9, align 8
   %mul = shl i32 %i.022, 1
   %idx.ext = zext i32 %mul to i64
   %add.ptr10 = getelementptr i64, ptr %vd, i64 %idx.ext
-  %4 = load i64, ptr %add.ptr10, align 8
-  store i64 %4, ptr %round_state, align 16
+  %5 = load i64, ptr %add.ptr10, align 8
+  store i64 %5, ptr %round_state, align 16
   %add13 = or disjoint i32 %mul, 1
   %idx.ext14 = zext i32 %add13 to i64
   %add.ptr15 = getelementptr i64, ptr %vd, i64 %idx.ext14
-  %5 = load i64, ptr %add.ptr15, align 8
-  store i64 %5, ptr %arrayidx16, align 8
-  %6 = load i32, ptr @cpuinfo, align 4
-  %and.i = and i32 %6, 262144
+  %6 = load i64, ptr %add.ptr15, align 8
+  store i64 %6, ptr %arrayidx16, align 8
+  %7 = load i32, ptr @cpuinfo, align 4
+  %and.i = and i32 %7, 262144
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
@@ -3300,14 +3308,14 @@ if.then7.i:                                       ; preds = %for.body
   br label %aesdec_ISB_ISR_AK.exit
 
 aesdec_ISB_ISR_AK.exit:                           ; preds = %if.then.i, %if.then7.i
-  %7 = load i64, ptr %round_state, align 16
-  store i64 %7, ptr %add.ptr10, align 8
-  %8 = load i64, ptr %arrayidx16, align 8
-  store i64 %8, ptr %add.ptr15, align 8
+  %8 = load i64, ptr %round_state, align 16
+  store i64 %8, ptr %add.ptr10, align 8
+  %9 = load i64, ptr %arrayidx16, align 8
+  store i64 %9, ptr %add.ptr15, align 8
   %inc = add i32 %i.022, 1
   %conv4 = zext i32 %inc to i64
-  %9 = load i64, ptr %vl1, align 16
-  %div617 = lshr i64 %9, 2
+  %10 = load i64, ptr %vl1, align 16
+  %div617 = lshr i64 %10, 2
   %cmp = icmp ugt i64 %div617, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !35
 
@@ -3317,14 +3325,14 @@ for.end:                                          ; preds = %aesdec_ISB_ISR_AK.e
   %and.i.i.i = shl i32 %desc, 3
   %mul.i.i = and i32 %and.i.i.i, 2040
   %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %10 = shl i32 %desc, 18
-  %shr.i1.i.i = ashr i32 %10, 29
-  %11 = trunc i64 %env.val to i32
-  %12 = lshr i32 %11, 3
-  %sh_prom.i = and i32 %12, 7
+  %11 = shl i32 %desc, 18
+  %shr.i1.i.i = ashr i32 %11, 29
+  %12 = trunc i64 %env.val to i32
+  %13 = lshr i32 %12, 3
+  %sh_prom.i = and i32 %13, 7
   %reass.sub = sub nsw i32 %shr.i1.i.i, %sh_prom.i
-  %13 = call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
-  %cond.i = add nsw i32 %13, 2
+  %14 = call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
+  %cond.i = add nsw i32 %14, 2
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
@@ -3440,25 +3448,29 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
+  %add.ptr8 = getelementptr i8, ptr %vs2, i64 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %round_key, i64 8
   %arrayidx16 = getelementptr inbounds i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesenc_SB_SR_MC_AK.exit
   %i.022 = phi i32 [ %conv3, %for.body.lr.ph ], [ %inc, %aesenc_SB_SR_MC_AK.exit ]
-  %3 = load <2 x i64>, ptr %vs2, align 8
-  store <2 x i64> %3, ptr %round_key, align 16
+  %3 = load i64, ptr %vs2, align 8
+  store i64 %3, ptr %round_key, align 16
+  %4 = load i64, ptr %add.ptr8, align 8
+  store i64 %4, ptr %arrayidx9, align 8
   %mul = shl i32 %i.022, 1
   %idx.ext = zext i32 %mul to i64
   %add.ptr10 = getelementptr i64, ptr %vd, i64 %idx.ext
-  %4 = load i64, ptr %add.ptr10, align 8
-  store i64 %4, ptr %round_state, align 16
+  %5 = load i64, ptr %add.ptr10, align 8
+  store i64 %5, ptr %round_state, align 16
   %add13 = or disjoint i32 %mul, 1
   %idx.ext14 = zext i32 %add13 to i64
   %add.ptr15 = getelementptr i64, ptr %vd, i64 %idx.ext14
-  %5 = load i64, ptr %add.ptr15, align 8
-  store i64 %5, ptr %arrayidx16, align 8
-  %6 = load i32, ptr @cpuinfo, align 4
-  %and.i = and i32 %6, 262144
+  %6 = load i64, ptr %add.ptr15, align 8
+  store i64 %6, ptr %arrayidx16, align 8
+  %7 = load i32, ptr @cpuinfo, align 4
+  %and.i = and i32 %7, 262144
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
@@ -3471,14 +3483,14 @@ if.then7.i:                                       ; preds = %for.body
   br label %aesenc_SB_SR_MC_AK.exit
 
 aesenc_SB_SR_MC_AK.exit:                          ; preds = %if.then.i, %if.then7.i
-  %7 = load i64, ptr %round_state, align 16
-  store i64 %7, ptr %add.ptr10, align 8
-  %8 = load i64, ptr %arrayidx16, align 8
-  store i64 %8, ptr %add.ptr15, align 8
+  %8 = load i64, ptr %round_state, align 16
+  store i64 %8, ptr %add.ptr10, align 8
+  %9 = load i64, ptr %arrayidx16, align 8
+  store i64 %9, ptr %add.ptr15, align 8
   %inc = add i32 %i.022, 1
   %conv4 = zext i32 %inc to i64
-  %9 = load i64, ptr %vl1, align 16
-  %div617 = lshr i64 %9, 2
+  %10 = load i64, ptr %vl1, align 16
+  %div617 = lshr i64 %10, 2
   %cmp = icmp ugt i64 %div617, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !37
 
@@ -3488,14 +3500,14 @@ for.end:                                          ; preds = %aesenc_SB_SR_MC_AK.
   %and.i.i.i = shl i32 %desc, 3
   %mul.i.i = and i32 %and.i.i.i, 2040
   %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %10 = shl i32 %desc, 18
-  %shr.i1.i.i = ashr i32 %10, 29
-  %11 = trunc i64 %env.val to i32
-  %12 = lshr i32 %11, 3
-  %sh_prom.i = and i32 %12, 7
+  %11 = shl i32 %desc, 18
+  %shr.i1.i.i = ashr i32 %11, 29
+  %12 = trunc i64 %env.val to i32
+  %13 = lshr i32 %12, 3
+  %sh_prom.i = and i32 %13, 7
   %reass.sub = sub nsw i32 %shr.i1.i.i, %sh_prom.i
-  %13 = call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
-  %cond.i = add nsw i32 %13, 2
+  %14 = call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
+  %cond.i = add nsw i32 %14, 2
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
@@ -3611,25 +3623,29 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
+  %add.ptr8 = getelementptr i8, ptr %vs2, i64 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %round_key, i64 8
   %arrayidx16 = getelementptr inbounds i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesdec_ISB_ISR_AK_IMC.exit
   %i.022 = phi i32 [ %conv3, %for.body.lr.ph ], [ %inc, %aesdec_ISB_ISR_AK_IMC.exit ]
-  %3 = load <2 x i64>, ptr %vs2, align 8
-  store <2 x i64> %3, ptr %round_key, align 16
+  %3 = load i64, ptr %vs2, align 8
+  store i64 %3, ptr %round_key, align 16
+  %4 = load i64, ptr %add.ptr8, align 8
+  store i64 %4, ptr %arrayidx9, align 8
   %mul = shl i32 %i.022, 1
   %idx.ext = zext i32 %mul to i64
   %add.ptr10 = getelementptr i64, ptr %vd, i64 %idx.ext
-  %4 = load i64, ptr %add.ptr10, align 8
-  store i64 %4, ptr %round_state, align 16
+  %5 = load i64, ptr %add.ptr10, align 8
+  store i64 %5, ptr %round_state, align 16
   %add13 = or disjoint i32 %mul, 1
   %idx.ext14 = zext i32 %add13 to i64
   %add.ptr15 = getelementptr i64, ptr %vd, i64 %idx.ext14
-  %5 = load i64, ptr %add.ptr15, align 8
-  store i64 %5, ptr %arrayidx16, align 8
-  %6 = load i32, ptr @cpuinfo, align 4
-  %and.i = and i32 %6, 262144
+  %6 = load i64, ptr %add.ptr15, align 8
+  store i64 %6, ptr %arrayidx16, align 8
+  %7 = load i32, ptr @cpuinfo, align 4
+  %and.i = and i32 %7, 262144
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
@@ -3642,14 +3658,14 @@ if.then7.i:                                       ; preds = %for.body
   br label %aesdec_ISB_ISR_AK_IMC.exit
 
 aesdec_ISB_ISR_AK_IMC.exit:                       ; preds = %if.then.i, %if.then7.i
-  %7 = load i64, ptr %round_state, align 16
-  store i64 %7, ptr %add.ptr10, align 8
-  %8 = load i64, ptr %arrayidx16, align 8
-  store i64 %8, ptr %add.ptr15, align 8
+  %8 = load i64, ptr %round_state, align 16
+  store i64 %8, ptr %add.ptr10, align 8
+  %9 = load i64, ptr %arrayidx16, align 8
+  store i64 %9, ptr %add.ptr15, align 8
   %inc = add i32 %i.022, 1
   %conv4 = zext i32 %inc to i64
-  %9 = load i64, ptr %vl1, align 16
-  %div617 = lshr i64 %9, 2
+  %10 = load i64, ptr %vl1, align 16
+  %div617 = lshr i64 %10, 2
   %cmp = icmp ugt i64 %div617, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !39
 
@@ -3659,14 +3675,14 @@ for.end:                                          ; preds = %aesdec_ISB_ISR_AK_I
   %and.i.i.i = shl i32 %desc, 3
   %mul.i.i = and i32 %and.i.i.i, 2040
   %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %10 = shl i32 %desc, 18
-  %shr.i1.i.i = ashr i32 %10, 29
-  %11 = trunc i64 %env.val to i32
-  %12 = lshr i32 %11, 3
-  %sh_prom.i = and i32 %12, 7
+  %11 = shl i32 %desc, 18
+  %shr.i1.i.i = ashr i32 %11, 29
+  %12 = trunc i64 %env.val to i32
+  %13 = lshr i32 %12, 3
+  %sh_prom.i = and i32 %13, 7
   %reass.sub = sub nsw i32 %shr.i1.i.i, %sh_prom.i
-  %13 = call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
-  %cond.i = add nsw i32 %13, 2
+  %14 = call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
+  %cond.i = add nsw i32 %14, 2
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
@@ -3692,30 +3708,34 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
+  %add.ptr8 = getelementptr i8, ptr %vs2, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.028 = phi i32 [ %conv3, %for.body.lr.ph ], [ %inc, %for.body ]
-  %3 = load <2 x i64>, ptr %vs2, align 8
+  %3 = load i64, ptr %vs2, align 8
+  %round_key.sroa.0.0.vec.insert = insertelement <2 x i64> poison, i64 %3, i64 0
+  %4 = load i64, ptr %add.ptr8, align 8
+  %round_key.sroa.0.8.vec.insert = insertelement <2 x i64> %round_key.sroa.0.0.vec.insert, i64 %4, i64 1
   %mul = shl i32 %i.028, 1
   %idx.ext = zext i32 %mul to i64
   %add.ptr10 = getelementptr i64, ptr %vd, i64 %idx.ext
-  %4 = load i64, ptr %add.ptr10, align 8
-  %round_state.sroa.0.0.vec.insert = insertelement <2 x i64> poison, i64 %4, i64 0
+  %5 = load i64, ptr %add.ptr10, align 8
+  %round_state.sroa.0.0.vec.insert = insertelement <2 x i64> poison, i64 %5, i64 0
   %add13 = or disjoint i32 %mul, 1
   %idx.ext14 = zext i32 %add13 to i64
   %add.ptr15 = getelementptr i64, ptr %vd, i64 %idx.ext14
-  %5 = load i64, ptr %add.ptr15, align 8
-  %round_state.sroa.0.8.vec.insert = insertelement <2 x i64> %round_state.sroa.0.0.vec.insert, i64 %5, i64 1
-  %xor.i24 = xor <2 x i64> %round_state.sroa.0.8.vec.insert, %3
+  %6 = load i64, ptr %add.ptr15, align 8
+  %round_state.sroa.0.8.vec.insert = insertelement <2 x i64> %round_state.sroa.0.0.vec.insert, i64 %6, i64 1
+  %xor.i24 = xor <2 x i64> %round_state.sroa.0.8.vec.insert, %round_key.sroa.0.8.vec.insert
   %round_state.sroa.0.0.vec.extract = extractelement <2 x i64> %xor.i24, i64 0
   store i64 %round_state.sroa.0.0.vec.extract, ptr %add.ptr10, align 8
   %round_state.sroa.0.8.vec.extract = extractelement <2 x i64> %xor.i24, i64 1
   store i64 %round_state.sroa.0.8.vec.extract, ptr %add.ptr15, align 8
   %inc = add i32 %i.028, 1
   %conv4 = zext i32 %inc to i64
-  %6 = load i64, ptr %vl1, align 16
-  %div617 = lshr i64 %6, 2
+  %7 = load i64, ptr %vl1, align 16
+  %div617 = lshr i64 %7, 2
   %cmp = icmp ugt i64 %div617, %conv4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !40
 
@@ -3725,14 +3745,14 @@ for.end:                                          ; preds = %for.body, %entry
   %and.i.i.i = shl i32 %desc, 3
   %mul.i.i = and i32 %and.i.i.i, 2040
   %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %7 = shl i32 %desc, 18
-  %shr.i1.i.i = ashr i32 %7, 29
-  %8 = trunc i64 %env.val to i32
-  %9 = lshr i32 %8, 3
-  %sh_prom.i = and i32 %9, 7
+  %8 = shl i32 %desc, 18
+  %shr.i1.i.i = ashr i32 %8, 29
+  %9 = trunc i64 %env.val to i32
+  %10 = lshr i32 %9, 3
+  %sh_prom.i = and i32 %10, 7
   %reass.sub = sub nsw i32 %shr.i1.i.i, %sh_prom.i
-  %10 = tail call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
-  %cond.i = add nsw i32 %10, 2
+  %11 = tail call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
+  %cond.i = add nsw i32 %11, 2
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %conv = trunc i64 %0 to i32
   store i64 0, ptr %vstart, align 8
@@ -5151,6 +5171,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv = trunc i64 %div32 to i32
+  %arrayinit.element35 = getelementptr inbounds i8, ptr %S, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
@@ -5201,27 +5222,40 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load i64, ptr %arrayidx25, align 8
   %arrayidx30 = getelementptr i64, ptr %vs1_vptr, i64 %idxprom7
   %8 = load i64, ptr %arrayidx30, align 8
-  %9 = insertelement <2 x i64> poison, i64 %7, i64 0
-  %10 = insertelement <2 x i64> %9, i64 %8, i64 1
-  %11 = insertelement <2 x i64> poison, i64 %3, i64 0
-  %12 = insertelement <2 x i64> %11, i64 %4, i64 1
-  %13 = xor <2 x i64> %10, %12
-  %14 = shl <2 x i64> %13, <i64 1, i64 1>
-  %15 = and <2 x i64> %14, <i64 -6148914691236517206, i64 -6148914691236517206>
-  %16 = lshr <2 x i64> %13, <i64 1, i64 1>
-  %17 = and <2 x i64> %16, <i64 6148914691236517205, i64 6148914691236517205>
-  %18 = or disjoint <2 x i64> %15, %17
-  %19 = shl <2 x i64> %18, <i64 2, i64 2>
-  %20 = and <2 x i64> %19, <i64 -3689348814741910324, i64 -3689348814741910324>
-  %21 = lshr <2 x i64> %18, <i64 2, i64 2>
-  %22 = and <2 x i64> %21, <i64 3689348814741910323, i64 3689348814741910323>
-  %23 = or disjoint <2 x i64> %20, %22
-  %24 = shl <2 x i64> %23, <i64 4, i64 4>
-  %25 = and <2 x i64> %24, <i64 -1085102592571150096, i64 -1085102592571150096>
-  %26 = lshr <2 x i64> %23, <i64 4, i64 4>
-  %27 = and <2 x i64> %26, <i64 1085102592571150095, i64 1085102592571150095>
-  %28 = or disjoint <2 x i64> %25, %27
-  store <2 x i64> %28, ptr %S, align 16
+  %xor = xor i64 %7, %3
+  %and.i50 = shl i64 %xor, 1
+  %shl.i51 = and i64 %and.i50, -6148914691236517206
+  %and1.i52 = lshr i64 %xor, 1
+  %shr.i53 = and i64 %and1.i52, 6148914691236517205
+  %or.i54 = or disjoint i64 %shl.i51, %shr.i53
+  %and2.i55 = shl i64 %or.i54, 2
+  %shl3.i56 = and i64 %and2.i55, -3689348814741910324
+  %and4.i57 = lshr i64 %or.i54, 2
+  %shr5.i58 = and i64 %and4.i57, 3689348814741910323
+  %or6.i59 = or disjoint i64 %shl3.i56, %shr5.i58
+  %and7.i60 = shl i64 %or6.i59, 4
+  %shl8.i61 = and i64 %and7.i60, -1085102592571150096
+  %and9.i62 = lshr i64 %or6.i59, 4
+  %shr10.i63 = and i64 %and9.i62, 1085102592571150095
+  %or11.i64 = or disjoint i64 %shl8.i61, %shr10.i63
+  store i64 %or11.i64, ptr %S, align 16
+  %xor38 = xor i64 %8, %4
+  %and.i65 = shl i64 %xor38, 1
+  %shl.i66 = and i64 %and.i65, -6148914691236517206
+  %and1.i67 = lshr i64 %xor38, 1
+  %shr.i68 = and i64 %and1.i67, 6148914691236517205
+  %or.i69 = or disjoint i64 %shl.i66, %shr.i68
+  %and2.i70 = shl i64 %or.i69, 2
+  %shl3.i71 = and i64 %and2.i70, -3689348814741910324
+  %and4.i72 = lshr i64 %or.i69, 2
+  %shr5.i73 = and i64 %and4.i72, 3689348814741910323
+  %or6.i74 = or disjoint i64 %shl3.i71, %shr5.i73
+  %and7.i75 = shl i64 %or6.i74, 4
+  %shl8.i76 = and i64 %and7.i75, -1085102592571150096
+  %and9.i77 = lshr i64 %or6.i74, 4
+  %shr10.i78 = and i64 %and9.i77, 1085102592571150095
+  %or11.i79 = or disjoint i64 %shl8.i76, %shr10.i78
+  store i64 %or11.i79, ptr %arrayinit.element35, align 8
   br label %for.body43
 
 for.body43:                                       ; preds = %for.body, %for.body43
@@ -5233,12 +5267,12 @@ for.body43:                                       ; preds = %for.body, %for.body
   %div4434 = lshr i32 %j.0116, 6
   %idxprom45 = zext nneg i32 %div4434 to i64
   %arrayidx46 = getelementptr [2 x i64], ptr %S, i64 0, i64 %idxprom45
-  %29 = load i64, ptr %arrayidx46, align 8
+  %9 = load i64, ptr %arrayidx46, align 8
   %rem = and i32 %j.0116, 63
   %sh_prom = zext nneg i32 %rem to i64
-  %30 = shl nuw i64 1, %sh_prom
-  %31 = and i64 %29, %30
-  %tobool.not = icmp eq i64 %31, 0
+  %10 = shl nuw i64 1, %sh_prom
+  %11 = and i64 %9, %10
+  %tobool.not = icmp eq i64 %11, 0
   %xor49 = select i1 %tobool.not, i64 0, i64 %H.sroa.0.0112
   %Z.sroa.0.2 = xor i64 %xor49, %Z.sroa.0.1114
   %xor52 = select i1 %tobool.not, i64 0, i64 %H.sroa.7.0113
@@ -5287,24 +5321,24 @@ for.end:                                          ; preds = %for.body43
   store i64 %or11.i109, ptr %arrayidx8, align 8
   %inc82 = add i32 %i.0120, 1
   %conv2 = zext i32 %inc82 to i64
-  %32 = load i64, ptr %vl, align 16
-  %div333 = lshr i64 %32, 2
+  %12 = load i64, ptr %vl, align 16
+  %div333 = lshr i64 %12, 2
   %cmp = icmp ugt i64 %div333, %conv2
   br i1 %cmp, label %for.body, label %for.end83, !llvm.loop !56
 
 for.end83:                                        ; preds = %for.end, %entry
-  %.lcssa = phi i64 [ %2, %entry ], [ %32, %for.end ]
+  %.lcssa = phi i64 [ %2, %entry ], [ %12, %for.end ]
   %and.i.i.i = shl i32 %desc, 3
   %mul.i.i = and i32 %and.i.i.i, 2040
   %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %33 = shl i32 %desc, 18
-  %shr.i1.i.i = ashr i32 %33, 29
-  %34 = trunc i64 %env.val to i32
-  %35 = lshr i32 %34, 3
-  %sh_prom.i = and i32 %35, 7
+  %13 = shl i32 %desc, 18
+  %shr.i1.i.i = ashr i32 %13, 29
+  %14 = trunc i64 %env.val to i32
+  %15 = lshr i32 %14, 3
+  %sh_prom.i = and i32 %15, 7
   %reass.sub = sub nsw i32 %shr.i1.i.i, %sh_prom.i
-  %36 = tail call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
-  %cond.i = add nsw i32 %36, 2
+  %16 = tail call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
+  %cond.i = add nsw i32 %16, 2
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %shr.i.i.i = lshr i32 %desc, 14
   %and.i.i = and i32 %shr.i.i.i, 1
@@ -5336,6 +5370,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv = trunc i64 %div29 to i32
+  %arrayinit.element = getelementptr inbounds i8, ptr %Y, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
@@ -5344,33 +5379,47 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = zext i32 %mul to i64
   %arrayidx = getelementptr i64, ptr %vd_vptr, i64 %idxprom
   %3 = load i64, ptr %arrayidx, align 8
+  %and.i = shl i64 %3, 1
+  %shl.i = and i64 %and.i, -6148914691236517206
+  %and1.i = lshr i64 %3, 1
+  %shr.i = and i64 %and1.i, 6148914691236517205
+  %or.i = or disjoint i64 %shl.i, %shr.i
+  %and2.i = shl i64 %or.i, 2
+  %shl3.i = and i64 %and2.i, -3689348814741910324
+  %and4.i = lshr i64 %or.i, 2
+  %shr5.i = and i64 %and4.i, 3689348814741910323
+  %or6.i = or disjoint i64 %shl3.i, %shr5.i
+  %and7.i = shl i64 %or6.i, 4
+  %shl8.i = and i64 %and7.i, -1085102592571150096
+  %and9.i = lshr i64 %or6.i, 4
+  %shr10.i = and i64 %and9.i, 1085102592571150095
+  %or11.i = or disjoint i64 %shl8.i, %shr10.i
+  store i64 %or11.i, ptr %Y, align 16
   %add7 = or disjoint i32 %mul, 1
   %idxprom8 = zext i32 %add7 to i64
   %arrayidx9 = getelementptr i64, ptr %vd_vptr, i64 %idxprom8
   %4 = load i64, ptr %arrayidx9, align 8
-  %5 = insertelement <2 x i64> poison, i64 %3, i64 0
-  %6 = insertelement <2 x i64> %5, i64 %4, i64 1
-  %7 = shl <2 x i64> %6, <i64 1, i64 1>
-  %8 = and <2 x i64> %7, <i64 -6148914691236517206, i64 -6148914691236517206>
-  %9 = lshr <2 x i64> %6, <i64 1, i64 1>
-  %10 = and <2 x i64> %9, <i64 6148914691236517205, i64 6148914691236517205>
-  %11 = or disjoint <2 x i64> %8, %10
-  %12 = shl <2 x i64> %11, <i64 2, i64 2>
-  %13 = and <2 x i64> %12, <i64 -3689348814741910324, i64 -3689348814741910324>
-  %14 = lshr <2 x i64> %11, <i64 2, i64 2>
-  %15 = and <2 x i64> %14, <i64 3689348814741910323, i64 3689348814741910323>
-  %16 = or disjoint <2 x i64> %13, %15
-  %17 = shl <2 x i64> %16, <i64 4, i64 4>
-  %18 = and <2 x i64> %17, <i64 -1085102592571150096, i64 -1085102592571150096>
-  %19 = lshr <2 x i64> %16, <i64 4, i64 4>
-  %20 = and <2 x i64> %19, <i64 1085102592571150095, i64 1085102592571150095>
-  %21 = or disjoint <2 x i64> %18, %20
-  store <2 x i64> %21, ptr %Y, align 16
+  %and.i32 = shl i64 %4, 1
+  %shl.i33 = and i64 %and.i32, -6148914691236517206
+  %and1.i34 = lshr i64 %4, 1
+  %shr.i35 = and i64 %and1.i34, 6148914691236517205
+  %or.i36 = or disjoint i64 %shl.i33, %shr.i35
+  %and2.i37 = shl i64 %or.i36, 2
+  %shl3.i38 = and i64 %and2.i37, -3689348814741910324
+  %and4.i39 = lshr i64 %or.i36, 2
+  %shr5.i40 = and i64 %and4.i39, 3689348814741910323
+  %or6.i41 = or disjoint i64 %shl3.i38, %shr5.i40
+  %and7.i42 = shl i64 %or6.i41, 4
+  %shl8.i43 = and i64 %and7.i42, -1085102592571150096
+  %and9.i44 = lshr i64 %or6.i41, 4
+  %shr10.i45 = and i64 %and9.i44, 1085102592571150095
+  %or11.i46 = or disjoint i64 %shl8.i43, %shr10.i45
+  store i64 %or11.i46, ptr %arrayinit.element, align 8
   %arrayidx15 = getelementptr i64, ptr %vs2_vptr, i64 %idxprom
-  %22 = load i64, ptr %arrayidx15, align 8
-  %and.i47 = shl i64 %22, 1
+  %5 = load i64, ptr %arrayidx15, align 8
+  %and.i47 = shl i64 %5, 1
   %shl.i48 = and i64 %and.i47, -6148914691236517206
-  %and1.i49 = lshr i64 %22, 1
+  %and1.i49 = lshr i64 %5, 1
   %shr.i50 = and i64 %and1.i49, 6148914691236517205
   %or.i51 = or disjoint i64 %shl.i48, %shr.i50
   %and2.i52 = shl i64 %or.i51, 2
@@ -5384,10 +5433,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %shr10.i60 = and i64 %and9.i59, 1085102592571150095
   %or11.i61 = or disjoint i64 %shl8.i58, %shr10.i60
   %arrayidx21 = getelementptr i64, ptr %vs2_vptr, i64 %idxprom8
-  %23 = load i64, ptr %arrayidx21, align 8
-  %and.i62 = shl i64 %23, 1
+  %6 = load i64, ptr %arrayidx21, align 8
+  %and.i62 = shl i64 %6, 1
   %shl.i63 = and i64 %and.i62, -6148914691236517206
-  %and1.i64 = lshr i64 %23, 1
+  %and1.i64 = lshr i64 %6, 1
   %shr.i65 = and i64 %and1.i64, 6148914691236517205
   %or.i66 = or disjoint i64 %shl.i63, %shr.i65
   %and2.i67 = shl i64 %or.i66, 2
@@ -5411,12 +5460,12 @@ for.body26:                                       ; preds = %for.body, %for.body
   %div2731 = lshr i32 %j.0113, 6
   %idxprom28 = zext nneg i32 %div2731 to i64
   %arrayidx29 = getelementptr [2 x i64], ptr %Y, i64 0, i64 %idxprom28
-  %24 = load i64, ptr %arrayidx29, align 8
+  %7 = load i64, ptr %arrayidx29, align 8
   %rem = and i32 %j.0113, 63
   %sh_prom = zext nneg i32 %rem to i64
-  %25 = shl nuw i64 1, %sh_prom
-  %26 = and i64 %24, %25
-  %tobool.not = icmp eq i64 %26, 0
+  %8 = shl nuw i64 1, %sh_prom
+  %9 = and i64 %7, %8
+  %tobool.not = icmp eq i64 %9, 0
   %xor = select i1 %tobool.not, i64 0, i64 %H.sroa.0.0110
   %Z.sroa.0.2 = xor i64 %xor, %Z.sroa.0.1111
   %xor34 = select i1 %tobool.not, i64 0, i64 %H.sroa.7.0109
@@ -5465,24 +5514,24 @@ for.end:                                          ; preds = %for.body26
   store i64 %or11.i106, ptr %arrayidx9, align 8
   %inc64 = add i32 %i.0117, 1
   %conv2 = zext i32 %inc64 to i64
-  %27 = load i64, ptr %vl, align 16
-  %div330 = lshr i64 %27, 2
+  %10 = load i64, ptr %vl, align 16
+  %div330 = lshr i64 %10, 2
   %cmp = icmp ugt i64 %div330, %conv2
   br i1 %cmp, label %for.body, label %for.end65, !llvm.loop !58
 
 for.end65:                                        ; preds = %for.end, %entry
-  %.lcssa = phi i64 [ %2, %entry ], [ %27, %for.end ]
+  %.lcssa = phi i64 [ %2, %entry ], [ %10, %for.end ]
   %and.i.i.i = shl i32 %desc, 3
   %mul.i.i = and i32 %and.i.i.i, 2040
   %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %28 = shl i32 %desc, 18
-  %shr.i1.i.i = ashr i32 %28, 29
-  %29 = trunc i64 %env.val to i32
-  %30 = lshr i32 %29, 3
-  %sh_prom.i = and i32 %30, 7
+  %11 = shl i32 %desc, 18
+  %shr.i1.i.i = ashr i32 %11, 29
+  %12 = trunc i64 %env.val to i32
+  %13 = lshr i32 %12, 3
+  %sh_prom.i = and i32 %13, 7
   %reass.sub = sub nsw i32 %shr.i1.i.i, %sh_prom.i
-  %31 = tail call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
-  %cond.i = add nsw i32 %31, 2
+  %14 = tail call i32 @llvm.smax.i32(i32 %reass.sub, i32 -2)
+  %cond.i = add nsw i32 %14, 2
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %shr.i.i.i = lshr i32 %desc, 14
   %and.i.i = and i32 %shr.i.i.i, 1

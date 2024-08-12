@@ -5993,27 +5993,29 @@ invoke.cont31:                                    ; preds = %invoke.cont29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #22
   %numTrue35 = getelementptr inbounds i8, ptr %call32, i64 8
-  %15 = load <2 x i64>, ptr %numTrue35, align 8
-  %16 = insertelement <2 x i64> poison, i64 %numTrue, i64 0
-  %17 = insertelement <2 x i64> %16, i64 %total, i64 1
-  %18 = add nsw <2 x i64> %15, %17
-  store <2 x i64> %18, ptr %numTrue35, align 8
+  %15 = load i64, ptr %numTrue35, align 8
+  %add = add nsw i64 %15, %numTrue
+  store i64 %add, ptr %numTrue35, align 8
+  %total36 = getelementptr inbounds i8, ptr %call32, i64 16
+  %16 = load i64, ptr %total36, align 8
+  %add37 = add nsw i64 %16, %total
+  store i64 %add37, ptr %total36, align 8
   ret void
 
 lpad28:                                           ; preds = %call.i.noexc31, %if.end
-  %19 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad30:                                           ; preds = %invoke.cont29
-  %20 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #22
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad30, %lpad.i28, %lpad28, %lpad19, %lpad.i16, %lpad17, %lpad.i, %lpad
   %ref.tmp27.sink = phi ptr [ %ref.tmp3, %lpad ], [ %ref.tmp3, %lpad.i ], [ %ref.tmp16, %lpad17 ], [ %ref.tmp16, %lpad.i16 ], [ %ref.tmp16, %lpad19 ], [ %ref.tmp27, %lpad28 ], [ %ref.tmp27, %lpad.i28 ], [ %ref.tmp27, %lpad30 ]
-  %.pn7.pn = phi { ptr, i32 } [ %10, %lpad ], [ %1, %lpad.i ], [ %11, %lpad17 ], [ %9, %lpad.i16 ], [ %12, %lpad19 ], [ %19, %lpad28 ], [ %14, %lpad.i28 ], [ %20, %lpad30 ]
+  %.pn7.pn = phi { ptr, i32 } [ %10, %lpad ], [ %1, %lpad.i ], [ %11, %lpad17 ], [ %9, %lpad.i16 ], [ %12, %lpad19 ], [ %17, %lpad28 ], [ %14, %lpad.i28 ], [ %18, %lpad30 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27.sink) #22
   resume { ptr, i32 } %.pn7.pn
 }
@@ -6282,28 +6284,30 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %add7 = add nsw i64 %3, %count
   store i64 %add7, ptr %call, align 8
   %min8 = getelementptr inbounds i8, ptr %call, i64 8
-  %4 = load <2 x double>, ptr %min8, align 8
-  %5 = insertelement <2 x double> %4, double %max, i64 1
-  %6 = insertelement <2 x double> %4, double %min, i64 0
-  %7 = fcmp ogt <2 x double> %5, %6
-  %8 = insertelement <2 x double> %5, double %min, i64 0
-  %9 = select <2 x i1> %7, <2 x double> %8, <2 x double> %4
-  store <2 x double> %9, ptr %min8, align 8
+  %4 = load double, ptr %min8, align 8
+  %cmp.i8 = fcmp ogt double %4, %min
+  %.sroa.speculated12 = select i1 %cmp.i8, double %min, double %4
+  store double %.sroa.speculated12, ptr %min8, align 8
+  %max11 = getelementptr inbounds i8, ptr %call, i64 16
+  %5 = load double, ptr %max11, align 8
+  %cmp.i9 = fcmp olt double %5, %max
+  %.sroa.speculated = select i1 %cmp.i9, double %max, double %5
+  store double %.sroa.speculated, ptr %max11, align 8
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %entry
-  %10 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad3
-  %.pn = phi { ptr, i32 } [ %11, %lpad3 ], [ %10, %lpad ], [ %1, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad3 ], [ %6, %lpad ], [ %1, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #22
   resume { ptr, i32 } %.pn
 }
@@ -13894,7 +13898,13 @@ invoke.cont:
   %1 = inttoptr i64 %0 to ptr
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1) #22
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 64
-  store <4 x i64> <i64 0, i64 9223372036854775807, i64 -9223372036854775808, i64 0>, ptr %second.i.i.i.i.i.i.i, align 8
+  %min.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 72
+  store i64 0, ptr %second.i.i.i.i.i.i.i, align 8
+  store i64 9223372036854775807, ptr %min.i.i.i.i.i.i.i.i, align 8
+  %max.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 80
+  store i64 -9223372036854775808, ptr %max.i.i.i.i.i.i.i.i, align 8
+  %sum.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 88
+  store i64 0, ptr %sum.i.i.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt16StatsAccumulator5Stats12DistributionIlEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISD_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i)
           to label %invoke.cont7 unwind label %lpad
@@ -14303,7 +14313,9 @@ invoke.cont:
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 64
   %min.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 72
   store i64 0, ptr %second.i.i.i.i.i.i.i, align 8
-  store <2 x double> <double 0x7FEFFFFFFFFFFFFF, double 0xFFEFFFFFFFFFFFFF>, ptr %min.i.i.i.i.i.i.i.i, align 8
+  store double 0x7FEFFFFFFFFFFFFF, ptr %min.i.i.i.i.i.i.i.i, align 8
+  %max.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 80
+  store double 0xFFEFFFFFFFFFFFFF, ptr %max.i.i.i.i.i.i.i.i, align 8
   %sum.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 88
   store double 0.000000e+00, ptr %sum.i.i.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8

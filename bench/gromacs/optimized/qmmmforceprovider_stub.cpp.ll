@@ -225,7 +225,7 @@ define void @_ZN3gmx17QMMMForceProvider15calculateForcesERKNS_18ForceProviderInp
 
 10:                                               ; preds = %3
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(56) %7)
-          to label %11 unwind label %32
+          to label %11 unwind label %34
 
 11:                                               ; preds = %10
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %6, align 8
@@ -240,7 +240,7 @@ define void @_ZN3gmx17QMMMForceProvider15calculateForcesERKNS_18ForceProviderInp
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !5
   %13 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-          to label %.noexc unwind label %34
+          to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %13, align 8, !noalias !5
@@ -282,90 +282,93 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !5
   %27 = getelementptr inbounds i8, ptr %9, i64 8
   %28 = getelementptr inbounds i8, ptr %6, i64 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 16
-  %30 = load <2 x ptr>, ptr %28, align 8, !noalias !5
-  store ptr null, ptr %29, align 8, !noalias !5
-  store <2 x ptr> %30, ptr %27, align 8, !alias.scope !5
+  %29 = load ptr, ptr %28, align 8, !noalias !5
+  store ptr %29, ptr %27, align 8, !alias.scope !5
+  %30 = getelementptr inbounds i8, ptr %9, i64 16
+  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %32 = load ptr, ptr %31, align 8, !noalias !5
+  store ptr null, ptr %31, align 8, !noalias !5
+  store ptr %32, ptr %30, align 8, !alias.scope !5
   store ptr null, ptr %28, align 8, !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %9, align 8, !alias.scope !5
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx13InternalErrorD2Ev) #19
-          to label %49 unwind label %34
+          to label %51 unwind label %36
 
 .thread:                                          ; preds = %3
-  %31 = landingpad { ptr, i32 }
-          cleanup
-  br label %47
-
-32:                                               ; preds = %10
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %36
+  br label %49
 
-34:                                               ; preds = %11, %26
-  %.0 = phi i1 [ false, %26 ], [ true, %11 ]
+34:                                               ; preds = %10
   %35 = landingpad { ptr, i32 }
+          cleanup
+  br label %38
+
+36:                                               ; preds = %11, %26
+  %.0 = phi i1 [ false, %26 ], [ true, %11 ]
+  %37 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %20, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i, %34
-  %.0.lpad-body = phi i1 [ %.0, %34 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ true, %20 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %21, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ %21, %20 ]
+.body:                                            ; preds = %20, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i, %36
+  %.0.lpad-body = phi i1 [ %.0, %36 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ true, %20 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %37, %36 ], [ %21, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ %21, %20 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  br label %36
+  br label %38
 
-36:                                               ; preds = %.body, %32
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %33, %32 ]
-  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %32 ]
-  %37 = getelementptr inbounds i8, ptr %7, i64 32
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 40
+38:                                               ; preds = %.body, %34
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %35, %34 ]
+  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %34 ]
+  %39 = getelementptr inbounds i8, ptr %7, i64 32
   %40 = load ptr, ptr %39, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %38, %40
+  %41 = getelementptr inbounds i8, ptr %7, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %40, %42
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %36, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %43, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i ], [ %38, %36 ]
-  %41 = load ptr, ptr %.05.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i, label %42
+.lr.ph.i.i.i.i.i:                                 ; preds = %38, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %45, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i ], [ %40, %38 ]
+  %43 = load ptr, ptr %.05.i.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %43, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i, label %44
 
-42:                                               ; preds = %.lr.ph.i.i.i.i.i
+44:                                               ; preds = %.lr.ph.i.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i.i) #17
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i: ; preds = %42, %.lr.ph.i.i.i.i.i
-  %43 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %43, %40
+_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i: ; preds = %44, %.lr.ph.i.i.i.i.i
+  %45 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %45, %42
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %37, align 8
+  %.pr.i.i = load ptr, ptr %39, align 8
   br label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %36
-  %44 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %38, %36 ]
-  %.not.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i, label %46, label %45
+_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %38
+  %46 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %40, %38 ]
+  %.not.i.i.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i.i.i, label %48, label %47
 
-45:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %44) #20
-  br label %46
-
-46:                                               ; preds = %45, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  br i1 %.2, label %47, label %48
-
-47:                                               ; preds = %.thread, %46
-  %.pn.pn11 = phi { ptr, i32 } [ %31, %.thread ], [ %.pn, %46 ]
-  call void @__cxa_free_exception(ptr %9) #17
+47:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %46) #20
   br label %48
 
-48:                                               ; preds = %46, %47
-  %.pn.pn10 = phi { ptr, i32 } [ %.pn, %46 ], [ %.pn.pn11, %47 ]
+48:                                               ; preds = %47, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  br i1 %.2, label %49, label %50
+
+49:                                               ; preds = %.thread, %48
+  %.pn.pn11 = phi { ptr, i32 } [ %33, %.thread ], [ %.pn, %48 ]
+  call void @__cxa_free_exception(ptr %9) #17
+  br label %50
+
+50:                                               ; preds = %48, %49
+  %.pn.pn10 = phi { ptr, i32 } [ %.pn, %48 ], [ %.pn.pn11, %49 ]
   resume { ptr, i32 } %.pn.pn10
 
-49:                                               ; preds = %26
+51:                                               ; preds = %26
   unreachable
 }
 
@@ -4755,7 +4758,7 @@ define void @_ZN3gmx17QMMMForceProviderC2ERKNS_14QMMMParametersERKNS_12LocalAtom
 
 20:                                               ; preds = %6
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(56) %10)
-          to label %21 unwind label %42
+          to label %21 unwind label %44
 
 21:                                               ; preds = %20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %9, align 8
@@ -4770,7 +4773,7 @@ define void @_ZN3gmx17QMMMForceProviderC2ERKNS_14QMMMParametersERKNS_12LocalAtom
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !12
   %23 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-          to label %.noexc unwind label %44
+          to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %23, align 8, !noalias !12
@@ -4812,90 +4815,93 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !12
   %37 = getelementptr inbounds i8, ptr %19, i64 8
   %38 = getelementptr inbounds i8, ptr %9, i64 8
-  %39 = getelementptr inbounds i8, ptr %9, i64 16
-  %40 = load <2 x ptr>, ptr %38, align 8, !noalias !12
-  store ptr null, ptr %39, align 8, !noalias !12
-  store <2 x ptr> %40, ptr %37, align 8, !alias.scope !12
+  %39 = load ptr, ptr %38, align 8, !noalias !12
+  store ptr %39, ptr %37, align 8, !alias.scope !12
+  %40 = getelementptr inbounds i8, ptr %19, i64 16
+  %41 = getelementptr inbounds i8, ptr %9, i64 16
+  %42 = load ptr, ptr %41, align 8, !noalias !12
+  store ptr null, ptr %41, align 8, !noalias !12
+  store ptr %42, ptr %40, align 8, !alias.scope !12
   store ptr null, ptr %38, align 8, !noalias !12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %19, align 8, !alias.scope !12
   invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx13InternalErrorD2Ev) #19
-          to label %59 unwind label %44
+          to label %61 unwind label %46
 
 .thread:                                          ; preds = %6
-  %41 = landingpad { ptr, i32 }
-          cleanup
-  br label %57
-
-42:                                               ; preds = %20
   %43 = landingpad { ptr, i32 }
           cleanup
-  br label %46
+  br label %59
 
-44:                                               ; preds = %21, %36
-  %.0 = phi i1 [ false, %36 ], [ true, %21 ]
+44:                                               ; preds = %20
   %45 = landingpad { ptr, i32 }
+          cleanup
+  br label %48
+
+46:                                               ; preds = %21, %36
+  %.0 = phi i1 [ false, %36 ], [ true, %21 ]
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %30, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i, %44
-  %.0.lpad-body = phi i1 [ %.0, %44 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ true, %30 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %45, %44 ], [ %31, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ %31, %30 ]
+.body:                                            ; preds = %30, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i, %46
+  %.0.lpad-body = phi i1 [ %.0, %46 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ true, %30 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %47, %46 ], [ %31, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ %31, %30 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  br label %46
+  br label %48
 
-46:                                               ; preds = %.body, %42
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %43, %42 ]
-  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %42 ]
-  %47 = getelementptr inbounds i8, ptr %10, i64 32
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %10, i64 40
+48:                                               ; preds = %.body, %44
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %45, %44 ]
+  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %44 ]
+  %49 = getelementptr inbounds i8, ptr %10, i64 32
   %50 = load ptr, ptr %49, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %48, %50
+  %51 = getelementptr inbounds i8, ptr %10, i64 40
+  %52 = load ptr, ptr %51, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %50, %52
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %46, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %53, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i ], [ %48, %46 ]
-  %51 = load ptr, ptr %.05.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i, label %52
+.lr.ph.i.i.i.i.i:                                 ; preds = %48, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %55, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i ], [ %50, %48 ]
+  %53 = load ptr, ptr %.05.i.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %53, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i, label %54
 
-52:                                               ; preds = %.lr.ph.i.i.i.i.i
+54:                                               ; preds = %.lr.ph.i.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i.i) #17
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i: ; preds = %52, %.lr.ph.i.i.i.i.i
-  %53 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %53, %50
+_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i: ; preds = %54, %.lr.ph.i.i.i.i.i
+  %55 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %55, %52
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %47, align 8
+  %.pr.i.i = load ptr, ptr %49, align 8
   br label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %46
-  %54 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %48, %46 ]
-  %.not.i.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i.i, label %56, label %55
+_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %48
+  %56 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %50, %48 ]
+  %.not.i.i.i.i = icmp eq ptr %56, null
+  br i1 %.not.i.i.i.i, label %58, label %57
 
-55:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %54) #20
-  br label %56
-
-56:                                               ; preds = %55, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
-  br i1 %.2, label %57, label %58
-
-57:                                               ; preds = %.thread, %56
-  %.pn.pn17 = phi { ptr, i32 } [ %41, %.thread ], [ %.pn, %56 ]
-  call void @__cxa_free_exception(ptr %19) #17
+57:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %56) #20
   br label %58
 
-58:                                               ; preds = %57, %56
-  %.pn.pn16 = phi { ptr, i32 } [ %.pn.pn17, %57 ], [ %.pn, %56 ]
+58:                                               ; preds = %57, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
+  br i1 %.2, label %59, label %60
+
+59:                                               ; preds = %.thread, %58
+  %.pn.pn17 = phi { ptr, i32 } [ %43, %.thread ], [ %.pn, %58 ]
+  call void @__cxa_free_exception(ptr %19) #17
+  br label %60
+
+60:                                               ; preds = %59, %58
+  %.pn.pn16 = phi { ptr, i32 } [ %.pn.pn17, %59 ], [ %.pn, %58 ]
   resume { ptr, i32 } %.pn.pn16
 
-59:                                               ; preds = %36
+61:                                               ; preds = %36
   unreachable
 }
 
@@ -5087,7 +5093,7 @@ define noundef zeroext i1 @_ZN3gmx17QMMMForceProvider8isQMAtomEl(ptr nocapture n
 
 9:                                                ; preds = %2
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-          to label %10 unwind label %31
+          to label %10 unwind label %33
 
 10:                                               ; preds = %9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %5, align 8
@@ -5102,7 +5108,7 @@ define noundef zeroext i1 @_ZN3gmx17QMMMForceProvider8isQMAtomEl(ptr nocapture n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !15
   %12 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-          to label %.noexc unwind label %33
+          to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %10
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8, !noalias !15
@@ -5144,90 +5150,93 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !15
   %26 = getelementptr inbounds i8, ptr %8, i64 8
   %27 = getelementptr inbounds i8, ptr %5, i64 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 16
-  %29 = load <2 x ptr>, ptr %27, align 8, !noalias !15
-  store ptr null, ptr %28, align 8, !noalias !15
-  store <2 x ptr> %29, ptr %26, align 8, !alias.scope !15
+  %28 = load ptr, ptr %27, align 8, !noalias !15
+  store ptr %28, ptr %26, align 8, !alias.scope !15
+  %29 = getelementptr inbounds i8, ptr %8, i64 16
+  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %31 = load ptr, ptr %30, align 8, !noalias !15
+  store ptr null, ptr %30, align 8, !noalias !15
+  store ptr %31, ptr %29, align 8, !alias.scope !15
   store ptr null, ptr %27, align 8, !noalias !15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %8, align 8, !alias.scope !15
   invoke void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx13InternalErrorD2Ev) #19
-          to label %48 unwind label %33
+          to label %50 unwind label %35
 
 .thread:                                          ; preds = %2
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  br label %46
-
-31:                                               ; preds = %9
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %35
+  br label %48
 
-33:                                               ; preds = %10, %25
-  %.0 = phi i1 [ false, %25 ], [ true, %10 ]
+33:                                               ; preds = %9
   %34 = landingpad { ptr, i32 }
+          cleanup
+  br label %37
+
+35:                                               ; preds = %10, %25
+  %.0 = phi i1 [ false, %25 ], [ true, %10 ]
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %19, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i, %33
-  %.0.lpad-body = phi i1 [ %.0, %33 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ true, %19 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %20, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ %20, %19 ]
+.body:                                            ; preds = %19, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i, %35
+  %.0.lpad-body = phi i1 [ %.0, %35 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ true, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %36, %35 ], [ %20, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ %20, %19 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  br label %35
+  br label %37
 
-35:                                               ; preds = %.body, %31
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %32, %31 ]
-  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %31 ]
-  %36 = getelementptr inbounds i8, ptr %6, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 40
+37:                                               ; preds = %.body, %33
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %34, %33 ]
+  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %33 ]
+  %38 = getelementptr inbounds i8, ptr %6, i64 32
   %39 = load ptr, ptr %38, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %37, %39
+  %40 = getelementptr inbounds i8, ptr %6, i64 40
+  %41 = load ptr, ptr %40, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %39, %41
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %35, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %42, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i ], [ %37, %35 ]
-  %40 = load ptr, ptr %.05.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i, label %41
+.lr.ph.i.i.i.i.i:                                 ; preds = %37, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %44, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i ], [ %39, %37 ]
+  %42 = load ptr, ptr %.05.i.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i, label %43
 
-41:                                               ; preds = %.lr.ph.i.i.i.i.i
+43:                                               ; preds = %.lr.ph.i.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i.i) #17
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i: ; preds = %41, %.lr.ph.i.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %42, %39
+_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i: ; preds = %43, %.lr.ph.i.i.i.i.i
+  %44 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %44, %41
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %36, align 8
+  %.pr.i.i = load ptr, ptr %38, align 8
   br label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %35
-  %43 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %37, %35 ]
-  %.not.i.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i.i, label %45, label %44
+_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %37
+  %45 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %39, %37 ]
+  %.not.i.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i.i, label %47, label %46
 
-44:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %43) #20
-  br label %45
-
-45:                                               ; preds = %44, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  br i1 %.2, label %46, label %47
-
-46:                                               ; preds = %.thread, %45
-  %.pn.pn11 = phi { ptr, i32 } [ %30, %.thread ], [ %.pn, %45 ]
-  call void @__cxa_free_exception(ptr %8) #17
+46:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %45) #20
   br label %47
 
-47:                                               ; preds = %45, %46
-  %.pn.pn10 = phi { ptr, i32 } [ %.pn, %45 ], [ %.pn.pn11, %46 ]
+47:                                               ; preds = %46, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  br i1 %.2, label %48, label %49
+
+48:                                               ; preds = %.thread, %47
+  %.pn.pn11 = phi { ptr, i32 } [ %32, %.thread ], [ %.pn, %47 ]
+  call void @__cxa_free_exception(ptr %8) #17
+  br label %49
+
+49:                                               ; preds = %47, %48
+  %.pn.pn10 = phi { ptr, i32 } [ %.pn, %47 ], [ %.pn.pn11, %48 ]
   resume { ptr, i32 } %.pn.pn10
 
-48:                                               ; preds = %25
+50:                                               ; preds = %25
   unreachable
 }
 
@@ -5244,7 +5253,7 @@ define void @_ZN3gmx17QMMMForceProvider9appendLogERKNSt7__cxx1112basic_stringIcS
 
 9:                                                ; preds = %2
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-          to label %10 unwind label %31
+          to label %10 unwind label %33
 
 10:                                               ; preds = %9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %5, align 8
@@ -5259,7 +5268,7 @@ define void @_ZN3gmx17QMMMForceProvider9appendLogERKNSt7__cxx1112basic_stringIcS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !18
   %12 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-          to label %.noexc unwind label %33
+          to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %10
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8, !noalias !18
@@ -5301,90 +5310,93 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !18
   %26 = getelementptr inbounds i8, ptr %8, i64 8
   %27 = getelementptr inbounds i8, ptr %5, i64 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 16
-  %29 = load <2 x ptr>, ptr %27, align 8, !noalias !18
-  store ptr null, ptr %28, align 8, !noalias !18
-  store <2 x ptr> %29, ptr %26, align 8, !alias.scope !18
+  %28 = load ptr, ptr %27, align 8, !noalias !18
+  store ptr %28, ptr %26, align 8, !alias.scope !18
+  %29 = getelementptr inbounds i8, ptr %8, i64 16
+  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %31 = load ptr, ptr %30, align 8, !noalias !18
+  store ptr null, ptr %30, align 8, !noalias !18
+  store ptr %31, ptr %29, align 8, !alias.scope !18
   store ptr null, ptr %27, align 8, !noalias !18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %8, align 8, !alias.scope !18
   invoke void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx13InternalErrorD2Ev) #19
-          to label %48 unwind label %33
+          to label %50 unwind label %35
 
 .thread:                                          ; preds = %2
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  br label %46
-
-31:                                               ; preds = %9
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %35
+  br label %48
 
-33:                                               ; preds = %10, %25
-  %.0 = phi i1 [ false, %25 ], [ true, %10 ]
+33:                                               ; preds = %9
   %34 = landingpad { ptr, i32 }
+          cleanup
+  br label %37
+
+35:                                               ; preds = %10, %25
+  %.0 = phi i1 [ false, %25 ], [ true, %10 ]
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %19, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i, %33
-  %.0.lpad-body = phi i1 [ %.0, %33 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ true, %19 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %20, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ %20, %19 ]
+.body:                                            ; preds = %19, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i, %35
+  %.0.lpad-body = phi i1 [ %.0, %35 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ true, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %36, %35 ], [ %20, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ %20, %19 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  br label %35
+  br label %37
 
-35:                                               ; preds = %.body, %31
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %32, %31 ]
-  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %31 ]
-  %36 = getelementptr inbounds i8, ptr %6, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 40
+37:                                               ; preds = %.body, %33
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %34, %33 ]
+  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %33 ]
+  %38 = getelementptr inbounds i8, ptr %6, i64 32
   %39 = load ptr, ptr %38, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %37, %39
+  %40 = getelementptr inbounds i8, ptr %6, i64 40
+  %41 = load ptr, ptr %40, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %39, %41
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %35, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %42, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i ], [ %37, %35 ]
-  %40 = load ptr, ptr %.05.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i, label %41
+.lr.ph.i.i.i.i.i:                                 ; preds = %37, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %44, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i ], [ %39, %37 ]
+  %42 = load ptr, ptr %.05.i.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i, label %43
 
-41:                                               ; preds = %.lr.ph.i.i.i.i.i
+43:                                               ; preds = %.lr.ph.i.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i.i) #17
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i: ; preds = %41, %.lr.ph.i.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %42, %39
+_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i: ; preds = %43, %.lr.ph.i.i.i.i.i
+  %44 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %44, %41
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %36, align 8
+  %.pr.i.i = load ptr, ptr %38, align 8
   br label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %35
-  %43 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %37, %35 ]
-  %.not.i.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i.i, label %45, label %44
+_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %37
+  %45 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %39, %37 ]
+  %.not.i.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i.i, label %47, label %46
 
-44:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %43) #20
-  br label %45
-
-45:                                               ; preds = %44, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  br i1 %.2, label %46, label %47
-
-46:                                               ; preds = %.thread, %45
-  %.pn.pn11 = phi { ptr, i32 } [ %30, %.thread ], [ %.pn, %45 ]
-  call void @__cxa_free_exception(ptr %8) #17
+46:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %45) #20
   br label %47
 
-47:                                               ; preds = %45, %46
-  %.pn.pn10 = phi { ptr, i32 } [ %.pn, %45 ], [ %.pn.pn11, %46 ]
+47:                                               ; preds = %46, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  br i1 %.2, label %48, label %49
+
+48:                                               ; preds = %.thread, %47
+  %.pn.pn11 = phi { ptr, i32 } [ %32, %.thread ], [ %.pn, %47 ]
+  call void @__cxa_free_exception(ptr %8) #17
+  br label %49
+
+49:                                               ; preds = %47, %48
+  %.pn.pn10 = phi { ptr, i32 } [ %.pn, %47 ], [ %.pn.pn11, %48 ]
   resume { ptr, i32 } %.pn.pn10
 
-48:                                               ; preds = %25
+50:                                               ; preds = %25
   unreachable
 }
 
@@ -5401,7 +5413,7 @@ define void @_ZN3gmx17QMMMForceProvider24initCP2KForceEnvironmentERK9t_commrec(p
 
 9:                                                ; preds = %2
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-          to label %10 unwind label %31
+          to label %10 unwind label %33
 
 10:                                               ; preds = %9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %5, align 8
@@ -5416,7 +5428,7 @@ define void @_ZN3gmx17QMMMForceProvider24initCP2KForceEnvironmentERK9t_commrec(p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !21
   %12 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-          to label %.noexc unwind label %33
+          to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %10
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8, !noalias !21
@@ -5458,90 +5470,93 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !21
   %26 = getelementptr inbounds i8, ptr %8, i64 8
   %27 = getelementptr inbounds i8, ptr %5, i64 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 16
-  %29 = load <2 x ptr>, ptr %27, align 8, !noalias !21
-  store ptr null, ptr %28, align 8, !noalias !21
-  store <2 x ptr> %29, ptr %26, align 8, !alias.scope !21
+  %28 = load ptr, ptr %27, align 8, !noalias !21
+  store ptr %28, ptr %26, align 8, !alias.scope !21
+  %29 = getelementptr inbounds i8, ptr %8, i64 16
+  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %31 = load ptr, ptr %30, align 8, !noalias !21
+  store ptr null, ptr %30, align 8, !noalias !21
+  store ptr %31, ptr %29, align 8, !alias.scope !21
   store ptr null, ptr %27, align 8, !noalias !21
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %8, align 8, !alias.scope !21
   invoke void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN3gmx13InternalErrorE, ptr nonnull @_ZN3gmx13InternalErrorD2Ev) #19
-          to label %48 unwind label %33
+          to label %50 unwind label %35
 
 .thread:                                          ; preds = %2
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  br label %46
-
-31:                                               ; preds = %9
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %35
+  br label %48
 
-33:                                               ; preds = %10, %25
-  %.0 = phi i1 [ false, %25 ], [ true, %10 ]
+33:                                               ; preds = %9
   %34 = landingpad { ptr, i32 }
+          cleanup
+  br label %37
+
+35:                                               ; preds = %10, %25
+  %.0 = phi i1 [ false, %25 ], [ true, %10 ]
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %19, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i, %33
-  %.0.lpad-body = phi i1 [ %.0, %33 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ true, %19 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %20, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ %20, %19 ]
+.body:                                            ; preds = %19, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i, %35
+  %.0.lpad-body = phi i1 [ %.0, %35 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ true, %19 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %36, %35 ], [ %20, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ %20, %19 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  br label %35
+  br label %37
 
-35:                                               ; preds = %.body, %31
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %32, %31 ]
-  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %31 ]
-  %36 = getelementptr inbounds i8, ptr %6, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 40
+37:                                               ; preds = %.body, %33
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %34, %33 ]
+  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %33 ]
+  %38 = getelementptr inbounds i8, ptr %6, i64 32
   %39 = load ptr, ptr %38, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %37, %39
+  %40 = getelementptr inbounds i8, ptr %6, i64 40
+  %41 = load ptr, ptr %40, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %39, %41
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %35, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %42, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i ], [ %37, %35 ]
-  %40 = load ptr, ptr %.05.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i, label %41
+.lr.ph.i.i.i.i.i:                                 ; preds = %37, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %44, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i ], [ %39, %37 ]
+  %42 = load ptr, ptr %.05.i.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i, label %43
 
-41:                                               ; preds = %.lr.ph.i.i.i.i.i
+43:                                               ; preds = %.lr.ph.i.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i.i) #17
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i: ; preds = %41, %.lr.ph.i.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %42, %39
+_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i: ; preds = %43, %.lr.ph.i.i.i.i.i
+  %44 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %44, %41
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %36, align 8
+  %.pr.i.i = load ptr, ptr %38, align 8
   br label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %35
-  %43 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %37, %35 ]
-  %.not.i.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i.i, label %45, label %44
+_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %37
+  %45 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %39, %37 ]
+  %.not.i.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i.i, label %47, label %46
 
-44:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %43) #20
-  br label %45
-
-45:                                               ; preds = %44, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  br i1 %.2, label %46, label %47
-
-46:                                               ; preds = %.thread, %45
-  %.pn.pn11 = phi { ptr, i32 } [ %30, %.thread ], [ %.pn, %45 ]
-  call void @__cxa_free_exception(ptr %8) #17
+46:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %45) #20
   br label %47
 
-47:                                               ; preds = %45, %46
-  %.pn.pn10 = phi { ptr, i32 } [ %.pn, %45 ], [ %.pn.pn11, %46 ]
+47:                                               ; preds = %46, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  br i1 %.2, label %48, label %49
+
+48:                                               ; preds = %.thread, %47
+  %.pn.pn11 = phi { ptr, i32 } [ %32, %.thread ], [ %.pn, %47 ]
+  call void @__cxa_free_exception(ptr %8) #17
+  br label %49
+
+49:                                               ; preds = %47, %48
+  %.pn.pn10 = phi { ptr, i32 } [ %.pn, %47 ], [ %.pn.pn11, %48 ]
   resume { ptr, i32 } %.pn.pn10
 
-48:                                               ; preds = %25
+50:                                               ; preds = %25
   unreachable
 }
 

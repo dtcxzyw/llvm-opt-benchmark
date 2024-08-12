@@ -2202,7 +2202,13 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %_ZN4
   %4 = load i64, ptr %0, align 8
   store i64 %4, ptr %call.i.i, align 8
   %tag.i7.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
-  store <4 x i8> <i8 3, i8 0, i8 0, i8 1>, ptr %tag.i7.i.i, align 4
+  store i8 3, ptr %tag.i7.i.i, align 4
+  %storage.i9.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 13
+  store i8 0, ptr %storage.i9.i.i, align 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 14
+  store i8 0, ptr %arrayidx4.i.i.i, align 1
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 15
+  store i8 1, ptr %arrayidx7.i.i.i, align 1
   %edges_.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %0, ptr %edges_.i.i, align 8
   br label %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit
@@ -6051,7 +6057,13 @@ entry:
   store i32 2, ptr %refcount.i.i.i.i, align 4
   store i64 3, ptr %call.i.i9, align 8
   %tag.i7.i.i = getelementptr inbounds i8, ptr %call.i.i9, i64 12
-  store <4 x i8> <i8 3, i8 0, i8 0, i8 1>, ptr %tag.i7.i.i, align 4
+  store i8 3, ptr %tag.i7.i.i, align 4
+  %storage.i9.i.i = getelementptr inbounds i8, ptr %call.i.i9, i64 13
+  store i8 0, ptr %storage.i9.i.i, align 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %call.i.i9, i64 14
+  store i8 0, ptr %arrayidx4.i.i.i, align 1
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %call.i.i9, i64 15
+  store i8 1, ptr %arrayidx7.i.i.i, align 1
   %edges_.i.i = getelementptr inbounds i8, ptr %call.i.i9, i64 16
   store ptr %call4.i.i.i, ptr %edges_.i.i, align 8
   %call4.i.i.i21 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
@@ -7997,7 +8009,13 @@ entry:
   store i32 2, ptr %refcount.i.i.i.i, align 4
   store i64 3, ptr %call.i.i15, align 8
   %tag.i7.i.i = getelementptr inbounds i8, ptr %call.i.i15, i64 12
-  store <4 x i8> <i8 3, i8 0, i8 0, i8 1>, ptr %tag.i7.i.i, align 4
+  store i8 3, ptr %tag.i7.i.i, align 4
+  %storage.i9.i.i = getelementptr inbounds i8, ptr %call.i.i15, i64 13
+  store i8 0, ptr %storage.i9.i.i, align 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %call.i.i15, i64 14
+  store i8 0, ptr %arrayidx4.i.i.i, align 1
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %call.i.i15, i64 15
+  store i8 1, ptr %arrayidx7.i.i.i, align 1
   %edges_.i.i = getelementptr inbounds i8, ptr %call.i.i15, i64 16
   store ptr %call4.i.i.i, ptr %edges_.i.i, align 8
   %call4.i.i.i27 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23

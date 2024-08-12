@@ -6288,14 +6288,18 @@ _ZNSt8_Rb_treeIN4cvc58internal6theory8CarePairES3_St9_IdentityIS3_ESt4lessIS3_ES
   %9 = phi i1 [ true, %entry.lor.end_crit_edge.i ], [ %cmp.i15.i.i.i, %if.end15.i.i.i ], [ true, %lor.rhs.i ], [ false, %if.end.i.i.i ], [ true, %if.end7.i.i.i ], [ false, %if.end10.i.i.i ]
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
-  %10 = load <2 x ptr>, ptr %__v, align 8
-  store <2 x ptr> %10, ptr %_M_storage.i.i.i.i.i, align 8
+  %10 = load ptr, ptr %__v, align 8
+  store ptr %10, ptr %_M_storage.i.i.i.i.i, align 8
+  %d_b.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 40
+  %d_b3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__v, i64 8
+  %11 = load ptr, ptr %d_b3.i.i.i.i.i.i.i, align 8
+  store ptr %11, ptr %d_b.i.i.i.i.i.i.i, align 8
   %d_theory.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 48
   store i32 %8, ptr %d_theory.i.i.i.i.i.i.i, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %9, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #23
   %_M_node_count.i = getelementptr inbounds i8, ptr %this, i64 40
-  %11 = load i64, ptr %_M_node_count.i, align 8
-  %inc.i = add i64 %11, 1
+  %12 = load i64, ptr %_M_node_count.i, align 8
+  %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %_M_node_count.i, align 8
   br label %return
 

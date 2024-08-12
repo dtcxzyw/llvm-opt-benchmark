@@ -88,72 +88,75 @@ define void @_ZN12AtomIteratorC2ERK10gmx_mtop_ti(ptr nocapture noundef nonnull w
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef nonnull align 8 dereferenceable(40) ptr @_ZN12AtomIteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = load <2 x i32>, ptr %2, align 8
-  %4 = add nsw <2 x i32> %3, <i32 1, i32 1>
-  store <2 x i32> %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i32, ptr %6, align 8
-  %8 = extractelement <2 x i32> %4, i64 0
-  %.not = icmp slt i32 %8, %7
-  br i1 %.not, label %45, label %9
+  %3 = load i32, ptr %2, align 8
+  %4 = add nsw i32 %3, 1
+  store i32 %4, ptr %2, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = load i32, ptr %5, align 4
+  %7 = add nsw i32 %6, 1
+  store i32 %7, ptr %5, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i32, ptr %9, align 8
+  %.not = icmp slt i32 %4, %10
+  br i1 %.not, label %47, label %11
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %6, i64 40
-  %11 = load i32, ptr %10, align 8
-  %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 760
-  %14 = load i32, ptr %13, align 8
-  %.not2 = icmp sgt i32 %11, %14
-  br i1 %.not2, label %19, label %15
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds i8, ptr %9, i64 40
+  %13 = load i32, ptr %12, align 8
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 760
+  %16 = load i32, ptr %15, align 8
+  %.not2 = icmp sgt i32 %13, %16
+  br i1 %.not2, label %21, label %17
 
-15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
-  %17 = load i32, ptr %16, align 4
-  %18 = add nsw i32 %17, %11
-  store i32 %18, ptr %16, align 4
-  br label %19
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %19 = load i32, ptr %18, align 4
+  %20 = add nsw i32 %19, %13
+  store i32 %20, ptr %18, align 4
+  br label %21
 
-19:                                               ; preds = %15, %9
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  %21 = load i32, ptr %20, align 8
-  %22 = add nsw i32 %21, 1
-  store i32 %22, ptr %20, align 8
+21:                                               ; preds = %17, %11
+  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = load i32, ptr %22, align 8
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %22, align 8
   store i32 0, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %12, i64 136
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds %struct.gmx_molblock_t, ptr %26, i64 %25, i32 1
-  %28 = load i32, ptr %27, align 4
-  %.not3 = icmp slt i32 %22, %28
-  br i1 %.not3, label %45, label %29
+  %25 = getelementptr inbounds i8, ptr %14, i64 136
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = load i64, ptr %26, align 8
+  %28 = load ptr, ptr %25, align 8
+  %29 = getelementptr inbounds %struct.gmx_molblock_t, ptr %28, i64 %27, i32 1
+  %30 = load i32, ptr %29, align 4
+  %.not3 = icmp slt i32 %24, %30
+  br i1 %.not3, label %47, label %31
 
-29:                                               ; preds = %19
-  %30 = add i64 %25, 1
-  store i64 %30, ptr %24, align 8
-  %31 = getelementptr inbounds i8, ptr %12, i64 144
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %23, align 8
-  %34 = ptrtoint ptr %32 to i64
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %34, %35
-  %37 = sdiv exact i64 %36, 56
-  %.not4 = icmp ult i64 %30, %37
-  br i1 %.not4, label %38, label %45
+31:                                               ; preds = %21
+  %32 = add i64 %27, 1
+  store i64 %32, ptr %26, align 8
+  %33 = getelementptr inbounds i8, ptr %14, i64 144
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %25, align 8
+  %36 = ptrtoint ptr %34 to i64
+  %37 = ptrtoint ptr %35 to i64
+  %38 = sub i64 %36, %37
+  %39 = sdiv exact i64 %38, 56
+  %.not4 = icmp ult i64 %32, %39
+  br i1 %.not4, label %40, label %47
 
-38:                                               ; preds = %29
-  %39 = getelementptr inbounds i8, ptr %12, i64 112
-  %40 = getelementptr inbounds %struct.gmx_molblock_t, ptr %33, i64 %30
-  %41 = load i32, ptr %40, align 8
-  %42 = sext i32 %41 to i64
-  %43 = load ptr, ptr %39, align 8
-  %44 = getelementptr inbounds %struct.gmx_moltype_t, ptr %43, i64 %42, i32 1
-  store ptr %44, ptr %5, align 8
-  store i32 0, ptr %20, align 8
-  br label %45
+40:                                               ; preds = %31
+  %41 = getelementptr inbounds i8, ptr %14, i64 112
+  %42 = getelementptr inbounds %struct.gmx_molblock_t, ptr %35, i64 %32
+  %43 = load i32, ptr %42, align 8
+  %44 = sext i32 %43 to i64
+  %45 = load ptr, ptr %41, align 8
+  %46 = getelementptr inbounds %struct.gmx_moltype_t, ptr %45, i64 %44, i32 1
+  store ptr %46, ptr %8, align 8
+  store i32 0, ptr %22, align 8
+  br label %47
 
-45:                                               ; preds = %1, %38, %19, %29
+47:                                               ; preds = %1, %40, %21, %31
   ret ptr %0
 }
 

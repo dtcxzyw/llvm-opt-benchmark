@@ -2965,10 +2965,14 @@ land.lhs.true12.i:                                ; preds = %land.lhs.true.i
 if.then16.i:                                      ; preds = %land.lhs.true12.i
   tail call void @ossl_statem_set_renegotiate(ptr noundef nonnull %s) #19
   store i32 0, ptr %renegotiate, align 4
+  %num_renegotiations.i = getelementptr inbounds i8, ptr %s, i64 396
+  %3 = load i32, ptr %num_renegotiations.i, align 4
+  %inc.i = add nsw i32 %3, 1
+  store i32 %inc.i, ptr %num_renegotiations.i, align 4
   %total_renegotiations.i = getelementptr inbounds i8, ptr %s, i64 392
-  %3 = load <2 x i32>, ptr %total_renegotiations.i, align 8
-  %4 = add nsw <2 x i32> %3, <i32 1, i32 1>
-  store <2 x i32> %4, ptr %total_renegotiations.i, align 8
+  %4 = load i32, ptr %total_renegotiations.i, align 8
+  %inc21.i = add nsw i32 %4, 1
+  store i32 %inc21.i, ptr %total_renegotiations.i, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then16.i, %land.lhs.true12.i, %land.lhs.true.i, %if.then7.i, %cond.false.i, %if.end
@@ -3027,10 +3031,14 @@ lor.lhs.false:                                    ; preds = %land.lhs.true12
 if.then16:                                        ; preds = %lor.lhs.false, %land.lhs.true12
   tail call void @ossl_statem_set_renegotiate(ptr noundef nonnull %s) #19
   store i32 0, ptr %renegotiate, align 4
+  %num_renegotiations = getelementptr inbounds i8, ptr %s, i64 396
+  %2 = load i32, ptr %num_renegotiations, align 4
+  %inc = add nsw i32 %2, 1
+  store i32 %inc, ptr %num_renegotiations, align 4
   %total_renegotiations = getelementptr inbounds i8, ptr %s, i64 392
-  %2 = load <2 x i32>, ptr %total_renegotiations, align 8
-  %3 = add nsw <2 x i32> %2, <i32 1, i32 1>
-  store <2 x i32> %3, ptr %total_renegotiations, align 8
+  %3 = load i32, ptr %total_renegotiations, align 8
+  %inc21 = add nsw i32 %3, 1
+  store i32 %inc21, ptr %total_renegotiations, align 8
   br label %return
 
 return:                                           ; preds = %entry, %cond.false, %if.end, %if.then16, %lor.lhs.false, %land.lhs.true, %if.then7
@@ -3088,10 +3096,14 @@ land.lhs.true12.i:                                ; preds = %land.lhs.true.i
 if.then16.i:                                      ; preds = %land.lhs.true12.i
   tail call void @ossl_statem_set_renegotiate(ptr noundef nonnull %s) #19
   store i32 0, ptr %renegotiate, align 4
+  %num_renegotiations.i = getelementptr inbounds i8, ptr %s, i64 396
+  %3 = load i32, ptr %num_renegotiations.i, align 4
+  %inc.i = add nsw i32 %3, 1
+  store i32 %inc.i, ptr %num_renegotiations.i, align 4
   %total_renegotiations.i = getelementptr inbounds i8, ptr %s, i64 392
-  %3 = load <2 x i32>, ptr %total_renegotiations.i, align 8
-  %4 = add nsw <2 x i32> %3, <i32 1, i32 1>
-  store <2 x i32> %4, ptr %total_renegotiations.i, align 8
+  %4 = load i32, ptr %total_renegotiations.i, align 8
+  %inc21.i = add nsw i32 %4, 1
+  store i32 %inc21.i, ptr %total_renegotiations.i, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then16.i, %land.lhs.true12.i, %land.lhs.true.i, %if.then7.i, %cond.false.i, %if.end

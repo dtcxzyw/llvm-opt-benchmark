@@ -793,78 +793,74 @@ Amap_CutCompareArea.exit:                         ; preds = %238, %231, %223, %A
   %.pre152 = load float, ptr %.092.sroa.gep104, align 8
   %.pre153 = load float, ptr %.092.sroa.gep100, align 8
   %.pre154 = load float, ptr %.092.sroa.gep101, align 8
-  %250 = insertelement <2 x float> poison, float %.pre152, i64 0
-  %251 = insertelement <2 x float> %250, float %.pre153, i64 1
-  %252 = fsub float %.pre151, %.pre152
-  %253 = fsub float %.pre153, %.pre154
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %29
-  %254 = phi <2 x float> [ %251, %._crit_edge.loopexit ], [ zeroinitializer, %29 ]
-  %255 = phi float [ %252, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
-  %256 = phi float [ %253, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
-  %257 = fcmp olt float %255, 0.000000e+00
-  %258 = fneg float %255
-  %259 = select i1 %257, float %258, float %255
-  %260 = load ptr, ptr %0, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 28
-  %262 = load float, ptr %261, align 4
-  %263 = fcmp olt float %256, 0.000000e+00
-  %264 = fneg float %256
-  %265 = select i1 %263, float %264, float %256
-  %266 = fmul float %262, %265
-  %267 = insertelement <2 x float> poison, float %259, i64 0
-  %268 = insertelement <2 x float> %267, float %266, i64 1
-  %269 = fdiv <2 x float> %268, %254
-  %270 = extractelement <2 x float> %269, i64 0
-  %271 = extractelement <2 x float> %269, i64 1
-  %272 = fcmp ult float %270, %271
-  %.092.sroa.gep95..092.sroa.gep.v = select i1 %272, ptr %6, ptr %5
-  %.092.sroa.gep95..092.sroa.gep.v.sroa.sel.v.sroa.sel.v = select i1 %272, ptr %6, ptr %5
+  %250 = phi float [ %.pre154, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
+  %251 = phi float [ %.pre153, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
+  %252 = phi float [ %.pre152, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
+  %253 = phi float [ %.pre151, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
+  %254 = fsub float %253, %252
+  %255 = fcmp olt float %254, 0.000000e+00
+  %256 = fneg float %254
+  %257 = select i1 %255, float %256, float %254
+  %258 = fdiv float %257, %252
+  %259 = load ptr, ptr %0, align 8
+  %260 = getelementptr inbounds i8, ptr %259, i64 28
+  %261 = load float, ptr %260, align 4
+  %262 = fsub float %251, %250
+  %263 = fcmp olt float %262, 0.000000e+00
+  %264 = fneg float %262
+  %265 = select i1 %263, float %264, float %262
+  %266 = fmul float %261, %265
+  %267 = fdiv float %266, %251
+  %268 = fcmp ult float %258, %267
+  %.092.sroa.gep95..092.sroa.gep.v = select i1 %268, ptr %6, ptr %5
+  %.092.sroa.gep95..092.sroa.gep.v.sroa.sel.v.sroa.sel.v = select i1 %268, ptr %6, ptr %5
   %.092.sroa.gep95..092.sroa.gep.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.092.sroa.gep95..092.sroa.gep.v.sroa.sel.v.sroa.sel.v, i64 8
-  %273 = load ptr, ptr %.092.sroa.gep95..092.sroa.gep.v, align 8
-  %274 = load i32, ptr %273, align 4
-  %275 = load ptr, ptr %.092.sroa.gep95..092.sroa.gep.v.sroa.sel.v.sroa.sel, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 8
-  %277 = load i32, ptr %276, align 8
-  %278 = xor i32 %277, %274
-  %279 = lshr i32 %278, 16
-  %280 = load i64, ptr %1, align 8
-  %281 = and i32 %279, 1
-  %282 = zext nneg i32 %281 to i64
-  %283 = shl nuw i64 %282, 63
-  %284 = and i64 %280, 9223372036854775807
-  %285 = or disjoint i64 %283, %284
-  store i64 %285, ptr %1, align 8
-  %286 = getelementptr inbounds i8, ptr %1, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %286, ptr noundef nonnull align 8 dereferenceable(32) %.092.sroa.gep95..092.sroa.gep.v, i64 32, i1 false)
-  %287 = load ptr, ptr %286, align 8
-  %288 = load i32, ptr %287, align 4
-  %289 = lshr i32 %288, 15
-  %290 = and i32 %289, 131068
-  %narrow.i = add nuw nsw i32 %290, 4
-  %291 = getelementptr inbounds i8, ptr %0, i64 72
-  %292 = load ptr, ptr %291, align 8
-  %293 = tail call noundef ptr @Aig_MmFlexEntryFetch(ptr noundef %292, i32 noundef %narrow.i) #17
-  %294 = zext nneg i32 %narrow.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %293, ptr noundef nonnull readonly align 4 dereferenceable(1) %287, i64 %294, i1 false)
-  store ptr %293, ptr %286, align 8
-  br i1 %.not, label %302, label %295
+  %269 = load ptr, ptr %.092.sroa.gep95..092.sroa.gep.v, align 8
+  %270 = load i32, ptr %269, align 4
+  %271 = load ptr, ptr %.092.sroa.gep95..092.sroa.gep.v.sroa.sel.v.sroa.sel, align 8
+  %272 = getelementptr inbounds i8, ptr %271, i64 8
+  %273 = load i32, ptr %272, align 8
+  %274 = xor i32 %273, %270
+  %275 = lshr i32 %274, 16
+  %276 = load i64, ptr %1, align 8
+  %277 = and i32 %275, 1
+  %278 = zext nneg i32 %277 to i64
+  %279 = shl nuw i64 %278, 63
+  %280 = and i64 %276, 9223372036854775807
+  %281 = or disjoint i64 %279, %280
+  store i64 %281, ptr %1, align 8
+  %282 = getelementptr inbounds i8, ptr %1, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %282, ptr noundef nonnull align 8 dereferenceable(32) %.092.sroa.gep95..092.sroa.gep.v, i64 32, i1 false)
+  %283 = load ptr, ptr %282, align 8
+  %284 = load i32, ptr %283, align 4
+  %285 = lshr i32 %284, 15
+  %286 = and i32 %285, 131068
+  %narrow.i = add nuw nsw i32 %286, 4
+  %287 = getelementptr inbounds i8, ptr %0, i64 72
+  %288 = load ptr, ptr %287, align 8
+  %289 = tail call noundef ptr @Aig_MmFlexEntryFetch(ptr noundef %288, i32 noundef %narrow.i) #17
+  %290 = zext nneg i32 %narrow.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %289, ptr noundef nonnull readonly align 4 dereferenceable(1) %283, i64 %290, i1 false)
+  store ptr %289, ptr %282, align 8
+  br i1 %.not, label %298, label %291
 
-295:                                              ; preds = %._crit_edge
-  %296 = getelementptr i8, ptr %1, i64 52
-  %.val117 = load i32, ptr %296, align 4
-  %297 = getelementptr i8, ptr %1, i64 56
-  %.val118 = load i32, ptr %297, align 4
-  %298 = add nsw i32 %.val118, %.val117
-  %299 = icmp sgt i32 %298, 0
-  br i1 %299, label %300, label %302
+291:                                              ; preds = %._crit_edge
+  %292 = getelementptr i8, ptr %1, i64 52
+  %.val117 = load i32, ptr %292, align 4
+  %293 = getelementptr i8, ptr %1, i64 56
+  %.val118 = load i32, ptr %293, align 4
+  %294 = add nsw i32 %.val118, %.val117
+  %295 = icmp sgt i32 %294, 0
+  br i1 %295, label %296, label %298
 
-300:                                              ; preds = %295
-  %301 = tail call fastcc float @Amap_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %286)
-  br label %302
+296:                                              ; preds = %291
+  %297 = tail call fastcc float @Amap_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %282)
+  br label %298
 
-302:                                              ; preds = %300, %295, %._crit_edge
+298:                                              ; preds = %296, %291, %._crit_edge
   ret void
 }
 

@@ -1517,18 +1517,23 @@ define void @_ZN7uu_more6uu_app17h7f4344188aeb17d2E(ptr noalias nocapture nounde
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 624
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %.sroa.0.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(76) %.sroa.6278.0..sroa_idx, i64 76, i1 false)
   %.sroa.6279.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 700
+  %.sroa.6279.0.copyload = load i32, ptr %.sroa.6279.0..sroa_idx, align 4, !alias.scope !208, !noalias !202
+  %.sroa.7280.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 704
+  %.sroa.7280.0.copyload = load i32, ptr %.sroa.7280.0..sroa_idx, align 8, !alias.scope !208, !noalias !202
   %.sroa.8281.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 708
   %.sroa.8281.0.copyload = load i32, ptr %.sroa.8281.0..sroa_idx, align 4, !alias.scope !208, !noalias !202
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %69)
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 608
-  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 616
-  %.sroa.4.0..sroa_idx14 = getelementptr inbounds i8, ptr %72, i64 700
-  %106 = load <2 x i32>, ptr %.sroa.6279.0..sroa_idx, align 4, !alias.scope !208, !noalias !202
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %71)
-  %107 = or <2 x i32> %106, <i32 128, i32 128>
+  %106 = or i32 %.sroa.6279.0.copyload, 128
+  %107 = or i32 %.sroa.7280.0.copyload, 128
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 608
   store ptr @anon.e57680840012d442217e529731f5d014.92, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 616
   store i64 6, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
-  store <2 x i32> %107, ptr %.sroa.4.0..sroa_idx14, align 4
+  %.sroa.4.0..sroa_idx14 = getelementptr inbounds i8, ptr %72, i64 700
+  store i32 %106, ptr %.sroa.4.0..sroa_idx14, align 4
+  %.sroa.6.0..sroa_idx16 = getelementptr inbounds i8, ptr %72, i64 704
+  store i32 %107, ptr %.sroa.6.0..sroa_idx16, align 8
   %.sroa.8.0..sroa_idx18 = getelementptr inbounds i8, ptr %72, i64 708
   store i32 %.sroa.8281.0.copyload, ptr %.sroa.8.0..sroa_idx18, align 4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.5290)
@@ -3617,6 +3622,9 @@ common.resume:                                    ; preds = %.body, %.body.i, %5
   %.sroa.0.sroa.0.sroa.14.sroa.7.sroa.2.0..sroa.0.sroa.0.sroa.14.sroa.7.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 124
   %.sroa.0.sroa.0.sroa.14.sroa.7.sroa.3.0..sroa.0.sroa.0.sroa.14.sroa.7.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 128
   %.sroa.0.sroa.0.sroa.14.sroa.8.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 132
+  %.sroa.0.sroa.0.sroa.14.sroa.9.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 133
+  %.sroa.0.sroa.0.sroa.14.sroa.10.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 134
+  %.sroa.0.sroa.0.sroa.14.sroa.11.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 135
   %.sroa.0.sroa.0.sroa.14.sroa.12.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 136
   %.sroa.0.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 144
   %.sroa.0.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 152
@@ -3791,7 +3799,10 @@ _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i
   store i32 0, ptr %.sroa.0.sroa.0.sroa.7.0..sroa_idx.i.i, align 8, !noalias !867
   store i32 0, ptr %.sroa.0.sroa.0.sroa.7.sroa.2.0..sroa.0.sroa.0.sroa.7.0..sroa_idx.sroa_idx.i.i, align 4, !noalias !867
   store i8 2, ptr %.sroa.0.sroa.0.sroa.7.sroa.3.0..sroa.0.sroa.0.sroa.7.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !867
-  store <4 x i8> <i8 1, i8 0, i8 2, i8 15>, ptr %.sroa.0.sroa.0.sroa.8.0..sroa_idx.i.i, align 4, !noalias !867
+  store i8 1, ptr %.sroa.0.sroa.0.sroa.8.0..sroa_idx.i.i, align 4, !noalias !867
+  store i8 0, ptr %.sroa.0.sroa.0.sroa.9.0..sroa_idx.i.i, align 1, !noalias !867
+  store i8 2, ptr %.sroa.0.sroa.0.sroa.10.0..sroa_idx.i.i, align 2, !noalias !867
+  store i8 15, ptr %.sroa.0.sroa.0.sroa.11.0..sroa_idx.i.i, align 1, !noalias !867
   store i8 15, ptr %.sroa.0.sroa.0.sroa.12.0..sroa_idx.i.i, align 8, !noalias !867
   store i64 0, ptr %.sroa.0.sroa.0.sroa.14.0..sroa_idx.i.i, align 8, !noalias !867
   store i64 0, ptr %.sroa.0.sroa.0.sroa.14.sroa.3.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !867
@@ -3800,7 +3811,10 @@ _ZN13unicode_width6tables9charwidth12lookup_width17he24707c595d80dd8E.exit.i.i.i
   store i32 0, ptr %.sroa.0.sroa.0.sroa.14.sroa.7.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !867
   store i32 0, ptr %.sroa.0.sroa.0.sroa.14.sroa.7.sroa.2.0..sroa.0.sroa.0.sroa.14.sroa.7.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.sroa_idx.i.i, align 4, !noalias !867
   store i8 2, ptr %.sroa.0.sroa.0.sroa.14.sroa.7.sroa.3.0..sroa.0.sroa.0.sroa.14.sroa.7.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.sroa_idx.i.i, align 8, !noalias !867
-  store <4 x i8> <i8 1, i8 0, i8 2, i8 15>, ptr %.sroa.0.sroa.0.sroa.14.sroa.8.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i, align 4, !noalias !867
+  store i8 1, ptr %.sroa.0.sroa.0.sroa.14.sroa.8.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i, align 4, !noalias !867
+  store i8 0, ptr %.sroa.0.sroa.0.sroa.14.sroa.9.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !867
+  store i8 2, ptr %.sroa.0.sroa.0.sroa.14.sroa.10.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i, align 2, !noalias !867
+  store i8 15, ptr %.sroa.0.sroa.0.sroa.14.sroa.11.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !867
   store i8 15, ptr %.sroa.0.sroa.0.sroa.14.sroa.12.0..sroa.0.sroa.0.sroa.14.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !867
   store ptr %89, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i, align 8, !noalias !867
   store i64 %92, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i, align 8, !noalias !867

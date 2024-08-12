@@ -736,7 +736,7 @@ return:                                           ; preds = %if.end43, %for.body
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_addr_fam_len() #1 {
 entry:
-  %key = alloca [6 x i8], align 4
+  %key = alloca [6 x i8], align 1
   %call = tail call ptr @OPENSSL_sk_new_null() #5
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 241, ptr noundef nonnull @.str.56, ptr noundef %call) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -775,11 +775,15 @@ if.end17:                                         ; preds = %if.end11
   br i1 %tobool22.not, label %end, label %if.end24
 
 if.end24:                                         ; preds = %if.end17
+  store i8 0, ptr %key, align 1
   %arrayidx28 = getelementptr inbounds i8, ptr %key, i64 1
+  store i8 1, ptr %arrayidx28, align 1
   %arrayidx29 = getelementptr inbounds i8, ptr %key, i64 2
-  store <4 x i8> <i8 0, i8 1, i8 13, i8 14>, ptr %key, align 4
+  store i8 13, ptr %arrayidx29, align 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %key, i64 3
+  store i8 14, ptr %arrayidx30, align 1
   %arrayidx31 = getelementptr inbounds i8, ptr %key, i64 4
-  store i8 10, ptr %arrayidx31, align 4
+  store i8 10, ptr %arrayidx31, align 1
   %arrayidx32 = getelementptr inbounds i8, ptr %key, i64 5
   store i8 13, ptr %arrayidx32, align 1
   %call33 = tail call ptr @IPAddressFamily_new() #5
@@ -831,9 +835,9 @@ if.end65:                                         ; preds = %if.end59
 if.end72:                                         ; preds = %if.end65
   %call74 = call ptr @OPENSSL_sk_pop(ptr noundef %call) #5
   call void @IPAddressFamily_free(ptr noundef %call74) #5
-  store i8 0, ptr %key, align 4
+  store i8 0, ptr %key, align 1
   store i8 1, ptr %arrayidx28, align 1
-  store i8 1, ptr %arrayidx29, align 2
+  store i8 1, ptr %arrayidx29, align 1
   %call83 = call ptr @IPAddressFamily_new() #5
   %cmp84 = icmp eq ptr %call83, null
   br i1 %cmp84, label %end, label %if.end87

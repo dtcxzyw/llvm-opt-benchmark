@@ -840,350 +840,362 @@ define hidden noundef ptr @_ZN10serde_json3ser18format_escaped_str17hda01937d878
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0edcf78abacf7204E.llvm.18206402751905676474(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture nonnull readnone align 1 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %5 = alloca [6 x i8], align 4
+  %5 = alloca [6 x i8], align 1
   %6 = getelementptr inbounds i8, ptr %2, i64 %3
   %.val = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 5
-  %9 = icmp ne ptr %.val, null
+  %7 = getelementptr inbounds i8, ptr %5, i64 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 2
+  %9 = getelementptr inbounds i8, ptr %5, i64 3
+  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds i8, ptr %5, i64 5
+  %12 = icmp ne ptr %.val, null
   br label %.outer
 
 .outer:                                           ; preds = %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit, %4
-  %.sroa.8.0.ph = phi i64 [ 0, %4 ], [ %16, %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit ]
-  %.sroa.0.0.ph = phi ptr [ %2, %4 ], [ %15, %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit ]
-  br label %10
+  %.sroa.8.0.ph = phi i64 [ 0, %4 ], [ %19, %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit ]
+  %.sroa.0.0.ph = phi ptr [ %2, %4 ], [ %18, %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit ]
+  br label %13
 
-10:                                               ; preds = %.outer, %14
-  %.sroa.8.0 = phi i64 [ %16, %14 ], [ %.sroa.8.0.ph, %.outer ]
-  %.sroa.0.0 = phi ptr [ %15, %14 ], [ %.sroa.0.0.ph, %.outer ]
-  %11 = icmp eq ptr %.sroa.0.0, %6
-  br i1 %11, label %12, label %14
+13:                                               ; preds = %.outer, %17
+  %.sroa.8.0 = phi i64 [ %19, %17 ], [ %.sroa.8.0.ph, %.outer ]
+  %.sroa.0.0 = phi ptr [ %18, %17 ], [ %.sroa.0.0.ph, %.outer ]
+  %14 = icmp eq ptr %.sroa.0.0, %6
+  br i1 %14, label %15, label %17
 
-12:                                               ; preds = %10
-  %13 = icmp eq i64 %.sroa.8.0.ph, %3
-  br i1 %13, label %.loopexit, label %22
+15:                                               ; preds = %13
+  %16 = icmp eq i64 %.sroa.8.0.ph, %3
+  br i1 %16, label %.loopexit, label %25
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1
-  %16 = add i64 %.sroa.8.0, 1
-  %17 = load i8, ptr %.sroa.0.0, align 1, !noundef !4
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds [256 x i8], ptr @_ZN10serde_json3ser6ESCAPE17habb6dd29df04c04eE, i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1, !noundef !4
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %10, label %34
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1
+  %19 = add i64 %.sroa.8.0, 1
+  %20 = load i8, ptr %.sroa.0.0, align 1, !noundef !4
+  %21 = zext i8 %20 to i64
+  %22 = getelementptr inbounds [256 x i8], ptr @_ZN10serde_json3ser6ESCAPE17habb6dd29df04c04eE, i64 0, i64 %21
+  %23 = load i8, ptr %22, align 1, !noundef !4
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %13, label %37
 
-22:                                               ; preds = %12
-  %23 = icmp eq i64 %.sroa.8.0.ph, 0
-  br i1 %23, label %30, label %24
+25:                                               ; preds = %15
+  %26 = icmp eq i64 %.sroa.8.0.ph, 0
+  br i1 %26, label %33, label %27
 
-24:                                               ; preds = %22
+27:                                               ; preds = %25
   %.not.i.i = icmp ult i64 %.sroa.8.0.ph, %3
-  br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", label %29
+  br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", label %32
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i": ; preds = %24
-  %25 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
-  %26 = load i8, ptr %25, align 1, !alias.scope !419, !noundef !4
-  %27 = icmp sgt i8 %26, -65
-  %28 = sub nuw i64 %3, %.sroa.8.0.ph
-  br i1 %27, label %30, label %29
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i": ; preds = %27
+  %28 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
+  %29 = load i8, ptr %28, align 1, !alias.scope !419, !noundef !4
+  %30 = icmp sgt i8 %29, -65
+  %31 = sub nuw i64 %3, %.sroa.8.0.ph
+  br i1 %30, label %33, label %32
 
-29:                                               ; preds = %24, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
+32:                                               ; preds = %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
   call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.8.0.ph, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.31) #10
   unreachable
 
-30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %22
-  %31 = phi i64 [ %28, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i" ], [ %3, %22 ]
-  %32 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
-  %33 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %31), !noalias !424
+33:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %25
+  %34 = phi i64 [ %31, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i" ], [ %3, %25 ]
+  %35 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
+  %36 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %35, i64 noundef %34), !noalias !424
   br label %.loopexit
 
-.loopexit:                                        ; preds = %70, %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit, %12, %30
-  %.0 = phi ptr [ %33, %30 ], [ null, %12 ], [ %.02.i, %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit ], [ %73, %70 ]
+.loopexit:                                        ; preds = %73, %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit, %15, %33
+  %.0 = phi ptr [ %36, %33 ], [ null, %15 ], [ %.02.i, %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit ], [ %76, %73 ]
   ret ptr %.0
 
-34:                                               ; preds = %14
-  %35 = icmp ult i64 %.sroa.8.0.ph, %.sroa.8.0
-  br i1 %35, label %36, label %49
+37:                                               ; preds = %17
+  %38 = icmp ult i64 %.sroa.8.0.ph, %.sroa.8.0
+  br i1 %38, label %39, label %52
 
-36:                                               ; preds = %34
-  %37 = icmp eq i64 %.sroa.8.0.ph, 0
-  br i1 %37, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34", label %38
+39:                                               ; preds = %37
+  %40 = icmp eq i64 %.sroa.8.0.ph, 0
+  br i1 %40, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34", label %41
 
-38:                                               ; preds = %36
+41:                                               ; preds = %39
   %.not.i.i32 = icmp ult i64 %.sroa.8.0.ph, %3
-  br i1 %.not.i.i32, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35", label %39
+  br i1 %.not.i.i32, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35", label %42
 
-39:                                               ; preds = %38
-  %40 = icmp eq i64 %.sroa.8.0.ph, %3
-  br i1 %40, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34", label %69
+42:                                               ; preds = %41
+  %43 = icmp eq i64 %.sroa.8.0.ph, %3
+  br i1 %43, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34", label %72
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35": ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
-  %42 = load i8, ptr %41, align 1, !alias.scope !427, !noundef !4
-  %43 = icmp sgt i8 %42, -65
-  br i1 %43, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34", label %69
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35": ; preds = %41
+  %44 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
+  %45 = load i8, ptr %44, align 1, !alias.scope !427, !noundef !4
+  %46 = icmp sgt i8 %45, -65
+  br i1 %46, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34", label %72
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34": ; preds = %36, %39, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35"
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34": ; preds = %39, %42, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35"
   %.not.i5.i = icmp ult i64 %.sroa.8.0, %3
-  br i1 %.not.i5.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", label %44
+  br i1 %.not.i5.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", label %47
 
-44:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34"
-  %45 = icmp eq i64 %.sroa.8.0, %3
-  br i1 %45, label %70, label %69
+47:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34"
+  %48 = icmp eq i64 %.sroa.8.0, %3
+  br i1 %48, label %73, label %72
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34"
-  %46 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0
-  %47 = load i8, ptr %46, align 1, !alias.scope !432, !noundef !4
-  %48 = icmp sgt i8 %47, -65
-  br i1 %48, label %70, label %69
+  %49 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0
+  %50 = load i8, ptr %49, align 1, !alias.scope !432, !noundef !4
+  %51 = icmp sgt i8 %50, -65
+  br i1 %51, label %73, label %72
 
-49:                                               ; preds = %70, %34
-  switch i8 %20, label %50 [
-    i8 98, label %52
-    i8 116, label %56
-    i8 110, label %54
-    i8 102, label %53
-    i8 114, label %55
+52:                                               ; preds = %73, %37
+  switch i8 %23, label %53 [
+    i8 98, label %55
+    i8 116, label %59
+    i8 110, label %57
+    i8 102, label %56
+    i8 114, label %58
     i8 34, label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
-    i8 92, label %51
-    i8 117, label %57
+    i8 92, label %54
+    i8 117, label %60
   ]
 
-50:                                               ; preds = %49
+53:                                               ; preds = %52
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.7383d113eafbf7870c8f4bb85f4fa11e.5, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.7) #10
   unreachable
 
-51:                                               ; preds = %49
+54:                                               ; preds = %52
   br label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
 
-52:                                               ; preds = %49
+55:                                               ; preds = %52
   br label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
 
-53:                                               ; preds = %49
+56:                                               ; preds = %52
   br label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
 
-54:                                               ; preds = %49
+57:                                               ; preds = %52
   br label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
 
-55:                                               ; preds = %49
+58:                                               ; preds = %52
   br label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
 
-56:                                               ; preds = %49
+59:                                               ; preds = %52
   br label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
 
-57:                                               ; preds = %49
+60:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5)
-  %58 = and i8 %17, 15
-  %59 = zext nneg i8 %58 to i64
-  %60 = lshr i8 %17, 4
-  %61 = zext nneg i8 %60 to i64
-  %62 = getelementptr inbounds [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 0, i64 %61
-  %63 = load i8, ptr %62, align 1, !noundef !4
-  %64 = getelementptr inbounds [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 0, i64 %59
-  %65 = load i8, ptr %64, align 1, !noundef !4
-  store <4 x i8> <i8 92, i8 117, i8 48, i8 48>, ptr %5, align 4
-  store i8 %63, ptr %7, align 4
-  store i8 %65, ptr %8, align 1
-  call void @llvm.assume(i1 %9)
-  %66 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 6), !noalias !435
+  %61 = and i8 %20, 15
+  %62 = zext nneg i8 %61 to i64
+  %63 = lshr i8 %20, 4
+  %64 = zext nneg i8 %63 to i64
+  %65 = getelementptr inbounds [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 0, i64 %64
+  %66 = load i8, ptr %65, align 1, !noundef !4
+  %67 = getelementptr inbounds [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 0, i64 %62
+  %68 = load i8, ptr %67, align 1, !noundef !4
+  store i8 92, ptr %5, align 1
+  store i8 117, ptr %7, align 1
+  store i8 48, ptr %8, align 1
+  store i8 48, ptr %9, align 1
+  store i8 %66, ptr %10, align 1
+  store i8 %68, ptr %11, align 1
+  call void @llvm.assume(i1 %12)
+  %69 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 6), !noalias !435
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5)
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit
 
-_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread: ; preds = %49, %56, %55, %54, %53, %52, %51
-  %.0.i = phi ptr [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.19, %56 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.18, %55 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.17, %54 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.16, %53 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.15, %52 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.13, %51 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.12, %49 ]
-  %67 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %.0.i, i64 noundef 2), !noalias !438
+_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread: ; preds = %52, %59, %58, %57, %56, %55, %54
+  %.0.i = phi ptr [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.19, %59 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.18, %58 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.17, %57 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.16, %56 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.15, %55 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.13, %54 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.12, %52 ]
+  %70 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %.0.i, i64 noundef 2), !noalias !438
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit
 
-_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit: ; preds = %57, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
-  %.02.i = phi ptr [ %66, %57 ], [ %67, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread ]
-  %68 = icmp eq ptr %.02.i, null
-  br i1 %68, label %.outer, label %.loopexit
+_ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit: ; preds = %60, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
+  %.02.i = phi ptr [ %69, %60 ], [ %70, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread ]
+  %71 = icmp eq ptr %.02.i, null
+  br i1 %71, label %.outer, label %.loopexit
 
-69:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35", %39, %44
+72:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35", %42, %47
   call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.8.0.ph, i64 noundef %.sroa.8.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.33) #10
   unreachable
 
-70:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %44
-  %71 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
-  %72 = sub i64 %.sroa.8.0, %.sroa.8.0.ph
-  %73 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %71, i64 noundef %72), !noalias !441
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %49, label %.loopexit
+73:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %47
+  %74 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
+  %75 = sub i64 %.sroa.8.0, %.sroa.8.0.ph
+  %76 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %74, i64 noundef %75), !noalias !441
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %52, label %.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86d4ac42a0f45144E.llvm.18206402751905676474(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture readnone align 8 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %5 = alloca [6 x i8], align 4
+  %5 = alloca [6 x i8], align 1
   %6 = getelementptr inbounds i8, ptr %2, i64 %3
   %.val = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 5
-  %9 = icmp ne ptr %.val, null
+  %7 = getelementptr inbounds i8, ptr %5, i64 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 2
+  %9 = getelementptr inbounds i8, ptr %5, i64 3
+  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds i8, ptr %5, i64 5
+  %12 = icmp ne ptr %.val, null
   br label %.outer
 
 .outer:                                           ; preds = %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit, %4
-  %.sroa.8.0.ph = phi i64 [ 0, %4 ], [ %16, %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit ]
-  %.sroa.0.0.ph = phi ptr [ %2, %4 ], [ %15, %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit ]
-  br label %10
+  %.sroa.8.0.ph = phi i64 [ 0, %4 ], [ %19, %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit ]
+  %.sroa.0.0.ph = phi ptr [ %2, %4 ], [ %18, %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit ]
+  br label %13
 
-10:                                               ; preds = %.outer, %14
-  %.sroa.8.0 = phi i64 [ %16, %14 ], [ %.sroa.8.0.ph, %.outer ]
-  %.sroa.0.0 = phi ptr [ %15, %14 ], [ %.sroa.0.0.ph, %.outer ]
-  %11 = icmp eq ptr %.sroa.0.0, %6
-  br i1 %11, label %12, label %14
+13:                                               ; preds = %.outer, %17
+  %.sroa.8.0 = phi i64 [ %19, %17 ], [ %.sroa.8.0.ph, %.outer ]
+  %.sroa.0.0 = phi ptr [ %18, %17 ], [ %.sroa.0.0.ph, %.outer ]
+  %14 = icmp eq ptr %.sroa.0.0, %6
+  br i1 %14, label %15, label %17
 
-12:                                               ; preds = %10
-  %13 = icmp eq i64 %.sroa.8.0.ph, %3
-  br i1 %13, label %.loopexit, label %22
+15:                                               ; preds = %13
+  %16 = icmp eq i64 %.sroa.8.0.ph, %3
+  br i1 %16, label %.loopexit, label %25
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1
-  %16 = add i64 %.sroa.8.0, 1
-  %17 = load i8, ptr %.sroa.0.0, align 1, !noundef !4
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds [256 x i8], ptr @_ZN10serde_json3ser6ESCAPE17habb6dd29df04c04eE, i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1, !noundef !4
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %10, label %34
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 1
+  %19 = add i64 %.sroa.8.0, 1
+  %20 = load i8, ptr %.sroa.0.0, align 1, !noundef !4
+  %21 = zext i8 %20 to i64
+  %22 = getelementptr inbounds [256 x i8], ptr @_ZN10serde_json3ser6ESCAPE17habb6dd29df04c04eE, i64 0, i64 %21
+  %23 = load i8, ptr %22, align 1, !noundef !4
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %13, label %37
 
-22:                                               ; preds = %12
-  %23 = icmp eq i64 %.sroa.8.0.ph, 0
-  br i1 %23, label %30, label %24
+25:                                               ; preds = %15
+  %26 = icmp eq i64 %.sroa.8.0.ph, 0
+  br i1 %26, label %33, label %27
 
-24:                                               ; preds = %22
+27:                                               ; preds = %25
   %.not.i.i = icmp ult i64 %.sroa.8.0.ph, %3
-  br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", label %29
+  br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", label %32
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i": ; preds = %24
-  %25 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
-  %26 = load i8, ptr %25, align 1, !alias.scope !444, !noundef !4
-  %27 = icmp sgt i8 %26, -65
-  %28 = sub nuw i64 %3, %.sroa.8.0.ph
-  br i1 %27, label %30, label %29
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i": ; preds = %27
+  %28 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
+  %29 = load i8, ptr %28, align 1, !alias.scope !444, !noundef !4
+  %30 = icmp sgt i8 %29, -65
+  %31 = sub nuw i64 %3, %.sroa.8.0.ph
+  br i1 %30, label %33, label %32
 
-29:                                               ; preds = %24, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
+32:                                               ; preds = %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
   call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.8.0.ph, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.31) #10
   unreachable
 
-30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %22
-  %31 = phi i64 [ %28, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i" ], [ %3, %22 ]
-  %32 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
-  %33 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %31), !noalias !449
+33:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %25
+  %34 = phi i64 [ %31, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i" ], [ %3, %25 ]
+  %35 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
+  %36 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %35, i64 noundef %34), !noalias !449
   br label %.loopexit
 
-.loopexit:                                        ; preds = %70, %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit, %12, %30
-  %.0 = phi ptr [ %33, %30 ], [ null, %12 ], [ %.02.i, %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit ], [ %73, %70 ]
+.loopexit:                                        ; preds = %73, %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit, %15, %33
+  %.0 = phi ptr [ %36, %33 ], [ null, %15 ], [ %.02.i, %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit ], [ %76, %73 ]
   ret ptr %.0
 
-34:                                               ; preds = %14
-  %35 = icmp ult i64 %.sroa.8.0.ph, %.sroa.8.0
-  br i1 %35, label %36, label %49
+37:                                               ; preds = %17
+  %38 = icmp ult i64 %.sroa.8.0.ph, %.sroa.8.0
+  br i1 %38, label %39, label %52
 
-36:                                               ; preds = %34
-  %37 = icmp eq i64 %.sroa.8.0.ph, 0
-  br i1 %37, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34", label %38
+39:                                               ; preds = %37
+  %40 = icmp eq i64 %.sroa.8.0.ph, 0
+  br i1 %40, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34", label %41
 
-38:                                               ; preds = %36
+41:                                               ; preds = %39
   %.not.i.i32 = icmp ult i64 %.sroa.8.0.ph, %3
-  br i1 %.not.i.i32, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35", label %39
+  br i1 %.not.i.i32, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35", label %42
 
-39:                                               ; preds = %38
-  %40 = icmp eq i64 %.sroa.8.0.ph, %3
-  br i1 %40, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34", label %69
+42:                                               ; preds = %41
+  %43 = icmp eq i64 %.sroa.8.0.ph, %3
+  br i1 %43, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34", label %72
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35": ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
-  %42 = load i8, ptr %41, align 1, !alias.scope !452, !noundef !4
-  %43 = icmp sgt i8 %42, -65
-  br i1 %43, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34", label %69
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35": ; preds = %41
+  %44 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
+  %45 = load i8, ptr %44, align 1, !alias.scope !452, !noundef !4
+  %46 = icmp sgt i8 %45, -65
+  br i1 %46, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34", label %72
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34": ; preds = %36, %39, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35"
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34": ; preds = %39, %42, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35"
   %.not.i5.i = icmp ult i64 %.sroa.8.0, %3
-  br i1 %.not.i5.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", label %44
+  br i1 %.not.i5.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", label %47
 
-44:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34"
-  %45 = icmp eq i64 %.sroa.8.0, %3
-  br i1 %45, label %70, label %69
+47:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34"
+  %48 = icmp eq i64 %.sroa.8.0, %3
+  br i1 %48, label %73, label %72
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.thread.i34"
-  %46 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0
-  %47 = load i8, ptr %46, align 1, !alias.scope !457, !noundef !4
-  %48 = icmp sgt i8 %47, -65
-  br i1 %48, label %70, label %69
+  %49 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0
+  %50 = load i8, ptr %49, align 1, !alias.scope !457, !noundef !4
+  %51 = icmp sgt i8 %50, -65
+  br i1 %51, label %73, label %72
 
-49:                                               ; preds = %70, %34
-  switch i8 %20, label %50 [
-    i8 98, label %52
-    i8 116, label %56
-    i8 110, label %54
-    i8 102, label %53
-    i8 114, label %55
+52:                                               ; preds = %73, %37
+  switch i8 %23, label %53 [
+    i8 98, label %55
+    i8 116, label %59
+    i8 110, label %57
+    i8 102, label %56
+    i8 114, label %58
     i8 34, label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
-    i8 92, label %51
-    i8 117, label %57
+    i8 92, label %54
+    i8 117, label %60
   ]
 
-50:                                               ; preds = %49
+53:                                               ; preds = %52
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.7383d113eafbf7870c8f4bb85f4fa11e.5, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.7) #10
   unreachable
 
-51:                                               ; preds = %49
+54:                                               ; preds = %52
   br label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
 
-52:                                               ; preds = %49
+55:                                               ; preds = %52
   br label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
 
-53:                                               ; preds = %49
+56:                                               ; preds = %52
   br label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
 
-54:                                               ; preds = %49
+57:                                               ; preds = %52
   br label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
 
-55:                                               ; preds = %49
+58:                                               ; preds = %52
   br label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
 
-56:                                               ; preds = %49
+59:                                               ; preds = %52
   br label %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
 
-57:                                               ; preds = %49
+60:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5)
-  %58 = and i8 %17, 15
-  %59 = zext nneg i8 %58 to i64
-  %60 = lshr i8 %17, 4
-  %61 = zext nneg i8 %60 to i64
-  %62 = getelementptr inbounds [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 0, i64 %61
-  %63 = load i8, ptr %62, align 1, !noundef !4
-  %64 = getelementptr inbounds [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 0, i64 %59
-  %65 = load i8, ptr %64, align 1, !noundef !4
-  store <4 x i8> <i8 92, i8 117, i8 48, i8 48>, ptr %5, align 4
-  store i8 %63, ptr %7, align 4
-  store i8 %65, ptr %8, align 1
-  call void @llvm.assume(i1 %9)
-  %66 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 6), !noalias !460
+  %61 = and i8 %20, 15
+  %62 = zext nneg i8 %61 to i64
+  %63 = lshr i8 %20, 4
+  %64 = zext nneg i8 %63 to i64
+  %65 = getelementptr inbounds [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 0, i64 %64
+  %66 = load i8, ptr %65, align 1, !noundef !4
+  %67 = getelementptr inbounds [16 x i8], ptr @_ZN10serde_json3ser9Formatter17write_char_escape10HEX_DIGITS17hc8aa83dda912fdf1E, i64 0, i64 %62
+  %68 = load i8, ptr %67, align 1, !noundef !4
+  store i8 92, ptr %5, align 1
+  store i8 117, ptr %7, align 1
+  store i8 48, ptr %8, align 1
+  store i8 48, ptr %9, align 1
+  store i8 %66, ptr %10, align 1
+  store i8 %68, ptr %11, align 1
+  call void @llvm.assume(i1 %12)
+  %69 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 6), !noalias !460
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5)
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit
 
-_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread: ; preds = %49, %56, %55, %54, %53, %52, %51
-  %.0.i = phi ptr [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.19, %56 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.18, %55 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.17, %54 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.16, %53 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.15, %52 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.13, %51 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.12, %49 ]
-  %67 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %.0.i, i64 noundef 2), !noalias !463
+_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread: ; preds = %52, %59, %58, %57, %56, %55, %54
+  %.0.i = phi ptr [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.19, %59 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.18, %58 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.17, %57 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.16, %56 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.15, %55 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.13, %54 ], [ @anon.7383d113eafbf7870c8f4bb85f4fa11e.12, %52 ]
+  %70 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %.0.i, i64 noundef 2), !noalias !463
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit
 
-_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit: ; preds = %57, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
-  %.02.i = phi ptr [ %66, %57 ], [ %67, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread ]
-  %68 = icmp eq ptr %.02.i, null
-  br i1 %68, label %.outer, label %.loopexit
+_ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit: ; preds = %60, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread
+  %.02.i = phi ptr [ %69, %60 ], [ %70, %_ZN10serde_json3ser10CharEscape17from_escape_table17h4c2ccd2eb84f9c95E.exit.thread ]
+  %71 = icmp eq ptr %.02.i, null
+  br i1 %71, label %.outer, label %.loopexit
 
-69:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35", %39, %44
+72:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35", %42, %47
   call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.8.0.ph, i64 noundef %.sroa.8.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.33) #10
   unreachable
 
-70:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %44
-  %71 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
-  %72 = sub i64 %.sroa.8.0, %.sroa.8.0.ph
-  %73 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %71, i64 noundef %72), !noalias !466
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %49, label %.loopexit
+73:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %47
+  %74 = getelementptr inbounds i8, ptr %2, i64 %.sroa.8.0.ph
+  %75 = sub i64 %.sroa.8.0, %.sroa.8.0.ph
+  %76 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 1 %74, i64 noundef %75), !noalias !466
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %52, label %.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -50,71 +50,77 @@ define hidden void @hwloc_internal_distances_prepare(ptr nocapture noundef %0) l
 
 .thread:                                          ; preds = %7
   store i32 0, ptr %2, align 8
-  br label %33
+  br label %36
 
 thread-pre-split:                                 ; preds = %7, %1
-  br i1 %5, label %9, label %33
+  br i1 %5, label %9, label %36
 
 9:                                                ; preds = %thread-pre-split
   %10 = getelementptr inbounds i8, ptr %0, i64 808
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 788
-  store <4 x float> <float 0.000000e+00, float 0x3F847AE140000000, float 0x3F947AE140000000, float 0x3FA99999A0000000>, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 804
-  store float 0x3FB99999A0000000, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 784
-  store i32 5, ptr %13, align 8
-  %14 = tail call ptr @newlocale(i32 noundef 8127, ptr noundef nonnull @.str.1, ptr noundef null) #25
-  %.not35 = icmp eq ptr %14, null
-  br i1 %.not35, label %17, label %15
+  store float 0.000000e+00, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 792
+  store float 0x3F847AE140000000, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 796
+  store float 0x3F947AE140000000, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 800
+  store float 0x3FA99999A0000000, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 804
+  store float 0x3FB99999A0000000, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 784
+  store i32 5, ptr %16, align 8
+  %17 = tail call ptr @newlocale(i32 noundef 8127, ptr noundef nonnull @.str.1, ptr noundef null) #25
+  %.not35 = icmp eq ptr %17, null
+  br i1 %.not35, label %20, label %18
 
-15:                                               ; preds = %9
-  %16 = tail call ptr @uselocale(ptr noundef nonnull %14) #25
-  br label %17
+18:                                               ; preds = %9
+  %19 = tail call ptr @uselocale(ptr noundef nonnull %17) #25
+  br label %20
 
-17:                                               ; preds = %9, %15
-  %.0 = phi ptr [ %16, %15 ], [ null, %9 ]
-  %18 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #25
-  %.not36 = icmp eq ptr %18, null
-  br i1 %.not36, label %19, label %20
-
-19:                                               ; preds = %17
-  store i32 1, ptr %13, align 8
-  br label %25
-
-20:                                               ; preds = %17
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(4) @.str.3) #26
-  %.not37 = icmp eq i32 %21, 0
-  br i1 %.not37, label %25, label %22
+20:                                               ; preds = %9, %18
+  %.0 = phi ptr [ %19, %18 ], [ null, %9 ]
+  %21 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #25
+  %.not36 = icmp eq ptr %21, null
+  br i1 %.not36, label %22, label %23
 
 22:                                               ; preds = %20
-  store i32 1, ptr %13, align 8
-  %23 = tail call double @atof(ptr noundef nonnull %18) #26
-  %24 = fptrunc double %23 to float
-  store float %24, ptr %11, align 4
-  br label %25
-
-25:                                               ; preds = %19, %22, %20
-  br i1 %.not35, label %28, label %26
-
-26:                                               ; preds = %25
-  %27 = tail call ptr @uselocale(ptr noundef %.0) #25
-  tail call void @freelocale(ptr noundef nonnull %14) #25
+  store i32 1, ptr %16, align 8
   br label %28
 
-28:                                               ; preds = %25, %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 780
-  store i32 0, ptr %29, align 4
-  %30 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #25
-  %.not38 = icmp eq ptr %30, null
-  br i1 %.not38, label %33, label %31
+23:                                               ; preds = %20
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(4) @.str.3) #26
+  %.not37 = icmp eq i32 %24, 0
+  br i1 %.not37, label %28, label %25
 
-31:                                               ; preds = %28
-  %32 = tail call i32 @atoi(ptr nocapture noundef nonnull %30) #26
-  store i32 %32, ptr %29, align 4
-  br label %33
+25:                                               ; preds = %23
+  store i32 1, ptr %16, align 8
+  %26 = tail call double @atof(ptr noundef nonnull %21) #26
+  %27 = fptrunc double %26 to float
+  store float %27, ptr %11, align 4
+  br label %28
 
-33:                                               ; preds = %.thread, %28, %31, %thread-pre-split
+28:                                               ; preds = %22, %25, %23
+  br i1 %.not35, label %31, label %29
+
+29:                                               ; preds = %28
+  %30 = tail call ptr @uselocale(ptr noundef %.0) #25
+  tail call void @freelocale(ptr noundef nonnull %17) #25
+  br label %31
+
+31:                                               ; preds = %28, %29
+  %32 = getelementptr inbounds i8, ptr %0, i64 780
+  store i32 0, ptr %32, align 4
+  %33 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #25
+  %.not38 = icmp eq ptr %33, null
+  br i1 %.not38, label %36, label %34
+
+34:                                               ; preds = %31
+  %35 = tail call i32 @atoi(ptr nocapture noundef nonnull %33) #26
+  store i32 %35, ptr %32, align 4
+  br label %36
+
+36:                                               ; preds = %.thread, %31, %34, %thread-pre-split
   ret void
 }
 

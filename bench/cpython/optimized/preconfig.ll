@@ -1545,9 +1545,21 @@ return:                                           ; preds = %land.lhs.true, %ent
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_PyPreConfig_InitCompatConfig(ptr nocapture noundef writeonly %config) local_unnamed_addr #5 {
 entry:
-  store <4 x i32> <i32 1, i32 0, i32 -1, i32 -1>, ptr %config, align 4
+  store i32 1, ptr %config, align 4
+  %parse_argv = getelementptr inbounds i8, ptr %config, i64 4
+  store i32 0, ptr %parse_argv, align 4
+  %isolated = getelementptr inbounds i8, ptr %config, i64 8
+  store i32 -1, ptr %isolated, align 4
+  %use_environment = getelementptr inbounds i8, ptr %config, i64 12
+  store i32 -1, ptr %use_environment, align 4
   %configure_locale = getelementptr inbounds i8, ptr %config, i64 16
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %configure_locale, align 4
+  store i32 1, ptr %configure_locale, align 4
+  %utf8_mode = getelementptr inbounds i8, ptr %config, i64 28
+  store i32 0, ptr %utf8_mode, align 4
+  %coerce_c_locale = getelementptr inbounds i8, ptr %config, i64 20
+  store i32 0, ptr %coerce_c_locale, align 4
+  %coerce_c_locale_warn = getelementptr inbounds i8, ptr %config, i64 24
+  store i32 0, ptr %coerce_c_locale_warn, align 4
   %dev_mode = getelementptr inbounds i8, ptr %config, i64 32
   store i32 -1, ptr %dev_mode, align 4
   %allocator = getelementptr inbounds i8, ptr %config, i64 36
@@ -1558,25 +1570,49 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @PyPreConfig_InitPythonConfig(ptr nocapture noundef writeonly %config) local_unnamed_addr #5 {
 entry:
+  %parse_argv.i = getelementptr inbounds i8, ptr %config, i64 4
+  %isolated.i = getelementptr inbounds i8, ptr %config, i64 8
+  %use_environment.i = getelementptr inbounds i8, ptr %config, i64 12
   %configure_locale.i = getelementptr inbounds i8, ptr %config, i64 16
+  store i32 1, ptr %configure_locale.i, align 4
+  %utf8_mode.i = getelementptr inbounds i8, ptr %config, i64 28
+  %coerce_c_locale.i = getelementptr inbounds i8, ptr %config, i64 20
+  %coerce_c_locale_warn.i = getelementptr inbounds i8, ptr %config, i64 24
   %dev_mode.i = getelementptr inbounds i8, ptr %config, i64 32
   store i32 -1, ptr %dev_mode.i, align 4
   %allocator.i = getelementptr inbounds i8, ptr %config, i64 36
   store i32 0, ptr %allocator.i, align 4
-  store <4 x i32> <i32 2, i32 1, i32 0, i32 1>, ptr %config, align 4
-  store <4 x i32> <i32 1, i32 -1, i32 -1, i32 -1>, ptr %configure_locale.i, align 4
+  store i32 2, ptr %config, align 4
+  store i32 0, ptr %isolated.i, align 4
+  store i32 1, ptr %parse_argv.i, align 4
+  store i32 1, ptr %use_environment.i, align 4
+  store i32 -1, ptr %coerce_c_locale.i, align 4
+  store i32 -1, ptr %coerce_c_locale_warn.i, align 4
+  store i32 -1, ptr %utf8_mode.i, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @PyPreConfig_InitIsolatedConfig(ptr nocapture noundef writeonly %config) local_unnamed_addr #5 {
 entry:
+  %parse_argv.i = getelementptr inbounds i8, ptr %config, i64 4
+  store i32 0, ptr %parse_argv.i, align 4
+  %isolated.i = getelementptr inbounds i8, ptr %config, i64 8
+  %use_environment.i = getelementptr inbounds i8, ptr %config, i64 12
   %configure_locale.i = getelementptr inbounds i8, ptr %config, i64 16
+  %utf8_mode.i = getelementptr inbounds i8, ptr %config, i64 28
+  %coerce_c_locale.i = getelementptr inbounds i8, ptr %config, i64 20
+  store i32 0, ptr %coerce_c_locale.i, align 4
+  %coerce_c_locale_warn.i = getelementptr inbounds i8, ptr %config, i64 24
+  store i32 0, ptr %coerce_c_locale_warn.i, align 4
   %dev_mode.i = getelementptr inbounds i8, ptr %config, i64 32
   %allocator.i = getelementptr inbounds i8, ptr %config, i64 36
   store i32 0, ptr %allocator.i, align 4
-  store <4 x i32> <i32 3, i32 0, i32 1, i32 0>, ptr %config, align 4
-  store <4 x i32> zeroinitializer, ptr %configure_locale.i, align 4
+  store i32 3, ptr %config, align 4
+  store i32 0, ptr %configure_locale.i, align 4
+  store i32 1, ptr %isolated.i, align 4
+  store i32 0, ptr %use_environment.i, align 4
+  store i32 0, ptr %utf8_mode.i, align 4
   store i32 0, ptr %dev_mode.i, align 4
   ret void
 }
@@ -1588,6 +1624,7 @@ entry:
   %isolated.i.i = getelementptr inbounds i8, ptr %config, i64 8
   %use_environment.i.i = getelementptr inbounds i8, ptr %config, i64 12
   %configure_locale.i.i = getelementptr inbounds i8, ptr %config, i64 16
+  store i32 1, ptr %configure_locale.i.i, align 4
   %utf8_mode.i.i = getelementptr inbounds i8, ptr %config, i64 28
   %coerce_c_locale.i.i = getelementptr inbounds i8, ptr %config, i64 20
   %coerce_c_locale_warn.i.i = getelementptr inbounds i8, ptr %config, i64 24
@@ -1595,8 +1632,13 @@ entry:
   store i32 -1, ptr %dev_mode.i.i, align 4
   %allocator.i.i = getelementptr inbounds i8, ptr %config, i64 36
   store i32 0, ptr %allocator.i.i, align 4
-  store <4 x i32> <i32 2, i32 1, i32 0, i32 1>, ptr %config, align 4
-  store <4 x i32> <i32 1, i32 -1, i32 -1, i32 -1>, ptr %configure_locale.i.i, align 4
+  store i32 2, ptr %config, align 4
+  store i32 0, ptr %isolated.i.i, align 4
+  store i32 1, ptr %parse_argv.i.i, align 4
+  store i32 1, ptr %use_environment.i.i, align 4
+  store i32 -1, ptr %coerce_c_locale.i.i, align 4
+  store i32 -1, ptr %coerce_c_locale_warn.i.i, align 4
+  store i32 -1, ptr %utf8_mode.i.i, align 4
   %0 = load i32, ptr %config2, align 4
   store i32 %0, ptr %config, align 4
   %parse_argv.i = getelementptr inbounds i8, ptr %config2, i64 4
@@ -1640,29 +1682,65 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
+  %parse_argv.i.i = getelementptr inbounds i8, ptr %preconfig, i64 4
+  %isolated.i.i = getelementptr inbounds i8, ptr %preconfig, i64 8
+  %use_environment.i.i = getelementptr inbounds i8, ptr %preconfig, i64 12
   %configure_locale.i.i = getelementptr inbounds i8, ptr %preconfig, i64 16
+  store i32 1, ptr %configure_locale.i.i, align 4
+  %utf8_mode.i.i = getelementptr inbounds i8, ptr %preconfig, i64 28
+  %coerce_c_locale.i.i = getelementptr inbounds i8, ptr %preconfig, i64 20
+  %coerce_c_locale_warn.i.i = getelementptr inbounds i8, ptr %preconfig, i64 24
   %dev_mode.i.i = getelementptr inbounds i8, ptr %preconfig, i64 32
   store i32 -1, ptr %dev_mode.i.i, align 4
   %allocator.i.i = getelementptr inbounds i8, ptr %preconfig, i64 36
   store i32 0, ptr %allocator.i.i, align 4
-  store <4 x i32> <i32 2, i32 1, i32 0, i32 1>, ptr %preconfig, align 4
-  store <4 x i32> <i32 1, i32 -1, i32 -1, i32 -1>, ptr %configure_locale.i.i, align 4
+  store i32 2, ptr %preconfig, align 4
+  store i32 0, ptr %isolated.i.i, align 4
+  store i32 1, ptr %parse_argv.i.i, align 4
+  store i32 1, ptr %use_environment.i.i, align 4
+  store i32 -1, ptr %coerce_c_locale.i.i, align 4
+  store i32 -1, ptr %coerce_c_locale_warn.i.i, align 4
+  store i32 -1, ptr %utf8_mode.i.i, align 4
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
+  %parse_argv.i.i5 = getelementptr inbounds i8, ptr %preconfig, i64 4
+  store i32 0, ptr %parse_argv.i.i5, align 4
+  %isolated.i.i6 = getelementptr inbounds i8, ptr %preconfig, i64 8
+  %use_environment.i.i7 = getelementptr inbounds i8, ptr %preconfig, i64 12
   %configure_locale.i.i8 = getelementptr inbounds i8, ptr %preconfig, i64 16
+  %utf8_mode.i.i9 = getelementptr inbounds i8, ptr %preconfig, i64 28
+  %coerce_c_locale.i.i10 = getelementptr inbounds i8, ptr %preconfig, i64 20
+  store i32 0, ptr %coerce_c_locale.i.i10, align 4
+  %coerce_c_locale_warn.i.i11 = getelementptr inbounds i8, ptr %preconfig, i64 24
+  store i32 0, ptr %coerce_c_locale_warn.i.i11, align 4
   %dev_mode.i.i12 = getelementptr inbounds i8, ptr %preconfig, i64 32
   %allocator.i.i13 = getelementptr inbounds i8, ptr %preconfig, i64 36
   store i32 0, ptr %allocator.i.i13, align 4
-  store <4 x i32> <i32 3, i32 0, i32 1, i32 0>, ptr %preconfig, align 4
-  store <4 x i32> zeroinitializer, ptr %configure_locale.i.i8, align 4
+  store i32 3, ptr %preconfig, align 4
+  store i32 0, ptr %configure_locale.i.i8, align 4
+  store i32 1, ptr %isolated.i.i6, align 4
+  store i32 0, ptr %use_environment.i.i7, align 4
+  store i32 0, ptr %utf8_mode.i.i9, align 4
   store i32 0, ptr %dev_mode.i.i12, align 4
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  store <4 x i32> <i32 1, i32 0, i32 -1, i32 -1>, ptr %preconfig, align 4
+  store i32 1, ptr %preconfig, align 4
+  %parse_argv.i = getelementptr inbounds i8, ptr %preconfig, i64 4
+  store i32 0, ptr %parse_argv.i, align 4
+  %isolated.i = getelementptr inbounds i8, ptr %preconfig, i64 8
+  store i32 -1, ptr %isolated.i, align 4
+  %use_environment.i = getelementptr inbounds i8, ptr %preconfig, i64 12
+  store i32 -1, ptr %use_environment.i, align 4
   %configure_locale.i = getelementptr inbounds i8, ptr %preconfig, i64 16
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %configure_locale.i, align 4
+  store i32 1, ptr %configure_locale.i, align 4
+  %utf8_mode.i = getelementptr inbounds i8, ptr %preconfig, i64 28
+  store i32 0, ptr %utf8_mode.i, align 4
+  %coerce_c_locale.i = getelementptr inbounds i8, ptr %preconfig, i64 20
+  store i32 0, ptr %coerce_c_locale.i, align 4
+  %coerce_c_locale_warn.i = getelementptr inbounds i8, ptr %preconfig, i64 24
+  store i32 0, ptr %coerce_c_locale_warn.i, align 4
   %dev_mode.i = getelementptr inbounds i8, ptr %preconfig, i64 32
   store i32 -1, ptr %dev_mode.i, align 4
   %allocator.i = getelementptr inbounds i8, ptr %preconfig, i64 36
@@ -2216,58 +2294,66 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
+  %status.sroa.18.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 28
+  %status.sroa.18.0.copyload = load i32, ptr %status.sroa.18.0.tmp.sroa_idx, align 4
   %status.sroa.17.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 24
+  %status.sroa.17.0.copyload = load i32, ptr %status.sroa.17.0.tmp.sroa_idx, align 8
+  %status.sroa.16.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 16
+  %status.sroa.16.0.copyload = load ptr, ptr %status.sroa.16.0.tmp.sroa_idx, align 8
   %status.sroa.15.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 8
+  %status.sroa.15.0.copyload = load ptr, ptr %status.sroa.15.0.tmp.sroa_idx, align 8
   %status.sroa.13.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 4
   %status.sroa.13.0.copyload = load i32, ptr %status.sroa.13.0.tmp.sroa_idx, align 4
   store i32 %status.sroa.0.0.copyload, ptr %agg.result, align 8
   %status.sroa.13.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 %status.sroa.13.0.copyload, ptr %status.sroa.13.0.agg.result.sroa_idx, align 4
   %status.sroa.15.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %0 = load <2 x ptr>, ptr %status.sroa.15.0.tmp.sroa_idx, align 8
-  store <2 x ptr> %0, ptr %status.sroa.15.0.agg.result.sroa_idx, align 8
+  store ptr %status.sroa.15.0.copyload, ptr %status.sroa.15.0.agg.result.sroa_idx, align 8
+  %status.sroa.16.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %status.sroa.16.0.copyload, ptr %status.sroa.16.0.agg.result.sroa_idx, align 8
   %status.sroa.17.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %1 = load <2 x i32>, ptr %status.sroa.17.0.tmp.sroa_idx, align 8
-  store <2 x i32> %1, ptr %status.sroa.17.0.agg.result.sroa_idx, align 8
+  store i32 %status.sroa.17.0.copyload, ptr %status.sroa.17.0.agg.result.sroa_idx, align 8
+  %status.sroa.18.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  store i32 %status.sroa.18.0.copyload, ptr %status.sroa.18.0.agg.result.sroa_idx, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %config, align 4
-  %cmp.not.i = icmp eq i32 %2, 1
+  %0 = load i32, ptr %config, align 4
+  %cmp.not.i = icmp eq i32 %0, 1
   br i1 %cmp.not.i, label %if.end.i, label %preconfig_get_global_vars.exit
 
 if.end.i:                                         ; preds = %if.end
   %isolated.i = getelementptr inbounds i8, ptr %config, i64 8
-  %3 = load i32, ptr %isolated.i, align 4
-  %cmp1.i = icmp slt i32 %3, 0
+  %1 = load i32, ptr %isolated.i, align 4
+  %cmp1.i = icmp slt i32 %1, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.end4.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %4 = load i32, ptr @Py_IsolatedFlag, align 4
-  store i32 %4, ptr %isolated.i, align 4
+  %2 = load i32, ptr @Py_IsolatedFlag, align 4
+  store i32 %2, ptr %isolated.i, align 4
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then2.i, %if.end.i
   %use_environment.i = getelementptr inbounds i8, ptr %config, i64 12
-  %5 = load i32, ptr %use_environment.i, align 4
-  %cmp5.i = icmp slt i32 %5, 0
+  %3 = load i32, ptr %use_environment.i, align 4
+  %cmp5.i = icmp slt i32 %3, 0
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %6 = load i32, ptr @Py_IgnoreEnvironmentFlag, align 4
-  %tobool.not.i = icmp eq i32 %6, 0
+  %4 = load i32, ptr @Py_IgnoreEnvironmentFlag, align 4
+  %tobool.not.i = icmp eq i32 %4, 0
   %lnot.ext.i = zext i1 %tobool.not.i to i32
   store i32 %lnot.ext.i, ptr %use_environment.i, align 4
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then6.i, %if.end4.i
-  %7 = load i32, ptr @Py_UTF8Mode, align 4
-  %cmp9.i = icmp sgt i32 %7, 0
+  %5 = load i32, ptr @Py_UTF8Mode, align 4
+  %cmp9.i = icmp sgt i32 %5, 0
   br i1 %cmp9.i, label %if.then10.i, label %preconfig_get_global_vars.exit
 
 if.then10.i:                                      ; preds = %if.end8.i
   %utf8_mode.i = getelementptr inbounds i8, ptr %config, i64 28
-  store i32 %7, ptr %utf8_mode.i, align 4
+  store i32 %5, ptr %utf8_mode.i, align 4
   br label %preconfig_get_global_vars.exit
 
 preconfig_get_global_vars.exit:                   ; preds = %if.end, %if.end8.i, %if.then10.i
@@ -2301,20 +2387,23 @@ if.then7:                                         ; preds = %if.end4
   br label %return
 
 if.end17:                                         ; preds = %if.end4
+  %6 = load i32, ptr %config, align 4
   %parse_argv.i.i = getelementptr inbounds i8, ptr %config, i64 4
+  %7 = load i32, ptr %parse_argv.i.i, align 4, !noalias !11
   %isolated.i.i = getelementptr inbounds i8, ptr %config, i64 8
+  %8 = load i32, ptr %isolated.i.i, align 4, !noalias !11
   %use_environment.i.i = getelementptr inbounds i8, ptr %config, i64 12
-  %8 = load <4 x i32>, ptr %config, align 4
-  %9 = load i32, ptr %config, align 4
+  %9 = load i32, ptr %use_environment.i.i, align 4, !noalias !11
   %configure_locale.i.i = getelementptr inbounds i8, ptr %config, i64 16
   %10 = load i32, ptr %configure_locale.i.i, align 4
   %dev_mode.i.i = getelementptr inbounds i8, ptr %config, i64 32
+  %11 = load i32, ptr %dev_mode.i.i, align 4, !noalias !11
   %coerce_c_locale.i.i = getelementptr inbounds i8, ptr %config, i64 20
   %coerce_c_locale_warn.i.i = getelementptr inbounds i8, ptr %config, i64 24
-  %11 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !11
+  %12 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !11
   %utf8_mode.i.i = getelementptr inbounds i8, ptr %config, i64 28
   %allocator.i.i = getelementptr inbounds i8, ptr %config, i64 36
-  %12 = load <2 x i32>, ptr %dev_mode.i.i, align 4, !noalias !11
+  %13 = load i32, ptr %allocator.i.i, align 4, !noalias !11
   %tobool.not = icmp eq i32 %10, 0
   br i1 %tobool.not, label %if.end20, label %if.then18
 
@@ -2324,51 +2413,59 @@ if.then18:                                        ; preds = %if.end17
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %if.end17
-  %.pre = phi i32 [ %.pre.pre, %if.then18 ], [ %9, %if.end17 ]
+  %.pre = phi i32 [ %.pre.pre, %if.then18 ], [ %6, %if.end17 ]
   %.pr = load i32, ptr %utf8_mode.i.i, align 4
-  %13 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
-  %14 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
-  %15 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3540), align 4
+  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3544), align 8
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3548), align 4
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3572), align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %cmdline, i8 0, i64 48, i1 false)
-  %16 = getelementptr inbounds i8, ptr %cmdline, i64 32
-  store i32 -1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %cmdline, i64 36
-  store i32 -1, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %cmdline, i64 40
-  store i32 -1, ptr %18, align 8
+  %24 = getelementptr inbounds i8, ptr %cmdline, i64 32
+  store i32 -1, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %cmdline, i64 36
+  store i32 -1, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %cmdline, i64 40
+  store i32 -1, ptr %26, align 8
   %tobool29.not = icmp eq ptr %args, null
   %status.sroa.13.0.tmp31.sroa_idx = getelementptr inbounds i8, ptr %tmp31, i64 4
   %status.sroa.15.0.tmp31.sroa_idx = getelementptr inbounds i8, ptr %tmp31, i64 8
   %status.sroa.16.0.tmp31.sroa_idx = getelementptr inbounds i8, ptr %tmp31, i64 16
   %status.sroa.17.0.tmp31.sroa_idx = getelementptr inbounds i8, ptr %tmp31, i64 24
+  %status.sroa.18.0.tmp31.sroa_idx = getelementptr inbounds i8, ptr %tmp31, i64 28
   %xoptions.i.i = getelementptr inbounds i8, ptr %cmdline, i64 16
   %items.i.i.i = getelementptr inbounds i8, ptr %cmdline, i64 24
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end20, %if.end60
-  %19 = phi i32 [ %.pre, %if.end20 ], [ %9, %if.end60 ]
+  %27 = phi i32 [ %.pre, %if.end20 ], [ %6, %if.end60 ]
   %inc127 = phi i32 [ 1, %if.end20 ], [ %inc, %if.end60 ]
   %locale_coerced.0126 = phi i32 [ 0, %if.end20 ], [ %locale_coerced.1, %if.end60 ]
-  %20 = phi i32 [ %.pr, %if.end20 ], [ %70, %if.end60 ]
-  store i32 %19, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
-  %21 = load i32, ptr %parse_argv.i.i, align 4
-  store i32 %21, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3540), align 4
-  %22 = load i32, ptr %isolated.i.i, align 4
-  store i32 %22, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3544), align 8
-  %23 = load i32, ptr %use_environment.i.i, align 4
-  store i32 %23, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3548), align 4
-  %24 = load i32, ptr %configure_locale.i.i, align 4
-  store i32 %24, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
-  %25 = load i32, ptr %dev_mode.i.i, align 4
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
-  %26 = load i32, ptr %coerce_c_locale.i.i, align 4
-  store i32 %26, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
-  %27 = load i32, ptr %coerce_c_locale_warn.i.i, align 4
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
-  %28 = load i32, ptr %utf8_mode.i.i, align 4
-  store i32 %28, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
-  %29 = load i32, ptr %allocator.i.i, align 4
-  store i32 %29, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3572), align 4
+  %28 = phi i32 [ %.pr, %if.end20 ], [ %75, %if.end60 ]
+  store i32 %27, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
+  %29 = load i32, ptr %parse_argv.i.i, align 4
+  store i32 %29, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3540), align 4
+  %30 = load i32, ptr %isolated.i.i, align 4
+  store i32 %30, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3544), align 8
+  %31 = load i32, ptr %use_environment.i.i, align 4
+  store i32 %31, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3548), align 4
+  %32 = load i32, ptr %configure_locale.i.i, align 4
+  store i32 %32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
+  %33 = load i32, ptr %dev_mode.i.i, align 4
+  store i32 %33, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
+  %34 = load i32, ptr %coerce_c_locale.i.i, align 4
+  store i32 %34, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
+  %35 = load i32, ptr %coerce_c_locale_warn.i.i, align 4
+  store i32 %35, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
+  %36 = load i32, ptr %utf8_mode.i.i, align 4
+  store i32 %36, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
+  %37 = load i32, ptr %allocator.i.i, align 4
+  store i32 %37, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3572), align 4
   br i1 %tobool29.not, label %if.end36, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
@@ -2377,7 +2474,8 @@ if.then30:                                        ; preds = %if.end28
   %status.sroa.13.0.copyload20 = load i32, ptr %status.sroa.13.0.tmp31.sroa_idx, align 4
   %status.sroa.15.0.copyload28 = load ptr, ptr %status.sroa.15.0.tmp31.sroa_idx, align 8
   %status.sroa.16.0.copyload36 = load ptr, ptr %status.sroa.16.0.tmp31.sroa_idx, align 8
-  %30 = load <2 x i32>, ptr %status.sroa.17.0.tmp31.sroa_idx, align 8
+  %status.sroa.17.0.copyload44 = load i32, ptr %status.sroa.17.0.tmp31.sroa_idx, align 8
+  %status.sroa.18.0.copyload52 = load i32, ptr %status.sroa.18.0.tmp31.sroa_idx, align 4
   %cmp33.not = icmp eq i32 %status.sroa.0.0.copyload13, 0
   br i1 %cmp33.not, label %if.end36, label %done
 
@@ -2389,9 +2487,11 @@ if.end36:                                         ; preds = %if.then30, %if.end2
   br i1 %cmp.not.i74, label %if.end.i75, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end36
+  %status.sroa.9.sroa.12.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 28
+  %status.sroa.9.sroa.12.0.copyload.i = load i32, ptr %status.sroa.9.sroa.12.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx.i, align 4, !noalias !14
   %status.sroa.9.0.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 4
   %status.sroa.9.sroa.10.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 24
-  %31 = load <2 x i32>, ptr %status.sroa.9.sroa.10.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx.i, align 8, !noalias !14
+  %status.sroa.9.sroa.10.0.copyload.i = load i32, ptr %status.sroa.9.sroa.10.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx.i, align 8, !noalias !14
   %status.sroa.9.sroa.8.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 16
   %status.sroa.9.sroa.8.0.copyload.i = load ptr, ptr %status.sroa.9.sroa.8.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx.i, align 8, !noalias !14
   %status.sroa.9.sroa.6.0.status.sroa.9.0.tmp.sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 8
@@ -2400,13 +2500,14 @@ if.then.i:                                        ; preds = %if.end36
   br label %preconfig_read.exit.thread
 
 if.end.i75:                                       ; preds = %if.end36
-  %32 = load i32, ptr %17, align 4, !noalias !14
-  %33 = load <2 x i32>, ptr %16, align 8, !noalias !14
-  store <2 x i32> %33, ptr %isolated.i.i, align 4, !noalias !14
-  %34 = load i32, ptr %18, align 8, !noalias !14
-  store i32 %34, ptr %dev_mode.i.i, align 4, !noalias !14
-  %35 = load i32, ptr %configure_locale.i.i, align 4, !noalias !14
-  %tobool.not.i.i = icmp eq i32 %35, 0
+  %38 = load i32, ptr %24, align 8, !noalias !14
+  store i32 %38, ptr %isolated.i.i, align 4, !noalias !14
+  %39 = load i32, ptr %25, align 4, !noalias !14
+  store i32 %39, ptr %use_environment.i.i, align 4, !noalias !14
+  %40 = load i32, ptr %26, align 8, !noalias !14
+  store i32 %40, ptr %dev_mode.i.i, align 4, !noalias !14
+  %41 = load i32, ptr %configure_locale.i.i, align 4, !noalias !14
+  %tobool.not.i.i = icmp eq i32 %41, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i75
@@ -2414,7 +2515,7 @@ if.then.i.i:                                      ; preds = %if.end.i75
   br label %if.end44.sink.split.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i75
-  %tobool.not.i.i.i = icmp eq i32 %32, 0
+  %tobool.not.i.i.i = icmp eq i32 %39, 0
   br i1 %tobool.not.i.i.i, label %if.end26.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
@@ -2423,21 +2524,21 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i
   br i1 %tobool1.not.i.i.i, label %if.end26.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
-  %36 = load i8, ptr %call.i.i.i, align 1, !noalias !14
-  switch i8 %36, label %if.else.i.i [
+  %42 = load i8, ptr %call.i.i.i, align 1, !noalias !14
+  switch i8 %42, label %if.else.i.i [
     i8 0, label %if.end26.i.i
     i8 48, label %if.then2.tail.i.i
   ]
 
 if.then2.tail.i.i:                                ; preds = %land.lhs.true.i.i.i
-  %37 = getelementptr inbounds i8, ptr %call.i.i.i, i64 1
-  %38 = load i8, ptr %37, align 1, !noalias !14
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %if.then4.i.i, label %if.else.i.i
+  %43 = getelementptr inbounds i8, ptr %call.i.i.i, i64 1
+  %44 = load i8, ptr %43, align 1, !noalias !14
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %if.then4.i.i, label %if.else.i.i
 
 if.then4.i.i:                                     ; preds = %if.then2.tail.i.i
-  %40 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !14
-  %cmp6.i.i = icmp slt i32 %40, 0
+  %46 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !14
+  %cmp6.i.i = icmp slt i32 %46, 0
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.end26.i.i
 
 if.then7.i.i:                                     ; preds = %if.then4.i.i
@@ -2450,8 +2551,8 @@ if.else.i.i:                                      ; preds = %if.then2.tail.i.i, 
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.else18.i.i
 
 if.then12.i.i:                                    ; preds = %if.else.i.i
-  %41 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !14
-  %cmp14.i.i = icmp slt i32 %41, 0
+  %47 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !14
+  %cmp14.i.i = icmp slt i32 %47, 0
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.end26.i.i
 
 if.then15.i.i:                                    ; preds = %if.then12.i.i
@@ -2459,8 +2560,8 @@ if.then15.i.i:                                    ; preds = %if.then12.i.i
   br label %if.end26.i.i
 
 if.else18.i.i:                                    ; preds = %if.else.i.i
-  %42 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !14
-  %cmp20.i.i = icmp slt i32 %42, 0
+  %48 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !14
+  %cmp20.i.i = icmp slt i32 %48, 0
   br i1 %cmp20.i.i, label %if.then21.i.i, label %if.end26.i.i
 
 if.then21.i.i:                                    ; preds = %if.else18.i.i
@@ -2468,9 +2569,9 @@ if.then21.i.i:                                    ; preds = %if.else18.i.i
   br label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %if.then21.i.i, %if.else18.i.i, %if.then15.i.i, %if.then12.i.i, %if.then7.i.i, %if.then4.i.i, %land.lhs.true.i.i.i, %if.end.i.i.i, %if.end.i.i
-  %43 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !14
-  %cmp28.i.i = icmp slt i32 %43, 0
-  %cmp30.i.i = icmp eq i32 %43, 1
+  %49 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !14
+  %cmp28.i.i = icmp slt i32 %49, 0
+  %cmp30.i.i = icmp eq i32 %49, 1
   %or.cond.i.i = or i1 %cmp28.i.i, %cmp30.i.i
   br i1 %or.cond.i.i, label %if.then31.i.i, label %if.end39.i.i
 
@@ -2482,8 +2583,8 @@ if.then31.i.i:                                    ; preds = %if.end26.i.i
   br label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.then31.i.i, %if.end26.i.i
-  %44 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !14
-  %cmp41.i.i = icmp slt i32 %44, 0
+  %50 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !14
+  %cmp41.i.i = icmp slt i32 %50, 0
   br i1 %cmp41.i.i, label %if.end44.sink.split.i.i, label %preconfig_init_coerce_c_locale.exit.i
 
 if.end44.sink.split.i.i:                          ; preds = %if.end39.i.i, %if.then.i.i
@@ -2491,61 +2592,61 @@ if.end44.sink.split.i.i:                          ; preds = %if.end39.i.i, %if.t
   br label %preconfig_init_coerce_c_locale.exit.i
 
 preconfig_init_coerce_c_locale.exit.i:            ; preds = %if.end44.sink.split.i.i, %if.end39.i.i
-  %45 = load i32, ptr %utf8_mode.i.i, align 4, !noalias !17
-  %cmp.i.i = icmp sgt i32 %45, -1
+  %51 = load i32, ptr %utf8_mode.i.i, align 4, !noalias !17
+  %cmp.i.i = icmp sgt i32 %51, -1
   br i1 %cmp.i.i, label %if.end5.i, label %if.end.i17.i
 
 if.end.i17.i:                                     ; preds = %preconfig_init_coerce_c_locale.exit.i
-  %46 = load i64, ptr %xoptions.i.i, align 8, !noalias !17
-  %cmp11.i.i.i = icmp sgt i64 %46, 0
+  %52 = load i64, ptr %xoptions.i.i, align 8, !noalias !17
+  %cmp11.i.i.i = icmp sgt i64 %52, 0
   br i1 %cmp11.i.i.i, label %for.body.lr.ph.i.i.i, label %if.end24.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.end.i17.i
-  %47 = load ptr, ptr %items.i.i.i, align 8, !noalias !17
+  %53 = load ptr, ptr %items.i.i.i, align 8, !noalias !17
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.lr.ph.i.i.i
   %i.012.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.inc.i.i.i ]
-  %arrayidx.i.i.i = getelementptr ptr, ptr %47, i64 %i.012.i.i.i
-  %48 = load ptr, ptr %arrayidx.i.i.i, align 8, !noalias !17
-  %call.i.i21.i = call ptr @wcschr(ptr noundef %48, i32 noundef 61) #18, !noalias !17
+  %arrayidx.i.i.i = getelementptr ptr, ptr %53, i64 %i.012.i.i.i
+  %54 = load ptr, ptr %arrayidx.i.i.i, align 8, !noalias !17
+  %call.i.i21.i = call ptr @wcschr(ptr noundef %54, i32 noundef 61) #18, !noalias !17
   %cmp1.not.i.i.i = icmp eq ptr %call.i.i21.i, null
   br i1 %cmp1.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i21.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %48 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %54 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
   br label %if.end.i.i22.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
-  %call2.i.i.i = call i64 @wcslen(ptr noundef %48) #18, !noalias !17
+  %call2.i.i.i = call i64 @wcslen(ptr noundef %54) #18, !noalias !17
   br label %if.end.i.i22.i
 
 if.end.i.i22.i:                                   ; preds = %if.else.i.i.i, %if.then.i.i.i
   %len.0.i.i.i = phi i64 [ %sub.ptr.div.i.i.i, %if.then.i.i.i ], [ %call2.i.i.i, %if.else.i.i.i ]
-  %call3.i.i.i = call i32 @wcsncmp(ptr noundef %48, ptr noundef nonnull readonly @.str.22, i64 noundef %len.0.i.i.i) #18, !noalias !17
+  %call3.i.i.i = call i32 @wcsncmp(ptr noundef %54, ptr noundef nonnull readonly @.str.22, i64 noundef %len.0.i.i.i) #18, !noalias !17
   %cmp4.i.i.i = icmp eq i32 %call3.i.i.i, 0
   br i1 %cmp4.i.i.i, label %land.lhs.true.i.i23.i, label %for.inc.i.i.i
 
 land.lhs.true.i.i23.i:                            ; preds = %if.end.i.i22.i
   %arrayidx5.i.i.i = getelementptr i32, ptr @.str.22, i64 %len.0.i.i.i
-  %49 = load i32, ptr %arrayidx5.i.i.i, align 4, !noalias !17
-  %cmp6.i.i.i = icmp eq i32 %49, 0
+  %55 = load i32, ptr %arrayidx5.i.i.i, align 4, !noalias !17
+  %cmp6.i.i.i = icmp eq i32 %55, 0
   br i1 %cmp6.i.i.i, label %_Py_get_xoption.exit.i.i, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %land.lhs.true.i.i23.i, %if.end.i.i22.i
   %inc.i.i.i = add nuw nsw i64 %i.012.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %46
+  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %52
   br i1 %exitcond.not.i.i.i, label %if.end24.i.i, label %for.body.i.i.i, !llvm.loop !10
 
 _Py_get_xoption.exit.i.i:                         ; preds = %land.lhs.true.i.i23.i
-  %tobool.not.i24.i = icmp eq ptr %48, null
+  %tobool.not.i24.i = icmp eq ptr %54, null
   br i1 %tobool.not.i24.i, label %if.end24.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %_Py_get_xoption.exit.i.i
-  %call2.i.i = call ptr @wcschr(ptr noundef nonnull %48, i32 noundef 61) #18, !noalias !17
+  %call2.i.i = call ptr @wcschr(ptr noundef nonnull %54, i32 noundef 61) #18, !noalias !17
   %tobool3.not.i.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool3.not.i.i, label %if.end5.sink.split.i, label %if.then4.i25.i
 
@@ -2561,8 +2662,8 @@ if.else.i27.i:                                    ; preds = %if.then4.i25.i
   br i1 %cmp10.i.i, label %if.end5.sink.split.i, label %preconfig_read.exit.thread
 
 if.end24.i.i:                                     ; preds = %for.inc.i.i.i, %_Py_get_xoption.exit.i.i, %if.end.i17.i
-  %50 = load i32, ptr %use_environment.i.i, align 4, !noalias !17
-  %tobool.not.i.i19.i = icmp eq i32 %50, 0
+  %56 = load i32, ptr %use_environment.i.i, align 4, !noalias !17
+  %tobool.not.i.i19.i = icmp eq i32 %56, 0
   br i1 %tobool.not.i.i19.i, label %if.then51.i.i, label %if.end.i19.i.i
 
 if.end.i19.i.i:                                   ; preds = %if.end24.i.i
@@ -2571,24 +2672,24 @@ if.end.i19.i.i:                                   ; preds = %if.end24.i.i
   br i1 %tobool1.not.i.i20.i, label %if.then51.i.i, label %land.lhs.true.i21.i.i
 
 land.lhs.true.i21.i.i:                            ; preds = %if.end.i19.i.i
-  %51 = load i8, ptr %call.i20.i.i, align 1, !noalias !17
-  switch i8 %51, label %preconfig_read.exit.thread [
+  %57 = load i8, ptr %call.i20.i.i, align 1, !noalias !17
+  switch i8 %57, label %preconfig_read.exit.thread [
     i8 0, label %if.then51.i.i
     i8 49, label %if.then27.tail.i.i
     i8 48, label %if.else32.tail.i.i
   ]
 
 if.then27.tail.i.i:                               ; preds = %land.lhs.true.i21.i.i
-  %52 = getelementptr inbounds i8, ptr %call.i20.i.i, i64 1
-  %53 = load i8, ptr %52, align 1, !noalias !17
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %if.end5.sink.split.i, label %preconfig_read.exit.thread
+  %58 = getelementptr inbounds i8, ptr %call.i20.i.i, i64 1
+  %59 = load i8, ptr %58, align 1, !noalias !17
+  %60 = icmp eq i8 %59, 0
+  br i1 %60, label %if.end5.sink.split.i, label %preconfig_read.exit.thread
 
 if.else32.tail.i.i:                               ; preds = %land.lhs.true.i21.i.i
-  %55 = getelementptr inbounds i8, ptr %call.i20.i.i, i64 1
-  %56 = load i8, ptr %55, align 1, !noalias !17
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %if.end5.sink.split.i, label %preconfig_read.exit.thread
+  %61 = getelementptr inbounds i8, ptr %call.i20.i.i, i64 1
+  %62 = load i8, ptr %61, align 1, !noalias !17
+  %63 = icmp eq i8 %62, 0
+  br i1 %63, label %if.end5.sink.split.i, label %preconfig_read.exit.thread
 
 if.then51.i.i:                                    ; preds = %land.lhs.true.i21.i.i, %if.end.i19.i.i, %if.end24.i.i
   %call52.i.i = call ptr @setlocale(i32 noundef 0, ptr noundef null) #17, !noalias !17
@@ -2596,15 +2697,15 @@ if.then51.i.i:                                    ; preds = %land.lhs.true.i21.i
   br i1 %cmp53.not.i.i, label %if.end61.i.i, label %sub_032.i.i
 
 sub_032.i.i:                                      ; preds = %if.then51.i.i
-  %58 = load i8, ptr %call52.i.i, align 1, !noalias !17
-  %.not37.i.i = icmp eq i8 %58, 67
+  %64 = load i8, ptr %call52.i.i, align 1, !noalias !17
+  %.not37.i.i = icmp eq i8 %64, 67
   br i1 %.not37.i.i, label %land.lhs.true.tail.i.i, label %lor.lhs.false.i.i
 
 land.lhs.true.tail.i.i:                           ; preds = %sub_032.i.i
-  %59 = getelementptr inbounds i8, ptr %call52.i.i, i64 1
-  %60 = load i8, ptr %59, align 1, !noalias !17
-  %61 = icmp eq i8 %60, 0
-  br i1 %61, label %if.end5.sink.split.i, label %lor.lhs.false.i.i
+  %65 = getelementptr inbounds i8, ptr %call52.i.i, i64 1
+  %66 = load i8, ptr %65, align 1, !noalias !17
+  %67 = icmp eq i8 %66, 0
+  br i1 %67, label %if.end5.sink.split.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true.tail.i.i, %sub_032.i.i
   %call56.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call52.i.i, ptr noundef nonnull dereferenceable(6) @.str.30) #18, !noalias !17
@@ -2623,13 +2724,13 @@ if.end5.sink.split.i:                             ; preds = %if.end61.i.i, %lor.
 
 if.end5.i:                                        ; preds = %if.end5.sink.split.i, %if.end61.i.i, %preconfig_init_coerce_c_locale.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %name.i.i), !noalias !14
-  %62 = load i32, ptr %allocator.i.i, align 4, !noalias !20
-  %cmp.i29.i = icmp eq i32 %62, 0
+  %68 = load i32, ptr %allocator.i.i, align 4, !noalias !20
+  %cmp.i29.i = icmp eq i32 %68, 0
   br i1 %cmp.i29.i, label %if.then.i30.i, label %if.end41
 
 if.then.i30.i:                                    ; preds = %if.end5.i
-  %63 = load i32, ptr %use_environment.i.i, align 4, !noalias !20
-  %tobool.not.i.i32.i = icmp eq i32 %63, 0
+  %69 = load i32, ptr %use_environment.i.i, align 4, !noalias !20
+  %tobool.not.i.i32.i = icmp eq i32 %69, 0
   br i1 %tobool.not.i.i32.i, label %if.end7.i.i, label %if.end.i.i33.i
 
 if.end.i.i33.i:                                   ; preds = %if.then.i30.i
@@ -2638,8 +2739,8 @@ if.end.i.i33.i:                                   ; preds = %if.then.i30.i
   br i1 %tobool1.not.i.i35.i, label %if.end7.i.i, label %land.lhs.true.i.i36.i
 
 land.lhs.true.i.i36.i:                            ; preds = %if.end.i.i33.i
-  %64 = load i8, ptr %call.i.i34.i, align 1, !noalias !20
-  %cmp.not.i.i.i = icmp eq i8 %64, 0
+  %70 = load i8, ptr %call.i.i34.i, align 1, !noalias !20
+  %cmp.not.i.i.i = icmp eq i8 %70, 0
   br i1 %cmp.not.i.i.i, label %if.end7.i.i, label %if.then1.i37.i
 
 if.then1.i37.i:                                   ; preds = %land.lhs.true.i.i36.i
@@ -2648,15 +2749,15 @@ if.then1.i37.i:                                   ; preds = %land.lhs.true.i.i36
   br i1 %cmp3.i.i, label %if.then9.i, label %if.end.i39.i
 
 if.end.i39.i:                                     ; preds = %if.then1.i37.i
-  %65 = load i32, ptr %name.i.i, align 4, !noalias !20
-  store i32 %65, ptr %allocator.i.i, align 4, !noalias !20
-  %66 = icmp ne i32 %65, 0
+  %71 = load i32, ptr %name.i.i, align 4, !noalias !20
+  store i32 %71, ptr %allocator.i.i, align 4, !noalias !20
+  %72 = icmp ne i32 %71, 0
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i39.i, %land.lhs.true.i.i36.i, %if.end.i.i33.i, %if.then.i30.i
-  %cmp10.i40.i = phi i1 [ false, %if.end.i.i33.i ], [ false, %land.lhs.true.i.i36.i ], [ false, %if.then.i30.i ], [ %66, %if.end.i39.i ]
-  %67 = load i32, ptr %dev_mode.i.i, align 4, !noalias !20
-  %tobool8.not.i.i = icmp eq i32 %67, 0
+  %cmp10.i40.i = phi i1 [ false, %if.end.i.i33.i ], [ false, %land.lhs.true.i.i36.i ], [ false, %if.then.i30.i ], [ %72, %if.end.i39.i ]
+  %73 = load i32, ptr %dev_mode.i.i, align 4, !noalias !20
+  %tobool8.not.i.i = icmp eq i32 %73, 0
   %brmerge.i.i = select i1 %tobool8.not.i.i, i1 true, i1 %cmp10.i40.i
   br i1 %brmerge.i.i, label %if.end41, label %if.then11.i.i
 
@@ -2673,15 +2774,16 @@ preconfig_read.exit.thread:                       ; preds = %if.else32.tail.i.i,
   %tmp37.sroa.5.1.ph = phi i32 [ %status.sroa.9.sroa.0.0.copyload.i, %if.then.i ], [ 0, %if.then9.i ], [ 0, %if.else.i27.i ], [ 0, %land.lhs.true.i21.i.i ], [ 0, %if.then27.tail.i.i ], [ 0, %if.else32.tail.i.i ]
   %tmp37.sroa.9.1.ph = phi ptr [ %status.sroa.9.sroa.6.0.copyload.i, %if.then.i ], [ @__func__.preconfig_init_allocator, %if.then9.i ], [ @__func__.preconfig_init_utf8_mode, %if.else.i27.i ], [ @__func__.preconfig_init_utf8_mode, %land.lhs.true.i21.i.i ], [ @__func__.preconfig_init_utf8_mode, %if.then27.tail.i.i ], [ @__func__.preconfig_init_utf8_mode, %if.else32.tail.i.i ]
   %tmp37.sroa.13.1.ph = phi ptr [ %status.sroa.9.sroa.8.0.copyload.i, %if.then.i ], [ @.str.32, %if.then9.i ], [ @.str.28, %if.else32.tail.i.i ], [ @.str.28, %if.then27.tail.i.i ], [ @.str.28, %land.lhs.true.i21.i.i ], [ @.str.25, %if.else.i27.i ]
-  %68 = phi <2 x i32> [ %31, %if.then.i ], [ zeroinitializer, %if.then9.i ], [ zeroinitializer, %if.else.i27.i ], [ zeroinitializer, %land.lhs.true.i21.i.i ], [ zeroinitializer, %if.then27.tail.i.i ], [ zeroinitializer, %if.else32.tail.i.i ]
+  %tmp37.sroa.17.1.ph = phi i32 [ %status.sroa.9.sroa.10.0.copyload.i, %if.then.i ], [ 0, %if.then9.i ], [ 0, %if.else.i27.i ], [ 0, %land.lhs.true.i21.i.i ], [ 0, %if.then27.tail.i.i ], [ 0, %if.else32.tail.i.i ]
+  %tmp37.sroa.21.1.ph = phi i32 [ %status.sroa.9.sroa.12.0.copyload.i, %if.then.i ], [ 0, %if.then9.i ], [ 0, %if.else.i27.i ], [ 0, %land.lhs.true.i21.i.i ], [ 0, %if.then27.tail.i.i ], [ 0, %if.else32.tail.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
   br label %done
 
 if.end41:                                         ; preds = %if.then11.i.i, %if.end7.i.i, %if.end5.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %name.i.i), !noalias !14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
-  %69 = load i32, ptr %coerce_c_locale.i.i, align 4
-  %tobool42 = icmp eq i32 %69, 0
+  %74 = load i32, ptr %coerce_c_locale.i.i, align 4
+  %tobool42 = icmp eq i32 %74, 0
   %tobool43 = icmp ne i32 %locale_coerced.0126, 0
   %or.cond = select i1 %tobool42, i1 true, i1 %tobool43
   br i1 %or.cond, label %if.end46, label %if.then44
@@ -2692,28 +2794,32 @@ if.then44:                                        ; preds = %if.end41
 
 if.end46:                                         ; preds = %if.then44, %if.end41
   %locale_coerced.1 = phi i32 [ %locale_coerced.0126, %if.end41 ], [ 1, %if.then44 ]
-  %cmp47 = icmp eq i32 %20, -1
-  %70 = load i32, ptr %utf8_mode.i.i, align 4
+  %cmp47 = icmp eq i32 %28, -1
+  %75 = load i32, ptr %utf8_mode.i.i, align 4
   br i1 %cmp47, label %if.then48, label %if.else
 
 if.then48:                                        ; preds = %if.end46
-  %cmp50 = icmp ne i32 %70, 1
+  %cmp50 = icmp ne i32 %75, 1
   %or.cond122 = and i1 %or.cond, %cmp50
   br i1 %or.cond122, label %done, label %if.end60
 
 if.else:                                          ; preds = %if.end46
-  %cmp54.not = icmp eq i32 %70, %20
+  %cmp54.not = icmp eq i32 %75, %28
   %or.cond121 = and i1 %or.cond, %cmp54.not
   br i1 %or.cond121, label %done, label %if.end60
 
 if.end60:                                         ; preds = %if.then48, %if.else
-  %71 = load i32, ptr %coerce_c_locale.i.i, align 4
-  store <4 x i32> %8, ptr %config, align 4
+  %76 = load i32, ptr %coerce_c_locale.i.i, align 4
+  store i32 %6, ptr %config, align 4
+  store i32 %7, ptr %parse_argv.i.i, align 4
+  store i32 %8, ptr %isolated.i.i, align 4
+  store i32 %9, ptr %use_environment.i.i, align 4
   store i32 %10, ptr %configure_locale.i.i, align 4
-  store i32 %11, ptr %coerce_c_locale_warn.i.i, align 4
-  store <2 x i32> %12, ptr %dev_mode.i.i, align 4
-  store i32 %70, ptr %utf8_mode.i.i, align 4
-  store i32 %71, ptr %coerce_c_locale.i.i, align 4
+  store i32 %11, ptr %dev_mode.i.i, align 4
+  store i32 %12, ptr %coerce_c_locale_warn.i.i, align 4
+  store i32 %13, ptr %allocator.i.i, align 4
+  store i32 %75, ptr %utf8_mode.i.i, align 4
+  store i32 %76, ptr %coerce_c_locale.i.i, align 4
   %inc = add nuw nsw i32 %inc127, 1
   %cmp22 = icmp eq i32 %inc, 3
   br i1 %cmp22, label %done, label %if.end28
@@ -2723,12 +2829,20 @@ done:                                             ; preds = %if.then48, %if.else
   %status.sroa.13.0 = phi i32 [ %tmp37.sroa.5.1.ph, %preconfig_read.exit.thread ], [ 0, %if.then48 ], [ 0, %if.else ], [ undef, %if.end60 ], [ %status.sroa.13.0.copyload20, %if.then30 ]
   %status.sroa.15.0 = phi ptr [ %tmp37.sroa.9.1.ph, %preconfig_read.exit.thread ], [ null, %if.then48 ], [ null, %if.else ], [ @__func__._PyPreConfig_Read, %if.end60 ], [ %status.sroa.15.0.copyload28, %if.then30 ]
   %status.sroa.16.0 = phi ptr [ %tmp37.sroa.13.1.ph, %preconfig_read.exit.thread ], [ null, %if.then48 ], [ null, %if.else ], [ @.str.17, %if.end60 ], [ %status.sroa.16.0.copyload36, %if.then30 ]
-  %72 = phi <2 x i32> [ %68, %preconfig_read.exit.thread ], [ zeroinitializer, %if.then48 ], [ zeroinitializer, %if.else ], [ <i32 0, i32 undef>, %if.end60 ], [ %30, %if.then30 ]
+  %status.sroa.17.0 = phi i32 [ %tmp37.sroa.17.1.ph, %preconfig_read.exit.thread ], [ 0, %if.then48 ], [ 0, %if.else ], [ 0, %if.end60 ], [ %status.sroa.17.0.copyload44, %if.then30 ]
+  %status.sroa.18.0 = phi i32 [ %tmp37.sroa.21.1.ph, %preconfig_read.exit.thread ], [ 0, %if.then48 ], [ 0, %if.else ], [ undef, %if.end60 ], [ %status.sroa.18.0.copyload52, %if.then30 ]
   %call70 = call ptr @setlocale(i32 noundef 0, ptr noundef nonnull %call5) #17
   call void @PyMem_RawFree(ptr noundef nonnull %call5) #17
-  store <4 x i32> %13, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
-  store <4 x i32> %14, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
-  store <2 x i32> %15, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
+  store i32 %14, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
+  store i32 %15, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3540), align 4
+  store i32 %16, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3544), align 8
+  store i32 %17, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3548), align 4
+  store i32 %18, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
+  store i32 %20, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
+  store i32 %21, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
+  store i32 %22, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
+  store i32 %23, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3572), align 4
   call void @_PyWideStringList_Clear(ptr noundef nonnull %cmdline) #17
   call void @_PyWideStringList_Clear(ptr noundef nonnull %xoptions.i.i) #17
   store i32 %status.sroa.0.0, ptr %agg.result, align 8
@@ -2739,7 +2853,9 @@ done:                                             ; preds = %if.then48, %if.else
   %status.sroa.16.0.agg.result.sroa_idx38 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %status.sroa.16.0, ptr %status.sroa.16.0.agg.result.sroa_idx38, align 8
   %status.sroa.17.0.agg.result.sroa_idx46 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store <2 x i32> %72, ptr %status.sroa.17.0.agg.result.sroa_idx46, align 8
+  store i32 %status.sroa.17.0, ptr %status.sroa.17.0.agg.result.sroa_idx46, align 8
+  %status.sroa.18.0.agg.result.sroa_idx54 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  store i32 %status.sroa.18.0, ptr %status.sroa.18.0.agg.result.sroa_idx54, align 4
   br label %return
 
 return:                                           ; preds = %done, %if.then7, %if.then2, %if.then
@@ -2758,16 +2874,27 @@ declare i32 @_Py_CoerceLegacyLocale(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyPreConfig_Write(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr nocapture noundef readonly %src_config) local_unnamed_addr #0 {
 if.end:
-  %0 = load <4 x i32>, ptr %src_config, align 4, !noalias !23
+  %0 = load i32, ptr %src_config, align 4, !noalias !23
+  %parse_argv.i.i = getelementptr inbounds i8, ptr %src_config, i64 4
+  %1 = load i32, ptr %parse_argv.i.i, align 4, !noalias !23
+  %isolated.i.i = getelementptr inbounds i8, ptr %src_config, i64 8
+  %2 = load i32, ptr %isolated.i.i, align 4, !noalias !23
+  %use_environment.i.i = getelementptr inbounds i8, ptr %src_config, i64 12
+  %3 = load i32, ptr %use_environment.i.i, align 4, !noalias !23
   %configure_locale.i.i = getelementptr inbounds i8, ptr %src_config, i64 16
-  %1 = load i32, ptr %configure_locale.i.i, align 4, !noalias !23
+  %4 = load i32, ptr %configure_locale.i.i, align 4, !noalias !23
+  %dev_mode.i.i = getelementptr inbounds i8, ptr %src_config, i64 32
+  %5 = load i32, ptr %dev_mode.i.i, align 4, !noalias !23
   %coerce_c_locale.i.i = getelementptr inbounds i8, ptr %src_config, i64 20
-  %2 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !23
+  %6 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !23
   %coerce_c_locale_warn.i.i = getelementptr inbounds i8, ptr %src_config, i64 24
-  %3 = load <4 x i32>, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !23
-  %4 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !23
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 308), align 4
-  %tobool.not = icmp eq i32 %5, 0
+  %7 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !23
+  %utf8_mode.i.i = getelementptr inbounds i8, ptr %src_config, i64 28
+  %8 = load i32, ptr %utf8_mode.i.i, align 4, !noalias !23
+  %allocator.i.i = getelementptr inbounds i8, ptr %src_config, i64 36
+  %9 = load i32, ptr %allocator.i.i, align 4, !noalias !23
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 308), align 4
+  %tobool.not = icmp eq i32 %10, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
 
 if.then1:                                         ; preds = %if.end
@@ -2775,12 +2902,11 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %6 = extractelement <4 x i32> %3, i64 3
-  %cmp4.not = icmp eq i32 %6, 0
+  %cmp4.not = icmp eq i32 %9, 0
   br i1 %cmp4.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %call = tail call i32 @_PyMem_SetupAllocators(i32 noundef %6) #17
+  %call = tail call i32 @_PyMem_SetupAllocators(i32 noundef %9) #17
   %cmp6 = icmp slt i32 %call, 0
   br i1 %cmp6, label %if.then7, label %if.end10
 
@@ -2795,46 +2921,43 @@ if.then7:                                         ; preds = %if.then5
   br label %return
 
 if.end10:                                         ; preds = %if.then5, %if.end3
-  %7 = extractelement <4 x i32> %0, i64 2
-  %cmp.i = icmp sgt i32 %7, -1
+  %cmp.i = icmp sgt i32 %2, -1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end10
-  store i32 %7, ptr @Py_IsolatedFlag, align 4
+  store i32 %2, ptr @Py_IsolatedFlag, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end10
-  %8 = extractelement <4 x i32> %0, i64 3
-  %cmp2.i = icmp sgt i32 %8, -1
+  %cmp2.i = icmp sgt i32 %3, -1
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %tobool.not.i = icmp eq i32 %8, 0
+  %tobool.not.i = icmp eq i32 %3, 0
   %lnot.ext.i = zext i1 %tobool.not.i to i32
   store i32 %lnot.ext.i, ptr @Py_IgnoreEnvironmentFlag, align 4
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
-  %9 = extractelement <4 x i32> %3, i64 1
-  %cmp6.i = icmp sgt i32 %9, -1
+  %cmp6.i = icmp sgt i32 %8, -1
   br i1 %cmp6.i, label %if.then7.i, label %preconfig_set_global_vars.exit
 
 if.then7.i:                                       ; preds = %if.end5.i
-  store i32 %9, ptr @Py_UTF8Mode, align 4
+  store i32 %8, ptr @Py_UTF8Mode, align 4
   br label %preconfig_set_global_vars.exit
 
 preconfig_set_global_vars.exit:                   ; preds = %if.end5.i, %if.then7.i
-  %tobool11.not = icmp eq i32 %1, 0
+  %tobool11.not = icmp eq i32 %4, 0
   br i1 %tobool11.not, label %if.end22, label %if.then12
 
 if.then12:                                        ; preds = %preconfig_set_global_vars.exit
-  %tobool13.not = icmp eq i32 %2, 0
+  %tobool13.not = icmp eq i32 %6, 0
   br i1 %tobool13.not, label %if.end20, label %if.then14
 
 if.then14:                                        ; preds = %if.then12
-  %call15 = tail call i32 @_Py_CoerceLegacyLocale(i32 noundef %4) #17
+  %call15 = tail call i32 @_Py_CoerceLegacyLocale(i32 noundef %7) #17
   %tobool16.not = icmp eq i32 %call15, 0
-  %spec.select = select i1 %tobool16.not, i32 0, i32 %2
+  %spec.select = select i1 %tobool16.not, i32 0, i32 %6
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then14, %if.then12
@@ -2843,11 +2966,17 @@ if.end20:                                         ; preds = %if.then14, %if.then
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end20, %preconfig_set_global_vars.exit
-  %config.sroa.18.0 = phi i32 [ %2, %preconfig_set_global_vars.exit ], [ %config.sroa.18.1, %if.end20 ]
-  store <4 x i32> %0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
+  %config.sroa.18.0 = phi i32 [ %6, %preconfig_set_global_vars.exit ], [ %config.sroa.18.1, %if.end20 ]
+  store i32 %0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
+  store i32 %1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3540), align 4
+  store i32 %2, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3544), align 8
+  store i32 %3, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3548), align 4
+  store i32 %4, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
+  store i32 %5, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
   store i32 %config.sroa.18.0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
-  store <4 x i32> %3, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
+  store i32 %7, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
+  store i32 %8, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
+  store i32 %9, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3572), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   br label %return
 

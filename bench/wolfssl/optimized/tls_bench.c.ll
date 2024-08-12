@@ -726,9 +726,9 @@ for.body.lr.ph:                                   ; preds = %if.end81
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc312
-  %45 = phi i16 [ %.pre, %for.body.lr.ph ], [ %108, %for.inc312 ]
+  %45 = phi i16 [ %.pre, %for.body.lr.ph ], [ %98, %for.inc312 ]
   %indvars.iv630 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next631, %for.inc312 ]
-  %46 = phi ptr [ %43, %for.body.lr.ph ], [ %109, %for.inc312 ]
+  %46 = phi ptr [ %43, %for.body.lr.ph ], [ %99, %for.inc312 ]
   %arrayidx82445 = phi ptr [ @groups, %for.body.lr.ph ], [ %arrayidx82, %for.inc312 ]
   %ret.3444 = phi i32 [ %ret.2498, %for.body.lr.ph ], [ %ret.5, %for.inc312 ]
   %cmp87 = icmp eq i16 %45, 0
@@ -1022,32 +1022,39 @@ for.body239:                                      ; preds = %if.end235, %for.bod
   %srv_comb.sroa.16.4415 = phi i32 [ %add276, %for.body239 ], [ 0, %if.end235 ]
   %srv_comb.sroa.13.4414 = phi i32 [ %add262, %for.body239 ], [ 0, %if.end235 ]
   %srv_comb.sroa.10.4413 = phi i32 [ %add248, %for.body239 ], [ 0, %if.end235 ]
+  %srv_comb.sroa.7.4412 = phi double [ %add283, %for.body239 ], [ 0.000000e+00, %if.end235 ]
+  %srv_comb.sroa.4.4411 = phi double [ %add269, %for.body239 ], [ 0.000000e+00, %if.end235 ]
+  %srv_comb.sroa.0.4410 = phi double [ %add255, %for.body239 ], [ 0.000000e+00, %if.end235 ]
+  %cli_comb.sroa.4.4409 = phi double [ %add265, %for.body239 ], [ 0.000000e+00, %if.end235 ]
   %cli_comb.sroa.16.4408 = phi i32 [ %add272, %for.body239 ], [ 0, %if.end235 ]
   %cli_comb.sroa.13.4407 = phi i32 [ %add258, %for.body239 ], [ 0, %if.end235 ]
   %cli_comb.sroa.10.4406 = phi i32 [ %add244, %for.body239 ], [ 0, %if.end235 ]
   %cli_comb.sroa.7.4405 = phi double [ %add279, %for.body239 ], [ 0.000000e+00, %if.end235 ]
-  %80 = phi <4 x double> [ %96, %for.body239 ], [ zeroinitializer, %if.end235 ]
   %arrayidx241 = getelementptr inbounds %struct.info_t, ptr %call48, i64 %indvars.iv625
   %client_stats242 = getelementptr inbounds i8, ptr %arrayidx241, i64 33328
   %connCount = getelementptr inbounds i8, ptr %arrayidx241, i64 33352
-  %81 = load i32, ptr %connCount, align 8
-  %add244 = add nsw i32 %81, %cli_comb.sroa.10.4406
+  %80 = load i32, ptr %connCount, align 8
+  %add244 = add nsw i32 %80, %cli_comb.sroa.10.4406
   %server_stats245 = getelementptr inbounds i8, ptr %arrayidx241, i64 33288
   %connCount246 = getelementptr inbounds i8, ptr %arrayidx241, i64 33312
-  %82 = load i32, ptr %connCount246, align 8
-  %add248 = add nsw i32 %82, %srv_comb.sroa.10.4413
-  %83 = load double, ptr %client_stats242, align 8
-  %add251 = fadd double %cli_comb.sroa.0.4416, %83
-  %84 = load double, ptr %server_stats245, align 8
+  %81 = load i32, ptr %connCount246, align 8
+  %add248 = add nsw i32 %81, %srv_comb.sroa.10.4413
+  %82 = load double, ptr %client_stats242, align 8
+  %add251 = fadd double %cli_comb.sroa.0.4416, %82
+  %83 = load double, ptr %server_stats245, align 8
+  %add255 = fadd double %srv_comb.sroa.0.4410, %83
   %rxTotal = getelementptr inbounds i8, ptr %arrayidx241, i64 33356
-  %85 = load i32, ptr %rxTotal, align 4
-  %add258 = add nsw i32 %85, %cli_comb.sroa.13.4407
+  %84 = load i32, ptr %rxTotal, align 4
+  %add258 = add nsw i32 %84, %cli_comb.sroa.13.4407
   %rxTotal260 = getelementptr inbounds i8, ptr %arrayidx241, i64 33316
-  %86 = load i32, ptr %rxTotal260, align 4
-  %add262 = add nsw i32 %86, %srv_comb.sroa.13.4414
+  %85 = load i32, ptr %rxTotal260, align 4
+  %add262 = add nsw i32 %85, %srv_comb.sroa.13.4414
   %rxTime = getelementptr inbounds i8, ptr %arrayidx241, i64 33336
-  %87 = load double, ptr %rxTime, align 8
+  %86 = load double, ptr %rxTime, align 8
+  %add265 = fadd double %cli_comb.sroa.4.4409, %86
   %rxTime267 = getelementptr inbounds i8, ptr %arrayidx241, i64 33296
+  %87 = load double, ptr %rxTime267, align 8
+  %add269 = fadd double %srv_comb.sroa.4.4411, %87
   %txTotal = getelementptr inbounds i8, ptr %arrayidx241, i64 33360
   %88 = load i32, ptr %txTotal, align 8
   %add272 = add nsw i32 %88, %cli_comb.sroa.16.4408
@@ -1057,12 +1064,9 @@ for.body239:                                      ; preds = %if.end235, %for.bod
   %txTime = getelementptr inbounds i8, ptr %arrayidx241, i64 33344
   %90 = load double, ptr %txTime, align 8
   %add279 = fadd double %cli_comb.sroa.7.4405, %90
-  %91 = load <2 x double>, ptr %rxTime267, align 8
-  %92 = insertelement <4 x double> poison, double %84, i64 0
-  %93 = insertelement <4 x double> %92, double %87, i64 1
-  %94 = shufflevector <2 x double> %91, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %95 = shufflevector <4 x double> %93, <4 x double> %94, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %96 = fadd <4 x double> %80, %95
+  %txTime281 = getelementptr inbounds i8, ptr %arrayidx241, i64 33304
+  %91 = load double, ptr %txTime281, align 8
+  %add283 = fadd double %srv_comb.sroa.7.4412, %91
   %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
   %exitcond629.not = icmp eq i64 %indvars.iv.next626, %wide.trip.count628
   br i1 %exitcond629.not, label %for.end286, label %for.body239, !llvm.loop !10
@@ -1073,57 +1077,56 @@ for.end286:                                       ; preds = %for.body239, %for.e
   %cli_comb.sroa.10.4.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add244, %for.body239 ]
   %cli_comb.sroa.13.4.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add258, %for.body239 ]
   %cli_comb.sroa.16.4.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add272, %for.body239 ]
+  %cli_comb.sroa.4.4.lcssa = phi double [ 0.000000e+00, %if.end235 ], [ 0.000000e+00, %for.end.thread ], [ %add265, %for.body239 ]
+  %srv_comb.sroa.0.4.lcssa = phi double [ 0.000000e+00, %if.end235 ], [ 0.000000e+00, %for.end.thread ], [ %add255, %for.body239 ]
+  %srv_comb.sroa.4.4.lcssa = phi double [ 0.000000e+00, %if.end235 ], [ 0.000000e+00, %for.end.thread ], [ %add269, %for.body239 ]
+  %srv_comb.sroa.7.4.lcssa = phi double [ 0.000000e+00, %if.end235 ], [ 0.000000e+00, %for.end.thread ], [ %add283, %for.body239 ]
   %srv_comb.sroa.10.4.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add248, %for.body239 ]
   %srv_comb.sroa.13.4.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add262, %for.body239 ]
   %srv_comb.sroa.16.4.lcssa = phi i32 [ 0, %if.end235 ], [ 0, %for.end.thread ], [ %add276, %for.body239 ]
   %cli_comb.sroa.0.4.lcssa = phi double [ 0.000000e+00, %if.end235 ], [ 0.000000e+00, %for.end.thread ], [ %add251, %for.body239 ]
-  %97 = phi <4 x double> [ zeroinitializer, %if.end235 ], [ zeroinitializer, %for.end.thread ], [ %96, %for.body239 ]
-  %98 = load ptr, ptr @stderr, align 8
+  %92 = load ptr, ptr @stderr, align 8
   br i1 %tobool78.not, label %if.else290, label %if.then288
 
 if.then288:                                       ; preds = %for.end286
-  %call289 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.19, i32 noundef %spec.select) #18
+  %call289 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.19, i32 noundef %spec.select) #18
   br label %if.end302
 
 if.else290:                                       ; preds = %for.end286
-  %call291 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #18
+  %call291 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #18
   br i1 %tobool45, label %if.end296, label %if.then293
 
 if.then293:                                       ; preds = %if.else290
-  %99 = load ptr, ptr %call48, align 8
-  %100 = load ptr, ptr @stderr, align 8
+  %93 = load ptr, ptr %call48, align 8
+  %94 = load ptr, ptr @stderr, align 8
   %add20.i165 = add nsw i32 %srv_comb.sroa.16.4.lcssa, %srv_comb.sroa.13.4.lcssa
-  %101 = extractelement <4 x double> %97, i64 2
-  %mul23.i168 = fmul double %101, 1.000000e+03
-  %102 = extractelement <4 x double> %97, i64 3
-  %mul25.i170 = fmul double %102, 1.000000e+03
+  %mul23.i168 = fmul double %srv_comb.sroa.4.4.lcssa, 1.000000e+03
+  %mul25.i170 = fmul double %srv_comb.sroa.7.4.lcssa, 1.000000e+03
   %conv27.i171 = sitofp i32 %srv_comb.sroa.13.4.lcssa to double
-  %div29.i172 = fdiv double %conv27.i171, %101
+  %div29.i172 = fdiv double %conv27.i171, %srv_comb.sroa.4.4.lcssa
   %div30.i173 = fmul double %div29.i172, 0x3F50000000000000
   %div31.i174 = fmul double %div30.i173, 0x3F50000000000000
   %conv33.i175 = sitofp i32 %srv_comb.sroa.16.4.lcssa to double
-  %div35.i176 = fdiv double %conv33.i175, %102
+  %div35.i176 = fdiv double %conv33.i175, %srv_comb.sroa.7.4.lcssa
   %div36.i177 = fmul double %div35.i176, 0x3F50000000000000
   %div37.i178 = fmul double %div36.i177, 0x3F50000000000000
-  %103 = extractelement <4 x double> %97, i64 0
-  %mul39.i179 = fmul double %103, 1.000000e+03
+  %mul39.i179 = fmul double %srv_comb.sroa.0.4.lcssa, 1.000000e+03
   %conv43.i180 = sitofp i32 %srv_comb.sroa.10.4.lcssa to double
   %div44.i181 = fdiv double %mul39.i179, %conv43.i180
-  %call45.i182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.17, ptr noundef %99, ptr noundef nonnull %spec.select133, i32 noundef %add20.i165, i32 noundef %srv_comb.sroa.10.4.lcssa, double noundef %mul23.i168, double noundef %mul25.i170, double noundef %div31.i174, double noundef %div37.i178, double noundef %mul39.i179, double noundef %div44.i181) #18
+  %call45.i182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.17, ptr noundef %93, ptr noundef nonnull %spec.select133, i32 noundef %add20.i165, i32 noundef %srv_comb.sroa.10.4.lcssa, double noundef %mul23.i168, double noundef %mul25.i170, double noundef %div31.i174, double noundef %div37.i178, double noundef %mul39.i179, double noundef %div44.i181) #18
   br label %if.end296
 
 if.end296:                                        ; preds = %if.then293, %if.else290
   br i1 %tobool44, label %if.end302, label %if.then298
 
 if.then298:                                       ; preds = %if.end296
-  %104 = load ptr, ptr %call48, align 8
-  %105 = load ptr, ptr @stderr, align 8
+  %95 = load ptr, ptr %call48, align 8
+  %96 = load ptr, ptr @stderr, align 8
   %add20.i185 = add nsw i32 %cli_comb.sroa.16.4.lcssa, %cli_comb.sroa.13.4.lcssa
-  %106 = extractelement <4 x double> %97, i64 1
-  %mul23.i188 = fmul double %106, 1.000000e+03
+  %mul23.i188 = fmul double %cli_comb.sroa.4.4.lcssa, 1.000000e+03
   %mul25.i190 = fmul double %cli_comb.sroa.7.4.lcssa, 1.000000e+03
   %conv27.i191 = sitofp i32 %cli_comb.sroa.13.4.lcssa to double
-  %div29.i192 = fdiv double %conv27.i191, %106
+  %div29.i192 = fdiv double %conv27.i191, %cli_comb.sroa.4.4.lcssa
   %div30.i193 = fmul double %div29.i192, 0x3F50000000000000
   %div31.i194 = fmul double %div30.i193, 0x3F50000000000000
   %conv33.i195 = sitofp i32 %cli_comb.sroa.16.4.lcssa to double
@@ -1133,25 +1136,25 @@ if.then298:                                       ; preds = %if.end296
   %mul39.i199 = fmul double %cli_comb.sroa.0.4.lcssa, 1.000000e+03
   %conv43.i200 = sitofp i32 %cli_comb.sroa.10.4.lcssa to double
   %div44.i201 = fdiv double %mul39.i199, %conv43.i200
-  %call45.i202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.18, ptr noundef %104, ptr noundef nonnull %spec.select133, i32 noundef %add20.i185, i32 noundef %cli_comb.sroa.10.4.lcssa, double noundef %mul23.i188, double noundef %mul25.i190, double noundef %div31.i194, double noundef %div37.i198, double noundef %mul39.i199, double noundef %div44.i201) #18
+  %call45.i202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.18, ptr noundef %95, ptr noundef nonnull %spec.select133, i32 noundef %add20.i185, i32 noundef %cli_comb.sroa.10.4.lcssa, double noundef %mul23.i188, double noundef %mul25.i190, double noundef %div31.i194, double noundef %div37.i198, double noundef %mul39.i199, double noundef %div44.i201) #18
   br label %if.end302
 
 if.end302:                                        ; preds = %if.end296, %if.then298, %if.then288
   br i1 %tobool.not, label %for.end314, label %lor.lhs.false304
 
 lor.lhs.false304:                                 ; preds = %if.end302
-  %107 = load i16, ptr %group, align 8
-  %cmp308 = icmp eq i16 %107, 0
+  %97 = load i16, ptr %group, align 8
+  %cmp308 = icmp eq i16 %97, 0
   br i1 %cmp308, label %for.end314, label %for.inc312
 
 for.inc312:                                       ; preds = %lor.lhs.false304, %land.lhs.true93
-  %108 = phi i16 [ %107, %lor.lhs.false304 ], [ %45, %land.lhs.true93 ]
+  %98 = phi i16 [ %97, %lor.lhs.false304 ], [ %45, %land.lhs.true93 ]
   %ret.5 = phi i32 [ %ret.6.lcssa677685, %lor.lhs.false304 ], [ %ret.3444, %land.lhs.true93 ]
   %indvars.iv.next631 = add nuw nsw i64 %indvars.iv630, 1
   %arrayidx82 = getelementptr inbounds [22 x %struct.group_info], ptr @groups, i64 0, i64 %indvars.iv.next631
   %name = getelementptr inbounds i8, ptr %arrayidx82, i64 8
-  %109 = load ptr, ptr %name, align 8
-  %cmp83.not = icmp eq ptr %109, null
+  %99 = load ptr, ptr %name, align 8
+  %cmp83.not = icmp eq ptr %99, null
   br i1 %cmp83.not, label %for.end314, label %for.body, !llvm.loop !11
 
 for.end314:                                       ; preds = %for.inc312, %lor.lhs.false304, %if.end302, %if.end81
@@ -1171,12 +1174,12 @@ exit:                                             ; preds = %land.rhs, %for.end3
   br i1 %or.cond3, label %if.end326, label %if.then325
 
 if.then325:                                       ; preds = %exit
-  %110 = load i32, ptr %listenFd, align 4
-  %cmp.not.i = icmp eq i32 %110, -1
+  %100 = load i32, ptr %listenFd, align 4
+  %cmp.not.i = icmp eq i32 %100, -1
   br i1 %cmp.not.i, label %if.end326, label %if.then.i203
 
 if.then.i203:                                     ; preds = %if.then325
-  %call.i204 = call i32 @close(i32 noundef %110) #16
+  %call.i204 = call i32 @close(i32 noundef %100) #16
   store i32 -1, ptr %listenFd, align 4
   br label %if.end326
 
@@ -2835,12 +2838,13 @@ if.end20.i:                                       ; preds = %do.end.i
   %arrayidx.i = getelementptr inbounds [16486 x i8], ptr %to_server.i, i64 0, i64 %idxprom.i
   %conv.i = sext i32 %sz to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr readonly align 1 %buf, i64 %conv.i, i1 false)
+  %5 = load i32, ptr %write_idx.i, align 4
+  %add27.i = add nsw i32 %5, %sz
+  store i32 %add27.i, ptr %write_idx.i, align 4
   %write_bytes.i = getelementptr inbounds i8, ptr %ctx, i64 16568
-  %5 = load <2 x i32>, ptr %write_bytes.i, align 8
-  %6 = insertelement <2 x i32> poison, i32 %sz, i64 0
-  %7 = shufflevector <2 x i32> %6, <2 x i32> poison, <2 x i32> zeroinitializer
-  %8 = add nsw <2 x i32> %5, %7
-  store <2 x i32> %8, ptr %write_bytes.i, align 8
+  %6 = load i32, ptr %write_bytes.i, align 8
+  %add29.i = add nsw i32 %6, %sz
+  store i32 %add29.i, ptr %write_bytes.i, align 8
   %call34.i = tail call i32 @wolfSSL_CondSignal(ptr noundef nonnull %cond.i) #16
   %cmp35.not.i = icmp eq i32 %call34.i, 0
   br i1 %cmp35.not.i, label %do.body42.i, label %if.then37.i
@@ -2848,8 +2852,8 @@ if.end20.i:                                       ; preds = %do.end.i
 if.then37.i:                                      ; preds = %if.end20.i
   %call38.i = tail call ptr @__errno_location() #19
   store i32 %call34.i, ptr %call38.i, align 4
-  %9 = load ptr, ptr @stderr, align 8
-  %call39.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 493, i32 noundef %call34.i, ptr noundef nonnull @.str.98) #18
+  %7 = load ptr, ptr @stderr, align 8
+  %call39.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 493, i32 noundef %call34.i, ptr noundef nonnull @.str.98) #18
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.10) #20
   unreachable
 
@@ -2861,24 +2865,24 @@ do.body42.i:                                      ; preds = %if.end20.i
 if.then49.i:                                      ; preds = %do.body42.i
   %call50.i = tail call ptr @__errno_location() #19
   store i32 %call46.i, ptr %call50.i, align 4
-  %10 = load ptr, ptr @stderr, align 8
-  %call51.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 494, i32 noundef %call46.i, ptr noundef nonnull @.str.97) #18
+  %8 = load ptr, ptr @stderr, align 8
+  %call51.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 494, i32 noundef %call46.i, ptr noundef nonnull @.str.97) #18
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.10) #20
   unreachable
 
 if.end:                                           ; preds = %entry
   %sockFd = getelementptr inbounds i8, ptr %ctx, i64 56
-  %11 = load i32, ptr %sockFd, align 4
+  %9 = load i32, ptr %sockFd, align 4
   %conv.i5 = sext i32 %sz to i64
-  %call.i6 = tail call i64 @send(i32 noundef %11, ptr noundef %buf, i64 noundef %conv.i5, i32 noundef 0) #16
+  %call.i6 = tail call i64 @send(i32 noundef %9, ptr noundef %buf, i64 noundef %conv.i5, i32 noundef 0) #16
   %conv1.i = trunc i64 %call.i6 to i32
   %cond = icmp eq i32 %conv1.i, -1
   br i1 %cond, label %if.then.i8, label %return
 
 if.then.i8:                                       ; preds = %if.end
   %call3.i = tail call ptr @__errno_location() #19
-  %12 = load i32, ptr %call3.i, align 4
-  switch i32 %12, label %sw.default.i [
+  %10 = load i32, ptr %call3.i, align 4
+  switch i32 %10, label %sw.default.i [
     i32 11, label %return
     i32 104, label %sw.bb4.i
     i32 4, label %sw.bb5.i
@@ -3158,12 +3162,13 @@ if.end18.i:                                       ; preds = %do.end.i
   %arrayidx.i = getelementptr inbounds [16486 x i8], ptr %to_client.i, i64 0, i64 %idxprom.i
   %conv.i = sext i32 %sz to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr readonly align 1 %buf, i64 %conv.i, i1 false)
+  %6 = load i32, ptr %write_idx.i, align 4
+  %add25.i = add nsw i32 %6, %sz
+  store i32 %add25.i, ptr %write_idx.i, align 4
   %write_bytes.i = getelementptr inbounds i8, ptr %ctx, i64 33168
-  %6 = load <2 x i32>, ptr %write_bytes.i, align 8
-  %7 = insertelement <2 x i32> poison, i32 %sz, i64 0
-  %8 = shufflevector <2 x i32> %7, <2 x i32> poison, <2 x i32> zeroinitializer
-  %9 = add nsw <2 x i32> %6, %8
-  store <2 x i32> %9, ptr %write_bytes.i, align 8
+  %7 = load i32, ptr %write_bytes.i, align 8
+  %add27.i = add nsw i32 %7, %sz
+  store i32 %add27.i, ptr %write_bytes.i, align 8
   %call32.i = tail call i32 @wolfSSL_CondSignal(ptr noundef nonnull %cond.i) #16
   %cmp33.not.i = icmp eq i32 %call32.i, 0
   br i1 %cmp33.not.i, label %do.body40.i, label %if.then35.i
@@ -3171,8 +3176,8 @@ if.end18.i:                                       ; preds = %do.end.i
 if.then35.i:                                      ; preds = %if.end18.i
   %call36.i = tail call ptr @__errno_location() #19
   store i32 %call32.i, ptr %call36.i, align 4
-  %10 = load ptr, ptr @stderr, align 8
-  %call37.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 419, i32 noundef %call32.i, ptr noundef nonnull @.str.136) #18
+  %8 = load ptr, ptr @stderr, align 8
+  %call37.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 419, i32 noundef %call32.i, ptr noundef nonnull @.str.136) #18
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.10) #20
   unreachable
 
@@ -3184,24 +3189,24 @@ do.body40.i:                                      ; preds = %if.end18.i
 if.then47.i:                                      ; preds = %do.body40.i
   %call48.i = tail call ptr @__errno_location() #19
   store i32 %call44.i, ptr %call48.i, align 4
-  %11 = load ptr, ptr @stderr, align 8
-  %call49.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 420, i32 noundef %call44.i, ptr noundef nonnull @.str.101) #18
+  %9 = load ptr, ptr @stderr, align 8
+  %call49.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 420, i32 noundef %call44.i, ptr noundef nonnull @.str.101) #18
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.10) #20
   unreachable
 
 if.end:                                           ; preds = %entry
   %sockFd = getelementptr inbounds i8, ptr %ctx, i64 68
-  %12 = load i32, ptr %sockFd, align 4
+  %10 = load i32, ptr %sockFd, align 4
   %conv.i5 = sext i32 %sz to i64
-  %call.i6 = tail call i64 @send(i32 noundef %12, ptr noundef %buf, i64 noundef %conv.i5, i32 noundef 0) #16
+  %call.i6 = tail call i64 @send(i32 noundef %10, ptr noundef %buf, i64 noundef %conv.i5, i32 noundef 0) #16
   %conv1.i = trunc i64 %call.i6 to i32
   %cond = icmp eq i32 %conv1.i, -1
   br i1 %cond, label %if.then.i8, label %return
 
 if.then.i8:                                       ; preds = %if.end
   %call3.i = tail call ptr @__errno_location() #19
-  %13 = load i32, ptr %call3.i, align 4
-  switch i32 %13, label %sw.default.i [
+  %11 = load i32, ptr %call3.i, align 4
+  switch i32 %11, label %sw.default.i [
     i32 11, label %return
     i32 104, label %sw.bb4.i
     i32 4, label %sw.bb5.i

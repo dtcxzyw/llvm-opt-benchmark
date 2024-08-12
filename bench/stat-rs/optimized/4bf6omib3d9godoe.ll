@@ -682,7 +682,7 @@ define { i64, double } @"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$st
   %2 = load double, ptr %0, align 8, !noundef !7
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = fcmp oeq double %3, 0x7FF0000000000000
-  br i1 %4, label %29, label %5
+  br i1 %4, label %28, label %5
 
 5:                                                ; preds = %1
   %6 = fcmp ogt double %2, 3.000000e+02
@@ -696,31 +696,29 @@ define { i64, double } @"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$st
   %12 = fmul double %2, 5.000000e-01
   %13 = tail call noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef %12)
   %14 = fdiv double %11, %13
-  br label %29
+  br label %28
 
 15:                                               ; preds = %5
   %16 = tail call double @llvm.sqrt.f64(double %2)
-  %17 = fmul double %2, %2
-  %18 = insertelement <2 x double> poison, double %2, i64 0
-  %19 = insertelement <2 x double> %18, double %17, i64 1
-  %20 = fdiv <2 x double> <double 2.500000e-01, double 3.125000e-02>, %19
-  %21 = fadd <2 x double> %20, <double 1.000000e+00, double 1.000000e+00>
-  %shift = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %22 = fmul <2 x double> %21, %shift
-  %23 = extractelement <2 x double> %22, i64 0
-  %24 = fmul double %2, %17
-  %25 = fdiv double 4.687500e-02, %24
-  %26 = fsub double 1.000000e+00, %25
-  %27 = fmul double %23, %26
-  %28 = fdiv double %16, %27
-  br label %29
+  %17 = fdiv double 2.500000e-01, %2
+  %18 = fadd double %17, 1.000000e+00
+  %19 = fmul double %2, %2
+  %20 = fdiv double 3.125000e-02, %19
+  %21 = fadd double %20, 1.000000e+00
+  %22 = fmul double %18, %21
+  %23 = fmul double %2, %19
+  %24 = fdiv double 4.687500e-02, %23
+  %25 = fsub double 1.000000e+00, %24
+  %26 = fmul double %22, %25
+  %27 = fdiv double %16, %26
+  br label %28
 
-29:                                               ; preds = %1, %7, %15
-  %.sroa.4.0 = phi double [ %28, %15 ], [ %14, %7 ], [ undef, %1 ]
+28:                                               ; preds = %1, %7, %15
+  %.sroa.4.0 = phi double [ %27, %15 ], [ %14, %7 ], [ undef, %1 ]
   %.sroa.0.0 = phi i64 [ 1, %15 ], [ 1, %7 ], [ 0, %1 ]
-  %30 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
-  %31 = insertvalue { i64, double } %30, double %.sroa.4.0, 1
-  ret { i64, double } %31
+  %29 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
+  %30 = insertvalue { i64, double } %29, double %.sroa.4.0, 1
+  ret { i64, double } %30
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -728,7 +726,7 @@ define { i64, double } @"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$st
   %2 = load double, ptr %0, align 8, !noundef !7
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = fcmp oeq double %3, 0x7FF0000000000000
-  br i1 %4, label %32, label %5
+  br i1 %4, label %31, label %5
 
 5:                                                ; preds = %1
   %6 = fcmp ogt double %2, 3.000000e+02
@@ -746,33 +744,31 @@ define { i64, double } @"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$st
 
 15:                                               ; preds = %5
   %16 = tail call double @llvm.sqrt.f64(double %2)
-  %17 = fmul double %2, %2
-  %18 = insertelement <2 x double> poison, double %2, i64 0
-  %19 = insertelement <2 x double> %18, double %17, i64 1
-  %20 = fdiv <2 x double> <double 2.500000e-01, double 3.125000e-02>, %19
-  %21 = fadd <2 x double> %20, <double 1.000000e+00, double 1.000000e+00>
-  %shift = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %22 = fmul <2 x double> %21, %shift
-  %23 = extractelement <2 x double> %22, i64 0
-  %24 = fmul double %2, %17
-  %25 = fdiv double 4.687500e-02, %24
-  %26 = fsub double 1.000000e+00, %25
-  %27 = fmul double %23, %26
-  %28 = fdiv double %16, %27
+  %17 = fdiv double 2.500000e-01, %2
+  %18 = fadd double %17, 1.000000e+00
+  %19 = fmul double %2, %2
+  %20 = fdiv double 3.125000e-02, %19
+  %21 = fadd double %20, 1.000000e+00
+  %22 = fmul double %18, %21
+  %23 = fmul double %2, %19
+  %24 = fdiv double 4.687500e-02, %23
+  %25 = fsub double 1.000000e+00, %24
+  %26 = fmul double %22, %25
+  %27 = fdiv double %16, %26
   br label %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread"
 
 "_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread": ; preds = %15, %7
-  %.sroa.4.0.i.ph = phi double [ %14, %7 ], [ %28, %15 ]
-  %29 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.4.0.i.ph, 1
-  %30 = fmul double %.sroa.4.0.i.ph, %.sroa.4.0.i.ph
-  %31 = fsub double %2, %30
-  br label %32
+  %.sroa.4.0.i.ph = phi double [ %14, %7 ], [ %27, %15 ]
+  %28 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.4.0.i.ph, 1
+  %29 = fmul double %.sroa.4.0.i.ph, %.sroa.4.0.i.ph
+  %30 = fsub double %2, %29
+  br label %31
 
-32:                                               ; preds = %1, %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread"
-  %33 = phi { i64, double } [ %29, %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread" ], [ { i64 0, double undef }, %1 ]
-  %34 = phi double [ %31, %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread" ], [ undef, %1 ]
-  %35 = insertvalue { i64, double } %33, double %34, 1
-  ret { i64, double } %35
+31:                                               ; preds = %1, %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread"
+  %32 = phi { i64, double } [ %28, %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread" ], [ { i64 0, double undef }, %1 ]
+  %33 = phi double [ %30, %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread" ], [ undef, %1 ]
+  %34 = insertvalue { i64, double } %32, double %33, 1
+  ret { i64, double } %34
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -831,58 +827,55 @@ define { i64, double } @"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$st
   %22 = fmul double %2, 5.000000e-01
   %23 = tail call noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(double noundef %22), !noalias !102
   %24 = fdiv double %21, %23
-  br label %56
+  br label %55
 
 25:                                               ; preds = %5
   %26 = tail call double @llvm.sqrt.f64(double %2)
-  %27 = fmul double %2, %2
-  %28 = insertelement <2 x double> poison, double %2, i64 0
-  %29 = insertelement <2 x double> %28, double %27, i64 1
-  %30 = fdiv <2 x double> <double 2.500000e-01, double 3.125000e-02>, %29
-  %31 = fadd <2 x double> %30, <double 1.000000e+00, double 1.000000e+00>
-  %shift = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %32 = fmul <2 x double> %31, %shift
-  %33 = extractelement <2 x double> %32, i64 0
-  %34 = fmul double %2, %27
-  %35 = fdiv double 4.687500e-02, %34
-  %36 = fsub double 1.000000e+00, %35
-  %37 = fmul double %33, %36
-  %38 = fdiv double %26, %37
-  %39 = fmul double %38, %38
-  %40 = fsub double %2, %39
-  %41 = tail call double @llvm.sqrt.f64(double %40)
-  %42 = tail call double @llvm.sqrt.f64(double %2)
-  %43 = fmul double %2, %2
-  %44 = insertelement <2 x double> %28, double %43, i64 1
-  %45 = fdiv <2 x double> <double 2.500000e-01, double 3.125000e-02>, %44
-  %46 = fadd <2 x double> %45, <double 1.000000e+00, double 1.000000e+00>
-  %shift23 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %47 = fmul <2 x double> %46, %shift23
-  %48 = extractelement <2 x double> %47, i64 0
-  %49 = fmul double %2, %43
-  %50 = fdiv double 4.687500e-02, %49
-  %51 = fsub double 1.000000e+00, %50
-  %52 = fmul double %48, %51
-  %53 = fdiv double %42, %52
-  br label %56
+  %27 = fdiv double 2.500000e-01, %2
+  %28 = fadd double %27, 1.000000e+00
+  %29 = fmul double %2, %2
+  %30 = fdiv double 3.125000e-02, %29
+  %31 = fadd double %30, 1.000000e+00
+  %32 = fmul double %28, %31
+  %33 = fmul double %2, %29
+  %34 = fdiv double 4.687500e-02, %33
+  %35 = fsub double 1.000000e+00, %34
+  %36 = fmul double %32, %35
+  %37 = fdiv double %26, %36
+  %38 = fmul double %37, %37
+  %39 = fsub double %2, %38
+  %40 = tail call double @llvm.sqrt.f64(double %39)
+  %41 = tail call double @llvm.sqrt.f64(double %2)
+  %42 = fdiv double 2.500000e-01, %2
+  %43 = fadd double %42, 1.000000e+00
+  %44 = fmul double %2, %2
+  %45 = fdiv double 3.125000e-02, %44
+  %46 = fadd double %45, 1.000000e+00
+  %47 = fmul double %43, %46
+  %48 = fmul double %2, %44
+  %49 = fdiv double 4.687500e-02, %48
+  %50 = fsub double 1.000000e+00, %49
+  %51 = fmul double %47, %50
+  %52 = fdiv double %41, %51
+  br label %55
 
-_ZN6statrs10statistics6traits12Distribution7std_dev17h8dea9ecc39eb5616E.exit: ; preds = %1, %56
-  %.sroa.4.0 = phi double [ %64, %56 ], [ undef, %1 ]
-  %.sroa.0.0 = phi i64 [ 1, %56 ], [ 0, %1 ]
-  %54 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
-  %55 = insertvalue { i64, double } %54, double %.sroa.4.0, 1
-  ret { i64, double } %55
+_ZN6statrs10statistics6traits12Distribution7std_dev17h8dea9ecc39eb5616E.exit: ; preds = %1, %55
+  %.sroa.4.0 = phi double [ %63, %55 ], [ undef, %1 ]
+  %.sroa.0.0 = phi i64 [ 1, %55 ], [ 0, %1 ]
+  %53 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
+  %54 = insertvalue { i64, double } %53, double %.sroa.4.0, 1
+  ret { i64, double } %54
 
-56:                                               ; preds = %25, %7
-  %57 = phi double [ %17, %7 ], [ %41, %25 ]
-  %.sroa.4.0.i.ph = phi double [ %24, %7 ], [ %53, %25 ]
-  %58 = fmul double %57, 2.000000e+00
-  %59 = fmul double %57, %58
-  %60 = fsub double 1.000000e+00, %59
-  %61 = fmul double %60, %.sroa.4.0.i.ph
-  %62 = fmul double %57, %57
-  %63 = fmul double %57, %62
-  %64 = fdiv double %61, %63
+55:                                               ; preds = %25, %7
+  %56 = phi double [ %17, %7 ], [ %40, %25 ]
+  %.sroa.4.0.i.ph = phi double [ %24, %7 ], [ %52, %25 ]
+  %57 = fmul double %56, 2.000000e+00
+  %58 = fmul double %56, %57
+  %59 = fsub double 1.000000e+00, %58
+  %60 = fmul double %59, %.sroa.4.0.i.ph
+  %61 = fmul double %56, %56
+  %62 = fmul double %56, %61
+  %63 = fdiv double %60, %62
   br label %_ZN6statrs10statistics6traits12Distribution7std_dev17h8dea9ecc39eb5616E.exit
 }
 
@@ -1840,7 +1833,7 @@ define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u2
   %25 = fcmp ugt double %.val.i, 0.000000e+00
   %26 = fcmp ult double %.val.i, 1.000000e+00
   %.sroa.0.0.i.i.not.i = and i1 %25, %26
-  br i1 %.sroa.0.0.i.i.not.i, label %9, label %72
+  br i1 %.sroa.0.0.i.i.not.i, label %9, label %67
 
 27:                                               ; preds = %2
   tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.506cc9156309edb07427fe3f8fdc614f.32, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.506cc9156309edb07427fe3f8fdc614f.33) #20
@@ -1857,43 +1850,43 @@ define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u2
   br i1 %.not25, label %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit.loopexit, label %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i8.us"
 
 "_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i8.us": ; preds = %.lr.ph.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us"
-  %31 = phi ptr [ %44, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ %7, %.lr.ph.i ]
-  %32 = phi ptr [ %43, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ %8, %.lr.ph.i ]
-  %.sroa.2.031.i.us = phi i64 [ %56, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ 0, %.lr.ph.i ]
-  %.sroa.06.029.i.us = phi double [ %52, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ 0.000000e+00, %.lr.ph.i ]
-  %33 = phi i64 [ %39, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ %.val3, %.lr.ph.i ]
-  %34 = phi ptr [ %41, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ %7, %.lr.ph.i ]
-  %35 = phi <2 x double> [ %55, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ zeroinitializer, %.lr.ph.i ]
+  %31 = phi ptr [ %43, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ %7, %.lr.ph.i ]
+  %32 = phi ptr [ %42, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ %8, %.lr.ph.i ]
+  %.sroa.7.032.i.us = phi double [ %53, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ 0.000000e+00, %.lr.ph.i ]
+  %.sroa.2.031.i.us = phi i64 [ %54, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ 0, %.lr.ph.i ]
+  %.sroa.6.030.i.us = phi double [ %52, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ 0.000000e+00, %.lr.ph.i ]
+  %.sroa.06.029.i.us = phi double [ %51, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ 0.000000e+00, %.lr.ph.i ]
+  %33 = phi i64 [ %38, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ %.val3, %.lr.ph.i ]
+  %34 = phi ptr [ %40, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ], [ %7, %.lr.ph.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   %exitcond.not = icmp eq i64 %.sroa.2.031.i.us, %.val3
   br i1 %exitcond.not, label %.split.us, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us": ; preds = %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i8.us"
-  %36 = icmp eq ptr %34, %32
-  %37 = getelementptr inbounds double, ptr %31, i64 %.val3
-  %38 = select i1 %36, ptr %37, ptr %34
-  %39 = add i64 %33, -1
-  %40 = icmp eq i64 %39, 0
-  %.idx20.us = select i1 %40, i64 0, i64 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 %.idx20.us
-  %42 = getelementptr double, ptr %34, i64 %.val3
-  %43 = select i1 %36, ptr %42, ptr %32
-  %44 = select i1 %36, ptr %37, ptr %31
-  %45 = getelementptr double, ptr %.val1.i.i.i.i, i64 %.sroa.2.031.i.us
-  %46 = load double, ptr %45, align 8, !noalias !245, !noundef !7
-  %.val4.i.i.i.us = load double, ptr %38, align 8, !alias.scope !258, !noalias !259, !noundef !7
-  %47 = fadd double %46, -1.000000e+00
-  %48 = tail call noundef double @llvm.log.f64(double %.val4.i.i.i.us)
-  %49 = fmul double %47, %48
-  %50 = fadd double %.sroa.06.029.i.us, %49
-  %51 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %46), !noalias !260
-  %52 = fsub double %50, %51
-  %53 = insertelement <2 x double> poison, double %.val4.i.i.i.us, i64 0
-  %54 = insertelement <2 x double> %53, double %46, i64 1
-  %55 = fadd <2 x double> %35, %54
-  %56 = add nuw i64 %.sroa.2.031.i.us, 1
-  br i1 %40, label %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit, label %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i8.us"
+  %35 = icmp eq ptr %34, %32
+  %36 = getelementptr inbounds double, ptr %31, i64 %.val3
+  %37 = select i1 %35, ptr %36, ptr %34
+  %38 = add i64 %33, -1
+  %39 = icmp eq i64 %38, 0
+  %.idx20.us = select i1 %39, i64 0, i64 8
+  %40 = getelementptr inbounds i8, ptr %37, i64 %.idx20.us
+  %41 = getelementptr double, ptr %34, i64 %.val3
+  %42 = select i1 %35, ptr %41, ptr %32
+  %43 = select i1 %35, ptr %36, ptr %31
+  %44 = getelementptr double, ptr %.val1.i.i.i.i, i64 %.sroa.2.031.i.us
+  %45 = load double, ptr %44, align 8, !noalias !245, !noundef !7
+  %.val4.i.i.i.us = load double, ptr %37, align 8, !alias.scope !258, !noalias !259, !noundef !7
+  %46 = fadd double %45, -1.000000e+00
+  %47 = tail call noundef double @llvm.log.f64(double %.val4.i.i.i.us)
+  %48 = fmul double %46, %47
+  %49 = fadd double %.sroa.06.029.i.us, %48
+  %50 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %45), !noalias !260
+  %51 = fsub double %49, %50
+  %52 = fadd double %.sroa.6.030.i.us, %.val4.i.i.i.us
+  %53 = fadd double %.sroa.7.032.i.us, %45
+  %54 = add nuw i64 %.sroa.2.031.i.us, 1
+  br i1 %39, label %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit, label %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i8.us"
 
 .split.us:                                        ; preds = %"_ZN112_$LT$nalgebra..base..iter..MatrixIter$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee2ac1e1f3f67ca7E.exit.i8.us"
   tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.506cc9156309edb07427fe3f8fdc614f.10, i64 noundef 27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.506cc9156309edb07427fe3f8fdc614f.34) #20, !noalias !245
@@ -1902,41 +1895,39 @@ define noundef double @"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u2
 _ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit.loopexit: ; preds = %.lr.ph.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
-  %57 = load double, ptr %.val1.i.i.i.i, align 8, !noalias !245, !noundef !7
+  %55 = load double, ptr %.val1.i.i.i.i, align 8, !noalias !245, !noundef !7
   %.val4.i.i.i = load double, ptr %7, align 8, !alias.scope !258, !noalias !259, !noundef !7
-  %58 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %57), !noalias !260
-  %59 = insertelement <2 x double> poison, double %.val4.i.i.i, i64 0
-  %60 = insertelement <2 x double> %59, double %57, i64 1
-  %61 = fadd <2 x double> %60, zeroinitializer
-  %62 = fadd double %57, -1.000000e+00
-  %63 = tail call noundef double @llvm.log.f64(double %.val4.i.i.i)
-  %64 = fmul double %62, %63
-  %65 = fadd double %64, 0.000000e+00
-  %66 = fsub double %65, %58
+  %56 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %55), !noalias !260
+  %57 = fadd double %55, 0.000000e+00
+  %58 = fadd double %.val4.i.i.i, 0.000000e+00
+  %59 = fadd double %55, -1.000000e+00
+  %60 = tail call noundef double @llvm.log.f64(double %.val4.i.i.i)
+  %61 = fmul double %59, %60
+  %62 = fadd double %61, 0.000000e+00
+  %63 = fsub double %62, %56
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us", %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit.loopexit, %28
-  %.sroa.06.0.lcssa.i = phi double [ 0.000000e+00, %28 ], [ %66, %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit.loopexit ], [ %52, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ]
-  %67 = phi <2 x double> [ zeroinitializer, %28 ], [ %61, %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit.loopexit ], [ %55, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ]
-  %68 = extractelement <2 x double> %67, i64 0
-  %69 = fadd double %68, -1.000000e+00
-  %70 = tail call double @llvm.fabs.f64(double %69)
-  %71 = fcmp ugt double %70, 1.000000e-04
-  br i1 %71, label %73, label %74
+  %.sroa.06.0.lcssa.i = phi double [ 0.000000e+00, %28 ], [ %63, %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit.loopexit ], [ %51, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ]
+  %.sroa.6.0.lcssa.i = phi double [ 0.000000e+00, %28 ], [ %58, %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit.loopexit ], [ %52, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ]
+  %.sroa.7.0.lcssa.i = phi double [ 0.000000e+00, %28 ], [ %57, %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit.loopexit ], [ %53, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E.exit.i.us" ]
+  %64 = fadd double %.sroa.6.0.lcssa.i, -1.000000e+00
+  %65 = tail call double @llvm.fabs.f64(double %64)
+  %66 = fcmp ugt double %65, 1.000000e-04
+  br i1 %66, label %68, label %69
 
-72:                                               ; preds = %18
+67:                                               ; preds = %18
   tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.506cc9156309edb07427fe3f8fdc614f.30, i64 noundef 27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.506cc9156309edb07427fe3f8fdc614f.31) #20
   unreachable
 
-73:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit
+68:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit
   tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.506cc9156309edb07427fe3f8fdc614f.28, i64 noundef 14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.506cc9156309edb07427fe3f8fdc614f.29) #20
   unreachable
 
-74:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit
-  %75 = extractelement <2 x double> %67, i64 1
-  %76 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %75)
-  %77 = fadd double %.sroa.06.0.lcssa.i, %76
-  ret double %77
+69:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit
+  %70 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %.sroa.7.0.lcssa.i)
+  %71 = fadd double %.sroa.06.0.lcssa.i, %70
+  ret double %71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

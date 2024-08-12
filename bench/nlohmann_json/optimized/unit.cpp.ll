@@ -3206,7 +3206,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7doctest6ApproxC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, double noundef %value) unnamed_addr #2 align 2 {
 entry:
-  store <2 x double> <double 0x3EE9000000000000, double 1.000000e+00>, ptr %this, align 8
+  store double 0x3EE9000000000000, ptr %this, align 8
+  %m_scale = getelementptr inbounds i8, ptr %this, i64 8
+  store double 1.000000e+00, ptr %m_scale, align 8
   %m_value = getelementptr inbounds i8, ptr %this, i64 16
   store double %value, ptr %m_value, align 8
   ret void
@@ -3215,10 +3217,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK7doctest6ApproxclEd(ptr noalias nocapture writeonly sret(%"struct.doctest::Approx") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, double noundef %value) local_unnamed_addr #16 align 2 {
 entry:
+  %m_scale.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %m_value.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double %value, ptr %m_value.i, align 8
-  %0 = load <2 x double>, ptr %this, align 8
-  store <2 x double> %0, ptr %agg.result, align 8
+  %0 = load double, ptr %this, align 8
+  store double %0, ptr %agg.result, align 8
+  %m_scale = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load double, ptr %m_scale, align 8
+  store double %1, ptr %m_scale.i, align 8
   ret void
 }
 
@@ -27935,7 +27941,7 @@ if.then.i:                                        ; preds = %entry
           to label %_ZNSt16allocator_traitsISaIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseEEE9constructIS4_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvRS5_PT_DpOT0_.exit.i unwind label %lpad.i.i.i.i
 
 common.resume.i:                                  ; preds = %lpad19.i.i, %lpad.i.i.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i ], [ %14, %lpad19.i.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %2, %lpad.i.i.i.i ], [ %16, %lpad19.i.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 lpad.i.i.i.i:                                     ; preds = %if.then.i
@@ -28017,21 +28023,29 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   store double %6, ptr %time.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !202
   %failures.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 72
   %failures5.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 72
-  %7 = load <2 x ptr>, ptr %failures5.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !202, !noalias !199
-  store <2 x ptr> %7, ptr %failures.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !202
+  %7 = load ptr, ptr %failures5.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !202, !noalias !199
+  store ptr %7, ptr %failures.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !202
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 80
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 80
+  %8 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !202, !noalias !199
+  store ptr %8, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !202
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 88
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 88
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !202, !noalias !199
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !202
+  %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !202, !noalias !199
+  store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !202
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %failures5.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !202, !noalias !199
   %errors.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 96
   %errors6.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 96
-  %9 = load <2 x ptr>, ptr %errors6.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !202, !noalias !199
-  store <2 x ptr> %9, ptr %errors.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !202
+  %10 = load ptr, ptr %errors6.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !202, !noalias !199
+  store ptr %10, ptr %errors.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !202
+  %_M_finish.i.i.i.i5.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 104
+  %_M_finish3.i.i.i.i6.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 104
+  %11 = load ptr, ptr %_M_finish3.i.i.i.i6.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !202, !noalias !199
+  store ptr %11, ptr %_M_finish.i.i.i.i5.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !202
   %_M_end_of_storage.i.i.i.i7.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 112
   %_M_end_of_storage4.i.i.i.i8.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 112
-  %10 = load ptr, ptr %_M_end_of_storage4.i.i.i.i8.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !202, !noalias !199
-  store ptr %10, ptr %_M_end_of_storage.i.i.i.i7.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !202
+  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i8.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !202, !noalias !199
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i7.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !199, !noalias !202
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %errors6.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !202, !noalias !199
   tail call fastcc void @_ZN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %__first.addr.02.i.i.i.i.i) #41
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 120
@@ -28050,14 +28064,14 @@ if.then.i45.i.i:                                  ; preds = %_ZNSt6vectorIN7doct
   br label %_ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
 lpad.i.i:                                         ; preds = %_ZNSt12_Vector_baseIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData13JUnitTestCaseESaIS4_EE11_M_allocateEm.exit.i.i
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
   br label %lpad.body.i.i
 
 lpad.body.i.i:                                    ; preds = %lpad.i.i, %lpad.i.i.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %11, %lpad.i.i ], [ %5, %lpad.i.i.i.i.i ]
-  %12 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
-  %13 = tail call ptr @__cxa_begin_catch(ptr %12) #41
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %13, %lpad.i.i ], [ %5, %lpad.i.i.i.i.i ]
+  %14 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
+  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #41
   %tobool.not.i.i = icmp eq ptr %cond.i19.i.i, null
   br i1 %tobool.not.i.i, label %if.end.thread.i.i, label %if.then.i50.i.i
 
@@ -28066,7 +28080,7 @@ if.end.thread.i.i:                                ; preds = %lpad.body.i.i
   br label %invoke.cont21.i.i
 
 lpad19.i.i:                                       ; preds = %invoke.cont21.i.i
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume.i unwind label %terminate.lpad.i.i
@@ -28080,10 +28094,10 @@ invoke.cont21.i.i:                                ; preds = %if.then.i50.i.i, %i
           to label %unreachable.i.i unwind label %lpad19.i.i
 
 terminate.lpad.i.i:                               ; preds = %lpad19.i.i
-  %15 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #46
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #46
   unreachable
 
 unreachable.i.i:                                  ; preds = %invoke.cont21.i.i
@@ -33329,9 +33343,10 @@ if.else34.i:                                      ; preds = %entry
   br i1 %call4.i3.i, label %if.then40.i, label %if.else45.i
 
 if.then40.i:                                      ; preds = %if.else34.i
-  %12 = load <2 x ptr>, ptr %__first.coerce, align 8
-  %13 = shufflevector <2 x ptr> %12, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %13, ptr %__first.coerce, align 8
+  %12 = load ptr, ptr %__first.coerce, align 8
+  %13 = load ptr, ptr %add.ptr.i1, align 8
+  store ptr %13, ptr %__first.coerce, align 8
+  store ptr %12, ptr %add.ptr.i1, align 8
   br label %while.body.i.preheader
 
 if.else45.i:                                      ; preds = %if.else34.i

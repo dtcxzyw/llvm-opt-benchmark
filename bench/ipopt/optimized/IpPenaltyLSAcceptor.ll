@@ -2299,13 +2299,17 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit121:      ; preds = %171, %_ZN5Ipopt8Sma
 
 512:                                              ; preds = %2
   %513 = getelementptr inbounds i8, ptr %0, i64 168
-  %514 = getelementptr inbounds i8, ptr %0, i64 112
-  %515 = load <2 x double>, ptr %513, align 8
-  store <2 x double> %515, ptr %514, align 8
-  %516 = getelementptr inbounds i8, ptr %0, i64 184
+  %514 = load double, ptr %513, align 8
+  %515 = getelementptr inbounds i8, ptr %0, i64 112
+  store double %514, ptr %515, align 8
+  %516 = getelementptr inbounds i8, ptr %0, i64 176
   %517 = load double, ptr %516, align 8
-  %518 = getelementptr inbounds i8, ptr %0, i64 160
+  %518 = getelementptr inbounds i8, ptr %0, i64 120
   store double %517, ptr %518, align 8
+  %519 = getelementptr inbounds i8, ptr %0, i64 184
+  %520 = load double, ptr %519, align 8
+  %521 = getelementptr inbounds i8, ptr %0, i64 160
+  store double %520, ptr %521, align 8
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit117
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit117:     ; preds = %484, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit, %512

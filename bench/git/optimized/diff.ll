@@ -20680,10 +20680,14 @@ sw.bb80:                                          ; preds = %if.end76
   br label %return
 
 sw.bb85:                                          ; preds = %if.end76
+  %lno_in_postimage86 = getelementptr inbounds i8, ptr %priv, i64 20
+  %73 = load i32, ptr %lno_in_postimage86, align 4
+  %inc87 = add nsw i32 %73, 1
+  store i32 %inc87, ptr %lno_in_postimage86, align 4
   %lno_in_preimage88 = getelementptr inbounds i8, ptr %priv, i64 16
-  %73 = load <2 x i32>, ptr %lno_in_preimage88, align 8
-  %74 = add nsw <2 x i32> %73, <i32 1, i32 1>
-  store <2 x i32> %74, ptr %lno_in_preimage88, align 8
+  %74 = load i32, ptr %lno_in_preimage88, align 8
+  %inc89 = add nsw i32 %74, 1
+  store i32 %inc89, ptr %lno_in_preimage88, align 8
   %add.ptr90 = getelementptr inbounds i8, ptr %line, i64 1
   %75 = trunc i64 %len.addr.0105 to i32
   %conv92 = add i32 %75, -1

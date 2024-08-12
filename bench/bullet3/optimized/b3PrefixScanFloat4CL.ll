@@ -941,7 +941,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %s.sroa.0.018 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %3, %for.body ]
+  %s.sroa.0.018 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %s.sroa.0.4.vec.insert, %for.body ]
   %s.sroa.6.017 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %s.sroa.6.8.vec.insert, %for.body ]
   %0 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %class.b3Vector3, ptr %0, i64 %indvars.iv
@@ -950,8 +950,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store <2 x float> %s.sroa.6.017, ptr %s.sroa.6.0.arrayidx.i.sroa_idx, align 8
   %1 = load ptr, ptr %m_data.i7, align 8
   %arrayidx.i9 = getelementptr inbounds %class.b3Vector3, ptr %1, i64 %indvars.iv
-  %2 = load <2 x float>, ptr %arrayidx.i9, align 16
-  %3 = fadd <2 x float> %s.sroa.0.018, %2
+  %2 = load float, ptr %arrayidx.i9, align 16
+  %s.sroa.0.0.vec.extract = extractelement <2 x float> %s.sroa.0.018, i64 0
+  %add.i = fadd float %s.sroa.0.0.vec.extract, %2
+  %s.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add.i, i64 0
+  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx.i9, i64 4
+  %3 = load float, ptr %arrayidx3.i, align 4
+  %s.sroa.0.4.vec.extract = extractelement <2 x float> %s.sroa.0.018, i64 1
+  %add5.i = fadd float %s.sroa.0.4.vec.extract, %3
+  %s.sroa.0.4.vec.insert = insertelement <2 x float> %s.sroa.0.0.vec.insert, float %add5.i, i64 1
   %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i9, i64 8
   %4 = load float, ptr %arrayidx6.i, align 8
   %s.sroa.6.8.vec.extract = extractelement <2 x float> %s.sroa.6.017, i64 0

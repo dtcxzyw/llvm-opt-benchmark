@@ -163,7 +163,13 @@ usb_desc_msos_prop_dword.exit.i:                  ; preds = %for.body.i.i23.i
   %add.ptr.i37.i = getelementptr i8, ptr %add.ptr7.i, i64 58
   store i32 4, ptr %add.ptr.i37.i, align 1
   %bPropertyData.i38.i = getelementptr i8, ptr %add.ptr7.i, i64 62
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %bPropertyData.i38.i, align 1
+  store i8 1, ptr %bPropertyData.i38.i, align 1
+  %arrayidx6.i.i = getelementptr i8, ptr %add.ptr7.i, i64 63
+  store i8 0, ptr %arrayidx6.i.i, align 1
+  %arrayidx11.i.i = getelementptr i8, ptr %add.ptr7.i, i64 64
+  store i8 0, ptr %arrayidx11.i.i, align 1
+  %arrayidx16.i.i = getelementptr i8, ptr %add.ptr7.i, i64 65
+  store i8 0, ptr %arrayidx16.i.i, align 1
   store i32 72, ptr %add.ptr7.i, align 1
   %add9.i = add i32 %length.0.i, 72
   %inc10.i = add nuw nsw i8 %count.0.i, 1

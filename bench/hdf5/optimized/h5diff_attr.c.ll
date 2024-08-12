@@ -2210,98 +2210,102 @@ build_match_list_attrs.exit:                      ; preds = %448, %450
   %575 = load i32, ptr %574, align 4
   %576 = getelementptr inbounds i8, ptr %4, i64 20
   store i32 %575, ptr %576, align 4
-  %577 = getelementptr inbounds i8, ptr %13, i64 76
-  %578 = getelementptr inbounds i8, ptr %4, i64 76
-  %579 = load <2 x i32>, ptr %577, align 4
-  store <2 x i32> %579, ptr %578, align 4
-  %580 = getelementptr inbounds i8, ptr %13, i64 136
-  %581 = load i32, ptr %580, align 8
-  %582 = or i32 %581, %.0
-  store i32 %582, ptr %17, align 8
-  %583 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %14) #15
-  %584 = load i32, ptr %14, align 4
-  %.not68 = icmp eq i32 %584, 0
-  br i1 %.not68, label %588, label %585
-
-585:                                              ; preds = %.loopexit
-  %586 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %15, ptr noundef nonnull %16) #15
-  %587 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef null, ptr noundef null) #15
-  br label %591
+  %577 = getelementptr inbounds i8, ptr %13, i64 80
+  %578 = load i32, ptr %577, align 8
+  %579 = getelementptr inbounds i8, ptr %4, i64 80
+  store i32 %578, ptr %579, align 8
+  %580 = getelementptr inbounds i8, ptr %13, i64 76
+  %581 = load i32, ptr %580, align 4
+  %582 = getelementptr inbounds i8, ptr %4, i64 76
+  store i32 %581, ptr %582, align 4
+  %583 = getelementptr inbounds i8, ptr %13, i64 136
+  %584 = load i32, ptr %583, align 8
+  %585 = or i32 %584, %.0
+  store i32 %585, ptr %17, align 8
+  %586 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %14) #15
+  %587 = load i32, ptr %14, align 4
+  %.not68 = icmp eq i32 %587, 0
+  br i1 %.not68, label %591, label %588
 
 588:                                              ; preds = %.loopexit
-  %589 = call i32 @H5Eget_auto1(ptr noundef nonnull %15, ptr noundef nonnull %16) #15
-  %590 = call i32 @H5Eset_auto1(ptr noundef null, ptr noundef null) #15
-  br label %591
+  %589 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %15, ptr noundef nonnull %16) #15
+  %590 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef null, ptr noundef null) #15
+  br label %594
 
-591:                                              ; preds = %588, %585
+591:                                              ; preds = %.loopexit
+  %592 = call i32 @H5Eget_auto1(ptr noundef nonnull %15, ptr noundef nonnull %16) #15
+  %593 = call i32 @H5Eset_auto1(ptr noundef null, ptr noundef null) #15
+  br label %594
+
+594:                                              ; preds = %591, %588
   %.not.i70 = icmp eq ptr %.0149.i, null
-  br i1 %.not.i70, label %table_attrs_free.exit, label %592
+  br i1 %.not.i70, label %table_attrs_free.exit, label %595
 
-592:                                              ; preds = %591
-  %593 = getelementptr inbounds i8, ptr %.0149.i, i64 32
-  %594 = load ptr, ptr %593, align 8
-  %.not14.i = icmp eq ptr %594, null
-  br i1 %.not14.i, label %609, label %.preheader.i71
+595:                                              ; preds = %594
+  %596 = getelementptr inbounds i8, ptr %.0149.i, i64 32
+  %597 = load ptr, ptr %596, align 8
+  %.not14.i = icmp eq ptr %597, null
+  br i1 %.not14.i, label %612, label %.preheader.i71
 
-.preheader.i71:                                   ; preds = %592
-  %595 = getelementptr inbounds i8, ptr %.0149.i, i64 8
-  %596 = load i64, ptr %595, align 8
-  %.not17.i = icmp eq i64 %596, 0
+.preheader.i71:                                   ; preds = %595
+  %598 = getelementptr inbounds i8, ptr %.0149.i, i64 8
+  %599 = load i64, ptr %598, align 8
+  %.not17.i = icmp eq i64 %599, 0
   br i1 %.not17.i, label %._crit_edge.i74, label %.lr.ph.i72
 
-.lr.ph.i72:                                       ; preds = %.preheader.i71, %603
-  %597 = phi i64 [ %604, %603 ], [ %596, %.preheader.i71 ]
-  %598 = phi i64 [ %606, %603 ], [ 0, %.preheader.i71 ]
-  %.016.i = phi i32 [ %605, %603 ], [ 0, %.preheader.i71 ]
-  %599 = load ptr, ptr %593, align 8
-  %600 = getelementptr inbounds %struct.table_attr_t, ptr %599, i64 %598
-  %601 = load ptr, ptr %600, align 8
-  %.not15.i = icmp eq ptr %601, null
-  br i1 %.not15.i, label %603, label %602
+.lr.ph.i72:                                       ; preds = %.preheader.i71, %606
+  %600 = phi i64 [ %607, %606 ], [ %599, %.preheader.i71 ]
+  %601 = phi i64 [ %609, %606 ], [ 0, %.preheader.i71 ]
+  %.016.i = phi i32 [ %608, %606 ], [ 0, %.preheader.i71 ]
+  %602 = load ptr, ptr %596, align 8
+  %603 = getelementptr inbounds %struct.table_attr_t, ptr %602, i64 %601
+  %604 = load ptr, ptr %603, align 8
+  %.not15.i = icmp eq ptr %604, null
+  br i1 %.not15.i, label %606, label %605
 
-602:                                              ; preds = %.lr.ph.i72
-  call void @free(ptr noundef nonnull %601) #15
-  %.pre.i73 = load i64, ptr %595, align 8
-  br label %603
+605:                                              ; preds = %.lr.ph.i72
+  call void @free(ptr noundef nonnull %604) #15
+  %.pre.i73 = load i64, ptr %598, align 8
+  br label %606
 
-603:                                              ; preds = %602, %.lr.ph.i72
-  %604 = phi i64 [ %597, %.lr.ph.i72 ], [ %.pre.i73, %602 ]
-  %605 = add i32 %.016.i, 1
-  %606 = zext i32 %605 to i64
-  %607 = icmp ugt i64 %604, %606
-  br i1 %607, label %.lr.ph.i72, label %._crit_edge.loopexit.i
+606:                                              ; preds = %605, %.lr.ph.i72
+  %607 = phi i64 [ %600, %.lr.ph.i72 ], [ %.pre.i73, %605 ]
+  %608 = add i32 %.016.i, 1
+  %609 = zext i32 %608 to i64
+  %610 = icmp ugt i64 %607, %609
+  br i1 %610, label %.lr.ph.i72, label %._crit_edge.loopexit.i
 
-._crit_edge.loopexit.i:                           ; preds = %603
-  %.pre18.i = load ptr, ptr %593, align 8
+._crit_edge.loopexit.i:                           ; preds = %606
+  %.pre18.i = load ptr, ptr %596, align 8
   br label %._crit_edge.i74
 
 ._crit_edge.i74:                                  ; preds = %._crit_edge.loopexit.i, %.preheader.i71
-  %608 = phi ptr [ %.pre18.i, %._crit_edge.loopexit.i ], [ %594, %.preheader.i71 ]
-  call void @free(ptr noundef %608) #15
-  br label %609
+  %611 = phi ptr [ %.pre18.i, %._crit_edge.loopexit.i ], [ %597, %.preheader.i71 ]
+  call void @free(ptr noundef %611) #15
+  br label %612
 
-609:                                              ; preds = %._crit_edge.i74, %592
+612:                                              ; preds = %._crit_edge.i74, %595
   call void @free(ptr noundef nonnull %.0149.i) #15
   br label %table_attrs_free.exit
 
-table_attrs_free.exit:                            ; preds = %591, %609
-  %610 = call i32 @H5Aclose(i64 noundef %.044) #15
-  %611 = call i32 @H5Aclose(i64 noundef %.041) #15
-  %612 = load i32, ptr %14, align 4
-  %.not69 = icmp eq i32 %612, 0
-  %613 = load ptr, ptr %15, align 8
-  %614 = load ptr, ptr %16, align 8
-  br i1 %.not69, label %617, label %615
+table_attrs_free.exit:                            ; preds = %594, %612
+  %613 = call i32 @H5Aclose(i64 noundef %.044) #15
+  %614 = call i32 @H5Aclose(i64 noundef %.041) #15
+  %615 = load i32, ptr %14, align 4
+  %.not69 = icmp eq i32 %615, 0
+  %616 = load ptr, ptr %15, align 8
+  %617 = load ptr, ptr %16, align 8
+  br i1 %.not69, label %620, label %618
 
-615:                                              ; preds = %table_attrs_free.exit
-  %616 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %613, ptr noundef %614) #15
-  br label %619
+618:                                              ; preds = %table_attrs_free.exit
+  %619 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %616, ptr noundef %617) #15
+  br label %622
 
-617:                                              ; preds = %table_attrs_free.exit
-  %618 = call i32 @H5Eset_auto1(ptr noundef %613, ptr noundef %614) #15
-  br label %619
+620:                                              ; preds = %table_attrs_free.exit
+  %621 = call i32 @H5Eset_auto1(ptr noundef %616, ptr noundef %617) #15
+  br label %622
 
-619:                                              ; preds = %617, %615
+622:                                              ; preds = %620, %618
   ret i64 %.039
 }
 

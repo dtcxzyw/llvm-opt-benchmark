@@ -1772,21 +1772,27 @@ if.end73.i:                                       ; preds = %if.then70.i, %sw.bb
   %37 = load i32, ptr %y75.i, align 4
   %sub78.i = sub i32 %37, %35
   %vc.val151.i = load ptr, ptr %console, align 8
+  %spec.store.select.i.i = tail call i32 @llvm.smax.i32(i32 %36, i32 0)
+  %spec.store.select1.i.i = tail call i32 @llvm.smax.i32(i32 %sub78.i, i32 0)
+  %height.i.i = getelementptr inbounds i8, ptr %vc.val151.i, i64 236
+  %38 = load i32, ptr %height.i.i, align 4
+  %cmp4.not.i.i = icmp slt i32 %spec.store.select1.i.i, %38
+  %sub.i.i = add i32 %38, -1
+  %spec.select.i.i = select i1 %cmp4.not.i.i, i32 %spec.store.select1.i.i, i32 %sub.i.i
   %width.i157.i = getelementptr inbounds i8, ptr %vc.val151.i, i64 232
+  %39 = load i32, ptr %width.i157.i, align 8
+  %cmp8.not.i.i = icmp slt i32 %spec.store.select.i.i, %39
+  %sub11.i.i = add i32 %39, -1
+  %x.addr.0.i.i = select i1 %cmp8.not.i.i, i32 %spec.store.select.i.i, i32 %sub11.i.i
   %x13.i.i = getelementptr inbounds i8, ptr %vc.val151.i, i64 248
-  %38 = insertelement <2 x i32> poison, i32 %36, i64 0
-  %39 = insertelement <2 x i32> %38, i32 %sub78.i, i64 1
-  %40 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %39, <2 x i32> zeroinitializer)
-  %41 = load <2 x i32>, ptr %width.i157.i, align 8
-  %42 = icmp slt <2 x i32> %40, %41
-  %43 = add <2 x i32> %41, <i32 -1, i32 -1>
-  %44 = select <2 x i1> %42, <2 x i32> %40, <2 x i32> %43
-  store <2 x i32> %44, ptr %x13.i.i, align 8
+  store i32 %x.addr.0.i.i, ptr %x13.i.i, align 8
+  %y14.i.i = getelementptr inbounds i8, ptr %vc.val151.i, i64 252
+  store i32 %spec.select.i.i, ptr %y14.i.i, align 4
   br label %vc_putchar.exit
 
 sw.bb79.i:                                        ; preds = %trace_console_putchar_csi.exit.i
-  %45 = load i32, ptr %esc_params60.i, align 4
-  %cmp82.i = icmp eq i32 %45, 0
+  %40 = load i32, ptr %esc_params60.i, align 4
+  %cmp82.i = icmp eq i32 %40, 0
   br i1 %cmp82.i, label %if.then83.i, label %if.end86.i
 
 if.then83.i:                                      ; preds = %sw.bb79.i
@@ -1794,28 +1800,34 @@ if.then83.i:                                      ; preds = %sw.bb79.i
   br label %if.end86.i
 
 if.end86.i:                                       ; preds = %if.then83.i, %sw.bb79.i
-  %46 = phi i32 [ 1, %if.then83.i ], [ %45, %sw.bb79.i ]
+  %41 = phi i32 [ 1, %if.then83.i ], [ %40, %sw.bb79.i ]
   %x87.i = getelementptr inbounds i8, ptr %4, i64 248
-  %47 = load i32, ptr %x87.i, align 8
+  %42 = load i32, ptr %x87.i, align 8
   %y88.i = getelementptr inbounds i8, ptr %4, i64 252
-  %48 = load i32, ptr %y88.i, align 4
-  %add91.i = add i32 %48, %46
+  %43 = load i32, ptr %y88.i, align 4
+  %add91.i = add i32 %43, %41
   %vc.val152.i = load ptr, ptr %console, align 8
+  %spec.store.select.i158.i = tail call i32 @llvm.smax.i32(i32 %42, i32 0)
+  %spec.store.select1.i159.i = tail call i32 @llvm.smax.i32(i32 %add91.i, i32 0)
+  %height.i160.i = getelementptr inbounds i8, ptr %vc.val152.i, i64 236
+  %44 = load i32, ptr %height.i160.i, align 4
+  %cmp4.not.i161.i = icmp slt i32 %spec.store.select1.i159.i, %44
+  %sub.i162.i = add i32 %44, -1
+  %spec.select.i163.i = select i1 %cmp4.not.i161.i, i32 %spec.store.select1.i159.i, i32 %sub.i162.i
   %width.i164.i = getelementptr inbounds i8, ptr %vc.val152.i, i64 232
+  %45 = load i32, ptr %width.i164.i, align 8
+  %cmp8.not.i165.i = icmp slt i32 %spec.store.select.i158.i, %45
+  %sub11.i166.i = add i32 %45, -1
+  %x.addr.0.i167.i = select i1 %cmp8.not.i165.i, i32 %spec.store.select.i158.i, i32 %sub11.i166.i
   %x13.i168.i = getelementptr inbounds i8, ptr %vc.val152.i, i64 248
-  %49 = insertelement <2 x i32> poison, i32 %47, i64 0
-  %50 = insertelement <2 x i32> %49, i32 %add91.i, i64 1
-  %51 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %50, <2 x i32> zeroinitializer)
-  %52 = load <2 x i32>, ptr %width.i164.i, align 8
-  %53 = icmp slt <2 x i32> %51, %52
-  %54 = add <2 x i32> %52, <i32 -1, i32 -1>
-  %55 = select <2 x i1> %53, <2 x i32> %51, <2 x i32> %54
-  store <2 x i32> %55, ptr %x13.i168.i, align 8
+  store i32 %x.addr.0.i167.i, ptr %x13.i168.i, align 8
+  %y14.i169.i = getelementptr inbounds i8, ptr %vc.val152.i, i64 252
+  store i32 %spec.select.i163.i, ptr %y14.i169.i, align 4
   br label %vc_putchar.exit
 
 sw.bb92.i:                                        ; preds = %trace_console_putchar_csi.exit.i
-  %56 = load i32, ptr %esc_params60.i, align 4
-  %cmp95.i = icmp eq i32 %56, 0
+  %46 = load i32, ptr %esc_params60.i, align 4
+  %cmp95.i = icmp eq i32 %46, 0
   br i1 %cmp95.i, label %if.then96.i, label %if.end99.i
 
 if.then96.i:                                      ; preds = %sw.bb92.i
@@ -1823,28 +1835,34 @@ if.then96.i:                                      ; preds = %sw.bb92.i
   br label %if.end99.i
 
 if.end99.i:                                       ; preds = %if.then96.i, %sw.bb92.i
-  %57 = phi i32 [ 1, %if.then96.i ], [ %56, %sw.bb92.i ]
+  %47 = phi i32 [ 1, %if.then96.i ], [ %46, %sw.bb92.i ]
   %x100.i = getelementptr inbounds i8, ptr %4, i64 248
-  %58 = load i32, ptr %x100.i, align 8
-  %add103.i = add i32 %58, %57
+  %48 = load i32, ptr %x100.i, align 8
+  %add103.i = add i32 %48, %47
   %y104.i = getelementptr inbounds i8, ptr %4, i64 252
-  %59 = load i32, ptr %y104.i, align 4
+  %49 = load i32, ptr %y104.i, align 4
   %vc.val153.i = load ptr, ptr %console, align 8
+  %spec.store.select.i170.i = tail call i32 @llvm.smax.i32(i32 %add103.i, i32 0)
+  %spec.store.select1.i171.i = tail call i32 @llvm.smax.i32(i32 %49, i32 0)
+  %height.i172.i = getelementptr inbounds i8, ptr %vc.val153.i, i64 236
+  %50 = load i32, ptr %height.i172.i, align 4
+  %cmp4.not.i173.i = icmp slt i32 %spec.store.select1.i171.i, %50
+  %sub.i174.i = add i32 %50, -1
+  %spec.select.i175.i = select i1 %cmp4.not.i173.i, i32 %spec.store.select1.i171.i, i32 %sub.i174.i
   %width.i176.i = getelementptr inbounds i8, ptr %vc.val153.i, i64 232
+  %51 = load i32, ptr %width.i176.i, align 8
+  %cmp8.not.i177.i = icmp slt i32 %spec.store.select.i170.i, %51
+  %sub11.i178.i = add i32 %51, -1
+  %x.addr.0.i179.i = select i1 %cmp8.not.i177.i, i32 %spec.store.select.i170.i, i32 %sub11.i178.i
   %x13.i180.i = getelementptr inbounds i8, ptr %vc.val153.i, i64 248
-  %60 = insertelement <2 x i32> poison, i32 %add103.i, i64 0
-  %61 = insertelement <2 x i32> %60, i32 %59, i64 1
-  %62 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %61, <2 x i32> zeroinitializer)
-  %63 = load <2 x i32>, ptr %width.i176.i, align 8
-  %64 = icmp slt <2 x i32> %62, %63
-  %65 = add <2 x i32> %63, <i32 -1, i32 -1>
-  %66 = select <2 x i1> %64, <2 x i32> %62, <2 x i32> %65
-  store <2 x i32> %66, ptr %x13.i180.i, align 8
+  store i32 %x.addr.0.i179.i, ptr %x13.i180.i, align 8
+  %y14.i181.i = getelementptr inbounds i8, ptr %vc.val153.i, i64 252
+  store i32 %spec.select.i175.i, ptr %y14.i181.i, align 4
   br label %vc_putchar.exit
 
 sw.bb105.i:                                       ; preds = %trace_console_putchar_csi.exit.i
-  %67 = load i32, ptr %esc_params60.i, align 4
-  %cmp108.i = icmp eq i32 %67, 0
+  %52 = load i32, ptr %esc_params60.i, align 4
+  %cmp108.i = icmp eq i32 %52, 0
   br i1 %cmp108.i, label %if.then109.i, label %if.end112.i
 
 if.then109.i:                                     ; preds = %sw.bb105.i
@@ -1852,61 +1870,82 @@ if.then109.i:                                     ; preds = %sw.bb105.i
   br label %if.end112.i
 
 if.end112.i:                                      ; preds = %if.then109.i, %sw.bb105.i
-  %68 = phi i32 [ 1, %if.then109.i ], [ %67, %sw.bb105.i ]
+  %53 = phi i32 [ 1, %if.then109.i ], [ %52, %sw.bb105.i ]
   %x113.i = getelementptr inbounds i8, ptr %4, i64 248
-  %69 = load i32, ptr %x113.i, align 8
-  %sub116.i = sub i32 %69, %68
+  %54 = load i32, ptr %x113.i, align 8
+  %sub116.i = sub i32 %54, %53
   %y117.i = getelementptr inbounds i8, ptr %4, i64 252
-  %70 = load i32, ptr %y117.i, align 4
+  %55 = load i32, ptr %y117.i, align 4
   %vc.val154.i = load ptr, ptr %console, align 8
+  %spec.store.select.i182.i = tail call i32 @llvm.smax.i32(i32 %sub116.i, i32 0)
+  %spec.store.select1.i183.i = tail call i32 @llvm.smax.i32(i32 %55, i32 0)
+  %height.i184.i = getelementptr inbounds i8, ptr %vc.val154.i, i64 236
+  %56 = load i32, ptr %height.i184.i, align 4
+  %cmp4.not.i185.i = icmp slt i32 %spec.store.select1.i183.i, %56
+  %sub.i186.i = add i32 %56, -1
+  %spec.select.i187.i = select i1 %cmp4.not.i185.i, i32 %spec.store.select1.i183.i, i32 %sub.i186.i
   %width.i188.i = getelementptr inbounds i8, ptr %vc.val154.i, i64 232
+  %57 = load i32, ptr %width.i188.i, align 8
+  %cmp8.not.i189.i = icmp slt i32 %spec.store.select.i182.i, %57
+  %sub11.i190.i = add i32 %57, -1
+  %x.addr.0.i191.i = select i1 %cmp8.not.i189.i, i32 %spec.store.select.i182.i, i32 %sub11.i190.i
   %x13.i192.i = getelementptr inbounds i8, ptr %vc.val154.i, i64 248
-  %71 = insertelement <2 x i32> poison, i32 %sub116.i, i64 0
-  %72 = insertelement <2 x i32> %71, i32 %70, i64 1
-  %73 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %72, <2 x i32> zeroinitializer)
-  %74 = load <2 x i32>, ptr %width.i188.i, align 8
-  %75 = icmp slt <2 x i32> %73, %74
-  %76 = add <2 x i32> %74, <i32 -1, i32 -1>
-  %77 = select <2 x i1> %75, <2 x i32> %73, <2 x i32> %76
-  store <2 x i32> %77, ptr %x13.i192.i, align 8
+  store i32 %x.addr.0.i191.i, ptr %x13.i192.i, align 8
+  %y14.i193.i = getelementptr inbounds i8, ptr %vc.val154.i, i64 252
+  store i32 %spec.select.i187.i, ptr %y14.i193.i, align 4
   br label %vc_putchar.exit
 
 sw.bb118.i:                                       ; preds = %trace_console_putchar_csi.exit.i
-  %78 = load i32, ptr %esc_params60.i, align 4
-  %sub121.i = add i32 %78, -1
+  %58 = load i32, ptr %esc_params60.i, align 4
+  %sub121.i = add i32 %58, -1
   %y122.i = getelementptr inbounds i8, ptr %4, i64 252
-  %79 = load i32, ptr %y122.i, align 4
+  %59 = load i32, ptr %y122.i, align 4
   %vc.val155.i = load ptr, ptr %console, align 8
+  %spec.store.select.i194.i = tail call i32 @llvm.smax.i32(i32 %sub121.i, i32 0)
+  %spec.store.select1.i195.i = tail call i32 @llvm.smax.i32(i32 %59, i32 0)
+  %height.i196.i = getelementptr inbounds i8, ptr %vc.val155.i, i64 236
+  %60 = load i32, ptr %height.i196.i, align 4
+  %cmp4.not.i197.i = icmp slt i32 %spec.store.select1.i195.i, %60
+  %sub.i198.i = add i32 %60, -1
+  %spec.select.i199.i = select i1 %cmp4.not.i197.i, i32 %spec.store.select1.i195.i, i32 %sub.i198.i
   %width.i200.i = getelementptr inbounds i8, ptr %vc.val155.i, i64 232
+  %61 = load i32, ptr %width.i200.i, align 8
+  %cmp8.not.i201.i = icmp slt i32 %spec.store.select.i194.i, %61
+  %sub11.i202.i = add i32 %61, -1
+  %x.addr.0.i203.i = select i1 %cmp8.not.i201.i, i32 %spec.store.select.i194.i, i32 %sub11.i202.i
   %x13.i204.i = getelementptr inbounds i8, ptr %vc.val155.i, i64 248
-  %80 = insertelement <2 x i32> poison, i32 %sub121.i, i64 0
-  %81 = insertelement <2 x i32> %80, i32 %79, i64 1
-  %82 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %81, <2 x i32> zeroinitializer)
-  %83 = load <2 x i32>, ptr %width.i200.i, align 8
-  %84 = icmp slt <2 x i32> %82, %83
-  %85 = add <2 x i32> %83, <i32 -1, i32 -1>
-  %86 = select <2 x i1> %84, <2 x i32> %82, <2 x i32> %85
-  store <2 x i32> %86, ptr %x13.i204.i, align 8
+  store i32 %x.addr.0.i203.i, ptr %x13.i204.i, align 8
+  %y14.i205.i = getelementptr inbounds i8, ptr %vc.val155.i, i64 252
+  store i32 %spec.select.i199.i, ptr %y14.i205.i, align 4
   br label %vc_putchar.exit
 
 sw.bb123.i:                                       ; preds = %trace_console_putchar_csi.exit.i, %trace_console_putchar_csi.exit.i
+  %62 = load i32, ptr %arrayidx63.i, align 4
+  %sub126.i = add i32 %62, -1
+  %63 = load i32, ptr %esc_params60.i, align 4
+  %sub129.i = add i32 %63, -1
   %vc.val156.i = load ptr, ptr %console, align 8
+  %spec.store.select.i206.i = tail call i32 @llvm.smax.i32(i32 %sub126.i, i32 0)
+  %spec.store.select1.i207.i = tail call i32 @llvm.smax.i32(i32 %sub129.i, i32 0)
+  %height.i208.i = getelementptr inbounds i8, ptr %vc.val156.i, i64 236
+  %64 = load i32, ptr %height.i208.i, align 4
+  %cmp4.not.i209.i = icmp slt i32 %spec.store.select1.i207.i, %64
+  %sub.i210.i = add i32 %64, -1
+  %spec.select.i211.i = select i1 %cmp4.not.i209.i, i32 %spec.store.select1.i207.i, i32 %sub.i210.i
   %width.i212.i = getelementptr inbounds i8, ptr %vc.val156.i, i64 232
+  %65 = load i32, ptr %width.i212.i, align 8
+  %cmp8.not.i213.i = icmp slt i32 %spec.store.select.i206.i, %65
+  %sub11.i214.i = add i32 %65, -1
+  %x.addr.0.i215.i = select i1 %cmp8.not.i213.i, i32 %spec.store.select.i206.i, i32 %sub11.i214.i
   %x13.i216.i = getelementptr inbounds i8, ptr %vc.val156.i, i64 248
-  %87 = load <2 x i32>, ptr %esc_params60.i, align 4
-  %88 = add <2 x i32> %87, <i32 -1, i32 -1>
-  %89 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %88, <2 x i32> zeroinitializer)
-  %90 = shufflevector <2 x i32> %89, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %91 = load <2 x i32>, ptr %width.i212.i, align 8
-  %92 = icmp slt <2 x i32> %90, %91
-  %93 = add <2 x i32> %91, <i32 -1, i32 -1>
-  %94 = select <2 x i1> %92, <2 x i32> %90, <2 x i32> %93
-  store <2 x i32> %94, ptr %x13.i216.i, align 8
+  store i32 %x.addr.0.i215.i, ptr %x13.i216.i, align 8
+  %y14.i217.i = getelementptr inbounds i8, ptr %vc.val156.i, i64 252
+  store i32 %spec.select.i211.i, ptr %y14.i217.i, align 4
   br label %vc_putchar.exit
 
 sw.bb130.i:                                       ; preds = %trace_console_putchar_csi.exit.i
-  %95 = load i32, ptr %esc_params60.i, align 4
-  switch i32 %95, label %vc_putchar.exit [
+  %66 = load i32, ptr %esc_params60.i, align 4
+  switch i32 %66, label %vc_putchar.exit [
     i32 0, label %sw.bb133.i
     i32 1, label %for.cond156.preheader.i
     i32 2, label %for.cond178.preheader.i
@@ -1914,83 +1953,83 @@ sw.bb130.i:                                       ; preds = %trace_console_putch
 
 for.cond178.preheader.i:                          ; preds = %sw.bb130.i
   %height179.i = getelementptr inbounds i8, ptr %4, i64 236
-  %96 = load i32, ptr %height179.i, align 4
-  %cmp180.not310.i = icmp slt i32 %96, 0
+  %67 = load i32, ptr %height179.i, align 4
+  %cmp180.not310.i = icmp slt i32 %67, 0
   br i1 %cmp180.not310.i, label %vc_putchar.exit, label %for.cond182.preheader.lr.ph.i
 
 for.cond182.preheader.lr.ph.i:                    ; preds = %for.cond178.preheader.i
   %width183.i = getelementptr inbounds i8, ptr %4, i64 232
-  %97 = load i32, ptr %width183.i, align 8
-  %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %for.cond182.preheader.i, label %vc_putchar.exit
+  %68 = load i32, ptr %width183.i, align 8
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %for.cond182.preheader.i, label %vc_putchar.exit
 
 for.cond156.preheader.i:                          ; preds = %sw.bb130.i
   %y157.i = getelementptr inbounds i8, ptr %4, i64 252
-  %99 = load i32, ptr %y157.i, align 4
-  %cmp158.not314.i = icmp slt i32 %99, 0
+  %70 = load i32, ptr %y157.i, align 4
+  %cmp158.not314.i = icmp slt i32 %70, 0
   br i1 %cmp158.not314.i, label %vc_putchar.exit, label %for.cond160.preheader.lr.ph.i
 
 for.cond160.preheader.lr.ph.i:                    ; preds = %for.cond156.preheader.i
   %x167.i = getelementptr inbounds i8, ptr %4, i64 248
   %width161.i = getelementptr inbounds i8, ptr %4, i64 232
-  %100 = load i32, ptr %width161.i, align 8
-  %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %for.cond160.preheader.i, label %vc_putchar.exit
+  %71 = load i32, ptr %width161.i, align 8
+  %72 = icmp sgt i32 %71, 0
+  br i1 %72, label %for.cond160.preheader.i, label %vc_putchar.exit
 
 sw.bb133.i:                                       ; preds = %sw.bb130.i
   %y134.i = getelementptr inbounds i8, ptr %4, i64 252
-  %102 = load i32, ptr %y134.i, align 4
+  %73 = load i32, ptr %y134.i, align 4
   %height.i = getelementptr inbounds i8, ptr %4, i64 236
-  %103 = load i32, ptr %height.i, align 4
-  %cmp136318.i = icmp slt i32 %102, %103
+  %74 = load i32, ptr %height.i, align 4
+  %cmp136318.i = icmp slt i32 %73, %74
   br i1 %cmp136318.i, label %for.cond138.preheader.lr.ph.i, label %vc_putchar.exit
 
 for.cond138.preheader.lr.ph.i:                    ; preds = %sw.bb133.i
   %width139.i = getelementptr inbounds i8, ptr %4, i64 232
   %x145.i = getelementptr inbounds i8, ptr %4, i64 248
-  %104 = load i32, ptr %width139.i, align 8
-  %105 = icmp sgt i32 %104, 0
-  br i1 %105, label %for.cond138.preheader.i, label %vc_putchar.exit
+  %75 = load i32, ptr %width139.i, align 8
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %for.cond138.preheader.i, label %vc_putchar.exit
 
 for.cond138.preheader.i:                          ; preds = %for.cond138.preheader.lr.ph.i, %for.inc152.i
-  %106 = phi i32 [ %118, %for.inc152.i ], [ %103, %for.cond138.preheader.lr.ph.i ]
-  %107 = phi i32 [ %119, %for.inc152.i ], [ %104, %for.cond138.preheader.lr.ph.i ]
-  %108 = phi i32 [ %120, %for.inc152.i ], [ %104, %for.cond138.preheader.lr.ph.i ]
-  %y.0319.i = phi i32 [ %inc153.i, %for.inc152.i ], [ %102, %for.cond138.preheader.lr.ph.i ]
-  %cmp140316.i = icmp sgt i32 %108, 0
+  %77 = phi i32 [ %89, %for.inc152.i ], [ %74, %for.cond138.preheader.lr.ph.i ]
+  %78 = phi i32 [ %90, %for.inc152.i ], [ %75, %for.cond138.preheader.lr.ph.i ]
+  %79 = phi i32 [ %91, %for.inc152.i ], [ %75, %for.cond138.preheader.lr.ph.i ]
+  %y.0319.i = phi i32 [ %inc153.i, %for.inc152.i ], [ %73, %for.cond138.preheader.lr.ph.i ]
+  %cmp140316.i = icmp sgt i32 %79, 0
   br i1 %cmp140316.i, label %for.body141.i, label %for.inc152.i
 
 for.body141.i:                                    ; preds = %for.cond138.preheader.i, %for.inc149.i
-  %109 = phi i32 [ %117, %for.inc149.i ], [ %107, %for.cond138.preheader.i ]
+  %80 = phi i32 [ %88, %for.inc149.i ], [ %78, %for.cond138.preheader.i ]
   %x.0317.i = phi i32 [ %inc150.i, %for.inc149.i ], [ 0, %for.cond138.preheader.i ]
-  %110 = load i32, ptr %y134.i, align 4
-  %cmp143.i = icmp eq i32 %y.0319.i, %110
+  %81 = load i32, ptr %y134.i, align 4
+  %cmp143.i = icmp eq i32 %y.0319.i, %81
   br i1 %cmp143.i, label %land.lhs.true144.i, label %if.end148.i
 
 land.lhs.true144.i:                               ; preds = %for.body141.i
-  %111 = load i32, ptr %x145.i, align 8
-  %cmp146.i = icmp slt i32 %x.0317.i, %111
+  %82 = load i32, ptr %x145.i, align 8
+  %cmp146.i = icmp slt i32 %x.0317.i, %82
   br i1 %cmp146.i, label %for.inc149.i, label %if.end148.i
 
 if.end148.i:                                      ; preds = %land.lhs.true144.i, %for.body141.i
-  %112 = load ptr, ptr %console, align 8
-  %y_base.i219.i = getelementptr inbounds i8, ptr %112, i64 260
-  %113 = load i32, ptr %y_base.i219.i, align 4
-  %total_height.i220.i = getelementptr inbounds i8, ptr %112, i64 240
-  %114 = load i32, ptr %total_height.i220.i, align 8
-  %width.i221.i = getelementptr inbounds i8, ptr %112, i64 232
-  %115 = load i32, ptr %width.i221.i, align 8
-  %cmp.not.i222.i = icmp sgt i32 %115, %x.0317.i
-  %sub.i223.i = add i32 %115, -1
+  %83 = load ptr, ptr %console, align 8
+  %y_base.i219.i = getelementptr inbounds i8, ptr %83, i64 260
+  %84 = load i32, ptr %y_base.i219.i, align 4
+  %total_height.i220.i = getelementptr inbounds i8, ptr %83, i64 240
+  %85 = load i32, ptr %total_height.i220.i, align 8
+  %width.i221.i = getelementptr inbounds i8, ptr %83, i64 232
+  %86 = load i32, ptr %width.i221.i, align 8
+  %cmp.not.i222.i = icmp sgt i32 %86, %x.0317.i
+  %sub.i223.i = add i32 %86, -1
   %spec.select.i224.i = select i1 %cmp.not.i222.i, i32 %x.0317.i, i32 %sub.i223.i
-  %add.i225.i = add i32 %113, %y.0319.i
-  %rem.i226.i = srem i32 %add.i225.i, %114
-  %cells.i227.i = getelementptr inbounds i8, ptr %112, i64 264
-  %116 = load ptr, ptr %cells.i227.i, align 8
-  %mul.i228.i = mul i32 %rem.i226.i, %115
+  %add.i225.i = add i32 %84, %y.0319.i
+  %rem.i226.i = srem i32 %add.i225.i, %85
+  %cells.i227.i = getelementptr inbounds i8, ptr %83, i64 264
+  %87 = load ptr, ptr %cells.i227.i, align 8
+  %mul.i228.i = mul i32 %rem.i226.i, %86
   %add3.i.i = add i32 %mul.i228.i, %spec.select.i224.i
   %idxprom.i229.i = sext i32 %add3.i.i to i64
-  %arrayidx.i230.i = getelementptr %struct.TextCell, ptr %116, i64 %idxprom.i229.i
+  %arrayidx.i230.i = getelementptr %struct.TextCell, ptr %87, i64 %idxprom.i229.i
   store i8 32, ptr %arrayidx.i230.i, align 1
   %t_attrib.i231.i = getelementptr inbounds i8, ptr %arrayidx.i230.i, i64 1
   store i16 7, ptr %t_attrib.i231.i, align 1
@@ -2000,9 +2039,9 @@ if.end148.i:                                      ; preds = %land.lhs.true144.i,
   br label %for.inc149.i
 
 for.inc149.i:                                     ; preds = %if.end148.i, %land.lhs.true144.i
-  %117 = phi i32 [ %109, %land.lhs.true144.i ], [ %.pre331.i, %if.end148.i ]
+  %88 = phi i32 [ %80, %land.lhs.true144.i ], [ %.pre331.i, %if.end148.i ]
   %inc150.i = add nuw nsw i32 %x.0317.i, 1
-  %cmp140.i = icmp slt i32 %inc150.i, %117
+  %cmp140.i = icmp slt i32 %inc150.i, %88
   br i1 %cmp140.i, label %for.body141.i, label %for.inc152.loopexit.i, !llvm.loop !17
 
 for.inc152.loopexit.i:                            ; preds = %for.inc149.i
@@ -2010,59 +2049,59 @@ for.inc152.loopexit.i:                            ; preds = %for.inc149.i
   br label %for.inc152.i
 
 for.inc152.i:                                     ; preds = %for.inc152.loopexit.i, %for.cond138.preheader.i
-  %118 = phi i32 [ %.pre332.i, %for.inc152.loopexit.i ], [ %106, %for.cond138.preheader.i ]
-  %119 = phi i32 [ %117, %for.inc152.loopexit.i ], [ %107, %for.cond138.preheader.i ]
-  %120 = phi i32 [ %117, %for.inc152.loopexit.i ], [ %108, %for.cond138.preheader.i ]
+  %89 = phi i32 [ %.pre332.i, %for.inc152.loopexit.i ], [ %77, %for.cond138.preheader.i ]
+  %90 = phi i32 [ %88, %for.inc152.loopexit.i ], [ %78, %for.cond138.preheader.i ]
+  %91 = phi i32 [ %88, %for.inc152.loopexit.i ], [ %79, %for.cond138.preheader.i ]
   %inc153.i = add nsw i32 %y.0319.i, 1
-  %cmp136.i = icmp slt i32 %inc153.i, %118
+  %cmp136.i = icmp slt i32 %inc153.i, %89
   br i1 %cmp136.i, label %for.cond138.preheader.i, label %vc_putchar.exit, !llvm.loop !18
 
 for.cond160.preheader.i:                          ; preds = %for.cond160.preheader.lr.ph.i, %for.inc174.i
-  %121 = phi i32 [ %132, %for.inc174.i ], [ %99, %for.cond160.preheader.lr.ph.i ]
-  %122 = phi i32 [ %133, %for.inc174.i ], [ %100, %for.cond160.preheader.lr.ph.i ]
+  %92 = phi i32 [ %103, %for.inc174.i ], [ %70, %for.cond160.preheader.lr.ph.i ]
+  %93 = phi i32 [ %104, %for.inc174.i ], [ %71, %for.cond160.preheader.lr.ph.i ]
   %y.1315.i = phi i32 [ %inc175.i, %for.inc174.i ], [ 0, %for.cond160.preheader.lr.ph.i ]
-  %cmp162312.i = icmp sgt i32 %122, 0
+  %cmp162312.i = icmp sgt i32 %93, 0
   br i1 %cmp162312.i, label %for.body163.i, label %for.inc174.i
 
 for.body163.i:                                    ; preds = %for.cond160.preheader.i, %if.end170.i
-  %123 = phi i32 [ %131, %if.end170.i ], [ %122, %for.cond160.preheader.i ]
+  %94 = phi i32 [ %102, %if.end170.i ], [ %93, %for.cond160.preheader.i ]
   %x.1313.i = phi i32 [ %inc172.i, %if.end170.i ], [ 0, %for.cond160.preheader.i ]
-  %124 = load i32, ptr %y157.i, align 4
-  %cmp165.i = icmp eq i32 %y.1315.i, %124
+  %95 = load i32, ptr %y157.i, align 4
+  %cmp165.i = icmp eq i32 %y.1315.i, %95
   br i1 %cmp165.i, label %land.lhs.true166.i, label %if.end170.i
 
 land.lhs.true166.i:                               ; preds = %for.body163.i
-  %125 = load i32, ptr %x167.i, align 8
-  %cmp168.i = icmp sgt i32 %x.1313.i, %125
+  %96 = load i32, ptr %x167.i, align 8
+  %cmp168.i = icmp sgt i32 %x.1313.i, %96
   br i1 %cmp168.i, label %for.inc174.i, label %if.end170.i
 
 if.end170.i:                                      ; preds = %land.lhs.true166.i, %for.body163.i
-  %126 = load ptr, ptr %console, align 8
-  %y_base.i234.i = getelementptr inbounds i8, ptr %126, i64 260
-  %127 = load i32, ptr %y_base.i234.i, align 4
-  %total_height.i235.i = getelementptr inbounds i8, ptr %126, i64 240
-  %128 = load i32, ptr %total_height.i235.i, align 8
-  %width.i236.i = getelementptr inbounds i8, ptr %126, i64 232
-  %129 = load i32, ptr %width.i236.i, align 8
-  %cmp.not.i237.i = icmp sgt i32 %129, %x.1313.i
-  %sub.i238.i = add i32 %129, -1
+  %97 = load ptr, ptr %console, align 8
+  %y_base.i234.i = getelementptr inbounds i8, ptr %97, i64 260
+  %98 = load i32, ptr %y_base.i234.i, align 4
+  %total_height.i235.i = getelementptr inbounds i8, ptr %97, i64 240
+  %99 = load i32, ptr %total_height.i235.i, align 8
+  %width.i236.i = getelementptr inbounds i8, ptr %97, i64 232
+  %100 = load i32, ptr %width.i236.i, align 8
+  %cmp.not.i237.i = icmp sgt i32 %100, %x.1313.i
+  %sub.i238.i = add i32 %100, -1
   %spec.select.i239.i = select i1 %cmp.not.i237.i, i32 %x.1313.i, i32 %sub.i238.i
-  %add.i240.i = add i32 %127, %y.1315.i
-  %rem.i241.i = srem i32 %add.i240.i, %128
-  %cells.i242.i = getelementptr inbounds i8, ptr %126, i64 264
-  %130 = load ptr, ptr %cells.i242.i, align 8
-  %mul.i243.i = mul i32 %rem.i241.i, %129
+  %add.i240.i = add i32 %98, %y.1315.i
+  %rem.i241.i = srem i32 %add.i240.i, %99
+  %cells.i242.i = getelementptr inbounds i8, ptr %97, i64 264
+  %101 = load ptr, ptr %cells.i242.i, align 8
+  %mul.i243.i = mul i32 %rem.i241.i, %100
   %add3.i244.i = add i32 %mul.i243.i, %spec.select.i239.i
   %idxprom.i245.i = sext i32 %add3.i244.i to i64
-  %arrayidx.i246.i = getelementptr %struct.TextCell, ptr %130, i64 %idxprom.i245.i
+  %arrayidx.i246.i = getelementptr %struct.TextCell, ptr %101, i64 %idxprom.i245.i
   store i8 32, ptr %arrayidx.i246.i, align 1
   %t_attrib.i247.i = getelementptr inbounds i8, ptr %arrayidx.i246.i, i64 1
   store i16 7, ptr %t_attrib.i247.i, align 1
   %vc.val.i248.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i248.i, i32 noundef %spec.select.i239.i, i32 noundef %y.1315.i)
   %inc172.i = add nuw nsw i32 %x.1313.i, 1
-  %131 = load i32, ptr %width161.i, align 8
-  %cmp162.i = icmp slt i32 %inc172.i, %131
+  %102 = load i32, ptr %width161.i, align 8
+  %cmp162.i = icmp slt i32 %inc172.i, %102
   br i1 %cmp162.i, label %for.body163.i, label %if.end170.for.inc174.loopexit_crit_edge.i, !llvm.loop !19
 
 if.end170.for.inc174.loopexit_crit_edge.i:        ; preds = %if.end170.i
@@ -2070,47 +2109,47 @@ if.end170.for.inc174.loopexit_crit_edge.i:        ; preds = %if.end170.i
   br label %for.inc174.i
 
 for.inc174.i:                                     ; preds = %land.lhs.true166.i, %if.end170.for.inc174.loopexit_crit_edge.i, %for.cond160.preheader.i
-  %132 = phi i32 [ %121, %for.cond160.preheader.i ], [ %.pre330.pre.i, %if.end170.for.inc174.loopexit_crit_edge.i ], [ %y.1315.i, %land.lhs.true166.i ]
-  %133 = phi i32 [ %122, %for.cond160.preheader.i ], [ %131, %if.end170.for.inc174.loopexit_crit_edge.i ], [ %123, %land.lhs.true166.i ]
+  %103 = phi i32 [ %92, %for.cond160.preheader.i ], [ %.pre330.pre.i, %if.end170.for.inc174.loopexit_crit_edge.i ], [ %y.1315.i, %land.lhs.true166.i ]
+  %104 = phi i32 [ %93, %for.cond160.preheader.i ], [ %102, %if.end170.for.inc174.loopexit_crit_edge.i ], [ %94, %land.lhs.true166.i ]
   %inc175.i = add i32 %y.1315.i, 1
-  %cmp158.not.i = icmp sgt i32 %inc175.i, %132
+  %cmp158.not.i = icmp sgt i32 %inc175.i, %103
   br i1 %cmp158.not.i, label %vc_putchar.exit, label %for.cond160.preheader.i, !llvm.loop !20
 
 for.cond182.preheader.i:                          ; preds = %for.cond182.preheader.lr.ph.i, %for.inc189.i
-  %134 = phi i32 [ %142, %for.inc189.i ], [ %96, %for.cond182.preheader.lr.ph.i ]
-  %135 = phi i32 [ %143, %for.inc189.i ], [ %97, %for.cond182.preheader.lr.ph.i ]
+  %105 = phi i32 [ %113, %for.inc189.i ], [ %67, %for.cond182.preheader.lr.ph.i ]
+  %106 = phi i32 [ %114, %for.inc189.i ], [ %68, %for.cond182.preheader.lr.ph.i ]
   %y.2311.i = phi i32 [ %inc190.i, %for.inc189.i ], [ 0, %for.cond182.preheader.lr.ph.i ]
-  %cmp184308.i = icmp sgt i32 %135, 0
+  %cmp184308.i = icmp sgt i32 %106, 0
   br i1 %cmp184308.i, label %for.body185.i, label %for.inc189.i
 
 for.body185.i:                                    ; preds = %for.cond182.preheader.i, %for.body185.i
   %x.2309.i = phi i32 [ %inc187.i, %for.body185.i ], [ 0, %for.cond182.preheader.i ]
-  %136 = load ptr, ptr %console, align 8
-  %y_base.i250.i = getelementptr inbounds i8, ptr %136, i64 260
-  %137 = load i32, ptr %y_base.i250.i, align 4
-  %total_height.i251.i = getelementptr inbounds i8, ptr %136, i64 240
-  %138 = load i32, ptr %total_height.i251.i, align 8
-  %width.i252.i = getelementptr inbounds i8, ptr %136, i64 232
-  %139 = load i32, ptr %width.i252.i, align 8
-  %cmp.not.i253.i = icmp sgt i32 %139, %x.2309.i
-  %sub.i254.i = add i32 %139, -1
+  %107 = load ptr, ptr %console, align 8
+  %y_base.i250.i = getelementptr inbounds i8, ptr %107, i64 260
+  %108 = load i32, ptr %y_base.i250.i, align 4
+  %total_height.i251.i = getelementptr inbounds i8, ptr %107, i64 240
+  %109 = load i32, ptr %total_height.i251.i, align 8
+  %width.i252.i = getelementptr inbounds i8, ptr %107, i64 232
+  %110 = load i32, ptr %width.i252.i, align 8
+  %cmp.not.i253.i = icmp sgt i32 %110, %x.2309.i
+  %sub.i254.i = add i32 %110, -1
   %spec.select.i255.i = select i1 %cmp.not.i253.i, i32 %x.2309.i, i32 %sub.i254.i
-  %add.i256.i = add i32 %137, %y.2311.i
-  %rem.i257.i = srem i32 %add.i256.i, %138
-  %cells.i258.i = getelementptr inbounds i8, ptr %136, i64 264
-  %140 = load ptr, ptr %cells.i258.i, align 8
-  %mul.i259.i = mul i32 %rem.i257.i, %139
+  %add.i256.i = add i32 %108, %y.2311.i
+  %rem.i257.i = srem i32 %add.i256.i, %109
+  %cells.i258.i = getelementptr inbounds i8, ptr %107, i64 264
+  %111 = load ptr, ptr %cells.i258.i, align 8
+  %mul.i259.i = mul i32 %rem.i257.i, %110
   %add3.i260.i = add i32 %mul.i259.i, %spec.select.i255.i
   %idxprom.i261.i = sext i32 %add3.i260.i to i64
-  %arrayidx.i262.i = getelementptr %struct.TextCell, ptr %140, i64 %idxprom.i261.i
+  %arrayidx.i262.i = getelementptr %struct.TextCell, ptr %111, i64 %idxprom.i261.i
   store i8 32, ptr %arrayidx.i262.i, align 1
   %t_attrib.i263.i = getelementptr inbounds i8, ptr %arrayidx.i262.i, i64 1
   store i16 7, ptr %t_attrib.i263.i, align 1
   %vc.val.i264.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i264.i, i32 noundef %spec.select.i255.i, i32 noundef %y.2311.i)
   %inc187.i = add nuw nsw i32 %x.2309.i, 1
-  %141 = load i32, ptr %width183.i, align 8
-  %cmp184.i = icmp slt i32 %inc187.i, %141
+  %112 = load i32, ptr %width183.i, align 8
+  %cmp184.i = icmp slt i32 %inc187.i, %112
   br i1 %cmp184.i, label %for.body185.i, label %for.inc189.loopexit.i, !llvm.loop !21
 
 for.inc189.loopexit.i:                            ; preds = %for.body185.i
@@ -2118,15 +2157,15 @@ for.inc189.loopexit.i:                            ; preds = %for.body185.i
   br label %for.inc189.i
 
 for.inc189.i:                                     ; preds = %for.inc189.loopexit.i, %for.cond182.preheader.i
-  %142 = phi i32 [ %.pre.i, %for.inc189.loopexit.i ], [ %134, %for.cond182.preheader.i ]
-  %143 = phi i32 [ %141, %for.inc189.loopexit.i ], [ %135, %for.cond182.preheader.i ]
+  %113 = phi i32 [ %.pre.i, %for.inc189.loopexit.i ], [ %105, %for.cond182.preheader.i ]
+  %114 = phi i32 [ %112, %for.inc189.loopexit.i ], [ %106, %for.cond182.preheader.i ]
   %inc190.i = add i32 %y.2311.i, 1
-  %cmp180.not.i = icmp sgt i32 %inc190.i, %142
+  %cmp180.not.i = icmp sgt i32 %inc190.i, %113
   br i1 %cmp180.not.i, label %vc_putchar.exit, label %for.cond182.preheader.i, !llvm.loop !22
 
 sw.bb193.i:                                       ; preds = %trace_console_putchar_csi.exit.i
-  %144 = load i32, ptr %esc_params60.i, align 4
-  switch i32 %144, label %vc_putchar.exit [
+  %115 = load i32, ptr %esc_params60.i, align 4
+  switch i32 %115, label %vc_putchar.exit [
     i32 0, label %sw.bb196.i
     i32 1, label %for.cond207.preheader.i
     i32 2, label %for.cond218.preheader.i
@@ -2134,8 +2173,8 @@ sw.bb193.i:                                       ; preds = %trace_console_putch
 
 for.cond218.preheader.i:                          ; preds = %sw.bb193.i
   %width219.i = getelementptr inbounds i8, ptr %4, i64 232
-  %145 = load i32, ptr %width219.i, align 8
-  %cmp220302.i = icmp sgt i32 %145, 0
+  %116 = load i32, ptr %width219.i, align 8
+  %cmp220302.i = icmp sgt i32 %116, 0
   br i1 %cmp220302.i, label %for.body221.lr.ph.i, label %vc_putchar.exit
 
 for.body221.lr.ph.i:                              ; preds = %for.cond218.preheader.i
@@ -2145,8 +2184,8 @@ for.body221.lr.ph.i:                              ; preds = %for.cond218.prehead
 for.cond207.preheader.i:                          ; preds = %sw.bb193.i
   %width210.i = getelementptr inbounds i8, ptr %4, i64 232
   %x208.i = getelementptr inbounds i8, ptr %4, i64 248
-  %146 = load i32, ptr %x208.i, align 8
-  %cmp209.not304.i = icmp slt i32 %146, 0
+  %117 = load i32, ptr %x208.i, align 8
+  %cmp209.not304.i = icmp slt i32 %117, 0
   br i1 %cmp209.not304.i, label %vc_putchar.exit, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %for.cond207.preheader.i
@@ -2155,10 +2194,10 @@ land.rhs.lr.ph.i:                                 ; preds = %for.cond207.prehead
 
 sw.bb196.i:                                       ; preds = %sw.bb193.i
   %x197.i = getelementptr inbounds i8, ptr %4, i64 248
-  %147 = load i32, ptr %x197.i, align 8
+  %118 = load i32, ptr %x197.i, align 8
   %width199.i = getelementptr inbounds i8, ptr %4, i64 232
-  %148 = load i32, ptr %width199.i, align 8
-  %cmp200306.i = icmp slt i32 %147, %148
+  %119 = load i32, ptr %width199.i, align 8
+  %cmp200306.i = icmp slt i32 %118, %119
   br i1 %cmp200306.i, label %for.body201.lr.ph.i, label %vc_putchar.exit
 
 for.body201.lr.ph.i:                              ; preds = %sw.bb196.i
@@ -2166,118 +2205,118 @@ for.body201.lr.ph.i:                              ; preds = %sw.bb196.i
   br label %for.body201.i
 
 for.body201.i:                                    ; preds = %for.body201.i, %for.body201.lr.ph.i
-  %x.3307.i = phi i32 [ %147, %for.body201.lr.ph.i ], [ %inc204.i, %for.body201.i ]
-  %149 = load i32, ptr %y202.i, align 4
-  %150 = load ptr, ptr %console, align 8
-  %y_base.i266.i = getelementptr inbounds i8, ptr %150, i64 260
-  %151 = load i32, ptr %y_base.i266.i, align 4
-  %total_height.i267.i = getelementptr inbounds i8, ptr %150, i64 240
-  %152 = load i32, ptr %total_height.i267.i, align 8
-  %width.i268.i = getelementptr inbounds i8, ptr %150, i64 232
-  %153 = load i32, ptr %width.i268.i, align 8
-  %cmp.not.i269.i = icmp sgt i32 %153, %x.3307.i
-  %sub.i270.i = add i32 %153, -1
+  %x.3307.i = phi i32 [ %118, %for.body201.lr.ph.i ], [ %inc204.i, %for.body201.i ]
+  %120 = load i32, ptr %y202.i, align 4
+  %121 = load ptr, ptr %console, align 8
+  %y_base.i266.i = getelementptr inbounds i8, ptr %121, i64 260
+  %122 = load i32, ptr %y_base.i266.i, align 4
+  %total_height.i267.i = getelementptr inbounds i8, ptr %121, i64 240
+  %123 = load i32, ptr %total_height.i267.i, align 8
+  %width.i268.i = getelementptr inbounds i8, ptr %121, i64 232
+  %124 = load i32, ptr %width.i268.i, align 8
+  %cmp.not.i269.i = icmp sgt i32 %124, %x.3307.i
+  %sub.i270.i = add i32 %124, -1
   %spec.select.i271.i = select i1 %cmp.not.i269.i, i32 %x.3307.i, i32 %sub.i270.i
-  %add.i272.i = add i32 %151, %149
-  %rem.i273.i = srem i32 %add.i272.i, %152
-  %cells.i274.i = getelementptr inbounds i8, ptr %150, i64 264
-  %154 = load ptr, ptr %cells.i274.i, align 8
-  %mul.i275.i = mul i32 %rem.i273.i, %153
+  %add.i272.i = add i32 %122, %120
+  %rem.i273.i = srem i32 %add.i272.i, %123
+  %cells.i274.i = getelementptr inbounds i8, ptr %121, i64 264
+  %125 = load ptr, ptr %cells.i274.i, align 8
+  %mul.i275.i = mul i32 %rem.i273.i, %124
   %add3.i276.i = add i32 %mul.i275.i, %spec.select.i271.i
   %idxprom.i277.i = sext i32 %add3.i276.i to i64
-  %arrayidx.i278.i = getelementptr %struct.TextCell, ptr %154, i64 %idxprom.i277.i
+  %arrayidx.i278.i = getelementptr %struct.TextCell, ptr %125, i64 %idxprom.i277.i
   store i8 32, ptr %arrayidx.i278.i, align 1
   %t_attrib.i279.i = getelementptr inbounds i8, ptr %arrayidx.i278.i, i64 1
   store i16 7, ptr %t_attrib.i279.i, align 1
   %vc.val.i280.i = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val.i280.i, i32 noundef %spec.select.i271.i, i32 noundef %149)
+  tail call fastcc void @vc_update_xy(ptr %vc.val.i280.i, i32 noundef %spec.select.i271.i, i32 noundef %120)
   %inc204.i = add nsw i32 %x.3307.i, 1
-  %155 = load i32, ptr %width199.i, align 8
-  %cmp200.i = icmp slt i32 %inc204.i, %155
+  %126 = load i32, ptr %width199.i, align 8
+  %cmp200.i = icmp slt i32 %inc204.i, %126
   br i1 %cmp200.i, label %for.body201.i, label %vc_putchar.exit, !llvm.loop !23
 
 land.rhs.i:                                       ; preds = %for.body212.i, %land.rhs.lr.ph.i
   %x.4305.i = phi i32 [ 0, %land.rhs.lr.ph.i ], [ %inc215.i, %for.body212.i ]
-  %156 = load i32, ptr %width210.i, align 8
-  %cmp211.i = icmp slt i32 %x.4305.i, %156
+  %127 = load i32, ptr %width210.i, align 8
+  %cmp211.i = icmp slt i32 %x.4305.i, %127
   br i1 %cmp211.i, label %for.body212.i, label %vc_putchar.exit
 
 for.body212.i:                                    ; preds = %land.rhs.i
-  %157 = load i32, ptr %y213.i, align 4
-  %158 = load ptr, ptr %console, align 8
-  %y_base.i79 = getelementptr inbounds i8, ptr %158, i64 260
-  %159 = load i32, ptr %y_base.i79, align 4
-  %total_height.i80 = getelementptr inbounds i8, ptr %158, i64 240
-  %160 = load i32, ptr %total_height.i80, align 8
-  %width.i81 = getelementptr inbounds i8, ptr %158, i64 232
-  %161 = load i32, ptr %width.i81, align 8
-  %cmp.not.i = icmp sgt i32 %161, %x.4305.i
-  %sub.i = add i32 %161, -1
+  %128 = load i32, ptr %y213.i, align 4
+  %129 = load ptr, ptr %console, align 8
+  %y_base.i79 = getelementptr inbounds i8, ptr %129, i64 260
+  %130 = load i32, ptr %y_base.i79, align 4
+  %total_height.i80 = getelementptr inbounds i8, ptr %129, i64 240
+  %131 = load i32, ptr %total_height.i80, align 8
+  %width.i81 = getelementptr inbounds i8, ptr %129, i64 232
+  %132 = load i32, ptr %width.i81, align 8
+  %cmp.not.i = icmp sgt i32 %132, %x.4305.i
+  %sub.i = add i32 %132, -1
   %spec.select.i = select i1 %cmp.not.i, i32 %x.4305.i, i32 %sub.i
-  %add.i82 = add i32 %159, %157
-  %rem.i83 = srem i32 %add.i82, %160
-  %cells.i = getelementptr inbounds i8, ptr %158, i64 264
-  %162 = load ptr, ptr %cells.i, align 8
-  %mul.i84 = mul i32 %rem.i83, %161
+  %add.i82 = add i32 %130, %128
+  %rem.i83 = srem i32 %add.i82, %131
+  %cells.i = getelementptr inbounds i8, ptr %129, i64 264
+  %133 = load ptr, ptr %cells.i, align 8
+  %mul.i84 = mul i32 %rem.i83, %132
   %add3.i = add i32 %mul.i84, %spec.select.i
   %idxprom.i = sext i32 %add3.i to i64
-  %arrayidx.i85 = getelementptr %struct.TextCell, ptr %162, i64 %idxprom.i
+  %arrayidx.i85 = getelementptr %struct.TextCell, ptr %133, i64 %idxprom.i
   store i8 32, ptr %arrayidx.i85, align 1
   %t_attrib.i = getelementptr inbounds i8, ptr %arrayidx.i85, i64 1
   store i16 7, ptr %t_attrib.i, align 1
   %vc.val.i = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val.i, i32 noundef %spec.select.i, i32 noundef %157)
+  tail call fastcc void @vc_update_xy(ptr %vc.val.i, i32 noundef %spec.select.i, i32 noundef %128)
   %inc215.i = add nuw nsw i32 %x.4305.i, 1
-  %163 = load i32, ptr %x208.i, align 8
-  %cmp209.not.not.i = icmp slt i32 %x.4305.i, %163
+  %134 = load i32, ptr %x208.i, align 8
+  %cmp209.not.not.i = icmp slt i32 %x.4305.i, %134
   br i1 %cmp209.not.not.i, label %land.rhs.i, label %vc_putchar.exit, !llvm.loop !24
 
 for.body221.i:                                    ; preds = %for.body221.i, %for.body221.lr.ph.i
   %x.5303.i = phi i32 [ 0, %for.body221.lr.ph.i ], [ %inc224.i, %for.body221.i ]
-  %164 = load i32, ptr %y222.i, align 4
-  %165 = load ptr, ptr %console, align 8
-  %y_base.i282.i = getelementptr inbounds i8, ptr %165, i64 260
-  %166 = load i32, ptr %y_base.i282.i, align 4
-  %total_height.i283.i = getelementptr inbounds i8, ptr %165, i64 240
-  %167 = load i32, ptr %total_height.i283.i, align 8
-  %width.i284.i = getelementptr inbounds i8, ptr %165, i64 232
-  %168 = load i32, ptr %width.i284.i, align 8
-  %cmp.not.i285.i = icmp sgt i32 %168, %x.5303.i
-  %sub.i286.i = add i32 %168, -1
+  %135 = load i32, ptr %y222.i, align 4
+  %136 = load ptr, ptr %console, align 8
+  %y_base.i282.i = getelementptr inbounds i8, ptr %136, i64 260
+  %137 = load i32, ptr %y_base.i282.i, align 4
+  %total_height.i283.i = getelementptr inbounds i8, ptr %136, i64 240
+  %138 = load i32, ptr %total_height.i283.i, align 8
+  %width.i284.i = getelementptr inbounds i8, ptr %136, i64 232
+  %139 = load i32, ptr %width.i284.i, align 8
+  %cmp.not.i285.i = icmp sgt i32 %139, %x.5303.i
+  %sub.i286.i = add i32 %139, -1
   %spec.select.i287.i = select i1 %cmp.not.i285.i, i32 %x.5303.i, i32 %sub.i286.i
-  %add.i288.i = add i32 %166, %164
-  %rem.i289.i = srem i32 %add.i288.i, %167
-  %cells.i290.i = getelementptr inbounds i8, ptr %165, i64 264
-  %169 = load ptr, ptr %cells.i290.i, align 8
-  %mul.i291.i = mul i32 %rem.i289.i, %168
+  %add.i288.i = add i32 %137, %135
+  %rem.i289.i = srem i32 %add.i288.i, %138
+  %cells.i290.i = getelementptr inbounds i8, ptr %136, i64 264
+  %140 = load ptr, ptr %cells.i290.i, align 8
+  %mul.i291.i = mul i32 %rem.i289.i, %139
   %add3.i292.i = add i32 %mul.i291.i, %spec.select.i287.i
   %idxprom.i293.i = sext i32 %add3.i292.i to i64
-  %arrayidx.i294.i = getelementptr %struct.TextCell, ptr %169, i64 %idxprom.i293.i
+  %arrayidx.i294.i = getelementptr %struct.TextCell, ptr %140, i64 %idxprom.i293.i
   store i8 32, ptr %arrayidx.i294.i, align 1
   %t_attrib.i295.i = getelementptr inbounds i8, ptr %arrayidx.i294.i, i64 1
   store i16 7, ptr %t_attrib.i295.i, align 1
   %vc.val.i296.i = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val.i296.i, i32 noundef %spec.select.i287.i, i32 noundef %164)
+  tail call fastcc void @vc_update_xy(ptr %vc.val.i296.i, i32 noundef %spec.select.i287.i, i32 noundef %135)
   %inc224.i = add nuw nsw i32 %x.5303.i, 1
-  %170 = load i32, ptr %width219.i, align 8
-  %cmp220.i = icmp slt i32 %inc224.i, %170
+  %141 = load i32, ptr %width219.i, align 8
+  %cmp220.i = icmp slt i32 %inc224.i, %141
   br i1 %cmp220.i, label %for.body221.i, label %vc_putchar.exit, !llvm.loop !25
 
 sw.bb227.i:                                       ; preds = %trace_console_putchar_csi.exit.i
-  %171 = load i32, ptr %nb_esc_params37.i, align 8
-  %cmp37.i = icmp sgt i32 %171, 0
+  %142 = load i32, ptr %nb_esc_params37.i, align 8
+  %cmp37.i = icmp sgt i32 %142, 0
   br i1 %cmp37.i, label %for.body.lr.ph.i, label %vc_putchar.exit
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb227.i
-  %wide.trip.count.i = zext nneg i32 %171 to i64
+  %wide.trip.count.i = zext nneg i32 %142 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %.compoundliteral.sroa.0.039.i = phi i16 [ undef, %for.body.lr.ph.i ], [ %.compoundliteral.sroa.0.1.i, %for.inc.i ]
   %arrayidx.i = getelementptr [3 x i32], ptr %esc_params60.i, i64 0, i64 %indvars.iv.i
-  %172 = load i32, ptr %arrayidx.i, align 4
-  switch i32 %172, label %for.inc.i [
+  %143 = load i32, ptr %arrayidx.i, align 4
+  switch i32 %143, label %for.inc.i [
     i32 0, label %sw.bb.i77
     i32 1, label %sw.bb19.i
     i32 4, label %sw.bb24.i
@@ -2469,21 +2508,21 @@ for.inc.i:                                        ; preds = %for.inc.sink.split.
   br i1 %exitcond.not.i, label %vc_putchar.exit, label %for.body.i, !llvm.loop !26
 
 sw.bb228.i:                                       ; preds = %trace_console_putchar_csi.exit.i
-  %173 = load i32, ptr %esc_params60.i, align 4
-  switch i32 %173, label %vc_putchar.exit [
+  %144 = load i32, ptr %esc_params60.i, align 4
+  switch i32 %144, label %vc_putchar.exit [
     i32 5, label %while.body.i49
     i32 6, label %sw.bb232.i
   ]
 
 while.body.i49:                                   ; preds = %sw.bb228.i, %vc_put_one.exit.i58
-  %174 = phi i8 [ %188, %vc_put_one.exit.i58 ], [ 27, %sw.bb228.i ]
+  %145 = phi i8 [ %159, %vc_put_one.exit.i58 ], [ 27, %sw.bb228.i ]
   %buf.addr.04.i50 = phi ptr [ %incdec.ptr.i72, %vc_put_one.exit.i58 ], [ @.str.20, %sw.bb228.i ]
-  %175 = load ptr, ptr %console, align 8
-  %x.i.i51 = getelementptr inbounds i8, ptr %175, i64 248
-  %176 = load i32, ptr %x.i.i51, align 8
-  %width.i.i52 = getelementptr inbounds i8, ptr %175, i64 232
-  %177 = load i32, ptr %width.i.i52, align 8
-  %cmp.not.i.i53 = icmp slt i32 %176, %177
+  %146 = load ptr, ptr %console, align 8
+  %x.i.i51 = getelementptr inbounds i8, ptr %146, i64 248
+  %147 = load i32, ptr %x.i.i51, align 8
+  %width.i.i52 = getelementptr inbounds i8, ptr %146, i64 232
+  %148 = load i32, ptr %width.i.i52, align 8
+  %cmp.not.i.i53 = icmp slt i32 %147, %148
   br i1 %cmp.not.i.i53, label %vc_put_one.exit.i58, label %if.then.i.i54
 
 if.then.i.i54:                                    ; preds = %while.body.i49
@@ -2495,65 +2534,65 @@ if.then.i.i54:                                    ; preds = %while.body.i49
   br label %vc_put_one.exit.i58
 
 vc_put_one.exit.i58:                              ; preds = %if.then.i.i54, %while.body.i49
-  %178 = phi i32 [ %.pre17.i.i57, %if.then.i.i54 ], [ %176, %while.body.i49 ]
-  %179 = phi i32 [ %.pre.i.i56, %if.then.i.i54 ], [ %177, %while.body.i49 ]
-  %y_base.i.i59 = getelementptr inbounds i8, ptr %175, i64 260
-  %180 = load i32, ptr %y_base.i.i59, align 4
-  %y.i.i60 = getelementptr inbounds i8, ptr %175, i64 252
-  %181 = load i32, ptr %y.i.i60, align 4
-  %add.i.i61 = add i32 %181, %180
-  %total_height.i.i62 = getelementptr inbounds i8, ptr %175, i64 240
-  %182 = load i32, ptr %total_height.i.i62, align 8
-  %rem.i.i63 = srem i32 %add.i.i61, %182
-  %cells.i.i64 = getelementptr inbounds i8, ptr %175, i64 264
-  %183 = load ptr, ptr %cells.i.i64, align 8
-  %mul.i.i65 = mul i32 %rem.i.i63, %179
-  %add4.i.i66 = add i32 %mul.i.i65, %178
+  %149 = phi i32 [ %.pre17.i.i57, %if.then.i.i54 ], [ %147, %while.body.i49 ]
+  %150 = phi i32 [ %.pre.i.i56, %if.then.i.i54 ], [ %148, %while.body.i49 ]
+  %y_base.i.i59 = getelementptr inbounds i8, ptr %146, i64 260
+  %151 = load i32, ptr %y_base.i.i59, align 4
+  %y.i.i60 = getelementptr inbounds i8, ptr %146, i64 252
+  %152 = load i32, ptr %y.i.i60, align 4
+  %add.i.i61 = add i32 %152, %151
+  %total_height.i.i62 = getelementptr inbounds i8, ptr %146, i64 240
+  %153 = load i32, ptr %total_height.i.i62, align 8
+  %rem.i.i63 = srem i32 %add.i.i61, %153
+  %cells.i.i64 = getelementptr inbounds i8, ptr %146, i64 264
+  %154 = load ptr, ptr %cells.i.i64, align 8
+  %mul.i.i65 = mul i32 %rem.i.i63, %150
+  %add4.i.i66 = add i32 %mul.i.i65, %149
   %idxprom.i.i67 = sext i32 %add4.i.i66 to i64
-  %arrayidx.i.i68 = getelementptr %struct.TextCell, ptr %183, i64 %idxprom.i.i67
-  store i8 %174, ptr %arrayidx.i.i68, align 1
+  %arrayidx.i.i68 = getelementptr %struct.TextCell, ptr %154, i64 %idxprom.i.i67
+  store i8 %145, ptr %arrayidx.i.i68, align 1
   %t_attrib.i.i69 = getelementptr inbounds i8, ptr %arrayidx.i.i68, i64 1
-  %184 = load i16, ptr %t_attrib6.i.i24, align 4
-  store i16 %184, ptr %t_attrib.i.i69, align 1
-  %185 = load i32, ptr %x.i.i51, align 8
-  %186 = load i32, ptr %y.i.i60, align 4
+  %155 = load i16, ptr %t_attrib6.i.i24, align 4
+  store i16 %155, ptr %t_attrib.i.i69, align 1
+  %156 = load i32, ptr %x.i.i51, align 8
+  %157 = load i32, ptr %y.i.i60, align 4
   %vc.val16.i.i70 = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val16.i.i70, i32 noundef %185, i32 noundef %186)
-  %187 = load i32, ptr %x.i.i51, align 8
-  %inc.i.i71 = add i32 %187, 1
+  tail call fastcc void @vc_update_xy(ptr %vc.val16.i.i70, i32 noundef %156, i32 noundef %157)
+  %158 = load i32, ptr %x.i.i51, align 8
+  %inc.i.i71 = add i32 %158, 1
   store i32 %inc.i.i71, ptr %x.i.i51, align 8
   %incdec.ptr.i72 = getelementptr i8, ptr %buf.addr.04.i50, i64 1
-  %188 = load i8, ptr %incdec.ptr.i72, align 1
+  %159 = load i8, ptr %incdec.ptr.i72, align 1
   %exitcond = icmp eq ptr %incdec.ptr.i72, getelementptr inbounds (i8, ptr @.str.20, i64 4)
   br i1 %exitcond, label %vc_putchar.exit, label %while.body.i49, !llvm.loop !27
 
 sw.bb232.i:                                       ; preds = %sw.bb228.i
   %y_base.i = getelementptr inbounds i8, ptr %4, i64 260
-  %189 = load i32, ptr %y_base.i, align 4
+  %160 = load i32, ptr %y_base.i, align 4
   %y233.i = getelementptr inbounds i8, ptr %4, i64 252
-  %190 = load i32, ptr %y233.i, align 4
-  %add234.i = add i32 %190, %189
+  %161 = load i32, ptr %y233.i, align 4
+  %add234.i = add i32 %161, %160
   %total_height.i = getelementptr inbounds i8, ptr %4, i64 240
-  %191 = load i32, ptr %total_height.i, align 8
-  %rem235.i = srem i32 %add234.i, %191
+  %162 = load i32, ptr %total_height.i, align 8
+  %rem235.i = srem i32 %add234.i, %162
   %add236.i = add i32 %rem235.i, 1
   %x237.i = getelementptr inbounds i8, ptr %4, i64 248
-  %192 = load i32, ptr %x237.i, align 8
-  %add238.i = add i32 %192, 1
+  %163 = load i32, ptr %x237.i, align 8
+  %add238.i = add i32 %163, 1
   %call.i21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %response.i, ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %add236.i, i32 noundef %add238.i) #12
-  %193 = load i8, ptr %response.i, align 16
-  %tobool.not3.i = icmp eq i8 %193, 0
+  %164 = load i8, ptr %response.i, align 16
+  %tobool.not3.i = icmp eq i8 %164, 0
   br i1 %tobool.not3.i, label %vc_putchar.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %sw.bb232.i, %vc_put_one.exit.i32
-  %194 = phi i8 [ %208, %vc_put_one.exit.i32 ], [ %193, %sw.bb232.i ]
+  %165 = phi i8 [ %179, %vc_put_one.exit.i32 ], [ %164, %sw.bb232.i ]
   %buf.addr.04.i = phi ptr [ %incdec.ptr.i, %vc_put_one.exit.i32 ], [ %response.i, %sw.bb232.i ]
-  %195 = load ptr, ptr %console, align 8
-  %x.i.i25 = getelementptr inbounds i8, ptr %195, i64 248
-  %196 = load i32, ptr %x.i.i25, align 8
-  %width.i.i26 = getelementptr inbounds i8, ptr %195, i64 232
-  %197 = load i32, ptr %width.i.i26, align 8
-  %cmp.not.i.i27 = icmp slt i32 %196, %197
+  %166 = load ptr, ptr %console, align 8
+  %x.i.i25 = getelementptr inbounds i8, ptr %166, i64 248
+  %167 = load i32, ptr %x.i.i25, align 8
+  %width.i.i26 = getelementptr inbounds i8, ptr %166, i64 232
+  %168 = load i32, ptr %width.i.i26, align 8
+  %cmp.not.i.i27 = icmp slt i32 %167, %168
   br i1 %cmp.not.i.i27, label %vc_put_one.exit.i32, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %while.body.i
@@ -2565,82 +2604,82 @@ if.then.i.i28:                                    ; preds = %while.body.i
   br label %vc_put_one.exit.i32
 
 vc_put_one.exit.i32:                              ; preds = %if.then.i.i28, %while.body.i
-  %198 = phi i32 [ %.pre17.i.i31, %if.then.i.i28 ], [ %196, %while.body.i ]
-  %199 = phi i32 [ %.pre.i.i30, %if.then.i.i28 ], [ %197, %while.body.i ]
-  %y_base.i.i33 = getelementptr inbounds i8, ptr %195, i64 260
-  %200 = load i32, ptr %y_base.i.i33, align 4
-  %y.i.i34 = getelementptr inbounds i8, ptr %195, i64 252
-  %201 = load i32, ptr %y.i.i34, align 4
-  %add.i.i35 = add i32 %201, %200
-  %total_height.i.i36 = getelementptr inbounds i8, ptr %195, i64 240
-  %202 = load i32, ptr %total_height.i.i36, align 8
-  %rem.i.i37 = srem i32 %add.i.i35, %202
-  %cells.i.i38 = getelementptr inbounds i8, ptr %195, i64 264
-  %203 = load ptr, ptr %cells.i.i38, align 8
-  %mul.i.i39 = mul i32 %rem.i.i37, %199
-  %add4.i.i40 = add i32 %mul.i.i39, %198
+  %169 = phi i32 [ %.pre17.i.i31, %if.then.i.i28 ], [ %167, %while.body.i ]
+  %170 = phi i32 [ %.pre.i.i30, %if.then.i.i28 ], [ %168, %while.body.i ]
+  %y_base.i.i33 = getelementptr inbounds i8, ptr %166, i64 260
+  %171 = load i32, ptr %y_base.i.i33, align 4
+  %y.i.i34 = getelementptr inbounds i8, ptr %166, i64 252
+  %172 = load i32, ptr %y.i.i34, align 4
+  %add.i.i35 = add i32 %172, %171
+  %total_height.i.i36 = getelementptr inbounds i8, ptr %166, i64 240
+  %173 = load i32, ptr %total_height.i.i36, align 8
+  %rem.i.i37 = srem i32 %add.i.i35, %173
+  %cells.i.i38 = getelementptr inbounds i8, ptr %166, i64 264
+  %174 = load ptr, ptr %cells.i.i38, align 8
+  %mul.i.i39 = mul i32 %rem.i.i37, %170
+  %add4.i.i40 = add i32 %mul.i.i39, %169
   %idxprom.i.i41 = sext i32 %add4.i.i40 to i64
-  %arrayidx.i.i42 = getelementptr %struct.TextCell, ptr %203, i64 %idxprom.i.i41
-  store i8 %194, ptr %arrayidx.i.i42, align 1
+  %arrayidx.i.i42 = getelementptr %struct.TextCell, ptr %174, i64 %idxprom.i.i41
+  store i8 %165, ptr %arrayidx.i.i42, align 1
   %t_attrib.i.i43 = getelementptr inbounds i8, ptr %arrayidx.i.i42, i64 1
-  %204 = load i16, ptr %t_attrib6.i.i24, align 4
-  store i16 %204, ptr %t_attrib.i.i43, align 1
-  %205 = load i32, ptr %x.i.i25, align 8
-  %206 = load i32, ptr %y.i.i34, align 4
+  %175 = load i16, ptr %t_attrib6.i.i24, align 4
+  store i16 %175, ptr %t_attrib.i.i43, align 1
+  %176 = load i32, ptr %x.i.i25, align 8
+  %177 = load i32, ptr %y.i.i34, align 4
   %vc.val16.i.i44 = load ptr, ptr %console, align 8
-  tail call fastcc void @vc_update_xy(ptr %vc.val16.i.i44, i32 noundef %205, i32 noundef %206)
-  %207 = load i32, ptr %x.i.i25, align 8
-  %inc.i.i45 = add i32 %207, 1
+  tail call fastcc void @vc_update_xy(ptr %vc.val16.i.i44, i32 noundef %176, i32 noundef %177)
+  %178 = load i32, ptr %x.i.i25, align 8
+  %inc.i.i45 = add i32 %178, 1
   store i32 %inc.i.i45, ptr %x.i.i25, align 8
   %incdec.ptr.i = getelementptr i8, ptr %buf.addr.04.i, i64 1
-  %208 = load i8, ptr %incdec.ptr.i, align 1
-  %tobool.not.i = icmp eq i8 %208, 0
+  %179 = load i8, ptr %incdec.ptr.i, align 1
+  %tobool.not.i = icmp eq i8 %179, 0
   br i1 %tobool.not.i, label %vc_putchar.exit, label %while.body.i, !llvm.loop !27
 
 sw.bb241.i:                                       ; preds = %trace_console_putchar_csi.exit.i
   %x242.i = getelementptr inbounds i8, ptr %4, i64 248
-  %209 = load i32, ptr %x242.i, align 8
-  store i32 %209, ptr %x_saved245.i, align 8
+  %180 = load i32, ptr %x242.i, align 8
+  store i32 %180, ptr %x_saved245.i, align 8
   %y243.i = getelementptr inbounds i8, ptr %4, i64 252
-  %210 = load i32, ptr %y243.i, align 4
-  store i32 %210, ptr %y_saved247.i, align 4
+  %181 = load i32, ptr %y243.i, align 4
+  store i32 %181, ptr %y_saved247.i, align 4
   br label %vc_putchar.exit
 
 sw.bb244.i:                                       ; preds = %trace_console_putchar_csi.exit.i
-  %211 = load i32, ptr %x_saved245.i, align 8
+  %182 = load i32, ptr %x_saved245.i, align 8
   %x246.i = getelementptr inbounds i8, ptr %4, i64 248
-  store i32 %211, ptr %x246.i, align 8
-  %212 = load i32, ptr %y_saved247.i, align 4
+  store i32 %182, ptr %x246.i, align 8
+  %183 = load i32, ptr %y_saved247.i, align 4
   %y248.i = getelementptr inbounds i8, ptr %4, i64 252
-  store i32 %212, ptr %y248.i, align 4
+  store i32 %183, ptr %y248.i, align 4
   br label %vc_putchar.exit
 
 sw.default249.i:                                  ; preds = %trace_console_putchar_csi.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %213 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %213, 0
-  %214 = load i16, ptr @_TRACE_CONSOLE_PUTCHAR_UNHANDLED_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %214, 0
+  %184 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %184, 0
+  %185 = load i16, ptr @_TRACE_CONSOLE_PUTCHAR_UNHANDLED_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %185, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_console_putchar_unhandled.exit
 
 land.lhs.true5.i.i:                               ; preds = %sw.default249.i
-  %215 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %215, 32768
+  %186 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %186, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_console_putchar_unhandled.exit, label %if.then.i.i23
 
 if.then.i.i23:                                    ; preds = %land.lhs.true5.i.i
-  %216 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %216 to i1
+  %187 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %187 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i23
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
-  %217 = load i64, ptr %_now.i.i, align 8
-  %218 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %217, i64 noundef %218, i32 noundef %conv) #12
+  %188 = load i64, ptr %_now.i.i, align 8
+  %189 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %188, i64 noundef %189, i32 noundef %conv) #12
   br label %trace_console_putchar_unhandled.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i23
@@ -2659,20 +2698,20 @@ vc_putchar.exit:                                  ; preds = %vc_put_one.exit.i32
 
 for.end:                                          ; preds = %vc_putchar.exit, %entry
   tail call fastcc void @console_show_cursor(ptr noundef %0, i32 noundef 1)
-  %219 = load i32, ptr %update_x0, align 8
-  %220 = load i32, ptr %update_x1, align 8
-  %cmp4 = icmp slt i32 %219, %220
+  %190 = load i32, ptr %update_x0, align 8
+  %191 = load i32, ptr %update_x1, align 8
+  %cmp4 = icmp slt i32 %190, %191
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
   %call.i22 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
-  %221 = load i32, ptr %update_x0, align 8
-  %222 = load i32, ptr %update_y0, align 4
-  %223 = load i32, ptr %update_x1, align 8
-  %sub = sub i32 %223, %221
-  %224 = load i32, ptr %update_y1, align 4
-  %sub13 = sub i32 %224, %222
-  tail call void @dpy_gfx_update(ptr noundef %call.i22, i32 noundef %221, i32 noundef %222, i32 noundef %sub, i32 noundef %sub13) #12
+  %192 = load i32, ptr %update_x0, align 8
+  %193 = load i32, ptr %update_y0, align 4
+  %194 = load i32, ptr %update_x1, align 8
+  %sub = sub i32 %194, %192
+  %195 = load i32, ptr %update_y1, align 4
+  %sub13 = sub i32 %195, %193
+  tail call void @dpy_gfx_update(ptr noundef %call.i22, i32 noundef %192, i32 noundef %193, i32 noundef %sub, i32 noundef %sub13) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.end
@@ -3064,9 +3103,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

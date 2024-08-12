@@ -17,18 +17,46 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @memrev32(ptr nocapture noundef %p) local_unnamed_addr #0 {
 entry:
-  %0 = load <4 x i8>, ptr %p, align 1
-  %1 = shufflevector <4 x i8> %0, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i8> %1, ptr %p, align 1
+  %0 = load i8, ptr %p, align 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %p, i64 3
+  %1 = load i8, ptr %arrayidx1, align 1
+  store i8 %1, ptr %p, align 1
+  store i8 %0, ptr %arrayidx1, align 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %p, i64 1
+  %2 = load i8, ptr %arrayidx4, align 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %p, i64 2
+  %3 = load i8, ptr %arrayidx5, align 1
+  store i8 %3, ptr %arrayidx4, align 1
+  store i8 %2, ptr %arrayidx5, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @memrev64(ptr nocapture noundef %p) local_unnamed_addr #0 {
 entry:
-  %0 = load <8 x i8>, ptr %p, align 1
-  %1 = shufflevector <8 x i8> %0, <8 x i8> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  store <8 x i8> %1, ptr %p, align 1
+  %0 = load i8, ptr %p, align 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %p, i64 7
+  %1 = load i8, ptr %arrayidx1, align 1
+  store i8 %1, ptr %p, align 1
+  store i8 %0, ptr %arrayidx1, align 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %p, i64 1
+  %2 = load i8, ptr %arrayidx4, align 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %p, i64 6
+  %3 = load i8, ptr %arrayidx5, align 1
+  store i8 %3, ptr %arrayidx4, align 1
+  store i8 %2, ptr %arrayidx5, align 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %p, i64 2
+  %4 = load i8, ptr %arrayidx8, align 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %p, i64 5
+  %5 = load i8, ptr %arrayidx9, align 1
+  store i8 %5, ptr %arrayidx8, align 1
+  store i8 %4, ptr %arrayidx9, align 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %p, i64 3
+  %6 = load i8, ptr %arrayidx12, align 1
+  %arrayidx13 = getelementptr inbounds i8, ptr %p, i64 4
+  %7 = load i8, ptr %arrayidx13, align 1
+  store i8 %7, ptr %arrayidx12, align 1
+  store i8 %6, ptr %arrayidx13, align 1
   ret void
 }
 

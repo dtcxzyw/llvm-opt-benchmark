@@ -1859,7 +1859,13 @@ machine_copy_boot_config.exit:                    ; preds = %if.then11, %land.lh
   %max_cpus = getelementptr inbounds i8, ptr %call.i, i64 320
   store i32 %4, ptr %max_cpus, align 8
   %drawers = getelementptr inbounds i8, ptr %call.i, i64 292
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr %drawers, align 4
+  store i32 1, ptr %drawers, align 4
+  %books = getelementptr inbounds i8, ptr %call.i, i64 296
+  store i32 1, ptr %books, align 8
+  %sockets = getelementptr inbounds i8, ptr %call.i, i64 300
+  store i32 1, ptr %sockets, align 4
+  %dies = getelementptr inbounds i8, ptr %call.i, i64 304
+  store i32 1, ptr %dies, align 8
   %clusters = getelementptr inbounds i8, ptr %call.i, i64 308
   store i32 1, ptr %clusters, align 4
   %cores = getelementptr inbounds i8, ptr %call.i, i64 312
@@ -1990,9 +1996,13 @@ define internal void @machine_class_base_init(ptr noundef %oc, ptr nocapture rea
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_CLASS) #16
   %max_cpus = getelementptr inbounds i8, ptr %call.i, i64 176
-  %0 = load <2 x i32>, ptr %max_cpus, align 8
-  %1 = tail call <2 x i32> @llvm.umax.v2i32(<2 x i32> %0, <2 x i32> <i32 1, i32 1>)
-  store <2 x i32> %1, ptr %max_cpus, align 8
+  %0 = load i32, ptr %max_cpus, align 8
+  %. = tail call i32 @llvm.umax.i32(i32 %0, i32 1)
+  store i32 %., ptr %max_cpus, align 8
+  %min_cpus = getelementptr inbounds i8, ptr %call.i, i64 180
+  %1 = load i32, ptr %min_cpus, align 4
+  %cond6 = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
+  store i32 %cond6, ptr %min_cpus, align 4
   %default_cpus = getelementptr inbounds i8, ptr %call.i, i64 184
   %2 = load i32, ptr %default_cpus, align 8
   %cond12 = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
@@ -2880,9 +2890,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.umax.v2i32(<2 x i32>, <2 x i32>) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

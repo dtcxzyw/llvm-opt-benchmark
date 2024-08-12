@@ -151,21 +151,24 @@ define hidden void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
   %.sroa.02.0.copyload = load ptr, ptr %1, align 8, !nonnull !16, !noundef !16
   %.sroa.54.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.54.0.copyload = load i64, ptr %.sroa.54.0..sroa_idx, align 8
+  %.sroa.67.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.67.0.copyload = load i64, ptr %.sroa.67.0..sroa_idx, align 8
   %.sroa.610.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.610.0.copyload = load i64, ptr %.sroa.610.0..sroa_idx, align 8
-  %4 = load <16 x i8>, ptr %.sroa.02.0.copyload, align 16, !noalias !29
-  %5 = icmp slt <16 x i8> %4, zeroinitializer
-  %6 = bitcast <16 x i1> %5 to i16
-  %7 = xor i16 %6, -1
-  %8 = getelementptr inbounds i8, ptr %.sroa.02.0.copyload, i64 16
+  %4 = getelementptr i8, ptr %.sroa.02.0.copyload, i64 %.sroa.54.0.copyload
+  %5 = getelementptr i8, ptr %4, i64 1
+  %6 = load <16 x i8>, ptr %.sroa.02.0.copyload, align 16, !noalias !29
+  %7 = icmp slt <16 x i8> %6, zeroinitializer
+  %8 = bitcast <16 x i1> %7 to i16
+  %9 = xor i16 %8, -1
+  %10 = getelementptr inbounds i8, ptr %.sroa.02.0.copyload, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !37
   store ptr %.sroa.02.0.copyload, ptr %3, align 8, !noalias !42
   %.sroa.54.0..sroa_idx5 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %.sroa.54.0..sroa_idx, align 8
-  %.sroa.54.0.copyload = load i64, ptr %.sroa.54.0..sroa_idx, align 8
-  %10 = getelementptr i8, ptr %.sroa.02.0.copyload, i64 %.sroa.54.0.copyload
-  %11 = getelementptr i8, ptr %10, i64 1
-  store <2 x i64> %9, ptr %.sroa.54.0..sroa_idx5, align 8, !noalias !42
+  store i64 %.sroa.54.0.copyload, ptr %.sroa.54.0..sroa_idx5, align 8, !noalias !42
+  %.sroa.67.0..sroa_idx8 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %.sroa.67.0.copyload, ptr %.sroa.67.0..sroa_idx8, align 8, !noalias !42
   %.sroa.610.0..sroa_idx11 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %.sroa.610.0.copyload, ptr %.sroa.610.0..sroa_idx11, align 8, !noalias !42
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h3edc0e3925aaea89E.llvm.13299765037273942663"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %.sroa.0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3), !noalias !43
@@ -174,11 +177,11 @@ define hidden void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.02.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %8, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %10, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %11, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %5, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i16 %7, ptr %.sroa.7.0..sroa_idx, align 8
+  store i16 %9, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.81.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %.sroa.610.0.copyload, ptr %.sroa.81.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
@@ -3365,7 +3368,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$GT$9next_
 ; Function Attrs: cold nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h8d232f4b83261ca0E"(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2, i1 noundef zeroext %3) unnamed_addr #25 personality ptr @rust_eh_personality {
   %5 = alloca [1 x i8], align 1
-  %6 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 16
+  %6 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
   %7 = alloca { ptr, [6 x i64] }, align 8
   %8 = alloca { { ptr, { i64, i64 } }, { ptr, i64, i64, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -3438,15 +3441,18 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h140384e9193863ddE
   %40 = icmp slt <16 x i8> %39, zeroinitializer
   %41 = bitcast <16 x i1> %40 to i16
   %42 = xor i16 %41, -1
-  %43 = load <2 x i64>, ptr %2, align 8, !noalias !676
-  %44 = shufflevector <2 x i64> %43, <2 x i64> poison, <2 x i32> zeroinitializer
-  %45 = xor <2 x i64> %44, <i64 8317987319222330741, i64 7816392313619706465>
-  %46 = shufflevector <2 x i64> %43, <2 x i64> poison, <2 x i32> <i32 1, i32 1>
-  %47 = xor <2 x i64> %46, <i64 7237128888997146477, i64 8387220255154660723>
+  %.val.i.i = load i64, ptr %2, align 8, !noalias !676, !noundef !16
+  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %.val1.i.i = load i64, ptr %43, align 8, !noalias !676, !noundef !16
+  %44 = xor i64 %.val.i.i, 8317987319222330741
+  %45 = xor i64 %.val1.i.i, 7237128888997146477
+  %46 = xor i64 %.val.i.i, 7816392313619706465
+  %47 = xor i64 %.val1.i.i, 8387220255154660723
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %.sroa.0.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %.sroa.0.sroa.7.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.0.sroa.8.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 48
   %48 = getelementptr inbounds i8, ptr %6, i64 56
   %.sroa.6.0..sroa_idx.i.i.val = load ptr, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !nonnull !16
@@ -3505,20 +3511,23 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h140384e9193863ddE
   %67 = getelementptr i8, ptr %65, i64 -88
   %.val5.i = load i64, ptr %67, align 8, !noalias !676, !noundef !16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !676
-  store <2 x i64> %45, ptr %6, align 16, !alias.scope !685, !noalias !676
-  store <2 x i64> %47, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, align 16, !alias.scope !685, !noalias !676
-  store <2 x i64> %43, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i.i.i, align 16, !alias.scope !685, !noalias !676
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !685, !noalias !676
+  store i64 %44, ptr %6, align 8, !alias.scope !685, !noalias !676
+  store i64 %46, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i, align 8, !alias.scope !685, !noalias !676
+  store i64 %45, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, align 8, !alias.scope !685, !noalias !676
+  store i64 %47, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !685, !noalias !676
+  store i64 %.val.i.i, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i.i.i, align 8, !alias.scope !685, !noalias !676
+  store i64 %.val1.i.i, ptr %.sroa.0.sroa.8.0..sroa_idx.i.i.i.i, align 8, !alias.scope !685, !noalias !676
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !685, !noalias !676
   call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h1faf920c9594d1f1E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %.val4.i, i64 noundef %.val5.i), !noalias !676
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !688
   store i8 -1, ptr %5, align 1, !noalias !688
   call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h1faf920c9594d1f1E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !694
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !688
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %6, align 16, !alias.scope !695, !noalias !676
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %6, align 8, !alias.scope !695, !noalias !676
   %.sroa.10.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i, align 8, !alias.scope !695, !noalias !676
-  %.sroa.17.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, align 16, !alias.scope !695, !noalias !676
+  %.sroa.17.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, align 8, !alias.scope !695, !noalias !676
   %.sroa.22.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !695, !noalias !676
-  %68 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, align 16, !alias.scope !695, !noalias !676, !noundef !16
+  %68 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, align 8, !alias.scope !695, !noalias !676, !noundef !16
   %69 = shl i64 %68, 56
   %70 = load i64, ptr %48, align 8, !alias.scope !695, !noalias !676, !noundef !16
   %71 = or i64 %69, %70
@@ -4136,7 +4145,7 @@ _ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17h1d82aa2ec3c89ba5E
 ; Function Attrs: cold nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17hf4c2ea81bb826a16E"(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2, i1 noundef zeroext %3) unnamed_addr #25 personality ptr @rust_eh_personality {
   %5 = alloca [1 x i8], align 1
-  %6 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 16
+  %6 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
   %7 = alloca { ptr, [6 x i64] }, align 8
   %8 = alloca { { ptr, { i64, i64 } }, { ptr, i64, i64, i64 } }, align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -4209,15 +4218,18 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h140384e9193863ddE
   %40 = icmp slt <16 x i8> %39, zeroinitializer
   %41 = bitcast <16 x i1> %40 to i16
   %42 = xor i16 %41, -1
-  %43 = load <2 x i64>, ptr %2, align 8, !noalias !769
-  %44 = shufflevector <2 x i64> %43, <2 x i64> poison, <2 x i32> zeroinitializer
-  %45 = xor <2 x i64> %44, <i64 8317987319222330741, i64 7816392313619706465>
-  %46 = shufflevector <2 x i64> %43, <2 x i64> poison, <2 x i32> <i32 1, i32 1>
-  %47 = xor <2 x i64> %46, <i64 7237128888997146477, i64 8387220255154660723>
+  %.val.i.i = load i64, ptr %2, align 8, !noalias !769, !noundef !16
+  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %.val1.i.i = load i64, ptr %43, align 8, !noalias !769, !noundef !16
+  %44 = xor i64 %.val.i.i, 8317987319222330741
+  %45 = xor i64 %.val1.i.i, 7237128888997146477
+  %46 = xor i64 %.val.i.i, 7816392313619706465
+  %47 = xor i64 %.val1.i.i, 8387220255154660723
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %.sroa.0.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %.sroa.0.sroa.7.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.0.sroa.8.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 48
   %48 = getelementptr inbounds i8, ptr %6, i64 56
   %.sroa.6.0..sroa_idx.i.i.val = load ptr, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !nonnull !16
@@ -4276,20 +4288,23 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h140384e9193863ddE
   %67 = getelementptr i8, ptr %65, i64 -88
   %.val5.i = load i64, ptr %67, align 8, !noalias !769, !noundef !16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !769
-  store <2 x i64> %45, ptr %6, align 16, !alias.scope !778, !noalias !769
-  store <2 x i64> %47, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, align 16, !alias.scope !778, !noalias !769
-  store <2 x i64> %43, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i.i.i, align 16, !alias.scope !778, !noalias !769
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !778, !noalias !769
+  store i64 %44, ptr %6, align 8, !alias.scope !778, !noalias !769
+  store i64 %46, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i, align 8, !alias.scope !778, !noalias !769
+  store i64 %45, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, align 8, !alias.scope !778, !noalias !769
+  store i64 %47, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !778, !noalias !769
+  store i64 %.val.i.i, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i.i.i, align 8, !alias.scope !778, !noalias !769
+  store i64 %.val1.i.i, ptr %.sroa.0.sroa.8.0..sroa_idx.i.i.i.i, align 8, !alias.scope !778, !noalias !769
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !778, !noalias !769
   call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h1faf920c9594d1f1E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %.val4.i, i64 noundef %.val5.i), !noalias !769
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !781
   store i8 -1, ptr %5, align 1, !noalias !781
   call fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h1faf920c9594d1f1E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !787
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !781
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %6, align 16, !alias.scope !788, !noalias !769
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %6, align 8, !alias.scope !788, !noalias !769
   %.sroa.10.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i, align 8, !alias.scope !788, !noalias !769
-  %.sroa.17.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, align 16, !alias.scope !788, !noalias !769
+  %.sroa.17.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.i, align 8, !alias.scope !788, !noalias !769
   %.sroa.22.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !788, !noalias !769
-  %68 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, align 16, !alias.scope !788, !noalias !769, !noundef !16
+  %68 = load i64, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, align 8, !alias.scope !788, !noalias !769, !noundef !16
   %69 = shl i64 %68, 56
   %70 = load i64, ptr %48, align 8, !alias.scope !788, !noalias !769, !noundef !16
   %71 = or i64 %69, %70

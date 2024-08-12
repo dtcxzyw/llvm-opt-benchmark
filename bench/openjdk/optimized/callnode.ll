@@ -1594,25 +1594,35 @@ define hidden void @_ZN8JVMState8bind_mapEP13SafePointNode(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN8JVMState14adapt_positionEi(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
-  %3 = insertelement <4 x i32> poison, i32 %1, i64 0
-  %4 = shufflevector <4 x i32> %3, <4 x i32> poison, <4 x i32> zeroinitializer
-  br label %5
+  br label %3
 
-5:                                                ; preds = %2, %5
-  %.017 = phi ptr [ %0, %2 ], [ %12, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.017, i64 12
-  %7 = load <4 x i32>, ptr %6, align 4
-  %8 = add <4 x i32> %7, %4
-  store <4 x i32> %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %.017, i64 28
-  %10 = load i32, ptr %9, align 4
-  %11 = add i32 %10, %1
-  store i32 %11, ptr %9, align 4
-  %12 = load ptr, ptr %.017, align 8
-  %.not = icmp eq ptr %12, null
-  br i1 %.not, label %13, label %5, !llvm.loop !12
+3:                                                ; preds = %2, %3
+  %.017 = phi ptr [ %0, %2 ], [ %19, %3 ]
+  %4 = getelementptr inbounds i8, ptr %.017, i64 12
+  %5 = load i32, ptr %4, align 4
+  %6 = add i32 %5, %1
+  store i32 %6, ptr %4, align 4
+  %7 = getelementptr inbounds i8, ptr %.017, i64 16
+  %8 = load i32, ptr %7, align 8
+  %9 = add i32 %8, %1
+  store i32 %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %.017, i64 20
+  %11 = load i32, ptr %10, align 4
+  %12 = add i32 %11, %1
+  store i32 %12, ptr %10, align 4
+  %13 = getelementptr inbounds i8, ptr %.017, i64 24
+  %14 = load i32, ptr %13, align 8
+  %15 = add i32 %14, %1
+  store i32 %15, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %.017, i64 28
+  %17 = load i32, ptr %16, align 4
+  %18 = add i32 %17, %1
+  store i32 %18, ptr %16, align 4
+  %19 = load ptr, ptr %.017, align 8
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %20, label %3, !llvm.loop !12
 
-13:                                               ; preds = %5
+20:                                               ; preds = %3
   ret void
 }
 
@@ -3056,27 +3066,34 @@ _ZNK8JVMState10clone_deepEP7Compile.exit:         ; preds = %.lr.ph.i, %95, %._c
   %109 = load ptr, ptr %108, align 8
   %110 = tail call noundef ptr %109(ptr noundef nonnull align 8 dereferenceable(81) %0) #15
   %.not4756 = icmp eq ptr %110, null
-  br i1 %.not4756, label %._crit_edge59, label %.lr.ph58.preheader
+  br i1 %.not4756, label %._crit_edge59, label %.lr.ph58
 
-.lr.ph58.preheader:                               ; preds = %_ZNK8JVMState10clone_deepEP7Compile.exit
-  %111 = insertelement <4 x i32> poison, i32 %23, i64 0
-  %112 = shufflevector <4 x i32> %111, <4 x i32> poison, <4 x i32> zeroinitializer
-  br label %.lr.ph58
-
-.lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
-  %.057 = phi ptr [ %120, %.lr.ph58 ], [ %110, %.lr.ph58.preheader ]
-  %113 = getelementptr inbounds i8, ptr %.057, i64 56
-  store ptr %0, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %.057, i64 12
-  %115 = load <4 x i32>, ptr %114, align 4
-  %116 = add <4 x i32> %115, %112
-  store <4 x i32> %116, ptr %114, align 4
-  %117 = getelementptr inbounds i8, ptr %.057, i64 28
-  %118 = load i32, ptr %117, align 4
-  %119 = add i32 %118, %23
-  store i32 %119, ptr %117, align 4
-  %120 = load ptr, ptr %.057, align 8
-  %.not47 = icmp eq ptr %120, null
+.lr.ph58:                                         ; preds = %_ZNK8JVMState10clone_deepEP7Compile.exit, %.lr.ph58
+  %.057 = phi ptr [ %127, %.lr.ph58 ], [ %110, %_ZNK8JVMState10clone_deepEP7Compile.exit ]
+  %111 = getelementptr inbounds i8, ptr %.057, i64 56
+  store ptr %0, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %.057, i64 12
+  %113 = load i32, ptr %112, align 4
+  %114 = add i32 %113, %23
+  store i32 %114, ptr %112, align 4
+  %115 = getelementptr inbounds i8, ptr %.057, i64 16
+  %116 = load i32, ptr %115, align 8
+  %117 = add i32 %116, %23
+  store i32 %117, ptr %115, align 8
+  %118 = getelementptr inbounds i8, ptr %.057, i64 20
+  %119 = load i32, ptr %118, align 4
+  %120 = add i32 %119, %23
+  store i32 %120, ptr %118, align 4
+  %121 = getelementptr inbounds i8, ptr %.057, i64 24
+  %122 = load i32, ptr %121, align 8
+  %123 = add i32 %122, %23
+  store i32 %123, ptr %121, align 8
+  %124 = getelementptr inbounds i8, ptr %.057, i64 28
+  %125 = load i32, ptr %124, align 4
+  %126 = add i32 %125, %23
+  store i32 %126, ptr %124, align 4
+  %127 = load ptr, ptr %.057, align 8
+  %.not47 = icmp eq ptr %127, null
   br i1 %.not47, label %._crit_edge59, label %.lr.ph58, !llvm.loop !24
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %_ZNK8JVMState10clone_deepEP7Compile.exit
@@ -4253,32 +4270,34 @@ define hidden void @_ZN13SafePointNode10grow_stackEP8JVMStatej(ptr noundef nonnu
   %4 = getelementptr inbounds i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 24
-  %7 = load <2 x i32>, ptr %6, align 8
-  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1808
+  %7 = load i32, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 128
+  %12 = getelementptr inbounds i8, ptr %11, i64 1808
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 744
+  %14 = getelementptr inbounds i8, ptr %13, i64 128
   %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 744
+  %17 = load ptr, ptr %16, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.018 = phi i32 [ %16, %.lr.ph ], [ 0, %3 ]
-  tail call void @_ZN4Node7ins_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %5, ptr noundef %15) #15
-  %16 = add nuw i32 %.018, 1
-  %exitcond.not = icmp eq i32 %16, %2
+  %.018 = phi i32 [ %18, %.lr.ph ], [ 0, %3 ]
+  tail call void @_ZN4Node7ins_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %5, ptr noundef %17) #15
+  %18 = add nuw i32 %.018, 1
+  %exitcond.not = icmp eq i32 %18, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %17 = add i32 %5, %2
-  store i32 %17, ptr %4, align 4
-  %18 = insertelement <2 x i32> poison, i32 %2, i64 0
-  %19 = shufflevector <2 x i32> %18, <2 x i32> poison, <2 x i32> zeroinitializer
-  %20 = add <2 x i32> %7, %19
-  store <2 x i32> %20, ptr %6, align 8
+  %19 = add i32 %5, %2
+  store i32 %19, ptr %4, align 4
+  %20 = add i32 %7, %2
+  store i32 %20, ptr %6, align 8
+  %21 = add i32 %9, %2
+  store i32 %21, ptr %8, align 4
   ret void
 }
 

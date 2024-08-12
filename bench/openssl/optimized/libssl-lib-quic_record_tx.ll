@@ -27,15 +27,19 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %1 = load <2 x ptr>, ptr %args, align 8
-  store <2 x ptr> %1, ptr %call, align 8
+  %1 = load ptr, ptr %args, align 8
+  store ptr %1, ptr %call, align 8
+  %propq = getelementptr inbounds i8, ptr %args, i64 8
+  %2 = load ptr, ptr %propq, align 8
+  %propq5 = getelementptr inbounds i8, ptr %call, i64 8
+  store ptr %2, ptr %propq5, align 8
   %bio = getelementptr inbounds i8, ptr %args, i64 16
-  %2 = load ptr, ptr %bio, align 8
+  %3 = load ptr, ptr %bio, align 8
   %bio6 = getelementptr inbounds i8, ptr %call, i64 848
-  store ptr %2, ptr %bio6, align 8
-  %3 = load i64, ptr %mdpl, align 8
+  store ptr %3, ptr %bio6, align 8
+  %4 = load i64, ptr %mdpl, align 8
   %mdpl8 = getelementptr inbounds i8, ptr %call, i64 856
-  store i64 %3, ptr %mdpl8, align 8
+  store i64 %4, ptr %mdpl8, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end3
@@ -309,9 +313,13 @@ if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
 
 qtx_add_to_pending.exit.i:                        ; preds = %if.then8.i.i.i, %if.end.i.i.i
   %num_elems.i.i.i = getelementptr inbounds i8, ptr %qtx, i64 904
-  %12 = load <2 x i64>, ptr %num_elems.i.i.i, align 8
-  %13 = add <2 x i64> %12, <i64 1, i64 1>
-  store <2 x i64> %13, ptr %num_elems.i.i.i, align 8
+  %12 = load i64, ptr %num_elems.i.i.i, align 8
+  %inc.i.i.i = add i64 %12, 1
+  store i64 %inc.i.i.i, ptr %num_elems.i.i.i, align 8
+  %pending_count.i.i = getelementptr inbounds i8, ptr %qtx, i64 912
+  %13 = load i64, ptr %pending_count.i.i, align 8
+  %inc.i8.i = add i64 %13, 1
+  store i64 %inc.i8.i, ptr %pending_count.i.i, align 8
   %14 = load i64, ptr %data_len.i, align 8
   br label %if.end3.i
 
@@ -472,9 +480,13 @@ if.then8.i.i.i80:                                 ; preds = %if.end.i.i.i67
 
 qtx_add_to_pending.exit.i70:                      ; preds = %if.then8.i.i.i80, %if.end.i.i.i67
   %num_elems.i.i.i71 = getelementptr inbounds i8, ptr %qtx, i64 904
-  %29 = load <2 x i64>, ptr %num_elems.i.i.i71, align 8
-  %30 = add <2 x i64> %29, <i64 1, i64 1>
-  store <2 x i64> %30, ptr %num_elems.i.i.i71, align 8
+  %29 = load i64, ptr %num_elems.i.i.i71, align 8
+  %inc.i.i.i72 = add i64 %29, 1
+  store i64 %inc.i.i.i72, ptr %num_elems.i.i.i71, align 8
+  %pending_count.i.i73 = getelementptr inbounds i8, ptr %qtx, i64 912
+  %30 = load i64, ptr %pending_count.i.i73, align 8
+  %inc.i8.i74 = add i64 %30, 1
+  store i64 %inc.i8.i74, ptr %pending_count.i.i73, align 8
   %31 = load i64, ptr %data_len.i59, align 8
   br label %if.end3.i75
 
@@ -515,6 +527,7 @@ if.end35:                                         ; preds = %if.end16.thread, %l
   %pending.i.i130 = getelementptr inbounds i8, ptr %qtx, i64 888
   %omega.i.i.i131 = getelementptr inbounds i8, ptr %qtx, i64 896
   %num_elems.i.i.i139 = getelementptr inbounds i8, ptr %qtx, i64 904
+  %pending_count.i.i141 = getelementptr inbounds i8, ptr %qtx, i64 912
   %.pre228 = load ptr, ptr %cons238, align 8
   br label %for.cond
 
@@ -1037,9 +1050,12 @@ if.then8.i.i.i148:                                ; preds = %if.end.i.i.i135
   br label %qtx_add_to_pending.exit.i138
 
 qtx_add_to_pending.exit.i138:                     ; preds = %if.then8.i.i.i148, %if.end.i.i.i135
-  %99 = load <2 x i64>, ptr %num_elems.i.i.i139, align 8
-  %100 = add <2 x i64> %99, <i64 1, i64 1>
-  store <2 x i64> %100, ptr %num_elems.i.i.i139, align 8
+  %99 = load i64, ptr %num_elems.i.i.i139, align 8
+  %inc.i.i.i140 = add i64 %99, 1
+  store i64 %inc.i.i.i140, ptr %num_elems.i.i.i139, align 8
+  %100 = load i64, ptr %pending_count.i.i141, align 8
+  %inc.i8.i142 = add i64 %100, 1
+  store i64 %inc.i8.i142, ptr %pending_count.i.i141, align 8
   %101 = load i64, ptr %data_len.i127, align 8
   br label %if.end3.i143
 
@@ -1128,9 +1144,12 @@ if.then8.i.i.i187:                                ; preds = %if.end.i.i.i174
   br label %qtx_add_to_pending.exit.i177
 
 qtx_add_to_pending.exit.i177:                     ; preds = %if.then8.i.i.i187, %if.end.i.i.i174
-  %114 = load <2 x i64>, ptr %num_elems.i.i.i139, align 8
-  %115 = add <2 x i64> %114, <i64 1, i64 1>
-  store <2 x i64> %115, ptr %num_elems.i.i.i139, align 8
+  %114 = load i64, ptr %num_elems.i.i.i139, align 8
+  %inc.i.i.i179 = add i64 %114, 1
+  store i64 %inc.i.i.i179, ptr %num_elems.i.i.i139, align 8
+  %115 = load i64, ptr %pending_count.i.i141, align 8
+  %inc.i8.i181 = add i64 %115, 1
+  store i64 %inc.i8.i181, ptr %pending_count.i.i141, align 8
   %116 = load i64, ptr %data_len.i166, align 8
   br label %if.end3.i182
 
@@ -1217,9 +1236,13 @@ if.then8.i.i:                                     ; preds = %if.end.i.i
 
 qtx_add_to_pending.exit:                          ; preds = %if.end.i.i, %if.then8.i.i
   %num_elems.i.i = getelementptr inbounds i8, ptr %qtx, i64 904
-  %8 = load <2 x i64>, ptr %num_elems.i.i, align 8
-  %9 = add <2 x i64> %8, <i64 1, i64 1>
-  store <2 x i64> %9, ptr %num_elems.i.i, align 8
+  %8 = load i64, ptr %num_elems.i.i, align 8
+  %inc.i.i = add i64 %8, 1
+  store i64 %inc.i.i, ptr %num_elems.i.i, align 8
+  %pending_count.i = getelementptr inbounds i8, ptr %qtx, i64 912
+  %9 = load i64, ptr %pending_count.i, align 8
+  %inc.i8 = add i64 %9, 1
+  store i64 %inc.i8, ptr %pending_count.i, align 8
   %10 = load i64, ptr %data_len, align 8
   br label %if.end3
 

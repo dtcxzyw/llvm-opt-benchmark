@@ -337,76 +337,81 @@ declare void @_ZN2cv5remapERKNS_11_InputArrayERKNS_12_OutputArrayES2_S2_iiRKNS_7
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK2cv3reg8MapShift10inverseMapEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 .critedge:
-  %2 = alloca %"class.cv::Vec", align 16
+  %2 = alloca %"class.cv::Vec", align 8
   %3 = alloca %"class.cv::_InputArray", align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %5 = load <2 x double>, ptr %4, align 8, !noalias !14
-  %6 = fneg <2 x double> %5
-  store <2 x double> %6, ptr %2, align 16, !alias.scope !14
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %indvars.iv.i.sroa.gep6 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = load double, ptr %4, align 8, !noalias !14
+  %6 = fneg double %5
+  store double %6, ptr %2, align 8, !alias.scope !14
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = load double, ptr %7, align 8, !noalias !14
+  %9 = fneg double %8
+  store double %9, ptr %indvars.iv.i.sroa.gep6, align 8, !alias.scope !14
+  %10 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 -1056833530, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %2, ptr %9, align 8
-  store i64 8589934593, ptr %8, align 8
-  invoke void @_ZN2cv3reg8MapShiftC1ERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %10 unwind label %30
+  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %2, ptr %12, align 8
+  store i64 8589934593, ptr %11, align 8
+  invoke void @_ZN2cv3reg8MapShiftC1ERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %13 unwind label %33
 
-10:                                               ; preds = %.critedge
-  store ptr %7, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr null, ptr %11, align 8
-  %12 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-          to label %26 unwind label %13
+13:                                               ; preds = %.critedge
+  store ptr %10, ptr %0, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr null, ptr %14, align 8
+  %15 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+          to label %29 unwind label %16
 
-13:                                               ; preds = %10
-  %14 = landingpad { ptr, i32 }
+16:                                               ; preds = %13
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  %16 = call ptr @__cxa_begin_catch(ptr %15) #12
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
+  %18 = extractvalue { ptr, i32 } %17, 0
+  %19 = call ptr @__cxa_begin_catch(ptr %18) #12
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
   invoke void @__cxa_rethrow() #15
-          to label %25 unwind label %20
+          to label %28 unwind label %23
 
-20:                                               ; preds = %13
-  %21 = landingpad { ptr, i32 }
+23:                                               ; preds = %16
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body unwind label %22
+          to label %.body unwind label %25
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+25:                                               ; preds = %23
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #16
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #16
   unreachable
 
-25:                                               ; preds = %13
+28:                                               ; preds = %16
   unreachable
 
-26:                                               ; preds = %10
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %12, i64 12
-  store i32 1, ptr %28, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3reg8MapShiftELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12, align 8
-  %29 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr %7, ptr %29, align 8
-  store ptr %12, ptr %11, align 8
+29:                                               ; preds = %13
+  %30 = getelementptr inbounds i8, ptr %15, i64 8
+  store i32 1, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %15, i64 12
+  store i32 1, ptr %31, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3reg8MapShiftELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8
+  %32 = getelementptr inbounds i8, ptr %15, i64 16
+  store ptr %10, ptr %32, align 8
+  store ptr %15, ptr %14, align 8
   ret void
 
-30:                                               ; preds = %.critedge
-  %31 = landingpad { ptr, i32 }
+33:                                               ; preds = %.critedge
+  %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %7) #13
+  call void @_ZdlPv(ptr noundef nonnull %10) #13
   br label %.body
 
-.body:                                            ; preds = %20, %30
-  %.pn9 = phi { ptr, i32 } [ %31, %30 ], [ %21, %20 ]
+.body:                                            ; preds = %23, %33
+  %.pn9 = phi { ptr, i32 } [ %34, %33 ], [ %24, %23 ]
   resume { ptr, i32 } %.pn9
 }
 
@@ -436,11 +441,13 @@ _ZN2cvpLIddLi2EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.critedge:
 define void @_ZN2cv3reg8MapShift5scaleEd(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #8 align 2 {
 _ZN2cvmLIdLi2EEERNS_3VecIT_XT0_EEES4_d.exit.critedge:
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load <2 x double>, ptr %2, align 8
-  %4 = insertelement <2 x double> poison, double %1, i64 0
-  %5 = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> zeroinitializer
-  %6 = fmul <2 x double> %3, %5
-  store <2 x double> %6, ptr %2, align 8
+  %3 = load double, ptr %2, align 8
+  %4 = fmul double %3, %1
+  store double %4, ptr %2, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load double, ptr %5, align 8
+  %7 = fmul double %6, %1
+  store double %7, ptr %5, align 8
   ret void
 }
 

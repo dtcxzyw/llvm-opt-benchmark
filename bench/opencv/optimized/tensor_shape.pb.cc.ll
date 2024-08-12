@@ -2182,29 +2182,35 @@ define hidden void @_ZN17opencv_tensorflow16TensorShapeProto12InternalSwapEPS0_(
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
-  %11 = load ptr, ptr %10, align 8, !noalias !11
-  %12 = load ptr, ptr %8, align 8, !noalias !11
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !noalias !14
-  %16 = load ptr, ptr %7, align 8, !noalias !14
-  %17 = load <2 x i32>, ptr %9, align 4, !noalias !11
-  %18 = load <2 x i32>, ptr %13, align 8, !noalias !14
-  store ptr %16, ptr %8, align 8
-  store ptr %15, ptr %10, align 8
-  store <2 x i32> %18, ptr %9, align 4
-  store ptr %12, ptr %7, align 8
-  store <2 x i32> %17, ptr %13, align 8
-  store ptr %11, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
-  %21 = load i8, ptr %19, align 8
-  %22 = and i8 %21, 1
-  %23 = load i8, ptr %20, align 1
-  %24 = and i8 %23, 1
-  store i8 %24, ptr %19, align 8
-  store i8 %22, ptr %20, align 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 28
+  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = load ptr, ptr %11, align 8, !noalias !11
+  %13 = load i32, ptr %10, align 4, !noalias !11
+  %14 = load i32, ptr %9, align 4, !noalias !11
+  %15 = load ptr, ptr %8, align 8, !noalias !11
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = load ptr, ptr %18, align 8, !noalias !14
+  %20 = load i32, ptr %17, align 4, !noalias !14
+  %21 = load i32, ptr %16, align 8, !noalias !14
+  %22 = load ptr, ptr %7, align 8, !noalias !14
+  store ptr %22, ptr %8, align 8
+  store i32 %21, ptr %9, align 4
+  store i32 %20, ptr %10, align 4
+  store ptr %19, ptr %11, align 8
+  store ptr %15, ptr %7, align 8
+  store i32 %14, ptr %16, align 8
+  store i32 %13, ptr %17, align 4
+  store ptr %12, ptr %18, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = load i8, ptr %23, align 8
+  %26 = and i8 %25, 1
+  %27 = load i8, ptr %24, align 1
+  %28 = and i8 %27, 1
+  store i8 %28, ptr %23, align 8
+  store i8 %26, ptr %24, align 1
   ret void
 }
 

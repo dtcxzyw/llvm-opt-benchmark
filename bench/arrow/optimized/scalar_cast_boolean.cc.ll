@@ -236,7 +236,7 @@ $_ZGVZN5arrow8internal10ParseValueINS_11BooleanTypeEEENSt9enable_ifIXsr22is_para
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow7compute8internal15GetBooleanCastsEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %func = alloca %"class.std::shared_ptr", align 16
+  %func = alloca %"class.std::shared_ptr", align 8
   %ref.tmp = alloca i32, align 4
   %agg.tmp = alloca %"class.arrow::compute::OutputType", align 8
   %agg.tmp1 = alloca %"class.std::shared_ptr.0", align 8
@@ -256,7 +256,7 @@ entry:
   %agg.tmp114 = alloca %"class.std::shared_ptr.0", align 8
   %agg.tmp124 = alloca %"class.arrow::compute::OutputType", align 8
   %agg.tmp125 = alloca %"class.std::shared_ptr.0", align 8
-  %ref.tmp169 = alloca [1 x %"class.std::shared_ptr"], align 16
+  %ref.tmp169 = alloca [1 x %"class.std::shared_ptr"], align 8
   store i32 1, ptr %ref.tmp, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #14, !noalias !4
@@ -282,7 +282,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow7compute8internal12
 _ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJRA13_KcNS0_4Type4typeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.exit: ; preds = %entry
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %func, i64 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !4
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %func, align 16, !alias.scope !4
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %func, align 8, !alias.scope !4
   %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow7booleanEv()
           to label %invoke.cont unwind label %lpad
 
@@ -312,7 +312,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %5 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %agg.tmp1, align 8
   %.pre976 = load ptr, ptr %_M_refcount.i.i, align 8
-  %.pre977 = load ptr, ptr %func, align 16
+  %.pre977 = load ptr, ptr %func, align 8
   br label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %invoke.cont, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
@@ -581,7 +581,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit52: ; preds = %invoke.cont16, %
   store ptr null, ptr %agg.tmp14, align 8
   %resolver_.i56 = getelementptr inbounds i8, ptr %agg.tmp13, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %resolver_.i56, i8 0, i64 32, i1 false)
-  %48 = load ptr, ptr %func, align 16
+  %48 = load ptr, ptr %func, align 8
   invoke void @_ZN5arrow7compute8internal15AddZeroCopyCastENS_4Type4typeENS0_9InputTypeENS0_10OutputTypeEPNS1_12CastFunctionE(i32 noundef 1, ptr noundef nonnull %agg.tmp7, ptr noundef nonnull %agg.tmp13, ptr noundef %48)
           to label %invoke.cont22 unwind label %lpad21
 
@@ -867,7 +867,7 @@ switch.lookup:                                    ; preds = %invoke.cont36
 
 _ZN5arrow7compute8internal15GenerateNumericITtTpTyENS1_10applicator11ScalarUnaryENS_11BooleanTypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJNS1_9IsNonZeroEEEET1_NS1_6detail9GetTypeIdE.exit: ; preds = %invoke.cont36, %switch.lookup
   %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @_ZN5arrow7compute8internal11FailFunctorIPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEE4ExecES5_S8_SA_, %invoke.cont36 ]
-  %91 = load ptr, ptr %func, align 16
+  %91 = load ptr, ptr %func, align 8
   store ptr %87, ptr %agg.tmp47, align 8
   %_M_refcount3.i.i161 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0973, i64 8
   %92 = load ptr, ptr %_M_refcount3.i.i161, align 8
@@ -1921,7 +1921,7 @@ while.end4.i:                                     ; preds = %invoke.cont100
 
 _ZN5arrow7compute8internal21GenerateVarBinaryBaseITtTpTyENS1_10applicator18ScalarUnaryNotNullENS_11BooleanTypeEJNS1_18ParseBooleanStringEEEEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENS1_6detail9GetTypeIdE.exit: ; preds = %invoke.cont100, %invoke.cont100, %sw.bb1.i344, %while.end4.i
   %retval.0.i345 = phi ptr [ null, %while.end4.i ], [ @_ZN5arrow7compute8internal10applicator18ScalarUnaryNotNullINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE, %sw.bb1.i344 ], [ @_ZN5arrow7compute8internal10applicator18ScalarUnaryNotNullINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE, %invoke.cont100 ], [ @_ZN5arrow7compute8internal10applicator18ScalarUnaryNotNullINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE, %invoke.cont100 ]
-  %239 = load ptr, ptr %func, align 16
+  %239 = load ptr, ptr %func, align 8
   store ptr %237, ptr %agg.tmp114, align 8
   %_M_refcount3.i.i348 = getelementptr inbounds i8, ptr %__begin286.sroa.0.0975, i64 8
   %240 = load ptr, ptr %_M_refcount3.i.i348, align 8
@@ -2898,15 +2898,16 @@ ehcleanup136:                                     ; preds = %lpad.i363, %ehclean
   br label %ehcleanup192
 
 for.end167:                                       ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit610, %invoke.cont84
+  %379 = load ptr, ptr %func, align 8
+  store ptr %379, ptr %ref.tmp169, align 8
   %_M_refcount.i.i612 = getelementptr inbounds i8, ptr %ref.tmp169, i64 8
-  %379 = load ptr, ptr %_M_refcount.i.i.i, align 8
-  %380 = load <2 x ptr>, ptr %func, align 16
-  store <2 x ptr> %380, ptr %ref.tmp169, align 16
-  %cmp.not.i.i.i614 = icmp eq ptr %379, null
+  %380 = load ptr, ptr %_M_refcount.i.i.i, align 8
+  store ptr %380, ptr %_M_refcount.i.i612, align 8
+  %cmp.not.i.i.i614 = icmp eq ptr %380, null
   br i1 %cmp.not.i.i.i614, label %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEEC2ERKS4_.exit, label %if.then.i.i.i615
 
 if.then.i.i.i615:                                 ; preds = %for.end167
-  %_M_use_count.i.i.i.i616 = getelementptr inbounds i8, ptr %379, i64 8
+  %_M_use_count.i.i.i.i616 = getelementptr inbounds i8, ptr %380, i64 8
   %381 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i617 = icmp eq i8 %381, 0
   br i1 %tobool.i.not.i.i.i.i617, label %if.else.i.i.i.i.i620, label %if.then.i.i.i.i.i618
@@ -2931,10 +2932,12 @@ call5.i.i.i.i.noexc.i626:                         ; preds = %_ZNSt10shared_ptrIN
   %add.ptr.i1.i627 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i622, i64 16
   %_M_end_of_storage.i.i628 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i627, ptr %_M_end_of_storage.i.i628, align 8
-  %384 = load ptr, ptr %_M_refcount.i.i612, align 8
-  %385 = load <2 x ptr>, ptr %ref.tmp169, align 16
-  store <2 x ptr> %385, ptr %call5.i.i.i.i2.i622, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %384, null
+  %384 = load ptr, ptr %ref.tmp169, align 8
+  store ptr %384, ptr %call5.i.i.i.i2.i622, align 8
+  %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i622, i64 8
+  %385 = load ptr, ptr %_M_refcount.i.i612, align 8
+  store ptr %385, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %385, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread, label %if.then.i.i.i.i.i.i.i.i.i.i629
 
 _ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread: ; preds = %call5.i.i.i.i.noexc.i626
@@ -2943,7 +2946,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EE
   br label %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEED2Ev.exit
 
 if.then.i.i.i.i.i.i.i.i.i.i629:                   ; preds = %call5.i.i.i.i.noexc.i626
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %384, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %385, i64 8
   %386 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %386, 0
   %_M_finish.i.i634 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2965,7 +2968,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EE
   br i1 %cmp.not.i.i.i637, label %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEED2Ev.exit, label %if.then.i.i.i638
 
 if.then.i.i.i638:                                 ; preds = %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread1005, %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %389 = phi ptr [ %384, %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread1005 ], [ %.pre996, %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
+  %389 = phi ptr [ %385, %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread1005 ], [ %.pre996, %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
   %_M_use_count.i.i.i.i639 = getelementptr inbounds i8, ptr %389, i64 8
   %390 = load atomic i64, ptr %_M_use_count.i.i.i.i639 acquire, align 8
   %cmp.i.i.i.i640 = icmp eq i64 %390, 4294967297

@@ -14,9 +14,21 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %sha256, align 16
+  store i32 1779033703, ptr %sha256, align 16
+  %arrayidx3.i = getelementptr inbounds i8, ptr %sha256, i64 4
+  store i32 -1150833019, ptr %arrayidx3.i, align 4
+  %arrayidx5.i = getelementptr inbounds i8, ptr %sha256, i64 8
+  store i32 1013904242, ptr %arrayidx5.i, align 8
+  %arrayidx7.i = getelementptr inbounds i8, ptr %sha256, i64 12
+  store i32 -1521486534, ptr %arrayidx7.i, align 4
   %arrayidx9.i = getelementptr inbounds i8, ptr %sha256, i64 16
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx9.i, align 16
+  store i32 1359893119, ptr %arrayidx9.i, align 16
+  %arrayidx11.i = getelementptr inbounds i8, ptr %sha256, i64 20
+  store i32 -1694144372, ptr %arrayidx11.i, align 4
+  %arrayidx13.i = getelementptr inbounds i8, ptr %sha256, i64 24
+  store i32 528734635, ptr %arrayidx13.i, align 8
+  %arrayidx15.i = getelementptr inbounds i8, ptr %sha256, i64 28
+  store i32 1541459225, ptr %arrayidx15.i, align 4
   %buffLen.i = getelementptr inbounds i8, ptr %sha256, i64 96
   store i32 0, ptr %buffLen.i, align 16
   %loLen.i = getelementptr inbounds i8, ptr %sha256, i64 100
@@ -308,9 +320,21 @@ for.body9.i:                                      ; preds = %if.end4, %for.body9
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %sha256, i64 32, i1 false)
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %sha256, align 16
+  store i32 1779033703, ptr %sha256, align 16
+  %arrayidx3.i = getelementptr inbounds i8, ptr %sha256, i64 4
+  store i32 -1150833019, ptr %arrayidx3.i, align 4
+  %arrayidx5.i8 = getelementptr inbounds i8, ptr %sha256, i64 8
+  store i32 1013904242, ptr %arrayidx5.i8, align 8
+  %arrayidx7.i = getelementptr inbounds i8, ptr %sha256, i64 12
+  store i32 -1521486534, ptr %arrayidx7.i, align 4
   %arrayidx9.i = getelementptr inbounds i8, ptr %sha256, i64 16
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx9.i, align 16
+  store i32 1359893119, ptr %arrayidx9.i, align 16
+  %arrayidx11.i = getelementptr inbounds i8, ptr %sha256, i64 20
+  store i32 -1694144372, ptr %arrayidx11.i, align 4
+  %arrayidx13.i = getelementptr inbounds i8, ptr %sha256, i64 24
+  store i32 528734635, ptr %arrayidx13.i, align 8
+  %arrayidx15.i = getelementptr inbounds i8, ptr %sha256, i64 28
+  store i32 1541459225, ptr %arrayidx15.i, align 4
   %buffLen.i = getelementptr inbounds i8, ptr %sha256, i64 96
   store i32 0, ptr %buffLen.i, align 16
   %loLen.i = getelementptr inbounds i8, ptr %sha256, i64 100
@@ -426,9 +450,11 @@ for.body9.i36:                                    ; preds = %if.end24, %for.body
 
 ByteReverseWords.exit52:                          ; preds = %for.body9.i36, %for.body.i45
   %arrayidx40 = getelementptr inbounds i8, ptr %sha256, i64 88
-  %9 = load <2 x i32>, ptr %loLen, align 4
-  %10 = shufflevector <2 x i32> %9, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %10, ptr %arrayidx40, align 1
+  %9 = load i32, ptr %hiLen, align 8
+  store i32 %9, ptr %arrayidx40, align 1
+  %arrayidx42 = getelementptr inbounds i8, ptr %sha256, i64 92
+  %10 = load i32, ptr %loLen, align 4
+  store i32 %10, ptr %arrayidx42, align 1
   tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
   br label %return
 
@@ -446,9 +472,21 @@ entry:
 if.end:                                           ; preds = %entry
   %heap1 = getelementptr inbounds i8, ptr %sha224, i64 112
   store ptr %heap, ptr %heap1, align 16
-  store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %sha224, align 16
+  store i32 -1056596264, ptr %sha224, align 16
+  %arrayidx2.i = getelementptr inbounds i8, ptr %sha224, i64 4
+  store i32 914150663, ptr %arrayidx2.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %sha224, i64 8
+  store i32 812702999, ptr %arrayidx4.i, align 8
+  %arrayidx6.i = getelementptr inbounds i8, ptr %sha224, i64 12
+  store i32 -150054599, ptr %arrayidx6.i, align 4
   %arrayidx8.i = getelementptr inbounds i8, ptr %sha224, i64 16
-  store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx8.i, align 16
+  store i32 -4191439, ptr %arrayidx8.i, align 16
+  %arrayidx10.i = getelementptr inbounds i8, ptr %sha224, i64 20
+  store i32 1750603025, ptr %arrayidx10.i, align 4
+  %arrayidx12.i = getelementptr inbounds i8, ptr %sha224, i64 24
+  store i32 1694076839, ptr %arrayidx12.i, align 8
+  %arrayidx14.i = getelementptr inbounds i8, ptr %sha224, i64 28
+  store i32 -1090891868, ptr %arrayidx14.i, align 4
   %buffLen.i = getelementptr inbounds i8, ptr %sha224, i64 96
   store i32 0, ptr %buffLen.i, align 16
   %loLen.i = getelementptr inbounds i8, ptr %sha224, i64 100
@@ -524,9 +562,21 @@ for.body9.i:                                      ; preds = %if.end4, %for.body9
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %sha224, i64 28, i1 false)
-  store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %sha224, align 16
+  store i32 -1056596264, ptr %sha224, align 16
+  %arrayidx2.i = getelementptr inbounds i8, ptr %sha224, i64 4
+  store i32 914150663, ptr %arrayidx2.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %sha224, i64 8
+  store i32 812702999, ptr %arrayidx4.i, align 8
+  %arrayidx6.i = getelementptr inbounds i8, ptr %sha224, i64 12
+  store i32 -150054599, ptr %arrayidx6.i, align 4
   %arrayidx8.i = getelementptr inbounds i8, ptr %sha224, i64 16
-  store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx8.i, align 16
+  store i32 -4191439, ptr %arrayidx8.i, align 16
+  %arrayidx10.i = getelementptr inbounds i8, ptr %sha224, i64 20
+  store i32 1750603025, ptr %arrayidx10.i, align 4
+  %arrayidx12.i = getelementptr inbounds i8, ptr %sha224, i64 24
+  store i32 1694076839, ptr %arrayidx12.i, align 8
+  %arrayidx14.i = getelementptr inbounds i8, ptr %sha224, i64 28
+  store i32 -1090891868, ptr %arrayidx14.i, align 4
   %buffLen.i = getelementptr inbounds i8, ptr %sha224, i64 96
   store i32 0, ptr %buffLen.i, align 16
   %loLen.i = getelementptr inbounds i8, ptr %sha224, i64 100
@@ -549,9 +599,21 @@ entry:
 if.end.i:                                         ; preds = %entry
   %heap1.i = getelementptr inbounds i8, ptr %sha224, i64 112
   store ptr null, ptr %heap1.i, align 16
-  store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %sha224, align 16
+  store i32 -1056596264, ptr %sha224, align 16
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %sha224, i64 4
+  store i32 914150663, ptr %arrayidx2.i.i, align 4
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %sha224, i64 8
+  store i32 812702999, ptr %arrayidx4.i.i, align 8
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %sha224, i64 12
+  store i32 -150054599, ptr %arrayidx6.i.i, align 4
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %sha224, i64 16
-  store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx8.i.i, align 16
+  store i32 -4191439, ptr %arrayidx8.i.i, align 16
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %sha224, i64 20
+  store i32 1750603025, ptr %arrayidx10.i.i, align 4
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %sha224, i64 24
+  store i32 1694076839, ptr %arrayidx12.i.i, align 8
+  %arrayidx14.i.i = getelementptr inbounds i8, ptr %sha224, i64 28
+  store i32 -1090891868, ptr %arrayidx14.i.i, align 4
   %buffLen.i.i = getelementptr inbounds i8, ptr %sha224, i64 96
   store i32 0, ptr %buffLen.i.i, align 16
   %loLen.i.i = getelementptr inbounds i8, ptr %sha224, i64 100
@@ -626,9 +688,21 @@ entry:
   br i1 %cmp.i, label %wc_InitSha256_ex.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %sha256, align 16
+  store i32 1779033703, ptr %sha256, align 16
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %sha256, i64 4
+  store i32 -1150833019, ptr %arrayidx3.i.i, align 4
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %sha256, i64 8
+  store i32 1013904242, ptr %arrayidx5.i.i, align 8
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %sha256, i64 12
+  store i32 -1521486534, ptr %arrayidx7.i.i, align 4
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %sha256, i64 16
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx9.i.i, align 16
+  store i32 1359893119, ptr %arrayidx9.i.i, align 16
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %sha256, i64 20
+  store i32 -1694144372, ptr %arrayidx11.i.i, align 4
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %sha256, i64 24
+  store i32 528734635, ptr %arrayidx13.i.i, align 8
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %sha256, i64 28
+  store i32 1541459225, ptr %arrayidx15.i.i, align 4
   %buffLen.i.i = getelementptr inbounds i8, ptr %sha256, i64 96
   store i32 0, ptr %buffLen.i.i, align 16
   %loLen.i.i = getelementptr inbounds i8, ptr %sha256, i64 100

@@ -4535,15 +4535,15 @@ define internal fastcc void @rb_uniform_quicksort_intro_2(ptr noundef %0, ptr no
   %10 = icmp slt i64 %9, 17
   br i1 %10, label %tailrecurse._crit_edge, label %.lr.ph
 
-tailrecurse:                                      ; preds = %177
+tailrecurse:                                      ; preds = %176
   %11 = add i64 %.tr102129, -1
-  %12 = lshr exact i64 %179, 4
-  %13 = icmp ult i64 %179, 272
+  %12 = lshr exact i64 %178, 4
+  %13 = icmp ult i64 %178, 272
   br i1 %13, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   %.tr101.lcssa = phi ptr [ %1, %3 ], [ %.us-phi126, %tailrecurse ]
-  %.lcssa110 = phi i64 [ %8, %3 ], [ %179, %tailrecurse ]
+  %.lcssa110 = phi i64 [ %8, %3 ], [ %178, %tailrecurse ]
   %14 = icmp sgt i64 %.lcssa110, 16
   %.038.i = getelementptr i8, ptr %0, i64 16
   %15 = icmp ult ptr %.038.i, %.tr101.lcssa
@@ -4552,425 +4552,429 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 
 .lr.ph43.i:                                       ; preds = %tailrecurse._crit_edge, %.loopexit.i
   %.040.i = phi ptr [ %.0.i, %.loopexit.i ], [ %.038.i, %tailrecurse._crit_edge ]
-  %16 = load <2 x i64>, ptr %.040.i, align 8
+  %.pn39.i = phi ptr [ %.040.i, %.loopexit.i ], [ %0, %tailrecurse._crit_edge ]
   %.sroa.0.0.copyload.i = load i64, ptr %.040.i, align 8
-  %17 = load i64, ptr %0, align 8
-  %18 = and i64 %.sroa.0.0.copyload.i, 1
-  %.not.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i, label %rb_uniform_is_less.exit.i, label %19
+  %.sroa.4.0..0.1.sroa_idx.i = getelementptr i8, ptr %.pn39.i, i64 24
+  %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..0.1.sroa_idx.i, align 8
+  %16 = load i64, ptr %0, align 8
+  %17 = and i64 %.sroa.0.0.copyload.i, 1
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %rb_uniform_is_less.exit.i, label %18
 
-19:                                               ; preds = %.lr.ph43.i
-  %20 = and i64 %17, 1
-  %.not9.i.i = icmp eq i64 %20, 0
-  br i1 %.not9.i.i, label %23, label %21
+18:                                               ; preds = %.lr.ph43.i
+  %19 = and i64 %16, 1
+  %.not9.i.i = icmp eq i64 %19, 0
+  br i1 %.not9.i.i, label %22, label %20
 
-21:                                               ; preds = %19
-  %22 = icmp slt i64 %.sroa.0.0.copyload.i, %17
-  br i1 %22, label %.preheader.i, label %.preheader30.split.i.preheader
+20:                                               ; preds = %18
+  %21 = icmp slt i64 %.sroa.0.0.copyload.i, %16
+  br i1 %21, label %.preheader.i, label %.preheader30.split.i.preheader
 
-.preheader30.split.i.preheader:                   ; preds = %23, %21
+.preheader30.split.i.preheader:                   ; preds = %22, %20
   br label %.preheader30.split.i
 
-23:                                               ; preds = %19
-  %24 = tail call i32 @rb_float_cmp(i64 noundef %17, i64 noundef %.sroa.0.0.copyload.i) #13
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.preheader.i, label %.preheader30.split.i.preheader
+22:                                               ; preds = %18
+  %23 = tail call i32 @rb_float_cmp(i64 noundef %16, i64 noundef %.sroa.0.0.copyload.i) #13
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %.preheader.i, label %.preheader30.split.i.preheader
 
 .preheader30.split.us.i:                          ; preds = %rb_uniform_is_less.exit.i
-  %26 = getelementptr i8, ptr %.040.i, i64 -16
-  %27 = load i64, ptr %26, align 8
-  %28 = tail call i32 @rb_float_cmp(i64 noundef %.sroa.0.0.copyload.i, i64 noundef %27) #13
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %rb_uniform_is_less.exit29.us.i, label %.loopexit.i
+  %25 = getelementptr i8, ptr %.040.i, i64 -16
+  %26 = load i64, ptr %25, align 8
+  %27 = tail call i32 @rb_float_cmp(i64 noundef %.sroa.0.0.copyload.i, i64 noundef %26) #13
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %rb_uniform_is_less.exit29.us.i, label %.loopexit.i
 
 rb_uniform_is_less.exit29.us.i:                   ; preds = %.preheader30.split.us.i, %rb_uniform_is_less.exit29.us.i
-  %30 = phi ptr [ %31, %rb_uniform_is_less.exit29.us.i ], [ %26, %.preheader30.split.us.i ]
-  %.1.us34.i = phi ptr [ %30, %rb_uniform_is_less.exit29.us.i ], [ %.040.i, %.preheader30.split.us.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1.us34.i, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
-  %31 = getelementptr i8, ptr %30, i64 -16
-  %32 = load i64, ptr %31, align 8
-  %33 = tail call i32 @rb_float_cmp(i64 noundef %.sroa.0.0.copyload.i, i64 noundef %32) #13
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %rb_uniform_is_less.exit29.us.i, label %.loopexit.i, !llvm.loop !22
+  %29 = phi ptr [ %30, %rb_uniform_is_less.exit29.us.i ], [ %25, %.preheader30.split.us.i ]
+  %.1.us34.i = phi ptr [ %29, %rb_uniform_is_less.exit29.us.i ], [ %.040.i, %.preheader30.split.us.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1.us34.i, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
+  %30 = getelementptr i8, ptr %29, i64 -16
+  %31 = load i64, ptr %30, align 8
+  %32 = tail call i32 @rb_float_cmp(i64 noundef %.sroa.0.0.copyload.i, i64 noundef %31) #13
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %rb_uniform_is_less.exit29.us.i, label %.loopexit.i, !llvm.loop !22
 
 rb_uniform_is_less.exit.i:                        ; preds = %.lr.ph43.i
-  %35 = tail call i32 @rb_float_cmp(i64 noundef %.sroa.0.0.copyload.i, i64 noundef %17) #13
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %.preheader.i, label %.preheader30.split.us.i
+  %34 = tail call i32 @rb_float_cmp(i64 noundef %.sroa.0.0.copyload.i, i64 noundef %16) #13
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %.preheader.i, label %.preheader30.split.us.i
 
-.preheader.i:                                     ; preds = %rb_uniform_is_less.exit.i, %23, %21
-  %37 = icmp ugt ptr %.040.i, %0
-  br i1 %37, label %.lr.ph36.i, label %.loopexit.i
+.preheader.i:                                     ; preds = %rb_uniform_is_less.exit.i, %22, %20
+  %36 = icmp ugt ptr %.040.i, %0
+  br i1 %36, label %.lr.ph36.i, label %.loopexit.i
 
 .lr.ph36.i:                                       ; preds = %.preheader.i, %.lr.ph36.i
-  %.02235.i = phi ptr [ %38, %.lr.ph36.i ], [ %.040.i, %.preheader.i ]
-  %38 = getelementptr i8, ptr %.02235.i, i64 -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.02235.i, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  %39 = icmp ugt ptr %38, %0
-  br i1 %39, label %.lr.ph36.i, label %.loopexit.i, !llvm.loop !23
+  %.02235.i = phi ptr [ %37, %.lr.ph36.i ], [ %.040.i, %.preheader.i ]
+  %37 = getelementptr i8, ptr %.02235.i, i64 -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.02235.i, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
+  %38 = icmp ugt ptr %37, %0
+  br i1 %38, label %.lr.ph36.i, label %.loopexit.i, !llvm.loop !23
 
-.preheader30.split.i:                             ; preds = %.preheader30.split.i.preheader, %48
-  %.1.i = phi ptr [ %40, %48 ], [ %.040.i, %.preheader30.split.i.preheader ]
-  %40 = getelementptr i8, ptr %.1.i, i64 -16
-  %41 = load i64, ptr %40, align 8
-  %42 = and i64 %41, 1
-  %.not9.i26.i = icmp eq i64 %42, 0
-  br i1 %.not9.i26.i, label %45, label %43
+.preheader30.split.i:                             ; preds = %.preheader30.split.i.preheader, %47
+  %.1.i = phi ptr [ %39, %47 ], [ %.040.i, %.preheader30.split.i.preheader ]
+  %39 = getelementptr i8, ptr %.1.i, i64 -16
+  %40 = load i64, ptr %39, align 8
+  %41 = and i64 %40, 1
+  %.not9.i26.i = icmp eq i64 %41, 0
+  br i1 %.not9.i26.i, label %44, label %42
 
-43:                                               ; preds = %.preheader30.split.i
-  %44 = icmp slt i64 %.sroa.0.0.copyload.i, %41
-  br i1 %44, label %48, label %.loopexit.i
+42:                                               ; preds = %.preheader30.split.i
+  %43 = icmp slt i64 %.sroa.0.0.copyload.i, %40
+  br i1 %43, label %47, label %.loopexit.i
 
-45:                                               ; preds = %.preheader30.split.i
-  %46 = tail call i32 @rb_float_cmp(i64 noundef %41, i64 noundef %.sroa.0.0.copyload.i) #13
-  %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %48, label %.loopexit.i
+44:                                               ; preds = %.preheader30.split.i
+  %45 = tail call i32 @rb_float_cmp(i64 noundef %40, i64 noundef %.sroa.0.0.copyload.i) #13
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %47, label %.loopexit.i
 
-48:                                               ; preds = %45, %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1.i, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
+47:                                               ; preds = %44, %42
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1.i, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
   br label %.preheader30.split.i, !llvm.loop !22
 
-.loopexit.i:                                      ; preds = %45, %43, %rb_uniform_is_less.exit29.us.i, %.lr.ph36.i, %.preheader.i, %.preheader30.split.us.i
-  %.124.i = phi ptr [ %.040.i, %.preheader.i ], [ %.040.i, %.preheader30.split.us.i ], [ %38, %.lr.ph36.i ], [ %30, %rb_uniform_is_less.exit29.us.i ], [ %.1.i, %43 ], [ %.1.i, %45 ]
-  store <2 x i64> %16, ptr %.124.i, align 8
+.loopexit.i:                                      ; preds = %44, %42, %rb_uniform_is_less.exit29.us.i, %.lr.ph36.i, %.preheader.i, %.preheader30.split.us.i
+  %.124.i = phi ptr [ %.040.i, %.preheader.i ], [ %.040.i, %.preheader30.split.us.i ], [ %37, %.lr.ph36.i ], [ %29, %rb_uniform_is_less.exit29.us.i ], [ %.1.i, %42 ], [ %.1.i, %44 ]
+  store i64 %.sroa.0.0.copyload.i, ptr %.124.i, align 8
+  %.sroa.4.0..0.12.sroa_idx.i = getelementptr inbounds i8, ptr %.124.i, i64 8
+  store i64 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..0.12.sroa_idx.i, align 8
   %.0.i = getelementptr i8, ptr %.040.i, i64 16
-  %49 = icmp ult ptr %.0.i, %.tr101.lcssa
-  br i1 %49, label %.lr.ph43.i, label %rb_uniform_insertionsort_2.exit, !llvm.loop !24
+  %48 = icmp ult ptr %.0.i, %.tr101.lcssa
+  br i1 %48, label %.lr.ph43.i, label %rb_uniform_insertionsort_2.exit, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %3, %tailrecurse
-  %50 = phi i64 [ %12, %tailrecurse ], [ %9, %3 ]
-  %51 = phi i64 [ %178, %tailrecurse ], [ %7, %3 ]
+  %49 = phi i64 [ %12, %tailrecurse ], [ %9, %3 ]
+  %50 = phi i64 [ %177, %tailrecurse ], [ %7, %3 ]
   %.tr102129 = phi i64 [ %11, %tailrecurse ], [ %2, %3 ]
   %.tr101128 = phi ptr [ %.us-phi126, %tailrecurse ], [ %1, %3 ]
-  %52 = icmp eq i64 %.tr102129, 0
-  %53 = lshr i64 %50, 1
-  br i1 %52, label %.lr.ph.i, label %59
+  %51 = icmp eq i64 %.tr102129, 0
+  %52 = lshr i64 %49, 1
+  br i1 %51, label %.lr.ph.i, label %58
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %54 = add nsw i64 %50, -1
-  br label %55
+  %53 = add nsw i64 %49, -1
+  br label %54
 
-55:                                               ; preds = %55, %.lr.ph.i
-  %.01721.i = phi i64 [ %53, %.lr.ph.i ], [ %56, %55 ]
-  %56 = add nsw i64 %.01721.i, -1
-  tail call fastcc void @rb_uniform_heap_down_2(ptr noundef %0, i64 noundef %56, i64 noundef %54)
-  %.not.i = icmp eq i64 %56, 0
-  br i1 %.not.i, label %._crit_edge.i, label %55, !llvm.loop !25
+54:                                               ; preds = %54, %.lr.ph.i
+  %.01721.i = phi i64 [ %52, %.lr.ph.i ], [ %55, %54 ]
+  %55 = add nsw i64 %.01721.i, -1
+  tail call fastcc void @rb_uniform_heap_down_2(ptr noundef %0, i64 noundef %55, i64 noundef %53)
+  %.not.i = icmp eq i64 %55, 0
+  br i1 %.not.i, label %._crit_edge.i, label %54, !llvm.loop !25
 
-._crit_edge.i:                                    ; preds = %55
-  %.not1922.i = icmp eq i64 %54, 0
+._crit_edge.i:                                    ; preds = %54
+  %.not1922.i = icmp eq i64 %53, 0
   br i1 %.not1922.i, label %rb_uniform_heapsort_2.exit, label %.lr.ph25.i
 
 .lr.ph25.i:                                       ; preds = %._crit_edge.i, %.lr.ph25.i
-  %.023.i = phi i64 [ %58, %.lr.ph25.i ], [ %54, %._crit_edge.i ]
+  %.023.i = phi i64 [ %57, %.lr.ph25.i ], [ %53, %._crit_edge.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
-  %57 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %.023.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %58 = add i64 %.023.i, -1
-  tail call fastcc void @rb_uniform_heap_down_2(ptr noundef %0, i64 noundef 0, i64 noundef %58)
-  %.not19.i = icmp eq i64 %58, 0
+  %56 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %.023.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  %57 = add i64 %.023.i, -1
+  tail call fastcc void @rb_uniform_heap_down_2(ptr noundef %0, i64 noundef 0, i64 noundef %57)
+  %.not19.i = icmp eq i64 %57, 0
   br i1 %.not19.i, label %rb_uniform_heapsort_2.exit, label %.lr.ph25.i, !llvm.loop !26
 
 rb_uniform_heapsort_2.exit:                       ; preds = %.lr.ph25.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %rb_uniform_insertionsort_2.exit
 
-59:                                               ; preds = %.lr.ph
-  %60 = load i64, ptr %0, align 8
-  %61 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %53
-  %62 = load i64, ptr %61, align 8
-  %63 = and i64 %60, 1
-  %.not.i69 = icmp eq i64 %63, 0
-  br i1 %.not.i69, label %rb_uniform_is_less.exit, label %64
+58:                                               ; preds = %.lr.ph
+  %59 = load i64, ptr %0, align 8
+  %60 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %52
+  %61 = load i64, ptr %60, align 8
+  %62 = and i64 %59, 1
+  %.not.i69 = icmp eq i64 %62, 0
+  br i1 %.not.i69, label %rb_uniform_is_less.exit, label %63
 
-64:                                               ; preds = %59
-  %65 = and i64 %62, 1
-  %.not9.i = icmp eq i64 %65, 0
-  br i1 %.not9.i, label %68, label %66
+63:                                               ; preds = %58
+  %64 = and i64 %61, 1
+  %.not9.i = icmp eq i64 %64, 0
+  br i1 %.not9.i, label %67, label %65
 
-66:                                               ; preds = %64
-  %67 = icmp slt i64 %60, %62
-  br i1 %67, label %73, label %100
+65:                                               ; preds = %63
+  %66 = icmp slt i64 %59, %61
+  br i1 %66, label %72, label %99
 
-68:                                               ; preds = %64
-  %69 = tail call i32 @rb_float_cmp(i64 noundef %62, i64 noundef %60) #13
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %73, label %100
+67:                                               ; preds = %63
+  %68 = tail call i32 @rb_float_cmp(i64 noundef %61, i64 noundef %59) #13
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %72, label %99
 
-rb_uniform_is_less.exit:                          ; preds = %59
-  %71 = tail call i32 @rb_float_cmp(i64 noundef %60, i64 noundef %62) #13
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %73, label %100
+rb_uniform_is_less.exit:                          ; preds = %58
+  %70 = tail call i32 @rb_float_cmp(i64 noundef %59, i64 noundef %61) #13
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %72, label %99
 
-73:                                               ; preds = %68, %66, %rb_uniform_is_less.exit
-  %74 = load i64, ptr %61, align 8
-  %75 = getelementptr i8, ptr %.tr101128, i64 -16
-  %76 = load i64, ptr %75, align 8
-  %77 = and i64 %74, 1
-  %.not.i71 = icmp eq i64 %77, 0
-  br i1 %.not.i71, label %rb_uniform_is_less.exit75, label %78
+72:                                               ; preds = %67, %65, %rb_uniform_is_less.exit
+  %73 = load i64, ptr %60, align 8
+  %74 = getelementptr i8, ptr %.tr101128, i64 -16
+  %75 = load i64, ptr %74, align 8
+  %76 = and i64 %73, 1
+  %.not.i71 = icmp eq i64 %76, 0
+  br i1 %.not.i71, label %rb_uniform_is_less.exit75, label %77
 
-78:                                               ; preds = %73
-  %79 = and i64 %76, 1
-  %.not9.i72 = icmp eq i64 %79, 0
-  br i1 %.not9.i72, label %82, label %80
+77:                                               ; preds = %72
+  %78 = and i64 %75, 1
+  %.not9.i72 = icmp eq i64 %78, 0
+  br i1 %.not9.i72, label %81, label %79
 
-80:                                               ; preds = %78
-  %81 = icmp slt i64 %74, %76
-  br i1 %81, label %127, label %87
+79:                                               ; preds = %77
+  %80 = icmp slt i64 %73, %75
+  br i1 %80, label %126, label %86
 
-82:                                               ; preds = %78
-  %83 = tail call i32 @rb_float_cmp(i64 noundef %76, i64 noundef %74) #13
-  %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %127, label %87
+81:                                               ; preds = %77
+  %82 = tail call i32 @rb_float_cmp(i64 noundef %75, i64 noundef %73) #13
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %126, label %86
 
-rb_uniform_is_less.exit75:                        ; preds = %73
-  %85 = tail call i32 @rb_float_cmp(i64 noundef %74, i64 noundef %76) #13
-  %86 = icmp slt i32 %85, 0
-  br i1 %86, label %127, label %87
+rb_uniform_is_less.exit75:                        ; preds = %72
+  %84 = tail call i32 @rb_float_cmp(i64 noundef %73, i64 noundef %75) #13
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %126, label %86
 
-87:                                               ; preds = %82, %80, %rb_uniform_is_less.exit75
-  %88 = load i64, ptr %75, align 8
-  %89 = load i64, ptr %0, align 8
-  %90 = and i64 %88, 1
-  %.not.i76 = icmp eq i64 %90, 0
-  br i1 %.not.i76, label %.critedge.i79, label %91
+86:                                               ; preds = %81, %79, %rb_uniform_is_less.exit75
+  %87 = load i64, ptr %74, align 8
+  %88 = load i64, ptr %0, align 8
+  %89 = and i64 %87, 1
+  %.not.i76 = icmp eq i64 %89, 0
+  br i1 %.not.i76, label %.critedge.i79, label %90
 
-91:                                               ; preds = %87
-  %92 = and i64 %89, 1
-  %.not9.i77 = icmp eq i64 %92, 0
-  br i1 %.not9.i77, label %95, label %93
+90:                                               ; preds = %86
+  %91 = and i64 %88, 1
+  %.not9.i77 = icmp eq i64 %91, 0
+  br i1 %.not9.i77, label %94, label %92
 
-93:                                               ; preds = %91
-  %94 = icmp slt i64 %88, %89
+92:                                               ; preds = %90
+  %93 = icmp slt i64 %87, %88
   br label %rb_uniform_is_less.exit80
 
-95:                                               ; preds = %91
-  %96 = tail call i32 @rb_float_cmp(i64 noundef %89, i64 noundef %88) #13
-  %97 = icmp sgt i32 %96, 0
+94:                                               ; preds = %90
+  %95 = tail call i32 @rb_float_cmp(i64 noundef %88, i64 noundef %87) #13
+  %96 = icmp sgt i32 %95, 0
   br label %rb_uniform_is_less.exit80
 
-.critedge.i79:                                    ; preds = %87
-  %98 = tail call i32 @rb_float_cmp(i64 noundef %88, i64 noundef %89) #13
-  %99 = icmp slt i32 %98, 0
+.critedge.i79:                                    ; preds = %86
+  %97 = tail call i32 @rb_float_cmp(i64 noundef %87, i64 noundef %88) #13
+  %98 = icmp slt i32 %97, 0
   br label %rb_uniform_is_less.exit80
 
-rb_uniform_is_less.exit80:                        ; preds = %93, %95, %.critedge.i79
-  %.0.i78 = phi i1 [ %94, %93 ], [ %97, %95 ], [ %99, %.critedge.i79 ]
-  %. = select i1 %.0.i78, ptr %0, ptr %75
-  br label %127
+rb_uniform_is_less.exit80:                        ; preds = %92, %94, %.critedge.i79
+  %.0.i78 = phi i1 [ %93, %92 ], [ %96, %94 ], [ %98, %.critedge.i79 ]
+  %. = select i1 %.0.i78, ptr %0, ptr %74
+  br label %126
 
-100:                                              ; preds = %68, %66, %rb_uniform_is_less.exit
-  %101 = getelementptr i8, ptr %.tr101128, i64 -16
-  %102 = load i64, ptr %101, align 8
-  %103 = load i64, ptr %61, align 8
-  %104 = and i64 %102, 1
-  %.not.i81 = icmp eq i64 %104, 0
-  br i1 %.not.i81, label %rb_uniform_is_less.exit85, label %105
+99:                                               ; preds = %67, %65, %rb_uniform_is_less.exit
+  %100 = getelementptr i8, ptr %.tr101128, i64 -16
+  %101 = load i64, ptr %100, align 8
+  %102 = load i64, ptr %60, align 8
+  %103 = and i64 %101, 1
+  %.not.i81 = icmp eq i64 %103, 0
+  br i1 %.not.i81, label %rb_uniform_is_less.exit85, label %104
 
-105:                                              ; preds = %100
-  %106 = and i64 %103, 1
-  %.not9.i82 = icmp eq i64 %106, 0
-  br i1 %.not9.i82, label %109, label %107
+104:                                              ; preds = %99
+  %105 = and i64 %102, 1
+  %.not9.i82 = icmp eq i64 %105, 0
+  br i1 %.not9.i82, label %108, label %106
 
-107:                                              ; preds = %105
-  %108 = icmp slt i64 %102, %103
-  br i1 %108, label %127, label %114
+106:                                              ; preds = %104
+  %107 = icmp slt i64 %101, %102
+  br i1 %107, label %126, label %113
 
-109:                                              ; preds = %105
-  %110 = tail call i32 @rb_float_cmp(i64 noundef %103, i64 noundef %102) #13
-  %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %127, label %114
+108:                                              ; preds = %104
+  %109 = tail call i32 @rb_float_cmp(i64 noundef %102, i64 noundef %101) #13
+  %110 = icmp sgt i32 %109, 0
+  br i1 %110, label %126, label %113
 
-rb_uniform_is_less.exit85:                        ; preds = %100
-  %112 = tail call i32 @rb_float_cmp(i64 noundef %102, i64 noundef %103) #13
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %127, label %114
+rb_uniform_is_less.exit85:                        ; preds = %99
+  %111 = tail call i32 @rb_float_cmp(i64 noundef %101, i64 noundef %102) #13
+  %112 = icmp slt i32 %111, 0
+  br i1 %112, label %126, label %113
 
-114:                                              ; preds = %109, %107, %rb_uniform_is_less.exit85
-  %115 = load i64, ptr %0, align 8
-  %116 = load i64, ptr %101, align 8
-  %117 = and i64 %115, 1
-  %.not.i86 = icmp eq i64 %117, 0
-  br i1 %.not.i86, label %.critedge.i89, label %118
+113:                                              ; preds = %108, %106, %rb_uniform_is_less.exit85
+  %114 = load i64, ptr %0, align 8
+  %115 = load i64, ptr %100, align 8
+  %116 = and i64 %114, 1
+  %.not.i86 = icmp eq i64 %116, 0
+  br i1 %.not.i86, label %.critedge.i89, label %117
 
-118:                                              ; preds = %114
-  %119 = and i64 %116, 1
-  %.not9.i87 = icmp eq i64 %119, 0
-  br i1 %.not9.i87, label %122, label %120
+117:                                              ; preds = %113
+  %118 = and i64 %115, 1
+  %.not9.i87 = icmp eq i64 %118, 0
+  br i1 %.not9.i87, label %121, label %119
 
-120:                                              ; preds = %118
-  %121 = icmp slt i64 %115, %116
+119:                                              ; preds = %117
+  %120 = icmp slt i64 %114, %115
   br label %rb_uniform_is_less.exit90
 
-122:                                              ; preds = %118
-  %123 = tail call i32 @rb_float_cmp(i64 noundef %116, i64 noundef %115) #13
-  %124 = icmp sgt i32 %123, 0
+121:                                              ; preds = %117
+  %122 = tail call i32 @rb_float_cmp(i64 noundef %115, i64 noundef %114) #13
+  %123 = icmp sgt i32 %122, 0
   br label %rb_uniform_is_less.exit90
 
-.critedge.i89:                                    ; preds = %114
-  %125 = tail call i32 @rb_float_cmp(i64 noundef %115, i64 noundef %116) #13
-  %126 = icmp slt i32 %125, 0
+.critedge.i89:                                    ; preds = %113
+  %124 = tail call i32 @rb_float_cmp(i64 noundef %114, i64 noundef %115) #13
+  %125 = icmp slt i32 %124, 0
   br label %rb_uniform_is_less.exit90
 
-rb_uniform_is_less.exit90:                        ; preds = %120, %122, %.critedge.i89
-  %.0.i88 = phi i1 [ %121, %120 ], [ %124, %122 ], [ %126, %.critedge.i89 ]
-  %.67 = select i1 %.0.i88, ptr %0, ptr %101
-  br label %127
+rb_uniform_is_less.exit90:                        ; preds = %119, %121, %.critedge.i89
+  %.0.i88 = phi i1 [ %120, %119 ], [ %123, %121 ], [ %125, %.critedge.i89 ]
+  %.67 = select i1 %.0.i88, ptr %0, ptr %100
+  br label %126
 
-127:                                              ; preds = %109, %107, %82, %80, %rb_uniform_is_less.exit90, %rb_uniform_is_less.exit85, %rb_uniform_is_less.exit80, %rb_uniform_is_less.exit75
-  %.in = phi ptr [ %61, %rb_uniform_is_less.exit75 ], [ %., %rb_uniform_is_less.exit80 ], [ %61, %rb_uniform_is_less.exit85 ], [ %.67, %rb_uniform_is_less.exit90 ], [ %61, %80 ], [ %61, %82 ], [ %61, %107 ], [ %61, %109 ]
-  %128 = load i64, ptr %.in, align 8
-  %.fr131 = freeze i64 %128
-  %129 = getelementptr i8, ptr %.tr101128, i64 -16
-  %130 = and i64 %.fr131, 1
-  %.not9.i92 = icmp eq i64 %130, 0
+126:                                              ; preds = %108, %106, %81, %79, %rb_uniform_is_less.exit90, %rb_uniform_is_less.exit85, %rb_uniform_is_less.exit80, %rb_uniform_is_less.exit75
+  %.in = phi ptr [ %60, %rb_uniform_is_less.exit75 ], [ %., %rb_uniform_is_less.exit80 ], [ %60, %rb_uniform_is_less.exit85 ], [ %.67, %rb_uniform_is_less.exit90 ], [ %60, %79 ], [ %60, %81 ], [ %60, %106 ], [ %60, %108 ]
+  %127 = load i64, ptr %.in, align 8
+  %.fr131 = freeze i64 %127
+  %128 = getelementptr i8, ptr %.tr101128, i64 -16
+  %129 = and i64 %.fr131, 1
+  %.not9.i92 = icmp eq i64 %129, 0
   br i1 %.not9.i92, label %.split.us.us, label %.split
 
-.split.us.us:                                     ; preds = %127, %134
-  %.061.us = phi ptr [ %.263.us, %134 ], [ %0, %127 ]
-  %.0.us = phi ptr [ %.2.us, %134 ], [ %129, %127 ]
-  br label %135
+.split.us.us:                                     ; preds = %126, %133
+  %.061.us = phi ptr [ %.263.us, %133 ], [ %0, %126 ]
+  %.0.us = phi ptr [ %.2.us, %133 ], [ %128, %126 ]
+  br label %134
 
-131:                                              ; preds = %.split117.us121
+130:                                              ; preds = %.split117.us121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.162.us.us, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.162.us.us, ptr noundef nonnull align 8 dereferenceable(16) %.1.us.us, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1.us.us, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  %132 = getelementptr i8, ptr %.162.us.us, i64 16
-  %133 = getelementptr i8, ptr %.1.us.us, i64 -16
-  br label %134
+  %131 = getelementptr i8, ptr %.162.us.us, i64 16
+  %132 = getelementptr i8, ptr %.1.us.us, i64 -16
+  br label %133
 
-134:                                              ; preds = %.split117.us121, %131
-  %.263.us = phi ptr [ %132, %131 ], [ %.162.us.us, %.split117.us121 ]
-  %.2.us = phi ptr [ %133, %131 ], [ %.1.us.us, %.split117.us121 ]
+133:                                              ; preds = %.split117.us121, %130
+  %.263.us = phi ptr [ %131, %130 ], [ %.162.us.us, %.split117.us121 ]
+  %.2.us = phi ptr [ %132, %130 ], [ %.1.us.us, %.split117.us121 ]
   %.not66.us = icmp ugt ptr %.263.us, %.2.us
   br i1 %.not66.us, label %.split125.us, label %.split.us.us, !llvm.loop !27
 
-135:                                              ; preds = %143, %.split.us.us
-  %.162.us.us = phi ptr [ %.061.us, %.split.us.us ], [ %144, %143 ]
-  %136 = load i64, ptr %.162.us.us, align 8
-  %137 = and i64 %136, 1
-  %.not.i91.us.us = icmp eq i64 %137, 0
-  br i1 %.not.i91.us.us, label %rb_uniform_is_less.exit95.us.us, label %138
+134:                                              ; preds = %142, %.split.us.us
+  %.162.us.us = phi ptr [ %.061.us, %.split.us.us ], [ %143, %142 ]
+  %135 = load i64, ptr %.162.us.us, align 8
+  %136 = and i64 %135, 1
+  %.not.i91.us.us = icmp eq i64 %136, 0
+  br i1 %.not.i91.us.us, label %rb_uniform_is_less.exit95.us.us, label %137
 
-138:                                              ; preds = %135
-  %139 = tail call i32 @rb_float_cmp(i64 noundef %.fr131, i64 noundef %136) #13
-  %140 = icmp sgt i32 %139, 0
-  br i1 %140, label %143, label %rb_uniform_is_less.exit100.us.us.preheader
+137:                                              ; preds = %134
+  %138 = tail call i32 @rb_float_cmp(i64 noundef %.fr131, i64 noundef %135) #13
+  %139 = icmp sgt i32 %138, 0
+  br i1 %139, label %142, label %rb_uniform_is_less.exit100.us.us.preheader
 
-rb_uniform_is_less.exit95.us.us:                  ; preds = %135
-  %141 = tail call i32 @rb_float_cmp(i64 noundef %136, i64 noundef %.fr131) #13
-  %142 = icmp slt i32 %141, 0
-  br i1 %142, label %143, label %rb_uniform_is_less.exit100.us.us.preheader
+rb_uniform_is_less.exit95.us.us:                  ; preds = %134
+  %140 = tail call i32 @rb_float_cmp(i64 noundef %135, i64 noundef %.fr131) #13
+  %141 = icmp slt i32 %140, 0
+  br i1 %141, label %142, label %rb_uniform_is_less.exit100.us.us.preheader
 
-rb_uniform_is_less.exit100.us.us.preheader:       ; preds = %138, %rb_uniform_is_less.exit95.us.us
+rb_uniform_is_less.exit100.us.us.preheader:       ; preds = %137, %rb_uniform_is_less.exit95.us.us
   br label %rb_uniform_is_less.exit100.us.us
 
-143:                                              ; preds = %rb_uniform_is_less.exit95.us.us, %138
-  %144 = getelementptr i8, ptr %.162.us.us, i64 16
-  br label %135, !llvm.loop !28
+142:                                              ; preds = %rb_uniform_is_less.exit95.us.us, %137
+  %143 = getelementptr i8, ptr %.162.us.us, i64 16
+  br label %134, !llvm.loop !28
 
 .split117.us121:                                  ; preds = %rb_uniform_is_less.exit100.us.us
   %.not.us = icmp ugt ptr %.162.us.us, %.1.us.us
-  br i1 %.not.us, label %134, label %131
+  br i1 %.not.us, label %133, label %130
 
 rb_uniform_is_less.exit100.us.us:                 ; preds = %rb_uniform_is_less.exit100.us.us.preheader, %rb_uniform_is_less.exit100.us.us
-  %.1.us.us = phi ptr [ %148, %rb_uniform_is_less.exit100.us.us ], [ %.0.us, %rb_uniform_is_less.exit100.us.us.preheader ]
-  %145 = load i64, ptr %.1.us.us, align 8
-  %146 = tail call i32 @rb_float_cmp(i64 noundef %.fr131, i64 noundef %145) #13
-  %147 = icmp slt i32 %146, 0
-  %148 = getelementptr i8, ptr %.1.us.us, i64 -16
-  br i1 %147, label %rb_uniform_is_less.exit100.us.us, label %.split117.us121, !llvm.loop !29
+  %.1.us.us = phi ptr [ %147, %rb_uniform_is_less.exit100.us.us ], [ %.0.us, %rb_uniform_is_less.exit100.us.us.preheader ]
+  %144 = load i64, ptr %.1.us.us, align 8
+  %145 = tail call i32 @rb_float_cmp(i64 noundef %.fr131, i64 noundef %144) #13
+  %146 = icmp slt i32 %145, 0
+  %147 = getelementptr i8, ptr %.1.us.us, i64 -16
+  br i1 %146, label %rb_uniform_is_less.exit100.us.us, label %.split117.us121, !llvm.loop !29
 
-.split:                                           ; preds = %127, %170
-  %.061 = phi ptr [ %.263, %170 ], [ %0, %127 ]
-  %.0 = phi ptr [ %.2, %170 ], [ %129, %127 ]
-  br label %149
+.split:                                           ; preds = %126, %169
+  %.061 = phi ptr [ %.263, %169 ], [ %0, %126 ]
+  %.0 = phi ptr [ %.2, %169 ], [ %128, %126 ]
+  br label %148
 
-149:                                              ; preds = %156, %.split
-  %.162 = phi ptr [ %.061, %.split ], [ %157, %156 ]
-  %150 = load i64, ptr %.162, align 8
-  %151 = and i64 %150, 1
-  %.not.i91 = icmp eq i64 %151, 0
-  br i1 %.not.i91, label %rb_uniform_is_less.exit95, label %152
+148:                                              ; preds = %155, %.split
+  %.162 = phi ptr [ %.061, %.split ], [ %156, %155 ]
+  %149 = load i64, ptr %.162, align 8
+  %150 = and i64 %149, 1
+  %.not.i91 = icmp eq i64 %150, 0
+  br i1 %.not.i91, label %rb_uniform_is_less.exit95, label %151
 
-152:                                              ; preds = %149
-  %153 = icmp slt i64 %150, %.fr131
-  br i1 %153, label %156, label %.preheader.split115.preheader
+151:                                              ; preds = %148
+  %152 = icmp slt i64 %149, %.fr131
+  br i1 %152, label %155, label %.preheader.split115.preheader
 
-rb_uniform_is_less.exit95:                        ; preds = %149
-  %154 = tail call i32 @rb_float_cmp(i64 noundef %150, i64 noundef %.fr131) #13
-  %155 = icmp slt i32 %154, 0
-  br i1 %155, label %156, label %.preheader.split115.preheader
+rb_uniform_is_less.exit95:                        ; preds = %148
+  %153 = tail call i32 @rb_float_cmp(i64 noundef %149, i64 noundef %.fr131) #13
+  %154 = icmp slt i32 %153, 0
+  br i1 %154, label %155, label %.preheader.split115.preheader
 
-.preheader.split115.preheader:                    ; preds = %152, %rb_uniform_is_less.exit95
+.preheader.split115.preheader:                    ; preds = %151, %rb_uniform_is_less.exit95
   br label %.preheader.split115
 
-156:                                              ; preds = %152, %rb_uniform_is_less.exit95
-  %157 = getelementptr i8, ptr %.162, i64 16
-  br label %149, !llvm.loop !28
+155:                                              ; preds = %151, %rb_uniform_is_less.exit95
+  %156 = getelementptr i8, ptr %.162, i64 16
+  br label %148, !llvm.loop !28
 
-.preheader.split115:                              ; preds = %.preheader.split115.preheader, %165
-  %.1 = phi ptr [ %166, %165 ], [ %.0, %.preheader.split115.preheader ]
-  %158 = load i64, ptr %.1, align 8
-  %159 = and i64 %158, 1
-  %.not9.i97 = icmp eq i64 %159, 0
-  br i1 %.not9.i97, label %162, label %160
+.preheader.split115:                              ; preds = %.preheader.split115.preheader, %164
+  %.1 = phi ptr [ %165, %164 ], [ %.0, %.preheader.split115.preheader ]
+  %157 = load i64, ptr %.1, align 8
+  %158 = and i64 %157, 1
+  %.not9.i97 = icmp eq i64 %158, 0
+  br i1 %.not9.i97, label %161, label %159
 
-160:                                              ; preds = %.preheader.split115
-  %161 = icmp slt i64 %.fr131, %158
-  br i1 %161, label %165, label %.split117.us
+159:                                              ; preds = %.preheader.split115
+  %160 = icmp slt i64 %.fr131, %157
+  br i1 %160, label %164, label %.split117.us
 
-162:                                              ; preds = %.preheader.split115
-  %163 = tail call i32 @rb_float_cmp(i64 noundef %158, i64 noundef %.fr131) #13
-  %164 = icmp sgt i32 %163, 0
-  br i1 %164, label %165, label %.split117.us
+161:                                              ; preds = %.preheader.split115
+  %162 = tail call i32 @rb_float_cmp(i64 noundef %157, i64 noundef %.fr131) #13
+  %163 = icmp sgt i32 %162, 0
+  br i1 %163, label %164, label %.split117.us
 
-165:                                              ; preds = %162, %160
-  %166 = getelementptr i8, ptr %.1, i64 -16
+164:                                              ; preds = %161, %159
+  %165 = getelementptr i8, ptr %.1, i64 -16
   br label %.preheader.split115, !llvm.loop !29
 
-.split117.us:                                     ; preds = %160, %162
+.split117.us:                                     ; preds = %159, %161
   %.not = icmp ugt ptr %.162, %.1
-  br i1 %.not, label %170, label %167
+  br i1 %.not, label %169, label %166
 
-167:                                              ; preds = %.split117.us
+166:                                              ; preds = %.split117.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.162, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.162, ptr noundef nonnull align 8 dereferenceable(16) %.1, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  %168 = getelementptr i8, ptr %.162, i64 16
-  %169 = getelementptr i8, ptr %.1, i64 -16
-  br label %170
+  %167 = getelementptr i8, ptr %.162, i64 16
+  %168 = getelementptr i8, ptr %.1, i64 -16
+  br label %169
 
-170:                                              ; preds = %.split117.us, %167
-  %.263 = phi ptr [ %168, %167 ], [ %.162, %.split117.us ]
-  %.2 = phi ptr [ %169, %167 ], [ %.1, %.split117.us ]
+169:                                              ; preds = %.split117.us, %166
+  %.263 = phi ptr [ %167, %166 ], [ %.162, %.split117.us ]
+  %.2 = phi ptr [ %168, %166 ], [ %.1, %.split117.us ]
   %.not66 = icmp ugt ptr %.263, %.2
   br i1 %.not66, label %.split125.us, label %.split, !llvm.loop !27
 
-.split125.us:                                     ; preds = %170, %134
-  %.us-phi126 = phi ptr [ %.263.us, %134 ], [ %.263, %170 ]
-  %.us-phi127 = phi ptr [ %.2.us, %134 ], [ %.2, %170 ]
-  %171 = getelementptr i8, ptr %.us-phi127, i64 16
-  %172 = ptrtoint ptr %171 to i64
-  %173 = sub i64 %51, %172
-  %174 = icmp sgt i64 %173, 16
-  br i1 %174, label %175, label %177
+.split125.us:                                     ; preds = %169, %133
+  %.us-phi126 = phi ptr [ %.263.us, %133 ], [ %.263, %169 ]
+  %.us-phi127 = phi ptr [ %.2.us, %133 ], [ %.2, %169 ]
+  %170 = getelementptr i8, ptr %.us-phi127, i64 16
+  %171 = ptrtoint ptr %170 to i64
+  %172 = sub i64 %50, %171
+  %173 = icmp sgt i64 %172, 16
+  br i1 %173, label %174, label %176
 
-175:                                              ; preds = %.split125.us
-  %176 = add i64 %.tr102129, -1
-  tail call fastcc void @rb_uniform_quicksort_intro_2(ptr noundef %171, ptr noundef %.tr101128, i64 noundef %176)
-  br label %177
+174:                                              ; preds = %.split125.us
+  %175 = add i64 %.tr102129, -1
+  tail call fastcc void @rb_uniform_quicksort_intro_2(ptr noundef %170, ptr noundef %.tr101128, i64 noundef %175)
+  br label %176
 
-177:                                              ; preds = %175, %.split125.us
-  %178 = ptrtoint ptr %.us-phi126 to i64
-  %179 = sub i64 %178, %6
-  %180 = icmp sgt i64 %179, 16
-  br i1 %180, label %tailrecurse, label %rb_uniform_insertionsort_2.exit
+176:                                              ; preds = %174, %.split125.us
+  %177 = ptrtoint ptr %.us-phi126 to i64
+  %178 = sub i64 %177, %6
+  %179 = icmp sgt i64 %178, 16
+  br i1 %179, label %tailrecurse, label %rb_uniform_insertionsort_2.exit
 
-rb_uniform_insertionsort_2.exit:                  ; preds = %177, %.loopexit.i, %tailrecurse._crit_edge, %rb_uniform_heapsort_2.exit
+rb_uniform_insertionsort_2.exit:                  ; preds = %176, %.loopexit.i, %tailrecurse._crit_edge, %rb_uniform_heapsort_2.exit
   ret void
 }
 

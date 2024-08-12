@@ -415,9 +415,9 @@ _ZSt7find_ifISt17_Rb_tree_iteratorISt4pairIKmN3zmq8timers_t7timer_tEEENS4_11matc
 
 if.then:                                          ; preds = %_ZSt7find_ifISt17_Rb_tree_iteratorISt4pairIKmN3zmq8timers_t7timer_tEEENS4_11match_by_idEET_S9_S9_T0_.exit
   %second = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 40
+  %timer.sroa.0.0.copyload = load i64, ptr %second, align 8
   %timer.sroa.2.0.second.sroa_idx = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 48
   %timer.sroa.2.0.copyload = load i64, ptr %timer.sroa.2.0.second.sroa_idx, align 8
-  %2 = load <2 x i64>, ptr %second, align 8
   %timer.sroa.3.0.second.sroa_idx = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.3.sroa.3, ptr noundef nonnull align 8 dereferenceable(16) %timer.sroa.3.0.second.sroa_idx, i64 16, i1 false)
   %_clock = getelementptr inbounds i8, ptr %this, i64 8
@@ -426,8 +426,8 @@ if.then:                                          ; preds = %_ZSt7find_ifISt17_R
   %call.i1.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %__first.sroa.0.0.lcssa.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #15
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #17
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %3 = load i64, ptr %_M_node_count.i.i.i, align 8
-  %dec.i.i.i = add i64 %3, -1
+  %2 = load i64, ptr %_M_node_count.i.i.i, align 8
+  %dec.i.i.i = add i64 %2, -1
   store i64 %dec.i.i.i, ptr %_M_node_count.i.i.i, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %__x.05.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -437,8 +437,8 @@ if.then:                                          ; preds = %_ZSt7find_ifISt17_R
 while.body.i.i.i1:                                ; preds = %if.then, %while.body.i.i.i1
   %__x.07.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i1 ], [ %__x.05.i.i.i, %if.then ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.07.i.i.i, i64 32
-  %4 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %add, %4
+  %3 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
+  %cmp.i.i.i.i = icmp ult i64 %add, %3
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
   %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.07.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
@@ -452,17 +452,19 @@ _ZNSt8_Rb_treeImSt4pairIKmN3zmq8timers_t7timer_tEESt10_Select1stIS5_ESt4lessImES
 
 _ZNSt8multimapImN3zmq8timers_t7timer_tESt4lessImESaISt4pairIKmS2_EEE6insertEOS7_.exit: ; preds = %if.then, %_ZNSt8_Rb_treeImSt4pairIKmN3zmq8timers_t7timer_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE23_M_get_insert_equal_posERS1_.exit.i.i
   %__y.0.lcssa.i10.i.i = phi ptr [ %add.ptr.i.i, %if.then ], [ %__x.07.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN3zmq8timers_t7timer_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE23_M_get_insert_equal_posERS1_.exit.i.i ]
-  %5 = phi i1 [ true, %if.then ], [ %spec.select.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN3zmq8timers_t7timer_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE23_M_get_insert_equal_posERS1_.exit.i.i ]
+  %4 = phi i1 [ true, %if.then ], [ %spec.select.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN3zmq8timers_t7timer_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE23_M_get_insert_equal_posERS1_.exit.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #14
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %add, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   %ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 40
-  store <2 x i64> %2, ptr %ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx, align 8
+  store i64 %timer.sroa.0.0.copyload, ptr %ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx, align 8
+  %ref.tmp.sroa.3.sroa.2.0.ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 48
+  store i64 %timer.sroa.2.0.copyload, ptr %ref.tmp.sroa.3.sroa.2.0.ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx.sroa_idx, align 8
   %ref.tmp.sroa.3.sroa.3.0.ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.3.sroa.3.0.ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.3.sroa.3, i64 16, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %5, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull %__y.0.lcssa.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #15
-  %6 = load i64, ptr %_M_node_count.i.i.i, align 8
-  %inc.i.i.i = add i64 %6, 1
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %4, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull %__y.0.lcssa.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #15
+  %5 = load i64, ptr %_M_node_count.i.i.i, align 8
+  %inc.i.i.i = add i64 %5, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8
   br label %return
 

@@ -118,30 +118,24 @@ define dso_local range(i32 -1, 2) i32 @compare_fractional_path_costs(ptr nocaptu
   %25 = load double, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 56
   %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 48
-  %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 56
+  %28 = fsub double %27, %25
+  %29 = tail call double @llvm.fmuladd.f64(double %2, double %28, double %25)
+  %30 = getelementptr inbounds i8, ptr %1, i64 48
   %31 = load double, ptr %30, align 8
-  %32 = insertelement <2 x double> poison, double %27, i64 0
-  %33 = insertelement <2 x double> %32, double %31, i64 1
-  %34 = insertelement <2 x double> poison, double %25, i64 0
-  %35 = insertelement <2 x double> %34, double %29, i64 1
-  %36 = fsub <2 x double> %33, %35
-  %37 = insertelement <2 x double> poison, double %2, i64 0
-  %38 = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> zeroinitializer
-  %39 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %38, <2 x double> %36, <2 x double> %35)
-  %40 = extractelement <2 x double> %39, i64 0
-  %41 = extractelement <2 x double> %39, i64 1
-  %42 = fcmp olt double %40, %41
-  br i1 %42, label %compare_path_costs.exit, label %43
+  %32 = getelementptr inbounds i8, ptr %1, i64 56
+  %33 = load double, ptr %32, align 8
+  %34 = fsub double %33, %31
+  %35 = tail call double @llvm.fmuladd.f64(double %2, double %34, double %31)
+  %36 = fcmp olt double %29, %35
+  br i1 %36, label %compare_path_costs.exit, label %37
 
-43:                                               ; preds = %23
-  %44 = fcmp ogt double %40, %41
-  %. = zext i1 %44 to i32
+37:                                               ; preds = %23
+  %38 = fcmp ogt double %29, %35
+  %. = zext i1 %38 to i32
   br label %compare_path_costs.exit
 
-compare_path_costs.exit:                          ; preds = %22, %20, %14, %12, %6, %43, %23
-  %.0 = phi i32 [ -1, %23 ], [ %., %43 ], [ 0, %22 ], [ -1, %6 ], [ 1, %12 ], [ -1, %14 ], [ 1, %20 ]
+compare_path_costs.exit:                          ; preds = %22, %20, %14, %12, %6, %37, %23
+  %.0 = phi i32 [ -1, %23 ], [ %., %37 ], [ 0, %22 ], [ -1, %6 ], [ 1, %12 ], [ -1, %14 ], [ 1, %20 ]
   ret i32 %.0
 }
 
@@ -166,10 +160,10 @@ define dso_local void @set_cheapest(ptr nocapture noundef %0) local_unnamed_addr
   br label %11
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 255, ptr noundef nonnull @__func__.set_cheapest) #10
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 255, ptr noundef nonnull @__func__.set_cheapest) #9
   unreachable
 
 11:                                               ; preds = %.lr.ph, %compare_path_costs.exit
@@ -187,7 +181,7 @@ define dso_local void @set_cheapest(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %.not63, label %52, label %17
 
 17:                                               ; preds = %11
-  %18 = tail call ptr @lappend(ptr noundef %.05286, ptr noundef nonnull %14) #10
+  %18 = tail call ptr @lappend(ptr noundef %.05286, ptr noundef nonnull %14) #9
   %.not64 = icmp eq ptr %.04888, null
   br i1 %.not64, label %19, label %compare_path_costs.exit
 
@@ -219,7 +213,7 @@ define dso_local void @set_cheapest(ptr nocapture noundef %0) local_unnamed_addr
 
 33:                                               ; preds = %26, %30
   %34 = phi ptr [ %32, %30 ], [ null, %26 ]
-  %35 = tail call i32 @bms_subset_compare(ptr noundef %27, ptr noundef %34) #10
+  %35 = tail call i32 @bms_subset_compare(ptr noundef %27, ptr noundef %34) #9
   switch i32 %35, label %compare_path_costs.exit [
     i32 0, label %36
     i32 1, label %51
@@ -284,7 +278,7 @@ define dso_local void @set_cheapest(ptr nocapture noundef %0) local_unnamed_addr
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %14, i64 64
   %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 @compare_pathkeys(ptr noundef %72, ptr noundef %74) #10
+  %75 = tail call i32 @compare_pathkeys(ptr noundef %72, ptr noundef %74) #9
   %76 = icmp eq i32 %75, 2
   br i1 %76, label %compare_path_costs.exit69, label %.thread77
 
@@ -320,7 +314,7 @@ compare_path_costs.exit69:                        ; preds = %68, %60, %70
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %14, i64 64
   %95 = load ptr, ptr %94, align 8
-  %96 = tail call i32 @compare_pathkeys(ptr noundef %93, ptr noundef %95) #10
+  %96 = tail call i32 @compare_pathkeys(ptr noundef %93, ptr noundef %95) #9
   %97 = icmp eq i32 %96, 2
   br i1 %97, label %compare_path_costs.exit71, label %compare_path_costs.exit
 
@@ -343,7 +337,7 @@ compare_path_costs.exit:                          ; preds = %50, %.thread77, %84
   br i1 %.not62, label %._crit_edge.thread, label %100
 
 100:                                              ; preds = %._crit_edge
-  %101 = tail call ptr @lcons(ptr noundef nonnull %.149, ptr noundef %.153) #10
+  %101 = tail call ptr @lcons(ptr noundef nonnull %.149, ptr noundef %.153) #9
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %100, %._crit_edge
@@ -383,7 +377,7 @@ define dso_local void @add_path(ptr nocapture noundef %0, ptr noundef %1) local_
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void @ProcessInterrupts() #10
+  tail call void @ProcessInterrupts() #9
   br label %5
 
 5:                                                ; preds = %2, %4
@@ -522,7 +516,7 @@ define dso_local void @add_path(ptr nocapture noundef %0, ptr noundef %1) local_
 
 91:                                               ; preds = %85, %88
   %92 = phi ptr [ %90, %88 ], [ null, %85 ]
-  %93 = tail call i32 @compare_pathkeys(ptr noundef %12, ptr noundef %92) #10
+  %93 = tail call i32 @compare_pathkeys(ptr noundef %12, ptr noundef %92) #9
   %.not124 = icmp eq i32 %93, 3
   br i1 %.not124, label %compare_path_costs_fuzzily.exit.thread149, label %94
 
@@ -556,7 +550,7 @@ define dso_local void @add_path(ptr nocapture noundef %0, ptr noundef %1) local_
 
 106:                                              ; preds = %100, %103
   %107 = phi ptr [ %105, %103 ], [ null, %100 ]
-  %108 = tail call i32 @bms_subset_compare(ptr noundef %101, ptr noundef %107) #10
+  %108 = tail call i32 @bms_subset_compare(ptr noundef %101, ptr noundef %107) #9
   switch i32 %93, label %128 [
     i32 1, label %109
     i32 2, label %121
@@ -680,7 +674,7 @@ define dso_local void @add_path(ptr nocapture noundef %0, ptr noundef %1) local_
 
 176:                                              ; preds = %170, %173
   %177 = phi ptr [ %175, %173 ], [ null, %170 ]
-  %178 = tail call i32 @bms_subset_compare(ptr noundef %171, ptr noundef %177) #10
+  %178 = tail call i32 @bms_subset_compare(ptr noundef %171, ptr noundef %177) #9
   %or.cond5 = icmp ult i32 %178, 2
   br i1 %or.cond5, label %179, label %compare_path_costs_fuzzily.exit.thread149
 
@@ -718,7 +712,7 @@ define dso_local void @add_path(ptr nocapture noundef %0, ptr noundef %1) local_
 
 196:                                              ; preds = %190, %193
   %197 = phi ptr [ %195, %193 ], [ null, %190 ]
-  %198 = tail call i32 @bms_subset_compare(ptr noundef %191, ptr noundef %197) #10
+  %198 = tail call i32 @bms_subset_compare(ptr noundef %191, ptr noundef %197) #9
   %199 = and i32 %198, -3
   %or.cond7 = icmp eq i32 %199, 0
   br i1 %or.cond7, label %200, label %compare_path_costs_fuzzily.exit.thread149
@@ -745,14 +739,14 @@ compare_path_costs_fuzzily.exit:                  ; preds = %179
 compare_path_costs_fuzzily.exit.thread155:        ; preds = %153, %138, %129, %145, %115, %compare_path_costs_fuzzily.exit
   %210 = load ptr, ptr %13, align 8
   %211 = add i32 %.sroa.5.0161, -1
-  %212 = tail call ptr @list_delete_nth_cell(ptr noundef %210, i32 noundef %.sroa.5.0161) #10
+  %212 = tail call ptr @list_delete_nth_cell(ptr noundef %210, i32 noundef %.sroa.5.0161) #9
   store ptr %212, ptr %13, align 8
   %213 = load i32, ptr %29, align 4
   %214 = icmp eq i32 %213, 264
   br i1 %214, label %226, label %215
 
 215:                                              ; preds = %compare_path_costs_fuzzily.exit.thread155
-  tail call void @pfree(ptr noundef nonnull %29) #10
+  tail call void @pfree(ptr noundef nonnull %29) #9
   br label %226
 
 compare_path_costs_fuzzily.exit.thread149.sink.split: ; preds = %200, %159, %123
@@ -796,7 +790,7 @@ compare_path_costs_fuzzily.exit.thread149:        ; preds = %compare_path_costs_
 .thread.thread:                                   ; preds = %11, %.thread
   %.1102173 = phi i32 [ %.1102.ph, %.thread ], [ 0, %11 ]
   %230 = load ptr, ptr %13, align 8
-  %231 = tail call ptr @list_insert_nth(ptr noundef %230, i32 noundef %.1102173, ptr noundef %1) #10
+  %231 = tail call ptr @list_insert_nth(ptr noundef %230, i32 noundef %.1102173, ptr noundef %1) #9
   store ptr %231, ptr %13, align 8
   br label %236
 
@@ -806,7 +800,7 @@ compare_path_costs_fuzzily.exit.thread149:        ; preds = %compare_path_costs_
   br i1 %234, label %236, label %235
 
 235:                                              ; preds = %232
-  tail call void @pfree(ptr noundef nonnull %1) #10
+  tail call void @pfree(ptr noundef nonnull %1) #9
   br label %236
 
 236:                                              ; preds = %232, %235, %.thread.thread
@@ -969,7 +963,7 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr nocapture noundef rea
 
 26:                                               ; preds = %23, %20
   %27 = phi ptr [ %25, %23 ], [ null, %20 ]
-  %28 = tail call i32 @compare_pathkeys(ptr noundef %6, ptr noundef %27) #10
+  %28 = tail call i32 @compare_pathkeys(ptr noundef %6, ptr noundef %27) #9
   %29 = and i32 %28, -3
   %or.cond.us = icmp eq i32 %29, 0
   br i1 %or.cond.us, label %30, label %38
@@ -986,7 +980,7 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr nocapture noundef rea
 
 35:                                               ; preds = %32, %30
   %36 = phi ptr [ %34, %32 ], [ null, %30 ]
-  %37 = tail call zeroext i1 @bms_equal(ptr noundef %4, ptr noundef %36) #10
+  %37 = tail call zeroext i1 @bms_equal(ptr noundef %4, ptr noundef %36) #9
   br i1 %37, label %.thread, label %38
 
 38:                                               ; preds = %35, %26
@@ -1030,7 +1024,7 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr nocapture noundef rea
 
 60:                                               ; preds = %54, %57
   %61 = phi ptr [ %59, %57 ], [ null, %54 ]
-  %62 = tail call i32 @compare_pathkeys(ptr noundef %6, ptr noundef %61) #10
+  %62 = tail call i32 @compare_pathkeys(ptr noundef %6, ptr noundef %61) #9
   %63 = and i32 %62, -3
   %or.cond = icmp eq i32 %63, 0
   br i1 %or.cond, label %64, label %72
@@ -1047,7 +1041,7 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr nocapture noundef rea
 
 69:                                               ; preds = %64, %66
   %70 = phi ptr [ %68, %66 ], [ null, %64 ]
-  %71 = tail call zeroext i1 @bms_equal(ptr noundef %4, ptr noundef %70) #10
+  %71 = tail call zeroext i1 @bms_equal(ptr noundef %4, ptr noundef %70) #9
   br i1 %71, label %.thread, label %72
 
 72:                                               ; preds = %49, %60, %69
@@ -1071,7 +1065,7 @@ define dso_local void @add_partial_path(ptr nocapture noundef %0, ptr noundef %1
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void @ProcessInterrupts() #10
+  tail call void @ProcessInterrupts() #9
   br label %5
 
 5:                                                ; preds = %2, %4
@@ -1104,7 +1098,7 @@ define dso_local void @add_partial_path(ptr nocapture noundef %0, ptr noundef %1
   %20 = load ptr, ptr %8, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @compare_pathkeys(ptr noundef %20, ptr noundef %22) #10
+  %23 = tail call i32 @compare_pathkeys(ptr noundef %20, ptr noundef %22) #9
   %.not43 = icmp eq i32 %23, 3
   %.pre = load double, ptr %9, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %19, i64 56
@@ -1144,9 +1138,9 @@ define dso_local void @add_partial_path(ptr nocapture noundef %0, ptr noundef %1
 .thread55:                                        ; preds = %32, %31, %33
   %36 = load ptr, ptr %6, align 8
   %37 = add i32 %.sroa.5.060, -1
-  %38 = tail call ptr @list_delete_nth_cell(ptr noundef %36, i32 noundef %.sroa.5.060) #10
+  %38 = tail call ptr @list_delete_nth_cell(ptr noundef %36, i32 noundef %.sroa.5.060) #9
   store ptr %38, ptr %6, align 8
-  tail call void @pfree(ptr noundef nonnull %19) #10
+  tail call void @pfree(ptr noundef nonnull %19) #9
   br label %42
 
 .thread50:                                        ; preds = %14, %32, %27, %31, %33
@@ -1178,12 +1172,12 @@ define dso_local void @add_partial_path(ptr nocapture noundef %0, ptr noundef %1
 .thread.thread:                                   ; preds = %5, %.thread
   %.13574 = phi i32 [ %.135.ph, %.thread ], [ 0, %5 ]
   %46 = load ptr, ptr %6, align 8
-  %47 = tail call ptr @list_insert_nth(ptr noundef %46, i32 noundef %.13574, ptr noundef %1) #10
+  %47 = tail call ptr @list_insert_nth(ptr noundef %46, i32 noundef %.13574, ptr noundef %1) #9
   store ptr %47, ptr %6, align 8
   br label %49
 
 48:                                               ; preds = %.thread
-  tail call void @pfree(ptr noundef %1) #10
+  tail call void @pfree(ptr noundef %1) #9
   br label %49
 
 49:                                               ; preds = %48, %.thread.thread
@@ -1212,7 +1206,7 @@ define dso_local noundef zeroext i1 @add_partial_path_precheck(ptr nocapture nou
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @compare_pathkeys(ptr noundef %2, ptr noundef %15) #10
+  %16 = tail call i32 @compare_pathkeys(ptr noundef %2, ptr noundef %15) #9
   %.not26 = icmp eq i32 %16, 3
   br i1 %.not26, label %26, label %17
 
@@ -1249,7 +1243,7 @@ define dso_local noundef zeroext i1 @add_partial_path_precheck(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_seqscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
-  %5 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  %5 = tail call noundef ptr @palloc0(i64 noundef 72) #9
   store i32 263, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 323, ptr %6, align 4
@@ -1259,7 +1253,7 @@ define dso_local noundef ptr @create_seqscan_path(ptr noundef %0, ptr noundef %1
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8
-  %11 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
+  %11 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
   %12 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %11, ptr %12, align 8
   %13 = icmp sgt i32 %3, 0
@@ -1275,7 +1269,7 @@ define dso_local noundef ptr @create_seqscan_path(ptr noundef %0, ptr noundef %1
   store i32 %3, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr null, ptr %21, align 8
-  tail call void @cost_seqscan(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1, ptr noundef %11) #10
+  tail call void @cost_seqscan(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1, ptr noundef %11) #9
   ret ptr %5
 }
 
@@ -1285,7 +1279,7 @@ declare void @cost_seqscan(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_samplescan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #9
   store i32 263, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 324, ptr %5, align 4
@@ -1295,7 +1289,7 @@ define dso_local noundef ptr @create_samplescan_path(ptr noundef %0, ptr noundef
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
+  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1309,7 +1303,7 @@ define dso_local noundef ptr @create_samplescan_path(ptr noundef %0, ptr noundef
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %18, align 8
-  tail call void @cost_samplescan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #10
+  tail call void @cost_samplescan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #9
   ret ptr %4
 }
 
@@ -1317,7 +1311,7 @@ declare void @cost_samplescan(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_index_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i1 noundef zeroext %7, ptr noundef %8, double noundef %9, i1 noundef zeroext %10) local_unnamed_addr #2 {
-  %12 = tail call noundef ptr @palloc0(i64 noundef 128) #10
+  %12 = tail call noundef ptr @palloc0(i64 noundef 128) #9
   store i32 264, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8
@@ -1330,7 +1324,7 @@ define dso_local noundef ptr @create_index_path(ptr noundef %0, ptr noundef %1, 
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %19, ptr %20, align 8
-  %21 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %14, ptr noundef %8) #10
+  %21 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %14, ptr noundef %8) #9
   %22 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %12, i64 32
@@ -1354,7 +1348,7 @@ define dso_local noundef ptr @create_index_path(ptr noundef %0, ptr noundef %1, 
   store ptr %4, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %12, i64 104
   store i32 %6, ptr %34, align 8
-  tail call void @cost_index(ptr noundef nonnull %12, ptr noundef %0, double noundef %9, i1 noundef zeroext %10) #10
+  tail call void @cost_index(ptr noundef nonnull %12, ptr noundef %0, double noundef %9, i1 noundef zeroext %10) #9
   ret ptr %12
 }
 
@@ -1362,7 +1356,7 @@ declare void @cost_index(ptr noundef, ptr noundef, double noundef, i1 noundef ze
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_bitmap_heap_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #2 {
-  %7 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  %7 = tail call noundef ptr @palloc0(i64 noundef 80) #9
   store i32 266, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 328, ptr %8, align 4
@@ -1372,7 +1366,7 @@ define dso_local noundef ptr @create_bitmap_heap_path(ptr noundef %0, ptr nounde
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %11, ptr %12, align 8
-  %13 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %3) #10
+  %13 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %3) #9
   %14 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %13, ptr %14, align 8
   %15 = icmp sgt i32 %5, 0
@@ -1390,7 +1384,7 @@ define dso_local noundef ptr @create_bitmap_heap_path(ptr noundef %0, ptr nounde
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %7, i64 72
   store ptr %2, ptr %24, align 8
-  tail call void @cost_bitmap_heap_scan(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %1, ptr noundef %13, ptr noundef %2, double noundef %4) #10
+  tail call void @cost_bitmap_heap_scan(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %1, ptr noundef %13, ptr noundef %2, double noundef %4) #9
   ret ptr %7
 }
 
@@ -1398,7 +1392,7 @@ declare void @cost_bitmap_heap_scan(ptr noundef, ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_bitmap_and_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 88) #10
+  %4 = tail call noundef ptr @palloc0(i64 noundef 88) #9
   store i32 267, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 321, ptr %5, align 4
@@ -1436,7 +1430,7 @@ define dso_local noundef ptr @create_bitmap_and_path(ptr noundef %0, ptr noundef
 
 22:                                               ; preds = %.lr.ph42, %19
   %23 = phi ptr [ %21, %19 ], [ null, %.lr.ph42 ]
-  %24 = tail call ptr @bms_add_members(ptr noundef %.03640, ptr noundef %23) #10
+  %24 = tail call ptr @bms_add_members(ptr noundef %.03640, ptr noundef %23) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %10, align 4
   %26 = sext i32 %25 to i64
@@ -1445,7 +1439,7 @@ define dso_local noundef ptr @create_bitmap_and_path(ptr noundef %0, ptr noundef
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph, %3
   %.0.lcssa = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ %24, %22 ]
-  %28 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %.0.lcssa) #10
+  %28 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %.0.lcssa) #9
   %29 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1461,7 +1455,7 @@ define dso_local noundef ptr @create_bitmap_and_path(ptr noundef %0, ptr noundef
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 72
   store ptr %2, ptr %37, align 8
-  tail call void @cost_bitmap_and_node(ptr noundef nonnull %4, ptr noundef %0) #10
+  tail call void @cost_bitmap_and_node(ptr noundef nonnull %4, ptr noundef %0) #9
   ret ptr %4
 }
 
@@ -1471,7 +1465,7 @@ declare void @cost_bitmap_and_node(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_bitmap_or_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 88) #10
+  %4 = tail call noundef ptr @palloc0(i64 noundef 88) #9
   store i32 268, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 322, ptr %5, align 4
@@ -1509,7 +1503,7 @@ define dso_local noundef ptr @create_bitmap_or_path(ptr noundef %0, ptr noundef 
 
 22:                                               ; preds = %.lr.ph42, %19
   %23 = phi ptr [ %21, %19 ], [ null, %.lr.ph42 ]
-  %24 = tail call ptr @bms_add_members(ptr noundef %.03640, ptr noundef %23) #10
+  %24 = tail call ptr @bms_add_members(ptr noundef %.03640, ptr noundef %23) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %10, align 4
   %26 = sext i32 %25 to i64
@@ -1518,7 +1512,7 @@ define dso_local noundef ptr @create_bitmap_or_path(ptr noundef %0, ptr noundef 
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph, %3
   %.0.lcssa = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ %24, %22 ]
-  %28 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %.0.lcssa) #10
+  %28 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %.0.lcssa) #9
   %29 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1534,7 +1528,7 @@ define dso_local noundef ptr @create_bitmap_or_path(ptr noundef %0, ptr noundef 
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 72
   store ptr %2, ptr %37, align 8
-  tail call void @cost_bitmap_or_node(ptr noundef nonnull %4, ptr noundef %0) #10
+  tail call void @cost_bitmap_or_node(ptr noundef nonnull %4, ptr noundef %0) #9
   ret ptr %4
 }
 
@@ -1542,7 +1536,7 @@ declare void @cost_bitmap_or_node(ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_tidscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  %5 = tail call noundef ptr @palloc0(i64 noundef 80) #9
   store i32 269, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 329, ptr %6, align 4
@@ -1552,7 +1546,7 @@ define dso_local noundef ptr @create_tidscan_path(ptr noundef %0, ptr noundef %1
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8
-  %11 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %3) #10
+  %11 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %3) #9
   %12 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 32
@@ -1568,7 +1562,7 @@ define dso_local noundef ptr @create_tidscan_path(ptr noundef %0, ptr noundef %1
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 72
   store ptr %2, ptr %20, align 8
-  tail call void @cost_tidscan(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %11) #10
+  tail call void @cost_tidscan(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %11) #9
   ret ptr %5
 }
 
@@ -1576,7 +1570,7 @@ declare void @cost_tidscan(ptr noundef, ptr noundef, ptr noundef, ptr noundef, p
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_tidrangescan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  %5 = tail call noundef ptr @palloc0(i64 noundef 80) #9
   store i32 270, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 330, ptr %6, align 4
@@ -1586,7 +1580,7 @@ define dso_local noundef ptr @create_tidrangescan_path(ptr noundef %0, ptr nound
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8
-  %11 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %3) #10
+  %11 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %3) #9
   %12 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 32
@@ -1602,7 +1596,7 @@ define dso_local noundef ptr @create_tidrangescan_path(ptr noundef %0, ptr nound
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 72
   store ptr %2, ptr %20, align 8
-  tail call void @cost_tidrangescan(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %11) #10
+  tail call void @cost_tidrangescan(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %11) #9
   ret ptr %5
 }
 
@@ -1611,7 +1605,7 @@ declare void @cost_tidrangescan(ptr noundef, ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_append_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i1 noundef zeroext %7, double noundef %8) local_unnamed_addr #2 {
   %10 = zext i1 %7 to i8
-  %11 = tail call noundef ptr @palloc0(i64 noundef 96) #10
+  %11 = tail call noundef ptr @palloc0(i64 noundef 96) #9
   store i32 274, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %11, i64 4
   store i32 318, ptr %12, align 4
@@ -1631,11 +1625,11 @@ define dso_local noundef ptr @create_append_path(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond3, label %23, label %25
 
 23:                                               ; preds = %9
-  %24 = tail call ptr @get_baserel_parampathinfo(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %5) #10
+  %24 = tail call ptr @get_baserel_parampathinfo(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %5) #9
   br label %27
 
 25:                                               ; preds = %9
-  %26 = tail call ptr @get_appendrel_parampathinfo(ptr noundef nonnull %1, ptr noundef %5) #10
+  %26 = tail call ptr @get_appendrel_parampathinfo(ptr noundef nonnull %1, ptr noundef %5) #9
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -1656,8 +1650,8 @@ define dso_local noundef ptr @create_append_path(ptr noundef %0, ptr noundef %1,
   br i1 %7, label %36, label %37
 
 36:                                               ; preds = %27
-  tail call void @list_sort(ptr noundef %2, ptr noundef nonnull @append_total_cost_compare) #10
-  tail call void @list_sort(ptr noundef %3, ptr noundef nonnull @append_startup_cost_compare) #10
+  tail call void @list_sort(ptr noundef %2, ptr noundef nonnull @append_total_cost_compare) #9
+  tail call void @list_sort(ptr noundef %3, ptr noundef nonnull @append_startup_cost_compare) #9
   br label %37
 
 37:                                               ; preds = %36, %27
@@ -1673,7 +1667,7 @@ list_length.exit:                                 ; preds = %37, %38
   %41 = phi i32 [ %40, %38 ], [ 0, %37 ]
   %42 = getelementptr inbounds i8, ptr %11, i64 80
   store i32 %41, ptr %42, align 8
-  %43 = tail call ptr @list_concat(ptr noundef %2, ptr noundef %3) #10
+  %43 = tail call ptr @list_concat(ptr noundef %2, ptr noundef %3) #9
   %44 = getelementptr inbounds i8, ptr %11, i64 72
   store ptr %43, ptr %44, align 8
   br i1 %20, label %45, label %54
@@ -1683,7 +1677,7 @@ list_length.exit:                                 ; preds = %37, %38
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 104
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call zeroext i1 @bms_equal(ptr noundef %47, ptr noundef %49) #10
+  %50 = tail call zeroext i1 @bms_equal(ptr noundef %47, ptr noundef %49) #9
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %45
@@ -1764,7 +1758,7 @@ list_length.exit71:                               ; preds = %69
   br label %94
 
 93:                                               ; preds = %76
-  tail call void @cost_append(ptr noundef nonnull %11) #10
+  tail call void @cost_append(ptr noundef nonnull %11) #9
   br label %94
 
 94:                                               ; preds = %93, %83
@@ -1774,7 +1768,7 @@ list_length.exit71:                               ; preds = %69
   br label %97
 
 list_length.exit71.thread:                        ; preds = %.lr.ph, %54, %list_length.exit71
-  tail call void @cost_append(ptr noundef nonnull %11) #10
+  tail call void @cost_append(ptr noundef nonnull %11) #9
   br label %97
 
 97:                                               ; preds = %list_length.exit71.thread, %94
@@ -1830,7 +1824,7 @@ compare_path_costs.exit:                          ; preds = %18
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 @bms_compare(ptr noundef %23, ptr noundef %27) #10
+  %28 = tail call i32 @bms_compare(ptr noundef %23, ptr noundef %27) #9
   br label %29
 
 29:                                               ; preds = %18, %12, %10, %2, %compare_path_costs.exit
@@ -1874,7 +1868,7 @@ compare_path_costs.exit:                          ; preds = %18
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 @bms_compare(ptr noundef %23, ptr noundef %27) #10
+  %28 = tail call i32 @bms_compare(ptr noundef %23, ptr noundef %27) #9
   br label %29
 
 29:                                               ; preds = %18, %12, %10, %2, %compare_path_costs.exit
@@ -1889,7 +1883,7 @@ declare void @cost_append(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_merge_append_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.Path, align 8
-  %7 = tail call noundef ptr @palloc0(i64 noundef 88) #10
+  %7 = tail call noundef ptr @palloc0(i64 noundef 88) #9
   store i32 275, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 319, ptr %8, align 4
@@ -1899,7 +1893,7 @@ define dso_local noundef ptr @create_merge_append_path(ptr noundef %0, ptr nound
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %11, ptr %12, align 8
-  %13 = tail call ptr @get_appendrel_parampathinfo(ptr noundef %1, ptr noundef %4) #10
+  %13 = tail call ptr @get_appendrel_parampathinfo(ptr noundef %1, ptr noundef %4) #9
   %14 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %7, i64 32
@@ -1919,7 +1913,7 @@ define dso_local noundef ptr @create_merge_append_path(ptr noundef %0, ptr nound
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 104
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call zeroext i1 @bms_equal(ptr noundef %24, ptr noundef %26) #10
+  %27 = tail call zeroext i1 @bms_equal(ptr noundef %24, ptr noundef %26) #9
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %5
@@ -1945,105 +1939,106 @@ define dso_local noundef ptr @create_merge_append_path(ptr noundef %0, ptr nound
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph89, label %list_length.exit.thread
 
-.lr.ph89:                                         ; preds = %.lr.ph, %74
-  %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %.lr.ph ]
-  %40 = phi <2 x double> [ %78, %74 ], [ zeroinitializer, %.lr.ph ]
-  %41 = load ptr, ptr %35, align 8
-  %42 = getelementptr %union.ListCell, ptr %41, i64 %indvars.iv
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 40
-  %45 = load double, ptr %44, align 8
-  %46 = load double, ptr %33, align 8
-  %47 = fadd double %45, %46
-  store double %47, ptr %33, align 8
-  %48 = load i8, ptr %18, align 1
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %53
+.lr.ph89:                                         ; preds = %.lr.ph, %73
+  %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
+  %.0628087 = phi double [ %.163, %73 ], [ 0.000000e+00, %.lr.ph ]
+  %.08186 = phi double [ %.1, %73 ], [ 0.000000e+00, %.lr.ph ]
+  %40 = load ptr, ptr %35, align 8
+  %41 = getelementptr %union.ListCell, ptr %40, i64 %indvars.iv
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 40
+  %44 = load double, ptr %43, align 8
+  %45 = load double, ptr %33, align 8
+  %46 = fadd double %44, %45
+  store double %46, ptr %33, align 8
+  %47 = load i8, ptr %18, align 1
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %52
 
-50:                                               ; preds = %.lr.ph89
-  %51 = getelementptr inbounds i8, ptr %43, i64 33
-  %52 = load i8, ptr %51, align 1
-  br label %53
+49:                                               ; preds = %.lr.ph89
+  %50 = getelementptr inbounds i8, ptr %42, i64 33
+  %51 = load i8, ptr %50, align 1
+  br label %52
 
-53:                                               ; preds = %50, %.lr.ph89
-  %54 = phi i8 [ 0, %.lr.ph89 ], [ %52, %50 ]
-  %55 = and i8 %54, 1
-  store i8 %55, ptr %18, align 1
-  %56 = getelementptr inbounds i8, ptr %43, i64 64
-  %57 = load ptr, ptr %56, align 8
-  %58 = call zeroext i1 @pathkeys_contained_in(ptr noundef %3, ptr noundef %57) #10
-  br i1 %58, label %59, label %63
+52:                                               ; preds = %49, %.lr.ph89
+  %53 = phi i8 [ 0, %.lr.ph89 ], [ %51, %49 ]
+  %54 = and i8 %53, 1
+  store i8 %54, ptr %18, align 1
+  %55 = getelementptr inbounds i8, ptr %42, i64 64
+  %56 = load ptr, ptr %55, align 8
+  %57 = call zeroext i1 @pathkeys_contained_in(ptr noundef %3, ptr noundef %56) #9
+  br i1 %57, label %58, label %62
 
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %43, i64 48
-  %61 = load double, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %43, i64 56
-  br label %74
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds i8, ptr %42, i64 48
+  %60 = load double, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %42, i64 56
+  br label %73
 
-63:                                               ; preds = %53
-  %64 = getelementptr inbounds i8, ptr %43, i64 56
-  %65 = load double, ptr %64, align 8
-  %66 = load double, ptr %44, align 8
-  %67 = getelementptr inbounds i8, ptr %43, i64 16
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 40
-  %70 = load i32, ptr %69, align 8
-  %71 = load i32, ptr @work_mem, align 4
-  %72 = load double, ptr %32, align 8
-  call void @cost_sort(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %3, double noundef %65, double noundef %66, i32 noundef %70, double noundef 0.000000e+00, i32 noundef %71, double noundef %72) #10
-  %73 = load double, ptr %36, align 8
-  br label %74
+62:                                               ; preds = %52
+  %63 = getelementptr inbounds i8, ptr %42, i64 56
+  %64 = load double, ptr %63, align 8
+  %65 = load double, ptr %43, align 8
+  %66 = getelementptr inbounds i8, ptr %42, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 40
+  %69 = load i32, ptr %68, align 8
+  %70 = load i32, ptr @work_mem, align 4
+  %71 = load double, ptr %32, align 8
+  call void @cost_sort(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %3, double noundef %64, double noundef %65, i32 noundef %69, double noundef 0.000000e+00, i32 noundef %70, double noundef %71) #9
+  %72 = load double, ptr %36, align 8
+  br label %73
 
-74:                                               ; preds = %59, %63
-  %.sink96 = phi ptr [ %62, %59 ], [ %37, %63 ]
-  %.pn67 = phi double [ %61, %59 ], [ %73, %63 ]
-  %75 = load double, ptr %.sink96, align 8
-  %76 = insertelement <2 x double> poison, double %.pn67, i64 0
-  %77 = insertelement <2 x double> %76, double %75, i64 1
-  %78 = fadd <2 x double> %40, %77
+73:                                               ; preds = %58, %62
+  %.sink96 = phi ptr [ %61, %58 ], [ %37, %62 ]
+  %.pn67 = phi double [ %60, %58 ], [ %72, %62 ]
+  %74 = load double, ptr %.sink96, align 8
+  %.1 = fadd double %.08186, %.pn67
+  %.163 = fadd double %.0628087, %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = load i32, ptr %34, align 4
-  %80 = sext i32 %79 to i64
-  %81 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %81, label %.lr.ph89, label %list_length.exit
+  %75 = load i32, ptr %34, align 4
+  %76 = sext i32 %75 to i64
+  %77 = icmp slt i64 %indvars.iv.next, %76
+  br i1 %77, label %.lr.ph89, label %list_length.exit
 
-list_length.exit:                                 ; preds = %74
-  %82 = icmp eq i32 %79, 1
-  br i1 %82, label %83, label %list_length.exit.thread
+list_length.exit:                                 ; preds = %73
+  %78 = icmp eq i32 %75, 1
+  br i1 %78, label %79, label %list_length.exit.thread
 
-83:                                               ; preds = %list_length.exit
+79:                                               ; preds = %list_length.exit
   %.val = load ptr, ptr %35, align 8
-  %84 = load ptr, ptr %.val, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 32
-  %86 = load i8, ptr %85, align 8
-  %87 = load i8, ptr %15, align 8
-  %88 = xor i8 %87, %86
-  %89 = and i8 %88, 1
-  %90 = icmp eq i8 %89, 0
-  br i1 %90, label %91, label %list_length.exit.thread
+  %80 = load ptr, ptr %.val, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 32
+  %82 = load i8, ptr %81, align 8
+  %83 = load i8, ptr %15, align 8
+  %84 = xor i8 %83, %82
+  %85 = and i8 %84, 1
+  %86 = icmp eq i8 %85, 0
+  br i1 %86, label %87, label %list_length.exit.thread
 
-91:                                               ; preds = %83
-  %92 = getelementptr inbounds i8, ptr %7, i64 48
-  store <2 x double> %78, ptr %92, align 8
-  br label %99
+87:                                               ; preds = %79
+  %88 = getelementptr inbounds i8, ptr %7, i64 48
+  store double %.1, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %7, i64 56
+  store double %.163, ptr %89, align 8
+  br label %93
 
-list_length.exit.thread:                          ; preds = %.lr.ph, %83, %list_length.exit
-  %93 = phi i32 [ 1, %83 ], [ %79, %list_length.exit ], [ %38, %.lr.ph ]
-  %94 = phi <2 x double> [ %78, %83 ], [ %78, %list_length.exit ], [ zeroinitializer, %.lr.ph ]
+list_length.exit.thread:                          ; preds = %.lr.ph, %79, %list_length.exit
+  %.0.lcssa7595 = phi double [ %.1, %79 ], [ %.1, %list_length.exit ], [ 0.000000e+00, %.lr.ph ]
+  %.062.lcssa7794 = phi double [ %.163, %79 ], [ %.163, %list_length.exit ], [ 0.000000e+00, %.lr.ph ]
+  %90 = phi i32 [ 1, %79 ], [ %75, %list_length.exit ], [ %38, %.lr.ph ]
   %.pre = load double, ptr %33, align 8
-  %95 = extractelement <2 x double> %94, i64 0
-  %96 = extractelement <2 x double> %94, i64 1
   br label %list_length.exit69
 
 list_length.exit69:                               ; preds = %31, %list_length.exit.thread
-  %97 = phi double [ %.pre, %list_length.exit.thread ], [ 0.000000e+00, %31 ]
-  %.06278 = phi double [ %96, %list_length.exit.thread ], [ 0.000000e+00, %31 ]
-  %.076 = phi double [ %95, %list_length.exit.thread ], [ 0.000000e+00, %31 ]
-  %98 = phi i32 [ %93, %list_length.exit.thread ], [ 0, %31 ]
-  call void @cost_merge_append(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %3, i32 noundef %98, double noundef %.076, double noundef %.06278, double noundef %97) #10
-  br label %99
+  %91 = phi double [ %.pre, %list_length.exit.thread ], [ 0.000000e+00, %31 ]
+  %.06278 = phi double [ %.062.lcssa7794, %list_length.exit.thread ], [ 0.000000e+00, %31 ]
+  %.076 = phi double [ %.0.lcssa7595, %list_length.exit.thread ], [ 0.000000e+00, %31 ]
+  %92 = phi i32 [ %90, %list_length.exit.thread ], [ 0, %31 ]
+  call void @cost_merge_append(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %3, i32 noundef %92, double noundef %.076, double noundef %.06278, double noundef %91) #9
+  br label %93
 
-99:                                               ; preds = %list_length.exit69, %91
+93:                                               ; preds = %list_length.exit69, %87
   ret ptr %7
 }
 
@@ -2056,7 +2051,7 @@ declare void @cost_merge_append(ptr noundef, ptr noundef, ptr noundef, i32 nound
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_group_result_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.QualCost, align 8
-  %6 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  %6 = tail call noundef ptr @palloc0(i64 noundef 80) #9
   store i32 276, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 315, ptr %7, align 4
@@ -2096,16 +2091,17 @@ define dso_local noundef ptr @create_group_result_path(ptr noundef %0, ptr nound
   br i1 %.not, label %38, label %29
 
 29:                                               ; preds = %4
-  call void @cost_qual_eval(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %0) #10
+  call void @cost_qual_eval(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %0) #9
   %30 = load double, ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   %32 = load double, ptr %31, align 8
   %33 = fadd double %30, %32
-  %34 = load <2 x double>, ptr %22, align 8
-  %35 = insertelement <2 x double> poison, double %33, i64 0
-  %36 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> zeroinitializer
-  %37 = fadd <2 x double> %34, %36
-  store <2 x double> %37, ptr %22, align 8
+  %34 = load double, ptr %22, align 8
+  %35 = fadd double %34, %33
+  store double %35, ptr %22, align 8
+  %36 = load double, ptr %28, align 8
+  %37 = fadd double %33, %36
+  store double %37, ptr %28, align 8
   br label %38
 
 38:                                               ; preds = %29, %4
@@ -2116,7 +2112,7 @@ declare void @cost_qual_eval(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_material_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  %3 = tail call noundef ptr @palloc0(i64 noundef 80) #9
   store i32 277, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 344, ptr %4, align 4
@@ -2167,7 +2163,7 @@ define dso_local noundef ptr @create_material_path(ptr noundef %0, ptr noundef %
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 40
   %39 = load i32, ptr %38, align 8
-  tail call void @cost_material(ptr noundef nonnull %3, double noundef %31, double noundef %33, double noundef %35, i32 noundef %39) #10
+  tail call void @cost_material(ptr noundef nonnull %3, double noundef %31, double noundef %33, double noundef %35, i32 noundef %39) #9
   ret ptr %3
 }
 
@@ -2175,7 +2171,7 @@ declare void @cost_material(ptr noundef, double noundef, double noundef, double 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_memoize_path(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, double noundef %7) local_unnamed_addr #2 {
-  %9 = tail call noundef ptr @palloc0(i64 noundef 120) #10
+  %9 = tail call noundef ptr @palloc0(i64 noundef 120) #9
   store i32 278, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 345, ptr %10, align 4
@@ -2274,10 +2270,10 @@ define dso_local ptr @create_unique_path(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %16, label %17, label %226
 
 17:                                               ; preds = %13, %9
-  %18 = tail call ptr @GetMemoryChunkContext(ptr noundef nonnull %1) #10
+  %18 = tail call ptr @GetMemoryChunkContext(ptr noundef nonnull %1) #9
   %19 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %18, ptr @CurrentMemoryContext, align 8
-  %20 = tail call noundef ptr @palloc0(i64 noundef 104) #10
+  %20 = tail call noundef ptr @palloc0(i64 noundef 104) #9
   store i32 279, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %20, i64 4
   store i32 351, ptr %21, align 4
@@ -2318,12 +2314,12 @@ define dso_local ptr @create_unique_path(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %2, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %3, i64 88
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr @copyObjectImpl(ptr noundef %46) #10
+  %47 = tail call ptr @copyObjectImpl(ptr noundef %46) #9
   %48 = getelementptr inbounds i8, ptr %20, i64 88
   store ptr %47, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %3, i64 96
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call ptr @copyObjectImpl(ptr noundef %50) #10
+  %51 = tail call ptr @copyObjectImpl(ptr noundef %50) #9
   %52 = getelementptr inbounds i8, ptr %20, i64 96
   store ptr %51, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %1, i64 120
@@ -2339,7 +2335,7 @@ define dso_local ptr @create_unique_path(ptr noundef %0, ptr noundef %1, ptr nou
 59:                                               ; preds = %56
   %60 = load ptr, ptr %49, align 8
   %61 = load ptr, ptr %45, align 8
-  %62 = tail call zeroext i1 @relation_has_unique_index_for(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %60, ptr noundef %61) #10
+  %62 = tail call zeroext i1 @relation_has_unique_index_for(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %60, ptr noundef %61) #9
   br i1 %62, label %63, label %thread-pre-split
 
 63:                                               ; preds = %59
@@ -2403,7 +2399,7 @@ thread-pre-split:                                 ; preds = %59
   %99 = load ptr, ptr %.in, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 40
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call zeroext i1 @query_supports_distinctness(ptr noundef %101) #10
+  %102 = tail call zeroext i1 @query_supports_distinctness(ptr noundef %101) #9
   br i1 %102, label %103, label %.thread
 
 103:                                              ; preds = %98
@@ -2444,7 +2440,7 @@ thread-pre-split:                                 ; preds = %59
   %121 = getelementptr inbounds i8, ptr %113, i64 8
   %122 = load i16, ptr %121, align 8
   %123 = sext i16 %122 to i32
-  %124 = tail call ptr @lappend_int(ptr noundef %.0132336.i, i32 noundef %123) #10
+  %124 = tail call ptr @lappend_int(ptr noundef %.0132336.i, i32 noundef %123) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %125 = load i32, ptr %107, align 4
   %126 = sext i32 %125 to i64
@@ -2458,7 +2454,7 @@ translate_sub_tlist.exit:                         ; preds = %120
 128:                                              ; preds = %translate_sub_tlist.exit
   %129 = load ptr, ptr %100, align 8
   %130 = load ptr, ptr %45, align 8
-  %131 = tail call zeroext i1 @query_is_distinct_for(ptr noundef %129, ptr noundef nonnull %124, ptr noundef %130) #10
+  %131 = tail call zeroext i1 @query_is_distinct_for(ptr noundef %129, ptr noundef nonnull %124, ptr noundef %130) #9
   br i1 %131, label %132, label %.thread
 
 132:                                              ; preds = %128
@@ -2485,7 +2481,7 @@ translate_sub_tlist.exit:                         ; preds = %120
   %145 = load ptr, ptr %49, align 8
   %146 = getelementptr inbounds i8, ptr %1, i64 16
   %147 = load double, ptr %146, align 8
-  %148 = tail call double @estimate_num_groups(ptr noundef %0, ptr noundef %145, double noundef %147, ptr noundef null, ptr noundef null) #10
+  %148 = tail call double @estimate_num_groups(ptr noundef %0, ptr noundef %145, double noundef %147, ptr noundef null, ptr noundef null) #9
   %149 = getelementptr inbounds i8, ptr %20, i64 40
   store double %148, ptr %149, align 8
   %150 = load ptr, ptr %49, align 8
@@ -2512,7 +2508,7 @@ list_length.exit:                                 ; preds = %.thread, %151
   %163 = getelementptr inbounds i8, ptr %162, i64 40
   %164 = load i32, ptr %163, align 8
   %165 = load i32, ptr @work_mem, align 4
-  call void @cost_sort(ptr noundef nonnull %5, ptr noundef %0, ptr noundef null, double noundef %159, double noundef %160, i32 noundef %164, double noundef 0.000000e+00, i32 noundef %165, double noundef -1.000000e+00) #10
+  call void @cost_sort(ptr noundef nonnull %5, ptr noundef %0, ptr noundef null, double noundef %159, double noundef %160, i32 noundef %164, double noundef 0.000000e+00, i32 noundef %165, double noundef -1.000000e+00) #9
   %166 = load double, ptr @cpu_operator_cost, align 8
   %167 = load double, ptr %146, align 8
   %168 = fmul double %166, %167
@@ -2538,7 +2534,7 @@ list_length.exit:                                 ; preds = %.thread, %151
   %183 = sitofp i32 %182 to double
   %184 = load double, ptr %149, align 8
   %185 = fmul double %184, %183
-  %186 = call i64 @get_hash_memory_limit() #10
+  %186 = call i64 @get_hash_memory_limit() #9
   %187 = uitofp i64 %186 to double
   %188 = fcmp ogt double %185, %187
   br i1 %188, label %189, label %190
@@ -2558,7 +2554,7 @@ list_length.exit:                                 ; preds = %.thread, %151
   %198 = getelementptr inbounds i8, ptr %197, i64 40
   %199 = load i32, ptr %198, align 8
   %200 = sitofp i32 %199 to double
-  call void @cost_agg(ptr noundef nonnull %6, ptr noundef %0, i32 noundef 2, ptr noundef null, i32 noundef %154, double noundef %191, ptr noundef null, double noundef %193, double noundef %195, double noundef %196, double noundef %200) #10
+  call void @cost_agg(ptr noundef nonnull %6, ptr noundef %0, i32 noundef 2, ptr noundef null, i32 noundef %154, double noundef %191, ptr noundef null, double noundef %193, double noundef %195, double noundef %196, double noundef %200) #9
   br label %201
 
 201:                                              ; preds = %189, %190, %173
@@ -2645,13 +2641,13 @@ declare void @cost_agg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_gather_merge_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca %struct.Path, align 8
-  %9 = tail call noundef ptr @palloc0(i64 noundef 88) #10
+  %9 = tail call noundef ptr @palloc0(i64 noundef 88) #9
   store i32 281, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 353, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %1, ptr %11, align 8
-  %12 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %5) #10
+  %12 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %5) #9
   %13 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %9, i64 32
@@ -2684,7 +2680,7 @@ define dso_local noundef ptr @create_gather_merge_path(ptr noundef %0, ptr nound
   store double %30, ptr %28, align 8
   %31 = getelementptr inbounds i8, ptr %2, i64 64
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call zeroext i1 @pathkeys_contained_in(ptr noundef %4, ptr noundef %32) #10
+  %33 = tail call zeroext i1 @pathkeys_contained_in(ptr noundef %4, ptr noundef %32) #9
   br i1 %33, label %43, label %34
 
 34:                                               ; preds = %23
@@ -2696,7 +2692,7 @@ define dso_local noundef ptr @create_gather_merge_path(ptr noundef %0, ptr nound
   %40 = getelementptr inbounds i8, ptr %39, i64 40
   %41 = load i32, ptr %40, align 8
   %42 = load i32, ptr @work_mem, align 4
-  call void @cost_sort(ptr noundef nonnull %8, ptr noundef %0, ptr noundef %4, double noundef %36, double noundef %37, i32 noundef %41, double noundef 0.000000e+00, i32 noundef %42, double noundef -1.000000e+00) #10
+  call void @cost_sort(ptr noundef nonnull %8, ptr noundef %0, ptr noundef %4, double noundef %36, double noundef %37, i32 noundef %41, double noundef 0.000000e+00, i32 noundef %42, double noundef -1.000000e+00) #9
   br label %43
 
 43:                                               ; preds = %23, %34
@@ -2708,7 +2704,7 @@ define dso_local noundef ptr @create_gather_merge_path(ptr noundef %0, ptr nound
   %.0 = fadd double %45, 0.000000e+00
   %.041 = fadd double %44, 0.000000e+00
   %46 = load ptr, ptr %13, align 8
-  call void @cost_gather_merge(ptr noundef nonnull %9, ptr noundef %0, ptr noundef %1, ptr noundef %46, double noundef %.041, double noundef %.0, ptr noundef %6) #10
+  call void @cost_gather_merge(ptr noundef nonnull %9, ptr noundef %0, ptr noundef %1, ptr noundef %46, double noundef %.041, double noundef %.0, ptr noundef %6) #9
   ret ptr %9
 }
 
@@ -2716,7 +2712,7 @@ declare void @cost_gather_merge(ptr noundef, ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_gather_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
-  %7 = tail call noundef ptr @palloc0(i64 noundef 88) #10
+  %7 = tail call noundef ptr @palloc0(i64 noundef 88) #9
   store i32 280, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 352, ptr %8, align 4
@@ -2724,7 +2720,7 @@ define dso_local noundef ptr @create_gather_path(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %3, ptr %10, align 8
-  %11 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
+  %11 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %4) #9
   %12 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 32
@@ -2755,7 +2751,7 @@ define dso_local noundef ptr @create_gather_path(ptr noundef %0, ptr noundef %1,
   br label %26
 
 26:                                               ; preds = %23, %6
-  tail call void @cost_gather(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %5) #10
+  tail call void @cost_gather(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %5) #9
   ret ptr %7
 }
 
@@ -2763,7 +2759,7 @@ declare void @cost_gather(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_subqueryscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
-  %7 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  %7 = tail call noundef ptr @palloc0(i64 noundef 80) #9
   store i32 271, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 331, ptr %8, align 4
@@ -2773,7 +2769,7 @@ define dso_local noundef ptr @create_subqueryscan_path(ptr noundef %0, ptr nound
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %11, ptr %12, align 8
-  %13 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %5) #10
+  %13 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %5) #9
   %14 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %7, i64 32
@@ -2801,7 +2797,7 @@ define dso_local noundef ptr @create_subqueryscan_path(ptr noundef %0, ptr nound
   store ptr %4, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %7, i64 72
   store ptr %2, ptr %30, align 8
-  tail call void @cost_subqueryscan(ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13, i1 noundef zeroext %3) #10
+  tail call void @cost_subqueryscan(ptr noundef nonnull %7, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13, i1 noundef zeroext %3) #9
   ret ptr %7
 }
 
@@ -2809,7 +2805,7 @@ declare void @cost_subqueryscan(ptr noundef, ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_functionscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  %5 = tail call noundef ptr @palloc0(i64 noundef 72) #9
   store i32 263, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 332, ptr %6, align 4
@@ -2819,7 +2815,7 @@ define dso_local noundef ptr @create_functionscan_path(ptr noundef %0, ptr nound
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8
-  %11 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %3) #10
+  %11 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %3) #9
   %12 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 32
@@ -2833,7 +2829,7 @@ define dso_local noundef ptr @create_functionscan_path(ptr noundef %0, ptr nound
   store i32 0, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %2, ptr %19, align 8
-  tail call void @cost_functionscan(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1, ptr noundef %11) #10
+  tail call void @cost_functionscan(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %1, ptr noundef %11) #9
   ret ptr %5
 }
 
@@ -2841,7 +2837,7 @@ declare void @cost_functionscan(ptr noundef, ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_tablefuncscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #9
   store i32 263, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 334, ptr %5, align 4
@@ -2851,7 +2847,7 @@ define dso_local noundef ptr @create_tablefuncscan_path(ptr noundef %0, ptr noun
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
+  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 32
@@ -2865,7 +2861,7 @@ define dso_local noundef ptr @create_tablefuncscan_path(ptr noundef %0, ptr noun
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %18, align 8
-  tail call void @cost_tablefuncscan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #10
+  tail call void @cost_tablefuncscan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #9
   ret ptr %4
 }
 
@@ -2873,7 +2869,7 @@ declare void @cost_tablefuncscan(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_valuesscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #9
   store i32 263, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 333, ptr %5, align 4
@@ -2883,7 +2879,7 @@ define dso_local noundef ptr @create_valuesscan_path(ptr noundef %0, ptr noundef
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
+  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 32
@@ -2897,7 +2893,7 @@ define dso_local noundef ptr @create_valuesscan_path(ptr noundef %0, ptr noundef
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %18, align 8
-  tail call void @cost_valuesscan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #10
+  tail call void @cost_valuesscan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #9
   ret ptr %4
 }
 
@@ -2905,7 +2901,7 @@ declare void @cost_valuesscan(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_ctescan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #9
   store i32 263, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 335, ptr %5, align 4
@@ -2915,7 +2911,7 @@ define dso_local noundef ptr @create_ctescan_path(ptr noundef %0, ptr noundef %1
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
+  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 32
@@ -2929,7 +2925,7 @@ define dso_local noundef ptr @create_ctescan_path(ptr noundef %0, ptr noundef %1
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %18, align 8
-  tail call void @cost_ctescan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #10
+  tail call void @cost_ctescan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #9
   ret ptr %4
 }
 
@@ -2937,7 +2933,7 @@ declare void @cost_ctescan(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_namedtuplestorescan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #9
   store i32 263, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 336, ptr %5, align 4
@@ -2947,7 +2943,7 @@ define dso_local noundef ptr @create_namedtuplestorescan_path(ptr noundef %0, pt
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
+  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 32
@@ -2961,7 +2957,7 @@ define dso_local noundef ptr @create_namedtuplestorescan_path(ptr noundef %0, pt
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %18, align 8
-  tail call void @cost_namedtuplestorescan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #10
+  tail call void @cost_namedtuplestorescan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #9
   ret ptr %4
 }
 
@@ -2969,7 +2965,7 @@ declare void @cost_namedtuplestorescan(ptr noundef, ptr noundef, ptr noundef, pt
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_resultscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #9
   store i32 263, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 315, ptr %5, align 4
@@ -2979,7 +2975,7 @@ define dso_local noundef ptr @create_resultscan_path(ptr noundef %0, ptr noundef
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
+  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 32
@@ -2993,7 +2989,7 @@ define dso_local noundef ptr @create_resultscan_path(ptr noundef %0, ptr noundef
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %18, align 8
-  tail call void @cost_resultscan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #10
+  tail call void @cost_resultscan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #9
   ret ptr %4
 }
 
@@ -3001,7 +2997,7 @@ declare void @cost_resultscan(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_worktablescan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  %4 = tail call noundef ptr @palloc0(i64 noundef 72) #9
   store i32 263, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 337, ptr %5, align 4
@@ -3011,7 +3007,7 @@ define dso_local noundef ptr @create_worktablescan_path(ptr noundef %0, ptr noun
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
+  %10 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 32
@@ -3025,13 +3021,13 @@ define dso_local noundef ptr @create_worktablescan_path(ptr noundef %0, ptr noun
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %18, align 8
-  tail call void @cost_ctescan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #10
+  tail call void @cost_ctescan(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef %10) #9
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_foreignscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, double noundef %4, double noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #2 {
-  %12 = tail call noundef ptr @palloc0(i64 noundef 96) #10
+  %12 = tail call noundef ptr @palloc0(i64 noundef 96) #9
   store i32 272, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %12, i64 4
   store i32 338, ptr %13, align 4
@@ -3049,7 +3045,7 @@ define dso_local noundef ptr @create_foreignscan_path(ptr noundef %0, ptr nounde
   %19 = phi ptr [ %17, %15 ], [ %2, %11 ]
   %20 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %19, ptr %20, align 8
-  %21 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %7) #10
+  %21 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %7) #9
   %22 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %12, i64 32
@@ -3080,7 +3076,7 @@ define dso_local noundef ptr @create_foreignscan_path(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_foreign_join_path(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, double noundef %3, double noundef %4, double noundef %5, ptr noundef %6, ptr noundef readnone %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #2 {
-  %12 = tail call noundef ptr @palloc0(i64 noundef 96) #10
+  %12 = tail call noundef ptr @palloc0(i64 noundef 96) #9
   store i32 272, ptr %12, align 4
   %13 = icmp eq ptr %7, null
   br i1 %13, label %14, label %18
@@ -3092,10 +3088,10 @@ define dso_local noundef ptr @create_foreign_join_path(ptr nocapture noundef rea
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %14, %11
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2300, ptr noundef nonnull @__func__.create_foreign_join_path) #10
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2300, ptr noundef nonnull @__func__.create_foreign_join_path) #9
   unreachable
 
 21:                                               ; preds = %14
@@ -3145,7 +3141,7 @@ define dso_local noundef ptr @create_foreign_join_path(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_foreign_upper_path(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, double noundef %3, double noundef %4, double noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #2 {
-  %11 = tail call noundef ptr @palloc0(i64 noundef 96) #10
+  %11 = tail call noundef ptr @palloc0(i64 noundef 96) #9
   store i32 272, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %11, i64 4
   store i32 338, ptr %12, align 4
@@ -3197,12 +3193,12 @@ define dso_local ptr @calc_nestloop_required_outer(ptr noundef %0, ptr noundef %
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %4
-  %6 = tail call ptr @bms_copy(ptr noundef %1) #10
+  %6 = tail call ptr @bms_copy(ptr noundef %1) #9
   br label %10
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @bms_union(ptr noundef %1, ptr noundef nonnull %3) #10
-  %9 = tail call ptr @bms_del_members(ptr noundef %8, ptr noundef %0) #10
+  %8 = tail call ptr @bms_union(ptr noundef %1, ptr noundef nonnull %3) #9
+  %9 = tail call ptr @bms_del_members(ptr noundef %8, ptr noundef %0) #9
   br label %10
 
 10:                                               ; preds = %7, %5
@@ -3242,7 +3238,7 @@ define dso_local ptr @calc_non_nestloop_required_outer(ptr nocapture noundef rea
 
 15:                                               ; preds = %8, %12
   %16 = phi ptr [ %14, %12 ], [ null, %8 ]
-  %17 = tail call ptr @bms_union(ptr noundef %9, ptr noundef %16) #10
+  %17 = tail call ptr @bms_union(ptr noundef %9, ptr noundef %16) #9
   ret ptr %17
 }
 
@@ -3250,7 +3246,7 @@ define dso_local ptr @calc_non_nestloop_required_outer(ptr nocapture noundef rea
 define dso_local noundef ptr @create_nestloop_path(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #2 {
   %11 = alloca ptr, align 8
   store ptr %7, ptr %11, align 8
-  %12 = tail call noundef ptr @palloc0(i64 noundef 104) #10
+  %12 = tail call noundef ptr @palloc0(i64 noundef 104) #9
   store i32 282, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
@@ -3268,11 +3264,11 @@ define dso_local noundef ptr @create_nestloop_path(ptr noundef %0, ptr noundef %
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call zeroext i1 @bms_overlap(ptr noundef %19, ptr noundef %23) #10
+  %24 = tail call zeroext i1 @bms_overlap(ptr noundef %19, ptr noundef %23) #9
   br i1 %24, label %25, label %43
 
 25:                                               ; preds = %18
-  %26 = tail call ptr @get_param_path_clause_serials(ptr noundef nonnull %6) #10
+  %26 = tail call ptr @get_param_path_clause_serials(ptr noundef nonnull %6) #9
   %27 = getelementptr inbounds i8, ptr %7, i64 4
   %.not52 = icmp eq ptr %7, null
   br i1 %.not52, label %._crit_edge, label %.lr.ph
@@ -3291,11 +3287,11 @@ define dso_local noundef ptr @create_nestloop_path(ptr noundef %0, ptr noundef %
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 96
   %35 = load i32, ptr %34, align 8
-  %36 = tail call zeroext i1 @bms_is_member(i32 noundef %35, ptr noundef %26) #10
+  %36 = tail call zeroext i1 @bms_is_member(i32 noundef %35, ptr noundef %26) #9
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %.lr.ph63
-  %38 = tail call ptr @lappend(ptr noundef %.05761, ptr noundef nonnull %33) #10
+  %38 = tail call ptr @lappend(ptr noundef %.05761, ptr noundef nonnull %33) #9
   br label %39
 
 39:                                               ; preds = %.lr.ph63, %37
@@ -3322,7 +3318,7 @@ define dso_local noundef ptr @create_nestloop_path(ptr noundef %0, ptr noundef %
   store ptr %47, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %4, i64 24
   %50 = load ptr, ptr %49, align 8
-  %51 = call ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %50, ptr noundef %9, ptr noundef nonnull %11) #10
+  %51 = call ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %50, ptr noundef %9, ptr noundef nonnull %11) #9
   %52 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr %51, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %12, i64 32
@@ -3368,7 +3364,7 @@ define dso_local noundef ptr @create_nestloop_path(ptr noundef %0, ptr noundef %
   %79 = load ptr, ptr %11, align 8
   %80 = getelementptr inbounds i8, ptr %12, i64 96
   store ptr %79, ptr %80, align 8
-  call void @final_cost_nestloop(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %3, ptr noundef nonnull %4) #10
+  call void @final_cost_nestloop(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %3, ptr noundef nonnull %4) #9
   ret ptr %12
 }
 
@@ -3386,7 +3382,7 @@ declare void @final_cost_nestloop(ptr noundef, ptr noundef, ptr noundef, ptr nou
 define dso_local noundef ptr @create_mergejoin_path(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #2 {
   %14 = alloca ptr, align 8
   store ptr %7, ptr %14, align 8
-  %15 = tail call noundef ptr @palloc0(i64 noundef 136) #10
+  %15 = tail call noundef ptr @palloc0(i64 noundef 136) #9
   store i32 283, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %15, i64 4
   store i32 342, ptr %16, align 4
@@ -3398,7 +3394,7 @@ define dso_local noundef ptr @create_mergejoin_path(ptr noundef %0, ptr noundef 
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = call ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %22, ptr noundef %9, ptr noundef nonnull %14) #10
+  %23 = call ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %22, ptr noundef %9, ptr noundef nonnull %14) #9
   %24 = getelementptr inbounds i8, ptr %15, i64 24
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %15, i64 32
@@ -3450,7 +3446,7 @@ define dso_local noundef ptr @create_mergejoin_path(ptr noundef %0, ptr noundef 
   store ptr %11, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %15, i64 120
   store ptr %12, ptr %55, align 8
-  call void @final_cost_mergejoin(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %3, ptr noundef nonnull %4) #10
+  call void @final_cost_mergejoin(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %3, ptr noundef nonnull %4) #9
   ret ptr %15
 }
 
@@ -3460,7 +3456,7 @@ declare void @final_cost_mergejoin(ptr noundef, ptr noundef, ptr noundef, ptr no
 define dso_local noundef ptr @create_hashjoin_path(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #2 {
   %12 = alloca ptr, align 8
   store ptr %8, ptr %12, align 8
-  %13 = tail call noundef ptr @palloc0(i64 noundef 128) #10
+  %13 = tail call noundef ptr @palloc0(i64 noundef 128) #9
   store i32 284, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   store i32 343, ptr %14, align 4
@@ -3472,7 +3468,7 @@ define dso_local noundef ptr @create_hashjoin_path(ptr noundef %0, ptr noundef %
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = call ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %20, ptr noundef %9, ptr noundef nonnull %12) #10
+  %21 = call ptr @get_joinrel_parampathinfo(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %20, ptr noundef %9, ptr noundef nonnull %12) #9
   %22 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 26
@@ -3524,7 +3520,7 @@ define dso_local noundef ptr @create_hashjoin_path(ptr noundef %0, ptr noundef %
   store ptr %53, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %13, i64 104
   store ptr %10, ptr %55, align 8
-  call void @final_cost_hashjoin(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, ptr noundef nonnull %4) #10
+  call void @final_cost_hashjoin(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, ptr noundef nonnull %4) #9
   ret ptr %13
 }
 
@@ -3532,7 +3528,7 @@ declare void @final_cost_hashjoin(ptr noundef, ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_projection_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = tail call noundef ptr @palloc0(i64 noundef 88) #10
+  %5 = tail call noundef ptr @palloc0(i64 noundef 88) #9
   store i32 285, ptr %5, align 4
   %6 = load i32, ptr %2, align 4
   %7 = icmp eq i32 %6, 285
@@ -3569,7 +3565,7 @@ define dso_local noundef ptr @create_projection_path(ptr noundef %0, ptr noundef
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %3, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %26) #10
+  %27 = tail call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %26) #9
   %28 = zext i1 %27 to i8
   br label %29
 
@@ -3589,7 +3585,7 @@ define dso_local noundef ptr @create_projection_path(ptr noundef %0, ptr noundef
   store ptr %.0, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %.0, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call zeroext i1 @is_projection_capable_path(ptr noundef %.0) #10
+  %41 = tail call zeroext i1 @is_projection_capable_path(ptr noundef %.0) #9
   br i1 %41, label %48, label %42
 
 42:                                               ; preds = %29
@@ -3597,7 +3593,7 @@ define dso_local noundef ptr @create_projection_path(ptr noundef %0, ptr noundef
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %3, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call zeroext i1 @equal(ptr noundef %44, ptr noundef %46) #10
+  %47 = tail call zeroext i1 @equal(ptr noundef %44, ptr noundef %46) #9
   br i1 %47, label %48, label %75
 
 48:                                               ; preds = %42, %29
@@ -3673,7 +3669,7 @@ declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @apply_projection_to_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = tail call zeroext i1 @is_projection_capable_path(ptr noundef %2) #10
+  %5 = tail call zeroext i1 @is_projection_capable_path(ptr noundef %2) #9
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
@@ -3715,7 +3711,7 @@ define dso_local noundef ptr @apply_projection_to_path(ptr noundef %0, ptr nound
 31:                                               ; preds = %8
   %32 = getelementptr inbounds i8, ptr %3, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %33) #10
+  %34 = tail call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %33) #9
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %31
@@ -3736,7 +3732,7 @@ define dso_local noundef ptr @apply_projection_to_path(ptr noundef %0, ptr nound
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i8, ptr %3, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %47) #10
+  %48 = tail call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %47) #9
   br i1 %48, label %50, label %49
 
 49:                                               ; preds = %45
@@ -3753,7 +3749,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_set_projection_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  %5 = tail call noundef ptr @palloc0(i64 noundef 80) #9
   store i32 286, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 316, ptr %6, align 4
@@ -3779,7 +3775,7 @@ define dso_local noundef ptr @create_set_projection_path(ptr noundef %0, ptr nou
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %20) #10
+  %21 = tail call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %20) #9
   %22 = zext i1 %21 to i8
   br label %23
 
@@ -3815,7 +3811,7 @@ define dso_local noundef ptr @create_set_projection_path(ptr noundef %0, ptr nou
   %39 = load ptr, ptr %36, align 8
   %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call double @expression_returns_set_rows(ptr noundef %0, ptr noundef %41) #10
+  %42 = tail call double @expression_returns_set_rows(ptr noundef %0, ptr noundef %41) #9
   %43 = fcmp olt double %.05054, %42
   %.1 = select i1 %43, double %42, double %.05054
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3861,7 +3857,7 @@ declare double @expression_returns_set_rows(ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_incremental_sort_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #2 {
-  %7 = tail call noundef ptr @palloc0(i64 noundef 88) #10
+  %7 = tail call noundef ptr @palloc0(i64 noundef 88) #9
   store i32 288, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 347, ptr %8, align 4
@@ -3908,7 +3904,7 @@ define dso_local noundef ptr @create_incremental_sort_path(ptr noundef %0, ptr n
   %37 = getelementptr inbounds i8, ptr %36, i64 40
   %38 = load i32, ptr %37, align 8
   %39 = load i32, ptr @work_mem, align 4
-  tail call void @cost_incremental_sort(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %3, i32 noundef %4, double noundef %31, double noundef %33, double noundef %35, i32 noundef %38, double noundef 0.000000e+00, i32 noundef %39, double noundef %5) #10
+  tail call void @cost_incremental_sort(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %3, i32 noundef %4, double noundef %31, double noundef %33, double noundef %35, i32 noundef %38, double noundef 0.000000e+00, i32 noundef %39, double noundef %5) #9
   %40 = getelementptr inbounds i8, ptr %7, i64 80
   store i32 %4, ptr %40, align 8
   ret ptr %7
@@ -3918,7 +3914,7 @@ declare void @cost_incremental_sort(ptr noundef, ptr noundef, ptr noundef, i32 n
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_sort_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, double noundef %4) local_unnamed_addr #2 {
-  %6 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  %6 = tail call noundef ptr @palloc0(i64 noundef 80) #9
   store i32 287, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 346, ptr %7, align 4
@@ -3963,13 +3959,13 @@ define dso_local noundef ptr @create_sort_path(ptr noundef %0, ptr noundef %1, p
   %34 = getelementptr inbounds i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = load i32, ptr @work_mem, align 4
-  tail call void @cost_sort(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %3, double noundef %30, double noundef %32, i32 noundef %35, double noundef 0.000000e+00, i32 noundef %36, double noundef %4) #10
+  tail call void @cost_sort(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %3, double noundef %30, double noundef %32, i32 noundef %35, double noundef 0.000000e+00, i32 noundef %36, double noundef %4) #9
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_group_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, double noundef %5) local_unnamed_addr #2 {
-  %7 = tail call noundef ptr @palloc0(i64 noundef 96) #10
+  %7 = tail call noundef ptr @palloc0(i64 noundef 96) #9
   store i32 289, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -4028,7 +4024,7 @@ list_length.exit:                                 ; preds = %22, %34
   %41 = load double, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %2, i64 40
   %43 = load double, ptr %42, align 8
-  tail call void @cost_group(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %37, double noundef %5, ptr noundef %4, double noundef %39, double noundef %41, double noundef %43) #10
+  tail call void @cost_group(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %37, double noundef %5, ptr noundef %4, double noundef %39, double noundef %41, double noundef %43) #9
   %44 = getelementptr inbounds i8, ptr %9, i64 24
   %45 = load double, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %7, i64 48
@@ -4052,7 +4048,7 @@ declare void @cost_group(ptr noundef, ptr noundef, i32 noundef, double noundef, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_upper_unique_path(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #2 {
-  %6 = tail call noundef ptr @palloc0(i64 noundef 88) #10
+  %6 = tail call noundef ptr @palloc0(i64 noundef 88) #9
   store i32 290, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 351, ptr %7, align 4
@@ -4114,7 +4110,7 @@ define dso_local noundef ptr @create_upper_unique_path(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_agg_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, double noundef %9) local_unnamed_addr #2 {
-  %11 = tail call noundef ptr @palloc0(i64 noundef 120) #10
+  %11 = tail call noundef ptr @palloc0(i64 noundef 120) #9
   store i32 291, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %11, i64 4
   store i32 349, ptr %12, align 4
@@ -4167,7 +4163,7 @@ list_length.exit:                                 ; preds = %31, %34
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %list_length.exit
-  %42 = tail call ptr @list_copy_head(ptr noundef %33, i32 noundef %39) #10
+  %42 = tail call ptr @list_copy_head(ptr noundef %33, i32 noundef %39) #9
   br label %43
 
 43:                                               ; preds = %24, %list_length.exit, %41
@@ -4219,7 +4215,7 @@ list_length.exit55:                               ; preds = %52, %57
   %69 = getelementptr inbounds i8, ptr %68, i64 40
   %70 = load i32, ptr %69, align 8
   %71 = sitofp i32 %70 to double
-  tail call void @cost_agg(ptr noundef nonnull %11, ptr noundef %0, i32 noundef %4, ptr noundef %8, i32 noundef %60, double noundef %9, ptr noundef %7, double noundef %62, double noundef %64, double noundef %66, double noundef %71) #10
+  tail call void @cost_agg(ptr noundef nonnull %11, ptr noundef %0, i32 noundef %4, ptr noundef %8, i32 noundef %60, double noundef %9, ptr noundef %7, double noundef %62, double noundef %64, double noundef %66, double noundef %71) #9
   %72 = getelementptr inbounds i8, ptr %3, i64 24
   %73 = load double, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %11, i64 48
@@ -4245,7 +4241,7 @@ declare ptr @list_copy_head(ptr noundef, i32 noundef) local_unnamed_addr #4
 define dso_local noundef ptr @create_groupingsets_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca %struct.Path, align 8
   %9 = alloca %struct.Path, align 8
-  %10 = tail call noundef ptr @palloc0(i64 noundef 112) #10
+  %10 = tail call noundef ptr @palloc0(i64 noundef 112) #9
   store i32 294, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8
@@ -4401,7 +4397,7 @@ list_length.exit104:                              ; preds = %.lr.ph132, %83
   %94 = getelementptr inbounds i8, ptr %93, i64 40
   %95 = load i32, ptr %94, align 8
   %96 = sitofp i32 %95 to double
-  call void @cost_agg(ptr noundef %10, ptr noundef %0, i32 noundef %.1110, ptr noundef %6, i32 noundef %86, double noundef %89, ptr noundef %3, double noundef %90, double noundef %91, double noundef %92, double noundef %96) #10
+  call void @cost_agg(ptr noundef %10, ptr noundef %0, i32 noundef %.1110, ptr noundef %6, i32 noundef %86, double noundef %89, ptr noundef %3, double noundef %90, double noundef %91, double noundef %92, double noundef %96) #9
   %97 = getelementptr inbounds i8, ptr %78, i64 41
   %98 = load i8, ptr %97, align 1
   %99 = trunc i8 %98 to i1
@@ -4424,7 +4420,7 @@ list_length.exit104:                              ; preds = %.lr.ph132, %83
   %109 = getelementptr inbounds i8, ptr %108, i64 40
   %110 = load i32, ptr %109, align 8
   %111 = sitofp i32 %110 to double
-  call void @cost_agg(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %.mux, ptr noundef %6, i32 noundef %86, double noundef %106, ptr noundef %3, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %107, double noundef %111) #10
+  call void @cost_agg(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %.mux, ptr noundef %6, i32 noundef %86, double noundef %106, ptr noundef %3, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %107, double noundef %111) #9
   %112 = load i8, ptr %101, align 1
   %113 = trunc i8 %112 to i1
   %spec.select97 = select i1 %113, i1 %.087124131, i1 false
@@ -4436,7 +4432,7 @@ list_length.exit104:                              ; preds = %.lr.ph132, %83
   %117 = getelementptr inbounds i8, ptr %116, i64 40
   %118 = load i32, ptr %117, align 8
   %119 = load i32, ptr @work_mem, align 4
-  call void @cost_sort(ptr noundef nonnull %8, ptr noundef %0, ptr noundef null, double noundef 0.000000e+00, double noundef %115, i32 noundef %118, double noundef 0.000000e+00, i32 noundef %119, double noundef -1.000000e+00) #10
+  call void @cost_sort(ptr noundef nonnull %8, ptr noundef %0, ptr noundef null, double noundef 0.000000e+00, double noundef %115, i32 noundef %118, double noundef 0.000000e+00, i32 noundef %119, double noundef -1.000000e+00) #9
   %120 = getelementptr inbounds i8, ptr %78, i64 32
   %121 = load double, ptr %120, align 8
   %122 = load double, ptr %65, align 8
@@ -4446,7 +4442,7 @@ list_length.exit104:                              ; preds = %.lr.ph132, %83
   %126 = getelementptr inbounds i8, ptr %125, i64 40
   %127 = load i32, ptr %126, align 8
   %128 = sitofp i32 %127 to double
-  call void @cost_agg(ptr noundef nonnull %9, ptr noundef %0, i32 noundef 1, ptr noundef %6, i32 noundef %86, double noundef %121, ptr noundef %3, double noundef %122, double noundef %123, double noundef %124, double noundef %128) #10
+  call void @cost_agg(ptr noundef nonnull %9, ptr noundef %0, i32 noundef 1, ptr noundef %6, i32 noundef %86, double noundef %121, ptr noundef %3, double noundef %122, double noundef %123, double noundef %124, double noundef %128) #9
   br label %129
 
 129:                                              ; preds = %104, %114
@@ -4491,8 +4487,8 @@ list_length.exit104:                              ; preds = %.lr.ph132, %83
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_minmaxagg_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
-  %6 = alloca %struct.QualCost, align 16
-  %7 = tail call noundef ptr @palloc0(i64 noundef 88) #10
+  %6 = alloca %struct.QualCost, align 8
+  %7 = tail call noundef ptr @palloc0(i64 noundef 88) #9
   store i32 295, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 315, ptr %8, align 4
@@ -4575,48 +4571,51 @@ define dso_local noundef ptr @create_minmaxagg_path(ptr noundef %0, ptr noundef 
   %54 = getelementptr inbounds i8, ptr %7, i64 56
   store double %53, ptr %54, align 8
   %.not48 = icmp eq ptr %4, null
-  br i1 %.not48, label %61, label %55
+  br i1 %.not48, label %64, label %55
 
 55:                                               ; preds = %._crit_edge
-  call void @cost_qual_eval(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %0) #10
-  %56 = load <2 x double>, ptr %6, align 16
-  %shift = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %57 = fadd <2 x double> %56, %shift
-  %58 = load <2 x double>, ptr %46, align 8
-  %59 = shufflevector <2 x double> %56, <2 x double> %57, <2 x i32> <i32 0, i32 2>
-  %60 = fadd <2 x double> %58, %59
-  store <2 x double> %60, ptr %46, align 8
+  call void @cost_qual_eval(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %0) #9
+  %56 = load double, ptr %6, align 8
+  %57 = load double, ptr %46, align 8
+  %58 = fadd double %56, %57
+  store double %58, ptr %46, align 8
+  %59 = getelementptr inbounds i8, ptr %6, i64 8
+  %60 = load double, ptr %59, align 8
+  %61 = fadd double %56, %60
+  %62 = load double, ptr %54, align 8
+  %63 = fadd double %62, %61
+  store double %63, ptr %54, align 8
   %.pre61 = load i8, ptr %13, align 1
-  br label %61
+  br label %64
 
-61:                                               ; preds = %55, %._crit_edge
-  %62 = phi i8 [ %.pre61, %55 ], [ %42, %._crit_edge ]
-  %63 = trunc i8 %62 to i1
-  br i1 %63, label %64, label %73
+64:                                               ; preds = %55, %._crit_edge
+  %65 = phi i8 [ %.pre61, %55 ], [ %42, %._crit_edge ]
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %76
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %2, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %66) #10
-  br i1 %67, label %68, label %71
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds i8, ptr %2, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %69) #9
+  br i1 %70, label %71, label %74
 
-68:                                               ; preds = %64
-  %69 = call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %4) #10
-  %70 = zext i1 %69 to i8
-  br label %71
+71:                                               ; preds = %67
+  %72 = call zeroext i1 @is_parallel_safe(ptr noundef %0, ptr noundef %4) #9
+  %73 = zext i1 %72 to i8
+  br label %74
 
-71:                                               ; preds = %68, %64
-  %72 = phi i8 [ 0, %64 ], [ %70, %68 ]
-  store i8 %72, ptr %13, align 1
-  br label %73
+74:                                               ; preds = %71, %67
+  %75 = phi i8 [ 0, %67 ], [ %73, %71 ]
+  store i8 %75, ptr %13, align 1
+  br label %76
 
-73:                                               ; preds = %71, %61
+76:                                               ; preds = %74, %64
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_windowagg_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #2 {
-  %9 = tail call noundef ptr @palloc0(i64 noundef 104) #10
+  %9 = tail call noundef ptr @palloc0(i64 noundef 104) #9
   store i32 296, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 350, ptr %10, align 4
@@ -4666,7 +4665,7 @@ define dso_local noundef ptr @create_windowagg_path(ptr noundef %0, ptr noundef 
   %39 = load double, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %2, i64 40
   %41 = load double, ptr %40, align 8
-  tail call void @cost_windowagg(ptr noundef nonnull %9, ptr noundef %0, ptr noundef %4, ptr noundef %5, double noundef %37, double noundef %39, double noundef %41) #10
+  tail call void @cost_windowagg(ptr noundef nonnull %9, ptr noundef %0, ptr noundef %4, ptr noundef %5, double noundef %37, double noundef %39, double noundef %41) #9
   %42 = getelementptr inbounds i8, ptr %3, i64 24
   %43 = load double, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %9, i64 48
@@ -4690,7 +4689,7 @@ declare void @cost_windowagg(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_setop_path(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i16 noundef signext %6, i32 noundef %7, double noundef %8, double noundef %9) local_unnamed_addr #2 {
-  %11 = tail call noundef ptr @palloc0(i64 noundef 112) #10
+  %11 = tail call noundef ptr @palloc0(i64 noundef 112) #9
   store i32 297, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %11, i64 4
   store i32 355, ptr %12, align 4
@@ -4780,7 +4779,7 @@ list_length.exit:                                 ; preds = %36, %54
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_recursiveunion_path(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, double noundef %7) local_unnamed_addr #2 {
-  %9 = tail call noundef ptr @palloc0(i64 noundef 112) #10
+  %9 = tail call noundef ptr @palloc0(i64 noundef 112) #9
   store i32 298, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 320, ptr %10, align 4
@@ -4829,7 +4828,7 @@ define dso_local noundef ptr @create_recursiveunion_path(ptr nocapture noundef r
   store i32 %6, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %9, i64 104
   store double %7, ptr %37, align 8
-  tail call void @cost_recursive_union(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %3) #10
+  tail call void @cost_recursive_union(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %3) #9
   ret ptr %9
 }
 
@@ -4837,7 +4836,7 @@ declare void @cost_recursive_union(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_lockrows_path(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
-  %6 = tail call noundef ptr @palloc0(i64 noundef 96) #10
+  %6 = tail call noundef ptr @palloc0(i64 noundef 96) #9
   store i32 299, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 356, ptr %7, align 4
@@ -4883,7 +4882,7 @@ define dso_local noundef ptr @create_lockrows_path(ptr nocapture noundef readnon
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_modifytable_path(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15) local_unnamed_addr #2 {
-  %17 = tail call noundef ptr @palloc0(i64 noundef 168) #10
+  %17 = tail call noundef ptr @palloc0(i64 noundef 168) #9
   store i32 300, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %17, i64 4
   store i32 317, ptr %18, align 4
@@ -4969,7 +4968,7 @@ define dso_local noundef ptr @create_modifytable_path(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_limit_path(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #2 {
-  %9 = tail call noundef ptr @palloc0(i64 noundef 104) #10
+  %9 = tail call noundef ptr @palloc0(i64 noundef 104) #9
   store i32 301, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 357, ptr %10, align 4
@@ -5048,7 +5047,7 @@ define dso_local void @adjust_limit_rows_costs(ptr nocapture noundef %0, ptr noc
 
 13:                                               ; preds = %9
   %14 = fmul double %6, 1.000000e-01
-  %15 = tail call double @clamp_row_est(double noundef %14) #10
+  %15 = tail call double @clamp_row_est(double noundef %14) #9
   %.pre = load double, ptr %0, align 8
   br label %16
 
@@ -5096,7 +5095,7 @@ define dso_local void @adjust_limit_rows_costs(ptr nocapture noundef %0, ptr noc
 
 37:                                               ; preds = %33
   %38 = fmul double %6, 1.000000e-01
-  %39 = tail call double @clamp_row_est(double noundef %38) #10
+  %39 = tail call double @clamp_row_est(double noundef %38) #9
   %.pre47 = load double, ptr %0, align 8
   br label %40
 
@@ -5148,7 +5147,7 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
 
 12:                                               ; preds = %4, %9
   %13 = phi ptr [ %11, %9 ], [ null, %4 ]
-  %14 = tail call zeroext i1 @bms_is_subset(ptr noundef %13, ptr noundef %2) #10
+  %14 = tail call zeroext i1 @bms_is_subset(ptr noundef %13, ptr noundef %2) #9
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %12
@@ -5161,14 +5160,14 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
     i32 326, label %50
     i32 328, label %54
     i32 331, label %73
-    i32 315, label %105
-    i32 318, label %124
-    i32 344, label %156
-    i32 345, label %198
+    i32 315, label %106
+    i32 318, label %125
+    i32 344, label %157
+    i32 345, label %199
   ]
 
 18:                                               ; preds = %15
-  %19 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  %19 = tail call noundef ptr @palloc0(i64 noundef 72) #9
   store i32 263, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %19, i64 4
   store i32 323, ptr %20, align 4
@@ -5178,7 +5177,7 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %23, ptr %24, align 8
-  %25 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #10
+  %25 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #9
   %26 = getelementptr inbounds i8, ptr %19, i64 24
   store ptr %25, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %19, i64 32
@@ -5192,11 +5191,11 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
   store i32 0, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %19, i64 64
   store ptr null, ptr %33, align 8
-  tail call void @cost_seqscan(ptr noundef nonnull %19, ptr noundef %0, ptr noundef %6, ptr noundef %25) #10
+  tail call void @cost_seqscan(ptr noundef nonnull %19, ptr noundef %0, ptr noundef %6, ptr noundef %25) #9
   br label %.loopexit
 
 34:                                               ; preds = %15
-  %35 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  %35 = tail call noundef ptr @palloc0(i64 noundef 72) #9
   store i32 263, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %35, i64 4
   store i32 324, ptr %36, align 4
@@ -5206,7 +5205,7 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %35, i64 16
   store ptr %39, ptr %40, align 8
-  %41 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #10
+  %41 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #9
   %42 = getelementptr inbounds i8, ptr %35, i64 24
   store ptr %41, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %35, i64 32
@@ -5220,23 +5219,23 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
   store i32 0, ptr %48, align 4
   %49 = getelementptr inbounds i8, ptr %35, i64 64
   store ptr null, ptr %49, align 8
-  tail call void @cost_samplescan(ptr noundef nonnull %35, ptr noundef %0, ptr noundef %6, ptr noundef %41) #10
+  tail call void @cost_samplescan(ptr noundef nonnull %35, ptr noundef %0, ptr noundef %6, ptr noundef %41) #9
   br label %.loopexit
 
 50:                                               ; preds = %15, %15
-  %51 = tail call noundef ptr @palloc0(i64 noundef 128) #10
+  %51 = tail call noundef ptr @palloc0(i64 noundef 128) #9
   store i32 264, ptr %51, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %51, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %52 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #10
+  %52 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #9
   %53 = getelementptr inbounds i8, ptr %51, i64 24
   store ptr %52, ptr %53, align 8
-  tail call void @cost_index(ptr noundef nonnull %51, ptr noundef %0, double noundef %3, i1 noundef zeroext false) #10
+  tail call void @cost_index(ptr noundef nonnull %51, ptr noundef %0, double noundef %3, i1 noundef zeroext false) #9
   br label %.loopexit
 
 54:                                               ; preds = %15
   %55 = getelementptr inbounds i8, ptr %1, i64 72
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  %57 = tail call noundef ptr @palloc0(i64 noundef 80) #9
   store i32 266, ptr %57, align 4
   %58 = getelementptr inbounds i8, ptr %57, i64 4
   store i32 328, ptr %58, align 4
@@ -5246,7 +5245,7 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %57, i64 16
   store ptr %61, ptr %62, align 8
-  %63 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #10
+  %63 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #9
   %64 = getelementptr inbounds i8, ptr %57, i64 24
   store ptr %63, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %57, i64 32
@@ -5262,20 +5261,20 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
   store ptr null, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %57, i64 72
   store ptr %56, ptr %72, align 8
-  tail call void @cost_bitmap_heap_scan(ptr noundef nonnull %57, ptr noundef %0, ptr noundef %6, ptr noundef %63, ptr noundef %56, double noundef %3) #10
+  tail call void @cost_bitmap_heap_scan(ptr noundef nonnull %57, ptr noundef %0, ptr noundef %6, ptr noundef %63, ptr noundef %56, double noundef %3) #9
   br label %.loopexit
 
 73:                                               ; preds = %15
   %74 = getelementptr inbounds i8, ptr %1, i64 72
-  %75 = getelementptr inbounds i8, ptr %1, i64 56
-  %76 = load double, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 64
-  %78 = load ptr, ptr %74, align 8
-  %79 = load <2 x ptr>, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %78, i64 56
-  %81 = load double, ptr %80, align 8
-  %82 = fcmp oeq double %81, %76
-  %83 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 56
+  %77 = load double, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %1, i64 56
+  %79 = load double, ptr %78, align 8
+  %80 = fcmp oeq double %77, %79
+  %81 = getelementptr inbounds i8, ptr %1, i64 64
+  %82 = load ptr, ptr %81, align 8
+  %83 = tail call noundef ptr @palloc0(i64 noundef 80) #9
   store i32 271, ptr %83, align 4
   %84 = getelementptr inbounds i8, ptr %83, i64 4
   store i32 331, ptr %84, align 4
@@ -5285,7 +5284,7 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %83, i64 16
   store ptr %87, ptr %88, align 8
-  %89 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #10
+  %89 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #9
   %90 = getelementptr inbounds i8, ptr %83, i64 24
   store ptr %89, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %83, i64 32
@@ -5296,7 +5295,7 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
   br i1 %94, label %95, label %create_subqueryscan_path.exit
 
 95:                                               ; preds = %73
-  %96 = getelementptr inbounds i8, ptr %78, i64 33
+  %96 = getelementptr inbounds i8, ptr %75, i64 33
   %97 = load i8, ptr %96, align 1
   %98 = and i8 %97, 1
   br label %create_subqueryscan_path.exit
@@ -5305,259 +5304,265 @@ create_subqueryscan_path.exit:                    ; preds = %73, %95
   %99 = phi i8 [ 0, %73 ], [ %98, %95 ]
   %100 = getelementptr inbounds i8, ptr %83, i64 33
   store i8 %99, ptr %100, align 1
-  %101 = getelementptr inbounds i8, ptr %78, i64 36
+  %101 = getelementptr inbounds i8, ptr %75, i64 36
   %102 = load i32, ptr %101, align 4
   %103 = getelementptr inbounds i8, ptr %83, i64 36
   store i32 %102, ptr %103, align 4
   %104 = getelementptr inbounds i8, ptr %83, i64 64
-  store <2 x ptr> %79, ptr %104, align 8
-  tail call void @cost_subqueryscan(ptr noundef nonnull %83, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %89, i1 noundef zeroext %82) #10
+  store ptr %82, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %83, i64 72
+  store ptr %75, ptr %105, align 8
+  tail call void @cost_subqueryscan(ptr noundef nonnull %83, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %89, i1 noundef zeroext %80) #9
   br label %.loopexit
 
-105:                                              ; preds = %15
-  %106 = load i32, ptr %1, align 4
-  %107 = icmp eq i32 %106, 263
-  br i1 %107, label %108, label %.loopexit
+106:                                              ; preds = %15
+  %107 = load i32, ptr %1, align 4
+  %108 = icmp eq i32 %107, 263
+  br i1 %108, label %109, label %.loopexit
 
-108:                                              ; preds = %105
-  %109 = tail call noundef ptr @palloc0(i64 noundef 72) #10
-  store i32 263, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
-  store i32 315, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %109, i64 8
-  store ptr %6, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %6, i64 32
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %109, i64 16
-  store ptr %113, ptr %114, align 8
-  %115 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #10
-  %116 = getelementptr inbounds i8, ptr %109, i64 24
-  store ptr %115, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %109, i64 32
-  store i8 0, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %6, i64 26
-  %119 = load i8, ptr %118, align 2
-  %120 = getelementptr inbounds i8, ptr %109, i64 33
-  %121 = and i8 %119, 1
-  store i8 %121, ptr %120, align 1
-  %122 = getelementptr inbounds i8, ptr %109, i64 36
-  store i32 0, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %109, i64 64
-  store ptr null, ptr %123, align 8
-  tail call void @cost_resultscan(ptr noundef nonnull %109, ptr noundef %0, ptr noundef %6, ptr noundef %115) #10
+109:                                              ; preds = %106
+  %110 = tail call noundef ptr @palloc0(i64 noundef 72) #9
+  store i32 263, ptr %110, align 4
+  %111 = getelementptr inbounds i8, ptr %110, i64 4
+  store i32 315, ptr %111, align 4
+  %112 = getelementptr inbounds i8, ptr %110, i64 8
+  store ptr %6, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %6, i64 32
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %110, i64 16
+  store ptr %114, ptr %115, align 8
+  %116 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #9
+  %117 = getelementptr inbounds i8, ptr %110, i64 24
+  store ptr %116, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %110, i64 32
+  store i8 0, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %6, i64 26
+  %120 = load i8, ptr %119, align 2
+  %121 = getelementptr inbounds i8, ptr %110, i64 33
+  %122 = and i8 %120, 1
+  store i8 %122, ptr %121, align 1
+  %123 = getelementptr inbounds i8, ptr %110, i64 36
+  store i32 0, ptr %123, align 4
+  %124 = getelementptr inbounds i8, ptr %110, i64 64
+  store ptr null, ptr %124, align 8
+  tail call void @cost_resultscan(ptr noundef nonnull %110, ptr noundef %0, ptr noundef %6, ptr noundef %116) #9
   br label %.loopexit
 
-124:                                              ; preds = %15
-  %125 = getelementptr inbounds i8, ptr %1, i64 72
-  %126 = load ptr, ptr %125, align 8
-  %.not103 = icmp eq ptr %126, null
+125:                                              ; preds = %15
+  %126 = getelementptr inbounds i8, ptr %1, i64 72
+  %127 = load ptr, ptr %126, align 8
+  %.not103 = icmp eq ptr %127, null
   br i1 %.not103, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %124
-  %127 = getelementptr inbounds i8, ptr %126, i64 4
-  %128 = getelementptr inbounds i8, ptr %126, i64 16
-  %129 = getelementptr inbounds i8, ptr %1, i64 80
-  %130 = load i32, ptr %127, align 4
-  %131 = icmp sgt i32 %130, 0
-  br i1 %131, label %.lr.ph124, label %._crit_edge
+.lr.ph:                                           ; preds = %125
+  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  %129 = getelementptr inbounds i8, ptr %127, i64 16
+  %130 = getelementptr inbounds i8, ptr %1, i64 80
+  %131 = load i32, ptr %128, align 4
+  %132 = icmp sgt i32 %131, 0
+  br i1 %132, label %.lr.ph124, label %._crit_edge
 
-.lr.ph124:                                        ; preds = %.lr.ph, %144
-  %indvars.iv = phi i64 [ %indvars.iv.next, %144 ], [ 0, %.lr.ph ]
-  %.094111121 = phi ptr [ %.195, %144 ], [ null, %.lr.ph ]
-  %.093112120 = phi ptr [ %.1, %144 ], [ null, %.lr.ph ]
-  %132 = load ptr, ptr %128, align 8
-  %133 = getelementptr %union.ListCell, ptr %132, i64 %indvars.iv
-  %134 = load ptr, ptr %133, align 8
-  %135 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %134, ptr noundef %2, double noundef %3)
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %.loopexit, label %137
+.lr.ph124:                                        ; preds = %.lr.ph, %145
+  %indvars.iv = phi i64 [ %indvars.iv.next, %145 ], [ 0, %.lr.ph ]
+  %.094111121 = phi ptr [ %.195, %145 ], [ null, %.lr.ph ]
+  %.093112120 = phi ptr [ %.1, %145 ], [ null, %.lr.ph ]
+  %133 = load ptr, ptr %129, align 8
+  %134 = getelementptr %union.ListCell, ptr %133, i64 %indvars.iv
+  %135 = load ptr, ptr %134, align 8
+  %136 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %135, ptr noundef %2, double noundef %3)
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %.loopexit, label %138
 
-137:                                              ; preds = %.lr.ph124
+138:                                              ; preds = %.lr.ph124
   %indvars127 = trunc i64 %indvars.iv to i32
-  %138 = load i32, ptr %129, align 8
-  %139 = icmp sgt i32 %138, %indvars127
-  br i1 %139, label %140, label %142
+  %139 = load i32, ptr %130, align 8
+  %140 = icmp sgt i32 %139, %indvars127
+  br i1 %140, label %141, label %143
 
-140:                                              ; preds = %137
-  %141 = tail call ptr @lappend(ptr noundef %.093112120, ptr noundef nonnull %135) #10
-  br label %144
+141:                                              ; preds = %138
+  %142 = tail call ptr @lappend(ptr noundef %.093112120, ptr noundef nonnull %136) #9
+  br label %145
 
-142:                                              ; preds = %137
-  %143 = tail call ptr @lappend(ptr noundef %.094111121, ptr noundef nonnull %135) #10
-  br label %144
+143:                                              ; preds = %138
+  %144 = tail call ptr @lappend(ptr noundef %.094111121, ptr noundef nonnull %136) #9
+  br label %145
 
-144:                                              ; preds = %142, %140
-  %.195 = phi ptr [ %.094111121, %140 ], [ %143, %142 ]
-  %.1 = phi ptr [ %141, %140 ], [ %.093112120, %142 ]
+145:                                              ; preds = %143, %141
+  %.195 = phi ptr [ %.094111121, %141 ], [ %144, %143 ]
+  %.1 = phi ptr [ %142, %141 ], [ %.093112120, %143 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %145 = load i32, ptr %127, align 4
-  %146 = sext i32 %145 to i64
-  %147 = icmp slt i64 %indvars.iv.next, %146
-  br i1 %147, label %.lr.ph124, label %._crit_edge
+  %146 = load i32, ptr %128, align 4
+  %147 = sext i32 %146 to i64
+  %148 = icmp slt i64 %indvars.iv.next, %147
+  br i1 %148, label %.lr.ph124, label %._crit_edge
 
-._crit_edge:                                      ; preds = %144, %.lr.ph, %124
-  %.094.lcssa = phi ptr [ null, %124 ], [ null, %.lr.ph ], [ %.195, %144 ]
-  %.093.lcssa = phi ptr [ null, %124 ], [ null, %.lr.ph ], [ %.1, %144 ]
-  %148 = getelementptr inbounds i8, ptr %1, i64 64
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %1, i64 36
-  %151 = load i32, ptr %150, align 4
-  %152 = getelementptr inbounds i8, ptr %1, i64 32
-  %153 = load i8, ptr %152, align 8
-  %154 = trunc i8 %153 to i1
-  %155 = tail call ptr @create_append_path(ptr noundef %0, ptr noundef %6, ptr noundef %.093.lcssa, ptr noundef %.094.lcssa, ptr noundef %149, ptr noundef %2, i32 noundef %151, i1 noundef zeroext %154, double noundef -1.000000e+00)
+._crit_edge:                                      ; preds = %145, %.lr.ph, %125
+  %.094.lcssa = phi ptr [ null, %125 ], [ null, %.lr.ph ], [ %.195, %145 ]
+  %.093.lcssa = phi ptr [ null, %125 ], [ null, %.lr.ph ], [ %.1, %145 ]
+  %149 = getelementptr inbounds i8, ptr %1, i64 64
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %1, i64 36
+  %152 = load i32, ptr %151, align 4
+  %153 = getelementptr inbounds i8, ptr %1, i64 32
+  %154 = load i8, ptr %153, align 8
+  %155 = trunc i8 %154 to i1
+  %156 = tail call ptr @create_append_path(ptr noundef %0, ptr noundef %6, ptr noundef %.093.lcssa, ptr noundef %.094.lcssa, ptr noundef %150, ptr noundef %2, i32 noundef %152, i1 noundef zeroext %155, double noundef -1.000000e+00)
   br label %.loopexit
 
-156:                                              ; preds = %15
-  %157 = getelementptr inbounds i8, ptr %1, i64 72
-  %158 = load ptr, ptr %157, align 8
-  %159 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %158, ptr noundef %2, double noundef %3)
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %.loopexit, label %161
+157:                                              ; preds = %15
+  %158 = getelementptr inbounds i8, ptr %1, i64 72
+  %159 = load ptr, ptr %158, align 8
+  %160 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %159, ptr noundef %2, double noundef %3)
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %.loopexit, label %162
 
-161:                                              ; preds = %156
-  %162 = tail call noundef ptr @palloc0(i64 noundef 80) #10
-  store i32 277, ptr %162, align 4
-  %163 = getelementptr inbounds i8, ptr %162, i64 4
-  store i32 344, ptr %163, align 4
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
-  store ptr %6, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %6, i64 32
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %162, i64 16
-  store ptr %166, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %159, i64 24
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %162, i64 24
-  store ptr %169, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %162, i64 32
-  store i8 0, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %6, i64 26
-  %173 = load i8, ptr %172, align 2
-  %174 = trunc i8 %173 to i1
-  br i1 %174, label %175, label %create_material_path.exit
+162:                                              ; preds = %157
+  %163 = tail call noundef ptr @palloc0(i64 noundef 80) #9
+  store i32 277, ptr %163, align 4
+  %164 = getelementptr inbounds i8, ptr %163, i64 4
+  store i32 344, ptr %164, align 4
+  %165 = getelementptr inbounds i8, ptr %163, i64 8
+  store ptr %6, ptr %165, align 8
+  %166 = getelementptr inbounds i8, ptr %6, i64 32
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds i8, ptr %163, i64 16
+  store ptr %167, ptr %168, align 8
+  %169 = getelementptr inbounds i8, ptr %160, i64 24
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds i8, ptr %163, i64 24
+  store ptr %170, ptr %171, align 8
+  %172 = getelementptr inbounds i8, ptr %163, i64 32
+  store i8 0, ptr %172, align 8
+  %173 = getelementptr inbounds i8, ptr %6, i64 26
+  %174 = load i8, ptr %173, align 2
+  %175 = trunc i8 %174 to i1
+  br i1 %175, label %176, label %create_material_path.exit
 
-175:                                              ; preds = %161
-  %176 = getelementptr inbounds i8, ptr %159, i64 33
-  %177 = load i8, ptr %176, align 1
-  %178 = and i8 %177, 1
+176:                                              ; preds = %162
+  %177 = getelementptr inbounds i8, ptr %160, i64 33
+  %178 = load i8, ptr %177, align 1
+  %179 = and i8 %178, 1
   br label %create_material_path.exit
 
-create_material_path.exit:                        ; preds = %161, %175
-  %179 = phi i8 [ 0, %161 ], [ %178, %175 ]
-  %180 = getelementptr inbounds i8, ptr %162, i64 33
-  store i8 %179, ptr %180, align 1
-  %181 = getelementptr inbounds i8, ptr %159, i64 36
-  %182 = load i32, ptr %181, align 4
-  %183 = getelementptr inbounds i8, ptr %162, i64 36
-  store i32 %182, ptr %183, align 4
-  %184 = getelementptr inbounds i8, ptr %159, i64 64
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %162, i64 64
-  store ptr %185, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %162, i64 72
-  store ptr %159, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %159, i64 48
-  %189 = load double, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %159, i64 56
-  %191 = load double, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %159, i64 40
-  %193 = load double, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %159, i64 16
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 40
-  %197 = load i32, ptr %196, align 8
-  tail call void @cost_material(ptr noundef nonnull %162, double noundef %189, double noundef %191, double noundef %193, i32 noundef %197) #10
+create_material_path.exit:                        ; preds = %162, %176
+  %180 = phi i8 [ 0, %162 ], [ %179, %176 ]
+  %181 = getelementptr inbounds i8, ptr %163, i64 33
+  store i8 %180, ptr %181, align 1
+  %182 = getelementptr inbounds i8, ptr %160, i64 36
+  %183 = load i32, ptr %182, align 4
+  %184 = getelementptr inbounds i8, ptr %163, i64 36
+  store i32 %183, ptr %184, align 4
+  %185 = getelementptr inbounds i8, ptr %160, i64 64
+  %186 = load ptr, ptr %185, align 8
+  %187 = getelementptr inbounds i8, ptr %163, i64 64
+  store ptr %186, ptr %187, align 8
+  %188 = getelementptr inbounds i8, ptr %163, i64 72
+  store ptr %160, ptr %188, align 8
+  %189 = getelementptr inbounds i8, ptr %160, i64 48
+  %190 = load double, ptr %189, align 8
+  %191 = getelementptr inbounds i8, ptr %160, i64 56
+  %192 = load double, ptr %191, align 8
+  %193 = getelementptr inbounds i8, ptr %160, i64 40
+  %194 = load double, ptr %193, align 8
+  %195 = getelementptr inbounds i8, ptr %160, i64 16
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds i8, ptr %196, i64 40
+  %198 = load i32, ptr %197, align 8
+  tail call void @cost_material(ptr noundef nonnull %163, double noundef %190, double noundef %192, double noundef %194, i32 noundef %198) #9
   br label %.loopexit
 
-198:                                              ; preds = %15
-  %199 = getelementptr inbounds i8, ptr %1, i64 72
-  %200 = load ptr, ptr %199, align 8
-  %201 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %200, ptr noundef %2, double noundef %3)
-  %202 = icmp eq ptr %201, null
-  br i1 %202, label %.loopexit, label %203
+199:                                              ; preds = %15
+  %200 = getelementptr inbounds i8, ptr %1, i64 72
+  %201 = load ptr, ptr %200, align 8
+  %202 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %201, ptr noundef %2, double noundef %3)
+  %203 = icmp eq ptr %202, null
+  br i1 %203, label %.loopexit, label %204
 
-203:                                              ; preds = %198
-  %204 = getelementptr inbounds i8, ptr %1, i64 80
-  %205 = load <2 x ptr>, ptr %204, align 8
-  %206 = getelementptr inbounds i8, ptr %1, i64 96
-  %207 = load i8, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %1, i64 97
-  %209 = load i8, ptr %208, align 1
-  %210 = getelementptr inbounds i8, ptr %1, i64 104
-  %211 = load double, ptr %210, align 8
-  %212 = tail call noundef ptr @palloc0(i64 noundef 120) #10
-  store i32 278, ptr %212, align 4
-  %213 = getelementptr inbounds i8, ptr %212, i64 4
-  store i32 345, ptr %213, align 4
-  %214 = getelementptr inbounds i8, ptr %212, i64 8
-  store ptr %6, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %6, i64 32
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %212, i64 16
-  store ptr %216, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %201, i64 24
+204:                                              ; preds = %199
+  %205 = getelementptr inbounds i8, ptr %1, i64 88
+  %206 = load ptr, ptr %205, align 8
+  %207 = getelementptr inbounds i8, ptr %1, i64 80
+  %208 = load ptr, ptr %207, align 8
+  %209 = getelementptr inbounds i8, ptr %1, i64 96
+  %210 = load i8, ptr %209, align 8
+  %211 = getelementptr inbounds i8, ptr %1, i64 97
+  %212 = load i8, ptr %211, align 1
+  %213 = getelementptr inbounds i8, ptr %1, i64 104
+  %214 = load double, ptr %213, align 8
+  %215 = tail call noundef ptr @palloc0(i64 noundef 120) #9
+  store i32 278, ptr %215, align 4
+  %216 = getelementptr inbounds i8, ptr %215, i64 4
+  store i32 345, ptr %216, align 4
+  %217 = getelementptr inbounds i8, ptr %215, i64 8
+  store ptr %6, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %6, i64 32
   %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %212, i64 24
+  %220 = getelementptr inbounds i8, ptr %215, i64 16
   store ptr %219, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %212, i64 32
-  store i8 0, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %6, i64 26
-  %223 = load i8, ptr %222, align 2
-  %224 = trunc i8 %223 to i1
-  br i1 %224, label %225, label %create_memoize_path.exit
+  %221 = getelementptr inbounds i8, ptr %202, i64 24
+  %222 = load ptr, ptr %221, align 8
+  %223 = getelementptr inbounds i8, ptr %215, i64 24
+  store ptr %222, ptr %223, align 8
+  %224 = getelementptr inbounds i8, ptr %215, i64 32
+  store i8 0, ptr %224, align 8
+  %225 = getelementptr inbounds i8, ptr %6, i64 26
+  %226 = load i8, ptr %225, align 2
+  %227 = trunc i8 %226 to i1
+  br i1 %227, label %228, label %create_memoize_path.exit
 
-225:                                              ; preds = %203
-  %226 = getelementptr inbounds i8, ptr %201, i64 33
-  %227 = load i8, ptr %226, align 1
-  %228 = and i8 %227, 1
+228:                                              ; preds = %204
+  %229 = getelementptr inbounds i8, ptr %202, i64 33
+  %230 = load i8, ptr %229, align 1
+  %231 = and i8 %230, 1
   br label %create_memoize_path.exit
 
-create_memoize_path.exit:                         ; preds = %203, %225
-  %229 = phi i8 [ 0, %203 ], [ %228, %225 ]
-  %230 = and i8 %209, 1
-  %231 = and i8 %207, 1
-  %232 = getelementptr inbounds i8, ptr %212, i64 33
-  store i8 %229, ptr %232, align 1
-  %233 = getelementptr inbounds i8, ptr %201, i64 36
-  %234 = load i32, ptr %233, align 4
-  %235 = getelementptr inbounds i8, ptr %212, i64 36
-  store i32 %234, ptr %235, align 4
-  %236 = getelementptr inbounds i8, ptr %201, i64 64
-  %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %212, i64 64
-  store ptr %237, ptr %238, align 8
-  %239 = getelementptr inbounds i8, ptr %212, i64 72
-  store ptr %201, ptr %239, align 8
-  %240 = getelementptr inbounds i8, ptr %212, i64 80
-  store <2 x ptr> %205, ptr %240, align 8
-  %241 = getelementptr inbounds i8, ptr %212, i64 96
-  store i8 %231, ptr %241, align 8
-  %242 = getelementptr inbounds i8, ptr %212, i64 97
-  store i8 %230, ptr %242, align 1
-  %243 = getelementptr inbounds i8, ptr %212, i64 104
-  store double %211, ptr %243, align 8
-  %244 = getelementptr inbounds i8, ptr %212, i64 112
-  store i32 0, ptr %244, align 8
-  %245 = getelementptr inbounds i8, ptr %201, i64 48
-  %246 = load double, ptr %245, align 8
-  %247 = load double, ptr @cpu_tuple_cost, align 8
-  %248 = fadd double %246, %247
-  %249 = getelementptr inbounds i8, ptr %212, i64 48
-  store double %248, ptr %249, align 8
-  %250 = getelementptr inbounds i8, ptr %201, i64 56
-  %251 = load double, ptr %250, align 8
-  %252 = fadd double %247, %251
-  %253 = getelementptr inbounds i8, ptr %212, i64 56
+create_memoize_path.exit:                         ; preds = %204, %228
+  %232 = phi i8 [ 0, %204 ], [ %231, %228 ]
+  %233 = and i8 %212, 1
+  %234 = and i8 %210, 1
+  %235 = getelementptr inbounds i8, ptr %215, i64 33
+  store i8 %232, ptr %235, align 1
+  %236 = getelementptr inbounds i8, ptr %202, i64 36
+  %237 = load i32, ptr %236, align 4
+  %238 = getelementptr inbounds i8, ptr %215, i64 36
+  store i32 %237, ptr %238, align 4
+  %239 = getelementptr inbounds i8, ptr %202, i64 64
+  %240 = load ptr, ptr %239, align 8
+  %241 = getelementptr inbounds i8, ptr %215, i64 64
+  store ptr %240, ptr %241, align 8
+  %242 = getelementptr inbounds i8, ptr %215, i64 72
+  store ptr %202, ptr %242, align 8
+  %243 = getelementptr inbounds i8, ptr %215, i64 80
+  store ptr %208, ptr %243, align 8
+  %244 = getelementptr inbounds i8, ptr %215, i64 88
+  store ptr %206, ptr %244, align 8
+  %245 = getelementptr inbounds i8, ptr %215, i64 96
+  store i8 %234, ptr %245, align 8
+  %246 = getelementptr inbounds i8, ptr %215, i64 97
+  store i8 %233, ptr %246, align 1
+  %247 = getelementptr inbounds i8, ptr %215, i64 104
+  store double %214, ptr %247, align 8
+  %248 = getelementptr inbounds i8, ptr %215, i64 112
+  store i32 0, ptr %248, align 8
+  %249 = getelementptr inbounds i8, ptr %202, i64 48
+  %250 = load double, ptr %249, align 8
+  %251 = load double, ptr @cpu_tuple_cost, align 8
+  %252 = fadd double %250, %251
+  %253 = getelementptr inbounds i8, ptr %215, i64 48
   store double %252, ptr %253, align 8
-  %254 = getelementptr inbounds i8, ptr %201, i64 40
+  %254 = getelementptr inbounds i8, ptr %202, i64 56
   %255 = load double, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %212, i64 40
-  store double %255, ptr %256, align 8
+  %256 = fadd double %251, %255
+  %257 = getelementptr inbounds i8, ptr %215, i64 56
+  store double %256, ptr %257, align 8
+  %258 = getelementptr inbounds i8, ptr %202, i64 40
+  %259 = load double, ptr %258, align 8
+  %260 = getelementptr inbounds i8, ptr %215, i64 40
+  store double %259, ptr %260, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph124, %105, %15, %198, %156, %12, %create_memoize_path.exit, %create_material_path.exit, %._crit_edge, %108, %create_subqueryscan_path.exit, %54, %50, %34, %18
-  %.0 = phi ptr [ %212, %create_memoize_path.exit ], [ %162, %create_material_path.exit ], [ %155, %._crit_edge ], [ %109, %108 ], [ %83, %create_subqueryscan_path.exit ], [ %57, %54 ], [ %51, %50 ], [ %35, %34 ], [ %19, %18 ], [ null, %12 ], [ null, %156 ], [ null, %198 ], [ null, %15 ], [ null, %105 ], [ null, %.lr.ph124 ]
+.loopexit:                                        ; preds = %.lr.ph124, %106, %15, %199, %157, %12, %create_memoize_path.exit, %create_material_path.exit, %._crit_edge, %109, %create_subqueryscan_path.exit, %54, %50, %34, %18
+  %.0 = phi ptr [ %215, %create_memoize_path.exit ], [ %163, %create_material_path.exit ], [ %156, %._crit_edge ], [ %110, %109 ], [ %83, %create_subqueryscan_path.exit ], [ %57, %54 ], [ %51, %50 ], [ %35, %34 ], [ %19, %18 ], [ null, %12 ], [ null, %157 ], [ null, %199 ], [ null, %15 ], [ null, %106 ], [ null, %.lr.ph124 ]
   ret ptr %.0
 }
 
@@ -5575,7 +5580,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 360
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call zeroext i1 @bms_overlap(ptr noundef %8, ptr noundef %10) #10
+  %11 = tail call zeroext i1 @bms_overlap(ptr noundef %8, ptr noundef %10) #9
   br i1 %11, label %12, label %234
 
 12:                                               ; preds = %6
@@ -5598,25 +5603,25 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   ]
 
 14:                                               ; preds = %12
-  %15 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  %15 = tail call noundef ptr @palloc0(i64 noundef 72) #9
   store i32 263, ptr %15, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   br label %182
 
 16:                                               ; preds = %12
-  %17 = tail call noundef ptr @palloc0(i64 noundef 128) #10
+  %17 = tail call noundef ptr @palloc0(i64 noundef 128) #9
   store i32 264, ptr %17, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %17, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   %18 = getelementptr inbounds i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %2, i64 352
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %2, ptr noundef %21) #10
+  %22 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %2, ptr noundef %21) #9
   store ptr %22, ptr %18, align 8
   br label %182
 
 23:                                               ; preds = %12
-  %24 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  %24 = tail call noundef ptr @palloc0(i64 noundef 80) #9
   store i32 266, ptr %24, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %24, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 72
@@ -5627,7 +5632,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   br i1 %28, label %234, label %182
 
 29:                                               ; preds = %12
-  %30 = tail call noundef ptr @palloc0(i64 noundef 88) #10
+  %30 = tail call noundef ptr @palloc0(i64 noundef 88) #9
   store i32 267, ptr %30, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   %31 = getelementptr inbounds i8, ptr %30, i64 72
@@ -5642,7 +5647,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   br i1 %35, label %234, label %182
 
 36:                                               ; preds = %12
-  %37 = tail call noundef ptr @palloc0(i64 noundef 88) #10
+  %37 = tail call noundef ptr @palloc0(i64 noundef 88) #9
   store i32 268, ptr %37, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %37, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   %38 = getelementptr inbounds i8, ptr %37, i64 72
@@ -5657,7 +5662,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   br i1 %42, label %234, label %182
 
 43:                                               ; preds = %12
-  %44 = tail call noundef ptr @palloc0(i64 noundef 96) #10
+  %44 = tail call noundef ptr @palloc0(i64 noundef 96) #9
   store i32 272, ptr %44, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %44, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
   %45 = getelementptr inbounds i8, ptr %44, i64 72
@@ -5680,7 +5685,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
 53:                                               ; preds = %50
   %54 = getelementptr inbounds i8, ptr %2, i64 352
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef nonnull %52, ptr noundef nonnull %2, ptr noundef %55) #10
+  %56 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef nonnull %52, ptr noundef nonnull %2, ptr noundef %55) #9
   store ptr %56, ptr %51, align 8
   br label %57
 
@@ -5697,12 +5702,12 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
 64:                                               ; preds = %57
   %65 = getelementptr inbounds i8, ptr %44, i64 88
   %66 = load ptr, ptr %65, align 8
-  %67 = tail call ptr %63(ptr noundef %0, ptr noundef %66, ptr noundef nonnull %2) #10
+  %67 = tail call ptr %63(ptr noundef %0, ptr noundef %66, ptr noundef nonnull %2) #9
   store ptr %67, ptr %65, align 8
   br label %182
 
 68:                                               ; preds = %12
-  %69 = tail call noundef ptr @palloc0(i64 noundef 112) #10
+  %69 = tail call noundef ptr @palloc0(i64 noundef 112) #9
   store i32 273, ptr %69, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %69, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
   %70 = getelementptr inbounds i8, ptr %69, i64 80
@@ -5725,7 +5730,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
 78:                                               ; preds = %75
   %79 = getelementptr inbounds i8, ptr %2, i64 352
   %80 = load ptr, ptr %79, align 8
-  %81 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef nonnull %77, ptr noundef nonnull %2, ptr noundef %80) #10
+  %81 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef nonnull %77, ptr noundef nonnull %2, ptr noundef %80) #9
   store ptr %81, ptr %76, align 8
   br label %82
 
@@ -5744,12 +5749,12 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
 88:                                               ; preds = %85
   %89 = getelementptr inbounds i8, ptr %69, i64 96
   %90 = load ptr, ptr %89, align 8
-  %91 = tail call ptr %87(ptr noundef %0, ptr noundef %90, ptr noundef nonnull %2) #10
+  %91 = tail call ptr %87(ptr noundef %0, ptr noundef %90, ptr noundef nonnull %2) #9
   store ptr %91, ptr %89, align 8
   br label %182
 
 92:                                               ; preds = %12
-  %93 = tail call noundef ptr @palloc0(i64 noundef 104) #10
+  %93 = tail call noundef ptr @palloc0(i64 noundef 104) #9
   store i32 282, ptr %93, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %93, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   %94 = getelementptr inbounds i8, ptr %93, i64 80
@@ -5772,12 +5777,12 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %2, i64 352
   %107 = load ptr, ptr %106, align 8
-  %108 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %2, ptr noundef %107) #10
+  %108 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %2, ptr noundef %107) #9
   store ptr %108, ptr %104, align 8
   br label %182
 
 109:                                              ; preds = %12
-  %110 = tail call noundef ptr @palloc0(i64 noundef 136) #10
+  %110 = tail call noundef ptr @palloc0(i64 noundef 136) #9
   store i32 283, ptr %110, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %110, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
   %111 = getelementptr inbounds i8, ptr %110, i64 80
@@ -5800,17 +5805,17 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %2, i64 352
   %124 = load ptr, ptr %123, align 8
-  %125 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %122, ptr noundef nonnull %2, ptr noundef %124) #10
+  %125 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %122, ptr noundef nonnull %2, ptr noundef %124) #9
   store ptr %125, ptr %121, align 8
   %126 = getelementptr inbounds i8, ptr %110, i64 104
   %127 = load ptr, ptr %126, align 8
   %128 = load ptr, ptr %123, align 8
-  %129 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %127, ptr noundef nonnull %2, ptr noundef %128) #10
+  %129 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %127, ptr noundef nonnull %2, ptr noundef %128) #9
   store ptr %129, ptr %126, align 8
   br label %182
 
 130:                                              ; preds = %12
-  %131 = tail call noundef ptr @palloc0(i64 noundef 128) #10
+  %131 = tail call noundef ptr @palloc0(i64 noundef 128) #9
   store i32 284, ptr %131, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %131, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   %132 = getelementptr inbounds i8, ptr %131, i64 80
@@ -5833,17 +5838,17 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds i8, ptr %2, i64 352
   %145 = load ptr, ptr %144, align 8
-  %146 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %143, ptr noundef nonnull %2, ptr noundef %145) #10
+  %146 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %143, ptr noundef nonnull %2, ptr noundef %145) #9
   store ptr %146, ptr %142, align 8
   %147 = getelementptr inbounds i8, ptr %131, i64 104
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %144, align 8
-  %150 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %148, ptr noundef nonnull %2, ptr noundef %149) #10
+  %150 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %148, ptr noundef nonnull %2, ptr noundef %149) #9
   store ptr %150, ptr %147, align 8
   br label %182
 
 151:                                              ; preds = %12
-  %152 = tail call noundef ptr @palloc0(i64 noundef 96) #10
+  %152 = tail call noundef ptr @palloc0(i64 noundef 96) #9
   store i32 274, ptr %152, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %152, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
   %153 = getelementptr inbounds i8, ptr %152, i64 72
@@ -5858,7 +5863,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   br i1 %157, label %234, label %182
 
 158:                                              ; preds = %12
-  %159 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  %159 = tail call noundef ptr @palloc0(i64 noundef 80) #9
   store i32 277, ptr %159, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %159, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   %160 = getelementptr inbounds i8, ptr %159, i64 72
@@ -5869,7 +5874,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   br i1 %163, label %234, label %182
 
 164:                                              ; preds = %12
-  %165 = tail call noundef ptr @palloc0(i64 noundef 120) #10
+  %165 = tail call noundef ptr @palloc0(i64 noundef 120) #9
   store i32 278, ptr %165, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %165, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
   %166 = getelementptr inbounds i8, ptr %165, i64 72
@@ -5884,12 +5889,12 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr inbounds i8, ptr %2, i64 352
   %174 = load ptr, ptr %173, align 8
-  %175 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %172, ptr noundef nonnull %2, ptr noundef %174) #10
+  %175 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %172, ptr noundef nonnull %2, ptr noundef %174) #9
   store ptr %175, ptr %171, align 8
   br label %182
 
 176:                                              ; preds = %12
-  %177 = tail call noundef ptr @palloc0(i64 noundef 88) #10
+  %177 = tail call noundef ptr @palloc0(i64 noundef 88) #9
   store i32 280, ptr %177, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %177, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   %178 = getelementptr inbounds i8, ptr %177, i64 72
@@ -5907,22 +5912,22 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds i8, ptr %2, i64 352
   %188 = load ptr, ptr %187, align 8
-  %189 = tail call ptr @adjust_child_relids_multilevel(ptr noundef %0, ptr noundef %186, ptr noundef nonnull %2, ptr noundef %188) #10
+  %189 = tail call ptr @adjust_child_relids_multilevel(ptr noundef %0, ptr noundef %186, ptr noundef nonnull %2, ptr noundef %188) #9
   %190 = getelementptr inbounds i8, ptr %.0232, i64 8
   %191 = load ptr, ptr %190, align 8
-  %192 = tail call ptr @find_param_path_info(ptr noundef %191, ptr noundef %189) #10
+  %192 = tail call ptr @find_param_path_info(ptr noundef %191, ptr noundef %189) #9
   %193 = icmp eq ptr %192, null
   br i1 %193, label %194, label %217
 
 194:                                              ; preds = %182
   %195 = getelementptr inbounds i8, ptr %1, i64 8
   %196 = load ptr, ptr %195, align 8
-  %197 = tail call ptr @GetMemoryChunkContext(ptr noundef %196) #10
+  %197 = tail call ptr @GetMemoryChunkContext(ptr noundef %196) #9
   %198 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %197, ptr @CurrentMemoryContext, align 8
-  %199 = tail call noundef ptr @palloc0(i64 noundef 40) #10
+  %199 = tail call noundef ptr @palloc0(i64 noundef 40) #9
   store i32 262, ptr %199, align 4
-  %200 = tail call ptr @bms_copy(ptr noundef %189) #10
+  %200 = tail call ptr @bms_copy(ptr noundef %189) #9
   %201 = getelementptr inbounds i8, ptr %199, i64 8
   store ptr %200, ptr %201, align 8
   %202 = getelementptr inbounds i8, ptr %184, i64 16
@@ -5934,41 +5939,41 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   %207 = getelementptr inbounds i8, ptr %199, i64 24
   store ptr %206, ptr %207, align 8
   %208 = load ptr, ptr %187, align 8
-  %209 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %206, ptr noundef nonnull %2, ptr noundef %208) #10
+  %209 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %206, ptr noundef nonnull %2, ptr noundef %208) #9
   store ptr %209, ptr %207, align 8
   %210 = getelementptr inbounds i8, ptr %184, i64 32
   %211 = load ptr, ptr %210, align 8
-  %212 = tail call ptr @bms_copy(ptr noundef %211) #10
+  %212 = tail call ptr @bms_copy(ptr noundef %211) #9
   %213 = getelementptr inbounds i8, ptr %199, i64 32
   store ptr %212, ptr %213, align 8
   %214 = getelementptr inbounds i8, ptr %196, i64 48
   %215 = load ptr, ptr %214, align 8
-  %216 = tail call ptr @lappend(ptr noundef %215, ptr noundef nonnull %199) #10
+  %216 = tail call ptr @lappend(ptr noundef %215, ptr noundef nonnull %199) #9
   store ptr %216, ptr %214, align 8
   store ptr %198, ptr @CurrentMemoryContext, align 8
   br label %217
 
 217:                                              ; preds = %194, %182
   %.0233 = phi ptr [ %199, %194 ], [ %192, %182 ]
-  tail call void @bms_free(ptr noundef %189) #10
+  tail call void @bms_free(ptr noundef %189) #9
   store ptr %.0233, ptr %183, align 8
   %218 = getelementptr inbounds i8, ptr %1, i64 8
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds i8, ptr %219, i64 104
   %221 = load ptr, ptr %220, align 8
   %222 = load ptr, ptr %9, align 8
-  %223 = tail call zeroext i1 @bms_overlap(ptr noundef %221, ptr noundef %222) #10
+  %223 = tail call zeroext i1 @bms_overlap(ptr noundef %221, ptr noundef %222) #9
   br i1 %223, label %224, label %234
 
 224:                                              ; preds = %217
   %225 = getelementptr inbounds i8, ptr %.0232, i64 16
   %226 = load ptr, ptr %225, align 8
-  %227 = tail call ptr @copy_pathtarget(ptr noundef %226) #10
+  %227 = tail call ptr @copy_pathtarget(ptr noundef %226) #9
   store ptr %227, ptr %225, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 8
   %229 = load ptr, ptr %228, align 8
   %230 = load ptr, ptr %187, align 8
-  %231 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %229, ptr noundef nonnull %2, ptr noundef %230) #10
+  %231 = tail call ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %229, ptr noundef nonnull %2, ptr noundef %230) #9
   %232 = load ptr, ptr %225, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 8
   store ptr %231, ptr %233, align 8
@@ -6003,11 +6008,11 @@ define internal fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %7
-  tail call void @list_free(ptr noundef %.01522) #10
+  tail call void @list_free(ptr noundef %.01522) #9
   br label %.loopexit
 
 14:                                               ; preds = %7
-  %15 = tail call ptr @lappend(ptr noundef %.01522, ptr noundef nonnull %11) #10
+  %15 = tail call ptr @lappend(ptr noundef %.01522, ptr noundef nonnull %11) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %4, align 4
   %17 = sext i32 %16 to i64
@@ -6038,9 +6043,6 @@ declare void @list_free(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #8
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6049,9 +6051,8 @@ attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { cold nounwind }
-attributes #10 = { nounwind }
+attributes #8 = { cold nounwind }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -412,6 +412,7 @@ for.cond.preheader:                               ; preds = %invoke.cont16
   %power.promoted = load i32, ptr %power, align 4
   %7 = load i32, ptr %free_var, align 4
   %m_upper_dep.i = getelementptr inbounds i8, ptr %product, i64 88
+  %m_upper_dep3.i = getelementptr inbounds i8, ptr %other_product, i64 88
   %m_upper_combine.i.i.i = getelementptr inbounds i8, ptr %comb_rule.i, i64 2
   br label %for.cond
 
@@ -524,8 +525,10 @@ if.then55:                                        ; preds = %invoke.cont50
           to label %invoke.cont61 unwind label %lpad13.loopexit
 
 invoke.cont61:                                    ; preds = %if.then55
-  %18 = load <2 x ptr>, ptr %m_lower_dep.i.i, align 8
-  store <2 x ptr> %18, ptr %m_lower_dep.i.i95, align 8
+  %18 = load ptr, ptr %m_lower_dep.i.i, align 8
+  store ptr %18, ptr %m_lower_dep.i.i95, align 8
+  %19 = load ptr, ptr %m_upper_dep.i, align 8
+  store ptr %19, ptr %m_upper_dep3.i, align 8
   invoke void @_ZN3nla15monomial_bounds15compute_productEjRKNS_5monicER16_scoped_intervalI13dep_intervalsE(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef %i.1.lcssa, ptr noundef nonnull align 8 dereferenceable(34) %m, ptr noundef nonnull align 8 dereferenceable(96) %other_product)
           to label %invoke.cont62 unwind label %lpad13.loopexit
 
@@ -541,22 +544,22 @@ invoke.cont67.if.end71_crit_edge:                 ; preds = %invoke.cont67
   br label %if.end71
 
 if.end71:                                         ; preds = %invoke.cont67.if.end71_crit_edge, %invoke.cont50
-  %19 = phi ptr [ %.pre, %invoke.cont67.if.end71_crit_edge ], [ %.pre158, %invoke.cont50 ]
+  %20 = phi ptr [ %.pre, %invoke.cont67.if.end71_crit_edge ], [ %.pre158, %invoke.cont50 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %comb_rule.i)
-  %m_imanager.i.i = getelementptr inbounds i8, ptr %19, i64 752
+  %m_imanager.i.i = getelementptr inbounds i8, ptr %20, i64 752
   invoke void @_ZN16interval_managerIN13dep_intervals9im_configEE3mulERKNS1_8intervalES5_RS3_R26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(672) %m_imanager.i.i, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i24, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i, ptr noundef nonnull align 2 dereferenceable(4) %comb_rule.i)
           to label %.noexc121 unwind label %lpad13.loopexit
 
 .noexc121:                                        ; preds = %if.end71
-  %m_config.i.i119 = getelementptr inbounds i8, ptr %19, i64 736
+  %m_config.i.i119 = getelementptr inbounds i8, ptr %20, i64 736
   %bf.load.i.i.i.i120 = load i8, ptr %m_lower_open.i.i, align 8
-  %20 = and i8 %bf.load.i.i.i.i120, 4
-  %tobool.i.not.i.i.i = icmp eq i8 %20, 0
+  %21 = and i8 %bf.load.i.i.i.i120, 4
+  %tobool.i.not.i.i.i = icmp eq i8 %21, 0
   br i1 %tobool.i.not.i.i.i, label %cond.false.i.i.i, label %cond.end.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %.noexc121
-  %21 = load i16, ptr %comb_rule.i, align 2
-  %call2.i.i.i122 = invoke noundef ptr @_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalES3_s(ptr noundef nonnull align 8 dereferenceable(16) %m_config.i.i119, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i24, i16 noundef signext %21)
+  %22 = load i16, ptr %comb_rule.i, align 2
+  %call2.i.i.i122 = invoke noundef ptr @_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalES3_s(ptr noundef nonnull align 8 dereferenceable(16) %m_config.i.i119, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i24, i16 noundef signext %22)
           to label %call2.i.i.i.noexc unwind label %lpad13.loopexit
 
 call2.i.i.i.noexc:                                ; preds = %cond.false.i.i.i
@@ -566,13 +569,13 @@ call2.i.i.i.noexc:                                ; preds = %cond.false.i.i.i
 cond.end.i.i.i:                                   ; preds = %call2.i.i.i.noexc, %.noexc121
   %bf.load.i7.i.i.i = phi i8 [ %bf.load.i7.pre.i.i.i, %call2.i.i.i.noexc ], [ %bf.load.i.i.i.i120, %.noexc121 ]
   %cond.i.i.i = phi ptr [ %call2.i.i.i122, %call2.i.i.i.noexc ], [ null, %.noexc121 ]
-  %22 = and i8 %bf.load.i7.i.i.i, 8
-  %tobool.i8.not.i.i.i = icmp eq i8 %22, 0
+  %23 = and i8 %bf.load.i7.i.i.i, 8
+  %tobool.i8.not.i.i.i = icmp eq i8 %23, 0
   br i1 %tobool.i8.not.i.i.i, label %cond.false5.i.i.i, label %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit
 
 cond.false5.i.i.i:                                ; preds = %cond.end.i.i.i
-  %23 = load i16, ptr %m_upper_combine.i.i.i, align 2
-  %call6.i.i.i123 = invoke noundef ptr @_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalES3_s(ptr noundef nonnull align 8 dereferenceable(16) %m_config.i.i119, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i24, i16 noundef signext %23)
+  %24 = load i16, ptr %m_upper_combine.i.i.i, align 2
+  %call6.i.i.i123 = invoke noundef ptr @_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalES3_s(ptr noundef nonnull align 8 dereferenceable(16) %m_config.i.i119, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i24, i16 noundef signext %24)
           to label %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit unwind label %lpad13.loopexit
 
 _ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit: ; preds = %cond.false5.i.i.i, %cond.end.i.i.i
@@ -587,8 +590,8 @@ for.end80:                                        ; preds = %invoke.cont23
   br i1 %cmp, label %land.rhs82, label %cleanup
 
 land.rhs82:                                       ; preds = %for.end80
-  %24 = load i32, ptr %m, align 8
-  %call88 = invoke noundef zeroext i1 @_ZN3nla15monomial_bounds15propagate_valueERN13dep_intervals9im_config8intervalEj(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i, i32 noundef %24)
+  %25 = load i32, ptr %m, align 8
+  %call88 = invoke noundef zeroext i1 @_ZN3nla15monomial_bounds15propagate_valueERN13dep_intervals9im_config8intervalEj(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i, i32 noundef %25)
           to label %cleanup unwind label %lpad13.loopexit.split-lp
 
 cleanup.loopexit:                                 ; preds = %invoke.cont67
@@ -597,55 +600,55 @@ cleanup.loopexit:                                 ; preds = %invoke.cont67
 
 cleanup:                                          ; preds = %cleanup.loopexit, %for.end80, %land.rhs82
   %retval.1 = phi i1 [ false, %for.end80 ], [ %call88, %land.rhs82 ], [ true, %cleanup.loopexit ]
-  %25 = load ptr, ptr %other_product, align 8
-  %m_imanager.i.i126 = getelementptr inbounds i8, ptr %25, i64 752
+  %26 = load ptr, ptr %other_product, align 8
+  %m_imanager.i.i126 = getelementptr inbounds i8, ptr %26, i64 752
   invoke void @_ZN16interval_managerIN13dep_intervals9im_configEE3delERNS1_8intervalE(ptr noundef nonnull align 8 dereferenceable(672) %m_imanager.i.i126, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i72)
           to label %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #17
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #17
   unreachable
 
 _ZN16_scoped_intervalI13dep_intervalsED2Ev.exit:  ; preds = %cleanup
-  %28 = load ptr, ptr %mi, align 8
-  %m_imanager.i.i128 = getelementptr inbounds i8, ptr %28, i64 752
+  %29 = load ptr, ptr %mi, align 8
+  %m_imanager.i.i128 = getelementptr inbounds i8, ptr %29, i64 752
   invoke void @_ZN16interval_managerIN13dep_intervals9im_configEE3delERNS1_8intervalE(ptr noundef nonnull align 8 dereferenceable(672) %m_imanager.i.i128, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i48)
           to label %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit130 unwind label %terminate.lpad.i129
 
 terminate.lpad.i129:                              ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #17
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #17
   unreachable
 
 _ZN16_scoped_intervalI13dep_intervalsED2Ev.exit130: ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit
-  %31 = load ptr, ptr %vi, align 8
-  %m_imanager.i.i132 = getelementptr inbounds i8, ptr %31, i64 752
+  %32 = load ptr, ptr %vi, align 8
+  %m_imanager.i.i132 = getelementptr inbounds i8, ptr %32, i64 752
   invoke void @_ZN16interval_managerIN13dep_intervals9im_configEE3delERNS1_8intervalE(ptr noundef nonnull align 8 dereferenceable(672) %m_imanager.i.i132, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i24)
           to label %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit134 unwind label %terminate.lpad.i133
 
 terminate.lpad.i133:                              ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit130
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #17
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #17
   unreachable
 
 _ZN16_scoped_intervalI13dep_intervalsED2Ev.exit134: ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit130
-  %34 = load ptr, ptr %product, align 8
-  %m_imanager.i.i136 = getelementptr inbounds i8, ptr %34, i64 752
+  %35 = load ptr, ptr %product, align 8
+  %m_imanager.i.i136 = getelementptr inbounds i8, ptr %35, i64 752
   invoke void @_ZN16interval_managerIN13dep_intervals9im_configEE3delERNS1_8intervalE(ptr noundef nonnull align 8 dereferenceable(672) %m_imanager.i.i136, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i)
           to label %return unwind label %terminate.lpad.i137
 
 terminate.lpad.i137:                              ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit134
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #17
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #17
   unreachable
 
 return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit134, %_ZNK3nla15monomial_bounds7is_freeEj.exit
@@ -5723,14 +5726,17 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZN6vectorISt4pairIj8rationalELb1EjEC2ERKS3_.exit.i.i, label %_ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i.i.i.i
 
 _ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i.i.i.i: ; preds = %entry
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
+  %1 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %arrayidx.i11.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
-  %1 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i, align 4
   %2 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %2 to i64
   %mul.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i, 40
   %add.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i, 8
   %call3.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i)
-  store <2 x i32> %1, ptr %call3.i.i.i.i, align 4
+  store i32 %2, ptr %call3.i.i.i.i, align 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i, i64 4
+  store i32 %1, ptr %incdec.ptr.i.i.i.i, align 4
   %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %e4.i, align 8
   %3 = load ptr, ptr %e, align 8
@@ -8604,8 +8610,9 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %if.then.i.i8.i.i, %
   br i1 %tobool.not.i.i, label %_ZN6vectorISt4pairIj8rationalELb1EjEC2ERKS3_.exit.i, label %_ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i.i.i
 
 _ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i.i.i: ; preds = %_ZN8rationalC2ERKS_.exit
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
+  %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
-  %4 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
   %5 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %5 to i64
   %mul.i.i.i = mul nuw nsw i64 %conv.i.i.i, 40
@@ -8614,7 +8621,9 @@ _ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i.i.i: ; preds = %_ZN8rati
           to label %call3.i.i.i.noexc unwind label %lpad
 
 call3.i.i.i.noexc:                                ; preds = %_ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i.i.i
-  store <2 x i32> %4, ptr %call3.i.i.i2, align 4
+  store i32 %5, ptr %call3.i.i.i2, align 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i2, i64 4
+  store i32 %4, ptr %incdec.ptr.i.i.i, align 4
   %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i2, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %e4, align 8
   %6 = load ptr, ptr %e, align 8

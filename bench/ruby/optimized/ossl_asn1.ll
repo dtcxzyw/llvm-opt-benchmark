@@ -304,49 +304,67 @@ define i64 @asn1time_to_time(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 39:                                               ; preds = %1
   tail call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.4) #9
-  br label %63
+  br label %78
 
 40:                                               ; preds = %26, %35, %22, %24
-  %41 = getelementptr inbounds i8, ptr %2, i64 16
-  %42 = load <2 x i32>, ptr %41, align 8
-  %43 = sext <2 x i32> %42 to <2 x i64>
-  %44 = shl nsw <2 x i64> %43, <i64 1, i64 1>
-  %45 = or disjoint <2 x i64> %44, <i64 1, i64 1>
-  %46 = shufflevector <2 x i64> %45, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %46, ptr %3, align 16
-  %47 = getelementptr inbounds i8, ptr %3, i64 16
-  %48 = getelementptr inbounds i8, ptr %2, i64 8
-  %49 = load <2 x i32>, ptr %48, align 8
-  %50 = sext <2 x i32> %49 to <2 x i64>
-  %51 = shl nsw <2 x i64> %50, <i64 1, i64 1>
-  %52 = or disjoint <2 x i64> %51, <i64 1, i64 1>
-  %53 = shufflevector <2 x i64> %52, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %53, ptr %47, align 16
-  %54 = getelementptr inbounds i8, ptr %3, i64 32
-  %55 = load <2 x i32>, ptr %2, align 8
-  %56 = sext <2 x i32> %55 to <2 x i64>
-  %57 = shl nsw <2 x i64> %56, <i64 1, i64 1>
-  %58 = or disjoint <2 x i64> %57, <i64 1, i64 1>
-  %59 = shufflevector <2 x i64> %58, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %59, ptr %54, align 16
-  %60 = load i64, ptr @rb_cTime, align 8
+  %41 = getelementptr inbounds i8, ptr %2, i64 20
+  %42 = load i32, ptr %41, align 4
+  %43 = sext i32 %42 to i64
+  %44 = shl nsw i64 %43, 1
+  %45 = or disjoint i64 %44, 1
+  store i64 %45, ptr %3, align 16
+  %46 = getelementptr inbounds i8, ptr %2, i64 16
+  %47 = load i32, ptr %46, align 8
+  %48 = sext i32 %47 to i64
+  %49 = shl nsw i64 %48, 1
+  %50 = or disjoint i64 %49, 1
+  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %2, i64 12
+  %53 = load i32, ptr %52, align 4
+  %54 = sext i32 %53 to i64
+  %55 = shl nsw i64 %54, 1
+  %56 = or disjoint i64 %55, 1
+  %57 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %56, ptr %57, align 16
+  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %59 = load i32, ptr %58, align 8
+  %60 = sext i32 %59 to i64
+  %61 = shl nsw i64 %60, 1
+  %62 = or disjoint i64 %61, 1
+  %63 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %2, i64 4
+  %65 = load i32, ptr %64, align 4
+  %66 = sext i32 %65 to i64
+  %67 = shl nsw i64 %66, 1
+  %68 = or disjoint i64 %67, 1
+  %69 = getelementptr inbounds i8, ptr %3, i64 32
+  store i64 %68, ptr %69, align 16
+  %70 = load i32, ptr %2, align 8
+  %71 = sext i32 %70 to i64
+  %72 = shl nsw i64 %71, 1
+  %73 = or disjoint i64 %72, 1
+  %74 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 %73, ptr %74, align 8
+  %75 = load i64, ptr @rb_cTime, align 8
   %.pr.i = load i64, ptr @asn1time_to_time.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
-  %61 = call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 3) #9
-  store i64 %61, ptr @asn1time_to_time.rbimpl_id, align 8
-  %.not.i = icmp eq i64 %61, 0
+  %76 = call i64 @rb_intern2(ptr noundef nonnull @.str.5, i64 noundef 3) #9
+  store i64 %76, ptr @asn1time_to_time.rbimpl_id, align 8
+  %.not.i = icmp eq i64 %76, 0
   br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !6
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %40
-  %.lcssa.i = phi i64 [ %.pr.i, %40 ], [ %61, %.lr.ph.i ]
-  %62 = call i64 @rb_funcallv(i64 noundef %60, i64 noundef %.lcssa.i, i32 noundef 6, ptr noundef nonnull %3) #9
-  br label %63
+  %.lcssa.i = phi i64 [ %.pr.i, %40 ], [ %76, %.lr.ph.i ]
+  %77 = call i64 @rb_funcallv(i64 noundef %75, i64 noundef %.lcssa.i, i32 noundef 6, ptr noundef nonnull %3) #9
+  br label %78
 
-63:                                               ; preds = %rbimpl_intern_const.exit, %39
-  %.0 = phi i64 [ 4, %39 ], [ %62, %rbimpl_intern_const.exit ]
+78:                                               ; preds = %rbimpl_intern_const.exit, %39
+  %.0 = phi i64 [ 4, %39 ], [ %77, %rbimpl_intern_const.exit ]
   ret i64 %.0
 }
 

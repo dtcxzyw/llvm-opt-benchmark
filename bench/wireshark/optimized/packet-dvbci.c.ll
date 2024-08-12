@@ -5037,10 +5037,16 @@ define internal noundef i32 @exp_pdu_data_dvbci_size(ptr nocapture readnone %0, 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @exp_pdu_data_dvbci_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #6 {
-  store <4 x i8> <i8 0, i8 31, i8 0, i8 1>, ptr %2, align 1
-  %5 = tail call fastcc zeroext i8 @dvbci_get_evt_from_addrs(ptr noundef %0)
-  %6 = getelementptr i8, ptr %2, i64 4
-  store i8 %5, ptr %6, align 1
+  store i8 0, ptr %2, align 1
+  %5 = getelementptr i8, ptr %2, i64 1
+  store i8 31, ptr %5, align 1
+  %6 = getelementptr i8, ptr %2, i64 2
+  store i8 0, ptr %6, align 1
+  %7 = getelementptr i8, ptr %2, i64 3
+  store i8 1, ptr %7, align 1
+  %8 = tail call fastcc zeroext i8 @dvbci_get_evt_from_addrs(ptr noundef %0)
+  %9 = getelementptr i8, ptr %2, i64 4
+  store i8 %8, ptr %9, align 1
   ret i32 5
 }
 

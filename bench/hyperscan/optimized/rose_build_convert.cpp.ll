@@ -1296,12 +1296,14 @@ if.end14:                                         ; preds = %invoke.cont
 
 .noexc:                                           ; preds = %if.end14
   %graph = getelementptr inbounds i8, ptr %v.coerce0, i64 224
+  %104 = load ptr, ptr %graph, align 8
+  %_M_refcount.i.i.i93 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %_M_refcount3.i.i.i94 = getelementptr inbounds i8, ptr %v.coerce0, i64 232
-  %104 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16
   %105 = load ptr, ptr %_M_refcount3.i.i.i94, align 8
-  %106 = load <2 x ptr>, ptr %graph, align 8
-  store <2 x ptr> %104, ptr %graph, align 8
-  store <2 x ptr> %106, ptr %ref.tmp.i.i, align 16
+  %106 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16
+  store ptr %104, ptr %ref.tmp.i.i, align 16
+  store <2 x ptr> %106, ptr %graph, align 8
+  store ptr %105, ptr %_M_refcount.i.i.i93, align 8
   %cmp.not.i.i.i.i95 = icmp eq ptr %105, null
   br i1 %cmp.not.i.i.i.i95, label %invoke.cont18, label %if.then.i.i.i.i96
 

@@ -1116,62 +1116,68 @@ declare i32 @zend_optimizer_add_literal(ptr noundef, ptr noundef) local_unnamed_
 define internal fastcc void @zend_delete_call_instructions(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   br label %3
 
-3:                                                ; preds = %20, %2
-  %.014 = phi ptr [ %1, %2 ], [ %21, %20 ]
-  %.0 = phi i32 [ 0, %2 ], [ %.1, %20 ]
+3:                                                ; preds = %23, %2
+  %.014 = phi ptr [ %1, %2 ], [ %24, %23 ]
+  %.0 = phi i32 [ 0, %2 ], [ %.1, %23 ]
   %4 = getelementptr inbounds i8, ptr %.014, i64 28
   %5 = load i8, ptr %4, align 4
-  switch i8 %5, label %20 [
+  switch i8 %5, label %23 [
     i8 59, label %6
     i8 69, label %6
     i8 113, label %6
     i8 112, label %6
     i8 61, label %6
-    i8 68, label %13
-    i8 -128, label %13
-    i8 118, label %13
-    i8 60, label %15
-    i8 -127, label %15
-    i8 -126, label %15
-    i8 -125, label %15
-    i8 65, label %17
-    i8 117, label %17
+    i8 68, label %16
+    i8 -128, label %16
+    i8 118, label %16
+    i8 60, label %18
+    i8 -127, label %18
+    i8 -126, label %18
+    i8 -125, label %18
+    i8 65, label %20
+    i8 117, label %20
   ]
 
 6:                                                ; preds = %3, %3, %3, %3, %3
   %7 = icmp eq i32 %.0, 0
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %.014, i64 28
-  %10 = getelementptr inbounds i8, ptr %.014, i64 8
-  store i32 -1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %.014, i64 12
-  store i32 -1, ptr %11, align 4
-  store <4 x i8> zeroinitializer, ptr %9, align 4
-  %12 = getelementptr inbounds i8, ptr %.014, i64 16
-  store i32 -1, ptr %12, align 8
+  store i8 0, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %.014, i64 29
+  store i8 0, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %.014, i64 8
+  store i32 -1, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %.014, i64 30
+  store i8 0, ptr %12, align 2
+  %13 = getelementptr inbounds i8, ptr %.014, i64 12
+  store i32 -1, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %.014, i64 31
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %.014, i64 16
+  store i32 -1, ptr %15, align 8
   ret void
 
-13:                                               ; preds = %6, %3, %3, %3
-  %14 = add nsw i32 %.0, -1
-  br label %20
+16:                                               ; preds = %6, %3, %3, %3
+  %17 = add nsw i32 %.0, -1
+  br label %23
 
-15:                                               ; preds = %3, %3, %3, %3
-  %16 = add nsw i32 %.0, 1
-  br label %20
+18:                                               ; preds = %3, %3, %3, %3
+  %19 = add nsw i32 %.0, 1
+  br label %23
 
-17:                                               ; preds = %3, %3
-  %18 = icmp eq i32 %.0, 0
-  br i1 %18, label %19, label %20
+20:                                               ; preds = %3, %3
+  %21 = icmp eq i32 %.0, 0
+  br i1 %21, label %22, label %23
 
-19:                                               ; preds = %17
+22:                                               ; preds = %20
   tail call void @zend_optimizer_convert_to_free_op1(ptr noundef %0, ptr noundef nonnull %.014) #11
-  br label %20
+  br label %23
 
-20:                                               ; preds = %17, %19, %15, %13, %3
-  %.1 = phi i32 [ %.0, %3 ], [ 0, %19 ], [ %.0, %17 ], [ %16, %15 ], [ %14, %13 ]
-  %21 = getelementptr inbounds i8, ptr %.014, i64 -32
+23:                                               ; preds = %20, %22, %18, %16, %3
+  %.1 = phi i32 [ %.0, %3 ], [ 0, %22 ], [ %.0, %20 ], [ %19, %18 ], [ %17, %16 ]
+  %24 = getelementptr inbounds i8, ptr %.014, i64 -32
   br label %3
 }
 

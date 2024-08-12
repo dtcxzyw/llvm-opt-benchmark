@@ -45,10 +45,14 @@ define void @"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT
   %3 = alloca { i64, { i64, [1 x i64] } }, align 8
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h25f1e2fd41c16a07E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %3, ptr align 8 %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = load i64, ptr %4, align 8, !range !6, !noundef !3
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = load i64, ptr %6, align 8
   store i64 0, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load <2 x i64>, ptr %4, align 8
-  store <2 x i64> %6, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %7, ptr %9, align 8
   ret void
 }
 
@@ -76,3 +80,4 @@ attributes #1 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !3 = !{}
 !4 = !{i64 1}
 !5 = !{i8 0, i8 2}
+!6 = !{i64 0, i64 2}

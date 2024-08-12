@@ -76,22 +76,25 @@ define range(i32 -1, 1) i32 @H5HF__tiny_insert(ptr noundef %0, i64 noundef %1, p
   %25 = sub i64 %20, %24
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %25, i1 false)
   %26 = getelementptr inbounds i8, ptr %0, i64 552
-  %27 = load <2 x i64>, ptr %26, align 8
-  %28 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %1, i64 0
-  %29 = add <2 x i64> %27, %28
-  store <2 x i64> %29, ptr %26, align 8
-  %30 = tail call i32 @H5HF__hdr_dirty(ptr noundef nonnull %0) #5
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %32, label %36
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %27, %1
+  store i64 %28, ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 560
+  %30 = load i64, ptr %29, align 8
+  %31 = add i64 %30, 1
+  store i64 %31, ptr %29, align 8
+  %32 = tail call i32 @H5HF__hdr_dirty(ptr noundef nonnull %0) #5
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %38
 
-32:                                               ; preds = %16
-  %33 = load i64, ptr @H5E_HEAP_g, align 8
-  %34 = load i64, ptr @H5E_CANTDIRTY_g, align 8
-  %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_insert, i32 noundef 163, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.1) #5
-  br label %36
+34:                                               ; preds = %16
+  %35 = load i64, ptr @H5E_HEAP_g, align 8
+  %36 = load i64, ptr @H5E_CANTDIRTY_g, align 8
+  %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_insert, i32 noundef 163, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.1) #5
+  br label %38
 
-36:                                               ; preds = %16, %32
-  %.0 = phi i32 [ -1, %32 ], [ 0, %16 ]
+38:                                               ; preds = %16, %34
+  %.0 = phi i32 [ -1, %34 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -236,22 +239,25 @@ H5HF__tiny_get_obj_len.exit:                      ; preds = %6, %9
   %.0.i = zext i8 %.0.in.i to i64
   %.neg = xor i64 %.0.i, -1
   %12 = getelementptr inbounds i8, ptr %0, i64 552
-  %13 = load <2 x i64>, ptr %12, align 8
-  %14 = insertelement <2 x i64> <i64 poison, i64 -1>, i64 %.neg, i64 0
-  %15 = add <2 x i64> %13, %14
-  store <2 x i64> %15, ptr %12, align 8
-  %16 = tail call i32 @H5HF__hdr_dirty(ptr noundef nonnull %0) #5
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %22
+  %13 = load i64, ptr %12, align 8
+  %14 = add i64 %13, %.neg
+  store i64 %14, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 560
+  %16 = load i64, ptr %15, align 8
+  %17 = add i64 %16, -1
+  store i64 %17, ptr %15, align 8
+  %18 = tail call i32 @H5HF__hdr_dirty(ptr noundef nonnull %0) #5
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %20, label %24
 
-18:                                               ; preds = %H5HF__tiny_get_obj_len.exit
-  %19 = load i64, ptr @H5E_HEAP_g, align 8
-  %20 = load i64, ptr @H5E_CANTDIRTY_g, align 8
-  %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_remove, i32 noundef 349, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.1) #5
-  br label %22
+20:                                               ; preds = %H5HF__tiny_get_obj_len.exit
+  %21 = load i64, ptr @H5E_HEAP_g, align 8
+  %22 = load i64, ptr @H5E_CANTDIRTY_g, align 8
+  %23 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__tiny_remove, i32 noundef 349, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.1) #5
+  br label %24
 
-22:                                               ; preds = %H5HF__tiny_get_obj_len.exit, %18
-  %.0 = phi i32 [ -1, %18 ], [ 0, %H5HF__tiny_get_obj_len.exit ]
+24:                                               ; preds = %H5HF__tiny_get_obj_len.exit, %20
+  %.0 = phi i32 [ -1, %20 ], [ 0, %H5HF__tiny_get_obj_len.exit ]
   ret i32 %.0
 }
 

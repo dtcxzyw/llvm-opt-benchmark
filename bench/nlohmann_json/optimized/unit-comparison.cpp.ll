@@ -1084,7 +1084,21 @@ _ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_36detail7value_tESaIS3_EED2Ev.exi
   br label %ehcleanup755
 
 invoke.cont31:                                    ; preds = %if.then
-  store <8 x i8> <i8 0, i8 4, i8 5, i8 6, i8 7, i8 1, i8 2, i8 3>, ptr %call5.i.i.i.i2.i, align 1
+  store i8 0, ptr %call5.i.i.i.i2.i, align 1
+  %ref.tmp20.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 1
+  store i8 4, ptr %ref.tmp20.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp20.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 2
+  store i8 5, ptr %ref.tmp20.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp20.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 3
+  store i8 6, ptr %ref.tmp20.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp20.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 4
+  store i8 7, ptr %ref.tmp20.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp20.sroa.6.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 5
+  store i8 1, ptr %ref.tmp20.sroa.6.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp20.sroa.7.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 6
+  store i8 2, ptr %ref.tmp20.sroa.7.0.call5.i.i.i.i2.i.sroa_idx, align 1
+  %ref.tmp20.sroa.8.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 7
+  store i8 3, ptr %ref.tmp20.sroa.8.0.call5.i.i.i.i2.i.sroa_idx, align 1
   %ref.tmp20.sroa.9.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
   store i8 8, ptr %ref.tmp20.sroa.9.0.call5.i.i.i.i2.i.sroa_idx, align 1
   %ref.tmp20.sroa.10.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 9
@@ -1428,7 +1442,13 @@ invoke.cont128:                                   ; preds = %_ZNSt14_Bit_referen
   %arrayinit.element129 = getelementptr inbounds i8, ptr %ref.tmp33, i64 200
   %arrayinit.element138 = getelementptr inbounds i8, ptr %ref.tmp131, i64 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %ref.tmp131, i8 0, i64 6, i1 false)
-  store <4 x i8> <i8 1, i8 1, i8 1, i8 0>, ptr %arrayinit.element138, align 1
+  store i8 1, ptr %arrayinit.element138, align 1
+  %arrayinit.element139 = getelementptr inbounds i8, ptr %ref.tmp131, i64 7
+  store i8 1, ptr %arrayinit.element139, align 1
+  %arrayinit.element140 = getelementptr inbounds i8, ptr %ref.tmp131, i64 8
+  store i8 1, ptr %arrayinit.element140, align 1
+  %arrayinit.element141 = getelementptr inbounds i8, ptr %ref.tmp131, i64 9
+  store i8 0, ptr %arrayinit.element141, align 1
   store ptr null, ptr %arrayinit.element129, align 8
   %_M_offset.i.i.i.i.i.i460 = getelementptr inbounds i8, ptr %ref.tmp33, i64 208
   store i32 0, ptr %_M_offset.i.i.i.i.i.i460, align 8
@@ -2523,7 +2543,13 @@ invoke.cont422:                                   ; preds = %invoke.cont403
   %add.ptr.i1.i744 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i739, i64 10
   %_M_end_of_storage.i.i745 = getelementptr inbounds i8, ptr %ref.tmp364, i64 64
   store ptr %add.ptr.i1.i744, ptr %_M_end_of_storage.i.i745, align 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %call5.i.i.i.i2.i739, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i739, align 1
+  %ref.tmp406.sroa.2.0.call5.i.i.i.i2.i739.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i739, i64 1
+  store i8 1, ptr %ref.tmp406.sroa.2.0.call5.i.i.i.i2.i739.sroa_idx, align 1
+  %ref.tmp406.sroa.3.0.call5.i.i.i.i2.i739.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i739, i64 2
+  store i8 0, ptr %ref.tmp406.sroa.3.0.call5.i.i.i.i2.i739.sroa_idx, align 1
+  %ref.tmp406.sroa.4.0.call5.i.i.i.i2.i739.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i739, i64 3
+  store i8 0, ptr %ref.tmp406.sroa.4.0.call5.i.i.i.i2.i739.sroa_idx, align 1
   %ref.tmp406.sroa.5.0.call5.i.i.i.i2.i739.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i739, i64 4
   store i8 0, ptr %ref.tmp406.sroa.5.0.call5.i.i.i.i2.i739.sroa_idx, align 1
   %ref.tmp406.sroa.6.0.call5.i.i.i.i2.i739.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i739, i64 5
@@ -2547,7 +2573,13 @@ invoke.cont441:                                   ; preds = %invoke.cont422
   %add.ptr.i1.i754 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i749, i64 10
   %_M_end_of_storage.i.i755 = getelementptr inbounds i8, ptr %ref.tmp364, i64 88
   store ptr %add.ptr.i1.i754, ptr %_M_end_of_storage.i.i755, align 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %call5.i.i.i.i2.i749, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i749, align 1
+  %ref.tmp425.sroa.2.0.call5.i.i.i.i2.i749.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i749, i64 1
+  store i8 1, ptr %ref.tmp425.sroa.2.0.call5.i.i.i.i2.i749.sroa_idx, align 1
+  %ref.tmp425.sroa.3.0.call5.i.i.i.i2.i749.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i749, i64 2
+  store i8 0, ptr %ref.tmp425.sroa.3.0.call5.i.i.i.i2.i749.sroa_idx, align 1
+  %ref.tmp425.sroa.4.0.call5.i.i.i.i2.i749.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i749, i64 3
+  store i8 0, ptr %ref.tmp425.sroa.4.0.call5.i.i.i.i2.i749.sroa_idx, align 1
   %ref.tmp425.sroa.5.0.call5.i.i.i.i2.i749.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i749, i64 4
   store i8 0, ptr %ref.tmp425.sroa.5.0.call5.i.i.i.i2.i749.sroa_idx, align 1
   %ref.tmp425.sroa.6.0.call5.i.i.i.i2.i749.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i749, i64 5
@@ -2571,7 +2603,13 @@ invoke.cont460:                                   ; preds = %invoke.cont441
   %add.ptr.i1.i764 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i759, i64 10
   %_M_end_of_storage.i.i765 = getelementptr inbounds i8, ptr %ref.tmp364, i64 112
   store ptr %add.ptr.i1.i764, ptr %_M_end_of_storage.i.i765, align 8
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %call5.i.i.i.i2.i759, align 1
+  store i8 1, ptr %call5.i.i.i.i2.i759, align 1
+  %ref.tmp444.sroa.2.0.call5.i.i.i.i2.i759.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i759, i64 1
+  store i8 1, ptr %ref.tmp444.sroa.2.0.call5.i.i.i.i2.i759.sroa_idx, align 1
+  %ref.tmp444.sroa.3.0.call5.i.i.i.i2.i759.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i759, i64 2
+  store i8 0, ptr %ref.tmp444.sroa.3.0.call5.i.i.i.i2.i759.sroa_idx, align 1
+  %ref.tmp444.sroa.4.0.call5.i.i.i.i2.i759.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i759, i64 3
+  store i8 0, ptr %ref.tmp444.sroa.4.0.call5.i.i.i.i2.i759.sroa_idx, align 1
   %ref.tmp444.sroa.5.0.call5.i.i.i.i2.i759.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i759, i64 4
   store i8 0, ptr %ref.tmp444.sroa.5.0.call5.i.i.i.i2.i759.sroa_idx, align 1
   %ref.tmp444.sroa.6.0.call5.i.i.i.i2.i759.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i759, i64 5
@@ -2597,7 +2635,13 @@ invoke.cont479:                                   ; preds = %invoke.cont460
   store ptr %add.ptr.i1.i774, ptr %_M_end_of_storage.i.i775, align 8
   %ref.tmp463.sroa.6.0.call5.i.i.i.i2.i769.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i769, i64 5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %call5.i.i.i.i2.i769, i8 1, i64 5, i1 false)
-  store <4 x i8> <i8 0, i8 -1, i8 -1, i8 -1>, ptr %ref.tmp463.sroa.6.0.call5.i.i.i.i2.i769.sroa_idx, align 1
+  store i8 0, ptr %ref.tmp463.sroa.6.0.call5.i.i.i.i2.i769.sroa_idx, align 1
+  %ref.tmp463.sroa.7.0.call5.i.i.i.i2.i769.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i769, i64 6
+  store i8 -1, ptr %ref.tmp463.sroa.7.0.call5.i.i.i.i2.i769.sroa_idx, align 1
+  %ref.tmp463.sroa.8.0.call5.i.i.i.i2.i769.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i769, i64 7
+  store i8 -1, ptr %ref.tmp463.sroa.8.0.call5.i.i.i.i2.i769.sroa_idx, align 1
+  %ref.tmp463.sroa.9.0.call5.i.i.i.i2.i769.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i769, i64 8
+  store i8 -1, ptr %ref.tmp463.sroa.9.0.call5.i.i.i.i2.i769.sroa_idx, align 1
   %ref.tmp463.sroa.10.0.call5.i.i.i.i2.i769.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i769, i64 9
   store i8 2, ptr %ref.tmp463.sroa.10.0.call5.i.i.i.i2.i769.sroa_idx, align 1
   %_M_finish.i.i776 = getelementptr inbounds i8, ptr %ref.tmp364, i64 128
@@ -2619,7 +2663,13 @@ invoke.cont498:                                   ; preds = %invoke.cont479
   store ptr %add.ptr.i1.i784, ptr %_M_end_of_storage.i.i785, align 8
   %ref.tmp482.sroa.7.0.call5.i.i.i.i2.i779.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i779, i64 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %call5.i.i.i.i2.i779, i8 1, i64 6, i1 false)
-  store <4 x i8> <i8 0, i8 -1, i8 -1, i8 2>, ptr %ref.tmp482.sroa.7.0.call5.i.i.i.i2.i779.sroa_idx, align 1
+  store i8 0, ptr %ref.tmp482.sroa.7.0.call5.i.i.i.i2.i779.sroa_idx, align 1
+  %ref.tmp482.sroa.8.0.call5.i.i.i.i2.i779.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i779, i64 7
+  store i8 -1, ptr %ref.tmp482.sroa.8.0.call5.i.i.i.i2.i779.sroa_idx, align 1
+  %ref.tmp482.sroa.9.0.call5.i.i.i.i2.i779.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i779, i64 8
+  store i8 -1, ptr %ref.tmp482.sroa.9.0.call5.i.i.i.i2.i779.sroa_idx, align 1
+  %ref.tmp482.sroa.10.0.call5.i.i.i.i2.i779.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i779, i64 9
+  store i8 2, ptr %ref.tmp482.sroa.10.0.call5.i.i.i.i2.i779.sroa_idx, align 1
   %_M_finish.i.i786 = getelementptr inbounds i8, ptr %ref.tmp364, i64 152
   store ptr %add.ptr.i1.i784, ptr %_M_finish.i.i786, align 8
   %arrayinit.element499 = getelementptr inbounds i8, ptr %ref.tmp364, i64 168
@@ -25471,12 +25521,21 @@ sw.bb99:                                          ; preds = %sw.bb85, %sw.bb85
   br i1 %cmp104, label %if.then105, label %for.inc
 
 if.then105:                                       ; preds = %sw.bb99
+  %inc109 = add i64 %bytes_after_last_accept.0114.ph, 1
   %arrayidx.i.i78 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes_after_last_accept.0114.ph
+  %inc112 = add i64 %bytes_after_last_accept.0114.ph, 2
+  %arrayidx.i.i79 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc109
+  %inc115 = add i64 %bytes_after_last_accept.0114.ph, 3
+  %arrayidx.i.i80 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc112
   br i1 %ensure_ascii, label %if.then107, label %if.else126
 
 if.then107:                                       ; preds = %if.then105
+  store i8 92, ptr %arrayidx.i.i78, align 1
+  store i8 117, ptr %arrayidx.i.i79, align 1
+  store i8 102, ptr %arrayidx.i.i80, align 1
   %inc118 = add i64 %bytes_after_last_accept.0114.ph, 4
-  store <4 x i8> <i8 92, i8 117, i8 102, i8 102>, ptr %arrayidx.i.i78, align 1
+  %arrayidx.i.i81 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc115
+  store i8 102, ptr %arrayidx.i.i81, align 1
   %inc121 = add i64 %bytes_after_last_accept.0114.ph, 5
   %arrayidx.i.i82 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc118
   store i8 102, ptr %arrayidx.i.i82, align 1
@@ -25486,11 +25545,6 @@ if.then107:                                       ; preds = %if.then105
   br label %if.end139
 
 if.else126:                                       ; preds = %if.then105
-  %inc112 = add i64 %bytes_after_last_accept.0114.ph, 2
-  %arrayidx.i.i80 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc112
-  %inc115 = add i64 %bytes_after_last_accept.0114.ph, 3
-  %inc109 = add i64 %bytes_after_last_accept.0114.ph, 1
-  %arrayidx.i.i79 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc109
   store i8 -17, ptr %arrayidx.i.i78, align 1
   store i8 -65, ptr %arrayidx.i.i79, align 1
   store i8 -67, ptr %arrayidx.i.i80, align 1

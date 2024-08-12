@@ -3658,9 +3658,10 @@ if.then.i.i.i.i46.i.i:                            ; preds = %_ZNSt11char_traitsI
   br i1 %cmp.i.i.i45.i.i, label %if.then39.i.i, label %if.else44.i.i
 
 if.then39.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl14flags_internal16FinalizeRegistryEvE3$_0EclINS_17__normal_iteratorIPPNS2_15CommandLineFlagESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit51.i.i"
-  %39 = load <2 x ptr>, ptr %__first.coerce, align 8
-  %40 = shufflevector <2 x ptr> %39, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %40, ptr %__first.coerce, align 8
+  %39 = load ptr, ptr %__first.coerce, align 8
+  %40 = load ptr, ptr %add.ptr.i2.i, align 8
+  store ptr %40, ptr %__first.coerce, align 8
+  store ptr %39, ptr %add.ptr.i2.i, align 8
   br label %while.body.i.i5.preheader
 
 if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl14flags_internal16FinalizeRegistryEvE3$_0EclINS_17__normal_iteratorIPPNS2_15CommandLineFlagESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit51.i.i"

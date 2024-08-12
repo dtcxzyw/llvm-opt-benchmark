@@ -562,30 +562,27 @@ _ZNK6duckdb12BaseProfilerINSt6chrono3_V212system_clockEE7ElapsedEv.exit: ; preds
   %retval.sroa.0.0.copyload.i7.i.i = load i64, ptr %profiler, align 8, !tbaa !66
   %sub.i.i.i = sub nsw i64 %storemerge.i, %retval.sroa.0.0.copyload.i7.i.i
   %conv.i.i.i = sitofp i64 %sub.i.i.i to double
+  %div.i.i.i = fdiv double %conv.i.i.i, 1.000000e+09
   %show_progress_after = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i64, ptr %show_progress_after, align 8, !tbaa !47
   %conv = uitofp i64 %3 to double
-  %4 = insertelement <2 x double> poison, double %conv.i.i.i, i64 0
-  %5 = insertelement <2 x double> %4, double %conv, i64 1
-  %6 = fdiv <2 x double> %5, <double 1.000000e+09, double 1.000000e+03>
-  %7 = extractelement <2 x double> %6, i64 0
-  %8 = extractelement <2 x double> %6, i64 1
-  %cmp = fcmp ule double %7, %8
+  %div = fdiv double %conv, 1.000000e+03
+  %cmp = fcmp ule double %div.i.i.i, %div
   %brmerge = or i1 %cmp, %final
   %not.cmp = xor i1 %cmp, true
   br i1 %brmerge, label %return, label %if.end8
 
 if.end8:                                          ; preds = %_ZNK6duckdb12BaseProfilerINSt6chrono3_V212system_clockEE7ElapsedEv.exit
   %supported = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i8, ptr %supported, align 8, !tbaa !63, !range !67, !noundef !68
-  %tobool9.not = icmp eq i8 %9, 0
+  %4 = load i8, ptr %supported, align 8, !tbaa !63, !range !67, !noundef !68
+  %tobool9.not = icmp eq i8 %4, 0
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
   %query_progress = getelementptr inbounds i8, ptr %this, i64 40
-  %10 = load atomic i64, ptr %query_progress seq_cst, align 8
-  %11 = bitcast i64 %10 to double
-  %cmp13 = fcmp ogt double %11, -1.000000e+00
+  %5 = load atomic i64, ptr %query_progress seq_cst, align 8
+  %6 = bitcast i64 %5 to double
+  %cmp13 = fcmp ogt double %6, -1.000000e+00
   br label %return
 
 return:                                           ; preds = %if.end11, %if.end8, %_ZNK6duckdb12BaseProfilerINSt6chrono3_V212system_clockEE7ElapsedEv.exit, %entry
@@ -667,27 +664,24 @@ _ZNK6duckdb12BaseProfilerINSt6chrono3_V212system_clockEE7ElapsedEv.exit.i: ; pre
   %retval.sroa.0.0.copyload.i7.i.i.i = load i64, ptr %profiler.i, align 8, !tbaa !66
   %sub.i.i.i.i = sub nsw i64 %storemerge.i.i, %retval.sroa.0.0.copyload.i7.i.i.i
   %conv.i.i.i.i = sitofp i64 %sub.i.i.i.i to double
+  %div.i.i.i.i = fdiv double %conv.i.i.i.i, 1.000000e+09
   %show_progress_after.i = getelementptr inbounds i8, ptr %this, i64 32
   %13 = load i64, ptr %show_progress_after.i, align 8, !tbaa !47
   %conv.i = uitofp i64 %13 to double
-  %14 = insertelement <2 x double> poison, double %conv.i.i.i.i, i64 0
-  %15 = insertelement <2 x double> %14, double %conv.i, i64 1
-  %16 = fdiv <2 x double> %15, <double 1.000000e+09, double 1.000000e+03>
-  %17 = extractelement <2 x double> %16, i64 0
-  %18 = extractelement <2 x double> %16, i64 1
-  %cmp.i = fcmp ule double %17, %18
+  %div.i = fdiv double %conv.i, 1.000000e+03
+  %cmp.i = fcmp ule double %div.i.i.i.i, %div.i
   %brmerge.i = or i1 %cmp.i, %final
   br i1 %brmerge.i, label %_ZNK6duckdb11ProgressBar11ShouldPrintEb.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %_ZNK6duckdb12BaseProfilerINSt6chrono3_V212system_clockEE7ElapsedEv.exit.i
-  %19 = load i8, ptr %supported, align 8, !tbaa !63, !range !67, !noundef !68
-  %tobool9.not.i = icmp eq i8 %19, 0
+  %14 = load i8, ptr %supported, align 8, !tbaa !63, !range !67, !noundef !68
+  %tobool9.not.i = icmp eq i8 %14, 0
   br i1 %tobool9.not.i, label %cleanup, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end8.i
-  %20 = load atomic i64, ptr %query_progress seq_cst, align 8
-  %21 = bitcast i64 %20 to double
-  %cmp13.i = fcmp ogt double %21, -1.000000e+00
+  %15 = load atomic i64, ptr %query_progress seq_cst, align 8
+  %16 = bitcast i64 %15 to double
+  %cmp13.i = fcmp ogt double %16, -1.000000e+00
   br i1 %cmp13.i, label %if.then31, label %cleanup
 
 _ZNK6duckdb11ProgressBar11ShouldPrintEb.exit:     ; preds = %_ZNK6duckdb12BaseProfilerINSt6chrono3_V212system_clockEE7ElapsedEv.exit.i
@@ -698,20 +692,20 @@ if.then31:                                        ; preds = %_ZNK6duckdb11Progre
 
 if.then33:                                        ; preds = %if.then31
   %finished.i = getelementptr inbounds i8, ptr %this, i64 73
-  %22 = load i8, ptr %finished.i, align 1, !tbaa !64, !range !67, !noundef !68
-  %tobool.not.i = icmp eq i8 %22, 0
+  %17 = load i8, ptr %finished.i, align 1, !tbaa !64, !range !67, !noundef !68
+  %tobool.not.i = icmp eq i8 %17, 0
   br i1 %tobool.not.i, label %if.end.i47, label %cleanup
 
 if.end.i47:                                       ; preds = %if.then33
   %call.i = call noundef ptr @_ZNK6duckdb10unique_ptrINS_18ProgressBarDisplayESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %display.i.i)
   %vtable.i = load ptr, ptr %call.i, align 8, !tbaa !35
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
-  %23 = load ptr, ptr %vfn.i, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %call.i)
+  %18 = load ptr, ptr %vfn.i, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(8) %call.i)
   store i8 1, ptr %finished.i, align 1, !tbaa !64
-  %24 = load atomic i64, ptr %query_progress seq_cst, align 8
-  %25 = and i64 %24, 9223372036854775807
-  %cmp.i49 = icmp eq i64 %25, 0
+  %19 = load atomic i64, ptr %query_progress seq_cst, align 8
+  %20 = and i64 %19, 9223372036854775807
+  %cmp.i49 = icmp eq i64 %20, 0
   br i1 %cmp.i49, label %if.then4.i, label %cleanup
 
 if.then4.i:                                       ; preds = %if.end.i47
@@ -721,15 +715,15 @@ if.then4.i:                                       ; preds = %if.end.i47
   br label %cleanup
 
 if.else:                                          ; preds = %if.then31
-  %26 = load atomic i64, ptr %query_progress seq_cst, align 8
-  %27 = bitcast i64 %26 to double
-  %conv = fptosi double %27 to i32
+  %21 = load atomic i64, ptr %query_progress seq_cst, align 8
+  %22 = bitcast i64 %21 to double
+  %conv = fptosi double %22 to i32
   %call.i51 = call noundef ptr @_ZNK6duckdb10unique_ptrINS_18ProgressBarDisplayESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %display.i.i)
   %conv.i52 = sitofp i32 %conv to double
   %vtable.i53 = load ptr, ptr %call.i51, align 8, !tbaa !35
   %vfn.i54 = getelementptr inbounds i8, ptr %vtable.i53, i64 16
-  %28 = load ptr, ptr %vfn.i54, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(8) %call.i51, double noundef %conv.i52)
+  %23 = load ptr, ptr %vfn.i54, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %call.i51, double noundef %conv.i52)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else, %if.then4.i, %if.end.i47, %if.then33, %_ZNK6duckdb11ProgressBar11ShouldPrintEb.exit, %if.end11.i, %if.end8.i, %if.end28, %if.end

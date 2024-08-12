@@ -84,29 +84,37 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Gia_ManSetIfParsDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %2, i8 0, i64 336, i1 false)
-  store <4 x i32> <i32 -1, i32 8, i32 1, i32 2>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  store <2 x float> <float -1.000000e+00, float 0x3F747AE140000000>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 200
-  store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 244
-  store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 260
-  store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 264
-  store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
+  store i32 -1, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 8, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 2, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  store float -1.000000e+00, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  store float 0x3F747AE140000000, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 1, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 1, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 200
+  store ptr null, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 244
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 260
+  store i32 0, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 264
+  store i32 1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -16565,78 +16573,80 @@ Abc_TtExist.exit:                                 ; preds = %.lr.ph.i19.i, %49, 
   br i1 %143, label %.preheader.us.i.us.us.us.us.i, label %Abc_TtSwapAdjacent.exit.us.us.us.us.i, !llvm.loop !155
 
 .lr.ph.i.us.us.us.us.i:                           ; preds = %122, %.lr.ph.i.us.us.us.us.i
-  %.05462.i.us.us.us.us.i = phi ptr [ %147, %.lr.ph.i.us.us.us.us.i ], [ %6, %122 ]
+  %.05462.i.us.us.us.us.i = phi ptr [ %148, %.lr.ph.i.us.us.us.us.i ], [ %6, %122 ]
   %144 = getelementptr inbounds i8, ptr %.05462.i.us.us.us.us.i, i64 4
-  %145 = load <2 x i32>, ptr %144, align 4
-  %146 = shufflevector <2 x i32> %145, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %146, ptr %144, align 4
-  %147 = getelementptr inbounds i8, ptr %.05462.i.us.us.us.us.i, i64 16
-  %148 = icmp ult ptr %147, %114
-  br i1 %148, label %.lr.ph.i.us.us.us.us.i, label %Abc_TtSwapAdjacent.exit.us.us.us.us.i, !llvm.loop !156
+  %145 = load i32, ptr %144, align 4
+  %146 = getelementptr inbounds i8, ptr %.05462.i.us.us.us.us.i, i64 8
+  %147 = load i32, ptr %146, align 4
+  store i32 %147, ptr %144, align 4
+  store i32 %145, ptr %146, align 4
+  %148 = getelementptr inbounds i8, ptr %.05462.i.us.us.us.us.i, i64 16
+  %149 = icmp ult ptr %148, %114
+  br i1 %149, label %.lr.ph.i.us.us.us.us.i, label %Abc_TtSwapAdjacent.exit.us.us.us.us.i, !llvm.loop !156
 
 .lr.ph64.i.us.us.us.us.i:                         ; preds = %.lr.ph.us.us.i
-  %149 = trunc nsw i64 %indvars.iv.next98.i to i32
-  %150 = shl nuw nsw i32 1, %149
-  %151 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.next98.i
-  %152 = load i64, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %151, i64 8
-  %154 = load i64, ptr %153, align 8
-  %155 = zext nneg i32 %150 to i64
-  %156 = getelementptr inbounds i8, ptr %151, i64 16
-  %157 = load i64, ptr %156, align 8
-  br label %158
+  %150 = trunc nsw i64 %indvars.iv.next98.i to i32
+  %151 = shl nuw nsw i32 1, %150
+  %152 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.next98.i
+  %153 = load i64, ptr %152, align 8
+  %154 = getelementptr inbounds i8, ptr %152, i64 8
+  %155 = load i64, ptr %154, align 8
+  %156 = zext nneg i32 %151 to i64
+  %157 = getelementptr inbounds i8, ptr %152, i64 16
+  %158 = load i64, ptr %157, align 8
+  br label %159
 
-158:                                              ; preds = %158, %.lr.ph64.i.us.us.us.us.i
-  %indvars.iv69.i.us.us.us.us.i = phi i64 [ 0, %.lr.ph64.i.us.us.us.us.i ], [ %indvars.iv.next70.i.us.us.us.us.i, %158 ]
-  %159 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv69.i.us.us.us.us.i
-  %160 = load i64, ptr %159, align 8
-  %161 = and i64 %160, %152
-  %162 = and i64 %160, %154
-  %163 = shl i64 %162, %155
-  %164 = or i64 %163, %161
-  %165 = and i64 %160, %157
-  %166 = lshr i64 %165, %155
-  %167 = or i64 %164, %166
-  store i64 %167, ptr %159, align 8
+159:                                              ; preds = %159, %.lr.ph64.i.us.us.us.us.i
+  %indvars.iv69.i.us.us.us.us.i = phi i64 [ 0, %.lr.ph64.i.us.us.us.us.i ], [ %indvars.iv.next70.i.us.us.us.us.i, %159 ]
+  %160 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv69.i.us.us.us.us.i
+  %161 = load i64, ptr %160, align 8
+  %162 = and i64 %161, %153
+  %163 = and i64 %161, %155
+  %164 = shl i64 %163, %156
+  %165 = or i64 %164, %162
+  %166 = and i64 %161, %158
+  %167 = lshr i64 %166, %156
+  %168 = or i64 %165, %167
+  store i64 %168, ptr %160, align 8
   %indvars.iv.next70.i.us.us.us.us.i = add nuw nsw i64 %indvars.iv69.i.us.us.us.us.i, 1
   %exitcond73.not.i.us.us.us.us.i = icmp eq i64 %indvars.iv.next70.i.us.us.us.us.i, %wide.trip.count72.i.i
-  br i1 %exitcond73.not.i.us.us.us.us.i, label %Abc_TtSwapAdjacent.exit.us.us.us.us.i, label %158, !llvm.loop !157
+  br i1 %exitcond73.not.i.us.us.us.us.i, label %Abc_TtSwapAdjacent.exit.us.us.us.us.i, label %159, !llvm.loop !157
 
-Abc_TtSwapAdjacent.exit.us.us.us.us.i:            ; preds = %._crit_edge.us.i.us.us.us.us.i, %.lr.ph.i.us.us.us.us.i, %158, %.preheader.lr.ph.i.us.us.us.us.i
+Abc_TtSwapAdjacent.exit.us.us.us.us.i:            ; preds = %._crit_edge.us.i.us.us.us.us.i, %.lr.ph.i.us.us.us.us.i, %159, %.preheader.lr.ph.i.us.us.us.us.i
   %.not15.not.us.us.us.us.i = icmp sgt i64 %indvars.iv.next98.i, %120
   br i1 %.not15.not.us.us.us.us.i, label %.lr.ph.us.us.i, label %._crit_edge.split.us.us.split.us.us.i, !llvm.loop !158
 
 Abc_TtShrink.exit:                                ; preds = %119, %Abc_TtCopy.exit, %._crit_edge, %.lr.ph53.i
-  %168 = add nsw i32 %14, %10
-  %169 = load i64, ptr %6, align 16
-  %170 = icmp eq i32 %168, 0
-  %171 = trunc i64 %169 to i1
-  %172 = select i1 %171, i64 3, i64 0
-  %.025.i = select i1 %170, i64 %172, i64 %169
-  %173 = icmp ult i32 %168, 2
-  %174 = and i64 %.025.i, 3
-  %175 = mul nuw nsw i64 %174, 5
-  %.126.i = select i1 %173, i64 %175, i64 %169
-  %.1.i = call i32 @llvm.umax.i32(i32 %168, i32 2)
-  %176 = icmp ult i32 %168, 3
-  %177 = and i64 %.126.i, 15
-  %178 = mul nuw nsw i64 %177, 17
-  %.227.i = select i1 %176, i64 %178, i64 %169
-  %.2.i = select i1 %176, i32 3, i32 %.1.i
-  %179 = icmp eq i32 %.2.i, 3
-  %180 = and i64 %.227.i, 255
-  %181 = mul nuw nsw i64 %180, 257
-  %.328.i = select i1 %179, i64 %181, i64 %.227.i
-  %.3.i = select i1 %179, i32 4, i32 %.2.i
-  %182 = icmp eq i32 %.3.i, 4
-  %183 = and i64 %.328.i, 65535
-  %184 = mul nuw nsw i64 %183, 65537
-  %.429.i = select i1 %182, i64 %184, i64 %.328.i
-  %185 = and i32 %.3.i, -2
-  %186 = icmp eq i32 %185, 4
-  %187 = and i64 %.429.i, 4294967295
-  %188 = mul nuw i64 %187, 4294967297
-  %.5.i = select i1 %186, i64 %188, i64 %.429.i
+  %169 = add nsw i32 %14, %10
+  %170 = load i64, ptr %6, align 16
+  %171 = icmp eq i32 %169, 0
+  %172 = trunc i64 %170 to i1
+  %173 = select i1 %172, i64 3, i64 0
+  %.025.i = select i1 %171, i64 %173, i64 %170
+  %174 = icmp ult i32 %169, 2
+  %175 = and i64 %.025.i, 3
+  %176 = mul nuw nsw i64 %175, 5
+  %.126.i = select i1 %174, i64 %176, i64 %170
+  %.1.i = call i32 @llvm.umax.i32(i32 %169, i32 2)
+  %177 = icmp ult i32 %169, 3
+  %178 = and i64 %.126.i, 15
+  %179 = mul nuw nsw i64 %178, 17
+  %.227.i = select i1 %177, i64 %179, i64 %170
+  %.2.i = select i1 %177, i32 3, i32 %.1.i
+  %180 = icmp eq i32 %.2.i, 3
+  %181 = and i64 %.227.i, 255
+  %182 = mul nuw nsw i64 %181, 257
+  %.328.i = select i1 %180, i64 %182, i64 %.227.i
+  %.3.i = select i1 %180, i32 4, i32 %.2.i
+  %183 = icmp eq i32 %.3.i, 4
+  %184 = and i64 %.328.i, 65535
+  %185 = mul nuw nsw i64 %184, 65537
+  %.429.i = select i1 %183, i64 %185, i64 %.328.i
+  %186 = and i32 %.3.i, -2
+  %187 = icmp eq i32 %186, 4
+  %188 = and i64 %.429.i, 4294967295
+  %189 = mul nuw i64 %188, 4294967297
+  %.5.i = select i1 %187, i64 %189, i64 %.429.i
   ret i64 %.5.i
 }
 

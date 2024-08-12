@@ -321,7 +321,13 @@ if.then.i:                                        ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then, %entry
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 2>, ptr %hdr_version, align 4
+  store i8 0, ptr %hdr_version, align 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %hdr_version, i64 1
+  store i8 0, ptr %arrayidx3.i, align 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %hdr_version, i64 2
+  store i8 0, ptr %arrayidx6.i, align 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %hdr_version, i64 3
+  store i8 2, ptr %arrayidx9.i, align 1
   call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %hdr_version, i64 noundef 4) #7
   %fsmonitor_last_update = getelementptr inbounds i8, ptr %istate, i64 208
   %4 = load ptr, ptr %fsmonitor_last_update, align 8

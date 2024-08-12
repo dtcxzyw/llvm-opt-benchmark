@@ -263,48 +263,50 @@ define weak_odr void @_ZN7mitsuba17StratifiedSamplerIfN5drjit6MatrixINS_8Spectru
   %25 = mul i32 %24, %24
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
-  %28 = insertelement <2 x i32> poison, i32 %24, i64 0
-  %29 = insertelement <2 x i32> %28, i32 %25, i64 1
-  %30 = uitofp <2 x i32> %29 to <2 x float>
-  %31 = fdiv contract <2 x float> <float 1.000000e+00, float 1.000000e+00>, %30
-  store <2 x float> %31, ptr %27, align 8
-  %32 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 false)
-  %33 = trunc nuw nsw i32 %32 to i8
-  %34 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %24)
-  %35 = icmp ult i32 %34, 2
-  br i1 %35, label %36, label %38
+  %27 = uitofp i32 %25 to float
+  %28 = fdiv contract float 1.000000e+00, %27
+  %29 = getelementptr inbounds i8, ptr %0, i64 68
+  store float %28, ptr %29, align 4
+  %30 = uitofp i32 %24 to float
+  %31 = fdiv contract float 1.000000e+00, %30
+  %32 = getelementptr inbounds i8, ptr %0, i64 64
+  store float %31, ptr %32, align 8
+  %33 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 false)
+  %34 = trunc nuw nsw i32 %33 to i8
+  %35 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %24)
+  %36 = icmp ult i32 %35, 2
+  br i1 %36, label %37, label %39
 
-36:                                               ; preds = %23
-  %37 = sub nsw i8 30, %33
+37:                                               ; preds = %23
+  %38 = sub nsw i8 30, %34
   br label %_ZN5drjit7divisorIjiEC2Ej.exit
 
-38:                                               ; preds = %23
-  %39 = sub nsw i8 31, %33
-  %40 = zext nneg i8 %39 to i32
-  %41 = shl nuw i32 1, %40
-  %42 = zext i32 %41 to i64
-  %43 = shl nuw i64 %42, 32
-  %44 = zext i32 %24 to i64
-  %45 = udiv i64 %43, %44
-  %46 = urem i64 %43, %44
-  %.sroa.0.0.extract.trunc.i = trunc i64 %45 to i32
-  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %46 to i32
-  %47 = shl i32 %.sroa.0.0.extract.trunc.i, 1
-  %48 = or disjoint i32 %47, 1
-  %49 = shl i32 %.sroa.2.0.extract.trunc.i, 1
-  %.not.i = icmp uge i32 %49, %24
-  %50 = icmp slt i32 %.sroa.2.0.extract.trunc.i, 0
-  %or.cond.i = or i1 %50, %.not.i
-  %51 = add i32 %47, 2
-  %spec.select = select i1 %or.cond.i, i32 %51, i32 %48
+39:                                               ; preds = %23
+  %40 = sub nsw i8 31, %34
+  %41 = zext nneg i8 %40 to i32
+  %42 = shl nuw i32 1, %41
+  %43 = zext i32 %42 to i64
+  %44 = shl nuw i64 %43, 32
+  %45 = zext i32 %24 to i64
+  %46 = udiv i64 %44, %45
+  %47 = urem i64 %44, %45
+  %.sroa.0.0.extract.trunc.i = trunc i64 %46 to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %47 to i32
+  %48 = shl i32 %.sroa.0.0.extract.trunc.i, 1
+  %49 = or disjoint i32 %48, 1
+  %50 = shl i32 %.sroa.2.0.extract.trunc.i, 1
+  %.not.i = icmp uge i32 %50, %24
+  %51 = icmp slt i32 %.sroa.2.0.extract.trunc.i, 0
+  %or.cond.i = or i1 %51, %.not.i
+  %52 = add i32 %48, 2
+  %spec.select = select i1 %or.cond.i, i32 %52, i32 %49
   br label %_ZN5drjit7divisorIjiEC2Ej.exit
 
-_ZN5drjit7divisorIjiEC2Ej.exit:                   ; preds = %38, %36
-  %.sroa.2.0 = phi i32 [ 0, %36 ], [ %spec.select, %38 ]
-  %.sroa.5.0 = phi i8 [ %37, %36 ], [ %39, %38 ]
-  %52 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %24, ptr %52, align 8
+_ZN5drjit7divisorIjiEC2Ej.exit:                   ; preds = %39, %37
+  %.sroa.2.0 = phi i32 [ 0, %37 ], [ %spec.select, %39 ]
+  %.sroa.5.0 = phi i8 [ %38, %37 ], [ %40, %39 ]
+  %53 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %24, ptr %53, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 76
   store i32 %.sroa.2.0, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
@@ -320,11 +322,11 @@ define weak_odr void @_ZN7mitsuba17StratifiedSamplerIfN5drjit6MatrixINS_8Spectru
   %3 = alloca %"class.mitsuba::Properties", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #16
   invoke void @_ZN7mitsuba10PropertiesC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %5 unwind label %27
+          to label %5 unwind label %33
 
 5:                                                ; preds = %2
   invoke void @_ZN7mitsuba17StratifiedSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %6 unwind label %29
+          to label %6 unwind label %35
 
 6:                                                ; preds = %5
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
@@ -333,43 +335,51 @@ define weak_odr void @_ZN7mitsuba17StratifiedSamplerIfN5drjit6MatrixINS_8Spectru
   %9 = getelementptr inbounds i8, ptr %4, i64 56
   %10 = and i8 %8, 1
   store i8 %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 60
-  %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 60
-  store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
-  %15 = getelementptr inbounds i8, ptr %4, i64 64
-  %16 = load <2 x float>, ptr %14, align 8
-  store <2 x float> %16, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 72
-  %18 = getelementptr inbounds i8, ptr %4, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %18, ptr noundef nonnull align 8 dereferenceable(9) %17, i64 9, i1 false)
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
-  %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 20
-  store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 12
-  %23 = getelementptr inbounds i8, ptr %4, i64 12
-  %24 = load <2 x i32>, ptr %22, align 4
-  store <2 x i32> %24, ptr %23, align 4
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = load i32, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 68
+  %15 = load float, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %4, i64 68
+  store float %15, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %1, i64 60
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %4, i64 60
+  store i32 %18, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %1, i64 64
+  %21 = load float, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %4, i64 64
+  store float %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 72
+  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef nonnull align 8 dereferenceable(9) %23, i64 9, i1 false)
+  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %26 = load i32, ptr %25, align 4
+  %27 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 %26, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %29, ptr %30, align 4
   store ptr %4, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
-  %26 = atomicrmw add ptr %25, i32 1 seq_cst, align 4
+  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = atomicrmw add ptr %31, i32 1 seq_cst, align 4
   ret void
 
-27:                                               ; preds = %2
-  %28 = landingpad { ptr, i32 }
+33:                                               ; preds = %2
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %31
+  br label %37
 
-29:                                               ; preds = %5
-  %30 = landingpad { ptr, i32 }
+35:                                               ; preds = %5
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
-  br label %31
+  br label %37
 
-31:                                               ; preds = %27, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
+37:                                               ; preds = %33, %35
+  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
   call void @_ZdlPv(ptr noundef nonnull %4) #17
   resume { ptr, i32 } %.pn
 }

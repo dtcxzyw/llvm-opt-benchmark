@@ -46,23 +46,21 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @subpt(ptr nocapture noundef writeonly %0, double %1, double %2, double %3, double %4) local_unnamed_addr #3 {
-  %6 = insertelement <2 x double> poison, double %1, i64 0
-  %7 = insertelement <2 x double> %6, double %2, i64 1
-  %8 = insertelement <2 x double> poison, double %3, i64 0
-  %9 = insertelement <2 x double> %8, double %4, i64 1
-  %10 = fsub <2 x double> %7, %9
-  store <2 x double> %10, ptr %0, align 8
+  %6 = fsub double %1, %3
+  store double %6, ptr %0, align 8
+  %7 = fsub double %2, %4
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %7, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @addpt(ptr nocapture noundef writeonly %0, double %1, double %2, double %3, double %4) local_unnamed_addr #3 {
-  %6 = insertelement <2 x double> poison, double %1, i64 0
-  %7 = insertelement <2 x double> %6, double %2, i64 1
-  %8 = insertelement <2 x double> poison, double %3, i64 0
-  %9 = insertelement <2 x double> %8, double %4, i64 1
-  %10 = fadd <2 x double> %7, %9
-  store <2 x double> %10, ptr %0, align 8
+  %6 = fadd double %1, %3
+  store double %6, ptr %0, align 8
+  %7 = fadd double %2, %4
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %7, ptr %8, align 8
   ret void
 }
 
@@ -103,7 +101,7 @@ define range(i32 0, 2) i32 @intersection(double %0, double %1, double %2, double
   %16 = fsub double %1, %3
   %17 = tail call double @llvm.fmuladd.f64(double %4, double %16, double %15)
   %18 = fcmp oeq double %17, 0.000000e+00
-  br i1 %18, label %51, label %19
+  br i1 %18, label %42, label %19
 
 19:                                               ; preds = %9
   %20 = fsub double %1, %7
@@ -111,48 +109,37 @@ define range(i32 0, 2) i32 @intersection(double %0, double %1, double %2, double
   %22 = tail call double @llvm.fmuladd.f64(double %0, double %10, double %21)
   %23 = fsub double %5, %1
   %24 = tail call double @llvm.fmuladd.f64(double %6, double %23, double %22)
-  %25 = fsub double %5, %3
-  %26 = fsub double %1, %5
-  %27 = fmul double %26, %2
-  %28 = tail call double @llvm.fmuladd.f64(double %0, double %25, double %27)
-  %29 = tail call double @llvm.fmuladd.f64(double %4, double %14, double %28)
-  %30 = fneg double %29
-  %31 = fsub double %2, %0
-  %32 = insertelement <2 x double> poison, double %31, i64 0
-  %33 = insertelement <2 x double> %32, double %14, i64 1
-  %34 = insertelement <2 x double> poison, double %0, i64 0
-  %35 = insertelement <2 x double> %34, double %1, i64 1
-  %36 = insertelement <2 x double> poison, double %30, i64 0
-  %37 = insertelement <2 x double> %36, double %24, i64 1
-  %38 = insertelement <2 x double> poison, double %17, i64 0
-  %39 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> zeroinitializer
-  %40 = fdiv <2 x double> %37, %39
-  %41 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %42 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %41, <2 x double> %33, <2 x double> %35)
-  store <2 x double> %42, ptr %8, align 8
-  %43 = extractelement <2 x double> %40, i64 1
-  %44 = fcmp oge double %43, 0.000000e+00
-  %45 = fcmp ole <2 x double> %40, <double 1.000000e+00, double 1.000000e+00>
-  %46 = extractelement <2 x i1> %45, i64 1
-  %or.cond = and i1 %44, %46
-  %47 = extractelement <2 x double> %40, i64 0
-  %48 = fcmp oge double %47, 0.000000e+00
-  %49 = extractelement <2 x i1> %45, i64 0
-  %50 = and i1 %48, %49
-  %or.cond5 = select i1 %or.cond, i1 %50, i1 false
+  %25 = fdiv double %24, %17
+  %26 = fsub double %5, %3
+  %27 = fsub double %1, %5
+  %28 = fmul double %27, %2
+  %29 = tail call double @llvm.fmuladd.f64(double %0, double %26, double %28)
+  %30 = tail call double @llvm.fmuladd.f64(double %4, double %14, double %29)
+  %31 = fneg double %30
+  %32 = fdiv double %31, %17
+  %33 = fsub double %2, %0
+  %34 = tail call double @llvm.fmuladd.f64(double %25, double %33, double %0)
+  store double %34, ptr %8, align 8
+  %35 = tail call double @llvm.fmuladd.f64(double %25, double %14, double %1)
+  %36 = getelementptr inbounds i8, ptr %8, i64 8
+  store double %35, ptr %36, align 8
+  %37 = fcmp oge double %25, 0.000000e+00
+  %38 = fcmp ole double %25, 1.000000e+00
+  %or.cond = and i1 %37, %38
+  %39 = fcmp oge double %32, 0.000000e+00
+  %40 = fcmp ole double %32, 1.000000e+00
+  %41 = and i1 %39, %40
+  %or.cond5 = select i1 %or.cond, i1 %41, i1 false
   %. = zext i1 %or.cond5 to i32
-  br label %51
+  br label %42
 
-51:                                               ; preds = %19, %9
+42:                                               ; preds = %19, %9
   %.0 = phi i32 [ 0, %9 ], [ %., %19 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

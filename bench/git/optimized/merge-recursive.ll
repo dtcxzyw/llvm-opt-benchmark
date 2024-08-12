@@ -3626,7 +3626,7 @@ for.cond32:                                       ; preds = %if.end44
   br i1 %tobool33.not, label %for.end56, label %for.body34, !llvm.loop !20
 
 for.body34:                                       ; preds = %for.body34.lr.ph, %for.cond32
-  %22 = phi ptr [ %21, %for.body34.lr.ph ], [ %31, %for.cond32 ]
+  %22 = phi ptr [ %21, %for.body34.lr.ph ], [ %32, %for.cond32 ]
   %iter.186 = phi ptr [ %iter.18490, %for.body34.lr.ph ], [ %iter.1, %for.cond32 ]
   %23 = load ptr, ptr %priv.i, align 8
   %24 = load i32, ptr %23, align 8
@@ -3636,27 +3636,29 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   %index = getelementptr inbounds i8, ptr %25, i64 240
   %26 = load ptr, ptr %index, align 8
   call void @discard_index(ptr noundef %26) #21
-  %27 = load <2 x ptr>, ptr %branch1, align 8
+  %27 = load ptr, ptr %branch1, align 8
+  %28 = load ptr, ptr %branch2, align 8
   store ptr @.str.129, ptr %branch1, align 8
   store ptr @.str.130, ptr %branch2, align 8
-  %28 = load ptr, ptr %iter.186, align 8
-  %call41 = call fastcc i32 @merge_recursive_internal(ptr noundef nonnull %opt, ptr noundef nonnull %22, ptr noundef %28, ptr noundef null, ptr noundef nonnull %merged_merge_bases)
+  %29 = load ptr, ptr %iter.186, align 8
+  %call41 = call fastcc i32 @merge_recursive_internal(ptr noundef nonnull %opt, ptr noundef nonnull %22, ptr noundef %29, ptr noundef null, ptr noundef nonnull %merged_merge_bases)
   %cmp = icmp slt i32 %call41, 0
   br i1 %cmp, label %return, label %if.end44
 
 if.end44:                                         ; preds = %for.body34
-  store <2 x ptr> %27, ptr %branch1, align 8
-  %29 = load ptr, ptr %priv.i, align 8
-  %30 = load i32, ptr %29, align 8
-  %dec = add nsw i32 %30, -1
-  store i32 %dec, ptr %29, align 8
-  %31 = load ptr, ptr %merged_merge_bases, align 8
-  %tobool49.not = icmp eq ptr %31, null
+  store ptr %27, ptr %branch1, align 8
+  store ptr %28, ptr %branch2, align 8
+  %30 = load ptr, ptr %priv.i, align 8
+  %31 = load i32, ptr %30, align 8
+  %dec = add nsw i32 %31, -1
+  store i32 %dec, ptr %30, align 8
+  %32 = load ptr, ptr %merged_merge_bases, align 8
+  %tobool49.not = icmp eq ptr %32, null
   br i1 %tobool49.not, label %if.then50, label %for.cond32
 
 if.then50:                                        ; preds = %if.end44
-  %32 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i65 = icmp eq i32 %32, 0
+  %33 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i65 = icmp eq i32 %33, 0
   br i1 %tobool1.not.i65, label %_.exit69, label %if.end3.i66
 
 if.end3.i66:                                      ; preds = %if.then50
@@ -3670,30 +3672,30 @@ _.exit69:                                         ; preds = %if.then50, %if.end3
 
 for.end56:                                        ; preds = %for.cond32, %if.end31
   %ancestor_name.092 = phi ptr [ %ancestor_name.0.ph, %if.end31 ], [ %ancestor_name.091, %for.cond32 ]
-  %33 = phi ptr [ %.ph, %if.end31 ], [ %31, %for.cond32 ]
-  %34 = load ptr, ptr %opt, align 8
-  %index58 = getelementptr inbounds i8, ptr %34, i64 240
-  %35 = load ptr, ptr %index58, align 8
-  call void @discard_index(ptr noundef %35) #21
-  %36 = load ptr, ptr %priv.i, align 8
-  %37 = load i32, ptr %36, align 8
-  %tobool61.not = icmp eq i32 %37, 0
+  %34 = phi ptr [ %.ph, %if.end31 ], [ %32, %for.cond32 ]
+  %35 = load ptr, ptr %opt, align 8
+  %index58 = getelementptr inbounds i8, ptr %35, i64 240
+  %36 = load ptr, ptr %index58, align 8
+  call void @discard_index(ptr noundef %36) #21
+  %37 = load ptr, ptr %priv.i, align 8
+  %38 = load i32, ptr %37, align 8
+  %tobool61.not = icmp eq i32 %38, 0
   br i1 %tobool61.not, label %if.then62, label %if.end65
 
 if.then62:                                        ; preds = %for.end56
-  %38 = load ptr, ptr %opt, align 8
-  %call64 = call i32 @repo_read_index(ptr noundef %38) #21
+  %39 = load ptr, ptr %opt, align 8
+  %call64 = call i32 @repo_read_index(ptr noundef %39) #21
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then62, %for.end56
   %ancestor66 = getelementptr inbounds i8, ptr %opt, i64 8
   store ptr %ancestor_name.092, ptr %ancestor66, align 8
-  %39 = load ptr, ptr %opt, align 8
-  %call68 = call ptr @repo_get_commit_tree(ptr noundef %39, ptr noundef %h1) #21
   %40 = load ptr, ptr %opt, align 8
-  %call70 = call ptr @repo_get_commit_tree(ptr noundef %40, ptr noundef %h2) #21
+  %call68 = call ptr @repo_get_commit_tree(ptr noundef %40, ptr noundef %h1) #21
   %41 = load ptr, ptr %opt, align 8
-  %call72 = call ptr @repo_get_commit_tree(ptr noundef %41, ptr noundef nonnull %33) #21
+  %call70 = call ptr @repo_get_commit_tree(ptr noundef %41, ptr noundef %h2) #21
+  %42 = load ptr, ptr %opt, align 8
+  %call72 = call ptr @repo_get_commit_tree(ptr noundef %42, ptr noundef nonnull %34) #21
   %call73 = call fastcc i32 @merge_trees_internal(ptr noundef nonnull %opt, ptr noundef %call68, ptr noundef %call70, ptr noundef %call72, ptr noundef nonnull %result_tree)
   call void @strbuf_release(ptr noundef nonnull %merge_base_abbrev) #21
   store ptr null, ptr %ancestor66, align 8
@@ -3702,53 +3704,53 @@ if.end65:                                         ; preds = %if.then62, %for.end
 
 if.then77:                                        ; preds = %if.end65
   %buffer_output.i = getelementptr inbounds i8, ptr %opt, i64 72
-  %42 = load i32, ptr %buffer_output.i, align 8
-  %cmp.i70 = icmp ult i32 %42, 2
+  %43 = load i32, ptr %buffer_output.i, align 8
+  %cmp.i70 = icmp ult i32 %43, 2
   br i1 %cmp.i70, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.then77
   %len.i = getelementptr inbounds i8, ptr %opt, i64 88
-  %43 = load i64, ptr %len.i, align 8
-  %tobool.not.i72 = icmp eq i64 %43, 0
+  %44 = load i64, ptr %len.i, align 8
+  %tobool.not.i72 = icmp eq i64 %44, 0
   br i1 %tobool.not.i72, label %return, label %if.then.i73
 
 if.then.i73:                                      ; preds = %land.lhs.true.i
   %buf.i = getelementptr inbounds i8, ptr %opt, i64 96
-  %44 = load ptr, ptr %buf.i, align 8
-  %45 = load ptr, ptr @stdout, align 8
-  %call.i74 = call i32 @fputs(ptr noundef %44, ptr noundef %45)
+  %45 = load ptr, ptr %buf.i, align 8
+  %46 = load ptr, ptr @stdout, align 8
+  %call.i74 = call i32 @fputs(ptr noundef %45, ptr noundef %46)
   store i64 0, ptr %len.i, align 8
-  %46 = load ptr, ptr %buf.i, align 8
-  %cmp3.not.i.i = icmp eq ptr %46, @strbuf_slopbuf
+  %47 = load ptr, ptr %buf.i, align 8
+  %cmp3.not.i.i = icmp eq ptr %47, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %return, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i73
-  store i8 0, ptr %46, align 1
+  store i8 0, ptr %47, align 1
   br label %return
 
 if.end78:                                         ; preds = %if.end65
-  %47 = load ptr, ptr %priv.i, align 8
-  %48 = load i32, ptr %47, align 8
-  %tobool81.not = icmp eq i32 %48, 0
+  %48 = load ptr, ptr %priv.i, align 8
+  %49 = load i32, ptr %48, align 8
+  %tobool81.not = icmp eq i32 %49, 0
   br i1 %tobool81.not, label %return, label %if.then82
 
 if.then82:                                        ; preds = %if.end78
-  %49 = load ptr, ptr %opt, align 8
-  %50 = load ptr, ptr %result_tree, align 8
-  %call.i75 = call ptr @alloc_commit_node(ptr noundef %49) #21
+  %50 = load ptr, ptr %opt, align 8
+  %51 = load ptr, ptr %result_tree, align 8
+  %call.i75 = call ptr @alloc_commit_node(ptr noundef %50) #21
   call void @set_merge_remote_desc(ptr noundef %call.i75, ptr noundef nonnull @.str.132, ptr noundef %call.i75) #21
   %maybe_tree.i.i76 = getelementptr inbounds i8, ptr %call.i75, i64 56
-  store ptr %50, ptr %maybe_tree.i.i76, align 8
+  store ptr %51, ptr %maybe_tree.i.i76, align 8
   %bf.load.i77 = load i32, ptr %call.i75, align 8
   %bf.set.i78 = or i32 %bf.load.i77, 1
   store i32 %bf.set.i78, ptr %call.i75, align 8
   store ptr %call.i75, ptr %result, align 8
   %parents = getelementptr inbounds i8, ptr %call.i75, i64 48
   %call85 = call ptr @commit_list_insert(ptr noundef %h1, ptr noundef nonnull %parents) #21
-  %51 = load ptr, ptr %result, align 8
-  %parents86 = getelementptr inbounds i8, ptr %51, i64 48
-  %52 = load ptr, ptr %parents86, align 8
-  %next87 = getelementptr inbounds i8, ptr %52, i64 8
+  %52 = load ptr, ptr %result, align 8
+  %parents86 = getelementptr inbounds i8, ptr %52, i64 48
+  %53 = load ptr, ptr %parents86, align 8
+  %next87 = getelementptr inbounds i8, ptr %53, i64 8
   %call88 = call ptr @commit_list_insert(ptr noundef %h2, ptr noundef nonnull %next87) #21
   br label %return
 

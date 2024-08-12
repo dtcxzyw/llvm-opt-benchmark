@@ -3717,7 +3717,7 @@ define hidden void @"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = icmp eq i64 %4, %6
-  br i1 %7, label %17, label %8
+  br i1 %7, label %20, label %8
 
 8:                                                ; preds = %2
   %9 = add i64 %4, 1
@@ -3728,12 +3728,16 @@ define hidden void @"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter
   %13 = load ptr, ptr %1, align 8, !alias.scope !1432, !noalias !1435, !nonnull !4
   %.sink5.i = select i1 %12, ptr %13, ptr %1
   %14 = getelementptr inbounds { i32, i32 }, ptr %.sink5.i, i64 %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
-  %16 = load <2 x i32>, ptr %14, align 4
-  store <2 x i32> %16, ptr %15, align 4
-  br label %17
+  %15 = load i32, ptr %14, align 4, !noundef !4
+  %16 = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = load i32, ptr %16, align 4, !noundef !4
+  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %15, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %17, ptr %19, align 4
+  br label %20
 
-17:                                               ; preds = %2, %8
+20:                                               ; preds = %2, %8
   %storemerge = phi i32 [ 1, %8 ], [ 0, %2 ]
   store i32 %storemerge, ptr %0, align 4
   ret void

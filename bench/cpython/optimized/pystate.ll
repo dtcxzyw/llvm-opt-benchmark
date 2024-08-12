@@ -1084,14 +1084,16 @@ entry:
 define hidden void @_PyRuntimeState_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %runtime) local_unnamed_addr #1 {
 entry:
   %open_code_hook1 = getelementptr inbounds i8, ptr %runtime, i64 3576
-  %0 = load <2 x ptr>, ptr %open_code_hook1, align 8
+  %0 = load ptr, ptr %open_code_hook1, align 8
+  %open_code_userdata2 = getelementptr inbounds i8, ptr %runtime, i64 3584
+  %1 = load ptr, ptr %open_code_userdata2, align 8
   %head = getelementptr inbounds i8, ptr %runtime, i64 3600
-  %1 = load ptr, ptr %head, align 8
+  %2 = load ptr, ptr %head, align 8
   %next_index = getelementptr inbounds i8, ptr %runtime, i64 3632
-  %2 = load i64, ptr %next_index, align 8
+  %3 = load i64, ptr %next_index, align 8
   %_initialized = getelementptr inbounds i8, ptr %runtime, i64 296
-  %3 = load i32, ptr %_initialized, align 8
-  %tobool.not = icmp eq i32 %3, 0
+  %4 = load i32, ptr %_initialized, align 8
+  %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1168,14 +1170,15 @@ _PyRuntimeState_Fini.exit20:                      ; preds = %if.end.i15, %if.the
   br label %return
 
 if.end12:                                         ; preds = %if.end4
-  store <2 x ptr> %0, ptr %open_code_hook1, align 8
-  store ptr %1, ptr %head, align 8
+  store ptr %0, ptr %open_code_hook1, align 8
+  store ptr %1, ptr %open_code_userdata2, align 8
+  store ptr %2, ptr %head, align 8
   %preconfig.i = getelementptr inbounds i8, ptr %runtime, i64 3536
   tail call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %preconfig.i) #14
   %call.i21 = tail call i64 @PyThread_get_thread_ident() #14
   %main_thread.i = getelementptr inbounds i8, ptr %runtime, i64 368
   store i64 %call.i21, ptr %main_thread.i, align 8
-  store i64 %2, ptr %next_index, align 8
+  store i64 %3, ptr %next_index, align 8
   store i32 1, ptr %_initialized, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   br label %return
@@ -1433,7 +1436,9 @@ if.then388.i:                                     ; preds = %if.end.i
   %tmp.sroa.11.0.status.i.sroa_idx = getelementptr inbounds i8, ptr %status.i, i64 16
   %tmp.sroa.11.0.copyload = load ptr, ptr %tmp.sroa.11.0.status.i.sroa_idx, align 8
   %tmp.sroa.14.0.status.i.sroa_idx = getelementptr inbounds i8, ptr %status.i, i64 24
-  %6 = load <2 x i32>, ptr %tmp.sroa.14.0.status.i.sroa_idx, align 8
+  %tmp.sroa.14.0.copyload = load i32, ptr %tmp.sroa.14.0.status.i.sroa_idx, align 8
+  %tmp.sroa.17.0.status.i.sroa_idx = getelementptr inbounds i8, ptr %status.i, i64 28
+  %tmp.sroa.17.0.copyload = load i32, ptr %tmp.sroa.17.0.status.i.sroa_idx, align 4
   br label %init_interpreter.exit
 
 if.end389.i:                                      ; preds = %if.end.i
@@ -1444,9 +1449,9 @@ if.end389.i:                                      ; preds = %if.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1088) getelementptr inbounds (i8, ptr @_PyRuntime, i64 491936), i8 0, i64 1088, i1 false), !noalias !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (i8, ptr @_PyRuntime, i64 491896), i8 0, i64 17, i1 false), !noalias !10
   store ptr @_PyOptimizer_Default, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 491872), align 8, !noalias !10
-  %7 = load i16, ptr getelementptr inbounds (i8, ptr @_PyOptimizer_Default, i64 26), align 2, !noalias !10
-  store i16 %7, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 491890), align 2, !noalias !10
-  store i16 %7, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 491888), align 8, !noalias !10
+  %6 = load i16, ptr getelementptr inbounds (i8, ptr @_PyOptimizer_Default, i64 26), align 2, !noalias !10
+  store i16 %6, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 491890), align 2, !noalias !10
+  store i16 %6, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 491888), align 8, !noalias !10
   store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 491892), align 4, !noalias !10
   store ptr null, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 491880), align 8, !noalias !10
   store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 77872), align 8, !noalias !10
@@ -1457,7 +1462,8 @@ init_interpreter.exit:                            ; preds = %if.then8, %if.then3
   %tmp.sroa.7.1 = phi i32 [ 0, %if.end389.i ], [ %tmp.sroa.7.0.copyload, %if.then388.i ], [ undef, %if.then8 ]
   %tmp.sroa.8.1 = phi ptr [ null, %if.end389.i ], [ %tmp.sroa.8.0.copyload, %if.then388.i ], [ @__func__.init_interpreter, %if.then8 ]
   %tmp.sroa.11.1 = phi ptr [ null, %if.end389.i ], [ %tmp.sroa.11.0.copyload, %if.then388.i ], [ @.str.159, %if.then8 ]
-  %8 = phi <2 x i32> [ zeroinitializer, %if.end389.i ], [ %6, %if.then388.i ], [ <i32 0, i32 undef>, %if.then8 ]
+  %tmp.sroa.14.1 = phi i32 [ 0, %if.end389.i ], [ %tmp.sroa.14.0.copyload, %if.then388.i ], [ 0, %if.then8 ]
+  %tmp.sroa.17.1 = phi i32 [ 0, %if.end389.i ], [ %tmp.sroa.17.0.copyload, %if.then388.i ], [ undef, %if.then8 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   br label %if.end25
 
@@ -1618,8 +1624,8 @@ if.then4.i:                                       ; preds = %if.end.i37
 
 if.end385.i:                                      ; preds = %if.then4.i, %if.end.i37
   call void @_PyObject_InitState(ptr nonnull sret(%struct.PyStatus) align 8 %status.i31, ptr noundef %call.i) #14, !noalias !13
-  %9 = load i32, ptr %status.i31, align 8
-  %cmp387.not.i38 = icmp eq i32 %9, 0
+  %7 = load i32, ptr %status.i31, align 8
+  %cmp387.not.i38 = icmp eq i32 %7, 0
   br i1 %cmp387.not.i38, label %if.end389.i40, label %if.then388.i39
 
 if.then388.i39:                                   ; preds = %if.end385.i
@@ -1630,7 +1636,9 @@ if.then388.i39:                                   ; preds = %if.end385.i
   %tmp.sroa.11.0.status.i31.sroa_idx = getelementptr inbounds i8, ptr %status.i31, i64 16
   %tmp.sroa.11.0.copyload53 = load ptr, ptr %tmp.sroa.11.0.status.i31.sroa_idx, align 8
   %tmp.sroa.14.0.status.i31.sroa_idx = getelementptr inbounds i8, ptr %status.i31, i64 24
-  %10 = load <2 x i32>, ptr %tmp.sroa.14.0.status.i31.sroa_idx, align 8
+  %tmp.sroa.14.0.copyload54 = load i32, ptr %tmp.sroa.14.0.status.i31.sroa_idx, align 8
+  %tmp.sroa.17.0.status.i31.sroa_idx = getelementptr inbounds i8, ptr %status.i31, i64 28
+  %tmp.sroa.17.0.copyload55 = load i32, ptr %tmp.sroa.17.0.status.i31.sroa_idx, align 4
   br label %init_interpreter.exit41
 
 if.end389.i40:                                    ; preds = %if.end385.i
@@ -1646,11 +1654,11 @@ if.end389.i40:                                    ; preds = %if.end385.i
   %optimizer.i = getelementptr inbounds i8, ptr %call.i, i64 414920
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %monitors.i, i8 0, i64 17, i1 false), !noalias !13
   store ptr @_PyOptimizer_Default, ptr %optimizer.i, align 8, !noalias !13
-  %11 = load i16, ptr getelementptr inbounds (i8, ptr @_PyOptimizer_Default, i64 26), align 2, !noalias !13
+  %8 = load i16, ptr getelementptr inbounds (i8, ptr @_PyOptimizer_Default, i64 26), align 2, !noalias !13
   %optimizer_backedge_threshold.i = getelementptr inbounds i8, ptr %call.i, i64 414938
-  store i16 %11, ptr %optimizer_backedge_threshold.i, align 2, !noalias !13
+  store i16 %8, ptr %optimizer_backedge_threshold.i, align 2, !noalias !13
   %optimizer_resume_threshold.i = getelementptr inbounds i8, ptr %call.i, i64 414936
-  store i16 %11, ptr %optimizer_resume_threshold.i, align 8, !noalias !13
+  store i16 %8, ptr %optimizer_resume_threshold.i, align 8, !noalias !13
   %next_func_version.i = getelementptr inbounds i8, ptr %call.i, i64 414940
   store i32 1, ptr %next_func_version.i, align 4, !noalias !13
   %executor_list_head.i = getelementptr inbounds i8, ptr %call.i, i64 414928
@@ -1673,24 +1681,26 @@ init_interpreter.exit41:                          ; preds = %if.then388.i39, %if
   %tmp.sroa.7.2 = phi i32 [ 0, %if.end413.i ], [ %tmp.sroa.7.0.copyload51, %if.then388.i39 ]
   %tmp.sroa.8.2 = phi ptr [ null, %if.end413.i ], [ %tmp.sroa.8.0.copyload52, %if.then388.i39 ]
   %tmp.sroa.11.2 = phi ptr [ null, %if.end413.i ], [ %tmp.sroa.11.0.copyload53, %if.then388.i39 ]
-  %12 = phi <2 x i32> [ zeroinitializer, %if.end413.i ], [ %10, %if.then388.i39 ]
+  %tmp.sroa.14.2 = phi i32 [ 0, %if.end413.i ], [ %tmp.sroa.14.0.copyload54, %if.then388.i39 ]
+  %tmp.sroa.17.2 = phi i32 [ 0, %if.end413.i ], [ %tmp.sroa.17.0.copyload55, %if.then388.i39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i31)
   br label %if.end25
 
 if.end25:                                         ; preds = %init_interpreter.exit41, %init_interpreter.exit
-  %tmp.sroa.0.0 = phi i32 [ %tmp.sroa.0.1, %init_interpreter.exit ], [ %9, %init_interpreter.exit41 ]
+  %tmp.sroa.0.0 = phi i32 [ %tmp.sroa.0.1, %init_interpreter.exit ], [ %7, %init_interpreter.exit41 ]
   %tmp.sroa.7.0 = phi i32 [ %tmp.sroa.7.1, %init_interpreter.exit ], [ %tmp.sroa.7.2, %init_interpreter.exit41 ]
   %tmp.sroa.8.0 = phi ptr [ %tmp.sroa.8.1, %init_interpreter.exit ], [ %tmp.sroa.8.2, %init_interpreter.exit41 ]
   %tmp.sroa.11.0 = phi ptr [ %tmp.sroa.11.1, %init_interpreter.exit ], [ %tmp.sroa.11.2, %init_interpreter.exit41 ]
+  %tmp.sroa.14.0 = phi i32 [ %tmp.sroa.14.1, %init_interpreter.exit ], [ %tmp.sroa.14.2, %init_interpreter.exit41 ]
+  %tmp.sroa.17.0 = phi i32 [ %tmp.sroa.17.1, %init_interpreter.exit ], [ %tmp.sroa.17.2, %init_interpreter.exit41 ]
   %interp.0 = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952), %init_interpreter.exit ], [ %call.i, %init_interpreter.exit41 ]
-  %13 = phi <2 x i32> [ %8, %init_interpreter.exit ], [ %12, %init_interpreter.exit41 ]
   %cmp28.not = icmp eq i32 %tmp.sroa.0.0, 0
   br i1 %cmp28.not, label %if.end30, label %error
 
 if.end30:                                         ; preds = %if.end25
-  %14 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
-  %15 = extractvalue { i8, i1 } %14, 1
-  br i1 %15, label %PyMutex_Unlock.exit, label %if.then.i42
+  %9 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
+  %10 = extractvalue { i8, i1 } %9, 1
+  br i1 %10, label %PyMutex_Unlock.exit, label %if.then.i42
 
 if.then.i42:                                      ; preds = %if.end30
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336)) #14
@@ -1706,11 +1716,12 @@ error:                                            ; preds = %if.end16, %if.else,
   %status.sroa.5.0 = phi i32 [ %tmp.sroa.7.0, %if.end25 ], [ undef, %if.else ], [ undef, %if.end16 ]
   %status.sroa.7.0 = phi ptr [ %tmp.sroa.8.0, %if.end25 ], [ @__func__._PyInterpreterState_New, %if.else ], [ @__func__._PyInterpreterState_New, %if.end16 ]
   %status.sroa.9.0 = phi ptr [ %tmp.sroa.11.0, %if.end25 ], [ @.str, %if.else ], [ @.str.4, %if.end16 ]
+  %status.sroa.11.0 = phi i32 [ %tmp.sroa.14.0, %if.end25 ], [ 0, %if.else ], [ 0, %if.end16 ]
+  %status.sroa.13.0 = phi i32 [ %tmp.sroa.17.0, %if.end25 ], [ undef, %if.else ], [ undef, %if.end16 ]
   %interp.1 = phi ptr [ %interp.0, %if.end25 ], [ null, %if.else ], [ %call.i, %if.end16 ]
-  %16 = phi <2 x i32> [ %13, %if.end25 ], [ <i32 0, i32 undef>, %if.else ], [ <i32 0, i32 undef>, %if.end16 ]
-  %17 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
-  %18 = extractvalue { i8, i1 } %17, 1
-  br i1 %18, label %PyMutex_Unlock.exit46, label %if.then.i44
+  %11 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
+  %12 = extractvalue { i8, i1 } %11, 1
+  br i1 %12, label %PyMutex_Unlock.exit46, label %if.then.i44
 
 if.then.i44:                                      ; preds = %error
   call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336)) #14
@@ -1735,7 +1746,9 @@ if.end41:                                         ; preds = %if.then.i48, %PyMut
   %status.sroa.9.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %status.sroa.9.0, ptr %status.sroa.9.0.agg.result.sroa_idx, align 8
   %status.sroa.11.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store <2 x i32> %16, ptr %status.sroa.11.0.agg.result.sroa_idx, align 8
+  store i32 %status.sroa.11.0, ptr %status.sroa.11.0.agg.result.sroa_idx, align 8
+  %status.sroa.13.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  store i32 %status.sroa.13.0, ptr %status.sroa.13.0.agg.result.sroa_idx, align 4
   br label %return
 
 return:                                           ; preds = %if.end41, %PyMutex_Unlock.exit, %if.then2

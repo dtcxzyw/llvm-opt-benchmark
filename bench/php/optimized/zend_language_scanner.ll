@@ -951,91 +951,106 @@ define noundef ptr @compile_file(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %3 = alloca %struct._zend_lex_state, align 8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
-  store <2 x ptr> %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
-  %8 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store <2 x ptr> %8, ptr %7, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %5, ptr %6, align 8
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %7, ptr %8, align 8
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %14 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr %13, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
-  %12 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  %16 = getelementptr inbounds i8, ptr %3, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
-  %13 = getelementptr inbounds i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  %17 = getelementptr inbounds i8, ptr %3, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
   tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
-  %14 = load ptr, ptr @language_scanner_globals, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 136
-  store ptr %14, ptr %15, align 8
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 %16, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 152
+  %18 = load ptr, ptr @language_scanner_globals, align 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 136
   store ptr %18, ptr %19, align 8
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 144
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 48
   store i32 %20, ptr %21, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 160
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 152
   store ptr %22, ptr %23, align 8
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 168
-  store i64 %24, ptr %25, align 8
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 176
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %25 = getelementptr inbounds i8, ptr %3, i64 144
+  store i32 %24, ptr %25, align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  %27 = getelementptr inbounds i8, ptr %3, i64 160
   store ptr %26, ptr %27, align 8
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 184
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 168
   store i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 192
-  %31 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
-  store <2 x ptr> %31, ptr %30, align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 208
-  store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 216
-  %35 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
-  store <2 x ptr> %35, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 232
-  %37 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
-  store <2 x ptr> %37, ptr %36, align 8
-  %38 = tail call i32 @open_file_for_scanning(ptr noundef %0)
-  %39 = icmp eq i32 %38, -1
-  br i1 %39, label %40, label %49
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %31 = getelementptr inbounds i8, ptr %3, i64 176
+  store ptr %30, ptr %31, align 8
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %33 = getelementptr inbounds i8, ptr %3, i64 184
+  store i64 %32, ptr %33, align 8
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %35 = getelementptr inbounds i8, ptr %3, i64 192
+  store ptr %34, ptr %35, align 8
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %37 = getelementptr inbounds i8, ptr %3, i64 200
+  store ptr %36, ptr %37, align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %39 = getelementptr inbounds i8, ptr %3, i64 208
+  store ptr %38, ptr %39, align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %41 = getelementptr inbounds i8, ptr %3, i64 216
+  store ptr %40, ptr %41, align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %43 = getelementptr inbounds i8, ptr %3, i64 224
+  store ptr %42, ptr %43, align 8
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %45 = getelementptr inbounds i8, ptr %3, i64 232
+  store ptr %44, ptr %45, align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %47 = getelementptr inbounds i8, ptr %3, i64 240
+  store ptr %46, ptr %47, align 8
+  %48 = tail call i32 @open_file_for_scanning(ptr noundef %0)
+  %49 = icmp eq i32 %48, -1
+  br i1 %49, label %50, label %59
 
-40:                                               ; preds = %2
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not = icmp eq ptr %41, null
-  br i1 %.not, label %42, label %51
+50:                                               ; preds = %2
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not = icmp eq ptr %51, null
+  br i1 %.not, label %52, label %61
 
-42:                                               ; preds = %40
-  %43 = icmp eq i32 %1, 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
-  br i1 %43, label %47, label %48
+52:                                               ; preds = %50
+  %53 = icmp eq i32 %1, 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 40
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  br i1 %53, label %57, label %58
 
-47:                                               ; preds = %42
-  tail call void @zend_message_dispatcher(i64 noundef 2, ptr noundef nonnull %46) #17
-  br label %51
+57:                                               ; preds = %52
+  tail call void @zend_message_dispatcher(i64 noundef 2, ptr noundef nonnull %56) #17
+  br label %61
 
-48:                                               ; preds = %42
-  tail call void @zend_message_dispatcher(i64 noundef 1, ptr noundef nonnull %46) #17
-  br label %51
+58:                                               ; preds = %52
+  tail call void @zend_message_dispatcher(i64 noundef 1, ptr noundef nonnull %56) #17
+  br label %61
 
-49:                                               ; preds = %2
-  %50 = tail call fastcc ptr @zend_compile(i32 noundef 2)
-  br label %51
+59:                                               ; preds = %2
+  %60 = tail call fastcc ptr @zend_compile(i32 noundef 2)
+  br label %61
 
-51:                                               ; preds = %40, %48, %47, %49
-  %.0 = phi ptr [ null, %40 ], [ null, %47 ], [ null, %48 ], [ %50, %49 ]
+61:                                               ; preds = %50, %58, %57, %59
+  %.0 = phi ptr [ null, %50 ], [ null, %57 ], [ null, %58 ], [ %60, %59 ]
   call void @zend_restore_lexical_state(ptr noundef nonnull %3)
   ret ptr %.0
 }
@@ -1147,122 +1162,137 @@ define ptr @zend_compile_string_to_ast(ptr noundef %0, ptr nocapture noundef wri
   store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %16, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
-  store <2 x ptr> %18, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
-  %20 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store <2 x ptr> %20, ptr %19, align 8
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 40
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %17, ptr %18, align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %19, ptr %20, align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %22 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %23, ptr %24, align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %26 = getelementptr inbounds i8, ptr %5, i64 40
+  store ptr %25, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %5, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
-  %24 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  %28 = getelementptr inbounds i8, ptr %5, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
-  %25 = getelementptr inbounds i8, ptr %5, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  %29 = getelementptr inbounds i8, ptr %5, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
   tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
-  %26 = load ptr, ptr @language_scanner_globals, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 136
-  store ptr %26, ptr %27, align 8
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 48
-  store i32 %28, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 152
+  %30 = load ptr, ptr @language_scanner_globals, align 8
+  %31 = getelementptr inbounds i8, ptr %5, i64 136
   store ptr %30, ptr %31, align 8
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 144
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %33 = getelementptr inbounds i8, ptr %5, i64 48
   store i32 %32, ptr %33, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 160
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %35 = getelementptr inbounds i8, ptr %5, i64 152
   store ptr %34, ptr %35, align 8
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 168
-  store i64 %36, ptr %37, align 8
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 176
+  %36 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %37 = getelementptr inbounds i8, ptr %5, i64 144
+  store i32 %36, ptr %37, align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  %39 = getelementptr inbounds i8, ptr %5, i64 160
   store ptr %38, ptr %39, align 8
-  %40 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 184
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %41 = getelementptr inbounds i8, ptr %5, i64 168
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 192
-  %43 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
-  store <2 x ptr> %43, ptr %42, align 8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
-  %45 = getelementptr inbounds i8, ptr %5, i64 208
-  store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %5, i64 216
-  %47 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
-  store <2 x ptr> %47, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 232
-  %49 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
-  store <2 x ptr> %49, ptr %48, align 8
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %43 = getelementptr inbounds i8, ptr %5, i64 176
+  store ptr %42, ptr %43, align 8
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %45 = getelementptr inbounds i8, ptr %5, i64 184
+  store i64 %44, ptr %45, align 8
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %47 = getelementptr inbounds i8, ptr %5, i64 192
+  store ptr %46, ptr %47, align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %49 = getelementptr inbounds i8, ptr %5, i64 200
+  store ptr %48, ptr %49, align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %51 = getelementptr inbounds i8, ptr %5, i64 208
+  store ptr %50, ptr %51, align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %53 = getelementptr inbounds i8, ptr %5, i64 216
+  store ptr %52, ptr %53, align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %55 = getelementptr inbounds i8, ptr %5, i64 224
+  store ptr %54, ptr %55, align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %57 = getelementptr inbounds i8, ptr %5, i64 232
+  store ptr %56, ptr %57, align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %59 = getelementptr inbounds i8, ptr %5, i64 240
+  store ptr %58, ptr %59, align 8
   call void @zend_prepare_string_for_scanning(ptr noundef nonnull %4, ptr noundef %2)
   store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
-  %50 = tail call noalias dereferenceable_or_null(32768) ptr @_emalloc_large(i64 noundef 32768) #18
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
-  store ptr %51, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %50, i64 32768
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
-  store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 16
-  store ptr null, ptr %54, align 8
-  store ptr %50, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %60 = tail call noalias dereferenceable_or_null(32768) ptr @_emalloc_large(i64 noundef 32768) #18
+  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  store ptr %61, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %60, i64 32768
+  %63 = getelementptr inbounds i8, ptr %60, i64 8
+  store ptr %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %60, i64 16
+  store ptr null, ptr %64, align 8
+  store ptr %60, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
   store i32 8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %55 = tail call i32 @zendparse() #17
-  %.not65 = icmp eq i32 %55, 0
+  %65 = tail call i32 @zendparse() #17
+  %.not65 = icmp eq i32 %65, 0
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
-  br i1 %.not65, label %62, label %56
+  br i1 %.not65, label %72, label %66
 
-56:                                               ; preds = %12
+66:                                               ; preds = %12
   tail call void @zend_ast_destroy(ptr noundef %.pre) #17
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
-  br label %58
+  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  br label %68
 
-58:                                               ; preds = %58, %56
-  %.0 = phi ptr [ %57, %56 ], [ %60, %58 ]
-  %59 = getelementptr inbounds i8, ptr %.0, i64 16
-  %60 = load ptr, ptr %59, align 8
+68:                                               ; preds = %68, %66
+  %.0 = phi ptr [ %67, %66 ], [ %70, %68 ]
+  %69 = getelementptr inbounds i8, ptr %.0, i64 16
+  %70 = load ptr, ptr %69, align 8
   tail call void @_efree(ptr noundef %.0) #17
-  %.not66 = icmp eq ptr %60, null
-  br i1 %.not66, label %61, label %58
+  %.not66 = icmp eq ptr %70, null
+  br i1 %.not66, label %71, label %68
 
-61:                                               ; preds = %58
+71:                                               ; preds = %68
   store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
-  br label %62
+  br label %72
 
-62:                                               ; preds = %61, %12
-  %63 = phi ptr [ null, %61 ], [ %.pre, %12 ]
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
-  store ptr %64, ptr %1, align 8
+72:                                               ; preds = %71, %12
+  %73 = phi ptr [ null, %71 ], [ %.pre, %12 ]
+  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  store ptr %74, ptr %1, align 8
   call void @zend_restore_lexical_state(ptr noundef nonnull %5)
   store i8 %15, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
-  %65 = getelementptr inbounds i8, ptr %4, i64 9
-  %66 = load i8, ptr %65, align 1
-  %.not67 = icmp eq i8 %66, 0
-  br i1 %.not67, label %73, label %67
+  %75 = getelementptr inbounds i8, ptr %4, i64 9
+  %76 = load i8, ptr %75, align 1
+  %.not67 = icmp eq i8 %76, 0
+  br i1 %.not67, label %83, label %77
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %4, align 8
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp ne i32 %69, 0
-  tail call void @llvm.assume(i1 %70)
-  %71 = add i32 %69, -1
-  store i32 %71, ptr %68, align 4
-  %.not68 = icmp eq i32 %71, 0
-  br i1 %.not68, label %72, label %73
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %4, align 8
+  %79 = load i32, ptr %78, align 4
+  %80 = icmp ne i32 %79, 0
+  tail call void @llvm.assume(i1 %80)
+  %81 = add i32 %79, -1
+  store i32 %81, ptr %78, align 4
+  %.not68 = icmp eq i32 %81, 0
+  br i1 %.not68, label %82, label %83
 
-72:                                               ; preds = %67
-  tail call void @_efree(ptr noundef nonnull %68) #17
-  br label %73
+82:                                               ; preds = %77
+  tail call void @_efree(ptr noundef nonnull %78) #17
+  br label %83
 
-73:                                               ; preds = %72, %67, %62
-  ret ptr %63
+83:                                               ; preds = %82, %77, %72
+  ret ptr %73
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1552,7 +1582,7 @@ define noundef ptr @compile_string(ptr noundef %0, ptr nocapture noundef readonl
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %77, label %9
+  br i1 %8, label %87, label %9
 
 9:                                                ; preds = %3
   store ptr %0, ptr %5, align 8
@@ -1574,123 +1604,138 @@ define noundef ptr @compile_string(ptr noundef %0, ptr nocapture noundef readonl
   store i32 %.sink, ptr %17, align 8
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %18, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
-  %20 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
-  store <2 x ptr> %20, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
-  %22 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store <2 x ptr> %22, ptr %21, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 40
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %19, ptr %20, align 8
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %21, ptr %22, align 8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  %26 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %25, ptr %26, align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %28 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %4, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
-  %26 = getelementptr inbounds i8, ptr %4, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  %30 = getelementptr inbounds i8, ptr %4, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
-  %27 = getelementptr inbounds i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  %31 = getelementptr inbounds i8, ptr %4, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
   tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
-  %28 = load ptr, ptr @language_scanner_globals, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 136
-  store ptr %28, ptr %29, align 8
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 %30, ptr %31, align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 152
+  %32 = load ptr, ptr @language_scanner_globals, align 8
+  %33 = getelementptr inbounds i8, ptr %4, i64 136
   store ptr %32, ptr %33, align 8
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 144
+  %34 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %35 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 %34, ptr %35, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 160
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %37 = getelementptr inbounds i8, ptr %4, i64 152
   store ptr %36, ptr %37, align 8
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 168
-  store i64 %38, ptr %39, align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 176
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %39 = getelementptr inbounds i8, ptr %4, i64 144
+  store i32 %38, ptr %39, align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  %41 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr %40, ptr %41, align 8
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 184
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %43 = getelementptr inbounds i8, ptr %4, i64 168
   store i64 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 192
-  %45 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
-  store <2 x ptr> %45, ptr %44, align 8
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 208
-  store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 216
-  %49 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
-  store <2 x ptr> %49, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %4, i64 232
-  %51 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
-  store <2 x ptr> %51, ptr %50, align 8
-  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
-  %53 = and i64 %52, -8
-  %54 = add i64 %53, 32
-  %55 = tail call noalias ptr @_emalloc(i64 noundef %54) #18
-  store i32 1, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
-  store i32 22, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
-  store i64 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 16
-  store i64 %52, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %55, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr align 1 %1, i64 %52, i1 false)
-  %60 = getelementptr inbounds [1 x i8], ptr %59, i64 0, i64 %52
-  store i8 0, ptr %60, align 1
-  call void @zend_prepare_string_for_scanning(ptr noundef nonnull %5, ptr noundef nonnull %55)
-  %61 = load i32, ptr %56, align 4
-  %62 = and i32 %61, 64
-  %.not80 = icmp eq i32 %62, 0
-  br i1 %.not80, label %63, label %72
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %45 = getelementptr inbounds i8, ptr %4, i64 176
+  store ptr %44, ptr %45, align 8
+  %46 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %47 = getelementptr inbounds i8, ptr %4, i64 184
+  store i64 %46, ptr %47, align 8
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %49 = getelementptr inbounds i8, ptr %4, i64 192
+  store ptr %48, ptr %49, align 8
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %51 = getelementptr inbounds i8, ptr %4, i64 200
+  store ptr %50, ptr %51, align 8
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %53 = getelementptr inbounds i8, ptr %4, i64 208
+  store ptr %52, ptr %53, align 8
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %55 = getelementptr inbounds i8, ptr %4, i64 216
+  store ptr %54, ptr %55, align 8
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %57 = getelementptr inbounds i8, ptr %4, i64 224
+  store ptr %56, ptr %57, align 8
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %59 = getelementptr inbounds i8, ptr %4, i64 232
+  store ptr %58, ptr %59, align 8
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %61 = getelementptr inbounds i8, ptr %4, i64 240
+  store ptr %60, ptr %61, align 8
+  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  %63 = and i64 %62, -8
+  %64 = add i64 %63, 32
+  %65 = tail call noalias ptr @_emalloc(i64 noundef %64) #18
+  store i32 1, ptr %65, align 4
+  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  store i32 22, ptr %66, align 4
+  %67 = getelementptr inbounds i8, ptr %65, i64 8
+  store i64 0, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  store i64 %62, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %65, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %69, ptr align 1 %1, i64 %62, i1 false)
+  %70 = getelementptr inbounds [1 x i8], ptr %69, i64 0, i64 %62
+  store i8 0, ptr %70, align 1
+  call void @zend_prepare_string_for_scanning(ptr noundef nonnull %5, ptr noundef nonnull %65)
+  %71 = load i32, ptr %66, align 4
+  %72 = and i32 %71, 64
+  %.not80 = icmp eq i32 %72, 0
+  br i1 %.not80, label %73, label %82
 
-63:                                               ; preds = %16
-  %64 = load i32, ptr %55, align 4
-  %65 = icmp ne i32 %64, 0
-  tail call void @llvm.assume(i1 %65)
-  %66 = add i32 %64, -1
-  store i32 %66, ptr %55, align 4
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %72
+73:                                               ; preds = %16
+  %74 = load i32, ptr %65, align 4
+  %75 = icmp ne i32 %74, 0
+  tail call void @llvm.assume(i1 %75)
+  %76 = add i32 %74, -1
+  store i32 %76, ptr %65, align 4
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %82
 
-68:                                               ; preds = %63
-  %69 = and i32 %61, 128
-  %.not81 = icmp eq i32 %69, 0
-  br i1 %.not81, label %71, label %70
+78:                                               ; preds = %73
+  %79 = and i32 %71, 128
+  %.not81 = icmp eq i32 %79, 0
+  br i1 %.not81, label %81, label %80
 
-70:                                               ; preds = %68
-  tail call void @free(ptr noundef nonnull %55) #17
-  br label %72
+80:                                               ; preds = %78
+  tail call void @free(ptr noundef nonnull %65) #17
+  br label %82
 
-71:                                               ; preds = %68
-  tail call void @_efree(ptr noundef nonnull %55) #17
-  br label %72
+81:                                               ; preds = %78
+  tail call void @_efree(ptr noundef nonnull %65) #17
+  br label %82
 
-72:                                               ; preds = %63, %71, %70, %16
-  %73 = icmp ult i32 %2, 3
-  br i1 %73, label %switch.lookup, label %75
+82:                                               ; preds = %73, %81, %80, %16
+  %83 = icmp ult i32 %2, 3
+  br i1 %83, label %switch.lookup, label %85
 
-switch.lookup:                                    ; preds = %72
-  %74 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.compile_string, i64 0, i64 %74
+switch.lookup:                                    ; preds = %82
+  %84 = zext nneg i32 %2 to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.compile_string, i64 0, i64 %84
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  br label %75
+  br label %85
 
-75:                                               ; preds = %72, %switch.lookup
-  %76 = tail call fastcc ptr @zend_compile(i32 noundef 4)
+85:                                               ; preds = %82, %switch.lookup
+  %86 = tail call fastcc ptr @zend_compile(i32 noundef 4)
   call void @zend_restore_lexical_state(ptr noundef nonnull %4)
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #17
-  br label %77
+  br label %87
 
-77:                                               ; preds = %3, %75
-  %.0 = phi ptr [ %76, %75 ], [ null, %3 ]
+87:                                               ; preds = %3, %85
+  %.0 = phi ptr [ %86, %85 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1706,82 +1751,97 @@ define range(i32 -1, 1) i32 @highlight_file(ptr noundef %0, ptr noundef %1) loca
   call void @zend_stream_init_filename(ptr noundef nonnull %4, ptr noundef %0) #17
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
-  store <2 x ptr> %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store <2 x ptr> %9, ptr %8, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %6, ptr %7, align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %8, ptr %9, align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  %13 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %12, ptr %13, align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr %14, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
   call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
-  %13 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  %17 = getelementptr inbounds i8, ptr %3, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
   call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
-  %14 = getelementptr inbounds i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  %18 = getelementptr inbounds i8, ptr %3, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
   call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
-  %15 = load ptr, ptr @language_scanner_globals, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
-  store ptr %15, ptr %16, align 8
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 48
-  store i32 %17, ptr %18, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 152
+  %19 = load ptr, ptr @language_scanner_globals, align 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 136
   store ptr %19, ptr %20, align 8
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 144
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %22 = getelementptr inbounds i8, ptr %3, i64 48
   store i32 %21, ptr %22, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 160
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %24 = getelementptr inbounds i8, ptr %3, i64 152
   store ptr %23, ptr %24, align 8
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 168
-  store i64 %25, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 176
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %26 = getelementptr inbounds i8, ptr %3, i64 144
+  store i32 %25, ptr %26, align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  %28 = getelementptr inbounds i8, ptr %3, i64 160
   store ptr %27, ptr %28, align 8
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 184
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %30 = getelementptr inbounds i8, ptr %3, i64 168
   store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 192
-  %32 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
-  store <2 x ptr> %32, ptr %31, align 8
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 208
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 216
-  %36 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
-  store <2 x ptr> %36, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 232
-  %38 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
-  store <2 x ptr> %38, ptr %37, align 8
-  %39 = call i32 @open_file_for_scanning(ptr noundef nonnull %4)
-  %40 = icmp eq i32 %39, -1
-  br i1 %40, label %41, label %42
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %32 = getelementptr inbounds i8, ptr %3, i64 176
+  store ptr %31, ptr %32, align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %34 = getelementptr inbounds i8, ptr %3, i64 184
+  store i64 %33, ptr %34, align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %36 = getelementptr inbounds i8, ptr %3, i64 192
+  store ptr %35, ptr %36, align 8
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %38 = getelementptr inbounds i8, ptr %3, i64 200
+  store ptr %37, ptr %38, align 8
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %40 = getelementptr inbounds i8, ptr %3, i64 208
+  store ptr %39, ptr %40, align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %42 = getelementptr inbounds i8, ptr %3, i64 216
+  store ptr %41, ptr %42, align 8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %44 = getelementptr inbounds i8, ptr %3, i64 224
+  store ptr %43, ptr %44, align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %46 = getelementptr inbounds i8, ptr %3, i64 232
+  store ptr %45, ptr %46, align 8
+  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %48 = getelementptr inbounds i8, ptr %3, i64 240
+  store ptr %47, ptr %48, align 8
+  %49 = call i32 @open_file_for_scanning(ptr noundef nonnull %4)
+  %50 = icmp eq i32 %49, -1
+  br i1 %50, label %51, label %52
 
-41:                                               ; preds = %2
+51:                                               ; preds = %2
   call void @zend_message_dispatcher(i64 noundef 3, ptr noundef %0) #17
-  br label %45
+  br label %55
 
-42:                                               ; preds = %2
+52:                                               ; preds = %2
   call void @zend_highlight(ptr noundef %1) #17
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
-  %.not = icmp eq ptr %43, null
-  br i1 %.not, label %45, label %44
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %.not = icmp eq ptr %53, null
+  br i1 %.not, label %55, label %54
 
-44:                                               ; preds = %42
-  call void @_efree(ptr noundef nonnull %43) #17
+54:                                               ; preds = %52
+  call void @_efree(ptr noundef nonnull %53) #17
   store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
-  br label %45
+  br label %55
 
-45:                                               ; preds = %42, %44, %41
-  %.0 = phi i32 [ -1, %41 ], [ 0, %44 ], [ 0, %42 ]
+55:                                               ; preds = %52, %54, %51
+  %.0 = phi i32 [ -1, %51 ], [ 0, %54 ], [ 0, %52 ]
   call void @zend_destroy_file_handle(ptr noundef nonnull %4) #17
   call void @zend_restore_lexical_state(ptr noundef nonnull %3)
   ret i32 %.0
@@ -1829,102 +1889,117 @@ define void @highlight_string(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   store i32 %.sink, ptr %22, align 8
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %23, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
-  store <2 x ptr> %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
-  %27 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  store <2 x ptr> %27, ptr %26, align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 40
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %24, ptr %25, align 8
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
+  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %26, ptr %27, align 8
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %29 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %30, ptr %31, align 8
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
+  %33 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %4, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 72), i32 noundef 4) #17
-  %31 = getelementptr inbounds i8, ptr %4, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
+  %35 = getelementptr inbounds i8, ptr %4, i64 112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 128), i32 noundef 8) #17
-  %32 = getelementptr inbounds i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
+  %36 = getelementptr inbounds i8, ptr %4, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), i64 32, i1 false)
   tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96)) #17
-  %33 = load ptr, ptr @language_scanner_globals, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 136
-  store ptr %33, ptr %34, align 8
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 %35, ptr %36, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 152
+  %37 = load ptr, ptr @language_scanner_globals, align 8
+  %38 = getelementptr inbounds i8, ptr %4, i64 136
   store ptr %37, ptr %38, align 8
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 144
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
+  %40 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 %39, ptr %40, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 160
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %42 = getelementptr inbounds i8, ptr %4, i64 152
   store ptr %41, ptr %42, align 8
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 168
-  store i64 %43, ptr %44, align 8
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 176
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
+  %44 = getelementptr inbounds i8, ptr %4, i64 144
+  store i32 %43, ptr %44, align 8
+  store ptr null, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 168), align 8
+  %46 = getelementptr inbounds i8, ptr %4, i64 160
   store ptr %45, ptr %46, align 8
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 184
+  %47 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 176), align 8
+  %48 = getelementptr inbounds i8, ptr %4, i64 168
   store i64 %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 192
-  %50 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
-  store <2 x ptr> %50, ptr %49, align 8
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 208
-  store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %4, i64 216
-  %54 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
-  store <2 x ptr> %54, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %4, i64 232
-  %56 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
-  store <2 x ptr> %56, ptr %55, align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %50 = getelementptr inbounds i8, ptr %4, i64 176
+  store ptr %49, ptr %50, align 8
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 192), align 8
+  %52 = getelementptr inbounds i8, ptr %4, i64 184
+  store i64 %51, ptr %52, align 8
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 200), align 8
+  %54 = getelementptr inbounds i8, ptr %4, i64 192
+  store ptr %53, ptr %54, align 8
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 208), align 8
+  %56 = getelementptr inbounds i8, ptr %4, i64 200
+  store ptr %55, ptr %56, align 8
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 216), align 8
+  %58 = getelementptr inbounds i8, ptr %4, i64 208
+  store ptr %57, ptr %58, align 8
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
+  %60 = getelementptr inbounds i8, ptr %4, i64 216
+  store ptr %59, ptr %60, align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 240), align 8
+  %62 = getelementptr inbounds i8, ptr %4, i64 224
+  store ptr %61, ptr %62, align 8
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 424), align 8
+  %64 = getelementptr inbounds i8, ptr %4, i64 232
+  store ptr %63, ptr %64, align 8
+  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 432), align 8
+  %66 = getelementptr inbounds i8, ptr %4, i64 240
+  store ptr %65, ptr %66, align 8
   call void @zend_prepare_string_for_scanning(ptr noundef nonnull %5, ptr noundef nonnull %9)
-  %57 = load i32, ptr %10, align 4
-  %58 = and i32 %57, 64
-  %.not77 = icmp eq i32 %58, 0
-  br i1 %.not77, label %59, label %68
+  %67 = load i32, ptr %10, align 4
+  %68 = and i32 %67, 64
+  %.not77 = icmp eq i32 %68, 0
+  br i1 %.not77, label %69, label %78
 
-59:                                               ; preds = %21
-  %60 = load i32, ptr %9, align 4
-  %61 = icmp ne i32 %60, 0
-  tail call void @llvm.assume(i1 %61)
-  %62 = add i32 %60, -1
-  store i32 %62, ptr %9, align 4
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %68
+69:                                               ; preds = %21
+  %70 = load i32, ptr %9, align 4
+  %71 = icmp ne i32 %70, 0
+  tail call void @llvm.assume(i1 %71)
+  %72 = add i32 %70, -1
+  store i32 %72, ptr %9, align 4
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %78
 
-64:                                               ; preds = %59
-  %65 = and i32 %57, 128
-  %.not78 = icmp eq i32 %65, 0
-  br i1 %.not78, label %67, label %66
+74:                                               ; preds = %69
+  %75 = and i32 %67, 128
+  %.not78 = icmp eq i32 %75, 0
+  br i1 %.not78, label %77, label %76
 
-66:                                               ; preds = %64
+76:                                               ; preds = %74
   tail call void @free(ptr noundef nonnull %9) #17
-  br label %68
+  br label %78
 
-67:                                               ; preds = %64
+77:                                               ; preds = %74
   tail call void @_efree(ptr noundef nonnull %9) #17
-  br label %68
+  br label %78
 
-68:                                               ; preds = %59, %67, %66, %21
+78:                                               ; preds = %69, %77, %76, %21
   store i32 8, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   tail call void @zend_highlight(ptr noundef %1) #17
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
-  %.not79 = icmp eq ptr %69, null
-  br i1 %.not79, label %71, label %70
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
+  %.not79 = icmp eq ptr %79, null
+  br i1 %.not79, label %81, label %80
 
-70:                                               ; preds = %68
-  tail call void @_efree(ptr noundef nonnull %69) #17
+80:                                               ; preds = %78
+  tail call void @_efree(ptr noundef nonnull %79) #17
   store ptr null, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 184), align 8
-  br label %71
+  br label %81
 
-71:                                               ; preds = %70, %68
+81:                                               ; preds = %80, %78
   call void @zend_restore_lexical_state(ptr noundef nonnull %4)
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #17
   ret void

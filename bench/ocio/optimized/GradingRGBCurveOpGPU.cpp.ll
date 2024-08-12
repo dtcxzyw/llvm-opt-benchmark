@@ -278,8 +278,8 @@ entry:
   %ref.tmp59 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %properties = alloca %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::GCProperties", align 8
   %prop = alloca %"class.std::shared_ptr", align 8
-  %shaderProp = alloca %"class.std::shared_ptr", align 16
-  %newProp = alloca %"class.std::shared_ptr.27", align 16
+  %shaderProp = alloca %"class.std::shared_ptr", align 8
+  %newProp = alloca %"class.std::shared_ptr.27", align 8
   %ref.tmp98 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp106 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %gcData, align 8
@@ -767,16 +767,17 @@ _ZNK19OpenColorIO_v2_4dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.e
           to label %invoke.cont74 unwind label %lpad73
 
 invoke.cont74:                                    ; preds = %_ZNK19OpenColorIO_v2_4dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.exit65
+  %43 = load ptr, ptr %shaderProp, align 8
+  store ptr %43, ptr %newProp, align 8
   %_M_refcount.i.i66 = getelementptr inbounds i8, ptr %newProp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %shaderProp, i64 8
-  %43 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %44 = load <2 x ptr>, ptr %shaderProp, align 16
-  store <2 x ptr> %44, ptr %newProp, align 16
-  %cmp.not.i.i.i67 = icmp eq ptr %43, null
+  %44 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %44, ptr %_M_refcount.i.i66, align 8
+  %cmp.not.i.i.i67 = icmp eq ptr %44, null
   br i1 %cmp.not.i.i.i67, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_34DynamicPropertyGradingRGBCurveImplEvEERKS_IT_E.exit, label %if.then.i.i.i68
 
 if.then.i.i.i68:                                  ; preds = %invoke.cont74
-  %_M_use_count.i.i.i.i69 = getelementptr inbounds i8, ptr %43, i64 8
+  %_M_use_count.i.i.i.i69 = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %45, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i72, label %if.then.i.i.i.i.i70
@@ -797,7 +798,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_34DynamicPrope
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_34DynamicPropertyGradingRGBCurveImplEvEERKS_IT_E.exit
-  %shaderProp.val = load ptr, ptr %shaderProp, align 16
+  %shaderProp.val = load ptr, ptr %shaderProp, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp7.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp8.i73)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i74)
@@ -2698,7 +2699,7 @@ declare void @_ZN19OpenColorIO_v2_4dev16GpuShaderCreator18addDynamicPropertyERSt
 define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_137AddCurveEvalMethodTextToShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_21GradingRGBCurveOpDataEERKNS0_12GCPropertiesEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gcData, ptr noundef nonnull align 8 dereferenceable(192) %props, i1 noundef zeroext %dyn) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %st = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
-  %propGC = alloca %"class.std::shared_ptr", align 16
+  %propGC = alloca %"class.std::shared_ptr", align 8
   %ref.tmp = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp28 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp41 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -2717,16 +2718,17 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %gcData, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %m_value.i = getelementptr inbounds i8, ptr %1, i64 176
+  %2 = load ptr, ptr %m_value.i, align 8, !noalias !10
+  store ptr %2, ptr %propGC, align 8, !alias.scope !10
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %propGC, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %1, i64 184
-  %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !10
-  %3 = load <2 x ptr>, ptr %m_value.i, align 8, !noalias !10
-  store <2 x ptr> %3, ptr %propGC, align 16, !alias.scope !10
-  %cmp.not.i.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !10
+  store ptr %3, ptr %_M_refcount.i.i.i, align 8, !alias.scope !10
+  %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2751,7 +2753,7 @@ invoke.cont:                                      ; preds = %_ZNK19OpenColorIO_v
 
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
-  %7 = load ptr, ptr %propGC, align 16
+  %7 = load ptr, ptr %propGC, align 8
   %call8 = invoke noundef ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl20getKnotsOffsetsArrayEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %invoke.cont7 unwind label %lpad
 

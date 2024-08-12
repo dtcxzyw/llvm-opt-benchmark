@@ -1111,112 +1111,120 @@ create_physical_replication_slot.exit:            ; preds = %.thread76
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   store i8 0, ptr %35, align 8
   %97 = getelementptr inbounds i8, ptr %5, i64 12
-  %98 = load <2 x i32>, ptr %97, align 4
-  %99 = getelementptr inbounds i8, ptr %5, i64 24
-  %100 = getelementptr inbounds i8, ptr %5, i64 96
-  %101 = load <2 x i32>, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %5, i64 104
-  %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %5, i64 120
-  %105 = load i64, ptr %104, align 8
-  %106 = icmp ult i64 %103, %55
-  br i1 %106, label %113, label %107
+  %98 = load i32, ptr %97, align 4
+  %99 = getelementptr inbounds i8, ptr %5, i64 16
+  %100 = load i32, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %5, i64 24
+  %102 = getelementptr inbounds i8, ptr %5, i64 96
+  %103 = load i32, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %5, i64 100
+  %105 = load i32, ptr %104, align 4
+  %106 = getelementptr inbounds i8, ptr %5, i64 104
+  %107 = load i64, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %5, i64 120
+  %109 = load i64, ptr %108, align 8
+  %110 = icmp ult i64 %107, %55
+  br i1 %110, label %117, label %111
 
-107:                                              ; preds = %96
-  %108 = getelementptr inbounds i8, ptr %5, i64 88
-  %109 = load i32, ptr %108, align 8
-  %110 = icmp eq i32 %109, 0
-  %.not71 = xor i1 %53, %110
-  br i1 %.not71, label %111, label %113
+111:                                              ; preds = %96
+  %112 = getelementptr inbounds i8, ptr %5, i64 88
+  %113 = load i32, ptr %112, align 8
+  %114 = icmp eq i32 %113, 0
+  %.not71 = xor i1 %53, %114
+  br i1 %.not71, label %115, label %117
 
-111:                                              ; preds = %107
-  %112 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) %11) #15
-  %.not72 = icmp eq i32 %112, 0
-  br i1 %.not72, label %117, label %113
+115:                                              ; preds = %111
+  %116 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %11) #15
+  %.not72 = icmp eq i32 %116, 0
+  br i1 %.not72, label %121, label %117
 
-113:                                              ; preds = %111, %107, %96
-  %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %114)
-  %115 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %11) #11
-  %116 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.23) #11
+117:                                              ; preds = %115, %111, %96
+  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  call void @llvm.assume(i1 %118)
+  %119 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %11) #11
+  %120 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.23) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 854, ptr noundef nonnull @__func__.copy_replication_slot) #11
   unreachable
 
-117:                                              ; preds = %111
-  %118 = icmp eq i64 %105, 0
-  %or.cond = select i1 %53, i1 %118, i1 false
-  br i1 %or.cond, label %119, label %124
+121:                                              ; preds = %115
+  %122 = icmp eq i64 %109, 0
+  %or.cond = select i1 %53, i1 %122, i1 false
+  br i1 %or.cond, label %123, label %128
 
-119:                                              ; preds = %117
-  %120 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %120)
-  %121 = call i32 @errcode(i32 noundef 1088) #11
-  %122 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %11) #11
-  %123 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.25) #11
+123:                                              ; preds = %121
+  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  call void @llvm.assume(i1 %124)
+  %125 = call i32 @errcode(i32 noundef 1088) #11
+  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %11) #11
+  %127 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.25) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 862, ptr noundef nonnull @__func__.copy_replication_slot) #11
   unreachable
 
-124:                                              ; preds = %117
-  %125 = load ptr, ptr @MyReplicationSlot, align 8
-  %126 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %125, i8 1, ptr elementtype(i8) %125) #11, !srcloc !5
-  %.not73 = icmp eq i8 %126, 0
-  br i1 %.not73, label %130, label %127
+128:                                              ; preds = %121
+  %129 = load ptr, ptr @MyReplicationSlot, align 8
+  %130 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %129, i8 1, ptr elementtype(i8) %129) #11, !srcloc !5
+  %.not73 = icmp eq i8 %130, 0
+  br i1 %.not73, label %134, label %131
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr @MyReplicationSlot, align 8
-  %129 = call i32 @s_lock(ptr noundef %128, ptr noundef nonnull @.str.1, i32 noundef 865, ptr noundef nonnull @__func__.copy_replication_slot) #11
-  br label %130
+131:                                              ; preds = %128
+  %132 = load ptr, ptr @MyReplicationSlot, align 8
+  %133 = call i32 @s_lock(ptr noundef %132, ptr noundef nonnull @.str.1, i32 noundef 865, ptr noundef nonnull @__func__.copy_replication_slot) #11
+  br label %134
 
-130:                                              ; preds = %124, %127
-  %131 = load ptr, ptr @MyReplicationSlot, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 12
-  store <2 x i32> %98, ptr %132, align 4
-  %133 = getelementptr inbounds i8, ptr %131, i64 96
-  store <2 x i32> %101, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %131, i64 104
-  store i64 %103, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %131, i64 120
-  store i64 %105, ptr %135, align 8
+134:                                              ; preds = %128, %131
+  %135 = load ptr, ptr @MyReplicationSlot, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 12
+  store i32 %98, ptr %136, align 4
+  %137 = getelementptr inbounds i8, ptr %135, i64 16
+  store i32 %100, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %135, i64 96
+  store i32 %103, ptr %138, align 8
+  %139 = getelementptr inbounds i8, ptr %135, i64 100
+  store i32 %105, ptr %139, align 4
+  %140 = getelementptr inbounds i8, ptr %135, i64 104
+  store i64 %107, ptr %140, align 8
+  %141 = getelementptr inbounds i8, ptr %135, i64 120
+  store i64 %109, ptr %141, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
-  %136 = load ptr, ptr @MyReplicationSlot, align 8
-  store i8 0, ptr %136, align 8
+  %142 = load ptr, ptr @MyReplicationSlot, align 8
+  store i8 0, ptr %142, align 8
   call void @ReplicationSlotMarkDirty() #11
   call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #11
   call void @ReplicationSlotsComputeRequiredLSN() #11
   call void @ReplicationSlotSave() #11
   %.not74 = xor i1 %1, true
   %brmerge = select i1 %.not74, i1 true, i1 %.061.in78
-  br i1 %brmerge, label %138, label %137
+  br i1 %brmerge, label %144, label %143
 
-137:                                              ; preds = %130
+143:                                              ; preds = %134
   call void @ReplicationSlotPersist() #11
-  br label %138
+  br label %144
 
-138:                                              ; preds = %130, %137
+144:                                              ; preds = %134, %143
   store i64 %13, ptr %6, align 16
   store i8 0, ptr %7, align 1
-  %139 = load ptr, ptr @MyReplicationSlot, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 120
-  %141 = load i64, ptr %140, align 8
-  %142 = icmp eq i64 %141, 0
-  br i1 %142, label %145, label %143
+  %145 = load ptr, ptr @MyReplicationSlot, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 120
+  %147 = load i64, ptr %146, align 8
+  %148 = icmp eq i64 %147, 0
+  br i1 %148, label %151, label %149
 
-143:                                              ; preds = %138
-  %144 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %141, ptr %144, align 8
-  br label %145
+149:                                              ; preds = %144
+  %150 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %147, ptr %150, align 8
+  br label %151
 
-145:                                              ; preds = %138, %143
-  %.sink = phi i8 [ 0, %143 ], [ 1, %138 ]
-  %146 = getelementptr inbounds i8, ptr %7, i64 1
-  store i8 %.sink, ptr %146, align 1
-  %147 = load ptr, ptr %8, align 8
-  %148 = call ptr @heap_form_tuple(ptr noundef %147, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
-  %149 = getelementptr i8, ptr %148, i64 16
-  %.val = load ptr, ptr %149, align 8
-  %150 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #11
+151:                                              ; preds = %144, %149
+  %.sink = phi i8 [ 0, %149 ], [ 1, %144 ]
+  %152 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 %.sink, ptr %152, align 1
+  %153 = load ptr, ptr %8, align 8
+  %154 = call ptr @heap_form_tuple(ptr noundef %153, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
+  %155 = getelementptr i8, ptr %154, i64 16
+  %.val = load ptr, ptr %155, align 8
+  %156 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #11
   call void @ReplicationSlotRelease() #11
-  ret i64 %150
+  ret i64 %156
 }
 
 ; Function Attrs: nounwind uwtable

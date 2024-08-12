@@ -1306,9 +1306,12 @@ if.then81.i:                                      ; preds = %if.end71.i77
   %150 = load i32, ptr %arrayidx91.i, align 4
   %and92.i = and i32 %150, %not.i
   store i32 %and92.i, ptr %arrayidx91.i, align 4
-  %151 = load <2 x i32>, ptr %size.i, align 4
-  %152 = add <2 x i32> %151, <i32 1, i32 1>
-  store <2 x i32> %152, ptr %size.i, align 4
+  %151 = load i32, ptr %size.i, align 4
+  %inc95.i = add i32 %151, 1
+  store i32 %inc95.i, ptr %size.i, align 4
+  %152 = load i32, ptr %n_occupied.i, align 8
+  %inc97.i = add i32 %152, 1
+  store i32 %inc97.i, ptr %n_occupied.i, align 8
   br label %if.end139
 
 if.else98.i:                                      ; preds = %if.end71.i77

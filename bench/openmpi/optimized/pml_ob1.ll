@@ -2495,8 +2495,12 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_send_cid(ptr noundef %0, ptr nocapture 
   store i8 0, ptr %4, align 1
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = getelementptr i8, ptr %1, i64 168
-  %7 = load <2 x i64>, ptr %6, align 8
-  store <2 x i64> %7, ptr %5, align 8
+  %.val.i = load i64, ptr %6, align 8
+  %7 = getelementptr i8, ptr %1, i64 176
+  %.val7.i = load i64, ptr %7, align 8
+  store i64 %.val.i, ptr %5, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %.val7.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 216
   %9 = load i32, ptr %8, align 8
   %10 = trunc i32 %9 to i16

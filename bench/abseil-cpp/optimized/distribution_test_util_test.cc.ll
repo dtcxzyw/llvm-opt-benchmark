@@ -1040,21 +1040,37 @@ entry:
   %ref.tmp35 = alloca %"class.testing::Message", align 8
   %ref.tmp38 = alloca %"class.testing::internal::AssertHelper", align 8
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
-  store <2 x double> <double 0x3E7AD7F29ABCAF48, double 0x3E80D25ADDD4296F>, ptr %call5.i.i.i.i2.i, align 8
+  store double 0x3E7AD7F29ABCAF48, ptr %call5.i.i.i.i2.i, align 8
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  store double 0x3E80D25ADDD4296F, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
-  store <2 x double> <double 1.000000e-05, double 0x3EEA48ADFA9B80BE>, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 1.000000e-05, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 24
+  store double 0x3EEA48ADFA9B80BE, ptr %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
-  store <2 x double> <double 5.000000e-01, double 0x3FE5956B875252E0>, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 5.000000e-01, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 40
+  store double 0x3FE5956B875252E0, ptr %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.7.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 48
-  store <2 x double> <double 6.000000e-01, double 0x3FEAEE8FA739CDAD>, ptr %ref.tmp.sroa.7.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 6.000000e-01, ptr %ref.tmp.sroa.7.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.8.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 56
+  store double 0x3FEAEE8FA739CDAD, ptr %ref.tmp.sroa.8.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.9.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 64
-  store <2 x double> <double 9.999900e-01, double 0x4011AB2F81DD4807>, ptr %ref.tmp.sroa.9.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 9.999900e-01, ptr %ref.tmp.sroa.9.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.10.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 72
+  store double 0x4011AB2F81DD4807, ptr %ref.tmp.sroa.10.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.11.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 80
-  store <2 x double> <double 0x3FEFFFFFCA501ACB, double 0x40154E90B4DBE1C9>, ptr %ref.tmp.sroa.11.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 0x3FEFFFFFCA501ACB, ptr %ref.tmp.sroa.11.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.12.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 88
+  store double 0x40154E90B4DBE1C9, ptr %ref.tmp.sroa.12.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 96
-  store <2 x double> <double 0x3FEFFFFFE1EF6B2A, double 0x4015B978BD7666DC>, ptr %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 0x3FEFFFFFE1EF6B2A, ptr %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.14.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 104
+  store double 0x4015B978BD7666DC, ptr %ref.tmp.sroa.14.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 112
-  store <2 x double> <double 0x3FEFFFFFFF768FA1, double 0x401870093A8ED239>, ptr %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  store double 0x3FEFFFFFFF768FA1, ptr %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx, align 8
+  %ref.tmp.sroa.16.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 120
+  store double 0x401870093A8ED239, ptr %ref.tmp.sroa.16.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   br label %for.body
 
@@ -1249,7 +1265,9 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 16, i1 false)
   store i64 100, ptr %m, align 8
   %mean = getelementptr inbounds i8, ptr %m, i64 8
-  store <2 x double> <double 5.000000e+00, double 1.000000e+00>, ptr %mean, align 8
+  store double 5.000000e+00, ptr %mean, align 8
+  %variance = getelementptr inbounds i8, ptr %m, i64 16
+  store double 1.000000e+00, ptr %variance, align 8
   %call = call noundef double @_ZN4absl15random_internal6ZScoreEdRKNS0_19DistributionMomentsE(double noundef 5.000000e+00, ptr noundef nonnull align 8 dereferenceable(40) %m)
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, double noundef %call, double noundef 0.000000e+00, double noundef 0x3D719799812DEA11)
   %1 = load i8, ptr %gtest_ar, align 8
@@ -1343,7 +1361,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   store i64 1, ptr %m, align 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %mean, align 8
+  store double 0.000000e+00, ptr %mean, align 8
+  store double 1.000000e+00, ptr %variance, align 8
   %call15 = call noundef double @_ZN4absl15random_internal6ZScoreEdRKNS0_19DistributionMomentsE(double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(40) %m)
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar14, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, double noundef %call15, double noundef 0.000000e+00, double noundef 0x3D719799812DEA11)
   %11 = load i8, ptr %gtest_ar14, align 8
@@ -1437,7 +1456,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit36:          ; preds = %if.end31, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i35
   store ptr null, ptr %message_.i33, align 8
   store i64 10000, ptr %m, align 8
-  store <2 x double> <double -5.000000e+00, double 1.000000e+02>, ptr %mean, align 8
+  store double -5.000000e+00, ptr %mean, align 8
+  store double 1.000000e+02, ptr %variance, align 8
   %call37 = call noundef double @_ZN4absl15random_internal6ZScoreEdRKNS0_19DistributionMomentsE(double noundef -5.000000e+00, ptr noundef nonnull align 8 dereferenceable(40) %m)
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar36, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.24, double noundef %call37, double noundef 0.000000e+00, double noundef 0x3D719799812DEA11)
   %21 = load i8, ptr %gtest_ar36, align 8
@@ -1603,7 +1623,9 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 16, i1 false)
   store i64 100, ptr %m, align 8
   %mean = getelementptr inbounds i8, ptr %m, i64 8
-  store <2 x double> <double 5.000000e+00, double 1.000000e+00>, ptr %mean, align 8
+  store double 5.000000e+00, ptr %mean, align 8
+  %variance = getelementptr inbounds i8, ptr %m, i64 16
+  store double 1.000000e+00, ptr %variance, align 8
   %call = call noundef double @_ZN4absl15random_internal6ZScoreEdRKNS0_19DistributionMomentsE(double noundef 4.000000e+00, ptr noundef nonnull align 8 dereferenceable(40) %m)
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.24, double noundef %call, double noundef 1.000000e+01, double noundef 0x3D719799812DEA11)
   %1 = load i8, ptr %gtest_ar, align 8
@@ -1697,7 +1719,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   store i64 1, ptr %m, align 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %mean, align 8
+  store double 0.000000e+00, ptr %mean, align 8
+  store double 1.000000e+00, ptr %variance, align 8
   %call15 = call noundef double @_ZN4absl15random_internal6ZScoreEdRKNS0_19DistributionMomentsE(double noundef -1.000000e+00, ptr noundef nonnull align 8 dereferenceable(40) %m)
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar14, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.24, double noundef %call15, double noundef 1.000000e+00, double noundef 0x3D719799812DEA11)
   %11 = load i8, ptr %gtest_ar14, align 8
@@ -1791,7 +1814,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit36:          ; preds = %if.end31, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i35
   store ptr null, ptr %message_.i33, align 8
   store i64 10000, ptr %m, align 8
-  store <2 x double> <double -5.000000e+00, double 1.000000e+02>, ptr %mean, align 8
+  store double -5.000000e+00, ptr %mean, align 8
+  store double 1.000000e+02, ptr %variance, align 8
   %call37 = call noundef double @_ZN4absl15random_internal6ZScoreEdRKNS0_19DistributionMomentsE(double noundef -4.000000e+00, ptr noundef nonnull align 8 dereferenceable(40) %m)
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar36, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.24, double noundef %call37, double noundef -1.000000e+01, double noundef 0x3D719799812DEA11)
   %21 = load i8, ptr %gtest_ar36, align 8

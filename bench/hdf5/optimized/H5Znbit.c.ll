@@ -344,7 +344,7 @@ default.unreachable:                              ; preds = %85
 define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  %9 = alloca %struct.parms_atomic, align 16
+  %9 = alloca %struct.parms_atomic, align 4
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -359,7 +359,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
   %18 = load i64, ptr @H5E_ARGS_g, align 8
   %19 = load i64, ptr @H5E_BADVALUE_g, align 8
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__filter_nbit, i32 noundef 930, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.29) #8
-  br label %118
+  br label %127
 
 21:                                               ; preds = %6
   %22 = getelementptr inbounds i8, ptr %2, i64 4
@@ -369,14 +369,14 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
 
 24:                                               ; preds = %21
   %25 = load i64, ptr %4, align 8
-  br label %118
+  br label %127
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds i8, ptr %2, i64 8
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %0, 256
   %.not30 = icmp eq i32 %29, 0
-  br i1 %.not30, label %86, label %30
+  br i1 %.not30, label %87, label %30
 
 30:                                               ; preds = %26
   %31 = zext i32 %28 to i64
@@ -392,7 +392,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
   %38 = load i64, ptr @H5E_RESOURCE_g, align 8
   %39 = load i64, ptr @H5E_NOSPACE_g, align 8
   %40 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__filter_nbit, i32 noundef 947, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.30) #8
-  br label %118
+  br label %127
 
 41:                                               ; preds = %30
   %42 = load ptr, ptr %5, align 8
@@ -406,224 +406,237 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapt
   %44 = load i32, ptr %43, align 4
   switch i32 %44, label %H5Z__nbit_decompress.exit.thread [
     i32 1, label %45
-    i32 2, label %63
-    i32 3, label %72
+    i32 2, label %64
+    i32 3, label %73
   ]
 
 45:                                               ; preds = %41
   store i32 %33, ptr %13, align 4
   %46 = getelementptr inbounds i8, ptr %2, i64 20
-  %47 = getelementptr inbounds i8, ptr %13, i64 4
-  %48 = getelementptr inbounds i8, ptr %2, i64 24
-  %49 = load i32, ptr %48, align 4
-  %50 = load <2 x i32>, ptr %46, align 4
-  store <2 x i32> %50, ptr %47, align 4
-  %51 = getelementptr inbounds i8, ptr %2, i64 28
-  %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %13, i64 12
-  store i32 %52, ptr %53, align 4
-  %54 = shl i32 %33, 3
-  %55 = icmp ugt i32 %49, %54
-  %56 = add i32 %52, %49
-  %57 = icmp ugt i32 %56, %54
-  %or.cond.i = select i1 %55, i1 true, i1 %57
-  br i1 %or.cond.i, label %58, label %.preheader.i
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds i8, ptr %13, i64 4
+  store i32 %47, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %2, i64 24
+  %50 = load i32, ptr %49, align 4
+  %51 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 %50, ptr %51, align 4
+  %52 = getelementptr inbounds i8, ptr %2, i64 28
+  %53 = load i32, ptr %52, align 4
+  %54 = getelementptr inbounds i8, ptr %13, i64 12
+  store i32 %53, ptr %54, align 4
+  %55 = shl i32 %33, 3
+  %56 = icmp ugt i32 %50, %55
+  %57 = add i32 %53, %50
+  %58 = icmp ugt i32 %57, %55
+  %or.cond.i = select i1 %56, i1 true, i1 %58
+  br i1 %or.cond.i, label %59, label %.preheader.i
 
 .preheader.i:                                     ; preds = %45
   %.not47.i = icmp eq i32 %28, 0
   br i1 %.not47.i, label %H5Z__nbit_decompress.exit.thread, label %.lr.ph45.i
 
-58:                                               ; preds = %45
-  %59 = load i64, ptr @H5E_PLINE_g, align 8
-  %60 = load i64, ptr @H5E_BADTYPE_g, align 8
-  %61 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__nbit_decompress, i32 noundef 1282, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.25) #8
-  br label %81
+59:                                               ; preds = %45
+  %60 = load i64, ptr @H5E_PLINE_g, align 8
+  %61 = load i64, ptr @H5E_BADTYPE_g, align 8
+  %62 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__nbit_decompress, i32 noundef 1282, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.25) #8
+  br label %82
 
 .lr.ph45.i:                                       ; preds = %.preheader.i, %.lr.ph45.i
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.lr.ph45.i ], [ 0, %.preheader.i ]
-  %62 = mul nuw i64 %indvars.iv56.i, %34
-  call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef nonnull %calloc47, i64 noundef %62, ptr noundef readonly %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %63 = mul nuw i64 %indvars.iv56.i, %34
+  call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef nonnull %calloc47, i64 noundef %63, ptr noundef readonly %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %31
   br i1 %exitcond60.not.i, label %H5Z__nbit_decompress.exit.thread, label %.lr.ph45.i
 
-63:                                               ; preds = %41
+64:                                               ; preds = %41
   store i32 4, ptr %14, align 4
   %.not46.i = icmp eq i32 %28, 0
   br i1 %.not46.i, label %H5Z__nbit_decompress.exit.thread, label %.lr.ph43.i
 
-.lr.ph43.i:                                       ; preds = %63, %71
-  %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %71 ], [ 0, %63 ]
-  %64 = mul nuw i64 %indvars.iv51.i, %34
-  %65 = call fastcc i32 @H5Z__nbit_decompress_one_array(ptr noundef nonnull %calloc47, i64 noundef %64, ptr noundef readonly %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull readonly %2, ptr noundef nonnull %14)
-  %66 = icmp slt i32 %65, 0
-  br i1 %66, label %67, label %71
+.lr.ph43.i:                                       ; preds = %64, %72
+  %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %72 ], [ 0, %64 ]
+  %65 = mul nuw i64 %indvars.iv51.i, %34
+  %66 = call fastcc i32 @H5Z__nbit_decompress_one_array(ptr noundef nonnull %calloc47, i64 noundef %65, ptr noundef readonly %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull readonly %2, ptr noundef nonnull %14)
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %68, label %72
 
-67:                                               ; preds = %.lr.ph43.i
-  %68 = load i64, ptr @H5E_PLINE_g, align 8
-  %69 = load i64, ptr @H5E_CANTFILTER_g, align 8
-  %70 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__nbit_decompress, i32 noundef 1294, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.33) #8
-  br label %81
+68:                                               ; preds = %.lr.ph43.i
+  %69 = load i64, ptr @H5E_PLINE_g, align 8
+  %70 = load i64, ptr @H5E_CANTFILTER_g, align 8
+  %71 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__nbit_decompress, i32 noundef 1294, i64 noundef %69, i64 noundef %70, ptr noundef nonnull @.str.33) #8
+  br label %82
 
-71:                                               ; preds = %.lr.ph43.i
+72:                                               ; preds = %.lr.ph43.i
   store i32 4, ptr %14, align 4
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %31
   br i1 %exitcond55.not.i, label %H5Z__nbit_decompress.exit.thread, label %.lr.ph43.i
 
-72:                                               ; preds = %41
+73:                                               ; preds = %41
   store i32 4, ptr %14, align 4
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %H5Z__nbit_decompress.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %72, %80
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %80 ], [ 0, %72 ]
-  %73 = mul nuw i64 %indvars.iv.i, %34
-  %74 = call fastcc i32 @H5Z__nbit_decompress_one_compound(ptr noundef nonnull %calloc47, i64 noundef %73, ptr noundef readonly %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull readonly %2, ptr noundef nonnull %14)
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %76, label %80
+.lr.ph.i:                                         ; preds = %73, %81
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %81 ], [ 0, %73 ]
+  %74 = mul nuw i64 %indvars.iv.i, %34
+  %75 = call fastcc i32 @H5Z__nbit_decompress_one_compound(ptr noundef nonnull %calloc47, i64 noundef %74, ptr noundef readonly %42, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull readonly %2, ptr noundef nonnull %14)
+  %76 = icmp slt i32 %75, 0
+  br i1 %76, label %77, label %81
 
-76:                                               ; preds = %.lr.ph.i
-  %77 = load i64, ptr @H5E_PLINE_g, align 8
-  %78 = load i64, ptr @H5E_CANTFILTER_g, align 8
-  %79 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__nbit_decompress, i32 noundef 1305, i64 noundef %77, i64 noundef %78, ptr noundef nonnull @.str.34) #8
-  br label %81
+77:                                               ; preds = %.lr.ph.i
+  %78 = load i64, ptr @H5E_PLINE_g, align 8
+  %79 = load i64, ptr @H5E_CANTFILTER_g, align 8
+  %80 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__nbit_decompress, i32 noundef 1305, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.34) #8
+  br label %82
 
-80:                                               ; preds = %.lr.ph.i
+81:                                               ; preds = %.lr.ph.i
   store i32 4, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %31
   br i1 %exitcond.not.i, label %H5Z__nbit_decompress.exit.thread, label %.lr.ph.i
 
-H5Z__nbit_decompress.exit.thread:                 ; preds = %80, %71, %.lr.ph45.i, %41, %.preheader.i, %63, %72
+H5Z__nbit_decompress.exit.thread:                 ; preds = %81, %72, %.lr.ph45.i, %41, %.preheader.i, %64, %73
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %.pre = load ptr, ptr %5, align 8
-  br label %115
+  br label %124
 
-81:                                               ; preds = %76, %67, %58
+82:                                               ; preds = %77, %68, %59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  %82 = tail call ptr @H5MM_xfree(ptr noundef nonnull %calloc47) #8
-  %83 = load i64, ptr @H5E_PLINE_g, align 8
-  %84 = load i64, ptr @H5E_CANTFILTER_g, align 8
-  %85 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__filter_nbit, i32 noundef 952, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.31) #8
-  br label %118
+  %83 = tail call ptr @H5MM_xfree(ptr noundef nonnull %calloc47) #8
+  %84 = load i64, ptr @H5E_PLINE_g, align 8
+  %85 = load i64, ptr @H5E_CANTFILTER_g, align 8
+  %86 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__filter_nbit, i32 noundef 952, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.31) #8
+  br label %127
 
-86:                                               ; preds = %26
+87:                                               ; preds = %26
   %calloc = tail call ptr @calloc(i64 1, i64 %3)
-  %87 = icmp eq ptr %calloc, null
-  br i1 %87, label %88, label %92
+  %88 = icmp eq ptr %calloc, null
+  br i1 %88, label %89, label %93
 
-88:                                               ; preds = %86
-  %89 = load i64, ptr @H5E_RESOURCE_g, align 8
-  %90 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %91 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__filter_nbit, i32 noundef 963, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.32) #8
-  br label %118
+89:                                               ; preds = %87
+  %90 = load i64, ptr @H5E_RESOURCE_g, align 8
+  %91 = load i64, ptr @H5E_NOSPACE_g, align 8
+  %92 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__filter_nbit, i32 noundef 963, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.32) #8
+  br label %127
 
-92:                                               ; preds = %86
-  %93 = load ptr, ptr %5, align 8
+93:                                               ; preds = %87
+  %94 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i64 0, ptr %7, align 8
   store i64 8, ptr %8, align 8
-  %94 = getelementptr inbounds i8, ptr %2, i64 12
-  %95 = load i32, ptr %94, align 4
-  switch i32 %95, label %H5Z__nbit_compress.exit [
-    i32 1, label %96
-    i32 2, label %103
-    i32 3, label %108
+  %95 = getelementptr inbounds i8, ptr %2, i64 12
+  %96 = load i32, ptr %95, align 4
+  switch i32 %96, label %H5Z__nbit_compress.exit [
+    i32 1, label %97
+    i32 2, label %112
+    i32 3, label %117
   ]
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %2, i64 16
-  %98 = load <4 x i32>, ptr %97, align 4
-  %99 = load i32, ptr %97, align 4
-  store <4 x i32> %98, ptr %9, align 16
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds i8, ptr %2, i64 16
+  %99 = load i32, ptr %98, align 4
+  store i32 %99, ptr %9, align 4
+  %100 = getelementptr inbounds i8, ptr %2, i64 20
+  %101 = load i32, ptr %100, align 4
+  %102 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %101, ptr %102, align 4
+  %103 = getelementptr inbounds i8, ptr %2, i64 24
+  %104 = load i32, ptr %103, align 4
+  %105 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 %104, ptr %105, align 4
+  %106 = getelementptr inbounds i8, ptr %2, i64 28
+  %107 = load i32, ptr %106, align 4
+  %108 = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 %107, ptr %108, align 4
   %.not39.i = icmp eq i32 %28, 0
   br i1 %.not39.i, label %H5Z__nbit_compress.exit, label %.lr.ph37.i
 
-.lr.ph37.i:                                       ; preds = %96
-  %100 = zext i32 %99 to i64
+.lr.ph37.i:                                       ; preds = %97
+  %109 = zext i32 %99 to i64
   %wide.trip.count51.i = zext i32 %28 to i64
-  br label %101
+  br label %110
 
-101:                                              ; preds = %101, %.lr.ph37.i
-  %indvars.iv48.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next49.i, %101 ]
-  %102 = mul nuw i64 %indvars.iv48.i, %100
-  call fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef readonly %93, i64 noundef %102, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+110:                                              ; preds = %110, %.lr.ph37.i
+  %indvars.iv48.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next49.i, %110 ]
+  %111 = mul nuw i64 %indvars.iv48.i, %109
+  call fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef readonly %94, i64 noundef %111, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count51.i
-  br i1 %exitcond52.not.i, label %H5Z__nbit_compress.exit, label %101
+  br i1 %exitcond52.not.i, label %H5Z__nbit_compress.exit, label %110
 
-103:                                              ; preds = %92
-  %104 = getelementptr inbounds i8, ptr %2, i64 16
-  %105 = load i32, ptr %104, align 4
-  %106 = zext i32 %105 to i64
+112:                                              ; preds = %93
+  %113 = getelementptr inbounds i8, ptr %2, i64 16
+  %114 = load i32, ptr %113, align 4
+  %115 = zext i32 %114 to i64
   store i32 4, ptr %10, align 4
   %.not38.i = icmp eq i32 %28, 0
   br i1 %.not38.i, label %H5Z__nbit_compress.exit, label %.lr.ph35.preheader.i
 
-.lr.ph35.preheader.i:                             ; preds = %103
+.lr.ph35.preheader.i:                             ; preds = %112
   %wide.trip.count46.i = zext i32 %28 to i64
   br label %.lr.ph35.i
 
 .lr.ph35.i:                                       ; preds = %.lr.ph35.i, %.lr.ph35.preheader.i
   %indvars.iv43.i = phi i64 [ 0, %.lr.ph35.preheader.i ], [ %indvars.iv.next44.i, %.lr.ph35.i ]
-  %107 = mul nuw i64 %indvars.iv43.i, %106
-  call fastcc void @H5Z__nbit_compress_one_array(ptr noundef readonly %93, i64 noundef %107, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull readonly %2, ptr noundef nonnull %10)
+  %116 = mul nuw i64 %indvars.iv43.i, %115
+  call fastcc void @H5Z__nbit_compress_one_array(ptr noundef readonly %94, i64 noundef %116, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull readonly %2, ptr noundef nonnull %10)
   store i32 4, ptr %10, align 4
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count46.i
   br i1 %exitcond47.not.i, label %H5Z__nbit_compress.exit, label %.lr.ph35.i
 
-108:                                              ; preds = %92
-  %109 = getelementptr inbounds i8, ptr %2, i64 16
-  %110 = load i32, ptr %109, align 4
-  %111 = zext i32 %110 to i64
+117:                                              ; preds = %93
+  %118 = getelementptr inbounds i8, ptr %2, i64 16
+  %119 = load i32, ptr %118, align 4
+  %120 = zext i32 %119 to i64
   store i32 4, ptr %10, align 4
   %.not.i31 = icmp eq i32 %28, 0
   br i1 %.not.i31, label %H5Z__nbit_compress.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %108
+.lr.ph.preheader.i:                               ; preds = %117
   %wide.trip.count.i = zext i32 %28 to i64
   br label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %.lr.ph.preheader.i
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i34, %.lr.ph.i32 ]
-  %112 = mul nuw i64 %indvars.iv.i33, %111
-  call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef readonly %93, i64 noundef %112, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull readonly %2, ptr noundef nonnull %10)
+  %121 = mul nuw i64 %indvars.iv.i33, %120
+  call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef readonly %94, i64 noundef %121, ptr noundef nonnull %calloc, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull readonly %2, ptr noundef nonnull %10)
   store i32 4, ptr %10, align 4
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count.i
   br i1 %exitcond.not.i35, label %H5Z__nbit_compress.exit, label %.lr.ph.i32
 
-H5Z__nbit_compress.exit:                          ; preds = %.lr.ph.i32, %.lr.ph35.i, %101, %92, %96, %103, %108
-  %113 = load i64, ptr %7, align 8
-  %114 = add i64 %113, 1
+H5Z__nbit_compress.exit:                          ; preds = %.lr.ph.i32, %.lr.ph35.i, %110, %93, %97, %112, %117
+  %122 = load i64, ptr %7, align 8
+  %123 = add i64 %122, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %115
+  br label %124
 
-115:                                              ; preds = %H5Z__nbit_decompress.exit.thread, %H5Z__nbit_compress.exit
-  %116 = phi ptr [ %93, %H5Z__nbit_compress.exit ], [ %.pre, %H5Z__nbit_decompress.exit.thread ]
-  %.037 = phi i64 [ %114, %H5Z__nbit_compress.exit ], [ %35, %H5Z__nbit_decompress.exit.thread ]
+124:                                              ; preds = %H5Z__nbit_decompress.exit.thread, %H5Z__nbit_compress.exit
+  %125 = phi ptr [ %94, %H5Z__nbit_compress.exit ], [ %.pre, %H5Z__nbit_decompress.exit.thread ]
+  %.037 = phi i64 [ %123, %H5Z__nbit_compress.exit ], [ %35, %H5Z__nbit_decompress.exit.thread ]
   %.026 = phi ptr [ %calloc, %H5Z__nbit_compress.exit ], [ %calloc47, %H5Z__nbit_decompress.exit.thread ]
-  %117 = tail call ptr @H5MM_xfree(ptr noundef %116) #8
+  %126 = tail call ptr @H5MM_xfree(ptr noundef %125) #8
   store ptr %.026, ptr %5, align 8
   store i64 %.037, ptr %4, align 8
-  br label %118
+  br label %127
 
-118:                                              ; preds = %115, %88, %81, %37, %24, %17
-  %.0 = phi i64 [ 0, %17 ], [ %25, %24 ], [ 0, %37 ], [ 0, %81 ], [ %.037, %115 ], [ 0, %88 ]
+127:                                              ; preds = %124, %89, %82, %37, %24, %17
+  %.0 = phi i64 [ 0, %17 ], [ %25, %24 ], [ 0, %37 ], [ 0, %82 ], [ %.037, %124 ], [ 0, %89 ]
   ret i64 %.0
 }
 

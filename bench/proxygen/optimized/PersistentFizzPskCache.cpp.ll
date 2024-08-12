@@ -469,7 +469,13 @@ entry:
   %exponent_character_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 24
   store i8 69, ptr %exponent_character_.i.i.i, align 8
   %decimal_in_shortest_low_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 28
-  store <4 x i32> <i32 -6, i32 21, i32 6, i32 1>, ptr %decimal_in_shortest_low_.i.i.i, align 4
+  store i32 -6, ptr %decimal_in_shortest_low_.i.i.i, align 4
+  %decimal_in_shortest_high_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 32
+  store i32 21, ptr %decimal_in_shortest_high_.i.i.i, align 8
+  %max_leading_padding_zeroes_in_precision_mode_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 36
+  store i32 6, ptr %max_leading_padding_zeroes_in_precision_mode_.i.i.i, align 4
+  %max_trailing_padding_zeroes_in_precision_mode_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 40
+  store i32 1, ptr %max_trailing_padding_zeroes_in_precision_mode_.i.i.i, align 8
   %min_exponent_width_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 44
   store i32 0, ptr %min_exponent_width_.i.i.i, align 4
   store ptr %buffer.i.i, ptr %builder.i.i, align 8
@@ -1335,7 +1341,13 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %exponent_character_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 24
   store i8 69, ptr %exponent_character_.i.i.i, align 8
   %decimal_in_shortest_low_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 28
-  store <4 x i32> <i32 -6, i32 21, i32 6, i32 1>, ptr %decimal_in_shortest_low_.i.i.i, align 4
+  store i32 -6, ptr %decimal_in_shortest_low_.i.i.i, align 4
+  %decimal_in_shortest_high_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 32
+  store i32 21, ptr %decimal_in_shortest_high_.i.i.i, align 8
+  %max_leading_padding_zeroes_in_precision_mode_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 36
+  store i32 6, ptr %max_leading_padding_zeroes_in_precision_mode_.i.i.i, align 4
+  %max_trailing_padding_zeroes_in_precision_mode_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 40
+  store i32 1, ptr %max_trailing_padding_zeroes_in_precision_mode_.i.i.i, align 8
   %min_exponent_width_.i.i.i = getelementptr inbounds i8, ptr %conv.i.i, i64 44
   store i32 0, ptr %min_exponent_width_.i.i.i, align 4
   store ptr %buffer.i.i, ptr %builder.i.i, align 8

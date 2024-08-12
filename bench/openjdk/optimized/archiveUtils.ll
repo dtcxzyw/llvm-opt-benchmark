@@ -914,95 +914,97 @@ _ZN15ClassListWriter10is_enabledEv.exit:          ; preds = %2
   %20 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 32
-  %23 = load <2 x ptr>, ptr %22, align 8
-  %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 8
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
-  %28 = load i32, ptr %27, align 8
-  %29 = load ptr, ptr @ClassListFile_lock, align 8
-  %.not.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i, label %_ZN15ClassListWriterC2Ev.exit, label %30
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %19, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %19, i64 8
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = load i32, ptr %28, align 8
+  %30 = load ptr, ptr @ClassListFile_lock, align 8
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %_ZN15ClassListWriterC2Ev.exit, label %31
 
-30:                                               ; preds = %17
-  %31 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %32 = load ptr, ptr %31, align 8
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEP6Thread(ptr noundef nonnull align 8 dereferenceable(104) %29, ptr noundef %32) #10
+31:                                               ; preds = %17
+  %32 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %33 = load ptr, ptr %32, align 8
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEP6Thread(ptr noundef nonnull align 8 dereferenceable(104) %30, ptr noundef %33) #10
   br label %_ZN15ClassListWriterC2Ev.exit
 
-_ZN15ClassListWriterC2Ev.exit:                    ; preds = %17, %30
-  %33 = load ptr, ptr @_ZN15ClassListWriter15_classlist_fileE, align 8
-  %34 = load ptr, ptr @_ZN15ClassListParser16LAMBDA_PROXY_TAGE, align 8
-  %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %39) #10
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull @.str.13, ptr noundef %34, ptr noundef %40) #10
+_ZN15ClassListWriterC2Ev.exit:                    ; preds = %17, %31
+  %34 = load ptr, ptr @_ZN15ClassListWriter15_classlist_fileE, align 8
+  %35 = load ptr, ptr @_ZN15ClassListParser16LAMBDA_PROXY_TAGE, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %40) #10
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull @.str.13, ptr noundef %35, ptr noundef %41) #10
   store ptr null, ptr %3, align 8
-  call void @_ZN15ClassListParser22populate_cds_indy_infoERK18constantPoolHandleiP11CDSIndyInfoP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %28, ptr noundef nonnull %3, ptr noundef nonnull %1) #10
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %.not19 = icmp eq ptr %42, null
-  br i1 %.not19, label %43, label %57
+  call void @_ZN15ClassListParser22populate_cds_indy_infoERK18constantPoolHandleiP11CDSIndyInfoP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %29, ptr noundef nonnull %3, ptr noundef nonnull %1) #10
+  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %.not19 = icmp eq ptr %43, null
+  br i1 %.not19, label %44, label %58
 
-43:                                               ; preds = %_ZN15ClassListWriterC2Ev.exit
-  %44 = load ptr, ptr %3, align 8
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.lr.ph, label %._crit_edge
+44:                                               ; preds = %_ZN15ClassListWriterC2Ev.exit
+  %45 = load ptr, ptr %3, align 8
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %44, i64 8
-  br label %48
+.lr.ph:                                           ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  br label %49
 
-48:                                               ; preds = %.lr.ph, %48
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %49 = load ptr, ptr @_ZN15ClassListWriter15_classlist_fileE, align 8
-  %50 = load ptr, ptr %47, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv
-  %52 = load ptr, ptr %51, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull @.str.14, ptr noundef %52) #10
+49:                                               ; preds = %.lr.ph, %49
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
+  %50 = load ptr, ptr @_ZN15ClassListWriter15_classlist_fileE, align 8
+  %51 = load ptr, ptr %48, align 8
+  %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv
+  %53 = load ptr, ptr %52, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull @.str.14, ptr noundef %53) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load i32, ptr %44, align 4
-  %54 = sext i32 %53 to i64
-  %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %48, label %._crit_edge, !llvm.loop !11
+  %54 = load i32, ptr %45, align 4
+  %55 = sext i32 %54 to i64
+  %56 = icmp slt i64 %indvars.iv.next, %55
+  br i1 %56, label %49, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %48, %43
-  %56 = load ptr, ptr @_ZN15ClassListWriter15_classlist_fileE, align 8
-  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %56) #10
-  br label %57
+._crit_edge:                                      ; preds = %49, %44
+  %57 = load ptr, ptr @_ZN15ClassListWriter15_classlist_fileE, align 8
+  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %57) #10
+  br label %58
 
-57:                                               ; preds = %_ZN15ClassListWriterC2Ev.exit, %._crit_edge
-  br i1 %.not.i.i.i, label %_ZN15ClassListWriterD2Ev.exit, label %58
+58:                                               ; preds = %_ZN15ClassListWriterC2Ev.exit, %._crit_edge
+  br i1 %.not.i.i.i, label %_ZN15ClassListWriterD2Ev.exit, label %59
 
-58:                                               ; preds = %57
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %29) #10
+59:                                               ; preds = %58
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %30) #10
   br label %_ZN15ClassListWriterD2Ev.exit
 
-_ZN15ClassListWriterD2Ev.exit:                    ; preds = %57, %58
-  %59 = load ptr, ptr %21, align 8
-  %.not.i.i.i.i = icmp eq ptr %59, null
-  br i1 %.not.i.i.i.i, label %61, label %60
+_ZN15ClassListWriterD2Ev.exit:                    ; preds = %58, %59
+  %60 = load ptr, ptr %21, align 8
+  %.not.i.i.i.i = icmp eq ptr %60, null
+  br i1 %.not.i.i.i.i, label %62, label %61
 
-60:                                               ; preds = %_ZN15ClassListWriterD2Ev.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %19, i64 noundef %26) #10
+61:                                               ; preds = %_ZN15ClassListWriterD2Ev.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %19, i64 noundef %27) #10
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %21) #10
-  br label %61
+  br label %62
 
-61:                                               ; preds = %60, %_ZN15ClassListWriterD2Ev.exit
-  %62 = load ptr, ptr %22, align 8
-  %.not8.i.i.i.i = icmp eq ptr %62, %24
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %63
+62:                                               ; preds = %61, %_ZN15ClassListWriterD2Ev.exit
+  %63 = load ptr, ptr %22, align 8
+  %.not8.i.i.i.i = icmp eq ptr %63, %23
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %64
 
-63:                                               ; preds = %61
+64:                                               ; preds = %62
   store ptr %21, ptr %20, align 8
-  store <2 x ptr> %23, ptr %22, align 8
+  store ptr %23, ptr %22, align 8
+  store ptr %25, ptr %24, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %2, %63, %61, %7, %9, %_ZN15ClassListWriter10is_enabledEv.exit
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %2, %64, %62, %7, %9, %_ZN15ClassListWriter10is_enabledEv.exit
   ret void
 }
 

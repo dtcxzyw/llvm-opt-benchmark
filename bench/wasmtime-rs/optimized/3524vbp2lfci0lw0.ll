@@ -7,41 +7,45 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @"_ZN54_$LT$semver..Version$u20$as$u20$core..clone..Clone$GT$5clone17hb76b71bc9f230d5aE"(ptr nocapture writeonly sret({ { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, [0 x i8] } }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = load <2 x i64>, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = load i64, ptr %4, align 8, !noundef !3
+  %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = tail call i64 @"_ZN69_$LT$semver..identifier..Identifier$u20$as$u20$core..clone..Clone$GT$5clone17hc59a54ca3e03fdfeE"(ptr align 8 %1)
-  %9 = inttoptr i64 %8 to ptr
-  store ptr %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = invoke i64 @"_ZN69_$LT$semver..identifier..Identifier$u20$as$u20$core..clone..Clone$GT$5clone17hc59a54ca3e03fdfeE"(ptr nonnull align 8 %10)
-          to label %14 unwind label %12
-
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$semver..Prerelease$GT$17h8b05ffaf993d7d64E"(ptr nonnull align 8 %3) #3
-          to label %21 unwind label %19
+  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = load i64, ptr %8, align 8, !noundef !3
+  %10 = tail call i64 @"_ZN69_$LT$semver..identifier..Identifier$u20$as$u20$core..clone..Clone$GT$5clone17hc59a54ca3e03fdfeE"(ptr align 8 %1)
+  %11 = inttoptr i64 %10 to ptr
+  store ptr %11, ptr %3, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = invoke i64 @"_ZN69_$LT$semver..identifier..Identifier$u20$as$u20$core..clone..Clone$GT$5clone17hc59a54ca3e03fdfeE"(ptr nonnull align 8 %12)
+          to label %16 unwind label %14
 
 14:                                               ; preds = %2
-  %15 = inttoptr i64 %11 to ptr
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x i64> %5, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %7, ptr %17, align 8
-  store i64 %8, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %15, ptr %18, align 8
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$semver..Prerelease$GT$17h8b05ffaf993d7d64E"(ptr nonnull align 8 %3) #3
+          to label %24 unwind label %22
+
+16:                                               ; preds = %2
+  %17 = inttoptr i64 %13 to ptr
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %5, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %7, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %9, ptr %20, align 8
+  store i64 %10, ptr %0, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %17, ptr %21, align 8
   ret void
 
-19:                                               ; preds = %12
-  %20 = landingpad { ptr, i32 }
+22:                                               ; preds = %14
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #4
   unreachable
 
-21:                                               ; preds = %12
-  resume { ptr, i32 } %13
+24:                                               ; preds = %14
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

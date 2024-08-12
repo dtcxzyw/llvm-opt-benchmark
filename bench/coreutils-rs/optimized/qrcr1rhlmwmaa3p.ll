@@ -64,40 +64,46 @@ define hidden void @_ZN7walkdir7WalkDir3new17he6943bb2379e981bE(ptr noalias noca
   %5 = alloca { { ptr, [1 x i64] }, i64, i64, i64, i8, i8, i8, i8, [4 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   %6 = getelementptr inbounds i8, ptr %5, i64 40
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 10, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
-  store i64 -1, ptr %9, align 8
+  store i8 0, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 41
+  store i8 1, ptr %7, align 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 10, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  store i64 -1, ptr %10, align 8
   store ptr null, ptr %5, align 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %6, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 42
+  store i8 0, ptr %11, align 2
+  %12 = getelementptr inbounds i8, ptr %5, i64 43
+  store i8 0, ptr %12, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   invoke void @_ZN3std4path4Path11to_path_buf17hfcbed8e25bb65f6fE(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-          to label %12 unwind label %10
+          to label %15 unwind label %13
 
-10:                                               ; preds = %3
-  %11 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr44drop_in_place$LT$walkdir..WalkDirOptions$GT$17hbc254c6a0156b41cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5) #7
-          to label %16 unwind label %14
+          to label %19 unwind label %17
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   ret void
 
-14:                                               ; preds = %10
-  %15 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #6
   unreachable
 
-16:                                               ; preds = %10
-  resume { ptr, i32 } %11
+19:                                               ; preds = %13
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: nonlazybind uwtable

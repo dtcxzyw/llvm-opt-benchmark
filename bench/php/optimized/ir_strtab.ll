@@ -197,7 +197,7 @@ ir_str_hash.exit:                                 ; preds = %4, %._crit_edge.loo
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %20, i64 20
   %33 = load i32, ptr %32, align 4
-  br label %147
+  br label %148
 
 34:                                               ; preds = %27, %23, %.lr.ph
   %35 = getelementptr inbounds i8, ptr %20, i64 16
@@ -366,29 +366,31 @@ ir_strtab_grow_buf.exit:                          ; preds = %ir_strtab_grow_buf.
   %.063 = phi ptr [ %129, %ir_strtab_grow_buf.exit ], [ %1, %85 ]
   %132 = getelementptr inbounds i8, ptr %0, i64 20
   %133 = load i32, ptr %132, align 4
-  %134 = load <2 x i32>, ptr %36, align 8
-  %135 = zext i32 %133 to i64
-  %136 = add <2 x i32> %134, <i32 1, i32 24>
-  store <2 x i32> %136, ptr %36, align 8
-  %137 = getelementptr inbounds i8, ptr %.061, i64 %135
-  store i32 %.0.lcssa.i, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 4
-  store i32 %2, ptr %138, align 4
-  %139 = getelementptr inbounds i8, ptr %137, i64 8
-  store ptr %.063, ptr %139, align 8
-  %140 = load i32, ptr %14, align 8
-  %141 = or i32 %140, %.0.lcssa.i
-  %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds i32, ptr %.061, i64 %142
-  %144 = load i32, ptr %143, align 4
-  %145 = getelementptr inbounds i8, ptr %137, i64 16
-  store i32 %144, ptr %145, align 8
-  store i32 %133, ptr %143, align 4
-  %146 = getelementptr inbounds i8, ptr %137, i64 20
-  store i32 %3, ptr %146, align 4
-  br label %147
+  %134 = zext i32 %133 to i64
+  %135 = add i32 %133, 24
+  store i32 %135, ptr %132, align 4
+  %136 = load i32, ptr %36, align 8
+  %137 = add i32 %136, 1
+  store i32 %137, ptr %36, align 8
+  %138 = getelementptr inbounds i8, ptr %.061, i64 %134
+  store i32 %.0.lcssa.i, ptr %138, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 4
+  store i32 %2, ptr %139, align 4
+  %140 = getelementptr inbounds i8, ptr %138, i64 8
+  store ptr %.063, ptr %140, align 8
+  %141 = load i32, ptr %14, align 8
+  %142 = or i32 %141, %.0.lcssa.i
+  %143 = sext i32 %142 to i64
+  %144 = getelementptr inbounds i32, ptr %.061, i64 %143
+  %145 = load i32, ptr %144, align 4
+  %146 = getelementptr inbounds i8, ptr %138, i64 16
+  store i32 %145, ptr %146, align 8
+  store i32 %133, ptr %144, align 4
+  %147 = getelementptr inbounds i8, ptr %138, i64 20
+  store i32 %3, ptr %147, align 4
+  br label %148
 
-147:                                              ; preds = %131, %31
+148:                                              ; preds = %131, %31
   %.062 = phi i32 [ %33, %31 ], [ %3, %131 ]
   ret i32 %.062
 }

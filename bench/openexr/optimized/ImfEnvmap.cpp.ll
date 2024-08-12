@@ -26,65 +26,64 @@ define void @_ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_24Vec3IfEE(ptr noalias 
 entry:
   %z = getelementptr inbounds i8, ptr %dir, i64 8
   %0 = load float, ptr %z, align 4
+  %1 = load float, ptr %dir, align 4
+  %mul3 = fmul float %1, %1
+  %2 = tail call float @llvm.fmuladd.f32(float %0, float %0, float %mul3)
+  %sqrt = tail call float @llvm.sqrt.f32(float %2)
   %y = getelementptr inbounds i8, ptr %dir, i64 4
-  %1 = load <2 x float>, ptr %dir, align 4
-  %2 = extractelement <2 x float> %1, i64 0
-  %3 = fmul <2 x float> %1, %1
-  %mul3 = extractelement <2 x float> %3, i64 0
-  %4 = tail call float @llvm.fmuladd.f32(float %0, float %0, float %mul3)
-  %sqrt = tail call float @llvm.sqrt.f32(float %4)
-  %5 = extractelement <2 x float> %1, i64 1
-  %6 = tail call noundef float @llvm.fabs.f32(float %5)
-  %cmp = fcmp olt float %sqrt, %6
-  %mul4.i.i = fmul float %5, %5
-  %7 = tail call float @llvm.fmuladd.f32(float %2, float %2, float %mul4.i.i)
-  %8 = tail call noundef float @llvm.fmuladd.f32(float %0, float %0, float %7)
-  %cmp.i = fcmp olt float %8, 0x3820000000000000
+  %3 = load float, ptr %y, align 4
+  %4 = tail call noundef float @llvm.fabs.f32(float %3)
+  %cmp = fcmp olt float %sqrt, %4
+  %mul4.i.i = fmul float %3, %3
+  %5 = tail call float @llvm.fmuladd.f32(float %1, float %1, float %mul4.i.i)
+  %6 = tail call noundef float @llvm.fmuladd.f32(float %0, float %0, float %5)
+  %cmp.i = fcmp olt float %6, 0x3820000000000000
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cond.true
-  %9 = fcmp ult <2 x float> %1, zeroinitializer
-  %10 = fneg <2 x float> %1
-  %11 = select <2 x i1> %9, <2 x float> %10, <2 x float> %1
+  %cmp.i.i = fcmp ult float %1, 0.000000e+00
+  %fneg.i.i = fneg float %1
+  %cond.i.i = select i1 %cmp.i.i, float %fneg.i.i, float %1
+  %cmp4.i.i = fcmp ult float %3, 0.000000e+00
+  %fneg9.i.i = fneg float %3
+  %cond11.i.i = select i1 %cmp4.i.i, float %fneg9.i.i, float %3
   %cmp12.i.i = fcmp ult float %0, 0.000000e+00
   %fneg17.i.i = fneg float %0
   %cond19.i.i = select i1 %cmp12.i.i, float %fneg17.i.i, float %0
-  %12 = extractelement <2 x float> %11, i64 0
-  %13 = extractelement <2 x float> %11, i64 1
-  %cmp20.i.i = fcmp olt float %12, %13
-  %max.0.i.i = select i1 %cmp20.i.i, float %13, float %12
+  %cmp20.i.i = fcmp olt float %cond.i.i, %cond11.i.i
+  %max.0.i.i = select i1 %cmp20.i.i, float %cond11.i.i, float %cond.i.i
   %cmp21.i.i = fcmp olt float %max.0.i.i, %cond19.i.i
   %max.1.i.i = select i1 %cmp21.i.i, float %cond19.i.i, float %max.0.i.i
   %cmp24.i.i = fcmp oeq float %max.1.i.i, 0.000000e+00
   br i1 %cmp24.i.i, label %_ZNK9Imath_3_24Vec3IfE6lengthEv.exit, label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %if.then.i
-  %div.i.i = fdiv float %12, %max.1.i.i
-  %div27.i.i = fdiv float %13, %max.1.i.i
+  %div.i.i = fdiv float %cond.i.i, %max.1.i.i
+  %div27.i.i = fdiv float %cond11.i.i, %max.1.i.i
   %div28.i.i = fdiv float %cond19.i.i, %max.1.i.i
   %mul29.i.i = fmul float %div27.i.i, %div27.i.i
-  %14 = tail call float @llvm.fmuladd.f32(float %div.i.i, float %div.i.i, float %mul29.i.i)
-  %15 = tail call float @llvm.fmuladd.f32(float %div28.i.i, float %div28.i.i, float %14)
-  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %15)
+  %7 = tail call float @llvm.fmuladd.f32(float %div.i.i, float %div.i.i, float %mul29.i.i)
+  %8 = tail call float @llvm.fmuladd.f32(float %div28.i.i, float %div28.i.i, float %7)
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %8)
   %mul.i.i = fmul float %max.1.i.i, %sqrt.i.i
   br label %_ZNK9Imath_3_24Vec3IfE6lengthEv.exit
 
 if.end.i:                                         ; preds = %cond.true
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %8)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %6)
   br label %_ZNK9Imath_3_24Vec3IfE6lengthEv.exit
 
 _ZNK9Imath_3_24Vec3IfE6lengthEv.exit:             ; preds = %if.then.i, %if.end26.i.i, %if.end.i
   %retval.0.i = phi float [ %sqrt.i, %if.end.i ], [ %mul.i.i, %if.end26.i.i ], [ 0.000000e+00, %if.then.i ]
   %div = fdiv float %sqrt, %retval.0.i
   %call.i14 = tail call noundef float @acosf(float noundef %div) #12
-  %16 = load float, ptr %y, align 4
-  %cmp.i15 = fcmp ogt float %16, 0.000000e+00
-  %cmp1.i = fcmp olt float %16, 0.000000e+00
-  %17 = sitofp i1 %cmp1.i to float
-  %conv = select i1 %cmp.i15, float 1.000000e+00, float %17
+  %9 = load float, ptr %y, align 4
+  %cmp.i15 = fcmp ogt float %9, 0.000000e+00
+  %cmp1.i = fcmp olt float %9, 0.000000e+00
+  %10 = sitofp i1 %cmp1.i to float
+  %conv = select i1 %cmp.i15, float 1.000000e+00, float %10
   %mul = fmul float %call.i14, %conv
   br label %cond.end
 
@@ -92,53 +91,54 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp.i, label %if.then.i23, label %if.end.i20
 
 if.then.i23:                                      ; preds = %cond.false
-  %18 = fcmp ult <2 x float> %1, zeroinitializer
-  %19 = fneg <2 x float> %1
-  %20 = select <2 x i1> %18, <2 x float> %19, <2 x float> %1
+  %cmp.i.i24 = fcmp ult float %1, 0.000000e+00
+  %fneg.i.i25 = fneg float %1
+  %cond.i.i26 = select i1 %cmp.i.i24, float %fneg.i.i25, float %1
+  %cmp4.i.i27 = fcmp ult float %3, 0.000000e+00
+  %fneg9.i.i28 = fneg float %3
+  %cond11.i.i29 = select i1 %cmp4.i.i27, float %fneg9.i.i28, float %3
   %cmp12.i.i30 = fcmp ult float %0, 0.000000e+00
   %fneg17.i.i31 = fneg float %0
   %cond19.i.i32 = select i1 %cmp12.i.i30, float %fneg17.i.i31, float %0
-  %21 = extractelement <2 x float> %20, i64 0
-  %22 = extractelement <2 x float> %20, i64 1
-  %cmp20.i.i33 = fcmp olt float %21, %22
-  %max.0.i.i34 = select i1 %cmp20.i.i33, float %22, float %21
+  %cmp20.i.i33 = fcmp olt float %cond.i.i26, %cond11.i.i29
+  %max.0.i.i34 = select i1 %cmp20.i.i33, float %cond11.i.i29, float %cond.i.i26
   %cmp21.i.i35 = fcmp olt float %max.0.i.i34, %cond19.i.i32
   %max.1.i.i36 = select i1 %cmp21.i.i35, float %cond19.i.i32, float %max.0.i.i34
   %cmp24.i.i37 = fcmp oeq float %max.1.i.i36, 0.000000e+00
   br i1 %cmp24.i.i37, label %_ZNK9Imath_3_24Vec3IfE6lengthEv.exit45, label %if.end26.i.i38
 
 if.end26.i.i38:                                   ; preds = %if.then.i23
-  %div.i.i39 = fdiv float %21, %max.1.i.i36
-  %div27.i.i40 = fdiv float %22, %max.1.i.i36
+  %div.i.i39 = fdiv float %cond.i.i26, %max.1.i.i36
+  %div27.i.i40 = fdiv float %cond11.i.i29, %max.1.i.i36
   %div28.i.i41 = fdiv float %cond19.i.i32, %max.1.i.i36
   %mul29.i.i42 = fmul float %div27.i.i40, %div27.i.i40
-  %23 = tail call float @llvm.fmuladd.f32(float %div.i.i39, float %div.i.i39, float %mul29.i.i42)
-  %24 = tail call float @llvm.fmuladd.f32(float %div28.i.i41, float %div28.i.i41, float %23)
-  %sqrt.i.i43 = tail call float @llvm.sqrt.f32(float %24)
+  %11 = tail call float @llvm.fmuladd.f32(float %div.i.i39, float %div.i.i39, float %mul29.i.i42)
+  %12 = tail call float @llvm.fmuladd.f32(float %div28.i.i41, float %div28.i.i41, float %11)
+  %sqrt.i.i43 = tail call float @llvm.sqrt.f32(float %12)
   %mul.i.i44 = fmul float %max.1.i.i36, %sqrt.i.i43
   br label %_ZNK9Imath_3_24Vec3IfE6lengthEv.exit45
 
 if.end.i20:                                       ; preds = %cond.false
-  %sqrt.i21 = tail call float @llvm.sqrt.f32(float %8)
+  %sqrt.i21 = tail call float @llvm.sqrt.f32(float %6)
   br label %_ZNK9Imath_3_24Vec3IfE6lengthEv.exit45
 
 _ZNK9Imath_3_24Vec3IfE6lengthEv.exit45:           ; preds = %if.then.i23, %if.end26.i.i38, %if.end.i20
   %retval.0.i22 = phi float [ %sqrt.i21, %if.end.i20 ], [ %mul.i.i44, %if.end26.i.i38 ], [ 0.000000e+00, %if.then.i23 ]
-  %div11 = fdiv float %5, %retval.0.i22
+  %div11 = fdiv float %3, %retval.0.i22
   %call.i46 = tail call noundef float @asinf(float noundef %div11) #12
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZNK9Imath_3_24Vec3IfE6lengthEv.exit45, %_ZNK9Imath_3_24Vec3IfE6lengthEv.exit
   %cond = phi float [ %mul, %_ZNK9Imath_3_24Vec3IfE6lengthEv.exit ], [ %call.i46, %_ZNK9Imath_3_24Vec3IfE6lengthEv.exit45 ]
-  %25 = load float, ptr %z, align 4
-  %cmp14 = fcmp oeq float %25, 0.000000e+00
-  %26 = load float, ptr %dir, align 4
-  %cmp16 = fcmp oeq float %26, 0.000000e+00
+  %13 = load float, ptr %z, align 4
+  %cmp14 = fcmp oeq float %13, 0.000000e+00
+  %14 = load float, ptr %dir, align 4
+  %cmp16 = fcmp oeq float %14, 0.000000e+00
   %or.cond = select i1 %cmp14, i1 %cmp16, i1 false
   br i1 %or.cond, label %cond.end22, label %cond.false18
 
 cond.false18:                                     ; preds = %cond.end
-  %call.i47 = tail call noundef float @atan2f(float noundef %26, float noundef %25) #12
+  %call.i47 = tail call noundef float @atan2f(float noundef %14, float noundef %13) #12
   br label %cond.end22
 
 cond.end22:                                       ; preds = %cond.end, %cond.false18
@@ -204,39 +204,65 @@ if.end32:                                         ; preds = %if.end, %if.then16
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7Imf_3_210LatLongMap13pixelPositionERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %latLong) local_unnamed_addr #5 {
 entry:
+  %y = getelementptr inbounds i8, ptr %latLong, i64 4
+  %0 = load float, ptr %y, align 4
+  %div = fdiv float %0, 0x401921FB60000000
+  %1 = fsub float 5.000000e-01, %div
+  %2 = load float, ptr %latLong, align 4
+  %div3 = fdiv float %2, 0x400921FB60000000
+  %3 = fsub float 5.000000e-01, %div3
   %max = getelementptr inbounds i8, ptr %dataWindow, i64 8
-  %0 = load <2 x float>, ptr %latLong, align 4
-  %1 = fdiv <2 x float> %0, <float 0x400921FB60000000, float 0x401921FB60000000>
-  %2 = fsub <2 x float> <float 5.000000e-01, float 5.000000e-01>, %1
-  %3 = shufflevector <2 x float> %2, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %4 = load <2 x i32>, ptr %max, align 4
-  %5 = load <2 x i32>, ptr %dataWindow, align 4
-  %6 = sub nsw <2 x i32> %4, %5
-  %7 = sitofp <2 x i32> %6 to <2 x float>
-  %8 = sitofp <2 x i32> %5 to <2 x float>
-  %9 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %3, <2 x float> %7, <2 x float> %8)
-  store <2 x float> %9, ptr %agg.result, align 4
+  %4 = load i32, ptr %max, align 4
+  %5 = load i32, ptr %dataWindow, align 4
+  %sub = sub nsw i32 %4, %5
+  %conv = sitofp i32 %sub to float
+  %conv9 = sitofp i32 %5 to float
+  %6 = tail call float @llvm.fmuladd.f32(float %1, float %conv, float %conv9)
+  %y11 = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %7 = load i32, ptr %y11, align 4
+  %y13 = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %8 = load i32, ptr %y13, align 4
+  %sub14 = sub nsw i32 %7, %8
+  %conv15 = sitofp i32 %sub14 to float
+  %conv18 = sitofp i32 %8 to float
+  %9 = tail call float @llvm.fmuladd.f32(float %3, float %conv15, float %conv18)
+  store float %6, ptr %agg.result, align 4
+  %y.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  store float %9, ptr %y.i, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN7Imf_3_210LatLongMap13pixelPositionERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS1_4Vec3IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %direction) local_unnamed_addr #6 {
 entry:
-  %ref.tmp = alloca %"class.Imath_3_2::Vec2", align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec2", align 4
   call void @_ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_24Vec3IfEE(ptr nonnull sret(%"class.Imath_3_2::Vec2") align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(12) %direction)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %0 = load float, ptr %y.i, align 4, !noalias !4
+  %div.i = fdiv float %0, 0x401921FB60000000
+  %1 = fsub float 5.000000e-01, %div.i
+  %2 = load float, ptr %ref.tmp, align 4, !noalias !4
+  %div3.i = fdiv float %2, 0x400921FB60000000
+  %3 = fsub float 5.000000e-01, %div3.i
   %max.i = getelementptr inbounds i8, ptr %dataWindow, i64 8
-  %0 = load <2 x float>, ptr %ref.tmp, align 8, !noalias !4
-  %1 = fdiv <2 x float> %0, <float 0x400921FB60000000, float 0x401921FB60000000>
-  %2 = fsub <2 x float> <float 5.000000e-01, float 5.000000e-01>, %1
-  %3 = shufflevector <2 x float> %2, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %4 = load <2 x i32>, ptr %max.i, align 4, !noalias !4
-  %5 = load <2 x i32>, ptr %dataWindow, align 4, !noalias !4
-  %6 = sub nsw <2 x i32> %4, %5
-  %7 = sitofp <2 x i32> %6 to <2 x float>
-  %8 = sitofp <2 x i32> %5 to <2 x float>
-  %9 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %3, <2 x float> %7, <2 x float> %8)
-  store <2 x float> %9, ptr %agg.result, align 4, !alias.scope !4
+  %4 = load i32, ptr %max.i, align 4, !noalias !4
+  %5 = load i32, ptr %dataWindow, align 4, !noalias !4
+  %sub.i = sub nsw i32 %4, %5
+  %conv.i = sitofp i32 %sub.i to float
+  %conv9.i = sitofp i32 %5 to float
+  %6 = tail call float @llvm.fmuladd.f32(float %1, float %conv.i, float %conv9.i)
+  %y11.i = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %7 = load i32, ptr %y11.i, align 4, !noalias !4
+  %y13.i = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %8 = load i32, ptr %y13.i, align 4, !noalias !4
+  %sub14.i = sub nsw i32 %7, %8
+  %conv15.i = sitofp i32 %sub14.i to float
+  %conv18.i = sitofp i32 %8 to float
+  %9 = tail call float @llvm.fmuladd.f32(float %3, float %conv15.i, float %conv18.i)
+  store float %6, ptr %agg.result, align 4, !alias.scope !4
+  %y.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  store float %9, ptr %y.i.i, align 4, !alias.scope !4
   ret void
 }
 
@@ -365,8 +391,9 @@ entry:
   %mul.i = mul nsw i32 %.sroa.speculated.i.i, %face
   %sub.i = add i32 %.sroa.speculated.i.i, -1
   %sub8.i = add i32 %sub.i, %mul.i
+  store float 0.000000e+00, ptr %agg.result, align 4
   %y.i = getelementptr inbounds i8, ptr %agg.result, i64 4
-  store <2 x float> zeroinitializer, ptr %agg.result, align 4
+  store float 0.000000e+00, ptr %y.i, align 4
   switch i32 %face, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb6
@@ -463,47 +490,47 @@ entry:
   %add7.i = sub i32 %sub6.i, %3
   %div.i = sdiv i32 %add7.i, 6
   %.sroa.speculated.i = tail call noundef i32 @llvm.smin.i32(i32 %div.i, i32 %add.i)
+  %4 = load float, ptr %direction, align 4
+  %5 = tail call noundef float @llvm.fabs.f32(float %4)
   %y = getelementptr inbounds i8, ptr %direction, i64 4
-  %4 = load <2 x float>, ptr %direction, align 4
-  %5 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %4)
-  %z = getelementptr inbounds i8, ptr %direction, i64 8
-  %6 = load float, ptr %z, align 4
+  %6 = load float, ptr %y, align 4
   %7 = tail call noundef float @llvm.fabs.f32(float %6)
-  %8 = extractelement <2 x float> %5, i64 0
-  %9 = extractelement <2 x float> %5, i64 1
-  %cmp = fcmp ult float %8, %9
-  %cmp4 = fcmp ult float %8, %7
+  %z = getelementptr inbounds i8, ptr %direction, i64 8
+  %8 = load float, ptr %z, align 4
+  %9 = tail call noundef float @llvm.fabs.f32(float %8)
+  %cmp = fcmp ult float %5, %7
+  %cmp4 = fcmp ult float %5, %9
   %or.cond = or i1 %cmp, %cmp4
   br i1 %or.cond, label %if.else23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %10 = extractelement <2 x float> %4, i64 0
-  %cmp5 = fcmp oeq float %10, 0.000000e+00
+  %cmp5 = fcmp oeq float %4, 0.000000e+00
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
   store i32 0, ptr %face, align 4
-  store <2 x float> zeroinitializer, ptr %pif, align 4
+  store float 0.000000e+00, ptr %pif, align 4
+  %y3.i = getelementptr inbounds i8, ptr %pif, i64 4
+  store float 0.000000e+00, ptr %y3.i, align 4
   br label %if.end70
 
 if.end:                                           ; preds = %if.then
-  %11 = extractelement <2 x float> %4, i64 1
-  %div = fdiv float %11, %8
+  %div = fdiv float %6, %5
   %add = fadd float %div, 1.000000e+00
   %div9 = fmul float %add, 5.000000e-01
   %sub = add nsw i32 %.sroa.speculated.i, -1
   %conv = sitofp i32 %sub to float
   %mul = fmul float %div9, %conv
   store float %mul, ptr %pif, align 4
-  %12 = load float, ptr %z, align 4
-  %div12 = fdiv float %12, %8
+  %10 = load float, ptr %z, align 4
+  %div12 = fdiv float %10, %5
   %add13 = fadd float %div12, 1.000000e+00
   %div14 = fmul float %add13, 5.000000e-01
   %mul17 = fmul float %div14, %conv
   %y18 = getelementptr inbounds i8, ptr %pif, i64 4
   store float %mul17, ptr %y18, align 4
-  %13 = load float, ptr %direction, align 4
-  %cmp20 = fcmp ogt float %13, 0.000000e+00
+  %11 = load float, ptr %direction, align 4
+  %cmp20 = fcmp ogt float %11, 0.000000e+00
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.end
@@ -515,27 +542,26 @@ if.else:                                          ; preds = %if.end
   br label %if.end70
 
 if.else23:                                        ; preds = %entry
-  %cmp24 = fcmp ult float %9, %7
+  %cmp24 = fcmp ult float %7, %9
   %sub52 = add nsw i32 %.sroa.speculated.i, -1
   %conv53 = sitofp i32 %sub52 to float
   %y63 = getelementptr inbounds i8, ptr %pif, i64 4
   br i1 %cmp24, label %if.else47, label %if.then25
 
 if.then25:                                        ; preds = %if.else23
-  %14 = extractelement <2 x float> %4, i64 0
-  %div27 = fdiv float %14, %9
+  %div27 = fdiv float %4, %7
   %add28 = fadd float %div27, 1.000000e+00
   %div29 = fmul float %add28, 5.000000e-01
   %mul32 = fmul float %div29, %conv53
   store float %mul32, ptr %pif, align 4
-  %15 = load float, ptr %z, align 4
-  %div35 = fdiv float %15, %9
+  %12 = load float, ptr %z, align 4
+  %div35 = fdiv float %12, %7
   %add36 = fadd float %div35, 1.000000e+00
   %div37 = fmul float %add36, 5.000000e-01
   %mul40 = fmul float %div37, %conv53
   store float %mul40, ptr %y63, align 4
-  %16 = load float, ptr %y, align 4
-  %cmp43 = fcmp ogt float %16, 0.000000e+00
+  %13 = load float, ptr %y, align 4
+  %cmp43 = fcmp ogt float %13, 0.000000e+00
   br i1 %cmp43, label %if.then44, label %if.else45
 
 if.then44:                                        ; preds = %if.then25
@@ -547,20 +573,19 @@ if.else45:                                        ; preds = %if.then25
   br label %if.end70
 
 if.else47:                                        ; preds = %if.else23
-  %17 = extractelement <2 x float> %4, i64 0
-  %div49 = fdiv float %17, %7
+  %div49 = fdiv float %4, %9
   %add50 = fadd float %div49, 1.000000e+00
   %div51 = fmul float %add50, 5.000000e-01
   %mul54 = fmul float %div51, %conv53
   store float %mul54, ptr %pif, align 4
-  %18 = load float, ptr %y, align 4
-  %div57 = fdiv float %18, %7
+  %14 = load float, ptr %y, align 4
+  %div57 = fdiv float %14, %9
   %add58 = fadd float %div57, 1.000000e+00
   %div59 = fmul float %add58, 5.000000e-01
   %mul62 = fmul float %div59, %conv53
   store float %mul62, ptr %y63, align 4
-  %19 = load float, ptr %z, align 4
-  %cmp65 = fcmp ogt float %19, 0.000000e+00
+  %15 = load float, ptr %z, align 4
+  %cmp65 = fcmp ogt float %15, 0.000000e+00
   br i1 %cmp65, label %if.then66, label %if.else67
 
 if.then66:                                        ; preds = %if.else47
@@ -595,19 +620,23 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
+  %4 = load float, ptr %positionInFace, align 4
   %sub = add nsw i32 %.sroa.speculated.i, -1
   %conv = uitofp nneg i32 %sub to float
-  %4 = load <2 x float>, ptr %positionInFace, align 4
-  %5 = insertelement <2 x float> poison, float %conv, i64 0
-  %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> zeroinitializer
-  %7 = fdiv <2 x float> %4, %6
-  %8 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> <float 2.000000e+00, float 2.000000e+00>, <2 x float> <float -1.000000e+00, float -1.000000e+00>)
+  %div = fdiv float %4, %conv
+  %5 = tail call float @llvm.fmuladd.f32(float %div, float 2.000000e+00, float -1.000000e+00)
+  %y = getelementptr inbounds i8, ptr %positionInFace, i64 4
+  %6 = load float, ptr %y, align 4
+  %div3 = fdiv float %6, %conv
+  %7 = tail call float @llvm.fmuladd.f32(float %div3, float 2.000000e+00, float -1.000000e+00)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
-  %9 = phi <2 x float> [ %8, %if.then ], [ zeroinitializer, %entry ]
+  %pos.sroa.0.0 = phi float [ %5, %if.then ], [ 0.000000e+00, %entry ]
+  %pos.sroa.8.0 = phi float [ %7, %if.then ], [ 0.000000e+00, %entry ]
+  store float 1.000000e+00, ptr %agg.result, align 4
   %y.i9 = getelementptr inbounds i8, ptr %agg.result, i64 4
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %agg.result, align 4
+  store float 0.000000e+00, ptr %y.i9, align 4
   %z.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store float 0.000000e+00, ptr %z.i, align 4
   switch i32 %face, label %sw.epilog [
@@ -620,34 +649,29 @@ if.end:                                           ; preds = %entry, %if.then
   ]
 
 sw.bb17:                                          ; preds = %if.end
-  %10 = insertelement <2 x float> %9, float 1.000000e+00, i64 0
-  %11 = extractelement <2 x float> %9, i64 0
   br label %sw.epilog.sink.split.sink.split
 
 sw.bb23:                                          ; preds = %if.end
-  %12 = insertelement <2 x float> %9, float -1.000000e+00, i64 0
-  %13 = extractelement <2 x float> %9, i64 0
   br label %sw.epilog.sink.split.sink.split
 
 sw.bb29:                                          ; preds = %if.end
-  %14 = shufflevector <2 x float> %9, <2 x float> <float poison, float 1.000000e+00>, <2 x i32> <i32 1, i32 3>
-  %15 = extractelement <2 x float> %9, i64 0
   br label %sw.epilog.sink.split.sink.split
 
 sw.bb35:                                          ; preds = %if.end
-  %16 = shufflevector <2 x float> %9, <2 x float> <float poison, float -1.000000e+00>, <2 x i32> <i32 1, i32 3>
-  %17 = extractelement <2 x float> %9, i64 0
   br label %sw.epilog.sink.split.sink.split
 
 sw.epilog.sink.split.sink.split:                  ; preds = %if.end, %sw.bb35, %sw.bb29, %sw.bb23, %sw.bb17
-  %.sink21 = phi float [ %11, %sw.bb17 ], [ %13, %sw.bb23 ], [ %15, %sw.bb29 ], [ %17, %sw.bb35 ], [ -1.000000e+00, %if.end ]
-  %18 = phi <2 x float> [ %10, %sw.bb17 ], [ %12, %sw.bb23 ], [ %14, %sw.bb29 ], [ %16, %sw.bb35 ], [ %9, %if.end ]
+  %.sink21 = phi float [ %pos.sroa.0.0, %sw.bb17 ], [ %pos.sroa.0.0, %sw.bb23 ], [ %pos.sroa.0.0, %sw.bb29 ], [ %pos.sroa.0.0, %sw.bb35 ], [ -1.000000e+00, %if.end ]
+  %pos.sroa.8.0.sink.ph = phi float [ 1.000000e+00, %sw.bb17 ], [ -1.000000e+00, %sw.bb23 ], [ %pos.sroa.8.0, %sw.bb29 ], [ %pos.sroa.8.0, %sw.bb35 ], [ %pos.sroa.0.0, %if.end ]
+  %.sink.ph = phi float [ %pos.sroa.8.0, %sw.bb17 ], [ %pos.sroa.8.0, %sw.bb23 ], [ 1.000000e+00, %sw.bb29 ], [ -1.000000e+00, %sw.bb35 ], [ %pos.sroa.8.0, %if.end ]
   store float %.sink21, ptr %agg.result, align 4
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %if.end
-  %19 = phi <2 x float> [ %9, %if.end ], [ %18, %sw.epilog.sink.split.sink.split ]
-  store <2 x float> %19, ptr %y.i9, align 4
+  %pos.sroa.8.0.sink = phi float [ %pos.sroa.0.0, %if.end ], [ %pos.sroa.8.0.sink.ph, %sw.epilog.sink.split.sink.split ]
+  %.sink = phi float [ %pos.sroa.8.0, %if.end ], [ %.sink.ph, %sw.epilog.sink.split.sink.split ]
+  store float %pos.sroa.8.0.sink, ptr %y.i9, align 4
+  store float %.sink, ptr %z.i, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end
@@ -688,12 +712,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

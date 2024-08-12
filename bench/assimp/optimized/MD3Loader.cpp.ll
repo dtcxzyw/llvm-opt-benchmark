@@ -1829,7 +1829,7 @@ entry:
   %additive = alloca i32, align 4
   %blend = alloca i32, align 4
   %use_alpha = alloca i32, align 4
-  %one = alloca %struct.aiColor3D, align 8
+  %one = alloca %struct.aiColor3D, align 4
   %cull = getelementptr inbounds i8, ptr %shader, i64 32
   %0 = load i32, ptr %cull, align 8
   %cmp = icmp eq i32 %0, 0
@@ -1934,9 +1934,11 @@ for.end:                                          ; preds = %if.end35
   br i1 %7, label %if.end44, label %if.then42
 
 if.then42:                                        ; preds = %for.end
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %one, align 8
+  store float 1.000000e+00, ptr %one, align 4
+  %g.i = getelementptr inbounds i8, ptr %one, i64 4
+  store float 1.000000e+00, ptr %g.i, align 4
   %b.i = getelementptr inbounds i8, ptr %one, i64 8
-  store float 1.000000e+00, ptr %b.i, align 8
+  store float 1.000000e+00, ptr %b.i, align 4
   %call3.i = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %out, ptr noundef nonnull %one, i32 noundef 12, ptr noundef nonnull @.str.33, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   br label %if.end44
 
@@ -3945,7 +3947,13 @@ invoke.cont153:                                   ; preds = %_Z24RemoveSingleNod
   %ref.tmp154.sroa.2.0.mTransformation158.sroa_idx = getelementptr inbounds i8, ptr %62, i64 1032
   %ref.tmp154.sroa.7.0.mTransformation158.sroa_idx = getelementptr inbounds i8, ptr %62, i64 1052
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp154.sroa.2.0.mTransformation158.sroa_idx, i8 0, i64 20, i1 false)
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float -1.000000e+00>, ptr %ref.tmp154.sroa.7.0.mTransformation158.sroa_idx, align 4
+  store float 1.000000e+00, ptr %ref.tmp154.sroa.7.0.mTransformation158.sroa_idx, align 4
+  %ref.tmp154.sroa.8.0.mTransformation158.sroa_idx = getelementptr inbounds i8, ptr %62, i64 1056
+  store float 0.000000e+00, ptr %ref.tmp154.sroa.8.0.mTransformation158.sroa_idx, align 4
+  %ref.tmp154.sroa.9.0.mTransformation158.sroa_idx = getelementptr inbounds i8, ptr %62, i64 1060
+  store float 0.000000e+00, ptr %ref.tmp154.sroa.9.0.mTransformation158.sroa_idx, align 4
+  %ref.tmp154.sroa.10.0.mTransformation158.sroa_idx = getelementptr inbounds i8, ptr %62, i64 1064
+  store float -1.000000e+00, ptr %ref.tmp154.sroa.10.0.mTransformation158.sroa_idx, align 4
   %ref.tmp154.sroa.11.0.mTransformation158.sroa_idx = getelementptr inbounds i8, ptr %62, i64 1068
   %ref.tmp154.sroa.16.0.mTransformation158.sroa_idx = getelementptr inbounds i8, ptr %62, i64 1088
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp154.sroa.11.0.mTransformation158.sroa_idx, i8 0, i64 20, i1 false)
@@ -4269,7 +4277,7 @@ entry:
   %convertedPath = alloca %"class.std::__cxx11::basic_string", align 8
   %without_ext = alloca %"class.std::__cxx11::basic_string", align 8
   %iMode = alloca i32, align 4
-  %clr = alloca %struct.aiColor3D, align 8
+  %clr = alloca %struct.aiColor3D, align 4
   %name302 = alloca %struct.aiString, align 4
   %ref.tmp303 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp304 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4727,6 +4735,7 @@ if.end163:                                        ; preds = %if.end121.thread, %
   br i1 %cmp166.not385396, label %while.end, label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end163
+  %g.i = getelementptr inbounds i8, ptr %clr, i64 4
   %b.i = getelementptr inbounds i8, ptr %clr, i64 8
   %data.i = getelementptr inbounds i8, ptr %name302, i64 4
   %configSkinFile = getelementptr inbounds i8, ptr %this, i64 80
@@ -4983,14 +4992,16 @@ invoke.cont289:                                   ; preds = %invoke.cont286
           to label %invoke.cont291 unwind label %lpad236.loopexit.split-lp.loopexit
 
 invoke.cont291:                                   ; preds = %invoke.cont289
-  store <2 x float> <float 0x3FA99999A0000000, float 0x3FA99999A0000000>, ptr %clr, align 8
-  store float 0x3FA99999A0000000, ptr %b.i, align 8
+  store float 0x3FA99999A0000000, ptr %clr, align 4
+  store float 0x3FA99999A0000000, ptr %g.i, align 4
+  store float 0x3FA99999A0000000, ptr %b.i, align 4
   %call.i199200 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call287, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.90, i32 noundef 0, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont293 unwind label %lpad236.loopexit.split-lp.loopexit
 
 invoke.cont293:                                   ; preds = %invoke.cont291
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %clr, align 8
-  store float 1.000000e+00, ptr %b.i, align 8
+  store float 1.000000e+00, ptr %clr, align 4
+  store float 1.000000e+00, ptr %g.i, align 4
+  store float 1.000000e+00, ptr %b.i, align 4
   %call.i201202 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call287, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.91, i32 noundef 0, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont298 unwind label %lpad236.loopexit.split-lp.loopexit
 
@@ -5369,10 +5380,12 @@ if.then468:                                       ; preds = %land.lhs.true466, %
   %106 = load ptr, ptr %mFaces, align 8
   %mIndices472 = getelementptr inbounds %struct.aiFace, ptr %106, i64 %indvars.iv441, i32 1
   %107 = load ptr, ptr %mIndices472, align 8
+  %arrayidx473 = getelementptr inbounds i8, ptr %107, i64 8
   %arrayidx478 = getelementptr inbounds i8, ptr %107, i64 4
-  %108 = load <2 x i32>, ptr %arrayidx478, align 4
-  %109 = shufflevector <2 x i32> %108, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %109, ptr %arrayidx478, align 4
+  %108 = load i32, ptr %arrayidx473, align 4
+  %109 = load i32, ptr %arrayidx478, align 4
+  store i32 %109, ptr %arrayidx473, align 4
+  store i32 %108, ptr %arrayidx478, align 4
   br label %if.end479
 
 if.end479:                                        ; preds = %if.then468, %land.lhs.true466
@@ -5672,7 +5685,13 @@ for.end623:                                       ; preds = %for.body616, %if.en
   %ref.tmp624.sroa.2.0.mTransformation627.sroa_idx = getelementptr inbounds i8, ptr %150, i64 1032
   %ref.tmp624.sroa.7.0.mTransformation627.sroa_idx = getelementptr inbounds i8, ptr %150, i64 1052
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp624.sroa.2.0.mTransformation627.sroa_idx, i8 0, i64 20, i1 false)
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float -1.000000e+00>, ptr %ref.tmp624.sroa.7.0.mTransformation627.sroa_idx, align 4
+  store float 1.000000e+00, ptr %ref.tmp624.sroa.7.0.mTransformation627.sroa_idx, align 4
+  %ref.tmp624.sroa.8.0.mTransformation627.sroa_idx = getelementptr inbounds i8, ptr %150, i64 1056
+  store float 0.000000e+00, ptr %ref.tmp624.sroa.8.0.mTransformation627.sroa_idx, align 4
+  %ref.tmp624.sroa.9.0.mTransformation627.sroa_idx = getelementptr inbounds i8, ptr %150, i64 1060
+  store float 0.000000e+00, ptr %ref.tmp624.sroa.9.0.mTransformation627.sroa_idx, align 4
+  %ref.tmp624.sroa.10.0.mTransformation627.sroa_idx = getelementptr inbounds i8, ptr %150, i64 1064
+  store float -1.000000e+00, ptr %ref.tmp624.sroa.10.0.mTransformation627.sroa_idx, align 4
   %ref.tmp624.sroa.11.0.mTransformation627.sroa_idx = getelementptr inbounds i8, ptr %150, i64 1068
   %ref.tmp624.sroa.16.0.mTransformation627.sroa_idx = getelementptr inbounds i8, ptr %150, i64 1088
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp624.sroa.11.0.mTransformation627.sroa_idx, i8 0, i64 20, i1 false)

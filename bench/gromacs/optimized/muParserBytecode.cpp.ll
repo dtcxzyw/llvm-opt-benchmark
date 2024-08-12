@@ -441,7 +441,9 @@ define void @_ZN2mu14ParserByteCode6AddVarEPd(ptr nocapture noundef nonnull alig
   %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %1, ptr %.sroa.35.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %.sroa.4.0..sroa_idx, align 8
+  store double 1.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  store double 0.000000e+00, ptr %.sroa.5.0..sroa_idx, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 32
   store ptr %15, ptr %9, align 8
@@ -481,7 +483,9 @@ _ZNSt12_Vector_baseIN2mu6STokenESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %28,
   %.sroa.35.0..sroa_idx6 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %1, ptr %.sroa.35.0..sroa_idx6, align 8
   %.sroa.4.0..sroa_idx8 = getelementptr inbounds i8, ptr %32, i64 16
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %.sroa.4.0..sroa_idx8, align 8
+  store double 1.000000e+00, ptr %.sroa.4.0..sroa_idx8, align 8
+  %.sroa.5.0..sroa_idx10 = getelementptr inbounds i8, ptr %32, i64 24
+  store double 0.000000e+00, ptr %.sroa.5.0..sroa_idx10, align 8
   %33 = icmp sgt i64 %20, 0
   br i1 %33, label %34, label %_ZNSt6vectorIN2mu6STokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 

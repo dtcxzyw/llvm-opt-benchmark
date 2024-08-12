@@ -10881,16 +10881,20 @@ Py_DECREF.exit:                                   ; preds = %if.end4, %if.then1.
   store i64 %2, ptr %cookie, align 8
   %dec_flags = getelementptr inbounds i8, ptr %cookie, i64 8
   %add.ptr7 = getelementptr inbounds i8, ptr %buffer, i64 8
-  %3 = load <2 x i32>, ptr %add.ptr7, align 8
-  store <2 x i32> %3, ptr %dec_flags, align 8
+  %3 = load i32, ptr %add.ptr7, align 8
+  store i32 %3, ptr %dec_flags, align 8
+  %bytes_to_feed = getelementptr inbounds i8, ptr %cookie, i64 12
+  %add.ptr9 = getelementptr inbounds i8, ptr %buffer, i64 12
+  %4 = load i32, ptr %add.ptr9, align 4
+  store i32 %4, ptr %bytes_to_feed, align 4
   %chars_to_skip = getelementptr inbounds i8, ptr %cookie, i64 16
   %add.ptr11 = getelementptr inbounds i8, ptr %buffer, i64 16
-  %4 = load i32, ptr %add.ptr11, align 16
-  store i32 %4, ptr %chars_to_skip, align 8
+  %5 = load i32, ptr %add.ptr11, align 16
+  store i32 %5, ptr %chars_to_skip, align 8
   %need_eof = getelementptr inbounds i8, ptr %cookie, i64 20
   %add.ptr13 = getelementptr inbounds i8, ptr %buffer, i64 20
-  %5 = load i8, ptr %add.ptr13, align 4
-  store i8 %5, ptr %need_eof, align 4
+  %6 = load i8, ptr %add.ptr13, align 4
+  store i8 %6, ptr %need_eof, align 4
   br label %return
 
 return:                                           ; preds = %if.end.i17, %if.then1.i20, %if.then3, %entry, %Py_DECREF.exit
@@ -11028,16 +11032,20 @@ entry:
   store i64 %0, ptr %buffer, align 16
   %add.ptr2 = getelementptr inbounds i8, ptr %buffer, i64 8
   %dec_flags = getelementptr inbounds i8, ptr %cookie, i64 8
-  %1 = load <2 x i32>, ptr %dec_flags, align 8
-  store <2 x i32> %1, ptr %add.ptr2, align 8
+  %1 = load i32, ptr %dec_flags, align 8
+  store i32 %1, ptr %add.ptr2, align 8
+  %add.ptr4 = getelementptr inbounds i8, ptr %buffer, i64 12
+  %bytes_to_feed = getelementptr inbounds i8, ptr %cookie, i64 12
+  %2 = load i32, ptr %bytes_to_feed, align 4
+  store i32 %2, ptr %add.ptr4, align 4
   %add.ptr6 = getelementptr inbounds i8, ptr %buffer, i64 16
   %chars_to_skip = getelementptr inbounds i8, ptr %cookie, i64 16
-  %2 = load i32, ptr %chars_to_skip, align 8
-  store i32 %2, ptr %add.ptr6, align 16
+  %3 = load i32, ptr %chars_to_skip, align 8
+  store i32 %3, ptr %add.ptr6, align 16
   %add.ptr8 = getelementptr inbounds i8, ptr %buffer, i64 20
   %need_eof = getelementptr inbounds i8, ptr %cookie, i64 20
-  %3 = load i8, ptr %need_eof, align 4
-  store i8 %3, ptr %add.ptr8, align 4
+  %4 = load i8, ptr %need_eof, align 4
+  store i8 %4, ptr %add.ptr8, align 4
   %call = call ptr @_PyLong_FromByteArray(ptr noundef nonnull %buffer, i64 noundef 21, i32 noundef 1, i32 noundef 0) #10
   ret ptr %call
 }

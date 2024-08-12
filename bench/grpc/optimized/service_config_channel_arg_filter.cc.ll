@@ -765,16 +765,17 @@ _ZN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterC2ERKNS_11ChannelArgsE
   %26 = getelementptr inbounds i8, ptr %status, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %26, align 8, !alias.scope !7
   %event_engine_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %status, i64 16
+  %27 = load ptr, ptr %event_engine_.i.i.i, align 8, !noalias !7
+  store ptr %27, ptr %event_engine_.i.i.i.i.i.i, align 8, !alias.scope !7
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %status, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %27 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !noalias !7
-  %28 = load <2 x ptr>, ptr %event_engine_.i.i.i, align 8, !noalias !7
-  store <2 x ptr> %28, ptr %event_engine_.i.i.i.i.i.i, align 8, !alias.scope !7
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %27, null
+  %28 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !noalias !7
+  store ptr %28, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !alias.scope !7
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_13ServiceConfigEED2Ev.exit.i6.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterC2ERKNS_11ChannelArgsE.exit.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %29, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -939,14 +940,16 @@ invoke.cont11:                                    ; preds = %_ZN9grpc_core12_GLO
   %53 = load ptr, ptr %channel_data10, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %53, align 8
   %event_engine_.i.i12 = getelementptr inbounds i8, ptr %53, i64 8
-  %54 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
-  %55 = load <2 x ptr>, ptr %event_engine_.i.i.i.i.i.i, align 8
-  store <2 x ptr> %55, ptr %event_engine_.i.i12, align 8
-  %cmp.not.i.i.i.i.i13 = icmp eq ptr %54, null
+  %54 = load ptr, ptr %event_engine_.i.i.i.i.i.i, align 8
+  store ptr %54, ptr %event_engine_.i.i12, align 8
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
+  store ptr %55, ptr %_M_refcount.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i13 = icmp eq ptr %55, null
   br i1 %cmp.not.i.i.i.i.i13, label %_ZN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterC2EOS1_.exit, label %if.then.i.i.i.i.i14
 
 if.then.i.i.i.i.i14:                              ; preds = %invoke.cont11
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %55, i64 8
   %56 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %56, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i15

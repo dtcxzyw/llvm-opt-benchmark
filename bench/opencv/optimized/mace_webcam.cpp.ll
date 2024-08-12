@@ -126,7 +126,7 @@ define hidden noundef range(i32 -3, 2) i32 @main(i32 noundef %0, ptr noundef %1)
   %32 = alloca %"class.cv::Mat", align 8
   %33 = alloca %"class.std::vector.15", align 8
   %34 = alloca %"class.cv::_InputArray", align 8
-  %35 = alloca %"class.cv::Scalar_", align 16
+  %35 = alloca %"class.cv::Scalar_", align 8
   %36 = alloca %"class.cv::_InputArray", align 8
   %37 = alloca %"class.cv::Mat", align 8
   %38 = alloca %"class.cv::Mat", align 8
@@ -888,9 +888,10 @@ _ZN2cv3PtrINS_4face4MACEEED2Ev.exit118:           ; preds = %202, %_ZN2cv3PtrINS
   br i1 %.not, label %425, label %343
 
 343:                                              ; preds = %340
-  store <2 x double> <double 0.000000e+00, double 1.200000e+02>, ptr %35, align 16
+  store double 0.000000e+00, ptr %35, align 8
+  store double 1.200000e+02, ptr %320, align 8
   %344 = icmp eq i32 %.142, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %321, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %321, i8 0, i64 16, i1 false)
   br i1 %344, label %345, label %382
 
 345:                                              ; preds = %343
@@ -1000,7 +1001,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %373, %376
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit:      ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit, %357, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i
   %.445 = phi i32 [ 1, %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit ], [ 2, %357 ], [ 2, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i ]
-  store double 2.000000e+02, ptr %35, align 16
+  store double 2.000000e+02, ptr %35, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %320, i8 0, i64 24, i1 false)
   br label %382
 
@@ -1078,9 +1079,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit:      ; preds = %_ZNSt6vectorIN2cv3M
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #13
   %. = select i1 %411, double 0.000000e+00, double 6.000000e+01
   %.149 = select i1 %411, double 2.200000e+02, double 6.000000e+01
-  store double %., ptr %35, align 16
+  store double %., ptr %35, align 8
   store double %.149, ptr %320, align 8
-  store double %.149, ptr %321, align 16
+  store double %.149, ptr %321, align 8
   store double 0.000000e+00, ptr %322, align 8
   %413 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #13
   br i1 %413, label %421, label %416

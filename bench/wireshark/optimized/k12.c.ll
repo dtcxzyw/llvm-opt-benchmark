@@ -1709,12 +1709,12 @@ define internal fastcc range(i32 0, 2) i32 @k12_dump_record(ptr noundef %0, i32 
   %14 = zext nneg i32 %10 to i64
   %15 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %14, ptr noundef %3) #11
   %.not33 = icmp eq i32 %15, 0
-  br i1 %.not33, label %35, label %16
+  br i1 %.not33, label %37, label %16
 
 16:                                               ; preds = %13, %12
   %17 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @dumpy_junk, i64 noundef 16, ptr noundef %3) #11
   %.not34 = icmp eq i32 %17, 0
-  br i1 %.not34, label %35, label %18
+  br i1 %.not34, label %37, label %18
 
 18:                                               ; preds = %16
   %19 = zext nneg i32 %10 to i64
@@ -1723,7 +1723,7 @@ define internal fastcc range(i32 0, 2) i32 @k12_dump_record(ptr noundef %0, i32 
   %22 = zext i32 %21 to i64
   %23 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %20, i64 noundef %22, ptr noundef %3) #11
   %.not35 = icmp eq i32 %23, 0
-  br i1 %.not35, label %35, label %24
+  br i1 %.not35, label %37, label %24
 
 24:                                               ; preds = %18
   %25 = add i32 %1, 16
@@ -1733,20 +1733,23 @@ define internal fastcc range(i32 0, 2) i32 @k12_dump_record(ptr noundef %0, i32 
   %27 = zext nneg i32 %1 to i64
   %28 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %27, ptr noundef %3) #11
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %35, label %29
+  br i1 %.not, label %37, label %29
 
 29:                                               ; preds = %26, %24
   %.sink38 = phi i32 [ %25, %24 ], [ %1, %26 ]
   %30 = load i32, ptr %7, align 4
   %31 = add i32 %30, %.sink38
   store i32 %31, ptr %7, align 4
-  %32 = load <2 x i32>, ptr %6, align 4
-  %33 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %.sink38, i64 0
-  %34 = add <2 x i32> %32, %33
-  store <2 x i32> %34, ptr %6, align 4
-  br label %35
+  %32 = load i32, ptr %6, align 4
+  %33 = add i32 %32, %.sink38
+  store i32 %33, ptr %6, align 4
+  %34 = getelementptr inbounds i8, ptr %6, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %34, align 4
+  br label %37
 
-35:                                               ; preds = %26, %18, %16, %13, %29
+37:                                               ; preds = %26, %18, %16, %13, %29
   %.0 = phi i32 [ 1, %29 ], [ 0, %13 ], [ 0, %16 ], [ 0, %18 ], [ 0, %26 ]
   ret i32 %.0
 }

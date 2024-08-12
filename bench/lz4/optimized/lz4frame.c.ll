@@ -703,7 +703,13 @@ if.then131:                                       ; preds = %if.end127
   br label %if.end133
 
 if.end133:                                        ; preds = %if.then131, %if.end127
-  store <4 x i8> <i8 4, i8 34, i8 77, i8 24>, ptr %dstBuffer, align 1
+  store i8 4, ptr %dstBuffer, align 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %dstBuffer, i64 1
+  store i8 34, ptr %arrayidx2.i, align 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %dstBuffer, i64 2
+  store i8 77, ptr %arrayidx5.i, align 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %dstBuffer, i64 3
+  store i8 24, ptr %arrayidx8.i, align 1
   %add.ptr = getelementptr inbounds i8, ptr %dstBuffer, i64 4
   %30 = load i32, ptr %blockMode120, align 4
   %and = shl i32 %30, 5

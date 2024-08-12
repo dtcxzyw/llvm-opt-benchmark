@@ -1554,23 +1554,26 @@ if.end29.i:                                       ; preds = %_.exit38.i, %if.els
   call void @free(ptr noundef %call14.i) #19
   %67 = load ptr, ptr %add_data, align 8
   store ptr %67, ptr %clone_data.i, align 8
+  %68 = load ptr, ptr %6, align 8
   %path.i = getelementptr inbounds i8, ptr %clone_data.i, i64 8
-  %68 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %68, ptr %path.i, align 8
+  store ptr %68, ptr %path.i, align 8
+  %69 = load ptr, ptr %sm_name, align 8
+  %name.i = getelementptr inbounds i8, ptr %clone_data.i, i64 16
+  store ptr %69, ptr %name.i, align 8
   %realrepo33.i = getelementptr inbounds i8, ptr %add_data, i64 48
-  %69 = load ptr, ptr %realrepo33.i, align 8
+  %70 = load ptr, ptr %realrepo33.i, align 8
   %url.i = getelementptr inbounds i8, ptr %clone_data.i, i64 24
-  store ptr %69, ptr %url.i, align 8
+  store ptr %70, ptr %url.i, align 8
   %bf.load34.i = load i8, ptr %force217, align 4
   %bf.lshr.i = lshr i8 %bf.load34.i, 1
   %quiet37.i = getelementptr inbounds i8, ptr %clone_data.i, i64 48
-  %70 = and i8 %bf.lshr.i, 3
-  %71 = load ptr, ptr %reference_path, align 8
-  %tobool50.not.i = icmp eq ptr %71, null
+  %71 = and i8 %bf.lshr.i, 3
+  %72 = load ptr, ptr %reference_path, align 8
+  %tobool50.not.i = icmp eq ptr %72, null
   br i1 %tobool50.not.i, label %if.end55.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %if.end29.i
-  %call53.i = call ptr @xstrdup(ptr noundef nonnull %71) #19
+  %call53.i = call ptr @xstrdup(ptr noundef nonnull %72) #19
   %call54.i = call ptr @string_list_append(ptr noundef nonnull %reference.i, ptr noundef %call53.i) #19
   %util.i = getelementptr inbounds i8, ptr %call54.i, i64 8
   store ptr %call53.i, ptr %util.i, align 8
@@ -1581,14 +1584,14 @@ if.then51.i:                                      ; preds = %if.end29.i
 if.end55.i:                                       ; preds = %if.then51.i, %if.end29.i
   %.pre-phi.i = phi i8 [ %.pre.i, %if.then51.i ], [ %bf.lshr.i, %if.end29.i ]
   %bf.shl63.i = and i8 %.pre-phi.i, 4
-  %bf.set65.i = or disjoint i8 %bf.shl63.i, %70
+  %bf.set65.i = or disjoint i8 %bf.shl63.i, %71
   store i8 %bf.set65.i, ptr %quiet37.i, align 8
-  %72 = load i32, ptr %0, align 8
-  %cmp.i37 = icmp sgt i32 %72, -1
+  %73 = load i32, ptr %0, align 8
+  %cmp.i37 = icmp sgt i32 %73, -1
   br i1 %cmp.i37, label %if.then67.i, label %if.end71.i
 
 if.then67.i:                                      ; preds = %if.end55.i
-  %call69.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.116, i32 noundef %72) #19
+  %call69.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.116, i32 noundef %73) #19
   store ptr %call69.i, ptr %54, align 8
   br label %if.end71.i
 
@@ -1600,18 +1603,18 @@ if.end71.i:                                       ; preds = %if.then67.i, %if.en
   %bf.load76.i = load i16, ptr %git_cmd.i, align 8
   %bf.set78.i = or i16 %bf.load76.i, 8
   store i16 %bf.set78.i, ptr %git_cmd.i, align 8
-  %73 = load ptr, ptr %6, align 8
+  %74 = load ptr, ptr %6, align 8
   %dir.i = getelementptr inbounds i8, ptr %cp.i, i64 96
-  store ptr %73, ptr %dir.i, align 8
+  store ptr %74, ptr %dir.i, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp.i, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119, ptr noundef null) #19
-  %74 = load ptr, ptr %branch, align 8
-  %tobool80.not.i = icmp eq ptr %74, null
+  %75 = load ptr, ptr %branch, align 8
+  %tobool80.not.i = icmp eq ptr %75, null
   br i1 %tobool80.not.i, label %if.end87.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %if.end71.i
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp.i, ptr noundef nonnull @.str.120, ptr noundef nonnull %74, ptr noundef null) #19
-  %75 = load ptr, ptr %branch, align 8
-  %call86.i = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cp.i, ptr noundef nonnull @.str.121, ptr noundef %75) #19
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp.i, ptr noundef nonnull @.str.120, ptr noundef nonnull %75, ptr noundef null) #19
+  %76 = load ptr, ptr %branch, align 8
+  %call86.i = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cp.i, ptr noundef nonnull @.str.121, ptr noundef %76) #19
   br label %if.end87.i
 
 if.end87.i:                                       ; preds = %if.then81.i, %if.end71.i
@@ -1621,8 +1624,8 @@ if.end87.i:                                       ; preds = %if.then81.i, %if.en
 
 if.then90.i:                                      ; preds = %if.end87.i
   %call91.i = call fastcc ptr @_(ptr noundef nonnull @.str.122)
-  %76 = load ptr, ptr %6, align 8
-  call void (ptr, ...) @die(ptr noundef %call91.i, ptr noundef %76) #20
+  %77 = load ptr, ptr %6, align 8
+  call void (ptr, ...) @die(ptr noundef %call91.i, ptr noundef %77) #20
   unreachable
 
 add_submodule.exit:                               ; preds = %_.exit.i, %if.end87.i
@@ -1636,11 +1639,11 @@ add_submodule.exit:                               ; preds = %_.exit.i, %if.end87
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %add_gitmodules.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %add_submod.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.print_submodule_summary.cp_log, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %add_gitmodules.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.print_submodule_summary.cp_log, i64 120, i1 false)
-  %77 = load ptr, ptr %sm_name, align 8
-  %call.i41 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.129, ptr noundef %77) #19
+  %78 = load ptr, ptr %sm_name, align 8
+  %call.i41 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.129, ptr noundef %78) #19
   %realrepo.i42 = getelementptr inbounds i8, ptr %add_data, i64 48
-  %78 = load ptr, ptr %realrepo.i42, align 8
-  %call1.i43 = call i32 @git_config_set_gently(ptr noundef %call.i41, ptr noundef %78) #19
+  %79 = load ptr, ptr %realrepo.i42, align 8
+  %call1.i43 = call i32 @git_config_set_gently(ptr noundef %call.i41, ptr noundef %79) #19
   call void @free(ptr noundef %call.i41) #19
   %git_cmd.i44 = getelementptr inbounds i8, ptr %add_submod.i, i64 104
   store i16 8, ptr %git_cmd.i44, align 8
@@ -1655,21 +1658,21 @@ if.then.i47:                                      ; preds = %add_submodule.exit
   br label %if.end.i49
 
 if.end.i49:                                       ; preds = %if.then.i47, %add_submodule.exit
-  %79 = load ptr, ptr %6, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %add_submod.i, ptr noundef nonnull @.str.56, ptr noundef %79, ptr noundef null) #19
+  %80 = load ptr, ptr %6, align 8
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %add_submod.i, ptr noundef nonnull @.str.56, ptr noundef %80, ptr noundef null) #19
   %call7.i = call i32 @run_command(ptr noundef nonnull %add_submod.i) #19
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %if.end12.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i49
   %call10.i51 = call fastcc ptr @_(ptr noundef nonnull @.str.131)
-  %80 = load ptr, ptr %6, align 8
-  call void (ptr, ...) @die(ptr noundef %call10.i51, ptr noundef %80) #20
+  %81 = load ptr, ptr %6, align 8
+  call void (ptr, ...) @die(ptr noundef %call10.i51, ptr noundef %81) #20
   unreachable
 
 if.end12.i:                                       ; preds = %if.end.i49
-  %81 = load ptr, ptr %sm_name, align 8
-  %82 = load ptr, ptr %6, align 8
+  %82 = load ptr, ptr %sm_name, align 8
+  %83 = load ptr, ptr %6, align 8
   %call.i.i52 = call i32 @is_writing_gitmodules_ok() #19
   %tobool.not.i.i53 = icmp eq i32 %call.i.i52, 0
   br i1 %tobool.not.i.i53, label %if.then.i.i57, label %config_submodule_in_gitmodules.exit.i
@@ -1680,15 +1683,15 @@ if.then.i.i57:                                    ; preds = %if.end12.i
   unreachable
 
 config_submodule_in_gitmodules.exit.i:            ; preds = %if.end12.i
-  %call2.i.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.137, ptr noundef %81, ptr noundef nonnull @.str.16) #19
-  %call3.i.i = call i32 @config_set_in_gitmodules_file_gently(ptr noundef %call2.i.i, ptr noundef %82) #19
+  %call2.i.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.137, ptr noundef %82, ptr noundef nonnull @.str.16) #19
+  %call3.i.i = call i32 @config_set_in_gitmodules_file_gently(ptr noundef %call2.i.i, ptr noundef %83) #19
   call void @free(ptr noundef %call2.i.i) #19
   %tobool16.not.i54 = icmp eq i32 %call3.i.i, 0
   br i1 %tobool16.not.i54, label %lor.lhs.false.i, label %if.then20.i
 
 lor.lhs.false.i:                                  ; preds = %config_submodule_in_gitmodules.exit.i
-  %83 = load ptr, ptr %sm_name, align 8
-  %84 = load ptr, ptr %repo, align 8
+  %84 = load ptr, ptr %sm_name, align 8
+  %85 = load ptr, ptr %repo, align 8
   %call.i23.i = call i32 @is_writing_gitmodules_ok() #19
   %tobool.not.i24.i = icmp eq i32 %call.i23.i, 0
   br i1 %tobool.not.i24.i, label %if.then.i27.i, label %config_submodule_in_gitmodules.exit29.i
@@ -1699,25 +1702,25 @@ if.then.i27.i:                                    ; preds = %lor.lhs.false.i
   unreachable
 
 config_submodule_in_gitmodules.exit29.i:          ; preds = %lor.lhs.false.i
-  %call2.i25.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.137, ptr noundef %83, ptr noundef nonnull @.str.22) #19
-  %call3.i26.i = call i32 @config_set_in_gitmodules_file_gently(ptr noundef %call2.i25.i, ptr noundef %84) #19
+  %call2.i25.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.137, ptr noundef %84, ptr noundef nonnull @.str.22) #19
+  %call3.i26.i = call i32 @config_set_in_gitmodules_file_gently(ptr noundef %call2.i25.i, ptr noundef %85) #19
   call void @free(ptr noundef %call2.i25.i) #19
   %tobool19.not.i = icmp eq i32 %call3.i26.i, 0
   br i1 %tobool19.not.i, label %if.end23.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %config_submodule_in_gitmodules.exit29.i, %config_submodule_in_gitmodules.exit.i
   %call21.i = call fastcc ptr @_(ptr noundef nonnull @.str.132)
-  %85 = load ptr, ptr %6, align 8
-  call void (ptr, ...) @die(ptr noundef %call21.i, ptr noundef %85) #20
+  %86 = load ptr, ptr %6, align 8
+  call void (ptr, ...) @die(ptr noundef %call21.i, ptr noundef %86) #20
   unreachable
 
 if.end23.i:                                       ; preds = %config_submodule_in_gitmodules.exit29.i
-  %86 = load ptr, ptr %branch, align 8
-  %tobool24.not.i = icmp eq ptr %86, null
+  %87 = load ptr, ptr %branch, align 8
+  %tobool24.not.i = icmp eq ptr %87, null
   br i1 %tobool24.not.i, label %if.end34.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end23.i
-  %87 = load ptr, ptr %sm_name, align 8
+  %88 = load ptr, ptr %sm_name, align 8
   %call.i30.i = call i32 @is_writing_gitmodules_ok() #19
   %tobool.not.i31.i = icmp eq i32 %call.i30.i, 0
   br i1 %tobool.not.i31.i, label %if.then.i34.i, label %config_submodule_in_gitmodules.exit36.i
@@ -1728,16 +1731,16 @@ if.then.i34.i:                                    ; preds = %if.then25.i
   unreachable
 
 config_submodule_in_gitmodules.exit36.i:          ; preds = %if.then25.i
-  %call2.i32.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.137, ptr noundef %87, ptr noundef nonnull @.str.77) #19
-  %call3.i33.i = call i32 @config_set_in_gitmodules_file_gently(ptr noundef %call2.i32.i, ptr noundef nonnull %86) #19
+  %call2.i32.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.137, ptr noundef %88, ptr noundef nonnull @.str.77) #19
+  %call3.i33.i = call i32 @config_set_in_gitmodules_file_gently(ptr noundef %call2.i32.i, ptr noundef nonnull %87) #19
   call void @free(ptr noundef %call2.i32.i) #19
   %tobool29.not.i = icmp eq i32 %call3.i33.i, 0
   br i1 %tobool29.not.i, label %if.end34.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %config_submodule_in_gitmodules.exit36.i
   %call31.i = call fastcc ptr @_(ptr noundef nonnull @.str.132)
-  %88 = load ptr, ptr %6, align 8
-  call void (ptr, ...) @die(ptr noundef %call31.i, ptr noundef %88) #20
+  %89 = load ptr, ptr %6, align 8
+  call void (ptr, ...) @die(ptr noundef %call31.i, ptr noundef %89) #20
   unreachable
 
 if.end34.i:                                       ; preds = %config_submodule_in_gitmodules.exit36.i, %if.end23.i
@@ -1750,8 +1753,8 @@ if.end34.i:                                       ; preds = %config_submodule_in
 
 if.then42.i:                                      ; preds = %if.end34.i
   %call43.i = call fastcc ptr @_(ptr noundef nonnull @.str.132)
-  %89 = load ptr, ptr %6, align 8
-  call void (ptr, ...) @die(ptr noundef %call43.i, ptr noundef %89) #20
+  %90 = load ptr, ptr %6, align 8
+  call void (ptr, ...) @die(ptr noundef %call43.i, ptr noundef %90) #20
   unreachable
 
 if.end45.i:                                       ; preds = %if.end34.i
@@ -1760,15 +1763,15 @@ if.end45.i:                                       ; preds = %if.end34.i
   br i1 %tobool47.not.i, label %if.then48.i, label %if.end60.sink.split.i
 
 if.then48.i:                                      ; preds = %if.end45.i
-  %90 = load ptr, ptr @the_repository, align 8
-  %91 = load ptr, ptr %6, align 8
-  %call50.i = call i32 @is_submodule_active(ptr noundef %90, ptr noundef %91) #19
+  %91 = load ptr, ptr @the_repository, align 8
+  %92 = load ptr, ptr %6, align 8
+  %call50.i = call i32 @is_submodule_active(ptr noundef %91, ptr noundef %92) #19
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %if.end60.sink.split.i, label %configure_added_submodule.exit
 
 if.end60.sink.split.i:                            ; preds = %if.then48.i, %if.end45.i
-  %92 = load ptr, ptr %sm_name, align 8
-  %call54.i56 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.135, ptr noundef %92) #19
+  %93 = load ptr, ptr %sm_name, align 8
+  %call54.i56 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.135, ptr noundef %93) #19
   %call55.i = call i32 @git_config_set_gently(ptr noundef %call54.i56, ptr noundef nonnull @.str.136) #19
   call void @free(ptr noundef %call54.i56) #19
   br label %configure_added_submodule.exit
@@ -1780,8 +1783,8 @@ configure_added_submodule.exit:                   ; preds = %if.then48.i, %if.en
 
 cleanup:                                          ; preds = %configure_added_submodule.exit, %strbuf_complete_line.exit
   %ret.1 = phi i32 [ 0, %configure_added_submodule.exit ], [ %call195, %strbuf_complete_line.exit ]
-  %93 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %93) #19
+  %94 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %94) #19
   call void @free(ptr noundef %to_free.0) #19
   call void @strbuf_release(ptr noundef nonnull %sb) #19
   ret i32 %ret.1
@@ -1812,15 +1815,15 @@ entry:
   %opts.i = alloca %struct.run_process_parallel_opts, align 8
   %pathspec = alloca %struct.pathspec, align 8
   %pathspec2 = alloca %struct.pathspec, align 8
-  %opt = alloca %struct.update_data, align 16
+  %opt = alloca %struct.update_data, align 8
   %filter_options = alloca %struct.list_objects_filter_options, align 8
   %module_update_options = alloca [20 x %struct.option], align 16
   %git_submodule_helper_usage = alloca [2 x ptr], align 16
   %list278 = alloca %struct.module_list, align 8
-  %info = alloca %struct.init_cb, align 16
+  %info = alloca %struct.init_cb, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pathspec, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pathspec2, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(248) %opt, i8 0, i64 248, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %opt, i8 0, i64 248, i1 false)
   %0 = getelementptr inbounds i8, ptr %opt, i64 64
   %1 = getelementptr inbounds i8, ptr %opt, i64 88
   store i8 1, ptr %1, align 8
@@ -2202,7 +2205,7 @@ entry:
   call void @update_clone_config_from_gitmodules(ptr noundef nonnull %2) #19
   call void @git_config(ptr noundef nonnull @git_update_clone_config, ptr noundef nonnull %2) #19
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %module_update_options, ptr noundef nonnull %git_submodule_helper_usage, i32 noundef 0) #19
-  %5 = load i32, ptr %require_init, align 16
+  %5 = load i32, ptr %require_init, align 8
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.end, label %if.end.thread
 
@@ -2226,7 +2229,7 @@ if.then257:                                       ; preds = %if.end
 if.end260:                                        ; preds = %if.end.thread, %if.end
   %filter_options261 = getelementptr inbounds i8, ptr %opt, i64 120
   store ptr %filter_options, ptr %filter_options261, align 8
-  store ptr %prefix, ptr %opt, align 16
+  store ptr %prefix, ptr %opt, align 8
   %7 = load i32, ptr %update_default, align 8
   %tobool264.not = icmp eq i32 %7, 0
   br i1 %tobool264.not, label %if.end268, label %if.then265
@@ -2249,7 +2252,7 @@ if.end271:                                        ; preds = %if.end268
 
 if.then273:                                       ; preds = %if.end271
   %warn_if_uninitialized = getelementptr inbounds i8, ptr %opt, i64 192
-  store i32 1, ptr %warn_if_uninitialized, align 16
+  store i32 1, ptr %warn_if_uninitialized, align 8
   br label %if.end274
 
 if.end274:                                        ; preds = %if.then273, %if.end271
@@ -2259,8 +2262,8 @@ if.end274:                                        ; preds = %if.then273, %if.end
 
 if.then277:                                       ; preds = %if.end274
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list278, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %info, i8 0, i64 24, i1 false)
-  %10 = load ptr, ptr %opt, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %info, i8 0, i64 24, i1 false)
+  %10 = load ptr, ptr %opt, align 8
   %call280 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %10, ptr noundef nonnull %pathspec2, ptr noundef nonnull %list278)
   %cmp281 = icmp slt i32 %call280, 0
   br i1 %cmp281, label %if.then282, label %if.end283
@@ -2356,37 +2359,40 @@ module_list_active.exit:                          ; preds = %for.inc.i, %if.then
   br label %if.end289
 
 if.end289:                                        ; preds = %module_list_active.exit, %land.lhs.true285, %if.end283
-  %19 = load <2 x ptr>, ptr %opt, align 16
-  store <2 x ptr> %19, ptr %info, align 16
-  %20 = load i32, ptr %quiet, align 8
-  %tobool295.not = icmp eq i32 %20, 0
+  %19 = load ptr, ptr %opt, align 8
+  store ptr %19, ptr %info, align 8
+  %20 = load ptr, ptr %super_prefix, align 8
+  %super_prefix293 = getelementptr inbounds i8, ptr %info, i64 8
+  store ptr %20, ptr %super_prefix293, align 8
+  %21 = load i32, ptr %quiet, align 8
+  %tobool295.not = icmp eq i32 %21, 0
   br i1 %tobool295.not, label %if.end298, label %if.then296
 
 if.then296:                                       ; preds = %if.end289
   %flags297 = getelementptr inbounds i8, ptr %info, i64 16
-  %21 = load i32, ptr %flags297, align 16
-  %or = or i32 %21, 1
-  store i32 %or, ptr %flags297, align 16
+  %22 = load i32, ptr %flags297, align 8
+  %or = or i32 %22, 1
+  store i32 %or, ptr %flags297, align 8
   br label %if.end298
 
 if.end298:                                        ; preds = %if.then296, %if.end289
   %nr.i7 = getelementptr inbounds i8, ptr %list278, i64 12
-  %22 = load i32, ptr %nr.i7, align 4
-  %cmp4.i = icmp sgt i32 %22, 0
+  %23 = load i32, ptr %nr.i7, align 4
+  %cmp4.i = icmp sgt i32 %23, 0
   %list278.val6.pre = load ptr, ptr %list278, align 8
   br i1 %cmp4.i, label %for.body.i8.preheader, label %for_each_listed_submodule.exit
 
 for.body.i8.preheader:                            ; preds = %if.end298
-  %23 = zext nneg i32 %22 to i64
+  %24 = zext nneg i32 %23 to i64
   br label %for.body.i8
 
 for.body.i8:                                      ; preds = %for.body.i8.preheader, %for.body.i8
   %indvars.iv.i9 = phi i64 [ %indvars.iv.next.i11, %for.body.i8 ], [ 0, %for.body.i8.preheader ]
   %arrayidx.i10 = getelementptr inbounds ptr, ptr %list278.val6.pre, i64 %indvars.iv.i9
-  %24 = load ptr, ptr %arrayidx.i10, align 8
-  call fastcc void @init_submodule_cb(ptr noundef %24, ptr noundef nonnull %info) #19
+  %25 = load ptr, ptr %arrayidx.i10, align 8
+  call fastcc void @init_submodule_cb(ptr noundef %25, ptr noundef nonnull %info) #19
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i9, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i11, %23
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i11, %24
   br i1 %exitcond.not, label %for_each_listed_submodule.exit, label %for.body.i8, !llvm.loop !8
 
 for_each_listed_submodule.exit:                   ; preds = %for.body.i8, %if.end298
@@ -2401,8 +2407,8 @@ if.end299:                                        ; preds = %for_each_listed_sub
   %tr2_label.i = getelementptr inbounds i8, ptr %opts.i, i64 8
   store ptr @.str.171, ptr %tr2_label.i, align 8
   %processes.i = getelementptr inbounds i8, ptr %opts.i, i64 16
-  %25 = load i32, ptr %2, align 4
-  %conv.i13 = sext i32 %25 to i64
+  %26 = load i32, ptr %2, align 4
+  %conv.i13 = sext i32 %26 to i64
   store i64 %conv.i13, ptr %processes.i, align 8
   %ungroup.i = getelementptr inbounds i8, ptr %opts.i, i64 24
   store i8 0, ptr %ungroup.i, align 8
@@ -2425,8 +2431,8 @@ if.end299:                                        ; preds = %for_each_listed_sub
 
 for.cond.preheader.i:                             ; preds = %if.end299
   %update_clone_nr.i = getelementptr inbounds i8, ptr %suc.i, i64 24
-  %26 = load i32, ptr %update_clone_nr.i, align 8
-  %cmp66.i = icmp sgt i32 %26, 0
+  %27 = load i32, ptr %update_clone_nr.i, align 8
+  %cmp66.i = icmp sgt i32 %27, 0
   br i1 %cmp66.i, label %for.body.lr.ph.i, label %update_submodules.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
@@ -2469,16 +2475,19 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.body.i15:                                     ; preds = %for.inc.i19, %for.body.lr.ph.i
   %indvars.iv.i16 = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i20, %for.inc.i19 ]
   %ret.168.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %ret.2.i, %for.inc.i19 ]
-  %27 = load ptr, ptr %update_clone.i, align 8
-  %arrayidx.i17 = getelementptr inbounds %struct.update_clone_data, ptr %27, i64 %indvars.iv.i16
+  %28 = load ptr, ptr %update_clone.i, align 8
+  %arrayidx.i17 = getelementptr inbounds %struct.update_clone_data, ptr %28, i64 %indvars.iv.i16
   %ucd.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i17, align 8
   %ucd.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i17, i64 8
   %ucd.sroa.3.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i17, i64 40
-  %28 = load <2 x i32>, ptr %ucd.sroa.3.0.arrayidx.sroa_idx.i, align 8
+  %ucd.sroa.3.0.copyload.i = load i32, ptr %ucd.sroa.3.0.arrayidx.sroa_idx.i, align 8
+  %ucd.sroa.4.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i17, i64 44
+  %ucd.sroa.4.0.copyload.i = load i32, ptr %ucd.sroa.4.0.arrayidx.sroa_idx.i, align 4
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %oid.i, ptr noundef nonnull align 8 dereferenceable(32) %ucd.sroa.2.0.arrayidx.sroa_idx.i, i64 32, i1 false)
-  store <2 x i32> %28, ptr %algo3.i.i, align 8
+  store i32 %ucd.sroa.3.0.copyload.i, ptr %algo3.i.i, align 8
+  store i32 %ucd.sroa.4.0.copyload.i, ptr %just_cloned6.i, align 4
   %29 = load ptr, ptr %ucd.sroa.0.0.copyload.i, align 8
-  store ptr %29, ptr %sm_path.i, align 16
+  store ptr %29, ptr %sm_path.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cw.i.i)
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %subrepo.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i.i)
@@ -2531,8 +2540,8 @@ ensure_core_worktree.exit.i:                      ; preds = %if.end3.i.i.i, %if.
   br i1 %tobool8.not.i, label %if.end10.i, label %fail.i
 
 if.end10.i:                                       ; preds = %ensure_core_worktree.exit.i, %ensure_core_worktree.exit.thread.i
-  %33 = load ptr, ptr %sm_path.i, align 16
-  %34 = load ptr, ptr %opt, align 16
+  %33 = load ptr, ptr %sm_path.i, align 8
+  %34 = load ptr, ptr %opt, align 8
   %35 = load ptr, ptr %super_prefix, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i19.i)
   %tobool.i.i = icmp ne ptr %34, null
@@ -2568,13 +2577,13 @@ if.else9.i.i:                                     ; preds = %if.else5.i.i
 get_submodule_displaypath.exit.i:                 ; preds = %if.else9.i.i, %if.then7.i.i, %if.then3.i.i
   %retval.0.i20.i = phi ptr [ %call4.i23.i, %if.then3.i.i ], [ %call8.i21.i, %if.then7.i.i ], [ %call10.i.i, %if.else9.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i19.i)
-  store ptr %retval.0.i20.i, ptr %displaypath.i, align 16
+  store ptr %retval.0.i20.i, ptr %displaypath.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %remote_name.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %branch.i.i)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cp.i.i)
   %36 = load ptr, ptr @the_repository, align 8
   %37 = load i32, ptr %just_cloned6.i, align 4
-  %38 = load ptr, ptr %sm_path.i, align 16
+  %38 = load ptr, ptr %sm_path.i, align 8
   %39 = load i32, ptr %update_default, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i.i)
   %call.i.i25.i = call ptr @null_oid() #19
@@ -2625,7 +2634,7 @@ if.end18.i.i.i:                                   ; preds = %if.else10.i.i.i
   store i32 %43, ptr %update_strategy.i.i, align 8
   %command.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 56
   %44 = load ptr, ptr %command.i.i.i, align 8
-  store ptr %44, ptr %command23.i.i.i, align 16
+  store ptr %44, ptr %command23.i.i.i, align 8
   br label %if.end28.i.i.i
 
 if.else24.i.i.i:                                  ; preds = %if.else10.i.i.i
@@ -2674,7 +2683,7 @@ if.then3.i27.i:                                   ; preds = %if.end.i26.i
   br label %if.end13.i.i
 
 if.else.i31.i:                                    ; preds = %if.end.i26.i
-  %49 = load ptr, ptr %sm_path.i, align 16
+  %49 = load ptr, ptr %sm_path.i, align 8
   %call7.i32.i = call i32 @resolve_gitlink_ref(ptr noundef %49, ptr noundef nonnull @.str.98, ptr noundef nonnull %suboid.i.i) #19
   %tobool8.not.i.i = icmp eq i32 %call7.i32.i, 0
   br i1 %tobool8.not.i.i, label %if.end13.i.i, label %if.then9.i.i
@@ -2690,17 +2699,17 @@ if.end3.i.i34.i:                                  ; preds = %if.then9.i.i
 
 _.exit.i35.i:                                     ; preds = %if.end3.i.i34.i, %if.then9.i.i
   %retval.0.i.i36.i = phi ptr [ %call.i37.i.i, %if.end3.i.i34.i ], [ @.str.190, %if.then9.i.i ]
-  %51 = load ptr, ptr %displaypath.i, align 16
+  %51 = load ptr, ptr %displaypath.i, align 8
   %call11.i.i = call i32 (ptr, ...) @die_message(ptr noundef %retval.0.i.i36.i, ptr noundef %51) #19
   br label %update_submodule.exit.i
 
 if.end13.i.i:                                     ; preds = %if.else.i31.i, %if.then3.i27.i
-  %52 = load i32, ptr %remote, align 16
+  %52 = load i32, ptr %remote, align 8
   %tobool14.not.i.i = icmp eq i32 %52, 0
   br i1 %tobool14.not.i.i, label %if.end46.i.i, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %if.end13.i.i
-  %53 = load ptr, ptr %sm_path.i, align 16
+  %53 = load ptr, ptr %sm_path.i, align 8
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %subrepo.i.i.i)
   %54 = load ptr, ptr @the_repository, align 8
   %call.i38.i.i = call ptr @null_oid() #19
@@ -2734,7 +2743,7 @@ get_default_remote_submodule.exit.i.i:            ; preds = %if.end.i.i.i, %_.ex
   br i1 %tobool18.not.i.i, label %if.end20.i.i, label %update_submodule.exit.i
 
 if.end20.i.i:                                     ; preds = %get_default_remote_submodule.exit.i.i
-  %56 = load ptr, ptr %sm_path.i, align 16
+  %56 = load ptr, ptr %sm_path.i, align 8
   store ptr null, ptr %branch.i.i, align 8
   %57 = load ptr, ptr @the_repository, align 8
   %call.i49.i.i = call ptr @null_oid() #19
@@ -2892,8 +2901,8 @@ if.end25.i.i:                                     ; preds = %remote_submodule_br
   br i1 %tobool27.not.i.i, label %if.then28.i.i, label %if.end37.i.i
 
 if.then28.i.i:                                    ; preds = %if.end25.i.i
-  %76 = load ptr, ptr %sm_path.i, align 16
-  %77 = load i32, ptr %depth, align 16
+  %76 = load ptr, ptr %sm_path.i, align 8
+  %77 = load i32, ptr %depth, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cp.i38.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp.i38.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.print_submodule_summary.cp_log, i64 120, i1 false)
   call void @prepare_submodule_repo_env(ptr noundef nonnull %env.i39.i) #19
@@ -2926,12 +2935,12 @@ if.end3.i67.i.i:                                  ; preds = %if.then32.i.i
 
 _.exit70.i.i:                                     ; preds = %if.end3.i67.i.i, %if.then32.i.i
   %retval.0.i69.i.i = phi ptr [ %call.i68.i.i, %if.end3.i67.i.i ], [ @.str.192, %if.then32.i.i ]
-  %79 = load ptr, ptr %sm_path.i, align 16
+  %79 = load ptr, ptr %sm_path.i, align 8
   %call35.i.i = call i32 (ptr, ...) @die_message(ptr noundef %retval.0.i69.i.i, ptr noundef %79) #19
   br label %update_submodule.exit.i
 
 if.end37.i.i:                                     ; preds = %fetch_in_submodule.exit.i, %if.end25.i.i
-  %80 = load ptr, ptr %sm_path.i, align 16
+  %80 = load ptr, ptr %sm_path.i, align 8
   %call39.i.i = call i32 @resolve_gitlink_ref(ptr noundef %80, ptr noundef %call26.i.i, ptr noundef nonnull %oid.i) #19
   %tobool40.not.i.i = icmp eq i32 %call39.i.i, 0
   br i1 %tobool40.not.i.i, label %if.end45.i.i, label %if.then41.i.i
@@ -2947,7 +2956,7 @@ if.end3.i73.i.i:                                  ; preds = %if.then41.i.i
 
 _.exit76.i.i:                                     ; preds = %if.end3.i73.i.i, %if.then41.i.i
   %retval.0.i75.i.i = phi ptr [ %call.i74.i.i, %if.end3.i73.i.i ], [ @.str.193, %if.then41.i.i ]
-  %82 = load ptr, ptr %sm_path.i, align 16
+  %82 = load ptr, ptr %sm_path.i, align 8
   %call44.i.i = call i32 (ptr, ...) @die_message(ptr noundef %retval.0.i75.i.i, ptr noundef %call26.i.i, ptr noundef %82) #19
   br label %update_submodule.exit.i
 
@@ -3037,7 +3046,7 @@ is_null_oid.exit.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i,
   br i1 %tobool2.not.i.i.i, label %if.then.i86.i.i, label %if.end34.i.i.i
 
 if.then.i86.i.i:                                  ; preds = %is_null_oid.exit.i.i.i
-  %94 = load ptr, ptr %sm_path.i, align 16
+  %94 = load ptr, ptr %sm_path.i, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rev.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.print_submodule_summary.cp_log, i64 120, i1 false)
@@ -3057,8 +3066,8 @@ if.then.i86.i.i:                                  ; preds = %is_null_oid.exit.i.
   br i1 %or.cond.not.i.not.i.i.i, label %land.lhs.true.i89.i.i, label %if.end.i87.i.i
 
 land.lhs.true.i89.i.i:                            ; preds = %if.then.i86.i.i
-  %96 = load ptr, ptr %sm_path.i, align 16
-  %97 = load i32, ptr %depth, align 16
+  %96 = load ptr, ptr %sm_path.i, align 8
+  %97 = load i32, ptr %depth, align 8
   %98 = load i32, ptr %quiet, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cp.i21.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp.i21.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.print_submodule_summary.cp_log, i64 120, i1 false)
@@ -3104,13 +3113,13 @@ if.end3.i.i96.i.i:                                ; preds = %if.then11.i94.i.i
 
 _.exit.i97.i.i:                                   ; preds = %if.end3.i.i96.i.i, %if.then11.i94.i.i
   %retval.0.i.i98.i.i = phi ptr [ %call.i27.i.i.i, %if.end3.i.i96.i.i ], [ @.str.202, %if.then11.i94.i.i ]
-  %102 = load ptr, ptr %displaypath.i, align 16
+  %102 = load ptr, ptr %displaypath.i, align 8
   %call14.i.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i) #19
   %call15.i.i.i = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %100, ptr noundef %retval.0.i.i98.i.i, ptr noundef %102, ptr noundef %call14.i.i.i) #19
   br label %if.end.i87.i.i
 
 if.end.i87.i.i:                                   ; preds = %_.exit.i97.i.i, %fetch_in_submodule.exit.i.i.i, %if.then.i86.i.i
-  %103 = load ptr, ptr %sm_path.i, align 16
+  %103 = load ptr, ptr %sm_path.i, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cp.i28.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rev.i29.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp.i28.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.print_submodule_summary.cp_log, i64 120, i1 false)
@@ -3130,8 +3139,8 @@ if.end.i87.i.i:                                   ; preds = %_.exit.i97.i.i, %fe
   br i1 %or.cond.not.i38.not.i.i.i, label %land.lhs.true20.i.i.i, label %if.end34.i.i.i
 
 land.lhs.true20.i.i.i:                            ; preds = %if.end.i87.i.i
-  %105 = load ptr, ptr %sm_path.i, align 16
-  %106 = load i32, ptr %depth, align 16
+  %105 = load ptr, ptr %sm_path.i, align 8
+  %106 = load i32, ptr %depth, align 8
   %107 = load i32, ptr %quiet, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.print_submodule_summary.cp_log, i64 120, i1 false)
@@ -3190,7 +3199,7 @@ if.end3.i42.i.i.i:                                ; preds = %if.then27.i.i.i
 
 _.exit45.i.i.i:                                   ; preds = %if.end3.i42.i.i.i, %if.then27.i.i.i
   %retval.0.i44.i.i.i = phi ptr [ %call.i43.i.i.i, %if.end3.i42.i.i.i ], [ @.str.203, %if.then27.i.i.i ]
-  %111 = load ptr, ptr %displaypath.i, align 16
+  %111 = load ptr, ptr %displaypath.i, align 8
   %call31.i.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i) #19
   %call32.i88.i.i = call i32 (ptr, ...) @die_message(ptr noundef %retval.0.i44.i.i.i, ptr noundef %111, ptr noundef %call31.i.i.i) #19
   br label %run_update_procedure.exit.i.i
@@ -3240,7 +3249,7 @@ if.then25.i.i.i.i:                                ; preds = %sw.bb16.i.i.i.i
 
 sw.bb29.i.i.i.i:                                  ; preds = %if.end34.i.i.i
   store i16 32, ptr %use_shell.i.i.i.i, align 8
-  %115 = load ptr, ptr %command23.i.i.i, align 16
+  %115 = load ptr, ptr %command23.i.i.i, align 8
   %call35.i.i.i.i = call ptr @strvec_push(ptr noundef nonnull %cp.i46.i.i.i, ptr noundef %115) #19
   br label %sw.epilog.i.i.i.i
 
@@ -3250,7 +3259,7 @@ sw.default.i.i.i.i:                               ; preds = %if.end34.i.i.i
 
 sw.epilog.i.i.i.i:                                ; preds = %sw.bb29.i.i.i.i, %if.then25.i.i.i.i, %sw.bb16.i.i.i.i, %if.then12.i.i.i.i, %sw.bb4.i.i.i.i, %if.then.i55.i.i.i, %sw.bb.i.i.i.i
   %call39.i.i.i.i = call ptr @strvec_push(ptr noundef nonnull %cp.i46.i.i.i, ptr noundef %call.i47.i.i.i) #19
-  %116 = load ptr, ptr %sm_path.i, align 16
+  %116 = load ptr, ptr %sm_path.i, align 8
   store ptr %116, ptr %dir.i48.i.i.i, align 8
   call void @prepare_submodule_repo_env(ptr noundef nonnull %env.i49.i.i.i) #19
   %call40.i.i.i.i = call i32 @run_command(ptr noundef nonnull %cp.i46.i.i.i) #19
@@ -3277,7 +3286,7 @@ if.end3.i.i.i.i.i:                                ; preds = %sw.bb45.i.i.i.i
 
 _.exit.i.i.i.i:                                   ; preds = %if.end3.i.i.i.i.i, %sw.bb45.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %call.i.i51.i.i.i, %if.end3.i.i.i.i.i ], [ @.str.210, %sw.bb45.i.i.i.i ]
-  %119 = load ptr, ptr %displaypath.i, align 16
+  %119 = load ptr, ptr %displaypath.i, align 8
   %call47.i.i.i.i = call i32 (ptr, ...) @die_message(ptr noundef %retval.0.i.i.i.i.i, ptr noundef %call.i47.i.i.i, ptr noundef %119) #19
   br label %run_update_command.exit.i.i.i
 
@@ -3292,7 +3301,7 @@ if.end3.i31.i.i.i.i:                              ; preds = %sw.bb48.i.i.i.i
 
 _.exit34.i.i.i.i:                                 ; preds = %if.end3.i31.i.i.i.i, %sw.bb48.i.i.i.i
   %retval.0.i33.i.i.i.i = phi ptr [ %call.i32.i.i.i.i, %if.end3.i31.i.i.i.i ], [ @.str.211, %sw.bb48.i.i.i.i ]
-  %121 = load ptr, ptr %displaypath.i, align 16
+  %121 = load ptr, ptr %displaypath.i, align 8
   %call51.i.i.i.i = call i32 (ptr, ...) @die_message(ptr noundef %retval.0.i33.i.i.i.i, ptr noundef %call.i47.i.i.i, ptr noundef %121) #19
   br label %run_update_command.exit.i.i.i
 
@@ -3307,7 +3316,7 @@ if.end3.i36.i.i.i.i:                              ; preds = %sw.bb52.i.i.i.i
 
 _.exit39.i.i.i.i:                                 ; preds = %if.end3.i36.i.i.i.i, %sw.bb52.i.i.i.i
   %retval.0.i38.i.i.i.i = phi ptr [ %call.i37.i.i.i.i, %if.end3.i36.i.i.i.i ], [ @.str.212, %sw.bb52.i.i.i.i ]
-  %123 = load ptr, ptr %displaypath.i, align 16
+  %123 = load ptr, ptr %displaypath.i, align 8
   %call55.i.i.i.i = call i32 (ptr, ...) @die_message(ptr noundef %retval.0.i38.i.i.i.i, ptr noundef %call.i47.i.i.i, ptr noundef %123) #19
   br label %run_update_command.exit.i.i.i
 
@@ -3322,8 +3331,8 @@ if.end3.i41.i.i.i.i:                              ; preds = %sw.bb56.i.i.i.i
 
 _.exit44.i.i.i.i:                                 ; preds = %if.end3.i41.i.i.i.i, %sw.bb56.i.i.i.i
   %retval.0.i43.i.i.i.i = phi ptr [ %call.i42.i.i.i.i, %if.end3.i41.i.i.i.i ], [ @.str.213, %sw.bb56.i.i.i.i ]
-  %125 = load ptr, ptr %command23.i.i.i, align 16
-  %126 = load ptr, ptr %displaypath.i, align 16
+  %125 = load ptr, ptr %command23.i.i.i, align 8
+  %126 = load ptr, ptr %displaypath.i, align 8
   %call61.i.i.i.i = call i32 (ptr, ...) @die_message(ptr noundef %retval.0.i43.i.i.i.i, ptr noundef %125, ptr noundef %call.i47.i.i.i, ptr noundef %126) #19
   br label %run_update_command.exit.i.i.i
 
@@ -3356,7 +3365,7 @@ if.end3.i46.i.i.i.i:                              ; preds = %sw.bb73.i.i.i.i
 
 _.exit49.i.i.i.i:                                 ; preds = %if.end3.i46.i.i.i.i, %sw.bb73.i.i.i.i
   %retval.0.i48.i.i.i.i = phi ptr [ %call.i47.i.i.i.i, %if.end3.i46.i.i.i.i ], [ @.str.214, %sw.bb73.i.i.i.i ]
-  %130 = load ptr, ptr %displaypath.i, align 16
+  %130 = load ptr, ptr %displaypath.i, align 8
   %call76.i.i.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i48.i.i.i.i, ptr noundef %130, ptr noundef %call.i47.i.i.i)
   br label %run_update_command.exit.i.i.i
 
@@ -3371,7 +3380,7 @@ if.end3.i51.i.i.i.i:                              ; preds = %sw.bb77.i.i.i.i
 
 _.exit54.i.i.i.i:                                 ; preds = %if.end3.i51.i.i.i.i, %sw.bb77.i.i.i.i
   %retval.0.i53.i.i.i.i = phi ptr [ %call.i52.i.i.i.i, %if.end3.i51.i.i.i.i ], [ @.str.215, %sw.bb77.i.i.i.i ]
-  %132 = load ptr, ptr %displaypath.i, align 16
+  %132 = load ptr, ptr %displaypath.i, align 8
   %call80.i.i.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i53.i.i.i.i, ptr noundef %132, ptr noundef %call.i47.i.i.i)
   br label %run_update_command.exit.i.i.i
 
@@ -3386,7 +3395,7 @@ if.end3.i56.i.i.i.i:                              ; preds = %sw.bb81.i.i.i.i
 
 _.exit59.i.i.i.i:                                 ; preds = %if.end3.i56.i.i.i.i, %sw.bb81.i.i.i.i
   %retval.0.i58.i.i.i.i = phi ptr [ %call.i57.i.i.i.i, %if.end3.i56.i.i.i.i ], [ @.str.216, %sw.bb81.i.i.i.i ]
-  %134 = load ptr, ptr %displaypath.i, align 16
+  %134 = load ptr, ptr %displaypath.i, align 8
   %call84.i.i.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i58.i.i.i.i, ptr noundef %134, ptr noundef %call.i47.i.i.i)
   br label %run_update_command.exit.i.i.i
 
@@ -3401,8 +3410,8 @@ if.end3.i61.i.i.i.i:                              ; preds = %sw.bb85.i.i.i.i
 
 _.exit64.i.i.i.i:                                 ; preds = %if.end3.i61.i.i.i.i, %sw.bb85.i.i.i.i
   %retval.0.i63.i.i.i.i = phi ptr [ %call.i62.i.i.i.i, %if.end3.i61.i.i.i.i ], [ @.str.217, %sw.bb85.i.i.i.i ]
-  %136 = load ptr, ptr %displaypath.i, align 16
-  %137 = load ptr, ptr %command23.i.i.i, align 16
+  %136 = load ptr, ptr %displaypath.i, align 8
+  %137 = load ptr, ptr %command23.i.i.i, align 8
   %call90.i.i.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i63.i.i.i.i, ptr noundef %136, ptr noundef %137, ptr noundef %call.i47.i.i.i)
   br label %run_update_command.exit.i.i.i
 
@@ -3427,26 +3436,26 @@ if.end57.i.i:                                     ; preds = %oideq.exit.i.i, %ru
 
 if.then59.i.i:                                    ; preds = %if.end57.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp.i.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.print_submodule_summary.cp_log, i64 120, i1 false)
-  %next.sroa.2130.0.copyload.i.i = load ptr, ptr %displaypath.i, align 16
+  %next.sroa.2130.0.copyload.i.i = load ptr, ptr %displaypath.i, align 8
   %next.sroa.4.0.copyload.i.i = load i32, ptr %update_default, align 8
-  %next.sroa.7.0.copyload.i.i = load ptr, ptr %0, align 16
+  %next.sroa.7.0.copyload.i.i = load ptr, ptr %0, align 8
   %next.sroa.9.0.copyload.i.i = load i64, ptr %next.sroa.9.0.update_data.sroa_idx.i.i, align 8
   %next.sroa.11134.0.copyload.i.i = load ptr, ptr %filter_options261, align 8
-  %next.sroa.12135.0.copyload.i.i = load i32, ptr %depth, align 16
+  %next.sroa.12135.0.copyload.i.i = load i32, ptr %depth, align 8
   %next.sroa.13.0.copyload.i.i = load i32, ptr %2, align 4
   %next.sroa.14.0.copyload.i.i = load i32, ptr %3, align 8
   %next.sroa.15.0.copyload.i.i = load i32, ptr %4, align 4
-  %next.sroa.16.0.copyload.i.i = load i32, ptr %require_init, align 16
+  %next.sroa.16.0.copyload.i.i = load i32, ptr %require_init, align 8
   %next.sroa.17.0.copyload.i.i = load i32, ptr %force, align 4
   %next.sroa.18.0.copyload.i.i = load i32, ptr %quiet, align 8
   %next.sroa.19.0.copyload.i.i = load i32, ptr %nofetch, align 4
-  %next.sroa.20.0.copyload.i.i = load i32, ptr %remote, align 16
+  %next.sroa.20.0.copyload.i.i = load i32, ptr %remote, align 8
   %next.sroa.21.0.copyload.i.i = load i32, ptr %progress, align 4
   %next.sroa.22.0.copyload.i.i = load i32, ptr %dissociate, align 8
   %next.sroa.23.0.copyload.i.i = load i32, ptr %init, align 4
   %call61.i.i = call ptr @null_oid() #19
   %call63.i.i = call ptr @null_oid() #19
-  %139 = load ptr, ptr %sm_path.i, align 16
+  %139 = load ptr, ptr %sm_path.i, align 8
   store ptr %139, ptr %dir.i.i, align 8
   %bf.load.i.i = load i16, ptr %git_cmd.i.i, align 8
   %bf.set.i.i = or i16 %bf.load.i.i, 8
@@ -3631,7 +3640,7 @@ if.end3.i126.i.i:                                 ; preds = %if.then67.i.i
 
 _.exit129.i.i:                                    ; preds = %if.end3.i126.i.i, %if.then67.i.i
   %retval.0.i128.i.i = phi ptr [ %call.i127.i.i, %if.end3.i126.i.i ], [ @.str.194, %if.then67.i.i ]
-  %143 = load ptr, ptr %displaypath.i, align 16
+  %143 = load ptr, ptr %displaypath.i, align 8
   %call70.i.i = call i32 (ptr, ...) @die_message(ptr noundef %retval.0.i128.i.i, ptr noundef %143) #19
   br label %update_submodule.exit.i
 
@@ -3640,9 +3649,9 @@ update_submodule.exit.i:                          ; preds = %_.exit129.i.i, %upd
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %remote_name.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %branch.i.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %cp.i.i)
-  %144 = load ptr, ptr %displaypath.i, align 16
+  %144 = load ptr, ptr %displaypath.i, align 8
   call void @free(ptr noundef %144) #19
-  store ptr null, ptr %displaypath.i, align 16
+  store ptr null, ptr %displaypath.i, align 8
   br label %fail.i
 
 fail.i:                                           ; preds = %update_submodule.exit.i, %ensure_core_worktree.exit.i
@@ -3679,9 +3688,9 @@ update_submodules.exit:                           ; preds = %fail.i, %for.inc.i1
 cleanup:                                          ; preds = %if.end268, %update_submodules.exit, %if.then282
   %ret.0 = phi i32 [ 1, %if.then282 ], [ %ret.0.i, %update_submodules.exit ], [ 1, %if.end268 ]
   %displaypath.i22 = getelementptr inbounds i8, ptr %opt, i64 16
-  %149 = load ptr, ptr %displaypath.i22, align 16
+  %149 = load ptr, ptr %displaypath.i22, align 8
   call void @free(ptr noundef %149) #19
-  %list.val.i23 = load ptr, ptr %list, align 16
+  %list.val.i23 = load ptr, ptr %list, align 8
   call void @free(ptr noundef %list.val.i23) #19
   call void @list_objects_filter_release(ptr noundef nonnull %filter_options) #19
   call void @clear_pathspec(ptr noundef nonnull %pathspec) #19
@@ -9274,22 +9283,23 @@ if.then24.i:                                      ; preds = %if.else21.i
   %env.i = getelementptr inbounds i8, ptr %cp_log.i, i64 24
   call void @prepare_submodule_repo_env(ptr noundef nonnull %env.i) #19
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp_log.i, ptr noundef nonnull @.str.316, ptr noundef null) #19
-  %33 = load <2 x i32>, ptr %p, align 8
-  %34 = and <2 x i32> %33, <i32 61440, i32 61440>
-  %35 = icmp eq <2 x i32> %34, <i32 57344, i32 57344>
-  %36 = extractelement <2 x i1> %35, i64 0
-  %37 = extractelement <2 x i1> %35, i64 1
-  %or.cond.i68 = select i1 %36, i1 %37, i1 false
+  %33 = load i32, ptr %p, align 8
+  %and25.i = and i32 %33, 61440
+  %cmp26.i = icmp eq i32 %and25.i, 57344
+  %34 = load i32, ptr %mod_dst64, align 4
+  %and29.i = and i32 %34, 61440
+  %cmp30.i = icmp eq i32 %and29.i, 57344
+  %or.cond.i68 = select i1 %cmp26.i, i1 %cmp30.i, i1 false
   br i1 %or.cond.i68, label %if.then32.i, label %if.else43.i
 
 if.then32.i:                                      ; preds = %if.then24.i
   %summary_limit.i = getelementptr inbounds i8, ptr %info, i64 36
-  %38 = load i32, ptr %summary_limit.i, align 4
-  %cmp33.i = icmp sgt i32 %38, 0
+  %35 = load i32, ptr %summary_limit.i, align 4
+  %cmp33.i = icmp sgt i32 %35, 0
   br i1 %cmp33.i, label %if.then35.i, label %if.end39.i
 
 if.then35.i:                                      ; preds = %if.then32.i
-  %call38.i = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cp_log.i, ptr noundef nonnull @.str.317, i32 noundef %38) #19
+  %call38.i = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %cp_log.i, ptr noundef nonnull @.str.317, i32 noundef %35) #19
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then35.i, %if.then32.i
@@ -9298,7 +9308,7 @@ if.end39.i:                                       ; preds = %if.then35.i, %if.th
   br label %if.end53.i
 
 if.else43.i:                                      ; preds = %if.then24.i
-  br i1 %37, label %if.then48.i, label %if.else50.i
+  br i1 %cmp30.i, label %if.then48.i, label %if.else50.i
 
 if.then48.i:                                      ; preds = %if.else43.i
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp_log.i, ptr noundef nonnull @.str.319, ptr noundef nonnull @.str.320, ptr noundef %dst_abbrev.0, ptr noundef null) #19

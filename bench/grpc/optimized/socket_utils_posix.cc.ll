@@ -47,10 +47,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_Z28TcpOptionsFromEndpointConfigRKN17grpc_event_engine12experimental14EndpointConfigE(ptr noalias sret(%"struct.grpc_core::PosixTcpOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %config) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
+  store i32 8192, ptr %agg.result, align 8
   %tcp_min_read_chunk_size.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  store i32 256, ptr %tcp_min_read_chunk_size.i, align 4
   %tcp_max_read_chunk_size.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i32 4194304, ptr %tcp_max_read_chunk_size.i, align 8
   %tcp_tx_zerocopy_send_bytes_threshold.i = getelementptr inbounds i8, ptr %agg.result, i64 12
-  store <4 x i32> <i32 8192, i32 256, i32 4194304, i32 16384>, ptr %agg.result, align 8
+  store i32 16384, ptr %tcp_tx_zerocopy_send_bytes_threshold.i, align 4
   %tcp_tx_zerocopy_max_simultaneous_sends.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 4, ptr %tcp_tx_zerocopy_max_simultaneous_sends.i, align 8
   %tcp_receive_buffer_size.i = getelementptr inbounds i8, ptr %agg.result, i64 20

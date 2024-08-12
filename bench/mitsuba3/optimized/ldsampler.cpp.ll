@@ -246,40 +246,44 @@ define weak_odr void @_ZN7mitsuba21LowDiscrepancySamplerIfN5drjit6MatrixINS_8Spe
   %3 = alloca %"class.mitsuba::Properties", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   invoke void @_ZN7mitsuba10PropertiesC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %5 unwind label %15
+          to label %5 unwind label %18
 
 5:                                                ; preds = %2
   invoke void @_ZN7mitsuba21LowDiscrepancySamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %6 unwind label %17
+          to label %6 unwind label %20
 
 6:                                                ; preds = %5
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  %7 = getelementptr inbounds i8, ptr %1, i64 20
-  %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 20
-  store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 12
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
-  %12 = load <2 x i32>, ptr %10, align 4
-  store <2 x i32> %12, ptr %11, align 4
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = load i32, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 %8, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 20
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 %11, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %14 = load i32, ptr %13, align 4
+  %15 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %14, ptr %15, align 4
   store ptr %4, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = atomicrmw add ptr %13, i32 1 seq_cst, align 4
+  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = atomicrmw add ptr %16, i32 1 seq_cst, align 4
   ret void
 
-15:                                               ; preds = %2
-  %16 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  br label %19
+  br label %22
 
-17:                                               ; preds = %5
-  %18 = landingpad { ptr, i32 }
+20:                                               ; preds = %5
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  br label %19
+  br label %22
 
-19:                                               ; preds = %15, %17
-  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
+22:                                               ; preds = %18, %20
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ]
   call void @_ZdlPv(ptr noundef nonnull %4) #16
   resume { ptr, i32 } %.pn
 }

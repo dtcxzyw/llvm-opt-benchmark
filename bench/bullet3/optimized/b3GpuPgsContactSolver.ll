@@ -3510,7 +3510,7 @@ entry:
   %cdata = alloca %struct.b3Int4, align 16
   %launcher122 = alloca %class.b3LauncherCL, align 8
   %cpuConstraints = alloca %class.b3AlignedObjectArray.4, align 8
-  %csCfg = alloca %struct.b3ConstraintCfg, align 8
+  %csCfg = alloca %struct.b3ConstraintCfg, align 4
   %cdata259 = alloca %struct.CB, align 16
   %bInfo = alloca [3 x %struct.b3BufferInfoCL], align 16
   %launcher288 = alloca %class.b3LauncherCL, align 8
@@ -4980,14 +4980,16 @@ if.end192:                                        ; preds = %_ZN20b3AlignedObjec
   %m_size.i393 = getelementptr inbounds i8, ptr %245, i64 8
   %246 = load i64, ptr %m_size.i393, align 8
   %conv197 = trunc i64 %246 to i32
-  store <2 x float> <float 0x3F747AE140000000, float 0x3FC99999A0000000>, ptr %csCfg, align 8
+  store float 0x3F747AE140000000, ptr %csCfg, align 4
+  %m_positionConstraintCoeff.i = getelementptr inbounds i8, ptr %csCfg, i64 4
+  store float 0x3FC99999A0000000, ptr %m_positionConstraintCoeff.i, align 4
   %m_dt.i = getelementptr inbounds i8, ptr %csCfg, i64 8
-  store float 0x3F91111120000000, ptr %m_dt.i, align 8
+  store float 0x3F91111120000000, ptr %m_dt.i, align 4
   %m_staticIdx.i = getelementptr inbounds i8, ptr %csCfg, i64 20
   %m_enableParallelSolve = getelementptr inbounds i8, ptr %csCfg, i64 12
   store i8 1, ptr %m_enableParallelSolve, align 4
   %m_batchCellSize = getelementptr inbounds i8, ptr %csCfg, i64 16
-  store float 6.000000e+00, ptr %m_batchCellSize, align 8
+  store float 6.000000e+00, ptr %m_batchCellSize, align 4
   store i32 %static0Index, ptr %m_staticIdx.i, align 4
   %m_bodyBufferGPU203 = getelementptr inbounds i8, ptr %244, i64 216
   %247 = load ptr, ptr %m_bodyBufferGPU203, align 8

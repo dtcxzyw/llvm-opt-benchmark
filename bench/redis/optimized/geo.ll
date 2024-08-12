@@ -2056,7 +2056,9 @@ if.end:                                           ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %if.end
   %tobool4.not = icmp eq ptr %call, null
+  %max = getelementptr inbounds i8, ptr %r, i64 8
   %arrayidx17 = getelementptr inbounds i8, ptr %r, i64 16
+  %max20 = getelementptr inbounds i8, ptr %r, i64 24
   %arrayidx24 = getelementptr inbounds i8, ptr %xy, i64 8
   %arrayidx41 = getelementptr inbounds i8, ptr %buf, i64 11
   br i1 %tobool4.not, label %for.body.us, label %for.body
@@ -2096,8 +2098,10 @@ if.then13:                                        ; preds = %if.else
   br label %for.inc44
 
 if.end14:                                         ; preds = %if.else
-  store <2 x double> <double -1.800000e+02, double 1.800000e+02>, ptr %r, align 16
-  store <2 x double> <double -9.000000e+01, double 9.000000e+01>, ptr %arrayidx17, align 16
+  store double -1.800000e+02, ptr %r, align 16
+  store double 1.800000e+02, ptr %max, align 8
+  store double -9.000000e+01, ptr %arrayidx17, align 16
+  store double 9.000000e+01, ptr %max20, align 8
   %10 = load double, ptr %xy, align 16
   %11 = load double, ptr %arrayidx24, align 8
   %call25 = call i32 @geohashEncode(ptr noundef nonnull %r, ptr noundef nonnull %arrayidx17, double noundef %10, double noundef %11, i8 noundef zeroext 26, ptr noundef nonnull %hash) #14

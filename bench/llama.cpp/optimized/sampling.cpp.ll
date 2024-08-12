@@ -1836,19 +1836,29 @@ entry:
   %top_k = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %top_k, align 8
   %top_p = getelementptr inbounds i8, ptr %this, i64 12
-  store <4 x float> <float 0x3FEE666660000000, float 0x3FA99999A0000000, float 1.000000e+00, float 1.000000e+00>, ptr %top_p, align 4
+  store float 0x3FEE666660000000, ptr %top_p, align 4
+  %min_p = getelementptr inbounds i8, ptr %this, i64 16
+  store float 0x3FA99999A0000000, ptr %min_p, align 8
+  %tfs_z = getelementptr inbounds i8, ptr %this, i64 20
+  store float 1.000000e+00, ptr %tfs_z, align 4
+  %typical_p = getelementptr inbounds i8, ptr %this, i64 24
+  store float 1.000000e+00, ptr %typical_p, align 8
   %temp = getelementptr inbounds i8, ptr %this, i64 28
   store float 0x3FE99999A0000000, ptr %temp, align 4
   %penalty_last_n = getelementptr inbounds i8, ptr %this, i64 32
   store i32 64, ptr %penalty_last_n, align 8
   %penalty_repeat = getelementptr inbounds i8, ptr %this, i64 36
-  store <2 x float> <float 0x3FF19999A0000000, float 0.000000e+00>, ptr %penalty_repeat, align 4
+  store float 0x3FF19999A0000000, ptr %penalty_repeat, align 4
+  %penalty_freq = getelementptr inbounds i8, ptr %this, i64 40
+  store float 0.000000e+00, ptr %penalty_freq, align 8
   %penalty_present = getelementptr inbounds i8, ptr %this, i64 44
   store float 0.000000e+00, ptr %penalty_present, align 4
   %mirostat = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %mirostat, align 8
   %mirostat_tau = getelementptr inbounds i8, ptr %this, i64 52
-  store <2 x float> <float 5.000000e+00, float 0x3FB99999A0000000>, ptr %mirostat_tau, align 4
+  store float 5.000000e+00, ptr %mirostat_tau, align 4
+  %mirostat_eta = getelementptr inbounds i8, ptr %this, i64 56
+  store float 0x3FB99999A0000000, ptr %mirostat_eta, align 8
   %penalize_nl = getelementptr inbounds i8, ptr %this, i64 60
   store i8 1, ptr %penalize_nl, align 4
   %samplers_sequence = getelementptr inbounds i8, ptr %this, i64 64

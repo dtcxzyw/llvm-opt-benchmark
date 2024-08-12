@@ -305,11 +305,14 @@ if.end41:                                         ; preds = %if.then40, %land.lh
   br i1 %tobool.not.i, label %return, label %if.then43
 
 if.then43:                                        ; preds = %if.end41
-  %17 = load <2 x ptr>, ptr %alloc_condition29, align 8
-  store <2 x ptr> %17, ptr getelementptr inbounds (i8, ptr @evthread_cond_fns_, i64 8), align 8
+  %17 = load ptr, ptr %alloc_condition29, align 8
+  store ptr %17, ptr getelementptr inbounds (i8, ptr @evthread_cond_fns_, i64 8), align 8
+  %free_condition45 = getelementptr inbounds i8, ptr %cbs, i64 16
+  %18 = load ptr, ptr %free_condition45, align 8
+  store ptr %18, ptr getelementptr inbounds (i8, ptr @evthread_cond_fns_, i64 16), align 8
   %signal_condition46 = getelementptr inbounds i8, ptr %cbs, i64 24
-  %18 = load ptr, ptr %signal_condition46, align 8
-  store ptr %18, ptr getelementptr inbounds (i8, ptr @evthread_cond_fns_, i64 24), align 8
+  %19 = load ptr, ptr %signal_condition46, align 8
+  store ptr %19, ptr getelementptr inbounds (i8, ptr @evthread_cond_fns_, i64 24), align 8
   br label %return
 
 return:                                           ; preds = %if.end41, %if.then43, %land.lhs.true23, %if.end27, %if.end8

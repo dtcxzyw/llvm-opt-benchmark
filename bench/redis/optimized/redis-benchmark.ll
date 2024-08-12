@@ -17702,8 +17702,11 @@ entry:
   %call9 = tail call ptr @aeCreateEventLoop(i32 noundef 10240) #22
   store ptr %call9, ptr @config, align 8
   %call10 = tail call i64 @aeCreateTimeEvent(ptr noundef %call9, i64 noundef 1, ptr noundef nonnull @showThroughput, ptr noundef null, ptr noundef null) #22
+  store i32 1, ptr getelementptr inbounds (i8, ptr @config, i64 176), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @config, i64 164), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @config, i64 180), align 4
-  store <4 x i32> <i32 3, i32 0, i32 0, i32 1>, ptr getelementptr inbounds (i8, ptr @config, i64 164), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @config, i64 168), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @config, i64 172), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @config, i64 216), i8 0, i64 16, i1 false)
   %call11 = tail call ptr @listCreate() #22
   store ptr %call11, ptr getelementptr inbounds (i8, ptr @config, i64 208), align 8

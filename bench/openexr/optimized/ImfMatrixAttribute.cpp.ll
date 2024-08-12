@@ -285,9 +285,21 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %_value.i, align 4
+  store float 1.000000e+00, ptr %_value.i, align 4
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  store float 0.000000e+00, ptr %arrayidx5.i.i, align 4
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  store float 0.000000e+00, ptr %arrayidx8.i.i, align 4
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %call, i64 20
+  store float 0.000000e+00, ptr %arrayidx10.i.i, align 4
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %call, i64 24
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayidx14.i.i, align 4
+  store float 1.000000e+00, ptr %arrayidx14.i.i, align 4
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %call, i64 28
+  store float 0.000000e+00, ptr %arrayidx17.i.i, align 4
+  %arrayidx19.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  store float 0.000000e+00, ptr %arrayidx19.i.i, align 4
+  %arrayidx23.i.i = getelementptr inbounds i8, ptr %call, i64 36
+  store float 0.000000e+00, ptr %arrayidx23.i.i, align 4
   %arrayidx26.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store float 1.000000e+00, ptr %arrayidx26.i.i, align 4
   ret ptr %call
@@ -318,9 +330,21 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %_value.i, align 4
+  store float 1.000000e+00, ptr %_value.i, align 4
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  store float 0.000000e+00, ptr %arrayidx5.i.i, align 4
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  store float 0.000000e+00, ptr %arrayidx8.i.i, align 4
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %call, i64 20
+  store float 0.000000e+00, ptr %arrayidx10.i.i, align 4
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %call, i64 24
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %arrayidx14.i.i, align 4
+  store float 1.000000e+00, ptr %arrayidx14.i.i, align 4
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %call, i64 28
+  store float 0.000000e+00, ptr %arrayidx17.i.i, align 4
+  %arrayidx19.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  store float 0.000000e+00, ptr %arrayidx19.i.i, align 4
+  %arrayidx23.i.i = getelementptr inbounds i8, ptr %call, i64 36
+  store float 0.000000e+00, ptr %arrayidx23.i.i, align 4
   %arrayidx26.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store float 1.000000e+00, ptr %arrayidx26.i.i, align 4
   tail call void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEE13copyValueFromERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(8) %this)

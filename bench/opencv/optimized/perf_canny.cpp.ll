@@ -1153,11 +1153,17 @@ common.resume:                                    ; preds = %86, %.body.i.i
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds i8, ptr %3, i64 48
-  store <2 x double> <double 1.000000e+02, double 5.000000e+01>, ptr %42, align 8
+  store double 1.000000e+02, ptr %42, align 8
+  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 56
+  store double 5.000000e+01, ptr %.sroa.216.0..sroa_idx, align 8
   %43 = getelementptr inbounds i8, ptr %3, i64 64
-  store <2 x double> <double 5.000000e+01, double 0.000000e+00>, ptr %43, align 8
+  store double 5.000000e+01, ptr %43, align 8
+  %.sroa.5.16..sroa_idx = getelementptr inbounds i8, ptr %3, i64 72
+  store double 0.000000e+00, ptr %.sroa.5.16..sroa_idx, align 8
   %44 = getelementptr inbounds i8, ptr %3, i64 80
-  store <2 x double> <double 1.200000e+02, double 1.000000e+02>, ptr %44, align 8
+  store double 1.200000e+02, ptr %44, align 8
+  %.sroa.8.32..sroa_idx = getelementptr inbounds i8, ptr %3, i64 88
+  store double 1.000000e+02, ptr %.sroa.8.32..sroa_idx, align 8
   invoke void @_ZNK7testing8internal23CartesianProductHolder4INS0_11ValueArray3IPKcS4_S4_EENS0_11ValueArray2IiiEENS0_14ParamGeneratorIbEENS2_ISt5tupleIJddEESB_SB_EEEcvNS8_ISA_IJT_T0_T1_T2_EEEEINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibSB_EEv(ptr dead_on_unwind writable sret(%"class.testing::internal::ParamGenerator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %45 unwind label %84
 

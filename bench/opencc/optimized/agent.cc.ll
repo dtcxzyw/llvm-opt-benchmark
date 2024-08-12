@@ -270,28 +270,40 @@ define void @_ZN6marisa5Agent5clearEv(ptr nocapture noundef nonnull align 8 dere
   store ptr %3, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load <2 x i64>, ptr %6, align 8
-  %8 = load <2 x i64>, ptr %5, align 8
-  store <2 x i64> %7, ptr %5, align 8
-  store <2 x i64> %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = load ptr, ptr %9, align 8
-  %12 = load ptr, ptr %10, align 8
-  store ptr %12, ptr %9, align 8
-  store ptr %11, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = load <2 x i32>, ptr %14, align 8
-  %16 = load <2 x i32>, ptr %13, align 8
-  store <2 x i32> %15, ptr %13, align 8
-  store <2 x i32> %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 40
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = load ptr, ptr %17, align 8
-  %20 = load ptr, ptr %18, align 8
-  store ptr %20, ptr %17, align 8
-  store ptr %19, ptr %18, align 8
+  %7 = load i64, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  store i64 %8, ptr %5, align 8
+  store i64 %7, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = load i64, ptr %9, align 8
+  %12 = load i64, ptr %10, align 8
+  store i64 %12, ptr %9, align 8
+  store i64 %11, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %13, align 8
+  %16 = load ptr, ptr %14, align 8
+  store ptr %16, ptr %13, align 8
+  store ptr %15, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %2, i64 32
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = load i32, ptr %17, align 8
+  %20 = load i32, ptr %18, align 8
+  store i32 %20, ptr %17, align 8
+  store i32 %19, ptr %18, align 8
+  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %22 = getelementptr inbounds i8, ptr %0, i64 36
+  %23 = load i32, ptr %21, align 4
+  %24 = load i32, ptr %22, align 4
+  store i32 %24, ptr %21, align 4
+  store i32 %23, ptr %22, align 4
+  %25 = getelementptr inbounds i8, ptr %2, i64 40
+  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = load ptr, ptr %25, align 8
+  %28 = load ptr, ptr %26, align 8
+  store ptr %28, ptr %25, align 8
+  store ptr %27, ptr %26, align 8
   call void @_ZN6marisa5AgentD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   ret void
 }

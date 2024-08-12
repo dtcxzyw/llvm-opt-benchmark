@@ -1566,10 +1566,14 @@ define linkonce_odr hidden void @_ZN23ZHeapIteratorOopClosureILb0EE8do_klassEP5K
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = load ptr, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %8, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %7, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %9, ptr %11, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef nonnull %3, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
@@ -3859,10 +3863,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN23ZHeapIteratorOopClosureILb0E
 define linkonce_odr hidden void @_ZN23ZHeapIteratorOopClosureILb0EE6do_cldEP15ClassLoaderData(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = load ptr, ptr %6, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %6, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %7, ptr %9, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull %3, i32 noundef 16, i1 noundef zeroext false) #13
   ret void
 }
@@ -5369,10 +5377,14 @@ define linkonce_odr hidden void @_ZN23ZHeapIteratorOopClosureILb1EE8do_klassEP5K
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = load ptr, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %8, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %7, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %9, ptr %11, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef nonnull %3, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
@@ -5382,10 +5394,14 @@ define linkonce_odr hidden void @_ZN23ZHeapIteratorOopClosureILb1EE8do_klassEP5K
 define linkonce_odr hidden void @_ZN23ZHeapIteratorOopClosureILb1EE6do_cldEP15ClassLoaderData(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = load ptr, ptr %6, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %6, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %7, ptr %9, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull %3, i32 noundef 16, i1 noundef zeroext false) #13
   ret void
 }
@@ -6490,50 +6506,54 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopCl
 define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb1EEE5Table15oop_oop_iterateI13InstanceKlass9narrowOopEEvPS1_P7oopDescP5Klass(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %5 = getelementptr i8, ptr %0, i64 16
-  %6 = getelementptr i8, ptr %2, i64 152
-  %.val5.i = load ptr, ptr %6, align 8
+  %.val.i = load ptr, ptr %5, align 8
+  %6 = getelementptr i8, ptr %0, i64 24
+  %.val4.i = load ptr, ptr %6, align 8
+  %7 = getelementptr i8, ptr %2, i64 152
+  %.val5.i = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %8, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.val.i, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i, ptr %9, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %9 = getelementptr inbounds i8, ptr %2, i64 464
-  %10 = getelementptr inbounds i8, ptr %2, i64 160
-  %11 = load i32, ptr %10, align 8
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i64, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %2, i64 292
-  %15 = load i32, ptr %14, align 4
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i64, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %2, i64 288
-  %19 = load i32, ptr %18, align 8
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds %class.OopMapBlock, ptr %17, i64 %20
-  %.not27 = icmp eq i32 %19, 0
+  %10 = getelementptr inbounds i8, ptr %2, i64 464
+  %11 = getelementptr inbounds i8, ptr %2, i64 160
+  %12 = load i32, ptr %11, align 8
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds i64, ptr %10, i64 %13
+  %15 = getelementptr inbounds i8, ptr %2, i64 292
+  %16 = load i32, ptr %15, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds i64, ptr %14, i64 %17
+  %19 = getelementptr inbounds i8, ptr %2, i64 288
+  %20 = load i32, ptr %19, align 8
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds %class.OopMapBlock, ptr %18, i64 %21
+  %.not27 = icmp eq i32 %20, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
-22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.02526, i64 8
-  %24 = icmp ult ptr %23, %21
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+23:                                               ; preds = %.lr.ph
+  %24 = getelementptr inbounds i8, ptr %.02526, i64 8
+  %25 = icmp ult ptr %24, %22
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
-.lr.ph:                                           ; preds = %3, %22
-  %.02526 = phi ptr [ %23, %22 ], [ %17, %3 ]
-  %25 = getelementptr inbounds i8, ptr %.02526, i64 4
-  %26 = load i32, ptr %25, align 4
-  %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %22, label %27
+.lr.ph:                                           ; preds = %3, %23
+  %.02526 = phi ptr [ %24, %23 ], [ %18, %3 ]
+  %26 = getelementptr inbounds i8, ptr %.02526, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %23, label %28
 
-27:                                               ; preds = %.lr.ph
-  %28 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %28, align 1
+28:                                               ; preds = %.lr.ph
+  %29 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %29, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 
-._crit_edge:                                      ; preds = %22, %3
+._crit_edge:                                      ; preds = %23, %3
   ret void
 }
 
@@ -6541,14 +6561,17 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopCl
 define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb1EEE5Table15oop_oop_iterateI13InstanceKlassP7oopDescEEvPS1_S7_P5Klass(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %5 = getelementptr i8, ptr %0, i64 16
+  %.val.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 24
+  %.val4.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %2, i64 152
   %.val5.i = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  store ptr %.val.i, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i, ptr %9, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %10 = getelementptr inbounds i8, ptr %2, i64 464
@@ -6813,50 +6836,54 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopCl
   %4 = alloca %class.AlwaysContains, align 1
   %5 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %6 = getelementptr i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 152
-  %.val5.i.i = load ptr, ptr %7, align 8
+  %.val.i.i = load ptr, ptr %6, align 8
+  %7 = getelementptr i8, ptr %0, i64 24
+  %.val4.i.i = load ptr, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 152
+  %.val5.i.i = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %.val.i.i, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val4.i.i, ptr %10, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i.i, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %10 = getelementptr inbounds i8, ptr %2, i64 464
-  %11 = getelementptr inbounds i8, ptr %2, i64 160
-  %12 = load i32, ptr %11, align 8
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %10, i64 %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 292
-  %16 = load i32, ptr %15, align 4
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %2, i64 288
-  %20 = load i32, ptr %19, align 8
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds %class.OopMapBlock, ptr %18, i64 %21
-  %.not29.i = icmp eq i32 %20, 0
+  %11 = getelementptr inbounds i8, ptr %2, i64 464
+  %12 = getelementptr inbounds i8, ptr %2, i64 160
+  %13 = load i32, ptr %12, align 8
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i64, ptr %11, i64 %14
+  %16 = getelementptr inbounds i8, ptr %2, i64 292
+  %17 = load i32, ptr %16, align 4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i64, ptr %15, i64 %18
+  %20 = getelementptr inbounds i8, ptr %2, i64 288
+  %21 = load i32, ptr %20, align 8
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds %class.OopMapBlock, ptr %19, i64 %22
+  %.not29.i = icmp eq i32 %21, 0
   br i1 %.not29.i, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP7oopDescPT0_.exit, label %.lr.ph.i
 
-23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds i8, ptr %.02728.i, i64 8
-  %25 = icmp ult ptr %24, %22
-  br i1 %25, label %.lr.ph.i, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP7oopDescPT0_.exit, !llvm.loop !39
+24:                                               ; preds = %.lr.ph.i
+  %25 = getelementptr inbounds i8, ptr %.02728.i, i64 8
+  %26 = icmp ult ptr %25, %23
+  br i1 %26, label %.lr.ph.i, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP7oopDescPT0_.exit, !llvm.loop !39
 
-.lr.ph.i:                                         ; preds = %3, %23
-  %.02728.i = phi ptr [ %24, %23 ], [ %18, %3 ]
-  %26 = getelementptr inbounds i8, ptr %.02728.i, i64 4
-  %27 = load i32, ptr %26, align 4
-  %.not.i = icmp eq i32 %27, 0
-  br i1 %.not.i, label %23, label %28
+.lr.ph.i:                                         ; preds = %3, %24
+  %.02728.i = phi ptr [ %25, %24 ], [ %19, %3 ]
+  %27 = getelementptr inbounds i8, ptr %.02728.i, i64 4
+  %28 = load i32, ptr %27, align 4
+  %.not.i = icmp eq i32 %28, 0
+  br i1 %.not.i, label %24, label %29
 
-28:                                               ; preds = %.lr.ph.i
-  %29 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %29, align 1
+29:                                               ; preds = %.lr.ph.i
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 
-_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP7oopDescPT0_.exit: ; preds = %23, %3
+_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP7oopDescPT0_.exit: ; preds = %24, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop23ZHeapIteratorOopClosureILb1EE14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -7321,14 +7348,17 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
   %4 = alloca %class.AlwaysContains, align 1
   %5 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %6 = getelementptr i8, ptr %2, i64 16
+  %.val.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 152
   %.val5.i = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %10, ptr %9, align 8
+  store ptr %.val.i, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val4.i, ptr %10, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %11 = getelementptr inbounds i8, ptr %0, i64 464
@@ -7836,105 +7866,115 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %5 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %6 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %7 = getelementptr i8, ptr %2, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
-  %.val5.i = load ptr, ptr %8, align 8
+  %.val.i = load ptr, ptr %7, align 8
+  %8 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %.val5.i = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
-  %10 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %10, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %.val.i, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %.val4.i, ptr %11, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %6, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %11 = getelementptr inbounds i8, ptr %0, i64 464
-  %12 = getelementptr inbounds i8, ptr %0, i64 160
-  %13 = load i32, ptr %12, align 8
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i64, ptr %11, i64 %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 292
-  %17 = load i32, ptr %16, align 4
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i64, ptr %15, i64 %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 288
-  %21 = load i32, ptr %20, align 8
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds %class.OopMapBlock, ptr %19, i64 %22
-  %.not46 = icmp eq i32 %21, 0
+  %12 = getelementptr inbounds i8, ptr %0, i64 464
+  %13 = getelementptr inbounds i8, ptr %0, i64 160
+  %14 = load i32, ptr %13, align 8
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds i64, ptr %12, i64 %15
+  %17 = getelementptr inbounds i8, ptr %0, i64 292
+  %18 = load i32, ptr %17, align 4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i64, ptr %16, i64 %19
+  %21 = getelementptr inbounds i8, ptr %0, i64 288
+  %22 = load i32, ptr %21, align 8
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds %class.OopMapBlock, ptr %20, i64 %23
+  %.not46 = icmp eq i32 %22, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
-24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.03745, i64 8
-  %26 = icmp ult ptr %25, %23
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+25:                                               ; preds = %.lr.ph
+  %26 = getelementptr inbounds i8, ptr %.03745, i64 8
+  %27 = icmp ult ptr %26, %24
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
-.lr.ph:                                           ; preds = %3, %24
-  %.03745 = phi ptr [ %25, %24 ], [ %19, %3 ]
-  %27 = getelementptr inbounds i8, ptr %.03745, i64 4
-  %28 = load i32, ptr %27, align 4
-  %.not44 = icmp eq i32 %28, 0
-  br i1 %.not44, label %24, label %29
+.lr.ph:                                           ; preds = %3, %25
+  %.03745 = phi ptr [ %26, %25 ], [ %20, %3 ]
+  %28 = getelementptr inbounds i8, ptr %.03745, i64 4
+  %29 = load i32, ptr %28, align 4
+  %.not44 = icmp eq i32 %29, 0
+  br i1 %.not44, label %25, label %30
 
-29:                                               ; preds = %.lr.ph
-  %30 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %30, align 1
+30:                                               ; preds = %.lr.ph
+  %31 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %31, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 
-._crit_edge:                                      ; preds = %24, %3
-  %31 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
-  %32 = call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %31) #13
-  %.not = icmp eq ptr %32, null
-  br i1 %.not, label %51, label %33
+._crit_edge:                                      ; preds = %25, %3
+  %32 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
+  %33 = call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %32) #13
+  %.not = icmp eq ptr %33, null
+  br i1 %.not, label %52, label %34
 
-33:                                               ; preds = %._crit_edge
-  %34 = getelementptr inbounds i8, ptr %32, i64 152
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %51, label %37
+34:                                               ; preds = %._crit_edge
+  %35 = getelementptr inbounds i8, ptr %33, i64 152
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %52, label %38
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %32, i64 12
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp slt i32 %39, 5
-  br i1 %40, label %41, label %48
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds i8, ptr %33, i64 12
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp slt i32 %40, 5
+  br i1 %41, label %42, label %49
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %35, i64 33
-  %43 = load i8, ptr %42, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %48
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds i8, ptr %36, i64 33
+  %44 = load i8, ptr %43, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %49
 
-45:                                               ; preds = %41
+46:                                               ; preds = %42
+  %.val.i39 = load ptr, ptr %7, align 8
+  %.val4.i40 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
-  %47 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %47, ptr %46, align 8
-  call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %35, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
+  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %.val.i39, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val4.i40, ptr %48, align 8
+  call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %36, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %51
+  br label %52
 
-48:                                               ; preds = %41, %37
+49:                                               ; preds = %42, %38
+  %.val.i41 = load ptr, ptr %7, align 8
+  %.val4.i42 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 8
-  %50 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %50, ptr %49, align 8
-  call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %35, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
+  %50 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.val.i41, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i42, ptr %51, align 8
+  call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %36, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %51
+  br label %52
 
-51:                                               ; preds = %45, %48, %33, %._crit_edge
-  %52 = call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef nonnull %1) #13
-  %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %54, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP7oopDescPT0_.exit
+52:                                               ; preds = %46, %49, %34, %._crit_edge
+  %53 = call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef nonnull %1) #13
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %55, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP7oopDescPT0_.exit
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %55, align 1
+55:                                               ; preds = %52
+  %56 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %56, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 
-_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP7oopDescPT0_.exit: ; preds = %51
+_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP7oopDescPT0_.exit: ; preds = %52
   ret void
 }
 
@@ -7948,14 +7988,17 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   %5 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %6 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %7 = getelementptr i8, ptr %2, i64 16
+  %.val.i = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 152
   %.val5.i = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 8
-  %11 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %11, ptr %10, align 8
+  store ptr %.val.i, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %.val4.i, ptr %11, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %6, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %12 = getelementptr inbounds i8, ptr %0, i64 464
@@ -8226,21 +8269,27 @@ _ZN13ZHeapIterator19mark_visit_and_pushERK20ZHeapIteratorContextP7oopDesc.exit: 
   br i1 %167, label %168, label %171
 
 168:                                              ; preds = %164
+  %.val.i39 = load ptr, ptr %7, align 8
+  %.val4.i40 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %5, align 8
   %169 = getelementptr inbounds i8, ptr %5, i64 8
-  %170 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %170, ptr %169, align 8
+  store ptr %.val.i39, ptr %169, align 8
+  %170 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val4.i40, ptr %170, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %158, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %174
 
 171:                                              ; preds = %164, %160
+  %.val.i41 = load ptr, ptr %7, align 8
+  %.val4.i42 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
   %172 = getelementptr inbounds i8, ptr %4, i64 8
-  %173 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %173, ptr %172, align 8
+  store ptr %.val.i41, ptr %172, align 8
+  %173 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i42, ptr %173, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %158, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %174
@@ -8321,65 +8370,72 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %4 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %5 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %6 = getelementptr i8, ptr %2, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
-  %.val5.i = load ptr, ptr %7, align 8
+  %.val.i = load ptr, ptr %6, align 8
+  %7 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %.val5.i = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %.val.i, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val4.i, ptr %10, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %10 = getelementptr inbounds i8, ptr %0, i64 464
-  %11 = getelementptr inbounds i8, ptr %0, i64 160
-  %12 = load i32, ptr %11, align 8
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %10, i64 %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 292
-  %16 = load i32, ptr %15, align 4
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 288
-  %20 = load i32, ptr %19, align 8
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds %class.OopMapBlock, ptr %18, i64 %21
-  %.not36 = icmp eq i32 %20, 0
+  %11 = getelementptr inbounds i8, ptr %0, i64 464
+  %12 = getelementptr inbounds i8, ptr %0, i64 160
+  %13 = load i32, ptr %12, align 8
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i64, ptr %11, i64 %14
+  %16 = getelementptr inbounds i8, ptr %0, i64 292
+  %17 = load i32, ptr %16, align 4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i64, ptr %15, i64 %18
+  %20 = getelementptr inbounds i8, ptr %0, i64 288
+  %21 = load i32, ptr %20, align 8
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds %class.OopMapBlock, ptr %19, i64 %22
+  %.not36 = icmp eq i32 %21, 0
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
-23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.03035, i64 8
-  %25 = icmp ult ptr %24, %22
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+24:                                               ; preds = %.lr.ph
+  %25 = getelementptr inbounds i8, ptr %.03035, i64 8
+  %26 = icmp ult ptr %25, %23
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
-.lr.ph:                                           ; preds = %3, %23
-  %.03035 = phi ptr [ %24, %23 ], [ %18, %3 ]
-  %26 = getelementptr inbounds i8, ptr %.03035, i64 4
-  %27 = load i32, ptr %26, align 4
-  %.not34 = icmp eq i32 %27, 0
-  br i1 %.not34, label %23, label %28
+.lr.ph:                                           ; preds = %3, %24
+  %.03035 = phi ptr [ %25, %24 ], [ %19, %3 ]
+  %27 = getelementptr inbounds i8, ptr %.03035, i64 4
+  %28 = load i32, ptr %27, align 4
+  %.not34 = icmp eq i32 %28, 0
+  br i1 %.not34, label %24, label %29
 
-28:                                               ; preds = %.lr.ph
-  %29 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %29, align 1
+29:                                               ; preds = %.lr.ph
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 
-._crit_edge:                                      ; preds = %23, %3
-  %30 = call noundef ptr @_ZN21java_lang_ClassLoader11loader_dataEP7oopDesc(ptr noundef %1) #13
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %34, label %31
+._crit_edge:                                      ; preds = %24, %3
+  %31 = call noundef ptr @_ZN21java_lang_ClassLoader11loader_dataEP7oopDesc(ptr noundef %1) #13
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %35, label %32
 
-31:                                               ; preds = %._crit_edge
+32:                                               ; preds = %._crit_edge
+  %.val.i32 = load ptr, ptr %6, align 8
+  %.val4.i33 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  %33 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %33, ptr %32, align 8
-  call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %30, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
+  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.val.i32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i33, ptr %34, align 8
+  call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %31, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %34
+  br label %35
 
-34:                                               ; preds = %._crit_edge, %31
+35:                                               ; preds = %._crit_edge, %32
   ret void
 }
 
@@ -8390,14 +8446,17 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %4 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %5 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %6 = getelementptr i8, ptr %2, i64 16
+  %.val.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 152
   %.val5.i = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %10, ptr %9, align 8
+  store ptr %.val.i, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val4.i, ptr %10, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %11 = getelementptr inbounds i8, ptr %0, i64 464
@@ -8649,11 +8708,14 @@ _ZN13ZHeapIterator19mark_visit_and_pushERK20ZHeapIteratorContextP7oopDesc.exit: 
   br i1 %.not, label %157, label %154
 
 154:                                              ; preds = %._crit_edge39
+  %.val.i32 = load ptr, ptr %6, align 8
+  %.val4.i33 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
   %155 = getelementptr inbounds i8, ptr %4, i64 8
-  %156 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %156, ptr %155, align 8
+  store ptr %.val.i32, ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i33, ptr %156, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %153, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %157
@@ -8676,18 +8738,22 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopCl
 define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb1EEE5Table15oop_oop_iterateI23InstanceStackChunkKlass9narrowOopEEvPS1_P7oopDescP5Klass(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %5 = getelementptr i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %2, i64 152
-  %.val5.i.i = load ptr, ptr %6, align 8
+  %.val.i.i = load ptr, ptr %5, align 8
+  %6 = getelementptr i8, ptr %0, i64 24
+  %.val4.i.i = load ptr, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 152
+  %.val5.i.i = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %8, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.val.i.i, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i.i, ptr %9, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i.i, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
-  %9 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %9, align 1
+  %10 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %10, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 }
@@ -8696,13 +8762,17 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopCl
 define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb1EEE5Table15oop_oop_iterateI23InstanceStackChunkKlassP7oopDescEEvPS1_S7_P5Klass(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %5 = getelementptr i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %2, i64 152
-  %.val5.i.i = load ptr, ptr %6, align 8
+  %.val.i.i = load ptr, ptr %5, align 8
+  %6 = getelementptr i8, ptr %0, i64 24
+  %.val4.i.i = load ptr, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 152
+  %.val5.i.i = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %8, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.val.i.i, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i.i, ptr %9, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i.i, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc23ZHeapIteratorOopClosureILb1EEEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
@@ -9285,26 +9355,30 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopCl
 20:                                               ; preds = %18, %8
   %.0.i.i = phi ptr [ %17, %8 ], [ %19, %18 ]
   %21 = getelementptr i8, ptr %0, i64 16
-  %22 = getelementptr i8, ptr %.0.i.i, i64 152
-  %.val5.i.i = load ptr, ptr %22, align 8
+  %.val.i.i = load ptr, ptr %21, align 8
+  %22 = getelementptr i8, ptr %0, i64 24
+  %.val4.i.i = load ptr, ptr %22, align 8
+  %23 = getelementptr i8, ptr %.0.i.i, i64 152
+  %.val5.i.i = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
-  %24 = load <2 x ptr>, ptr %21, align 8
-  store <2 x ptr> %24, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.val.i.i, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i.i, ptr %25, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i.i, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %25 = load i8, ptr @UseCompressedClassPointers, align 1
-  %26 = trunc i8 %25 to i1
-  %27 = select i1 %26, i64 12, i64 16
-  %28 = getelementptr inbounds i8, ptr %1, i64 %27
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %31, label %_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP7oopDescPT0_.exit
+  %26 = load i8, ptr @UseCompressedClassPointers, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, i64 12, i64 16
+  %29 = getelementptr inbounds i8, ptr %1, i64 %28
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP7oopDescPT0_.exit
 
-31:                                               ; preds = %20
-  %32 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %32, align 1
+32:                                               ; preds = %20
+  %33 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %33, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 
@@ -9345,14 +9419,17 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc23
 20:                                               ; preds = %18, %8
   %.0.i = phi ptr [ %17, %8 ], [ %19, %18 ]
   %21 = getelementptr i8, ptr %2, i64 16
+  %.val.i = load ptr, ptr %21, align 8
   %22 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %22, align 8
   %23 = getelementptr i8, ptr %.0.i, i64 152
   %.val5.i = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = load <2 x ptr>, ptr %21, align 8
-  store <2 x ptr> %25, ptr %24, align 8
+  store ptr %.val.i, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i, ptr %25, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %26 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -9973,50 +10050,54 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopCl
 define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb0EEE5Table15oop_oop_iterateI13InstanceKlass9narrowOopEEvPS1_P7oopDescP5Klass(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %5 = getelementptr i8, ptr %0, i64 16
-  %6 = getelementptr i8, ptr %2, i64 152
-  %.val5.i = load ptr, ptr %6, align 8
+  %.val.i = load ptr, ptr %5, align 8
+  %6 = getelementptr i8, ptr %0, i64 24
+  %.val4.i = load ptr, ptr %6, align 8
+  %7 = getelementptr i8, ptr %2, i64 152
+  %.val5.i = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %8, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.val.i, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i, ptr %9, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %9 = getelementptr inbounds i8, ptr %2, i64 464
-  %10 = getelementptr inbounds i8, ptr %2, i64 160
-  %11 = load i32, ptr %10, align 8
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i64, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %2, i64 292
-  %15 = load i32, ptr %14, align 4
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i64, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %2, i64 288
-  %19 = load i32, ptr %18, align 8
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds %class.OopMapBlock, ptr %17, i64 %20
-  %.not27 = icmp eq i32 %19, 0
+  %10 = getelementptr inbounds i8, ptr %2, i64 464
+  %11 = getelementptr inbounds i8, ptr %2, i64 160
+  %12 = load i32, ptr %11, align 8
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds i64, ptr %10, i64 %13
+  %15 = getelementptr inbounds i8, ptr %2, i64 292
+  %16 = load i32, ptr %15, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds i64, ptr %14, i64 %17
+  %19 = getelementptr inbounds i8, ptr %2, i64 288
+  %20 = load i32, ptr %19, align 8
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds %class.OopMapBlock, ptr %18, i64 %21
+  %.not27 = icmp eq i32 %20, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
-22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.02526, i64 8
-  %24 = icmp ult ptr %23, %21
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !59
+23:                                               ; preds = %.lr.ph
+  %24 = getelementptr inbounds i8, ptr %.02526, i64 8
+  %25 = icmp ult ptr %24, %22
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
-.lr.ph:                                           ; preds = %3, %22
-  %.02526 = phi ptr [ %23, %22 ], [ %17, %3 ]
-  %25 = getelementptr inbounds i8, ptr %.02526, i64 4
-  %26 = load i32, ptr %25, align 4
-  %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %22, label %27
+.lr.ph:                                           ; preds = %3, %23
+  %.02526 = phi ptr [ %24, %23 ], [ %18, %3 ]
+  %26 = getelementptr inbounds i8, ptr %.02526, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %23, label %28
 
-27:                                               ; preds = %.lr.ph
-  %28 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %28, align 1
+28:                                               ; preds = %.lr.ph
+  %29 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %29, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 
-._crit_edge:                                      ; preds = %22, %3
+._crit_edge:                                      ; preds = %23, %3
   ret void
 }
 
@@ -10024,14 +10105,17 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopCl
 define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb0EEE5Table15oop_oop_iterateI13InstanceKlassP7oopDescEEvPS1_S7_P5Klass(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %5 = getelementptr i8, ptr %0, i64 16
+  %.val.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 24
+  %.val4.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %2, i64 152
   %.val5.i = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  store ptr %.val.i, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i, ptr %9, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %10 = getelementptr inbounds i8, ptr %2, i64 464
@@ -10292,50 +10376,54 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopCl
   %4 = alloca %class.AlwaysContains, align 1
   %5 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %6 = getelementptr i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 152
-  %.val5.i.i = load ptr, ptr %7, align 8
+  %.val.i.i = load ptr, ptr %6, align 8
+  %7 = getelementptr i8, ptr %0, i64 24
+  %.val4.i.i = load ptr, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 152
+  %.val5.i.i = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %.val.i.i, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val4.i.i, ptr %10, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i.i, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %10 = getelementptr inbounds i8, ptr %2, i64 464
-  %11 = getelementptr inbounds i8, ptr %2, i64 160
-  %12 = load i32, ptr %11, align 8
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %10, i64 %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 292
-  %16 = load i32, ptr %15, align 4
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %2, i64 288
-  %20 = load i32, ptr %19, align 8
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds %class.OopMapBlock, ptr %18, i64 %21
-  %.not29.i = icmp eq i32 %20, 0
+  %11 = getelementptr inbounds i8, ptr %2, i64 464
+  %12 = getelementptr inbounds i8, ptr %2, i64 160
+  %13 = load i32, ptr %12, align 8
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i64, ptr %11, i64 %14
+  %16 = getelementptr inbounds i8, ptr %2, i64 292
+  %17 = load i32, ptr %16, align 4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i64, ptr %15, i64 %18
+  %20 = getelementptr inbounds i8, ptr %2, i64 288
+  %21 = load i32, ptr %20, align 8
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds %class.OopMapBlock, ptr %19, i64 %22
+  %.not29.i = icmp eq i32 %21, 0
   br i1 %.not29.i, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP7oopDescPT0_.exit, label %.lr.ph.i
 
-23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds i8, ptr %.02728.i, i64 8
-  %25 = icmp ult ptr %24, %22
-  br i1 %25, label %.lr.ph.i, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP7oopDescPT0_.exit, !llvm.loop !62
+24:                                               ; preds = %.lr.ph.i
+  %25 = getelementptr inbounds i8, ptr %.02728.i, i64 8
+  %26 = icmp ult ptr %25, %23
+  br i1 %26, label %.lr.ph.i, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP7oopDescPT0_.exit, !llvm.loop !62
 
-.lr.ph.i:                                         ; preds = %3, %23
-  %.02728.i = phi ptr [ %24, %23 ], [ %18, %3 ]
-  %26 = getelementptr inbounds i8, ptr %.02728.i, i64 4
-  %27 = load i32, ptr %26, align 4
-  %.not.i = icmp eq i32 %27, 0
-  br i1 %.not.i, label %23, label %28
+.lr.ph.i:                                         ; preds = %3, %24
+  %.02728.i = phi ptr [ %25, %24 ], [ %19, %3 ]
+  %27 = getelementptr inbounds i8, ptr %.02728.i, i64 4
+  %28 = load i32, ptr %27, align 4
+  %.not.i = icmp eq i32 %28, 0
+  br i1 %.not.i, label %24, label %29
 
-28:                                               ; preds = %.lr.ph.i
-  %29 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %29, align 1
+29:                                               ; preds = %.lr.ph.i
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 
-_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP7oopDescPT0_.exit: ; preds = %23, %3
+_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP7oopDescPT0_.exit: ; preds = %24, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop23ZHeapIteratorOopClosureILb0EE14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -10428,14 +10516,17 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
   %4 = alloca %class.AlwaysContains, align 1
   %5 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %6 = getelementptr i8, ptr %2, i64 16
+  %.val.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 152
   %.val5.i = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %10, ptr %9, align 8
+  store ptr %.val.i, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val4.i, ptr %10, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %11 = getelementptr inbounds i8, ptr %0, i64 464
@@ -10920,105 +11011,115 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %5 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %6 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %7 = getelementptr i8, ptr %2, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
-  %.val5.i = load ptr, ptr %8, align 8
+  %.val.i = load ptr, ptr %7, align 8
+  %8 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %.val5.i = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
-  %10 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %10, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %.val.i, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %.val4.i, ptr %11, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %6, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %11 = getelementptr inbounds i8, ptr %0, i64 464
-  %12 = getelementptr inbounds i8, ptr %0, i64 160
-  %13 = load i32, ptr %12, align 8
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i64, ptr %11, i64 %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 292
-  %17 = load i32, ptr %16, align 4
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i64, ptr %15, i64 %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 288
-  %21 = load i32, ptr %20, align 8
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds %class.OopMapBlock, ptr %19, i64 %22
-  %.not46 = icmp eq i32 %21, 0
+  %12 = getelementptr inbounds i8, ptr %0, i64 464
+  %13 = getelementptr inbounds i8, ptr %0, i64 160
+  %14 = load i32, ptr %13, align 8
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds i64, ptr %12, i64 %15
+  %17 = getelementptr inbounds i8, ptr %0, i64 292
+  %18 = load i32, ptr %17, align 4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i64, ptr %16, i64 %19
+  %21 = getelementptr inbounds i8, ptr %0, i64 288
+  %22 = load i32, ptr %21, align 8
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds %class.OopMapBlock, ptr %20, i64 %23
+  %.not46 = icmp eq i32 %22, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
-24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.03745, i64 8
-  %26 = icmp ult ptr %25, %23
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !65
+25:                                               ; preds = %.lr.ph
+  %26 = getelementptr inbounds i8, ptr %.03745, i64 8
+  %27 = icmp ult ptr %26, %24
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
-.lr.ph:                                           ; preds = %3, %24
-  %.03745 = phi ptr [ %25, %24 ], [ %19, %3 ]
-  %27 = getelementptr inbounds i8, ptr %.03745, i64 4
-  %28 = load i32, ptr %27, align 4
-  %.not44 = icmp eq i32 %28, 0
-  br i1 %.not44, label %24, label %29
+.lr.ph:                                           ; preds = %3, %25
+  %.03745 = phi ptr [ %26, %25 ], [ %20, %3 ]
+  %28 = getelementptr inbounds i8, ptr %.03745, i64 4
+  %29 = load i32, ptr %28, align 4
+  %.not44 = icmp eq i32 %29, 0
+  br i1 %.not44, label %25, label %30
 
-29:                                               ; preds = %.lr.ph
-  %30 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %30, align 1
+30:                                               ; preds = %.lr.ph
+  %31 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %31, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 
-._crit_edge:                                      ; preds = %24, %3
-  %31 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
-  %32 = call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %31) #13
-  %.not = icmp eq ptr %32, null
-  br i1 %.not, label %51, label %33
+._crit_edge:                                      ; preds = %25, %3
+  %32 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
+  %33 = call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %32) #13
+  %.not = icmp eq ptr %33, null
+  br i1 %.not, label %52, label %34
 
-33:                                               ; preds = %._crit_edge
-  %34 = getelementptr inbounds i8, ptr %32, i64 152
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %51, label %37
+34:                                               ; preds = %._crit_edge
+  %35 = getelementptr inbounds i8, ptr %33, i64 152
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %52, label %38
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %32, i64 12
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp slt i32 %39, 5
-  br i1 %40, label %41, label %48
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds i8, ptr %33, i64 12
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp slt i32 %40, 5
+  br i1 %41, label %42, label %49
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %35, i64 33
-  %43 = load i8, ptr %42, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %48
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds i8, ptr %36, i64 33
+  %44 = load i8, ptr %43, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %49
 
-45:                                               ; preds = %41
+46:                                               ; preds = %42
+  %.val.i39 = load ptr, ptr %7, align 8
+  %.val4.i40 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
-  %47 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %47, ptr %46, align 8
-  call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %35, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
+  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %.val.i39, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val4.i40, ptr %48, align 8
+  call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %36, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %51
+  br label %52
 
-48:                                               ; preds = %41, %37
+49:                                               ; preds = %42, %38
+  %.val.i41 = load ptr, ptr %7, align 8
+  %.val4.i42 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 8
-  %50 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %50, ptr %49, align 8
-  call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %35, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
+  %50 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.val.i41, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i42, ptr %51, align 8
+  call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %36, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %51
+  br label %52
 
-51:                                               ; preds = %45, %48, %33, %._crit_edge
-  %52 = call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef nonnull %1) #13
-  %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %54, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP7oopDescPT0_.exit
+52:                                               ; preds = %46, %49, %34, %._crit_edge
+  %53 = call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef nonnull %1) #13
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %55, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP7oopDescPT0_.exit
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %55, align 1
+55:                                               ; preds = %52
+  %56 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %56, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 
-_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP7oopDescPT0_.exit: ; preds = %51
+_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP7oopDescPT0_.exit: ; preds = %52
   ret void
 }
 
@@ -11028,14 +11129,17 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   %5 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %6 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %7 = getelementptr i8, ptr %2, i64 16
+  %.val.i = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 152
   %.val5.i = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 8
-  %11 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %11, ptr %10, align 8
+  store ptr %.val.i, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %.val4.i, ptr %11, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %6, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %12 = getelementptr inbounds i8, ptr %0, i64 464
@@ -11302,21 +11406,27 @@ _ZN13ZHeapIterator19mark_visit_and_pushERK20ZHeapIteratorContextP7oopDesc.exit: 
   br i1 %163, label %164, label %167
 
 164:                                              ; preds = %160
+  %.val.i39 = load ptr, ptr %7, align 8
+  %.val4.i40 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %5, align 8
   %165 = getelementptr inbounds i8, ptr %5, i64 8
-  %166 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %166, ptr %165, align 8
+  store ptr %.val.i39, ptr %165, align 8
+  %166 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val4.i40, ptr %166, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %154, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %170
 
 167:                                              ; preds = %160, %156
+  %.val.i41 = load ptr, ptr %7, align 8
+  %.val4.i42 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
   %168 = getelementptr inbounds i8, ptr %4, i64 8
-  %169 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %169, ptr %168, align 8
+  store ptr %.val.i41, ptr %168, align 8
+  %169 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i42, ptr %169, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %154, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %170
@@ -11393,65 +11503,72 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %4 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %5 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %6 = getelementptr i8, ptr %2, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
-  %.val5.i = load ptr, ptr %7, align 8
+  %.val.i = load ptr, ptr %6, align 8
+  %7 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %.val5.i = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %.val.i, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val4.i, ptr %10, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %10 = getelementptr inbounds i8, ptr %0, i64 464
-  %11 = getelementptr inbounds i8, ptr %0, i64 160
-  %12 = load i32, ptr %11, align 8
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %10, i64 %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 292
-  %16 = load i32, ptr %15, align 4
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 288
-  %20 = load i32, ptr %19, align 8
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds %class.OopMapBlock, ptr %18, i64 %21
-  %.not36 = icmp eq i32 %20, 0
+  %11 = getelementptr inbounds i8, ptr %0, i64 464
+  %12 = getelementptr inbounds i8, ptr %0, i64 160
+  %13 = load i32, ptr %12, align 8
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i64, ptr %11, i64 %14
+  %16 = getelementptr inbounds i8, ptr %0, i64 292
+  %17 = load i32, ptr %16, align 4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i64, ptr %15, i64 %18
+  %20 = getelementptr inbounds i8, ptr %0, i64 288
+  %21 = load i32, ptr %20, align 8
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds %class.OopMapBlock, ptr %19, i64 %22
+  %.not36 = icmp eq i32 %21, 0
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
-23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.03035, i64 8
-  %25 = icmp ult ptr %24, %22
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !69
+24:                                               ; preds = %.lr.ph
+  %25 = getelementptr inbounds i8, ptr %.03035, i64 8
+  %26 = icmp ult ptr %25, %23
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !69
 
-.lr.ph:                                           ; preds = %3, %23
-  %.03035 = phi ptr [ %24, %23 ], [ %18, %3 ]
-  %26 = getelementptr inbounds i8, ptr %.03035, i64 4
-  %27 = load i32, ptr %26, align 4
-  %.not34 = icmp eq i32 %27, 0
-  br i1 %.not34, label %23, label %28
+.lr.ph:                                           ; preds = %3, %24
+  %.03035 = phi ptr [ %25, %24 ], [ %19, %3 ]
+  %27 = getelementptr inbounds i8, ptr %.03035, i64 4
+  %28 = load i32, ptr %27, align 4
+  %.not34 = icmp eq i32 %28, 0
+  br i1 %.not34, label %24, label %29
 
-28:                                               ; preds = %.lr.ph
-  %29 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %29, align 1
+29:                                               ; preds = %.lr.ph
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 
-._crit_edge:                                      ; preds = %23, %3
-  %30 = call noundef ptr @_ZN21java_lang_ClassLoader11loader_dataEP7oopDesc(ptr noundef %1) #13
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %34, label %31
+._crit_edge:                                      ; preds = %24, %3
+  %31 = call noundef ptr @_ZN21java_lang_ClassLoader11loader_dataEP7oopDesc(ptr noundef %1) #13
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %35, label %32
 
-31:                                               ; preds = %._crit_edge
+32:                                               ; preds = %._crit_edge
+  %.val.i32 = load ptr, ptr %6, align 8
+  %.val4.i33 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  %33 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %33, ptr %32, align 8
-  call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %30, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
+  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.val.i32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i33, ptr %34, align 8
+  call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %31, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %34
+  br label %35
 
-34:                                               ; preds = %._crit_edge, %31
+35:                                               ; preds = %._crit_edge, %32
   ret void
 }
 
@@ -11460,14 +11577,17 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %4 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %5 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %6 = getelementptr i8, ptr %2, i64 16
+  %.val.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 152
   %.val5.i = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %10, ptr %9, align 8
+  store ptr %.val.i, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val4.i, ptr %10, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %5, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %11 = getelementptr inbounds i8, ptr %0, i64 464
@@ -11715,11 +11835,14 @@ _ZN13ZHeapIterator19mark_visit_and_pushERK20ZHeapIteratorContextP7oopDesc.exit: 
   br i1 %.not, label %153, label %150
 
 150:                                              ; preds = %._crit_edge39
+  %.val.i32 = load ptr, ptr %6, align 8
+  %.val4.i33 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
   %151 = getelementptr inbounds i8, ptr %4, i64 8
-  %152 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %152, ptr %151, align 8
+  store ptr %.val.i32, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i33, ptr %152, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %149, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %153
@@ -11742,18 +11865,22 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopCl
 define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb0EEE5Table15oop_oop_iterateI23InstanceStackChunkKlass9narrowOopEEvPS1_P7oopDescP5Klass(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %5 = getelementptr i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %2, i64 152
-  %.val5.i.i = load ptr, ptr %6, align 8
+  %.val.i.i = load ptr, ptr %5, align 8
+  %6 = getelementptr i8, ptr %0, i64 24
+  %.val4.i.i = load ptr, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 152
+  %.val5.i.i = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %8, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.val.i.i, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i.i, ptr %9, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i.i, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
-  %9 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %9, align 1
+  %10 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %10, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 }
@@ -11967,14 +12094,17 @@ _ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop23ZHea
 define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass15oop_oop_iterateIP7oopDesc23ZHeapIteratorOopClosureILb0EEEEvS2_PT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.ZHeapIteratorCLDOopClosure, align 8
   %5 = getelementptr i8, ptr %2, i64 16
+  %.val.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 152
   %.val5.i = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %9, ptr %8, align 8
+  store ptr %.val.i, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i, ptr %9, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc23ZHeapIteratorOopClosureILb0EEEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2)
@@ -12303,26 +12433,30 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopCl
 20:                                               ; preds = %18, %8
   %.0.i.i = phi ptr [ %17, %8 ], [ %19, %18 ]
   %21 = getelementptr i8, ptr %0, i64 16
-  %22 = getelementptr i8, ptr %.0.i.i, i64 152
-  %.val5.i.i = load ptr, ptr %22, align 8
+  %.val.i.i = load ptr, ptr %21, align 8
+  %22 = getelementptr i8, ptr %0, i64 24
+  %.val4.i.i = load ptr, ptr %22, align 8
+  %23 = getelementptr i8, ptr %.0.i.i, i64 152
+  %.val5.i.i = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
-  %24 = load <2 x ptr>, ptr %21, align 8
-  store <2 x ptr> %24, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %.val.i.i, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i.i, ptr %25, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i.i, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %25 = load i8, ptr @UseCompressedClassPointers, align 1
-  %26 = trunc i8 %25 to i1
-  %27 = select i1 %26, i64 12, i64 16
-  %28 = getelementptr inbounds i8, ptr %1, i64 %27
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %31, label %_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP7oopDescPT0_.exit
+  %26 = load i8, ptr @UseCompressedClassPointers, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = select i1 %27, i64 12, i64 16
+  %29 = getelementptr inbounds i8, ptr %1, i64 %28
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP7oopDescPT0_.exit
 
-31:                                               ; preds = %20
-  %32 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %32, align 1
+32:                                               ; preds = %20
+  %33 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %33, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 233) #14
   unreachable
 
@@ -12363,14 +12497,17 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc23
 20:                                               ; preds = %18, %8
   %.0.i = phi ptr [ %17, %8 ], [ %19, %18 ]
   %21 = getelementptr i8, ptr %2, i64 16
+  %.val.i = load ptr, ptr %21, align 8
   %22 = getelementptr i8, ptr %2, i64 24
+  %.val4.i = load ptr, ptr %22, align 8
   %23 = getelementptr i8, ptr %.0.i, i64 152
   %.val5.i = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ZHeapIteratorCLDOopClosure, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = load <2 x ptr>, ptr %21, align 8
-  store <2 x ptr> %25, ptr %24, align 8
+  store ptr %.val.i, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val4.i, ptr %25, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val5.i, ptr noundef nonnull %4, i32 noundef 16, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %26 = load i8, ptr @UseCompressedClassPointers, align 1

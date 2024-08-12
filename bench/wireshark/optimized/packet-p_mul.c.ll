@@ -2829,9 +2829,13 @@ declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unna
 define internal void @copy_hashtable_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = tail call ptr @wmem_file_scope() #12
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 8) #12
-  %6 = load <2 x i32>, ptr %1, align 4
-  store <2 x i32> %6, ptr %5, align 4
-  %7 = tail call ptr @wmem_map_insert(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %5) #12
+  %6 = load i32, ptr %1, align 4
+  store i32 %6, ptr %5, align 4
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %8, ptr %9, align 4
+  %10 = tail call ptr @wmem_map_insert(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %5) #12
   ret void
 }
 

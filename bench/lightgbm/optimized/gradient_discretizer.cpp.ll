@@ -509,11 +509,12 @@ _ZNSt8functionIFviiiEED2Ev.exit:                  ; preds = %47, %49
   %.sink = select i1 %96, double %.257, double %98
   %99 = getelementptr inbounds i8, ptr %0, i64 5160
   store double %.sink, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 5168
-  %101 = insertelement <2 x double> poison, double %92, i64 0
-  %102 = insertelement <2 x double> %101, double %.sink, i64 1
-  %103 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %102
-  store <2 x double> %103, ptr %100, align 8
+  %100 = fdiv double 1.000000e+00, %92
+  %101 = getelementptr inbounds i8, ptr %0, i64 5168
+  store double %100, ptr %101, align 8
+  %102 = fdiv double 1.000000e+00, %.sink
+  %103 = getelementptr inbounds i8, ptr %0, i64 5176
+  store double %102, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %0, i64 5080
   %105 = getelementptr inbounds i8, ptr %0, i64 80
   %106 = invoke noundef i32 @_ZNSt24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %104, ptr noundef nonnull align 8 dereferenceable(5000) %105, ptr noundef nonnull align 4 dereferenceable(8) %104)
@@ -2411,7 +2412,7 @@ _ZSt4fillIPddEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i71, %.l
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %38, label %3
+  br i1 %.not, label %41, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2439,7 +2440,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RSaIT1_E.exit: 
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
-  br label %38
+  br label %41
 
 20:                                               ; preds = %3
   %21 = icmp ult i64 %17, %1
@@ -2462,39 +2463,43 @@ _ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %20
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %26, %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %.0911.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %.012.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %26, %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %.0911.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %29 = load <2 x ptr>, ptr %.0911.i.i.i.i, align 8, !alias.scope !19, !noalias !16
-  store <2 x ptr> %29, ptr %.012.i.i.i.i, align 8, !alias.scope !16, !noalias !19
-  %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !19, !noalias !16
+  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !16, !noalias !19
+  %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !19, !noalias !16
   store ptr %32, ptr %30, align 8, !alias.scope !16, !noalias !19
+  %33 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %35 = load ptr, ptr %34, align 8, !alias.scope !19, !noalias !16
+  store ptr %35, ptr %33, align 8, !alias.scope !16, !noalias !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !19, !noalias !16
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
-  %34 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
-  %.not.i.i.i.i = icmp eq ptr %33, %5
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
+  %37 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
+  %.not.i.i.i.i = icmp eq ptr %36, %5
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit
   %.not.i35 = icmp eq ptr %6, null
-  br i1 %.not.i35, label %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit36, label %35
+  br i1 %.not.i35, label %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit36, label %38
 
-35:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
+38:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #27
   br label %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit36
 
-_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %35
+_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8
-  %36 = getelementptr inbounds %"class.std::vector.18", ptr %27, i64 %1
-  store ptr %36, ptr %4, align 8
-  %37 = getelementptr inbounds %"class.std::vector.18", ptr %26, i64 %24
-  store ptr %37, ptr %11, align 8
-  br label %38
+  %39 = getelementptr inbounds %"class.std::vector.18", ptr %27, i64 %1
+  store ptr %39, ptr %4, align 8
+  %40 = getelementptr inbounds %"class.std::vector.18", ptr %26, i64 %24
+  store ptr %40, ptr %11, align 8
+  br label %41
 
-38:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit36, %2
+41:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit36, %2
   ret void
 }
 
@@ -3943,7 +3948,7 @@ define internal void @_ZN8LightGBM19GradientDiscretizer22RenewIntGradTreeOutputE
   %15 = alloca [2 x ptr], align 8
   %16 = load i32, ptr %2, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %58
+  br i1 %17, label %18, label %57
 
 18:                                               ; preds = %8
   %19 = add nsw i32 %16, -1
@@ -3972,22 +3977,21 @@ define internal void @_ZN8LightGBM19GradientDiscretizer22RenewIntGradTreeOutputE
 
 29:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ %27, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %30 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %41, %29 ]
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv
-  %32 = load i32, ptr %31, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds float, ptr %25, i64 %33
-  %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds float, ptr %26, i64 %33
-  %37 = load float, ptr %36, align 4
-  %38 = insertelement <2 x float> poison, float %35, i64 0
-  %39 = insertelement <2 x float> %38, float %37, i64 1
-  %40 = fpext <2 x float> %39 to <2 x double>
-  %41 = fadd <2 x double> %30, %40
-  %42 = extractelement <2 x double> %41, i64 0
-  store double %42, ptr %13, align 8
-  %43 = extractelement <2 x double> %41, i64 1
-  store double %43, ptr %14, align 8
+  %30 = phi double [ 0.000000e+00, %.lr.ph ], [ %40, %29 ]
+  %31 = phi double [ 0.000000e+00, %.lr.ph ], [ %42, %29 ]
+  %32 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv
+  %33 = load i32, ptr %32, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds float, ptr %25, i64 %34
+  %36 = load float, ptr %35, align 4
+  %37 = getelementptr inbounds float, ptr %26, i64 %34
+  %38 = load float, ptr %37, align 4
+  %39 = fpext float %36 to double
+  %40 = fadd double %30, %39
+  store double %40, ptr %13, align 8
+  %41 = fpext float %38 to double
+  %42 = fadd double %31, %41
+  store double %42, ptr %14, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %28, %lftr.wideiv
@@ -3996,34 +4000,34 @@ define internal void @_ZN8LightGBM19GradientDiscretizer22RenewIntGradTreeOutputE
 ._crit_edge:                                      ; preds = %29, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
   store ptr %13, ptr %15, align 8
-  %44 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %14, ptr %44, align 8
-  %45 = call i32 @__kmpc_reduce_nowait(ptr nonnull @3, i32 %20, i32 2, i64 16, ptr nonnull %15, ptr nonnull @_ZN8LightGBM19GradientDiscretizer22RenewIntGradTreeOutputEPNS_4TreeEPKNS_6ConfigEPKNS_13DataPartitionEPKfSA_RKSt8functionIFiiEE.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %45, label %58 [
-    i32 1, label %46
-    i32 2, label %53
+  %43 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %14, ptr %43, align 8
+  %44 = call i32 @__kmpc_reduce_nowait(ptr nonnull @3, i32 %20, i32 2, i64 16, ptr nonnull %15, ptr nonnull @_ZN8LightGBM19GradientDiscretizer22RenewIntGradTreeOutputEPNS_4TreeEPKNS_6ConfigEPKNS_13DataPartitionEPKfSA_RKSt8functionIFiiEE.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %44, label %57 [
+    i32 1, label %45
+    i32 2, label %52
   ]
 
-46:                                               ; preds = %._crit_edge
-  %47 = load double, ptr %6, align 8
-  %48 = load double, ptr %13, align 8
-  %49 = fadd double %47, %48
-  store double %49, ptr %6, align 8
-  %50 = load double, ptr %7, align 8
-  %51 = load double, ptr %14, align 8
-  %52 = fadd double %50, %51
-  store double %52, ptr %7, align 8
+45:                                               ; preds = %._crit_edge
+  %46 = load double, ptr %6, align 8
+  %47 = load double, ptr %13, align 8
+  %48 = fadd double %46, %47
+  store double %48, ptr %6, align 8
+  %49 = load double, ptr %7, align 8
+  %50 = load double, ptr %14, align 8
+  %51 = fadd double %49, %50
+  store double %51, ptr %7, align 8
   call void @__kmpc_end_reduce_nowait(ptr nonnull @3, i32 %20, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %58
+  br label %57
 
-53:                                               ; preds = %._crit_edge
-  %54 = load double, ptr %13, align 8
-  %55 = atomicrmw fadd ptr %6, double %54 monotonic, align 8
-  %56 = load double, ptr %14, align 8
-  %57 = atomicrmw fadd ptr %7, double %56 monotonic, align 8
-  br label %58
+52:                                               ; preds = %._crit_edge
+  %53 = load double, ptr %13, align 8
+  %54 = atomicrmw fadd ptr %6, double %53 monotonic, align 8
+  %55 = load double, ptr %14, align 8
+  %56 = atomicrmw fadd ptr %7, double %55 monotonic, align 8
+  br label %57
 
-58:                                               ; preds = %._crit_edge, %46, %53, %8
+57:                                               ; preds = %._crit_edge, %45, %52, %8
   ret void
 }
 
@@ -4063,7 +4067,7 @@ define internal void @_ZN8LightGBM19GradientDiscretizer22RenewIntGradTreeOutputE
   %15 = alloca [2 x ptr], align 8
   %16 = load i32, ptr %2, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %58
+  br i1 %17, label %18, label %57
 
 18:                                               ; preds = %8
   %19 = add nsw i32 %16, -1
@@ -4092,22 +4096,21 @@ define internal void @_ZN8LightGBM19GradientDiscretizer22RenewIntGradTreeOutputE
 
 29:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ %27, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %30 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %41, %29 ]
-  %31 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv
-  %32 = load i32, ptr %31, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds float, ptr %25, i64 %33
-  %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds float, ptr %26, i64 %33
-  %37 = load float, ptr %36, align 4
-  %38 = insertelement <2 x float> poison, float %35, i64 0
-  %39 = insertelement <2 x float> %38, float %37, i64 1
-  %40 = fpext <2 x float> %39 to <2 x double>
-  %41 = fadd <2 x double> %30, %40
-  %42 = extractelement <2 x double> %41, i64 0
-  store double %42, ptr %13, align 8
-  %43 = extractelement <2 x double> %41, i64 1
-  store double %43, ptr %14, align 8
+  %30 = phi double [ 0.000000e+00, %.lr.ph ], [ %40, %29 ]
+  %31 = phi double [ 0.000000e+00, %.lr.ph ], [ %42, %29 ]
+  %32 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv
+  %33 = load i32, ptr %32, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds float, ptr %25, i64 %34
+  %36 = load float, ptr %35, align 4
+  %37 = getelementptr inbounds float, ptr %26, i64 %34
+  %38 = load float, ptr %37, align 4
+  %39 = fpext float %36 to double
+  %40 = fadd double %30, %39
+  store double %40, ptr %13, align 8
+  %41 = fpext float %38 to double
+  %42 = fadd double %31, %41
+  store double %42, ptr %14, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %28, %lftr.wideiv
@@ -4116,34 +4119,34 @@ define internal void @_ZN8LightGBM19GradientDiscretizer22RenewIntGradTreeOutputE
 ._crit_edge:                                      ; preds = %29, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
   store ptr %13, ptr %15, align 8
-  %44 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %14, ptr %44, align 8
-  %45 = call i32 @__kmpc_reduce_nowait(ptr nonnull @3, i32 %20, i32 2, i64 16, ptr nonnull %15, ptr nonnull @_ZN8LightGBM19GradientDiscretizer22RenewIntGradTreeOutputEPNS_4TreeEPKNS_6ConfigEPKNS_13DataPartitionEPKfSA_RKSt8functionIFiiEE.omp_outlined.12.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %45, label %58 [
-    i32 1, label %46
-    i32 2, label %53
+  %43 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %14, ptr %43, align 8
+  %44 = call i32 @__kmpc_reduce_nowait(ptr nonnull @3, i32 %20, i32 2, i64 16, ptr nonnull %15, ptr nonnull @_ZN8LightGBM19GradientDiscretizer22RenewIntGradTreeOutputEPNS_4TreeEPKNS_6ConfigEPKNS_13DataPartitionEPKfSA_RKSt8functionIFiiEE.omp_outlined.12.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %44, label %57 [
+    i32 1, label %45
+    i32 2, label %52
   ]
 
-46:                                               ; preds = %._crit_edge
-  %47 = load double, ptr %6, align 8
-  %48 = load double, ptr %13, align 8
-  %49 = fadd double %47, %48
-  store double %49, ptr %6, align 8
-  %50 = load double, ptr %7, align 8
-  %51 = load double, ptr %14, align 8
-  %52 = fadd double %50, %51
-  store double %52, ptr %7, align 8
+45:                                               ; preds = %._crit_edge
+  %46 = load double, ptr %6, align 8
+  %47 = load double, ptr %13, align 8
+  %48 = fadd double %46, %47
+  store double %48, ptr %6, align 8
+  %49 = load double, ptr %7, align 8
+  %50 = load double, ptr %14, align 8
+  %51 = fadd double %49, %50
+  store double %51, ptr %7, align 8
   call void @__kmpc_end_reduce_nowait(ptr nonnull @3, i32 %20, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %58
+  br label %57
 
-53:                                               ; preds = %._crit_edge
-  %54 = load double, ptr %13, align 8
-  %55 = atomicrmw fadd ptr %6, double %54 monotonic, align 8
-  %56 = load double, ptr %14, align 8
-  %57 = atomicrmw fadd ptr %7, double %56 monotonic, align 8
-  br label %58
+52:                                               ; preds = %._crit_edge
+  %53 = load double, ptr %13, align 8
+  %54 = atomicrmw fadd ptr %6, double %53 monotonic, align 8
+  %55 = load double, ptr %14, align 8
+  %56 = atomicrmw fadd ptr %7, double %55 monotonic, align 8
+  br label %57
 
-58:                                               ; preds = %._crit_edge, %46, %53, %8
+57:                                               ; preds = %._crit_edge, %45, %52, %8
   ret void
 }
 

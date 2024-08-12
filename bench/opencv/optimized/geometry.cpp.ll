@@ -246,12 +246,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
 22:                                               ; preds = %13, %10, %3
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %240
+  br label %249
 
 24:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %239
+  br label %248
 
 26:                                               ; preds = %17, %15
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
@@ -279,7 +279,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
 33:                                               ; preds = %31, %29
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  br label %239
+  br label %248
 
 34:                                               ; preds = %17
   %.sroa.0114.0.vec.extract = extractelement <2 x float> %1, i64 0
@@ -407,294 +407,309 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %92 = getelementptr %"class.cv::Point_", ptr %44, i64 %91
   %93 = getelementptr i8, ptr %92, i64 -8
   %94 = load i64, ptr %93, align 4
-  br label %101
+  br label %104
 
 .thread:                                          ; preds = %45, %89
   %95 = zext nneg i32 %14 to i64
   %96 = getelementptr %"class.cv::Point_.1", ptr %44, i64 %95
   %97 = getelementptr i8, ptr %96, i64 -8
-  %98 = load <2 x i32>, ptr %97, align 4
-  %99 = sitofp <2 x i32> %98 to <2 x float>
-  %100 = bitcast <2 x float> %99 to i64
-  br label %101
+  %98 = load i32, ptr %97, align 4
+  %99 = sitofp i32 %98 to float
+  %100 = getelementptr i8, ptr %96, i64 -4
+  %101 = load i32, ptr %100, align 4
+  %102 = sitofp i32 %101 to float
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %99, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %102, i64 1
+  %103 = bitcast <2 x float> %.sroa.0.4.vec.insert.i to i64
+  br label %104
 
-101:                                              ; preds = %.thread, %90
-  %storemerge = phi i64 [ %94, %90 ], [ %100, %.thread ]
+104:                                              ; preds = %.thread, %90
+  %storemerge = phi i64 [ %94, %90 ], [ %103, %.thread ]
   %.sroa.0.0.extract.trunc = trunc i64 %storemerge to i32
-  %102 = bitcast i32 %.sroa.0.0.extract.trunc to float
+  %105 = bitcast i32 %.sroa.0.0.extract.trunc to float
   %.sroa.12.0.extract.shift = lshr i64 %storemerge, 32
   %.sroa.12.0.extract.trunc = trunc nuw i64 %.sroa.12.0.extract.shift to i32
-  %103 = bitcast i32 %.sroa.12.0.extract.trunc to float
+  %106 = bitcast i32 %.sroa.12.0.extract.trunc to float
   %wide.trip.count337 = zext nneg i32 %14 to i64
   br i1 %2, label %.lr.ph317, label %.lr.ph308
 
-.lr.ph308:                                        ; preds = %101, %154
-  %indvars.iv328 = phi i64 [ %indvars.iv.next329, %154 ], [ 0, %101 ]
-  %.2183306 = phi i32 [ %.3, %154 ], [ 0, %101 ]
-  %.sroa.0.0305 = phi float [ %113, %154 ], [ %102, %101 ]
-  %.sroa.12.0304 = phi float [ %114, %154 ], [ %103, %101 ]
-  br i1 %20, label %104, label %107
-
-104:                                              ; preds = %.lr.ph308
-  %105 = getelementptr inbounds %"class.cv::Point_", ptr %44, i64 %indvars.iv328
-  %106 = load i64, ptr %105, align 4
-  br label %112
+.lr.ph308:                                        ; preds = %104, %160
+  %indvars.iv328 = phi i64 [ %indvars.iv.next329, %160 ], [ 0, %104 ]
+  %.2183306 = phi i32 [ %.3, %160 ], [ 0, %104 ]
+  %.sroa.0.0305 = phi float [ %119, %160 ], [ %105, %104 ]
+  %.sroa.12.0304 = phi float [ %120, %160 ], [ %106, %104 ]
+  br i1 %20, label %107, label %110
 
 107:                                              ; preds = %.lr.ph308
-  %108 = getelementptr inbounds %"class.cv::Point_.1", ptr %44, i64 %indvars.iv328
-  %109 = load <2 x i32>, ptr %108, align 4
-  %110 = sitofp <2 x i32> %109 to <2 x float>
-  %111 = bitcast <2 x float> %110 to i64
-  br label %112
+  %108 = getelementptr inbounds %"class.cv::Point_", ptr %44, i64 %indvars.iv328
+  %109 = load i64, ptr %108, align 4
+  br label %118
 
-112:                                              ; preds = %107, %104
-  %storemerge208 = phi i64 [ %106, %104 ], [ %111, %107 ]
+110:                                              ; preds = %.lr.ph308
+  %111 = getelementptr inbounds %"class.cv::Point_.1", ptr %44, i64 %indvars.iv328
+  %112 = load i32, ptr %111, align 4
+  %113 = sitofp i32 %112 to float
+  %114 = getelementptr inbounds i8, ptr %111, i64 4
+  %115 = load i32, ptr %114, align 4
+  %116 = sitofp i32 %115 to float
+  %.sroa.0.0.vec.insert.i237 = insertelement <2 x float> poison, float %113, i64 0
+  %.sroa.0.4.vec.insert.i238 = insertelement <2 x float> %.sroa.0.0.vec.insert.i237, float %116, i64 1
+  %117 = bitcast <2 x float> %.sroa.0.4.vec.insert.i238 to i64
+  br label %118
+
+118:                                              ; preds = %110, %107
+  %storemerge208 = phi i64 [ %109, %107 ], [ %117, %110 ]
   %.sroa.0.0.extract.trunc251 = trunc i64 %storemerge208 to i32
-  %113 = bitcast i32 %.sroa.0.0.extract.trunc251 to float
+  %119 = bitcast i32 %.sroa.0.0.extract.trunc251 to float
   %.sroa.12.0.extract.shift253 = lshr i64 %storemerge208, 32
   %.sroa.12.0.extract.trunc254 = trunc nuw i64 %.sroa.12.0.extract.shift253 to i32
-  %114 = bitcast i32 %.sroa.12.0.extract.trunc254 to float
-  %115 = fcmp ugt float %.sroa.12.0304, %.sroa.0114.4.vec.extract
-  %116 = fcmp ult float %.sroa.0114.4.vec.extract, %114
-  %or.cond220 = select i1 %115, i1 true, i1 %116
-  br i1 %or.cond220, label %117, label %123
+  %120 = bitcast i32 %.sroa.12.0.extract.trunc254 to float
+  %121 = fcmp ugt float %.sroa.12.0304, %.sroa.0114.4.vec.extract
+  %122 = fcmp ult float %.sroa.0114.4.vec.extract, %120
+  %or.cond220 = select i1 %121, i1 true, i1 %122
+  br i1 %or.cond220, label %123, label %129
 
-117:                                              ; preds = %112
-  %118 = fcmp ogt float %.sroa.12.0304, %.sroa.0114.4.vec.extract
-  %119 = fcmp olt float %.sroa.0114.4.vec.extract, %114
-  %or.cond223 = select i1 %118, i1 %119, i1 false
-  br i1 %or.cond223, label %123, label %120
+123:                                              ; preds = %118
+  %124 = fcmp ogt float %.sroa.12.0304, %.sroa.0114.4.vec.extract
+  %125 = fcmp olt float %.sroa.0114.4.vec.extract, %120
+  %or.cond223 = select i1 %124, i1 %125, i1 false
+  br i1 %or.cond223, label %129, label %126
 
-120:                                              ; preds = %117
-  %121 = fcmp olt float %.sroa.0.0305, %.sroa.0114.0.vec.extract
-  %122 = fcmp ogt float %.sroa.0114.0.vec.extract, %113
-  %or.cond225 = select i1 %121, i1 %122, i1 false
-  br i1 %or.cond225, label %123, label %135
+126:                                              ; preds = %123
+  %127 = fcmp olt float %.sroa.0.0305, %.sroa.0114.0.vec.extract
+  %128 = fcmp ogt float %.sroa.0114.0.vec.extract, %119
+  %or.cond225 = select i1 %127, i1 %128, i1 false
+  br i1 %or.cond225, label %129, label %141
 
-123:                                              ; preds = %120, %117, %112
-  %124 = fcmp oeq float %.sroa.0114.4.vec.extract, %114
-  br i1 %124, label %125, label %154
+129:                                              ; preds = %126, %123, %118
+  %130 = fcmp oeq float %.sroa.0114.4.vec.extract, %120
+  br i1 %130, label %131, label %160
 
-125:                                              ; preds = %123
-  %126 = fcmp oeq float %.sroa.0114.0.vec.extract, %113
-  br i1 %126, label %.loopexit, label %127
+131:                                              ; preds = %129
+  %132 = fcmp oeq float %.sroa.0114.0.vec.extract, %119
+  br i1 %132, label %.loopexit, label %133
 
-127:                                              ; preds = %125
-  %128 = fcmp oeq float %.sroa.0114.4.vec.extract, %.sroa.12.0304
-  br i1 %128, label %129, label %154
+133:                                              ; preds = %131
+  %134 = fcmp oeq float %.sroa.0114.4.vec.extract, %.sroa.12.0304
+  br i1 %134, label %135, label %160
 
-129:                                              ; preds = %127
-  %130 = fcmp ugt float %.sroa.0.0305, %.sroa.0114.0.vec.extract
-  %131 = fcmp ugt float %.sroa.0114.0.vec.extract, %113
-  %or.cond226 = or i1 %130, %131
-  br i1 %or.cond226, label %132, label %.loopexit
+135:                                              ; preds = %133
+  %136 = fcmp ugt float %.sroa.0.0305, %.sroa.0114.0.vec.extract
+  %137 = fcmp ugt float %.sroa.0114.0.vec.extract, %119
+  %or.cond226 = or i1 %136, %137
+  br i1 %or.cond226, label %138, label %.loopexit
 
-132:                                              ; preds = %129
-  %133 = fcmp ult float %.sroa.0114.0.vec.extract, %113
-  %134 = fcmp ugt float %.sroa.0114.0.vec.extract, %.sroa.0.0305
-  %or.cond228 = select i1 %133, i1 true, i1 %134
-  br i1 %or.cond228, label %154, label %.loopexit
+138:                                              ; preds = %135
+  %139 = fcmp ult float %.sroa.0114.0.vec.extract, %119
+  %140 = fcmp ugt float %.sroa.0114.0.vec.extract, %.sroa.0.0305
+  %or.cond228 = select i1 %139, i1 true, i1 %140
+  br i1 %or.cond228, label %160, label %.loopexit
 
-135:                                              ; preds = %120
-  %136 = fsub float %.sroa.0114.4.vec.extract, %.sroa.12.0304
-  %137 = fpext float %136 to double
-  %138 = fsub float %113, %.sroa.0.0305
-  %139 = fpext float %138 to double
-  %140 = fsub float %.sroa.0114.0.vec.extract, %.sroa.0.0305
-  %141 = fpext float %140 to double
-  %142 = fsub float %114, %.sroa.12.0304
+141:                                              ; preds = %126
+  %142 = fsub float %.sroa.0114.4.vec.extract, %.sroa.12.0304
   %143 = fpext float %142 to double
-  %144 = fneg double %141
-  %145 = fmul double %144, %143
-  %146 = call double @llvm.fmuladd.f64(double %137, double %139, double %145)
-  %147 = fcmp oeq double %146, 0.000000e+00
-  br i1 %147, label %.loopexit, label %148
+  %144 = fsub float %119, %.sroa.0.0305
+  %145 = fpext float %144 to double
+  %146 = fsub float %.sroa.0114.0.vec.extract, %.sroa.0.0305
+  %147 = fpext float %146 to double
+  %148 = fsub float %120, %.sroa.12.0304
+  %149 = fpext float %148 to double
+  %150 = fneg double %147
+  %151 = fmul double %150, %149
+  %152 = call double @llvm.fmuladd.f64(double %143, double %145, double %151)
+  %153 = fcmp oeq double %152, 0.000000e+00
+  br i1 %153, label %.loopexit, label %154
 
-148:                                              ; preds = %135
-  %149 = fcmp ogt float %.sroa.12.0304, %114
-  %150 = fneg double %146
-  %.0190 = select i1 %149, double %150, double %146
-  %151 = fcmp ogt double %.0190, 0.000000e+00
-  %152 = zext i1 %151 to i32
-  %153 = add nsw i32 %.2183306, %152
-  br label %154
+154:                                              ; preds = %141
+  %155 = fcmp ogt float %.sroa.12.0304, %120
+  %156 = fneg double %152
+  %.0190 = select i1 %155, double %156, double %152
+  %157 = fcmp ogt double %.0190, 0.000000e+00
+  %158 = zext i1 %157 to i32
+  %159 = add nsw i32 %.2183306, %158
+  br label %160
 
-154:                                              ; preds = %123, %127, %132, %148
-  %.3 = phi i32 [ %.2183306, %132 ], [ %.2183306, %127 ], [ %.2183306, %123 ], [ %153, %148 ]
+160:                                              ; preds = %129, %133, %138, %154
+  %.3 = phi i32 [ %.2183306, %138 ], [ %.2183306, %133 ], [ %.2183306, %129 ], [ %159, %154 ]
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %exitcond332.not = icmp eq i64 %indvars.iv.next329, %wide.trip.count337
   br i1 %exitcond332.not, label %._crit_edge309, label %.lr.ph308, !llvm.loop !12
 
-._crit_edge309:                                   ; preds = %154
-  %155 = and i32 %.3, 1
-  %156 = icmp eq i32 %155, 0
-  %157 = select i1 %156, i32 -1, i32 1
-  %158 = sitofp i32 %157 to double
+._crit_edge309:                                   ; preds = %160
+  %161 = and i32 %.3, 1
+  %162 = icmp eq i32 %161, 0
+  %163 = select i1 %162, i32 -1, i32 1
+  %164 = sitofp i32 %163 to double
   br label %.loopexit
 
-.lr.ph317:                                        ; preds = %101, %226
-  %indvars.iv333 = phi i64 [ %indvars.iv.next334, %226 ], [ 0, %101 ]
-  %.4315 = phi i32 [ %.5, %226 ], [ 0, %101 ]
-  %.0184314 = phi double [ %.2186, %226 ], [ 0x47EFFFFFE0000000, %101 ]
-  %.0187313 = phi double [ %.2189, %226 ], [ 1.000000e+00, %101 ]
-  %.sroa.0.1312 = phi float [ %168, %226 ], [ %102, %101 ]
-  %.sroa.12.1311 = phi float [ %169, %226 ], [ %103, %101 ]
-  br i1 %20, label %159, label %162
+.lr.ph317:                                        ; preds = %104, %235
+  %indvars.iv333 = phi i64 [ %indvars.iv.next334, %235 ], [ 0, %104 ]
+  %.4315 = phi i32 [ %.5, %235 ], [ 0, %104 ]
+  %.0184314 = phi double [ %.2186, %235 ], [ 0x47EFFFFFE0000000, %104 ]
+  %.0187313 = phi double [ %.2189, %235 ], [ 1.000000e+00, %104 ]
+  %.sroa.0.1312 = phi float [ %177, %235 ], [ %105, %104 ]
+  %.sroa.12.1311 = phi float [ %178, %235 ], [ %106, %104 ]
+  br i1 %20, label %165, label %168
 
-159:                                              ; preds = %.lr.ph317
-  %160 = getelementptr inbounds %"class.cv::Point_", ptr %44, i64 %indvars.iv333
-  %161 = load i64, ptr %160, align 4
-  br label %167
+165:                                              ; preds = %.lr.ph317
+  %166 = getelementptr inbounds %"class.cv::Point_", ptr %44, i64 %indvars.iv333
+  %167 = load i64, ptr %166, align 4
+  br label %176
 
-162:                                              ; preds = %.lr.ph317
-  %163 = getelementptr inbounds %"class.cv::Point_.1", ptr %44, i64 %indvars.iv333
-  %164 = load <2 x i32>, ptr %163, align 4
-  %165 = sitofp <2 x i32> %164 to <2 x float>
-  %166 = bitcast <2 x float> %165 to i64
-  br label %167
+168:                                              ; preds = %.lr.ph317
+  %169 = getelementptr inbounds %"class.cv::Point_.1", ptr %44, i64 %indvars.iv333
+  %170 = load i32, ptr %169, align 4
+  %171 = sitofp i32 %170 to float
+  %172 = getelementptr inbounds i8, ptr %169, i64 4
+  %173 = load i32, ptr %172, align 4
+  %174 = sitofp i32 %173 to float
+  %.sroa.0.0.vec.insert.i239 = insertelement <2 x float> poison, float %171, i64 0
+  %.sroa.0.4.vec.insert.i240 = insertelement <2 x float> %.sroa.0.0.vec.insert.i239, float %174, i64 1
+  %175 = bitcast <2 x float> %.sroa.0.4.vec.insert.i240 to i64
+  br label %176
 
-167:                                              ; preds = %162, %159
-  %storemerge212 = phi i64 [ %161, %159 ], [ %166, %162 ]
+176:                                              ; preds = %168, %165
+  %storemerge212 = phi i64 [ %167, %165 ], [ %175, %168 ]
   %.sroa.0.0.extract.trunc252 = trunc i64 %storemerge212 to i32
-  %168 = bitcast i32 %.sroa.0.0.extract.trunc252 to float
+  %177 = bitcast i32 %.sroa.0.0.extract.trunc252 to float
   %.sroa.12.0.extract.shift255 = lshr i64 %storemerge212, 32
   %.sroa.12.0.extract.trunc256 = trunc nuw i64 %.sroa.12.0.extract.shift255 to i32
-  %169 = bitcast i32 %.sroa.12.0.extract.trunc256 to float
-  %170 = fsub float %168, %.sroa.0.1312
-  %171 = fpext float %170 to double
-  %172 = fsub float %169, %.sroa.12.1311
-  %173 = fpext float %172 to double
-  %174 = fsub float %.sroa.0114.0.vec.extract, %.sroa.0.1312
-  %175 = fpext float %174 to double
-  %176 = fsub float %.sroa.0114.4.vec.extract, %.sroa.12.1311
-  %177 = fpext float %176 to double
-  %178 = fsub float %.sroa.0114.0.vec.extract, %168
-  %179 = fpext float %178 to double
-  %180 = fsub float %.sroa.0114.4.vec.extract, %169
-  %181 = fpext float %180 to double
-  %182 = fmul double %177, %173
-  %183 = call double @llvm.fmuladd.f64(double %175, double %171, double %182)
-  %184 = fcmp ugt double %183, 0.000000e+00
-  br i1 %184, label %188, label %185
+  %178 = bitcast i32 %.sroa.12.0.extract.trunc256 to float
+  %179 = fsub float %177, %.sroa.0.1312
+  %180 = fpext float %179 to double
+  %181 = fsub float %178, %.sroa.12.1311
+  %182 = fpext float %181 to double
+  %183 = fsub float %.sroa.0114.0.vec.extract, %.sroa.0.1312
+  %184 = fpext float %183 to double
+  %185 = fsub float %.sroa.0114.4.vec.extract, %.sroa.12.1311
+  %186 = fpext float %185 to double
+  %187 = fsub float %.sroa.0114.0.vec.extract, %177
+  %188 = fpext float %187 to double
+  %189 = fsub float %.sroa.0114.4.vec.extract, %178
+  %190 = fpext float %189 to double
+  %191 = fmul double %186, %182
+  %192 = call double @llvm.fmuladd.f64(double %184, double %180, double %191)
+  %193 = fcmp ugt double %192, 0.000000e+00
+  br i1 %193, label %197, label %194
 
-185:                                              ; preds = %167
-  %186 = fmul double %177, %177
-  %187 = call double @llvm.fmuladd.f64(double %175, double %175, double %186)
-  br label %202
+194:                                              ; preds = %176
+  %195 = fmul double %186, %186
+  %196 = call double @llvm.fmuladd.f64(double %184, double %184, double %195)
+  br label %211
 
-188:                                              ; preds = %167
-  %189 = fmul double %181, %173
-  %190 = call double @llvm.fmuladd.f64(double %179, double %171, double %189)
-  %191 = fcmp ult double %190, 0.000000e+00
-  br i1 %191, label %195, label %192
+197:                                              ; preds = %176
+  %198 = fmul double %190, %182
+  %199 = call double @llvm.fmuladd.f64(double %188, double %180, double %198)
+  %200 = fcmp ult double %199, 0.000000e+00
+  br i1 %200, label %204, label %201
 
-192:                                              ; preds = %188
-  %193 = fmul double %181, %181
-  %194 = call double @llvm.fmuladd.f64(double %179, double %179, double %193)
-  br label %202
+201:                                              ; preds = %197
+  %202 = fmul double %190, %190
+  %203 = call double @llvm.fmuladd.f64(double %188, double %188, double %202)
+  br label %211
 
-195:                                              ; preds = %188
-  %196 = fneg double %175
-  %197 = fmul double %196, %173
-  %198 = call double @llvm.fmuladd.f64(double %177, double %171, double %197)
-  %199 = fmul double %198, %198
-  %200 = fmul double %173, %173
-  %201 = call double @llvm.fmuladd.f64(double %171, double %171, double %200)
-  br label %202
+204:                                              ; preds = %197
+  %205 = fneg double %184
+  %206 = fmul double %205, %182
+  %207 = call double @llvm.fmuladd.f64(double %186, double %180, double %206)
+  %208 = fmul double %207, %207
+  %209 = fmul double %182, %182
+  %210 = call double @llvm.fmuladd.f64(double %180, double %180, double %209)
+  br label %211
 
-202:                                              ; preds = %192, %195, %185
-  %.0171 = phi double [ %187, %185 ], [ %194, %192 ], [ %199, %195 ]
-  %.0170 = phi double [ 1.000000e+00, %185 ], [ 1.000000e+00, %192 ], [ %201, %195 ]
-  %203 = fmul double %.0187313, %.0171
-  %204 = fmul double %.0184314, %.0170
-  %205 = fcmp olt double %203, %204
-  br i1 %205, label %206, label %208
+211:                                              ; preds = %201, %204, %194
+  %.0171 = phi double [ %196, %194 ], [ %203, %201 ], [ %208, %204 ]
+  %.0170 = phi double [ 1.000000e+00, %194 ], [ 1.000000e+00, %201 ], [ %210, %204 ]
+  %212 = fmul double %.0187313, %.0171
+  %213 = fmul double %.0184314, %.0170
+  %214 = fcmp olt double %212, %213
+  br i1 %214, label %215, label %217
 
-206:                                              ; preds = %202
-  %207 = fcmp oeq double %.0171, 0.000000e+00
-  br i1 %207, label %._crit_edge318, label %208
+215:                                              ; preds = %211
+  %216 = fcmp oeq double %.0171, 0.000000e+00
+  br i1 %216, label %._crit_edge318, label %217
 
-208:                                              ; preds = %206, %202
-  %.2189 = phi double [ %.0170, %206 ], [ %.0187313, %202 ]
-  %.2186 = phi double [ %.0171, %206 ], [ %.0184314, %202 ]
-  %209 = fcmp ugt float %.sroa.12.1311, %.sroa.0114.4.vec.extract
-  %210 = fcmp ult float %.sroa.0114.4.vec.extract, %169
-  %or.cond230 = select i1 %209, i1 true, i1 %210
-  br i1 %or.cond230, label %211, label %226
+217:                                              ; preds = %215, %211
+  %.2189 = phi double [ %.0170, %215 ], [ %.0187313, %211 ]
+  %.2186 = phi double [ %.0171, %215 ], [ %.0184314, %211 ]
+  %218 = fcmp ugt float %.sroa.12.1311, %.sroa.0114.4.vec.extract
+  %219 = fcmp ult float %.sroa.0114.4.vec.extract, %178
+  %or.cond230 = select i1 %218, i1 true, i1 %219
+  br i1 %or.cond230, label %220, label %235
 
-211:                                              ; preds = %208
-  %212 = fcmp ogt float %.sroa.12.1311, %.sroa.0114.4.vec.extract
-  %213 = fcmp olt float %.sroa.0114.4.vec.extract, %169
-  %or.cond232 = select i1 %212, i1 %213, i1 false
-  br i1 %or.cond232, label %226, label %214
+220:                                              ; preds = %217
+  %221 = fcmp ogt float %.sroa.12.1311, %.sroa.0114.4.vec.extract
+  %222 = fcmp olt float %.sroa.0114.4.vec.extract, %178
+  %or.cond232 = select i1 %221, i1 %222, i1 false
+  br i1 %or.cond232, label %235, label %223
 
-214:                                              ; preds = %211
-  %215 = fcmp olt float %.sroa.0.1312, %.sroa.0114.0.vec.extract
-  %216 = fcmp ogt float %.sroa.0114.0.vec.extract, %168
-  %or.cond234 = select i1 %215, i1 %216, i1 false
-  br i1 %or.cond234, label %226, label %217
+223:                                              ; preds = %220
+  %224 = fcmp olt float %.sroa.0.1312, %.sroa.0114.0.vec.extract
+  %225 = fcmp ogt float %.sroa.0114.0.vec.extract, %177
+  %or.cond234 = select i1 %224, i1 %225, i1 false
+  br i1 %or.cond234, label %235, label %226
 
-217:                                              ; preds = %214
-  %218 = fneg double %175
-  %219 = fmul double %218, %173
-  %220 = call double @llvm.fmuladd.f64(double %177, double %171, double %219)
-  %221 = fcmp olt float %172, 0.000000e+00
-  %222 = fneg double %220
-  %.1 = select i1 %221, double %222, double %220
-  %223 = fcmp ogt double %.1, 0.000000e+00
-  %224 = zext i1 %223 to i32
-  %225 = add nsw i32 %.4315, %224
-  br label %226
+226:                                              ; preds = %223
+  %227 = fneg double %184
+  %228 = fmul double %227, %182
+  %229 = call double @llvm.fmuladd.f64(double %186, double %180, double %228)
+  %230 = fcmp olt float %181, 0.000000e+00
+  %231 = fneg double %229
+  %.1 = select i1 %230, double %231, double %229
+  %232 = fcmp ogt double %.1, 0.000000e+00
+  %233 = zext i1 %232 to i32
+  %234 = add nsw i32 %.4315, %233
+  br label %235
 
-226:                                              ; preds = %214, %211, %208, %217
-  %.5 = phi i32 [ %225, %217 ], [ %.4315, %208 ], [ %.4315, %211 ], [ %.4315, %214 ]
+235:                                              ; preds = %223, %220, %217, %226
+  %.5 = phi i32 [ %234, %226 ], [ %.4315, %217 ], [ %.4315, %220 ], [ %.4315, %223 ]
   %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
   %exitcond338.not = icmp eq i64 %indvars.iv.next334, %wide.trip.count337
   br i1 %exitcond338.not, label %._crit_edge318, label %.lr.ph317, !llvm.loop !13
 
-._crit_edge318:                                   ; preds = %226, %206
-  %.4.lcssa.ph = phi i32 [ %.5, %226 ], [ %.4315, %206 ]
-  %.1188.ph = phi double [ %.2189, %226 ], [ %.0170, %206 ]
-  %.1185.ph = phi double [ %.2186, %226 ], [ %.0171, %206 ]
-  %227 = fdiv double %.1185.ph, %.1188.ph
-  %228 = call double @sqrt(double noundef %227) #17
-  %229 = and i32 %.4.lcssa.ph, 1
-  %230 = icmp eq i32 %229, 0
-  br i1 %230, label %231, label %.loopexit
+._crit_edge318:                                   ; preds = %235, %215
+  %.4.lcssa.ph = phi i32 [ %.5, %235 ], [ %.4315, %215 ]
+  %.1188.ph = phi double [ %.2189, %235 ], [ %.0170, %215 ]
+  %.1185.ph = phi double [ %.2186, %235 ], [ %.0171, %215 ]
+  %236 = fdiv double %.1185.ph, %.1188.ph
+  %237 = call double @sqrt(double noundef %236) #17
+  %238 = and i32 %.4.lcssa.ph, 1
+  %239 = icmp eq i32 %238, 0
+  br i1 %239, label %240, label %.loopexit
 
-231:                                              ; preds = %._crit_edge318
-  %232 = fneg double %228
+240:                                              ; preds = %._crit_edge318
+  %241 = fneg double %237
   br label %.loopexit
 
-.loopexit:                                        ; preds = %65, %59, %63, %64, %135, %125, %129, %132, %._crit_edge, %._crit_edge318, %231, %._crit_edge309, %40
-  %.0 = phi double [ %41, %40 ], [ %232, %231 ], [ %228, %._crit_edge318 ], [ %158, %._crit_edge309 ], [ %88, %._crit_edge ], [ 0.000000e+00, %132 ], [ 0.000000e+00, %129 ], [ 0.000000e+00, %125 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %64 ], [ 0.000000e+00, %63 ], [ 0.000000e+00, %59 ], [ 0.000000e+00, %65 ]
+.loopexit:                                        ; preds = %65, %59, %63, %64, %141, %131, %135, %138, %._crit_edge, %._crit_edge318, %240, %._crit_edge309, %40
+  %.0 = phi double [ %41, %40 ], [ %241, %240 ], [ %237, %._crit_edge318 ], [ %164, %._crit_edge309 ], [ %88, %._crit_edge ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %131 ], [ 0.000000e+00, %141 ], [ 0.000000e+00, %64 ], [ 0.000000e+00, %63 ], [ 0.000000e+00, %59 ], [ 0.000000e+00, %65 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #17
-  %233 = getelementptr inbounds i8, ptr %4, i64 8
-  %234 = load i32, ptr %233, align 8
-  %.not.i = icmp eq i32 %234, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %235
+  %242 = getelementptr inbounds i8, ptr %4, i64 8
+  %243 = load i32, ptr %242, align 8
+  %.not.i = icmp eq i32 %243, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %244
 
-235:                                              ; preds = %.loopexit
+244:                                              ; preds = %.loopexit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %4)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %236
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %245
 
-236:                                              ; preds = %235
-  %237 = landingpad { ptr, i32 }
+245:                                              ; preds = %244
+  %246 = landingpad { ptr, i32 }
           catch ptr null
-  %238 = extractvalue { ptr, i32 } %237, 0
-  call void @__clang_call_terminate(ptr %238) #19
+  %247 = extractvalue { ptr, i32 } %246, 0
+  call void @__clang_call_terminate(ptr %247) #19
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %235
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %244
   ret double %.0
 
-239:                                              ; preds = %33, %24
+248:                                              ; preds = %33, %24
   %.pn209 = phi { ptr, i32 } [ %25, %24 ], [ %.pn, %33 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #17
-  br label %240
+  br label %249
 
-240:                                              ; preds = %239, %22
-  %.pn209.pn = phi { ptr, i32 } [ %.pn209, %239 ], [ %23, %22 ]
+249:                                              ; preds = %248, %22
+  %.pn209.pn = phi { ptr, i32 } [ %.pn209, %248 ], [ %23, %22 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #17
   resume { ptr, i32 } %.pn209.pn
 }
@@ -872,12 +887,12 @@ _ZNK2cv11_InputArray6getMatEi.exit157:            ; preds = %35, %38
 42:                                               ; preds = %32, %29, %4
   %43 = landingpad { ptr, i32 }
           cleanup
-  br label %679
+  br label %675
 
 44:                                               ; preds = %38, %35, %_ZNK2cv11_InputArray6getMatEi.exit
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %678
+  br label %674
 
 46:                                               ; preds = %93, %86, %69, %67
   %47 = landingpad { ptr, i32 }
@@ -1077,12 +1092,12 @@ _ZN2cv10AutoBufferINS_6Point_IfEELm136EEC2Em.exit: ; preds = %.noexc158, %87
 .loopexit185:                                     ; preds = %110
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %666
+  br label %662
 
-.loopexit.split-lp:                               ; preds = %.invoke, %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread, %639, %642
+.loopexit.split-lp:                               ; preds = %.invoke, %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread, %635, %638
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %666
+  br label %662
 
 125:                                              ; preds = %121
   %126 = landingpad { ptr, i32 }
@@ -1197,7 +1212,7 @@ _ZN2cv10AutoBufferINS_6Point_IfEELm136EEC2Em.exit: ; preds = %.noexc158, %87
 169:                                              ; preds = %166, %134, %125
   %.pn137.pn = phi { ptr, i32 } [ %.pn135, %134 ], [ %126, %125 ], [ %167, %166 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #17
-  br label %666
+  br label %662
 
 170:                                              ; preds = %.loopexit
   %171 = add nuw nsw i32 %88, 1
@@ -1212,14 +1227,14 @@ _ZN2cv10AutoBufferINS_6Point_IfEELm136EEC2Em.exit: ; preds = %.noexc158, %87
   %177 = ptrtoint ptr %100 to i64
   br label %178
 
-178:                                              ; preds = %562, %170
-  %.0263.i = phi i32 [ 0, %170 ], [ %.3266.i, %562 ]
-  %.0259.i = phi i32 [ 0, %170 ], [ %.3262.i, %562 ]
-  %.0256.i = phi ptr [ %172, %170 ], [ %.3.i, %562 ]
-  %.0163.i = phi i1 [ true, %170 ], [ %.1164287.i, %562 ]
-  %.0161.i = phi i32 [ 2, %170 ], [ %.1162288.i, %562 ]
-  %.0159.i = phi i32 [ 0, %170 ], [ %.1160.i, %562 ]
-  %.0158.i = phi i32 [ 0, %170 ], [ %.1.i, %562 ]
+178:                                              ; preds = %558, %170
+  %.0263.i = phi i32 [ 0, %170 ], [ %.3266.i, %558 ]
+  %.0259.i = phi i32 [ 0, %170 ], [ %.3262.i, %558 ]
+  %.0256.i = phi ptr [ %172, %170 ], [ %.3.i, %558 ]
+  %.0163.i = phi i1 [ true, %170 ], [ %.1164287.i, %558 ]
+  %.0161.i = phi i32 [ 2, %170 ], [ %.1162288.i, %558 ]
+  %.0159.i = phi i32 [ 0, %170 ], [ %.1160.i, %558 ]
+  %.0158.i = phi i32 [ 0, %170 ], [ %.1.i, %558 ]
   %179 = add i32 %173, %.0158.i
   %180 = srem i32 %179, %68
   %181 = add i32 %174, %.0159.i
@@ -1287,994 +1302,994 @@ _ZN2cv10AutoBufferINS_6Point_IfEELm136EEC2Em.exit: ; preds = %.noexc158, %87
   %226 = select i1 %223, i32 1, i32 %225
   %.sroa.047.0.copyload.i = load <2 x float>, ptr %186, align 4
   %.sroa.03.0.vec.extract.i186.i = extractelement <2 x float> %.sroa.047.0.copyload.i, i64 0
+  %227 = fsub <2 x float> %.sroa.052.0.copyload.i, %.sroa.047.0.copyload.i
+  %228 = extractelement <2 x float> %227, i64 0
+  %229 = fpext float %228 to double
   %.sroa.03.4.vec.extract.i188.i = extractelement <2 x float> %.sroa.047.0.copyload.i, i64 1
-  %227 = fsub float %.sroa.02.4.vec.extract.i184.i, %.sroa.03.4.vec.extract.i188.i
-  %228 = fpext float %227 to double
-  %229 = fsub <2 x float> %.sroa.053.0.copyload.i, %.sroa.047.0.copyload.i
-  %230 = extractelement <2 x float> %229, i64 0
+  %230 = fsub float %.sroa.02.4.vec.extract.i184.i, %.sroa.03.4.vec.extract.i188.i
   %231 = fpext float %230 to double
-  %232 = fsub <2 x float> %.sroa.052.0.copyload.i, %.sroa.047.0.copyload.i
-  %233 = fpext <2 x float> %232 to <2 x double>
-  %234 = fneg double %231
-  %235 = extractelement <2 x double> %233, i64 1
-  %236 = fmul double %235, %234
-  %237 = extractelement <2 x double> %233, i64 0
-  %238 = call double @llvm.fmuladd.f64(double %237, double %228, double %236)
-  %239 = fcmp ule double %238, 1.000000e-05
-  %240 = fcmp olt double %238, -1.000000e-05
-  %241 = sext i1 %240 to i32
-  %242 = select i1 %239, i32 %241, i32 1
-  %243 = fsub <2 x float> %.sroa.047.0.copyload.i, %.sroa.052.0.copyload.i
-  %244 = extractelement <2 x float> %243, i64 0
-  %245 = fpext float %244 to double
-  %246 = fsub float %.sroa.03.4.vec.extract.i188.i, %.sroa.0.4.vec.extract.i.i
-  %247 = fpext float %246 to double
-  %248 = fneg double %247
-  %249 = fmul double %212, %248
-  %250 = call double @llvm.fmuladd.f64(double %245, double %219, double %249)
-  %251 = fcmp oeq double %250, 0.000000e+00
-  br i1 %251, label %252, label %416
+  %232 = fsub <2 x float> %.sroa.053.0.copyload.i, %.sroa.047.0.copyload.i
+  %233 = extractelement <2 x float> %232, i64 0
+  %234 = fpext float %233 to double
+  %235 = fsub float %.sroa.0.4.vec.extract.i.i, %.sroa.03.4.vec.extract.i188.i
+  %236 = fpext float %235 to double
+  %237 = fneg double %234
+  %238 = fmul double %236, %237
+  %239 = call double @llvm.fmuladd.f64(double %229, double %231, double %238)
+  %240 = fcmp ule double %239, 1.000000e-05
+  %241 = fcmp olt double %239, -1.000000e-05
+  %242 = sext i1 %241 to i32
+  %243 = select i1 %240, i32 %242, i32 1
+  %244 = fsub <2 x float> %.sroa.047.0.copyload.i, %.sroa.052.0.copyload.i
+  %245 = extractelement <2 x float> %244, i64 0
+  %246 = fpext float %245 to double
+  %247 = fsub float %.sroa.03.4.vec.extract.i188.i, %.sroa.0.4.vec.extract.i.i
+  %248 = fpext float %247 to double
+  %249 = fneg double %248
+  %250 = fmul double %212, %249
+  %251 = call double @llvm.fmuladd.f64(double %246, double %219, double %250)
+  %252 = fcmp oeq double %251, 0.000000e+00
+  br i1 %252, label %253, label %417
 
-252:                                              ; preds = %178
-  %253 = fsub float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
-  %254 = fpext float %253 to double
-  %255 = fsub <2 x float> %.sroa.054.0.copyload.i, %.sroa.047.0.copyload.i
-  %256 = extractelement <2 x float> %255, i64 0
-  %257 = fpext float %256 to double
-  %258 = fneg double %257
-  %259 = fmul double %235, %258
-  %260 = call double @llvm.fmuladd.f64(double %237, double %254, double %259)
-  %261 = call double @llvm.fabs.f64(double %260)
-  %.not.i.i.i = fcmp ule double %261, 1.000000e-05
-  br i1 %.not.i.i.i, label %262, label %.thread.i
+253:                                              ; preds = %178
+  %254 = fsub float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
+  %255 = fpext float %254 to double
+  %256 = fsub <2 x float> %.sroa.054.0.copyload.i, %.sroa.047.0.copyload.i
+  %257 = extractelement <2 x float> %256, i64 0
+  %258 = fpext float %257 to double
+  %259 = fneg double %258
+  %260 = fmul double %236, %259
+  %261 = call double @llvm.fmuladd.f64(double %229, double %255, double %260)
+  %262 = call double @llvm.fabs.f64(double %261)
+  %.not.i.i.i = fcmp ule double %262, 1.000000e-05
+  br i1 %.not.i.i.i, label %263, label %.thread.i
 
-262:                                              ; preds = %252
-  %263 = fcmp une float %.sroa.03.0.vec.extract.i186.i, %.sroa.0.0.vec.extract.i.i
-  br i1 %263, label %264, label %271
+263:                                              ; preds = %253
+  %264 = fcmp une float %.sroa.03.0.vec.extract.i186.i, %.sroa.0.0.vec.extract.i.i
+  br i1 %264, label %265, label %272
 
-264:                                              ; preds = %262
-  %265 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.03.0.vec.extract.i182.i
-  %266 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
-  %or.cond.i.i.i.i = or i1 %266, %265
-  br i1 %or.cond.i.i.i.i, label %267, label %.thread211.i.i.i
+265:                                              ; preds = %263
+  %266 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.03.0.vec.extract.i182.i
+  %267 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
+  %or.cond.i.i.i.i = or i1 %267, %266
+  br i1 %or.cond.i.i.i.i, label %268, label %.thread211.i.i.i
 
-267:                                              ; preds = %264
-  %268 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.03.0.vec.extract.i182.i
-  %269 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
-  %270 = and i1 %269, %268
-  br i1 %270, label %.thread211.i.i.i, label %288
+268:                                              ; preds = %265
+  %269 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.03.0.vec.extract.i182.i
+  %270 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
+  %271 = and i1 %270, %269
+  br i1 %271, label %.thread211.i.i.i, label %289
 
-271:                                              ; preds = %262
-  %272 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
-  %273 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
-  %or.cond27.i.i.i.i = select i1 %272, i1 true, i1 %273
+272:                                              ; preds = %263
+  %273 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
+  %274 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
+  %or.cond27.i.i.i.i = select i1 %273, i1 true, i1 %274
   br i1 %or.cond27.i.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit.i.i.i, label %.thread210.i.i.i
 
-_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit.i.i.i:  ; preds = %271
-  %274 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
-  %275 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
-  %276 = select i1 %274, i1 %275, i1 false
-  br i1 %276, label %.thread210.i.i.i, label %288
+_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit.i.i.i:  ; preds = %272
+  %275 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
+  %276 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
+  %277 = select i1 %275, i1 %276, i1 false
+  br i1 %277, label %.thread210.i.i.i, label %289
 
-.thread211.i.i.i:                                 ; preds = %267, %264
-  %277 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
-  %278 = fcmp ugt float %.sroa.02.0.vec.extract.i181.i, %.sroa.0.0.vec.extract.i.i
-  %or.cond.i107.i.i.i = or i1 %278, %277
-  br i1 %or.cond.i107.i.i.i, label %279, label %463
+.thread211.i.i.i:                                 ; preds = %268, %265
+  %278 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
+  %279 = fcmp ugt float %.sroa.02.0.vec.extract.i181.i, %.sroa.0.0.vec.extract.i.i
+  %or.cond.i107.i.i.i = or i1 %279, %278
+  br i1 %or.cond.i107.i.i.i, label %280, label %459
 
-279:                                              ; preds = %.thread211.i.i.i
-  %280 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
-  %281 = fcmp oge float %.sroa.02.0.vec.extract.i181.i, %.sroa.0.0.vec.extract.i.i
-  %282 = and i1 %281, %280
-  br i1 %282, label %463, label %288
+280:                                              ; preds = %.thread211.i.i.i
+  %281 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
+  %282 = fcmp oge float %.sroa.02.0.vec.extract.i181.i, %.sroa.0.0.vec.extract.i.i
+  %283 = and i1 %282, %281
+  br i1 %283, label %459, label %289
 
-.thread210.i.i.i:                                 ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit.i.i.i, %271
-  %283 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
-  %284 = fcmp ugt float %.sroa.02.4.vec.extract.i184.i, %.sroa.0.4.vec.extract.i.i
-  %or.cond27.i104.i.i.i = select i1 %283, i1 true, i1 %284
-  br i1 %or.cond27.i104.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i, label %463
+.thread210.i.i.i:                                 ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit.i.i.i, %272
+  %284 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
+  %285 = fcmp ugt float %.sroa.02.4.vec.extract.i184.i, %.sroa.0.4.vec.extract.i.i
+  %or.cond27.i104.i.i.i = select i1 %284, i1 true, i1 %285
+  br i1 %or.cond27.i104.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i, label %459
 
 _ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i: ; preds = %.thread210.i.i.i
-  %285 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
-  %286 = fcmp oge float %.sroa.02.4.vec.extract.i184.i, %.sroa.0.4.vec.extract.i.i
-  %287 = select i1 %285, i1 %286, i1 false
-  br i1 %287, label %463, label %288
+  %286 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
+  %287 = fcmp oge float %.sroa.02.4.vec.extract.i184.i, %.sroa.0.4.vec.extract.i.i
+  %288 = select i1 %286, i1 %287, i1 false
+  br i1 %288, label %459, label %289
 
-288:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i, %279, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit.i.i.i, %267
-  %289 = fcmp une float %.sroa.03.0.vec.extract.i182.i, %.sroa.02.0.vec.extract.i181.i
-  br i1 %289, label %290, label %297
+289:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i, %280, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit.i.i.i, %268
+  %290 = fcmp une float %.sroa.03.0.vec.extract.i182.i, %.sroa.02.0.vec.extract.i181.i
+  br i1 %290, label %291, label %298
 
-290:                                              ; preds = %288
-  %291 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.03.0.vec.extract.i186.i
-  %292 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
-  %or.cond.i117.i.i.i = or i1 %291, %292
-  br i1 %or.cond.i117.i.i.i, label %293, label %.thread216.i.i.i
+291:                                              ; preds = %289
+  %292 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.03.0.vec.extract.i186.i
+  %293 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
+  %or.cond.i117.i.i.i = or i1 %292, %293
+  br i1 %or.cond.i117.i.i.i, label %294, label %.thread216.i.i.i
 
-293:                                              ; preds = %290
-  %294 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.03.0.vec.extract.i186.i
-  %295 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
-  %296 = and i1 %294, %295
-  br i1 %296, label %.thread216.i.i.i, label %314
+294:                                              ; preds = %291
+  %295 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.03.0.vec.extract.i186.i
+  %296 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
+  %297 = and i1 %295, %296
+  br i1 %297, label %.thread216.i.i.i, label %315
 
-297:                                              ; preds = %288
-  %298 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
-  %299 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
-  %or.cond27.i114.i.i.i = select i1 %298, i1 true, i1 %299
+298:                                              ; preds = %289
+  %299 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
+  %300 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
+  %or.cond27.i114.i.i.i = select i1 %299, i1 true, i1 %300
   br i1 %or.cond27.i114.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit118.i.i.i, label %.thread215.i.i.i
 
-_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit118.i.i.i: ; preds = %297
-  %300 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
-  %301 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
-  %302 = select i1 %300, i1 %301, i1 false
-  br i1 %302, label %.thread215.i.i.i, label %314
+_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit118.i.i.i: ; preds = %298
+  %301 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
+  %302 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
+  %303 = select i1 %301, i1 %302, i1 false
+  br i1 %303, label %.thread215.i.i.i, label %315
 
-.thread216.i.i.i:                                 ; preds = %293, %290
-  %303 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
-  %304 = fcmp ugt float %.sroa.0.0.vec.extract.i.i, %.sroa.02.0.vec.extract.i181.i
-  %or.cond.i127.i.i.i = or i1 %303, %304
-  br i1 %or.cond.i127.i.i.i, label %305, label %463
+.thread216.i.i.i:                                 ; preds = %294, %291
+  %304 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
+  %305 = fcmp ugt float %.sroa.0.0.vec.extract.i.i, %.sroa.02.0.vec.extract.i181.i
+  %or.cond.i127.i.i.i = or i1 %304, %305
+  br i1 %or.cond.i127.i.i.i, label %306, label %459
 
-305:                                              ; preds = %.thread216.i.i.i
-  %306 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
-  %307 = fcmp oge float %.sroa.0.0.vec.extract.i.i, %.sroa.02.0.vec.extract.i181.i
-  %308 = and i1 %306, %307
-  br i1 %308, label %463, label %314
+306:                                              ; preds = %.thread216.i.i.i
+  %307 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
+  %308 = fcmp oge float %.sroa.0.0.vec.extract.i.i, %.sroa.02.0.vec.extract.i181.i
+  %309 = and i1 %307, %308
+  br i1 %309, label %459, label %315
 
-.thread215.i.i.i:                                 ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit118.i.i.i, %297
-  %309 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
-  %310 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %.sroa.02.4.vec.extract.i184.i
-  %or.cond27.i124.i.i.i = select i1 %309, i1 true, i1 %310
-  br i1 %or.cond27.i124.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i, label %463
+.thread215.i.i.i:                                 ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit118.i.i.i, %298
+  %310 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
+  %311 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %.sroa.02.4.vec.extract.i184.i
+  %or.cond27.i124.i.i.i = select i1 %310, i1 true, i1 %311
+  br i1 %or.cond27.i124.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i, label %459
 
 _ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i: ; preds = %.thread215.i.i.i
-  %311 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
-  %312 = fcmp oge float %.sroa.0.4.vec.extract.i.i, %.sroa.02.4.vec.extract.i184.i
-  %313 = select i1 %311, i1 %312, i1 false
-  br i1 %313, label %463, label %314
+  %312 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
+  %313 = fcmp oge float %.sroa.0.4.vec.extract.i.i, %.sroa.02.4.vec.extract.i184.i
+  %314 = select i1 %312, i1 %313, i1 false
+  br i1 %314, label %459, label %315
 
-314:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i, %305, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit118.i.i.i, %293
-  br i1 %263, label %315, label %322
+315:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i, %306, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit118.i.i.i, %294
+  br i1 %264, label %316, label %323
 
-315:                                              ; preds = %314
-  %316 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.03.0.vec.extract.i182.i
-  %317 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
-  %or.cond.i137.i.i.i = or i1 %317, %316
-  br i1 %or.cond.i137.i.i.i, label %318, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i
+316:                                              ; preds = %315
+  %317 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.03.0.vec.extract.i182.i
+  %318 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
+  %or.cond.i137.i.i.i = or i1 %318, %317
+  br i1 %or.cond.i137.i.i.i, label %319, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i
 
-318:                                              ; preds = %315
-  %319 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.03.0.vec.extract.i182.i
-  %320 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
-  %321 = and i1 %320, %319
-  br i1 %321, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i, label %.thread220.i.i.i
+319:                                              ; preds = %316
+  %320 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.03.0.vec.extract.i182.i
+  %321 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
+  %322 = and i1 %321, %320
+  br i1 %322, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i, label %.thread220.i.i.i
 
-322:                                              ; preds = %314
-  %323 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
-  %324 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
-  %or.cond27.i134.i.i.i = select i1 %323, i1 true, i1 %324
+323:                                              ; preds = %315
+  %324 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
+  %325 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
+  %or.cond27.i134.i.i.i = select i1 %324, i1 true, i1 %325
   br i1 %or.cond27.i134.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i
 
-_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.i.i.i: ; preds = %322
-  %325 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
-  %326 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
-  %327 = select i1 %325, i1 %326, i1 false
-  br i1 %327, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i, label %.thread221.i.i.i
+_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.i.i.i: ; preds = %323
+  %326 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
+  %327 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
+  %328 = select i1 %326, i1 %327, i1 false
+  br i1 %328, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i, label %.thread221.i.i.i
 
-_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i: ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.i.i.i, %322, %318, %315
-  br i1 %289, label %328, label %335
+_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i: ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.i.i.i, %323, %319, %316
+  br i1 %290, label %329, label %336
 
-328:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i
-  %329 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
-  %330 = fcmp ugt float %.sroa.0.0.vec.extract.i.i, %.sroa.02.0.vec.extract.i181.i
-  %or.cond.i147.i.i.i = or i1 %329, %330
-  br i1 %or.cond.i147.i.i.i, label %331, label %463
+329:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i
+  %330 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
+  %331 = fcmp ugt float %.sroa.0.0.vec.extract.i.i, %.sroa.02.0.vec.extract.i181.i
+  %or.cond.i147.i.i.i = or i1 %330, %331
+  br i1 %or.cond.i147.i.i.i, label %332, label %459
 
-331:                                              ; preds = %328
-  %332 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
-  %333 = fcmp oge float %.sroa.0.0.vec.extract.i.i, %.sroa.02.0.vec.extract.i181.i
-  %334 = and i1 %332, %333
-  br i1 %334, label %463, label %341
+332:                                              ; preds = %329
+  %333 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
+  %334 = fcmp oge float %.sroa.0.0.vec.extract.i.i, %.sroa.02.0.vec.extract.i181.i
+  %335 = and i1 %333, %334
+  br i1 %335, label %459, label %342
 
-335:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i
-  %336 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
-  %337 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %.sroa.02.4.vec.extract.i184.i
-  %or.cond27.i144.i.i.i = select i1 %336, i1 true, i1 %337
-  br i1 %or.cond27.i144.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i, label %463
+336:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.thread.i.i.i
+  %337 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
+  %338 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %.sroa.02.4.vec.extract.i184.i
+  %or.cond27.i144.i.i.i = select i1 %337, i1 true, i1 %338
+  br i1 %or.cond27.i144.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i, label %459
 
-_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i: ; preds = %335
-  %338 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
-  %339 = fcmp oge float %.sroa.0.4.vec.extract.i.i, %.sroa.02.4.vec.extract.i184.i
-  %340 = select i1 %338, i1 %339, i1 false
-  br i1 %340, label %463, label %341
+_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i: ; preds = %336
+  %339 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
+  %340 = fcmp oge float %.sroa.0.4.vec.extract.i.i, %.sroa.02.4.vec.extract.i184.i
+  %341 = select i1 %339, i1 %340, i1 false
+  br i1 %341, label %459, label %342
 
-341:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i, %331
-  br i1 %263, label %.thread220.i.i.i, label %.thread221.i.i.i
+342:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i, %332
+  br i1 %264, label %.thread220.i.i.i, label %.thread221.i.i.i
 
-.thread220.i.i.i:                                 ; preds = %341, %318
-  %342 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.03.0.vec.extract.i182.i
-  %343 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
-  %or.cond.i157.i.i.i = or i1 %343, %342
-  br i1 %or.cond.i157.i.i.i, label %344, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i
+.thread220.i.i.i:                                 ; preds = %342, %319
+  %343 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.03.0.vec.extract.i182.i
+  %344 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
+  %or.cond.i157.i.i.i = or i1 %344, %343
+  br i1 %or.cond.i157.i.i.i, label %345, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i
 
-344:                                              ; preds = %.thread220.i.i.i
-  %345 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.03.0.vec.extract.i182.i
-  %346 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
-  %347 = and i1 %346, %345
-  br i1 %347, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i, label %.thread224.i.i.i
+345:                                              ; preds = %.thread220.i.i.i
+  %346 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.03.0.vec.extract.i182.i
+  %347 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
+  %348 = and i1 %347, %346
+  br i1 %348, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i, label %.thread224.i.i.i
 
-.thread221.i.i.i:                                 ; preds = %341, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.i.i.i
-  %348 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
-  %349 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
-  %or.cond27.i154.i.i.i = select i1 %348, i1 true, i1 %349
+.thread221.i.i.i:                                 ; preds = %342, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit138.i.i.i
+  %349 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
+  %350 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
+  %or.cond27.i154.i.i.i = select i1 %349, i1 true, i1 %350
   br i1 %or.cond27.i154.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i
 
 _ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.i.i.i: ; preds = %.thread221.i.i.i
-  %350 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
-  %351 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
-  %352 = select i1 %350, i1 %351, i1 false
-  br i1 %352, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i, label %.thread225.i.i.i
+  %351 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
+  %352 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
+  %353 = select i1 %351, i1 %352, i1 false
+  br i1 %353, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i, label %.thread225.i.i.i
 
-_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i: ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.i.i.i, %.thread221.i.i.i, %344, %.thread220.i.i.i
-  br i1 %289, label %353, label %360
+_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i: ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.i.i.i, %.thread221.i.i.i, %345, %.thread220.i.i.i
+  br i1 %290, label %354, label %361
 
-353:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i
-  %354 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.03.0.vec.extract.i186.i
-  %355 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
-  %or.cond.i167.i.i.i = or i1 %354, %355
-  br i1 %or.cond.i167.i.i.i, label %356, label %463
+354:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i
+  %355 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.03.0.vec.extract.i186.i
+  %356 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
+  %or.cond.i167.i.i.i = or i1 %355, %356
+  br i1 %or.cond.i167.i.i.i, label %357, label %459
 
-356:                                              ; preds = %353
-  %357 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.03.0.vec.extract.i186.i
-  %358 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
-  %359 = and i1 %357, %358
-  br i1 %359, label %463, label %366
+357:                                              ; preds = %354
+  %358 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.03.0.vec.extract.i186.i
+  %359 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
+  %360 = and i1 %358, %359
+  br i1 %360, label %459, label %367
 
-360:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i
-  %361 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
-  %362 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
-  %or.cond27.i164.i.i.i = select i1 %361, i1 true, i1 %362
-  br i1 %or.cond27.i164.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i, label %463
+361:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.thread.i.i.i
+  %362 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
+  %363 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
+  %or.cond27.i164.i.i.i = select i1 %362, i1 true, i1 %363
+  br i1 %or.cond27.i164.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i, label %459
 
-_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i: ; preds = %360
-  %363 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
-  %364 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
-  %365 = select i1 %363, i1 %364, i1 false
-  br i1 %365, label %463, label %366
+_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i: ; preds = %361
+  %364 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
+  %365 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
+  %366 = select i1 %364, i1 %365, i1 false
+  br i1 %366, label %459, label %367
 
-366:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i, %356
-  br i1 %263, label %.thread224.i.i.i, label %.thread225.i.i.i
+367:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i, %357
+  br i1 %264, label %.thread224.i.i.i, label %.thread225.i.i.i
 
-.thread224.i.i.i:                                 ; preds = %366, %344
-  %367 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
-  %368 = fcmp ugt float %.sroa.02.0.vec.extract.i181.i, %.sroa.0.0.vec.extract.i.i
-  %or.cond.i177.i.i.i = or i1 %368, %367
-  br i1 %or.cond.i177.i.i.i, label %369, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i
+.thread224.i.i.i:                                 ; preds = %367, %345
+  %368 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
+  %369 = fcmp ugt float %.sroa.02.0.vec.extract.i181.i, %.sroa.0.0.vec.extract.i.i
+  %or.cond.i177.i.i.i = or i1 %369, %368
+  br i1 %or.cond.i177.i.i.i, label %370, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i
 
-369:                                              ; preds = %.thread224.i.i.i
-  %370 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
-  %371 = fcmp oge float %.sroa.02.0.vec.extract.i181.i, %.sroa.0.0.vec.extract.i.i
-  %372 = and i1 %371, %370
-  br i1 %372, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i, label %.thread228.i.i.i
+370:                                              ; preds = %.thread224.i.i.i
+  %371 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
+  %372 = fcmp oge float %.sroa.02.0.vec.extract.i181.i, %.sroa.0.0.vec.extract.i.i
+  %373 = and i1 %372, %371
+  br i1 %373, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i, label %.thread228.i.i.i
 
-.thread225.i.i.i:                                 ; preds = %366, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.i.i.i
-  %373 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
-  %374 = fcmp ugt float %.sroa.02.4.vec.extract.i184.i, %.sroa.0.4.vec.extract.i.i
-  %or.cond27.i174.i.i.i = select i1 %373, i1 true, i1 %374
+.thread225.i.i.i:                                 ; preds = %367, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit158.i.i.i
+  %374 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
+  %375 = fcmp ugt float %.sroa.02.4.vec.extract.i184.i, %.sroa.0.4.vec.extract.i.i
+  %or.cond27.i174.i.i.i = select i1 %374, i1 true, i1 %375
   br i1 %or.cond27.i174.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i
 
 _ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.i.i.i: ; preds = %.thread225.i.i.i
-  %375 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
-  %376 = fcmp oge float %.sroa.02.4.vec.extract.i184.i, %.sroa.0.4.vec.extract.i.i
-  %377 = select i1 %375, i1 %376, i1 false
-  br i1 %377, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i, label %.thread229.i.i.i
+  %376 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
+  %377 = fcmp oge float %.sroa.02.4.vec.extract.i184.i, %.sroa.0.4.vec.extract.i.i
+  %378 = select i1 %376, i1 %377, i1 false
+  br i1 %378, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i, label %.thread229.i.i.i
 
-_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i: ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.i.i.i, %.thread225.i.i.i, %369, %.thread224.i.i.i
-  br i1 %289, label %378, label %385
+_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i: ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.i.i.i, %.thread225.i.i.i, %370, %.thread224.i.i.i
+  br i1 %290, label %379, label %386
 
-378:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i
-  %379 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
-  %380 = fcmp ugt float %.sroa.0.0.vec.extract.i.i, %.sroa.02.0.vec.extract.i181.i
-  %or.cond.i187.i.i.i = or i1 %379, %380
-  br i1 %or.cond.i187.i.i.i, label %381, label %463
+379:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i
+  %380 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
+  %381 = fcmp ugt float %.sroa.0.0.vec.extract.i.i, %.sroa.02.0.vec.extract.i181.i
+  %or.cond.i187.i.i.i = or i1 %380, %381
+  br i1 %or.cond.i187.i.i.i, label %382, label %459
 
-381:                                              ; preds = %378
-  %382 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
-  %383 = fcmp oge float %.sroa.0.0.vec.extract.i.i, %.sroa.02.0.vec.extract.i181.i
-  %384 = and i1 %382, %383
-  br i1 %384, label %463, label %391
+382:                                              ; preds = %379
+  %383 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.0.0.vec.extract.i.i
+  %384 = fcmp oge float %.sroa.0.0.vec.extract.i.i, %.sroa.02.0.vec.extract.i181.i
+  %385 = and i1 %383, %384
+  br i1 %385, label %459, label %392
 
-385:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i
-  %386 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
-  %387 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %.sroa.02.4.vec.extract.i184.i
-  %or.cond27.i184.i.i.i = select i1 %386, i1 true, i1 %387
-  br i1 %or.cond27.i184.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i, label %463
+386:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.thread.i.i.i
+  %387 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
+  %388 = fcmp ugt float %.sroa.0.4.vec.extract.i.i, %.sroa.02.4.vec.extract.i184.i
+  %or.cond27.i184.i.i.i = select i1 %387, i1 true, i1 %388
+  br i1 %or.cond27.i184.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i, label %459
 
-_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i: ; preds = %385
-  %388 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
-  %389 = fcmp oge float %.sroa.0.4.vec.extract.i.i, %.sroa.02.4.vec.extract.i184.i
-  %390 = select i1 %388, i1 %389, i1 false
-  br i1 %390, label %463, label %391
+_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i: ; preds = %386
+  %389 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.0.4.vec.extract.i.i
+  %390 = fcmp oge float %.sroa.0.4.vec.extract.i.i, %.sroa.02.4.vec.extract.i184.i
+  %391 = select i1 %389, i1 %390, i1 false
+  br i1 %391, label %459, label %392
 
-391:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i, %381
-  br i1 %263, label %.thread228.i.i.i, label %.thread229.i.i.i
+392:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i, %382
+  br i1 %264, label %.thread228.i.i.i, label %.thread229.i.i.i
 
-.thread228.i.i.i:                                 ; preds = %391, %369
-  %392 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
-  %393 = fcmp ugt float %.sroa.02.0.vec.extract.i181.i, %.sroa.0.0.vec.extract.i.i
-  %or.cond.i197.i.i.i = or i1 %393, %392
-  br i1 %or.cond.i197.i.i.i, label %394, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i
+.thread228.i.i.i:                                 ; preds = %392, %370
+  %393 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
+  %394 = fcmp ugt float %.sroa.02.0.vec.extract.i181.i, %.sroa.0.0.vec.extract.i.i
+  %or.cond.i197.i.i.i = or i1 %394, %393
+  br i1 %or.cond.i197.i.i.i, label %395, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i
 
-394:                                              ; preds = %.thread228.i.i.i
-  %395 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
-  %396 = fcmp oge float %.sroa.02.0.vec.extract.i181.i, %.sroa.0.0.vec.extract.i.i
-  %397 = and i1 %396, %395
-  br i1 %397, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i, label %.thread.i
+395:                                              ; preds = %.thread228.i.i.i
+  %396 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
+  %397 = fcmp oge float %.sroa.02.0.vec.extract.i181.i, %.sroa.0.0.vec.extract.i.i
+  %398 = and i1 %397, %396
+  br i1 %398, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i, label %.thread.i
 
-.thread229.i.i.i:                                 ; preds = %391, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.i.i.i
-  %398 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
-  %399 = fcmp ugt float %.sroa.02.4.vec.extract.i184.i, %.sroa.0.4.vec.extract.i.i
-  %or.cond27.i194.i.i.i = select i1 %398, i1 true, i1 %399
+.thread229.i.i.i:                                 ; preds = %392, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit178.i.i.i
+  %399 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
+  %400 = fcmp ugt float %.sroa.02.4.vec.extract.i184.i, %.sroa.0.4.vec.extract.i.i
+  %or.cond27.i194.i.i.i = select i1 %399, i1 true, i1 %400
   br i1 %or.cond27.i194.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i
 
 _ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i: ; preds = %.thread229.i.i.i
-  %400 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
-  %401 = fcmp oge float %.sroa.02.4.vec.extract.i184.i, %.sroa.0.4.vec.extract.i.i
-  %402 = select i1 %400, i1 %401, i1 false
-  br i1 %402, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i, label %.thread.i
+  %401 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
+  %402 = fcmp oge float %.sroa.02.4.vec.extract.i184.i, %.sroa.0.4.vec.extract.i.i
+  %403 = select i1 %401, i1 %402, i1 false
+  br i1 %403, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i, label %.thread.i
 
-_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i: ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i, %.thread229.i.i.i, %394, %.thread228.i.i.i
-  br i1 %289, label %403, label %410
+_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i: ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i, %.thread229.i.i.i, %395, %.thread228.i.i.i
+  br i1 %290, label %404, label %411
 
-403:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i
-  %404 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.03.0.vec.extract.i186.i
-  %405 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
-  %or.cond.i207.i.i.i = or i1 %404, %405
-  br i1 %or.cond.i207.i.i.i, label %406, label %463
+404:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i
+  %405 = fcmp ugt float %.sroa.03.0.vec.extract.i182.i, %.sroa.03.0.vec.extract.i186.i
+  %406 = fcmp ugt float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
+  %or.cond.i207.i.i.i = or i1 %405, %406
+  br i1 %or.cond.i207.i.i.i, label %407, label %459
 
-406:                                              ; preds = %403
-  %407 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.03.0.vec.extract.i186.i
-  %408 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
-  %409 = and i1 %407, %408
-  br i1 %409, label %463, label %.thread.i
+407:                                              ; preds = %404
+  %408 = fcmp oge float %.sroa.03.0.vec.extract.i182.i, %.sroa.03.0.vec.extract.i186.i
+  %409 = fcmp oge float %.sroa.03.0.vec.extract.i186.i, %.sroa.02.0.vec.extract.i181.i
+  %410 = and i1 %408, %409
+  br i1 %410, label %459, label %.thread.i
 
-410:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i
-  %411 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
-  %412 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
-  %or.cond27.i204.i.i.i = select i1 %411, i1 true, i1 %412
-  br i1 %or.cond27.i204.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i, label %463
+411:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.thread.i.i.i
+  %412 = fcmp ugt float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
+  %413 = fcmp ugt float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
+  %or.cond27.i204.i.i.i = select i1 %412, i1 true, i1 %413
+  br i1 %or.cond27.i204.i.i.i, label %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i, label %459
 
-_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i: ; preds = %410
-  %413 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
-  %414 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
-  %415 = select i1 %413, i1 %414, i1 false
-  br i1 %415, label %463, label %.thread.i
+_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i: ; preds = %411
+  %414 = fcmp oge float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
+  %415 = fcmp oge float %.sroa.03.4.vec.extract.i188.i, %.sroa.02.4.vec.extract.i184.i
+  %416 = select i1 %414, i1 %415, i1 false
+  br i1 %416, label %459, label %.thread.i
 
-416:                                              ; preds = %178
-  %417 = fsub <2 x float> %.sroa.047.0.copyload.i, %.sroa.054.0.copyload.i
-  %418 = extractelement <2 x float> %417, i64 0
-  %419 = fpext float %418 to double
-  %420 = shufflevector <2 x float> %.sroa.054.0.copyload.i, <2 x float> %.sroa.047.0.copyload.i, <2 x i32> <i32 1, i32 2>
-  %421 = shufflevector <2 x float> %.sroa.047.0.copyload.i, <2 x float> %.sroa.053.0.copyload.i, <2 x i32> <i32 1, i32 2>
-  %422 = fsub <2 x float> %420, %421
-  %423 = fsub float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
-  %424 = fpext float %423 to double
-  %425 = fpext <2 x float> %.sroa.047.0.copyload.i to <2 x double>
-  %426 = fpext <2 x float> %422 to <2 x double>
-  %427 = insertelement <2 x double> %233, double %424, i64 1
-  %428 = fmul <2 x double> %427, %426
-  %429 = shufflevector <2 x double> %233, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %430 = insertelement <2 x double> %429, double %228, i64 1
-  %431 = insertelement <2 x double> poison, double %419, i64 0
-  %432 = shufflevector <2 x double> %431, <2 x double> poison, <2 x i32> zeroinitializer
-  %433 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %430, <2 x double> %432, <2 x double> %428)
-  %434 = insertelement <2 x double> poison, double %250, i64 0
-  %435 = shufflevector <2 x double> %434, <2 x double> poison, <2 x i32> zeroinitializer
-  %436 = fdiv <2 x double> %433, %435
-  %437 = shufflevector <2 x double> %436, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %438 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %437, <2 x double> %233, <2 x double> %425)
-  %439 = fptrunc <2 x double> %438 to <2 x float>
-  %440 = extractelement <2 x double> %436, i64 1
-  %441 = fcmp ogt double %440, 1.000000e+00
-  %442 = fcmp olt <2 x double> %436, zeroinitializer
-  %443 = extractelement <2 x i1> %442, i64 1
-  %or.cond.i.i = or i1 %443, %441
-  %444 = extractelement <2 x double> %436, i64 0
-  %445 = fcmp ogt double %444, 1.000000e+00
-  %446 = extractelement <2 x i1> %442, i64 0
-  %447 = or i1 %446, %445
-  %or.cond5.i.i = select i1 %or.cond.i.i, i1 true, i1 %447
+417:                                              ; preds = %178
+  %418 = fsub <2 x float> %.sroa.047.0.copyload.i, %.sroa.054.0.copyload.i
+  %419 = extractelement <2 x float> %418, i64 0
+  %420 = fpext float %419 to double
+  %421 = fsub <2 x float> %.sroa.047.0.copyload.i, %.sroa.053.0.copyload.i
+  %422 = extractelement <2 x float> %421, i64 0
+  %423 = fpext float %422 to double
+  %424 = fsub float %.sroa.03.4.vec.extract.i188.i, %.sroa.03.4.vec.extract.i183.i
+  %425 = fpext float %424 to double
+  %426 = fmul double %425, %423
+  %427 = call double @llvm.fmuladd.f64(double %231, double %420, double %426)
+  %428 = fdiv double %427, %251
+  %429 = fsub float %.sroa.03.4.vec.extract.i183.i, %.sroa.03.4.vec.extract.i188.i
+  %430 = fpext float %429 to double
+  %431 = fmul double %229, %430
+  %432 = call double @llvm.fmuladd.f64(double %236, double %420, double %431)
+  %433 = fdiv double %432, %251
+  %434 = fpext float %.sroa.03.0.vec.extract.i186.i to double
+  %435 = call double @llvm.fmuladd.f64(double %428, double %229, double %434)
+  %436 = fptrunc double %435 to float
+  %.sroa.0217.0.vec.insert221.i = insertelement <2 x float> poison, float %436, i64 0
+  %437 = fpext float %.sroa.03.4.vec.extract.i188.i to double
+  %438 = call double @llvm.fmuladd.f64(double %428, double %236, double %437)
+  %439 = fptrunc double %438 to float
+  %.sroa.0217.4.vec.insert225.i = insertelement <2 x float> %.sroa.0217.0.vec.insert221.i, float %439, i64 1
+  %440 = fcmp olt double %428, 0.000000e+00
+  %441 = fcmp ogt double %428, 1.000000e+00
+  %or.cond.i.i = or i1 %440, %441
+  %442 = fcmp olt double %433, 0.000000e+00
+  %443 = fcmp ogt double %433, 1.000000e+00
+  %444 = or i1 %442, %443
+  %or.cond5.i.i = select i1 %or.cond.i.i, i1 true, i1 %444
   br i1 %or.cond5.i.i, label %.thread.i, label %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i
 
-_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i: ; preds = %416
-  %448 = icmp eq i32 %.0161.i, 2
-  br i1 %448, label %449, label %452
+_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i: ; preds = %417
+  %445 = icmp eq i32 %.0161.i, 2
+  br i1 %445, label %446, label %449
 
-449:                                              ; preds = %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i
-  br i1 %.0163.i, label %450, label %452
+446:                                              ; preds = %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i
+  br i1 %.0163.i, label %447, label %449
 
-450:                                              ; preds = %449
-  %451 = getelementptr inbounds i8, ptr %.0256.i, i64 8
-  store <2 x float> %439, ptr %.0256.i, align 4
-  br label %452
+447:                                              ; preds = %446
+  %448 = getelementptr inbounds i8, ptr %.0256.i, i64 8
+  store <2 x float> %.sroa.0217.4.vec.insert225.i, ptr %.0256.i, align 4
+  br label %449
 
-452:                                              ; preds = %450, %449, %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i
-  %.2265.i = phi i32 [ 0, %450 ], [ %.0263.i, %449 ], [ %.0263.i, %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i ]
-  %.2261.i = phi i32 [ 0, %450 ], [ %.0259.i, %449 ], [ %.0259.i, %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i ]
-  %.2258.i = phi ptr [ %451, %450 ], [ %.0256.i, %449 ], [ %.0256.i, %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i ]
-  %.2.i = phi i1 [ false, %450 ], [ false, %449 ], [ %.0163.i, %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i ]
-  %453 = getelementptr inbounds i8, ptr %.2258.i, i64 -8
-  %454 = load <2 x float>, ptr %453, align 4
-  %455 = fcmp une <2 x float> %454, %439
-  %456 = extractelement <2 x i1> %455, i64 0
-  %457 = extractelement <2 x i1> %455, i64 1
-  %458 = select i1 %456, i1 true, i1 %457
-  br i1 %458, label %459, label %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i
+449:                                              ; preds = %447, %446, %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i
+  %.2265.i = phi i32 [ 0, %447 ], [ %.0263.i, %446 ], [ %.0263.i, %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i ]
+  %.2261.i = phi i32 [ 0, %447 ], [ %.0259.i, %446 ], [ %.0259.i, %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i ]
+  %.2258.i = phi ptr [ %448, %447 ], [ %.0256.i, %446 ], [ %.0256.i, %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i ]
+  %.2.i = phi i1 [ false, %447 ], [ false, %446 ], [ %.0163.i, %_ZN2cvL21intersectLineSegmentsENS_6Point_IfEES1_S1_S1_RS1_S2_.exit.i ]
+  %450 = getelementptr inbounds i8, ptr %.2258.i, i64 -8
+  %.val5.i.i = load float, ptr %450, align 4
+  %451 = getelementptr i8, ptr %.2258.i, i64 -4
+  %.val6.i.i = load float, ptr %451, align 4
+  %452 = fcmp une float %.val5.i.i, %436
+  %453 = fcmp une float %.val6.i.i, %439
+  %454 = select i1 %452, i1 true, i1 %453
+  br i1 %454, label %455, label %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i
 
-459:                                              ; preds = %452
-  %460 = getelementptr inbounds i8, ptr %.2258.i, i64 8
-  store <2 x float> %439, ptr %.2258.i, align 4
+455:                                              ; preds = %449
+  %456 = getelementptr inbounds i8, ptr %.2258.i, i64 8
+  store <2 x float> %.sroa.0217.4.vec.insert225.i, ptr %.2258.i, align 4
   br label %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i
 
-_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i: ; preds = %459, %452
-  %.4.i = phi ptr [ %460, %459 ], [ %.2258.i, %452 ]
-  %461 = select i1 %239, i32 %.0161.i, i32 1
-  %462 = select i1 %223, i32 0, i32 %461
+_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i: ; preds = %455, %449
+  %.4.i = phi ptr [ %456, %455 ], [ %.2258.i, %449 ]
+  %457 = select i1 %240, i32 %.0161.i, i32 1
+  %458 = select i1 %223, i32 0, i32 %457
   br label %.thread.i
 
-463:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i, %410, %406, %403, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i, %385, %381, %378, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i, %360, %356, %353, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i, %335, %331, %328, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i, %.thread215.i.i.i, %305, %.thread216.i.i.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i, %.thread210.i.i.i, %279, %.thread211.i.i.i
-  %.sink233.i.i.i = phi <2 x float> [ %.sroa.054.0.copyload.i, %.thread210.i.i.i ], [ %.sroa.054.0.copyload.i, %.thread211.i.i.i ], [ %.sroa.054.0.copyload.i, %279 ], [ %.sroa.054.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i ], [ %.sroa.047.0.copyload.i, %.thread215.i.i.i ], [ %.sroa.047.0.copyload.i, %.thread216.i.i.i ], [ %.sroa.047.0.copyload.i, %305 ], [ %.sroa.047.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i ], [ %.sroa.054.0.copyload.i, %335 ], [ %.sroa.054.0.copyload.i, %328 ], [ %.sroa.054.0.copyload.i, %331 ], [ %.sroa.054.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i ], [ %.sroa.054.0.copyload.i, %360 ], [ %.sroa.054.0.copyload.i, %353 ], [ %.sroa.054.0.copyload.i, %356 ], [ %.sroa.054.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i ], [ %.sroa.053.0.copyload.i, %385 ], [ %.sroa.053.0.copyload.i, %378 ], [ %.sroa.053.0.copyload.i, %381 ], [ %.sroa.053.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i ], [ %.sroa.053.0.copyload.i, %410 ], [ %.sroa.053.0.copyload.i, %403 ], [ %.sroa.053.0.copyload.i, %406 ], [ %.sroa.053.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ]
-  %.sink.i.i.i = phi <2 x float> [ %.sroa.053.0.copyload.i, %.thread210.i.i.i ], [ %.sroa.053.0.copyload.i, %.thread211.i.i.i ], [ %.sroa.053.0.copyload.i, %279 ], [ %.sroa.053.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i ], [ %.sroa.052.0.copyload.i, %.thread215.i.i.i ], [ %.sroa.052.0.copyload.i, %.thread216.i.i.i ], [ %.sroa.052.0.copyload.i, %305 ], [ %.sroa.052.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i ], [ %.sroa.052.0.copyload.i, %335 ], [ %.sroa.052.0.copyload.i, %328 ], [ %.sroa.052.0.copyload.i, %331 ], [ %.sroa.052.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i ], [ %.sroa.047.0.copyload.i, %360 ], [ %.sroa.047.0.copyload.i, %353 ], [ %.sroa.047.0.copyload.i, %356 ], [ %.sroa.047.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i ], [ %.sroa.052.0.copyload.i, %385 ], [ %.sroa.052.0.copyload.i, %378 ], [ %.sroa.052.0.copyload.i, %381 ], [ %.sroa.052.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i ], [ %.sroa.047.0.copyload.i, %410 ], [ %.sroa.047.0.copyload.i, %403 ], [ %.sroa.047.0.copyload.i, %406 ], [ %.sroa.047.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ]
-  %464 = fmul double %202, %200
-  %465 = call noundef double @llvm.fmuladd.f64(double %199, double %201, double %464)
-  %466 = fcmp olt double %465, 0.000000e+00
-  br i1 %466, label %467, label %.thread.i
+459:                                              ; preds = %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i, %411, %407, %404, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i, %386, %382, %379, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i, %361, %357, %354, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i, %336, %332, %329, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i, %.thread215.i.i.i, %306, %.thread216.i.i.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i, %.thread210.i.i.i, %280, %.thread211.i.i.i
+  %.sink233.i.i.i = phi <2 x float> [ %.sroa.054.0.copyload.i, %.thread210.i.i.i ], [ %.sroa.054.0.copyload.i, %.thread211.i.i.i ], [ %.sroa.054.0.copyload.i, %280 ], [ %.sroa.054.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i ], [ %.sroa.047.0.copyload.i, %.thread215.i.i.i ], [ %.sroa.047.0.copyload.i, %.thread216.i.i.i ], [ %.sroa.047.0.copyload.i, %306 ], [ %.sroa.047.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i ], [ %.sroa.054.0.copyload.i, %336 ], [ %.sroa.054.0.copyload.i, %329 ], [ %.sroa.054.0.copyload.i, %332 ], [ %.sroa.054.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i ], [ %.sroa.054.0.copyload.i, %361 ], [ %.sroa.054.0.copyload.i, %354 ], [ %.sroa.054.0.copyload.i, %357 ], [ %.sroa.054.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i ], [ %.sroa.053.0.copyload.i, %386 ], [ %.sroa.053.0.copyload.i, %379 ], [ %.sroa.053.0.copyload.i, %382 ], [ %.sroa.053.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i ], [ %.sroa.053.0.copyload.i, %411 ], [ %.sroa.053.0.copyload.i, %404 ], [ %.sroa.053.0.copyload.i, %407 ], [ %.sroa.053.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ]
+  %.sink.i.i.i = phi <2 x float> [ %.sroa.053.0.copyload.i, %.thread210.i.i.i ], [ %.sroa.053.0.copyload.i, %.thread211.i.i.i ], [ %.sroa.053.0.copyload.i, %280 ], [ %.sroa.053.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit108.i.i.i ], [ %.sroa.052.0.copyload.i, %.thread215.i.i.i ], [ %.sroa.052.0.copyload.i, %.thread216.i.i.i ], [ %.sroa.052.0.copyload.i, %306 ], [ %.sroa.052.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit128.i.i.i ], [ %.sroa.052.0.copyload.i, %336 ], [ %.sroa.052.0.copyload.i, %329 ], [ %.sroa.052.0.copyload.i, %332 ], [ %.sroa.052.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit148.i.i.i ], [ %.sroa.047.0.copyload.i, %361 ], [ %.sroa.047.0.copyload.i, %354 ], [ %.sroa.047.0.copyload.i, %357 ], [ %.sroa.047.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit168.i.i.i ], [ %.sroa.052.0.copyload.i, %386 ], [ %.sroa.052.0.copyload.i, %379 ], [ %.sroa.052.0.copyload.i, %382 ], [ %.sroa.052.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit188.i.i.i ], [ %.sroa.047.0.copyload.i, %411 ], [ %.sroa.047.0.copyload.i, %404 ], [ %.sroa.047.0.copyload.i, %407 ], [ %.sroa.047.0.copyload.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ]
+  %460 = fmul double %202, %200
+  %461 = call noundef double @llvm.fmuladd.f64(double %199, double %201, double %460)
+  %462 = fcmp olt double %461, 0.000000e+00
+  br i1 %462, label %463, label %.thread.i
 
-467:                                              ; preds = %463
-  %468 = getelementptr inbounds i8, ptr %.0256.i, i64 -8
+463:                                              ; preds = %459
+  %464 = getelementptr inbounds i8, ptr %.0256.i, i64 -8
   %.sroa.012.0.vec.extract.i.i = extractelement <2 x float> %.sink233.i.i.i, i64 0
   %.sroa.012.4.vec.extract.i.i = extractelement <2 x float> %.sink233.i.i.i, i64 1
-  %.val5.i193.i = load float, ptr %468, align 4
-  %469 = getelementptr i8, ptr %.0256.i, i64 -4
-  %.val6.i194.i = load float, ptr %469, align 4
-  %470 = fcmp une float %.sroa.012.0.vec.extract.i.i, %.val5.i193.i
-  %471 = fcmp une float %.sroa.012.4.vec.extract.i.i, %.val6.i194.i
-  %472 = select i1 %470, i1 true, i1 %471
-  br i1 %472, label %473, label %475
+  %.val5.i193.i = load float, ptr %464, align 4
+  %465 = getelementptr i8, ptr %.0256.i, i64 -4
+  %.val6.i194.i = load float, ptr %465, align 4
+  %466 = fcmp une float %.sroa.012.0.vec.extract.i.i, %.val5.i193.i
+  %467 = fcmp une float %.sroa.012.4.vec.extract.i.i, %.val6.i194.i
+  %468 = select i1 %466, i1 true, i1 %467
+  br i1 %468, label %469, label %471
 
-473:                                              ; preds = %467
-  %474 = getelementptr inbounds i8, ptr %.0256.i, i64 8
+469:                                              ; preds = %463
+  %470 = getelementptr inbounds i8, ptr %.0256.i, i64 8
   store <2 x float> %.sink233.i.i.i, ptr %.0256.i, align 4
-  br label %475
+  br label %471
 
-475:                                              ; preds = %473, %467
-  %.5.i = phi ptr [ %474, %473 ], [ %.0256.i, %467 ]
-  %.val10.i.i = phi float [ %.sroa.012.4.vec.extract.i.i, %473 ], [ %.val6.i194.i, %467 ]
-  %.val9.i.i = phi float [ %.sroa.012.0.vec.extract.i.i, %473 ], [ %.val5.i193.i, %467 ]
+471:                                              ; preds = %469, %463
+  %.5.i = phi ptr [ %470, %469 ], [ %.0256.i, %463 ]
+  %.val10.i.i = phi float [ %.sroa.012.4.vec.extract.i.i, %469 ], [ %.val6.i194.i, %463 ]
+  %.val9.i.i = phi float [ %.sroa.012.0.vec.extract.i.i, %469 ], [ %.val5.i193.i, %463 ]
   %.sroa.0.0.vec.extract.i195.i = extractelement <2 x float> %.sink.i.i.i, i64 0
   %.sroa.0.4.vec.extract.i196.i = extractelement <2 x float> %.sink.i.i.i, i64 1
-  %476 = fcmp une float %.sroa.0.0.vec.extract.i195.i, %.val9.i.i
-  %477 = fcmp une float %.sroa.0.4.vec.extract.i196.i, %.val10.i.i
-  %478 = select i1 %476, i1 true, i1 %477
-  br i1 %478, label %479, label %_ZN2cvL12addSharedSegENS_6Point_IfEES1_RPS1_.exit.i
+  %472 = fcmp une float %.sroa.0.0.vec.extract.i195.i, %.val9.i.i
+  %473 = fcmp une float %.sroa.0.4.vec.extract.i196.i, %.val10.i.i
+  %474 = select i1 %472, i1 true, i1 %473
+  br i1 %474, label %475, label %_ZN2cvL12addSharedSegENS_6Point_IfEES1_RPS1_.exit.i
 
-479:                                              ; preds = %475
-  %480 = getelementptr inbounds i8, ptr %.5.i, i64 8
+475:                                              ; preds = %471
+  %476 = getelementptr inbounds i8, ptr %.5.i, i64 8
   store <2 x float> %.sink.i.i.i, ptr %.5.i, align 4
   br label %_ZN2cvL12addSharedSegENS_6Point_IfEES1_RPS1_.exit.i
 
-_ZN2cvL12addSharedSegENS_6Point_IfEES1_RPS1_.exit.i: ; preds = %479, %475
-  %.6.i = phi ptr [ %480, %479 ], [ %.5.i, %475 ]
-  %481 = ptrtoint ptr %.6.i to i64
-  %482 = sub i64 %481, %177
-  %483 = lshr exact i64 %482, 3
-  %484 = trunc i64 %483 to i32
+_ZN2cvL12addSharedSegENS_6Point_IfEES1_RPS1_.exit.i: ; preds = %475, %471
+  %.6.i = phi ptr [ %476, %475 ], [ %.5.i, %471 ]
+  %477 = ptrtoint ptr %.6.i to i64
+  %478 = sub i64 %477, %177
+  %479 = lshr exact i64 %478, 3
+  %480 = trunc i64 %479 to i32
   br label %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit
 
-.thread.i:                                        ; preds = %463, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i, %416, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i, %406, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i, %394, %252
-  %.1162288.i = phi i32 [ %.0161.i, %463 ], [ %462, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0161.i, %406 ], [ %.0161.i, %394 ], [ %.0161.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0161.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0161.i, %252 ], [ %.0161.i, %416 ]
-  %.1164287.i = phi i1 [ %.0163.i, %463 ], [ %.2.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0163.i, %406 ], [ %.0163.i, %394 ], [ %.0163.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0163.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0163.i, %252 ], [ %.0163.i, %416 ]
-  %.1257286.i = phi ptr [ %.0256.i, %463 ], [ %.4.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0256.i, %406 ], [ %.0256.i, %394 ], [ %.0256.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0256.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0256.i, %252 ], [ %.0256.i, %416 ]
-  %.1260285.i = phi i32 [ %.0259.i, %463 ], [ %.2261.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0259.i, %406 ], [ %.0259.i, %394 ], [ %.0259.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0259.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0259.i, %252 ], [ %.0259.i, %416 ]
-  %.1264284.i = phi i32 [ %.0263.i, %463 ], [ %.2265.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0263.i, %406 ], [ %.0263.i, %394 ], [ %.0263.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0263.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0263.i, %252 ], [ %.0263.i, %416 ]
-  %485 = icmp eq i32 %209, 0
-  %486 = and i32 %242, %226
-  %487 = icmp slt i32 %486, 0
-  %or.cond5.i = and i1 %485, %487
-  br i1 %or.cond5.i, label %488, label %493
+.thread.i:                                        ; preds = %459, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i, %417, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i, %407, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i, %395, %253
+  %.1162288.i = phi i32 [ %.0161.i, %459 ], [ %458, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0161.i, %407 ], [ %.0161.i, %395 ], [ %.0161.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0161.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0161.i, %253 ], [ %.0161.i, %417 ]
+  %.1164287.i = phi i1 [ %.0163.i, %459 ], [ %.2.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0163.i, %407 ], [ %.0163.i, %395 ], [ %.0163.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0163.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0163.i, %253 ], [ %.0163.i, %417 ]
+  %.1257286.i = phi ptr [ %.0256.i, %459 ], [ %.4.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0256.i, %407 ], [ %.0256.i, %395 ], [ %.0256.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0256.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0256.i, %253 ], [ %.0256.i, %417 ]
+  %.1260285.i = phi i32 [ %.0259.i, %459 ], [ %.2261.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0259.i, %407 ], [ %.0259.i, %395 ], [ %.0259.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0259.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0259.i, %253 ], [ %.0259.i, %417 ]
+  %.1264284.i = phi i32 [ %.0263.i, %459 ], [ %.2265.i, %_ZN2cvL5inOutENS_6Point_IfEENS_7tInFlagEiiRPS1_.exit.i ], [ %.0263.i, %407 ], [ %.0263.i, %395 ], [ %.0263.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit198.i.i.i ], [ %.0263.i, %_ZN2cvL7betweenENS_6Point_IfEES1_S1_.exit208.i.i.i ], [ %.0263.i, %253 ], [ %.0263.i, %417 ]
+  %481 = icmp eq i32 %209, 0
+  %482 = and i32 %243, %226
+  %483 = icmp slt i32 %482, 0
+  %or.cond5.i = and i1 %481, %483
+  br i1 %or.cond5.i, label %484, label %489
 
-488:                                              ; preds = %.thread.i
-  %489 = ptrtoint ptr %.1257286.i to i64
-  %490 = sub i64 %489, %177
-  %491 = lshr exact i64 %490, 3
-  %492 = trunc i64 %491 to i32
+484:                                              ; preds = %.thread.i
+  %485 = ptrtoint ptr %.1257286.i to i64
+  %486 = sub i64 %485, %177
+  %487 = lshr exact i64 %486, 3
+  %488 = trunc i64 %487 to i32
   br label %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit
 
-493:                                              ; preds = %.thread.i
-  %494 = or i32 %226, %209
-  %495 = or i32 %494, %242
-  %or.cond9.i = icmp eq i32 %495, 0
-  br i1 %or.cond9.i, label %496, label %506
+489:                                              ; preds = %.thread.i
+  %490 = or i32 %226, %209
+  %491 = or i32 %490, %243
+  %or.cond9.i = icmp eq i32 %491, 0
+  br i1 %or.cond9.i, label %492, label %502
 
-496:                                              ; preds = %493
-  %497 = icmp eq i32 %.1162288.i, 0
-  br i1 %497, label %498, label %502
+492:                                              ; preds = %489
+  %493 = icmp eq i32 %.1162288.i, 0
+  br i1 %493, label %494, label %498
 
-498:                                              ; preds = %496
-  %499 = add nsw i32 %.1264284.i, 1
-  %500 = add nsw i32 %.0159.i, 1
-  %501 = srem i32 %500, %72
-  br label %562
+494:                                              ; preds = %492
+  %495 = add nsw i32 %.1264284.i, 1
+  %496 = add nsw i32 %.0159.i, 1
+  %497 = srem i32 %496, %72
+  br label %558
 
-502:                                              ; preds = %496
-  %503 = add nsw i32 %.1260285.i, 1
-  %504 = add nsw i32 %.0158.i, 1
-  %505 = srem i32 %504, %68
-  br label %562
+498:                                              ; preds = %492
+  %499 = add nsw i32 %.1260285.i, 1
+  %500 = add nsw i32 %.0158.i, 1
+  %501 = srem i32 %500, %68
+  br label %558
 
-506:                                              ; preds = %493
-  %507 = icmp sgt i32 %209, -1
-  br i1 %507, label %508, label %535
+502:                                              ; preds = %489
+  %503 = icmp sgt i32 %209, -1
+  br i1 %503, label %504, label %531
 
-508:                                              ; preds = %506
-  br i1 %239, label %522, label %509
+504:                                              ; preds = %502
+  br i1 %240, label %518, label %505
 
-509:                                              ; preds = %508
-  %510 = icmp eq i32 %.1162288.i, 0
+505:                                              ; preds = %504
+  %506 = icmp eq i32 %.1162288.i, 0
   %.sroa.032.0.copyload.i = load <2 x float>, ptr %184, align 4
-  br i1 %510, label %511, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i
+  br i1 %506, label %507, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i
 
-511:                                              ; preds = %509
-  %512 = getelementptr inbounds i8, ptr %.1257286.i, i64 -8
+507:                                              ; preds = %505
+  %508 = getelementptr inbounds i8, ptr %.1257286.i, i64 -8
   %.sroa.0.0.vec.extract.i197.i = extractelement <2 x float> %.sroa.032.0.copyload.i, i64 0
   %.sroa.0.4.vec.extract.i198.i = extractelement <2 x float> %.sroa.032.0.copyload.i, i64 1
-  %.val6.i199.i = load float, ptr %512, align 4
-  %513 = getelementptr i8, ptr %.1257286.i, i64 -4
-  %.val7.i.i = load float, ptr %513, align 4
-  %514 = fcmp une float %.sroa.0.0.vec.extract.i197.i, %.val6.i199.i
-  %515 = fcmp une float %.sroa.0.4.vec.extract.i198.i, %.val7.i.i
-  %516 = select i1 %514, i1 true, i1 %515
-  br i1 %516, label %517, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i
+  %.val6.i199.i = load float, ptr %508, align 4
+  %509 = getelementptr i8, ptr %.1257286.i, i64 -4
+  %.val7.i.i = load float, ptr %509, align 4
+  %510 = fcmp une float %.sroa.0.0.vec.extract.i197.i, %.val6.i199.i
+  %511 = fcmp une float %.sroa.0.4.vec.extract.i198.i, %.val7.i.i
+  %512 = select i1 %510, i1 true, i1 %511
+  br i1 %512, label %513, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i
 
-517:                                              ; preds = %511
-  %518 = getelementptr inbounds i8, ptr %.1257286.i, i64 8
+513:                                              ; preds = %507
+  %514 = getelementptr inbounds i8, ptr %.1257286.i, i64 8
   store <2 x float> %.sroa.032.0.copyload.i, ptr %.1257286.i, align 4
   br label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i
 
-_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i:  ; preds = %517, %511, %509
-  %.7.i = phi ptr [ %518, %517 ], [ %.1257286.i, %511 ], [ %.1257286.i, %509 ]
-  %519 = add nsw i32 %.1260285.i, 1
-  %520 = add nsw i32 %.0158.i, 1
-  %521 = srem i32 %520, %68
-  br label %562
+_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i:  ; preds = %513, %507, %505
+  %.7.i = phi ptr [ %514, %513 ], [ %.1257286.i, %507 ], [ %.1257286.i, %505 ]
+  %515 = add nsw i32 %.1260285.i, 1
+  %516 = add nsw i32 %.0158.i, 1
+  %517 = srem i32 %516, %68
+  br label %558
 
-522:                                              ; preds = %508
-  %523 = icmp eq i32 %.1162288.i, 1
+518:                                              ; preds = %504
+  %519 = icmp eq i32 %.1162288.i, 1
   %.sroa.031.0.copyload.i = load <2 x float>, ptr %192, align 4
-  br i1 %523, label %524, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i
+  br i1 %519, label %520, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i
 
-524:                                              ; preds = %522
-  %525 = getelementptr inbounds i8, ptr %.1257286.i, i64 -8
+520:                                              ; preds = %518
+  %521 = getelementptr inbounds i8, ptr %.1257286.i, i64 -8
   %.sroa.0.0.vec.extract.i200.i = extractelement <2 x float> %.sroa.031.0.copyload.i, i64 0
   %.sroa.0.4.vec.extract.i201.i = extractelement <2 x float> %.sroa.031.0.copyload.i, i64 1
-  %.val6.i202.i = load float, ptr %525, align 4
-  %526 = getelementptr i8, ptr %.1257286.i, i64 -4
-  %.val7.i203.i = load float, ptr %526, align 4
-  %527 = fcmp une float %.sroa.0.0.vec.extract.i200.i, %.val6.i202.i
-  %528 = fcmp une float %.sroa.0.4.vec.extract.i201.i, %.val7.i203.i
-  %529 = select i1 %527, i1 true, i1 %528
-  br i1 %529, label %530, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i
+  %.val6.i202.i = load float, ptr %521, align 4
+  %522 = getelementptr i8, ptr %.1257286.i, i64 -4
+  %.val7.i203.i = load float, ptr %522, align 4
+  %523 = fcmp une float %.sroa.0.0.vec.extract.i200.i, %.val6.i202.i
+  %524 = fcmp une float %.sroa.0.4.vec.extract.i201.i, %.val7.i203.i
+  %525 = select i1 %523, i1 true, i1 %524
+  br i1 %525, label %526, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i
 
-530:                                              ; preds = %524
-  %531 = getelementptr inbounds i8, ptr %.1257286.i, i64 8
+526:                                              ; preds = %520
+  %527 = getelementptr inbounds i8, ptr %.1257286.i, i64 8
   store <2 x float> %.sroa.031.0.copyload.i, ptr %.1257286.i, align 4
   br label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i
 
-_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i: ; preds = %530, %524, %522
-  %.8.i = phi ptr [ %531, %530 ], [ %.1257286.i, %524 ], [ %.1257286.i, %522 ]
-  %532 = add nsw i32 %.1264284.i, 1
-  %533 = add nsw i32 %.0159.i, 1
-  %534 = srem i32 %533, %72
-  br label %562
+_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i: ; preds = %526, %520, %518
+  %.8.i = phi ptr [ %527, %526 ], [ %.1257286.i, %520 ], [ %.1257286.i, %518 ]
+  %528 = add nsw i32 %.1264284.i, 1
+  %529 = add nsw i32 %.0159.i, 1
+  %530 = srem i32 %529, %72
+  br label %558
 
-535:                                              ; preds = %506
-  br i1 %223, label %536, label %549
+531:                                              ; preds = %502
+  br i1 %223, label %532, label %545
 
-536:                                              ; preds = %535
-  %537 = icmp eq i32 %.1162288.i, 1
+532:                                              ; preds = %531
+  %533 = icmp eq i32 %.1162288.i, 1
   %.sroa.030.0.copyload.i = load <2 x float>, ptr %192, align 4
-  br i1 %537, label %538, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i
+  br i1 %533, label %534, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i
 
-538:                                              ; preds = %536
-  %539 = getelementptr inbounds i8, ptr %.1257286.i, i64 -8
+534:                                              ; preds = %532
+  %535 = getelementptr inbounds i8, ptr %.1257286.i, i64 -8
   %.sroa.0.0.vec.extract.i205.i = extractelement <2 x float> %.sroa.030.0.copyload.i, i64 0
   %.sroa.0.4.vec.extract.i206.i = extractelement <2 x float> %.sroa.030.0.copyload.i, i64 1
-  %.val6.i207.i = load float, ptr %539, align 4
-  %540 = getelementptr i8, ptr %.1257286.i, i64 -4
-  %.val7.i208.i = load float, ptr %540, align 4
-  %541 = fcmp une float %.sroa.0.0.vec.extract.i205.i, %.val6.i207.i
-  %542 = fcmp une float %.sroa.0.4.vec.extract.i206.i, %.val7.i208.i
-  %543 = select i1 %541, i1 true, i1 %542
-  br i1 %543, label %544, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i
+  %.val6.i207.i = load float, ptr %535, align 4
+  %536 = getelementptr i8, ptr %.1257286.i, i64 -4
+  %.val7.i208.i = load float, ptr %536, align 4
+  %537 = fcmp une float %.sroa.0.0.vec.extract.i205.i, %.val6.i207.i
+  %538 = fcmp une float %.sroa.0.4.vec.extract.i206.i, %.val7.i208.i
+  %539 = select i1 %537, i1 true, i1 %538
+  br i1 %539, label %540, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i
 
-544:                                              ; preds = %538
-  %545 = getelementptr inbounds i8, ptr %.1257286.i, i64 8
+540:                                              ; preds = %534
+  %541 = getelementptr inbounds i8, ptr %.1257286.i, i64 8
   store <2 x float> %.sroa.030.0.copyload.i, ptr %.1257286.i, align 4
   br label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i
 
-_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i: ; preds = %544, %538, %536
-  %.9.i = phi ptr [ %545, %544 ], [ %.1257286.i, %538 ], [ %.1257286.i, %536 ]
-  %546 = add nsw i32 %.1264284.i, 1
-  %547 = add nsw i32 %.0159.i, 1
-  %548 = srem i32 %547, %72
-  br label %562
+_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i: ; preds = %540, %534, %532
+  %.9.i = phi ptr [ %541, %540 ], [ %.1257286.i, %534 ], [ %.1257286.i, %532 ]
+  %542 = add nsw i32 %.1264284.i, 1
+  %543 = add nsw i32 %.0159.i, 1
+  %544 = srem i32 %543, %72
+  br label %558
 
-549:                                              ; preds = %535
-  %550 = icmp eq i32 %.1162288.i, 0
+545:                                              ; preds = %531
+  %546 = icmp eq i32 %.1162288.i, 0
   %.sroa.029.0.copyload.i = load <2 x float>, ptr %184, align 4
-  br i1 %550, label %551, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i
+  br i1 %546, label %547, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i
 
-551:                                              ; preds = %549
-  %552 = getelementptr inbounds i8, ptr %.1257286.i, i64 -8
+547:                                              ; preds = %545
+  %548 = getelementptr inbounds i8, ptr %.1257286.i, i64 -8
   %.sroa.0.0.vec.extract.i210.i = extractelement <2 x float> %.sroa.029.0.copyload.i, i64 0
   %.sroa.0.4.vec.extract.i211.i = extractelement <2 x float> %.sroa.029.0.copyload.i, i64 1
-  %.val6.i212.i = load float, ptr %552, align 4
-  %553 = getelementptr i8, ptr %.1257286.i, i64 -4
-  %.val7.i213.i = load float, ptr %553, align 4
-  %554 = fcmp une float %.sroa.0.0.vec.extract.i210.i, %.val6.i212.i
-  %555 = fcmp une float %.sroa.0.4.vec.extract.i211.i, %.val7.i213.i
-  %556 = select i1 %554, i1 true, i1 %555
-  br i1 %556, label %557, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i
+  %.val6.i212.i = load float, ptr %548, align 4
+  %549 = getelementptr i8, ptr %.1257286.i, i64 -4
+  %.val7.i213.i = load float, ptr %549, align 4
+  %550 = fcmp une float %.sroa.0.0.vec.extract.i210.i, %.val6.i212.i
+  %551 = fcmp une float %.sroa.0.4.vec.extract.i211.i, %.val7.i213.i
+  %552 = select i1 %550, i1 true, i1 %551
+  br i1 %552, label %553, label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i
 
-557:                                              ; preds = %551
-  %558 = getelementptr inbounds i8, ptr %.1257286.i, i64 8
+553:                                              ; preds = %547
+  %554 = getelementptr inbounds i8, ptr %.1257286.i, i64 8
   store <2 x float> %.sroa.029.0.copyload.i, ptr %.1257286.i, align 4
   br label %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i
 
-_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i: ; preds = %557, %551, %549
-  %.10.i = phi ptr [ %558, %557 ], [ %.1257286.i, %551 ], [ %.1257286.i, %549 ]
-  %559 = add nsw i32 %.1260285.i, 1
-  %560 = add nsw i32 %.0158.i, 1
-  %561 = srem i32 %560, %68
-  br label %562
+_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i: ; preds = %553, %547, %545
+  %.10.i = phi ptr [ %554, %553 ], [ %.1257286.i, %547 ], [ %.1257286.i, %545 ]
+  %555 = add nsw i32 %.1260285.i, 1
+  %556 = add nsw i32 %.0158.i, 1
+  %557 = srem i32 %556, %68
+  br label %558
 
-562:                                              ; preds = %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i, %502, %498
-  %.3266.i = phi i32 [ %499, %498 ], [ %.1264284.i, %502 ], [ %.1264284.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i ], [ %532, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i ], [ %546, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i ], [ %.1264284.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i ]
-  %.3262.i = phi i32 [ %.1260285.i, %498 ], [ %503, %502 ], [ %519, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i ], [ %.1260285.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i ], [ %.1260285.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i ], [ %559, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i ]
-  %.3.i = phi ptr [ %.1257286.i, %498 ], [ %.1257286.i, %502 ], [ %.7.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i ], [ %.8.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i ], [ %.9.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i ], [ %.10.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i ]
-  %.1160.i = phi i32 [ %501, %498 ], [ %.0159.i, %502 ], [ %.0159.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i ], [ %534, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i ], [ %548, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i ], [ %.0159.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i ]
-  %.1.i = phi i32 [ %.0158.i, %498 ], [ %505, %502 ], [ %521, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i ], [ %.0158.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i ], [ %.0158.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i ], [ %561, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i ]
-  %563 = icmp sge i32 %.3262.i, %68
-  %564 = icmp sge i32 %.3266.i, %72
-  %or.cond.i.not268 = select i1 %563, i1 %564, i1 false
-  %565 = icmp sge i32 %.3262.i, %175
-  %or.cond295.i.not265 = select i1 %or.cond.i.not268, i1 true, i1 %565
-  %566 = icmp sge i32 %.3266.i, %176
-  %or.cond297.i.not263 = select i1 %or.cond295.i.not265, i1 true, i1 %566
-  %567 = ptrtoint ptr %.3.i to i64
-  %568 = sub i64 %567, %177
-  %569 = lshr exact i64 %568, 3
-  %570 = trunc i64 %569 to i32
-  %.not.i = icmp slt i32 %171, %570
+558:                                              ; preds = %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i, %498, %494
+  %.3266.i = phi i32 [ %495, %494 ], [ %.1264284.i, %498 ], [ %.1264284.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i ], [ %528, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i ], [ %542, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i ], [ %.1264284.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i ]
+  %.3262.i = phi i32 [ %.1260285.i, %494 ], [ %499, %498 ], [ %515, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i ], [ %.1260285.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i ], [ %.1260285.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i ], [ %555, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i ]
+  %.3.i = phi ptr [ %.1257286.i, %494 ], [ %.1257286.i, %498 ], [ %.7.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i ], [ %.8.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i ], [ %.9.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i ], [ %.10.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i ]
+  %.1160.i = phi i32 [ %497, %494 ], [ %.0159.i, %498 ], [ %.0159.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i ], [ %530, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i ], [ %544, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i ], [ %.0159.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i ]
+  %.1.i = phi i32 [ %.0158.i, %494 ], [ %501, %498 ], [ %517, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit.i ], [ %.0158.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit204.i ], [ %.0158.i, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit209.i ], [ %557, %_ZN2cvL7advanceEiPiibNS_6Point_IfEERPS2_.exit214.i ]
+  %559 = icmp sge i32 %.3262.i, %68
+  %560 = icmp sge i32 %.3266.i, %72
+  %or.cond.i.not268 = select i1 %559, i1 %560, i1 false
+  %561 = icmp sge i32 %.3262.i, %175
+  %or.cond295.i.not265 = select i1 %or.cond.i.not268, i1 true, i1 %561
+  %562 = icmp sge i32 %.3266.i, %176
+  %or.cond297.i.not263 = select i1 %or.cond295.i.not265, i1 true, i1 %562
+  %563 = ptrtoint ptr %.3.i to i64
+  %564 = sub i64 %563, %177
+  %565 = lshr exact i64 %564, 3
+  %566 = trunc i64 %565 to i32
+  %.not.i = icmp slt i32 %171, %566
   %or.cond262 = select i1 %or.cond297.i.not263, i1 true, i1 %.not.i
   br i1 %or.cond262, label %.critedge.i, label %178, !llvm.loop !22
 
-.critedge.i:                                      ; preds = %562
-  %571 = icmp slt i32 %171, %570
-  br i1 %571, label %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread, label %572
+.critedge.i:                                      ; preds = %558
+  %567 = icmp slt i32 %171, %566
+  br i1 %567, label %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread, label %568
 
-572:                                              ; preds = %.critedge.i
-  %573 = shl i64 %568, 29
-  %574 = icmp sgt i32 %570, 1
-  br i1 %574, label %.lr.ph.preheader.i, label %._crit_edge.i
+568:                                              ; preds = %.critedge.i
+  %569 = shl i64 %564, 29
+  %570 = icmp sgt i32 %566, 1
+  br i1 %570, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %572
-  %sext.i = add i64 %573, -4294967296
-  %575 = ashr i64 %sext.i, 32
-  %576 = getelementptr inbounds %"class.cv::Point_", ptr %100, i64 %575
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %576, i64 4
+.lr.ph.preheader.i:                               ; preds = %568
+  %sext.i = add i64 %569, -4294967296
+  %571 = ashr i64 %sext.i, 32
+  %572 = getelementptr inbounds %"class.cv::Point_", ptr %100, i64 %571
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %572, i64 4
   %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 4
-  %.sroa.0.0.copyload.i = load float, ptr %576, align 4
-  %wide.trip.count.i = and i64 %569, 2147483647
+  %.sroa.0.0.copyload.i = load float, ptr %572, align 4
+  %wide.trip.count.i = and i64 %565, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.sroa.0.0303.i = phi float [ %.sroa.0.0.copyload.i, %.lr.ph.preheader.i ], [ %587, %.lr.ph.i ]
-  %.sroa.3.0302.i = phi float [ %.sroa.3.0.copyload.i, %.lr.ph.preheader.i ], [ %583, %.lr.ph.i ]
-  %.0155301.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i ], [ %592, %.lr.ph.i ]
-  %577 = getelementptr inbounds %"class.cv::Point_", ptr %100, i64 %indvars.iv.i
-  %578 = getelementptr i8, ptr %577, i64 -8
-  %579 = load i64, ptr %577, align 4
-  store i64 %579, ptr %578, align 4
-  %580 = fpext float %.sroa.0.0303.i to double
-  %581 = lshr i64 %579, 32
-  %582 = trunc nuw i64 %581 to i32
+  %.sroa.0.0303.i = phi float [ %.sroa.0.0.copyload.i, %.lr.ph.preheader.i ], [ %583, %.lr.ph.i ]
+  %.sroa.3.0302.i = phi float [ %.sroa.3.0.copyload.i, %.lr.ph.preheader.i ], [ %579, %.lr.ph.i ]
+  %.0155301.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i ], [ %588, %.lr.ph.i ]
+  %573 = getelementptr inbounds %"class.cv::Point_", ptr %100, i64 %indvars.iv.i
+  %574 = getelementptr i8, ptr %573, i64 -8
+  %575 = load i64, ptr %573, align 4
+  store i64 %575, ptr %574, align 4
+  %576 = fpext float %.sroa.0.0303.i to double
+  %577 = lshr i64 %575, 32
+  %578 = trunc nuw i64 %577 to i32
+  %579 = bitcast i32 %578 to float
+  %580 = fpext float %579 to double
+  %581 = fpext float %.sroa.3.0302.i to double
+  %582 = trunc i64 %575 to i32
   %583 = bitcast i32 %582 to float
   %584 = fpext float %583 to double
-  %585 = fpext float %.sroa.3.0302.i to double
-  %586 = trunc i64 %579 to i32
-  %587 = bitcast i32 %586 to float
-  %588 = fpext float %587 to double
-  %589 = fneg double %585
-  %590 = fmul double %589, %588
-  %591 = call double @llvm.fmuladd.f64(double %580, double %584, double %590)
-  %592 = fadd double %.0155301.i, %591
+  %585 = fneg double %581
+  %586 = fmul double %585, %584
+  %587 = call double @llvm.fmuladd.f64(double %576, double %580, double %586)
+  %588 = fadd double %.0155301.i, %587
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %593 = fmul double %592, 5.000000e-01
-  %594 = fptrunc double %593 to float
+  %589 = fmul double %588, 5.000000e-01
+  %590 = fptrunc double %589 to float
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %572
-  %.0155.lcssa.i = phi float [ 0.000000e+00, %572 ], [ %594, %._crit_edge.loopexit.i ]
-  %sext166.i = add i64 %573, -8589934592
-  %595 = ashr i64 %sext166.i, 32
-  %596 = getelementptr inbounds %"class.cv::Point_", ptr %100, i64 %595
-  %.val175.i = load float, ptr %596, align 4
-  %597 = getelementptr i8, ptr %596, i64 4
-  %.val176.i = load float, ptr %597, align 4
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %568
+  %.0155.lcssa.i = phi float [ 0.000000e+00, %568 ], [ %590, %._crit_edge.loopexit.i ]
+  %sext166.i = add i64 %569, -8589934592
+  %591 = ashr i64 %sext166.i, 32
+  %592 = getelementptr inbounds %"class.cv::Point_", ptr %100, i64 %591
+  %.val175.i = load float, ptr %592, align 4
+  %593 = getelementptr i8, ptr %592, i64 4
+  %.val176.i = load float, ptr %593, align 4
   %.val177.i = load float, ptr %100, align 4
   %.val178.i = load float, ptr %.sroa_idx229.i, align 4
-  %598 = fcmp oeq float %.val175.i, %.val177.i
-  %599 = fcmp oeq float %.val176.i, %.val178.i
-  %600 = select i1 %598, i1 %599, i1 false
-  %or.cond11.i = and i1 %574, %600
-  %601 = sext i1 %or.cond11.i to i32
-  %spec.select.i = add i32 %570, -1
-  %602 = add i32 %spec.select.i, %601
+  %594 = fcmp oeq float %.val175.i, %.val177.i
+  %595 = fcmp oeq float %.val176.i, %.val178.i
+  %596 = select i1 %594, i1 %595, i1 false
+  %or.cond11.i = and i1 %570, %596
+  %597 = sext i1 %or.cond11.i to i32
+  %spec.select.i = add i32 %566, -1
+  %598 = add i32 %spec.select.i, %597
   br label %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit
 
-_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit: ; preds = %._crit_edge.i, %488, %_ZN2cvL12addSharedSegENS_6Point_IfEES1_RPS1_.exit.i
-  %.1174 = phi float [ 0.000000e+00, %_ZN2cvL12addSharedSegENS_6Point_IfEES1_RPS1_.exit.i ], [ 0.000000e+00, %488 ], [ %.0155.lcssa.i, %._crit_edge.i ]
-  %.0157.i = phi i32 [ %484, %_ZN2cvL12addSharedSegENS_6Point_IfEES1_RPS1_.exit.i ], [ %492, %488 ], [ %602, %._crit_edge.i ]
-  %603 = icmp slt i32 %.0157.i, 0
-  br i1 %603, label %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread, label %604
+_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit: ; preds = %._crit_edge.i, %484, %_ZN2cvL12addSharedSegENS_6Point_IfEES1_RPS1_.exit.i
+  %.1174 = phi float [ 0.000000e+00, %_ZN2cvL12addSharedSegENS_6Point_IfEES1_RPS1_.exit.i ], [ 0.000000e+00, %484 ], [ %.0155.lcssa.i, %._crit_edge.i ]
+  %.0157.i = phi i32 [ %480, %_ZN2cvL12addSharedSegENS_6Point_IfEES1_RPS1_.exit.i ], [ %488, %484 ], [ %598, %._crit_edge.i ]
+  %599 = icmp slt i32 %.0157.i, 0
+  br i1 %599, label %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread, label %600
 
 _ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread: ; preds = %.critedge.i, %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit
   invoke void @_ZNK2cv12_OutputArray7releaseEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %660 unwind label %.loopexit.split-lp
+          to label %656 unwind label %.loopexit.split-lp
 
-604:                                              ; preds = %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit
-  %605 = icmp eq i32 %.0157.i, 0
-  br i1 %605, label %606, label %639
+600:                                              ; preds = %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit
+  %601 = icmp eq i32 %.0157.i, 0
+  br i1 %601, label %602, label %635
 
-606:                                              ; preds = %604
+602:                                              ; preds = %600
   br i1 %3, label %.lr.ph206, label %.invoke
 
-.lr.ph206:                                        ; preds = %606
-  %607 = getelementptr inbounds i8, ptr %21, i64 16
+.lr.ph206:                                        ; preds = %602
+  %603 = getelementptr inbounds i8, ptr %21, i64 16
   %.sroa.0.0.insert.insert.i162 = or disjoint i64 %97, 4294967296
-  %608 = getelementptr inbounds i8, ptr %21, i64 8
+  %604 = getelementptr inbounds i8, ptr %21, i64 8
   %smax = call i32 @llvm.smax.i32(i32 %72, i32 1)
   %wide.trip.count229 = zext nneg i32 %smax to i64
-  br label %609
+  br label %605
 
-.invoke:                                          ; preds = %._crit_edge210, %606
+.invoke:                                          ; preds = %._crit_edge210, %602
   invoke void @_ZNK2cv12_OutputArray7releaseEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %660 unwind label %.loopexit.split-lp
+          to label %656 unwind label %.loopexit.split-lp
 
-609:                                              ; preds = %.lr.ph206, %612
-  %indvars.iv226 = phi i64 [ 0, %.lr.ph206 ], [ %indvars.iv.next227, %612 ]
-  %.098204 = phi i32 [ 0, %.lr.ph206 ], [ %615, %612 ]
+605:                                              ; preds = %.lr.ph206, %608
+  %indvars.iv226 = phi i64 [ 0, %.lr.ph206 ], [ %indvars.iv.next227, %608 ]
+  %.098204 = phi i32 [ 0, %.lr.ph206 ], [ %611, %608 ]
   store i32 -1056833523, ptr %21, align 8
-  store ptr %96, ptr %608, align 8
-  store i64 %.sroa.0.0.insert.insert.i162, ptr %607, align 8
-  %610 = getelementptr inbounds %"class.cv::Point_", ptr %98, i64 %indvars.iv226
-  %.sroa.06.0.copyload = load <2 x float>, ptr %610, align 4
-  %611 = invoke noundef double @_ZN2cv16pointPolygonTestERKNS_11_InputArrayENS_6Point_IfEEb(ptr noundef nonnull align 8 dereferenceable(24) %21, <2 x float> %.sroa.06.0.copyload, i1 noundef zeroext false)
-          to label %612 unwind label %616
+  store ptr %96, ptr %604, align 8
+  store i64 %.sroa.0.0.insert.insert.i162, ptr %603, align 8
+  %606 = getelementptr inbounds %"class.cv::Point_", ptr %98, i64 %indvars.iv226
+  %.sroa.06.0.copyload = load <2 x float>, ptr %606, align 4
+  %607 = invoke noundef double @_ZN2cv16pointPolygonTestERKNS_11_InputArrayENS_6Point_IfEEb(ptr noundef nonnull align 8 dereferenceable(24) %21, <2 x float> %.sroa.06.0.copyload, i1 noundef zeroext false)
+          to label %608 unwind label %612
 
-612:                                              ; preds = %609
-  %613 = fcmp oge double %611, 0.000000e+00
-  %614 = zext i1 %613 to i32
-  %615 = add nuw nsw i32 %.098204, %614
+608:                                              ; preds = %605
+  %609 = fcmp oge double %607, 0.000000e+00
+  %610 = zext i1 %609 to i32
+  %611 = add nuw nsw i32 %.098204, %610
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count229
-  br i1 %exitcond230.not, label %._crit_edge, label %609, !llvm.loop !24
+  br i1 %exitcond230.not, label %._crit_edge, label %605, !llvm.loop !24
 
-616:                                              ; preds = %609
-  %617 = landingpad { ptr, i32 }
+612:                                              ; preds = %605
+  %613 = landingpad { ptr, i32 }
           cleanup
-  br label %666
+  br label %662
 
-._crit_edge:                                      ; preds = %612
-  %618 = icmp eq i32 %615, %72
-  br i1 %618, label %631, label %.lr.ph209
+._crit_edge:                                      ; preds = %608
+  %614 = icmp eq i32 %611, %72
+  br i1 %614, label %627, label %.lr.ph209
 
 .lr.ph209:                                        ; preds = %._crit_edge
-  %619 = getelementptr inbounds i8, ptr %22, i64 16
+  %615 = getelementptr inbounds i8, ptr %22, i64 16
   %.sroa.0.0.insert.insert.i164 = or disjoint i64 %99, 4294967296
-  %620 = getelementptr inbounds i8, ptr %22, i64 8
+  %616 = getelementptr inbounds i8, ptr %22, i64 8
   %smax234 = call i32 @llvm.smax.i32(i32 %68, i32 1)
   %wide.trip.count235 = zext nneg i32 %smax234 to i64
-  br label %621
+  br label %617
 
-621:                                              ; preds = %.lr.ph209, %624
-  %indvars.iv231 = phi i64 [ 0, %.lr.ph209 ], [ %indvars.iv.next232, %624 ]
-  %.199207 = phi i32 [ 0, %.lr.ph209 ], [ %627, %624 ]
+617:                                              ; preds = %.lr.ph209, %620
+  %indvars.iv231 = phi i64 [ 0, %.lr.ph209 ], [ %indvars.iv.next232, %620 ]
+  %.199207 = phi i32 [ 0, %.lr.ph209 ], [ %623, %620 ]
   store i32 -1056833523, ptr %22, align 8
-  store ptr %98, ptr %620, align 8
-  store i64 %.sroa.0.0.insert.insert.i164, ptr %619, align 8
-  %622 = getelementptr inbounds %"class.cv::Point_", ptr %96, i64 %indvars.iv231
-  %.sroa.0.0.copyload = load <2 x float>, ptr %622, align 4
-  %623 = invoke noundef double @_ZN2cv16pointPolygonTestERKNS_11_InputArrayENS_6Point_IfEEb(ptr noundef nonnull align 8 dereferenceable(24) %22, <2 x float> %.sroa.0.0.copyload, i1 noundef zeroext false)
-          to label %624 unwind label %628
+  store ptr %98, ptr %616, align 8
+  store i64 %.sroa.0.0.insert.insert.i164, ptr %615, align 8
+  %618 = getelementptr inbounds %"class.cv::Point_", ptr %96, i64 %indvars.iv231
+  %.sroa.0.0.copyload = load <2 x float>, ptr %618, align 4
+  %619 = invoke noundef double @_ZN2cv16pointPolygonTestERKNS_11_InputArrayENS_6Point_IfEEb(ptr noundef nonnull align 8 dereferenceable(24) %22, <2 x float> %.sroa.0.0.copyload, i1 noundef zeroext false)
+          to label %620 unwind label %624
 
-624:                                              ; preds = %621
-  %625 = fcmp oge double %623, 0.000000e+00
-  %626 = zext i1 %625 to i32
-  %627 = add nuw nsw i32 %.199207, %626
+620:                                              ; preds = %617
+  %621 = fcmp oge double %619, 0.000000e+00
+  %622 = zext i1 %621 to i32
+  %623 = add nuw nsw i32 %.199207, %622
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count235
-  br i1 %exitcond236.not, label %._crit_edge210, label %621, !llvm.loop !25
+  br i1 %exitcond236.not, label %._crit_edge210, label %617, !llvm.loop !25
 
-628:                                              ; preds = %621
-  %629 = landingpad { ptr, i32 }
+624:                                              ; preds = %617
+  %625 = landingpad { ptr, i32 }
           cleanup
-  br label %666
+  br label %662
 
-._crit_edge210:                                   ; preds = %624
-  %630 = icmp eq i32 %627, %68
-  br i1 %630, label %631, label %.invoke
+._crit_edge210:                                   ; preds = %620
+  %626 = icmp eq i32 %623, %68
+  br i1 %626, label %627, label %.invoke
 
-631:                                              ; preds = %._crit_edge210, %._crit_edge
+627:                                              ; preds = %._crit_edge210, %._crit_edge
   %.sroa.0.0.insert.ext.i165.pre-phi = phi i64 [ %97, %._crit_edge210 ], [ %99, %._crit_edge ]
   %.1117.ph = phi ptr [ %96, %._crit_edge210 ], [ %98, %._crit_edge ]
   %.1102.ph = phi i32 [ %68, %._crit_edge210 ], [ %72, %._crit_edge ]
-  %632 = getelementptr inbounds i8, ptr %23, i64 16
+  %628 = getelementptr inbounds i8, ptr %23, i64 16
   %.sroa.0.0.insert.insert.i166 = or disjoint i64 %.sroa.0.0.insert.ext.i165.pre-phi, 4294967296
   store i32 -1056833523, ptr %23, align 8
-  %633 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr %.1117.ph, ptr %633, align 8
-  store i64 %.sroa.0.0.insert.insert.i166, ptr %632, align 8
-  %634 = invoke noundef double @_ZN2cv11contourAreaERKNS_11_InputArrayEb(ptr noundef nonnull align 8 dereferenceable(24) %23, i1 noundef zeroext false)
-          to label %635 unwind label %637
+  %629 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr %.1117.ph, ptr %629, align 8
+  store i64 %.sroa.0.0.insert.insert.i166, ptr %628, align 8
+  %630 = invoke noundef double @_ZN2cv11contourAreaERKNS_11_InputArrayEb(ptr noundef nonnull align 8 dereferenceable(24) %23, i1 noundef zeroext false)
+          to label %631 unwind label %633
 
-635:                                              ; preds = %631
-  %636 = fptrunc double %634 to float
-  br label %639
+631:                                              ; preds = %627
+  %632 = fptrunc double %630 to float
+  br label %635
 
-637:                                              ; preds = %631
-  %638 = landingpad { ptr, i32 }
+633:                                              ; preds = %627
+  %634 = landingpad { ptr, i32 }
           cleanup
-  br label %666
+  br label %662
 
-639:                                              ; preds = %635, %604
-  %.0173 = phi float [ %636, %635 ], [ %.1174, %604 ]
-  %.0116 = phi ptr [ %.1117.ph, %635 ], [ %100, %604 ]
-  %.0101 = phi i32 [ %.1102.ph, %635 ], [ %.0157.i, %604 ]
-  %640 = invoke noundef zeroext i1 @_ZNK2cv12_OutputArray6neededEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %641 unwind label %.loopexit.split-lp
+635:                                              ; preds = %631, %600
+  %.0173 = phi float [ %632, %631 ], [ %.1174, %600 ]
+  %.0116 = phi ptr [ %.1117.ph, %631 ], [ %100, %600 ]
+  %.0101 = phi i32 [ %.1102.ph, %631 ], [ %.0157.i, %600 ]
+  %636 = invoke noundef zeroext i1 @_ZNK2cv12_OutputArray6neededEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %637 unwind label %.loopexit.split-lp
+
+637:                                              ; preds = %635
+  br i1 %636, label %638, label %654
+
+638:                                              ; preds = %637
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %24, i32 noundef %.0101, i32 noundef 1, i32 noundef 13, ptr noundef nonnull %.0116, i64 noundef 0)
+          to label %639 unwind label %.loopexit.split-lp
+
+639:                                              ; preds = %638
+  %640 = icmp eq i32 %.1119, 2
+  br i1 %640, label %641, label %651
 
 641:                                              ; preds = %639
-  br i1 %640, label %642, label %658
-
-642:                                              ; preds = %641
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %24, i32 noundef %.0101, i32 noundef 1, i32 noundef 13, ptr noundef nonnull %.0116, i64 noundef 0)
-          to label %643 unwind label %.loopexit.split-lp
-
-643:                                              ; preds = %642
-  %644 = icmp eq i32 %.1119, 2
-  br i1 %644, label %645, label %655
-
-645:                                              ; preds = %643
-  %646 = getelementptr inbounds i8, ptr %25, i64 16
-  store i32 0, ptr %646, align 8
-  %647 = getelementptr inbounds i8, ptr %25, i64 20
-  store i32 0, ptr %647, align 4
+  %642 = getelementptr inbounds i8, ptr %25, i64 16
+  store i32 0, ptr %642, align 8
+  %643 = getelementptr inbounds i8, ptr %25, i64 20
+  store i32 0, ptr %643, align 4
   store i32 16842752, ptr %25, align 8
-  %648 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr %24, ptr %648, align 8
-  %649 = getelementptr inbounds i8, ptr %26, i64 8
-  %650 = getelementptr inbounds i8, ptr %26, i64 16
-  store i64 0, ptr %650, align 8
+  %644 = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr %24, ptr %644, align 8
+  %645 = getelementptr inbounds i8, ptr %26, i64 8
+  %646 = getelementptr inbounds i8, ptr %26, i64 16
+  store i64 0, ptr %646, align 8
   store i32 33619968, ptr %26, align 8
-  store ptr %24, ptr %649, align 8
+  store ptr %24, ptr %645, align 8
   invoke void @_ZN2cv4flipERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26, i32 noundef 0)
-          to label %655 unwind label %653
+          to label %651 unwind label %649
 
-651:                                              ; preds = %655
-  %652 = landingpad { ptr, i32 }
+647:                                              ; preds = %651
+  %648 = landingpad { ptr, i32 }
           cleanup
-  br label %657
+  br label %653
 
-653:                                              ; preds = %645
-  %654 = landingpad { ptr, i32 }
+649:                                              ; preds = %641
+  %650 = landingpad { ptr, i32 }
           cleanup
-  br label %657
+  br label %653
 
-655:                                              ; preds = %645, %643
+651:                                              ; preds = %641, %639
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %656 unwind label %651
+          to label %652 unwind label %647
 
-656:                                              ; preds = %655
+652:                                              ; preds = %651
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #17
-  br label %658
+  br label %654
 
-657:                                              ; preds = %653, %651
-  %.pn133 = phi { ptr, i32 } [ %652, %651 ], [ %654, %653 ]
+653:                                              ; preds = %649, %647
+  %.pn133 = phi { ptr, i32 } [ %648, %647 ], [ %650, %649 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #17
-  br label %666
+  br label %662
 
-658:                                              ; preds = %656, %641
-  %659 = call noundef float @llvm.fabs.f32(float %.0173)
-  br label %660
+654:                                              ; preds = %652, %637
+  %655 = call noundef float @llvm.fabs.f32(float %.0173)
+  br label %656
 
-660:                                              ; preds = %.invoke, %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread, %658
-  %.1 = phi float [ %659, %658 ], [ -1.000000e+00, %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread ], [ 0.000000e+00, %.invoke ]
-  %661 = load ptr, ptr %14, align 8
-  %.not.i.i167 = icmp eq ptr %661, %scevgep.i
-  br i1 %.not.i.i167, label %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit, label %662
+656:                                              ; preds = %.invoke, %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread, %654
+  %.1 = phi float [ %655, %654 ], [ -1.000000e+00, %_ZN2cvL22intersectConvexConvex_EPKNS_6Point_IfEEiS3_iPS1_iPf.exit.thread ], [ 0.000000e+00, %.invoke ]
+  %657 = load ptr, ptr %14, align 8
+  %.not.i.i167 = icmp eq ptr %657, %scevgep.i
+  br i1 %.not.i.i167, label %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit, label %658
 
-662:                                              ; preds = %660
-  %663 = icmp eq ptr %661, null
-  br i1 %663, label %665, label %664
+658:                                              ; preds = %656
+  %659 = icmp eq ptr %657, null
+  br i1 %659, label %661, label %660
 
-664:                                              ; preds = %662
-  call void @_ZdaPv(ptr noundef nonnull %661) #20
-  br label %665
+660:                                              ; preds = %658
+  call void @_ZdaPv(ptr noundef nonnull %657) #20
+  br label %661
 
-665:                                              ; preds = %664, %662
+661:                                              ; preds = %660, %658
   store ptr %scevgep.i, ptr %14, align 8
   store i64 136, ptr %92, align 8
   br label %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit
 
-666:                                              ; preds = %.loopexit185, %.loopexit.split-lp, %657, %637, %628, %616, %169
-  %.pn137.pn.pn = phi { ptr, i32 } [ %.pn137.pn, %169 ], [ %617, %616 ], [ %.pn133, %657 ], [ %638, %637 ], [ %629, %628 ], [ %lpad.loopexit, %.loopexit185 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %667 = load ptr, ptr %14, align 8
-  %.not.i.i168 = icmp eq ptr %667, %scevgep.i
-  br i1 %.not.i.i168, label %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit169, label %668
+662:                                              ; preds = %.loopexit185, %.loopexit.split-lp, %653, %633, %624, %612, %169
+  %.pn137.pn.pn = phi { ptr, i32 } [ %.pn137.pn, %169 ], [ %613, %612 ], [ %.pn133, %653 ], [ %634, %633 ], [ %625, %624 ], [ %lpad.loopexit, %.loopexit185 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %663 = load ptr, ptr %14, align 8
+  %.not.i.i168 = icmp eq ptr %663, %scevgep.i
+  br i1 %.not.i.i168, label %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit169, label %664
 
-668:                                              ; preds = %666
-  %669 = icmp eq ptr %667, null
-  br i1 %669, label %671, label %670
+664:                                              ; preds = %662
+  %665 = icmp eq ptr %663, null
+  br i1 %665, label %667, label %666
 
-670:                                              ; preds = %668
-  call void @_ZdaPv(ptr noundef nonnull %667) #20
-  br label %671
+666:                                              ; preds = %664
+  call void @_ZdaPv(ptr noundef nonnull %663) #20
+  br label %667
 
-671:                                              ; preds = %670, %668
+667:                                              ; preds = %666, %664
   store ptr %scevgep.i, ptr %14, align 8
   store i64 136, ptr %92, align 8
   br label %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit169
 
-_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit: ; preds = %665, %660, %86
-  %.0 = phi float [ 0.000000e+00, %86 ], [ %.1, %660 ], [ %.1, %665 ]
+_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit: ; preds = %661, %656, %86
+  %.0 = phi float [ 0.000000e+00, %86 ], [ %.1, %656 ], [ %.1, %661 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #17
-  %672 = getelementptr inbounds i8, ptr %5, i64 8
-  %673 = load i32, ptr %672, align 8
-  %.not.i170 = icmp eq i32 %673, 0
-  br i1 %.not.i170, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %674
+  %668 = getelementptr inbounds i8, ptr %5, i64 8
+  %669 = load i32, ptr %668, align 8
+  %.not.i170 = icmp eq i32 %669, 0
+  br i1 %.not.i170, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %670
 
-674:                                              ; preds = %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit
+670:                                              ; preds = %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %5)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %675
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %671
 
-675:                                              ; preds = %674
-  %676 = landingpad { ptr, i32 }
+671:                                              ; preds = %670
+  %672 = landingpad { ptr, i32 }
           catch ptr null
-  %677 = extractvalue { ptr, i32 } %676, 0
-  call void @__clang_call_terminate(ptr %677) #19
+  %673 = extractvalue { ptr, i32 } %672, 0
+  call void @__clang_call_terminate(ptr %673) #19
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit, %674
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit, %670
   ret float %.0
 
-_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit169: ; preds = %671, %666, %82, %66, %55, %46
-  %.pn141 = phi { ptr, i32 } [ %47, %46 ], [ %.pn129, %82 ], [ %.pn127, %66 ], [ %.pn, %55 ], [ %.pn137.pn.pn, %666 ], [ %.pn137.pn.pn, %671 ]
+_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit169: ; preds = %667, %662, %82, %66, %55, %46
+  %.pn141 = phi { ptr, i32 } [ %47, %46 ], [ %.pn129, %82 ], [ %.pn127, %66 ], [ %.pn, %55 ], [ %.pn137.pn.pn, %662 ], [ %.pn137.pn.pn, %667 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #17
-  br label %678
+  br label %674
 
-678:                                              ; preds = %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit169, %44
+674:                                              ; preds = %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit169, %44
   %.pn141.pn = phi { ptr, i32 } [ %.pn141, %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit169 ], [ %45, %44 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #17
-  br label %679
+  br label %675
 
-679:                                              ; preds = %678, %42
-  %.pn141.pn.pn = phi { ptr, i32 } [ %.pn141.pn, %678 ], [ %43, %42 ]
+675:                                              ; preds = %674, %42
+  %.pn141.pn.pn = phi { ptr, i32 } [ %.pn141.pn, %674 ], [ %43, %42 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #17
   resume { ptr, i32 } %.pn141.pn.pn
 }
@@ -3187,9 +3202,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

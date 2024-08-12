@@ -2254,13 +2254,16 @@ if.else127:                                       ; preds = %if.then123
 if.end129:                                        ; preds = %if.end120, %if.then126, %if.else127, %_PyErr_Occurred.exit
   %generation_stats = getelementptr inbounds i8, ptr %0, i64 1128
   %arrayidx131 = getelementptr [3 x %struct.gc_generation_stats], ptr %generation_stats, i64 0, i64 %idxprom44.pre-phi
-  %161 = load <2 x i64>, ptr %arrayidx131, align 8
-  %162 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %add90, i64 1
-  %163 = add <2 x i64> %161, %162
-  store <2 x i64> %163, ptr %arrayidx131, align 8
+  %161 = load i64, ptr %arrayidx131, align 8
+  %inc132 = add i64 %161, 1
+  store i64 %inc132, ptr %arrayidx131, align 8
+  %collected = getelementptr inbounds i8, ptr %arrayidx131, i64 8
+  %162 = load i64, ptr %collected, align 8
+  %add133 = add i64 %162, %add90
+  store i64 %add133, ptr %collected, align 8
   %uncollectable = getelementptr inbounds i8, ptr %arrayidx131, i64 16
-  %164 = load i64, ptr %uncollectable, align 8
-  %add134 = add i64 %164, %n.0.lcssa
+  %163 = load i64, ptr %uncollectable, align 8
+  %add134 = add i64 %163, %n.0.lcssa
   store i64 %add134, ptr %uncollectable, align 8
   br i1 %cmp9.not, label %if.end143, label %if.then142
 

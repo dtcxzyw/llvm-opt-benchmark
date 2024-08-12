@@ -400,14 +400,19 @@ define void @_ZN7uu_head6uu_app17hd04ed54b2dffe9f3E(ptr noalias nocapture nounde
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(700) %55, ptr noundef nonnull align 8 dereferenceable(700) %54, i64 700, i1 false)
   %.sroa.4.0..sroa_idx169 = getelementptr inbounds i8, ptr %54, i64 700
+  %.sroa.4.0.copyload170 = load i32, ptr %.sroa.4.0..sroa_idx169, align 4, !alias.scope !61, !noalias !55
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 704
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !61, !noalias !55
   %.sroa.6.0..sroa_idx171 = getelementptr inbounds i8, ptr %54, i64 708
   %.sroa.6.0.copyload172 = load i32, ptr %.sroa.6.0..sroa_idx171, align 4, !alias.scope !61, !noalias !55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
-  %.sroa.4.0..sroa_idx8 = getelementptr inbounds i8, ptr %55, i64 700
-  %88 = load <2 x i32>, ptr %.sroa.4.0..sroa_idx169, align 4, !alias.scope !61, !noalias !55
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %54)
-  %89 = or <2 x i32> %88, <i32 128, i32 128>
-  store <2 x i32> %89, ptr %.sroa.4.0..sroa_idx8, align 4
+  %88 = or i32 %.sroa.4.0.copyload170, 128
+  %89 = or i32 %.sroa.5.0.copyload, 128
+  %.sroa.4.0..sroa_idx8 = getelementptr inbounds i8, ptr %55, i64 700
+  store i32 %88, ptr %.sroa.4.0..sroa_idx8, align 4
+  %.sroa.6.0..sroa_idx10 = getelementptr inbounds i8, ptr %55, i64 704
+  store i32 %89, ptr %.sroa.6.0..sroa_idx10, align 8
   %.sroa.8.0..sroa_idx12 = getelementptr inbounds i8, ptr %55, i64 708
   store i32 %.sroa.6.0.copyload172, ptr %.sroa.8.0..sroa_idx12, align 4
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %51)
@@ -1598,10 +1603,13 @@ define void @_ZN7uu_head11HeadOptions8get_from17h3c36cd66b06fef46E(ptr noalias n
   %28 = alloca { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i8, i8, i8, i8, [4 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28)
   %29 = getelementptr inbounds i8, ptr %28, i64 40
+  store i8 0, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 41
+  store i8 0, ptr %30, align 1
   %31 = getelementptr inbounds i8, ptr %28, i64 43
+  store i8 10, ptr %31, align 1
   %32 = getelementptr inbounds i8, ptr %28, i64 42
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 10>, ptr %29, align 8
+  store i8 0, ptr %32, align 2
   store i64 0, ptr %28, align 8
   %33 = getelementptr inbounds i8, ptr %28, i64 8
   store i64 10, ptr %33, align 8

@@ -1543,27 +1543,33 @@ makeTSTemplateDependencies.exit:                  ; preds = %63, %84
 define internal fastcc range(i64 0, 4294967296) i64 @get_ts_template_func(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [4 x i32], align 16
   %4 = tail call ptr @defGetQualifiedName(ptr noundef %0) #10
-  store <4 x i32> <i32 2281, i32 2281, i32 2281, i32 2281>, ptr %3, align 16
+  store i32 2281, ptr %3, align 16
+  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 2281, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 2281, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 2281, ptr %7, align 4
   %switch = icmp eq i32 %1, 4
   %. = select i1 %switch, i32 1, i32 4
-  %5 = call i32 @LookupFuncName(ptr noundef %4, i32 noundef %., ptr noundef nonnull %3, i1 noundef zeroext false) #10
-  %6 = call i32 @get_func_rettype(i32 noundef %5) #10
-  %.not = icmp eq i32 %6, 2281
-  br i1 %.not, label %13, label %7
+  %8 = call i32 @LookupFuncName(ptr noundef %4, i32 noundef %., ptr noundef nonnull %3, i1 noundef zeroext false) #10
+  %9 = call i32 @get_func_rettype(i32 noundef %8) #10
+  %.not = icmp eq i32 %9, 2281
+  br i1 %.not, label %16, label %10
 
-7:                                                ; preds = %2
-  %8 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %8)
-  %9 = call i32 @errcode(i32 noundef 117833860) #10
-  %10 = call ptr @func_signature_string(ptr noundef %4, i32 noundef %., ptr noundef null, ptr noundef nonnull %3) #10
-  %11 = call ptr @format_type_be(i32 noundef 2281) #10
-  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %10, ptr noundef %11) #10
+10:                                               ; preds = %2
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %11)
+  %12 = call i32 @errcode(i32 noundef 117833860) #10
+  %13 = call ptr @func_signature_string(ptr noundef %4, i32 noundef %., ptr noundef null, ptr noundef nonnull %3) #10
+  %14 = call ptr @format_type_be(i32 noundef 2281) #10
+  %15 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %13, ptr noundef %14) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 643, ptr noundef nonnull @__func__.get_ts_template_func) #10
   unreachable
 
-13:                                               ; preds = %2
-  %14 = zext i32 %5 to i64
-  ret i64 %14
+16:                                               ; preds = %2
+  %17 = zext i32 %8 to i64
+  ret i64 %17
 }
 
 ; Function Attrs: nounwind uwtable

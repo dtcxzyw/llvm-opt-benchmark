@@ -1666,7 +1666,7 @@ define dso_local range(i32 0, 2) i32 @uv__fd_exists(ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_getrusage(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  %2 = alloca %struct.rusage, align 16
+  %2 = alloca %struct.rusage, align 8
   %3 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %2) #22
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
@@ -1675,46 +1675,82 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_getrusage(ptr nocap
   %5 = tail call ptr @__errno_location() #23
   %6 = load i32, ptr %5, align 4
   %7 = sub nsw i32 0, %6
-  br label %34
+  br label %61
 
 8:                                                ; preds = %1
-  %9 = load <2 x i64>, ptr %2, align 16
-  store <2 x i64> %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load <2 x i64>, ptr %10, align 16
-  store <2 x i64> %12, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = load <2 x i64>, ptr %13, align 16
-  store <2 x i64> %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  %18 = load <2 x i64>, ptr %16, align 16
-  store <2 x i64> %18, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 64
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
-  %21 = load <2 x i64>, ptr %19, align 16
-  store <2 x i64> %21, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 80
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
-  %24 = load <2 x i64>, ptr %22, align 16
-  store <2 x i64> %24, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 96
-  %26 = getelementptr inbounds i8, ptr %0, i64 96
-  %27 = load <2 x i64>, ptr %25, align 16
-  store <2 x i64> %27, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 112
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
-  %30 = load <2 x i64>, ptr %28, align 16
-  store <2 x i64> %30, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 128
-  %32 = getelementptr inbounds i8, ptr %0, i64 128
-  %33 = load <2 x i64>, ptr %31, align 16
-  store <2 x i64> %33, ptr %32, align 8
-  br label %34
+  %9 = load i64, ptr %2, align 8
+  store i64 %9, ptr %0, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %14, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %17, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %2, i64 32
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %20, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 40
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 48
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %26, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %2, i64 56
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 64
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 72
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %2, i64 80
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  store i64 %38, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %2, i64 88
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 %41, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %2, i64 96
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %2, i64 104
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 104
+  store i64 %47, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %2, i64 112
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 112
+  store i64 %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %2, i64 120
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 120
+  store i64 %53, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %2, i64 128
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 %56, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %2, i64 136
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 136
+  store i64 %59, ptr %60, align 8
+  br label %61
 
-34:                                               ; preds = %8, %4
+61:                                               ; preds = %8, %4
   %.0 = phi i32 [ %7, %4 ], [ 0, %8 ]
   ret i32 %.0
 }
@@ -2025,10 +2061,15 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(ptr nou
   %52 = load ptr, ptr %34, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %52, i64 %37, i1 false)
   %53 = getelementptr inbounds i8, ptr %2, i64 16
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  %55 = load <2 x i32>, ptr %53, align 8
-  %56 = zext <2 x i32> %55 to <2 x i64>
-  store <2 x i64> %56, ptr %54, align 8
+  %54 = load i32, ptr %53, align 8
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %55, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %2, i64 20
+  %58 = load i32, ptr %57, align 4
+  %59 = zext i32 %58 to i64
+  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %59, ptr %60, align 8
   call void @uv__free(ptr noundef nonnull %13) #22
   br label %.loopexit
 

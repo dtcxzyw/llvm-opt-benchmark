@@ -4422,8 +4422,8 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 define linkonce_odr void @_ZSt10_ConstructIN5folly18StandardLogHandlerEJNS0_16LogHandlerConfigERSt10shared_ptrINS0_12LogFormatterEERS3_INS0_9LogWriterEERNS0_8LogLevelEEEvPT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(96) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3, ptr noundef nonnull align 4 dereferenceable(4) %__args5) local_unnamed_addr #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::LogHandlerConfig", align 8
-  %agg.tmp7 = alloca %"class.std::shared_ptr.24", align 16
-  %agg.tmp8 = alloca %"class.std::shared_ptr.47", align 16
+  %agg.tmp7 = alloca %"class.std::shared_ptr.24", align 8
+  %agg.tmp8 = alloca %"class.std::shared_ptr.47", align 8
   %hasValue.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 0, ptr %hasValue.i.i.i, align 8, !tbaa !67
   %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
@@ -4520,16 +4520,17 @@ _ZN5folly16LogHandlerConfigC2EOS0_.exit:          ; preds = %if.then.i.i.i.i.i, 
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i, align 8, !tbaa !54
   store ptr %_M_single_bucket.i.i.i.i.i.i, ptr %options3.i, align 8, !tbaa !46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin4.i.i.i.i, i8 0, i64 16, i1 false)
+  %14 = load ptr, ptr %__args1, align 8, !tbaa !102
+  store ptr %14, ptr %agg.tmp7, align 8, !tbaa !102
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
-  %14 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !62
-  %15 = load <2 x ptr>, ptr %__args1, align 8, !tbaa !30
-  store <2 x ptr> %15, ptr %agg.tmp7, align 16, !tbaa !30
-  %cmp.not.i.i.i = icmp eq ptr %14, null
+  %15 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !62
+  store ptr %15, ptr %_M_refcount.i.i, align 8, !tbaa !62
+  %cmp.not.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5folly12LogFormatterEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly16LogHandlerConfigC2EOS0_.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !29
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i10
@@ -4545,16 +4546,17 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN5folly12LogFormatterEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5folly12LogFormatterEEC2ERKS2_.exit: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i10, %_ZN5folly16LogHandlerConfigC2EOS0_.exit
+  %19 = load ptr, ptr %__args3, align 8, !tbaa !113
+  store ptr %19, ptr %agg.tmp8, align 8, !tbaa !113
   %_M_refcount.i.i11 = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
   %_M_refcount3.i.i12 = getelementptr inbounds i8, ptr %__args3, i64 8
-  %19 = load ptr, ptr %_M_refcount3.i.i12, align 8, !tbaa !62
-  %20 = load <2 x ptr>, ptr %__args3, align 8, !tbaa !30
-  store <2 x ptr> %20, ptr %agg.tmp8, align 16, !tbaa !30
-  %cmp.not.i.i.i13 = icmp eq ptr %19, null
+  %20 = load ptr, ptr %_M_refcount3.i.i12, align 8, !tbaa !62
+  store ptr %20, ptr %_M_refcount.i.i11, align 8, !tbaa !62
+  %cmp.not.i.i.i13 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i13, label %_ZNSt10shared_ptrIN5folly9LogWriterEEC2ERKS2_.exit, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %_ZNSt10shared_ptrIN5folly12LogFormatterEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i15 = getelementptr inbounds i8, ptr %19, i64 8
+  %_M_use_count.i.i.i.i15 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !29
   %tobool.i.i.not.i.i.i.i16 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i16, label %if.else.i.i.i.i.i19, label %if.then.i.i.i.i.i17
@@ -5229,8 +5231,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 define linkonce_odr void @_ZSt10_ConstructIN5folly18StandardLogHandlerEJNS0_16LogHandlerConfigERSt10shared_ptrINS0_12LogFormatterEERS3_INS0_9LogWriterEEEEvPT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(96) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) local_unnamed_addr #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::LogHandlerConfig", align 8
-  %agg.tmp5 = alloca %"class.std::shared_ptr.24", align 16
-  %agg.tmp6 = alloca %"class.std::shared_ptr.47", align 16
+  %agg.tmp5 = alloca %"class.std::shared_ptr.24", align 8
+  %agg.tmp6 = alloca %"class.std::shared_ptr.47", align 8
   %hasValue.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 0, ptr %hasValue.i.i.i, align 8, !tbaa !67
   %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
@@ -5327,16 +5329,17 @@ _ZN5folly16LogHandlerConfigC2EOS0_.exit:          ; preds = %if.then.i.i.i.i.i, 
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i, align 8, !tbaa !54
   store ptr %_M_single_bucket.i.i.i.i.i.i, ptr %options3.i, align 8, !tbaa !46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin4.i.i.i.i, i8 0, i64 16, i1 false)
+  %14 = load ptr, ptr %__args1, align 8, !tbaa !102
+  store ptr %14, ptr %agg.tmp5, align 8, !tbaa !102
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
-  %14 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !62
-  %15 = load <2 x ptr>, ptr %__args1, align 8, !tbaa !30
-  store <2 x ptr> %15, ptr %agg.tmp5, align 16, !tbaa !30
-  %cmp.not.i.i.i = icmp eq ptr %14, null
+  %15 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !62
+  store ptr %15, ptr %_M_refcount.i.i, align 8, !tbaa !62
+  %cmp.not.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5folly12LogFormatterEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly16LogHandlerConfigC2EOS0_.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !29
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i8
@@ -5352,16 +5355,17 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN5folly12LogFormatterEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5folly12LogFormatterEEC2ERKS2_.exit: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i8, %_ZN5folly16LogHandlerConfigC2EOS0_.exit
+  %19 = load ptr, ptr %__args3, align 8, !tbaa !113
+  store ptr %19, ptr %agg.tmp6, align 8, !tbaa !113
   %_M_refcount.i.i9 = getelementptr inbounds i8, ptr %agg.tmp6, i64 8
   %_M_refcount3.i.i10 = getelementptr inbounds i8, ptr %__args3, i64 8
-  %19 = load ptr, ptr %_M_refcount3.i.i10, align 8, !tbaa !62
-  %20 = load <2 x ptr>, ptr %__args3, align 8, !tbaa !30
-  store <2 x ptr> %20, ptr %agg.tmp6, align 16, !tbaa !30
-  %cmp.not.i.i.i11 = icmp eq ptr %19, null
+  %20 = load ptr, ptr %_M_refcount3.i.i10, align 8, !tbaa !62
+  store ptr %20, ptr %_M_refcount.i.i9, align 8, !tbaa !62
+  %cmp.not.i.i.i11 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i11, label %_ZNSt10shared_ptrIN5folly9LogWriterEEC2ERKS2_.exit, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %_ZNSt10shared_ptrIN5folly12LogFormatterEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i13 = getelementptr inbounds i8, ptr %19, i64 8
+  %_M_use_count.i.i.i.i13 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !29
   %tobool.i.i.not.i.i.i.i14 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i14, label %if.else.i.i.i.i.i17, label %if.then.i.i.i.i.i15

@@ -4091,7 +4091,7 @@ hb_ot_tag_to_script.exit:                         ; preds = %8, %10, %11, %12, %
 
 35:                                               ; preds = %34, %hb_ot_tag_to_script.exit
   %.not48 = icmp eq ptr %3, null
-  br i1 %.not48, label %76, label %36
+  br i1 %.not48, label %79, label %36
 
 36:                                               ; preds = %35
   store i32 1, ptr %5, align 4
@@ -4103,7 +4103,7 @@ hb_ot_tag_to_script.exit:                         ; preds = %8, %10, %11, %12, %
   %40 = load i32, ptr %6, align 4
   %.not49 = icmp eq i32 %40, %0
   %or.cond = select i1 %39, i1 %.not49, i1 false
-  br i1 %or.cond, label %76, label %41
+  br i1 %or.cond, label %79, label %41
 
 41:                                               ; preds = %36
   %42 = call ptr @hb_language_to_string(ptr noundef %37)
@@ -4115,7 +4115,7 @@ hb_ot_tag_to_script.exit:                         ; preds = %8, %10, %11, %12, %
 
 46:                                               ; preds = %41
   store ptr null, ptr %3, align 8
-  br label %76
+  br label %79
 
 47:                                               ; preds = %41
   %.not.i = icmp eq i64 %43, 0
@@ -4147,39 +4147,45 @@ _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %47, %48
 57:                                               ; preds = %53, %50
   %.044 = phi i64 [ %55, %53 ], [ %43, %50 ]
   %58 = getelementptr inbounds i8, ptr %45, i64 %.044
-  store <4 x i8> <i8 45, i8 104, i8 98, i8 115>, ptr %58, align 1
-  %59 = getelementptr i8, ptr %58, i64 4
-  store i8 99, ptr %59, align 1
-  %60 = add i64 %.044, 6
-  %61 = getelementptr i8, ptr %58, i64 5
-  store i8 45, ptr %61, align 1
-  br label %62
+  store i8 45, ptr %58, align 1
+  %59 = getelementptr i8, ptr %58, i64 1
+  store i8 104, ptr %59, align 1
+  %60 = getelementptr i8, ptr %58, i64 2
+  store i8 98, ptr %60, align 1
+  %61 = getelementptr i8, ptr %58, i64 3
+  store i8 115, ptr %61, align 1
+  %62 = getelementptr i8, ptr %58, i64 4
+  store i8 99, ptr %62, align 1
+  %63 = add i64 %.044, 6
+  %64 = getelementptr i8, ptr %58, i64 5
+  store i8 45, ptr %64, align 1
+  br label %65
 
-62:                                               ; preds = %57, %62
-  %.054 = phi i32 [ 28, %57 ], [ %72, %62 ]
-  %.153 = phi i64 [ %60, %57 ], [ %70, %62 ]
-  %63 = lshr i32 %0, %.054
-  %64 = trunc i32 %63 to i8
-  %65 = and i8 %64, 15
-  %66 = icmp ult i8 %65, 10
-  %67 = or disjoint i8 %65, 48
-  %68 = add nuw nsw i8 %65, 87
-  %69 = select i1 %66, i8 %67, i8 %68
-  %70 = add i64 %.153, 1
-  %71 = getelementptr inbounds i8, ptr %45, i64 %.153
-  store i8 %69, ptr %71, align 1
-  %72 = add nsw i32 %.054, -4
+65:                                               ; preds = %57, %65
+  %.054 = phi i32 [ 28, %57 ], [ %75, %65 ]
+  %.153 = phi i64 [ %63, %57 ], [ %73, %65 ]
+  %66 = lshr i32 %0, %.054
+  %67 = trunc i32 %66 to i8
+  %68 = and i8 %67, 15
+  %69 = icmp ult i8 %68, 10
+  %70 = or disjoint i8 %68, 48
+  %71 = add nuw nsw i8 %68, 87
+  %72 = select i1 %69, i8 %70, i8 %71
+  %73 = add i64 %.153, 1
+  %74 = getelementptr inbounds i8, ptr %45, i64 %.153
+  store i8 %72, ptr %74, align 1
+  %75 = add nsw i32 %.054, -4
   %.not55 = icmp eq i32 %.054, 0
-  br i1 %.not55, label %73, label %62, !llvm.loop !53
+  br i1 %.not55, label %76, label %65, !llvm.loop !53
 
-73:                                               ; preds = %62
-  %74 = trunc i64 %70 to i32
-  %75 = call ptr @hb_language_from_string(ptr noundef nonnull %45, i32 noundef %74)
-  store ptr %75, ptr %3, align 8
+76:                                               ; preds = %65
+  %77 = trunc i64 %73 to i32
+  %78 = call ptr @hb_language_from_string(ptr noundef nonnull %45, i32 noundef %77)
+  store ptr %78, ptr %3, align 8
   call void @free(ptr noundef nonnull %45) #11
-  br label %76
+  br label %79
 
-76:                                               ; preds = %36, %73, %46, %35
+79:                                               ; preds = %36, %76, %46, %35
   ret void
 }
 

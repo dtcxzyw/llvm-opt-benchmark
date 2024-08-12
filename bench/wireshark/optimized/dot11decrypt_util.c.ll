@@ -99,62 +99,62 @@ define hidden noundef zeroext i1 @dot11decrypt_prf(ptr noundef %0, i64 noundef %
   %10 = alloca [1024 x i8], align 16
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #6
   %12 = tail call i32 @gcry_md_get_algo_dlen(i32 noundef %5) #7
-  %13 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %14 = insertelement <4 x ptr> %13, ptr %2, i64 1
-  %15 = insertelement <4 x ptr> %14, ptr %3, i64 2
-  %16 = insertelement <4 x ptr> %15, ptr %6, i64 3
-  %17 = icmp eq <4 x ptr> %16, zeroinitializer
-  %18 = bitcast <4 x i1> %17 to i4
-  %19 = icmp eq i4 %18, 0
-  br i1 %19, label %20, label %.loopexit
+  %13 = icmp ne ptr %0, null
+  %14 = icmp ne ptr %2, null
+  %or.cond = and i1 %13, %14
+  %15 = icmp ne ptr %3, null
+  %or.cond3 = and i1 %or.cond, %15
+  %16 = icmp ne ptr %6, null
+  %or.cond5 = and i1 %or.cond3, %16
+  br i1 %or.cond5, label %17, label %.loopexit
 
-20:                                               ; preds = %8
-  %21 = add i64 %11, 1
-  %22 = add i64 %21, %4
-  %23 = add i64 %22, 1
-  %24 = icmp ugt i64 %23, 256
-  %25 = icmp ugt i64 %7, 64
-  %or.cond7 = or i1 %25, %24
-  br i1 %or.cond7, label %26, label %27
+17:                                               ; preds = %8
+  %18 = add i64 %11, 1
+  %19 = add i64 %18, %4
+  %20 = add i64 %19, 1
+  %21 = icmp ugt i64 %20, 256
+  %22 = icmp ugt i64 %7, 64
+  %or.cond7 = or i1 %22, %21
+  br i1 %or.cond7, label %23, label %24
 
-26:                                               ; preds = %20
+23:                                               ; preds = %17
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 133, ptr noundef nonnull @__func__.dot11decrypt_prf, ptr noundef nonnull @.str.2) #7
   br label %.loopexit
 
-27:                                               ; preds = %20
+24:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %2, i64 %11, i1 false)
-  %28 = getelementptr [256 x i8], ptr %9, i64 0, i64 %11
-  store i8 0, ptr %28, align 1
-  %29 = getelementptr i8, ptr %9, i64 %21
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr nonnull align 1 %3, i64 %4, i1 false)
+  %25 = getelementptr [256 x i8], ptr %9, i64 0, i64 %11
+  store i8 0, ptr %25, align 1
+  %26 = getelementptr i8, ptr %9, i64 %18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull align 1 %3, i64 %4, i1 false)
   %.lhs.trunc = trunc nuw i64 %7 to i8
-  %30 = udiv i8 %.lhs.trunc, 20
-  %31 = getelementptr [256 x i8], ptr %9, i64 0, i64 %22
-  %32 = and i32 %12, 65535
-  br label %35
+  %27 = udiv i8 %.lhs.trunc, 20
+  %28 = getelementptr [256 x i8], ptr %9, i64 0, i64 %19
+  %29 = and i32 %12, 65535
+  br label %32
 
-33:                                               ; preds = %35
-  %34 = add i8 %.048, 1
-  %.not = icmp ugt i8 %34, %30
-  br i1 %.not, label %41, label %35, !llvm.loop !4
+30:                                               ; preds = %32
+  %31 = add i8 %.048, 1
+  %.not = icmp ugt i8 %31, %27
+  br i1 %.not, label %38, label %32, !llvm.loop !4
 
-35:                                               ; preds = %27, %33
-  %.048 = phi i8 [ 0, %27 ], [ %34, %33 ]
-  store i8 %.048, ptr %31, align 1
-  %36 = zext i8 %.048 to i32
-  %37 = mul nuw nsw i32 %32, %36
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr i8, ptr %10, i64 %38
-  %40 = call i32 @ws_hmac_buffer(i32 noundef %5, ptr noundef %39, ptr noundef nonnull %9, i64 noundef %23, ptr noundef nonnull %0, i64 noundef %1) #7
-  %.not47 = icmp eq i32 %40, 0
-  br i1 %.not47, label %33, label %.loopexit
+32:                                               ; preds = %24, %30
+  %.048 = phi i8 [ 0, %24 ], [ %31, %30 ]
+  store i8 %.048, ptr %28, align 1
+  %33 = zext i8 %.048 to i32
+  %34 = mul nuw nsw i32 %29, %33
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr i8, ptr %10, i64 %35
+  %37 = call i32 @ws_hmac_buffer(i32 noundef %5, ptr noundef %36, ptr noundef nonnull %9, i64 noundef %20, ptr noundef nonnull %0, i64 noundef %1) #7
+  %.not47 = icmp eq i32 %37, 0
+  br i1 %.not47, label %30, label %.loopexit
 
-41:                                               ; preds = %33
+38:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 16 %10, i64 %7, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %8, %41, %26
-  %.040 = phi i1 [ false, %26 ], [ true, %41 ], [ false, %8 ], [ false, %35 ]
+.loopexit:                                        ; preds = %32, %8, %38, %23
+  %.040 = phi i1 [ false, %23 ], [ true, %38 ], [ false, %8 ], [ false, %32 ]
   ret i1 %.040
 }
 
@@ -179,60 +179,60 @@ define hidden noundef zeroext i1 @dot11decrypt_kdf(ptr noundef %0, i64 noundef %
   %16 = udiv i32 %14, %15
   %.tr = trunc i64 %7 to i16
   %17 = shl i16 %.tr, 3
-  %18 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %19 = insertelement <4 x ptr> %18, ptr %2, i64 1
-  %20 = insertelement <4 x ptr> %19, ptr %3, i64 2
-  %21 = insertelement <4 x ptr> %20, ptr %6, i64 3
-  %22 = icmp eq <4 x ptr> %21, zeroinitializer
-  %23 = bitcast <4 x i1> %22 to i4
-  %24 = icmp eq i4 %23, 0
-  br i1 %24, label %25, label %.loopexit
+  %18 = icmp ne ptr %0, null
+  %19 = icmp ne ptr %2, null
+  %or.cond = and i1 %18, %19
+  %20 = icmp ne ptr %3, null
+  %or.cond3 = and i1 %or.cond, %20
+  %21 = icmp ne ptr %6, null
+  %or.cond5 = and i1 %or.cond3, %21
+  br i1 %or.cond5, label %22, label %.loopexit
 
-25:                                               ; preds = %8
-  %26 = add i64 %11, 2
-  %27 = add i64 %26, %4
-  %28 = add i64 %27, 2
-  %29 = icmp ugt i64 %28, 256
-  %30 = mul i32 %16, %15
-  %31 = icmp ugt i32 %30, 1024
-  %or.cond52 = or i1 %29, %31
-  br i1 %or.cond52, label %32, label %33
+22:                                               ; preds = %8
+  %23 = add i64 %11, 2
+  %24 = add i64 %23, %4
+  %25 = add i64 %24, 2
+  %26 = icmp ugt i64 %25, 256
+  %27 = mul i32 %16, %15
+  %28 = icmp ugt i32 %27, 1024
+  %or.cond52 = or i1 %26, %28
+  br i1 %or.cond52, label %29, label %30
 
-32:                                               ; preds = %25
+29:                                               ; preds = %22
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 191, ptr noundef nonnull @__func__.dot11decrypt_kdf, ptr noundef nonnull @.str.3) #7
   br label %.loopexit
 
-33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %9, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %34, ptr nonnull align 1 %2, i64 %11, i1 false)
-  %35 = getelementptr i8, ptr %9, i64 %26
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull align 1 %3, i64 %4, i1 false)
-  %36 = getelementptr i8, ptr %9, i64 %27
-  store i16 %17, ptr %36, align 1
-  br label %37
+30:                                               ; preds = %22
+  %31 = getelementptr inbounds i8, ptr %9, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %31, ptr nonnull align 1 %2, i64 %11, i1 false)
+  %32 = getelementptr i8, ptr %9, i64 %23
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %3, i64 %4, i1 false)
+  %33 = getelementptr i8, ptr %9, i64 %24
+  store i16 %17, ptr %33, align 1
+  br label %34
 
-37:                                               ; preds = %40, %33
-  %.044 = phi i16 [ 0, %33 ], [ %41, %40 ]
-  %38 = zext i16 %.044 to i32
-  %39 = icmp ugt i32 %16, %38
-  br i1 %39, label %40, label %46
+34:                                               ; preds = %37, %30
+  %.044 = phi i16 [ 0, %30 ], [ %38, %37 ]
+  %35 = zext i16 %.044 to i32
+  %36 = icmp ugt i32 %16, %35
+  br i1 %36, label %37, label %43
 
-40:                                               ; preds = %37
-  %41 = add i16 %.044, 1
-  store i16 %41, ptr %9, align 16
-  %42 = mul nuw i32 %15, %38
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr i8, ptr %10, i64 %43
-  %45 = call i32 @ws_hmac_buffer(i32 noundef %5, ptr noundef %44, ptr noundef nonnull %9, i64 noundef %28, ptr noundef nonnull %0, i64 noundef %1) #7
-  %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %37, label %.loopexit, !llvm.loop !6
+37:                                               ; preds = %34
+  %38 = add i16 %.044, 1
+  store i16 %38, ptr %9, align 16
+  %39 = mul nuw i32 %15, %35
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr i8, ptr %10, i64 %40
+  %42 = call i32 @ws_hmac_buffer(i32 noundef %5, ptr noundef %41, ptr noundef nonnull %9, i64 noundef %25, ptr noundef nonnull %0, i64 noundef %1) #7
+  %.not = icmp eq i32 %42, 0
+  br i1 %.not, label %34, label %.loopexit, !llvm.loop !6
 
-46:                                               ; preds = %37
+43:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 16 %10, i64 %7, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %40, %8, %46, %32
-  %.0 = phi i1 [ false, %32 ], [ true, %46 ], [ false, %8 ], [ false, %40 ]
+.loopexit:                                        ; preds = %37, %8, %43, %29
+  %.0 = phi i1 [ false, %29 ], [ true, %43 ], [ false, %8 ], [ false, %37 ]
   ret i1 %.0
 }
 
@@ -244,85 +244,85 @@ define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef %0, i64
   %16 = alloca [32 x i8], align 16
   %17 = tail call i32 @gcry_md_get_algo_dlen(i32 noundef %8) #7
   %18 = load i16, ptr %4, align 2
-  %19 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %20 = insertelement <4 x ptr> %19, ptr %2, i64 1
-  %21 = insertelement <4 x ptr> %20, ptr %5, i64 2
-  %22 = insertelement <4 x ptr> %21, ptr %7, i64 3
+  %19 = icmp ne ptr %0, null
+  %20 = icmp ne ptr %2, null
+  %or.cond = and i1 %19, %20
+  %21 = icmp ne ptr %5, null
+  %or.cond5 = and i1 %or.cond, %21
+  %22 = icmp ne ptr %7, null
+  %or.cond7 = and i1 %or.cond5, %22
   %23 = icmp ne ptr %9, null
+  %or.cond9 = and i1 %or.cond7, %23
   %24 = icmp ne ptr %10, null
+  %or.cond11 = and i1 %or.cond9, %24
   %25 = icmp ne ptr %11, null
-  %26 = icmp eq <4 x ptr> %22, zeroinitializer
-  %27 = bitcast <4 x i1> %26 to i4
-  %28 = icmp eq i4 %27, 0
-  %op.rdx = and i1 %28, %23
-  %op.rdx68 = and i1 %24, %25
-  %op.rdx69 = and i1 %op.rdx, %op.rdx68
-  br i1 %op.rdx69, label %29, label %58
+  %or.cond13 = and i1 %or.cond11, %25
+  br i1 %or.cond13, label %26, label %55
 
-29:                                               ; preds = %12
-  %30 = add i64 %3, 4
-  %31 = add i64 %30, %6
-  %32 = add i64 %31, 6
-  %33 = icmp ugt i64 %32, 256
-  br i1 %33, label %34, label %35
+26:                                               ; preds = %12
+  %27 = add i64 %3, 4
+  %28 = add i64 %27, %6
+  %29 = add i64 %28, 6
+  %30 = icmp ugt i64 %29, 256
+  br i1 %30, label %31, label %32
 
-34:                                               ; preds = %29
+31:                                               ; preds = %26
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 281, ptr noundef nonnull @__func__.dot11decrypt_derive_pmk_r0, ptr noundef nonnull @.str.3) #7
-  br label %58
+  br label %55
 
-35:                                               ; preds = %29
-  %36 = add i64 %3, 3
-  %37 = trunc i64 %3 to i8
-  store i8 %37, ptr %14, align 16
-  %38 = getelementptr inbounds i8, ptr %14, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %2, i64 %3, i1 false)
-  %39 = getelementptr i8, ptr %14, i64 %3
-  %40 = getelementptr i8, ptr %39, i64 1
-  store i16 %18, ptr %40, align 1
-  %41 = trunc i64 %6 to i8
-  %42 = getelementptr [256 x i8], ptr %14, i64 0, i64 %36
-  store i8 %41, ptr %42, align 1
-  %43 = getelementptr i8, ptr %14, i64 %30
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr nonnull align 1 %5, i64 %6, i1 false)
-  %44 = getelementptr i8, ptr %14, i64 %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %44, ptr noundef nonnull align 1 dereferenceable(6) %7, i64 6, i1 false)
-  %45 = add i32 %17, 16
-  %46 = zext i32 %45 to i64
-  %47 = call zeroext i1 @dot11decrypt_kdf(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %14, i64 noundef %32, i32 noundef %8, ptr noundef nonnull %15, i64 noundef %46)
-  %48 = zext i32 %17 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 16 %15, i64 %48, i1 false)
-  store i64 %48, ptr %10, align 8
+32:                                               ; preds = %26
+  %33 = add i64 %3, 3
+  %34 = trunc i64 %3 to i8
+  store i8 %34, ptr %14, align 16
+  %35 = getelementptr inbounds i8, ptr %14, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %2, i64 %3, i1 false)
+  %36 = getelementptr i8, ptr %14, i64 %3
+  %37 = getelementptr i8, ptr %36, i64 1
+  store i16 %18, ptr %37, align 1
+  %38 = trunc i64 %6 to i8
+  %39 = getelementptr [256 x i8], ptr %14, i64 0, i64 %33
+  store i8 %38, ptr %39, align 1
+  %40 = getelementptr i8, ptr %14, i64 %27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr nonnull align 1 %5, i64 %6, i1 false)
+  %41 = getelementptr i8, ptr %14, i64 %28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %41, ptr noundef nonnull align 1 dereferenceable(6) %7, i64 6, i1 false)
+  %42 = add i32 %17, 16
+  %43 = zext i32 %42 to i64
+  %44 = call zeroext i1 @dot11decrypt_kdf(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %14, i64 noundef %29, i32 noundef %8, ptr noundef nonnull %15, i64 noundef %43)
+  %45 = zext i32 %17 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 16 %15, i64 %45, i1 false)
+  store i64 %45, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %14, ptr noundef nonnull align 1 dereferenceable(6) @.str.4, i64 6, i1 false)
-  %49 = getelementptr inbounds i8, ptr %14, i64 6
-  %50 = getelementptr i8, ptr %15, i64 %48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %49, ptr noundef nonnull align 1 dereferenceable(16) %50, i64 16, i1 false)
+  %46 = getelementptr inbounds i8, ptr %14, i64 6
+  %47 = getelementptr i8, ptr %15, i64 %45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %46, ptr noundef nonnull align 1 dereferenceable(16) %47, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %51 = call i32 @gcry_md_open(ptr noundef nonnull %13, i32 noundef 8, i32 noundef 0) #7
-  %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %52, label %sha256.exit.thread
+  %48 = call i32 @gcry_md_open(ptr noundef nonnull %13, i32 noundef 8, i32 noundef 0) #7
+  %.not.i = icmp eq i32 %48, 0
+  br i1 %.not.i, label %49, label %sha256.exit.thread
 
-52:                                               ; preds = %35
-  %53 = load ptr, ptr %13, align 8
-  call void @gcry_md_write(ptr noundef %53, ptr noundef nonnull %14, i64 noundef 22) #7
-  %54 = load ptr, ptr %13, align 8
-  %55 = call ptr @gcry_md_read(ptr noundef %54, i32 noundef 8) #7
-  %.not7.i = icmp eq ptr %55, null
-  br i1 %.not7.i, label %sha256.exit.thread, label %56
+49:                                               ; preds = %32
+  %50 = load ptr, ptr %13, align 8
+  call void @gcry_md_write(ptr noundef %50, ptr noundef nonnull %14, i64 noundef 22) #7
+  %51 = load ptr, ptr %13, align 8
+  %52 = call ptr @gcry_md_read(ptr noundef %51, i32 noundef 8) #7
+  %.not7.i = icmp eq ptr %52, null
+  br i1 %.not7.i, label %sha256.exit.thread, label %53
 
-sha256.exit.thread:                               ; preds = %35, %52
+sha256.exit.thread:                               ; preds = %32, %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %58
+  br label %55
 
-56:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %55, i64 32, i1 false)
-  %57 = load ptr, ptr %13, align 8
-  call void @gcry_md_close(ptr noundef %57) #7
+53:                                               ; preds = %49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %52, i64 32, i1 false)
+  %54 = load ptr, ptr %13, align 8
+  call void @gcry_md_close(ptr noundef %54) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) %16, i64 16, i1 false)
-  br label %58
+  br label %55
 
-58:                                               ; preds = %sha256.exit.thread, %12, %56, %34
-  %.0 = phi i1 [ false, %34 ], [ true, %56 ], [ false, %12 ], [ false, %sha256.exit.thread ]
+55:                                               ; preds = %sha256.exit.thread, %12, %53, %31
+  %.0 = phi i1 [ false, %31 ], [ true, %53 ], [ false, %12 ], [ false, %sha256.exit.thread ]
   ret i1 %.0
 }
 
@@ -331,62 +331,62 @@ define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r1(ptr noundef %0, i64
   %10 = alloca ptr, align 8
   %11 = alloca [34 x i8], align 16
   %12 = alloca [32 x i8], align 16
-  %13 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %14 = insertelement <4 x ptr> %13, ptr %2, i64 1
-  %15 = insertelement <4 x ptr> %14, ptr %3, i64 2
-  %16 = insertelement <4 x ptr> %15, ptr %4, i64 3
+  %13 = icmp ne ptr %0, null
+  %14 = icmp ne ptr %2, null
+  %or.cond = and i1 %13, %14
+  %15 = icmp ne ptr %3, null
+  %or.cond3 = and i1 %or.cond, %15
+  %16 = icmp ne ptr %4, null
+  %or.cond5 = and i1 %or.cond3, %16
   %17 = icmp ne ptr %6, null
+  %or.cond7 = and i1 %or.cond5, %17
   %18 = icmp ne ptr %7, null
+  %or.cond9 = and i1 %or.cond7, %18
   %19 = icmp ne ptr %8, null
-  %20 = icmp eq <4 x ptr> %16, zeroinitializer
-  %21 = bitcast <4 x i1> %20 to i4
-  %22 = icmp eq i4 %21, 0
-  %op.rdx = and i1 %22, %17
-  %op.rdx52 = and i1 %18, %19
-  %op.rdx53 = and i1 %op.rdx, %op.rdx52
-  br i1 %op.rdx53, label %23, label %37
+  %or.cond11 = and i1 %or.cond9, %19
+  br i1 %or.cond11, label %20, label %34
 
-23:                                               ; preds = %9
-  %24 = tail call i32 @gcry_md_get_algo_dlen(i32 noundef %5) #7
-  %25 = zext i32 %24 to i64
-  store i64 %25, ptr %7, align 8
+20:                                               ; preds = %9
+  %21 = tail call i32 @gcry_md_get_algo_dlen(i32 noundef %5) #7
+  %22 = zext i32 %21 to i64
+  store i64 %22, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %11, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
-  %26 = getelementptr inbounds i8, ptr %11, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %26, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
-  %27 = call zeroext i1 @dot11decrypt_kdf(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %11, i64 noundef 12, i32 noundef %5, ptr noundef nonnull %6, i64 noundef %25)
+  %23 = getelementptr inbounds i8, ptr %11, i64 6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %23, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
+  %24 = call zeroext i1 @dot11decrypt_kdf(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %11, i64 noundef 12, i32 noundef %5, ptr noundef nonnull %6, i64 noundef %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %11, ptr noundef nonnull align 1 dereferenceable(6) @.str.6, i64 6, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %26, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
-  %28 = getelementptr inbounds i8, ptr %11, i64 22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %28, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
-  %29 = getelementptr inbounds i8, ptr %11, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %29, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %23, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
+  %25 = getelementptr inbounds i8, ptr %11, i64 22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %25, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
+  %26 = getelementptr inbounds i8, ptr %11, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %26, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %30 = call i32 @gcry_md_open(ptr noundef nonnull %10, i32 noundef 8, i32 noundef 0) #7
-  %.not.i = icmp eq i32 %30, 0
-  br i1 %.not.i, label %31, label %sha256.exit.thread
+  %27 = call i32 @gcry_md_open(ptr noundef nonnull %10, i32 noundef 8, i32 noundef 0) #7
+  %.not.i = icmp eq i32 %27, 0
+  br i1 %.not.i, label %28, label %sha256.exit.thread
 
-31:                                               ; preds = %23
-  %32 = load ptr, ptr %10, align 8
-  call void @gcry_md_write(ptr noundef %32, ptr noundef nonnull %11, i64 noundef 34) #7
-  %33 = load ptr, ptr %10, align 8
-  %34 = call ptr @gcry_md_read(ptr noundef %33, i32 noundef 8) #7
-  %.not7.i = icmp eq ptr %34, null
-  br i1 %.not7.i, label %sha256.exit.thread, label %35
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %10, align 8
+  call void @gcry_md_write(ptr noundef %29, ptr noundef nonnull %11, i64 noundef 34) #7
+  %30 = load ptr, ptr %10, align 8
+  %31 = call ptr @gcry_md_read(ptr noundef %30, i32 noundef 8) #7
+  %.not7.i = icmp eq ptr %31, null
+  br i1 %.not7.i, label %sha256.exit.thread, label %32
 
-sha256.exit.thread:                               ; preds = %23, %31
+sha256.exit.thread:                               ; preds = %20, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %37
+  br label %34
 
-35:                                               ; preds = %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(32) %34, i64 32, i1 false)
-  %36 = load ptr, ptr %10, align 8
-  call void @gcry_md_close(ptr noundef %36) #7
+32:                                               ; preds = %28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(32) %31, i64 32, i1 false)
+  %33 = load ptr, ptr %10, align 8
+  call void @gcry_md_close(ptr noundef %33) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
-  br label %37
+  br label %34
 
-37:                                               ; preds = %sha256.exit.thread, %9, %35
-  %.0 = phi i1 [ true, %35 ], [ false, %9 ], [ false, %sha256.exit.thread ]
+34:                                               ; preds = %sha256.exit.thread, %9, %32
+  %.0 = phi i1 [ true, %32 ], [ false, %9 ], [ false, %sha256.exit.thread ]
   ret i1 %.0
 }
 

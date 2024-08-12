@@ -1412,7 +1412,7 @@ _ZNSt8seed_seqD2Ev.exit3:                         ; preds = %lpad, %if.then.i.i.
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN54NonsecureURBGBase_CompatibleWithDistributionUtils_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %dist.i.i.i = alloca %"class.absl::poisson_distribution", align 16
+  %dist.i.i.i = alloca %"class.absl::poisson_distribution", align 8
   %__arr.i.i.i.i = alloca [624 x i32], align 16
   %rbg = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
@@ -1507,9 +1507,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %dist.i.i.i)
+  store double 1.000000e+00, ptr %dist.i.i.i, align 8
   %split_.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 40
   store i32 1, ptr %split_.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0x3FD78B56362CEF38>, ptr %dist.i.i.i, align 16
+  %emu_16.i = getelementptr inbounds i8, ptr %dist.i.i.i, i64 8
+  store double 0x3FD78B56362CEF38, ptr %emu_16.i, align 8
   %call.i.i.i.i = call noundef i32 @_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %dist.i.i.i, ptr noundef nonnull align 8 dereferenceable(5000) %rbg, ptr noundef nonnull align 8 dereferenceable(44) %dist.i.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %dist.i.i.i)
   %call.i.i.i.i.i.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rbg)

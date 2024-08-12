@@ -3516,15 +3516,17 @@ define linkonce_odr void @_ZNK5folly14AsyncUDPSocket27getOverrideNetOpsDispatche
 entry:
   %netops_ = getelementptr inbounds i8, ptr %this, i64 752
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
+  %0 = load ptr, ptr %netops_, align 16, !tbaa !160, !noalias !157
+  store ptr %0, ptr %agg.result, align 8, !tbaa !160, !alias.scope !157
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 760
-  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !153, !noalias !157
-  %1 = load <2 x ptr>, ptr %netops_, align 16, !tbaa !97, !noalias !157
-  store <2 x ptr> %1, ptr %agg.result, align 8, !tbaa !97, !alias.scope !157
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !153, !noalias !157
+  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !tbaa !153, !alias.scope !157
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK5folly6netops19DispatcherContainer11getOverrideEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31, !noalias !157
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -7796,14 +7798,26 @@ define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingJEMallocEvENK11Initiali
 entry:
   %counter = alloca ptr, align 8
   %counterLen = alloca i64, align 8
-  %0 = icmp eq <8 x ptr> <ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @mallctl>, <ptr @mallocx, ptr @rallocx, ptr @xallocx, ptr @sallocx, ptr @dallocx, ptr @sdallocx, ptr @nallocx, ptr null>
-  %1 = icmp eq ptr @mallctlnametomib, null
-  %2 = icmp eq ptr @mallctlbymib, null
-  %3 = bitcast <8 x i1> %0 to i8
-  %4 = icmp ne i8 %3, 0
-  %op.rdx = or i1 %4, %1
-  %op.rdx1 = or i1 %op.rdx, %2
-  br i1 %op.rdx1, label %return, label %if.end
+  %0 = icmp eq ptr @mallocx, null
+  %1 = icmp eq ptr @rallocx, null
+  %brmerge = or i1 %0, %1
+  %2 = icmp eq ptr @xallocx, null
+  %brmerge22 = or i1 %2, %brmerge
+  %3 = icmp eq ptr @sallocx, null
+  %brmerge23 = or i1 %3, %brmerge22
+  %4 = icmp eq ptr @dallocx, null
+  %brmerge24 = or i1 %4, %brmerge23
+  %5 = icmp eq ptr @sdallocx, null
+  %brmerge25 = or i1 %5, %brmerge24
+  %6 = icmp eq ptr @nallocx, null
+  %brmerge26 = or i1 %6, %brmerge25
+  %7 = icmp eq ptr @mallctl, null
+  %brmerge27 = or i1 %7, %brmerge26
+  %8 = icmp eq ptr @mallctlnametomib, null
+  %brmerge28 = or i1 %8, %brmerge27
+  %9 = icmp eq ptr @mallctlbymib, null
+  %brmerge29 = or i1 %9, %brmerge28
+  br i1 %brmerge29, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %counter) #30
@@ -7811,21 +7825,21 @@ if.end:                                           ; preds = %entry
   store i64 8, ptr %counterLen, align 8, !tbaa !30
   %call = call i32 @mallctl(ptr noundef nonnull @.str.49, ptr noundef nonnull %counter, ptr noundef nonnull %counterLen, ptr noundef null, i64 noundef 0) #30
   %cmp.not = icmp eq i32 %call, 0
-  %5 = load i64, ptr %counterLen, align 8
-  %cmp12.not = icmp eq i64 %5, 8
+  %10 = load i64, ptr %counterLen, align 8
+  %cmp12.not = icmp eq i64 %10, 8
   %or.cond = select i1 %cmp.not, i1 %cmp12.not, i1 false
   br i1 %or.cond, label %if.end14, label %cleanup20
 
 if.end14:                                         ; preds = %if.end
-  %6 = load ptr, ptr %counter, align 8, !tbaa !97
-  %7 = load volatile i64, ptr %6, align 8, !tbaa !30
-  %8 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
-  %guard.uninitialized = icmp eq i8 %8, 0
+  %11 = load ptr, ptr %counter, align 8, !tbaa !97
+  %12 = load volatile i64, ptr %11, align 8, !tbaa !30
+  %13 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
+  %guard.uninitialized = icmp eq i8 %13, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !169
 
 init.check:                                       ; preds = %if.end14
-  %9 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #30
-  %tobool.not = icmp eq i32 %9, 0
+  %14 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #30
+  %tobool.not = icmp eq i32 %14, 0
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
@@ -7835,16 +7849,16 @@ init:                                             ; preds = %init.check
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %if.end14
-  %10 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !97
-  %tobool16.not = icmp eq ptr %10, null
+  %15 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !97
+  %tobool16.not = icmp eq ptr %15, null
   br i1 %tobool16.not, label %cleanup20, label %if.end18
 
 if.end18:                                         ; preds = %init.end
-  %11 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !97
-  call void @free(ptr noundef %11) #30
-  %12 = load ptr, ptr %counter, align 8, !tbaa !97
-  %13 = load volatile i64, ptr %12, align 8, !tbaa !30
-  %cmp19 = icmp ne i64 %7, %13
+  %16 = load volatile ptr, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8, !tbaa !97
+  call void @free(ptr noundef %16) #30
+  %17 = load ptr, ptr %counter, align 8, !tbaa !97
+  %18 = load volatile i64, ptr %17, align 8, !tbaa !30
+  %cmp19 = icmp ne i64 %12, %18
   br label %cleanup20
 
 cleanup20:                                        ; preds = %if.end18, %init.end, %if.end

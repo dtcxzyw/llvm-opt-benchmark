@@ -32148,6 +32148,7 @@ _ZN6duckdb18BaseScalarFunctionaSERKS0_.exit:      ; preds = %if.end9.i.i.i.i.i, 
   %function = getelementptr inbounds i8, ptr %this, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #28
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %17 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !241
@@ -32192,15 +32193,17 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2ERK
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !242
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  %24 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !30
-  %25 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !30
-  store <2 x ptr> %24, ptr %_M_manager.i.i.i, align 8, !tbaa !30
+  %24 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !30
+  store ptr %24, ptr %_M_manager.i.i.i, align 8, !tbaa !30
+  %_M_invoker4.i3.i = getelementptr inbounds i8, ptr %this, i64 200
+  %25 = load ptr, ptr %_M_invoker4.i3.i, align 8, !tbaa !30
+  store ptr %25, ptr %_M_invoker.i.i, align 8, !tbaa !30
   store <2 x ptr> %23, ptr %_M_manager3.i.i, align 8, !tbaa !30
-  %tobool.not.i.i = icmp eq ptr %25, null
+  %tobool.not.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSERKS8_.exit, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2ERKS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSERKS8_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i5.i
@@ -32742,15 +32745,17 @@ for.body:                                         ; preds = %entry, %for.inc
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %bind.i.i, ptr noundef nonnull align 8 dereferenceable(140) %bind2.i.i, i64 140, i1 false)
   %function_info.i.i = getelementptr inbounds i8, ptr %__cur.018, i64 344
   %function_info3.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.017, i64 344
+  %0 = load ptr, ptr %function_info3.i.i, align 8, !tbaa !253
+  store ptr %0, ptr %function_info.i.i, align 8, !tbaa !253
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %__cur.018, i64 352
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.017, i64 352
-  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !252
-  %1 = load <2 x ptr>, ptr %function_info3.i.i, align 8, !tbaa !30
-  store <2 x ptr> %1, ptr %function_info.i.i, align 8, !tbaa !30
-  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !252
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !252
+  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %for.inc, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -33605,15 +33610,17 @@ for.body:                                         ; preds = %entry, %for.inc
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %bind.i.i, ptr noundef nonnull align 8 dereferenceable(140) %bind2.i.i, i64 140, i1 false)
   %function_info.i.i = getelementptr inbounds i8, ptr %__cur.016, i64 344
   %function_info3.i.i = getelementptr inbounds i8, ptr %__first.addr.015, i64 344
+  %0 = load ptr, ptr %function_info3.i.i, align 8, !tbaa !253
+  store ptr %0, ptr %function_info.i.i, align 8, !tbaa !253
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %__cur.016, i64 352
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.015, i64 352
-  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !252
-  %1 = load <2 x ptr>, ptr %function_info3.i.i, align 8, !tbaa !30
-  store <2 x ptr> %1, ptr %function_info.i.i, align 8, !tbaa !30
-  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !252
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !252
+  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %for.inc, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -36089,15 +36096,17 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %bind.i, ptr noundef nonnull align 8 dereferenceable(140) %bind2.i, i64 140, i1 false)
   %function_info.i = getelementptr inbounds i8, ptr %this, i64 536
   %function_info3.i = getelementptr inbounds i8, ptr %0, i64 536
+  %1 = load ptr, ptr %function_info3.i, align 8, !tbaa !253
+  store ptr %1, ptr %function_info.i, align 8, !tbaa !253
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 544
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %0, i64 544
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !252
-  %2 = load <2 x ptr>, ptr %function_info3.i, align 8, !tbaa !30
-  store <2 x ptr> %2, ptr %function_info.i, align 8, !tbaa !30
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !252
+  store ptr %2, ptr %_M_refcount.i.i.i, align 8, !tbaa !252
+  %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -37187,15 +37196,17 @@ for.body:                                         ; preds = %entry, %for.inc
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %bind.i.i, ptr noundef nonnull align 8 dereferenceable(140) %bind2.i.i, i64 140, i1 false)
   %function_info.i.i = getelementptr inbounds i8, ptr %__cur.016, i64 344
   %function_info3.i.i = getelementptr inbounds i8, ptr %__first.addr.015, i64 344
+  %0 = load ptr, ptr %function_info3.i.i, align 8, !tbaa !253
+  store ptr %0, ptr %function_info.i.i, align 8, !tbaa !253
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %__cur.016, i64 352
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.015, i64 352
-  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !252
-  %1 = load <2 x ptr>, ptr %function_info3.i.i, align 8, !tbaa !30
-  store <2 x ptr> %1, ptr %function_info.i.i, align 8, !tbaa !30
-  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !252
+  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !252
+  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %for.inc, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

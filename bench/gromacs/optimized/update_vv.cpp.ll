@@ -51,7 +51,7 @@ define void @_Z20integrateVVFirstSteplbbN3gmx16StartingBehaviorEiPK10t_inputrecP
   %45 = alloca %"class.gmx::ArrayRef.112", align 8
   %46 = alloca %"class.gmx::ArrayRef.68", align 8
   %47 = alloca %"class.gmx::ArrayRef.115", align 8
-  %48 = alloca %"class.gmx::ArrayRefWithPadding", align 16
+  %48 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %49 = alloca %"class.gmx::ArrayRef.115", align 8
   %50 = alloca %"class.gmx::ArrayRef.115", align 8
   %51 = alloca %"class.gmx::ArrayRef.119", align 8
@@ -229,799 +229,803 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit:                ; preds = %.lr.ph.i, %98, %115
   %170 = getelementptr inbounds i8, ptr %163, i64 %169
   store ptr %170, ptr %164, align 8
   %171 = getelementptr inbounds i8, ptr %32, i64 80
-  %172 = getelementptr inbounds i8, ptr %32, i64 96
-  %173 = load ptr, ptr %172, align 8, !noalias !8
-  %174 = load <2 x ptr>, ptr %171, align 8, !noalias !8
-  store <2 x ptr> %174, ptr %48, align 16
-  %175 = getelementptr inbounds i8, ptr %48, i64 16
-  store ptr %173, ptr %175, align 16
-  %176 = icmp ne ptr %34, null
-  call void @_ZN3gmx6Update13update_coordsERK10t_inputreclibNS_8ArrayRefIK12ParticleTypeEENS4_IKfEENS4_IKNS_11BasicVectorIfEEEEP7t_stateRKNS_19ArrayRefWithPaddingISC_EEP8t_fcdataPK14gmx_ekindata_tRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEiPK9t_commrecb(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(856) %5, i64 noundef %0, i32 noundef %140, i1 noundef zeroext %143, ptr noundef nonnull byval(%"class.gmx::ArrayRef.112") align 8 %45, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %46, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %47, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef %10, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(56) %44, i32 noundef 7, ptr noundef %7, i1 noundef zeroext %176)
-  br i1 %59, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %177
+  %172 = load ptr, ptr %171, align 8, !noalias !8
+  %173 = getelementptr inbounds i8, ptr %32, i64 88
+  %174 = load ptr, ptr %173, align 8, !noalias !8
+  %175 = getelementptr inbounds i8, ptr %32, i64 96
+  %176 = load ptr, ptr %175, align 8, !noalias !8
+  store ptr %172, ptr %48, align 8
+  %177 = getelementptr inbounds i8, ptr %48, i64 8
+  store ptr %174, ptr %177, align 8
+  %178 = getelementptr inbounds i8, ptr %48, i64 16
+  store ptr %176, ptr %178, align 8
+  %179 = icmp ne ptr %34, null
+  call void @_ZN3gmx6Update13update_coordsERK10t_inputreclibNS_8ArrayRefIK12ParticleTypeEENS4_IKfEENS4_IKNS_11BasicVectorIfEEEEP7t_stateRKNS_19ArrayRefWithPaddingISC_EEP8t_fcdataPK14gmx_ekindata_tRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEiPK9t_commrecb(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(856) %5, i64 noundef %0, i32 noundef %140, i1 noundef zeroext %143, ptr noundef nonnull byval(%"class.gmx::ArrayRef.112") align 8 %45, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %46, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %47, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef %10, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(56) %44, i32 noundef 7, ptr noundef %7, i1 noundef zeroext %179)
+  br i1 %59, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %180
 
-177:                                              ; preds = %_ZL10copy_rvecnPA3_KfPA3_fii.exit
+180:                                              ; preds = %_ZL10copy_rvecnPA3_KfPA3_fii.exit
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %39)
-  %178 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
-  %179 = extractvalue { i32, i32 } %178, 0
-  %180 = extractvalue { i32, i32 } %178, 1
-  %181 = zext i32 %179 to i64
-  %182 = zext i32 %180 to i64
-  %183 = shl nuw i64 %182, 32
-  %184 = or disjoint i64 %183, %181
-  %185 = getelementptr inbounds i8, ptr %39, i64 1032
-  %186 = getelementptr inbounds i8, ptr %39, i64 1048
-  %187 = load i64, ptr %186, align 8
-  %.not.i = icmp ult i64 %184, %187
-  br i1 %.not.i, label %190, label %188
+  %181 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
+  %182 = extractvalue { i32, i32 } %181, 0
+  %183 = extractvalue { i32, i32 } %181, 1
+  %184 = zext i32 %182 to i64
+  %185 = zext i32 %183 to i64
+  %186 = shl nuw i64 %185, 32
+  %187 = or disjoint i64 %186, %184
+  %188 = getelementptr inbounds i8, ptr %39, i64 1032
+  %189 = getelementptr inbounds i8, ptr %39, i64 1048
+  %190 = load i64, ptr %189, align 8
+  %.not.i = icmp ult i64 %187, %190
+  br i1 %.not.i, label %193, label %191
 
-188:                                              ; preds = %177
-  %189 = sub nuw i64 %184, %187
-  br label %192
+191:                                              ; preds = %180
+  %192 = sub nuw i64 %187, %190
+  br label %195
 
-190:                                              ; preds = %177
-  %191 = getelementptr inbounds i8, ptr %39, i64 2288
-  store i8 1, ptr %191, align 8
-  br label %192
+193:                                              ; preds = %180
+  %194 = getelementptr inbounds i8, ptr %39, i64 2288
+  store i8 1, ptr %194, align 8
+  br label %195
 
-192:                                              ; preds = %190, %188
-  %.0.i = phi i64 [ %189, %188 ], [ 0, %190 ]
-  %193 = getelementptr inbounds i8, ptr %39, i64 1040
-  %194 = load i64, ptr %193, align 8
-  %195 = add i64 %194, %.0.i
-  store i64 %195, ptr %193, align 8
-  %196 = load i32, ptr %185, align 8
-  %197 = add nsw i32 %196, 1
-  store i32 %197, ptr %185, align 8
-  %198 = getelementptr inbounds i8, ptr %39, i64 2248
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %39, i64 2256
-  %201 = load ptr, ptr %200, align 8
-  %202 = icmp eq ptr %199, %201
-  br i1 %202, label %212, label %203
+195:                                              ; preds = %193, %191
+  %.0.i = phi i64 [ %192, %191 ], [ 0, %193 ]
+  %196 = getelementptr inbounds i8, ptr %39, i64 1040
+  %197 = load i64, ptr %196, align 8
+  %198 = add i64 %197, %.0.i
+  store i64 %198, ptr %196, align 8
+  %199 = load i32, ptr %188, align 8
+  %200 = add nsw i32 %199, 1
+  store i32 %200, ptr %188, align 8
+  %201 = getelementptr inbounds i8, ptr %39, i64 2248
+  %202 = load ptr, ptr %201, align 8
+  %203 = getelementptr inbounds i8, ptr %39, i64 2256
+  %204 = load ptr, ptr %203, align 8
+  %205 = icmp eq ptr %202, %204
+  br i1 %205, label %215, label %206
 
-203:                                              ; preds = %192
-  %204 = getelementptr inbounds i8, ptr %39, i64 2272
-  %205 = load i32, ptr %204, align 8
-  %206 = add nsw i32 %205, -1
-  store i32 %206, ptr %204, align 8
-  %207 = icmp eq i32 %206, 2
-  br i1 %207, label %208, label %212
+206:                                              ; preds = %195
+  %207 = getelementptr inbounds i8, ptr %39, i64 2272
+  %208 = load i32, ptr %207, align 8
+  %209 = add nsw i32 %208, -1
+  store i32 %209, ptr %207, align 8
+  %210 = icmp eq i32 %209, 2
+  br i1 %210, label %211, label %215
 
-208:                                              ; preds = %203
-  %209 = getelementptr inbounds i8, ptr %39, i64 2276
-  store i32 43, ptr %209, align 4
-  %210 = getelementptr inbounds i8, ptr %39, i64 2280
-  store i64 %184, ptr %210, align 8
-  br label %212
+211:                                              ; preds = %206
+  %212 = getelementptr inbounds i8, ptr %39, i64 2276
+  store i32 43, ptr %212, align 4
+  %213 = getelementptr inbounds i8, ptr %39, i64 2280
+  store i64 %187, ptr %213, align 8
+  br label %215
 
 _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZL10copy_rvecnPA3_KfPA3_fii.exit
-  %211 = or i1 %23, %24
-  call void @_ZN3gmx20constrain_velocitiesEPNS_11ConstraintsEblP7t_statePfbPA3_f(ptr noundef %34, i1 noundef zeroext %211, i64 noundef %0, ptr noundef %8, ptr noundef null, i1 noundef zeroext %18, ptr noundef %20)
+  %214 = or i1 %23, %24
+  call void @_ZN3gmx20constrain_velocitiesEPNS_11ConstraintsEblP7t_statePfbPA3_f(ptr noundef %34, i1 noundef zeroext %214, i64 noundef %0, ptr noundef %8, ptr noundef null, i1 noundef zeroext %18, ptr noundef %20)
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178
 
-212:                                              ; preds = %192, %203, %208
-  %213 = or i1 %23, %24
-  call void @_ZN3gmx20constrain_velocitiesEPNS_11ConstraintsEblP7t_statePfbPA3_f(ptr noundef %34, i1 noundef zeroext %213, i64 noundef %0, ptr noundef %8, ptr noundef null, i1 noundef zeroext %18, ptr noundef %20)
+215:                                              ; preds = %195, %206, %211
+  %216 = or i1 %23, %24
+  call void @_ZN3gmx20constrain_velocitiesEPNS_11ConstraintsEblP7t_statePfbPA3_f(ptr noundef %34, i1 noundef zeroext %216, i64 noundef %0, ptr noundef %8, ptr noundef null, i1 noundef zeroext %18, ptr noundef %20)
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %39)
-  %214 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
-  %215 = extractvalue { i32, i32 } %214, 0
-  %216 = extractvalue { i32, i32 } %214, 1
-  %217 = zext i32 %215 to i64
-  %218 = zext i32 %216 to i64
-  %219 = shl nuw i64 %218, 32
-  %220 = or disjoint i64 %219, %217
-  store i64 %220, ptr %186, align 8
-  %221 = load ptr, ptr %198, align 8
-  %222 = load ptr, ptr %200, align 8
-  %223 = icmp eq ptr %221, %222
-  br i1 %223, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178, label %224
+  %217 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
+  %218 = extractvalue { i32, i32 } %217, 0
+  %219 = extractvalue { i32, i32 } %217, 1
+  %220 = zext i32 %218 to i64
+  %221 = zext i32 %219 to i64
+  %222 = shl nuw i64 %221, 32
+  %223 = or disjoint i64 %222, %220
+  store i64 %223, ptr %189, align 8
+  %224 = load ptr, ptr %201, align 8
+  %225 = load ptr, ptr %203, align 8
+  %226 = icmp eq ptr %224, %225
+  br i1 %226, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178, label %227
 
-224:                                              ; preds = %212
-  %225 = getelementptr inbounds i8, ptr %39, i64 2272
-  %226 = load i32, ptr %225, align 8
-  %227 = add nsw i32 %226, 1
-  store i32 %227, ptr %225, align 8
-  %228 = icmp eq i32 %227, 3
-  br i1 %228, label %229, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178
+227:                                              ; preds = %215
+  %228 = getelementptr inbounds i8, ptr %39, i64 2272
+  %229 = load i32, ptr %228, align 8
+  %230 = add nsw i32 %229, 1
+  store i32 %230, ptr %228, align 8
+  %231 = icmp eq i32 %230, 3
+  br i1 %231, label %232, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178
 
-229:                                              ; preds = %224
-  %230 = getelementptr inbounds i8, ptr %39, i64 2276
-  %231 = load i32, ptr %230, align 4
-  %232 = mul nsw i32 %231, 52
-  %233 = add nsw i32 %232, 43
-  %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds %struct.wallcc_t, ptr %221, i64 %234
-  %236 = load i32, ptr %235, align 8
-  %237 = add nsw i32 %236, 1
-  store i32 %237, ptr %235, align 8
-  %238 = getelementptr inbounds i8, ptr %39, i64 2280
-  %239 = load i64, ptr %238, align 8
-  %240 = sub i64 %220, %239
-  %241 = load ptr, ptr %198, align 8
-  %242 = getelementptr inbounds %struct.wallcc_t, ptr %241, i64 %234, i32 1
-  %243 = load i64, ptr %242, align 8
-  %244 = add i64 %240, %243
-  store i64 %244, ptr %242, align 8
+232:                                              ; preds = %227
+  %233 = getelementptr inbounds i8, ptr %39, i64 2276
+  %234 = load i32, ptr %233, align 4
+  %235 = mul nsw i32 %234, 52
+  %236 = add nsw i32 %235, 43
+  %237 = sext i32 %236 to i64
+  %238 = getelementptr inbounds %struct.wallcc_t, ptr %224, i64 %237
+  %239 = load i32, ptr %238, align 8
+  %240 = add nsw i32 %239, 1
+  store i32 %240, ptr %238, align 8
+  %241 = getelementptr inbounds i8, ptr %39, i64 2280
+  %242 = load i64, ptr %241, align 8
+  %243 = sub i64 %223, %242
+  %244 = load ptr, ptr %201, align 8
+  %245 = getelementptr inbounds %struct.wallcc_t, ptr %244, i64 %237, i32 1
+  %246 = load i64, ptr %245, align 8
+  %247 = add i64 %243, %246
+  store i64 %247, ptr %245, align 8
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178: ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, %212, %224, %229
-  %245 = load i32, ptr %95, align 4
-  %246 = icmp ne i32 %245, 10
-  %brmerge174 = or i1 %246, %2
-  br i1 %brmerge174, label %247, label %.thread220
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178: ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, %215, %227, %232
+  %248 = load i32, ptr %95, align 4
+  %249 = icmp ne i32 %248, 10
+  %brmerge174 = or i1 %249, %2
+  br i1 %brmerge174, label %250, label %.thread220
 
-247:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178
-  %248 = icmp eq i32 %245, 11
-  %or.cond = and i1 %248, %25
-  br i1 %or.cond, label %249, label %.thread220
+250:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178
+  %251 = icmp eq i32 %248, 11
+  %or.cond = and i1 %251, %25
+  br i1 %or.cond, label %252, label %.thread220
 
-249:                                              ; preds = %247
+252:                                              ; preds = %250
   store i8 1, ptr %30, align 1
   br label %.thread220
 
-.thread220:                                       ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178, %249, %247
-  %250 = phi i1 [ true, %249 ], [ %248, %247 ], [ true, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178 ]
-  br i1 %26, label %256, label %251
+.thread220:                                       ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178, %252, %250
+  %253 = phi i1 [ true, %252 ], [ %251, %250 ], [ true, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178 ]
+  br i1 %26, label %259, label %254
 
-251:                                              ; preds = %.thread220
+254:                                              ; preds = %.thread220
   %.not.i179 = icmp eq i32 %4, 0
   br i1 %.not.i179, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191, label %_Z11do_per_stepll.exit
 
-_Z11do_per_stepll.exit:                           ; preds = %251
-  %252 = sext i32 %4 to i64
-  %253 = add nsw i64 %0, -1
-  %254 = srem i64 %253, %252
-  %255 = icmp eq i64 %254, 0
-  br i1 %255, label %256, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191
+_Z11do_per_stepll.exit:                           ; preds = %254
+  %255 = sext i32 %4 to i64
+  %256 = add nsw i64 %0, -1
+  %257 = srem i64 %256, %255
+  %258 = icmp eq i64 %257, 0
+  br i1 %258, label %259, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191
 
-256:                                              ; preds = %_Z11do_per_stepll.exit, %.thread220
-  %257 = phi i32 [ 0, %_Z11do_per_stepll.exit ], [ 16, %.thread220 ]
-  br i1 %59, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184, label %258
+259:                                              ; preds = %_Z11do_per_stepll.exit, %.thread220
+  %260 = phi i32 [ 0, %_Z11do_per_stepll.exit ], [ 16, %.thread220 ]
+  br i1 %59, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184, label %261
 
-258:                                              ; preds = %256
+261:                                              ; preds = %259
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %39)
-  %259 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
-  %260 = extractvalue { i32, i32 } %259, 0
-  %261 = extractvalue { i32, i32 } %259, 1
-  %262 = zext i32 %260 to i64
-  %263 = zext i32 %261 to i64
-  %264 = shl nuw i64 %263, 32
-  %265 = or disjoint i64 %264, %262
-  %266 = getelementptr inbounds i8, ptr %39, i64 1032
-  %267 = getelementptr inbounds i8, ptr %39, i64 1048
-  %268 = load i64, ptr %267, align 8
-  %.not.i181 = icmp ult i64 %265, %268
-  br i1 %.not.i181, label %271, label %269
+  %262 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
+  %263 = extractvalue { i32, i32 } %262, 0
+  %264 = extractvalue { i32, i32 } %262, 1
+  %265 = zext i32 %263 to i64
+  %266 = zext i32 %264 to i64
+  %267 = shl nuw i64 %266, 32
+  %268 = or disjoint i64 %267, %265
+  %269 = getelementptr inbounds i8, ptr %39, i64 1032
+  %270 = getelementptr inbounds i8, ptr %39, i64 1048
+  %271 = load i64, ptr %270, align 8
+  %.not.i181 = icmp ult i64 %268, %271
+  br i1 %.not.i181, label %274, label %272
 
-269:                                              ; preds = %258
-  %270 = sub nuw i64 %265, %268
-  br label %273
+272:                                              ; preds = %261
+  %273 = sub nuw i64 %268, %271
+  br label %276
 
-271:                                              ; preds = %258
-  %272 = getelementptr inbounds i8, ptr %39, i64 2288
-  store i8 1, ptr %272, align 8
-  br label %273
+274:                                              ; preds = %261
+  %275 = getelementptr inbounds i8, ptr %39, i64 2288
+  store i8 1, ptr %275, align 8
+  br label %276
 
-273:                                              ; preds = %271, %269
-  %.0.i182 = phi i64 [ %270, %269 ], [ 0, %271 ]
-  %274 = getelementptr inbounds i8, ptr %39, i64 1040
-  %275 = load i64, ptr %274, align 8
-  %276 = add i64 %275, %.0.i182
-  store i64 %276, ptr %274, align 8
-  %277 = load i32, ptr %266, align 8
-  %278 = add nsw i32 %277, 1
-  store i32 %278, ptr %266, align 8
-  %279 = getelementptr inbounds i8, ptr %39, i64 2248
-  %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr inbounds i8, ptr %39, i64 2256
-  %282 = load ptr, ptr %281, align 8
-  %283 = icmp eq ptr %280, %282
-  br i1 %283, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184, label %284
+276:                                              ; preds = %274, %272
+  %.0.i182 = phi i64 [ %273, %272 ], [ 0, %274 ]
+  %277 = getelementptr inbounds i8, ptr %39, i64 1040
+  %278 = load i64, ptr %277, align 8
+  %279 = add i64 %278, %.0.i182
+  store i64 %279, ptr %277, align 8
+  %280 = load i32, ptr %269, align 8
+  %281 = add nsw i32 %280, 1
+  store i32 %281, ptr %269, align 8
+  %282 = getelementptr inbounds i8, ptr %39, i64 2248
+  %283 = load ptr, ptr %282, align 8
+  %284 = getelementptr inbounds i8, ptr %39, i64 2256
+  %285 = load ptr, ptr %284, align 8
+  %286 = icmp eq ptr %283, %285
+  br i1 %286, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184, label %287
 
-284:                                              ; preds = %273
-  %285 = getelementptr inbounds i8, ptr %39, i64 2272
-  %286 = load i32, ptr %285, align 8
-  %287 = add nsw i32 %286, -1
-  store i32 %287, ptr %285, align 8
-  %288 = icmp eq i32 %287, 2
-  br i1 %288, label %289, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184
+287:                                              ; preds = %276
+  %288 = getelementptr inbounds i8, ptr %39, i64 2272
+  %289 = load i32, ptr %288, align 8
+  %290 = add nsw i32 %289, -1
+  store i32 %290, ptr %288, align 8
+  %291 = icmp eq i32 %290, 2
+  br i1 %291, label %292, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184
 
-289:                                              ; preds = %284
-  %290 = getelementptr inbounds i8, ptr %39, i64 2276
-  store i32 43, ptr %290, align 4
-  %291 = getelementptr inbounds i8, ptr %39, i64 2280
-  store i64 %265, ptr %291, align 8
+292:                                              ; preds = %287
+  %293 = getelementptr inbounds i8, ptr %39, i64 2276
+  store i32 43, ptr %293, align 4
+  %294 = getelementptr inbounds i8, ptr %39, i64 2280
+  store i64 %268, ptr %294, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184: ; preds = %273, %284, %289, %256
-  %292 = select i1 %250, i32 128, i32 0
-  %293 = select i1 %27, i32 8, i32 0
-  %294 = select i1 %25, i32 2880, i32 2816
-  %295 = or disjoint i32 %294, %293
-  %296 = or disjoint i32 %295, %292
-  %297 = or disjoint i32 %296, %257
-  %298 = getelementptr inbounds i8, ptr %8, i64 416
-  %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %8, i64 440
-  %301 = load ptr, ptr %300, align 8
-  %302 = ptrtoint ptr %301 to i64
-  %303 = ptrtoint ptr %299 to i64
-  %304 = sub i64 %302, %303
-  %305 = getelementptr inbounds i8, ptr %299, i64 %304
-  store ptr %299, ptr %49, align 8
-  %306 = getelementptr inbounds i8, ptr %49, i64 8
-  store ptr %305, ptr %306, align 8
-  %307 = getelementptr inbounds i8, ptr %8, i64 456
-  %308 = load ptr, ptr %307, align 8
-  %309 = getelementptr inbounds i8, ptr %8, i64 480
-  %310 = load ptr, ptr %309, align 8
-  %311 = ptrtoint ptr %310 to i64
-  %312 = ptrtoint ptr %308 to i64
-  %313 = sub i64 %311, %312
-  %314 = getelementptr inbounds i8, ptr %308, i64 %313
-  store ptr %308, ptr %50, align 8
-  %315 = getelementptr inbounds i8, ptr %50, i64 8
-  store ptr %314, ptr %315, align 8
-  %316 = getelementptr inbounds i8, ptr %8, i64 52
-  call void @_Z15compute_globalsP15gmx_global_statP9t_commrecPK10t_inputrecP10t_forcerecP14gmx_ekindata_tN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEESF_PA3_KfPK9t_mdatomsP6t_nrnbP5t_vcmP13gmx_wallcycleP14gmx_enerdata_tPA3_fSV_SV_SV_PNSA_19SimulationSignallerESI_PbilPNSA_18ObservablesReducerE(ptr noundef %16, ptr noundef %7, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %15, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %49, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %50, ptr noundef nonnull %316, ptr noundef nonnull %9, ptr noundef %37, ptr noundef %12, ptr noundef %39, ptr noundef %13, ptr noundef %21, ptr noundef %20, ptr noundef %19, ptr noundef %22, ptr noundef %35, ptr noundef nonnull %316, ptr noundef %30, i32 noundef %297, i64 noundef %0, ptr noundef %14)
-  br i1 %27, label %317, label %336
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184: ; preds = %276, %287, %292, %259
+  %295 = select i1 %253, i32 128, i32 0
+  %296 = select i1 %27, i32 8, i32 0
+  %297 = select i1 %25, i32 2880, i32 2816
+  %298 = or disjoint i32 %297, %296
+  %299 = or disjoint i32 %298, %295
+  %300 = or disjoint i32 %299, %260
+  %301 = getelementptr inbounds i8, ptr %8, i64 416
+  %302 = load ptr, ptr %301, align 8
+  %303 = getelementptr inbounds i8, ptr %8, i64 440
+  %304 = load ptr, ptr %303, align 8
+  %305 = ptrtoint ptr %304 to i64
+  %306 = ptrtoint ptr %302 to i64
+  %307 = sub i64 %305, %306
+  %308 = getelementptr inbounds i8, ptr %302, i64 %307
+  store ptr %302, ptr %49, align 8
+  %309 = getelementptr inbounds i8, ptr %49, i64 8
+  store ptr %308, ptr %309, align 8
+  %310 = getelementptr inbounds i8, ptr %8, i64 456
+  %311 = load ptr, ptr %310, align 8
+  %312 = getelementptr inbounds i8, ptr %8, i64 480
+  %313 = load ptr, ptr %312, align 8
+  %314 = ptrtoint ptr %313 to i64
+  %315 = ptrtoint ptr %311 to i64
+  %316 = sub i64 %314, %315
+  %317 = getelementptr inbounds i8, ptr %311, i64 %316
+  store ptr %311, ptr %50, align 8
+  %318 = getelementptr inbounds i8, ptr %50, i64 8
+  store ptr %317, ptr %318, align 8
+  %319 = getelementptr inbounds i8, ptr %8, i64 52
+  call void @_Z15compute_globalsP15gmx_global_statP9t_commrecPK10t_inputrecP10t_forcerecP14gmx_ekindata_tN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEESF_PA3_KfPK9t_mdatomsP6t_nrnbP5t_vcmP13gmx_wallcycleP14gmx_enerdata_tPA3_fSV_SV_SV_PNSA_19SimulationSignallerESI_PbilPNSA_18ObservablesReducerE(ptr noundef %16, ptr noundef %7, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %15, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %49, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %50, ptr noundef nonnull %319, ptr noundef nonnull %9, ptr noundef %37, ptr noundef %12, ptr noundef %39, ptr noundef %13, ptr noundef %21, ptr noundef %20, ptr noundef %19, ptr noundef %22, ptr noundef %35, ptr noundef nonnull %319, ptr noundef %30, i32 noundef %300, i64 noundef %0, ptr noundef %14)
+  br i1 %27, label %320, label %339
 
-317:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184
-  %318 = load ptr, ptr %298, align 8
-  %319 = load ptr, ptr %300, align 8
-  %320 = ptrtoint ptr %319 to i64
-  %321 = ptrtoint ptr %318 to i64
-  %322 = sub i64 %320, %321
-  %323 = getelementptr inbounds i8, ptr %318, i64 %322
-  %324 = load ptr, ptr %307, align 8
-  %325 = load ptr, ptr %309, align 8
-  %326 = ptrtoint ptr %325 to i64
-  %327 = ptrtoint ptr %324 to i64
-  %328 = sub i64 %326, %327
-  %329 = getelementptr inbounds i8, ptr %324, i64 %328
-  store ptr %324, ptr %51, align 8
-  %330 = getelementptr inbounds i8, ptr %51, i64 8
-  store ptr %329, ptr %330, align 8
-  call void @_Z22process_and_stopcm_grpP8_IO_FILEP5t_vcmRK9t_mdatomsN3gmx8ArrayRefINS6_11BasicVectorIfEEEESA_(ptr noundef %38, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(648) %9, ptr %318, ptr %323, ptr noundef nonnull byval(%"class.gmx::ArrayRef.119") align 8 %51)
-  %331 = load i32, ptr %139, align 8
-  %332 = sitofp i32 %331 to double
-  %333 = getelementptr inbounds i8, ptr %37, i64 736
-  %334 = load double, ptr %333, align 8
-  %335 = fadd double %334, %332
-  store double %335, ptr %333, align 8
-  br label %336
+320:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184
+  %321 = load ptr, ptr %301, align 8
+  %322 = load ptr, ptr %303, align 8
+  %323 = ptrtoint ptr %322 to i64
+  %324 = ptrtoint ptr %321 to i64
+  %325 = sub i64 %323, %324
+  %326 = getelementptr inbounds i8, ptr %321, i64 %325
+  %327 = load ptr, ptr %310, align 8
+  %328 = load ptr, ptr %312, align 8
+  %329 = ptrtoint ptr %328 to i64
+  %330 = ptrtoint ptr %327 to i64
+  %331 = sub i64 %329, %330
+  %332 = getelementptr inbounds i8, ptr %327, i64 %331
+  store ptr %327, ptr %51, align 8
+  %333 = getelementptr inbounds i8, ptr %51, i64 8
+  store ptr %332, ptr %333, align 8
+  call void @_Z22process_and_stopcm_grpP8_IO_FILEP5t_vcmRK9t_mdatomsN3gmx8ArrayRefINS6_11BasicVectorIfEEEESA_(ptr noundef %38, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(648) %9, ptr %321, ptr %326, ptr noundef nonnull byval(%"class.gmx::ArrayRef.119") align 8 %51)
+  %334 = load i32, ptr %139, align 8
+  %335 = sitofp i32 %334 to double
+  %336 = getelementptr inbounds i8, ptr %37, i64 736
+  %337 = load double, ptr %336, align 8
+  %338 = fadd double %337, %335
+  store double %338, ptr %336, align 8
+  br label %339
 
-336:                                              ; preds = %317, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184
-  br i1 %59, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191, label %337
+339:                                              ; preds = %320, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184
+  br i1 %59, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191, label %340
 
-337:                                              ; preds = %336
+340:                                              ; preds = %339
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %39)
-  %338 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
-  %339 = extractvalue { i32, i32 } %338, 0
-  %340 = extractvalue { i32, i32 } %338, 1
-  %341 = zext i32 %339 to i64
-  %342 = zext i32 %340 to i64
-  %343 = shl nuw i64 %342, 32
-  %344 = or disjoint i64 %343, %341
-  %345 = getelementptr inbounds i8, ptr %39, i64 1048
-  store i64 %344, ptr %345, align 8
-  %346 = getelementptr inbounds i8, ptr %39, i64 2248
-  %347 = load ptr, ptr %346, align 8
-  %348 = getelementptr inbounds i8, ptr %39, i64 2256
-  %349 = load ptr, ptr %348, align 8
-  %350 = icmp eq ptr %347, %349
-  br i1 %350, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191, label %351
+  %341 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
+  %342 = extractvalue { i32, i32 } %341, 0
+  %343 = extractvalue { i32, i32 } %341, 1
+  %344 = zext i32 %342 to i64
+  %345 = zext i32 %343 to i64
+  %346 = shl nuw i64 %345, 32
+  %347 = or disjoint i64 %346, %344
+  %348 = getelementptr inbounds i8, ptr %39, i64 1048
+  store i64 %347, ptr %348, align 8
+  %349 = getelementptr inbounds i8, ptr %39, i64 2248
+  %350 = load ptr, ptr %349, align 8
+  %351 = getelementptr inbounds i8, ptr %39, i64 2256
+  %352 = load ptr, ptr %351, align 8
+  %353 = icmp eq ptr %350, %352
+  br i1 %353, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191, label %354
 
-351:                                              ; preds = %337
-  %352 = getelementptr inbounds i8, ptr %39, i64 2272
-  %353 = load i32, ptr %352, align 8
-  %354 = add nsw i32 %353, 1
-  store i32 %354, ptr %352, align 8
-  %355 = icmp eq i32 %354, 3
-  br i1 %355, label %356, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191
+354:                                              ; preds = %340
+  %355 = getelementptr inbounds i8, ptr %39, i64 2272
+  %356 = load i32, ptr %355, align 8
+  %357 = add nsw i32 %356, 1
+  store i32 %357, ptr %355, align 8
+  %358 = icmp eq i32 %357, 3
+  br i1 %358, label %359, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191
 
-356:                                              ; preds = %351
-  %357 = getelementptr inbounds i8, ptr %39, i64 2276
-  %358 = load i32, ptr %357, align 4
-  %359 = mul nsw i32 %358, 52
-  %360 = add nsw i32 %359, 43
-  %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds %struct.wallcc_t, ptr %347, i64 %361
-  %363 = load i32, ptr %362, align 8
-  %364 = add nsw i32 %363, 1
-  store i32 %364, ptr %362, align 8
-  %365 = getelementptr inbounds i8, ptr %39, i64 2280
-  %366 = load i64, ptr %365, align 8
-  %367 = sub i64 %344, %366
-  %368 = load ptr, ptr %346, align 8
-  %369 = getelementptr inbounds %struct.wallcc_t, ptr %368, i64 %361, i32 1
-  %370 = load i64, ptr %369, align 8
-  %371 = add i64 %367, %370
-  store i64 %371, ptr %369, align 8
+359:                                              ; preds = %354
+  %360 = getelementptr inbounds i8, ptr %39, i64 2276
+  %361 = load i32, ptr %360, align 4
+  %362 = mul nsw i32 %361, 52
+  %363 = add nsw i32 %362, 43
+  %364 = sext i32 %363 to i64
+  %365 = getelementptr inbounds %struct.wallcc_t, ptr %350, i64 %364
+  %366 = load i32, ptr %365, align 8
+  %367 = add nsw i32 %366, 1
+  store i32 %367, ptr %365, align 8
+  %368 = getelementptr inbounds i8, ptr %39, i64 2280
+  %369 = load i64, ptr %368, align 8
+  %370 = sub i64 %347, %369
+  %371 = load ptr, ptr %349, align 8
+  %372 = getelementptr inbounds %struct.wallcc_t, ptr %371, i64 %364, i32 1
+  %373 = load i64, ptr %372, align 8
+  %374 = add i64 %370, %373
+  store i64 %374, ptr %372, align 8
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191: ; preds = %251, %356, %351, %337, %336, %_Z11do_per_stepll.exit
-  br i1 %2, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200, label %372
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191: ; preds = %254, %359, %354, %340, %339, %_Z11do_per_stepll.exit
+  br i1 %2, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200, label %375
 
-372:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191
-  br i1 %28, label %373, label %504
+375:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191
+  br i1 %28, label %376, label %507
 
-373:                                              ; preds = %372
-  %374 = load float, ptr %21, align 4
-  %375 = load float, ptr %20, align 4
-  %376 = fadd float %374, %375
-  store float %376, ptr %19, align 4
-  %377 = getelementptr inbounds i8, ptr %21, i64 4
-  %378 = load float, ptr %377, align 4
-  %379 = getelementptr inbounds i8, ptr %20, i64 4
-  %380 = load float, ptr %379, align 4
-  %381 = fadd float %378, %380
-  %382 = getelementptr inbounds i8, ptr %19, i64 4
-  store float %381, ptr %382, align 4
-  %383 = getelementptr inbounds i8, ptr %21, i64 8
-  %384 = load float, ptr %383, align 4
-  %385 = getelementptr inbounds i8, ptr %20, i64 8
-  %386 = load float, ptr %385, align 4
-  %387 = fadd float %384, %386
-  %388 = getelementptr inbounds i8, ptr %19, i64 8
-  store float %387, ptr %388, align 4
-  %389 = getelementptr inbounds i8, ptr %21, i64 12
-  %390 = load float, ptr %389, align 4
-  %391 = getelementptr inbounds i8, ptr %20, i64 12
-  %392 = load float, ptr %391, align 4
-  %393 = fadd float %390, %392
-  %394 = getelementptr inbounds i8, ptr %19, i64 12
-  store float %393, ptr %394, align 4
-  %395 = getelementptr inbounds i8, ptr %21, i64 16
-  %396 = load float, ptr %395, align 4
-  %397 = getelementptr inbounds i8, ptr %20, i64 16
-  %398 = load float, ptr %397, align 4
-  %399 = fadd float %396, %398
-  %400 = getelementptr inbounds i8, ptr %19, i64 16
-  store float %399, ptr %400, align 4
-  %401 = getelementptr inbounds i8, ptr %21, i64 20
-  %402 = load float, ptr %401, align 4
-  %403 = getelementptr inbounds i8, ptr %20, i64 20
-  %404 = load float, ptr %403, align 4
-  %405 = fadd float %402, %404
-  %406 = getelementptr inbounds i8, ptr %19, i64 20
-  store float %405, ptr %406, align 4
-  %407 = getelementptr inbounds i8, ptr %21, i64 24
-  %408 = load float, ptr %407, align 4
-  %409 = getelementptr inbounds i8, ptr %20, i64 24
-  %410 = load float, ptr %409, align 4
-  %411 = fadd float %408, %410
-  %412 = getelementptr inbounds i8, ptr %19, i64 24
-  store float %411, ptr %412, align 4
-  %413 = getelementptr inbounds i8, ptr %21, i64 28
-  %414 = load float, ptr %413, align 4
-  %415 = getelementptr inbounds i8, ptr %20, i64 28
-  %416 = load float, ptr %415, align 4
-  %417 = fadd float %414, %416
-  %418 = getelementptr inbounds i8, ptr %19, i64 28
-  store float %417, ptr %418, align 4
-  %419 = getelementptr inbounds i8, ptr %21, i64 32
-  %420 = load float, ptr %419, align 4
-  %421 = getelementptr inbounds i8, ptr %20, i64 32
-  %422 = load float, ptr %421, align 4
-  %423 = fadd float %420, %422
-  %424 = getelementptr inbounds i8, ptr %19, i64 32
-  store float %423, ptr %424, align 4
-  %425 = load i32, ptr %139, align 8
-  %426 = getelementptr inbounds i8, ptr %9, i64 448
-  %427 = load ptr, ptr %426, align 8
-  store ptr %427, ptr %52, align 8
-  %428 = getelementptr inbounds i8, ptr %52, i64 8
-  %429 = getelementptr inbounds i8, ptr %9, i64 456
+376:                                              ; preds = %375
+  %377 = load float, ptr %21, align 4
+  %378 = load float, ptr %20, align 4
+  %379 = fadd float %377, %378
+  store float %379, ptr %19, align 4
+  %380 = getelementptr inbounds i8, ptr %21, i64 4
+  %381 = load float, ptr %380, align 4
+  %382 = getelementptr inbounds i8, ptr %20, i64 4
+  %383 = load float, ptr %382, align 4
+  %384 = fadd float %381, %383
+  %385 = getelementptr inbounds i8, ptr %19, i64 4
+  store float %384, ptr %385, align 4
+  %386 = getelementptr inbounds i8, ptr %21, i64 8
+  %387 = load float, ptr %386, align 4
+  %388 = getelementptr inbounds i8, ptr %20, i64 8
+  %389 = load float, ptr %388, align 4
+  %390 = fadd float %387, %389
+  %391 = getelementptr inbounds i8, ptr %19, i64 8
+  store float %390, ptr %391, align 4
+  %392 = getelementptr inbounds i8, ptr %21, i64 12
+  %393 = load float, ptr %392, align 4
+  %394 = getelementptr inbounds i8, ptr %20, i64 12
+  %395 = load float, ptr %394, align 4
+  %396 = fadd float %393, %395
+  %397 = getelementptr inbounds i8, ptr %19, i64 12
+  store float %396, ptr %397, align 4
+  %398 = getelementptr inbounds i8, ptr %21, i64 16
+  %399 = load float, ptr %398, align 4
+  %400 = getelementptr inbounds i8, ptr %20, i64 16
+  %401 = load float, ptr %400, align 4
+  %402 = fadd float %399, %401
+  %403 = getelementptr inbounds i8, ptr %19, i64 16
+  store float %402, ptr %403, align 4
+  %404 = getelementptr inbounds i8, ptr %21, i64 20
+  %405 = load float, ptr %404, align 4
+  %406 = getelementptr inbounds i8, ptr %20, i64 20
+  %407 = load float, ptr %406, align 4
+  %408 = fadd float %405, %407
+  %409 = getelementptr inbounds i8, ptr %19, i64 20
+  store float %408, ptr %409, align 4
+  %410 = getelementptr inbounds i8, ptr %21, i64 24
+  %411 = load float, ptr %410, align 4
+  %412 = getelementptr inbounds i8, ptr %20, i64 24
+  %413 = load float, ptr %412, align 4
+  %414 = fadd float %411, %413
+  %415 = getelementptr inbounds i8, ptr %19, i64 24
+  store float %414, ptr %415, align 4
+  %416 = getelementptr inbounds i8, ptr %21, i64 28
+  %417 = load float, ptr %416, align 4
+  %418 = getelementptr inbounds i8, ptr %20, i64 28
+  %419 = load float, ptr %418, align 4
+  %420 = fadd float %417, %419
+  %421 = getelementptr inbounds i8, ptr %19, i64 28
+  store float %420, ptr %421, align 4
+  %422 = getelementptr inbounds i8, ptr %21, i64 32
+  %423 = load float, ptr %422, align 4
+  %424 = getelementptr inbounds i8, ptr %20, i64 32
+  %425 = load float, ptr %424, align 4
+  %426 = fadd float %423, %425
+  %427 = getelementptr inbounds i8, ptr %19, i64 32
+  store float %426, ptr %427, align 4
+  %428 = load i32, ptr %139, align 8
+  %429 = getelementptr inbounds i8, ptr %9, i64 448
   %430 = load ptr, ptr %429, align 8
-  %431 = ptrtoint ptr %430 to i64
-  %432 = ptrtoint ptr %427 to i64
-  %433 = sub i64 %431, %432
-  %434 = getelementptr inbounds i8, ptr %427, i64 %433
-  store ptr %434, ptr %428, align 8
-  %435 = load ptr, ptr %153, align 8
-  store ptr %435, ptr %53, align 8
-  %436 = getelementptr inbounds i8, ptr %53, i64 8
-  %437 = load ptr, ptr %156, align 8
-  %438 = ptrtoint ptr %437 to i64
-  %439 = ptrtoint ptr %435 to i64
-  %440 = sub i64 %438, %439
-  %441 = getelementptr inbounds i8, ptr %435, i64 %440
-  store ptr %441, ptr %436, align 8
+  store ptr %430, ptr %52, align 8
+  %431 = getelementptr inbounds i8, ptr %52, i64 8
+  %432 = getelementptr inbounds i8, ptr %9, i64 456
+  %433 = load ptr, ptr %432, align 8
+  %434 = ptrtoint ptr %433 to i64
+  %435 = ptrtoint ptr %430 to i64
+  %436 = sub i64 %434, %435
+  %437 = getelementptr inbounds i8, ptr %430, i64 %436
+  store ptr %437, ptr %431, align 8
+  %438 = load ptr, ptr %153, align 8
+  store ptr %438, ptr %53, align 8
+  %439 = getelementptr inbounds i8, ptr %53, i64 8
+  %440 = load ptr, ptr %156, align 8
+  %441 = ptrtoint ptr %440 to i64
+  %442 = ptrtoint ptr %438 to i64
+  %443 = sub i64 %441, %442
+  %444 = getelementptr inbounds i8, ptr %438, i64 %443
+  store ptr %444, ptr %439, align 8
   store ptr %36, ptr %54, align 8
-  %442 = getelementptr inbounds i8, ptr %54, i64 8
-  %443 = getelementptr inbounds i8, ptr %36, i64 120
-  store ptr %443, ptr %442, align 8
-  call void @_Z14trotter_updatePK10t_inputreclP14gmx_ekindata_tPK14gmx_enerdata_tP7t_statePA3_KfiN3gmx8ArrayRefIKtEENSD_IS9_EEPK9t_extmassNSD_ISt6vectorIiSaIiEEEE15TrotterSequence(ptr noundef nonnull %5, i64 noundef %0, ptr noundef %15, ptr noundef %13, ptr noundef %8, ptr noundef nonnull %19, i32 noundef %425, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %52, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %53, ptr noundef %11, ptr noundef nonnull byval(%"class.gmx::ArrayRef.71") align 8 %54, i32 noundef 2)
-  %444 = call noundef zeroext i1 @_Z18inputrecNptTrotterPK10t_inputrec(ptr noundef nonnull %5)
-  br i1 %444, label %447, label %445
+  %445 = getelementptr inbounds i8, ptr %54, i64 8
+  %446 = getelementptr inbounds i8, ptr %36, i64 120
+  store ptr %446, ptr %445, align 8
+  call void @_Z14trotter_updatePK10t_inputreclP14gmx_ekindata_tPK14gmx_enerdata_tP7t_statePA3_KfiN3gmx8ArrayRefIKtEENSD_IS9_EEPK9t_extmassNSD_ISt6vectorIiSaIiEEEE15TrotterSequence(ptr noundef nonnull %5, i64 noundef %0, ptr noundef %15, ptr noundef %13, ptr noundef %8, ptr noundef nonnull %19, i32 noundef %428, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %52, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %53, ptr noundef %11, ptr noundef nonnull byval(%"class.gmx::ArrayRef.71") align 8 %54, i32 noundef 2)
+  %447 = call noundef zeroext i1 @_Z18inputrecNptTrotterPK10t_inputrec(ptr noundef nonnull %5)
+  br i1 %447, label %450, label %448
 
-445:                                              ; preds = %373
-  %446 = call noundef zeroext i1 @_Z18inputrecNphTrotterPK10t_inputrec(ptr noundef nonnull %5)
-  br i1 %446, label %447, label %484
+448:                                              ; preds = %376
+  %449 = call noundef zeroext i1 @_Z18inputrecNphTrotterPK10t_inputrec(ptr noundef nonnull %5)
+  br i1 %449, label %450, label %487
 
-447:                                              ; preds = %445, %373
-  %448 = getelementptr inbounds i8, ptr %8, i64 196
-  %449 = load float, ptr %20, align 4
-  store float %449, ptr %448, align 4
-  %450 = load float, ptr %379, align 4
-  %451 = getelementptr inbounds i8, ptr %8, i64 200
-  store float %450, ptr %451, align 4
-  %452 = load float, ptr %385, align 4
-  %453 = getelementptr inbounds i8, ptr %8, i64 204
-  store float %452, ptr %453, align 4
-  %454 = getelementptr inbounds i8, ptr %8, i64 208
-  %455 = load float, ptr %391, align 4
-  store float %455, ptr %454, align 4
-  %456 = load float, ptr %397, align 4
-  %457 = getelementptr inbounds i8, ptr %8, i64 212
-  store float %456, ptr %457, align 4
-  %458 = load float, ptr %403, align 4
-  %459 = getelementptr inbounds i8, ptr %8, i64 216
-  store float %458, ptr %459, align 4
-  %460 = getelementptr inbounds i8, ptr %8, i64 220
-  %461 = load float, ptr %409, align 4
-  store float %461, ptr %460, align 4
-  %462 = load float, ptr %415, align 4
-  %463 = getelementptr inbounds i8, ptr %8, i64 224
-  store float %462, ptr %463, align 4
-  %464 = load float, ptr %421, align 4
-  %465 = getelementptr inbounds i8, ptr %8, i64 228
-  store float %464, ptr %465, align 4
-  %466 = getelementptr inbounds i8, ptr %8, i64 232
-  %467 = load float, ptr %21, align 4
-  store float %467, ptr %466, align 4
-  %468 = load float, ptr %377, align 4
-  %469 = getelementptr inbounds i8, ptr %8, i64 236
-  store float %468, ptr %469, align 4
-  %470 = load float, ptr %383, align 4
-  %471 = getelementptr inbounds i8, ptr %8, i64 240
-  store float %470, ptr %471, align 4
-  %472 = getelementptr inbounds i8, ptr %8, i64 244
-  %473 = load float, ptr %389, align 4
-  store float %473, ptr %472, align 4
-  %474 = load float, ptr %395, align 4
-  %475 = getelementptr inbounds i8, ptr %8, i64 248
-  store float %474, ptr %475, align 4
-  %476 = load float, ptr %401, align 4
-  %477 = getelementptr inbounds i8, ptr %8, i64 252
-  store float %476, ptr %477, align 4
-  %478 = getelementptr inbounds i8, ptr %8, i64 256
-  %479 = load float, ptr %407, align 4
-  store float %479, ptr %478, align 4
-  %480 = load float, ptr %413, align 4
-  %481 = getelementptr inbounds i8, ptr %8, i64 260
-  store float %480, ptr %481, align 4
-  %482 = load float, ptr %419, align 4
-  %483 = getelementptr inbounds i8, ptr %8, i64 264
-  store float %482, ptr %483, align 4
-  br label %484
+450:                                              ; preds = %448, %376
+  %451 = getelementptr inbounds i8, ptr %8, i64 196
+  %452 = load float, ptr %20, align 4
+  store float %452, ptr %451, align 4
+  %453 = load float, ptr %382, align 4
+  %454 = getelementptr inbounds i8, ptr %8, i64 200
+  store float %453, ptr %454, align 4
+  %455 = load float, ptr %388, align 4
+  %456 = getelementptr inbounds i8, ptr %8, i64 204
+  store float %455, ptr %456, align 4
+  %457 = getelementptr inbounds i8, ptr %8, i64 208
+  %458 = load float, ptr %394, align 4
+  store float %458, ptr %457, align 4
+  %459 = load float, ptr %400, align 4
+  %460 = getelementptr inbounds i8, ptr %8, i64 212
+  store float %459, ptr %460, align 4
+  %461 = load float, ptr %406, align 4
+  %462 = getelementptr inbounds i8, ptr %8, i64 216
+  store float %461, ptr %462, align 4
+  %463 = getelementptr inbounds i8, ptr %8, i64 220
+  %464 = load float, ptr %412, align 4
+  store float %464, ptr %463, align 4
+  %465 = load float, ptr %418, align 4
+  %466 = getelementptr inbounds i8, ptr %8, i64 224
+  store float %465, ptr %466, align 4
+  %467 = load float, ptr %424, align 4
+  %468 = getelementptr inbounds i8, ptr %8, i64 228
+  store float %467, ptr %468, align 4
+  %469 = getelementptr inbounds i8, ptr %8, i64 232
+  %470 = load float, ptr %21, align 4
+  store float %470, ptr %469, align 4
+  %471 = load float, ptr %380, align 4
+  %472 = getelementptr inbounds i8, ptr %8, i64 236
+  store float %471, ptr %472, align 4
+  %473 = load float, ptr %386, align 4
+  %474 = getelementptr inbounds i8, ptr %8, i64 240
+  store float %473, ptr %474, align 4
+  %475 = getelementptr inbounds i8, ptr %8, i64 244
+  %476 = load float, ptr %392, align 4
+  store float %476, ptr %475, align 4
+  %477 = load float, ptr %398, align 4
+  %478 = getelementptr inbounds i8, ptr %8, i64 248
+  store float %477, ptr %478, align 4
+  %479 = load float, ptr %404, align 4
+  %480 = getelementptr inbounds i8, ptr %8, i64 252
+  store float %479, ptr %480, align 4
+  %481 = getelementptr inbounds i8, ptr %8, i64 256
+  %482 = load float, ptr %410, align 4
+  store float %482, ptr %481, align 4
+  %483 = load float, ptr %416, align 4
+  %484 = getelementptr inbounds i8, ptr %8, i64 260
+  store float %483, ptr %484, align 4
+  %485 = load float, ptr %422, align 4
+  %486 = getelementptr inbounds i8, ptr %8, i64 264
+  store float %485, ptr %486, align 4
+  br label %487
 
-484:                                              ; preds = %447, %445
-  %485 = call noundef zeroext i1 @_Z18inputrecNptTrotterPK10t_inputrec(ptr noundef nonnull %5)
-  br i1 %485, label %488, label %486
+487:                                              ; preds = %450, %448
+  %488 = call noundef zeroext i1 @_Z18inputrecNptTrotterPK10t_inputrec(ptr noundef nonnull %5)
+  br i1 %488, label %491, label %489
 
-486:                                              ; preds = %484
-  %487 = call noundef zeroext i1 @_Z18inputrecNvtTrotterPK10t_inputrec(ptr noundef nonnull %5)
-  br i1 %487, label %488, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread
-
-488:                                              ; preds = %486, %484
-  %489 = load i32, ptr %95, align 4
-  %490 = icmp eq i32 %489, 10
+489:                                              ; preds = %487
+  %490 = call noundef zeroext i1 @_Z18inputrecNvtTrotterPK10t_inputrec(ptr noundef nonnull %5)
   br i1 %490, label %491, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread
 
-491:                                              ; preds = %488
-  %492 = getelementptr inbounds i8, ptr %5, i64 720
-  %493 = call noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef nonnull %492, ptr noundef %15, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
-  %494 = getelementptr inbounds i8, ptr %13, i64 328
-  store float %493, ptr %494, align 4
-  %495 = getelementptr inbounds i8, ptr %15, i64 80
-  %496 = load float, ptr %495, align 4
-  %497 = getelementptr inbounds i8, ptr %15, i64 96
-  %498 = load float, ptr %497, align 4
-  %499 = fadd float %496, %498
-  %500 = getelementptr inbounds i8, ptr %15, i64 112
+491:                                              ; preds = %489, %487
+  %492 = load i32, ptr %95, align 4
+  %493 = icmp eq i32 %492, 10
+  br i1 %493, label %494, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread
+
+494:                                              ; preds = %491
+  %495 = getelementptr inbounds i8, ptr %5, i64 720
+  %496 = call noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef nonnull %495, ptr noundef %15, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
+  %497 = getelementptr inbounds i8, ptr %13, i64 328
+  store float %496, ptr %497, align 4
+  %498 = getelementptr inbounds i8, ptr %15, i64 80
+  %499 = load float, ptr %498, align 4
+  %500 = getelementptr inbounds i8, ptr %15, i64 96
   %501 = load float, ptr %500, align 4
   %502 = fadd float %499, %501
-  %503 = getelementptr inbounds i8, ptr %13, i64 316
-  store float %502, ptr %503, align 4
+  %503 = getelementptr inbounds i8, ptr %15, i64 112
+  %504 = load float, ptr %503, align 4
+  %505 = fadd float %502, %504
+  %506 = getelementptr inbounds i8, ptr %13, i64 316
+  store float %505, ptr %506, align 4
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread
 
-504:                                              ; preds = %372
-  br i1 %29, label %505, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread
+507:                                              ; preds = %375
+  br i1 %29, label %508, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread
 
-505:                                              ; preds = %504
-  br i1 %59, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195, label %506
+508:                                              ; preds = %507
+  br i1 %59, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195, label %509
 
-506:                                              ; preds = %505
+509:                                              ; preds = %508
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %39)
-  %507 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
-  %508 = extractvalue { i32, i32 } %507, 0
-  %509 = extractvalue { i32, i32 } %507, 1
-  %510 = zext i32 %508 to i64
-  %511 = zext i32 %509 to i64
-  %512 = shl nuw i64 %511, 32
-  %513 = or disjoint i64 %512, %510
-  %514 = getelementptr inbounds i8, ptr %39, i64 1032
-  %515 = getelementptr inbounds i8, ptr %39, i64 1048
-  %516 = load i64, ptr %515, align 8
-  %.not.i192 = icmp ult i64 %513, %516
-  br i1 %.not.i192, label %519, label %517
+  %510 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
+  %511 = extractvalue { i32, i32 } %510, 0
+  %512 = extractvalue { i32, i32 } %510, 1
+  %513 = zext i32 %511 to i64
+  %514 = zext i32 %512 to i64
+  %515 = shl nuw i64 %514, 32
+  %516 = or disjoint i64 %515, %513
+  %517 = getelementptr inbounds i8, ptr %39, i64 1032
+  %518 = getelementptr inbounds i8, ptr %39, i64 1048
+  %519 = load i64, ptr %518, align 8
+  %.not.i192 = icmp ult i64 %516, %519
+  br i1 %.not.i192, label %522, label %520
 
-517:                                              ; preds = %506
-  %518 = sub nuw i64 %513, %516
-  br label %521
+520:                                              ; preds = %509
+  %521 = sub nuw i64 %516, %519
+  br label %524
 
-519:                                              ; preds = %506
-  %520 = getelementptr inbounds i8, ptr %39, i64 2288
-  store i8 1, ptr %520, align 8
-  br label %521
+522:                                              ; preds = %509
+  %523 = getelementptr inbounds i8, ptr %39, i64 2288
+  store i8 1, ptr %523, align 8
+  br label %524
 
-521:                                              ; preds = %519, %517
-  %.0.i193 = phi i64 [ %518, %517 ], [ 0, %519 ]
-  %522 = getelementptr inbounds i8, ptr %39, i64 1040
-  %523 = load i64, ptr %522, align 8
-  %524 = add i64 %523, %.0.i193
-  store i64 %524, ptr %522, align 8
-  %525 = load i32, ptr %514, align 8
-  %526 = add nsw i32 %525, 1
-  store i32 %526, ptr %514, align 8
-  %527 = getelementptr inbounds i8, ptr %39, i64 2248
-  %528 = load ptr, ptr %527, align 8
-  %529 = getelementptr inbounds i8, ptr %39, i64 2256
-  %530 = load ptr, ptr %529, align 8
-  %531 = icmp eq ptr %528, %530
-  br i1 %531, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195, label %532
+524:                                              ; preds = %522, %520
+  %.0.i193 = phi i64 [ %521, %520 ], [ 0, %522 ]
+  %525 = getelementptr inbounds i8, ptr %39, i64 1040
+  %526 = load i64, ptr %525, align 8
+  %527 = add i64 %526, %.0.i193
+  store i64 %527, ptr %525, align 8
+  %528 = load i32, ptr %517, align 8
+  %529 = add nsw i32 %528, 1
+  store i32 %529, ptr %517, align 8
+  %530 = getelementptr inbounds i8, ptr %39, i64 2248
+  %531 = load ptr, ptr %530, align 8
+  %532 = getelementptr inbounds i8, ptr %39, i64 2256
+  %533 = load ptr, ptr %532, align 8
+  %534 = icmp eq ptr %531, %533
+  br i1 %534, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195, label %535
 
-532:                                              ; preds = %521
-  %533 = getelementptr inbounds i8, ptr %39, i64 2272
-  %534 = load i32, ptr %533, align 8
-  %535 = add nsw i32 %534, -1
-  store i32 %535, ptr %533, align 8
-  %536 = icmp eq i32 %535, 2
-  br i1 %536, label %537, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195
+535:                                              ; preds = %524
+  %536 = getelementptr inbounds i8, ptr %39, i64 2272
+  %537 = load i32, ptr %536, align 8
+  %538 = add nsw i32 %537, -1
+  store i32 %538, ptr %536, align 8
+  %539 = icmp eq i32 %538, 2
+  br i1 %539, label %540, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195
 
-537:                                              ; preds = %532
-  %538 = getelementptr inbounds i8, ptr %39, i64 2276
-  store i32 43, ptr %538, align 4
-  %539 = getelementptr inbounds i8, ptr %39, i64 2280
-  store i64 %513, ptr %539, align 8
+540:                                              ; preds = %535
+  %541 = getelementptr inbounds i8, ptr %39, i64 2276
+  store i32 43, ptr %541, align 4
+  %542 = getelementptr inbounds i8, ptr %39, i64 2280
+  store i64 %516, ptr %542, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195: ; preds = %521, %532, %537, %505
-  %540 = getelementptr inbounds i8, ptr %8, i64 416
-  %541 = load ptr, ptr %540, align 8
-  %542 = getelementptr inbounds i8, ptr %8, i64 440
-  %543 = load ptr, ptr %542, align 8
-  %544 = ptrtoint ptr %543 to i64
-  %545 = ptrtoint ptr %541 to i64
-  %546 = sub i64 %544, %545
-  %547 = getelementptr inbounds i8, ptr %541, i64 %546
-  store ptr %541, ptr %55, align 8
-  %548 = getelementptr inbounds i8, ptr %55, i64 8
-  store ptr %547, ptr %548, align 8
-  %549 = getelementptr inbounds i8, ptr %8, i64 456
-  %550 = load ptr, ptr %549, align 8
-  %551 = getelementptr inbounds i8, ptr %8, i64 480
-  %552 = load ptr, ptr %551, align 8
-  %553 = ptrtoint ptr %552 to i64
-  %554 = ptrtoint ptr %550 to i64
-  %555 = sub i64 %553, %554
-  %556 = getelementptr inbounds i8, ptr %550, i64 %555
-  store ptr %550, ptr %56, align 8
-  %557 = getelementptr inbounds i8, ptr %56, i64 8
-  store ptr %556, ptr %557, align 8
-  %558 = getelementptr inbounds i8, ptr %8, i64 52
-  call void @_Z15compute_globalsP15gmx_global_statP9t_commrecPK10t_inputrecP10t_forcerecP14gmx_ekindata_tN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEESF_PA3_KfPK9t_mdatomsP6t_nrnbP5t_vcmP13gmx_wallcycleP14gmx_enerdata_tPA3_fSV_SV_SV_PNSA_19SimulationSignallerESI_PbilPNSA_18ObservablesReducerE(ptr noundef %16, ptr noundef %7, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %15, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %55, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %56, ptr noundef nonnull %558, ptr noundef nonnull %9, ptr noundef %37, ptr noundef %12, ptr noundef %39, ptr noundef %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %35, ptr noundef nonnull %558, ptr noundef %30, i32 noundef 144, i64 noundef %0, ptr noundef %14)
-  br i1 %59, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211, label %559
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195: ; preds = %524, %535, %540, %508
+  %543 = getelementptr inbounds i8, ptr %8, i64 416
+  %544 = load ptr, ptr %543, align 8
+  %545 = getelementptr inbounds i8, ptr %8, i64 440
+  %546 = load ptr, ptr %545, align 8
+  %547 = ptrtoint ptr %546 to i64
+  %548 = ptrtoint ptr %544 to i64
+  %549 = sub i64 %547, %548
+  %550 = getelementptr inbounds i8, ptr %544, i64 %549
+  store ptr %544, ptr %55, align 8
+  %551 = getelementptr inbounds i8, ptr %55, i64 8
+  store ptr %550, ptr %551, align 8
+  %552 = getelementptr inbounds i8, ptr %8, i64 456
+  %553 = load ptr, ptr %552, align 8
+  %554 = getelementptr inbounds i8, ptr %8, i64 480
+  %555 = load ptr, ptr %554, align 8
+  %556 = ptrtoint ptr %555 to i64
+  %557 = ptrtoint ptr %553 to i64
+  %558 = sub i64 %556, %557
+  %559 = getelementptr inbounds i8, ptr %553, i64 %558
+  store ptr %553, ptr %56, align 8
+  %560 = getelementptr inbounds i8, ptr %56, i64 8
+  store ptr %559, ptr %560, align 8
+  %561 = getelementptr inbounds i8, ptr %8, i64 52
+  call void @_Z15compute_globalsP15gmx_global_statP9t_commrecPK10t_inputrecP10t_forcerecP14gmx_ekindata_tN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEESF_PA3_KfPK9t_mdatomsP6t_nrnbP5t_vcmP13gmx_wallcycleP14gmx_enerdata_tPA3_fSV_SV_SV_PNSA_19SimulationSignallerESI_PbilPNSA_18ObservablesReducerE(ptr noundef %16, ptr noundef %7, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %15, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %55, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %56, ptr noundef nonnull %561, ptr noundef nonnull %9, ptr noundef %37, ptr noundef %12, ptr noundef %39, ptr noundef %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %35, ptr noundef nonnull %561, ptr noundef %30, i32 noundef 144, i64 noundef %0, ptr noundef %14)
+  br i1 %59, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211, label %562
 
-559:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195
+562:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %39)
-  %560 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
-  %561 = extractvalue { i32, i32 } %560, 0
-  %562 = extractvalue { i32, i32 } %560, 1
-  %563 = zext i32 %561 to i64
-  %564 = zext i32 %562 to i64
-  %565 = shl nuw i64 %564, 32
-  %566 = or disjoint i64 %565, %563
-  %567 = getelementptr inbounds i8, ptr %39, i64 1048
-  store i64 %566, ptr %567, align 8
-  %568 = getelementptr inbounds i8, ptr %39, i64 2248
-  %569 = load ptr, ptr %568, align 8
-  %570 = getelementptr inbounds i8, ptr %39, i64 2256
-  %571 = load ptr, ptr %570, align 8
-  %572 = icmp eq ptr %569, %571
-  br i1 %572, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread, label %573
+  %563 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
+  %564 = extractvalue { i32, i32 } %563, 0
+  %565 = extractvalue { i32, i32 } %563, 1
+  %566 = zext i32 %564 to i64
+  %567 = zext i32 %565 to i64
+  %568 = shl nuw i64 %567, 32
+  %569 = or disjoint i64 %568, %566
+  %570 = getelementptr inbounds i8, ptr %39, i64 1048
+  store i64 %569, ptr %570, align 8
+  %571 = getelementptr inbounds i8, ptr %39, i64 2248
+  %572 = load ptr, ptr %571, align 8
+  %573 = getelementptr inbounds i8, ptr %39, i64 2256
+  %574 = load ptr, ptr %573, align 8
+  %575 = icmp eq ptr %572, %574
+  br i1 %575, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread, label %576
 
-573:                                              ; preds = %559
-  %574 = getelementptr inbounds i8, ptr %39, i64 2272
-  %575 = load i32, ptr %574, align 8
-  %576 = add nsw i32 %575, 1
-  store i32 %576, ptr %574, align 8
-  %577 = icmp eq i32 %576, 3
-  br i1 %577, label %578, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread
+576:                                              ; preds = %562
+  %577 = getelementptr inbounds i8, ptr %39, i64 2272
+  %578 = load i32, ptr %577, align 8
+  %579 = add nsw i32 %578, 1
+  store i32 %579, ptr %577, align 8
+  %580 = icmp eq i32 %579, 3
+  br i1 %580, label %581, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread
 
-578:                                              ; preds = %573
-  %579 = getelementptr inbounds i8, ptr %39, i64 2276
-  %580 = load i32, ptr %579, align 4
-  %581 = mul nsw i32 %580, 52
-  %582 = add nsw i32 %581, 43
-  %583 = sext i32 %582 to i64
-  %584 = getelementptr inbounds %struct.wallcc_t, ptr %569, i64 %583
-  %585 = load i32, ptr %584, align 8
-  %586 = add nsw i32 %585, 1
-  store i32 %586, ptr %584, align 8
-  %587 = getelementptr inbounds i8, ptr %39, i64 2280
-  %588 = load i64, ptr %587, align 8
-  %589 = sub i64 %566, %588
-  %590 = load ptr, ptr %568, align 8
-  %591 = getelementptr inbounds %struct.wallcc_t, ptr %590, i64 %583, i32 1
-  %592 = load i64, ptr %591, align 8
-  %593 = add i64 %589, %592
-  store i64 %593, ptr %591, align 8
+581:                                              ; preds = %576
+  %582 = getelementptr inbounds i8, ptr %39, i64 2276
+  %583 = load i32, ptr %582, align 4
+  %584 = mul nsw i32 %583, 52
+  %585 = add nsw i32 %584, 43
+  %586 = sext i32 %585 to i64
+  %587 = getelementptr inbounds %struct.wallcc_t, ptr %572, i64 %586
+  %588 = load i32, ptr %587, align 8
+  %589 = add nsw i32 %588, 1
+  store i32 %589, ptr %587, align 8
+  %590 = getelementptr inbounds i8, ptr %39, i64 2280
+  %591 = load i64, ptr %590, align 8
+  %592 = sub i64 %569, %591
+  %593 = load ptr, ptr %571, align 8
+  %594 = getelementptr inbounds %struct.wallcc_t, ptr %593, i64 %586, i32 1
+  %595 = load i64, ptr %594, align 8
+  %596 = add i64 %592, %595
+  store i64 %596, ptr %594, align 8
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread
 
 _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191
-  %594 = load i32, ptr %95, align 4
-  %595 = icmp eq i32 %594, 10
-  br i1 %595, label %596, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread
+  %597 = load i32, ptr %95, align 4
+  %598 = icmp eq i32 %597, 10
+  br i1 %598, label %599, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread
 
-596:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200
-  %597 = getelementptr inbounds i8, ptr %8, i64 456
-  %598 = load ptr, ptr %597, align 8
-  %599 = load i32, ptr %8, align 8
-  %600 = icmp sgt i32 %599, 0
-  br i1 %600, label %.lr.ph.preheader.i201, label %_ZL10copy_rvecnPA3_KfPA3_fii.exit207
+599:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200
+  %600 = getelementptr inbounds i8, ptr %8, i64 456
+  %601 = load ptr, ptr %600, align 8
+  %602 = load i32, ptr %8, align 8
+  %603 = icmp sgt i32 %602, 0
+  br i1 %603, label %.lr.ph.preheader.i201, label %_ZL10copy_rvecnPA3_KfPA3_fii.exit207
 
-.lr.ph.preheader.i201:                            ; preds = %596
-  %wide.trip.count.i202 = zext nneg i32 %599 to i64
+.lr.ph.preheader.i201:                            ; preds = %599
+  %wide.trip.count.i202 = zext nneg i32 %602 to i64
   br label %.lr.ph.i203
 
 .lr.ph.i203:                                      ; preds = %.lr.ph.i203, %.lr.ph.preheader.i201
   %indvars.iv.i204 = phi i64 [ 0, %.lr.ph.preheader.i201 ], [ %indvars.iv.next.i205, %.lr.ph.i203 ]
-  %601 = getelementptr inbounds [3 x float], ptr %.0, i64 %indvars.iv.i204
-  %602 = load float, ptr %601, align 4
-  %603 = getelementptr inbounds [3 x float], ptr %598, i64 %indvars.iv.i204
-  store float %602, ptr %603, align 4
-  %604 = getelementptr inbounds i8, ptr %601, i64 4
+  %604 = getelementptr inbounds [3 x float], ptr %.0, i64 %indvars.iv.i204
   %605 = load float, ptr %604, align 4
-  %606 = getelementptr inbounds i8, ptr %603, i64 4
+  %606 = getelementptr inbounds [3 x float], ptr %601, i64 %indvars.iv.i204
   store float %605, ptr %606, align 4
-  %607 = getelementptr inbounds i8, ptr %601, i64 8
+  %607 = getelementptr inbounds i8, ptr %604, i64 4
   %608 = load float, ptr %607, align 4
-  %609 = getelementptr inbounds i8, ptr %603, i64 8
+  %609 = getelementptr inbounds i8, ptr %606, i64 4
   store float %608, ptr %609, align 4
+  %610 = getelementptr inbounds i8, ptr %604, i64 8
+  %611 = load float, ptr %610, align 4
+  %612 = getelementptr inbounds i8, ptr %606, i64 8
+  store float %611, ptr %612, align 4
   %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i204, 1
   %exitcond.not.i206 = icmp eq i64 %indvars.iv.next.i205, %wide.trip.count.i202
   br i1 %exitcond.not.i206, label %_ZL10copy_rvecnPA3_KfPA3_fii.exit207, label %.lr.ph.i203, !llvm.loop !6
 
-_ZL10copy_rvecnPA3_KfPA3_fii.exit207:             ; preds = %.lr.ph.i203, %596
+_ZL10copy_rvecnPA3_KfPA3_fii.exit207:             ; preds = %.lr.ph.i203, %599
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 298, ptr noundef %.0)
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread: ; preds = %504, %486, %488, %491, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200, %_ZL10copy_rvecnPA3_KfPA3_fii.exit207
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread: ; preds = %507, %489, %491, %494, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200, %_ZL10copy_rvecnPA3_KfPA3_fii.exit207
   br i1 %59, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread: ; preds = %578, %573, %559, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread: ; preds = %581, %576, %562, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %39)
-  %610 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
-  %611 = extractvalue { i32, i32 } %610, 0
-  %612 = extractvalue { i32, i32 } %610, 1
-  %613 = zext i32 %611 to i64
-  %614 = zext i32 %612 to i64
-  %615 = shl nuw i64 %614, 32
-  %616 = or disjoint i64 %615, %613
-  %617 = getelementptr inbounds i8, ptr %39, i64 1032
-  %618 = getelementptr inbounds i8, ptr %39, i64 1048
-  %619 = load i64, ptr %618, align 8
-  %.not.i208 = icmp ult i64 %616, %619
-  br i1 %.not.i208, label %622, label %620
+  %613 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
+  %614 = extractvalue { i32, i32 } %613, 0
+  %615 = extractvalue { i32, i32 } %613, 1
+  %616 = zext i32 %614 to i64
+  %617 = zext i32 %615 to i64
+  %618 = shl nuw i64 %617, 32
+  %619 = or disjoint i64 %618, %616
+  %620 = getelementptr inbounds i8, ptr %39, i64 1032
+  %621 = getelementptr inbounds i8, ptr %39, i64 1048
+  %622 = load i64, ptr %621, align 8
+  %.not.i208 = icmp ult i64 %619, %622
+  br i1 %.not.i208, label %625, label %623
 
-620:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread
-  %621 = sub nuw i64 %616, %619
-  br label %624
+623:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread
+  %624 = sub nuw i64 %619, %622
+  br label %627
 
-622:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread
-  %623 = getelementptr inbounds i8, ptr %39, i64 2288
-  store i8 1, ptr %623, align 8
-  br label %624
+625:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread.thread
+  %626 = getelementptr inbounds i8, ptr %39, i64 2288
+  store i8 1, ptr %626, align 8
+  br label %627
 
-624:                                              ; preds = %622, %620
-  %.0.i209 = phi i64 [ %621, %620 ], [ 0, %622 ]
-  %625 = getelementptr inbounds i8, ptr %39, i64 1040
-  %626 = load i64, ptr %625, align 8
-  %627 = add i64 %626, %.0.i209
-  store i64 %627, ptr %625, align 8
-  %628 = load i32, ptr %617, align 8
-  %629 = add nsw i32 %628, 1
-  store i32 %629, ptr %617, align 8
-  %630 = getelementptr inbounds i8, ptr %39, i64 2248
-  %631 = load ptr, ptr %630, align 8
-  %632 = getelementptr inbounds i8, ptr %39, i64 2256
-  %633 = load ptr, ptr %632, align 8
-  %634 = icmp eq ptr %631, %633
-  br i1 %634, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211, label %635
+627:                                              ; preds = %625, %623
+  %.0.i209 = phi i64 [ %624, %623 ], [ 0, %625 ]
+  %628 = getelementptr inbounds i8, ptr %39, i64 1040
+  %629 = load i64, ptr %628, align 8
+  %630 = add i64 %629, %.0.i209
+  store i64 %630, ptr %628, align 8
+  %631 = load i32, ptr %620, align 8
+  %632 = add nsw i32 %631, 1
+  store i32 %632, ptr %620, align 8
+  %633 = getelementptr inbounds i8, ptr %39, i64 2248
+  %634 = load ptr, ptr %633, align 8
+  %635 = getelementptr inbounds i8, ptr %39, i64 2256
+  %636 = load ptr, ptr %635, align 8
+  %637 = icmp eq ptr %634, %636
+  br i1 %637, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211, label %638
 
-635:                                              ; preds = %624
-  %636 = getelementptr inbounds i8, ptr %39, i64 2272
-  %637 = load i32, ptr %636, align 8
-  %638 = add nsw i32 %637, -1
-  store i32 %638, ptr %636, align 8
-  %639 = icmp eq i32 %638, 2
-  br i1 %639, label %640, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211
+638:                                              ; preds = %627
+  %639 = getelementptr inbounds i8, ptr %39, i64 2272
+  %640 = load i32, ptr %639, align 8
+  %641 = add nsw i32 %640, -1
+  store i32 %641, ptr %639, align 8
+  %642 = icmp eq i32 %641, 2
+  br i1 %642, label %643, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211
 
-640:                                              ; preds = %635
-  %641 = getelementptr inbounds i8, ptr %39, i64 2276
-  store i32 43, ptr %641, align 4
-  %642 = getelementptr inbounds i8, ptr %39, i64 2280
-  store i64 %616, ptr %642, align 8
+643:                                              ; preds = %638
+  %644 = getelementptr inbounds i8, ptr %39, i64 2276
+  store i32 43, ptr %644, align 4
+  %645 = getelementptr inbounds i8, ptr %39, i64 2280
+  store i64 %619, ptr %645, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211: ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread, %640, %635, %624, %40
-  %643 = getelementptr inbounds i8, ptr %5, i64 204
-  %644 = getelementptr inbounds i8, ptr %5, i64 192
-  %645 = load i32, ptr %644, align 8
-  %646 = getelementptr inbounds i8, ptr %5, i64 720
-  %647 = getelementptr inbounds i8, ptr %5, i64 744
-  %648 = load ptr, ptr %647, align 8
-  %649 = load i32, ptr %646, align 8
-  %650 = sext i32 %649 to i64
-  %.not.i212 = icmp eq ptr %648, null
-  %651 = getelementptr inbounds float, ptr %648, i64 %650
-  %spec.select.i = select i1 %.not.i212, ptr null, ptr %651
-  %652 = call noundef zeroext i1 @_Z18inputrecNvtTrotterPK10t_inputrec(ptr noundef %5)
-  br i1 %652, label %655, label %653
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211: ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit195, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200.thread, %643, %638, %627, %40
+  %646 = getelementptr inbounds i8, ptr %5, i64 204
+  %647 = getelementptr inbounds i8, ptr %5, i64 192
+  %648 = load i32, ptr %647, align 8
+  %649 = getelementptr inbounds i8, ptr %5, i64 720
+  %650 = getelementptr inbounds i8, ptr %5, i64 744
+  %651 = load ptr, ptr %650, align 8
+  %652 = load i32, ptr %649, align 8
+  %653 = sext i32 %652 to i64
+  %.not.i212 = icmp eq ptr %651, null
+  %654 = getelementptr inbounds float, ptr %651, i64 %653
+  %spec.select.i = select i1 %.not.i212, ptr null, ptr %654
+  %655 = call noundef zeroext i1 @_Z18inputrecNvtTrotterPK10t_inputrec(ptr noundef %5)
+  br i1 %655, label %658, label %656
 
-653:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211
-  %654 = call noundef zeroext i1 @_Z18inputrecNptTrotterPK10t_inputrec(ptr noundef nonnull %5)
-  br label %655
+656:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211
+  %657 = call noundef zeroext i1 @_Z18inputrecNptTrotterPK10t_inputrec(ptr noundef nonnull %5)
+  br label %658
 
-655:                                              ; preds = %653, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211
-  %656 = phi i1 [ true, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211 ], [ %654, %653 ]
-  %657 = call noundef float @_Z10NPT_energyRK23PressureCouplingOptions19TemperatureCouplingN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass(ptr noundef nonnull align 4 dereferenceable(92) %643, i32 noundef %645, ptr %648, ptr %spec.select.i, ptr noundef nonnull align 8 dereferenceable(212) %15, i1 noundef zeroext %656, ptr noundef %8, ptr noundef %11)
-  store float %657, ptr %31, align 4
-  %658 = getelementptr inbounds i8, ptr %5, i64 4
-  %659 = load i32, ptr %658, align 4
-  %660 = icmp eq i32 %659, 10
-  br i1 %660, label %661, label %664
+658:                                              ; preds = %656, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211
+  %659 = phi i1 [ true, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit211 ], [ %657, %656 ]
+  %660 = call noundef float @_Z10NPT_energyRK23PressureCouplingOptions19TemperatureCouplingN3gmx8ArrayRefIKfEERK14gmx_ekindata_tbPK7t_statePK9t_extmass(ptr noundef nonnull align 4 dereferenceable(92) %646, i32 noundef %648, ptr %651, ptr %spec.select.i, ptr noundef nonnull align 8 dereferenceable(212) %15, i1 noundef zeroext %659, ptr noundef %8, ptr noundef %11)
+  store float %660, ptr %31, align 4
+  %661 = getelementptr inbounds i8, ptr %5, i64 4
+  %662 = load i32, ptr %661, align 4
+  %663 = icmp eq i32 %662, 10
+  br i1 %663, label %664, label %667
 
-661:                                              ; preds = %655
-  %662 = getelementptr inbounds i8, ptr %13, i64 316
-  %663 = load float, ptr %662, align 4
-  store float %663, ptr %17, align 4
-  br label %664
+664:                                              ; preds = %658
+  %665 = getelementptr inbounds i8, ptr %13, i64 316
+  %666 = load float, ptr %665, align 4
+  store float %666, ptr %17, align 4
+  br label %667
 
-664:                                              ; preds = %661, %655
-  %665 = getelementptr inbounds i8, ptr %5, i64 384
-  %666 = load i32, ptr %665, align 8
-  switch i32 %666, label %667 [
-    i32 1, label %672
-    i32 3, label %672
+667:                                              ; preds = %664, %658
+  %668 = getelementptr inbounds i8, ptr %5, i64 384
+  %669 = load i32, ptr %668, align 8
+  switch i32 %669, label %670 [
+    i32 1, label %675
+    i32 3, label %675
   ]
 
-667:                                              ; preds = %664
-  %668 = getelementptr inbounds i8, ptr %13, i64 164
-  %669 = load float, ptr %668, align 4
-  %670 = load float, ptr %31, align 4
-  %671 = fsub float %670, %669
-  store float %671, ptr %31, align 4
-  br label %672
+670:                                              ; preds = %667
+  %671 = getelementptr inbounds i8, ptr %13, i64 164
+  %672 = load float, ptr %671, align 4
+  %673 = load float, ptr %31, align 4
+  %674 = fsub float %673, %672
+  store float %674, ptr %31, align 4
+  br label %675
 
-672:                                              ; preds = %664, %664, %667
-  %673 = getelementptr inbounds i8, ptr %5, i64 396
-  %674 = load i32, ptr %673, align 4
-  %.not170 = icmp eq i32 %674, 0
-  br i1 %.not170, label %680, label %675
+675:                                              ; preds = %667, %667, %670
+  %676 = getelementptr inbounds i8, ptr %5, i64 396
+  %677 = load i32, ptr %676, align 4
+  %.not170 = icmp eq i32 %677, 0
+  br i1 %.not170, label %683, label %678
 
-675:                                              ; preds = %672
-  %676 = getelementptr inbounds i8, ptr %8, i64 24
-  %677 = getelementptr inbounds i8, ptr %8, i64 52
-  %678 = getelementptr inbounds i8, ptr %5, i64 400
-  %679 = load ptr, ptr %678, align 8
-  call void @_Z33accumulateKineticLambdaComponentsP14gmx_enerdata_tN3gmx8ArrayRefIKfEERK8t_lambda(ptr noundef %13, ptr nonnull %676, ptr nonnull %677, ptr noundef nonnull align 8 dereferenceable(288) %679)
-  br label %680
+678:                                              ; preds = %675
+  %679 = getelementptr inbounds i8, ptr %8, i64 24
+  %680 = getelementptr inbounds i8, ptr %8, i64 52
+  %681 = getelementptr inbounds i8, ptr %5, i64 400
+  %682 = load ptr, ptr %681, align 8
+  call void @_Z33accumulateKineticLambdaComponentsP14gmx_enerdata_tN3gmx8ArrayRefIKfEERK8t_lambda(ptr noundef %13, ptr nonnull %679, ptr nonnull %680, ptr noundef nonnull align 8 dereferenceable(288) %682)
+  br label %683
 
-680:                                              ; preds = %675, %672
+683:                                              ; preds = %678, %675
   ret void
 }
 
@@ -1067,12 +1071,12 @@ define void @_Z21integrateVVSecondSteplPK10t_inputrecP10t_forcerecP9t_commrecP7t
   %35 = alloca %"class.gmx::ArrayRef.112", align 8
   %36 = alloca %"class.gmx::ArrayRef.68", align 8
   %37 = alloca %"class.gmx::ArrayRef.115", align 8
-  %38 = alloca %"class.gmx::ArrayRefWithPadding", align 16
+  %38 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %39 = alloca %"class.std::optional", align 8
   %40 = alloca %"class.gmx::ArrayRef.112", align 8
   %41 = alloca %"class.gmx::ArrayRef.68", align 8
   %42 = alloca %"class.gmx::ArrayRef.115", align 8
-  %43 = alloca %"class.gmx::ArrayRefWithPadding", align 16
+  %43 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %44 = alloca %"class.gmx::ArrayRefWithPadding.118", align 8
   %45 = alloca %"class.gmx::ArrayRef.112", align 8
   %46 = alloca %"class.gmx::ArrayRef.68", align 8
@@ -1084,7 +1088,7 @@ define void @_Z21integrateVVSecondSteplPK10t_inputrecP10t_forcerecP9t_commrecP7t
   %52 = alloca %"class.gmx::ArrayRef.112", align 8
   %53 = alloca %"class.gmx::ArrayRef.68", align 8
   %54 = alloca %"class.gmx::ArrayRef.115", align 8
-  %55 = alloca %"class.gmx::ArrayRefWithPadding", align 16
+  %55 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %34, i8 0, i64 36, i1 false)
   %56 = getelementptr inbounds i8, ptr %34, i64 48
   store ptr %34, ptr %56, align 8
@@ -1127,440 +1131,450 @@ define void @_Z21integrateVVSecondSteplPK10t_inputrecP10t_forcerecP9t_commrecP7t
   %88 = getelementptr inbounds i8, ptr %81, i64 %87
   store ptr %88, ptr %82, align 8
   %89 = getelementptr inbounds i8, ptr %25, i64 80
-  %90 = getelementptr inbounds i8, ptr %25, i64 96
-  %91 = load ptr, ptr %90, align 8, !noalias !11
-  %92 = load <2 x ptr>, ptr %89, align 8, !noalias !11
-  store <2 x ptr> %92, ptr %38, align 16
-  %93 = getelementptr inbounds i8, ptr %38, i64 16
-  store ptr %91, ptr %93, align 16
-  %94 = icmp ne ptr %28, null
-  call void @_ZN3gmx6Update13update_coordsERK10t_inputreclibNS_8ArrayRefIK12ParticleTypeEENS4_IKfEENS4_IKNS_11BasicVectorIfEEEEP7t_stateRKNS_19ArrayRefWithPaddingISC_EEP8t_fcdataPK14gmx_ekindata_tRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEiPK9t_commrecb(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 noundef %0, i32 noundef %58, i1 noundef zeroext %61, ptr noundef nonnull byval(%"class.gmx::ArrayRef.112") align 8 %35, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %36, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %37, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef %6, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(56) %34, i32 noundef 8, ptr noundef %3, i1 noundef zeroext %94)
-  %95 = getelementptr inbounds i8, ptr %1, i64 4
-  %96 = load i32, ptr %95, align 4
-  %97 = icmp eq i32 %96, 11
-  br i1 %97, label %98, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEENS1_IS5_S6_IS4_SaIS4_EEEEET0_T_SG_SF_.exit
+  %90 = load ptr, ptr %89, align 8, !noalias !11
+  %91 = getelementptr inbounds i8, ptr %25, i64 88
+  %92 = load ptr, ptr %91, align 8, !noalias !11
+  %93 = getelementptr inbounds i8, ptr %25, i64 96
+  %94 = load ptr, ptr %93, align 8, !noalias !11
+  store ptr %90, ptr %38, align 8
+  %95 = getelementptr inbounds i8, ptr %38, i64 8
+  store ptr %92, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %38, i64 16
+  store ptr %94, ptr %96, align 8
+  %97 = icmp ne ptr %28, null
+  call void @_ZN3gmx6Update13update_coordsERK10t_inputreclibNS_8ArrayRefIK12ParticleTypeEENS4_IKfEENS4_IKNS_11BasicVectorIfEEEEP7t_stateRKNS_19ArrayRefWithPaddingISC_EEP8t_fcdataPK14gmx_ekindata_tRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEiPK9t_commrecb(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 noundef %0, i32 noundef %58, i1 noundef zeroext %61, ptr noundef nonnull byval(%"class.gmx::ArrayRef.112") align 8 %35, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %36, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %37, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef %6, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(56) %34, i32 noundef 8, ptr noundef %3, i1 noundef zeroext %97)
+  %98 = getelementptr inbounds i8, ptr %1, i64 4
+  %99 = load i32, ptr %98, align 4
+  %100 = icmp eq i32 %99, 11
+  br i1 %100, label %101, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEENS1_IS5_S6_IS4_SaIS4_EEEEET0_T_SG_SF_.exit
 
-98:                                               ; preds = %33
-  %99 = getelementptr inbounds i8, ptr %4, i64 440
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %4, i64 416
-  %102 = load ptr, ptr %101, align 8
-  %103 = ptrtoint ptr %100 to i64
-  %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = sdiv exact i64 %105, 12
-  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %106)
-  %107 = load ptr, ptr %101, align 8
-  %.sroa.0.0.copyload.i = load ptr, ptr %99, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i, %107
-  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEENS1_IS5_S6_IS4_SaIS4_EEEEET0_T_SG_SF_.exit, label %108
+101:                                              ; preds = %33
+  %102 = getelementptr inbounds i8, ptr %4, i64 440
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %4, i64 416
+  %105 = load ptr, ptr %104, align 8
+  %106 = ptrtoint ptr %103 to i64
+  %107 = ptrtoint ptr %105 to i64
+  %108 = sub i64 %106, %107
+  %109 = sdiv exact i64 %108, 12
+  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %109)
+  %110 = load ptr, ptr %104, align 8
+  %.sroa.0.0.copyload.i = load ptr, ptr %102, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i, %110
+  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEENS1_IS5_S6_IS4_SaIS4_EEEEET0_T_SG_SF_.exit, label %111
 
-108:                                              ; preds = %98
-  %109 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
-  %110 = ptrtoint ptr %107 to i64
-  %111 = sub i64 %109, %110
-  %112 = load ptr, ptr %26, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %112, ptr align 4 %107, i64 %111, i1 false)
+111:                                              ; preds = %101
+  %112 = ptrtoint ptr %.sroa.0.0.copyload.i to i64
+  %113 = ptrtoint ptr %110 to i64
+  %114 = sub i64 %112, %113
+  %115 = load ptr, ptr %26, align 8
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %115, ptr align 4 %110, i64 %114, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEENS1_IS5_S6_IS4_SaIS4_EEEEET0_T_SG_SF_.exit
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEENS1_IS5_S6_IS4_SaIS4_EEEEET0_T_SG_SF_.exit: ; preds = %108, %98, %33
-  %113 = getelementptr inbounds i8, ptr %1, i64 568
-  %114 = load i8, ptr %113, align 8
-  %115 = trunc i8 %114 to i1
-  br i1 %115, label %116, label %133
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEENS1_IS5_S6_IS4_SaIS4_EEEEET0_T_SG_SF_.exit: ; preds = %111, %101, %33
+  %116 = getelementptr inbounds i8, ptr %1, i64 568
+  %117 = load i8, ptr %116, align 8
+  %118 = trunc i8 %117 to i1
+  br i1 %118, label %119, label %136
 
-116:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEENS1_IS5_S6_IS4_SaIS4_EEEEET0_T_SG_SF_.exit
-  %117 = getelementptr inbounds i8, ptr %1, i64 576
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 19
-  %120 = load i8, ptr %119, align 1
-  %121 = trunc i8 %120 to i1
-  br i1 %121, label %122, label %133
+119:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEENS1_IS5_S6_IS4_SaIS4_EEEEET0_T_SG_SF_.exit
+  %120 = getelementptr inbounds i8, ptr %1, i64 576
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 19
+  %123 = load i8, ptr %122, align 1
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %125, label %136
 
-122:                                              ; preds = %116
-  %123 = getelementptr inbounds i8, ptr %4, i64 808
-  %124 = load ptr, ptr %123, align 8
-  store ptr %124, ptr %39, align 8
-  %125 = getelementptr inbounds i8, ptr %39, i64 8
-  %126 = getelementptr inbounds i8, ptr %4, i64 816
+125:                                              ; preds = %119
+  %126 = getelementptr inbounds i8, ptr %4, i64 808
   %127 = load ptr, ptr %126, align 8
-  %128 = ptrtoint ptr %127 to i64
-  %129 = ptrtoint ptr %124 to i64
-  %130 = sub i64 %128, %129
-  %131 = getelementptr inbounds i8, ptr %124, i64 %130
-  store ptr %131, ptr %125, align 8
-  %132 = getelementptr inbounds i8, ptr %39, i64 16
-  store i8 1, ptr %132, align 8
+  store ptr %127, ptr %39, align 8
+  %128 = getelementptr inbounds i8, ptr %39, i64 8
+  %129 = getelementptr inbounds i8, ptr %4, i64 816
+  %130 = load ptr, ptr %129, align 8
+  %131 = ptrtoint ptr %130 to i64
+  %132 = ptrtoint ptr %127 to i64
+  %133 = sub i64 %131, %132
+  %134 = getelementptr inbounds i8, ptr %127, i64 %133
+  store ptr %134, ptr %128, align 8
+  %135 = getelementptr inbounds i8, ptr %39, i64 16
+  store i8 1, ptr %135, align 8
   call void @_Z21updatePrevStepPullComP6pull_tSt8optionalIN3gmx8ArrayRefIdEEE(ptr noundef %9, ptr noundef nonnull byval(%"class.std::optional") align 8 %39)
-  br label %133
+  br label %136
 
-133:                                              ; preds = %122, %116, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEENS1_IS5_S6_IS4_SaIS4_EEEEET0_T_SG_SF_.exit
-  %134 = load i32, ptr %57, align 8
-  %135 = load i8, ptr %59, align 2
-  %136 = trunc i8 %135 to i1
-  %137 = load ptr, ptr %62, align 8
-  store ptr %137, ptr %40, align 8
-  %138 = getelementptr inbounds i8, ptr %40, i64 8
-  %139 = load ptr, ptr %65, align 8
-  %140 = ptrtoint ptr %139 to i64
-  %141 = ptrtoint ptr %137 to i64
-  %142 = sub i64 %140, %141
-  %143 = getelementptr inbounds i8, ptr %137, i64 %142
-  store ptr %143, ptr %138, align 8
-  %144 = load ptr, ptr %71, align 8
-  store ptr %144, ptr %41, align 8
-  %145 = getelementptr inbounds i8, ptr %41, i64 8
-  %146 = load ptr, ptr %74, align 8
-  %147 = ptrtoint ptr %146 to i64
-  %148 = ptrtoint ptr %144 to i64
-  %149 = sub i64 %147, %148
-  %150 = getelementptr inbounds i8, ptr %144, i64 %149
-  store ptr %150, ptr %145, align 8
-  %151 = load ptr, ptr %80, align 8
-  store ptr %151, ptr %42, align 8
-  %152 = getelementptr inbounds i8, ptr %42, i64 8
-  %153 = load ptr, ptr %83, align 8
-  %154 = ptrtoint ptr %153 to i64
-  %155 = ptrtoint ptr %151 to i64
-  %156 = sub i64 %154, %155
-  %157 = getelementptr inbounds i8, ptr %151, i64 %156
-  store ptr %157, ptr %152, align 8
-  %158 = load ptr, ptr %90, align 8, !noalias !14
-  %159 = load <2 x ptr>, ptr %89, align 8, !noalias !14
-  store <2 x ptr> %159, ptr %43, align 16
-  %160 = getelementptr inbounds i8, ptr %43, i64 16
-  store ptr %158, ptr %160, align 16
-  call void @_ZN3gmx6Update13update_coordsERK10t_inputreclibNS_8ArrayRefIK12ParticleTypeEENS4_IKfEENS4_IKNS_11BasicVectorIfEEEEP7t_stateRKNS_19ArrayRefWithPaddingISC_EEP8t_fcdataPK14gmx_ekindata_tRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEiPK9t_commrecb(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 noundef %0, i32 noundef %134, i1 noundef zeroext %136, ptr noundef nonnull byval(%"class.gmx::ArrayRef.112") align 8 %40, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %41, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %42, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef %6, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(56) %34, i32 noundef 9, ptr noundef %3, i1 noundef zeroext %94)
-  %161 = icmp eq ptr %32, null
-  br i1 %161, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %162
+136:                                              ; preds = %125, %119, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEENS1_IS5_S6_IS4_SaIS4_EEEEET0_T_SG_SF_.exit
+  %137 = load i32, ptr %57, align 8
+  %138 = load i8, ptr %59, align 2
+  %139 = trunc i8 %138 to i1
+  %140 = load ptr, ptr %62, align 8
+  store ptr %140, ptr %40, align 8
+  %141 = getelementptr inbounds i8, ptr %40, i64 8
+  %142 = load ptr, ptr %65, align 8
+  %143 = ptrtoint ptr %142 to i64
+  %144 = ptrtoint ptr %140 to i64
+  %145 = sub i64 %143, %144
+  %146 = getelementptr inbounds i8, ptr %140, i64 %145
+  store ptr %146, ptr %141, align 8
+  %147 = load ptr, ptr %71, align 8
+  store ptr %147, ptr %41, align 8
+  %148 = getelementptr inbounds i8, ptr %41, i64 8
+  %149 = load ptr, ptr %74, align 8
+  %150 = ptrtoint ptr %149 to i64
+  %151 = ptrtoint ptr %147 to i64
+  %152 = sub i64 %150, %151
+  %153 = getelementptr inbounds i8, ptr %147, i64 %152
+  store ptr %153, ptr %148, align 8
+  %154 = load ptr, ptr %80, align 8
+  store ptr %154, ptr %42, align 8
+  %155 = getelementptr inbounds i8, ptr %42, i64 8
+  %156 = load ptr, ptr %83, align 8
+  %157 = ptrtoint ptr %156 to i64
+  %158 = ptrtoint ptr %154 to i64
+  %159 = sub i64 %157, %158
+  %160 = getelementptr inbounds i8, ptr %154, i64 %159
+  store ptr %160, ptr %155, align 8
+  %161 = load ptr, ptr %89, align 8, !noalias !14
+  %162 = load ptr, ptr %91, align 8, !noalias !14
+  %163 = load ptr, ptr %93, align 8, !noalias !14
+  store ptr %161, ptr %43, align 8
+  %164 = getelementptr inbounds i8, ptr %43, i64 8
+  store ptr %162, ptr %164, align 8
+  %165 = getelementptr inbounds i8, ptr %43, i64 16
+  store ptr %163, ptr %165, align 8
+  call void @_ZN3gmx6Update13update_coordsERK10t_inputreclibNS_8ArrayRefIK12ParticleTypeEENS4_IKfEENS4_IKNS_11BasicVectorIfEEEEP7t_stateRKNS_19ArrayRefWithPaddingISC_EEP8t_fcdataPK14gmx_ekindata_tRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEiPK9t_commrecb(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 noundef %0, i32 noundef %137, i1 noundef zeroext %139, ptr noundef nonnull byval(%"class.gmx::ArrayRef.112") align 8 %40, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %41, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %42, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef %6, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(56) %34, i32 noundef 9, ptr noundef %3, i1 noundef zeroext %97)
+  %166 = icmp eq ptr %32, null
+  br i1 %166, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %167
 
-162:                                              ; preds = %133
+167:                                              ; preds = %136
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %32)
-  %163 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
-  %164 = extractvalue { i32, i32 } %163, 0
-  %165 = extractvalue { i32, i32 } %163, 1
-  %166 = zext i32 %164 to i64
-  %167 = zext i32 %165 to i64
-  %168 = shl nuw i64 %167, 32
-  %169 = or disjoint i64 %168, %166
-  %170 = getelementptr inbounds i8, ptr %32, i64 1032
-  %171 = getelementptr inbounds i8, ptr %32, i64 1048
-  %172 = load i64, ptr %171, align 8
-  %.not.i = icmp ult i64 %169, %172
-  br i1 %.not.i, label %175, label %173
+  %168 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
+  %169 = extractvalue { i32, i32 } %168, 0
+  %170 = extractvalue { i32, i32 } %168, 1
+  %171 = zext i32 %169 to i64
+  %172 = zext i32 %170 to i64
+  %173 = shl nuw i64 %172, 32
+  %174 = or disjoint i64 %173, %171
+  %175 = getelementptr inbounds i8, ptr %32, i64 1032
+  %176 = getelementptr inbounds i8, ptr %32, i64 1048
+  %177 = load i64, ptr %176, align 8
+  %.not.i = icmp ult i64 %174, %177
+  br i1 %.not.i, label %180, label %178
 
-173:                                              ; preds = %162
-  %174 = sub nuw i64 %169, %172
-  br label %177
+178:                                              ; preds = %167
+  %179 = sub nuw i64 %174, %177
+  br label %182
 
-175:                                              ; preds = %162
-  %176 = getelementptr inbounds i8, ptr %32, i64 2288
-  store i8 1, ptr %176, align 8
-  br label %177
+180:                                              ; preds = %167
+  %181 = getelementptr inbounds i8, ptr %32, i64 2288
+  store i8 1, ptr %181, align 8
+  br label %182
 
-177:                                              ; preds = %175, %173
-  %.0.i = phi i64 [ %174, %173 ], [ 0, %175 ]
-  %178 = getelementptr inbounds i8, ptr %32, i64 1040
-  %179 = load i64, ptr %178, align 8
-  %180 = add i64 %179, %.0.i
-  store i64 %180, ptr %178, align 8
-  %181 = load i32, ptr %170, align 8
-  %182 = add nsw i32 %181, 1
-  store i32 %182, ptr %170, align 8
-  %183 = getelementptr inbounds i8, ptr %32, i64 2248
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %32, i64 2256
-  %186 = load ptr, ptr %185, align 8
-  %187 = icmp eq ptr %184, %186
-  br i1 %187, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %188
+182:                                              ; preds = %180, %178
+  %.0.i = phi i64 [ %179, %178 ], [ 0, %180 ]
+  %183 = getelementptr inbounds i8, ptr %32, i64 1040
+  %184 = load i64, ptr %183, align 8
+  %185 = add i64 %184, %.0.i
+  store i64 %185, ptr %183, align 8
+  %186 = load i32, ptr %175, align 8
+  %187 = add nsw i32 %186, 1
+  store i32 %187, ptr %175, align 8
+  %188 = getelementptr inbounds i8, ptr %32, i64 2248
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds i8, ptr %32, i64 2256
+  %191 = load ptr, ptr %190, align 8
+  %192 = icmp eq ptr %189, %191
+  br i1 %192, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %193
 
-188:                                              ; preds = %177
-  %189 = getelementptr inbounds i8, ptr %32, i64 2272
-  %190 = load i32, ptr %189, align 8
-  %191 = add nsw i32 %190, -1
-  store i32 %191, ptr %189, align 8
-  %192 = icmp eq i32 %191, 2
-  br i1 %192, label %193, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
+193:                                              ; preds = %182
+  %194 = getelementptr inbounds i8, ptr %32, i64 2272
+  %195 = load i32, ptr %194, align 8
+  %196 = add nsw i32 %195, -1
+  store i32 %196, ptr %194, align 8
+  %197 = icmp eq i32 %196, 2
+  br i1 %197, label %198, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-193:                                              ; preds = %188
-  %194 = getelementptr inbounds i8, ptr %32, i64 2276
-  store i32 43, ptr %194, align 4
-  %195 = getelementptr inbounds i8, ptr %32, i64 2280
-  store i64 %169, ptr %195, align 8
+198:                                              ; preds = %193
+  %199 = getelementptr inbounds i8, ptr %32, i64 2276
+  store i32 43, ptr %199, align 4
+  %200 = getelementptr inbounds i8, ptr %32, i64 2280
+  store i64 %174, ptr %200, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %177, %188, %193, %133
-  %196 = or i1 %21, %22
-  %197 = call noundef ptr @_ZN3gmx6Update2xpEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %182, %193, %198, %136
+  %201 = or i1 %21, %22
+  %202 = call noundef ptr @_ZN3gmx6Update2xpEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %198 = load ptr, ptr %197, align 8, !noalias !17
-  %199 = getelementptr inbounds i8, ptr %197, i64 24
-  %200 = load ptr, ptr %199, align 8, !noalias !17
-  %201 = ptrtoint ptr %200 to i64
-  %202 = ptrtoint ptr %198 to i64
-  %203 = sub i64 %201, %202
-  %204 = getelementptr inbounds i8, ptr %198, i64 %203
-  %205 = getelementptr inbounds i8, ptr %197, i64 8
-  %206 = load ptr, ptr %205, align 8, !noalias !17
-  %207 = ptrtoint ptr %206 to i64
-  %208 = sub i64 %207, %202
-  %209 = getelementptr inbounds i8, ptr %198, i64 %208
-  store ptr %198, ptr %44, align 8, !alias.scope !17
-  %210 = getelementptr inbounds i8, ptr %44, i64 8
-  store ptr %204, ptr %210, align 8, !alias.scope !17
-  %211 = getelementptr inbounds i8, ptr %44, i64 16
-  store ptr %209, ptr %211, align 8, !alias.scope !17
-  call void @_ZN3gmx21constrain_coordinatesEPNS_11ConstraintsEblP7t_stateNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEEPfbPA3_f(ptr noundef %28, i1 noundef zeroext %196, i64 noundef %0, ptr noundef %4, ptr noundef nonnull %44, ptr noundef %14, i1 noundef zeroext %15, ptr noundef %17)
-  %212 = load i32, ptr %57, align 8
-  %213 = load ptr, ptr %62, align 8
-  store ptr %213, ptr %45, align 8
-  %214 = getelementptr inbounds i8, ptr %45, i64 8
-  %215 = load ptr, ptr %65, align 8
-  %216 = ptrtoint ptr %215 to i64
-  %217 = ptrtoint ptr %213 to i64
-  %218 = sub i64 %216, %217
-  %219 = getelementptr inbounds i8, ptr %213, i64 %218
-  store ptr %219, ptr %214, align 8
-  %220 = load ptr, ptr %71, align 8
-  store ptr %220, ptr %46, align 8
-  %221 = getelementptr inbounds i8, ptr %46, i64 8
-  %222 = load ptr, ptr %74, align 8
-  %223 = ptrtoint ptr %222 to i64
-  %224 = ptrtoint ptr %220 to i64
-  %225 = sub i64 %223, %224
-  %226 = getelementptr inbounds i8, ptr %220, i64 %225
-  store ptr %226, ptr %221, align 8
-  call void @_ZN3gmx6Update21update_sd_second_halfERK10t_inputreclPfiNS_8ArrayRefIK12ParticleTypeEENS5_IKfEEP7t_statePK9t_commrecP6t_nrnbP13gmx_wallcyclePNS_11ConstraintsEbb(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 noundef %0, ptr noundef %14, i32 noundef %212, ptr noundef nonnull byval(%"class.gmx::ArrayRef.112") align 8 %45, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %46, ptr noundef %4, ptr noundef %3, ptr noundef %31, ptr noundef %32, ptr noundef %28, i1 noundef zeroext %21, i1 noundef zeroext %22)
-  %227 = load i8, ptr %59, align 2
-  %228 = trunc i8 %227 to i1
-  %229 = load i32, ptr %57, align 8
-  call void @_ZN3gmx6Update13finish_updateERK10t_inputrecbiP7t_stateP13gmx_wallcycleb(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(856) %1, i1 noundef zeroext %228, i32 noundef %229, ptr noundef %4, ptr noundef %32, i1 noundef zeroext %94)
-  %230 = load i32, ptr %95, align 4
-  %231 = icmp eq i32 %230, 11
-  br i1 %231, label %232, label %379
+  %203 = load ptr, ptr %202, align 8, !noalias !17
+  %204 = getelementptr inbounds i8, ptr %202, i64 24
+  %205 = load ptr, ptr %204, align 8, !noalias !17
+  %206 = ptrtoint ptr %205 to i64
+  %207 = ptrtoint ptr %203 to i64
+  %208 = sub i64 %206, %207
+  %209 = getelementptr inbounds i8, ptr %203, i64 %208
+  %210 = getelementptr inbounds i8, ptr %202, i64 8
+  %211 = load ptr, ptr %210, align 8, !noalias !17
+  %212 = ptrtoint ptr %211 to i64
+  %213 = sub i64 %212, %207
+  %214 = getelementptr inbounds i8, ptr %203, i64 %213
+  store ptr %203, ptr %44, align 8, !alias.scope !17
+  %215 = getelementptr inbounds i8, ptr %44, i64 8
+  store ptr %209, ptr %215, align 8, !alias.scope !17
+  %216 = getelementptr inbounds i8, ptr %44, i64 16
+  store ptr %214, ptr %216, align 8, !alias.scope !17
+  call void @_ZN3gmx21constrain_coordinatesEPNS_11ConstraintsEblP7t_stateNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEEPfbPA3_f(ptr noundef %28, i1 noundef zeroext %201, i64 noundef %0, ptr noundef %4, ptr noundef nonnull %44, ptr noundef %14, i1 noundef zeroext %15, ptr noundef %17)
+  %217 = load i32, ptr %57, align 8
+  %218 = load ptr, ptr %62, align 8
+  store ptr %218, ptr %45, align 8
+  %219 = getelementptr inbounds i8, ptr %45, i64 8
+  %220 = load ptr, ptr %65, align 8
+  %221 = ptrtoint ptr %220 to i64
+  %222 = ptrtoint ptr %218 to i64
+  %223 = sub i64 %221, %222
+  %224 = getelementptr inbounds i8, ptr %218, i64 %223
+  store ptr %224, ptr %219, align 8
+  %225 = load ptr, ptr %71, align 8
+  store ptr %225, ptr %46, align 8
+  %226 = getelementptr inbounds i8, ptr %46, i64 8
+  %227 = load ptr, ptr %74, align 8
+  %228 = ptrtoint ptr %227 to i64
+  %229 = ptrtoint ptr %225 to i64
+  %230 = sub i64 %228, %229
+  %231 = getelementptr inbounds i8, ptr %225, i64 %230
+  store ptr %231, ptr %226, align 8
+  call void @_ZN3gmx6Update21update_sd_second_halfERK10t_inputreclPfiNS_8ArrayRefIK12ParticleTypeEENS5_IKfEEP7t_statePK9t_commrecP6t_nrnbP13gmx_wallcyclePNS_11ConstraintsEbb(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 noundef %0, ptr noundef %14, i32 noundef %217, ptr noundef nonnull byval(%"class.gmx::ArrayRef.112") align 8 %45, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %46, ptr noundef %4, ptr noundef %3, ptr noundef %31, ptr noundef %32, ptr noundef %28, i1 noundef zeroext %21, i1 noundef zeroext %22)
+  %232 = load i8, ptr %59, align 2
+  %233 = trunc i8 %232 to i1
+  %234 = load i32, ptr %57, align 8
+  call void @_ZN3gmx6Update13finish_updateERK10t_inputrecbiP7t_stateP13gmx_wallcycleb(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(856) %1, i1 noundef zeroext %233, i32 noundef %234, ptr noundef %4, ptr noundef %32, i1 noundef zeroext %97)
+  %235 = load i32, ptr %98, align 4
+  %236 = icmp eq i32 %235, 11
+  br i1 %236, label %237, label %386
 
-232:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
-  %233 = getelementptr inbounds i8, ptr %4, i64 416
-  %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %4, i64 440
-  %236 = load ptr, ptr %235, align 8
-  %237 = ptrtoint ptr %236 to i64
-  %238 = ptrtoint ptr %234 to i64
-  %239 = sub i64 %237, %238
-  %240 = getelementptr inbounds i8, ptr %234, i64 %239
-  store ptr %234, ptr %47, align 8
-  %241 = getelementptr inbounds i8, ptr %47, i64 8
-  store ptr %240, ptr %241, align 8
-  %242 = getelementptr inbounds i8, ptr %4, i64 456
-  %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %4, i64 480
-  %245 = load ptr, ptr %244, align 8
-  %246 = ptrtoint ptr %245 to i64
-  %247 = ptrtoint ptr %243 to i64
-  %248 = sub i64 %246, %247
-  %249 = getelementptr inbounds i8, ptr %243, i64 %248
-  store ptr %243, ptr %48, align 8
-  %250 = getelementptr inbounds i8, ptr %48, i64 8
-  store ptr %249, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %4, i64 52
-  %252 = select i1 %23, i32 144, i32 128
-  call void @_Z15compute_globalsP15gmx_global_statP9t_commrecPK10t_inputrecP10t_forcerecP14gmx_ekindata_tN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEESF_PA3_KfPK9t_mdatomsP6t_nrnbP5t_vcmP13gmx_wallcycleP14gmx_enerdata_tPA3_fSV_SV_SV_PNSA_19SimulationSignallerESI_PbilPNSA_18ObservablesReducerE(ptr noundef %13, ptr noundef %3, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %12, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %47, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %48, ptr noundef nonnull %251, ptr noundef nonnull %5, ptr noundef %31, ptr noundef %8, ptr noundef %32, ptr noundef %10, ptr noundef %18, ptr noundef %17, ptr noundef %16, ptr noundef %19, ptr noundef %29, ptr noundef %20, ptr noundef %24, i32 noundef %252, i64 noundef %0, ptr noundef %11)
-  br i1 %161, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %253
+237:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
+  %238 = getelementptr inbounds i8, ptr %4, i64 416
+  %239 = load ptr, ptr %238, align 8
+  %240 = getelementptr inbounds i8, ptr %4, i64 440
+  %241 = load ptr, ptr %240, align 8
+  %242 = ptrtoint ptr %241 to i64
+  %243 = ptrtoint ptr %239 to i64
+  %244 = sub i64 %242, %243
+  %245 = getelementptr inbounds i8, ptr %239, i64 %244
+  store ptr %239, ptr %47, align 8
+  %246 = getelementptr inbounds i8, ptr %47, i64 8
+  store ptr %245, ptr %246, align 8
+  %247 = getelementptr inbounds i8, ptr %4, i64 456
+  %248 = load ptr, ptr %247, align 8
+  %249 = getelementptr inbounds i8, ptr %4, i64 480
+  %250 = load ptr, ptr %249, align 8
+  %251 = ptrtoint ptr %250 to i64
+  %252 = ptrtoint ptr %248 to i64
+  %253 = sub i64 %251, %252
+  %254 = getelementptr inbounds i8, ptr %248, i64 %253
+  store ptr %248, ptr %48, align 8
+  %255 = getelementptr inbounds i8, ptr %48, i64 8
+  store ptr %254, ptr %255, align 8
+  %256 = getelementptr inbounds i8, ptr %4, i64 52
+  %257 = select i1 %23, i32 144, i32 128
+  call void @_Z15compute_globalsP15gmx_global_statP9t_commrecPK10t_inputrecP10t_forcerecP14gmx_ekindata_tN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEESF_PA3_KfPK9t_mdatomsP6t_nrnbP5t_vcmP13gmx_wallcycleP14gmx_enerdata_tPA3_fSV_SV_SV_PNSA_19SimulationSignallerESI_PbilPNSA_18ObservablesReducerE(ptr noundef %13, ptr noundef %3, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %12, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %47, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %48, ptr noundef nonnull %256, ptr noundef nonnull %5, ptr noundef %31, ptr noundef %8, ptr noundef %32, ptr noundef %10, ptr noundef %18, ptr noundef %17, ptr noundef %16, ptr noundef %19, ptr noundef %29, ptr noundef %20, ptr noundef %24, i32 noundef %257, i64 noundef %0, ptr noundef %11)
+  br i1 %166, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %258
 
-253:                                              ; preds = %232
+258:                                              ; preds = %237
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %32)
-  %254 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
-  %255 = extractvalue { i32, i32 } %254, 0
-  %256 = extractvalue { i32, i32 } %254, 1
-  %257 = zext i32 %255 to i64
-  %258 = zext i32 %256 to i64
-  %259 = shl nuw i64 %258, 32
-  %260 = or disjoint i64 %259, %257
-  %261 = getelementptr inbounds i8, ptr %32, i64 1048
-  store i64 %260, ptr %261, align 8
-  %262 = getelementptr inbounds i8, ptr %32, i64 2248
-  %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %32, i64 2256
-  %265 = load ptr, ptr %264, align 8
-  %266 = icmp eq ptr %263, %265
-  br i1 %266, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %267
+  %259 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
+  %260 = extractvalue { i32, i32 } %259, 0
+  %261 = extractvalue { i32, i32 } %259, 1
+  %262 = zext i32 %260 to i64
+  %263 = zext i32 %261 to i64
+  %264 = shl nuw i64 %263, 32
+  %265 = or disjoint i64 %264, %262
+  %266 = getelementptr inbounds i8, ptr %32, i64 1048
+  store i64 %265, ptr %266, align 8
+  %267 = getelementptr inbounds i8, ptr %32, i64 2248
+  %268 = load ptr, ptr %267, align 8
+  %269 = getelementptr inbounds i8, ptr %32, i64 2256
+  %270 = load ptr, ptr %269, align 8
+  %271 = icmp eq ptr %268, %270
+  br i1 %271, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %272
 
-267:                                              ; preds = %253
-  %268 = getelementptr inbounds i8, ptr %32, i64 2272
-  %269 = load i32, ptr %268, align 8
-  %270 = add nsw i32 %269, 1
-  store i32 %270, ptr %268, align 8
-  %271 = icmp eq i32 %270, 3
-  br i1 %271, label %272, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
+272:                                              ; preds = %258
+  %273 = getelementptr inbounds i8, ptr %32, i64 2272
+  %274 = load i32, ptr %273, align 8
+  %275 = add nsw i32 %274, 1
+  store i32 %275, ptr %273, align 8
+  %276 = icmp eq i32 %275, 3
+  br i1 %276, label %277, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
 
-272:                                              ; preds = %267
-  %273 = getelementptr inbounds i8, ptr %32, i64 2276
-  %274 = load i32, ptr %273, align 4
-  %275 = mul nsw i32 %274, 52
-  %276 = add nsw i32 %275, 43
-  %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds %struct.wallcc_t, ptr %263, i64 %277
-  %279 = load i32, ptr %278, align 8
-  %280 = add nsw i32 %279, 1
-  store i32 %280, ptr %278, align 8
-  %281 = getelementptr inbounds i8, ptr %32, i64 2280
-  %282 = load i64, ptr %281, align 8
-  %283 = sub i64 %260, %282
-  %284 = load ptr, ptr %262, align 8
-  %285 = getelementptr inbounds %struct.wallcc_t, ptr %284, i64 %277, i32 1
-  %286 = load i64, ptr %285, align 8
-  %287 = add i64 %283, %286
-  store i64 %287, ptr %285, align 8
+277:                                              ; preds = %272
+  %278 = getelementptr inbounds i8, ptr %32, i64 2276
+  %279 = load i32, ptr %278, align 4
+  %280 = mul nsw i32 %279, 52
+  %281 = add nsw i32 %280, 43
+  %282 = sext i32 %281 to i64
+  %283 = getelementptr inbounds %struct.wallcc_t, ptr %268, i64 %282
+  %284 = load i32, ptr %283, align 8
+  %285 = add nsw i32 %284, 1
+  store i32 %285, ptr %283, align 8
+  %286 = getelementptr inbounds i8, ptr %32, i64 2280
+  %287 = load i64, ptr %286, align 8
+  %288 = sub i64 %265, %287
+  %289 = load ptr, ptr %267, align 8
+  %290 = getelementptr inbounds %struct.wallcc_t, ptr %289, i64 %282, i32 1
+  %291 = load i64, ptr %290, align 8
+  %292 = add i64 %288, %291
+  store i64 %292, ptr %290, align 8
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %232, %253, %267, %272
-  %288 = load i32, ptr %57, align 8
-  %289 = getelementptr inbounds i8, ptr %5, i64 448
-  %290 = load ptr, ptr %289, align 8
-  store ptr %290, ptr %49, align 8
-  %291 = getelementptr inbounds i8, ptr %49, i64 8
-  %292 = getelementptr inbounds i8, ptr %5, i64 456
-  %293 = load ptr, ptr %292, align 8
-  %294 = ptrtoint ptr %293 to i64
-  %295 = ptrtoint ptr %290 to i64
-  %296 = sub i64 %294, %295
-  %297 = getelementptr inbounds i8, ptr %290, i64 %296
-  store ptr %297, ptr %291, align 8
-  %298 = load ptr, ptr %71, align 8
-  store ptr %298, ptr %50, align 8
-  %299 = getelementptr inbounds i8, ptr %50, i64 8
-  %300 = load ptr, ptr %74, align 8
-  %301 = ptrtoint ptr %300 to i64
-  %302 = ptrtoint ptr %298 to i64
-  %303 = sub i64 %301, %302
-  %304 = getelementptr inbounds i8, ptr %298, i64 %303
-  store ptr %304, ptr %299, align 8
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %237, %258, %272, %277
+  %293 = load i32, ptr %57, align 8
+  %294 = getelementptr inbounds i8, ptr %5, i64 448
+  %295 = load ptr, ptr %294, align 8
+  store ptr %295, ptr %49, align 8
+  %296 = getelementptr inbounds i8, ptr %49, i64 8
+  %297 = getelementptr inbounds i8, ptr %5, i64 456
+  %298 = load ptr, ptr %297, align 8
+  %299 = ptrtoint ptr %298 to i64
+  %300 = ptrtoint ptr %295 to i64
+  %301 = sub i64 %299, %300
+  %302 = getelementptr inbounds i8, ptr %295, i64 %301
+  store ptr %302, ptr %296, align 8
+  %303 = load ptr, ptr %71, align 8
+  store ptr %303, ptr %50, align 8
+  %304 = getelementptr inbounds i8, ptr %50, i64 8
+  %305 = load ptr, ptr %74, align 8
+  %306 = ptrtoint ptr %305 to i64
+  %307 = ptrtoint ptr %303 to i64
+  %308 = sub i64 %306, %307
+  %309 = getelementptr inbounds i8, ptr %303, i64 %308
+  store ptr %309, ptr %304, align 8
   store ptr %30, ptr %51, align 8
-  %305 = getelementptr inbounds i8, ptr %51, i64 8
-  %306 = getelementptr inbounds i8, ptr %30, i64 120
-  store ptr %306, ptr %305, align 8
-  call void @_Z14trotter_updatePK10t_inputreclP14gmx_ekindata_tPK14gmx_enerdata_tP7t_statePA3_KfiN3gmx8ArrayRefIKtEENSD_IS9_EEPK9t_extmassNSD_ISt6vectorIiSaIiEEEE15TrotterSequence(ptr noundef nonnull %1, i64 noundef %0, ptr noundef %12, ptr noundef %10, ptr noundef nonnull %4, ptr noundef %16, i32 noundef %288, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %49, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %50, ptr noundef %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.71") align 8 %51, i32 noundef 4)
-  %307 = load ptr, ptr %26, align 8
-  %308 = getelementptr inbounds i8, ptr %26, i64 8
-  %309 = load ptr, ptr %308, align 8
-  %.not.i.i.i.i.i138 = icmp eq ptr %309, %307
-  br i1 %.not.i.i.i.i.i138, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IS5_S6_IS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEET0_T_SG_SF_.exit, label %310
+  %310 = getelementptr inbounds i8, ptr %51, i64 8
+  %311 = getelementptr inbounds i8, ptr %30, i64 120
+  store ptr %311, ptr %310, align 8
+  call void @_Z14trotter_updatePK10t_inputreclP14gmx_ekindata_tPK14gmx_enerdata_tP7t_statePA3_KfiN3gmx8ArrayRefIKtEENSD_IS9_EEPK9t_extmassNSD_ISt6vectorIiSaIiEEEE15TrotterSequence(ptr noundef nonnull %1, i64 noundef %0, ptr noundef %12, ptr noundef %10, ptr noundef nonnull %4, ptr noundef %16, i32 noundef %293, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %49, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %50, ptr noundef %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.71") align 8 %51, i32 noundef 4)
+  %312 = load ptr, ptr %26, align 8
+  %313 = getelementptr inbounds i8, ptr %26, i64 8
+  %314 = load ptr, ptr %313, align 8
+  %.not.i.i.i.i.i138 = icmp eq ptr %314, %312
+  br i1 %.not.i.i.i.i.i138, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IS5_S6_IS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEET0_T_SG_SF_.exit, label %315
 
-310:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
-  %311 = ptrtoint ptr %309 to i64
-  %312 = ptrtoint ptr %307 to i64
-  %313 = sub i64 %311, %312
-  %314 = load ptr, ptr %233, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %314, ptr align 4 %307, i64 %313, i1 false)
+315:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
+  %316 = ptrtoint ptr %314 to i64
+  %317 = ptrtoint ptr %312 to i64
+  %318 = sub i64 %316, %317
+  %319 = load ptr, ptr %238, align 8
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %319, ptr align 4 %312, i64 %318, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IS5_S6_IS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEET0_T_SG_SF_.exit
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IS5_S6_IS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEET0_T_SG_SF_.exit: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %310
-  %315 = load i32, ptr %57, align 8
-  %316 = load i8, ptr %59, align 2
-  %317 = trunc i8 %316 to i1
-  %318 = load ptr, ptr %62, align 8
-  store ptr %318, ptr %52, align 8
-  %319 = getelementptr inbounds i8, ptr %52, i64 8
-  %320 = load ptr, ptr %65, align 8
-  %321 = ptrtoint ptr %320 to i64
-  %322 = ptrtoint ptr %318 to i64
-  %323 = sub i64 %321, %322
-  %324 = getelementptr inbounds i8, ptr %318, i64 %323
-  store ptr %324, ptr %319, align 8
-  %325 = load ptr, ptr %71, align 8
-  store ptr %325, ptr %53, align 8
-  %326 = getelementptr inbounds i8, ptr %53, i64 8
-  %327 = load ptr, ptr %74, align 8
-  %328 = ptrtoint ptr %327 to i64
-  %329 = ptrtoint ptr %325 to i64
-  %330 = sub i64 %328, %329
-  %331 = getelementptr inbounds i8, ptr %325, i64 %330
-  store ptr %331, ptr %326, align 8
-  %332 = load ptr, ptr %80, align 8
-  store ptr %332, ptr %54, align 8
-  %333 = getelementptr inbounds i8, ptr %54, i64 8
-  %334 = load ptr, ptr %83, align 8
-  %335 = ptrtoint ptr %334 to i64
-  %336 = ptrtoint ptr %332 to i64
-  %337 = sub i64 %335, %336
-  %338 = getelementptr inbounds i8, ptr %332, i64 %337
-  store ptr %338, ptr %333, align 8
-  %339 = load ptr, ptr %90, align 8, !noalias !20
-  %340 = load <2 x ptr>, ptr %89, align 8, !noalias !20
-  store <2 x ptr> %340, ptr %55, align 16
-  %341 = getelementptr inbounds i8, ptr %55, i64 16
-  store ptr %339, ptr %341, align 16
-  call void @_ZN3gmx6Update13update_coordsERK10t_inputreclibNS_8ArrayRefIK12ParticleTypeEENS4_IKfEENS4_IKNS_11BasicVectorIfEEEEP7t_stateRKNS_19ArrayRefWithPaddingISC_EEP8t_fcdataPK14gmx_ekindata_tRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEiPK9t_commrecb(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 noundef %0, i32 noundef %315, i1 noundef zeroext %317, ptr noundef nonnull byval(%"class.gmx::ArrayRef.112") align 8 %52, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %53, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %54, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef %6, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(56) %34, i32 noundef 9, ptr noundef %3, i1 noundef zeroext %94)
-  br i1 %161, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit142, label %342
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IS5_S6_IS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEET0_T_SG_SF_.exit: ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %315
+  %320 = load i32, ptr %57, align 8
+  %321 = load i8, ptr %59, align 2
+  %322 = trunc i8 %321 to i1
+  %323 = load ptr, ptr %62, align 8
+  store ptr %323, ptr %52, align 8
+  %324 = getelementptr inbounds i8, ptr %52, i64 8
+  %325 = load ptr, ptr %65, align 8
+  %326 = ptrtoint ptr %325 to i64
+  %327 = ptrtoint ptr %323 to i64
+  %328 = sub i64 %326, %327
+  %329 = getelementptr inbounds i8, ptr %323, i64 %328
+  store ptr %329, ptr %324, align 8
+  %330 = load ptr, ptr %71, align 8
+  store ptr %330, ptr %53, align 8
+  %331 = getelementptr inbounds i8, ptr %53, i64 8
+  %332 = load ptr, ptr %74, align 8
+  %333 = ptrtoint ptr %332 to i64
+  %334 = ptrtoint ptr %330 to i64
+  %335 = sub i64 %333, %334
+  %336 = getelementptr inbounds i8, ptr %330, i64 %335
+  store ptr %336, ptr %331, align 8
+  %337 = load ptr, ptr %80, align 8
+  store ptr %337, ptr %54, align 8
+  %338 = getelementptr inbounds i8, ptr %54, i64 8
+  %339 = load ptr, ptr %83, align 8
+  %340 = ptrtoint ptr %339 to i64
+  %341 = ptrtoint ptr %337 to i64
+  %342 = sub i64 %340, %341
+  %343 = getelementptr inbounds i8, ptr %337, i64 %342
+  store ptr %343, ptr %338, align 8
+  %344 = load ptr, ptr %89, align 8, !noalias !20
+  %345 = load ptr, ptr %91, align 8, !noalias !20
+  %346 = load ptr, ptr %93, align 8, !noalias !20
+  store ptr %344, ptr %55, align 8
+  %347 = getelementptr inbounds i8, ptr %55, i64 8
+  store ptr %345, ptr %347, align 8
+  %348 = getelementptr inbounds i8, ptr %55, i64 16
+  store ptr %346, ptr %348, align 8
+  call void @_ZN3gmx6Update13update_coordsERK10t_inputreclibNS_8ArrayRefIK12ParticleTypeEENS4_IKfEENS4_IKNS_11BasicVectorIfEEEEP7t_stateRKNS_19ArrayRefWithPaddingISC_EEP8t_fcdataPK14gmx_ekindata_tRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEiPK9t_commrecb(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 noundef %0, i32 noundef %320, i1 noundef zeroext %322, ptr noundef nonnull byval(%"class.gmx::ArrayRef.112") align 8 %52, ptr noundef nonnull byval(%"class.gmx::ArrayRef.68") align 8 %53, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %54, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef %6, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(56) %34, i32 noundef 9, ptr noundef %3, i1 noundef zeroext %97)
+  br i1 %166, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit142, label %349
 
-342:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IS5_S6_IS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEET0_T_SG_SF_.exit
+349:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IS5_S6_IS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEET0_T_SG_SF_.exit
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %32)
-  %343 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
-  %344 = extractvalue { i32, i32 } %343, 0
-  %345 = extractvalue { i32, i32 } %343, 1
-  %346 = zext i32 %344 to i64
-  %347 = zext i32 %345 to i64
-  %348 = shl nuw i64 %347, 32
-  %349 = or disjoint i64 %348, %346
-  %350 = getelementptr inbounds i8, ptr %32, i64 1032
-  %351 = getelementptr inbounds i8, ptr %32, i64 1048
-  %352 = load i64, ptr %351, align 8
-  %.not.i139 = icmp ult i64 %349, %352
-  br i1 %.not.i139, label %355, label %353
-
-353:                                              ; preds = %342
-  %354 = sub nuw i64 %349, %352
-  br label %357
-
-355:                                              ; preds = %342
-  %356 = getelementptr inbounds i8, ptr %32, i64 2288
-  store i8 1, ptr %356, align 8
-  br label %357
-
-357:                                              ; preds = %355, %353
-  %.0.i140 = phi i64 [ %354, %353 ], [ 0, %355 ]
-  %358 = getelementptr inbounds i8, ptr %32, i64 1040
+  %350 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
+  %351 = extractvalue { i32, i32 } %350, 0
+  %352 = extractvalue { i32, i32 } %350, 1
+  %353 = zext i32 %351 to i64
+  %354 = zext i32 %352 to i64
+  %355 = shl nuw i64 %354, 32
+  %356 = or disjoint i64 %355, %353
+  %357 = getelementptr inbounds i8, ptr %32, i64 1032
+  %358 = getelementptr inbounds i8, ptr %32, i64 1048
   %359 = load i64, ptr %358, align 8
-  %360 = add i64 %359, %.0.i140
-  store i64 %360, ptr %358, align 8
-  %361 = load i32, ptr %350, align 8
-  %362 = add nsw i32 %361, 1
-  store i32 %362, ptr %350, align 8
-  %363 = getelementptr inbounds i8, ptr %32, i64 2248
-  %364 = load ptr, ptr %363, align 8
-  %365 = getelementptr inbounds i8, ptr %32, i64 2256
-  %366 = load ptr, ptr %365, align 8
-  %367 = icmp eq ptr %364, %366
-  br i1 %367, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit142, label %368
+  %.not.i139 = icmp ult i64 %356, %359
+  br i1 %.not.i139, label %362, label %360
 
-368:                                              ; preds = %357
-  %369 = getelementptr inbounds i8, ptr %32, i64 2272
-  %370 = load i32, ptr %369, align 8
-  %371 = add nsw i32 %370, -1
-  store i32 %371, ptr %369, align 8
-  %372 = icmp eq i32 %371, 2
-  br i1 %372, label %373, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit142
+360:                                              ; preds = %349
+  %361 = sub nuw i64 %356, %359
+  br label %364
 
-373:                                              ; preds = %368
-  %374 = getelementptr inbounds i8, ptr %32, i64 2276
-  store i32 43, ptr %374, align 4
-  %375 = getelementptr inbounds i8, ptr %32, i64 2280
-  store i64 %349, ptr %375, align 8
+362:                                              ; preds = %349
+  %363 = getelementptr inbounds i8, ptr %32, i64 2288
+  store i8 1, ptr %363, align 8
+  br label %364
+
+364:                                              ; preds = %362, %360
+  %.0.i140 = phi i64 [ %361, %360 ], [ 0, %362 ]
+  %365 = getelementptr inbounds i8, ptr %32, i64 1040
+  %366 = load i64, ptr %365, align 8
+  %367 = add i64 %366, %.0.i140
+  store i64 %367, ptr %365, align 8
+  %368 = load i32, ptr %357, align 8
+  %369 = add nsw i32 %368, 1
+  store i32 %369, ptr %357, align 8
+  %370 = getelementptr inbounds i8, ptr %32, i64 2248
+  %371 = load ptr, ptr %370, align 8
+  %372 = getelementptr inbounds i8, ptr %32, i64 2256
+  %373 = load ptr, ptr %372, align 8
+  %374 = icmp eq ptr %371, %373
+  br i1 %374, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit142, label %375
+
+375:                                              ; preds = %364
+  %376 = getelementptr inbounds i8, ptr %32, i64 2272
+  %377 = load i32, ptr %376, align 8
+  %378 = add nsw i32 %377, -1
+  store i32 %378, ptr %376, align 8
+  %379 = icmp eq i32 %378, 2
+  br i1 %379, label %380, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit142
+
+380:                                              ; preds = %375
+  %381 = getelementptr inbounds i8, ptr %32, i64 2276
+  store i32 43, ptr %381, align 4
+  %382 = getelementptr inbounds i8, ptr %32, i64 2280
+  store i64 %356, ptr %382, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit142
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit142: ; preds = %357, %368, %373, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IS5_S6_IS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEET0_T_SG_SF_.exit
-  %376 = load i8, ptr %59, align 2
-  %377 = trunc i8 %376 to i1
-  %378 = load i32, ptr %57, align 8
-  call void @_ZN3gmx6Update13finish_updateERK10t_inputrecbiP7t_stateP13gmx_wallcycleb(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(856) %1, i1 noundef zeroext %377, i32 noundef %378, ptr noundef nonnull %4, ptr noundef %32, i1 noundef zeroext false)
-  br label %379
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit142: ; preds = %364, %375, %380, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IS5_S6_IS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEEET0_T_SG_SF_.exit
+  %383 = load i8, ptr %59, align 2
+  %384 = trunc i8 %383 to i1
+  %385 = load i32, ptr %57, align 8
+  call void @_ZN3gmx6Update13finish_updateERK10t_inputrecbiP7t_stateP13gmx_wallcycleb(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(856) %1, i1 noundef zeroext %384, i32 noundef %385, ptr noundef nonnull %4, ptr noundef %32, i1 noundef zeroext false)
+  br label %386
 
-379:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit142, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
-  %380 = load float, ptr %14, align 4
-  %381 = getelementptr inbounds i8, ptr %10, i64 344
-  %382 = load float, ptr %381, align 4
-  %383 = call float @llvm.fmuladd.f32(float %380, float 2.000000e+00, float %382)
-  store float %383, ptr %381, align 4
+386:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit142, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
+  %387 = load float, ptr %14, align 4
+  %388 = getelementptr inbounds i8, ptr %10, i64 344
+  %389 = load float, ptr %388, align 4
+  %390 = call float @llvm.fmuladd.f32(float %387, float 2.000000e+00, float %389)
+  store float %390, ptr %388, align 4
   ret void
 }
 

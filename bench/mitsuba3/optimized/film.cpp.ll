@@ -387,38 +387,36 @@ define weak_odr void @_ZN7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, %6
   %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = load <2 x i32>, ptr %12, align 8
-  %14 = insertelement <2 x i32> poison, i32 %8, i64 0
-  %.cast = insertelement <2 x i32> %14, i32 %11, i64 1
-  %15 = icmp ugt <2 x i32> %.cast, %13
-  %16 = extractelement <2 x i1> %15, i64 0
-  %17 = extractelement <2 x i1> %15, i64 1
+  %13 = load i32, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp ugt i32 %8, %13
+  %17 = icmp ugt i32 %11, %15
   %or.cond.not = or i1 %17, %16
-  br i1 %or.cond.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread, label %23
+  br i1 %or.cond.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread, label %22
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %.critedge
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
-  %19 = load ptr, ptr @_ZN7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
-  call void @_ZN10tinyformat6formatIJjjjjjjEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %18)
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull align 8 dereferenceable(24) %3) #19
-          to label %20 unwind label %21
+  %18 = load ptr, ptr @_ZN7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
+  call void @_ZN10tinyformat6formatIJjjjjjjEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %18, ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull align 8 dereferenceable(24) %3) #19
+          to label %19 unwind label %20
 
-20:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
+19:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
   unreachable
 
-21:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %21
 
-23:                                               ; preds = %.critedge
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
-  %25 = load i64, ptr %2, align 4
-  store i64 %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
-  %27 = load i64, ptr %1, align 4
-  store i64 %27, ptr %26, align 8
+22:                                               ; preds = %.critedge
+  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = load i64, ptr %2, align 4
+  store i64 %24, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = load i64, ptr %1, align 4
+  store i64 %26, ptr %25, align 8
   ret void
 }
 

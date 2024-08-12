@@ -410,12 +410,18 @@ _ZN2cv3PtrINS_16DefaultFormatterEED2Ev.exit:      ; preds = %switch.lookup, %2
   %.sink57 = phi ptr [ getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16DefaultFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %2 ], [ %switch.load, %switch.lookup ]
   %.sink = phi ptr [ getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv16DefaultFormatterE, i64 16), %2 ], [ %switch.load59, %switch.lookup ]
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds i8, ptr %3, i64 36
+  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %12 = getelementptr inbounds i8, ptr %3, i64 28
+  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %.sink57, ptr %3, align 8, !noalias !4
-  store <4 x i32> <i32 4, i32 8, i32 16, i32 1>, ptr %10, align 8, !noalias !4
-  store ptr %.sink, ptr %11, align 8, !noalias !4
-  store ptr %11, ptr %0, align 8
+  store i32 4, ptr %13, align 8, !noalias !4
+  store i32 8, ptr %12, align 4, !noalias !4
+  store i32 16, ptr %11, align 8, !noalias !4
+  store i32 1, ptr %10, align 4, !noalias !4
+  store ptr %.sink, ptr %14, align 8, !noalias !4
+  store ptr %14, ptr %0, align 8
   store ptr %3, ptr %9, align 8
   ret void
 }
@@ -763,19 +769,19 @@ define linkonce_odr hidden void @_ZN2cv13FormattedImplC2ENSt7__cxx1112basic_stri
 26:                                               ; preds = %24, %22
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #18
-  br label %64
+  br label %67
 
 27:                                               ; preds = %8
   %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %29 unwind label %48
+          to label %29 unwind label %51
 
 29:                                               ; preds = %27
   %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %31 unwind label %48
+          to label %31 unwind label %51
 
 31:                                               ; preds = %29
   %32 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %33 unwind label %48
+          to label %33 unwind label %51
 
 33:                                               ; preds = %31
   %34 = load i32, ptr %3, align 8
@@ -787,81 +793,87 @@ define linkonce_odr hidden void @_ZN2cv13FormattedImplC2ENSt7__cxx1112basic_stri
   %39 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %39, ptr noundef nonnull align 1 dereferenceable(5) %4, i64 5, i1 false)
   %40 = getelementptr inbounds i8, ptr %0, i64 152
+  store i32 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 148
   store i8 %11, ptr %41, align 4
   %42 = getelementptr inbounds i8, ptr %0, i64 149
   store i8 %12, ptr %42, align 1
-  store <4 x i32> zeroinitializer, ptr %40, align 8
-  %43 = icmp slt i32 %7, 0
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %43, label %45, label %50
+  %43 = getelementptr inbounds i8, ptr %0, i64 164
+  store i32 0, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %0, i64 160
+  store i32 0, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 156
+  store i32 0, ptr %45, align 4
+  %46 = icmp slt i32 %7, 0
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %46, label %48, label %53
 
-45:                                               ; preds = %33
-  store i8 37, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 9
-  store i8 97, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %0, i64 10
-  store i8 0, ptr %47, align 2
-  br label %52
+48:                                               ; preds = %33
+  store i8 37, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 9
+  store i8 97, ptr %49, align 1
+  %50 = getelementptr inbounds i8, ptr %0, i64 10
+  store i8 0, ptr %50, align 2
+  br label %55
 
-48:                                               ; preds = %50, %31, %29, %27
-  %49 = landingpad { ptr, i32 }
+51:                                               ; preds = %53, %31, %29, %27
+  %52 = landingpad { ptr, i32 }
           cleanup
-  br label %64
+  br label %67
 
-50:                                               ; preds = %33
+53:                                               ; preds = %33
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %7, i32 20)
-  %51 = invoke noundef i32 (ptr, i32, ptr, ...) @_ZN2cv11cv_snprintfEPciPKcz(ptr noundef nonnull %44, i32 noundef 8, ptr noundef nonnull @.str.4, i32 noundef %.sroa.speculated)
-          to label %52 unwind label %48
+  %54 = invoke noundef i32 (ptr, i32, ptr, ...) @_ZN2cv11cv_snprintfEPciPKcz(ptr noundef nonnull %47, i32 noundef 8, ptr noundef nonnull @.str.4, i32 noundef %.sroa.speculated)
+          to label %55 unwind label %51
 
-52:                                               ; preds = %50, %45
-  %53 = load i32, ptr %13, align 8
-  %54 = and i32 %53, 7
-  switch i32 %54, label %default.unreachable [
-    i32 0, label %62
-    i32 1, label %55
-    i32 2, label %56
-    i32 3, label %57
-    i32 4, label %58
-    i32 5, label %59
-    i32 6, label %60
-    i32 7, label %61
+55:                                               ; preds = %53, %48
+  %56 = load i32, ptr %13, align 8
+  %57 = and i32 %56, 7
+  switch i32 %57, label %default.unreachable [
+    i32 0, label %65
+    i32 1, label %58
+    i32 2, label %59
+    i32 3, label %60
+    i32 4, label %61
+    i32 5, label %62
+    i32 6, label %63
+    i32 7, label %64
   ]
 
-55:                                               ; preds = %52
-  br label %62
+58:                                               ; preds = %55
+  br label %65
 
-56:                                               ; preds = %52
-  br label %62
+59:                                               ; preds = %55
+  br label %65
 
-57:                                               ; preds = %52
-  br label %62
+60:                                               ; preds = %55
+  br label %65
 
-58:                                               ; preds = %52
-  br label %62
+61:                                               ; preds = %55
+  br label %65
 
-59:                                               ; preds = %52
-  br label %62
+62:                                               ; preds = %55
+  br label %65
 
-60:                                               ; preds = %52
-  br label %62
+63:                                               ; preds = %55
+  br label %65
 
-default.unreachable:                              ; preds = %52
+default.unreachable:                              ; preds = %55
   unreachable
 
-61:                                               ; preds = %52
-  br label %62
+64:                                               ; preds = %55
+  br label %65
 
-62:                                               ; preds = %52, %61, %60, %59, %58, %57, %56, %55
-  %.sink = phi i64 [ ptrtoint (ptr @_ZN2cv13FormattedImpl13valueToStr16fEv to i64), %61 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl13valueToStr64fEv to i64), %60 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl13valueToStr32fEv to i64), %59 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl13valueToStr32sEv to i64), %58 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl13valueToStr16sEv to i64), %57 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl13valueToStr16uEv to i64), %56 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl12valueToStr8sEv to i64), %55 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl12valueToStr8uEv to i64), %52 ]
+65:                                               ; preds = %55, %64, %63, %62, %61, %60, %59, %58
+  %.sink = phi i64 [ ptrtoint (ptr @_ZN2cv13FormattedImpl13valueToStr16fEv to i64), %64 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl13valueToStr64fEv to i64), %63 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl13valueToStr32fEv to i64), %62 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl13valueToStr32sEv to i64), %61 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl13valueToStr16sEv to i64), %60 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl13valueToStr16uEv to i64), %59 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl12valueToStr8sEv to i64), %58 ], [ ptrtoint (ptr @_ZN2cv13FormattedImpl12valueToStr8uEv to i64), %55 ]
   %.repack15 = getelementptr inbounds i8, ptr %0, i64 248
-  %63 = getelementptr inbounds i8, ptr %0, i64 240
-  store i64 %.sink, ptr %63, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 240
+  store i64 %.sink, ptr %66, align 8
   store i64 0, ptr %.repack15, align 8
   ret void
 
-64:                                               ; preds = %48, %26
-  %.pn16.pn = phi { ptr, i32 } [ %49, %48 ], [ %.pn, %26 ]
+67:                                               ; preds = %51, %26
+  %.pn16.pn = phi { ptr, i32 } [ %52, %51 ], [ %.pn, %26 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #18

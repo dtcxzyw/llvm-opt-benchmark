@@ -59,7 +59,7 @@ define internal { double, double } @_ZL15boggs_s_forward5PJ_LPP8PJconsts(double 
   %5 = fadd double %4, 0xBFF921FB54442D18
   %6 = tail call double @llvm.fabs.f64(double %5)
   %7 = fcmp olt double %6, 0x3E7AD7F29ABCAF48
-  br i1 %7, label %33, label %8
+  br i1 %7, label %31, label %8
 
 8:                                                ; preds = %3
   %9 = tail call double @sin(double noundef %1) #6
@@ -87,24 +87,21 @@ define internal { double, double } @_ZL15boggs_s_forward5PJ_LPP8PJconsts(double 
   %23 = fmul double %18, 5.000000e-01
   %24 = fmul double %0, 2.002760e+00
   %25 = tail call double @cos(double noundef %1) #6
-  %26 = tail call double @cos(double noundef %23) #6
-  %27 = insertelement <2 x double> poison, double %25, i64 0
-  %28 = insertelement <2 x double> %27, double %26, i64 1
-  %29 = fdiv <2 x double> <double 1.000000e+00, double 1.110720e+00>, %28
-  %shift = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %30 = fadd <2 x double> %29, %shift
-  %31 = extractelement <2 x double> %30, i64 0
-  %32 = fdiv double %24, %31
-  br label %33
+  %26 = fdiv double 1.000000e+00, %25
+  %27 = tail call double @cos(double noundef %23) #6
+  %28 = fdiv double 1.110720e+00, %27
+  %29 = fadd double %26, %28
+  %30 = fdiv double %24, %29
+  br label %31
 
-33:                                               ; preds = %3, %22
+31:                                               ; preds = %3, %22
   %.016 = phi double [ %23, %22 ], [ %1, %3 ]
-  %.sroa.015.0 = phi double [ %32, %22 ], [ 0.000000e+00, %3 ]
-  %34 = tail call double @sin(double noundef %.016) #6
-  %35 = tail call double @llvm.fmuladd.f64(double %34, double 0x3FF6A09E667F3BCD, double %1)
-  %36 = fmul double %35, 4.993100e-01
+  %.sroa.015.0 = phi double [ %30, %22 ], [ 0.000000e+00, %3 ]
+  %32 = tail call double @sin(double noundef %.016) #6
+  %33 = tail call double @llvm.fmuladd.f64(double %32, double 0x3FF6A09E667F3BCD, double %1)
+  %34 = fmul double %33, 4.993100e-01
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.015.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %36, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %34, 1
   ret { double, double } %.fca.1.insert
 }
 

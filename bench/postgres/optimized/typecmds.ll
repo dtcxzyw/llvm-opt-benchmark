@@ -5532,7 +5532,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
   br label %86
 
 86:                                               ; preds = %79, %85
-  br i1 %1, label %118, label %87
+  br i1 %1, label %121, label %87
 
 87:                                               ; preds = %86
   %88 = load i8, ptr %40, align 1
@@ -5542,7 +5542,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 90:                                               ; preds = %87
   %91 = load i8, ptr %50, align 4
   %92 = trunc i8 %91 to i1
-  br i1 %92, label %93, label %118
+  br i1 %92, label %93, label %121
 
 93:                                               ; preds = %90, %87
   %94 = getelementptr inbounds i8, ptr %82, i64 16
@@ -5554,7 +5554,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
   %100 = getelementptr inbounds i8, ptr %99, i64 96
   %101 = load i32, ptr %100, align 4
   %.not60 = icmp eq i32 %101, 0
-  br i1 %.not60, label %118, label %102
+  br i1 %.not60, label %121, label %102
 
 102:                                              ; preds = %93
   %103 = zext i32 %101 to i64
@@ -5580,68 +5580,72 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
   %114 = and i8 %112, 1
   store i8 %114, ptr %113, align 4
   %115 = getelementptr inbounds i8, ptr %4, i64 16
-  %116 = getelementptr inbounds i8, ptr %10, i64 16
-  %117 = load <2 x i32>, ptr %115, align 4
-  store <2 x i32> %117, ptr %116, align 4
+  %116 = load i32, ptr %115, align 4
+  %117 = getelementptr inbounds i8, ptr %10, i64 16
+  store i32 %116, ptr %117, align 4
+  %118 = getelementptr inbounds i8, ptr %4, i64 20
+  %119 = load i32, ptr %118, align 4
+  %120 = getelementptr inbounds i8, ptr %10, i64 20
+  store i32 %119, ptr %120, align 4
   call fastcc void @AlterTypeRecurse(i32 noundef %101, i1 noundef zeroext true, ptr noundef nonnull %104, ptr noundef nonnull %3, ptr noundef nonnull %10)
   call void @ReleaseSysCache(ptr noundef nonnull %104) #8
-  br label %118
+  br label %121
 
-118:                                              ; preds = %93, %108, %90, %86
+121:                                              ; preds = %93, %108, %90, %86
   store i8 0, ptr %20, align 1
   store i8 0, ptr %40, align 1
   store i8 0, ptr %50, align 4
   store i8 0, ptr %70, align 2
-  %119 = load i8, ptr %4, align 4
-  %120 = trunc i8 %119 to i1
-  br i1 %120, label %127, label %121
-
-121:                                              ; preds = %118
-  %122 = load i8, ptr %30, align 2
+  %122 = load i8, ptr %4, align 4
   %123 = trunc i8 %122 to i1
-  br i1 %123, label %127, label %124
+  br i1 %123, label %130, label %124
 
 124:                                              ; preds = %121
-  %125 = load i8, ptr %60, align 1
+  %125 = load i8, ptr %30, align 2
   %126 = trunc i8 %125 to i1
-  br i1 %126, label %127, label %143
+  br i1 %126, label %130, label %127
 
-127:                                              ; preds = %124, %121, %118
-  %128 = zext i32 %0 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 26, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %128) #8
-  %129 = call ptr @systable_beginscan(ptr noundef nonnull %3, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 1, ptr noundef nonnull %9) #8
-  %130 = call ptr @systable_getnext(ptr noundef %129) #8
-  %.not6264 = icmp eq ptr %130, null
+127:                                              ; preds = %124
+  %128 = load i8, ptr %60, align 1
+  %129 = trunc i8 %128 to i1
+  br i1 %129, label %130, label %146
+
+130:                                              ; preds = %127, %124, %121
+  %131 = zext i32 %0 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 26, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %131) #8
+  %132 = call ptr @systable_beginscan(ptr noundef nonnull %3, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 1, ptr noundef nonnull %9) #8
+  %133 = call ptr @systable_getnext(ptr noundef %132) #8
+  %.not6264 = icmp eq ptr %133, null
   br i1 %.not6264, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %127, %.backedge
-  %131 = phi ptr [ %142, %.backedge ], [ %130, %127 ]
-  %132 = getelementptr inbounds i8, ptr %131, i64 16
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 22
-  %135 = load i8, ptr %134, align 2
-  %136 = zext i8 %135 to i64
-  %137 = getelementptr i8, ptr %133, i64 %136
-  %138 = getelementptr inbounds i8, ptr %137, i64 79
-  %139 = load i8, ptr %138, align 1
-  %.not63 = icmp eq i8 %139, 100
-  br i1 %.not63, label %140, label %.backedge
+.lr.ph:                                           ; preds = %130, %.backedge
+  %134 = phi ptr [ %145, %.backedge ], [ %133, %130 ]
+  %135 = getelementptr inbounds i8, ptr %134, i64 16
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 22
+  %138 = load i8, ptr %137, align 2
+  %139 = zext i8 %138 to i64
+  %140 = getelementptr i8, ptr %136, i64 %139
+  %141 = getelementptr inbounds i8, ptr %140, i64 79
+  %142 = load i8, ptr %141, align 1
+  %.not63 = icmp eq i8 %142, 100
+  br i1 %.not63, label %143, label %.backedge
 
-140:                                              ; preds = %.lr.ph
-  %141 = load i32, ptr %137, align 4
-  call fastcc void @AlterTypeRecurse(i32 noundef %141, i1 noundef zeroext false, ptr noundef nonnull %131, ptr noundef %3, ptr noundef nonnull %4)
+143:                                              ; preds = %.lr.ph
+  %144 = load i32, ptr %140, align 4
+  call fastcc void @AlterTypeRecurse(i32 noundef %144, i1 noundef zeroext false, ptr noundef nonnull %134, ptr noundef %3, ptr noundef nonnull %4)
   br label %.backedge
 
-.backedge:                                        ; preds = %140, %.lr.ph
-  %142 = call ptr @systable_getnext(ptr noundef %129) #8
-  %.not62 = icmp eq ptr %142, null
+.backedge:                                        ; preds = %143, %.lr.ph
+  %145 = call ptr @systable_getnext(ptr noundef %132) #8
+  %.not62 = icmp eq ptr %145, null
   br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.backedge, %127
-  call void @systable_endscan(ptr noundef %129) #8
-  br label %143
+._crit_edge:                                      ; preds = %.backedge, %130
+  call void @systable_endscan(ptr noundef %132) #8
+  br label %146
 
-143:                                              ; preds = %124, %._crit_edge
+146:                                              ; preds = %127, %._crit_edge
   ret void
 }
 

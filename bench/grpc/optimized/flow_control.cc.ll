@@ -585,7 +585,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 define void @_ZN9grpc_core6chttp220TransportFlowControlC2ESt17basic_string_viewIcSt11char_traitsIcEEbPNS_11MemoryOwnerE(ptr noundef nonnull align 8 dereferenceable(240) %this, i64 %name.coerce0, ptr %name.coerce1, i1 noundef zeroext %enable_bdp_probe, ptr noundef %memory_owner) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.grpc_core::BasicMemoryQuota::PressureInfo", align 8
-  %ref.tmp = alloca %"class.grpc_core::PidController::Args", align 16
+  %ref.tmp = alloca %"class.grpc_core::PidController::Args", align 8
   %frombool = zext i1 %enable_bdp_probe to i8
   store ptr %memory_owner, ptr %this, align 8
   %announced_stream_total_over_incoming_window_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -595,10 +595,13 @@ entry:
   %bdp_estimator_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN9grpc_core12BdpEstimatorC1ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %bdp_estimator_, i64 %name.coerce0, ptr %name.coerce1)
   %min_control_value_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %max_control_value_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %integral_range_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  store <2 x double> <double 4.000000e+00, double 8.000000e+00>, ptr %ref.tmp, align 16
+  store double 4.000000e+00, ptr %ref.tmp, align 8
+  %gain_i_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store double 8.000000e+00, ptr %gain_i_.i, align 8
   %gain_d_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store double 0.000000e+00, ptr %gain_d_.i, align 16
+  store double 0.000000e+00, ptr %gain_d_.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
@@ -651,8 +654,9 @@ invoke.cont7:                                     ; preds = %if.then3.i.i, %if.e
   %pid_controller_ = getelementptr inbounds i8, ptr %this, i64 96
   %initial_control_value_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store double %target.addr.0.i.i, ptr %initial_control_value_.i, align 8
-  store <2 x double> <double -1.000000e+00, double 2.500000e+01>, ptr %min_control_value_.i, align 16
-  store double 1.000000e+01, ptr %integral_range_.i, align 16
+  store double -1.000000e+00, ptr %min_control_value_.i, align 8
+  store double 2.500000e+01, ptr %max_control_value_.i, align 8
+  store double 1.000000e+01, ptr %integral_range_.i, align 8
   call void @_ZN9grpc_core13PidControllerC1ERKNS0_4ArgsE(ptr noundef nonnull align 8 dereferenceable(88) %pid_controller_, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
   %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i, label %5

@@ -13,7 +13,13 @@ define hidden noundef i32 @SHA1_Init(ptr nocapture noundef writeonly %sha) local
 entry:
   %0 = getelementptr inbounds i8, ptr %sha, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %sha, align 4
+  store i32 1732584193, ptr %sha, align 4
+  %arrayidx1 = getelementptr inbounds i8, ptr %sha, i64 4
+  store i32 -271733879, ptr %arrayidx1, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %sha, i64 8
+  store i32 -1732584194, ptr %arrayidx2, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %sha, i64 12
+  store i32 271733878, ptr %arrayidx3, align 4
   %arrayidx4 = getelementptr inbounds i8, ptr %sha, i64 16
   store i32 -1009589776, ptr %arrayidx4, align 4
   ret i32 1
@@ -25,12 +31,18 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nounwind uwtable
 define hidden noundef nonnull ptr @SHA1(ptr noundef %data, i64 noundef %len, ptr noundef writeonly %out) local_unnamed_addr #2 {
 entry:
-  %ctx = alloca %struct.sha_state_st, align 16
+  %ctx = alloca %struct.sha_state_st, align 4
   %0 = getelementptr inbounds i8, ptr %ctx, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %ctx, align 16
+  store i32 1732584193, ptr %ctx, align 4
+  %arrayidx1.i = getelementptr inbounds i8, ptr %ctx, i64 4
+  store i32 -271733879, ptr %arrayidx1.i, align 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  store i32 -1732584194, ptr %arrayidx2.i, align 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %ctx, i64 12
+  store i32 271733878, ptr %arrayidx3.i, align 4
   %arrayidx4.i = getelementptr inbounds i8, ptr %ctx, i64 16
-  store i32 -1009589776, ptr %arrayidx4.i, align 16
+  store i32 -1009589776, ptr %arrayidx4.i, align 4
   %cmp.i = icmp eq i64 %len, 0
   br i1 %cmp.i, label %SHA1_Update.exit, label %if.end37.i
 
@@ -40,7 +52,7 @@ if.end37.i:                                       ; preds = %entry
   %Nh.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %shr.i = lshr i64 %len, 29
   %conv6.i = trunc i64 %shr.i to i32
-  store i32 %conv6.i, ptr %Nh.i, align 8
+  store i32 %conv6.i, ptr %Nh.i, align 4
   store i32 %shl.i, ptr %0, align 4
   %num.i = getelementptr inbounds i8, ptr %ctx, i64 92
   %cmp38.not.i = icmp ult i64 %len, 64

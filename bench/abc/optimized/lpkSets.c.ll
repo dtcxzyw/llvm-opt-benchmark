@@ -568,9 +568,9 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %.sink154 = trunc i64 %indvars.iv133 to i32
   br label %.lr.ph.split.us121
 
-.lr.ph.split.us121:                               ; preds = %.lr.ph.split.us121.preheader, %90
-  %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %.lr.ph.split.us121.preheader ]
-  %.1113.us = phi i32 [ %.2.us, %90 ], [ %.0116.us, %.lr.ph.split.us121.preheader ]
+.lr.ph.split.us121:                               ; preds = %.lr.ph.split.us121.preheader, %101
+  %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 0, %.lr.ph.split.us121.preheader ]
+  %.1113.us = phi i32 [ %.2.us, %101 ], [ %.0116.us, %.lr.ph.split.us121.preheader ]
   %27 = getelementptr inbounds i32, ptr %.val108.us, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 65535
@@ -579,222 +579,233 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %32 = xor i32 %31, %.demorgan
   %33 = icmp eq i32 %32, -1
   %or.cond104.us = select i1 %30, i1 true, i1 %33
-  br i1 %or.cond104.us, label %90, label %34
+  br i1 %or.cond104.us, label %101, label %34
 
 34:                                               ; preds = %.lr.ph.split.us121
   %35 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %29)
   %36 = icmp ugt i32 %35, 1
   %or.cond111.us = select i1 %26, i1 true, i1 %36
-  br i1 %or.cond111.us, label %37, label %90
+  br i1 %or.cond111.us, label %37, label %101
 
 37:                                               ; preds = %34
   %38 = or i32 %28, %.fr128
-  %39 = lshr i32 %38, 16
-  %40 = and i32 %39, %38
-  %41 = insertelement <2 x i32> poison, i32 %38, i64 0
-  %42 = insertelement <2 x i32> %41, i32 %40, i64 1
-  %43 = and <2 x i32> %42, <i32 21845, i32 21845>
-  %44 = lshr <2 x i32> %42, <i32 1, i32 1>
-  %45 = and <2 x i32> %44, <i32 21845, i32 21845>
-  %46 = add nuw nsw <2 x i32> %45, %43
-  %47 = and <2 x i32> %46, <i32 13107, i32 13107>
-  %48 = lshr <2 x i32> %46, <i32 2, i32 2>
-  %49 = and <2 x i32> %48, <i32 13107, i32 13107>
-  %50 = add nuw nsw <2 x i32> %49, %47
-  %51 = and <2 x i32> %50, <i32 1799, i32 1799>
-  %52 = lshr <2 x i32> %50, <i32 4, i32 4>
-  %53 = and <2 x i32> %52, <i32 1799, i32 1799>
-  %54 = add nuw nsw <2 x i32> %53, %51
-  %55 = and <2 x i32> %54, <i32 15, i32 15>
-  %56 = lshr <2 x i32> %54, <i32 8, i32 8>
-  %57 = add nuw nsw <2 x i32> %56, %55
-  %58 = extractelement <2 x i32> %57, i64 1
-  %59 = xor i32 %58, -1
-  %60 = extractelement <2 x i32> %57, i64 0
-  %61 = add nsw i32 %60, %59
-  %62 = icmp slt i32 %61, 1
-  br i1 %62, label %90, label %63
+  %39 = and i32 %38, 21845
+  %40 = lshr i32 %38, 1
+  %41 = and i32 %40, 21845
+  %42 = add nuw nsw i32 %41, %39
+  %43 = and i32 %42, 13107
+  %44 = lshr i32 %42, 2
+  %45 = and i32 %44, 13107
+  %46 = add nuw nsw i32 %45, %43
+  %47 = and i32 %46, 1799
+  %48 = lshr i32 %46, 4
+  %49 = and i32 %48, 1799
+  %50 = add nuw nsw i32 %49, %47
+  %51 = and i32 %50, 15
+  %52 = lshr i32 %50, 8
+  %53 = add nuw nsw i32 %52, %51
+  %54 = lshr i32 %38, 16
+  %55 = and i32 %54, %38
+  %56 = and i32 %55, 21845
+  %57 = lshr i32 %55, 1
+  %58 = and i32 %57, 21845
+  %59 = add nuw nsw i32 %58, %56
+  %60 = and i32 %59, 13107
+  %61 = lshr i32 %59, 2
+  %62 = and i32 %61, 13107
+  %63 = add nuw nsw i32 %62, %60
+  %64 = and i32 %63, 1799
+  %65 = lshr i32 %63, 4
+  %66 = and i32 %65, 1799
+  %67 = add nuw nsw i32 %66, %64
+  %68 = and i32 %67, 15
+  %69 = lshr i32 %67, 8
+  %70 = add nuw nsw i32 %69, %68
+  %71 = xor i32 %70, -1
+  %72 = add nsw i32 %53, %71
+  %73 = icmp slt i32 %72, 1
+  br i1 %73, label %101, label %74
 
-63:                                               ; preds = %37
-  %64 = and i32 %38, 65535
-  %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds [65536 x i32], ptr @Lpk_ComposeSets.TravId, i64 0, i64 %65
-  %67 = load i32, ptr %66, align 4
-  %.not.us = icmp sgt i32 %67, %8
-  br i1 %.not.us, label %75, label %68
+74:                                               ; preds = %37
+  %75 = and i32 %38, 65535
+  %76 = zext nneg i32 %75 to i64
+  %77 = getelementptr inbounds [65536 x i32], ptr @Lpk_ComposeSets.TravId, i64 0, i64 %76
+  %78 = load i32, ptr %77, align 4
+  %.not.us = icmp sgt i32 %78, %8
+  br i1 %.not.us, label %86, label %79
 
-68:                                               ; preds = %63
-  %69 = trunc i32 %38 to i16
-  %70 = add nsw i32 %.1113.us, 1
-  %71 = sext i32 %.1113.us to i64
-  %72 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %71
-  store i16 %69, ptr %72, align 2
-  store i32 %12, ptr %66, align 4
-  %73 = trunc nsw i32 %61 to i8
-  %74 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.SRed, i64 0, i64 %65
-  store i8 %73, ptr %74, align 1
-  br label %.sink.split
-
-75:                                               ; preds = %63
-  %76 = icmp eq i32 %67, %12
-  br i1 %76, label %77, label %90
-
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.SRed, i64 0, i64 %65
-  %79 = load i8, ptr %78, align 1
-  %80 = sext i8 %79 to i32
-  %81 = icmp sgt i32 %61, %80
-  br i1 %81, label %82, label %90
-
-82:                                               ; preds = %77
-  store i32 %12, ptr %66, align 4
-  %83 = trunc nsw i32 %61 to i8
-  store i8 %83, ptr %78, align 1
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %68, %82
-  %.2.us.ph = phi i32 [ %.1113.us, %82 ], [ %70, %68 ]
-  %84 = trunc nuw nsw i32 %58 to i8
-  %85 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %65
+79:                                               ; preds = %74
+  %80 = trunc i32 %38 to i16
+  %81 = add nsw i32 %.1113.us, 1
+  %82 = sext i32 %.1113.us to i64
+  %83 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %82
+  store i16 %80, ptr %83, align 2
+  store i32 %12, ptr %77, align 4
+  %84 = trunc nsw i32 %72 to i8
+  %85 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.SRed, i64 0, i64 %76
   store i8 %84, ptr %85, align 1
-  %86 = trunc nuw nsw i64 %indvars.iv to i32
-  %87 = shl i32 %86, 16
-  %88 = or i32 %87, %.sink154
-  %89 = getelementptr inbounds [65536 x i32], ptr @Lpk_ComposeSets.Parents, i64 0, i64 %65
-  store i32 %88, ptr %89, align 4
-  br label %90
+  br label %.sink.split
 
-90:                                               ; preds = %.sink.split, %77, %75, %37, %34, %.lr.ph.split.us121
-  %.2.us = phi i32 [ %.1113.us, %.lr.ph.split.us121 ], [ %.1113.us, %37 ], [ %.1113.us, %77 ], [ %.1113.us, %75 ], [ %.1113.us, %34 ], [ %.2.us.ph, %.sink.split ]
+86:                                               ; preds = %74
+  %87 = icmp eq i32 %78, %12
+  br i1 %87, label %88, label %101
+
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.SRed, i64 0, i64 %76
+  %90 = load i8, ptr %89, align 1
+  %91 = sext i8 %90 to i32
+  %92 = icmp sgt i32 %72, %91
+  br i1 %92, label %93, label %101
+
+93:                                               ; preds = %88
+  store i32 %12, ptr %77, align 4
+  %94 = trunc nsw i32 %72 to i8
+  store i8 %94, ptr %89, align 1
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %79, %93
+  %.2.us.ph = phi i32 [ %.1113.us, %93 ], [ %81, %79 ]
+  %95 = trunc nuw nsw i32 %70 to i8
+  %96 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %76
+  store i8 %95, ptr %96, align 1
+  %97 = trunc nuw nsw i64 %indvars.iv to i32
+  %98 = shl i32 %97, 16
+  %99 = or i32 %98, %.sink154
+  %100 = getelementptr inbounds [65536 x i32], ptr @Lpk_ComposeSets.Parents, i64 0, i64 %76
+  store i32 %99, ptr %100, align 4
+  br label %101
+
+101:                                              ; preds = %.sink.split, %88, %86, %37, %34, %.lr.ph.split.us121
+  %.2.us = phi i32 [ %.1113.us, %.lr.ph.split.us121 ], [ %.1113.us, %37 ], [ %.1113.us, %88 ], [ %.1113.us, %86 ], [ %.1113.us, %34 ], [ %.2.us.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..critedge2_crit_edge.us, label %.lr.ph.split.us121, !llvm.loop !10
 
-..critedge2_crit_edge.us:                         ; preds = %90, %.lr.ph.us
-  %.us-phi.us = phi i32 [ %.0116.us, %.lr.ph.us ], [ %.2.us, %90 ]
+..critedge2_crit_edge.us:                         ; preds = %101, %.lr.ph.us
+  %.us-phi.us = phi i32 [ %.0116.us, %.lr.ph.us ], [ %.2.us, %101 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
   br i1 %exitcond137.not, label %.critedge.preheader, label %.lr.ph.us, !llvm.loop !11
 
 .critedge.preheader:                              ; preds = %..critedge2_crit_edge.us
-  %91 = icmp sgt i32 %.us-phi.us, 0
-  br i1 %91, label %.critedge.preheader129, label %._crit_edge
+  %102 = icmp sgt i32 %.us-phi.us, 0
+  br i1 %102, label %.critedge.preheader129, label %._crit_edge
 
 .critedge.preheader129:                           ; preds = %.critedge.preheader
   %wide.trip.count141 = zext nneg i32 %.us-phi.us to i64
   br label %.critedge
 
 .preheader:                                       ; preds = %.critedge
-  br i1 %91, label %.lr.ph126, label %._crit_edge
+  br i1 %102, label %.lr.ph126, label %._crit_edge
 
 .lr.ph126:                                        ; preds = %.preheader
-  %92 = getelementptr i8, ptr %0, i64 8
-  %93 = getelementptr i8, ptr %1, i64 8
-  %94 = trunc i32 %3 to i8
+  %103 = getelementptr i8, ptr %0, i64 8
+  %104 = getelementptr i8, ptr %1, i64 8
+  %105 = trunc i32 %3 to i8
   %wide.trip.count146 = zext nneg i32 %.us-phi.us to i64
-  br label %101
+  br label %112
 
 .critedge:                                        ; preds = %.critedge.preheader129, %.critedge
   %indvars.iv138 = phi i64 [ 0, %.critedge.preheader129 ], [ %indvars.iv.next139, %.critedge ]
   %.089124 = phi i32 [ 1000, %.critedge.preheader129 ], [ %spec.select, %.critedge ]
-  %95 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %indvars.iv138
-  %96 = load i16, ptr %95, align 2
-  %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %97
-  %99 = load i8, ptr %98, align 1
-  %100 = sext i8 %99 to i32
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.089124, i32 %100)
+  %106 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %indvars.iv138
+  %107 = load i16, ptr %106, align 2
+  %108 = zext i16 %107 to i64
+  %109 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %108
+  %110 = load i8, ptr %109, align 1
+  %111 = sext i8 %110 to i32
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.089124, i32 %111)
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
   br i1 %exitcond142.not, label %.preheader, label %.critedge, !llvm.loop !12
 
-101:                                              ; preds = %.lr.ph126, %166
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next144, %166 ]
-  %102 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %indvars.iv143
-  %103 = load i16, ptr %102, align 2
-  %104 = zext i16 %103 to i64
-  %105 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %104
-  %106 = load i8, ptr %105, align 1
-  %107 = sext i8 %106 to i32
-  %108 = icmp eq i32 %spec.select, %107
-  br i1 %108, label %109, label %166
+112:                                              ; preds = %.lr.ph126, %177
+  %indvars.iv143 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next144, %177 ]
+  %113 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %indvars.iv143
+  %114 = load i16, ptr %113, align 2
+  %115 = zext i16 %114 to i64
+  %116 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %115
+  %117 = load i8, ptr %116, align 1
+  %118 = sext i8 %117 to i32
+  %119 = icmp eq i32 %spec.select, %118
+  br i1 %119, label %120, label %177
 
-109:                                              ; preds = %101
-  %110 = load i32, ptr %5, align 4
-  %111 = icmp eq i32 %110, %6
-  br i1 %111, label %._crit_edge, label %112
+120:                                              ; preds = %112
+  %121 = load i32, ptr %5, align 4
+  %122 = icmp eq i32 %121, %6
+  br i1 %122, label %._crit_edge, label %123
 
-112:                                              ; preds = %109
-  %113 = add nsw i32 %110, 1
-  store i32 %113, ptr %5, align 4
-  %114 = sext i32 %110 to i64
-  %115 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %4, i64 %114
-  %116 = getelementptr inbounds [65536 x i32], ptr @Lpk_ComposeSets.Parents, i64 0, i64 %104
-  %117 = load i32, ptr %116, align 4
-  %118 = and i32 %117, 65535
-  %119 = lshr i32 %117, 16
-  %.val107 = load ptr, ptr %92, align 8
-  %120 = zext nneg i32 %118 to i64
-  %121 = getelementptr inbounds i32, ptr %.val107, i64 %120
-  %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds i8, ptr %115, i64 4
-  store i32 %122, ptr %123, align 4
-  %.val106 = load ptr, ptr %93, align 8
-  %124 = zext nneg i32 %119 to i64
-  %125 = getelementptr inbounds i32, ptr %.val106, i64 %124
-  %126 = load i32, ptr %125, align 4
-  %127 = getelementptr inbounds i8, ptr %115, i64 8
-  store i32 %126, ptr %127, align 4
-  %128 = or i32 %126, %122
-  store i8 %94, ptr %115, align 4
-  %129 = and i32 %128, 21845
-  %130 = lshr i32 %128, 1
-  %131 = and i32 %130, 21845
-  %132 = add nuw nsw i32 %131, %129
-  %133 = and i32 %132, 13107
-  %134 = lshr i32 %132, 2
-  %135 = and i32 %134, 13107
-  %136 = add nuw nsw i32 %135, %133
-  %137 = and i32 %136, 1799
-  %138 = lshr i32 %136, 4
-  %139 = and i32 %138, 1799
-  %140 = add nuw nsw i32 %139, %137
-  %141 = lshr i32 %140, 8
-  %142 = add nuw nsw i32 %141, %140
-  %143 = trunc i32 %142 to i8
-  %144 = getelementptr inbounds i8, ptr %115, i64 3
-  store i8 %143, ptr %144, align 1
-  %145 = lshr i32 %128, 16
-  %146 = and i32 %145, %128
-  %147 = and i32 %146, 21845
-  %148 = lshr i32 %146, 1
-  %149 = and i32 %148, 21845
-  %150 = add nuw nsw i32 %149, %147
-  %151 = and i32 %150, 13107
-  %152 = lshr i32 %150, 2
-  %153 = and i32 %152, 13107
-  %154 = add nuw nsw i32 %153, %151
-  %155 = and i32 %154, 1799
-  %156 = lshr i32 %154, 4
-  %157 = and i32 %156, 1799
-  %158 = add nuw nsw i32 %157, %155
-  %159 = lshr i32 %158, 8
-  %160 = add nuw nsw i32 %159, %158
-  %161 = trunc i32 %160 to i8
-  %162 = getelementptr inbounds i8, ptr %115, i64 1
-  store i8 %161, ptr %162, align 1
-  %163 = xor i8 %161, -1
-  %164 = add nsw i8 %163, %143
-  %165 = getelementptr inbounds i8, ptr %115, i64 2
-  store i8 %164, ptr %165, align 2
-  br label %166
+123:                                              ; preds = %120
+  %124 = add nsw i32 %121, 1
+  store i32 %124, ptr %5, align 4
+  %125 = sext i32 %121 to i64
+  %126 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %4, i64 %125
+  %127 = getelementptr inbounds [65536 x i32], ptr @Lpk_ComposeSets.Parents, i64 0, i64 %115
+  %128 = load i32, ptr %127, align 4
+  %129 = and i32 %128, 65535
+  %130 = lshr i32 %128, 16
+  %.val107 = load ptr, ptr %103, align 8
+  %131 = zext nneg i32 %129 to i64
+  %132 = getelementptr inbounds i32, ptr %.val107, i64 %131
+  %133 = load i32, ptr %132, align 4
+  %134 = getelementptr inbounds i8, ptr %126, i64 4
+  store i32 %133, ptr %134, align 4
+  %.val106 = load ptr, ptr %104, align 8
+  %135 = zext nneg i32 %130 to i64
+  %136 = getelementptr inbounds i32, ptr %.val106, i64 %135
+  %137 = load i32, ptr %136, align 4
+  %138 = getelementptr inbounds i8, ptr %126, i64 8
+  store i32 %137, ptr %138, align 4
+  %139 = or i32 %137, %133
+  store i8 %105, ptr %126, align 4
+  %140 = and i32 %139, 21845
+  %141 = lshr i32 %139, 1
+  %142 = and i32 %141, 21845
+  %143 = add nuw nsw i32 %142, %140
+  %144 = and i32 %143, 13107
+  %145 = lshr i32 %143, 2
+  %146 = and i32 %145, 13107
+  %147 = add nuw nsw i32 %146, %144
+  %148 = and i32 %147, 1799
+  %149 = lshr i32 %147, 4
+  %150 = and i32 %149, 1799
+  %151 = add nuw nsw i32 %150, %148
+  %152 = lshr i32 %151, 8
+  %153 = add nuw nsw i32 %152, %151
+  %154 = trunc i32 %153 to i8
+  %155 = getelementptr inbounds i8, ptr %126, i64 3
+  store i8 %154, ptr %155, align 1
+  %156 = lshr i32 %139, 16
+  %157 = and i32 %156, %139
+  %158 = and i32 %157, 21845
+  %159 = lshr i32 %157, 1
+  %160 = and i32 %159, 21845
+  %161 = add nuw nsw i32 %160, %158
+  %162 = and i32 %161, 13107
+  %163 = lshr i32 %161, 2
+  %164 = and i32 %163, 13107
+  %165 = add nuw nsw i32 %164, %162
+  %166 = and i32 %165, 1799
+  %167 = lshr i32 %165, 4
+  %168 = and i32 %167, 1799
+  %169 = add nuw nsw i32 %168, %166
+  %170 = lshr i32 %169, 8
+  %171 = add nuw nsw i32 %170, %169
+  %172 = trunc i32 %171 to i8
+  %173 = getelementptr inbounds i8, ptr %126, i64 1
+  store i8 %172, ptr %173, align 1
+  %174 = xor i8 %172, -1
+  %175 = add nsw i8 %174, %154
+  %176 = getelementptr inbounds i8, ptr %126, i64 2
+  store i8 %175, ptr %176, align 2
+  br label %177
 
-166:                                              ; preds = %101, %112
+177:                                              ; preds = %112, %123
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %._crit_edge, label %101, !llvm.loop !13
+  br i1 %exitcond147.not, label %._crit_edge, label %112, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %166, %109, %.lr.ph117, %11, %.critedge.preheader, %.preheader
+._crit_edge:                                      ; preds = %177, %120, %.lr.ph117, %11, %.critedge.preheader, %.preheader
   ret void
 }
 

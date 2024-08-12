@@ -3118,16 +3118,20 @@ sw.bb2:                                           ; preds = %entry
   %element.i = getelementptr inbounds i8, ptr %type, i64 4
   %3 = load i32, ptr %element.i, align 4, !noalias !53
   %struct_def.i = getelementptr inbounds i8, ptr %type, i64 8
+  %4 = load ptr, ptr %struct_def.i, align 8, !noalias !53
+  %enum_def.i = getelementptr inbounds i8, ptr %type, i64 16
+  %5 = load ptr, ptr %enum_def.i, align 8, !noalias !53
   %fixed_length.i = getelementptr inbounds i8, ptr %type, i64 24
-  %4 = load i16, ptr %fixed_length.i, align 8, !noalias !53
+  %6 = load i16, ptr %fixed_length.i, align 8, !noalias !53
   store i32 %3, ptr %ref.tmp4, align 8, !alias.scope !53
   %element.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 4
   store i32 0, ptr %element.i.i, align 4, !alias.scope !53
   %struct_def.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
-  %5 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !53
-  store <2 x ptr> %5, ptr %struct_def.i.i, align 8, !alias.scope !53
+  store ptr %4, ptr %struct_def.i.i, align 8, !alias.scope !53
+  %enum_def.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
+  store ptr %5, ptr %enum_def.i.i, align 8, !alias.scope !53
   %fixed_length.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 24
-  store i16 %4, ptr %fixed_length.i.i, align 8, !alias.scope !53
+  store i16 %6, ptr %fixed_length.i.i, align 8, !alias.scope !53
   call fastcc void @_ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb(ptr noalias nonnull align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(26) %ref.tmp4, i1 noundef zeroext false)
   %call.i11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i64 noundef 0, ptr noundef nonnull @.str.31)
           to label %invoke.cont unwind label %lpad
@@ -3144,32 +3148,32 @@ invoke.cont6:                                     ; preds = %invoke.cont
   br label %return
 
 lpad:                                             ; preds = %sw.bb2
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad5 ], [ %6, %lpad ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad5 ], [ %7, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #22
   br label %eh.resume
 
 sw.default:                                       ; preds = %entry
   %enum_def = getelementptr inbounds i8, ptr %type, i64 16
-  %8 = load ptr, ptr %enum_def, align 8
-  %tobool.not = icmp eq ptr %8, null
+  %9 = load ptr, ptr %enum_def, align 8
+  %tobool.not = icmp eq ptr %9, null
   %brmerge = or i1 %tobool.not, %underlying
   br i1 %brmerge, label %if.else, label %if.then
 
 if.then:                                          ; preds = %sw.default
-  %defined_namespace9 = getelementptr inbounds i8, ptr %8, i64 168
-  %9 = load ptr, ptr %defined_namespace9, align 8
-  tail call void @_ZNK11flatbuffers9Namespace21GetFullyQualifiedNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1000)
+  %defined_namespace9 = getelementptr inbounds i8, ptr %9, i64 168
+  %10 = load ptr, ptr %defined_namespace9, align 8
+  tail call void @_ZNK11flatbuffers9Namespace21GetFullyQualifiedNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 1000)
   br label %return
 
 if.else:                                          ; preds = %sw.default
@@ -3254,7 +3258,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #22
   br label %lpad14.body
@@ -3270,12 +3274,12 @@ invoke.cont15:                                    ; preds = %if.end.i
   br label %return
 
 lpad14:                                           ; preds = %call.i.noexc, %_ZN11flatbuffers8TypeNameENS_8BaseTypeE.exit
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad14.body
 
 lpad14.body:                                      ; preds = %lpad.i, %lpad14
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad14 ], [ %10, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad14 ], [ %11, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #22
   br label %eh.resume
 

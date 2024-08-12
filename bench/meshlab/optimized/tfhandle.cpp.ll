@@ -262,7 +262,7 @@ define void @_ZThn16_N8TFHandleD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %class.QRect, align 8
+  %5 = alloca %class.QRect, align 4
   %6 = alloca %class.QColor, align 4
   %7 = alloca %class.QBrush, align 8
   %8 = alloca %class.QColor, align 4
@@ -284,7 +284,7 @@ define void @_ZN8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(
 15:                                               ; preds = %14
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %34
+  br label %36
 
 17:                                               ; preds = %4
   tail call void @_ZN8QPainter6setPenERK6QColor(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(14) %13)
@@ -295,7 +295,7 @@ define void @_ZN8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(
 18:                                               ; preds = %17
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %34
+  br label %36
 
 20:                                               ; preds = %17, %14
   %.sink = phi ptr [ %7, %14 ], [ %9, %17 ]
@@ -303,24 +303,28 @@ define void @_ZN8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8
   %23 = sub nsw i32 0, %22
+  %24 = sitofp i32 %23 to double
+  %25 = fmul double %24, 5.000000e-01
+  %26 = fptosi double %25 to i32
+  %27 = sitofp i32 %22 to double
+  %28 = fmul double %27, -5.000000e-01
+  %29 = fptosi double %28 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
-  %25 = add i32 %22, -1
-  %26 = insertelement <2 x i32> poison, i32 %23, i64 0
-  %27 = insertelement <2 x i32> %26, i32 %22, i64 1
-  %28 = sitofp <2 x i32> %27 to <2 x double>
-  %29 = fmul <2 x double> %28, <double 5.000000e-01, double -5.000000e-01>
-  %30 = fptosi <2 x double> %29 to <2 x i32>
-  store <2 x i32> %30, ptr %5, align 8
-  %31 = insertelement <2 x i32> poison, i32 %25, i64 0
-  %32 = shufflevector <2 x i32> %31, <2 x i32> poison, <2 x i32> zeroinitializer
-  %33 = add <2 x i32> %32, %30
-  store <2 x i32> %33, ptr %24, align 8
+  store i32 %26, ptr %5, align 4
+  %30 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %29, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = add i32 %22, -1
+  %33 = add i32 %32, %26
+  store i32 %33, ptr %31, align 4
+  %34 = getelementptr inbounds i8, ptr %5, i64 12
+  %35 = add i32 %32, %29
+  store i32 %35, ptr %34, align 4
   call void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 
-34:                                               ; preds = %18, %15
+36:                                               ; preds = %18, %15
   %.sink9 = phi ptr [ %9, %18 ], [ %7, %15 ]
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %16, %15 ]
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink9) #12

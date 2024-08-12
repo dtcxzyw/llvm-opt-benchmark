@@ -1576,7 +1576,13 @@ _ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %invoke.cont
   %d_lb = getelementptr inbounds i8, ptr %this, i64 72
   %d_cmpAssignmentLB = getelementptr inbounds i8, ptr %this, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_lb, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 1, i32 -1, i32 0, i32 0>, ptr %d_cmpAssignmentLB, align 8
+  store i32 1, ptr %d_cmpAssignmentLB, align 8
+  %d_cmpAssignmentUB = getelementptr inbounds i8, ptr %this, i64 92
+  store i32 -1, ptr %d_cmpAssignmentUB, align 4
+  %d_pushCount = getelementptr inbounds i8, ptr %this, i64 96
+  store i32 0, ptr %d_pushCount, align 8
+  %d_type = getelementptr inbounds i8, ptr %this, i64 100
+  store i32 0, ptr %d_type, align 4
   %d_node = getelementptr inbounds i8, ptr %this, i64 104
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %3 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !14
@@ -6278,7 +6284,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables18processBoundsQueueERNS3_19BoundUpdateCallbackE(ptr nocapture noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(8) %changed) local_unnamed_addr #3 align 2 {
 entry:
-  %prev = alloca %"class.cvc5::internal::theory::arith::linear::BoundsInfo", align 8
+  %prev = alloca %"class.cvc5::internal::theory::arith::linear::BoundsInfo", align 4
   %d_boundsQueue.i = getelementptr inbounds i8, ptr %this, i64 256
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load ptr, ptr %d_boundsQueue.i, align 8
@@ -6290,17 +6296,19 @@ while.body.lr.ph:                                 ; preds = %entry
   %d_image.i = getelementptr inbounds i8, ptr %this, i64 304
   %d_posVector.i = getelementptr inbounds i8, ptr %this, i64 280
   %d_image.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %d_upperBoundCount.i.i.i = getelementptr inbounds i8, ptr %prev, i64 4
   %d_hasBounds.i.i = getelementptr inbounds i8, ptr %prev, i64 8
+  %d_upperBoundCount.i6.i.i = getelementptr inbounds i8, ptr %prev, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %2 = phi ptr [ %1, %while.body.lr.ph ], [ %26, %if.end ]
+  %2 = phi ptr [ %1, %while.body.lr.ph ], [ %20, %if.end ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %add.ptr.i.i.i, align 4
   %conv.i = zext i32 %3 to i64
   %4 = load ptr, ptr %d_image.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::BoundsInfo", ptr %4, i64 %conv.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev, ptr noundef nonnull align 4 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %prev, ptr noundef nonnull align 4 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false)
   %5 = load i32, ptr %add.ptr.i.i.i, align 4
   %conv.i4 = zext i32 %5 to i64
   %6 = load ptr, ptr %d_posVector.i, align 8
@@ -6315,40 +6323,48 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %9 = load ptr, ptr %d_image.i.i, align 8
   %add.ptr.i.i.i7 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %9, i64 %conv.i
   %d_cmpAssignmentLB.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i7, i64 88
-  %10 = load <2 x i32>, ptr %d_cmpAssignmentLB.i.i.i, align 8
-  %11 = icmp eq <2 x i32> %10, zeroinitializer
-  %12 = load <2 x i32>, ptr %prev, align 8
-  %13 = zext <2 x i1> %11 to <2 x i32>
-  %14 = icmp eq <2 x i32> %12, %13
-  %15 = extractelement <2 x i1> %14, i64 0
-  %16 = extractelement <2 x i1> %14, i64 1
-  %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %_ZNK4cvc58internal6theory5arith6linear10BoundsInfoneERKS4_.exit, label %if.then
+  %10 = load i32, ptr %d_cmpAssignmentLB.i.i.i, align 8
+  %cmp.i.i.i = icmp eq i32 %10, 0
+  %d_cmpAssignmentUB.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i7, i64 92
+  %11 = load i32, ptr %d_cmpAssignmentUB.i.i.i, align 4
+  %cmp2.i.i.i = icmp eq i32 %11, 0
+  %bc.sroa.0.0.extract.trunc.i.i.i = zext i1 %cmp.i.i.i to i32
+  %12 = load i32, ptr %prev, align 4
+  %cmp.i.i.i8 = icmp eq i32 %12, %bc.sroa.0.0.extract.trunc.i.i.i
+  %bc.sroa.2.0.extract.trunc.i.i.i = zext i1 %cmp2.i.i.i to i32
+  %13 = load i32, ptr %d_upperBoundCount.i.i.i, align 4
+  %cmp4.i.i.i = icmp eq i32 %13, %bc.sroa.2.0.extract.trunc.i.i.i
+  %14 = select i1 %cmp.i.i.i8, i1 %cmp4.i.i.i, i1 false
+  br i1 %14, label %_ZNK4cvc58internal6theory5arith6linear10BoundsInfoneERKS4_.exit, label %if.then
 
 _ZNK4cvc58internal6theory5arith6linear10BoundsInfoneERKS4_.exit: ; preds = %while.body
+  %d_ub.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i7, i64 80
+  %15 = load ptr, ptr %d_ub.i.i.i, align 8
+  %cmp2.not.not.i.i.i = icmp ne ptr %15, null
   %d_lb.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i7, i64 72
-  %18 = load <2 x ptr>, ptr %d_lb.i.i.i, align 8
-  %19 = icmp ne <2 x ptr> %18, zeroinitializer
-  %20 = load <2 x i32>, ptr %d_hasBounds.i.i, align 8
-  %21 = zext <2 x i1> %19 to <2 x i32>
-  %22 = icmp ne <2 x i32> %20, %21
-  %23 = extractelement <2 x i1> %22, i64 0
-  %24 = extractelement <2 x i1> %22, i64 1
-  %.not.i = select i1 %23, i1 true, i1 %24
+  %16 = load ptr, ptr %d_lb.i.i.i, align 8
+  %cmp.not.i.i.i = icmp ne ptr %16, null
+  %bc.sroa.0.0.extract.trunc.i2.i.i = zext i1 %cmp.not.i.i.i to i32
+  %17 = load i32, ptr %d_hasBounds.i.i, align 4
+  %cmp.i3.i.i = icmp ne i32 %17, %bc.sroa.0.0.extract.trunc.i2.i.i
+  %bc.sroa.2.0.extract.trunc.i5.i.i = zext i1 %cmp2.not.not.i.i.i to i32
+  %18 = load i32, ptr %d_upperBoundCount.i6.i.i, align 4
+  %cmp4.i7.i.i = icmp ne i32 %18, %bc.sroa.2.0.extract.trunc.i5.i.i
+  %.not.i = select i1 %cmp.i3.i.i, i1 true, i1 %cmp4.i7.i.i
   br i1 %.not.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body, %_ZNK4cvc58internal6theory5arith6linear10BoundsInfoneERKS4_.exit
   %vtable = load ptr, ptr %changed, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %25 = load ptr, ptr %vfn, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %changed, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(16) %prev)
+  %19 = load ptr, ptr %vfn, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %changed, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(16) %prev)
   %.pre = load ptr, ptr %_M_finish.i.i.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNK4cvc58internal6theory5arith6linear10BoundsInfoneERKS4_.exit
-  %26 = phi ptr [ %.pre, %if.then ], [ %incdec.ptr.i.i, %_ZNK4cvc58internal6theory5arith6linear10BoundsInfoneERKS4_.exit ]
-  %27 = load ptr, ptr %d_boundsQueue.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %27, %26
+  %20 = phi ptr [ %.pre, %if.then ], [ %incdec.ptr.i.i, %_ZNK4cvc58internal6theory5arith6linear10BoundsInfoneERKS4_.exit ]
+  %21 = load ptr, ptr %d_boundsQueue.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %21, %20
   br i1 %cmp.i.i.i.i, label %while.end, label %while.body, !llvm.loop !46
 
 while.end:                                        ; preds = %if.end, %entry

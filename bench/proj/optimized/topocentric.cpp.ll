@@ -60,16 +60,16 @@ define hidden noundef ptr @pj_topocentric(ptr noundef %0) local_unnamed_addr #0 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z40pj_projection_specific_setup_topocentricP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.PJ_LPZ, align 8
-  %3 = alloca %struct.PJ_XYZ, align 16
-  %4 = alloca %struct.PJ_XYZ, align 16
-  %5 = alloca %struct.PJ_LPZ, align 16
+  %3 = alloca %struct.PJ_XYZ, align 8
+  %4 = alloca %struct.PJ_XYZ, align 8
+  %5 = alloca %struct.PJ_LPZ, align 8
   %6 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #6
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
   %9 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %99
+  br label %104
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 88
@@ -95,7 +95,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_topocentricP8PJconst
 27:                                               ; preds = %10
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.7)
   %28 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %99
+  br label %104
 
 29:                                               ; preds = %10
   %30 = icmp ne ptr %16, null
@@ -114,7 +114,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_topocentricP8PJconst
 36:                                               ; preds = %32
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.8)
   %37 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1028)
-  br label %99
+  br label %104
 
 38:                                               ; preds = %32
   %.not = xor i1 %25, true
@@ -125,7 +125,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_topocentricP8PJconst
 39:                                               ; preds = %38
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.9)
   %40 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %99
+  br label %104
 
 41:                                               ; preds = %29
   %42 = icmp eq ptr %20, null
@@ -136,7 +136,7 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_topocentricP8PJconst
 44:                                               ; preds = %41
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.10)
   %45 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
-  br label %99
+  br label %104
 
 .thread103:                                       ; preds = %38, %41
   %46 = load ptr, ptr %0, align 8
@@ -146,11 +146,11 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_topocentricP8PJconst
 
 49:                                               ; preds = %.thread103
   %50 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
-  br label %99
+  br label %104
 
 51:                                               ; preds = %.thread103
   tail call void @_Z24pj_inherit_ellipsoid_defPK8PJconstsPS_(ptr noundef nonnull %0, ptr noundef nonnull %47)
-  br i1 %25, label %52, label %72
+  br i1 %25, label %52, label %73
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %0, align 8
@@ -167,72 +167,82 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_topocentricP8PJconst
   %62 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %60, ptr noundef %61, ptr noundef nonnull @.str.14)
   %63 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %62, ptr %63, align 8
-  %64 = load <2 x double>, ptr %6, align 8
-  store <2 x double> %64, ptr %3, align 16
+  %64 = load double, ptr %6, align 8
+  %65 = load double, ptr %59, align 8
+  store double %64, ptr %3, align 8
+  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store double %65, ptr %.sroa.216.0..sroa_idx, align 8
   %.sroa.317.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %62, ptr %.sroa.317.0..sroa_idx, align 16
+  store i64 %62, ptr %.sroa.317.0..sroa_idx, align 8
   call void @_Z8pj_inv3d6PJ_XYZP8PJconsts(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %2, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %3, ptr noundef nonnull %47)
-  %65 = getelementptr inbounds i8, ptr %2, i64 8
-  %66 = load double, ptr %65, align 8
-  %67 = call double @sin(double noundef %66) #7
-  %68 = getelementptr inbounds i8, ptr %6, i64 24
-  store double %67, ptr %68, align 8
-  %69 = load double, ptr %65, align 8
-  %70 = call double @cos(double noundef %69) #7
-  %71 = getelementptr inbounds i8, ptr %6, i64 32
-  store double %70, ptr %71, align 8
-  br label %89
+  %66 = getelementptr inbounds i8, ptr %2, i64 8
+  %67 = load double, ptr %66, align 8
+  %68 = call double @sin(double noundef %67) #7
+  %69 = getelementptr inbounds i8, ptr %6, i64 24
+  store double %68, ptr %69, align 8
+  %70 = load double, ptr %66, align 8
+  %71 = call double @cos(double noundef %70) #7
+  %72 = getelementptr inbounds i8, ptr %6, i64 32
+  store double %71, ptr %72, align 8
+  br label %94
 
-72:                                               ; preds = %51
-  %73 = getelementptr inbounds i8, ptr %0, i64 440
-  %74 = getelementptr inbounds i8, ptr %0, i64 448
-  %75 = load ptr, ptr %0, align 8
-  %76 = load ptr, ptr %12, align 8
-  %77 = load <2 x double>, ptr %73, align 8
-  %78 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %75, ptr noundef %76, ptr noundef nonnull @.str.15)
-  store <2 x double> %77, ptr %5, align 16
+73:                                               ; preds = %51
+  %74 = getelementptr inbounds i8, ptr %0, i64 440
+  %75 = load double, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 448
+  %77 = load double, ptr %76, align 8
+  %78 = load ptr, ptr %0, align 8
+  %79 = load ptr, ptr %12, align 8
+  %80 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %78, ptr noundef %79, ptr noundef nonnull @.str.15)
+  store double %75, ptr %5, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  store double %77, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %78, ptr %.sroa.3.0..sroa_idx, align 16
+  store i64 %80, ptr %.sroa.3.0..sroa_idx, align 8
   call void @_Z8pj_fwd3d6PJ_LPZP8PJconsts(ptr dead_on_unwind nonnull writable sret(%struct.PJ_XYZ) align 8 %4, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %5, ptr noundef nonnull %47)
-  %79 = load <2 x double>, ptr %4, align 16
-  store <2 x double> %79, ptr %6, align 8
-  %80 = getelementptr inbounds i8, ptr %4, i64 16
-  %81 = load double, ptr %80, align 16
-  %82 = getelementptr inbounds i8, ptr %6, i64 16
-  store double %81, ptr %82, align 8
-  %83 = load double, ptr %74, align 8
-  %84 = call double @sin(double noundef %83) #7
-  %85 = getelementptr inbounds i8, ptr %6, i64 24
-  store double %84, ptr %85, align 8
-  %86 = load double, ptr %74, align 8
-  %87 = call double @cos(double noundef %86) #7
-  %88 = getelementptr inbounds i8, ptr %6, i64 32
-  store double %87, ptr %88, align 8
-  br label %89
-
-89:                                               ; preds = %72, %52
-  %.sink105.in = phi ptr [ %73, %72 ], [ %2, %52 ]
-  %.sink107 = load double, ptr %.sink105.in, align 8
-  %90 = call double @sin(double noundef %.sink107) #7
-  %91 = getelementptr inbounds i8, ptr %6, i64 40
-  store double %90, ptr %91, align 8
-  %.sink105 = load double, ptr %.sink105.in, align 8
-  %92 = call double @cos(double noundef %.sink105) #7
-  %93 = getelementptr inbounds i8, ptr %6, i64 48
+  %81 = load double, ptr %4, align 8
+  store double %81, ptr %6, align 8
+  %82 = getelementptr inbounds i8, ptr %4, i64 8
+  %83 = load double, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %6, i64 8
+  store double %83, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %4, i64 16
+  %86 = load double, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %6, i64 16
+  store double %86, ptr %87, align 8
+  %88 = load double, ptr %76, align 8
+  %89 = call double @sin(double noundef %88) #7
+  %90 = getelementptr inbounds i8, ptr %6, i64 24
+  store double %89, ptr %90, align 8
+  %91 = load double, ptr %76, align 8
+  %92 = call double @cos(double noundef %91) #7
+  %93 = getelementptr inbounds i8, ptr %6, i64 32
   store double %92, ptr %93, align 8
-  %94 = call ptr @proj_destroy(ptr noundef nonnull %47)
-  %95 = getelementptr inbounds i8, ptr %0, i64 136
-  store ptr @_ZL15topocentric_fwdR8PJ_COORDP8PJconsts, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 144
-  store ptr @_ZL15topocentric_invR8PJ_COORDP8PJconsts, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 380
-  store i32 3, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 384
-  store i32 3, ptr %98, align 8
-  br label %99
+  br label %94
 
-99:                                               ; preds = %89, %49, %44, %39, %36, %27, %8
-  %.0 = phi ptr [ %9, %8 ], [ %37, %36 ], [ %50, %49 ], [ %0, %89 ], [ %45, %44 ], [ %40, %39 ], [ %28, %27 ]
+94:                                               ; preds = %73, %52
+  %.sink105.in = phi ptr [ %74, %73 ], [ %2, %52 ]
+  %.sink107 = load double, ptr %.sink105.in, align 8
+  %95 = call double @sin(double noundef %.sink107) #7
+  %96 = getelementptr inbounds i8, ptr %6, i64 40
+  store double %95, ptr %96, align 8
+  %.sink105 = load double, ptr %.sink105.in, align 8
+  %97 = call double @cos(double noundef %.sink105) #7
+  %98 = getelementptr inbounds i8, ptr %6, i64 48
+  store double %97, ptr %98, align 8
+  %99 = call ptr @proj_destroy(ptr noundef nonnull %47)
+  %100 = getelementptr inbounds i8, ptr %0, i64 136
+  store ptr @_ZL15topocentric_fwdR8PJ_COORDP8PJconsts, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 144
+  store ptr @_ZL15topocentric_invR8PJ_COORDP8PJconsts, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %0, i64 380
+  store i32 3, ptr %102, align 4
+  %103 = getelementptr inbounds i8, ptr %0, i64 384
+  store i32 3, ptr %103, align 8
+  br label %104
+
+104:                                              ; preds = %94, %49, %44, %39, %36, %27, %8
+  %.0 = phi ptr [ %9, %8 ], [ %37, %36 ], [ %50, %49 ], [ %0, %94 ], [ %45, %44 ], [ %40, %39 ], [ %28, %27 ]
   ret ptr %.0
 }
 

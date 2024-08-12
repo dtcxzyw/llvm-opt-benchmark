@@ -5033,7 +5033,7 @@ define internal void @_exec_wait_info_destroy(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @_fork_child_with_wait_info(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  %3 = alloca [2 x i32], align 8
+  %3 = alloca [2 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = call i32 @pipe2(ptr noundef nonnull %3, i32 noundef 524288) #15
   %5 = icmp slt i32 %4, 0
@@ -5042,71 +5042,73 @@ define internal fastcc noundef ptr @_fork_child_with_wait_info(i32 noundef %0) u
 _exec_wait_info_create.exit.thread:               ; preds = %1
   %6 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.122) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %34
+  br label %35
 
 7:                                                ; preds = %1
   %8 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.10, i32 noundef 1642, ptr noundef nonnull @__func__._exec_wait_info_create) #15
-  %9 = getelementptr inbounds i8, ptr %8, i64 12
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = load <2 x i32>, ptr %3, align 8
-  %12 = shufflevector <2 x i32> %11, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %12, ptr %10, align 4
+  %9 = load i32, ptr %3, align 4
+  %10 = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 %9, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %12, ptr %13, align 4
   store i32 %0, ptr %8, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 -1, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 -1, ptr %14, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %14 = call i32 @fork() #15
-  store i32 %14, ptr %13, align 4
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %26
+  %15 = call i32 @fork() #15
+  store i32 %15, ptr %14, align 4
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %17, label %27
 
-16:                                               ; preds = %7
+17:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %8, ptr %2, align 8
-  %17 = load i32, ptr %10, align 4
-  %18 = icmp sgt i32 %17, -1
-  br i1 %18, label %19, label %21
+  %18 = load i32, ptr %13, align 4
+  %19 = icmp sgt i32 %18, -1
+  br i1 %19, label %20, label %22
 
-19:                                               ; preds = %16
-  %20 = call i32 @close(i32 noundef %17) #15
+20:                                               ; preds = %17
+  %21 = call i32 @close(i32 noundef %18) #15
+  store i32 -1, ptr %13, align 4
+  br label %22
+
+22:                                               ; preds = %20, %17
+  %23 = load i32, ptr %10, align 4
+  %24 = icmp sgt i32 %23, -1
+  br i1 %24, label %25, label %_exec_wait_info_destroy.exit
+
+25:                                               ; preds = %22
+  %26 = call i32 @close(i32 noundef %23) #15
   store i32 -1, ptr %10, align 4
-  br label %21
-
-21:                                               ; preds = %19, %16
-  %22 = load i32, ptr %9, align 4
-  %23 = icmp sgt i32 %22, -1
-  br i1 %23, label %24, label %_exec_wait_info_destroy.exit
-
-24:                                               ; preds = %21
-  %25 = call i32 @close(i32 noundef %22) #15
-  store i32 -1, ptr %9, align 4
   br label %_exec_wait_info_destroy.exit
 
-_exec_wait_info_destroy.exit:                     ; preds = %21, %24
+_exec_wait_info_destroy.exit:                     ; preds = %22, %25
   store i32 -1, ptr %8, align 4
-  store i32 -1, ptr %13, align 4
+  store i32 -1, ptr %14, align 4
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %34
+  br label %35
 
-26:                                               ; preds = %7
-  %27 = icmp eq i32 %14, 0
-  br i1 %27, label %28, label %31
+27:                                               ; preds = %7
+  %28 = icmp eq i32 %15, 0
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %26
-  %29 = load i32, ptr %10, align 4
-  %30 = call i32 @close(i32 noundef %29) #15
+29:                                               ; preds = %27
+  %30 = load i32, ptr %13, align 4
+  %31 = call i32 @close(i32 noundef %30) #15
+  store i32 -1, ptr %13, align 4
+  br label %35
+
+32:                                               ; preds = %27
+  %33 = load i32, ptr %10, align 4
+  %34 = call i32 @close(i32 noundef %33) #15
   store i32 -1, ptr %10, align 4
-  br label %34
+  br label %35
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr %9, align 4
-  %33 = call i32 @close(i32 noundef %32) #15
-  store i32 -1, ptr %9, align 4
-  br label %34
-
-34:                                               ; preds = %_exec_wait_info_create.exit.thread, %28, %31, %_exec_wait_info_destroy.exit
-  %.0 = phi ptr [ null, %_exec_wait_info_destroy.exit ], [ %8, %31 ], [ %8, %28 ], [ null, %_exec_wait_info_create.exit.thread ]
+35:                                               ; preds = %_exec_wait_info_create.exit.thread, %29, %32, %_exec_wait_info_destroy.exit
+  %.0 = phi ptr [ null, %_exec_wait_info_destroy.exit ], [ %8, %32 ], [ %8, %29 ], [ null, %_exec_wait_info_create.exit.thread ]
   ret ptr %.0
 }
 

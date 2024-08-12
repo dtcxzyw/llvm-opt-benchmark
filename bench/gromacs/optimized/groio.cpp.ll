@@ -940,7 +940,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %228
   %264 = load float, ptr %263, align 4
   %265 = fpext float %264 to double
   %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %257, ptr noundef nonnull @.str.17, double noundef %259, double noundef %262, double noundef %265) #17
-  br label %294
+  br label %296
 
 267:                                              ; preds = %._crit_edge
   %268 = load double, ptr %16, align 8
@@ -953,11 +953,12 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %228
   store float %271, ptr %273, align 4
   %274 = load double, ptr %18, align 8
   %275 = fptrunc double %274 to float
-  %276 = getelementptr inbounds i8, ptr %8, i64 32
-  store float %275, ptr %276, align 4
-  %277 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.18, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21) #14
-  %.not185 = icmp eq i32 %277, 6
-  br i1 %.not185, label %._crit_edge337, label %286
+  %276 = getelementptr inbounds i8, ptr %8, i64 24
+  %277 = getelementptr inbounds i8, ptr %8, i64 32
+  store float %275, ptr %277, align 4
+  %278 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.18, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21) #14
+  %.not185 = icmp eq i32 %278, 6
+  br i1 %.not185, label %._crit_edge337, label %285
 
 ._crit_edge337:                                   ; preds = %267
   %.pre338 = load double, ptr %16, align 8
@@ -966,31 +967,34 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %228
   %.pre341 = load double, ptr %19, align 8
   %.pre342 = load double, ptr %20, align 8
   %.pre343 = load double, ptr %21, align 8
-  %278 = insertelement <2 x double> poison, double %.pre338, i64 0
-  %279 = insertelement <2 x double> %278, double %.pre339, i64 1
-  %280 = fptrunc <2 x double> %279 to <2 x float>
+  %279 = fptrunc double %.pre338 to float
+  %280 = fptrunc double %.pre339 to float
   %281 = fptrunc double %.pre340 to float
-  %282 = insertelement <2 x double> poison, double %.pre341, i64 0
-  %283 = insertelement <2 x double> %282, double %.pre342, i64 1
-  %284 = fptrunc <2 x double> %283 to <2 x float>
-  %285 = fptrunc double %.pre343 to float
-  br label %286
+  %282 = fptrunc double %.pre341 to float
+  %283 = fptrunc double %.pre342 to float
+  %284 = fptrunc double %.pre343 to float
+  br label %285
 
-286:                                              ; preds = %267, %._crit_edge337
-  %287 = phi float [ %285, %._crit_edge337 ], [ 0.000000e+00, %267 ]
-  %288 = phi float [ %281, %._crit_edge337 ], [ 0.000000e+00, %267 ]
-  %289 = phi <2 x float> [ %280, %._crit_edge337 ], [ zeroinitializer, %267 ]
-  %290 = phi <2 x float> [ %284, %._crit_edge337 ], [ zeroinitializer, %267 ]
-  %291 = getelementptr inbounds i8, ptr %8, i64 4
-  store <2 x float> %289, ptr %291, align 4
-  store float %288, ptr %272, align 4
-  %292 = getelementptr inbounds i8, ptr %8, i64 20
-  store <2 x float> %290, ptr %292, align 4
-  %293 = getelementptr inbounds i8, ptr %8, i64 28
-  store float %287, ptr %293, align 4
-  br label %294
+285:                                              ; preds = %267, %._crit_edge337
+  %286 = phi float [ %284, %._crit_edge337 ], [ 0.000000e+00, %267 ]
+  %287 = phi float [ %283, %._crit_edge337 ], [ 0.000000e+00, %267 ]
+  %288 = phi float [ %282, %._crit_edge337 ], [ 0.000000e+00, %267 ]
+  %289 = phi float [ %281, %._crit_edge337 ], [ 0.000000e+00, %267 ]
+  %290 = phi float [ %280, %._crit_edge337 ], [ 0.000000e+00, %267 ]
+  %291 = phi float [ %279, %._crit_edge337 ], [ 0.000000e+00, %267 ]
+  %292 = getelementptr inbounds i8, ptr %8, i64 4
+  store float %291, ptr %292, align 4
+  %293 = getelementptr inbounds i8, ptr %8, i64 8
+  store float %290, ptr %293, align 4
+  store float %289, ptr %272, align 4
+  %294 = getelementptr inbounds i8, ptr %8, i64 20
+  store float %288, ptr %294, align 4
+  store float %287, ptr %276, align 4
+  %295 = getelementptr inbounds i8, ptr %8, i64 28
+  store float %286, ptr %295, align 4
+  br label %296
 
-294:                                              ; preds = %286, %256
+296:                                              ; preds = %285, %256
   ret i1 %.0162.lcssa
 }
 

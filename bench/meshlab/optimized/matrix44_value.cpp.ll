@@ -140,7 +140,13 @@ define linkonce_odr void @_ZNK5Value7getShotEv(ptr dead_on_unwind noalias writab
   %6 = getelementptr inbounds i8, ptr %0, i64 96
   store float 1.000000e+00, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 116
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %7, align 4
+  store float 1.000000e+00, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  store float 0.000000e+00, ptr %8, align 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 124
+  store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i.i, align 4
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 128
+  store float 0.000000e+00, ptr %.sroa.3.0..sroa_idx.i.i, align 4
   ret void
 }
 

@@ -546,15 +546,14 @@ if.end6:                                          ; preds = %if.end3, %if.then4
   %call7 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #2
   %call8 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #2
   %call9 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #2
-  %1 = insertelement <4 x ptr> poison, ptr %estimate.0, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %call7, i64 1
-  %3 = insertelement <4 x ptr> %2, ptr %call8, i64 2
-  %4 = insertelement <4 x ptr> %3, ptr %call9, i64 3
-  %.fr = freeze <4 x ptr> %4
-  %5 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %6 = bitcast <4 x i1> %5 to i4
-  %.not = icmp eq i4 %6, 0
-  br i1 %.not, label %if.end17, label %if.then16
+  %cmp10 = icmp eq ptr %estimate.0, null
+  %cmp11 = icmp eq ptr %call7, null
+  %or.cond = select i1 %cmp10, i1 true, i1 %cmp11
+  %cmp13 = icmp eq ptr %call8, null
+  %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp13
+  %cmp15 = icmp eq ptr %call9, null
+  %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp15
+  br i1 %or.cond2, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end6
   tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 455) #2

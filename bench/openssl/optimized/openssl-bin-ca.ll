@@ -2005,8 +2005,14 @@ if.else953:                                       ; preds = %if.end932
 
 if.end956:                                        ; preds = %for.body939, %if.else953
   %n.1 = phi ptr [ %incdec.ptr955, %if.else953 ], [ %incdec.ptr948, %for.body939 ]
+  %incdec.ptr957 = getelementptr inbounds i8, ptr %n.1, i64 1
+  store i8 46, ptr %n.1, align 1
+  %incdec.ptr958 = getelementptr inbounds i8, ptr %n.1, i64 2
+  store i8 112, ptr %incdec.ptr957, align 1
+  %incdec.ptr959 = getelementptr inbounds i8, ptr %n.1, i64 3
+  store i8 101, ptr %incdec.ptr958, align 1
   %incdec.ptr960 = getelementptr inbounds i8, ptr %n.1, i64 4
-  store <4 x i8> <i8 46, i8 112, i8 101, i8 109>, ptr %n.1, align 1
+  store i8 109, ptr %incdec.ptr959, align 1
   store i8 0, ptr %incdec.ptr960, align 1
   br i1 %tobool455.not, label %if.end965, label %if.then962
 

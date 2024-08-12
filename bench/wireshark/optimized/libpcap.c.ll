@@ -737,53 +737,65 @@ switch.lookup:                                    ; preds = %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %10 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef %3, i32 noundef %switch.load, ptr noundef %1, ptr noundef %2) #7
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %29, label %11
+  br i1 %.not, label %38, label %11
 
 11:                                               ; preds = %switch.lookup
   %12 = load i32, ptr %.96.val, align 8
   %.not37 = icmp eq i32 %12, 0
-  br i1 %.not37, label %16, label %13
+  br i1 %.not37, label %25, label %13
 
 13:                                               ; preds = %11
-  %14 = load <4 x i32>, ptr %3, align 4
-  %15 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %14)
-  store <4 x i32> %15, ptr %3, align 4
-  br label %16
+  %14 = load i32, ptr %3, align 4
+  %15 = tail call i32 @llvm.bswap.i32(i32 %14)
+  store i32 %15, ptr %3, align 4
+  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %17 = load i32, ptr %16, align 4
+  %18 = tail call i32 @llvm.bswap.i32(i32 %17)
+  store i32 %18, ptr %16, align 4
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = load i32, ptr %19, align 4
+  %21 = tail call i32 @llvm.bswap.i32(i32 %20)
+  store i32 %21, ptr %19, align 4
+  %22 = getelementptr inbounds i8, ptr %3, i64 12
+  %23 = load i32, ptr %22, align 4
+  %24 = tail call i32 @llvm.bswap.i32(i32 %23)
+  store i32 %24, ptr %22, align 4
+  br label %25
 
-16:                                               ; preds = %13, %11
-  %17 = getelementptr inbounds i8, ptr %.96.val, i64 4
-  %18 = load i32, ptr %17, align 4
-  switch i32 %18, label %29 [
+25:                                               ; preds = %13, %11
+  %26 = getelementptr inbounds i8, ptr %.96.val, i64 4
+  %27 = load i32, ptr %26, align 4
+  switch i32 %27, label %38 [
     i32 1, label %._crit_edge
-    i32 2, label %19
+    i32 2, label %28
   ]
 
-._crit_edge:                                      ; preds = %16
+._crit_edge:                                      ; preds = %25
   %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.phi.trans.insert1 = getelementptr inbounds i8, ptr %3, i64 8
   %.pre2 = load i32, ptr %.phi.trans.insert1, align 4
-  br label %24
+  br label %33
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 12
-  %23 = load i32, ptr %22, align 4
-  %.not38 = icmp ugt i32 %21, %23
-  br i1 %.not38, label %24, label %29
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds i8, ptr %3, i64 12
+  %32 = load i32, ptr %31, align 4
+  %.not38 = icmp ugt i32 %30, %32
+  br i1 %.not38, label %33, label %38
 
-24:                                               ; preds = %._crit_edge, %19
-  %25 = phi i32 [ %.pre2, %._crit_edge ], [ %21, %19 ]
-  %26 = phi i32 [ %.pre, %._crit_edge ], [ %23, %19 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 12
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %25, ptr %27, align 4
-  store i32 %26, ptr %28, align 4
-  br label %29
+33:                                               ; preds = %._crit_edge, %28
+  %34 = phi i32 [ %.pre2, %._crit_edge ], [ %30, %28 ]
+  %35 = phi i32 [ %.pre, %._crit_edge ], [ %32, %28 ]
+  %36 = getelementptr inbounds i8, ptr %3, i64 12
+  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %34, ptr %36, align 4
+  store i32 %35, ptr %37, align 4
+  br label %38
 
-29:                                               ; preds = %16, %24, %19, %switch.lookup
-  %.0 = phi i32 [ 0, %switch.lookup ], [ 1, %19 ], [ 1, %24 ], [ 1, %16 ]
+38:                                               ; preds = %25, %33, %28, %switch.lookup
+  %.0 = phi i32 [ 0, %switch.lookup ], [ 1, %28 ], [ 1, %33 ], [ 1, %25 ]
   ret i32 %.0
 }
 
@@ -1564,9 +1576,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.bswap.v4i32(<4 x i32>) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -3269,95 +3269,102 @@ wtap_dump_can_compress.exit.thread:               ; preds = %40, %wtap_dump_can_
 53:                                               ; preds = %47
   %54 = getelementptr inbounds i8, ptr %48, i64 8
   store i32 %0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %48, i64 12
-  %56 = load <2 x i32>, ptr %2, align 8
-  %57 = shufflevector <2 x i32> %56, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %57, ptr %55, align 4
-  %58 = getelementptr inbounds i8, ptr %48, i64 20
-  store i32 %1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %48, i64 48
-  store ptr null, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %48, i64 96
-  store ptr %61, ptr %62, align 8
-  %63 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8) #22
-  %64 = getelementptr inbounds i8, ptr %48, i64 104
+  %55 = getelementptr inbounds i8, ptr %2, i64 4
+  %56 = load i32, ptr %55, align 4
+  %57 = getelementptr inbounds i8, ptr %48, i64 12
+  store i32 %56, ptr %57, align 4
+  %58 = load i32, ptr %2, align 8
+  %59 = getelementptr inbounds i8, ptr %48, i64 16
+  store i32 %58, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %48, i64 20
+  store i32 %1, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %48, i64 48
+  store ptr null, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %2, i64 24
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %48, i64 96
   store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %2, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %48, i64 88
-  store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %2, i64 40
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %48, i64 120
-  store ptr %69, ptr %70, align 8
+  %65 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8) #22
+  %66 = getelementptr inbounds i8, ptr %48, i64 104
+  store ptr %65, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %2, i64 16
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %48, i64 88
+  store ptr %68, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %2, i64 40
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %48, i64 120
+  store ptr %71, ptr %72, align 8
   %.not77 = icmp eq ptr %11, null
-  br i1 %.not77, label %93, label %71
+  br i1 %.not77, label %95, label %73
 
-71:                                               ; preds = %53
-  %72 = getelementptr inbounds i8, ptr %11, i64 8
-  %73 = load i32, ptr %72, align 8
-  %.not78 = icmp eq i32 %73, 0
-  br i1 %.not78, label %93, label %74
+73:                                               ; preds = %53
+  %74 = getelementptr inbounds i8, ptr %11, i64 8
+  %75 = load i32, ptr %74, align 8
+  %.not78 = icmp eq i32 %75, 0
+  br i1 %.not78, label %95, label %76
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %2, i64 72
-  %76 = load i32, ptr %75, align 8
-  %.not81 = icmp eq i32 %76, 0
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds i8, ptr %2, i64 72
+  %78 = load i32, ptr %77, align 8
+  %.not81 = icmp eq i32 %78, 0
   br i1 %.not81, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %74, %88
-  %indvars.iv = phi i64 [ %indvars.iv.next, %88 ], [ 0, %74 ]
-  %77 = load ptr, ptr %11, align 8
-  %78 = getelementptr ptr, ptr %77, i64 %indvars.iv
-  %79 = load ptr, ptr %78, align 8
-  %80 = call ptr @wtap_block_get_mandatory_data(ptr noundef %79) #22
-  %81 = call ptr @wtap_block_make_copy(ptr noundef %79) #22
-  store ptr %81, ptr %5, align 8
-  %82 = load i32, ptr %2, align 8
-  %.not82 = icmp eq i32 %82, -1
-  br i1 %.not82, label %88, label %83
+.lr.ph:                                           ; preds = %76, %90
+  %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %76 ]
+  %79 = load ptr, ptr %11, align 8
+  %80 = getelementptr ptr, ptr %79, i64 %indvars.iv
+  %81 = load ptr, ptr %80, align 8
+  %82 = call ptr @wtap_block_get_mandatory_data(ptr noundef %81) #22
+  %83 = call ptr @wtap_block_make_copy(ptr noundef %81) #22
+  store ptr %83, ptr %5, align 8
+  %84 = load i32, ptr %2, align 8
+  %.not82 = icmp eq i32 %84, -1
+  br i1 %.not82, label %90, label %85
 
-83:                                               ; preds = %.lr.ph
-  %84 = load i32, ptr %80, align 8
-  %.not83 = icmp eq i32 %82, %84
-  br i1 %.not83, label %88, label %85
+85:                                               ; preds = %.lr.ph
+  %86 = load i32, ptr %82, align 8
+  %.not83 = icmp eq i32 %84, %86
+  br i1 %.not83, label %90, label %87
 
-85:                                               ; preds = %83
-  %86 = call ptr @wtap_block_get_mandatory_data(ptr noundef %81) #22
-  %87 = load i32, ptr %2, align 8
-  store i32 %87, ptr %86, align 8
-  br label %88
+87:                                               ; preds = %85
+  %88 = call ptr @wtap_block_get_mandatory_data(ptr noundef %83) #22
+  %89 = load i32, ptr %2, align 8
+  store i32 %89, ptr %88, align 8
+  br label %90
 
-88:                                               ; preds = %85, %83, %.lr.ph
-  %89 = call ptr @g_array_append_vals(ptr noundef %63, ptr noundef nonnull %5, i32 noundef 1) #22
+90:                                               ; preds = %87, %85, %.lr.ph
+  %91 = call ptr @g_array_append_vals(ptr noundef %65, ptr noundef nonnull %5, i32 noundef 1) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %90 = load i32, ptr %72, align 8
-  %91 = zext i32 %90 to i64
-  %92 = icmp ult i64 %indvars.iv.next, %91
-  br i1 %92, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  %92 = load i32, ptr %74, align 8
+  %93 = zext i32 %92 to i64
+  %94 = icmp ult i64 %indvars.iv.next, %93
+  br i1 %94, label %.lr.ph, label %.loopexit, !llvm.loop !35
 
-93:                                               ; preds = %71, %53
-  %94 = load i32, ptr %2, align 8
-  %switch = icmp ugt i32 %94, -3
-  br i1 %switch, label %.loopexit, label %95
+95:                                               ; preds = %73, %53
+  %96 = load i32, ptr %2, align 8
+  %switch = icmp ugt i32 %96, -3
+  br i1 %switch, label %.loopexit, label %97
 
-95:                                               ; preds = %93
-  %96 = tail call ptr @wtap_dump_params_generate_idb(ptr noundef nonnull %2) #22
-  store ptr %96, ptr %5, align 8
-  %97 = call ptr @g_array_append_vals(ptr noundef %63, ptr noundef nonnull %5, i32 noundef 1) #22
+97:                                               ; preds = %95
+  %98 = tail call ptr @wtap_dump_params_generate_idb(ptr noundef nonnull %2) #22
+  store ptr %98, ptr %5, align 8
+  %99 = call ptr @g_array_append_vals(ptr noundef %65, ptr noundef nonnull %5, i32 noundef 1) #22
   br label %.loopexit
 
-.loopexit:                                        ; preds = %88, %93, %95, %74
-  %98 = getelementptr inbounds i8, ptr %2, i64 48
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %48, i64 112
-  store ptr %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %2, i64 56
-  %102 = getelementptr inbounds i8, ptr %48, i64 128
-  %103 = load <2 x ptr>, ptr %101, align 8
-  store <2 x ptr> %103, ptr %102, align 8
+.loopexit:                                        ; preds = %90, %95, %97, %76
+  %100 = getelementptr inbounds i8, ptr %2, i64 48
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %48, i64 112
+  store ptr %101, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %2, i64 56
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds i8, ptr %48, i64 128
+  store ptr %104, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %2, i64 64
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %48, i64 136
+  store ptr %107, ptr %108, align 8
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %31, %27, %thread-pre-split, %.loopexit, %50, %wtap_dump_can_compress.exit.thread, %wtap_dump_can_open.exit.thread

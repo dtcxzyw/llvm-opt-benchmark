@@ -6730,15 +6730,15 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_tonecurve_button_press(ptr n
   %21 = getelementptr [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18
   %22 = getelementptr inbounds i8, ptr %1, i64 52
   %23 = load i32, ptr %22, align 4, !tbaa !191
-  switch i32 %23, label %551 [
+  switch i32 %23, label %565 [
     i32 1, label %24
-    i32 3, label %488
+    i32 3, label %502
   ]
 
 24:                                               ; preds = %3
   %25 = load i32, ptr %1, align 8, !tbaa !193
   %26 = icmp eq i32 %25, 4
-  br i1 %26, label %27, label %367
+  br i1 %26, label %27, label %381
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %1, i64 48
@@ -6750,13 +6750,13 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_tonecurve_button_press(ptr n
   %34 = icmp eq i32 %33, 4
   %35 = icmp slt i32 %20, 20
   %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %37, label %365
+  br i1 %36, label %37, label %379
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds i8, ptr %12, i64 128
   %39 = load i32, ptr %38, align 8, !tbaa !141
   %40 = icmp eq i32 %39, -1
-  br i1 %40, label %41, label %365
+  br i1 %40, label %41, label %379
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !144
@@ -6856,7 +6856,7 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_tonecurve_button_press(ptr n
   %108 = fsub reassoc nsz arcp contract afn float %84, %107
   %109 = fpext float %108 to double
   %110 = fcmp reassoc nsz arcp contract afn ugt double %109, 2.500000e-02
-  br i1 %110, label %111, label %364
+  br i1 %110, label %111, label %378
 
 111:                                              ; preds = %102, %83
   %112 = phi i32 [ %103, %102 ], [ 0, %83 ]
@@ -6870,7 +6870,7 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_tonecurve_button_press(ptr n
   %118 = fsub reassoc nsz arcp contract afn float %117, %84
   %119 = fpext float %118 to double
   %120 = fcmp reassoc nsz arcp contract afn ugt double %119, 2.500000e-02
-  br i1 %120, label %121, label %364
+  br i1 %120, label %121, label %378
 
 121:                                              ; preds = %114, %111, %.loopexit30
   %122 = getelementptr inbounds [3 x ptr], ptr %12, i64 0, i64 %18
@@ -6967,7 +6967,7 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %166
   %180 = fcmp reassoc nsz arcp contract afn ult float %179, 0.000000e+00
   %181 = fcmp reassoc nsz arcp contract afn ugt float %179, 1.000000e+00
   %182 = or i1 %180, %181
-  br i1 %182, label %364, label %183
+  br i1 %182, label %378, label %183
 
 183:                                              ; preds = %dt_draw_curve_calc_value.exit
   %184 = call fastcc i32 @_add_node(ptr noundef nonnull %21, ptr noundef nonnull %19, float noundef %84, float noundef %179)
@@ -7041,8 +7041,8 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %166
   %230 = shufflevector <8 x float> %229, <8 x float> poison, <8 x i32> zeroinitializer
   br label %231
 
-231:                                              ; preds = %245, %220
-  %232 = phi i64 [ 0, %220 ], [ %246, %245 ]
+231:                                              ; preds = %259, %220
+  %232 = phi i64 [ 0, %220 ], [ %260, %259 ]
   %233 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %232, i32 1
   %234 = load <16 x float>, ptr %233, align 4, !tbaa !17
   %235 = shufflevector <16 x float> %234, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
@@ -7053,495 +7053,508 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %166
   %240 = fsub reassoc nsz arcp contract afn <8 x float> %228, %239
   %241 = fmul reassoc nsz arcp contract afn <8 x float> %240, %240
   %242 = fcmp reassoc nsz arcp contract afn olt <8 x float> %241, <float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000, float 0x3F5A36E2E0000000>
-  %243 = bitcast <8 x i1> %242 to i8
-  %.not = icmp eq i8 %243, 0
-  br i1 %.not, label %245, label %244
+  %243 = extractelement <8 x i1> %242, i64 0
+  %244 = extractelement <8 x i1> %242, i64 1
+  %245 = or i1 %243, %244
+  %246 = extractelement <8 x i1> %242, i64 2
+  %247 = or i1 %246, %245
+  %248 = extractelement <8 x i1> %242, i64 3
+  %249 = or i1 %248, %247
+  %250 = extractelement <8 x i1> %242, i64 4
+  %251 = or i1 %250, %249
+  %252 = extractelement <8 x i1> %242, i64 5
+  %253 = or i1 %252, %251
+  %254 = extractelement <8 x i1> %242, i64 6
+  %255 = or i1 %254, %253
+  %256 = extractelement <8 x i1> %242, i64 7
+  %257 = or i1 %256, %255
+  br i1 %257, label %258, label %259
 
-244:                                              ; preds = %231
+258:                                              ; preds = %231
   store i32 %184, ptr %38, align 8, !tbaa !141, !alias.scope !203, !noalias !206
-  br label %245
+  br label %259
 
-245:                                              ; preds = %244, %231
-  %246 = add nuw i64 %232, 8
-  %247 = icmp eq i64 %246, %224
-  br i1 %247, label %.loopexit25, label %231, !llvm.loop !208
+259:                                              ; preds = %258, %231
+  %260 = add nuw i64 %232, 8
+  %261 = icmp eq i64 %260, %224
+  br i1 %261, label %.loopexit25, label %231, !llvm.loop !208
 
-.loopexit25:                                      ; preds = %245, %212, %208
-  %248 = phi i64 [ 0, %212 ], [ 0, %208 ], [ %224, %245 ]
-  %249 = sub nsw i64 %193, %248
-  %250 = and i64 %249, 3
-  %251 = icmp eq i64 %250, 0
-  br i1 %251, label %.loopexit24, label %.preheader.preheader
+.loopexit25:                                      ; preds = %259, %212, %208
+  %262 = phi i64 [ 0, %212 ], [ 0, %208 ], [ %224, %259 ]
+  %263 = sub nsw i64 %193, %262
+  %264 = and i64 %263, 3
+  %265 = icmp eq i64 %264, 0
+  br i1 %265, label %.loopexit24, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.loopexit25
-  %252 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %210
+  %266 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %210
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %265
-  %253 = phi i64 [ %266, %265 ], [ %248, %.preheader.preheader ]
-  %254 = phi i64 [ %267, %265 ], [ 0, %.preheader.preheader ]
-  %255 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %253, i32 1
-  %256 = load float, ptr %255, align 4, !tbaa !17
-  %257 = fmul reassoc nsz arcp contract afn float %256, %187
-  %258 = fadd reassoc nsz arcp contract afn float %257, 1.000000e+00
-  %259 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %258)
-  %260 = fmul reassoc nsz arcp contract afn float %259, %252
-  %261 = fsub reassoc nsz arcp contract afn float %179, %260
-  %262 = fmul reassoc nsz arcp contract afn float %261, %261
-  %263 = fcmp reassoc nsz arcp contract afn olt float %262, 0x3F5A36E2E0000000
-  br i1 %263, label %264, label %265
+.preheader:                                       ; preds = %.preheader.preheader, %279
+  %267 = phi i64 [ %280, %279 ], [ %262, %.preheader.preheader ]
+  %268 = phi i64 [ %281, %279 ], [ 0, %.preheader.preheader ]
+  %269 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %267, i32 1
+  %270 = load float, ptr %269, align 4, !tbaa !17
+  %271 = fmul reassoc nsz arcp contract afn float %270, %187
+  %272 = fadd reassoc nsz arcp contract afn float %271, 1.000000e+00
+  %273 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %272)
+  %274 = fmul reassoc nsz arcp contract afn float %273, %266
+  %275 = fsub reassoc nsz arcp contract afn float %179, %274
+  %276 = fmul reassoc nsz arcp contract afn float %275, %275
+  %277 = fcmp reassoc nsz arcp contract afn olt float %276, 0x3F5A36E2E0000000
+  br i1 %277, label %278, label %279
 
-264:                                              ; preds = %.preheader
+278:                                              ; preds = %.preheader
   store i32 %184, ptr %38, align 8, !tbaa !141
-  br label %265
+  br label %279
 
-265:                                              ; preds = %264, %.preheader
-  %266 = add nuw nsw i64 %253, 1
-  %267 = add nuw nsw i64 %254, 1
-  %268 = icmp eq i64 %267, %250
-  br i1 %268, label %.loopexit24.loopexit, label %.preheader, !llvm.loop !209
+279:                                              ; preds = %278, %.preheader
+  %280 = add nuw nsw i64 %267, 1
+  %281 = add nuw nsw i64 %268, 1
+  %282 = icmp eq i64 %281, %264
+  br i1 %282, label %.loopexit24.loopexit, label %.preheader, !llvm.loop !209
 
-.loopexit24.loopexit:                             ; preds = %265
-  %269 = add nsw i64 %248, %250
+.loopexit24.loopexit:                             ; preds = %279
+  %283 = add nsw i64 %262, %264
   br label %.loopexit24
 
 .loopexit24:                                      ; preds = %.loopexit24.loopexit, %.loopexit25
-  %270 = phi i64 [ %248, %.loopexit25 ], [ %269, %.loopexit24.loopexit ]
-  %271 = sub nsw i64 %248, %193
-  %272 = icmp ugt i64 %271, -4
-  br i1 %272, label %.loopexit, label %273
+  %284 = phi i64 [ %262, %.loopexit25 ], [ %283, %.loopexit24.loopexit ]
+  %285 = sub nsw i64 %262, %193
+  %286 = icmp ugt i64 %285, -4
+  br i1 %286, label %.loopexit, label %287
 
-273:                                              ; preds = %.loopexit24
-  %274 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %210
-  br label %275
+287:                                              ; preds = %.loopexit24
+  %288 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %210
+  br label %289
 
-275:                                              ; preds = %323, %273
-  %276 = phi i64 [ %270, %273 ], [ %324, %323 ]
-  %277 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %276, i32 1
-  %278 = load float, ptr %277, align 4, !tbaa !17
-  %279 = fmul reassoc nsz arcp contract afn float %278, %187
-  %280 = fadd reassoc nsz arcp contract afn float %279, 1.000000e+00
-  %281 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %280)
-  %282 = fmul reassoc nsz arcp contract afn float %281, %274
-  %283 = fsub reassoc nsz arcp contract afn float %179, %282
-  %284 = fmul reassoc nsz arcp contract afn float %283, %283
-  %285 = fcmp reassoc nsz arcp contract afn olt float %284, 0x3F5A36E2E0000000
-  br i1 %285, label %286, label %287
+289:                                              ; preds = %337, %287
+  %290 = phi i64 [ %284, %287 ], [ %338, %337 ]
+  %291 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %290, i32 1
+  %292 = load float, ptr %291, align 4, !tbaa !17
+  %293 = fmul reassoc nsz arcp contract afn float %292, %187
+  %294 = fadd reassoc nsz arcp contract afn float %293, 1.000000e+00
+  %295 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %294)
+  %296 = fmul reassoc nsz arcp contract afn float %295, %288
+  %297 = fsub reassoc nsz arcp contract afn float %179, %296
+  %298 = fmul reassoc nsz arcp contract afn float %297, %297
+  %299 = fcmp reassoc nsz arcp contract afn olt float %298, 0x3F5A36E2E0000000
+  br i1 %299, label %300, label %301
 
-286:                                              ; preds = %275
+300:                                              ; preds = %289
   store i32 %184, ptr %38, align 8, !tbaa !141
-  br label %287
+  br label %301
 
-287:                                              ; preds = %286, %275
-  %288 = add nuw nsw i64 %276, 1
-  %289 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %288, i32 1
-  %290 = load float, ptr %289, align 4, !tbaa !17
-  %291 = fmul reassoc nsz arcp contract afn float %290, %187
-  %292 = fadd reassoc nsz arcp contract afn float %291, 1.000000e+00
-  %293 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %292)
-  %294 = fmul reassoc nsz arcp contract afn float %293, %274
-  %295 = fsub reassoc nsz arcp contract afn float %179, %294
-  %296 = fmul reassoc nsz arcp contract afn float %295, %295
-  %297 = fcmp reassoc nsz arcp contract afn olt float %296, 0x3F5A36E2E0000000
-  br i1 %297, label %298, label %299
+301:                                              ; preds = %300, %289
+  %302 = add nuw nsw i64 %290, 1
+  %303 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %302, i32 1
+  %304 = load float, ptr %303, align 4, !tbaa !17
+  %305 = fmul reassoc nsz arcp contract afn float %304, %187
+  %306 = fadd reassoc nsz arcp contract afn float %305, 1.000000e+00
+  %307 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %306)
+  %308 = fmul reassoc nsz arcp contract afn float %307, %288
+  %309 = fsub reassoc nsz arcp contract afn float %179, %308
+  %310 = fmul reassoc nsz arcp contract afn float %309, %309
+  %311 = fcmp reassoc nsz arcp contract afn olt float %310, 0x3F5A36E2E0000000
+  br i1 %311, label %312, label %313
 
-298:                                              ; preds = %287
+312:                                              ; preds = %301
   store i32 %184, ptr %38, align 8, !tbaa !141
-  br label %299
+  br label %313
 
-299:                                              ; preds = %298, %287
-  %300 = add nuw nsw i64 %276, 2
-  %301 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %300, i32 1
-  %302 = load float, ptr %301, align 4, !tbaa !17
-  %303 = fmul reassoc nsz arcp contract afn float %302, %187
-  %304 = fadd reassoc nsz arcp contract afn float %303, 1.000000e+00
-  %305 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %304)
-  %306 = fmul reassoc nsz arcp contract afn float %305, %274
-  %307 = fsub reassoc nsz arcp contract afn float %179, %306
-  %308 = fmul reassoc nsz arcp contract afn float %307, %307
-  %309 = fcmp reassoc nsz arcp contract afn olt float %308, 0x3F5A36E2E0000000
-  br i1 %309, label %310, label %311
+313:                                              ; preds = %312, %301
+  %314 = add nuw nsw i64 %290, 2
+  %315 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %314, i32 1
+  %316 = load float, ptr %315, align 4, !tbaa !17
+  %317 = fmul reassoc nsz arcp contract afn float %316, %187
+  %318 = fadd reassoc nsz arcp contract afn float %317, 1.000000e+00
+  %319 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %318)
+  %320 = fmul reassoc nsz arcp contract afn float %319, %288
+  %321 = fsub reassoc nsz arcp contract afn float %179, %320
+  %322 = fmul reassoc nsz arcp contract afn float %321, %321
+  %323 = fcmp reassoc nsz arcp contract afn olt float %322, 0x3F5A36E2E0000000
+  br i1 %323, label %324, label %325
 
-310:                                              ; preds = %299
+324:                                              ; preds = %313
   store i32 %184, ptr %38, align 8, !tbaa !141
-  br label %311
+  br label %325
 
-311:                                              ; preds = %310, %299
-  %312 = add nuw nsw i64 %276, 3
-  %313 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %312, i32 1
-  %314 = load float, ptr %313, align 4, !tbaa !17
-  %315 = fmul reassoc nsz arcp contract afn float %314, %187
-  %316 = fadd reassoc nsz arcp contract afn float %315, 1.000000e+00
-  %317 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %316)
-  %318 = fmul reassoc nsz arcp contract afn float %317, %274
-  %319 = fsub reassoc nsz arcp contract afn float %179, %318
-  %320 = fmul reassoc nsz arcp contract afn float %319, %319
-  %321 = fcmp reassoc nsz arcp contract afn olt float %320, 0x3F5A36E2E0000000
-  br i1 %321, label %322, label %323
-
-322:                                              ; preds = %311
-  store i32 %184, ptr %38, align 8, !tbaa !141
-  br label %323
-
-323:                                              ; preds = %322, %311
-  %324 = add nuw nsw i64 %276, 4
-  %325 = icmp eq i64 %324, %193
-  br i1 %325, label %.loopexit, label %275, !llvm.loop !210
-
-.loopexit:                                        ; preds = %361, %323, %.loopexit24, %.loopexit29, %183
-  %326 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !211
-  %327 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %18
-  call void @dt_dev_add_history_item_target(ptr noundef %326, ptr noundef %2, i32 noundef 1, ptr noundef %327) #22
-  %328 = getelementptr inbounds i8, ptr %2, i64 816
-  %329 = load ptr, ptr %328, align 16, !tbaa !124
-  call void @gtk_widget_queue_draw(ptr noundef %329) #22
-  br label %364
-
-.preheader26:                                     ; preds = %.loopexit29, %361
-  %330 = phi i64 [ %362, %361 ], [ %195, %.loopexit29 ]
-  %331 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %330, i32 1
-  %332 = load float, ptr %331, align 4, !tbaa !17
+325:                                              ; preds = %324, %313
+  %326 = add nuw nsw i64 %290, 3
+  %327 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %326, i32 1
+  %328 = load float, ptr %327, align 4, !tbaa !17
+  %329 = fmul reassoc nsz arcp contract afn float %328, %187
+  %330 = fadd reassoc nsz arcp contract afn float %329, 1.000000e+00
+  %331 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %330)
+  %332 = fmul reassoc nsz arcp contract afn float %331, %288
   %333 = fsub reassoc nsz arcp contract afn float %179, %332
   %334 = fmul reassoc nsz arcp contract afn float %333, %333
   %335 = fcmp reassoc nsz arcp contract afn olt float %334, 0x3F5A36E2E0000000
   br i1 %335, label %336, label %337
 
-336:                                              ; preds = %.preheader26
+336:                                              ; preds = %325
   store i32 %184, ptr %38, align 8, !tbaa !141
   br label %337
 
-337:                                              ; preds = %336, %.preheader26
-  %338 = add nuw nsw i64 %330, 1
-  %339 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %338, i32 1
-  %340 = load float, ptr %339, align 4, !tbaa !17
-  %341 = fsub reassoc nsz arcp contract afn float %179, %340
-  %342 = fmul reassoc nsz arcp contract afn float %341, %341
-  %343 = fcmp reassoc nsz arcp contract afn olt float %342, 0x3F5A36E2E0000000
-  br i1 %343, label %344, label %345
+337:                                              ; preds = %336, %325
+  %338 = add nuw nsw i64 %290, 4
+  %339 = icmp eq i64 %338, %193
+  br i1 %339, label %.loopexit, label %289, !llvm.loop !210
 
-344:                                              ; preds = %337
+.loopexit:                                        ; preds = %375, %337, %.loopexit24, %.loopexit29, %183
+  %340 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !211
+  %341 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %18
+  call void @dt_dev_add_history_item_target(ptr noundef %340, ptr noundef %2, i32 noundef 1, ptr noundef %341) #22
+  %342 = getelementptr inbounds i8, ptr %2, i64 816
+  %343 = load ptr, ptr %342, align 16, !tbaa !124
+  call void @gtk_widget_queue_draw(ptr noundef %343) #22
+  br label %378
+
+.preheader26:                                     ; preds = %.loopexit29, %375
+  %344 = phi i64 [ %376, %375 ], [ %195, %.loopexit29 ]
+  %345 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %344, i32 1
+  %346 = load float, ptr %345, align 4, !tbaa !17
+  %347 = fsub reassoc nsz arcp contract afn float %179, %346
+  %348 = fmul reassoc nsz arcp contract afn float %347, %347
+  %349 = fcmp reassoc nsz arcp contract afn olt float %348, 0x3F5A36E2E0000000
+  br i1 %349, label %350, label %351
+
+350:                                              ; preds = %.preheader26
   store i32 %184, ptr %38, align 8, !tbaa !141
-  br label %345
+  br label %351
 
-345:                                              ; preds = %344, %337
-  %346 = add nuw nsw i64 %330, 2
-  %347 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %346, i32 1
-  %348 = load float, ptr %347, align 4, !tbaa !17
-  %349 = fsub reassoc nsz arcp contract afn float %179, %348
-  %350 = fmul reassoc nsz arcp contract afn float %349, %349
-  %351 = fcmp reassoc nsz arcp contract afn olt float %350, 0x3F5A36E2E0000000
-  br i1 %351, label %352, label %353
+351:                                              ; preds = %350, %.preheader26
+  %352 = add nuw nsw i64 %344, 1
+  %353 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %352, i32 1
+  %354 = load float, ptr %353, align 4, !tbaa !17
+  %355 = fsub reassoc nsz arcp contract afn float %179, %354
+  %356 = fmul reassoc nsz arcp contract afn float %355, %355
+  %357 = fcmp reassoc nsz arcp contract afn olt float %356, 0x3F5A36E2E0000000
+  br i1 %357, label %358, label %359
 
-352:                                              ; preds = %345
+358:                                              ; preds = %351
   store i32 %184, ptr %38, align 8, !tbaa !141
-  br label %353
+  br label %359
 
-353:                                              ; preds = %352, %345
-  %354 = add nuw nsw i64 %330, 3
-  %355 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %354, i32 1
-  %356 = load float, ptr %355, align 4, !tbaa !17
-  %357 = fsub reassoc nsz arcp contract afn float %179, %356
-  %358 = fmul reassoc nsz arcp contract afn float %357, %357
-  %359 = fcmp reassoc nsz arcp contract afn olt float %358, 0x3F5A36E2E0000000
-  br i1 %359, label %360, label %361
+359:                                              ; preds = %358, %351
+  %360 = add nuw nsw i64 %344, 2
+  %361 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %360, i32 1
+  %362 = load float, ptr %361, align 4, !tbaa !17
+  %363 = fsub reassoc nsz arcp contract afn float %179, %362
+  %364 = fmul reassoc nsz arcp contract afn float %363, %363
+  %365 = fcmp reassoc nsz arcp contract afn olt float %364, 0x3F5A36E2E0000000
+  br i1 %365, label %366, label %367
 
-360:                                              ; preds = %353
+366:                                              ; preds = %359
   store i32 %184, ptr %38, align 8, !tbaa !141
-  br label %361
-
-361:                                              ; preds = %360, %353
-  %362 = add nuw nsw i64 %330, 4
-  %363 = icmp eq i64 %362, %193
-  br i1 %363, label %.loopexit, label %.preheader26, !llvm.loop !212
-
-364:                                              ; preds = %.loopexit, %dt_draw_curve_calc_value.exit, %114, %102
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
-  br label %551
-
-365:                                              ; preds = %37, %27
-  %366 = load i32, ptr %1, align 8, !tbaa !193
   br label %367
 
-367:                                              ; preds = %365, %24
-  %368 = phi i32 [ %366, %365 ], [ %25, %24 ]
-  %369 = icmp eq i32 %368, 5
-  br i1 %369, label %370, label %551
+367:                                              ; preds = %366, %359
+  %368 = add nuw nsw i64 %344, 3
+  %369 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %368, i32 1
+  %370 = load float, ptr %369, align 4, !tbaa !17
+  %371 = fsub reassoc nsz arcp contract afn float %179, %370
+  %372 = fmul reassoc nsz arcp contract afn float %371, %371
+  %373 = fcmp reassoc nsz arcp contract afn olt float %372, 0x3F5A36E2E0000000
+  br i1 %373, label %374, label %375
 
-370:                                              ; preds = %367
-  %371 = icmp ne i32 %16, 0
-  %372 = icmp ne i32 %14, 0
-  %373 = and i1 %372, %371
-  br i1 %373, label %480, label %374
+374:                                              ; preds = %367
+  store i32 %184, ptr %38, align 8, !tbaa !141
+  br label %375
 
-374:                                              ; preds = %370
-  %375 = getelementptr inbounds i8, ptr %10, i64 480
-  %376 = getelementptr inbounds [3 x i32], ptr %375, i64 0, i64 %18
-  %377 = load i32, ptr %376, align 4, !tbaa !10
-  store i32 %377, ptr %19, align 4, !tbaa !10
-  %378 = getelementptr inbounds i8, ptr %10, i64 492
-  %379 = getelementptr inbounds [3 x i32], ptr %378, i64 0, i64 %18
-  %380 = load i32, ptr %379, align 4, !tbaa !10
-  %381 = getelementptr inbounds i8, ptr %8, i64 492
-  %382 = getelementptr inbounds [3 x i32], ptr %381, i64 0, i64 %18
-  store i32 %380, ptr %382, align 4, !tbaa !10
-  %383 = load i32, ptr %376, align 4, !tbaa !10
-  %384 = icmp sgt i32 %383, 0
-  br i1 %384, label %385, label %.loopexit32
+375:                                              ; preds = %374, %367
+  %376 = add nuw nsw i64 %344, 4
+  %377 = icmp eq i64 %376, %193
+  br i1 %377, label %.loopexit, label %.preheader26, !llvm.loop !212
 
-385:                                              ; preds = %374
-  %386 = zext nneg i32 %383 to i64
-  %387 = icmp ult i32 %383, 24
-  br i1 %387, label %423, label %388
+378:                                              ; preds = %.loopexit, %dt_draw_curve_calc_value.exit, %114, %102
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  br label %565
 
-388:                                              ; preds = %385
-  %389 = mul nsw i64 %18, 160
-  %390 = shl nuw nsw i64 %386, 3
-  %391 = add nsw i64 %390, %389
-  %392 = add nsw i64 %391, -4
-  %393 = getelementptr i8, ptr %8, i64 %392
-  %394 = getelementptr i8, ptr %10, i64 %389
-  %395 = getelementptr i8, ptr %10, i64 %392
-  %396 = or disjoint i64 %389, 4
-  %397 = getelementptr i8, ptr %8, i64 %396
-  %398 = getelementptr i8, ptr %8, i64 %391
-  %399 = getelementptr i8, ptr %10, i64 %396
-  %400 = getelementptr i8, ptr %10, i64 %391
-  %401 = icmp ult ptr %21, %395
-  %402 = icmp ult ptr %394, %393
-  %403 = and i1 %401, %402
-  %404 = icmp ult ptr %397, %400
-  %405 = icmp ult ptr %399, %398
-  %406 = and i1 %404, %405
-  %407 = or i1 %406, %403
-  br i1 %407, label %423, label %408
+379:                                              ; preds = %37, %27
+  %380 = load i32, ptr %1, align 8, !tbaa !193
+  br label %381
 
-408:                                              ; preds = %388
-  %409 = and i64 %386, 2147483632
-  br label %410
+381:                                              ; preds = %379, %24
+  %382 = phi i32 [ %380, %379 ], [ %25, %24 ]
+  %383 = icmp eq i32 %382, 5
+  br i1 %383, label %384, label %565
 
-410:                                              ; preds = %410, %408
-  %411 = phi i64 [ 0, %408 ], [ %419, %410 ]
-  %412 = or disjoint i64 %411, 8
-  %413 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %411
-  %414 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %412
-  %415 = load <16 x float>, ptr %413, align 4, !tbaa !13
-  %416 = load <16 x float>, ptr %414, align 4, !tbaa !13
-  %417 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %411
-  %418 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %412
-  store <16 x float> %415, ptr %417, align 4, !tbaa !13
-  store <16 x float> %416, ptr %418, align 4, !tbaa !13
-  %419 = add nuw nsw i64 %411, 16
-  %420 = icmp eq i64 %419, %409
-  br i1 %420, label %421, label %410, !llvm.loop !213
+384:                                              ; preds = %381
+  %385 = icmp ne i32 %16, 0
+  %386 = icmp ne i32 %14, 0
+  %387 = and i1 %386, %385
+  br i1 %387, label %494, label %388
 
-421:                                              ; preds = %410
-  %422 = icmp eq i64 %409, %386
-  br i1 %422, label %.loopexit32, label %423
+388:                                              ; preds = %384
+  %389 = getelementptr inbounds i8, ptr %10, i64 480
+  %390 = getelementptr inbounds [3 x i32], ptr %389, i64 0, i64 %18
+  %391 = load i32, ptr %390, align 4, !tbaa !10
+  store i32 %391, ptr %19, align 4, !tbaa !10
+  %392 = getelementptr inbounds i8, ptr %10, i64 492
+  %393 = getelementptr inbounds [3 x i32], ptr %392, i64 0, i64 %18
+  %394 = load i32, ptr %393, align 4, !tbaa !10
+  %395 = getelementptr inbounds i8, ptr %8, i64 492
+  %396 = getelementptr inbounds [3 x i32], ptr %395, i64 0, i64 %18
+  store i32 %394, ptr %396, align 4, !tbaa !10
+  %397 = load i32, ptr %390, align 4, !tbaa !10
+  %398 = icmp sgt i32 %397, 0
+  br i1 %398, label %399, label %.loopexit32
 
-423:                                              ; preds = %421, %388, %385
-  %424 = phi i64 [ 0, %388 ], [ 0, %385 ], [ %409, %421 ]
-  %425 = and i64 %386, 7
-  %426 = icmp eq i64 %425, 0
-  br i1 %426, label %.loopexit34, label %.preheader33
+399:                                              ; preds = %388
+  %400 = zext nneg i32 %397 to i64
+  %401 = icmp ult i32 %397, 24
+  br i1 %401, label %437, label %402
 
-.preheader33:                                     ; preds = %423, %.preheader33
-  %427 = phi i64 [ %432, %.preheader33 ], [ %424, %423 ]
-  %428 = phi i64 [ %433, %.preheader33 ], [ 0, %423 ]
-  %429 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %427
-  %430 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %427
-  %431 = load <2 x float>, ptr %429, align 4, !tbaa !13
-  store <2 x float> %431, ptr %430, align 4, !tbaa !13
-  %432 = add nuw nsw i64 %427, 1
-  %433 = add nuw nsw i64 %428, 1
-  %434 = icmp eq i64 %433, %425
-  br i1 %434, label %.loopexit34, label %.preheader33, !llvm.loop !214
+402:                                              ; preds = %399
+  %403 = mul nsw i64 %18, 160
+  %404 = shl nuw nsw i64 %400, 3
+  %405 = add nsw i64 %404, %403
+  %406 = add nsw i64 %405, -4
+  %407 = getelementptr i8, ptr %8, i64 %406
+  %408 = getelementptr i8, ptr %10, i64 %403
+  %409 = getelementptr i8, ptr %10, i64 %406
+  %410 = or disjoint i64 %403, 4
+  %411 = getelementptr i8, ptr %8, i64 %410
+  %412 = getelementptr i8, ptr %8, i64 %405
+  %413 = getelementptr i8, ptr %10, i64 %410
+  %414 = getelementptr i8, ptr %10, i64 %405
+  %415 = icmp ult ptr %21, %409
+  %416 = icmp ult ptr %408, %407
+  %417 = and i1 %415, %416
+  %418 = icmp ult ptr %411, %414
+  %419 = icmp ult ptr %413, %412
+  %420 = and i1 %418, %419
+  %421 = or i1 %420, %417
+  br i1 %421, label %437, label %422
 
-.loopexit34:                                      ; preds = %.preheader33, %423
-  %435 = phi i64 [ %424, %423 ], [ %432, %.preheader33 ]
-  %436 = sub nsw i64 %424, %386
-  %437 = icmp ugt i64 %436, -8
-  br i1 %437, label %.loopexit32, label %.preheader31
+422:                                              ; preds = %402
+  %423 = and i64 %400, 2147483632
+  br label %424
 
-.loopexit32:                                      ; preds = %.preheader31, %.loopexit34, %421, %374
-  %438 = getelementptr inbounds i8, ptr %12, i64 128
-  store i32 -2, ptr %438, align 8, !tbaa !141
-  %439 = getelementptr inbounds i8, ptr %12, i64 96
-  %440 = load ptr, ptr %439, align 8, !tbaa !116
-  %441 = load i32, ptr %381, align 4, !tbaa !10
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %440, i32 noundef %441) #22
-  %442 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !211
-  %443 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %18
-  tail call void @dt_dev_add_history_item_target(ptr noundef %442, ptr noundef %2, i32 noundef 1, ptr noundef %443) #22
-  %444 = getelementptr inbounds i8, ptr %2, i64 816
-  %445 = load ptr, ptr %444, align 16, !tbaa !124
-  tail call void @gtk_widget_queue_draw(ptr noundef %445) #22
-  br label %551
+424:                                              ; preds = %424, %422
+  %425 = phi i64 [ 0, %422 ], [ %433, %424 ]
+  %426 = or disjoint i64 %425, 8
+  %427 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %425
+  %428 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %426
+  %429 = load <16 x float>, ptr %427, align 4, !tbaa !13
+  %430 = load <16 x float>, ptr %428, align 4, !tbaa !13
+  %431 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %425
+  %432 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %426
+  store <16 x float> %429, ptr %431, align 4, !tbaa !13
+  store <16 x float> %430, ptr %432, align 4, !tbaa !13
+  %433 = add nuw nsw i64 %425, 16
+  %434 = icmp eq i64 %433, %423
+  br i1 %434, label %435, label %424, !llvm.loop !213
+
+435:                                              ; preds = %424
+  %436 = icmp eq i64 %423, %400
+  br i1 %436, label %.loopexit32, label %437
+
+437:                                              ; preds = %435, %402, %399
+  %438 = phi i64 [ 0, %402 ], [ 0, %399 ], [ %423, %435 ]
+  %439 = and i64 %400, 7
+  %440 = icmp eq i64 %439, 0
+  br i1 %440, label %.loopexit34, label %.preheader33
+
+.preheader33:                                     ; preds = %437, %.preheader33
+  %441 = phi i64 [ %446, %.preheader33 ], [ %438, %437 ]
+  %442 = phi i64 [ %447, %.preheader33 ], [ 0, %437 ]
+  %443 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %441
+  %444 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %441
+  %445 = load <2 x float>, ptr %443, align 4, !tbaa !13
+  store <2 x float> %445, ptr %444, align 4, !tbaa !13
+  %446 = add nuw nsw i64 %441, 1
+  %447 = add nuw nsw i64 %442, 1
+  %448 = icmp eq i64 %447, %439
+  br i1 %448, label %.loopexit34, label %.preheader33, !llvm.loop !214
+
+.loopexit34:                                      ; preds = %.preheader33, %437
+  %449 = phi i64 [ %438, %437 ], [ %446, %.preheader33 ]
+  %450 = sub nsw i64 %438, %400
+  %451 = icmp ugt i64 %450, -8
+  br i1 %451, label %.loopexit32, label %.preheader31
+
+.loopexit32:                                      ; preds = %.preheader31, %.loopexit34, %435, %388
+  %452 = getelementptr inbounds i8, ptr %12, i64 128
+  store i32 -2, ptr %452, align 8, !tbaa !141
+  %453 = getelementptr inbounds i8, ptr %12, i64 96
+  %454 = load ptr, ptr %453, align 8, !tbaa !116
+  %455 = load i32, ptr %395, align 4, !tbaa !10
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %454, i32 noundef %455) #22
+  %456 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !211
+  %457 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %18
+  tail call void @dt_dev_add_history_item_target(ptr noundef %456, ptr noundef %2, i32 noundef 1, ptr noundef %457) #22
+  %458 = getelementptr inbounds i8, ptr %2, i64 816
+  %459 = load ptr, ptr %458, align 16, !tbaa !124
+  tail call void @gtk_widget_queue_draw(ptr noundef %459) #22
+  br label %565
 
 .preheader31:                                     ; preds = %.loopexit34, %.preheader31
-  %446 = phi i64 [ %478, %.preheader31 ], [ %435, %.loopexit34 ]
-  %447 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %446
-  %448 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %446
-  %449 = load <2 x float>, ptr %447, align 4, !tbaa !13
-  store <2 x float> %449, ptr %448, align 4, !tbaa !13
-  %450 = add nuw nsw i64 %446, 1
-  %451 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %450
-  %452 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %450
-  %453 = load <2 x float>, ptr %451, align 4, !tbaa !13
-  store <2 x float> %453, ptr %452, align 4, !tbaa !13
-  %454 = add nuw nsw i64 %446, 2
-  %455 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %454
-  %456 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %454
-  %457 = load <2 x float>, ptr %455, align 4, !tbaa !13
-  store <2 x float> %457, ptr %456, align 4, !tbaa !13
-  %458 = add nuw nsw i64 %446, 3
-  %459 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %458
-  %460 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %458
-  %461 = load <2 x float>, ptr %459, align 4, !tbaa !13
-  store <2 x float> %461, ptr %460, align 4, !tbaa !13
-  %462 = add nuw nsw i64 %446, 4
-  %463 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %462
-  %464 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %462
-  %465 = load <2 x float>, ptr %463, align 4, !tbaa !13
-  store <2 x float> %465, ptr %464, align 4, !tbaa !13
-  %466 = add nuw nsw i64 %446, 5
-  %467 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %466
-  %468 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %466
-  %469 = load <2 x float>, ptr %467, align 4, !tbaa !13
-  store <2 x float> %469, ptr %468, align 4, !tbaa !13
-  %470 = add nuw nsw i64 %446, 6
-  %471 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %470
-  %472 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %470
-  %473 = load <2 x float>, ptr %471, align 4, !tbaa !13
-  store <2 x float> %473, ptr %472, align 4, !tbaa !13
-  %474 = add nuw nsw i64 %446, 7
-  %475 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %474
-  %476 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %474
-  %477 = load <2 x float>, ptr %475, align 4, !tbaa !13
-  store <2 x float> %477, ptr %476, align 4, !tbaa !13
-  %478 = add nuw nsw i64 %446, 8
-  %479 = icmp eq i64 %478, %386
-  br i1 %479, label %.loopexit32, label %.preheader31, !llvm.loop !215
+  %460 = phi i64 [ %492, %.preheader31 ], [ %449, %.loopexit34 ]
+  %461 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %460
+  %462 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %460
+  %463 = load <2 x float>, ptr %461, align 4, !tbaa !13
+  store <2 x float> %463, ptr %462, align 4, !tbaa !13
+  %464 = add nuw nsw i64 %460, 1
+  %465 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %464
+  %466 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %464
+  %467 = load <2 x float>, ptr %465, align 4, !tbaa !13
+  store <2 x float> %467, ptr %466, align 4, !tbaa !13
+  %468 = add nuw nsw i64 %460, 2
+  %469 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %468
+  %470 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %468
+  %471 = load <2 x float>, ptr %469, align 4, !tbaa !13
+  store <2 x float> %471, ptr %470, align 4, !tbaa !13
+  %472 = add nuw nsw i64 %460, 3
+  %473 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %472
+  %474 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %472
+  %475 = load <2 x float>, ptr %473, align 4, !tbaa !13
+  store <2 x float> %475, ptr %474, align 4, !tbaa !13
+  %476 = add nuw nsw i64 %460, 4
+  %477 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %476
+  %478 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %476
+  %479 = load <2 x float>, ptr %477, align 4, !tbaa !13
+  store <2 x float> %479, ptr %478, align 4, !tbaa !13
+  %480 = add nuw nsw i64 %460, 5
+  %481 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %480
+  %482 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %480
+  %483 = load <2 x float>, ptr %481, align 4, !tbaa !13
+  store <2 x float> %483, ptr %482, align 4, !tbaa !13
+  %484 = add nuw nsw i64 %460, 6
+  %485 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %484
+  %486 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %484
+  %487 = load <2 x float>, ptr %485, align 4, !tbaa !13
+  store <2 x float> %487, ptr %486, align 4, !tbaa !13
+  %488 = add nuw nsw i64 %460, 7
+  %489 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %10, i64 0, i64 %18, i64 %488
+  %490 = getelementptr inbounds [3 x [20 x %struct.dt_iop_tonecurve_node_t]], ptr %8, i64 0, i64 %18, i64 %488
+  %491 = load <2 x float>, ptr %489, align 4, !tbaa !13
+  store <2 x float> %491, ptr %490, align 4, !tbaa !13
+  %492 = add nuw nsw i64 %460, 8
+  %493 = icmp eq i64 %492, %400
+  br i1 %493, label %.loopexit32, label %.preheader31, !llvm.loop !215
 
-480:                                              ; preds = %370
+494:                                              ; preds = %384
   store i32 0, ptr %15, align 4, !tbaa !55
-  %481 = getelementptr inbounds i8, ptr %12, i64 128
-  store i32 -2, ptr %481, align 8, !tbaa !141
-  %482 = getelementptr inbounds i8, ptr %12, i64 72
-  %483 = load ptr, ptr %482, align 8, !tbaa !125
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %483, i32 noundef 1) #22
-  %484 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !211
-  %485 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %18
-  tail call void @dt_dev_add_history_item_target(ptr noundef %484, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %485) #22
-  %486 = getelementptr inbounds i8, ptr %2, i64 816
-  %487 = load ptr, ptr %486, align 16, !tbaa !124
-  tail call void @gtk_widget_queue_draw(ptr noundef %487) #22
-  br label %551
+  %495 = getelementptr inbounds i8, ptr %12, i64 128
+  store i32 -2, ptr %495, align 8, !tbaa !141
+  %496 = getelementptr inbounds i8, ptr %12, i64 72
+  %497 = load ptr, ptr %496, align 8, !tbaa !125
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %497, i32 noundef 1) #22
+  %498 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !211
+  %499 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %18
+  tail call void @dt_dev_add_history_item_target(ptr noundef %498, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %499) #22
+  %500 = getelementptr inbounds i8, ptr %2, i64 816
+  %501 = load ptr, ptr %500, align 16, !tbaa !124
+  tail call void @gtk_widget_queue_draw(ptr noundef %501) #22
+  br label %565
 
-488:                                              ; preds = %3
-  %489 = getelementptr inbounds i8, ptr %12, i64 128
-  %490 = load i32, ptr %489, align 8, !tbaa !141
-  %491 = icmp sgt i32 %490, -1
-  br i1 %491, label %492, label %551
+502:                                              ; preds = %3
+  %503 = getelementptr inbounds i8, ptr %12, i64 128
+  %504 = load i32, ptr %503, align 8, !tbaa !141
+  %505 = icmp sgt i32 %504, -1
+  br i1 %505, label %506, label %565
 
-492:                                              ; preds = %488
-  %493 = icmp eq i32 %490, 0
-  br i1 %493, label %525, label %494
+506:                                              ; preds = %502
+  %507 = icmp eq i32 %504, 0
+  br i1 %507, label %539, label %508
 
-494:                                              ; preds = %492
-  %495 = add nsw i32 %20, -1
-  %496 = icmp eq i32 %490, %495
-  br i1 %496, label %525, label %497
+508:                                              ; preds = %506
+  %509 = add nsw i32 %20, -1
+  %510 = icmp eq i32 %504, %509
+  br i1 %510, label %539, label %511
 
-497:                                              ; preds = %494
-  %498 = icmp slt i32 %490, %495
-  br i1 %498, label %499, label %.loopexit35
+511:                                              ; preds = %508
+  %512 = icmp slt i32 %504, %509
+  br i1 %512, label %513, label %.loopexit35
 
-499:                                              ; preds = %497
-  %500 = zext nneg i32 %490 to i64
-  %501 = add i32 %20, -2
-  %502 = sub nsw i32 %501, %490
-  %503 = zext i32 %502 to i64
-  %504 = add nuw nsw i64 %503, 1
-  %505 = icmp ult i32 %502, 15
-  br i1 %505, label %.preheader57, label %506
+513:                                              ; preds = %511
+  %514 = zext nneg i32 %504 to i64
+  %515 = add i32 %20, -2
+  %516 = sub nsw i32 %515, %504
+  %517 = zext i32 %516 to i64
+  %518 = add nuw nsw i64 %517, 1
+  %519 = icmp ult i32 %516, 15
+  br i1 %519, label %.preheader57, label %520
 
-.preheader57:                                     ; preds = %522, %499
-  %.ph58 = phi i64 [ %523, %522 ], [ %500, %499 ]
-  br label %543
+.preheader57:                                     ; preds = %536, %513
+  %.ph58 = phi i64 [ %537, %536 ], [ %514, %513 ]
+  br label %557
 
-506:                                              ; preds = %499
-  %507 = and i64 %504, 8589934576
-  %508 = getelementptr i8, ptr %21, i64 8
-  %509 = getelementptr i8, ptr %21, i64 72
-  %510 = getelementptr i8, ptr %21, i64 64
-  br label %511
+520:                                              ; preds = %513
+  %521 = and i64 %518, 8589934576
+  %522 = getelementptr i8, ptr %21, i64 8
+  %523 = getelementptr i8, ptr %21, i64 72
+  %524 = getelementptr i8, ptr %21, i64 64
+  br label %525
 
-511:                                              ; preds = %511, %506
-  %512 = phi i64 [ 0, %506 ], [ %520, %511 ]
-  %513 = add i64 %512, %500
-  %514 = getelementptr %struct.dt_iop_tonecurve_node_t, ptr %508, i64 %513
-  %515 = getelementptr %struct.dt_iop_tonecurve_node_t, ptr %509, i64 %513
-  %516 = load <16 x float>, ptr %514, align 4, !tbaa !13
-  %517 = load <16 x float>, ptr %515, align 4, !tbaa !13
-  %518 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %513
-  %519 = getelementptr %struct.dt_iop_tonecurve_node_t, ptr %510, i64 %513
-  store <16 x float> %516, ptr %518, align 4, !tbaa !13
-  store <16 x float> %517, ptr %519, align 4, !tbaa !13
-  %520 = add nuw i64 %512, 16
-  %521 = icmp eq i64 %520, %507
-  br i1 %521, label %522, label %511, !llvm.loop !216
+525:                                              ; preds = %525, %520
+  %526 = phi i64 [ 0, %520 ], [ %534, %525 ]
+  %527 = add i64 %526, %514
+  %528 = getelementptr %struct.dt_iop_tonecurve_node_t, ptr %522, i64 %527
+  %529 = getelementptr %struct.dt_iop_tonecurve_node_t, ptr %523, i64 %527
+  %530 = load <16 x float>, ptr %528, align 4, !tbaa !13
+  %531 = load <16 x float>, ptr %529, align 4, !tbaa !13
+  %532 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %527
+  %533 = getelementptr %struct.dt_iop_tonecurve_node_t, ptr %524, i64 %527
+  store <16 x float> %530, ptr %532, align 4, !tbaa !13
+  store <16 x float> %531, ptr %533, align 4, !tbaa !13
+  %534 = add nuw i64 %526, 16
+  %535 = icmp eq i64 %534, %521
+  br i1 %535, label %536, label %525, !llvm.loop !216
 
-522:                                              ; preds = %511
-  %523 = add nuw nsw i64 %507, %500
-  %524 = icmp eq i64 %504, %507
-  br i1 %524, label %.loopexit35, label %.preheader57
+536:                                              ; preds = %525
+  %537 = add nuw nsw i64 %521, %514
+  %538 = icmp eq i64 %518, %521
+  br i1 %538, label %.loopexit35, label %.preheader57
 
-525:                                              ; preds = %494, %492
-  %526 = icmp ne i32 %490, 0
-  %527 = uitofp i1 %526 to float
-  %528 = zext nneg i32 %490 to i64
-  %529 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %528
-  store float %527, ptr %529, align 4, !tbaa !15
-  %530 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %528, i32 1
-  store float %527, ptr %530, align 4, !tbaa !17
-  %531 = getelementptr inbounds i8, ptr %2, i64 816
-  %532 = load ptr, ptr %531, align 16, !tbaa !124
-  tail call void @gtk_widget_queue_draw(ptr noundef %532) #22
-  %533 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !211
-  %534 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %18
-  tail call void @dt_dev_add_history_item_target(ptr noundef %533, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %534) #22
-  br label %551
+539:                                              ; preds = %508, %506
+  %540 = icmp ne i32 %504, 0
+  %541 = uitofp i1 %540 to float
+  %542 = zext nneg i32 %504 to i64
+  %543 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %542
+  store float %541, ptr %543, align 4, !tbaa !15
+  %544 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %542, i32 1
+  store float %541, ptr %544, align 4, !tbaa !17
+  %545 = getelementptr inbounds i8, ptr %2, i64 816
+  %546 = load ptr, ptr %545, align 16, !tbaa !124
+  tail call void @gtk_widget_queue_draw(ptr noundef %546) #22
+  %547 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !211
+  %548 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %18
+  tail call void @dt_dev_add_history_item_target(ptr noundef %547, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %548) #22
+  br label %565
 
-.loopexit35:                                      ; preds = %543, %522, %497
-  %535 = sext i32 %495 to i64
-  %536 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %535
-  store <2 x float> zeroinitializer, ptr %536, align 4, !tbaa !13
-  store i32 -2, ptr %489, align 8, !tbaa !141
-  %537 = load i32, ptr %19, align 4, !tbaa !10
-  %538 = add nsw i32 %537, -1
-  store i32 %538, ptr %19, align 4, !tbaa !10
-  %539 = getelementptr inbounds i8, ptr %2, i64 816
-  %540 = load ptr, ptr %539, align 16, !tbaa !124
-  tail call void @gtk_widget_queue_draw(ptr noundef %540) #22
-  %541 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !211
-  %542 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %18
-  tail call void @dt_dev_add_history_item_target(ptr noundef %541, ptr noundef %2, i32 noundef 1, ptr noundef %542) #22
-  br label %551
+.loopexit35:                                      ; preds = %557, %536, %511
+  %549 = sext i32 %509 to i64
+  %550 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %549
+  store <2 x float> zeroinitializer, ptr %550, align 4, !tbaa !13
+  store i32 -2, ptr %503, align 8, !tbaa !141
+  %551 = load i32, ptr %19, align 4, !tbaa !10
+  %552 = add nsw i32 %551, -1
+  store i32 %552, ptr %19, align 4, !tbaa !10
+  %553 = getelementptr inbounds i8, ptr %2, i64 816
+  %554 = load ptr, ptr %553, align 16, !tbaa !124
+  tail call void @gtk_widget_queue_draw(ptr noundef %554) #22
+  %555 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !211
+  %556 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %18
+  tail call void @dt_dev_add_history_item_target(ptr noundef %555, ptr noundef %2, i32 noundef 1, ptr noundef %556) #22
+  br label %565
 
-543:                                              ; preds = %.preheader57, %543
-  %544 = phi i64 [ %545, %543 ], [ %.ph58, %.preheader57 ]
-  %545 = add nuw nsw i64 %544, 1
-  %546 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %545
-  %547 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %544
-  %548 = load <2 x float>, ptr %546, align 4, !tbaa !13
-  store <2 x float> %548, ptr %547, align 4, !tbaa !13
-  %549 = trunc i64 %545 to i32
-  %550 = icmp sgt i32 %495, %549
-  br i1 %550, label %543, label %.loopexit35, !llvm.loop !217
+557:                                              ; preds = %.preheader57, %557
+  %558 = phi i64 [ %559, %557 ], [ %.ph58, %.preheader57 ]
+  %559 = add nuw nsw i64 %558, 1
+  %560 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %559
+  %561 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %21, i64 %558
+  %562 = load <2 x float>, ptr %560, align 4, !tbaa !13
+  store <2 x float> %562, ptr %561, align 4, !tbaa !13
+  %563 = trunc i64 %559 to i32
+  %564 = icmp sgt i32 %509, %563
+  br i1 %564, label %557, label %.loopexit35, !llvm.loop !217
 
-551:                                              ; preds = %.loopexit35, %525, %488, %480, %.loopexit32, %367, %364, %3
-  %552 = phi i32 [ 1, %364 ], [ 1, %525 ], [ 1, %.loopexit35 ], [ 1, %480 ], [ 1, %.loopexit32 ], [ 0, %3 ], [ 0, %488 ], [ 0, %367 ]
-  ret i32 %552
+565:                                              ; preds = %.loopexit35, %539, %502, %494, %.loopexit32, %381, %378, %3
+  %566 = phi i32 [ 1, %378 ], [ 1, %539 ], [ 1, %.loopexit35 ], [ 1, %494 ], [ 1, %.loopexit32 ], [ 0, %3 ], [ 0, %502 ], [ 0, %381 ]
+  ret i32 %566
 }
 
 ; Function Attrs: nounwind uwtable

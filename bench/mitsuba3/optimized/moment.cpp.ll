@@ -1371,12 +1371,15 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %105 = fmul contract <4 x float> %.sroa.0.0.copyload.i, %104
   store <4 x float> %105, ptr %12, align 16
   %106 = call <4 x float> @_ZN7mitsuba15spectrum_to_xyzIfLm4EEENS_5ColorIT_Lm3EEERKNS_8SpectrumIS2_XT0_EEES7_N5drjit6detail4maskIS2_iE4typeE(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 16 dereferenceable(16) %42, i1 noundef zeroext true)
-  %107 = getelementptr inbounds i8, ptr %55, i64 8
-  %108 = shufflevector <4 x float> %106, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x float> %108, ptr %55, align 4
+  %.sroa.0.0.vec.extract = extractelement <4 x float> %106, i64 0
+  %107 = getelementptr inbounds i8, ptr %55, i64 4
+  store float %.sroa.0.0.vec.extract, ptr %55, align 4
+  %.sroa.0.4.vec.extract = extractelement <4 x float> %106, i64 1
+  %108 = getelementptr inbounds i8, ptr %55, i64 8
+  store float %.sroa.0.4.vec.extract, ptr %107, align 4
   %.sroa.0.8.vec.extract = extractelement <4 x float> %106, i64 2
   %109 = getelementptr inbounds i8, ptr %55, i64 12
-  store float %.sroa.0.8.vec.extract, ptr %107, align 4
+  store float %.sroa.0.8.vec.extract, ptr %108, align 4
   %110 = load ptr, ptr %38, align 8
   %111 = getelementptr inbounds %"struct.std::__1::pair.27", ptr %110, i64 %.0115129, i32 1
   %112 = load i64, ptr %111, align 8
@@ -1588,18 +1591,22 @@ _ZN7mitsuba11cie1931_xyzINS_8SpectrumIfLm4EEENS_5ColorIS2_Lm3EEEEET0_T_N5drjit6d
   %88 = fmul contract <4 x float> %81, %.sroa.2.0.copyload
   %89 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
   %90 = fadd contract <4 x float> %88, %89
-  %91 = fmul contract <4 x float> %81, %.sroa.3.0.copyload
-  %92 = shufflevector <4 x float> %91, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
-  %93 = fadd contract <4 x float> %91, %92
-  %94 = shufflevector <4 x float> %90, <4 x float> %93, <2 x i32> <i32 0, i32 4>
-  %95 = shufflevector <4 x float> %90, <4 x float> %93, <2 x i32> <i32 2, i32 6>
-  %96 = fadd contract <2 x float> %94, %95
-  %97 = fmul contract <2 x float> %96, <float 2.500000e-01, float 2.500000e-01>
-  %98 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %87, i64 0
-  %99 = shufflevector <2 x float> %97, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %100 = shufflevector <4 x float> %98, <4 x float> %99, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %101 = fmul contract <4 x float> %100, <float 0x3F832F59E0000000, float 0x3F832F59E0000000, float 0x3F832F59E0000000, float 0x3F832F59E0000000>
-  ret <4 x float> %101
+  %shift134 = shufflevector <4 x float> %90, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %91 = fadd contract <4 x float> %90, %shift134
+  %92 = extractelement <4 x float> %91, i64 0
+  %93 = fmul contract float %92, 2.500000e-01
+  %94 = fmul contract <4 x float> %81, %.sroa.3.0.copyload
+  %95 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
+  %96 = fadd contract <4 x float> %94, %95
+  %shift135 = shufflevector <4 x float> %96, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %97 = fadd contract <4 x float> %96, %shift135
+  %98 = extractelement <4 x float> %97, i64 0
+  %99 = fmul contract float %98, 2.500000e-01
+  %100 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %87, i64 0
+  %101 = insertelement <4 x float> %100, float %93, i64 1
+  %102 = insertelement <4 x float> %101, float %99, i64 2
+  %103 = fmul contract <4 x float> %102, <float 0x3F832F59E0000000, float 0x3F832F59E0000000, float 0x3F832F59E0000000, float 0x3F832F59E0000000>
+  ret <4 x float> %103
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -680,20 +680,21 @@ if.then78:                                        ; preds = %for.end
   call void @cpu_physical_memory_rw(i64 noundef %13, ptr noundef nonnull %buf, i64 noundef %14, i1 noundef zeroext false) #4
   %15 = load i64, ptr %exec_dst, align 8
   call void @cpu_physical_memory_rw(i64 noundef %15, ptr noundef nonnull %buf, i64 noundef %14, i1 noundef zeroext true) #4
-  %16 = load <2 x i64>, ptr %exec_dst, align 8
-  %17 = insertelement <2 x i64> poison, i64 %14, i64 0
-  %18 = shufflevector <2 x i64> %17, <2 x i64> poison, <2 x i32> zeroinitializer
-  %19 = add <2 x i64> %16, %18
-  store <2 x i64> %19, ptr %exec_dst, align 8
-  %20 = load i64, ptr %exec_bytes, align 8
-  %sub108 = sub i64 %20, %14
+  %16 = load i64, ptr %exec_src, align 8
+  %add96 = add i64 %16, %14
+  store i64 %add96, ptr %exec_src, align 8
+  %17 = load i64, ptr %exec_dst, align 8
+  %add102 = add i64 %17, %14
+  store i64 %add102, ptr %exec_dst, align 8
+  %18 = load i64, ptr %exec_bytes, align 8
+  %sub108 = sub i64 %18, %14
   store i64 %sub108, ptr %exec_bytes, align 8
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then78, %for.end
-  %21 = load i32, ptr %next_config, align 4
-  %22 = and i32 %21, 4
-  %tobool116.not = icmp eq i32 %22, 0
+  %19 = load i32, ptr %next_config, align 4
+  %20 = and i32 %19, 4
+  %tobool116.not = icmp eq i32 %20, 0
   br i1 %tobool116.not, label %done, label %if.then117
 
 if.then117:                                       ; preds = %if.end109
@@ -705,20 +706,20 @@ if.then117:                                       ; preds = %if.end109
 done:                                             ; preds = %if.end109, %if.then117, %entry
   %state134 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store i32 3, ptr %state134, align 8
-  %23 = load i32, ptr %arrayidx, align 8
-  %24 = and i32 %23, -1073741827
-  %25 = or disjoint i32 %24, 1073741824
+  %21 = load i32, ptr %arrayidx, align 8
+  %22 = and i32 %21, -1073741827
+  %23 = or disjoint i32 %22, 1073741824
   br label %return
 
 error:                                            ; preds = %if.end
   %state151 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store i32 2, ptr %state151, align 8
-  %26 = load i32, ptr %arrayidx, align 8
-  %27 = or i32 %26, -2147483648
+  %24 = load i32, ptr %arrayidx, align 8
+  %25 = or i32 %24, -2147483648
   br label %return
 
 return:                                           ; preds = %error, %done
-  %storemerge = phi i32 [ %25, %done ], [ %27, %error ]
+  %storemerge = phi i32 [ %23, %done ], [ %25, %error ]
   store i32 %storemerge, ptr %arrayidx, align 8
   ret void
 }

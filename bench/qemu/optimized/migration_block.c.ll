@@ -279,8 +279,11 @@ trace_migration_block_save.exit:                  ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   store ptr null, ptr %local_err.i, align 8
   tail call void @bdrv_graph_rdlock_main_loop() #13
+  store i32 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 56), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 16), align 8
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 60), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 64), align 8
   %call1.i = tail call zeroext i1 @migrate_zero_blocks() #13
   %frombool.i = zext i1 %call1.i to i8
@@ -1485,11 +1488,13 @@ if.end9:                                          ; preds = %if.then8, %do.body
   %17 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %17) #13
   tail call void @g_free(ptr noundef nonnull %11) #13
-  %18 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
-  %19 = add <2 x i32> %18, <i32 -1, i32 1>
-  store <2 x i32> %19, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
-  %20 = extractelement <2 x i32> %19, i64 0
-  %cmp12 = icmp sgt i32 %20, -1
+  %18 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
+  %dec = add i32 %18, -1
+  store i32 %dec, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 56), align 8
+  %inc = add i32 %19, 1
+  store i32 %inc, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 56), align 8
+  %cmp12 = icmp sgt i32 %dec, -1
   br i1 %cmp12, label %while.cond, label %if.else, !llvm.loop !22
 
 if.else:                                          ; preds = %if.end9
@@ -1499,39 +1504,39 @@ if.else:                                          ; preds = %if.end9
 while.end:                                        ; preds = %if.end, %while.body, %while.cond
   %ret.0 = phi i32 [ 0, %while.body ], [ 0, %while.cond ], [ %12, %if.end ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @block_mig_state, i64 72), ptr noundef nonnull @.str.1, i32 noundef 117) #13
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 56), align 8
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i8)
-  %24 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i9 = icmp ne i32 %24, 0
-  %25 = load i16, ptr @_TRACE_MIGRATION_BLOCK_FLUSH_BLKS_DSTATE, align 2
-  %tobool4.i.i10 = icmp ne i16 %25, 0
+  %23 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i9 = icmp ne i32 %23, 0
+  %24 = load i16, ptr @_TRACE_MIGRATION_BLOCK_FLUSH_BLKS_DSTATE, align 2
+  %tobool4.i.i10 = icmp ne i16 %24, 0
   %or.cond.i.i11 = select i1 %tobool.i.i9, i1 %tobool4.i.i10, i1 false
   br i1 %or.cond.i.i11, label %land.lhs.true5.i.i12, label %trace_migration_block_flush_blks.exit22
 
 land.lhs.true5.i.i12:                             ; preds = %while.end
-  %26 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i13 = and i32 %26, 32768
+  %25 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i13 = and i32 %25, 32768
   %cmp.i.not.i.i14 = icmp eq i32 %and.i.i.i13, 0
   br i1 %cmp.i.not.i.i14, label %trace_migration_block_flush_blks.exit22, label %if.then.i.i15
 
 if.then.i.i15:                                    ; preds = %land.lhs.true5.i.i12
-  %27 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i16 = trunc i8 %27 to i1
+  %26 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i16 = trunc i8 %26 to i1
   br i1 %tobool7.i.i16, label %if.then8.i.i18, label %if.else.i.i17
 
 if.then8.i.i18:                                   ; preds = %if.then.i.i15
   %call9.i.i19 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i8, ptr noundef null) #13
   %call10.i.i20 = tail call i32 @qemu_get_thread_id() #13
-  %28 = load i64, ptr %_now.i.i8, align 8
+  %27 = load i64, ptr %_now.i.i8, align 8
   %tv_usec.i.i21 = getelementptr inbounds i8, ptr %_now.i.i8, i64 8
-  %29 = load i64, ptr %tv_usec.i.i21, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i20, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.14, i32 noundef %21, i32 noundef %22, i32 noundef %23) #13
+  %28 = load i64, ptr %tv_usec.i.i21, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i20, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.14, i32 noundef %20, i32 noundef %21, i32 noundef %22) #13
   br label %trace_migration_block_flush_blks.exit22
 
 if.else.i.i17:                                    ; preds = %if.then.i.i15
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.14, i32 noundef %21, i32 noundef %22, i32 noundef %23) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.14, i32 noundef %20, i32 noundef %21, i32 noundef %22) #13
   br label %trace_migration_block_flush_blks.exit22
 
 trace_migration_block_flush_blks.exit22:          ; preds = %while.end, %land.lhs.true5.i.i12, %if.then8.i.i18, %if.else.i.i17
@@ -2051,11 +2056,13 @@ for.body.us.i:                                    ; preds = %for.body.us.i, %for
   br i1 %exitcond16.not.i, label %bmds_set_aio_inflight.exit, label %for.body.us.i, !llvm.loop !26
 
 bmds_set_aio_inflight.exit:                       ; preds = %for.body.us.i, %entry
-  %8 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
-  %9 = add <2 x i32> %8, <i32 -1, i32 1>
-  store <2 x i32> %9, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
-  %10 = extractelement <2 x i32> %9, i64 0
-  %cmp = icmp sgt i32 %10, -1
+  %8 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
+  %dec = add i32 %8, -1
+  store i32 %dec, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 48), align 8
+  %9 = load i32, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
+  %inc = add i32 %9, 1
+  store i32 %inc, ptr getelementptr inbounds (i8, ptr @block_mig_state, i64 52), align 4
+  %cmp = icmp sgt i32 %dec, -1
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %bmds_set_aio_inflight.exit

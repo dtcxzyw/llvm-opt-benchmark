@@ -2204,7 +2204,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2289,7 +2291,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2370,7 +2374,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2452,7 +2458,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2641,7 +2649,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2830,7 +2840,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -3019,7 +3031,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -3430,7 +3444,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -3511,7 +3527,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -3592,7 +3610,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -3674,7 +3694,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -3863,7 +3885,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -4050,7 +4074,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -4237,7 +4263,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -4659,7 +4687,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -4740,7 +4770,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -4821,7 +4853,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -4902,7 +4936,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -5088,7 +5124,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -5274,7 +5312,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -5460,7 +5500,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -5750,7 +5792,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -5831,7 +5875,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -5912,7 +5958,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -5994,7 +6042,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -6183,7 +6233,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -6370,7 +6422,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -6557,7 +6611,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -6977,7 +7033,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -7058,7 +7116,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -7139,7 +7199,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -7221,7 +7283,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -7410,7 +7474,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -7599,7 +7665,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -7788,7 +7856,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -8188,7 +8258,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -8269,7 +8341,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -8350,7 +8424,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -8432,7 +8508,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -8621,7 +8699,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -8808,7 +8888,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -8995,7 +9077,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -9415,7 +9499,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -9496,7 +9582,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -9577,7 +9665,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -9658,7 +9748,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -9844,7 +9936,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -10030,7 +10124,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -10216,7 +10312,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -10506,7 +10604,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -10587,7 +10687,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -10668,7 +10770,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -10750,7 +10854,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -10939,7 +11045,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -11126,7 +11234,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -11313,7 +11423,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -11733,7 +11845,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -11814,7 +11928,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -11895,7 +12011,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -11977,7 +12095,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -12165,7 +12285,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -12353,7 +12475,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -12541,7 +12665,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -12939,7 +13065,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -13020,7 +13148,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -13101,7 +13231,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -13183,7 +13315,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -13371,7 +13505,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -13558,7 +13694,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -13745,7 +13883,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -14163,7 +14303,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -14244,7 +14386,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -14325,7 +14469,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -14406,7 +14552,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -14591,7 +14739,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -14776,7 +14926,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -14961,7 +15113,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -15249,7 +15403,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -15330,7 +15486,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -15411,7 +15569,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -15493,7 +15653,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -15681,7 +15843,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -15868,7 +16032,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -16055,7 +16221,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -16473,7 +16641,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -16554,7 +16724,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -16635,7 +16807,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -16717,7 +16891,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -16905,7 +17081,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -17093,7 +17271,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -17281,7 +17461,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -17679,7 +17861,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -17760,7 +17944,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -17841,7 +18027,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -17923,7 +18111,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -18111,7 +18301,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -18298,7 +18490,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -18485,7 +18679,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -18903,7 +19099,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -18984,7 +19182,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -19065,7 +19265,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -19146,7 +19348,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -19331,7 +19535,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -19516,7 +19722,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -19701,7 +19909,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -19989,7 +20199,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -20070,7 +20282,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -20151,7 +20365,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -20233,7 +20449,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -20421,7 +20639,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -20608,7 +20828,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -20795,7 +21017,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -21206,12 +21430,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -21220,24 +21448,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -21264,11 +21497,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -21286,10 +21519,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -21307,7 +21540,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -21315,18 +21550,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -21353,11 +21592,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -21375,10 +21614,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -21389,12 +21628,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -21403,24 +21646,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp, align 8
+  %3 = load ptr, ptr %ref.tmp, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -21447,11 +21695,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -21469,10 +21717,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -21491,7 +21739,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -21499,19 +21749,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -21538,11 +21791,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -21552,14 +21805,14 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i, %if.then.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -21567,27 +21820,27 @@ invoke.cont:                                      ; preds = %_ZN5eastl9hashtable
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit, !llvm.loop !5
 
 _ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8
+  %12 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %12
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %13
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i
@@ -21600,8 +21853,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtabl
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %13 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !7
@@ -21610,16 +21863,16 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.bo
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !8
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %14 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %14 to i32
+  %15 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %15 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %16 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -21638,8 +21891,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %16 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !335
-  %conv.i.i.i.i = sext i32 %16 to i64
+  %17 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !335
+  %conv.i.i.i.i = sext i32 %17 to i64
   invoke void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE28DoInsertValueExtraForwardingIRKiNS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEESG_mPNS_9hash_nodeIiLb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair.246") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i)
           to label %.noexc12 unwind label %lpad.loopexit
 
@@ -21650,8 +21903,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc12, %while.body.i.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, !llvm.loop !7
@@ -21659,7 +21912,7 @@ while.body.i.i.i:                                 ; preds = %.noexc12, %while.bo
 _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc12
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %.noexc12 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %.noexc12 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %12
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %13
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !338
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, %if.end.i
@@ -21698,7 +21951,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -21706,19 +21961,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -21745,11 +22003,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -21759,14 +22017,14 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i, %if.then.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -21774,27 +22032,27 @@ invoke.cont:                                      ; preds = %_ZN5eastl9hashtable
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit, !llvm.loop !5
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8
+  %12 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %12
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %13
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i
@@ -21807,8 +22065,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtable
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %13 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !7
@@ -21817,16 +22075,16 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.bo
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !8
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %14 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %14 to i32
+  %15 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %15 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %16 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -21845,8 +22103,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %16 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !339
-  %conv.i.i.i.i = sext i32 %16 to i64
+  %17 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !339
+  %conv.i.i.i.i = sext i32 %17 to i64
   invoke void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE28DoInsertValueExtraForwardingIRKiNS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEESG_mPNS_9hash_nodeIiLb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair.246") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i)
           to label %.noexc12 unwind label %lpad.loopexit
 
@@ -21857,8 +22115,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc12, %while.body.i.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, !llvm.loop !7
@@ -21866,7 +22124,7 @@ while.body.i.i.i:                                 ; preds = %.noexc12, %while.bo
 _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc12
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %.noexc12 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %.noexc12 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %12
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %13
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !338
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, %if.end.i
@@ -21898,12 +22156,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -21912,25 +22174,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -21957,11 +22223,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -21971,14 +22237,14 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i, %if.then.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %7 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %7, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %9 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %9, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %8 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %8, ptr %mFreeCount.i.i.i.i.i, align 4
+  %10 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %10, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %9 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %9, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %11 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %11, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -21986,27 +22252,27 @@ invoke.cont:                                      ; preds = %_ZN5eastl9hashtable
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %10 = load ptr, ptr %mpBucketArray.i, align 8
-  %11 = load ptr, ptr %10, align 8
-  %tobool.not.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %mpBucketArray.i, align 8
+  %13 = load ptr, ptr %12, align 8
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %10, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %12, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %12 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %12, null
+  %14 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit, !llvm.loop !5
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %10, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %11, %invoke.cont7 ], [ %12, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %12, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %13, %invoke.cont7 ], [ %14, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %13 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %10, i64 %13
-  %14 = load ptr, ptr %add.ptr.i, align 8
+  %15 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = load ptr, ptr %add.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %14
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %16
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i
@@ -22019,8 +22285,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtable
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %15 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !7
@@ -22029,16 +22295,16 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.bo
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %14
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %16
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !8
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %16 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %16 to i32
+  %18 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %18 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %17 to i32
+  %19 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %19 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -22057,8 +22323,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %18 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !342
-  %conv.i.i.i.i = sext i32 %18 to i64
+  %20 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !342
+  %conv.i.i.i.i = sext i32 %20 to i64
   invoke void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE28DoInsertValueExtraForwardingIRKiNS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEESG_mPNS_9hash_nodeIiLb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair.246") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i)
           to label %.noexc12 unwind label %lpad.loopexit
 
@@ -22069,8 +22335,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc12, %while.body.i.i.i
-  %19 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, !llvm.loop !7
@@ -22078,7 +22344,7 @@ while.body.i.i.i:                                 ; preds = %.noexc12, %while.bo
 _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc12
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %.noexc12 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %.noexc12 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %14
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %16
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !338
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, %if.end.i
@@ -22110,12 +22376,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -22124,24 +22394,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -22168,11 +22443,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -22190,11 +22465,11 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
   %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
-  %7 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv2.i = trunc i64 %7 to i32
+  %9 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv2.i = trunc i64 %9 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load i64, ptr %mnElementCount.i, align 8
-  %conv3.i = trunc i64 %8 to i32
+  %10 = load i64, ptr %mnElementCount.i, align 8
+  %conv3.i = trunc i64 %10 to i32
   %call4.i2 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv2.i, i32 noundef %conv3.i, i32 noundef %conv.i)
           to label %call4.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -22213,8 +22488,8 @@ if.end.i:                                         ; preds = %if.then.i, %call4.i
 
 for.body.i:                                       ; preds = %if.end.i, %.noexc3
   %first.addr.07.i = phi ptr [ %incdec.ptr.i, %.noexc3 ], [ %ilist.coerce0, %if.end.i ]
-  %9 = load i32, ptr %first.addr.07.i, align 4, !noalias !345
-  %conv.i.i.i.i = sext i32 %9 to i64
+  %11 = load i32, ptr %first.addr.07.i, align 4, !noalias !345
+  %conv.i.i.i.i = sext i32 %11 to i64
   invoke void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE28DoInsertValueExtraForwardingIRKiNS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEESG_mPNS_9hash_nodeIiLb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair.246") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.addr.07.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.addr.07.i)
           to label %.noexc3 unwind label %lpad.loopexit
 
@@ -22448,12 +22723,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -22462,24 +22741,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -22506,11 +22790,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -22528,10 +22812,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -22549,7 +22833,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -22557,18 +22843,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -22595,11 +22885,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -22617,10 +22907,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -22631,12 +22921,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -22645,24 +22939,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp, align 8
+  %3 = load ptr, ptr %ref.tmp, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -22689,11 +22988,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -22711,10 +23010,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -22733,7 +23032,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -22741,19 +23042,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -22780,11 +23084,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -22794,14 +23098,14 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
 
 _ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit: ; preds = %if.then.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -22809,27 +23113,27 @@ _ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorI
 invoke.cont7:                                     ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !28
 
 _ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8
+  %12 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %12
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %13
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i.i.i.i.i
@@ -22842,8 +23146,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtabl
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %13 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !29
@@ -22852,16 +23156,16 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i.i.i.i.i: ; pred
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !30
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i.i.i.i.i, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %14 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %14 to i32
+  %15 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %15 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %16 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -22880,8 +23184,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %16 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !354
-  %conv.i.i.i.i = sext i32 %16 to i64
+  %17 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !354
+  %conv.i.i.i.i = sext i32 %17 to i64
   invoke void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE28DoInsertValueExtraForwardingIRKS3_NS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mPNS_9hash_nodeIS3_Lb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(8) %first.sroa.0.05.i)
           to label %.noexc12 unwind label %lpad.loopexit
 
@@ -22892,8 +23196,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc12, %while.body.i.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i, !llvm.loop !29
@@ -22901,7 +23205,7 @@ while.body.i.i.i:                                 ; preds = %.noexc12, %while.bo
 _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc12
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %.noexc12 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %.noexc12 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %12
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %13
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !357
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i, %if.end.i
@@ -22940,7 +23244,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -22948,19 +23254,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -22987,11 +23296,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -23001,14 +23310,14 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
 
 _ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit: ; preds = %if.then.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -23016,59 +23325,59 @@ _ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorI
 invoke.cont7:                                     ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
-  %9 = load ptr, ptr %8, align 8, !noalias !358
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
+  %10 = load ptr, ptr %9, align 8, !noalias !358
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8, !noalias !358
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8, !noalias !358
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !28
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %agg.tmp.sroa.0.0 = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
-  %agg.tmp.sroa.7.0 = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %agg.tmp.sroa.0.0 = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
+  %agg.tmp.sroa.7.0 = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8, !noalias !361
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8, !noalias !361
+  %12 = load i64, ptr %mnBucketCount.i, align 8, !noalias !361
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8, !noalias !361
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %12
+  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %13
   br i1 %cmp.i.not2.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i
   %agg.tmp.sroa.4.0.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.1.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.7.0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
-  %13 = phi ptr [ %15, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
+  %14 = phi ptr [ %16, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
   %n.03.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ 0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
-  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge1.i.i.i.i.i.i.i = load ptr, ptr %mpNext.i.i.i.i.i.i.i, align 8
   %cmp2.i.i.i.i.i.i.i = icmp eq ptr %storemerge1.i.i.i.i.i.i.i, null
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !29
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
   %agg.tmp.sroa.4.1.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %15 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %16 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.03.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %15, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %16, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !42
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ]
-  %16 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %16 to i32
+  %17 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %17 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %17 to i32
+  %18 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %18 to i32
   %call5.i10 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -23097,8 +23406,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc11, %while.body.i.i.i
-  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i, !llvm.loop !29
@@ -23106,7 +23415,7 @@ while.body.i.i.i:                                 ; preds = %.noexc11, %while.bo
 _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc11
   %agg.tmp.sroa.0.2 = phi ptr [ %storemerge1.i.i.i, %.noexc11 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %agg.tmp.sroa.7.2 = phi ptr [ %agg.tmp.sroa.7.1, %.noexc11 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %12
+  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %13
   br i1 %cmp.i.not.i, label %invoke.cont9, label %for.body.i, !llvm.loop !364
 
 invoke.cont9:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i, %if.end.i
@@ -23138,12 +23447,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -23152,25 +23465,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -23197,11 +23514,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -23211,14 +23528,14 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
 
 _ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit: ; preds = %if.then.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %7 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %7, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %9 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %9, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %8 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %8, ptr %mFreeCount.i.i.i.i.i, align 4
+  %10 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %10, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %9 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %9, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %11 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %11, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -23226,59 +23543,59 @@ _ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorI
 invoke.cont7:                                     ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %10 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
-  %11 = load ptr, ptr %10, align 8, !noalias !365
-  %tobool.not.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
+  %13 = load ptr, ptr %12, align 8, !noalias !365
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %10, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %12, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %12 = load ptr, ptr %storemerge.i.i, align 8, !noalias !365
-  %cmp.i.i6 = icmp eq ptr %12, null
+  %14 = load ptr, ptr %storemerge.i.i, align 8, !noalias !365
+  %cmp.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !28
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %agg.tmp.sroa.0.0 = phi ptr [ %11, %invoke.cont7 ], [ %12, %while.cond.i.i ]
-  %agg.tmp.sroa.7.0 = phi ptr [ %10, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %agg.tmp.sroa.0.0 = phi ptr [ %13, %invoke.cont7 ], [ %14, %while.cond.i.i ]
+  %agg.tmp.sroa.7.0 = phi ptr [ %12, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %13 = load i64, ptr %mnBucketCount.i, align 8, !noalias !368
-  %add.ptr.i = getelementptr inbounds ptr, ptr %10, i64 %13
-  %14 = load ptr, ptr %add.ptr.i, align 8, !noalias !368
+  %15 = load i64, ptr %mnBucketCount.i, align 8, !noalias !368
+  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = load ptr, ptr %add.ptr.i, align 8, !noalias !368
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %14
+  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %16
   br i1 %cmp.i.not2.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i
   %agg.tmp.sroa.4.0.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.1.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.7.0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
-  %15 = phi ptr [ %17, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
+  %17 = phi ptr [ %19, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
   %n.03.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ 0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
-  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %storemerge1.i.i.i.i.i.i.i = load ptr, ptr %mpNext.i.i.i.i.i.i.i, align 8
   %cmp2.i.i.i.i.i.i.i = icmp eq ptr %storemerge1.i.i.i.i.i.i.i, null
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %16 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !29
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
   %agg.tmp.sroa.4.1.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %17 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %19 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.03.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %17, %14
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %19, %16
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !42
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ]
-  %18 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %18 to i32
+  %20 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %20 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %19 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %19 to i32
+  %21 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %21 to i32
   %call5.i10 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -23307,8 +23624,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc11, %while.body.i.i.i
-  %20 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i, !llvm.loop !29
@@ -23316,7 +23633,7 @@ while.body.i.i.i:                                 ; preds = %.noexc11, %while.bo
 _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc11
   %agg.tmp.sroa.0.2 = phi ptr [ %storemerge1.i.i.i, %.noexc11 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %agg.tmp.sroa.7.2 = phi ptr [ %agg.tmp.sroa.7.1, %.noexc11 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %14
+  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %16
   br i1 %cmp.i.not.i, label %invoke.cont9, label %for.body.i, !llvm.loop !364
 
 invoke.cont9:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i, %if.end.i
@@ -23348,12 +23665,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -23362,24 +23683,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -23406,11 +23732,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -23428,11 +23754,11 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
   %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
-  %7 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv2.i = trunc i64 %7 to i32
+  %9 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv2.i = trunc i64 %9 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load i64, ptr %mnElementCount.i, align 8
-  %conv3.i = trunc i64 %8 to i32
+  %10 = load i64, ptr %mnElementCount.i, align 8
+  %conv3.i = trunc i64 %10 to i32
   %call4.i2 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv2.i, i32 noundef %conv3.i, i32 noundef %conv.i)
           to label %call4.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -23451,8 +23777,8 @@ if.end.i:                                         ; preds = %if.then.i, %call4.i
 
 for.body.i:                                       ; preds = %if.end.i, %.noexc3
   %first.addr.07.i = phi ptr [ %incdec.ptr.i, %.noexc3 ], [ %ilist.coerce0, %if.end.i ]
-  %9 = load i32, ptr %first.addr.07.i, align 4, !noalias !371
-  %conv.i.i.i.i = sext i32 %9 to i64
+  %11 = load i32, ptr %first.addr.07.i, align 4, !noalias !371
+  %conv.i.i.i.i = sext i32 %11 to i64
   invoke void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE28DoInsertValueExtraForwardingIRKS3_NS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mPNS_9hash_nodeIS3_Lb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.addr.07.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(8) %first.addr.07.i)
           to label %.noexc3 unwind label %lpad.loopexit
 
@@ -23815,12 +24141,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -23829,24 +24159,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -23873,11 +24208,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -23895,10 +24230,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -23916,7 +24251,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -23924,18 +24261,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -23962,11 +24303,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -23984,10 +24325,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -23998,12 +24339,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -24012,24 +24357,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp, align 8
+  %3 = load ptr, ptr %ref.tmp, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -24056,11 +24406,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -24078,10 +24428,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24099,7 +24449,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -24107,19 +24459,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -24146,11 +24501,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -24160,14 +24515,14 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i, %if.then.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -24175,26 +24530,26 @@ invoke.cont:                                      ; preds = %_ZN5eastl9hashtable
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, !llvm.loop !5
 
 _ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %12
+  %12 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %13
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i
@@ -24207,8 +24562,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtabl
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %13 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !7
@@ -24217,16 +24572,16 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.bo
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !8
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %14 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %14 to i32
+  %15 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %15 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %16 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -24245,8 +24600,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %16 = load i32, ptr %first.sroa.0.05.i, align 4
-  %conv.i.i.i.i = sext i32 %16 to i64
+  %17 = load i32, ptr %first.sroa.0.05.i, align 4
+  %conv.i.i.i.i = sext i32 %17 to i64
   %call3.i.i12 = invoke { ptr, ptr } @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIiLb1ELb0EEET_RKimPNS_9hash_nodeIiLb0EEESL_PNS_9enable_ifIXntsrSJ_5valueEvE4typeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, ptr noundef null)
           to label %call3.i.i.noexc unwind label %lpad.loopexit
 
@@ -24257,8 +24612,8 @@ call3.i.i.noexc:                                  ; preds = %for.body.i
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %call3.i.i.noexc, %while.body.i.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %call3.i.i.noexc ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %call3.i.i.noexc ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, !llvm.loop !7
@@ -24266,7 +24621,7 @@ while.body.i.i.i:                                 ; preds = %call3.i.i.noexc, %w
 _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %call3.i.i.noexc
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %call3.i.i.noexc ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %call3.i.i.noexc ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %12
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %13
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !380
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, %if.end.i
@@ -24303,7 +24658,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -24311,19 +24668,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -24350,11 +24710,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -24364,14 +24724,14 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i, %if.then.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -24379,26 +24739,26 @@ invoke.cont:                                      ; preds = %_ZN5eastl9hashtable
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, !llvm.loop !5
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %12
+  %12 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %13
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i
@@ -24411,8 +24771,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtable
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %13 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !7
@@ -24421,16 +24781,16 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.bo
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !8
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %14 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %14 to i32
+  %15 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %15 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %16 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -24449,8 +24809,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %16 = load i32, ptr %first.sroa.0.05.i, align 4
-  %conv.i.i.i.i = sext i32 %16 to i64
+  %17 = load i32, ptr %first.sroa.0.05.i, align 4
+  %conv.i.i.i.i = sext i32 %17 to i64
   %call3.i.i12 = invoke { ptr, ptr } @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIiLb1ELb0EEET_RKimPNS_9hash_nodeIiLb0EEESL_PNS_9enable_ifIXntsrSJ_5valueEvE4typeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, ptr noundef null)
           to label %call3.i.i.noexc unwind label %lpad.loopexit
 
@@ -24461,8 +24821,8 @@ call3.i.i.noexc:                                  ; preds = %for.body.i
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %call3.i.i.noexc, %while.body.i.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %call3.i.i.noexc ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %call3.i.i.noexc ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, !llvm.loop !7
@@ -24470,7 +24830,7 @@ while.body.i.i.i:                                 ; preds = %call3.i.i.noexc, %w
 _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %call3.i.i.noexc
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %call3.i.i.noexc ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %call3.i.i.noexc ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %12
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %13
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !380
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, %if.end.i
@@ -24500,12 +24860,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -24514,25 +24878,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -24559,11 +24927,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -24573,14 +24941,14 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i, %if.then.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %7 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %7, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %9 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %9, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %8 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %8, ptr %mFreeCount.i.i.i.i.i, align 4
+  %10 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %10, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %9 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %9, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %11 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %11, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -24588,26 +24956,26 @@ invoke.cont:                                      ; preds = %_ZN5eastl9hashtable
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %10 = load ptr, ptr %mpBucketArray.i, align 8
-  %11 = load ptr, ptr %10, align 8
-  %tobool.not.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %mpBucketArray.i, align 8
+  %13 = load ptr, ptr %12, align 8
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %10, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %12, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %12 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %12, null
+  %14 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, !llvm.loop !5
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %10, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %11, %invoke.cont7 ], [ %12, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %12, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %13, %invoke.cont7 ], [ %14, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %13 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %10, i64 %13
-  %14 = load ptr, ptr %add.ptr.i, align 8
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %14
+  %15 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = load ptr, ptr %add.ptr.i, align 8
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %16
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i
@@ -24620,8 +24988,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtable
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %15 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !7
@@ -24630,16 +24998,16 @@ _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.bo
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %14
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %16
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !8
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorIiLb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES4_S4_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %16 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %16 to i32
+  %18 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %18 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %17 to i32
+  %19 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %19 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -24658,8 +25026,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %18 = load i32, ptr %first.sroa.0.05.i, align 4
-  %conv.i.i.i.i = sext i32 %18 to i64
+  %20 = load i32, ptr %first.sroa.0.05.i, align 4
+  %conv.i.i.i.i = sext i32 %20 to i64
   %call3.i.i12 = invoke { ptr, ptr } @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIiLb1ELb0EEET_RKimPNS_9hash_nodeIiLb0EEESL_PNS_9enable_ifIXntsrSJ_5valueEvE4typeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, ptr noundef null)
           to label %call3.i.i.noexc unwind label %lpad.loopexit
 
@@ -24670,8 +25038,8 @@ call3.i.i.noexc:                                  ; preds = %for.body.i
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %call3.i.i.noexc, %while.body.i.i.i
-  %19 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %call3.i.i.noexc ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %call3.i.i.noexc ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, !llvm.loop !7
@@ -24679,7 +25047,7 @@ while.body.i.i.i:                                 ; preds = %call3.i.i.noexc, %w
 _ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %call3.i.i.noexc
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %call3.i.i.noexc ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %call3.i.i.noexc ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %14
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %16
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !380
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i, %if.end.i
@@ -24709,12 +25077,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -24723,24 +25095,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -24767,11 +25144,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -24788,11 +25165,11 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
   %conv.i = trunc i64 %ilist.coerce1 to i32
-  %7 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv2.i = trunc i64 %7 to i32
+  %9 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv2.i = trunc i64 %9 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load i64, ptr %mnElementCount.i, align 8
-  %conv3.i = trunc i64 %8 to i32
+  %10 = load i64, ptr %mnElementCount.i, align 8
+  %conv3.i = trunc i64 %10 to i32
   %call4.i2 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv2.i, i32 noundef %conv3.i, i32 noundef %conv.i)
           to label %call4.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -24811,8 +25188,8 @@ if.end.i:                                         ; preds = %if.then.i, %call4.i
 
 for.body.i:                                       ; preds = %if.end.i, %call3.i.i.noexc
   %first.addr.07.i = phi ptr [ %incdec.ptr.i, %call3.i.i.noexc ], [ %ilist.coerce0, %if.end.i ]
-  %9 = load i32, ptr %first.addr.07.i, align 4
-  %conv.i.i.i.i = sext i32 %9 to i64
+  %11 = load i32, ptr %first.addr.07.i, align 4
+  %conv.i.i.i.i = sext i32 %11 to i64
   %call3.i.i3 = invoke { ptr, ptr } @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIiLb1ELb0EEET_RKimPNS_9hash_nodeIiLb0EEESL_PNS_9enable_ifIXntsrSJ_5valueEvE4typeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.addr.07.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.addr.07.i, ptr noundef null)
           to label %call3.i.i.noexc unwind label %lpad.loopexit
 
@@ -25044,12 +25421,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -25058,24 +25439,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -25102,11 +25488,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -25124,10 +25510,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25145,7 +25531,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -25153,18 +25541,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -25191,11 +25583,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -25213,10 +25605,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25227,12 +25619,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -25241,24 +25637,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp, align 8
+  %3 = load ptr, ptr %ref.tmp, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -25285,11 +25686,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -25307,10 +25708,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25329,7 +25730,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -25337,19 +25740,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -25376,11 +25782,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -25390,14 +25796,14 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
 
 _ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit: ; preds = %if.then.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -25405,27 +25811,27 @@ _ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allo
 invoke.cont7:                                     ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, !llvm.loop !28
 
 _ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8
+  %12 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %12
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %13
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i.i.i.i.i
@@ -25438,8 +25844,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtabl
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %13 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !29
@@ -25448,16 +25854,16 @@ _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i.i.i.i.i: ; pred
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !30
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i.i.i.i.i, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %14 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %14 to i32
+  %15 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %15 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %16 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -25476,8 +25882,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %16 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !384
-  %conv.i.i.i.i = sext i32 %16 to i64
+  %17 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !384
+  %conv.i.i.i.i = sext i32 %17 to i64
   invoke void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIS3_Lb0ELb0EEET_RS2_mPNS_9hash_nodeIS3_Lb0EEERKS3_PNS_9enable_ifIXntsrSM_5valueEvE4typeE(ptr nonnull sret(%"struct.eastl::hashtable_iterator.6") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(8) %first.sroa.0.05.i, ptr noundef null)
           to label %.noexc12 unwind label %lpad.loopexit
 
@@ -25488,8 +25894,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc12, %while.body.i.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i, !llvm.loop !29
@@ -25497,7 +25903,7 @@ while.body.i.i.i:                                 ; preds = %.noexc12, %while.bo
 _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc12
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %.noexc12 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %.noexc12 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %12
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %13
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !387
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb1ELb0EEppEv.exit.i, %if.end.i
@@ -25536,7 +25942,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -25544,19 +25952,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -25583,11 +25994,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -25597,14 +26008,14 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
 
 _ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit: ; preds = %if.then.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -25612,59 +26023,59 @@ _ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allo
 invoke.cont7:                                     ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
-  %9 = load ptr, ptr %8, align 8, !noalias !388
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
+  %10 = load ptr, ptr %9, align 8, !noalias !388
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8, !noalias !388
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8, !noalias !388
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, !llvm.loop !28
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %agg.tmp.sroa.0.0 = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
-  %agg.tmp.sroa.7.0 = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %agg.tmp.sroa.0.0 = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
+  %agg.tmp.sroa.7.0 = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8, !noalias !391
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8, !noalias !391
+  %12 = load i64, ptr %mnBucketCount.i, align 8, !noalias !391
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8, !noalias !391
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
-  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %12
+  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %13
   br i1 %cmp.i.not2.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i
   %agg.tmp.sroa.4.0.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.1.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.7.0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
-  %13 = phi ptr [ %15, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
+  %14 = phi ptr [ %16, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
   %n.03.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ 0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
-  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge1.i.i.i.i.i.i.i = load ptr, ptr %mpNext.i.i.i.i.i.i.i, align 8
   %cmp2.i.i.i.i.i.i.i = icmp eq ptr %storemerge1.i.i.i.i.i.i.i, null
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !29
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
   %agg.tmp.sroa.4.1.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %15 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %16 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.03.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %15, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %16, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !42
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ]
-  %16 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %16 to i32
+  %17 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %17 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %17 to i32
+  %18 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %18 to i32
   %call5.i10 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -25693,8 +26104,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc11, %while.body.i.i.i
-  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i, !llvm.loop !29
@@ -25702,7 +26113,7 @@ while.body.i.i.i:                                 ; preds = %.noexc11, %while.bo
 _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc11
   %agg.tmp.sroa.0.2 = phi ptr [ %storemerge1.i.i.i, %.noexc11 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %agg.tmp.sroa.7.2 = phi ptr [ %agg.tmp.sroa.7.1, %.noexc11 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %12
+  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %13
   br i1 %cmp.i.not.i, label %invoke.cont9, label %for.body.i, !llvm.loop !394
 
 invoke.cont9:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i, %if.end.i
@@ -25734,12 +26145,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -25748,25 +26163,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -25793,11 +26212,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -25807,14 +26226,14 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
 
 _ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit: ; preds = %if.then.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %7 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %7, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %9 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %9, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %8 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %8, ptr %mFreeCount.i.i.i.i.i, align 4
+  %10 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %10, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %9 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %9, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %11 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %11, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -25822,59 +26241,59 @@ _ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allo
 invoke.cont7:                                     ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %10 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
-  %11 = load ptr, ptr %10, align 8, !noalias !395
-  %tobool.not.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
+  %13 = load ptr, ptr %12, align 8, !noalias !395
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %10, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %12, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %12 = load ptr, ptr %storemerge.i.i, align 8, !noalias !395
-  %cmp.i.i6 = icmp eq ptr %12, null
+  %14 = load ptr, ptr %storemerge.i.i, align 8, !noalias !395
+  %cmp.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, !llvm.loop !28
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %agg.tmp.sroa.0.0 = phi ptr [ %11, %invoke.cont7 ], [ %12, %while.cond.i.i ]
-  %agg.tmp.sroa.7.0 = phi ptr [ %10, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %agg.tmp.sroa.0.0 = phi ptr [ %13, %invoke.cont7 ], [ %14, %while.cond.i.i ]
+  %agg.tmp.sroa.7.0 = phi ptr [ %12, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %13 = load i64, ptr %mnBucketCount.i, align 8, !noalias !398
-  %add.ptr.i = getelementptr inbounds ptr, ptr %10, i64 %13
-  %14 = load ptr, ptr %add.ptr.i, align 8, !noalias !398
+  %15 = load i64, ptr %mnBucketCount.i, align 8, !noalias !398
+  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = load ptr, ptr %add.ptr.i, align 8, !noalias !398
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
-  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %14
+  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %16
   br i1 %cmp.i.not2.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i
   %agg.tmp.sroa.4.0.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.1.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.7.0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
-  %15 = phi ptr [ %17, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
+  %17 = phi ptr [ %19, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
   %n.03.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ], [ 0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
-  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %storemerge1.i.i.i.i.i.i.i = load ptr, ptr %mpNext.i.i.i.i.i.i.i, align 8
   %cmp2.i.i.i.i.i.i.i = icmp eq ptr %storemerge1.i.i.i.i.i.i.i, null
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %16 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !29
 
 _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
   %agg.tmp.sroa.4.1.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %17 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %19 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.03.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %17, %14
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %19, %16
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !42
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i.i.i.i.i ]
-  %18 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %18 to i32
+  %20 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %20 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %19 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %19 to i32
+  %21 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %21 to i32
   %call5.i10 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -25903,8 +26322,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc11, %while.body.i.i.i
-  %20 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i, !llvm.loop !29
@@ -25912,7 +26331,7 @@ while.body.i.i.i:                                 ; preds = %.noexc11, %while.bo
 _ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc11
   %agg.tmp.sroa.0.2 = phi ptr [ %storemerge1.i.i.i, %.noexc11 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %agg.tmp.sroa.7.2 = phi ptr [ %agg.tmp.sroa.7.1, %.noexc11 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %14
+  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %16
   br i1 %cmp.i.not.i, label %invoke.cont9, label %for.body.i, !llvm.loop !394
 
 invoke.cont9:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIKiiEELb0ELb0EEppEv.exit.i, %if.end.i
@@ -25944,12 +26363,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -25958,24 +26381,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -26002,11 +26430,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -26024,11 +26452,11 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
-  %7 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv2.i = trunc i64 %7 to i32
+  %9 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv2.i = trunc i64 %9 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load i64, ptr %mnElementCount.i, align 8
-  %conv3.i = trunc i64 %8 to i32
+  %10 = load i64, ptr %mnElementCount.i, align 8
+  %conv3.i = trunc i64 %10 to i32
   %call4.i2 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv2.i, i32 noundef %conv3.i, i32 noundef %conv.i)
           to label %call4.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -26047,8 +26475,8 @@ if.end.i:                                         ; preds = %if.then.i, %call4.i
 
 for.body.i:                                       ; preds = %if.end.i, %.noexc3
   %first.addr.07.i = phi ptr [ %incdec.ptr.i, %.noexc3 ], [ %ilist.coerce0, %if.end.i ]
-  %9 = load i32, ptr %first.addr.07.i, align 4, !noalias !401
-  %conv.i.i.i.i = sext i32 %9 to i64
+  %11 = load i32, ptr %first.addr.07.i, align 4, !noalias !401
+  %conv.i.i.i.i = sext i32 %11 to i64
   invoke void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIS3_Lb0ELb0EEET_RS2_mPNS_9hash_nodeIS3_Lb0EEERKS3_PNS_9enable_ifIXntsrSM_5valueEvE4typeE(ptr nonnull sret(%"struct.eastl::hashtable_iterator.6") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.addr.07.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(8) %first.addr.07.i, ptr noundef null)
           to label %.noexc3 unwind label %lpad.loopexit
 
@@ -26411,12 +26839,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -26425,24 +26857,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -26469,11 +26906,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -26491,10 +26928,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26512,7 +26949,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -26520,18 +26959,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -26558,11 +27001,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -26580,10 +27023,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26594,12 +27037,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -26608,24 +27055,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp, align 8
+  %3 = load ptr, ptr %ref.tmp, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -26652,11 +27104,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -26674,10 +27126,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26696,7 +27148,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -26704,19 +27158,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -26743,11 +27200,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -26757,14 +27214,14 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i, %if.then.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -26772,27 +27229,27 @@ invoke.cont:                                      ; preds = %_ZN5eastl9hashtable
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZNK5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZNK5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit, !llvm.loop !89
 
 _ZNK5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8
+  %12 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %12
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %13
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i
@@ -26805,8 +27262,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtabl
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %13 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !90
@@ -26815,16 +27272,16 @@ _ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.b
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !91
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i, %_ZNK5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZNK5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %14 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %14 to i32
+  %15 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %15 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %16 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -26843,8 +27300,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %16 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !410
-  %conv.i.i.i.i = sext i32 %16 to i64
+  %17 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !410
+  %conv.i.i.i.i = sext i32 %17 to i64
   invoke void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE28DoInsertValueExtraForwardingIRKS1_NS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEESH_mPNS_9hash_nodeIS1_Lb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair.253") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i)
           to label %.noexc12 unwind label %lpad.loopexit
 
@@ -26855,8 +27312,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc12, %while.body.i.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i, !llvm.loop !90
@@ -26864,7 +27321,7 @@ while.body.i.i.i:                                 ; preds = %.noexc12, %while.bo
 _ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc12
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %.noexc12 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %.noexc12 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %12
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %13
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !413
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i, %if.end.i
@@ -26903,7 +27360,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -26911,19 +27370,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -26950,11 +27412,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -26964,14 +27426,14 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i, %if.then.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -26979,27 +27441,27 @@ invoke.cont:                                      ; preds = %_ZN5eastl9hashtable
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit, !llvm.loop !89
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8
+  %12 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %12
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %13
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i
@@ -27012,8 +27474,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtable
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %13 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !90
@@ -27022,16 +27484,16 @@ _ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.b
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !91
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %14 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %14 to i32
+  %15 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %15 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %16 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -27050,8 +27512,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %16 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !414
-  %conv.i.i.i.i = sext i32 %16 to i64
+  %17 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !414
+  %conv.i.i.i.i = sext i32 %17 to i64
   invoke void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE28DoInsertValueExtraForwardingIRKS1_NS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEESH_mPNS_9hash_nodeIS1_Lb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair.253") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i)
           to label %.noexc12 unwind label %lpad.loopexit
 
@@ -27062,8 +27524,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc12, %while.body.i.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i, !llvm.loop !90
@@ -27071,7 +27533,7 @@ while.body.i.i.i:                                 ; preds = %.noexc12, %while.bo
 _ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc12
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %.noexc12 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %.noexc12 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %12
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %13
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !413
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i, %if.end.i
@@ -27103,12 +27565,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -27117,25 +27583,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -27162,11 +27632,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -27176,14 +27646,14 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i, %if.then.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %7 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %7, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %9 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %9, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %8 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %8, ptr %mFreeCount.i.i.i.i.i, align 4
+  %10 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %10, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %9 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %9, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %11 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %11, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -27191,27 +27661,27 @@ invoke.cont:                                      ; preds = %_ZN5eastl9hashtable
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %10 = load ptr, ptr %mpBucketArray.i, align 8
-  %11 = load ptr, ptr %10, align 8
-  %tobool.not.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %mpBucketArray.i, align 8
+  %13 = load ptr, ptr %12, align 8
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %10, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %12, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %12 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %12, null
+  %14 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit, !llvm.loop !89
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %10, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %11, %invoke.cont7 ], [ %12, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %12, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %13, %invoke.cont7 ], [ %14, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %13 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %10, i64 %13
-  %14 = load ptr, ptr %add.ptr.i, align 8
+  %15 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = load ptr, ptr %add.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %14
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %16
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i
@@ -27224,8 +27694,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtable
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %15 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !90
@@ -27234,16 +27704,16 @@ _ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.b
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %14
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %16
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !91
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %16 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %16 to i32
+  %18 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %18 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %17 to i32
+  %19 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %19 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -27262,8 +27732,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %18 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !417
-  %conv.i.i.i.i = sext i32 %18 to i64
+  %20 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !417
+  %conv.i.i.i.i = sext i32 %20 to i64
   invoke void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE28DoInsertValueExtraForwardingIRKS1_NS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEESH_mPNS_9hash_nodeIS1_Lb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair.253") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i)
           to label %.noexc12 unwind label %lpad.loopexit
 
@@ -27274,8 +27744,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc12, %while.body.i.i.i
-  %19 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i, !llvm.loop !90
@@ -27283,7 +27753,7 @@ while.body.i.i.i:                                 ; preds = %.noexc12, %while.bo
 _ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc12
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %.noexc12 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %.noexc12 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %14
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %16
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !413
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i, %if.end.i
@@ -27315,12 +27785,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -27329,24 +27803,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -27373,11 +27852,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -27395,11 +27874,11 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI
   %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
-  %7 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv2.i = trunc i64 %7 to i32
+  %9 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv2.i = trunc i64 %9 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load i64, ptr %mnElementCount.i, align 8
-  %conv3.i = trunc i64 %8 to i32
+  %10 = load i64, ptr %mnElementCount.i, align 8
+  %conv3.i = trunc i64 %10 to i32
   %call4.i2 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv2.i, i32 noundef %conv3.i, i32 noundef %conv.i)
           to label %call4.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -27418,8 +27897,8 @@ if.end.i:                                         ; preds = %if.then.i, %call4.i
 
 for.body.i:                                       ; preds = %if.end.i, %.noexc3
   %first.addr.07.i = phi ptr [ %incdec.ptr.i, %.noexc3 ], [ %ilist.coerce0, %if.end.i ]
-  %9 = load i32, ptr %first.addr.07.i, align 4, !noalias !420
-  %conv.i.i.i.i = sext i32 %9 to i64
+  %11 = load i32, ptr %first.addr.07.i, align 4, !noalias !420
+  %conv.i.i.i.i = sext i32 %11 to i64
   invoke void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE28DoInsertValueExtraForwardingIRKS1_NS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEESH_mPNS_9hash_nodeIS1_Lb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair.253") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.addr.07.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.addr.07.i)
           to label %.noexc3 unwind label %lpad.loopexit
 
@@ -27653,12 +28132,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -27667,24 +28150,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -27711,11 +28199,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -27733,10 +28221,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27754,7 +28242,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -27762,18 +28252,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -27800,11 +28294,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -27822,10 +28316,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27836,12 +28330,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -27850,24 +28348,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp, align 8
+  %3 = load ptr, ptr %ref.tmp, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -27894,11 +28397,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -27916,10 +28419,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27938,7 +28441,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -27946,19 +28451,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -27985,11 +28493,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -27999,14 +28507,14 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
 
 _ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit: ; preds = %if.then.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -28014,27 +28522,27 @@ _ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_all
 invoke.cont7:                                     ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZNK5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZNK5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !111
 
 _ZNK5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8
+  %12 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %12
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %13
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i.i.i.i.i
@@ -28047,8 +28555,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtabl
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %13 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !112
@@ -28057,16 +28565,16 @@ _ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i.i.i.i.i: ; p
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !113
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i.i.i.i.i, %_ZNK5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZNK5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %14 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %14 to i32
+  %15 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %15 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %16 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -28085,8 +28593,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %16 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !429
-  %conv.i.i.i.i = sext i32 %16 to i64
+  %17 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !429
+  %conv.i.i.i.i = sext i32 %17 to i64
   invoke void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE28DoInsertValueExtraForwardingIRKS4_NS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mPNS_9hash_nodeIS4_Lb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair.353") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(8) %first.sroa.0.05.i)
           to label %.noexc12 unwind label %lpad.loopexit
 
@@ -28097,8 +28605,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc12, %while.body.i.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i, !llvm.loop !112
@@ -28106,7 +28614,7 @@ while.body.i.i.i:                                 ; preds = %.noexc12, %while.bo
 _ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc12
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %.noexc12 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %.noexc12 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %12
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %13
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !432
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i, %if.end.i
@@ -28145,7 +28653,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -28153,19 +28663,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -28192,11 +28705,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -28206,14 +28719,14 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
 
 _ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit: ; preds = %if.then.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -28221,59 +28734,59 @@ _ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_all
 invoke.cont7:                                     ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
-  %9 = load ptr, ptr %8, align 8, !noalias !433
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
+  %10 = load ptr, ptr %9, align 8, !noalias !433
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8, !noalias !433
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8, !noalias !433
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !111
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %agg.tmp.sroa.0.0 = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
-  %agg.tmp.sroa.7.0 = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %agg.tmp.sroa.0.0 = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
+  %agg.tmp.sroa.7.0 = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8, !noalias !436
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8, !noalias !436
+  %12 = load i64, ptr %mnBucketCount.i, align 8, !noalias !436
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8, !noalias !436
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %12
+  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %13
   br i1 %cmp.i.not2.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i
   %agg.tmp.sroa.4.0.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.1.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.7.0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
-  %13 = phi ptr [ %15, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
+  %14 = phi ptr [ %16, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
   %n.03.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ 0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
-  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge1.i.i.i.i.i.i.i = load ptr, ptr %mpNext.i.i.i.i.i.i.i, align 8
   %cmp2.i.i.i.i.i.i.i = icmp eq ptr %storemerge1.i.i.i.i.i.i.i, null
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !112
 
 _ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
   %agg.tmp.sroa.4.1.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %15 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %16 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.03.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %15, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %16, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !124
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ]
-  %16 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %16 to i32
+  %17 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %17 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %17 to i32
+  %18 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %18 to i32
   %call5.i10 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -28302,8 +28815,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc11, %while.body.i.i.i
-  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i, !llvm.loop !112
@@ -28311,7 +28824,7 @@ while.body.i.i.i:                                 ; preds = %.noexc11, %while.bo
 _ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc11
   %agg.tmp.sroa.0.2 = phi ptr [ %storemerge1.i.i.i, %.noexc11 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %agg.tmp.sroa.7.2 = phi ptr [ %agg.tmp.sroa.7.1, %.noexc11 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %12
+  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %13
   br i1 %cmp.i.not.i, label %invoke.cont9, label %for.body.i, !llvm.loop !439
 
 invoke.cont9:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i, %if.end.i
@@ -28343,12 +28856,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -28357,25 +28874,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -28402,11 +28923,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -28416,14 +28937,14 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
 
 _ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit: ; preds = %if.then.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %7 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %7, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %9 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %9, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %8 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %8, ptr %mFreeCount.i.i.i.i.i, align 4
+  %10 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %10, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %9 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %9, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %11 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %11, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -28431,59 +28952,59 @@ _ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_all
 invoke.cont7:                                     ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %10 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
-  %11 = load ptr, ptr %10, align 8, !noalias !440
-  %tobool.not.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
+  %13 = load ptr, ptr %12, align 8, !noalias !440
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %10, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %12, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %12 = load ptr, ptr %storemerge.i.i, align 8, !noalias !440
-  %cmp.i.i6 = icmp eq ptr %12, null
+  %14 = load ptr, ptr %storemerge.i.i, align 8, !noalias !440
+  %cmp.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, !llvm.loop !111
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %agg.tmp.sroa.0.0 = phi ptr [ %11, %invoke.cont7 ], [ %12, %while.cond.i.i ]
-  %agg.tmp.sroa.7.0 = phi ptr [ %10, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %agg.tmp.sroa.0.0 = phi ptr [ %13, %invoke.cont7 ], [ %14, %while.cond.i.i ]
+  %agg.tmp.sroa.7.0 = phi ptr [ %12, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %13 = load i64, ptr %mnBucketCount.i, align 8, !noalias !443
-  %add.ptr.i = getelementptr inbounds ptr, ptr %10, i64 %13
-  %14 = load ptr, ptr %add.ptr.i, align 8, !noalias !443
+  %15 = load i64, ptr %mnBucketCount.i, align 8, !noalias !443
+  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = load ptr, ptr %add.ptr.i, align 8, !noalias !443
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
-  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %14
+  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %16
   br i1 %cmp.i.not2.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i
   %agg.tmp.sroa.4.0.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.1.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.7.0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
-  %15 = phi ptr [ %17, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
+  %17 = phi ptr [ %19, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
   %n.03.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ 0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ]
-  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %storemerge1.i.i.i.i.i.i.i = load ptr, ptr %mpNext.i.i.i.i.i.i.i, align 8
   %cmp2.i.i.i.i.i.i.i = icmp eq ptr %storemerge1.i.i.i.i.i.i.i, null
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %16 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !112
 
 _ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
   %agg.tmp.sroa.4.1.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %17 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %19 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.03.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %17, %14
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %19, %16
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !124
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ]
-  %18 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %18 to i32
+  %20 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %20 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %19 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %19 to i32
+  %21 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %21 to i32
   %call5.i10 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -28512,8 +29033,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc11, %while.body.i.i.i
-  %20 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i, !llvm.loop !112
@@ -28521,7 +29042,7 @@ while.body.i.i.i:                                 ; preds = %.noexc11, %while.bo
 _ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc11
   %agg.tmp.sroa.0.2 = phi ptr [ %storemerge1.i.i.i, %.noexc11 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %agg.tmp.sroa.7.2 = phi ptr [ %agg.tmp.sroa.7.1, %.noexc11 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %14
+  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %16
   br i1 %cmp.i.not.i, label %invoke.cont9, label %for.body.i, !llvm.loop !439
 
 invoke.cont9:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i, %if.end.i
@@ -28553,12 +29074,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -28567,24 +29092,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -28611,11 +29141,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -28633,11 +29163,11 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
   %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
-  %7 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv2.i = trunc i64 %7 to i32
+  %9 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv2.i = trunc i64 %9 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load i64, ptr %mnElementCount.i, align 8
-  %conv3.i = trunc i64 %8 to i32
+  %10 = load i64, ptr %mnElementCount.i, align 8
+  %conv3.i = trunc i64 %10 to i32
   %call4.i2 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv2.i, i32 noundef %conv3.i, i32 noundef %conv.i)
           to label %call4.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -28656,8 +29186,8 @@ if.end.i:                                         ; preds = %if.then.i, %call4.i
 
 for.body.i:                                       ; preds = %if.end.i, %.noexc3
   %first.addr.07.i = phi ptr [ %incdec.ptr.i, %.noexc3 ], [ %ilist.coerce0, %if.end.i ]
-  %9 = load i32, ptr %first.addr.07.i, align 4, !noalias !446
-  %conv.i.i.i.i = sext i32 %9 to i64
+  %11 = load i32, ptr %first.addr.07.i, align 4, !noalias !446
+  %conv.i.i.i.i = sext i32 %11 to i64
   invoke void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE28DoInsertValueExtraForwardingIRKS4_NS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mPNS_9hash_nodeIS4_Lb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair.353") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.addr.07.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(8) %first.addr.07.i)
           to label %.noexc3 unwind label %lpad.loopexit
 
@@ -29020,12 +29550,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -29034,24 +29568,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -29078,11 +29617,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -29100,10 +29639,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -29121,7 +29660,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -29129,18 +29670,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -29167,11 +29712,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -29189,10 +29734,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -29203,12 +29748,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -29217,24 +29766,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp, align 8
+  %3 = load ptr, ptr %ref.tmp, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -29261,11 +29815,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -29283,10 +29837,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -29304,7 +29858,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -29312,19 +29868,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -29351,11 +29910,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -29365,14 +29924,14 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i, %if.then.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -29380,26 +29939,26 @@ invoke.cont:                                      ; preds = %_ZN5eastl9hashtable
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZNK5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZNK5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, !llvm.loop !89
 
 _ZNK5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %12
+  %12 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %13
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i
@@ -29412,8 +29971,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtabl
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %13 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !90
@@ -29422,16 +29981,16 @@ _ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.b
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !91
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i, %_ZNK5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZNK5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %14 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %14 to i32
+  %15 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %15 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %16 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -29450,8 +30009,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %16 = load i32, ptr %first.sroa.0.05.i, align 4
-  %conv.i.i.i.i = sext i32 %16 to i64
+  %17 = load i32, ptr %first.sroa.0.05.i, align 4
+  %conv.i.i.i.i = sext i32 %17 to i64
   %call3.i.i12 = invoke { ptr, ptr } @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIS1_Lb1ELb0EEET_RKS1_mPNS_9hash_nodeIS1_Lb0EEESM_PNS_9enable_ifIXntsrSK_5valueEvE4typeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, ptr noundef null)
           to label %call3.i.i.noexc unwind label %lpad.loopexit
 
@@ -29462,8 +30021,8 @@ call3.i.i.noexc:                                  ; preds = %for.body.i
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %call3.i.i.noexc, %while.body.i.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %call3.i.i.noexc ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %call3.i.i.noexc ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i, !llvm.loop !90
@@ -29471,7 +30030,7 @@ while.body.i.i.i:                                 ; preds = %call3.i.i.noexc, %w
 _ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %call3.i.i.noexc
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %call3.i.i.noexc ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %call3.i.i.noexc ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %12
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %13
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !455
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i, %if.end.i
@@ -29508,7 +30067,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -29516,19 +30077,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -29555,11 +30119,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -29569,14 +30133,14 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i, %if.then.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -29584,26 +30148,26 @@ invoke.cont:                                      ; preds = %_ZN5eastl9hashtable
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, !llvm.loop !89
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %12
+  %12 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %13
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i
@@ -29616,8 +30180,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtable
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %13 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !90
@@ -29626,16 +30190,16 @@ _ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.b
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !91
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %14 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %14 to i32
+  %15 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %15 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %16 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -29654,8 +30218,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %16 = load i32, ptr %first.sroa.0.05.i, align 4
-  %conv.i.i.i.i = sext i32 %16 to i64
+  %17 = load i32, ptr %first.sroa.0.05.i, align 4
+  %conv.i.i.i.i = sext i32 %17 to i64
   %call3.i.i12 = invoke { ptr, ptr } @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIS1_Lb1ELb0EEET_RKS1_mPNS_9hash_nodeIS1_Lb0EEESM_PNS_9enable_ifIXntsrSK_5valueEvE4typeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, ptr noundef null)
           to label %call3.i.i.noexc unwind label %lpad.loopexit
 
@@ -29666,8 +30230,8 @@ call3.i.i.noexc:                                  ; preds = %for.body.i
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %call3.i.i.noexc, %while.body.i.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %call3.i.i.noexc ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %call3.i.i.noexc ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i, !llvm.loop !90
@@ -29675,7 +30239,7 @@ while.body.i.i.i:                                 ; preds = %call3.i.i.noexc, %w
 _ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %call3.i.i.noexc
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %call3.i.i.noexc ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %call3.i.i.noexc ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %12
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %13
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !455
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i, %if.end.i
@@ -29705,12 +30269,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -29719,25 +30287,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -29764,11 +30336,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -29778,14 +30350,14 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1
 
 invoke.cont:                                      ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i, %if.then.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %7 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %7, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %9 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %9, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %8 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %8, ptr %mFreeCount.i.i.i.i.i, align 4
+  %10 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %10, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %9 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %9, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %11 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %11, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -29793,26 +30365,26 @@ invoke.cont:                                      ; preds = %_ZN5eastl9hashtable
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %10 = load ptr, ptr %mpBucketArray.i, align 8
-  %11 = load ptr, ptr %10, align 8
-  %tobool.not.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %mpBucketArray.i, align 8
+  %13 = load ptr, ptr %12, align 8
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %10, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %12, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %12 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %12, null
+  %14 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, !llvm.loop !89
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %10, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %11, %invoke.cont7 ], [ %12, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %12, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %13, %invoke.cont7 ], [ %14, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %13 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %10, i64 %13
-  %14 = load ptr, ptr %add.ptr.i, align 8
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %14
+  %15 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = load ptr, ptr %add.ptr.i, align 8
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %16
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i
@@ -29825,8 +30397,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtable
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %15 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !90
@@ -29835,16 +30407,16 @@ _ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.b
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %14
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %16
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !91
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorI1ALb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES5_S5_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %16 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %16 to i32
+  %18 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %18 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %17 to i32
+  %19 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %19 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -29863,8 +30435,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %18 = load i32, ptr %first.sroa.0.05.i, align 4
-  %conv.i.i.i.i = sext i32 %18 to i64
+  %20 = load i32, ptr %first.sroa.0.05.i, align 4
+  %conv.i.i.i.i = sext i32 %20 to i64
   %call3.i.i12 = invoke { ptr, ptr } @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIS1_Lb1ELb0EEET_RKS1_mPNS_9hash_nodeIS1_Lb0EEESM_PNS_9enable_ifIXntsrSK_5valueEvE4typeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, ptr noundef null)
           to label %call3.i.i.noexc unwind label %lpad.loopexit
 
@@ -29875,8 +30447,8 @@ call3.i.i.noexc:                                  ; preds = %for.body.i
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %call3.i.i.noexc, %while.body.i.i.i
-  %19 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %call3.i.i.noexc ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %call3.i.i.noexc ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i, !llvm.loop !90
@@ -29884,7 +30456,7 @@ while.body.i.i.i:                                 ; preds = %call3.i.i.noexc, %w
 _ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %call3.i.i.noexc
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %call3.i.i.noexc ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %call3.i.i.noexc ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %14
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %16
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !455
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorI1ALb1ELb0EEppEv.exit.i, %if.end.i
@@ -29914,12 +30486,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -29928,24 +30504,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -29972,11 +30553,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -29993,11 +30574,11 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
   %conv.i = trunc i64 %ilist.coerce1 to i32
-  %7 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv2.i = trunc i64 %7 to i32
+  %9 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv2.i = trunc i64 %9 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load i64, ptr %mnElementCount.i, align 8
-  %conv3.i = trunc i64 %8 to i32
+  %10 = load i64, ptr %mnElementCount.i, align 8
+  %conv3.i = trunc i64 %10 to i32
   %call4.i2 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv2.i, i32 noundef %conv3.i, i32 noundef %conv.i)
           to label %call4.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -30016,8 +30597,8 @@ if.end.i:                                         ; preds = %if.then.i, %call4.i
 
 for.body.i:                                       ; preds = %if.end.i, %call3.i.i.noexc
   %first.addr.07.i = phi ptr [ %incdec.ptr.i, %call3.i.i.noexc ], [ %ilist.coerce0, %if.end.i ]
-  %9 = load i32, ptr %first.addr.07.i, align 4
-  %conv.i.i.i.i = sext i32 %9 to i64
+  %11 = load i32, ptr %first.addr.07.i, align 4
+  %conv.i.i.i.i = sext i32 %11 to i64
   %call3.i.i3 = invoke { ptr, ptr } @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIS1_Lb1ELb0EEET_RKS1_mPNS_9hash_nodeIS1_Lb0EEESM_PNS_9enable_ifIXntsrSK_5valueEvE4typeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.addr.07.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %first.addr.07.i, ptr noundef null)
           to label %call3.i.i.noexc unwind label %lpad.loopexit
 
@@ -30249,12 +30830,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -30263,24 +30848,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -30307,11 +30897,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -30329,10 +30919,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -30350,7 +30940,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -30358,18 +30950,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -30396,11 +30992,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -30418,10 +31014,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -30432,12 +31028,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -30446,24 +31046,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp, align 8
+  %3 = load ptr, ptr %ref.tmp, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -30490,11 +31095,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -30512,10 +31117,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -30534,7 +31139,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -30542,19 +31149,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -30581,11 +31191,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -30595,14 +31205,14 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
 
 _ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit: ; preds = %if.then.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -30610,27 +31220,27 @@ _ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtab
 invoke.cont7:                                     ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZNK5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZNK5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, !llvm.loop !111
 
 _ZNK5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %retval.sroa.4.0.i = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
-  %retval.sroa.0.0.i = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
+  %retval.sroa.4.0.i = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8
+  %12 = load i64, ptr %mnBucketCount.i, align 8
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
-  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %12
+  %cmp.i.not3.i.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i, %13
   br i1 %cmp.i.not3.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i.i.i.i.i
@@ -30643,8 +31253,8 @@ while.body.i.i.i.i.i:                             ; preds = %_ZNK5eastl9hashtabl
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %13 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !112
@@ -30653,16 +31263,16 @@ _ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i.i.i.i.i: ; p
   %first.sroa.0.1.i.i.i.i.i = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %first.sroa.5.1.i.i.i.i.i = phi ptr [ %first.sroa.5.05.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.06.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %first.sroa.0.1.i.i.i.i.i, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !113
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb1ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i.i.i.i.i, %_ZNK5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZNK5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i.i.i.i.i ]
-  %14 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %14 to i32
+  %15 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %15 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %15 to i32
+  %16 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %16 to i32
   %call5.i11 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -30681,8 +31291,8 @@ if.end.i:                                         ; preds = %if.then.i, %call5.i
 for.body.i:                                       ; preds = %if.end.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i
   %first.sroa.6.06.i = phi ptr [ %first.sroa.6.1.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i ], [ %retval.sroa.4.0.i, %if.end.i ]
   %first.sroa.0.05.i = phi ptr [ %first.sroa.0.1.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i ], [ %retval.sroa.0.0.i, %if.end.i ]
-  %16 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !459
-  %conv.i.i.i.i = sext i32 %16 to i64
+  %17 = load i32, ptr %first.sroa.0.05.i, align 4, !noalias !459
+  %conv.i.i.i.i = sext i32 %17 to i64
   invoke void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIS4_Lb0ELb0EEET_RS3_mPNS_9hash_nodeIS4_Lb0EEERKS4_PNS_9enable_ifIXntsrSN_5valueEvE4typeE(ptr nonnull sret(%"struct.eastl::hashtable_iterator.33") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.sroa.0.05.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(8) %first.sroa.0.05.i, ptr noundef null)
           to label %.noexc12 unwind label %lpad.loopexit
 
@@ -30693,8 +31303,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc12, %while.body.i.i.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %first.sroa.6.06.i, %.noexc12 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i, !llvm.loop !112
@@ -30702,7 +31312,7 @@ while.body.i.i.i:                                 ; preds = %.noexc12, %while.bo
 _ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc12
   %first.sroa.0.1.i = phi ptr [ %storemerge1.i.i.i, %.noexc12 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %first.sroa.6.1.i = phi ptr [ %first.sroa.6.06.i, %.noexc12 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %12
+  %cmp.i.not.i = icmp eq ptr %first.sroa.0.1.i, %13
   br i1 %cmp.i.not.i, label %invoke.cont12, label %for.body.i, !llvm.loop !462
 
 invoke.cont12:                                    ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb1ELb0EEppEv.exit.i, %if.end.i
@@ -30741,7 +31351,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -30749,19 +31361,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -30788,11 +31403,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -30802,14 +31417,14 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
 
 _ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit: ; preds = %if.then.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %5 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %5, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %6 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %6, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %6 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %6, ptr %mFreeCount.i.i.i.i.i, align 4
+  %7 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %7, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %7 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %7, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %8 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %8, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -30817,59 +31432,59 @@ _ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtab
 invoke.cont7:                                     ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %8 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
-  %9 = load ptr, ptr %8, align 8, !noalias !463
-  %tobool.not.i = icmp eq ptr %9, null
+  %9 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
+  %10 = load ptr, ptr %9, align 8, !noalias !463
+  %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %8, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %9, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %10 = load ptr, ptr %storemerge.i.i, align 8, !noalias !463
-  %cmp.i.i6 = icmp eq ptr %10, null
+  %11 = load ptr, ptr %storemerge.i.i, align 8, !noalias !463
+  %cmp.i.i6 = icmp eq ptr %11, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, !llvm.loop !111
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %agg.tmp.sroa.0.0 = phi ptr [ %9, %invoke.cont7 ], [ %10, %while.cond.i.i ]
-  %agg.tmp.sroa.7.0 = phi ptr [ %8, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %agg.tmp.sroa.0.0 = phi ptr [ %10, %invoke.cont7 ], [ %11, %while.cond.i.i ]
+  %agg.tmp.sroa.7.0 = phi ptr [ %9, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %11 = load i64, ptr %mnBucketCount.i, align 8, !noalias !466
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %11
-  %12 = load ptr, ptr %add.ptr.i, align 8, !noalias !466
+  %12 = load i64, ptr %mnBucketCount.i, align 8, !noalias !466
+  %add.ptr.i = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = load ptr, ptr %add.ptr.i, align 8, !noalias !466
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
-  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %12
+  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %13
   br i1 %cmp.i.not2.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i
   %agg.tmp.sroa.4.0.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.1.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.7.0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
-  %13 = phi ptr [ %15, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
+  %14 = phi ptr [ %16, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
   %n.03.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ 0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
-  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge1.i.i.i.i.i.i.i = load ptr, ptr %mpNext.i.i.i.i.i.i.i, align 8
   %cmp2.i.i.i.i.i.i.i = icmp eq ptr %storemerge1.i.i.i.i.i.i.i, null
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %14 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !112
 
 _ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
   %agg.tmp.sroa.4.1.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %15 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %16 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.03.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %15, %12
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %16, %13
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !124
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ]
-  %16 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %16 to i32
+  %17 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %17 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %17 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %17 to i32
+  %18 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %18 to i32
   %call5.i10 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -30898,8 +31513,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc11, %while.body.i.i.i
-  %18 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i, !llvm.loop !112
@@ -30907,7 +31522,7 @@ while.body.i.i.i:                                 ; preds = %.noexc11, %while.bo
 _ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc11
   %agg.tmp.sroa.0.2 = phi ptr [ %storemerge1.i.i.i, %.noexc11 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %agg.tmp.sroa.7.2 = phi ptr [ %agg.tmp.sroa.7.1, %.noexc11 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %12
+  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %13
   br i1 %cmp.i.not.i, label %invoke.cont9, label %for.body.i, !llvm.loop !469
 
 invoke.cont9:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i, %if.end.i
@@ -30939,12 +31554,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -30953,25 +31572,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -30998,11 +31621,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -31012,14 +31635,14 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
 
 _ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit: ; preds = %if.then.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
   %mOverflowAllocator.i = getelementptr inbounds i8, ptr %x, i64 80
-  %7 = load i32, ptr %mOverflowAllocator.i, align 8
-  store i32 %7, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %9 = load i32, ptr %mOverflowAllocator.i, align 8
+  store i32 %9, ptr %mOverflowAllocator.i.i.i.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %x, i64 84
-  %8 = load i32, ptr %mFreeCount.i.i, align 4
-  store i32 %8, ptr %mFreeCount.i.i.i.i.i, align 4
+  %10 = load i32, ptr %mFreeCount.i.i, align 4
+  store i32 %10, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i = getelementptr inbounds i8, ptr %x, i64 88
-  %9 = load i64, ptr %mAllocVolume.i.i, align 8
-  store i64 %9, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %11 = load i64, ptr %mAllocVolume.i.i, align 8
+  store i64 %11, ptr %mAllocVolume.i.i.i.i.i, align 8
   %mNodeBuffer = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef nonnull %mNodeBuffer, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
@@ -31027,59 +31650,59 @@ _ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtab
 invoke.cont7:                                     ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketArray.i = getelementptr inbounds i8, ptr %x, i64 8
-  %10 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
-  %11 = load ptr, ptr %10, align 8, !noalias !470
-  %tobool.not.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !35
+  %13 = load ptr, ptr %12, align 8, !noalias !470
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit
 
 while.cond.i.i:                                   ; preds = %invoke.cont7, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %10, %invoke.cont7 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %12, %invoke.cont7 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
-  %12 = load ptr, ptr %storemerge.i.i, align 8, !noalias !470
-  %cmp.i.i6 = icmp eq ptr %12, null
+  %14 = load ptr, ptr %storemerge.i.i, align 8, !noalias !470
+  %cmp.i.i6 = icmp eq ptr %14, null
   br i1 %cmp.i.i6, label %while.cond.i.i, label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, !llvm.loop !111
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit: ; preds = %while.cond.i.i, %invoke.cont7
-  %agg.tmp.sroa.0.0 = phi ptr [ %11, %invoke.cont7 ], [ %12, %while.cond.i.i ]
-  %agg.tmp.sroa.7.0 = phi ptr [ %10, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
+  %agg.tmp.sroa.0.0 = phi ptr [ %13, %invoke.cont7 ], [ %14, %while.cond.i.i ]
+  %agg.tmp.sroa.7.0 = phi ptr [ %12, %invoke.cont7 ], [ %storemerge.i.i, %while.cond.i.i ]
   %mnBucketCount.i = getelementptr inbounds i8, ptr %x, i64 16
-  %13 = load i64, ptr %mnBucketCount.i, align 8, !noalias !473
-  %add.ptr.i = getelementptr inbounds ptr, ptr %10, i64 %13
-  %14 = load ptr, ptr %add.ptr.i, align 8, !noalias !473
+  %15 = load i64, ptr %mnBucketCount.i, align 8, !noalias !473
+  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = load ptr, ptr %add.ptr.i, align 8, !noalias !473
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
-  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %14
+  %cmp.i.not2.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0, %16
   br i1 %cmp.i.not2.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i
   %agg.tmp.sroa.4.0.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.1.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.7.0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
-  %15 = phi ptr [ %17, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
+  %17 = phi ptr [ %19, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %agg.tmp.sroa.0.0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
   %n.03.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ], [ 0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ]
-  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %storemerge1.i.i.i.i.i.i.i = load ptr, ptr %mpNext.i.i.i.i.i.i.i, align 8
   %cmp2.i.i.i.i.i.i.i = icmp eq ptr %storemerge1.i.i.i.i.i.i.i, null
   br i1 %cmp2.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %16 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ]
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i, !llvm.loop !112
 
 _ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
   %agg.tmp.sroa.4.1.i.i.i.i = phi ptr [ %agg.tmp.sroa.4.0.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
-  %17 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
+  %19 = phi ptr [ %storemerge1.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i = add i32 %n.03.i.i.i.i.i, 1
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %17, %14
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %19, %16
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !124
 
 _ZN5eastl11ht_distanceINS_18hashtable_iteratorINS_4pairIK1AS3_EELb0ELb0EEEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i: ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit
   %n.0.lcssa.i.i.i.i.i = phi i32 [ 0, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5beginEv.exit ], [ %inc.i.i.i.i.i, %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i.i.i.i.i ]
-  %18 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv3.i = trunc i64 %18 to i32
+  %20 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv3.i = trunc i64 %20 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %19 = load i64, ptr %mnElementCount.i, align 8
-  %conv4.i = trunc i64 %19 to i32
+  %21 = load i64, ptr %mnElementCount.i, align 8
+  %conv4.i = trunc i64 %21 to i32
   %call5.i10 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv3.i, i32 noundef %conv4.i, i32 noundef %n.0.lcssa.i.i.i.i.i)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -31108,8 +31731,8 @@ for.body.i:                                       ; preds = %if.end.i, %_ZN5east
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i
 
 while.body.i.i.i:                                 ; preds = %.noexc11, %while.body.i.i.i
-  %20 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %agg.tmp.sroa.7.1, %.noexc11 ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %storemerge.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i, !llvm.loop !112
@@ -31117,7 +31740,7 @@ while.body.i.i.i:                                 ; preds = %.noexc11, %while.bo
 _ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i: ; preds = %while.body.i.i.i, %.noexc11
   %agg.tmp.sroa.0.2 = phi ptr [ %storemerge1.i.i.i, %.noexc11 ], [ %storemerge.i.i.i, %while.body.i.i.i ]
   %agg.tmp.sroa.7.2 = phi ptr [ %agg.tmp.sroa.7.1, %.noexc11 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %14
+  %cmp.i.not.i = icmp eq ptr %agg.tmp.sroa.0.2, %16
   br i1 %cmp.i.not.i, label %invoke.cont9, label %for.body.i, !llvm.loop !469
 
 invoke.cont9:                                     ; preds = %_ZN5eastl18hashtable_iteratorINS_4pairIK1AS2_EELb0ELb0EEppEv.exit.i, %if.end.i
@@ -31149,12 +31772,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -31163,24 +31790,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 31, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -31207,11 +31839,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -31229,11 +31861,11 @@ invoke.cont:                                      ; preds = %_ZN5eastl13hash_mul
   %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
-  %7 = load i64, ptr %mnBucketCount.i.i, align 8
-  %conv2.i = trunc i64 %7 to i32
+  %9 = load i64, ptr %mnBucketCount.i.i, align 8
+  %conv2.i = trunc i64 %9 to i32
   %mnElementCount.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load i64, ptr %mnElementCount.i, align 8
-  %conv3.i = trunc i64 %8 to i32
+  %10 = load i64, ptr %mnElementCount.i, align 8
+  %conv3.i = trunc i64 %10 to i32
   %call4.i2 = invoke i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i, i32 noundef %conv2.i, i32 noundef %conv3.i, i32 noundef %conv.i)
           to label %call4.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -31252,8 +31884,8 @@ if.end.i:                                         ; preds = %if.then.i, %call4.i
 
 for.body.i:                                       ; preds = %if.end.i, %.noexc3
   %first.addr.07.i = phi ptr [ %incdec.ptr.i, %.noexc3 ], [ %ilist.coerce0, %if.end.i ]
-  %9 = load i32, ptr %first.addr.07.i, align 4, !noalias !476
-  %conv.i.i.i.i = sext i32 %9 to i64
+  %11 = load i32, ptr %first.addr.07.i, align 4, !noalias !476
+  %conv.i.i.i.i = sext i32 %11 to i64
   invoke void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE18DoInsertValueExtraINS_17integral_constantIbLb0EEEEENS_18hashtable_iteratorIS4_Lb0ELb0EEET_RS3_mPNS_9hash_nodeIS4_Lb0EEERKS4_PNS_9enable_ifIXntsrSN_5valueEvE4typeE(ptr nonnull sret(%"struct.eastl::hashtable_iterator.33") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(4) %first.addr.07.i, i64 noundef %conv.i.i.i.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(8) %first.addr.07.i, ptr noundef null)
           to label %.noexc3 unwind label %lpad.loopexit
 
@@ -33910,7 +34542,13 @@ delete.notnull.i.i.i.i.i1977:                     ; preds = %if.else.i.i.i.i1975
   br label %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 _ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit: ; preds = %invoke.cont.thread.i1980, %invoke.cont.i1965, %if.then.i.i.i.i1978, %if.else.i.i.i.i1975, %delete.notnull.i.i.i.i.i1977
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 1>, ptr %testValues, align 16
+  store i32 0, ptr %testValues, align 16
+  %second.i389 = getelementptr inbounds i8, ptr %testValues, i64 4
+  store i32 0, ptr %second.i389, align 4
+  %arrayinit.element = getelementptr inbounds i8, ptr %testValues, i64 8
+  store i32 1, ptr %arrayinit.element, align 8
+  %second.i394 = getelementptr inbounds i8, ptr %testValues, i64 12
+  store i32 1, ptr %second.i394, align 4
   %add.ptr = getelementptr inbounds i8, ptr %testValues, i64 16
   call void @_ZN5eastl14fixed_hash_mapIiiLm100ELm100ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC2IPNS_4pairIKiiEEEET_SC_RKS2_RKS4_(ptr noundef nonnull align 8 dereferenceable(2527) %fixedHashMap365, ptr noundef nonnull %testValues, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp367, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp368)
   %mnElementCount.i396 = getelementptr inbounds i8, ptr %fixedHashMap365, i64 24
@@ -34134,7 +34772,13 @@ delete.notnull.i.i.i.i.i2063:                     ; preds = %if.else.i.i.i.i2061
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit: ; preds = %invoke.cont.thread.i2066, %invoke.cont.i2051, %if.then.i.i.i.i2064, %if.else.i.i.i.i2061, %delete.notnull.i.i.i.i.i2063
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 1>, ptr %testValues400, align 16
+  store i32 0, ptr %testValues400, align 16
+  %second.i409 = getelementptr inbounds i8, ptr %testValues400, i64 4
+  store i32 0, ptr %second.i409, align 4
+  %arrayinit.element406 = getelementptr inbounds i8, ptr %testValues400, i64 8
+  store i32 1, ptr %arrayinit.element406, align 8
+  %second.i415 = getelementptr inbounds i8, ptr %testValues400, i64 12
+  store i32 1, ptr %second.i415, align 4
   %add.ptr414 = getelementptr inbounds i8, ptr %testValues400, i64 16
   call void @_ZN5eastl19fixed_hash_multimapIiiLm100ELm100ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC2IPNS_4pairIKiiEEEET_SC_RKS2_RKS4_(ptr noundef nonnull align 8 dereferenceable(2527) %fixedHashMultiMap411, ptr noundef nonnull %testValues400, ptr noundef nonnull %add.ptr414, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp415, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp416)
   %mnElementCount.i417 = getelementptr inbounds i8, ptr %fixedHashMultiMap411, i64 24
@@ -38858,7 +39502,7 @@ eh.resume:                                        ; preds = %lpad1006, %ehcleanu
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl14fixed_hash_mapIiiLm100ELm100ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC2ERKS2_RKS4_(ptr noundef nonnull align 8 dereferenceable(2511) %this, ptr noundef nonnull align 1 dereferenceable(1) %hashFunction, ptr noundef nonnull align 1 dereferenceable(1) %predicate) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"struct.eastl::prime_rehash_policy", align 8
+  %ref.tmp.i = alloca %"struct.eastl::prime_rehash_policy", align 4
   %ref.tmp = alloca %"class.eastl::fixed_hashtable_allocator.148", align 8
   %call = tail call noundef i32 @_ZN5eastl19prime_rehash_policy22GetPrevBucketCountOnlyEj(i32 noundef 100)
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 88
@@ -38869,7 +39513,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -38909,10 +39555,12 @@ _ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorI
   %4 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %.sink.i.i, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp.i)
-  store <2 x float> <float 1.000000e+04, float 2.000000e+00>, ptr %ref.tmp.i, align 8
+  store float 1.000000e+04, ptr %ref.tmp.i, align 4
+  %mfGrowthFactor.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i, align 4
   %mnNextResize.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i32 0, ptr %mnNextResize.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i, i64 12, i1 false)
+  store i32 0, ptr %mnNextResize.i.i, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, i64 12, i1 false)
   %call.i.i38 = invoke noundef i32 @_ZNK5eastl19prime_rehash_policy14GetBucketCountEj(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, i32 noundef %conv.i.i)
           to label %call.i.i3.noexc unwind label %lpad
 
@@ -39098,7 +39746,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -41587,7 +42237,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -41595,18 +42247,22 @@ entry:
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %1 = load <2 x i32>, ptr %mOverflowAllocator.i.i.i, align 8
-  store <2 x i32> %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %1 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
+  store i32 %1, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %mFreeCount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %2 = load i32, ptr %mFreeCount3.i.i.i.i.i, align 4
+  store i32 %2, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mAllocVolume4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  %2 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
-  store i64 %2, ptr %mAllocVolume.i.i.i.i.i, align 8
+  %3 = load i64, ptr %mAllocVolume4.i.i.i.i.i, align 8
+  store i64 %3, ptr %mAllocVolume.i.i.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %0, i64 noundef 8207, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %0, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %3 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %3, ptr %mpBucketBuffer.i.i.i, align 8
+  %4 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %4, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -41633,11 +42289,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %4 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %5 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %4, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %5, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -41655,10 +42311,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIjjNS_4hashIjEENS_8equal_toIjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -41676,7 +42332,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -41757,7 +42415,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -41838,7 +42498,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -41919,7 +42581,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -42000,7 +42664,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -42084,7 +42750,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -42166,7 +42834,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -42295,7 +42965,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -42377,7 +43049,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -42506,7 +43180,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -42587,7 +43263,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -42669,7 +43347,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -42798,7 +43478,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -42879,7 +43561,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -43006,7 +43690,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -43087,7 +43773,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -43171,7 +43859,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -43248,7 +43938,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl14fixed_hash_mapIK18InstanceRenderDatajLm10ELm11ELb0ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEEC2ERKS4_RKS6_(ptr noundef nonnull align 8 dereferenceable(799) %this, ptr noundef nonnull align 1 dereferenceable(1) %hashFunction, ptr noundef nonnull align 1 dereferenceable(1) %predicate) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"struct.eastl::prime_rehash_policy", align 8
+  %ref.tmp.i = alloca %"struct.eastl::prime_rehash_policy", align 4
   %ref.tmp = alloca %"class.eastl::fixed_hashtable_allocator.297", align 8
   %call = tail call noundef i32 @_ZN5eastl19prime_rehash_policy22GetPrevBucketCountOnlyEj(i32 noundef 11)
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 88
@@ -43259,7 +43949,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -43299,10 +43991,12 @@ _ZN5eastl8hash_mapIK18InstanceRenderDatajNS_4hashIS2_EENS_8equal_toIS2_EENS_25fi
   %4 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %.sink.i.i, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp.i)
-  store <2 x float> <float 1.000000e+04, float 2.000000e+00>, ptr %ref.tmp.i, align 8
+  store float 1.000000e+04, ptr %ref.tmp.i, align 4
+  %mfGrowthFactor.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i, align 4
   %mnNextResize.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i32 0, ptr %mnNextResize.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i, i64 12, i1 false)
+  store i32 0, ptr %mnNextResize.i.i, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, i64 12, i1 false)
   %call.i.i38 = invoke noundef i32 @_ZNK5eastl19prime_rehash_policy14GetBucketCountEj(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, i32 noundef %conv.i.i)
           to label %call.i.i3.noexc unwind label %lpad
 
@@ -43481,12 +44175,16 @@ entry:
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i8 0, i64 32, i1 false)
-  %0 = load <2 x i32>, ptr %overflowAllocator, align 8
-  store <2 x i32> %0, ptr %mOverflowAllocator.i.i, align 8
+  %0 = load i32, ptr %overflowAllocator, align 8
+  store i32 %0, ptr %mOverflowAllocator.i.i, align 8
+  %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 36
+  %mFreeCount3.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 4
+  %1 = load i32, ptr %mFreeCount3.i.i.i, align 4
+  store i32 %1, ptr %mFreeCount.i.i.i, align 4
   %mAllocVolume.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
-  %1 = load i64, ptr %mAllocVolume4.i.i.i, align 8
-  store i64 %1, ptr %mAllocVolume.i.i.i, align 8
+  %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
+  store i64 %2, ptr %mAllocVolume.i.i.i, align 8
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef null, i64 noundef 1039, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
   store ptr null, ptr %mpPoolBegin.i.i, align 8
@@ -43495,24 +44193,29 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load ptr, ptr %ref.tmp3, align 8
+  %3 = load ptr, ptr %ref.tmp3, align 8
   %mOverflowAllocator.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, i8 0, i64 32, i1 false)
-  %3 = load <2 x i32>, ptr %mOverflowAllocator.i.i, align 8
-  store <2 x i32> %3, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
+  store i32 %4, ptr %mOverflowAllocator.i.i.i.i, align 8
+  %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %5 = load i32, ptr %mFreeCount.i.i.i, align 4
+  store i32 %5, ptr %mFreeCount.i.i.i.i.i, align 4
   %mAllocVolume.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %4 = load i64, ptr %mAllocVolume.i.i.i, align 8
-  store i64 %4, ptr %mAllocVolume.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %2, i64 noundef 1039, i64 noundef 16, i64 noundef 4, i64 noundef 0)
+  %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
+  store i64 %6, ptr %mAllocVolume.i.i.i.i.i, align 8
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mAllocator.i.i, ptr noundef %3, i64 noundef 1039, i64 noundef 16, i64 noundef 4, i64 noundef 0)
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %2, ptr %mpPoolBegin.i.i.i.i, align 8
+  store ptr %3, ptr %mpPoolBegin.i.i.i.i, align 8
   %mpBucketBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %mpBucketBuffer.i, align 8
-  store ptr %5, ptr %mpBucketBuffer.i.i.i, align 8
+  %7 = load ptr, ptr %mpBucketBuffer.i, align 8
+  store ptr %7, ptr %mpBucketBuffer.i.i.i, align 8
   %cmp.i.i = icmp ult i32 %call, 2
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -43539,11 +44242,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.else.i.i
-  %6 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
+  %8 = load ptr, ptr %mpBucketBuffer.i.i.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE17DoAllocateBucketsEm.exit.i.i: ; preds = %if.end8.i.i.i.i, %if.then5.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %6, %if.end8.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %call7.i.i.i.i, %if.then5.i.i.i.i ], [ %8, %if.end8.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %conv3.i.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i.i, align 8
@@ -43561,10 +44264,10 @@ invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI
   ret void
 
 lpad:                                             ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %9
 }
 
 declare void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -75849,7 +76552,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -76079,7 +76784,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -76296,7 +77003,7 @@ _ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl14fixed_hash_mapIiiLm10ELm10ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC2ERKS2_RKS4_(ptr noundef nonnull align 8 dereferenceable(351) %this, ptr noundef nonnull align 1 dereferenceable(1) %hashFunction, ptr noundef nonnull align 1 dereferenceable(1) %predicate) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"struct.eastl::prime_rehash_policy", align 8
+  %ref.tmp.i = alloca %"struct.eastl::prime_rehash_policy", align 4
   %ref.tmp = alloca %"class.eastl::fixed_hashtable_allocator.335", align 8
   %call = tail call noundef i32 @_ZN5eastl19prime_rehash_policy22GetPrevBucketCountOnlyEj(i32 noundef 10)
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 88
@@ -76307,7 +77014,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -76347,10 +77056,12 @@ _ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorI
   %4 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %.sink.i.i, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp.i)
-  store <2 x float> <float 1.000000e+04, float 2.000000e+00>, ptr %ref.tmp.i, align 8
+  store float 1.000000e+04, ptr %ref.tmp.i, align 4
+  %mfGrowthFactor.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i, align 4
   %mnNextResize.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i32 0, ptr %mnNextResize.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i, i64 12, i1 false)
+  store i32 0, ptr %mnNextResize.i.i, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, i64 12, i1 false)
   %call.i.i38 = invoke noundef i32 @_ZNK5eastl19prime_rehash_policy14GetBucketCountEj(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, i32 noundef %conv.i.i)
           to label %call.i.i3.noexc unwind label %lpad
 
@@ -94817,7 +95528,7 @@ return:                                           ; preds = %for.body.i, %return
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl19fixed_hash_multimapIiiLm100ELm100ELb0ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC2ERKS2_RKS4_(ptr noundef nonnull align 8 dereferenceable(2511) %this, ptr noundef nonnull align 1 dereferenceable(1) %hashFunction, ptr noundef nonnull align 1 dereferenceable(1) %predicate) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"struct.eastl::prime_rehash_policy", align 8
+  %ref.tmp.i = alloca %"struct.eastl::prime_rehash_policy", align 4
   %ref.tmp = alloca %"class.eastl::fixed_hashtable_allocator.148", align 8
   %call = tail call noundef i32 @_ZN5eastl19prime_rehash_policy22GetPrevBucketCountOnlyEj(i32 noundef 100)
   %mBucketBuffer = getelementptr inbounds i8, ptr %this, i64 88
@@ -94828,7 +95539,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -94868,10 +95581,12 @@ _ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allo
   %4 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %.sink.i.i, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp.i)
-  store <2 x float> <float 1.000000e+04, float 2.000000e+00>, ptr %ref.tmp.i, align 8
+  store float 1.000000e+04, ptr %ref.tmp.i, align 4
+  %mfGrowthFactor.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i, align 4
   %mnNextResize.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i32 0, ptr %mnNextResize.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i, i64 12, i1 false)
+  store i32 0, ptr %mnNextResize.i.i, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, i64 12, i1 false)
   %call.i.i38 = invoke noundef i32 @_ZNK5eastl19prime_rehash_policy14GetBucketCountEj(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, i32 noundef %conv.i.i)
           to label %call.i.i3.noexc unwind label %lpad
 
@@ -99995,7 +100710,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -101381,7 +102098,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -102767,7 +103486,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -103171,7 +103892,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -103841,7 +104564,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -104511,7 +105236,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -105674,7 +106401,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -106837,7 +107566,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -107434,7 +108165,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -109119,7 +109852,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -109415,7 +110150,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -109708,7 +110445,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -110001,7 +110740,9 @@ entry:
   %mnBucketCount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mRehashPolicy.i.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnBucketCount.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i, align 8
+  store float 1.000000e+00, ptr %mRehashPolicy.i.i, align 8
+  %mfGrowthFactor.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  store float 2.000000e+00, ptr %mfGrowthFactor.i.i.i, align 4
   %mnNextResize.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i.i, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48

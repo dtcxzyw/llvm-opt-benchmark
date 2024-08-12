@@ -322,18 +322,27 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %stride.i, align 4
   %stride5.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 %3, ptr %stride5.i, align 4
+  %4 = load i32, ptr %r, align 4
   %x7.i = getelementptr inbounds i8, ptr %call.i, i64 36
-  %4 = load <2 x i32>, ptr %r, align 4
+  store i32 %4, ptr %x7.i, align 4
+  %y.i = getelementptr inbounds i8, ptr %r, i64 4
+  %5 = load i32, ptr %y.i, align 4
+  %y9.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  store i32 %5, ptr %y9.i, align 8
   %width10.i = getelementptr inbounds i8, ptr %fb, i64 8
-  %5 = load <2 x i32>, ptr %width10.i, align 4
-  %6 = shufflevector <2 x i32> %4, <2 x i32> %5, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i32> %6, ptr %x7.i, align 4
-  %7 = load i32, ptr %fb, align 4
-  %call14.i = tail call i32 @qemu_pixman_to_drm_format(i32 noundef %7) #9
+  %6 = load i32, ptr %width10.i, align 4
+  %backing_width.i = getelementptr inbounds i8, ptr %call.i, i64 44
+  store i32 %6, ptr %backing_width.i, align 4
+  %height12.i = getelementptr inbounds i8, ptr %fb, i64 12
+  %7 = load i32, ptr %height12.i, align 4
+  %backing_height.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  store i32 %7, ptr %backing_height.i, align 8
+  %8 = load i32, ptr %fb, align 4
+  %call14.i = tail call i32 @qemu_pixman_to_drm_format(i32 noundef %8) #9
   %fourcc.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 %call14.i, ptr %fourcc.i, align 8
-  %8 = load i32, ptr %dmabuf_fd.i, align 8
-  store i32 %8, ptr %call.i, align 8
+  %9 = load i32, ptr %dmabuf_fd.i, align 8
+  store i32 %9, ptr %call.i, align 8
   %allow_fences.i = getelementptr inbounds i8, ptr %call.i, i64 68
   store i8 1, ptr %allow_fences.i, align 4
   %draw_submitted.i = getelementptr inbounds i8, ptr %call.i, i64 69
@@ -341,12 +350,12 @@ if.end:                                           ; preds = %entry
   %scanout_id20.i = getelementptr inbounds i8, ptr %call.i, i64 72
   store i32 %scanout_id, ptr %scanout_id20.i, align 8
   %dmabuf21.i = getelementptr inbounds i8, ptr %g, i64 3144
-  %9 = load ptr, ptr %dmabuf21.i, align 8
+  %10 = load ptr, ptr %dmabuf21.i, align 8
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 80
-  store ptr %9, ptr %next.i, align 8
-  %cmp22.not.i = icmp eq ptr %9, null
+  store ptr %10, ptr %next.i, align 8
+  %cmp22.not.i = icmp eq ptr %10, null
   %tql_prev31.i = getelementptr inbounds i8, ptr %g, i64 3152
-  %tql_prev.i = getelementptr inbounds i8, ptr %9, i64 88
+  %tql_prev.i = getelementptr inbounds i8, ptr %10, i64 88
   %tql_prev31.sink.i = select i1 %cmp22.not.i, ptr %tql_prev31.i, ptr %tql_prev.i
   store ptr %next.i, ptr %tql_prev31.sink.i, align 8
   store ptr %call.i, ptr %dmabuf21.i, align 8
@@ -354,34 +363,34 @@ if.end:                                           ; preds = %entry
   store ptr %dmabuf21.i, ptr %tql_prev38.i, align 8
   %primary = getelementptr inbounds i8, ptr %g, i64 3160
   %arrayidx3 = getelementptr [16 x ptr], ptr %primary, i64 0, i64 %idxprom
-  %10 = load ptr, ptr %arrayidx3, align 8
-  %tobool4.not = icmp eq ptr %10, null
+  %11 = load ptr, ptr %arrayidx3, align 8
+  %tobool4.not = icmp eq ptr %11, null
   store ptr %call.i, ptr %arrayidx3, align 8
-  %11 = load ptr, ptr %arrayidx, align 8
-  tail call void @qemu_console_resize(ptr noundef %11, i32 noundef %1, i32 noundef %2) #9
   %12 = load ptr, ptr %arrayidx, align 8
-  tail call void @dpy_gl_scanout_dmabuf(ptr noundef %12, ptr noundef nonnull %call.i) #9
+  tail call void @qemu_console_resize(ptr noundef %12, i32 noundef %1, i32 noundef %2) #9
+  %13 = load ptr, ptr %arrayidx, align 8
+  tail call void @dpy_gl_scanout_dmabuf(ptr noundef %13, ptr noundef nonnull %call.i) #9
   br i1 %tobool4.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %if.end
-  %scanout_id.i = getelementptr inbounds i8, ptr %10, i64 72
-  %13 = load i32, ptr %scanout_id.i, align 8
-  %idxprom.i = zext i32 %13 to i64
+  %scanout_id.i = getelementptr inbounds i8, ptr %11, i64 72
+  %14 = load i32, ptr %scanout_id.i, align 8
+  %idxprom.i = zext i32 %14 to i64
   %arrayidx.i = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout1, i64 0, i64 %idxprom.i
-  %14 = load ptr, ptr %arrayidx.i, align 8
-  tail call void @dpy_gl_release_dmabuf(ptr noundef %14, ptr noundef nonnull %10) #9
-  %next.i16 = getelementptr inbounds i8, ptr %10, i64 80
-  %15 = load ptr, ptr %next.i16, align 8
-  %cmp.not.i = icmp eq ptr %15, null
-  %tql_prev7.i = getelementptr inbounds i8, ptr %10, i64 88
-  %16 = load ptr, ptr %tql_prev7.i, align 8
-  %tql_prev5.i = getelementptr inbounds i8, ptr %15, i64 88
+  %15 = load ptr, ptr %arrayidx.i, align 8
+  tail call void @dpy_gl_release_dmabuf(ptr noundef %15, ptr noundef nonnull %11) #9
+  %next.i16 = getelementptr inbounds i8, ptr %11, i64 80
+  %16 = load ptr, ptr %next.i16, align 8
+  %cmp.not.i = icmp eq ptr %16, null
+  %tql_prev7.i = getelementptr inbounds i8, ptr %11, i64 88
+  %17 = load ptr, ptr %tql_prev7.i, align 8
+  %tql_prev5.i = getelementptr inbounds i8, ptr %16, i64 88
   %tql_prev9.sink.i = select i1 %cmp.not.i, ptr %tql_prev31.i, ptr %tql_prev5.i
-  store ptr %16, ptr %tql_prev9.sink.i, align 8
-  %17 = load ptr, ptr %next.i16, align 8
-  store ptr %17, ptr %16, align 8
+  store ptr %17, ptr %tql_prev9.sink.i, align 8
+  %18 = load ptr, ptr %next.i16, align 8
+  store ptr %18, ptr %17, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i16, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %10) #9
+  tail call void @g_free(ptr noundef nonnull %11) #9
   br label %return
 
 return:                                           ; preds = %entry, %if.end, %if.then19

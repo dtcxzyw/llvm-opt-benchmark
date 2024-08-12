@@ -1318,7 +1318,21 @@ if.then.i51.i.i.i.i:                              ; preds = %sw.bb13.i.i.i.i
   %desc.sroa.6.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 369
   store i8 5, ptr %desc.sroa.6.0.data.sroa_idx.i.i.i.i.i, align 1
   %desc.sroa.9.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 370
-  store <8 x i16> <i16 20992, i16 17664, i16 17408, i16 18432, i16 16640, i16 21504, i16 0, i16 0>, ptr %desc.sroa.9.0.data.sroa_idx.i.i.i.i.i, align 2
+  store i16 20992, ptr %desc.sroa.9.0.data.sroa_idx.i.i.i.i.i, align 2
+  %desc.sroa.12.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 372
+  store i16 17664, ptr %desc.sroa.12.0.data.sroa_idx.i.i.i.i.i, align 4
+  %desc.sroa.15.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 374
+  store i16 17408, ptr %desc.sroa.15.0.data.sroa_idx.i.i.i.i.i, align 2
+  %desc.sroa.18.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 376
+  store i16 18432, ptr %desc.sroa.18.0.data.sroa_idx.i.i.i.i.i, align 4
+  %desc.sroa.21.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 378
+  store i16 16640, ptr %desc.sroa.21.0.data.sroa_idx.i.i.i.i.i, align 2
+  %desc.sroa.24.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 380
+  store i16 21504, ptr %desc.sroa.24.0.data.sroa_idx.i.i.i.i.i, align 4
+  %desc.sroa.26.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 382
+  store i16 0, ptr %desc.sroa.26.0.data.sroa_idx.i.i.i.i.i, align 2
+  %desc.sroa.28.0.data.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 384
+  store i16 0, ptr %desc.sroa.28.0.data.sroa_idx.i.i.i.i.i, align 4
   br label %ufs_read_desc.exit.i.i.i
 
 if.else.i30.i.i.i.i:                              ; preds = %sw.bb13.i.i.i.i
@@ -1333,7 +1347,21 @@ if.then10.i.i.i.i.i:                              ; preds = %if.else.i30.i.i.i.i
   %desc.sroa.6.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 369
   store i8 5, ptr %desc.sroa.6.0.data13.sroa_idx.i.i.i.i.i, align 1
   %desc.sroa.9.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 370
-  store <8 x i16> <i16 20736, i16 17664, i16 19712, i16 21760, i16 8192, i16 21760, i16 17920, i16 21248>, ptr %desc.sroa.9.0.data13.sroa_idx.i.i.i.i.i, align 2
+  store i16 20736, ptr %desc.sroa.9.0.data13.sroa_idx.i.i.i.i.i, align 2
+  %desc.sroa.12.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 372
+  store i16 17664, ptr %desc.sroa.12.0.data13.sroa_idx.i.i.i.i.i, align 4
+  %desc.sroa.15.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 374
+  store i16 19712, ptr %desc.sroa.15.0.data13.sroa_idx.i.i.i.i.i, align 2
+  %desc.sroa.18.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 376
+  store i16 21760, ptr %desc.sroa.18.0.data13.sroa_idx.i.i.i.i.i, align 4
+  %desc.sroa.21.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 378
+  store i16 8192, ptr %desc.sroa.21.0.data13.sroa_idx.i.i.i.i.i, align 2
+  %desc.sroa.24.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 380
+  store i16 21760, ptr %desc.sroa.24.0.data13.sroa_idx.i.i.i.i.i, align 4
+  %desc.sroa.26.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 382
+  store i16 17920, ptr %desc.sroa.26.0.data13.sroa_idx.i.i.i.i.i, align 2
+  %desc.sroa.28.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 384
+  store i16 21248, ptr %desc.sroa.28.0.data13.sroa_idx.i.i.i.i.i, align 4
   %desc.sroa.29.0.data13.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 386
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %desc.sroa.29.0.data13.sroa_idx.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %ufs_read_desc.exit.i.i.i
@@ -1372,7 +1400,13 @@ if.then40.i.i.i.i.i:                              ; preds = %if.else34.i.i.i.i.i
   %desc.sroa.6.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 369
   store i8 5, ptr %desc.sroa.6.0.data43.sroa_idx.i.i.i.i.i, align 1
   %desc.sroa.9.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 370
-  store <4 x i16> <i16 12288, i16 12288, i16 12288, i16 12544>, ptr %desc.sroa.9.0.data43.sroa_idx.i.i.i.i.i, align 2
+  store i16 12288, ptr %desc.sroa.9.0.data43.sroa_idx.i.i.i.i.i, align 2
+  %desc.sroa.12.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 372
+  store i16 12288, ptr %desc.sroa.12.0.data43.sroa_idx.i.i.i.i.i, align 4
+  %desc.sroa.15.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 374
+  store i16 12288, ptr %desc.sroa.15.0.data43.sroa_idx.i.i.i.i.i, align 2
+  %desc.sroa.18.0.data43.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 376
+  store i16 12544, ptr %desc.sroa.18.0.data43.sroa_idx.i.i.i.i.i, align 4
   br label %ufs_read_desc.exit.i.i.i
 
 if.else46.i.i.i.i.i:                              ; preds = %if.else34.i.i.i.i.i
@@ -1475,11 +1509,22 @@ ufs_read_desc.exit.i.i.i:                         ; preds = %trace_ufs_err_query
   %130 = zext i8 %129 to i16
   %spec.select.i.i.i.i = tail call i16 @llvm.umin.i16(i16 %length.0.i.i.i.i, i16 %130)
   %131 = getelementptr inbounds i8, ptr %arrayidx, i64 348
-  %132 = load <4 x i8>, ptr %90, align 4
-  store <4 x i8> %132, ptr %131, align 4
-  %133 = shl nuw i16 %spec.select.i.i.i.i, 8
+  %132 = load i8, ptr %90, align 4
+  store i8 %132, ptr %131, align 4
+  %133 = load i8, ptr %idn1.i.i.i.i, align 1
+  %idn50.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 349
+  store i8 %133, ptr %idn50.i.i.i.i, align 1
+  %index.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 62
+  %134 = load i8, ptr %index.i.i.i.i, align 2
+  %index53.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 350
+  store i8 %134, ptr %index53.i.i.i.i, align 2
+  %selector.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 63
+  %135 = load i8, ptr %selector.i.i.i.i, align 1
+  %selector56.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 351
+  store i8 %135, ptr %selector56.i.i.i.i, align 1
+  %136 = shl nuw i16 %spec.select.i.i.i.i, 8
   %length59.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 354
-  store i16 %133, ptr %length59.i.i.i.i, align 2
+  store i16 %136, ptr %length59.i.i.i.i, align 2
   br label %ufs_exec_query_cmd.exit.i
 
 sw.bb2.i.i.i:                                     ; preds = %if.then.i38.i
@@ -1492,31 +1537,31 @@ sw.bb4.i.i.i:                                     ; preds = %if.then.i38.i
 
 sw.default.i.i.i:                                 ; preds = %if.then.i38.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i26.i)
-  %134 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i.i41.i = icmp ne i32 %134, 0
-  %135 = load i16, ptr @_TRACE_UFS_ERR_QUERY_INVALID_OPCODE_DSTATE, align 2
-  %tobool4.i.i.i.i42.i = icmp ne i16 %135, 0
+  %137 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i.i41.i = icmp ne i32 %137, 0
+  %138 = load i16, ptr @_TRACE_UFS_ERR_QUERY_INVALID_OPCODE_DSTATE, align 2
+  %tobool4.i.i.i.i42.i = icmp ne i16 %138, 0
   %or.cond.i.i.i.i43.i = select i1 %tobool.i.i.i.i41.i, i1 %tobool4.i.i.i.i42.i, i1 false
   br i1 %or.cond.i.i.i.i43.i, label %land.lhs.true5.i.i.i.i44.i, label %trace_ufs_err_query_invalid_opcode.exit.i.i.i
 
 land.lhs.true5.i.i.i.i44.i:                       ; preds = %sw.default.i.i.i
-  %136 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i.i45.i = and i32 %136, 32768
+  %139 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i.i45.i = and i32 %139, 32768
   %cmp.i.not.i.i.i.i46.i = icmp eq i32 %and.i.i.i.i.i45.i, 0
   br i1 %cmp.i.not.i.i.i.i46.i, label %trace_ufs_err_query_invalid_opcode.exit.i.i.i, label %if.then.i.i5.i.i.i
 
 if.then.i.i5.i.i.i:                               ; preds = %land.lhs.true5.i.i.i.i44.i
-  %137 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i.i47.i = trunc i8 %137 to i1
+  %140 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i.i47.i = trunc i8 %140 to i1
   br i1 %tobool7.i.i.i.i47.i, label %if.then8.i.i.i.i48.i, label %if.else.i.i6.i.i.i
 
 if.then8.i.i.i.i48.i:                             ; preds = %if.then.i.i5.i.i.i
   %call9.i.i.i.i49.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i26.i, ptr noundef null) #14
   %call10.i.i.i.i50.i = tail call i32 @qemu_get_thread_id() #14
-  %138 = load i64, ptr %_now.i.i.i.i26.i, align 8
-  %139 = load i64, ptr %tv_usec.i.i.i.i51.i, align 8
+  %141 = load i64, ptr %_now.i.i.i.i26.i, align 8
+  %142 = load i64, ptr %tv_usec.i.i.i.i51.i, align 8
   %conv11.i.i.i.i.i = zext i8 %98 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i.i.i50.i, i64 noundef %138, i64 noundef %139, i32 noundef %conv11.i.i.i.i.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i.i.i50.i, i64 noundef %141, i64 noundef %142, i32 noundef %conv11.i.i.i.i.i) #14
   br label %trace_ufs_err_query_invalid_opcode.exit.i.i.i
 
 if.else.i.i6.i.i.i:                               ; preds = %if.then.i.i5.i.i.i
@@ -1529,8 +1574,8 @@ trace_ufs_err_query_invalid_opcode.exit.i.i.i:    ; preds = %if.else.i.i6.i.i.i,
   br label %ufs_exec_query_cmd.exit.i
 
 if.then7.i.i:                                     ; preds = %trace_ufs_exec_query_cmd.exit.i.i
-  %140 = load i8, ptr %90, align 4
-  switch i8 %140, label %sw.default.i13.i.i [
+  %143 = load i8, ptr %90, align 4
+  switch i8 %143, label %sw.default.i13.i.i [
     i8 0, label %ufs_exec_query_cmd.exit.i
     i8 2, label %sw.bb1.i12.i.i
     i8 4, label %sw.bb2.i11.i.i
@@ -1560,35 +1605,35 @@ sw.bb7.i.i.i:                                     ; preds = %if.then7.i.i
 
 sw.default.i13.i.i:                               ; preds = %if.then7.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i9.i.i)
-  %141 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i14.i.i = icmp ne i32 %141, 0
-  %142 = load i16, ptr @_TRACE_UFS_ERR_QUERY_INVALID_OPCODE_DSTATE, align 2
-  %tobool4.i.i.i15.i.i = icmp ne i16 %142, 0
+  %144 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i14.i.i = icmp ne i32 %144, 0
+  %145 = load i16, ptr @_TRACE_UFS_ERR_QUERY_INVALID_OPCODE_DSTATE, align 2
+  %tobool4.i.i.i15.i.i = icmp ne i16 %145, 0
   %or.cond.i.i.i16.i.i = select i1 %tobool.i.i.i14.i.i, i1 %tobool4.i.i.i15.i.i, i1 false
   br i1 %or.cond.i.i.i16.i.i, label %land.lhs.true5.i.i.i18.i.i, label %trace_ufs_err_query_invalid_opcode.exit.i17.i.i
 
 land.lhs.true5.i.i.i18.i.i:                       ; preds = %sw.default.i13.i.i
-  %143 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i19.i.i = and i32 %143, 32768
+  %146 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i19.i.i = and i32 %146, 32768
   %cmp.i.not.i.i.i20.i.i = icmp eq i32 %and.i.i.i.i19.i.i, 0
   br i1 %cmp.i.not.i.i.i20.i.i, label %trace_ufs_err_query_invalid_opcode.exit.i17.i.i, label %if.then.i.i.i21.i.i
 
 if.then.i.i.i21.i.i:                              ; preds = %land.lhs.true5.i.i.i18.i.i
-  %144 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i22.i.i = trunc i8 %144 to i1
+  %147 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i22.i.i = trunc i8 %147 to i1
   br i1 %tobool7.i.i.i22.i.i, label %if.then8.i.i.i25.i.i, label %if.else.i.i.i23.i.i
 
 if.then8.i.i.i25.i.i:                             ; preds = %if.then.i.i.i21.i.i
   %call9.i.i.i26.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i9.i.i, ptr noundef null) #14
   %call10.i.i.i27.i.i = tail call i32 @qemu_get_thread_id() #14
-  %145 = load i64, ptr %_now.i.i.i9.i.i, align 8
-  %146 = load i64, ptr %tv_usec.i.i.i28.i.i, align 8
-  %conv11.i.i.i29.i.i = zext i8 %140 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i.i27.i.i, i64 noundef %145, i64 noundef %146, i32 noundef %conv11.i.i.i29.i.i) #14
+  %148 = load i64, ptr %_now.i.i.i9.i.i, align 8
+  %149 = load i64, ptr %tv_usec.i.i.i28.i.i, align 8
+  %conv11.i.i.i29.i.i = zext i8 %143 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i.i27.i.i, i64 noundef %148, i64 noundef %149, i32 noundef %conv11.i.i.i29.i.i) #14
   br label %trace_ufs_err_query_invalid_opcode.exit.i17.i.i
 
 if.else.i.i.i23.i.i:                              ; preds = %if.then.i.i.i21.i.i
-  %conv12.i.i.i24.i.i = zext i8 %140 to i32
+  %conv12.i.i.i24.i.i = zext i8 %143 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %conv12.i.i.i24.i.i) #14
   br label %trace_ufs_err_query_invalid_opcode.exit.i17.i.i
 
@@ -1599,7 +1644,7 @@ trace_ufs_err_query_invalid_opcode.exit.i17.i.i:  ; preds = %if.else.i.i.i23.i.i
 ufs_exec_query_cmd.exit.i:                        ; preds = %trace_ufs_err_query_invalid_opcode.exit.i17.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb2.i11.i.i, %sw.bb1.i12.i.i, %if.then7.i.i, %trace_ufs_err_query_invalid_opcode.exit.i.i.i, %sw.bb4.i.i.i, %sw.bb2.i.i.i, %ufs_read_desc.exit.i.i.i, %if.then.i38.i, %trace_ufs_exec_query_cmd.exit.i.i
   %status.0.i.i = phi i32 [ 255, %trace_ufs_exec_query_cmd.exit.i.i ], [ 254, %trace_ufs_err_query_invalid_opcode.exit.i.i.i ], [ %call5.i.i.i, %sw.bb4.i.i.i ], [ %call3.i.i.i, %sw.bb2.i.i.i ], [ %status.0.i.i.i.i, %ufs_read_desc.exit.i.i.i ], [ 0, %if.then.i38.i ], [ 254, %trace_ufs_err_query_invalid_opcode.exit.i17.i.i ], [ %call8.i.i.i, %sw.bb7.i.i.i ], [ %call6.i.i.i, %sw.bb5.i.i.i ], [ %call4.i.i.i, %sw.bb3.i.i.i ], [ %call.i.i.i, %sw.bb2.i11.i.i ], [ 247, %sw.bb1.i12.i.i ], [ 0, %if.then7.i.i ]
   %length.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 354
-  %147 = load i16, ptr %length.i.i, align 2
+  %150 = load i16, ptr %length.i.i, align 2
   %conv12.i.i = trunc i32 %status.0.i.i to i8
   %rsp_upiu.i.i32.i = getelementptr inbounds i8, ptr %arrayidx, i64 336
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rsp_upiu.i.i32.i, ptr noundef nonnull align 8 dereferenceable(12) %req_upiu1.i.i.i, i64 12, i1 false)
@@ -1611,44 +1656,44 @@ ufs_exec_query_cmd.exit.i:                        ; preds = %trace_ufs_err_query
   %scsi_status13.i.i36.i = getelementptr inbounds i8, ptr %arrayidx, i64 343
   store i8 0, ptr %scsi_status13.i.i36.i, align 1
   %data_segment_length16.i.i37.i = getelementptr inbounds i8, ptr %arrayidx, i64 346
-  store i16 %147, ptr %data_segment_length16.i.i37.i, align 2
+  store i16 %150, ptr %data_segment_length16.i.i37.i, align 2
   %cmp13.not.i.i = icmp ne i32 %status.0.i.i, 0
   %spec.select.i.i = zext i1 %cmp13.not.i.i to i32
   br label %if.then10.i
 
 sw.default.i:                                     ; preds = %if.end.i
-  %148 = load i32, ptr %slot.i.i.i, align 4
+  %151 = load i32, ptr %slot.i.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %149 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %149, 0
-  %150 = load i16, ptr @_TRACE_UFS_ERR_INVALID_TRANS_CODE_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %150, 0
+  %152 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %152, 0
+  %153 = load i16, ptr @_TRACE_UFS_ERR_INVALID_TRANS_CODE_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %153, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_ufs_err_invalid_trans_code.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %sw.default.i
-  %151 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %151, 32768
+  %154 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %154, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %trace_ufs_err_invalid_trans_code.exit.i, label %if.then.i.i64.i
 
 if.then.i.i64.i:                                  ; preds = %land.lhs.true5.i.i.i
-  %152 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i = trunc i8 %152 to i1
+  %155 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %155 to i1
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i65.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i64.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #14
-  %153 = load i64, ptr %_now.i.i.i, align 8
-  %154 = load i64, ptr %tv_usec.i.i.i, align 8
+  %156 = load i64, ptr %_now.i.i.i, align 8
+  %157 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv11.i.i.i = zext i8 %63 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i.i, i64 noundef %153, i64 noundef %154, i32 noundef %148, i32 noundef %conv11.i.i.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i.i, i64 noundef %156, i64 noundef %157, i32 noundef %151, i32 noundef %conv11.i.i.i) #14
   br label %trace_ufs_err_invalid_trans_code.exit.i
 
 if.else.i.i65.i:                                  ; preds = %if.then.i.i64.i
   %conv12.i.i.i = zext i8 %63 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %148, i32 noundef %conv12.i.i.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %151, i32 noundef %conv12.i.i.i) #14
   br label %trace_ufs_err_invalid_trans_code.exit.i
 
 trace_ufs_err_invalid_trans_code.exit.i:          ; preds = %if.else.i.i65.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sw.default.i
@@ -1658,8 +1703,8 @@ trace_ufs_err_invalid_trans_code.exit.i:          ; preds = %if.else.i.i65.i, %i
 sw.epilog.i:                                      ; preds = %sw.bb10.i.i, %sw.bb9.i.i, %sw.bb8.i.i, %sw.bb.i.i, %lor.lhs.false.i.i
   %lu.0.i.i = phi ptr [ %rpmb_wlu.i.i, %sw.bb10.i.i ], [ %boot_wlu.i.i, %sw.bb9.i.i ], [ %dev_wlu.i.i, %sw.bb8.i.i ], [ %report_wlu.i.i, %sw.bb.i.i ], [ %81, %lor.lhs.false.i.i ]
   %scsi_op.i.i = getelementptr inbounds i8, ptr %lu.0.i.i, i64 448
-  %155 = load ptr, ptr %scsi_op.i.i, align 8
-  %call14.i.i = tail call i32 %155(ptr noundef nonnull %lu.0.i.i, ptr noundef nonnull %arrayidx) #14
+  %158 = load ptr, ptr %scsi_op.i.i, align 8
+  %call14.i.i = tail call i32 %158(ptr noundef nonnull %lu.0.i.i, ptr noundef nonnull %arrayidx) #14
   %cmp.not.i = icmp eq i32 %call14.i.i, 2
   br i1 %cmp.not.i, label %for.inc, label %if.then10.i
 
@@ -1670,9 +1715,9 @@ if.then10.i:                                      ; preds = %sw.epilog.i, %trace
 
 for.inc:                                          ; preds = %if.then10.i, %sw.epilog.i, %ufs_dma_read_upiu.exit.i, %trace_ufs_err_dma_read_req_upiu.exit45.i.i.i, %trace_ufs_err_dma_read_req_upiu.exit.i.i.i, %ufs_dma_read_utrd.exit.i.i, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %156 = load i8, ptr %nutrs, align 8
-  %157 = zext i8 %156 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %157
+  %159 = load i8, ptr %nutrs, align 8
+  %160 = zext i8 %159 to i64
+  %cmp = icmp ult i64 %indvars.iv.next, %160
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %entry

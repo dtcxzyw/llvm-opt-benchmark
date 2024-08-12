@@ -94,7 +94,7 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   %3 = alloca [6 x i8], align 1
   %4 = alloca %struct.WalSummaryFile, align 8
   %5 = alloca %struct.WalSummaryIO, align 8
-  %6 = alloca %struct.RelFileLocator, align 8
+  %6 = alloca %struct.RelFileLocator, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca [256 x i32], align 16
@@ -139,95 +139,100 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
 .lr.ph:                                           ; preds = %19
   %32 = getelementptr inbounds i8, ptr %6, i64 8
   %33 = getelementptr inbounds i8, ptr %2, i64 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 24
-  %35 = getelementptr inbounds i8, ptr %2, i64 40
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
-  %37 = getelementptr inbounds i8, ptr %11, i64 48
-  %38 = getelementptr inbounds i8, ptr %11, i64 40
-  br label %40
+  %34 = getelementptr inbounds i8, ptr %6, i64 4
+  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %36 = getelementptr inbounds i8, ptr %2, i64 24
+  %37 = getelementptr inbounds i8, ptr %2, i64 40
+  %38 = getelementptr inbounds i8, ptr %2, i64 32
+  %39 = getelementptr inbounds i8, ptr %11, i64 48
+  %40 = getelementptr inbounds i8, ptr %11, i64 40
+  br label %42
 
-.loopexit:                                        ; preds = %54
-  %39 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %30, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
-  br i1 %39, label %40, label %._crit_edge, !llvm.loop !5
+.loopexit:                                        ; preds = %58
+  %41 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %30, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
+  br i1 %41, label %42, label %._crit_edge, !llvm.loop !5
 
-40:                                               ; preds = %.lr.ph, %.loopexit
-  %41 = load volatile i32, ptr @InterruptPending, align 4
-  %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %43, label %42
+42:                                               ; preds = %.lr.ph, %.loopexit
+  %43 = load volatile i32, ptr @InterruptPending, align 4
+  %.not = icmp eq i32 %43, 0
+  br i1 %.not, label %45, label %44
 
-42:                                               ; preds = %40
+44:                                               ; preds = %42
   call void @ProcessInterrupts() #5
-  br label %43
+  br label %45
 
-43:                                               ; preds = %40, %42
-  %44 = load i32, ptr %32, align 8
-  %45 = zext i32 %44 to i64
-  store i64 %45, ptr %2, align 16
-  %46 = load <2 x i32>, ptr %6, align 8
-  %47 = zext <2 x i32> %46 to <2 x i64>
-  store <2 x i64> %47, ptr %33, align 8
-  %48 = load i32, ptr %7, align 4
+45:                                               ; preds = %42, %44
+  %46 = load i32, ptr %32, align 4
+  %47 = zext i32 %46 to i64
+  store i64 %47, ptr %2, align 16
+  %48 = load i32, ptr %6, align 4
   %49 = zext i32 %48 to i64
-  %sext = shl i64 %49, 48
-  %50 = ashr exact i64 %sext, 48
-  store i64 %50, ptr %34, align 8
-  br label %51
+  store i64 %49, ptr %33, align 8
+  %50 = load i32, ptr %34, align 4
+  %51 = zext i32 %50 to i64
+  store i64 %51, ptr %35, align 16
+  %52 = load i32, ptr %7, align 4
+  %53 = zext i32 %52 to i64
+  %sext = shl i64 %53, 48
+  %54 = ashr exact i64 %sext, 48
+  store i64 %54, ptr %36, align 8
+  br label %55
 
-51:                                               ; preds = %.backedge, %43
-  %52 = load volatile i32, ptr @InterruptPending, align 4
-  %.not25 = icmp eq i32 %52, 0
-  br i1 %.not25, label %54, label %53
+55:                                               ; preds = %.backedge, %45
+  %56 = load volatile i32, ptr @InterruptPending, align 4
+  %.not25 = icmp eq i32 %56, 0
+  br i1 %.not25, label %58, label %57
 
-53:                                               ; preds = %51
+57:                                               ; preds = %55
   call void @ProcessInterrupts() #5
-  br label %54
-
-54:                                               ; preds = %51, %53
-  %55 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %30, ptr noundef nonnull %9, i32 noundef 256) #5
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %.loopexit, label %57
-
-57:                                               ; preds = %54
-  store i64 0, ptr %35, align 8
-  %wide.trip.count = zext i32 %55 to i64
   br label %58
 
-58:                                               ; preds = %57, %58
-  %indvars.iv = phi i64 [ 0, %57 ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr [256 x i32], ptr %9, i64 0, i64 %indvars.iv
-  %60 = load i32, ptr %59, align 4
-  %61 = zext i32 %60 to i64
-  store i64 %61, ptr %36, align 16
-  %62 = load ptr, ptr %37, align 8
-  %63 = call ptr @heap_form_tuple(ptr noundef %62, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
-  %64 = load ptr, ptr %38, align 8
-  call void @tuplestore_puttuple(ptr noundef %64, ptr noundef %63) #5
+58:                                               ; preds = %55, %57
+  %59 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %30, ptr noundef nonnull %9, i32 noundef 256) #5
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %.loopexit, label %61
+
+61:                                               ; preds = %58
+  store i64 0, ptr %37, align 8
+  %wide.trip.count = zext i32 %59 to i64
+  br label %62
+
+62:                                               ; preds = %61, %62
+  %indvars.iv = phi i64 [ 0, %61 ], [ %indvars.iv.next, %62 ]
+  %63 = getelementptr [256 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %64 = load i32, ptr %63, align 4
+  %65 = zext i32 %64 to i64
+  store i64 %65, ptr %38, align 16
+  %66 = load ptr, ptr %39, align 8
+  %67 = call ptr @heap_form_tuple(ptr noundef %66, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
+  %68 = load ptr, ptr %40, align 8
+  call void @tuplestore_puttuple(ptr noundef %68, ptr noundef %67) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %65, label %58, !llvm.loop !7
+  br i1 %exitcond.not, label %69, label %62, !llvm.loop !7
 
-65:                                               ; preds = %58
-  %66 = load i32, ptr %8, align 4
-  %.not26 = icmp eq i32 %66, -1
-  br i1 %.not26, label %.backedge, label %67
+69:                                               ; preds = %62
+  %70 = load i32, ptr %8, align 4
+  %.not26 = icmp eq i32 %70, -1
+  br i1 %.not26, label %.backedge, label %71
 
-67:                                               ; preds = %65
-  %68 = zext i32 %66 to i64
-  store i64 %68, ptr %36, align 16
-  store i64 1, ptr %35, align 8
-  %69 = load ptr, ptr %37, align 8
-  %70 = call ptr @heap_form_tuple(ptr noundef %69, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
-  %71 = load ptr, ptr %38, align 8
-  call void @tuplestore_puttuple(ptr noundef %71, ptr noundef %70) #5
+71:                                               ; preds = %69
+  %72 = zext i32 %70 to i64
+  store i64 %72, ptr %38, align 16
+  store i64 1, ptr %37, align 8
+  %73 = load ptr, ptr %39, align 8
+  %74 = call ptr @heap_form_tuple(ptr noundef %73, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
+  %75 = load ptr, ptr %40, align 8
+  call void @tuplestore_puttuple(ptr noundef %75, ptr noundef %74) #5
   br label %.backedge
 
-.backedge:                                        ; preds = %67, %65
-  br label %51
+.backedge:                                        ; preds = %71, %69
+  br label %55
 
 ._crit_edge:                                      ; preds = %.loopexit, %19
   call void @DestroyBlockRefTableReader(ptr noundef %30) #5
-  %72 = load i32, ptr %5, align 8
-  call void @FileClose(i32 noundef %72) #5
+  %76 = load i32, ptr %5, align 8
+  call void @FileClose(i32 noundef %76) #5
   ret i64 0
 }
 

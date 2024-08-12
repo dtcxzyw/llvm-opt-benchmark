@@ -74,23 +74,35 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10
   %pos_begin.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %pos_begin2.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load i32, ptr %pos_begin2.i.i, align 8
+  store i32 %0, ptr %pos_begin.i.i, align 8
+  %pos_end.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  %pos_end3.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %1 = load i32, ptr %pos_end3.i.i, align 4
+  store i32 %1, ptr %pos_end.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue221ComponentWordBoundaryE, i64 16), ptr %call, align 8
-  %0 = load <4 x i32>, ptr %pos_begin2.i.i, align 8
-  store <4 x i32> %0, ptr %pos_begin.i.i, align 8
+  %loc.i = getelementptr inbounds i8, ptr %call, i64 16
+  %loc2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load i32, ptr %loc2.i, align 8
+  store i32 %2, ptr %loc.i, align 8
+  %position.i = getelementptr inbounds i8, ptr %call, i64 20
+  %position3.i = getelementptr inbounds i8, ptr %this, i64 20
+  %3 = load i32, ptr %position3.i, align 4
+  store i32 %3, ptr %position.i, align 4
   %negated.i = getelementptr inbounds i8, ptr %call, i64 24
   %negated4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load i8, ptr %negated4.i, align 8
-  %frombool.i = and i8 %1, 1
+  %4 = load i8, ptr %negated4.i, align 8
+  %frombool.i = and i8 %4, 1
   store i8 %frombool.i, ptr %negated.i, align 8
   %ucp.i = getelementptr inbounds i8, ptr %call, i64 25
   %ucp5.i = getelementptr inbounds i8, ptr %this, i64 25
-  %2 = load i8, ptr %ucp5.i, align 1
-  %frombool7.i = and i8 %2, 1
+  %5 = load i8, ptr %ucp5.i, align 1
+  %frombool7.i = and i8 %5, 1
   store i8 %frombool7.i, ptr %ucp.i, align 1
   %prefilter.i = getelementptr inbounds i8, ptr %call, i64 26
   %prefilter8.i = getelementptr inbounds i8, ptr %this, i64 26
-  %3 = load i8, ptr %prefilter8.i, align 2
-  %frombool10.i = and i8 %3, 1
+  %6 = load i8, ptr %prefilter8.i, align 2
+  %frombool10.i = and i8 %6, 1
   store i8 %frombool10.i, ptr %prefilter.i, align 2
   ret ptr %call
 }

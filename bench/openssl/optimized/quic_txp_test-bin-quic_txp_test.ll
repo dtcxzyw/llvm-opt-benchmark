@@ -437,10 +437,12 @@ for.end.i:                                        ; preds = %for.cond.i
   store ptr %max_streams_bidi_rxfc.i, ptr %max_streams_bidi_rxfc110.i, align 8
   %max_streams_uni_rxfc113.i = getelementptr inbounds i8, ptr %h, i64 232
   store ptr %max_streams_uni_rxfc.i, ptr %max_streams_uni_rxfc113.i, align 8
+  %4 = load ptr, ptr %cc_method.i, align 8
   %cc_method116.i = getelementptr inbounds i8, ptr %h, i64 240
-  %4 = load <2 x ptr>, ptr %cc_data.i, align 8
-  %5 = shufflevector <2 x ptr> %4, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %5, ptr %cc_method116.i, align 8
+  store ptr %4, ptr %cc_method116.i, align 8
+  %5 = load ptr, ptr %cc_data.i, align 8
+  %cc_data119.i = getelementptr inbounds i8, ptr %h, i64 248
+  store ptr %5, ptr %cc_data119.i, align 8
   %now.i = getelementptr inbounds i8, ptr %h, i64 256
   store ptr @fake_now, ptr %now.i, align 8
   %call122.i = call ptr @ossl_quic_tx_packetiser_new(ptr noundef nonnull %args.i) #8

@@ -1938,7 +1938,7 @@ define internal fastcc void @pdf_size(ptr nocapture noundef %0) unnamed_addr #5 
 
 bboxPDF.exit.thread:                              ; preds = %13
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7)
-  br label %141
+  br label %140
 
 15:                                               ; preds = %13
   %16 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.46) #26
@@ -2338,26 +2338,28 @@ getNum.exit.i:                                    ; preds = %120, %nxtc.exit.thr
 bboxPDF.exit.thread15:                            ; preds = %getNum.exit.i, %getNum.exit37.i, %getNum.exit58.i, %getNum.exit79.i, %nxtc.exit.i.i, %skipWS.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7)
-  br label %141
+  br label %140
 
 129:                                              ; preds = %getNum.exit.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7)
-  %130 = getelementptr inbounds i8, ptr %0, i64 56
-  %131 = insertelement <2 x double> poison, double %101, i64 0
-  %132 = insertelement <2 x double> %131, double %126, i64 1
-  %133 = insertelement <2 x double> poison, double %51, i64 0
-  %134 = insertelement <2 x double> %133, double %76, i64 1
-  %135 = fsub <2 x double> %132, %134
-  %136 = insertelement <4 x double> poison, double %51, i64 0
-  %137 = insertelement <4 x double> %136, double %76, i64 1
-  %138 = shufflevector <2 x double> %135, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %139 = shufflevector <4 x double> %137, <4 x double> %138, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %140 = fptosi <4 x double> %139 to <4 x i32>
-  store <4 x i32> %140, ptr %130, align 8
-  br label %141
+  %130 = fptosi double %51 to i32
+  %131 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 %130, ptr %131, align 8
+  %132 = fptosi double %76 to i32
+  %133 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 %132, ptr %133, align 4
+  %134 = fsub double %101, %51
+  %135 = fptosi double %134 to i32
+  %136 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %135, ptr %136, align 8
+  %137 = fsub double %126, %76
+  %138 = fptosi double %137 to i32
+  %139 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %138, ptr %139, align 4
+  br label %140
 
-141:                                              ; preds = %bboxPDF.exit.thread15, %bboxPDF.exit.thread, %129
+140:                                              ; preds = %bboxPDF.exit.thread15, %bboxPDF.exit.thread, %129
   ret void
 }
 

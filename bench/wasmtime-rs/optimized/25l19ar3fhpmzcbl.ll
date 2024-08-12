@@ -1020,22 +1020,50 @@ _ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder5build17h0c9de
   %343 = getelementptr inbounds i8, ptr %39, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %343, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
   %344 = getelementptr inbounds i8, ptr %1, i64 104
-  %345 = getelementptr inbounds i8, ptr %1, i64 112
-  %346 = load i8, ptr %345, align 8, !range !4, !noundef !3
-  %347 = getelementptr inbounds i8, ptr %39, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %347, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
-  %348 = getelementptr inbounds i8, ptr %39, i64 208
-  store ptr %340, ptr %348, align 8
-  %349 = getelementptr inbounds i8, ptr %39, i64 192
-  store ptr %315, ptr %349, align 8
-  %350 = getelementptr inbounds i8, ptr %39, i64 200
-  store i8 %314, ptr %350, align 8
-  %351 = getelementptr inbounds i8, ptr %39, i64 216
-  %352 = load <8 x i8>, ptr %344, align 8
-  store <8 x i8> %352, ptr %351, align 8
-  %353 = getelementptr inbounds i8, ptr %39, i64 224
-  store i8 %346, ptr %353, align 8
-  %354 = call ptr @"_ZN5alloc2rc11Rc$LT$T$GT$3new17h31a9c01c1484946dE"(ptr nonnull align 8 %39)
+  %345 = load i8, ptr %344, align 8, !range !4, !noundef !3
+  %346 = getelementptr inbounds i8, ptr %1, i64 105
+  %347 = load i8, ptr %346, align 1, !range !4, !noundef !3
+  %348 = getelementptr inbounds i8, ptr %1, i64 106
+  %349 = load i8, ptr %348, align 2, !range !4, !noundef !3
+  %350 = getelementptr inbounds i8, ptr %1, i64 107
+  %351 = load i8, ptr %350, align 1, !range !4, !noundef !3
+  %352 = getelementptr inbounds i8, ptr %1, i64 108
+  %353 = load i8, ptr %352, align 4, !range !4, !noundef !3
+  %354 = getelementptr inbounds i8, ptr %1, i64 109
+  %355 = load i8, ptr %354, align 1, !range !4, !noundef !3
+  %356 = getelementptr inbounds i8, ptr %1, i64 110
+  %357 = load i8, ptr %356, align 2, !range !4, !noundef !3
+  %358 = getelementptr inbounds i8, ptr %1, i64 111
+  %359 = load i8, ptr %358, align 1, !range !4, !noundef !3
+  %360 = getelementptr inbounds i8, ptr %1, i64 112
+  %361 = load i8, ptr %360, align 8, !range !4, !noundef !3
+  %362 = getelementptr inbounds i8, ptr %39, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %362, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
+  %363 = getelementptr inbounds i8, ptr %39, i64 208
+  store ptr %340, ptr %363, align 8
+  %364 = getelementptr inbounds i8, ptr %39, i64 192
+  store ptr %315, ptr %364, align 8
+  %365 = getelementptr inbounds i8, ptr %39, i64 200
+  store i8 %314, ptr %365, align 8
+  %366 = getelementptr inbounds i8, ptr %39, i64 216
+  store i8 %345, ptr %366, align 8
+  %367 = getelementptr inbounds i8, ptr %39, i64 217
+  store i8 %347, ptr %367, align 1
+  %368 = getelementptr inbounds i8, ptr %39, i64 218
+  store i8 %349, ptr %368, align 2
+  %369 = getelementptr inbounds i8, ptr %39, i64 219
+  store i8 %351, ptr %369, align 1
+  %370 = getelementptr inbounds i8, ptr %39, i64 220
+  store i8 %353, ptr %370, align 4
+  %371 = getelementptr inbounds i8, ptr %39, i64 221
+  store i8 %355, ptr %371, align 1
+  %372 = getelementptr inbounds i8, ptr %39, i64 222
+  store i8 %357, ptr %372, align 2
+  %373 = getelementptr inbounds i8, ptr %39, i64 223
+  store i8 %359, ptr %373, align 1
+  %374 = getelementptr inbounds i8, ptr %39, i64 224
+  store i8 %361, ptr %374, align 8
+  %375 = call ptr @"_ZN5alloc2rc11Rc$LT$T$GT$3new17h31a9c01c1484946dE"(ptr nonnull align 8 %39)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
@@ -1046,8 +1074,8 @@ _ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder5build17h0c9de
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48)
-  %355 = load ptr, ptr %0, align 8, !nonnull !3, !align !10, !noundef !3
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb92685d071d6d1ceE"(ptr nonnull align 8 %355, ptr %354)
+  %376 = load ptr, ptr %0, align 8, !nonnull !3, !align !10, !noundef !3
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb92685d071d6d1ceE"(ptr nonnull align 8 %376, ptr %375)
   ret void
 }
 

@@ -2951,7 +2951,7 @@ convergeephemerons.exit125:                       ; preds = %while.end.i122
   br i1 %tobool.not18.i, label %clearbykeys.exit, label %for.body.i126
 
 for.body.i126:                                    ; preds = %convergeephemerons.exit125, %for.inc17.i
-  %l.addr.019.i = phi ptr [ %77, %for.inc17.i ], [ %.pr, %convergeephemerons.exit125 ]
+  %l.addr.019.i = phi ptr [ %75, %for.inc17.i ], [ %.pr, %convergeephemerons.exit125 ]
   %node.i = getelementptr inbounds i8, ptr %l.addr.019.i, i64 24
   %62 = load ptr, ptr %node.i, align 8
   %lsizenode.i = getelementptr inbounds i8, ptr %l.addr.019.i, i64 11
@@ -2979,23 +2979,24 @@ cond.end.i:                                       ; preds = %for.body6.i
 
 if.else.i.i:                                      ; preds = %cond.end.i
   %tt.i.i = getelementptr inbounds i8, ptr %66, i64 8
-  %67 = load <2 x i8>, ptr %tt.i.i, align 8
-  %68 = and <2 x i8> %67, <i8 15, i8 24>
-  %69 = icmp eq <2 x i8> %68, <i8 4, i8 0>
-  %70 = extractelement <2 x i1> %69, i64 0
-  br i1 %70, label %if.then3.i.i, label %iscleared.exit.i
+  %67 = load i8, ptr %tt.i.i, align 8
+  %68 = and i8 %67, 15
+  %cmp1.i.i = icmp eq i8 %68, 4
+  %marked.i.i = getelementptr inbounds i8, ptr %66, i64 9
+  %69 = load i8, ptr %marked.i.i, align 1
+  %70 = and i8 %69, 24
+  %tobool.not.i.i128 = icmp eq i8 %70, 0
+  br i1 %cmp1.i.i, label %if.then3.i.i, label %iscleared.exit.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %71 = extractelement <2 x i1> %69, i64 1
-  br i1 %71, label %if.end.i131, label %if.then6.i.i
+  br i1 %tobool.not.i.i128, label %if.end.i131, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then3.i.i
   tail call fastcc void @reallymarkobject(ptr noundef %0, ptr noundef nonnull %66)
   br label %if.end.i131
 
 iscleared.exit.i:                                 ; preds = %if.else.i.i
-  %72 = extractelement <2 x i1> %69, i64 1
-  br i1 %72, label %if.end.i131, label %if.then.i129
+  br i1 %tobool.not.i.i128, label %if.end.i131, label %if.then.i129
 
 if.then.i129:                                     ; preds = %iscleared.exit.i
   %tt_.i130 = getelementptr inbounds i8, ptr %n.017.i, i64 8
@@ -3004,15 +3005,15 @@ if.then.i129:                                     ; preds = %iscleared.exit.i
 
 if.end.i131:                                      ; preds = %if.then.i129, %iscleared.exit.i, %if.then6.i.i, %if.then3.i.i, %cond.end.i, %for.body6.i
   %tt_10.i = getelementptr inbounds i8, ptr %n.017.i, i64 8
-  %73 = load i8, ptr %tt_10.i, align 8
-  %74 = and i8 %73, 15
-  %cmp13.i = icmp eq i8 %74, 0
+  %71 = load i8, ptr %tt_10.i, align 8
+  %72 = and i8 %71, 15
+  %cmp13.i = icmp eq i8 %72, 0
   br i1 %cmp13.i, label %if.then15.i, label %for.inc.i132
 
 if.then15.i:                                      ; preds = %if.end.i131
-  %75 = load i8, ptr %key_tt.i, align 1
-  %76 = and i8 %75, 64
-  %tobool.not.i11.i = icmp eq i8 %76, 0
+  %73 = load i8, ptr %key_tt.i, align 1
+  %74 = and i8 %73, 64
+  %tobool.not.i11.i = icmp eq i8 %74, 0
   br i1 %tobool.not.i11.i, label %for.inc.i132, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then15.i
@@ -3026,61 +3027,62 @@ for.inc.i132:                                     ; preds = %if.then.i.i, %if.th
 
 for.inc17.i:                                      ; preds = %for.inc.i132, %for.body.i126
   %gclist.i133 = getelementptr inbounds i8, ptr %l.addr.019.i, i64 48
-  %77 = load ptr, ptr %gclist.i133, align 8
-  %tobool.not.i134 = icmp eq ptr %77, null
+  %75 = load ptr, ptr %gclist.i133, align 8
+  %tobool.not.i134 = icmp eq ptr %75, null
   br i1 %tobool.not.i134, label %clearbykeys.exit, label %for.body.i126, !llvm.loop !27
 
 clearbykeys.exit:                                 ; preds = %do.body.i104, %for.inc17.i, %convergeephemerons.exit125
-  %78 = load ptr, ptr %allweak, align 8
-  %tobool.not18.i135 = icmp eq ptr %78, null
+  %76 = load ptr, ptr %allweak, align 8
+  %tobool.not18.i135 = icmp eq ptr %76, null
   br i1 %tobool.not18.i135, label %clearbykeys.exit174, label %for.body.i136
 
 for.body.i136:                                    ; preds = %clearbykeys.exit, %for.inc17.i166
-  %l.addr.019.i137 = phi ptr [ %94, %for.inc17.i166 ], [ %78, %clearbykeys.exit ]
+  %l.addr.019.i137 = phi ptr [ %90, %for.inc17.i166 ], [ %76, %clearbykeys.exit ]
   %node.i138 = getelementptr inbounds i8, ptr %l.addr.019.i137, i64 24
-  %79 = load ptr, ptr %node.i138, align 8
+  %77 = load ptr, ptr %node.i138, align 8
   %lsizenode.i139 = getelementptr inbounds i8, ptr %l.addr.019.i137, i64 11
-  %80 = load i8, ptr %lsizenode.i139, align 1
-  %conv.i140 = zext nneg i8 %80 to i32
+  %78 = load i8, ptr %lsizenode.i139, align 1
+  %conv.i140 = zext nneg i8 %78 to i32
   %shl.i141 = shl nuw i32 1, %conv.i140
   %conv1.i142 = sext i32 %shl.i141 to i64
-  %arrayidx.i143 = getelementptr inbounds %union.Node, ptr %79, i64 %conv1.i142
-  %cmp16.not.i144 = icmp eq i8 %80, 31
+  %arrayidx.i143 = getelementptr inbounds %union.Node, ptr %77, i64 %conv1.i142
+  %cmp16.not.i144 = icmp eq i8 %78, 31
   br i1 %cmp16.not.i144, label %for.inc17.i166, label %for.body6.i145
 
 for.body6.i145:                                   ; preds = %for.body.i136, %for.inc.i163
-  %n.017.i146 = phi ptr [ %incdec.ptr.i164, %for.inc.i163 ], [ %79, %for.body.i136 ]
+  %n.017.i146 = phi ptr [ %incdec.ptr.i164, %for.inc.i163 ], [ %77, %for.body.i136 ]
   %key_tt.i147 = getelementptr inbounds i8, ptr %n.017.i146, i64 9
-  %81 = load i8, ptr %key_tt.i147, align 1
-  %82 = and i8 %81, 64
-  %tobool8.not.i148 = icmp eq i8 %82, 0
+  %79 = load i8, ptr %key_tt.i147, align 1
+  %80 = and i8 %79, 64
+  %tobool8.not.i148 = icmp eq i8 %80, 0
   br i1 %tobool8.not.i148, label %if.end.i160, label %cond.end.i149
 
 cond.end.i149:                                    ; preds = %for.body6.i145
   %key_val.i150 = getelementptr inbounds i8, ptr %n.017.i146, i64 16
-  %83 = load ptr, ptr %key_val.i150, align 8
-  %cmp.i.i151 = icmp eq ptr %83, null
+  %81 = load ptr, ptr %key_val.i150, align 8
+  %cmp.i.i151 = icmp eq ptr %81, null
   br i1 %cmp.i.i151, label %if.end.i160, label %if.else.i.i152
 
 if.else.i.i152:                                   ; preds = %cond.end.i149
-  %tt.i.i153 = getelementptr inbounds i8, ptr %83, i64 8
-  %84 = load <2 x i8>, ptr %tt.i.i153, align 8
-  %85 = and <2 x i8> %84, <i8 15, i8 24>
-  %86 = icmp eq <2 x i8> %85, <i8 4, i8 0>
-  %87 = extractelement <2 x i1> %86, i64 0
-  br i1 %87, label %if.then3.i.i172, label %iscleared.exit.i157
+  %tt.i.i153 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = load i8, ptr %tt.i.i153, align 8
+  %83 = and i8 %82, 15
+  %cmp1.i.i154 = icmp eq i8 %83, 4
+  %marked.i.i155 = getelementptr inbounds i8, ptr %81, i64 9
+  %84 = load i8, ptr %marked.i.i155, align 1
+  %85 = and i8 %84, 24
+  %tobool.not.i.i156 = icmp eq i8 %85, 0
+  br i1 %cmp1.i.i154, label %if.then3.i.i172, label %iscleared.exit.i157
 
 if.then3.i.i172:                                  ; preds = %if.else.i.i152
-  %88 = extractelement <2 x i1> %86, i64 1
-  br i1 %88, label %if.end.i160, label %if.then6.i.i173
+  br i1 %tobool.not.i.i156, label %if.end.i160, label %if.then6.i.i173
 
 if.then6.i.i173:                                  ; preds = %if.then3.i.i172
-  tail call fastcc void @reallymarkobject(ptr noundef %0, ptr noundef nonnull %83)
+  tail call fastcc void @reallymarkobject(ptr noundef %0, ptr noundef nonnull %81)
   br label %if.end.i160
 
 iscleared.exit.i157:                              ; preds = %if.else.i.i152
-  %89 = extractelement <2 x i1> %86, i64 1
-  br i1 %89, label %if.end.i160, label %if.then.i158
+  br i1 %tobool.not.i.i156, label %if.end.i160, label %if.then.i158
 
 if.then.i158:                                     ; preds = %iscleared.exit.i157
   %tt_.i159 = getelementptr inbounds i8, ptr %n.017.i146, i64 8
@@ -3089,15 +3091,15 @@ if.then.i158:                                     ; preds = %iscleared.exit.i157
 
 if.end.i160:                                      ; preds = %if.then.i158, %iscleared.exit.i157, %if.then6.i.i173, %if.then3.i.i172, %cond.end.i149, %for.body6.i145
   %tt_10.i161 = getelementptr inbounds i8, ptr %n.017.i146, i64 8
-  %90 = load i8, ptr %tt_10.i161, align 8
-  %91 = and i8 %90, 15
-  %cmp13.i162 = icmp eq i8 %91, 0
+  %86 = load i8, ptr %tt_10.i161, align 8
+  %87 = and i8 %86, 15
+  %cmp13.i162 = icmp eq i8 %87, 0
   br i1 %cmp13.i162, label %if.then15.i169, label %for.inc.i163
 
 if.then15.i169:                                   ; preds = %if.end.i160
-  %92 = load i8, ptr %key_tt.i147, align 1
-  %93 = and i8 %92, 64
-  %tobool.not.i11.i170 = icmp eq i8 %93, 0
+  %88 = load i8, ptr %key_tt.i147, align 1
+  %89 = and i8 %88, 64
+  %tobool.not.i11.i170 = icmp eq i8 %89, 0
   br i1 %tobool.not.i11.i170, label %for.inc.i163, label %if.then.i.i171
 
 if.then.i.i171:                                   ; preds = %if.then15.i169
@@ -3111,8 +3113,8 @@ for.inc.i163:                                     ; preds = %if.then.i.i171, %if
 
 for.inc17.i166:                                   ; preds = %for.inc.i163, %for.body.i136
   %gclist.i167 = getelementptr inbounds i8, ptr %l.addr.019.i137, i64 48
-  %94 = load ptr, ptr %gclist.i167, align 8
-  %tobool.not.i168 = icmp eq ptr %94, null
+  %90 = load ptr, ptr %gclist.i167, align 8
+  %tobool.not.i168 = icmp eq ptr %90, null
   br i1 %tobool.not.i168, label %clearbykeys.exit174, label %for.body.i136, !llvm.loop !27
 
 clearbykeys.exit174:                              ; preds = %for.inc17.i166, %clearbykeys.exit
@@ -3122,15 +3124,15 @@ clearbykeys.exit174:                              ; preds = %for.inc17.i166, %cl
   %add21 = add i64 %add19, %tot.0.lcssa.i67
   %add25 = add i64 %add21, %count.0.lcssa.i
   %add27 = add i64 %add25, %tot.0.lcssa.i100
-  %95 = load ptr, ptr %weak, align 8
-  tail call fastcc void @clearbyvalues(ptr noundef %0, ptr noundef %95, ptr noundef %39)
-  %96 = load ptr, ptr %allweak, align 8
-  tail call fastcc void @clearbyvalues(ptr noundef %0, ptr noundef %96, ptr noundef %40)
+  %91 = load ptr, ptr %weak, align 8
+  tail call fastcc void @clearbyvalues(ptr noundef %0, ptr noundef %91, ptr noundef %39)
+  %92 = load ptr, ptr %allweak, align 8
+  tail call fastcc void @clearbyvalues(ptr noundef %0, ptr noundef %92, ptr noundef %40)
   tail call void @luaS_clearcache(ptr noundef %0) #8
   %currentwhite = getelementptr inbounds i8, ptr %0, i64 100
-  %97 = load i8, ptr %currentwhite, align 4
-  %98 = xor i8 %97, 24
-  store i8 %98, ptr %currentwhite, align 4
+  %93 = load i8, ptr %currentwhite, align 4
+  %94 = xor i8 %93, 24
+  store i8 %94, ptr %currentwhite, align 4
   ret i64 %add27
 }
 
@@ -3400,7 +3402,7 @@ entry:
   br i1 %cmp.not43, label %for.end41, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc40
-  %l.addr.044 = phi ptr [ %26, %for.inc40 ], [ %l, %entry ]
+  %l.addr.044 = phi ptr [ %22, %for.inc40 ], [ %l, %entry ]
   %node = getelementptr inbounds i8, ptr %l.addr.044, i64 24
   %0 = load ptr, ptr %node, align 8
   %lsizenode = getelementptr inbounds i8, ptr %l.addr.044, i64 11
@@ -3435,23 +3437,24 @@ cond.end:                                         ; preds = %for.body5
 
 if.else.i:                                        ; preds = %cond.end
   %tt.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load <2 x i8>, ptr %tt.i, align 8
-  %7 = and <2 x i8> %6, <i8 15, i8 24>
-  %8 = icmp eq <2 x i8> %7, <i8 4, i8 0>
-  %9 = extractelement <2 x i1> %8, i64 0
-  br i1 %9, label %if.then3.i, label %iscleared.exit
+  %6 = load i8, ptr %tt.i, align 8
+  %7 = and i8 %6, 15
+  %cmp1.i = icmp eq i8 %7, 4
+  %marked.i = getelementptr inbounds i8, ptr %5, i64 9
+  %8 = load i8, ptr %marked.i, align 1
+  %9 = and i8 %8, 24
+  %tobool.not.i = icmp eq i8 %9, 0
+  br i1 %cmp1.i, label %if.then3.i, label %iscleared.exit
 
 if.then3.i:                                       ; preds = %if.else.i
-  %10 = extractelement <2 x i1> %8, i64 1
-  br i1 %10, label %for.inc, label %if.then6.i
+  br i1 %tobool.not.i, label %for.inc, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then3.i
   tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %5)
   br label %for.inc
 
 iscleared.exit:                                   ; preds = %if.else.i
-  %11 = extractelement <2 x i1> %8, i64 1
-  br i1 %11, label %for.inc, label %if.then
+  br i1 %tobool.not.i, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %iscleared.exit
   store i8 16, ptr %tt_, align 8
@@ -3463,59 +3466,60 @@ for.inc:                                          ; preds = %for.body5, %if.then
   br i1 %exitcond.not, label %for.end, label %for.body5, !llvm.loop !29
 
 for.end:                                          ; preds = %for.inc, %for.body
-  %12 = load ptr, ptr %node, align 8
-  %cmp1441 = icmp ult ptr %12, %arrayidx
+  %10 = load ptr, ptr %node, align 8
+  %cmp1441 = icmp ult ptr %10, %arrayidx
   br i1 %cmp1441, label %for.body16, label %for.inc40
 
 for.body16:                                       ; preds = %for.end, %for.inc38
-  %n.042 = phi ptr [ %incdec.ptr, %for.inc38 ], [ %12, %for.end ]
+  %n.042 = phi ptr [ %incdec.ptr, %for.inc38 ], [ %10, %for.end ]
   %tt_17 = getelementptr inbounds i8, ptr %n.042, i64 8
-  %13 = load i8, ptr %tt_17, align 8
-  %14 = and i8 %13, 64
-  %tobool20.not = icmp eq i8 %14, 0
+  %11 = load i8, ptr %tt_17, align 8
+  %12 = and i8 %11, 64
+  %tobool20.not = icmp eq i8 %12, 0
   br i1 %tobool20.not, label %if.end30, label %cond.end24
 
 cond.end24:                                       ; preds = %for.body16
-  %15 = load ptr, ptr %n.042, align 8
-  %cmp.i18 = icmp eq ptr %15, null
+  %13 = load ptr, ptr %n.042, align 8
+  %cmp.i18 = icmp eq ptr %13, null
   br i1 %cmp.i18, label %if.end30, label %if.else.i19
 
 if.else.i19:                                      ; preds = %cond.end24
-  %tt.i20 = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load <2 x i8>, ptr %tt.i20, align 8
-  %17 = and <2 x i8> %16, <i8 15, i8 24>
-  %18 = icmp eq <2 x i8> %17, <i8 4, i8 0>
-  %19 = extractelement <2 x i1> %18, i64 0
-  br i1 %19, label %if.then3.i26, label %iscleared.exit29
+  %tt.i20 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load i8, ptr %tt.i20, align 8
+  %15 = and i8 %14, 15
+  %cmp1.i21 = icmp eq i8 %15, 4
+  %marked.i22 = getelementptr inbounds i8, ptr %13, i64 9
+  %16 = load i8, ptr %marked.i22, align 1
+  %17 = and i8 %16, 24
+  %tobool.not.i27 = icmp eq i8 %17, 0
+  br i1 %cmp1.i21, label %if.then3.i26, label %iscleared.exit29
 
 if.then3.i26:                                     ; preds = %if.else.i19
-  %20 = extractelement <2 x i1> %18, i64 1
-  br i1 %20, label %if.end30, label %if.then6.i28
+  br i1 %tobool.not.i27, label %if.end30, label %if.then6.i28
 
 if.then6.i28:                                     ; preds = %if.then3.i26
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %15)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %13)
   %.pre = load i8, ptr %tt_17, align 8
   br label %if.end30
 
 iscleared.exit29:                                 ; preds = %if.else.i19
-  %21 = extractelement <2 x i1> %18, i64 1
-  br i1 %21, label %if.end30, label %if.end30.thread
+  br i1 %tobool.not.i27, label %if.end30, label %if.end30.thread
 
 if.end30.thread:                                  ; preds = %iscleared.exit29
   store i8 16, ptr %tt_17, align 8
   br label %if.then36
 
 if.end30:                                         ; preds = %for.body16, %if.then3.i26, %if.then6.i28, %cond.end24, %iscleared.exit29
-  %22 = phi i8 [ %13, %for.body16 ], [ %13, %if.then3.i26 ], [ %.pre, %if.then6.i28 ], [ %13, %cond.end24 ], [ %13, %iscleared.exit29 ]
-  %23 = and i8 %22, 15
-  %cmp34 = icmp eq i8 %23, 0
+  %18 = phi i8 [ %11, %for.body16 ], [ %11, %if.then3.i26 ], [ %.pre, %if.then6.i28 ], [ %11, %cond.end24 ], [ %11, %iscleared.exit29 ]
+  %19 = and i8 %18, 15
+  %cmp34 = icmp eq i8 %19, 0
   br i1 %cmp34, label %if.then36, label %for.inc38
 
 if.then36:                                        ; preds = %if.end30.thread, %if.end30
   %key_tt.i = getelementptr inbounds i8, ptr %n.042, i64 9
-  %24 = load i8, ptr %key_tt.i, align 1
-  %25 = and i8 %24, 64
-  %tobool.not.i30 = icmp eq i8 %25, 0
+  %20 = load i8, ptr %key_tt.i, align 1
+  %21 = and i8 %20, 64
+  %tobool.not.i30 = icmp eq i8 %21, 0
   br i1 %tobool.not.i30, label %for.inc38, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then36
@@ -3529,8 +3533,8 @@ for.inc38:                                        ; preds = %if.then.i, %if.then
 
 for.inc40:                                        ; preds = %for.inc38, %for.end
   %gclist = getelementptr inbounds i8, ptr %l.addr.044, i64 48
-  %26 = load ptr, ptr %gclist, align 8
-  %cmp.not = icmp eq ptr %26, %f
+  %22 = load ptr, ptr %gclist, align 8
+  %cmp.not = icmp eq ptr %22, %f
   br i1 %cmp.not, label %for.end41, label %for.body, !llvm.loop !31
 
 for.end41:                                        ; preds = %for.inc40, %entry
@@ -3673,36 +3677,36 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %hasclears.032.i.i = phi i32 [ %hasclears.1.i.i, %for.inc.i.i ], [ %conv2.i.i, %for.body.preheader.i.i ]
   %n.031.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %15, %for.body.preheader.i.i ]
   %tt_.i.i = getelementptr inbounds i8, ptr %n.031.i.i, i64 8
+  %18 = load i8, ptr %tt_.i.i, align 8
+  %19 = and i8 %18, 15
+  %cmp8.i.i = icmp eq i8 %19, 0
   %key_tt.i.i.i = getelementptr inbounds i8, ptr %n.031.i.i, i64 9
-  %18 = load <2 x i8>, ptr %tt_.i.i, align 8
-  %19 = and <2 x i8> %18, <i8 15, i8 64>
-  %20 = icmp eq <2 x i8> %19, zeroinitializer
-  %21 = extractelement <2 x i1> %20, i64 0
-  br i1 %21, label %if.then.i.i, label %if.else.i.i
+  %20 = load i8, ptr %key_tt.i.i.i, align 1
+  %21 = and i8 %20, 64
+  %tobool.not.i.i.i = icmp eq i8 %21, 0
+  br i1 %cmp8.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %22 = extractelement <2 x i1> %20, i64 1
-  br i1 %22, label %for.inc.i.i, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %for.inc.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i8 11, ptr %key_tt.i.i.i, align 1
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %23 = extractelement <2 x i1> %20, i64 1
-  br i1 %23, label %if.end.i.i, label %land.lhs.true.i.i
+  br i1 %tobool.not.i.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.else.i.i
   %key_val.i.i = getelementptr inbounds i8, ptr %n.031.i.i, i64 16
-  %24 = load ptr, ptr %key_val.i.i, align 8
-  %marked.i.i = getelementptr inbounds i8, ptr %24, i64 9
-  %25 = load i8, ptr %marked.i.i, align 1
-  %26 = and i8 %25, 24
-  %tobool14.not.i.i = icmp eq i8 %26, 0
+  %22 = load ptr, ptr %key_val.i.i, align 8
+  %marked.i.i = getelementptr inbounds i8, ptr %22, i64 9
+  %23 = load i8, ptr %marked.i.i, align 1
+  %24 = and i8 %23, 24
+  %tobool14.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool14.not.i.i, label %if.end.i.i, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %land.lhs.true.i.i
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %24)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %22)
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then15.i.i, %land.lhs.true.i.i, %if.else.i.i
@@ -3710,33 +3714,33 @@ if.end.i.i:                                       ; preds = %if.then15.i.i, %lan
   br i1 %tobool17.not.i.i, label %land.lhs.true18.i.i, label %for.inc.i.i
 
 land.lhs.true18.i.i:                              ; preds = %if.end.i.i
-  %27 = load i8, ptr %tt_.i.i, align 8
-  %28 = and i8 %27, 64
-  %tobool22.not.i.i = icmp eq i8 %28, 0
+  %25 = load i8, ptr %tt_.i.i, align 8
+  %26 = and i8 %25, 64
+  %tobool22.not.i.i = icmp eq i8 %26, 0
   br i1 %tobool22.not.i.i, label %iscleared.exit.thread.i.i, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %land.lhs.true18.i.i
-  %29 = load ptr, ptr %n.031.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %29, null
+  %27 = load ptr, ptr %n.031.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %27, null
   br i1 %cmp.i.i.i, label %iscleared.exit.thread.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %cond.end.i.i
-  %tt.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
-  %30 = load i8, ptr %tt.i.i.i, align 8
-  %31 = and i8 %30, 15
-  %cmp1.i.i.i = icmp eq i8 %31, 4
-  %marked.i.i.i = getelementptr inbounds i8, ptr %29, i64 9
-  %32 = load i8, ptr %marked.i.i.i, align 1
-  %.fr29.i.i = freeze i8 %32
-  %33 = and i8 %.fr29.i.i, 24
-  %tobool.not.i21.i.i = icmp eq i8 %33, 0
+  %tt.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = load i8, ptr %tt.i.i.i, align 8
+  %29 = and i8 %28, 15
+  %cmp1.i.i.i = icmp eq i8 %29, 4
+  %marked.i.i.i = getelementptr inbounds i8, ptr %27, i64 9
+  %30 = load i8, ptr %marked.i.i.i, align 1
+  %.fr29.i.i = freeze i8 %30
+  %31 = and i8 %.fr29.i.i, 24
+  %tobool.not.i21.i.i = icmp eq i8 %31, 0
   br i1 %cmp1.i.i.i, label %if.then3.i.i.i, label %iscleared.exit.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.else.i.i.i
   br i1 %tobool.not.i21.i.i, label %iscleared.exit.thread.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then3.i.i.i
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %29)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %27)
   br label %iscleared.exit.thread.i.i
 
 iscleared.exit.i.i:                               ; preds = %if.else.i.i.i
@@ -3752,24 +3756,24 @@ for.inc.i.i:                                      ; preds = %iscleared.exit.thre
   br i1 %cmp5.i.i, label %for.body.i.i, label %for.end.loopexit.i.i, !llvm.loop !32
 
 for.end.loopexit.i.i:                             ; preds = %for.inc.i.i
-  %34 = icmp ne i32 %hasclears.1.i.i, 0
+  %32 = icmp ne i32 %hasclears.1.i.i, 0
   br label %traverseweakvalue.exit.i
 
 traverseweakvalue.exit.i:                         ; preds = %for.end.loopexit.i.i, %if.then29.i
-  %hasclears.0.lcssa.i.i = phi i1 [ %cmp.i.i, %if.then29.i ], [ %34, %for.end.loopexit.i.i ]
+  %hasclears.0.lcssa.i.i = phi i1 [ %cmp.i.i, %if.then29.i ], [ %32, %for.end.loopexit.i.i ]
   %gcstate.i.i = getelementptr inbounds i8, ptr %g, i64 101
-  %35 = load i8, ptr %gcstate.i.i, align 1
-  %cmp28.i.i = icmp eq i8 %35, 2
+  %33 = load i8, ptr %gcstate.i.i, align 1
+  %cmp28.i.i = icmp eq i8 %33, 2
   %or.cond.i.i = select i1 %cmp28.i.i, i1 %hasclears.0.lcssa.i.i, i1 false
   %gclist.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %..i.i = select i1 %or.cond.i.i, i64 152, i64 144
   %grayagain.i.i = getelementptr inbounds i8, ptr %g, i64 %..i.i
-  %36 = load ptr, ptr %grayagain.i.i, align 8
-  store ptr %36, ptr %gclist.i.i, align 8
+  %34 = load ptr, ptr %grayagain.i.i, align 8
+  store ptr %34, ptr %gclist.i.i, align 8
   store ptr %0, ptr %grayagain.i.i, align 8
-  %37 = load i8, ptr %marked, align 1
-  %38 = and i8 %37, -57
-  store i8 %38, ptr %marked, align 1
+  %35 = load i8, ptr %marked, align 1
+  %36 = and i8 %35, -57
+  store i8 %36, ptr %marked, align 1
   br label %if.end37.i
 
 if.else.i:                                        ; preds = %if.then27.i
@@ -3782,23 +3786,23 @@ if.then31.i:                                      ; preds = %if.else.i
 if.else33.i:                                      ; preds = %if.else.i
   %gclist.i16 = getelementptr inbounds i8, ptr %0, i64 48
   %allweak.i = getelementptr inbounds i8, ptr %g, i64 168
-  %39 = load ptr, ptr %allweak.i, align 8
-  store ptr %39, ptr %gclist.i16, align 8
+  %37 = load ptr, ptr %allweak.i, align 8
+  store ptr %37, ptr %gclist.i16, align 8
   store ptr %0, ptr %allweak.i, align 8
-  %40 = load i8, ptr %marked, align 1
-  %41 = and i8 %40, -57
-  store i8 %41, ptr %marked, align 1
+  %38 = load i8, ptr %marked, align 1
+  %39 = and i8 %38, -57
+  store i8 %39, ptr %marked, align 1
   br label %if.end37.i
 
 if.else36.i:                                      ; preds = %land.lhs.true20.i, %land.lhs.true.i, %if.end15.i, %sw.bb
   %node.i26.i = getelementptr inbounds i8, ptr %0, i64 24
-  %42 = load ptr, ptr %node.i26.i, align 8
+  %40 = load ptr, ptr %node.i26.i, align 8
   %lsizenode.i27.i = getelementptr inbounds i8, ptr %0, i64 11
-  %43 = load i8, ptr %lsizenode.i27.i, align 1
-  %conv.i28.i = zext nneg i8 %43 to i32
+  %41 = load i8, ptr %lsizenode.i27.i, align 1
+  %conv.i28.i = zext nneg i8 %41 to i32
   %shl.i29.i = shl nuw i32 1, %conv.i28.i
   %conv1.i30.i = sext i32 %shl.i29.i to i64
-  %arrayidx.i31.i = getelementptr inbounds %union.Node, ptr %42, i64 %conv1.i30.i
+  %arrayidx.i31.i = getelementptr inbounds %union.Node, ptr %40, i64 %conv1.i30.i
   %call.i.i = tail call i32 @luaH_realasize(ptr noundef nonnull %0) #8
   %cmp25.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp25.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
@@ -3810,24 +3814,24 @@ for.body.lr.ph.i.i:                               ; preds = %if.else36.i
 
 for.body.i32.i:                                   ; preds = %for.inc.i37.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i37.i ]
-  %44 = load ptr, ptr %array.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds %struct.TValue, ptr %44, i64 %indvars.iv.i.i
+  %42 = load ptr, ptr %array.i.i, align 8
+  %arrayidx3.i.i = getelementptr inbounds %struct.TValue, ptr %42, i64 %indvars.iv.i.i
   %tt_.i33.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 8
-  %45 = load i8, ptr %tt_.i33.i, align 8
-  %46 = and i8 %45, 64
-  %tobool.not.i.i = icmp eq i8 %46, 0
+  %43 = load i8, ptr %tt_.i33.i, align 8
+  %44 = and i8 %43, 64
+  %tobool.not.i.i = icmp eq i8 %44, 0
   br i1 %tobool.not.i.i, label %for.inc.i37.i, label %land.lhs.true.i34.i
 
 land.lhs.true.i34.i:                              ; preds = %for.body.i32.i
-  %47 = load ptr, ptr %arrayidx3.i.i, align 8
-  %marked.i35.i = getelementptr inbounds i8, ptr %47, i64 9
-  %48 = load i8, ptr %marked.i35.i, align 1
-  %49 = and i8 %48, 24
-  %tobool10.not.i.i = icmp eq i8 %49, 0
+  %45 = load ptr, ptr %arrayidx3.i.i, align 8
+  %marked.i35.i = getelementptr inbounds i8, ptr %45, i64 9
+  %46 = load i8, ptr %marked.i35.i, align 1
+  %47 = and i8 %46, 24
+  %tobool10.not.i.i = icmp eq i8 %47, 0
   br i1 %tobool10.not.i.i, label %for.inc.i37.i, label %if.then.i36.i
 
 if.then.i36.i:                                    ; preds = %land.lhs.true.i34.i
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %47)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %45)
   br label %for.inc.i37.i
 
 for.inc.i37.i:                                    ; preds = %if.then.i36.i, %land.lhs.true.i34.i, %for.body.i32.i
@@ -3836,20 +3840,20 @@ for.inc.i37.i:                                    ; preds = %if.then.i36.i, %lan
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i32.i, !llvm.loop !33
 
 for.end.i.i:                                      ; preds = %for.inc.i37.i, %if.else36.i
-  %50 = load ptr, ptr %node.i26.i, align 8
-  %cmp1827.i.i = icmp ult ptr %50, %arrayidx.i31.i
+  %48 = load ptr, ptr %node.i26.i, align 8
+  %cmp1827.i.i = icmp ult ptr %48, %arrayidx.i31.i
   br i1 %cmp1827.i.i, label %for.body20.i.i, label %for.end54.i.i
 
 for.body20.i.i:                                   ; preds = %for.end.i.i, %for.inc53.i.i
-  %n.028.i.i = phi ptr [ %incdec.ptr.i43.i, %for.inc53.i.i ], [ %50, %for.end.i.i ]
+  %n.028.i.i = phi ptr [ %incdec.ptr.i43.i, %for.inc53.i.i ], [ %48, %for.end.i.i ]
   %tt_21.i.i = getelementptr inbounds i8, ptr %n.028.i.i, i64 8
-  %51 = load i8, ptr %tt_21.i.i, align 8
-  %52 = and i8 %51, 15
-  %cmp24.i.i = icmp eq i8 %52, 0
+  %49 = load i8, ptr %tt_21.i.i, align 8
+  %50 = and i8 %49, 15
+  %cmp24.i.i = icmp eq i8 %50, 0
   %key_tt.i.i39.i = getelementptr inbounds i8, ptr %n.028.i.i, i64 9
-  %53 = load i8, ptr %key_tt.i.i39.i, align 1
-  %54 = and i8 %53, 64
-  %tobool.not.i.i40.i = icmp eq i8 %54, 0
+  %51 = load i8, ptr %key_tt.i.i39.i, align 1
+  %52 = and i8 %51, 64
+  %tobool.not.i.i40.i = icmp eq i8 %52, 0
   br i1 %cmp24.i.i, label %if.then26.i.i, label %if.else.i41.i
 
 if.then26.i.i:                                    ; preds = %for.body20.i.i
@@ -3864,34 +3868,34 @@ if.else.i41.i:                                    ; preds = %for.body20.i.i
 
 land.lhs.true30.i.i:                              ; preds = %if.else.i41.i
   %key_val.i42.i = getelementptr inbounds i8, ptr %n.028.i.i, i64 16
-  %55 = load ptr, ptr %key_val.i42.i, align 8
-  %marked31.i.i = getelementptr inbounds i8, ptr %55, i64 9
-  %56 = load i8, ptr %marked31.i.i, align 1
-  %57 = and i8 %56, 24
-  %tobool34.not.i.i = icmp eq i8 %57, 0
+  %53 = load ptr, ptr %key_val.i42.i, align 8
+  %marked31.i.i = getelementptr inbounds i8, ptr %53, i64 9
+  %54 = load i8, ptr %marked31.i.i, align 1
+  %55 = and i8 %54, 24
+  %tobool34.not.i.i = icmp eq i8 %55, 0
   br i1 %tobool34.not.i.i, label %if.end37.i.i, label %if.then35.i.i
 
 if.then35.i.i:                                    ; preds = %land.lhs.true30.i.i
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %55)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %53)
   %.pre.i.i = load i8, ptr %tt_21.i.i, align 8
   br label %if.end37.i.i
 
 if.end37.i.i:                                     ; preds = %if.then35.i.i, %land.lhs.true30.i.i, %if.else.i41.i
-  %58 = phi i8 [ %.pre.i.i, %if.then35.i.i ], [ %51, %land.lhs.true30.i.i ], [ %51, %if.else.i41.i ]
-  %59 = and i8 %58, 64
-  %tobool42.not.i.i = icmp eq i8 %59, 0
+  %56 = phi i8 [ %.pre.i.i, %if.then35.i.i ], [ %49, %land.lhs.true30.i.i ], [ %49, %if.else.i41.i ]
+  %57 = and i8 %56, 64
+  %tobool42.not.i.i = icmp eq i8 %57, 0
   br i1 %tobool42.not.i.i, label %for.inc53.i.i, label %land.lhs.true43.i.i
 
 land.lhs.true43.i.i:                              ; preds = %if.end37.i.i
-  %60 = load ptr, ptr %n.028.i.i, align 8
-  %marked45.i.i = getelementptr inbounds i8, ptr %60, i64 9
-  %61 = load i8, ptr %marked45.i.i, align 1
-  %62 = and i8 %61, 24
-  %tobool48.not.i.i = icmp eq i8 %62, 0
+  %58 = load ptr, ptr %n.028.i.i, align 8
+  %marked45.i.i = getelementptr inbounds i8, ptr %58, i64 9
+  %59 = load i8, ptr %marked45.i.i, align 1
+  %60 = and i8 %59, 24
+  %tobool48.not.i.i = icmp eq i8 %60, 0
   br i1 %tobool48.not.i.i, label %for.inc53.i.i, label %if.then49.i.i
 
 if.then49.i.i:                                    ; preds = %land.lhs.true43.i.i
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %60)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %58)
   br label %for.inc53.i.i
 
 for.inc53.i.i:                                    ; preds = %if.then49.i.i, %land.lhs.true43.i.i, %if.end37.i.i, %if.then.i.i44.i, %if.then26.i.i
@@ -3900,16 +3904,16 @@ for.inc53.i.i:                                    ; preds = %if.then49.i.i, %lan
   br i1 %cmp18.i.i, label %for.body20.i.i, label %for.end54.i.i, !llvm.loop !34
 
 for.end54.i.i:                                    ; preds = %for.inc53.i.i, %for.end.i.i
-  %63 = load i8, ptr %marked, align 1
-  %64 = and i8 %63, 7
-  switch i8 %64, label %if.end37.i [
+  %61 = load i8, ptr %marked, align 1
+  %62 = and i8 %61, 7
+  switch i8 %62, label %if.end37.i [
     i8 5, label %if.then.i24.i.i
     i8 6, label %if.then7.i.i.i
   ]
 
 if.then.i24.i.i:                                  ; preds = %for.end54.i.i
-  %65 = load i8, ptr %tt.i, align 8
-  switch i8 %65, label %unreachable.i.i.i [
+  %63 = load i8, ptr %tt.i, align 8
+  switch i8 %63, label %unreachable.i.i.i [
     i8 5, label %getgclist.exit.i.i.i
     i8 6, label %sw.bb1.i.i.i.i
     i8 38, label %sw.bb3.i.i.i.i
@@ -3940,65 +3944,65 @@ getgclist.exit.i.i.i:                             ; preds = %sw.bb9.i.i.i.i, %sw
   %.sink.i.i.i = phi i64 [ 16, %sw.bb1.i.i.i.i ], [ 16, %sw.bb3.i.i.i.i ], [ 72, %sw.bb5.i.i.i.i ], [ 120, %sw.bb7.i.i.i.i ], [ 32, %sw.bb9.i.i.i.i ], [ 48, %if.then.i24.i.i ]
   %gclist.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i.i
   %grayagain.i.i.i = getelementptr inbounds i8, ptr %g, i64 144
-  %66 = load ptr, ptr %grayagain.i.i.i, align 8
-  store ptr %66, ptr %gclist.i.i.i.i, align 8
+  %64 = load ptr, ptr %grayagain.i.i.i, align 8
+  store ptr %64, ptr %gclist.i.i.i.i, align 8
   store ptr %0, ptr %grayagain.i.i.i, align 8
-  %67 = load i8, ptr %marked, align 1
-  %68 = and i8 %67, -57
+  %65 = load i8, ptr %marked, align 1
+  %66 = and i8 %65, -57
   br label %if.end11.sink.split.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %for.end54.i.i
-  %xor.i.i.i = and i8 %63, -4
+  %xor.i.i.i = and i8 %61, -4
   br label %if.end11.sink.split.i.i.i
 
 if.end11.sink.split.i.i.i:                        ; preds = %if.then7.i.i.i, %getgclist.exit.i.i.i
-  %xor.sink.i.i.i = phi i8 [ %xor.i.i.i, %if.then7.i.i.i ], [ %68, %getgclist.exit.i.i.i ]
+  %xor.sink.i.i.i = phi i8 [ %xor.i.i.i, %if.then7.i.i.i ], [ %66, %getgclist.exit.i.i.i ]
   store i8 %xor.sink.i.i.i, ptr %marked, align 1
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end11.sink.split.i.i.i, %for.end54.i.i, %if.else33.i, %if.then31.i, %traverseweakvalue.exit.i
   %alimit.i = getelementptr inbounds i8, ptr %0, i64 12
-  %69 = load i32, ptr %alimit.i, align 4
+  %67 = load i32, ptr %alimit.i, align 4
   %lastfree.i = getelementptr inbounds i8, ptr %0, i64 32
-  %70 = load ptr, ptr %lastfree.i, align 8
-  %cmp38.i = icmp eq ptr %70, null
+  %68 = load ptr, ptr %lastfree.i, align 8
+  %cmp38.i = icmp eq ptr %68, null
   br i1 %cmp38.i, label %traversetable.exit, label %cond.false41.i
 
 cond.false41.i:                                   ; preds = %if.end37.i
   %lsizenode.i = getelementptr inbounds i8, ptr %0, i64 11
-  %71 = load i8, ptr %lsizenode.i, align 1
-  %conv42.i = zext nneg i8 %71 to i32
-  %72 = shl i32 2, %conv42.i
+  %69 = load i8, ptr %lsizenode.i, align 1
+  %conv42.i = zext nneg i8 %69 to i32
+  %70 = shl i32 2, %conv42.i
   br label %traversetable.exit
 
 traversetable.exit:                               ; preds = %if.end37.i, %cond.false41.i
-  %cond44.i = phi i32 [ %72, %cond.false41.i ], [ 0, %if.end37.i ]
-  %add.i = add i32 %69, 1
+  %cond44.i = phi i32 [ %70, %cond.false41.i ], [ 0, %if.end37.i ]
+  %add.i = add i32 %67, 1
   %add45.i = add i32 %add.i, %cond44.i
   %conv46.i = zext i32 %add45.i to i64
   br label %return
 
 sw.bb5:                                           ; preds = %getgclist.exit
   %metatable.i17 = getelementptr inbounds i8, ptr %0, i64 24
-  %73 = load ptr, ptr %metatable.i17, align 8
-  %tobool.not.i18 = icmp eq ptr %73, null
+  %71 = load ptr, ptr %metatable.i17, align 8
+  %tobool.not.i18 = icmp eq ptr %71, null
   br i1 %tobool.not.i18, label %if.end5.i, label %if.then.i19
 
 if.then.i19:                                      ; preds = %sw.bb5
-  %marked.i20 = getelementptr inbounds i8, ptr %73, i64 9
-  %74 = load i8, ptr %marked.i20, align 1
-  %75 = and i8 %74, 24
-  %tobool2.not.i = icmp eq i8 %75, 0
+  %marked.i20 = getelementptr inbounds i8, ptr %71, i64 9
+  %72 = load i8, ptr %marked.i20, align 1
+  %73 = and i8 %72, 24
+  %tobool2.not.i = icmp eq i8 %73, 0
   br i1 %tobool2.not.i, label %if.end5.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i19
-  tail call fastcc void @reallymarkobject(ptr noundef nonnull %g, ptr noundef nonnull %73)
+  tail call fastcc void @reallymarkobject(ptr noundef nonnull %g, ptr noundef nonnull %71)
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.then.i19, %sw.bb5
   %nuvalue.i = getelementptr inbounds i8, ptr %0, i64 10
-  %76 = load i16, ptr %nuvalue.i, align 2
-  %cmp16.not.i = icmp eq i16 %76, 0
+  %74 = load i16, ptr %nuvalue.i, align 2
+  %cmp16.not.i = icmp eq i16 %74, 0
   br i1 %cmp16.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end5.i
@@ -4006,47 +4010,47 @@ for.body.lr.ph.i:                                 ; preds = %if.end5.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %77 = phi i16 [ %76, %for.body.lr.ph.i ], [ %83, %for.inc.i ]
+  %75 = phi i16 [ %74, %for.body.lr.ph.i ], [ %81, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i21 = getelementptr inbounds [1 x %union.UValue], ptr %uv.i, i64 0, i64 %indvars.iv.i
   %tt_.i22 = getelementptr inbounds i8, ptr %arrayidx.i21, i64 8
-  %78 = load i8, ptr %tt_.i22, align 8
-  %79 = and i8 %78, 64
-  %tobool10.not.i = icmp eq i8 %79, 0
+  %76 = load i8, ptr %tt_.i22, align 8
+  %77 = and i8 %76, 64
+  %tobool10.not.i = icmp eq i8 %77, 0
   br i1 %tobool10.not.i, label %for.inc.i, label %land.lhs.true.i23
 
 land.lhs.true.i23:                                ; preds = %for.body.i
-  %80 = load ptr, ptr %arrayidx.i21, align 8
-  %marked14.i = getelementptr inbounds i8, ptr %80, i64 9
-  %81 = load i8, ptr %marked14.i, align 1
-  %82 = and i8 %81, 24
-  %tobool17.not.i = icmp eq i8 %82, 0
+  %78 = load ptr, ptr %arrayidx.i21, align 8
+  %marked14.i = getelementptr inbounds i8, ptr %78, i64 9
+  %79 = load i8, ptr %marked14.i, align 1
+  %80 = and i8 %79, 24
+  %tobool17.not.i = icmp eq i8 %80, 0
   br i1 %tobool17.not.i, label %for.inc.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %land.lhs.true.i23
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %80)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %78)
   %.pre.i = load i16, ptr %nuvalue.i, align 2
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then18.i, %land.lhs.true.i23, %for.body.i
-  %83 = phi i16 [ %77, %for.body.i ], [ %77, %land.lhs.true.i23 ], [ %.pre.i, %if.then18.i ]
+  %81 = phi i16 [ %75, %for.body.i ], [ %75, %land.lhs.true.i23 ], [ %.pre.i, %if.then18.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %84 = zext i16 %83 to i64
-  %cmp.i24 = icmp ult i64 %indvars.iv.next.i, %84
+  %82 = zext i16 %81 to i64
+  %cmp.i24 = icmp ult i64 %indvars.iv.next.i, %82
   br i1 %cmp.i24, label %for.body.i, label %for.end.i, !llvm.loop !35
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end5.i
-  %.pre1921.i = phi i16 [ 0, %if.end5.i ], [ %83, %for.inc.i ]
-  %85 = load i8, ptr %marked, align 1
-  %86 = and i8 %85, 7
-  switch i8 %86, label %traverseudata.exit [
+  %.pre1921.i = phi i16 [ 0, %if.end5.i ], [ %81, %for.inc.i ]
+  %83 = load i8, ptr %marked, align 1
+  %84 = and i8 %83, 7
+  switch i8 %84, label %traverseudata.exit [
     i8 5, label %if.then.i.i27
     i8 6, label %if.then7.i.i
   ]
 
 if.then.i.i27:                                    ; preds = %for.end.i
-  %87 = load i8, ptr %tt.i, align 8
-  switch i8 %87, label %unreachable.i.i [
+  %85 = load i8, ptr %tt.i, align 8
+  switch i8 %85, label %unreachable.i.i [
     i8 5, label %getgclist.exit.i.i
     i8 6, label %sw.bb1.i.i.i
     i8 38, label %sw.bb3.i.i.i
@@ -4077,51 +4081,51 @@ getgclist.exit.i.i:                               ; preds = %sw.bb9.i.i.i, %sw.b
   %.sink.i.i = phi i64 [ 16, %sw.bb1.i.i.i ], [ 16, %sw.bb3.i.i.i ], [ 72, %sw.bb5.i.i.i ], [ 120, %sw.bb7.i.i.i ], [ 32, %sw.bb9.i.i.i ], [ 48, %if.then.i.i27 ]
   %gclist.i.i.i = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i
   %grayagain.i.i29 = getelementptr inbounds i8, ptr %g, i64 144
-  %88 = load ptr, ptr %grayagain.i.i29, align 8
-  store ptr %88, ptr %gclist.i.i.i, align 8
+  %86 = load ptr, ptr %grayagain.i.i29, align 8
+  store ptr %86, ptr %gclist.i.i.i, align 8
   store ptr %0, ptr %grayagain.i.i29, align 8
-  %89 = load i8, ptr %marked, align 1
-  %90 = and i8 %89, -57
+  %87 = load i8, ptr %marked, align 1
+  %88 = and i8 %87, -57
   %.pre19.pre.i = load i16, ptr %nuvalue.i, align 2
   br label %if.end11.sink.split.i.i
 
 if.then7.i.i:                                     ; preds = %for.end.i
-  %xor.i.i = and i8 %85, -4
+  %xor.i.i = and i8 %83, -4
   br label %if.end11.sink.split.i.i
 
 if.end11.sink.split.i.i:                          ; preds = %if.then7.i.i, %getgclist.exit.i.i
   %.pre19.i = phi i16 [ %.pre1921.i, %if.then7.i.i ], [ %.pre19.pre.i, %getgclist.exit.i.i ]
-  %xor.sink.i.i = phi i8 [ %xor.i.i, %if.then7.i.i ], [ %90, %getgclist.exit.i.i ]
+  %xor.sink.i.i = phi i8 [ %xor.i.i, %if.then7.i.i ], [ %88, %getgclist.exit.i.i ]
   store i8 %xor.sink.i.i, ptr %marked, align 1
   br label %traverseudata.exit
 
 traverseudata.exit:                               ; preds = %for.end.i, %if.end11.sink.split.i.i
-  %91 = phi i16 [ %.pre1921.i, %for.end.i ], [ %.pre19.i, %if.end11.sink.split.i.i ]
-  %conv25.i = zext i16 %91 to i64
+  %89 = phi i16 [ %.pre1921.i, %for.end.i ], [ %.pre19.i, %if.end11.sink.split.i.i ]
+  %conv25.i = zext i16 %89 to i64
   %add.i26 = add nuw nsw i64 %conv25.i, 1
   br label %return
 
 sw.bb8:                                           ; preds = %getgclist.exit
   %p.i = getelementptr inbounds i8, ptr %0, i64 24
-  %92 = load ptr, ptr %p.i, align 8
-  %tobool.not.i30 = icmp eq ptr %92, null
+  %90 = load ptr, ptr %p.i, align 8
+  %tobool.not.i30 = icmp eq ptr %90, null
   br i1 %tobool.not.i30, label %if.end5.i35, label %if.then.i31
 
 if.then.i31:                                      ; preds = %sw.bb8
-  %marked.i32 = getelementptr inbounds i8, ptr %92, i64 9
-  %93 = load i8, ptr %marked.i32, align 1
-  %94 = and i8 %93, 24
-  %tobool2.not.i33 = icmp eq i8 %94, 0
+  %marked.i32 = getelementptr inbounds i8, ptr %90, i64 9
+  %91 = load i8, ptr %marked.i32, align 1
+  %92 = and i8 %91, 24
+  %tobool2.not.i33 = icmp eq i8 %92, 0
   br i1 %tobool2.not.i33, label %if.end5.i35, label %if.then3.i34
 
 if.then3.i34:                                     ; preds = %if.then.i31
-  tail call fastcc void @reallymarkobject(ptr noundef nonnull %g, ptr noundef nonnull %92)
+  tail call fastcc void @reallymarkobject(ptr noundef nonnull %g, ptr noundef nonnull %90)
   br label %if.end5.i35
 
 if.end5.i35:                                      ; preds = %if.then3.i34, %if.then.i31, %sw.bb8
   %nupvalues.i = getelementptr inbounds i8, ptr %0, i64 10
-  %95 = load i8, ptr %nupvalues.i, align 2
-  %cmp13.not.i = icmp eq i8 %95, 0
+  %93 = load i8, ptr %nupvalues.i, align 2
+  %cmp13.not.i = icmp eq i8 %93, 0
   br i1 %cmp13.not.i, label %return, label %for.body.lr.ph.i36
 
 for.body.lr.ph.i36:                               ; preds = %if.end5.i35
@@ -4129,41 +4133,41 @@ for.body.lr.ph.i36:                               ; preds = %if.end5.i35
   br label %for.body.i37
 
 for.body.i37:                                     ; preds = %for.inc.i42, %for.body.lr.ph.i36
-  %96 = phi i8 [ %95, %for.body.lr.ph.i36 ], [ %100, %for.inc.i42 ]
+  %94 = phi i8 [ %93, %for.body.lr.ph.i36 ], [ %98, %for.inc.i42 ]
   %indvars.iv.i38 = phi i64 [ 0, %for.body.lr.ph.i36 ], [ %indvars.iv.next.i43, %for.inc.i42 ]
   %arrayidx.i39 = getelementptr inbounds [1 x ptr], ptr %upvals.i, i64 0, i64 %indvars.iv.i38
-  %97 = load ptr, ptr %arrayidx.i39, align 8
-  %tobool8.not.i40 = icmp eq ptr %97, null
+  %95 = load ptr, ptr %arrayidx.i39, align 8
+  %tobool8.not.i40 = icmp eq ptr %95, null
   br i1 %tobool8.not.i40, label %for.inc.i42, label %if.then9.i
 
 if.then9.i:                                       ; preds = %for.body.i37
-  %marked10.i = getelementptr inbounds i8, ptr %97, i64 9
-  %98 = load i8, ptr %marked10.i, align 1
-  %99 = and i8 %98, 24
-  %tobool13.not.i = icmp eq i8 %99, 0
+  %marked10.i = getelementptr inbounds i8, ptr %95, i64 9
+  %96 = load i8, ptr %marked10.i, align 1
+  %97 = and i8 %96, 24
+  %tobool13.not.i = icmp eq i8 %97, 0
   br i1 %tobool13.not.i, label %for.inc.i42, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.then9.i
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %97)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %95)
   %.pre.i41 = load i8, ptr %nupvalues.i, align 2
   br label %for.inc.i42
 
 for.inc.i42:                                      ; preds = %if.then14.i, %if.then9.i, %for.body.i37
-  %100 = phi i8 [ %96, %for.body.i37 ], [ %.pre.i41, %if.then14.i ], [ %96, %if.then9.i ]
+  %98 = phi i8 [ %94, %for.body.i37 ], [ %.pre.i41, %if.then14.i ], [ %94, %if.then9.i ]
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i38, 1
-  %101 = zext i8 %100 to i64
-  %cmp.i44 = icmp ult i64 %indvars.iv.next.i43, %101
+  %99 = zext i8 %98 to i64
+  %cmp.i44 = icmp ult i64 %indvars.iv.next.i43, %99
   br i1 %cmp.i44, label %for.body.i37, label %traverseLclosure.exit.loopexit, !llvm.loop !36
 
 traverseLclosure.exit.loopexit:                   ; preds = %for.inc.i42
-  %102 = zext i8 %100 to i64
-  %103 = add nuw nsw i64 %102, 1
+  %100 = zext i8 %98 to i64
+  %101 = add nuw nsw i64 %100, 1
   br label %return
 
 sw.bb11:                                          ; preds = %getgclist.exit
   %nupvalues.i47 = getelementptr inbounds i8, ptr %0, i64 10
-  %104 = load i8, ptr %nupvalues.i47, align 2
-  %cmp10.not.i = icmp eq i8 %104, 0
+  %102 = load i8, ptr %nupvalues.i47, align 2
+  %cmp10.not.i = icmp eq i8 %102, 0
   br i1 %cmp10.not.i, label %return, label %for.body.lr.ph.i48
 
 for.body.lr.ph.i48:                               ; preds = %sw.bb11
@@ -4171,61 +4175,61 @@ for.body.lr.ph.i48:                               ; preds = %sw.bb11
   br label %for.body.i49
 
 for.body.i49:                                     ; preds = %for.inc.i59, %for.body.lr.ph.i48
-  %105 = phi i8 [ %104, %for.body.lr.ph.i48 ], [ %111, %for.inc.i59 ]
+  %103 = phi i8 [ %102, %for.body.lr.ph.i48 ], [ %109, %for.inc.i59 ]
   %indvars.iv.i50 = phi i64 [ 0, %for.body.lr.ph.i48 ], [ %indvars.iv.next.i60, %for.inc.i59 ]
   %arrayidx.i51 = getelementptr inbounds [1 x %struct.TValue], ptr %upvalue.i, i64 0, i64 %indvars.iv.i50
   %tt_.i52 = getelementptr inbounds i8, ptr %arrayidx.i51, i64 8
-  %106 = load i8, ptr %tt_.i52, align 8
-  %107 = and i8 %106, 64
-  %tobool.not.i53 = icmp eq i8 %107, 0
+  %104 = load i8, ptr %tt_.i52, align 8
+  %105 = and i8 %104, 64
+  %tobool.not.i53 = icmp eq i8 %105, 0
   br i1 %tobool.not.i53, label %for.inc.i59, label %land.lhs.true.i54
 
 land.lhs.true.i54:                                ; preds = %for.body.i49
-  %108 = load ptr, ptr %arrayidx.i51, align 8
-  %marked.i55 = getelementptr inbounds i8, ptr %108, i64 9
-  %109 = load i8, ptr %marked.i55, align 1
-  %110 = and i8 %109, 24
-  %tobool8.not.i56 = icmp eq i8 %110, 0
+  %106 = load ptr, ptr %arrayidx.i51, align 8
+  %marked.i55 = getelementptr inbounds i8, ptr %106, i64 9
+  %107 = load i8, ptr %marked.i55, align 1
+  %108 = and i8 %107, 24
+  %tobool8.not.i56 = icmp eq i8 %108, 0
   br i1 %tobool8.not.i56, label %for.inc.i59, label %if.then.i57
 
 if.then.i57:                                      ; preds = %land.lhs.true.i54
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %108)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %106)
   %.pre.i58 = load i8, ptr %nupvalues.i47, align 2
   br label %for.inc.i59
 
 for.inc.i59:                                      ; preds = %if.then.i57, %land.lhs.true.i54, %for.body.i49
-  %111 = phi i8 [ %105, %for.body.i49 ], [ %105, %land.lhs.true.i54 ], [ %.pre.i58, %if.then.i57 ]
+  %109 = phi i8 [ %103, %for.body.i49 ], [ %103, %land.lhs.true.i54 ], [ %.pre.i58, %if.then.i57 ]
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i50, 1
-  %112 = zext i8 %111 to i64
-  %cmp.i61 = icmp ult i64 %indvars.iv.next.i60, %112
+  %110 = zext i8 %109 to i64
+  %cmp.i61 = icmp ult i64 %indvars.iv.next.i60, %110
   br i1 %cmp.i61, label %for.body.i49, label %traverseCclosure.exit.loopexit, !llvm.loop !37
 
 traverseCclosure.exit.loopexit:                   ; preds = %for.inc.i59
-  %113 = zext i8 %111 to i64
-  %114 = add nuw nsw i64 %113, 1
+  %111 = zext i8 %109 to i64
+  %112 = add nuw nsw i64 %111, 1
   br label %return
 
 sw.bb14:                                          ; preds = %getgclist.exit
   %source.i = getelementptr inbounds i8, ptr %0, i64 112
-  %115 = load ptr, ptr %source.i, align 8
-  %tobool.not.i64 = icmp eq ptr %115, null
+  %113 = load ptr, ptr %source.i, align 8
+  %tobool.not.i64 = icmp eq ptr %113, null
   br i1 %tobool.not.i64, label %if.end5.i69, label %if.then.i65
 
 if.then.i65:                                      ; preds = %sw.bb14
-  %marked.i66 = getelementptr inbounds i8, ptr %115, i64 9
-  %116 = load i8, ptr %marked.i66, align 1
-  %117 = and i8 %116, 24
-  %tobool2.not.i67 = icmp eq i8 %117, 0
+  %marked.i66 = getelementptr inbounds i8, ptr %113, i64 9
+  %114 = load i8, ptr %marked.i66, align 1
+  %115 = and i8 %114, 24
+  %tobool2.not.i67 = icmp eq i8 %115, 0
   br i1 %tobool2.not.i67, label %if.end5.i69, label %if.then3.i68
 
 if.then3.i68:                                     ; preds = %if.then.i65
-  tail call fastcc void @reallymarkobject(ptr noundef nonnull %g, ptr noundef nonnull %115)
+  tail call fastcc void @reallymarkobject(ptr noundef nonnull %g, ptr noundef nonnull %113)
   br label %if.end5.i69
 
 if.end5.i69:                                      ; preds = %if.then3.i68, %if.then.i65, %sw.bb14
   %sizek.i = getelementptr inbounds i8, ptr %0, i64 20
-  %118 = load i32, ptr %sizek.i, align 4
-  %cmp51.i = icmp sgt i32 %118, 0
+  %116 = load i32, ptr %sizek.i, align 4
+  %cmp51.i = icmp sgt i32 %116, 0
   br i1 %cmp51.i, label %for.body.lr.ph.i72, label %for.cond23.preheader.i
 
 for.body.lr.ph.i72:                               ; preds = %if.end5.i69
@@ -4234,8 +4238,8 @@ for.body.lr.ph.i72:                               ; preds = %if.end5.i69
 
 for.cond23.preheader.i:                           ; preds = %for.inc.i80, %if.end5.i69
   %sizeupvalues.i = getelementptr inbounds i8, ptr %0, i64 16
-  %119 = load i32, ptr %sizeupvalues.i, align 8
-  %cmp2453.i = icmp sgt i32 %119, 0
+  %117 = load i32, ptr %sizeupvalues.i, align 8
+  %cmp2453.i = icmp sgt i32 %117, 0
   br i1 %cmp2453.i, label %for.body26.lr.ph.i, label %for.cond49.preheader.i
 
 for.body26.lr.ph.i:                               ; preds = %for.cond23.preheader.i
@@ -4243,40 +4247,40 @@ for.body26.lr.ph.i:                               ; preds = %for.cond23.preheade
   br label %for.body26.i
 
 for.body.i73:                                     ; preds = %for.inc.i80, %for.body.lr.ph.i72
-  %120 = phi i32 [ %118, %for.body.lr.ph.i72 ], [ %127, %for.inc.i80 ]
+  %118 = phi i32 [ %116, %for.body.lr.ph.i72 ], [ %125, %for.inc.i80 ]
   %indvars.iv.i74 = phi i64 [ 0, %for.body.lr.ph.i72 ], [ %indvars.iv.next.i81, %for.inc.i80 ]
-  %121 = load ptr, ptr %k.i, align 8
-  %arrayidx.i75 = getelementptr inbounds %struct.TValue, ptr %121, i64 %indvars.iv.i74
+  %119 = load ptr, ptr %k.i, align 8
+  %arrayidx.i75 = getelementptr inbounds %struct.TValue, ptr %119, i64 %indvars.iv.i74
   %tt_.i76 = getelementptr inbounds i8, ptr %arrayidx.i75, i64 8
-  %122 = load i8, ptr %tt_.i76, align 8
-  %123 = and i8 %122, 64
-  %tobool9.not.i = icmp eq i8 %123, 0
+  %120 = load i8, ptr %tt_.i76, align 8
+  %121 = and i8 %120, 64
+  %tobool9.not.i = icmp eq i8 %121, 0
   br i1 %tobool9.not.i, label %for.inc.i80, label %land.lhs.true.i77
 
 land.lhs.true.i77:                                ; preds = %for.body.i73
-  %124 = load ptr, ptr %arrayidx.i75, align 8
-  %marked13.i = getelementptr inbounds i8, ptr %124, i64 9
-  %125 = load i8, ptr %marked13.i, align 1
-  %126 = and i8 %125, 24
-  %tobool16.not.i78 = icmp eq i8 %126, 0
+  %122 = load ptr, ptr %arrayidx.i75, align 8
+  %marked13.i = getelementptr inbounds i8, ptr %122, i64 9
+  %123 = load i8, ptr %marked13.i, align 1
+  %124 = and i8 %123, 24
+  %tobool16.not.i78 = icmp eq i8 %124, 0
   br i1 %tobool16.not.i78, label %for.inc.i80, label %if.then17.i
 
 if.then17.i:                                      ; preds = %land.lhs.true.i77
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %124)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %122)
   %.pre.i79 = load i32, ptr %sizek.i, align 4
   br label %for.inc.i80
 
 for.inc.i80:                                      ; preds = %if.then17.i, %land.lhs.true.i77, %for.body.i73
-  %127 = phi i32 [ %120, %for.body.i73 ], [ %120, %land.lhs.true.i77 ], [ %.pre.i79, %if.then17.i ]
+  %125 = phi i32 [ %118, %for.body.i73 ], [ %118, %land.lhs.true.i77 ], [ %.pre.i79, %if.then17.i ]
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i74, 1
-  %128 = sext i32 %127 to i64
-  %cmp.i82 = icmp slt i64 %indvars.iv.next.i81, %128
+  %126 = sext i32 %125 to i64
+  %cmp.i82 = icmp slt i64 %indvars.iv.next.i81, %126
   br i1 %cmp.i82, label %for.body.i73, label %for.cond23.preheader.i, !llvm.loop !38
 
 for.cond49.preheader.i:                           ; preds = %for.inc46.i, %for.cond23.preheader.i
   %sizep.i = getelementptr inbounds i8, ptr %0, i64 32
-  %129 = load i32, ptr %sizep.i, align 8
-  %cmp5055.i = icmp sgt i32 %129, 0
+  %127 = load i32, ptr %sizep.i, align 8
+  %cmp5055.i = icmp sgt i32 %127, 0
   br i1 %cmp5055.i, label %for.body52.lr.ph.i, label %for.cond73.preheader.i
 
 for.body52.lr.ph.i:                               ; preds = %for.cond49.preheader.i
@@ -4284,38 +4288,38 @@ for.body52.lr.ph.i:                               ; preds = %for.cond49.preheade
   br label %for.body52.i
 
 for.body26.i:                                     ; preds = %for.inc46.i, %for.body26.lr.ph.i
-  %130 = phi i32 [ %119, %for.body26.lr.ph.i ], [ %135, %for.inc46.i ]
+  %128 = phi i32 [ %117, %for.body26.lr.ph.i ], [ %133, %for.inc46.i ]
   %indvars.iv61.i = phi i64 [ 0, %for.body26.lr.ph.i ], [ %indvars.iv.next62.i, %for.inc46.i ]
-  %131 = load ptr, ptr %upvalues.i, align 8
-  %arrayidx28.i = getelementptr inbounds %struct.Upvaldesc, ptr %131, i64 %indvars.iv61.i
-  %132 = load ptr, ptr %arrayidx28.i, align 8
-  %tobool29.not.i = icmp eq ptr %132, null
+  %129 = load ptr, ptr %upvalues.i, align 8
+  %arrayidx28.i = getelementptr inbounds %struct.Upvaldesc, ptr %129, i64 %indvars.iv61.i
+  %130 = load ptr, ptr %arrayidx28.i, align 8
+  %tobool29.not.i = icmp eq ptr %130, null
   br i1 %tobool29.not.i, label %for.inc46.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %for.body26.i
-  %marked35.i = getelementptr inbounds i8, ptr %132, i64 9
-  %133 = load i8, ptr %marked35.i, align 1
-  %134 = and i8 %133, 24
-  %tobool38.not.i = icmp eq i8 %134, 0
+  %marked35.i = getelementptr inbounds i8, ptr %130, i64 9
+  %131 = load i8, ptr %marked35.i, align 1
+  %132 = and i8 %131, 24
+  %tobool38.not.i = icmp eq i8 %132, 0
   br i1 %tobool38.not.i, label %for.inc46.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %if.then30.i
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %132)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %130)
   %.pre70.i = load i32, ptr %sizeupvalues.i, align 8
   br label %for.inc46.i
 
 for.inc46.i:                                      ; preds = %if.then39.i, %if.then30.i, %for.body26.i
-  %135 = phi i32 [ %130, %for.body26.i ], [ %.pre70.i, %if.then39.i ], [ %130, %if.then30.i ]
+  %133 = phi i32 [ %128, %for.body26.i ], [ %.pre70.i, %if.then39.i ], [ %128, %if.then30.i ]
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %136 = sext i32 %135 to i64
-  %cmp24.i = icmp slt i64 %indvars.iv.next62.i, %136
+  %134 = sext i32 %133 to i64
+  %cmp24.i = icmp slt i64 %indvars.iv.next62.i, %134
   br i1 %cmp24.i, label %for.body26.i, label %for.cond49.preheader.i, !llvm.loop !39
 
 for.cond73.preheader.i:                           ; preds = %for.inc70.i, %for.cond49.preheader.i
-  %137 = phi i32 [ %129, %for.cond49.preheader.i ], [ %144, %for.inc70.i ]
+  %135 = phi i32 [ %127, %for.cond49.preheader.i ], [ %142, %for.inc70.i ]
   %sizelocvars.i = getelementptr inbounds i8, ptr %0, i64 36
-  %138 = load i32, ptr %sizelocvars.i, align 4
-  %cmp7457.i = icmp sgt i32 %138, 0
+  %136 = load i32, ptr %sizelocvars.i, align 4
+  %cmp7457.i = icmp sgt i32 %136, 0
   br i1 %cmp7457.i, label %for.body76.lr.ph.i, label %traverseproto.exit
 
 for.body76.lr.ph.i:                               ; preds = %for.cond73.preheader.i
@@ -4323,59 +4327,59 @@ for.body76.lr.ph.i:                               ; preds = %for.cond73.preheade
   br label %for.body76.i
 
 for.body52.i:                                     ; preds = %for.inc70.i, %for.body52.lr.ph.i
-  %139 = phi i32 [ %129, %for.body52.lr.ph.i ], [ %144, %for.inc70.i ]
+  %137 = phi i32 [ %127, %for.body52.lr.ph.i ], [ %142, %for.inc70.i ]
   %indvars.iv64.i = phi i64 [ 0, %for.body52.lr.ph.i ], [ %indvars.iv.next65.i, %for.inc70.i ]
-  %140 = load ptr, ptr %p.i71, align 8
-  %arrayidx54.i = getelementptr inbounds ptr, ptr %140, i64 %indvars.iv64.i
-  %141 = load ptr, ptr %arrayidx54.i, align 8
-  %tobool55.not.i = icmp eq ptr %141, null
+  %138 = load ptr, ptr %p.i71, align 8
+  %arrayidx54.i = getelementptr inbounds ptr, ptr %138, i64 %indvars.iv64.i
+  %139 = load ptr, ptr %arrayidx54.i, align 8
+  %tobool55.not.i = icmp eq ptr %139, null
   br i1 %tobool55.not.i, label %for.inc70.i, label %if.then56.i
 
 if.then56.i:                                      ; preds = %for.body52.i
-  %marked60.i = getelementptr inbounds i8, ptr %141, i64 9
-  %142 = load i8, ptr %marked60.i, align 1
-  %143 = and i8 %142, 24
-  %tobool63.not.i = icmp eq i8 %143, 0
+  %marked60.i = getelementptr inbounds i8, ptr %139, i64 9
+  %140 = load i8, ptr %marked60.i, align 1
+  %141 = and i8 %140, 24
+  %tobool63.not.i = icmp eq i8 %141, 0
   br i1 %tobool63.not.i, label %for.inc70.i, label %if.then64.i
 
 if.then64.i:                                      ; preds = %if.then56.i
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %141)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %139)
   %.pre71.i = load i32, ptr %sizep.i, align 8
   br label %for.inc70.i
 
 for.inc70.i:                                      ; preds = %if.then64.i, %if.then56.i, %for.body52.i
-  %144 = phi i32 [ %139, %for.body52.i ], [ %.pre71.i, %if.then64.i ], [ %139, %if.then56.i ]
+  %142 = phi i32 [ %137, %for.body52.i ], [ %.pre71.i, %if.then64.i ], [ %137, %if.then56.i ]
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %145 = sext i32 %144 to i64
-  %cmp50.i = icmp slt i64 %indvars.iv.next65.i, %145
+  %143 = sext i32 %142 to i64
+  %cmp50.i = icmp slt i64 %indvars.iv.next65.i, %143
   br i1 %cmp50.i, label %for.body52.i, label %for.cond73.preheader.i, !llvm.loop !40
 
 for.body76.i:                                     ; preds = %for.inc96.i, %for.body76.lr.ph.i
-  %146 = phi i32 [ %138, %for.body76.lr.ph.i ], [ %151, %for.inc96.i ]
+  %144 = phi i32 [ %136, %for.body76.lr.ph.i ], [ %149, %for.inc96.i ]
   %indvars.iv67.i = phi i64 [ 0, %for.body76.lr.ph.i ], [ %indvars.iv.next68.i, %for.inc96.i ]
-  %147 = load ptr, ptr %locvars.i, align 8
-  %arrayidx78.i = getelementptr inbounds %struct.LocVar, ptr %147, i64 %indvars.iv67.i
-  %148 = load ptr, ptr %arrayidx78.i, align 8
-  %tobool79.not.i = icmp eq ptr %148, null
+  %145 = load ptr, ptr %locvars.i, align 8
+  %arrayidx78.i = getelementptr inbounds %struct.LocVar, ptr %145, i64 %indvars.iv67.i
+  %146 = load ptr, ptr %arrayidx78.i, align 8
+  %tobool79.not.i = icmp eq ptr %146, null
   br i1 %tobool79.not.i, label %for.inc96.i, label %if.then80.i
 
 if.then80.i:                                      ; preds = %for.body76.i
-  %marked85.i = getelementptr inbounds i8, ptr %148, i64 9
-  %149 = load i8, ptr %marked85.i, align 1
-  %150 = and i8 %149, 24
-  %tobool88.not.i = icmp eq i8 %150, 0
+  %marked85.i = getelementptr inbounds i8, ptr %146, i64 9
+  %147 = load i8, ptr %marked85.i, align 1
+  %148 = and i8 %147, 24
+  %tobool88.not.i = icmp eq i8 %148, 0
   br i1 %tobool88.not.i, label %for.inc96.i, label %if.then89.i
 
 if.then89.i:                                      ; preds = %if.then80.i
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %148)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %146)
   %.pre72.i = load i32, ptr %sizelocvars.i, align 4
   br label %for.inc96.i
 
 for.inc96.i:                                      ; preds = %if.then89.i, %if.then80.i, %for.body76.i
-  %151 = phi i32 [ %146, %for.body76.i ], [ %.pre72.i, %if.then89.i ], [ %146, %if.then80.i ]
+  %149 = phi i32 [ %144, %for.body76.i ], [ %.pre72.i, %if.then89.i ], [ %144, %if.then80.i ]
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %152 = sext i32 %151 to i64
-  %cmp74.i = icmp slt i64 %indvars.iv.next68.i, %152
+  %150 = sext i32 %149 to i64
+  %cmp74.i = icmp slt i64 %indvars.iv.next68.i, %150
   br i1 %cmp74.i, label %for.body76.i, label %for.end98.loopexit.i, !llvm.loop !41
 
 for.end98.loopexit.i:                             ; preds = %for.inc96.i
@@ -4383,78 +4387,78 @@ for.end98.loopexit.i:                             ; preds = %for.inc96.i
   br label %traverseproto.exit
 
 traverseproto.exit:                               ; preds = %for.cond73.preheader.i, %for.end98.loopexit.i
-  %153 = phi i32 [ %137, %for.cond73.preheader.i ], [ %.pre73.i, %for.end98.loopexit.i ]
-  %.lcssa.i = phi i32 [ %138, %for.cond73.preheader.i ], [ %151, %for.end98.loopexit.i ]
-  %154 = load i32, ptr %sizek.i, align 4
-  %155 = load i32, ptr %sizeupvalues.i, align 8
-  %add.i70 = add i32 %153, 1
+  %151 = phi i32 [ %135, %for.cond73.preheader.i ], [ %.pre73.i, %for.end98.loopexit.i ]
+  %.lcssa.i = phi i32 [ %136, %for.cond73.preheader.i ], [ %149, %for.end98.loopexit.i ]
+  %152 = load i32, ptr %sizek.i, align 4
+  %153 = load i32, ptr %sizeupvalues.i, align 8
+  %add.i70 = add i32 %151, 1
   %add101.i = add i32 %add.i70, %.lcssa.i
-  %add103.i = add i32 %add101.i, %154
-  %add105.i = add i32 %add103.i, %155
+  %add103.i = add i32 %add101.i, %152
+  %add105.i = add i32 %add103.i, %153
   %conv16 = sext i32 %add105.i to i64
   br label %return
 
 sw.bb17:                                          ; preds = %getgclist.exit
   %stack.i = getelementptr inbounds i8, ptr %0, i64 48
-  %156 = load ptr, ptr %stack.i, align 8
-  %157 = load i8, ptr %marked, align 1
-  %158 = and i8 %157, 6
-  %cmp.not.i = icmp eq i8 %158, 0
+  %154 = load ptr, ptr %stack.i, align 8
+  %155 = load i8, ptr %marked, align 1
+  %156 = and i8 %155, 6
+  %cmp.not.i = icmp eq i8 %156, 0
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %if.then.i84
 
 lor.lhs.false.i:                                  ; preds = %sw.bb17
   %gcstate.i = getelementptr inbounds i8, ptr %g, i64 101
-  %159 = load i8, ptr %gcstate.i, align 1
-  %cmp3.i = icmp eq i8 %159, 0
+  %157 = load i8, ptr %gcstate.i, align 1
+  %cmp3.i = icmp eq i8 %157, 0
   br i1 %cmp3.i, label %if.then.i84, label %if.end.i
 
 if.then.i84:                                      ; preds = %lor.lhs.false.i, %sw.bb17
   %gclist.i85 = getelementptr inbounds i8, ptr %0, i64 72
   %grayagain.i = getelementptr inbounds i8, ptr %g, i64 144
-  %160 = load ptr, ptr %grayagain.i, align 8
-  store ptr %160, ptr %gclist.i85, align 8
+  %158 = load ptr, ptr %grayagain.i, align 8
+  store ptr %158, ptr %gclist.i85, align 8
   store ptr %0, ptr %grayagain.i, align 8
-  %161 = load i8, ptr %marked, align 1
-  %162 = and i8 %161, -57
-  store i8 %162, ptr %marked, align 1
+  %159 = load i8, ptr %marked, align 1
+  %160 = and i8 %159, -57
+  store i8 %160, ptr %marked, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i84, %lor.lhs.false.i
-  %cmp5.i = icmp eq ptr %156, null
+  %cmp5.i = icmp eq ptr %154, null
   br i1 %cmp5.i, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
   %top.i = getelementptr inbounds i8, ptr %0, i64 16
-  %163 = load ptr, ptr %top.i, align 8
-  %cmp934.i = icmp ult ptr %156, %163
+  %161 = load ptr, ptr %top.i, align 8
+  %cmp934.i = icmp ult ptr %154, %161
   br i1 %cmp934.i, label %for.body.i89, label %for.end.i86
 
 for.body.i89:                                     ; preds = %for.cond.preheader.i, %for.inc.i97
-  %164 = phi ptr [ %170, %for.inc.i97 ], [ %163, %for.cond.preheader.i ]
-  %o.035.i = phi ptr [ %incdec.ptr.i, %for.inc.i97 ], [ %156, %for.cond.preheader.i ]
+  %162 = phi ptr [ %168, %for.inc.i97 ], [ %161, %for.cond.preheader.i ]
+  %o.035.i = phi ptr [ %incdec.ptr.i, %for.inc.i97 ], [ %154, %for.cond.preheader.i ]
   %tt_.i90 = getelementptr inbounds i8, ptr %o.035.i, i64 8
-  %165 = load i8, ptr %tt_.i90, align 8
-  %166 = and i8 %165, 64
-  %tobool.not.i91 = icmp eq i8 %166, 0
+  %163 = load i8, ptr %tt_.i90, align 8
+  %164 = and i8 %163, 64
+  %tobool.not.i91 = icmp eq i8 %164, 0
   br i1 %tobool.not.i91, label %for.inc.i97, label %land.lhs.true.i92
 
 land.lhs.true.i92:                                ; preds = %for.body.i89
-  %167 = load ptr, ptr %o.035.i, align 8
-  %marked13.i93 = getelementptr inbounds i8, ptr %167, i64 9
-  %168 = load i8, ptr %marked13.i93, align 1
-  %169 = and i8 %168, 24
-  %tobool16.not.i94 = icmp eq i8 %169, 0
+  %165 = load ptr, ptr %o.035.i, align 8
+  %marked13.i93 = getelementptr inbounds i8, ptr %165, i64 9
+  %166 = load i8, ptr %marked13.i93, align 1
+  %167 = and i8 %166, 24
+  %tobool16.not.i94 = icmp eq i8 %167, 0
   br i1 %tobool16.not.i94, label %for.inc.i97, label %if.then17.i95
 
 if.then17.i95:                                    ; preds = %land.lhs.true.i92
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %167)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %165)
   %.pre.i96 = load ptr, ptr %top.i, align 8
   br label %for.inc.i97
 
 for.inc.i97:                                      ; preds = %if.then17.i95, %land.lhs.true.i92, %for.body.i89
-  %170 = phi ptr [ %164, %for.body.i89 ], [ %164, %land.lhs.true.i92 ], [ %.pre.i96, %if.then17.i95 ]
+  %168 = phi ptr [ %162, %for.body.i89 ], [ %162, %land.lhs.true.i92 ], [ %.pre.i96, %if.then17.i95 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %o.035.i, i64 16
-  %cmp9.i = icmp ult ptr %incdec.ptr.i, %170
+  %cmp9.i = icmp ult ptr %incdec.ptr.i, %168
   br i1 %cmp9.i, label %for.body.i89, label %for.end.i86, !llvm.loop !42
 
 for.end.i86:                                      ; preds = %for.inc.i97, %for.cond.preheader.i
@@ -4466,9 +4470,9 @@ for.end.i86:                                      ; preds = %for.inc.i97, %for.c
 for.body23.i:                                     ; preds = %for.end.i86, %for.inc30.i
   %uv.038.i = phi ptr [ %uv.0.i, %for.inc30.i ], [ %uv.036.i, %for.end.i86 ]
   %marked24.i = getelementptr inbounds i8, ptr %uv.038.i, i64 9
-  %171 = load i8, ptr %marked24.i, align 1
-  %172 = and i8 %171, 24
-  %tobool27.not.i = icmp eq i8 %172, 0
+  %169 = load i8, ptr %marked24.i, align 1
+  %170 = and i8 %169, 24
+  %tobool27.not.i = icmp eq i8 %170, 0
   br i1 %tobool27.not.i, label %for.inc30.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %for.body23.i
@@ -4483,14 +4487,14 @@ for.inc30.i:                                      ; preds = %if.then28.i, %for.b
 
 for.end31.i:                                      ; preds = %for.inc30.i, %for.end.i86
   %gcstate32.i = getelementptr inbounds i8, ptr %g, i64 101
-  %173 = load i8, ptr %gcstate32.i, align 1
-  %cmp34.i = icmp eq i8 %173, 2
+  %171 = load i8, ptr %gcstate32.i, align 1
+  %cmp34.i = icmp eq i8 %171, 2
   br i1 %cmp34.i, label %if.then36.i, label %if.end60.i
 
 if.then36.i:                                      ; preds = %for.end31.i
   %gcemergency.i = getelementptr inbounds i8, ptr %g, i64 107
-  %174 = load i8, ptr %gcemergency.i, align 1
-  %tobool37.not.i = icmp eq i8 %174, 0
+  %172 = load i8, ptr %gcemergency.i, align 1
+  %tobool37.not.i = icmp eq i8 %172, 0
   br i1 %tobool37.not.i, label %if.then38.i, label %if.end39.i
 
 if.then38.i:                                      ; preds = %if.then36.i
@@ -4498,55 +4502,55 @@ if.then38.i:                                      ; preds = %if.then36.i
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then38.i, %if.then36.i
-  %175 = load ptr, ptr %top.i, align 8
+  %173 = load ptr, ptr %top.i, align 8
   %stack_last.i = getelementptr inbounds i8, ptr %0, i64 40
-  %176 = load ptr, ptr %stack_last.i, align 8
-  %add.ptr39.i = getelementptr inbounds i8, ptr %176, i64 80
-  %cmp4240.i = icmp ult ptr %175, %add.ptr39.i
+  %174 = load ptr, ptr %stack_last.i, align 8
+  %add.ptr39.i = getelementptr inbounds i8, ptr %174, i64 80
+  %cmp4240.i = icmp ult ptr %173, %add.ptr39.i
   br i1 %cmp4240.i, label %for.body44.i, label %for.end48.i
 
 for.body44.i:                                     ; preds = %if.end39.i, %for.body44.i
-  %o.141.i = phi ptr [ %incdec.ptr47.i, %for.body44.i ], [ %175, %if.end39.i ]
+  %o.141.i = phi ptr [ %incdec.ptr47.i, %for.body44.i ], [ %173, %if.end39.i ]
   %tt_45.i = getelementptr inbounds i8, ptr %o.141.i, i64 8
   store i8 0, ptr %tt_45.i, align 8
   %incdec.ptr47.i = getelementptr inbounds i8, ptr %o.141.i, i64 16
-  %177 = load ptr, ptr %stack_last.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %177, i64 80
+  %175 = load ptr, ptr %stack_last.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %175, i64 80
   %cmp42.i = icmp ult ptr %incdec.ptr47.i, %add.ptr.i
   br i1 %cmp42.i, label %for.body44.i, label %for.end48.i, !llvm.loop !44
 
 for.end48.i:                                      ; preds = %for.body44.i, %if.end39.i
   %twups.i = getelementptr inbounds i8, ptr %0, i64 80
-  %178 = load ptr, ptr %twups.i, align 8
-  %cmp49.not.i = icmp eq ptr %178, %0
+  %176 = load ptr, ptr %twups.i, align 8
+  %cmp49.not.i = icmp eq ptr %176, %0
   br i1 %cmp49.not.i, label %land.lhs.true51.i, label %if.end60.i
 
 land.lhs.true51.i:                                ; preds = %for.end48.i
-  %179 = load ptr, ptr %openupval.i, align 8
-  %cmp53.not.i = icmp eq ptr %179, null
+  %177 = load ptr, ptr %openupval.i, align 8
+  %cmp53.not.i = icmp eq ptr %177, null
   br i1 %cmp53.not.i, label %if.end60.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %land.lhs.true51.i
   %twups56.i = getelementptr inbounds i8, ptr %g, i64 248
-  %180 = load ptr, ptr %twups56.i, align 8
-  store ptr %180, ptr %twups.i, align 8
+  %178 = load ptr, ptr %twups56.i, align 8
+  store ptr %178, ptr %twups.i, align 8
   store ptr %0, ptr %twups56.i, align 8
   br label %if.end60.i
 
 if.end60.i:                                       ; preds = %if.then55.i, %land.lhs.true51.i, %for.end48.i, %for.end31.i
   %stack_last61.i = getelementptr inbounds i8, ptr %0, i64 40
-  %181 = load ptr, ptr %stack_last61.i, align 8
-  %182 = load ptr, ptr %stack.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %181 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %182 to i64
+  %179 = load ptr, ptr %stack_last61.i, align 8
+  %180 = load ptr, ptr %stack.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %179 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %180 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add.i87 = shl i64 %sub.ptr.sub.i, 28
   %sext = add i64 %add.i87, 4294967296
-  %183 = ashr i64 %sext, 32
+  %181 = ashr i64 %sext, 32
   br label %return
 
 return:                                           ; preds = %traverseCclosure.exit.loopexit, %sw.bb11, %traverseLclosure.exit.loopexit, %if.end5.i35, %if.end60.i, %if.end.i, %getgclist.exit, %traverseproto.exit, %traverseudata.exit, %traversetable.exit
-  %retval.0 = phi i64 [ %conv16, %traverseproto.exit ], [ %add.i26, %traverseudata.exit ], [ %conv46.i, %traversetable.exit ], [ 0, %getgclist.exit ], [ %183, %if.end60.i ], [ 1, %if.end.i ], [ %103, %traverseLclosure.exit.loopexit ], [ 1, %if.end5.i35 ], [ %114, %traverseCclosure.exit.loopexit ], [ 1, %sw.bb11 ]
+  %retval.0 = phi i64 [ %conv16, %traverseproto.exit ], [ %add.i26, %traverseudata.exit ], [ %conv46.i, %traversetable.exit ], [ 0, %getgclist.exit ], [ %181, %if.end60.i ], [ 1, %if.end.i ], [ %101, %traverseLclosure.exit.loopexit ], [ 1, %if.end5.i35 ], [ %112, %traverseCclosure.exit.loopexit ], [ 1, %sw.bb11 ]
   ret i64 %retval.0
 }
 
@@ -4645,15 +4649,17 @@ cond.end36:                                       ; preds = %if.else
 
 if.else.i:                                        ; preds = %cond.end36
   %tt.i = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load <2 x i8>, ptr %tt.i, align 8
-  %16 = and <2 x i8> %15, <i8 15, i8 24>
-  %17 = icmp eq <2 x i8> %16, <i8 4, i8 0>
-  %18 = extractelement <2 x i1> %17, i64 0
-  br i1 %18, label %if.then3.i, label %iscleared.exit
+  %15 = load i8, ptr %tt.i, align 8
+  %16 = and i8 %15, 15
+  %cmp1.i = icmp eq i8 %16, 4
+  %marked.i = getelementptr inbounds i8, ptr %14, i64 9
+  %17 = load i8, ptr %marked.i, align 1
+  %18 = and i8 %17, 24
+  %tobool.not.i38 = icmp eq i8 %18, 0
+  br i1 %cmp1.i, label %if.then3.i, label %iscleared.exit
 
 if.then3.i:                                       ; preds = %if.else.i
-  %19 = extractelement <2 x i1> %17, i64 1
-  br i1 %19, label %if.else53, label %if.then6.i
+  br i1 %tobool.not.i38, label %if.else53, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then3.i
   tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %14)
@@ -4661,39 +4667,38 @@ if.then6.i:                                       ; preds = %if.then3.i
   br label %if.else53
 
 iscleared.exit:                                   ; preds = %if.else.i
-  %20 = extractelement <2 x i1> %17, i64 1
-  br i1 %20, label %if.else53, label %if.then40
+  br i1 %tobool.not.i38, label %if.else53, label %if.then40
 
 if.then40:                                        ; preds = %iscleared.exit
-  %21 = and i8 %10, 64
-  %tobool44.not = icmp eq i8 %21, 0
+  %19 = and i8 %10, 64
+  %tobool44.not = icmp eq i8 %19, 0
   br i1 %tobool44.not, label %for.inc69, label %land.lhs.true45
 
 land.lhs.true45:                                  ; preds = %if.then40
-  %22 = load ptr, ptr %arrayidx24, align 8
-  %marked47 = getelementptr inbounds i8, ptr %22, i64 9
-  %23 = load i8, ptr %marked47, align 1
-  %24 = and i8 %23, 24
-  %tobool50.not = icmp eq i8 %24, 0
+  %20 = load ptr, ptr %arrayidx24, align 8
+  %marked47 = getelementptr inbounds i8, ptr %20, i64 9
+  %21 = load i8, ptr %marked47, align 1
+  %22 = and i8 %21, 24
+  %tobool50.not = icmp eq i8 %22, 0
   %spec.select = select i1 %tobool50.not, i32 %hasww.052, i32 1
   br label %for.inc69
 
 if.else53:                                        ; preds = %if.else, %if.then3.i, %if.then6.i, %cond.end36, %iscleared.exit
-  %25 = phi i8 [ %10, %if.else ], [ %10, %if.then3.i ], [ %.pre, %if.then6.i ], [ %10, %cond.end36 ], [ %10, %iscleared.exit ]
-  %26 = and i8 %25, 64
-  %tobool57.not = icmp eq i8 %26, 0
+  %23 = phi i8 [ %10, %if.else ], [ %10, %if.then3.i ], [ %.pre, %if.then6.i ], [ %10, %cond.end36 ], [ %10, %iscleared.exit ]
+  %24 = and i8 %23, 64
+  %tobool57.not = icmp eq i8 %24, 0
   br i1 %tobool57.not, label %for.inc69, label %land.lhs.true58
 
 land.lhs.true58:                                  ; preds = %if.else53
-  %27 = load ptr, ptr %arrayidx24, align 8
-  %marked60 = getelementptr inbounds i8, ptr %27, i64 9
-  %28 = load i8, ptr %marked60, align 1
-  %29 = and i8 %28, 24
-  %tobool63.not = icmp eq i8 %29, 0
+  %25 = load ptr, ptr %arrayidx24, align 8
+  %marked60 = getelementptr inbounds i8, ptr %25, i64 9
+  %26 = load i8, ptr %marked60, align 1
+  %27 = and i8 %26, 24
+  %tobool63.not = icmp eq i8 %27, 0
   br i1 %tobool63.not, label %for.inc69, label %if.then64
 
 if.then64:                                        ; preds = %land.lhs.true58
-  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %27)
+  tail call fastcc void @reallymarkobject(ptr noundef %g, ptr noundef nonnull %25)
   br label %for.inc69
 
 for.inc69:                                        ; preds = %if.then.i, %if.then30, %land.lhs.true45, %if.else53, %land.lhs.true58, %if.then64, %if.then40
@@ -4706,20 +4711,20 @@ for.inc69:                                        ; preds = %if.then.i, %if.then
 
 for.end71:                                        ; preds = %for.inc69
   %gcstate = getelementptr inbounds i8, ptr %g, i64 101
-  %30 = load i8, ptr %gcstate, align 1
-  %cmp73 = icmp eq i8 %30, 0
+  %28 = load i8, ptr %gcstate, align 1
+  %cmp73 = icmp eq i8 %28, 0
   br i1 %cmp73, label %if.then75, label %if.else76
 
 if.then75:                                        ; preds = %for.end71
   %gclist = getelementptr inbounds i8, ptr %h, i64 48
   %grayagain = getelementptr inbounds i8, ptr %g, i64 144
-  %31 = load ptr, ptr %grayagain, align 8
-  store ptr %31, ptr %gclist, align 8
+  %29 = load ptr, ptr %grayagain, align 8
+  store ptr %29, ptr %gclist, align 8
   store ptr %h, ptr %grayagain, align 8
   %marked.i39 = getelementptr inbounds i8, ptr %h, i64 9
-  %32 = load i8, ptr %marked.i39, align 1
-  %33 = and i8 %32, -57
-  store i8 %33, ptr %marked.i39, align 1
+  %30 = load i8, ptr %marked.i39, align 1
+  %31 = and i8 %30, -57
+  store i8 %31, ptr %marked.i39, align 1
   br label %if.end87
 
 if.else76:                                        ; preds = %for.end71
@@ -4729,13 +4734,13 @@ if.else76:                                        ; preds = %for.end71
 if.then78:                                        ; preds = %if.else76
   %gclist79 = getelementptr inbounds i8, ptr %h, i64 48
   %ephemeron = getelementptr inbounds i8, ptr %g, i64 160
-  %34 = load ptr, ptr %ephemeron, align 8
-  store ptr %34, ptr %gclist79, align 8
+  %32 = load ptr, ptr %ephemeron, align 8
+  store ptr %32, ptr %gclist79, align 8
   store ptr %h, ptr %ephemeron, align 8
   %marked.i40 = getelementptr inbounds i8, ptr %h, i64 9
-  %35 = load i8, ptr %marked.i40, align 1
-  %36 = and i8 %35, -57
-  store i8 %36, ptr %marked.i40, align 1
+  %33 = load i8, ptr %marked.i40, align 1
+  %34 = and i8 %33, -57
+  store i8 %34, ptr %marked.i40, align 1
   br label %if.end87
 
 if.else80:                                        ; preds = %if.else76
@@ -4745,28 +4750,28 @@ if.else80:                                        ; preds = %if.else76
 if.then82:                                        ; preds = %if.else80
   %gclist83 = getelementptr inbounds i8, ptr %h, i64 48
   %allweak = getelementptr inbounds i8, ptr %g, i64 168
-  %37 = load ptr, ptr %allweak, align 8
-  store ptr %37, ptr %gclist83, align 8
+  %35 = load ptr, ptr %allweak, align 8
+  store ptr %35, ptr %gclist83, align 8
   store ptr %h, ptr %allweak, align 8
   %marked.i41 = getelementptr inbounds i8, ptr %h, i64 9
-  %38 = load i8, ptr %marked.i41, align 1
-  %39 = and i8 %38, -57
-  store i8 %39, ptr %marked.i41, align 1
+  %36 = load i8, ptr %marked.i41, align 1
+  %37 = and i8 %36, -57
+  store i8 %37, ptr %marked.i41, align 1
   br label %if.end87
 
 if.else84:                                        ; preds = %if.else80
   %marked.i42 = getelementptr inbounds i8, ptr %h, i64 9
-  %40 = load i8, ptr %marked.i42, align 1
-  %41 = and i8 %40, 7
-  switch i8 %41, label %if.end87 [
+  %38 = load i8, ptr %marked.i42, align 1
+  %39 = and i8 %38, 7
+  switch i8 %39, label %if.end87 [
     i8 5, label %if.then.i43
     i8 6, label %if.then7.i
   ]
 
 if.then.i43:                                      ; preds = %if.else84
   %tt.i.i = getelementptr inbounds i8, ptr %h, i64 8
-  %42 = load i8, ptr %tt.i.i, align 8
-  switch i8 %42, label %unreachable.i [
+  %40 = load i8, ptr %tt.i.i, align 8
+  switch i8 %40, label %unreachable.i [
     i8 5, label %getgclist.exit.i
     i8 6, label %sw.bb1.i.i
     i8 38, label %sw.bb3.i.i
@@ -4797,19 +4802,19 @@ getgclist.exit.i:                                 ; preds = %sw.bb9.i.i, %sw.bb7
   %.sink.i = phi i64 [ 16, %sw.bb1.i.i ], [ 16, %sw.bb3.i.i ], [ 72, %sw.bb5.i.i ], [ 120, %sw.bb7.i.i ], [ 32, %sw.bb9.i.i ], [ 48, %if.then.i43 ]
   %gclist.i.i = getelementptr inbounds i8, ptr %h, i64 %.sink.i
   %grayagain.i = getelementptr inbounds i8, ptr %g, i64 144
-  %43 = load ptr, ptr %grayagain.i, align 8
-  store ptr %43, ptr %gclist.i.i, align 8
+  %41 = load ptr, ptr %grayagain.i, align 8
+  store ptr %41, ptr %gclist.i.i, align 8
   store ptr %h, ptr %grayagain.i, align 8
-  %44 = load i8, ptr %marked.i42, align 1
-  %45 = and i8 %44, -57
+  %42 = load i8, ptr %marked.i42, align 1
+  %43 = and i8 %42, -57
   br label %if.end11.sink.split.i
 
 if.then7.i:                                       ; preds = %if.else84
-  %xor.i = and i8 %40, -4
+  %xor.i = and i8 %38, -4
   br label %if.end11.sink.split.i
 
 if.end11.sink.split.i:                            ; preds = %if.then7.i, %getgclist.exit.i
-  %xor.sink.i = phi i8 [ %xor.i, %if.then7.i ], [ %45, %getgclist.exit.i ]
+  %xor.sink.i = phi i8 [ %xor.i, %if.then7.i ], [ %43, %getgclist.exit.i ]
   store i8 %xor.sink.i, ptr %marked.i42, align 1
   br label %if.end87
 

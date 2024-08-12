@@ -373,14 +373,14 @@ if.end3:                                          ; preds = %if.end3.sink.split,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local range(i32 -22, 1) i32 @uv_replace_allocator(ptr noundef %malloc_func, ptr noundef %realloc_func, ptr noundef %calloc_func, ptr noundef %free_func) local_unnamed_addr #4 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %malloc_func, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %realloc_func, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %calloc_func, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %free_func, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %if.end, label %return
+  %cmp = icmp eq ptr %malloc_func, null
+  %cmp1 = icmp eq ptr %realloc_func, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %calloc_func, null
+  %or.cond1 = or i1 %or.cond, %cmp3
+  %cmp5 = icmp eq ptr %free_func, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
+  br i1 %or.cond2, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store ptr %malloc_func, ptr @uv__allocator.0, align 8

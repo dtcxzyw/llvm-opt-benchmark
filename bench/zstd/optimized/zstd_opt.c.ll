@@ -360,6 +360,7 @@ if.end.i5:                                        ; preds = %for.body95.i
   %add.i394 = add i32 %44, 1
   %45 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i394, i1 true)
   %sub.i.i395 = shl nuw nsw i32 %45, 8
+  %mul.i396.neg729 = add nsw i32 %sub.i.i395, -7936
   %cmp.i397 = icmp ugt i32 %sub.i3, 127
   br i1 %cmp.i397, label %cond.true.i, label %cond.false.i
 
@@ -388,18 +389,18 @@ ZSTD_MLcode.exit:                                 ; preds = %cond.true.i, %cond.
   %add.i402 = add i32 %51, 1
   %52 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i402, i1 true)
   %sub.i.i403 = shl nuw nsw i32 %52, 8
+  %mul.i404.neg730 = add nsw i32 %sub.i.i403, -7936
   %reass.add681 = add nuw nsw i32 %sub.i390, %conv.i6
   %reass.mul682 = shl nuw nsw i32 %reass.add681, 8
-  %op.rdx813 = add nsw i32 %reass.mul682, -15872
-  %op.rdx814 = add i32 %sub.i.i403, %49
-  %op.rdx815 = add i32 %42, %sub.i.i395
-  %op.rdx816 = add i32 %op.rdx813, %op.rdx814
-  %op.rdx817 = add i32 %op.rdx815, %add42.i
-  %op.rdx818 = add i32 %op.rdx816, %op.rdx817
+  %sub15.i = add i32 %add42.i, %42
+  %add16.i = add i32 %sub15.i, %mul.i396.neg729
+  %price.i.0 = add i32 %add16.i, %49
+  %add43.i = add i32 %price.i.0, %reass.mul682
+  %add44.i = add i32 %add43.i, %mul.i404.neg730
   br label %ZSTD_getMatchPrice.exit
 
 ZSTD_getMatchPrice.exit:                          ; preds = %ZSTD_MLcode.exit, %cond.false.i12
-  %retval.i.0 = phi i32 [ %add3.i, %cond.false.i12 ], [ %op.rdx818, %ZSTD_MLcode.exit ]
+  %retval.i.0 = phi i32 [ %add3.i, %cond.false.i12 ], [ %add44.i, %ZSTD_MLcode.exit ]
   %add97.i = add i32 %add.i, %retval.i.0
   %idxprom100.i = zext i32 %pos.i.2694 to i64
   %arrayidx101.i = getelementptr inbounds %struct.ZSTD_optimal_t, ptr %10, i64 %idxprom100.i
@@ -864,6 +865,7 @@ if.end.i30:                                       ; preds = %for.body354.i
   %add.i523 = add i32 %117, 1
   %118 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i523, i1 true)
   %sub.i.i524 = shl nuw nsw i32 %118, 8
+  %mul.i525.neg731 = add nsw i32 %sub.i.i524, -7936
   %cmp.i526 = icmp ugt i32 %sub.i27, 127
   br i1 %cmp.i526, label %cond.true.i532, label %cond.false.i527
 
@@ -892,18 +894,18 @@ ZSTD_MLcode.exit534:                              ; preds = %cond.true.i532, %co
   %add.i535 = add i32 %124, 1
   %125 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add.i535, i1 true)
   %sub.i.i536 = shl nuw nsw i32 %125, 8
+  %mul.i537.neg732 = add nsw i32 %sub.i.i536, -7936
   %reass.add679 = add nuw nsw i32 %sub.i519, %conv.i48
   %reass.mul680 = shl nuw nsw i32 %reass.add679, 8
-  %op.rdx = add nsw i32 %reass.mul680, -15872
-  %op.rdx808 = add i32 %sub.i.i536, %122
-  %op.rdx809 = add i32 %115, %sub.i.i524
-  %op.rdx810 = add i32 %op.rdx, %op.rdx808
-  %op.rdx811 = add i32 %op.rdx809, %add42.i60
-  %op.rdx812 = add i32 %op.rdx810, %op.rdx811
+  %sub15.i41 = add i32 %add42.i60, %115
+  %add16.i42 = add i32 %sub15.i41, %mul.i525.neg731
+  %price.i22.0 = add i32 %add16.i42, %122
+  %add43.i61 = add i32 %price.i22.0, %reass.mul680
+  %add44.i62 = add i32 %add43.i61, %mul.i537.neg732
   br label %ZSTD_getMatchPrice.exit91
 
 ZSTD_getMatchPrice.exit91:                        ; preds = %ZSTD_MLcode.exit534, %cond.false.i82
-  %retval.i17.0 = phi i32 [ %add3.i88, %cond.false.i82 ], [ %op.rdx812, %ZSTD_MLcode.exit534 ]
+  %retval.i17.0 = phi i32 [ %add3.i88, %cond.false.i82 ], [ %add44.i62, %ZSTD_MLcode.exit534 ]
   %add359.i = add nsw i32 %add265.i, %retval.i17.0
   %cmp360.i = icmp ugt i32 %add356.i, %last_pos.i.3703
   br i1 %cmp360.i, label %while.body374.i.preheader, label %lor.lhs.false362.i

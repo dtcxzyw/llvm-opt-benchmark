@@ -35,19 +35,26 @@ for.cond.preheader:                               ; preds = %if.end
   %init_largest_pn = getelementptr inbounds i8, ptr %args, i64 40
   %largest_pn = getelementptr inbounds i8, ptr %call, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %largest_pn, ptr noundef nonnull align 8 dereferenceable(24) %init_largest_pn, i64 24, i1 false)
-  %2 = load <2 x ptr>, ptr %args, align 8
-  store <2 x ptr> %2, ptr %call, align 8
-  %3 = load ptr, ptr %demux, align 8
+  %2 = load ptr, ptr %args, align 8
+  store ptr %2, ptr %call, align 8
+  %propq = getelementptr inbounds i8, ptr %args, i64 8
+  %3 = load ptr, ptr %propq, align 8
+  %propq8 = getelementptr inbounds i8, ptr %call, i64 8
+  store ptr %3, ptr %propq8, align 8
+  %4 = load ptr, ptr %demux, align 8
   %demux10 = getelementptr inbounds i8, ptr %call, i64 16
-  store ptr %3, ptr %demux10, align 8
+  store ptr %4, ptr %demux10, align 8
   %short_conn_id_len = getelementptr inbounds i8, ptr %args, i64 24
+  %5 = load i64, ptr %short_conn_id_len, align 8
   %short_conn_id_len11 = getelementptr inbounds i8, ptr %call, i64 24
+  store i64 %5, ptr %short_conn_id_len11, align 8
   %init_key_phase_bit = getelementptr inbounds i8, ptr %args, i64 64
-  %4 = load i8, ptr %init_key_phase_bit, align 8
+  %6 = load i8, ptr %init_key_phase_bit, align 8
   %init_key_phase_bit12 = getelementptr inbounds i8, ptr %call, i64 1056
-  store i8 %4, ptr %init_key_phase_bit12, align 8
-  %5 = load <2 x i64>, ptr %short_conn_id_len, align 8
-  store <2 x i64> %5, ptr %short_conn_id_len11, align 8
+  store i8 %6, ptr %init_key_phase_bit12, align 8
+  %7 = load i64, ptr %max_deferred, align 8
+  %max_deferred14 = getelementptr inbounds i8, ptr %call, i64 32
+  store i64 %7, ptr %max_deferred14, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %for.cond.preheader

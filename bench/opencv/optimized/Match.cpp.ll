@@ -218,73 +218,70 @@ define hidden void @_ZN5logos5Match24interOrientationAndScaleEv(ptr nocapture no
   %10 = fneg float %7
   %11 = fmul float %9, %10
   %12 = tail call float @llvm.fmuladd.f32(float %3, float %5, float %11)
-  %13 = insertelement <2 x float> poison, float %7, i64 0
-  %14 = insertelement <2 x float> %13, float %5, i64 1
-  %15 = fmul <2 x float> %14, %14
-  %16 = insertelement <2 x float> poison, float %3, i64 0
-  %17 = insertelement <2 x float> %16, float %9, i64 1
-  %18 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %17, <2 x float> %17, <2 x float> %15)
-  %19 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %18)
-  %20 = fmul float %7, %5
-  %21 = tail call float @llvm.fmuladd.f32(float %3, float %9, float %20)
-  %22 = extractelement <2 x float> %19, i64 0
-  %23 = extractelement <2 x float> %19, i64 1
-  %24 = fmul float %22, %23
-  %25 = fdiv float %21, %24
-  %26 = fcmp olt float %25, -1.000000e+00
-  %.sroa.speculated7 = select i1 %26, float -1.000000e+00, float %25
-  %27 = fcmp ogt float %.sroa.speculated7, 1.000000e+00
-  %.sroa.speculated = select i1 %27, float 1.000000e+00, float %.sroa.speculated7
-  %28 = tail call noundef float @acosf(float noundef %.sroa.speculated) #12
-  %29 = fcmp ogt float %12, 0.000000e+00
-  %30 = zext i1 %29 to i32
-  %31 = fcmp olt float %12, 0.000000e+00
-  %.neg.i = sext i1 %31 to i32
-  %32 = add nsw i32 %.neg.i, %30
-  %33 = sitofp i32 %32 to float
-  %34 = fmul float %28, %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
-  store float %34, ptr %35, align 8
-  %36 = tail call noundef float @logf(float noundef %22) #12
-  %37 = tail call noundef float @logf(float noundef %23) #12
-  %38 = fsub float %36, %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 36
-  store float %38, ptr %39, align 4
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 20
-  %42 = load float, ptr %41, align 4
-  %43 = load float, ptr %35, align 8
-  %44 = fsub float %42, %43
-  %45 = tail call noundef float @llvm.fabs.f32(float %44)
-  %46 = fpext float %45 to double
-  %47 = fcmp ogt double %46, 0x401921FB54442D18
-  br i1 %47, label %.lr.ph.i, label %_ZN5logos5Match12angleAbsDiffEff.exit
+  %13 = fmul float %7, %7
+  %14 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %13)
+  %sqrt10 = tail call float @llvm.sqrt.f32(float %14)
+  %15 = fmul float %5, %5
+  %16 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %15)
+  %sqrt = tail call float @llvm.sqrt.f32(float %16)
+  %17 = fmul float %7, %5
+  %18 = tail call float @llvm.fmuladd.f32(float %3, float %9, float %17)
+  %19 = fmul float %sqrt10, %sqrt
+  %20 = fdiv float %18, %19
+  %21 = fcmp olt float %20, -1.000000e+00
+  %.sroa.speculated7 = select i1 %21, float -1.000000e+00, float %20
+  %22 = fcmp ogt float %.sroa.speculated7, 1.000000e+00
+  %.sroa.speculated = select i1 %22, float 1.000000e+00, float %.sroa.speculated7
+  %23 = tail call noundef float @acosf(float noundef %.sroa.speculated) #12
+  %24 = fcmp ogt float %12, 0.000000e+00
+  %25 = zext i1 %24 to i32
+  %26 = fcmp olt float %12, 0.000000e+00
+  %.neg.i = sext i1 %26 to i32
+  %27 = add nsw i32 %.neg.i, %25
+  %28 = sitofp i32 %27 to float
+  %29 = fmul float %23, %28
+  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %29, ptr %30, align 8
+  %31 = tail call noundef float @logf(float noundef %sqrt10) #12
+  %32 = tail call noundef float @logf(float noundef %sqrt) #12
+  %33 = fsub float %31, %32
+  %34 = getelementptr inbounds i8, ptr %0, i64 36
+  store float %33, ptr %34, align 4
+  %35 = load ptr, ptr %0, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 20
+  %37 = load float, ptr %36, align 4
+  %38 = load float, ptr %30, align 8
+  %39 = fsub float %37, %38
+  %40 = tail call noundef float @llvm.fabs.f32(float %39)
+  %41 = fpext float %40 to double
+  %42 = fcmp ogt double %41, 0x401921FB54442D18
+  br i1 %42, label %.lr.ph.i, label %_ZN5logos5Match12angleAbsDiffEff.exit
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
-  %48 = phi double [ %51, %.lr.ph.i ], [ %46, %1 ]
-  %49 = fadd double %48, 0xC01921FB54442D18
-  %50 = fptrunc double %49 to float
-  %51 = fpext float %50 to double
-  %52 = fcmp ogt double %51, 0x401921FB54442D18
-  br i1 %52, label %.lr.ph.i, label %_ZN5logos5Match12angleAbsDiffEff.exit, !llvm.loop !4
+  %43 = phi double [ %46, %.lr.ph.i ], [ %41, %1 ]
+  %44 = fadd double %43, 0xC01921FB54442D18
+  %45 = fptrunc double %44 to float
+  %46 = fpext float %45 to double
+  %47 = fcmp ogt double %46, 0x401921FB54442D18
+  br i1 %47, label %.lr.ph.i, label %_ZN5logos5Match12angleAbsDiffEff.exit, !llvm.loop !4
 
 _ZN5logos5Match12angleAbsDiffEff.exit:            ; preds = %.lr.ph.i, %1
-  %.0.lcssa.i = phi float [ %45, %1 ], [ %50, %.lr.ph.i ]
-  %53 = tail call noundef float @llvm.fabs.f32(float %.0.lcssa.i)
-  %54 = fpext float %53 to double
-  %55 = fsub double 0x401921FB54442D18, %54
-  %56 = fptrunc double %55 to float
-  %57 = tail call noundef float @llvm.fabs.f32(float %56)
-  %58 = fcmp olt float %57, %53
-  %.sroa.speculated.i = select i1 %58, float %57, float %53
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
-  store float %.sroa.speculated.i, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %40, i64 24
-  %61 = load float, ptr %60, align 8
-  %62 = fsub float %61, %38
-  %63 = tail call noundef float @llvm.fabs.f32(float %62)
-  %64 = getelementptr inbounds i8, ptr %0, i64 28
-  store float %63, ptr %64, align 4
+  %.0.lcssa.i = phi float [ %40, %1 ], [ %45, %.lr.ph.i ]
+  %48 = tail call noundef float @llvm.fabs.f32(float %.0.lcssa.i)
+  %49 = fpext float %48 to double
+  %50 = fsub double 0x401921FB54442D18, %49
+  %51 = fptrunc double %50 to float
+  %52 = tail call noundef float @llvm.fabs.f32(float %51)
+  %53 = fcmp olt float %52, %48
+  %.sroa.speculated.i = select i1 %53, float %52, float %48
+  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  store float %.sroa.speculated.i, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %35, i64 24
+  %56 = load float, ptr %55, align 8
+  %57 = fsub float %56, %33
+  %58 = tail call noundef float @llvm.fabs.f32(float %57)
+  %59 = getelementptr inbounds i8, ptr %0, i64 28
+  store float %58, ptr %59, align 4
   ret void
 }
 
@@ -385,10 +382,7 @@ define internal void @_GLOBAL__sub_I_Match.cpp() #10 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #11
+declare float @llvm.sqrt.f32(float) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

@@ -63,46 +63,51 @@ _Z12writeuleb128Phm.exit:
   %12 = getelementptr inbounds i8, ptr %3, i64 13
   store i8 12, ptr %12, align 1
   %13 = getelementptr inbounds i8, ptr %3, i64 14
+  %14 = getelementptr inbounds i8, ptr %3, i64 15
   br i1 %8, label %_Z12writeuleb128Phm.exit.i, label %_Z12writeuleb128Phm.exit.i17
 
 _Z12writeuleb128Phm.exit.i:                       ; preds = %_Z12writeuleb128Phm.exit
-  %14 = getelementptr inbounds i8, ptr %3, i64 15
   store i8 31, ptr %13, align 1
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   store i8 0, ptr %14, align 1
   br label %_ZL19defineCfaExpressionPhij.exit, !llvm.loop !5
 
 _Z12writeuleb128Phm.exit.i17:                     ; preds = %_Z12writeuleb128Phm.exit
-  %16 = getelementptr inbounds i8, ptr %3, i64 18
-  store <4 x i8> <i8 7, i8 8, i8 -112, i8 1>, ptr %13, align 1
+  store i8 7, ptr %13, align 1
+  store i8 8, ptr %14, align 1
+  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  store i8 -112, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %3, i64 17
+  %18 = getelementptr inbounds i8, ptr %3, i64 18
+  store i8 1, ptr %17, align 1
   br label %_ZL19defineCfaExpressionPhij.exit, !llvm.loop !5
 
 _ZL19defineCfaExpressionPhij.exit:                ; preds = %_Z12writeuleb128Phm.exit.i, %_Z12writeuleb128Phm.exit.i17
-  %storemerge = phi ptr [ %15, %_Z12writeuleb128Phm.exit.i ], [ %16, %_Z12writeuleb128Phm.exit.i17 ]
-  %17 = ptrtoint ptr %storemerge to i64
-  %18 = ptrtoint ptr %3 to i64
-  %19 = sub i64 %17, %18
-  %20 = add i64 %19, 7
-  %21 = and i64 %20, -8
-  %.not.i26 = icmp eq i64 %21, %19
+  %storemerge = phi ptr [ %15, %_Z12writeuleb128Phm.exit.i ], [ %18, %_Z12writeuleb128Phm.exit.i17 ]
+  %19 = ptrtoint ptr %storemerge to i64
+  %20 = ptrtoint ptr %3 to i64
+  %21 = sub i64 %19, %20
+  %22 = add i64 %21, 7
+  %23 = and i64 %22, -8
+  %.not.i26 = icmp eq i64 %23, %21
   br i1 %.not.i26, label %_ZL13alignPositionPhS_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZL19defineCfaExpressionPhij.exit
-  %22 = sub i64 %21, %19
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %22, i64 1)
+  %24 = sub i64 %23, %21
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %storemerge, i8 0, i64 %umax.i, i1 false)
   %scevgep.i = getelementptr i8, ptr %storemerge, i64 %umax.i
   %.pre = ptrtoint ptr %scevgep.i to i64
-  %.pre27 = sub i64 %.pre, %18
+  %.pre27 = sub i64 %.pre, %20
   br label %_ZL13alignPositionPhS_.exit
 
 _ZL13alignPositionPhS_.exit:                      ; preds = %_ZL19defineCfaExpressionPhij.exit, %.lr.ph.preheader.i
-  %.pre-phi28 = phi i64 [ %19, %_ZL19defineCfaExpressionPhij.exit ], [ %.pre27, %.lr.ph.preheader.i ]
+  %.pre-phi28 = phi i64 [ %21, %_ZL19defineCfaExpressionPhij.exit ], [ %.pre27, %.lr.ph.preheader.i ]
   %.08.lcssa.i = phi ptr [ %storemerge, %_ZL19defineCfaExpressionPhij.exit ], [ %scevgep.i, %.lr.ph.preheader.i ]
   store ptr %.08.lcssa.i, ptr %2, align 8
-  %23 = trunc i64 %.pre-phi28 to i32
-  %24 = add i32 %23, -4
-  store i32 %24, ptr %3, align 1
+  %25 = trunc i64 %.pre-phi28 to i32
+  %26 = add i32 %25, -4
+  store i32 %26, ptr %3, align 1
   ret void
 }
 
@@ -343,113 +348,127 @@ _ZL27defineSavedRegisterLocationPhij.exit:        ; preds = %31
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf211prologueX64EjjbSt16initializer_listINS0_3X6411RegisterX64EERKSt6vectorIS4_SaIS4_EE(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3, ptr readonly %4, i64 %5, ptr nocapture nonnull readnone align 8 %6) unnamed_addr #4 align 2 {
-  br i1 %3, label %_ZL25defineCfaExpressionOffsetPhj.exit, label %11
+  br i1 %3, label %_ZL25defineCfaExpressionOffsetPhj.exit, label %18
 
 _ZL25defineCfaExpressionOffsetPhj.exit:           ; preds = %7
   %8 = getelementptr inbounds i8, ptr %0, i64 1064
   %9 = load ptr, ptr %8, align 8
-  store <8 x i8> <i8 2, i8 2, i8 14, i8 16, i8 -122, i8 2, i8 2, i8 3>, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %10, ptr %8, align 8
-  br label %11
+  store i8 2, ptr %9, align 1
+  %10 = getelementptr inbounds i8, ptr %9, i64 1
+  store i8 2, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %9, i64 2
+  store i8 14, ptr %11, align 1
+  %12 = getelementptr inbounds i8, ptr %9, i64 3
+  store i8 16, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %9, i64 4
+  store i8 -122, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %9, i64 5
+  store i8 2, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %9, i64 6
+  store i8 2, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %9, i64 7
+  store i8 3, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %17, ptr %8, align 8
+  br label %18
 
-11:                                               ; preds = %_ZL25defineCfaExpressionOffsetPhj.exit, %7
+18:                                               ; preds = %_ZL25defineCfaExpressionOffsetPhj.exit, %7
   %.0 = phi i32 [ 16, %_ZL25defineCfaExpressionOffsetPhj.exit ], [ 8, %7 ]
-  %12 = getelementptr inbounds %"struct.Luau::CodeGen::X64::RegisterX64", ptr %4, i64 %5
+  %19 = getelementptr inbounds %"struct.Luau::CodeGen::X64::RegisterX64", ptr %4, i64 %5
   %.not51 = icmp eq i64 %5, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 1064
   %.pre57 = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %11, %_ZL27defineSavedRegisterLocationPhij.exit40
-  %13 = phi ptr [ %37, %_ZL27defineSavedRegisterLocationPhij.exit40 ], [ %.pre57, %11 ]
-  %.153 = phi i32 [ %14, %_ZL27defineSavedRegisterLocationPhij.exit40 ], [ %.0, %11 ]
-  %.02352 = phi ptr [ %38, %_ZL27defineSavedRegisterLocationPhij.exit40 ], [ %4, %11 ]
+.lr.ph:                                           ; preds = %18, %_ZL27defineSavedRegisterLocationPhij.exit40
+  %20 = phi ptr [ %44, %_ZL27defineSavedRegisterLocationPhij.exit40 ], [ %.pre57, %18 ]
+  %.153 = phi i32 [ %21, %_ZL27defineSavedRegisterLocationPhij.exit40 ], [ %.0, %18 ]
+  %.02352 = phi ptr [ %45, %_ZL27defineSavedRegisterLocationPhij.exit40 ], [ %4, %18 ]
   %.sroa.0.0.copyload = load i8, ptr %.02352, align 1
-  %14 = add i32 %.153, 8
-  store i8 2, ptr %13, align 1
-  %15 = getelementptr inbounds i8, ptr %13, i64 1
-  store i8 2, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %13, i64 2
-  store i8 14, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %13, i64 3
-  %18 = zext i32 %14 to i64
-  br label %19
+  %21 = add i32 %.153, 8
+  store i8 2, ptr %20, align 1
+  %22 = getelementptr inbounds i8, ptr %20, i64 1
+  store i8 2, ptr %22, align 1
+  %23 = getelementptr inbounds i8, ptr %20, i64 2
+  store i8 14, ptr %23, align 1
+  %24 = getelementptr inbounds i8, ptr %20, i64 3
+  %25 = zext i32 %21 to i64
+  br label %26
 
-19:                                               ; preds = %19, %.lr.ph
-  %.08.i.i24 = phi ptr [ %17, %.lr.ph ], [ %23, %19 ]
-  %.07.i.i25 = phi i64 [ %18, %.lr.ph ], [ %22, %19 ]
-  %20 = trunc i64 %.07.i.i25 to i8
-  %21 = and i8 %20, 127
-  %22 = lshr i64 %.07.i.i25, 7
+26:                                               ; preds = %26, %.lr.ph
+  %.08.i.i24 = phi ptr [ %24, %.lr.ph ], [ %30, %26 ]
+  %.07.i.i25 = phi i64 [ %25, %.lr.ph ], [ %29, %26 ]
+  %27 = trunc i64 %.07.i.i25 to i8
+  %28 = and i8 %27, 127
+  %29 = lshr i64 %.07.i.i25, 7
   %.not.i.i26 = icmp ult i64 %.07.i.i25, 128
   %masksel.i.i27 = select i1 %.not.i.i26, i8 0, i8 -128
-  %.0.i.i28 = or disjoint i8 %21, %masksel.i.i27
-  %23 = getelementptr inbounds i8, ptr %.08.i.i24, i64 1
+  %.0.i.i28 = or disjoint i8 %28, %masksel.i.i27
+  %30 = getelementptr inbounds i8, ptr %.08.i.i24, i64 1
   store i8 %.0.i.i28, ptr %.08.i.i24, align 1
-  br i1 %.not.i.i26, label %_ZL25defineCfaExpressionOffsetPhj.exit29, label %19, !llvm.loop !5
+  br i1 %.not.i.i26, label %_ZL25defineCfaExpressionOffsetPhj.exit29, label %26, !llvm.loop !5
 
-_ZL25defineCfaExpressionOffsetPhj.exit29:         ; preds = %19
-  %24 = lshr i8 %.sroa.0.0.copyload, 3
-  %25 = zext nneg i8 %24 to i64
-  %26 = getelementptr inbounds [16 x i32], ptr @_ZL18regIndexToDwRegX64, i64 0, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = trunc i32 %27 to i8
-  %29 = xor i8 %28, -128
-  store i8 %29, ptr %23, align 1
-  %30 = getelementptr inbounds i8, ptr %.08.i.i24, i64 2
-  %31 = lshr exact i32 %14, 3
-  %32 = zext nneg i32 %31 to i64
-  br label %33
+_ZL25defineCfaExpressionOffsetPhj.exit29:         ; preds = %26
+  %31 = lshr i8 %.sroa.0.0.copyload, 3
+  %32 = zext nneg i8 %31 to i64
+  %33 = getelementptr inbounds [16 x i32], ptr @_ZL18regIndexToDwRegX64, i64 0, i64 %32
+  %34 = load i32, ptr %33, align 4
+  %35 = trunc i32 %34 to i8
+  %36 = xor i8 %35, -128
+  store i8 %36, ptr %30, align 1
+  %37 = getelementptr inbounds i8, ptr %.08.i.i24, i64 2
+  %38 = lshr exact i32 %21, 3
+  %39 = zext nneg i32 %38 to i64
+  br label %40
 
-33:                                               ; preds = %33, %_ZL25defineCfaExpressionOffsetPhj.exit29
-  %.08.i9.i35 = phi ptr [ %30, %_ZL25defineCfaExpressionOffsetPhj.exit29 ], [ %37, %33 ]
-  %.07.i10.i36 = phi i64 [ %32, %_ZL25defineCfaExpressionOffsetPhj.exit29 ], [ %36, %33 ]
-  %34 = trunc i64 %.07.i10.i36 to i8
-  %35 = and i8 %34, 127
-  %36 = lshr i64 %.07.i10.i36, 7
+40:                                               ; preds = %40, %_ZL25defineCfaExpressionOffsetPhj.exit29
+  %.08.i9.i35 = phi ptr [ %37, %_ZL25defineCfaExpressionOffsetPhj.exit29 ], [ %44, %40 ]
+  %.07.i10.i36 = phi i64 [ %39, %_ZL25defineCfaExpressionOffsetPhj.exit29 ], [ %43, %40 ]
+  %41 = trunc i64 %.07.i10.i36 to i8
+  %42 = and i8 %41, 127
+  %43 = lshr i64 %.07.i10.i36, 7
   %.not.i11.i37 = icmp ult i64 %.07.i10.i36, 128
   %masksel.i12.i38 = select i1 %.not.i11.i37, i8 0, i8 -128
-  %.0.i13.i39 = or disjoint i8 %35, %masksel.i12.i38
-  %37 = getelementptr inbounds i8, ptr %.08.i9.i35, i64 1
+  %.0.i13.i39 = or disjoint i8 %42, %masksel.i12.i38
+  %44 = getelementptr inbounds i8, ptr %.08.i9.i35, i64 1
   store i8 %.0.i13.i39, ptr %.08.i9.i35, align 1
-  br i1 %.not.i11.i37, label %_ZL27defineSavedRegisterLocationPhij.exit40, label %33, !llvm.loop !5
+  br i1 %.not.i11.i37, label %_ZL27defineSavedRegisterLocationPhij.exit40, label %40, !llvm.loop !5
 
-_ZL27defineSavedRegisterLocationPhij.exit40:      ; preds = %33
-  store ptr %37, ptr %.phi.trans.insert, align 8
-  %38 = getelementptr inbounds i8, ptr %.02352, i64 1
-  %.not = icmp eq ptr %38, %12
+_ZL27defineSavedRegisterLocationPhij.exit40:      ; preds = %40
+  store ptr %44, ptr %.phi.trans.insert, align 8
+  %45 = getelementptr inbounds i8, ptr %.02352, i64 1
+  %.not = icmp eq ptr %45, %19
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZL27defineSavedRegisterLocationPhij.exit40, %11
-  %39 = phi ptr [ %.pre57, %11 ], [ %37, %_ZL27defineSavedRegisterLocationPhij.exit40 ]
-  %.1.lcssa = phi i32 [ %.0, %11 ], [ %14, %_ZL27defineSavedRegisterLocationPhij.exit40 ]
-  %40 = add i32 %.1.lcssa, %2
-  store i8 2, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 4, ptr %41, align 1
-  %42 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 14, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %39, i64 3
-  %44 = zext i32 %40 to i64
-  br label %45
+._crit_edge:                                      ; preds = %_ZL27defineSavedRegisterLocationPhij.exit40, %18
+  %46 = phi ptr [ %.pre57, %18 ], [ %44, %_ZL27defineSavedRegisterLocationPhij.exit40 ]
+  %.1.lcssa = phi i32 [ %.0, %18 ], [ %21, %_ZL27defineSavedRegisterLocationPhij.exit40 ]
+  %47 = add i32 %.1.lcssa, %2
+  store i8 2, ptr %46, align 1
+  %48 = getelementptr inbounds i8, ptr %46, i64 1
+  store i8 4, ptr %48, align 1
+  %49 = getelementptr inbounds i8, ptr %46, i64 2
+  store i8 14, ptr %49, align 1
+  %50 = getelementptr inbounds i8, ptr %46, i64 3
+  %51 = zext i32 %47 to i64
+  br label %52
 
-45:                                               ; preds = %45, %._crit_edge
-  %.08.i.i41 = phi ptr [ %43, %._crit_edge ], [ %49, %45 ]
-  %.07.i.i42 = phi i64 [ %44, %._crit_edge ], [ %48, %45 ]
-  %46 = trunc i64 %.07.i.i42 to i8
-  %47 = and i8 %46, 127
-  %48 = lshr i64 %.07.i.i42, 7
+52:                                               ; preds = %52, %._crit_edge
+  %.08.i.i41 = phi ptr [ %50, %._crit_edge ], [ %56, %52 ]
+  %.07.i.i42 = phi i64 [ %51, %._crit_edge ], [ %55, %52 ]
+  %53 = trunc i64 %.07.i.i42 to i8
+  %54 = and i8 %53, 127
+  %55 = lshr i64 %.07.i.i42, 7
   %.not.i.i43 = icmp ult i64 %.07.i.i42, 128
   %masksel.i.i44 = select i1 %.not.i.i43, i8 0, i8 -128
-  %.0.i.i45 = or disjoint i8 %47, %masksel.i.i44
-  %49 = getelementptr inbounds i8, ptr %.08.i.i41, i64 1
+  %.0.i.i45 = or disjoint i8 %54, %masksel.i.i44
+  %56 = getelementptr inbounds i8, ptr %.08.i.i41, i64 1
   store i8 %.0.i.i45, ptr %.08.i.i41, align 1
-  br i1 %.not.i.i43, label %_ZL25defineCfaExpressionOffsetPhj.exit47, label %45, !llvm.loop !5
+  br i1 %.not.i.i43, label %_ZL25defineCfaExpressionOffsetPhj.exit47, label %52, !llvm.loop !5
 
-_ZL25defineCfaExpressionOffsetPhj.exit47:         ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 1064
-  store ptr %49, ptr %50, align 8
+_ZL25defineCfaExpressionOffsetPhj.exit47:         ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %0, i64 1064
+  store ptr %56, ptr %57, align 8
   ret void
 }
 

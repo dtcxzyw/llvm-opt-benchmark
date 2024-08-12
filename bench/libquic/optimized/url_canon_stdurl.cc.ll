@@ -284,9 +284,21 @@ if.end54:                                         ; preds = %do.body.i.i73, %if.
 
 if.end54.thread:                                  ; preds = %entry
   %host50 = getelementptr inbounds i8, ptr %new_parsed, i64 24
+  store i32 0, ptr %host50, align 4
+  %len.i93 = getelementptr inbounds i8, ptr %new_parsed, i64 28
+  store i32 -1, ptr %len.i93, align 4
   %username51 = getelementptr inbounds i8, ptr %new_parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username51, align 4
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host50, align 4
+  store i32 0, ptr %username51, align 4
+  %len.i94 = getelementptr inbounds i8, ptr %new_parsed, i64 12
+  store i32 -1, ptr %len.i94, align 4
+  %password52 = getelementptr inbounds i8, ptr %new_parsed, i64 16
+  store i32 0, ptr %password52, align 4
+  %len.i95 = getelementptr inbounds i8, ptr %new_parsed, i64 20
+  store i32 -1, ptr %len.i95, align 4
+  %port53 = getelementptr inbounds i8, ptr %new_parsed, i64 32
+  store i32 0, ptr %port53, align 4
+  %len.i96 = getelementptr inbounds i8, ptr %new_parsed, i64 36
+  store i32 -1, ptr %len.i96, align 4
   %len.i97134 = getelementptr inbounds i8, ptr %parsed, i64 44
   %25 = load i32, ptr %len.i97134, align 4
   %cmp.i98135.not = icmp eq i32 %25, -1
@@ -528,9 +540,21 @@ if.end54.i:                                       ; preds = %do.body.i.i73.i, %r
 
 if.end54.thread.i:                                ; preds = %entry
   %host50.i = getelementptr inbounds i8, ptr %new_parsed, i64 24
+  store i32 0, ptr %host50.i, align 4
+  %len.i93.i = getelementptr inbounds i8, ptr %new_parsed, i64 28
+  store i32 -1, ptr %len.i93.i, align 4
   %username51.i = getelementptr inbounds i8, ptr %new_parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username51.i, align 4
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host50.i, align 4
+  store i32 0, ptr %username51.i, align 4
+  %len.i94.i = getelementptr inbounds i8, ptr %new_parsed, i64 12
+  store i32 -1, ptr %len.i94.i, align 4
+  %password52.i = getelementptr inbounds i8, ptr %new_parsed, i64 16
+  store i32 0, ptr %password52.i, align 4
+  %len.i95.i = getelementptr inbounds i8, ptr %new_parsed, i64 20
+  store i32 -1, ptr %len.i95.i, align 4
+  %port53.i = getelementptr inbounds i8, ptr %new_parsed, i64 32
+  store i32 0, ptr %port53.i, align 4
+  %len.i96.i = getelementptr inbounds i8, ptr %new_parsed, i64 36
+  store i32 -1, ptr %len.i96.i, align 4
   %len.i97134.i = getelementptr inbounds i8, ptr %parsed, i64 44
   %20 = load i32, ptr %len.i97134.i, align 4
   %cmp.i98135.not.i = icmp eq i32 %20, -1

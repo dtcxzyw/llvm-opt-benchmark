@@ -88,7 +88,13 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   %14 = getelementptr inbounds i8, ptr %10, i64 16
   %15 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %14, ptr %15, align 8
-  store <4 x i32> <i32 58, i32 0, i32 57, i32 -1>, ptr %10, align 4
+  store i32 58, ptr %10, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  store i32 57, ptr %.sroa.3.0..sroa_idx, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 12
+  store i32 -1, ptr %.sroa.4.0..sroa_idx, align 4
   %16 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %14, ptr %16, align 8
   %17 = invoke noundef zeroext i1 @_ZN2cv12VideoCapture4openEiiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(41) %5, i32 noundef 0, i32 noundef 1400, ptr noundef nonnull align 8 dereferenceable(24) %6)

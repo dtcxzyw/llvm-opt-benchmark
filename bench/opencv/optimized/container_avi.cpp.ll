@@ -1456,7 +1456,7 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit: ; preds = %2, %10
   %17 = load i32, ptr %3, align 4
   %18 = icmp eq i32 %17, %.pre27
   %or.cond = select i1 %.not, i1 %18, i1 false
-  br i1 %or.cond, label %19, label %90
+  br i1 %or.cond, label %19, label %93
 
 19:                                               ; preds = %_ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit
   %20 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
@@ -1526,87 +1526,91 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_13AviMainHeaderE.exit: ; preds = %19, %28
 
 53:                                               ; preds = %35
   %54 = getelementptr inbounds i8, ptr %4, i64 32
-  %55 = getelementptr inbounds i8, ptr %0, i64 120
-  %56 = load <2 x i32>, ptr %54, align 1
-  store <2 x i32> %56, ptr %55, align 8
+  %55 = load i32, ptr %54, align 1
+  %56 = getelementptr inbounds i8, ptr %0, i64 120
+  store i32 %55, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %4, i64 36
+  %58 = load i32, ptr %57, align 1
+  %59 = getelementptr inbounds i8, ptr %0, i64 124
+  store i32 %58, ptr %59, align 4
   %.not25 = icmp eq i32 %43, 0
   br i1 %.not25, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %7, i64 8
-  %58 = getelementptr inbounds i8, ptr %7, i64 4
-  br label %59
+  %60 = getelementptr inbounds i8, ptr %7, i64 8
+  %61 = getelementptr inbounds i8, ptr %7, i64 4
+  br label %62
 
-59:                                               ; preds = %.lr.ph, %88
-  %.023 = phi i32 [ 0, %.lr.ph ], [ %89, %88 ]
-  %.01422 = phi i1 [ false, %.lr.ph ], [ %.1, %88 ]
-  %.01521 = phi i64 [ %25, %.lr.ph ], [ %.116, %88 ]
-  %60 = load ptr, ptr %0, align 8
-  %61 = call noundef nonnull align 8 dereferenceable(560) ptr @_ZN2cv16VideoInputStream5seekgEm(ptr noundef nonnull align 8 dereferenceable(560) %60, i64 noundef %.01521)
-  %62 = load ptr, ptr %0, align 8
-  %63 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %62)
-  br i1 %63, label %64, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit
+62:                                               ; preds = %.lr.ph, %91
+  %.023 = phi i32 [ 0, %.lr.ph ], [ %92, %91 ]
+  %.01422 = phi i1 [ false, %.lr.ph ], [ %.1, %91 ]
+  %.01521 = phi i64 [ %25, %.lr.ph ], [ %.116, %91 ]
+  %63 = load ptr, ptr %0, align 8
+  %64 = call noundef nonnull align 8 dereferenceable(560) ptr @_ZN2cv16VideoInputStream5seekgEm(ptr noundef nonnull align 8 dereferenceable(560) %63, i64 noundef %.01521)
+  %65 = load ptr, ptr %0, align 8
+  %66 = call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(256) %65)
+  br i1 %66, label %67, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit
 
-64:                                               ; preds = %59
-  %65 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull %7, i64 noundef 12)
-  %66 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %62)
-  %67 = icmp eq i64 %66, 12
-  %68 = getelementptr inbounds i8, ptr %62, i64 520
-  %69 = zext i1 %67 to i8
-  store i8 %69, ptr %68, align 8
+67:                                               ; preds = %62
+  %68 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull %7, i64 noundef 12)
+  %69 = call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %65)
+  %70 = icmp eq i64 %69, 12
+  %71 = getelementptr inbounds i8, ptr %65, i64 520
+  %72 = zext i1 %70 to i8
+  store i8 %72, ptr %71, align 8
   br label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit
 
-_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit: ; preds = %59, %64
-  %70 = load ptr, ptr %0, align 8
-  %.not20 = icmp eq ptr %70, null
-  br i1 %.not20, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge, label %71
+_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit: ; preds = %62, %67
+  %73 = load ptr, ptr %0, align 8
+  %.not20 = icmp eq ptr %73, null
+  br i1 %.not20, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge, label %74
 
 _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge: ; preds = %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit
   %.pre.b = load i1, ptr @_ZN2cvL7STRL_CCE, align 4
   %.pre = select i1 %.pre.b, i32 1819440243, i32 0
-  br label %86
+  br label %89
 
-71:                                               ; preds = %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit
-  %72 = load i32, ptr %7, align 4
+74:                                               ; preds = %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit
+  %75 = load i32, ptr %7, align 4
   %.b = load i1, ptr @_ZN2cvL7LIST_CCE, align 4
-  %73 = select i1 %.b, i32 1414744396, i32 0
-  %74 = icmp eq i32 %72, %73
+  %76 = select i1 %.b, i32 1414744396, i32 0
+  %77 = icmp eq i32 %75, %76
   %.pre26.b = load i1, ptr @_ZN2cvL7STRL_CCE, align 4
   %.pre26 = select i1 %.pre26.b, i32 1819440243, i32 0
-  %75 = load i32, ptr %57, align 4
-  %76 = icmp eq i32 %75, %.pre26
-  %or.cond30 = select i1 %74, i1 %76, i1 false
-  br i1 %or.cond30, label %77, label %86
+  %78 = load i32, ptr %60, align 4
+  %79 = icmp eq i32 %78, %.pre26
+  %or.cond30 = select i1 %77, i1 %79, i1 false
+  br i1 %or.cond30, label %80, label %89
 
-77:                                               ; preds = %71
-  %78 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %70)
-  %79 = extractvalue { i64, i64 } %78, 0
-  %80 = load i32, ptr %58, align 4
-  %81 = add i32 %80, -4
-  %82 = zext i32 %81 to i64
-  %83 = add i64 %79, %82
-  %84 = trunc nuw i32 %.023 to i8
-  %85 = call noundef zeroext i1 @_ZN2cv16AVIReadContainer9parseStrlEcNS_6CodecsE(ptr noundef nonnull align 8 dereferenceable(137) %0, i8 noundef signext %84, i32 noundef %1)
-  br label %88
+80:                                               ; preds = %74
+  %81 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16) %73)
+  %82 = extractvalue { i64, i64 } %81, 0
+  %83 = load i32, ptr %61, align 4
+  %84 = add i32 %83, -4
+  %85 = zext i32 %84 to i64
+  %86 = add i64 %82, %85
+  %87 = trunc nuw i32 %.023 to i8
+  %88 = call noundef zeroext i1 @_ZN2cv16AVIReadContainer9parseStrlEcNS_6CodecsE(ptr noundef nonnull align 8 dereferenceable(137) %0, i8 noundef signext %87, i32 noundef %1)
+  br label %91
 
-86:                                               ; preds = %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge, %71
-  %87 = phi i32 [ %.pre, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge ], [ %.pre26, %71 ]
-  call void @_ZN2cv16AVIReadContainer10printErrorERNS_8RiffListEj(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 1 dereferenceable(12) %7, i32 noundef %87)
-  br label %88
+89:                                               ; preds = %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge, %74
+  %90 = phi i32 [ %.pre, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge ], [ %.pre26, %74 ]
+  call void @_ZN2cv16AVIReadContainer10printErrorERNS_8RiffListEj(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 1 dereferenceable(12) %7, i32 noundef %90)
+  br label %91
 
-88:                                               ; preds = %77, %86
-  %.116 = phi i64 [ %83, %77 ], [ %.01521, %86 ]
-  %.1 = phi i1 [ %85, %77 ], [ %.01422, %86 ]
-  %89 = add nuw i32 %.023, 1
-  %exitcond.not = icmp eq i32 %89, %43
-  br i1 %exitcond.not, label %.loopexit, label %59, !llvm.loop !15
+91:                                               ; preds = %80, %89
+  %.116 = phi i64 [ %86, %80 ], [ %.01521, %89 ]
+  %.1 = phi i1 [ %88, %80 ], [ %.01422, %89 ]
+  %92 = add nuw i32 %.023, 1
+  %exitcond.not = icmp eq i32 %92, %43
+  br i1 %exitcond.not, label %.loopexit, label %62, !llvm.loop !15
 
-90:                                               ; preds = %_ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit
+93:                                               ; preds = %_ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit
   call void @_ZN2cv16AVIReadContainer10printErrorERNS_9RiffChunkEj(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 1 dereferenceable(8) %3, i32 noundef %.pre27)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %88, %53, %_ZN2cvrsERNS_16VideoInputStreamERNS_13AviMainHeaderE.exit, %90
-  %.2 = phi i1 [ false, %_ZN2cvrsERNS_16VideoInputStreamERNS_13AviMainHeaderE.exit ], [ false, %90 ], [ false, %53 ], [ %.1, %88 ]
+.loopexit:                                        ; preds = %91, %53, %_ZN2cvrsERNS_16VideoInputStreamERNS_13AviMainHeaderE.exit, %93
+  %.2 = phi i1 [ false, %_ZN2cvrsERNS_16VideoInputStreamERNS_13AviMainHeaderE.exit ], [ false, %93 ], [ false, %53 ], [ %.1, %91 ]
   ret i1 %.2
 }
 

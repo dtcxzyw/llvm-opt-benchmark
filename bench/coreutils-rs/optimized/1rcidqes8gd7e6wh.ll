@@ -230,16 +230,21 @@ _ZN12clap_builder7builder7command7Command5about17h20ca6565659670dfE.exit: ; pred
   call void @llvm.lifetime.start.p0(i64 700, ptr nonnull %.sroa.02)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(700) %.sroa.02, ptr noundef nonnull align 8 dereferenceable(700) %9, i64 700, i1 false)
   %.sroa.427.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 700
+  %.sroa.427.0.copyload = load i32, ptr %.sroa.427.0..sroa_idx, align 4, !alias.scope !71, !noalias !74
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 704
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !71, !noalias !74
   %.sroa.6.0..sroa_idx28 = getelementptr inbounds i8, ptr %9, i64 708
   %.sroa.6.0.copyload29 = load i32, ptr %.sroa.6.0..sroa_idx28, align 4, !alias.scope !71, !noalias !74
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.538)
-  %.sroa.43.0..sroa_idx4 = getelementptr inbounds i8, ptr %0, i64 700
-  %60 = load <2 x i32>, ptr %.sroa.427.0..sroa_idx, align 4, !alias.scope !71, !noalias !74
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %9)
-  %61 = or <2 x i32> %60, <i32 128, i32 128>
+  %60 = or i32 %.sroa.427.0.copyload, 128
+  %61 = or i32 %.sroa.5.0.copyload, 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(700) %0, ptr noundef nonnull align 8 dereferenceable(700) %.sroa.02, i64 700, i1 false)
-  store <2 x i32> %61, ptr %.sroa.43.0..sroa_idx4, align 4
+  %.sroa.43.0..sroa_idx4 = getelementptr inbounds i8, ptr %0, i64 700
+  store i32 %60, ptr %.sroa.43.0..sroa_idx4, align 4
+  %.sroa.6.0..sroa_idx6 = getelementptr inbounds i8, ptr %0, i64 704
+  store i32 %61, ptr %.sroa.6.0..sroa_idx6, align 8
   %.sroa.8.0..sroa_idx8 = getelementptr inbounds i8, ptr %0, i64 708
   store i32 %.sroa.6.0.copyload29, ptr %.sroa.8.0..sroa_idx8, align 4
   call void @llvm.lifetime.end.p0(i64 700, ptr nonnull %.sroa.02)

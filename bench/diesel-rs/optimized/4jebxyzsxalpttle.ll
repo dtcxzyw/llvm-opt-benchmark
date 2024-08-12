@@ -136,20 +136,25 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = load ptr, ptr %4, align 8, !noundef !3
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %10
+  br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h14ded34940234e51E"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %3, ptr nonnull align 8 %7)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8, !range !8, !noundef !3
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %6
-  %11 = phi <2 x i64> [ %9, %6 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %6
+  %.sink1 = phi i64 [ %9, %6 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %6 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -314,3 +319,4 @@ attributes #7 = { cold noreturn nounwind }
 !5 = !{i64 0, i64 -9223372036854775806}
 !6 = !{i64 0, i64 -9223372036854775807}
 !7 = !{i64 1}
+!8 = !{i64 0, i64 2}

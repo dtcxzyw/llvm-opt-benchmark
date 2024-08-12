@@ -3310,7 +3310,7 @@ define dso_local void @_ZN9cmFileAPI15ReadClientQueryERKNSt7__cxx1112basic_strin
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.Json::Value", align 8
-  %8 = alloca %"struct.cmFileAPI::ClientRequests", align 16
+  %8 = alloca %"struct.cmFileAPI::ClientRequests", align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.24)
@@ -3415,64 +3415,66 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %49 = getelementptr inbounds i8, ptr %2, i64 120
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %2, i64 128
-  %52 = getelementptr inbounds i8, ptr %8, i64 8
-  %53 = load <2 x ptr>, ptr %8, align 16
-  store <2 x ptr> %53, ptr %47, align 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 16
-  %55 = load ptr, ptr %54, align 16
-  store ptr %55, ptr %51, align 8
+  %52 = load ptr, ptr %8, align 8
+  store ptr %52, ptr %47, align 8
+  %53 = getelementptr inbounds i8, ptr %8, i64 8
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %49, align 8
+  %55 = getelementptr inbounds i8, ptr %8, i64 16
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %51, align 8
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %48, %50
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %46, %.lr.ph.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i.i.i.i ], [ %48, %46 ]
-  %56 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #21
-  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 48
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %57, %50
+  %.05.i.i.i.i.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i.i.i.i.i ], [ %48, %46 ]
+  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #21
+  %58 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 48
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %58, %50
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !44
 
 _ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %46
   %.not.i.i.i.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9cmFileAPI14ClientRequestsaSEOS0_.exit, label %58
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9cmFileAPI14ClientRequestsaSEOS0_.exit, label %59
 
-58:                                               ; preds = %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
+59:                                               ; preds = %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %48) #23
   br label %_ZN9cmFileAPI14ClientRequestsaSEOS0_.exit
 
-_ZN9cmFileAPI14ClientRequestsaSEOS0_.exit:        ; preds = %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, %58
-  %59 = getelementptr inbounds i8, ptr %2, i64 136
-  %60 = getelementptr inbounds i8, ptr %8, i64 24
-  %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %60) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #21
-  %62 = load ptr, ptr %8, align 16
-  %63 = load ptr, ptr %52, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %62, %63
+_ZN9cmFileAPI14ClientRequestsaSEOS0_.exit:        ; preds = %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, %59
+  %60 = getelementptr inbounds i8, ptr %2, i64 136
+  %61 = getelementptr inbounds i8, ptr %8, i64 24
+  %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %61) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #21
+  %63 = load ptr, ptr %8, align 8
+  %64 = load ptr, ptr %53, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %63, %64
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN9cmFileAPI14ClientRequestsaSEOS0_.exit, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i ], [ %62, %_ZN9cmFileAPI14ClientRequestsaSEOS0_.exit ]
-  %64 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #21
-  %65 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 48
-  %.not.i.i.i.i.i = icmp eq ptr %65, %63
+  %.05.i.i.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i.i.i ], [ %63, %_ZN9cmFileAPI14ClientRequestsaSEOS0_.exit ]
+  %65 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #21
+  %66 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 48
+  %.not.i.i.i.i.i = icmp eq ptr %66, %64
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !44
 
 _ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %8, align 16
+  %.pr.i.i = load ptr, ptr %8, align 8
   br label %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %_ZN9cmFileAPI14ClientRequestsaSEOS0_.exit
-  %66 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %62, %_ZN9cmFileAPI14ClientRequestsaSEOS0_.exit ]
-  %.not.i.i.i.i = icmp eq ptr %66, null
-  br i1 %.not.i.i.i.i, label %_ZN9cmFileAPI14ClientRequestsD2Ev.exit, label %67
+  %67 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %63, %_ZN9cmFileAPI14ClientRequestsaSEOS0_.exit ]
+  %.not.i.i.i.i = icmp eq ptr %67, null
+  br i1 %.not.i.i.i.i, label %_ZN9cmFileAPI14ClientRequestsD2Ev.exit, label %68
 
-67:                                               ; preds = %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %66) #23
+68:                                               ; preds = %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %67) #23
   br label %_ZN9cmFileAPI14ClientRequestsD2Ev.exit
 
-_ZN9cmFileAPI14ClientRequestsD2Ev.exit:           ; preds = %67, %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i, %31, %19
+_ZN9cmFileAPI14ClientRequestsD2Ev.exit:           ; preds = %68, %_ZSt8_DestroyIPN9cmFileAPI13ClientRequestES1_EvT_S3_RSaIT0_E.exit.i.i, %31, %19
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   ret void

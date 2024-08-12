@@ -55,7 +55,7 @@ define void @LAPACKE_ctr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %40 = sext i32 %5 to i64
   %41 = zext nneg i32 %33 to i64
   %42 = sub nsw i64 %39, %37
-  br label %76
+  br label %79
 
 43:                                               ; preds = %28
   %44 = tail call i32 @llvm.smin.i32(i32 %3, i32 %7)
@@ -94,44 +94,52 @@ define void @LAPACKE_ctr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   br label %68
 
 68:                                               ; preds = %68, %62
-  %69 = phi i64 [ 0, %62 ], [ %74, %68 ]
+  %69 = phi i64 [ 0, %62 ], [ %77, %68 ]
   %70 = getelementptr { float, float }, ptr %66, i64 %69
-  %71 = mul nsw i64 %69, %47
-  %72 = getelementptr { float, float }, ptr %67, i64 %71
-  %73 = load <2 x float>, ptr %70, align 4
-  store <2 x float> %73, ptr %72, align 4
-  %74 = add nuw nsw i64 %69, 1
-  %75 = icmp eq i64 %74, %65
-  br i1 %75, label %.loopexit, label %68, !llvm.loop !6
+  %71 = load float, ptr %70, align 4
+  %72 = getelementptr inbounds i8, ptr %70, i64 4
+  %73 = load float, ptr %72, align 4
+  %74 = mul nsw i64 %69, %47
+  %75 = getelementptr { float, float }, ptr %67, i64 %74
+  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  store float %71, ptr %75, align 4
+  store float %73, ptr %76, align 4
+  %77 = add nuw nsw i64 %69, 1
+  %78 = icmp eq i64 %77, %65
+  br i1 %78, label %.loopexit, label %68, !llvm.loop !6
 
-76:                                               ; preds = %.loopexit8, %35
-  %77 = phi i64 [ 0, %35 ], [ %92, %.loopexit8 ]
-  %78 = phi i64 [ %37, %35 ], [ %93, %.loopexit8 ]
-  %79 = icmp slt i64 %77, %42
-  br i1 %79, label %80, label %.loopexit8
+79:                                               ; preds = %.loopexit8, %35
+  %80 = phi i64 [ 0, %35 ], [ %98, %.loopexit8 ]
+  %81 = phi i64 [ %37, %35 ], [ %99, %.loopexit8 ]
+  %82 = icmp slt i64 %80, %42
+  br i1 %82, label %83, label %.loopexit8
 
-80:                                               ; preds = %76
-  %81 = mul nsw i64 %77, %40
-  %82 = getelementptr { float, float }, ptr %4, i64 %81
-  %83 = getelementptr { float, float }, ptr %6, i64 %77
-  br label %84
+83:                                               ; preds = %79
+  %84 = mul nsw i64 %80, %40
+  %85 = getelementptr { float, float }, ptr %4, i64 %84
+  %86 = getelementptr { float, float }, ptr %6, i64 %80
+  br label %87
 
-84:                                               ; preds = %84, %80
-  %85 = phi i64 [ %78, %80 ], [ %90, %84 ]
-  %86 = getelementptr { float, float }, ptr %82, i64 %85
-  %87 = mul nsw i64 %85, %38
-  %88 = getelementptr { float, float }, ptr %83, i64 %87
-  %89 = load <2 x float>, ptr %86, align 4
-  store <2 x float> %89, ptr %88, align 4
-  %90 = add nuw nsw i64 %85, 1
-  %91 = icmp slt i64 %90, %39
-  br i1 %91, label %84, label %.loopexit8, !llvm.loop !7
+87:                                               ; preds = %87, %83
+  %88 = phi i64 [ %81, %83 ], [ %96, %87 ]
+  %89 = getelementptr { float, float }, ptr %85, i64 %88
+  %90 = load float, ptr %89, align 4
+  %91 = getelementptr inbounds i8, ptr %89, i64 4
+  %92 = load float, ptr %91, align 4
+  %93 = mul nsw i64 %88, %38
+  %94 = getelementptr { float, float }, ptr %86, i64 %93
+  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  store float %90, ptr %94, align 4
+  store float %92, ptr %95, align 4
+  %96 = add nuw nsw i64 %88, 1
+  %97 = icmp slt i64 %96, %39
+  br i1 %97, label %87, label %.loopexit8, !llvm.loop !7
 
-.loopexit8:                                       ; preds = %84, %76
-  %92 = add nuw nsw i64 %77, 1
-  %93 = add nuw nsw i64 %78, 1
-  %94 = icmp eq i64 %92, %41
-  br i1 %94, label %.loopexit7, label %76, !llvm.loop !8
+.loopexit8:                                       ; preds = %87, %79
+  %98 = add nuw nsw i64 %80, 1
+  %99 = add nuw nsw i64 %81, 1
+  %100 = icmp eq i64 %98, %41
+  br i1 %100, label %.loopexit7, label %79, !llvm.loop !8
 
 .loopexit7:                                       ; preds = %.loopexit8, %.loopexit, %43, %31, %25, %20, %12, %8
   ret void

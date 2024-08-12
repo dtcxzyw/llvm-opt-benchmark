@@ -405,7 +405,7 @@ define internal i32 @get_sane_pdu_len(ptr noundef %0, ptr noundef %1, i32 nounde
   %23 = load i32, ptr %22, align 8
   %24 = tail call i32 @value_is_in_range(ptr noundef %21, i32 noundef %23) #4
   %.not57 = icmp eq i32 %24, 0
-  br i1 %.not57, label %138, label %25
+  br i1 %.not57, label %137, label %25
 
 25:                                               ; preds = %20
   %26 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
@@ -435,7 +435,7 @@ define internal i32 @get_sane_pdu_len(ptr noundef %0, ptr noundef %1, i32 nounde
 .thread:                                          ; preds = %38
   %40 = getelementptr inbounds i8, ptr %.055, i64 16
   store i8 1, ptr %40, align 4
-  br label %108
+  br label %107
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %.055, i64 4
@@ -450,257 +450,247 @@ define internal i32 @get_sane_pdu_len(ptr noundef %0, ptr noundef %1, i32 nounde
 
 44:                                               ; preds = %41, %28
   switch i32 %29, label %.loopexit [
-    i32 0, label %47
-    i32 9, label %108
+    i32 0, label %46
+    i32 9, label %107
     i32 5, label %.preheader186
-    i32 2, label %65
-    i32 3, label %79
-    i32 4, label %79
-    i32 6, label %79
-    i32 7, label %79
-    i32 8, label %79
+    i32 2, label %64
+    i32 3, label %78
+    i32 4, label %78
+    i32 6, label %78
+    i32 7, label %78
+    i32 8, label %78
   ]
 
 .preheader186:                                    ; preds = %44
   %45 = load ptr, ptr %5, align 8
-  %46 = load <2 x i32>, ptr %11, align 8
-  %.promoted = load <2 x i32>, ptr %11, align 1
-  br label %86
+  %.promoted = load i32, ptr %11, align 8
+  %.promoted188 = load i32, ptr %12, align 4
+  br label %85
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %5, align 8
-  %49 = load i32, ptr %11, align 8
-  %50 = tail call i32 @tvb_captured_length_remaining(ptr noundef %48, i32 noundef %49) #4
-  %51 = icmp slt i32 %50, 4
-  br i1 %51, label %tvb_read_sane_word.exit.thread, label %52
+46:                                               ; preds = %44
+  %47 = load ptr, ptr %5, align 8
+  %48 = load i32, ptr %11, align 8
+  %49 = tail call i32 @tvb_captured_length_remaining(ptr noundef %47, i32 noundef %48) #4
+  %50 = icmp slt i32 %49, 4
+  br i1 %50, label %tvb_read_sane_word.exit.thread, label %51
 
-52:                                               ; preds = %47
-  %53 = add i32 %49, 4
-  %54 = load i32, ptr %12, align 4
-  %55 = tail call i32 @tvb_captured_length_remaining(ptr noundef %48, i32 noundef %53) #4
-  %56 = icmp slt i32 %55, 4
-  br i1 %56, label %tvb_read_sane_word.exit.thread, label %57
+51:                                               ; preds = %46
+  %52 = add i32 %48, 4
+  %53 = load i32, ptr %12, align 4
+  %54 = tail call i32 @tvb_captured_length_remaining(ptr noundef %47, i32 noundef %52) #4
+  %55 = icmp slt i32 %54, 4
+  br i1 %55, label %tvb_read_sane_word.exit.thread, label %56
 
-57:                                               ; preds = %52
-  %58 = tail call i32 @tvb_get_ntohl(ptr noundef %48, i32 noundef %53) #4
-  %59 = add i32 %49, 8
-  %60 = tail call i32 @tvb_captured_length_remaining(ptr noundef %48, i32 noundef %59) #4
-  %61 = icmp slt i32 %60, %58
-  br i1 %61, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit
+56:                                               ; preds = %51
+  %57 = tail call i32 @tvb_get_ntohl(ptr noundef %47, i32 noundef %52) #4
+  %58 = add i32 %48, 8
+  %59 = tail call i32 @tvb_captured_length_remaining(ptr noundef %47, i32 noundef %58) #4
+  %60 = icmp slt i32 %59, %57
+  br i1 %60, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit
 
-tvb_read_sane_string.exit:                        ; preds = %57
-  %62 = add i32 %54, 8
-  %63 = add i32 %62, %58
-  store i32 %63, ptr %12, align 4
-  %64 = icmp eq i32 %58, -4
-  br i1 %64, label %tvb_read_sane_word.exit.thread, label %.loopexit
+tvb_read_sane_string.exit:                        ; preds = %56
+  %61 = add i32 %53, 8
+  %62 = add i32 %61, %57
+  store i32 %62, ptr %12, align 4
+  %63 = icmp eq i32 %57, -4
+  br i1 %63, label %tvb_read_sane_word.exit.thread, label %.loopexit
 
-65:                                               ; preds = %44
-  %66 = load ptr, ptr %5, align 8
-  %67 = load i32, ptr %11, align 8
-  %68 = tail call i32 @tvb_captured_length_remaining(ptr noundef %66, i32 noundef %67) #4
-  %69 = icmp slt i32 %68, 4
-  br i1 %69, label %tvb_read_sane_word.exit.thread, label %70
+64:                                               ; preds = %44
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i32, ptr %11, align 8
+  %67 = tail call i32 @tvb_captured_length_remaining(ptr noundef %65, i32 noundef %66) #4
+  %68 = icmp slt i32 %67, 4
+  br i1 %68, label %tvb_read_sane_word.exit.thread, label %69
 
-70:                                               ; preds = %65
-  %71 = tail call i32 @tvb_get_ntohl(ptr noundef %66, i32 noundef %67) #4
-  %72 = add i32 %67, 4
-  %73 = load i32, ptr %12, align 4
-  %74 = tail call i32 @tvb_captured_length_remaining(ptr noundef %66, i32 noundef %72) #4
-  %75 = icmp slt i32 %74, %71
-  br i1 %75, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit63
+69:                                               ; preds = %64
+  %70 = tail call i32 @tvb_get_ntohl(ptr noundef %65, i32 noundef %66) #4
+  %71 = add i32 %66, 4
+  %72 = load i32, ptr %12, align 4
+  %73 = tail call i32 @tvb_captured_length_remaining(ptr noundef %65, i32 noundef %71) #4
+  %74 = icmp slt i32 %73, %70
+  br i1 %74, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit63
 
-tvb_read_sane_string.exit63:                      ; preds = %70
-  %76 = add i32 %73, 4
-  %77 = add i32 %76, %71
-  store i32 %77, ptr %12, align 4
-  %78 = icmp eq i32 %71, -4
-  br i1 %78, label %tvb_read_sane_word.exit.thread, label %.loopexit
+tvb_read_sane_string.exit63:                      ; preds = %69
+  %75 = add i32 %72, 4
+  %76 = add i32 %75, %70
+  store i32 %76, ptr %12, align 4
+  %77 = icmp eq i32 %70, -4
+  br i1 %77, label %tvb_read_sane_word.exit.thread, label %.loopexit
 
-79:                                               ; preds = %44, %44, %44, %44, %44
-  %80 = load ptr, ptr %5, align 8
-  %81 = load i32, ptr %11, align 8
-  %82 = tail call i32 @tvb_captured_length_remaining(ptr noundef %80, i32 noundef %81) #4
-  %83 = icmp slt i32 %82, 4
-  br i1 %83, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_word.exit65
+78:                                               ; preds = %44, %44, %44, %44, %44
+  %79 = load ptr, ptr %5, align 8
+  %80 = load i32, ptr %11, align 8
+  %81 = tail call i32 @tvb_captured_length_remaining(ptr noundef %79, i32 noundef %80) #4
+  %82 = icmp slt i32 %81, 4
+  br i1 %82, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_word.exit65
 
-tvb_read_sane_word.exit65:                        ; preds = %79
-  %84 = load i32, ptr %12, align 4
-  %85 = add i32 %84, 4
+tvb_read_sane_word.exit65:                        ; preds = %78
+  %83 = load i32, ptr %12, align 4
+  %84 = add i32 %83, 4
   br label %.loopexit.sink.split
 
-86:                                               ; preds = %.preheader186, %92
-  %87 = phi <2 x i32> [ %.promoted, %.preheader186 ], [ %93, %92 ]
-  %.054189 = phi i32 [ 0, %.preheader186 ], [ %94, %92 ]
-  %88 = phi <2 x i32> [ %46, %.preheader186 ], [ %93, %92 ]
-  %89 = extractelement <2 x i32> %88, i64 0
-  %90 = tail call i32 @tvb_captured_length_remaining(ptr noundef %45, i32 noundef %89) #4
-  %91 = icmp slt i32 %90, 4
-  br i1 %91, label %tvb_read_sane_word.exit.thread.loopexit289, label %92
+85:                                               ; preds = %.preheader186, %90
+  %.054189 = phi i32 [ 0, %.preheader186 ], [ %93, %90 ]
+  %86 = phi i32 [ %.promoted, %.preheader186 ], [ %91, %90 ]
+  %87 = phi i32 [ %.promoted188, %.preheader186 ], [ %92, %90 ]
+  %88 = tail call i32 @tvb_captured_length_remaining(ptr noundef %45, i32 noundef %86) #4
+  %89 = icmp slt i32 %88, 4
+  br i1 %89, label %tvb_read_sane_word.exit.thread, label %90
 
-92:                                               ; preds = %86
-  %93 = add <2 x i32> %88, <i32 4, i32 4>
-  %94 = add nuw nsw i32 %.054189, 1
-  %exitcond.not = icmp eq i32 %94, 4
-  br i1 %exitcond.not, label %95, label %86, !llvm.loop !4
+90:                                               ; preds = %85
+  %91 = add i32 %86, 4
+  store i32 %91, ptr %11, align 8
+  %92 = add i32 %87, 4
+  store i32 %92, ptr %12, align 4
+  %93 = add nuw nsw i32 %.054189, 1
+  %exitcond.not = icmp eq i32 %93, 4
+  br i1 %exitcond.not, label %94, label %85, !llvm.loop !4
 
-95:                                               ; preds = %92
-  store <2 x i32> %93, ptr %11, align 1
-  %96 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %tvb_read_sane_word.exit.thread, label %98
+94:                                               ; preds = %90
+  %95 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %tvb_read_sane_word.exit.thread, label %97
 
-98:                                               ; preds = %95
-  %99 = load i32, ptr %6, align 4
-  %100 = add i32 %99, 4
-  %101 = load ptr, ptr %5, align 8
-  %102 = load i32, ptr %11, align 8
-  %103 = call i32 @tvb_captured_length_remaining(ptr noundef %101, i32 noundef %102) #4
-  %104 = icmp slt i32 %103, %100
-  br i1 %104, label %tvb_read_sane_word.exit.thread, label %tvb_skip_bytes.exit
+97:                                               ; preds = %94
+  %98 = load i32, ptr %6, align 4
+  %99 = add i32 %98, 4
+  %100 = load ptr, ptr %5, align 8
+  %101 = load i32, ptr %11, align 8
+  %102 = call i32 @tvb_captured_length_remaining(ptr noundef %100, i32 noundef %101) #4
+  %103 = icmp slt i32 %102, %99
+  br i1 %103, label %tvb_read_sane_word.exit.thread, label %tvb_skip_bytes.exit
 
-tvb_skip_bytes.exit:                              ; preds = %98
-  %105 = load i32, ptr %12, align 4
-  %106 = add i32 %105, %100
-  store i32 %106, ptr %12, align 4
-  %107 = icmp eq i32 %100, 0
-  br i1 %107, label %tvb_read_sane_word.exit.thread, label %.loopexit
+tvb_skip_bytes.exit:                              ; preds = %97
+  %104 = load i32, ptr %12, align 4
+  %105 = add i32 %104, %99
+  store i32 %105, ptr %12, align 4
+  %106 = icmp eq i32 %99, 0
+  br i1 %106, label %tvb_read_sane_word.exit.thread, label %.loopexit
 
-108:                                              ; preds = %.thread, %44
-  %109 = load ptr, ptr %5, align 8
-  %110 = load i32, ptr %11, align 8
-  %111 = tail call i32 @tvb_captured_length_remaining(ptr noundef %109, i32 noundef %110) #4
-  %112 = icmp slt i32 %111, 4
-  br i1 %112, label %tvb_read_sane_word.exit.thread, label %113
+107:                                              ; preds = %.thread, %44
+  %108 = load ptr, ptr %5, align 8
+  %109 = load i32, ptr %11, align 8
+  %110 = tail call i32 @tvb_captured_length_remaining(ptr noundef %108, i32 noundef %109) #4
+  %111 = icmp slt i32 %110, 4
+  br i1 %111, label %tvb_read_sane_word.exit.thread, label %112
 
-113:                                              ; preds = %108
-  %114 = tail call i32 @tvb_get_ntohl(ptr noundef %109, i32 noundef %110) #4
-  %115 = add i32 %110, 4
-  %116 = load i32, ptr %12, align 4
-  %117 = tail call i32 @tvb_captured_length_remaining(ptr noundef %109, i32 noundef %115) #4
-  %118 = icmp slt i32 %117, %114
-  br i1 %118, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit70
+112:                                              ; preds = %107
+  %113 = tail call i32 @tvb_get_ntohl(ptr noundef %108, i32 noundef %109) #4
+  %114 = add i32 %109, 4
+  %115 = load i32, ptr %12, align 4
+  %116 = tail call i32 @tvb_captured_length_remaining(ptr noundef %108, i32 noundef %114) #4
+  %117 = icmp slt i32 %116, %113
+  br i1 %117, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit70
 
-tvb_read_sane_string.exit70:                      ; preds = %113
-  %119 = add i32 %116, 4
-  %120 = add i32 %115, %114
-  %121 = add i32 %119, %114
-  %122 = icmp eq i32 %114, -4
-  br i1 %122, label %tvb_read_sane_word.exit.thread, label %123
+tvb_read_sane_string.exit70:                      ; preds = %112
+  %118 = add i32 %115, 4
+  %119 = add i32 %114, %113
+  %120 = add i32 %118, %113
+  %121 = icmp eq i32 %113, -4
+  br i1 %121, label %tvb_read_sane_word.exit.thread, label %122
 
-123:                                              ; preds = %tvb_read_sane_string.exit70
-  %124 = tail call i32 @tvb_captured_length_remaining(ptr noundef %109, i32 noundef %120) #4
-  %125 = icmp slt i32 %124, 4
-  br i1 %125, label %tvb_read_sane_word.exit.thread, label %126
+122:                                              ; preds = %tvb_read_sane_string.exit70
+  %123 = tail call i32 @tvb_captured_length_remaining(ptr noundef %108, i32 noundef %119) #4
+  %124 = icmp slt i32 %123, 4
+  br i1 %124, label %tvb_read_sane_word.exit.thread, label %125
 
-126:                                              ; preds = %123
-  %127 = tail call i32 @tvb_get_ntohl(ptr noundef %109, i32 noundef %120) #4
-  %128 = add i32 %120, 4
-  %129 = tail call i32 @tvb_captured_length_remaining(ptr noundef %109, i32 noundef %128) #4
-  %130 = icmp slt i32 %129, %127
-  br i1 %130, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit72
+125:                                              ; preds = %122
+  %126 = tail call i32 @tvb_get_ntohl(ptr noundef %108, i32 noundef %119) #4
+  %127 = add i32 %119, 4
+  %128 = tail call i32 @tvb_captured_length_remaining(ptr noundef %108, i32 noundef %127) #4
+  %129 = icmp slt i32 %128, %126
+  br i1 %129, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit72
 
-tvb_read_sane_string.exit72:                      ; preds = %126
-  %131 = add i32 %121, 4
-  %132 = add i32 %128, %127
-  store i32 %132, ptr %11, align 8
-  %133 = add i32 %131, %127
-  store i32 %133, ptr %12, align 4
-  %134 = icmp eq i32 %127, -4
-  br i1 %134, label %tvb_read_sane_word.exit.thread, label %135
+tvb_read_sane_string.exit72:                      ; preds = %125
+  %130 = add i32 %120, 4
+  %131 = add i32 %127, %126
+  store i32 %131, ptr %11, align 8
+  %132 = add i32 %130, %126
+  store i32 %132, ptr %12, align 4
+  %133 = icmp eq i32 %126, -4
+  br i1 %133, label %tvb_read_sane_word.exit.thread, label %134
 
-135:                                              ; preds = %tvb_read_sane_string.exit72
-  %136 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %tvb_read_sane_word.exit.thread, label %.loopexit
+134:                                              ; preds = %tvb_read_sane_string.exit72
+  %135 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %tvb_read_sane_word.exit.thread, label %.loopexit
 
-138:                                              ; preds = %20
-  %139 = tail call fastcc i32 @get_sane_expected_response_type(ptr noundef %.055, ptr noundef nonnull %0)
-  switch i32 %139, label %.loopexit [
+137:                                              ; preds = %20
+  %138 = tail call fastcc i32 @get_sane_expected_response_type(ptr noundef %.055, ptr noundef nonnull %0)
+  switch i32 %138, label %.loopexit [
     i32 0, label %.preheader
-    i32 2, label %148
-    i32 4, label %159
-    i32 5, label %.preheader178.preheader
-    i32 1, label %287
-    i32 3, label %357
-    i32 7, label %.preheader181.preheader
-    i32 6, label %.preheader183.preheader
-    i32 8, label %382
-    i32 9, label %382
+    i32 2, label %147
+    i32 4, label %158
+    i32 5, label %.preheader178
+    i32 1, label %293
+    i32 3, label %363
+    i32 7, label %.preheader181
+    i32 6, label %.preheader183
+    i32 8, label %385
+    i32 9, label %385
   ]
 
-.preheader183.preheader:                          ; preds = %138
-  %.promoted294 = load i32, ptr %12, align 1
-  br label %.preheader183
+.preheader:                                       ; preds = %137, %144
+  %139 = phi i1 [ false, %144 ], [ true, %137 ]
+  %140 = phi i32 [ %145, %144 ], [ %2, %137 ]
+  %141 = phi i32 [ %146, %144 ], [ %138, %137 ]
+  %142 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %140) #4
+  %143 = icmp slt i32 %142, 4
+  br i1 %143, label %tvb_read_sane_word.exit.thread, label %144
 
-.preheader181.preheader:                          ; preds = %138
-  %.promoted297 = load i32, ptr %11, align 1
-  %.promoted300 = load i32, ptr %12, align 1
-  br label %.preheader181
-
-.preheader178.preheader:                          ; preds = %138
-  %.promoted307 = load i32, ptr %11, align 1
-  br label %.preheader178
-
-.preheader:                                       ; preds = %138, %145
-  %140 = phi i1 [ false, %145 ], [ true, %138 ]
-  %141 = phi i32 [ %146, %145 ], [ %2, %138 ]
-  %142 = phi i32 [ %147, %145 ], [ %139, %138 ]
-  %143 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %141) #4
-  %144 = icmp slt i32 %143, 4
-  br i1 %144, label %tvb_read_sane_word.exit.thread, label %145
-
-145:                                              ; preds = %.preheader
+144:                                              ; preds = %.preheader
+  %145 = add i32 %140, 4
   %146 = add i32 %141, 4
-  %147 = add i32 %142, 4
-  store i32 %147, ptr %12, align 4
-  br i1 %140, label %.preheader, label %.loopexit, !llvm.loop !6
+  store i32 %146, ptr %12, align 4
+  br i1 %139, label %.preheader, label %.loopexit, !llvm.loop !6
 
-148:                                              ; preds = %138
-  %149 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
-  %150 = icmp slt i32 %149, 4
-  br i1 %150, label %tvb_read_sane_word.exit.thread, label %151
+147:                                              ; preds = %137
+  %148 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
+  %149 = icmp slt i32 %148, 4
+  br i1 %149, label %tvb_read_sane_word.exit.thread, label %150
 
-151:                                              ; preds = %148
-  %152 = add i32 %2, 4
-  %153 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %152) #4
-  %154 = icmp slt i32 %153, 4
-  br i1 %154, label %tvb_read_sane_word.exit.thread, label %155
+150:                                              ; preds = %147
+  %151 = add i32 %2, 4
+  %152 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %151) #4
+  %153 = icmp slt i32 %152, 4
+  br i1 %153, label %tvb_read_sane_word.exit.thread, label %154
 
-155:                                              ; preds = %151
-  %156 = add i32 %2, 8
-  store i32 %156, ptr %11, align 8
+154:                                              ; preds = %150
+  %155 = add i32 %2, 8
+  store i32 %155, ptr %11, align 8
   store i32 8, ptr %12, align 4
-  %157 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
-  %158 = icmp eq i32 %157, 0
-  br i1 %158, label %tvb_read_sane_word.exit.thread, label %.loopexit
+  %156 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
+  %157 = icmp eq i32 %156, 0
+  br i1 %157, label %tvb_read_sane_word.exit.thread, label %.loopexit
 
-159:                                              ; preds = %138
-  %160 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
-  %161 = icmp slt i32 %160, 4
-  br i1 %161, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_word.exit80
+158:                                              ; preds = %137
+  %159 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
+  %160 = icmp slt i32 %159, 4
+  br i1 %160, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_word.exit80
 
-tvb_read_sane_word.exit80:                        ; preds = %159
-  %162 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #4
-  %163 = add i32 %2, 4
-  store i32 %163, ptr %11, align 8
+tvb_read_sane_word.exit80:                        ; preds = %158
+  %161 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #4
+  %162 = add i32 %2, 4
+  store i32 %162, ptr %11, align 8
   store i32 4, ptr %12, align 4
-  %164 = icmp sgt i32 %162, 0
-  br i1 %164, label %.lr.ph210, label %.loopexit
+  %163 = icmp sgt i32 %161, 0
+  br i1 %163, label %.lr.ph210, label %.loopexit
 
 .lr.ph210:                                        ; preds = %tvb_read_sane_word.exit80, %.loopexit165
-  %.051209 = phi i32 [ %259, %.loopexit165 ], [ 0, %tvb_read_sane_word.exit80 ]
-  %165 = load ptr, ptr %5, align 8
-  %166 = load i32, ptr %11, align 8
-  %167 = call i32 @tvb_captured_length_remaining(ptr noundef %165, i32 noundef %166) #4
-  %168 = icmp slt i32 %167, 4
-  br i1 %168, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_word.exit82
+  %.051209 = phi i32 [ %266, %.loopexit165 ], [ 0, %tvb_read_sane_word.exit80 ]
+  %164 = load ptr, ptr %5, align 8
+  %165 = load i32, ptr %11, align 8
+  %166 = call i32 @tvb_captured_length_remaining(ptr noundef %164, i32 noundef %165) #4
+  %167 = icmp slt i32 %166, 4
+  br i1 %167, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_word.exit82
 
 tvb_read_sane_word.exit82:                        ; preds = %.lr.ph210
-  %169 = load <2 x i32>, ptr %11, align 8
-  %170 = add <2 x i32> %169, <i32 4, i32 4>
-  store <2 x i32> %170, ptr %11, align 8
-  %171 = extractelement <2 x i32> %170, i64 0
+  %168 = load i32, ptr %11, align 8
+  %169 = add i32 %168, 4
+  store i32 %169, ptr %11, align 8
+  %170 = load i32, ptr %12, align 4
+  %171 = add i32 %170, 4
+  store i32 %171, ptr %12, align 4
   br label %174
 
 172:                                              ; preds = %tvb_read_sane_string.exit84
@@ -709,7 +699,7 @@ tvb_read_sane_word.exit82:                        ; preds = %.lr.ph210
   br i1 %exitcond233.not, label %.preheader173, label %174, !llvm.loop !7
 
 174:                                              ; preds = %tvb_read_sane_word.exit82, %172
-  %175 = phi i32 [ %171, %tvb_read_sane_word.exit82 ], [ %189, %172 ]
+  %175 = phi i32 [ %169, %tvb_read_sane_word.exit82 ], [ %191, %172 ]
   %.050202 = phi i32 [ 0, %tvb_read_sane_word.exit82 ], [ %173, %172 ]
   %176 = load ptr, ptr %5, align 8
   %177 = call i32 @tvb_captured_length_remaining(ptr noundef %176, i32 noundef %175) #4
@@ -720,420 +710,400 @@ tvb_read_sane_word.exit82:                        ; preds = %.lr.ph210
   %180 = load ptr, ptr %5, align 8
   %181 = load i32, ptr %11, align 8
   %182 = call i32 @tvb_get_ntohl(ptr noundef %180, i32 noundef %181) #4
-  %183 = load <2 x i32>, ptr %11, align 8
-  %184 = add <2 x i32> %183, <i32 4, i32 4>
-  store <2 x i32> %184, ptr %11, align 8
-  %185 = extractelement <2 x i32> %184, i64 0
-  %186 = call i32 @tvb_captured_length_remaining(ptr noundef %180, i32 noundef %185) #4
-  %187 = icmp slt i32 %186, %182
-  br i1 %187, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit84
+  %183 = load i32, ptr %11, align 8
+  %184 = add i32 %183, 4
+  store i32 %184, ptr %11, align 8
+  %185 = load i32, ptr %12, align 4
+  %186 = add i32 %185, 4
+  store i32 %186, ptr %12, align 4
+  %187 = load ptr, ptr %5, align 8
+  %188 = call i32 @tvb_captured_length_remaining(ptr noundef %187, i32 noundef %184) #4
+  %189 = icmp slt i32 %188, %182
+  br i1 %189, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit84
 
 tvb_read_sane_string.exit84:                      ; preds = %179
-  %188 = load i32, ptr %11, align 8
-  %189 = add i32 %188, %182
-  store i32 %189, ptr %11, align 8
-  %190 = load i32, ptr %12, align 4
+  %190 = load i32, ptr %11, align 8
   %191 = add i32 %190, %182
-  store i32 %191, ptr %12, align 4
-  %192 = icmp eq i32 %182, -4
-  br i1 %192, label %tvb_read_sane_word.exit.thread, label %172
+  store i32 %191, ptr %11, align 8
+  %192 = load i32, ptr %12, align 4
+  %193 = add i32 %192, %182
+  store i32 %193, ptr %12, align 4
+  %194 = icmp eq i32 %182, -4
+  br i1 %194, label %tvb_read_sane_word.exit.thread, label %172
 
-.preheader173:                                    ; preds = %172, %197
-  %193 = phi i32 [ %201, %197 ], [ %189, %172 ]
-  %.049203 = phi i32 [ %200, %197 ], [ 0, %172 ]
-  %194 = load ptr, ptr %5, align 8
-  %195 = call i32 @tvb_captured_length_remaining(ptr noundef %194, i32 noundef %193) #4
-  %196 = icmp slt i32 %195, 4
-  br i1 %196, label %tvb_read_sane_word.exit.thread, label %197
+.preheader173:                                    ; preds = %172, %199
+  %195 = phi i32 [ %201, %199 ], [ %191, %172 ]
+  %.049203 = phi i32 [ %204, %199 ], [ 0, %172 ]
+  %196 = load ptr, ptr %5, align 8
+  %197 = call i32 @tvb_captured_length_remaining(ptr noundef %196, i32 noundef %195) #4
+  %198 = icmp slt i32 %197, 4
+  br i1 %198, label %tvb_read_sane_word.exit.thread, label %199
 
-197:                                              ; preds = %.preheader173
-  %198 = load <2 x i32>, ptr %11, align 8
-  %199 = add <2 x i32> %198, <i32 4, i32 4>
-  store <2 x i32> %199, ptr %11, align 8
-  %200 = add nuw nsw i32 %.049203, 1
-  %exitcond234.not = icmp eq i32 %200, 4
-  %201 = extractelement <2 x i32> %199, i64 0
-  br i1 %exitcond234.not, label %202, label %.preheader173, !llvm.loop !8
+199:                                              ; preds = %.preheader173
+  %200 = load i32, ptr %11, align 8
+  %201 = add i32 %200, 4
+  store i32 %201, ptr %11, align 8
+  %202 = load i32, ptr %12, align 4
+  %203 = add i32 %202, 4
+  store i32 %203, ptr %12, align 4
+  %204 = add nuw nsw i32 %.049203, 1
+  %exitcond234.not = icmp eq i32 %204, 4
+  br i1 %exitcond234.not, label %205, label %.preheader173, !llvm.loop !8
 
-202:                                              ; preds = %197
-  %203 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %7)
-  %204 = icmp eq i32 %203, 0
-  br i1 %204, label %tvb_read_sane_word.exit.thread, label %205
+205:                                              ; preds = %199
+  %206 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %7)
+  %207 = icmp eq i32 %206, 0
+  br i1 %207, label %tvb_read_sane_word.exit.thread, label %208
 
-205:                                              ; preds = %202
-  %206 = load i32, ptr %7, align 4
-  switch i32 %206, label %.loopexit165 [
-    i32 3, label %207
-    i32 2, label %234
+208:                                              ; preds = %205
+  %209 = load i32, ptr %7, align 4
+  switch i32 %209, label %.loopexit165 [
+    i32 3, label %210
+    i32 2, label %239
     i32 1, label %.preheader170.preheader
   ]
 
-.preheader170.preheader:                          ; preds = %205
+.preheader170.preheader:                          ; preds = %208
   %.pre = load i32, ptr %11, align 8
   br label %.preheader170
 
-207:                                              ; preds = %205
-  %208 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %8)
-  %209 = icmp eq i32 %208, 0
-  br i1 %209, label %tvb_read_sane_word.exit.thread, label %.preheader164
+210:                                              ; preds = %208
+  %211 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %8)
+  %212 = icmp eq i32 %211, 0
+  br i1 %212, label %tvb_read_sane_word.exit.thread, label %.preheader164
 
-.preheader164:                                    ; preds = %207
-  %210 = load i32, ptr %8, align 4
-  %211 = icmp sgt i32 %210, 0
-  br i1 %211, label %.lr.ph208.preheader, label %.loopexit165
+.preheader164:                                    ; preds = %210
+  %213 = load i32, ptr %8, align 4
+  %214 = icmp sgt i32 %213, 0
+  br i1 %214, label %.lr.ph208.preheader, label %.loopexit165
 
 .lr.ph208.preheader:                              ; preds = %.preheader164
   %.pre238 = load i32, ptr %11, align 8
   br label %.lr.ph208
 
-212:                                              ; preds = %tvb_read_sane_string.exit88
-  %213 = add nuw nsw i32 %.048207, 1
-  %214 = load i32, ptr %8, align 4
-  %215 = icmp slt i32 %213, %214
-  br i1 %215, label %.lr.ph208, label %.loopexit165, !llvm.loop !9
+215:                                              ; preds = %tvb_read_sane_string.exit88
+  %216 = add nuw nsw i32 %.048207, 1
+  %217 = load i32, ptr %8, align 4
+  %218 = icmp slt i32 %216, %217
+  br i1 %218, label %.lr.ph208, label %.loopexit165, !llvm.loop !9
 
-.lr.ph208:                                        ; preds = %.lr.ph208.preheader, %212
-  %216 = phi i32 [ %230, %212 ], [ %.pre238, %.lr.ph208.preheader ]
-  %.048207 = phi i32 [ %213, %212 ], [ 0, %.lr.ph208.preheader ]
-  %217 = load ptr, ptr %5, align 8
-  %218 = call i32 @tvb_captured_length_remaining(ptr noundef %217, i32 noundef %216) #4
-  %219 = icmp slt i32 %218, 4
-  br i1 %219, label %tvb_read_sane_word.exit.thread, label %220
+.lr.ph208:                                        ; preds = %.lr.ph208.preheader, %215
+  %219 = phi i32 [ %235, %215 ], [ %.pre238, %.lr.ph208.preheader ]
+  %.048207 = phi i32 [ %216, %215 ], [ 0, %.lr.ph208.preheader ]
+  %220 = load ptr, ptr %5, align 8
+  %221 = call i32 @tvb_captured_length_remaining(ptr noundef %220, i32 noundef %219) #4
+  %222 = icmp slt i32 %221, 4
+  br i1 %222, label %tvb_read_sane_word.exit.thread, label %223
 
-220:                                              ; preds = %.lr.ph208
-  %221 = load ptr, ptr %5, align 8
-  %222 = load i32, ptr %11, align 8
-  %223 = call i32 @tvb_get_ntohl(ptr noundef %221, i32 noundef %222) #4
-  %224 = load <2 x i32>, ptr %11, align 8
-  %225 = add <2 x i32> %224, <i32 4, i32 4>
-  store <2 x i32> %225, ptr %11, align 8
-  %226 = extractelement <2 x i32> %225, i64 0
-  %227 = call i32 @tvb_captured_length_remaining(ptr noundef %221, i32 noundef %226) #4
-  %228 = icmp slt i32 %227, %223
-  br i1 %228, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit88
+223:                                              ; preds = %.lr.ph208
+  %224 = load ptr, ptr %5, align 8
+  %225 = load i32, ptr %11, align 8
+  %226 = call i32 @tvb_get_ntohl(ptr noundef %224, i32 noundef %225) #4
+  %227 = load i32, ptr %11, align 8
+  %228 = add i32 %227, 4
+  store i32 %228, ptr %11, align 8
+  %229 = load i32, ptr %12, align 4
+  %230 = add i32 %229, 4
+  store i32 %230, ptr %12, align 4
+  %231 = load ptr, ptr %5, align 8
+  %232 = call i32 @tvb_captured_length_remaining(ptr noundef %231, i32 noundef %228) #4
+  %233 = icmp slt i32 %232, %226
+  br i1 %233, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit88
 
-tvb_read_sane_string.exit88:                      ; preds = %220
-  %229 = load i32, ptr %11, align 8
-  %230 = add i32 %229, %223
-  store i32 %230, ptr %11, align 8
-  %231 = load i32, ptr %12, align 4
-  %232 = add i32 %231, %223
-  store i32 %232, ptr %12, align 4
-  %233 = icmp eq i32 %223, -4
-  br i1 %233, label %tvb_read_sane_word.exit.thread, label %212
+tvb_read_sane_string.exit88:                      ; preds = %223
+  %234 = load i32, ptr %11, align 8
+  %235 = add i32 %234, %226
+  store i32 %235, ptr %11, align 8
+  %236 = load i32, ptr %12, align 4
+  %237 = add i32 %236, %226
+  store i32 %237, ptr %12, align 4
+  %238 = icmp eq i32 %226, -4
+  br i1 %238, label %tvb_read_sane_word.exit.thread, label %215
 
-234:                                              ; preds = %205
-  %235 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %9)
-  %236 = icmp eq i32 %235, 0
-  br i1 %236, label %tvb_read_sane_word.exit.thread, label %.preheader167
+239:                                              ; preds = %208
+  %240 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %9)
+  %241 = icmp eq i32 %240, 0
+  br i1 %241, label %tvb_read_sane_word.exit.thread, label %.preheader167
 
-.preheader167:                                    ; preds = %234
-  %237 = load i32, ptr %9, align 4
-  %238 = icmp sgt i32 %237, 0
-  br i1 %238, label %.lr.ph206.preheader, label %.loopexit165
+.preheader167:                                    ; preds = %239
+  %242 = load i32, ptr %9, align 4
+  %243 = icmp sgt i32 %242, 0
+  br i1 %243, label %.lr.ph206.preheader, label %.loopexit165
 
 .lr.ph206.preheader:                              ; preds = %.preheader167
   %.pre237 = load i32, ptr %11, align 8
   br label %.lr.ph206
 
-.lr.ph206:                                        ; preds = %.lr.ph206.preheader, %243
-  %239 = phi i32 [ %249, %243 ], [ %.pre237, %.lr.ph206.preheader ]
-  %.047205 = phi i32 [ %246, %243 ], [ 0, %.lr.ph206.preheader ]
-  %240 = load ptr, ptr %5, align 8
-  %241 = call i32 @tvb_captured_length_remaining(ptr noundef %240, i32 noundef %239) #4
-  %242 = icmp slt i32 %241, 4
-  br i1 %242, label %tvb_read_sane_word.exit.thread, label %243
+.lr.ph206:                                        ; preds = %.lr.ph206.preheader, %248
+  %244 = phi i32 [ %250, %248 ], [ %.pre237, %.lr.ph206.preheader ]
+  %.047205 = phi i32 [ %253, %248 ], [ 0, %.lr.ph206.preheader ]
+  %245 = load ptr, ptr %5, align 8
+  %246 = call i32 @tvb_captured_length_remaining(ptr noundef %245, i32 noundef %244) #4
+  %247 = icmp slt i32 %246, 4
+  br i1 %247, label %tvb_read_sane_word.exit.thread, label %248
 
-243:                                              ; preds = %.lr.ph206
-  %244 = load <2 x i32>, ptr %11, align 8
-  %245 = add <2 x i32> %244, <i32 4, i32 4>
-  store <2 x i32> %245, ptr %11, align 8
-  %246 = add nuw nsw i32 %.047205, 1
-  %247 = load i32, ptr %9, align 4
-  %248 = icmp slt i32 %246, %247
-  %249 = extractelement <2 x i32> %245, i64 0
-  br i1 %248, label %.lr.ph206, label %.loopexit165, !llvm.loop !10
+248:                                              ; preds = %.lr.ph206
+  %249 = load i32, ptr %11, align 8
+  %250 = add i32 %249, 4
+  store i32 %250, ptr %11, align 8
+  %251 = load i32, ptr %12, align 4
+  %252 = add i32 %251, 4
+  store i32 %252, ptr %12, align 4
+  %253 = add nuw nsw i32 %.047205, 1
+  %254 = load i32, ptr %9, align 4
+  %255 = icmp slt i32 %253, %254
+  br i1 %255, label %.lr.ph206, label %.loopexit165, !llvm.loop !10
 
-.preheader170:                                    ; preds = %.preheader170.preheader, %254
-  %250 = phi i32 [ %258, %254 ], [ %.pre, %.preheader170.preheader ]
-  %.046204 = phi i32 [ %257, %254 ], [ 0, %.preheader170.preheader ]
-  %251 = load ptr, ptr %5, align 8
-  %252 = call i32 @tvb_captured_length_remaining(ptr noundef %251, i32 noundef %250) #4
-  %253 = icmp slt i32 %252, 4
-  br i1 %253, label %tvb_read_sane_word.exit.thread, label %254
+.preheader170:                                    ; preds = %.preheader170.preheader, %260
+  %256 = phi i32 [ %262, %260 ], [ %.pre, %.preheader170.preheader ]
+  %.046204 = phi i32 [ %265, %260 ], [ 0, %.preheader170.preheader ]
+  %257 = load ptr, ptr %5, align 8
+  %258 = call i32 @tvb_captured_length_remaining(ptr noundef %257, i32 noundef %256) #4
+  %259 = icmp slt i32 %258, 4
+  br i1 %259, label %tvb_read_sane_word.exit.thread, label %260
 
-254:                                              ; preds = %.preheader170
-  %255 = load <2 x i32>, ptr %11, align 8
-  %256 = add <2 x i32> %255, <i32 4, i32 4>
-  store <2 x i32> %256, ptr %11, align 8
-  %257 = add nuw nsw i32 %.046204, 1
-  %exitcond235.not = icmp eq i32 %257, 4
-  %258 = extractelement <2 x i32> %256, i64 0
+260:                                              ; preds = %.preheader170
+  %261 = load i32, ptr %11, align 8
+  %262 = add i32 %261, 4
+  store i32 %262, ptr %11, align 8
+  %263 = load i32, ptr %12, align 4
+  %264 = add i32 %263, 4
+  store i32 %264, ptr %12, align 4
+  %265 = add nuw nsw i32 %.046204, 1
+  %exitcond235.not = icmp eq i32 %265, 4
   br i1 %exitcond235.not, label %.loopexit165, label %.preheader170, !llvm.loop !11
 
-.loopexit165:                                     ; preds = %254, %243, %212, %.preheader167, %.preheader164, %205
-  %259 = add nuw nsw i32 %.051209, 1
-  %exitcond236.not = icmp eq i32 %259, %162
+.loopexit165:                                     ; preds = %260, %248, %215, %.preheader167, %.preheader164, %208
+  %266 = add nuw nsw i32 %.051209, 1
+  %exitcond236.not = icmp eq i32 %266, %161
   br i1 %exitcond236.not, label %.loopexit, label %.lr.ph210, !llvm.loop !12
 
-.preheader178:                                    ; preds = %.preheader178.preheader, %265
-  %260 = phi i32 [ %266, %265 ], [ %.promoted307, %.preheader178.preheader ]
-  %.045201 = phi i32 [ %268, %265 ], [ 0, %.preheader178.preheader ]
-  %261 = phi i32 [ %266, %265 ], [ %2, %.preheader178.preheader ]
-  %262 = phi i32 [ %267, %265 ], [ 0, %.preheader178.preheader ]
-  %263 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %261) #4
-  %264 = icmp slt i32 %263, 4
-  br i1 %264, label %tvb_read_sane_word.exit.thread.loopexit282, label %265
+.preheader178:                                    ; preds = %137, %271
+  %.045201 = phi i32 [ %274, %271 ], [ 0, %137 ]
+  %267 = phi i32 [ %272, %271 ], [ %2, %137 ]
+  %268 = phi i32 [ %273, %271 ], [ 0, %137 ]
+  %269 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %267) #4
+  %270 = icmp slt i32 %269, 4
+  br i1 %270, label %tvb_read_sane_word.exit.thread, label %271
 
-265:                                              ; preds = %.preheader178
-  %266 = add i32 %261, 4
-  %267 = add i32 %262, 4
-  store i32 %267, ptr %12, align 4
-  %268 = add nuw nsw i32 %.045201, 1
-  %exitcond232.not = icmp eq i32 %268, 3
-  br i1 %exitcond232.not, label %269, label %.preheader178, !llvm.loop !13
+271:                                              ; preds = %.preheader178
+  %272 = add i32 %267, 4
+  store i32 %272, ptr %11, align 8
+  %273 = add i32 %268, 4
+  store i32 %273, ptr %12, align 4
+  %274 = add nuw nsw i32 %.045201, 1
+  %exitcond232.not = icmp eq i32 %274, 3
+  br i1 %exitcond232.not, label %275, label %.preheader178, !llvm.loop !13
 
-269:                                              ; preds = %265
-  store i32 %266, ptr %11, align 1
-  %270 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %10)
-  %271 = icmp eq i32 %270, 0
-  br i1 %271, label %tvb_read_sane_word.exit.thread, label %272
+275:                                              ; preds = %271
+  %276 = call fastcc i32 @tvb_read_sane_word(ptr noundef nonnull %5, ptr noundef nonnull %10)
+  %277 = icmp eq i32 %276, 0
+  br i1 %277, label %tvb_read_sane_word.exit.thread, label %278
 
-272:                                              ; preds = %269
-  %273 = load i32, ptr %10, align 4
-  %274 = add i32 %273, 4
-  %275 = load ptr, ptr %5, align 8
-  %276 = load i32, ptr %11, align 8
-  %277 = call i32 @tvb_captured_length_remaining(ptr noundef %275, i32 noundef %276) #4
-  %278 = icmp slt i32 %277, %274
-  br i1 %278, label %tvb_read_sane_word.exit.thread, label %tvb_skip_bytes.exit96
+278:                                              ; preds = %275
+  %279 = load i32, ptr %10, align 4
+  %280 = add i32 %279, 4
+  %281 = load ptr, ptr %5, align 8
+  %282 = load i32, ptr %11, align 8
+  %283 = call i32 @tvb_captured_length_remaining(ptr noundef %281, i32 noundef %282) #4
+  %284 = icmp slt i32 %283, %280
+  br i1 %284, label %tvb_read_sane_word.exit.thread, label %tvb_skip_bytes.exit96
 
-tvb_skip_bytes.exit96:                            ; preds = %272
-  %279 = load <2 x i32>, ptr %11, align 8
-  %280 = insertelement <2 x i32> poison, i32 %274, i64 0
-  %281 = shufflevector <2 x i32> %280, <2 x i32> poison, <2 x i32> zeroinitializer
-  %282 = add <2 x i32> %279, %281
-  store <2 x i32> %282, ptr %11, align 8
-  %283 = icmp eq i32 %274, 0
-  br i1 %283, label %tvb_read_sane_word.exit.thread, label %284
-
-284:                                              ; preds = %tvb_skip_bytes.exit96
-  %285 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
-  %286 = icmp eq i32 %285, 0
-  br i1 %286, label %tvb_read_sane_word.exit.thread, label %.loopexit
-
-287:                                              ; preds = %138
-  %288 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
-  %289 = icmp slt i32 %288, 4
+tvb_skip_bytes.exit96:                            ; preds = %278
+  %285 = load i32, ptr %11, align 8
+  %286 = add i32 %285, %280
+  store i32 %286, ptr %11, align 8
+  %287 = load i32, ptr %12, align 4
+  %288 = add i32 %287, %280
+  store i32 %288, ptr %12, align 4
+  %289 = icmp eq i32 %280, 0
   br i1 %289, label %tvb_read_sane_word.exit.thread, label %290
 
-290:                                              ; preds = %287
-  %291 = add i32 %2, 4
-  %292 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %291) #4
-  %293 = icmp slt i32 %292, 4
-  br i1 %293, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_word.exit100
+290:                                              ; preds = %tvb_skip_bytes.exit96
+  %291 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
+  %292 = icmp eq i32 %291, 0
+  br i1 %292, label %tvb_read_sane_word.exit.thread, label %.loopexit
 
-tvb_read_sane_word.exit100:                       ; preds = %290
-  %294 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %291) #4
-  %295 = add i32 %2, 8
-  %296 = add i32 %294, -1
-  %297 = icmp sgt i32 %296, 0
-  br i1 %297, label %.lr.ph.preheader, label %._crit_edge
+293:                                              ; preds = %137
+  %294 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
+  %295 = icmp slt i32 %294, 4
+  br i1 %295, label %tvb_read_sane_word.exit.thread, label %296
 
-.lr.ph.preheader:                                 ; preds = %tvb_read_sane_word.exit100
-  %.promoted303 = load i32, ptr %12, align 1
-  br label %.lr.ph
+296:                                              ; preds = %293
+  %297 = add i32 %2, 4
+  %298 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %297) #4
+  %299 = icmp slt i32 %298, 4
+  br i1 %299, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_word.exit100
 
-298:                                              ; preds = %tvb_read_sane_string.exit110
-  %299 = add i32 %346, %345
-  %300 = add nuw nsw i32 %.044198, 1
-  %exitcond231.not = icmp eq i32 %300, %296
+tvb_read_sane_word.exit100:                       ; preds = %296
+  %300 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %297) #4
+  %301 = add i32 %2, 8
+  %302 = add i32 %300, -1
+  %303 = icmp sgt i32 %302, 0
+  br i1 %303, label %.lr.ph, label %._crit_edge
+
+304:                                              ; preds = %tvb_read_sane_string.exit110
+  %305 = add i32 %352, %351
+  %306 = add nuw nsw i32 %.044198, 1
+  %exitcond231.not = icmp eq i32 %306, %302
   br i1 %exitcond231.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %298
-  %.reass304 = phi i32 [ %350, %298 ], [ %.promoted303, %.lr.ph.preheader ]
-  %.044198 = phi i32 [ %300, %298 ], [ 0, %.lr.ph.preheader ]
-  %301 = phi i32 [ %299, %298 ], [ %295, %.lr.ph.preheader ]
-  %302 = phi i32 [ %350, %298 ], [ 8, %.lr.ph.preheader ]
-  %303 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %301) #4
-  %304 = icmp slt i32 %303, 4
-  br i1 %304, label %tvb_read_sane_word.exit.thread.loopexit283, label %305
+.lr.ph:                                           ; preds = %tvb_read_sane_word.exit100, %304
+  %.044198 = phi i32 [ %306, %304 ], [ 0, %tvb_read_sane_word.exit100 ]
+  %307 = phi i32 [ %305, %304 ], [ %301, %tvb_read_sane_word.exit100 ]
+  %308 = phi i32 [ %356, %304 ], [ 8, %tvb_read_sane_word.exit100 ]
+  %309 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %307) #4
+  %310 = icmp slt i32 %309, 4
+  br i1 %310, label %tvb_read_sane_word.exit.thread, label %311
 
-305:                                              ; preds = %.lr.ph
-  %306 = add i32 %301, 4
-  %307 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %306) #4
-  %308 = icmp slt i32 %307, 4
-  br i1 %308, label %tvb_read_sane_word.exit.thread.loopexit283, label %309
+311:                                              ; preds = %.lr.ph
+  %312 = add i32 %307, 4
+  %313 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %312) #4
+  %314 = icmp slt i32 %313, 4
+  br i1 %314, label %tvb_read_sane_word.exit.thread, label %315
 
-309:                                              ; preds = %305
-  %310 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %306) #4
-  %311 = add i32 %301, 8
-  %.reass = add i32 %302, 8
-  %312 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %311) #4
-  %313 = icmp slt i32 %312, %310
-  br i1 %313, label %tvb_read_sane_word.exit.thread.loopexit283, label %tvb_read_sane_string.exit104
+315:                                              ; preds = %311
+  %316 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %312) #4
+  %317 = add i32 %307, 8
+  %.reass = add i32 %308, 8
+  store i32 %.reass, ptr %12, align 4
+  %318 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %317) #4
+  %319 = icmp slt i32 %318, %316
+  br i1 %319, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit104
 
-tvb_read_sane_string.exit104:                     ; preds = %309
-  %314 = add i32 %311, %310
-  %315 = add i32 %.reass, %310
-  %316 = icmp eq i32 %310, -4
-  br i1 %316, label %tvb_read_sane_word.exit.thread.loopexit283, label %317
+tvb_read_sane_string.exit104:                     ; preds = %315
+  %320 = add i32 %317, %316
+  %321 = add i32 %.reass, %316
+  %322 = icmp eq i32 %316, -4
+  br i1 %322, label %tvb_read_sane_word.exit.thread, label %323
 
-317:                                              ; preds = %tvb_read_sane_string.exit104
-  %318 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %314) #4
-  %319 = icmp slt i32 %318, 4
-  br i1 %319, label %tvb_read_sane_word.exit.thread.loopexit283, label %320
+323:                                              ; preds = %tvb_read_sane_string.exit104
+  %324 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %320) #4
+  %325 = icmp slt i32 %324, 4
+  br i1 %325, label %tvb_read_sane_word.exit.thread, label %326
 
-320:                                              ; preds = %317
-  %321 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %314) #4
-  %322 = add i32 %314, 4
-  %323 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %322) #4
-  %324 = icmp slt i32 %323, %321
-  br i1 %324, label %tvb_read_sane_word.exit.thread.loopexit283, label %tvb_read_sane_string.exit106
+326:                                              ; preds = %323
+  %327 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %320) #4
+  %328 = add i32 %320, 4
+  %329 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %328) #4
+  %330 = icmp slt i32 %329, %327
+  br i1 %330, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit106
 
-tvb_read_sane_string.exit106:                     ; preds = %320
-  %325 = add i32 %315, 4
-  %326 = add i32 %322, %321
-  %327 = add i32 %325, %321
-  %328 = icmp eq i32 %321, -4
-  br i1 %328, label %tvb_read_sane_word.exit.thread.loopexit283, label %329
+tvb_read_sane_string.exit106:                     ; preds = %326
+  %331 = add i32 %321, 4
+  %332 = add i32 %328, %327
+  %333 = add i32 %331, %327
+  %334 = icmp eq i32 %327, -4
+  br i1 %334, label %tvb_read_sane_word.exit.thread, label %335
 
-329:                                              ; preds = %tvb_read_sane_string.exit106
-  %330 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %326) #4
-  %331 = icmp slt i32 %330, 4
-  br i1 %331, label %tvb_read_sane_word.exit.thread.loopexit283, label %332
+335:                                              ; preds = %tvb_read_sane_string.exit106
+  %336 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %332) #4
+  %337 = icmp slt i32 %336, 4
+  br i1 %337, label %tvb_read_sane_word.exit.thread, label %338
 
-332:                                              ; preds = %329
-  %333 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %326) #4
-  %334 = add i32 %326, 4
-  %335 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %334) #4
-  %336 = icmp slt i32 %335, %333
-  br i1 %336, label %tvb_read_sane_word.exit.thread.loopexit283, label %tvb_read_sane_string.exit108
+338:                                              ; preds = %335
+  %339 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %332) #4
+  %340 = add i32 %332, 4
+  %341 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %340) #4
+  %342 = icmp slt i32 %341, %339
+  br i1 %342, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit108
 
-tvb_read_sane_string.exit108:                     ; preds = %332
-  %337 = add i32 %327, 4
-  %338 = add i32 %334, %333
-  %339 = add i32 %337, %333
-  %340 = icmp eq i32 %333, -4
-  br i1 %340, label %tvb_read_sane_word.exit.thread.loopexit283, label %341
+tvb_read_sane_string.exit108:                     ; preds = %338
+  %343 = add i32 %333, 4
+  %344 = add i32 %340, %339
+  %345 = add i32 %343, %339
+  %346 = icmp eq i32 %339, -4
+  br i1 %346, label %tvb_read_sane_word.exit.thread, label %347
 
-341:                                              ; preds = %tvb_read_sane_string.exit108
-  %342 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %338) #4
-  %343 = icmp slt i32 %342, 4
-  br i1 %343, label %tvb_read_sane_word.exit.thread.loopexit283, label %344
+347:                                              ; preds = %tvb_read_sane_string.exit108
+  %348 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %344) #4
+  %349 = icmp slt i32 %348, 4
+  br i1 %349, label %tvb_read_sane_word.exit.thread, label %350
 
-344:                                              ; preds = %341
-  %345 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %338) #4
-  %346 = add i32 %338, 4
-  %347 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %346) #4
-  %348 = icmp slt i32 %347, %345
-  br i1 %348, label %tvb_read_sane_word.exit.thread.loopexit283, label %tvb_read_sane_string.exit110
+350:                                              ; preds = %347
+  %351 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %344) #4
+  %352 = add i32 %344, 4
+  %353 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %352) #4
+  %354 = icmp slt i32 %353, %351
+  br i1 %354, label %tvb_read_sane_word.exit.thread, label %tvb_read_sane_string.exit110
 
-tvb_read_sane_string.exit110:                     ; preds = %344
-  %349 = add i32 %339, 4
-  %350 = add i32 %349, %345
-  %351 = icmp eq i32 %345, -4
-  br i1 %351, label %tvb_read_sane_word.exit.thread.loopexit283, label %298
+tvb_read_sane_string.exit110:                     ; preds = %350
+  %355 = add i32 %345, 4
+  %356 = add i32 %355, %351
+  store i32 %356, ptr %12, align 4
+  %357 = icmp eq i32 %351, -4
+  br i1 %357, label %tvb_read_sane_word.exit.thread, label %304
 
-._crit_edge.loopexit:                             ; preds = %298
-  store i32 %350, ptr %12, align 1
-  %352 = add i32 %350, 4
+._crit_edge.loopexit:                             ; preds = %304
+  %358 = add i32 %356, 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %tvb_read_sane_word.exit100
-  %353 = phi i32 [ %352, %._crit_edge.loopexit ], [ 12, %tvb_read_sane_word.exit100 ]
-  %354 = phi i32 [ %299, %._crit_edge.loopexit ], [ %295, %tvb_read_sane_word.exit100 ]
-  %355 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %354) #4
-  %356 = icmp slt i32 %355, 4
-  br i1 %356, label %tvb_read_sane_word.exit.thread, label %.loopexit.sink.split
+  %359 = phi i32 [ %358, %._crit_edge.loopexit ], [ 12, %tvb_read_sane_word.exit100 ]
+  %360 = phi i32 [ %305, %._crit_edge.loopexit ], [ %301, %tvb_read_sane_word.exit100 ]
+  %361 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %360) #4
+  %362 = icmp slt i32 %361, 4
+  br i1 %362, label %tvb_read_sane_word.exit.thread, label %.loopexit.sink.split
 
-357:                                              ; preds = %138
-  %358 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
-  %359 = icmp slt i32 %358, 4
-  br i1 %359, label %tvb_read_sane_word.exit.thread, label %.loopexit.sink.split
-
-.preheader181:                                    ; preds = %.preheader181.preheader, %366
-  %360 = phi i32 [ %368, %366 ], [ %.promoted300, %.preheader181.preheader ]
-  %361 = phi i32 [ %367, %366 ], [ %.promoted297, %.preheader181.preheader ]
-  %.043195 = phi i32 [ %369, %366 ], [ 0, %.preheader181.preheader ]
-  %362 = phi i32 [ %367, %366 ], [ %2, %.preheader181.preheader ]
-  %363 = phi i32 [ %368, %366 ], [ 0, %.preheader181.preheader ]
-  %364 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %362) #4
+363:                                              ; preds = %137
+  %364 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
   %365 = icmp slt i32 %364, 4
-  br i1 %365, label %tvb_read_sane_word.exit.thread.loopexit286, label %366
+  br i1 %365, label %tvb_read_sane_word.exit.thread, label %.loopexit.sink.split
 
-366:                                              ; preds = %.preheader181
-  %367 = add i32 %362, 4
-  %368 = add i32 %363, 4
-  %369 = add nuw nsw i32 %.043195, 1
-  %exitcond230.not = icmp eq i32 %369, 3
-  br i1 %exitcond230.not, label %370, label %.preheader181, !llvm.loop !15
+.preheader181:                                    ; preds = %137, %370
+  %.043195 = phi i32 [ %373, %370 ], [ 0, %137 ]
+  %366 = phi i32 [ %371, %370 ], [ %2, %137 ]
+  %367 = phi i32 [ %372, %370 ], [ 0, %137 ]
+  %368 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %366) #4
+  %369 = icmp slt i32 %368, 4
+  br i1 %369, label %tvb_read_sane_word.exit.thread, label %370
 
-370:                                              ; preds = %366
-  store i32 %367, ptr %11, align 1
-  store i32 %368, ptr %12, align 1
-  %371 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
-  %372 = icmp eq i32 %371, 0
-  br i1 %372, label %tvb_read_sane_word.exit.thread, label %.loopexit
+370:                                              ; preds = %.preheader181
+  %371 = add i32 %366, 4
+  store i32 %371, ptr %11, align 8
+  %372 = add i32 %367, 4
+  store i32 %372, ptr %12, align 4
+  %373 = add nuw nsw i32 %.043195, 1
+  %exitcond230.not = icmp eq i32 %373, 3
+  br i1 %exitcond230.not, label %374, label %.preheader181, !llvm.loop !15
 
-.preheader183:                                    ; preds = %.preheader183.preheader, %378
-  %373 = phi i32 [ %380, %378 ], [ %.promoted294, %.preheader183.preheader ]
-  %.0192 = phi i32 [ %381, %378 ], [ 0, %.preheader183.preheader ]
-  %374 = phi i32 [ %379, %378 ], [ %2, %.preheader183.preheader ]
-  %375 = phi i32 [ %380, %378 ], [ 0, %.preheader183.preheader ]
-  %376 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %374) #4
-  %377 = icmp slt i32 %376, 4
-  br i1 %377, label %tvb_read_sane_word.exit.thread.loopexit287, label %378
+374:                                              ; preds = %370
+  %375 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %5, ptr noundef null, ptr noundef null)
+  %376 = icmp eq i32 %375, 0
+  br i1 %376, label %tvb_read_sane_word.exit.thread, label %.loopexit
 
-378:                                              ; preds = %.preheader183
-  %379 = add i32 %374, 4
-  %380 = add i32 %375, 4
-  %381 = add nuw nsw i32 %.0192, 1
-  %exitcond229.not = icmp eq i32 %381, 7
-  br i1 %exitcond229.not, label %.loopexit.loopexit288, label %.preheader183, !llvm.loop !16
+.preheader183:                                    ; preds = %137, %381
+  %.0192 = phi i32 [ %384, %381 ], [ 0, %137 ]
+  %377 = phi i32 [ %382, %381 ], [ %2, %137 ]
+  %378 = phi i32 [ %383, %381 ], [ 0, %137 ]
+  %379 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %377) #4
+  %380 = icmp slt i32 %379, 4
+  br i1 %380, label %tvb_read_sane_word.exit.thread, label %381
 
-382:                                              ; preds = %138, %138
-  %383 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
-  %384 = icmp slt i32 %383, 4
-  br i1 %384, label %tvb_read_sane_word.exit.thread, label %.loopexit.sink.split
+381:                                              ; preds = %.preheader183
+  %382 = add i32 %377, 4
+  %383 = add i32 %378, 4
+  store i32 %383, ptr %12, align 4
+  %384 = add nuw nsw i32 %.0192, 1
+  %exitcond229.not = icmp eq i32 %384, 7
+  br i1 %exitcond229.not, label %.loopexit, label %.preheader183, !llvm.loop !16
 
-.loopexit.sink.split:                             ; preds = %382, %357, %._crit_edge, %tvb_read_sane_word.exit65
-  %.sink = phi i32 [ %85, %tvb_read_sane_word.exit65 ], [ %353, %._crit_edge ], [ 4, %357 ], [ 4, %382 ]
+385:                                              ; preds = %137, %137
+  %386 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #4
+  %387 = icmp slt i32 %386, 4
+  br i1 %387, label %tvb_read_sane_word.exit.thread, label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %385, %363, %._crit_edge, %tvb_read_sane_word.exit65
+  %.sink = phi i32 [ %84, %tvb_read_sane_word.exit65 ], [ %359, %._crit_edge ], [ 4, %363 ], [ 4, %385 ]
   store i32 %.sink, ptr %12, align 4
   br label %.loopexit
 
-.loopexit.loopexit288:                            ; preds = %378
-  store i32 %380, ptr %12, align 1
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit165, %145, %.loopexit.loopexit288, %.loopexit.sink.split, %tvb_read_sane_word.exit80, %155, %284, %370, %138, %44, %tvb_read_sane_string.exit, %tvb_read_sane_string.exit63, %tvb_skip_bytes.exit, %135
-  %385 = load i32, ptr %12, align 4
+.loopexit:                                        ; preds = %381, %.loopexit165, %144, %.loopexit.sink.split, %tvb_read_sane_word.exit80, %154, %290, %374, %137, %44, %tvb_read_sane_string.exit, %tvb_read_sane_string.exit63, %tvb_skip_bytes.exit, %134
+  %388 = load i32, ptr %12, align 4
   br label %tvb_read_sane_word.exit.thread
 
-tvb_read_sane_word.exit.thread.loopexit282:       ; preds = %.preheader178
-  store i32 %260, ptr %11, align 1
-  br label %tvb_read_sane_word.exit.thread
-
-tvb_read_sane_word.exit.thread.loopexit283:       ; preds = %tvb_read_sane_string.exit104, %tvb_read_sane_string.exit106, %tvb_read_sane_string.exit108, %tvb_read_sane_string.exit110, %.lr.ph, %309, %305, %320, %317, %332, %329, %344, %341
-  %.reass305 = phi i32 [ %.reass, %tvb_read_sane_string.exit104 ], [ %.reass, %tvb_read_sane_string.exit106 ], [ %.reass, %tvb_read_sane_string.exit108 ], [ %350, %tvb_read_sane_string.exit110 ], [ %.reass304, %.lr.ph ], [ %.reass, %309 ], [ %.reass304, %305 ], [ %.reass, %320 ], [ %.reass, %317 ], [ %.reass, %332 ], [ %.reass, %329 ], [ %.reass, %344 ], [ %.reass, %341 ]
-  store i32 %.reass305, ptr %12, align 1
-  br label %tvb_read_sane_word.exit.thread
-
-tvb_read_sane_word.exit.thread.loopexit286:       ; preds = %.preheader181
-  store i32 %361, ptr %11, align 1
-  store i32 %360, ptr %12, align 1
-  br label %tvb_read_sane_word.exit.thread
-
-tvb_read_sane_word.exit.thread.loopexit287:       ; preds = %.preheader183
-  store i32 %373, ptr %12, align 1
-  br label %tvb_read_sane_word.exit.thread
-
-tvb_read_sane_word.exit.thread.loopexit289:       ; preds = %86
-  store <2 x i32> %87, ptr %11, align 1
-  br label %tvb_read_sane_word.exit.thread
-
-tvb_read_sane_word.exit.thread:                   ; preds = %.lr.ph210, %234, %207, %202, %174, %179, %tvb_read_sane_string.exit84, %.preheader173, %.preheader170, %.lr.ph206, %.lr.ph208, %220, %tvb_read_sane_string.exit88, %.preheader, %tvb_read_sane_word.exit.thread.loopexit289, %tvb_read_sane_word.exit.thread.loopexit287, %tvb_read_sane_word.exit.thread.loopexit286, %tvb_read_sane_word.exit.thread.loopexit283, %tvb_read_sane_word.exit.thread.loopexit282, %382, %357, %._crit_edge, %290, %287, %272, %159, %151, %148, %123, %126, %108, %113, %98, %79, %65, %70, %52, %57, %47, %25, %370, %284, %tvb_skip_bytes.exit96, %269, %155, %135, %tvb_read_sane_string.exit72, %tvb_read_sane_string.exit70, %tvb_skip_bytes.exit, %95, %tvb_read_sane_string.exit63, %tvb_read_sane_string.exit, %.loopexit
-  %.053 = phi i32 [ %385, %.loopexit ], [ 0, %tvb_read_sane_string.exit ], [ 0, %tvb_read_sane_string.exit63 ], [ 0, %95 ], [ 0, %tvb_skip_bytes.exit ], [ 0, %tvb_read_sane_string.exit70 ], [ 0, %tvb_read_sane_string.exit72 ], [ 0, %135 ], [ 0, %155 ], [ 0, %269 ], [ 0, %tvb_skip_bytes.exit96 ], [ 0, %284 ], [ 0, %370 ], [ 0, %25 ], [ 0, %47 ], [ 0, %57 ], [ 0, %52 ], [ 0, %70 ], [ 0, %65 ], [ 0, %79 ], [ 0, %98 ], [ 0, %113 ], [ 0, %108 ], [ 0, %126 ], [ 0, %123 ], [ 0, %148 ], [ 0, %151 ], [ 0, %159 ], [ 0, %272 ], [ 0, %287 ], [ 0, %290 ], [ 0, %._crit_edge ], [ 0, %357 ], [ 0, %382 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit282 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit283 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit286 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit287 ], [ 0, %tvb_read_sane_word.exit.thread.loopexit289 ], [ 0, %.preheader ], [ 0, %tvb_read_sane_string.exit88 ], [ 0, %220 ], [ 0, %.lr.ph208 ], [ 0, %.lr.ph206 ], [ 0, %.preheader170 ], [ 0, %.preheader173 ], [ 0, %tvb_read_sane_string.exit84 ], [ 0, %179 ], [ 0, %174 ], [ 0, %202 ], [ 0, %207 ], [ 0, %234 ], [ 0, %.lr.ph210 ]
+tvb_read_sane_word.exit.thread:                   ; preds = %85, %.preheader183, %.preheader181, %347, %350, %335, %338, %323, %326, %311, %315, %.lr.ph, %tvb_read_sane_string.exit110, %tvb_read_sane_string.exit108, %tvb_read_sane_string.exit106, %tvb_read_sane_string.exit104, %.preheader178, %.lr.ph210, %239, %210, %205, %174, %179, %tvb_read_sane_string.exit84, %.preheader173, %.preheader170, %.lr.ph206, %.lr.ph208, %223, %tvb_read_sane_string.exit88, %.preheader, %385, %363, %._crit_edge, %296, %293, %278, %158, %150, %147, %122, %125, %107, %112, %97, %78, %64, %69, %51, %56, %46, %25, %374, %290, %tvb_skip_bytes.exit96, %275, %154, %134, %tvb_read_sane_string.exit72, %tvb_read_sane_string.exit70, %tvb_skip_bytes.exit, %94, %tvb_read_sane_string.exit63, %tvb_read_sane_string.exit, %.loopexit
+  %.053 = phi i32 [ %388, %.loopexit ], [ 0, %tvb_read_sane_string.exit ], [ 0, %tvb_read_sane_string.exit63 ], [ 0, %94 ], [ 0, %tvb_skip_bytes.exit ], [ 0, %tvb_read_sane_string.exit70 ], [ 0, %tvb_read_sane_string.exit72 ], [ 0, %134 ], [ 0, %154 ], [ 0, %275 ], [ 0, %tvb_skip_bytes.exit96 ], [ 0, %290 ], [ 0, %374 ], [ 0, %25 ], [ 0, %46 ], [ 0, %56 ], [ 0, %51 ], [ 0, %69 ], [ 0, %64 ], [ 0, %78 ], [ 0, %97 ], [ 0, %112 ], [ 0, %107 ], [ 0, %125 ], [ 0, %122 ], [ 0, %147 ], [ 0, %150 ], [ 0, %158 ], [ 0, %278 ], [ 0, %293 ], [ 0, %296 ], [ 0, %._crit_edge ], [ 0, %363 ], [ 0, %385 ], [ 0, %.preheader ], [ 0, %tvb_read_sane_string.exit88 ], [ 0, %223 ], [ 0, %.lr.ph208 ], [ 0, %.lr.ph206 ], [ 0, %.preheader170 ], [ 0, %.preheader173 ], [ 0, %tvb_read_sane_string.exit84 ], [ 0, %179 ], [ 0, %174 ], [ 0, %205 ], [ 0, %210 ], [ 0, %239 ], [ 0, %.lr.ph210 ], [ 0, %.preheader178 ], [ 0, %tvb_read_sane_string.exit104 ], [ 0, %tvb_read_sane_string.exit106 ], [ 0, %tvb_read_sane_string.exit108 ], [ 0, %tvb_read_sane_string.exit110 ], [ 0, %.lr.ph ], [ 0, %315 ], [ 0, %311 ], [ 0, %326 ], [ 0, %323 ], [ 0, %338 ], [ 0, %335 ], [ 0, %350 ], [ 0, %347 ], [ 0, %.preheader181 ], [ 0, %.preheader183 ], [ 0, %85 ]
   ret i32 %.053
 }
 
@@ -1519,15 +1489,15 @@ tvb_read_sane_string.exit:                        ; preds = %tvb_read_sane_strin
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %198, i32 noundef 25, ptr noundef nonnull @.str.185, ptr noundef %199) #4
   switch i32 %196, label %dissect_sane_request.exit [
     i32 0, label %200
-    i32 2, label %230
-    i32 4, label %280
-    i32 7, label %560
-    i32 6, label %605
-    i32 5, label %661
-    i32 1, label %699
-    i32 3, label %835
-    i32 8, label %835
-    i32 9, label %835
+    i32 2, label %232
+    i32 4, label %283
+    i32 7, label %563
+    i32 6, label %608
+    i32 5, label %664
+    i32 1, label %702
+    i32 3, label %838
+    i32 8, label %838
+    i32 9, label %838
   ]
 
 200:                                              ; preds = %195
@@ -1547,1174 +1517,1180 @@ tvb_read_sane_string.exit:                        ; preds = %tvb_read_sane_strin
   %210 = load ptr, ptr %7, align 8
   %211 = load i32, ptr %8, align 8
   %212 = call i32 @tvb_get_ntohl(ptr noundef %210, i32 noundef %211) #4
-  %213 = load <2 x i32>, ptr %8, align 8
-  %214 = add <2 x i32> %213, <i32 4, i32 4>
-  store <2 x i32> %214, ptr %8, align 8
+  %213 = load i32, ptr %8, align 8
+  %214 = add i32 %213, 4
+  store i32 %214, ptr %8, align 8
+  %215 = load i32, ptr %9, align 4
+  %216 = add i32 %215, 4
+  store i32 %216, ptr %9, align 4
   br label %dissect_sane_net_init_response.exit.i
 
 dissect_sane_net_init_response.exit.i:            ; preds = %209, %200
   %.0.i.i22 = phi i32 [ 0, %200 ], [ %212, %209 ]
-  %215 = load i32, ptr @ett_sane_version, align 4
-  %216 = call ptr @proto_item_add_subtree(ptr noundef %204, i32 noundef %215) #4
-  %217 = ashr i32 %.0.i.i22, 24
-  %218 = lshr i32 %.0.i.i22, 16
-  %219 = and i32 %218, 255
-  %220 = and i32 %.0.i.i22, 65535
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %204, ptr noundef nonnull @.str.174, i32 noundef %217, i32 noundef %219, i32 noundef %220) #4
-  %221 = load i32, ptr @hf_sane_version_major, align 4
-  %222 = load ptr, ptr %7, align 8
-  %223 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %221, ptr noundef %222, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
-  %224 = load i32, ptr @hf_sane_version_minor, align 4
-  %225 = load ptr, ptr %7, align 8
-  %226 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %224, ptr noundef %225, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
-  %227 = load i32, ptr @hf_sane_version_build, align 4
-  %228 = load ptr, ptr %7, align 8
-  %229 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %227, ptr noundef %228, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
+  %217 = load i32, ptr @ett_sane_version, align 4
+  %218 = call ptr @proto_item_add_subtree(ptr noundef %204, i32 noundef %217) #4
+  %219 = ashr i32 %.0.i.i22, 24
+  %220 = lshr i32 %.0.i.i22, 16
+  %221 = and i32 %220, 255
+  %222 = and i32 %.0.i.i22, 65535
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %204, ptr noundef nonnull @.str.174, i32 noundef %219, i32 noundef %221, i32 noundef %222) #4
+  %223 = load i32, ptr @hf_sane_version_major, align 4
+  %224 = load ptr, ptr %7, align 8
+  %225 = call ptr @proto_tree_add_item(ptr noundef %218, i32 noundef %223, ptr noundef %224, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
+  %226 = load i32, ptr @hf_sane_version_minor, align 4
+  %227 = load ptr, ptr %7, align 8
+  %228 = call ptr @proto_tree_add_item(ptr noundef %218, i32 noundef %226, ptr noundef %227, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
+  %229 = load i32, ptr @hf_sane_version_build, align 4
+  %230 = load ptr, ptr %7, align 8
+  %231 = call ptr @proto_tree_add_item(ptr noundef %218, i32 noundef %229, ptr noundef %230, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %dissect_sane_request.exit
 
-230:                                              ; preds = %195
+232:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 -1, ptr %5, align 4
   call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef nonnull %5)
-  %231 = load i32, ptr @hf_sane_device_handle, align 4
-  %232 = load ptr, ptr %7, align 8
-  %233 = load i32, ptr %8, align 8
-  %234 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %231, ptr noundef %232, i32 noundef %233, i32 noundef 4, i32 noundef 0) #4
-  %235 = load ptr, ptr %7, align 8
-  %236 = load i32, ptr %8, align 8
-  %237 = call i32 @tvb_captured_length_remaining(ptr noundef %235, i32 noundef %236) #4
-  %238 = icmp slt i32 %237, 4
+  %233 = load i32, ptr @hf_sane_device_handle, align 4
+  %234 = load ptr, ptr %7, align 8
+  %235 = load i32, ptr %8, align 8
+  %236 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %233, ptr noundef %234, i32 noundef %235, i32 noundef 4, i32 noundef 0) #4
+  %237 = load ptr, ptr %7, align 8
+  %238 = load i32, ptr %8, align 8
+  %239 = call i32 @tvb_captured_length_remaining(ptr noundef %237, i32 noundef %238) #4
+  %240 = icmp slt i32 %239, 4
   %.pre.i.i20 = load i32, ptr %8, align 8
-  br i1 %238, label %dissect_sane_net_open_response.exit.i, label %239
+  br i1 %240, label %dissect_sane_net_open_response.exit.i, label %241
 
-239:                                              ; preds = %230
-  %240 = add i32 %.pre.i.i20, 4
-  store i32 %240, ptr %8, align 8
-  %241 = load i32, ptr %9, align 4
-  %242 = add i32 %241, 4
-  store i32 %242, ptr %9, align 4
+241:                                              ; preds = %232
+  %242 = add i32 %.pre.i.i20, 4
+  store i32 %242, ptr %8, align 8
+  %243 = load i32, ptr %9, align 4
+  %244 = add i32 %243, 4
+  store i32 %244, ptr %9, align 4
   br label %dissect_sane_net_open_response.exit.i
 
-dissect_sane_net_open_response.exit.i:            ; preds = %239, %230
-  %243 = phi i32 [ %.pre.i.i20, %230 ], [ %240, %239 ]
-  %244 = load i32, ptr @hf_sane_resource_name, align 4
-  %245 = getelementptr i8, ptr %1, i64 408
-  %.val.i.i21 = load ptr, ptr %245, align 8
-  %246 = load ptr, ptr %7, align 8
-  %247 = call i32 @tvb_captured_length_remaining(ptr noundef %246, i32 noundef %243) #4
-  %248 = icmp slt i32 %247, 4
-  br i1 %248, label %tvb_read_sane_string.exit51, label %249
+dissect_sane_net_open_response.exit.i:            ; preds = %241, %232
+  %245 = phi i32 [ %.pre.i.i20, %232 ], [ %242, %241 ]
+  %246 = load i32, ptr @hf_sane_resource_name, align 4
+  %247 = getelementptr i8, ptr %1, i64 408
+  %.val.i.i21 = load ptr, ptr %247, align 8
+  %248 = load ptr, ptr %7, align 8
+  %249 = call i32 @tvb_captured_length_remaining(ptr noundef %248, i32 noundef %245) #4
+  %250 = icmp slt i32 %249, 4
+  br i1 %250, label %tvb_read_sane_string.exit51, label %251
 
-249:                                              ; preds = %dissect_sane_net_open_response.exit.i
-  %250 = load ptr, ptr %7, align 8
-  %251 = load i32, ptr %8, align 8
-  %252 = call i32 @tvb_get_ntohl(ptr noundef %250, i32 noundef %251) #4
-  %253 = load <2 x i32>, ptr %8, align 8
-  %254 = add <2 x i32> %253, <i32 4, i32 4>
-  store <2 x i32> %254, ptr %8, align 8
-  %255 = load ptr, ptr %7, align 8
-  %256 = extractelement <2 x i32> %254, i64 0
-  %257 = call i32 @tvb_captured_length_remaining(ptr noundef %255, i32 noundef %256) #4
-  %258 = icmp slt i32 %257, %252
-  br i1 %258, label %tvb_read_sane_string.exit51, label %259
+251:                                              ; preds = %dissect_sane_net_open_response.exit.i
+  %252 = load ptr, ptr %7, align 8
+  %253 = load i32, ptr %8, align 8
+  %254 = call i32 @tvb_get_ntohl(ptr noundef %252, i32 noundef %253) #4
+  %255 = load i32, ptr %8, align 8
+  %256 = add i32 %255, 4
+  store i32 %256, ptr %8, align 8
+  %257 = load i32, ptr %9, align 4
+  %258 = add i32 %257, 4
+  store i32 %258, ptr %9, align 4
+  %259 = load ptr, ptr %7, align 8
+  %260 = call i32 @tvb_captured_length_remaining(ptr noundef %259, i32 noundef %256) #4
+  %261 = icmp slt i32 %260, %254
+  br i1 %261, label %tvb_read_sane_string.exit51, label %262
 
-259:                                              ; preds = %249
-  %260 = load ptr, ptr %7, align 8
-  %261 = load i32, ptr %8, align 8
-  %262 = call ptr @tvb_get_string_enc(ptr noundef %.val.i.i21, ptr noundef %260, i32 noundef %261, i32 noundef %252, i32 noundef 0) #4
-  %263 = load <2 x i32>, ptr %8, align 8
-  %264 = insertelement <2 x i32> poison, i32 %252, i64 0
-  %265 = shufflevector <2 x i32> %264, <2 x i32> poison, <2 x i32> zeroinitializer
-  %266 = add <2 x i32> %263, %265
-  store <2 x i32> %266, ptr %8, align 8
-  %267 = add i32 %252, 4
+262:                                              ; preds = %251
+  %263 = load ptr, ptr %7, align 8
+  %264 = load i32, ptr %8, align 8
+  %265 = call ptr @tvb_get_string_enc(ptr noundef %.val.i.i21, ptr noundef %263, i32 noundef %264, i32 noundef %254, i32 noundef 0) #4
+  %266 = load i32, ptr %8, align 8
+  %267 = add i32 %266, %254
+  store i32 %267, ptr %8, align 8
+  %268 = load i32, ptr %9, align 4
+  %269 = add i32 %268, %254
+  store i32 %269, ptr %9, align 4
+  %270 = add i32 %254, 4
   br label %tvb_read_sane_string.exit51
 
-tvb_read_sane_string.exit51:                      ; preds = %dissect_sane_net_open_response.exit.i, %249, %259
-  %.072 = phi ptr [ @.str.176, %dissect_sane_net_open_response.exit.i ], [ @.str.176, %249 ], [ %262, %259 ]
-  %.0.i50 = phi i32 [ 0, %dissect_sane_net_open_response.exit.i ], [ 0, %249 ], [ %267, %259 ]
-  %268 = load i32, ptr @hf_sane_string, align 4
-  %269 = load ptr, ptr %7, align 8
-  %270 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %268, ptr noundef %269, i32 noundef %243, i32 noundef %.0.i50, i32 noundef 0) #4
-  %271 = load i32, ptr @ett_sane_string, align 4
-  %272 = call ptr @proto_item_add_subtree(ptr noundef %270, i32 noundef %271) #4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %270, ptr noundef nonnull @.str.201, ptr noundef %.072) #4
-  %273 = load i32, ptr @hf_sane_string_length, align 4
-  %274 = load ptr, ptr %7, align 8
-  %275 = call ptr @proto_tree_add_item(ptr noundef %272, i32 noundef %273, ptr noundef %274, i32 noundef %243, i32 noundef 4, i32 noundef 0) #4
-  %276 = load ptr, ptr %7, align 8
-  %277 = add i32 %243, 4
-  %278 = add i32 %.0.i50, -4
-  %279 = call ptr @proto_tree_add_item(ptr noundef %272, i32 noundef %244, ptr noundef %276, i32 noundef %277, i32 noundef %278, i32 noundef 0) #4
+tvb_read_sane_string.exit51:                      ; preds = %dissect_sane_net_open_response.exit.i, %251, %262
+  %.072 = phi ptr [ @.str.176, %dissect_sane_net_open_response.exit.i ], [ @.str.176, %251 ], [ %265, %262 ]
+  %.0.i50 = phi i32 [ 0, %dissect_sane_net_open_response.exit.i ], [ 0, %251 ], [ %270, %262 ]
+  %271 = load i32, ptr @hf_sane_string, align 4
+  %272 = load ptr, ptr %7, align 8
+  %273 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %271, ptr noundef %272, i32 noundef %245, i32 noundef %.0.i50, i32 noundef 0) #4
+  %274 = load i32, ptr @ett_sane_string, align 4
+  %275 = call ptr @proto_item_add_subtree(ptr noundef %273, i32 noundef %274) #4
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %273, ptr noundef nonnull @.str.201, ptr noundef %.072) #4
+  %276 = load i32, ptr @hf_sane_string_length, align 4
+  %277 = load ptr, ptr %7, align 8
+  %278 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %276, ptr noundef %277, i32 noundef %245, i32 noundef 4, i32 noundef 0) #4
+  %279 = load ptr, ptr %7, align 8
+  %280 = add i32 %245, 4
+  %281 = add i32 %.0.i50, -4
+  %282 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %246, ptr noundef %279, i32 noundef %280, i32 noundef %281, i32 noundef 0) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %dissect_sane_request.exit
 
-280:                                              ; preds = %195
-  %281 = load i32, ptr @hf_sane_option_count, align 4
-  %282 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %281, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
-  %283 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #4
-  %284 = icmp slt i32 %283, 4
-  br i1 %284, label %dissect_sane_request.exit, label %dissect_sane_word.exit.i.i19
+283:                                              ; preds = %195
+  %284 = load i32, ptr @hf_sane_option_count, align 4
+  %285 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %284, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
+  %286 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #4
+  %287 = icmp slt i32 %286, 4
+  br i1 %287, label %dissect_sane_request.exit, label %dissect_sane_word.exit.i.i19
 
-dissect_sane_word.exit.i.i19:                     ; preds = %280
-  %285 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #4
+dissect_sane_word.exit.i.i19:                     ; preds = %283
+  %288 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #4
   store i32 4, ptr %8, align 8
   store i32 4, ptr %9, align 4
-  %286 = icmp sgt i32 %285, 0
-  br i1 %286, label %.lr.ph136.i.i, label %dissect_sane_request.exit
+  %289 = icmp sgt i32 %288, 0
+  br i1 %289, label %.lr.ph136.i.i, label %dissect_sane_request.exit
 
 .lr.ph136.i.i:                                    ; preds = %dissect_sane_word.exit.i.i19
-  %287 = getelementptr i8, ptr %1, i64 408
-  br label %288
+  %290 = getelementptr i8, ptr %1, i64 408
+  br label %291
 
-288:                                              ; preds = %.loopexit.i.i, %.lr.ph136.i.i
-  %289 = phi i32 [ 4, %.lr.ph136.i.i ], [ %555, %.loopexit.i.i ]
-  %290 = phi i32 [ 4, %.lr.ph136.i.i ], [ %556, %.loopexit.i.i ]
-  %.0135.i.i = phi i32 [ 0, %.lr.ph136.i.i ], [ %559, %.loopexit.i.i ]
-  %291 = load i32, ptr @hf_sane_option_descriptor, align 4
-  %292 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %291, ptr noundef %0, i32 noundef %289, i32 noundef 0, i32 noundef 0) #4
-  %293 = load i32, ptr @ett_sane_option, align 4
-  %294 = tail call ptr @proto_item_add_subtree(ptr noundef %292, i32 noundef %293) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %292, ptr noundef nonnull @.str.202, i32 noundef %.0135.i.i) #4
-  %295 = load i32, ptr @hf_sane_pointer_value, align 4
-  %296 = tail call ptr @proto_tree_add_item(ptr noundef %294, i32 noundef %295, ptr noundef %0, i32 noundef %289, i32 noundef 4, i32 noundef 0) #4
-  %297 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %289) #4
-  %298 = icmp slt i32 %297, 4
-  br i1 %298, label %dissect_sane_word.exit89.i.i, label %299
+291:                                              ; preds = %.loopexit.i.i, %.lr.ph136.i.i
+  %292 = phi i32 [ 4, %.lr.ph136.i.i ], [ %558, %.loopexit.i.i ]
+  %293 = phi i32 [ 4, %.lr.ph136.i.i ], [ %559, %.loopexit.i.i ]
+  %.0135.i.i = phi i32 [ 0, %.lr.ph136.i.i ], [ %562, %.loopexit.i.i ]
+  %294 = load i32, ptr @hf_sane_option_descriptor, align 4
+  %295 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %294, ptr noundef %0, i32 noundef %292, i32 noundef 0, i32 noundef 0) #4
+  %296 = load i32, ptr @ett_sane_option, align 4
+  %297 = tail call ptr @proto_item_add_subtree(ptr noundef %295, i32 noundef %296) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %295, ptr noundef nonnull @.str.202, i32 noundef %.0135.i.i) #4
+  %298 = load i32, ptr @hf_sane_pointer_value, align 4
+  %299 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %298, ptr noundef %0, i32 noundef %292, i32 noundef 4, i32 noundef 0) #4
+  %300 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %292) #4
+  %301 = icmp slt i32 %300, 4
+  br i1 %301, label %dissect_sane_word.exit89.i.i, label %302
 
-299:                                              ; preds = %288
-  %300 = add i32 %289, 4
-  store i32 %300, ptr %8, align 8
-  %301 = add i32 %290, 4
-  store i32 %301, ptr %9, align 4
+302:                                              ; preds = %291
+  %303 = add i32 %292, 4
+  store i32 %303, ptr %8, align 8
+  %304 = add i32 %293, 4
+  store i32 %304, ptr %9, align 4
   br label %dissect_sane_word.exit89.i.i
 
-dissect_sane_word.exit89.i.i:                     ; preds = %299, %288
-  %302 = phi i32 [ %289, %288 ], [ %300, %299 ]
-  %303 = phi i32 [ %290, %288 ], [ %301, %299 ]
-  %304 = load i32, ptr @hf_sane_option_name, align 4
-  %.val88.i.i = load ptr, ptr %287, align 8
-  %305 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %302) #4
-  %306 = icmp slt i32 %305, 4
-  br i1 %306, label %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge, label %307
+dissect_sane_word.exit89.i.i:                     ; preds = %302, %291
+  %305 = phi i32 [ %292, %291 ], [ %303, %302 ]
+  %306 = phi i32 [ %293, %291 ], [ %304, %302 ]
+  %307 = load i32, ptr @hf_sane_option_name, align 4
+  %.val88.i.i = load ptr, ptr %290, align 8
+  %308 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %305) #4
+  %309 = icmp slt i32 %308, 4
+  br i1 %309, label %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge, label %310
 
 dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge: ; preds = %dissect_sane_word.exit89.i.i
-  %.pre = add i32 %302, 4
+  %.pre = add i32 %305, 4
   br label %tvb_read_sane_string.exit49
 
-307:                                              ; preds = %dissect_sane_word.exit89.i.i
-  %308 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %302) #4
-  %309 = add i32 %302, 4
-  store i32 %309, ptr %8, align 8
-  %310 = add i32 %303, 4
-  store i32 %310, ptr %9, align 4
-  %311 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %309) #4
-  %312 = icmp slt i32 %311, %308
-  br i1 %312, label %tvb_read_sane_string.exit49, label %313
+310:                                              ; preds = %dissect_sane_word.exit89.i.i
+  %311 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %305) #4
+  %312 = add i32 %305, 4
+  store i32 %312, ptr %8, align 8
+  %313 = add i32 %306, 4
+  store i32 %313, ptr %9, align 4
+  %314 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %312) #4
+  %315 = icmp slt i32 %314, %311
+  br i1 %315, label %tvb_read_sane_string.exit49, label %316
 
-313:                                              ; preds = %307
-  %314 = tail call ptr @tvb_get_string_enc(ptr noundef %.val88.i.i, ptr noundef %0, i32 noundef %309, i32 noundef %308, i32 noundef 0) #4
-  %315 = add i32 %309, %308
-  store i32 %315, ptr %8, align 8
-  %316 = add i32 %310, %308
-  store i32 %316, ptr %9, align 4
-  %317 = add i32 %308, 4
+316:                                              ; preds = %310
+  %317 = tail call ptr @tvb_get_string_enc(ptr noundef %.val88.i.i, ptr noundef %0, i32 noundef %312, i32 noundef %311, i32 noundef 0) #4
+  %318 = add i32 %312, %311
+  store i32 %318, ptr %8, align 8
+  %319 = add i32 %313, %311
+  store i32 %319, ptr %9, align 4
+  %320 = add i32 %311, 4
   br label %tvb_read_sane_string.exit49
 
-tvb_read_sane_string.exit49:                      ; preds = %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge, %307, %313
-  %.pre-phi = phi i32 [ %.pre, %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge ], [ %309, %307 ], [ %309, %313 ]
-  %318 = phi i32 [ %302, %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge ], [ %309, %307 ], [ %315, %313 ]
-  %319 = phi i32 [ %303, %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge ], [ %310, %307 ], [ %316, %313 ]
-  %.073 = phi ptr [ @.str.176, %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge ], [ @.str.176, %307 ], [ %314, %313 ]
-  %.0.i48 = phi i32 [ 0, %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge ], [ 0, %307 ], [ %317, %313 ]
-  %320 = load i32, ptr @hf_sane_string, align 4
-  %321 = tail call ptr @proto_tree_add_item(ptr noundef %294, i32 noundef %320, ptr noundef %0, i32 noundef %302, i32 noundef %.0.i48, i32 noundef 0) #4
-  %322 = load i32, ptr @ett_sane_string, align 4
-  %323 = tail call ptr @proto_item_add_subtree(ptr noundef %321, i32 noundef %322) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %321, ptr noundef nonnull @.str.203, ptr noundef %.073) #4
-  %324 = load i32, ptr @hf_sane_string_length, align 4
-  %325 = tail call ptr @proto_tree_add_item(ptr noundef %323, i32 noundef %324, ptr noundef %0, i32 noundef %302, i32 noundef 4, i32 noundef 0) #4
-  %326 = add i32 %.0.i48, -4
-  %327 = tail call ptr @proto_tree_add_item(ptr noundef %323, i32 noundef %304, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %326, i32 noundef 0) #4
+tvb_read_sane_string.exit49:                      ; preds = %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge, %310, %316
+  %.pre-phi = phi i32 [ %.pre, %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge ], [ %312, %310 ], [ %312, %316 ]
+  %321 = phi i32 [ %305, %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge ], [ %312, %310 ], [ %318, %316 ]
+  %322 = phi i32 [ %306, %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge ], [ %313, %310 ], [ %319, %316 ]
+  %.073 = phi ptr [ @.str.176, %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge ], [ @.str.176, %310 ], [ %317, %316 ]
+  %.0.i48 = phi i32 [ 0, %dissect_sane_word.exit89.i.i.tvb_read_sane_string.exit49_crit_edge ], [ 0, %310 ], [ %320, %316 ]
+  %323 = load i32, ptr @hf_sane_string, align 4
+  %324 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %323, ptr noundef %0, i32 noundef %305, i32 noundef %.0.i48, i32 noundef 0) #4
+  %325 = load i32, ptr @ett_sane_string, align 4
+  %326 = tail call ptr @proto_item_add_subtree(ptr noundef %324, i32 noundef %325) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %324, ptr noundef nonnull @.str.203, ptr noundef %.073) #4
+  %327 = load i32, ptr @hf_sane_string_length, align 4
+  %328 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %327, ptr noundef %0, i32 noundef %305, i32 noundef 4, i32 noundef 0) #4
+  %329 = add i32 %.0.i48, -4
+  %330 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %307, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %329, i32 noundef 0) #4
   %.not.i.i = icmp eq ptr %.073, null
-  br i1 %.not.i.i, label %331, label %328
+  br i1 %.not.i.i, label %334, label %331
 
-328:                                              ; preds = %tvb_read_sane_string.exit49
-  %329 = load i8, ptr %.073, align 1
-  %.not84.i.i = icmp eq i8 %329, 0
-  br i1 %.not84.i.i, label %331, label %330
+331:                                              ; preds = %tvb_read_sane_string.exit49
+  %332 = load i8, ptr %.073, align 1
+  %.not84.i.i = icmp eq i8 %332, 0
+  br i1 %.not84.i.i, label %334, label %333
 
-330:                                              ; preds = %328
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %292, ptr noundef nonnull @.str.186, ptr noundef nonnull %.073) #4
-  br label %331
+333:                                              ; preds = %331
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %295, ptr noundef nonnull @.str.186, ptr noundef nonnull %.073) #4
+  br label %334
 
-331:                                              ; preds = %330, %328, %tvb_read_sane_string.exit49
-  %332 = load i32, ptr @hf_sane_option_title, align 4
-  %.val87.i.i = load ptr, ptr %287, align 8
-  %333 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %318) #4
-  %334 = icmp slt i32 %333, 4
-  br i1 %334, label %.tvb_read_sane_string.exit47_crit_edge, label %335
+334:                                              ; preds = %333, %331, %tvb_read_sane_string.exit49
+  %335 = load i32, ptr @hf_sane_option_title, align 4
+  %.val87.i.i = load ptr, ptr %290, align 8
+  %336 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %321) #4
+  %337 = icmp slt i32 %336, 4
+  br i1 %337, label %.tvb_read_sane_string.exit47_crit_edge, label %338
 
-.tvb_read_sane_string.exit47_crit_edge:           ; preds = %331
-  %.pre89 = add i32 %318, 4
+.tvb_read_sane_string.exit47_crit_edge:           ; preds = %334
+  %.pre89 = add i32 %321, 4
   br label %tvb_read_sane_string.exit47
 
-335:                                              ; preds = %331
-  %336 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %318) #4
-  %337 = add i32 %318, 4
-  store i32 %337, ptr %8, align 8
-  %338 = add i32 %319, 4
-  store i32 %338, ptr %9, align 4
-  %339 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %337) #4
-  %340 = icmp slt i32 %339, %336
-  br i1 %340, label %tvb_read_sane_string.exit47, label %341
+338:                                              ; preds = %334
+  %339 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %321) #4
+  %340 = add i32 %321, 4
+  store i32 %340, ptr %8, align 8
+  %341 = add i32 %322, 4
+  store i32 %341, ptr %9, align 4
+  %342 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %340) #4
+  %343 = icmp slt i32 %342, %339
+  br i1 %343, label %tvb_read_sane_string.exit47, label %344
 
-341:                                              ; preds = %335
-  %342 = tail call ptr @tvb_get_string_enc(ptr noundef %.val87.i.i, ptr noundef %0, i32 noundef %337, i32 noundef %336, i32 noundef 0) #4
-  %343 = add i32 %337, %336
-  store i32 %343, ptr %8, align 8
-  %344 = add i32 %338, %336
-  store i32 %344, ptr %9, align 4
-  %345 = add i32 %336, 4
+344:                                              ; preds = %338
+  %345 = tail call ptr @tvb_get_string_enc(ptr noundef %.val87.i.i, ptr noundef %0, i32 noundef %340, i32 noundef %339, i32 noundef 0) #4
+  %346 = add i32 %340, %339
+  store i32 %346, ptr %8, align 8
+  %347 = add i32 %341, %339
+  store i32 %347, ptr %9, align 4
+  %348 = add i32 %339, 4
   br label %tvb_read_sane_string.exit47
 
-tvb_read_sane_string.exit47:                      ; preds = %.tvb_read_sane_string.exit47_crit_edge, %335, %341
-  %.pre-phi90 = phi i32 [ %.pre89, %.tvb_read_sane_string.exit47_crit_edge ], [ %337, %335 ], [ %337, %341 ]
-  %346 = phi i32 [ %318, %.tvb_read_sane_string.exit47_crit_edge ], [ %337, %335 ], [ %343, %341 ]
-  %347 = phi i32 [ %319, %.tvb_read_sane_string.exit47_crit_edge ], [ %338, %335 ], [ %344, %341 ]
-  %.074 = phi ptr [ @.str.176, %.tvb_read_sane_string.exit47_crit_edge ], [ @.str.176, %335 ], [ %342, %341 ]
-  %.0.i46 = phi i32 [ 0, %.tvb_read_sane_string.exit47_crit_edge ], [ 0, %335 ], [ %345, %341 ]
-  %348 = load i32, ptr @hf_sane_string, align 4
-  %349 = tail call ptr @proto_tree_add_item(ptr noundef %294, i32 noundef %348, ptr noundef %0, i32 noundef %318, i32 noundef %.0.i46, i32 noundef 0) #4
-  %350 = load i32, ptr @ett_sane_string, align 4
-  %351 = tail call ptr @proto_item_add_subtree(ptr noundef %349, i32 noundef %350) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %349, ptr noundef nonnull @.str.204, ptr noundef %.074) #4
-  %352 = load i32, ptr @hf_sane_string_length, align 4
-  %353 = tail call ptr @proto_tree_add_item(ptr noundef %351, i32 noundef %352, ptr noundef %0, i32 noundef %318, i32 noundef 4, i32 noundef 0) #4
-  %354 = add i32 %.0.i46, -4
-  %355 = tail call ptr @proto_tree_add_item(ptr noundef %351, i32 noundef %332, ptr noundef %0, i32 noundef %.pre-phi90, i32 noundef %354, i32 noundef 0) #4
-  br i1 %.not.i.i, label %360, label %356
+tvb_read_sane_string.exit47:                      ; preds = %.tvb_read_sane_string.exit47_crit_edge, %338, %344
+  %.pre-phi90 = phi i32 [ %.pre89, %.tvb_read_sane_string.exit47_crit_edge ], [ %340, %338 ], [ %340, %344 ]
+  %349 = phi i32 [ %321, %.tvb_read_sane_string.exit47_crit_edge ], [ %340, %338 ], [ %346, %344 ]
+  %350 = phi i32 [ %322, %.tvb_read_sane_string.exit47_crit_edge ], [ %341, %338 ], [ %347, %344 ]
+  %.074 = phi ptr [ @.str.176, %.tvb_read_sane_string.exit47_crit_edge ], [ @.str.176, %338 ], [ %345, %344 ]
+  %.0.i46 = phi i32 [ 0, %.tvb_read_sane_string.exit47_crit_edge ], [ 0, %338 ], [ %348, %344 ]
+  %351 = load i32, ptr @hf_sane_string, align 4
+  %352 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %351, ptr noundef %0, i32 noundef %321, i32 noundef %.0.i46, i32 noundef 0) #4
+  %353 = load i32, ptr @ett_sane_string, align 4
+  %354 = tail call ptr @proto_item_add_subtree(ptr noundef %352, i32 noundef %353) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %352, ptr noundef nonnull @.str.204, ptr noundef %.074) #4
+  %355 = load i32, ptr @hf_sane_string_length, align 4
+  %356 = tail call ptr @proto_tree_add_item(ptr noundef %354, i32 noundef %355, ptr noundef %0, i32 noundef %321, i32 noundef 4, i32 noundef 0) #4
+  %357 = add i32 %.0.i46, -4
+  %358 = tail call ptr @proto_tree_add_item(ptr noundef %354, i32 noundef %335, ptr noundef %0, i32 noundef %.pre-phi90, i32 noundef %357, i32 noundef 0) #4
+  br i1 %.not.i.i, label %363, label %359
 
-356:                                              ; preds = %tvb_read_sane_string.exit47
-  %357 = load i8, ptr %.073, align 1
-  %358 = icmp eq i8 %357, 0
-  %359 = icmp ne ptr %.074, null
-  %or.cond.i.i = select i1 %358, i1 %359, i1 false
-  br i1 %or.cond.i.i, label %361, label %364
+359:                                              ; preds = %tvb_read_sane_string.exit47
+  %360 = load i8, ptr %.073, align 1
+  %361 = icmp eq i8 %360, 0
+  %362 = icmp ne ptr %.074, null
+  %or.cond.i.i = select i1 %361, i1 %362, i1 false
+  br i1 %or.cond.i.i, label %364, label %367
 
-360:                                              ; preds = %tvb_read_sane_string.exit47
+363:                                              ; preds = %tvb_read_sane_string.exit47
   %.old1.not.i.i = icmp eq ptr %.074, null
-  br i1 %.old1.not.i.i, label %364, label %361
+  br i1 %.old1.not.i.i, label %367, label %364
 
-361:                                              ; preds = %360, %356
-  %362 = load i8, ptr %.074, align 1
-  %.not85.i.i = icmp eq i8 %362, 0
-  br i1 %.not85.i.i, label %364, label %363
+364:                                              ; preds = %363, %359
+  %365 = load i8, ptr %.074, align 1
+  %.not85.i.i = icmp eq i8 %365, 0
+  br i1 %.not85.i.i, label %367, label %366
 
-363:                                              ; preds = %361
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %292, ptr noundef nonnull @.str.186, ptr noundef nonnull %.074) #4
-  br label %364
+366:                                              ; preds = %364
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %295, ptr noundef nonnull @.str.186, ptr noundef nonnull %.074) #4
+  br label %367
 
-364:                                              ; preds = %363, %361, %360, %356
-  %365 = load i32, ptr @hf_sane_option_description, align 4
-  %.val86.i.i = load ptr, ptr %287, align 8
-  %366 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %346) #4
-  %367 = icmp slt i32 %366, 4
-  br i1 %367, label %.tvb_read_sane_string.exit45_crit_edge, label %368
+367:                                              ; preds = %366, %364, %363, %359
+  %368 = load i32, ptr @hf_sane_option_description, align 4
+  %.val86.i.i = load ptr, ptr %290, align 8
+  %369 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %349) #4
+  %370 = icmp slt i32 %369, 4
+  br i1 %370, label %.tvb_read_sane_string.exit45_crit_edge, label %371
 
-.tvb_read_sane_string.exit45_crit_edge:           ; preds = %364
-  %.pre91 = add i32 %346, 4
+.tvb_read_sane_string.exit45_crit_edge:           ; preds = %367
+  %.pre91 = add i32 %349, 4
   br label %tvb_read_sane_string.exit45
 
-368:                                              ; preds = %364
-  %369 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %346) #4
-  %370 = add i32 %346, 4
-  store i32 %370, ptr %8, align 8
-  %371 = add i32 %347, 4
-  store i32 %371, ptr %9, align 4
-  %372 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %370) #4
-  %373 = icmp slt i32 %372, %369
-  br i1 %373, label %tvb_read_sane_string.exit45, label %374
+371:                                              ; preds = %367
+  %372 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %349) #4
+  %373 = add i32 %349, 4
+  store i32 %373, ptr %8, align 8
+  %374 = add i32 %350, 4
+  store i32 %374, ptr %9, align 4
+  %375 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %373) #4
+  %376 = icmp slt i32 %375, %372
+  br i1 %376, label %tvb_read_sane_string.exit45, label %377
 
-374:                                              ; preds = %368
-  %375 = tail call ptr @tvb_get_string_enc(ptr noundef %.val86.i.i, ptr noundef %0, i32 noundef %370, i32 noundef %369, i32 noundef 0) #4
-  %376 = add i32 %370, %369
-  store i32 %376, ptr %8, align 8
-  %377 = add i32 %371, %369
-  store i32 %377, ptr %9, align 4
-  %378 = add i32 %369, 4
+377:                                              ; preds = %371
+  %378 = tail call ptr @tvb_get_string_enc(ptr noundef %.val86.i.i, ptr noundef %0, i32 noundef %373, i32 noundef %372, i32 noundef 0) #4
+  %379 = add i32 %373, %372
+  store i32 %379, ptr %8, align 8
+  %380 = add i32 %374, %372
+  store i32 %380, ptr %9, align 4
+  %381 = add i32 %372, 4
   br label %tvb_read_sane_string.exit45
 
-tvb_read_sane_string.exit45:                      ; preds = %.tvb_read_sane_string.exit45_crit_edge, %368, %374
-  %.pre-phi92 = phi i32 [ %.pre91, %.tvb_read_sane_string.exit45_crit_edge ], [ %370, %368 ], [ %370, %374 ]
-  %379 = phi i32 [ %346, %.tvb_read_sane_string.exit45_crit_edge ], [ %370, %368 ], [ %376, %374 ]
-  %380 = phi i32 [ %347, %.tvb_read_sane_string.exit45_crit_edge ], [ %371, %368 ], [ %377, %374 ]
-  %.075 = phi ptr [ @.str.176, %.tvb_read_sane_string.exit45_crit_edge ], [ @.str.176, %368 ], [ %375, %374 ]
-  %.0.i44 = phi i32 [ 0, %.tvb_read_sane_string.exit45_crit_edge ], [ 0, %368 ], [ %378, %374 ]
-  %381 = load i32, ptr @hf_sane_string, align 4
-  %382 = tail call ptr @proto_tree_add_item(ptr noundef %294, i32 noundef %381, ptr noundef %0, i32 noundef %346, i32 noundef %.0.i44, i32 noundef 0) #4
-  %383 = load i32, ptr @ett_sane_string, align 4
-  %384 = tail call ptr @proto_item_add_subtree(ptr noundef %382, i32 noundef %383) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %382, ptr noundef nonnull @.str.205, ptr noundef %.075) #4
-  %385 = load i32, ptr @hf_sane_string_length, align 4
-  %386 = tail call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %385, ptr noundef %0, i32 noundef %346, i32 noundef 4, i32 noundef 0) #4
-  %387 = add i32 %.0.i44, -4
-  %388 = tail call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %365, ptr noundef %0, i32 noundef %.pre-phi92, i32 noundef %387, i32 noundef 0) #4
-  %389 = load i32, ptr @hf_sane_option_value_type, align 4
-  %390 = tail call ptr @proto_tree_add_item(ptr noundef %294, i32 noundef %389, ptr noundef %0, i32 noundef %379, i32 noundef 4, i32 noundef 0) #4
-  %391 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %379) #4
-  %392 = icmp slt i32 %391, 4
-  br i1 %392, label %dissect_sane_word.exit90.i.i, label %393
+tvb_read_sane_string.exit45:                      ; preds = %.tvb_read_sane_string.exit45_crit_edge, %371, %377
+  %.pre-phi92 = phi i32 [ %.pre91, %.tvb_read_sane_string.exit45_crit_edge ], [ %373, %371 ], [ %373, %377 ]
+  %382 = phi i32 [ %349, %.tvb_read_sane_string.exit45_crit_edge ], [ %373, %371 ], [ %379, %377 ]
+  %383 = phi i32 [ %350, %.tvb_read_sane_string.exit45_crit_edge ], [ %374, %371 ], [ %380, %377 ]
+  %.075 = phi ptr [ @.str.176, %.tvb_read_sane_string.exit45_crit_edge ], [ @.str.176, %371 ], [ %378, %377 ]
+  %.0.i44 = phi i32 [ 0, %.tvb_read_sane_string.exit45_crit_edge ], [ 0, %371 ], [ %381, %377 ]
+  %384 = load i32, ptr @hf_sane_string, align 4
+  %385 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %384, ptr noundef %0, i32 noundef %349, i32 noundef %.0.i44, i32 noundef 0) #4
+  %386 = load i32, ptr @ett_sane_string, align 4
+  %387 = tail call ptr @proto_item_add_subtree(ptr noundef %385, i32 noundef %386) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %385, ptr noundef nonnull @.str.205, ptr noundef %.075) #4
+  %388 = load i32, ptr @hf_sane_string_length, align 4
+  %389 = tail call ptr @proto_tree_add_item(ptr noundef %387, i32 noundef %388, ptr noundef %0, i32 noundef %349, i32 noundef 4, i32 noundef 0) #4
+  %390 = add i32 %.0.i44, -4
+  %391 = tail call ptr @proto_tree_add_item(ptr noundef %387, i32 noundef %368, ptr noundef %0, i32 noundef %.pre-phi92, i32 noundef %390, i32 noundef 0) #4
+  %392 = load i32, ptr @hf_sane_option_value_type, align 4
+  %393 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %392, ptr noundef %0, i32 noundef %382, i32 noundef 4, i32 noundef 0) #4
+  %394 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %382) #4
+  %395 = icmp slt i32 %394, 4
+  br i1 %395, label %dissect_sane_word.exit90.i.i, label %396
 
-393:                                              ; preds = %tvb_read_sane_string.exit45
-  %394 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %379) #4
-  %395 = add i32 %379, 4
-  store i32 %395, ptr %8, align 8
-  %396 = add i32 %380, 4
-  store i32 %396, ptr %9, align 4
+396:                                              ; preds = %tvb_read_sane_string.exit45
+  %397 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %382) #4
+  %398 = add i32 %382, 4
+  store i32 %398, ptr %8, align 8
+  %399 = add i32 %383, 4
+  store i32 %399, ptr %9, align 4
   br label %dissect_sane_word.exit90.i.i
 
-dissect_sane_word.exit90.i.i:                     ; preds = %393, %tvb_read_sane_string.exit45
-  %397 = phi i32 [ %379, %tvb_read_sane_string.exit45 ], [ %395, %393 ]
-  %398 = phi i32 [ %380, %tvb_read_sane_string.exit45 ], [ %396, %393 ]
-  %.0126.i.i = phi i32 [ 0, %tvb_read_sane_string.exit45 ], [ %394, %393 ]
-  %399 = load i32, ptr @hf_sane_option_unit, align 4
-  %400 = tail call ptr @proto_tree_add_item(ptr noundef %294, i32 noundef %399, ptr noundef %0, i32 noundef %397, i32 noundef 4, i32 noundef 0) #4
-  %401 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %397) #4
-  %402 = icmp slt i32 %401, 4
-  br i1 %402, label %dissect_sane_word.exit91.i.i, label %403
+dissect_sane_word.exit90.i.i:                     ; preds = %396, %tvb_read_sane_string.exit45
+  %400 = phi i32 [ %382, %tvb_read_sane_string.exit45 ], [ %398, %396 ]
+  %401 = phi i32 [ %383, %tvb_read_sane_string.exit45 ], [ %399, %396 ]
+  %.0126.i.i = phi i32 [ 0, %tvb_read_sane_string.exit45 ], [ %397, %396 ]
+  %402 = load i32, ptr @hf_sane_option_unit, align 4
+  %403 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %402, ptr noundef %0, i32 noundef %400, i32 noundef 4, i32 noundef 0) #4
+  %404 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %400) #4
+  %405 = icmp slt i32 %404, 4
+  br i1 %405, label %dissect_sane_word.exit91.i.i, label %406
 
-403:                                              ; preds = %dissect_sane_word.exit90.i.i
-  %404 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %397) #4
-  %405 = add i32 %397, 4
-  store i32 %405, ptr %8, align 8
-  %406 = add i32 %398, 4
-  store i32 %406, ptr %9, align 4
+406:                                              ; preds = %dissect_sane_word.exit90.i.i
+  %407 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %400) #4
+  %408 = add i32 %400, 4
+  store i32 %408, ptr %8, align 8
+  %409 = add i32 %401, 4
+  store i32 %409, ptr %9, align 4
   br label %dissect_sane_word.exit91.i.i
 
-dissect_sane_word.exit91.i.i:                     ; preds = %403, %dissect_sane_word.exit90.i.i
-  %407 = phi i32 [ %397, %dissect_sane_word.exit90.i.i ], [ %405, %403 ]
-  %408 = phi i32 [ %398, %dissect_sane_word.exit90.i.i ], [ %406, %403 ]
-  %.0127.i.i = phi i32 [ 0, %dissect_sane_word.exit90.i.i ], [ %404, %403 ]
-  %409 = load i32, ptr @hf_sane_option_size, align 4
-  %410 = tail call ptr @proto_tree_add_item(ptr noundef %294, i32 noundef %409, ptr noundef %0, i32 noundef %407, i32 noundef 4, i32 noundef 0) #4
-  %411 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %407) #4
-  %412 = icmp slt i32 %411, 4
-  br i1 %412, label %dissect_sane_word.exit92.i.i, label %413
+dissect_sane_word.exit91.i.i:                     ; preds = %406, %dissect_sane_word.exit90.i.i
+  %410 = phi i32 [ %400, %dissect_sane_word.exit90.i.i ], [ %408, %406 ]
+  %411 = phi i32 [ %401, %dissect_sane_word.exit90.i.i ], [ %409, %406 ]
+  %.0127.i.i = phi i32 [ 0, %dissect_sane_word.exit90.i.i ], [ %407, %406 ]
+  %412 = load i32, ptr @hf_sane_option_size, align 4
+  %413 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %412, ptr noundef %0, i32 noundef %410, i32 noundef 4, i32 noundef 0) #4
+  %414 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %410) #4
+  %415 = icmp slt i32 %414, 4
+  br i1 %415, label %dissect_sane_word.exit92.i.i, label %416
 
-413:                                              ; preds = %dissect_sane_word.exit91.i.i
-  %414 = add i32 %407, 4
-  store i32 %414, ptr %8, align 8
-  %415 = add i32 %408, 4
-  store i32 %415, ptr %9, align 4
+416:                                              ; preds = %dissect_sane_word.exit91.i.i
+  %417 = add i32 %410, 4
+  store i32 %417, ptr %8, align 8
+  %418 = add i32 %411, 4
+  store i32 %418, ptr %9, align 4
   br label %dissect_sane_word.exit92.i.i
 
-dissect_sane_word.exit92.i.i:                     ; preds = %413, %dissect_sane_word.exit91.i.i
-  %416 = phi i32 [ %407, %dissect_sane_word.exit91.i.i ], [ %414, %413 ]
-  %417 = phi i32 [ %408, %dissect_sane_word.exit91.i.i ], [ %415, %413 ]
-  %418 = load i32, ptr @hf_sane_option_capabilities, align 4
-  %419 = load i32, ptr @ett_sane_option_capabilities, align 4
-  %420 = tail call ptr @proto_tree_add_bitmask(ptr noundef %294, ptr noundef %0, i32 noundef %416, i32 noundef %418, i32 noundef %419, ptr noundef nonnull @sane_cap_bits, i32 noundef 0) #4
-  %421 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %416) #4
-  %422 = icmp slt i32 %421, 4
-  br i1 %422, label %tvb_skip_bytes.exit.i.i, label %423
+dissect_sane_word.exit92.i.i:                     ; preds = %416, %dissect_sane_word.exit91.i.i
+  %419 = phi i32 [ %410, %dissect_sane_word.exit91.i.i ], [ %417, %416 ]
+  %420 = phi i32 [ %411, %dissect_sane_word.exit91.i.i ], [ %418, %416 ]
+  %421 = load i32, ptr @hf_sane_option_capabilities, align 4
+  %422 = load i32, ptr @ett_sane_option_capabilities, align 4
+  %423 = tail call ptr @proto_tree_add_bitmask(ptr noundef %297, ptr noundef %0, i32 noundef %419, i32 noundef %421, i32 noundef %422, ptr noundef nonnull @sane_cap_bits, i32 noundef 0) #4
+  %424 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %419) #4
+  %425 = icmp slt i32 %424, 4
+  br i1 %425, label %tvb_skip_bytes.exit.i.i, label %426
 
-423:                                              ; preds = %dissect_sane_word.exit92.i.i
-  %424 = add i32 %416, 4
-  store i32 %424, ptr %8, align 8
-  %425 = add i32 %417, 4
-  store i32 %425, ptr %9, align 4
+426:                                              ; preds = %dissect_sane_word.exit92.i.i
+  %427 = add i32 %419, 4
+  store i32 %427, ptr %8, align 8
+  %428 = add i32 %420, 4
+  store i32 %428, ptr %9, align 4
   br label %tvb_skip_bytes.exit.i.i
 
-tvb_skip_bytes.exit.i.i:                          ; preds = %423, %dissect_sane_word.exit92.i.i
-  %426 = phi i32 [ %416, %dissect_sane_word.exit92.i.i ], [ %424, %423 ]
-  %427 = phi i32 [ %417, %dissect_sane_word.exit92.i.i ], [ %425, %423 ]
-  %428 = load i32, ptr @hf_sane_option_constraints, align 4
-  %429 = tail call ptr @proto_tree_add_item(ptr noundef %294, i32 noundef %428, ptr noundef %0, i32 noundef %426, i32 noundef 0, i32 noundef 0) #4
-  %430 = load i32, ptr @ett_sane_option_constraints, align 4
-  %431 = tail call ptr @proto_item_add_subtree(ptr noundef %429, i32 noundef %430) #4
-  %432 = load i32, ptr @hf_sane_option_constraint_type, align 4
-  %433 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %432, ptr noundef %0, i32 noundef %426, i32 noundef 4, i32 noundef 0) #4
-  %434 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %426) #4
-  %435 = icmp slt i32 %434, 4
-  br i1 %435, label %dissect_sane_word.exit93.thread.i.i, label %dissect_sane_word.exit93.i.i
+tvb_skip_bytes.exit.i.i:                          ; preds = %426, %dissect_sane_word.exit92.i.i
+  %429 = phi i32 [ %419, %dissect_sane_word.exit92.i.i ], [ %427, %426 ]
+  %430 = phi i32 [ %420, %dissect_sane_word.exit92.i.i ], [ %428, %426 ]
+  %431 = load i32, ptr @hf_sane_option_constraints, align 4
+  %432 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %431, ptr noundef %0, i32 noundef %429, i32 noundef 0, i32 noundef 0) #4
+  %433 = load i32, ptr @ett_sane_option_constraints, align 4
+  %434 = tail call ptr @proto_item_add_subtree(ptr noundef %432, i32 noundef %433) #4
+  %435 = load i32, ptr @hf_sane_option_constraint_type, align 4
+  %436 = tail call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %435, ptr noundef %0, i32 noundef %429, i32 noundef 4, i32 noundef 0) #4
+  %437 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %429) #4
+  %438 = icmp slt i32 %437, 4
+  br i1 %438, label %dissect_sane_word.exit93.thread.i.i, label %dissect_sane_word.exit93.i.i
 
 dissect_sane_word.exit93.thread.i.i:              ; preds = %tvb_skip_bytes.exit.i.i
-  %436 = tail call ptr @val_to_str(i32 noundef 0, ptr noundef nonnull @sane_constraint_type_names, ptr noundef nonnull @.str.188) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %429, ptr noundef nonnull @.str.206, ptr noundef %436) #4
+  %439 = tail call ptr @val_to_str(i32 noundef 0, ptr noundef nonnull @sane_constraint_type_names, ptr noundef nonnull @.str.188) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %432, ptr noundef nonnull @.str.206, ptr noundef %439) #4
   br label %.loopexit.i.i
 
 dissect_sane_word.exit93.i.i:                     ; preds = %tvb_skip_bytes.exit.i.i
-  %437 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %426) #4
-  %438 = add i32 %426, 4
-  store i32 %438, ptr %8, align 8
-  %439 = add i32 %427, 4
-  store i32 %439, ptr %9, align 4
-  %440 = tail call ptr @val_to_str(i32 noundef %437, ptr noundef nonnull @sane_constraint_type_names, ptr noundef nonnull @.str.188) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %429, ptr noundef nonnull @.str.206, ptr noundef %440) #4
-  switch i32 %437, label %.loopexit.i.i [
-    i32 3, label %441
-    i32 2, label %477
-    i32 1, label %515
+  %440 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %429) #4
+  %441 = add i32 %429, 4
+  store i32 %441, ptr %8, align 8
+  %442 = add i32 %430, 4
+  store i32 %442, ptr %9, align 4
+  %443 = tail call ptr @val_to_str(i32 noundef %440, ptr noundef nonnull @sane_constraint_type_names, ptr noundef nonnull @.str.188) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %432, ptr noundef nonnull @.str.206, ptr noundef %443) #4
+  switch i32 %440, label %.loopexit.i.i [
+    i32 3, label %444
+    i32 2, label %480
+    i32 1, label %518
   ]
 
-441:                                              ; preds = %dissect_sane_word.exit93.i.i
-  %442 = load i32, ptr @hf_sane_array_length, align 4
-  %443 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %442, ptr noundef %0, i32 noundef %438, i32 noundef 4, i32 noundef 0) #4
-  %444 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %438) #4
-  %445 = icmp slt i32 %444, 4
-  br i1 %445, label %.loopexit.i.i, label %dissect_sane_word.exit94.i.i
+444:                                              ; preds = %dissect_sane_word.exit93.i.i
+  %445 = load i32, ptr @hf_sane_array_length, align 4
+  %446 = tail call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %445, ptr noundef %0, i32 noundef %441, i32 noundef 4, i32 noundef 0) #4
+  %447 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %441) #4
+  %448 = icmp slt i32 %447, 4
+  br i1 %448, label %.loopexit.i.i, label %dissect_sane_word.exit94.i.i
 
-dissect_sane_word.exit94.i.i:                     ; preds = %441
-  %446 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %438) #4
-  %447 = add i32 %426, 8
-  store i32 %447, ptr %8, align 8
-  %448 = add i32 %427, 8
-  store i32 %448, ptr %9, align 4
-  %449 = icmp sgt i32 %446, 0
-  br i1 %449, label %.lr.ph134.i.i, label %.loopexit.i.i
+dissect_sane_word.exit94.i.i:                     ; preds = %444
+  %449 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %441) #4
+  %450 = add i32 %429, 8
+  store i32 %450, ptr %8, align 8
+  %451 = add i32 %430, 8
+  store i32 %451, ptr %9, align 4
+  %452 = icmp sgt i32 %449, 0
+  br i1 %452, label %.lr.ph134.i.i, label %.loopexit.i.i
 
 .lr.ph134.i.i:                                    ; preds = %dissect_sane_word.exit94.i.i, %tvb_read_sane_string.exit.i.i
-  %450 = phi i32 [ %466, %tvb_read_sane_string.exit.i.i ], [ %448, %dissect_sane_word.exit94.i.i ]
-  %451 = phi i32 [ %467, %tvb_read_sane_string.exit.i.i ], [ %447, %dissect_sane_word.exit94.i.i ]
-  %.081133.i.i = phi i32 [ %476, %tvb_read_sane_string.exit.i.i ], [ 0, %dissect_sane_word.exit94.i.i ]
-  %452 = load i32, ptr @hf_sane_option_possible_string_value, align 4
-  %.val.i30.i = load ptr, ptr %287, align 8
-  %453 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %451) #4
-  %454 = icmp slt i32 %453, 4
-  br i1 %454, label %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge, label %455
+  %453 = phi i32 [ %469, %tvb_read_sane_string.exit.i.i ], [ %451, %dissect_sane_word.exit94.i.i ]
+  %454 = phi i32 [ %470, %tvb_read_sane_string.exit.i.i ], [ %450, %dissect_sane_word.exit94.i.i ]
+  %.081133.i.i = phi i32 [ %479, %tvb_read_sane_string.exit.i.i ], [ 0, %dissect_sane_word.exit94.i.i ]
+  %455 = load i32, ptr @hf_sane_option_possible_string_value, align 4
+  %.val.i30.i = load ptr, ptr %290, align 8
+  %456 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %454) #4
+  %457 = icmp slt i32 %456, 4
+  br i1 %457, label %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge, label %458
 
 .lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge: ; preds = %.lr.ph134.i.i
-  %.pre93 = add i32 %451, 4
+  %.pre93 = add i32 %454, 4
   br label %tvb_read_sane_string.exit.i.i
 
-455:                                              ; preds = %.lr.ph134.i.i
-  %456 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %451) #4
-  %457 = add i32 %451, 4
-  store i32 %457, ptr %8, align 8
-  %458 = add i32 %450, 4
-  store i32 %458, ptr %9, align 4
-  %459 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %457) #4
-  %460 = icmp slt i32 %459, %456
-  br i1 %460, label %tvb_read_sane_string.exit.i.i, label %461
+458:                                              ; preds = %.lr.ph134.i.i
+  %459 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %454) #4
+  %460 = add i32 %454, 4
+  store i32 %460, ptr %8, align 8
+  %461 = add i32 %453, 4
+  store i32 %461, ptr %9, align 4
+  %462 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %460) #4
+  %463 = icmp slt i32 %462, %459
+  br i1 %463, label %tvb_read_sane_string.exit.i.i, label %464
 
-461:                                              ; preds = %455
-  %462 = tail call ptr @tvb_get_string_enc(ptr noundef %.val.i30.i, ptr noundef %0, i32 noundef %457, i32 noundef %456, i32 noundef 0) #4
-  %463 = add i32 %457, %456
-  store i32 %463, ptr %8, align 8
-  %464 = add i32 %458, %456
-  store i32 %464, ptr %9, align 4
-  %465 = add i32 %456, 4
+464:                                              ; preds = %458
+  %465 = tail call ptr @tvb_get_string_enc(ptr noundef %.val.i30.i, ptr noundef %0, i32 noundef %460, i32 noundef %459, i32 noundef 0) #4
+  %466 = add i32 %460, %459
+  store i32 %466, ptr %8, align 8
+  %467 = add i32 %461, %459
+  store i32 %467, ptr %9, align 4
+  %468 = add i32 %459, 4
   br label %tvb_read_sane_string.exit.i.i
 
-tvb_read_sane_string.exit.i.i:                    ; preds = %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge, %461, %455
-  %.pre-phi94 = phi i32 [ %.pre93, %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge ], [ %457, %461 ], [ %457, %455 ]
-  %466 = phi i32 [ %450, %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge ], [ %464, %461 ], [ %458, %455 ]
-  %467 = phi i32 [ %451, %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge ], [ %463, %461 ], [ %457, %455 ]
-  %.0129.i.i = phi ptr [ @.str.176, %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge ], [ %462, %461 ], [ @.str.176, %455 ]
-  %.0.i102.i.i = phi i32 [ 0, %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge ], [ %465, %461 ], [ 0, %455 ]
-  %468 = load i32, ptr @hf_sane_string, align 4
-  %469 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %468, ptr noundef %0, i32 noundef %451, i32 noundef %.0.i102.i.i, i32 noundef 0) #4
-  %470 = load i32, ptr @ett_sane_string, align 4
-  %471 = tail call ptr @proto_item_add_subtree(ptr noundef %469, i32 noundef %470) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %469, ptr noundef nonnull @.str.207, ptr noundef %.0129.i.i) #4
-  %472 = load i32, ptr @hf_sane_string_length, align 4
-  %473 = tail call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %472, ptr noundef %0, i32 noundef %451, i32 noundef 4, i32 noundef 0) #4
-  %474 = add i32 %.0.i102.i.i, -4
-  %475 = tail call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %452, ptr noundef %0, i32 noundef %.pre-phi94, i32 noundef %474, i32 noundef 0) #4
-  %476 = add nuw nsw i32 %.081133.i.i, 1
-  %exitcond138.not.i.i = icmp eq i32 %476, %446
+tvb_read_sane_string.exit.i.i:                    ; preds = %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge, %464, %458
+  %.pre-phi94 = phi i32 [ %.pre93, %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge ], [ %460, %464 ], [ %460, %458 ]
+  %469 = phi i32 [ %453, %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge ], [ %467, %464 ], [ %461, %458 ]
+  %470 = phi i32 [ %454, %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge ], [ %466, %464 ], [ %460, %458 ]
+  %.0129.i.i = phi ptr [ @.str.176, %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge ], [ %465, %464 ], [ @.str.176, %458 ]
+  %.0.i102.i.i = phi i32 [ 0, %.lr.ph134.i.i.tvb_read_sane_string.exit.i.i_crit_edge ], [ %468, %464 ], [ 0, %458 ]
+  %471 = load i32, ptr @hf_sane_string, align 4
+  %472 = tail call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %471, ptr noundef %0, i32 noundef %454, i32 noundef %.0.i102.i.i, i32 noundef 0) #4
+  %473 = load i32, ptr @ett_sane_string, align 4
+  %474 = tail call ptr @proto_item_add_subtree(ptr noundef %472, i32 noundef %473) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %472, ptr noundef nonnull @.str.207, ptr noundef %.0129.i.i) #4
+  %475 = load i32, ptr @hf_sane_string_length, align 4
+  %476 = tail call ptr @proto_tree_add_item(ptr noundef %474, i32 noundef %475, ptr noundef %0, i32 noundef %454, i32 noundef 4, i32 noundef 0) #4
+  %477 = add i32 %.0.i102.i.i, -4
+  %478 = tail call ptr @proto_tree_add_item(ptr noundef %474, i32 noundef %455, ptr noundef %0, i32 noundef %.pre-phi94, i32 noundef %477, i32 noundef 0) #4
+  %479 = add nuw nsw i32 %.081133.i.i, 1
+  %exitcond138.not.i.i = icmp eq i32 %479, %449
   br i1 %exitcond138.not.i.i, label %.loopexit.i.i, label %.lr.ph134.i.i, !llvm.loop !17
 
-477:                                              ; preds = %dissect_sane_word.exit93.i.i
-  %478 = load i32, ptr @hf_sane_array_length, align 4
-  %479 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %478, ptr noundef %0, i32 noundef %438, i32 noundef 4, i32 noundef 0) #4
-  %480 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %438) #4
-  %481 = icmp slt i32 %480, 4
-  br i1 %481, label %.loopexit.i.i, label %dissect_sane_word.exit95.i.i
+480:                                              ; preds = %dissect_sane_word.exit93.i.i
+  %481 = load i32, ptr @hf_sane_array_length, align 4
+  %482 = tail call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %481, ptr noundef %0, i32 noundef %441, i32 noundef 4, i32 noundef 0) #4
+  %483 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %441) #4
+  %484 = icmp slt i32 %483, 4
+  br i1 %484, label %.loopexit.i.i, label %dissect_sane_word.exit95.i.i
 
-dissect_sane_word.exit95.i.i:                     ; preds = %477
-  %482 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %438) #4
-  %483 = add i32 %426, 8
-  store i32 %483, ptr %8, align 8
-  %484 = add i32 %427, 8
-  store i32 %484, ptr %9, align 4
-  %485 = icmp sgt i32 %482, 0
-  br i1 %485, label %.lr.ph.i.i, label %.loopexit.i.i
+dissect_sane_word.exit95.i.i:                     ; preds = %480
+  %485 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %441) #4
+  %486 = add i32 %429, 8
+  store i32 %486, ptr %8, align 8
+  %487 = add i32 %430, 8
+  store i32 %487, ptr %9, align 4
+  %488 = icmp sgt i32 %485, 0
+  br i1 %488, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %dissect_sane_word.exit95.i.i
   %.not.i.i.i = icmp eq i32 %.0127.i.i, 0
-  br label %486
+  br label %489
 
-486:                                              ; preds = %append_option_value.exit.i.i, %.lr.ph.i.i
-  %487 = phi i32 [ %484, %.lr.ph.i.i ], [ %497, %append_option_value.exit.i.i ]
-  %488 = phi i32 [ %483, %.lr.ph.i.i ], [ %498, %append_option_value.exit.i.i ]
-  %.082132.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %514, %append_option_value.exit.i.i ]
-  %489 = load i32, ptr @hf_sane_option_possible_word_value, align 4
-  %490 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %489, ptr noundef %0, i32 noundef %488, i32 noundef 4, i32 noundef 0) #4
-  %491 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %488) #4
-  %492 = icmp slt i32 %491, 4
-  br i1 %492, label %dissect_sane_word.exit96.i.i, label %493
+489:                                              ; preds = %append_option_value.exit.i.i, %.lr.ph.i.i
+  %490 = phi i32 [ %487, %.lr.ph.i.i ], [ %500, %append_option_value.exit.i.i ]
+  %491 = phi i32 [ %486, %.lr.ph.i.i ], [ %501, %append_option_value.exit.i.i ]
+  %.082132.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %517, %append_option_value.exit.i.i ]
+  %492 = load i32, ptr @hf_sane_option_possible_word_value, align 4
+  %493 = tail call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %492, ptr noundef %0, i32 noundef %491, i32 noundef 4, i32 noundef 0) #4
+  %494 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %491) #4
+  %495 = icmp slt i32 %494, 4
+  br i1 %495, label %dissect_sane_word.exit96.i.i, label %496
 
-493:                                              ; preds = %486
-  %494 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %488) #4
-  %495 = add i32 %488, 4
-  store i32 %495, ptr %8, align 8
-  %496 = add i32 %487, 4
-  store i32 %496, ptr %9, align 4
+496:                                              ; preds = %489
+  %497 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %491) #4
+  %498 = add i32 %491, 4
+  store i32 %498, ptr %8, align 8
+  %499 = add i32 %490, 4
+  store i32 %499, ptr %9, align 4
   br label %dissect_sane_word.exit96.i.i
 
-dissect_sane_word.exit96.i.i:                     ; preds = %493, %486
-  %497 = phi i32 [ %487, %486 ], [ %496, %493 ]
-  %498 = phi i32 [ %488, %486 ], [ %495, %493 ]
-  %.0120.i.i = phi i32 [ 0, %486 ], [ %494, %493 ]
+dissect_sane_word.exit96.i.i:                     ; preds = %496, %489
+  %500 = phi i32 [ %490, %489 ], [ %499, %496 ]
+  %501 = phi i32 [ %491, %489 ], [ %498, %496 ]
+  %.0120.i.i = phi i32 [ 0, %489 ], [ %497, %496 ]
   switch i32 %.0126.i.i, label %append_option_value.exit.i.i [
-    i32 1, label %499
-    i32 2, label %503
-    i32 0, label %509
+    i32 1, label %502
+    i32 2, label %506
+    i32 0, label %512
   ]
 
-499:                                              ; preds = %dissect_sane_word.exit96.i.i
-  br i1 %.not.i.i.i, label %502, label %500
+502:                                              ; preds = %dissect_sane_word.exit96.i.i
+  br i1 %.not.i.i.i, label %505, label %503
 
-500:                                              ; preds = %499
-  %501 = tail call ptr @val_to_str_const(i32 noundef %.0127.i.i, ptr noundef nonnull @sane_option_unit_suffixes, ptr noundef nonnull @.str.209) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %490, ptr noundef nonnull @.str.208, i32 noundef %.0120.i.i, ptr noundef %501) #4
+503:                                              ; preds = %502
+  %504 = tail call ptr @val_to_str_const(i32 noundef %.0127.i.i, ptr noundef nonnull @sane_option_unit_suffixes, ptr noundef nonnull @.str.209) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %493, ptr noundef nonnull @.str.208, i32 noundef %.0120.i.i, ptr noundef %504) #4
   br label %append_option_value.exit.i.i
 
-502:                                              ; preds = %499
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %490, ptr noundef nonnull @.str.181, i32 noundef %.0120.i.i) #4
+505:                                              ; preds = %502
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %493, ptr noundef nonnull @.str.181, i32 noundef %.0120.i.i) #4
   br label %append_option_value.exit.i.i
 
-503:                                              ; preds = %dissect_sane_word.exit96.i.i
-  %504 = sitofp i32 %.0120.i.i to double
-  %505 = fmul double %504, 0x3EF0000000000000
-  br i1 %.not.i.i.i, label %508, label %506
+506:                                              ; preds = %dissect_sane_word.exit96.i.i
+  %507 = sitofp i32 %.0120.i.i to double
+  %508 = fmul double %507, 0x3EF0000000000000
+  br i1 %.not.i.i.i, label %511, label %509
 
-506:                                              ; preds = %503
-  %507 = tail call ptr @val_to_str_const(i32 noundef %.0127.i.i, ptr noundef nonnull @sane_option_unit_suffixes, ptr noundef nonnull @.str.209) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %490, ptr noundef nonnull @.str.210, double noundef %505, ptr noundef %507) #4
+509:                                              ; preds = %506
+  %510 = tail call ptr @val_to_str_const(i32 noundef %.0127.i.i, ptr noundef nonnull @sane_option_unit_suffixes, ptr noundef nonnull @.str.209) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %493, ptr noundef nonnull @.str.210, double noundef %508, ptr noundef %510) #4
   br label %append_option_value.exit.i.i
 
-508:                                              ; preds = %503
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %490, ptr noundef nonnull @.str.180, double noundef %505) #4
+511:                                              ; preds = %506
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %493, ptr noundef nonnull @.str.180, double noundef %508) #4
   br label %append_option_value.exit.i.i
 
-509:                                              ; preds = %dissect_sane_word.exit96.i.i
-  %510 = icmp eq i32 %.0120.i.i, 1
-  %511 = icmp eq i32 %.0120.i.i, 0
-  %512 = select i1 %511, ptr @.str.212, ptr @.str.213
-  %513 = select i1 %510, ptr @.str.211, ptr %512
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %490, ptr noundef nonnull @.str.186, ptr noundef nonnull %513) #4
+512:                                              ; preds = %dissect_sane_word.exit96.i.i
+  %513 = icmp eq i32 %.0120.i.i, 1
+  %514 = icmp eq i32 %.0120.i.i, 0
+  %515 = select i1 %514, ptr @.str.212, ptr @.str.213
+  %516 = select i1 %513, ptr @.str.211, ptr %515
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %493, ptr noundef nonnull @.str.186, ptr noundef nonnull %516) #4
   br label %append_option_value.exit.i.i
 
-append_option_value.exit.i.i:                     ; preds = %509, %508, %506, %502, %500, %dissect_sane_word.exit96.i.i
-  %514 = add nuw nsw i32 %.082132.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %514, %482
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %486, !llvm.loop !18
+append_option_value.exit.i.i:                     ; preds = %512, %511, %509, %505, %503, %dissect_sane_word.exit96.i.i
+  %517 = add nuw nsw i32 %.082132.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %517, %485
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %489, !llvm.loop !18
 
-515:                                              ; preds = %dissect_sane_word.exit93.i.i
-  %516 = load i32, ptr @hf_sane_pointer_value, align 4
-  %517 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %516, ptr noundef %0, i32 noundef %438, i32 noundef 4, i32 noundef 0) #4
-  %518 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %438) #4
-  %519 = icmp slt i32 %518, 4
-  br i1 %519, label %dissect_sane_word.exit97.i.i, label %520
+518:                                              ; preds = %dissect_sane_word.exit93.i.i
+  %519 = load i32, ptr @hf_sane_pointer_value, align 4
+  %520 = tail call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %519, ptr noundef %0, i32 noundef %441, i32 noundef 4, i32 noundef 0) #4
+  %521 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %441) #4
+  %522 = icmp slt i32 %521, 4
+  br i1 %522, label %dissect_sane_word.exit97.i.i, label %523
 
-520:                                              ; preds = %515
-  %521 = add i32 %426, 8
-  store i32 %521, ptr %8, align 8
-  %522 = add i32 %427, 8
-  store i32 %522, ptr %9, align 4
+523:                                              ; preds = %518
+  %524 = add i32 %429, 8
+  store i32 %524, ptr %8, align 8
+  %525 = add i32 %430, 8
+  store i32 %525, ptr %9, align 4
   br label %dissect_sane_word.exit97.i.i
 
-dissect_sane_word.exit97.i.i:                     ; preds = %520, %515
-  %523 = phi i32 [ %439, %515 ], [ %522, %520 ]
-  %524 = phi i32 [ %438, %515 ], [ %521, %520 ]
-  %525 = load i32, ptr @hf_sane_option_range_min, align 4
-  %526 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %525, ptr noundef %0, i32 noundef %524, i32 noundef 4, i32 noundef 0) #4
-  %527 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %524) #4
-  %528 = icmp slt i32 %527, 4
-  br i1 %528, label %dissect_sane_word.exit98.i.i, label %529
+dissect_sane_word.exit97.i.i:                     ; preds = %523, %518
+  %526 = phi i32 [ %442, %518 ], [ %525, %523 ]
+  %527 = phi i32 [ %441, %518 ], [ %524, %523 ]
+  %528 = load i32, ptr @hf_sane_option_range_min, align 4
+  %529 = tail call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %528, ptr noundef %0, i32 noundef %527, i32 noundef 4, i32 noundef 0) #4
+  %530 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %527) #4
+  %531 = icmp slt i32 %530, 4
+  br i1 %531, label %dissect_sane_word.exit98.i.i, label %532
 
-529:                                              ; preds = %dissect_sane_word.exit97.i.i
-  %530 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %524) #4
-  %531 = add i32 %524, 4
-  store i32 %531, ptr %8, align 8
-  %532 = add i32 %523, 4
-  store i32 %532, ptr %9, align 4
+532:                                              ; preds = %dissect_sane_word.exit97.i.i
+  %533 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %527) #4
+  %534 = add i32 %527, 4
+  store i32 %534, ptr %8, align 8
+  %535 = add i32 %526, 4
+  store i32 %535, ptr %9, align 4
   br label %dissect_sane_word.exit98.i.i
 
-dissect_sane_word.exit98.i.i:                     ; preds = %529, %dissect_sane_word.exit97.i.i
-  %533 = phi i32 [ %524, %dissect_sane_word.exit97.i.i ], [ %531, %529 ]
-  %534 = phi i32 [ %523, %dissect_sane_word.exit97.i.i ], [ %532, %529 ]
-  %.0123.i.i = phi i32 [ 0, %dissect_sane_word.exit97.i.i ], [ %530, %529 ]
-  tail call fastcc void @append_option_value(ptr noundef %526, i32 noundef %.0123.i.i, i32 noundef %.0127.i.i, i32 noundef %.0126.i.i)
-  %535 = load i32, ptr @hf_sane_option_range_max, align 4
-  %536 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %535, ptr noundef %0, i32 noundef %533, i32 noundef 4, i32 noundef 0) #4
-  %537 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %533) #4
-  %538 = icmp slt i32 %537, 4
-  br i1 %538, label %dissect_sane_word.exit99.i.i, label %539
+dissect_sane_word.exit98.i.i:                     ; preds = %532, %dissect_sane_word.exit97.i.i
+  %536 = phi i32 [ %527, %dissect_sane_word.exit97.i.i ], [ %534, %532 ]
+  %537 = phi i32 [ %526, %dissect_sane_word.exit97.i.i ], [ %535, %532 ]
+  %.0123.i.i = phi i32 [ 0, %dissect_sane_word.exit97.i.i ], [ %533, %532 ]
+  tail call fastcc void @append_option_value(ptr noundef %529, i32 noundef %.0123.i.i, i32 noundef %.0127.i.i, i32 noundef %.0126.i.i)
+  %538 = load i32, ptr @hf_sane_option_range_max, align 4
+  %539 = tail call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %538, ptr noundef %0, i32 noundef %536, i32 noundef 4, i32 noundef 0) #4
+  %540 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %536) #4
+  %541 = icmp slt i32 %540, 4
+  br i1 %541, label %dissect_sane_word.exit99.i.i, label %542
 
-539:                                              ; preds = %dissect_sane_word.exit98.i.i
-  %540 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %533) #4
-  %541 = add i32 %533, 4
-  store i32 %541, ptr %8, align 8
-  %542 = add i32 %534, 4
-  store i32 %542, ptr %9, align 4
+542:                                              ; preds = %dissect_sane_word.exit98.i.i
+  %543 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %536) #4
+  %544 = add i32 %536, 4
+  store i32 %544, ptr %8, align 8
+  %545 = add i32 %537, 4
+  store i32 %545, ptr %9, align 4
   br label %dissect_sane_word.exit99.i.i
 
-dissect_sane_word.exit99.i.i:                     ; preds = %539, %dissect_sane_word.exit98.i.i
-  %543 = phi i32 [ %533, %dissect_sane_word.exit98.i.i ], [ %541, %539 ]
-  %544 = phi i32 [ %534, %dissect_sane_word.exit98.i.i ], [ %542, %539 ]
-  %.0122.i.i = phi i32 [ 0, %dissect_sane_word.exit98.i.i ], [ %540, %539 ]
-  tail call fastcc void @append_option_value(ptr noundef %536, i32 noundef %.0122.i.i, i32 noundef %.0127.i.i, i32 noundef %.0126.i.i)
-  %545 = load i32, ptr @hf_sane_option_range_quant, align 4
-  %546 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %545, ptr noundef %0, i32 noundef %543, i32 noundef 4, i32 noundef 0) #4
-  %547 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %543) #4
-  %548 = icmp slt i32 %547, 4
-  br i1 %548, label %dissect_sane_word.exit100.i.i, label %549
+dissect_sane_word.exit99.i.i:                     ; preds = %542, %dissect_sane_word.exit98.i.i
+  %546 = phi i32 [ %536, %dissect_sane_word.exit98.i.i ], [ %544, %542 ]
+  %547 = phi i32 [ %537, %dissect_sane_word.exit98.i.i ], [ %545, %542 ]
+  %.0122.i.i = phi i32 [ 0, %dissect_sane_word.exit98.i.i ], [ %543, %542 ]
+  tail call fastcc void @append_option_value(ptr noundef %539, i32 noundef %.0122.i.i, i32 noundef %.0127.i.i, i32 noundef %.0126.i.i)
+  %548 = load i32, ptr @hf_sane_option_range_quant, align 4
+  %549 = tail call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %548, ptr noundef %0, i32 noundef %546, i32 noundef 4, i32 noundef 0) #4
+  %550 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %546) #4
+  %551 = icmp slt i32 %550, 4
+  br i1 %551, label %dissect_sane_word.exit100.i.i, label %552
 
-549:                                              ; preds = %dissect_sane_word.exit99.i.i
-  %550 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %543) #4
-  %551 = add i32 %543, 4
-  store i32 %551, ptr %8, align 8
-  %552 = add i32 %544, 4
-  store i32 %552, ptr %9, align 4
+552:                                              ; preds = %dissect_sane_word.exit99.i.i
+  %553 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %546) #4
+  %554 = add i32 %546, 4
+  store i32 %554, ptr %8, align 8
+  %555 = add i32 %547, 4
+  store i32 %555, ptr %9, align 4
   br label %dissect_sane_word.exit100.i.i
 
-dissect_sane_word.exit100.i.i:                    ; preds = %549, %dissect_sane_word.exit99.i.i
-  %553 = phi i32 [ %543, %dissect_sane_word.exit99.i.i ], [ %551, %549 ]
-  %554 = phi i32 [ %544, %dissect_sane_word.exit99.i.i ], [ %552, %549 ]
-  %.0121.i.i = phi i32 [ 0, %dissect_sane_word.exit99.i.i ], [ %550, %549 ]
-  tail call fastcc void @append_option_value(ptr noundef %546, i32 noundef %.0121.i.i, i32 noundef %.0127.i.i, i32 noundef %.0126.i.i)
+dissect_sane_word.exit100.i.i:                    ; preds = %552, %dissect_sane_word.exit99.i.i
+  %556 = phi i32 [ %546, %dissect_sane_word.exit99.i.i ], [ %554, %552 ]
+  %557 = phi i32 [ %547, %dissect_sane_word.exit99.i.i ], [ %555, %552 ]
+  %.0121.i.i = phi i32 [ 0, %dissect_sane_word.exit99.i.i ], [ %553, %552 ]
+  tail call fastcc void @append_option_value(ptr noundef %549, i32 noundef %.0121.i.i, i32 noundef %.0127.i.i, i32 noundef %.0126.i.i)
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %append_option_value.exit.i.i, %tvb_read_sane_string.exit.i.i, %dissect_sane_word.exit100.i.i, %dissect_sane_word.exit95.i.i, %477, %dissect_sane_word.exit94.i.i, %441, %dissect_sane_word.exit93.i.i, %dissect_sane_word.exit93.thread.i.i
-  %555 = phi i32 [ %553, %dissect_sane_word.exit100.i.i ], [ %483, %dissect_sane_word.exit95.i.i ], [ %438, %477 ], [ %447, %dissect_sane_word.exit94.i.i ], [ %438, %441 ], [ %438, %dissect_sane_word.exit93.i.i ], [ %426, %dissect_sane_word.exit93.thread.i.i ], [ %467, %tvb_read_sane_string.exit.i.i ], [ %498, %append_option_value.exit.i.i ]
-  %556 = phi i32 [ %554, %dissect_sane_word.exit100.i.i ], [ %484, %dissect_sane_word.exit95.i.i ], [ %439, %477 ], [ %448, %dissect_sane_word.exit94.i.i ], [ %439, %441 ], [ %439, %dissect_sane_word.exit93.i.i ], [ %427, %dissect_sane_word.exit93.thread.i.i ], [ %466, %tvb_read_sane_string.exit.i.i ], [ %497, %append_option_value.exit.i.i ]
-  %557 = sub i32 %555, %426
-  tail call void @proto_item_set_len(ptr noundef %429, i32 noundef %557) #4
-  %558 = sub i32 %555, %289
-  tail call void @proto_item_set_len(ptr noundef %292, i32 noundef %558) #4
-  %559 = add nuw nsw i32 %.0135.i.i, 1
-  %exitcond139.not.i.i = icmp eq i32 %559, %285
-  br i1 %exitcond139.not.i.i, label %dissect_sane_request.exit, label %288, !llvm.loop !19
+.loopexit.i.i:                                    ; preds = %append_option_value.exit.i.i, %tvb_read_sane_string.exit.i.i, %dissect_sane_word.exit100.i.i, %dissect_sane_word.exit95.i.i, %480, %dissect_sane_word.exit94.i.i, %444, %dissect_sane_word.exit93.i.i, %dissect_sane_word.exit93.thread.i.i
+  %558 = phi i32 [ %556, %dissect_sane_word.exit100.i.i ], [ %486, %dissect_sane_word.exit95.i.i ], [ %441, %480 ], [ %450, %dissect_sane_word.exit94.i.i ], [ %441, %444 ], [ %441, %dissect_sane_word.exit93.i.i ], [ %429, %dissect_sane_word.exit93.thread.i.i ], [ %470, %tvb_read_sane_string.exit.i.i ], [ %501, %append_option_value.exit.i.i ]
+  %559 = phi i32 [ %557, %dissect_sane_word.exit100.i.i ], [ %487, %dissect_sane_word.exit95.i.i ], [ %442, %480 ], [ %451, %dissect_sane_word.exit94.i.i ], [ %442, %444 ], [ %442, %dissect_sane_word.exit93.i.i ], [ %430, %dissect_sane_word.exit93.thread.i.i ], [ %469, %tvb_read_sane_string.exit.i.i ], [ %500, %append_option_value.exit.i.i ]
+  %560 = sub i32 %558, %429
+  tail call void @proto_item_set_len(ptr noundef %432, i32 noundef %560) #4
+  %561 = sub i32 %558, %292
+  tail call void @proto_item_set_len(ptr noundef %295, i32 noundef %561) #4
+  %562 = add nuw nsw i32 %.0135.i.i, 1
+  %exitcond139.not.i.i = icmp eq i32 %562, %288
+  br i1 %exitcond139.not.i.i, label %dissect_sane_request.exit, label %291, !llvm.loop !19
 
-560:                                              ; preds = %195
+563:                                              ; preds = %195
   call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
-  %561 = load i32, ptr @hf_sane_data_port, align 4
-  %562 = load ptr, ptr %7, align 8
-  %563 = load i32, ptr %8, align 8
-  %564 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %561, ptr noundef %562, i32 noundef %563, i32 noundef 4, i32 noundef 0) #4
-  %565 = tail call i32 @tvb_captured_length_remaining(ptr noundef %562, i32 noundef %563) #4
-  %566 = icmp slt i32 %565, 4
-  br i1 %566, label %dissect_sane_word.exit.i32.i, label %567
+  %564 = load i32, ptr @hf_sane_data_port, align 4
+  %565 = load ptr, ptr %7, align 8
+  %566 = load i32, ptr %8, align 8
+  %567 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %564, ptr noundef %565, i32 noundef %566, i32 noundef 4, i32 noundef 0) #4
+  %568 = tail call i32 @tvb_captured_length_remaining(ptr noundef %565, i32 noundef %566) #4
+  %569 = icmp slt i32 %568, 4
+  br i1 %569, label %dissect_sane_word.exit.i32.i, label %570
 
-567:                                              ; preds = %560
-  %568 = add i32 %563, 4
-  store i32 %568, ptr %8, align 8
-  %569 = load i32, ptr %9, align 4
-  %570 = add i32 %569, 4
-  store i32 %570, ptr %9, align 4
+570:                                              ; preds = %563
+  %571 = add i32 %566, 4
+  store i32 %571, ptr %8, align 8
+  %572 = load i32, ptr %9, align 4
+  %573 = add i32 %572, 4
+  store i32 %573, ptr %9, align 4
   br label %dissect_sane_word.exit.i32.i
 
-dissect_sane_word.exit.i32.i:                     ; preds = %567, %560
-  %571 = phi i32 [ %563, %560 ], [ %568, %567 ]
-  %572 = load i32, ptr @hf_sane_byte_order, align 4
-  %573 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %572, ptr noundef %562, i32 noundef %571, i32 noundef 4, i32 noundef 0) #4
-  %574 = tail call i32 @tvb_captured_length_remaining(ptr noundef %562, i32 noundef %571) #4
-  %575 = icmp slt i32 %574, 4
-  br i1 %575, label %dissect_sane_net_start_response.exit.i, label %576
+dissect_sane_word.exit.i32.i:                     ; preds = %570, %563
+  %574 = phi i32 [ %566, %563 ], [ %571, %570 ]
+  %575 = load i32, ptr @hf_sane_byte_order, align 4
+  %576 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %575, ptr noundef %565, i32 noundef %574, i32 noundef 4, i32 noundef 0) #4
+  %577 = tail call i32 @tvb_captured_length_remaining(ptr noundef %565, i32 noundef %574) #4
+  %578 = icmp slt i32 %577, 4
+  br i1 %578, label %dissect_sane_net_start_response.exit.i, label %579
 
-576:                                              ; preds = %dissect_sane_word.exit.i32.i
-  %577 = add i32 %571, 4
-  store i32 %577, ptr %8, align 8
-  %578 = load i32, ptr %9, align 4
-  %579 = add i32 %578, 4
-  store i32 %579, ptr %9, align 4
+579:                                              ; preds = %dissect_sane_word.exit.i32.i
+  %580 = add i32 %574, 4
+  store i32 %580, ptr %8, align 8
+  %581 = load i32, ptr %9, align 4
+  %582 = add i32 %581, 4
+  store i32 %582, ptr %9, align 4
   br label %dissect_sane_net_start_response.exit.i
 
-dissect_sane_net_start_response.exit.i:           ; preds = %576, %dissect_sane_word.exit.i32.i
-  %580 = phi i32 [ %571, %dissect_sane_word.exit.i32.i ], [ %577, %576 ]
-  %581 = load i32, ptr @hf_sane_resource_name, align 4
-  %582 = getelementptr i8, ptr %1, i64 408
-  %.val.i33.i = load ptr, ptr %582, align 8
-  %583 = tail call i32 @tvb_captured_length_remaining(ptr noundef %562, i32 noundef %580) #4
-  %584 = icmp slt i32 %583, 4
-  br i1 %584, label %dissect_sane_net_start_response.exit.i.tvb_read_sane_string.exit43_crit_edge, label %585
+dissect_sane_net_start_response.exit.i:           ; preds = %579, %dissect_sane_word.exit.i32.i
+  %583 = phi i32 [ %574, %dissect_sane_word.exit.i32.i ], [ %580, %579 ]
+  %584 = load i32, ptr @hf_sane_resource_name, align 4
+  %585 = getelementptr i8, ptr %1, i64 408
+  %.val.i33.i = load ptr, ptr %585, align 8
+  %586 = tail call i32 @tvb_captured_length_remaining(ptr noundef %565, i32 noundef %583) #4
+  %587 = icmp slt i32 %586, 4
+  br i1 %587, label %dissect_sane_net_start_response.exit.i.tvb_read_sane_string.exit43_crit_edge, label %588
 
 dissect_sane_net_start_response.exit.i.tvb_read_sane_string.exit43_crit_edge: ; preds = %dissect_sane_net_start_response.exit.i
-  %.pre95 = add i32 %580, 4
+  %.pre95 = add i32 %583, 4
   br label %tvb_read_sane_string.exit43
 
-585:                                              ; preds = %dissect_sane_net_start_response.exit.i
-  %586 = tail call i32 @tvb_get_ntohl(ptr noundef %562, i32 noundef %580) #4
-  %587 = add i32 %580, 4
-  store i32 %587, ptr %8, align 8
-  %588 = load i32, ptr %9, align 4
-  %589 = add i32 %588, 4
-  store i32 %589, ptr %9, align 4
-  %590 = tail call i32 @tvb_captured_length_remaining(ptr noundef %562, i32 noundef %587) #4
-  %591 = icmp slt i32 %590, %586
-  br i1 %591, label %tvb_read_sane_string.exit43, label %592
+588:                                              ; preds = %dissect_sane_net_start_response.exit.i
+  %589 = tail call i32 @tvb_get_ntohl(ptr noundef %565, i32 noundef %583) #4
+  %590 = add i32 %583, 4
+  store i32 %590, ptr %8, align 8
+  %591 = load i32, ptr %9, align 4
+  %592 = add i32 %591, 4
+  store i32 %592, ptr %9, align 4
+  %593 = tail call i32 @tvb_captured_length_remaining(ptr noundef %565, i32 noundef %590) #4
+  %594 = icmp slt i32 %593, %589
+  br i1 %594, label %tvb_read_sane_string.exit43, label %595
 
-592:                                              ; preds = %585
-  %593 = tail call ptr @tvb_get_string_enc(ptr noundef %.val.i33.i, ptr noundef %562, i32 noundef %587, i32 noundef %586, i32 noundef 0) #4
-  %594 = add i32 %587, %586
-  store i32 %594, ptr %8, align 8
-  %595 = add i32 %589, %586
-  store i32 %595, ptr %9, align 4
-  %596 = add i32 %586, 4
+595:                                              ; preds = %588
+  %596 = tail call ptr @tvb_get_string_enc(ptr noundef %.val.i33.i, ptr noundef %565, i32 noundef %590, i32 noundef %589, i32 noundef 0) #4
+  %597 = add i32 %590, %589
+  store i32 %597, ptr %8, align 8
+  %598 = add i32 %592, %589
+  store i32 %598, ptr %9, align 4
+  %599 = add i32 %589, 4
   br label %tvb_read_sane_string.exit43
 
-tvb_read_sane_string.exit43:                      ; preds = %dissect_sane_net_start_response.exit.i.tvb_read_sane_string.exit43_crit_edge, %585, %592
-  %.pre-phi96 = phi i32 [ %.pre95, %dissect_sane_net_start_response.exit.i.tvb_read_sane_string.exit43_crit_edge ], [ %587, %585 ], [ %587, %592 ]
-  %.076 = phi ptr [ @.str.176, %dissect_sane_net_start_response.exit.i.tvb_read_sane_string.exit43_crit_edge ], [ @.str.176, %585 ], [ %593, %592 ]
-  %.0.i42 = phi i32 [ 0, %dissect_sane_net_start_response.exit.i.tvb_read_sane_string.exit43_crit_edge ], [ 0, %585 ], [ %596, %592 ]
-  %597 = load i32, ptr @hf_sane_string, align 4
-  %598 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %597, ptr noundef %562, i32 noundef %580, i32 noundef %.0.i42, i32 noundef 0) #4
-  %599 = load i32, ptr @ett_sane_string, align 4
-  %600 = tail call ptr @proto_item_add_subtree(ptr noundef %598, i32 noundef %599) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %598, ptr noundef nonnull @.str.182, ptr noundef %.076) #4
-  %601 = load i32, ptr @hf_sane_string_length, align 4
-  %602 = tail call ptr @proto_tree_add_item(ptr noundef %600, i32 noundef %601, ptr noundef %562, i32 noundef %580, i32 noundef 4, i32 noundef 0) #4
-  %603 = add i32 %.0.i42, -4
-  %604 = tail call ptr @proto_tree_add_item(ptr noundef %600, i32 noundef %581, ptr noundef %562, i32 noundef %.pre-phi96, i32 noundef %603, i32 noundef 0) #4
+tvb_read_sane_string.exit43:                      ; preds = %dissect_sane_net_start_response.exit.i.tvb_read_sane_string.exit43_crit_edge, %588, %595
+  %.pre-phi96 = phi i32 [ %.pre95, %dissect_sane_net_start_response.exit.i.tvb_read_sane_string.exit43_crit_edge ], [ %590, %588 ], [ %590, %595 ]
+  %.076 = phi ptr [ @.str.176, %dissect_sane_net_start_response.exit.i.tvb_read_sane_string.exit43_crit_edge ], [ @.str.176, %588 ], [ %596, %595 ]
+  %.0.i42 = phi i32 [ 0, %dissect_sane_net_start_response.exit.i.tvb_read_sane_string.exit43_crit_edge ], [ 0, %588 ], [ %599, %595 ]
+  %600 = load i32, ptr @hf_sane_string, align 4
+  %601 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %600, ptr noundef %565, i32 noundef %583, i32 noundef %.0.i42, i32 noundef 0) #4
+  %602 = load i32, ptr @ett_sane_string, align 4
+  %603 = tail call ptr @proto_item_add_subtree(ptr noundef %601, i32 noundef %602) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %601, ptr noundef nonnull @.str.182, ptr noundef %.076) #4
+  %604 = load i32, ptr @hf_sane_string_length, align 4
+  %605 = tail call ptr @proto_tree_add_item(ptr noundef %603, i32 noundef %604, ptr noundef %565, i32 noundef %583, i32 noundef 4, i32 noundef 0) #4
+  %606 = add i32 %.0.i42, -4
+  %607 = tail call ptr @proto_tree_add_item(ptr noundef %603, i32 noundef %584, ptr noundef %565, i32 noundef %.pre-phi96, i32 noundef %606, i32 noundef 0) #4
   br label %dissect_sane_request.exit
 
-605:                                              ; preds = %195
+608:                                              ; preds = %195
   call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
-  %606 = load i32, ptr @hf_sane_frame_format, align 4
-  %607 = load ptr, ptr %7, align 8
-  %608 = load i32, ptr %8, align 8
-  %609 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %606, ptr noundef %607, i32 noundef %608, i32 noundef 4, i32 noundef 0) #4
-  %610 = tail call i32 @tvb_captured_length_remaining(ptr noundef %607, i32 noundef %608) #4
-  %611 = icmp slt i32 %610, 4
-  br i1 %611, label %dissect_sane_word.exit.i35.i, label %612
+  %609 = load i32, ptr @hf_sane_frame_format, align 4
+  %610 = load ptr, ptr %7, align 8
+  %611 = load i32, ptr %8, align 8
+  %612 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %609, ptr noundef %610, i32 noundef %611, i32 noundef 4, i32 noundef 0) #4
+  %613 = tail call i32 @tvb_captured_length_remaining(ptr noundef %610, i32 noundef %611) #4
+  %614 = icmp slt i32 %613, 4
+  br i1 %614, label %dissect_sane_word.exit.i35.i, label %615
 
-612:                                              ; preds = %605
-  %613 = add i32 %608, 4
-  store i32 %613, ptr %8, align 8
-  %614 = load i32, ptr %9, align 4
-  %615 = add i32 %614, 4
-  store i32 %615, ptr %9, align 4
+615:                                              ; preds = %608
+  %616 = add i32 %611, 4
+  store i32 %616, ptr %8, align 8
+  %617 = load i32, ptr %9, align 4
+  %618 = add i32 %617, 4
+  store i32 %618, ptr %9, align 4
   br label %dissect_sane_word.exit.i35.i
 
-dissect_sane_word.exit.i35.i:                     ; preds = %612, %605
-  %616 = phi i32 [ %608, %605 ], [ %613, %612 ]
-  %617 = load i32, ptr @hf_sane_scan_is_last_frame, align 4
-  %618 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %617, ptr noundef %607, i32 noundef %616, i32 noundef 4, i32 noundef 0) #4
-  %619 = tail call i32 @tvb_captured_length_remaining(ptr noundef %607, i32 noundef %616) #4
-  %620 = icmp slt i32 %619, 4
-  br i1 %620, label %dissect_sane_word.exit15.i.i, label %621
+dissect_sane_word.exit.i35.i:                     ; preds = %615, %608
+  %619 = phi i32 [ %611, %608 ], [ %616, %615 ]
+  %620 = load i32, ptr @hf_sane_scan_is_last_frame, align 4
+  %621 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %620, ptr noundef %610, i32 noundef %619, i32 noundef 4, i32 noundef 0) #4
+  %622 = tail call i32 @tvb_captured_length_remaining(ptr noundef %610, i32 noundef %619) #4
+  %623 = icmp slt i32 %622, 4
+  br i1 %623, label %dissect_sane_word.exit15.i.i, label %624
 
-621:                                              ; preds = %dissect_sane_word.exit.i35.i
-  %622 = add i32 %616, 4
-  store i32 %622, ptr %8, align 8
-  %623 = load i32, ptr %9, align 4
-  %624 = add i32 %623, 4
-  store i32 %624, ptr %9, align 4
+624:                                              ; preds = %dissect_sane_word.exit.i35.i
+  %625 = add i32 %619, 4
+  store i32 %625, ptr %8, align 8
+  %626 = load i32, ptr %9, align 4
+  %627 = add i32 %626, 4
+  store i32 %627, ptr %9, align 4
   br label %dissect_sane_word.exit15.i.i
 
-dissect_sane_word.exit15.i.i:                     ; preds = %621, %dissect_sane_word.exit.i35.i
-  %625 = phi i32 [ %616, %dissect_sane_word.exit.i35.i ], [ %622, %621 ]
-  %626 = load i32, ptr @hf_sane_scan_bytes_per_line, align 4
-  %627 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %626, ptr noundef %607, i32 noundef %625, i32 noundef 4, i32 noundef 0) #4
-  %628 = tail call i32 @tvb_captured_length_remaining(ptr noundef %607, i32 noundef %625) #4
-  %629 = icmp slt i32 %628, 4
-  br i1 %629, label %dissect_sane_word.exit16.i.i, label %630
+dissect_sane_word.exit15.i.i:                     ; preds = %624, %dissect_sane_word.exit.i35.i
+  %628 = phi i32 [ %619, %dissect_sane_word.exit.i35.i ], [ %625, %624 ]
+  %629 = load i32, ptr @hf_sane_scan_bytes_per_line, align 4
+  %630 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %629, ptr noundef %610, i32 noundef %628, i32 noundef 4, i32 noundef 0) #4
+  %631 = tail call i32 @tvb_captured_length_remaining(ptr noundef %610, i32 noundef %628) #4
+  %632 = icmp slt i32 %631, 4
+  br i1 %632, label %dissect_sane_word.exit16.i.i, label %633
 
-630:                                              ; preds = %dissect_sane_word.exit15.i.i
-  %631 = add i32 %625, 4
-  store i32 %631, ptr %8, align 8
-  %632 = load i32, ptr %9, align 4
-  %633 = add i32 %632, 4
-  store i32 %633, ptr %9, align 4
+633:                                              ; preds = %dissect_sane_word.exit15.i.i
+  %634 = add i32 %628, 4
+  store i32 %634, ptr %8, align 8
+  %635 = load i32, ptr %9, align 4
+  %636 = add i32 %635, 4
+  store i32 %636, ptr %9, align 4
   br label %dissect_sane_word.exit16.i.i
 
-dissect_sane_word.exit16.i.i:                     ; preds = %630, %dissect_sane_word.exit15.i.i
-  %634 = phi i32 [ %625, %dissect_sane_word.exit15.i.i ], [ %631, %630 ]
-  %635 = load i32, ptr @hf_sane_scan_pixels_per_line, align 4
-  %636 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %635, ptr noundef %607, i32 noundef %634, i32 noundef 4, i32 noundef 0) #4
-  %637 = tail call i32 @tvb_captured_length_remaining(ptr noundef %607, i32 noundef %634) #4
-  %638 = icmp slt i32 %637, 4
-  br i1 %638, label %dissect_sane_word.exit17.i.i, label %639
+dissect_sane_word.exit16.i.i:                     ; preds = %633, %dissect_sane_word.exit15.i.i
+  %637 = phi i32 [ %628, %dissect_sane_word.exit15.i.i ], [ %634, %633 ]
+  %638 = load i32, ptr @hf_sane_scan_pixels_per_line, align 4
+  %639 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %638, ptr noundef %610, i32 noundef %637, i32 noundef 4, i32 noundef 0) #4
+  %640 = tail call i32 @tvb_captured_length_remaining(ptr noundef %610, i32 noundef %637) #4
+  %641 = icmp slt i32 %640, 4
+  br i1 %641, label %dissect_sane_word.exit17.i.i, label %642
 
-639:                                              ; preds = %dissect_sane_word.exit16.i.i
-  %640 = add i32 %634, 4
-  store i32 %640, ptr %8, align 8
-  %641 = load i32, ptr %9, align 4
-  %642 = add i32 %641, 4
-  store i32 %642, ptr %9, align 4
+642:                                              ; preds = %dissect_sane_word.exit16.i.i
+  %643 = add i32 %637, 4
+  store i32 %643, ptr %8, align 8
+  %644 = load i32, ptr %9, align 4
+  %645 = add i32 %644, 4
+  store i32 %645, ptr %9, align 4
   br label %dissect_sane_word.exit17.i.i
 
-dissect_sane_word.exit17.i.i:                     ; preds = %639, %dissect_sane_word.exit16.i.i
-  %643 = phi i32 [ %634, %dissect_sane_word.exit16.i.i ], [ %640, %639 ]
-  %644 = load i32, ptr @hf_sane_scan_line_count, align 4
-  %645 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %644, ptr noundef %607, i32 noundef %643, i32 noundef 4, i32 noundef 0) #4
-  %646 = tail call i32 @tvb_captured_length_remaining(ptr noundef %607, i32 noundef %643) #4
-  %647 = icmp slt i32 %646, 4
-  br i1 %647, label %dissect_sane_word.exit18.i.i, label %648
+dissect_sane_word.exit17.i.i:                     ; preds = %642, %dissect_sane_word.exit16.i.i
+  %646 = phi i32 [ %637, %dissect_sane_word.exit16.i.i ], [ %643, %642 ]
+  %647 = load i32, ptr @hf_sane_scan_line_count, align 4
+  %648 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %647, ptr noundef %610, i32 noundef %646, i32 noundef 4, i32 noundef 0) #4
+  %649 = tail call i32 @tvb_captured_length_remaining(ptr noundef %610, i32 noundef %646) #4
+  %650 = icmp slt i32 %649, 4
+  br i1 %650, label %dissect_sane_word.exit18.i.i, label %651
 
-648:                                              ; preds = %dissect_sane_word.exit17.i.i
-  %649 = add i32 %643, 4
-  store i32 %649, ptr %8, align 8
-  %650 = load i32, ptr %9, align 4
-  %651 = add i32 %650, 4
-  store i32 %651, ptr %9, align 4
+651:                                              ; preds = %dissect_sane_word.exit17.i.i
+  %652 = add i32 %646, 4
+  store i32 %652, ptr %8, align 8
+  %653 = load i32, ptr %9, align 4
+  %654 = add i32 %653, 4
+  store i32 %654, ptr %9, align 4
   br label %dissect_sane_word.exit18.i.i
 
-dissect_sane_word.exit18.i.i:                     ; preds = %648, %dissect_sane_word.exit17.i.i
-  %652 = phi i32 [ %643, %dissect_sane_word.exit17.i.i ], [ %649, %648 ]
-  %653 = load i32, ptr @hf_sane_scan_pixel_depth, align 4
-  %654 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %653, ptr noundef %607, i32 noundef %652, i32 noundef 4, i32 noundef 0) #4
-  %655 = tail call i32 @tvb_captured_length_remaining(ptr noundef %607, i32 noundef %652) #4
-  %656 = icmp slt i32 %655, 4
-  br i1 %656, label %dissect_sane_request.exit, label %657
+dissect_sane_word.exit18.i.i:                     ; preds = %651, %dissect_sane_word.exit17.i.i
+  %655 = phi i32 [ %646, %dissect_sane_word.exit17.i.i ], [ %652, %651 ]
+  %656 = load i32, ptr @hf_sane_scan_pixel_depth, align 4
+  %657 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %656, ptr noundef %610, i32 noundef %655, i32 noundef 4, i32 noundef 0) #4
+  %658 = tail call i32 @tvb_captured_length_remaining(ptr noundef %610, i32 noundef %655) #4
+  %659 = icmp slt i32 %658, 4
+  br i1 %659, label %dissect_sane_request.exit, label %660
 
-657:                                              ; preds = %dissect_sane_word.exit18.i.i
-  %658 = add i32 %652, 4
-  store i32 %658, ptr %8, align 8
-  %659 = load i32, ptr %9, align 4
-  %660 = add i32 %659, 4
-  store i32 %660, ptr %9, align 4
+660:                                              ; preds = %dissect_sane_word.exit18.i.i
+  %661 = add i32 %655, 4
+  store i32 %661, ptr %8, align 8
+  %662 = load i32, ptr %9, align 4
+  %663 = add i32 %662, 4
+  store i32 %663, ptr %9, align 4
   br label %dissect_sane_request.exit
 
-661:                                              ; preds = %195
+664:                                              ; preds = %195
   call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
-  %662 = load ptr, ptr %7, align 8
-  %663 = load i32, ptr %8, align 8
-  %664 = load i32, ptr @hf_sane_control_option_info, align 4
-  %665 = load i32, ptr @ett_sane_control_option_info, align 4
-  %666 = tail call ptr @proto_tree_add_bitmask(ptr noundef %21, ptr noundef %662, i32 noundef %663, i32 noundef %664, i32 noundef %665, ptr noundef nonnull @sane_control_option_info_bits, i32 noundef 0) #4
-  %667 = tail call i32 @tvb_captured_length_remaining(ptr noundef %662, i32 noundef %663) #4
-  %668 = icmp slt i32 %667, 4
-  br i1 %668, label %dissect_sane_net_control_option_response.exit.i, label %669
+  %665 = load ptr, ptr %7, align 8
+  %666 = load i32, ptr %8, align 8
+  %667 = load i32, ptr @hf_sane_control_option_info, align 4
+  %668 = load i32, ptr @ett_sane_control_option_info, align 4
+  %669 = tail call ptr @proto_tree_add_bitmask(ptr noundef %21, ptr noundef %665, i32 noundef %666, i32 noundef %667, i32 noundef %668, ptr noundef nonnull @sane_control_option_info_bits, i32 noundef 0) #4
+  %670 = tail call i32 @tvb_captured_length_remaining(ptr noundef %665, i32 noundef %666) #4
+  %671 = icmp slt i32 %670, 4
+  br i1 %671, label %dissect_sane_net_control_option_response.exit.i, label %672
 
-669:                                              ; preds = %661
-  %670 = add i32 %663, 4
-  store i32 %670, ptr %8, align 8
-  %671 = load i32, ptr %9, align 4
-  %672 = add i32 %671, 4
-  store i32 %672, ptr %9, align 4
+672:                                              ; preds = %664
+  %673 = add i32 %666, 4
+  store i32 %673, ptr %8, align 8
+  %674 = load i32, ptr %9, align 4
+  %675 = add i32 %674, 4
+  store i32 %675, ptr %9, align 4
   br label %dissect_sane_net_control_option_response.exit.i
 
-dissect_sane_net_control_option_response.exit.i:  ; preds = %669, %661
+dissect_sane_net_control_option_response.exit.i:  ; preds = %672, %664
   call fastcc void @dissect_control_option_value(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21)
-  %673 = load i32, ptr @hf_sane_resource_name, align 4
-  %674 = getelementptr i8, ptr %1, i64 408
-  %.val.i37.i = load ptr, ptr %674, align 8
-  %675 = load i32, ptr %8, align 8
-  %676 = load ptr, ptr %7, align 8
-  %677 = tail call i32 @tvb_captured_length_remaining(ptr noundef %676, i32 noundef %675) #4
-  %678 = icmp slt i32 %677, 4
-  br i1 %678, label %dissect_sane_net_control_option_response.exit.i.tvb_read_sane_string.exit41_crit_edge, label %679
+  %676 = load i32, ptr @hf_sane_resource_name, align 4
+  %677 = getelementptr i8, ptr %1, i64 408
+  %.val.i37.i = load ptr, ptr %677, align 8
+  %678 = load i32, ptr %8, align 8
+  %679 = load ptr, ptr %7, align 8
+  %680 = tail call i32 @tvb_captured_length_remaining(ptr noundef %679, i32 noundef %678) #4
+  %681 = icmp slt i32 %680, 4
+  br i1 %681, label %dissect_sane_net_control_option_response.exit.i.tvb_read_sane_string.exit41_crit_edge, label %682
 
 dissect_sane_net_control_option_response.exit.i.tvb_read_sane_string.exit41_crit_edge: ; preds = %dissect_sane_net_control_option_response.exit.i
-  %.pre97 = add i32 %675, 4
+  %.pre97 = add i32 %678, 4
   br label %tvb_read_sane_string.exit41
 
-679:                                              ; preds = %dissect_sane_net_control_option_response.exit.i
-  %680 = tail call i32 @tvb_get_ntohl(ptr noundef %676, i32 noundef %675) #4
-  %681 = add i32 %675, 4
-  store i32 %681, ptr %8, align 8
-  %682 = load i32, ptr %9, align 4
-  %683 = add i32 %682, 4
-  store i32 %683, ptr %9, align 4
-  %684 = tail call i32 @tvb_captured_length_remaining(ptr noundef %676, i32 noundef %681) #4
-  %685 = icmp slt i32 %684, %680
-  br i1 %685, label %tvb_read_sane_string.exit41, label %686
+682:                                              ; preds = %dissect_sane_net_control_option_response.exit.i
+  %683 = tail call i32 @tvb_get_ntohl(ptr noundef %679, i32 noundef %678) #4
+  %684 = add i32 %678, 4
+  store i32 %684, ptr %8, align 8
+  %685 = load i32, ptr %9, align 4
+  %686 = add i32 %685, 4
+  store i32 %686, ptr %9, align 4
+  %687 = tail call i32 @tvb_captured_length_remaining(ptr noundef %679, i32 noundef %684) #4
+  %688 = icmp slt i32 %687, %683
+  br i1 %688, label %tvb_read_sane_string.exit41, label %689
 
-686:                                              ; preds = %679
-  %687 = tail call ptr @tvb_get_string_enc(ptr noundef %.val.i37.i, ptr noundef %676, i32 noundef %681, i32 noundef %680, i32 noundef 0) #4
-  %688 = add i32 %681, %680
-  store i32 %688, ptr %8, align 8
-  %689 = add i32 %683, %680
-  store i32 %689, ptr %9, align 4
-  %690 = add i32 %680, 4
+689:                                              ; preds = %682
+  %690 = tail call ptr @tvb_get_string_enc(ptr noundef %.val.i37.i, ptr noundef %679, i32 noundef %684, i32 noundef %683, i32 noundef 0) #4
+  %691 = add i32 %684, %683
+  store i32 %691, ptr %8, align 8
+  %692 = add i32 %686, %683
+  store i32 %692, ptr %9, align 4
+  %693 = add i32 %683, 4
   br label %tvb_read_sane_string.exit41
 
-tvb_read_sane_string.exit41:                      ; preds = %dissect_sane_net_control_option_response.exit.i.tvb_read_sane_string.exit41_crit_edge, %679, %686
-  %.pre-phi98 = phi i32 [ %.pre97, %dissect_sane_net_control_option_response.exit.i.tvb_read_sane_string.exit41_crit_edge ], [ %681, %679 ], [ %681, %686 ]
-  %.077 = phi ptr [ @.str.176, %dissect_sane_net_control_option_response.exit.i.tvb_read_sane_string.exit41_crit_edge ], [ @.str.176, %679 ], [ %687, %686 ]
-  %.0.i40 = phi i32 [ 0, %dissect_sane_net_control_option_response.exit.i.tvb_read_sane_string.exit41_crit_edge ], [ 0, %679 ], [ %690, %686 ]
-  %691 = load i32, ptr @hf_sane_string, align 4
-  %692 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %691, ptr noundef %676, i32 noundef %675, i32 noundef %.0.i40, i32 noundef 0) #4
-  %693 = load i32, ptr @ett_sane_string, align 4
-  %694 = tail call ptr @proto_item_add_subtree(ptr noundef %692, i32 noundef %693) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %692, ptr noundef nonnull @.str.182, ptr noundef %.077) #4
-  %695 = load i32, ptr @hf_sane_string_length, align 4
-  %696 = tail call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %695, ptr noundef %676, i32 noundef %675, i32 noundef 4, i32 noundef 0) #4
-  %697 = add i32 %.0.i40, -4
-  %698 = tail call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %673, ptr noundef %676, i32 noundef %.pre-phi98, i32 noundef %697, i32 noundef 0) #4
+tvb_read_sane_string.exit41:                      ; preds = %dissect_sane_net_control_option_response.exit.i.tvb_read_sane_string.exit41_crit_edge, %682, %689
+  %.pre-phi98 = phi i32 [ %.pre97, %dissect_sane_net_control_option_response.exit.i.tvb_read_sane_string.exit41_crit_edge ], [ %684, %682 ], [ %684, %689 ]
+  %.077 = phi ptr [ @.str.176, %dissect_sane_net_control_option_response.exit.i.tvb_read_sane_string.exit41_crit_edge ], [ @.str.176, %682 ], [ %690, %689 ]
+  %.0.i40 = phi i32 [ 0, %dissect_sane_net_control_option_response.exit.i.tvb_read_sane_string.exit41_crit_edge ], [ 0, %682 ], [ %693, %689 ]
+  %694 = load i32, ptr @hf_sane_string, align 4
+  %695 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %694, ptr noundef %679, i32 noundef %678, i32 noundef %.0.i40, i32 noundef 0) #4
+  %696 = load i32, ptr @ett_sane_string, align 4
+  %697 = tail call ptr @proto_item_add_subtree(ptr noundef %695, i32 noundef %696) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %695, ptr noundef nonnull @.str.182, ptr noundef %.077) #4
+  %698 = load i32, ptr @hf_sane_string_length, align 4
+  %699 = tail call ptr @proto_tree_add_item(ptr noundef %697, i32 noundef %698, ptr noundef %679, i32 noundef %678, i32 noundef 4, i32 noundef 0) #4
+  %700 = add i32 %.0.i40, -4
+  %701 = tail call ptr @proto_tree_add_item(ptr noundef %697, i32 noundef %676, ptr noundef %679, i32 noundef %.pre-phi98, i32 noundef %700, i32 noundef 0) #4
   br label %dissect_sane_request.exit
 
-699:                                              ; preds = %195
+702:                                              ; preds = %195
   call fastcc void @dissect_sane_status(ptr noundef nonnull %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
-  %700 = load i32, ptr @hf_sane_array_length, align 4
-  %701 = load ptr, ptr %7, align 8
-  %702 = load i32, ptr %8, align 8
-  %703 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %700, ptr noundef %701, i32 noundef %702, i32 noundef 4, i32 noundef 0) #4
-  %704 = tail call i32 @tvb_captured_length_remaining(ptr noundef %701, i32 noundef %702) #4
-  %705 = icmp slt i32 %704, 4
-  br i1 %705, label %._crit_edge.i.i, label %dissect_sane_word.exit.i38.i
+  %703 = load i32, ptr @hf_sane_array_length, align 4
+  %704 = load ptr, ptr %7, align 8
+  %705 = load i32, ptr %8, align 8
+  %706 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %703, ptr noundef %704, i32 noundef %705, i32 noundef 4, i32 noundef 0) #4
+  %707 = tail call i32 @tvb_captured_length_remaining(ptr noundef %704, i32 noundef %705) #4
+  %708 = icmp slt i32 %707, 4
+  br i1 %708, label %._crit_edge.i.i, label %dissect_sane_word.exit.i38.i
 
-dissect_sane_word.exit.i38.i:                     ; preds = %699
-  %706 = tail call i32 @tvb_get_ntohl(ptr noundef %701, i32 noundef %702) #4
-  %707 = add i32 %702, 4
-  store i32 %707, ptr %8, align 8
-  %708 = load i32, ptr %9, align 4
-  %709 = add i32 %708, 4
-  store i32 %709, ptr %9, align 4
-  %710 = add i32 %706, -1
-  %711 = icmp sgt i32 %710, 0
-  br i1 %711, label %.lr.ph.i39.i, label %._crit_edge.i.i
+dissect_sane_word.exit.i38.i:                     ; preds = %702
+  %709 = tail call i32 @tvb_get_ntohl(ptr noundef %704, i32 noundef %705) #4
+  %710 = add i32 %705, 4
+  store i32 %710, ptr %8, align 8
+  %711 = load i32, ptr %9, align 4
+  %712 = add i32 %711, 4
+  store i32 %712, ptr %9, align 4
+  %713 = add i32 %709, -1
+  %714 = icmp sgt i32 %713, 0
+  br i1 %714, label %.lr.ph.i39.i, label %._crit_edge.i.i
 
 .lr.ph.i39.i:                                     ; preds = %dissect_sane_word.exit.i38.i
-  %712 = getelementptr i8, ptr %1, i64 408
-  br label %713
+  %715 = getelementptr i8, ptr %1, i64 408
+  br label %716
 
-713:                                              ; preds = %tvb_read_sane_string.exit33, %.lr.ph.i39.i
-  %714 = phi i32 [ %709, %.lr.ph.i39.i ], [ %815, %tvb_read_sane_string.exit33 ]
-  %715 = phi i32 [ %707, %.lr.ph.i39.i ], [ %.pre.i, %tvb_read_sane_string.exit33 ]
-  %.038.i.i = phi i32 [ 0, %.lr.ph.i39.i ], [ %825, %tvb_read_sane_string.exit33 ]
-  %716 = load i32, ptr @hf_sane_device_descriptor, align 4
-  %717 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %716, ptr noundef %701, i32 noundef %715, i32 noundef -1, i32 noundef 0) #4
-  %718 = load i32, ptr @ett_sane_device_descriptor, align 4
-  %719 = tail call ptr @proto_item_add_subtree(ptr noundef %717, i32 noundef %718) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %717, ptr noundef nonnull @.str.220, i32 noundef %.038.i.i) #4
-  %720 = load i32, ptr @hf_sane_pointer_value, align 4
-  %721 = tail call ptr @proto_tree_add_item(ptr noundef %719, i32 noundef %720, ptr noundef %701, i32 noundef %715, i32 noundef 4, i32 noundef 0) #4
-  %722 = tail call i32 @tvb_captured_length_remaining(ptr noundef %701, i32 noundef %715) #4
-  %723 = icmp slt i32 %722, 4
-  br i1 %723, label %dissect_sane_word.exit35.i.i, label %724
+716:                                              ; preds = %tvb_read_sane_string.exit33, %.lr.ph.i39.i
+  %717 = phi i32 [ %712, %.lr.ph.i39.i ], [ %818, %tvb_read_sane_string.exit33 ]
+  %718 = phi i32 [ %710, %.lr.ph.i39.i ], [ %.pre.i, %tvb_read_sane_string.exit33 ]
+  %.038.i.i = phi i32 [ 0, %.lr.ph.i39.i ], [ %828, %tvb_read_sane_string.exit33 ]
+  %719 = load i32, ptr @hf_sane_device_descriptor, align 4
+  %720 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %719, ptr noundef %704, i32 noundef %718, i32 noundef -1, i32 noundef 0) #4
+  %721 = load i32, ptr @ett_sane_device_descriptor, align 4
+  %722 = tail call ptr @proto_item_add_subtree(ptr noundef %720, i32 noundef %721) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %720, ptr noundef nonnull @.str.220, i32 noundef %.038.i.i) #4
+  %723 = load i32, ptr @hf_sane_pointer_value, align 4
+  %724 = tail call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %723, ptr noundef %704, i32 noundef %718, i32 noundef 4, i32 noundef 0) #4
+  %725 = tail call i32 @tvb_captured_length_remaining(ptr noundef %704, i32 noundef %718) #4
+  %726 = icmp slt i32 %725, 4
+  br i1 %726, label %dissect_sane_word.exit35.i.i, label %727
 
-724:                                              ; preds = %713
-  %725 = add i32 %715, 4
-  store i32 %725, ptr %8, align 8
-  %726 = add i32 %714, 4
-  store i32 %726, ptr %9, align 4
+727:                                              ; preds = %716
+  %728 = add i32 %718, 4
+  store i32 %728, ptr %8, align 8
+  %729 = add i32 %717, 4
+  store i32 %729, ptr %9, align 4
   br label %dissect_sane_word.exit35.i.i
 
-dissect_sane_word.exit35.i.i:                     ; preds = %724, %713
-  %727 = phi i32 [ %714, %713 ], [ %726, %724 ]
-  %728 = phi i32 [ %715, %713 ], [ %725, %724 ]
-  %729 = load i32, ptr @hf_sane_device_name, align 4
-  %.val34.i.i = load ptr, ptr %712, align 8
-  %730 = tail call i32 @tvb_captured_length_remaining(ptr noundef %701, i32 noundef %728) #4
-  %731 = icmp slt i32 %730, 4
-  br i1 %731, label %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge, label %732
+dissect_sane_word.exit35.i.i:                     ; preds = %727, %716
+  %730 = phi i32 [ %717, %716 ], [ %729, %727 ]
+  %731 = phi i32 [ %718, %716 ], [ %728, %727 ]
+  %732 = load i32, ptr @hf_sane_device_name, align 4
+  %.val34.i.i = load ptr, ptr %715, align 8
+  %733 = tail call i32 @tvb_captured_length_remaining(ptr noundef %704, i32 noundef %731) #4
+  %734 = icmp slt i32 %733, 4
+  br i1 %734, label %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge, label %735
 
 dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge: ; preds = %dissect_sane_word.exit35.i.i
-  %.pre99 = add i32 %728, 4
+  %.pre99 = add i32 %731, 4
   br label %tvb_read_sane_string.exit39
 
-732:                                              ; preds = %dissect_sane_word.exit35.i.i
-  %733 = tail call i32 @tvb_get_ntohl(ptr noundef %701, i32 noundef %728) #4
-  %734 = add i32 %728, 4
-  store i32 %734, ptr %8, align 8
-  %735 = add i32 %727, 4
-  store i32 %735, ptr %9, align 4
-  %736 = tail call i32 @tvb_captured_length_remaining(ptr noundef %701, i32 noundef %734) #4
-  %737 = icmp slt i32 %736, %733
-  br i1 %737, label %tvb_read_sane_string.exit39, label %738
+735:                                              ; preds = %dissect_sane_word.exit35.i.i
+  %736 = tail call i32 @tvb_get_ntohl(ptr noundef %704, i32 noundef %731) #4
+  %737 = add i32 %731, 4
+  store i32 %737, ptr %8, align 8
+  %738 = add i32 %730, 4
+  store i32 %738, ptr %9, align 4
+  %739 = tail call i32 @tvb_captured_length_remaining(ptr noundef %704, i32 noundef %737) #4
+  %740 = icmp slt i32 %739, %736
+  br i1 %740, label %tvb_read_sane_string.exit39, label %741
 
-738:                                              ; preds = %732
-  %739 = tail call ptr @tvb_get_string_enc(ptr noundef %.val34.i.i, ptr noundef %701, i32 noundef %734, i32 noundef %733, i32 noundef 0) #4
-  %740 = add i32 %734, %733
-  store i32 %740, ptr %8, align 8
-  %741 = add i32 %735, %733
-  store i32 %741, ptr %9, align 4
-  %742 = add i32 %733, 4
+741:                                              ; preds = %735
+  %742 = tail call ptr @tvb_get_string_enc(ptr noundef %.val34.i.i, ptr noundef %704, i32 noundef %737, i32 noundef %736, i32 noundef 0) #4
+  %743 = add i32 %737, %736
+  store i32 %743, ptr %8, align 8
+  %744 = add i32 %738, %736
+  store i32 %744, ptr %9, align 4
+  %745 = add i32 %736, 4
   br label %tvb_read_sane_string.exit39
 
-tvb_read_sane_string.exit39:                      ; preds = %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge, %732, %738
-  %.pre-phi100 = phi i32 [ %.pre99, %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge ], [ %734, %732 ], [ %734, %738 ]
-  %743 = phi i32 [ %727, %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge ], [ %735, %732 ], [ %741, %738 ]
-  %744 = phi i32 [ %728, %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge ], [ %734, %732 ], [ %740, %738 ]
-  %.078 = phi ptr [ @.str.176, %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge ], [ @.str.176, %732 ], [ %739, %738 ]
-  %.0.i38 = phi i32 [ 0, %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge ], [ 0, %732 ], [ %742, %738 ]
-  %745 = load i32, ptr @hf_sane_string, align 4
-  %746 = tail call ptr @proto_tree_add_item(ptr noundef %719, i32 noundef %745, ptr noundef %701, i32 noundef %728, i32 noundef %.0.i38, i32 noundef 0) #4
-  %747 = load i32, ptr @ett_sane_string, align 4
-  %748 = tail call ptr @proto_item_add_subtree(ptr noundef %746, i32 noundef %747) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %746, ptr noundef nonnull @.str.177, ptr noundef %.078) #4
-  %749 = load i32, ptr @hf_sane_string_length, align 4
-  %750 = tail call ptr @proto_tree_add_item(ptr noundef %748, i32 noundef %749, ptr noundef %701, i32 noundef %728, i32 noundef 4, i32 noundef 0) #4
-  %751 = add i32 %.0.i38, -4
-  %752 = tail call ptr @proto_tree_add_item(ptr noundef %748, i32 noundef %729, ptr noundef %701, i32 noundef %.pre-phi100, i32 noundef %751, i32 noundef 0) #4
-  %753 = load i32, ptr @hf_sane_device_vendor, align 4
-  %.val33.i.i = load ptr, ptr %712, align 8
-  %754 = tail call i32 @tvb_captured_length_remaining(ptr noundef %701, i32 noundef %744) #4
-  %755 = icmp slt i32 %754, 4
-  br i1 %755, label %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge, label %756
+tvb_read_sane_string.exit39:                      ; preds = %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge, %735, %741
+  %.pre-phi100 = phi i32 [ %.pre99, %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge ], [ %737, %735 ], [ %737, %741 ]
+  %746 = phi i32 [ %730, %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge ], [ %738, %735 ], [ %744, %741 ]
+  %747 = phi i32 [ %731, %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge ], [ %737, %735 ], [ %743, %741 ]
+  %.078 = phi ptr [ @.str.176, %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge ], [ @.str.176, %735 ], [ %742, %741 ]
+  %.0.i38 = phi i32 [ 0, %dissect_sane_word.exit35.i.i.tvb_read_sane_string.exit39_crit_edge ], [ 0, %735 ], [ %745, %741 ]
+  %748 = load i32, ptr @hf_sane_string, align 4
+  %749 = tail call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %748, ptr noundef %704, i32 noundef %731, i32 noundef %.0.i38, i32 noundef 0) #4
+  %750 = load i32, ptr @ett_sane_string, align 4
+  %751 = tail call ptr @proto_item_add_subtree(ptr noundef %749, i32 noundef %750) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %749, ptr noundef nonnull @.str.177, ptr noundef %.078) #4
+  %752 = load i32, ptr @hf_sane_string_length, align 4
+  %753 = tail call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %752, ptr noundef %704, i32 noundef %731, i32 noundef 4, i32 noundef 0) #4
+  %754 = add i32 %.0.i38, -4
+  %755 = tail call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %732, ptr noundef %704, i32 noundef %.pre-phi100, i32 noundef %754, i32 noundef 0) #4
+  %756 = load i32, ptr @hf_sane_device_vendor, align 4
+  %.val33.i.i = load ptr, ptr %715, align 8
+  %757 = tail call i32 @tvb_captured_length_remaining(ptr noundef %704, i32 noundef %747) #4
+  %758 = icmp slt i32 %757, 4
+  br i1 %758, label %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge, label %759
 
 tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge: ; preds = %tvb_read_sane_string.exit39
-  %.pre101 = add i32 %744, 4
+  %.pre101 = add i32 %747, 4
   br label %tvb_read_sane_string.exit37
 
-756:                                              ; preds = %tvb_read_sane_string.exit39
-  %757 = tail call i32 @tvb_get_ntohl(ptr noundef %701, i32 noundef %744) #4
-  %758 = add i32 %744, 4
-  store i32 %758, ptr %8, align 8
-  %759 = add i32 %743, 4
-  store i32 %759, ptr %9, align 4
-  %760 = tail call i32 @tvb_captured_length_remaining(ptr noundef %701, i32 noundef %758) #4
-  %761 = icmp slt i32 %760, %757
-  br i1 %761, label %tvb_read_sane_string.exit37, label %762
+759:                                              ; preds = %tvb_read_sane_string.exit39
+  %760 = tail call i32 @tvb_get_ntohl(ptr noundef %704, i32 noundef %747) #4
+  %761 = add i32 %747, 4
+  store i32 %761, ptr %8, align 8
+  %762 = add i32 %746, 4
+  store i32 %762, ptr %9, align 4
+  %763 = tail call i32 @tvb_captured_length_remaining(ptr noundef %704, i32 noundef %761) #4
+  %764 = icmp slt i32 %763, %760
+  br i1 %764, label %tvb_read_sane_string.exit37, label %765
 
-762:                                              ; preds = %756
-  %763 = tail call ptr @tvb_get_string_enc(ptr noundef %.val33.i.i, ptr noundef %701, i32 noundef %758, i32 noundef %757, i32 noundef 0) #4
-  %764 = add i32 %758, %757
-  store i32 %764, ptr %8, align 8
-  %765 = add i32 %759, %757
-  store i32 %765, ptr %9, align 4
-  %766 = add i32 %757, 4
+765:                                              ; preds = %759
+  %766 = tail call ptr @tvb_get_string_enc(ptr noundef %.val33.i.i, ptr noundef %704, i32 noundef %761, i32 noundef %760, i32 noundef 0) #4
+  %767 = add i32 %761, %760
+  store i32 %767, ptr %8, align 8
+  %768 = add i32 %762, %760
+  store i32 %768, ptr %9, align 4
+  %769 = add i32 %760, 4
   br label %tvb_read_sane_string.exit37
 
-tvb_read_sane_string.exit37:                      ; preds = %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge, %756, %762
-  %.pre-phi102 = phi i32 [ %.pre101, %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge ], [ %758, %756 ], [ %758, %762 ]
-  %767 = phi i32 [ %743, %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge ], [ %759, %756 ], [ %765, %762 ]
-  %768 = phi i32 [ %744, %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge ], [ %758, %756 ], [ %764, %762 ]
-  %.079 = phi ptr [ @.str.176, %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge ], [ @.str.176, %756 ], [ %763, %762 ]
-  %.0.i36 = phi i32 [ 0, %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge ], [ 0, %756 ], [ %766, %762 ]
-  %769 = load i32, ptr @hf_sane_string, align 4
-  %770 = tail call ptr @proto_tree_add_item(ptr noundef %719, i32 noundef %769, ptr noundef %701, i32 noundef %744, i32 noundef %.0.i36, i32 noundef 0) #4
-  %771 = load i32, ptr @ett_sane_string, align 4
-  %772 = tail call ptr @proto_item_add_subtree(ptr noundef %770, i32 noundef %771) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %770, ptr noundef nonnull @.str.221, ptr noundef %.079) #4
-  %773 = load i32, ptr @hf_sane_string_length, align 4
-  %774 = tail call ptr @proto_tree_add_item(ptr noundef %772, i32 noundef %773, ptr noundef %701, i32 noundef %744, i32 noundef 4, i32 noundef 0) #4
-  %775 = add i32 %.0.i36, -4
-  %776 = tail call ptr @proto_tree_add_item(ptr noundef %772, i32 noundef %753, ptr noundef %701, i32 noundef %.pre-phi102, i32 noundef %775, i32 noundef 0) #4
-  %777 = load i32, ptr @hf_sane_device_model, align 4
-  %.val32.i.i = load ptr, ptr %712, align 8
-  %778 = tail call i32 @tvb_captured_length_remaining(ptr noundef %701, i32 noundef %768) #4
-  %779 = icmp slt i32 %778, 4
-  br i1 %779, label %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge, label %780
+tvb_read_sane_string.exit37:                      ; preds = %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge, %759, %765
+  %.pre-phi102 = phi i32 [ %.pre101, %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge ], [ %761, %759 ], [ %761, %765 ]
+  %770 = phi i32 [ %746, %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge ], [ %762, %759 ], [ %768, %765 ]
+  %771 = phi i32 [ %747, %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge ], [ %761, %759 ], [ %767, %765 ]
+  %.079 = phi ptr [ @.str.176, %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge ], [ @.str.176, %759 ], [ %766, %765 ]
+  %.0.i36 = phi i32 [ 0, %tvb_read_sane_string.exit39.tvb_read_sane_string.exit37_crit_edge ], [ 0, %759 ], [ %769, %765 ]
+  %772 = load i32, ptr @hf_sane_string, align 4
+  %773 = tail call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %772, ptr noundef %704, i32 noundef %747, i32 noundef %.0.i36, i32 noundef 0) #4
+  %774 = load i32, ptr @ett_sane_string, align 4
+  %775 = tail call ptr @proto_item_add_subtree(ptr noundef %773, i32 noundef %774) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %773, ptr noundef nonnull @.str.221, ptr noundef %.079) #4
+  %776 = load i32, ptr @hf_sane_string_length, align 4
+  %777 = tail call ptr @proto_tree_add_item(ptr noundef %775, i32 noundef %776, ptr noundef %704, i32 noundef %747, i32 noundef 4, i32 noundef 0) #4
+  %778 = add i32 %.0.i36, -4
+  %779 = tail call ptr @proto_tree_add_item(ptr noundef %775, i32 noundef %756, ptr noundef %704, i32 noundef %.pre-phi102, i32 noundef %778, i32 noundef 0) #4
+  %780 = load i32, ptr @hf_sane_device_model, align 4
+  %.val32.i.i = load ptr, ptr %715, align 8
+  %781 = tail call i32 @tvb_captured_length_remaining(ptr noundef %704, i32 noundef %771) #4
+  %782 = icmp slt i32 %781, 4
+  br i1 %782, label %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge, label %783
 
 tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge: ; preds = %tvb_read_sane_string.exit37
-  %.pre103 = add i32 %768, 4
+  %.pre103 = add i32 %771, 4
   br label %tvb_read_sane_string.exit35
 
-780:                                              ; preds = %tvb_read_sane_string.exit37
-  %781 = tail call i32 @tvb_get_ntohl(ptr noundef %701, i32 noundef %768) #4
-  %782 = add i32 %768, 4
-  store i32 %782, ptr %8, align 8
-  %783 = add i32 %767, 4
-  store i32 %783, ptr %9, align 4
-  %784 = tail call i32 @tvb_captured_length_remaining(ptr noundef %701, i32 noundef %782) #4
-  %785 = icmp slt i32 %784, %781
-  br i1 %785, label %tvb_read_sane_string.exit35, label %786
+783:                                              ; preds = %tvb_read_sane_string.exit37
+  %784 = tail call i32 @tvb_get_ntohl(ptr noundef %704, i32 noundef %771) #4
+  %785 = add i32 %771, 4
+  store i32 %785, ptr %8, align 8
+  %786 = add i32 %770, 4
+  store i32 %786, ptr %9, align 4
+  %787 = tail call i32 @tvb_captured_length_remaining(ptr noundef %704, i32 noundef %785) #4
+  %788 = icmp slt i32 %787, %784
+  br i1 %788, label %tvb_read_sane_string.exit35, label %789
 
-786:                                              ; preds = %780
-  %787 = tail call ptr @tvb_get_string_enc(ptr noundef %.val32.i.i, ptr noundef %701, i32 noundef %782, i32 noundef %781, i32 noundef 0) #4
-  %788 = add i32 %782, %781
-  store i32 %788, ptr %8, align 8
-  %789 = add i32 %783, %781
-  store i32 %789, ptr %9, align 4
-  %790 = add i32 %781, 4
+789:                                              ; preds = %783
+  %790 = tail call ptr @tvb_get_string_enc(ptr noundef %.val32.i.i, ptr noundef %704, i32 noundef %785, i32 noundef %784, i32 noundef 0) #4
+  %791 = add i32 %785, %784
+  store i32 %791, ptr %8, align 8
+  %792 = add i32 %786, %784
+  store i32 %792, ptr %9, align 4
+  %793 = add i32 %784, 4
   br label %tvb_read_sane_string.exit35
 
-tvb_read_sane_string.exit35:                      ; preds = %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge, %780, %786
-  %.pre-phi104 = phi i32 [ %.pre103, %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge ], [ %782, %780 ], [ %782, %786 ]
-  %791 = phi i32 [ %767, %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge ], [ %783, %780 ], [ %789, %786 ]
-  %792 = phi i32 [ %768, %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge ], [ %782, %780 ], [ %788, %786 ]
-  %.080 = phi ptr [ @.str.176, %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge ], [ @.str.176, %780 ], [ %787, %786 ]
-  %.0.i34 = phi i32 [ 0, %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge ], [ 0, %780 ], [ %790, %786 ]
-  %793 = load i32, ptr @hf_sane_string, align 4
-  %794 = tail call ptr @proto_tree_add_item(ptr noundef %719, i32 noundef %793, ptr noundef %701, i32 noundef %768, i32 noundef %.0.i34, i32 noundef 0) #4
-  %795 = load i32, ptr @ett_sane_string, align 4
-  %796 = tail call ptr @proto_item_add_subtree(ptr noundef %794, i32 noundef %795) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %794, ptr noundef nonnull @.str.222, ptr noundef %.080) #4
-  %797 = load i32, ptr @hf_sane_string_length, align 4
-  %798 = tail call ptr @proto_tree_add_item(ptr noundef %796, i32 noundef %797, ptr noundef %701, i32 noundef %768, i32 noundef 4, i32 noundef 0) #4
-  %799 = add i32 %.0.i34, -4
-  %800 = tail call ptr @proto_tree_add_item(ptr noundef %796, i32 noundef %777, ptr noundef %701, i32 noundef %.pre-phi104, i32 noundef %799, i32 noundef 0) #4
-  %801 = load i32, ptr @hf_sane_device_type, align 4
-  %.val.i41.i = load ptr, ptr %712, align 8
-  %802 = tail call i32 @tvb_captured_length_remaining(ptr noundef %701, i32 noundef %792) #4
-  %803 = icmp slt i32 %802, 4
-  br i1 %803, label %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge, label %804
+tvb_read_sane_string.exit35:                      ; preds = %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge, %783, %789
+  %.pre-phi104 = phi i32 [ %.pre103, %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge ], [ %785, %783 ], [ %785, %789 ]
+  %794 = phi i32 [ %770, %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge ], [ %786, %783 ], [ %792, %789 ]
+  %795 = phi i32 [ %771, %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge ], [ %785, %783 ], [ %791, %789 ]
+  %.080 = phi ptr [ @.str.176, %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge ], [ @.str.176, %783 ], [ %790, %789 ]
+  %.0.i34 = phi i32 [ 0, %tvb_read_sane_string.exit37.tvb_read_sane_string.exit35_crit_edge ], [ 0, %783 ], [ %793, %789 ]
+  %796 = load i32, ptr @hf_sane_string, align 4
+  %797 = tail call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %796, ptr noundef %704, i32 noundef %771, i32 noundef %.0.i34, i32 noundef 0) #4
+  %798 = load i32, ptr @ett_sane_string, align 4
+  %799 = tail call ptr @proto_item_add_subtree(ptr noundef %797, i32 noundef %798) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %797, ptr noundef nonnull @.str.222, ptr noundef %.080) #4
+  %800 = load i32, ptr @hf_sane_string_length, align 4
+  %801 = tail call ptr @proto_tree_add_item(ptr noundef %799, i32 noundef %800, ptr noundef %704, i32 noundef %771, i32 noundef 4, i32 noundef 0) #4
+  %802 = add i32 %.0.i34, -4
+  %803 = tail call ptr @proto_tree_add_item(ptr noundef %799, i32 noundef %780, ptr noundef %704, i32 noundef %.pre-phi104, i32 noundef %802, i32 noundef 0) #4
+  %804 = load i32, ptr @hf_sane_device_type, align 4
+  %.val.i41.i = load ptr, ptr %715, align 8
+  %805 = tail call i32 @tvb_captured_length_remaining(ptr noundef %704, i32 noundef %795) #4
+  %806 = icmp slt i32 %805, 4
+  br i1 %806, label %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge, label %807
 
 tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge: ; preds = %tvb_read_sane_string.exit35
-  %.pre105 = add i32 %792, 4
+  %.pre105 = add i32 %795, 4
   br label %tvb_read_sane_string.exit33
 
-804:                                              ; preds = %tvb_read_sane_string.exit35
-  %805 = tail call i32 @tvb_get_ntohl(ptr noundef %701, i32 noundef %792) #4
-  %806 = add i32 %792, 4
-  store i32 %806, ptr %8, align 8
-  %807 = add i32 %791, 4
-  store i32 %807, ptr %9, align 4
-  %808 = tail call i32 @tvb_captured_length_remaining(ptr noundef %701, i32 noundef %806) #4
-  %809 = icmp slt i32 %808, %805
-  br i1 %809, label %tvb_read_sane_string.exit33, label %810
+807:                                              ; preds = %tvb_read_sane_string.exit35
+  %808 = tail call i32 @tvb_get_ntohl(ptr noundef %704, i32 noundef %795) #4
+  %809 = add i32 %795, 4
+  store i32 %809, ptr %8, align 8
+  %810 = add i32 %794, 4
+  store i32 %810, ptr %9, align 4
+  %811 = tail call i32 @tvb_captured_length_remaining(ptr noundef %704, i32 noundef %809) #4
+  %812 = icmp slt i32 %811, %808
+  br i1 %812, label %tvb_read_sane_string.exit33, label %813
 
-810:                                              ; preds = %804
-  %811 = tail call ptr @tvb_get_string_enc(ptr noundef %.val.i41.i, ptr noundef %701, i32 noundef %806, i32 noundef %805, i32 noundef 0) #4
-  %812 = add i32 %806, %805
-  store i32 %812, ptr %8, align 8
-  %813 = add i32 %807, %805
-  store i32 %813, ptr %9, align 4
-  %814 = add i32 %805, 4
+813:                                              ; preds = %807
+  %814 = tail call ptr @tvb_get_string_enc(ptr noundef %.val.i41.i, ptr noundef %704, i32 noundef %809, i32 noundef %808, i32 noundef 0) #4
+  %815 = add i32 %809, %808
+  store i32 %815, ptr %8, align 8
+  %816 = add i32 %810, %808
+  store i32 %816, ptr %9, align 4
+  %817 = add i32 %808, 4
   br label %tvb_read_sane_string.exit33
 
-tvb_read_sane_string.exit33:                      ; preds = %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge, %804, %810
-  %.pre-phi106 = phi i32 [ %.pre105, %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge ], [ %806, %804 ], [ %806, %810 ]
-  %815 = phi i32 [ %791, %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge ], [ %807, %804 ], [ %813, %810 ]
-  %.pre.i = phi i32 [ %792, %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge ], [ %806, %804 ], [ %812, %810 ]
-  %.081 = phi ptr [ @.str.176, %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge ], [ @.str.176, %804 ], [ %811, %810 ]
-  %.0.i32 = phi i32 [ 0, %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge ], [ 0, %804 ], [ %814, %810 ]
-  %816 = load i32, ptr @hf_sane_string, align 4
-  %817 = tail call ptr @proto_tree_add_item(ptr noundef %719, i32 noundef %816, ptr noundef %701, i32 noundef %792, i32 noundef %.0.i32, i32 noundef 0) #4
-  %818 = load i32, ptr @ett_sane_string, align 4
-  %819 = tail call ptr @proto_item_add_subtree(ptr noundef %817, i32 noundef %818) #4
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %817, ptr noundef nonnull @.str.223, ptr noundef %.081) #4
-  %820 = load i32, ptr @hf_sane_string_length, align 4
-  %821 = tail call ptr @proto_tree_add_item(ptr noundef %819, i32 noundef %820, ptr noundef %701, i32 noundef %792, i32 noundef 4, i32 noundef 0) #4
-  %822 = add i32 %.0.i32, -4
-  %823 = tail call ptr @proto_tree_add_item(ptr noundef %819, i32 noundef %801, ptr noundef %701, i32 noundef %.pre-phi106, i32 noundef %822, i32 noundef 0) #4
-  %824 = sub i32 %.pre.i, %715
-  tail call void @proto_item_set_len(ptr noundef %717, i32 noundef %824) #4
-  %825 = add nuw nsw i32 %.038.i.i, 1
-  %exitcond.not.i42.i = icmp eq i32 %825, %710
-  br i1 %exitcond.not.i42.i, label %._crit_edge.i.i, label %713, !llvm.loop !20
+tvb_read_sane_string.exit33:                      ; preds = %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge, %807, %813
+  %.pre-phi106 = phi i32 [ %.pre105, %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge ], [ %809, %807 ], [ %809, %813 ]
+  %818 = phi i32 [ %794, %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge ], [ %810, %807 ], [ %816, %813 ]
+  %.pre.i = phi i32 [ %795, %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge ], [ %809, %807 ], [ %815, %813 ]
+  %.081 = phi ptr [ @.str.176, %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge ], [ @.str.176, %807 ], [ %814, %813 ]
+  %.0.i32 = phi i32 [ 0, %tvb_read_sane_string.exit35.tvb_read_sane_string.exit33_crit_edge ], [ 0, %807 ], [ %817, %813 ]
+  %819 = load i32, ptr @hf_sane_string, align 4
+  %820 = tail call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %819, ptr noundef %704, i32 noundef %795, i32 noundef %.0.i32, i32 noundef 0) #4
+  %821 = load i32, ptr @ett_sane_string, align 4
+  %822 = tail call ptr @proto_item_add_subtree(ptr noundef %820, i32 noundef %821) #4
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %820, ptr noundef nonnull @.str.223, ptr noundef %.081) #4
+  %823 = load i32, ptr @hf_sane_string_length, align 4
+  %824 = tail call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %823, ptr noundef %704, i32 noundef %795, i32 noundef 4, i32 noundef 0) #4
+  %825 = add i32 %.0.i32, -4
+  %826 = tail call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %804, ptr noundef %704, i32 noundef %.pre-phi106, i32 noundef %825, i32 noundef 0) #4
+  %827 = sub i32 %.pre.i, %718
+  tail call void @proto_item_set_len(ptr noundef %720, i32 noundef %827) #4
+  %828 = add nuw nsw i32 %.038.i.i, 1
+  %exitcond.not.i42.i = icmp eq i32 %828, %713
+  br i1 %exitcond.not.i42.i, label %._crit_edge.i.i, label %716, !llvm.loop !20
 
-._crit_edge.i.i:                                  ; preds = %tvb_read_sane_string.exit33, %dissect_sane_word.exit.i38.i, %699
-  %826 = phi i32 [ %707, %dissect_sane_word.exit.i38.i ], [ %702, %699 ], [ %.pre.i, %tvb_read_sane_string.exit33 ]
-  %827 = load i32, ptr @hf_sane_pointer_value, align 4
-  %828 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %827, ptr noundef %701, i32 noundef %826, i32 noundef 4, i32 noundef 0) #4
-  %829 = tail call i32 @tvb_captured_length_remaining(ptr noundef %701, i32 noundef %826) #4
-  %830 = icmp slt i32 %829, 4
-  br i1 %830, label %dissect_sane_request.exit, label %831
+._crit_edge.i.i:                                  ; preds = %tvb_read_sane_string.exit33, %dissect_sane_word.exit.i38.i, %702
+  %829 = phi i32 [ %710, %dissect_sane_word.exit.i38.i ], [ %705, %702 ], [ %.pre.i, %tvb_read_sane_string.exit33 ]
+  %830 = load i32, ptr @hf_sane_pointer_value, align 4
+  %831 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %830, ptr noundef %704, i32 noundef %829, i32 noundef 4, i32 noundef 0) #4
+  %832 = tail call i32 @tvb_captured_length_remaining(ptr noundef %704, i32 noundef %829) #4
+  %833 = icmp slt i32 %832, 4
+  br i1 %833, label %dissect_sane_request.exit, label %834
 
-831:                                              ; preds = %._crit_edge.i.i
-  %832 = add i32 %826, 4
-  store i32 %832, ptr %8, align 8
-  %833 = load i32, ptr %9, align 4
-  %834 = add i32 %833, 4
-  store i32 %834, ptr %9, align 4
+834:                                              ; preds = %._crit_edge.i.i
+  %835 = add i32 %829, 4
+  store i32 %835, ptr %8, align 8
+  %836 = load i32, ptr %9, align 4
+  %837 = add i32 %836, 4
+  store i32 %837, ptr %9, align 4
   br label %dissect_sane_request.exit
 
-835:                                              ; preds = %195, %195, %195
-  %836 = load i32, ptr @hf_sane_dummy_value, align 4
-  %837 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %836, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
-  %838 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #4
-  %839 = icmp slt i32 %838, 4
-  br i1 %839, label %dissect_sane_request.exit, label %840
+838:                                              ; preds = %195, %195, %195
+  %839 = load i32, ptr @hf_sane_dummy_value, align 4
+  %840 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %839, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
+  %841 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #4
+  %842 = icmp slt i32 %841, 4
+  br i1 %842, label %dissect_sane_request.exit, label %843
 
-840:                                              ; preds = %835
+843:                                              ; preds = %838
   store i32 4, ptr %8, align 8
   store i32 4, ptr %9, align 4
   br label %dissect_sane_request.exit
 
-dissect_sane_request.exit:                        ; preds = %.loopexit.i.i, %840, %835, %831, %._crit_edge.i.i, %tvb_read_sane_string.exit41, %657, %dissect_sane_word.exit18.i.i, %tvb_read_sane_string.exit43, %dissect_sane_word.exit.i.i19, %280, %tvb_read_sane_string.exit51, %dissect_sane_net_init_response.exit.i, %195, %tvb_read_sane_string.exit, %129, %124, %dissect_sane_net_control_option_request.exit.i, %tvb_read_sane_string.exit29, %tvb_read_sane_string.exit31, %dissect_sane_word.exit.i
-  %841 = load i32, ptr %9, align 4
-  call void @proto_item_set_len(ptr noundef %19, i32 noundef %841) #4
-  %842 = load i32, ptr %9, align 4
-  ret i32 %842
+dissect_sane_request.exit:                        ; preds = %.loopexit.i.i, %843, %838, %834, %._crit_edge.i.i, %tvb_read_sane_string.exit41, %660, %dissect_sane_word.exit18.i.i, %tvb_read_sane_string.exit43, %dissect_sane_word.exit.i.i19, %283, %tvb_read_sane_string.exit51, %dissect_sane_net_init_response.exit.i, %195, %tvb_read_sane_string.exit, %129, %124, %dissect_sane_net_control_option_request.exit.i, %tvb_read_sane_string.exit29, %tvb_read_sane_string.exit31, %dissect_sane_word.exit.i
+  %844 = load i32, ptr %9, align 4
+  call void @proto_item_set_len(ptr noundef %19, i32 noundef %844) #4
+  %845 = load i32, ptr %9, align 4
+  ret i32 %845
 }
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
@@ -2738,7 +2714,7 @@ define internal fastcc range(i32 0, 5) i32 @tvb_read_sane_word(ptr nocapture nou
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %3, i32 noundef %5) #4
   %7 = icmp slt i32 %6, 4
-  br i1 %7, label %16, label %8
+  br i1 %7, label %19, label %8
 
 8:                                                ; preds = %2
   %.not = icmp eq ptr %1, null
@@ -2752,12 +2728,16 @@ define internal fastcc range(i32 0, 5) i32 @tvb_read_sane_word(ptr nocapture nou
   br label %13
 
 13:                                               ; preds = %9, %8
-  %14 = load <2 x i32>, ptr %4, align 8
-  %15 = add <2 x i32> %14, <i32 4, i32 4>
-  store <2 x i32> %15, ptr %4, align 8
-  br label %16
+  %14 = load i32, ptr %4, align 8
+  %15 = add i32 %14, 4
+  store i32 %15, ptr %4, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = load i32, ptr %16, align 4
+  %18 = add i32 %17, 4
+  store i32 %18, ptr %16, align 4
+  br label %19
 
-16:                                               ; preds = %2, %13
+19:                                               ; preds = %2, %13
   %.0 = phi i32 [ 4, %13 ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -2775,37 +2755,41 @@ define internal fastcc i32 @tvb_read_sane_string(ptr nocapture noundef %0, ptr n
   %10 = load ptr, ptr %0, align 8
   %11 = load i32, ptr %5, align 8
   %12 = tail call i32 @tvb_get_ntohl(ptr noundef %10, i32 noundef %11) #4
-  %13 = load <2 x i32>, ptr %5, align 8
-  %14 = add <2 x i32> %13, <i32 4, i32 4>
-  store <2 x i32> %14, ptr %5, align 8
-  %15 = load ptr, ptr %0, align 8
-  %16 = extractelement <2 x i32> %14, i64 0
-  %17 = tail call i32 @tvb_captured_length_remaining(ptr noundef %15, i32 noundef %16) #4
-  %18 = icmp slt i32 %17, %12
-  br i1 %18, label %tvb_read_sane_word.exit.thread, label %19
+  %13 = load i32, ptr %5, align 8
+  %14 = add i32 %13, 4
+  store i32 %14, ptr %5, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = load i32, ptr %15, align 4
+  %17 = add i32 %16, 4
+  store i32 %17, ptr %15, align 4
+  %18 = load ptr, ptr %0, align 8
+  %19 = tail call i32 @tvb_captured_length_remaining(ptr noundef %18, i32 noundef %14) #4
+  %20 = icmp slt i32 %19, %12
+  br i1 %20, label %tvb_read_sane_word.exit.thread, label %21
 
-19:                                               ; preds = %9
+21:                                               ; preds = %9
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %24, label %20
+  br i1 %.not, label %26, label %22
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %0, align 8
-  %22 = load i32, ptr %5, align 8
-  %23 = tail call ptr @tvb_get_string_enc(ptr noundef %1, ptr noundef %21, i32 noundef %22, i32 noundef %12, i32 noundef 0) #4
-  store ptr %23, ptr %2, align 8
-  br label %24
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %0, align 8
+  %24 = load i32, ptr %5, align 8
+  %25 = tail call ptr @tvb_get_string_enc(ptr noundef %1, ptr noundef %23, i32 noundef %24, i32 noundef %12, i32 noundef 0) #4
+  store ptr %25, ptr %2, align 8
+  br label %26
 
-24:                                               ; preds = %20, %19
-  %25 = load <2 x i32>, ptr %5, align 8
-  %26 = insertelement <2 x i32> poison, i32 %12, i64 0
-  %27 = shufflevector <2 x i32> %26, <2 x i32> poison, <2 x i32> zeroinitializer
-  %28 = add <2 x i32> %25, %27
-  store <2 x i32> %28, ptr %5, align 8
-  %29 = add i32 %12, 4
+26:                                               ; preds = %22, %21
+  %27 = load i32, ptr %5, align 8
+  %28 = add i32 %27, %12
+  store i32 %28, ptr %5, align 8
+  %29 = load i32, ptr %15, align 4
+  %30 = add i32 %29, %12
+  store i32 %30, ptr %15, align 4
+  %31 = add i32 %12, 4
   br label %tvb_read_sane_word.exit.thread
 
-tvb_read_sane_word.exit.thread:                   ; preds = %3, %9, %24
-  %.0 = phi i32 [ %29, %24 ], [ 0, %9 ], [ 0, %3 ]
+tvb_read_sane_word.exit.thread:                   ; preds = %3, %9, %26
+  %.0 = phi i32 [ %31, %26 ], [ 0, %9 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -2917,97 +2901,109 @@ define internal fastcc void @dissect_control_option_value(ptr nocapture noundef 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %0, align 8
   %16 = tail call i32 @tvb_get_ntohl(ptr noundef %15, i32 noundef %.pre) #4
-  %17 = load <2 x i32>, ptr %7, align 8
-  %18 = add <2 x i32> %17, <i32 4, i32 4>
-  store <2 x i32> %18, ptr %7, align 8
-  %19 = extractelement <2 x i32> %18, i64 0
+  %17 = load i32, ptr %7, align 8
+  %18 = add i32 %17, 4
+  store i32 %18, ptr %7, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = load i32, ptr %19, align 4
+  %21 = add i32 %20, 4
+  store i32 %21, ptr %19, align 4
   br label %dissect_sane_word.exit
 
 dissect_sane_word.exit:                           ; preds = %3, %14
-  %20 = phi i32 [ %.pre, %3 ], [ %19, %14 ]
+  %22 = phi i32 [ %.pre, %3 ], [ %18, %14 ]
   %.037 = phi i32 [ 0, %3 ], [ %16, %14 ]
-  %21 = load i32, ptr @hf_sane_option_value, align 4
-  %22 = load ptr, ptr %0, align 8
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %22, i32 noundef %20, i32 noundef -1, i32 noundef 0) #4
-  %24 = load i32, ptr @ett_sane_option_value, align 4
-  %25 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24) #4
-  %26 = load i32, ptr @hf_sane_option_length, align 4
-  %27 = load ptr, ptr %0, align 8
-  %28 = load i32, ptr %7, align 8
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef 4, i32 noundef 0) #4
-  %30 = load ptr, ptr %0, align 8
-  %31 = load i32, ptr %7, align 8
-  %32 = tail call i32 @tvb_captured_length_remaining(ptr noundef %30, i32 noundef %31) #4
-  %33 = icmp slt i32 %32, 4
-  br i1 %33, label %dissect_sane_word.exit24, label %34
+  %23 = load i32, ptr @hf_sane_option_value, align 4
+  %24 = load ptr, ptr %0, align 8
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %24, i32 noundef %22, i32 noundef -1, i32 noundef 0) #4
+  %26 = load i32, ptr @ett_sane_option_value, align 4
+  %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26) #4
+  %28 = load i32, ptr @hf_sane_option_length, align 4
+  %29 = load ptr, ptr %0, align 8
+  %30 = load i32, ptr %7, align 8
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef 4, i32 noundef 0) #4
+  %32 = load ptr, ptr %0, align 8
+  %33 = load i32, ptr %7, align 8
+  %34 = tail call i32 @tvb_captured_length_remaining(ptr noundef %32, i32 noundef %33) #4
+  %35 = icmp slt i32 %34, 4
+  br i1 %35, label %dissect_sane_word.exit24, label %36
 
-34:                                               ; preds = %dissect_sane_word.exit
-  %35 = load ptr, ptr %0, align 8
-  %36 = load i32, ptr %7, align 8
-  %37 = tail call i32 @tvb_get_ntohl(ptr noundef %35, i32 noundef %36) #4
-  %38 = load <2 x i32>, ptr %7, align 8
-  %39 = add <2 x i32> %38, <i32 4, i32 4>
-  store <2 x i32> %39, ptr %7, align 8
+36:                                               ; preds = %dissect_sane_word.exit
+  %37 = load ptr, ptr %0, align 8
+  %38 = load i32, ptr %7, align 8
+  %39 = tail call i32 @tvb_get_ntohl(ptr noundef %37, i32 noundef %38) #4
+  %40 = load i32, ptr %7, align 8
+  %41 = add i32 %40, 4
+  store i32 %41, ptr %7, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 12
+  %43 = load i32, ptr %42, align 4
+  %44 = add i32 %43, 4
+  store i32 %44, ptr %42, align 4
   br label %dissect_sane_word.exit24
 
-dissect_sane_word.exit24:                         ; preds = %dissect_sane_word.exit, %34
-  %.036 = phi i32 [ 0, %dissect_sane_word.exit ], [ %37, %34 ]
-  %40 = icmp eq i32 %.037, 3
-  br i1 %40, label %41, label %59
+dissect_sane_word.exit24:                         ; preds = %dissect_sane_word.exit, %36
+  %.036 = phi i32 [ 0, %dissect_sane_word.exit ], [ %39, %36 ]
+  %45 = icmp eq i32 %.037, 3
+  br i1 %45, label %46, label %64
 
-41:                                               ; preds = %dissect_sane_word.exit24
-  %42 = load i32, ptr @hf_sane_option_string_value, align 4
-  %43 = getelementptr i8, ptr %1, i64 408
-  %.val = load ptr, ptr %43, align 8
+46:                                               ; preds = %dissect_sane_word.exit24
+  %47 = load i32, ptr @hf_sane_option_string_value, align 4
+  %48 = getelementptr i8, ptr %1, i64 408
+  %.val = load ptr, ptr %48, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %44 = load i32, ptr %7, align 8
+  %49 = load i32, ptr %7, align 8
   store ptr @.str.176, ptr %4, align 8
-  %45 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %0, ptr noundef %.val, ptr noundef nonnull %4)
-  %46 = load i32, ptr @hf_sane_string, align 4
-  %47 = load ptr, ptr %0, align 8
-  %48 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %46, ptr noundef %47, i32 noundef %44, i32 noundef %45, i32 noundef 0) #4
-  %49 = load i32, ptr @ett_sane_string, align 4
-  %50 = call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49) #4
-  %51 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %48, ptr noundef nonnull @.str.178, ptr noundef %51) #4
-  %52 = load i32, ptr @hf_sane_string_length, align 4
-  %53 = load ptr, ptr %0, align 8
-  %54 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %52, ptr noundef %53, i32 noundef %44, i32 noundef 4, i32 noundef 0) #4
-  %55 = load ptr, ptr %0, align 8
-  %56 = add i32 %44, 4
-  %57 = add i32 %45, -4
-  %58 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %42, ptr noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef 0) #4
+  %50 = call fastcc i32 @tvb_read_sane_string(ptr noundef nonnull %0, ptr noundef %.val, ptr noundef nonnull %4)
+  %51 = load i32, ptr @hf_sane_string, align 4
+  %52 = load ptr, ptr %0, align 8
+  %53 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %51, ptr noundef %52, i32 noundef %49, i32 noundef %50, i32 noundef 0) #4
+  %54 = load i32, ptr @ett_sane_string, align 4
+  %55 = call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54) #4
+  %56 = load ptr, ptr %4, align 8
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %53, ptr noundef nonnull @.str.178, ptr noundef %56) #4
+  %57 = load i32, ptr @hf_sane_string_length, align 4
+  %58 = load ptr, ptr %0, align 8
+  %59 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %57, ptr noundef %58, i32 noundef %49, i32 noundef 4, i32 noundef 0) #4
+  %60 = load ptr, ptr %0, align 8
+  %61 = add i32 %49, 4
+  %62 = add i32 %50, -4
+  %63 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %47, ptr noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef 0) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.loopexit
 
-59:                                               ; preds = %dissect_sane_word.exit24
-  %60 = sdiv i32 %.036, 4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.179, i32 noundef %60) #4
-  %61 = load i32, ptr @hf_sane_array_length, align 4
-  %62 = load ptr, ptr %0, align 8
-  %63 = load i32, ptr %7, align 8
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef 4, i32 noundef 0) #4
-  %65 = load ptr, ptr %0, align 8
-  %66 = load i32, ptr %7, align 8
-  %67 = tail call i32 @tvb_captured_length_remaining(ptr noundef %65, i32 noundef %66) #4
-  %68 = icmp slt i32 %67, 4
-  br i1 %68, label %dissect_sane_word.exit25, label %69
-
-69:                                               ; preds = %59
+64:                                               ; preds = %dissect_sane_word.exit24
+  %65 = sdiv i32 %.036, 4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.179, i32 noundef %65) #4
+  %66 = load i32, ptr @hf_sane_array_length, align 4
+  %67 = load ptr, ptr %0, align 8
+  %68 = load i32, ptr %7, align 8
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef 4, i32 noundef 0) #4
   %70 = load ptr, ptr %0, align 8
   %71 = load i32, ptr %7, align 8
-  %72 = tail call i32 @tvb_get_ntohl(ptr noundef %70, i32 noundef %71) #4
-  %73 = load <2 x i32>, ptr %7, align 8
-  %74 = add <2 x i32> %73, <i32 4, i32 4>
-  store <2 x i32> %74, ptr %7, align 8
+  %72 = tail call i32 @tvb_captured_length_remaining(ptr noundef %70, i32 noundef %71) #4
+  %73 = icmp slt i32 %72, 4
+  br i1 %73, label %dissect_sane_word.exit25, label %74
+
+74:                                               ; preds = %64
+  %75 = load ptr, ptr %0, align 8
+  %76 = load i32, ptr %7, align 8
+  %77 = tail call i32 @tvb_get_ntohl(ptr noundef %75, i32 noundef %76) #4
+  %78 = load i32, ptr %7, align 8
+  %79 = add i32 %78, 4
+  store i32 %79, ptr %7, align 8
+  %80 = getelementptr inbounds i8, ptr %0, i64 12
+  %81 = load i32, ptr %80, align 4
+  %82 = add i32 %81, 4
+  store i32 %82, ptr %80, align 4
   br label %dissect_sane_word.exit25
 
-dissect_sane_word.exit25:                         ; preds = %59, %69
-  %.1 = phi i32 [ %.036, %59 ], [ %72, %69 ]
-  %75 = icmp sgt i32 %.1, 0
-  br i1 %75, label %.lr.ph, label %.loopexit
+dissect_sane_word.exit25:                         ; preds = %64, %74
+  %.1 = phi i32 [ %.036, %64 ], [ %77, %74 ]
+  %83 = icmp sgt i32 %.1, 0
+  br i1 %83, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %dissect_sane_word.exit25
+  %84 = getelementptr inbounds i8, ptr %0, i64 12
   switch i32 %.037, label %.loopexit [
     i32 2, label %.lr.ph.split.us
     i32 1, label %.lr.ph.split.us39
@@ -3015,87 +3011,96 @@ dissect_sane_word.exit25:                         ; preds = %59, %69
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %dissect_sane_word.exit26.us
-  %.038.us = phi i32 [ %92, %dissect_sane_word.exit26.us ], [ 0, %.lr.ph ]
-  %76 = load i32, ptr @hf_sane_option_numeric_value, align 4
-  %77 = load ptr, ptr %0, align 8
-  %78 = load i32, ptr %7, align 8
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 4, i32 noundef 0) #4
-  %80 = load ptr, ptr %0, align 8
-  %81 = load i32, ptr %7, align 8
-  %82 = tail call i32 @tvb_captured_length_remaining(ptr noundef %80, i32 noundef %81) #4
-  %83 = icmp slt i32 %82, 4
-  br i1 %83, label %dissect_sane_word.exit26.us, label %84
+  %.038.us = phi i32 [ %103, %dissect_sane_word.exit26.us ], [ 0, %.lr.ph ]
+  %85 = load i32, ptr @hf_sane_option_numeric_value, align 4
+  %86 = load ptr, ptr %0, align 8
+  %87 = load i32, ptr %7, align 8
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef 4, i32 noundef 0) #4
+  %89 = load ptr, ptr %0, align 8
+  %90 = load i32, ptr %7, align 8
+  %91 = tail call i32 @tvb_captured_length_remaining(ptr noundef %89, i32 noundef %90) #4
+  %92 = icmp slt i32 %91, 4
+  br i1 %92, label %dissect_sane_word.exit26.us, label %93
 
-84:                                               ; preds = %.lr.ph.split.us
-  %85 = load ptr, ptr %0, align 8
-  %86 = load i32, ptr %7, align 8
-  %87 = tail call i32 @tvb_get_ntohl(ptr noundef %85, i32 noundef %86) #4
-  %88 = load <2 x i32>, ptr %7, align 8
-  %89 = add <2 x i32> %88, <i32 4, i32 4>
-  store <2 x i32> %89, ptr %7, align 8
+93:                                               ; preds = %.lr.ph.split.us
+  %94 = load ptr, ptr %0, align 8
+  %95 = load i32, ptr %7, align 8
+  %96 = tail call i32 @tvb_get_ntohl(ptr noundef %94, i32 noundef %95) #4
+  %97 = load i32, ptr %7, align 8
+  %98 = add i32 %97, 4
+  store i32 %98, ptr %7, align 8
+  %99 = load i32, ptr %84, align 4
+  %100 = add i32 %99, 4
+  store i32 %100, ptr %84, align 4
   br label %dissect_sane_word.exit26.us
 
-dissect_sane_word.exit26.us:                      ; preds = %84, %.lr.ph.split.us
-  %.035.us = phi i32 [ 0, %.lr.ph.split.us ], [ %87, %84 ]
-  %90 = sitofp i32 %.035.us to double
-  %91 = fmul double %90, 0x3EF0000000000000
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %79, ptr noundef nonnull @.str.180, double noundef %91) #4
-  %92 = add nuw nsw i32 %.038.us, 1
-  %exitcond49.not = icmp eq i32 %92, %.1
+dissect_sane_word.exit26.us:                      ; preds = %93, %.lr.ph.split.us
+  %.035.us = phi i32 [ 0, %.lr.ph.split.us ], [ %96, %93 ]
+  %101 = sitofp i32 %.035.us to double
+  %102 = fmul double %101, 0x3EF0000000000000
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %88, ptr noundef nonnull @.str.180, double noundef %102) #4
+  %103 = add nuw nsw i32 %.038.us, 1
+  %exitcond49.not = icmp eq i32 %103, %.1
   br i1 %exitcond49.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split.us39:                                ; preds = %.lr.ph, %dissect_sane_word.exit27.us
-  %.038.us40 = phi i32 [ %107, %dissect_sane_word.exit27.us ], [ 0, %.lr.ph ]
-  %93 = load i32, ptr @hf_sane_option_numeric_value, align 4
-  %94 = load ptr, ptr %0, align 8
-  %95 = load i32, ptr %7, align 8
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %93, ptr noundef %94, i32 noundef %95, i32 noundef 4, i32 noundef 0) #4
-  %97 = load ptr, ptr %0, align 8
-  %98 = load i32, ptr %7, align 8
-  %99 = tail call i32 @tvb_captured_length_remaining(ptr noundef %97, i32 noundef %98) #4
-  %100 = icmp slt i32 %99, 4
-  br i1 %100, label %dissect_sane_word.exit27.us, label %101
+  %.038.us40 = phi i32 [ %120, %dissect_sane_word.exit27.us ], [ 0, %.lr.ph ]
+  %104 = load i32, ptr @hf_sane_option_numeric_value, align 4
+  %105 = load ptr, ptr %0, align 8
+  %106 = load i32, ptr %7, align 8
+  %107 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %104, ptr noundef %105, i32 noundef %106, i32 noundef 4, i32 noundef 0) #4
+  %108 = load ptr, ptr %0, align 8
+  %109 = load i32, ptr %7, align 8
+  %110 = tail call i32 @tvb_captured_length_remaining(ptr noundef %108, i32 noundef %109) #4
+  %111 = icmp slt i32 %110, 4
+  br i1 %111, label %dissect_sane_word.exit27.us, label %112
 
-101:                                              ; preds = %.lr.ph.split.us39
-  %102 = load ptr, ptr %0, align 8
-  %103 = load i32, ptr %7, align 8
-  %104 = tail call i32 @tvb_get_ntohl(ptr noundef %102, i32 noundef %103) #4
-  %105 = load <2 x i32>, ptr %7, align 8
-  %106 = add <2 x i32> %105, <i32 4, i32 4>
-  store <2 x i32> %106, ptr %7, align 8
+112:                                              ; preds = %.lr.ph.split.us39
+  %113 = load ptr, ptr %0, align 8
+  %114 = load i32, ptr %7, align 8
+  %115 = tail call i32 @tvb_get_ntohl(ptr noundef %113, i32 noundef %114) #4
+  %116 = load i32, ptr %7, align 8
+  %117 = add i32 %116, 4
+  store i32 %117, ptr %7, align 8
+  %118 = load i32, ptr %84, align 4
+  %119 = add i32 %118, 4
+  store i32 %119, ptr %84, align 4
   br label %dissect_sane_word.exit27.us
 
-dissect_sane_word.exit27.us:                      ; preds = %101, %.lr.ph.split.us39
-  %.034.us = phi i32 [ 0, %.lr.ph.split.us39 ], [ %104, %101 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %96, ptr noundef nonnull @.str.181, i32 noundef %.034.us) #4
-  %107 = add nuw nsw i32 %.038.us40, 1
-  %exitcond48.not = icmp eq i32 %107, %.1
+dissect_sane_word.exit27.us:                      ; preds = %112, %.lr.ph.split.us39
+  %.034.us = phi i32 [ 0, %.lr.ph.split.us39 ], [ %115, %112 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %107, ptr noundef nonnull @.str.181, i32 noundef %.034.us) #4
+  %120 = add nuw nsw i32 %.038.us40, 1
+  %exitcond48.not = icmp eq i32 %120, %.1
   br i1 %exitcond48.not, label %.loopexit, label %.lr.ph.split.us39, !llvm.loop !21
 
 .lr.ph.split.us42:                                ; preds = %.lr.ph, %dissect_sane_word.exit28.us44
-  %.038.us43 = phi i32 [ %119, %dissect_sane_word.exit28.us44 ], [ %.037, %.lr.ph ]
-  %108 = load i32, ptr @hf_sane_option_boolean_value, align 4
-  %109 = load ptr, ptr %0, align 8
-  %110 = load i32, ptr %7, align 8
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef 4, i32 noundef 0) #4
-  %112 = load ptr, ptr %0, align 8
-  %113 = load i32, ptr %7, align 8
-  %114 = tail call i32 @tvb_captured_length_remaining(ptr noundef %112, i32 noundef %113) #4
-  %115 = icmp slt i32 %114, 4
-  br i1 %115, label %dissect_sane_word.exit28.us44, label %116
+  %.038.us43 = phi i32 [ %134, %dissect_sane_word.exit28.us44 ], [ %.037, %.lr.ph ]
+  %121 = load i32, ptr @hf_sane_option_boolean_value, align 4
+  %122 = load ptr, ptr %0, align 8
+  %123 = load i32, ptr %7, align 8
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef 4, i32 noundef 0) #4
+  %125 = load ptr, ptr %0, align 8
+  %126 = load i32, ptr %7, align 8
+  %127 = tail call i32 @tvb_captured_length_remaining(ptr noundef %125, i32 noundef %126) #4
+  %128 = icmp slt i32 %127, 4
+  br i1 %128, label %dissect_sane_word.exit28.us44, label %129
 
-116:                                              ; preds = %.lr.ph.split.us42
-  %117 = load <2 x i32>, ptr %7, align 8
-  %118 = add <2 x i32> %117, <i32 4, i32 4>
-  store <2 x i32> %118, ptr %7, align 8
+129:                                              ; preds = %.lr.ph.split.us42
+  %130 = load i32, ptr %7, align 8
+  %131 = add i32 %130, 4
+  store i32 %131, ptr %7, align 8
+  %132 = load i32, ptr %84, align 4
+  %133 = add i32 %132, 4
+  store i32 %133, ptr %84, align 4
   br label %dissect_sane_word.exit28.us44
 
-dissect_sane_word.exit28.us44:                    ; preds = %116, %.lr.ph.split.us42
-  %119 = add nuw nsw i32 %.038.us43, 1
-  %exitcond.not = icmp eq i32 %119, %.1
+dissect_sane_word.exit28.us44:                    ; preds = %129, %.lr.ph.split.us42
+  %134 = add nuw nsw i32 %.038.us43, 1
+  %exitcond.not = icmp eq i32 %134, %.1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us42, !llvm.loop !21
 
-.loopexit:                                        ; preds = %dissect_sane_word.exit28.us44, %dissect_sane_word.exit27.us, %dissect_sane_word.exit26.us, %.lr.ph, %dissect_sane_word.exit25, %41
+.loopexit:                                        ; preds = %dissect_sane_word.exit28.us44, %dissect_sane_word.exit27.us, %dissect_sane_word.exit26.us, %.lr.ph, %dissect_sane_word.exit25, %46
   ret void
 }
 
@@ -3112,32 +3117,36 @@ define internal fastcc void @dissect_sane_status(ptr nocapture noundef %0, ptr n
   %11 = load ptr, ptr %0, align 8
   %12 = load i32, ptr %5, align 8
   %13 = tail call i32 @tvb_get_ntohl(ptr noundef %11, i32 noundef %12) #4
-  %14 = load <2 x i32>, ptr %5, align 8
-  %15 = add <2 x i32> %14, <i32 4, i32 4>
-  store <2 x i32> %15, ptr %5, align 8
+  %14 = load i32, ptr %5, align 8
+  %15 = add i32 %14, 4
+  store i32 %15, ptr %5, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = load i32, ptr %16, align 4
+  %18 = add i32 %17, 4
+  store i32 %18, ptr %16, align 4
   br label %tvb_read_sane_word.exit
 
 tvb_read_sane_word.exit:                          ; preds = %4, %10
   %.0 = phi i32 [ -1, %4 ], [ %13, %10 ]
-  %16 = tail call ptr @val_to_str(i32 noundef %.0, ptr noundef nonnull @status_values, ptr noundef nonnull @.str.187) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.186, ptr noundef %16) #4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr @val_to_str(i32 noundef %.0, ptr noundef nonnull @status_values, ptr noundef nonnull @.str.188) #4
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.186, ptr noundef %19) #4
-  %20 = load i32, ptr @hf_sane_status, align 4
-  %21 = load ptr, ptr %0, align 8
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %21, i32 noundef %6, i32 noundef 4, i32 noundef 0) #4
-  %23 = tail call ptr @val_to_str(i32 noundef %.0, ptr noundef nonnull @status_values, ptr noundef nonnull @.str.188) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.186, ptr noundef %23) #4
+  %19 = tail call ptr @val_to_str(i32 noundef %.0, ptr noundef nonnull @status_values, ptr noundef nonnull @.str.187) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.186, ptr noundef %19) #4
+  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call ptr @val_to_str(i32 noundef %.0, ptr noundef nonnull @status_values, ptr noundef nonnull @.str.188) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.186, ptr noundef %22) #4
+  %23 = load i32, ptr @hf_sane_status, align 4
+  %24 = load ptr, ptr %0, align 8
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %24, i32 noundef %6, i32 noundef 4, i32 noundef 0) #4
+  %26 = tail call ptr @val_to_str(i32 noundef %.0, ptr noundef nonnull @status_values, ptr noundef nonnull @.str.188) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.186, ptr noundef %26) #4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %25, label %24
+  br i1 %.not, label %28, label %27
 
-24:                                               ; preds = %tvb_read_sane_word.exit
+27:                                               ; preds = %tvb_read_sane_word.exit
   store i32 %.0, ptr %3, align 4
-  br label %25
+  br label %28
 
-25:                                               ; preds = %24, %tvb_read_sane_word.exit
+28:                                               ; preds = %27, %tvb_read_sane_word.exit
   ret void
 }
 

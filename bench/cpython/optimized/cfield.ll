@@ -253,39 +253,43 @@ for.inc.i119:                                     ; preds = %for.inc.i119.prehea
 
 _ctypes_get_fielddesc.exit123:                    ; preds = %for.inc.i119, %if.end.i113
   %table.05.i117.lcssa = phi ptr [ @formattable, %if.end.i113 ], [ %incdec.ptr.i120, %for.inc.i119 ]
+  %getfunc60 = getelementptr inbounds i8, ptr %table.05.i117.lcssa, i64 16
+  %23 = load ptr, ptr %getfunc60, align 8
   %setfunc61 = getelementptr inbounds i8, ptr %table.05.i117.lcssa, i64 8
-  %23 = load <2 x ptr>, ptr %setfunc61, align 8
+  %24 = load ptr, ptr %setfunc61, align 8
   br label %if.end.i126
 
 if.end.i126:                                      ; preds = %_ctypes_get_fielddesc.exit, %_ctypes_get_fielddesc.exit123
-  %24 = phi <2 x ptr> [ %23, %_ctypes_get_fielddesc.exit123 ], [ zeroinitializer, %_ctypes_get_fielddesc.exit ]
+  %getfunc.1 = phi ptr [ %23, %_ctypes_get_fielddesc.exit123 ], [ null, %_ctypes_get_fielddesc.exit ]
+  %setfunc.1 = phi ptr [ %24, %_ctypes_get_fielddesc.exit123 ], [ null, %_ctypes_get_fielddesc.exit ]
   %25 = load ptr, ptr %getfunc53, align 8
   %cmp.i131159 = icmp eq i8 %17, 117
   br i1 %cmp.i131159, label %_ctypes_get_fielddesc.exit136.thread, label %for.inc.i132.preheader
 
 for.inc.i132.preheader:                           ; preds = %if.end.i126.thread, %if.end.i126
   %26 = phi ptr [ %21, %if.end.i126.thread ], [ %25, %if.end.i126 ]
-  %27 = phi <2 x ptr> [ zeroinitializer, %if.end.i126.thread ], [ %24, %if.end.i126 ]
+  %setfunc.1181 = phi ptr [ null, %if.end.i126.thread ], [ %setfunc.1, %if.end.i126 ]
+  %getfunc.1179 = phi ptr [ null, %if.end.i126.thread ], [ %getfunc.1, %if.end.i126 ]
   br label %for.inc.i132
 
 for.inc.i132:                                     ; preds = %for.inc.i132.preheader, %for.inc.i132
   %table.05.i130160 = phi ptr [ %incdec.ptr.i133, %for.inc.i132 ], [ @formattable, %for.inc.i132.preheader ]
   %incdec.ptr.i133 = getelementptr i8, ptr %table.05.i130160, i64 48
-  %28 = load i8, ptr %incdec.ptr.i133, align 8
-  %tobool1.not.i134 = icmp ne i8 %28, 0
+  %27 = load i8, ptr %incdec.ptr.i133, align 8
+  %tobool1.not.i134 = icmp ne i8 %27, 0
   tail call void @llvm.assume(i1 %tobool1.not.i134)
-  %cmp.i131 = icmp eq i8 %28, 117
+  %cmp.i131 = icmp eq i8 %27, 117
   br i1 %cmp.i131, label %_ctypes_get_fielddesc.exit136, label %for.inc.i132
 
 _ctypes_get_fielddesc.exit136:                    ; preds = %for.inc.i132
   %getfunc65 = getelementptr i8, ptr %table.05.i130160, i64 64
-  %29 = load ptr, ptr %getfunc65, align 8
-  %cmp66 = icmp eq ptr %26, %29
+  %28 = load ptr, ptr %getfunc65, align 8
+  %cmp66 = icmp eq ptr %26, %28
   br i1 %cmp66, label %if.end.i139, label %if.end75
 
 _ctypes_get_fielddesc.exit136.thread:             ; preds = %if.end.i126
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @formattable, i64 16), align 16
-  %cmp66187 = icmp eq ptr %25, %30
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @formattable, i64 16), align 16
+  %cmp66187 = icmp eq ptr %25, %29
   br i1 %cmp66187, label %for.inc.i145.preheader, label %if.end75
 
 if.end.i139:                                      ; preds = %_ctypes_get_fielddesc.exit136
@@ -298,27 +302,31 @@ for.inc.i145.preheader:                           ; preds = %_ctypes_get_fieldde
 for.inc.i145:                                     ; preds = %for.inc.i145.preheader, %for.inc.i145
   %table.05.i143163 = phi ptr [ %incdec.ptr.i146, %for.inc.i145 ], [ @formattable, %for.inc.i145.preheader ]
   %incdec.ptr.i146 = getelementptr i8, ptr %table.05.i143163, i64 48
-  %31 = load i8, ptr %incdec.ptr.i146, align 8
-  %tobool1.not.i147 = icmp ne i8 %31, 0
+  %30 = load i8, ptr %incdec.ptr.i146, align 8
+  %tobool1.not.i147 = icmp ne i8 %30, 0
   tail call void @llvm.assume(i1 %tobool1.not.i147)
-  %cmp.i144 = icmp eq i8 %31, 85
+  %cmp.i144 = icmp eq i8 %30, 85
   br i1 %cmp.i144, label %_ctypes_get_fielddesc.exit149, label %for.inc.i145
 
 _ctypes_get_fielddesc.exit149:                    ; preds = %for.inc.i145, %if.end.i139
   %table.05.i143.lcssa = phi ptr [ @formattable, %if.end.i139 ], [ %incdec.ptr.i146, %for.inc.i145 ]
+  %getfunc71 = getelementptr inbounds i8, ptr %table.05.i143.lcssa, i64 16
+  %31 = load ptr, ptr %getfunc71, align 8
   %setfunc72 = getelementptr inbounds i8, ptr %table.05.i143.lcssa, i64 8
-  %32 = load <2 x ptr>, ptr %setfunc72, align 8
+  %32 = load ptr, ptr %setfunc72, align 8
   br label %if.end75
 
 if.end75:                                         ; preds = %_ctypes_get_fielddesc.exit136.thread, %if.then41, %land.lhs.true44, %_ctypes_get_fielddesc.exit149, %_ctypes_get_fielddesc.exit136, %PyObject_TypeCheck.exit
-  %33 = phi <2 x ptr> [ %32, %_ctypes_get_fielddesc.exit149 ], [ %27, %_ctypes_get_fielddesc.exit136 ], [ zeroinitializer, %land.lhs.true44 ], [ zeroinitializer, %if.then41 ], [ zeroinitializer, %PyObject_TypeCheck.exit ], [ %24, %_ctypes_get_fielddesc.exit136.thread ]
+  %getfunc.0 = phi ptr [ %31, %_ctypes_get_fielddesc.exit149 ], [ %getfunc.1179, %_ctypes_get_fielddesc.exit136 ], [ null, %land.lhs.true44 ], [ null, %if.then41 ], [ null, %PyObject_TypeCheck.exit ], [ %getfunc.1, %_ctypes_get_fielddesc.exit136.thread ]
+  %setfunc.0 = phi ptr [ %32, %_ctypes_get_fielddesc.exit149 ], [ %setfunc.1181, %_ctypes_get_fielddesc.exit136 ], [ null, %land.lhs.true44 ], [ null, %if.then41 ], [ null, %PyObject_TypeCheck.exit ], [ %setfunc.1, %_ctypes_get_fielddesc.exit136.thread ]
+  %setfunc76 = getelementptr inbounds i8, ptr %call, i64 56
+  store ptr %setfunc.0, ptr %setfunc76, align 8
   %getfunc77 = getelementptr inbounds i8, ptr %call, i64 48
-  %34 = shufflevector <2 x ptr> %33, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %34, ptr %getfunc77, align 8
+  store ptr %getfunc.0, ptr %getfunc77, align 8
   %index78 = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %index, ptr %index78, align 8
-  %35 = load i32, ptr %desc, align 8
-  %add.i.i = add i32 %35, 1
+  %33 = load i32, ptr %desc, align 8
+  %add.i.i = add i32 %33, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %_Py_NewRef.exit, label %if.end.i.i
 
@@ -343,25 +351,25 @@ sw.bb:                                            ; preds = %_Py_NewRef.exit
 
 if.then82:                                        ; preds = %sw.bb
   %conv83 = sext i32 %shl90 to i64
-  %36 = load i64, ptr %pfield_size, align 8
-  %37 = load i32, ptr %pbitofs, align 4
-  %conv85 = sext i32 %37 to i64
+  %34 = load i64, ptr %pfield_size, align 8
+  %35 = load i32, ptr %pbitofs, align 4
+  %conv85 = sext i32 %35 to i64
   %conv86 = sext i32 %bitsize to i64
-  %38 = add i64 %36, %conv83
-  %39 = add nsw i64 %conv86, %conv85
-  %sub87 = sub i64 %38, %39
+  %36 = add i64 %34, %conv83
+  %37 = add nsw i64 %conv86, %conv85
+  %sub87 = sub i64 %36, %37
   br label %if.end94
 
 if.else89:                                        ; preds = %sw.bb
-  %40 = load i32, ptr %pbitofs, align 4
-  %add91 = add i32 %40, %shl90
+  %38 = load i32, ptr %pbitofs, align 4
+  %add91 = add i32 %38, %shl90
   %conv92 = sext i32 %add91 to i64
   br label %if.end94
 
 if.end94:                                         ; preds = %if.else89, %if.then82
   %sub87.sink = phi i64 [ %conv92, %if.else89 ], [ %sub87, %if.then82 ]
-  %41 = getelementptr inbounds i8, ptr %call, i64 24
-  store i64 %sub87.sink, ptr %41, align 8
+  %39 = getelementptr inbounds i8, ptr %call, i64 24
+  store i64 %sub87.sink, ptr %39, align 8
   store i32 %bitsize, ptr %pbitofs, align 4
   br label %sw.bb95
 
@@ -372,33 +380,33 @@ sw.bb95:                                          ; preds = %if.end94, %_Py_NewR
 if.then97:                                        ; preds = %sw.bb95
   %conv98 = sext i32 %pack to i64
   %align99 = getelementptr inbounds i8, ptr %call1, i64 56
-  %42 = load i64, ptr %align99, align 8
-  %conv98. = tail call i64 @llvm.smin.i64(i64 %42, i64 %conv98)
+  %40 = load i64, ptr %align99, align 8
+  %conv98. = tail call i64 @llvm.smin.i64(i64 %40, i64 %conv98)
   br label %if.end106
 
 if.else104:                                       ; preds = %sw.bb95
   %align105 = getelementptr inbounds i8, ptr %call1, i64 56
-  %43 = load i64, ptr %align105, align 8
+  %41 = load i64, ptr %align105, align 8
   br label %if.end106
 
 if.end106:                                        ; preds = %if.else104, %if.then97
-  %align.0 = phi i64 [ %conv98., %if.then97 ], [ %43, %if.else104 ]
+  %align.0 = phi i64 [ %conv98., %if.then97 ], [ %41, %if.else104 ]
   %tobool107.not = icmp eq i64 %align.0, 0
   br i1 %tobool107.not, label %if.end115, label %land.lhs.true108
 
 land.lhs.true108:                                 ; preds = %if.end106
-  %44 = load i64, ptr %poffset, align 8
-  %rem = srem i64 %44, %align.0
+  %42 = load i64, ptr %poffset, align 8
+  %rem = srem i64 %42, %align.0
   %tobool109.not = icmp eq i64 %rem, 0
   br i1 %tobool109.not, label %if.end115, label %if.then110
 
 if.then110:                                       ; preds = %land.lhs.true108
   %sub112 = sub i64 %align.0, %rem
-  %45 = load i64, ptr %psize, align 8
-  %add113 = add i64 %45, %sub112
+  %43 = load i64, ptr %psize, align 8
+  %add113 = add i64 %43, %sub112
   store i64 %add113, ptr %psize, align 8
-  %46 = load i64, ptr %poffset, align 8
-  %add114 = add i64 %46, %sub112
+  %44 = load i64, ptr %poffset, align 8
+  %add114 = add i64 %44, %sub112
   store i64 %add114, ptr %poffset, align 8
   br label %if.end115
 
@@ -411,34 +419,34 @@ if.then118:                                       ; preds = %if.end115
   br label %if.end120
 
 if.end120:                                        ; preds = %if.then118, %if.end115
-  %47 = load i64, ptr %psize, align 8
-  %add121 = add i64 %47, %10
+  %45 = load i64, ptr %psize, align 8
+  %add121 = add i64 %45, %10
   store i64 %add121, ptr %psize, align 8
-  %48 = load i64, ptr %poffset, align 8
+  %46 = load i64, ptr %poffset, align 8
   %offset = getelementptr inbounds i8, ptr %call, i64 16
-  store i64 %48, ptr %offset, align 8
-  %add122 = add i64 %48, %10
+  store i64 %46, ptr %offset, align 8
+  %add122 = add i64 %46, %10
   store i64 %add122, ptr %poffset, align 8
   store i64 %align.0, ptr %palign, align 8
   br label %return
 
 sw.bb123:                                         ; preds = %_Py_NewRef.exit
-  %49 = load i64, ptr %size38, align 8
-  %50 = load i64, ptr %pfield_size, align 8
-  %div.neg = sdiv i64 %50, -8
-  %sub125 = add i64 %div.neg, %49
-  %51 = load i64, ptr %poffset, align 8
-  %add126 = add i64 %sub125, %51
+  %47 = load i64, ptr %size38, align 8
+  %48 = load i64, ptr %pfield_size, align 8
+  %div.neg = sdiv i64 %48, -8
+  %sub125 = add i64 %div.neg, %47
+  %49 = load i64, ptr %poffset, align 8
+  %add126 = add i64 %sub125, %49
   store i64 %add126, ptr %poffset, align 8
-  %52 = load i64, ptr %size38, align 8
-  %53 = load i64, ptr %pfield_size, align 8
-  %div128.neg = sdiv i64 %53, -8
-  %sub129 = add i64 %div128.neg, %52
-  %54 = load i64, ptr %psize, align 8
-  %add130 = add i64 %sub129, %54
+  %50 = load i64, ptr %size38, align 8
+  %51 = load i64, ptr %pfield_size, align 8
+  %div128.neg = sdiv i64 %51, -8
+  %sub129 = add i64 %div128.neg, %50
+  %52 = load i64, ptr %psize, align 8
+  %add130 = add i64 %sub129, %52
   store i64 %add130, ptr %psize, align 8
-  %55 = load i64, ptr %size38, align 8
-  %mul132 = shl i64 %55, 3
+  %53 = load i64, ptr %size38, align 8
+  %mul132 = shl i64 %53, 3
   store i64 %mul132, ptr %pfield_size, align 8
   %tobool133.not = icmp eq i32 %big_endian, 0
   %shl144 = shl i32 %bitsize, 16
@@ -446,30 +454,30 @@ sw.bb123:                                         ; preds = %_Py_NewRef.exit
 
 if.then134:                                       ; preds = %sw.bb123
   %conv136 = sext i32 %shl144 to i64
-  %56 = load i32, ptr %pbitofs, align 4
-  %conv138 = sext i32 %56 to i64
+  %54 = load i32, ptr %pbitofs, align 4
+  %conv138 = sext i32 %54 to i64
   %conv140 = sext i32 %bitsize to i64
-  %57 = add i64 %mul132, %conv136
-  %58 = add nsw i64 %conv140, %conv138
-  %sub141 = sub i64 %57, %58
+  %55 = add i64 %mul132, %conv136
+  %56 = add nsw i64 %conv140, %conv138
+  %sub141 = sub i64 %55, %56
   br label %if.end148
 
 if.else143:                                       ; preds = %sw.bb123
-  %59 = load i32, ptr %pbitofs, align 4
-  %add145 = add i32 %59, %shl144
+  %57 = load i32, ptr %pbitofs, align 4
+  %add145 = add i32 %57, %shl144
   %conv146 = sext i32 %add145 to i64
   br label %if.end148
 
 if.end148:                                        ; preds = %if.else143, %if.then134
   %sub141.sink = phi i64 [ %conv146, %if.else143 ], [ %sub141, %if.then134 ]
-  %60 = getelementptr inbounds i8, ptr %call, i64 24
-  store i64 %sub141.sink, ptr %60, align 8
-  %61 = load i64, ptr %poffset, align 8
-  %sub149 = sub i64 %61, %10
+  %58 = getelementptr inbounds i8, ptr %call, i64 24
+  store i64 %sub141.sink, ptr %58, align 8
+  %59 = load i64, ptr %poffset, align 8
+  %sub149 = sub i64 %59, %10
   %offset150 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %sub149, ptr %offset150, align 8
-  %62 = load i32, ptr %pbitofs, align 4
-  %add151 = add i32 %62, %bitsize
+  %60 = load i32, ptr %pbitofs, align 4
+  %add151 = add i32 %60, %bitsize
   store i32 %add151, ptr %pbitofs, align 4
   br label %return
 
@@ -480,31 +488,31 @@ sw.bb152:                                         ; preds = %_Py_NewRef.exit
 
 if.then154:                                       ; preds = %sw.bb152
   %conv156 = sext i32 %shl164 to i64
-  %63 = load i64, ptr %pfield_size, align 8
-  %64 = load i32, ptr %pbitofs, align 4
-  %conv158 = sext i32 %64 to i64
+  %61 = load i64, ptr %pfield_size, align 8
+  %62 = load i32, ptr %pbitofs, align 4
+  %conv158 = sext i32 %62 to i64
   %conv160 = sext i32 %bitsize to i64
-  %65 = add i64 %63, %conv156
-  %66 = add nsw i64 %conv160, %conv158
-  %sub161 = sub i64 %65, %66
+  %63 = add i64 %61, %conv156
+  %64 = add nsw i64 %conv160, %conv158
+  %sub161 = sub i64 %63, %64
   br label %if.end168
 
 if.else163:                                       ; preds = %sw.bb152
-  %67 = load i32, ptr %pbitofs, align 4
-  %add165 = add i32 %67, %shl164
+  %65 = load i32, ptr %pbitofs, align 4
+  %add165 = add i32 %65, %shl164
   %conv166 = sext i32 %add165 to i64
   br label %if.end168
 
 if.end168:                                        ; preds = %if.else163, %if.then154
   %sub161.sink = phi i64 [ %conv166, %if.else163 ], [ %sub161, %if.then154 ]
-  %68 = getelementptr inbounds i8, ptr %call, i64 24
-  store i64 %sub161.sink, ptr %68, align 8
-  %69 = load i64, ptr %poffset, align 8
-  %sub169 = sub i64 %69, %10
+  %66 = getelementptr inbounds i8, ptr %call, i64 24
+  store i64 %sub161.sink, ptr %66, align 8
+  %67 = load i64, ptr %poffset, align 8
+  %sub169 = sub i64 %67, %10
   %offset170 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %sub169, ptr %offset170, align 8
-  %70 = load i32, ptr %pbitofs, align 4
-  %add171 = add i32 %70, %bitsize
+  %68 = load i32, ptr %pbitofs, align 4
+  %add171 = add i32 %68, %bitsize
   store i32 %add171, ptr %pbitofs, align 4
   br label %return
 

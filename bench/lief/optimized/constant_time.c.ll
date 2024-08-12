@@ -166,30 +166,52 @@ define hidden zeroext i8 @mbedtls_ct_base64_enc_char(i8 noundef zeroext %0) loca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden signext i8 @mbedtls_ct_base64_dec_value(i8 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = zext i8 %0 to i32
-  %3 = insertelement <4 x i8> poison, i8 %0, i64 0
-  %4 = shufflevector <4 x i8> %3, <4 x i8> poison, <4 x i32> zeroinitializer
-  %5 = add <4 x i8> %4, <i8 -70, i8 -64, i8 5, i8 20>
-  %6 = insertelement <4 x i32> poison, i32 %2, i64 0
-  %7 = shufflevector <4 x i32> %6, <4 x i32> poison, <4 x i32> zeroinitializer
-  %8 = add nuw nsw <4 x i32> %7, <i32 65439, i32 65471, i32 65488, i32 65493>
-  %9 = sub nsw <4 x i32> <i32 122, i32 90, i32 57, i32 43>, %7
-  %10 = or <4 x i32> %8, %9
-  %11 = lshr <4 x i32> %10, <i32 8, i32 8, i32 8, i32 8>
-  %12 = trunc <4 x i32> %11 to <4 x i8>
-  %13 = xor <4 x i8> %12, <i8 -1, i8 -1, i8 -1, i8 -1>
-  %14 = and <4 x i8> %5, %13
-  %15 = add nuw nsw i32 %2, 65489
-  %16 = sub nsw i32 47, %2
-  %17 = or i32 %15, %16
-  %18 = lshr i32 %17, 8
-  %19 = trunc i32 %18 to i8
-  %20 = xor i8 %19, -1
-  %21 = add i8 %0, 17
-  %22 = and i8 %21, %20
-  %23 = tail call i8 @llvm.vector.reduce.or.v4i8(<4 x i8> %14)
-  %op.rdx = or i8 %23, %22
-  %24 = add i8 %op.rdx, -1
-  ret i8 %24
+  %3 = add nuw nsw i32 %2, 65471
+  %4 = sub nsw i32 90, %2
+  %5 = or i32 %3, %4
+  %6 = lshr i32 %5, 8
+  %7 = trunc i32 %6 to i8
+  %8 = xor i8 %7, -1
+  %9 = add i8 %0, -64
+  %10 = and i8 %9, %8
+  %11 = add nuw nsw i32 %2, 65439
+  %12 = sub nsw i32 122, %2
+  %13 = or i32 %11, %12
+  %14 = lshr i32 %13, 8
+  %15 = trunc i32 %14 to i8
+  %16 = xor i8 %15, -1
+  %17 = add i8 %0, -70
+  %18 = and i8 %17, %16
+  %19 = or i8 %18, %10
+  %20 = add nuw nsw i32 %2, 65488
+  %21 = sub nsw i32 57, %2
+  %22 = or i32 %20, %21
+  %23 = lshr i32 %22, 8
+  %24 = trunc i32 %23 to i8
+  %25 = xor i8 %24, -1
+  %26 = add i8 %0, 5
+  %27 = and i8 %26, %25
+  %28 = or i8 %19, %27
+  %29 = add nuw nsw i32 %2, 65493
+  %30 = sub nsw i32 43, %2
+  %31 = or i32 %29, %30
+  %32 = lshr i32 %31, 8
+  %33 = trunc i32 %32 to i8
+  %34 = xor i8 %33, -1
+  %35 = add i8 %0, 20
+  %36 = and i8 %35, %34
+  %37 = or i8 %28, %36
+  %38 = add nuw nsw i32 %2, 65489
+  %39 = sub nsw i32 47, %2
+  %40 = or i32 %38, %39
+  %41 = lshr i32 %40, 8
+  %42 = trunc i32 %41 to i8
+  %43 = xor i8 %42, -1
+  %44 = add i8 %0, 17
+  %45 = and i8 %44, %43
+  %46 = or i8 %37, %45
+  %47 = add i8 %46, -1
+  ret i8 %47
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -786,9 +808,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.vector.reduce.or.v4i8(<4 x i8>) #8
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

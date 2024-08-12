@@ -264,14 +264,14 @@ declare ptr @messageToText(ptr noundef) local_unnamed_addr #1
 define noundef ptr @textMove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
-  br i1 %3, label %5, label %13
+  br i1 %3, label %5, label %16
 
 5:                                                ; preds = %2
   br i1 %4, label %6, label %7
 
 6:                                                ; preds = %5
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.2) #7
-  br label %28
+  br label %31
 
 7:                                                ; preds = %5
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
@@ -280,55 +280,59 @@ define noundef ptr @textMove(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 10:                                               ; preds = %7
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.3) #7
-  br label %28
+  br label %31
 
 11:                                               ; preds = %7
-  %12 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %12, ptr %8, align 8
+  %12 = load ptr, ptr %1, align 8
+  store ptr %12, ptr %8, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %14, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  br label %28
+  br label %31
 
-13:                                               ; preds = %2
-  br i1 %4, label %28, label %.preheader
+16:                                               ; preds = %2
+  br i1 %4, label %31, label %.preheader
 
-.preheader:                                       ; preds = %13, %.preheader
-  %.029 = phi ptr [ %15, %.preheader ], [ %0, %13 ]
-  %14 = getelementptr inbounds i8, ptr %.029, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %16, label %.preheader
-
-16:                                               ; preds = %.preheader
+.preheader:                                       ; preds = %16, %.preheader
+  %.029 = phi ptr [ %18, %.preheader ], [ %0, %16 ]
   %17 = getelementptr inbounds i8, ptr %.029, i64 8
-  %18 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  store ptr %18, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %21
+  %18 = load ptr, ptr %17, align 8
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %19, label %.preheader
 
-20:                                               ; preds = %16
+19:                                               ; preds = %.preheader
+  %20 = getelementptr inbounds i8, ptr %.029, i64 8
+  %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
+  store ptr %21, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %19
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #7
-  br label %28
+  br label %31
 
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %1, align 8
-  %.not36 = icmp eq ptr %22, null
-  br i1 %.not36, label %24, label %23
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %1, align 8
+  %.not36 = icmp eq ptr %25, null
+  br i1 %.not36, label %27, label %26
 
-23:                                               ; preds = %21
+26:                                               ; preds = %24
   store ptr null, ptr %1, align 8
-  br label %24
+  br label %27
 
-24:                                               ; preds = %21, %23
-  store ptr %22, ptr %18, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %18, i64 8
-  store ptr %26, ptr %27, align 8
-  store ptr null, ptr %25, align 8
-  br label %28
+27:                                               ; preds = %24, %26
+  store ptr %25, ptr %21, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %21, i64 8
+  store ptr %29, ptr %30, align 8
+  store ptr null, ptr %28, align 8
+  br label %31
 
-28:                                               ; preds = %13, %24, %20, %11, %10, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %10 ], [ %8, %11 ], [ null, %20 ], [ %0, %24 ], [ %0, %13 ]
+31:                                               ; preds = %16, %27, %23, %11, %10, %6
+  %.0 = phi ptr [ null, %6 ], [ null, %10 ], [ %8, %11 ], [ null, %23 ], [ %0, %27 ], [ %0, %16 ]
   ret ptr %.0
 }
 

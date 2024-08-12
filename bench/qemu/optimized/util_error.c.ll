@@ -298,21 +298,25 @@ entry:
   %err_class3 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %1, ptr %err_class3, align 8
   %src = getelementptr inbounds i8, ptr %err, i64 16
+  %2 = load ptr, ptr %src, align 8
   %src4 = getelementptr inbounds i8, ptr %call, i64 16
+  store ptr %2, ptr %src4, align 8
   %line = getelementptr inbounds i8, ptr %err, i64 32
-  %2 = load i32, ptr %line, align 8
+  %3 = load i32, ptr %line, align 8
   %line5 = getelementptr inbounds i8, ptr %call, i64 32
-  store i32 %2, ptr %line5, align 8
-  %3 = load <2 x ptr>, ptr %src, align 8
-  store <2 x ptr> %3, ptr %src4, align 8
+  store i32 %3, ptr %line5, align 8
+  %func = getelementptr inbounds i8, ptr %err, i64 24
+  %4 = load ptr, ptr %func, align 8
+  %func6 = getelementptr inbounds i8, ptr %call, i64 24
+  store ptr %4, ptr %func6, align 8
   %hint = getelementptr inbounds i8, ptr %err, i64 40
-  %4 = load ptr, ptr %hint, align 8
-  %tobool.not = icmp eq ptr %4, null
+  %5 = load ptr, ptr %hint, align 8
+  %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %4, align 8
-  %call8 = tail call ptr @g_string_new(ptr noundef %5) #14
+  %6 = load ptr, ptr %5, align 8
+  %call8 = tail call ptr @g_string_new(ptr noundef %6) #14
   %hint9 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call8, ptr %hint9, align 8
   br label %if.end

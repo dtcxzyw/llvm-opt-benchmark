@@ -136,13 +136,15 @@ define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData10InitializeERKNS_10Journalis
   %9 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 0, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 88
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 41
-  store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 -1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
-  store double 0.000000e+00, ptr %13, align 8
+  store double 0.000000e+00, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  store double 1.000000e+00, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 41
+  store i8 0, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 -1, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  store double 0.000000e+00, ptr %14, align 8
   ret i1 true
 }
 

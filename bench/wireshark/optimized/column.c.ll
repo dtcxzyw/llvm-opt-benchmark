@@ -1878,7 +1878,7 @@ define void @column_register_fields() local_unnamed_addr #1 {
 column_deregister_fields.exit:                    ; preds = %.thread, %._crit_edge.i
   %23 = load ptr, ptr @prefs, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %63, label %24
+  br i1 %.not, label %66, label %24
 
 24:                                               ; preds = %column_deregister_fields.exit
   %25 = tail call i32 @g_list_length(ptr noundef nonnull %23) #13
@@ -1902,59 +1902,65 @@ column_deregister_fields.exit:                    ; preds = %.thread, %._crit_ed
   %35 = getelementptr inbounds i8, ptr %1, i64 24
   %36 = getelementptr inbounds i8, ptr %1, i64 28
   %37 = getelementptr inbounds i8, ptr %1, i64 56
-  %38 = getelementptr inbounds i8, ptr %1, i64 72
-  br label %39
+  %38 = getelementptr inbounds i8, ptr %1, i64 60
+  %39 = getelementptr inbounds i8, ptr %1, i64 64
+  %40 = getelementptr inbounds i8, ptr %1, i64 68
+  %41 = getelementptr inbounds i8, ptr %1, i64 72
+  br label %42
 
-39:                                               ; preds = %.lr.ph, %55
-  %.024 = phi ptr [ %32, %.lr.ph ], [ %57, %55 ]
-  %40 = load ptr, ptr %.024, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = load i32, ptr %41, align 8
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr i32, ptr %27, i64 %43
-  %45 = load i32, ptr %44, align 4
-  %.not22 = icmp eq i32 %45, 0
-  br i1 %.not22, label %46, label %55
+42:                                               ; preds = %.lr.ph, %58
+  %.024 = phi ptr [ %32, %.lr.ph ], [ %60, %58 ]
+  %43 = load ptr, ptr %.024, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = load i32, ptr %44, align 8
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr i32, ptr %27, i64 %46
+  %48 = load i32, ptr %47, align 4
+  %.not22 = icmp eq i32 %48, 0
+  br i1 %.not22, label %49, label %58
 
-46:                                               ; preds = %39
-  store i32 1, ptr %44, align 4
-  %47 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #16
-  store i32 -1, ptr %47, align 4
-  store ptr %47, ptr %1, align 8
-  %48 = load i32, ptr %41, align 8
-  %49 = call ptr @try_val_to_str(i32 noundef %48, ptr noundef nonnull @col_format_desc.dlist_vals) #13
-  %50 = call noalias ptr @g_strdup(ptr noundef %49) #13
-  store ptr %50, ptr %33, align 8
-  %51 = load i32, ptr %41, align 8
-  %52 = call ptr @try_val_to_str(i32 noundef %51, ptr noundef nonnull @col_format_abbrev.alist_vals) #13
+49:                                               ; preds = %42
+  store i32 1, ptr %47, align 4
+  %50 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #16
+  store i32 -1, ptr %50, align 4
+  store ptr %50, ptr %1, align 8
+  %51 = load i32, ptr %44, align 8
+  %52 = call ptr @try_val_to_str(i32 noundef %51, ptr noundef nonnull @col_format_desc.dlist_vals) #13
   %53 = call noalias ptr @g_strdup(ptr noundef %52) #13
-  store ptr %53, ptr %34, align 8
+  store ptr %53, ptr %33, align 8
+  %54 = load i32, ptr %44, align 8
+  %55 = call ptr @try_val_to_str(i32 noundef %54, ptr noundef nonnull @col_format_abbrev.alist_vals) #13
+  %56 = call noalias ptr @g_strdup(ptr noundef %55) #13
+  store ptr %56, ptr %34, align 8
   store i32 26, ptr %35, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %36, i8 0, i64 28, i1 false)
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %37, align 8
-  store ptr null, ptr %38, align 8
-  %54 = call ptr @g_array_append_vals(ptr noundef %26, ptr noundef nonnull %1, i32 noundef 1) #13
-  br label %55
+  store i32 -1, ptr %37, align 8
+  store i32 0, ptr %38, align 4
+  store i32 0, ptr %39, align 8
+  store i32 -1, ptr %40, align 4
+  store ptr null, ptr %41, align 8
+  %57 = call ptr @g_array_append_vals(ptr noundef %26, ptr noundef nonnull %1, i32 noundef 1) #13
+  br label %58
 
-55:                                               ; preds = %39, %46
-  %56 = getelementptr inbounds i8, ptr %.024, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %.not21 = icmp eq ptr %57, null
-  br i1 %.not21, label %._crit_edge, label %39, !llvm.loop !16
+58:                                               ; preds = %42, %49
+  %59 = getelementptr inbounds i8, ptr %.024, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %.not21 = icmp eq ptr %60, null
+  br i1 %.not21, label %._crit_edge, label %42, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %55, %24
+._crit_edge:                                      ; preds = %58, %24
   call void @g_free(ptr noundef nonnull %27) #13
-  %58 = getelementptr inbounds i8, ptr %26, i64 8
-  %59 = load i32, ptr %58, align 8
-  store i32 %59, ptr @hf_cols_cleanup, align 4
-  %60 = load i32, ptr @proto_cols, align 4
-  %61 = load ptr, ptr %26, align 8
-  call void @proto_register_field_array(i32 noundef %60, ptr noundef %61, i32 noundef %59) #13
-  %62 = call ptr @g_array_free(ptr noundef nonnull %26, i32 noundef 0) #13
-  store ptr %62, ptr @hf_cols, align 8
-  br label %63
+  %61 = getelementptr inbounds i8, ptr %26, i64 8
+  %62 = load i32, ptr %61, align 8
+  store i32 %62, ptr @hf_cols_cleanup, align 4
+  %63 = load i32, ptr @proto_cols, align 4
+  %64 = load ptr, ptr %26, align 8
+  call void @proto_register_field_array(i32 noundef %63, ptr noundef %64, i32 noundef %62) #13
+  %65 = call ptr @g_array_free(ptr noundef nonnull %26, i32 noundef 0) #13
+  store ptr %65, ptr @hf_cols, align 8
+  br label %66
 
-63:                                               ; preds = %._crit_edge, %column_deregister_fields.exit
+66:                                               ; preds = %._crit_edge, %column_deregister_fields.exit
   ret void
 }
 

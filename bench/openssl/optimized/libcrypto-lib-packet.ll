@@ -108,12 +108,13 @@ return.sink.split.i:                              ; preds = %if.then44.i, %cond.
   br label %if.end
 
 if.end:                                           ; preds = %return.sink.split.i, %WPACKET_get_curr.exit.i, %if.end35.i
+  %12 = load i64, ptr %written.i, align 8
+  %add = add i64 %12, %len
+  store i64 %add, ptr %written.i, align 8
   %curr = getelementptr inbounds i8, ptr %pkt, i64 16
-  %12 = load <2 x i64>, ptr %curr, align 8
-  %13 = insertelement <2 x i64> poison, i64 %len, i64 0
-  %14 = shufflevector <2 x i64> %13, <2 x i64> poison, <2 x i32> zeroinitializer
-  %15 = add <2 x i64> %12, %14
-  store <2 x i64> %15, ptr %curr, align 8
+  %13 = load i64, ptr %curr, align 8
+  %add1 = add i64 %13, %len
+  store i64 %add1, ptr %curr, align 8
   br label %return
 
 return:                                           ; preds = %if.then15.i, %if.end.i, %entry, %if.end
@@ -1142,10 +1143,13 @@ if.then44.i.i:                                    ; preds = %if.end.i.i.i
 
 lor.lhs.false6.i56:                               ; preds = %cond.false.i.i.i, %cond.end7.i.i.i, %if.then44.i.i, %WPACKET_get_curr.exit.i.i.thread
   %data.i52.0 = phi ptr [ %add.ptr14.i.i.i, %WPACKET_get_curr.exit.i.i.thread ], [ %add.ptr.i.i, %if.then44.i.i ], [ null, %cond.end7.i.i.i ], [ null, %cond.false.i.i.i ]
+  %29 = load i64, ptr %written, align 8
+  %add.i = add i64 %29, 1
+  store i64 %add.i, ptr %written, align 8
   %curr.i = getelementptr inbounds i8, ptr %pkt, i64 16
-  %29 = load <2 x i64>, ptr %curr.i, align 8
-  %30 = add <2 x i64> %29, <i64 1, i64 1>
-  store <2 x i64> %30, ptr %curr.i, align 8
+  %30 = load i64, ptr %curr.i, align 8
+  %add1.i = add i64 %30, 1
+  store i64 %add1.i, ptr %curr.i, align 8
   %cmp.i.i57 = icmp eq ptr %data.i52.0, null
   br i1 %cmp.i.i57, label %if.end79, label %if.end.i.i58
 

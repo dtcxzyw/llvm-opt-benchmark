@@ -68019,7 +68019,13 @@ if.then:                                          ; preds = %entry
   %call5.i.i2.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #41
   store ptr %call5.i.i2.i.i.i, ptr %call5.i.i2.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %add.ptr.i.i.i.i.i, align 1
+  store i8 0, ptr %add.ptr.i.i.i.i.i, align 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i, i64 9
+  store i8 0, ptr %arrayidx.i.i.i, align 1
+  %arrayidx.i2.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i, i64 10
+  store i8 0, ptr %arrayidx.i2.i.i, align 1
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i, i64 11
+  store i8 1, ptr %arrayidx.i3.i.i, align 1
   %rightmost_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i2.i.i.i, ptr %rightmost_.i, align 8
   store ptr %call5.i.i2.i.i.i, ptr %this, align 8
@@ -71781,12 +71787,16 @@ _ZNSt12_Vector_baseIN6google8protobuf12_GLOBAL__N_118OptionsToInterpretESaIS3_EE
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %element_name.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %element_name3.i.i.i.i.i) #37
   %element_path.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 64
   %element_path4.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 64
-  %7 = load <2 x ptr>, ptr %element_path4.i.i.i.i.i, align 8
-  store <2 x ptr> %7, ptr %element_path.i.i.i.i.i, align 8
+  %7 = load ptr, ptr %element_path4.i.i.i.i.i, align 8
+  store ptr %7, ptr %element_path.i.i.i.i.i, align 8
+  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 72
+  %_M_finish3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 72
+  %8 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %8, ptr %_M_finish.i.i.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 80
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 80
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
+  %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %element_path4.i.i.i.i.i, i8 0, i64 24, i1 false)
   %original_options.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 88
   %original_options5.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 88
@@ -71804,12 +71814,16 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %element_name.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %element_name3.i.i.i.i.i.i.i.i.i) #37
   %element_path.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 64
   %element_path4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 64
-  %9 = load <2 x ptr>, ptr %element_path4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1207, !noalias !1204
-  store <2 x ptr> %9, ptr %element_path.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1204, !noalias !1207
+  %10 = load ptr, ptr %element_path4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1207, !noalias !1204
+  store ptr %10, ptr %element_path.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1204, !noalias !1207
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 72
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 72
+  %11 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1207, !noalias !1204
+  store ptr %11, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1204, !noalias !1207
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 80
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 80
-  %10 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1207, !noalias !1204
-  store ptr %10, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1204, !noalias !1207
+  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1207, !noalias !1204
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1204, !noalias !1207
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %element_path4.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !1207, !noalias !1204
   %original_options.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 88
   %original_options5.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 88

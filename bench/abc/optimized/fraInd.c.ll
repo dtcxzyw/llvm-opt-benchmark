@@ -1712,7 +1712,7 @@ Abc_Clock.exit303:                                ; preds = %29, %32
   %.val281.val = load i32, ptr %51, align 4
   call void @Aig_ManReprStart(ptr noundef nonnull %0, i32 noundef %.val281.val) #15
   %52 = call ptr @Aig_ManDupOrdered(ptr noundef nonnull %0) #15
-  br label %511
+  br label %520
 
 53:                                               ; preds = %41
   %54 = getelementptr inbounds i8, ptr %1, i64 44
@@ -1755,7 +1755,7 @@ Abc_Clock.exit303:                                ; preds = %29, %32
 
 70:                                               ; preds = %67, %62
   %71 = call ptr @Fra_FraigInductionPart(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %511
+  br label %520
 
 72:                                               ; preds = %67, %.thread
   %.val293 = load i32, ptr %44, align 4
@@ -1765,818 +1765,831 @@ Abc_Clock.exit303:                                ; preds = %29, %32
   %.val272 = load i32, ptr %74, align 8
   call void @Fra_ParamsDefaultSeq(ptr noundef nonnull %16) #15
   %75 = getelementptr inbounds i8, ptr %1, i64 8
-  %76 = getelementptr inbounds i8, ptr %16, i64 76
-  %77 = getelementptr inbounds i8, ptr %16, i64 80
-  %78 = getelementptr inbounds i8, ptr %16, i64 84
-  %79 = load <4 x i32>, ptr %75, align 4
-  store <4 x i32> %79, ptr %76, align 4
-  %80 = getelementptr inbounds i8, ptr %1, i64 52
-  %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %16, i64 52
-  store i32 %81, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %1, i64 32
-  %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %16, i64 92
-  store i32 %84, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %1, i64 40
-  %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %16, i64 96
-  store i32 %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 28
-  %90 = load i32, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %16, i64 100
-  store i32 %90, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %16, i64 104
-  %93 = load <2 x i32>, ptr %54, align 4
-  %94 = shufflevector <2 x i32> %93, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %94, ptr %92, align 8
-  %95 = call ptr @Fra_ManStart(ptr noundef nonnull %0, ptr noundef nonnull %16) #15
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 64
-  store i32 0, ptr %97, align 8
-  %98 = load i32, ptr %82, align 4
-  %.not240 = icmp eq i32 %98, 0
-  br i1 %.not240, label %104, label %99
+  %76 = load i32, ptr %75, align 4
+  %77 = getelementptr inbounds i8, ptr %16, i64 76
+  store i32 %76, ptr %77, align 4
+  %78 = getelementptr inbounds i8, ptr %1, i64 12
+  %79 = load i32, ptr %78, align 4
+  %80 = getelementptr inbounds i8, ptr %16, i64 80
+  store i32 %79, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %1, i64 16
+  %82 = load i32, ptr %81, align 4
+  %83 = getelementptr inbounds i8, ptr %16, i64 84
+  store i32 %82, ptr %83, align 4
+  %84 = getelementptr inbounds i8, ptr %1, i64 20
+  %85 = load i32, ptr %84, align 4
+  %86 = getelementptr inbounds i8, ptr %16, i64 88
+  store i32 %85, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %1, i64 52
+  %88 = load i32, ptr %87, align 4
+  %89 = getelementptr inbounds i8, ptr %16, i64 52
+  store i32 %88, ptr %89, align 4
+  %90 = getelementptr inbounds i8, ptr %1, i64 32
+  %91 = load i32, ptr %90, align 4
+  %92 = getelementptr inbounds i8, ptr %16, i64 92
+  store i32 %91, ptr %92, align 4
+  %93 = getelementptr inbounds i8, ptr %1, i64 40
+  %94 = load i32, ptr %93, align 4
+  %95 = getelementptr inbounds i8, ptr %16, i64 96
+  store i32 %94, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %1, i64 28
+  %97 = load i32, ptr %96, align 4
+  %98 = getelementptr inbounds i8, ptr %16, i64 100
+  store i32 %97, ptr %98, align 4
+  %99 = load i32, ptr %54, align 4
+  %100 = getelementptr inbounds i8, ptr %16, i64 108
+  store i32 %99, ptr %100, align 4
+  %101 = getelementptr inbounds i8, ptr %1, i64 48
+  %102 = load i32, ptr %101, align 4
+  %103 = getelementptr inbounds i8, ptr %16, i64 104
+  store i32 %102, ptr %103, align 8
+  %104 = call ptr @Fra_ManStart(ptr noundef nonnull %0, ptr noundef nonnull %16) #15
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 64
+  store i32 0, ptr %106, align 8
+  %107 = load i32, ptr %89, align 4
+  %.not240 = icmp eq i32 %107, 0
+  br i1 %.not240, label %113, label %108
 
-99:                                               ; preds = %72
+108:                                              ; preds = %72
   %.val291 = load i32, ptr %44, align 4
   %.val292 = load i32, ptr %45, align 8
-  %100 = add nsw i32 %.val292, %.val291
-  %101 = load i32, ptr %76, align 4
-  %102 = add nsw i32 %101, 32
-  %103 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %100, i32 noundef %102)
-  br label %104
+  %109 = add nsw i32 %.val292, %.val291
+  %110 = load i32, ptr %77, align 4
+  %111 = add nsw i32 %110, 32
+  %112 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %109, i32 noundef %111)
+  br label %113
 
-104:                                              ; preds = %99, %72
-  %105 = load i32, ptr %76, align 4
-  %106 = call ptr @Fra_SmlSimulateSeq(ptr noundef nonnull %0, i32 noundef %105, i32 noundef 32, i32 noundef 1, i32 noundef 1) #15
-  %107 = getelementptr inbounds i8, ptr %95, i64 56
-  store ptr %106, ptr %107, align 8
-  %108 = load i32, ptr %82, align 4
-  %.not241 = icmp eq i32 %108, 0
-  br i1 %.not241, label %122, label %109
+113:                                              ; preds = %108, %72
+  %114 = load i32, ptr %77, align 4
+  %115 = call ptr @Fra_SmlSimulateSeq(ptr noundef nonnull %0, i32 noundef %114, i32 noundef 32, i32 noundef 1, i32 noundef 1) #15
+  %116 = getelementptr inbounds i8, ptr %104, i64 56
+  store ptr %115, ptr %116, align 8
+  %117 = load i32, ptr %89, align 4
+  %.not241 = icmp eq i32 %117, 0
+  br i1 %.not241, label %131, label %118
 
-109:                                              ; preds = %104
+118:                                              ; preds = %113
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  %110 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #15
-  %111 = icmp slt i32 %110, 0
-  br i1 %111, label %Abc_Clock.exit305, label %112
+  %119 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #15
+  %120 = icmp slt i32 %119, 0
+  br i1 %120, label %Abc_Clock.exit305, label %121
 
-112:                                              ; preds = %109
-  %113 = load i64, ptr %13, align 8
-  %114 = mul nsw i64 %113, 1000000
-  %115 = getelementptr inbounds i8, ptr %13, i64 8
-  %116 = load i64, ptr %115, align 8
-  %117 = sdiv i64 %116, 1000
-  %118 = add nsw i64 %117, %114
+121:                                              ; preds = %118
+  %122 = load i64, ptr %13, align 8
+  %123 = mul nsw i64 %122, 1000000
+  %124 = getelementptr inbounds i8, ptr %13, i64 8
+  %125 = load i64, ptr %124, align 8
+  %126 = sdiv i64 %125, 1000
+  %127 = add nsw i64 %126, %123
   br label %Abc_Clock.exit305
 
-Abc_Clock.exit305:                                ; preds = %109, %112
-  %.0.i304 = phi i64 [ %118, %112 ], [ -1, %109 ]
+Abc_Clock.exit305:                                ; preds = %118, %121
+  %.0.i304 = phi i64 [ %127, %121 ], [ -1, %118 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  %119 = sub nsw i64 %.0.i304, %.0.i
-  %120 = sitofp i64 %119 to double
-  %121 = fdiv double %120, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %121)
-  br label %122
+  %128 = sub nsw i64 %.0.i304, %.0.i
+  %129 = sitofp i64 %128 to double
+  %130 = fdiv double %129, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %130)
+  br label %131
 
-122:                                              ; preds = %Abc_Clock.exit305, %104
-  %123 = getelementptr inbounds i8, ptr %95, i64 48
-  %124 = load ptr, ptr %123, align 8
-  %125 = load ptr, ptr %95, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 96
-  %127 = load i32, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %125, i64 88
-  %129 = load i32, ptr %128, align 8
-  call void @Fra_ClassesPrepare(ptr noundef %124, i32 noundef %127, i32 noundef %129) #15
-  %130 = load ptr, ptr %95, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 104
-  %132 = load i32, ptr %131, align 8
-  %.not242 = icmp eq i32 %132, 0
-  br i1 %.not242, label %137, label %133
+131:                                              ; preds = %Abc_Clock.exit305, %113
+  %132 = getelementptr inbounds i8, ptr %104, i64 48
+  %133 = load ptr, ptr %132, align 8
+  %134 = load ptr, ptr %104, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 96
+  %136 = load i32, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %134, i64 88
+  %138 = load i32, ptr %137, align 8
+  call void @Fra_ClassesPrepare(ptr noundef %133, i32 noundef %136, i32 noundef %138) #15
+  %139 = load ptr, ptr %104, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 104
+  %141 = load i32, ptr %140, align 8
+  %.not242 = icmp eq i32 %141, 0
+  br i1 %.not242, label %146, label %142
 
-133:                                              ; preds = %122
-  %134 = load ptr, ptr %107, align 8
-  %135 = call ptr @Fra_OneHotCompute(ptr noundef nonnull %95, ptr noundef %134) #15
-  %136 = getelementptr inbounds i8, ptr %95, i64 96
-  store ptr %135, ptr %136, align 8
-  br label %137
+142:                                              ; preds = %131
+  %143 = load ptr, ptr %116, align 8
+  %144 = call ptr @Fra_OneHotCompute(ptr noundef nonnull %104, ptr noundef %143) #15
+  %145 = getelementptr inbounds i8, ptr %104, i64 96
+  store ptr %144, ptr %145, align 8
+  br label %146
 
-137:                                              ; preds = %133, %122
-  %138 = load ptr, ptr %107, align 8
-  call void @Fra_SmlStop(ptr noundef %138) #15
-  %139 = load i32, ptr %77, align 8
-  %140 = add nsw i32 %139, 1
-  %141 = load i32, ptr %16, align 8
-  %142 = call ptr @Fra_SmlStart(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %140, i32 noundef %141) #15
-  store ptr %142, ptr %107, align 8
-  %143 = load i32, ptr %91, align 4
-  %.not243 = icmp eq i32 %143, 0
-  br i1 %.not243, label %150, label %144
+146:                                              ; preds = %142, %131
+  %147 = load ptr, ptr %116, align 8
+  call void @Fra_SmlStop(ptr noundef %147) #15
+  %148 = load i32, ptr %80, align 8
+  %149 = add nsw i32 %148, 1
+  %150 = load i32, ptr %16, align 8
+  %151 = call ptr @Fra_SmlStart(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %149, i32 noundef %150) #15
+  store ptr %151, ptr %116, align 8
+  %152 = load i32, ptr %98, align 4
+  %.not243 = icmp eq i32 %152, 0
+  br i1 %.not243, label %159, label %153
 
-144:                                              ; preds = %137
-  %145 = load i32, ptr %78, align 4
-  %146 = load i32, ptr %88, align 8
-  %147 = call ptr @Fra_ImpDerive(ptr noundef nonnull %95, i32 noundef 5000000, i32 noundef %145, i32 noundef %146) #15
-  %148 = load ptr, ptr %123, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 80
-  store ptr %147, ptr %149, align 8
-  br label %150
+153:                                              ; preds = %146
+  %154 = load i32, ptr %83, align 4
+  %155 = load i32, ptr %95, align 8
+  %156 = call ptr @Fra_ImpDerive(ptr noundef nonnull %104, i32 noundef 5000000, i32 noundef %154, i32 noundef %155) #15
+  %157 = load ptr, ptr %132, align 8
+  %158 = getelementptr inbounds i8, ptr %157, i64 80
+  store ptr %156, ptr %158, align 8
+  br label %159
 
-150:                                              ; preds = %144, %137
-  %151 = load float, ptr %26, align 4
-  %152 = fcmp une float %151, 0.000000e+00
-  br i1 %152, label %153, label %168
+159:                                              ; preds = %153, %146
+  %160 = load float, ptr %26, align 4
+  %161 = fcmp une float %160, 0.000000e+00
+  br i1 %161, label %162, label %177
 
-153:                                              ; preds = %150
+162:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  %154 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #15
-  %155 = icmp slt i32 %154, 0
-  br i1 %155, label %Abc_Clock.exit307, label %156
+  %163 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #15
+  %164 = icmp slt i32 %163, 0
+  br i1 %164, label %Abc_Clock.exit307, label %165
 
-156:                                              ; preds = %153
-  %157 = load i64, ptr %12, align 8
-  %158 = mul nsw i64 %157, 1000000
-  %159 = getelementptr inbounds i8, ptr %12, i64 8
-  %160 = load i64, ptr %159, align 8
-  %161 = sdiv i64 %160, 1000
-  %162 = add nsw i64 %161, %158
+165:                                              ; preds = %162
+  %166 = load i64, ptr %12, align 8
+  %167 = mul nsw i64 %166, 1000000
+  %168 = getelementptr inbounds i8, ptr %12, i64 8
+  %169 = load i64, ptr %168, align 8
+  %170 = sdiv i64 %169, 1000
+  %171 = add nsw i64 %170, %167
   br label %Abc_Clock.exit307
 
-Abc_Clock.exit307:                                ; preds = %153, %156
-  %.0.i306 = phi i64 [ %162, %156 ], [ -1, %153 ]
+Abc_Clock.exit307:                                ; preds = %162, %165
+  %.0.i306 = phi i64 [ %171, %165 ], [ -1, %162 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  %163 = icmp sgt i64 %.0.i306, %43
-  br i1 %163, label %164, label %168
+  %172 = icmp sgt i64 %.0.i306, %43
+  br i1 %172, label %173, label %177
 
-164:                                              ; preds = %Abc_Clock.exit307
-  %165 = getelementptr inbounds i8, ptr %1, i64 56
-  %166 = load i32, ptr %165, align 4
-  %.not269 = icmp eq i32 %166, 0
-  br i1 %.not269, label %167, label %509
+173:                                              ; preds = %Abc_Clock.exit307
+  %174 = getelementptr inbounds i8, ptr %1, i64 56
+  %175 = load i32, ptr %174, align 4
+  %.not269 = icmp eq i32 %175, 0
+  br i1 %.not269, label %176, label %518
 
-167:                                              ; preds = %164
+176:                                              ; preds = %173
   %puts270 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  br label %509
+  br label %518
 
-168:                                              ; preds = %Abc_Clock.exit307, %150
-  %169 = load i32, ptr %76, align 4
-  %170 = load i32, ptr %77, align 8
-  %171 = add nsw i32 %170, 1
-  call void @Fra_BmcPerform(ptr noundef nonnull %95, i32 noundef %169, i32 noundef %171) #15
-  %172 = load ptr, ptr %123, align 8
-  %173 = call i32 @Fra_ClassesCountLits(ptr noundef %172) #15
-  %174 = getelementptr inbounds i8, ptr %95, i64 184
-  store i32 %173, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %95, i64 192
-  store i32 %73, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %95, i64 200
-  store i32 %.val272, ptr %176, align 8
-  %177 = load ptr, ptr %123, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 76
-  store i32 1, ptr %178, align 4
-  %179 = load ptr, ptr %123, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 76
-  %181 = load i32, ptr %180, align 4
-  %.not244342 = icmp eq i32 %181, 0
+177:                                              ; preds = %Abc_Clock.exit307, %159
+  %178 = load i32, ptr %77, align 4
+  %179 = load i32, ptr %80, align 8
+  %180 = add nsw i32 %179, 1
+  call void @Fra_BmcPerform(ptr noundef nonnull %104, i32 noundef %178, i32 noundef %180) #15
+  %181 = load ptr, ptr %132, align 8
+  %182 = call i32 @Fra_ClassesCountLits(ptr noundef %181) #15
+  %183 = getelementptr inbounds i8, ptr %104, i64 184
+  store i32 %182, ptr %183, align 8
+  %184 = getelementptr inbounds i8, ptr %104, i64 192
+  store i32 %73, ptr %184, align 8
+  %185 = getelementptr inbounds i8, ptr %104, i64 200
+  store i32 %.val272, ptr %185, align 8
+  %186 = load ptr, ptr %132, align 8
+  %187 = getelementptr inbounds i8, ptr %186, i64 76
+  store i32 1, ptr %187, align 4
+  %188 = load ptr, ptr %132, align 8
+  %189 = getelementptr inbounds i8, ptr %188, i64 76
+  %190 = load i32, ptr %189, align 4
+  %.not244342 = icmp eq i32 %190, 0
   br i1 %.not244342, label %.loopexit, label %.lr.ph344
 
-.lr.ph344:                                        ; preds = %168
-  %182 = getelementptr inbounds i8, ptr %95, i64 96
-  %183 = getelementptr inbounds i8, ptr %11, i64 8
-  %184 = getelementptr inbounds i8, ptr %10, i64 8
-  %185 = getelementptr inbounds i8, ptr %9, i64 8
-  %186 = getelementptr inbounds i8, ptr %95, i64 16
-  %187 = getelementptr inbounds i8, ptr %8, i64 8
-  %188 = getelementptr inbounds i8, ptr %95, i64 264
-  %189 = getelementptr inbounds i8, ptr %95, i64 104
-  %190 = getelementptr inbounds i8, ptr %95, i64 112
-  %191 = getelementptr inbounds i8, ptr %95, i64 8
-  %192 = getelementptr inbounds i8, ptr %95, i64 244
-  %193 = getelementptr inbounds i8, ptr %95, i64 248
-  %194 = getelementptr inbounds i8, ptr %6, i64 8
-  %195 = getelementptr inbounds i8, ptr %95, i64 32
-  %196 = getelementptr inbounds i8, ptr %95, i64 40
-  %197 = getelementptr inbounds i8, ptr %95, i64 24
-  %198 = getelementptr inbounds i8, ptr %95, i64 168
-  br label %199
+.lr.ph344:                                        ; preds = %177
+  %191 = getelementptr inbounds i8, ptr %104, i64 96
+  %192 = getelementptr inbounds i8, ptr %11, i64 8
+  %193 = getelementptr inbounds i8, ptr %10, i64 8
+  %194 = getelementptr inbounds i8, ptr %9, i64 8
+  %195 = getelementptr inbounds i8, ptr %104, i64 16
+  %196 = getelementptr inbounds i8, ptr %8, i64 8
+  %197 = getelementptr inbounds i8, ptr %104, i64 264
+  %198 = getelementptr inbounds i8, ptr %104, i64 104
+  %199 = getelementptr inbounds i8, ptr %104, i64 112
+  %200 = getelementptr inbounds i8, ptr %104, i64 8
+  %201 = getelementptr inbounds i8, ptr %104, i64 244
+  %202 = getelementptr inbounds i8, ptr %104, i64 248
+  %203 = getelementptr inbounds i8, ptr %6, i64 8
+  %204 = getelementptr inbounds i8, ptr %104, i64 32
+  %205 = getelementptr inbounds i8, ptr %104, i64 40
+  %206 = getelementptr inbounds i8, ptr %104, i64 24
+  %207 = getelementptr inbounds i8, ptr %104, i64 168
+  br label %208
 
-199:                                              ; preds = %.lr.ph344, %440
-  %200 = phi ptr [ %179, %.lr.ph344 ], [ %441, %440 ]
-  %.1224343 = phi i32 [ 0, %.lr.ph344 ], [ %442, %440 ]
-  %201 = call i32 @Fra_ClassesCountLits(ptr noundef nonnull %200) #15
-  %202 = load ptr, ptr %123, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 80
-  %204 = load ptr, ptr %203, align 8
-  %.not245 = icmp eq ptr %204, null
-  br i1 %.not245, label %207, label %205
+208:                                              ; preds = %.lr.ph344, %449
+  %209 = phi ptr [ %188, %.lr.ph344 ], [ %450, %449 ]
+  %.1224343 = phi i32 [ 0, %.lr.ph344 ], [ %451, %449 ]
+  %210 = call i32 @Fra_ClassesCountLits(ptr noundef nonnull %209) #15
+  %211 = load ptr, ptr %132, align 8
+  %212 = getelementptr inbounds i8, ptr %211, i64 80
+  %213 = load ptr, ptr %212, align 8
+  %.not245 = icmp eq ptr %213, null
+  br i1 %.not245, label %216, label %214
 
-205:                                              ; preds = %199
-  %206 = getelementptr i8, ptr %204, i64 4
-  %.val284 = load i32, ptr %206, align 4
-  br label %207
+214:                                              ; preds = %208
+  %215 = getelementptr i8, ptr %213, i64 4
+  %.val284 = load i32, ptr %215, align 4
+  br label %216
 
-207:                                              ; preds = %199, %205
-  %208 = phi i32 [ %.val284, %205 ], [ 0, %199 ]
-  %209 = load ptr, ptr %182, align 8
-  %.not246 = icmp eq ptr %209, null
-  br i1 %.not246, label %212, label %210
+216:                                              ; preds = %208, %214
+  %217 = phi i32 [ %.val284, %214 ], [ 0, %208 ]
+  %218 = load ptr, ptr %191, align 8
+  %.not246 = icmp eq ptr %218, null
+  br i1 %.not246, label %221, label %219
 
-210:                                              ; preds = %207
-  %211 = call i32 @Fra_OneHotCount(ptr noundef nonnull %95, ptr noundef nonnull %209) #15
-  br label %212
+219:                                              ; preds = %216
+  %220 = call i32 @Fra_OneHotCount(ptr noundef nonnull %104, ptr noundef nonnull %218) #15
+  br label %221
 
-212:                                              ; preds = %207, %210
-  %213 = phi i32 [ %211, %210 ], [ 0, %207 ]
+221:                                              ; preds = %216, %219
+  %222 = phi i32 [ %220, %219 ], [ 0, %216 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  %214 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #15
-  %215 = icmp slt i32 %214, 0
-  br i1 %215, label %Abc_Clock.exit309, label %216
+  %223 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #15
+  %224 = icmp slt i32 %223, 0
+  br i1 %224, label %Abc_Clock.exit309, label %225
 
-216:                                              ; preds = %212
-  %217 = load i64, ptr %11, align 8
-  %.neg329 = mul i64 %217, -1000000
-  %218 = load i64, ptr %183, align 8
-  %.neg328 = sdiv i64 %218, -1000
+225:                                              ; preds = %221
+  %226 = load i64, ptr %11, align 8
+  %.neg329 = mul i64 %226, -1000000
+  %227 = load i64, ptr %192, align 8
+  %.neg328 = sdiv i64 %227, -1000
   %.neg330 = add i64 %.neg328, %.neg329
   br label %Abc_Clock.exit309
 
-Abc_Clock.exit309:                                ; preds = %212, %216
-  %.0.i308.neg = phi i64 [ %.neg330, %216 ], [ 1, %212 ]
+Abc_Clock.exit309:                                ; preds = %221, %225
+  %.0.i308.neg = phi i64 [ %.neg330, %225 ], [ 1, %221 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %219 = load float, ptr %26, align 4
-  %220 = fcmp une float %219, 0.000000e+00
-  br i1 %220, label %221, label %235
+  %228 = load float, ptr %26, align 4
+  %229 = fcmp une float %228, 0.000000e+00
+  br i1 %229, label %230, label %244
 
-221:                                              ; preds = %Abc_Clock.exit309
+230:                                              ; preds = %Abc_Clock.exit309
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %222 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #15
-  %223 = icmp slt i32 %222, 0
-  br i1 %223, label %Abc_Clock.exit311, label %224
+  %231 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #15
+  %232 = icmp slt i32 %231, 0
+  br i1 %232, label %Abc_Clock.exit311, label %233
 
-224:                                              ; preds = %221
-  %225 = load i64, ptr %10, align 8
-  %226 = mul nsw i64 %225, 1000000
-  %227 = load i64, ptr %184, align 8
-  %228 = sdiv i64 %227, 1000
-  %229 = add nsw i64 %228, %226
+233:                                              ; preds = %230
+  %234 = load i64, ptr %10, align 8
+  %235 = mul nsw i64 %234, 1000000
+  %236 = load i64, ptr %193, align 8
+  %237 = sdiv i64 %236, 1000
+  %238 = add nsw i64 %237, %235
   br label %Abc_Clock.exit311
 
-Abc_Clock.exit311:                                ; preds = %221, %224
-  %.0.i310 = phi i64 [ %229, %224 ], [ -1, %221 ]
+Abc_Clock.exit311:                                ; preds = %230, %233
+  %.0.i310 = phi i64 [ %238, %233 ], [ -1, %230 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %230 = icmp sgt i64 %.0.i310, %43
-  br i1 %230, label %231, label %235
+  %239 = icmp sgt i64 %.0.i310, %43
+  br i1 %239, label %240, label %244
 
-231:                                              ; preds = %Abc_Clock.exit311
-  %232 = getelementptr inbounds i8, ptr %1, i64 56
-  %233 = load i32, ptr %232, align 4
-  %.not267 = icmp eq i32 %233, 0
-  br i1 %.not267, label %234, label %509
+240:                                              ; preds = %Abc_Clock.exit311
+  %241 = getelementptr inbounds i8, ptr %1, i64 56
+  %242 = load i32, ptr %241, align 4
+  %.not267 = icmp eq i32 %242, 0
+  br i1 %.not267, label %243, label %518
 
-234:                                              ; preds = %231
+243:                                              ; preds = %240
   %puts268 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  br label %509
+  br label %518
 
-235:                                              ; preds = %Abc_Clock.exit311, %Abc_Clock.exit309
-  %236 = load ptr, ptr %123, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 76
-  store i32 0, ptr %237, align 4
+244:                                              ; preds = %Abc_Clock.exit311, %Abc_Clock.exit309
+  %245 = load ptr, ptr %132, align 8
+  %246 = getelementptr inbounds i8, ptr %245, i64 76
+  store i32 0, ptr %246, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %238 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #15
-  %239 = icmp slt i32 %238, 0
-  br i1 %239, label %Abc_Clock.exit313, label %240
+  %247 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #15
+  %248 = icmp slt i32 %247, 0
+  br i1 %248, label %Abc_Clock.exit313, label %249
 
-240:                                              ; preds = %235
-  %241 = load i64, ptr %9, align 8
-  %.neg326 = mul i64 %241, -1000000
-  %242 = load i64, ptr %185, align 8
-  %.neg = sdiv i64 %242, -1000
+249:                                              ; preds = %244
+  %250 = load i64, ptr %9, align 8
+  %.neg326 = mul i64 %250, -1000000
+  %251 = load i64, ptr %194, align 8
+  %.neg = sdiv i64 %251, -1000
   %.neg327 = add i64 %.neg, %.neg326
   br label %Abc_Clock.exit313
 
-Abc_Clock.exit313:                                ; preds = %235, %240
-  %.0.i312.neg = phi i64 [ %.neg327, %240 ], [ 1, %235 ]
+Abc_Clock.exit313:                                ; preds = %244, %249
+  %.0.i312.neg = phi i64 [ %.neg327, %249 ], [ 1, %244 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %243 = call ptr @Fra_FramesWithClasses(ptr noundef nonnull %95)
-  store ptr %243, ptr %186, align 8
+  %252 = call ptr @Fra_FramesWithClasses(ptr noundef nonnull %104)
+  store ptr %252, ptr %195, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %244 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #15
-  %245 = icmp slt i32 %244, 0
-  br i1 %245, label %Abc_Clock.exit315, label %246
+  %253 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #15
+  %254 = icmp slt i32 %253, 0
+  br i1 %254, label %Abc_Clock.exit315, label %255
 
-246:                                              ; preds = %Abc_Clock.exit313
-  %247 = load i64, ptr %8, align 8
-  %248 = mul nsw i64 %247, 1000000
-  %249 = load i64, ptr %187, align 8
-  %250 = sdiv i64 %249, 1000
-  %251 = add nsw i64 %250, %248
+255:                                              ; preds = %Abc_Clock.exit313
+  %256 = load i64, ptr %8, align 8
+  %257 = mul nsw i64 %256, 1000000
+  %258 = load i64, ptr %196, align 8
+  %259 = sdiv i64 %258, 1000
+  %260 = add nsw i64 %259, %257
   br label %Abc_Clock.exit315
 
-Abc_Clock.exit315:                                ; preds = %Abc_Clock.exit313, %246
-  %.0.i314 = phi i64 [ %251, %246 ], [ -1, %Abc_Clock.exit313 ]
+Abc_Clock.exit315:                                ; preds = %Abc_Clock.exit313, %255
+  %.0.i314 = phi i64 [ %260, %255 ], [ -1, %Abc_Clock.exit313 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %252 = add i64 %.0.i314, %.0.i312.neg
-  %253 = load i64, ptr %188, align 8
-  %254 = add nsw i64 %252, %253
-  store i64 %254, ptr %188, align 8
-  %255 = load ptr, ptr %95, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 92
-  %257 = load i32, ptr %256, align 4
-  %.not247 = icmp eq i32 %257, 0
-  br i1 %.not247, label %259, label %258
+  %261 = add i64 %.0.i314, %.0.i312.neg
+  %262 = load i64, ptr %197, align 8
+  %263 = add nsw i64 %261, %262
+  store i64 %263, ptr %197, align 8
+  %264 = load ptr, ptr %104, align 8
+  %265 = getelementptr inbounds i8, ptr %264, i64 92
+  %266 = load i32, ptr %265, align 4
+  %.not247 = icmp eq i32 %266, 0
+  br i1 %.not247, label %268, label %267
 
-258:                                              ; preds = %Abc_Clock.exit315
-  call void @Fra_FraigInductionRewrite(ptr noundef nonnull %95)
-  br label %259
+267:                                              ; preds = %Abc_Clock.exit315
+  call void @Fra_FraigInductionRewrite(ptr noundef nonnull %104)
+  br label %268
 
-259:                                              ; preds = %Abc_Clock.exit315, %258
-  %260 = load i32, ptr %91, align 4
-  %.not248 = icmp eq i32 %260, 0
-  %261 = load ptr, ptr %186, align 8
-  %262 = getelementptr i8, ptr %261, i64 104
-  %.val = load i32, ptr %262, align 8
-  br i1 %.not248, label %265, label %263
+268:                                              ; preds = %Abc_Clock.exit315, %267
+  %269 = load i32, ptr %98, align 4
+  %.not248 = icmp eq i32 %269, 0
+  %270 = load ptr, ptr %195, align 8
+  %271 = getelementptr i8, ptr %270, i64 104
+  %.val = load i32, ptr %271, align 8
+  br i1 %.not248, label %274, label %272
 
-263:                                              ; preds = %259
-  %264 = call ptr @Cnf_DeriveSimple(ptr noundef %261, i32 noundef %.val) #15
-  br label %267
+272:                                              ; preds = %268
+  %273 = call ptr @Cnf_DeriveSimple(ptr noundef %270, i32 noundef %.val) #15
+  br label %276
 
-265:                                              ; preds = %259
-  %266 = call ptr @Cnf_Derive(ptr noundef %261, i32 noundef %.val) #15
-  br label %267
+274:                                              ; preds = %268
+  %275 = call ptr @Cnf_Derive(ptr noundef %270, i32 noundef %.val) #15
+  br label %276
 
-267:                                              ; preds = %265, %263
-  %.0221 = phi ptr [ %264, %263 ], [ %266, %265 ]
-  %268 = call ptr @Cnf_DataWriteIntoSolver(ptr noundef %.0221, i32 noundef 1, i32 noundef 0) #15
-  store ptr %268, ptr %189, align 8
-  %269 = getelementptr inbounds i8, ptr %.0221, i64 8
-  %270 = load i32, ptr %269, align 8
-  store i32 %270, ptr %190, align 8
-  %271 = icmp eq ptr %268, null
-  br i1 %271, label %272, label %273
+276:                                              ; preds = %274, %272
+  %.0221 = phi ptr [ %273, %272 ], [ %275, %274 ]
+  %277 = call ptr @Cnf_DataWriteIntoSolver(ptr noundef %.0221, i32 noundef 1, i32 noundef 0) #15
+  store ptr %277, ptr %198, align 8
+  %278 = getelementptr inbounds i8, ptr %.0221, i64 8
+  %279 = load i32, ptr %278, align 8
+  store i32 %279, ptr %199, align 8
+  %280 = icmp eq ptr %277, null
+  br i1 %280, label %281, label %282
 
-272:                                              ; preds = %267
+281:                                              ; preds = %276
   %puts249 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %273
+  br label %282
 
-273:                                              ; preds = %272, %267
-  %274 = load i32, ptr %91, align 4
-  %.not250 = icmp eq i32 %274, 0
-  br i1 %.not250, label %284, label %275
+282:                                              ; preds = %281, %276
+  %283 = load i32, ptr %98, align 4
+  %.not250 = icmp eq i32 %283, 0
+  br i1 %.not250, label %293, label %284
 
-275:                                              ; preds = %273
-  %276 = load ptr, ptr %123, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 80
-  %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds i8, ptr %.0221, i64 32
-  %280 = load ptr, ptr %279, align 8
-  call void @Fra_ImpAddToSolver(ptr noundef nonnull %95, ptr noundef %278, ptr noundef %280) #15
-  %281 = load ptr, ptr %189, align 8
-  %282 = icmp eq ptr %281, null
-  br i1 %282, label %283, label %284
-
-283:                                              ; preds = %275
-  %puts251 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %284
-
-284:                                              ; preds = %275, %283, %273
-  %285 = load ptr, ptr %186, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 32
+284:                                              ; preds = %282
+  %285 = load ptr, ptr %132, align 8
+  %286 = getelementptr inbounds i8, ptr %285, i64 80
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr i8, ptr %287, i64 4
-  %.val279337 = load i32, ptr %288, align 4
-  %289 = icmp sgt i32 %.val279337, 0
-  br i1 %289, label %.lr.ph, label %.critedge
+  %288 = getelementptr inbounds i8, ptr %.0221, i64 32
+  %289 = load ptr, ptr %288, align 8
+  call void @Fra_ImpAddToSolver(ptr noundef nonnull %104, ptr noundef %287, ptr noundef %289) #15
+  %290 = load ptr, ptr %198, align 8
+  %291 = icmp eq ptr %290, null
+  br i1 %291, label %292, label %293
 
-.lr.ph:                                           ; preds = %284, %298
-  %290 = phi ptr [ %299, %298 ], [ %285, %284 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %298 ], [ 0, %284 ]
-  %291 = phi ptr [ %301, %298 ], [ %287, %284 ]
-  %292 = getelementptr i8, ptr %291, i64 8
-  %.val275 = load ptr, ptr %292, align 8
-  %293 = getelementptr inbounds ptr, ptr %.val275, i64 %indvars.iv
-  %294 = load ptr, ptr %293, align 8
-  %295 = icmp eq ptr %294, null
-  br i1 %295, label %298, label %296
+292:                                              ; preds = %284
+  %puts251 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
+  br label %293
 
-296:                                              ; preds = %.lr.ph
-  %297 = getelementptr inbounds i8, ptr %294, i64 40
-  store ptr %95, ptr %297, align 8
-  %.pre = load ptr, ptr %186, align 8
-  br label %298
+293:                                              ; preds = %284, %292, %282
+  %294 = load ptr, ptr %195, align 8
+  %295 = getelementptr inbounds i8, ptr %294, i64 32
+  %296 = load ptr, ptr %295, align 8
+  %297 = getelementptr i8, ptr %296, i64 4
+  %.val279337 = load i32, ptr %297, align 4
+  %298 = icmp sgt i32 %.val279337, 0
+  br i1 %298, label %.lr.ph, label %.critedge
 
-298:                                              ; preds = %296, %.lr.ph
-  %299 = phi ptr [ %.pre, %296 ], [ %290, %.lr.ph ]
+.lr.ph:                                           ; preds = %293, %307
+  %299 = phi ptr [ %308, %307 ], [ %294, %293 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %307 ], [ 0, %293 ]
+  %300 = phi ptr [ %310, %307 ], [ %296, %293 ]
+  %301 = getelementptr i8, ptr %300, i64 8
+  %.val275 = load ptr, ptr %301, align 8
+  %302 = getelementptr inbounds ptr, ptr %.val275, i64 %indvars.iv
+  %303 = load ptr, ptr %302, align 8
+  %304 = icmp eq ptr %303, null
+  br i1 %304, label %307, label %305
+
+305:                                              ; preds = %.lr.ph
+  %306 = getelementptr inbounds i8, ptr %303, i64 40
+  store ptr %104, ptr %306, align 8
+  %.pre = load ptr, ptr %195, align 8
+  br label %307
+
+307:                                              ; preds = %305, %.lr.ph
+  %308 = phi ptr [ %.pre, %305 ], [ %299, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %300 = getelementptr inbounds i8, ptr %299, i64 32
-  %301 = load ptr, ptr %300, align 8
-  %302 = getelementptr i8, ptr %301, i64 4
-  %.val279 = load i32, ptr %302, align 4
-  %303 = sext i32 %.val279 to i64
-  %304 = icmp slt i64 %indvars.iv.next, %303
-  br i1 %304, label %.lr.ph, label %.critedge, !llvm.loop !26
+  %309 = getelementptr inbounds i8, ptr %308, i64 32
+  %310 = load ptr, ptr %309, align 8
+  %311 = getelementptr i8, ptr %310, i64 4
+  %.val279 = load i32, ptr %311, align 4
+  %312 = sext i32 %.val279 to i64
+  %313 = icmp slt i64 %indvars.iv.next, %312
+  br i1 %313, label %.lr.ph, label %.critedge, !llvm.loop !26
 
-.critedge:                                        ; preds = %298, %284
-  %.val279.lcssa = phi i32 [ %.val279337, %284 ], [ %.val279, %298 ]
-  %305 = load ptr, ptr %191, align 8
-  %306 = getelementptr i8, ptr %305, i64 148
-  %.val289 = load i32, ptr %306, align 4
-  %307 = getelementptr i8, ptr %305, i64 152
-  %.val290 = load i32, ptr %307, align 8
-  %308 = add i32 %.val289, %.val279.lcssa
-  %309 = add i32 %308, %.val290
-  call void @Fra_ManClean(ptr noundef nonnull %95, i32 noundef %309) #15
-  %310 = load ptr, ptr %186, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 32
-  %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr i8, ptr %312, i64 4
-  %.val278339 = load i32, ptr %313, align 4
-  %314 = icmp sgt i32 %.val278339, 0
-  br i1 %314, label %.lr.ph341, label %.critedge2
+.critedge:                                        ; preds = %307, %293
+  %.val279.lcssa = phi i32 [ %.val279337, %293 ], [ %.val279, %307 ]
+  %314 = load ptr, ptr %200, align 8
+  %315 = getelementptr i8, ptr %314, i64 148
+  %.val289 = load i32, ptr %315, align 4
+  %316 = getelementptr i8, ptr %314, i64 152
+  %.val290 = load i32, ptr %316, align 8
+  %317 = add i32 %.val289, %.val279.lcssa
+  %318 = add i32 %317, %.val290
+  call void @Fra_ManClean(ptr noundef nonnull %104, i32 noundef %318) #15
+  %319 = load ptr, ptr %195, align 8
+  %320 = getelementptr inbounds i8, ptr %319, i64 32
+  %321 = load ptr, ptr %320, align 8
+  %322 = getelementptr i8, ptr %321, i64 4
+  %.val278339 = load i32, ptr %322, align 4
+  %323 = icmp sgt i32 %.val278339, 0
+  br i1 %323, label %.lr.ph341, label %.critedge2
 
 .lr.ph341:                                        ; preds = %.critedge
-  %315 = getelementptr inbounds i8, ptr %.0221, i64 32
-  br label %316
+  %324 = getelementptr inbounds i8, ptr %.0221, i64 32
+  br label %325
 
-316:                                              ; preds = %.lr.ph341, %338
-  %317 = phi ptr [ %310, %.lr.ph341 ], [ %339, %338 ]
-  %indvars.iv350 = phi i64 [ 0, %.lr.ph341 ], [ %indvars.iv.next351, %338 ]
-  %318 = phi ptr [ %312, %.lr.ph341 ], [ %341, %338 ]
-  %319 = getelementptr i8, ptr %318, i64 8
-  %.val274 = load ptr, ptr %319, align 8
-  %320 = getelementptr inbounds ptr, ptr %.val274, i64 %indvars.iv350
-  %321 = load ptr, ptr %320, align 8
-  %322 = icmp eq ptr %321, null
-  br i1 %322, label %338, label %323
+325:                                              ; preds = %.lr.ph341, %347
+  %326 = phi ptr [ %319, %.lr.ph341 ], [ %348, %347 ]
+  %indvars.iv350 = phi i64 [ 0, %.lr.ph341 ], [ %indvars.iv.next351, %347 ]
+  %327 = phi ptr [ %321, %.lr.ph341 ], [ %350, %347 ]
+  %328 = getelementptr i8, ptr %327, i64 8
+  %.val274 = load ptr, ptr %328, align 8
+  %329 = getelementptr inbounds ptr, ptr %.val274, i64 %indvars.iv350
+  %330 = load ptr, ptr %329, align 8
+  %331 = icmp eq ptr %330, null
+  br i1 %331, label %347, label %332
 
-323:                                              ; preds = %316
-  %324 = load ptr, ptr %315, align 8
-  %325 = getelementptr inbounds i8, ptr %321, i64 36
-  %326 = load i32, ptr %325, align 4
-  %327 = sext i32 %326 to i64
-  %328 = getelementptr inbounds i32, ptr %324, i64 %327
-  %329 = load i32, ptr %328, align 4
-  %330 = icmp eq i32 %329, -1
-  br i1 %330, label %338, label %331
+332:                                              ; preds = %325
+  %333 = load ptr, ptr %324, align 8
+  %334 = getelementptr inbounds i8, ptr %330, i64 36
+  %335 = load i32, ptr %334, align 4
+  %336 = sext i32 %335 to i64
+  %337 = getelementptr inbounds i32, ptr %333, i64 %336
+  %338 = load i32, ptr %337, align 4
+  %339 = icmp eq i32 %338, -1
+  br i1 %339, label %347, label %340
 
-331:                                              ; preds = %323
-  %332 = getelementptr i8, ptr %321, i64 40
-  %.val299 = load ptr, ptr %332, align 8
-  %333 = getelementptr i8, ptr %.val299, i64 152
-  %.val299.val = load ptr, ptr %333, align 8
-  %334 = getelementptr inbounds i32, ptr %.val299.val, i64 %327
-  store i32 %329, ptr %334, align 4
-  %.val300 = load i32, ptr %325, align 4
-  %.val301 = load ptr, ptr %332, align 8
-  %335 = getelementptr i8, ptr %.val301, i64 144
-  %.val301.val = load ptr, ptr %335, align 8
-  %336 = sext i32 %.val300 to i64
-  %337 = getelementptr inbounds ptr, ptr %.val301.val, i64 %336
-  store ptr inttoptr (i64 1 to ptr), ptr %337, align 8
-  %.pre353 = load ptr, ptr %186, align 8
-  br label %338
+340:                                              ; preds = %332
+  %341 = getelementptr i8, ptr %330, i64 40
+  %.val299 = load ptr, ptr %341, align 8
+  %342 = getelementptr i8, ptr %.val299, i64 152
+  %.val299.val = load ptr, ptr %342, align 8
+  %343 = getelementptr inbounds i32, ptr %.val299.val, i64 %336
+  store i32 %338, ptr %343, align 4
+  %.val300 = load i32, ptr %334, align 4
+  %.val301 = load ptr, ptr %341, align 8
+  %344 = getelementptr i8, ptr %.val301, i64 144
+  %.val301.val = load ptr, ptr %344, align 8
+  %345 = sext i32 %.val300 to i64
+  %346 = getelementptr inbounds ptr, ptr %.val301.val, i64 %345
+  store ptr inttoptr (i64 1 to ptr), ptr %346, align 8
+  %.pre353 = load ptr, ptr %195, align 8
+  br label %347
 
-338:                                              ; preds = %331, %316, %323
-  %339 = phi ptr [ %.pre353, %331 ], [ %317, %316 ], [ %317, %323 ]
+347:                                              ; preds = %340, %325, %332
+  %348 = phi ptr [ %.pre353, %340 ], [ %326, %325 ], [ %326, %332 ]
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
-  %340 = getelementptr inbounds i8, ptr %339, i64 32
-  %341 = load ptr, ptr %340, align 8
-  %342 = getelementptr i8, ptr %341, i64 4
-  %.val278 = load i32, ptr %342, align 4
-  %343 = sext i32 %.val278 to i64
-  %344 = icmp slt i64 %indvars.iv.next351, %343
-  br i1 %344, label %316, label %.critedge2, !llvm.loop !27
+  %349 = getelementptr inbounds i8, ptr %348, i64 32
+  %350 = load ptr, ptr %349, align 8
+  %351 = getelementptr i8, ptr %350, i64 4
+  %.val278 = load i32, ptr %351, align 4
+  %352 = sext i32 %.val278 to i64
+  %353 = icmp slt i64 %indvars.iv.next351, %352
+  br i1 %353, label %325, label %.critedge2, !llvm.loop !27
 
-.critedge2:                                       ; preds = %338, %.critedge
+.critedge2:                                       ; preds = %347, %.critedge
   call void @Cnf_DataFree(ptr noundef %.0221) #15
-  %345 = load ptr, ptr %95, align 8
-  %346 = getelementptr inbounds i8, ptr %345, i64 104
-  %347 = load i32, ptr %346, align 8
-  %.not252 = icmp eq i32 %347, 0
-  br i1 %.not252, label %350, label %348
+  %354 = load ptr, ptr %104, align 8
+  %355 = getelementptr inbounds i8, ptr %354, i64 104
+  %356 = load i32, ptr %355, align 8
+  %.not252 = icmp eq i32 %356, 0
+  br i1 %.not252, label %359, label %357
 
-348:                                              ; preds = %.critedge2
-  %349 = load ptr, ptr %182, align 8
-  call void @Fra_OneHotAssume(ptr noundef nonnull %95, ptr noundef %349) #15
-  br label %350
+357:                                              ; preds = %.critedge2
+  %358 = load ptr, ptr %191, align 8
+  call void @Fra_OneHotAssume(ptr noundef nonnull %104, ptr noundef %358) #15
+  br label %359
 
-350:                                              ; preds = %348, %.critedge2
-  %351 = load i32, ptr %82, align 4
-  %.not253 = icmp eq i32 %351, 0
-  br i1 %.not253, label %Abc_Clock.exit317, label %352
+359:                                              ; preds = %357, %.critedge2
+  %360 = load i32, ptr %89, align 4
+  %.not253 = icmp eq i32 %360, 0
+  br i1 %.not253, label %Abc_Clock.exit317, label %361
 
-352:                                              ; preds = %350
-  %353 = load ptr, ptr %123, align 8
-  %354 = getelementptr inbounds i8, ptr %353, i64 24
-  %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr i8, ptr %355, i64 4
-  %.val277 = load i32, ptr %356, align 4
-  %357 = getelementptr inbounds i8, ptr %353, i64 16
-  %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr i8, ptr %358, i64 4
-  %.val276 = load i32, ptr %359, align 4
-  %360 = call i32 @Fra_ClassesCountLits(ptr noundef %353) #15
-  %361 = load ptr, ptr %186, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 116
-  %363 = load i32, ptr %362, align 4
-  %364 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.1224343, i32 noundef %.val277, i32 noundef %.val276, i32 noundef %360, i32 noundef %363)
-  %365 = load ptr, ptr %123, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 80
+361:                                              ; preds = %359
+  %362 = load ptr, ptr %132, align 8
+  %363 = getelementptr inbounds i8, ptr %362, i64 24
+  %364 = load ptr, ptr %363, align 8
+  %365 = getelementptr i8, ptr %364, i64 4
+  %.val277 = load i32, ptr %365, align 4
+  %366 = getelementptr inbounds i8, ptr %362, i64 16
   %367 = load ptr, ptr %366, align 8
-  %.not254 = icmp eq ptr %367, null
-  br i1 %.not254, label %371, label %368
+  %368 = getelementptr i8, ptr %367, i64 4
+  %.val276 = load i32, ptr %368, align 4
+  %369 = call i32 @Fra_ClassesCountLits(ptr noundef %362) #15
+  %370 = load ptr, ptr %195, align 8
+  %371 = getelementptr inbounds i8, ptr %370, i64 116
+  %372 = load i32, ptr %371, align 4
+  %373 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.1224343, i32 noundef %.val277, i32 noundef %.val276, i32 noundef %369, i32 noundef %372)
+  %374 = load ptr, ptr %132, align 8
+  %375 = getelementptr inbounds i8, ptr %374, i64 80
+  %376 = load ptr, ptr %375, align 8
+  %.not254 = icmp eq ptr %376, null
+  br i1 %.not254, label %380, label %377
 
-368:                                              ; preds = %352
-  %369 = getelementptr i8, ptr %367, i64 4
-  %.val283 = load i32, ptr %369, align 4
-  %370 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.val283)
-  br label %371
+377:                                              ; preds = %361
+  %378 = getelementptr i8, ptr %376, i64 4
+  %.val283 = load i32, ptr %378, align 4
+  %379 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.val283)
+  br label %380
 
-371:                                              ; preds = %368, %352
-  %372 = load ptr, ptr %95, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 104
-  %374 = load i32, ptr %373, align 8
-  %.not255 = icmp eq i32 %374, 0
-  br i1 %.not255, label %379, label %375
+380:                                              ; preds = %377, %361
+  %381 = load ptr, ptr %104, align 8
+  %382 = getelementptr inbounds i8, ptr %381, i64 104
+  %383 = load i32, ptr %382, align 8
+  %.not255 = icmp eq i32 %383, 0
+  br i1 %.not255, label %388, label %384
 
-375:                                              ; preds = %371
-  %376 = load ptr, ptr %182, align 8
-  %377 = call i32 @Fra_OneHotCount(ptr noundef nonnull %95, ptr noundef %376) #15
-  %378 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %377)
-  br label %379
+384:                                              ; preds = %380
+  %385 = load ptr, ptr %191, align 8
+  %386 = call i32 @Fra_OneHotCount(ptr noundef nonnull %104, ptr noundef %385) #15
+  %387 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %386)
+  br label %388
 
-379:                                              ; preds = %375, %371
-  %380 = load ptr, ptr %186, align 8
-  %381 = getelementptr i8, ptr %380, i64 148
-  %.val287 = load i32, ptr %381, align 4
-  %382 = getelementptr i8, ptr %380, i64 152
-  %.val288 = load i32, ptr %382, align 8
-  %383 = add nsw i32 %.val288, %.val287
-  %384 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %383)
+388:                                              ; preds = %384, %380
+  %389 = load ptr, ptr %195, align 8
+  %390 = getelementptr i8, ptr %389, i64 148
+  %.val287 = load i32, ptr %390, align 4
+  %391 = getelementptr i8, ptr %389, i64 152
+  %.val288 = load i32, ptr %391, align 8
+  %392 = add nsw i32 %.val288, %.val287
+  %393 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %392)
   br label %Abc_Clock.exit317
 
-Abc_Clock.exit317:                                ; preds = %379, %350
-  store i32 0, ptr %192, align 4
-  store i32 0, ptr %193, align 8
+Abc_Clock.exit317:                                ; preds = %388, %359
+  store i32 0, ptr %201, align 4
+  store i32 0, ptr %202, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %385 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #15
+  %394 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %386 = load ptr, ptr %95, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 104
-  %388 = load i32, ptr %387, align 8
-  %.not256 = icmp eq i32 %388, 0
-  br i1 %.not256, label %391, label %389
+  %395 = load ptr, ptr %104, align 8
+  %396 = getelementptr inbounds i8, ptr %395, i64 104
+  %397 = load i32, ptr %396, align 8
+  %.not256 = icmp eq i32 %397, 0
+  br i1 %.not256, label %400, label %398
 
-389:                                              ; preds = %Abc_Clock.exit317
-  %390 = load ptr, ptr %182, align 8
-  call void @Fra_OneHotCheck(ptr noundef nonnull %95, ptr noundef %390) #15
-  br label %391
+398:                                              ; preds = %Abc_Clock.exit317
+  %399 = load ptr, ptr %191, align 8
+  call void @Fra_OneHotCheck(ptr noundef nonnull %104, ptr noundef %399) #15
+  br label %400
 
-391:                                              ; preds = %389, %Abc_Clock.exit317
-  call void @Fra_FraigSweep(ptr noundef nonnull %95) #15
-  %392 = load i32, ptr %82, align 4
-  %.not257 = icmp eq i32 %392, 0
-  br i1 %.not257, label %405, label %393
+400:                                              ; preds = %398, %Abc_Clock.exit317
+  call void @Fra_FraigSweep(ptr noundef nonnull %104) #15
+  %401 = load i32, ptr %89, align 4
+  %.not257 = icmp eq i32 %401, 0
+  br i1 %.not257, label %414, label %402
 
-393:                                              ; preds = %391
+402:                                              ; preds = %400
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.18)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %394 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #15
-  %395 = icmp slt i32 %394, 0
-  br i1 %395, label %Abc_Clock.exit319, label %396
+  %403 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #15
+  %404 = icmp slt i32 %403, 0
+  br i1 %404, label %Abc_Clock.exit319, label %405
 
-396:                                              ; preds = %393
-  %397 = load i64, ptr %6, align 8
-  %398 = mul nsw i64 %397, 1000000
-  %399 = load i64, ptr %194, align 8
-  %400 = sdiv i64 %399, 1000
-  %401 = add nsw i64 %400, %398
+405:                                              ; preds = %402
+  %406 = load i64, ptr %6, align 8
+  %407 = mul nsw i64 %406, 1000000
+  %408 = load i64, ptr %203, align 8
+  %409 = sdiv i64 %408, 1000
+  %410 = add nsw i64 %409, %407
   br label %Abc_Clock.exit319
 
-Abc_Clock.exit319:                                ; preds = %393, %396
-  %.0.i318 = phi i64 [ %401, %396 ], [ -1, %393 ]
+Abc_Clock.exit319:                                ; preds = %402, %405
+  %.0.i318 = phi i64 [ %410, %405 ], [ -1, %402 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %402 = add i64 %.0.i318, %.0.i308.neg
-  %403 = sitofp i64 %402 to double
-  %404 = fdiv double %403, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %404)
-  br label %405
+  %411 = add i64 %.0.i318, %.0.i308.neg
+  %412 = sitofp i64 %411 to double
+  %413 = fdiv double %412, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %413)
+  br label %414
 
-405:                                              ; preds = %Abc_Clock.exit319, %391
-  %406 = load ptr, ptr %186, align 8
-  call void @Aig_ManStop(ptr noundef %406) #15
-  store ptr null, ptr %186, align 8
-  %407 = load ptr, ptr %189, align 8
-  call void @sat_solver_delete(ptr noundef %407) #15
-  store ptr null, ptr %189, align 8
-  %408 = load ptr, ptr %195, align 8
-  %409 = load i32, ptr %196, align 8
-  %410 = sext i32 %409 to i64
-  %411 = shl nsw i64 %410, 3
-  %412 = load i32, ptr %197, align 8
-  %413 = sext i32 %412 to i64
-  %414 = mul i64 %411, %413
-  call void @llvm.memset.p0.i64(ptr align 8 %408, i8 0, i64 %414, i1 false)
-  %415 = load ptr, ptr %198, align 8
-  %.not258 = icmp eq ptr %415, null
-  br i1 %.not258, label %417, label %416
+414:                                              ; preds = %Abc_Clock.exit319, %400
+  %415 = load ptr, ptr %195, align 8
+  call void @Aig_ManStop(ptr noundef %415) #15
+  store ptr null, ptr %195, align 8
+  %416 = load ptr, ptr %198, align 8
+  call void @sat_solver_delete(ptr noundef %416) #15
+  store ptr null, ptr %198, align 8
+  %417 = load ptr, ptr %204, align 8
+  %418 = load i32, ptr %205, align 8
+  %419 = sext i32 %418 to i64
+  %420 = shl nsw i64 %419, 3
+  %421 = load i32, ptr %206, align 8
+  %422 = sext i32 %421 to i64
+  %423 = mul i64 %420, %422
+  call void @llvm.memset.p0.i64(ptr align 8 %417, i8 0, i64 %423, i1 false)
+  %424 = load ptr, ptr %207, align 8
+  %.not258 = icmp eq ptr %424, null
+  br i1 %.not258, label %426, label %425
 
-416:                                              ; preds = %405
+425:                                              ; preds = %414
   %puts259 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %417
+  br label %426
 
-417:                                              ; preds = %416, %405
-  %418 = load ptr, ptr %123, align 8
-  %419 = getelementptr inbounds i8, ptr %418, i64 76
-  %420 = load i32, ptr %419, align 4
-  %.not260 = icmp eq i32 %420, 0
-  br i1 %.not260, label %440, label %421
+426:                                              ; preds = %425, %414
+  %427 = load ptr, ptr %132, align 8
+  %428 = getelementptr inbounds i8, ptr %427, i64 76
+  %429 = load i32, ptr %428, align 4
+  %.not260 = icmp eq i32 %429, 0
+  br i1 %.not260, label %449, label %430
 
-421:                                              ; preds = %417
-  %422 = call i32 @Fra_ClassesCountLits(ptr noundef nonnull %418) #15
-  %423 = icmp eq i32 %201, %422
-  %.pre355 = load ptr, ptr %123, align 8
-  br i1 %423, label %424, label %440
+430:                                              ; preds = %426
+  %431 = call i32 @Fra_ClassesCountLits(ptr noundef nonnull %427) #15
+  %432 = icmp eq i32 %210, %431
+  %.pre355 = load ptr, ptr %132, align 8
+  br i1 %432, label %433, label %449
 
-424:                                              ; preds = %421
-  %425 = getelementptr inbounds i8, ptr %.pre355, i64 80
-  %426 = load ptr, ptr %425, align 8
-  %.not261 = icmp eq ptr %426, null
-  br i1 %.not261, label %429, label %427
+433:                                              ; preds = %430
+  %434 = getelementptr inbounds i8, ptr %.pre355, i64 80
+  %435 = load ptr, ptr %434, align 8
+  %.not261 = icmp eq ptr %435, null
+  br i1 %.not261, label %438, label %436
 
-427:                                              ; preds = %424
-  %428 = getelementptr i8, ptr %426, i64 4
-  %.val282 = load i32, ptr %428, align 4
-  br label %429
+436:                                              ; preds = %433
+  %437 = getelementptr i8, ptr %435, i64 4
+  %.val282 = load i32, ptr %437, align 4
+  br label %438
 
-429:                                              ; preds = %424, %427
-  %430 = phi i32 [ %.val282, %427 ], [ 0, %424 ]
-  %431 = icmp eq i32 %208, %430
-  br i1 %431, label %432, label %440
+438:                                              ; preds = %433, %436
+  %439 = phi i32 [ %.val282, %436 ], [ 0, %433 ]
+  %440 = icmp eq i32 %217, %439
+  br i1 %440, label %441, label %449
 
-432:                                              ; preds = %429
-  %433 = load ptr, ptr %182, align 8
-  %.not262 = icmp eq ptr %433, null
-  br i1 %.not262, label %436, label %434
+441:                                              ; preds = %438
+  %442 = load ptr, ptr %191, align 8
+  %.not262 = icmp eq ptr %442, null
+  br i1 %.not262, label %445, label %443
 
-434:                                              ; preds = %432
-  %435 = call i32 @Fra_OneHotCount(ptr noundef nonnull %95, ptr noundef nonnull %433) #15
-  br label %436
+443:                                              ; preds = %441
+  %444 = call i32 @Fra_OneHotCount(ptr noundef nonnull %104, ptr noundef nonnull %442) #15
+  br label %445
 
-436:                                              ; preds = %432, %434
-  %437 = phi i32 [ %435, %434 ], [ 0, %432 ]
-  %438 = icmp eq i32 %213, %437
-  br i1 %438, label %439, label %._crit_edge
+445:                                              ; preds = %441, %443
+  %446 = phi i32 [ %444, %443 ], [ 0, %441 ]
+  %447 = icmp eq i32 %222, %446
+  br i1 %447, label %448, label %._crit_edge
 
-._crit_edge:                                      ; preds = %436
-  %.pre354 = load ptr, ptr %123, align 8
-  br label %440
+._crit_edge:                                      ; preds = %445
+  %.pre354 = load ptr, ptr %132, align 8
+  br label %449
 
-439:                                              ; preds = %436
+448:                                              ; preds = %445
   %puts263 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   br label %.loopexit
 
-440:                                              ; preds = %._crit_edge, %417, %421, %429
-  %441 = phi ptr [ %.pre354, %._crit_edge ], [ %418, %417 ], [ %.pre355, %421 ], [ %.pre355, %429 ]
-  %442 = add nuw nsw i32 %.1224343, 1
-  %443 = getelementptr inbounds i8, ptr %441, i64 76
-  %444 = load i32, ptr %443, align 4
-  %.not244 = icmp eq i32 %444, 0
-  br i1 %.not244, label %.loopexit, label %199, !llvm.loop !28
+449:                                              ; preds = %._crit_edge, %426, %430, %438
+  %450 = phi ptr [ %.pre354, %._crit_edge ], [ %427, %426 ], [ %.pre355, %430 ], [ %.pre355, %438 ]
+  %451 = add nuw nsw i32 %.1224343, 1
+  %452 = getelementptr inbounds i8, ptr %450, i64 76
+  %453 = load i32, ptr %452, align 4
+  %.not244 = icmp eq i32 %453, 0
+  br i1 %.not244, label %.loopexit, label %208, !llvm.loop !28
 
-.loopexit:                                        ; preds = %440, %168, %439
-  %.1224336 = phi i32 [ %.1224343, %439 ], [ 0, %168 ], [ %442, %440 ]
+.loopexit:                                        ; preds = %449, %177, %448
+  %.1224336 = phi i32 [ %.1224343, %448 ], [ 0, %177 ], [ %451, %449 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %445 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #15
-  %446 = icmp slt i32 %445, 0
-  br i1 %446, label %Abc_Clock.exit321, label %447
+  %454 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #15
+  %455 = icmp slt i32 %454, 0
+  br i1 %455, label %Abc_Clock.exit321, label %456
 
-447:                                              ; preds = %.loopexit
-  %448 = load i64, ptr %5, align 8
-  %.neg332 = mul i64 %448, -1000000
-  %449 = getelementptr inbounds i8, ptr %5, i64 8
-  %450 = load i64, ptr %449, align 8
-  %.neg331 = sdiv i64 %450, -1000
+456:                                              ; preds = %.loopexit
+  %457 = load i64, ptr %5, align 8
+  %.neg332 = mul i64 %457, -1000000
+  %458 = getelementptr inbounds i8, ptr %5, i64 8
+  %459 = load i64, ptr %458, align 8
+  %.neg331 = sdiv i64 %459, -1000
   %.neg333 = add i64 %.neg331, %.neg332
   br label %Abc_Clock.exit321
 
-Abc_Clock.exit321:                                ; preds = %.loopexit, %447
-  %.0.i320.neg = phi i64 [ %.neg333, %447 ], [ 1, %.loopexit ]
+Abc_Clock.exit321:                                ; preds = %.loopexit, %456
+  %.0.i320.neg = phi i64 [ %.neg333, %456 ], [ 1, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %451 = load ptr, ptr %95, align 8
-  %452 = getelementptr inbounds i8, ptr %451, i64 108
-  %453 = load i32, ptr %452, align 4
-  %.not264 = icmp eq i32 %453, 0
-  br i1 %.not264, label %468, label %454
+  %460 = load ptr, ptr %104, align 8
+  %461 = getelementptr inbounds i8, ptr %460, i64 108
+  %462 = load i32, ptr %461, align 4
+  %.not264 = icmp eq i32 %462, 0
+  br i1 %.not264, label %477, label %463
 
-454:                                              ; preds = %Abc_Clock.exit321
-  %455 = getelementptr inbounds i8, ptr %95, i64 96
-  %456 = load ptr, ptr %455, align 8
-  %.not265 = icmp eq ptr %456, null
-  br i1 %.not265, label %468, label %457
+463:                                              ; preds = %Abc_Clock.exit321
+  %464 = getelementptr inbounds i8, ptr %104, i64 96
+  %465 = load ptr, ptr %464, align 8
+  %.not265 = icmp eq ptr %465, null
+  br i1 %.not265, label %477, label %466
 
-457:                                              ; preds = %454
-  %458 = call i32 @Fra_OneHotCount(ptr noundef nonnull %95, ptr noundef nonnull %456) #15
-  %.not266 = icmp eq i32 %458, 0
-  br i1 %.not266, label %468, label %459
+466:                                              ; preds = %463
+  %467 = call i32 @Fra_OneHotCount(ptr noundef nonnull %104, ptr noundef nonnull %465) #15
+  %.not266 = icmp eq i32 %467, 0
+  br i1 %.not266, label %477, label %468
 
-459:                                              ; preds = %457
-  %460 = getelementptr inbounds i8, ptr %95, i64 8
-  %461 = load ptr, ptr %460, align 8
-  %462 = load ptr, ptr %461, align 8
-  %463 = call ptr @Ioa_FileNameGenericAppend(ptr noundef %462, ptr noundef nonnull @.str.21) #15
-  %464 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef %463)
-  %465 = call ptr @Aig_ManDupOrdered(ptr noundef %0) #15
-  %466 = load ptr, ptr %455, align 8
-  %467 = call ptr @Fra_OneHotCreateExdc(ptr noundef nonnull %95, ptr noundef %466) #15
-  call void @Ioa_WriteAiger(ptr noundef %467, ptr noundef %463, i32 noundef 0, i32 noundef 1) #15
-  call void @Aig_ManStop(ptr noundef %467) #15
-  br label %474
+468:                                              ; preds = %466
+  %469 = getelementptr inbounds i8, ptr %104, i64 8
+  %470 = load ptr, ptr %469, align 8
+  %471 = load ptr, ptr %470, align 8
+  %472 = call ptr @Ioa_FileNameGenericAppend(ptr noundef %471, ptr noundef nonnull @.str.21) #15
+  %473 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef %472)
+  %474 = call ptr @Aig_ManDupOrdered(ptr noundef %0) #15
+  %475 = load ptr, ptr %464, align 8
+  %476 = call ptr @Fra_OneHotCreateExdc(ptr noundef nonnull %104, ptr noundef %475) #15
+  call void @Ioa_WriteAiger(ptr noundef %476, ptr noundef %472, i32 noundef 0, i32 noundef 1) #15
+  call void @Aig_ManStop(ptr noundef %476) #15
+  br label %483
 
-468:                                              ; preds = %457, %454, %Abc_Clock.exit321
-  %469 = load ptr, ptr %123, align 8
-  call void @Fra_ClassesSelectRepr(ptr noundef %469) #15
-  %470 = load ptr, ptr %123, align 8
-  %471 = getelementptr inbounds i8, ptr %95, i64 168
-  %472 = load ptr, ptr %471, align 8
-  call void @Fra_ClassesCopyReprs(ptr noundef %470, ptr noundef %472) #15
-  %473 = call ptr @Aig_ManDupRepr(ptr noundef %0, i32 noundef 0) #15
-  br label %474
+477:                                              ; preds = %466, %463, %Abc_Clock.exit321
+  %478 = load ptr, ptr %132, align 8
+  call void @Fra_ClassesSelectRepr(ptr noundef %478) #15
+  %479 = load ptr, ptr %132, align 8
+  %480 = getelementptr inbounds i8, ptr %104, i64 168
+  %481 = load ptr, ptr %480, align 8
+  call void @Fra_ClassesCopyReprs(ptr noundef %479, ptr noundef %481) #15
+  %482 = call ptr @Aig_ManDupRepr(ptr noundef %0, i32 noundef 0) #15
+  br label %483
 
-474:                                              ; preds = %468, %459
-  %.1 = phi ptr [ %465, %459 ], [ %473, %468 ]
-  %475 = call i32 @Aig_ManSeqCleanup(ptr noundef %.1) #15
+483:                                              ; preds = %477, %468
+  %.1 = phi ptr [ %474, %468 ], [ %482, %477 ]
+  %484 = call i32 @Aig_ManSeqCleanup(ptr noundef %.1) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %476 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #15
-  %477 = icmp slt i32 %476, 0
-  br i1 %477, label %Abc_Clock.exit323, label %478
+  %485 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #15
+  %486 = icmp slt i32 %485, 0
+  br i1 %486, label %Abc_Clock.exit323, label %487
 
-478:                                              ; preds = %474
-  %479 = load i64, ptr %4, align 8
-  %480 = mul nsw i64 %479, 1000000
-  %481 = getelementptr inbounds i8, ptr %4, i64 8
-  %482 = load i64, ptr %481, align 8
-  %483 = sdiv i64 %482, 1000
-  %484 = add nsw i64 %483, %480
+487:                                              ; preds = %483
+  %488 = load i64, ptr %4, align 8
+  %489 = mul nsw i64 %488, 1000000
+  %490 = getelementptr inbounds i8, ptr %4, i64 8
+  %491 = load i64, ptr %490, align 8
+  %492 = sdiv i64 %491, 1000
+  %493 = add nsw i64 %492, %489
   br label %Abc_Clock.exit323
 
-Abc_Clock.exit323:                                ; preds = %474, %478
-  %.0.i322 = phi i64 [ %484, %478 ], [ -1, %474 ]
+Abc_Clock.exit323:                                ; preds = %483, %487
+  %.0.i322 = phi i64 [ %493, %487 ], [ -1, %483 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %485 = add i64 %.0.i322, %.0.i320.neg
-  %486 = getelementptr inbounds i8, ptr %95, i64 264
-  %487 = load i64, ptr %486, align 8
-  %488 = add nsw i64 %485, %487
-  store i64 %488, ptr %486, align 8
+  %494 = add i64 %.0.i322, %.0.i320.neg
+  %495 = getelementptr inbounds i8, ptr %104, i64 264
+  %496 = load i64, ptr %495, align 8
+  %497 = add nsw i64 %494, %496
+  store i64 %497, ptr %495, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %489 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #15
-  %490 = icmp slt i32 %489, 0
-  br i1 %490, label %Abc_Clock.exit325, label %491
+  %498 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #15
+  %499 = icmp slt i32 %498, 0
+  br i1 %499, label %Abc_Clock.exit325, label %500
 
-491:                                              ; preds = %Abc_Clock.exit323
-  %492 = load i64, ptr %3, align 8
-  %493 = mul nsw i64 %492, 1000000
-  %494 = getelementptr inbounds i8, ptr %3, i64 8
-  %495 = load i64, ptr %494, align 8
-  %496 = sdiv i64 %495, 1000
-  %497 = add nsw i64 %496, %493
+500:                                              ; preds = %Abc_Clock.exit323
+  %501 = load i64, ptr %3, align 8
+  %502 = mul nsw i64 %501, 1000000
+  %503 = getelementptr inbounds i8, ptr %3, i64 8
+  %504 = load i64, ptr %503, align 8
+  %505 = sdiv i64 %504, 1000
+  %506 = add nsw i64 %505, %502
   br label %Abc_Clock.exit325
 
-Abc_Clock.exit325:                                ; preds = %Abc_Clock.exit323, %491
-  %.0.i324 = phi i64 [ %497, %491 ], [ -1, %Abc_Clock.exit323 ]
+Abc_Clock.exit325:                                ; preds = %Abc_Clock.exit323, %500
+  %.0.i324 = phi i64 [ %506, %500 ], [ -1, %Abc_Clock.exit323 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %498 = sub nsw i64 %.0.i324, %.0.i
-  %499 = getelementptr inbounds i8, ptr %95, i64 320
-  store i64 %498, ptr %499, align 8
-  %500 = load ptr, ptr %123, align 8
-  %501 = call i32 @Fra_ClassesCountLits(ptr noundef %500) #15
-  %502 = getelementptr inbounds i8, ptr %95, i64 188
-  store i32 %501, ptr %502, align 4
-  %503 = getelementptr i8, ptr %.1, i64 148
-  %.1.val285 = load i32, ptr %503, align 4
-  %504 = getelementptr i8, ptr %.1, i64 152
-  %.1.val286 = load i32, ptr %504, align 8
-  %505 = add nsw i32 %.1.val286, %.1.val285
-  %506 = getelementptr inbounds i8, ptr %95, i64 196
-  store i32 %505, ptr %506, align 4
-  %507 = getelementptr i8, ptr %.1, i64 104
-  %.1.val = load i32, ptr %507, align 8
-  %508 = getelementptr inbounds i8, ptr %95, i64 204
-  store i32 %.1.val, ptr %508, align 4
-  br label %509
+  %507 = sub nsw i64 %.0.i324, %.0.i
+  %508 = getelementptr inbounds i8, ptr %104, i64 320
+  store i64 %507, ptr %508, align 8
+  %509 = load ptr, ptr %132, align 8
+  %510 = call i32 @Fra_ClassesCountLits(ptr noundef %509) #15
+  %511 = getelementptr inbounds i8, ptr %104, i64 188
+  store i32 %510, ptr %511, align 4
+  %512 = getelementptr i8, ptr %.1, i64 148
+  %.1.val285 = load i32, ptr %512, align 4
+  %513 = getelementptr i8, ptr %.1, i64 152
+  %.1.val286 = load i32, ptr %513, align 8
+  %514 = add nsw i32 %.1.val286, %.1.val285
+  %515 = getelementptr inbounds i8, ptr %104, i64 196
+  store i32 %514, ptr %515, align 4
+  %516 = getelementptr i8, ptr %.1, i64 104
+  %.1.val = load i32, ptr %516, align 8
+  %517 = getelementptr inbounds i8, ptr %104, i64 204
+  store i32 %.1.val, ptr %517, align 4
+  br label %518
 
-509:                                              ; preds = %231, %234, %164, %167, %Abc_Clock.exit325
-  %.0223 = phi i32 [ -1, %164 ], [ -1, %167 ], [ %.1224343, %231 ], [ %.1224343, %234 ], [ %.1224336, %Abc_Clock.exit325 ]
-  %.0222 = phi ptr [ null, %164 ], [ null, %167 ], [ null, %231 ], [ null, %234 ], [ %.1, %Abc_Clock.exit325 ]
-  call void @Fra_ManStop(ptr noundef nonnull %95) #15
-  %510 = getelementptr inbounds i8, ptr %1, i64 60
-  store i32 %.0223, ptr %510, align 4
-  br label %511
+518:                                              ; preds = %240, %243, %173, %176, %Abc_Clock.exit325
+  %.0223 = phi i32 [ -1, %173 ], [ -1, %176 ], [ %.1224343, %240 ], [ %.1224343, %243 ], [ %.1224336, %Abc_Clock.exit325 ]
+  %.0222 = phi ptr [ null, %173 ], [ null, %176 ], [ null, %240 ], [ null, %243 ], [ %.1, %Abc_Clock.exit325 ]
+  call void @Fra_ManStop(ptr noundef nonnull %104) #15
+  %519 = getelementptr inbounds i8, ptr %1, i64 60
+  store i32 %.0223, ptr %519, align 4
+  br label %520
 
-511:                                              ; preds = %509, %70, %48
-  %.0 = phi ptr [ %52, %48 ], [ %71, %70 ], [ %.0222, %509 ]
+520:                                              ; preds = %518, %70, %48
+  %.0 = phi ptr [ %52, %48 ], [ %71, %70 ], [ %.0222, %518 ]
   ret ptr %.0
 }
 

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @Map_MappingTruths(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = alloca [2 x i32], align 8
+  %2 = alloca [2 x i32], align 4
   %3 = alloca [2 x i32], align 4
   %4 = alloca [16 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -267,7 +267,7 @@ Map_TruthsCutOne.exit:                            ; preds = %Map_TruthsCutOne.ex
   %156 = phi i8 [ %87, %.preheader.._crit_edge65_crit_edge.i ], [ %.pre42, %Map_TruthsCutOne.exit.loopexit ]
   %157 = phi i32 [ %.pre, %.preheader.._crit_edge65_crit_edge.i ], [ %.sink.i, %Map_TruthsCutOne.exit.loopexit ]
   %158 = phi i32 [ %.pre.i, %.preheader.._crit_edge65_crit_edge.i ], [ %.sink76.i, %Map_TruthsCutOne.exit.loopexit ]
-  store i32 %158, ptr %2, align 8
+  store i32 %158, ptr %2, align 4
   store i32 %157, ptr %15, align 4
   %159 = load i32, ptr %16, align 8
   %160 = sext i8 %156 to i32
@@ -284,23 +284,26 @@ Map_TruthsCutOne.exit:                            ; preds = %Map_TruthsCutOne.ex
   %169 = load i32, ptr %17, align 8
   %170 = add nsw i32 %169, 1
   store i32 %170, ptr %17, align 8
-  %171 = load <2 x i32>, ptr %2, align 8
-  %172 = xor <2 x i32> %171, <i32 -1, i32 -1>
-  store <2 x i32> %172, ptr %2, align 8
-  %173 = load i32, ptr %16, align 8
-  %174 = load i8, ptr %55, align 4
-  %175 = sext i8 %174 to i32
-  %176 = call i32 @Map_CanonComputeFast(ptr noundef nonnull %0, i32 noundef %173, i32 noundef %175, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3) #3
-  %177 = load ptr, ptr %12, align 8
-  %178 = call ptr @Map_SuperTableLookupC(ptr noundef %177, ptr noundef nonnull %3) #3
-  store ptr %178, ptr %164, align 8
-  %179 = load i8, ptr %4, align 16
-  %180 = zext i8 %179 to i32
-  %181 = getelementptr inbounds i8, ptr %.02734, i64 88
-  store i32 %180, ptr %181, align 8
-  %182 = load i32, ptr %17, align 8
-  %183 = add nsw i32 %182, 1
-  store i32 %183, ptr %17, align 8
+  %171 = load i32, ptr %2, align 4
+  %172 = xor i32 %171, -1
+  store i32 %172, ptr %2, align 4
+  %173 = load i32, ptr %15, align 4
+  %174 = xor i32 %173, -1
+  store i32 %174, ptr %15, align 4
+  %175 = load i32, ptr %16, align 8
+  %176 = load i8, ptr %55, align 4
+  %177 = sext i8 %176 to i32
+  %178 = call i32 @Map_CanonComputeFast(ptr noundef nonnull %0, i32 noundef %175, i32 noundef %177, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3) #3
+  %179 = load ptr, ptr %12, align 8
+  %180 = call ptr @Map_SuperTableLookupC(ptr noundef %179, ptr noundef nonnull %3) #3
+  store ptr %180, ptr %164, align 8
+  %181 = load i8, ptr %4, align 16
+  %182 = zext i8 %181 to i32
+  %183 = getelementptr inbounds i8, ptr %.02734, i64 88
+  store i32 %182, ptr %183, align 8
+  %184 = load i32, ptr %17, align 8
+  %185 = add nsw i32 %184, 1
+  store i32 %185, ptr %17, align 8
   br label %Map_TruthsCut.exit
 
 Map_TruthsCut.exit:                               ; preds = %.lr.ph, %Map_TruthsCutOne.exit
@@ -312,20 +315,20 @@ Map_TruthsCut.exit:                               ; preds = %.lr.ph, %Map_Truths
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %Map_TruthsCut.exit, %24
-  br i1 %.not.i, label %188, label %184
+  br i1 %.not.i, label %190, label %186
 
-184:                                              ; preds = %._crit_edge
-  %185 = load i32, ptr %10, align 4
-  %186 = sext i32 %185 to i64
-  %187 = icmp slt i64 %indvars.iv, %186
-  br i1 %187, label %Extra_ProgressBarUpdate.exit, label %188
+186:                                              ; preds = %._crit_edge
+  %187 = load i32, ptr %10, align 4
+  %188 = sext i32 %187 to i64
+  %189 = icmp slt i64 %indvars.iv, %188
+  br i1 %189, label %Extra_ProgressBarUpdate.exit, label %190
 
-188:                                              ; preds = %184, %._crit_edge
-  %189 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @Extra_ProgressBarUpdate_int(ptr noundef %10, i32 noundef %189, ptr noundef nonnull @.str) #3
+190:                                              ; preds = %186, %._crit_edge
+  %191 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @Extra_ProgressBarUpdate_int(ptr noundef %10, i32 noundef %191, ptr noundef nonnull @.str) #3
   br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %188, %184, %18
+Extra_ProgressBarUpdate.exit:                     ; preds = %190, %186, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge38, label %18, !llvm.loop !9

@@ -1248,21 +1248,25 @@ is_options_valid.exit:                            ; preds = %15
   %29 = getelementptr inbounds i8, ptr %2, i64 32
   store i64 %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 40
-  %31 = getelementptr inbounds i8, ptr %2, i64 40
-  %32 = load <2 x i32>, ptr %30, align 8
-  store <2 x i32> %32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
-  %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 56
-  store i32 %37, ptr %38, align 8
-  %39 = call i64 @lzma_lz_encoder_memusage(ptr noundef nonnull %2) #8
-  %40 = icmp eq i64 %39, -1
-  %41 = add i64 %39, 249576
-  %spec.select = select i1 %40, i64 -1, i64 %41
+  %31 = load i32, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 40
+  store i32 %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 44
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds i8, ptr %2, i64 44
+  store i32 %34, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = load i32, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %2, i64 56
+  store i32 %40, ptr %41, align 8
+  %42 = call i64 @lzma_lz_encoder_memusage(ptr noundef nonnull %2) #8
+  %43 = icmp eq i64 %42, -1
+  %44 = add i64 %42, 249576
+  %spec.select = select i1 %43, i64 -1, i64 %44
   br label %is_options_valid.exit.thread
 
 is_options_valid.exit.thread:                     ; preds = %1, %6, %is_lclppb_valid.exit.i, %15, %22, %is_options_valid.exit
@@ -1544,13 +1548,15 @@ rc_bittree_reverse.exit:                          ; preds = %75, %rc_bittree_rev
   %122 = getelementptr inbounds i8, ptr %0, i64 752
   store i32 %121, ptr %122, align 4
   %123 = getelementptr inbounds i8, ptr %0, i64 744
-  %124 = load <2 x i32>, ptr %119, align 4
-  store <2 x i32> %124, ptr %123, align 4
+  %124 = load i32, ptr %123, align 4
+  store i32 %124, ptr %120, align 4
+  %125 = load i32, ptr %119, align 4
+  store i32 %125, ptr %123, align 4
   store i32 %2, ptr %119, align 4
-  %125 = getelementptr inbounds i8, ptr %0, i64 69268
-  %126 = load i32, ptr %125, align 4
-  %127 = add i32 %126, 1
-  store i32 %127, ptr %125, align 4
+  %126 = getelementptr inbounds i8, ptr %0, i64 69268
+  %127 = load i32, ptr %126, align 4
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %126, align 4
   ret void
 }
 

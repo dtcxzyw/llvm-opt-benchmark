@@ -21,104 +21,100 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline17run_rgb2gray_implEPhPKhifff
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
-  %11 = insertelement <2 x float> poison, float %4, i64 0
-  %12 = insertelement <2 x float> %11, float %3, i64 1
-  %13 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %12, <2 x float> <float 6.553600e+04, float 6.553600e+04>, <2 x float> <float 5.000000e-01, float 5.000000e-01>)
-  %14 = tail call float @llvm.fmuladd.f32(float %5, float 6.553600e+04, float 5.000000e-01)
-  %15 = fptoui float %14 to i16
-  %16 = fptoui <2 x float> %13 to <2 x i16>
-  %17 = extractelement <2 x i16> %16, i64 0
-  %18 = zext i16 %17 to i32
-  %19 = extractelement <2 x i16> %16, i64 1
-  %20 = zext i16 %19 to i32
-  %21 = add nuw nsw i32 %18, %20
-  %22 = zext i16 %15 to i32
-  %23 = add nuw nsw i32 %21, %22
-  %24 = icmp ult i32 %23, 65537
-  br i1 %24, label %32, label %25
+  %11 = tail call float @llvm.fmuladd.f32(float %3, float 6.553600e+04, float 5.000000e-01)
+  %12 = fptoui float %11 to i16
+  %13 = tail call float @llvm.fmuladd.f32(float %4, float 6.553600e+04, float 5.000000e-01)
+  %14 = fptoui float %13 to i16
+  %15 = tail call float @llvm.fmuladd.f32(float %5, float 6.553600e+04, float 5.000000e-01)
+  %16 = fptoui float %15 to i16
+  %17 = zext i16 %12 to i32
+  %18 = zext i16 %14 to i32
+  %19 = add nuw nsw i32 %18, %17
+  %20 = zext i16 %16 to i32
+  %21 = add nuw nsw i32 %19, %20
+  %22 = icmp ult i32 %21, 65537
+  br i1 %22, label %30, label %23
 
-25:                                               ; preds = %6
+23:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %26 unwind label %28
+          to label %24 unwind label %26
 
-26:                                               ; preds = %25
+24:                                               ; preds = %23
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv4gapi5fluid12cpu_baseline17run_rgb2gray_implEPhPKhifff, ptr noundef nonnull @.str.1, i32 noundef 228) #15
-          to label %27 unwind label %30
+          to label %25 unwind label %28
 
-27:                                               ; preds = %26
+25:                                               ; preds = %24
   unreachable
 
-28:                                               ; preds = %25
+26:                                               ; preds = %23
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  br label %59
+
+28:                                               ; preds = %24
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %63
-
-30:                                               ; preds = %26
-  %31 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
-  br label %63
+  br label %59
 
-32:                                               ; preds = %6
-  %33 = icmp ugt i32 %23, 65534
-  br i1 %33, label %.preheader, label %37
+30:                                               ; preds = %6
+  %31 = icmp ugt i32 %21, 65534
+  br i1 %31, label %.preheader, label %33
 
-.preheader:                                       ; preds = %32
-  %34 = icmp sgt i32 %2, 0
-  br i1 %34, label %.lr.ph.preheader, label %._crit_edge
+.preheader:                                       ; preds = %30
+  %32 = icmp sgt i32 %2, 0
+  br i1 %32, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %2 to i64
-  %35 = zext i16 %19 to i32
-  %36 = zext i16 %17 to i32
   br label %.lr.ph
 
-37:                                               ; preds = %32
+33:                                               ; preds = %30
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %38 unwind label %40
+          to label %34 unwind label %36
 
-38:                                               ; preds = %37
+34:                                               ; preds = %33
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv4gapi5fluid12cpu_baseline17run_rgb2gray_implEPhPKhifff, ptr noundef nonnull @.str.1, i32 noundef 229) #15
-          to label %39 unwind label %42
+          to label %35 unwind label %38
 
-39:                                               ; preds = %38
+35:                                               ; preds = %34
   unreachable
 
-40:                                               ; preds = %37
-  %41 = landingpad { ptr, i32 }
+36:                                               ; preds = %33
+  %37 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %59
 
-42:                                               ; preds = %38
-  %43 = landingpad { ptr, i32 }
+38:                                               ; preds = %34
+  %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
-  br label %63
+  br label %59
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %44 = mul nuw nsw i64 %indvars.iv, 3
-  %45 = getelementptr inbounds i8, ptr %1, i64 %44
+  %40 = mul nuw nsw i64 %indvars.iv, 3
+  %41 = getelementptr inbounds i8, ptr %1, i64 %40
+  %42 = load i8, ptr %41, align 1
+  %43 = getelementptr inbounds i8, ptr %41, i64 1
+  %44 = load i8, ptr %43, align 1
+  %45 = getelementptr inbounds i8, ptr %41, i64 2
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 1
-  %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %45, i64 2
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %46 to i32
-  %52 = mul nuw nsw i32 %51, %35
-  %53 = zext i8 %50 to i32
-  %54 = mul nuw nsw i32 %53, %22
-  %55 = zext i8 %48 to i32
-  %56 = mul nuw nsw i32 %55, %36
-  %57 = add nuw nsw i32 %52, 32768
-  %58 = add nuw nsw i32 %57, %56
-  %59 = add nuw nsw i32 %58, %54
-  %60 = lshr i32 %59, 16
-  %61 = trunc i32 %60 to i8
-  %62 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  store i8 %61, ptr %62, align 1
+  %47 = zext i8 %42 to i32
+  %48 = mul nuw nsw i32 %47, %17
+  %49 = zext i8 %46 to i32
+  %50 = mul nuw nsw i32 %49, %20
+  %51 = zext i8 %44 to i32
+  %52 = mul nuw nsw i32 %51, %18
+  %53 = add nuw nsw i32 %48, 32768
+  %54 = add nuw nsw i32 %53, %52
+  %55 = add nuw nsw i32 %54, %50
+  %56 = lshr i32 %55, 16
+  %57 = trunc i32 %56 to i8
+  %58 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  store i8 %57, ptr %58, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -126,9 +122,9 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline17run_rgb2gray_implEPhPKhifff
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   ret void
 
-63:                                               ; preds = %40, %42, %28, %30
-  %.sink = phi ptr [ %8, %30 ], [ %8, %28 ], [ %10, %42 ], [ %10, %40 ]
-  %.pn34.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ], [ %43, %42 ], [ %41, %40 ]
+59:                                               ; preds = %36, %38, %26, %28
+  %.sink = phi ptr [ %8, %28 ], [ %8, %26 ], [ %10, %38 ], [ %10, %36 ]
+  %.pn34.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ], [ %39, %38 ], [ %37, %36 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #14
   resume { ptr, i32 } %.pn34.pn
 }
@@ -9709,9 +9705,6 @@ declare i16 @llvm.smax.i16(i16, i16) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

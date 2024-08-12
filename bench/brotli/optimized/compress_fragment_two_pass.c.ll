@@ -8962,9 +8962,13 @@ for.body14:                                       ; preds = %for.end, %for.body1
 
 for.end22:                                        ; preds = %for.body14, %for.end
   %arrayidx24 = getelementptr inbounds i8, ptr %s, i64 1796
-  %4 = load <2 x i32>, ptr %arrayidx24, align 4
-  %5 = add <2 x i32> %4, <i32 1, i32 1>
-  store <2 x i32> %5, ptr %arrayidx24, align 4
+  %4 = load i32, ptr %arrayidx24, align 4
+  %add = add i32 %4, 1
+  store i32 %add, ptr %arrayidx24, align 4
+  %arrayidx26 = getelementptr inbounds i8, ptr %s, i64 1800
+  %5 = load i32, ptr %arrayidx26, align 4
+  %add27 = add i32 %5, 1
+  store i32 %add27, ptr %arrayidx26, align 4
   %arrayidx29 = getelementptr inbounds i8, ptr %s, i64 2048
   %6 = load i32, ptr %arrayidx29, align 4
   %add30 = add i32 %6, 1

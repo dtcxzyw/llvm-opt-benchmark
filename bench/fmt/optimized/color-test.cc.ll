@@ -9664,33 +9664,49 @@ lor.lhs.false6.i:                                 ; preds = %land.rhs.i
   %or.cond2.i = icmp ult i32 %19, 30288
   %cmp10.i = icmp ne i32 %cond, 12351
   %or.cond3.i = and i1 %cmp10.i, %or.cond2.i
-  %20 = and i32 %cond, -65538
-  %21 = insertelement <8 x i32> poison, i32 %cond, i64 0
-  %22 = insertelement <8 x i32> %21, i32 %20, i64 1
-  %23 = shufflevector <8 x i32> %22, <8 x i32> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0>
-  %24 = add <8 x i32> %23, <i32 -44032, i32 -63744, i32 -65040, i32 -65072, i32 -65280, i32 -65504, i32 -131072, i32 -127744>
-  %25 = icmp ult <8 x i32> %24, <i32 11172, i32 512, i32 10, i32 64, i32 97, i32 7, i32 65534, i32 848>
-  %26 = bitcast <8 x i1> %25 to i8
-  %27 = icmp ne i8 %26, 0
-  %op.rdx = or i1 %27, %or.cond3.i
-  br i1 %op.rdx, label %_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %lor.rhs.i
+  %20 = add nsw i32 %cond, -44032
+  %or.cond4.i = icmp ult i32 %20, 11172
+  %or.cond.i = or i1 %or.cond4.i, %or.cond3.i
+  %21 = add nsw i32 %cond, -63744
+  %or.cond5.i = icmp ult i32 %21, 512
+  %or.cond39.i = or i1 %or.cond5.i, %or.cond.i
+  %22 = add nsw i32 %cond, -65040
+  %or.cond6.i = icmp ult i32 %22, 10
+  %or.cond40.i = or i1 %or.cond6.i, %or.cond39.i
+  %23 = add nsw i32 %cond, -65072
+  %or.cond7.i = icmp ult i32 %23, 64
+  %or.cond41.i = or i1 %or.cond7.i, %or.cond40.i
+  %24 = add nsw i32 %cond, -65280
+  %or.cond8.i = icmp ult i32 %24, 97
+  %or.cond42.i = or i1 %or.cond8.i, %or.cond41.i
+  %25 = add nsw i32 %cond, -65504
+  %or.cond9.i = icmp ult i32 %25, 7
+  %or.cond43.i = or i1 %or.cond9.i, %or.cond42.i
+  %26 = and i32 %cond, -65538
+  %27 = add i32 %26, -131072
+  %28 = icmp ult i32 %27, 65534
+  %or.cond45.i = or i1 %28, %or.cond43.i
+  %29 = add nsw i32 %cond, -127744
+  %or.cond12.i = icmp ult i32 %29, 848
+  %or.cond46.i = or i1 %or.cond12.i, %or.cond45.i
+  br i1 %or.cond46.i, label %_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false6.i
-  %28 = and i32 %cond, -256
-  %29 = icmp eq i32 %28, 129280
-  %30 = select i1 %29, i64 2, i64 1
+  %30 = and i32 %cond, -256
+  %31 = icmp eq i32 %30, 129280
+  %32 = select i1 %31, i64 2, i64 1
   br label %_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit
 
 _ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit: ; preds = %entry, %land.rhs.i, %lor.lhs.false6.i, %lor.rhs.i
-  %conv.i5 = phi i64 [ 1, %entry ], [ 2, %land.rhs.i ], [ %30, %lor.rhs.i ], [ 2, %lor.lhs.false6.i ]
+  %conv.i5 = phi i64 [ 1, %entry ], [ 2, %land.rhs.i ], [ %32, %lor.rhs.i ], [ 2, %lor.lhs.false6.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %buf_ptr, i64 %idx.ext.i
-  %31 = lshr i64 2164195328, %idxprom.i
-  %idx.ext3.i = and i64 %31, 1
+  %33 = lshr i64 2164195328, %idxprom.i
+  %idx.ext3.i = and i64 %33, 1
   %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext3.i
-  %32 = load ptr, ptr %this, align 8
-  %33 = load i64, ptr %32, align 8
-  %add52.i = add i64 %33, %conv.i5
-  store i64 %add52.i, ptr %32, align 8
+  %34 = load ptr, ptr %this, align 8
+  %35 = load i64, ptr %34, align 8
+  %add52.i = add i64 %35, %conv.i5
+  store i64 %add52.i, ptr %34, align 8
   %cond15 = select i1 %tobool.not, ptr %add.ptr4.i, ptr %arrayidx9.i
   ret ptr %cond15
 }

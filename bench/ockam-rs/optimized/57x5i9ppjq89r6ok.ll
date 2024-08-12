@@ -2447,10 +2447,16 @@ _ZN4core3fmt8builders9DebugList7entries17h16b6d3944e86ba82E.exit: ; preds = %.lr
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core3mem4swap17he17126e8b707094eE.llvm.17048215454070662348(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #9 {
-  %3 = load <2 x ptr>, ptr %1, align 8
-  %4 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %3, ptr %0, align 8
-  store <2 x ptr> %4, ptr %1, align 8
+  %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !noundef !4
+  %6 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8, !noundef !4
+  store ptr %6, ptr %0, align 8
+  store ptr %8, ptr %4, align 8
+  store ptr %3, ptr %1, align 8
+  store ptr %5, ptr %7, align 8
   ret void
 }
 
@@ -2946,15 +2952,21 @@ define hidden void @_ZN4core3ptr19swap_nonoverlapping17h802ce231223f7a84E.llvm.1
   ret void
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.0910 = phi i64 [ %8, %.lr.ph ], [ 0, %3 ]
+  %.0910 = phi i64 [ %12, %.lr.ph ], [ 0, %3 ]
   %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %.0910
   %5 = getelementptr inbounds { ptr, ptr }, ptr %1, i64 %.0910
-  %6 = load <2 x ptr>, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %6, ptr %4, align 8
-  store <2 x ptr> %7, ptr %5, align 8
-  %8 = add nuw i64 %.0910, 1
-  %exitcond.not = icmp eq i64 %8, %2
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = load ptr, ptr %10, align 8
+  store ptr %9, ptr %4, align 8
+  store ptr %11, ptr %7, align 8
+  store ptr %6, ptr %5, align 8
+  store ptr %8, ptr %10, align 8
+  %12 = add nuw i64 %.0910, 1
+  %exitcond.not = icmp eq i64 %12, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 

@@ -1613,12 +1613,18 @@ cond.end25:                                       ; preds = %entry
 
 invoke.cont27:                                    ; preds = %cond.end25
   %yy_c_buf_p.i = getelementptr inbounds i8, ptr %this, i64 608
+  %yy_flex_debug.i = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 0, ptr %yy_flex_debug.i, align 8
   %yylineno.i = getelementptr inbounds i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %yy_c_buf_p.i, i8 0, i64 16, i1 false)
+  store i32 1, ptr %yylineno.i, align 4
   %yy_did_buffer_switch_on_eof.i = getelementptr inbounds i8, ptr %this, i64 624
   store i32 0, ptr %yy_did_buffer_switch_on_eof.i, align 8
   %yy_looking_for_trail_begin.i = getelementptr inbounds i8, ptr %this, i64 712
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %yylineno.i, align 4
+  %yy_start_stack_depth.i = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 0, ptr %yy_start_stack_depth.i, align 8
+  %yy_start_stack_ptr.i = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 0, ptr %yy_start_stack_ptr.i, align 4
   %yy_start_stack.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %yy_start_stack.i, align 8
   %yy_buffer_stack_top.i = getelementptr inbounds i8, ptr %this, i64 632
@@ -1643,12 +1649,18 @@ declare void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonn
 define void @_ZN16veloxtpFlexLexer11ctor_commonEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(732) %this) local_unnamed_addr #7 align 2 {
 entry:
   %yy_c_buf_p = getelementptr inbounds i8, ptr %this, i64 608
+  %yy_flex_debug = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 0, ptr %yy_flex_debug, align 8
   %yylineno = getelementptr inbounds i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %yy_c_buf_p, i8 0, i64 16, i1 false)
+  store i32 1, ptr %yylineno, align 4
   %yy_did_buffer_switch_on_eof = getelementptr inbounds i8, ptr %this, i64 624
   store i32 0, ptr %yy_did_buffer_switch_on_eof, align 8
   %yy_looking_for_trail_begin = getelementptr inbounds i8, ptr %this, i64 712
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %yylineno, align 4
+  %yy_start_stack_depth = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 0, ptr %yy_start_stack_depth, align 8
+  %yy_start_stack_ptr = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 0, ptr %yy_start_stack_ptr, align 4
   %yy_start_stack = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %yy_start_stack, align 8
   %yy_buffer_stack_top = getelementptr inbounds i8, ptr %this, i64 632
@@ -1690,12 +1702,18 @@ invoke.cont8:                                     ; preds = %entry
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   %yy_c_buf_p.i = getelementptr inbounds i8, ptr %this, i64 608
+  %yy_flex_debug.i = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 0, ptr %yy_flex_debug.i, align 8
   %yylineno.i = getelementptr inbounds i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %yy_c_buf_p.i, i8 0, i64 16, i1 false)
+  store i32 1, ptr %yylineno.i, align 4
   %yy_did_buffer_switch_on_eof.i = getelementptr inbounds i8, ptr %this, i64 624
   store i32 0, ptr %yy_did_buffer_switch_on_eof.i, align 8
   %yy_looking_for_trail_begin.i = getelementptr inbounds i8, ptr %this, i64 712
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %yylineno.i, align 4
+  %yy_start_stack_depth.i = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 0, ptr %yy_start_stack_depth.i, align 8
+  %yy_start_stack_ptr.i = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 0, ptr %yy_start_stack_ptr.i, align 4
   %yy_start_stack.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %yy_start_stack.i, align 8
   %yy_buffer_stack_top.i = getelementptr inbounds i8, ptr %this, i64 632
@@ -3171,12 +3189,18 @@ lpad15.i.i:                                       ; preds = %cond.end25.i.i, %.n
 
 invoke.cont:                                      ; preds = %cond.end25.i.i
   %yy_c_buf_p.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 608
+  %yy_flex_debug.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 24
+  store i32 0, ptr %yy_flex_debug.i.i.i, align 8
   %yylineno.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %yy_c_buf_p.i.i.i, i8 0, i64 16, i1 false)
+  store i32 1, ptr %yylineno.i.i.i, align 4
   %yy_did_buffer_switch_on_eof.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 624
   store i32 0, ptr %yy_did_buffer_switch_on_eof.i.i.i, align 8
   %yy_looking_for_trail_begin.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 712
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %yylineno.i.i.i, align 4
+  %yy_start_stack_depth.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 32
+  store i32 0, ptr %yy_start_stack_depth.i.i.i, align 8
+  %yy_start_stack_ptr.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 28
+  store i32 0, ptr %yy_start_stack_ptr.i.i.i, align 4
   %yy_start_stack.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 40
   store ptr null, ptr %yy_start_stack.i.i.i, align 8
   %yy_buffer_stack_top.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 632

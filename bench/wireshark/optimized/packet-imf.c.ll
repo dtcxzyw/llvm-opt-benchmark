@@ -911,7 +911,7 @@ define internal void @header_fields_post_update_cb() #0 {
 deregister_header_fields.exit:                    ; preds = %15, %17
   %18 = load i32, ptr @num_header_fields, align 4
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %81, label %19
+  br i1 %.not, label %84, label %19
 
 19:                                               ; preds = %deregister_header_fields.exit
   %20 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @free_imf_field) #7
@@ -925,8 +925,8 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %.not39 = icmp eq i32 %24, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %19, %68
-  %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %19 ]
+.lr.ph:                                           ; preds = %19, %71
+  %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %19 ]
   %25 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #9
   store i32 -1, ptr %25, align 4
   %26 = load ptr, ptr @header_fields, align 8
@@ -954,93 +954,99 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %43 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 6
   store ptr %41, ptr %43, align 8
   %44 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 7
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %44, align 8
-  %45 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 11
-  store ptr null, ptr %45, align 8
-  %46 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #9
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
-  store ptr %25, ptr %47, align 8
-  %48 = tail call noalias ptr @g_ascii_strdown(ptr noundef %29, i64 noundef -1) #7
-  store ptr %48, ptr %46, align 8
-  %49 = load ptr, ptr @header_fields, align 8
-  %50 = getelementptr %struct._header_field_t, ptr %49, i64 %indvars.iv, i32 2
-  %51 = load i32, ptr %50, align 8
-  switch i32 %51, label %66 [
-    i32 0, label %52
-    i32 1, label %54
-    i32 2, label %56
-    i32 3, label %58
-    i32 4, label %60
-    i32 5, label %62
+  store i32 -1, ptr %44, align 8
+  %45 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 8
+  store i32 0, ptr %45, align 4
+  %46 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 9
+  store i32 0, ptr %46, align 8
+  %47 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 10
+  store i32 -1, ptr %47, align 4
+  %48 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 11
+  store ptr null, ptr %48, align 8
+  %49 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #9
+  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  store ptr %25, ptr %50, align 8
+  %51 = tail call noalias ptr @g_ascii_strdown(ptr noundef %29, i64 noundef -1) #7
+  store ptr %51, ptr %49, align 8
+  %52 = load ptr, ptr @header_fields, align 8
+  %53 = getelementptr %struct._header_field_t, ptr %52, i64 %indvars.iv, i32 2
+  %54 = load i32, ptr %53, align 8
+  switch i32 %54, label %69 [
+    i32 0, label %55
+    i32 1, label %57
+    i32 2, label %59
+    i32 3, label %61
+    i32 4, label %63
+    i32 5, label %65
   ]
 
-52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds i8, ptr %46, i64 16
-  store ptr null, ptr %53, align 8
-  br label %68
+55:                                               ; preds = %.lr.ph
+  %56 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr null, ptr %56, align 8
+  br label %71
 
-54:                                               ; preds = %.lr.ph
-  %55 = getelementptr inbounds i8, ptr %46, i64 16
-  store ptr @dissect_imf_mailbox, ptr %55, align 8
-  br label %68
+57:                                               ; preds = %.lr.ph
+  %58 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr @dissect_imf_mailbox, ptr %58, align 8
+  br label %71
 
-56:                                               ; preds = %.lr.ph
-  %57 = getelementptr inbounds i8, ptr %46, i64 16
-  store ptr @dissect_imf_address, ptr %57, align 8
-  br label %68
+59:                                               ; preds = %.lr.ph
+  %60 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr @dissect_imf_address, ptr %60, align 8
+  br label %71
 
-58:                                               ; preds = %.lr.ph
-  %59 = getelementptr inbounds i8, ptr %46, i64 16
-  store ptr @dissect_imf_mailbox_list, ptr %59, align 8
-  br label %68
+61:                                               ; preds = %.lr.ph
+  %62 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr @dissect_imf_mailbox_list, ptr %62, align 8
+  br label %71
 
-60:                                               ; preds = %.lr.ph
-  %61 = getelementptr inbounds i8, ptr %46, i64 16
-  store ptr @dissect_imf_address_list, ptr %61, align 8
-  br label %68
+63:                                               ; preds = %.lr.ph
+  %64 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr @dissect_imf_address_list, ptr %64, align 8
+  br label %71
 
-62:                                               ; preds = %.lr.ph
-  %63 = load ptr, ptr @dynamic_hf, align 8
-  %64 = getelementptr %struct.hf_register_info, ptr %63, i64 %indvars.iv, i32 1, i32 2
-  store i32 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %46, i64 16
-  store ptr @dissect_imf_siolabel, ptr %65, align 8
+65:                                               ; preds = %.lr.ph
+  %66 = load ptr, ptr @dynamic_hf, align 8
+  %67 = getelementptr %struct.hf_register_info, ptr %66, i64 %indvars.iv, i32 1, i32 2
+  store i32 0, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr @dissect_imf_siolabel, ptr %68, align 8
   %.pre = load ptr, ptr @header_fields, align 8
-  %.pre42 = load ptr, ptr %46, align 8
-  br label %68
+  %.pre42 = load ptr, ptr %49, align 8
+  br label %71
 
-66:                                               ; preds = %.lr.ph
-  %67 = getelementptr inbounds i8, ptr %46, i64 16
-  store ptr null, ptr %67, align 8
-  br label %68
+69:                                               ; preds = %.lr.ph
+  %70 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr null, ptr %70, align 8
+  br label %71
 
-68:                                               ; preds = %66, %62, %60, %58, %56, %54, %52
-  %69 = phi ptr [ %48, %66 ], [ %.pre42, %62 ], [ %48, %60 ], [ %48, %58 ], [ %48, %56 ], [ %48, %54 ], [ %48, %52 ]
-  %70 = phi ptr [ %49, %66 ], [ %.pre, %62 ], [ %49, %60 ], [ %49, %58 ], [ %49, %56 ], [ %49, %54 ], [ %49, %52 ]
-  %71 = getelementptr %struct._header_field_t, ptr %70, i64 %indvars.iv, i32 3
-  %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %46, i64 24
-  store i32 %72, ptr %73, align 8
-  %74 = load ptr, ptr @custom_field_table, align 8
-  %75 = tail call i32 @g_hash_table_insert(ptr noundef %74, ptr noundef %69, ptr noundef nonnull %46) #7
+71:                                               ; preds = %69, %65, %63, %61, %59, %57, %55
+  %72 = phi ptr [ %51, %69 ], [ %.pre42, %65 ], [ %51, %63 ], [ %51, %61 ], [ %51, %59 ], [ %51, %57 ], [ %51, %55 ]
+  %73 = phi ptr [ %52, %69 ], [ %.pre, %65 ], [ %52, %63 ], [ %52, %61 ], [ %52, %59 ], [ %52, %57 ], [ %52, %55 ]
+  %74 = getelementptr %struct._header_field_t, ptr %73, i64 %indvars.iv, i32 3
+  %75 = load i32, ptr %74, align 4
+  %76 = getelementptr inbounds i8, ptr %49, i64 24
+  store i32 %75, ptr %76, align 8
+  %77 = load ptr, ptr @custom_field_table, align 8
+  %78 = tail call i32 @g_hash_table_insert(ptr noundef %77, ptr noundef %72, ptr noundef nonnull %49) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = load i32, ptr @dynamic_hf_size, align 4
-  %77 = zext i32 %76 to i64
-  %78 = icmp ult i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
+  %79 = load i32, ptr @dynamic_hf_size, align 4
+  %80 = zext i32 %79 to i64
+  %81 = icmp ult i64 %indvars.iv.next, %80
+  br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
-._crit_edge.loopexit:                             ; preds = %68
+._crit_edge.loopexit:                             ; preds = %71
   %.pre43 = load ptr, ptr @dynamic_hf, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
-  %79 = phi ptr [ %23, %19 ], [ %.pre43, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ 0, %19 ], [ %76, %._crit_edge.loopexit ]
-  %80 = load i32, ptr @proto_imf, align 4
-  tail call void @proto_register_field_array(i32 noundef %80, ptr noundef %79, i32 noundef %.lcssa) #7
-  br label %81
+  %82 = phi ptr [ %23, %19 ], [ %.pre43, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ 0, %19 ], [ %79, %._crit_edge.loopexit ]
+  %83 = load i32, ptr @proto_imf, align 4
+  tail call void @proto_register_field_array(i32 noundef %83, ptr noundef %82, i32 noundef %.lcssa) #7
+  br label %84
 
-81:                                               ; preds = %._crit_edge, %deregister_header_fields.exit
+84:                                               ; preds = %._crit_edge, %deregister_header_fields.exit
   ret void
 }
 

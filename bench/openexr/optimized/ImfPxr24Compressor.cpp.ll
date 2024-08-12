@@ -575,9 +575,21 @@ return:                                           ; preds = %if.end149, %if.then
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN7Imf_3_215Pxr24Compressor12compressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this, ptr nocapture noundef readonly %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) unnamed_addr #3 align 2 {
 entry:
-  %agg.tmp = alloca %"class.Imath_3_2::Box", align 16
-  %0 = load <4 x i32>, ptr %range, align 4
-  store <4 x i32> %0, ptr %agg.tmp, align 16
+  %agg.tmp = alloca %"class.Imath_3_2::Box", align 4
+  %0 = load i32, ptr %range, align 4
+  store i32 %0, ptr %agg.tmp, align 4
+  %y.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 4
+  %y3.i.i = getelementptr inbounds i8, ptr %range, i64 4
+  %1 = load i32, ptr %y3.i.i, align 4
+  store i32 %1, ptr %y.i.i, align 4
+  %max.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %max3.i = getelementptr inbounds i8, ptr %range, i64 8
+  %2 = load i32, ptr %max3.i, align 4
+  store i32 %2, ptr %max.i, align 4
+  %y.i2.i = getelementptr inbounds i8, ptr %agg.tmp, i64 12
+  %y3.i3.i = getelementptr inbounds i8, ptr %range, i64 12
+  %3 = load i32, ptr %y3.i3.i, align 4
+  store i32 %3, ptr %y.i2.i, align 4
   %call = call noundef i32 @_ZN7Imf_3_215Pxr24Compressor8compressEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %outPtr)
   ret i32 %call
 }
@@ -1016,9 +1028,21 @@ return:                                           ; preds = %if.end174, %if.then
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN7Imf_3_215Pxr24Compressor14uncompressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) unnamed_addr #3 align 2 {
 entry:
-  %agg.tmp = alloca %"class.Imath_3_2::Box", align 16
-  %0 = load <4 x i32>, ptr %range, align 4
-  store <4 x i32> %0, ptr %agg.tmp, align 16
+  %agg.tmp = alloca %"class.Imath_3_2::Box", align 4
+  %0 = load i32, ptr %range, align 4
+  store i32 %0, ptr %agg.tmp, align 4
+  %y.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 4
+  %y3.i.i = getelementptr inbounds i8, ptr %range, i64 4
+  %1 = load i32, ptr %y3.i.i, align 4
+  store i32 %1, ptr %y.i.i, align 4
+  %max.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %max3.i = getelementptr inbounds i8, ptr %range, i64 8
+  %2 = load i32, ptr %max3.i, align 4
+  store i32 %2, ptr %max.i, align 4
+  %y.i2.i = getelementptr inbounds i8, ptr %agg.tmp, i64 12
+  %y3.i3.i = getelementptr inbounds i8, ptr %range, i64 12
+  %3 = load i32, ptr %y3.i3.i, align 4
+  store i32 %3, ptr %y.i2.i, align 4
   %call = call noundef i32 @_ZN7Imf_3_215Pxr24Compressor10uncompressEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %outPtr)
   ret i32 %call
 }

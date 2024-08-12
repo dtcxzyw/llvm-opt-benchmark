@@ -3080,9 +3080,29 @@ define internal fastcc void @sd_function_switch(ptr nocapture noundef %sd, i32 n
 entry:
   %tobool = icmp slt i32 %arg, 0
   %data = getelementptr inbounds i8, ptr %sd, i64 396
-  store <8 x i8> <i8 0, i8 1, i8 -128, i8 1, i8 -128, i8 1, i8 -128, i8 1>, ptr %data, align 4
+  store i8 0, ptr %data, align 4
+  %arrayidx3 = getelementptr i8, ptr %sd, i64 397
+  store i8 1, ptr %arrayidx3, align 1
+  %arrayidx5 = getelementptr i8, ptr %sd, i64 398
+  store i8 -128, ptr %arrayidx5, align 2
+  %arrayidx7 = getelementptr i8, ptr %sd, i64 399
+  store i8 1, ptr %arrayidx7, align 1
+  %arrayidx9 = getelementptr i8, ptr %sd, i64 400
+  store i8 -128, ptr %arrayidx9, align 4
+  %arrayidx11 = getelementptr i8, ptr %sd, i64 401
+  store i8 1, ptr %arrayidx11, align 1
+  %arrayidx13 = getelementptr i8, ptr %sd, i64 402
+  store i8 -128, ptr %arrayidx13, align 2
+  %arrayidx15 = getelementptr i8, ptr %sd, i64 403
+  store i8 1, ptr %arrayidx15, align 1
   %arrayidx17 = getelementptr i8, ptr %sd, i64 404
-  store <4 x i8> <i8 -128, i8 1, i8 -128, i8 67>, ptr %arrayidx17, align 4
+  store i8 -128, ptr %arrayidx17, align 4
+  %arrayidx19 = getelementptr i8, ptr %sd, i64 405
+  store i8 1, ptr %arrayidx19, align 1
+  %arrayidx21 = getelementptr i8, ptr %sd, i64 406
+  store i8 -128, ptr %arrayidx21, align 2
+  %arrayidx23 = getelementptr i8, ptr %sd, i64 407
+  store i8 67, ptr %arrayidx23, align 1
   %arrayidx25 = getelementptr i8, ptr %sd, i64 408
   store i8 -128, ptr %arrayidx25, align 4
   %arrayidx27 = getelementptr i8, ptr %sd, i64 409
@@ -3590,9 +3610,29 @@ sd_set_ocr.exit:                                  ; preds = %if.end, %if.then.i
   %arrayidx27.i = getelementptr i8, ptr %call.i, i64 171
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx27.i, i8 0, i64 5, i1 false)
   %cid.i = getelementptr inbounds i8, ptr %call.i, i64 176
-  store <8 x i8> <i8 -86, i8 88, i8 89, i8 81, i8 69, i8 77, i8 85, i8 33>, ptr %cid.i, align 8
+  store i8 -86, ptr %cid.i, align 8
+  %arrayidx2.i = getelementptr i8, ptr %call.i, i64 177
+  store i8 88, ptr %arrayidx2.i, align 1
+  %arrayidx4.i = getelementptr i8, ptr %call.i, i64 178
+  store i8 89, ptr %arrayidx4.i, align 2
+  %arrayidx6.i = getelementptr i8, ptr %call.i, i64 179
+  store i8 81, ptr %arrayidx6.i, align 1
+  %arrayidx8.i = getelementptr i8, ptr %call.i, i64 180
+  store i8 69, ptr %arrayidx8.i, align 4
+  %arrayidx10.i = getelementptr i8, ptr %call.i, i64 181
+  store i8 77, ptr %arrayidx10.i, align 1
+  %arrayidx12.i30 = getelementptr i8, ptr %call.i, i64 182
+  store i8 85, ptr %arrayidx12.i30, align 2
+  %arrayidx14.i31 = getelementptr i8, ptr %call.i, i64 183
+  store i8 33, ptr %arrayidx14.i31, align 1
   %arrayidx16.i = getelementptr i8, ptr %call.i, i64 184
-  store <4 x i8> <i8 1, i8 -34, i8 -83, i8 -66>, ptr %arrayidx16.i, align 8
+  store i8 1, ptr %arrayidx16.i, align 8
+  %arrayidx18.i = getelementptr i8, ptr %call.i, i64 185
+  store i8 -34, ptr %arrayidx18.i, align 1
+  %arrayidx20.i = getelementptr i8, ptr %call.i, i64 186
+  store i8 -83, ptr %arrayidx20.i, align 2
+  %arrayidx22.i = getelementptr i8, ptr %call.i, i64 187
+  store i8 -66, ptr %arrayidx22.i, align 1
   %arrayidx24.i = getelementptr i8, ptr %call.i, i64 188
   store i8 -17, ptr %arrayidx24.i, align 4
   %arrayidx26.i = getelementptr i8, ptr %call.i, i64 189
@@ -3792,7 +3832,12 @@ bitmap_new.exit:                                  ; preds = %cond.end
   store ptr %call.i.i, ptr %wp_group_bmap, align 8
   %function_group = getelementptr inbounds i8, ptr %call.i, i64 372
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %function_group, i8 0, i64 6, i1 false)
+  %erase_start = getelementptr inbounds i8, ptr %call.i, i64 344
+  store i32 -1, ptr %erase_start, align 8
+  %erase_end = getelementptr inbounds i8, ptr %call.i, i64 348
+  store i32 -1, ptr %erase_end, align 4
   %blk_len = getelementptr inbounds i8, ptr %call.i, i64 336
+  store i32 512, ptr %blk_len, align 8
   %pwd_len = getelementptr inbounds i8, ptr %call.i, i64 368
   store i32 0, ptr %pwd_len, align 8
   %expecting_acmd = getelementptr inbounds i8, ptr %call.i, i64 379
@@ -3801,7 +3846,8 @@ bitmap_new.exit:                                  ; preds = %cond.end
   store i8 15, ptr %dat_lines, align 1
   %cmd_line = getelementptr inbounds i8, ptr %call.i, i64 938
   store i8 1, ptr %cmd_line, align 2
-  store <4 x i32> <i32 512, i32 0, i32 -1, i32 -1>, ptr %blk_len, align 8
+  %multi_blk_cnt = getelementptr inbounds i8, ptr %call.i, i64 340
+  store i32 0, ptr %multi_blk_cnt, align 4
   ret void
 }
 

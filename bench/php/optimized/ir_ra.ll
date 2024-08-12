@@ -5890,10 +5890,10 @@ define hidden i32 @ir_allocate_spill_slot(ptr nocapture noundef %0, i32 noundef 
   %16 = getelementptr inbounds i8, ptr %12, i64 56
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %11, align 8
-  br label %135
+  br label %131
 
 18:                                               ; preds = %9, %3
-  switch i8 %6, label %78 [
+  switch i8 %6, label %77 [
     i8 8, label %19
     i8 4, label %23
     i8 2, label %42
@@ -5904,7 +5904,7 @@ define hidden i32 @ir_allocate_spill_slot(ptr nocapture noundef %0, i32 noundef 
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, 8
   store i32 %22, ptr %20, align 4
-  br label %135
+  br label %131
 
 23:                                               ; preds = %18
   %24 = load i32, ptr %2, align 8
@@ -5913,7 +5913,7 @@ define hidden i32 @ir_allocate_spill_slot(ptr nocapture noundef %0, i32 noundef 
 
 25:                                               ; preds = %23
   store i32 0, ptr %2, align 8
-  br label %135
+  br label %131
 
 26:                                               ; preds = %23
   br i1 %.not, label %36, label %27
@@ -5932,7 +5932,7 @@ define hidden i32 @ir_allocate_spill_slot(ptr nocapture noundef %0, i32 noundef 
   store ptr %34, ptr %28, align 8
   %35 = add nsw i32 %32, 4
   store i32 %35, ptr %2, align 8
-  br label %135
+  br label %131
 
 36:                                               ; preds = %27, %26
   %37 = getelementptr inbounds i8, ptr %0, i64 268
@@ -5942,7 +5942,7 @@ define hidden i32 @ir_allocate_spill_slot(ptr nocapture noundef %0, i32 noundef 
   %40 = load i32, ptr %37, align 4
   %41 = add nsw i32 %40, 8
   store i32 %41, ptr %37, align 4
-  br label %135
+  br label %131
 
 42:                                               ; preds = %18
   %43 = getelementptr inbounds i8, ptr %2, i64 4
@@ -5952,7 +5952,7 @@ define hidden i32 @ir_allocate_spill_slot(ptr nocapture noundef %0, i32 noundef 
 
 45:                                               ; preds = %42
   store i32 0, ptr %43, align 4
-  br label %135
+  br label %131
 
 46:                                               ; preds = %42
   %47 = load i32, ptr %2, align 8
@@ -5963,7 +5963,7 @@ define hidden i32 @ir_allocate_spill_slot(ptr nocapture noundef %0, i32 noundef 
   %49 = add nsw i32 %47, 2
   store i32 %49, ptr %43, align 4
   store i32 0, ptr %2, align 8
-  br label %135
+  br label %131
 
 50:                                               ; preds = %46
   br i1 %.not, label %.thread, label %51
@@ -5982,7 +5982,7 @@ define hidden i32 @ir_allocate_spill_slot(ptr nocapture noundef %0, i32 noundef 
   store ptr %58, ptr %52, align 8
   %59 = add nsw i32 %56, 2
   store i32 %59, ptr %43, align 4
-  br label %135
+  br label %131
 
 60:                                               ; preds = %51
   %61 = getelementptr inbounds i8, ptr %8, i64 64
@@ -5996,135 +5996,135 @@ define hidden i32 @ir_allocate_spill_slot(ptr nocapture noundef %0, i32 noundef 
   %66 = getelementptr inbounds i8, ptr %62, i64 56
   %67 = load ptr, ptr %66, align 8
   store ptr %67, ptr %61, align 8
-  %68 = insertelement <2 x i32> poison, i32 %65, i64 0
-  %69 = shufflevector <2 x i32> %68, <2 x i32> poison, <2 x i32> zeroinitializer
-  %70 = add nsw <2 x i32> %69, <i32 4, i32 2>
-  store <2 x i32> %70, ptr %2, align 8
-  br label %135
+  %68 = add nsw i32 %65, 2
+  store i32 %68, ptr %43, align 4
+  %69 = add nsw i32 %65, 4
+  store i32 %69, ptr %2, align 8
+  br label %131
 
 .thread:                                          ; preds = %50, %60
-  %71 = getelementptr inbounds i8, ptr %0, i64 268
-  %72 = load i32, ptr %71, align 4
-  %73 = add nsw i32 %72, 2
-  store i32 %73, ptr %43, align 4
-  %74 = load i32, ptr %71, align 4
-  %75 = add nsw i32 %74, 4
-  store i32 %75, ptr %2, align 8
-  %76 = load i32, ptr %71, align 4
-  %77 = add nsw i32 %76, 8
-  store i32 %77, ptr %71, align 4
-  br label %135
+  %70 = getelementptr inbounds i8, ptr %0, i64 268
+  %71 = load i32, ptr %70, align 4
+  %72 = add nsw i32 %71, 2
+  store i32 %72, ptr %43, align 4
+  %73 = load i32, ptr %70, align 4
+  %74 = add nsw i32 %73, 4
+  store i32 %74, ptr %2, align 8
+  %75 = load i32, ptr %70, align 4
+  %76 = add nsw i32 %75, 8
+  store i32 %76, ptr %70, align 4
+  br label %131
 
-78:                                               ; preds = %18
-  %79 = getelementptr inbounds i8, ptr %2, i64 8
-  %80 = load i32, ptr %79, align 8
-  %.not131 = icmp eq i32 %80, 0
-  br i1 %.not131, label %82, label %81
+77:                                               ; preds = %18
+  %78 = getelementptr inbounds i8, ptr %2, i64 8
+  %79 = load i32, ptr %78, align 8
+  %.not131 = icmp eq i32 %79, 0
+  br i1 %.not131, label %81, label %80
 
-81:                                               ; preds = %78
-  store i32 0, ptr %79, align 8
-  br label %135
+80:                                               ; preds = %77
+  store i32 0, ptr %78, align 8
+  br label %131
 
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %2, i64 4
-  %84 = load i32, ptr %83, align 4
-  %.not132 = icmp eq i32 %84, 0
-  br i1 %.not132, label %87, label %85
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds i8, ptr %2, i64 4
+  %83 = load i32, ptr %82, align 4
+  %.not132 = icmp eq i32 %83, 0
+  br i1 %.not132, label %86, label %84
 
-85:                                               ; preds = %82
-  %86 = add nsw i32 %84, 1
-  store i32 %86, ptr %79, align 8
-  store i32 0, ptr %83, align 4
-  br label %135
+84:                                               ; preds = %81
+  %85 = add nsw i32 %83, 1
+  store i32 %85, ptr %78, align 8
+  store i32 0, ptr %82, align 4
+  br label %131
 
-87:                                               ; preds = %82
-  %88 = load i32, ptr %2, align 8
-  %.not133 = icmp eq i32 %88, 0
-  br i1 %.not133, label %93, label %89
+86:                                               ; preds = %81
+  %87 = load i32, ptr %2, align 8
+  %.not133 = icmp eq i32 %87, 0
+  br i1 %.not133, label %91, label %88
 
-89:                                               ; preds = %87
-  %90 = insertelement <2 x i32> poison, i32 %88, i64 0
-  %91 = shufflevector <2 x i32> %90, <2 x i32> poison, <2 x i32> zeroinitializer
-  %92 = add nsw <2 x i32> %91, <i32 2, i32 1>
-  store <2 x i32> %92, ptr %83, align 4
+88:                                               ; preds = %86
+  %89 = add nsw i32 %87, 1
+  store i32 %89, ptr %78, align 8
+  %90 = add nsw i32 %87, 2
+  store i32 %90, ptr %82, align 4
   store i32 0, ptr %2, align 8
-  br label %135
+  br label %131
 
-93:                                               ; preds = %87
-  br i1 %.not, label %.thread150, label %94
+91:                                               ; preds = %86
+  br i1 %.not, label %.thread150, label %92
 
-94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %8, i64 16
-  %96 = load ptr, ptr %95, align 8
-  %.not135 = icmp eq ptr %96, null
-  br i1 %.not135, label %103, label %97
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds i8, ptr %8, i64 16
+  %94 = load ptr, ptr %93, align 8
+  %.not135 = icmp eq ptr %94, null
+  br i1 %.not135, label %101, label %95
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %96, i64 8
-  %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %96, i64 56
-  %101 = load ptr, ptr %100, align 8
-  store ptr %101, ptr %95, align 8
-  %102 = add nsw i32 %99, 1
-  store i32 %102, ptr %79, align 8
-  br label %135
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds i8, ptr %94, i64 8
+  %97 = load i32, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %94, i64 56
+  %99 = load ptr, ptr %98, align 8
+  store ptr %99, ptr %93, align 8
+  %100 = add nsw i32 %97, 1
+  store i32 %100, ptr %78, align 8
+  br label %131
 
-103:                                              ; preds = %94
-  %104 = getelementptr inbounds i8, ptr %8, i64 32
-  %105 = load ptr, ptr %104, align 8
-  %.not137 = icmp eq ptr %105, null
-  br i1 %.not137, label %114, label %106
+101:                                              ; preds = %92
+  %102 = getelementptr inbounds i8, ptr %8, i64 32
+  %103 = load ptr, ptr %102, align 8
+  %.not137 = icmp eq ptr %103, null
+  br i1 %.not137, label %111, label %104
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %105, i64 8
-  %108 = load i32, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %105, i64 56
-  %110 = load ptr, ptr %109, align 8
-  store ptr %110, ptr %104, align 8
-  %111 = insertelement <2 x i32> poison, i32 %108, i64 0
-  %112 = shufflevector <2 x i32> %111, <2 x i32> poison, <2 x i32> zeroinitializer
-  %113 = add nsw <2 x i32> %112, <i32 2, i32 1>
-  store <2 x i32> %113, ptr %83, align 4
-  br label %135
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds i8, ptr %103, i64 8
+  %106 = load i32, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %103, i64 56
+  %108 = load ptr, ptr %107, align 8
+  store ptr %108, ptr %102, align 8
+  %109 = add nsw i32 %106, 1
+  store i32 %109, ptr %78, align 8
+  %110 = add nsw i32 %106, 2
+  store i32 %110, ptr %82, align 4
+  br label %131
 
-114:                                              ; preds = %103
-  %115 = getelementptr inbounds i8, ptr %8, i64 64
-  %116 = load ptr, ptr %115, align 8
-  %.not139 = icmp eq ptr %116, null
-  br i1 %.not139, label %.thread150, label %117
+111:                                              ; preds = %101
+  %112 = getelementptr inbounds i8, ptr %8, i64 64
+  %113 = load ptr, ptr %112, align 8
+  %.not139 = icmp eq ptr %113, null
+  br i1 %.not139, label %.thread150, label %114
 
-117:                                              ; preds = %114
-  %118 = getelementptr inbounds i8, ptr %116, i64 8
-  %119 = load i32, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %116, i64 56
-  %121 = load ptr, ptr %120, align 8
-  store ptr %121, ptr %115, align 8
-  %122 = add nsw i32 %119, 1
-  store i32 %122, ptr %79, align 8
-  %123 = insertelement <2 x i32> poison, i32 %119, i64 0
-  %124 = shufflevector <2 x i32> %123, <2 x i32> poison, <2 x i32> zeroinitializer
-  %125 = add nsw <2 x i32> %124, <i32 4, i32 2>
-  store <2 x i32> %125, ptr %2, align 8
-  br label %135
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds i8, ptr %113, i64 8
+  %116 = load i32, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %113, i64 56
+  %118 = load ptr, ptr %117, align 8
+  store ptr %118, ptr %112, align 8
+  %119 = add nsw i32 %116, 1
+  store i32 %119, ptr %78, align 8
+  %120 = add nsw i32 %116, 2
+  store i32 %120, ptr %82, align 4
+  %121 = add nsw i32 %116, 4
+  store i32 %121, ptr %2, align 8
+  br label %131
 
-.thread150:                                       ; preds = %93, %114
-  %126 = getelementptr inbounds i8, ptr %0, i64 268
-  %127 = load i32, ptr %126, align 4
-  %128 = add nsw i32 %127, 1
-  store i32 %128, ptr %79, align 8
-  %129 = load i32, ptr %126, align 4
-  %130 = add nsw i32 %129, 2
-  store i32 %130, ptr %83, align 4
-  %131 = load i32, ptr %126, align 4
-  %132 = add nsw i32 %131, 4
-  store i32 %132, ptr %2, align 8
-  %133 = load i32, ptr %126, align 4
-  %134 = add nsw i32 %133, 8
-  store i32 %134, ptr %126, align 4
-  br label %135
+.thread150:                                       ; preds = %91, %111
+  %122 = getelementptr inbounds i8, ptr %0, i64 268
+  %123 = load i32, ptr %122, align 4
+  %124 = add nsw i32 %123, 1
+  store i32 %124, ptr %78, align 8
+  %125 = load i32, ptr %122, align 4
+  %126 = add nsw i32 %125, 2
+  store i32 %126, ptr %82, align 4
+  %127 = load i32, ptr %122, align 4
+  %128 = add nsw i32 %127, 4
+  store i32 %128, ptr %2, align 8
+  %129 = load i32, ptr %122, align 4
+  %130 = add nsw i32 %129, 8
+  store i32 %130, ptr %122, align 4
+  br label %131
 
-135:                                              ; preds = %19, %48, %63, %.thread, %54, %45, %85, %97, %117, %.thread150, %106, %89, %81, %25, %36, %30, %13
-  %.0 = phi i32 [ %15, %13 ], [ %21, %19 ], [ %24, %25 ], [ %32, %30 ], [ %38, %36 ], [ %44, %45 ], [ %47, %48 ], [ %56, %54 ], [ %65, %63 ], [ %72, %.thread ], [ %80, %81 ], [ %84, %85 ], [ %88, %89 ], [ %99, %97 ], [ %108, %106 ], [ %119, %117 ], [ %127, %.thread150 ]
+131:                                              ; preds = %19, %48, %63, %.thread, %54, %45, %84, %95, %114, %.thread150, %104, %88, %80, %25, %36, %30, %13
+  %.0 = phi i32 [ %15, %13 ], [ %21, %19 ], [ %24, %25 ], [ %32, %30 ], [ %38, %36 ], [ %44, %45 ], [ %47, %48 ], [ %56, %54 ], [ %65, %63 ], [ %71, %.thread ], [ %79, %80 ], [ %83, %84 ], [ %87, %88 ], [ %97, %95 ], [ %106, %104 ], [ %116, %114 ], [ %123, %.thread150 ]
   ret i32 %.0
 }
 

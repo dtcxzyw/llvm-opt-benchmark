@@ -86,20 +86,24 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfcfc9bfe43de6
 
 4:                                                ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %8
+  br label %10
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %.sroa.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !7
   %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = load i32, ptr %6, align 8, !alias.scope !17, !noalias !20, !noundef !7
+  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %9 = load i32, ptr %8, align 4, !alias.scope !17, !noalias !20, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = load <2 x i32>, ptr %6, align 8, !alias.scope !17, !noalias !20
-  store <2 x i32> %7, ptr %.sroa.4.0..sroa_idx, align 8
+  store i32 %7, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %9, ptr %.sroa.5.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  br label %8
+  br label %10
 
-8:                                                ; preds = %5, %4
+10:                                               ; preds = %5, %4
   ret void
 }
 
@@ -147,10 +151,14 @@ define hidden void @"_ZN55_$LT$text_edit..Indel$u20$as$u20$core..clone..Clone$GT
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = load i32, ptr %4, align 8, !noundef !7
+  %6 = getelementptr inbounds i8, ptr %1, i64 28
+  %7 = load i32, ptr %6, align 4, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = load <2 x i32>, ptr %4, align 8
-  store <2 x i32> %6, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %7, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
 }

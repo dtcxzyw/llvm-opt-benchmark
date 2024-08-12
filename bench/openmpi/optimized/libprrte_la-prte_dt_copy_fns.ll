@@ -94,17 +94,21 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
   %29 = getelementptr inbounds i8, ptr %4, i64 220
   store i32 %28, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %1, i64 228
-  %31 = getelementptr inbounds i8, ptr %4, i64 228
-  %32 = load <2 x i32>, ptr %30, align 4
-  store <2 x i32> %32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 240
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 240
-  store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 248
-  %37 = load i8, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 248
-  store i8 %37, ptr %38, align 8
+  %31 = load i32, ptr %30, align 4
+  %32 = getelementptr inbounds i8, ptr %4, i64 228
+  store i32 %31, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %1, i64 232
+  %34 = load i32, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %4, i64 232
+  store i32 %34, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %1, i64 240
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %4, i64 240
+  store ptr %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 248
+  %40 = load i8, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %4, i64 248
+  store i8 %40, ptr %41, align 8
   store ptr %4, ptr %0, align 8
   ret i32 0
 }
@@ -447,88 +451,96 @@ pmix_obj_new_tma.exit.thread:                     ; preds = %11
 pmix_obj_new_tma.exit.thread38:                   ; preds = %.lr.ph.i.i, %13
   store ptr %7, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 136
-  %25 = getelementptr inbounds i8, ptr %7, i64 136
-  %26 = load <2 x i16>, ptr %24, align 8
-  store <2 x i16> %26, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 140
-  %28 = load i16, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %7, i64 140
-  store i16 %28, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 144
-  %31 = getelementptr inbounds i8, ptr %7, i64 144
-  %32 = load <2 x i32>, ptr %30, align 8
-  store <2 x i32> %32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 152
+  %25 = load i16, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 136
+  store i16 %25, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 138
+  %28 = load i16, ptr %27, align 2
+  %29 = getelementptr inbounds i8, ptr %7, i64 138
+  store i16 %28, ptr %29, align 2
+  %30 = getelementptr inbounds i8, ptr %1, i64 140
+  %31 = load i16, ptr %30, align 4
+  %32 = getelementptr inbounds i8, ptr %7, i64 140
+  store i16 %31, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %1, i64 144
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 152
+  %35 = getelementptr inbounds i8, ptr %7, i64 144
   store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 160
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 120
-  %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 160
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 120
-  store i32 %39, ptr %42, align 8
-  %43 = load ptr, ptr %36, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 124
-  %45 = load i32, ptr %44, align 4
-  %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 160
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 124
-  store i32 %45, ptr %49, align 4
-  %50 = load ptr, ptr %36, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 128
-  %52 = load i32, ptr %51, align 8
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 160
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 128
-  store i32 %52, ptr %56, align 8
-  %57 = load ptr, ptr %36, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 132
-  %59 = load i32, ptr %58, align 4
-  %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 160
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 132
-  store i32 %59, ptr %63, align 4
-  %64 = load ptr, ptr %36, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 136
-  %66 = load i32, ptr %65, align 8
-  %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 160
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 136
-  store i32 %66, ptr %70, align 8
-  %71 = load ptr, ptr %36, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 128
-  %73 = load i32, ptr %72, align 8
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.lr.ph, label %.loopexit
+  %36 = getelementptr inbounds i8, ptr %1, i64 148
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds i8, ptr %7, i64 148
+  store i32 %37, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %1, i64 152
+  %40 = load i32, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %7, i64 152
+  store i32 %40, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 160
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 120
+  %45 = load i32, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %7, i64 160
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 120
+  store i32 %45, ptr %48, align 8
+  %49 = load ptr, ptr %42, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 124
+  %51 = load i32, ptr %50, align 4
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 160
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 124
+  store i32 %51, ptr %55, align 4
+  %56 = load ptr, ptr %42, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 128
+  %58 = load i32, ptr %57, align 8
+  %59 = load ptr, ptr %0, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 160
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 128
+  store i32 %58, ptr %62, align 8
+  %63 = load ptr, ptr %42, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 132
+  %65 = load i32, ptr %64, align 4
+  %66 = load ptr, ptr %0, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 160
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 132
+  store i32 %65, ptr %69, align 4
+  %70 = load ptr, ptr %42, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 136
+  %72 = load i32, ptr %71, align 8
+  %73 = load ptr, ptr %0, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 160
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 136
+  store i32 %72, ptr %76, align 8
+  %77 = load ptr, ptr %42, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 128
+  %79 = load i32, ptr %78, align 8
+  %80 = icmp sgt i32 %79, 0
+  br i1 %80, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %pmix_obj_new_tma.exit.thread38, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %pmix_obj_new_tma.exit.thread38 ]
-  %75 = phi ptr [ %86, %.lr.ph ], [ %71, %pmix_obj_new_tma.exit.thread38 ]
-  %76 = getelementptr inbounds i8, ptr %75, i64 152
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 160
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 152
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv
-  store ptr %79, ptr %85, align 8
+  %81 = phi ptr [ %92, %.lr.ph ], [ %77, %pmix_obj_new_tma.exit.thread38 ]
+  %82 = getelementptr inbounds i8, ptr %81, i64 152
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds ptr, ptr %83, i64 %indvars.iv
+  %85 = load ptr, ptr %84, align 8
+  %86 = load ptr, ptr %0, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 160
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 152
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds ptr, ptr %90, i64 %indvars.iv
+  store ptr %85, ptr %91, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = load ptr, ptr %36, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 128
-  %88 = load i32, ptr %87, align 8
-  %89 = sext i32 %88 to i64
-  %90 = icmp slt i64 %indvars.iv.next, %89
-  br i1 %90, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  %92 = load ptr, ptr %42, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 128
+  %94 = load i32, ptr %93, align 8
+  %95 = sext i32 %94 to i64
+  %96 = icmp slt i64 %indvars.iv.next, %95
+  br i1 %96, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %pmix_obj_new_tma.exit.thread38, %pmix_obj_new_tma.exit.thread, %4
   %.0 = phi i32 [ 0, %4 ], [ -2, %pmix_obj_new_tma.exit.thread ], [ 0, %pmix_obj_new_tma.exit.thread38 ], [ 0, %.lr.ph ]

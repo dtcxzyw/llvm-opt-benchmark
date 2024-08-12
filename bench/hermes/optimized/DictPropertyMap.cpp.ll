@@ -137,7 +137,13 @@ _ZN6hermes2vm7Runtime13makeAVariableINS0_15DictPropertyMapELNS0_12HasFinalizerE0
   %hashCapacity_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
   store i32 %conv1.i, ptr %hashCapacity_.i.i.i.i.i.i, align 4
   %numDescriptors_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 12
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %numDescriptors_.i.i.i.i.i.i, align 4
+  store i32 0, ptr %numDescriptors_.i.i.i.i.i.i, align 4
+  %numProperties_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
+  store i32 0, ptr %numProperties_.i.i.i.i.i.i, align 4
+  %deletedListHead_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 20
+  store i32 -1, ptr %deletedListHead_.i.i.i.i.i.i, align 4
+  %deletedListSize_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 24
+  store i32 0, ptr %deletedListSize_.i.i.i.i.i.i, align 4
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 28
   %conv.i.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %capacity to i64
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i.i.i

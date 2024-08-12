@@ -2350,7 +2350,13 @@ if.end5:                                          ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %1, i8 0, i64 88, i1 false)
   store i32 944111087, ptr %call2, align 4
   %fFormatVersion = getelementptr inbounds i8, ptr %call2, i64 4
-  store <4 x i8> <i8 2, i8 0, i8 0, i8 0>, ptr %fFormatVersion, align 4
+  store i8 2, ptr %fFormatVersion, align 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %call2, i64 5
+  store i8 0, ptr %arrayidx12, align 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %call2, i64 6
+  store i8 0, ptr %arrayidx15, align 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %call2, i64 7
+  store i8 0, ptr %arrayidx18, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fCFUKeys.i, i8 0, i64 24, i1 false)
   br label %return
 

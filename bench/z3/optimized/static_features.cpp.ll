@@ -5424,10 +5424,14 @@ _ZNK15static_features7is_gateEPK4expr.exit:       ; preds = %_ZNK3app13get_decl_
   br i1 %call5.i, label %if.end37, label %if.then31
 
 if.then31:                                        ; preds = %land.rhs.i.i, %if.end, %_ZNK3app13get_decl_kindEv.exit.i, %_ZNK15static_features13is_basic_exprEPK4expr.exit.thread.i, %_ZNK15static_features7is_gateEPK4expr.exit
+  %m_sum_clause_size32 = getelementptr inbounds i8, ptr %this, i64 440
+  %43 = load i32, ptr %m_sum_clause_size32, align 8
+  %inc33 = add i32 %43, 1
+  store i32 %inc33, ptr %m_sum_clause_size32, align 8
   %m_num_units = getelementptr inbounds i8, ptr %this, i64 436
-  %43 = load <2 x i32>, ptr %m_num_units, align 4
-  %44 = add <2 x i32> %43, <i32 1, i32 1>
-  store <2 x i32> %44, ptr %m_num_units, align 4
+  %44 = load i32, ptr %m_num_units, align 4
+  %inc34 = add i32 %44, 1
+  store i32 %inc34, ptr %m_num_units, align 4
   %m_num_clauses35 = getelementptr inbounds i8, ptr %this, i64 428
   %45 = load i32, ptr %m_num_clauses35, align 4
   %inc36 = add i32 %45, 1

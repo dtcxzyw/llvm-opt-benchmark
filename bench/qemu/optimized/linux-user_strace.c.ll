@@ -6233,14 +6233,22 @@ if.then:                                          ; preds = %print_signal.exit
 
 do.body12.i:                                      ; preds = %if.then, %if.then, %if.then
   %_sifields13.i = getelementptr inbounds i8, ptr %call, i64 16
-  %3 = load <2 x i32>, ptr %_sifields13.i, align 1
-  store <2 x i32> %3, ptr %_sifields.i, align 8
+  %_sifields13.val.i = load i32, ptr %_sifields13.i, align 1
+  store i32 %_sifields13.val.i, ptr %_sifields.i, align 8
+  %_uid.i = getelementptr inbounds i8, ptr %call, i64 20
+  %_uid.val.i = load i32, ptr %_uid.i, align 1
+  %_uid22.i = getelementptr inbounds i8, ptr %uinfo, i64 20
+  store i32 %_uid.val.i, ptr %_uid22.i, align 4
   br label %get_target_siginfo.exit
 
 sw.default.i:                                     ; preds = %if.then
   %_sifields72.i = getelementptr inbounds i8, ptr %call, i64 16
-  %4 = load <2 x i32>, ptr %_sifields72.i, align 1
-  store <2 x i32> %4, ptr %_sifields.i, align 8
+  %_sifields72.val.i = load i32, ptr %_sifields72.i, align 1
+  store i32 %_sifields72.val.i, ptr %_sifields.i, align 8
+  %_uid80.i = getelementptr inbounds i8, ptr %call, i64 20
+  %_uid80.val.i = load i32, ptr %_uid80.i, align 1
+  %_uid83.i = getelementptr inbounds i8, ptr %uinfo, i64 20
+  store i32 %_uid80.val.i, ptr %_uid83.i, align 4
   switch i32 %info.val.i, label %do.body71.i [
     i32 17, label %do.body25.i
     i32 29, label %get_target_siginfo.exit
@@ -6252,9 +6260,13 @@ do.body25.i:                                      ; preds = %sw.default.i
   %_status43.i = getelementptr inbounds i8, ptr %uinfo, i64 24
   store i32 %_status.val.i, ptr %_status43.i, align 8
   %_utime.i = getelementptr inbounds i8, ptr %call, i64 32
+  %_utime.val.i = load i64, ptr %_utime.i, align 1
   %_utime49.i = getelementptr inbounds i8, ptr %uinfo, i64 32
-  %5 = load <2 x i64>, ptr %_utime.i, align 1
-  store <2 x i64> %5, ptr %_utime49.i, align 8
+  store i64 %_utime.val.i, ptr %_utime49.i, align 8
+  %_stime.i = getelementptr inbounds i8, ptr %call, i64 40
+  %_stime.val.i = load i64, ptr %_stime.i, align 1
+  %_stime55.i = getelementptr inbounds i8, ptr %uinfo, i64 40
+  store i64 %_stime.val.i, ptr %_stime55.i, align 8
   br label %get_target_siginfo.exit
 
 do.body71.i:                                      ; preds = %sw.default.i
@@ -6345,14 +6357,22 @@ if.then:                                          ; preds = %print_signal.exit
 
 do.body12.i:                                      ; preds = %if.then, %if.then, %if.then
   %_sifields13.i = getelementptr inbounds i8, ptr %call, i64 16
-  %3 = load <2 x i32>, ptr %_sifields13.i, align 1
-  store <2 x i32> %3, ptr %_sifields.i, align 8
+  %_sifields13.val.i = load i32, ptr %_sifields13.i, align 1
+  store i32 %_sifields13.val.i, ptr %_sifields.i, align 8
+  %_uid.i = getelementptr inbounds i8, ptr %call, i64 20
+  %_uid.val.i = load i32, ptr %_uid.i, align 1
+  %_uid22.i = getelementptr inbounds i8, ptr %uinfo, i64 20
+  store i32 %_uid.val.i, ptr %_uid22.i, align 4
   br label %get_target_siginfo.exit
 
 sw.default.i:                                     ; preds = %if.then
   %_sifields72.i = getelementptr inbounds i8, ptr %call, i64 16
-  %4 = load <2 x i32>, ptr %_sifields72.i, align 1
-  store <2 x i32> %4, ptr %_sifields.i, align 8
+  %_sifields72.val.i = load i32, ptr %_sifields72.i, align 1
+  store i32 %_sifields72.val.i, ptr %_sifields.i, align 8
+  %_uid80.i = getelementptr inbounds i8, ptr %call, i64 20
+  %_uid80.val.i = load i32, ptr %_uid80.i, align 1
+  %_uid83.i = getelementptr inbounds i8, ptr %uinfo, i64 20
+  store i32 %_uid80.val.i, ptr %_uid83.i, align 4
   switch i32 %info.val.i, label %do.body71.i [
     i32 17, label %do.body25.i
     i32 29, label %get_target_siginfo.exit
@@ -6364,9 +6384,13 @@ do.body25.i:                                      ; preds = %sw.default.i
   %_status43.i = getelementptr inbounds i8, ptr %uinfo, i64 24
   store i32 %_status.val.i, ptr %_status43.i, align 8
   %_utime.i = getelementptr inbounds i8, ptr %call, i64 32
+  %_utime.val.i = load i64, ptr %_utime.i, align 1
   %_utime49.i = getelementptr inbounds i8, ptr %uinfo, i64 32
-  %5 = load <2 x i64>, ptr %_utime.i, align 1
-  store <2 x i64> %5, ptr %_utime49.i, align 8
+  store i64 %_utime.val.i, ptr %_utime49.i, align 8
+  %_stime.i = getelementptr inbounds i8, ptr %call, i64 40
+  %_stime.val.i = load i64, ptr %_stime.i, align 1
+  %_stime55.i = getelementptr inbounds i8, ptr %uinfo, i64 40
+  store i64 %_stime.val.i, ptr %_stime55.i, align 8
   br label %get_target_siginfo.exit
 
 do.body71.i:                                      ; preds = %sw.default.i
@@ -7542,14 +7566,22 @@ if.then:                                          ; preds = %print_signal.exit
 
 do.body12.i:                                      ; preds = %if.then, %if.then, %if.then
   %_sifields13.i = getelementptr inbounds i8, ptr %call, i64 16
-  %3 = load <2 x i32>, ptr %_sifields13.i, align 1
-  store <2 x i32> %3, ptr %_sifields.i, align 8
+  %_sifields13.val.i = load i32, ptr %_sifields13.i, align 1
+  store i32 %_sifields13.val.i, ptr %_sifields.i, align 8
+  %_uid.i = getelementptr inbounds i8, ptr %call, i64 20
+  %_uid.val.i = load i32, ptr %_uid.i, align 1
+  %_uid22.i = getelementptr inbounds i8, ptr %uinfo, i64 20
+  store i32 %_uid.val.i, ptr %_uid22.i, align 4
   br label %get_target_siginfo.exit
 
 sw.default.i:                                     ; preds = %if.then
   %_sifields72.i = getelementptr inbounds i8, ptr %call, i64 16
-  %4 = load <2 x i32>, ptr %_sifields72.i, align 1
-  store <2 x i32> %4, ptr %_sifields.i, align 8
+  %_sifields72.val.i = load i32, ptr %_sifields72.i, align 1
+  store i32 %_sifields72.val.i, ptr %_sifields.i, align 8
+  %_uid80.i = getelementptr inbounds i8, ptr %call, i64 20
+  %_uid80.val.i = load i32, ptr %_uid80.i, align 1
+  %_uid83.i = getelementptr inbounds i8, ptr %uinfo, i64 20
+  store i32 %_uid80.val.i, ptr %_uid83.i, align 4
   switch i32 %info.val.i, label %do.body71.i [
     i32 17, label %do.body25.i
     i32 29, label %get_target_siginfo.exit
@@ -7561,9 +7593,13 @@ do.body25.i:                                      ; preds = %sw.default.i
   %_status43.i = getelementptr inbounds i8, ptr %uinfo, i64 24
   store i32 %_status.val.i, ptr %_status43.i, align 8
   %_utime.i = getelementptr inbounds i8, ptr %call, i64 32
+  %_utime.val.i = load i64, ptr %_utime.i, align 1
   %_utime49.i = getelementptr inbounds i8, ptr %uinfo, i64 32
-  %5 = load <2 x i64>, ptr %_utime.i, align 1
-  store <2 x i64> %5, ptr %_utime49.i, align 8
+  store i64 %_utime.val.i, ptr %_utime49.i, align 8
+  %_stime.i = getelementptr inbounds i8, ptr %call, i64 40
+  %_stime.val.i = load i64, ptr %_stime.i, align 1
+  %_stime55.i = getelementptr inbounds i8, ptr %uinfo, i64 40
+  store i64 %_stime.val.i, ptr %_stime55.i, align 8
   br label %get_target_siginfo.exit
 
 do.body71.i:                                      ; preds = %sw.default.i

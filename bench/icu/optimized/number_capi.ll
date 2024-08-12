@@ -1380,31 +1380,35 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %fp, align 8
   %fField.i = getelementptr inbounds i8, ptr %fp, i64 8
+  %fBeginIndex.i = getelementptr inbounds i8, ptr %fp, i64 12
   %fEndIndex.i = getelementptr inbounds i8, ptr %fp, i64 16
-  %2 = load <2 x i32>, ptr %ufpos, align 4
-  store <2 x i32> %2, ptr %fField.i, align 8
+  %2 = load i32, ptr %ufpos, align 4
+  store i32 %2, ptr %fField.i, align 8
+  %beginIndex = getelementptr inbounds i8, ptr %ufpos, i64 4
+  %3 = load i32, ptr %beginIndex, align 4
+  store i32 %3, ptr %fBeginIndex.i, align 4
   %endIndex = getelementptr inbounds i8, ptr %ufpos, i64 8
-  %3 = load i32, ptr %endIndex, align 4
-  store i32 %3, ptr %fEndIndex.i, align 8
+  %4 = load i32, ptr %endIndex, align 4
+  store i32 %4, ptr %fEndIndex.i, align 8
   %fData = getelementptr inbounds i8, ptr %uresult, i64 48
   %call8 = invoke noundef signext i8 @_ZNK6icu_7531FormattedValueStringBuilderImpl17nextFieldPositionERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(300) %fData, ptr noundef nonnull align 8 dereferenceable(20) %fp, ptr noundef nonnull align 4 dereferenceable(4) %ec)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %if.end3
-  %beginIndex = getelementptr inbounds i8, ptr %ufpos, i64 4
-  %fBeginIndex.i = getelementptr inbounds i8, ptr %fp, i64 12
   %tobool9 = icmp ne i8 %call8, 0
   %frombool = zext i1 %tobool9 to i8
-  %4 = load <2 x i32>, ptr %fBeginIndex.i, align 4
-  store <2 x i32> %4, ptr %beginIndex, align 4
+  %5 = load i32, ptr %fBeginIndex.i, align 4
+  store i32 %5, ptr %beginIndex, align 4
+  %6 = load i32, ptr %fEndIndex.i, align 8
+  store i32 %6, ptr %endIndex, align 4
   call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #11
   br label %return
 
 lpad:                                             ; preds = %if.end3
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #11
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %7
 
 return:                                           ; preds = %return.sink.split.i, %entry, %invoke.cont7, %if.then2
   %retval.0 = phi i8 [ 0, %if.then2 ], [ %frombool, %invoke.cont7 ], [ 0, %entry ], [ 0, %return.sink.split.i ]

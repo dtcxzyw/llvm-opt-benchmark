@@ -3763,97 +3763,111 @@ _ZNSt12_Vector_baseIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE1
   %26 = getelementptr inbounds i8, ptr %24, i64 8
   %27 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27)
-          to label %_ZNSt16allocator_traitsISaIN23cmGlobalCommonGenerator15DirectoryTarget6TargetEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit unwind label %48
+          to label %_ZNSt16allocator_traitsISaIN23cmGlobalCommonGenerator15DirectoryTarget6TargetEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit unwind label %58
 
 _ZNSt16allocator_traitsISaIN23cmGlobalCommonGenerator15DirectoryTarget6TargetEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_M_allocateEm.exit
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN23cmGlobalCommonGenerator15DirectoryTarget6TargetEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN23cmGlobalCommonGenerator15DirectoryTarget6TargetEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit ]
-  %.0911.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN23cmGlobalCommonGenerator15DirectoryTarget6TargetEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit ]
+  %.012.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN23cmGlobalCommonGenerator15DirectoryTarget6TargetEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit ]
+  %.0911.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN23cmGlobalCommonGenerator15DirectoryTarget6TargetEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %28 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %29 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !37, !noalias !34
-  store <2 x ptr> %29, ptr %.012.i.i.i, align 8, !alias.scope !34, !noalias !37
-  %30 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %32 = load <2 x ptr>, ptr %31, align 8, !alias.scope !37, !noalias !34
-  store <2 x ptr> %32, ptr %30, align 8, !alias.scope !34, !noalias !37
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false), !alias.scope !37, !noalias !34
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %.not.i.i.i = icmp eq ptr %33, %1
+  %28 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !37, !noalias !34
+  store ptr %28, ptr %.012.i.i.i, align 8, !alias.scope !34, !noalias !37
+  %29 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
+  %30 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
+  %31 = load ptr, ptr %30, align 8, !alias.scope !37, !noalias !34
+  store ptr %31, ptr %29, align 8, !alias.scope !34, !noalias !37
+  %32 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %34 = load ptr, ptr %33, align 8, !alias.scope !37, !noalias !34
+  store ptr %34, ptr %32, align 8, !alias.scope !34, !noalias !37
+  %35 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %37 = load ptr, ptr %36, align 8, !alias.scope !37, !noalias !34
+  store ptr %37, ptr %35, align 8, !alias.scope !34, !noalias !37
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !alias.scope !37, !noalias !34
+  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
+  %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  %.not.i.i.i = icmp eq ptr %38, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !39
 
 _ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN23cmGlobalCommonGenerator15DirectoryTarget6TargetEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN23cmGlobalCommonGenerator15DirectoryTarget6TargetEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit ], [ %34, %.lr.ph.i.i.i ]
-  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
+  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN23cmGlobalCommonGenerator15DirectoryTarget6TargetEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit ], [ %39, %.lr.ph.i.i.i ]
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
   %.not10.i.i.i26 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i27
-  %.012.i.i.i28 = phi ptr [ %42, %.lr.ph.i.i.i27 ], [ %35, %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  %.0911.i.i.i29 = phi ptr [ %41, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.012.i.i.i28 = phi ptr [ %52, %.lr.ph.i.i.i27 ], [ %40, %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.0911.i.i.i29 = phi ptr [ %51, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 8
-  %37 = load <2 x ptr>, ptr %.0911.i.i.i29, align 8, !alias.scope !43, !noalias !40
-  store <2 x ptr> %37, ptr %.012.i.i.i28, align 8, !alias.scope !40, !noalias !43
-  %38 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 16
-  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 16
-  %40 = load <2 x ptr>, ptr %39, align 8, !alias.scope !43, !noalias !40
-  store <2 x ptr> %40, ptr %38, align 8, !alias.scope !40, !noalias !43
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false), !alias.scope !43, !noalias !40
-  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 32
-  %42 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 32
-  %.not.i.i.i30 = icmp eq ptr %41, %5
+  %41 = load ptr, ptr %.0911.i.i.i29, align 8, !alias.scope !43, !noalias !40
+  store ptr %41, ptr %.012.i.i.i28, align 8, !alias.scope !40, !noalias !43
+  %42 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 8
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 8
+  %44 = load ptr, ptr %43, align 8, !alias.scope !43, !noalias !40
+  store ptr %44, ptr %42, align 8, !alias.scope !40, !noalias !43
+  %45 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 16
+  %46 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 16
+  %47 = load ptr, ptr %46, align 8, !alias.scope !43, !noalias !40
+  store ptr %47, ptr %45, align 8, !alias.scope !40, !noalias !43
+  %48 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 24
+  %49 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 24
+  %50 = load ptr, ptr %49, align 8, !alias.scope !43, !noalias !40
+  store ptr %50, ptr %48, align 8, !alias.scope !40, !noalias !43
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false), !alias.scope !43, !noalias !40
+  %51 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 32
+  %52 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 32
+  %.not.i.i.i30 = icmp eq ptr %51, %5
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !39
 
 _ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  %.0.lcssa.i.i.i31 = phi ptr [ %35, %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %42, %.lr.ph.i.i.i27 ]
+  %.0.lcssa.i.i.i31 = phi ptr [ %40, %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %52, %.lr.ph.i.i.i27 ]
   %.not.i33 = icmp eq ptr %6, null
-  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE13_M_deallocateEPS2_m.exit, label %43
+  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE13_M_deallocateEPS2_m.exit, label %53
 
-43:                                               ; preds = %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32
+53:                                               ; preds = %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32
   tail call void @_ZdlPv(ptr noundef nonnull %6) #20
   br label %_ZNSt12_Vector_baseIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %43
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %53
+  %54 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %45 = getelementptr inbounds %"struct.cmGlobalCommonGenerator::DirectoryTarget::Target", ptr %23, i64 %16
-  store ptr %45, ptr %44, align 8
+  %55 = getelementptr inbounds %"struct.cmGlobalCommonGenerator::DirectoryTarget::Target", ptr %23, i64 %16
+  store ptr %55, ptr %54, align 8
   ret void
 
-46:                                               ; preds = %48
-  %47 = landingpad { ptr, i32 }
+56:                                               ; preds = %58
+  %57 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %52 unwind label %53
+          to label %62 unwind label %63
 
-48:                                               ; preds = %_ZNSt12_Vector_baseIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_M_allocateEm.exit
-  %49 = landingpad { ptr, i32 }
+58:                                               ; preds = %_ZNSt12_Vector_baseIN23cmGlobalCommonGenerator15DirectoryTarget6TargetESaIS2_EE11_M_allocateEm.exit
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  %51 = tail call ptr @__cxa_begin_catch(ptr %50) #19
+  %60 = extractvalue { ptr, i32 } %59, 0
+  %61 = tail call ptr @__cxa_begin_catch(ptr %60) #19
   tail call void @_ZdlPv(ptr noundef nonnull %23) #20
   invoke void @__cxa_rethrow() #21
-          to label %56 unwind label %46
+          to label %66 unwind label %56
 
-52:                                               ; preds = %46
-  resume { ptr, i32 } %47
+62:                                               ; preds = %56
+  resume { ptr, i32 } %57
 
-53:                                               ; preds = %46
-  %54 = landingpad { ptr, i32 }
+63:                                               ; preds = %56
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #18
+  %65 = extractvalue { ptr, i32 } %64, 0
+  tail call void @__clang_call_terminate(ptr %65) #18
   unreachable
 
-56:                                               ; preds = %48
+66:                                               ; preds = %58
   unreachable
 }
 

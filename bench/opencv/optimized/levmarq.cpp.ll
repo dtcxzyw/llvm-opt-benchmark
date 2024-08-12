@@ -130,45 +130,49 @@ define void @_ZN2cv8LMSolver6createERKNS_3PtrINS0_8CallbackEEEi(ptr dead_on_unwi
 .noexc.i.i.i.i.i:                                 ; preds = %3
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv12LMSolverImplE, i64 16), ptr %7, align 8, !noalias !4
   %8 = getelementptr inbounds i8, ptr %4, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !noalias !4
-  %11 = load <2 x ptr>, ptr %1, align 8, !noalias !4
-  store <2 x ptr> %11, ptr %8, align 8, !noalias !4
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_12LMSolverImplEED2Ev.exit, label %12
+  %9 = load ptr, ptr %1, align 8, !noalias !4
+  store ptr %9, ptr %8, align 8, !noalias !4
+  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !4
+  store ptr %12, ptr %10, align 8, !noalias !4
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_12LMSolverImplEED2Ev.exit, label %13
 
-12:                                               ; preds = %.noexc.i.i.i.i.i
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  %14 = load i8, ptr @__libc_single_threaded, align 1, !noalias !4
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %18, label %15
+13:                                               ; preds = %.noexc.i.i.i.i.i
+  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = load i8, ptr @__libc_single_threaded, align 1, !noalias !4
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %15, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %19, label %16
 
-15:                                               ; preds = %12
-  %16 = load i32, ptr %13, align 4, !noalias !4
-  %17 = add nsw i32 %16, 1
-  store i32 %17, ptr %13, align 4, !noalias !4
+16:                                               ; preds = %13
+  %17 = load i32, ptr %14, align 4, !noalias !4
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %14, align 4, !noalias !4
   br label %_ZN2cv3PtrINS_12LMSolverImplEED2Ev.exit
 
-18:                                               ; preds = %12
-  %19 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4, !noalias !4
+19:                                               ; preds = %13
+  %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4, !noalias !4
   br label %_ZN2cv3PtrINS_12LMSolverImplEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12LMSolverImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i: ; preds = %3
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %4) #14, !noalias !4
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %21
 
-_ZN2cv3PtrINS_12LMSolverImplEED2Ev.exit:          ; preds = %18, %15, %.noexc.i.i.i.i.i
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
-  store <2 x double> <double 0x3E80000000000000, double 0x3E80000000000000>, ptr %21, align 8, !noalias !4
-  %22 = getelementptr inbounds i8, ptr %4, i64 56
-  store i32 %2, ptr %22, align 8, !noalias !4
-  %23 = getelementptr inbounds i8, ptr %4, i64 60
-  store i32 0, ptr %23, align 4, !noalias !4
+_ZN2cv3PtrINS_12LMSolverImplEED2Ev.exit:          ; preds = %19, %16, %.noexc.i.i.i.i.i
+  %22 = getelementptr inbounds i8, ptr %4, i64 40
+  store double 0x3E80000000000000, ptr %22, align 8, !noalias !4
+  %23 = getelementptr inbounds i8, ptr %4, i64 48
+  store double 0x3E80000000000000, ptr %23, align 8, !noalias !4
+  %24 = getelementptr inbounds i8, ptr %4, i64 56
+  store i32 %2, ptr %24, align 8, !noalias !4
+  %25 = getelementptr inbounds i8, ptr %4, i64 60
+  store i32 0, ptr %25, align 4, !noalias !4
   store ptr %7, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %4, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %4, ptr %26, align 8
   ret void
 }
 
@@ -187,47 +191,49 @@ define void @_ZN2cv8LMSolver6createERKNS_3PtrINS0_8CallbackEEEid(ptr dead_on_unw
 .noexc.i.i.i.i.i:                                 ; preds = %4
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv12LMSolverImplE, i64 16), ptr %8, align 8, !noalias !9
   %9 = getelementptr inbounds i8, ptr %5, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !9
-  %12 = load <2 x ptr>, ptr %1, align 8, !noalias !9
-  store <2 x ptr> %12, ptr %9, align 8, !noalias !9
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_12LMSolverImplEED2Ev.exit, label %13
+  %10 = load ptr, ptr %1, align 8, !noalias !9
+  store ptr %10, ptr %9, align 8, !noalias !9
+  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8, !noalias !9
+  store ptr %13, ptr %11, align 8, !noalias !9
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_12LMSolverImplEED2Ev.exit, label %14
 
-13:                                               ; preds = %.noexc.i.i.i.i.i
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
-  %15 = load i8, ptr @__libc_single_threaded, align 1, !noalias !9
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %19, label %16
+14:                                               ; preds = %.noexc.i.i.i.i.i
+  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !9
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %16, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %20, label %17
 
-16:                                               ; preds = %13
-  %17 = load i32, ptr %14, align 4, !noalias !9
-  %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %14, align 4, !noalias !9
+17:                                               ; preds = %14
+  %18 = load i32, ptr %15, align 4, !noalias !9
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %15, align 4, !noalias !9
   br label %_ZN2cv3PtrINS_12LMSolverImplEED2Ev.exit
 
-19:                                               ; preds = %13
-  %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4, !noalias !9
+20:                                               ; preds = %14
+  %21 = atomicrmw volatile add ptr %15, i32 1 acq_rel, align 4, !noalias !9
   br label %_ZN2cv3PtrINS_12LMSolverImplEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12LMSolverImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %4
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %5) #14, !noalias !9
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %22
 
-_ZN2cv3PtrINS_12LMSolverImplEED2Ev.exit:          ; preds = %19, %16, %.noexc.i.i.i.i.i
-  %22 = getelementptr inbounds i8, ptr %5, i64 40
-  store double %3, ptr %22, align 8, !noalias !9
-  %23 = getelementptr inbounds i8, ptr %5, i64 48
+_ZN2cv3PtrINS_12LMSolverImplEED2Ev.exit:          ; preds = %20, %17, %.noexc.i.i.i.i.i
+  %23 = getelementptr inbounds i8, ptr %5, i64 40
   store double %3, ptr %23, align 8, !noalias !9
-  %24 = getelementptr inbounds i8, ptr %5, i64 56
-  store i32 %2, ptr %24, align 8, !noalias !9
-  %25 = getelementptr inbounds i8, ptr %5, i64 60
-  store i32 0, ptr %25, align 4, !noalias !9
+  %24 = getelementptr inbounds i8, ptr %5, i64 48
+  store double %3, ptr %24, align 8, !noalias !9
+  %25 = getelementptr inbounds i8, ptr %5, i64 56
+  store i32 %2, ptr %25, align 8, !noalias !9
+  %26 = getelementptr inbounds i8, ptr %5, i64 60
+  store i32 0, ptr %26, align 4, !noalias !9
   store ptr %8, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %5, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %5, ptr %27, align 8
   ret void
 }
 

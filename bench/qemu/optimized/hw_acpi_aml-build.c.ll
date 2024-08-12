@@ -6345,20 +6345,23 @@ for.body108:                                      ; preds = %for.end102, %for.bo
   %call.i116 = tail call fastcc noundef ptr @aml_dword_as_desc(i32 noundef 1, i32 noundef 4, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %conv112, i32 noundef %conv113, i32 noundef %io_offset, i32 noundef %conv118, i8 noundef zeroext 3)
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %call.i116)
   %27 = load ptr, ptr %range_set, align 8
-  %28 = load <2 x i64>, ptr %23, align 8
+  %28 = load i64, ptr %23, align 8
+  %29 = load i64, ptr %limit, align 8
   %call.i117 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
-  store <2 x i64> %28, ptr %call.i117, align 8
+  store i64 %28, ptr %call.i117, align 8
+  %limit3.i118 = getelementptr inbounds i8, ptr %call.i117, i64 8
+  store i64 %29, ptr %limit3.i118, align 8
   tail call void @g_ptr_array_add(ptr noundef %27, ptr noundef nonnull %call.i117) #14
   %inc124 = add nuw i32 %i.1149, 1
-  %29 = load i32, ptr %len, align 8
-  %cmp106 = icmp ult i32 %inc124, %29
+  %30 = load i32, ptr %len, align 8
+  %cmp106 = icmp ult i32 %inc124, %30
   br i1 %cmp106, label %for.body108, label %for.end125, !llvm.loop !24
 
 for.end125:                                       ; preds = %for.body108, %for.end102
   tail call fastcc void @crs_range_merge(ptr noundef %call1.i)
   %len129 = getelementptr inbounds i8, ptr %call1.i, i64 8
-  %30 = load i32, ptr %len129, align 8
-  %cmp130150.not = icmp eq i32 %30, 0
+  %31 = load i32, ptr %len129, align 8
+  %cmp130150.not = icmp eq i32 %31, 0
   br i1 %cmp130150.not, label %for.end165, label %for.body132.lr.ph
 
 for.body132.lr.ph:                                ; preds = %for.end125
@@ -6367,18 +6370,18 @@ for.body132.lr.ph:                                ; preds = %for.end125
 
 for.body132:                                      ; preds = %for.body132.lr.ph, %if.end149
   %i.2151 = phi i32 [ 0, %for.body132.lr.ph ], [ %inc164, %if.end149 ]
-  %31 = load ptr, ptr %call1.i, align 8
+  %32 = load ptr, ptr %call1.i, align 8
   %idxprom135 = sext i32 %i.2151 to i64
-  %arrayidx136 = getelementptr ptr, ptr %31, i64 %idxprom135
-  %32 = load ptr, ptr %arrayidx136, align 8
-  %limit137 = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load i64, ptr %limit137, align 8
-  %cmp138 = icmp ult i64 %33, 4294967296
+  %arrayidx136 = getelementptr ptr, ptr %32, i64 %idxprom135
+  %33 = load ptr, ptr %arrayidx136, align 8
+  %limit137 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = load i64, ptr %limit137, align 8
+  %cmp138 = icmp ult i64 %34, 4294967296
   br i1 %cmp138, label %land.lhs.true140, label %if.else148
 
 land.lhs.true140:                                 ; preds = %for.body132
-  %34 = load i64, ptr %32, align 8
-  %sub143 = sub i64 %33, %34
+  %35 = load i64, ptr %33, align 8
+  %sub143 = sub i64 %34, %35
   %add144 = add i64 %sub143, 1
   %cmp145 = icmp ult i64 %add144, 4294967296
   br i1 %cmp145, label %if.end149, label %if.else148
@@ -6388,26 +6391,29 @@ if.else148:                                       ; preds = %land.lhs.true140, %
   unreachable
 
 if.end149:                                        ; preds = %land.lhs.true140
-  %conv151 = trunc i64 %34 to i32
-  %conv153 = trunc nuw i64 %33 to i32
+  %conv151 = trunc i64 %35 to i32
+  %conv153 = trunc nuw i64 %34 to i32
   %conv158 = trunc nuw i64 %add144 to i32
   %call.i119 = tail call fastcc noundef ptr @aml_dword_as_desc(i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %conv151, i32 noundef %conv153, i32 noundef %mmio32_offset, i32 noundef %conv158, i8 noundef zeroext 1)
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %call.i119)
-  %35 = load ptr, ptr %mem_ranges160, align 8
-  %36 = load <2 x i64>, ptr %32, align 8
+  %36 = load ptr, ptr %mem_ranges160, align 8
+  %37 = load i64, ptr %33, align 8
+  %38 = load i64, ptr %limit137, align 8
   %call.i120 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
-  store <2 x i64> %36, ptr %call.i120, align 8
-  tail call void @g_ptr_array_add(ptr noundef %35, ptr noundef nonnull %call.i120) #14
+  store i64 %37, ptr %call.i120, align 8
+  %limit3.i121 = getelementptr inbounds i8, ptr %call.i120, i64 8
+  store i64 %38, ptr %limit3.i121, align 8
+  tail call void @g_ptr_array_add(ptr noundef %36, ptr noundef nonnull %call.i120) #14
   %inc164 = add nuw i32 %i.2151, 1
-  %37 = load i32, ptr %len129, align 8
-  %cmp130 = icmp ult i32 %inc164, %37
+  %39 = load i32, ptr %len129, align 8
+  %cmp130 = icmp ult i32 %inc164, %39
   br i1 %cmp130, label %for.body132, label %for.end165, !llvm.loop !25
 
 for.end165:                                       ; preds = %if.end149, %for.end125
   tail call fastcc void @crs_range_merge(ptr noundef %call2.i)
   %len169 = getelementptr inbounds i8, ptr %call2.i, i64 8
-  %38 = load i32, ptr %len169, align 8
-  %cmp170152.not = icmp eq i32 %38, 0
+  %40 = load i32, ptr %len169, align 8
+  %cmp170152.not = icmp eq i32 %40, 0
   br i1 %cmp170152.not, label %for.end189, label %for.body172.lr.ph
 
 for.body172.lr.ph:                                ; preds = %for.end165
@@ -6416,41 +6422,44 @@ for.body172.lr.ph:                                ; preds = %for.end165
 
 for.body172:                                      ; preds = %for.body172.lr.ph, %for.body172
   %i.3153 = phi i32 [ 0, %for.body172.lr.ph ], [ %inc188, %for.body172 ]
-  %39 = load ptr, ptr %call2.i, align 8
+  %41 = load ptr, ptr %call2.i, align 8
   %idxprom175 = sext i32 %i.3153 to i64
-  %arrayidx176 = getelementptr ptr, ptr %39, i64 %idxprom175
-  %40 = load ptr, ptr %arrayidx176, align 8
-  %41 = load i64, ptr %40, align 8
-  %limit178 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = load i64, ptr %limit178, align 8
-  %reass.sub = sub i64 %42, %41
+  %arrayidx176 = getelementptr ptr, ptr %41, i64 %idxprom175
+  %42 = load ptr, ptr %arrayidx176, align 8
+  %43 = load i64, ptr %42, align 8
+  %limit178 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = load i64, ptr %limit178, align 8
+  %reass.sub = sub i64 %44, %43
   %add182 = add i64 %reass.sub, 1
-  %call183 = tail call ptr @aml_qword_memory(i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 0, i32 noundef 1, i64 noundef 0, i64 noundef %41, i64 noundef %42, i64 noundef %mmio64_offset, i64 noundef %add182)
+  %call183 = tail call ptr @aml_qword_memory(i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 0, i32 noundef 1, i64 noundef 0, i64 noundef %43, i64 noundef %44, i64 noundef %mmio64_offset, i64 noundef %add182)
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %call183)
-  %43 = load ptr, ptr %mem_64bit_ranges184, align 8
-  %44 = load <2 x i64>, ptr %40, align 8
+  %45 = load ptr, ptr %mem_64bit_ranges184, align 8
+  %46 = load i64, ptr %42, align 8
+  %47 = load i64, ptr %limit178, align 8
   %call.i122 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
-  store <2 x i64> %44, ptr %call.i122, align 8
-  tail call void @g_ptr_array_add(ptr noundef %43, ptr noundef nonnull %call.i122) #14
+  store i64 %46, ptr %call.i122, align 8
+  %limit3.i123 = getelementptr inbounds i8, ptr %call.i122, i64 8
+  store i64 %47, ptr %limit3.i123, align 8
+  tail call void @g_ptr_array_add(ptr noundef %45, ptr noundef nonnull %call.i122) #14
   %inc188 = add nuw i32 %i.3153, 1
-  %45 = load i32, ptr %len169, align 8
-  %cmp170 = icmp ult i32 %inc188, %45
+  %48 = load i32, ptr %len169, align 8
+  %cmp170 = icmp ult i32 %inc188, %48
   br i1 %cmp170, label %for.body172, label %for.end189, !llvm.loop !26
 
 for.end189:                                       ; preds = %for.body172, %for.end165
   %call.i124 = tail call ptr @g_ptr_array_free(ptr noundef %call.i, i32 noundef 1) #14
   %call1.i126 = tail call ptr @g_ptr_array_free(ptr noundef %call1.i, i32 noundef 1) #14
   %call2.i128 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %call2.i, i32 noundef 1) #14
-  %46 = load ptr, ptr %bus, align 8
-  %call191 = tail call i32 @pci_bus_num(ptr noundef %46) #14
+  %49 = load ptr, ptr %bus, align 8
+  %call191 = tail call i32 @pci_bus_num(ptr noundef %49) #14
   %conv192 = trunc i32 %call191 to i16
   %conv193 = zext i8 %max_bus.1 to i16
   %conv194 = zext i8 %max_bus.1 to i32
-  %47 = load ptr, ptr %bus, align 8
-  %call196 = tail call i32 @pci_bus_num(ptr noundef %47) #14
+  %50 = load ptr, ptr %bus, align 8
+  %call196 = tail call i32 @pci_bus_num(ptr noundef %50) #14
   %sub197 = sub i32 %conv194, %call196
-  %48 = trunc i32 %sub197 to i16
-  %conv199 = add i16 %48, 1
+  %51 = trunc i32 %sub197 to i16
+  %conv199 = add i16 %51, 1
   %call.i129 = tail call fastcc noundef ptr @aml_word_as_desc(i32 noundef 2, i32 noundef 4, i32 noundef 8, i32 noundef 0, i16 noundef zeroext 0, i16 noundef zeroext %conv192, i16 noundef zeroext %conv193, i16 noundef zeroext %bus_nr_offset, i16 noundef zeroext %conv199, i8 noundef zeroext 0)
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %call.i129)
   ret ptr %call.i.i.i
@@ -6535,13 +6544,17 @@ for.body15:                                       ; preds = %for.end, %for.body1
   %idxprom17 = sext i32 %i.138 to i64
   %arrayidx18 = getelementptr ptr, ptr %12, i64 %idxprom17
   %13 = load ptr, ptr %arrayidx18, align 8
-  %14 = load <2 x i64>, ptr %13, align 8
+  %14 = load i64, ptr %13, align 8
+  %limit20 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = load i64, ptr %limit20, align 8
   %call.i28 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
-  store <2 x i64> %14, ptr %call.i28, align 8
+  store i64 %14, ptr %call.i28, align 8
+  %limit3.i29 = getelementptr inbounds i8, ptr %call.i28, i64 8
+  store i64 %15, ptr %limit3.i29, align 8
   tail call void @g_ptr_array_add(ptr noundef nonnull %range, ptr noundef nonnull %call.i28) #14
   %inc22 = add nuw i32 %i.138, 1
-  %15 = load i32, ptr %len13, align 8
-  %cmp14 = icmp ult i32 %inc22, %15
+  %16 = load i32, ptr %len13, align 8
+  %cmp14 = icmp ult i32 %inc22, %16
   br i1 %cmp14, label %for.body15, label %for.end23, !llvm.loop !28
 
 for.end23:                                        ; preds = %for.body15, %for.end

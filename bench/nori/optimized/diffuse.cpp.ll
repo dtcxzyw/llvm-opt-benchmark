@@ -150,67 +150,76 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4nori7DiffuseC2ERKNS_12PropertyListE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.nori::Color3f", align 8
+  %3 = alloca %"struct.nori::Color3f", align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.2", align 1
-  %6 = alloca %"struct.nori::Color3f", align 8
+  %6 = alloca %"struct.nori::Color3f", align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4nori7DiffuseE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x float> zeroinitializer, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  store float 0.000000e+00, ptr %8, align 8
+  store float 0.000000e+00, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  store float 0.000000e+00, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store float 0.000000e+00, ptr %9, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
-  %9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %.noexc unwind label %20
+  %10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %.noexc7 unwind label %20
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %.noexc7 unwind label %25
 
 .noexc7:                                          ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 6))
-          to label %12 unwind label %10
+          to label %13 unwind label %11
 
-10:                                               ; preds = %.noexc7
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %.noexc7
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
   br label %.body
 
-12:                                               ; preds = %.noexc7
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  store float 5.000000e-01, ptr %13, align 8
+13:                                               ; preds = %.noexc7
+  store float 5.000000e-01, ptr %6, align 4
+  %14 = getelementptr inbounds i8, ptr %6, i64 4
+  store float 5.000000e-01, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  store float 5.000000e-01, ptr %15, align 4
   invoke void @_ZNK4nori12PropertyList8getColorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7Color3fE(ptr dead_on_unwind nonnull writable sret(%"struct.nori::Color3f") align 4 %3, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(12) %6)
-          to label %14 unwind label %22
+          to label %16 unwind label %27
 
-14:                                               ; preds = %12
-  %15 = load <2 x float>, ptr %7, align 8
-  %16 = load <2 x float>, ptr %3, align 8
-  store <2 x float> %15, ptr %3, align 8
-  store <2 x float> %16, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %18 = load float, ptr %17, align 8
-  %19 = load float, ptr %8, align 8
-  store float %19, ptr %17, align 8
-  store float %18, ptr %8, align 8
+16:                                               ; preds = %13
+  %17 = load float, ptr %3, align 4
+  %18 = load float, ptr %7, align 8
+  store float %18, ptr %3, align 4
+  store float %17, ptr %7, align 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = load float, ptr %19, align 4
+  %21 = load float, ptr %8, align 4
+  store float %21, ptr %19, align 4
+  store float %20, ptr %8, align 4
+  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = load float, ptr %22, align 4
+  %24 = load float, ptr %9, align 8
+  store float %24, ptr %22, align 4
+  store float %23, ptr %9, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
   ret void
 
-20:                                               ; preds = %.noexc, %2
-  %21 = landingpad { ptr, i32 }
+25:                                               ; preds = %.noexc, %2
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-22:                                               ; preds = %12
-  %23 = landingpad { ptr, i32 }
+27:                                               ; preds = %13
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   br label %.body
 
-.body:                                            ; preds = %20, %10, %22
-  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %11, %10 ]
+.body:                                            ; preds = %25, %11, %27
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ], [ %12, %11 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
   resume { ptr, i32 } %.pn
 }
@@ -444,36 +453,42 @@ _ZNK4nori7Color3f8toStringB5cxx11Ev.exit:         ; preds = %21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK4nori7Diffuse6sampleERNS_15BSDFQueryRecordERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias writable sret(%"struct.nori::Color3f") align 4 %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, ptr noundef nonnull align 1 %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"struct.nori::TVector", align 8
+  %5 = alloca %"struct.nori::TVector", align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load float, ptr %6, align 4
   %8 = fcmp ugt float %7, 0.000000e+00
-  br i1 %8, label %11, label %9
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %4
-  store <2 x float> zeroinitializer, ptr %0, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store float 0.000000e+00, ptr %0, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %10, align 4
-  br label %20
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store float 0.000000e+00, ptr %11, align 4
+  br label %24
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %2, i64 28
-  store i32 1, ptr %12, align 4
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds i8, ptr %2, i64 28
+  store i32 1, ptr %13, align 4
   call void @_ZN4nori4Warp24squareToCosineHemisphereERKNS_6TPointIfLi2EEE(ptr dead_on_unwind nonnull writable sret(%"struct.nori::TVector") align 4 %5, ptr noundef nonnull align 1 %3)
-  %13 = getelementptr inbounds i8, ptr %2, i64 12
-  %14 = load <2 x float>, ptr %5, align 8
-  store <2 x float> %14, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 20
-  %17 = load float, ptr %15, align 8
-  store float %17, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
-  store float 1.000000e+00, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %19, i64 12, i1 false)
-  br label %20
+  %14 = getelementptr inbounds i8, ptr %2, i64 12
+  %15 = load float, ptr %5, align 4
+  store float %15, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = load float, ptr %16, align 4
+  store float %18, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds i8, ptr %2, i64 20
+  %21 = load float, ptr %19, align 4
+  store float %21, ptr %20, align 4
+  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  store float 1.000000e+00, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %23, i64 12, i1 false)
+  br label %24
 
-20:                                               ; preds = %11, %9
+24:                                               ; preds = %12, %9
   ret void
 }
 
@@ -490,17 +505,29 @@ define linkonce_odr hidden void @_ZNK4nori7Diffuse4evalERKNS_15BSDFQueryRecordE(
   %10 = load float, ptr %9, align 4
   %11 = fcmp ugt float %10, 0.000000e+00
   %or.cond9 = select i1 %or.cond, i1 %11, i1 false
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = load <2 x float>, ptr %12, align 8
-  %14 = fmul <2 x float> %13, <float 0x3FD45F3060000000, float 0x3FD45F3060000000>
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
-  %16 = load float, ptr %15, align 8
-  %17 = fmul float %16, 0x3FD45F3060000000
-  %.sink = select i1 %or.cond9, float %17, float 0.000000e+00
-  %18 = select i1 %or.cond9, <2 x float> %14, <2 x float> zeroinitializer
-  store <2 x float> %18, ptr %0, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store float %.sink, ptr %19, align 4
+  br i1 %or.cond9, label %12, label %22
+
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load float, ptr %13, align 8
+  %15 = fmul float %14, 0x3FD45F3060000000
+  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %17 = load float, ptr %16, align 4
+  %18 = fmul float %17, 0x3FD45F3060000000
+  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = load float, ptr %19, align 8
+  %21 = fmul float %20, 0x3FD45F3060000000
+  br label %22
+
+22:                                               ; preds = %3, %12
+  %.sink11 = phi float [ %15, %12 ], [ 0.000000e+00, %3 ]
+  %.sink10 = phi float [ %18, %12 ], [ 0.000000e+00, %3 ]
+  %.sink = phi float [ %21, %12 ], [ 0.000000e+00, %3 ]
+  store float %.sink11, ptr %0, align 4
+  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  store float %.sink10, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  store float %.sink, ptr %24, align 4
   ret void
 }
 

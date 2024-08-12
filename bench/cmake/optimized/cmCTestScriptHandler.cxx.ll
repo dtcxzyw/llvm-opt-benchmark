@@ -309,9 +309,11 @@ define dso_local void @_ZN20cmCTestScriptHandlerC2Ev(ptr noundef nonnull align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 744
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 768
-  store <2 x double> <double 1.800000e+03, double -1.000000e+00>, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 784
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 40, i1 false)
+  store double 1.800000e+03, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 776
+  store double -1.000000e+00, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 784
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, i8 0, i64 40, i1 false)
   ret void
 }
 
@@ -407,46 +409,48 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit: ; preds = %1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
   %22 = getelementptr inbounds i8, ptr %0, i64 768
-  store <2 x double> <double 1.200000e+03, double -1.000000e+00>, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 784
-  store i64 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 792
-  %25 = load ptr, ptr %24, align 8
-  store ptr null, ptr %24, align 8
-  %.not.i.i1 = icmp eq ptr %25, null
+  store double 1.200000e+03, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 776
+  store double -1.000000e+00, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 784
+  store i64 0, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 792
+  %26 = load ptr, ptr %25, align 8
+  store ptr null, ptr %25, align 8
+  %.not.i.i1 = icmp eq ptr %26, null
   br i1 %.not.i.i1, label %_ZNSt10unique_ptrI10cmMakefileSt14default_deleteIS0_EE5resetEPS0_.exit, label %_ZNKSt14default_deleteI10cmMakefileEclEPS0_.exit.i.i
 
 _ZNKSt14default_deleteI10cmMakefileEclEPS0_.exit.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
-  tail call void @_ZN10cmMakefileD1Ev(ptr noundef nonnull align 8 dereferenceable(3520) %25) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %25) #21
+  tail call void @_ZN10cmMakefileD1Ev(ptr noundef nonnull align 8 dereferenceable(3520) %26) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %26) #21
   br label %_ZNSt10unique_ptrI10cmMakefileSt14default_deleteIS0_EE5resetEPS0_.exit
 
 _ZNSt10unique_ptrI10cmMakefileSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %_ZNKSt14default_deleteI10cmMakefileEclEPS0_.exit.i.i
-  %26 = getelementptr inbounds i8, ptr %0, i64 800
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 808
-  %28 = load ptr, ptr %27, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 800
   store ptr null, ptr %27, align 8
-  %.not.i.i2 = icmp eq ptr %28, null
+  %28 = getelementptr inbounds i8, ptr %0, i64 808
+  %29 = load ptr, ptr %28, align 8
+  store ptr null, ptr %28, align 8
+  %.not.i.i2 = icmp eq ptr %29, null
   br i1 %.not.i.i2, label %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EE5resetEPS0_.exit, label %_ZNKSt14default_deleteI17cmGlobalGeneratorEclEPS0_.exit.i.i
 
 _ZNKSt14default_deleteI17cmGlobalGeneratorEclEPS0_.exit.i.i: ; preds = %_ZNSt10unique_ptrI10cmMakefileSt14default_deleteIS0_EE5resetEPS0_.exit
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(1778) %28) #20
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(1778) %29) #20
   br label %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EE5resetEPS0_.exit
 
 _ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = %_ZNSt10unique_ptrI10cmMakefileSt14default_deleteIS0_EE5resetEPS0_.exit, %_ZNKSt14default_deleteI17cmGlobalGeneratorEclEPS0_.exit.i.i
-  %32 = getelementptr inbounds i8, ptr %0, i64 816
-  %33 = load ptr, ptr %32, align 8
-  store ptr null, ptr %32, align 8
-  %.not.i.i3 = icmp eq ptr %33, null
+  %33 = getelementptr inbounds i8, ptr %0, i64 816
+  %34 = load ptr, ptr %33, align 8
+  store ptr null, ptr %33, align 8
+  %.not.i.i3 = icmp eq ptr %34, null
   br i1 %.not.i.i3, label %_ZNSt10unique_ptrI5cmakeSt14default_deleteIS0_EE5resetEPS0_.exit, label %_ZNKSt14default_deleteI5cmakeEclEPS0_.exit.i.i
 
 _ZNKSt14default_deleteI5cmakeEclEPS0_.exit.i.i:   ; preds = %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EE5resetEPS0_.exit
-  tail call void @_ZN5cmakeD1Ev(ptr noundef nonnull align 8 dereferenceable(2216) %33) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %33) #21
+  tail call void @_ZN5cmakeD1Ev(ptr noundef nonnull align 8 dereferenceable(2216) %34) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %34) #21
   br label %_ZNSt10unique_ptrI5cmakeSt14default_deleteIS0_EE5resetEPS0_.exit
 
 _ZNSt10unique_ptrI5cmakeSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EE5resetEPS0_.exit, %_ZNKSt14default_deleteI5cmakeEclEPS0_.exit.i.i

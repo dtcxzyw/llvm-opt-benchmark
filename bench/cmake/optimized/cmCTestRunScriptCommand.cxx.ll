@@ -402,9 +402,13 @@ _ZNSt10unique_ptrI23cmCTestRunScriptCommandSt14default_deleteIS0_EED2Ev.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false), !noalias !10
   store ptr getelementptr inbounds (i8, ptr @_ZTV23cmCTestRunScriptCommand, i64 16), ptr %2, align 8, !noalias !10
   %4 = getelementptr inbounds i8, ptr %1, i64 24
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  %6 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %6, ptr %5, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  store ptr %5, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr %8, ptr %9, align 8
   store ptr %2, ptr %0, align 8
   ret void
 }

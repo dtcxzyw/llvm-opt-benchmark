@@ -1355,7 +1355,13 @@ entry:
   %arrayidx11 = getelementptr i8, ptr %s, i64 1336
   store i8 %conv9, ptr %arrayidx11, align 4
   %arrayidx13 = getelementptr i8, ptr %s, i64 1337
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 -128>, ptr %arrayidx13, align 1
+  store i8 0, ptr %arrayidx13, align 1
+  %arrayidx15 = getelementptr i8, ptr %s, i64 1338
+  store i8 0, ptr %arrayidx15, align 2
+  %arrayidx17 = getelementptr i8, ptr %s, i64 1339
+  store i8 0, ptr %arrayidx17, align 1
+  %arrayidx19 = getelementptr i8, ptr %s, i64 1340
+  store i8 -128, ptr %arrayidx19, align 4
   %arrayidx21 = getelementptr i8, ptr %s, i64 1342
   store i8 0, ptr %arrayidx21, align 2
   %arrayidx23 = getelementptr i8, ptr %s, i64 1343
@@ -5810,9 +5816,13 @@ if.then48:                                        ; preds = %for.end
 
 if.end55:                                         ; preds = %if.then48, %for.end
   %arrayidx58 = getelementptr i8, ptr %q, i64 80
-  %12 = load <2 x i32>, ptr %arrayidx58, align 4
-  %13 = and <2 x i32> %12, <i32 -256, i32 -32>
-  store <2 x i32> %13, ptr %arrayidx58, align 4
+  %12 = load i32, ptr %arrayidx58, align 4
+  %and59 = and i32 %12, -256
+  store i32 %and59, ptr %arrayidx58, align 4
+  %arrayidx62 = getelementptr i8, ptr %q, i64 84
+  %13 = load i32, ptr %arrayidx62, align 4
+  %and63 = and i32 %13, -32
+  store i32 %and63, ptr %arrayidx62, align 4
   %qhaddr.i = getelementptr inbounds i8, ptr %q, i64 96
   %14 = load i32, ptr %qhaddr.i, align 8
   %and.i = and i32 %14, -32

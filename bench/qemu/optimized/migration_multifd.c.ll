@@ -2657,6 +2657,7 @@ while.end12.lr.ph:                                ; preds = %if.end
   %packet1.i = getelementptr inbounds i8, ptr %opaque, i64 360
   %flags.i = getelementptr inbounds i8, ptr %opaque, i64 332
   %next_packet_size.i = getelementptr inbounds i8, ptr %opaque, i64 368
+  %total_normal_pages = getelementptr inbounds i8, ptr %opaque, i64 384
   %tv_usec.i.i81 = getelementptr inbounds i8, ptr %_now.i.i67, i64 8
   %packet_len58 = getelementptr inbounds i8, ptr %opaque, i64 36
   %iov = getelementptr inbounds i8, ptr %opaque, i64 392
@@ -2786,51 +2787,53 @@ multifd_send_fill_packet.exit:                    ; preds = %for.body.i, %if.end
   %50 = phi i32 [ 0, %if.end.i66 ], [ %49, %for.body.i ]
   %51 = load i32, ptr %flags.i, align 4
   store i32 0, ptr %flags.i, align 4
+  %52 = load i64, ptr %num_packets, align 8
+  %inc41 = add i64 %52, 1
+  store i64 %inc41, ptr %num_packets, align 8
   %conv = zext i32 %50 to i64
-  %52 = load <2 x i64>, ptr %num_packets, align 8
-  %53 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %conv, i64 1
-  %54 = add <2 x i64> %52, %53
-  store <2 x i64> %54, ptr %num_packets, align 8
+  %53 = load i64, ptr %total_normal_pages, align 8
+  %add = add i64 %53, %conv
+  store i64 %add, ptr %total_normal_pages, align 8
+  %54 = load ptr, ptr %pages, align 8
+  store i32 0, ptr %54, align 8
   %55 = load ptr, ptr %pages, align 8
-  store i32 0, ptr %55, align 8
-  %56 = load ptr, ptr %pages, align 8
-  %block = getelementptr inbounds i8, ptr %56, i64 24
+  %block = getelementptr inbounds i8, ptr %55, i64 24
   store ptr null, ptr %block, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 709) #15
-  %57 = load i8, ptr %opaque, align 8
-  %58 = load i32, ptr %normal_num, align 8
-  %59 = load i32, ptr %next_packet_size.i, align 8
+  %56 = load i8, ptr %opaque, align 8
+  %57 = load i32, ptr %normal_num, align 8
+  %58 = load i32, ptr %next_packet_size.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i67)
-  %60 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i68 = icmp ne i32 %60, 0
-  %61 = load i16, ptr @_TRACE_MULTIFD_SEND_DSTATE, align 2
-  %tobool4.i.i69 = icmp ne i16 %61, 0
+  %59 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i68 = icmp ne i32 %59, 0
+  %60 = load i16, ptr @_TRACE_MULTIFD_SEND_DSTATE, align 2
+  %tobool4.i.i69 = icmp ne i16 %60, 0
   %or.cond.i.i70 = select i1 %tobool.i.i68, i1 %tobool4.i.i69, i1 false
   br i1 %or.cond.i.i70, label %land.lhs.true5.i.i71, label %trace_multifd_send.exit
 
 land.lhs.true5.i.i71:                             ; preds = %multifd_send_fill_packet.exit
-  %62 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i72 = and i32 %62, 32768
+  %61 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i72 = and i32 %61, 32768
   %cmp.i.not.i.i73 = icmp eq i32 %and.i.i.i72, 0
   br i1 %cmp.i.not.i.i73, label %trace_multifd_send.exit, label %if.then.i.i74
 
 if.then.i.i74:                                    ; preds = %land.lhs.true5.i.i71
-  %63 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i75 = trunc i8 %63 to i1
+  %62 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i75 = trunc i8 %62 to i1
   br i1 %tobool7.i.i75, label %if.then8.i.i78, label %if.else.i.i76
 
 if.then8.i.i78:                                   ; preds = %if.then.i.i74
   %call9.i.i79 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i67, ptr noundef null) #15
   %call10.i.i80 = call i32 @qemu_get_thread_id() #15
-  %64 = load i64, ptr %_now.i.i67, align 8
-  %65 = load i64, ptr %tv_usec.i.i81, align 8
-  %conv11.i.i82 = zext i8 %57 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i80, i64 noundef %64, i64 noundef %65, i32 noundef %conv11.i.i82, i64 noundef %17, i32 noundef %58, i32 noundef %51, i32 noundef %59) #15
+  %63 = load i64, ptr %_now.i.i67, align 8
+  %64 = load i64, ptr %tv_usec.i.i81, align 8
+  %conv11.i.i82 = zext i8 %56 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i80, i64 noundef %63, i64 noundef %64, i32 noundef %conv11.i.i82, i64 noundef %17, i32 noundef %57, i32 noundef %51, i32 noundef %58) #15
   br label %trace_multifd_send.exit
 
 if.else.i.i76:                                    ; preds = %if.then.i.i74
-  %conv12.i.i77 = zext i8 %57 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %conv12.i.i77, i64 noundef %17, i32 noundef %58, i32 noundef %51, i32 noundef %59) #15
+  %conv12.i.i77 = zext i8 %56 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %conv12.i.i77, i64 noundef %17, i32 noundef %57, i32 noundef %51, i32 noundef %58) #15
   br label %trace_multifd_send.exit
 
 trace_multifd_send.exit:                          ; preds = %multifd_send_fill_packet.exit, %land.lhs.true5.i.i71, %if.then8.i.i78, %if.else.i.i76
@@ -2838,47 +2841,47 @@ trace_multifd_send.exit:                          ; preds = %multifd_send_fill_p
   br i1 %call, label %if.then50, label %if.else57
 
 if.then50:                                        ; preds = %trace_multifd_send.exit
-  %66 = load ptr, ptr %8, align 8
-  %67 = load ptr, ptr %packet1.i, align 8
-  %68 = load i32, ptr %packet_len58, align 4
-  %conv51 = zext i32 %68 to i64
-  %call52 = call i32 @qio_channel_write_all(ptr noundef %66, ptr noundef %67, i64 noundef %conv51, ptr noundef nonnull %local_err) #15
+  %65 = load ptr, ptr %8, align 8
+  %66 = load ptr, ptr %packet1.i, align 8
+  %67 = load i32, ptr %packet_len58, align 4
+  %conv51 = zext i32 %67 to i64
+  %call52 = call i32 @qio_channel_write_all(ptr noundef %65, ptr noundef %66, i64 noundef %conv51, ptr noundef nonnull %local_err) #15
   %cmp53.not = icmp eq i32 %call52, 0
   br i1 %cmp53.not, label %if.end64, label %if.then98
 
 if.else57:                                        ; preds = %trace_multifd_send.exit
-  %69 = load i32, ptr %packet_len58, align 4
-  %conv59 = zext i32 %69 to i64
-  %70 = load ptr, ptr %iov, align 8
-  %iov_len = getelementptr inbounds i8, ptr %70, i64 8
+  %68 = load i32, ptr %packet_len58, align 4
+  %conv59 = zext i32 %68 to i64
+  %69 = load ptr, ptr %iov, align 8
+  %iov_len = getelementptr inbounds i8, ptr %69, i64 8
   store i64 %conv59, ptr %iov_len, align 8
-  %71 = load ptr, ptr %packet1.i, align 8
-  %72 = load ptr, ptr %iov, align 8
-  store ptr %71, ptr %72, align 8
+  %70 = load ptr, ptr %packet1.i, align 8
+  %71 = load ptr, ptr %iov, align 8
+  store ptr %70, ptr %71, align 8
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then50, %if.else57
-  %73 = load ptr, ptr %8, align 8
-  %74 = load ptr, ptr %iov, align 8
-  %75 = load i32, ptr %iovs_num20, align 8
-  %conv68 = zext i32 %75 to i64
-  %76 = load i32, ptr %write_flags, align 8
-  %call69 = call i32 @qio_channel_writev_full_all(ptr noundef %73, ptr noundef %74, i64 noundef %conv68, ptr noundef null, i64 noundef 0, i32 noundef %76, ptr noundef nonnull %local_err) #15
+  %72 = load ptr, ptr %8, align 8
+  %73 = load ptr, ptr %iov, align 8
+  %74 = load i32, ptr %iovs_num20, align 8
+  %conv68 = zext i32 %74 to i64
+  %75 = load i32, ptr %write_flags, align 8
+  %call69 = call i32 @qio_channel_writev_full_all(ptr noundef %72, ptr noundef %73, i64 noundef %conv68, ptr noundef null, i64 noundef 0, i32 noundef %75, ptr noundef nonnull %local_err) #15
   %cmp70.not = icmp eq i32 %call69, 0
   br i1 %cmp70.not, label %if.end73, label %if.then98
 
 if.end73:                                         ; preds = %if.end64
-  %77 = load i32, ptr %next_packet_size.i, align 8
-  %78 = load i32, ptr %packet_len58, align 4
-  %add76 = add i32 %78, %77
+  %76 = load i32, ptr %next_packet_size.i, align 8
+  %77 = load i32, ptr %packet_len58, align 4
+  %add76 = add i32 %77, %76
   %conv77 = zext i32 %add76 to i64
-  %79 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 40), i64 %conv77 seq_cst, align 8
+  %78 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 40), i64 %conv77 seq_cst, align 8
   store i32 0, ptr %next_packet_size.i, align 8
-  %80 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %81 = inttoptr i64 %80 to ptr
-  call void %81(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 736) #15
-  %82 = load i32, ptr %pending_job, align 8
-  %dec = add i32 %82, -1
+  %79 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %80 = inttoptr i64 %79 to ptr
+  call void %80(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 736) #15
+  %81 = load i32, ptr %pending_job, align 8
+  %dec = add i32 %81, -1
   store i32 %dec, ptr %pending_job, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 738) #15
   %and = and i32 %51, 1
@@ -2894,19 +2897,19 @@ if.else93:                                        ; preds = %while.end12
   br label %if.end95
 
 if.end95:                                         ; preds = %if.end73, %if.then91, %if.else93
-  %83 = load ptr, ptr @multifd_send_state, align 8
-  %channels_ready = getelementptr inbounds i8, ptr %83, i64 24
+  %82 = load ptr, ptr @multifd_send_state, align 8
+  %channels_ready = getelementptr inbounds i8, ptr %82, i64 24
   call void @qemu_sem_post(ptr noundef nonnull %channels_ready) #15
   call void @qemu_sem_wait(ptr noundef nonnull %sem) #15
-  %84 = load ptr, ptr @multifd_send_state, align 8
-  %exiting = getelementptr inbounds i8, ptr %84, i64 136
-  %85 = load atomic i32, ptr %exiting monotonic, align 8
-  %tobool.not = icmp eq i32 %85, 0
+  %83 = load ptr, ptr @multifd_send_state, align 8
+  %exiting = getelementptr inbounds i8, ptr %83, i64 136
+  %84 = load atomic i32, ptr %exiting monotonic, align 8
+  %tobool.not = icmp eq i32 %84, 0
   br i1 %tobool.not, label %while.end12, label %while.end111
 
 if.then98:                                        ; preds = %if.end64, %if.then50, %multifd_send_initial_packet.exit.thread, %if.then34
-  %86 = load ptr, ptr %local_err, align 8
-  %tobool99.not = icmp eq ptr %86, null
+  %85 = load ptr, ptr %local_err, align 8
+  %tobool99.not = icmp eq ptr %85, null
   br i1 %tobool99.not, label %if.else101, label %if.end102
 
 if.else101:                                       ; preds = %if.then98
@@ -2914,101 +2917,101 @@ if.else101:                                       ; preds = %if.then98
   unreachable
 
 if.end102:                                        ; preds = %if.then98
-  %87 = load i8, ptr %opaque, align 8
+  %86 = load i8, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i83)
-  %88 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i84 = icmp ne i32 %88, 0
-  %89 = load i16, ptr @_TRACE_MULTIFD_SEND_ERROR_DSTATE, align 2
-  %tobool4.i.i85 = icmp ne i16 %89, 0
+  %87 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i84 = icmp ne i32 %87, 0
+  %88 = load i16, ptr @_TRACE_MULTIFD_SEND_ERROR_DSTATE, align 2
+  %tobool4.i.i85 = icmp ne i16 %88, 0
   %or.cond.i.i86 = select i1 %tobool.i.i84, i1 %tobool4.i.i85, i1 false
   br i1 %or.cond.i.i86, label %land.lhs.true5.i.i87, label %trace_multifd_send_error.exit
 
 land.lhs.true5.i.i87:                             ; preds = %if.end102
-  %90 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i88 = and i32 %90, 32768
+  %89 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i88 = and i32 %89, 32768
   %cmp.i.not.i.i89 = icmp eq i32 %and.i.i.i88, 0
   br i1 %cmp.i.not.i.i89, label %trace_multifd_send_error.exit, label %if.then.i.i90
 
 if.then.i.i90:                                    ; preds = %land.lhs.true5.i.i87
-  %91 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i91 = trunc i8 %91 to i1
+  %90 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i91 = trunc i8 %90 to i1
   br i1 %tobool7.i.i91, label %if.then8.i.i94, label %if.else.i.i92
 
 if.then8.i.i94:                                   ; preds = %if.then.i.i90
   %call9.i.i95 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i83, ptr noundef null) #15
   %call10.i.i96 = call i32 @qemu_get_thread_id() #15
-  %92 = load i64, ptr %_now.i.i83, align 8
+  %91 = load i64, ptr %_now.i.i83, align 8
   %tv_usec.i.i97 = getelementptr inbounds i8, ptr %_now.i.i83, i64 8
-  %93 = load i64, ptr %tv_usec.i.i97, align 8
-  %conv11.i.i98 = zext i8 %87 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i96, i64 noundef %92, i64 noundef %93, i32 noundef %conv11.i.i98) #15
+  %92 = load i64, ptr %tv_usec.i.i97, align 8
+  %conv11.i.i98 = zext i8 %86 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i96, i64 noundef %91, i64 noundef %92, i32 noundef %conv11.i.i98) #15
   br label %trace_multifd_send_error.exit
 
 if.else.i.i92:                                    ; preds = %if.then.i.i90
-  %conv12.i.i93 = zext i8 %87 to i32
+  %conv12.i.i93 = zext i8 %86 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %conv12.i.i93) #15
   br label %trace_multifd_send_error.exit
 
 trace_multifd_send_error.exit:                    ; preds = %if.end102, %land.lhs.true5.i.i87, %if.then8.i.i94, %if.else.i.i92
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i83)
-  %94 = load ptr, ptr %local_err, align 8
-  call fastcc void @multifd_send_terminate_threads(ptr noundef %94)
+  %93 = load ptr, ptr %local_err, align 8
+  call fastcc void @multifd_send_terminate_threads(ptr noundef %93)
   %sem_sync104 = getelementptr inbounds i8, ptr %opaque, i64 168
   call void @qemu_sem_post(ptr noundef nonnull %sem_sync104) #15
-  %95 = load ptr, ptr @multifd_send_state, align 8
-  %channels_ready105 = getelementptr inbounds i8, ptr %95, i64 24
+  %94 = load ptr, ptr @multifd_send_state, align 8
+  %channels_ready105 = getelementptr inbounds i8, ptr %94, i64 24
   call void @qemu_sem_post(ptr noundef nonnull %channels_ready105) #15
-  %96 = load ptr, ptr %local_err, align 8
-  call void @error_free(ptr noundef %96) #15
+  %95 = load ptr, ptr %local_err, align 8
+  call void @error_free(ptr noundef %95) #15
   br label %while.end111
 
 while.end111:                                     ; preds = %if.end95, %if.end, %trace_multifd_send_error.exit
-  %97 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %98 = inttoptr i64 %97 to ptr
+  %96 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %97 = inttoptr i64 %96 to ptr
   %mutex114 = getelementptr inbounds i8, ptr %opaque, i64 280
-  call void %98(ptr noundef nonnull %mutex114, ptr noundef nonnull @.str.1, i32 noundef 759) #15
+  call void %97(ptr noundef nonnull %mutex114, ptr noundef nonnull @.str.1, i32 noundef 759) #15
   %running = getelementptr inbounds i8, ptr %opaque, i64 328
   store i8 0, ptr %running, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex114, ptr noundef nonnull @.str.1, i32 noundef 761) #15
   call void @rcu_unregister_thread() #15
   call void @migration_threads_remove(ptr noundef %call2) #15
-  %99 = load i8, ptr %opaque, align 8
+  %98 = load i8, ptr %opaque, align 8
   %num_packets117 = getelementptr inbounds i8, ptr %opaque, i64 376
-  %100 = load i64, ptr %num_packets117, align 8
+  %99 = load i64, ptr %num_packets117, align 8
   %total_normal_pages118 = getelementptr inbounds i8, ptr %opaque, i64 384
-  %101 = load i64, ptr %total_normal_pages118, align 8
+  %100 = load i64, ptr %total_normal_pages118, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i99)
-  %102 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i100 = icmp ne i32 %102, 0
-  %103 = load i16, ptr @_TRACE_MULTIFD_SEND_THREAD_END_DSTATE, align 2
-  %tobool4.i.i101 = icmp ne i16 %103, 0
+  %101 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i100 = icmp ne i32 %101, 0
+  %102 = load i16, ptr @_TRACE_MULTIFD_SEND_THREAD_END_DSTATE, align 2
+  %tobool4.i.i101 = icmp ne i16 %102, 0
   %or.cond.i.i102 = select i1 %tobool.i.i100, i1 %tobool4.i.i101, i1 false
   br i1 %or.cond.i.i102, label %land.lhs.true5.i.i103, label %trace_multifd_send_thread_end.exit
 
 land.lhs.true5.i.i103:                            ; preds = %while.end111
-  %104 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i104 = and i32 %104, 32768
+  %103 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i104 = and i32 %103, 32768
   %cmp.i.not.i.i105 = icmp eq i32 %and.i.i.i104, 0
   br i1 %cmp.i.not.i.i105, label %trace_multifd_send_thread_end.exit, label %if.then.i.i106
 
 if.then.i.i106:                                   ; preds = %land.lhs.true5.i.i103
-  %105 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i107 = trunc i8 %105 to i1
+  %104 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i107 = trunc i8 %104 to i1
   br i1 %tobool7.i.i107, label %if.then8.i.i110, label %if.else.i.i108
 
 if.then8.i.i110:                                  ; preds = %if.then.i.i106
   %call9.i.i111 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i99, ptr noundef null) #15
   %call10.i.i112 = call i32 @qemu_get_thread_id() #15
-  %106 = load i64, ptr %_now.i.i99, align 8
+  %105 = load i64, ptr %_now.i.i99, align 8
   %tv_usec.i.i113 = getelementptr inbounds i8, ptr %_now.i.i99, i64 8
-  %107 = load i64, ptr %tv_usec.i.i113, align 8
-  %conv11.i.i114 = zext i8 %99 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i112, i64 noundef %106, i64 noundef %107, i32 noundef %conv11.i.i114, i64 noundef %100, i64 noundef %101) #15
+  %106 = load i64, ptr %tv_usec.i.i113, align 8
+  %conv11.i.i114 = zext i8 %98 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i112, i64 noundef %105, i64 noundef %106, i32 noundef %conv11.i.i114, i64 noundef %99, i64 noundef %100) #15
   br label %trace_multifd_send_thread_end.exit
 
 if.else.i.i108:                                   ; preds = %if.then.i.i106
-  %conv12.i.i109 = zext i8 %99 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %conv12.i.i109, i64 noundef %100, i64 noundef %101) #15
+  %conv12.i.i109 = zext i8 %98 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %conv12.i.i109, i64 noundef %99, i64 noundef %100) #15
   br label %trace_multifd_send_thread_end.exit
 
 trace_multifd_send_thread_end.exit:               ; preds = %while.end111, %land.lhs.true5.i.i103, %if.then8.i.i110, %if.else.i.i108

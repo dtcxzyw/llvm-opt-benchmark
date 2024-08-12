@@ -520,11 +520,21 @@ entry:
   %and.i = and i8 %config.val.i8, 15
   store i8 %and.i, ptr %add.ptr1, align 1
   %add.ptr3 = getelementptr i8, ptr %0, i64 32
-  %1 = load <4 x i16>, ptr %add.ptr3, align 1
-  %2 = or <4 x i16> %1, <i16 -16, i16 poison, i16 -16, i16 poison>
-  %3 = and <4 x i16> %1, <i16 poison, i16 15, i16 poison, i16 15>
-  %4 = shufflevector <4 x i16> %2, <4 x i16> %3, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
-  store <4 x i16> %4, ptr %add.ptr3, align 1
+  %config.val.i9 = load i16, ptr %add.ptr3, align 1
+  %or.i10 = or i16 %config.val.i9, -16
+  store i16 %or.i10, ptr %add.ptr3, align 1
+  %add.ptr5 = getelementptr i8, ptr %0, i64 34
+  %config.val.i11 = load i16, ptr %add.ptr5, align 1
+  %and.i12 = and i16 %config.val.i11, 15
+  store i16 %and.i12, ptr %add.ptr5, align 1
+  %add.ptr7 = getelementptr i8, ptr %0, i64 36
+  %config.val.i13 = load i16, ptr %add.ptr7, align 1
+  %or.i14 = or i16 %config.val.i13, -16
+  store i16 %or.i14, ptr %add.ptr7, align 1
+  %add.ptr9 = getelementptr i8, ptr %0, i64 38
+  %config.val.i16 = load i16, ptr %add.ptr9, align 1
+  %and.i17 = and i16 %config.val.i16, 15
+  store i16 %and.i17, ptr %add.ptr9, align 1
   %add.ptr11 = getelementptr i8, ptr %0, i64 40
   store i32 0, ptr %add.ptr11, align 1
   %add.ptr12 = getelementptr i8, ptr %0, i64 44
@@ -549,9 +559,21 @@ entry:
   %and.i14 = and i8 %config.val.i13, 15
   store i8 %and.i14, ptr %add.ptr5, align 1
   %add.ptr7 = getelementptr i8, ptr %0, i64 32
-  %1 = load <4 x i16>, ptr %add.ptr7, align 1
-  %2 = and <4 x i16> %1, <i16 15, i16 15, i16 15, i16 15>
-  store <4 x i16> %2, ptr %add.ptr7, align 1
+  %config.val.i15 = load i16, ptr %add.ptr7, align 1
+  %and.i16 = and i16 %config.val.i15, 15
+  store i16 %and.i16, ptr %add.ptr7, align 1
+  %add.ptr9 = getelementptr i8, ptr %0, i64 34
+  %config.val.i17 = load i16, ptr %add.ptr9, align 1
+  %and.i18 = and i16 %config.val.i17, 15
+  store i16 %and.i18, ptr %add.ptr9, align 1
+  %add.ptr11 = getelementptr i8, ptr %0, i64 36
+  %config.val.i19 = load i16, ptr %add.ptr11, align 1
+  %and.i20 = and i16 %config.val.i19, 15
+  store i16 %and.i20, ptr %add.ptr11, align 1
+  %add.ptr13 = getelementptr i8, ptr %0, i64 38
+  %config.val.i21 = load i16, ptr %add.ptr13, align 1
+  %and.i22 = and i16 %config.val.i21, 15
+  store i16 %and.i22, ptr %add.ptr13, align 1
   %add.ptr15 = getelementptr i8, ptr %0, i64 40
   store i32 0, ptr %add.ptr15, align 1
   %add.ptr16 = getelementptr i8, ptr %0, i64 44

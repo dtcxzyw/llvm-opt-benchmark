@@ -2783,7 +2783,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_response(ptr 
 entry:
   %header = alloca %struct.ProxyHeader, align 4
   %prstat = alloca %struct.ProxyStat, align 8
-  %prstfs = alloca %struct.ProxyStatFS, align 16
+  %prstfs = alloca %struct.ProxyStatFS, align 8
   %target = alloca %struct.V9fsString, align 8
   %xattr = alloca %struct.V9fsString, align 8
   %in_iovec = getelementptr inbounds i8, ptr %proxy, i64 56
@@ -3042,29 +3042,41 @@ if.else72:                                        ; preds = %sw.bb64
 if.end73:                                         ; preds = %sw.bb64
   %20 = getelementptr inbounds i8, ptr %response, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %20, i8 0, i64 40, i1 false)
-  %21 = load <2 x i64>, ptr %prstfs, align 16
-  store <2 x i64> %21, ptr %response, align 8
+  %21 = load i64, ptr %prstfs, align 8
+  store i64 %21, ptr %response, align 8
+  %22 = load i64, ptr %f_bsize, align 8
+  %f_bsize2.i = getelementptr inbounds i8, ptr %response, i64 8
+  store i64 %22, ptr %f_bsize2.i, align 8
+  %23 = load i64, ptr %f_blocks, align 8
   %f_blocks3.i = getelementptr inbounds i8, ptr %response, i64 16
-  %22 = load <2 x i64>, ptr %f_blocks, align 16
-  store <2 x i64> %22, ptr %f_blocks3.i, align 8
+  store i64 %23, ptr %f_blocks3.i, align 8
+  %24 = load i64, ptr %f_bfree, align 8
+  %f_bfree4.i = getelementptr inbounds i8, ptr %response, i64 24
+  store i64 %24, ptr %f_bfree4.i, align 8
+  %25 = load i64, ptr %f_bavail, align 8
   %f_bavail5.i = getelementptr inbounds i8, ptr %response, i64 32
-  %23 = load <2 x i64>, ptr %f_bavail, align 16
-  store <2 x i64> %23, ptr %f_bavail5.i, align 8
-  %24 = load i64, ptr %f_ffree, align 16
+  store i64 %25, ptr %f_bavail5.i, align 8
+  %26 = load i64, ptr %f_files, align 8
+  %f_files6.i = getelementptr inbounds i8, ptr %response, i64 40
+  store i64 %26, ptr %f_files6.i, align 8
+  %27 = load i64, ptr %f_ffree, align 8
   %f_ffree7.i = getelementptr inbounds i8, ptr %response, i64 48
-  store i64 %24, ptr %f_ffree7.i, align 8
-  %25 = load i64, ptr %f_fsid, align 8
-  %conv.i82 = trunc i64 %25 to i32
+  store i64 %27, ptr %f_ffree7.i, align 8
+  %28 = load i64, ptr %f_fsid, align 8
+  %conv.i82 = trunc i64 %28 to i32
   %f_fsid8.i = getelementptr inbounds i8, ptr %response, i64 56
   store i32 %conv.i82, ptr %f_fsid8.i, align 8
-  %26 = load i64, ptr %arrayidx66, align 16
-  %shr.i = lshr i64 %26, 32
+  %29 = load i64, ptr %arrayidx66, align 8
+  %shr.i = lshr i64 %29, 32
   %conv13.i = trunc nuw i64 %shr.i to i32
   %arrayidx16.i = getelementptr i8, ptr %response, i64 60
   store i32 %conv13.i, ptr %arrayidx16.i, align 4
+  %30 = load i64, ptr %f_namelen, align 8
   %f_namelen17.i = getelementptr inbounds i8, ptr %response, i64 64
-  %27 = load <2 x i64>, ptr %f_namelen, align 8
-  store <2 x i64> %27, ptr %f_namelen17.i, align 8
+  store i64 %30, ptr %f_namelen17.i, align 8
+  %31 = load i64, ptr %f_frsize, align 8
+  %f_frsize18.i = getelementptr inbounds i8, ptr %response, i64 72
+  store i64 %31, ptr %f_frsize18.i, align 8
   br label %return
 
 sw.bb74:                                          ; preds = %if.end56
@@ -3072,8 +3084,8 @@ sw.bb74:                                          ; preds = %if.end56
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %target, align 8
   %call75 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef nonnull %in_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef nonnull %target) #19
-  %28 = load ptr, ptr %data.i, align 8
-  %call77 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %response, ptr noundef nonnull dereferenceable(1) %28) #19
+  %32 = load ptr, ptr %data.i, align 8
+  %call77 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %response, ptr noundef nonnull dereferenceable(1) %32) #19
   br label %sw.epilog
 
 sw.bb78:                                          ; preds = %if.end56, %if.end56
@@ -3081,16 +3093,16 @@ sw.bb78:                                          ; preds = %if.end56, %if.end56
   store ptr null, ptr %data.i83, align 8
   store i16 0, ptr %xattr, align 8
   %call79 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef nonnull %in_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef nonnull %xattr) #19
-  %29 = load ptr, ptr %data.i83, align 8
-  %30 = load i16, ptr %xattr, align 8
-  %conv83 = zext i16 %30 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %response, ptr align 1 %29, i64 %conv83, i1 false)
+  %33 = load ptr, ptr %data.i83, align 8
+  %34 = load i16, ptr %xattr, align 8
+  %conv83 = zext i16 %34 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %response, ptr align 1 %33, i64 %conv83, i1 false)
   br label %sw.epilog
 
 sw.bb84:                                          ; preds = %if.end56
   %call85 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_unmarshal(ptr noundef nonnull %in_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef %response) #19
-  %31 = and i64 %call85, 4294967295
-  %cmp87 = icmp eq i64 %31, 8
+  %35 = and i64 %call85, 4294967295
+  %cmp87 = icmp eq i64 %35, 8
   br i1 %cmp87, label %return, label %if.else90
 
 if.else90:                                        ; preds = %sw.bb84

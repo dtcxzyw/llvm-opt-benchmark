@@ -505,85 +505,99 @@ define linkonce_odr hidden void @_ZN2cv6stereo18StereoBinaryBMImplC2Eii(ptr noun
   store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTVN2cv6stereo14StereoBinaryBME, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN2cv6stereo8MatchingC2Eiii(ptr noundef nonnull align 8 dereferenceable(262448) %4, i32 noundef %1, i32 noundef 4, i32 noundef 6)
-          to label %5 unwind label %35
+          to label %5 unwind label %37
 
 5:                                                ; preds = %3
   store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTVN2cv6stereo18StereoBinaryBMImplE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 262456
-  store <4 x i32> <i32 1, i32 9, i32 31, i32 9>, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 262472
-  store <4 x i32> <i32 0, i32 64, i32 10, i32 15>, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 262488
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 3>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 262508
-  store i8 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 262512
-  store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 262504
-  store i32 4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 262516
-  store i32 4, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 262520
-  store i32 9, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 262528
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #18
-  %15 = getelementptr inbounds i8, ptr %0, i64 262624
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #18
-  %16 = getelementptr inbounds i8, ptr %0, i64 262720
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #18
-  %17 = getelementptr inbounds i8, ptr %0, i64 262816
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #18
-  %18 = getelementptr inbounds i8, ptr %0, i64 262912
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #18
-  br label %19
+  store i32 1, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 262460
+  store i32 9, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 262464
+  store i32 31, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 262468
+  store i32 9, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 262472
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 262476
+  store i32 64, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 262480
+  store i32 10, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 262484
+  store i32 15, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 262492
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 262488
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 262496
+  store i32 -1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 262500
+  store i32 3, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 262508
+  store i8 0, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 262512
+  store i32 1, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 262504
+  store i32 4, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 262516
+  store i32 4, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 262520
+  store i32 9, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 262528
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #18
+  %24 = getelementptr inbounds i8, ptr %0, i64 262624
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #18
+  %25 = getelementptr inbounds i8, ptr %0, i64 262720
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #18
+  %26 = getelementptr inbounds i8, ptr %0, i64 262816
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #18
+  %27 = getelementptr inbounds i8, ptr %0, i64 262912
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #18
+  br label %28
 
-19:                                               ; preds = %19, %5
-  %.idx = phi i64 [ 263008, %5 ], [ %.add, %19 ]
+28:                                               ; preds = %28, %5
+  %.idx = phi i64 [ 263008, %5 ], [ %.add, %28 ]
   %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr) #18
   %.add = add nuw nsw i64 %.idx, 96
-  %20 = icmp eq i64 %.add, 263200
-  br i1 %20, label %21, label %19
+  %29 = icmp eq i64 %.add, 263200
+  br i1 %29, label %30, label %28
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 262500
-  %23 = getelementptr inbounds i8, ptr %0, i64 262496
-  %24 = getelementptr inbounds i8, ptr %0, i64 262480
-  %25 = getelementptr inbounds i8, ptr %0, i64 262476
-  %26 = getelementptr inbounds i8, ptr %0, i64 262468
-  %27 = getelementptr inbounds i8, ptr %0, i64 262464
-  %28 = getelementptr inbounds i8, ptr %0, i64 262460
-  %29 = getelementptr inbounds i8, ptr %0, i64 263200
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #18
-  %30 = getelementptr inbounds i8, ptr %0, i64 263296
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #18
-  %31 = getelementptr inbounds i8, ptr %0, i64 263392
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %0, i64 263200
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #18
-  %32 = getelementptr inbounds i8, ptr %0, i64 263488
+  %32 = getelementptr inbounds i8, ptr %0, i64 263296
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #18
-  %33 = icmp sgt i32 %1, 0
-  %34 = select i1 %33, i32 %1, i32 64
+  %33 = getelementptr inbounds i8, ptr %0, i64 263392
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #18
+  %34 = getelementptr inbounds i8, ptr %0, i64 263488
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #18
+  %35 = icmp sgt i32 %1, 0
+  %36 = select i1 %35, i32 %1, i32 64
   store i32 1, ptr %6, align 8
-  store i32 9, ptr %28, align 4
-  store i32 31, ptr %27, align 8
-  store i32 %2, ptr %26, align 4
-  store i32 0, ptr %7, align 8
-  store i32 %34, ptr %25, align 4
-  store <4 x i32> <i32 10, i32 15, i32 0, i32 0>, ptr %24, align 8
-  store i32 -1, ptr %23, align 8
-  store i32 3, ptr %22, align 4
-  store i32 4, ptr %11, align 8
-  store i8 0, ptr %9, align 4
-  store i32 1, ptr %10, align 8
-  store i32 4, ptr %12, align 4
-  store i32 9, ptr %13, align 8
+  store i32 9, ptr %7, align 4
+  store i32 31, ptr %8, align 8
+  store i32 %2, ptr %9, align 4
+  store i32 0, ptr %10, align 8
+  store i32 %36, ptr %11, align 4
+  store i32 10, ptr %12, align 8
+  store i32 15, ptr %13, align 4
+  store i32 0, ptr %15, align 8
+  store i32 0, ptr %14, align 4
+  store i32 -1, ptr %16, align 8
+  store i32 3, ptr %17, align 4
+  store i32 4, ptr %20, align 8
+  store i8 0, ptr %18, align 4
+  store i32 1, ptr %19, align 8
+  store i32 4, ptr %21, align 4
+  store i32 9, ptr %22, align 8
   ret void
 
-35:                                               ; preds = %3
-  %36 = landingpad { ptr, i32 }
+37:                                               ; preds = %3
+  %38 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
-  resume { ptr, i32 } %36
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5435,9 +5449,9 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching7makeMapclERKNS_5RangeE(
   br i1 %15, label %.lr.ph86.split, label %._crit_edge87
 
 .lr.ph86.split:                                   ; preds = %.lr.ph86, %._crit_edge
-  %16 = phi i32 [ %228, %._crit_edge ], [ %5, %.lr.ph86 ]
-  %17 = phi i32 [ %229, %._crit_edge ], [ %14, %.lr.ph86 ]
-  %.03784 = phi i32 [ %230, %._crit_edge ], [ %3, %.lr.ph86 ]
+  %16 = phi i32 [ %230, %._crit_edge ], [ %5, %.lr.ph86 ]
+  %17 = phi i32 [ %231, %._crit_edge ], [ %14, %.lr.ph86 ]
+  %.03784 = phi i32 [ %232, %._crit_edge ], [ %3, %.lr.ph86 ]
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5446,9 +5460,9 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching7makeMapclERKNS_5RangeE(
   %20 = sext i32 %19 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %224
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %224 ]
-  %21 = phi i32 [ %17, %.lr.ph.preheader ], [ %225, %224 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %226
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %226 ]
+  %21 = phi i32 [ %17, %.lr.ph.preheader ], [ %227, %226 ]
   %indvars89 = trunc i64 %indvars.iv to i32
   %22 = load ptr, ptr %8, align 8
   %23 = add nsw i64 %indvars.iv, %20
@@ -5566,7 +5580,7 @@ _ZN2cv6stereo8Matching5minimEPsiidi.exit64:       ; preds = %57, %41
   %or.cond.i47 = select i1 %58, i1 true, i1 %60
   %.not4182 = icmp eq i32 %.055.lcssa.i46, -1
   %.not41 = select i1 %or.cond.i47, i1 true, i1 %.not4182
-  br i1 %.not41, label %172, label %61
+  br i1 %.not41, label %173, label %61
 
 61:                                               ; preds = %_ZN2cv6stereo8Matching5minimEPsiidi.exit64
   %62 = icmp eq i32 %.055.lcssa.i46, 0
@@ -5666,171 +5680,173 @@ _ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit: ; preds = %64, %96, 
   %128 = getelementptr i8, ptr %127, i64 -2
   %129 = load i16, ptr %128, align 2
   %130 = sitofp i16 %129 to double
-  %131 = load <2 x i16>, ptr %127, align 2
-  %132 = sitofp <2 x i16> %131 to <2 x double>
-  %133 = extractelement <2 x double> %132, i64 0
-  %134 = fsub double %130, %133
-  %135 = extractelement <2 x double> %132, i64 1
-  %136 = fsub double %135, %133
-  %137 = fcmp oeq double %134, 0.000000e+00
+  %131 = getelementptr i8, ptr %127, i64 2
+  %132 = load i16, ptr %131, align 2
+  %133 = sitofp i16 %132 to double
+  %134 = load i16, ptr %127, align 2
+  %135 = sitofp i16 %134 to double
+  %136 = fsub double %130, %135
+  %137 = fsub double %133, %135
   %138 = fcmp oeq double %136, 0.000000e+00
-  %or.cond.i68 = select i1 %137, i1 true, i1 %138
-  br i1 %or.cond.i68, label %139, label %141
+  %139 = fcmp oeq double %137, 0.000000e+00
+  %or.cond.i68 = select i1 %138, i1 true, i1 %139
+  br i1 %or.cond.i68, label %140, label %142
 
-139:                                              ; preds = %123
-  %140 = sitofp i32 %.055.lcssa.i to double
+140:                                              ; preds = %123
+  %141 = sitofp i32 %.055.lcssa.i to double
   br label %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73
 
-141:                                              ; preds = %123
-  %142 = fcmp olt double %135, %130
-  br i1 %142, label %143, label %150
+142:                                              ; preds = %123
+  %143 = fcmp ogt double %130, %133
+  br i1 %143, label %144, label %151
 
-143:                                              ; preds = %141
-  %144 = fmul double %136, %136
-  %145 = fmul double %134, %134
-  %146 = fdiv double %144, %145
-  %147 = fdiv double %136, %134
-  %148 = fadd double %147, %146
-  %149 = tail call double @llvm.fmuladd.f64(double %148, double -2.500000e-01, double 5.000000e-01)
-  br label %158
+144:                                              ; preds = %142
+  %145 = fmul double %137, %137
+  %146 = fmul double %136, %136
+  %147 = fdiv double %145, %146
+  %148 = fdiv double %137, %136
+  %149 = fadd double %148, %147
+  %150 = tail call double @llvm.fmuladd.f64(double %149, double -2.500000e-01, double 5.000000e-01)
+  br label %159
 
-150:                                              ; preds = %141
-  %151 = fmul double %134, %134
+151:                                              ; preds = %142
   %152 = fmul double %136, %136
-  %153 = fdiv double %151, %152
-  %154 = fdiv double %134, %136
-  %155 = fadd double %154, %153
-  %156 = tail call double @llvm.fmuladd.f64(double %155, double -2.500000e-01, double 5.000000e-01)
-  %157 = fneg double %156
-  br label %158
+  %153 = fmul double %137, %137
+  %154 = fdiv double %152, %153
+  %155 = fdiv double %136, %137
+  %156 = fadd double %155, %154
+  %157 = tail call double @llvm.fmuladd.f64(double %156, double -2.500000e-01, double 5.000000e-01)
+  %158 = fneg double %157
+  br label %159
 
-158:                                              ; preds = %150, %143
-  %.0.i69 = phi double [ %149, %143 ], [ %157, %150 ]
-  %159 = tail call double @llvm.fabs.f64(double %.0.i69)
-  %or.cond3.i70 = fcmp ugt double %159, 5.000000e-01
-  %160 = sitofp i32 %.055.lcssa.i to double
-  %161 = fadd double %.0.i69, %160
-  %.1.i71 = select i1 %or.cond3.i70, double %.0.i69, double %161
+159:                                              ; preds = %151, %144
+  %.0.i69 = phi double [ %150, %144 ], [ %158, %151 ]
+  %160 = tail call double @llvm.fabs.f64(double %.0.i69)
+  %or.cond3.i70 = fcmp ugt double %160, 5.000000e-01
+  %161 = sitofp i32 %.055.lcssa.i to double
+  %162 = fadd double %.0.i69, %161
+  %.1.i71 = select i1 %or.cond3.i70, double %.0.i69, double %162
   br label %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73
 
-_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73: ; preds = %121, %139, %158
-  %.051.i72 = phi double [ %122, %121 ], [ %140, %139 ], [ %.1.i71, %158 ]
-  %162 = fsub double %.051.i, %.051.i72
-  %163 = tail call noundef double @llvm.fabs.f64(double %162)
-  %164 = load i32, ptr %11, align 4
-  %165 = sitofp i32 %164 to double
-  %166 = fcmp ugt double %163, %165
-  br i1 %166, label %.sink.split, label %167
+_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73: ; preds = %121, %140, %159
+  %.051.i72 = phi double [ %122, %121 ], [ %141, %140 ], [ %.1.i71, %159 ]
+  %163 = fsub double %.051.i, %.051.i72
+  %164 = tail call noundef double @llvm.fabs.f64(double %163)
+  %165 = load i32, ptr %11, align 4
+  %166 = sitofp i32 %165 to double
+  %167 = fcmp ugt double %164, %166
+  br i1 %167, label %.sink.split, label %168
 
-167:                                              ; preds = %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73
-  %168 = load i32, ptr %12, align 8
-  %169 = sitofp i32 %168 to double
-  %170 = fmul double %.051.i72, %169
-  %171 = fptoui double %170 to i8
+168:                                              ; preds = %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73
+  %169 = load i32, ptr %12, align 8
+  %170 = sitofp i32 %169 to double
+  %171 = fmul double %.051.i72, %170
+  %172 = fptoui double %171 to i8
   br label %.sink.split
 
-172:                                              ; preds = %_ZN2cv6stereo8Matching5minimEPsiidi.exit64
-  %173 = sub nsw i32 %21, %indvars89
-  %.not42 = icmp sgt i32 %173, %24
-  br i1 %.not42, label %224, label %174
+173:                                              ; preds = %_ZN2cv6stereo8Matching5minimEPsiidi.exit64
+  %174 = sub nsw i32 %21, %indvars89
+  %.not42 = icmp sgt i32 %174, %24
+  br i1 %.not42, label %226, label %175
 
-174:                                              ; preds = %172
-  %175 = icmp eq i32 %.055.lcssa.i, 0
-  %176 = icmp eq i32 %24, %.055.lcssa.i
-  %or.cond56.i74 = or i1 %175, %176
-  br i1 %or.cond56.i74, label %177, label %179
+175:                                              ; preds = %173
+  %176 = icmp eq i32 %.055.lcssa.i, 0
+  %177 = icmp eq i32 %24, %.055.lcssa.i
+  %or.cond56.i74 = or i1 %176, %177
+  br i1 %or.cond56.i74, label %178, label %180
 
-177:                                              ; preds = %174
-  %178 = sitofp i32 %.055.lcssa.i to double
+178:                                              ; preds = %175
+  %179 = sitofp i32 %.055.lcssa.i to double
   br label %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80
 
-179:                                              ; preds = %174
-  %180 = mul nsw i32 %25, %42
-  %181 = add nsw i32 %.055.lcssa.i, %180
-  %182 = sext i32 %181 to i64
-  %183 = getelementptr i16, ptr %22, i64 %182
-  %184 = getelementptr i8, ptr %183, i64 -2
-  %185 = load i16, ptr %184, align 2
-  %186 = sitofp i16 %185 to double
-  %187 = load <2 x i16>, ptr %183, align 2
-  %188 = sitofp <2 x i16> %187 to <2 x double>
-  %189 = extractelement <2 x double> %188, i64 0
-  %190 = fsub double %186, %189
-  %191 = extractelement <2 x double> %188, i64 1
-  %192 = fsub double %191, %189
-  %193 = fcmp oeq double %190, 0.000000e+00
-  %194 = fcmp oeq double %192, 0.000000e+00
-  %or.cond.i75 = select i1 %193, i1 true, i1 %194
-  br i1 %or.cond.i75, label %195, label %197
+180:                                              ; preds = %175
+  %181 = mul nsw i32 %25, %42
+  %182 = add nsw i32 %.055.lcssa.i, %181
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr i16, ptr %22, i64 %183
+  %185 = getelementptr i8, ptr %184, i64 -2
+  %186 = load i16, ptr %185, align 2
+  %187 = sitofp i16 %186 to double
+  %188 = getelementptr i8, ptr %184, i64 2
+  %189 = load i16, ptr %188, align 2
+  %190 = sitofp i16 %189 to double
+  %191 = load i16, ptr %184, align 2
+  %192 = sitofp i16 %191 to double
+  %193 = fsub double %187, %192
+  %194 = fsub double %190, %192
+  %195 = fcmp oeq double %193, 0.000000e+00
+  %196 = fcmp oeq double %194, 0.000000e+00
+  %or.cond.i75 = select i1 %195, i1 true, i1 %196
+  br i1 %or.cond.i75, label %197, label %199
 
-195:                                              ; preds = %179
-  %196 = sitofp i32 %.055.lcssa.i to double
+197:                                              ; preds = %180
+  %198 = sitofp i32 %.055.lcssa.i to double
   br label %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80
 
-197:                                              ; preds = %179
-  %198 = fcmp olt double %191, %186
-  br i1 %198, label %199, label %206
+199:                                              ; preds = %180
+  %200 = fcmp ogt double %187, %190
+  br i1 %200, label %201, label %208
 
-199:                                              ; preds = %197
-  %200 = fmul double %192, %192
-  %201 = fmul double %190, %190
-  %202 = fdiv double %200, %201
-  %203 = fdiv double %192, %190
-  %204 = fadd double %203, %202
-  %205 = tail call double @llvm.fmuladd.f64(double %204, double -2.500000e-01, double 5.000000e-01)
-  br label %214
+201:                                              ; preds = %199
+  %202 = fmul double %194, %194
+  %203 = fmul double %193, %193
+  %204 = fdiv double %202, %203
+  %205 = fdiv double %194, %193
+  %206 = fadd double %205, %204
+  %207 = tail call double @llvm.fmuladd.f64(double %206, double -2.500000e-01, double 5.000000e-01)
+  br label %216
 
-206:                                              ; preds = %197
-  %207 = fmul double %190, %190
-  %208 = fmul double %192, %192
-  %209 = fdiv double %207, %208
-  %210 = fdiv double %190, %192
-  %211 = fadd double %210, %209
-  %212 = tail call double @llvm.fmuladd.f64(double %211, double -2.500000e-01, double 5.000000e-01)
-  %213 = fneg double %212
-  br label %214
+208:                                              ; preds = %199
+  %209 = fmul double %193, %193
+  %210 = fmul double %194, %194
+  %211 = fdiv double %209, %210
+  %212 = fdiv double %193, %194
+  %213 = fadd double %212, %211
+  %214 = tail call double @llvm.fmuladd.f64(double %213, double -2.500000e-01, double 5.000000e-01)
+  %215 = fneg double %214
+  br label %216
 
-214:                                              ; preds = %206, %199
-  %.0.i76 = phi double [ %205, %199 ], [ %213, %206 ]
-  %215 = tail call double @llvm.fabs.f64(double %.0.i76)
-  %or.cond3.i77 = fcmp ugt double %215, 5.000000e-01
-  %216 = sitofp i32 %.055.lcssa.i to double
-  %217 = fadd double %.0.i76, %216
-  %.1.i78 = select i1 %or.cond3.i77, double %.0.i76, double %217
+216:                                              ; preds = %208, %201
+  %.0.i76 = phi double [ %207, %201 ], [ %215, %208 ]
+  %217 = tail call double @llvm.fabs.f64(double %.0.i76)
+  %or.cond3.i77 = fcmp ugt double %217, 5.000000e-01
+  %218 = sitofp i32 %.055.lcssa.i to double
+  %219 = fadd double %.0.i76, %218
+  %.1.i78 = select i1 %or.cond3.i77, double %.0.i76, double %219
   br label %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80
 
-_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80: ; preds = %177, %195, %214
-  %.051.i79 = phi double [ %178, %177 ], [ %196, %195 ], [ %.1.i78, %214 ]
-  %218 = load i32, ptr %12, align 8
-  %219 = sitofp i32 %218 to double
-  %220 = fmul double %.051.i79, %219
-  %221 = fptoui double %220 to i8
+_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80: ; preds = %178, %197, %216
+  %.051.i79 = phi double [ %179, %178 ], [ %198, %197 ], [ %.1.i78, %216 ]
+  %220 = load i32, ptr %12, align 8
+  %221 = sitofp i32 %220 to double
+  %222 = fmul double %.051.i79, %221
+  %223 = fptoui double %222 to i8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN2cv6stereo8Matching5minimEPsiidi.exit, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73, %167, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80
-  %.sink = phi i8 [ %221, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80 ], [ %171, %167 ], [ 0, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73 ], [ 0, %_ZN2cv6stereo8Matching5minimEPsiidi.exit ]
-  %222 = load ptr, ptr %13, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 %23
-  store i8 %.sink, ptr %223, align 1
-  br label %224
+.sink.split:                                      ; preds = %_ZN2cv6stereo8Matching5minimEPsiidi.exit, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73, %168, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80
+  %.sink = phi i8 [ %223, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80 ], [ %172, %168 ], [ 0, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73 ], [ 0, %_ZN2cv6stereo8Matching5minimEPsiidi.exit ]
+  %224 = load ptr, ptr %13, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 %23
+  store i8 %.sink, ptr %225, align 1
+  br label %226
 
-224:                                              ; preds = %.sink.split, %172
+226:                                              ; preds = %.sink.split, %173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %225 = load i32, ptr %7, align 8
-  %226 = sext i32 %225 to i64
-  %227 = icmp slt i64 %indvars.iv.next, %226
-  br i1 %227, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !55
+  %227 = load i32, ptr %7, align 8
+  %228 = sext i32 %227 to i64
+  %229 = icmp slt i64 %indvars.iv.next, %228
+  br i1 %229, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !55
 
-._crit_edge.loopexit:                             ; preds = %224
+._crit_edge.loopexit:                             ; preds = %226
   %.pre = load i32, ptr %4, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph86.split
-  %228 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %16, %.lr.ph86.split ]
-  %229 = phi i32 [ %225, %._crit_edge.loopexit ], [ %17, %.lr.ph86.split ]
-  %230 = add nsw i32 %.03784, 1
-  %231 = icmp slt i32 %230, %228
-  br i1 %231, label %.lr.ph86.split, label %._crit_edge87, !llvm.loop !56
+  %230 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %16, %.lr.ph86.split ]
+  %231 = phi i32 [ %227, %._crit_edge.loopexit ], [ %17, %.lr.ph86.split ]
+  %232 = add nsw i32 %.03784, 1
+  %233 = icmp slt i32 %232, %230
+  br i1 %233, label %.lr.ph86.split, label %._crit_edge87, !llvm.loop !56
 
 ._crit_edge87:                                    ; preds = %._crit_edge, %.lr.ph86, %2
   ret void

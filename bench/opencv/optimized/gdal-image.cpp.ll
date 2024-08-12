@@ -37,12 +37,12 @@ $_ZNSt6vectorISt4pairIN2cv3VecIhLi3EEEdESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@tl = hidden local_unnamed_addr global %"class.cv::Point_" zeroinitializer, align 16
-@tr = hidden local_unnamed_addr global %"class.cv::Point_" zeroinitializer, align 16
-@bl = hidden local_unnamed_addr global %"class.cv::Point_" zeroinitializer, align 16
-@br = hidden local_unnamed_addr global %"class.cv::Point_" zeroinitializer, align 16
-@dem_bl = hidden local_unnamed_addr global %"class.cv::Point_" zeroinitializer, align 16
-@dem_tr = hidden local_unnamed_addr global %"class.cv::Point_" zeroinitializer, align 16
+@tl = hidden local_unnamed_addr global %"class.cv::Point_" zeroinitializer, align 8
+@tr = hidden local_unnamed_addr global %"class.cv::Point_" zeroinitializer, align 8
+@bl = hidden local_unnamed_addr global %"class.cv::Point_" zeroinitializer, align 8
+@br = hidden local_unnamed_addr global %"class.cv::Point_" zeroinitializer, align 8
+@dem_bl = hidden local_unnamed_addr global %"class.cv::Point_" zeroinitializer, align 8
+@dem_tr = hidden local_unnamed_addr global %"class.cv::Point_" zeroinitializer, align 8
 @color_range = hidden global %"class.std::vector" zeroinitializer, align 8
 @_ZSt4cout = external global %"class.std::basic_ostream", align 8
 @.str = private unnamed_addr constant [8 x i8] c"usage: \00", align 1
@@ -80,17 +80,17 @@ _ZNSt12_Vector_baseISt4pairIN2cv3VecIhLi3EEEdESaIS4_EED2Ev.exit: ; preds = %1, %
 define hidden { double, double } @_Z4lerpRKN2cv6Point_IdEES3_RKd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #4 {
   %4 = load double, ptr %2, align 8
   %5 = fsub double 1.000000e+00, %4
-  %6 = load <2 x double>, ptr %0, align 8
-  %7 = load <2 x double>, ptr %1, align 8
-  %8 = insertelement <2 x double> poison, double %4, i64 0
-  %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
-  %10 = fmul <2 x double> %9, %7
-  %11 = insertelement <2 x double> poison, double %5, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %12, <2 x double> %6, <2 x double> %10)
-  %14 = extractelement <2 x double> %13, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %14, 0
-  %15 = extractelement <2 x double> %13, i64 1
+  %6 = load double, ptr %0, align 8
+  %7 = load double, ptr %1, align 8
+  %8 = fmul double %4, %7
+  %9 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %8)
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = load double, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load double, ptr %12, align 8
+  %14 = fmul double %4, %13
+  %15 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %14)
+  %.fca.0.insert = insertvalue { double, double } poison, double %9, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %15, 1
   ret { double, double } %.fca.1.insert
 }
@@ -202,14 +202,14 @@ define hidden { double, double } @_Z9world2demRKN2cv6Point_IdEERKNS_5Size_IiEE(p
   %14 = fsub double %9, %13
   %15 = fdiv double %12, %14
   %16 = fsub double 1.000000e+00, %15
-  %17 = load <2 x i32>, ptr %1, align 4
-  %18 = sitofp <2 x i32> %17 to <2 x double>
-  %19 = insertelement <2 x double> poison, double %8, i64 0
-  %20 = insertelement <2 x double> %19, double %16, i64 1
-  %21 = fmul <2 x double> %20, %18
-  %22 = extractelement <2 x double> %21, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %22, 0
-  %23 = extractelement <2 x double> %21, i64 1
+  %17 = load i32, ptr %1, align 4
+  %18 = sitofp i32 %17 to double
+  %19 = fmul double %8, %18
+  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = load i32, ptr %20, align 4
+  %22 = sitofp i32 %21 to double
+  %23 = fmul double %16, %22
+  %.fca.0.insert = insertvalue { double, double } poison, double %19, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %23, 1
   ret { double, double } %.fca.1.insert
 }
@@ -228,28 +228,28 @@ define hidden { double, double } @_Z11pixel2worldRKiS0_RKN2cv5Size_IiEE(ptr noca
   %13 = sitofp i32 %12 to double
   %14 = fdiv double %10, %13
   %15 = fsub double 1.000000e+00, %14
-  %16 = fsub double 1.000000e+00, %8
-  %17 = load <2 x double>, ptr @tr, align 16
-  %18 = load <2 x double>, ptr @br, align 16
-  %19 = insertelement <2 x double> poison, double %14, i64 0
-  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
-  %21 = fmul <2 x double> %20, %18
-  %22 = insertelement <2 x double> poison, double %15, i64 0
-  %23 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> zeroinitializer
-  %24 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %23, <2 x double> %17, <2 x double> %21)
-  %25 = load <2 x double>, ptr @tl, align 16
-  %26 = load <2 x double>, ptr @bl, align 16
-  %27 = fmul <2 x double> %20, %26
-  %28 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %23, <2 x double> %25, <2 x double> %27)
-  %29 = insertelement <2 x double> poison, double %8, i64 0
-  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
-  %31 = fmul <2 x double> %30, %24
-  %32 = insertelement <2 x double> poison, double %16, i64 0
-  %33 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> zeroinitializer
-  %34 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %33, <2 x double> %28, <2 x double> %31)
-  %35 = extractelement <2 x double> %34, i64 0
-  %.fca.0.insert.i6 = insertvalue { double, double } poison, double %35, 0
-  %36 = extractelement <2 x double> %34, i64 1
+  %16 = load double, ptr @tr, align 8
+  %17 = load double, ptr @br, align 8
+  %18 = fmul double %14, %17
+  %19 = tail call double @llvm.fmuladd.f64(double %15, double %16, double %18)
+  %20 = load double, ptr getelementptr inbounds (i8, ptr @tr, i64 8), align 8
+  %21 = load double, ptr getelementptr inbounds (i8, ptr @br, i64 8), align 8
+  %22 = fmul double %14, %21
+  %23 = tail call double @llvm.fmuladd.f64(double %15, double %20, double %22)
+  %24 = load double, ptr @tl, align 8
+  %25 = load double, ptr @bl, align 8
+  %26 = fmul double %14, %25
+  %27 = tail call double @llvm.fmuladd.f64(double %15, double %24, double %26)
+  %28 = load double, ptr getelementptr inbounds (i8, ptr @tl, i64 8), align 8
+  %29 = load double, ptr getelementptr inbounds (i8, ptr @bl, i64 8), align 8
+  %30 = fmul double %14, %29
+  %31 = tail call double @llvm.fmuladd.f64(double %15, double %28, double %30)
+  %32 = fsub double 1.000000e+00, %8
+  %33 = fmul double %8, %19
+  %34 = tail call double @llvm.fmuladd.f64(double %32, double %27, double %33)
+  %35 = fmul double %8, %23
+  %36 = tail call double @llvm.fmuladd.f64(double %32, double %31, double %35)
+  %.fca.0.insert.i6 = insertvalue { double, double } poison, double %34, 0
   %.fca.1.insert.i7 = insertvalue { double, double } %.fca.0.insert.i6, double %36, 1
   ret { double, double } %.fca.1.insert.i7
 }
@@ -742,16 +742,16 @@ _ZNSt6vectorISt4pairIN2cv3VecIhLi3EEEdESaIS4_EE9push_backEOS4_.exit105: ; preds 
   %179 = sitofp i32 %174 to double
   %180 = fdiv double %169, %179
   %181 = fsub double 1.000000e+00, %180
-  %182 = load double, ptr @tr, align 16
-  %183 = load double, ptr @br, align 16
+  %182 = load double, ptr @tr, align 8
+  %183 = load double, ptr @br, align 8
   %184 = fmul double %180, %183
   %185 = call double @llvm.fmuladd.f64(double %181, double %182, double %184)
   %186 = load double, ptr getelementptr inbounds (i8, ptr @tr, i64 8), align 8
   %187 = load double, ptr getelementptr inbounds (i8, ptr @br, i64 8), align 8
   %188 = fmul double %180, %187
   %189 = call double @llvm.fmuladd.f64(double %181, double %186, double %188)
-  %190 = load double, ptr @tl, align 16
-  %191 = load double, ptr @bl, align 16
+  %190 = load double, ptr @tl, align 8
+  %191 = load double, ptr @bl, align 8
   %192 = fmul double %180, %191
   %193 = call double @llvm.fmuladd.f64(double %181, double %190, double %192)
   %194 = load double, ptr getelementptr inbounds (i8, ptr @tl, i64 8), align 8
@@ -764,45 +764,47 @@ _ZNSt6vectorISt4pairIN2cv3VecIhLi3EEEdESaIS4_EE9push_backEOS4_.exit105: ; preds 
   %201 = fmul double %178, %189
   %202 = call double @llvm.fmuladd.f64(double %198, double %197, double %201)
   %203 = load ptr, ptr %152, align 8
-  %204 = load double, ptr @dem_tr, align 8
-  %205 = fsub double %204, %200
-  %206 = load double, ptr @dem_bl, align 8
-  %207 = fsub double %204, %206
-  %208 = fdiv double %205, %207
-  %209 = load double, ptr getelementptr inbounds (i8, ptr @dem_tr, i64 8), align 8
-  %210 = fsub double %209, %202
-  %211 = load double, ptr getelementptr inbounds (i8, ptr @dem_bl, i64 8), align 8
-  %212 = fsub double %209, %211
-  %213 = fdiv double %210, %212
-  %214 = fsub double 1.000000e+00, %213
-  %215 = load <2 x i32>, ptr %203, align 4
-  %216 = sitofp <2 x i32> %215 to <2 x double>
-  %217 = insertelement <2 x double> poison, double %214, i64 0
-  %218 = insertelement <2 x double> %217, double %208, i64 1
-  %219 = fmul <2 x double> %218, %216
-  %220 = shufflevector <2 x double> %219, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %221 = fcmp oge <2 x double> %219, zeroinitializer
-  %222 = extractelement <2 x i1> %221, i64 0
-  %223 = extractelement <2 x i1> %221, i64 1
-  %or.cond = select i1 %223, i1 %222, i1 false
+  %204 = getelementptr inbounds i8, ptr %203, i64 4
+  %205 = load i32, ptr %204, align 4
+  %206 = load i32, ptr %203, align 4
+  %207 = load double, ptr @dem_tr, align 8
+  %208 = fsub double %207, %200
+  %209 = load double, ptr @dem_bl, align 8
+  %210 = fsub double %207, %209
+  %211 = fdiv double %208, %210
+  %212 = load double, ptr getelementptr inbounds (i8, ptr @dem_tr, i64 8), align 8
+  %213 = fsub double %212, %202
+  %214 = load double, ptr getelementptr inbounds (i8, ptr @dem_bl, i64 8), align 8
+  %215 = fsub double %212, %214
+  %216 = fdiv double %213, %215
+  %217 = fsub double 1.000000e+00, %216
+  %218 = sitofp i32 %205 to double
+  %219 = fmul double %211, %218
+  %220 = sitofp i32 %206 to double
+  %221 = fmul double %217, %220
+  %.sroa.0135.0.vec.insert = insertelement <2 x double> poison, double %219, i64 0
+  %222 = fcmp oge double %219, 0.000000e+00
+  %223 = fcmp oge double %221, 0.000000e+00
+  %or.cond = select i1 %222, i1 %223, i1 false
   br i1 %or.cond, label %224, label %246
 
 224:                                              ; preds = %170
   %225 = load i32, ptr %153, align 4
   %226 = sitofp i32 %225 to double
-  %227 = extractelement <2 x double> %219, i64 1
-  %228 = fcmp olt double %227, %226
+  %227 = fcmp olt double %219, %226
+  br i1 %227, label %228, label %246
+
+228:                                              ; preds = %224
   %229 = load i32, ptr %154, align 8
   %230 = sitofp i32 %229 to double
-  %231 = extractelement <2 x double> %219, i64 0
-  %232 = fcmp olt double %231, %230
-  %or.cond211 = select i1 %228, i1 %232, i1 false
-  br i1 %or.cond211, label %233, label %246
+  %231 = fcmp olt double %221, %230
+  br i1 %231, label %232, label %246
 
-233:                                              ; preds = %224
-  %234 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %220)
-  %235 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %219)
-  %.sroa.0.0.insert.ext.i116 = zext i32 %234 to i64
+232:                                              ; preds = %228
+  %233 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %.sroa.0135.0.vec.insert)
+  %234 = insertelement <2 x double> poison, double %221, i64 0
+  %235 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %234)
+  %.sroa.0.0.insert.ext.i116 = zext i32 %233 to i64
   %236 = load ptr, ptr %155, align 8
   %237 = load ptr, ptr %156, align 8
   %238 = load i64, ptr %237, align 8
@@ -816,8 +818,8 @@ _ZNSt6vectorISt4pairIN2cv3VecIhLi3EEEdESaIS4_EE9push_backEOS4_.exit105: ; preds 
   %245 = sitofp i16 %244 to double
   br label %246
 
-246:                                              ; preds = %170, %224, %233
-  %storemerge36 = phi double [ %245, %233 ], [ -1.000000e+01, %224 ], [ -1.000000e+01, %170 ]
+246:                                              ; preds = %170, %224, %228, %232
+  %storemerge36 = phi double [ %245, %232 ], [ -1.000000e+01, %228 ], [ -1.000000e+01, %224 ], [ -1.000000e+01, %170 ]
   %247 = load ptr, ptr %157, align 8
   %248 = load ptr, ptr %158, align 8
   %249 = load i64, ptr %248, align 8
@@ -1315,12 +1317,18 @@ declare i32 @llvm.x86.sse2.cvtsd2si(<2 x double>) #16
 define internal void @_GLOBAL__sub_I_gdal_image.cpp() #17 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
-  store <2 x double> <double 0xC05E9C399F5DFEB9, double 0x4042E867AD8E4324>, ptr @tl, align 16
-  store <2 x double> <double 0xC05E97BD230B9DC3, double 0x4042E85C1C6088D7>, ptr @tr, align 16
-  store <2 x double> <double 0xC05E9C4213A0C6B5, double 0x4042DFA32B12D341>, ptr @bl, align 16
-  store <2 x double> <double 0xC05E97C6A7EF9DB2, double 0x4042DF9799E518F4>, ptr @br, align 16
-  store <2 x double> <double -1.220000e+02, double 3.800000e+01>, ptr @dem_bl, align 16
-  store <2 x double> <double -1.230000e+02, double 3.700000e+01>, ptr @dem_tr, align 16
+  store double 0xC05E9C399F5DFEB9, ptr @tl, align 8
+  store double 0x4042E867AD8E4324, ptr getelementptr inbounds (i8, ptr @tl, i64 8), align 8
+  store double 0xC05E97BD230B9DC3, ptr @tr, align 8
+  store double 0x4042E85C1C6088D7, ptr getelementptr inbounds (i8, ptr @tr, i64 8), align 8
+  store double 0xC05E9C4213A0C6B5, ptr @bl, align 8
+  store double 0x4042DFA32B12D341, ptr getelementptr inbounds (i8, ptr @bl, i64 8), align 8
+  store double 0xC05E97C6A7EF9DB2, ptr @br, align 8
+  store double 0x4042DF9799E518F4, ptr getelementptr inbounds (i8, ptr @br, i64 8), align 8
+  store double -1.220000e+02, ptr @dem_bl, align 8
+  store double 3.800000e+01, ptr getelementptr inbounds (i8, ptr @dem_bl, i64 8), align 8
+  store double -1.230000e+02, ptr @dem_tr, align 8
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @dem_tr, i64 8), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @color_range, i8 0, i64 24, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorISt4pairIN2cv3VecIhLi3EEEdESaIS4_EED2Ev, ptr nonnull @color_range, ptr nonnull @__dso_handle) #21
   ret void
@@ -1337,9 +1345,6 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

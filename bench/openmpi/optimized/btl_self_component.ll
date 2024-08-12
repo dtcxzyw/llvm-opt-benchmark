@@ -190,13 +190,16 @@ define internal noundef i32 @mca_btl_self_component_register() #0 {
   %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_self_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 284)) #3
   store i32 8, ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 288), align 16
   %4 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_self_component, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 288)) #3
+  store i32 65536, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 56), align 8
   store i64 1024, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 8), align 8
   store i64 131072, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 16), align 8
   store i64 16384, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 24), align 8
   store i64 2147483647, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 32), align 8
   store i64 2147483647, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 40), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 48), align 8
-  store <4 x i32> <i32 65536, i32 0, i32 100, i32 8388623>, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 56), align 8
+  store i32 8388623, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 68), align 4
+  store i32 100, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 64), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 60), align 4
   %5 = tail call i32 @mca_btl_base_param_register(ptr noundef nonnull @mca_btl_self_component, ptr noundef nonnull @mca_btl_self) #3
   ret i32 0
 }

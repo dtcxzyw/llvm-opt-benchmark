@@ -10419,195 +10419,243 @@ define internal fastcc ptr @dcm_export_create_header(ptr %.408.val, ptr nocaptur
   %6 = getelementptr i8, ptr %5, i64 128
   store i32 1296255300, ptr %6, align 1
   %7 = getelementptr i8, ptr %5, i64 144
-  store <4 x i8> <i8 2, i8 0, i8 1, i8 0>, ptr %7, align 1
-  %8 = getelementptr i8, ptr %5, i64 148
-  store i16 16975, ptr %8, align 1
-  %9 = getelementptr i8, ptr %5, i64 150
-  store <4 x i8> <i8 0, i8 0, i8 2, i8 0>, ptr %9, align 1
-  %10 = getelementptr i8, ptr %5, i64 154
+  store i8 2, ptr %7, align 1
+  %8 = getelementptr i8, ptr %5, i64 145
+  store i8 0, ptr %8, align 1
+  %9 = getelementptr i8, ptr %5, i64 146
+  store i8 1, ptr %9, align 1
+  %10 = getelementptr i8, ptr %5, i64 147
   store i8 0, ptr %10, align 1
-  %11 = getelementptr i8, ptr %5, i64 155
-  store i8 0, ptr %11, align 1
-  %12 = getelementptr i8, ptr %5, i64 156
-  store i16 256, ptr %12, align 1
+  %11 = getelementptr i8, ptr %5, i64 148
+  store i16 16975, ptr %11, align 1
+  %12 = getelementptr i8, ptr %5, i64 150
+  store i8 0, ptr %12, align 1
+  %13 = getelementptr i8, ptr %5, i64 151
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr i8, ptr %5, i64 152
+  store i8 2, ptr %14, align 1
+  %15 = getelementptr i8, ptr %5, i64 153
+  store i8 0, ptr %15, align 1
+  %16 = getelementptr i8, ptr %5, i64 154
+  store i8 0, ptr %16, align 1
+  %17 = getelementptr i8, ptr %5, i64 155
+  store i8 0, ptr %17, align 1
+  %18 = getelementptr i8, ptr %5, i64 156
+  store i16 256, ptr %18, align 1
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %dcm_export_create_tag_str.exit, label %13
+  br i1 %.not.i, label %dcm_export_create_tag_str.exit, label %19
 
-13:                                               ; preds = %4
-  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #14
-  %15 = trunc i64 %14 to i32
-  %16 = and i32 %15, 1
-  %spec.select.i = add i32 %16, %15
-  %17 = getelementptr i8, ptr %5, i64 158
-  store <4 x i8> <i8 2, i8 0, i8 2, i8 0>, ptr %17, align 1
-  %18 = getelementptr i8, ptr %5, i64 162
-  store i16 18773, ptr %18, align 1
-  %19 = getelementptr i8, ptr %5, i64 164
-  %20 = trunc i32 %spec.select.i to i8
-  store i8 %20, ptr %19, align 1
-  %21 = lshr i32 %spec.select.i, 8
-  %22 = trunc i32 %21 to i8
-  %23 = getelementptr i8, ptr %5, i64 165
-  store i8 %22, ptr %23, align 1
-  %24 = add i32 %spec.select.i, 166
-  %25 = icmp ugt i32 %24, 512
-  br i1 %25, label %dcm_export_create_tag_str.exit, label %26
+19:                                               ; preds = %4
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #14
+  %21 = trunc i64 %20 to i32
+  %22 = and i32 %21, 1
+  %spec.select.i = add i32 %22, %21
+  %23 = getelementptr i8, ptr %5, i64 158
+  store i8 2, ptr %23, align 1
+  %24 = getelementptr i8, ptr %5, i64 159
+  store i8 0, ptr %24, align 1
+  %25 = getelementptr i8, ptr %5, i64 160
+  store i8 2, ptr %25, align 1
+  %26 = getelementptr i8, ptr %5, i64 161
+  store i8 0, ptr %26, align 1
+  %27 = getelementptr i8, ptr %5, i64 162
+  store i16 18773, ptr %27, align 1
+  %28 = getelementptr i8, ptr %5, i64 164
+  %29 = trunc i32 %spec.select.i to i8
+  store i8 %29, ptr %28, align 1
+  %30 = lshr i32 %spec.select.i, 8
+  %31 = trunc i32 %30 to i8
+  %32 = getelementptr i8, ptr %5, i64 165
+  store i8 %31, ptr %32, align 1
+  %33 = add i32 %spec.select.i, 166
+  %34 = icmp ugt i32 %33, 512
+  br i1 %34, label %dcm_export_create_tag_str.exit, label %35
 
-26:                                               ; preds = %13
-  %27 = getelementptr i8, ptr %5, i64 166
-  %28 = zext i32 %spec.select.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull readonly align 1 %1, i64 %28, i1 false)
+35:                                               ; preds = %19
+  %36 = getelementptr i8, ptr %5, i64 166
+  %37 = zext i32 %spec.select.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr nonnull readonly align 1 %1, i64 %37, i1 false)
   br label %dcm_export_create_tag_str.exit
 
-dcm_export_create_tag_str.exit:                   ; preds = %4, %13, %26
-  %.013.i = phi i32 [ 158, %4 ], [ %24, %26 ], [ 512, %13 ]
+dcm_export_create_tag_str.exit:                   ; preds = %4, %19, %35
+  %.013.i = phi i32 [ 158, %4 ], [ %33, %35 ], [ 512, %19 ]
   %.not.i27 = icmp eq ptr %2, null
-  br i1 %.not.i27, label %dcm_export_create_tag_str.exit30, label %29
+  br i1 %.not.i27, label %dcm_export_create_tag_str.exit30, label %38
 
-29:                                               ; preds = %dcm_export_create_tag_str.exit
-  %30 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #14
-  %31 = trunc i64 %30 to i32
-  %32 = and i32 %31, 1
-  %spec.select.i28 = add i32 %32, %31
-  %33 = icmp ugt i32 %.013.i, 506
-  br i1 %33, label %dcm_export_create_tag_str.exit30, label %34
+38:                                               ; preds = %dcm_export_create_tag_str.exit
+  %39 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #14
+  %40 = trunc i64 %39 to i32
+  %41 = and i32 %40, 1
+  %spec.select.i28 = add i32 %41, %40
+  %42 = icmp ugt i32 %.013.i, 506
+  br i1 %42, label %dcm_export_create_tag_str.exit30, label %43
 
-34:                                               ; preds = %29
-  %35 = zext nneg i32 %.013.i to i64
-  %36 = getelementptr i8, ptr %5, i64 %35
-  store <4 x i8> <i8 2, i8 0, i8 3, i8 0>, ptr %36, align 1
-  %37 = getelementptr i8, ptr %36, i64 4
-  store i16 18773, ptr %37, align 1
-  %38 = icmp ugt i32 %.013.i, 504
-  br i1 %38, label %dcm_export_create_tag_str.exit30, label %39
+43:                                               ; preds = %38
+  %44 = zext nneg i32 %.013.i to i64
+  %45 = getelementptr i8, ptr %5, i64 %44
+  store i8 2, ptr %45, align 1
+  %46 = getelementptr i8, ptr %45, i64 1
+  store i8 0, ptr %46, align 1
+  %47 = getelementptr i8, ptr %45, i64 2
+  store i8 3, ptr %47, align 1
+  %48 = getelementptr i8, ptr %45, i64 3
+  store i8 0, ptr %48, align 1
+  %49 = getelementptr i8, ptr %45, i64 4
+  store i16 18773, ptr %49, align 1
+  %50 = icmp ugt i32 %.013.i, 504
+  br i1 %50, label %dcm_export_create_tag_str.exit30, label %51
 
-39:                                               ; preds = %34
-  %40 = add nuw nsw i32 %.013.i, 8
-  %41 = getelementptr i8, ptr %36, i64 6
-  %42 = trunc i32 %spec.select.i28 to i8
-  store i8 %42, ptr %41, align 1
-  %43 = lshr i32 %spec.select.i28, 8
-  %44 = trunc i32 %43 to i8
-  %45 = getelementptr i8, ptr %36, i64 7
-  store i8 %44, ptr %45, align 1
-  %46 = add i32 %spec.select.i28, %40
-  %47 = icmp ugt i32 %46, 512
-  br i1 %47, label %dcm_export_create_tag_str.exit30, label %48
+51:                                               ; preds = %43
+  %52 = add nuw nsw i32 %.013.i, 8
+  %53 = getelementptr i8, ptr %45, i64 6
+  %54 = trunc i32 %spec.select.i28 to i8
+  store i8 %54, ptr %53, align 1
+  %55 = lshr i32 %spec.select.i28, 8
+  %56 = trunc i32 %55 to i8
+  %57 = getelementptr i8, ptr %45, i64 7
+  store i8 %56, ptr %57, align 1
+  %58 = add i32 %spec.select.i28, %52
+  %59 = icmp ugt i32 %58, 512
+  br i1 %59, label %dcm_export_create_tag_str.exit30, label %60
 
-48:                                               ; preds = %39
-  %49 = zext nneg i32 %40 to i64
-  %50 = getelementptr i8, ptr %5, i64 %49
-  %51 = zext i32 %spec.select.i28 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull readonly align 1 %2, i64 %51, i1 false)
+60:                                               ; preds = %51
+  %61 = zext nneg i32 %52 to i64
+  %62 = getelementptr i8, ptr %5, i64 %61
+  %63 = zext i32 %spec.select.i28 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr nonnull readonly align 1 %2, i64 %63, i1 false)
   br label %dcm_export_create_tag_str.exit30
 
-dcm_export_create_tag_str.exit30:                 ; preds = %dcm_export_create_tag_str.exit, %29, %34, %39, %48
-  %.013.i29 = phi i32 [ %.013.i, %dcm_export_create_tag_str.exit ], [ %46, %48 ], [ 512, %29 ], [ 512, %34 ], [ 512, %39 ]
+dcm_export_create_tag_str.exit30:                 ; preds = %dcm_export_create_tag_str.exit, %38, %43, %51, %60
+  %.013.i29 = phi i32 [ %.013.i, %dcm_export_create_tag_str.exit ], [ %58, %60 ], [ 512, %38 ], [ 512, %43 ], [ 512, %51 ]
   %.not.i31 = icmp eq ptr %3, null
-  br i1 %.not.i31, label %dcm_export_create_tag_str.exit34, label %52
+  br i1 %.not.i31, label %dcm_export_create_tag_str.exit34, label %64
 
-52:                                               ; preds = %dcm_export_create_tag_str.exit30
-  %53 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #14
-  %54 = trunc i64 %53 to i32
-  %55 = and i32 %54, 1
-  %spec.select.i32 = add i32 %55, %54
-  %56 = icmp ugt i32 %.013.i29, 506
-  br i1 %56, label %dcm_export_create_tag_str.exit40, label %57
+64:                                               ; preds = %dcm_export_create_tag_str.exit30
+  %65 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #14
+  %66 = trunc i64 %65 to i32
+  %67 = and i32 %66, 1
+  %spec.select.i32 = add i32 %67, %66
+  %68 = icmp ugt i32 %.013.i29, 506
+  br i1 %68, label %dcm_export_create_tag_str.exit40, label %69
 
-57:                                               ; preds = %52
-  %58 = zext nneg i32 %.013.i29 to i64
-  %59 = getelementptr i8, ptr %5, i64 %58
-  store <4 x i8> <i8 2, i8 0, i8 16, i8 0>, ptr %59, align 1
-  %60 = getelementptr i8, ptr %59, i64 4
-  store i16 18773, ptr %60, align 1
-  %61 = icmp ugt i32 %.013.i29, 504
-  br i1 %61, label %dcm_export_create_tag_str.exit40, label %62
+69:                                               ; preds = %64
+  %70 = zext nneg i32 %.013.i29 to i64
+  %71 = getelementptr i8, ptr %5, i64 %70
+  store i8 2, ptr %71, align 1
+  %72 = getelementptr i8, ptr %71, i64 1
+  store i8 0, ptr %72, align 1
+  %73 = getelementptr i8, ptr %71, i64 2
+  store i8 16, ptr %73, align 1
+  %74 = getelementptr i8, ptr %71, i64 3
+  store i8 0, ptr %74, align 1
+  %75 = getelementptr i8, ptr %71, i64 4
+  store i16 18773, ptr %75, align 1
+  %76 = icmp ugt i32 %.013.i29, 504
+  br i1 %76, label %dcm_export_create_tag_str.exit40, label %77
 
-62:                                               ; preds = %57
-  %63 = add nuw nsw i32 %.013.i29, 8
-  %64 = getelementptr i8, ptr %59, i64 6
-  %65 = trunc i32 %spec.select.i32 to i8
-  store i8 %65, ptr %64, align 1
-  %66 = lshr i32 %spec.select.i32, 8
-  %67 = trunc i32 %66 to i8
-  %68 = getelementptr i8, ptr %59, i64 7
-  store i8 %67, ptr %68, align 1
-  %69 = add i32 %spec.select.i32, %63
-  %70 = icmp ugt i32 %69, 512
-  br i1 %70, label %dcm_export_create_tag_str.exit40, label %71
+77:                                               ; preds = %69
+  %78 = add nuw nsw i32 %.013.i29, 8
+  %79 = getelementptr i8, ptr %71, i64 6
+  %80 = trunc i32 %spec.select.i32 to i8
+  store i8 %80, ptr %79, align 1
+  %81 = lshr i32 %spec.select.i32, 8
+  %82 = trunc i32 %81 to i8
+  %83 = getelementptr i8, ptr %71, i64 7
+  store i8 %82, ptr %83, align 1
+  %84 = add i32 %spec.select.i32, %78
+  %85 = icmp ugt i32 %84, 512
+  br i1 %85, label %dcm_export_create_tag_str.exit40, label %86
 
-71:                                               ; preds = %62
-  %72 = zext nneg i32 %63 to i64
-  %73 = getelementptr i8, ptr %5, i64 %72
-  %74 = zext i32 %spec.select.i32 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr nonnull readonly align 1 %3, i64 %74, i1 false)
+86:                                               ; preds = %77
+  %87 = zext nneg i32 %78 to i64
+  %88 = getelementptr i8, ptr %5, i64 %87
+  %89 = zext i32 %spec.select.i32 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr nonnull readonly align 1 %3, i64 %89, i1 false)
   br label %dcm_export_create_tag_str.exit34
 
-dcm_export_create_tag_str.exit34:                 ; preds = %dcm_export_create_tag_str.exit30, %71
-  %.013.i33 = phi i32 [ %.013.i29, %dcm_export_create_tag_str.exit30 ], [ %69, %71 ]
-  %75 = icmp ugt i32 %.013.i33, 506
-  br i1 %75, label %dcm_export_create_tag_str.exit40, label %76
+dcm_export_create_tag_str.exit34:                 ; preds = %dcm_export_create_tag_str.exit30, %86
+  %.013.i33 = phi i32 [ %.013.i29, %dcm_export_create_tag_str.exit30 ], [ %84, %86 ]
+  %90 = icmp ugt i32 %.013.i33, 506
+  br i1 %90, label %dcm_export_create_tag_str.exit40, label %91
 
-76:                                               ; preds = %dcm_export_create_tag_str.exit34
-  %77 = zext nneg i32 %.013.i33 to i64
-  %78 = getelementptr i8, ptr %5, i64 %77
-  store <4 x i8> <i8 2, i8 0, i8 18, i8 0>, ptr %78, align 1
-  %79 = getelementptr i8, ptr %78, i64 4
-  store i16 18773, ptr %79, align 1
-  %80 = icmp ugt i32 %.013.i33, 504
-  br i1 %80, label %dcm_export_create_tag_str.exit40, label %81
+91:                                               ; preds = %dcm_export_create_tag_str.exit34
+  %92 = zext nneg i32 %.013.i33 to i64
+  %93 = getelementptr i8, ptr %5, i64 %92
+  store i8 2, ptr %93, align 1
+  %94 = getelementptr i8, ptr %93, i64 1
+  store i8 0, ptr %94, align 1
+  %95 = getelementptr i8, ptr %93, i64 2
+  store i8 18, ptr %95, align 1
+  %96 = getelementptr i8, ptr %93, i64 3
+  store i8 0, ptr %96, align 1
+  %97 = getelementptr i8, ptr %93, i64 4
+  store i16 18773, ptr %97, align 1
+  %98 = icmp ugt i32 %.013.i33, 504
+  br i1 %98, label %dcm_export_create_tag_str.exit40, label %99
 
-81:                                               ; preds = %76
-  %82 = getelementptr i8, ptr %78, i64 6
-  store i8 28, ptr %82, align 1
-  %83 = getelementptr i8, ptr %78, i64 7
-  store i8 0, ptr %83, align 1
-  %84 = icmp ugt i32 %.013.i33, 476
-  br i1 %84, label %dcm_export_create_tag_str.exit40, label %dcm_export_create_tag_str.exit37
+99:                                               ; preds = %91
+  %100 = getelementptr i8, ptr %93, i64 6
+  store i8 28, ptr %100, align 1
+  %101 = getelementptr i8, ptr %93, i64 7
+  store i8 0, ptr %101, align 1
+  %102 = icmp ugt i32 %.013.i33, 476
+  br i1 %102, label %dcm_export_create_tag_str.exit40, label %dcm_export_create_tag_str.exit37
 
-dcm_export_create_tag_str.exit37:                 ; preds = %81
-  %85 = getelementptr i8, ptr %78, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %85, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.352, i64 28, i1 false)
-  %86 = icmp ugt i32 %.013.i33, 470
-  br i1 %86, label %dcm_export_create_tag_str.exit40, label %87
+dcm_export_create_tag_str.exit37:                 ; preds = %99
+  %103 = getelementptr i8, ptr %93, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %103, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.352, i64 28, i1 false)
+  %104 = icmp ugt i32 %.013.i33, 470
+  br i1 %104, label %dcm_export_create_tag_str.exit40, label %105
 
-87:                                               ; preds = %dcm_export_create_tag_str.exit37
-  %88 = zext nneg i32 %.013.i33 to i64
-  %89 = getelementptr i8, ptr %5, i64 %88
-  %90 = getelementptr i8, ptr %89, i64 36
-  store <4 x i8> <i8 2, i8 0, i8 19, i8 0>, ptr %90, align 1
-  %91 = getelementptr i8, ptr %89, i64 40
-  store i16 18515, ptr %91, align 1
-  %92 = icmp ugt i32 %.013.i33, 468
-  br i1 %92, label %dcm_export_create_tag_str.exit40, label %93
+105:                                              ; preds = %dcm_export_create_tag_str.exit37
+  %106 = zext nneg i32 %.013.i33 to i64
+  %107 = getelementptr i8, ptr %5, i64 %106
+  %108 = getelementptr i8, ptr %107, i64 36
+  store i8 2, ptr %108, align 1
+  %109 = getelementptr i8, ptr %107, i64 37
+  store i8 0, ptr %109, align 1
+  %110 = getelementptr i8, ptr %107, i64 38
+  store i8 19, ptr %110, align 1
+  %111 = getelementptr i8, ptr %107, i64 39
+  store i8 0, ptr %111, align 1
+  %112 = getelementptr i8, ptr %107, i64 40
+  store i16 18515, ptr %112, align 1
+  %113 = icmp ugt i32 %.013.i33, 468
+  br i1 %113, label %dcm_export_create_tag_str.exit40, label %114
 
-93:                                               ; preds = %87
-  %94 = getelementptr i8, ptr %89, i64 42
-  store i8 10, ptr %94, align 1
-  %95 = getelementptr i8, ptr %89, i64 43
-  store i8 0, ptr %95, align 1
-  %96 = icmp ugt i32 %.013.i33, 458
-  br i1 %96, label %dcm_export_create_tag_str.exit40, label %97
+114:                                              ; preds = %105
+  %115 = getelementptr i8, ptr %107, i64 42
+  store i8 10, ptr %115, align 1
+  %116 = getelementptr i8, ptr %107, i64 43
+  store i8 0, ptr %116, align 1
+  %117 = icmp ugt i32 %.013.i33, 458
+  br i1 %117, label %dcm_export_create_tag_str.exit40, label %118
 
-97:                                               ; preds = %93
-  %98 = add nuw nsw i32 %.013.i33, 54
-  %99 = getelementptr i8, ptr %89, i64 44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %99, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.353, i64 10, i1 false)
+118:                                              ; preds = %114
+  %119 = add nuw nsw i32 %.013.i33, 54
+  %120 = getelementptr i8, ptr %107, i64 44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %120, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.353, i64 10, i1 false)
   br label %dcm_export_create_tag_str.exit40
 
-dcm_export_create_tag_str.exit40:                 ; preds = %62, %57, %52, %81, %76, %dcm_export_create_tag_str.exit34, %dcm_export_create_tag_str.exit37, %87, %93, %97
-  %.013.i39 = phi i32 [ %98, %97 ], [ 512, %dcm_export_create_tag_str.exit37 ], [ 512, %87 ], [ 512, %93 ], [ 512, %dcm_export_create_tag_str.exit34 ], [ 512, %76 ], [ 512, %81 ], [ 512, %52 ], [ 512, %57 ], [ 512, %62 ]
-  %100 = add nsw i32 %.013.i39, -144
-  %101 = getelementptr i8, ptr %5, i64 132
-  store <4 x i8> <i8 2, i8 0, i8 0, i8 0>, ptr %101, align 1
-  %102 = getelementptr i8, ptr %5, i64 136
-  store i16 19541, ptr %102, align 1
-  %103 = getelementptr i8, ptr %5, i64 138
-  store i8 4, ptr %103, align 1
-  %104 = getelementptr i8, ptr %5, i64 139
-  store i8 0, ptr %104, align 1
-  %105 = getelementptr i8, ptr %5, i64 140
-  store i32 %100, ptr %105, align 1
+dcm_export_create_tag_str.exit40:                 ; preds = %77, %69, %64, %99, %91, %dcm_export_create_tag_str.exit34, %dcm_export_create_tag_str.exit37, %105, %114, %118
+  %.013.i39 = phi i32 [ %119, %118 ], [ 512, %dcm_export_create_tag_str.exit37 ], [ 512, %105 ], [ 512, %114 ], [ 512, %dcm_export_create_tag_str.exit34 ], [ 512, %91 ], [ 512, %99 ], [ 512, %64 ], [ 512, %69 ], [ 512, %77 ]
+  %121 = add nsw i32 %.013.i39, -144
+  %122 = getelementptr i8, ptr %5, i64 132
+  store i8 2, ptr %122, align 1
+  %123 = getelementptr i8, ptr %5, i64 133
+  store i8 0, ptr %123, align 1
+  %124 = getelementptr i8, ptr %5, i64 134
+  store i8 0, ptr %124, align 1
+  %125 = getelementptr i8, ptr %5, i64 135
+  store i8 0, ptr %125, align 1
+  %126 = getelementptr i8, ptr %5, i64 136
+  store i16 19541, ptr %126, align 1
+  %127 = getelementptr i8, ptr %5, i64 138
+  store i8 4, ptr %127, align 1
+  %128 = getelementptr i8, ptr %5, i64 139
+  store i8 0, ptr %128, align 1
+  %129 = getelementptr i8, ptr %5, i64 140
+  store i32 %121, ptr %129, align 1
   store i32 %.013.i39, ptr %0, align 4
   ret ptr %5
 }

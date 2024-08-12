@@ -258,56 +258,59 @@ define weak_odr void @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixINS_8Spectr
   resume { ptr, i32 } %25
 
 _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge: ; preds = %23, %18, %14, %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = getelementptr inbounds i8, ptr %0, i64 76
-  %28 = load <2 x i32>, ptr %8, align 4
-  %29 = extractelement <2 x i32> %28, i64 0
-  %30 = extractelement <2 x i32> %28, i64 1
-  %31 = mul i32 %30, %29
-  store i32 %31, ptr %26, align 8
-  %32 = uitofp i32 %31 to float
-  %33 = fdiv contract float 1.000000e+00, %32
-  store float %33, ptr %27, align 4
-  %34 = uitofp <2 x i32> %28 to <2 x float>
-  %35 = fdiv contract <2 x float> <float 1.000000e+00, float 1.000000e+00>, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 68
-  store <2 x float> %35, ptr %36, align 4
-  %37 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 false)
-  %38 = trunc nuw nsw i32 %37 to i8
-  %39 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
-  %40 = icmp ult i32 %39, 2
-  br i1 %40, label %41, label %43
+  %26 = load i32, ptr %8, align 4
+  %27 = load i32, ptr %9, align 8
+  %28 = mul i32 %27, %26
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %28, ptr %29, align 8
+  %30 = uitofp i32 %28 to float
+  %31 = fdiv contract float 1.000000e+00, %30
+  %32 = getelementptr inbounds i8, ptr %0, i64 76
+  store float %31, ptr %32, align 4
+  %33 = uitofp i32 %26 to float
+  %34 = uitofp i32 %27 to float
+  %35 = fdiv contract float 1.000000e+00, %33
+  %.sroa.054.0.vec.insert = insertelement <2 x float> poison, float %35, i64 0
+  %36 = fdiv contract float 1.000000e+00, %34
+  %.sroa.054.4.vec.insert = insertelement <2 x float> %.sroa.054.0.vec.insert, float %36, i64 1
+  %37 = getelementptr inbounds i8, ptr %0, i64 68
+  store <2 x float> %.sroa.054.4.vec.insert, ptr %37, align 4
+  %38 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %26, i1 false)
+  %39 = trunc nuw nsw i32 %38 to i8
+  %40 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %26)
+  %41 = icmp ult i32 %40, 2
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge
-  %42 = sub nsw i8 30, %38
+42:                                               ; preds = %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge
+  %43 = sub nsw i8 30, %39
   br label %_ZN5drjit7divisorIjiEC2Ej.exit
 
-43:                                               ; preds = %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge
-  %44 = sub nsw i8 31, %38
-  %45 = zext nneg i8 %44 to i32
-  %46 = shl nuw i32 1, %45
-  %47 = zext i32 %46 to i64
-  %48 = shl nuw i64 %47, 32
-  %49 = zext i32 %29 to i64
-  %50 = udiv i64 %48, %49
-  %51 = urem i64 %48, %49
-  %.sroa.0.0.extract.trunc.i = trunc i64 %50 to i32
-  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %51 to i32
-  %52 = shl i32 %.sroa.0.0.extract.trunc.i, 1
-  %53 = or disjoint i32 %52, 1
-  %54 = shl i32 %.sroa.2.0.extract.trunc.i, 1
-  %.not.i = icmp uge i32 %54, %29
-  %55 = icmp slt i32 %.sroa.2.0.extract.trunc.i, 0
-  %or.cond.i = or i1 %55, %.not.i
-  %56 = add i32 %52, 2
-  %spec.select = select i1 %or.cond.i, i32 %56, i32 %53
+44:                                               ; preds = %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge
+  %45 = sub nsw i8 31, %39
+  %46 = zext nneg i8 %45 to i32
+  %47 = shl nuw i32 1, %46
+  %48 = zext i32 %47 to i64
+  %49 = shl nuw i64 %48, 32
+  %50 = zext i32 %26 to i64
+  %51 = udiv i64 %49, %50
+  %52 = urem i64 %49, %50
+  %.sroa.0.0.extract.trunc.i = trunc i64 %51 to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %52 to i32
+  %53 = shl i32 %.sroa.0.0.extract.trunc.i, 1
+  %54 = or disjoint i32 %53, 1
+  %55 = shl i32 %.sroa.2.0.extract.trunc.i, 1
+  %.not.i = icmp uge i32 %55, %26
+  %56 = icmp slt i32 %.sroa.2.0.extract.trunc.i, 0
+  %or.cond.i = or i1 %56, %.not.i
+  %57 = add i32 %53, 2
+  %spec.select = select i1 %or.cond.i, i32 %57, i32 %54
   br label %_ZN5drjit7divisorIjiEC2Ej.exit
 
-_ZN5drjit7divisorIjiEC2Ej.exit:                   ; preds = %43, %41
-  %.sroa.2.0 = phi i32 [ 0, %41 ], [ %spec.select, %43 ]
-  %.sroa.5.0 = phi i8 [ %42, %41 ], [ %44, %43 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %29, ptr %57, align 8
+_ZN5drjit7divisorIjiEC2Ej.exit:                   ; preds = %44, %42
+  %.sroa.2.0 = phi i32 [ 0, %42 ], [ %spec.select, %44 ]
+  %.sroa.5.0 = phi i8 [ %43, %42 ], [ %45, %44 ]
+  %58 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %26, ptr %58, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 84
   store i32 %.sroa.2.0, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
@@ -323,11 +326,11 @@ define weak_odr void @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixINS_8Spectr
   %3 = alloca %"class.mitsuba::Properties", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #16
   invoke void @_ZN7mitsuba10PropertiesC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %5 unwind label %27
+          to label %5 unwind label %33
 
 5:                                                ; preds = %2
   invoke void @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesE(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %6 unwind label %29
+          to label %6 unwind label %35
 
 6:                                                ; preds = %5
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
@@ -336,43 +339,51 @@ define weak_odr void @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixINS_8Spectr
   %9 = getelementptr inbounds i8, ptr %4, i64 56
   %10 = and i8 %8, 1
   store i8 %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 76
-  %12 = load float, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 76
-  store float %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 60
-  %15 = getelementptr inbounds i8, ptr %4, i64 60
-  %16 = load <2 x i64>, ptr %14, align 4
-  store <2 x i64> %16, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
-  %18 = getelementptr inbounds i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %18, ptr noundef nonnull align 8 dereferenceable(9) %17, i64 9, i1 false)
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
-  %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 20
-  store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 12
-  %23 = getelementptr inbounds i8, ptr %4, i64 12
-  %24 = load <2 x i32>, ptr %22, align 4
-  store <2 x i32> %24, ptr %23, align 4
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = load i32, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 76
+  %15 = load float, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %4, i64 76
+  store float %15, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %1, i64 60
+  %18 = getelementptr inbounds i8, ptr %4, i64 60
+  %19 = load i64, ptr %17, align 4
+  store i64 %19, ptr %18, align 4
+  %20 = getelementptr inbounds i8, ptr %1, i64 68
+  %21 = getelementptr inbounds i8, ptr %4, i64 68
+  %22 = load i64, ptr %20, align 4
+  store i64 %22, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 80
+  %24 = getelementptr inbounds i8, ptr %4, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef nonnull align 8 dereferenceable(9) %23, i64 9, i1 false)
+  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %26 = load i32, ptr %25, align 4
+  %27 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 %26, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %29, ptr %30, align 4
   store ptr %4, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
-  %26 = atomicrmw add ptr %25, i32 1 seq_cst, align 4
+  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = atomicrmw add ptr %31, i32 1 seq_cst, align 4
   ret void
 
-27:                                               ; preds = %2
-  %28 = landingpad { ptr, i32 }
+33:                                               ; preds = %2
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %31
+  br label %37
 
-29:                                               ; preds = %5
-  %30 = landingpad { ptr, i32 }
+35:                                               ; preds = %5
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7mitsuba10PropertiesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
-  br label %31
+  br label %37
 
-31:                                               ; preds = %27, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
+37:                                               ; preds = %33, %35
+  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
   call void @_ZdlPv(ptr noundef nonnull %4) #17
   resume { ptr, i32 } %.pn
 }
@@ -801,7 +812,7 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138
   %202 = getelementptr inbounds i8, ptr %0, i64 56
   %203 = load i8, ptr %202, align 8
   %204 = trunc i8 %203 to i1
-  br i1 %204, label %205, label %243
+  br i1 %204, label %205, label %241
 
 205:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138
   %206 = getelementptr inbounds i8, ptr %0, i64 40
@@ -849,25 +860,28 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138
   %238 = or disjoint i32 %237, 1065353216
   %239 = bitcast i32 %238 to float
   %240 = fadd contract float %239, -1.000000e+00
-  %241 = insertelement <2 x float> poison, float %225, i64 0
-  %242 = insertelement <2 x float> %241, float %240, i64 1
-  br label %243
+  br label %241
 
-243:                                              ; preds = %229, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138
-  %244 = phi <2 x float> [ %242, %229 ], [ <float 5.000000e-01, float 5.000000e-01>, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138 ]
-  %245 = insertelement <2 x i32> poison, i32 %89, i64 0
-  %246 = insertelement <2 x i32> %245, i32 %.0104, i64 1
-  %247 = uitofp <2 x i32> %246 to <2 x float>
-  %248 = insertelement <2 x float> poison, float %.0.i137, i64 0
-  %249 = insertelement <2 x float> %248, float %.0.i130, i64 1
-  %250 = fadd contract <2 x float> %249, %244
-  %251 = getelementptr inbounds i8, ptr %0, i64 68
-  %252 = load <2 x float>, ptr %251, align 4
-  %253 = shufflevector <2 x float> %252, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %254 = fmul contract <2 x float> %250, %253
-  %255 = fadd contract <2 x float> %254, %247
-  %256 = fmul contract <2 x float> %252, %255
-  ret <2 x float> %256
+241:                                              ; preds = %229, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138
+  %.0103 = phi float [ %225, %229 ], [ 5.000000e-01, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138 ]
+  %.0 = phi float [ %240, %229 ], [ 5.000000e-01, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit138 ]
+  %242 = uitofp i32 %89 to float
+  %243 = fadd contract float %.0.i137, %.0103
+  %244 = getelementptr inbounds i8, ptr %0, i64 68
+  %245 = getelementptr inbounds i8, ptr %0, i64 72
+  %246 = load float, ptr %245, align 8
+  %247 = fmul contract float %243, %246
+  %248 = fadd contract float %247, %242
+  %249 = load float, ptr %244, align 4
+  %250 = fmul contract float %249, %248
+  %251 = uitofp i32 %.0104 to float
+  %252 = fadd contract float %.0.i130, %.0
+  %253 = fmul contract float %252, %249
+  %254 = fadd contract float %253, %251
+  %255 = fmul contract float %246, %254
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %250, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %255, i64 1
+  ret <2 x float> %.sroa.0.4.vec.insert
 }
 
 ; Function Attrs: mustprogress uwtable

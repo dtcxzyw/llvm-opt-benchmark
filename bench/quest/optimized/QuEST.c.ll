@@ -246,10 +246,14 @@ define void @createCloneQureg(ptr dead_on_unwind noalias writable sret(%struct.Q
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   tail call void @statevec_createQureg(ptr noundef %0, i32 noundef %5, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %2) #17
-  %6 = load <2 x i32>, ptr %1, align 8
-  store <2 x i32> %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %5, ptr %7, align 8
+  %6 = load i32, ptr %1, align 8
+  store i32 %6, ptr %0, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %8, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %5, ptr %10, align 8
   tail call void @qasm_setup(ptr noundef nonnull %0) #17
   tail call void @statevec_cloneQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.Qureg) align 8 %1) #17
   ret void

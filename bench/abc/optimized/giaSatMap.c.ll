@@ -1080,53 +1080,57 @@ define i32 @Sbm_AddCardinConstrPairWise(ptr noundef %0, ptr nocapture noundef re
   %12 = getelementptr inbounds i8, ptr %0, i64 100
   store i32 %11, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = load <2 x i32>, ptr %13, align 8
-  store <2 x i32> %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %14, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  %19 = load i32, ptr %18, align 8
-  %20 = shl i32 %17, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
-  %22 = load ptr, ptr %21, align 8
-  %23 = sext i32 %17 to i64
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 %17, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = load i32, ptr %21, align 8
+  %23 = shl i32 %20, %22
+  %24 = getelementptr inbounds i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8
-  %.val.i.i.i = load i32, ptr %25, align 4
-  %26 = or i32 %.val.i.i.i, %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 44
-  %29 = load i32, ptr %28, align 4
-  %30 = shl i32 %29, %19
-  %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds ptr, ptr %22, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  %.val.i8.i.i = load i32, ptr %33, align 4
-  %34 = or i32 %.val.i8.i.i, %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 152
-  %37 = load ptr, ptr %36, align 8
-  %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %sat_solver_bookmark.exit, label %38
+  %26 = sext i32 %20 to i64
+  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  %.val.i.i.i = load i32, ptr %28, align 4
+  %29 = or i32 %.val.i.i.i, %23
+  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 44
+  %32 = load i32, ptr %31, align 4
+  %33 = shl i32 %32, %22
+  %34 = sext i32 %32 to i64
+  %35 = getelementptr inbounds ptr, ptr %25, i64 %34
+  %36 = load ptr, ptr %35, align 8
+  %.val.i8.i.i = load i32, ptr %36, align 4
+  %37 = or i32 %.val.i8.i.i, %33
+  %38 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %37, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %0, i64 152
+  %40 = load ptr, ptr %39, align 8
+  %.not.i = icmp eq ptr %40, null
+  br i1 %.not.i, label %sat_solver_bookmark.exit, label %41
 
-38:                                               ; preds = %3
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 128
-  store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 144
-  %43 = load ptr, ptr %42, align 8
-  %44 = sext i32 %8 to i64
-  %45 = shl nsw i64 %44, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr align 8 %43, i64 %45, i1 false)
+41:                                               ; preds = %3
+  %42 = getelementptr inbounds i8, ptr %0, i64 120
+  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 128
+  store i64 %43, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 144
+  %46 = load ptr, ptr %45, align 8
+  %47 = sext i32 %8 to i64
+  %48 = shl nsw i64 %47, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr align 8 %46, i64 %48, i1 false)
   br label %sat_solver_bookmark.exit
 
-sat_solver_bookmark.exit:                         ; preds = %3, %38
-  %46 = load i32, ptr %4, align 4
-  ret i32 %46
+sat_solver_bookmark.exit:                         ; preds = %3, %41
+  %49 = load i32, ptr %4, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1250,51 +1254,55 @@ Vec_IntStartNatural.exit:                         ; preds = %19, %2
   %28 = getelementptr inbounds i8, ptr %22, i64 100
   store i32 %27, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %22, i64 16
-  %30 = getelementptr inbounds i8, ptr %22, i64 32
-  %31 = load <2 x i32>, ptr %29, align 8
-  store <2 x i32> %31, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %22, i64 40
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %22, i64 32
+  store i32 %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %22, i64 20
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %22, i64 48
-  %35 = load i32, ptr %34, align 8
-  %36 = shl i32 %33, %35
-  %37 = getelementptr inbounds i8, ptr %22, i64 64
-  %38 = load ptr, ptr %37, align 8
-  %39 = sext i32 %33 to i64
-  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
+  %34 = getelementptr inbounds i8, ptr %22, i64 36
+  store i32 %33, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %22, i64 40
+  %36 = load i32, ptr %35, align 4
+  %37 = getelementptr inbounds i8, ptr %22, i64 48
+  %38 = load i32, ptr %37, align 8
+  %39 = shl i32 %36, %38
+  %40 = getelementptr inbounds i8, ptr %22, i64 64
   %41 = load ptr, ptr %40, align 8
-  %.val.i.i.i.i = load i32, ptr %41, align 4
-  %42 = or i32 %.val.i.i.i.i, %36
-  %43 = getelementptr inbounds i8, ptr %22, i64 24
-  store i32 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %22, i64 44
-  %45 = load i32, ptr %44, align 4
-  %46 = shl i32 %45, %35
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds ptr, ptr %38, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  %.val.i8.i.i.i = load i32, ptr %49, align 4
-  %50 = or i32 %.val.i8.i.i.i, %46
-  %51 = getelementptr inbounds i8, ptr %22, i64 28
-  store i32 %50, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %22, i64 152
-  %53 = load ptr, ptr %52, align 8
-  %.not.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i, label %Sbm_AddCardinConstrPairWise.exit, label %54
+  %42 = sext i32 %36 to i64
+  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %44 = load ptr, ptr %43, align 8
+  %.val.i.i.i.i = load i32, ptr %44, align 4
+  %45 = or i32 %.val.i.i.i.i, %39
+  %46 = getelementptr inbounds i8, ptr %22, i64 24
+  store i32 %45, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %22, i64 44
+  %48 = load i32, ptr %47, align 4
+  %49 = shl i32 %48, %38
+  %50 = sext i32 %48 to i64
+  %51 = getelementptr inbounds ptr, ptr %41, i64 %50
+  %52 = load ptr, ptr %51, align 8
+  %.val.i8.i.i.i = load i32, ptr %52, align 4
+  %53 = or i32 %.val.i8.i.i.i, %49
+  %54 = getelementptr inbounds i8, ptr %22, i64 28
+  store i32 %53, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %22, i64 152
+  %56 = load ptr, ptr %55, align 8
+  %.not.i.i = icmp eq ptr %56, null
+  br i1 %.not.i.i, label %Sbm_AddCardinConstrPairWise.exit, label %57
 
-54:                                               ; preds = %Vec_IntStartNatural.exit
-  %55 = getelementptr inbounds i8, ptr %22, i64 120
-  %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %22, i64 128
-  store i64 %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %22, i64 144
-  %59 = load ptr, ptr %58, align 8
-  %60 = sext i32 %24 to i64
-  %61 = shl nsw i64 %60, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %59, i64 %61, i1 false)
+57:                                               ; preds = %Vec_IntStartNatural.exit
+  %58 = getelementptr inbounds i8, ptr %22, i64 120
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %22, i64 128
+  store i64 %59, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %22, i64 144
+  %62 = load ptr, ptr %61, align 8
+  %63 = sext i32 %24 to i64
+  %64 = shl nsw i64 %63, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %56, ptr align 8 %62, i64 %64, i1 false)
   br label %Sbm_AddCardinConstrPairWise.exit
 
-Sbm_AddCardinConstrPairWise.exit:                 ; preds = %Vec_IntStartNatural.exit, %54
+Sbm_AddCardinConstrPairWise.exit:                 ; preds = %Vec_IntStartNatural.exit, %57
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store ptr %13, ptr %1, align 8
   ret ptr %22

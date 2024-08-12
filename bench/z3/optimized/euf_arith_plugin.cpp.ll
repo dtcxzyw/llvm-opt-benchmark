@@ -119,6 +119,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont11
   %m_undo_notify.i = getelementptr inbounds i8, ptr %this, i64 288
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store i64 %3, ptr %ref.tmp.i.i, align 8
@@ -128,13 +129,14 @@ if.then.i.i.i:                                    ; preds = %invoke.cont11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %this, i64 304
-  %_M_invoker4.i2.i.i = getelementptr inbounds i8, ptr %this, i64 312
-  %5 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
-  %6 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  %5 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  store ptr %5, ptr %_M_manager.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
-  store <2 x ptr> %5, ptr %_M_manager.i.i.i.i, align 8
+  %_M_invoker4.i2.i.i = getelementptr inbounds i8, ptr %this, i64 312
+  %6 = load ptr, ptr %_M_invoker4.i2.i.i, align 8
+  store ptr %6, ptr %_M_invoker.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i2.i.i, align 8
-  %tobool.not.i.i4.i.i = icmp eq ptr %6, null
+  %tobool.not.i.i4.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i4.i.i, label %invoke.cont18.thread, label %if.then.i.i5.i.i
 
 invoke.cont18.thread:                             ; preds = %if.then.i.i.i
@@ -142,7 +144,7 @@ invoke.cont18.thread:                             ; preds = %if.then.i.i.i
   br label %if.then.i.i14
 
 if.then.i.i5.i.i:                                 ; preds = %if.then.i.i.i
-  %call.i.i6.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i6.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
           to label %invoke.cont18 unwind label %terminate.lpad.i.i7.i.i
 
 terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
@@ -160,6 +162,7 @@ if.then.i.i14:                                    ; preds = %invoke.cont18, %inv
   %m_undo_notify.i39 = getelementptr inbounds i8, ptr %this, i64 720
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i38)
   %_M_manager.i.i.i.i40 = getelementptr inbounds i8, ptr %ref.tmp.i.i38, i64 16
+  %_M_invoker.i.i.i41 = getelementptr inbounds i8, ptr %ref.tmp.i.i38, i64 24
   %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i38, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
   store i64 %3, ptr %ref.tmp.i.i38, align 8
@@ -169,13 +172,14 @@ if.then.i.i14:                                    ; preds = %invoke.cont18, %inv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i39, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i37, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i37)
   %_M_manager3.i.i.i55 = getelementptr inbounds i8, ptr %this, i64 736
-  %_M_invoker4.i2.i.i56 = getelementptr inbounds i8, ptr %this, i64 744
-  %10 = load <2 x ptr>, ptr %_M_manager3.i.i.i55, align 8
-  %11 = load ptr, ptr %_M_manager3.i.i.i55, align 8
+  %10 = load ptr, ptr %_M_manager3.i.i.i55, align 8
+  store ptr %10, ptr %_M_manager.i.i.i.i40, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager3.i.i.i55, align 8
-  store <2 x ptr> %10, ptr %_M_manager.i.i.i.i40, align 8
+  %_M_invoker4.i2.i.i56 = getelementptr inbounds i8, ptr %this, i64 744
+  %11 = load ptr, ptr %_M_invoker4.i2.i.i56, align 8
+  store ptr %11, ptr %_M_invoker.i.i.i41, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i2.i.i56, align 8
-  %tobool.not.i.i4.i.i57 = icmp eq ptr %11, null
+  %tobool.not.i.i4.i.i57 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i4.i.i57, label %invoke.cont25.thread, label %if.then.i.i5.i.i58
 
 invoke.cont25.thread:                             ; preds = %if.then.i.i14
@@ -183,7 +187,7 @@ invoke.cont25.thread:                             ; preds = %if.then.i.i14
   br label %if.then.i.i65
 
 if.then.i.i5.i.i58:                               ; preds = %if.then.i.i14
-  %call.i.i6.i.i59 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, i32 noundef 3)
+  %call.i.i6.i.i59 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, i32 noundef 3)
           to label %invoke.cont25 unwind label %terminate.lpad.i.i7.i.i60
 
 terminate.lpad.i.i7.i.i60:                        ; preds = %if.then.i.i5.i.i58

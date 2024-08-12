@@ -110,31 +110,29 @@ if.then21:                                        ; preds = %if.then19
   br label %if.end34
 
 if.else:                                          ; preds = %if.then19
-  %10 = insertelement <2 x i64> poison, i64 %agg.tmp16.sroa.0.0.copyload, i64 0
-  %11 = insertelement <2 x i64> %10, i64 %retval.0.i.i, i64 1
-  %12 = sitofp <2 x i64> %11 to <2 x double>
-  %13 = fdiv <2 x double> %12, <double 1.000000e+03, double 1.000000e+03>
-  %14 = extractelement <2 x double> %13, i64 0
-  %15 = extractelement <2 x double> %13, i64 1
-  %div = fdiv double %14, %15
+  %conv.i = sitofp i64 %agg.tmp16.sroa.0.0.copyload to double
+  %div.i = fdiv double %conv.i, 1.000000e+03
+  %conv.i18 = sitofp i64 %retval.0.i.i to double
+  %div.i19 = fdiv double %conv.i18, 1.000000e+03
+  %div = fdiv double %div.i, %div.i19
   %cmp.i20 = fcmp olt double %div, 1.010000e+00
   %cmp1.i = fcmp ogt double %div, 2.000000e+00
   %max.val.i = select i1 %cmp1.i, double 2.000000e+00, double %div
   %retval.0.i = select i1 %cmp.i20, double 1.010000e+00, double %max.val.i
   %expected_updates_per_period_26 = getelementptr inbounds i8, ptr %this, i64 24
-  %16 = load i64, ptr %expected_updates_per_period_26, align 8
-  %conv = sitofp i64 %16 to double
+  %10 = load i64, ptr %expected_updates_per_period_26, align 8
+  %conv = sitofp i64 %10 to double
   %mul27 = fmul double %retval.0.i, %conv
   %conv28 = fptosi double %mul27 to i64
-  %cmp30.not = icmp slt i64 %16, %conv28
-  %add = add nsw i64 %16, 1
+  %cmp30.not = icmp slt i64 %10, %conv28
+  %add = add nsw i64 %10, 1
   %spec.select = select i1 %cmp30.not, i64 %conv28, i64 %add
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else, %if.then21
-  %17 = phi i64 [ %9, %if.then21 ], [ %16, %if.else ]
+  %11 = phi i64 [ %9, %if.then21 ], [ %10, %if.else ]
   %better_guess.0 = phi i64 [ %mul, %if.then21 ], [ %spec.select, %if.else ]
-  %sub = sub nsw i64 %better_guess.0, %17
+  %sub = sub nsw i64 %better_guess.0, %11
   br label %return
 
 if.end37:                                         ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread, %_ZN9grpc_coremiENS_9TimestampES0_.exit
@@ -143,8 +141,8 @@ if.end37:                                         ; preds = %_ZN9grpc_coremiENS_
   %conv.i21 = sitofp i64 %agg.tmp16.sroa.0.0.copyload34 to double
   %div.i22 = fdiv double %conv.i21, 1.000000e+03
   %expected_updates_per_period_40 = getelementptr inbounds i8, ptr %this, i64 24
-  %18 = load i64, ptr %expected_updates_per_period_40, align 8
-  %conv41 = sitofp i64 %18 to double
+  %12 = load i64, ptr %expected_updates_per_period_40, align 8
+  %conv41 = sitofp i64 %12 to double
   %mul42 = fmul double %div.i22, %conv41
   %conv.i23 = sitofp i64 %retval.0.i.i33 to double
   %div.i24 = fdiv double %conv.i23, 1.000000e+03
@@ -154,11 +152,11 @@ if.end37:                                         ; preds = %_ZN9grpc_coremiENS_
   store i64 %spec.select11, ptr %expected_updates_per_period_40, align 8
   store i64 %call.i15, ptr %period_start_, align 8
   tail call void %f.coerce1(ptr %f.coerce0, i64 %retval.0.i.i33)
-  %19 = load i64, ptr %expected_updates_per_period_40, align 8
+  %13 = load i64, ptr %expected_updates_per_period_40, align 8
   br label %return
 
 return:                                           ; preds = %if.end37, %if.end34, %_ZN9grpc_core9Timestamp3NowEv.exit
-  %.sink = phi i64 [ %19, %if.end37 ], [ %sub, %if.end34 ], [ 1, %_ZN9grpc_core9Timestamp3NowEv.exit ]
+  %.sink = phi i64 [ %13, %if.end37 ], [ %sub, %if.end34 ], [ 1, %_ZN9grpc_core9Timestamp3NowEv.exit ]
   %retval.0 = phi i1 [ true, %if.end37 ], [ false, %if.end34 ], [ false, %_ZN9grpc_core9Timestamp3NowEv.exit ]
   store atomic i64 %.sink, ptr %this release, align 8
   ret i1 %retval.0

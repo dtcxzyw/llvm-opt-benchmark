@@ -121,23 +121,29 @@ define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonE
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds [4 x <4 x float>], ptr %4, i64 0, i64 %64
   %66 = load <4 x float>, ptr %65, align 16
-  %67 = shufflevector <4 x float> %66, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x float> %67, ptr %0, align 4
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
-  %69 = extractelement <4 x float> %66, i64 2
+  %67 = extractelement <4 x float> %66, i64 0
+  store float %67, ptr %0, align 4
+  %68 = getelementptr inbounds i8, ptr %0, i64 4
+  %69 = extractelement <4 x float> %66, i64 1
   store float %69, ptr %68, align 4
-  %70 = getelementptr inbounds [4 x <4 x float>], ptr %5, i64 0, i64 %64
-  %71 = load <4 x float>, ptr %70, align 16
-  %72 = getelementptr inbounds i8, ptr %0, i64 12
-  store <4 x float> %71, ptr %72, align 4
-  %73 = getelementptr inbounds [4 x <4 x float>], ptr %6, i64 0, i64 %64
-  %74 = load <4 x float>, ptr %73, align 16
-  %75 = getelementptr inbounds i8, ptr %0, i64 28
-  %76 = shufflevector <4 x float> %74, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x float> %76, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 36
-  %78 = extractelement <4 x float> %74, i64 2
+  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  %71 = extractelement <4 x float> %66, i64 2
+  store float %71, ptr %70, align 4
+  %72 = getelementptr inbounds [4 x <4 x float>], ptr %5, i64 0, i64 %64
+  %73 = load <4 x float>, ptr %72, align 16
+  %74 = getelementptr inbounds i8, ptr %0, i64 12
+  store <4 x float> %73, ptr %74, align 4
+  %75 = getelementptr inbounds [4 x <4 x float>], ptr %6, i64 0, i64 %64
+  %76 = load <4 x float>, ptr %75, align 16
+  %77 = getelementptr inbounds i8, ptr %0, i64 28
+  %78 = extractelement <4 x float> %76, i64 0
   store float %78, ptr %77, align 4
+  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %80 = extractelement <4 x float> %76, i64 1
+  store float %80, ptr %79, align 4
+  %81 = getelementptr inbounds i8, ptr %0, i64 36
+  %82 = extractelement <4 x float> %76, i64 2
+  store float %82, ptr %81, align 4
   ret void
 }
 

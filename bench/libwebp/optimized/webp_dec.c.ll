@@ -1183,104 +1183,104 @@ define ptr @WebPDecodeYUV(ptr noundef %0, i64 noundef %1, ptr noundef writeonly 
   %10 = alloca %struct.WebPDecParams, align 8
   %11 = alloca %struct.WebPDecBuffer, align 8
   %12 = alloca %struct.WebPDecBuffer, align 8
-  %13 = insertelement <4 x ptr> poison, ptr %4, i64 0
-  %14 = insertelement <4 x ptr> %13, ptr %5, i64 1
-  %15 = insertelement <4 x ptr> %14, ptr %6, i64 2
-  %16 = insertelement <4 x ptr> %15, ptr %7, i64 3
-  %17 = icmp eq <4 x ptr> %16, zeroinitializer
-  %18 = bitcast <4 x i1> %17 to i4
-  %.not29 = icmp eq i4 %18, 0
-  br i1 %.not29, label %19, label %50
+  %13 = icmp eq ptr %4, null
+  %14 = icmp eq ptr %5, null
+  %or.cond = or i1 %13, %14
+  %15 = icmp eq ptr %6, null
+  %or.cond3 = or i1 %or.cond, %15
+  %16 = icmp eq ptr %7, null
+  %or.cond5 = or i1 %or.cond3, %16
+  br i1 %or.cond5, label %48, label %17
 
-19:                                               ; preds = %8
+17:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %11)
-  %20 = call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %11, i32 noundef 521) #10
-  %.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i, label %Decode.exit.thread, label %21
+  %18 = call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %11, i32 noundef 521) #10
+  %.not.i = icmp eq i32 %18, 0
+  br i1 %.not.i, label %Decode.exit.thread, label %19
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %22, i8 0, i64 104, i1 false)
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %20, i8 0, i64 104, i1 false)
   store ptr %11, ptr %10, align 8
   store i32 11, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 4
-  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %21 = getelementptr inbounds i8, ptr %11, i64 4
+  %22 = getelementptr inbounds i8, ptr %11, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
-  %25 = icmp eq ptr %0, null
-  br i1 %25, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
+  %23 = icmp eq ptr %0, null
+  br i1 %23, label %WebPGetInfo.exit.thread.i, label %GetFeatures.exit.i.i
 
-GetFeatures.exit.i.i:                             ; preds = %21
+GetFeatures.exit.i.i:                             ; preds = %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %9, i8 0, i64 40, i1 false)
-  %26 = getelementptr inbounds i8, ptr %9, i64 4
-  %27 = getelementptr inbounds i8, ptr %9, i64 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 12
-  %29 = getelementptr inbounds i8, ptr %9, i64 16
-  %30 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef null)
-  %.not.i.i = icmp eq i32 %30, 0
-  br i1 %.not.i.i, label %31, label %WebPGetInfo.exit.thread.i
+  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %25 = getelementptr inbounds i8, ptr %9, i64 8
+  %26 = getelementptr inbounds i8, ptr %9, i64 12
+  %27 = getelementptr inbounds i8, ptr %9, i64 16
+  %28 = call fastcc i32 @ParseHeadersInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef null)
+  %.not.i.i = icmp eq i32 %28, 0
+  br i1 %.not.i.i, label %29, label %WebPGetInfo.exit.thread.i
 
-WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.i, %21
+WebPGetInfo.exit.thread.i:                        ; preds = %GetFeatures.exit.i.i, %19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   br label %Decode.exit.thread
 
-31:                                               ; preds = %GetFeatures.exit.i.i
-  %32 = load i32, ptr %9, align 4
-  store i32 %32, ptr %23, align 4
-  %33 = load i32, ptr %26, align 4
-  store i32 %33, ptr %24, align 8
+29:                                               ; preds = %GetFeatures.exit.i.i
+  %30 = load i32, ptr %9, align 4
+  store i32 %30, ptr %21, align 4
+  %31 = load i32, ptr %24, align 4
+  store i32 %31, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   %.not16.i = icmp eq ptr %2, null
-  br i1 %.not16.i, label %35, label %34
+  br i1 %.not16.i, label %33, label %32
 
-34:                                               ; preds = %31
-  store i32 %32, ptr %2, align 4
+32:                                               ; preds = %29
+  store i32 %30, ptr %2, align 4
+  br label %33
+
+33:                                               ; preds = %32, %29
+  %.not17.i = icmp eq ptr %3, null
+  br i1 %.not17.i, label %35, label %34
+
+34:                                               ; preds = %33
+  store i32 %31, ptr %3, align 4
   br label %35
 
-35:                                               ; preds = %34, %31
-  %.not17.i = icmp eq ptr %3, null
-  br i1 %.not17.i, label %37, label %36
-
-36:                                               ; preds = %35
-  store i32 %33, ptr %3, align 4
-  br label %37
-
-37:                                               ; preds = %36, %35
-  %38 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %10)
-  %.not18.i = icmp eq i32 %38, 0
+35:                                               ; preds = %34, %33
+  %36 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %10)
+  %.not18.i = icmp eq i32 %36, 0
   br i1 %.not18.i, label %Decode.exit, label %Decode.exit.thread
 
-Decode.exit.thread:                               ; preds = %19, %37, %WebPGetInfo.exit.thread.i
+Decode.exit.thread:                               ; preds = %17, %35, %WebPGetInfo.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11)
-  br label %50
+  br label %48
 
-Decode.exit:                                      ; preds = %37
+Decode.exit:                                      ; preds = %35
   call void @WebPCopyDecBuffer(ptr noundef nonnull %11, ptr noundef nonnull %12) #10
-  %39 = getelementptr inbounds i8, ptr %11, i64 16
-  %40 = load ptr, ptr %39, align 8
+  %37 = getelementptr inbounds i8, ptr %11, i64 16
+  %38 = load ptr, ptr %37, align 8
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11)
-  %.not = icmp eq ptr %40, null
-  br i1 %.not, label %50, label %41
+  %.not = icmp eq ptr %38, null
+  br i1 %.not, label %48, label %39
 
-41:                                               ; preds = %Decode.exit
-  %42 = getelementptr inbounds i8, ptr %12, i64 24
+39:                                               ; preds = %Decode.exit
+  %40 = getelementptr inbounds i8, ptr %12, i64 24
+  %41 = load ptr, ptr %40, align 8
+  store ptr %41, ptr %4, align 8
+  %42 = getelementptr inbounds i8, ptr %12, i64 32
   %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %4, align 8
-  %44 = getelementptr inbounds i8, ptr %12, i64 32
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %12, i64 48
-  %47 = load i32, ptr %46, align 8
-  store i32 %47, ptr %6, align 4
-  %48 = getelementptr inbounds i8, ptr %12, i64 52
-  %49 = load i32, ptr %48, align 4
-  store i32 %49, ptr %7, align 4
-  br label %50
+  store ptr %43, ptr %5, align 8
+  %44 = getelementptr inbounds i8, ptr %12, i64 48
+  %45 = load i32, ptr %44, align 8
+  store i32 %45, ptr %6, align 4
+  %46 = getelementptr inbounds i8, ptr %12, i64 52
+  %47 = load i32, ptr %46, align 4
+  store i32 %47, ptr %7, align 4
+  br label %48
 
-50:                                               ; preds = %Decode.exit.thread, %Decode.exit, %41, %8
-  %.0 = phi ptr [ null, %8 ], [ %40, %41 ], [ null, %Decode.exit ], [ null, %Decode.exit.thread ]
+48:                                               ; preds = %Decode.exit.thread, %Decode.exit, %39, %8
+  %.0 = phi ptr [ null, %8 ], [ %38, %39 ], [ null, %Decode.exit ], [ null, %Decode.exit.thread ]
   ret ptr %.0
 }
 
@@ -1402,7 +1402,7 @@ GetFeatures.exit:                                 ; preds = %3
   store ptr %18, ptr %4, align 8
   %19 = tail call i32 @WebPAvoidSlowMemory(ptr noundef nonnull %18, ptr noundef nonnull %2) #10
   %.not24 = icmp eq i32 %19, 0
-  br i1 %.not24, label %31, label %20
+  br i1 %.not24, label %33, label %20
 
 20:                                               ; preds = %14
   %21 = call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %5, i32 noundef 521) #10
@@ -1412,29 +1412,32 @@ GetFeatures.exit:                                 ; preds = %3
 22:                                               ; preds = %20
   %23 = load i32, ptr %18, align 8
   store i32 %23, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load <2 x i32>, ptr %2, align 8
-  store <2 x i32> %25, ptr %24, align 4
+  %24 = load i32, ptr %2, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %24, ptr %25, align 4
+  %26 = load i32, ptr %8, align 4
+  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %26, ptr %27, align 8
   store ptr %5, ptr %4, align 8
-  %26 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %4)
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %30
+  %28 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %4)
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %32
 
-28:                                               ; preds = %22
-  %29 = call i32 @WebPCopyDecBufferPixels(ptr noundef nonnull %5, ptr noundef nonnull %18) #10
-  br label %30
+30:                                               ; preds = %22
+  %31 = call i32 @WebPCopyDecBufferPixels(ptr noundef nonnull %5, ptr noundef nonnull %18) #10
+  br label %32
 
-30:                                               ; preds = %28, %22
-  %.0 = phi i32 [ %29, %28 ], [ %26, %22 ]
+32:                                               ; preds = %30, %22
+  %.0 = phi i32 [ %31, %30 ], [ %28, %22 ]
   call void @WebPFreeDecBuffer(ptr noundef nonnull %5) #10
   br label %GetFeatures.exit.thread
 
-31:                                               ; preds = %14
-  %32 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %4)
+33:                                               ; preds = %14
+  %34 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %4)
   br label %GetFeatures.exit.thread
 
-GetFeatures.exit.thread:                          ; preds = %30, %31, %20, %GetFeatures.exit, %3, %13
-  %.020 = phi i32 [ 2, %3 ], [ 3, %GetFeatures.exit ], [ 2, %20 ], [ %.0, %30 ], [ %32, %31 ], [ %12, %13 ]
+GetFeatures.exit.thread:                          ; preds = %32, %33, %20, %GetFeatures.exit, %3, %13
+  %.020 = phi i32 [ 2, %3 ], [ 3, %GetFeatures.exit ], [ 2, %20 ], [ %.0, %32 ], [ %34, %33 ], [ %12, %13 ]
   ret i32 %.020
 }
 

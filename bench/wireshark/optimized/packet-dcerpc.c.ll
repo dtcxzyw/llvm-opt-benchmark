@@ -4169,52 +4169,56 @@ copy_address.exit:                                ; preds = %dcerpc_get_decode_d
 
 copy_address.exit18:                              ; preds = %copy_address.exit, %35
   %41 = getelementptr inbounds i8, ptr %0, i64 280
-  %42 = getelementptr inbounds i8, ptr %13, i64 48
-  %43 = load <2 x i32>, ptr %41, align 8
-  store <2 x i32> %43, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 288
-  %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 56
-  store i32 %45, ptr %46, align 8
-  %47 = load i16, ptr %.0.i, align 8
-  %48 = getelementptr inbounds i8, ptr %13, i64 60
-  store i16 %47, ptr %48, align 4
-  %49 = load ptr, ptr %2, align 8
-  %50 = load i32, ptr @proto_dcerpc, align 4
-  %51 = tail call ptr @p_get_proto_data(ptr noundef %49, ptr noundef nonnull %0, i32 noundef %50, i32 noundef 0) #16
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %dcerpc_get_decode_data.exit.i
+  %42 = load i32, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %13, i64 48
+  store i32 %42, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 284
+  %45 = load i32, ptr %44, align 4
+  %46 = getelementptr inbounds i8, ptr %13, i64 52
+  store i32 %45, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %0, i64 288
+  %48 = load i32, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %13, i64 56
+  store i32 %48, ptr %49, align 8
+  %50 = load i16, ptr %.0.i, align 8
+  %51 = getelementptr inbounds i8, ptr %13, i64 60
+  store i16 %50, ptr %51, align 4
+  %52 = load ptr, ptr %2, align 8
+  %53 = load i32, ptr @proto_dcerpc, align 4
+  %54 = tail call ptr @p_get_proto_data(ptr noundef %52, ptr noundef nonnull %0, i32 noundef %53, i32 noundef 0) #16
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %dcerpc_get_decode_data.exit.i
 
-53:                                               ; preds = %copy_address.exit18
-  %54 = load ptr, ptr %2, align 8
-  %55 = tail call noalias ptr @wmem_alloc0(ptr noundef %54, i64 noundef 16) #16
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
-  store i32 -1, ptr %56, align 4
+56:                                               ; preds = %copy_address.exit18
   %57 = load ptr, ptr %2, align 8
-  %58 = load i32, ptr @proto_dcerpc, align 4
-  tail call void @p_add_proto_data(ptr noundef %57, ptr noundef nonnull %0, i32 noundef %58, i32 noundef 0, ptr noundef %55) #16
+  %58 = tail call noalias ptr @wmem_alloc0(ptr noundef %57, i64 noundef 16) #16
+  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  store i32 -1, ptr %59, align 4
+  %60 = load ptr, ptr %2, align 8
+  %61 = load i32, ptr @proto_dcerpc, align 4
+  tail call void @p_add_proto_data(ptr noundef %60, ptr noundef nonnull %0, i32 noundef %61, i32 noundef 0, ptr noundef %58) #16
   br label %dcerpc_get_decode_data.exit.i
 
-dcerpc_get_decode_data.exit.i:                    ; preds = %53, %copy_address.exit18
-  %.0.i.i = phi ptr [ %55, %53 ], [ %51, %copy_address.exit18 ]
-  %59 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
-  %60 = load i32, ptr %59, align 4
-  %cond.i = icmp eq i32 %60, 1
-  br i1 %cond.i, label %61, label %dcerpc_get_transport_salt.exit
+dcerpc_get_decode_data.exit.i:                    ; preds = %56, %copy_address.exit18
+  %.0.i.i = phi ptr [ %58, %56 ], [ %54, %copy_address.exit18 ]
+  %62 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %63 = load i32, ptr %62, align 4
+  %cond.i = icmp eq i32 %63, 1
+  br i1 %cond.i, label %64, label %dcerpc_get_transport_salt.exit
 
-61:                                               ; preds = %dcerpc_get_decode_data.exit.i
-  %62 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %63 = load i64, ptr %62, align 8
+64:                                               ; preds = %dcerpc_get_decode_data.exit.i
+  %65 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %66 = load i64, ptr %65, align 8
   br label %dcerpc_get_transport_salt.exit
 
-dcerpc_get_transport_salt.exit:                   ; preds = %dcerpc_get_decode_data.exit.i, %61
-  %.0.i19 = phi i64 [ %63, %61 ], [ 0, %dcerpc_get_decode_data.exit.i ]
-  %64 = getelementptr inbounds i8, ptr %13, i64 64
-  store i64 %.0.i19, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %13, i64 72
-  store ptr null, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %13, i64 96
-  store i16 0, ptr %66, align 8
+dcerpc_get_transport_salt.exit:                   ; preds = %dcerpc_get_decode_data.exit.i, %64
+  %.0.i19 = phi i64 [ %66, %64 ], [ 0, %dcerpc_get_decode_data.exit.i ]
+  %67 = getelementptr inbounds i8, ptr %13, i64 64
+  store i64 %.0.i19, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %13, i64 72
+  store ptr null, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %13, i64 96
+  store i16 0, ptr %69, align 8
   ret ptr %13
 }
 
@@ -6855,29 +6859,37 @@ addresses_equal.exit:                             ; preds = %41, %33, %27, %20, 
 define internal noalias noundef ptr @dcerpc_fragment_temporary_key(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(72) ptr @g_slice_alloc(i64 noundef 72) #18
   %5 = getelementptr inbounds i8, ptr %0, i64 208
-  %6 = getelementptr inbounds i8, ptr %0, i64 216
-  %7 = load ptr, ptr %6, align 8
-  %8 = load <2 x i32>, ptr %5, align 8
-  store <2 x i32> %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 232
-  %13 = getelementptr inbounds i8, ptr %0, i64 240
-  %14 = load ptr, ptr %13, align 8
-  %15 = load <2 x i32>, ptr %12, align 8
-  store <2 x i32> %15, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 52
-  %20 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %20, i64 16, i1 false)
+  %6 = load i32, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 212
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %10 = load ptr, ptr %9, align 8
+  store i32 %6, ptr %4, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %8, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %10, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr null, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds i8, ptr %0, i64 232
+  %16 = load i32, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 236
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 240
+  %20 = load ptr, ptr %19, align 8
+  store i32 %16, ptr %14, align 8
+  %21 = getelementptr inbounds i8, ptr %4, i64 28
+  store i32 %18, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 %1, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 52
+  %26 = getelementptr inbounds i8, ptr %2, i64 40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false)
   ret ptr %4
 }
 

@@ -1478,100 +1478,102 @@ define void @_ZN2cv3dnn14dnn4_v2024052116readNetFromTorchERKNSt7__cxx1112basic_s
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   %6 = alloca %"struct.cv::dnn::dnn4_v20240521::TorchImporter", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %8 = alloca %"class.cv::dnn::dnn4_v20240521::Net", align 16
+  %8 = alloca %"class.cv::dnn::dnn4_v20240521::Net", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3dnn14dnn4_v2024052116readNetFromTorchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE26__cv_trace_location_fn1261)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %9 unwind label %30
+          to label %9 unwind label %31
 
 9:                                                ; preds = %4
   invoke void @_ZN2cv3dnn14dnn4_v2024052113TorchImporterC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull align 8 dereferenceable(285) %6, ptr noundef nonnull %7, i1 noundef zeroext %2, i1 noundef zeroext %3)
-          to label %10 unwind label %32
+          to label %10 unwind label %33
 
 10:                                               ; preds = %9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   invoke void @_ZN2cv3dnn14dnn4_v202405213NetC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-          to label %11 unwind label %34
+          to label %11 unwind label %35
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %14, ptr %8, align 16
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i, label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit, label %15
+  %12 = load ptr, ptr %0, align 8
+  store ptr %12, ptr %8, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %13, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %15, null
+  br i1 %.not.i.i.i.i.i, label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit, label %16
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
-  %17 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i.i.i.i.i.i, label %21, label %18
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %18, 0
+  br i1 %.not.i.i.i.i.i.i, label %22, label %19
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr %16, align 4
-  %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %16, align 4
+19:                                               ; preds = %16
+  %20 = load i32, ptr %17, align 4
+  %21 = add nsw i32 %20, 1
+  store i32 %21, ptr %17, align 4
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
-21:                                               ; preds = %15
-  %22 = atomicrmw volatile add ptr %16, i32 1 acq_rel, align 4
+22:                                               ; preds = %16
+  %23 = atomicrmw volatile add ptr %17, i32 1 acq_rel, align 4
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
-_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %11, %18, %21
+_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %11, %19, %22
   invoke void @_ZN2cv3dnn14dnn4_v2024052113TorchImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(285) %6, ptr noundef nonnull %8)
-          to label %23 unwind label %36
+          to label %24 unwind label %37
 
-23:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
+24:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   call void @_ZN2cv3dnn14dnn4_v2024052113TorchImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(285) %6) #18
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
-  %25 = load i32, ptr %24, align 8
-  %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %26
+  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = load i32, ptr %25, align 8
+  %.not.i = icmp eq i32 %26, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %27
 
-26:                                               ; preds = %23
+27:                                               ; preds = %24
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %5)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %27
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %28
 
-27:                                               ; preds = %26
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %27
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #21
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #21
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %23, %26
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %24, %27
   ret void
 
-30:                                               ; preds = %4
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %4
+  %32 = landingpad { ptr, i32 }
           cleanup
-  br label %39
+  br label %40
 
-32:                                               ; preds = %9
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %9
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
+  br label %40
+
+35:                                               ; preds = %10
+  %36 = landingpad { ptr, i32 }
+          cleanup
   br label %39
 
-34:                                               ; preds = %10
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  br label %38
-
-36:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  br label %38
-
-38:                                               ; preds = %36, %34
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
-  call void @_ZN2cv3dnn14dnn4_v2024052113TorchImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(285) %6) #18
   br label %39
 
-39:                                               ; preds = %38, %32, %30
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %38 ], [ %33, %32 ], [ %31, %30 ]
+39:                                               ; preds = %37, %35
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
+  call void @_ZN2cv3dnn14dnn4_v2024052113TorchImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(285) %6) #18
+  br label %40
+
+40:                                               ; preds = %39, %33, %31
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %39 ], [ %34, %33 ], [ %32, %31 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #18
   resume { ptr, i32 } %.pn.pn
 }
@@ -16862,84 +16864,92 @@ _ZNKSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE
 _ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cv::Ptr.36", ptr %23, i64 %19
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %27, ptr %24, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit, label %28
+  %25 = load ptr, ptr %2, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %26, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit, label %29
 
-28:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
-  %30 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %30, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %34, label %31
+29:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit
+  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %31, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %35, label %32
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %29, align 4
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %29, align 4
+32:                                               ; preds = %29
+  %33 = load i32, ptr %30, align 4
+  %34 = add nsw i32 %33, 1
+  store i32 %34, ptr %30, align 4
   br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit
 
-34:                                               ; preds = %28
-  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
+35:                                               ; preds = %29
+  %36 = atomicrmw volatile add ptr %30, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit, %31, %34
+_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit, %32, %35
   %.not10.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit ]
-  %.0911.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit ]
+  %.012.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit ]
+  %.0911.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %37 = load <2 x ptr>, ptr %.0911.i.i.i.i, align 8, !alias.scope !70, !noalias !67
-  store ptr null, ptr %36, align 8, !alias.scope !70, !noalias !67
-  store <2 x ptr> %37, ptr %.012.i.i.i.i, align 8, !alias.scope !67, !noalias !70
+  %37 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !70, !noalias !67
+  store ptr %37, ptr %.012.i.i.i.i, align 8, !alias.scope !67, !noalias !70
+  %38 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %40 = load ptr, ptr %39, align 8, !alias.scope !70, !noalias !67
+  store ptr null, ptr %39, align 8, !alias.scope !70, !noalias !67
+  store ptr %40, ptr %38, align 8, !alias.scope !67, !noalias !70
   store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !70, !noalias !67
-  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
-  %39 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %38, %1
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %42 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %41, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !72
 
 _ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit ], [ %39, %.lr.ph.i.i.i.i ]
-  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit ], [ %42, %.lr.ph.i.i.i.i ]
+  %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not10.i.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i17
-  %.012.i.i.i.i18 = phi ptr [ %44, %.lr.ph.i.i.i.i17 ], [ %40, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
-  %.0911.i.i.i.i19 = phi ptr [ %43, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
+  %.012.i.i.i.i18 = phi ptr [ %49, %.lr.ph.i.i.i.i17 ], [ %43, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
+  %.0911.i.i.i.i19 = phi ptr [ %48, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
-  %42 = load <2 x ptr>, ptr %.0911.i.i.i.i19, align 8, !alias.scope !76, !noalias !73
-  store ptr null, ptr %41, align 8, !alias.scope !76, !noalias !73
-  store <2 x ptr> %42, ptr %.012.i.i.i.i18, align 8, !alias.scope !73, !noalias !76
+  %44 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !76, !noalias !73
+  store ptr %44, ptr %.012.i.i.i.i18, align 8, !alias.scope !73, !noalias !76
+  %45 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 8
+  %46 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
+  %47 = load ptr, ptr %46, align 8, !alias.scope !76, !noalias !73
+  store ptr null, ptr %46, align 8, !alias.scope !76, !noalias !73
+  store ptr %47, ptr %45, align 8, !alias.scope !73, !noalias !76
   store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !76, !noalias !73
-  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
-  %.not.i.i.i.i20 = icmp eq ptr %43, %5
+  %48 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
+  %49 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
+  %.not.i.i.i.i20 = icmp eq ptr %48, %5
   br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !72
 
 _ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit
-  %.0.lcssa.i.i.i.i21 = phi ptr [ %40, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ], [ %44, %.lr.ph.i.i.i.i17 ]
+  %.0.lcssa.i.i.i.i21 = phi ptr [ %43, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ], [ %49, %.lr.ph.i.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE13_M_deallocateEPS6_m.exit, label %45
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE13_M_deallocateEPS6_m.exit, label %50
 
-45:                                               ; preds = %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22
+50:                                               ; preds = %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #22
   br label %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE13_M_deallocateEPS6_m.exit
 
-_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %45
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %50
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %47 = getelementptr inbounds %"struct.cv::Ptr.36", ptr %23, i64 %16
-  store ptr %47, ptr %46, align 8
+  %52 = getelementptr inbounds %"struct.cv::Ptr.36", ptr %23, i64 %16
+  store ptr %52, ptr %51, align 8
   ret void
 }
 
@@ -18319,65 +18329,74 @@ _ZNKSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE
 _ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cv::Ptr.36", ptr %23, i64 %19
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
-  %26 = load <2 x ptr>, ptr %2, align 8
-  store ptr null, ptr %25, align 8
-  store <2 x ptr> %26, ptr %24, align 8
+  %25 = load ptr, ptr %2, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = load ptr, ptr %27, align 8
+  store ptr null, ptr %27, align 8
+  store ptr %28, ptr %26, align 8
   store ptr null, ptr %2, align 8
   %.not10.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit ]
-  %.0911.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit ]
+  %.012.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit ]
+  %.0911.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  %27 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %28 = load <2 x ptr>, ptr %.0911.i.i.i.i, align 8, !alias.scope !83, !noalias !80
-  store ptr null, ptr %27, align 8, !alias.scope !83, !noalias !80
-  store <2 x ptr> %28, ptr %.012.i.i.i.i, align 8, !alias.scope !80, !noalias !83
+  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !83, !noalias !80
+  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !80, !noalias !83
+  %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %32 = load ptr, ptr %31, align 8, !alias.scope !83, !noalias !80
+  store ptr null, ptr %31, align 8, !alias.scope !83, !noalias !80
+  store ptr %32, ptr %30, align 8, !alias.scope !80, !noalias !83
   store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !83, !noalias !80
-  %29 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
-  %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %29, %1
+  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %34 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %33, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !72
 
 _ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit
-  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit ], [ %30, %.lr.ph.i.i.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i.i ]
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not10.i.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i.i17
-  %.012.i.i.i.i18 = phi ptr [ %35, %.lr.ph.i.i.i.i17 ], [ %31, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
-  %.0911.i.i.i.i19 = phi ptr [ %34, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
+  %.012.i.i.i.i18 = phi ptr [ %41, %.lr.ph.i.i.i.i17 ], [ %35, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
+  %.0911.i.i.i.i19 = phi ptr [ %40, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  %32 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
-  %33 = load <2 x ptr>, ptr %.0911.i.i.i.i19, align 8, !alias.scope !88, !noalias !85
-  store ptr null, ptr %32, align 8, !alias.scope !88, !noalias !85
-  store <2 x ptr> %33, ptr %.012.i.i.i.i18, align 8, !alias.scope !85, !noalias !88
+  %36 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !88, !noalias !85
+  store ptr %36, ptr %.012.i.i.i.i18, align 8, !alias.scope !85, !noalias !88
+  %37 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 8
+  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
+  %39 = load ptr, ptr %38, align 8, !alias.scope !88, !noalias !85
+  store ptr null, ptr %38, align 8, !alias.scope !88, !noalias !85
+  store ptr %39, ptr %37, align 8, !alias.scope !85, !noalias !88
   store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !88, !noalias !85
-  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
-  %35 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
-  %.not.i.i.i.i20 = icmp eq ptr %34, %5
+  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
+  %41 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
+  %.not.i.i.i.i20 = icmp eq ptr %40, %5
   br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !72
 
 _ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit
-  %.0.lcssa.i.i.i.i21 = phi ptr [ %31, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ], [ %35, %.lr.ph.i.i.i.i17 ]
+  %.0.lcssa.i.i.i.i21 = phi ptr [ %35, %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ], [ %41, %.lr.ph.i.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE13_M_deallocateEPS6_m.exit, label %36
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE13_M_deallocateEPS6_m.exit, label %42
 
-36:                                               ; preds = %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22
+42:                                               ; preds = %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #22
   br label %_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE13_M_deallocateEPS6_m.exit
 
-_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %36
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN2cv3PtrINS0_3dnn14dnn4_v2024052113TorchImporter6ModuleEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %42
+  %43 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %38 = getelementptr inbounds %"struct.cv::Ptr.36", ptr %23, i64 %16
-  store ptr %38, ptr %37, align 8
+  %44 = getelementptr inbounds %"struct.cv::Ptr.36", ptr %23, i64 %16
+  store ptr %44, ptr %43, align 8
   ret void
 }
 

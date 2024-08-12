@@ -1416,25 +1416,28 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$10try_remove17h1ce2ea7434399165E.llv
   %10 = load i64, ptr %9, align 8, !noundef !4
   %.sroa.0.0.copyload = load i64, ptr %7, align 8
   %.sroa.4.0..0.1.sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
-  %11 = load <2 x ptr>, ptr %.sroa.4.0..0.1.sroa_idx, align 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..0.1.sroa_idx, align 8
+  %.sroa.5.0..0.1.sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..0.1.sroa_idx, align 8
   store i64 0, ptr %7, align 8
   store i64 %10, ptr %.sroa.4.0..0.1.sroa_idx, align 8
-  %12 = icmp eq i64 %.sroa.0.0.copyload, 1
-  br i1 %12, label %13, label %19
+  %11 = icmp eq i64 %.sroa.0.0.copyload, 1
+  br i1 %11, label %12, label %19
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = add i64 %15, -1
-  store i64 %16, ptr %14, align 8
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = load i64, ptr %13, align 8, !noundef !4
+  %15 = add i64 %14, -1
+  store i64 %15, ptr %13, align 8
   store i64 %2, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %11, ptr %17, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.4.0.copyload, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.5.0.copyload, ptr %17, align 8
   br label %18
 
-18:                                               ; preds = %3, %19, %13
-  %storemerge = phi i64 [ 1, %13 ], [ 0, %19 ], [ 0, %3 ]
+18:                                               ; preds = %3, %19, %12
+  %storemerge = phi i64 [ 1, %12 ], [ 0, %19 ], [ 0, %3 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 

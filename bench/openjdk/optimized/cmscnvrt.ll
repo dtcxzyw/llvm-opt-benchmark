@@ -1313,9 +1313,9 @@ declare i32 @_cmsMAT3inverse(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc double @CHAD2Temp(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %2 = alloca %struct.cmsVEC3, align 16
+  %2 = alloca %struct.cmsVEC3, align 8
   %3 = alloca %struct.cmsVEC3, align 8
-  %4 = alloca %struct.cmsCIEXYZ, align 16
+  %4 = alloca %struct.cmsCIEXYZ, align 8
   %5 = alloca %struct.cmsCIExyY, align 8
   %6 = alloca double, align 8
   %7 = alloca %struct.cmsMAT3, align 8
@@ -1323,7 +1323,7 @@ define internal fastcc double @CHAD2Temp(ptr nocapture noundef readonly %0) unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false)
   %9 = call i32 @_cmsMAT3inverse(ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %28, label %10
+  br i1 %.not, label %31, label %10
 
 10:                                               ; preds = %1
   %11 = call ptr @cmsD50_XYZ() #7
@@ -1340,23 +1340,27 @@ define internal fastcc double @CHAD2Temp(ptr nocapture noundef readonly %0) unna
   %20 = getelementptr inbounds i8, ptr %3, i64 16
   store double %19, ptr %20, align 8
   call void @_cmsMAT3eval(ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %3) #7
-  %21 = load <2 x double>, ptr %2, align 16
-  store <2 x double> %21, ptr %4, align 16
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
-  %23 = load double, ptr %22, align 16
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
-  store double %23, ptr %24, align 16
+  %21 = load double, ptr %2, align 8
+  store double %21, ptr %4, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = load double, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  store double %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = load double, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  store double %26, ptr %27, align 8
   call void @cmsXYZ2xyY(ptr noundef nonnull %5, ptr noundef nonnull %4) #7
-  %25 = call i32 @cmsTempFromWhitePoint(ptr noundef nonnull %6, ptr noundef nonnull %5) #7
-  %.not2 = icmp eq i32 %25, 0
-  br i1 %.not2, label %28, label %26
+  %28 = call i32 @cmsTempFromWhitePoint(ptr noundef nonnull %6, ptr noundef nonnull %5) #7
+  %.not2 = icmp eq i32 %28, 0
+  br i1 %.not2, label %31, label %29
 
-26:                                               ; preds = %10
-  %27 = load double, ptr %6, align 8
-  br label %28
+29:                                               ; preds = %10
+  %30 = load double, ptr %6, align 8
+  br label %31
 
-28:                                               ; preds = %10, %1, %26
-  %.0 = phi double [ %27, %26 ], [ 0.000000e+00, %1 ], [ -1.000000e+00, %10 ]
+31:                                               ; preds = %10, %1, %29
+  %.0 = phi double [ %30, %29 ], [ 0.000000e+00, %1 ], [ -1.000000e+00, %10 ]
   ret double %.0
 }
 
@@ -1928,7 +1932,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %33, %40, %42
   %.0.i = phi i16 [ %47, %42 ], [ 0, %33 ], [ -1, %40 ]
   %48 = getelementptr inbounds i8, ptr %1, i64 6
   store i16 %.0.i, ptr %48, align 2
-  br label %161
+  br label %162
 
 49:                                               ; preds = %29, %25, %16
   %50 = load ptr, ptr %2, align 8
@@ -1972,7 +1976,7 @@ _cmsQuickSaturateWord.exit50:                     ; preds = %51, %58, %60
   %71 = call float @llvm.fabs.f32(float %70)
   %72 = fpext float %71 to double
   %73 = fcmp olt double %72, 0x3F08001800180018
-  br i1 %73, label %161, label %74
+  br i1 %73, label %162, label %74
 
 74:                                               ; preds = %67
   %75 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1985,138 +1989,139 @@ _cmsQuickSaturateWord.exit50:                     ; preds = %51, %58, %60
   %80 = load ptr, ptr %79, align 8
   %81 = call i32 @cmsPipelineEvalReverseFloat(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef %80) #7
   %.not = icmp eq i32 %81, 0
-  br i1 %.not, label %161, label %82
+  br i1 %.not, label %162, label %82
 
 82:                                               ; preds = %74
   %83 = load float, ptr %22, align 4
   store float %83, ptr %68, align 4
-  %84 = load <2 x float>, ptr %5, align 16
-  %85 = fpext <2 x float> %84 to <2 x double>
-  %86 = extractelement <2 x double> %85, i64 0
-  %87 = extractelement <2 x double> %85, i64 1
-  %88 = fadd double %86, %87
-  %89 = getelementptr inbounds i8, ptr %5, i64 8
-  %90 = load float, ptr %89, align 8
-  %91 = fpext float %90 to double
-  %92 = fadd double %88, %91
-  %93 = fpext float %83 to double
-  %94 = fadd double %92, %93
-  %95 = getelementptr inbounds i8, ptr %2, i64 56
-  %96 = load double, ptr %95, align 8
-  %97 = fcmp ogt double %94, %96
-  br i1 %97, label %98, label %104
+  %84 = load float, ptr %5, align 16
+  %85 = fpext float %84 to double
+  %86 = getelementptr inbounds i8, ptr %5, i64 4
+  %87 = load float, ptr %86, align 4
+  %88 = fpext float %87 to double
+  %89 = fadd double %85, %88
+  %90 = getelementptr inbounds i8, ptr %5, i64 8
+  %91 = load float, ptr %90, align 8
+  %92 = fpext float %91 to double
+  %93 = fadd double %89, %92
+  %94 = fpext float %83 to double
+  %95 = fadd double %93, %94
+  %96 = getelementptr inbounds i8, ptr %2, i64 56
+  %97 = load double, ptr %96, align 8
+  %98 = fcmp ogt double %95, %97
+  br i1 %98, label %99, label %105
 
-98:                                               ; preds = %82
-  %99 = fsub double %94, %96
-  %100 = fdiv double %99, %92
-  %101 = fsub double 1.000000e+00, %100
-  %102 = fcmp olt double %101, 0.000000e+00
-  br i1 %102, label %103, label %104
+99:                                               ; preds = %82
+  %100 = fsub double %95, %97
+  %101 = fdiv double %100, %93
+  %102 = fsub double 1.000000e+00, %101
+  %103 = fcmp olt double %102, 0.000000e+00
+  br i1 %103, label %104, label %105
 
-103:                                              ; preds = %98
-  br label %104
+104:                                              ; preds = %99
+  br label %105
 
-104:                                              ; preds = %82, %98, %103
-  %.044 = phi double [ 0.000000e+00, %103 ], [ %101, %98 ], [ 1.000000e+00, %82 ]
-  %105 = fmul double %.044, %86
-  %106 = fmul double %105, 6.553500e+04
-  %107 = fadd double %106, 5.000000e-01
-  %108 = fcmp ugt double %107, 0.000000e+00
-  br i1 %108, label %109, label %_cmsQuickSaturateWord.exit52
+105:                                              ; preds = %82, %99, %104
+  %.044 = phi double [ 0.000000e+00, %104 ], [ %102, %99 ], [ 1.000000e+00, %82 ]
+  %106 = fmul double %.044, %85
+  %107 = fmul double %106, 6.553500e+04
+  %108 = fadd double %107, 5.000000e-01
+  %109 = fcmp ugt double %108, 0.000000e+00
+  br i1 %109, label %110, label %_cmsQuickSaturateWord.exit52
 
-109:                                              ; preds = %104
-  %110 = fcmp ult double %107, 6.553500e+04
-  br i1 %110, label %111, label %_cmsQuickSaturateWord.exit52
+110:                                              ; preds = %105
+  %111 = fcmp ult double %108, 6.553500e+04
+  br i1 %111, label %112, label %_cmsQuickSaturateWord.exit52
 
-111:                                              ; preds = %109
-  %112 = fadd double %107, -3.276700e+04
-  %113 = call double @llvm.floor.f64(double %112)
-  %114 = fptosi double %113 to i32
-  %115 = trunc i32 %114 to i16
-  %116 = add i16 %115, 32767
+112:                                              ; preds = %110
+  %113 = fadd double %108, -3.276700e+04
+  %114 = call double @llvm.floor.f64(double %113)
+  %115 = fptosi double %114 to i32
+  %116 = trunc i32 %115 to i16
+  %117 = add i16 %116, 32767
   br label %_cmsQuickSaturateWord.exit52
 
-_cmsQuickSaturateWord.exit52:                     ; preds = %104, %109, %111
-  %.0.i51 = phi i16 [ %116, %111 ], [ 0, %104 ], [ -1, %109 ]
+_cmsQuickSaturateWord.exit52:                     ; preds = %105, %110, %112
+  %.0.i51 = phi i16 [ %117, %112 ], [ 0, %105 ], [ -1, %110 ]
   store i16 %.0.i51, ptr %1, align 2
-  %117 = fmul double %.044, %87
-  %118 = fmul double %117, 6.553500e+04
-  %119 = fadd double %118, 5.000000e-01
-  %120 = fcmp ugt double %119, 0.000000e+00
-  br i1 %120, label %121, label %_cmsQuickSaturateWord.exit54
+  %118 = fmul double %.044, %88
+  %119 = fmul double %118, 6.553500e+04
+  %120 = fadd double %119, 5.000000e-01
+  %121 = fcmp ugt double %120, 0.000000e+00
+  br i1 %121, label %122, label %_cmsQuickSaturateWord.exit54
 
-121:                                              ; preds = %_cmsQuickSaturateWord.exit52
-  %122 = fcmp ult double %119, 6.553500e+04
-  br i1 %122, label %123, label %_cmsQuickSaturateWord.exit54
+122:                                              ; preds = %_cmsQuickSaturateWord.exit52
+  %123 = fcmp ult double %120, 6.553500e+04
+  br i1 %123, label %124, label %_cmsQuickSaturateWord.exit54
 
-123:                                              ; preds = %121
-  %124 = fadd double %119, -3.276700e+04
-  %125 = call double @llvm.floor.f64(double %124)
-  %126 = fptosi double %125 to i32
-  %127 = trunc i32 %126 to i16
-  %128 = add i16 %127, 32767
+124:                                              ; preds = %122
+  %125 = fadd double %120, -3.276700e+04
+  %126 = call double @llvm.floor.f64(double %125)
+  %127 = fptosi double %126 to i32
+  %128 = trunc i32 %127 to i16
+  %129 = add i16 %128, 32767
   br label %_cmsQuickSaturateWord.exit54
 
-_cmsQuickSaturateWord.exit54:                     ; preds = %_cmsQuickSaturateWord.exit52, %121, %123
-  %.0.i53 = phi i16 [ %128, %123 ], [ 0, %_cmsQuickSaturateWord.exit52 ], [ -1, %121 ]
-  %129 = getelementptr inbounds i8, ptr %1, i64 2
-  store i16 %.0.i53, ptr %129, align 2
-  %130 = fmul double %.044, %91
-  %131 = fmul double %130, 6.553500e+04
-  %132 = fadd double %131, 5.000000e-01
-  %133 = fcmp ugt double %132, 0.000000e+00
-  br i1 %133, label %134, label %_cmsQuickSaturateWord.exit56
+_cmsQuickSaturateWord.exit54:                     ; preds = %_cmsQuickSaturateWord.exit52, %122, %124
+  %.0.i53 = phi i16 [ %129, %124 ], [ 0, %_cmsQuickSaturateWord.exit52 ], [ -1, %122 ]
+  %130 = getelementptr inbounds i8, ptr %1, i64 2
+  store i16 %.0.i53, ptr %130, align 2
+  %131 = fmul double %.044, %92
+  %132 = fmul double %131, 6.553500e+04
+  %133 = fadd double %132, 5.000000e-01
+  %134 = fcmp ugt double %133, 0.000000e+00
+  br i1 %134, label %135, label %_cmsQuickSaturateWord.exit56
 
-134:                                              ; preds = %_cmsQuickSaturateWord.exit54
-  %135 = fcmp ult double %132, 6.553500e+04
-  br i1 %135, label %136, label %_cmsQuickSaturateWord.exit56
+135:                                              ; preds = %_cmsQuickSaturateWord.exit54
+  %136 = fcmp ult double %133, 6.553500e+04
+  br i1 %136, label %137, label %_cmsQuickSaturateWord.exit56
 
-136:                                              ; preds = %134
-  %137 = fadd double %132, -3.276700e+04
-  %138 = call double @llvm.floor.f64(double %137)
-  %139 = fptosi double %138 to i32
-  %140 = trunc i32 %139 to i16
-  %141 = add i16 %140, 32767
+137:                                              ; preds = %135
+  %138 = fadd double %133, -3.276700e+04
+  %139 = call double @llvm.floor.f64(double %138)
+  %140 = fptosi double %139 to i32
+  %141 = trunc i32 %140 to i16
+  %142 = add i16 %141, 32767
   br label %_cmsQuickSaturateWord.exit56
 
-_cmsQuickSaturateWord.exit56:                     ; preds = %_cmsQuickSaturateWord.exit54, %134, %136
-  %.0.i55 = phi i16 [ %141, %136 ], [ 0, %_cmsQuickSaturateWord.exit54 ], [ -1, %134 ]
-  %142 = getelementptr inbounds i8, ptr %1, i64 4
-  store i16 %.0.i55, ptr %142, align 2
-  %143 = fmul double %93, 6.553500e+04
-  %144 = fadd double %143, 5.000000e-01
-  %145 = fcmp ugt double %144, 0.000000e+00
-  br i1 %145, label %146, label %_cmsQuickSaturateWord.exit58
+_cmsQuickSaturateWord.exit56:                     ; preds = %_cmsQuickSaturateWord.exit54, %135, %137
+  %.0.i55 = phi i16 [ %142, %137 ], [ 0, %_cmsQuickSaturateWord.exit54 ], [ -1, %135 ]
+  %143 = getelementptr inbounds i8, ptr %1, i64 4
+  store i16 %.0.i55, ptr %143, align 2
+  %144 = fmul double %94, 6.553500e+04
+  %145 = fadd double %144, 5.000000e-01
+  %146 = fcmp ugt double %145, 0.000000e+00
+  br i1 %146, label %147, label %_cmsQuickSaturateWord.exit58
 
-146:                                              ; preds = %_cmsQuickSaturateWord.exit56
-  %147 = fcmp ult double %144, 6.553500e+04
-  br i1 %147, label %148, label %_cmsQuickSaturateWord.exit58
+147:                                              ; preds = %_cmsQuickSaturateWord.exit56
+  %148 = fcmp ult double %145, 6.553500e+04
+  br i1 %148, label %149, label %_cmsQuickSaturateWord.exit58
 
-148:                                              ; preds = %146
-  %149 = fadd double %144, -3.276700e+04
-  %150 = call double @llvm.floor.f64(double %149)
-  %151 = fptosi double %150 to i32
-  %152 = trunc i32 %151 to i16
-  %153 = add i16 %152, 32767
+149:                                              ; preds = %147
+  %150 = fadd double %145, -3.276700e+04
+  %151 = call double @llvm.floor.f64(double %150)
+  %152 = fptosi double %151 to i32
+  %153 = trunc i32 %152 to i16
+  %154 = add i16 %153, 32767
   br label %_cmsQuickSaturateWord.exit58
 
-_cmsQuickSaturateWord.exit58:                     ; preds = %_cmsQuickSaturateWord.exit56, %146, %148
-  %.0.i57 = phi i16 [ %153, %148 ], [ 0, %_cmsQuickSaturateWord.exit56 ], [ -1, %146 ]
-  %154 = getelementptr inbounds i8, ptr %1, i64 6
-  store i16 %.0.i57, ptr %154, align 2
-  %155 = load ptr, ptr %75, align 8
-  call void @cmsDoTransform(ptr noundef %155, ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 1) #7
-  %156 = call double @cmsDeltaE(ptr noundef nonnull %7, ptr noundef nonnull %8) #7
-  %157 = getelementptr inbounds i8, ptr %2, i64 40
-  %158 = load double, ptr %157, align 8
-  %159 = fcmp ogt double %156, %158
-  br i1 %159, label %160, label %161
+_cmsQuickSaturateWord.exit58:                     ; preds = %_cmsQuickSaturateWord.exit56, %147, %149
+  %.0.i57 = phi i16 [ %154, %149 ], [ 0, %_cmsQuickSaturateWord.exit56 ], [ -1, %147 ]
+  %155 = getelementptr inbounds i8, ptr %1, i64 6
+  store i16 %.0.i57, ptr %155, align 2
+  %156 = load ptr, ptr %75, align 8
+  call void @cmsDoTransform(ptr noundef %156, ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 1) #7
+  %157 = call double @cmsDeltaE(ptr noundef nonnull %7, ptr noundef nonnull %8) #7
+  %158 = getelementptr inbounds i8, ptr %2, i64 40
+  %159 = load double, ptr %158, align 8
+  %160 = fcmp ogt double %157, %159
+  br i1 %160, label %161, label %162
 
-160:                                              ; preds = %_cmsQuickSaturateWord.exit58
-  store double %156, ptr %157, align 8
-  br label %161
+161:                                              ; preds = %_cmsQuickSaturateWord.exit58
+  store double %157, ptr %158, align 8
+  br label %162
 
-161:                                              ; preds = %_cmsQuickSaturateWord.exit58, %160, %74, %67, %_cmsQuickSaturateWord.exit
+162:                                              ; preds = %_cmsQuickSaturateWord.exit58, %161, %74, %67, %_cmsQuickSaturateWord.exit
   ret i32 1
 }
 

@@ -90,7 +90,6 @@ check_expirations.exit:                           ; preds = %for.inc.i
   %spec.select.i = zext i1 %cmp12.i to i32
   %5 = getelementptr inbounds i8, ptr %ta, i64 88
   store i32 %spec.select.i, ptr %5, align 8
-  %6 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %value, i64 0
   br label %for.body
 
 for.body:                                         ; preds = %check_expirations.exit, %for.inc
@@ -98,11 +97,15 @@ for.body:                                         ; preds = %check_expirations.e
   %indvars.iv = phi i64 [ 0, %check_expirations.exit ], [ 1, %for.inc ]
   %arrayidx = getelementptr [2 x %struct.TimedAverageWindow], ptr %windows.i, i64 0, i64 %indvars.iv
   %sum = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %7 = load <2 x i64>, ptr %sum, align 8
-  %8 = add <2 x i64> %7, %6
-  store <2 x i64> %8, ptr %sum, align 8
-  %9 = load i64, ptr %arrayidx, align 8
-  %cmp1 = icmp ugt i64 %9, %value
+  %6 = load i64, ptr %sum, align 8
+  %add = add i64 %6, %value
+  store i64 %add, ptr %sum, align 8
+  %count = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %7 = load i64, ptr %count, align 8
+  %inc = add i64 %7, 1
+  store i64 %inc, ptr %count, align 8
+  %8 = load i64, ptr %arrayidx, align 8
+  %cmp1 = icmp ugt i64 %8, %value
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -111,8 +114,8 @@ if.then:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %if.then, %for.body
   %max = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %10 = load i64, ptr %max, align 8
-  %cmp3 = icmp ult i64 %10, %value
+  %9 = load i64, ptr %max, align 8
+  %cmp3 = icmp ult i64 %9, %value
   br i1 %cmp3, label %if.then4, label %for.inc
 
 if.then4:                                         ; preds = %if.end

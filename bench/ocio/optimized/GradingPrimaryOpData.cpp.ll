@@ -162,19 +162,31 @@ entry:
   store i32 %style, ptr %m_style, align 8
   %m_contrast.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i8 0, i64 32, i1 false)
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_contrast.i, align 8
+  store double 1.000000e+00, ptr %m_contrast.i, align 8
+  %m_green.i1.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
+  store double 1.000000e+00, ptr %m_green.i1.i, align 8
   %m_blue.i2.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i2.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i2.i, align 8
+  %m_master.i3.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
+  store double 1.000000e+00, ptr %m_master.i3.i, align 8
   %m_gamma.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_gamma.i, align 8
+  store double 1.000000e+00, ptr %m_gamma.i, align 8
+  %m_green.i4.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
+  store double 1.000000e+00, ptr %m_green.i4.i, align 8
   %m_blue.i5.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i5.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i5.i, align 8
+  %m_master.i6.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store double 1.000000e+00, ptr %m_master.i6.i, align 8
   %m_offset.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
   %m_gain.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %m_offset.i, i8 0, i64 96, i1 false)
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_gain.i, align 8
+  store double 1.000000e+00, ptr %m_gain.i, align 8
+  %m_green.i16.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 200
+  store double 1.000000e+00, ptr %m_green.i16.i, align 8
   %m_blue.i17.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 208
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i17.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i17.i, align 8
+  %m_master.i18.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 216
+  store double 1.000000e+00, ptr %m_master.i18.i, align 8
   %m_saturation.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 224
   store double 1.000000e+00, ptr %m_saturation.i, align 8
   %m_pivot.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 232
@@ -182,7 +194,9 @@ entry:
   %cond.i = select i1 %cmp.i, double -2.000000e-01, double 1.800000e-01
   store double %cond.i, ptr %m_pivot.i, align 8
   %m_pivotBlack.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 240
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %m_pivotBlack.i, align 8
+  store double 0.000000e+00, ptr %m_pivotBlack.i, align 8
+  %m_pivotWhite.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 248
+  store double 1.000000e+00, ptr %m_pivotWhite.i, align 8
   %call.i1 = invoke noundef double @_ZN19OpenColorIO_v2_4dev14GradingPrimary12NoClampBlackEv()
           to label %call.i.noexc unwind label %lpad
 
@@ -253,19 +267,31 @@ entry:
   %m_value = getelementptr inbounds i8, ptr %this, i64 176
   %m_contrast.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, i8 0, i64 32, i1 false)
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_contrast.i, align 8
+  store double 1.000000e+00, ptr %m_contrast.i, align 8
+  %m_green.i1.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 40
+  store double 1.000000e+00, ptr %m_green.i1.i, align 8
   %m_blue.i2.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 48
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i2.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i2.i, align 8
+  %m_master.i3.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 56
+  store double 1.000000e+00, ptr %m_master.i3.i, align 8
   %m_gamma.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 64
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_gamma.i, align 8
+  store double 1.000000e+00, ptr %m_gamma.i, align 8
+  %m_green.i4.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 72
+  store double 1.000000e+00, ptr %m_green.i4.i, align 8
   %m_blue.i5.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 80
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i5.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i5.i, align 8
+  %m_master.i6.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 88
+  store double 1.000000e+00, ptr %m_master.i6.i, align 8
   %m_offset.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 96
   %m_gain.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %m_offset.i, i8 0, i64 96, i1 false)
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_gain.i, align 8
+  store double 1.000000e+00, ptr %m_gain.i, align 8
+  %m_green.i16.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 200
+  store double 1.000000e+00, ptr %m_green.i16.i, align 8
   %m_blue.i17.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 208
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i17.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i17.i, align 8
+  %m_master.i18.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 216
+  store double 1.000000e+00, ptr %m_master.i18.i, align 8
   %m_saturation.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 224
   store double 1.000000e+00, ptr %m_saturation.i, align 8
   %m_pivot.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 232
@@ -273,7 +299,9 @@ entry:
   %cond.i = select i1 %cmp.i, double -2.000000e-01, double 1.800000e-01
   store double %cond.i, ptr %m_pivot.i, align 8
   %m_pivotBlack.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 240
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %m_pivotBlack.i, align 8
+  store double 0.000000e+00, ptr %m_pivotBlack.i, align 8
+  %m_pivotWhite.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 248
+  store double 1.000000e+00, ptr %m_pivotWhite.i, align 8
   %call.i6 = invoke noundef double @_ZN19OpenColorIO_v2_4dev14GradingPrimary12NoClampBlackEv()
           to label %call.i.noexc unwind label %lpad
 
@@ -753,19 +781,31 @@ if.end:                                           ; preds = %entry
   %2 = load i32, ptr %m_style, align 8
   %m_contrast.i = getelementptr inbounds i8, ptr %defaultValues, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %defaultValues, i8 0, i64 32, i1 false)
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_contrast.i, align 8
+  store double 1.000000e+00, ptr %m_contrast.i, align 8
+  %m_green.i1.i = getelementptr inbounds i8, ptr %defaultValues, i64 40
+  store double 1.000000e+00, ptr %m_green.i1.i, align 8
   %m_blue.i2.i = getelementptr inbounds i8, ptr %defaultValues, i64 48
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i2.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i2.i, align 8
+  %m_master.i3.i = getelementptr inbounds i8, ptr %defaultValues, i64 56
+  store double 1.000000e+00, ptr %m_master.i3.i, align 8
   %m_gamma.i = getelementptr inbounds i8, ptr %defaultValues, i64 64
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_gamma.i, align 8
+  store double 1.000000e+00, ptr %m_gamma.i, align 8
+  %m_green.i4.i = getelementptr inbounds i8, ptr %defaultValues, i64 72
+  store double 1.000000e+00, ptr %m_green.i4.i, align 8
   %m_blue.i5.i = getelementptr inbounds i8, ptr %defaultValues, i64 80
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i5.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i5.i, align 8
+  %m_master.i6.i = getelementptr inbounds i8, ptr %defaultValues, i64 88
+  store double 1.000000e+00, ptr %m_master.i6.i, align 8
   %m_offset.i = getelementptr inbounds i8, ptr %defaultValues, i64 96
   %m_gain.i = getelementptr inbounds i8, ptr %defaultValues, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %m_offset.i, i8 0, i64 96, i1 false)
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_gain.i, align 8
+  store double 1.000000e+00, ptr %m_gain.i, align 8
+  %m_green.i16.i = getelementptr inbounds i8, ptr %defaultValues, i64 200
+  store double 1.000000e+00, ptr %m_green.i16.i, align 8
   %m_blue.i17.i = getelementptr inbounds i8, ptr %defaultValues, i64 208
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_blue.i17.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i17.i, align 8
+  %m_master.i18.i = getelementptr inbounds i8, ptr %defaultValues, i64 216
+  store double 1.000000e+00, ptr %m_master.i18.i, align 8
   %m_saturation.i = getelementptr inbounds i8, ptr %defaultValues, i64 224
   store double 1.000000e+00, ptr %m_saturation.i, align 8
   %m_pivot.i = getelementptr inbounds i8, ptr %defaultValues, i64 232
@@ -773,7 +813,9 @@ if.end:                                           ; preds = %entry
   %cond.i = select i1 %cmp.i, double -2.000000e-01, double 1.800000e-01
   store double %cond.i, ptr %m_pivot.i, align 8
   %m_pivotBlack.i = getelementptr inbounds i8, ptr %defaultValues, i64 240
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %m_pivotBlack.i, align 8
+  store double 0.000000e+00, ptr %m_pivotBlack.i, align 8
+  %m_pivotWhite.i = getelementptr inbounds i8, ptr %defaultValues, i64 248
+  store double 1.000000e+00, ptr %m_pivotWhite.i, align 8
   %m_clampBlack.i = getelementptr inbounds i8, ptr %defaultValues, i64 256
   %call.i = tail call noundef double @_ZN19OpenColorIO_v2_4dev14GradingPrimary12NoClampBlackEv()
   store double %call.i, ptr %m_clampBlack.i, align 8
@@ -1377,15 +1419,17 @@ entry:
 define hidden void @_ZNK19OpenColorIO_v2_4dev20GradingPrimaryOpData18getDynamicPropertyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.23") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_value = getelementptr inbounds i8, ptr %this, i64 176
+  %0 = load ptr, ptr %m_value, align 8
+  store ptr %0, ptr %agg.result, align 8
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 184
-  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %1 = load <2 x ptr>, ptr %m_value, align 8
-  store <2 x ptr> %1, ptr %agg.result, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_33DynamicPropertyGradingPrimaryImplEvEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

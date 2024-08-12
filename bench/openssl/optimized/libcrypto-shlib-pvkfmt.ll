@@ -1330,8 +1330,14 @@ if.end14.i:                                       ; preds = %if.else.i
   br i1 %cmp16.i, label %error.i, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end14.i
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call9.i, i64 1
+  store i8 30, ptr %call9.i, align 1
+  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %call9.i, i64 2
+  store i8 -15, ptr %incdec.ptr.i.i, align 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %call9.i, i64 3
+  store i8 -75, ptr %incdec.ptr3.i.i, align 1
   %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %call9.i, i64 4
-  store <4 x i8> <i8 30, i8 -15, i8 -75, i8 -80>, ptr %call9.i, align 1
+  store i8 -80, ptr %incdec.ptr7.i.i, align 1
   %incdec.ptr11.i36.i = getelementptr inbounds i8, ptr %call9.i, i64 8
   store i32 0, ptr %incdec.ptr11.i.i, align 1
   %call20.i = tail call i32 @EVP_PKEY_get_id(ptr noundef %pk) #6
@@ -1806,8 +1812,14 @@ if.end24:                                         ; preds = %if.end15, %if.end23
   %. = select i1 %tobool9.not.i138, i8 7, i8 6
   %p.1 = getelementptr inbounds i8, ptr %p.0, i64 1
   store i8 %., ptr %p.0, align 1
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %p.0, i64 2
+  store i8 2, ptr %p.1, align 1
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %p.0, i64 3
+  store i8 0, ptr %incdec.ptr30, align 1
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %p.0, i64 4
+  store i8 0, ptr %incdec.ptr31, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0, i64 5
-  store <4 x i8> <i8 2, i8 0, i8 0, i8 0>, ptr %p.1, align 1
+  store i8 0, ptr %incdec.ptr32, align 1
   %incdec.ptr3.i = getelementptr inbounds i8, ptr %p.0, i64 6
   store i8 %keyalg.0120129, ptr %incdec.ptr.i, align 1
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %p.0, i64 7

@@ -976,28 +976,32 @@ declare void @mbedtls_rsa_free(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden range(i32 -138, 1) i32 @psa_export_key_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #9 {
   %7 = load i16, ptr %0, align 8
-  %8 = insertelement <4 x i16> poison, i16 %7, i64 0
-  %9 = shufflevector <4 x i16> %8, <4 x i16> poison, <4 x i32> zeroinitializer
-  %10 = and <4 x i16> %9, <i16 28672, i16 28672, i16 -12289, i16 -12544>
-  %11 = icmp eq <4 x i16> %10, <i16 4096, i16 8192, i16 16385, i16 16640>
-  %12 = bitcast <4 x i1> %11 to i4
-  %.not = icmp eq i4 %12, 0
-  br i1 %.not, label %psa_export_key_buffer_internal.exit, label %13
+  %8 = and i16 %7, 28672
+  %9 = icmp eq i16 %8, 4096
+  %10 = icmp eq i16 %8, 8192
+  %11 = or i1 %9, %10
+  %12 = and i16 %7, -12289
+  %13 = icmp eq i16 %12, 16385
+  %or.cond = or i1 %13, %11
+  %14 = and i16 %7, -12544
+  %15 = icmp eq i16 %14, 16640
+  %or.cond12 = or i1 %15, %or.cond
+  br i1 %or.cond12, label %16, label %psa_export_key_buffer_internal.exit
 
-13:                                               ; preds = %6
-  %14 = icmp ugt i64 %2, %4
-  br i1 %14, label %psa_export_key_buffer_internal.exit, label %15
+16:                                               ; preds = %6
+  %17 = icmp ugt i64 %2, %4
+  br i1 %17, label %psa_export_key_buffer_internal.exit, label %18
 
-15:                                               ; preds = %13
+18:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr readonly align 1 %1, i64 %2, i1 false)
-  %16 = getelementptr inbounds i8, ptr %3, i64 %2
-  %17 = sub nuw i64 %4, %2
-  tail call void @llvm.memset.p0.i64(ptr align 1 %16, i8 0, i64 %17, i1 false)
+  %19 = getelementptr inbounds i8, ptr %3, i64 %2
+  %20 = sub nuw i64 %4, %2
+  tail call void @llvm.memset.p0.i64(ptr align 1 %19, i8 0, i64 %20, i1 false)
   store i64 %2, ptr %5, align 8
   br label %psa_export_key_buffer_internal.exit
 
-psa_export_key_buffer_internal.exit:              ; preds = %15, %13, %6
-  %.0 = phi i32 [ -134, %6 ], [ 0, %15 ], [ -138, %13 ]
+psa_export_key_buffer_internal.exit:              ; preds = %18, %16, %6
+  %.0 = phi i32 [ -134, %6 ], [ 0, %18 ], [ -138, %16 ]
   ret i32 %.0
 }
 

@@ -2154,8 +2154,12 @@ define internal range(i32 0, 2) i32 @ltp_session_id_equal(ptr nocapture noundef 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @ltp_session_new_key(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #9
-  %5 = load <2 x i64>, ptr %2, align 8
-  store <2 x i64> %5, ptr %4, align 8
+  %5 = load i64, ptr %2, align 8
+  store i64 %5, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %7, ptr %8, align 8
   ret ptr %4
 }
 

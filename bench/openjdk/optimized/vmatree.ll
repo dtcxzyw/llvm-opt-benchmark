@@ -633,66 +633,68 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
   %247 = getelementptr inbounds [28 x %"struct.VMATree::SingleDiff"], ptr %0, i64 0, i64 %246
   %248 = load i64, ptr %10, align 8
   %.neg43 = sub i64 %.sroa.0.0.pre, %248
-  %249 = load <2 x i64>, ptr %247, align 8
-  %250 = insertelement <2 x i64> poison, i64 %.neg43, i64 0
-  %251 = shufflevector <2 x i64> %250, <2 x i64> poison, <2 x i32> zeroinitializer
-  %252 = add <2 x i64> %249, %251
-  store <2 x i64> %252, ptr %247, align 8
+  %249 = getelementptr inbounds i8, ptr %247, i64 8
+  %250 = load i64, ptr %249, align 8
+  %251 = add i64 %.neg43, %250
+  store i64 %251, ptr %249, align 8
+  %252 = load i64, ptr %247, align 8
+  %253 = add i64 %252, %.neg43
+  store i64 %253, ptr %247, align 8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.thread, %202, %238, %239, %245, %._crit_edge
-  %253 = phi i64 [ %.pre130, %238 ], [ %.pre130, %239 ], [ %.pre130, %245 ], [ %.pre130, %._crit_edge ], [ %.sroa.0.0116133, %.thread ], [ %.sroa.0.0116, %202 ]
-  %254 = getelementptr inbounds i8, ptr %5, i64 4
-  %255 = load i8, ptr %254, align 4
-  %256 = zext i8 %255 to i64
-  %257 = getelementptr inbounds [28 x %"struct.VMATree::SingleDiff"], ptr %0, i64 0, i64 %256
-  switch i8 %4, label %271 [
-    i8 0, label %258
-    i8 1, label %263
+  %254 = phi i64 [ %.pre130, %238 ], [ %.pre130, %239 ], [ %.pre130, %245 ], [ %.pre130, %._crit_edge ], [ %.sroa.0.0116133, %.thread ], [ %.sroa.0.0116, %202 ]
+  %255 = getelementptr inbounds i8, ptr %5, i64 4
+  %256 = load i8, ptr %255, align 4
+  %257 = zext i8 %256 to i64
+  %258 = getelementptr inbounds [28 x %"struct.VMATree::SingleDiff"], ptr %0, i64 0, i64 %257
+  switch i8 %4, label %272 [
+    i8 0, label %259
+    i8 1, label %264
   ]
 
-258:                                              ; preds = %._crit_edge.thread
-  %259 = load i64, ptr %10, align 8
-  %260 = sub i64 %259, %253
-  %261 = load i64, ptr %257, align 8
-  %262 = add i64 %260, %261
+259:                                              ; preds = %._crit_edge.thread
+  %260 = load i64, ptr %10, align 8
+  %261 = sub i64 %260, %254
+  %262 = load i64, ptr %258, align 8
+  %263 = add i64 %261, %262
   br label %.sink.split
 
-263:                                              ; preds = %._crit_edge.thread
-  %264 = load i64, ptr %10, align 8
-  %265 = sub i64 %264, %253
-  %266 = getelementptr inbounds i8, ptr %257, i64 8
-  %267 = load i64, ptr %266, align 8
-  %268 = add i64 %267, %265
-  store i64 %268, ptr %266, align 8
-  %269 = load i64, ptr %257, align 8
-  %270 = add i64 %269, %265
+264:                                              ; preds = %._crit_edge.thread
+  %265 = load i64, ptr %10, align 8
+  %266 = sub i64 %265, %254
+  %267 = getelementptr inbounds i8, ptr %258, i64 8
+  %268 = load i64, ptr %267, align 8
+  %269 = add i64 %268, %266
+  store i64 %269, ptr %267, align 8
+  %270 = load i64, ptr %258, align 8
+  %271 = add i64 %270, %266
   br label %.sink.split
 
-.sink.split:                                      ; preds = %258, %263
-  %.sink145 = phi i64 [ %270, %263 ], [ %262, %258 ]
-  store i64 %.sink145, ptr %257, align 8
-  br label %271
+.sink.split:                                      ; preds = %259, %264
+  %.sink145 = phi i64 [ %271, %264 ], [ %263, %259 ]
+  store i64 %.sink145, ptr %258, align 8
+  br label %272
 
-271:                                              ; preds = %.sink.split, %._crit_edge.thread
+272:                                              ; preds = %.sink.split, %._crit_edge.thread
   store i32 0, ptr %13, align 8
-  %272 = getelementptr inbounds i8, ptr %13, i64 4
-  %273 = load i32, ptr %272, align 4
-  %274 = icmp eq i32 %273, 0
-  br i1 %274, label %_ZN18GrowableArrayCHeapIN7VMATree12AddressStateEL8MEMFLAGS12EED2Ev.exit, label %.loopexit.i.i.i
+  %273 = getelementptr inbounds i8, ptr %13, i64 4
+  %274 = load i32, ptr %273, align 4
+  %275 = icmp eq i32 %274, 0
+  br i1 %275, label %_ZN18GrowableArrayCHeapIN7VMATree12AddressStateEL8MEMFLAGS12EED2Ev.exit, label %.loopexit.i.i.i
 
-.loopexit.i.i.i:                                  ; preds = %271
-  %275 = getelementptr inbounds i8, ptr %13, i64 8
-  %276 = load ptr, ptr %275, align 8
-  store i32 0, ptr %272, align 4
-  %.not.i.i.i = icmp eq ptr %276, null
+.loopexit.i.i.i:                                  ; preds = %272
+  %276 = getelementptr inbounds i8, ptr %13, i64 8
+  %277 = load ptr, ptr %276, align 8
+  store i32 0, ptr %273, align 4
+  %.not.i.i.i = icmp eq ptr %277, null
   br i1 %.not.i.i.i, label %_ZN18GrowableArrayCHeapIN7VMATree12AddressStateEL8MEMFLAGS12EED2Ev.exit, label %.loopexit.thread.i.i.i
 
 .loopexit.thread.i.i.i:                           ; preds = %.loopexit.i.i.i
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %276) #9
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %277) #9
   br label %_ZN18GrowableArrayCHeapIN7VMATree12AddressStateEL8MEMFLAGS12EED2Ev.exit
 
-_ZN18GrowableArrayCHeapIN7VMATree12AddressStateEL8MEMFLAGS12EED2Ev.exit: ; preds = %.loopexit.i.i.i, %.loopexit.thread.i.i.i, %271, %16
+_ZN18GrowableArrayCHeapIN7VMATree12AddressStateEL8MEMFLAGS12EED2Ev.exit: ; preds = %.loopexit.i.i.i, %.loopexit.thread.i.i.i, %272, %16
   ret void
 }
 

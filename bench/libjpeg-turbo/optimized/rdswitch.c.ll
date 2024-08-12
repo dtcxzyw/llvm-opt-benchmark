@@ -297,11 +297,11 @@ define dso_local range(i32 0, 2) i32 @read_scan_script(ptr noundef %0, ptr nound
 9:                                                ; preds = %2
   %10 = load ptr, ptr @stderr, align 8
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.5, ptr noundef %1) #7
-  br label %139
+  br label %142
 
-.lr.ph113:                                        ; preds = %.preheader71, %119
-  %.0112 = phi ptr [ %120, %119 ], [ %5, %.preheader71 ]
-  %.053111 = phi i32 [ %121, %119 ], [ 0, %.preheader71 ]
+.lr.ph113:                                        ; preds = %.preheader71, %122
+  %.0112 = phi ptr [ %123, %122 ], [ %5, %.preheader71 ]
+  %.053111 = phi i32 [ %124, %122 ], [ 0, %.preheader71 ]
   %exitcond141 = icmp eq i32 %.053111, 100
   br i1 %exitcond141, label %12, label %16
 
@@ -309,7 +309,7 @@ define dso_local range(i32 0, 2) i32 @read_scan_script(ptr noundef %0, ptr nound
   %13 = load ptr, ptr @stderr, align 8
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.6, ptr noundef %1) #7
   %15 = tail call i32 @fclose(ptr noundef nonnull %6)
-  br label %139
+  br label %142
 
 16:                                               ; preds = %.lr.ph113
   %17 = load i64, ptr %4, align 8
@@ -329,7 +329,7 @@ define dso_local range(i32 0, 2) i32 @read_scan_script(ptr noundef %0, ptr nound
   %22 = load ptr, ptr @stderr, align 8
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.7, ptr noundef %1) #7
   %24 = tail call i32 @fclose(ptr noundef nonnull %6)
-  br label %139
+  br label %142
 
 .preheader:                                       ; preds = %.lr.ph, %29
   %25 = tail call i32 @getc(ptr noundef nonnull %6)
@@ -523,69 +523,75 @@ select.unfold:                                    ; preds = %74, %71
   %111 = getelementptr inbounds i8, ptr %.0112, i64 32
   store i32 %110, ptr %111, align 4
   %.pre = load i32, ptr %3, align 4
-  br label %114
+  br label %117
 
 112:                                              ; preds = %._crit_edge
   %113 = getelementptr inbounds i8, ptr %.0112, i64 20
-  store <4 x i32> <i32 0, i32 63, i32 0, i32 0>, ptr %113, align 4
-  br label %114
+  store i32 0, ptr %113, align 4
+  %114 = getelementptr inbounds i8, ptr %.0112, i64 24
+  store i32 63, ptr %114, align 4
+  %115 = getelementptr inbounds i8, ptr %.0112, i64 28
+  store i32 0, ptr %115, align 4
+  %116 = getelementptr inbounds i8, ptr %.0112, i64 32
+  store i32 0, ptr %116, align 4
+  br label %117
 
-114:                                              ; preds = %112, %108
-  %115 = phi i32 [ %.0.i24.i.lcssa95.lcssa, %112 ], [ %.pre, %108 ]
-  switch i32 %115, label %read_scan_integer.exit.thread [
-    i32 -1, label %119
-    i32 59, label %119
+117:                                              ; preds = %112, %108
+  %118 = phi i32 [ %.0.i24.i.lcssa95.lcssa, %112 ], [ %.pre, %108 ]
+  switch i32 %118, label %read_scan_integer.exit.thread [
+    i32 -1, label %122
+    i32 59, label %122
   ]
 
-read_scan_integer.exit.thread:                    ; preds = %114, %103, %95, %87, %82, %71, %37, %text_getc.exit.i60
-  %116 = load ptr, ptr @stderr, align 8
-  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.8, ptr noundef %1) #7
-  %118 = tail call i32 @fclose(ptr noundef nonnull %6)
-  br label %139
+read_scan_integer.exit.thread:                    ; preds = %117, %103, %95, %87, %82, %71, %37, %text_getc.exit.i60
+  %119 = load ptr, ptr @stderr, align 8
+  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.8, ptr noundef %1) #7
+  %121 = tail call i32 @fclose(ptr noundef nonnull %6)
+  br label %142
 
-119:                                              ; preds = %114, %114
-  %120 = getelementptr inbounds i8, ptr %.0112, i64 36
-  %121 = add nuw nsw i32 %.053111, 1
-  %122 = call fastcc i32 @read_scan_integer(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %3)
-  %.not = icmp eq i32 %122, 0
+122:                                              ; preds = %117, %117
+  %123 = getelementptr inbounds i8, ptr %.0112, i64 36
+  %124 = add nuw nsw i32 %.053111, 1
+  %125 = call fastcc i32 @read_scan_integer(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  %.not = icmp eq i32 %125, 0
   br i1 %.not, label %._crit_edge114, label %.lr.ph113, !llvm.loop !12
 
-._crit_edge114:                                   ; preds = %119
-  %123 = load i32, ptr %3, align 4
-  %.not56 = icmp eq i32 %123, -1
-  br i1 %.not56, label %129, label %125
+._crit_edge114:                                   ; preds = %122
+  %126 = load i32, ptr %3, align 4
+  %.not56 = icmp eq i32 %126, -1
+  br i1 %.not56, label %132, label %128
 
 ._crit_edge114.thread:                            ; preds = %.preheader71
-  %124 = load i32, ptr %3, align 4
-  %.not56146 = icmp eq i32 %124, -1
-  br i1 %.not56146, label %.thread148, label %125
+  %127 = load i32, ptr %3, align 4
+  %.not56146 = icmp eq i32 %127, -1
+  br i1 %.not56146, label %.thread148, label %128
 
-125:                                              ; preds = %._crit_edge114.thread, %._crit_edge114
-  %126 = load ptr, ptr @stderr, align 8
-  %127 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef nonnull @.str.4, ptr noundef %1) #7
-  %128 = tail call i32 @fclose(ptr noundef nonnull %6)
-  br label %139
+128:                                              ; preds = %._crit_edge114.thread, %._crit_edge114
+  %129 = load ptr, ptr @stderr, align 8
+  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.4, ptr noundef %1) #7
+  %131 = tail call i32 @fclose(ptr noundef nonnull %6)
+  br label %142
 
-129:                                              ; preds = %._crit_edge114
-  %130 = getelementptr inbounds i8, ptr %0, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = zext nneg i32 %121 to i64
-  %134 = mul nuw nsw i64 %133, 36
-  %135 = tail call ptr %132(ptr noundef %0, i32 noundef 1, i64 noundef %134) #9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %135, ptr noundef nonnull align 16 dereferenceable(1) %5, i64 %134, i1 false)
-  %136 = getelementptr inbounds i8, ptr %0, i64 248
-  store ptr %135, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 240
-  store i32 %121, ptr %137, align 8
+132:                                              ; preds = %._crit_edge114
+  %133 = getelementptr inbounds i8, ptr %0, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = load ptr, ptr %134, align 8
+  %136 = zext nneg i32 %124 to i64
+  %137 = mul nuw nsw i64 %136, 36
+  %138 = tail call ptr %135(ptr noundef %0, i32 noundef 1, i64 noundef %137) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %138, ptr noundef nonnull align 16 dereferenceable(1) %5, i64 %137, i1 false)
+  %139 = getelementptr inbounds i8, ptr %0, i64 248
+  store ptr %138, ptr %139, align 8
+  %140 = getelementptr inbounds i8, ptr %0, i64 240
+  store i32 %124, ptr %140, align 8
   br label %.thread148
 
-.thread148:                                       ; preds = %._crit_edge114.thread, %129
-  %138 = tail call i32 @fclose(ptr noundef nonnull %6)
-  br label %139
+.thread148:                                       ; preds = %._crit_edge114.thread, %132
+  %141 = tail call i32 @fclose(ptr noundef nonnull %6)
+  br label %142
 
-139:                                              ; preds = %.thread148, %125, %read_scan_integer.exit.thread, %21, %12, %9
-  %.054 = phi i32 [ 0, %9 ], [ 0, %12 ], [ 0, %21 ], [ 0, %read_scan_integer.exit.thread ], [ 0, %125 ], [ 1, %.thread148 ]
+142:                                              ; preds = %.thread148, %128, %read_scan_integer.exit.thread, %21, %12, %9
+  %.054 = phi i32 [ 0, %9 ], [ 0, %12 ], [ 0, %21 ], [ 0, %read_scan_integer.exit.thread ], [ 0, %128 ], [ 1, %.thread148 ]
   ret i32 %.054
 }
 

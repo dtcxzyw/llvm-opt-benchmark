@@ -2139,65 +2139,69 @@ define internal fastcc noundef ptr @new_gog(ptr noundef %0, ptr noundef %1) unna
   %18 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 32
-  store <2 x float> zeroinitializer, ptr %19, align 8
-  %20 = load ptr, ptr @rd, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
-  %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %3, i64 40
-  store float %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 44
-  store <2 x float> zeroinitializer, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %3, i64 56
-  %26 = getelementptr inbounds i8, ptr %3, i64 64
-  %27 = getelementptr inbounds i8, ptr %3, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %25, i8 0, i64 28, i1 false)
-  %28 = tail call ptr @g_ptr_array_new() #10
-  %29 = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr %28, ptr %29, align 8
-  %30 = load ptr, ptr @dbg_gog, align 8
-  %31 = load ptr, ptr @dbg_facility, align 8
-  tail call void (ptr, i32, ptr, ptr, ...) @dbg_print(ptr noundef %30, i32 noundef 5, ptr noundef %31, ptr noundef nonnull @.str.40, ptr noundef nonnull %3, ptr noundef nonnull %1) #10
-  %32 = getelementptr inbounds i8, ptr %1, i64 40
-  store ptr %3, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr null, ptr %33, align 8
-  %34 = load ptr, ptr %11, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 48
-  %36 = load ptr, ptr %35, align 8
-  %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %41, label %37
+  store float 0.000000e+00, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 36
+  store float 0.000000e+00, ptr %20, align 4
+  %21 = load ptr, ptr @rd, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %23 = load float, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %3, i64 40
+  store float %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %3, i64 44
+  store float 0.000000e+00, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %3, i64 48
+  store float 0.000000e+00, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %3, i64 56
+  %28 = getelementptr inbounds i8, ptr %3, i64 64
+  %29 = getelementptr inbounds i8, ptr %3, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %27, i8 0, i64 28, i1 false)
+  %30 = tail call ptr @g_ptr_array_new() #10
+  %31 = getelementptr inbounds i8, ptr %3, i64 88
+  store ptr %30, ptr %31, align 8
+  %32 = load ptr, ptr @dbg_gog, align 8
+  %33 = load ptr, ptr @dbg_facility, align 8
+  tail call void (ptr, i32, ptr, ptr, ...) @dbg_print(ptr noundef %32, i32 noundef 5, ptr noundef %33, ptr noundef nonnull @.str.40, ptr noundef nonnull %3, ptr noundef nonnull %1) #10
+  %34 = getelementptr inbounds i8, ptr %1, i64 40
+  store ptr %3, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr null, ptr %35, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  %38 = load ptr, ptr %37, align 8
+  %.not.i = icmp eq ptr %38, null
+  br i1 %.not.i, label %43, label %39
 
-37:                                               ; preds = %2
-  %38 = getelementptr inbounds i8, ptr %3, i64 76
-  %39 = load i32, ptr %38, align 4
-  %40 = add i32 %39, 1
-  store i32 %40, ptr %38, align 4
-  br label %41
+39:                                               ; preds = %2
+  %40 = getelementptr inbounds i8, ptr %3, i64 76
+  %41 = load i32, ptr %40, align 4
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %40, align 4
+  br label %43
 
-41:                                               ; preds = %37, %2
-  %42 = load i32, ptr %27, align 8
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %27, align 8
-  %44 = load ptr, ptr %26, align 8
-  %.not16.i = icmp eq ptr %44, null
-  br i1 %.not16.i, label %47, label %45
+43:                                               ; preds = %39, %2
+  %44 = load i32, ptr %29, align 8
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %29, align 8
+  %46 = load ptr, ptr %28, align 8
+  %.not16.i = icmp eq ptr %46, null
+  br i1 %.not16.i, label %49, label %47
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %44, i64 48
-  store ptr %1, ptr %46, align 8
-  br label %47
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds i8, ptr %46, i64 48
+  store ptr %1, ptr %48, align 8
+  br label %49
 
-47:                                               ; preds = %45, %41
-  store ptr %1, ptr %26, align 8
-  %48 = load ptr, ptr %25, align 8
-  %.not17.i = icmp eq ptr %48, null
-  br i1 %.not17.i, label %49, label %adopt_gop.exit
+49:                                               ; preds = %47, %43
+  store ptr %1, ptr %28, align 8
+  %50 = load ptr, ptr %27, align 8
+  %.not17.i = icmp eq ptr %50, null
+  br i1 %.not17.i, label %51, label %adopt_gop.exit
 
-49:                                               ; preds = %47
-  store ptr %1, ptr %25, align 8
+51:                                               ; preds = %49
+  store ptr %1, ptr %27, align 8
   br label %adopt_gop.exit
 
-adopt_gop.exit:                                   ; preds = %47, %49
+adopt_gop.exit:                                   ; preds = %49, %51
   ret ptr %3
 }
 

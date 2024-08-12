@@ -406,265 +406,289 @@ define linkonce_odr hidden void @_ZN6MapperIN9UNSIGNED55SizerIiEEE14map_field_in
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit:       ; preds = %2, %._crit_edge.loopexit.i.i
   %.0.lcssa.i.i = phi i32 [ 1, %2 ], [ %11, %._crit_edge.loopexit.i.i ]
-  %20 = load <2 x i32>, ptr %6, align 4
-  %21 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %.0.lcssa.i.i, i64 0
-  %22 = add nsw <2 x i32> %20, %21
-  store <2 x i32> %22, ptr %6, align 4
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 6
-  %25 = load i16, ptr %24, align 2
-  %26 = zext i16 %25 to i32
-  %27 = icmp ult i16 %25, 191
-  br i1 %27, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20, label %.lr.ph.i.i13
+  %20 = load i32, ptr %6, align 4
+  %21 = add nsw i32 %20, %.0.lcssa.i.i
+  store i32 %21, ptr %6, align 4
+  %22 = getelementptr inbounds i8, ptr %6, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %22, align 4
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 6
+  %27 = load i16, ptr %26, align 2
+  %28 = zext i16 %27 to i32
+  %29 = icmp ult i16 %27, 191
+  br i1 %29, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20, label %.lr.ph.i.i13
 
 ._crit_edge.loopexit.i.i18:                       ; preds = %.lr.ph.i.i13
-  %28 = add nuw i32 %.014.i.i14, 2
+  %30 = add nuw i32 %.014.i.i14, 2
   br label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20
 
 .lr.ph.i.i13:                                     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit, %.lr.ph.i.i13
-  %.014.i.i14 = phi i32 [ %32, %.lr.ph.i.i13 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit ]
-  %.01013.i.i15 = phi i32 [ %31, %.lr.ph.i.i13 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit ]
-  %.01112.i.i16 = phi i32 [ %30, %.lr.ph.i.i13 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit ]
-  %29 = shl i32 254, %.01013.i.i15
-  %30 = add i32 %29, %.01112.i.i16
-  %31 = add nuw nsw i32 %.01013.i.i15, 6
-  %32 = add nuw nsw i32 %.014.i.i14, 1
-  %33 = shl i32 12414, %.01013.i.i15
-  %34 = add i32 %33, %.01112.i.i16
-  %35 = icmp uge i32 %34, %26
-  %36 = icmp eq i32 %32, 4
-  %or.cond.i.i17 = select i1 %35, i1 true, i1 %36
+  %.014.i.i14 = phi i32 [ %34, %.lr.ph.i.i13 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit ]
+  %.01013.i.i15 = phi i32 [ %33, %.lr.ph.i.i13 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit ]
+  %.01112.i.i16 = phi i32 [ %32, %.lr.ph.i.i13 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit ]
+  %31 = shl i32 254, %.01013.i.i15
+  %32 = add i32 %31, %.01112.i.i16
+  %33 = add nuw nsw i32 %.01013.i.i15, 6
+  %34 = add nuw nsw i32 %.014.i.i14, 1
+  %35 = shl i32 12414, %.01013.i.i15
+  %36 = add i32 %35, %.01112.i.i16
+  %37 = icmp uge i32 %36, %28
+  %38 = icmp eq i32 %34, 4
+  %or.cond.i.i17 = select i1 %37, i1 true, i1 %38
   br i1 %or.cond.i.i17, label %._crit_edge.loopexit.i.i18, label %.lr.ph.i.i13, !llvm.loop !8
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20:     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit, %._crit_edge.loopexit.i.i18
-  %.0.lcssa.i.i19 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit ], [ %28, %._crit_edge.loopexit.i.i18 ]
-  %37 = load <2 x i32>, ptr %23, align 4
-  %38 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %.0.lcssa.i.i19, i64 0
-  %39 = add nsw <2 x i32> %37, %38
-  store <2 x i32> %39, ptr %23, align 4
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %.0.lcssa.i.i19 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit ], [ %30, %._crit_edge.loopexit.i.i18 ]
+  %39 = load i32, ptr %25, align 4
+  %40 = add nsw i32 %39, %.0.lcssa.i.i19
+  store i32 %40, ptr %25, align 4
+  %41 = getelementptr inbounds i8, ptr %25, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = icmp ult i32 %42, 191
-  br i1 %43, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28, label %.lr.ph.i.i21
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %41, align 4
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp ult i32 %46, 191
+  br i1 %47, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28, label %.lr.ph.i.i21
 
 ._crit_edge.loopexit.i.i26:                       ; preds = %.lr.ph.i.i21
-  %44 = add nuw i32 %.014.i.i22, 2
+  %48 = add nuw i32 %.014.i.i22, 2
   br label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28
 
 .lr.ph.i.i21:                                     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20, %.lr.ph.i.i21
-  %.014.i.i22 = phi i32 [ %48, %.lr.ph.i.i21 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20 ]
-  %.01013.i.i23 = phi i32 [ %47, %.lr.ph.i.i21 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20 ]
-  %.01112.i.i24 = phi i32 [ %46, %.lr.ph.i.i21 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20 ]
-  %45 = shl i32 254, %.01013.i.i23
-  %46 = add i32 %45, %.01112.i.i24
-  %47 = add nuw nsw i32 %.01013.i.i23, 6
-  %48 = add nuw nsw i32 %.014.i.i22, 1
-  %49 = shl i32 12414, %.01013.i.i23
+  %.014.i.i22 = phi i32 [ %52, %.lr.ph.i.i21 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20 ]
+  %.01013.i.i23 = phi i32 [ %51, %.lr.ph.i.i21 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20 ]
+  %.01112.i.i24 = phi i32 [ %50, %.lr.ph.i.i21 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20 ]
+  %49 = shl i32 254, %.01013.i.i23
   %50 = add i32 %49, %.01112.i.i24
-  %51 = icmp uge i32 %50, %42
-  %52 = icmp eq i32 %48, 4
-  %or.cond.i.i25 = select i1 %51, i1 true, i1 %52
+  %51 = add nuw nsw i32 %.01013.i.i23, 6
+  %52 = add nuw nsw i32 %.014.i.i22, 1
+  %53 = shl i32 12414, %.01013.i.i23
+  %54 = add i32 %53, %.01112.i.i24
+  %55 = icmp uge i32 %54, %46
+  %56 = icmp eq i32 %52, 4
+  %or.cond.i.i25 = select i1 %55, i1 true, i1 %56
   br i1 %or.cond.i.i25, label %._crit_edge.loopexit.i.i26, label %.lr.ph.i.i21, !llvm.loop !8
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28:     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20, %._crit_edge.loopexit.i.i26
-  %.0.lcssa.i.i27 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20 ], [ %44, %._crit_edge.loopexit.i.i26 ]
-  %53 = load <2 x i32>, ptr %40, align 4
-  %54 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %.0.lcssa.i.i27, i64 0
-  %55 = add nsw <2 x i32> %53, %54
-  store <2 x i32> %55, ptr %40, align 4
-  %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 12
-  %.sroa.0.0.copyload.i = load i32, ptr %57, align 4
-  %58 = icmp ult i32 %.sroa.0.0.copyload.i, 191
-  br i1 %58, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36, label %.lr.ph.i.i29
+  %.0.lcssa.i.i27 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20 ], [ %48, %._crit_edge.loopexit.i.i26 ]
+  %57 = load i32, ptr %44, align 4
+  %58 = add nsw i32 %57, %.0.lcssa.i.i27
+  store i32 %58, ptr %44, align 4
+  %59 = getelementptr inbounds i8, ptr %44, i64 4
+  %60 = load i32, ptr %59, align 4
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %59, align 4
+  %62 = load ptr, ptr %0, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.0.0.copyload.i = load i32, ptr %63, align 4
+  %64 = icmp ult i32 %.sroa.0.0.copyload.i, 191
+  br i1 %64, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36, label %.lr.ph.i.i29
 
 ._crit_edge.loopexit.i.i34:                       ; preds = %.lr.ph.i.i29
-  %59 = add nuw i32 %.014.i.i30, 2
+  %65 = add nuw i32 %.014.i.i30, 2
   br label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36
 
 .lr.ph.i.i29:                                     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28, %.lr.ph.i.i29
-  %.014.i.i30 = phi i32 [ %63, %.lr.ph.i.i29 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28 ]
-  %.01013.i.i31 = phi i32 [ %62, %.lr.ph.i.i29 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28 ]
-  %.01112.i.i32 = phi i32 [ %61, %.lr.ph.i.i29 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28 ]
-  %60 = shl i32 254, %.01013.i.i31
-  %61 = add i32 %60, %.01112.i.i32
-  %62 = add nuw nsw i32 %.01013.i.i31, 6
-  %63 = add nuw nsw i32 %.014.i.i30, 1
-  %64 = shl i32 12414, %.01013.i.i31
-  %65 = add i32 %64, %.01112.i.i32
-  %66 = icmp uge i32 %65, %.sroa.0.0.copyload.i
-  %67 = icmp eq i32 %63, 4
-  %or.cond.i.i33 = select i1 %66, i1 true, i1 %67
+  %.014.i.i30 = phi i32 [ %69, %.lr.ph.i.i29 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28 ]
+  %.01013.i.i31 = phi i32 [ %68, %.lr.ph.i.i29 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28 ]
+  %.01112.i.i32 = phi i32 [ %67, %.lr.ph.i.i29 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28 ]
+  %66 = shl i32 254, %.01013.i.i31
+  %67 = add i32 %66, %.01112.i.i32
+  %68 = add nuw nsw i32 %.01013.i.i31, 6
+  %69 = add nuw nsw i32 %.014.i.i30, 1
+  %70 = shl i32 12414, %.01013.i.i31
+  %71 = add i32 %70, %.01112.i.i32
+  %72 = icmp uge i32 %71, %.sroa.0.0.copyload.i
+  %73 = icmp eq i32 %69, 4
+  %or.cond.i.i33 = select i1 %72, i1 true, i1 %73
   br i1 %or.cond.i.i33, label %._crit_edge.loopexit.i.i34, label %.lr.ph.i.i29, !llvm.loop !8
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36:     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28, %._crit_edge.loopexit.i.i34
-  %.0.lcssa.i.i35 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28 ], [ %59, %._crit_edge.loopexit.i.i34 ]
-  %68 = load <2 x i32>, ptr %56, align 4
-  %69 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %.0.lcssa.i.i35, i64 0
-  %70 = add nsw <2 x i32> %68, %69
-  store <2 x i32> %70, ptr %56, align 4
-  %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.0.0.copyload.i37 = load i32, ptr %72, align 4
-  %73 = icmp ult i32 %.sroa.0.0.copyload.i37, 191
-  br i1 %73, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit45, label %.lr.ph.i.i38
+  %.0.lcssa.i.i35 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28 ], [ %65, %._crit_edge.loopexit.i.i34 ]
+  %74 = load i32, ptr %62, align 4
+  %75 = add nsw i32 %74, %.0.lcssa.i.i35
+  store i32 %75, ptr %62, align 4
+  %76 = getelementptr inbounds i8, ptr %62, i64 4
+  %77 = load i32, ptr %76, align 4
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %76, align 4
+  %79 = load ptr, ptr %0, align 8
+  %80 = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.0.0.copyload.i37 = load i32, ptr %80, align 4
+  %81 = icmp ult i32 %.sroa.0.0.copyload.i37, 191
+  br i1 %81, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit45, label %.lr.ph.i.i38
 
 ._crit_edge.loopexit.i.i43:                       ; preds = %.lr.ph.i.i38
-  %74 = add nuw i32 %.014.i.i39, 2
+  %82 = add nuw i32 %.014.i.i39, 2
   br label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit45
 
 .lr.ph.i.i38:                                     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36, %.lr.ph.i.i38
-  %.014.i.i39 = phi i32 [ %78, %.lr.ph.i.i38 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36 ]
-  %.01013.i.i40 = phi i32 [ %77, %.lr.ph.i.i38 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36 ]
-  %.01112.i.i41 = phi i32 [ %76, %.lr.ph.i.i38 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36 ]
-  %75 = shl i32 254, %.01013.i.i40
-  %76 = add i32 %75, %.01112.i.i41
-  %77 = add nuw nsw i32 %.01013.i.i40, 6
-  %78 = add nuw nsw i32 %.014.i.i39, 1
-  %79 = shl i32 12414, %.01013.i.i40
-  %80 = add i32 %79, %.01112.i.i41
-  %81 = icmp uge i32 %80, %.sroa.0.0.copyload.i37
-  %82 = icmp eq i32 %78, 4
-  %or.cond.i.i42 = select i1 %81, i1 true, i1 %82
+  %.014.i.i39 = phi i32 [ %86, %.lr.ph.i.i38 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36 ]
+  %.01013.i.i40 = phi i32 [ %85, %.lr.ph.i.i38 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36 ]
+  %.01112.i.i41 = phi i32 [ %84, %.lr.ph.i.i38 ], [ 0, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36 ]
+  %83 = shl i32 254, %.01013.i.i40
+  %84 = add i32 %83, %.01112.i.i41
+  %85 = add nuw nsw i32 %.01013.i.i40, 6
+  %86 = add nuw nsw i32 %.014.i.i39, 1
+  %87 = shl i32 12414, %.01013.i.i40
+  %88 = add i32 %87, %.01112.i.i41
+  %89 = icmp uge i32 %88, %.sroa.0.0.copyload.i37
+  %90 = icmp eq i32 %86, 4
+  %or.cond.i.i42 = select i1 %89, i1 true, i1 %90
   br i1 %or.cond.i.i42, label %._crit_edge.loopexit.i.i43, label %.lr.ph.i.i38, !llvm.loop !8
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit45:     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36, %._crit_edge.loopexit.i.i43
-  %.0.lcssa.i.i44 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36 ], [ %74, %._crit_edge.loopexit.i.i43 ]
-  %83 = load <2 x i32>, ptr %71, align 4
-  %84 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %.0.lcssa.i.i44, i64 0
-  %85 = add nsw <2 x i32> %83, %84
-  store <2 x i32> %85, ptr %71, align 4
-  %.sroa.0.0.copyload.i46 = load i32, ptr %72, align 4
-  %86 = and i32 %.sroa.0.0.copyload.i46, 21
-  %.not = icmp eq i32 %86, 0
-  br i1 %.not, label %147, label %87
+  %.0.lcssa.i.i44 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36 ], [ %82, %._crit_edge.loopexit.i.i43 ]
+  %91 = load i32, ptr %79, align 4
+  %92 = add nsw i32 %91, %.0.lcssa.i.i44
+  store i32 %92, ptr %79, align 4
+  %93 = getelementptr inbounds i8, ptr %79, i64 4
+  %94 = load i32, ptr %93, align 4
+  %95 = add nsw i32 %94, 1
+  store i32 %95, ptr %93, align 4
+  %.sroa.0.0.copyload.i46 = load i32, ptr %80, align 4
+  %96 = and i32 %.sroa.0.0.copyload.i46, 21
+  %.not = icmp eq i32 %96, 0
+  br i1 %.not, label %163, label %97
 
-87:                                               ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit45
-  %88 = and i32 %.sroa.0.0.copyload.i46, 1
-  %.not79 = icmp eq i32 %88, 0
-  br i1 %.not79, label %107, label %89
+97:                                               ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit45
+  %98 = and i32 %.sroa.0.0.copyload.i46, 1
+  %.not79 = icmp eq i32 %98, 0
+  br i1 %.not79, label %119, label %99
 
-89:                                               ; preds = %87
-  %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %1, i64 20
-  %92 = load i16, ptr %91, align 4
-  %93 = zext i16 %92 to i32
-  %94 = icmp ult i16 %92, 191
-  br i1 %94, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit55, label %.lr.ph.i.i48
+99:                                               ; preds = %97
+  %100 = load ptr, ptr %0, align 8
+  %101 = getelementptr inbounds i8, ptr %1, i64 20
+  %102 = load i16, ptr %101, align 4
+  %103 = zext i16 %102 to i32
+  %104 = icmp ult i16 %102, 191
+  br i1 %104, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit55, label %.lr.ph.i.i48
 
 ._crit_edge.loopexit.i.i53:                       ; preds = %.lr.ph.i.i48
-  %95 = add nuw i32 %.014.i.i49, 2
+  %105 = add nuw i32 %.014.i.i49, 2
   br label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit55
 
-.lr.ph.i.i48:                                     ; preds = %89, %.lr.ph.i.i48
-  %.014.i.i49 = phi i32 [ %99, %.lr.ph.i.i48 ], [ 0, %89 ]
-  %.01013.i.i50 = phi i32 [ %98, %.lr.ph.i.i48 ], [ 0, %89 ]
-  %.01112.i.i51 = phi i32 [ %97, %.lr.ph.i.i48 ], [ 0, %89 ]
-  %96 = shl i32 254, %.01013.i.i50
-  %97 = add i32 %96, %.01112.i.i51
-  %98 = add nuw nsw i32 %.01013.i.i50, 6
-  %99 = add nuw nsw i32 %.014.i.i49, 1
-  %100 = shl i32 12414, %.01013.i.i50
-  %101 = add i32 %100, %.01112.i.i51
-  %102 = icmp uge i32 %101, %93
-  %103 = icmp eq i32 %99, 4
-  %or.cond.i.i52 = select i1 %102, i1 true, i1 %103
+.lr.ph.i.i48:                                     ; preds = %99, %.lr.ph.i.i48
+  %.014.i.i49 = phi i32 [ %109, %.lr.ph.i.i48 ], [ 0, %99 ]
+  %.01013.i.i50 = phi i32 [ %108, %.lr.ph.i.i48 ], [ 0, %99 ]
+  %.01112.i.i51 = phi i32 [ %107, %.lr.ph.i.i48 ], [ 0, %99 ]
+  %106 = shl i32 254, %.01013.i.i50
+  %107 = add i32 %106, %.01112.i.i51
+  %108 = add nuw nsw i32 %.01013.i.i50, 6
+  %109 = add nuw nsw i32 %.014.i.i49, 1
+  %110 = shl i32 12414, %.01013.i.i50
+  %111 = add i32 %110, %.01112.i.i51
+  %112 = icmp uge i32 %111, %103
+  %113 = icmp eq i32 %109, 4
+  %or.cond.i.i52 = select i1 %112, i1 true, i1 %113
   br i1 %or.cond.i.i52, label %._crit_edge.loopexit.i.i53, label %.lr.ph.i.i48, !llvm.loop !8
 
-_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit55:     ; preds = %89, %._crit_edge.loopexit.i.i53
-  %.0.lcssa.i.i54 = phi i32 [ 1, %89 ], [ %95, %._crit_edge.loopexit.i.i53 ]
-  %104 = load <2 x i32>, ptr %90, align 4
-  %105 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %.0.lcssa.i.i54, i64 0
-  %106 = add nsw <2 x i32> %104, %105
-  store <2 x i32> %106, ptr %90, align 4
-  %.sroa.0.0.copyload.i56.pre = load i32, ptr %72, align 4
-  br label %107
+_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit55:     ; preds = %99, %._crit_edge.loopexit.i.i53
+  %.0.lcssa.i.i54 = phi i32 [ 1, %99 ], [ %105, %._crit_edge.loopexit.i.i53 ]
+  %114 = load i32, ptr %100, align 4
+  %115 = add nsw i32 %114, %.0.lcssa.i.i54
+  store i32 %115, ptr %100, align 4
+  %116 = getelementptr inbounds i8, ptr %100, i64 4
+  %117 = load i32, ptr %116, align 4
+  %118 = add nsw i32 %117, 1
+  store i32 %118, ptr %116, align 4
+  %.sroa.0.0.copyload.i56.pre = load i32, ptr %80, align 4
+  br label %119
 
-107:                                              ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit55, %87
-  %.sroa.0.0.copyload.i56 = phi i32 [ %.sroa.0.0.copyload.i56.pre, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit55 ], [ %.sroa.0.0.copyload.i46, %87 ]
-  %108 = and i32 %.sroa.0.0.copyload.i56, 4
-  %.not80 = icmp eq i32 %108, 0
-  br i1 %.not80, label %127, label %109
+119:                                              ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit55, %97
+  %.sroa.0.0.copyload.i56 = phi i32 [ %.sroa.0.0.copyload.i56.pre, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit55 ], [ %.sroa.0.0.copyload.i46, %97 ]
+  %120 = and i32 %.sroa.0.0.copyload.i56, 4
+  %.not80 = icmp eq i32 %120, 0
+  br i1 %.not80, label %141, label %121
 
-109:                                              ; preds = %107
-  %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds i8, ptr %1, i64 22
-  %112 = load i16, ptr %111, align 2
-  %113 = zext i16 %112 to i32
-  %114 = icmp ult i16 %112, 191
-  br i1 %114, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit64, label %.lr.ph.i.i57
+121:                                              ; preds = %119
+  %122 = load ptr, ptr %0, align 8
+  %123 = getelementptr inbounds i8, ptr %1, i64 22
+  %124 = load i16, ptr %123, align 2
+  %125 = zext i16 %124 to i32
+  %126 = icmp ult i16 %124, 191
+  br i1 %126, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit64, label %.lr.ph.i.i57
 
 ._crit_edge.loopexit.i.i62:                       ; preds = %.lr.ph.i.i57
-  %115 = add nuw i32 %.014.i.i58, 2
+  %127 = add nuw i32 %.014.i.i58, 2
   br label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit64
 
-.lr.ph.i.i57:                                     ; preds = %109, %.lr.ph.i.i57
-  %.014.i.i58 = phi i32 [ %119, %.lr.ph.i.i57 ], [ 0, %109 ]
-  %.01013.i.i59 = phi i32 [ %118, %.lr.ph.i.i57 ], [ 0, %109 ]
-  %.01112.i.i60 = phi i32 [ %117, %.lr.ph.i.i57 ], [ 0, %109 ]
-  %116 = shl i32 254, %.01013.i.i59
-  %117 = add i32 %116, %.01112.i.i60
-  %118 = add nuw nsw i32 %.01013.i.i59, 6
-  %119 = add nuw nsw i32 %.014.i.i58, 1
-  %120 = shl i32 12414, %.01013.i.i59
-  %121 = add i32 %120, %.01112.i.i60
-  %122 = icmp uge i32 %121, %113
-  %123 = icmp eq i32 %119, 4
-  %or.cond.i.i61 = select i1 %122, i1 true, i1 %123
+.lr.ph.i.i57:                                     ; preds = %121, %.lr.ph.i.i57
+  %.014.i.i58 = phi i32 [ %131, %.lr.ph.i.i57 ], [ 0, %121 ]
+  %.01013.i.i59 = phi i32 [ %130, %.lr.ph.i.i57 ], [ 0, %121 ]
+  %.01112.i.i60 = phi i32 [ %129, %.lr.ph.i.i57 ], [ 0, %121 ]
+  %128 = shl i32 254, %.01013.i.i59
+  %129 = add i32 %128, %.01112.i.i60
+  %130 = add nuw nsw i32 %.01013.i.i59, 6
+  %131 = add nuw nsw i32 %.014.i.i58, 1
+  %132 = shl i32 12414, %.01013.i.i59
+  %133 = add i32 %132, %.01112.i.i60
+  %134 = icmp uge i32 %133, %125
+  %135 = icmp eq i32 %131, 4
+  %or.cond.i.i61 = select i1 %134, i1 true, i1 %135
   br i1 %or.cond.i.i61, label %._crit_edge.loopexit.i.i62, label %.lr.ph.i.i57, !llvm.loop !8
 
-_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit64:     ; preds = %109, %._crit_edge.loopexit.i.i62
-  %.0.lcssa.i.i63 = phi i32 [ 1, %109 ], [ %115, %._crit_edge.loopexit.i.i62 ]
-  %124 = load <2 x i32>, ptr %110, align 4
-  %125 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %.0.lcssa.i.i63, i64 0
-  %126 = add nsw <2 x i32> %124, %125
-  store <2 x i32> %126, ptr %110, align 4
-  %.sroa.0.0.copyload.i65.pre = load i32, ptr %72, align 4
-  br label %127
+_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit64:     ; preds = %121, %._crit_edge.loopexit.i.i62
+  %.0.lcssa.i.i63 = phi i32 [ 1, %121 ], [ %127, %._crit_edge.loopexit.i.i62 ]
+  %136 = load i32, ptr %122, align 4
+  %137 = add nsw i32 %136, %.0.lcssa.i.i63
+  store i32 %137, ptr %122, align 4
+  %138 = getelementptr inbounds i8, ptr %122, i64 4
+  %139 = load i32, ptr %138, align 4
+  %140 = add nsw i32 %139, 1
+  store i32 %140, ptr %138, align 4
+  %.sroa.0.0.copyload.i65.pre = load i32, ptr %80, align 4
+  br label %141
 
-127:                                              ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit64, %107
-  %.sroa.0.0.copyload.i65 = phi i32 [ %.sroa.0.0.copyload.i65.pre, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit64 ], [ %.sroa.0.0.copyload.i56, %107 ]
-  %128 = and i32 %.sroa.0.0.copyload.i65, 16
-  %.not81 = icmp eq i32 %128, 0
-  br i1 %.not81, label %147, label %129
+141:                                              ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit64, %119
+  %.sroa.0.0.copyload.i65 = phi i32 [ %.sroa.0.0.copyload.i65.pre, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit64 ], [ %.sroa.0.0.copyload.i56, %119 ]
+  %142 = and i32 %.sroa.0.0.copyload.i65, 16
+  %.not81 = icmp eq i32 %142, 0
+  br i1 %.not81, label %163, label %143
 
-129:                                              ; preds = %127
-  %130 = load ptr, ptr %0, align 8
-  %131 = getelementptr inbounds i8, ptr %1, i64 24
-  %132 = load i16, ptr %131, align 4
-  %133 = zext i16 %132 to i32
-  %134 = icmp ult i16 %132, 191
-  br i1 %134, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit73, label %.lr.ph.i.i66
+143:                                              ; preds = %141
+  %144 = load ptr, ptr %0, align 8
+  %145 = getelementptr inbounds i8, ptr %1, i64 24
+  %146 = load i16, ptr %145, align 4
+  %147 = zext i16 %146 to i32
+  %148 = icmp ult i16 %146, 191
+  br i1 %148, label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit73, label %.lr.ph.i.i66
 
 ._crit_edge.loopexit.i.i71:                       ; preds = %.lr.ph.i.i66
-  %135 = add nuw i32 %.014.i.i67, 2
+  %149 = add nuw i32 %.014.i.i67, 2
   br label %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit73
 
-.lr.ph.i.i66:                                     ; preds = %129, %.lr.ph.i.i66
-  %.014.i.i67 = phi i32 [ %139, %.lr.ph.i.i66 ], [ 0, %129 ]
-  %.01013.i.i68 = phi i32 [ %138, %.lr.ph.i.i66 ], [ 0, %129 ]
-  %.01112.i.i69 = phi i32 [ %137, %.lr.ph.i.i66 ], [ 0, %129 ]
-  %136 = shl i32 254, %.01013.i.i68
-  %137 = add i32 %136, %.01112.i.i69
-  %138 = add nuw nsw i32 %.01013.i.i68, 6
-  %139 = add nuw nsw i32 %.014.i.i67, 1
-  %140 = shl i32 12414, %.01013.i.i68
-  %141 = add i32 %140, %.01112.i.i69
-  %142 = icmp uge i32 %141, %133
-  %143 = icmp eq i32 %139, 4
-  %or.cond.i.i70 = select i1 %142, i1 true, i1 %143
+.lr.ph.i.i66:                                     ; preds = %143, %.lr.ph.i.i66
+  %.014.i.i67 = phi i32 [ %153, %.lr.ph.i.i66 ], [ 0, %143 ]
+  %.01013.i.i68 = phi i32 [ %152, %.lr.ph.i.i66 ], [ 0, %143 ]
+  %.01112.i.i69 = phi i32 [ %151, %.lr.ph.i.i66 ], [ 0, %143 ]
+  %150 = shl i32 254, %.01013.i.i68
+  %151 = add i32 %150, %.01112.i.i69
+  %152 = add nuw nsw i32 %.01013.i.i68, 6
+  %153 = add nuw nsw i32 %.014.i.i67, 1
+  %154 = shl i32 12414, %.01013.i.i68
+  %155 = add i32 %154, %.01112.i.i69
+  %156 = icmp uge i32 %155, %147
+  %157 = icmp eq i32 %153, 4
+  %or.cond.i.i70 = select i1 %156, i1 true, i1 %157
   br i1 %or.cond.i.i70, label %._crit_edge.loopexit.i.i71, label %.lr.ph.i.i66, !llvm.loop !8
 
-_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit73:     ; preds = %129, %._crit_edge.loopexit.i.i71
-  %.0.lcssa.i.i72 = phi i32 [ 1, %129 ], [ %135, %._crit_edge.loopexit.i.i71 ]
-  %144 = load <2 x i32>, ptr %130, align 4
-  %145 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %.0.lcssa.i.i72, i64 0
-  %146 = add nsw <2 x i32> %144, %145
-  store <2 x i32> %146, ptr %130, align 4
-  br label %147
+_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit73:     ; preds = %143, %._crit_edge.loopexit.i.i71
+  %.0.lcssa.i.i72 = phi i32 [ 1, %143 ], [ %149, %._crit_edge.loopexit.i.i71 ]
+  %158 = load i32, ptr %144, align 4
+  %159 = add nsw i32 %158, %.0.lcssa.i.i72
+  store i32 %159, ptr %144, align 4
+  %160 = getelementptr inbounds i8, ptr %144, i64 4
+  %161 = load i32, ptr %160, align 4
+  %162 = add nsw i32 %161, 1
+  store i32 %162, ptr %160, align 4
+  br label %163
 
-147:                                              ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit45, %127, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit73
+163:                                              ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit45, %141, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit73
   ret void
 }
 

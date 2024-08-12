@@ -1060,12 +1060,12 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %87 = load i32, ptr %7, align 8
   switch i32 %87, label %.thread189 [
     i32 5, label %88
-    i32 4, label %137
-    i32 6, label %145
-    i32 12, label %145
-    i32 13, label %145
-    i32 14, label %145
-    i32 7, label %158
+    i32 4, label %145
+    i32 6, label %153
+    i32 12, label %153
+    i32 13, label %153
+    i32 14, label %153
+    i32 7, label %166
   ]
 
 88:                                               ; preds = %86
@@ -1074,209 +1074,220 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %91 = load i32, ptr %90, align 8
   %92 = tail call ptr @wmem_tree_lookup32(ptr noundef %89, i32 noundef %91) #4
   %.not176 = icmp eq ptr %92, null
-  br i1 %.not176, label %93, label %174
+  br i1 %.not176, label %93, label %182
 
 93:                                               ; preds = %88
   %94 = tail call ptr @wmem_file_scope() #4
   %95 = tail call noalias ptr @wmem_alloc(ptr noundef %94, i64 noundef 56) #4
   store i32 0, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
-  %97 = getelementptr inbounds i8, ptr %95, i64 16
-  %98 = load <4 x i32>, ptr %90, align 8
-  store <4 x i32> %98, ptr %96, align 4
-  %99 = getelementptr inbounds i8, ptr %95, i64 24
-  %100 = getelementptr inbounds i8, ptr %95, i64 32
-  %101 = getelementptr inbounds i8, ptr %7, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
-  %102 = load ptr, ptr %101, align 8
-  %.not177 = icmp eq ptr %102, null
-  br i1 %.not177, label %116, label %103
+  %96 = load i32, ptr %90, align 8
+  %97 = getelementptr inbounds i8, ptr %95, i64 4
+  store i32 %96, ptr %97, align 4
+  %98 = getelementptr inbounds i8, ptr %7, i64 12
+  %99 = load i32, ptr %98, align 4
+  %100 = getelementptr inbounds i8, ptr %95, i64 8
+  store i32 %99, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %7, i64 16
+  %102 = load i32, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %95, i64 12
+  store i32 %102, ptr %103, align 4
+  %104 = getelementptr inbounds i8, ptr %7, i64 20
+  %105 = load i32, ptr %104, align 4
+  %106 = getelementptr inbounds i8, ptr %95, i64 16
+  store i32 %105, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %95, i64 24
+  %108 = getelementptr inbounds i8, ptr %95, i64 32
+  %109 = getelementptr inbounds i8, ptr %7, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, i8 0, i64 16, i1 false)
+  %110 = load ptr, ptr %109, align 8
+  %.not177 = icmp eq ptr %110, null
+  br i1 %.not177, label %124, label %111
 
-103:                                              ; preds = %93
-  %104 = tail call ptr @wmem_file_scope() #4
-  %105 = load ptr, ptr %101, align 8
-  %106 = load i32, ptr %97, align 8
-  %107 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %104, ptr noundef nonnull @.str.407, ptr noundef %105, i32 noundef %106) #4
-  %108 = tail call ptr @ascii_strdown_inplace(ptr noundef %107) #4
-  %109 = tail call ptr @wmem_file_scope() #4
-  %110 = load ptr, ptr %101, align 8
-  %111 = tail call noalias ptr @wmem_strdup(ptr noundef %109, ptr noundef %110) #4
-  store ptr %111, ptr %99, align 8
-  %112 = load ptr, ptr @legs_by_bearer, align 8
-  %113 = tail call ptr @wmem_tree_lookup_string(ptr noundef %112, ptr noundef %107, i32 noundef 0) #4
-  %.not178 = icmp eq ptr %113, null
-  br i1 %.not178, label %114, label %116
+111:                                              ; preds = %93
+  %112 = tail call ptr @wmem_file_scope() #4
+  %113 = load ptr, ptr %109, align 8
+  %114 = load i32, ptr %106, align 8
+  %115 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %112, ptr noundef nonnull @.str.407, ptr noundef %113, i32 noundef %114) #4
+  %116 = tail call ptr @ascii_strdown_inplace(ptr noundef %115) #4
+  %117 = tail call ptr @wmem_file_scope() #4
+  %118 = load ptr, ptr %109, align 8
+  %119 = tail call noalias ptr @wmem_strdup(ptr noundef %117, ptr noundef %118) #4
+  store ptr %119, ptr %107, align 8
+  %120 = load ptr, ptr @legs_by_bearer, align 8
+  %121 = tail call ptr @wmem_tree_lookup_string(ptr noundef %120, ptr noundef %115, i32 noundef 0) #4
+  %.not178 = icmp eq ptr %121, null
+  br i1 %.not178, label %122, label %124
 
-114:                                              ; preds = %103
-  %115 = load ptr, ptr @legs_by_bearer, align 8
-  tail call void @wmem_tree_insert_string(ptr noundef %115, ptr noundef %107, ptr noundef nonnull %95, i32 noundef 0) #4
-  br label %116
+122:                                              ; preds = %111
+  %123 = load ptr, ptr @legs_by_bearer, align 8
+  tail call void @wmem_tree_insert_string(ptr noundef %123, ptr noundef %115, ptr noundef nonnull %95, i32 noundef 0) #4
+  br label %124
 
-116:                                              ; preds = %103, %114, %93
-  %117 = getelementptr inbounds i8, ptr %7, i64 32
-  %118 = load ptr, ptr %117, align 8
-  %.not179 = icmp eq ptr %118, null
-  br i1 %.not179, label %132, label %119
+124:                                              ; preds = %111, %122, %93
+  %125 = getelementptr inbounds i8, ptr %7, i64 32
+  %126 = load ptr, ptr %125, align 8
+  %.not179 = icmp eq ptr %126, null
+  br i1 %.not179, label %140, label %127
 
-119:                                              ; preds = %116
-  %120 = tail call ptr @wmem_file_scope() #4
-  %121 = load ptr, ptr %117, align 8
-  %122 = load i32, ptr %97, align 8
-  %123 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %120, ptr noundef nonnull @.str.407, ptr noundef %121, i32 noundef %122) #4
-  %124 = tail call ptr @ascii_strdown_inplace(ptr noundef %123) #4
-  %125 = tail call ptr @wmem_file_scope() #4
-  %126 = load ptr, ptr %117, align 8
-  %127 = tail call noalias ptr @wmem_strdup(ptr noundef %125, ptr noundef %126) #4
-  store ptr %127, ptr %100, align 8
-  %128 = load ptr, ptr @legs_by_bearer, align 8
-  %129 = tail call ptr @wmem_tree_lookup_string(ptr noundef %128, ptr noundef %123, i32 noundef 0) #4
-  %.not180 = icmp eq ptr %129, null
-  br i1 %.not180, label %130, label %132
+127:                                              ; preds = %124
+  %128 = tail call ptr @wmem_file_scope() #4
+  %129 = load ptr, ptr %125, align 8
+  %130 = load i32, ptr %106, align 8
+  %131 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %128, ptr noundef nonnull @.str.407, ptr noundef %129, i32 noundef %130) #4
+  %132 = tail call ptr @ascii_strdown_inplace(ptr noundef %131) #4
+  %133 = tail call ptr @wmem_file_scope() #4
+  %134 = load ptr, ptr %125, align 8
+  %135 = tail call noalias ptr @wmem_strdup(ptr noundef %133, ptr noundef %134) #4
+  store ptr %135, ptr %108, align 8
+  %136 = load ptr, ptr @legs_by_bearer, align 8
+  %137 = tail call ptr @wmem_tree_lookup_string(ptr noundef %136, ptr noundef %131, i32 noundef 0) #4
+  %.not180 = icmp eq ptr %137, null
+  br i1 %.not180, label %138, label %140
 
-130:                                              ; preds = %119
-  %131 = load ptr, ptr @legs_by_bearer, align 8
-  tail call void @wmem_tree_insert_string(ptr noundef %131, ptr noundef %123, ptr noundef nonnull %95, i32 noundef 0) #4
-  br label %132
+138:                                              ; preds = %127
+  %139 = load ptr, ptr @legs_by_bearer, align 8
+  tail call void @wmem_tree_insert_string(ptr noundef %139, ptr noundef %131, ptr noundef nonnull %95, i32 noundef 0) #4
+  br label %140
 
-132:                                              ; preds = %119, %130, %116
-  %133 = getelementptr inbounds i8, ptr %95, i64 40
-  store ptr null, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %95, i64 48
-  store i32 0, ptr %134, align 8
-  %135 = load ptr, ptr @legs_by_osaid, align 8
-  %136 = load i32, ptr %96, align 4
-  tail call void @wmem_tree_insert32(ptr noundef %135, i32 noundef %136, ptr noundef nonnull %95) #4
-  br label %174
+140:                                              ; preds = %127, %138, %124
+  %141 = getelementptr inbounds i8, ptr %95, i64 40
+  store ptr null, ptr %141, align 8
+  %142 = getelementptr inbounds i8, ptr %95, i64 48
+  store i32 0, ptr %142, align 8
+  %143 = load ptr, ptr @legs_by_osaid, align 8
+  %144 = load i32, ptr %97, align 4
+  tail call void @wmem_tree_insert32(ptr noundef %143, i32 noundef %144, ptr noundef nonnull %95) #4
+  br label %182
 
-137:                                              ; preds = %86
-  %138 = load ptr, ptr @legs_by_osaid, align 8
-  %139 = load i32, ptr %22, align 4
-  %140 = tail call ptr @wmem_tree_lookup32(ptr noundef %138, i32 noundef %139) #4
-  %.not175 = icmp eq ptr %140, null
-  br i1 %.not175, label %.thread189, label %141
-
-141:                                              ; preds = %137
-  %142 = getelementptr inbounds i8, ptr %7, i64 8
-  %143 = load i32, ptr %142, align 8
-  store i32 %143, ptr %140, align 8
-  %144 = load ptr, ptr @legs_by_dsaid, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %144, i32 noundef %143, ptr noundef nonnull %140) #4
-  br label %174
-
-145:                                              ; preds = %86, %86, %86, %86
+145:                                              ; preds = %86
   %146 = load ptr, ptr @legs_by_osaid, align 8
   %147 = load i32, ptr %22, align 4
   %148 = tail call ptr @wmem_tree_lookup32(ptr noundef %146, i32 noundef %147) #4
-  %.not172 = icmp eq ptr %148, null
-  br i1 %.not172, label %149, label %153
+  %.not175 = icmp eq ptr %148, null
+  br i1 %.not175, label %.thread189, label %149
 
 149:                                              ; preds = %145
-  %150 = load ptr, ptr @legs_by_dsaid, align 8
-  %151 = load i32, ptr %22, align 4
-  %152 = tail call ptr @wmem_tree_lookup32(ptr noundef %150, i32 noundef %151) #4
-  %.not173 = icmp eq ptr %152, null
-  br i1 %.not173, label %.thread189, label %153
+  %150 = getelementptr inbounds i8, ptr %7, i64 8
+  %151 = load i32, ptr %150, align 8
+  store i32 %151, ptr %148, align 8
+  %152 = load ptr, ptr @legs_by_dsaid, align 8
+  tail call void @wmem_tree_insert32(ptr noundef %152, i32 noundef %151, ptr noundef nonnull %148) #4
+  br label %182
 
-153:                                              ; preds = %149, %145
-  %.1 = phi ptr [ %148, %145 ], [ %152, %149 ]
-  %154 = getelementptr inbounds i8, ptr %7, i64 40
-  %155 = load i32, ptr %154, align 8
-  %.not174 = icmp eq i32 %155, 0
-  br i1 %.not174, label %174, label %156
+153:                                              ; preds = %86, %86, %86, %86
+  %154 = load ptr, ptr @legs_by_osaid, align 8
+  %155 = load i32, ptr %22, align 4
+  %156 = tail call ptr @wmem_tree_lookup32(ptr noundef %154, i32 noundef %155) #4
+  %.not172 = icmp eq ptr %156, null
+  br i1 %.not172, label %157, label %161
 
-156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %.1, i64 48
-  store i32 %155, ptr %157, align 8
-  br label %174
+157:                                              ; preds = %153
+  %158 = load ptr, ptr @legs_by_dsaid, align 8
+  %159 = load i32, ptr %22, align 4
+  %160 = tail call ptr @wmem_tree_lookup32(ptr noundef %158, i32 noundef %159) #4
+  %.not173 = icmp eq ptr %160, null
+  br i1 %.not173, label %.thread189, label %161
 
-158:                                              ; preds = %86
-  %159 = load ptr, ptr @legs_by_osaid, align 8
-  %160 = load i32, ptr %22, align 4
-  %161 = tail call ptr @wmem_tree_lookup32(ptr noundef %159, i32 noundef %160) #4
-  %.not170 = icmp eq ptr %161, null
-  br i1 %.not170, label %166, label %162
+161:                                              ; preds = %157, %153
+  %.1 = phi ptr [ %156, %153 ], [ %160, %157 ]
+  %162 = getelementptr inbounds i8, ptr %7, i64 40
+  %163 = load i32, ptr %162, align 8
+  %.not174 = icmp eq i32 %163, 0
+  br i1 %.not174, label %182, label %164
 
-162:                                              ; preds = %158
-  %163 = getelementptr inbounds i8, ptr %7, i64 40
-  %164 = load i32, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %161, i64 48
-  store i32 %164, ptr %165, align 8
-  br label %174
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds i8, ptr %.1, i64 48
+  store i32 %163, ptr %165, align 8
+  br label %182
 
-166:                                              ; preds = %158
-  %167 = load ptr, ptr @legs_by_dsaid, align 8
+166:                                              ; preds = %86
+  %167 = load ptr, ptr @legs_by_osaid, align 8
   %168 = load i32, ptr %22, align 4
   %169 = tail call ptr @wmem_tree_lookup32(ptr noundef %167, i32 noundef %168) #4
-  %.not171 = icmp eq ptr %169, null
-  br i1 %.not171, label %.thread189, label %170
+  %.not170 = icmp eq ptr %169, null
+  br i1 %.not170, label %174, label %170
 
 170:                                              ; preds = %166
   %171 = getelementptr inbounds i8, ptr %7, i64 40
   %172 = load i32, ptr %171, align 8
   %173 = getelementptr inbounds i8, ptr %169, i64 48
   store i32 %172, ptr %173, align 8
-  br label %174
+  br label %182
 
-174:                                              ; preds = %162, %170, %156, %153, %141, %88, %132
-  %.0155.ph = phi ptr [ %95, %132 ], [ %92, %88 ], [ %140, %141 ], [ %.1, %153 ], [ %.1, %156 ], [ %169, %170 ], [ %161, %162 ]
-  %175 = getelementptr inbounds i8, ptr %.0155.ph, i64 40
-  %176 = load ptr, ptr %175, align 8
-  %.not181 = icmp eq ptr %176, null
-  br i1 %.not181, label %185, label %177
+174:                                              ; preds = %166
+  %175 = load ptr, ptr @legs_by_dsaid, align 8
+  %176 = load i32, ptr %22, align 4
+  %177 = tail call ptr @wmem_tree_lookup32(ptr noundef %175, i32 noundef %176) #4
+  %.not171 = icmp eq ptr %177, null
+  br i1 %.not171, label %.thread189, label %178
 
-177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %176, i64 16
-  %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 4
-  %181 = load i32, ptr %180, align 4
-  %182 = getelementptr inbounds i8, ptr %1, i64 20
-  %183 = load i32, ptr %182, align 4
-  %184 = icmp ult i32 %181, %183
-  br i1 %184, label %185, label %202
+178:                                              ; preds = %174
+  %179 = getelementptr inbounds i8, ptr %7, i64 40
+  %180 = load i32, ptr %179, align 8
+  %181 = getelementptr inbounds i8, ptr %177, i64 48
+  store i32 %180, ptr %181, align 8
+  br label %182
 
-185:                                              ; preds = %177, %174
-  %186 = tail call ptr @wmem_file_scope() #4
-  %187 = tail call noalias ptr @wmem_alloc(ptr noundef %186, i64 noundef 24) #4
-  %188 = load i32, ptr %7, align 8
-  store i32 %188, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %1, i64 20
-  %190 = load i32, ptr %189, align 4
-  %191 = getelementptr inbounds i8, ptr %187, i64 4
-  store i32 %190, ptr %191, align 4
-  %192 = getelementptr inbounds i8, ptr %187, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %192, i8 0, i64 16, i1 false)
-  %193 = load ptr, ptr %175, align 8
-  %.not182 = icmp eq ptr %193, null
-  br i1 %.not182, label %198, label %194
+182:                                              ; preds = %170, %178, %164, %161, %149, %88, %140
+  %.0155.ph = phi ptr [ %95, %140 ], [ %92, %88 ], [ %148, %149 ], [ %.1, %161 ], [ %.1, %164 ], [ %177, %178 ], [ %169, %170 ]
+  %183 = getelementptr inbounds i8, ptr %.0155.ph, i64 40
+  %184 = load ptr, ptr %183, align 8
+  %.not181 = icmp eq ptr %184, null
+  br i1 %.not181, label %193, label %185
 
-194:                                              ; preds = %185
-  %195 = getelementptr inbounds i8, ptr %193, i64 16
-  %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 8
-  store ptr %187, ptr %197, align 8
-  %.pre = load ptr, ptr %175, align 8
-  br label %199
+185:                                              ; preds = %182
+  %186 = getelementptr inbounds i8, ptr %184, i64 16
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 4
+  %189 = load i32, ptr %188, align 4
+  %190 = getelementptr inbounds i8, ptr %1, i64 20
+  %191 = load i32, ptr %190, align 4
+  %192 = icmp ult i32 %189, %191
+  br i1 %192, label %193, label %210
 
-198:                                              ; preds = %185
-  store ptr %187, ptr %175, align 8
-  br label %199
+193:                                              ; preds = %185, %182
+  %194 = tail call ptr @wmem_file_scope() #4
+  %195 = tail call noalias ptr @wmem_alloc(ptr noundef %194, i64 noundef 24) #4
+  %196 = load i32, ptr %7, align 8
+  store i32 %196, ptr %195, align 8
+  %197 = getelementptr inbounds i8, ptr %1, i64 20
+  %198 = load i32, ptr %197, align 4
+  %199 = getelementptr inbounds i8, ptr %195, i64 4
+  store i32 %198, ptr %199, align 4
+  %200 = getelementptr inbounds i8, ptr %195, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %200, i8 0, i64 16, i1 false)
+  %201 = load ptr, ptr %183, align 8
+  %.not182 = icmp eq ptr %201, null
+  br i1 %.not182, label %206, label %202
 
-199:                                              ; preds = %198, %194
-  %200 = phi ptr [ %187, %198 ], [ %.pre, %194 ]
-  %201 = getelementptr inbounds i8, ptr %200, i64 16
-  store ptr %187, ptr %201, align 8
-  br label %202
+202:                                              ; preds = %193
+  %203 = getelementptr inbounds i8, ptr %201, i64 16
+  %204 = load ptr, ptr %203, align 8
+  %205 = getelementptr inbounds i8, ptr %204, i64 8
+  store ptr %195, ptr %205, align 8
+  %.pre = load ptr, ptr %183, align 8
+  br label %207
 
-202:                                              ; preds = %199, %177
-  br i1 %.not192, label %.thread189, label %203
+206:                                              ; preds = %193
+  store ptr %195, ptr %183, align 8
+  br label %207
 
-203:                                              ; preds = %202
+207:                                              ; preds = %206, %202
+  %208 = phi ptr [ %195, %206 ], [ %.pre, %202 ]
+  %209 = getelementptr inbounds i8, ptr %208, i64 16
+  store ptr %195, ptr %209, align 8
+  br label %210
+
+210:                                              ; preds = %207, %185
+  br i1 %.not192, label %.thread189, label %211
+
+211:                                              ; preds = %210
   tail call fastcc void @alcap_leg_tree(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0155.ph)
   br label %.thread189
 
-.thread189:                                       ; preds = %137, %149, %166, %86, %202, %203, %._crit_edge
-  %204 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  ret i32 %204
+.thread189:                                       ; preds = %145, %157, %174, %86, %210, %211, %._crit_edge
+  %212 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  ret i32 %212
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -242,7 +242,7 @@ declare i32 @EVP_MAC_up_ref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_siv128_aad(ptr nocapture noundef %ctx, ptr noundef %aad, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %mac_out = alloca %union.siv_block_u, align 16
+  %mac_out = alloca %union.siv_block_u, align 8
   %out_len = alloca i64, align 8
   store i64 16, ptr %out_len, align 8
   %0 = load i64, ptr %ctx, align 8
@@ -284,10 +284,15 @@ if.then:                                          ; preds = %lor.lhs.false2, %lo
 
 if.end:                                           ; preds = %lor.lhs.false2
   call void @EVP_MAC_CTX_free(ptr noundef nonnull %call) #9
-  %4 = load <2 x i64>, ptr %mac_out, align 16
-  %5 = load <2 x i64>, ptr %ctx, align 8
-  %6 = xor <2 x i64> %5, %4
-  store <2 x i64> %6, ptr %ctx, align 8
+  %4 = load i64, ptr %mac_out, align 8
+  %5 = load i64, ptr %ctx, align 8
+  %xor.i6 = xor i64 %5, %4
+  store i64 %xor.i6, ptr %ctx, align 8
+  %arrayidx2.i = getelementptr inbounds i8, ptr %mac_out, i64 8
+  %6 = load i64, ptr %arrayidx2.i, align 8
+  %7 = load i64, ptr %arrayidx.i.i, align 8
+  %xor4.i = xor i64 %7, %6
+  store i64 %xor4.i, ptr %arrayidx.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -355,7 +360,7 @@ return:                                           ; preds = %siv128_do_encrypt.e
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @siv128_do_s2v_p(ptr nocapture noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
 entry:
-  %t = alloca %union.siv_block_u, align 16
+  %t = alloca %union.siv_block_u, align 8
   %out_len = alloca i64, align 8
   store i64 16, ptr %out_len, align 8
   %mac_ctx_init = getelementptr inbounds i8, ptr %ctx, i64 48
@@ -376,25 +381,31 @@ if.then2:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.then2
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %sub
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %t, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr, i64 16, i1 false)
-  %1 = load <2 x i64>, ptr %ctx, align 8
-  %2 = load <2 x i64>, ptr %t, align 16
-  %3 = xor <2 x i64> %2, %1
-  store <2 x i64> %3, ptr %t, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %t, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr, i64 16, i1 false)
+  %1 = load i64, ptr %ctx, align 8
+  %2 = load i64, ptr %t, align 8
+  %xor.i = xor i64 %2, %1
+  store i64 %xor.i, ptr %t, align 8
+  %arrayidx2.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %3 = load i64, ptr %arrayidx2.i, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %t, i64 8
+  %4 = load i64, ptr %arrayidx3.i, align 8
+  %xor4.i = xor i64 %4, %3
+  store i64 %xor4.i, ptr %arrayidx3.i, align 8
   %call7 = call i32 @EVP_MAC_update(ptr noundef nonnull %call, ptr noundef nonnull %t, i64 noundef 16) #9
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %err, label %if.end18
 
 if.else:                                          ; preds = %if.end
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %t, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %t, ptr align 1 %in, i64 %len, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %t, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %t, ptr align 1 %in, i64 %len, i1 false)
   %arrayidx = getelementptr inbounds [16 x i8], ptr %t, i64 0, i64 %len
   store i8 -128, ptr %arrayidx, align 1
-  %4 = load i64, ptr %ctx, align 8
-  %or11.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
+  %5 = load i64, ptr %ctx, align 8
+  %or11.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
-  %5 = load i64, ptr %arrayidx.i.i, align 8
-  %or11.i.i8.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
+  %6 = load i64, ptr %arrayidx.i.i, align 8
+  %or11.i.i8.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
   %isneg.i = icmp slt i64 %or11.i.i.i, 0
   %and3.i = select i1 %isneg.i, i64 135, i64 0
   %or.i = tail call i64 @llvm.fshl.i64(i64 %or11.i.i.i, i64 %or11.i.i8.i, i64 1)
@@ -404,12 +415,12 @@ if.else:                                          ; preds = %if.end
   store i64 %or11.i.i9.i, ptr %ctx, align 8
   %or11.i.i11.i = tail call noundef i64 @llvm.bswap.i64(i64 %xor.i15)
   store i64 %or11.i.i11.i, ptr %arrayidx.i.i, align 8
-  %6 = load i64, ptr %t, align 16
-  %xor.i16 = xor i64 %6, %or11.i.i9.i
-  store i64 %xor.i16, ptr %t, align 16
+  %7 = load i64, ptr %t, align 8
+  %xor.i16 = xor i64 %7, %or11.i.i9.i
+  store i64 %xor.i16, ptr %t, align 8
   %arrayidx3.i18 = getelementptr inbounds i8, ptr %t, i64 8
-  %7 = load i64, ptr %arrayidx3.i18, align 8
-  %xor4.i19 = xor i64 %7, %or11.i.i11.i
+  %8 = load i64, ptr %arrayidx3.i18, align 8
+  %xor4.i19 = xor i64 %8, %or11.i.i11.i
   store i64 %xor4.i19, ptr %arrayidx3.i18, align 8
   %call14 = call i32 @EVP_MAC_update(ptr noundef nonnull %call, ptr noundef nonnull %t, i64 noundef 16) #9
   %tobool15.not = icmp eq i32 %call14, 0
@@ -418,8 +429,8 @@ if.else:                                          ; preds = %if.end
 if.end18:                                         ; preds = %if.else, %if.end5
   %call20 = call i32 @EVP_MAC_final(ptr noundef nonnull %call, ptr noundef %out, ptr noundef nonnull %out_len, i64 noundef 16) #9
   %tobool21 = icmp ne i32 %call20, 0
-  %8 = load i64, ptr %out_len, align 8
-  %cmp22 = icmp eq i64 %8, 16
+  %9 = load i64, ptr %out_len, align 8
+  %cmp22 = icmp eq i64 %9, 16
   %or.cond.not = select i1 %tobool21, i1 %cmp22, i1 false
   %spec.select = zext i1 %or.cond.not to i32
   br label %err

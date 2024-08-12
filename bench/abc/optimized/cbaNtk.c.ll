@@ -5418,167 +5418,237 @@ define void @Cba_NtkPrintStatsFull(ptr noundef %0, i32 noundef %1, i32 noundef %
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %16)
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
-  %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 88
-  %27 = load i32, ptr %26, align 8
-  %28 = sext i32 %27 to i64
-  %29 = uitofp i64 %28 to double
-  %30 = fadd double %29, 1.600000e+01
-  %31 = fptosi double %30 to i32
-  %32 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = sext i32 %19 to i64
+  %21 = uitofp i64 %20 to double
+  %22 = call double @llvm.fmuladd.f64(double %21, double 4.000000e+00, double 1.600000e+01)
+  %23 = fptosi double %22 to i32
+  %24 = add nsw i32 %23, 432
+  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = load i32, ptr %25, align 8
+  %27 = sext i32 %26 to i64
+  %28 = uitofp i64 %27 to double
+  %29 = call double @llvm.fmuladd.f64(double %28, double 4.000000e+00, double 1.600000e+01)
+  %30 = fptosi double %29 to i32
+  %31 = add nsw i32 %24, %30
+  %32 = getelementptr inbounds i8, ptr %0, i64 56
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 120
-  %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 136
-  %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 152
-  %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 168
-  %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 184
-  %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 200
-  %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 216
+  %34 = sext i32 %33 to i64
+  %35 = uitofp i64 %34 to double
+  %36 = call double @llvm.fmuladd.f64(double %35, double 4.000000e+00, double 1.600000e+01)
+  %37 = fptosi double %36 to i32
+  %38 = add nsw i32 %31, %37
+  %39 = getelementptr inbounds i8, ptr %0, i64 72
+  %40 = load i32, ptr %39, align 8
+  %41 = sext i32 %40 to i64
+  %42 = uitofp i64 %41 to double
+  %43 = call double @llvm.fmuladd.f64(double %42, double 4.000000e+00, double 1.600000e+01)
+  %44 = fptosi double %43 to i32
+  %45 = add nsw i32 %38, %44
+  %46 = getelementptr inbounds i8, ptr %0, i64 88
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 232
-  %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 248
-  %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 264
-  %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 280
-  %55 = load i32, ptr %54, align 8
-  %56 = insertelement <16 x i32> poison, i32 %19, i64 0
-  %57 = insertelement <16 x i32> %56, i32 %21, i64 1
-  %58 = insertelement <16 x i32> %57, i32 %23, i64 2
-  %59 = insertelement <16 x i32> %58, i32 %25, i64 3
-  %60 = insertelement <16 x i32> %59, i32 %33, i64 4
-  %61 = insertelement <16 x i32> %60, i32 %35, i64 5
-  %62 = insertelement <16 x i32> %61, i32 %37, i64 6
-  %63 = insertelement <16 x i32> %62, i32 %39, i64 7
-  %64 = insertelement <16 x i32> %63, i32 %41, i64 8
-  %65 = insertelement <16 x i32> %64, i32 %43, i64 9
-  %66 = insertelement <16 x i32> %65, i32 %45, i64 10
-  %67 = insertelement <16 x i32> %66, i32 %47, i64 11
-  %68 = insertelement <16 x i32> %67, i32 %49, i64 12
-  %69 = insertelement <16 x i32> %68, i32 %51, i64 13
-  %70 = insertelement <16 x i32> %69, i32 %53, i64 14
-  %71 = insertelement <16 x i32> %70, i32 %55, i64 15
-  %72 = uitofp <16 x i32> %71 to <16 x double>
-  %73 = call <16 x double> @llvm.fmuladd.v16f64(<16 x double> %72, <16 x double> <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>, <16 x double> <double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01>)
-  %74 = fptosi <16 x double> %73 to <16 x i32>
-  %75 = getelementptr inbounds i8, ptr %0, i64 296
-  %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 312
-  %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 328
-  %80 = load i32, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 344
+  %48 = sext i32 %47 to i64
+  %49 = uitofp i64 %48 to double
+  %50 = fadd double %49, 1.600000e+01
+  %51 = fptosi double %50 to i32
+  %52 = add nsw i32 %45, %51
+  %53 = getelementptr inbounds i8, ptr %0, i64 104
+  %54 = load i32, ptr %53, align 8
+  %55 = sext i32 %54 to i64
+  %56 = uitofp i64 %55 to double
+  %57 = call double @llvm.fmuladd.f64(double %56, double 4.000000e+00, double 1.600000e+01)
+  %58 = fptosi double %57 to i32
+  %59 = add nsw i32 %52, %58
+  %60 = getelementptr inbounds i8, ptr %0, i64 120
+  %61 = load i32, ptr %60, align 8
+  %62 = sext i32 %61 to i64
+  %63 = uitofp i64 %62 to double
+  %64 = call double @llvm.fmuladd.f64(double %63, double 4.000000e+00, double 1.600000e+01)
+  %65 = fptosi double %64 to i32
+  %66 = add nsw i32 %59, %65
+  %67 = getelementptr inbounds i8, ptr %0, i64 136
+  %68 = load i32, ptr %67, align 8
+  %69 = sext i32 %68 to i64
+  %70 = uitofp i64 %69 to double
+  %71 = call double @llvm.fmuladd.f64(double %70, double 4.000000e+00, double 1.600000e+01)
+  %72 = fptosi double %71 to i32
+  %73 = add nsw i32 %66, %72
+  %74 = getelementptr inbounds i8, ptr %0, i64 152
+  %75 = load i32, ptr %74, align 8
+  %76 = sext i32 %75 to i64
+  %77 = uitofp i64 %76 to double
+  %78 = call double @llvm.fmuladd.f64(double %77, double 4.000000e+00, double 1.600000e+01)
+  %79 = fptosi double %78 to i32
+  %80 = add nsw i32 %73, %79
+  %81 = getelementptr inbounds i8, ptr %0, i64 168
   %82 = load i32, ptr %81, align 8
-  %83 = insertelement <4 x i32> poison, i32 %76, i64 0
-  %84 = insertelement <4 x i32> %83, i32 %78, i64 1
-  %85 = insertelement <4 x i32> %84, i32 %80, i64 2
-  %86 = insertelement <4 x i32> %85, i32 %82, i64 3
-  %87 = uitofp <4 x i32> %86 to <4 x double>
-  %88 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %87, <4 x double> <double 4.000000e+00, double 4.000000e+00, double 4.000000e+00, double 4.000000e+00>, <4 x double> <double 1.600000e+01, double 1.600000e+01, double 1.600000e+01, double 1.600000e+01>)
-  %89 = fptosi <4 x double> %88 to <4 x i32>
-  %90 = getelementptr inbounds i8, ptr %0, i64 360
-  %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 376
-  %93 = load i32, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 416
-  %95 = load i32, ptr %94, align 8
-  %96 = sext i32 %95 to i64
-  %97 = uitofp i64 %96 to double
-  %98 = call double @llvm.fmuladd.f64(double %97, double 4.000000e+00, double 1.600000e+01)
-  %99 = fptosi double %98 to i32
-  %reass.add.i = shl i32 %99, 1
-  %100 = call i32 @llvm.vector.reduce.add.v16i32(<16 x i32> %74)
-  %101 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %89)
-  %op.rdx = add i32 %100, %101
-  %102 = insertelement <2 x i32> poison, i32 %91, i64 0
-  %103 = insertelement <2 x i32> %102, i32 %93, i64 1
-  %104 = uitofp <2 x i32> %103 to <2 x double>
-  %105 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %104, <2 x double> <double 4.000000e+00, double 4.000000e+00>, <2 x double> <double 1.600000e+01, double 1.600000e+01>)
-  %106 = fptosi <2 x double> %105 to <2 x i32>
-  %107 = insertelement <2 x i32> poison, i32 %op.rdx, i64 0
-  %108 = insertelement <2 x i32> %107, i32 %reass.add.i, i64 1
-  %109 = add <2 x i32> %108, %106
-  %op.rdx43 = add i32 %31, 432
-  %shift = shufflevector <2 x i32> %109, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %110 = add <2 x i32> %109, %shift
-  %op.rdx44 = extractelement <2 x i32> %110, i64 0
-  %op.rdx45 = add i32 %op.rdx44, %op.rdx43
-  %111 = sitofp i32 %op.rdx45 to double
-  %112 = fmul double %111, 0x3EB0000000000000
-  %113 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, double noundef %112)
+  %83 = sext i32 %82 to i64
+  %84 = uitofp i64 %83 to double
+  %85 = call double @llvm.fmuladd.f64(double %84, double 4.000000e+00, double 1.600000e+01)
+  %86 = fptosi double %85 to i32
+  %87 = add nsw i32 %80, %86
+  %88 = getelementptr inbounds i8, ptr %0, i64 184
+  %89 = load i32, ptr %88, align 8
+  %90 = sext i32 %89 to i64
+  %91 = uitofp i64 %90 to double
+  %92 = call double @llvm.fmuladd.f64(double %91, double 4.000000e+00, double 1.600000e+01)
+  %93 = fptosi double %92 to i32
+  %94 = add nsw i32 %87, %93
+  %95 = getelementptr inbounds i8, ptr %0, i64 200
+  %96 = load i32, ptr %95, align 8
+  %97 = sext i32 %96 to i64
+  %98 = uitofp i64 %97 to double
+  %99 = call double @llvm.fmuladd.f64(double %98, double 4.000000e+00, double 1.600000e+01)
+  %100 = fptosi double %99 to i32
+  %101 = add nsw i32 %94, %100
+  %102 = getelementptr inbounds i8, ptr %0, i64 216
+  %103 = load i32, ptr %102, align 8
+  %104 = sext i32 %103 to i64
+  %105 = uitofp i64 %104 to double
+  %106 = call double @llvm.fmuladd.f64(double %105, double 4.000000e+00, double 1.600000e+01)
+  %107 = fptosi double %106 to i32
+  %108 = add nsw i32 %101, %107
+  %109 = getelementptr inbounds i8, ptr %0, i64 232
+  %110 = load i32, ptr %109, align 8
+  %111 = sext i32 %110 to i64
+  %112 = uitofp i64 %111 to double
+  %113 = call double @llvm.fmuladd.f64(double %112, double 4.000000e+00, double 1.600000e+01)
+  %114 = fptosi double %113 to i32
+  %115 = add nsw i32 %108, %114
+  %116 = getelementptr inbounds i8, ptr %0, i64 248
+  %117 = load i32, ptr %116, align 8
+  %118 = sext i32 %117 to i64
+  %119 = uitofp i64 %118 to double
+  %120 = call double @llvm.fmuladd.f64(double %119, double 4.000000e+00, double 1.600000e+01)
+  %121 = fptosi double %120 to i32
+  %122 = add nsw i32 %115, %121
+  %123 = getelementptr inbounds i8, ptr %0, i64 264
+  %124 = load i32, ptr %123, align 8
+  %125 = sext i32 %124 to i64
+  %126 = uitofp i64 %125 to double
+  %127 = call double @llvm.fmuladd.f64(double %126, double 4.000000e+00, double 1.600000e+01)
+  %128 = fptosi double %127 to i32
+  %129 = add nsw i32 %122, %128
+  %130 = getelementptr inbounds i8, ptr %0, i64 280
+  %131 = load i32, ptr %130, align 8
+  %132 = sext i32 %131 to i64
+  %133 = uitofp i64 %132 to double
+  %134 = call double @llvm.fmuladd.f64(double %133, double 4.000000e+00, double 1.600000e+01)
+  %135 = fptosi double %134 to i32
+  %136 = add nsw i32 %129, %135
+  %137 = getelementptr inbounds i8, ptr %0, i64 296
+  %138 = load i32, ptr %137, align 8
+  %139 = sext i32 %138 to i64
+  %140 = uitofp i64 %139 to double
+  %141 = call double @llvm.fmuladd.f64(double %140, double 4.000000e+00, double 1.600000e+01)
+  %142 = fptosi double %141 to i32
+  %143 = add nsw i32 %136, %142
+  %144 = getelementptr inbounds i8, ptr %0, i64 312
+  %145 = load i32, ptr %144, align 8
+  %146 = sext i32 %145 to i64
+  %147 = uitofp i64 %146 to double
+  %148 = call double @llvm.fmuladd.f64(double %147, double 4.000000e+00, double 1.600000e+01)
+  %149 = fptosi double %148 to i32
+  %150 = add nsw i32 %143, %149
+  %151 = getelementptr inbounds i8, ptr %0, i64 328
+  %152 = load i32, ptr %151, align 8
+  %153 = sext i32 %152 to i64
+  %154 = uitofp i64 %153 to double
+  %155 = call double @llvm.fmuladd.f64(double %154, double 4.000000e+00, double 1.600000e+01)
+  %156 = fptosi double %155 to i32
+  %157 = add nsw i32 %150, %156
+  %158 = getelementptr inbounds i8, ptr %0, i64 344
+  %159 = load i32, ptr %158, align 8
+  %160 = sext i32 %159 to i64
+  %161 = uitofp i64 %160 to double
+  %162 = call double @llvm.fmuladd.f64(double %161, double 4.000000e+00, double 1.600000e+01)
+  %163 = fptosi double %162 to i32
+  %164 = add nsw i32 %157, %163
+  %165 = getelementptr inbounds i8, ptr %0, i64 360
+  %166 = load i32, ptr %165, align 8
+  %167 = sext i32 %166 to i64
+  %168 = uitofp i64 %167 to double
+  %169 = call double @llvm.fmuladd.f64(double %168, double 4.000000e+00, double 1.600000e+01)
+  %170 = fptosi double %169 to i32
+  %171 = add nsw i32 %164, %170
+  %172 = getelementptr inbounds i8, ptr %0, i64 376
+  %173 = load i32, ptr %172, align 8
+  %174 = sext i32 %173 to i64
+  %175 = uitofp i64 %174 to double
+  %176 = call double @llvm.fmuladd.f64(double %175, double 4.000000e+00, double 1.600000e+01)
+  %177 = fptosi double %176 to i32
+  %178 = add nsw i32 %171, %177
+  %179 = getelementptr inbounds i8, ptr %0, i64 416
+  %180 = load i32, ptr %179, align 8
+  %181 = sext i32 %180 to i64
+  %182 = uitofp i64 %181 to double
+  %183 = call double @llvm.fmuladd.f64(double %182, double 4.000000e+00, double 1.600000e+01)
+  %184 = fptosi double %183 to i32
+  %reass.add.i = shl i32 %184, 1
+  %185 = add i32 %178, %reass.add.i
+  %186 = sitofp i32 %185 to double
+  %187 = fmul double %186, 0x3EB0000000000000
+  %188 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, double noundef %187)
   %putchar = call i32 @putchar(i32 10)
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %115, label %114
+  br i1 %.not, label %190, label %189
 
-114:                                              ; preds = %3
+189:                                              ; preds = %3
   call void @Cba_NtkPrintDistrib(ptr noundef nonnull %0, i32 poison)
   br label %.loopexit
 
-115:                                              ; preds = %3
+190:                                              ; preds = %3
   %.not30 = icmp eq i32 %2, 0
-  br i1 %.not30, label %.loopexit, label %116
+  br i1 %.not30, label %.loopexit, label %191
 
-116:                                              ; preds = %115
+191:                                              ; preds = %190
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %117
+  br label %192
 
-117:                                              ; preds = %116, %142
-  %indvars.iv = phi i64 [ 1, %116 ], [ %indvars.iv.next, %142 ]
-  %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 832
-  %120 = getelementptr inbounds [90 x i32], ptr %119, i64 0, i64 %indvars.iv
-  %121 = load i32, ptr %120, align 4
-  %.not31 = icmp eq i32 %121, 0
-  br i1 %.not31, label %142, label %122
+192:                                              ; preds = %191, %217
+  %indvars.iv = phi i64 [ 1, %191 ], [ %indvars.iv.next, %217 ]
+  %193 = load ptr, ptr %0, align 8
+  %194 = getelementptr inbounds i8, ptr %193, i64 832
+  %195 = getelementptr inbounds [90 x i32], ptr %194, i64 0, i64 %indvars.iv
+  %196 = load i32, ptr %195, align 4
+  %.not31 = icmp eq i32 %196, 0
+  br i1 %.not31, label %217, label %197
 
-122:                                              ; preds = %117
-  %123 = getelementptr inbounds i8, ptr %118, i64 1192
-  %124 = load i32, ptr %123, align 8
-  %.not32 = icmp eq i32 %124, 0
-  br i1 %.not32, label %137, label %125
+197:                                              ; preds = %192
+  %198 = getelementptr inbounds i8, ptr %193, i64 1192
+  %199 = load i32, ptr %198, align 8
+  %.not32 = icmp eq i32 %199, 0
+  br i1 %.not32, label %212, label %200
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds [90 x i32], ptr %123, i64 0, i64 %indvars.iv
-  %127 = load i32, ptr %126, align 4
-  %.not33 = icmp eq i32 %127, 0
-  br i1 %.not33, label %137, label %128
+200:                                              ; preds = %197
+  %201 = getelementptr inbounds [90 x i32], ptr %198, i64 0, i64 %indvars.iv
+  %202 = load i32, ptr %201, align 4
+  %.not33 = icmp eq i32 %202, 0
+  br i1 %.not33, label %212, label %203
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds [90 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %130 = load ptr, ptr %129, align 8
-  %131 = sitofp i32 %127 to double
-  %132 = fmul double %131, 1.000000e+02
-  %133 = sitofp i32 %124 to double
-  %134 = fdiv double %132, %133
-  %135 = trunc nuw nsw i64 %indvars.iv to i32
-  %136 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %135, ptr noundef %130, i32 noundef %121, double noundef %134)
-  br label %142
+203:                                              ; preds = %200
+  %204 = getelementptr inbounds [90 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %205 = load ptr, ptr %204, align 8
+  %206 = sitofp i32 %202 to double
+  %207 = fmul double %206, 1.000000e+02
+  %208 = sitofp i32 %199 to double
+  %209 = fdiv double %207, %208
+  %210 = trunc nuw nsw i64 %indvars.iv to i32
+  %211 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %210, ptr noundef %205, i32 noundef %196, double noundef %209)
+  br label %217
 
-137:                                              ; preds = %125, %122
-  %138 = getelementptr inbounds [90 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %139 = load ptr, ptr %138, align 8
-  %140 = trunc nuw nsw i64 %indvars.iv to i32
-  %141 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %140, ptr noundef %139, i32 noundef %121)
-  br label %142
+212:                                              ; preds = %200, %197
+  %213 = getelementptr inbounds [90 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %214 = load ptr, ptr %213, align 8
+  %215 = trunc nuw nsw i64 %indvars.iv to i32
+  %216 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %215, ptr noundef %214, i32 noundef %196)
+  br label %217
 
-142:                                              ; preds = %128, %137, %117
+217:                                              ; preds = %203, %212, %192
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 90
-  br i1 %exitcond.not, label %.loopexit, label %117, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %192, !llvm.loop !16
 
-.loopexit:                                        ; preds = %142, %115, %114
+.loopexit:                                        ; preds = %217, %190, %189
   ret void
 }
 
@@ -17275,21 +17345,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x double> @llvm.fmuladd.v16f64(<16 x double>, <16 x double>, <16 x double>) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v16i32(<16 x i32>) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x double> @llvm.fmuladd.v4f64(<4 x double>, <4 x double>, <4 x double>) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #22
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

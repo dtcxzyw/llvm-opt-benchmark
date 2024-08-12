@@ -1145,12 +1145,13 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
   store i16 %109, ptr %110, align 8
   %111 = trunc i32 %105 to i16
   %112 = lshr i16 %111, 8
-  %113 = getelementptr inbounds i8, ptr %103, i64 10
-  %114 = and i16 %111, 255
-  %115 = insertelement <2 x i16> poison, i16 %112, i64 0
-  %116 = insertelement <2 x i16> %115, i16 %114, i64 1
-  %117 = mul nuw <2 x i16> %116, <i16 257, i16 257>
-  store <2 x i16> %117, ptr %113, align 2
+  %113 = mul nuw i16 %112, 257
+  %114 = getelementptr inbounds i8, ptr %103, i64 10
+  store i16 %113, ptr %114, align 2
+  %115 = and i16 %111, 255
+  %116 = mul nuw i16 %115, 257
+  %117 = getelementptr inbounds i8, ptr %103, i64 12
+  store i16 %116, ptr %117, align 4
   %118 = getelementptr inbounds i8, ptr %103, i64 14
   store i8 7, ptr %118, align 2
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
@@ -1665,7 +1666,7 @@ define hidden noalias noundef ptr @SplashScreenThread(ptr noundef %0) #0 {
   %23 = getelementptr inbounds i8, ptr %0, i64 11720
   %24 = load i64, ptr %23, align 8
   %.not = icmp eq i64 %24, 0
-  br i1 %.not, label %71, label %25
+  br i1 %.not, label %74, label %25
 
 25:                                               ; preds = %1
   tail call void @SplashRemoveDecoration(ptr noundef nonnull %0)
@@ -1720,21 +1721,25 @@ SplashUpdateShape.exit:                           ; preds = %25, %38, %41
   %62 = getelementptr inbounds i8, ptr %0, i64 11700
   %63 = load float, ptr %62, align 4
   %64 = getelementptr inbounds i8, ptr %0, i64 10636
-  %65 = load <2 x i32>, ptr %64, align 4
-  %66 = sitofp <2 x i32> %65 to <2 x float>
-  %67 = insertelement <2 x float> poison, float %63, i64 0
-  %68 = shufflevector <2 x float> %67, <2 x float> poison, <2 x i32> zeroinitializer
-  %69 = fdiv <2 x float> %66, %68
-  %70 = fptosi <2 x float> %69 to <2 x i32>
-  store <2 x i32> %70, ptr %64, align 4
+  %65 = load i32, ptr %64, align 4
+  %66 = sitofp i32 %65 to float
+  %67 = fdiv float %66, %63
+  %68 = fptosi float %67 to i32
+  store i32 %68, ptr %64, align 4
+  %69 = getelementptr inbounds i8, ptr %0, i64 10640
+  %70 = load i32, ptr %69, align 8
+  %71 = sitofp i32 %70 to float
+  %72 = fdiv float %71, %63
+  %73 = fptosi float %72 to i32
+  store i32 %73, ptr %69, align 8
   tail call void @SplashEventLoop(ptr noundef nonnull %0)
-  br label %71
+  br label %74
 
-71:                                               ; preds = %SplashUpdateShape.exit, %1
-  %72 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #16
+74:                                               ; preds = %SplashUpdateShape.exit, %1
+  %75 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #16
   tail call void @SplashDone(ptr noundef nonnull %0) #16
-  %73 = getelementptr inbounds i8, ptr %0, i64 11668
-  store i32 -1, ptr %73, align 4
+  %76 = getelementptr inbounds i8, ptr %0, i64 11668
+  store i32 -1, ptr %76, align 4
   ret ptr null
 }
 

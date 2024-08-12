@@ -523,19 +523,23 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %4 = alloca { { ptr, ptr, {} }, { ptr, ptr } }, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
+  %.val = load ptr, ptr %1, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = getelementptr i8, ptr %1, i64 8
+  %.val1 = load ptr, ptr %6, align 8, !nonnull !3, !align !7, !noundef !3
   %.val2 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %6 = getelementptr inbounds i8, ptr %.val2, i64 40
-  %7 = load ptr, ptr %6, align 8, !noalias !11, !nonnull !3, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %.val2, i64 48
-  %9 = load i64, ptr %8, align 8, !noalias !11, !noundef !3
-  %10 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 } }, ptr %7, i64 %9
-  store ptr %7, ptr %4, align 8, !noalias !11
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %10, ptr %11, align 8, !noalias !11
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
-  %13 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %13, ptr %12, align 8, !noalias !11
+  %7 = getelementptr inbounds i8, ptr %.val2, i64 40
+  %8 = load ptr, ptr %7, align 8, !noalias !11, !nonnull !3, !noundef !3
+  %9 = getelementptr inbounds i8, ptr %.val2, i64 48
+  %10 = load i64, ptr %9, align 8, !noalias !11, !noundef !3
+  %11 = getelementptr inbounds { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 } }, ptr %8, i64 %10
+  store ptr %8, ptr %4, align 8, !noalias !11
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %11, ptr %12, align 8, !noalias !11
+  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %.val, ptr %13, align 8, !noalias !11
+  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %.val1, ptr %14, align 8, !noalias !11
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17haafdefdbc68dd374E"(ptr sret({ { i64, ptr, {} }, i64 }) align 8 %0, ptr nonnull align 8 %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void

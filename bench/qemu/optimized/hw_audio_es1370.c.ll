@@ -175,7 +175,13 @@ if.end:                                           ; preds = %entry
   tail call void @memory_region_init_io(ptr noundef nonnull %io, ptr noundef nonnull %call.i, ptr noundef nonnull @es1370_io_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i64 noundef 256) #6
   tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %io) #6
   %ctl.i = getelementptr inbounds i8, ptr %call.i, i64 3000
-  store <4 x i32> <i32 1, i32 96, i32 0, i32 0>, ptr %ctl.i, align 8
+  store i32 1, ptr %ctl.i, align 8
+  %status.i = getelementptr inbounds i8, ptr %call.i, i64 3004
+  store i32 96, ptr %status.i, align 4
+  %mempage.i = getelementptr inbounds i8, ptr %call.i, i64 3008
+  store i32 0, ptr %mempage.i, align 16
+  %codec.i = getelementptr inbounds i8, ptr %call.i, i64 3012
+  store i32 0, ptr %codec.i, align 4
   %sctl.i = getelementptr inbounds i8, ptr %call.i, i64 3016
   store i32 0, ptr %sctl.i, align 8
   %chan.i = getelementptr inbounds i8, ptr %call.i, i64 2912
@@ -236,7 +242,13 @@ define internal void @es1370_on_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 249, ptr noundef nonnull @.str.2) #6
   %ctl.i = getelementptr inbounds i8, ptr %call.i, i64 3000
-  store <4 x i32> <i32 1, i32 96, i32 0, i32 0>, ptr %ctl.i, align 8
+  store i32 1, ptr %ctl.i, align 8
+  %status.i = getelementptr inbounds i8, ptr %call.i, i64 3004
+  store i32 96, ptr %status.i, align 4
+  %mempage.i = getelementptr inbounds i8, ptr %call.i, i64 3008
+  store i32 0, ptr %mempage.i, align 16
+  %codec.i = getelementptr inbounds i8, ptr %call.i, i64 3012
+  store i32 0, ptr %codec.i, align 4
   %sctl.i = getelementptr inbounds i8, ptr %call.i, i64 3016
   store i32 0, ptr %sctl.i, align 8
   %chan.i = getelementptr inbounds i8, ptr %call.i, i64 2912

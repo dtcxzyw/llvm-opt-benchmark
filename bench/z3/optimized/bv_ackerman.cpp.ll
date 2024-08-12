@@ -77,7 +77,13 @@ entry:
   %m_queue = getelementptr inbounds i8, ptr %this, i64 32
   %m_gc_threshold = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_queue, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 100, i32 10000, i32 10, i32 0>, ptr %m_gc_threshold, align 8
+  store i32 100, ptr %m_gc_threshold, align 8
+  %m_propagate_high_watermark = getelementptr inbounds i8, ptr %this, i64 52
+  store i32 10000, ptr %m_propagate_high_watermark, align 4
+  %m_propagate_low_watermark = getelementptr inbounds i8, ptr %this, i64 56
+  store i32 10, ptr %m_propagate_low_watermark, align 8
+  %m_num_propagations_since_last_gc = getelementptr inbounds i8, ptr %this, i64 60
+  store i32 0, ptr %m_num_propagations_since_last_gc, align 4
   %m_diff_levels = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %m_diff_levels, align 8
   %call.i2 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
@@ -86,16 +92,21 @@ entry:
 invoke.cont5:                                     ; preds = %entry
   %m_tmp_vv = getelementptr inbounds i8, ptr %this, i64 40
   %v1.i.i = getelementptr inbounds i8, ptr %call.i2, i64 16
+  store i32 -1, ptr %v1.i.i, align 8
+  %v2.i.i = getelementptr inbounds i8, ptr %call.i2, i64 20
+  store i32 -1, ptr %v2.i.i, align 4
+  %m_count.i.i = getelementptr inbounds i8, ptr %call.i2, i64 24
+  %m_glue.i.i = getelementptr inbounds i8, ptr %call.i2, i64 28
   store ptr %call.i2, ptr %m_tmp_vv, align 8
   store ptr %call.i2, ptr %call.i2, align 8
   %m_prev.i.i = getelementptr inbounds i8, ptr %call.i2, i64 8
   store ptr %call.i2, ptr %m_prev.i.i, align 8
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 -1>, ptr %v1.i.i, align 8
+  store i32 0, ptr %m_count.i.i, align 8
+  store i32 -1, ptr %m_glue.i.i, align 4
   %call = invoke noundef nonnull align 8 dereferenceable(800) ptr @_ZNK3euf13th_euf_solver10get_configEv(ptr noundef nonnull align 8 dereferenceable(108) %s)
           to label %invoke.cont6 unwind label %lpad4
 
 invoke.cont6:                                     ; preds = %invoke.cont5
-  %m_propagate_low_watermark = getelementptr inbounds i8, ptr %this, i64 56
   %m_dack_threshold = getelementptr inbounds i8, ptr %call, i64 88
   %0 = load i32, ptr %m_dack_threshold, align 8
   store i32 %0, ptr %m_propagate_low_watermark, align 8
@@ -116,12 +127,18 @@ define hidden void @_ZN2bv8ackerman7new_tmpEv(ptr nocapture noundef nonnull writ
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %v1.i = getelementptr inbounds i8, ptr %call, i64 16
+  store i32 -1, ptr %v1.i, align 8
+  %v2.i = getelementptr inbounds i8, ptr %call, i64 20
+  store i32 -1, ptr %v2.i, align 4
+  %m_count.i = getelementptr inbounds i8, ptr %call, i64 24
+  %m_glue.i = getelementptr inbounds i8, ptr %call, i64 28
   %m_tmp_vv = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %call, ptr %m_tmp_vv, align 8
   store ptr %call, ptr %call, align 8
   %m_prev.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call, ptr %m_prev.i, align 8
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 -1>, ptr %v1.i, align 8
+  store i32 0, ptr %m_count.i, align 8
+  store i32 -1, ptr %m_glue.i, align 4
   ret void
 }
 
@@ -529,11 +546,17 @@ _ZN8dll_baseIN2bv8ackerman2vvEE13push_to_frontERPS2_S4_.exit: ; preds = %if.else
 if.then7:                                         ; preds = %_ZN8dll_baseIN2bv8ackerman2vvEE13push_to_frontERPS2_S4_.exit
   %call.i = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %v1.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  store i32 -1, ptr %v1.i.i, align 8
+  %v2.i.i = getelementptr inbounds i8, ptr %call.i, i64 20
+  store i32 -1, ptr %v2.i.i, align 4
+  %m_count.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %m_glue.i.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store ptr %call.i, ptr %m_tmp_vv, align 8
   store ptr %call.i, ptr %call.i, align 8
   %m_prev.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call.i, ptr %m_prev.i.i, align 8
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 -1>, ptr %v1.i.i, align 8
+  store i32 0, ptr %m_count.i.i, align 8
+  store i32 -1, ptr %m_glue.i.i, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %_ZN8dll_baseIN2bv8ackerman2vvEE13push_to_frontERPS2_S4_.exit
@@ -1277,11 +1300,17 @@ _ZN8dll_baseIN2bv8ackerman2vvEE13push_to_frontERPS2_S4_.exit: ; preds = %if.else
 if.then6:                                         ; preds = %_ZN8dll_baseIN2bv8ackerman2vvEE13push_to_frontERPS2_S4_.exit
   %call.i = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %v1.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  store i32 -1, ptr %v1.i.i, align 8
+  %v2.i.i = getelementptr inbounds i8, ptr %call.i, i64 20
+  store i32 -1, ptr %v2.i.i, align 4
+  %m_count.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %m_glue.i.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store ptr %call.i, ptr %m_tmp_vv, align 8
   store ptr %call.i, ptr %call.i, align 8
   %m_prev.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call.i, ptr %m_prev.i.i, align 8
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 -1>, ptr %v1.i.i, align 8
+  store i32 0, ptr %m_count.i.i, align 8
+  store i32 -1, ptr %m_glue.i.i, align 4
   call void @_ZN2bv8ackerman2gcEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
   br label %if.end7
 

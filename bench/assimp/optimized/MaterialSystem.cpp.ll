@@ -2165,10 +2165,13 @@ for.end55:                                        ; preds = %for.end55.loopexit,
   %data.i.i = getelementptr inbounds i8, ptr %call56, i64 4
   store i8 0, ptr %data.i.i, align 4
   %mSemantic.i = getelementptr inbounds i8, ptr %call56, i64 1028
+  store i32 0, ptr %mSemantic.i, align 4
   %mIndex.i = getelementptr inbounds i8, ptr %call56, i64 1032
+  store i32 0, ptr %mIndex.i, align 8
   %mDataLength.i = getelementptr inbounds i8, ptr %call56, i64 1036
+  store i32 0, ptr %mDataLength.i, align 4
   %mType.i = getelementptr inbounds i8, ptr %call56, i64 1040
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 1>, ptr %mSemantic.i, align 4
+  store i32 1, ptr %mType.i, align 8
   %mData.i57 = getelementptr inbounds i8, ptr %call56, i64 1048
   store ptr null, ptr %mData.i57, align 8
   %24 = load ptr, ptr %pcDest, align 8

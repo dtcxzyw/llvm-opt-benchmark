@@ -207,201 +207,211 @@ define noundef zeroext i1 @_ZN5Ipopt21CGPerturbationHandler17ConsiderNewSystemER
   %12 = getelementptr inbounds i8, ptr %7, i64 68
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %11, %13
-  br i1 %14, label %15, label %18
+  br i1 %14, label %15, label %21
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 124
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
-  store <4 x i32> <i32 1, i32 1, i32 0, i32 0>, ptr %16, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
-  br label %18
+  %16 = getelementptr inbounds i8, ptr %0, i64 132
+  store i32 0, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 124
+  store i32 1, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 128
+  store i32 1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds i8, ptr %0, i64 136
+  store i32 0, ptr %20, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, i8 0, i64 64, i1 false)
+  br label %21
 
-18:                                               ; preds = %15, %5
-  %19 = getelementptr inbounds i8, ptr %0, i64 208
-  %20 = load i8, ptr %19, align 8
-  %21 = trunc i8 %20 to i1
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
-  %23 = load double, ptr %22, align 8
-  br i1 %21, label %24, label %31
+21:                                               ; preds = %15, %5
+  %22 = getelementptr inbounds i8, ptr %0, i64 208
+  %23 = load i8, ptr %22, align 8
+  %24 = trunc i8 %23 to i1
+  %25 = getelementptr inbounds i8, ptr %0, i64 88
+  %26 = load double, ptr %25, align 8
+  br i1 %24, label %27, label %37
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
-  store double %23, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 96
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
-  %28 = load <2 x double>, ptr %26, align 8
-  store <2 x double> %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  store double %26, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 96
   %30 = load double, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  store double %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 104
+  %33 = load double, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 72
+  store double %33, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 112
+  %36 = load double, ptr %35, align 8
   br label %.sink.split
 
-31:                                               ; preds = %18
-  %32 = fcmp ogt double %23, 0.000000e+00
-  br i1 %32, label %33, label %35
-
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
-  store double %23, ptr %34, align 8
-  br label %35
-
-35:                                               ; preds = %33, %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 96
-  %37 = load double, ptr %36, align 8
-  %38 = fcmp ogt double %37, 0.000000e+00
+37:                                               ; preds = %21
+  %38 = fcmp ogt double %26, 0.000000e+00
   br i1 %38, label %39, label %41
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 64
-  store double %37, ptr %40, align 8
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  store double %26, ptr %40, align 8
   br label %41
 
-41:                                               ; preds = %39, %35
-  %42 = getelementptr inbounds i8, ptr %0, i64 104
+41:                                               ; preds = %39, %37
+  %42 = getelementptr inbounds i8, ptr %0, i64 96
   %43 = load double, ptr %42, align 8
   %44 = fcmp ogt double %43, 0.000000e+00
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 72
+  %46 = getelementptr inbounds i8, ptr %0, i64 64
   store double %43, ptr %46, align 8
   br label %47
 
 47:                                               ; preds = %45, %41
-  %48 = getelementptr inbounds i8, ptr %0, i64 112
+  %48 = getelementptr inbounds i8, ptr %0, i64 104
   %49 = load double, ptr %48, align 8
   %50 = fcmp ogt double %49, 0.000000e+00
-  br i1 %50, label %.sink.split, label %52
+  br i1 %50, label %51, label %53
 
-.sink.split:                                      ; preds = %47, %24
-  %.sink = phi double [ %30, %24 ], [ %49, %47 ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 80
-  store double %.sink, ptr %51, align 8
-  br label %52
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds i8, ptr %0, i64 72
+  store double %49, ptr %52, align 8
+  br label %53
 
-52:                                               ; preds = %.sink.split, %47
-  %53 = getelementptr inbounds i8, ptr %0, i64 124
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %54, 0
-  %56 = getelementptr inbounds i8, ptr %0, i64 128
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp eq i32 %57, 0
-  %or.cond = select i1 %55, i1 true, i1 %58
-  br i1 %or.cond, label %59, label %78
+53:                                               ; preds = %51, %47
+  %54 = getelementptr inbounds i8, ptr %0, i64 112
+  %55 = load double, ptr %54, align 8
+  %56 = fcmp ogt double %55, 0.000000e+00
+  br i1 %56, label %.sink.split, label %58
 
-59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %0, i64 216
-  %61 = load i8, ptr %60, align 8
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %78
+.sink.split:                                      ; preds = %53, %27
+  %.sink = phi double [ %36, %27 ], [ %55, %53 ]
+  %57 = getelementptr inbounds i8, ptr %0, i64 80
+  store double %.sink, ptr %57, align 8
+  br label %58
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %0, i64 40
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call noundef double @_ZN5Ipopt11CGPenaltyCq17curr_cg_pert_factEv(ptr noundef nonnull align 8 dereferenceable(241) %67)
-  %69 = tail call noundef double @_ZN5Ipopt21PDPerturbationHandler8delta_cdEv(ptr noundef nonnull align 8 dereferenceable(217) %0)
-  %70 = fcmp olt double %68, %69
-  br i1 %70, label %78, label %71
+58:                                               ; preds = %.sink.split, %53
+  %59 = getelementptr inbounds i8, ptr %0, i64 124
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp eq i32 %60, 0
+  %62 = getelementptr inbounds i8, ptr %0, i64 128
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
+  %or.cond = select i1 %61, i1 true, i1 %64
+  br i1 %or.cond, label %65, label %84
 
-71:                                               ; preds = %63
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 2192
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 41
-  %76 = load i8, ptr %75, align 1
-  %77 = and i8 %76, 1
-  %.not = icmp eq i8 %77, 0
+65:                                               ; preds = %58
+  %66 = getelementptr inbounds i8, ptr %0, i64 216
+  %67 = load i8, ptr %66, align 8
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %84
+
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %0, i64 40
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 32
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call noundef double @_ZN5Ipopt11CGPenaltyCq17curr_cg_pert_factEv(ptr noundef nonnull align 8 dereferenceable(241) %73)
+  %75 = tail call noundef double @_ZN5Ipopt21PDPerturbationHandler8delta_cdEv(ptr noundef nonnull align 8 dereferenceable(217) %0)
+  %76 = fcmp olt double %74, %75
+  br i1 %76, label %84, label %77
+
+77:                                               ; preds = %69
+  %78 = load ptr, ptr %6, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 2192
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 41
+  %82 = load i8, ptr %81, align 1
+  %83 = and i8 %82, 1
+  %.not = icmp eq i8 %83, 0
   %spec.select = select i1 %.not, i32 1, i32 2
-  br label %78
+  br label %84
 
-78:                                               ; preds = %71, %52, %59, %63
-  %.sink36 = phi i32 [ 1, %63 ], [ 1, %59 ], [ 0, %52 ], [ %spec.select, %71 ]
-  %79 = getelementptr inbounds i8, ptr %0, i64 136
-  store i32 %.sink36, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 40
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 32
-  %83 = load ptr, ptr %82, align 8
-  %84 = tail call noundef double @_ZN5Ipopt11CGPenaltyCq17curr_cg_pert_factEv(ptr noundef nonnull align 8 dereferenceable(241) %83)
-  %85 = load i32, ptr %56, align 8
-  %86 = icmp eq i32 %85, 2
-  br i1 %86, label %98, label %87
+84:                                               ; preds = %77, %58, %65, %69
+  %.sink36 = phi i32 [ 1, %69 ], [ 1, %65 ], [ 0, %58 ], [ %spec.select, %77 ]
+  %85 = getelementptr inbounds i8, ptr %0, i64 136
+  store i32 %.sink36, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %0, i64 40
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 32
+  %89 = load ptr, ptr %88, align 8
+  %90 = tail call noundef double @_ZN5Ipopt11CGPenaltyCq17curr_cg_pert_factEv(ptr noundef nonnull align 8 dereferenceable(241) %89)
+  %91 = load i32, ptr %62, align 8
+  %92 = icmp eq i32 %91, 2
+  br i1 %92, label %104, label %93
 
-87:                                               ; preds = %78
-  %88 = load ptr, ptr %6, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 2192
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 41
-  %92 = load i8, ptr %91, align 1
-  %93 = and i8 %92, 1
-  %.not29 = icmp eq i8 %93, 0
-  br i1 %.not29, label %94, label %.thread
+93:                                               ; preds = %84
+  %94 = load ptr, ptr %6, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 2192
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 41
+  %98 = load i8, ptr %97, align 1
+  %99 = and i8 %98, 1
+  %.not29 = icmp eq i8 %99, 0
+  br i1 %.not29, label %100, label %.thread
 
-94:                                               ; preds = %87
-  %95 = getelementptr inbounds i8, ptr %0, i64 216
-  %96 = load i8, ptr %95, align 8
-  %97 = trunc i8 %96 to i1
-  br i1 %97, label %.thread, label %100
+100:                                              ; preds = %93
+  %101 = getelementptr inbounds i8, ptr %0, i64 216
+  %102 = load i8, ptr %101, align 8
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %.thread, label %106
 
-98:                                               ; preds = %78
-  %99 = fcmp olt double %84, 0x3D19000000000000
-  br i1 %99, label %100, label %.thread
+104:                                              ; preds = %84
+  %105 = fcmp olt double %90, 0x3D19000000000000
+  br i1 %105, label %106, label %.thread
 
-.thread:                                          ; preds = %87, %94, %98
-  br label %100
+.thread:                                          ; preds = %93, %100, %104
+  br label %106
 
-100:                                              ; preds = %94, %98, %.thread
-  %.sink39 = phi double [ %84, %.thread ], [ 0x3D19000000000000, %98 ], [ 0.000000e+00, %94 ]
-  %101 = getelementptr inbounds i8, ptr %0, i64 104
-  store double %.sink39, ptr %101, align 8
+106:                                              ; preds = %100, %104, %.thread
+  %.sink39 = phi double [ %90, %.thread ], [ 0x3D19000000000000, %104 ], [ 0.000000e+00, %100 ]
+  %107 = getelementptr inbounds i8, ptr %0, i64 104
+  store double %.sink39, ptr %107, align 8
   store double %.sink39, ptr %3, align 8
-  %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 2192
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 88
-  store double %.sink39, ptr %105, align 8
-  %106 = load double, ptr %3, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 112
-  store double %106, ptr %107, align 8
-  store double %106, ptr %4, align 8
-  %108 = load i32, ptr %53, align 4
-  %109 = icmp eq i32 %108, 2
-  br i1 %109, label %110, label %113
+  %108 = load ptr, ptr %6, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 2192
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 88
+  store double %.sink39, ptr %111, align 8
+  %112 = load double, ptr %3, align 8
+  %113 = getelementptr inbounds i8, ptr %0, i64 112
+  store double %112, ptr %113, align 8
+  store double %112, ptr %4, align 8
+  %114 = load i32, ptr %59, align 4
+  %115 = icmp eq i32 %114, 2
+  br i1 %115, label %116, label %119
 
-110:                                              ; preds = %100
-  %111 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
-  %112 = tail call noundef zeroext i1 @_ZN5Ipopt21PDPerturbationHandler28get_deltas_for_wrong_inertiaERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br i1 %112, label %114, label %126
+116:                                              ; preds = %106
+  %117 = getelementptr inbounds i8, ptr %0, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, i8 0, i64 16, i1 false)
+  %118 = tail call noundef zeroext i1 @_ZN5Ipopt21PDPerturbationHandler28get_deltas_for_wrong_inertiaERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br i1 %118, label %120, label %132
 
-113:                                              ; preds = %100
+119:                                              ; preds = %106
   store double 0.000000e+00, ptr %1, align 8
   store double 0.000000e+00, ptr %2, align 8
-  br label %114
+  br label %120
 
-114:                                              ; preds = %110, %113
-  %115 = load double, ptr %1, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 88
-  store double %115, ptr %116, align 8
-  %117 = load double, ptr %2, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 96
-  store double %117, ptr %118, align 8
-  %119 = load double, ptr %3, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 104
-  store double %119, ptr %120, align 8
-  %121 = load double, ptr %4, align 8
-  store double %121, ptr %107, align 8
-  %122 = load ptr, ptr %6, align 8
-  %123 = load double, ptr %1, align 8
-  %124 = getelementptr inbounds i8, ptr %122, i64 120
+120:                                              ; preds = %116, %119
+  %121 = load double, ptr %1, align 8
+  %122 = getelementptr inbounds i8, ptr %0, i64 88
+  store double %121, ptr %122, align 8
+  %123 = load double, ptr %2, align 8
+  %124 = getelementptr inbounds i8, ptr %0, i64 96
   store double %123, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 120
-  store i8 0, ptr %125, align 8
-  br label %126
+  %125 = load double, ptr %3, align 8
+  %126 = getelementptr inbounds i8, ptr %0, i64 104
+  store double %125, ptr %126, align 8
+  %127 = load double, ptr %4, align 8
+  store double %127, ptr %113, align 8
+  %128 = load ptr, ptr %6, align 8
+  %129 = load double, ptr %1, align 8
+  %130 = getelementptr inbounds i8, ptr %128, i64 120
+  store double %129, ptr %130, align 8
+  %131 = getelementptr inbounds i8, ptr %0, i64 120
+  store i8 0, ptr %131, align 8
+  br label %132
 
-126:                                              ; preds = %110, %114
-  %.0 = phi i1 [ true, %114 ], [ false, %110 ]
+132:                                              ; preds = %116, %120
+  %.0 = phi i1 [ true, %120 ], [ false, %116 ]
   ret i1 %.0
 }
 

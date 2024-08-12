@@ -138,7 +138,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @init_options(ptr nocapture noundef writeonly %options) local_unnamed_addr #0 {
 entry:
-  store <4 x i32> <i32 0, i32 2, i32 1, i32 1>, ptr %options, align 8
+  store i32 0, ptr %options, align 8
+  %prefix_with_filename = getelementptr inbounds i8, ptr %options, i64 4
+  store i32 2, ptr %prefix_with_filename, align 4
+  %utf8_convert = getelementptr inbounds i8, ptr %options, i64 8
+  store i32 1, ptr %utf8_convert, align 8
+  %use_padding = getelementptr inbounds i8, ptr %options, i64 12
+  store i32 1, ptr %use_padding, align 4
   %cued_seekpoints = getelementptr inbounds i8, ptr %options, i64 16
   store i32 1, ptr %cued_seekpoints, align 8
   %show_long_help = getelementptr inbounds i8, ptr %options, i64 20
@@ -2705,8 +2711,11 @@ if.else6:                                         ; preds = %if.else
   br i1 %cmp8, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.else6, %if.else, %entry
-  %0 = phi <2 x i32> [ <i32 0, i32 1>, %entry ], [ <i32 1, i32 0>, %if.else ], [ zeroinitializer, %if.else6 ]
-  store <2 x i32> %0, ptr %out, align 4
+  %.sink8 = phi i32 [ 0, %entry ], [ 1, %if.else ], [ 0, %if.else6 ]
+  %.sink = phi i32 [ 1, %entry ], [ 0, %if.else ], [ 0, %if.else6 ]
+  store i32 %.sink8, ptr %out, align 4
+  %is_headerless = getelementptr inbounds i8, ptr %out, i64 4
+  store i32 %.sink, ptr %is_headerless, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else6

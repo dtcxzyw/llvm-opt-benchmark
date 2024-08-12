@@ -1310,7 +1310,7 @@ _ZN7rocksdb16AggMergeOperator11Accumulator5ClearEv.exit: ; preds = %if.end11, %i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb19GetAggMergeOperatorEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.std::shared_ptr.24", align 16
+  %ref.tmp = alloca %"class.std::shared_ptr.24", align 8
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb19GetAggMergeOperatorEvE8instance acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !29
@@ -1329,57 +1329,62 @@ invoke.cont:                                      ; preds = %init
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
+  %2 = load ptr, ptr %ref.tmp, align 8
+  store ptr %2, ptr %call, align 8
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %2 = load <2 x ptr>, ptr %ref.tmp, align 16
+  %3 = load ptr, ptr %_M_refcount4.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i, align 8
-  store <2 x ptr> %2, ptr %call, align 8
-  store ptr null, ptr %ref.tmp, align 16
+  store ptr %3, ptr %_M_refcount.i.i, align 8
+  store ptr null, ptr %ref.tmp, align 8
   call void @_ZNSt10shared_ptrIN7rocksdb16AggMergeOperatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #7
   store ptr %call, ptr @_ZZN7rocksdb19GetAggMergeOperatorEvE8instance, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb19GetAggMergeOperatorEvE8instance) #7
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont2, %init.check, %entry
-  %3 = load ptr, ptr @_ZZN7rocksdb19GetAggMergeOperatorEvE8instance, align 8
-  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %5 = load <2 x ptr>, ptr %3, align 8
-  store <2 x ptr> %5, ptr %agg.result, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, null
+  %4 = load ptr, ptr @_ZZN7rocksdb19GetAggMergeOperatorEvE8instance, align 8
+  %5 = load ptr, ptr %4, align 8
+  store ptr %5, ptr %agg.result, align 8
+  %_M_refcount.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %6, ptr %_M_refcount.i.i2, align 8
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb13MergeOperatorEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %init.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i = icmp eq i8 %6, 0
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %7 = load i32, ptr %_M_use_count.i.i.i.i, align 4
-  %add.i.i.i.i.i = add nsw i32 %7, 1
+  %8 = load i32, ptr %_M_use_count.i.i.i.i, align 4
+  %add.i.i.i.i.i = add nsw i32 %8, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   br label %_ZNSt10shared_ptrIN7rocksdb13MergeOperatorEEC2ERKS2_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %8 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
+  %9 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN7rocksdb13MergeOperatorEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN7rocksdb13MergeOperatorEEC2ERKS2_.exit: ; preds = %init.end, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   ret void
 
 lpad:                                             ; preds = %init
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad1:                                            ; preds = %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad1, %lpad
-  %.pn = phi { ptr, i32 } [ %10, %lpad1 ], [ %9, %lpad ]
+  %.pn = phi { ptr, i32 } [ %11, %lpad1 ], [ %10, %lpad ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7rocksdb19GetAggMergeOperatorEvE8instance) #7
   resume { ptr, i32 } %.pn
 }

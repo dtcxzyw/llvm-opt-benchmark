@@ -127,7 +127,13 @@ define void @_ZN9CryptData17SetAV15EncryptionEv(ptr noundef nonnull align 8 dere
   %3 = getelementptr inbounds i8, ptr %0, i64 940
   store i32 2, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 2508
-  store <4 x i16> <i16 18277, i16 -28639, i16 29570, i16 21013>, ptr %4, align 4
+  store i16 18277, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 2510
+  store i16 -28639, ptr %5, align 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 2512
+  store i16 29570, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 2514
+  store i16 21013, ptr %7, align 2
   ret void
 }
 
@@ -239,79 +245,85 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
   call void @_Z8strncpyzPcPKcm(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 512)
   %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
   %6 = getelementptr inbounds i8, ptr %0, i64 2488
-  store <4 x i32> <i32 -744245127, i32 1064112887, i32 1964352053, i32 -1528303325>, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 2232
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %7, ptr noundef nonnull align 16 dereferenceable(256) @_ZL16InitSubstTable20, i64 256, i1 false)
+  store i32 -744245127, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 2492
+  store i32 1064112887, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 2496
+  store i32 1964352053, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 2500
+  store i32 -1528303325, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 2232
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %10, ptr noundef nonnull align 16 dereferenceable(256) @_ZL16InitSubstTable20, i64 256, i1 false)
   %.not52 = icmp eq i64 %5, 0
   br i1 %.not52, label %._crit_edge, label %.preheader39.us
 
 .preheader39.us:                                  ; preds = %2, %._crit_edge46.us
-  %.03247.us = phi i32 [ %32, %._crit_edge46.us ], [ 0, %2 ]
+  %.03247.us = phi i32 [ %35, %._crit_edge46.us ], [ 0, %2 ]
   %.032.tr.us = trunc nuw i32 %.03247.us to i8
-  br label %8
+  br label %11
 
-8:                                                ; preds = %.preheader39.us, %._crit_edge.us
-  %.03444.us = phi i64 [ 0, %.preheader39.us ], [ %30, %._crit_edge.us ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 %.03444.us
-  %10 = load i8, ptr %9, align 1
-  %.narrow.us = sub i8 %10, %.032.tr.us
-  %11 = zext i8 %.narrow.us to i64
-  %12 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4
-  %14 = or disjoint i64 %.03444.us, 1
-  %15 = getelementptr inbounds i8, ptr %1, i64 %14
-  %16 = load i8, ptr %15, align 1
-  %.narrow37.us = add i8 %16, %.032.tr.us
-  %17 = zext i8 %.narrow37.us to i64
-  %18 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %17
-  %19 = load i32, ptr %18, align 4
-  %20 = and i32 %19, 255
-  %.03340.us = and i32 %13, 255
-  %.not3841.us = icmp eq i32 %.03340.us, %20
+11:                                               ; preds = %.preheader39.us, %._crit_edge.us
+  %.03444.us = phi i64 [ 0, %.preheader39.us ], [ %33, %._crit_edge.us ]
+  %12 = getelementptr inbounds i8, ptr %1, i64 %.03444.us
+  %13 = load i8, ptr %12, align 1
+  %.narrow.us = sub i8 %13, %.032.tr.us
+  %14 = zext i8 %.narrow.us to i64
+  %15 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %14
+  %16 = load i32, ptr %15, align 4
+  %17 = or disjoint i64 %.03444.us, 1
+  %18 = getelementptr inbounds i8, ptr %1, i64 %17
+  %19 = load i8, ptr %18, align 1
+  %.narrow37.us = add i8 %19, %.032.tr.us
+  %20 = zext i8 %.narrow37.us to i64
+  %21 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %20
+  %22 = load i32, ptr %21, align 4
+  %23 = and i32 %22, 255
+  %.03340.us = and i32 %16, 255
+  %.not3841.us = icmp eq i32 %.03340.us, %23
   br i1 %.not3841.us, label %._crit_edge.us, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %8, %.lr.ph.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 1, %8 ]
-  %.03343.us = phi i32 [ %.033.us, %.lr.ph.us ], [ %.03340.us, %8 ]
-  %21 = zext nneg i32 %.03343.us to i64
-  %22 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %21
-  %23 = add i64 %.03444.us, %21
-  %24 = add i64 %23, %indvars.iv
-  %25 = and i64 %24, 255
-  %26 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %25
-  %27 = load i8, ptr %22, align 1
-  %28 = load i8, ptr %26, align 1
-  store i8 %28, ptr %22, align 1
-  store i8 %27, ptr %26, align 1
-  %29 = add nuw nsw i32 %.03343.us, 1
+.lr.ph.us:                                        ; preds = %11, %.lr.ph.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 1, %11 ]
+  %.03343.us = phi i32 [ %.033.us, %.lr.ph.us ], [ %.03340.us, %11 ]
+  %24 = zext nneg i32 %.03343.us to i64
+  %25 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %24
+  %26 = add i64 %.03444.us, %24
+  %27 = add i64 %26, %indvars.iv
+  %28 = and i64 %27, 255
+  %29 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %28
+  %30 = load i8, ptr %25, align 1
+  %31 = load i8, ptr %29, align 1
+  store i8 %31, ptr %25, align 1
+  store i8 %30, ptr %29, align 1
+  %32 = add nuw nsw i32 %.03343.us, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.033.us = and i32 %29, 255
-  %.not38.us = icmp eq i32 %.033.us, %20
+  %.033.us = and i32 %32, 255
+  %.not38.us = icmp eq i32 %.033.us, %23
   br i1 %.not38.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !9
 
-._crit_edge.us:                                   ; preds = %.lr.ph.us, %8
-  %30 = add nuw i64 %.03444.us, 2
-  %31 = icmp ult i64 %30, %5
-  br i1 %31, label %8, label %._crit_edge46.us, !llvm.loop !10
+._crit_edge.us:                                   ; preds = %.lr.ph.us, %11
+  %33 = add nuw i64 %.03444.us, 2
+  %34 = icmp ult i64 %33, %5
+  br i1 %34, label %11, label %._crit_edge46.us, !llvm.loop !10
 
 ._crit_edge46.us:                                 ; preds = %._crit_edge.us
-  %32 = add nuw nsw i32 %.03247.us, 1
-  %exitcond.not = icmp eq i32 %32, 256
+  %35 = add nuw nsw i32 %.03247.us, 1
+  %exitcond.not = icmp eq i32 %35, 256
   br i1 %exitcond.not, label %.split49.us, label %.preheader39.us, !llvm.loop !11
 
 .split49.us:                                      ; preds = %._crit_edge46.us
-  %33 = and i64 %5, 15
-  %.not = icmp eq i64 %33, 0
+  %36 = and i64 %5, 15
+  %.not = icmp eq i64 %36, 0
   br i1 %.not, label %.loopexit, label %.loopexit.thread57
 
 .loopexit.thread57:                               ; preds = %.split49.us
-  %34 = or i64 %5, 15
+  %37 = or i64 %5, 15
   %scevgep = getelementptr i8, ptr %3, i64 %5
-  %35 = add i64 %5, 1
-  %36 = add i64 %34, 1
-  %umax = call i64 @llvm.umax.i64(i64 %35, i64 %36)
-  %37 = sub i64 %umax, %5
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %37, i1 false)
+  %38 = add i64 %5, 1
+  %39 = add i64 %37, 1
+  %umax = call i64 @llvm.umax.i64(i64 %38, i64 %39)
+  %40 = sub i64 %umax, %5
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %40, i1 false)
   br label %.lr.ph.preheader
 
 .loopexit:                                        ; preds = %.split49.us
@@ -321,12 +333,12 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.051 = phi i64 [ %39, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %38 = getelementptr inbounds i8, ptr %3, i64 %.051
-  call void @_ZN9CryptData14EncryptBlock20EPh(ptr noundef nonnull align 8 dereferenceable(2516) %0, ptr noundef nonnull %38)
-  %39 = add i64 %.051, 16
-  %40 = icmp ult i64 %39, %5
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  %.051 = phi i64 [ %42, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %41 = getelementptr inbounds i8, ptr %3, i64 %.051
+  call void @_ZN9CryptData14EncryptBlock20EPh(ptr noundef nonnull align 8 dereferenceable(2516) %0, ptr noundef nonnull %41)
+  %42 = add i64 %.051, 16
+  %43 = icmp ult i64 %42, %5
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2, %.loopexit
   ret void
@@ -687,46 +699,54 @@ define void @_ZN9CryptData14DecryptBlock20EPh(ptr nocapture noundef nonnull alig
   %101 = xor i32 %100, %.04041
   store i32 %101, ptr %18, align 4
   %102 = getelementptr inbounds i8, ptr %0, i64 1208
-  %103 = load <4 x i32>, ptr %5, align 8
-  br label %104
+  %.promoted.i = load i32, ptr %5, align 8
+  %.promoted10.i = load i32, ptr %10, align 4
+  %.promoted11.i = load i32, ptr %15, align 8
+  %.promoted12.i = load i32, ptr %20, align 4
+  br label %103
 
-104:                                              ; preds = %104, %94
-  %indvars.iv.i = phi i64 [ 0, %94 ], [ %indvars.iv.next.i, %104 ]
-  %105 = phi <4 x i32> [ %103, %94 ], [ %133, %104 ]
-  %106 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
-  %107 = load i8, ptr %106, align 4
-  %108 = zext i8 %107 to i64
-  %109 = getelementptr inbounds [256 x i32], ptr %102, i64 0, i64 %108
-  %110 = load i32, ptr %109, align 4
-  %111 = or disjoint i64 %indvars.iv.i, 1
-  %112 = getelementptr inbounds i8, ptr %3, i64 %111
-  %113 = load i8, ptr %112, align 1
-  %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds [256 x i32], ptr %102, i64 0, i64 %114
-  %116 = load i32, ptr %115, align 4
-  %117 = or disjoint i64 %indvars.iv.i, 2
-  %118 = getelementptr inbounds i8, ptr %3, i64 %117
-  %119 = load i8, ptr %118, align 2
-  %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds [256 x i32], ptr %102, i64 0, i64 %120
-  %122 = load i32, ptr %121, align 4
-  %123 = or disjoint i64 %indvars.iv.i, 3
-  %124 = getelementptr inbounds i8, ptr %3, i64 %123
-  %125 = load i8, ptr %124, align 1
-  %126 = zext i8 %125 to i64
-  %127 = getelementptr inbounds [256 x i32], ptr %102, i64 0, i64 %126
-  %128 = load i32, ptr %127, align 4
-  %129 = insertelement <4 x i32> poison, i32 %110, i64 0
-  %130 = insertelement <4 x i32> %129, i32 %116, i64 1
-  %131 = insertelement <4 x i32> %130, i32 %122, i64 2
-  %132 = insertelement <4 x i32> %131, i32 %128, i64 3
-  %133 = xor <4 x i32> %132, %105
+103:                                              ; preds = %103, %94
+  %indvars.iv.i = phi i64 [ 0, %94 ], [ %indvars.iv.next.i, %103 ]
+  %104 = phi i32 [ %.promoted.i, %94 ], [ %113, %103 ]
+  %105 = phi i32 [ %.promoted10.i, %94 ], [ %120, %103 ]
+  %106 = phi i32 [ %.promoted11.i, %94 ], [ %127, %103 ]
+  %107 = phi i32 [ %.promoted12.i, %94 ], [ %134, %103 ]
+  %108 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %109 = load i8, ptr %108, align 4
+  %110 = zext i8 %109 to i64
+  %111 = getelementptr inbounds [256 x i32], ptr %102, i64 0, i64 %110
+  %112 = load i32, ptr %111, align 4
+  %113 = xor i32 %112, %104
+  %114 = or disjoint i64 %indvars.iv.i, 1
+  %115 = getelementptr inbounds i8, ptr %3, i64 %114
+  %116 = load i8, ptr %115, align 1
+  %117 = zext i8 %116 to i64
+  %118 = getelementptr inbounds [256 x i32], ptr %102, i64 0, i64 %117
+  %119 = load i32, ptr %118, align 4
+  %120 = xor i32 %119, %105
+  %121 = or disjoint i64 %indvars.iv.i, 2
+  %122 = getelementptr inbounds i8, ptr %3, i64 %121
+  %123 = load i8, ptr %122, align 2
+  %124 = zext i8 %123 to i64
+  %125 = getelementptr inbounds [256 x i32], ptr %102, i64 0, i64 %124
+  %126 = load i32, ptr %125, align 4
+  %127 = xor i32 %126, %106
+  %128 = or disjoint i64 %indvars.iv.i, 3
+  %129 = getelementptr inbounds i8, ptr %3, i64 %128
+  %130 = load i8, ptr %129, align 1
+  %131 = zext i8 %130 to i64
+  %132 = getelementptr inbounds [256 x i32], ptr %102, i64 0, i64 %131
+  %133 = load i32, ptr %132, align 4
+  %134 = xor i32 %133, %107
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %134 = icmp ult i64 %indvars.iv.i, 12
-  br i1 %134, label %104, label %_ZN9CryptData9UpdKeys20EPh.exit, !llvm.loop !14
+  %135 = icmp ult i64 %indvars.iv.i, 12
+  br i1 %135, label %103, label %_ZN9CryptData9UpdKeys20EPh.exit, !llvm.loop !14
 
-_ZN9CryptData9UpdKeys20EPh.exit:                  ; preds = %104
-  store <4 x i32> %133, ptr %5, align 8
+_ZN9CryptData9UpdKeys20EPh.exit:                  ; preds = %103
+  store i32 %113, ptr %5, align 8
+  store i32 %120, ptr %10, align 4
+  store i32 %127, ptr %15, align 8
+  store i32 %134, ptr %20, align 4
   ret void
 }
 
@@ -957,64 +977,73 @@ define void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef %0, i64 noundef %1, ptr noca
   %19 = tail call i64 @llvm.umin.i64(i64 %3, i64 64)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %2, i64 %19, i1 false)
   %20 = getelementptr inbounds [68 x i8], ptr %9, i64 0, i64 %3
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %20, align 1
-  %21 = add i64 %3, 4
-  call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %9, i64 noundef %21, ptr noundef nonnull %10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i8 0, ptr %20, align 1
+  %21 = add i64 %3, 1
+  %22 = getelementptr inbounds [68 x i8], ptr %9, i64 0, i64 %21
+  store i8 0, ptr %22, align 1
+  %23 = add i64 %3, 2
+  %24 = getelementptr inbounds [68 x i8], ptr %9, i64 0, i64 %23
+  store i8 0, ptr %24, align 1
+  %25 = add i64 %3, 3
+  %26 = getelementptr inbounds [68 x i8], ptr %9, i64 0, i64 %25
+  store i8 1, ptr %26, align 1
+  %27 = add i64 %3, 4
+  call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %9, i64 noundef %27, ptr noundef nonnull %10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) %10, i64 32, i1 false)
-  %22 = add i32 %7, -1
-  store i32 %22, ptr %12, align 4
-  %23 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 16, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 16, ptr %24, align 4
+  %28 = add i32 %7, -1
+  store i32 %28, ptr %12, align 4
+  %29 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 16, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 16, ptr %30, align 4
   store ptr %4, ptr %13, align 16
-  %25 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %5, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr %6, ptr %26, align 16
+  %31 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %5, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr %6, ptr %32, align 16
   store i8 0, ptr %16, align 1
   store i8 0, ptr %17, align 1
   br label %.preheader
 
 .preheader:                                       ; preds = %8, %._crit_edge
   %indvars.iv33 = phi i64 [ 0, %8 ], [ %indvars.iv.next34, %._crit_edge ]
-  %27 = getelementptr inbounds [3 x i32], ptr %12, i64 0, i64 %indvars.iv33
-  %28 = load i32, ptr %27, align 4
-  %.not = icmp eq i32 %28, 0
+  %33 = getelementptr inbounds [3 x i32], ptr %12, i64 0, i64 %indvars.iv33
+  %34 = load i32, ptr %33, align 4
+  %.not = icmp eq i32 %34, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %35
-  %.02529 = phi i32 [ %36, %35 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %41
+  %.02529 = phi i32 [ %42, %41 ], [ 0, %.preheader ]
   call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull %18, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 16 dereferenceable(32) %18, i64 32, i1 false)
-  br label %29
+  br label %35
 
-29:                                               ; preds = %.lr.ph, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 %indvars.iv
-  %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 %indvars.iv
-  %33 = load i8, ptr %32, align 1
-  %34 = xor i8 %33, %31
-  store i8 %34, ptr %32, align 1
+35:                                               ; preds = %.lr.ph, %35
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
+  %36 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %37 = load i8, ptr %36, align 1
+  %38 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %39 = load i8, ptr %38, align 1
+  %40 = xor i8 %39, %37
+  store i8 %40, ptr %38, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %35, label %29, !llvm.loop !20
+  br i1 %exitcond.not, label %41, label %35, !llvm.loop !20
 
-35:                                               ; preds = %29
-  %36 = add nuw i32 %.02529, 1
-  %exitcond32.not = icmp eq i32 %36, %28
+41:                                               ; preds = %35
+  %42 = add nuw i32 %.02529, 1
+  %exitcond32.not = icmp eq i32 %42, %34
   br i1 %exitcond32.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %35, %.preheader
-  %37 = getelementptr inbounds [3 x ptr], ptr %13, i64 0, i64 %indvars.iv33
-  %38 = load ptr, ptr %37, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %38, ptr noundef nonnull align 16 dereferenceable(32) %11, i64 32, i1 false)
+._crit_edge:                                      ; preds = %41, %.preheader
+  %43 = getelementptr inbounds [3 x ptr], ptr %13, i64 0, i64 %indvars.iv33
+  %44 = load ptr, ptr %43, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %44, ptr noundef nonnull align 16 dereferenceable(32) %11, i64 32, i1 false)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 3
-  br i1 %exitcond36.not, label %39, label %.preheader, !llvm.loop !22
+  br i1 %exitcond36.not, label %45, label %.preheader, !llvm.loop !22
 
-39:                                               ; preds = %._crit_edge
+45:                                               ; preds = %._crit_edge
   call void @_Z9cleandataPvm(ptr noundef nonnull %9, i64 noundef 68)
   call void @_Z9cleandataPvm(ptr noundef nonnull %11, i64 noundef 32)
   call void @_Z9cleandataPvm(ptr noundef nonnull %10, i64 noundef 32)

@@ -2686,182 +2686,184 @@ define linkonce_odr hidden void @_ZN28G1VerifyLiveAndRemSetClosure11LiveCheckerI
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load <2 x ptr>, ptr %10, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = load i64, ptr %13, align 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = load i64, ptr %14, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #16
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #16
-  %16 = getelementptr inbounds i8, ptr %3, i64 144
-  store i32 5, ptr %16, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #16
+  %17 = getelementptr inbounds i8, ptr %3, i64 144
+  store i32 5, ptr %17, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
-  %17 = load ptr, ptr @G1RareEvent_lock, align 8
-  %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %18
+  %18 = load ptr, ptr @G1RareEvent_lock, align 8
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %19
 
-18:                                               ; preds = %1
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #16
+19:                                               ; preds = %1
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #16
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %18
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, 1
-  store i64 %22, ptr %20, align 8
-  %23 = icmp eq i64 %21, 0
-  br i1 %23, label %24, label %26
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %19
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i64, ptr %21, align 8
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %21, align 8
+  %24 = icmp eq i64 %22, 0
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %25 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
-  br label %26
+25:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %26 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
+  br label %27
 
-26:                                               ; preds = %24, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 520
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %27, i64 528
-  %33 = load i32, ptr %32, align 8
-  %34 = zext nneg i32 %33 to i64
-  %35 = shl i64 %31, %34
-  %36 = ptrtoint ptr %29 to i64
-  %37 = sub i64 %36, %35
-  %38 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %39 = zext nneg i32 %38 to i64
-  %40 = lshr i64 %37, %39
-  %41 = and i64 %40, 4294967295
-  %42 = getelementptr inbounds i8, ptr %27, i64 496
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %41
-  %45 = load ptr, ptr %44, align 8
-  %46 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit, label %47
+27:                                               ; preds = %25, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %28, i64 520
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %28, i64 528
+  %34 = load i32, ptr %33, align 8
+  %35 = zext nneg i32 %34 to i64
+  %36 = shl i64 %32, %35
+  %37 = ptrtoint ptr %30 to i64
+  %38 = sub i64 %37, %36
+  %39 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %40 = zext nneg i32 %39 to i64
+  %41 = lshr i64 %38, %40
+  %42 = and i64 %41, 4294967295
+  %43 = getelementptr inbounds i8, ptr %28, i64 496
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds ptr, ptr %44, i64 %42
+  %46 = load ptr, ptr %45, align 8
+  %47 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit, label %48
 
-47:                                               ; preds = %26
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = ptrtoint ptr %49 to i64
-  %51 = getelementptr inbounds i8, ptr %45, i64 48
-  %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %45, i64 52
-  %54 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %53) #16
-  %55 = load ptr, ptr %45, align 8
-  %56 = ptrtoint ptr %55 to i64
-  %57 = getelementptr inbounds i8, ptr %45, i64 16
-  %58 = load volatile ptr, ptr %57, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %60 = getelementptr inbounds i8, ptr %45, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = ptrtoint ptr %61 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.45, i64 noundef %36, i64 noundef %50, i32 noundef %52, ptr noundef %54, i64 noundef %56, i64 noundef %59, i64 noundef %62)
+48:                                               ; preds = %27
+  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = ptrtoint ptr %50 to i64
+  %52 = getelementptr inbounds i8, ptr %46, i64 48
+  %53 = load i32, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %46, i64 52
+  %55 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %54) #16
+  %56 = load ptr, ptr %46, align 8
+  %57 = ptrtoint ptr %56 to i64
+  %58 = getelementptr inbounds i8, ptr %46, i64 16
+  %59 = load volatile ptr, ptr %58, align 8
+  %60 = ptrtoint ptr %59 to i64
+  %61 = getelementptr inbounds i8, ptr %46, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = ptrtoint ptr %62 to i64
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.45, i64 noundef %37, i64 noundef %51, i32 noundef %53, ptr noundef %55, i64 noundef %57, i64 noundef %60, i64 noundef %63)
   br label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
 
-_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit: ; preds = %26, %47
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull %3) #16
-  %65 = getelementptr inbounds i8, ptr %0, i64 44
-  %66 = load i8, ptr %65, align 4
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %73, label %68
+_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit: ; preds = %27, %48
+  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull %3) #16
+  %66 = getelementptr inbounds i8, ptr %0, i64 44
+  %67 = load i8, ptr %66, align 4
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %74, label %69
 
-68:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
-  %70 = load ptr, ptr %69, align 8
-  %71 = ptrtoint ptr %70 to i64
-  %72 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.43, i64 noundef %71)
-  br label %115
+69:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
+  %70 = getelementptr inbounds i8, ptr %0, i64 32
+  %71 = load ptr, ptr %70, align 8
+  %72 = ptrtoint ptr %71 to i64
+  %73 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.43, i64 noundef %72)
+  br label %116
 
-73:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 32
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %74, i64 520
-  %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %74, i64 528
-  %80 = load i32, ptr %79, align 8
-  %81 = zext nneg i32 %80 to i64
-  %82 = shl i64 %78, %81
-  %83 = ptrtoint ptr %76 to i64
-  %84 = sub i64 %83, %82
-  %85 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %86 = zext nneg i32 %85 to i64
-  %87 = lshr i64 %84, %86
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds i8, ptr %74, i64 496
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %88
-  %92 = load ptr, ptr %91, align 8
-  %93 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not.i3 = icmp eq ptr %93, null
-  br i1 %.not.i3, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, label %94
+74:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
+  %75 = load ptr, ptr %0, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 32
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %75, i64 520
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %75, i64 528
+  %81 = load i32, ptr %80, align 8
+  %82 = zext nneg i32 %81 to i64
+  %83 = shl i64 %79, %82
+  %84 = ptrtoint ptr %77 to i64
+  %85 = sub i64 %84, %83
+  %86 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %87 = zext nneg i32 %86 to i64
+  %88 = lshr i64 %85, %87
+  %89 = and i64 %88, 4294967295
+  %90 = getelementptr inbounds i8, ptr %75, i64 496
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds ptr, ptr %91, i64 %89
+  %93 = load ptr, ptr %92, align 8
+  %94 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not.i3 = icmp eq ptr %94, null
+  br i1 %.not.i3, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, label %95
 
-94:                                               ; preds = %73
-  %95 = getelementptr inbounds i8, ptr %92, i64 48
-  %96 = load i32, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %92, i64 52
-  %98 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %97) #16
-  %99 = load ptr, ptr %92, align 8
-  %100 = ptrtoint ptr %99 to i64
-  %101 = getelementptr inbounds i8, ptr %92, i64 16
-  %102 = load volatile ptr, ptr %101, align 8
-  %103 = ptrtoint ptr %102 to i64
-  %104 = getelementptr inbounds i8, ptr %92, i64 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = ptrtoint ptr %105 to i64
-  %107 = getelementptr inbounds i8, ptr %92, i64 40
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 80
-  %110 = load i32, ptr %109, align 8
-  %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds [0 x ptr], ptr @_ZN18G1HeapRegionRemSet14_state_stringsE, i64 0, i64 %111
-  %113 = load ptr, ptr %112, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.44, i64 noundef %83, i32 noundef %96, ptr noundef %98, i64 noundef %100, i64 noundef %103, i64 noundef %106, ptr noundef %113)
-  %.pre = load ptr, ptr %75, align 8
+95:                                               ; preds = %74
+  %96 = getelementptr inbounds i8, ptr %93, i64 48
+  %97 = load i32, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %93, i64 52
+  %99 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %98) #16
+  %100 = load ptr, ptr %93, align 8
+  %101 = ptrtoint ptr %100 to i64
+  %102 = getelementptr inbounds i8, ptr %93, i64 16
+  %103 = load volatile ptr, ptr %102, align 8
+  %104 = ptrtoint ptr %103 to i64
+  %105 = getelementptr inbounds i8, ptr %93, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = ptrtoint ptr %106 to i64
+  %108 = getelementptr inbounds i8, ptr %93, i64 40
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 80
+  %111 = load i32, ptr %110, align 8
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds [0 x ptr], ptr @_ZN18G1HeapRegionRemSet14_state_stringsE, i64 0, i64 %112
+  %114 = load ptr, ptr %113, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.44, i64 noundef %84, i32 noundef %97, ptr noundef %99, i64 noundef %101, i64 noundef %104, i64 noundef %107, ptr noundef %114)
+  %.pre = load ptr, ptr %76, align 8
   br label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit
 
-_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit: ; preds = %73, %94
-  %114 = phi ptr [ %76, %73 ], [ %.pre, %94 ]
-  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull %3) #16
-  br label %115
+_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit: ; preds = %74, %95
+  %115 = phi ptr [ %77, %74 ], [ %.pre, %95 ]
+  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull %3) #16
+  br label %116
 
-115:                                              ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, %68
-  %116 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %117
+116:                                              ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, %69
+  %117 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %118
 
-117:                                              ; preds = %115
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #16
+118:                                              ; preds = %116
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #16
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %115, %117
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %116, %118
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #16
-  %118 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %118, null
-  br i1 %.not.i.i.i.i, label %120, label %119
+  %119 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %119, null
+  br i1 %.not.i.i.i.i, label %121, label %120
 
-119:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %14) #16
+120:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #16
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #16
-  br label %120
+  br label %121
 
-120:                                              ; preds = %119, %_ZN11MutexLockerD2Ev.exit
-  %121 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %121, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %122
+121:                                              ; preds = %120, %_ZN11MutexLockerD2Ev.exit
+  %122 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %122, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %123
 
-122:                                              ; preds = %120
+123:                                              ; preds = %121
   store ptr %9, ptr %8, align 8
-  store <2 x ptr> %11, ptr %10, align 8
+  store ptr %11, ptr %10, align 8
+  store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %120, %122
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %121, %123
   ret void
 }
 
@@ -2876,146 +2878,148 @@ define linkonce_odr hidden void @_ZN28G1VerifyLiveAndRemSetClosure13RemSetChecke
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load <2 x ptr>, ptr %10, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = load i64, ptr %13, align 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = load i64, ptr %14, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #16
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #16
-  %16 = getelementptr inbounds i8, ptr %3, i64 144
-  store i32 5, ptr %16, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #16
+  %17 = getelementptr inbounds i8, ptr %3, i64 144
+  store i32 5, ptr %17, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
-  %17 = load ptr, ptr @G1RareEvent_lock, align 8
-  %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %18
+  %18 = load ptr, ptr @G1RareEvent_lock, align 8
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %19
 
-18:                                               ; preds = %1
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #16
+19:                                               ; preds = %1
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #16
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %18
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, 1
-  store i64 %22, ptr %20, align 8
-  %23 = icmp eq i64 %21, 0
-  br i1 %23, label %24, label %26
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %19
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i64, ptr %21, align 8
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %21, align 8
+  %24 = icmp eq i64 %22, 0
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %25 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
-  br label %26
+25:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %26 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
+  br label %27
 
-26:                                               ; preds = %24, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %27 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.47)
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8
-  %30 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit, label %31
+27:                                               ; preds = %25, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %28 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.47)
+  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = load ptr, ptr %29, align 8
+  %31 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit, label %32
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = getelementptr inbounds i8, ptr %29, i64 48
-  %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %29, i64 52
-  %41 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %40) #16
-  %42 = load ptr, ptr %29, align 8
-  %43 = ptrtoint ptr %42 to i64
-  %44 = getelementptr inbounds i8, ptr %29, i64 16
-  %45 = load volatile ptr, ptr %44, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %47 = getelementptr inbounds i8, ptr %29, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = ptrtoint ptr %48 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.45, i64 noundef %34, i64 noundef %37, i32 noundef %39, ptr noundef %41, i64 noundef %43, i64 noundef %46, i64 noundef %49)
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = load ptr, ptr %33, align 8
+  %35 = ptrtoint ptr %34 to i64
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = ptrtoint ptr %37 to i64
+  %39 = getelementptr inbounds i8, ptr %30, i64 48
+  %40 = load i32, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %30, i64 52
+  %42 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %41) #16
+  %43 = load ptr, ptr %30, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %45 = getelementptr inbounds i8, ptr %30, i64 16
+  %46 = load volatile ptr, ptr %45, align 8
+  %47 = ptrtoint ptr %46 to i64
+  %48 = getelementptr inbounds i8, ptr %30, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = ptrtoint ptr %49 to i64
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.45, i64 noundef %35, i64 noundef %38, i32 noundef %40, ptr noundef %42, i64 noundef %44, i64 noundef %47, i64 noundef %50)
   br label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
 
-_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit: ; preds = %26, %31
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
-  %51 = load ptr, ptr %50, align 8
-  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull %3) #16
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
-  %53 = load ptr, ptr %52, align 8
-  %54 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not.i1 = icmp eq ptr %54, null
-  br i1 %.not.i1, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, label %55
+_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit: ; preds = %27, %32
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = load ptr, ptr %51, align 8
+  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull %3) #16
+  %53 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = load ptr, ptr %53, align 8
+  %55 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not.i1 = icmp eq ptr %55, null
+  br i1 %.not.i1, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, label %56
 
-55:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
-  %57 = load ptr, ptr %56, align 8
-  %58 = ptrtoint ptr %57 to i64
-  %59 = getelementptr inbounds i8, ptr %53, i64 48
-  %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %53, i64 52
-  %62 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %61) #16
-  %63 = load ptr, ptr %53, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = getelementptr inbounds i8, ptr %53, i64 16
-  %66 = load volatile ptr, ptr %65, align 8
-  %67 = ptrtoint ptr %66 to i64
-  %68 = getelementptr inbounds i8, ptr %53, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = getelementptr inbounds i8, ptr %53, i64 40
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 80
-  %74 = load i32, ptr %73, align 8
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds [0 x ptr], ptr @_ZN18G1HeapRegionRemSet14_state_stringsE, i64 0, i64 %75
-  %77 = load ptr, ptr %76, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.22, i64 noundef %58, i32 noundef %60, ptr noundef %62, i64 noundef %64, i64 noundef %67, i64 noundef %70, ptr noundef %77)
+56:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
+  %57 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = load ptr, ptr %57, align 8
+  %59 = ptrtoint ptr %58 to i64
+  %60 = getelementptr inbounds i8, ptr %54, i64 48
+  %61 = load i32, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %54, i64 52
+  %63 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %62) #16
+  %64 = load ptr, ptr %54, align 8
+  %65 = ptrtoint ptr %64 to i64
+  %66 = getelementptr inbounds i8, ptr %54, i64 16
+  %67 = load volatile ptr, ptr %66, align 8
+  %68 = ptrtoint ptr %67 to i64
+  %69 = getelementptr inbounds i8, ptr %54, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = ptrtoint ptr %70 to i64
+  %72 = getelementptr inbounds i8, ptr %54, i64 40
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 80
+  %75 = load i32, ptr %74, align 8
+  %76 = zext i32 %75 to i64
+  %77 = getelementptr inbounds [0 x ptr], ptr @_ZN18G1HeapRegionRemSet14_state_stringsE, i64 0, i64 %76
+  %78 = load ptr, ptr %77, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.22, i64 noundef %59, i32 noundef %61, ptr noundef %63, i64 noundef %65, i64 noundef %68, i64 noundef %71, ptr noundef %78)
   br label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit
 
-_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit: ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit, %55
-  %78 = getelementptr inbounds i8, ptr %0, i64 32
-  %79 = load ptr, ptr %78, align 8
-  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull %3) #16
-  %80 = getelementptr inbounds i8, ptr %0, i64 56
-  %81 = load i8, ptr %80, align 8
-  %82 = zext i8 %81 to i32
-  %83 = getelementptr inbounds i8, ptr %0, i64 57
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i32
-  %86 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.48, i32 noundef %82, i32 noundef %85)
-  %87 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %88
+_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit: ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_containing_objEP12outputStreamP12G1HeapRegion.exit, %56
+  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %80 = load ptr, ptr %79, align 8
+  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull %3) #16
+  %81 = getelementptr inbounds i8, ptr %0, i64 56
+  %82 = load i8, ptr %81, align 8
+  %83 = zext i8 %82 to i32
+  %84 = getelementptr inbounds i8, ptr %0, i64 57
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i8 %85 to i32
+  %87 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.48, i32 noundef %83, i32 noundef %86)
+  %88 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %89
 
-88:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #16
+89:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #16
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, %88
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerIP7oopDescE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, %89
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #16
-  %89 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %89, null
-  br i1 %.not.i.i.i.i, label %91, label %90
+  %90 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %90, null
+  br i1 %.not.i.i.i.i, label %92, label %91
 
-90:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %14) #16
+91:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #16
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #16
-  br label %91
+  br label %92
 
-91:                                               ; preds = %90, %_ZN11MutexLockerD2Ev.exit
-  %92 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %92, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %93
+92:                                               ; preds = %91, %_ZN11MutexLockerD2Ev.exit
+  %93 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %93, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %94
 
-93:                                               ; preds = %91
+94:                                               ; preds = %92
   store ptr %9, ptr %8, align 8
-  store <2 x ptr> %11, ptr %10, align 8
+  store ptr %11, ptr %10, align 8
+  store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %91, %93
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %92, %94
   ret void
 }
 
@@ -3319,182 +3323,184 @@ define linkonce_odr hidden void @_ZN28G1VerifyLiveAndRemSetClosure11LiveCheckerI
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load <2 x ptr>, ptr %10, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = load i64, ptr %13, align 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = load i64, ptr %14, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #16
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #16
-  %16 = getelementptr inbounds i8, ptr %3, i64 144
-  store i32 5, ptr %16, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #16
+  %17 = getelementptr inbounds i8, ptr %3, i64 144
+  store i32 5, ptr %17, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
-  %17 = load ptr, ptr @G1RareEvent_lock, align 8
-  %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %18
+  %18 = load ptr, ptr @G1RareEvent_lock, align 8
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %19
 
-18:                                               ; preds = %1
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #16
+19:                                               ; preds = %1
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #16
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %18
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, 1
-  store i64 %22, ptr %20, align 8
-  %23 = icmp eq i64 %21, 0
-  br i1 %23, label %24, label %26
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %19
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i64, ptr %21, align 8
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %21, align 8
+  %24 = icmp eq i64 %22, 0
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %25 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
-  br label %26
+25:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %26 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
+  br label %27
 
-26:                                               ; preds = %24, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 520
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %27, i64 528
-  %33 = load i32, ptr %32, align 8
-  %34 = zext nneg i32 %33 to i64
-  %35 = shl i64 %31, %34
-  %36 = ptrtoint ptr %29 to i64
-  %37 = sub i64 %36, %35
-  %38 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %39 = zext nneg i32 %38 to i64
-  %40 = lshr i64 %37, %39
-  %41 = and i64 %40, 4294967295
-  %42 = getelementptr inbounds i8, ptr %27, i64 496
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %41
-  %45 = load ptr, ptr %44, align 8
-  %46 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit, label %47
+27:                                               ; preds = %25, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %28, i64 520
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %28, i64 528
+  %34 = load i32, ptr %33, align 8
+  %35 = zext nneg i32 %34 to i64
+  %36 = shl i64 %32, %35
+  %37 = ptrtoint ptr %30 to i64
+  %38 = sub i64 %37, %36
+  %39 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %40 = zext nneg i32 %39 to i64
+  %41 = lshr i64 %38, %40
+  %42 = and i64 %41, 4294967295
+  %43 = getelementptr inbounds i8, ptr %28, i64 496
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds ptr, ptr %44, i64 %42
+  %46 = load ptr, ptr %45, align 8
+  %47 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit, label %48
 
-47:                                               ; preds = %26
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = ptrtoint ptr %49 to i64
-  %51 = getelementptr inbounds i8, ptr %45, i64 48
-  %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %45, i64 52
-  %54 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %53) #16
-  %55 = load ptr, ptr %45, align 8
-  %56 = ptrtoint ptr %55 to i64
-  %57 = getelementptr inbounds i8, ptr %45, i64 16
-  %58 = load volatile ptr, ptr %57, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %60 = getelementptr inbounds i8, ptr %45, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = ptrtoint ptr %61 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.45, i64 noundef %36, i64 noundef %50, i32 noundef %52, ptr noundef %54, i64 noundef %56, i64 noundef %59, i64 noundef %62)
+48:                                               ; preds = %27
+  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = ptrtoint ptr %50 to i64
+  %52 = getelementptr inbounds i8, ptr %46, i64 48
+  %53 = load i32, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %46, i64 52
+  %55 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %54) #16
+  %56 = load ptr, ptr %46, align 8
+  %57 = ptrtoint ptr %56 to i64
+  %58 = getelementptr inbounds i8, ptr %46, i64 16
+  %59 = load volatile ptr, ptr %58, align 8
+  %60 = ptrtoint ptr %59 to i64
+  %61 = getelementptr inbounds i8, ptr %46, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = ptrtoint ptr %62 to i64
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.45, i64 noundef %37, i64 noundef %51, i32 noundef %53, ptr noundef %55, i64 noundef %57, i64 noundef %60, i64 noundef %63)
   br label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
 
-_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit: ; preds = %26, %47
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
-  %64 = load ptr, ptr %63, align 8
-  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull %3) #16
-  %65 = getelementptr inbounds i8, ptr %0, i64 44
-  %66 = load i8, ptr %65, align 4
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %73, label %68
+_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit: ; preds = %27, %48
+  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = load ptr, ptr %64, align 8
+  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull %3) #16
+  %66 = getelementptr inbounds i8, ptr %0, i64 44
+  %67 = load i8, ptr %66, align 4
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %74, label %69
 
-68:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
-  %70 = load ptr, ptr %69, align 8
-  %71 = ptrtoint ptr %70 to i64
-  %72 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.43, i64 noundef %71)
-  br label %115
+69:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
+  %70 = getelementptr inbounds i8, ptr %0, i64 32
+  %71 = load ptr, ptr %70, align 8
+  %72 = ptrtoint ptr %71 to i64
+  %73 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.43, i64 noundef %72)
+  br label %116
 
-73:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 32
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %74, i64 520
-  %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %74, i64 528
-  %80 = load i32, ptr %79, align 8
-  %81 = zext nneg i32 %80 to i64
-  %82 = shl i64 %78, %81
-  %83 = ptrtoint ptr %76 to i64
-  %84 = sub i64 %83, %82
-  %85 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %86 = zext nneg i32 %85 to i64
-  %87 = lshr i64 %84, %86
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds i8, ptr %74, i64 496
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %88
-  %92 = load ptr, ptr %91, align 8
-  %93 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not.i3 = icmp eq ptr %93, null
-  br i1 %.not.i3, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, label %94
+74:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
+  %75 = load ptr, ptr %0, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 32
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %75, i64 520
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %75, i64 528
+  %81 = load i32, ptr %80, align 8
+  %82 = zext nneg i32 %81 to i64
+  %83 = shl i64 %79, %82
+  %84 = ptrtoint ptr %77 to i64
+  %85 = sub i64 %84, %83
+  %86 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %87 = zext nneg i32 %86 to i64
+  %88 = lshr i64 %85, %87
+  %89 = and i64 %88, 4294967295
+  %90 = getelementptr inbounds i8, ptr %75, i64 496
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds ptr, ptr %91, i64 %89
+  %93 = load ptr, ptr %92, align 8
+  %94 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not.i3 = icmp eq ptr %94, null
+  br i1 %.not.i3, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, label %95
 
-94:                                               ; preds = %73
-  %95 = getelementptr inbounds i8, ptr %92, i64 48
-  %96 = load i32, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %92, i64 52
-  %98 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %97) #16
-  %99 = load ptr, ptr %92, align 8
-  %100 = ptrtoint ptr %99 to i64
-  %101 = getelementptr inbounds i8, ptr %92, i64 16
-  %102 = load volatile ptr, ptr %101, align 8
-  %103 = ptrtoint ptr %102 to i64
-  %104 = getelementptr inbounds i8, ptr %92, i64 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = ptrtoint ptr %105 to i64
-  %107 = getelementptr inbounds i8, ptr %92, i64 40
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 80
-  %110 = load i32, ptr %109, align 8
-  %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds [0 x ptr], ptr @_ZN18G1HeapRegionRemSet14_state_stringsE, i64 0, i64 %111
-  %113 = load ptr, ptr %112, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.44, i64 noundef %83, i32 noundef %96, ptr noundef %98, i64 noundef %100, i64 noundef %103, i64 noundef %106, ptr noundef %113)
-  %.pre = load ptr, ptr %75, align 8
+95:                                               ; preds = %74
+  %96 = getelementptr inbounds i8, ptr %93, i64 48
+  %97 = load i32, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %93, i64 52
+  %99 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %98) #16
+  %100 = load ptr, ptr %93, align 8
+  %101 = ptrtoint ptr %100 to i64
+  %102 = getelementptr inbounds i8, ptr %93, i64 16
+  %103 = load volatile ptr, ptr %102, align 8
+  %104 = ptrtoint ptr %103 to i64
+  %105 = getelementptr inbounds i8, ptr %93, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = ptrtoint ptr %106 to i64
+  %108 = getelementptr inbounds i8, ptr %93, i64 40
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 80
+  %111 = load i32, ptr %110, align 8
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds [0 x ptr], ptr @_ZN18G1HeapRegionRemSet14_state_stringsE, i64 0, i64 %112
+  %114 = load ptr, ptr %113, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.44, i64 noundef %84, i32 noundef %97, ptr noundef %99, i64 noundef %101, i64 noundef %104, i64 noundef %107, ptr noundef %114)
+  %.pre = load ptr, ptr %76, align 8
   br label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit
 
-_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit: ; preds = %73, %94
-  %114 = phi ptr [ %76, %73 ], [ %.pre, %94 ]
-  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull %3) #16
-  br label %115
+_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit: ; preds = %74, %95
+  %115 = phi ptr [ %77, %74 ], [ %.pre, %95 ]
+  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull %3) #16
+  br label %116
 
-115:                                              ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, %68
-  %116 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %117
+116:                                              ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, %69
+  %117 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %118
 
-117:                                              ; preds = %115
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #16
+118:                                              ; preds = %116
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #16
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %115, %117
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %116, %118
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #16
-  %118 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %118, null
-  br i1 %.not.i.i.i.i, label %120, label %119
+  %119 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %119, null
+  br i1 %.not.i.i.i.i, label %121, label %120
 
-119:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %14) #16
+120:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #16
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #16
-  br label %120
+  br label %121
 
-120:                                              ; preds = %119, %_ZN11MutexLockerD2Ev.exit
-  %121 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %121, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %122
+121:                                              ; preds = %120, %_ZN11MutexLockerD2Ev.exit
+  %122 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %122, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %123
 
-122:                                              ; preds = %120
+123:                                              ; preds = %121
   store ptr %9, ptr %8, align 8
-  store <2 x ptr> %11, ptr %10, align 8
+  store ptr %11, ptr %10, align 8
+  store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %120, %122
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %121, %123
   ret void
 }
 
@@ -3509,146 +3515,148 @@ define linkonce_odr hidden void @_ZN28G1VerifyLiveAndRemSetClosure13RemSetChecke
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load <2 x ptr>, ptr %10, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = load i64, ptr %13, align 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = load i64, ptr %14, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #16
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #16
-  %16 = getelementptr inbounds i8, ptr %3, i64 144
-  store i32 5, ptr %16, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #16
+  %17 = getelementptr inbounds i8, ptr %3, i64 144
+  store i32 5, ptr %17, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
-  %17 = load ptr, ptr @G1RareEvent_lock, align 8
-  %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %18
+  %18 = load ptr, ptr @G1RareEvent_lock, align 8
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %19
 
-18:                                               ; preds = %1
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #16
+19:                                               ; preds = %1
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #16
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %18
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, 1
-  store i64 %22, ptr %20, align 8
-  %23 = icmp eq i64 %21, 0
-  br i1 %23, label %24, label %26
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %19
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i64, ptr %21, align 8
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %21, align 8
+  %24 = icmp eq i64 %22, 0
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %25 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
-  br label %26
+25:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %26 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
+  br label %27
 
-26:                                               ; preds = %24, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %27 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.47)
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8
-  %30 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit, label %31
+27:                                               ; preds = %25, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %28 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.47)
+  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = load ptr, ptr %29, align 8
+  %31 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit, label %32
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = getelementptr inbounds i8, ptr %29, i64 48
-  %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %29, i64 52
-  %41 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %40) #16
-  %42 = load ptr, ptr %29, align 8
-  %43 = ptrtoint ptr %42 to i64
-  %44 = getelementptr inbounds i8, ptr %29, i64 16
-  %45 = load volatile ptr, ptr %44, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %47 = getelementptr inbounds i8, ptr %29, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = ptrtoint ptr %48 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.45, i64 noundef %34, i64 noundef %37, i32 noundef %39, ptr noundef %41, i64 noundef %43, i64 noundef %46, i64 noundef %49)
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = load ptr, ptr %33, align 8
+  %35 = ptrtoint ptr %34 to i64
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = ptrtoint ptr %37 to i64
+  %39 = getelementptr inbounds i8, ptr %30, i64 48
+  %40 = load i32, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %30, i64 52
+  %42 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %41) #16
+  %43 = load ptr, ptr %30, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %45 = getelementptr inbounds i8, ptr %30, i64 16
+  %46 = load volatile ptr, ptr %45, align 8
+  %47 = ptrtoint ptr %46 to i64
+  %48 = getelementptr inbounds i8, ptr %30, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = ptrtoint ptr %49 to i64
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.45, i64 noundef %35, i64 noundef %38, i32 noundef %40, ptr noundef %42, i64 noundef %44, i64 noundef %47, i64 noundef %50)
   br label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
 
-_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit: ; preds = %26, %31
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
-  %51 = load ptr, ptr %50, align 8
-  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull %3) #16
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
-  %53 = load ptr, ptr %52, align 8
-  %54 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not.i1 = icmp eq ptr %54, null
-  br i1 %.not.i1, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, label %55
+_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit: ; preds = %27, %32
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = load ptr, ptr %51, align 8
+  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull %3) #16
+  %53 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = load ptr, ptr %53, align 8
+  %55 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not.i1 = icmp eq ptr %55, null
+  br i1 %.not.i1, label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, label %56
 
-55:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
-  %57 = load ptr, ptr %56, align 8
-  %58 = ptrtoint ptr %57 to i64
-  %59 = getelementptr inbounds i8, ptr %53, i64 48
-  %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %53, i64 52
-  %62 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %61) #16
-  %63 = load ptr, ptr %53, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = getelementptr inbounds i8, ptr %53, i64 16
-  %66 = load volatile ptr, ptr %65, align 8
-  %67 = ptrtoint ptr %66 to i64
-  %68 = getelementptr inbounds i8, ptr %53, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = getelementptr inbounds i8, ptr %53, i64 40
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 80
-  %74 = load i32, ptr %73, align 8
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds [0 x ptr], ptr @_ZN18G1HeapRegionRemSet14_state_stringsE, i64 0, i64 %75
-  %77 = load ptr, ptr %76, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.22, i64 noundef %58, i32 noundef %60, ptr noundef %62, i64 noundef %64, i64 noundef %67, i64 noundef %70, ptr noundef %77)
+56:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit
+  %57 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = load ptr, ptr %57, align 8
+  %59 = ptrtoint ptr %58 to i64
+  %60 = getelementptr inbounds i8, ptr %54, i64 48
+  %61 = load i32, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %54, i64 52
+  %63 = call noundef ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %62) #16
+  %64 = load ptr, ptr %54, align 8
+  %65 = ptrtoint ptr %64 to i64
+  %66 = getelementptr inbounds i8, ptr %54, i64 16
+  %67 = load volatile ptr, ptr %66, align 8
+  %68 = ptrtoint ptr %67 to i64
+  %69 = getelementptr inbounds i8, ptr %54, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = ptrtoint ptr %70 to i64
+  %72 = getelementptr inbounds i8, ptr %54, i64 40
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 80
+  %75 = load i32, ptr %74, align 8
+  %76 = zext i32 %75 to i64
+  %77 = getelementptr inbounds [0 x ptr], ptr @_ZN18G1HeapRegionRemSet14_state_stringsE, i64 0, i64 %76
+  %78 = load ptr, ptr %77, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.22, i64 noundef %59, i32 noundef %61, ptr noundef %63, i64 noundef %65, i64 noundef %68, i64 noundef %71, ptr noundef %78)
   br label %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit
 
-_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit: ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit, %55
-  %78 = getelementptr inbounds i8, ptr %0, i64 32
-  %79 = load ptr, ptr %78, align 8
-  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull %3) #16
-  %80 = getelementptr inbounds i8, ptr %0, i64 56
-  %81 = load i8, ptr %80, align 8
-  %82 = zext i8 %81 to i32
-  %83 = getelementptr inbounds i8, ptr %0, i64 57
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i32
-  %86 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.48, i32 noundef %82, i32 noundef %85)
-  %87 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %88
+_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit: ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_containing_objEP12outputStreamP12G1HeapRegion.exit, %56
+  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %80 = load ptr, ptr %79, align 8
+  call void @_ZNK7oopDesc13print_name_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull %3) #16
+  %81 = getelementptr inbounds i8, ptr %0, i64 56
+  %82 = load i8, ptr %81, align 8
+  %83 = zext i8 %82 to i32
+  %84 = getelementptr inbounds i8, ptr %0, i64 57
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i8 %85 to i32
+  %87 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.48, i32 noundef %83, i32 noundef %86)
+  %88 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5errorEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.42)
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %89
 
-88:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #16
+89:                                               ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #16
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, %88
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN28G1VerifyLiveAndRemSetClosure7CheckerI9narrowOopE20print_referenced_objEP12outputStreamP12G1HeapRegionPKc.exit, %89
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #16
-  %89 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %89, null
-  br i1 %.not.i.i.i.i, label %91, label %90
+  %90 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %90, null
+  br i1 %.not.i.i.i.i, label %92, label %91
 
-90:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %14) #16
+91:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #16
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #16
-  br label %91
+  br label %92
 
-91:                                               ; preds = %90, %_ZN11MutexLockerD2Ev.exit
-  %92 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %92, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %93
+92:                                               ; preds = %91, %_ZN11MutexLockerD2Ev.exit
+  %93 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %93, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %94
 
-93:                                               ; preds = %91
+94:                                               ; preds = %92
   store ptr %9, ptr %8, align 8
-  store <2 x ptr> %11, ptr %10, align 8
+  store ptr %11, ptr %10, align 8
+  store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %91, %93
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %92, %94
   ret void
 }
 

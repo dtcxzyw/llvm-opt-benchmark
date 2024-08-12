@@ -35,7 +35,13 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN26btTriangleIndexVertexArrayC2EiPiiiPfi(ptr noundef nonnull align 8 dereferenceable(100) %this, i32 noundef %numTriangles, ptr noundef %triangleIndexBase, i32 noundef %triangleIndexStride, i32 noundef %numVertices, ptr noundef %vertexBase, i32 noundef %vertexStride) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %m_scaling.i = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_scaling.i, align 8
+  store float 1.000000e+00, ptr %m_scaling.i, align 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  store float 1.000000e+00, ptr %arrayidx3.i.i, align 4
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  store float 1.000000e+00, ptr %arrayidx5.i.i, align 8
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 20
+  store float 0.000000e+00, ptr %arrayidx7.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTV26btTriangleIndexVertexArray, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i8 1, ptr %m_ownsMemory.i.i, align 8

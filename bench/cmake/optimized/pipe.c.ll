@@ -685,7 +685,7 @@ declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_pipe(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = alloca [2 x i32], align 8
+  %4 = alloca [2 x i32], align 4
   %5 = and i32 %1, 64
   %.not = icmp eq i32 %5, 0
   %6 = and i32 %2, 64
@@ -701,53 +701,61 @@ define dso_local i32 @uv_pipe(ptr nocapture noundef writeonly %0, i32 noundef %1
   %10 = tail call ptr @__errno_location() #12
   %11 = load i32, ptr %10, align 4
   %12 = sub nsw i32 0, %11
-  br label %34
+  br label %40
 
 13:                                               ; preds = %3
   %14 = and i32 %.0, 2048
   %.not18 = icmp eq i32 %14, 0
-  br i1 %.not18, label %17, label %15
+  br i1 %.not18, label %20, label %15
 
 15:                                               ; preds = %13
-  %16 = load <2 x i32>, ptr %4, align 8
-  store <2 x i32> %16, ptr %0, align 4
-  br label %34
+  %16 = load i32, ptr %4, align 4
+  store i32 %16, ptr %0, align 4
+  %17 = getelementptr inbounds i8, ptr %4, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %18, ptr %19, align 4
+  br label %40
 
-17:                                               ; preds = %13
-  br i1 %.not, label %21, label %18
+20:                                               ; preds = %13
+  br i1 %.not, label %24, label %21
 
-18:                                               ; preds = %17
-  %19 = load i32, ptr %4, align 8
-  %20 = call i32 @uv__nonblock_ioctl(i32 noundef %19, i32 noundef 1) #11
-  %.not19 = icmp eq i32 %20, 0
-  br i1 %.not19, label %21, label %28
+21:                                               ; preds = %20
+  %22 = load i32, ptr %4, align 4
+  %23 = call i32 @uv__nonblock_ioctl(i32 noundef %22, i32 noundef 1) #11
+  %.not19 = icmp eq i32 %23, 0
+  br i1 %.not19, label %24, label %34
 
-21:                                               ; preds = %18, %17
-  br i1 %.not16, label %26, label %22
+24:                                               ; preds = %21, %20
+  br i1 %.not16, label %29, label %25
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %4, i64 4
-  %24 = load i32, ptr %23, align 4
-  %25 = call i32 @uv__nonblock_ioctl(i32 noundef %24, i32 noundef 1) #11
-  %.not21 = icmp eq i32 %25, 0
-  br i1 %.not21, label %26, label %28
+25:                                               ; preds = %24
+  %26 = getelementptr inbounds i8, ptr %4, i64 4
+  %27 = load i32, ptr %26, align 4
+  %28 = call i32 @uv__nonblock_ioctl(i32 noundef %27, i32 noundef 1) #11
+  %.not21 = icmp eq i32 %28, 0
+  br i1 %.not21, label %29, label %34
 
-26:                                               ; preds = %22, %21
-  %27 = load <2 x i32>, ptr %4, align 8
-  store <2 x i32> %27, ptr %0, align 4
-  br label %34
-
-28:                                               ; preds = %22, %18
-  %.012 = phi i32 [ %20, %18 ], [ %25, %22 ]
-  %29 = load i32, ptr %4, align 8
-  %30 = call i32 @uv__close(i32 noundef %29) #11
+29:                                               ; preds = %25, %24
+  %30 = load i32, ptr %4, align 4
+  store i32 %30, ptr %0, align 4
   %31 = getelementptr inbounds i8, ptr %4, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = call i32 @uv__close(i32 noundef %32) #11
-  br label %34
+  %33 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %32, ptr %33, align 4
+  br label %40
 
-34:                                               ; preds = %28, %26, %15, %9
-  %.013 = phi i32 [ %12, %9 ], [ 0, %15 ], [ %.012, %28 ], [ 0, %26 ]
+34:                                               ; preds = %25, %21
+  %.012 = phi i32 [ %23, %21 ], [ %28, %25 ]
+  %35 = load i32, ptr %4, align 4
+  %36 = call i32 @uv__close(i32 noundef %35) #11
+  %37 = getelementptr inbounds i8, ptr %4, i64 4
+  %38 = load i32, ptr %37, align 4
+  %39 = call i32 @uv__close(i32 noundef %38) #11
+  br label %40
+
+40:                                               ; preds = %34, %29, %15, %9
+  %.013 = phi i32 [ %12, %9 ], [ 0, %15 ], [ %.012, %34 ], [ 0, %29 ]
   ret i32 %.013
 }
 

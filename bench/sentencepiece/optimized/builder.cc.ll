@@ -13098,7 +13098,7 @@ _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit: ; preds = %_ZN13se
 .body:                                            ; preds = %25, %28
   %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %26, %25 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %14) #20
-  br label %294
+  br label %295
 
 30:                                               ; preds = %2
   %31 = getelementptr inbounds i8, ptr %8, i64 8
@@ -13819,12 +13819,14 @@ _ZNSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ES
   %286 = load i32, ptr %31, align 8
   store i32 %286, ptr %38, align 8
   store ptr %284, ptr %277, align 8
-  %287 = load <2 x ptr>, ptr %33, align 8
-  store <2 x ptr> %287, ptr %36, align 8
-  %288 = getelementptr inbounds i8, ptr %284, i64 8
-  store ptr %38, ptr %288, align 8
-  %289 = load i64, ptr %35, align 8
-  store i64 %289, ptr %283, align 8
+  %287 = load ptr, ptr %33, align 8
+  store ptr %287, ptr %36, align 8
+  %288 = load ptr, ptr %34, align 8
+  store ptr %288, ptr %282, align 8
+  %289 = getelementptr inbounds i8, ptr %284, i64 8
+  store ptr %38, ptr %289, align 8
+  %290 = load i64, ptr %35, align 8
+  store i64 %290, ptr %283, align 8
   store ptr null, ptr %32, align 8
   store ptr %31, ptr %33, align 8
   store ptr %31, ptr %34, align 8
@@ -13841,26 +13843,26 @@ _ZN13sentencepiece4util8OkStatusEv.exit.sink.split: ; preds = %105, %272
   br label %_ZN13sentencepiece4util8OkStatusEv.exit
 
 _ZN13sentencepiece4util8OkStatusEv.exit:          ; preds = %_ZN13sentencepiece4util8OkStatusEv.exit.sink.split, %_ZNSt3mapISt6vectorIjSaIjEES2_St4lessIS2_ESaISt4pairIKS2_S2_EEEaSEOS9_.exit
-  %290 = load ptr, ptr %32, align 8
-  invoke void @_ZNSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %290)
-          to label %_ZNSt3mapISt6vectorIjSaIjEES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit unwind label %291
+  %291 = load ptr, ptr %32, align 8
+  invoke void @_ZNSt8_Rb_treeISt6vectorIjSaIjEESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %291)
+          to label %_ZNSt3mapISt6vectorIjSaIjEES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit unwind label %292
 
-291:                                              ; preds = %_ZN13sentencepiece4util8OkStatusEv.exit
-  %292 = landingpad { ptr, i32 }
+292:                                              ; preds = %_ZN13sentencepiece4util8OkStatusEv.exit
+  %293 = landingpad { ptr, i32 }
           catch ptr null
-  %293 = extractvalue { ptr, i32 } %292, 0
-  call void @__clang_call_terminate(ptr %293) #21
+  %294 = extractvalue { ptr, i32 } %293, 0
+  call void @__clang_call_terminate(ptr %294) #21
   unreachable
 
 .body98:                                          ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %221, %.body84, %.body53
   %.pn = phi { ptr, i32 } [ %eh.lpad-body85, %.body84 ], [ %eh.lpad-body54, %.body53 ], [ %222, %221 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit201, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit204, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt3mapISt6vectorIjSaIjEES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #20
-  br label %294
+  br label %295
 
 _ZNSt3mapISt6vectorIjSaIjEES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit: ; preds = %_ZN13sentencepiece4util8OkStatusEv.exit, %27
   ret void
 
-294:                                              ; preds = %.body98, %.body
+295:                                              ; preds = %.body98, %.body
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body98 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn
 }

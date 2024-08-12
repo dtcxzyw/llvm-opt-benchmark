@@ -105,8 +105,9 @@ entry:
   %orig_params.sroa.11.0.dist.sroa_idx = getelementptr inbounds i8, ptr %params, i64 60
   %orig_params.sroa.11.0.copyload = load i32, ptr %orig_params.sroa.11.0.dist.sroa_idx, align 4
   %orig_params.sroa.20.0.dist.sroa_idx = getelementptr inbounds i8, ptr %params, i64 64
+  %0 = load i64, ptr %orig_params.sroa.20.0.dist.sroa_idx, align 8
   %orig_params.sroa.20329.0.dist.sroa_idx = getelementptr inbounds i8, ptr %params, i64 72
-  %0 = load <2 x i64>, ptr %orig_params.sroa.20.0.dist.sroa_idx, align 8
+  %orig_params.sroa.20329.0.copyload = load i64, ptr %orig_params.sroa.20329.0.dist.sroa_idx, align 8
   %new_params.sroa.9.0.dist.sroa_idx = getelementptr inbounds i8, ptr %params, i64 68
   %call = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 2192) #9
   %large_window = getelementptr inbounds i8, ptr %params, i64 36
@@ -450,7 +451,8 @@ ComputeDistanceCost.exit269:                      ; preds = %for.inc.i254, %if.e
 if.then24:                                        ; preds = %ComputeDistanceCost.exit269
   store i32 %orig_params.sroa.0.0.copyload, ptr %dist, align 8
   store i32 %orig_params.sroa.11.0.copyload, ptr %orig_params.sroa.11.0.dist.sroa_idx, align 4
-  store <2 x i64> %0, ptr %orig_params.sroa.20.0.dist.sroa_idx, align 8
+  store i64 %0, ptr %orig_params.sroa.20.0.dist.sroa_idx, align 8
+  store i64 %orig_params.sroa.20329.0.copyload, ptr %orig_params.sroa.20329.0.dist.sroa_idx, align 8
   br label %if.end27
 
 if.end27:                                         ; preds = %ComputeDistanceCost.exit269, %if.then24, %for.end18
@@ -2958,9 +2960,11 @@ if.then146:                                       ; preds = %if.else140
   %83 = load i8, ptr %arrayidx155, align 1
   store i8 %83, ptr %82, align 1
   %last_histogram_ix_159 = getelementptr inbounds i8, ptr %self, i64 96
-  %84 = load <2 x i64>, ptr %last_histogram_ix_159, align 8
-  %85 = shufflevector <2 x i64> %84, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %85, ptr %last_histogram_ix_159, align 8
+  %84 = load i64, ptr %last_histogram_ix_159, align 8
+  %arrayidx162 = getelementptr inbounds i8, ptr %self, i64 104
+  %85 = load i64, ptr %arrayidx162, align 8
+  store i64 %85, ptr %last_histogram_ix_159, align 8
+  store i64 %84, ptr %arrayidx162, align 8
   br i1 %cmp39267.not297, label %for.end188, label %for.body170.lr.ph
 
 for.body170.lr.ph:                                ; preds = %if.then146

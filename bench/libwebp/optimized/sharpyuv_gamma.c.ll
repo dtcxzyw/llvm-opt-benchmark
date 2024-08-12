@@ -148,8 +148,8 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
     i32 11, label %94
     i32 12, label %104
     i32 16, label %116
-    i32 17, label %134
-    i32 18, label %141
+    i32 17, label %132
+    i32 18, label %139
   ]
 
 36:                                               ; preds = %31, %31, %31, %31
@@ -285,75 +285,73 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
   %120 = tail call double @pow(double noundef %119, double noundef 0x3F89F9B580000000) #5
   %121 = fptrunc double %120 to float
   %122 = fadd float %121, 0xBFEAC00000000000
-  %123 = tail call float @llvm.fmuladd.f32(float %121, float -1.868750e+01, float 0x4032DA0000000000)
-  %124 = insertelement <2 x float> poison, float %122, i64 0
-  %125 = insertelement <2 x float> %124, float %123, i64 1
-  %126 = fcmp ogt <2 x float> %125, <float 0.000000e+00, float 0x3810000000000000>
-  %127 = select <2 x i1> %126, <2 x float> %125, <2 x float> <float 0.000000e+00, float 0x3810000000000000>
-  %128 = extractelement <2 x float> %127, i64 0
-  %129 = extractelement <2 x float> %127, i64 1
-  %130 = fdiv float %128, %129
-  %131 = fpext float %130 to double
-  %132 = tail call double @pow(double noundef %131, double noundef 0x4019172160000000) #5
-  %133 = fptrunc double %132 to float
+  %123 = fcmp ogt float %122, 0.000000e+00
+  %124 = select i1 %123, float %122, float 0.000000e+00
+  %125 = tail call float @llvm.fmuladd.f32(float %121, float -1.868750e+01, float 0x4032DA0000000000)
+  %126 = fcmp ogt float %125, 0x3810000000000000
+  %127 = select i1 %126, float %125, float 0x3810000000000000
+  %128 = fdiv float %124, %127
+  %129 = fpext float %128 to double
+  %130 = tail call double @pow(double noundef %129, double noundef 0x4019172160000000) #5
+  %131 = fptrunc double %130 to float
   br label %ToLinear709.exit
 
-134:                                              ; preds = %31
-  %135 = fcmp ogt float %35, 0.000000e+00
-  %136 = select i1 %135, float %35, float 0.000000e+00
-  %137 = fpext float %136 to double
-  %138 = tail call double @pow(double noundef %137, double noundef 0x4004CCCCC0000000) #5
-  %139 = fptrunc double %138 to float
-  %140 = fdiv float %139, 0x3FED546BC0000000
+132:                                              ; preds = %31
+  %133 = fcmp ogt float %35, 0.000000e+00
+  %134 = select i1 %133, float %35, float 0.000000e+00
+  %135 = fpext float %134 to double
+  %136 = tail call double @pow(double noundef %135, double noundef 0x4004CCCCC0000000) #5
+  %137 = fptrunc double %136 to float
+  %138 = fdiv float %137, 0x3FED546BC0000000
   br label %ToLinear709.exit
 
-141:                                              ; preds = %31
-  %142 = fcmp ugt float %35, 5.000000e-01
-  br i1 %142, label %146, label %143
+139:                                              ; preds = %31
+  %140 = fcmp ugt float %35, 5.000000e-01
+  br i1 %140, label %144, label %141
 
-143:                                              ; preds = %141
-  %144 = fmul float %35, %35
-  %145 = fmul float %144, 0x3FD5555560000000
+141:                                              ; preds = %139
+  %142 = fmul float %35, %35
+  %143 = fmul float %142, 0x3FD5555560000000
   br label %ToLinearHlg.exit
 
-146:                                              ; preds = %141
-  %147 = fadd float %35, 0xBFE1EAC9E0000000
-  %148 = fdiv float %147, 0x3FC6E3FE00000000
-  %149 = tail call float @expf(float noundef %148) #5
-  %150 = fadd float %149, 0x3FD2380400000000
-  %151 = fdiv float %150, 1.200000e+01
+144:                                              ; preds = %139
+  %145 = fadd float %35, 0xBFE1EAC9E0000000
+  %146 = fdiv float %145, 0x3FC6E3FE00000000
+  %147 = tail call float @expf(float noundef %146) #5
+  %148 = fadd float %147, 0x3FD2380400000000
+  %149 = fdiv float %148, 1.200000e+01
   br label %ToLinearHlg.exit
 
-ToLinearHlg.exit:                                 ; preds = %143, %146
-  %.sink.i = phi float [ %151, %146 ], [ %145, %143 ]
-  %152 = fpext float %.sink.i to double
-  %153 = tail call double @pow(double noundef %152, double noundef 0x3FF3333340000000) #5
-  %154 = fptrunc double %153 to float
+ToLinearHlg.exit:                                 ; preds = %141, %144
+  %.sink.i = phi float [ %149, %144 ], [ %143, %141 ]
+  %150 = fpext float %.sink.i to double
+  %151 = tail call double @pow(double noundef %150, double noundef 0x3FF3333340000000) #5
+  %152 = fptrunc double %151 to float
   br label %ToLinear709.exit
 
-ToLinear709.exit:                                 ; preds = %118, %116, %110, %108, %106, %98, %96, %86, %84, %76, %74, %66, %64, %62, %42, %40, %38, %31, %ToLinearHlg.exit, %134, %54, %48
-  %.0 = phi float [ %154, %ToLinearHlg.exit ], [ %140, %134 ], [ %59, %54 ], [ %53, %48 ], [ 0.000000e+00, %31 ], [ %39, %38 ], [ %47, %42 ], [ 1.000000e+00, %40 ], [ %63, %62 ], [ %71, %66 ], [ 1.000000e+00, %64 ], [ %83, %76 ], [ 0x3F747AE140000000, %74 ], [ %93, %86 ], [ 0x3F59E7C6E0000000, %84 ], [ %97, %96 ], [ %103, %98 ], [ %107, %106 ], [ %115, %110 ], [ 1.000000e+00, %108 ], [ %133, %118 ], [ 0.000000e+00, %116 ]
-  %155 = fmul float %.0, 6.553500e+04
-  %156 = fcmp olt float %155, 0.000000e+00
-  br i1 %156, label %157, label %160
+ToLinear709.exit:                                 ; preds = %118, %116, %110, %108, %106, %98, %96, %86, %84, %76, %74, %66, %64, %62, %42, %40, %38, %31, %ToLinearHlg.exit, %132, %54, %48
+  %.0 = phi float [ %152, %ToLinearHlg.exit ], [ %138, %132 ], [ %59, %54 ], [ %53, %48 ], [ 0.000000e+00, %31 ], [ %39, %38 ], [ %47, %42 ], [ 1.000000e+00, %40 ], [ %63, %62 ], [ %71, %66 ], [ 1.000000e+00, %64 ], [ %83, %76 ], [ 0x3F747AE140000000, %74 ], [ %93, %86 ], [ 0x3F59E7C6E0000000, %84 ], [ %97, %96 ], [ %103, %98 ], [ %107, %106 ], [ %115, %110 ], [ 1.000000e+00, %108 ], [ %131, %118 ], [ 0.000000e+00, %116 ]
+  %153 = fmul float %.0, 6.553500e+04
+  %154 = fcmp olt float %153, 0.000000e+00
+  br i1 %154, label %155, label %158
 
-157:                                              ; preds = %ToLinear709.exit
-  %158 = fadd float %155, -5.000000e-01
-  %159 = tail call float @llvm.ceil.f32(float %158)
+155:                                              ; preds = %ToLinear709.exit
+  %156 = fadd float %153, -5.000000e-01
+  %157 = tail call float @llvm.ceil.f32(float %156)
   br label %Roundf.exit
 
-160:                                              ; preds = %ToLinear709.exit
-  %161 = fadd float %155, 5.000000e-01
-  %162 = tail call float @llvm.floor.f32(float %161)
+158:                                              ; preds = %ToLinear709.exit
+  %159 = fadd float %153, 5.000000e-01
+  %160 = tail call float @llvm.floor.f32(float %159)
   br label %Roundf.exit
 
-Roundf.exit:                                      ; preds = %157, %160
-  %.0.i27 = phi float [ %159, %157 ], [ %162, %160 ]
-  %163 = fptoui float %.0.i27 to i32
+Roundf.exit:                                      ; preds = %155, %158
+  %.0.i27 = phi float [ %157, %155 ], [ %160, %158 ]
+  %161 = fptoui float %.0.i27 to i32
   br label %ToLinearSrgb.exit
 
 ToLinearSrgb.exit:                                ; preds = %14, %8, %Roundf.exit, %72
-  %.019 = phi i32 [ %163, %Roundf.exit ], [ %73, %72 ], [ %13, %8 ], [ %30, %14 ]
+  %.019 = phi i32 [ %161, %Roundf.exit ], [ %73, %72 ], [ %13, %8 ], [ %30, %14 ]
   ret i32 %.019
 }
 
@@ -387,7 +385,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   %27 = lshr i32 %26, 7
   %28 = add i32 %27, %16
   %29 = trunc i32 %28 to i16
-  br label %156
+  br label %153
 
 30:                                               ; preds = %3
   %31 = uitofp i32 %0 to float
@@ -406,8 +404,8 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
     i32 11, label %89
     i32 12, label %98
     i32 16, label %109
-    i32 17, label %124
-    i32 18, label %131
+    i32 17, label %121
+    i32 18, label %128
   ]
 
 33:                                               ; preds = %30, %30, %30, %30
@@ -466,7 +464,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
 
 67:                                               ; preds = %30
   %68 = trunc i32 %0 to i16
-  br label %156
+  br label %153
 
 69:                                               ; preds = %30
   %70 = fcmp olt float %32, 0x3F847AE140000000
@@ -538,74 +536,71 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   %112 = fpext float %32 to double
   %113 = tail call double @pow(double noundef %112, double noundef 0x3FC4680000000000) #5
   %114 = fptrunc double %113 to float
-  %115 = insertelement <2 x float> poison, float %114, i64 0
-  %116 = shufflevector <2 x float> %115, <2 x float> poison, <2 x i32> zeroinitializer
-  %117 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %116, <2 x float> <float 0x4032DA0000000000, float 1.868750e+01>, <2 x float> <float 0x3FEAC00000000000, float 1.000000e+00>)
-  %118 = extractelement <2 x float> %117, i64 0
-  %119 = extractelement <2 x float> %117, i64 1
-  %120 = fdiv float %118, %119
-  %121 = fpext float %120 to double
-  %122 = tail call double @pow(double noundef %121, double noundef 0x4053B60000000000) #5
-  %123 = fptrunc double %122 to float
+  %115 = tail call float @llvm.fmuladd.f32(float %114, float 0x4032DA0000000000, float 0x3FEAC00000000000)
+  %116 = tail call float @llvm.fmuladd.f32(float %114, float 1.868750e+01, float 1.000000e+00)
+  %117 = fdiv float %115, %116
+  %118 = fpext float %117 to double
+  %119 = tail call double @pow(double noundef %118, double noundef 0x4053B60000000000) #5
+  %120 = fptrunc double %119 to float
   br label %FromLinear709.exit
 
-124:                                              ; preds = %30
-  %125 = fcmp ogt float %32, 0.000000e+00
-  %126 = select i1 %125, float %32, float 0.000000e+00
-  %127 = fmul float %126, 0x3FED546BC0000000
-  %128 = fpext float %127 to double
-  %129 = tail call double @pow(double noundef %128, double noundef 0x3FD89D89E0000000) #5
-  %130 = fptrunc double %129 to float
+121:                                              ; preds = %30
+  %122 = fcmp ogt float %32, 0.000000e+00
+  %123 = select i1 %122, float %32, float 0.000000e+00
+  %124 = fmul float %123, 0x3FED546BC0000000
+  %125 = fpext float %124 to double
+  %126 = tail call double @pow(double noundef %125, double noundef 0x3FD89D89E0000000) #5
+  %127 = fptrunc double %126 to float
   br label %FromLinear709.exit
 
-131:                                              ; preds = %30
-  %132 = fpext float %32 to double
-  %133 = tail call double @pow(double noundef %132, double noundef 0x3FEAAAAAA0000000) #5
-  %134 = fptrunc double %133 to float
-  %135 = fcmp olt float %134, 0.000000e+00
-  br i1 %135, label %FromLinear709.exit, label %136
+128:                                              ; preds = %30
+  %129 = fpext float %32 to double
+  %130 = tail call double @pow(double noundef %129, double noundef 0x3FEAAAAAA0000000) #5
+  %131 = fptrunc double %130 to float
+  %132 = fcmp olt float %131, 0.000000e+00
+  br i1 %132, label %FromLinear709.exit, label %133
 
-136:                                              ; preds = %131
-  %137 = fcmp ugt float %134, 0x3FB5555560000000
-  br i1 %137, label %141, label %138
+133:                                              ; preds = %128
+  %134 = fcmp ugt float %131, 0x3FB5555560000000
+  br i1 %134, label %138, label %135
 
-138:                                              ; preds = %136
-  %139 = fmul float %134, 3.000000e+00
-  %140 = tail call float @sqrtf(float noundef %139) #5
+135:                                              ; preds = %133
+  %136 = fmul float %131, 3.000000e+00
+  %137 = tail call float @sqrtf(float noundef %136) #5
   br label %FromLinear709.exit
 
-141:                                              ; preds = %136
-  %142 = tail call float @llvm.fmuladd.f32(float %134, float 1.200000e+01, float 0xBFD2380400000000)
-  %143 = tail call float @logf(float noundef %142) #5
-  %144 = tail call float @llvm.fmuladd.f32(float %143, float 0x3FC6E3FE00000000, float 0x3FE1EAC9E0000000)
+138:                                              ; preds = %133
+  %139 = tail call float @llvm.fmuladd.f32(float %131, float 1.200000e+01, float 0xBFD2380400000000)
+  %140 = tail call float @logf(float noundef %139) #5
+  %141 = tail call float @llvm.fmuladd.f32(float %140, float 0x3FC6E3FE00000000, float 0x3FE1EAC9E0000000)
   br label %FromLinear709.exit
 
-FromLinear709.exit:                               ; preds = %141, %138, %131, %111, %109, %104, %102, %100, %93, %91, %81, %79, %71, %69, %62, %60, %58, %39, %37, %35, %30, %124, %50, %44
-  %.0 = phi float [ %130, %124 ], [ %55, %50 ], [ %49, %44 ], [ 0.000000e+00, %30 ], [ %36, %35 ], [ %43, %39 ], [ 1.000000e+00, %37 ], [ %59, %58 ], [ %66, %62 ], [ 1.000000e+00, %60 ], [ %78, %71 ], [ 0.000000e+00, %69 ], [ %88, %81 ], [ 0.000000e+00, %79 ], [ %92, %91 ], [ %97, %93 ], [ %101, %100 ], [ %108, %104 ], [ 1.000000e+00, %102 ], [ %123, %111 ], [ 0.000000e+00, %109 ], [ %140, %138 ], [ %144, %141 ], [ 0.000000e+00, %131 ]
+FromLinear709.exit:                               ; preds = %138, %135, %128, %111, %109, %104, %102, %100, %93, %91, %81, %79, %71, %69, %62, %60, %58, %39, %37, %35, %30, %121, %50, %44
+  %.0 = phi float [ %127, %121 ], [ %55, %50 ], [ %49, %44 ], [ 0.000000e+00, %30 ], [ %36, %35 ], [ %43, %39 ], [ 1.000000e+00, %37 ], [ %59, %58 ], [ %66, %62 ], [ 1.000000e+00, %60 ], [ %78, %71 ], [ 0.000000e+00, %69 ], [ %88, %81 ], [ 0.000000e+00, %79 ], [ %92, %91 ], [ %97, %93 ], [ %101, %100 ], [ %108, %104 ], [ 1.000000e+00, %102 ], [ %120, %111 ], [ 0.000000e+00, %109 ], [ %137, %135 ], [ %141, %138 ], [ 0.000000e+00, %128 ]
   %notmask = shl nsw i32 -1, %1
-  %145 = xor i32 %notmask, -1
-  %146 = uitofp nneg i32 %145 to float
-  %147 = fmul float %.0, %146
-  %148 = fcmp olt float %147, 0.000000e+00
-  br i1 %148, label %149, label %152
+  %142 = xor i32 %notmask, -1
+  %143 = uitofp nneg i32 %142 to float
+  %144 = fmul float %.0, %143
+  %145 = fcmp olt float %144, 0.000000e+00
+  br i1 %145, label %146, label %149
+
+146:                                              ; preds = %FromLinear709.exit
+  %147 = fadd float %144, -5.000000e-01
+  %148 = tail call float @llvm.ceil.f32(float %147)
+  br label %Roundf.exit
 
 149:                                              ; preds = %FromLinear709.exit
-  %150 = fadd float %147, -5.000000e-01
-  %151 = tail call float @llvm.ceil.f32(float %150)
+  %150 = fadd float %144, 5.000000e-01
+  %151 = tail call float @llvm.floor.f32(float %150)
   br label %Roundf.exit
 
-152:                                              ; preds = %FromLinear709.exit
-  %153 = fadd float %147, 5.000000e-01
-  %154 = tail call float @llvm.floor.f32(float %153)
-  br label %Roundf.exit
+Roundf.exit:                                      ; preds = %146, %149
+  %.0.i26 = phi float [ %148, %146 ], [ %151, %149 ]
+  %152 = fptoui float %.0.i26 to i16
+  br label %153
 
-Roundf.exit:                                      ; preds = %149, %152
-  %.0.i26 = phi float [ %151, %149 ], [ %154, %152 ]
-  %155 = fptoui float %.0.i26 to i16
-  br label %156
-
-156:                                              ; preds = %Roundf.exit, %67, %5
-  %.019 = phi i16 [ %29, %5 ], [ %155, %Roundf.exit ], [ %68, %67 ]
+153:                                              ; preds = %Roundf.exit, %67, %5
+  %.019 = phi i16 [ %29, %5 ], [ %152, %Roundf.exit ], [ %68, %67 ]
   ret i16 %.019
 }
 
@@ -629,9 +624,6 @@ declare float @llvm.floor.f32(float) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #4
 
 attributes #0 = { nofree nounwind memory(readwrite, argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

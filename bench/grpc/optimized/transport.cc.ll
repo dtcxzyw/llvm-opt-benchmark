@@ -522,12 +522,15 @@ entry:
   %call = tail call { i64, i64 } @gpr_inf_future(i32 noundef 3)
   %12 = extractvalue { i64, i64 } %call, 0
   %13 = extractvalue { i64, i64 } %call, 1
+  %retval.sroa.0.0.copyload.i.i = load i64, ptr %latency, align 8
   %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %from, i64 56
-  %latency5 = getelementptr inbounds i8, ptr %to, i64 48
-  %14 = load <2 x i64>, ptr %latency, align 8
+  %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i, align 8
   store i64 %12, ptr %latency, align 8
   store i64 %13, ptr %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i, align 8
-  store <2 x i64> %14, ptr %latency5, align 8
+  %latency5 = getelementptr inbounds i8, ptr %to, i64 48
+  store i64 %retval.sroa.0.0.copyload.i.i, ptr %latency5, align 8
+  %ref.tmp.sroa.2.0.latency5.sroa_idx = getelementptr inbounds i8, ptr %to, i64 56
+  store i64 %retval.sroa.2.0.copyload.i.i, ptr %ref.tmp.sroa.2.0.latency5.sroa_idx, align 8
   ret void
 }
 

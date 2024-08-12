@@ -11123,13 +11123,16 @@ entry:
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load <2 x i32>, ptr %lhs, align 4, !noalias !226
-  %1 = load <2 x i32>, ptr %rhs, align 4, !noalias !226
-  %2 = icmp eq <2 x i32> %0, %1
-  %3 = extractelement <2 x i1> %2, i64 0
-  %4 = extractelement <2 x i1> %2, i64 1
-  %5 = select i1 %3, i1 %4, i1 false
-  br i1 %5, label %if.then.i, label %if.end.i
+  %lhs.val.i = load i32, ptr %lhs, align 4, !noalias !226
+  %0 = getelementptr inbounds i8, ptr %lhs, i64 4
+  %lhs.val3.i = load i32, ptr %0, align 4, !noalias !226
+  %rhs.val.i = load i32, ptr %rhs, align 4, !noalias !226
+  %1 = getelementptr inbounds i8, ptr %rhs, i64 4
+  %rhs.val4.i = load i32, ptr %1, align 4, !noalias !226
+  %cmp.i.i = icmp eq i32 %lhs.val.i, %rhs.val.i
+  %cmp3.i.i = icmp eq i32 %lhs.val3.i, %rhs.val4.i
+  %2 = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
+  br i1 %2, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
@@ -11149,11 +11152,11 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.end.i
           to label %_ZN7testing8internal33FormatForComparisonFailureMessageIN12_GLOBAL__N_19CustomUDTES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i unwind label %lpad.i.i.i.i.i, !noalias !239
 
 common.resume.i.i:                                ; preds = %ehcleanup.i.i, %lpad.i.i.i.i.i
-  %common.resume.op.i.i = phi { ptr, i32 } [ %6, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %3, %lpad.i.i.i.i.i ], [ %.pn.i.i, %ehcleanup.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %invoke.cont.i.i.i.i.i, %if.end.i
-  %6 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i.i.i) #28, !noalias !239
   br label %common.resume.i.i
@@ -11175,7 +11178,7 @@ invoke.cont.i.i.i7.i.i:                           ; preds = %.noexc.i.i
           to label %invoke.cont.i.i unwind label %lpad.i.i.i6.i.i, !noalias !239
 
 lpad.i.i.i6.i.i:                                  ; preds = %invoke.cont.i.i.i7.i.i, %.noexc.i.i
-  %7 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #28, !noalias !239
   br label %ehcleanup.i.i
@@ -11187,18 +11190,18 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i7.
           to label %_ZN7testing8internal18CmpHelperEQFailureIN12_GLOBAL__N_19CustomUDTES3_EENS_15AssertionResultEPKcS6_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIN12_GLOBAL__N_19CustomUDTES3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
-  %8 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
 
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
-  %9 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i) #28
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i, %lpad.i.i.i6.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %9, %lpad2.i.i ], [ %8, %lpad.i.i ], [ %7, %lpad.i.i.i6.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %6, %lpad2.i.i ], [ %5, %lpad.i.i ], [ %4, %lpad.i.i.i6.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #28
   br label %common.resume.i.i
 

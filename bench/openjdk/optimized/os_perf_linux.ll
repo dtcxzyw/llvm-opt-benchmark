@@ -302,7 +302,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPer
 11:                                               ; preds = %3
   %12 = load i64, ptr %.sroa.4.0..sroa_idx47.i, align 8
   %13 = icmp eq i64 %12, %.sroa.4.0.copyload48.i
-  br i1 %13, label %35, label %14
+  br i1 %13, label %32, label %14
 
 14:                                               ; preds = %11
   %15 = sub i64 %12, %.sroa.4.0.copyload48.i
@@ -312,37 +312,34 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPer
   %.036.i = tail call i64 @llvm.usub.sat.i64(i64 %18, i64 %.sroa.2.0.copyload46.i)
   %19 = add i64 %.036.i, %17
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %19)
-  %20 = uitofp i64 %spec.select.i to double
-  %21 = insertelement <2 x i64> poison, i64 %17, i64 0
-  %22 = insertelement <2 x i64> %21, i64 %.036.i, i64 1
-  %23 = uitofp <2 x i64> %22 to <2 x double>
-  %24 = insertelement <2 x double> poison, double %20, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = fdiv <2 x double> %23, %25
-  %27 = fcmp ogt <2 x double> %26, zeroinitializer
-  %28 = select <2 x i1> %27, <2 x double> %26, <2 x double> zeroinitializer
-  %29 = fcmp olt <2 x double> %28, <double 1.000000e+00, double 1.000000e+00>
-  %30 = extractelement <2 x i1> %29, i64 1
-  %31 = extractelement <2 x double> %28, i64 1
-  %32 = select i1 %30, double %31, double 1.000000e+00
-  %33 = extractelement <2 x i1> %29, i64 0
-  br i1 %33, label %select.unfold, label %35
+  %20 = uitofp i64 %.036.i to double
+  %21 = uitofp i64 %spec.select.i to double
+  %22 = fdiv double %20, %21
+  %23 = fcmp ogt double %22, 0.000000e+00
+  %24 = select i1 %23, double %22, double 0.000000e+00
+  %25 = fcmp olt double %24, 1.000000e+00
+  %26 = select i1 %25, double %24, double 1.000000e+00
+  %27 = uitofp i64 %17 to double
+  %28 = fdiv double %27, %21
+  %29 = fcmp ogt double %28, 0.000000e+00
+  %30 = select i1 %29, double %28, double 0.000000e+00
+  %31 = fcmp olt double %30, 1.000000e+00
+  br i1 %31, label %select.unfold, label %32
 
 select.unfold:                                    ; preds = %14
-  %34 = extractelement <2 x double> %28, i64 0
-  br label %35
+  br label %32
 
-35:                                               ; preds = %14, %11, %select.unfold
-  %.07.ph = phi double [ %32, %select.unfold ], [ %32, %14 ], [ 0.000000e+00, %11 ]
-  %.0.i.ph = phi double [ %34, %select.unfold ], [ 1.000000e+00, %14 ], [ 0.000000e+00, %11 ]
-  %36 = fadd double %.07.ph, %.0.i.ph
-  %37 = fcmp olt double %36, 1.000000e+00
-  %38 = select i1 %37, double %36, double 1.000000e+00
+32:                                               ; preds = %14, %11, %select.unfold
+  %.07.ph = phi double [ %26, %select.unfold ], [ %26, %14 ], [ 0.000000e+00, %11 ]
+  %.0.i.ph = phi double [ %30, %select.unfold ], [ 1.000000e+00, %14 ], [ 0.000000e+00, %11 ]
+  %33 = fadd double %.07.ph, %.0.i.ph
+  %34 = fcmp olt double %33, 1.000000e+00
+  %35 = select i1 %34, double %33, double 1.000000e+00
   br label %_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget.exit
 
-_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget.exit: ; preds = %3, %35
-  %storemerge = phi double [ %38, %35 ], [ 0.000000e+00, %3 ]
-  %.0 = phi i32 [ 0, %35 ], [ -1, %3 ]
+_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget.exit: ; preds = %3, %32
+  %storemerge = phi double [ %35, %32 ], [ 0.000000e+00, %3 ]
+  %.0 = phi i32 [ 0, %32 ], [ -1, %3 ]
   store double %storemerge, ptr %2, align 8
   ret i32 %.0
 }
@@ -409,7 +406,7 @@ _ZL14get_systemtypev.exit.i:                      ; preds = %22, %14
 _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread: ; preds = %_ZL14get_systemtypev.exit.i, %23, %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %58
+  br label %55
 
 _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit: ; preds = %25
   %27 = load i64, ptr %5, align 8
@@ -430,7 +427,7 @@ _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit: ; preds = %25
   %.sroa.4.0..sroa_idx47 = getelementptr inbounds i8, ptr %31, i64 16
   %.sroa.4.0.copyload48 = load i64, ptr %.sroa.4.0..sroa_idx47, align 8
   %32 = tail call noundef zeroext i1 @_ZN2os5Linux20get_tick_informationEPNS0_12CPUPerfTicksEi(ptr noundef nonnull %31, i32 noundef %0) #18
-  br i1 %32, label %33, label %58
+  br i1 %32, label %33, label %55
 
 33:                                               ; preds = %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit, %29
   %.sroa.4.0.copyload59 = phi i64 [ %.sroa.4.0.copyload48, %29 ], [ %.sroa.4.0.copyload, %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit ]
@@ -441,7 +438,7 @@ _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit: ; preds = %25
   %.03850 = phi ptr [ %31, %29 ], [ %15, %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit ]
   %34 = load i64, ptr %.sroa.4.0..sroa_idx57, align 8
   %35 = icmp eq i64 %34, %.sroa.4.0.copyload59
-  br i1 %35, label %58, label %36
+  br i1 %35, label %55, label %36
 
 36:                                               ; preds = %33
   %37 = sub i64 %34, %.sroa.4.0.copyload59
@@ -451,27 +448,24 @@ _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit: ; preds = %25
   %.036 = call i64 @llvm.usub.sat.i64(i64 %40, i64 %.sroa.2.0.copyload55)
   %41 = add i64 %.036, %39
   %spec.select = call i64 @llvm.umax.i64(i64 %37, i64 %41)
-  %42 = uitofp i64 %spec.select to double
-  %43 = insertelement <2 x i64> poison, i64 %39, i64 0
-  %44 = insertelement <2 x i64> %43, i64 %.036, i64 1
-  %45 = uitofp <2 x i64> %44 to <2 x double>
-  %46 = insertelement <2 x double> poison, double %42, i64 0
-  %47 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> zeroinitializer
-  %48 = fdiv <2 x double> %45, %47
-  %49 = fcmp ogt <2 x double> %48, zeroinitializer
-  %50 = select <2 x i1> %49, <2 x double> %48, <2 x double> zeroinitializer
-  %51 = fcmp olt <2 x double> %50, <double 1.000000e+00, double 1.000000e+00>
-  %52 = extractelement <2 x i1> %51, i64 1
-  %53 = extractelement <2 x double> %50, i64 1
-  %54 = select i1 %52, double %53, double 1.000000e+00
-  store double %54, ptr %2, align 8
-  %55 = extractelement <2 x i1> %51, i64 0
-  %56 = extractelement <2 x double> %50, i64 0
-  %57 = select i1 %55, double %56, double 1.000000e+00
-  br label %58
+  %42 = uitofp i64 %.036 to double
+  %43 = uitofp i64 %spec.select to double
+  %44 = fdiv double %42, %43
+  %45 = fcmp ogt double %44, 0.000000e+00
+  %46 = select i1 %45, double %44, double 0.000000e+00
+  %47 = fcmp olt double %46, 1.000000e+00
+  %48 = select i1 %47, double %46, double 1.000000e+00
+  store double %48, ptr %2, align 8
+  %49 = uitofp i64 %39 to double
+  %50 = fdiv double %49, %43
+  %51 = fcmp ogt double %50, 0.000000e+00
+  %52 = select i1 %51, double %50, double 0.000000e+00
+  %53 = fcmp olt double %52, 1.000000e+00
+  %54 = select i1 %53, double %52, double 1.000000e+00
+  br label %55
 
-58:                                               ; preds = %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread, %33, %29, %36
-  %.0 = phi double [ %57, %36 ], [ -1.000000e+00, %29 ], [ 0.000000e+00, %33 ], [ -1.000000e+00, %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread ]
+55:                                               ; preds = %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread, %33, %29, %36
+  %.0 = phi double [ %54, %36 ], [ -1.000000e+00, %29 ], [ 0.000000e+00, %33 ], [ -1.000000e+00, %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread ]
   ret double %.0
 }
 
@@ -493,7 +487,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPer
   %5 = alloca double, align 8
   %6 = call fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef -1, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 0)
   %7 = fcmp olt double %6, 0.000000e+00
-  br i1 %7, label %48, label %8
+  br i1 %7, label %45, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 48
@@ -512,7 +506,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPer
 15:                                               ; preds = %8
   %16 = load i64, ptr %.sroa.4.0..sroa_idx47.i.i, align 8
   %17 = icmp eq i64 %16, %.sroa.4.0.copyload48.i.i
-  br i1 %17, label %39, label %18
+  br i1 %17, label %36, label %18
 
 18:                                               ; preds = %15
   %19 = sub i64 %16, %.sroa.4.0.copyload48.i.i
@@ -522,47 +516,44 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPer
   %.036.i.i = tail call i64 @llvm.usub.sat.i64(i64 %22, i64 %.sroa.2.0.copyload46.i.i)
   %23 = add i64 %.036.i.i, %21
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %19, i64 %23)
-  %24 = uitofp i64 %spec.select.i.i to double
-  %25 = insertelement <2 x i64> poison, i64 %21, i64 0
-  %26 = insertelement <2 x i64> %25, i64 %.036.i.i, i64 1
-  %27 = uitofp <2 x i64> %26 to <2 x double>
-  %28 = insertelement <2 x double> poison, double %24, i64 0
-  %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> zeroinitializer
-  %30 = fdiv <2 x double> %27, %29
-  %31 = fcmp ogt <2 x double> %30, zeroinitializer
-  %32 = select <2 x i1> %31, <2 x double> %30, <2 x double> zeroinitializer
-  %33 = fcmp olt <2 x double> %32, <double 1.000000e+00, double 1.000000e+00>
-  %34 = extractelement <2 x i1> %33, i64 1
-  %35 = extractelement <2 x double> %32, i64 1
-  %36 = select i1 %34, double %35, double 1.000000e+00
-  %37 = extractelement <2 x i1> %33, i64 0
-  br i1 %37, label %select.unfold.i, label %39
+  %24 = uitofp i64 %.036.i.i to double
+  %25 = uitofp i64 %spec.select.i.i to double
+  %26 = fdiv double %24, %25
+  %27 = fcmp ogt double %26, 0.000000e+00
+  %28 = select i1 %27, double %26, double 0.000000e+00
+  %29 = fcmp olt double %28, 1.000000e+00
+  %30 = select i1 %29, double %28, double 1.000000e+00
+  %31 = uitofp i64 %21 to double
+  %32 = fdiv double %31, %25
+  %33 = fcmp ogt double %32, 0.000000e+00
+  %34 = select i1 %33, double %32, double 0.000000e+00
+  %35 = fcmp olt double %34, 1.000000e+00
+  br i1 %35, label %select.unfold.i, label %36
 
 select.unfold.i:                                  ; preds = %18
-  %38 = extractelement <2 x double> %32, i64 0
-  br label %39
+  br label %36
 
-39:                                               ; preds = %select.unfold.i, %18, %15
-  %.07.ph.i = phi double [ %36, %select.unfold.i ], [ %36, %18 ], [ 0.000000e+00, %15 ]
-  %.0.i.ph.i = phi double [ %38, %select.unfold.i ], [ 1.000000e+00, %18 ], [ 0.000000e+00, %15 ]
-  %40 = fadd double %.07.ph.i, %.0.i.ph.i
-  %41 = fcmp olt double %40, 1.000000e+00
-  %42 = select i1 %41, double %40, double 1.000000e+00
+36:                                               ; preds = %select.unfold.i, %18, %15
+  %.07.ph.i = phi double [ %30, %select.unfold.i ], [ %30, %18 ], [ 0.000000e+00, %15 ]
+  %.0.i.ph.i = phi double [ %34, %select.unfold.i ], [ 1.000000e+00, %18 ], [ 0.000000e+00, %15 ]
+  %37 = fadd double %.07.ph.i, %.0.i.ph.i
+  %38 = fcmp olt double %37, 1.000000e+00
+  %39 = select i1 %38, double %37, double 1.000000e+00
   br label %_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit
 
-_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit: ; preds = %8, %39
-  %storemerge.i = phi double [ %42, %39 ], [ 0.000000e+00, %8 ]
-  %43 = load double, ptr %5, align 8
-  %44 = fadd double %6, %43
-  %45 = fcmp ogt double %44, %storemerge.i
-  %46 = fcmp olt double %44, 1.000000e+00
-  %47 = select i1 %46, double %44, double 1.000000e+00
-  %.014 = select i1 %45, double %47, double %storemerge.i
-  br label %48
+_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit: ; preds = %8, %36
+  %storemerge.i = phi double [ %39, %36 ], [ 0.000000e+00, %8 ]
+  %40 = load double, ptr %5, align 8
+  %41 = fadd double %6, %40
+  %42 = fcmp ogt double %41, %storemerge.i
+  %43 = fcmp olt double %41, 1.000000e+00
+  %44 = select i1 %43, double %41, double 1.000000e+00
+  %.014 = select i1 %42, double %44, double %storemerge.i
+  br label %45
 
-48:                                               ; preds = %4, %_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit
+45:                                               ; preds = %4, %_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit
   %storemerge16 = phi double [ %6, %_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit ], [ 0.000000e+00, %4 ]
-  %storemerge15 = phi double [ %43, %_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit ], [ 0.000000e+00, %4 ]
+  %storemerge15 = phi double [ %40, %_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit ], [ 0.000000e+00, %4 ]
   %storemerge = phi double [ %.014, %_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit ], [ 0.000000e+00, %4 ]
   %.0 = phi i32 [ 0, %_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit ], [ -1, %4 ]
   store double %storemerge16, ptr %1, align 8
@@ -640,7 +631,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface8cpu_lo
 12:                                               ; preds = %3
   %13 = load i64, ptr %.sroa.4.0..sroa_idx47.i.i, align 8
   %14 = icmp eq i64 %13, %.sroa.4.0.copyload48.i.i
-  br i1 %14, label %36, label %15
+  br i1 %14, label %33, label %15
 
 15:                                               ; preds = %12
   %16 = sub i64 %13, %.sroa.4.0.copyload48.i.i
@@ -650,37 +641,34 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface8cpu_lo
   %.036.i.i = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %.sroa.2.0.copyload46.i.i)
   %20 = add i64 %.036.i.i, %18
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %16, i64 %20)
-  %21 = uitofp i64 %spec.select.i.i to double
-  %22 = insertelement <2 x i64> poison, i64 %18, i64 0
-  %23 = insertelement <2 x i64> %22, i64 %.036.i.i, i64 1
-  %24 = uitofp <2 x i64> %23 to <2 x double>
-  %25 = insertelement <2 x double> poison, double %21, i64 0
-  %26 = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> zeroinitializer
-  %27 = fdiv <2 x double> %24, %26
-  %28 = fcmp ogt <2 x double> %27, zeroinitializer
-  %29 = select <2 x i1> %28, <2 x double> %27, <2 x double> zeroinitializer
-  %30 = fcmp olt <2 x double> %29, <double 1.000000e+00, double 1.000000e+00>
-  %31 = extractelement <2 x i1> %30, i64 1
-  %32 = extractelement <2 x double> %29, i64 1
-  %33 = select i1 %31, double %32, double 1.000000e+00
-  %34 = extractelement <2 x i1> %30, i64 0
-  br i1 %34, label %select.unfold.i, label %36
+  %21 = uitofp i64 %.036.i.i to double
+  %22 = uitofp i64 %spec.select.i.i to double
+  %23 = fdiv double %21, %22
+  %24 = fcmp ogt double %23, 0.000000e+00
+  %25 = select i1 %24, double %23, double 0.000000e+00
+  %26 = fcmp olt double %25, 1.000000e+00
+  %27 = select i1 %26, double %25, double 1.000000e+00
+  %28 = uitofp i64 %18 to double
+  %29 = fdiv double %28, %22
+  %30 = fcmp ogt double %29, 0.000000e+00
+  %31 = select i1 %30, double %29, double 0.000000e+00
+  %32 = fcmp olt double %31, 1.000000e+00
+  br i1 %32, label %select.unfold.i, label %33
 
 select.unfold.i:                                  ; preds = %15
-  %35 = extractelement <2 x double> %29, i64 0
-  br label %36
+  br label %33
 
-36:                                               ; preds = %select.unfold.i, %15, %12
-  %.07.ph.i = phi double [ %33, %select.unfold.i ], [ %33, %15 ], [ 0.000000e+00, %12 ]
-  %.0.i.ph.i = phi double [ %35, %select.unfold.i ], [ 1.000000e+00, %15 ], [ 0.000000e+00, %12 ]
-  %37 = fadd double %.07.ph.i, %.0.i.ph.i
-  %38 = fcmp olt double %37, 1.000000e+00
-  %39 = select i1 %38, double %37, double 1.000000e+00
+33:                                               ; preds = %select.unfold.i, %15, %12
+  %.07.ph.i = phi double [ %27, %select.unfold.i ], [ %27, %15 ], [ 0.000000e+00, %12 ]
+  %.0.i.ph.i = phi double [ %31, %select.unfold.i ], [ 1.000000e+00, %15 ], [ 0.000000e+00, %12 ]
+  %34 = fadd double %.07.ph.i, %.0.i.ph.i
+  %35 = fcmp olt double %34, 1.000000e+00
+  %36 = select i1 %35, double %34, double 1.000000e+00
   br label %_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit
 
-_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit: ; preds = %3, %36
-  %storemerge.i = phi double [ %39, %36 ], [ 0.000000e+00, %3 ]
-  %.0.i = phi i32 [ 0, %36 ], [ -1, %3 ]
+_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit: ; preds = %3, %33
+  %storemerge.i = phi double [ %36, %33 ], [ 0.000000e+00, %3 ]
+  %.0.i = phi i32 [ 0, %33 ], [ -1, %3 ]
   store double %storemerge.i, ptr %2, align 8
   ret i32 %.0.i
 }

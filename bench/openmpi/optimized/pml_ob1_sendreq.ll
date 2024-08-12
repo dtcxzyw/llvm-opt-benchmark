@@ -725,8 +725,12 @@ define i32 @mca_pml_ob1_send_request_start_buffered(ptr noundef %0, ptr noundef 
   store i8 0, ptr %39, align 1
   %40 = getelementptr inbounds i8, ptr %34, i64 8
   %41 = getelementptr i8, ptr %38, i64 168
-  %42 = load <2 x i64>, ptr %41, align 8
-  store <2 x i64> %42, ptr %40, align 8
+  %.val.i = load i64, ptr %41, align 8
+  %42 = getelementptr i8, ptr %38, i64 176
+  %.val7.i = load i64, ptr %42, align 8
+  store i64 %.val.i, ptr %40, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 16
+  store i64 %.val7.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %43 = getelementptr inbounds i8, ptr %38, i64 216
   %44 = load i32, ptr %43, align 8
   %45 = trunc i32 %44 to i16
@@ -1329,8 +1333,12 @@ opal_convertor_set_position.exit:                 ; preds = %64, %39, %66
   store i8 0, ptr %93, align 1
   %94 = getelementptr inbounds i8, ptr %88, i64 8
   %95 = getelementptr i8, ptr %92, i64 168
-  %96 = load <2 x i64>, ptr %95, align 8
-  store <2 x i64> %96, ptr %94, align 8
+  %.val.i = load i64, ptr %95, align 8
+  %96 = getelementptr i8, ptr %92, i64 176
+  %.val7.i = load i64, ptr %96, align 8
+  store i64 %.val.i, ptr %94, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %88, i64 16
+  store i64 %.val7.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %97 = getelementptr inbounds i8, ptr %92, i64 216
   %98 = load i32, ptr %97, align 8
   %99 = trunc i32 %98 to i16
@@ -1847,8 +1855,12 @@ define range(i32 -2147483648, 1) i32 @mca_pml_ob1_send_request_start_prepare(ptr
   store i8 0, ptr %27, align 1
   %28 = getelementptr inbounds i8, ptr %22, i64 8
   %29 = getelementptr i8, ptr %26, i64 168
-  %30 = load <2 x i64>, ptr %29, align 8
-  store <2 x i64> %30, ptr %28, align 8
+  %.val.i = load i64, ptr %29, align 8
+  %30 = getelementptr i8, ptr %26, i64 176
+  %.val7.i = load i64, ptr %30, align 8
+  store i64 %.val.i, ptr %28, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 16
+  store i64 %.val7.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %31 = getelementptr inbounds i8, ptr %26, i64 216
   %32 = load i32, ptr %31, align 8
   %33 = trunc i32 %32 to i16
@@ -2110,8 +2122,12 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %79, %69
   store i8 0, ptr %92, align 1
   %93 = getelementptr inbounds i8, ptr %87, i64 8
   %94 = getelementptr i8, ptr %91, i64 168
-  %95 = load <2 x i64>, ptr %94, align 8
-  store <2 x i64> %95, ptr %93, align 8
+  %.val.i = load i64, ptr %94, align 8
+  %95 = getelementptr i8, ptr %91, i64 176
+  %.val7.i = load i64, ptr %95, align 8
+  store i64 %.val.i, ptr %93, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %87, i64 16
+  store i64 %.val7.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %96 = getelementptr inbounds i8, ptr %91, i64 216
   %97 = load i32, ptr %96, align 8
   %98 = trunc i32 %97 to i16
@@ -2329,8 +2345,12 @@ mca_bml_base_prepare_src.exit:                    ; preds = %4
   store i8 0, ptr %36, align 1
   %37 = getelementptr inbounds i8, ptr %31, i64 8
   %38 = getelementptr i8, ptr %35, i64 168
-  %39 = load <2 x i64>, ptr %38, align 8
-  store <2 x i64> %39, ptr %37, align 8
+  %.val.i = load i64, ptr %38, align 8
+  %39 = getelementptr i8, ptr %35, i64 176
+  %.val7.i = load i64, ptr %39, align 8
+  store i64 %.val.i, ptr %37, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 16
+  store i64 %.val7.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %40 = getelementptr inbounds i8, ptr %35, i64 216
   %41 = load i32, ptr %40, align 8
   %42 = trunc i32 %41 to i16

@@ -468,33 +468,35 @@ entry:
   store ptr null, ptr %agg.tmp, align 16, !tbaa !29
   %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
   %call_2.i = getelementptr inbounds i8, ptr %func, i64 48
+  %1 = load ptr, ptr %call_2.i, align 16, !tbaa !26
+  store ptr %1, ptr %call_.i, align 16, !tbaa !26
   %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
   %exec_3.i = getelementptr inbounds i8, ptr %func, i64 56
-  %1 = load ptr, ptr %exec_3.i, align 8, !tbaa !28
-  %2 = load <2 x ptr>, ptr %call_2.i, align 16, !tbaa !7
-  store <2 x ptr> %2, ptr %call_.i, align 16, !tbaa !7
+  %2 = load ptr, ptr %exec_3.i, align 8, !tbaa !28
+  store ptr %2, ptr %exec_.i, align 8, !tbaa !28
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !26
   store ptr null, ptr %exec_3.i, align 8, !tbaa !28
-  %tobool.not.i.i = icmp eq ptr %1, null
+  %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %call.i.i = call noundef i64 %1(i32 noundef 0, ptr noundef nonnull %func, ptr noundef nonnull %agg.tmp) #17
+  %call.i.i = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %func, ptr noundef nonnull %agg.tmp) #17
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %entry
   %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 64
   %threadInitFini_ = getelementptr inbounds i8, ptr %this, i64 24
+  %4 = load ptr, ptr %threadInitFini_, align 8, !tbaa !20
+  store ptr %4, ptr %3, align 16, !tbaa !20
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 72
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !13
-  %5 = load <2 x ptr>, ptr %threadInitFini_, align 8, !tbaa !7
-  store <2 x ptr> %5, ptr %3, align 16, !tbaa !7
-  %cmp.not.i.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !13
+  store ptr %5, ptr %_M_refcount.i.i, align 8, !tbaa !13
+  %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5folly17InitThreadFactory14ThreadInitFiniEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !29
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -521,16 +523,18 @@ _ZNSt10shared_ptrIN5folly17InitThreadFactory14ThreadInitFiniEEC2ERKS3_.exit: ; p
 call2.i.noexc:                                    ; preds = %_ZNSt10shared_ptrIN5folly17InitThreadFactory14ThreadInitFiniEEC2ERKS3_.exit
   store ptr null, ptr %call2.i9, align 16, !tbaa !29
   %call_.i.i.i = getelementptr inbounds i8, ptr %call2.i9, i64 48
-  %9 = load ptr, ptr %exec_.i, align 8, !tbaa !28
-  %10 = load <2 x ptr>, ptr %call_.i, align 16, !tbaa !7
-  store <2 x ptr> %10, ptr %call_.i.i.i, align 16, !tbaa !7
+  %9 = load ptr, ptr %call_.i, align 16, !tbaa !26
+  store ptr %9, ptr %call_.i.i.i, align 16, !tbaa !26
+  %exec_.i.i.i = getelementptr inbounds i8, ptr %call2.i9, i64 56
+  %10 = load ptr, ptr %exec_.i, align 8, !tbaa !28
+  store ptr %10, ptr %exec_.i.i.i, align 8, !tbaa !28
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_.i, align 16, !tbaa !26
   store ptr null, ptr %exec_.i, align 8, !tbaa !28
-  %tobool.not.i.i.i.i = icmp eq ptr %9, null
+  %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %call2.i.noexc
-  %call.i.i.i.i = call noundef i64 %9(i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %call2.i9) #17
+  %call.i.i.i.i = call noundef i64 %10(i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %call2.i9) #17
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i, %call2.i.noexc

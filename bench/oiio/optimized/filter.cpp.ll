@@ -686,7 +686,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
   br i1 %cmp6.not.i.i, label %if.then, label %return
 
 if.then:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store float %width, ptr %m_w.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_011FilterBox1DE, i64 16), ptr %call2, align 8
@@ -698,7 +698,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i28: ; preds = %entry
   br i1 %cmp6.not.i.i30, label %if.then6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i46
 
 if.then6:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i28
-  %call7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i33 = getelementptr inbounds i8, ptr %call7, i64 8
   store float %width, ptr %m_w.i.i33, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterTriangle1DE, i64 16), ptr %call7, align 8
@@ -713,7 +713,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i46: ; preds = %_ZNSt11char_traitsI
   br i1 %cmp6.not.i.i48, label %if.then14, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i161
 
 if.then14:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i46
-  %call15 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call15 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i51 = getelementptr inbounds i8, ptr %call15, i64 8
   store float %width, ptr %m_w.i.i51, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterGaussian1DE, i64 16), ptr %call15, align 8
@@ -728,7 +728,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i66: ; preds = %entry
   br i1 %cmp6.not.i.i68, label %if.then22, label %return
 
 if.then22:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i66
-  %call23 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call23 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i71 = getelementptr inbounds i8, ptr %call23, i64 8
   store float %width, ptr %m_w.i.i71, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_021FilterSharpGaussian1DE, i64 16), ptr %call23, align 8
@@ -748,7 +748,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i103: ; preds = %entry
   br i1 %cmp6.not.i.i105, label %if.then33, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i329
 
 if.then33:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i103, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i86
-  %call34 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call34 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i108 = getelementptr inbounds i8, ptr %call34, i64 8
   store float 4.000000e+00, ptr %m_w.i.i108, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_018FilterCatmullRom1DE, i64 16), ptr %call34, align 8
@@ -763,7 +763,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i122: ; preds = %entry
   br i1 %cmp6.not.i.i124, label %if.then41, label %return
 
 if.then41:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i122
-  %call42 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call42 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i127 = getelementptr inbounds i8, ptr %call42, i64 8
   store float %width, ptr %m_w.i.i127, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_022FilterBlackmanHarris1DE, i64 16), ptr %call42, align 8
@@ -778,7 +778,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i142: ; preds = %entry
   br i1 %cmp6.not.i.i144, label %if.then49, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i291
 
 if.then49:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i142
-  %call50 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call50 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i147 = getelementptr inbounds i8, ptr %call50, i64 8
   store float %width, ptr %m_w.i.i147, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterSinc1DE, i64 16), ptr %call50, align 8
@@ -803,7 +803,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i195: ; preds = %entry
   br i1 %cmp6.not.i.i197, label %if.then65, label %return
 
 if.then65:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i195, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i178, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i161
-  %call66 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call66 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i200 = getelementptr inbounds i8, ptr %call66, i64 8
   store float %width, ptr %m_w.i.i200, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_017FilterLanczos3_1DE, i64 16), ptr %call66, align 8
@@ -818,7 +818,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i215: ; preds = %_ZNSt11char_traits
   br i1 %cmp6.not.i.i217, label %if.then73, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i235
 
 if.then73:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i215
-  %call74 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call74 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i220 = getelementptr inbounds i8, ptr %call74, i64 8
   store float %width, ptr %m_w.i.i220, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterMitchell1DE, i64 16), ptr %call74, align 8
@@ -838,7 +838,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i252: ; preds = %_ZNSt11char_traits
   br i1 %cmp6.not.i.i254, label %if.then85, label %return
 
 if.then85:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i252, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i235
-  %call86 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call86 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i257 = getelementptr inbounds i8, ptr %call86, i64 8
   store float %width, ptr %m_w.i.i257, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_015FilterBSpline1DE, i64 16), ptr %call86, align 8
@@ -853,7 +853,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i271: ; preds = %entry
   br i1 %cmp6.not.i.i273, label %if.then93, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i308
 
 if.then93:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i271
-  %call94 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call94 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i276 = getelementptr inbounds i8, ptr %call94, i64 8
   store float %width, ptr %m_w.i.i276, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_013FilterCubic1DE, i64 16), ptr %call94, align 8
@@ -870,7 +870,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i291: ; preds = %_ZNSt11char_traits
   br i1 %cmp6.not.i.i293, label %if.then101, label %return
 
 if.then101:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i291
-  %call102 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call102 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i.i = getelementptr inbounds i8, ptr %call102, i64 8
   store float %width, ptr %m_w.i.i.i, align 8
   %m_a.i.i = getelementptr inbounds i8, ptr %call102, i64 12
@@ -887,7 +887,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i308: ; preds = %_ZNSt11char_traits
   br i1 %cmp6.not.i.i310, label %if.then109, label %return
 
 if.then109:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i308
-  %call110 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call110 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i.i313 = getelementptr inbounds i8, ptr %call110, i64 8
   store float %width, ptr %m_w.i.i.i313, align 8
   %m_a.i.i314 = getelementptr inbounds i8, ptr %call110, i64 12
@@ -904,7 +904,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i329: ; preds = %_ZNSt11char_traits
   br i1 %cmp6.not.i.i331, label %if.then117, label %return
 
 if.then117:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i329
-  %call118 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call118 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i.i334 = getelementptr inbounds i8, ptr %call118, i64 8
   store float %width, ptr %m_w.i.i.i334, align 8
   %m_a.i.i335 = getelementptr inbounds i8, ptr %call118, i64 12
@@ -935,7 +935,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %filt, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %filt) #15
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %filt) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -990,7 +990,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
   br i1 %cmp6.not.i.i, label %if.then, label %return
 
 if.then:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store float %width, ptr %m_w.i.i, align 8
   %m_h.i.i = getelementptr inbounds i8, ptr %call2, i64 12
@@ -1004,17 +1004,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45: ; preds = %entry
   br i1 %cmp6.not.i.i47, label %if.then6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64
 
 if.then6:                                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45
-  %call7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i50 = getelementptr inbounds i8, ptr %call7, i64 8
   store float %width, ptr %m_w.i.i50, align 8
   %m_h.i.i51 = getelementptr inbounds i8, ptr %call7, i64 12
   store float %height, ptr %m_h.i.i51, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterTriangle2DE, i64 16), ptr %call7, align 8
   %m_wrad_inv.i = getelementptr inbounds i8, ptr %call7, i64 16
-  %2 = insertelement <2 x float> poison, float %width, i64 0
-  %3 = insertelement <2 x float> %2, float %height, i64 1
-  %4 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %3
-  store <2 x float> %4, ptr %m_wrad_inv.i, align 8
+  %div.i = fdiv float 2.000000e+00, %width
+  store float %div.i, ptr %m_wrad_inv.i, align 8
+  %m_hrad_inv.i = getelementptr inbounds i8, ptr %call7, i64 20
+  %div2.i = fdiv float 2.000000e+00, %height
+  store float %div2.i, ptr %m_hrad_inv.i, align 4
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45
@@ -1023,17 +1024,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64: ; preds = %_ZNSt11char_traitsI
   br i1 %cmp6.not.i.i66, label %if.then14, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i192
 
 if.then14:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64
-  %call15 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call15 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i69 = getelementptr inbounds i8, ptr %call15, i64 8
   store float %width, ptr %m_w.i.i69, align 8
   %m_h.i.i70 = getelementptr inbounds i8, ptr %call15, i64 12
   store float %height, ptr %m_h.i.i70, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterGaussian2DE, i64 16), ptr %call15, align 8
   %m_wrad_inv.i71 = getelementptr inbounds i8, ptr %call15, i64 16
-  %5 = insertelement <2 x float> poison, float %width, i64 0
-  %6 = insertelement <2 x float> %5, float %height, i64 1
-  %7 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %6
-  store <2 x float> %7, ptr %m_wrad_inv.i71, align 8
+  %div.i72 = fdiv float 2.000000e+00, %width
+  store float %div.i72, ptr %m_wrad_inv.i71, align 8
+  %m_hrad_inv.i73 = getelementptr inbounds i8, ptr %call15, i64 20
+  %div2.i74 = fdiv float 2.000000e+00, %height
+  store float %div2.i74, ptr %m_hrad_inv.i73, align 4
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i87: ; preds = %entry
@@ -1042,17 +1044,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i87: ; preds = %entry
   br i1 %cmp6.not.i.i89, label %if.then22, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i266
 
 if.then22:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i87
-  %call23 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call23 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i92 = getelementptr inbounds i8, ptr %call23, i64 8
   store float %width, ptr %m_w.i.i92, align 8
   %m_h.i.i93 = getelementptr inbounds i8, ptr %call23, i64 12
   store float %height, ptr %m_h.i.i93, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_021FilterSharpGaussian2DE, i64 16), ptr %call23, align 8
   %m_wrad_inv.i94 = getelementptr inbounds i8, ptr %call23, i64 16
-  %8 = insertelement <2 x float> poison, float %width, i64 0
-  %9 = insertelement <2 x float> %8, float %height, i64 1
-  %10 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %9
-  store <2 x float> %10, ptr %m_wrad_inv.i94, align 8
+  %div.i95 = fdiv float 2.000000e+00, %width
+  store float %div.i95, ptr %m_wrad_inv.i94, align 8
+  %m_hrad_inv.i96 = getelementptr inbounds i8, ptr %call23, i64 20
+  %div2.i97 = fdiv float 2.000000e+00, %height
+  store float %div2.i97, ptr %m_hrad_inv.i96, align 4
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i110: ; preds = %entry
@@ -1066,17 +1069,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i127: ; preds = %entry
   br i1 %cmp6.not.i.i129, label %if.then33, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i435
 
 if.then33:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i127, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i110
-  %call34 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call34 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i132 = getelementptr inbounds i8, ptr %call34, i64 8
   store float %width, ptr %m_w.i.i132, align 8
   %m_h.i.i133 = getelementptr inbounds i8, ptr %call34, i64 12
   store float %height, ptr %m_h.i.i133, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_018FilterCatmullRom2DE, i64 16), ptr %call34, align 8
   %m_wscale.i = getelementptr inbounds i8, ptr %call34, i64 16
-  %11 = insertelement <2 x float> poison, float %width, i64 0
-  %12 = insertelement <2 x float> %11, float %height, i64 1
-  %13 = fdiv <2 x float> <float 4.000000e+00, float 4.000000e+00>, %12
-  store <2 x float> %13, ptr %m_wscale.i, align 8
+  %div.i134 = fdiv float 4.000000e+00, %width
+  store float %div.i134, ptr %m_wscale.i, align 8
+  %m_hscale.i = getelementptr inbounds i8, ptr %call34, i64 20
+  %div2.i135 = fdiv float 4.000000e+00, %height
+  store float %div2.i135, ptr %m_hscale.i, align 4
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i148: ; preds = %entry
@@ -1085,17 +1089,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i148: ; preds = %entry
   br i1 %cmp6.not.i.i150, label %if.then41, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i249
 
 if.then41:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i148
-  %call42 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call42 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i153 = getelementptr inbounds i8, ptr %call42, i64 8
   store float %width, ptr %m_w.i.i153, align 8
   %m_h.i.i154 = getelementptr inbounds i8, ptr %call42, i64 12
   store float %height, ptr %m_h.i.i154, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_022FilterBlackmanHarris2DE, i64 16), ptr %call42, align 8
   %m_wrad_inv.i155 = getelementptr inbounds i8, ptr %call42, i64 16
-  %14 = insertelement <2 x float> poison, float %width, i64 0
-  %15 = insertelement <2 x float> %14, float %height, i64 1
-  %16 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %15
-  store <2 x float> %16, ptr %m_wrad_inv.i155, align 8
+  %div.i156 = fdiv float 2.000000e+00, %width
+  store float %div.i156, ptr %m_wrad_inv.i155, align 8
+  %m_hrad_inv.i157 = getelementptr inbounds i8, ptr %call42, i64 20
+  %div2.i158 = fdiv float 2.000000e+00, %height
+  store float %div2.i158, ptr %m_hrad_inv.i157, align 4
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i171: ; preds = %entry
@@ -1104,17 +1109,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i171: ; preds = %entry
   br i1 %cmp6.not.i.i173, label %if.then49, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i352
 
 if.then49:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i171
-  %call50 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call50 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i176 = getelementptr inbounds i8, ptr %call50, i64 8
   store float %width, ptr %m_w.i.i176, align 8
   %m_h.i.i177 = getelementptr inbounds i8, ptr %call50, i64 12
   store float %height, ptr %m_h.i.i177, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterSinc2DE, i64 16), ptr %call50, align 8
   %m_wrad.i = getelementptr inbounds i8, ptr %call50, i64 16
-  %17 = insertelement <2 x float> poison, float %width, i64 0
-  %18 = insertelement <2 x float> %17, float %height, i64 1
-  %19 = fmul <2 x float> %18, <float 5.000000e-01, float 5.000000e-01>
-  store <2 x float> %19, ptr %m_wrad.i, align 8
+  %div.i178 = fmul float %width, 5.000000e-01
+  store float %div.i178, ptr %m_wrad.i, align 8
+  %m_hrad.i = getelementptr inbounds i8, ptr %call50, i64 20
+  %div2.i179 = fmul float %height, 5.000000e-01
+  store float %div2.i179, ptr %m_hrad.i, align 4
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i192: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64
@@ -1133,17 +1139,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i226: ; preds = %entry
   br i1 %cmp6.not.i.i228, label %if.then65, label %return
 
 if.then65:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i226, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i209, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i192
-  %call66 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call66 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i231 = getelementptr inbounds i8, ptr %call66, i64 8
   store float %width, ptr %m_w.i.i231, align 8
   %m_h.i.i232 = getelementptr inbounds i8, ptr %call66, i64 12
   store float %height, ptr %m_h.i.i232, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_017FilterLanczos3_2DE, i64 16), ptr %call66, align 8
   %m_wscale.i233 = getelementptr inbounds i8, ptr %call66, i64 16
-  %20 = insertelement <2 x float> poison, float %width, i64 0
-  %21 = insertelement <2 x float> %20, float %height, i64 1
-  %22 = fdiv <2 x float> <float 6.000000e+00, float 6.000000e+00>, %21
-  store <2 x float> %22, ptr %m_wscale.i233, align 8
+  %div.i234 = fdiv float 6.000000e+00, %width
+  store float %div.i234, ptr %m_wscale.i233, align 8
+  %m_hscale.i235 = getelementptr inbounds i8, ptr %call66, i64 20
+  %div2.i236 = fdiv float 6.000000e+00, %height
+  store float %div2.i236, ptr %m_hscale.i235, align 4
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i249: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i148
@@ -1157,17 +1164,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i266: ; preds = %_ZNSt11char_traits
   br i1 %cmp6.not.i.i268, label %if.then77, label %return
 
 if.then77:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i266, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i249
-  %call78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call78 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i271 = getelementptr inbounds i8, ptr %call78, i64 8
   store float %width, ptr %m_w.i.i271, align 8
   %m_h.i.i272 = getelementptr inbounds i8, ptr %call78, i64 12
   store float %height, ptr %m_h.i.i272, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_023FilterRadialLanczos3_2DE, i64 16), ptr %call78, align 8
   %m_wscale.i273 = getelementptr inbounds i8, ptr %call78, i64 16
-  %23 = insertelement <2 x float> poison, float %width, i64 0
-  %24 = insertelement <2 x float> %23, float %height, i64 1
-  %25 = fdiv <2 x float> <float 6.000000e+00, float 6.000000e+00>, %24
-  store <2 x float> %25, ptr %m_wscale.i273, align 8
+  %div.i274 = fdiv float 6.000000e+00, %width
+  store float %div.i274, ptr %m_wscale.i273, align 8
+  %m_hscale.i275 = getelementptr inbounds i8, ptr %call78, i64 20
+  %div2.i276 = fdiv float 6.000000e+00, %height
+  store float %div2.i276, ptr %m_hscale.i275, align 4
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i289: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i192
@@ -1176,17 +1184,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i289: ; preds = %_ZNSt11char_traits
   br i1 %cmp6.not.i.i291, label %if.then85, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i312
 
 if.then85:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i289
-  %call86 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call86 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i294 = getelementptr inbounds i8, ptr %call86, i64 8
   store float %width, ptr %m_w.i.i294, align 8
   %m_h.i.i295 = getelementptr inbounds i8, ptr %call86, i64 12
   store float %height, ptr %m_h.i.i295, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterMitchell2DE, i64 16), ptr %call86, align 8
   %m_wrad_inv.i296 = getelementptr inbounds i8, ptr %call86, i64 16
-  %26 = insertelement <2 x float> poison, float %width, i64 0
-  %27 = insertelement <2 x float> %26, float %height, i64 1
-  %28 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %27
-  store <2 x float> %28, ptr %m_wrad_inv.i296, align 8
+  %div.i297 = fdiv float 2.000000e+00, %width
+  store float %div.i297, ptr %m_wrad_inv.i296, align 8
+  %m_hrad_inv.i298 = getelementptr inbounds i8, ptr %call86, i64 20
+  %div2.i299 = fdiv float 2.000000e+00, %height
+  store float %div2.i299, ptr %m_hrad_inv.i298, align 4
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i312: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i289
@@ -1200,17 +1209,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i329: ; preds = %_ZNSt11char_traits
   br i1 %cmp6.not.i.i331, label %if.then97, label %return
 
 if.then97:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i329, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i312
-  %call98 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %call98 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i334 = getelementptr inbounds i8, ptr %call98, i64 8
   store float %width, ptr %m_w.i.i334, align 8
   %m_h.i.i335 = getelementptr inbounds i8, ptr %call98, i64 12
   store float %height, ptr %m_h.i.i335, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_015FilterBSpline2DE, i64 16), ptr %call98, align 8
   %m_wscale.i336 = getelementptr inbounds i8, ptr %call98, i64 16
-  %29 = insertelement <2 x float> poison, float %width, i64 0
-  %30 = insertelement <2 x float> %29, float %height, i64 1
-  %31 = fdiv <2 x float> <float 4.000000e+00, float 4.000000e+00>, %30
-  store <2 x float> %31, ptr %m_wscale.i336, align 8
+  %div.i337 = fdiv float 4.000000e+00, %width
+  store float %div.i337, ptr %m_wscale.i336, align 8
+  %m_hscale.i338 = getelementptr inbounds i8, ptr %call98, i64 20
+  %div2.i339 = fdiv float 4.000000e+00, %height
+  store float %div2.i339, ptr %m_hscale.i338, align 4
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i352: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i171
@@ -1219,7 +1229,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i352: ; preds = %_ZNSt11char_traits
   br i1 %cmp6.not.i.i354, label %if.then105, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i394
 
 if.then105:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i352
-  %call106 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  %call106 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i357 = getelementptr inbounds i8, ptr %call106, i64 8
   store float %width, ptr %m_w.i.i357, align 8
   %m_h.i.i358 = getelementptr inbounds i8, ptr %call106, i64 12
@@ -1233,7 +1243,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i371: ; preds = %entry
   br i1 %cmp6.not.i.i373, label %if.then113, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i411
 
 if.then113:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i371
-  %call114 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
+  %call114 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
   %m_w.i.i376 = getelementptr inbounds i8, ptr %call114, i64 8
   store float %width, ptr %m_w.i.i376, align 8
   %m_h.i.i377 = getelementptr inbounds i8, ptr %call114, i64 12
@@ -1242,10 +1252,11 @@ if.then113:                                       ; preds = %_ZNSt11char_traitsI
   %m_a.i = getelementptr inbounds i8, ptr %call114, i64 16
   store float 0.000000e+00, ptr %m_a.i, align 8
   %m_wrad_inv.i378 = getelementptr inbounds i8, ptr %call114, i64 20
-  %32 = insertelement <2 x float> poison, float %width, i64 0
-  %33 = insertelement <2 x float> %32, float %height, i64 1
-  %34 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %33
-  store <2 x float> %34, ptr %m_wrad_inv.i378, align 4
+  %div.i379 = fdiv float 2.000000e+00, %width
+  store float %div.i379, ptr %m_wrad_inv.i378, align 4
+  %m_hrad_inv.i380 = getelementptr inbounds i8, ptr %call114, i64 24
+  %div2.i381 = fdiv float 2.000000e+00, %height
+  store float %div2.i381, ptr %m_hrad_inv.i380, align 8
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i394: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i352
@@ -1254,17 +1265,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i394: ; preds = %_ZNSt11char_traits
   br i1 %cmp6.not.i.i396, label %if.then121, label %return
 
 if.then121:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i394
-  %call122 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
+  %call122 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
   %m_w.i.i.i = getelementptr inbounds i8, ptr %call122, i64 8
   store float %width, ptr %m_w.i.i.i, align 8
   %m_h.i.i.i = getelementptr inbounds i8, ptr %call122, i64 12
   store float %height, ptr %m_h.i.i.i, align 4
   %m_a.i.i = getelementptr inbounds i8, ptr %call122, i64 16
   %m_wrad_inv.i.i = getelementptr inbounds i8, ptr %call122, i64 20
-  %35 = insertelement <2 x float> poison, float %width, i64 0
-  %36 = insertelement <2 x float> %35, float %height, i64 1
-  %37 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %36
-  store <2 x float> %37, ptr %m_wrad_inv.i.i, align 4
+  %div.i.i = fdiv float 2.000000e+00, %width
+  store float %div.i.i, ptr %m_wrad_inv.i.i, align 4
+  %m_hrad_inv.i.i = getelementptr inbounds i8, ptr %call122, i64 24
+  %div2.i.i = fdiv float 2.000000e+00, %height
+  store float %div2.i.i, ptr %m_hrad_inv.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterKeys2DE, i64 16), ptr %call122, align 8
   store float -5.000000e-01, ptr %m_a.i.i, align 8
   br label %return
@@ -1275,17 +1287,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i411: ; preds = %_ZNSt11char_traits
   br i1 %cmp6.not.i.i413, label %if.then129, label %return
 
 if.then129:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i411
-  %call130 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
+  %call130 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
   %m_w.i.i.i416 = getelementptr inbounds i8, ptr %call130, i64 8
   store float %width, ptr %m_w.i.i.i416, align 8
   %m_h.i.i.i417 = getelementptr inbounds i8, ptr %call130, i64 12
   store float %height, ptr %m_h.i.i.i417, align 4
   %m_a.i.i418 = getelementptr inbounds i8, ptr %call130, i64 16
   %m_wrad_inv.i.i419 = getelementptr inbounds i8, ptr %call130, i64 20
-  %38 = insertelement <2 x float> poison, float %width, i64 0
-  %39 = insertelement <2 x float> %38, float %height, i64 1
-  %40 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %39
-  store <2 x float> %40, ptr %m_wrad_inv.i.i419, align 4
+  %div.i.i420 = fdiv float 2.000000e+00, %width
+  store float %div.i.i420, ptr %m_wrad_inv.i.i419, align 4
+  %m_hrad_inv.i.i421 = getelementptr inbounds i8, ptr %call130, i64 24
+  %div2.i.i422 = fdiv float 2.000000e+00, %height
+  store float %div2.i.i422, ptr %m_hrad_inv.i.i421, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_013FilterSimon2DE, i64 16), ptr %call130, align 8
   store float -7.500000e-01, ptr %m_a.i.i418, align 8
   br label %return
@@ -1296,17 +1309,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i435: ; preds = %_ZNSt11char_traits
   br i1 %cmp6.not.i.i437, label %if.then137, label %return
 
 if.then137:                                       ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i435
-  %call138 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
+  %call138 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
   %m_w.i.i.i440 = getelementptr inbounds i8, ptr %call138, i64 8
   store float %width, ptr %m_w.i.i.i440, align 8
   %m_h.i.i.i441 = getelementptr inbounds i8, ptr %call138, i64 12
   store float %height, ptr %m_h.i.i.i441, align 4
   %m_a.i.i442 = getelementptr inbounds i8, ptr %call138, i64 16
   %m_wrad_inv.i.i443 = getelementptr inbounds i8, ptr %call138, i64 20
-  %41 = insertelement <2 x float> poison, float %width, i64 0
-  %42 = insertelement <2 x float> %41, float %height, i64 1
-  %43 = fdiv <2 x float> <float 2.000000e+00, float 2.000000e+00>, %42
-  store <2 x float> %43, ptr %m_wrad_inv.i.i443, align 4
+  %div.i.i444 = fdiv float 2.000000e+00, %width
+  store float %div.i.i444, ptr %m_wrad_inv.i.i443, align 4
+  %m_hrad_inv.i.i445 = getelementptr inbounds i8, ptr %call138, i64 24
+  %div2.i.i446 = fdiv float 2.000000e+00, %height
+  store float %div2.i.i446, ptr %m_hrad_inv.i.i445, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_014FilterRifman2DE, i64 16), ptr %call138, align 8
   store float -1.000000e+00, ptr %m_a.i.i442, align 8
   br label %return
@@ -1326,7 +1340,7 @@ delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %filt, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %filt) #15
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %filt) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -1342,7 +1356,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_011FilterBox1DD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1379,7 +1393,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_016FilterTriangle1DD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1414,7 +1428,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_016FilterGaussian1DD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1480,7 +1494,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_021FilterSharpGaussian1DD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1546,7 +1560,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_018FilterCatmullRom1DD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1605,7 +1619,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1DD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1659,7 +1673,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_012FilterSinc1DD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1708,7 +1722,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_017FilterLanczos3_1DD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1763,7 +1777,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_016FilterMitchell1DD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1823,7 +1837,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_015FilterBSpline1DD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1879,7 +1893,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_013FilterCubic1DD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1939,7 +1953,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_012FilterKeys1DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1961,7 +1975,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_013FilterSimon1DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -1983,7 +1997,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_014FilterRifman1DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -2005,7 +2019,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_011FilterBox2DD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -2107,7 +2121,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_016FilterTriangle2DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -2121,17 +2135,20 @@ entry:
 define linkonce_odr hidden noundef float @_ZNK18OpenImageIO_v2_6_016FilterTriangle2DclEff(ptr noundef nonnull align 8 dereferenceable(24) %this, float noundef %x, float noundef %y) unnamed_addr #9 comdat align 2 {
 entry:
   %m_wrad_inv = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load <2 x float>, ptr %m_wrad_inv, align 8
-  %1 = insertelement <2 x float> poison, float %x, i64 0
-  %2 = insertelement <2 x float> %1, float %y, i64 1
-  %3 = fmul <2 x float> %0, %2
-  %4 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %3)
-  %5 = fcmp olt <2 x float> %4, <float 1.000000e+00, float 1.000000e+00>
-  %6 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %4
-  %7 = select <2 x i1> %5, <2 x float> %6, <2 x float> zeroinitializer
-  %shift = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %8 = fmul <2 x float> %7, %shift
-  %mul4 = extractelement <2 x float> %8, i64 0
+  %0 = load float, ptr %m_wrad_inv, align 8
+  %mul = fmul float %0, %x
+  %1 = tail call float @llvm.fabs.f32(float %mul)
+  %cmp.i = fcmp olt float %1, 1.000000e+00
+  %sub.i = fsub float 1.000000e+00, %1
+  %cond.i = select i1 %cmp.i, float %sub.i, float 0.000000e+00
+  %m_hrad_inv = getelementptr inbounds i8, ptr %this, i64 20
+  %2 = load float, ptr %m_hrad_inv, align 4
+  %mul2 = fmul float %2, %y
+  %3 = tail call float @llvm.fabs.f32(float %mul2)
+  %cmp.i1 = fcmp olt float %3, 1.000000e+00
+  %sub.i2 = fsub float 1.000000e+00, %3
+  %cond.i3 = select i1 %cmp.i1, float %sub.i2, float 0.000000e+00
+  %mul4 = fmul float %cond.i, %cond.i3
   ret float %mul4
 }
 
@@ -2179,7 +2196,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_016FilterGaussian2DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -2378,7 +2395,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_021FilterSharpGaussian2DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -2577,7 +2594,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_018FilterCatmullRom2DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -2736,7 +2753,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris2DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -2875,7 +2892,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_012FilterSinc2DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -2994,7 +3011,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_017FilterLanczos3_2DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -3149,7 +3166,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_023FilterRadialLanczos3_2DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -3285,7 +3302,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_016FilterMitchell2DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -3460,7 +3477,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_015FilterBSpline2DD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -3619,7 +3636,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_012FilterDisk2DD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -3659,7 +3676,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_013FilterCubic2DD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -3832,7 +3849,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_012FilterKeys2DD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -3854,7 +3871,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_013FilterSimon2DD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -3876,7 +3893,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_014FilterRifman2DD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
 
@@ -3893,15 +3910,12 @@ entry:
 define internal void @_GLOBAL__sub_I_filter.cpp() #11 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3916,10 +3930,9 @@ attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { nounwind }
-attributes #16 = { builtin nounwind }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

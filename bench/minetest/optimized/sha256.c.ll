@@ -13,9 +13,21 @@ define dso_local noundef i32 @SHA256_Init(ptr nocapture noundef writeonly %c) lo
 entry:
   %0 = getelementptr inbounds i8, ptr %c, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %c, align 4
+  store i32 1779033703, ptr %c, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %c, i64 4
+  store i32 -1150833019, ptr %arrayidx2, align 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %c, i64 8
+  store i32 1013904242, ptr %arrayidx4, align 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %c, i64 12
+  store i32 -1521486534, ptr %arrayidx6, align 4
   %arrayidx8 = getelementptr inbounds i8, ptr %c, i64 16
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx8, align 4
+  store i32 1359893119, ptr %arrayidx8, align 4
+  %arrayidx10 = getelementptr inbounds i8, ptr %c, i64 20
+  store i32 -1694144372, ptr %arrayidx10, align 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %c, i64 24
+  store i32 528734635, ptr %arrayidx12, align 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %c, i64 28
+  store i32 1541459225, ptr %arrayidx14, align 4
   %md_len = getelementptr inbounds i8, ptr %c, i64 108
   store i32 32, ptr %md_len, align 4
   ret i32 1
@@ -1456,14 +1468,26 @@ return:                                           ; preds = %for.body24, %for.bo
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef nonnull ptr @SHA256(ptr noundef %d, i64 noundef %n, ptr noundef writeonly %md) local_unnamed_addr #4 {
 entry:
-  %c = alloca %struct.SHA256state_st, align 16
+  %c = alloca %struct.SHA256state_st, align 4
   %cmp = icmp eq ptr %md, null
   %spec.store.select = select i1 %cmp, ptr @SHA256.m, ptr %md
   %0 = getelementptr inbounds i8, ptr %c, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %c, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
+  store i32 1779033703, ptr %c, align 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %c, i64 4
+  store i32 -1150833019, ptr %arrayidx2.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %c, i64 8
+  store i32 1013904242, ptr %arrayidx4.i, align 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %c, i64 12
+  store i32 -1521486534, ptr %arrayidx6.i, align 4
   %arrayidx8.i = getelementptr inbounds i8, ptr %c, i64 16
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx8.i, align 16
+  store i32 1359893119, ptr %arrayidx8.i, align 4
+  %arrayidx10.i = getelementptr inbounds i8, ptr %c, i64 20
+  store i32 -1694144372, ptr %arrayidx10.i, align 4
+  %arrayidx12.i = getelementptr inbounds i8, ptr %c, i64 24
+  store i32 528734635, ptr %arrayidx12.i, align 4
+  %arrayidx14.i = getelementptr inbounds i8, ptr %c, i64 28
+  store i32 1541459225, ptr %arrayidx14.i, align 4
   %md_len.i = getelementptr inbounds i8, ptr %c, i64 108
   store i32 32, ptr %md_len.i, align 4
   %cmp.i = icmp eq i64 %n, 0
@@ -1476,7 +1500,7 @@ if.end32.i:                                       ; preds = %entry
   %shr.i = lshr i64 %n, 29
   %conv8.i = trunc i64 %shr.i to i32
   store i32 %conv8.i, ptr %Nh.i, align 4
-  store i32 %shl.i, ptr %0, align 16
+  store i32 %shl.i, ptr %0, align 4
   %num.i = getelementptr inbounds i8, ptr %c, i64 104
   %cmp33.not.i = icmp ult i64 %n, 64
   br i1 %cmp33.not.i, label %if.then41.i, label %if.end38.i
@@ -1495,14 +1519,14 @@ if.then41.i:                                      ; preds = %if.end32.i, %if.end
   %len.addr.1.i20 = phi i64 [ %sub37.i, %if.end38.i ], [ %n, %if.end32.i ]
   %data42.i = getelementptr inbounds i8, ptr %c, i64 40
   %conv44.i = trunc nuw i64 %len.addr.1.i20 to i32
-  store i32 %conv44.i, ptr %num.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data42.i, ptr align 1 %data.1.i21, i64 %len.addr.1.i20, i1 false)
+  store i32 %conv44.i, ptr %num.i, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data42.i, ptr align 1 %data.1.i21, i64 %len.addr.1.i20, i1 false)
   br label %SHA256_Update.exit
 
 SHA256_Update.exit:                               ; preds = %entry, %if.end38.i, %if.then41.i
   %data.i = getelementptr inbounds i8, ptr %c, i64 40
   %num.i3 = getelementptr inbounds i8, ptr %c, i64 104
-  %1 = load i32, ptr %num.i3, align 8
+  %1 = load i32, ptr %num.i3, align 4
   %conv.i4 = zext i32 %1 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %data.i, i64 %conv.i4
   store i8 -128, ptr %arrayidx.i, align 1
@@ -1526,13 +1550,13 @@ if.end.i7:                                        ; preds = %if.then.i, %SHA256_
   %2 = load i32, ptr %Nh.i8, align 4
   %or7.i.i = call noundef i32 @llvm.bswap.i32(i32 %2)
   %arrayidx5.i = getelementptr inbounds i8, ptr %c, i64 96
-  store i32 %or7.i.i, ptr %arrayidx5.i, align 16
-  %3 = load i32, ptr %0, align 16
+  store i32 %or7.i.i, ptr %arrayidx5.i, align 4
+  %3 = load i32, ptr %0, align 4
   %or7.i34.i = call noundef i32 @llvm.bswap.i32(i32 %3)
   %arrayidx8.i10 = getelementptr inbounds i8, ptr %c, i64 100
   store i32 %or7.i34.i, ptr %arrayidx8.i10, align 4
   call fastcc void @sha256_block_data_order(ptr noundef nonnull %c, ptr noundef nonnull %data.i, i64 noundef 1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %data.i, i8 0, i64 68, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %data.i, i8 0, i64 68, i1 false)
   %4 = load i32, ptr %md_len.i, align 4
   %cond.i = icmp eq i32 %4, 32
   br i1 %cond.i, label %for.body.i, label %sw.default.i

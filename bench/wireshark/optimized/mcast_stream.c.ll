@@ -59,7 +59,7 @@ define hidden range(i32 0, 2) i32 @mcaststream_packet(ptr nocapture noundef %0, 
   %8 = alloca %struct.nstime_t, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 184
   %10 = load i32, ptr %9, align 8
-  switch i32 %10, label %388 [
+  switch i32 %10, label %383 [
     i32 2, label %11
     i32 3, label %20
   ]
@@ -68,7 +68,7 @@ define hidden range(i32 0, 2) i32 @mcaststream_packet(ptr nocapture noundef %0, 
   %12 = getelementptr inbounds i8, ptr %1, i64 188
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %388, label %15
+  br i1 %14, label %383, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %1, i64 192
@@ -76,20 +76,20 @@ define hidden range(i32 0, 2) i32 @mcaststream_packet(ptr nocapture noundef %0, 
   %18 = load i8, ptr %17, align 1
   %19 = and i8 %18, -16
   %.not88 = icmp eq i8 %19, -32
-  br i1 %.not88, label %28, label %388
+  br i1 %.not88, label %28, label %383
 
 20:                                               ; preds = %5
   %21 = getelementptr inbounds i8, ptr %1, i64 188
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %388, label %24
+  br i1 %23, label %383, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %1, i64 192
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %26, align 1
   %.not = icmp eq i8 %27, -1
-  br i1 %.not, label %28, label %388
+  br i1 %.not, label %28, label %383
 
 28:                                               ; preds = %24, %15
   %29 = phi ptr [ %26, %24 ], [ %17, %15 ]
@@ -429,7 +429,13 @@ mcast_stream_info_cmp.exit:                       ; preds = %157, %160, %164, %1
   %.sroa.29133.0..sroa_idx = getelementptr inbounds i8, ptr %199, i64 152
   store ptr %194, ptr %.sroa.29133.0..sroa_idx, align 8
   %.sroa.30.0..sroa_idx = getelementptr inbounds i8, ptr %199, i64 160
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 1>, ptr %.sroa.30.0..sroa_idx, align 8
+  store i32 0, ptr %.sroa.30.0..sroa_idx, align 8
+  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %199, i64 164
+  store i32 0, ptr %.sroa.31.0..sroa_idx, align 4
+  %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %199, i64 168
+  store i32 1, ptr %.sroa.32.0..sroa_idx, align 8
+  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %199, i64 172
+  store i32 1, ptr %.sroa.33.0..sroa_idx, align 4
   %.sroa.34.0..sroa_idx = getelementptr inbounds i8, ptr %199, i64 176
   store i32 1, ptr %.sroa.34.0..sroa_idx, align 8
   %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %199, i64 180
@@ -535,221 +541,218 @@ mcast_stream_info_cmp.exit:                       ; preds = %157, %160, %164, %1
   %259 = add i32 %258, 1
   store i32 %259, ptr %257, align 4
   %260 = fcmp ogt double %249, 0.000000e+00
-  br i1 %260, label %261, label %269
+  br i1 %260, label %261, label %267
 
 261:                                              ; preds = %.thread101
-  %262 = shl i32 %256, 3
-  %263 = insertelement <2 x i32> poison, i32 %259, i64 0
-  %264 = insertelement <2 x i32> %263, i32 %262, i64 1
-  %265 = uitofp <2 x i32> %264 to <2 x double>
-  %266 = insertelement <2 x double> poison, double %249, i64 0
-  %267 = shufflevector <2 x double> %266, <2 x double> poison, <2 x i32> zeroinitializer
-  %268 = fdiv <2 x double> %265, %267
-  br label %269
+  %262 = uitofp i32 %259 to double
+  %263 = fdiv double %262, %249
+  %264 = shl i32 %256, 3
+  %265 = uitofp i32 %264 to double
+  %266 = fdiv double %265, %249
+  br label %267
 
-269:                                              ; preds = %.thread101, %261
-  %270 = phi <2 x double> [ %268, %261 ], [ zeroinitializer, %.thread101 ]
-  %271 = getelementptr inbounds i8, ptr %.1, i64 64
-  %272 = extractelement <2 x double> %270, i64 0
-  store double %272, ptr %271, align 8
-  %273 = getelementptr inbounds i8, ptr %.1, i64 80
-  %274 = extractelement <2 x double> %270, i64 1
-  store double %274, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %0, i64 40
-  %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %277, ptr noundef nonnull align 8 dereferenceable(16) %247, i64 16, i1 false)
-  %278 = load ptr, ptr %275, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 128
-  %280 = getelementptr inbounds i8, ptr %278, i64 112
-  call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %279, ptr noundef nonnull %280) #10
-  %281 = call double @nstime_to_sec(ptr noundef nonnull %8) #10
-  %282 = getelementptr inbounds i8, ptr %0, i64 32
-  %283 = load i32, ptr %282, align 8
-  %284 = add i32 %283, 1
-  store i32 %284, ptr %282, align 8
-  %285 = load ptr, ptr %275, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 72
-  %287 = load i32, ptr %286, align 8
-  %288 = load ptr, ptr %252, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 4
-  %290 = load i32, ptr %289, align 4
-  %291 = add i32 %290, %287
-  store i32 %291, ptr %286, align 8
-  %292 = fcmp ogt double %281, 0.000000e+00
-  br i1 %292, label %293, label %301
+267:                                              ; preds = %.thread101, %261
+  %.sink139 = phi double [ %263, %261 ], [ 0.000000e+00, %.thread101 ]
+  %.sink = phi double [ %266, %261 ], [ 0.000000e+00, %.thread101 ]
+  %268 = getelementptr inbounds i8, ptr %.1, i64 64
+  store double %.sink139, ptr %268, align 8
+  %269 = getelementptr inbounds i8, ptr %.1, i64 80
+  store double %.sink, ptr %269, align 8
+  %270 = getelementptr inbounds i8, ptr %0, i64 40
+  %271 = load ptr, ptr %270, align 8
+  %272 = getelementptr inbounds i8, ptr %271, i64 128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull align 8 dereferenceable(16) %247, i64 16, i1 false)
+  %273 = load ptr, ptr %270, align 8
+  %274 = getelementptr inbounds i8, ptr %273, i64 128
+  %275 = getelementptr inbounds i8, ptr %273, i64 112
+  call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %274, ptr noundef nonnull %275) #10
+  %276 = call double @nstime_to_sec(ptr noundef nonnull %8) #10
+  %277 = getelementptr inbounds i8, ptr %0, i64 32
+  %278 = load i32, ptr %277, align 8
+  %279 = add i32 %278, 1
+  store i32 %279, ptr %277, align 8
+  %280 = load ptr, ptr %270, align 8
+  %281 = getelementptr inbounds i8, ptr %280, i64 72
+  %282 = load i32, ptr %281, align 8
+  %283 = load ptr, ptr %252, align 8
+  %284 = getelementptr inbounds i8, ptr %283, i64 4
+  %285 = load i32, ptr %284, align 4
+  %286 = add i32 %285, %282
+  store i32 %286, ptr %281, align 8
+  %287 = fcmp ogt double %276, 0.000000e+00
+  br i1 %287, label %288, label %296
 
-293:                                              ; preds = %269
-  %294 = load ptr, ptr %275, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 72
-  %296 = load i32, ptr %295, align 8
-  %297 = shl i32 %296, 3
-  %298 = uitofp i32 %297 to double
-  %299 = fdiv double %298, %281
-  %300 = getelementptr inbounds i8, ptr %294, i64 80
-  store double %299, ptr %300, align 8
-  br label %301
+288:                                              ; preds = %267
+  %289 = load ptr, ptr %270, align 8
+  %290 = getelementptr inbounds i8, ptr %289, i64 72
+  %291 = load i32, ptr %290, align 8
+  %292 = shl i32 %291, 3
+  %293 = uitofp i32 %292 to double
+  %294 = fdiv double %293, %276
+  %295 = getelementptr inbounds i8, ptr %289, i64 80
+  store double %294, ptr %295, align 8
+  br label %296
 
-301:                                              ; preds = %293, %269
+296:                                              ; preds = %288, %267
   call fastcc void @slidingwindow(ptr noundef nonnull %.1, ptr noundef nonnull %1)
-  %302 = load i32, ptr @mcast_stream_emptyspeed, align 4
-  %303 = mul i32 %302, 1000
-  %304 = sitofp i32 %303 to double
+  %297 = load i32, ptr @mcast_stream_emptyspeed, align 4
+  %298 = mul i32 %297, 1000
+  %299 = sitofp i32 %298 to double
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %305 = getelementptr inbounds i8, ptr %.1, i64 152
-  %306 = load ptr, ptr %305, align 8
-  %307 = getelementptr inbounds i8, ptr %.1, i64 164
-  %308 = load i32, ptr %307, align 4
-  switch i32 %308, label %310 [
-    i32 0, label %315
-    i32 1, label %309
+  %300 = getelementptr inbounds i8, ptr %.1, i64 152
+  %301 = load ptr, ptr %300, align 8
+  %302 = getelementptr inbounds i8, ptr %.1, i64 164
+  %303 = load i32, ptr %302, align 4
+  switch i32 %303, label %305 [
+    i32 0, label %310
+    i32 1, label %304
   ]
 
-309:                                              ; preds = %301
-  br label %315
+304:                                              ; preds = %296
+  br label %310
 
-310:                                              ; preds = %301
-  %311 = add i32 %308, -1
-  %312 = add i32 %308, -2
-  %313 = sext i32 %311 to i64
-  %314 = sext i32 %312 to i64
-  br label %315
+305:                                              ; preds = %296
+  %306 = add i32 %303, -1
+  %307 = add i32 %303, -2
+  %308 = sext i32 %306 to i64
+  %309 = sext i32 %307 to i64
+  br label %310
 
-315:                                              ; preds = %310, %309, %301
-  %.027.i = phi i64 [ 39999, %309 ], [ %314, %310 ], [ 39998, %301 ]
-  %.0.i92 = phi i64 [ 0, %309 ], [ %313, %310 ], [ 39999, %301 ]
-  %316 = getelementptr %struct.nstime_t, ptr %306, i64 %.0.i92
-  %317 = getelementptr %struct.nstime_t, ptr %306, i64 %.027.i
-  call void @nstime_delta(ptr noundef nonnull %7, ptr noundef %316, ptr noundef %317) #10
-  %318 = call double @nstime_to_sec(ptr noundef nonnull %7) #10
-  %319 = load ptr, ptr %252, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 4
-  %321 = load i32, ptr %320, align 4
-  %322 = getelementptr inbounds i8, ptr %.1, i64 188
-  %323 = load i32, ptr %322, align 4
-  %324 = add i32 %323, %321
-  %325 = fmul double %318, %304
-  %326 = fmul double %325, 1.250000e-01
-  %327 = fptoui double %326 to i32
-  %328 = sub i32 %324, %327
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %328, i32 0)
-  store i32 %spec.select.i, ptr %322, align 4
-  %329 = getelementptr inbounds i8, ptr %.1, i64 200
-  %330 = load i32, ptr %329, align 8
-  %331 = icmp sgt i32 %spec.select.i, %330
-  br i1 %331, label %332, label %333
+310:                                              ; preds = %305, %304, %296
+  %.027.i = phi i64 [ 39999, %304 ], [ %309, %305 ], [ 39998, %296 ]
+  %.0.i92 = phi i64 [ 0, %304 ], [ %308, %305 ], [ 39999, %296 ]
+  %311 = getelementptr %struct.nstime_t, ptr %301, i64 %.0.i92
+  %312 = getelementptr %struct.nstime_t, ptr %301, i64 %.027.i
+  call void @nstime_delta(ptr noundef nonnull %7, ptr noundef %311, ptr noundef %312) #10
+  %313 = call double @nstime_to_sec(ptr noundef nonnull %7) #10
+  %314 = load ptr, ptr %252, align 8
+  %315 = getelementptr inbounds i8, ptr %314, i64 4
+  %316 = load i32, ptr %315, align 4
+  %317 = getelementptr inbounds i8, ptr %.1, i64 188
+  %318 = load i32, ptr %317, align 4
+  %319 = add i32 %318, %316
+  %320 = fmul double %313, %299
+  %321 = fmul double %320, 1.250000e-01
+  %322 = fptoui double %321 to i32
+  %323 = sub i32 %319, %322
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %323, i32 0)
+  store i32 %spec.select.i, ptr %317, align 4
+  %324 = getelementptr inbounds i8, ptr %.1, i64 200
+  %325 = load i32, ptr %324, align 8
+  %326 = icmp sgt i32 %spec.select.i, %325
+  br i1 %326, label %327, label %328
 
-332:                                              ; preds = %315
-  store i32 %spec.select.i, ptr %329, align 8
-  br label %333
+327:                                              ; preds = %310
+  store i32 %spec.select.i, ptr %324, align 8
+  br label %328
 
-333:                                              ; preds = %332, %315
-  %334 = load i32, ptr @mcast_stream_bufferalarm, align 4
-  %.not.i = icmp slt i32 %spec.select.i, %334
-  %335 = getelementptr inbounds i8, ptr %.1, i64 192
-  br i1 %.not.i, label %343, label %336
+328:                                              ; preds = %327, %310
+  %329 = load i32, ptr @mcast_stream_bufferalarm, align 4
+  %.not.i = icmp slt i32 %spec.select.i, %329
+  %330 = getelementptr inbounds i8, ptr %.1, i64 192
+  br i1 %.not.i, label %338, label %331
 
-336:                                              ; preds = %333
-  %337 = load i32, ptr %335, align 8
-  %338 = icmp eq i32 %337, 0
-  br i1 %338, label %339, label %buffusagecalc.exit
+331:                                              ; preds = %328
+  %332 = load i32, ptr %330, align 8
+  %333 = icmp eq i32 %332, 0
+  br i1 %333, label %334, label %buffusagecalc.exit
 
-339:                                              ; preds = %336
-  store i32 1, ptr %335, align 8
-  %340 = getelementptr inbounds i8, ptr %.1, i64 196
-  %341 = load i32, ptr %340, align 4
-  %342 = add i32 %341, 1
-  store i32 %342, ptr %340, align 4
+334:                                              ; preds = %331
+  store i32 1, ptr %330, align 8
+  %335 = getelementptr inbounds i8, ptr %.1, i64 196
+  %336 = load i32, ptr %335, align 4
+  %337 = add i32 %336, 1
+  store i32 %337, ptr %335, align 4
   br label %buffusagecalc.exit
 
-343:                                              ; preds = %333
-  store i32 0, ptr %335, align 8
+338:                                              ; preds = %328
+  store i32 0, ptr %330, align 8
   br label %buffusagecalc.exit
 
-buffusagecalc.exit:                               ; preds = %336, %339, %343
+buffusagecalc.exit:                               ; preds = %331, %334, %338
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %344 = load ptr, ptr %275, align 8
-  call fastcc void @slidingwindow(ptr noundef %344, ptr noundef nonnull %1)
-  %345 = load ptr, ptr %275, align 8
-  %346 = load i32, ptr @mcast_stream_cumulemptyspeed, align 4
-  %347 = mul i32 %346, 1000
-  %348 = sitofp i32 %347 to double
+  %339 = load ptr, ptr %270, align 8
+  call fastcc void @slidingwindow(ptr noundef %339, ptr noundef nonnull %1)
+  %340 = load ptr, ptr %270, align 8
+  %341 = load i32, ptr @mcast_stream_cumulemptyspeed, align 4
+  %342 = mul i32 %341, 1000
+  %343 = sitofp i32 %342 to double
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %349 = getelementptr inbounds i8, ptr %345, i64 152
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds i8, ptr %345, i64 164
-  %352 = load i32, ptr %351, align 4
-  switch i32 %352, label %354 [
-    i32 0, label %359
-    i32 1, label %353
+  %344 = getelementptr inbounds i8, ptr %340, i64 152
+  %345 = load ptr, ptr %344, align 8
+  %346 = getelementptr inbounds i8, ptr %340, i64 164
+  %347 = load i32, ptr %346, align 4
+  switch i32 %347, label %349 [
+    i32 0, label %354
+    i32 1, label %348
   ]
 
-353:                                              ; preds = %buffusagecalc.exit
-  br label %359
+348:                                              ; preds = %buffusagecalc.exit
+  br label %354
 
-354:                                              ; preds = %buffusagecalc.exit
-  %355 = add i32 %352, -1
-  %356 = add i32 %352, -2
-  %357 = sext i32 %355 to i64
-  %358 = sext i32 %356 to i64
-  br label %359
+349:                                              ; preds = %buffusagecalc.exit
+  %350 = add i32 %347, -1
+  %351 = add i32 %347, -2
+  %352 = sext i32 %350 to i64
+  %353 = sext i32 %351 to i64
+  br label %354
 
-359:                                              ; preds = %354, %353, %buffusagecalc.exit
-  %.027.i93 = phi i64 [ 39999, %353 ], [ %358, %354 ], [ 39998, %buffusagecalc.exit ]
-  %.0.i94 = phi i64 [ 0, %353 ], [ %357, %354 ], [ 39999, %buffusagecalc.exit ]
-  %360 = getelementptr %struct.nstime_t, ptr %350, i64 %.0.i94
-  %361 = getelementptr %struct.nstime_t, ptr %350, i64 %.027.i93
-  call void @nstime_delta(ptr noundef nonnull %6, ptr noundef %360, ptr noundef %361) #10
-  %362 = call double @nstime_to_sec(ptr noundef nonnull %6) #10
-  %363 = load ptr, ptr %252, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 4
-  %365 = load i32, ptr %364, align 4
-  %366 = getelementptr inbounds i8, ptr %345, i64 188
-  %367 = load i32, ptr %366, align 4
-  %368 = add i32 %367, %365
-  %369 = fmul double %362, %348
-  %370 = fmul double %369, 1.250000e-01
-  %371 = fptoui double %370 to i32
-  %372 = sub i32 %368, %371
-  %spec.select.i95 = call i32 @llvm.smax.i32(i32 %372, i32 0)
-  store i32 %spec.select.i95, ptr %366, align 4
-  %373 = getelementptr inbounds i8, ptr %345, i64 200
-  %374 = load i32, ptr %373, align 8
-  %375 = icmp sgt i32 %spec.select.i95, %374
-  br i1 %375, label %376, label %377
+354:                                              ; preds = %349, %348, %buffusagecalc.exit
+  %.027.i93 = phi i64 [ 39999, %348 ], [ %353, %349 ], [ 39998, %buffusagecalc.exit ]
+  %.0.i94 = phi i64 [ 0, %348 ], [ %352, %349 ], [ 39999, %buffusagecalc.exit ]
+  %355 = getelementptr %struct.nstime_t, ptr %345, i64 %.0.i94
+  %356 = getelementptr %struct.nstime_t, ptr %345, i64 %.027.i93
+  call void @nstime_delta(ptr noundef nonnull %6, ptr noundef %355, ptr noundef %356) #10
+  %357 = call double @nstime_to_sec(ptr noundef nonnull %6) #10
+  %358 = load ptr, ptr %252, align 8
+  %359 = getelementptr inbounds i8, ptr %358, i64 4
+  %360 = load i32, ptr %359, align 4
+  %361 = getelementptr inbounds i8, ptr %340, i64 188
+  %362 = load i32, ptr %361, align 4
+  %363 = add i32 %362, %360
+  %364 = fmul double %357, %343
+  %365 = fmul double %364, 1.250000e-01
+  %366 = fptoui double %365 to i32
+  %367 = sub i32 %363, %366
+  %spec.select.i95 = call i32 @llvm.smax.i32(i32 %367, i32 0)
+  store i32 %spec.select.i95, ptr %361, align 4
+  %368 = getelementptr inbounds i8, ptr %340, i64 200
+  %369 = load i32, ptr %368, align 8
+  %370 = icmp sgt i32 %spec.select.i95, %369
+  br i1 %370, label %371, label %372
 
-376:                                              ; preds = %359
-  store i32 %spec.select.i95, ptr %373, align 8
-  br label %377
+371:                                              ; preds = %354
+  store i32 %spec.select.i95, ptr %368, align 8
+  br label %372
 
-377:                                              ; preds = %376, %359
-  %378 = load i32, ptr @mcast_stream_bufferalarm, align 4
-  %.not.i96 = icmp slt i32 %spec.select.i95, %378
-  %379 = getelementptr inbounds i8, ptr %345, i64 192
-  br i1 %.not.i96, label %387, label %380
+372:                                              ; preds = %371, %354
+  %373 = load i32, ptr @mcast_stream_bufferalarm, align 4
+  %.not.i96 = icmp slt i32 %spec.select.i95, %373
+  %374 = getelementptr inbounds i8, ptr %340, i64 192
+  br i1 %.not.i96, label %382, label %375
 
-380:                                              ; preds = %377
-  %381 = load i32, ptr %379, align 8
-  %382 = icmp eq i32 %381, 0
-  br i1 %382, label %383, label %buffusagecalc.exit97
+375:                                              ; preds = %372
+  %376 = load i32, ptr %374, align 8
+  %377 = icmp eq i32 %376, 0
+  br i1 %377, label %378, label %buffusagecalc.exit97
 
-383:                                              ; preds = %380
-  store i32 1, ptr %379, align 8
-  %384 = getelementptr inbounds i8, ptr %345, i64 196
-  %385 = load i32, ptr %384, align 4
-  %386 = add i32 %385, 1
-  store i32 %386, ptr %384, align 4
+378:                                              ; preds = %375
+  store i32 1, ptr %374, align 8
+  %379 = getelementptr inbounds i8, ptr %340, i64 196
+  %380 = load i32, ptr %379, align 4
+  %381 = add i32 %380, 1
+  store i32 %381, ptr %379, align 4
   br label %buffusagecalc.exit97
 
-387:                                              ; preds = %377
-  store i32 0, ptr %379, align 8
+382:                                              ; preds = %372
+  store i32 0, ptr %374, align 8
   br label %buffusagecalc.exit97
 
-buffusagecalc.exit97:                             ; preds = %380, %383, %387
+buffusagecalc.exit97:                             ; preds = %375, %378, %382
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %388
+  br label %383
 
-388:                                              ; preds = %5, %20, %24, %11, %15, %buffusagecalc.exit97
+383:                                              ; preds = %5, %20, %24, %11, %15, %buffusagecalc.exit97
   %.085 = phi i32 [ 1, %buffusagecalc.exit97 ], [ 0, %15 ], [ 0, %11 ], [ 0, %24 ], [ 0, %20 ], [ 0, %5 ]
   ret i32 %.085
 }

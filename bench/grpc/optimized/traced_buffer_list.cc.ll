@@ -1192,9 +1192,11 @@ entry:
   %manager_.i.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   %1 = load ptr, ptr %manager_.i.i.i, align 16
   tail call void %1(i1 noundef zeroext false, ptr noundef nonnull %fn, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE) #13
+  %2 = load ptr, ptr %manager_.i.i.i, align 16
+  store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %fn, i64 24
-  %2 = load <2 x ptr>, ptr %manager_.i.i.i, align 16
-  store <2 x ptr> %2, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
+  %3 = load ptr, ptr %invoker_.i.i.i, align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 24), align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   ret void

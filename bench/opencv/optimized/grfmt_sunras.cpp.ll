@@ -235,16 +235,19 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define hidden void @_ZNK2cv16SunRasterDecoder10newDecoderEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_16SunRasterDecoderEED2Ev.exit:
   %2 = alloca %"class.std::allocator.18", align 1
-  %3 = alloca %"class.std::shared_ptr.7", align 16
+  %3 = alloca %"class.std::shared_ptr.7", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !4
-  store ptr null, ptr %3, align 16, !alias.scope !7, !noalias !4
+  store ptr null, ptr %3, align 8, !alias.scope !7, !noalias !4
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv16SunRasterDecoderESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull %2), !noalias !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !4
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !4
+  %5 = load ptr, ptr %3, align 8, !noalias !4
+  %6 = load ptr, ptr %4, align 8, !noalias !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  store <2 x ptr> %5, ptr %0, align 8
+  store ptr %5, ptr %0, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %7, align 8
   ret void
 }
 

@@ -551,98 +551,101 @@ compare_rlc_headers.exit:                         ; preds = %30
   %57 = load i8, ptr %3, align 8
   %58 = getelementptr inbounds i8, ptr %45, i64 2098
   store i8 %57, ptr %58, align 2
-  %59 = getelementptr inbounds i8, ptr %45, i64 2100
-  %60 = load <2 x i16>, ptr %19, align 4
-  store <2 x i16> %60, ptr %59, align 4
-  %61 = load i16, ptr %23, align 8
-  %62 = getelementptr inbounds i8, ptr %45, i64 2104
-  store i16 %61, ptr %62, align 8
-  %63 = load i8, ptr %27, align 2
-  %64 = getelementptr inbounds i8, ptr %45, i64 2107
-  store i8 %63, ptr %64, align 1
-  %65 = load i8, ptr %25, align 1
-  %66 = getelementptr inbounds i8, ptr %45, i64 2106
-  store i8 %65, ptr %66, align 2
-  %67 = getelementptr inbounds i8, ptr %3, i64 12
-  %68 = load i8, ptr %67, align 4
-  %69 = zext i8 %68 to i16
-  %70 = getelementptr inbounds i8, ptr %45, i64 2108
-  store i16 %69, ptr %70, align 4
-  %71 = load i8, ptr %29, align 1
-  %72 = zext i8 %71 to i32
-  %73 = getelementptr inbounds i8, ptr %45, i64 28
-  store i32 %72, ptr %73, align 4
-  %.not67 = icmp eq i8 %71, 0
-  br i1 %.not67, label %74, label %89
+  %59 = load i16, ptr %19, align 4
+  %60 = getelementptr inbounds i8, ptr %45, i64 2100
+  store i16 %59, ptr %60, align 4
+  %61 = load i16, ptr %21, align 2
+  %62 = getelementptr inbounds i8, ptr %45, i64 2102
+  store i16 %61, ptr %62, align 2
+  %63 = load i16, ptr %23, align 8
+  %64 = getelementptr inbounds i8, ptr %45, i64 2104
+  store i16 %63, ptr %64, align 8
+  %65 = load i8, ptr %27, align 2
+  %66 = getelementptr inbounds i8, ptr %45, i64 2107
+  store i8 %65, ptr %66, align 1
+  %67 = load i8, ptr %25, align 1
+  %68 = getelementptr inbounds i8, ptr %45, i64 2106
+  store i8 %67, ptr %68, align 2
+  %69 = getelementptr inbounds i8, ptr %3, i64 12
+  %70 = load i8, ptr %69, align 4
+  %71 = zext i8 %70 to i16
+  %72 = getelementptr inbounds i8, ptr %45, i64 2108
+  store i16 %71, ptr %72, align 4
+  %73 = load i8, ptr %29, align 1
+  %74 = zext i8 %73 to i32
+  %75 = getelementptr inbounds i8, ptr %45, i64 28
+  store i32 %74, ptr %75, align 4
+  %.not67 = icmp eq i8 %73, 0
+  br i1 %.not67, label %76, label %91
 
-74:                                               ; preds = %44
-  %75 = getelementptr inbounds i8, ptr %3, i64 36
-  %76 = load i32, ptr %75, align 4
-  %.not68 = icmp eq i32 %76, 0
-  br i1 %.not68, label %88, label %77
+76:                                               ; preds = %44
+  %77 = getelementptr inbounds i8, ptr %3, i64 36
+  %78 = load i32, ptr %77, align 4
+  %.not68 = icmp eq i32 %78, 0
+  br i1 %.not68, label %90, label %79
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %3, i64 40
-  %79 = load i32, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %45, i64 32
-  store i32 %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %3, i64 44
-  %82 = load i8, ptr %81, align 4
-  %83 = zext i8 %82 to i16
-  %84 = getelementptr inbounds i8, ptr %45, i64 36
-  store i16 %83, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %3, i64 10
-  %86 = load i16, ptr %85, align 2
-  %87 = getelementptr inbounds i8, ptr %45, i64 2096
-  store i16 %86, ptr %87, align 8
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %3, i64 40
+  %81 = load i32, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %45, i64 32
+  store i32 %81, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %3, i64 44
+  %84 = load i8, ptr %83, align 4
+  %85 = zext i8 %84 to i16
+  %86 = getelementptr inbounds i8, ptr %45, i64 36
+  store i16 %85, ptr %86, align 4
+  %87 = getelementptr inbounds i8, ptr %3, i64 10
+  %88 = load i16, ptr %87, align 2
+  %89 = getelementptr inbounds i8, ptr %45, i64 2096
+  store i16 %88, ptr %89, align 8
   br label %.loopexit
 
-88:                                               ; preds = %74
+90:                                               ; preds = %76
   tail call void @g_free(ptr noundef nonnull %45) #9
   br label %compare_rlc_headers.exit.thread
 
-89:                                               ; preds = %44
-  %90 = getelementptr inbounds i8, ptr %3, i64 48
-  %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %45, i64 40
-  store i32 %91, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %3, i64 52
-  %94 = load i16, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %45, i64 44
-  store i16 %94, ptr %95, align 4
-  %.not = icmp eq i16 %94, 0
+91:                                               ; preds = %44
+  %92 = getelementptr inbounds i8, ptr %3, i64 48
+  %93 = load i32, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %45, i64 40
+  store i32 %93, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %3, i64 52
+  %96 = load i16, ptr %95, align 4
+  %97 = getelementptr inbounds i8, ptr %45, i64 44
+  store i16 %96, ptr %97, align 4
+  %.not = icmp eq i16 %96, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %89
-  %96 = tail call i16 @llvm.umin.i16(i16 %94, i16 512)
-  %97 = getelementptr inbounds i8, ptr %3, i64 56
-  %98 = getelementptr inbounds i8, ptr %45, i64 48
-  %99 = shl nuw nsw i16 %96, 2
-  %100 = zext nneg i16 %99 to i64
-  %101 = add nuw nsw i64 %100, 17179869180
-  %102 = and i64 %101, 17179869180
-  %103 = add nuw nsw i64 %102, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %98, ptr noundef nonnull align 4 dereferenceable(1) %97, i64 %103, i1 false)
+.lr.ph:                                           ; preds = %91
+  %98 = tail call i16 @llvm.umin.i16(i16 %96, i16 512)
+  %99 = getelementptr inbounds i8, ptr %3, i64 56
+  %100 = getelementptr inbounds i8, ptr %45, i64 48
+  %101 = shl nuw nsw i16 %98, 2
+  %102 = zext nneg i16 %101 to i64
+  %103 = add nuw nsw i64 %102, 17179869180
+  %104 = and i64 %103, 17179869180
+  %105 = add nuw nsw i64 %104, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %100, ptr noundef nonnull align 4 dereferenceable(1) %99, i64 %105, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %89, %77
-  %104 = load ptr, ptr %0, align 8
-  %.not69 = icmp eq ptr %104, null
-  br i1 %.not69, label %108, label %105
+.loopexit:                                        ; preds = %.lr.ph, %91, %79
+  %106 = load ptr, ptr %0, align 8
+  %.not69 = icmp eq ptr %106, null
+  br i1 %.not69, label %110, label %107
 
-105:                                              ; preds = %.loopexit
-  %106 = getelementptr inbounds i8, ptr %0, i64 8
-  %107 = load ptr, ptr %106, align 8
-  br label %108
+107:                                              ; preds = %.loopexit
+  %108 = getelementptr inbounds i8, ptr %0, i64 8
+  %109 = load ptr, ptr %108, align 8
+  br label %110
 
-108:                                              ; preds = %.loopexit, %105
-  %.sink = phi ptr [ %107, %105 ], [ %0, %.loopexit ]
+110:                                              ; preds = %.loopexit, %107
+  %.sink = phi ptr [ %109, %107 ], [ %0, %.loopexit ]
   store ptr %45, ptr %.sink, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %45, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %45, ptr %111, align 8
   br label %compare_rlc_headers.exit.thread
 
-compare_rlc_headers.exit.thread:                  ; preds = %35, %32, %5, %compare_rlc_headers.exit, %108, %88
+compare_rlc_headers.exit.thread:                  ; preds = %35, %32, %5, %compare_rlc_headers.exit, %110, %90
   ret i32 0
 }
 

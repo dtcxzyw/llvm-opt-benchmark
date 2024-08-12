@@ -292,7 +292,7 @@ _ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4co
 
 _ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread: ; preds = %34, %.preheader.split
   %46 = icmp ult i64 %.sroa.01.040, %32
-  br i1 %46, label %49, label %61, !prof !16
+  br i1 %46, label %49, label %64, !prof !16
 
 _ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit: ; preds = %34
   %47 = call noundef i32 @_ZN4core3cmp6min_by17hd6941e8d74dfc996E.llvm.8118306253422699639(i32 noundef %39, i32 noundef %42), !range !21, !noalias !33
@@ -310,28 +310,32 @@ _ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit: ; preds 
 49:                                               ; preds = %_ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread
   %50 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds [0 x { i32, i32 }], ptr %50, i64 0, i64 %.sroa.01.040
-  %52 = load <2 x i32>, ptr %51, align 4
-  %53 = load i64, ptr %0, align 8, !alias.scope !34, !noundef !4
-  %54 = icmp eq i64 %32, %53
-  br i1 %54, label %55, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6e6ca4c09383e5a8E.exit"
+  %52 = load i32, ptr %51, align 4, !range !21, !noundef !4
+  %53 = getelementptr inbounds i8, ptr %51, i64 4
+  %54 = load i32, ptr %53, align 4, !range !21, !noundef !4
+  %55 = load i64, ptr %0, align 8, !alias.scope !34, !noundef !4
+  %56 = icmp eq i64 %32, %55
+  br i1 %56, label %57, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6e6ca4c09383e5a8E.exit"
 
-55:                                               ; preds = %49
+57:                                               ; preds = %49
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h63eda31a4f58299aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %32)
   %.pre.i = load i64, ptr %5, align 8, !alias.scope !34
   %.pre = load ptr, ptr %4, align 8, !alias.scope !34
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6e6ca4c09383e5a8E.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6e6ca4c09383e5a8E.exit": ; preds = %49, %55
-  %56 = phi ptr [ %.pre, %55 ], [ %50, %49 ]
-  %57 = phi i64 [ %.pre.i, %55 ], [ %32, %49 ]
-  %58 = getelementptr inbounds { i32, i32 }, ptr %56, i64 %57
-  store <2 x i32> %52, ptr %58, align 4
-  %59 = load i64, ptr %5, align 8, !alias.scope !34, !noundef !4
-  %60 = add i64 %59, 1
-  store i64 %60, ptr %5, align 8, !alias.scope !34
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6e6ca4c09383e5a8E.exit": ; preds = %49, %57
+  %58 = phi ptr [ %.pre, %57 ], [ %50, %49 ]
+  %59 = phi i64 [ %.pre.i, %57 ], [ %32, %49 ]
+  %60 = getelementptr inbounds { i32, i32 }, ptr %58, i64 %59
+  store i32 %52, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %60, i64 4
+  store i32 %54, ptr %61, align 4
+  %62 = load i64, ptr %5, align 8, !alias.scope !34, !noundef !4
+  %63 = add i64 %62, 1
+  store i64 %63, ptr %5, align 8, !alias.scope !34
   br label %.backedge
 
-61:                                               ; preds = %_ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread
+64:                                               ; preds = %_ZN12regex_syntax3hir8interval8Interval5union17hf68047bd49f79e5eE.exit.thread
   call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.sroa.01.040, i64 noundef %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0c3b78350690d3073dec9efe33796e77.6) #10
   unreachable
 }

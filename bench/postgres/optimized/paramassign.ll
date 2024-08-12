@@ -535,65 +535,68 @@ define dso_local noundef ptr @replace_nestloop_param_var(ptr nocapture noundef %
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %19, i64 24
   store i32 %34, ptr %35, align 4
-  br label %70
+  br label %72
 
 ._crit_edge:                                      ; preds = %9, %.lr.ph, %2
   %36 = getelementptr inbounds i8, ptr %1, i64 12
-  %37 = load <2 x i32>, ptr %36, align 4
-  %38 = load i32, ptr %36, align 4
-  %39 = getelementptr inbounds i8, ptr %1, i64 20
-  %40 = load i32, ptr %39, align 4
-  %41 = tail call noundef ptr @palloc0(i64 noundef 28) #4
-  store i32 8, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
-  store i32 1, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 96
-  %46 = load ptr, ptr %45, align 8
-  %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %generate_new_exec_param.exit, label %47
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = load i32, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 20
+  %41 = load i32, ptr %40, align 4
+  %42 = tail call noundef ptr @palloc0(i64 noundef 28) #4
+  store i32 8, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  store i32 1, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 96
+  %47 = load ptr, ptr %46, align 8
+  %.not.i.i = icmp eq ptr %47, null
+  br i1 %.not.i.i, label %generate_new_exec_param.exit, label %48
 
-47:                                               ; preds = %._crit_edge
-  %48 = getelementptr inbounds i8, ptr %46, i64 4
-  %49 = load i32, ptr %48, align 4
+48:                                               ; preds = %._crit_edge
+  %49 = getelementptr inbounds i8, ptr %47, i64 4
+  %50 = load i32, ptr %49, align 4
   br label %generate_new_exec_param.exit
 
-generate_new_exec_param.exit:                     ; preds = %._crit_edge, %47
-  %50 = phi i32 [ %49, %47 ], [ 0, %._crit_edge ]
-  %51 = getelementptr inbounds i8, ptr %41, i64 8
-  store i32 %50, ptr %51, align 4
-  %52 = load ptr, ptr %43, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 96
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call ptr @lappend_oid(ptr noundef %54, i32 noundef %38) #4
-  %56 = load ptr, ptr %43, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 96
-  store ptr %55, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %41, i64 12
-  store <2 x i32> %37, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %41, i64 20
-  store i32 %40, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %41, i64 24
-  store i32 -1, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 44
-  %62 = load i32, ptr %61, align 4
-  store i32 %62, ptr %60, align 4
-  %63 = tail call noundef ptr @palloc0(i64 noundef 16) #4
-  store i32 341, ptr %63, align 4
-  %64 = load i32, ptr %51, align 4
-  %65 = getelementptr inbounds i8, ptr %63, i64 4
-  store i32 %64, ptr %65, align 4
-  %66 = tail call ptr @copyObjectImpl(ptr noundef nonnull %1) #4
-  %67 = getelementptr inbounds i8, ptr %63, i64 8
-  store ptr %66, ptr %67, align 8
-  %68 = load ptr, ptr %3, align 8
-  %69 = tail call ptr @lappend(ptr noundef %68, ptr noundef nonnull %63) #4
-  store ptr %69, ptr %3, align 8
-  br label %70
+generate_new_exec_param.exit:                     ; preds = %._crit_edge, %48
+  %51 = phi i32 [ %50, %48 ], [ 0, %._crit_edge ]
+  %52 = getelementptr inbounds i8, ptr %42, i64 8
+  store i32 %51, ptr %52, align 4
+  %53 = load ptr, ptr %44, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 96
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call ptr @lappend_oid(ptr noundef %55, i32 noundef %37) #4
+  %57 = load ptr, ptr %44, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 96
+  store ptr %56, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %42, i64 12
+  store i32 %37, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %42, i64 16
+  store i32 %39, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %42, i64 20
+  store i32 %41, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %42, i64 24
+  store i32 -1, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %1, i64 44
+  %64 = load i32, ptr %63, align 4
+  store i32 %64, ptr %62, align 4
+  %65 = tail call noundef ptr @palloc0(i64 noundef 16) #4
+  store i32 341, ptr %65, align 4
+  %66 = load i32, ptr %52, align 4
+  %67 = getelementptr inbounds i8, ptr %65, i64 4
+  store i32 %66, ptr %67, align 4
+  %68 = tail call ptr @copyObjectImpl(ptr noundef nonnull %1) #4
+  %69 = getelementptr inbounds i8, ptr %65, i64 8
+  store ptr %68, ptr %69, align 8
+  %70 = load ptr, ptr %3, align 8
+  %71 = tail call ptr @lappend(ptr noundef %70, ptr noundef nonnull %65) #4
+  store ptr %71, ptr %3, align 8
+  br label %72
 
-70:                                               ; preds = %generate_new_exec_param.exit, %.split
-  %.0 = phi ptr [ %19, %.split ], [ %41, %generate_new_exec_param.exit ]
+72:                                               ; preds = %generate_new_exec_param.exit, %.split
+  %.0 = phi ptr [ %19, %.split ], [ %42, %generate_new_exec_param.exit ]
   ret ptr %.0
 }
 

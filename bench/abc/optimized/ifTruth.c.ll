@@ -42,9 +42,11 @@ define void @If_CutTruthPermute(ptr noundef %0, i32 noundef %1, i32 %2, i32 noun
   store float %15, ptr %12, align 4
   store float %13, ptr %14, align 4
   %18 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv51
-  %19 = load <2 x i32>, ptr %18, align 4
-  %20 = shufflevector <2 x i32> %19, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %20, ptr %18, align 4
+  %19 = load i32, ptr %18, align 4
+  %20 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next52
+  %21 = load i32, ptr %20, align 4
+  store i32 %21, ptr %18, align 4
+  store i32 %19, ptr %20, align 4
   br label %Abc_TtSwapAdjacent.exit.us.us.us
 
 Abc_TtSwapAdjacent.exit.us.us.us:                 ; preds = %17, %.lr.ph.us.us
@@ -64,117 +66,121 @@ Abc_TtSwapAdjacent.exit.us.us.us:                 ; preds = %17, %.lr.ph.us.us
 .lr.ph.us:                                        ; preds = %.split.us, %.lr.ph.us.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph.us.backedge ], [ 0, %.split.us ]
   %.02936.us39 = phi i32 [ %.02936.us39.be, %.lr.ph.us.backedge ], [ 0, %.split.us ]
-  %21 = getelementptr inbounds float, ptr %4, i64 %indvars.iv
-  %22 = load float, ptr %21, align 4
+  %22 = getelementptr inbounds float, ptr %4, i64 %indvars.iv
+  %23 = load float, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr inbounds float, ptr %4, i64 %indvars.iv.next
-  %24 = load float, ptr %23, align 4
-  %25 = fcmp ult float %22, %24
-  br i1 %25, label %26, label %Abc_TtSwapAdjacent.exit.us40
+  %24 = getelementptr inbounds float, ptr %4, i64 %indvars.iv.next
+  %25 = load float, ptr %24, align 4
+  %26 = fcmp ult float %23, %25
+  br i1 %26, label %27, label %Abc_TtSwapAdjacent.exit.us40
 
-26:                                               ; preds = %.lr.ph.us
-  store float %24, ptr %21, align 4
-  store float %22, ptr %23, align 4
-  %27 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
-  %28 = load <2 x i32>, ptr %27, align 4
-  %29 = shufflevector <2 x i32> %28, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %29, ptr %27, align 4
-  %30 = icmp ult i64 %indvars.iv, 5
-  br i1 %30, label %60, label %31
+27:                                               ; preds = %.lr.ph.us
+  store float %25, ptr %22, align 4
+  store float %23, ptr %24, align 4
+  %28 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
+  %31 = load i32, ptr %30, align 4
+  store i32 %31, ptr %28, align 4
+  store i32 %29, ptr %30, align 4
+  %32 = icmp ult i64 %indvars.iv, 5
+  br i1 %32, label %63, label %33
 
-31:                                               ; preds = %26
-  %32 = icmp eq i64 %indvars.iv, 5
-  br i1 %32, label %54, label %33
+33:                                               ; preds = %27
+  %34 = icmp eq i64 %indvars.iv, 5
+  br i1 %34, label %56, label %35
 
-33:                                               ; preds = %31
-  %34 = icmp ult i64 %indvars.iv, 7
-  %35 = trunc i64 %indvars.iv to i32
-  %36 = add i32 %35, -6
-  %37 = shl nuw i32 1, %36
-  %38 = select i1 %34, i32 1, i32 %37
+35:                                               ; preds = %33
+  %36 = icmp ult i64 %indvars.iv, 7
+  %37 = trunc i64 %indvars.iv to i32
+  %38 = add i32 %37, -6
+  %39 = shl nuw i32 1, %38
+  %40 = select i1 %36, i32 1, i32 %39
   br i1 %10, label %.preheader.lr.ph.i.us, label %Abc_TtSwapAdjacent.exit.us40
 
-.preheader.lr.ph.i.us:                            ; preds = %33
-  %39 = icmp sgt i32 %38, 0
-  %40 = shl nsw i32 %38, 2
-  %41 = sext i32 %40 to i64
-  br i1 %39, label %.preheader.us.preheader.i.us, label %Abc_TtSwapAdjacent.exit.us40
+.preheader.lr.ph.i.us:                            ; preds = %35
+  %41 = icmp sgt i32 %40, 0
+  %42 = shl nsw i32 %40, 2
+  %43 = sext i32 %42 to i64
+  br i1 %41, label %.preheader.us.preheader.i.us, label %Abc_TtSwapAdjacent.exit.us40
 
 .preheader.us.preheader.i.us:                     ; preds = %.preheader.lr.ph.i.us
-  %42 = shl nuw nsw i32 %38, 1
-  %43 = zext nneg i32 %38 to i64
-  %44 = zext nneg i32 %42 to i64
+  %44 = shl nuw nsw i32 %40, 1
+  %45 = zext nneg i32 %40 to i64
+  %46 = zext nneg i32 %44 to i64
   br label %.preheader.us.i.us
 
 .preheader.us.i.us:                               ; preds = %._crit_edge.us.i.us, %.preheader.us.preheader.i.us
-  %.061.us.i.us = phi ptr [ %52, %._crit_edge.us.i.us ], [ %0, %.preheader.us.preheader.i.us ]
-  br label %45
+  %.061.us.i.us = phi ptr [ %54, %._crit_edge.us.i.us ], [ %0, %.preheader.us.preheader.i.us ]
+  br label %47
 
-45:                                               ; preds = %45, %.preheader.us.i.us
-  %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %45 ]
-  %46 = add nuw nsw i64 %indvars.iv.i.us, %43
-  %47 = getelementptr inbounds i64, ptr %.061.us.i.us, i64 %46
-  %48 = load i64, ptr %47, align 8
-  %49 = add nuw nsw i64 %indvars.iv.i.us, %44
-  %50 = getelementptr inbounds i64, ptr %.061.us.i.us, i64 %49
-  %51 = load i64, ptr %50, align 8
-  store i64 %51, ptr %47, align 8
-  store i64 %48, ptr %50, align 8
+47:                                               ; preds = %47, %.preheader.us.i.us
+  %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %47 ]
+  %48 = add nuw nsw i64 %indvars.iv.i.us, %45
+  %49 = getelementptr inbounds i64, ptr %.061.us.i.us, i64 %48
+  %50 = load i64, ptr %49, align 8
+  %51 = add nuw nsw i64 %indvars.iv.i.us, %46
+  %52 = getelementptr inbounds i64, ptr %.061.us.i.us, i64 %51
+  %53 = load i64, ptr %52, align 8
+  store i64 %53, ptr %49, align 8
+  store i64 %50, ptr %52, align 8
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %43
-  br i1 %exitcond.not.i.us, label %._crit_edge.us.i.us, label %45, !llvm.loop !6
+  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %45
+  br i1 %exitcond.not.i.us, label %._crit_edge.us.i.us, label %47, !llvm.loop !6
 
-._crit_edge.us.i.us:                              ; preds = %45
-  %52 = getelementptr inbounds i64, ptr %.061.us.i.us, i64 %41
-  %53 = icmp ult ptr %52, %9
-  br i1 %53, label %.preheader.us.i.us, label %Abc_TtSwapAdjacent.exit.us40, !llvm.loop !7
+._crit_edge.us.i.us:                              ; preds = %47
+  %54 = getelementptr inbounds i64, ptr %.061.us.i.us, i64 %43
+  %55 = icmp ult ptr %54, %9
+  br i1 %55, label %.preheader.us.i.us, label %Abc_TtSwapAdjacent.exit.us40, !llvm.loop !7
 
-54:                                               ; preds = %31
+56:                                               ; preds = %33
   br i1 %10, label %.lr.ph.i.us, label %Abc_TtSwapAdjacent.exit.us40
 
-.lr.ph.i.us:                                      ; preds = %54, %.lr.ph.i.us
-  %.05462.i.us = phi ptr [ %58, %.lr.ph.i.us ], [ %0, %54 ]
-  %55 = getelementptr inbounds i8, ptr %.05462.i.us, i64 4
-  %56 = load <2 x i32>, ptr %55, align 4
-  %57 = shufflevector <2 x i32> %56, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %57, ptr %55, align 4
-  %58 = getelementptr inbounds i8, ptr %.05462.i.us, i64 16
-  %59 = icmp ult ptr %58, %9
-  br i1 %59, label %.lr.ph.i.us, label %Abc_TtSwapAdjacent.exit.us40, !llvm.loop !8
+.lr.ph.i.us:                                      ; preds = %56, %.lr.ph.i.us
+  %.05462.i.us = phi ptr [ %61, %.lr.ph.i.us ], [ %0, %56 ]
+  %57 = getelementptr inbounds i8, ptr %.05462.i.us, i64 4
+  %58 = load i32, ptr %57, align 4
+  %59 = getelementptr inbounds i8, ptr %.05462.i.us, i64 8
+  %60 = load i32, ptr %59, align 4
+  store i32 %60, ptr %57, align 4
+  store i32 %58, ptr %59, align 4
+  %61 = getelementptr inbounds i8, ptr %.05462.i.us, i64 16
+  %62 = icmp ult ptr %61, %9
+  br i1 %62, label %.lr.ph.i.us, label %Abc_TtSwapAdjacent.exit.us40, !llvm.loop !8
 
-60:                                               ; preds = %26
+63:                                               ; preds = %27
   br i1 %10, label %.lr.ph64.i.us, label %Abc_TtSwapAdjacent.exit.us40
 
-.lr.ph64.i.us:                                    ; preds = %60
-  %61 = trunc nuw nsw i64 %indvars.iv to i32
-  %62 = shl nuw nsw i32 1, %61
-  %63 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv
-  %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %63, i64 8
-  %66 = load i64, ptr %65, align 8
-  %67 = zext nneg i32 %62 to i64
-  %68 = getelementptr inbounds i8, ptr %63, i64 16
+.lr.ph64.i.us:                                    ; preds = %63
+  %64 = trunc nuw nsw i64 %indvars.iv to i32
+  %65 = shl nuw nsw i32 1, %64
+  %66 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %66, i64 8
   %69 = load i64, ptr %68, align 8
-  br label %70
-
-70:                                               ; preds = %70, %.lr.ph64.i.us
-  %indvars.iv69.i.us = phi i64 [ 0, %.lr.ph64.i.us ], [ %indvars.iv.next70.i.us, %70 ]
-  %71 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv69.i.us
+  %70 = zext nneg i32 %65 to i64
+  %71 = getelementptr inbounds i8, ptr %66, i64 16
   %72 = load i64, ptr %71, align 8
-  %73 = and i64 %72, %64
-  %74 = and i64 %72, %66
-  %75 = shl i64 %74, %67
-  %76 = or i64 %75, %73
-  %77 = and i64 %72, %69
-  %78 = lshr i64 %77, %67
-  %79 = or i64 %76, %78
-  store i64 %79, ptr %71, align 8
+  br label %73
+
+73:                                               ; preds = %73, %.lr.ph64.i.us
+  %indvars.iv69.i.us = phi i64 [ 0, %.lr.ph64.i.us ], [ %indvars.iv.next70.i.us, %73 ]
+  %74 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv69.i.us
+  %75 = load i64, ptr %74, align 8
+  %76 = and i64 %75, %67
+  %77 = and i64 %75, %69
+  %78 = shl i64 %77, %70
+  %79 = or i64 %78, %76
+  %80 = and i64 %75, %72
+  %81 = lshr i64 %80, %70
+  %82 = or i64 %79, %81
+  store i64 %82, ptr %74, align 8
   %indvars.iv.next70.i.us = add nuw nsw i64 %indvars.iv69.i.us, 1
   %exitcond73.not.i.us = icmp eq i64 %indvars.iv.next70.i.us, %wide.trip.count72.i
-  br i1 %exitcond73.not.i.us, label %Abc_TtSwapAdjacent.exit.us40, label %70, !llvm.loop !9
+  br i1 %exitcond73.not.i.us, label %Abc_TtSwapAdjacent.exit.us40, label %73, !llvm.loop !9
 
-Abc_TtSwapAdjacent.exit.us40:                     ; preds = %._crit_edge.us.i.us, %.lr.ph.i.us, %70, %60, %54, %.preheader.lr.ph.i.us, %33, %.lr.ph.us
-  %.1.us41 = phi i32 [ %.02936.us39, %.lr.ph.us ], [ 1, %60 ], [ 1, %54 ], [ 1, %33 ], [ 1, %.preheader.lr.ph.i.us ], [ 1, %70 ], [ 1, %.lr.ph.i.us ], [ 1, %._crit_edge.us.i.us ]
+Abc_TtSwapAdjacent.exit.us40:                     ; preds = %._crit_edge.us.i.us, %.lr.ph.i.us, %73, %63, %56, %.preheader.lr.ph.i.us, %35, %.lr.ph.us
+  %.1.us41 = phi i32 [ %.02936.us39, %.lr.ph.us ], [ 1, %63 ], [ 1, %56 ], [ 1, %35 ], [ 1, %.preheader.lr.ph.i.us ], [ 1, %73 ], [ 1, %.lr.ph.i.us ], [ 1, %._crit_edge.us.i.us ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count54
   br i1 %exitcond.not, label %._crit_edge.split.us42, label %.lr.ph.us.backedge
 
@@ -253,7 +259,7 @@ define void @If_CutRotatePins(ptr nocapture noundef readonly %0, ptr nocapture n
   br label %30
 
 30:                                               ; preds = %Abc_TtSwapAdjacent.exit.us.us.us.i, %.lr.ph.us.us.i
-  %31 = phi float [ %40, %Abc_TtSwapAdjacent.exit.us.us.us.i ], [ %.pre48, %.lr.ph.us.us.i ]
+  %31 = phi float [ %41, %Abc_TtSwapAdjacent.exit.us.us.us.i ], [ %.pre48, %.lr.ph.us.us.i ]
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %Abc_TtSwapAdjacent.exit.us.us.us.i ], [ 0, %.lr.ph.us.us.i ]
   %.02936.us.us.us.i = phi i32 [ %.1.us.us.us.i, %Abc_TtSwapAdjacent.exit.us.us.us.i ], [ 0, %.lr.ph.us.us.i ]
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
@@ -267,13 +273,15 @@ define void @If_CutRotatePins(ptr nocapture noundef readonly %0, ptr nocapture n
   store float %33, ptr %36, align 4
   store float %31, ptr %32, align 4
   %37 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv51.i
-  %38 = load <2 x i32>, ptr %37, align 4
-  %39 = shufflevector <2 x i32> %38, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %39, ptr %37, align 4
+  %38 = load i32, ptr %37, align 4
+  %39 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next52.i
+  %40 = load i32, ptr %39, align 4
+  store i32 %40, ptr %37, align 4
+  store i32 %38, ptr %39, align 4
   br label %Abc_TtSwapAdjacent.exit.us.us.us.i
 
 Abc_TtSwapAdjacent.exit.us.us.us.i:               ; preds = %35, %30
-  %40 = phi float [ %33, %30 ], [ %31, %35 ]
+  %41 = phi float [ %33, %30 ], [ %31, %35 ]
   %.1.us.us.us.i = phi i32 [ %.02936.us.us.us.i, %30 ], [ 1, %35 ]
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
   br i1 %exitcond55.not.i, label %._crit_edge.split.us.us.us.i, label %30, !llvm.loop !4
@@ -283,48 +291,48 @@ Abc_TtSwapAdjacent.exit.us.us.us.i:               ; preds = %35, %30
   br i1 %.not.us.us.i, label %If_CutTruthPermute.exit, label %.lr.ph.us.us.i
 
 If_CutTruthWR.exit:                               ; preds = %.critedge
-  %41 = getelementptr inbounds i8, ptr %0, i64 152
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i8, ptr %1, i64 16
-  %44 = load i32, ptr %43, align 4
-  %45 = ashr i32 %44, 1
-  %46 = getelementptr inbounds i8, ptr %25, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %25, i64 8
-  %49 = load i32, ptr %48, align 8
-  %50 = ashr i32 %45, %49
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %47, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i32, ptr %25, align 8
-  %55 = getelementptr inbounds i8, ptr %25, i64 12
-  %56 = load i32, ptr %55, align 4
-  %57 = and i32 %56, %45
-  %58 = mul nsw i32 %57, %54
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr i64, ptr %53, i64 %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 652
-  %62 = getelementptr inbounds [16 x i32], ptr %61, i64 0, i64 %23
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %.lr.ph18.preheader.i, label %Abc_TtCopy.exit
+  %42 = getelementptr inbounds i8, ptr %0, i64 152
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr i8, ptr %1, i64 16
+  %45 = load i32, ptr %44, align 4
+  %46 = ashr i32 %45, 1
+  %47 = getelementptr inbounds i8, ptr %25, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %25, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = ashr i32 %46, %50
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds ptr, ptr %48, i64 %52
+  %54 = load ptr, ptr %53, align 8
+  %55 = load i32, ptr %25, align 8
+  %56 = getelementptr inbounds i8, ptr %25, i64 12
+  %57 = load i32, ptr %56, align 4
+  %58 = and i32 %57, %46
+  %59 = mul nsw i32 %58, %55
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr i64, ptr %54, i64 %60
+  %62 = getelementptr inbounds i8, ptr %0, i64 652
+  %63 = getelementptr inbounds [16 x i32], ptr %62, i64 0, i64 %23
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp sgt i32 %64, 0
+  br i1 %65, label %.lr.ph18.preheader.i, label %Abc_TtCopy.exit
 
 .lr.ph18.preheader.i:                             ; preds = %If_CutTruthWR.exit
-  %wide.trip.count24.i = zext nneg i32 %63 to i64
+  %wide.trip.count24.i = zext nneg i32 %64 to i64
   br label %.lr.ph18.i
 
 .lr.ph18.i:                                       ; preds = %.lr.ph18.i, %.lr.ph18.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %.lr.ph18.preheader.i ], [ %indvars.iv.next22.i, %.lr.ph18.i ]
-  %65 = getelementptr inbounds i64, ptr %60, i64 %indvars.iv21.i
-  %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i64, ptr %42, i64 %indvars.iv21.i
-  store i64 %66, ptr %67, align 8
+  %66 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv21.i
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds i64, ptr %43, i64 %indvars.iv21.i
+  store i64 %67, ptr %68, align 8
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count24.i
   br i1 %exitcond25.not.i, label %Abc_TtCopy.exit.loopexit, label %.lr.ph18.i, !llvm.loop !11
 
 Abc_TtCopy.exit.loopexit:                         ; preds = %.lr.ph18.i
-  %.pre = load ptr, ptr %41, align 8
+  %.pre = load ptr, ptr %42, align 8
   %.val33.pre = load i64, ptr %5, align 4
   %.pre49 = trunc i64 %.val33.pre to i32
   %.pre50 = lshr i32 %.pre49, 24
@@ -332,23 +340,23 @@ Abc_TtCopy.exit.loopexit:                         ; preds = %.lr.ph18.i
 
 Abc_TtCopy.exit:                                  ; preds = %Abc_TtCopy.exit.loopexit, %If_CutTruthWR.exit
   %.pre-phi51 = phi i32 [ %.pre50, %Abc_TtCopy.exit.loopexit ], [ %8, %If_CutTruthWR.exit ]
-  %68 = phi ptr [ %.pre, %Abc_TtCopy.exit.loopexit ], [ %42, %If_CutTruthWR.exit ]
-  %69 = zext nneg i32 %.pre-phi51 to i64
-  %70 = getelementptr inbounds [16 x i32], ptr %61, i64 0, i64 %69
-  %71 = load i32, ptr %70, align 4
-  call void @If_CutTruthPermute(ptr noundef %68, i32 noundef %.pre-phi51, i32 poison, i32 noundef %71, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %72 = load i64, ptr %5, align 4
-  %73 = lshr i64 %72, 24
-  %74 = and i64 %73, 255
-  %75 = getelementptr inbounds [16 x ptr], ptr %21, i64 0, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %41, align 8
-  %78 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef %76, ptr noundef %77)
-  %.val34 = load i32, ptr %43, align 4
-  %79 = and i32 %.val34, 1
-  %80 = shl nsw i32 %78, 1
-  %81 = or disjoint i32 %79, %80
-  store i32 %81, ptr %43, align 4
+  %69 = phi ptr [ %.pre, %Abc_TtCopy.exit.loopexit ], [ %43, %If_CutTruthWR.exit ]
+  %70 = zext nneg i32 %.pre-phi51 to i64
+  %71 = getelementptr inbounds [16 x i32], ptr %62, i64 0, i64 %70
+  %72 = load i32, ptr %71, align 4
+  call void @If_CutTruthPermute(ptr noundef %69, i32 noundef %.pre-phi51, i32 poison, i32 noundef %72, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %73 = load i64, ptr %5, align 4
+  %74 = lshr i64 %73, 24
+  %75 = and i64 %74, 255
+  %76 = getelementptr inbounds [16 x ptr], ptr %21, i64 0, i64 %75
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %42, align 8
+  %79 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef %77, ptr noundef %78)
+  %.val34 = load i32, ptr %44, align 4
+  %80 = and i32 %.val34, 1
+  %81 = shl nsw i32 %79, 1
+  %82 = or disjoint i32 %80, %81
+  store i32 %82, ptr %44, align 4
   br label %If_CutTruthPermute.exit
 
 If_CutTruthPermute.exit:                          ; preds = %._crit_edge.split.us.us.us.i, %27, %Abc_TtCopy.exit

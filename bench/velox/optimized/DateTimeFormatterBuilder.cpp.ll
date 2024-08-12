@@ -2301,6 +2301,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
+  %bufEnd_ = getelementptr inbounds i8, ptr %this, i64 8
   %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   store ptr null, ptr %agg.result, align 8, !alias.scope !102
@@ -2312,16 +2313,23 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !102
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions17DateTimeFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !102
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
-  %1 = load <2 x i64>, ptr %this, align 8, !noalias !102
+  %1 = load i64, ptr %bufEnd_, align 8, !noalias !102
+  %2 = load i64, ptr %this, align 8, !noalias !102
+  store i64 %2, ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !102
   store ptr null, ptr %this, align 8, !noalias !102
-  store <2 x i64> %1, ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !102
+  %bufSize_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
+  store i64 %1, ptr %bufSize_.i.i.i.i.i.i.i.i, align 8, !noalias !102
   %tokens_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
-  %2 = load <2 x ptr>, ptr %tokens_, align 8, !noalias !102
-  store <2 x ptr> %2, ptr %tokens_.i.i.i.i.i.i.i.i, align 8, !noalias !102
+  %3 = load ptr, ptr %tokens_, align 8, !noalias !102
+  store ptr %3, ptr %tokens_.i.i.i.i.i.i.i.i, align 8, !noalias !102
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 40
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %4 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !102
+  store ptr %4, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !102
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 48
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !102
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !102
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !102
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !102
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tokens_, i8 0, i64 24, i1 false), !noalias !102
   %type_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i32 %0, ptr %type_.i.i.i.i.i.i.i.i, align 8, !noalias !102

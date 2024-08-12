@@ -540,15 +540,21 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @EVP_PKEY_asn1_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #5 {
 entry:
+  %0 = load i32, ptr %dst, align 8
+  %pkey_base_id2 = getelementptr inbounds i8, ptr %dst, i64 4
+  %1 = load i32, ptr %pkey_base_id2, align 4
   %pkey_flags3 = getelementptr inbounds i8, ptr %dst, i64 8
-  %0 = load i64, ptr %pkey_flags3, align 8
+  %2 = load i64, ptr %pkey_flags3, align 8
   %pem_str4 = getelementptr inbounds i8, ptr %dst, i64 16
-  %1 = load <2 x i32>, ptr %dst, align 8
-  %2 = load <2 x ptr>, ptr %pem_str4, align 8
+  %3 = load ptr, ptr %pem_str4, align 8
+  %info5 = getelementptr inbounds i8, ptr %dst, i64 24
+  %4 = load ptr, ptr %info5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %dst, ptr noundef nonnull align 8 dereferenceable(320) %src, i64 320, i1 false)
-  store <2 x i32> %1, ptr %dst, align 8
-  store i64 %0, ptr %pkey_flags3, align 8
-  store <2 x ptr> %2, ptr %pem_str4, align 8
+  store i32 %0, ptr %dst, align 8
+  store i32 %1, ptr %pkey_base_id2, align 4
+  store i64 %2, ptr %pkey_flags3, align 8
+  store ptr %3, ptr %pem_str4, align 8
+  store ptr %4, ptr %info5, align 8
   ret void
 }
 

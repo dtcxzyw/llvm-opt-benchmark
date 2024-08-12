@@ -1729,8 +1729,13 @@ _ZN8facebook6hermes7tracing12_GLOBAL__N_116getRuntimeConfigEPN6hermes6parser10JS
   %Callback_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %Callback_.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !12
   %AllocInYoung_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 128
+  store i8 1, ptr %AllocInYoung_.i.i.i, align 8, !alias.scope !12
+  %OverwriteDeadYGObjects_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 129
+  store i8 0, ptr %OverwriteDeadYGObjects_.i.i.i, align 1, !alias.scope !12
   %RevertToYGAtTTI_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 130
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %AllocInYoung_.i.i.i, align 8, !alias.scope !12
+  store i8 0, ptr %RevertToYGAtTTI_.i.i.i, align 2, !alias.scope !12
+  %ProtectMetadata_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 131
+  store i8 0, ptr %ProtectMetadata_.i.i.i, align 1, !alias.scope !12
   %AnalyticsCallback_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %AnalyticsCallback_.i.i.i, i8 0, i64 64, i1 false), !alias.scope !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !12
@@ -7700,7 +7705,13 @@ entry:
   %Callback_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %Callback_.i.i, i8 0, i64 32, i1 false)
   %AllocInYoung_.i = getelementptr inbounds i8, ptr %this, i64 128
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %AllocInYoung_.i, align 8
+  store i8 1, ptr %AllocInYoung_.i, align 8
+  %OverwriteDeadYGObjects_.i = getelementptr inbounds i8, ptr %this, i64 129
+  store i8 0, ptr %OverwriteDeadYGObjects_.i, align 1
+  %RevertToYGAtTTI_.i = getelementptr inbounds i8, ptr %this, i64 130
+  store i8 0, ptr %RevertToYGAtTTI_.i, align 2
+  %ProtectMetadata_.i = getelementptr inbounds i8, ptr %this, i64 131
+  store i8 0, ptr %ProtectMetadata_.i, align 1
   %AnalyticsCallback_.i = getelementptr inbounds i8, ptr %this, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %AnalyticsCallback_.i, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -7711,7 +7722,21 @@ entry:
   %NativeStackGap_ = getelementptr inbounds i8, ptr %this, i64 212
   store i32 65536, ptr %NativeStackGap_, align 4
   %EnableEval_ = getelementptr inbounds i8, ptr %this, i64 216
-  store <8 x i8> <i8 1, i8 0, i8 0, i8 0, i8 1, i8 1, i8 0, i8 1>, ptr %EnableEval_, align 8
+  store i8 1, ptr %EnableEval_, align 8
+  %VerifyEvalIR_ = getelementptr inbounds i8, ptr %this, i64 217
+  store i8 0, ptr %VerifyEvalIR_, align 1
+  %OptimizedEval_ = getelementptr inbounds i8, ptr %this, i64 218
+  store i8 0, ptr %OptimizedEval_, align 2
+  %AsyncBreakCheckInEval_ = getelementptr inbounds i8, ptr %this, i64 219
+  store i8 0, ptr %AsyncBreakCheckInEval_, align 1
+  %ES6Promise_ = getelementptr inbounds i8, ptr %this, i64 220
+  store i8 1, ptr %ES6Promise_, align 4
+  %ES6Proxy_ = getelementptr inbounds i8, ptr %this, i64 221
+  store i8 1, ptr %ES6Proxy_, align 1
+  %ES6Class_ = getelementptr inbounds i8, ptr %this, i64 222
+  store i8 0, ptr %ES6Class_, align 2
+  %Intl_ = getelementptr inbounds i8, ptr %this, i64 223
+  store i8 1, ptr %Intl_, align 1
   %ArrayBuffer_ = getelementptr inbounds i8, ptr %this, i64 224
   store i8 1, ptr %ArrayBuffer_, align 8
   %MicrotaskQueue_ = getelementptr inbounds i8, ptr %this, i64 225

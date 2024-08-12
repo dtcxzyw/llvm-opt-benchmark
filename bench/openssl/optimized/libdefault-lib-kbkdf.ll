@@ -146,40 +146,43 @@ if.end:                                           ; preds = %lor.lhs.false18
   %11 = load i32, ptr %r, align 8
   store i32 %11, ptr %r.i.i, align 8
   %use_l = getelementptr inbounds i8, ptr %vctx, i64 96
+  %12 = load i32, ptr %use_l, align 8
+  store i32 %12, ptr %use_l.i.i, align 8
   %use_separator = getelementptr inbounds i8, ptr %vctx, i64 104
-  %12 = load i32, ptr %use_separator, align 8
-  store i32 %12, ptr %use_separator.i.i, align 8
-  %13 = load <2 x i32>, ptr %use_l, align 8
-  store <2 x i32> %13, ptr %use_l.i.i, align 8
+  %13 = load i32, ptr %use_separator, align 8
+  store i32 %13, ptr %use_separator.i.i, align 8
+  %is_kmac = getelementptr inbounds i8, ptr %vctx, i64 100
+  %14 = load i32, ptr %is_kmac, align 4
+  store i32 %14, ptr %is_kmac.i.i, align 4
   br label %return
 
 kbkdf_free.exit:                                  ; preds = %if.then, %lor.lhs.false, %lor.lhs.false8, %lor.lhs.false13, %lor.lhs.false18
-  %14 = load ptr, ptr %call1.i, align 8
-  %15 = load ptr, ptr %ctx_init2, align 8
-  tail call void @EVP_MAC_CTX_free(ptr noundef %15) #7
+  %15 = load ptr, ptr %call1.i, align 8
+  %16 = load ptr, ptr %ctx_init2, align 8
+  tail call void @EVP_MAC_CTX_free(ptr noundef %16) #7
   %context.i.i = getelementptr inbounds i8, ptr %call1.i, i64 64
-  %16 = load ptr, ptr %context.i.i, align 8
+  %17 = load ptr, ptr %context.i.i, align 8
   %context_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 72
-  %17 = load i64, ptr %context_len.i.i, align 8
-  tail call void @CRYPTO_clear_free(ptr noundef %16, i64 noundef %17, ptr noundef nonnull @.str, i32 noundef 145) #7
+  %18 = load i64, ptr %context_len.i.i, align 8
+  tail call void @CRYPTO_clear_free(ptr noundef %17, i64 noundef %18, ptr noundef nonnull @.str, i32 noundef 145) #7
   %label.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
-  %18 = load ptr, ptr %label.i.i, align 8
+  %19 = load ptr, ptr %label.i.i, align 8
   %label_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 56
-  %19 = load i64, ptr %label_len.i.i, align 8
-  tail call void @CRYPTO_clear_free(ptr noundef %18, i64 noundef %19, ptr noundef nonnull @.str, i32 noundef 146) #7
+  %20 = load i64, ptr %label_len.i.i, align 8
+  tail call void @CRYPTO_clear_free(ptr noundef %19, i64 noundef %20, ptr noundef nonnull @.str, i32 noundef 146) #7
   %ki.i.i = getelementptr inbounds i8, ptr %call1.i, i64 32
-  %20 = load ptr, ptr %ki.i.i, align 8
+  %21 = load ptr, ptr %ki.i.i, align 8
   %ki_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 40
-  %21 = load i64, ptr %ki_len.i.i, align 8
-  tail call void @CRYPTO_clear_free(ptr noundef %20, i64 noundef %21, ptr noundef nonnull @.str, i32 noundef 147) #7
+  %22 = load i64, ptr %ki_len.i.i, align 8
+  tail call void @CRYPTO_clear_free(ptr noundef %21, i64 noundef %22, ptr noundef nonnull @.str, i32 noundef 147) #7
   %iv.i.i = getelementptr inbounds i8, ptr %call1.i, i64 80
-  %22 = load ptr, ptr %iv.i.i, align 8
+  %23 = load ptr, ptr %iv.i.i, align 8
   %iv_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 88
-  %23 = load i64, ptr %iv_len.i.i, align 8
-  tail call void @CRYPTO_clear_free(ptr noundef %22, i64 noundef %23, ptr noundef nonnull @.str, i32 noundef 148) #7
-  %24 = getelementptr inbounds i8, ptr %call1.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %24, i8 0, i64 104, i1 false)
-  store ptr %14, ptr %call1.i, align 8
+  %24 = load i64, ptr %iv_len.i.i, align 8
+  tail call void @CRYPTO_clear_free(ptr noundef %23, i64 noundef %24, ptr noundef nonnull @.str, i32 noundef 148) #7
+  %25 = getelementptr inbounds i8, ptr %call1.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %25, i8 0, i64 104, i1 false)
+  store ptr %15, ptr %call1.i, align 8
   store i32 32, ptr %r.i.i, align 8
   store i32 1, ptr %use_l.i.i, align 8
   store i32 1, ptr %use_separator.i.i, align 8

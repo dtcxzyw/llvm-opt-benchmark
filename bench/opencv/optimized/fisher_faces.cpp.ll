@@ -1947,20 +1947,23 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() loca
 define void @_ZN2cv4face20FisherFaceRecognizer6createEid(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.11") align 8 %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_4face11FisherfacesEED2Ev.exit:
   %3 = alloca %"class.std::allocator.35", align 1
-  %4 = alloca %"class.std::shared_ptr.16", align 16
+  %4 = alloca %"class.std::shared_ptr.16", align 8
   %5 = alloca i32, align 4
   %6 = alloca double, align 8
   store i32 %1, ptr %5, align 4
   store double %2, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !47
-  store ptr null, ptr %4, align 16, !alias.scope !50, !noalias !47
+  store ptr null, ptr %4, align 8, !alias.scope !50, !noalias !47
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv4face11FisherfacesESaIvEJRKiRKdEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %6), !noalias !47
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !47
-  %8 = load <2 x ptr>, ptr %4, align 16, !noalias !47
+  %8 = load ptr, ptr %4, align 8, !noalias !47
+  %9 = load ptr, ptr %7, align 8, !noalias !47
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  store <2 x ptr> %8, ptr %0, align 8
+  store ptr %8, ptr %0, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %9, ptr %10, align 8
   ret void
 }
 

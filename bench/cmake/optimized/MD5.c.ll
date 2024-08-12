@@ -33,11 +33,17 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @cmsysMD5_Initialize(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
-  store <4 x i32> <i32 0, i32 0, i32 1732584193, i32 -271733879>, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1732584194, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 271733878, ptr %3, align 4
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 0, ptr %2, align 4
+  store i32 0, ptr %0, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 1732584193, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -271733879, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1732584194, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 271733878, ptr %6, align 4
   ret void
 }
 

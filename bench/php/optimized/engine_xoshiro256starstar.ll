@@ -48,18 +48,49 @@ define void @php_random_xoshiro256starstar_seed256(ptr nocapture noundef writeon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @php_random_xoshiro256starstar_seed64(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = insertelement <4 x i64> poison, i64 %1, i64 0
-  %4 = shufflevector <4 x i64> %3, <4 x i64> poison, <4 x i32> zeroinitializer
-  %5 = add <4 x i64> %4, <i64 -7046029254386353131, i64 4354685564936845354, i64 -2691343689449507777, i64 8709371129873690708>
-  %6 = lshr <4 x i64> %5, <i64 30, i64 30, i64 30, i64 30>
-  %7 = xor <4 x i64> %6, %5
-  %8 = mul <4 x i64> %7, <i64 -4658895280553007687, i64 -4658895280553007687, i64 -4658895280553007687, i64 -4658895280553007687>
-  %9 = lshr <4 x i64> %8, <i64 27, i64 27, i64 27, i64 27>
-  %10 = xor <4 x i64> %9, %8
-  %11 = mul <4 x i64> %10, <i64 -7723592293110705685, i64 -7723592293110705685, i64 -7723592293110705685, i64 -7723592293110705685>
-  %12 = lshr <4 x i64> %11, <i64 31, i64 31, i64 31, i64 31>
-  %13 = xor <4 x i64> %12, %11
-  store <4 x i64> %13, ptr %0, align 8
+  %3 = add i64 %1, -7046029254386353131
+  %4 = lshr i64 %3, 30
+  %5 = xor i64 %4, %3
+  %6 = mul i64 %5, -4658895280553007687
+  %7 = lshr i64 %6, 27
+  %8 = xor i64 %7, %6
+  %9 = mul i64 %8, -7723592293110705685
+  %10 = lshr i64 %9, 31
+  %11 = xor i64 %10, %9
+  %12 = add i64 %1, 4354685564936845354
+  %13 = lshr i64 %12, 30
+  %14 = xor i64 %13, %12
+  %15 = mul i64 %14, -4658895280553007687
+  %16 = lshr i64 %15, 27
+  %17 = xor i64 %16, %15
+  %18 = mul i64 %17, -7723592293110705685
+  %19 = lshr i64 %18, 31
+  %20 = xor i64 %19, %18
+  %21 = add i64 %1, -2691343689449507777
+  %22 = lshr i64 %21, 30
+  %23 = xor i64 %22, %21
+  %24 = mul i64 %23, -4658895280553007687
+  %25 = lshr i64 %24, 27
+  %26 = xor i64 %25, %24
+  %27 = mul i64 %26, -7723592293110705685
+  %28 = lshr i64 %27, 31
+  %29 = xor i64 %28, %27
+  %30 = add i64 %1, 8709371129873690708
+  %31 = lshr i64 %30, 30
+  %32 = xor i64 %31, %30
+  %33 = mul i64 %32, -4658895280553007687
+  %34 = lshr i64 %33, 27
+  %35 = xor i64 %34, %33
+  %36 = mul i64 %35, -7723592293110705685
+  %37 = lshr i64 %36, 31
+  %38 = xor i64 %37, %36
+  store i64 %11, ptr %0, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %20, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %29, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %38, ptr %41, align 8
   ret void
 }
 
@@ -557,7 +588,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %.079138 = phi i32 [ 0, %12 ], [ 29, %21 ]
   %.080137 = phi ptr [ null, %12 ], [ %16, %21 ]
   call void @zend_wrong_parameter_error(i32 noundef %.076140, i32 noundef %.078139, ptr noundef null, i32 noundef %.079138, ptr noundef %.080137) #7
-  br label %108
+  br label %126
 
 .thread112:                                       ; preds = %15, %13
   %23 = getelementptr inbounds i8, ptr %5, i64 8
@@ -576,7 +607,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
-  br label %108
+  br label %126
 
 34:                                               ; preds = %26
   %35 = load i64, ptr %5, align 16
@@ -600,7 +631,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   store i64 %39, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
   store i64 %41, ptr %45, align 8
-  br label %108
+  br label %126
 
 .thread145thread-pre-split:                       ; preds = %21
   %.pr = load ptr, ptr %3, align 8
@@ -669,7 +700,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %78 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %79 = icmp ne ptr %78, null
   call void @llvm.assume(i1 %79)
-  br label %108
+  br label %126
 
 .critedge89:                                      ; preds = %65
   store i64 %66, ptr %.sroa.1.0.copyload, align 8
@@ -679,44 +710,64 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   store i64 %72, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
   store i64 %75, ptr %82, align 8
-  br label %108
+  br label %126
 
 83:                                               ; preds = %47
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.2) #7
   %84 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %85 = icmp ne ptr %84, null
   call void @llvm.assume(i1 %85)
-  br label %108
+  br label %126
 
 .thread145.thread:                                ; preds = %.thread145, %15
   %.in = phi ptr [ %16, %15 ], [ %4, %.thread145 ]
   %86 = load i64, ptr %.in, align 8
-  %87 = insertelement <2 x i64> poison, i64 %86, i64 0
-  %88 = shufflevector <2 x i64> %87, <2 x i64> poison, <2 x i32> zeroinitializer
-  %89 = add <2 x i64> %88, <i64 -7046029254386353131, i64 4354685564936845354>
-  %90 = lshr <2 x i64> %89, <i64 30, i64 30>
-  %91 = xor <2 x i64> %90, %89
-  %92 = mul <2 x i64> %91, <i64 -4658895280553007687, i64 -4658895280553007687>
-  %93 = lshr <2 x i64> %92, <i64 27, i64 27>
-  %94 = xor <2 x i64> %93, %92
-  %95 = mul <2 x i64> %94, <i64 -7723592293110705685, i64 -7723592293110705685>
-  %96 = lshr <2 x i64> %95, <i64 31, i64 31>
-  %97 = xor <2 x i64> %96, %95
-  store <2 x i64> %97, ptr %.sroa.1.0.copyload, align 8
-  %98 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 16
-  %99 = add <2 x i64> %88, <i64 -2691343689449507777, i64 8709371129873690708>
-  %100 = lshr <2 x i64> %99, <i64 30, i64 30>
-  %101 = xor <2 x i64> %100, %99
-  %102 = mul <2 x i64> %101, <i64 -4658895280553007687, i64 -4658895280553007687>
-  %103 = lshr <2 x i64> %102, <i64 27, i64 27>
-  %104 = xor <2 x i64> %103, %102
-  %105 = mul <2 x i64> %104, <i64 -7723592293110705685, i64 -7723592293110705685>
-  %106 = lshr <2 x i64> %105, <i64 31, i64 31>
-  %107 = xor <2 x i64> %106, %105
-  store <2 x i64> %107, ptr %98, align 8
-  br label %108
+  %87 = add i64 %86, -7046029254386353131
+  %88 = lshr i64 %87, 30
+  %89 = xor i64 %88, %87
+  %90 = mul i64 %89, -4658895280553007687
+  %91 = lshr i64 %90, 27
+  %92 = xor i64 %91, %90
+  %93 = mul i64 %92, -7723592293110705685
+  %94 = lshr i64 %93, 31
+  %95 = xor i64 %94, %93
+  %96 = add i64 %86, 4354685564936845354
+  %97 = lshr i64 %96, 30
+  %98 = xor i64 %97, %96
+  %99 = mul i64 %98, -4658895280553007687
+  %100 = lshr i64 %99, 27
+  %101 = xor i64 %100, %99
+  %102 = mul i64 %101, -7723592293110705685
+  %103 = lshr i64 %102, 31
+  %104 = xor i64 %103, %102
+  %105 = add i64 %86, -2691343689449507777
+  %106 = lshr i64 %105, 30
+  %107 = xor i64 %106, %105
+  %108 = mul i64 %107, -4658895280553007687
+  %109 = lshr i64 %108, 27
+  %110 = xor i64 %109, %108
+  %111 = mul i64 %110, -7723592293110705685
+  %112 = lshr i64 %111, 31
+  %113 = xor i64 %112, %111
+  %114 = add i64 %86, 8709371129873690708
+  %115 = lshr i64 %114, 30
+  %116 = xor i64 %115, %114
+  %117 = mul i64 %116, -4658895280553007687
+  %118 = lshr i64 %117, 27
+  %119 = xor i64 %118, %117
+  %120 = mul i64 %119, -7723592293110705685
+  %121 = lshr i64 %120, 31
+  %122 = xor i64 %121, %120
+  store i64 %95, ptr %.sroa.1.0.copyload, align 8
+  %123 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 8
+  store i64 %104, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 16
+  store i64 %113, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
+  store i64 %122, ptr %125, align 8
+  br label %126
 
-108:                                              ; preds = %.critedge89, %.thread145.thread, %83, %77, %.critedge, %29, %.thread130
+126:                                              ; preds = %.critedge89, %.thread145.thread, %83, %77, %.critedge, %29, %.thread130
   ret void
 }
 

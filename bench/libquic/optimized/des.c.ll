@@ -2033,40 +2033,43 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @DES_ecb_encrypt(ptr nocapture noundef readonly %in_block, ptr nocapture noundef writeonly %out_block, ptr noundef %schedule, i32 noundef %is_encrypt) local_unnamed_addr #1 {
 entry:
-  %ll = alloca [2 x i32], align 8
+  %ll = alloca [2 x i32], align 4
+  %0 = load i32, ptr %in_block, align 1
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in_block, i64 4
+  store i32 %0, ptr %ll, align 4
+  %1 = load i32, ptr %incdec.ptr9, align 1
   %arrayidx27 = getelementptr inbounds i8, ptr %ll, i64 4
-  %0 = load <2 x i32>, ptr %in_block, align 1
-  store <2 x i32> %0, ptr %ll, align 8
+  store i32 %1, ptr %arrayidx27, align 4
   call fastcc void @DES_encrypt1(ptr noundef nonnull %ll, ptr noundef %schedule, i32 noundef %is_encrypt)
-  %1 = load i32, ptr %ll, align 8
-  %conv30 = trunc i32 %1 to i8
+  %2 = load i32, ptr %ll, align 4
+  %conv30 = trunc i32 %2 to i8
   %incdec.ptr31 = getelementptr inbounds i8, ptr %out_block, i64 1
   store i8 %conv30, ptr %out_block, align 1
-  %shr = lshr i32 %1, 8
+  %shr = lshr i32 %2, 8
   %conv33 = trunc i32 %shr to i8
   %incdec.ptr34 = getelementptr inbounds i8, ptr %out_block, i64 2
   store i8 %conv33, ptr %incdec.ptr31, align 1
-  %shr35 = lshr i32 %1, 16
+  %shr35 = lshr i32 %2, 16
   %conv37 = trunc i32 %shr35 to i8
   %incdec.ptr38 = getelementptr inbounds i8, ptr %out_block, i64 3
   store i8 %conv37, ptr %incdec.ptr34, align 1
-  %shr39 = lshr i32 %1, 24
+  %shr39 = lshr i32 %2, 24
   %conv41 = trunc nuw i32 %shr39 to i8
   %incdec.ptr42 = getelementptr inbounds i8, ptr %out_block, i64 4
   store i8 %conv41, ptr %incdec.ptr38, align 1
-  %2 = load i32, ptr %arrayidx27, align 4
-  %conv45 = trunc i32 %2 to i8
+  %3 = load i32, ptr %arrayidx27, align 4
+  %conv45 = trunc i32 %3 to i8
   %incdec.ptr46 = getelementptr inbounds i8, ptr %out_block, i64 5
   store i8 %conv45, ptr %incdec.ptr42, align 1
-  %shr47 = lshr i32 %2, 8
+  %shr47 = lshr i32 %3, 8
   %conv49 = trunc i32 %shr47 to i8
   %incdec.ptr50 = getelementptr inbounds i8, ptr %out_block, i64 6
   store i8 %conv49, ptr %incdec.ptr46, align 1
-  %shr51 = lshr i32 %2, 16
+  %shr51 = lshr i32 %3, 16
   %conv53 = trunc i32 %shr51 to i8
   %incdec.ptr54 = getelementptr inbounds i8, ptr %out_block, i64 7
   store i8 %conv53, ptr %incdec.ptr50, align 1
-  %shr55 = lshr i32 %2, 24
+  %shr55 = lshr i32 %3, 24
   %conv57 = trunc nuw i32 %shr55 to i8
   store i8 %conv57, ptr %incdec.ptr54, align 1
   ret void
@@ -4263,9 +4266,13 @@ if.end405:                                        ; preds = %if.end372, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @DES_ecb3_encrypt(ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly %output, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, i32 noundef %enc) local_unnamed_addr #1 {
 entry:
-  %ll = alloca [2 x i32], align 8
-  %0 = load <2 x i32>, ptr %input, align 1
-  store <2 x i32> %0, ptr %ll, align 8
+  %ll = alloca [2 x i32], align 4
+  %0 = load i32, ptr %input, align 1
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %input, i64 4
+  %1 = load i32, ptr %incdec.ptr9, align 1
+  store i32 %0, ptr %ll, align 4
+  %arrayidx27 = getelementptr inbounds i8, ptr %ll, i64 4
+  store i32 %1, ptr %arrayidx27, align 4
   %tobool.not = icmp eq i32 %enc, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -4278,36 +4285,35 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %arrayidx27 = getelementptr inbounds i8, ptr %ll, i64 4
-  %1 = load i32, ptr %ll, align 8
-  %2 = load i32, ptr %arrayidx27, align 4
-  %conv32 = trunc i32 %1 to i8
+  %2 = load i32, ptr %ll, align 4
+  %3 = load i32, ptr %arrayidx27, align 4
+  %conv32 = trunc i32 %2 to i8
   %incdec.ptr33 = getelementptr inbounds i8, ptr %output, i64 1
   store i8 %conv32, ptr %output, align 1
-  %shr = lshr i32 %1, 8
+  %shr = lshr i32 %2, 8
   %conv35 = trunc i32 %shr to i8
   %incdec.ptr36 = getelementptr inbounds i8, ptr %output, i64 2
   store i8 %conv35, ptr %incdec.ptr33, align 1
-  %shr37 = lshr i32 %1, 16
+  %shr37 = lshr i32 %2, 16
   %conv39 = trunc i32 %shr37 to i8
   %incdec.ptr40 = getelementptr inbounds i8, ptr %output, i64 3
   store i8 %conv39, ptr %incdec.ptr36, align 1
-  %shr41 = lshr i32 %1, 24
+  %shr41 = lshr i32 %2, 24
   %conv43 = trunc nuw i32 %shr41 to i8
   %incdec.ptr44 = getelementptr inbounds i8, ptr %output, i64 4
   store i8 %conv43, ptr %incdec.ptr40, align 1
-  %conv46 = trunc i32 %2 to i8
+  %conv46 = trunc i32 %3 to i8
   %incdec.ptr47 = getelementptr inbounds i8, ptr %output, i64 5
   store i8 %conv46, ptr %incdec.ptr44, align 1
-  %shr48 = lshr i32 %2, 8
+  %shr48 = lshr i32 %3, 8
   %conv50 = trunc i32 %shr48 to i8
   %incdec.ptr51 = getelementptr inbounds i8, ptr %output, i64 6
   store i8 %conv50, ptr %incdec.ptr47, align 1
-  %shr52 = lshr i32 %2, 16
+  %shr52 = lshr i32 %3, 16
   %conv54 = trunc i32 %shr52 to i8
   %incdec.ptr55 = getelementptr inbounds i8, ptr %output, i64 7
   store i8 %conv54, ptr %incdec.ptr51, align 1
-  %shr56 = lshr i32 %2, 24
+  %shr56 = lshr i32 %3, 24
   %conv58 = trunc nuw i32 %shr56 to i8
   store i8 %conv58, ptr %incdec.ptr55, align 1
   ret void

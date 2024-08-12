@@ -2233,7 +2233,7 @@ return:                                           ; preds = %if.end317, %if.then
 ; Function Attrs: nounwind uwtable
 define range(i32 -103, 1) i32 @unzGetCurrentFileInfo(ptr noundef %file, ptr noundef writeonly %pfile_info, ptr noundef %szFileName, i64 noundef %fileNameBufferSize, ptr noundef %extraField, i64 noundef %extraFieldBufferSize, ptr noundef %szComment, i64 noundef %commentBufferSize) local_unnamed_addr #2 {
 entry:
-  %file_info64 = alloca %struct.unz_file_info64_s, align 16
+  %file_info64 = alloca %struct.unz_file_info64_s, align 8
   %call = call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef %file, ptr noundef nonnull %file_info64, ptr noundef null, ptr noundef %szFileName, i64 noundef %fileNameBufferSize, ptr noundef %extraField, i64 noundef %extraFieldBufferSize, ptr noundef %szComment, i64 noundef %commentBufferSize)
   %cmp = icmp eq i32 %call, 0
   %cmp1 = icmp ne ptr %pfile_info, null
@@ -2241,35 +2241,63 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = load <2 x i64>, ptr %file_info64, align 16
-  store <2 x i64> %0, ptr %pfile_info, align 8
+  %0 = load i64, ptr %file_info64, align 8
+  store i64 %0, ptr %pfile_info, align 8
+  %version_needed = getelementptr inbounds i8, ptr %file_info64, i64 8
+  %1 = load i64, ptr %version_needed, align 8
+  %version_needed3 = getelementptr inbounds i8, ptr %pfile_info, i64 8
+  store i64 %1, ptr %version_needed3, align 8
   %flag = getelementptr inbounds i8, ptr %file_info64, i64 16
+  %2 = load i64, ptr %flag, align 8
   %flag4 = getelementptr inbounds i8, ptr %pfile_info, i64 16
-  %1 = load <2 x i64>, ptr %flag, align 16
-  store <2 x i64> %1, ptr %flag4, align 8
+  store i64 %2, ptr %flag4, align 8
+  %compression_method = getelementptr inbounds i8, ptr %file_info64, i64 24
+  %3 = load i64, ptr %compression_method, align 8
+  %compression_method5 = getelementptr inbounds i8, ptr %pfile_info, i64 24
+  store i64 %3, ptr %compression_method5, align 8
   %dosDate = getelementptr inbounds i8, ptr %file_info64, i64 32
+  %4 = load i64, ptr %dosDate, align 8
   %dosDate6 = getelementptr inbounds i8, ptr %pfile_info, i64 32
-  %2 = load <2 x i64>, ptr %dosDate, align 16
-  store <2 x i64> %2, ptr %dosDate6, align 8
+  store i64 %4, ptr %dosDate6, align 8
+  %crc = getelementptr inbounds i8, ptr %file_info64, i64 40
+  %5 = load i64, ptr %crc, align 8
+  %crc7 = getelementptr inbounds i8, ptr %pfile_info, i64 40
+  store i64 %5, ptr %crc7, align 8
   %size_filename = getelementptr inbounds i8, ptr %file_info64, i64 64
+  %6 = load i64, ptr %size_filename, align 8
   %size_filename8 = getelementptr inbounds i8, ptr %pfile_info, i64 64
-  %3 = load <2 x i64>, ptr %size_filename, align 16
-  store <2 x i64> %3, ptr %size_filename8, align 8
+  store i64 %6, ptr %size_filename8, align 8
+  %size_file_extra = getelementptr inbounds i8, ptr %file_info64, i64 72
+  %7 = load i64, ptr %size_file_extra, align 8
+  %size_file_extra9 = getelementptr inbounds i8, ptr %pfile_info, i64 72
+  store i64 %7, ptr %size_file_extra9, align 8
   %size_file_comment = getelementptr inbounds i8, ptr %file_info64, i64 80
+  %8 = load i64, ptr %size_file_comment, align 8
   %size_file_comment10 = getelementptr inbounds i8, ptr %pfile_info, i64 80
-  %4 = load <2 x i64>, ptr %size_file_comment, align 16
-  store <2 x i64> %4, ptr %size_file_comment10, align 8
+  store i64 %8, ptr %size_file_comment10, align 8
+  %disk_num_start = getelementptr inbounds i8, ptr %file_info64, i64 88
+  %9 = load i64, ptr %disk_num_start, align 8
+  %disk_num_start11 = getelementptr inbounds i8, ptr %pfile_info, i64 88
+  store i64 %9, ptr %disk_num_start11, align 8
   %internal_fa = getelementptr inbounds i8, ptr %file_info64, i64 96
+  %10 = load i64, ptr %internal_fa, align 8
   %internal_fa12 = getelementptr inbounds i8, ptr %pfile_info, i64 96
-  %5 = load <2 x i64>, ptr %internal_fa, align 16
-  store <2 x i64> %5, ptr %internal_fa12, align 8
+  store i64 %10, ptr %internal_fa12, align 8
+  %external_fa = getelementptr inbounds i8, ptr %file_info64, i64 104
+  %11 = load i64, ptr %external_fa, align 8
+  %external_fa13 = getelementptr inbounds i8, ptr %pfile_info, i64 104
+  store i64 %11, ptr %external_fa13, align 8
   %tmu_date = getelementptr inbounds i8, ptr %pfile_info, i64 112
   %tmu_date14 = getelementptr inbounds i8, ptr %file_info64, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tmu_date, ptr noundef nonnull align 16 dereferenceable(24) %tmu_date14, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tmu_date, ptr noundef nonnull align 8 dereferenceable(24) %tmu_date14, i64 24, i1 false)
   %compressed_size = getelementptr inbounds i8, ptr %file_info64, i64 48
+  %12 = load i64, ptr %compressed_size, align 8
   %compressed_size15 = getelementptr inbounds i8, ptr %pfile_info, i64 48
-  %6 = load <2 x i64>, ptr %compressed_size, align 16
-  store <2 x i64> %6, ptr %compressed_size15, align 8
+  store i64 %12, ptr %compressed_size15, align 8
+  %uncompressed_size = getelementptr inbounds i8, ptr %file_info64, i64 56
+  %13 = load i64, ptr %uncompressed_size, align 8
+  %uncompressed_size16 = getelementptr inbounds i8, ptr %pfile_info, i64 56
+  store i64 %13, ptr %uncompressed_size16, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2376,15 +2404,16 @@ if.end3:                                          ; preds = %if.end
 
 unzGoToFirstFile.exit:                            ; preds = %if.end3
   %num_file = getelementptr inbounds i8, ptr %file, i64 128
+  %1 = load i64, ptr %num_file, align 8
   %pos_in_central_dir = getelementptr inbounds i8, ptr %file, i64 136
-  %1 = load <2 x i64>, ptr %num_file, align 8
+  %2 = load i64, ptr %pos_in_central_dir, align 8
   %cur_file_info = getelementptr inbounds i8, ptr %file, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %cur_file_infoSaved, ptr noundef nonnull align 8 dereferenceable(136) %cur_file_info, i64 136, i1 false)
   %cur_file_info_internal = getelementptr inbounds i8, ptr %file, i64 312
   %cur_file_info_internalSaved.sroa.0.0.copyload = load i64, ptr %cur_file_info_internal, align 8
   %offset_central_dir.i = getelementptr inbounds i8, ptr %file, i64 168
-  %2 = load i64, ptr %offset_central_dir.i, align 8
-  store i64 %2, ptr %pos_in_central_dir, align 8
+  %3 = load i64, ptr %offset_central_dir.i, align 8
+  store i64 %3, ptr %pos_in_central_dir, align 8
   store i64 0, ptr %num_file, align 8
   %call.i = tail call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef nonnull %file, ptr noundef nonnull %cur_file_info, ptr noundef nonnull %cur_file_info_internal, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   %cmp1.i = icmp eq i32 %call.i, 0
@@ -2415,16 +2444,16 @@ if.then2.i:                                       ; preds = %if.then10
 for.cond.i.i:                                     ; preds = %if.then10, %if.end27.i.i
   %fileName1.addr.0.i.i = phi ptr [ %incdec.ptr.i.i, %if.end27.i.i ], [ %szCurrentFileName, %if.then10 ]
   %fileName2.addr.0.i.i = phi ptr [ %incdec.ptr1.i.i, %if.end27.i.i ], [ %szFileName, %if.then10 ]
-  %3 = load i8, ptr %fileName1.addr.0.i.i, align 1
-  %4 = load i8, ptr %fileName2.addr.0.i.i, align 1
-  %5 = add i8 %3, -97
-  %or.cond.i.i = icmp ult i8 %5, 26
-  %sub.i.i = add nsw i8 %3, -32
-  %spec.select.i.i = select i1 %or.cond.i.i, i8 %sub.i.i, i8 %3
+  %4 = load i8, ptr %fileName1.addr.0.i.i, align 1
+  %5 = load i8, ptr %fileName2.addr.0.i.i, align 1
   %6 = add i8 %4, -97
-  %or.cond1.i.i = icmp ult i8 %6, 26
-  %sub17.i.i = add nsw i8 %4, -32
-  %c2.0.i.i = select i1 %or.cond1.i.i, i8 %sub17.i.i, i8 %4
+  %or.cond.i.i = icmp ult i8 %6, 26
+  %sub.i.i = add nsw i8 %4, -32
+  %spec.select.i.i = select i1 %or.cond.i.i, i8 %sub.i.i, i8 %4
+  %7 = add i8 %5, -97
+  %or.cond1.i.i = icmp ult i8 %7, 26
+  %sub17.i.i = add nsw i8 %5, -32
+  %c2.0.i.i = select i1 %or.cond1.i.i, i8 %sub17.i.i, i8 %5
   %cmp21.i.i = icmp eq i8 %spec.select.i.i, 0
   br i1 %cmp21.i.i, label %if.then23.i.i, label %if.end27.i.i
 
@@ -2445,28 +2474,28 @@ unzStringFileNameCompare.exit:                    ; preds = %if.then2.i, %if.the
   br i1 %cmp13, label %return, label %if.end.i22
 
 if.end.i22:                                       ; preds = %if.end27.i.i, %unzStringFileNameCompare.exit
-  %7 = load i64, ptr %current_file_ok, align 8
-  %tobool.not.i = icmp eq i64 %7, 0
+  %8 = load i64, ptr %current_file_ok, align 8
+  %tobool.not.i = icmp eq i64 %8, 0
   br i1 %tobool.not.i, label %while.end, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i22
-  %8 = load i64, ptr %gi.i, align 8
-  %cmp3.not.i = icmp ne i64 %8, 65535
+  %9 = load i64, ptr %gi.i, align 8
+  %cmp3.not.i = icmp ne i64 %9, 65535
   %.pre.i = load i64, ptr %num_file, align 8
   %.pre15.i = add i64 %.pre.i, 1
-  %cmp7.i = icmp eq i64 %.pre15.i, %8
+  %cmp7.i = icmp eq i64 %.pre15.i, %9
   %or.cond.i = select i1 %cmp3.not.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %while.end, label %if.end17
 
 if.end17:                                         ; preds = %if.end2.i
-  %9 = load i64, ptr %size_filename.i, align 8
-  %add11.i = add i64 %9, 46
-  %10 = load i64, ptr %size_file_extra.i, align 8
-  %add13.i = add i64 %add11.i, %10
-  %11 = load i64, ptr %size_file_comment.i, align 8
-  %add15.i = add i64 %add13.i, %11
-  %12 = load i64, ptr %pos_in_central_dir, align 8
-  %add16.i = add i64 %add15.i, %12
+  %10 = load i64, ptr %size_filename.i, align 8
+  %add11.i = add i64 %10, 46
+  %11 = load i64, ptr %size_file_extra.i, align 8
+  %add13.i = add i64 %add11.i, %11
+  %12 = load i64, ptr %size_file_comment.i, align 8
+  %add15.i = add i64 %add13.i, %12
+  %13 = load i64, ptr %pos_in_central_dir, align 8
+  %add16.i = add i64 %add15.i, %13
   store i64 %add16.i, ptr %pos_in_central_dir, align 8
   store i64 %.pre15.i, ptr %num_file, align 8
   %call.i27 = call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef nonnull %file, ptr noundef nonnull %cur_file_info, ptr noundef nonnull %cur_file_info_internal, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
@@ -2478,7 +2507,8 @@ if.end17:                                         ; preds = %if.end2.i
 
 while.end:                                        ; preds = %if.end2.i, %if.end.i22, %while.body, %if.end17, %unzGoToFirstFile.exit
   %err.0.lcssa = phi i32 [ %call.i, %unzGoToFirstFile.exit ], [ %call.i17, %while.body ], [ -100, %if.end.i22 ], [ -100, %if.end2.i ], [ %call.i27, %if.end17 ]
-  store <2 x i64> %1, ptr %num_file, align 8
+  store i64 %1, ptr %num_file, align 8
+  store i64 %2, ptr %pos_in_central_dir, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %cur_file_info, ptr noundef nonnull align 8 dereferenceable(136) %cur_file_infoSaved, i64 136, i1 false)
   store i64 %cur_file_info_internalSaved.sroa.0.0.copyload, ptr %cur_file_info_internal, align 8
   br label %return
@@ -2533,10 +2563,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %if.end.i
+  %pos_in_central_dir.i = getelementptr inbounds i8, ptr %file, i64 136
+  %1 = load i64, ptr %pos_in_central_dir.i, align 8
   %num_file.i = getelementptr inbounds i8, ptr %file, i64 128
-  %1 = load <2 x i64>, ptr %num_file.i, align 8
-  %2 = shufflevector <2 x i64> %1, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %2, ptr %file_pos, align 8
+  %2 = load i64, ptr %num_file.i, align 8
+  store i64 %1, ptr %file_pos, align 8
+  %num_of_file2 = getelementptr inbounds i8, ptr %file_pos, i64 8
+  store i64 %2, ptr %num_of_file2, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %entry, %if.then
@@ -2583,10 +2616,13 @@ entry:
   br i1 %or.cond, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
+  %num_of_file = getelementptr inbounds i8, ptr %file_pos, i64 8
+  %0 = load i64, ptr %num_of_file, align 8
+  %1 = load i64, ptr %file_pos, align 8
+  %pos_in_central_dir.i = getelementptr inbounds i8, ptr %file, i64 136
+  store i64 %1, ptr %pos_in_central_dir.i, align 8
   %num_file.i = getelementptr inbounds i8, ptr %file, i64 128
-  %0 = load <2 x i64>, ptr %file_pos, align 8
-  %1 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %1, ptr %num_file.i, align 8
+  store i64 %0, ptr %num_file.i, align 8
   %cur_file_info.i = getelementptr inbounds i8, ptr %file, i64 176
   %cur_file_info_internal.i = getelementptr inbounds i8, ptr %file, i64 312
   %call.i = tail call fastcc i32 @unz64local_GetCurrentFileInfoInternal(ptr noundef nonnull %file, ptr noundef nonnull %cur_file_info.i, ptr noundef nonnull %cur_file_info_internal.i, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
@@ -3231,13 +3267,17 @@ if.else83:                                        ; preds = %if.then71
 
 if.end87:                                         ; preds = %if.else, %if.then81, %if.then63
   %compressed_size = getelementptr inbounds i8, ptr %file, i64 224
+  %107 = load i64, ptr %compressed_size, align 8
   %rest_read_compressed = getelementptr inbounds i8, ptr %call13, i64 184
-  %107 = load <2 x i64>, ptr %compressed_size, align 8
-  store <2 x i64> %107, ptr %rest_read_compressed, align 8
-  %108 = load i64, ptr %cur_file_info_internal.i, align 8
+  store i64 %107, ptr %rest_read_compressed, align 8
+  %uncompressed_size = getelementptr inbounds i8, ptr %file, i64 232
+  %108 = load i64, ptr %uncompressed_size, align 8
+  %rest_read_uncompressed = getelementptr inbounds i8, ptr %call13, i64 192
+  store i64 %108, ptr %rest_read_uncompressed, align 8
+  %109 = load i64, ptr %cur_file_info_internal.i, align 8
   %conv90 = zext nneg i32 %add136.i to i64
   %add = add nuw nsw i64 %conv90, 30
-  %add91 = add i64 %add, %108
+  %add91 = add i64 %add, %109
   %pos_in_zipfile = getelementptr inbounds i8, ptr %call13, i64 120
   store i64 %add91, ptr %pos_in_zipfile, align 8
   %avail_in93 = getelementptr inbounds i8, ptr %call13, i64 16

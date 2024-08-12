@@ -1853,7 +1853,13 @@ entry:
   %h_age.i = getelementptr inbounds i8, ptr %hpdata, i64 8
   store i64 %age, ptr %h_age.i, align 8
   %h_huge = getelementptr inbounds i8, ptr %hpdata, i64 16
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %h_huge, align 8
+  store i8 0, ptr %h_huge, align 8
+  %h_alloc_allowed = getelementptr inbounds i8, ptr %hpdata, i64 17
+  store i8 1, ptr %h_alloc_allowed, align 1
+  %h_in_psset_alloc_container = getelementptr inbounds i8, ptr %hpdata, i64 18
+  store i8 0, ptr %h_in_psset_alloc_container, align 2
+  %h_purge_allowed = getelementptr inbounds i8, ptr %hpdata, i64 19
+  store i8 0, ptr %h_purge_allowed, align 1
   %h_hugify_allowed = getelementptr inbounds i8, ptr %hpdata, i64 20
   store i8 0, ptr %h_hugify_allowed, align 4
   %h_in_psset_hugify_container = getelementptr inbounds i8, ptr %hpdata, i64 32

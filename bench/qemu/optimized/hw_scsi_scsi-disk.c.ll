@@ -4506,7 +4506,13 @@ if.end87.i:                                       ; preds = %if.then68.i, %trace
 if.then90.i:                                      ; preds = %if.end87.i
   %idxprom92.i = zext nneg i32 %buflen.2.i to i64
   %arrayidx93.i = getelementptr i8, ptr %outbuf, i64 %idxprom92.i
-  store <4 x i8> <i8 1, i8 3, i8 0, i8 8>, ptr %arrayidx93.i, align 1
+  store i8 1, ptr %arrayidx93.i, align 1
+  %arrayidx96.i = getelementptr i8, ptr %arrayidx93.i, i64 1
+  store i8 3, ptr %arrayidx96.i, align 1
+  %arrayidx99.i = getelementptr i8, ptr %arrayidx93.i, i64 2
+  store i8 0, ptr %arrayidx99.i, align 1
+  %arrayidx102.i = getelementptr i8, ptr %arrayidx93.i, i64 3
+  store i8 8, ptr %arrayidx102.i, align 1
   %arrayidx104.i = getelementptr i8, ptr %arrayidx93.i, i64 4
   %41 = load i64, ptr %wwn.i, align 8
   %42 = tail call i64 @llvm.bswap.i64(i64 %41)
@@ -4524,7 +4530,13 @@ if.end108.i:                                      ; preds = %if.then90.i, %if.en
 if.then111.i:                                     ; preds = %if.end108.i
   %idxprom113.i = zext nneg i32 %buflen.3.i to i64
   %arrayidx114.i = getelementptr i8, ptr %outbuf, i64 %idxprom113.i
-  store <4 x i8> <i8 97, i8 -109, i8 0, i8 8>, ptr %arrayidx114.i, align 1
+  store i8 97, ptr %arrayidx114.i, align 1
+  %arrayidx117.i = getelementptr i8, ptr %arrayidx114.i, i64 1
+  store i8 -109, ptr %arrayidx117.i, align 1
+  %arrayidx120.i = getelementptr i8, ptr %arrayidx114.i, i64 2
+  store i8 0, ptr %arrayidx120.i, align 1
+  %arrayidx123.i = getelementptr i8, ptr %arrayidx114.i, i64 3
+  store i8 8, ptr %arrayidx123.i, align 1
   %arrayidx125.i = getelementptr i8, ptr %arrayidx114.i, i64 4
   %44 = load i64, ptr %port_wwn.i, align 8
   %45 = tail call i64 @llvm.bswap.i64(i64 %44)
@@ -4542,7 +4554,13 @@ if.end129.i:                                      ; preds = %if.then111.i, %if.e
 if.then131.i:                                     ; preds = %if.end129.i
   %idxprom133.i = zext nneg i32 %buflen.4.i to i64
   %arrayidx134.i = getelementptr i8, ptr %outbuf, i64 %idxprom133.i
-  store <4 x i8> <i8 97, i8 -108, i8 0, i8 4>, ptr %arrayidx134.i, align 1
+  store i8 97, ptr %arrayidx134.i, align 1
+  %arrayidx137.i = getelementptr i8, ptr %arrayidx134.i, i64 1
+  store i8 -108, ptr %arrayidx137.i, align 1
+  %arrayidx140.i = getelementptr i8, ptr %arrayidx134.i, i64 2
+  store i8 0, ptr %arrayidx140.i, align 1
+  %arrayidx143.i = getelementptr i8, ptr %arrayidx134.i, i64 3
+  store i8 4, ptr %arrayidx143.i, align 1
   %arrayidx146.i = getelementptr i8, ptr %arrayidx134.i, i64 6
   %47 = load i16, ptr %port_index.i, align 8
   %48 = tail call i16 @llvm.bswap.i16(i16 %47)
@@ -5260,7 +5278,13 @@ if.end36:                                         ; preds = %sw.bb
   %10 = load ptr, ptr %conf38, align 8
   call void @blk_get_geometry(ptr noundef %10, ptr noundef nonnull %nb_sectors) #18
   %arrayidx40 = getelementptr i8, ptr %outbuf, i64 4
-  store <4 x i8> <i8 1, i8 15, i8 1, i8 0>, ptr %arrayidx40, align 1
+  store i8 1, ptr %arrayidx40, align 1
+  %arrayidx41 = getelementptr i8, ptr %outbuf, i64 5
+  store i8 15, ptr %arrayidx41, align 1
+  %arrayidx42 = getelementptr i8, ptr %outbuf, i64 6
+  store i8 1, ptr %arrayidx42, align 1
+  %arrayidx43 = getelementptr i8, ptr %outbuf, i64 7
+  store i8 0, ptr %arrayidx43, align 1
   %arrayidx44 = getelementptr i8, ptr %outbuf, i64 12
   %11 = load i64, ptr %nb_sectors, align 8
   %shr = lshr i64 %11, 2
@@ -5750,7 +5774,13 @@ if.end9:                                          ; preds = %sw.bb
   %arrayidx71 = getelementptr i8, ptr %0, i64 11
   store i8 %conv70, ptr %arrayidx71, align 1
   %arrayidx72 = getelementptr i8, ptr %0, i64 12
-  store <4 x i8> <i8 0, i8 -56, i8 -1, i8 -1>, ptr %arrayidx72, align 1
+  store i8 0, ptr %arrayidx72, align 1
+  %arrayidx73 = getelementptr i8, ptr %0, i64 13
+  store i8 -56, ptr %arrayidx73, align 1
+  %arrayidx74 = getelementptr i8, ptr %0, i64 14
+  store i8 -1, ptr %arrayidx74, align 1
+  %arrayidx75 = getelementptr i8, ptr %0, i64 15
+  store i8 -1, ptr %arrayidx75, align 1
   %arrayidx76 = getelementptr i8, ptr %0, i64 16
   store i8 -1, ptr %arrayidx76, align 1
   %arrayidx77 = getelementptr i8, ptr %0, i64 20
@@ -5812,7 +5842,13 @@ if.end83:                                         ; preds = %sw.bb79
   %arrayidx139 = getelementptr i8, ptr %0, i64 13
   store i8 %conv138, ptr %arrayidx139, align 1
   %arrayidx140 = getelementptr i8, ptr %0, i64 14
-  store <4 x i8> <i8 0, i8 1, i8 1, i8 0>, ptr %arrayidx140, align 1
+  store i8 0, ptr %arrayidx140, align 1
+  %arrayidx141 = getelementptr i8, ptr %0, i64 15
+  store i8 1, ptr %arrayidx141, align 1
+  %arrayidx142 = getelementptr i8, ptr %0, i64 16
+  store i8 1, ptr %arrayidx142, align 1
+  %arrayidx143 = getelementptr i8, ptr %0, i64 17
+  store i8 0, ptr %arrayidx143, align 1
   %arrayidx144 = getelementptr i8, ptr %0, i64 18
   store i8 1, ptr %arrayidx144, align 1
   %arrayidx145 = getelementptr i8, ptr %0, i64 19
@@ -5867,7 +5903,13 @@ sw.bb179:                                         ; preds = %if.end5
   br i1 %cmp180, label %if.end238, label %if.end183
 
 if.end183:                                        ; preds = %sw.bb179
-  store <4 x i8> <i8 59, i8 0, i8 127, i8 -1>, ptr %add.ptr, align 1
+  store i8 59, ptr %add.ptr, align 1
+  %arrayidx185 = getelementptr i8, ptr %0, i64 3
+  store i8 0, ptr %arrayidx185, align 1
+  %arrayidx186 = getelementptr i8, ptr %0, i64 4
+  store i8 127, ptr %arrayidx186, align 1
+  %arrayidx187 = getelementptr i8, ptr %0, i64 5
+  store i8 -1, ptr %arrayidx187, align 1
   %tray_locked = getelementptr inbounds i8, ptr %s, i64 697
   %24 = load i8, ptr %tray_locked, align 1
   %tobool = trunc i8 %24 to i1
@@ -5875,11 +5917,31 @@ if.end183:                                        ; preds = %sw.bb179
   %arrayidx190 = getelementptr i8, ptr %0, i64 6
   store i8 %conv189, ptr %arrayidx190, align 1
   %arrayidx191 = getelementptr i8, ptr %0, i64 7
-  store <8 x i8> <i8 0, i8 34, i8 96, i8 0, i8 2, i8 8, i8 0, i8 11>, ptr %arrayidx191, align 1
+  store i8 0, ptr %arrayidx191, align 1
+  %arrayidx192 = getelementptr i8, ptr %0, i64 8
+  store i8 34, ptr %arrayidx192, align 1
+  %arrayidx193 = getelementptr i8, ptr %0, i64 9
+  store i8 96, ptr %arrayidx193, align 1
+  %arrayidx194 = getelementptr i8, ptr %0, i64 10
+  store i8 0, ptr %arrayidx194, align 1
+  %arrayidx195 = getelementptr i8, ptr %0, i64 11
+  store i8 2, ptr %arrayidx195, align 1
+  %arrayidx196 = getelementptr i8, ptr %0, i64 12
+  store i8 8, ptr %arrayidx196, align 1
+  %arrayidx197 = getelementptr i8, ptr %0, i64 13
+  store i8 0, ptr %arrayidx197, align 1
+  %arrayidx198 = getelementptr i8, ptr %0, i64 14
+  store i8 11, ptr %arrayidx198, align 1
   %arrayidx199 = getelementptr i8, ptr %0, i64 15
   store i8 0, ptr %arrayidx199, align 1
   %arrayidx200 = getelementptr i8, ptr %0, i64 18
-  store <4 x i8> <i8 11, i8 0, i8 11, i8 0>, ptr %arrayidx200, align 1
+  store i8 11, ptr %arrayidx200, align 1
+  %arrayidx201 = getelementptr i8, ptr %0, i64 19
+  store i8 0, ptr %arrayidx201, align 1
+  %arrayidx202 = getelementptr i8, ptr %0, i64 20
+  store i8 11, ptr %arrayidx202, align 1
+  %arrayidx203 = getelementptr i8, ptr %0, i64 21
+  store i8 0, ptr %arrayidx203, align 1
   br label %if.end238
 
 sw.bb204:                                         ; preds = %if.end5

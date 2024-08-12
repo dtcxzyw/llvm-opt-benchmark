@@ -5623,15 +5623,48 @@ define hidden range(i32 0, 201) i32 @map2jvmtiError(i16 noundef zeroext %0) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @eventIndexInit() local_unnamed_addr #7 {
-  store <4 x i32> <i32 60, i32 62, i32 61, i32 58>, ptr @index2jvmti, align 16
-  store <4 x i32> <i32 52, i32 53, i32 56, i32 0>, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 16), align 16
-  store <4 x i32> <i32 55, i32 63, i32 64, i32 59>, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 32), align 16
-  store <4 x i32> <i32 65, i32 66, i32 75, i32 76>, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 48), align 16
-  store <4 x i32> <i32 73, i32 74, i32 50, i32 51>, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 64), align 16
+  store i32 60, ptr @index2jvmti, align 16
+  store i32 62, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 4), align 4
+  store i32 61, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 8), align 8
+  store i32 58, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 12), align 4
+  store i32 52, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 16), align 16
+  store i32 53, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 20), align 4
+  store i32 56, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 28), align 4
+  store i32 55, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 32), align 16
+  store i32 63, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 36), align 4
+  store i32 64, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 40), align 8
+  store i32 59, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 44), align 4
+  store i32 65, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 48), align 16
+  store i32 66, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 52), align 4
+  store i32 75, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 56), align 8
+  store i32 76, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 60), align 4
+  store i32 73, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 64), align 16
+  store i32 74, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 68), align 4
+  store i32 50, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 72), align 8
+  store i32 51, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 76), align 4
   store i32 87, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 80), align 16
   store i32 88, ptr getelementptr inbounds (i8, ptr @index2jvmti, i64 84), align 4
-  store <16 x i8> <i8 1, i8 2, i8 3, i8 4, i8 6, i8 7, i8 8, i8 9, i8 10, i8 20, i8 21, i8 30, i8 40, i8 41, i8 43, i8 44>, ptr @index2jdwp, align 16
-  store <4 x i8> <i8 45, i8 46, i8 90, i8 99>, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 16), align 16
+  store i8 1, ptr @index2jdwp, align 16
+  store i8 2, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 1), align 1
+  store i8 3, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 2), align 2
+  store i8 4, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 3), align 1
+  store i8 6, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 4), align 4
+  store i8 7, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 5), align 1
+  store i8 8, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 6), align 2
+  store i8 9, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 7), align 1
+  store i8 10, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 8), align 8
+  store i8 20, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 9), align 1
+  store i8 21, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 10), align 2
+  store i8 30, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 11), align 1
+  store i8 40, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 12), align 4
+  store i8 41, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 13), align 1
+  store i8 43, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 14), align 2
+  store i8 44, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 15), align 1
+  store i8 45, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 16), align 16
+  store i8 46, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 17), align 1
+  store i8 90, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 18), align 2
+  store i8 99, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 19), align 1
   store i8 6, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 20), align 4
   store i8 7, ptr getelementptr inbounds (i8, ptr @index2jdwp, i64 21), align 1
   ret void

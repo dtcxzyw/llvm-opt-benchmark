@@ -108,21 +108,26 @@ if.then5:                                         ; preds = %if.end3
   %version = getelementptr inbounds i8, ptr %ctxt, i64 1
   %2 = load i8, ptr %version, align 1
   %conv6 = zext i8 %2 to i32
+  %is_singlepart_tiled = getelementptr inbounds i8, ptr %ctxt, i64 3
+  %3 = load i8, ptr %is_singlepart_tiled, align 1
+  %tobool8.not = icmp eq i8 %3, 0
+  %cond = select i1 %tobool8.not, ptr @.str.2, ptr @.str.1
   %max_name_length = getelementptr inbounds i8, ptr %ctxt, i64 2
-  %3 = load <4 x i8>, ptr %max_name_length, align 2
-  %4 = icmp eq <4 x i8> %3, <i8 -1, i8 0, i8 0, i8 0>
-  %5 = extractelement <4 x i1> %4, i64 1
-  %cond = select i1 %5, ptr @.str.2, ptr @.str.1
-  %6 = extractelement <4 x i1> %4, i64 0
-  %cond12 = select i1 %6, ptr @.str.3, ptr @.str.4
-  %7 = extractelement <4 x i1> %4, i64 2
-  %cond15 = select i1 %7, ptr @.str.2, ptr @.str.5
-  %8 = extractelement <4 x i1> %4, i64 3
-  %cond18 = select i1 %8, ptr @.str.2, ptr @.str.6
+  %4 = load i8, ptr %max_name_length, align 2
+  %cmp10 = icmp eq i8 %4, -1
+  %cond12 = select i1 %cmp10, ptr @.str.3, ptr @.str.4
+  %has_nonimage_data = getelementptr inbounds i8, ptr %ctxt, i64 4
+  %5 = load i8, ptr %has_nonimage_data, align 4
+  %tobool14.not = icmp eq i8 %5, 0
+  %cond15 = select i1 %tobool14.not, ptr @.str.2, ptr @.str.5
+  %is_multipart = getelementptr inbounds i8, ptr %ctxt, i64 5
+  %6 = load i8, ptr %is_multipart, align 1
+  %tobool17.not = icmp eq i8 %6, 0
+  %cond18 = select i1 %tobool17.not, ptr @.str.2, ptr @.str.6
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %1, i32 noundef %conv6, ptr noundef nonnull %cond, ptr noundef nonnull %cond12, ptr noundef nonnull %cond15, ptr noundef nonnull %cond18)
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
-  %9 = load i32, ptr %num_parts, align 4
-  %call19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %9)
+  %7 = load i32, ptr %num_parts, align 4
+  %call19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %7)
   br label %if.end23
 
 if.else:                                          ; preds = %if.end3
@@ -131,8 +136,8 @@ if.else:                                          ; preds = %if.end3
 
 if.end23:                                         ; preds = %if.else, %if.then5
   %num_parts24 = getelementptr inbounds i8, ptr %ctxt, i64 196
-  %10 = load i32, ptr %num_parts24, align 4
-  %cmp2569 = icmp sgt i32 %10, 0
+  %8 = load i32, ptr %num_parts24, align 4
+  %cmp2569 = icmp sgt i32 %8, 0
   br i1 %cmp2569, label %for.body.lr.ph, label %for.end111
 
 for.body.lr.ph:                                   ; preds = %if.end23
@@ -142,50 +147,50 @@ for.body.lr.ph:                                   ; preds = %if.end23
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc109
   %indvars.iv79 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next80, %for.inc109 ]
-  %11 = load ptr, ptr %parts, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv79
-  %12 = load ptr, ptr %arrayidx, align 8
+  %9 = load ptr, ptr %parts, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv79
+  %10 = load ptr, ptr %arrayidx, align 8
   br i1 %tobool4.not, label %lor.lhs.false, label %if.then33
 
 lor.lhs.false:                                    ; preds = %for.body
-  %13 = load i8, ptr %is_multipart28, align 1
-  %tobool30.not = icmp eq i8 %13, 0
+  %11 = load i8, ptr %is_multipart28, align 1
+  %tobool30.not = icmp eq i8 %11, 0
   br i1 %tobool30.not, label %lor.lhs.false31, label %if.then33
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false
-  %name = getelementptr inbounds i8, ptr %12, i64 104
-  %14 = load ptr, ptr %name, align 8
-  %tobool32.not = icmp eq ptr %14, null
+  %name = getelementptr inbounds i8, ptr %10, i64 104
+  %12 = load ptr, ptr %name, align 8
+  %tobool32.not = icmp eq ptr %12, null
   br i1 %tobool32.not, label %if.else57, label %if.then33
 
 if.then33:                                        ; preds = %lor.lhs.false31, %lor.lhs.false, %for.body
-  %name34 = getelementptr inbounds i8, ptr %12, i64 104
-  %15 = load ptr, ptr %name34, align 8
-  %tobool35.not = icmp eq ptr %15, null
+  %name34 = getelementptr inbounds i8, ptr %10, i64 104
+  %13 = load ptr, ptr %name34, align 8
+  %tobool35.not = icmp eq ptr %13, null
   br i1 %tobool35.not, label %if.end40, label %cond.true
 
 cond.true:                                        ; preds = %if.then33
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
-  %17 = load ptr, ptr %16, align 8
-  %str37 = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load ptr, ptr %str37, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %str37 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load ptr, ptr %str37, align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %cond.true, %if.then33
-  %cond38 = phi ptr [ %18, %cond.true ], [ @.str.10, %if.then33 ]
-  %19 = trunc i64 %indvars.iv79 to i32
-  %20 = add i32 %19, 1
-  %call39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %20, ptr noundef %cond38)
+  %cond38 = phi ptr [ %16, %cond.true ], [ @.str.10, %if.then33 ]
+  %17 = trunc i64 %indvars.iv79 to i32
+  %18 = add i32 %17, 1
+  %call39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %18, ptr noundef %cond38)
   br i1 %tobool4.not, label %if.else57, label %for.cond43.preheader
 
 for.cond43.preheader:                             ; preds = %if.end40
-  %attributes = getelementptr inbounds i8, ptr %12, i64 8
-  %21 = load i32, ptr %attributes, align 8
-  %cmp4463 = icmp sgt i32 %21, 0
+  %attributes = getelementptr inbounds i8, ptr %10, i64 8
+  %19 = load i32, ptr %attributes, align 8
+  %cmp4463 = icmp sgt i32 %19, 0
   br i1 %cmp4463, label %for.body46.lr.ph, label %if.end73
 
 for.body46.lr.ph:                                 ; preds = %for.cond43.preheader
-  %entries = getelementptr inbounds i8, ptr %12, i64 16
+  %entries = getelementptr inbounds i8, ptr %10, i64 16
   br label %for.body46
 
 for.body46:                                       ; preds = %for.body46.lr.ph, %if.end51
@@ -199,121 +204,121 @@ if.then49:                                        ; preds = %for.body46
 
 if.end51:                                         ; preds = %if.then49, %for.body46
   %call52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
-  %22 = load ptr, ptr %entries, align 8
-  %arrayidx55 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
-  %23 = load ptr, ptr %arrayidx55, align 8
-  tail call fastcc void @print_attr(ptr noundef %23, i32 noundef %verbose)
+  %20 = load ptr, ptr %entries, align 8
+  %arrayidx55 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %21 = load ptr, ptr %arrayidx55, align 8
+  tail call fastcc void @print_attr(ptr noundef %21, i32 noundef %verbose)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i32, ptr %attributes, align 8
-  %25 = sext i32 %24 to i64
-  %cmp44 = icmp slt i64 %indvars.iv.next, %25
+  %22 = load i32, ptr %attributes, align 8
+  %23 = sext i32 %22 to i64
+  %cmp44 = icmp slt i64 %indvars.iv.next, %23
   br i1 %cmp44, label %for.body46, label %if.end73, !llvm.loop !4
 
 if.else57:                                        ; preds = %lor.lhs.false31, %if.end40
-  %type = getelementptr inbounds i8, ptr %12, i64 112
-  %26 = load ptr, ptr %type, align 8
-  %tobool58.not = icmp eq ptr %26, null
+  %type = getelementptr inbounds i8, ptr %10, i64 112
+  %24 = load ptr, ptr %type, align 8
+  %tobool58.not = icmp eq ptr %24, null
   br i1 %tobool58.not, label %if.end62, label %if.then59
 
 if.then59:                                        ; preds = %if.else57
   %call60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
-  %27 = load ptr, ptr %type, align 8
-  tail call fastcc void @print_attr(ptr noundef %27, i32 noundef 0)
+  %25 = load ptr, ptr %type, align 8
+  tail call fastcc void @print_attr(ptr noundef %25, i32 noundef 0)
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then59, %if.else57
   %call63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
-  %compression = getelementptr inbounds i8, ptr %12, i64 40
-  %28 = load ptr, ptr %compression, align 8
-  tail call fastcc void @print_attr(ptr noundef %28, i32 noundef 0)
-  %tiles = getelementptr inbounds i8, ptr %12, i64 96
-  %29 = load ptr, ptr %tiles, align 8
-  %tobool64.not = icmp eq ptr %29, null
+  %compression = getelementptr inbounds i8, ptr %10, i64 40
+  %26 = load ptr, ptr %compression, align 8
+  tail call fastcc void @print_attr(ptr noundef %26, i32 noundef 0)
+  %tiles = getelementptr inbounds i8, ptr %10, i64 96
+  %27 = load ptr, ptr %tiles, align 8
+  %tobool64.not = icmp eq ptr %27, null
   br i1 %tobool64.not, label %if.end68, label %if.then65
 
 if.then65:                                        ; preds = %if.end62
   %call66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %30 = load ptr, ptr %tiles, align 8
-  tail call fastcc void @print_attr(ptr noundef %30, i32 noundef 0)
+  %28 = load ptr, ptr %tiles, align 8
+  tail call fastcc void @print_attr(ptr noundef %28, i32 noundef 0)
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then65, %if.end62
   %call69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %displayWindow = getelementptr inbounds i8, ptr %12, i64 56
-  %31 = load ptr, ptr %displayWindow, align 8
-  tail call fastcc void @print_attr(ptr noundef %31, i32 noundef 0)
+  %displayWindow = getelementptr inbounds i8, ptr %10, i64 56
+  %29 = load ptr, ptr %displayWindow, align 8
+  tail call fastcc void @print_attr(ptr noundef %29, i32 noundef 0)
   %call70 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %dataWindow = getelementptr inbounds i8, ptr %12, i64 48
-  %32 = load ptr, ptr %dataWindow, align 8
-  tail call fastcc void @print_attr(ptr noundef %32, i32 noundef 0)
+  %dataWindow = getelementptr inbounds i8, ptr %10, i64 48
+  %30 = load ptr, ptr %dataWindow, align 8
+  tail call fastcc void @print_attr(ptr noundef %30, i32 noundef 0)
   %call71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %channels = getelementptr inbounds i8, ptr %12, i64 32
-  %33 = load ptr, ptr %channels, align 8
-  tail call fastcc void @print_attr(ptr noundef %33, i32 noundef 0)
+  %channels = getelementptr inbounds i8, ptr %10, i64 32
+  %31 = load ptr, ptr %channels, align 8
+  tail call fastcc void @print_attr(ptr noundef %31, i32 noundef 0)
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end51, %for.cond43.preheader, %if.end68
   %putchar = tail call i32 @putchar(i32 10)
-  %tiles74 = getelementptr inbounds i8, ptr %12, i64 96
-  %34 = load ptr, ptr %tiles74, align 8
-  %tobool75.not = icmp eq ptr %34, null
+  %tiles74 = getelementptr inbounds i8, ptr %10, i64 96
+  %32 = load ptr, ptr %tiles74, align 8
+  %tobool75.not = icmp eq ptr %32, null
   br i1 %tobool75.not, label %for.inc109, label %if.then76
 
 if.then76:                                        ; preds = %if.end73
-  %num_tile_levels_x = getelementptr inbounds i8, ptr %12, i64 192
-  %35 = load i32, ptr %num_tile_levels_x, align 8
-  %num_tile_levels_y = getelementptr inbounds i8, ptr %12, i64 196
-  %36 = load i32, ptr %num_tile_levels_y, align 4
-  %call77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %35, i32 noundef %36)
+  %num_tile_levels_x = getelementptr inbounds i8, ptr %10, i64 192
+  %33 = load i32, ptr %num_tile_levels_x, align 8
+  %num_tile_levels_y = getelementptr inbounds i8, ptr %10, i64 196
+  %34 = load i32, ptr %num_tile_levels_y, align 4
+  %call77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %33, i32 noundef %34)
   %call78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15)
-  %37 = load i32, ptr %num_tile_levels_x, align 8
-  %cmp8165 = icmp sgt i32 %37, 0
+  %35 = load i32, ptr %num_tile_levels_x, align 8
+  %cmp8165 = icmp sgt i32 %35, 0
   br i1 %cmp8165, label %for.body83.lr.ph, label %for.end91
 
 for.body83.lr.ph:                                 ; preds = %if.then76
-  %tile_level_tile_count_x = getelementptr inbounds i8, ptr %12, i64 200
-  %tile_level_tile_size_x = getelementptr inbounds i8, ptr %12, i64 216
+  %tile_level_tile_count_x = getelementptr inbounds i8, ptr %10, i64 200
+  %tile_level_tile_size_x = getelementptr inbounds i8, ptr %10, i64 216
   br label %for.body83
 
 for.body83:                                       ; preds = %for.body83.lr.ph, %for.body83
   %indvars.iv73 = phi i64 [ 0, %for.body83.lr.ph ], [ %indvars.iv.next74, %for.body83 ]
-  %38 = load ptr, ptr %tile_level_tile_count_x, align 8
-  %arrayidx85 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv73
-  %39 = load i32, ptr %arrayidx85, align 4
-  %40 = load ptr, ptr %tile_level_tile_size_x, align 8
-  %arrayidx87 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv73
-  %41 = load i32, ptr %arrayidx87, align 4
-  %call88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %39, i32 noundef %41)
+  %36 = load ptr, ptr %tile_level_tile_count_x, align 8
+  %arrayidx85 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv73
+  %37 = load i32, ptr %arrayidx85, align 4
+  %38 = load ptr, ptr %tile_level_tile_size_x, align 8
+  %arrayidx87 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv73
+  %39 = load i32, ptr %arrayidx87, align 4
+  %call88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %37, i32 noundef %39)
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %42 = load i32, ptr %num_tile_levels_x, align 8
-  %43 = sext i32 %42 to i64
-  %cmp81 = icmp slt i64 %indvars.iv.next74, %43
+  %40 = load i32, ptr %num_tile_levels_x, align 8
+  %41 = sext i32 %40 to i64
+  %cmp81 = icmp slt i64 %indvars.iv.next74, %41
   br i1 %cmp81, label %for.body83, label %for.end91, !llvm.loop !6
 
 for.end91:                                        ; preds = %for.body83, %if.then76
   %call92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
-  %44 = load i32, ptr %num_tile_levels_y, align 4
-  %cmp9667 = icmp sgt i32 %44, 0
+  %42 = load i32, ptr %num_tile_levels_y, align 4
+  %cmp9667 = icmp sgt i32 %42, 0
   br i1 %cmp9667, label %for.body98.lr.ph, label %for.end106
 
 for.body98.lr.ph:                                 ; preds = %for.end91
-  %tile_level_tile_count_y = getelementptr inbounds i8, ptr %12, i64 208
-  %tile_level_tile_size_y = getelementptr inbounds i8, ptr %12, i64 224
+  %tile_level_tile_count_y = getelementptr inbounds i8, ptr %10, i64 208
+  %tile_level_tile_size_y = getelementptr inbounds i8, ptr %10, i64 224
   br label %for.body98
 
 for.body98:                                       ; preds = %for.body98.lr.ph, %for.body98
   %indvars.iv76 = phi i64 [ 0, %for.body98.lr.ph ], [ %indvars.iv.next77, %for.body98 ]
-  %45 = load ptr, ptr %tile_level_tile_count_y, align 8
-  %arrayidx100 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv76
-  %46 = load i32, ptr %arrayidx100, align 4
-  %47 = load ptr, ptr %tile_level_tile_size_y, align 8
-  %arrayidx102 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv76
-  %48 = load i32, ptr %arrayidx102, align 4
-  %call103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %46, i32 noundef %48)
+  %43 = load ptr, ptr %tile_level_tile_count_y, align 8
+  %arrayidx100 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv76
+  %44 = load i32, ptr %arrayidx100, align 4
+  %45 = load ptr, ptr %tile_level_tile_size_y, align 8
+  %arrayidx102 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv76
+  %46 = load i32, ptr %arrayidx102, align 4
+  %call103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %44, i32 noundef %46)
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %49 = load i32, ptr %num_tile_levels_y, align 4
-  %50 = sext i32 %49 to i64
-  %cmp96 = icmp slt i64 %indvars.iv.next77, %50
+  %47 = load i32, ptr %num_tile_levels_y, align 4
+  %48 = sext i32 %47 to i64
+  %cmp96 = icmp slt i64 %indvars.iv.next77, %48
   br i1 %cmp96, label %for.body98, label %for.end106, !llvm.loop !7
 
 for.end106:                                       ; preds = %for.body98, %for.end91
@@ -322,14 +327,14 @@ for.end106:                                       ; preds = %for.body98, %for.en
 
 for.inc109:                                       ; preds = %if.end73, %for.end106
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %51 = load i32, ptr %num_parts24, align 4
-  %52 = sext i32 %51 to i64
-  %cmp25 = icmp slt i64 %indvars.iv.next80, %52
+  %49 = load i32, ptr %num_parts24, align 4
+  %50 = sext i32 %49 to i64
+  %cmp25 = icmp slt i64 %indvars.iv.next80, %50
   br i1 %cmp25, label %for.body, label %for.end111, !llvm.loop !8
 
 for.end111:                                       ; preds = %for.inc109, %if.end23
-  %53 = load i8, ptr %ctxt, align 8
-  %cmp114 = icmp eq i8 %53, 1
+  %51 = load i8, ptr %ctxt, align 8
+  %cmp114 = icmp eq i8 %51, 1
   br i1 %cmp114, label %cond.true116, label %return
 
 cond.true116:                                     ; preds = %for.end111

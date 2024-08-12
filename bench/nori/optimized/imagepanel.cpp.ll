@@ -32,7 +32,13 @@ define hidden void @_ZN7nanogui10ImagePanelC2EPNS_6WidgetE(ptr noundef nonnull a
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  store <4 x i32> <i32 64, i32 10, i32 10, i32 -1>, ptr %4, align 8
+  store i32 64, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 204
+  store i32 10, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  store i32 10, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 212
+  store i32 -1, ptr %7, align 4
   ret void
 }
 
@@ -80,82 +86,83 @@ define hidden i64 @_ZNK7nanogui10ImagePanel9grid_sizeEv(ptr nocapture noundef no
 define hidden noundef i32 @_ZNK7nanogui10ImagePanel18index_for_positionERKNS_5ArrayIiLm2EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %2 = getelementptr inbounds i8, ptr %0, i64 40
-  %3 = getelementptr inbounds i8, ptr %0, i64 208
-  %4 = load i32, ptr %3, align 8
-  %5 = sitofp i32 %4 to float
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
-  %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 204
+  %3 = load i32, ptr %1, align 4
+  %4 = load i32, ptr %2, align 8
+  %5 = sub nsw i32 %3, %4
+  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
-  %10 = add nsw i32 %9, %7
-  %11 = sitofp i32 %10 to float
-  %12 = load <2 x i32>, ptr %1, align 4
-  %13 = load <2 x i32>, ptr %2, align 8
-  %14 = sub nsw <2 x i32> %12, %13
-  %15 = sitofp <2 x i32> %14 to <2 x float>
-  %16 = insertelement <2 x float> poison, float %5, i64 0
-  %17 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> zeroinitializer
-  %18 = fsub <2 x float> %15, %17
-  %19 = insertelement <2 x float> poison, float %11, i64 0
-  %20 = shufflevector <2 x float> %19, <2 x float> poison, <2 x i32> zeroinitializer
-  %21 = fdiv <2 x float> %18, %20
-  %22 = extractelement <2 x float> %21, i64 0
-  %23 = fptosi float %22 to i32
-  %24 = extractelement <2 x float> %21, i64 1
-  %25 = fptosi float %24 to i32
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
-  %27 = load i32, ptr %26, align 8
-  %.neg = mul i32 %4, -2
-  %.neg68 = sub i32 %.neg, %7
-  %28 = add i32 %.neg68, %27
-  %29 = sitofp i32 %28 to float
-  %30 = fdiv float %29, %11
-  %31 = fptosi float %30 to i32
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %31, i32 0)
-  %32 = add nuw nsw i32 %.sroa.speculated.i, 1
-  %33 = icmp sgt i32 %23, -1
-  br i1 %33, label %34, label %51
+  %10 = sub nsw i32 %7, %9
+  %11 = sitofp i32 %5 to float
+  %12 = sitofp i32 %10 to float
+  %13 = getelementptr inbounds i8, ptr %0, i64 208
+  %14 = load i32, ptr %13, align 8
+  %15 = sitofp i32 %14 to float
+  %16 = fsub float %11, %15
+  %17 = fsub float %12, %15
+  %18 = getelementptr inbounds i8, ptr %0, i64 200
+  %19 = load i32, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 204
+  %21 = load i32, ptr %20, align 4
+  %22 = add nsw i32 %21, %19
+  %23 = sitofp i32 %22 to float
+  %24 = fdiv float %16, %23
+  %25 = fdiv float %17, %23
+  %26 = fptosi float %24 to i32
+  %27 = fptosi float %25 to i32
+  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = load i32, ptr %28, align 8
+  %.neg = mul i32 %14, -2
+  %.neg68 = sub i32 %.neg, %19
+  %30 = add i32 %.neg68, %29
+  %31 = sitofp i32 %30 to float
+  %32 = fdiv float %31, %23
+  %33 = fptosi float %32 to i32
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
+  %34 = add nuw nsw i32 %.sroa.speculated.i, 1
+  %35 = icmp sgt i32 %26, -1
+  br i1 %35, label %36, label %53
 
-34:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
-  %35 = getelementptr inbounds i8, ptr %0, i64 152
-  %36 = load ptr, ptr %35, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = getelementptr inbounds i8, ptr %0, i64 144
-  %39 = load ptr, ptr %38, align 8
-  %40 = ptrtoint ptr %39 to i64
-  %41 = sub i64 %37, %40
-  %42 = sdiv exact i64 %41, 40
-  %43 = trunc i64 %42 to i32
-  %44 = add i32 %.sroa.speculated.i, %43
-  %45 = sdiv i32 %44, %32
-  %46 = icmp slt i32 %25, 0
-  %47 = fcmp ult float %22, 0.000000e+00
-  %or.cond.not66.not86 = or i1 %47, %46
-  %48 = fcmp ult float %24, 0.000000e+00
-  %or.cond60.not63.not83 = select i1 %or.cond.not66.not86, i1 true, i1 %48
-  %49 = icmp ult i32 %.sroa.speculated.i, %23
-  %or.cond61.not = or i1 %49, %or.cond60.not63.not83
-  %50 = icmp sle i32 %45, %25
-  %spec.select = select i1 %or.cond61.not, i1 true, i1 %50
-  br label %51
+36:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %37 = getelementptr inbounds i8, ptr %0, i64 152
+  %38 = load ptr, ptr %37, align 8
+  %39 = ptrtoint ptr %38 to i64
+  %40 = getelementptr inbounds i8, ptr %0, i64 144
+  %41 = load ptr, ptr %40, align 8
+  %42 = ptrtoint ptr %41 to i64
+  %43 = sub i64 %39, %42
+  %44 = sdiv exact i64 %43, 40
+  %45 = trunc i64 %44 to i32
+  %46 = add i32 %.sroa.speculated.i, %45
+  %47 = sdiv i32 %46, %34
+  %48 = icmp slt i32 %27, 0
+  %49 = fcmp ult float %24, 0.000000e+00
+  %or.cond.not66.not86 = or i1 %49, %48
+  %50 = fcmp ult float %25, 0.000000e+00
+  %or.cond60.not63.not83 = select i1 %or.cond.not66.not86, i1 true, i1 %50
+  %51 = icmp ult i32 %.sroa.speculated.i, %26
+  %or.cond61.not = or i1 %51, %or.cond60.not63.not83
+  %52 = icmp sle i32 %47, %27
+  %spec.select = select i1 %or.cond61.not, i1 true, i1 %52
+  br label %53
 
-51:                                               ; preds = %34, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
-  %.not78 = phi i1 [ true, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %spec.select, %34 ]
-  %52 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %21)
-  %53 = sitofp i32 %7 to float
-  %54 = fdiv float %53, %11
-  %55 = fsub <2 x float> %21, %52
-  %56 = insertelement <2 x float> poison, float %54, i64 0
-  %57 = shufflevector <2 x float> %56, <2 x float> poison, <2 x i32> zeroinitializer
-  %58 = fcmp uge <2 x float> %55, %57
-  %59 = extractelement <2 x i1> %58, i64 0
-  %60 = extractelement <2 x i1> %58, i64 1
-  %narrow.not = select i1 %59, i1 true, i1 %60
+53:                                               ; preds = %36, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %.not78 = phi i1 [ true, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %spec.select, %36 ]
+  %54 = tail call noundef float @llvm.floor.f32(float %24)
+  %55 = fsub float %24, %54
+  %56 = sitofp i32 %19 to float
+  %57 = fdiv float %56, %23
+  %58 = fcmp uge float %55, %57
+  %59 = tail call float @llvm.floor.f32(float %25)
+  %60 = fsub float %25, %59
+  %61 = fcmp uge float %60, %57
+  %narrow.not = select i1 %58, i1 true, i1 %61
   %.not = select i1 %narrow.not, i1 true, i1 %.not78
-  %61 = mul nsw i32 %32, %25
-  %62 = add nsw i32 %61, %23
-  %63 = select i1 %.not, i32 -1, i32 %62
-  ret i32 %63
+  %62 = mul nsw i32 %34, %27
+  %63 = add nsw i32 %62, %26
+  %64 = select i1 %.not, i32 -1, i32 %63
+  ret i32 %64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -460,7 +467,7 @@ define linkonce_odr hidden void @_ZN7nanogui10ImagePanelD2Ev(ptr noundef nonnull
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #13
+  tail call void @__clang_call_terminate(ptr %9) #14
   unreachable
 
 _ZNSt8functionIFviEED2Ev.exit:                    ; preds = %1, %4
@@ -474,7 +481,7 @@ _ZNSt8functionIFviEED2Ev.exit:                    ; preds = %1, %4
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt8functionIFviEED2Ev.exit, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i ], [ %11, %_ZNSt8functionIFviEED2Ev.exit ]
   %14 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #15
   %15 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 40
   %.not.i.i.i.i = icmp eq ptr %15, %13
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
@@ -489,11 +496,11 @@ _ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EED2Ev.exit, label %17
 
 17:                                               ; preds = %_ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S9_RSaIT0_E.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %16) #16
   br label %_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S9_RSaIT0_E.exit.i, %17
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #14
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #15
   ret void
 }
 
@@ -514,7 +521,7 @@ define linkonce_odr hidden void @_ZN7nanogui10ImagePanelD0Ev(ptr noundef nonnull
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #13
+  tail call void @__clang_call_terminate(ptr %9) #14
   unreachable
 
 _ZNSt8functionIFviEED2Ev.exit.i:                  ; preds = %4, %1
@@ -528,7 +535,7 @@ _ZNSt8functionIFviEED2Ev.exit.i:                  ; preds = %4, %1
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt8functionIFviEED2Ev.exit.i, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i ], [ %11, %_ZNSt8functionIFviEED2Ev.exit.i ]
   %14 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #15
   %15 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i = icmp eq ptr %15, %13
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
@@ -543,12 +550,12 @@ _ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_
   br i1 %.not.i.i.i.i, label %_ZN7nanogui10ImagePanelD2Ev.exit, label %17
 
 17:                                               ; preds = %_ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S9_RSaIT0_E.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %16) #16
   br label %_ZN7nanogui10ImagePanelD2Ev.exit
 
 _ZN7nanogui10ImagePanelD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S9_RSaIT0_E.exit.i.i, %17
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
 
@@ -570,15 +577,18 @@ declare noundef zeroext i1 @_ZN7nanogui6Widget24keyboard_character_eventEj(ptr n
 
 declare void @_ZN7nanogui6Widget14perform_layoutEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.floor.f32(float) #7
+
 ; Function Attrs: nounwind
-declare void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #7
+declare void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #8
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #13
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -587,25 +597,22 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.floor.v2f32(<2 x float>) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
@@ -614,15 +621,16 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind }
-attributes #15 = { builtin nounwind }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind }
+attributes #16 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -51,13 +51,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @secrets_init() local_unnamed_addr #0 {
-  %1 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #14
+  %1 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #13
   store ptr %1, ptr @secrets_callbacks, align 8
-  %2 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @key_id_hash, ptr noundef nonnull @key_id_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @gnutls_privkey_deinit) #14
+  %2 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @key_id_hash, ptr noundef nonnull @key_id_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @gnutls_privkey_deinit) #13
   store ptr %2, ptr @rsa_privkeys, align 8
-  %3 = tail call ptr @uat_new(ptr noundef nonnull @.str.9, i64 noundef 8, ptr noundef nonnull @.str.10, i1 noundef zeroext false, ptr noundef nonnull @uat_pkcs11_libs, ptr noundef nonnull @uat_num_pkcs11_libs, i32 noundef 0, ptr noundef null, ptr noundef nonnull @uat_pkcs11_lib_copy_str_cb, ptr noundef null, ptr noundef nonnull @uat_pkcs11_lib_free_str_cb, ptr noundef nonnull @uat_pkcs11_libs_load_all, ptr noundef null, ptr noundef nonnull @register_rsa_uats.uat_pkcs11_libs_fields) #14
+  %3 = tail call ptr @uat_new(ptr noundef nonnull @.str.9, i64 noundef 8, ptr noundef nonnull @.str.10, i1 noundef zeroext false, ptr noundef nonnull @uat_pkcs11_libs, ptr noundef nonnull @uat_num_pkcs11_libs, i32 noundef 0, ptr noundef null, ptr noundef nonnull @uat_pkcs11_lib_copy_str_cb, ptr noundef null, ptr noundef nonnull @uat_pkcs11_lib_free_str_cb, ptr noundef nonnull @uat_pkcs11_libs_load_all, ptr noundef null, ptr noundef nonnull @register_rsa_uats.uat_pkcs11_libs_fields) #13
   store ptr %3, ptr @pkcs11_libs_uat, align 8
-  %4 = tail call ptr @uat_new(ptr noundef nonnull @.str.17, i64 noundef 16, ptr noundef nonnull @.str.18, i1 noundef zeroext false, ptr noundef nonnull @uat_rsa_privkeys, ptr noundef nonnull @uat_num_rsa_privkeys, i32 noundef 0, ptr noundef null, ptr noundef nonnull @uat_rsa_privkey_copy_str_cb, ptr noundef null, ptr noundef nonnull @uat_rsa_privkey_free_str_cb, ptr noundef nonnull @uat_rsa_privkeys_post_update, ptr noundef null, ptr noundef nonnull @register_rsa_uats.uat_rsa_privkeys_fields) #14
+  %4 = tail call ptr @uat_new(ptr noundef nonnull @.str.17, i64 noundef 16, ptr noundef nonnull @.str.18, i1 noundef zeroext false, ptr noundef nonnull @uat_rsa_privkeys, ptr noundef nonnull @uat_num_rsa_privkeys, i32 noundef 0, ptr noundef null, ptr noundef nonnull @uat_rsa_privkey_copy_str_cb, ptr noundef null, ptr noundef nonnull @uat_rsa_privkey_free_str_cb, ptr noundef nonnull @uat_rsa_privkeys_post_update, ptr noundef null, ptr noundef nonnull @register_rsa_uats.uat_rsa_privkeys_fields) #13
   store ptr %4, ptr @rsa_privkeys_uat, align 8
   ret void
 }
@@ -72,20 +72,20 @@ declare i32 @g_direct_equal(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @privkey_hash_table_new() local_unnamed_addr #0 {
-  %1 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @key_id_hash, ptr noundef nonnull @key_id_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @gnutls_privkey_deinit) #14
+  %1 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @key_id_hash, ptr noundef nonnull @key_id_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @gnutls_privkey_deinit) #13
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @secrets_cleanup() local_unnamed_addr #0 {
   %1 = load ptr, ptr @secrets_callbacks, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %1) #14
+  tail call void @g_hash_table_destroy(ptr noundef %1) #13
   store ptr null, ptr @secrets_callbacks, align 8
   %2 = load ptr, ptr @rsa_privkeys, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %2) #14
+  tail call void @g_hash_table_destroy(ptr noundef %2) #13
   store ptr null, ptr @rsa_privkeys, align 8
   %3 = load ptr, ptr @rsa_privkeys_pkcs11_pins, align 8
-  tail call void @g_slist_free_full(ptr noundef %3, ptr noundef nonnull @g_free) #14
+  tail call void @g_slist_free_full(ptr noundef %3, ptr noundef nonnull @g_free) #13
   store ptr null, ptr @rsa_privkeys_pkcs11_pins, align 8
   ret void
 }
@@ -101,7 +101,7 @@ define void @secrets_register_type(i32 noundef %0, ptr noundef %1) local_unnamed
   %3 = load ptr, ptr @secrets_callbacks, align 8
   %4 = zext i32 %0 to i64
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call i32 @g_hash_table_insert(ptr noundef %3, ptr noundef %5, ptr noundef %1) #14
+  %6 = tail call i32 @g_hash_table_insert(ptr noundef %3, ptr noundef %5, ptr noundef %1) #13
   ret void
 }
 
@@ -112,12 +112,12 @@ define void @secrets_wtap_callback(i32 noundef %0, ptr noundef %1, i32 noundef %
   %4 = load ptr, ptr @secrets_callbacks, align 8
   %5 = zext i32 %0 to i64
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %6) #14
+  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %6) #13
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void %7(ptr noundef %1, i32 noundef %2) #14
+  tail call void %7(ptr noundef %1, i32 noundef %2) #13
   br label %9
 
 9:                                                ; preds = %8, %3
@@ -130,12 +130,20 @@ declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @key_id_hash(ptr nocapture noundef readonly %0) #3 {
-  %2 = load <4 x i32>, ptr %0, align 4
-  %3 = getelementptr i8, ptr %0, i64 16
+  %2 = load i32, ptr %0, align 4
+  %3 = getelementptr i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = tail call i32 @llvm.vector.reduce.xor.v4i32(<4 x i32> %2)
-  %op.rdx = xor i32 %5, %4
-  ret i32 %op.rdx
+  %5 = xor i32 %4, %2
+  %6 = getelementptr i8, ptr %0, i64 8
+  %7 = load i32, ptr %6, align 4
+  %8 = xor i32 %5, %7
+  %9 = getelementptr i8, ptr %0, i64 12
+  %10 = load i32, ptr %9, align 4
+  %11 = xor i32 %8, %10
+  %12 = getelementptr i8, ptr %0, i64 16
+  %13 = load i32, ptr %12, align 4
+  %14 = xor i32 %11, %13
+  ret i32 %14
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
@@ -155,7 +163,7 @@ define ptr @secrets_get_available_keys() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store ptr null, ptr %1, align 8
-  %3 = call i32 @gnutls_pkcs11_token_get_url(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %1) #14
+  %3 = call i32 @gnutls_pkcs11_token_get_url(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %1) #13
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %get_pkcs11_token_uris.exit, label %.lr.ph.i
 
@@ -163,14 +171,14 @@ define ptr @secrets_get_available_keys() local_unnamed_addr #0 {
   %.010.i = phi i32 [ %24, %23 ], [ 0, %0 ]
   %.089.i = phi ptr [ %.1.i, %23 ], [ null, %0 ]
   %5 = load ptr, ptr %1, align 8
-  %6 = call i32 @gnutls_pkcs11_token_get_flags(ptr noundef %5, ptr noundef nonnull %2) #14
+  %6 = call i32 @gnutls_pkcs11_token_get_flags(ptr noundef %5, ptr noundef nonnull %2) #13
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %.lr.ph.i
   %9 = load ptr, ptr @gnutls_free, align 8
   %10 = load ptr, ptr %1, align 8
-  call void %9(ptr noundef %10) #14
+  call void %9(ptr noundef %10) #13
   br label %23
 
 11:                                               ; preds = %.lr.ph.i
@@ -182,32 +190,32 @@ define ptr @secrets_get_available_keys() local_unnamed_addr #0 {
 14:                                               ; preds = %11
   %15 = load ptr, ptr @gnutls_free, align 8
   %16 = load ptr, ptr %1, align 8
-  call void %15(ptr noundef %16) #14
+  call void %15(ptr noundef %16) #13
   br label %23
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %1, align 8
-  %19 = call noalias ptr @g_strdup(ptr noundef %18) #14
-  %20 = call ptr @g_slist_prepend(ptr noundef %.089.i, ptr noundef %19) #14
+  %19 = call noalias ptr @g_strdup(ptr noundef %18) #13
+  %20 = call ptr @g_slist_prepend(ptr noundef %.089.i, ptr noundef %19) #13
   %21 = load ptr, ptr @gnutls_free, align 8
   %22 = load ptr, ptr %1, align 8
-  call void %21(ptr noundef %22) #14
+  call void %21(ptr noundef %22) #13
   br label %23
 
 23:                                               ; preds = %17, %14, %8
   %.1.i = phi ptr [ %.089.i, %8 ], [ %.089.i, %14 ], [ %20, %17 ]
   %24 = add i32 %.010.i, 1
   store ptr null, ptr %1, align 8
-  %25 = call i32 @gnutls_pkcs11_token_get_url(i32 noundef %24, i32 noundef 0, ptr noundef nonnull %1) #14
+  %25 = call i32 @gnutls_pkcs11_token_get_url(i32 noundef %24, i32 noundef 0, ptr noundef nonnull %1) #13
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %get_pkcs11_token_uris.exit, label %.lr.ph.i
 
 get_pkcs11_token_uris.exit:                       ; preds = %23, %0
   %.08.lcssa.i = phi ptr [ null, %0 ], [ %.1.i, %23 ]
-  %27 = call ptr @g_slist_reverse(ptr noundef %.08.lcssa.i) #14
+  %27 = call ptr @g_slist_reverse(ptr noundef %.08.lcssa.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %28 = call ptr @g_slist_concat(ptr noundef null, ptr noundef %27) #14
+  %28 = call ptr @g_slist_concat(ptr noundef null, ptr noundef %27) #13
   ret ptr %28
 }
 
@@ -234,7 +242,7 @@ define range(i32 0, 2) i32 @secrets_verify_key(ptr noundef %0, ptr noundef %1, p
   br label %11
 
 11:                                               ; preds = %10, %9
-  %12 = tail call i32 @g_str_has_prefix(ptr noundef %0, ptr noundef nonnull @.str) #14
+  %12 = tail call i32 @g_str_has_prefix(ptr noundef %0, ptr noundef nonnull @.str) #13
   %.not23 = icmp eq i32 %12, 0
   br i1 %.not23, label %33, label %13
 
@@ -243,8 +251,8 @@ define range(i32 0, 2) i32 @secrets_verify_key(ptr noundef %0, ptr noundef %1, p
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store ptr null, ptr %5, align 8
   store i32 0, ptr %6, align 4
-  tail call void @gnutls_pkcs11_set_pin_function(ptr noundef nonnull @set_pin_callback, ptr noundef %1) #14
-  %14 = call i32 @gnutls_pkcs11_obj_list_import_url4(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %0, i32 noundef 2097153) #14
+  tail call void @gnutls_pkcs11_set_pin_function(ptr noundef nonnull @set_pin_callback, ptr noundef %1) #13
+  %14 = call i32 @gnutls_pkcs11_obj_list_import_url4(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %0, i32 noundef 2097153) #13
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.preheader.i, label %25
 
@@ -258,7 +266,7 @@ define range(i32 0, 2) i32 @secrets_verify_key(ptr noundef %0, ptr noundef %1, p
   %17 = load ptr, ptr %5, align 8
   %18 = getelementptr ptr, ptr %17, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
-  call void @gnutls_pkcs11_obj_deinit(ptr noundef %19) #14
+  call void @gnutls_pkcs11_obj_deinit(ptr noundef %19) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = load i32, ptr %6, align 4
   %21 = zext i32 %20 to i64
@@ -268,11 +276,11 @@ define range(i32 0, 2) i32 @secrets_verify_key(ptr noundef %0, ptr noundef %1, p
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %23 = load ptr, ptr @gnutls_free, align 8
   %24 = load ptr, ptr %5, align 8
-  call void %23(ptr noundef %24) #14
+  call void %23(ptr noundef %24) #13
   br label %25
 
 25:                                               ; preds = %._crit_edge.i, %13
-  call void @gnutls_pkcs11_set_pin_function(ptr noundef null, ptr noundef null) #14
+  call void @gnutls_pkcs11_set_pin_function(ptr noundef null, ptr noundef null) #13
   br i1 %.not, label %29, label %26
 
 26:                                               ; preds = %25
@@ -287,8 +295,8 @@ define range(i32 0, 2) i32 @secrets_verify_key(ptr noundef %0, ptr noundef %1, p
   br i1 %brmerge, label %verify_pkcs11_token.exit, label %30
 
 30:                                               ; preds = %29
-  %31 = call ptr @gnutls_strerror(i32 noundef %14) #15
-  %32 = call noalias ptr @g_strdup(ptr noundef %31) #14
+  %31 = call ptr @gnutls_strerror(i32 noundef %14) #14
+  %32 = call noalias ptr @g_strdup(ptr noundef %31) #13
   store ptr %32, ptr %3, align 8
   br label %verify_pkcs11_token.exit
 
@@ -299,7 +307,7 @@ verify_pkcs11_token.exit:                         ; preds = %29, %30
   br label %45
 
 33:                                               ; preds = %11
-  %34 = tail call i32 @g_file_test(ptr noundef %0, i32 noundef 1) #14
+  %34 = tail call i32 @g_file_test(ptr noundef %0, i32 noundef 1) #13
   %.not24 = icmp eq i32 %34, 0
   br i1 %.not24, label %42, label %35
 
@@ -327,14 +335,14 @@ thread-pre-split:                                 ; preds = %35, %36
   br label %45
 
 41:                                               ; preds = %39
-  tail call void @g_free(ptr noundef nonnull %.pr) #14
+  tail call void @g_free(ptr noundef nonnull %.pr) #13
   br label %45
 
 42:                                               ; preds = %33
   br i1 %.not22, label %45, label %43
 
 43:                                               ; preds = %42
-  %44 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1) #14
+  %44 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1) #13
   store ptr %44, ptr %3, align 8
   br label %45
 
@@ -361,10 +369,10 @@ define internal fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not, label %10, label %15
 
 10:                                               ; preds = %4
-  %11 = tail call ptr @__errno_location() #15
+  %11 = tail call ptr @__errno_location() #14
   %12 = load i32, ptr %11, align 4
-  %13 = tail call ptr @g_strerror(i32 noundef %12) #15
-  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef %13) #14
+  %13 = tail call ptr @g_strerror(i32 noundef %12) #14
+  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef %13) #13
   store ptr %14, ptr %3, align 8
   br label %52
 
@@ -378,11 +386,11 @@ define internal fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not29, label %18, label %20
 
 18:                                               ; preds = %16, %15
-  %19 = call ptr @rsa_load_pem_key(ptr noundef nonnull %9, ptr noundef nonnull %6) #14
+  %19 = call ptr @rsa_load_pem_key(ptr noundef nonnull %9, ptr noundef nonnull %6) #13
   br label %22
 
 20:                                               ; preds = %16
-  %21 = call ptr @rsa_load_pkcs12(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef nonnull %6) #14
+  %21 = call ptr @rsa_load_pkcs12(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef nonnull %6) #13
   br label %22
 
 22:                                               ; preds = %20, %18
@@ -393,27 +401,27 @@ define internal fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i3
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %6, align 8
-  %26 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef %25) #14
+  %26 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef %25) #13
   store ptr %26, ptr %3, align 8
   %27 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %27) #14
+  call void @g_free(ptr noundef %27) #13
   br label %52
 
 28:                                               ; preds = %22
-  %29 = call i32 @gnutls_privkey_init(ptr noundef nonnull %5) #14
+  %29 = call i32 @gnutls_privkey_init(ptr noundef nonnull %5) #13
   %30 = load ptr, ptr %5, align 8
-  %31 = call i32 @gnutls_privkey_import_x509(ptr noundef %30, ptr noundef nonnull %.0, i32 noundef 3) #14
+  %31 = call i32 @gnutls_privkey_import_x509(ptr noundef %30, ptr noundef nonnull %.0, i32 noundef 3) #13
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %28
-  %34 = call ptr @gnutls_strerror(i32 noundef %31) #15
-  %35 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef %34) #14
+  %34 = call ptr @gnutls_strerror(i32 noundef %31) #14
+  %35 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef %34) #13
   store ptr %35, ptr %3, align 8
   br label %50
 
 36:                                               ; preds = %28
-  %37 = call i32 @gnutls_x509_privkey_get_key_id(ptr noundef nonnull %.0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #14
+  %37 = call i32 @gnutls_x509_privkey_get_key_id(ptr noundef nonnull %.0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #13
   %38 = icmp slt i32 %37, 0
   %39 = load i64, ptr %8, align 8
   %40 = icmp ne i64 %39, 20
@@ -421,8 +429,8 @@ define internal fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i3
   br i1 %or.cond, label %41, label %44
 
 41:                                               ; preds = %36
-  %42 = call ptr @gnutls_strerror(i32 noundef %37) #15
-  %43 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %42) #14
+  %42 = call ptr @gnutls_strerror(i32 noundef %37) #14
+  %43 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %42) #13
   store ptr %43, ptr %3, align 8
   br label %50
 
@@ -432,16 +440,16 @@ define internal fastcc void @load_rsa_keyfile(ptr noundef %0, ptr noundef %1, i3
 
 45:                                               ; preds = %44
   %46 = load ptr, ptr %5, align 8
-  %47 = call dereferenceable_or_null(20) ptr @g_memdup2(ptr noundef nonnull %7, i64 noundef 20) #16
+  %47 = call dereferenceable_or_null(20) ptr @g_memdup2(ptr noundef nonnull %7, i64 noundef 20) #15
   %48 = load ptr, ptr @rsa_privkeys, align 8
-  %49 = call i32 @g_hash_table_insert(ptr noundef %48, ptr noundef %47, ptr noundef %46) #14
+  %49 = call i32 @g_hash_table_insert(ptr noundef %48, ptr noundef %47, ptr noundef %46) #13
   store ptr null, ptr %5, align 8
   br label %50
 
 50:                                               ; preds = %44, %45, %41, %33
-  call void @gnutls_x509_privkey_deinit(ptr noundef nonnull %.0) #14
+  call void @gnutls_x509_privkey_deinit(ptr noundef nonnull %.0) #13
   %51 = load ptr, ptr %5, align 8
-  call void @gnutls_privkey_deinit(ptr noundef %51) #14
+  call void @gnutls_privkey_deinit(ptr noundef %51) #13
   br label %52
 
 52:                                               ; preds = %50, %24, %10
@@ -459,12 +467,12 @@ define i32 @secrets_rsa_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   store i32 %2, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr @rsa_privkeys, align 8
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %0) #14
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %0) #13
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %23, label %11
 
 11:                                               ; preds = %5
-  %12 = call i32 @gnutls_privkey_decrypt_data(ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
+  %12 = call i32 @gnutls_privkey_decrypt_data(ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %23
 
@@ -473,13 +481,13 @@ define i32 @secrets_rsa_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %16 = getelementptr inbounds i8, ptr %7, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = call ptr @g_memdup2(ptr noundef %15, i64 noundef %18) #16
+  %19 = call ptr @g_memdup2(ptr noundef %15, i64 noundef %18) #15
   store ptr %19, ptr %3, align 8
   %20 = load i32, ptr %16, align 8
   store i32 %20, ptr %4, align 4
   %21 = load ptr, ptr @gnutls_free, align 8
   %22 = load ptr, ptr %7, align 8
-  call void %21(ptr noundef %22) #14
+  call void %21(ptr noundef %22) #13
   br label %23
 
 23:                                               ; preds = %11, %14, %5
@@ -511,7 +519,7 @@ define internal range(i32 -303, 1) i32 @set_pin_callback(ptr noundef readonly %0
   br i1 %.not.not, label %.thread, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %10 = and i32 %4, 32
   %.not12 = icmp eq i32 %10, 0
   %.not13 = icmp ult i64 %9, %6
@@ -570,9 +578,9 @@ declare void @gnutls_x509_privkey_deinit(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @pkcs11_libs_uats_library_path_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #14
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = load ptr, ptr %0, align 8
-  tail call void @g_free(ptr noundef %8) #14
+  tail call void @g_free(ptr noundef %8) #13
   store ptr %7, ptr %0, align 8
   ret void
 }
@@ -584,15 +592,15 @@ define internal void @pkcs11_libs_uats_library_path_tostr_cb(ptr nocapture nound
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6) #14
+  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6) #13
   store ptr %8, ptr %1, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %11 = trunc i64 %10 to i32
   br label %14
 
 12:                                               ; preds = %5
-  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.19) #14
+  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.19) #13
   store ptr %13, ptr %1, align 8
   br label %14
 
@@ -607,7 +615,7 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @uat_pkcs11_lib_copy_str_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #14
+  %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
   ret ptr %0
 }
@@ -615,7 +623,7 @@ define internal noundef ptr @uat_pkcs11_lib_copy_str_cb(ptr noundef returned wri
 ; Function Attrs: nounwind uwtable
 define internal void @uat_pkcs11_lib_free_str_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @g_free(ptr noundef %2) #14
+  tail call void @g_free(ptr noundef %2) #13
   ret void
 }
 
@@ -631,7 +639,7 @@ define internal void @uat_pkcs11_libs_load_all() #0 {
   %2 = load ptr, ptr @uat_pkcs11_libs, align 8
   %3 = getelementptr %struct.pkcs11_lib_record_t, ptr %2, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @gnutls_pkcs11_add_provider(ptr noundef %4, ptr noundef null) #14
+  %5 = tail call i32 @gnutls_pkcs11_add_provider(ptr noundef %4, ptr noundef null) #13
   %.not14 = icmp eq i32 %5, 0
   br i1 %.not14, label %11, label %6
 
@@ -640,13 +648,13 @@ define internal void @uat_pkcs11_libs_load_all() #0 {
   br i1 %.not15, label %7, label %9
 
 7:                                                ; preds = %6
-  %8 = tail call ptr @g_string_new(ptr noundef nonnull @.str.20) #14
+  %8 = tail call ptr @g_string_new(ptr noundef nonnull @.str.20) #13
   br label %9
 
 9:                                                ; preds = %7, %6
   %.1 = phi ptr [ %.017, %6 ], [ %8, %7 ]
-  %10 = tail call ptr @gnutls_strerror(i32 noundef %5) #15
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %.1, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %10) #14
+  %10 = tail call ptr @gnutls_strerror(i32 noundef %5) #14
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %.1, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %10) #13
   br label %11
 
 11:                                               ; preds = %.lr.ph, %9
@@ -663,8 +671,8 @@ define internal void @uat_pkcs11_libs_load_all() #0 {
 
 15:                                               ; preds = %._crit_edge
   %16 = load ptr, ptr %.2, align 8
-  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.22, ptr noundef %16) #14
-  %17 = tail call ptr @g_string_free(ptr noundef nonnull %.2, i32 noundef 1) #14
+  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.22, ptr noundef %16) #13
+  %17 = tail call ptr @g_string_free(ptr noundef nonnull %.2, i32 noundef 1) #13
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %0, %15, %._crit_edge
@@ -674,9 +682,9 @@ define internal void @uat_pkcs11_libs_load_all() #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @rsa_privkeys_uats_uri_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #14
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = load ptr, ptr %0, align 8
-  tail call void @g_free(ptr noundef %8) #14
+  tail call void @g_free(ptr noundef %8) #13
   store ptr %7, ptr %0, align 8
   ret void
 }
@@ -688,15 +696,15 @@ define internal void @rsa_privkeys_uats_uri_tostr_cb(ptr nocapture noundef reado
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6) #14
+  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6) #13
   store ptr %8, ptr %1, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %11 = trunc i64 %10 to i32
   br label %14
 
 12:                                               ; preds = %5
-  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.19) #14
+  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.19) #13
   store ptr %13, ptr %1, align 8
   br label %14
 
@@ -709,10 +717,10 @@ define internal void @rsa_privkeys_uats_uri_tostr_cb(ptr nocapture noundef reado
 ; Function Attrs: nounwind uwtable
 define internal void @rsa_privkeys_uats_password_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #14
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @g_free(ptr noundef %9) #14
+  tail call void @g_free(ptr noundef %9) #13
   store ptr %7, ptr %8, align 8
   ret void
 }
@@ -725,15 +733,15 @@ define internal void @rsa_privkeys_uats_password_tostr_cb(ptr nocapture noundef 
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7) #14
+  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7) #13
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #17
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #16
   %12 = trunc i64 %11 to i32
   br label %15
 
 13:                                               ; preds = %5
-  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.19) #14
+  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.19) #13
   store ptr %14, ptr %1, align 8
   br label %15
 
@@ -746,11 +754,11 @@ define internal void @rsa_privkeys_uats_password_tostr_cb(ptr nocapture noundef 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @uat_rsa_privkey_copy_str_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #14
+  %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #14
+  %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #13
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   ret ptr %0
@@ -759,10 +767,10 @@ define internal noundef ptr @uat_rsa_privkey_copy_str_cb(ptr noundef returned wr
 ; Function Attrs: nounwind uwtable
 define internal void @uat_rsa_privkey_free_str_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @g_free(ptr noundef %2) #14
+  tail call void @g_free(ptr noundef %2) #13
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  tail call void @g_free(ptr noundef %4) #14
+  tail call void @g_free(ptr noundef %4) #13
   ret void
 }
 
@@ -777,9 +785,9 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = load ptr, ptr @rsa_privkeys, align 8
-  tail call void @g_hash_table_remove_all(ptr noundef %9) #14
+  tail call void @g_hash_table_remove_all(ptr noundef %9) #13
   %10 = load ptr, ptr @rsa_privkeys_pkcs11_pins, align 8
-  tail call void @g_slist_free_full(ptr noundef %10, ptr noundef nonnull @g_free) #14
+  tail call void @g_slist_free_full(ptr noundef %10, ptr noundef nonnull @g_free) #13
   store ptr null, ptr @rsa_privkeys_pkcs11_pins, align 8
   %11 = load i32, ptr @uat_num_rsa_privkeys, align 4
   %.not20 = icmp eq i32 %11, 0
@@ -792,7 +800,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   %13 = getelementptr %struct.rsa_privkey_record_t, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   store ptr null, ptr %8, align 8
-  %15 = call i32 @g_str_has_prefix(ptr noundef %14, ptr noundef nonnull @.str) #14
+  %15 = call i32 @g_str_has_prefix(ptr noundef %14, ptr noundef nonnull @.str) #13
   %.not15 = icmp eq i32 %15, 0
   %16 = getelementptr inbounds i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -817,13 +825,13 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   br i1 %.not31.i, label %23, label %21
 
 21:                                               ; preds = %19
-  %22 = call noalias ptr @g_strdup(ptr noundef nonnull %17) #14
+  %22 = call noalias ptr @g_strdup(ptr noundef nonnull %17) #13
   br label %23
 
 23:                                               ; preds = %21, %19, %18
   %24 = phi ptr [ %22, %21 ], [ null, %19 ], [ null, %18 ]
-  call void @gnutls_pkcs11_set_pin_function(ptr noundef nonnull @set_pin_callback, ptr noundef %24) #14
-  %25 = call i32 @gnutls_pkcs11_obj_list_import_url4(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %14, i32 noundef 2097153) #14
+  call void @gnutls_pkcs11_set_pin_function(ptr noundef nonnull @set_pin_callback, ptr noundef %24) #13
+  %25 = call i32 @gnutls_pkcs11_obj_list_import_url4(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %14, i32 noundef 2097153) #13
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %30, label %.preheader.i
 
@@ -835,12 +843,12 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
 ._crit_edge.thread.i:                             ; preds = %.preheader.i
   %28 = load ptr, ptr @gnutls_free, align 8
   %29 = load ptr, ptr %1, align 8
-  call void %28(ptr noundef %29) #14
+  call void %28(ptr noundef %29) #13
   br label %pkcs11_load_keys_from_token.exit
 
 30:                                               ; preds = %23
-  %31 = call ptr @gnutls_strerror(i32 noundef %25) #15
-  %32 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.24, ptr noundef %14, ptr noundef %31) #14
+  %31 = call ptr @gnutls_strerror(i32 noundef %25) #14
+  %32 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.24, ptr noundef %14, ptr noundef %31) #13
   store ptr %32, ptr %8, align 8
   br label %pkcs11_load_keys_from_token.exit
 
@@ -853,7 +861,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   %33 = load ptr, ptr %1, align 8
   %34 = getelementptr ptr, ptr %33, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8
-  %36 = call i32 @gnutls_pkcs11_obj_get_type(ptr noundef %35) #14
+  %36 = call i32 @gnutls_pkcs11_obj_get_type(ptr noundef %35) #13
   %.not33.i = icmp eq i32 %36, 3
   br i1 %.not33.i, label %37, label %74
 
@@ -861,46 +869,46 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   %38 = load ptr, ptr %1, align 8
   %39 = getelementptr ptr, ptr %38, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
-  %41 = call i32 @gnutls_pkcs11_obj_export_url(ptr noundef %40, i32 noundef 0, ptr noundef nonnull %3) #14
+  %41 = call i32 @gnutls_pkcs11_obj_export_url(ptr noundef %40, i32 noundef 0, ptr noundef nonnull %3) #13
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %74, label %43
 
 43:                                               ; preds = %37
-  %44 = call i32 @gnutls_privkey_init(ptr noundef nonnull %4) #14
+  %44 = call i32 @gnutls_privkey_init(ptr noundef nonnull %4) #13
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %74, label %46
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %4, align 8
-  call void @gnutls_privkey_set_pin_function(ptr noundef %47, ptr noundef nonnull @set_pin_callback, ptr noundef %24) #14
+  call void @gnutls_privkey_set_pin_function(ptr noundef %47, ptr noundef nonnull @set_pin_callback, ptr noundef %24) #13
   %48 = load ptr, ptr %4, align 8
   %49 = load ptr, ptr %3, align 8
-  %50 = call i32 @gnutls_privkey_import_url(ptr noundef %48, ptr noundef %49, i32 noundef 0) #14
+  %50 = call i32 @gnutls_privkey_import_url(ptr noundef %48, ptr noundef %49, i32 noundef 0) #13
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %74, label %52
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr %4, align 8
-  %54 = call i32 @gnutls_privkey_get_pk_algorithm(ptr noundef %53, ptr noundef null) #14
+  %54 = call i32 @gnutls_privkey_get_pk_algorithm(ptr noundef %53, ptr noundef null) #13
   %.not34.i = icmp eq i32 %54, 1
   br i1 %.not34.i, label %55, label %74
 
 55:                                               ; preds = %52
-  %56 = call i32 @gnutls_pubkey_init(ptr noundef nonnull %5) #14
+  %56 = call i32 @gnutls_pubkey_init(ptr noundef nonnull %5) #13
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %74, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %5, align 8
   %60 = load ptr, ptr %4, align 8
-  %61 = call i32 @gnutls_pubkey_import_privkey(ptr noundef %59, ptr noundef %60, i32 noundef 0, i32 noundef 0) #14
+  %61 = call i32 @gnutls_pubkey_import_privkey(ptr noundef %59, ptr noundef %60, i32 noundef 0, i32 noundef 0) #13
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %74, label %63
 
 63:                                               ; preds = %58
   store i64 20, ptr %7, align 8
   %64 = load ptr, ptr %5, align 8
-  %65 = call i32 @gnutls_pubkey_get_key_id(ptr noundef %64, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
+  %65 = call i32 @gnutls_pubkey_get_key_id(ptr noundef %64, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
   %66 = icmp slt i32 %65, 0
   %67 = load i64, ptr %7, align 8
   %68 = icmp ne i64 %67, 20
@@ -909,25 +917,25 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr %4, align 8
-  %71 = call dereferenceable_or_null(20) ptr @g_memdup2(ptr noundef nonnull %6, i64 noundef 20) #16
+  %71 = call dereferenceable_or_null(20) ptr @g_memdup2(ptr noundef nonnull %6, i64 noundef 20) #15
   %72 = load ptr, ptr @rsa_privkeys, align 8
-  %73 = call i32 @g_hash_table_insert(ptr noundef %72, ptr noundef %71, ptr noundef %70) #14
+  %73 = call i32 @g_hash_table_insert(ptr noundef %72, ptr noundef %71, ptr noundef %70) #13
   store ptr null, ptr %4, align 8
   br label %74
 
 74:                                               ; preds = %69, %63, %58, %55, %52, %46, %43, %37, %.lr.ph.i
   %.1.i = phi i32 [ %.02535.i, %.lr.ph.i ], [ %.02535.i, %37 ], [ %.02535.i, %43 ], [ %.02535.i, %46 ], [ %.02535.i, %52 ], [ %.02535.i, %55 ], [ %.02535.i, %58 ], [ %.02535.i, %63 ], [ 1, %69 ]
   %75 = load ptr, ptr %4, align 8
-  call void @gnutls_privkey_deinit(ptr noundef %75) #14
+  call void @gnutls_privkey_deinit(ptr noundef %75) #13
   %76 = load ptr, ptr %5, align 8
-  call void @gnutls_pubkey_deinit(ptr noundef %76) #14
+  call void @gnutls_pubkey_deinit(ptr noundef %76) #13
   %77 = load ptr, ptr @gnutls_free, align 8
   %78 = load ptr, ptr %3, align 8
-  call void %77(ptr noundef %78) #14
+  call void %77(ptr noundef %78) #13
   %79 = load ptr, ptr %1, align 8
   %80 = getelementptr ptr, ptr %79, i64 %indvars.iv.i
   %81 = load ptr, ptr %80, align 8
-  call void @gnutls_pkcs11_obj_deinit(ptr noundef %81) #14
+  call void @gnutls_pkcs11_obj_deinit(ptr noundef %81) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %82 = load i32, ptr %2, align 4
   %83 = zext i32 %82 to i64
@@ -938,19 +946,19 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   %85 = icmp eq i32 %.1.i, 0
   %86 = load ptr, ptr @gnutls_free, align 8
   %87 = load ptr, ptr %1, align 8
-  call void %86(ptr noundef %87) #14
+  call void %86(ptr noundef %87) #13
   br i1 %85, label %pkcs11_load_keys_from_token.exit, label %88
 
 88:                                               ; preds = %._crit_edge.i
   %89 = load ptr, ptr @rsa_privkeys_pkcs11_pins, align 8
-  %90 = call ptr @g_slist_prepend(ptr noundef %89, ptr noundef %24) #14
+  %90 = call ptr @g_slist_prepend(ptr noundef %89, ptr noundef %24) #13
   store ptr %90, ptr @rsa_privkeys_pkcs11_pins, align 8
   br label %pkcs11_load_keys_from_token.exit
 
 pkcs11_load_keys_from_token.exit:                 ; preds = %._crit_edge.thread.i, %30, %._crit_edge.i, %88
   %.026.i = phi ptr [ %24, %30 ], [ null, %88 ], [ %24, %._crit_edge.i ], [ %24, %._crit_edge.thread.i ]
-  call void @gnutls_pkcs11_set_pin_function(ptr noundef null, ptr noundef null) #14
-  call void @g_free(ptr noundef %.026.i) #14
+  call void @gnutls_pkcs11_set_pin_function(ptr noundef null, ptr noundef null) #13
+  call void @g_free(ptr noundef %.026.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -974,7 +982,7 @@ pkcs11_load_keys_from_token.exit:                 ; preds = %._crit_edge.thread.
   br i1 %.not17, label %95, label %97
 
 95:                                               ; preds = %94
-  %96 = call ptr @g_string_new(ptr noundef nonnull @.str.23) #14
+  %96 = call ptr @g_string_new(ptr noundef nonnull @.str.23) #13
   br label %97
 
 97:                                               ; preds = %95, %94
@@ -999,15 +1007,15 @@ pkcs11_load_keys_from_token.exit:                 ; preds = %._crit_edge.thread.
   br label %g_string_append_c_inline.exit
 
 110:                                              ; preds = %97
-  %111 = call ptr @g_string_insert_c(ptr noundef nonnull %.1, i64 noundef -1, i8 noundef signext 10) #14
+  %111 = call ptr @g_string_insert_c(ptr noundef nonnull %.1, i64 noundef -1, i8 noundef signext 10) #13
   %.pre = load ptr, ptr %8, align 8
   br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit:                    ; preds = %104, %110
   %112 = phi ptr [ %93, %104 ], [ %.pre, %110 ]
-  %113 = call ptr @g_string_append(ptr noundef nonnull %.1, ptr noundef %112) #14
+  %113 = call ptr @g_string_append(ptr noundef nonnull %.1, ptr noundef %112) #13
   %114 = load ptr, ptr %8, align 8
-  call void @g_free(ptr noundef %114) #14
+  call void @g_free(ptr noundef %114) #13
   br label %115
 
 115:                                              ; preds = %92, %g_string_append_c_inline.exit
@@ -1024,8 +1032,8 @@ g_string_append_c_inline.exit:                    ; preds = %104, %110
 
 119:                                              ; preds = %._crit_edge
   %120 = load ptr, ptr %.2, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.22, ptr noundef %120) #14
-  %121 = call ptr @g_string_free(ptr noundef nonnull %.2, i32 noundef 1) #14
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.22, ptr noundef %120) #13
+  %121 = call ptr @g_string_free(ptr noundef nonnull %.2, i32 noundef 1) #13
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %0, %119, %._crit_edge
@@ -1077,9 +1085,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.xor.v4i32(<4 x i32>) #13
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1093,11 +1098,10 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { nounwind allocsize(1) }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { nounwind allocsize(1) }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

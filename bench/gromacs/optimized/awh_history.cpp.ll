@@ -3594,7 +3594,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %48, label %3
+  br i1 %.not, label %54, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3622,7 +3622,7 @@ _ZSt27__uninitialized_default_n_aIPN3gmx14AwhBiasHistoryEmS1_ET_S3_T0_RSaIT1_E.e
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
-  br label %48
+  br label %54
 
 20:                                               ; preds = %3
   %21 = icmp ult i64 %17, %1
@@ -3645,54 +3645,62 @@ _ZNKSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = 
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i ], [ %26, %_ZNKSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %.0911.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %.012.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i ], [ %26, %_ZNKSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %.0911.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %29 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !12, !noalias !9
-  store <2 x ptr> %29, ptr %.012.i.i.i, align 8, !alias.scope !9, !noalias !12
-  %30 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %29 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !12, !noalias !9
+  store ptr %29, ptr %.012.i.i.i, align 8, !alias.scope !9, !noalias !12
+  %30 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
+  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !12, !noalias !9
   store ptr %32, ptr %30, align 8, !alias.scope !9, !noalias !12
+  %33 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %35 = load ptr, ptr %34, align 8, !alias.scope !12, !noalias !9
+  store ptr %35, ptr %33, align 8, !alias.scope !9, !noalias !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !12, !noalias !9
-  %33 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(48) %34, i64 48, i1 false), !alias.scope !14
-  %35 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
-  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 8 dereferenceable(12) %36, i64 12, i1 false), !alias.scope !14
-  %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 88
-  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 88
-  %39 = load <2 x ptr>, ptr %38, align 8, !alias.scope !12, !noalias !9
-  store <2 x ptr> %39, ptr %37, align 8, !alias.scope !9, !noalias !12
-  %40 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 104
-  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 104
+  %36 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull align 8 dereferenceable(48) %37, i64 48, i1 false), !alias.scope !14
+  %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
+  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %38, ptr noundef nonnull align 8 dereferenceable(12) %39, i64 12, i1 false), !alias.scope !14
+  %40 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 88
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 88
   %42 = load ptr, ptr %41, align 8, !alias.scope !12, !noalias !9
   store ptr %42, ptr %40, align 8, !alias.scope !9, !noalias !12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !alias.scope !12, !noalias !9
-  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 112
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 112
-  %.not.i.i.i = icmp eq ptr %43, %5
+  %43 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 96
+  %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 96
+  %45 = load ptr, ptr %44, align 8, !alias.scope !12, !noalias !9
+  store ptr %45, ptr %43, align 8, !alias.scope !9, !noalias !12
+  %46 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 104
+  %47 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 104
+  %48 = load ptr, ptr %47, align 8, !alias.scope !12, !noalias !9
+  store ptr %48, ptr %46, align 8, !alias.scope !9, !noalias !12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false), !alias.scope !12, !noalias !9
+  %49 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 112
+  %50 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 112
+  %.not.i.i.i = icmp eq ptr %49, %5
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !15
 
 _ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE12_M_check_lenEmPKc.exit
   %.not.i36 = icmp eq ptr %6, null
-  br i1 %.not.i36, label %_ZNSt12_Vector_baseIN3gmx14AwhBiasHistoryESaIS1_EE13_M_deallocateEPS1_m.exit37, label %45
+  br i1 %.not.i36, label %_ZNSt12_Vector_baseIN3gmx14AwhBiasHistoryESaIS1_EE13_M_deallocateEPS1_m.exit37, label %51
 
-45:                                               ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
+51:                                               ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   br label %_ZNSt12_Vector_baseIN3gmx14AwhBiasHistoryESaIS1_EE13_M_deallocateEPS1_m.exit37
 
-_ZNSt12_Vector_baseIN3gmx14AwhBiasHistoryESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %45
+_ZNSt12_Vector_baseIN3gmx14AwhBiasHistoryESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %51
   store ptr %26, ptr %0, align 8
-  %46 = getelementptr inbounds %"struct.gmx::AwhBiasHistory", ptr %27, i64 %1
-  store ptr %46, ptr %4, align 8
-  %47 = getelementptr inbounds %"struct.gmx::AwhBiasHistory", ptr %26, i64 %24
-  store ptr %47, ptr %11, align 8
-  br label %48
+  %52 = getelementptr inbounds %"struct.gmx::AwhBiasHistory", ptr %27, i64 %1
+  store ptr %52, ptr %4, align 8
+  %53 = getelementptr inbounds %"struct.gmx::AwhBiasHistory", ptr %26, i64 %24
+  store ptr %53, ptr %11, align 8
+  br label %54
 
-48:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN3gmx14AwhBiasHistoryEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN3gmx14AwhBiasHistoryESaIS1_EE13_M_deallocateEPS1_m.exit37, %2
+54:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN3gmx14AwhBiasHistoryEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN3gmx14AwhBiasHistoryESaIS1_EE13_M_deallocateEPS1_m.exit37, %2
   ret void
 }
 

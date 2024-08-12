@@ -350,14 +350,14 @@ ts2_get_conversation.exit:                        ; preds = %4, %12
   br i1 %.not, label %34, label %.critedge
 
 34:                                               ; preds = %33
-  switch i16 %7, label %129 [
+  switch i16 %7, label %135 [
     i16 -16652, label %35
-    i16 -16656, label %47
+    i16 -16656, label %50
   ]
 
 35:                                               ; preds = %34
   %cond = icmp eq i16 %6, 3
-  br i1 %cond, label %36, label %129
+  br i1 %cond, label %36, label %135
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds i8, ptr %1, i64 288
@@ -366,142 +366,150 @@ ts2_get_conversation.exit:                        ; preds = %4, %12
   store i32 %38, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %41 = getelementptr inbounds i8, ptr %1, i64 232
-  %42 = getelementptr inbounds i8, ptr %1, i64 240
-  %43 = load ptr, ptr %42, align 8
-  %44 = load <2 x i32>, ptr %41, align 8
-  store <2 x i32> %44, ptr %40, align 8
-  %45 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  store ptr %43, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  store ptr null, ptr %46, align 8
-  br label %129
+  %42 = load i32, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 236
+  %44 = load i32, ptr %43, align 4
+  %45 = getelementptr inbounds i8, ptr %1, i64 240
+  %46 = load ptr, ptr %45, align 8
+  store i32 %42, ptr %40, align 8
+  %47 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  store i32 %44, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  store ptr %46, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  store ptr null, ptr %49, align 8
+  br label %135
 
-47:                                               ; preds = %34
+50:                                               ; preds = %34
   tail call fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %.0.i)
-  br label %129
+  br label %135
 
 .critedge:                                        ; preds = %33
-  %48 = load i32, ptr @proto_ts2, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %48, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
-  %50 = load i32, ptr @ett_ts2, align 4
-  %51 = tail call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50) #4
-  %52 = load i32, ptr @hf_ts2_class, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #4
-  br i1 %23, label %.thread, label %62
+  %51 = load i32, ptr @proto_ts2, align 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %53 = load i32, ptr @ett_ts2, align 4
+  %54 = tail call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53) #4
+  %55 = load i32, ptr @hf_ts2_class, align 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #4
+  br i1 %23, label %.thread, label %65
 
 .thread:                                          ; preds = %.critedge
-  %54 = load i32, ptr @hf_ts2_resend_count, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %54, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #4
-  %56 = load i32, ptr @hf_ts2_sessionkey, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %56, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #4
-  %58 = load i32, ptr @hf_ts2_clientid, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %58, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #4
-  %60 = load i32, ptr @hf_ts2_seqnum, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %60, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #4
-  br label %129
+  %57 = load i32, ptr @hf_ts2_resend_count, align 4
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %57, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #4
+  %59 = load i32, ptr @hf_ts2_sessionkey, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %59, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #4
+  %61 = load i32, ptr @hf_ts2_clientid, align 4
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %61, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #4
+  %63 = load i32, ptr @hf_ts2_seqnum, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %63, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #4
+  br label %135
 
-62:                                               ; preds = %.critedge
-  %63 = load i32, ptr @hf_ts2_type, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %63, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #4
-  %65 = load i32, ptr @hf_ts2_sessionkey, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %65, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #4
-  %67 = load i32, ptr @hf_ts2_clientid, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %67, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #4
-  switch i16 %7, label %129 [
-    i16 -16652, label %69
-    i16 -16656, label %128
+65:                                               ; preds = %.critedge
+  %66 = load i32, ptr @hf_ts2_type, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %66, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #4
+  %68 = load i32, ptr @hf_ts2_sessionkey, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %68, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #4
+  %70 = load i32, ptr @hf_ts2_clientid, align 4
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %70, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #4
+  switch i16 %7, label %135 [
+    i16 -16652, label %72
+    i16 -16656, label %134
   ]
 
-69:                                               ; preds = %62
-  %70 = load i32, ptr @hf_ts2_seqnum, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %70, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #4
-  %72 = load i32, ptr @hf_ts2_crc32, align 4
-  %73 = load i32, ptr @hf_ts2_crc32_status, align 4
+72:                                               ; preds = %65
+  %73 = load i32, ptr @hf_ts2_seqnum, align 4
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %73, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #4
+  %75 = load i32, ptr @hf_ts2_crc32, align 4
+  %76 = load i32, ptr @hf_ts2_crc32_status, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %74 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 20) #4
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %ts2_add_checked_crc32.exit, label %76
+  %77 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 20) #4
+  %78 = icmp slt i32 %77, 0
+  br i1 %78, label %ts2_add_checked_crc32.exit, label %79
 
-76:                                               ; preds = %69
-  %77 = tail call i32 @crc32_ccitt_tvb(ptr noundef %0, i32 noundef 16) #4
-  %78 = xor i32 %77, -1
-  %79 = call i32 @crc32_ccitt_seed(ptr noundef nonnull %5, i32 noundef 4, i32 noundef %78) #4
-  %80 = xor i32 %79, -1
-  %81 = call i32 @crc32_ccitt_tvb_offset_seed(ptr noundef %0, i32 noundef 20, i32 noundef %74, i32 noundef %80) #4
-  %82 = call ptr @proto_tree_add_checksum(ptr noundef %51, ptr noundef %0, i32 noundef 16, i32 noundef %72, i32 noundef %73, ptr noundef nonnull @ei_ts2_crc32, ptr noundef nonnull %1, i32 noundef %81, i32 noundef -2147483648, i32 noundef 1) #4
+79:                                               ; preds = %72
+  %80 = tail call i32 @crc32_ccitt_tvb(ptr noundef %0, i32 noundef 16) #4
+  %81 = xor i32 %80, -1
+  %82 = call i32 @crc32_ccitt_seed(ptr noundef nonnull %5, i32 noundef 4, i32 noundef %81) #4
+  %83 = xor i32 %82, -1
+  %84 = call i32 @crc32_ccitt_tvb_offset_seed(ptr noundef %0, i32 noundef 20, i32 noundef %77, i32 noundef %83) #4
+  %85 = call ptr @proto_tree_add_checksum(ptr noundef %54, ptr noundef %0, i32 noundef 16, i32 noundef %75, i32 noundef %76, ptr noundef nonnull @ei_ts2_crc32, ptr noundef nonnull %1, i32 noundef %84, i32 noundef -2147483648, i32 noundef 1) #4
   br label %ts2_add_checked_crc32.exit
 
-ts2_add_checked_crc32.exit:                       ; preds = %69, %76
+ts2_add_checked_crc32.exit:                       ; preds = %72, %79
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  switch i16 %6, label %129 [
-    i16 4, label %111
-    i16 2, label %83
-    i16 3, label %86
+  switch i16 %6, label %135 [
+    i16 4, label %117
+    i16 2, label %86
+    i16 3, label %89
   ]
 
-83:                                               ; preds = %ts2_add_checked_crc32.exit
-  %84 = load i32, ptr @hf_ts2_ackto, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %84, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #4
-  br label %129
-
 86:                                               ; preds = %ts2_add_checked_crc32.exit
-  %87 = load i32, ptr @hf_ts2_protocol_string, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %87, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #4
-  %89 = load i32, ptr @hf_ts2_platform_string, align 4
-  %90 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %89, ptr noundef %0, i32 noundef 50, i32 noundef 1, i32 noundef 0) #4
-  %91 = load i32, ptr @hf_ts2_unknown, align 4
-  %92 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %91, ptr noundef %0, i32 noundef 80, i32 noundef 9, i32 noundef 0) #4
-  %93 = load i32, ptr @hf_ts2_registeredlogin, align 4
-  %94 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %93, ptr noundef %0, i32 noundef 90, i32 noundef 1, i32 noundef -2147483648) #4
-  %95 = load i32, ptr @hf_ts2_name, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %95, ptr noundef %0, i32 noundef 90, i32 noundef 1, i32 noundef 0) #4
-  %97 = load i32, ptr @hf_ts2_password, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %97, ptr noundef %0, i32 noundef 120, i32 noundef 1, i32 noundef 0) #4
-  %99 = load i32, ptr @hf_ts2_nick, align 4
-  %100 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %99, ptr noundef %0, i32 noundef 150, i32 noundef 1, i32 noundef 0) #4
-  %101 = getelementptr inbounds i8, ptr %1, i64 288
-  %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %.0.i, i64 32
-  store i32 %102, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %105 = getelementptr inbounds i8, ptr %1, i64 232
-  %106 = getelementptr inbounds i8, ptr %1, i64 240
-  %107 = load ptr, ptr %106, align 8
-  %108 = load <2 x i32>, ptr %105, align 8
-  store <2 x i32> %108, ptr %104, align 8
-  %109 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  store ptr %107, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  store ptr null, ptr %110, align 8
-  br label %129
+  %87 = load i32, ptr @hf_ts2_ackto, align 4
+  %88 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %87, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #4
+  br label %135
 
-111:                                              ; preds = %ts2_add_checked_crc32.exit
-  %112 = load i32, ptr @hf_ts2_server_name, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %112, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #4
-  %114 = load i32, ptr @hf_ts2_platform_string, align 4
-  %115 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %114, ptr noundef %0, i32 noundef 50, i32 noundef 1, i32 noundef 0) #4
-  %116 = load i32, ptr @hf_ts2_unknown, align 4
-  %117 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %116, ptr noundef %0, i32 noundef 80, i32 noundef 9, i32 noundef 0) #4
-  %118 = load i32, ptr @hf_ts2_badlogin, align 4
-  %119 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %118, ptr noundef %0, i32 noundef 89, i32 noundef 3, i32 noundef -2147483648) #4
-  %120 = load i32, ptr @hf_ts2_unknown, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %120, ptr noundef %0, i32 noundef 92, i32 noundef 80, i32 noundef 0) #4
-  %122 = load i32, ptr @hf_ts2_sessionkey, align 4
-  %123 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %122, ptr noundef %0, i32 noundef 172, i32 noundef 4, i32 noundef -2147483648) #4
-  %124 = load i32, ptr @hf_ts2_unknown, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %124, ptr noundef %0, i32 noundef 178, i32 noundef 3, i32 noundef 0) #4
-  %126 = load i32, ptr @hf_ts2_server_welcome_message, align 4
-  %127 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %126, ptr noundef %0, i32 noundef 180, i32 noundef 1, i32 noundef 0) #4
-  br label %129
+89:                                               ; preds = %ts2_add_checked_crc32.exit
+  %90 = load i32, ptr @hf_ts2_protocol_string, align 4
+  %91 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %90, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #4
+  %92 = load i32, ptr @hf_ts2_platform_string, align 4
+  %93 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %92, ptr noundef %0, i32 noundef 50, i32 noundef 1, i32 noundef 0) #4
+  %94 = load i32, ptr @hf_ts2_unknown, align 4
+  %95 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %94, ptr noundef %0, i32 noundef 80, i32 noundef 9, i32 noundef 0) #4
+  %96 = load i32, ptr @hf_ts2_registeredlogin, align 4
+  %97 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %96, ptr noundef %0, i32 noundef 90, i32 noundef 1, i32 noundef -2147483648) #4
+  %98 = load i32, ptr @hf_ts2_name, align 4
+  %99 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %98, ptr noundef %0, i32 noundef 90, i32 noundef 1, i32 noundef 0) #4
+  %100 = load i32, ptr @hf_ts2_password, align 4
+  %101 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %100, ptr noundef %0, i32 noundef 120, i32 noundef 1, i32 noundef 0) #4
+  %102 = load i32, ptr @hf_ts2_nick, align 4
+  %103 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %102, ptr noundef %0, i32 noundef 150, i32 noundef 1, i32 noundef 0) #4
+  %104 = getelementptr inbounds i8, ptr %1, i64 288
+  %105 = load i32, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  store i32 %105, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %108 = getelementptr inbounds i8, ptr %1, i64 232
+  %109 = load i32, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %1, i64 236
+  %111 = load i32, ptr %110, align 4
+  %112 = getelementptr inbounds i8, ptr %1, i64 240
+  %113 = load ptr, ptr %112, align 8
+  store i32 %109, ptr %107, align 8
+  %114 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  store i32 %111, ptr %114, align 4
+  %115 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  store ptr %113, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  store ptr null, ptr %116, align 8
+  br label %135
 
-128:                                              ; preds = %62
-  tail call fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %51, ptr noundef nonnull %.0.i)
-  br label %129
+117:                                              ; preds = %ts2_add_checked_crc32.exit
+  %118 = load i32, ptr @hf_ts2_server_name, align 4
+  %119 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %118, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #4
+  %120 = load i32, ptr @hf_ts2_platform_string, align 4
+  %121 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %120, ptr noundef %0, i32 noundef 50, i32 noundef 1, i32 noundef 0) #4
+  %122 = load i32, ptr @hf_ts2_unknown, align 4
+  %123 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %122, ptr noundef %0, i32 noundef 80, i32 noundef 9, i32 noundef 0) #4
+  %124 = load i32, ptr @hf_ts2_badlogin, align 4
+  %125 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %124, ptr noundef %0, i32 noundef 89, i32 noundef 3, i32 noundef -2147483648) #4
+  %126 = load i32, ptr @hf_ts2_unknown, align 4
+  %127 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %126, ptr noundef %0, i32 noundef 92, i32 noundef 80, i32 noundef 0) #4
+  %128 = load i32, ptr @hf_ts2_sessionkey, align 4
+  %129 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %128, ptr noundef %0, i32 noundef 172, i32 noundef 4, i32 noundef -2147483648) #4
+  %130 = load i32, ptr @hf_ts2_unknown, align 4
+  %131 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %130, ptr noundef %0, i32 noundef 178, i32 noundef 3, i32 noundef 0) #4
+  %132 = load i32, ptr @hf_ts2_server_welcome_message, align 4
+  %133 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %132, ptr noundef %0, i32 noundef 180, i32 noundef 1, i32 noundef 0) #4
+  br label %135
 
-129:                                              ; preds = %36, %35, %47, %34, %62, %.thread, %128, %111, %86, %83, %ts2_add_checked_crc32.exit
-  %130 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  ret i32 %130
+134:                                              ; preds = %65
+  tail call fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %54, ptr noundef nonnull %.0.i)
+  br label %135
+
+135:                                              ; preds = %36, %35, %50, %34, %65, %.thread, %134, %117, %89, %86, %ts2_add_checked_crc32.exit
+  %136 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  ret i32 %136
 }
 
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1

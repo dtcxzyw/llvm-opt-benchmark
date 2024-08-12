@@ -177,11 +177,13 @@ do.end:                                           ; preds = %do.body
   %rem = urem i64 %conv21, %sub.ptr.div.i.pre-phi
   %add.ptr.i = getelementptr inbounds i16, ptr %13, i64 %rem
   store i16 %conv19, ptr %add.ptr.i, align 2
-  %15 = trunc i64 %element_size to i32
-  %16 = load <2 x i32>, ptr %table_elems_, align 8
-  %17 = insertelement <2 x i32> <i32 1, i32 poison>, i32 %15, i64 1
-  %18 = add <2 x i32> %16, %17
-  store <2 x i32> %18, ptr %table_elems_, align 8
+  %15 = load i32, ptr %table_size_, align 4
+  %16 = trunc i64 %element_size to i32
+  %conv28 = add i32 %15, %16
+  store i32 %conv28, ptr %table_size_, align 4
+  %17 = load i32, ptr %table_elems_, align 8
+  %inc = add i32 %17, 1
+  store i32 %inc, ptr %table_elems_, align 8
   br label %return
 
 return:                                           ; preds = %_ZN9grpc_core17HPackEncoderTable8EvictOneEv.exit, %while.cond.preheader, %do.end

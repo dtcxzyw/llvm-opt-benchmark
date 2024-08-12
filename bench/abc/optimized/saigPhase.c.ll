@@ -2331,12 +2331,15 @@ Saig_ObjChild0Frames.exit235:                     ; preds = %.lr.ph264, %236
   %260 = getelementptr inbounds i8, ptr %15, i64 104
   store i32 %259, ptr %260, align 8
   %261 = getelementptr i8, ptr %15, i64 136
-  %262 = getelementptr inbounds i8, ptr %15, i64 108
-  %263 = load <2 x i32>, ptr %261, align 8
-  %264 = insertelement <2 x i32> poison, i32 %259, i64 0
-  %265 = shufflevector <2 x i32> %264, <2 x i32> poison, <2 x i32> zeroinitializer
-  %266 = sub nsw <2 x i32> %263, %265
-  store <2 x i32> %266, ptr %262, align 4
+  %.val198 = load i32, ptr %261, align 8
+  %262 = sub nsw i32 %.val198, %259
+  %263 = getelementptr inbounds i8, ptr %15, i64 108
+  store i32 %262, ptr %263, align 4
+  %264 = getelementptr i8, ptr %15, i64 140
+  %.val194 = load i32, ptr %264, align 4
+  %265 = sub nsw i32 %.val194, %259
+  %266 = getelementptr inbounds i8, ptr %15, i64 112
+  store i32 %265, ptr %266, align 8
   %267 = getelementptr i8, ptr %4, i64 140
   %.val195 = load i32, ptr %267, align 4
   %.val = load i32, ptr %58, align 8

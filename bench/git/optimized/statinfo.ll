@@ -309,7 +309,7 @@ declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture nounde
 ; Function Attrs: nounwind uwtable
 define dso_local void @stat_validity_update(ptr nocapture noundef %sv, i32 noundef %fd) local_unnamed_addr #6 {
 entry:
-  %st = alloca %struct.stat, align 16
+  %st = alloca %struct.stat, align 8
   %call = call i32 @fstat64(i32 noundef %fd, ptr noundef nonnull %st) #8
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -339,24 +339,47 @@ if.then2:                                         ; preds = %if.else
 
 if.end:                                           ; preds = %if.then2, %if.else
   %3 = phi ptr [ %call3, %if.then2 ], [ %2, %if.else ]
+  %st_ctim.i = getelementptr inbounds i8, ptr %st, i64 104
+  %4 = load i64, ptr %st_ctim.i, align 8
+  %conv.i = trunc i64 %4 to i32
+  store i32 %conv.i, ptr %3, align 4
   %st_mtim.i = getelementptr inbounds i8, ptr %st, i64 88
-  %4 = load <4 x i64>, ptr %st_mtim.i, align 8
-  %5 = trunc <4 x i64> %4 to <4 x i32>
-  %6 = shufflevector <4 x i32> %5, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  store <4 x i32> %6, ptr %3, align 4
+  %5 = load i64, ptr %st_mtim.i, align 8
+  %conv2.i = trunc i64 %5 to i32
+  %sd_mtime.i = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %conv2.i, ptr %sd_mtime.i, align 4
+  %tv_nsec.i = getelementptr inbounds i8, ptr %st, i64 112
+  %6 = load i64, ptr %tv_nsec.i, align 8
+  %conv5.i = trunc i64 %6 to i32
+  %nsec.i = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %conv5.i, ptr %nsec.i, align 4
+  %tv_nsec8.i = getelementptr inbounds i8, ptr %st, i64 96
+  %7 = load i64, ptr %tv_nsec8.i, align 8
+  %conv9.i = trunc i64 %7 to i32
+  %nsec11.i = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 %conv9.i, ptr %nsec11.i, align 4
+  %8 = load i64, ptr %st, align 8
+  %conv12.i = trunc i64 %8 to i32
   %sd_dev.i = getelementptr inbounds i8, ptr %3, i64 16
-  %7 = load <2 x i64>, ptr %st, align 16
-  %8 = trunc <2 x i64> %7 to <2 x i32>
-  store <2 x i32> %8, ptr %sd_dev.i, align 4
+  store i32 %conv12.i, ptr %sd_dev.i, align 4
+  %st_ino.i = getelementptr inbounds i8, ptr %st, i64 8
+  %9 = load i64, ptr %st_ino.i, align 8
+  %conv13.i = trunc i64 %9 to i32
+  %sd_ino.i = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 %conv13.i, ptr %sd_ino.i, align 4
   %st_uid.i = getelementptr inbounds i8, ptr %st, i64 28
+  %10 = load i32, ptr %st_uid.i, align 4
   %sd_uid.i = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = load <2 x i32>, ptr %st_uid.i, align 4
-  store <2 x i32> %9, ptr %sd_uid.i, align 4
+  store i32 %10, ptr %sd_uid.i, align 4
+  %st_gid.i = getelementptr inbounds i8, ptr %st, i64 32
+  %11 = load i32, ptr %st_gid.i, align 8
+  %sd_gid.i = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 %11, ptr %sd_gid.i, align 4
   %st_size.i = getelementptr inbounds i8, ptr %st, i64 48
-  %10 = load i64, ptr %st_size.i, align 16
-  %conv.i.i = trunc i64 %10 to i32
+  %12 = load i64, ptr %st_size.i, align 8
+  %conv.i.i = trunc i64 %12 to i32
   %tobool.i.i = icmp eq i32 %conv.i.i, 0
-  %tobool1.i.i = icmp ne i64 %10, 0
+  %tobool1.i.i = icmp ne i64 %12, 0
   %or.cond.i.i = and i1 %tobool1.i.i, %tobool.i.i
   %.conv.i.i = select i1 %or.cond.i.i, i32 -2147483648, i32 %conv.i.i
   %sd_size.i = getelementptr inbounds i8, ptr %3, i64 32

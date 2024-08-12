@@ -416,7 +416,9 @@ invoke.cont21:                                    ; preds = %land.lhs.true, %ent
   %m_shapeType.i = getelementptr inbounds i8, ptr %sphere1, i64 8
   store i32 8, ptr %m_shapeType.i, align 8
   %m_localScaling.i = getelementptr inbounds i8, ptr %sphere1, i64 32
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %m_localScaling.i, align 8
+  store float 1.000000e+00, ptr %m_localScaling.i, align 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %sphere1, i64 36
+  store float 1.000000e+00, ptr %arrayidx3.i.i, align 4
   %arrayidx5.i.i61 = getelementptr inbounds i8, ptr %sphere1, i64 40
   store float 1.000000e+00, ptr %arrayidx5.i.i61, align 8
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %sphere1, i64 44
@@ -504,7 +506,9 @@ invoke.cont64:                                    ; preds = %if.end49, %if.then5
   %m_shapeType.i71 = getelementptr inbounds i8, ptr %sphere0, i64 8
   store i32 8, ptr %m_shapeType.i71, align 8
   %m_localScaling.i72 = getelementptr inbounds i8, ptr %sphere0, i64 32
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %m_localScaling.i72, align 8
+  store float 1.000000e+00, ptr %m_localScaling.i72, align 8
+  %arrayidx3.i.i73 = getelementptr inbounds i8, ptr %sphere0, i64 36
+  store float 1.000000e+00, ptr %arrayidx3.i.i73, align 4
   %arrayidx5.i.i74 = getelementptr inbounds i8, ptr %sphere0, i64 40
   store float 1.000000e+00, ptr %arrayidx5.i.i74, align 8
   %arrayidx7.i.i75 = getelementptr inbounds i8, ptr %sphere0, i64 44
@@ -616,13 +620,16 @@ entry:
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 56)
   %m_manifold = getelementptr inbounds i8, ptr %ci, i64 8
   %2 = load ptr, ptr %m_manifold, align 8
+  %m_simplexSolver = getelementptr inbounds i8, ptr %this, i64 24
+  %3 = load ptr, ptr %m_simplexSolver, align 8
   %m_pdSolver = getelementptr inbounds i8, ptr %this, i64 16
-  %m_simplexSolver.i = getelementptr inbounds i8, ptr %call, i64 16
-  %3 = load <2 x ptr>, ptr %m_pdSolver, align 8
+  %4 = load ptr, ptr %m_pdSolver, align 8
   tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
   store ptr getelementptr inbounds (i8, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 16), ptr %call, align 8
-  %4 = shufflevector <2 x ptr> %3, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %4, ptr %m_simplexSolver.i, align 8
+  %m_simplexSolver.i = getelementptr inbounds i8, ptr %call, i64 16
+  store ptr %3, ptr %m_simplexSolver.i, align 8
+  %m_pdSolver.i = getelementptr inbounds i8, ptr %call, i64 24
+  store ptr %4, ptr %m_pdSolver.i, align 8
   %m_ownManifold.i = getelementptr inbounds i8, ptr %call, i64 32
   store i8 0, ptr %m_ownManifold.i, align 8
   %m_manifoldPtr.i = getelementptr inbounds i8, ptr %call, i64 40

@@ -599,9 +599,9 @@ if.end17:                                         ; preds = %if.end13
   %conv20 = zext i16 %7 to i32
   %shl = shl nuw nsw i32 %conv20, 2
   %index2NullOffset = getelementptr inbounds i8, ptr %data, i64 10
+  %8 = load i16, ptr %index2NullOffset, align 2
   %dataNullOffset = getelementptr inbounds i8, ptr %data, i64 12
-  %8 = load i16, ptr %dataNullOffset, align 4
-  %9 = load <2 x i16>, ptr %index2NullOffset, align 2
+  %9 = load i16, ptr %dataNullOffset, align 4
   %shiftedHighStart = getelementptr inbounds i8, ptr %data, i64 14
   %10 = load i16, ptr %shiftedHighStart, align 2
   %conv23 = zext i16 %10 to i32
@@ -637,7 +637,9 @@ do.body:                                          ; preds = %if.end44
   %tempTrie.sroa.5.0.trie.0.2.sroa_idx = getelementptr inbounds i8, ptr %call45, i64 28
   store i32 %shl, ptr %tempTrie.sroa.5.0.trie.0.2.sroa_idx, align 4
   %tempTrie.sroa.9.0.trie.0.2.sroa_idx = getelementptr inbounds i8, ptr %call45, i64 32
-  store <2 x i16> %9, ptr %tempTrie.sroa.9.0.trie.0.2.sroa_idx, align 8
+  store i16 %8, ptr %tempTrie.sroa.9.0.trie.0.2.sroa_idx, align 8
+  %tempTrie.sroa.10.0.trie.0.2.sroa_idx = getelementptr inbounds i8, ptr %call45, i64 34
+  store i16 %9, ptr %tempTrie.sroa.10.0.trie.0.2.sroa_idx, align 2
   %tempTrie.sroa.11.0.trie.0.2.sroa_idx = getelementptr inbounds i8, ptr %call45, i64 36
   %tempTrie.sroa.1126.0.trie.0.2.sroa_idx = getelementptr inbounds i8, ptr %call45, i64 44
   store i32 %shl24, ptr %tempTrie.sroa.1126.0.trie.0.2.sroa_idx, align 4
@@ -654,7 +656,7 @@ do.body:                                          ; preds = %if.end44
   %idx.ext = zext i16 %6 to i64
   %add.ptr51 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext
   %trunc = trunc nuw i32 %valueBits to i1
-  %idxprom63 = zext i16 %8 to i64
+  %idxprom63 = zext i16 %9 to i64
   br i1 %trunc, label %sw.bb58, label %sw.bb
 
 sw.bb:                                            ; preds = %do.body

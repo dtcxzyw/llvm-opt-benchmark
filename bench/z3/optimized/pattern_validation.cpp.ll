@@ -83,6 +83,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
+  %0 = load i32, ptr %this, align 4
+  %m_lfid = getelementptr inbounds i8, ptr %this, i64 4
+  %1 = load i32, ptr %m_lfid, align 4
   store ptr %found_vars, ptr %f, align 8
   %m_num_bindings.i = getelementptr inbounds i8, ptr %f, i64 8
   store i32 %num_bindings, ptr %m_num_bindings.i, align 8
@@ -93,8 +96,9 @@ if.end:                                           ; preds = %entry
   %m_found_a_var.i = getelementptr inbounds i8, ptr %f, i64 17
   store i8 0, ptr %m_found_a_var.i, align 1
   %m_bfid.i = getelementptr inbounds i8, ptr %f, i64 20
-  %0 = load <2 x i32>, ptr %this, align 4
-  store <2 x i32> %0, ptr %m_bfid.i, align 4
+  store i32 %0, ptr %m_bfid.i, align 4
+  %m_lfid.i = getelementptr inbounds i8, ptr %f, i64 24
+  store i32 %1, ptr %m_lfid.i, align 8
   %m_line.i = getelementptr inbounds i8, ptr %f, i64 28
   store i32 %line, ptr %m_line.i, align 4
   %m_pos.i = getelementptr inbounds i8, ptr %f, i64 32
@@ -107,36 +111,36 @@ if.end:                                           ; preds = %entry
 
 invoke.cont.i:                                    ; preds = %if.end
   %m_data.i.i.i = getelementptr inbounds i8, ptr %visited.i, i64 16
-  %1 = load ptr, ptr %m_data.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %m_data.i.i.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i.i, label %_Z13for_each_exprI26pattern_validation_functorEvRT_P4expr.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont.i
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %1)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %2)
           to label %_Z13for_each_exprI26pattern_validation_functorEvRT_P4expr.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i.i
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #14
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #14
   unreachable
 
 lpad.i:                                           ; preds = %if.end
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %visited.i) #15
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %5
 
 _Z13for_each_exprI26pattern_validation_functorEvRT_P4expr.exit: ; preds = %invoke.cont.i, %if.end.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %visited.i)
-  %5 = load i8, ptr %m_result.i, align 8
-  %tobool = trunc i8 %5 to i1
+  %6 = load i8, ptr %m_result.i, align 8
+  %tobool = trunc i8 %6 to i1
   br i1 %tobool, label %if.end3, label %return
 
 if.end3:                                          ; preds = %_Z13for_each_exprI26pattern_validation_functorEvRT_P4expr.exit
-  %6 = load i8, ptr %m_found_a_var.i, align 1
-  %tobool4 = trunc i8 %6 to i1
+  %7 = load i8, ptr %m_found_a_var.i, align 1
+  %tobool4 = trunc i8 %7 to i1
   br i1 %tobool4, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end3

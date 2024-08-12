@@ -3053,12 +3053,12 @@ define linkonce_odr hidden void @_ZNK2cv17Bayer2RGB_InvokerIhNS_26SIMDBayerStubI
   %54 = ashr exact i64 %sext371, 32
   br label %55
 
-55:                                               ; preds = %.lr.ph407, %489
-  %.0405 = phi ptr [ %38, %.lr.ph407 ], [ %490, %489 ]
-  %.0323403 = phi ptr [ %30, %.lr.ph407 ], [ %491, %489 ]
-  %.0331402 = phi i32 [ %8, %.lr.ph407 ], [ %492, %489 ]
-  %.1333401 = phi i32 [ %.0332, %.lr.ph407 ], [ %.2334, %489 ]
-  %.1336400 = phi i32 [ %.0335, %.lr.ph407 ], [ %.2337, %489 ]
+55:                                               ; preds = %.lr.ph407, %497
+  %.0405 = phi ptr [ %38, %.lr.ph407 ], [ %498, %497 ]
+  %.0323403 = phi ptr [ %30, %.lr.ph407 ], [ %499, %497 ]
+  %.0331402 = phi i32 [ %8, %.lr.ph407 ], [ %500, %497 ]
+  %.1333401 = phi i32 [ %.0332, %.lr.ph407 ], [ %.2334, %497 ]
+  %.1336400 = phi i32 [ %.0335, %.lr.ph407 ], [ %.2337, %497 ]
   %56 = load i32, ptr %40, align 8
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %.0405, i64 %57
@@ -3091,7 +3091,7 @@ define linkonce_odr hidden void @_ZNK2cv17Bayer2RGB_InvokerIhNS_26SIMDBayerStubI
   store i8 0, ptr %76, align 1
   %77 = getelementptr inbounds i8, ptr %.0323403, i64 -4
   store i8 0, ptr %77, align 1
-  br label %489
+  br label %497
 
 78:                                               ; preds = %60
   %79 = mul nsw i32 %56, %7
@@ -3124,7 +3124,7 @@ define linkonce_odr hidden void @_ZNK2cv17Bayer2RGB_InvokerIhNS_26SIMDBayerStubI
   store i8 -1, ptr %99, align 1
   %100 = getelementptr inbounds i8, ptr %.0323403, i64 -2
   store i8 -1, ptr %100, align 1
-  br label %489
+  br label %497
 
 101:                                              ; preds = %55
   %.not344 = icmp eq i32 %.1333401, 0
@@ -3582,74 +3582,85 @@ define linkonce_odr hidden void @_ZNK2cv17Bayer2RGB_InvokerIhNS_26SIMDBayerStubI
   store i8 %445, ptr %448, align 1
   %449 = load i32, ptr %40, align 8
   %450 = mul nsw i32 %449, 3
-  br label %475
+  br label %483
 
 451:                                              ; preds = %.thread, %430
   %452 = getelementptr inbounds i8, ptr %.0323403, i64 -1
-  %453 = getelementptr inbounds i8, ptr %.0323403, i64 -5
-  %454 = load <4 x i8>, ptr %452, align 1
-  store <4 x i8> %454, ptr %453, align 1
-  %455 = load i32, ptr %40, align 8
-  %456 = mul nsw i32 %455, %7
-  %457 = add nsw i32 %456, -5
-  %458 = sext i32 %457 to i64
-  %459 = getelementptr inbounds i8, ptr %.0323403, i64 %458
-  %460 = load i8, ptr %459, align 1
-  %461 = add nsw i32 %456, -1
-  %462 = sext i32 %461 to i64
-  %463 = getelementptr inbounds i8, ptr %.0323403, i64 %462
-  store i8 %460, ptr %463, align 1
-  %464 = load i32, ptr %40, align 8
-  %465 = mul nsw i32 %464, %7
-  %466 = add nsw i32 %465, -4
-  %467 = sext i32 %466 to i64
-  %468 = getelementptr inbounds i8, ptr %.0323403, i64 %467
-  %469 = load i8, ptr %468, align 1
-  %470 = sext i32 %465 to i64
+  %453 = load i8, ptr %452, align 1
+  %454 = getelementptr inbounds i8, ptr %.0323403, i64 -5
+  store i8 %453, ptr %454, align 1
+  %455 = load i8, ptr %.0323403, align 1
+  %456 = getelementptr inbounds i8, ptr %.0323403, i64 -4
+  store i8 %455, ptr %456, align 1
+  %457 = getelementptr inbounds i8, ptr %.0323403, i64 1
+  %458 = load i8, ptr %457, align 1
+  %459 = getelementptr inbounds i8, ptr %.0323403, i64 -3
+  store i8 %458, ptr %459, align 1
+  %460 = getelementptr inbounds i8, ptr %.0323403, i64 2
+  %461 = load i8, ptr %460, align 1
+  %462 = getelementptr inbounds i8, ptr %.0323403, i64 -2
+  store i8 %461, ptr %462, align 1
+  %463 = load i32, ptr %40, align 8
+  %464 = mul nsw i32 %463, %7
+  %465 = add nsw i32 %464, -5
+  %466 = sext i32 %465 to i64
+  %467 = getelementptr inbounds i8, ptr %.0323403, i64 %466
+  %468 = load i8, ptr %467, align 1
+  %469 = add nsw i32 %464, -1
+  %470 = sext i32 %469 to i64
   %471 = getelementptr inbounds i8, ptr %.0323403, i64 %470
-  store i8 %469, ptr %471, align 1
+  store i8 %468, ptr %471, align 1
   %472 = load i32, ptr %40, align 8
   %473 = mul nsw i32 %472, %7
-  %474 = add nsw i32 %473, 1
-  br label %475
+  %474 = add nsw i32 %473, -4
+  %475 = sext i32 %474 to i64
+  %476 = getelementptr inbounds i8, ptr %.0323403, i64 %475
+  %477 = load i8, ptr %476, align 1
+  %478 = sext i32 %473 to i64
+  %479 = getelementptr inbounds i8, ptr %.0323403, i64 %478
+  store i8 %477, ptr %479, align 1
+  %480 = load i32, ptr %40, align 8
+  %481 = mul nsw i32 %480, %7
+  %482 = add nsw i32 %481, 1
+  br label %483
 
-475:                                              ; preds = %451, %431
-  %.sink439 = phi i32 [ %474, %451 ], [ %450, %431 ]
-  %.pn.in.in = phi i32 [ %473, %451 ], [ %450, %431 ]
+483:                                              ; preds = %451, %431
+  %.sink439 = phi i32 [ %482, %451 ], [ %450, %431 ]
+  %.pn.in.in = phi i32 [ %481, %451 ], [ %450, %431 ]
   %.sink436 = phi i32 [ %7, %451 ], [ 3, %431 ]
   %.sink432 = phi i32 [ 2, %451 ], [ 1, %431 ]
   %.pn.in = add nsw i32 %.pn.in.in, -3
   %.pn = sext i32 %.pn.in to i64
   %.sink.in = getelementptr inbounds i8, ptr %.0323403, i64 %.pn
   %.sink = load i8, ptr %.sink.in, align 1
-  %476 = sext i32 %.sink439 to i64
-  %477 = getelementptr inbounds i8, ptr %.0323403, i64 %476
-  store i8 %.sink, ptr %477, align 1
-  %478 = load i32, ptr %40, align 8
-  %479 = mul nsw i32 %478, %.sink436
-  %480 = add nsw i32 %479, -2
-  %481 = sext i32 %480 to i64
-  %482 = getelementptr inbounds i8, ptr %.0323403, i64 %481
-  %483 = load i8, ptr %482, align 1
-  %484 = add nsw i32 %479, %.sink432
-  %485 = sext i32 %484 to i64
-  %486 = getelementptr inbounds i8, ptr %.0323403, i64 %485
-  store i8 %483, ptr %486, align 1
-  %487 = sub nsw i32 0, %.1336400
-  %488 = zext i1 %.not344 to i32
-  br label %489
+  %484 = sext i32 %.sink439 to i64
+  %485 = getelementptr inbounds i8, ptr %.0323403, i64 %484
+  store i8 %.sink, ptr %485, align 1
+  %486 = load i32, ptr %40, align 8
+  %487 = mul nsw i32 %486, %.sink436
+  %488 = add nsw i32 %487, -2
+  %489 = sext i32 %488 to i64
+  %490 = getelementptr inbounds i8, ptr %.0323403, i64 %489
+  %491 = load i8, ptr %490, align 1
+  %492 = add nsw i32 %487, %.sink432
+  %493 = sext i32 %492 to i64
+  %494 = getelementptr inbounds i8, ptr %.0323403, i64 %493
+  store i8 %491, ptr %494, align 1
+  %495 = sub nsw i32 0, %.1336400
+  %496 = zext i1 %.not344 to i32
+  br label %497
 
-489:                                              ; preds = %61, %78, %475
-  %.2337 = phi i32 [ %.1336400, %61 ], [ %.1336400, %78 ], [ %487, %475 ]
-  %.2334 = phi i32 [ %.1333401, %61 ], [ %.1333401, %78 ], [ %488, %475 ]
-  %490 = getelementptr inbounds i8, ptr %.0405, i64 %44
-  %491 = getelementptr inbounds i8, ptr %.0323403, i64 %54
-  %492 = add nsw i32 %.0331402, 1
-  %493 = load i32, ptr %10, align 4
-  %494 = icmp slt i32 %492, %493
-  br i1 %494, label %55, label %._crit_edge, !llvm.loop !40
+497:                                              ; preds = %61, %78, %483
+  %.2337 = phi i32 [ %.1336400, %61 ], [ %.1336400, %78 ], [ %495, %483 ]
+  %.2334 = phi i32 [ %.1333401, %61 ], [ %.1333401, %78 ], [ %496, %483 ]
+  %498 = getelementptr inbounds i8, ptr %.0405, i64 %44
+  %499 = getelementptr inbounds i8, ptr %.0323403, i64 %54
+  %500 = add nsw i32 %.0331402, 1
+  %501 = load i32, ptr %10, align 4
+  %502 = icmp slt i32 %500, %501
+  br i1 %502, label %55, label %._crit_edge, !llvm.loop !40
 
-._crit_edge:                                      ; preds = %489, %2
+._crit_edge:                                      ; preds = %497, %2
   ret void
 }
 
@@ -4351,12 +4362,12 @@ define linkonce_odr hidden void @_ZNK2cv17Bayer2RGB_InvokerItNS_26SIMDBayerStubI
   %56 = ashr exact i64 %sext371, 32
   br label %57
 
-57:                                               ; preds = %.lr.ph407, %489
-  %.0405 = phi ptr [ %40, %.lr.ph407 ], [ %490, %489 ]
-  %.0323403 = phi ptr [ %31, %.lr.ph407 ], [ %491, %489 ]
-  %.0331402 = phi i32 [ %8, %.lr.ph407 ], [ %492, %489 ]
-  %.1333401 = phi i32 [ %.0332, %.lr.ph407 ], [ %.2334, %489 ]
-  %.1336400 = phi i32 [ %.0335, %.lr.ph407 ], [ %.2337, %489 ]
+57:                                               ; preds = %.lr.ph407, %499
+  %.0405 = phi ptr [ %40, %.lr.ph407 ], [ %500, %499 ]
+  %.0323403 = phi ptr [ %31, %.lr.ph407 ], [ %501, %499 ]
+  %.0331402 = phi i32 [ %8, %.lr.ph407 ], [ %502, %499 ]
+  %.1333401 = phi i32 [ %.0332, %.lr.ph407 ], [ %.2334, %499 ]
+  %.1336400 = phi i32 [ %.0335, %.lr.ph407 ], [ %.2337, %499 ]
   %58 = load i32, ptr %42, align 8
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i16, ptr %.0405, i64 %59
@@ -4389,7 +4400,7 @@ define linkonce_odr hidden void @_ZNK2cv17Bayer2RGB_InvokerItNS_26SIMDBayerStubI
   store i16 0, ptr %78, align 2
   %79 = getelementptr inbounds i8, ptr %.0323403, i64 -8
   store i16 0, ptr %79, align 2
-  br label %489
+  br label %499
 
 80:                                               ; preds = %62
   %81 = mul nsw i32 %58, %7
@@ -4422,7 +4433,7 @@ define linkonce_odr hidden void @_ZNK2cv17Bayer2RGB_InvokerItNS_26SIMDBayerStubI
   store i16 -1, ptr %101, align 2
   %102 = getelementptr inbounds i8, ptr %.0323403, i64 -4
   store i16 -1, ptr %102, align 2
-  br label %489
+  br label %499
 
 103:                                              ; preds = %57
   %.not344 = icmp eq i32 %.1333401, 0
@@ -4851,100 +4862,114 @@ define linkonce_odr hidden void @_ZNK2cv17Bayer2RGB_InvokerItNS_26SIMDBayerStubI
 .thread:                                          ; preds = %388
   %431 = getelementptr inbounds i8, ptr %.3, i64 4
   store i16 -1, ptr %431, align 2
-  br label %451
+  br label %453
 
 432:                                              ; preds = %388, %.loopexit
-  br i1 %50, label %433, label %451
+  br i1 %50, label %433, label %453
 
 433:                                              ; preds = %432
   %434 = getelementptr inbounds i8, ptr %.0323403, i64 -2
-  %435 = getelementptr inbounds i8, ptr %.0323403, i64 -8
-  %436 = load <2 x i16>, ptr %434, align 2
-  store <2 x i16> %436, ptr %435, align 2
-  %437 = getelementptr inbounds i8, ptr %.0323403, i64 2
-  %438 = load i16, ptr %437, align 2
-  %439 = getelementptr inbounds i8, ptr %.0323403, i64 -4
-  store i16 %438, ptr %439, align 2
-  %440 = load i32, ptr %42, align 8
-  %441 = mul nsw i32 %440, 3
-  %442 = add nsw i32 %441, -4
-  %443 = sext i32 %442 to i64
-  %444 = getelementptr inbounds i16, ptr %.0323403, i64 %443
-  %445 = load i16, ptr %444, align 2
-  %446 = add nsw i32 %441, -1
-  %447 = sext i32 %446 to i64
-  %448 = getelementptr inbounds i16, ptr %.0323403, i64 %447
-  store i16 %445, ptr %448, align 2
-  %449 = load i32, ptr %42, align 8
-  %450 = mul nsw i32 %449, 3
-  br label %475
+  %435 = load i16, ptr %434, align 2
+  %436 = getelementptr inbounds i8, ptr %.0323403, i64 -8
+  store i16 %435, ptr %436, align 2
+  %437 = load i16, ptr %.0323403, align 2
+  %438 = getelementptr inbounds i8, ptr %.0323403, i64 -6
+  store i16 %437, ptr %438, align 2
+  %439 = getelementptr inbounds i8, ptr %.0323403, i64 2
+  %440 = load i16, ptr %439, align 2
+  %441 = getelementptr inbounds i8, ptr %.0323403, i64 -4
+  store i16 %440, ptr %441, align 2
+  %442 = load i32, ptr %42, align 8
+  %443 = mul nsw i32 %442, 3
+  %444 = add nsw i32 %443, -4
+  %445 = sext i32 %444 to i64
+  %446 = getelementptr inbounds i16, ptr %.0323403, i64 %445
+  %447 = load i16, ptr %446, align 2
+  %448 = add nsw i32 %443, -1
+  %449 = sext i32 %448 to i64
+  %450 = getelementptr inbounds i16, ptr %.0323403, i64 %449
+  store i16 %447, ptr %450, align 2
+  %451 = load i32, ptr %42, align 8
+  %452 = mul nsw i32 %451, 3
+  br label %485
 
-451:                                              ; preds = %.thread, %432
-  %452 = getelementptr inbounds i8, ptr %.0323403, i64 -2
-  %453 = getelementptr inbounds i8, ptr %.0323403, i64 -10
-  %454 = load <4 x i16>, ptr %452, align 2
-  store <4 x i16> %454, ptr %453, align 2
-  %455 = load i32, ptr %42, align 8
-  %456 = mul nsw i32 %455, %7
-  %457 = add nsw i32 %456, -5
-  %458 = sext i32 %457 to i64
-  %459 = getelementptr inbounds i16, ptr %.0323403, i64 %458
+453:                                              ; preds = %.thread, %432
+  %454 = getelementptr inbounds i8, ptr %.0323403, i64 -2
+  %455 = load i16, ptr %454, align 2
+  %456 = getelementptr inbounds i8, ptr %.0323403, i64 -10
+  store i16 %455, ptr %456, align 2
+  %457 = load i16, ptr %.0323403, align 2
+  %458 = getelementptr inbounds i8, ptr %.0323403, i64 -8
+  store i16 %457, ptr %458, align 2
+  %459 = getelementptr inbounds i8, ptr %.0323403, i64 2
   %460 = load i16, ptr %459, align 2
-  %461 = add nsw i32 %456, -1
-  %462 = sext i32 %461 to i64
-  %463 = getelementptr inbounds i16, ptr %.0323403, i64 %462
-  store i16 %460, ptr %463, align 2
-  %464 = load i32, ptr %42, align 8
-  %465 = mul nsw i32 %464, %7
-  %466 = add nsw i32 %465, -4
-  %467 = sext i32 %466 to i64
-  %468 = getelementptr inbounds i16, ptr %.0323403, i64 %467
-  %469 = load i16, ptr %468, align 2
-  %470 = sext i32 %465 to i64
-  %471 = getelementptr inbounds i16, ptr %.0323403, i64 %470
-  store i16 %469, ptr %471, align 2
-  %472 = load i32, ptr %42, align 8
-  %473 = mul nsw i32 %472, %7
-  %474 = add nsw i32 %473, 1
-  br label %475
+  %461 = getelementptr inbounds i8, ptr %.0323403, i64 -6
+  store i16 %460, ptr %461, align 2
+  %462 = getelementptr inbounds i8, ptr %.0323403, i64 4
+  %463 = load i16, ptr %462, align 2
+  %464 = getelementptr inbounds i8, ptr %.0323403, i64 -4
+  store i16 %463, ptr %464, align 2
+  %465 = load i32, ptr %42, align 8
+  %466 = mul nsw i32 %465, %7
+  %467 = add nsw i32 %466, -5
+  %468 = sext i32 %467 to i64
+  %469 = getelementptr inbounds i16, ptr %.0323403, i64 %468
+  %470 = load i16, ptr %469, align 2
+  %471 = add nsw i32 %466, -1
+  %472 = sext i32 %471 to i64
+  %473 = getelementptr inbounds i16, ptr %.0323403, i64 %472
+  store i16 %470, ptr %473, align 2
+  %474 = load i32, ptr %42, align 8
+  %475 = mul nsw i32 %474, %7
+  %476 = add nsw i32 %475, -4
+  %477 = sext i32 %476 to i64
+  %478 = getelementptr inbounds i16, ptr %.0323403, i64 %477
+  %479 = load i16, ptr %478, align 2
+  %480 = sext i32 %475 to i64
+  %481 = getelementptr inbounds i16, ptr %.0323403, i64 %480
+  store i16 %479, ptr %481, align 2
+  %482 = load i32, ptr %42, align 8
+  %483 = mul nsw i32 %482, %7
+  %484 = add nsw i32 %483, 1
+  br label %485
 
-475:                                              ; preds = %451, %433
-  %.sink439 = phi i32 [ %474, %451 ], [ %450, %433 ]
-  %.pn.in.in = phi i32 [ %473, %451 ], [ %450, %433 ]
-  %.sink436 = phi i32 [ %7, %451 ], [ 3, %433 ]
-  %.sink432 = phi i32 [ 2, %451 ], [ 1, %433 ]
+485:                                              ; preds = %453, %433
+  %.sink439 = phi i32 [ %484, %453 ], [ %452, %433 ]
+  %.pn.in.in = phi i32 [ %483, %453 ], [ %452, %433 ]
+  %.sink436 = phi i32 [ %7, %453 ], [ 3, %433 ]
+  %.sink432 = phi i32 [ 2, %453 ], [ 1, %433 ]
   %.pn.in = add nsw i32 %.pn.in.in, -3
   %.pn = sext i32 %.pn.in to i64
   %.sink.in = getelementptr inbounds i16, ptr %.0323403, i64 %.pn
   %.sink = load i16, ptr %.sink.in, align 2
-  %476 = sext i32 %.sink439 to i64
-  %477 = getelementptr inbounds i16, ptr %.0323403, i64 %476
-  store i16 %.sink, ptr %477, align 2
-  %478 = load i32, ptr %42, align 8
-  %479 = mul nsw i32 %478, %.sink436
-  %480 = add nsw i32 %479, -2
-  %481 = sext i32 %480 to i64
-  %482 = getelementptr inbounds i16, ptr %.0323403, i64 %481
-  %483 = load i16, ptr %482, align 2
-  %484 = add nsw i32 %479, %.sink432
-  %485 = sext i32 %484 to i64
-  %486 = getelementptr inbounds i16, ptr %.0323403, i64 %485
-  store i16 %483, ptr %486, align 2
-  %487 = sub nsw i32 0, %.1336400
-  %488 = zext i1 %.not344 to i32
-  br label %489
+  %486 = sext i32 %.sink439 to i64
+  %487 = getelementptr inbounds i16, ptr %.0323403, i64 %486
+  store i16 %.sink, ptr %487, align 2
+  %488 = load i32, ptr %42, align 8
+  %489 = mul nsw i32 %488, %.sink436
+  %490 = add nsw i32 %489, -2
+  %491 = sext i32 %490 to i64
+  %492 = getelementptr inbounds i16, ptr %.0323403, i64 %491
+  %493 = load i16, ptr %492, align 2
+  %494 = add nsw i32 %489, %.sink432
+  %495 = sext i32 %494 to i64
+  %496 = getelementptr inbounds i16, ptr %.0323403, i64 %495
+  store i16 %493, ptr %496, align 2
+  %497 = sub nsw i32 0, %.1336400
+  %498 = zext i1 %.not344 to i32
+  br label %499
 
-489:                                              ; preds = %63, %80, %475
-  %.2337 = phi i32 [ %.1336400, %63 ], [ %.1336400, %80 ], [ %487, %475 ]
-  %.2334 = phi i32 [ %.1333401, %63 ], [ %.1333401, %80 ], [ %488, %475 ]
-  %490 = getelementptr inbounds i16, ptr %.0405, i64 %46
-  %491 = getelementptr inbounds i16, ptr %.0323403, i64 %56
-  %492 = add nsw i32 %.0331402, 1
-  %493 = load i32, ptr %10, align 4
-  %494 = icmp slt i32 %492, %493
-  br i1 %494, label %57, label %._crit_edge, !llvm.loop !49
+499:                                              ; preds = %63, %80, %485
+  %.2337 = phi i32 [ %.1336400, %63 ], [ %.1336400, %80 ], [ %497, %485 ]
+  %.2334 = phi i32 [ %.1333401, %63 ], [ %.1333401, %80 ], [ %498, %485 ]
+  %500 = getelementptr inbounds i16, ptr %.0405, i64 %46
+  %501 = getelementptr inbounds i16, ptr %.0323403, i64 %56
+  %502 = add nsw i32 %.0331402, 1
+  %503 = load i32, ptr %10, align 4
+  %504 = icmp slt i32 %502, %503
+  br i1 %504, label %57, label %._crit_edge, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %489, %2
+._crit_edge:                                      ; preds = %499, %2
   ret void
 }
 

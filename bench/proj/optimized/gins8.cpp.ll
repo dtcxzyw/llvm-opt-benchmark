@@ -59,37 +59,28 @@ declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal { double, double } @_ZL15gins8_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
-  %4 = fmul double %0, %0
-  %5 = insertelement <2 x double> poison, double %4, i64 0
-  %6 = insertelement <2 x double> %5, double %1, i64 1
-  %7 = insertelement <2 x double> %6, double -9.524260e-04, i64 0
-  %8 = fmul <2 x double> %6, %7
-  %9 = extractelement <2 x double> %8, i64 1
-  %10 = tail call double @llvm.fmuladd.f64(double %9, double -1.623880e-01, double 1.000000e+00)
-  %11 = fmul double %10, %0
-  %12 = insertelement <2 x double> %6, double 0x3FB5555555555555, i64 1
-  %13 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %8, <2 x double> %12, <2 x double> <double 8.700000e-01, double 1.000000e+00>)
-  %14 = insertelement <2 x double> %6, double %11, i64 0
-  %15 = fmul <2 x double> %13, %14
-  %16 = extractelement <2 x double> %15, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %16, 0
-  %17 = extractelement <2 x double> %15, i64 1
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %17, 1
+  %4 = fmul double %1, %1
+  %5 = tail call double @llvm.fmuladd.f64(double %4, double 0x3FB5555555555555, double 1.000000e+00)
+  %6 = fmul double %5, %1
+  %7 = tail call double @llvm.fmuladd.f64(double %4, double -1.623880e-01, double 1.000000e+00)
+  %8 = fmul double %7, %0
+  %9 = fmul double %0, %0
+  %10 = fmul double %9, -9.524260e-04
+  %11 = tail call double @llvm.fmuladd.f64(double %10, double %9, double 8.700000e-01)
+  %12 = fmul double %11, %8
+  %.fca.0.insert = insertvalue { double, double } poison, double %12, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %6, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #5
-
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

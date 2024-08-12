@@ -667,17 +667,17 @@ entry:
   %agg.tmp4.i = alloca %"struct.eastl::DequeIterator", align 8
   %first.addr.i.i.i5.i.i10976 = alloca ptr, align 8
   %first.addr.i.i.i.i.i10977 = alloca ptr, align 8
-  %result.i.i.i.i16.i9390 = alloca %"class.eastl::insert_iterator.125", align 16
-  %result.i.i.i.i.i9391 = alloca %"class.eastl::insert_iterator.125", align 16
-  %result1.i9392 = alloca %"class.eastl::insert_iterator.125", align 16
+  %result.i.i.i.i16.i9390 = alloca %"class.eastl::insert_iterator.125", align 8
+  %result.i.i.i.i.i9391 = alloca %"class.eastl::insert_iterator.125", align 8
+  %result1.i9392 = alloca %"class.eastl::insert_iterator.125", align 8
   %agg.tmp49699389 = alloca %"class.eastl::insert_iterator.125", align 8
-  %agg.tmp49659388 = alloca %"class.eastl::insert_iterator.125", align 16
+  %agg.tmp49659388 = alloca %"class.eastl::insert_iterator.125", align 8
   %agg.tmp48629215 = alloca %"class.eastl::insert_iterator", align 8
   %agg.tmp48589214 = alloca %"class.eastl::insert_iterator", align 8
-  %result.i.i.i.i16.i = alloca %"class.eastl::insert_iterator.116", align 16
-  %result.i.i.i.i.i = alloca %"class.eastl::insert_iterator.116", align 16
-  %result1.i = alloca %"class.eastl::insert_iterator.116", align 16
-  %agg.tmp47779065 = alloca %"class.eastl::insert_iterator.116", align 16
+  %result.i.i.i.i16.i = alloca %"class.eastl::insert_iterator.116", align 8
+  %result.i.i.i.i.i = alloca %"class.eastl::insert_iterator.116", align 8
+  %result1.i = alloca %"class.eastl::insert_iterator.116", align 8
+  %agg.tmp47779065 = alloca %"class.eastl::insert_iterator.116", align 8
   %agg.tmp46988941 = alloca %"class.eastl::insert_iterator", align 8
   %first.addr.i.i.i5.i.i = alloca ptr, align 8
   %first.addr.i.i.i.i.i = alloca ptr, align 8
@@ -2898,9 +2898,11 @@ invoke.cont156:                                   ; preds = %land.rhs.i637, %whi
   %call130 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray, ptr noundef nonnull %add.ptr129, i32 noundef 0, ptr noundef nonnull @.str.10, i32 noundef 4, i32 noundef 2, i32 noundef 1, i32 noundef 5, i32 noundef -5, i32 noundef 5, i32 noundef -1)
   %call131 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call130, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 767, ptr noundef nonnull @.str.11)
   %add.ptr133 = getelementptr inbounds i8, ptr %intArray, i64 8
-  %154 = load <2 x i32>, ptr %add.ptr133, align 8
-  %155 = shufflevector <2 x i32> %154, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %155, ptr %add.ptr133, align 8
+  %add.ptr135 = getelementptr inbounds i8, ptr %intArray, i64 12
+  %154 = load i32, ptr %add.ptr133, align 8
+  %155 = load i32, ptr %add.ptr135, align 4
+  store i32 %155, ptr %add.ptr133, align 8
+  store i32 %154, ptr %add.ptr135, align 4
   %call139 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray, ptr noundef nonnull %add.ptr129, i32 noundef 0, ptr noundef nonnull @.str.12, i32 noundef 4, i32 noundef 2, i32 noundef 5, i32 noundef 1, i32 noundef -5, i32 noundef 5, i32 noundef -1)
   %call140 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call139, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 770, ptr noundef nonnull @.str.13)
   %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %toArray, i64 4
@@ -16509,11 +16511,29 @@ if.end.i.i.i.i22.i8858:                           ; preds = %_ZN5eastl4copyIPiS1
 _ZN5eastl9set_unionIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit8878: ; preds = %_ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8855, %if.end.i.i.i.i22.i8858
   %call4638 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIPiiEbT_S1_T0_PKcz(ptr noundef nonnull %intArray34613, ptr noundef nonnull %add.ptr4624, i32 noundef 0, ptr noundef nonnull @.str.303, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 5, i32 noundef 7, i32 noundef 8, i32 noundef 8, i32 noundef 11, i32 noundef 12, i32 noundef 24, i32 noundef 25, i32 noundef 26, i32 noundef 43, i32 noundef 9, i32 noundef 9, i32 noundef 9, i32 noundef 9, i32 noundef 9, i32 noundef 9, i32 noundef -1)
   %call4639 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call4638, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 2405, ptr noundef nonnull @.str.305)
+  %arrayidx4640 = getelementptr inbounds i8, ptr %intArray34613, i64 44
+  store i32 9, ptr %arrayidx4640, align 4
+  %arrayidx4641 = getelementptr inbounds i8, ptr %intArray34613, i64 40
+  store i32 9, ptr %arrayidx4641, align 8
+  %arrayidx4642 = getelementptr inbounds i8, ptr %intArray34613, i64 36
+  store i32 9, ptr %arrayidx4642, align 4
   %arrayidx4643 = getelementptr inbounds i8, ptr %intArray34613, i64 32
-  store <4 x i32> <i32 9, i32 9, i32 9, i32 9>, ptr %arrayidx4643, align 16
+  store i32 9, ptr %arrayidx4643, align 16
+  %arrayidx4644 = getelementptr inbounds i8, ptr %intArray34613, i64 28
+  store i32 9, ptr %arrayidx4644, align 4
+  %arrayidx4645 = getelementptr inbounds i8, ptr %intArray34613, i64 24
+  store i32 9, ptr %arrayidx4645, align 8
+  %arrayidx4646 = getelementptr inbounds i8, ptr %intArray34613, i64 20
+  store i32 9, ptr %arrayidx4646, align 4
   %arrayidx4647 = getelementptr inbounds i8, ptr %intArray34613, i64 16
-  store <4 x i32> <i32 9, i32 9, i32 9, i32 9>, ptr %arrayidx4647, align 16
-  store <4 x i32> <i32 9, i32 9, i32 9, i32 9>, ptr %intArray34613, align 16
+  store i32 9, ptr %arrayidx4647, align 16
+  %arrayidx4648 = getelementptr inbounds i8, ptr %intArray34613, i64 12
+  store i32 9, ptr %arrayidx4648, align 4
+  %arrayidx4649 = getelementptr inbounds i8, ptr %intArray34613, i64 8
+  store i32 9, ptr %arrayidx4649, align 8
+  %arrayidx4650 = getelementptr inbounds i8, ptr %intArray34613, i64 4
+  store i32 9, ptr %arrayidx4650, align 4
+  store i32 9, ptr %intArray34613, align 16
   br label %while.body.i8893
 
 while.body.i8893:                                 ; preds = %_ZN5eastl9set_unionIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit8878, %if.end8.i8902
@@ -16748,10 +16768,10 @@ invoke.cont4779:                                  ; preds = %_ZN5eastl6vectorIiN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %only_v24765, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp47779065)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result1.i)
-  store ptr %only_v24765, ptr %agg.tmp47779065, align 16
+  store ptr %only_v24765, ptr %agg.tmp47779065, align 8
   %agg.tmp4777.sroa.2.0.agg.tmp47779065.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp47779065, i64 8
   store ptr null, ptr %agg.tmp4777.sroa.2.0.agg.tmp47779065.sroa_idx, align 8
-  store ptr %only_v14762, ptr %result1.i, align 16
+  store ptr %only_v14762, ptr %result1.i, align 8
   %1761 = getelementptr inbounds i8, ptr %result1.i, i64 8
   store ptr null, ptr %1761, align 8
   br label %while.body.i9076
@@ -16795,9 +16815,12 @@ if.end14.i:                                       ; preds = %if.then6.i, %if.the
 
 while.end.i9066:                                  ; preds = %if.end14.i
   %first1.addr.1.i9081.ptr.le = getelementptr inbounds i8, ptr %call.i.i.i.i.i4.i, i64 %first1.addr.1.i9081.idx
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %agg.tmp47779065, align 8
+  %agg.tmp.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp4777.sroa.2.0.agg.tmp47779065.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result.i.i.i.i.i)
-  %1763 = load <2 x ptr>, ptr %agg.tmp47779065, align 16
-  store <2 x ptr> %1763, ptr %result.i.i.i.i.i, align 16
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %result.i.i.i.i.i, align 8
+  %1763 = getelementptr inbounds i8, ptr %result.i.i.i.i.i, i64 8
+  store ptr %agg.tmp.sroa.2.0.copyload.i, ptr %1763, align 8
   %gepdiff13119 = sub nsw i64 12, %first2.addr.1.i9080.idx
   %sub.ptr.div.i.i.i.i.i9071 = ashr exact i64 %gepdiff13119, 2
   %cmp4.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i9071, 0
@@ -16821,9 +16844,12 @@ call1.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i.i.i9
 
 _ZN5eastl4copyIPKZ13TestAlgorithmvE5localNS_15insert_iteratorINS_6vectorIS1_NS_9allocatorEEEEEEET0_T_SA_S9_.exit.i: ; preds = %call1.i.i.i.i.i.noexc, %while.end.i9066
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result.i.i.i.i.i)
+  %agg.tmp16.sroa.0.0.copyload.i = load ptr, ptr %result1.i, align 8
+  %agg.tmp16.sroa.2.0.copyload.i = load ptr, ptr %1761, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result.i.i.i.i16.i)
-  %1764 = load <2 x ptr>, ptr %result1.i, align 16
-  store <2 x ptr> %1764, ptr %result.i.i.i.i16.i, align 16
+  store ptr %agg.tmp16.sroa.0.0.copyload.i, ptr %result.i.i.i.i16.i, align 8
+  %1764 = getelementptr inbounds i8, ptr %result.i.i.i.i16.i, i64 8
+  store ptr %agg.tmp16.sroa.2.0.copyload.i, ptr %1764, align 8
   %gepdiff13120 = sub nsw i64 28, %first1.addr.1.i9081.idx
   %sub.ptr.div.i.i.i.i20.i = ashr exact i64 %gepdiff13120, 2
   %cmp4.i.i.i.i21.i = icmp sgt i64 %sub.ptr.div.i.i.i.i20.i, 0
@@ -17194,10 +17220,10 @@ invoke.cont4971:                                  ; preds = %_ZN5eastl6vectorIiN
   store ptr %intersection4953, ptr %agg.tmp49699389, align 8
   %agg.tmp4969.sroa.2.0.agg.tmp49699389.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp49699389, i64 8
   store ptr null, ptr %agg.tmp4969.sroa.2.0.agg.tmp49699389.sroa_idx, align 8
-  store ptr %only_v24950, ptr %agg.tmp49659388, align 16
+  store ptr %only_v24950, ptr %agg.tmp49659388, align 8
   %agg.tmp4965.sroa.2.0.agg.tmp49659388.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp49659388, i64 8
   store ptr null, ptr %agg.tmp4965.sroa.2.0.agg.tmp49659388.sroa_idx, align 8
-  store ptr %only_v14947, ptr %result1.i9392, align 16
+  store ptr %only_v14947, ptr %result1.i9392, align 8
   %1794 = getelementptr inbounds i8, ptr %result1.i9392, i64 8
   store ptr null, ptr %1794, align 8
   br label %while.body.i9424
@@ -17245,9 +17271,12 @@ if.end17.i:                                       ; preds = %if.then6.i9440, %if
 
 while.end.i9395:                                  ; preds = %if.end17.i
   %first2.addr.1.i9435.ptr.le = getelementptr inbounds i8, ptr %call.i.i.i.i.i4.i9369, i64 %first2.addr.1.i9435.idx
+  %agg.tmp.sroa.0.0.copyload.pre.i = load ptr, ptr %result1.i9392, align 8
+  %agg.tmp.sroa.2.0.copyload.pre.i = load ptr, ptr %1794, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result.i.i.i.i.i9391)
-  %1796 = load <2 x ptr>, ptr %result1.i9392, align 16
-  store <2 x ptr> %1796, ptr %result.i.i.i.i.i9391, align 16
+  store ptr %agg.tmp.sroa.0.0.copyload.pre.i, ptr %result.i.i.i.i.i9391, align 8
+  %1796 = getelementptr inbounds i8, ptr %result.i.i.i.i.i9391, i64 8
+  store ptr %agg.tmp.sroa.2.0.copyload.pre.i, ptr %1796, align 8
   %gepdiff13123 = sub nsw i64 28, %first1.addr.1.i9436.idx
   %sub.ptr.div.i.i.i.i.i9403 = ashr exact i64 %gepdiff13123, 2
   %cmp4.i.i.i.i.i9404 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i9403, 0
@@ -17271,9 +17300,12 @@ call1.i.i.i.i.i.noexc9449:                        ; preds = %for.body.i.i.i.i.i9
 
 _ZN5eastl4copyIPKZ13TestAlgorithmvE5local_0NS_15insert_iteratorINS_6vectorIS1_NS_9allocatorEEEEEEET0_T_SA_S9_.exit.i: ; preds = %call1.i.i.i.i.i.noexc9449, %while.end.i9395
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result.i.i.i.i.i9391)
+  %agg.tmp19.sroa.0.0.copyload.i = load ptr, ptr %agg.tmp49659388, align 8
+  %agg.tmp19.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp4965.sroa.2.0.agg.tmp49659388.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result.i.i.i.i16.i9390)
-  %1797 = load <2 x ptr>, ptr %agg.tmp49659388, align 16
-  store <2 x ptr> %1797, ptr %result.i.i.i.i16.i9390, align 16
+  store ptr %agg.tmp19.sroa.0.0.copyload.i, ptr %result.i.i.i.i16.i9390, align 8
+  %1797 = getelementptr inbounds i8, ptr %result.i.i.i.i16.i9390, i64 8
+  store ptr %agg.tmp19.sroa.2.0.copyload.i, ptr %1797, align 8
   %gepdiff13124 = sub nsw i64 12, %first2.addr.1.i9435.idx
   %sub.ptr.div.i.i.i.i20.i9408 = ashr exact i64 %gepdiff13124, 2
   %cmp4.i.i.i.i21.i9409 = icmp sgt i64 %sub.ptr.div.i.i.i.i20.i9408, 0

@@ -65,7 +65,7 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug81_$LT$impl$u20$core..fm
 define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fmt..Debug$u20$for$u20$logos_codegen..graph..rope..Rope$GT$3fmt17h904605e10ac72f20E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
-  %5 = alloca [12 x i8], align 8
+  %5 = alloca [12 x i8], align 4
   %6 = alloca [32 x i8], align 8
   %7 = alloca [16 x i8], align 8
   %8 = alloca [16 x i8], align 8
@@ -112,7 +112,7 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
   %35 = getelementptr inbounds i8, ptr %9, i64 24
   br label %36
 
-36:                                               ; preds = %70, %22
+36:                                               ; preds = %73, %22
   %37 = invoke align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b7b9355ef733404E"(ptr nonnull align 8 %11)
           to label %38 unwind label %.loopexit
 
@@ -130,7 +130,7 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
   store ptr %8, ptr %34, align 8
   store i64 1, ptr %35, align 8
   %41 = invoke zeroext i1 @"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hcc04dd4375aeb5a5E"(ptr nonnull align 8 %12, ptr nonnull align 8 %9)
-          to label %70 unwind label %.loopexit
+          to label %73 unwind label %.loopexit
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %0, i64 24
@@ -149,7 +149,7 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
   %50 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 %49, ptr %50, align 8
   %51 = invoke zeroext i1 @"_ZN89_$LT$logos_codegen..graph..impls..debug..Arm$LT$T$C$U$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0d6ece38b78a2e3fE"(ptr nonnull align 8 %4, ptr align 8 %1)
-          to label %69 unwind label %67
+          to label %72 unwind label %70
 
 52:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
@@ -164,63 +164,67 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
   %58 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr120drop_in_place$LT$logos_codegen..graph..impls..debug..Arm$LT$alloc..string..String$C$logos_codegen..graph..NodeId$GT$$GT$17h749cf0dbc4a4366fE"(ptr nonnull align 8 %6) #9
-          to label %.thread unwind label %65
+          to label %.thread unwind label %68
 
 59:                                               ; preds = %52
   call void @"_ZN4core3ptr120drop_in_place$LT$logos_codegen..graph..impls..debug..Arm$LT$alloc..string..String$C$logos_codegen..graph..NodeId$GT$$GT$17h749cf0dbc4a4366fE"(ptr nonnull align 8 %6)
-  %60 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 95, ptr %60, align 8
-  %61 = load <2 x i32>, ptr %43, align 8
-  store <2 x i32> %61, ptr %5, align 8
-  %62 = call align 8 ptr @_ZN4core3fmt8builders9DebugList5entry17h0c25bb22470b1f01E(ptr nonnull align 8 %7, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.4e7a7cddd1f3e551fe8a7710671527a6.5)
-  %63 = call zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hbb6daff8b6df387cE(ptr nonnull align 8 %7)
-  br label %64
+  %60 = load i32, ptr %43, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 28
+  %62 = load i32, ptr %61, align 4
+  %63 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 95, ptr %63, align 4
+  store i32 %60, ptr %5, align 4
+  %64 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %62, ptr %64, align 4
+  %65 = call align 8 ptr @_ZN4core3fmt8builders9DebugList5entry17h0c25bb22470b1f01E(ptr nonnull align 8 %7, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.4e7a7cddd1f3e551fe8a7710671527a6.5)
+  %66 = call zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hbb6daff8b6df387cE(ptr nonnull align 8 %7)
+  br label %67
 
-64:                                               ; preds = %59, %69, %71
-  %.sroa.0.0.shrunk = phi i1 [ %51, %69 ], [ true, %71 ], [ %63, %59 ]
+67:                                               ; preds = %59, %72, %74
+  %.sroa.0.0.shrunk = phi i1 [ %51, %72 ], [ true, %74 ], [ %66, %59 ]
   ret i1 %.sroa.0.0.shrunk
 
-65:                                               ; preds = %72, %67, %57
-  %66 = landingpad { ptr, i32 }
+68:                                               ; preds = %75, %70, %57
+  %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-67:                                               ; preds = %47
-  %68 = landingpad { ptr, i32 }
+70:                                               ; preds = %47
+  %71 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr120drop_in_place$LT$logos_codegen..graph..impls..debug..Arm$LT$alloc..string..String$C$logos_codegen..graph..NodeId$GT$$GT$17h749cf0dbc4a4366fE"(ptr nonnull align 8 %4) #9
-          to label %.thread unwind label %65
+          to label %.thread unwind label %68
 
-69:                                               ; preds = %47
+72:                                               ; preds = %47
   call void @"_ZN4core3ptr120drop_in_place$LT$logos_codegen..graph..impls..debug..Arm$LT$alloc..string..String$C$logos_codegen..graph..NodeId$GT$$GT$17h749cf0dbc4a4366fE"(ptr nonnull align 8 %4)
-  br label %64
+  br label %67
 
-70:                                               ; preds = %40
-  br i1 %41, label %71, label %36
+73:                                               ; preds = %40
+  br i1 %41, label %74, label %36
 
-71:                                               ; preds = %70
+74:                                               ; preds = %73
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %12)
-  br label %64
+  br label %67
 
-.thread:                                          ; preds = %57, %67, %72
-  %.pn17 = phi { ptr, i32 } [ %lpad.phi, %72 ], [ %58, %57 ], [ %68, %67 ]
+.thread:                                          ; preds = %57, %70, %75
+  %.pn17 = phi { ptr, i32 } [ %lpad.phi, %75 ], [ %58, %57 ], [ %71, %70 ]
   resume { ptr, i32 } %.pn17
 
 .loopexit:                                        ; preds = %36, %40
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %75
 
 .loopexit.split-lp:                               ; preds = %46
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %75
 
-72:                                               ; preds = %.loopexit.split-lp, %.loopexit
+75:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %12) #9
-          to label %.thread unwind label %65
+          to label %.thread unwind label %68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

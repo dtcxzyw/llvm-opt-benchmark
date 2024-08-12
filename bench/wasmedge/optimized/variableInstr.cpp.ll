@@ -148,6 +148,10 @@ define void @_ZNK8WasmEdge8Executor8Executor13runLocalSetOpERNS_7Runtime12StackM
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -16
+  %.sroa.0.0.copyload.i = load i64, ptr %7, align 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 -8
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store ptr %7, ptr %5, align 8
   %8 = add i32 %3, -1
   %9 = icmp ne i32 %8, 0
   tail call void @llvm.assume(i1 %9)
@@ -161,9 +165,9 @@ define void @_ZNK8WasmEdge8Executor8Executor13runLocalSetOpERNS_7Runtime12StackM
   tail call void @llvm.assume(i1 %16)
   %17 = sub nsw i64 %15, %10
   %18 = getelementptr inbounds %"class.WasmEdge::Variant", ptr %11, i64 %17
-  %19 = load <2 x i64>, ptr %7, align 16
-  store ptr %7, ptr %5, align 8
-  store <2 x i64> %19, ptr %18, align 16
+  store i64 %.sroa.0.0.copyload.i, ptr %18, align 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
   store i64 1, ptr %0, align 4
   ret void
 }
@@ -296,7 +300,7 @@ declare noundef ptr @_ZNK8WasmEdge8Executor8Executor16getGlobInstByIdxERNS_7Runt
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZNK8WasmEdge8Executor8Executor14runGlobalSetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = invoke noundef ptr @_ZNK8WasmEdge8Executor8Executor16getGlobInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %3)
-          to label %6 unwind label %13
+          to label %6 unwind label %12
 
 6:                                                ; preds = %4
   %7 = icmp ne ptr %5, null
@@ -304,18 +308,22 @@ define void @_ZNK8WasmEdge8Executor8Executor14runGlobalSetOpERNS_7Runtime12Stack
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -16
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = load <2 x i64>, ptr %10, align 16
+  %.sroa.0.0.copyload.i = load i64, ptr %10, align 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 -8
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %10, ptr %8, align 8
-  store <2 x i64> %12, ptr %11, align 16
+  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %.sroa.0.0.copyload.i, ptr %11, align 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
   store i64 1, ptr %0, align 4
   ret void
 
-13:                                               ; preds = %4
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %4
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #13
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #13
   unreachable
 }
 

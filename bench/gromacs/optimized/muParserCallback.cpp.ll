@@ -107,11 +107,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdvEb(ptr nocapture noundef nonnull write
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 2, i32 26>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -139,11 +145,17 @@ define void @_ZN2mu14ParserCallbackC2EPFddEb(ptr nocapture noundef nonnull write
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 1, i32 -1, i32 2, i32 26>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -152,11 +164,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdddEb(ptr nocapture noundef nonnull writ
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 2, i32 -1, i32 2, i32 26>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 2, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -184,11 +202,17 @@ define void @_ZN2mu14ParserCallbackC2EPFddddEb(ptr nocapture noundef nonnull wri
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 3, i32 -1, i32 2, i32 26>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 3, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -197,11 +221,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdddddEb(ptr nocapture noundef nonnull wr
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 4, i32 -1, i32 2, i32 26>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 4, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -210,11 +240,17 @@ define void @_ZN2mu14ParserCallbackC2EPFddddddEb(ptr nocapture noundef nonnull w
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 5, i32 -1, i32 2, i32 26>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 5, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -223,11 +259,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdddddddEb(ptr nocapture noundef nonnull 
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 6, i32 -1, i32 2, i32 26>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 6, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -236,11 +278,17 @@ define void @_ZN2mu14ParserCallbackC2EPFddddddddEb(ptr nocapture noundef nonnull
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 7, i32 -1, i32 2, i32 26>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 7, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -249,11 +297,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdddddddddEb(ptr nocapture noundef nonnul
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8, i32 -1, i32 2, i32 26>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 8, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -262,11 +316,17 @@ define void @_ZN2mu14ParserCallbackC2EPFddddddddddEb(ptr nocapture noundef nonnu
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 9, i32 -1, i32 2, i32 26>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 9, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -275,11 +335,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdddddddddddEb(ptr nocapture noundef nonn
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 10, i32 -1, i32 2, i32 26>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 10, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -292,11 +358,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvES1_b(ptr nocapture noundef nonnull w
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8192, i32 -1, i32 2, i32 26>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8192, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -312,11 +384,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvdES1_b(ptr nocapture noundef nonnull 
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8193, i32 -1, i32 2, i32 26>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8193, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -329,11 +407,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvddES1_b(ptr nocapture noundef nonnull
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8194, i32 -1, i32 2, i32 26>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8194, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -346,11 +430,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvdddES1_b(ptr nocapture noundef nonnul
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8195, i32 -1, i32 2, i32 26>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8195, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -363,11 +453,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvddddES1_b(ptr nocapture noundef nonnu
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8196, i32 -1, i32 2, i32 26>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8196, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -380,11 +476,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvdddddES1_b(ptr nocapture noundef nonn
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8197, i32 -1, i32 2, i32 26>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8197, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -397,11 +499,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvddddddES1_b(ptr nocapture noundef non
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8198, i32 -1, i32 2, i32 26>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8198, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -414,11 +522,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvdddddddES1_b(ptr nocapture noundef no
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8199, i32 -1, i32 2, i32 26>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8199, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -431,11 +545,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvddddddddES1_b(ptr nocapture noundef n
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8200, i32 -1, i32 2, i32 26>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8200, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -448,11 +568,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvdddddddddES1_b(ptr nocapture noundef 
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8201, i32 -1, i32 2, i32 26>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8201, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -465,11 +591,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvddddddddddES1_b(ptr nocapture noundef
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8202, i32 -1, i32 2, i32 26>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8202, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -478,11 +610,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdiiEb(ptr nocapture noundef nonnull writ
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 2, i32 28>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -491,11 +629,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdiidEb(ptr nocapture noundef nonnull wri
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 1, i32 -1, i32 2, i32 28>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -504,11 +648,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdiiddEb(ptr nocapture noundef nonnull wr
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 2, i32 -1, i32 2, i32 28>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 2, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -517,11 +667,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdiidddEb(ptr nocapture noundef nonnull w
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 3, i32 -1, i32 2, i32 28>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 3, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -530,11 +686,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdiiddddEb(ptr nocapture noundef nonnull 
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 4, i32 -1, i32 2, i32 28>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 4, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -543,11 +705,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdiidddddEb(ptr nocapture noundef nonnull
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 5, i32 -1, i32 2, i32 28>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 5, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -556,11 +724,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdiiddddddEb(ptr nocapture noundef nonnul
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 6, i32 -1, i32 2, i32 28>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 6, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -569,11 +743,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdiidddddddEb(ptr nocapture noundef nonnu
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 7, i32 -1, i32 2, i32 28>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 7, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -582,11 +762,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdiiddddddddEb(ptr nocapture noundef nonn
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8, i32 -1, i32 2, i32 28>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 8, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -595,11 +781,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdiidddddddddEb(ptr nocapture noundef non
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 9, i32 -1, i32 2, i32 28>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 9, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -608,11 +800,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdiiddddddddddEb(ptr nocapture noundef no
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 10, i32 -1, i32 2, i32 28>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 10, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -625,11 +823,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviiES1_b(ptr nocapture noundef nonnull
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8192, i32 -1, i32 2, i32 28>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8192, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -642,11 +846,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviidES1_b(ptr nocapture noundef nonnul
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8193, i32 -1, i32 2, i32 28>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8193, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -659,11 +869,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviiddES1_b(ptr nocapture noundef nonnu
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8194, i32 -1, i32 2, i32 28>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8194, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -676,11 +892,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviidddES1_b(ptr nocapture noundef nonn
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8195, i32 -1, i32 2, i32 28>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8195, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -693,11 +915,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviiddddES1_b(ptr nocapture noundef non
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8196, i32 -1, i32 2, i32 28>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8196, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -710,11 +938,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviidddddES1_b(ptr nocapture noundef no
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8197, i32 -1, i32 2, i32 28>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8197, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -727,11 +961,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviiddddddES1_b(ptr nocapture noundef n
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8198, i32 -1, i32 2, i32 28>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8198, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -744,11 +984,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviidddddddES1_b(ptr nocapture noundef 
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8199, i32 -1, i32 2, i32 28>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8199, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -761,11 +1007,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviiddddddddES1_b(ptr nocapture noundef
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8200, i32 -1, i32 2, i32 28>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8200, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -778,11 +1030,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviidddddddddES1_b(ptr nocapture nounde
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8201, i32 -1, i32 2, i32 28>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8201, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -795,11 +1053,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPviiddddddddddES1_b(ptr nocapture nound
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8202, i32 -1, i32 2, i32 28>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8202, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 28, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -808,11 +1072,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKdiEb(ptr nocapture noundef nonnull wr
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 16384, i32 -1, i32 2, i32 26>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 16384, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -825,11 +1095,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKdiES1_b(ptr nocapture noundef nonnu
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 24576, i32 -1, i32 2, i32 26>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 24576, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 26, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -838,11 +1114,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKcEb(ptr nocapture noundef nonnull wri
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 2, i32 27>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 27, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -851,11 +1133,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKcdEb(ptr nocapture noundef nonnull wr
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 1, i32 -1, i32 2, i32 27>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 27, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -864,11 +1152,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKcddEb(ptr nocapture noundef nonnull w
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 2, i32 -1, i32 2, i32 27>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 2, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 27, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -877,11 +1171,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKcdddEb(ptr nocapture noundef nonnull 
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 3, i32 -1, i32 2, i32 27>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 3, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 27, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -890,11 +1190,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKcddddEb(ptr nocapture noundef nonnull
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 4, i32 -1, i32 2, i32 27>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 4, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 27, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -903,11 +1209,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPKcdddddEb(ptr nocapture noundef nonnul
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 5, i32 -1, i32 2, i32 27>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %4, ptr %7, align 4
+  store i32 5, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 27, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %4, ptr %10, align 4
   ret void
 }
 
@@ -920,11 +1232,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcES1_b(ptr nocapture noundef nonnul
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8192, i32 -1, i32 2, i32 27>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8192, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 27, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -937,11 +1255,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdES1_b(ptr nocapture noundef nonnu
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8193, i32 -1, i32 2, i32 27>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8193, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 27, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -954,11 +1278,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcddES1_b(ptr nocapture noundef nonn
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8194, i32 -1, i32 2, i32 27>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8194, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 27, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -971,11 +1301,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdddES1_b(ptr nocapture noundef non
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8195, i32 -1, i32 2, i32 27>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8195, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 27, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -988,11 +1324,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcddddES1_b(ptr nocapture noundef no
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8196, i32 -1, i32 2, i32 27>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8196, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 27, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -1005,11 +1347,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdddddES1_b(ptr nocapture noundef n
   store ptr %2, ptr %7, align 8
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 8197, i32 -1, i32 2, i32 27>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 %5, ptr %10, align 4
+  store i32 8197, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 27, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 %5, ptr %13, align 4
   ret void
 }
 
@@ -1017,11 +1365,17 @@ define void @_ZN2mu14ParserCallbackC2EPFdPvPKcdddddES1_b(ptr nocapture noundef n
 define void @_ZN2mu14ParserCallbackC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 2, i32 34>, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 2, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 0, ptr %4, align 4
+  store i32 0, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 34, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 2, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 0, ptr %7, align 4
   ret void
 }
 
@@ -1029,10 +1383,13 @@ define void @_ZN2mu14ParserCallbackC2Ev(ptr nocapture noundef nonnull writeonly 
 define void @_ZN2mu14ParserCallbackC2ERKS0_(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 20
-  store <4 x i32> <i32 0, i32 -1, i32 2, i32 34>, ptr %3, align 8
+  store i32 34, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 28

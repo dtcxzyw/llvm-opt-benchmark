@@ -30,63 +30,94 @@ define dso_local noundef ptr @dup_field(ptr noundef %0, i32 noundef %1, i32 noun
   %15 = getelementptr inbounds i8, ptr %8, i64 72
   store ptr %8, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 2
-  %17 = getelementptr inbounds i8, ptr %8, i64 2
-  %18 = load <2 x i16>, ptr %16, align 2
-  store <2 x i16> %18, ptr %17, align 2
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
-  %20 = getelementptr inbounds i8, ptr %8, i64 12
-  %21 = load <4 x i32>, ptr %19, align 4
-  store <4 x i32> %21, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 28
-  %23 = getelementptr inbounds i8, ptr %8, i64 28
-  %24 = load <2 x i16>, ptr %22, align 4
-  store <2 x i16> %24, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 36
-  %26 = getelementptr inbounds i8, ptr %8, i64 36
-  %27 = load <4 x i32>, ptr %25, align 4
-  store <4 x i32> %27, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 112
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 112
-  store ptr %29, ptr %30, align 8
-  %31 = tail call zeroext i1 @_nc_Copy_Type(ptr noundef nonnull %8, ptr noundef nonnull %0) #6
-  br i1 %31, label %32, label %48
+  %17 = load i16, ptr %16, align 2
+  %18 = getelementptr inbounds i8, ptr %8, i64 2
+  store i16 %17, ptr %18, align 2
+  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = load i16, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %8, i64 4
+  store i16 %20, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %8, i64 24
+  store i32 %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 12
+  %26 = load i32, ptr %25, align 4
+  %27 = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 %26, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds i8, ptr %8, i64 20
+  store i32 %32, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %0, i64 28
+  %35 = load i16, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %8, i64 28
+  store i16 %35, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %0, i64 30
+  %38 = load i16, ptr %37, align 2
+  %39 = getelementptr inbounds i8, ptr %8, i64 30
+  store i16 %38, ptr %39, align 2
+  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = load i32, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %8, i64 40
+  store i32 %41, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 44
+  %44 = load i32, ptr %43, align 4
+  %45 = getelementptr inbounds i8, ptr %8, i64 44
+  store i32 %44, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %0, i64 36
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds i8, ptr %8, i64 36
+  store i32 %47, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %50 = load i32, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %8, i64 48
+  store i32 %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 112
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %8, i64 112
+  store ptr %53, ptr %54, align 8
+  %55 = tail call zeroext i1 @_nc_Copy_Type(ptr noundef nonnull %8, ptr noundef nonnull %0) #6
+  br i1 %55, label %56, label %71
 
-32:                                               ; preds = %9
-  %33 = getelementptr inbounds i8, ptr %8, i64 16
-  %34 = load i32, ptr %20, align 4
-  %35 = load i32, ptr %33, align 8
-  %36 = mul nsw i32 %35, %34
-  %37 = add nsw i32 %36, 1
-  %38 = load i16, ptr %23, align 4
-  %39 = sext i16 %38 to i32
-  %40 = add nsw i32 %39, 1
-  %41 = mul nsw i32 %40, %37
-  %42 = sext i32 %41 to i64
-  %43 = tail call noalias ptr @malloc(i64 noundef %42) #5
-  %44 = getelementptr inbounds i8, ptr %8, i64 104
-  store ptr %43, ptr %44, align 8
-  %.not60 = icmp eq ptr %43, null
-  br i1 %.not60, label %48, label %45
+56:                                               ; preds = %9
+  %57 = load i32, ptr %27, align 4
+  %58 = load i32, ptr %30, align 8
+  %59 = mul nsw i32 %58, %57
+  %60 = add nsw i32 %59, 1
+  %61 = load i16, ptr %36, align 4
+  %62 = sext i16 %61 to i32
+  %63 = add nsw i32 %62, 1
+  %64 = mul nsw i32 %63, %60
+  %65 = sext i32 %64 to i64
+  %66 = tail call noalias ptr @malloc(i64 noundef %65) #5
+  %67 = getelementptr inbounds i8, ptr %8, i64 104
+  store ptr %66, ptr %67, align 8
+  %.not60 = icmp eq ptr %66, null
+  br i1 %.not60, label %71, label %68
 
-45:                                               ; preds = %32
-  %46 = getelementptr inbounds i8, ptr %0, i64 104
-  %47 = load ptr, ptr %46, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %47, i64 %42, i1 false)
-  br label %51
+68:                                               ; preds = %56
+  %69 = getelementptr inbounds i8, ptr %0, i64 104
+  %70 = load ptr, ptr %69, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr align 1 %70, i64 %65, i1 false)
+  br label %74
 
-48:                                               ; preds = %32, %9
-  %49 = tail call i32 @free_field(ptr noundef nonnull %8) #6
+71:                                               ; preds = %56, %9
+  %72 = tail call i32 @free_field(ptr noundef nonnull %8) #6
   br label %.thread
 
-.thread:                                          ; preds = %3, %7, %48
-  %.05365 = phi i32 [ -1, %48 ], [ -2, %3 ], [ -1, %7 ]
-  %50 = tail call ptr @__errno_location() #7
-  store i32 %.05365, ptr %50, align 4
-  br label %51
+.thread:                                          ; preds = %3, %7, %71
+  %.05365 = phi i32 [ -1, %71 ], [ -2, %3 ], [ -1, %7 ]
+  %73 = tail call ptr @__errno_location() #7
+  store i32 %.05365, ptr %73, align 4
+  br label %74
 
-51:                                               ; preds = %.thread, %45
-  %.0 = phi ptr [ %8, %45 ], [ null, %.thread ]
+74:                                               ; preds = %.thread, %68
+  %.0 = phi ptr [ %8, %68 ], [ null, %.thread ]
   ret ptr %.0
 }
 

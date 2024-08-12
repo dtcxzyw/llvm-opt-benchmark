@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @pj_nzmg(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %9, label %2
+  br i1 %.not, label %11, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 168
@@ -23,35 +23,39 @@ define hidden noundef ptr @pj_nzmg(ptr noundef writeonly %0) local_unnamed_addr 
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   store double 0x3E850AE666EC0537, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 440
-  store <2 x double> <double 0x400827C57763A87F, double 0xBFE6E6127FF9D971>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 456
-  store <2 x double> <double 2.510000e+06, double 6.023150e+06>, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr @_ZL14nzmg_e_forward5PJ_LPP8PJconsts, ptr %8, align 8
-  br label %18
+  store double 0x400827C57763A87F, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  store double 0xBFE6E6127FF9D971, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 456
+  store double 2.510000e+06, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 464
+  store double 6.023150e+06, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL14nzmg_e_forward5PJ_LPP8PJconsts, ptr %10, align 8
+  br label %20
 
-9:                                                ; preds = %1
-  %10 = tail call noundef ptr @_Z6pj_newv()
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %18, label %12
+11:                                               ; preds = %1
+  %12 = tail call noundef ptr @_Z6pj_newv()
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %20, label %14
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr @.str, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr @_ZL8des_nzmg, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 360
-  store i32 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 380
-  store i32 4, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %10, i64 384
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @.str, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr @_ZL8des_nzmg, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 360
   store i32 1, ptr %17, align 8
-  br label %18
+  %18 = getelementptr inbounds i8, ptr %12, i64 380
+  store i32 4, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %12, i64 384
+  store i32 1, ptr %19, align 8
+  br label %20
 
-18:                                               ; preds = %9, %12, %2
-  %.0 = phi ptr [ %0, %2 ], [ %10, %12 ], [ null, %9 ]
+20:                                               ; preds = %11, %14, %2
+  %.0 = phi ptr [ %0, %2 ], [ %12, %14 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -62,13 +66,17 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_nzmgP8PJconsts(ptr n
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   store double 0x3E850AE666EC0537, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 440
-  store <2 x double> <double 0x400827C57763A87F, double 0xBFE6E6127FF9D971>, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 456
-  store <2 x double> <double 2.510000e+06, double 6.023150e+06>, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr @_ZL14nzmg_e_forward5PJ_LPP8PJconsts, ptr %7, align 8
+  store double 0x400827C57763A87F, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 448
+  store double 0xBFE6E6127FF9D971, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 456
+  store double 2.510000e+06, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 464
+  store double 6.023150e+06, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL14nzmg_e_forward5PJ_LPP8PJconsts, ptr %9, align 8
   ret ptr %0
 }
 
@@ -78,78 +86,64 @@ declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 define internal { double, double } @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca %struct.COMPLEX, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = insertelement <2 x double> poison, double %0, i64 0
-  %7 = insertelement <2 x double> %6, double %1, i64 1
-  br label %10
+  br label %8
 
-8:                                                ; preds = %10
-  %9 = add nsw i32 %.039, -1
-  %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.thread, label %10, !llvm.loop !4
+6:                                                ; preds = %8
+  %7 = add nsw i32 %.039, -1
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %.thread, label %8, !llvm.loop !4
 
-10:                                               ; preds = %3, %8
-  %.039 = phi i32 [ 20, %3 ], [ %9, %8 ]
-  %11 = phi <2 x double> [ %7, %3 ], [ %38, %8 ]
-  %12 = extractelement <2 x double> %11, i64 0
-  %13 = extractelement <2 x double> %11, i64 1
-  %14 = call { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %13, double %12, ptr noundef nonnull @_ZL2bf, i32 noundef 5, ptr noundef nonnull %4)
-  %15 = extractvalue { double, double } %14, 0
-  %16 = extractvalue { double, double } %14, 1
-  %17 = load double, ptr %4, align 8
-  %18 = load double, ptr %5, align 8
-  %19 = fmul double %18, %18
-  %20 = call double @llvm.fmuladd.f64(double %17, double %17, double %19)
-  %21 = insertelement <2 x double> poison, double %16, i64 0
-  %22 = insertelement <2 x double> %21, double %15, i64 1
-  %23 = fsub <2 x double> %22, %7
-  %24 = extractelement <2 x double> %23, i64 1
+8:                                                ; preds = %3, %6
+  %.039 = phi i32 [ 20, %3 ], [ %7, %6 ]
+  %.sroa.6.038 = phi double [ %0, %3 ], [ %28, %6 ]
+  %.sroa.015.037 = phi double [ %1, %3 ], [ %27, %6 ]
+  %9 = call { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %.sroa.015.037, double %.sroa.6.038, ptr noundef nonnull @_ZL2bf, i32 noundef 5, ptr noundef nonnull %4)
+  %10 = extractvalue { double, double } %9, 0
+  %11 = extractvalue { double, double } %9, 1
+  %12 = fsub double %10, %1
+  %13 = fsub double %11, %0
+  %14 = load double, ptr %4, align 8
+  %15 = load double, ptr %5, align 8
+  %16 = fmul double %15, %15
+  %17 = call double @llvm.fmuladd.f64(double %14, double %14, double %16)
+  %18 = fmul double %13, %15
+  %19 = call double @llvm.fmuladd.f64(double %12, double %14, double %18)
+  %20 = fneg double %19
+  %21 = fdiv double %20, %17
+  %22 = fneg double %12
+  %23 = fmul double %15, %22
+  %24 = call double @llvm.fmuladd.f64(double %13, double %14, double %23)
   %25 = fneg double %24
-  %26 = insertelement <2 x double> poison, double %18, i64 0
-  %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
-  %28 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %29 = insertelement <2 x double> %28, double %25, i64 0
-  %30 = fmul <2 x double> %27, %29
-  %31 = insertelement <2 x double> poison, double %17, i64 0
-  %32 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> zeroinitializer
-  %33 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %23, <2 x double> %32, <2 x double> %30)
-  %34 = fneg <2 x double> %33
-  %35 = insertelement <2 x double> poison, double %20, i64 0
-  %36 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> zeroinitializer
-  %37 = fdiv <2 x double> %34, %36
-  %38 = fadd <2 x double> %11, %37
-  %39 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %37)
-  %shift = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %40 = fadd <2 x double> %shift, %39
-  %41 = extractelement <2 x double> %40, i64 0
-  %42 = fcmp ugt double %41, 1.000000e-10
-  br i1 %42, label %8, label %.preheader.preheader
+  %26 = fdiv double %25, %17
+  %27 = fadd double %.sroa.015.037, %21
+  %28 = fadd double %.sroa.6.038, %26
+  %29 = call double @llvm.fabs.f64(double %21)
+  %30 = call double @llvm.fabs.f64(double %26)
+  %31 = fadd double %29, %30
+  %32 = fcmp ugt double %31, 1.000000e-10
+  br i1 %32, label %6, label %.preheader
 
-.preheader.preheader:                             ; preds = %10
-  %43 = extractelement <2 x double> %38, i64 1
-  br label %.preheader
+.preheader:                                       ; preds = %8, %.preheader
+  %.sroa.4.042 = phi double [ %35, %.preheader ], [ -1.300000e-03, %8 ]
+  %.03141 = phi i32 [ %36, %.preheader ], [ 8, %8 ]
+  %.03240 = phi ptr [ %33, %.preheader ], [ getelementptr inbounds (i8, ptr @_ZZL14nzmg_e_inverse5PJ_XYP8PJconstsE4tphi, i64 64), %8 ]
+  %33 = getelementptr inbounds i8, ptr %.03240, i64 -8
+  %34 = load double, ptr %33, align 8
+  %35 = call double @llvm.fmuladd.f64(double %27, double %.sroa.4.042, double %34)
+  %36 = add nsw i32 %.03141, -1
+  %.not33 = icmp eq i32 %36, 0
+  br i1 %.not33, label %37, label %.preheader, !llvm.loop !6
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.sroa.4.042 = phi double [ %46, %.preheader ], [ -1.300000e-03, %.preheader.preheader ]
-  %.03141 = phi i32 [ %47, %.preheader ], [ 8, %.preheader.preheader ]
-  %.03240 = phi ptr [ %44, %.preheader ], [ getelementptr inbounds (i8, ptr @_ZZL14nzmg_e_inverse5PJ_XYP8PJconstsE4tphi, i64 64), %.preheader.preheader ]
-  %44 = getelementptr inbounds i8, ptr %.03240, i64 -8
-  %45 = load double, ptr %44, align 8
-  %46 = call double @llvm.fmuladd.f64(double %43, double %.sroa.4.042, double %45)
-  %47 = add nsw i32 %.03141, -1
-  %.not33 = icmp eq i32 %47, 0
-  br i1 %.not33, label %48, label %.preheader, !llvm.loop !6
-
-48:                                               ; preds = %.preheader
-  %49 = getelementptr inbounds i8, ptr %2, i64 448
-  %50 = load double, ptr %49, align 8
-  %51 = fmul double %43, %46
-  %52 = call double @llvm.fmuladd.f64(double %51, double 0x3FDF072FF6413483, double %50)
-  %53 = extractelement <2 x double> %38, i64 0
+37:                                               ; preds = %.preheader
+  %38 = getelementptr inbounds i8, ptr %2, i64 448
+  %39 = load double, ptr %38, align 8
+  %40 = fmul double %27, %35
+  %41 = call double @llvm.fmuladd.f64(double %40, double 0x3FDF072FF6413483, double %39)
   br label %.thread
 
-.thread:                                          ; preds = %8, %48
-  %.sroa.4.1 = phi double [ %52, %48 ], [ 0x7FF0000000000000, %8 ]
-  %.sroa.029.0 = phi double [ %53, %48 ], [ 0x7FF0000000000000, %8 ]
+.thread:                                          ; preds = %6, %37
+  %.sroa.4.1 = phi double [ %41, %37 ], [ 0x7FF0000000000000, %6 ]
+  %.sroa.029.0 = phi double [ %28, %37 ], [ 0x7FF0000000000000, %6 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.029.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.1, 1
   ret { double, double } %.fca.1.insert
@@ -189,19 +183,15 @@ declare { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double, double, ptr n
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #3
+
 declare { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double, double, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #4
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

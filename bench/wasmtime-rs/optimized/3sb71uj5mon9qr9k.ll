@@ -521,7 +521,7 @@ define hidden noundef i128 @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17h006024deaf2179a0E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i64, [2 x i64] }, align 16
+  %.sroa.0.i = alloca { i64, [2 x i64] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -542,7 +542,7 @@ define hidden void @_ZN3std9panicking3try17h006024deaf2179a0E(ptr noalias nocapt
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %9)
-          to label %15 unwind label %11
+          to label %14 unwind label %11
 
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
@@ -551,30 +551,34 @@ define hidden void @_ZN3std9panicking3try17h006024deaf2179a0E(ptr noalias nocapt
   unreachable
 
 13:                                               ; preds = %2
+  %.sroa.02.0.copyload4 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload6 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   %.sroa.11.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 16
-  %.sroa.11.0.copyload8 = load ptr, ptr %.sroa.11.0..sroa.0.i.sroa_idx, align 16
-  %14 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.11.0.copyload8 = load ptr, ptr %.sroa.11.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i)
-  store <2 x ptr> %14, ptr %0, align 8
+  store ptr %.sroa.02.0.copyload4, ptr %0, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.0.copyload6, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.11.0.copyload8, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %22
+  br label %21
 
-15:                                               ; preds = %7
-  %16 = extractvalue { ptr, ptr } %10, 0
-  %17 = extractvalue { ptr, ptr } %10, 1
+14:                                               ; preds = %7
+  %15 = extractvalue { ptr, ptr } %10, 0
+  %16 = extractvalue { ptr, ptr } %10, 1
+  %17 = icmp ne ptr %15, null
+  tail call void @llvm.assume(i1 %17)
   %18 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %17, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %15, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %16, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %17, ptr %21, align 8
   store i64 2, ptr %0, align 8
-  br label %22
+  br label %21
 
-22:                                               ; preds = %15, %13
+21:                                               ; preds = %14, %13
   ret void
 }
 
@@ -640,7 +644,7 @@ define hidden void @_ZN3std9panicking3try17h02dc749183554bcfE(ptr noalias nocapt
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17h06bd16c666b8eb61E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i64, [1 x i64] }, align 16
+  %.sroa.0.i = alloca { i64, [1 x i64] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -664,7 +668,7 @@ define hidden void @_ZN3std9panicking3try17h06bd16c666b8eb61E(ptr noalias nocapt
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %10)
-          to label %16 unwind label %12
+          to label %15 unwind label %12
 
 12:                                               ; preds = %8
   %13 = landingpad { ptr, i32 }
@@ -673,26 +677,29 @@ define hidden void @_ZN3std9panicking3try17h06bd16c666b8eb61E(ptr noalias nocapt
   unreachable
 
 14:                                               ; preds = %2
-  %15 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.02.0.copyload4 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload6 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  br label %23
+  br label %20
 
-16:                                               ; preds = %8
-  %17 = extractvalue { ptr, ptr } %11, 0
-  %18 = extractvalue { ptr, ptr } %11, 1
+15:                                               ; preds = %8
+  %16 = extractvalue { ptr, ptr } %11, 0
+  %17 = extractvalue { ptr, ptr } %11, 1
+  %18 = icmp ne ptr %16, null
+  tail call void @llvm.assume(i1 %18)
   %19 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %20)
-  %21 = insertelement <2 x ptr> poison, ptr %17, i64 0
-  %22 = insertelement <2 x ptr> %21, ptr %18, i64 1
-  br label %23
+  br label %20
 
-23:                                               ; preds = %16, %14
-  %storemerge = phi i64 [ 1, %16 ], [ 0, %14 ]
-  %24 = phi <2 x ptr> [ %22, %16 ], [ %15, %14 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %24, ptr %25, align 8
+20:                                               ; preds = %15, %14
+  %.sink13 = phi ptr [ %16, %15 ], [ %.sroa.02.0.copyload4, %14 ]
+  %.sink = phi ptr [ %17, %15 ], [ %.sroa.8.0.copyload6, %14 ]
+  %storemerge = phi i64 [ 1, %15 ], [ 0, %14 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink13, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %22, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -1006,7 +1013,7 @@ define hidden void @_ZN3std9panicking3try17h2a84477e198ce496E(ptr noalias nocapt
 define hidden void @_ZN3std9panicking3try17h2fa3c4beaa6e60c2E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i32, [3 x i32] }, align 8
   %4 = alloca { ptr, ptr, ptr }, align 8
-  %.sroa.0.i = alloca { i32, [3 x i32] }, align 16
+  %.sroa.0.i = alloca { i32, [3 x i32] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -1069,7 +1076,7 @@ define hidden void @_ZN3std9panicking3try17h2fa3c4beaa6e60c2E(ptr noalias nocapt
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %28)
-          to label %34 unwind label %30
+          to label %33 unwind label %30
 
 30:                                               ; preds = %26
   %31 = landingpad { ptr, i32 }
@@ -1080,26 +1087,29 @@ define hidden void @_ZN3std9panicking3try17h2fa3c4beaa6e60c2E(ptr noalias nocapt
 32:                                               ; preds = %.noexc4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !85
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !65
-  %33 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.06.0.copyload8 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload10 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  br label %41
+  br label %38
 
-34:                                               ; preds = %26
-  %35 = extractvalue { ptr, ptr } %29, 0
-  %36 = extractvalue { ptr, ptr } %29, 1
+33:                                               ; preds = %26
+  %34 = extractvalue { ptr, ptr } %29, 0
+  %35 = extractvalue { ptr, ptr } %29, 1
+  %36 = icmp ne ptr %34, null
+  call void @llvm.assume(i1 %36)
   %37 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %37)
-  %38 = icmp ne ptr %36, null
-  call void @llvm.assume(i1 %38)
-  %39 = insertelement <2 x ptr> poison, ptr %35, i64 0
-  %40 = insertelement <2 x ptr> %39, ptr %36, i64 1
-  br label %41
+  br label %38
 
-41:                                               ; preds = %34, %32
-  %storemerge = phi i64 [ 1, %34 ], [ 0, %32 ]
-  %42 = phi <2 x ptr> [ %40, %34 ], [ %33, %32 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %42, ptr %43, align 8
+38:                                               ; preds = %33, %32
+  %.sink17 = phi ptr [ %34, %33 ], [ %.sroa.06.0.copyload8, %32 ]
+  %.sink = phi ptr [ %35, %33 ], [ %.sroa.8.0.copyload10, %32 ]
+  %storemerge = phi i64 [ 1, %33 ], [ 0, %32 ]
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink17, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %40, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -1108,7 +1118,7 @@ define hidden void @_ZN3std9panicking3try17h2fa3c4beaa6e60c2E(ptr noalias nocapt
 define hidden void @_ZN3std9panicking3try17h31b0cef9a7dfb65aE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %.sroa.0.i = alloca { i64, [1 x i64] }, align 16
+  %.sroa.0.i = alloca { i64, [1 x i64] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -1131,7 +1141,7 @@ define hidden void @_ZN3std9panicking3try17h31b0cef9a7dfb65aE(ptr noalias nocapt
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %11)
-          to label %17 unwind label %13
+          to label %16 unwind label %13
 
 13:                                               ; preds = %9
   %14 = landingpad { ptr, i32 }
@@ -1142,33 +1152,36 @@ define hidden void @_ZN3std9panicking3try17h31b0cef9a7dfb65aE(ptr noalias nocapt
 15:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !96
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !89
-  %16 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.02.0.copyload4 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload6 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  br label %24
+  br label %21
 
-17:                                               ; preds = %9
-  %18 = extractvalue { ptr, ptr } %12, 0
-  %19 = extractvalue { ptr, ptr } %12, 1
+16:                                               ; preds = %9
+  %17 = extractvalue { ptr, ptr } %12, 0
+  %18 = extractvalue { ptr, ptr } %12, 1
+  %19 = icmp ne ptr %17, null
+  call void @llvm.assume(i1 %19)
   %20 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %20)
-  %21 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %21)
-  %22 = insertelement <2 x ptr> poison, ptr %18, i64 0
-  %23 = insertelement <2 x ptr> %22, ptr %19, i64 1
-  br label %24
+  br label %21
 
-24:                                               ; preds = %17, %15
-  %storemerge = phi i64 [ 1, %17 ], [ 0, %15 ]
-  %25 = phi <2 x ptr> [ %23, %17 ], [ %16, %15 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %25, ptr %26, align 8
+21:                                               ; preds = %16, %15
+  %.sink13 = phi ptr [ %17, %16 ], [ %.sroa.02.0.copyload4, %15 ]
+  %.sink = phi ptr [ %18, %16 ], [ %.sroa.8.0.copyload6, %15 ]
+  %storemerge = phi i64 [ 1, %16 ], [ 0, %15 ]
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink13, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %23, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17h459fcb97857075caE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i32, [3 x i32] }, align 16
+  %.sroa.0.i = alloca { i32, [3 x i32] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -1207,7 +1220,7 @@ define hidden void @_ZN3std9panicking3try17h459fcb97857075caE(ptr noalias nocapt
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
   %16 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %15)
-          to label %21 unwind label %17
+          to label %20 unwind label %17
 
 17:                                               ; preds = %13
   %18 = landingpad { ptr, i32 }
@@ -1216,26 +1229,29 @@ define hidden void @_ZN3std9panicking3try17h459fcb97857075caE(ptr noalias nocapt
   unreachable
 
 19:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc67935d1ffe9d594E.exit.i"
-  %20 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.03.0.copyload5 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload7 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  br label %28
+  br label %25
 
-21:                                               ; preds = %13
-  %22 = extractvalue { ptr, ptr } %16, 0
-  %23 = extractvalue { ptr, ptr } %16, 1
+20:                                               ; preds = %13
+  %21 = extractvalue { ptr, ptr } %16, 0
+  %22 = extractvalue { ptr, ptr } %16, 1
+  %23 = icmp ne ptr %21, null
+  tail call void @llvm.assume(i1 %23)
   %24 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %24)
-  %25 = icmp ne ptr %23, null
-  tail call void @llvm.assume(i1 %25)
-  %26 = insertelement <2 x ptr> poison, ptr %22, i64 0
-  %27 = insertelement <2 x ptr> %26, ptr %23, i64 1
-  br label %28
+  br label %25
 
-28:                                               ; preds = %21, %19
-  %storemerge = phi i64 [ 1, %21 ], [ 0, %19 ]
-  %29 = phi <2 x ptr> [ %27, %21 ], [ %20, %19 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %29, ptr %30, align 8
+25:                                               ; preds = %20, %19
+  %.sink14 = phi ptr [ %21, %20 ], [ %.sroa.03.0.copyload5, %19 ]
+  %.sink = phi ptr [ %22, %20 ], [ %.sroa.8.0.copyload7, %19 ]
+  %storemerge = phi i64 [ 1, %20 ], [ 0, %19 ]
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink14, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %27, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -1481,7 +1497,7 @@ define hidden void @_ZN3std9panicking3try17h57a04b93c83b0852E(ptr noalias nocapt
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17h5889df9094805bcaE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i64, [2 x i64] }, align 16
+  %.sroa.0.i = alloca { i64, [2 x i64] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -1499,7 +1515,7 @@ define hidden void @_ZN3std9panicking3try17h5889df9094805bcaE(ptr noalias nocapt
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %8)
-          to label %14 unwind label %10
+          to label %13 unwind label %10
 
 10:                                               ; preds = %6
   %11 = landingpad { ptr, i32 }
@@ -1508,36 +1524,40 @@ define hidden void @_ZN3std9panicking3try17h5889df9094805bcaE(ptr noalias nocapt
   unreachable
 
 12:                                               ; preds = %2
+  %.sroa.02.0.copyload4 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload6 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   %.sroa.11.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 16
-  %.sroa.11.0.copyload8 = load ptr, ptr %.sroa.11.0..sroa.0.i.sroa_idx, align 16
-  %13 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.11.0.copyload8 = load ptr, ptr %.sroa.11.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i)
-  store <2 x ptr> %13, ptr %0, align 8
+  store ptr %.sroa.02.0.copyload4, ptr %0, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.0.copyload6, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.11.0.copyload8, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %21
+  br label %20
 
-14:                                               ; preds = %6
-  %15 = extractvalue { ptr, ptr } %9, 0
-  %16 = extractvalue { ptr, ptr } %9, 1
+13:                                               ; preds = %6
+  %14 = extractvalue { ptr, ptr } %9, 0
+  %15 = extractvalue { ptr, ptr } %9, 1
+  %16 = icmp ne ptr %14, null
+  tail call void @llvm.assume(i1 %16)
   %17 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %14, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %16, ptr %20, align 8
   store i64 2, ptr %0, align 8
-  br label %21
+  br label %20
 
-21:                                               ; preds = %14, %12
+20:                                               ; preds = %13, %12
   ret void
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17h5b95122050123b07E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i64, [2 x i64] }, align 16
+  %.sroa.0.i = alloca { i64, [2 x i64] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -1555,7 +1575,7 @@ define hidden void @_ZN3std9panicking3try17h5b95122050123b07E(ptr noalias nocapt
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %8)
-          to label %14 unwind label %10
+          to label %13 unwind label %10
 
 10:                                               ; preds = %6
   %11 = landingpad { ptr, i32 }
@@ -1564,36 +1584,40 @@ define hidden void @_ZN3std9panicking3try17h5b95122050123b07E(ptr noalias nocapt
   unreachable
 
 12:                                               ; preds = %2
+  %.sroa.02.0.copyload4 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload6 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   %.sroa.11.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 16
-  %.sroa.11.0.copyload8 = load ptr, ptr %.sroa.11.0..sroa.0.i.sroa_idx, align 16
-  %13 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.11.0.copyload8 = load ptr, ptr %.sroa.11.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i)
-  store <2 x ptr> %13, ptr %0, align 8
+  store ptr %.sroa.02.0.copyload4, ptr %0, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.0.copyload6, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.11.0.copyload8, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %21
+  br label %20
 
-14:                                               ; preds = %6
-  %15 = extractvalue { ptr, ptr } %9, 0
-  %16 = extractvalue { ptr, ptr } %9, 1
+13:                                               ; preds = %6
+  %14 = extractvalue { ptr, ptr } %9, 0
+  %15 = extractvalue { ptr, ptr } %9, 1
+  %16 = icmp ne ptr %14, null
+  tail call void @llvm.assume(i1 %16)
   %17 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %14, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %15, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %16, ptr %20, align 8
   store i64 2, ptr %0, align 8
-  br label %21
+  br label %20
 
-21:                                               ; preds = %14, %12
+20:                                               ; preds = %13, %12
   ret void
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17h6a21b1925f829cd5E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i64, [2 x i64] }, align 16
+  %.sroa.0.i = alloca { i64, [2 x i64] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -1614,7 +1638,7 @@ define hidden void @_ZN3std9panicking3try17h6a21b1925f829cd5E(ptr noalias nocapt
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %9)
-          to label %15 unwind label %11
+          to label %14 unwind label %11
 
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
@@ -1623,30 +1647,34 @@ define hidden void @_ZN3std9panicking3try17h6a21b1925f829cd5E(ptr noalias nocapt
   unreachable
 
 13:                                               ; preds = %2
+  %.sroa.02.0.copyload4 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload6 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   %.sroa.11.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 16
-  %.sroa.11.0.copyload8 = load ptr, ptr %.sroa.11.0..sroa.0.i.sroa_idx, align 16
-  %14 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.11.0.copyload8 = load ptr, ptr %.sroa.11.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i)
-  store <2 x ptr> %14, ptr %0, align 8
+  store ptr %.sroa.02.0.copyload4, ptr %0, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.8.0.copyload6, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.11.0.copyload8, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %22
+  br label %21
 
-15:                                               ; preds = %7
-  %16 = extractvalue { ptr, ptr } %10, 0
-  %17 = extractvalue { ptr, ptr } %10, 1
+14:                                               ; preds = %7
+  %15 = extractvalue { ptr, ptr } %10, 0
+  %16 = extractvalue { ptr, ptr } %10, 1
+  %17 = icmp ne ptr %15, null
+  tail call void @llvm.assume(i1 %17)
   %18 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %18)
-  %19 = icmp ne ptr %17, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %15, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %16, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %17, ptr %21, align 8
   store i64 2, ptr %0, align 8
-  br label %22
+  br label %21
 
-22:                                               ; preds = %15, %13
+21:                                               ; preds = %14, %13
   ret void
 }
 
@@ -1776,7 +1804,7 @@ __rust_try.llvm.7073302902749960574.exit:         ; preds = %"_ZN115_$LT$core..p
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17h7761f925a22781b9E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i64, [1 x i64] }, align 16
+  %.sroa.0.i = alloca { i64, [1 x i64] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -1794,7 +1822,7 @@ define hidden void @_ZN3std9panicking3try17h7761f925a22781b9E(ptr noalias nocapt
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %8)
-          to label %14 unwind label %10
+          to label %13 unwind label %10
 
 10:                                               ; preds = %6
   %11 = landingpad { ptr, i32 }
@@ -1803,26 +1831,29 @@ define hidden void @_ZN3std9panicking3try17h7761f925a22781b9E(ptr noalias nocapt
   unreachable
 
 12:                                               ; preds = %2
-  %13 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.02.0.copyload4 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload6 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  br label %21
+  br label %18
 
-14:                                               ; preds = %6
-  %15 = extractvalue { ptr, ptr } %9, 0
-  %16 = extractvalue { ptr, ptr } %9, 1
+13:                                               ; preds = %6
+  %14 = extractvalue { ptr, ptr } %9, 0
+  %15 = extractvalue { ptr, ptr } %9, 1
+  %16 = icmp ne ptr %14, null
+  tail call void @llvm.assume(i1 %16)
   %17 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = insertelement <2 x ptr> poison, ptr %15, i64 0
-  %20 = insertelement <2 x ptr> %19, ptr %16, i64 1
-  br label %21
+  br label %18
 
-21:                                               ; preds = %14, %12
-  %storemerge = phi i64 [ 1, %14 ], [ 0, %12 ]
-  %22 = phi <2 x ptr> [ %20, %14 ], [ %13, %12 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %22, ptr %23, align 8
+18:                                               ; preds = %13, %12
+  %.sink13 = phi ptr [ %14, %13 ], [ %.sroa.02.0.copyload4, %12 ]
+  %.sink = phi ptr [ %15, %13 ], [ %.sroa.8.0.copyload6, %12 ]
+  %storemerge = phi i64 [ 1, %13 ], [ 0, %12 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink13, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %20, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -1952,7 +1983,7 @@ define hidden void @_ZN3std9panicking3try17h7ac5e9e1d476571dE(ptr noalias nocapt
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17h7f86c2852a490c68E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i32, [3 x i32] }, align 16
+  %.sroa.0.i = alloca { i32, [3 x i32] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -1991,7 +2022,7 @@ define hidden void @_ZN3std9panicking3try17h7f86c2852a490c68E(ptr noalias nocapt
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
   %16 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %15)
-          to label %21 unwind label %17
+          to label %20 unwind label %17
 
 17:                                               ; preds = %13
   %18 = landingpad { ptr, i32 }
@@ -2000,26 +2031,29 @@ define hidden void @_ZN3std9panicking3try17h7f86c2852a490c68E(ptr noalias nocapt
   unreachable
 
 19:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hb89a1482d879882bE.exit.i"
-  %20 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.03.0.copyload5 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload7 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  br label %28
+  br label %25
 
-21:                                               ; preds = %13
-  %22 = extractvalue { ptr, ptr } %16, 0
-  %23 = extractvalue { ptr, ptr } %16, 1
+20:                                               ; preds = %13
+  %21 = extractvalue { ptr, ptr } %16, 0
+  %22 = extractvalue { ptr, ptr } %16, 1
+  %23 = icmp ne ptr %21, null
+  tail call void @llvm.assume(i1 %23)
   %24 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %24)
-  %25 = icmp ne ptr %23, null
-  tail call void @llvm.assume(i1 %25)
-  %26 = insertelement <2 x ptr> poison, ptr %22, i64 0
-  %27 = insertelement <2 x ptr> %26, ptr %23, i64 1
-  br label %28
+  br label %25
 
-28:                                               ; preds = %21, %19
-  %storemerge = phi i64 [ 1, %21 ], [ 0, %19 ]
-  %29 = phi <2 x ptr> [ %27, %21 ], [ %20, %19 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %29, ptr %30, align 8
+25:                                               ; preds = %20, %19
+  %.sink14 = phi ptr [ %21, %20 ], [ %.sroa.03.0.copyload5, %19 ]
+  %.sink = phi ptr [ %22, %20 ], [ %.sroa.8.0.copyload7, %19 ]
+  %storemerge = phi i64 [ 1, %20 ], [ 0, %19 ]
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink14, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %27, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -2270,7 +2304,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h895f64e53782125dE(ptr noalia
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17h8f24f2e5750a3991E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i32, [3 x i32] }, align 16
+  %.sroa.0.i = alloca { i32, [3 x i32] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -2292,7 +2326,7 @@ define hidden void @_ZN3std9panicking3try17h8f24f2e5750a3991E(ptr noalias nocapt
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %10)
-          to label %16 unwind label %12
+          to label %15 unwind label %12
 
 12:                                               ; preds = %8
   %13 = landingpad { ptr, i32 }
@@ -2301,26 +2335,29 @@ define hidden void @_ZN3std9panicking3try17h8f24f2e5750a3991E(ptr noalias nocapt
   unreachable
 
 14:                                               ; preds = %2
-  %15 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.02.0.copyload4 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload6 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  br label %23
+  br label %20
 
-16:                                               ; preds = %8
-  %17 = extractvalue { ptr, ptr } %11, 0
-  %18 = extractvalue { ptr, ptr } %11, 1
+15:                                               ; preds = %8
+  %16 = extractvalue { ptr, ptr } %11, 0
+  %17 = extractvalue { ptr, ptr } %11, 1
+  %18 = icmp ne ptr %16, null
+  tail call void @llvm.assume(i1 %18)
   %19 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %20)
-  %21 = insertelement <2 x ptr> poison, ptr %17, i64 0
-  %22 = insertelement <2 x ptr> %21, ptr %18, i64 1
-  br label %23
+  br label %20
 
-23:                                               ; preds = %16, %14
-  %storemerge = phi i64 [ 1, %16 ], [ 0, %14 ]
-  %24 = phi <2 x ptr> [ %22, %16 ], [ %15, %14 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %24, ptr %25, align 8
+20:                                               ; preds = %15, %14
+  %.sink13 = phi ptr [ %16, %15 ], [ %.sroa.02.0.copyload4, %14 ]
+  %.sink = phi ptr [ %17, %15 ], [ %.sroa.8.0.copyload6, %14 ]
+  %storemerge = phi i64 [ 1, %15 ], [ 0, %14 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink13, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %22, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -2712,7 +2749,7 @@ define hidden void @_ZN3std9panicking3try17hb76f81733f0dacbcE(ptr noalias nocapt
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17hba15a0569c942896E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i64, [1 x i64] }, align 16
+  %.sroa.0.i = alloca { i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
   %.val.i = load ptr, ptr %1, align 8, !noundef !4
   %3 = icmp eq ptr %.val.i, null
@@ -2773,7 +2810,7 @@ define hidden void @_ZN3std9panicking3try17hba15a0569c942896E(ptr noalias nocapt
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
   %40 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %39)
-          to label %45 unwind label %41
+          to label %44 unwind label %41
 
 41:                                               ; preds = %37
   %42 = landingpad { ptr, i32 }
@@ -2782,33 +2819,36 @@ define hidden void @_ZN3std9panicking3try17hba15a0569c942896E(ptr noalias nocapt
   unreachable
 
 43:                                               ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h01f8500a522d98ccE.exit.i"
-  %44 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.04.0.copyload6 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload7 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  br label %52
+  br label %49
 
-45:                                               ; preds = %37
-  %46 = extractvalue { ptr, ptr } %40, 0
-  %47 = extractvalue { ptr, ptr } %40, 1
+44:                                               ; preds = %37
+  %45 = extractvalue { ptr, ptr } %40, 0
+  %46 = extractvalue { ptr, ptr } %40, 1
+  %47 = icmp ne ptr %45, null
+  tail call void @llvm.assume(i1 %47)
   %48 = icmp ne ptr %46, null
   tail call void @llvm.assume(i1 %48)
-  %49 = icmp ne ptr %47, null
-  tail call void @llvm.assume(i1 %49)
-  %50 = insertelement <2 x ptr> poison, ptr %46, i64 0
-  %51 = insertelement <2 x ptr> %50, ptr %47, i64 1
-  br label %52
+  br label %49
 
-52:                                               ; preds = %45, %43
-  %storemerge = phi i64 [ 1, %45 ], [ 0, %43 ]
-  %53 = phi <2 x ptr> [ %51, %45 ], [ %44, %43 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %53, ptr %54, align 8
+49:                                               ; preds = %44, %43
+  %.sink14 = phi ptr [ %45, %44 ], [ %.sroa.04.0.copyload6, %43 ]
+  %.sink = phi ptr [ %46, %44 ], [ %.sroa.8.0.copyload7, %43 ]
+  %storemerge = phi i64 [ 1, %44 ], [ 0, %43 ]
+  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink14, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %51, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17hbe44e3e79c3057bfE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i32, [3 x i32] }, align 16
+  %.sroa.0.i = alloca { i32, [3 x i32] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -2830,7 +2870,7 @@ define hidden void @_ZN3std9panicking3try17hbe44e3e79c3057bfE(ptr noalias nocapt
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %10)
-          to label %16 unwind label %12
+          to label %15 unwind label %12
 
 12:                                               ; preds = %8
   %13 = landingpad { ptr, i32 }
@@ -2839,26 +2879,29 @@ define hidden void @_ZN3std9panicking3try17hbe44e3e79c3057bfE(ptr noalias nocapt
   unreachable
 
 14:                                               ; preds = %2
-  %15 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.02.0.copyload4 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload6 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  br label %23
+  br label %20
 
-16:                                               ; preds = %8
-  %17 = extractvalue { ptr, ptr } %11, 0
-  %18 = extractvalue { ptr, ptr } %11, 1
+15:                                               ; preds = %8
+  %16 = extractvalue { ptr, ptr } %11, 0
+  %17 = extractvalue { ptr, ptr } %11, 1
+  %18 = icmp ne ptr %16, null
+  tail call void @llvm.assume(i1 %18)
   %19 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %20)
-  %21 = insertelement <2 x ptr> poison, ptr %17, i64 0
-  %22 = insertelement <2 x ptr> %21, ptr %18, i64 1
-  br label %23
+  br label %20
 
-23:                                               ; preds = %16, %14
-  %storemerge = phi i64 [ 1, %16 ], [ 0, %14 ]
-  %24 = phi <2 x ptr> [ %22, %16 ], [ %15, %14 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %24, ptr %25, align 8
+20:                                               ; preds = %15, %14
+  %.sink13 = phi ptr [ %16, %15 ], [ %.sroa.02.0.copyload4, %14 ]
+  %.sink = phi ptr [ %17, %15 ], [ %.sroa.8.0.copyload6, %14 ]
+  %storemerge = phi i64 [ 1, %15 ], [ 0, %14 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink13, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %22, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -2866,7 +2909,7 @@ define hidden void @_ZN3std9panicking3try17hbe44e3e79c3057bfE(ptr noalias nocapt
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17hc9ec23e58ef98902E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr, ptr }, align 8
-  %.sroa.0.i = alloca { i32, [3 x i32] }, align 16
+  %.sroa.0.i = alloca { i32, [3 x i32] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -2923,7 +2966,7 @@ define hidden void @_ZN3std9panicking3try17hc9ec23e58ef98902E(ptr noalias nocapt
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   %26 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %25)
-          to label %31 unwind label %27
+          to label %30 unwind label %27
 
 27:                                               ; preds = %23
   %28 = landingpad { ptr, i32 }
@@ -2933,26 +2976,29 @@ define hidden void @_ZN3std9panicking3try17hc9ec23e58ef98902E(ptr noalias nocapt
 
 29:                                               ; preds = %.noexc4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !318
-  %30 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.06.0.copyload8 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload10 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  br label %38
+  br label %35
 
-31:                                               ; preds = %23
-  %32 = extractvalue { ptr, ptr } %26, 0
-  %33 = extractvalue { ptr, ptr } %26, 1
+30:                                               ; preds = %23
+  %31 = extractvalue { ptr, ptr } %26, 0
+  %32 = extractvalue { ptr, ptr } %26, 1
+  %33 = icmp ne ptr %31, null
+  call void @llvm.assume(i1 %33)
   %34 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %35)
-  %36 = insertelement <2 x ptr> poison, ptr %32, i64 0
-  %37 = insertelement <2 x ptr> %36, ptr %33, i64 1
-  br label %38
+  br label %35
 
-38:                                               ; preds = %31, %29
-  %storemerge = phi i64 [ 1, %31 ], [ 0, %29 ]
-  %39 = phi <2 x ptr> [ %37, %31 ], [ %30, %29 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %39, ptr %40, align 8
+35:                                               ; preds = %30, %29
+  %.sink17 = phi ptr [ %31, %30 ], [ %.sroa.06.0.copyload8, %29 ]
+  %.sink = phi ptr [ %32, %30 ], [ %.sroa.8.0.copyload10, %29 ]
+  %storemerge = phi i64 [ 1, %30 ], [ 0, %29 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink17, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %37, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -3008,7 +3054,7 @@ __rust_try.llvm.7073302902749960574.exit:         ; preds = %7
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17hde26fca2a2e47f0aE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i64, [1 x i64] }, align 16
+  %.sroa.0.i = alloca { i64, [1 x i64] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -3032,7 +3078,7 @@ define hidden void @_ZN3std9panicking3try17hde26fca2a2e47f0aE(ptr noalias nocapt
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %10)
-          to label %16 unwind label %12
+          to label %15 unwind label %12
 
 12:                                               ; preds = %8
   %13 = landingpad { ptr, i32 }
@@ -3041,26 +3087,29 @@ define hidden void @_ZN3std9panicking3try17hde26fca2a2e47f0aE(ptr noalias nocapt
   unreachable
 
 14:                                               ; preds = %2
-  %15 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.02.0.copyload4 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload6 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  br label %23
+  br label %20
 
-16:                                               ; preds = %8
-  %17 = extractvalue { ptr, ptr } %11, 0
-  %18 = extractvalue { ptr, ptr } %11, 1
+15:                                               ; preds = %8
+  %16 = extractvalue { ptr, ptr } %11, 0
+  %17 = extractvalue { ptr, ptr } %11, 1
+  %18 = icmp ne ptr %16, null
+  tail call void @llvm.assume(i1 %18)
   %19 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %20)
-  %21 = insertelement <2 x ptr> poison, ptr %17, i64 0
-  %22 = insertelement <2 x ptr> %21, ptr %18, i64 1
-  br label %23
+  br label %20
 
-23:                                               ; preds = %16, %14
-  %storemerge = phi i64 [ 1, %16 ], [ 0, %14 ]
-  %24 = phi <2 x ptr> [ %22, %16 ], [ %15, %14 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %24, ptr %25, align 8
+20:                                               ; preds = %15, %14
+  %.sink13 = phi ptr [ %16, %15 ], [ %.sroa.02.0.copyload4, %14 ]
+  %.sink = phi ptr [ %17, %15 ], [ %.sroa.8.0.copyload6, %14 ]
+  %storemerge = phi i64 [ 1, %15 ], [ 0, %14 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink13, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %22, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -3134,7 +3183,7 @@ define hidden void @_ZN3std9panicking3try17he184a75a6abea343E(ptr noalias nocapt
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try17he60fb6542a4c0646E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i64, [1 x i64] }, align 16
+  %.sroa.0.i = alloca { i64, [1 x i64] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.sroa.4.0.copyload = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -3152,7 +3201,7 @@ define hidden void @_ZN3std9panicking3try17he60fb6542a4c0646E(ptr noalias nocapt
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %8)
-          to label %14 unwind label %10
+          to label %13 unwind label %10
 
 10:                                               ; preds = %6
   %11 = landingpad { ptr, i32 }
@@ -3161,26 +3210,29 @@ define hidden void @_ZN3std9panicking3try17he60fb6542a4c0646E(ptr noalias nocapt
   unreachable
 
 12:                                               ; preds = %2
-  %13 = load <2 x ptr>, ptr %.sroa.0.i, align 16
+  %.sroa.02.0.copyload4 = load ptr, ptr %.sroa.0.i, align 8
+  %.sroa.8.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
+  %.sroa.8.0.copyload6 = load ptr, ptr %.sroa.8.0..sroa.0.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  br label %21
+  br label %18
 
-14:                                               ; preds = %6
-  %15 = extractvalue { ptr, ptr } %9, 0
-  %16 = extractvalue { ptr, ptr } %9, 1
+13:                                               ; preds = %6
+  %14 = extractvalue { ptr, ptr } %9, 0
+  %15 = extractvalue { ptr, ptr } %9, 1
+  %16 = icmp ne ptr %14, null
+  tail call void @llvm.assume(i1 %16)
   %17 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %17)
-  %18 = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = insertelement <2 x ptr> poison, ptr %15, i64 0
-  %20 = insertelement <2 x ptr> %19, ptr %16, i64 1
-  br label %21
+  br label %18
 
-21:                                               ; preds = %14, %12
-  %storemerge = phi i64 [ 1, %14 ], [ 0, %12 ]
-  %22 = phi <2 x ptr> [ %20, %14 ], [ %13, %12 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x ptr> %22, ptr %23, align 8
+18:                                               ; preds = %13, %12
+  %.sink13 = phi ptr [ %14, %13 ], [ %.sroa.02.0.copyload4, %12 ]
+  %.sink = phi ptr [ %15, %13 ], [ %.sroa.8.0.copyload6, %12 ]
+  %storemerge = phi i64 [ 1, %13 ], [ 0, %12 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink13, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink, ptr %20, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

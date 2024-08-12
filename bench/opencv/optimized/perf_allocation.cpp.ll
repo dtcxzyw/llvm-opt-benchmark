@@ -773,7 +773,13 @@ _ZNK7testing8internal11ValueArray4IiiiiEcvNS0_14ParamGeneratorIT_EEIN4perf7MatTy
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   %7 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %6, ptr %7, align 8, !noalias !16
-  store <4 x i32> <i32 0, i32 3, i32 16, i32 24>, ptr %4, align 4, !noalias !16
+  store i32 0, ptr %4, align 4, !noalias !16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 3, ptr %.sroa.2.0..sroa_idx.i, align 4, !noalias !16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 16, ptr %.sroa.3.0..sroa_idx.i, align 4, !noalias !16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 24, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !16
   %8 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %6, ptr %8, align 8, !noalias !16
   store ptr %2, ptr %0, align 8, !alias.scope !16

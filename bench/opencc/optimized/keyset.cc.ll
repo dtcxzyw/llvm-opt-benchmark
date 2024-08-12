@@ -693,10 +693,13 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %38
   store i32 %62, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %61, i64 12
   store float %3, ptr %64, align 4
-  %65 = load <2 x i64>, ptr %22, align 8
-  %66 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %2, i64 1
-  %67 = add <2 x i64> %65, %66
-  store <2 x i64> %67, ptr %22, align 8
+  %65 = load i64, ptr %22, align 8
+  %66 = add i64 %65, 1
+  store i64 %66, ptr %22, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 96
+  %68 = load i64, ptr %67, align 8
+  %69 = add i64 %68, %2
+  store i64 %69, ptr %67, align 8
   ret void
 }
 
@@ -721,52 +724,76 @@ define void @_ZN6marisa6Keyset5clearEv(ptr nocapture noundef nonnull align 8 der
   store ptr %3, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load <2 x i64>, ptr %6, align 8
-  %8 = load <2 x i64>, ptr %5, align 8
-  store <2 x i64> %7, ptr %5, align 8
-  store <2 x i64> %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = load ptr, ptr %9, align 8
-  %12 = load ptr, ptr %10, align 8
-  store ptr %12, ptr %9, align 8
-  store ptr %11, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = load <2 x i64>, ptr %14, align 8
-  %16 = load <2 x i64>, ptr %13, align 8
-  store <2 x i64> %15, ptr %13, align 8
-  store <2 x i64> %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 48
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  %19 = load ptr, ptr %17, align 8
-  %20 = load ptr, ptr %18, align 8
-  store ptr %20, ptr %17, align 8
-  store ptr %19, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 56
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
-  %23 = load <2 x i64>, ptr %22, align 8
-  %24 = load <2 x i64>, ptr %21, align 8
-  store <2 x i64> %23, ptr %21, align 8
-  store <2 x i64> %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 72
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = load i64, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  store i64 %8, ptr %5, align 8
+  store i64 %7, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = load i64, ptr %9, align 8
+  %12 = load i64, ptr %10, align 8
+  store i64 %12, ptr %9, align 8
+  store i64 %11, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %13, align 8
+  %16 = load ptr, ptr %14, align 8
+  store ptr %16, ptr %13, align 8
+  store ptr %15, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %2, i64 32
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = load i64, ptr %17, align 8
+  %20 = load i64, ptr %18, align 8
+  store i64 %20, ptr %17, align 8
+  store i64 %19, ptr %18, align 8
+  %21 = getelementptr inbounds i8, ptr %2, i64 40
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = load i64, ptr %21, align 8
+  %24 = load i64, ptr %22, align 8
+  store i64 %24, ptr %21, align 8
+  store i64 %23, ptr %22, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 48
+  %26 = getelementptr inbounds i8, ptr %0, i64 48
   %27 = load ptr, ptr %25, align 8
   %28 = load ptr, ptr %26, align 8
   store ptr %28, ptr %25, align 8
   store ptr %27, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 80
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
-  %31 = load <2 x i64>, ptr %30, align 8
-  %32 = load <2 x i64>, ptr %29, align 8
-  store <2 x i64> %31, ptr %29, align 8
-  store <2 x i64> %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 96
-  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %29 = getelementptr inbounds i8, ptr %2, i64 56
+  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = load i64, ptr %29, align 8
+  %32 = load i64, ptr %30, align 8
+  store i64 %32, ptr %29, align 8
+  store i64 %31, ptr %30, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 64
+  %34 = getelementptr inbounds i8, ptr %0, i64 64
   %35 = load i64, ptr %33, align 8
   %36 = load i64, ptr %34, align 8
   store i64 %36, ptr %33, align 8
   store i64 %35, ptr %34, align 8
+  %37 = getelementptr inbounds i8, ptr %2, i64 72
+  %38 = getelementptr inbounds i8, ptr %0, i64 72
+  %39 = load ptr, ptr %37, align 8
+  %40 = load ptr, ptr %38, align 8
+  store ptr %40, ptr %37, align 8
+  store ptr %39, ptr %38, align 8
+  %41 = getelementptr inbounds i8, ptr %2, i64 80
+  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = load i64, ptr %41, align 8
+  %44 = load i64, ptr %42, align 8
+  store i64 %44, ptr %41, align 8
+  store i64 %43, ptr %42, align 8
+  %45 = getelementptr inbounds i8, ptr %2, i64 88
+  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %47 = load i64, ptr %45, align 8
+  %48 = load i64, ptr %46, align 8
+  store i64 %48, ptr %45, align 8
+  store i64 %47, ptr %46, align 8
+  %49 = getelementptr inbounds i8, ptr %2, i64 96
+  %50 = getelementptr inbounds i8, ptr %0, i64 96
+  %51 = load i64, ptr %49, align 8
+  %52 = load i64, ptr %50, align 8
+  store i64 %52, ptr %49, align 8
+  store i64 %51, ptr %50, align 8
   call void @_ZN6marisa6KeysetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #11
   ret void
 }

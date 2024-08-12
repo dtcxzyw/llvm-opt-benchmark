@@ -2778,7 +2778,7 @@ _ZN4Luau7CodeGen10successorsERKNS0_7CfgInfoEj.exit: ; preds = %120, %123
   br label %.lr.ph163
 
 .lr.ph163:                                        ; preds = %.lr.ph163.preheader, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEjET_S8_S8_RKT0_.exit.thread
-  %.0162 = phi ptr [ %312, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEjET_S8_S8_RKT0_.exit.thread ], [ %136, %.lr.ph163.preheader ]
+  %.0162 = phi ptr [ %311, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEjET_S8_S8_RKT0_.exit.thread ], [ %136, %.lr.ph163.preheader ]
   %137 = load i32, ptr %.0162, align 4
   %138 = zext i32 %137 to i64
   %139 = load ptr, ptr %40, align 8
@@ -3158,180 +3158,182 @@ _ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3
   %291 = phi ptr [ %268, %266 ], [ %288, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ]
   %292 = phi ptr [ %.pre.i90, %266 ], [ %284, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ]
   %293 = getelementptr inbounds i8, ptr %291, i64 -20
+  %.sroa.013.0.copyload.i.i = load i32, ptr %293, align 4
   %.sroa.214.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %291, i64 -16
   %.sroa.214.0.copyload.i.i = load i32, ptr %.sroa.214.0..sroa.0.0..sroa_idx.i.i, align 4
-  %294 = load <2 x i32>, ptr %293, align 4
   %.sroa.315.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %291, i64 -12
   %.sroa.315.0.copyload.i.i = load i32, ptr %.sroa.315.0..sroa.0.0..sroa_idx.i.i, align 4
   %.sroa.416.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %291, i64 -8
-  %295 = load i64, ptr %.sroa.416.0..sroa.0.0..sroa_idx.i.i, align 4
-  %296 = ptrtoint ptr %291 to i64
-  %297 = ptrtoint ptr %292 to i64
-  %298 = sub i64 %296, %297
-  %299 = sdiv exact i64 %298, 20
-  %300 = add nsw i64 %299, -1
-  %301 = icmp sgt i64 %298, 20
-  br i1 %301, label %.lr.ph.i.i.i91, label %_ZNSt14priority_queueIN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS3_SaIS3_EESt4lessIS3_EE4pushEOS3_.exit
+  %294 = load i64, ptr %.sroa.416.0..sroa.0.0..sroa_idx.i.i, align 4
+  %295 = ptrtoint ptr %291 to i64
+  %296 = ptrtoint ptr %292 to i64
+  %297 = sub i64 %295, %296
+  %298 = sdiv exact i64 %297, 20
+  %299 = add nsw i64 %298, -1
+  %300 = icmp sgt i64 %297, 20
+  br i1 %300, label %.lr.ph.i.i.i91, label %_ZNSt14priority_queueIN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS3_SaIS3_EESt4lessIS3_EE4pushEOS3_.exit
 
-.lr.ph.i.i.i91:                                   ; preds = %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit.i, %309
-  %.018.i.i.i = phi i64 [ %.0919.i1718.i.i, %309 ], [ %300, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit.i ]
+.lr.ph.i.i.i91:                                   ; preds = %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit.i, %308
+  %.018.i.i.i = phi i64 [ %.0919.i1718.i.i, %308 ], [ %299, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit.i ]
   %.0919.in.i.i.i = add nsw i64 %.018.i.i.i, -1
   %.0919.i1718.i.i = lshr i64 %.0919.in.i.i.i, 1
-  %302 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %292, i64 %.0919.i1718.i.i
-  %303 = getelementptr inbounds i8, ptr %302, i64 4
-  %304 = load i32, ptr %303, align 4
-  %.not.i.i.i.i.i.i = icmp eq i32 %304, %.sroa.214.0.copyload.i.i
-  %305 = icmp ult i32 %304, %.sroa.214.0.copyload.i.i
-  %306 = getelementptr inbounds i8, ptr %302, i64 8
-  %307 = load i32, ptr %306, align 4
-  %308 = icmp ult i32 %307, %.sroa.315.0.copyload.i.i
-  %.0.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %308, i1 %305
-  br i1 %.0.i.i.i.i.i.i, label %309, label %_ZNSt14priority_queueIN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS3_SaIS3_EESt4lessIS3_EE4pushEOS3_.exit
+  %301 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %292, i64 %.0919.i1718.i.i
+  %302 = getelementptr inbounds i8, ptr %301, i64 4
+  %303 = load i32, ptr %302, align 4
+  %.not.i.i.i.i.i.i = icmp eq i32 %303, %.sroa.214.0.copyload.i.i
+  %304 = icmp ult i32 %303, %.sroa.214.0.copyload.i.i
+  %305 = getelementptr inbounds i8, ptr %301, i64 8
+  %306 = load i32, ptr %305, align 4
+  %307 = icmp ult i32 %306, %.sroa.315.0.copyload.i.i
+  %.0.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %307, i1 %304
+  br i1 %.0.i.i.i.i.i.i, label %308, label %_ZNSt14priority_queueIN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS3_SaIS3_EESt4lessIS3_EE4pushEOS3_.exit
 
-309:                                              ; preds = %.lr.ph.i.i.i91
-  %310 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %292, i64 %.018.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %310, ptr noundef nonnull align 4 dereferenceable(20) %302, i64 20, i1 false)
+308:                                              ; preds = %.lr.ph.i.i.i91
+  %309 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %292, i64 %.018.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %309, ptr noundef nonnull align 4 dereferenceable(20) %301, i64 20, i1 false)
   %.not.i.i92 = icmp ult i64 %.0919.in.i.i.i, 2
   br i1 %.not.i.i92, label %_ZNSt14priority_queueIN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS3_SaIS3_EESt4lessIS3_EE4pushEOS3_.exit, label %.lr.ph.i.i.i91, !llvm.loop !31
 
-_ZNSt14priority_queueIN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS3_SaIS3_EESt4lessIS3_EE4pushEOS3_.exit: ; preds = %.lr.ph.i.i.i91, %309, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit.i
-  %.0.lcssa.i.i.i = phi i64 [ %300, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit.i ], [ %.018.i.i.i, %.lr.ph.i.i.i91 ], [ 0, %309 ]
-  %311 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %292, i64 %.0.lcssa.i.i.i
-  store <2 x i32> %294, ptr %311, align 4
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %311, i64 8
+_ZNSt14priority_queueIN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS3_SaIS3_EESt4lessIS3_EE4pushEOS3_.exit: ; preds = %.lr.ph.i.i.i91, %308, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit.i
+  %.0.lcssa.i.i.i = phi i64 [ %299, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit.i ], [ %.018.i.i.i, %.lr.ph.i.i.i91 ], [ 0, %308 ]
+  %310 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %292, i64 %.0.lcssa.i.i.i
+  store i32 %.sroa.013.0.copyload.i.i, ptr %310, align 4
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %310, i64 4
+  store i32 %.sroa.214.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 4
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %310, i64 8
   store i32 %.sroa.315.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 4
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %311, i64 12
-  store i64 %295, ptr %.sroa.6.0..sroa_idx.i.i, align 4
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %310, i64 12
+  store i64 %294, ptr %.sroa.6.0..sroa_idx.i.i, align 4
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEjET_S8_S8_RKT0_.exit.thread
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEjET_S8_S8_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEjET_S8_S8_RKT0_.exit88, %_ZNSt14priority_queueIN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS3_SaIS3_EESt4lessIS3_EE4pushEOS3_.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEjET_S8_S8_RKT0_.exit, %143, %.lr.ph163
-  %312 = getelementptr inbounds i8, ptr %.0162, i64 4
-  %.not = icmp eq ptr %312, %134
+  %311 = getelementptr inbounds i8, ptr %.0162, i64 4
+  %.not = icmp eq ptr %311, %134
   br i1 %.not, label %._crit_edge, label %.lr.ph163
 
 ._crit_edge:                                      ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEEjET_S8_S8_RKT0_.exit.thread, %_ZN4Luau7CodeGen10successorsERKNS0_7CfgInfoEj.exit
-  %313 = load ptr, ptr %44, align 8
-  %314 = getelementptr inbounds i32, ptr %313, i64 %108
-  %315 = load i32, ptr %314, align 4
-  %316 = load ptr, ptr %45, align 8
-  %317 = ptrtoint ptr %316 to i64
-  %318 = ptrtoint ptr %313 to i64
-  %319 = sub i64 %317, %318
-  %320 = ashr exact i64 %319, 2
-  %321 = icmp ugt i64 %320, %113
-  br i1 %321, label %322, label %325
+  %312 = load ptr, ptr %44, align 8
+  %313 = getelementptr inbounds i32, ptr %312, i64 %108
+  %314 = load i32, ptr %313, align 4
+  %315 = load ptr, ptr %45, align 8
+  %316 = ptrtoint ptr %315 to i64
+  %317 = ptrtoint ptr %312 to i64
+  %318 = sub i64 %316, %317
+  %319 = ashr exact i64 %318, 2
+  %320 = icmp ugt i64 %319, %113
+  br i1 %320, label %321, label %324
 
-322:                                              ; preds = %._crit_edge
-  %323 = getelementptr inbounds i32, ptr %313, i64 %113
-  %324 = load i32, ptr %323, align 4
+321:                                              ; preds = %._crit_edge
+  %322 = getelementptr inbounds i32, ptr %312, i64 %113
+  %323 = load i32, ptr %322, align 4
   %.pre.i96 = load ptr, ptr %46, align 8
   br label %_ZN4Luau7CodeGen11domChildrenERKNS0_7CfgInfoEj.exit
 
-325:                                              ; preds = %._crit_edge
-  %326 = load ptr, ptr %47, align 8
-  %327 = load ptr, ptr %46, align 8
+324:                                              ; preds = %._crit_edge
+  %325 = load ptr, ptr %47, align 8
+  %326 = load ptr, ptr %46, align 8
+  %327 = ptrtoint ptr %325 to i64
   %328 = ptrtoint ptr %326 to i64
-  %329 = ptrtoint ptr %327 to i64
-  %330 = sub i64 %328, %329
-  %331 = lshr exact i64 %330, 2
-  %332 = trunc i64 %331 to i32
+  %329 = sub i64 %327, %328
+  %330 = lshr exact i64 %329, 2
+  %331 = trunc i64 %330 to i32
   br label %_ZN4Luau7CodeGen11domChildrenERKNS0_7CfgInfoEj.exit
 
-_ZN4Luau7CodeGen11domChildrenERKNS0_7CfgInfoEj.exit: ; preds = %322, %325
-  %333 = phi ptr [ %.pre.i96, %322 ], [ %327, %325 ]
-  %334 = phi i32 [ %324, %322 ], [ %332, %325 ]
-  %335 = zext i32 %334 to i64
-  %336 = getelementptr inbounds i32, ptr %333, i64 %335
-  %.not55164 = icmp eq i32 %315, %334
+_ZN4Luau7CodeGen11domChildrenERKNS0_7CfgInfoEj.exit: ; preds = %321, %324
+  %332 = phi ptr [ %.pre.i96, %321 ], [ %326, %324 ]
+  %333 = phi i32 [ %323, %321 ], [ %331, %324 ]
+  %334 = zext i32 %333 to i64
+  %335 = getelementptr inbounds i32, ptr %332, i64 %334
+  %.not55164 = icmp eq i32 %314, %333
   br i1 %.not55164, label %.loopexit, label %.lr.ph166.preheader
 
 .lr.ph166.preheader:                              ; preds = %_ZN4Luau7CodeGen11domChildrenERKNS0_7CfgInfoEj.exit
-  %337 = zext i32 %315 to i64
-  %338 = getelementptr inbounds i32, ptr %333, i64 %337
+  %336 = zext i32 %314 to i64
+  %337 = getelementptr inbounds i32, ptr %332, i64 %336
   br label %.lr.ph166
 
 .lr.ph166:                                        ; preds = %.lr.ph166.preheader, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit105
-  %.054165 = phi ptr [ %374, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit105 ], [ %338, %.lr.ph166.preheader ]
-  %339 = load i32, ptr %.054165, align 4
-  %340 = zext i32 %339 to i64
-  %341 = load ptr, ptr %12, align 8
-  %342 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::IdfVisitMarks", ptr %341, i64 %340, i32 1
-  %343 = load i8, ptr %342, align 1
-  %344 = trunc i8 %343 to i1
-  br i1 %344, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit105, label %345
+  %.054165 = phi ptr [ %373, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit105 ], [ %337, %.lr.ph166.preheader ]
+  %338 = load i32, ptr %.054165, align 4
+  %339 = zext i32 %338 to i64
+  %340 = load ptr, ptr %12, align 8
+  %341 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::IdfVisitMarks", ptr %340, i64 %339, i32 1
+  %342 = load i8, ptr %341, align 1
+  %343 = trunc i8 %342 to i1
+  br i1 %343, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit105, label %344
 
-345:                                              ; preds = %.lr.ph166
-  store i8 1, ptr %342, align 1
-  %346 = load ptr, ptr %34, align 8
-  %347 = load ptr, ptr %35, align 8
-  %.not.i97 = icmp eq ptr %346, %347
-  br i1 %.not.i97, label %351, label %348
+344:                                              ; preds = %.lr.ph166
+  store i8 1, ptr %341, align 1
+  %345 = load ptr, ptr %34, align 8
+  %346 = load ptr, ptr %35, align 8
+  %.not.i97 = icmp eq ptr %345, %346
+  br i1 %.not.i97, label %350, label %347
 
-348:                                              ; preds = %345
-  store i32 %339, ptr %346, align 4
-  %349 = load ptr, ptr %34, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 4
-  store ptr %350, ptr %34, align 8
+347:                                              ; preds = %344
+  store i32 %338, ptr %345, align 4
+  %348 = load ptr, ptr %34, align 8
+  %349 = getelementptr inbounds i8, ptr %348, i64 4
+  store ptr %349, ptr %34, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit105
 
-351:                                              ; preds = %345
-  %352 = load ptr, ptr %33, align 8
-  %353 = ptrtoint ptr %346 to i64
-  %354 = ptrtoint ptr %352 to i64
-  %355 = sub i64 %353, %354
-  %356 = icmp eq i64 %355, 9223372036854775804
-  br i1 %356, label %357, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i98
+350:                                              ; preds = %344
+  %351 = load ptr, ptr %33, align 8
+  %352 = ptrtoint ptr %345 to i64
+  %353 = ptrtoint ptr %351 to i64
+  %354 = sub i64 %352, %353
+  %355 = icmp eq i64 %354, 9223372036854775804
+  br i1 %355, label %356, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i98
 
-357:                                              ; preds = %351
+356:                                              ; preds = %350
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #15
   unreachable
 
-_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i98: ; preds = %351
-  %358 = ashr exact i64 %355, 2
-  %.sroa.speculated.i.i.i99 = call i64 @llvm.umax.i64(i64 %358, i64 1)
-  %359 = add nsw i64 %.sroa.speculated.i.i.i99, %358
-  %360 = icmp ult i64 %359, %358
-  %361 = call i64 @llvm.umin.i64(i64 %359, i64 2305843009213693951)
-  %362 = select i1 %360, i64 2305843009213693951, i64 %361
-  %.not.i.i.i100 = icmp eq i64 %362, 0
-  br i1 %.not.i.i.i100, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i101, label %363
+_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i98: ; preds = %350
+  %357 = ashr exact i64 %354, 2
+  %.sroa.speculated.i.i.i99 = call i64 @llvm.umax.i64(i64 %357, i64 1)
+  %358 = add nsw i64 %.sroa.speculated.i.i.i99, %357
+  %359 = icmp ult i64 %358, %357
+  %360 = call i64 @llvm.umin.i64(i64 %358, i64 2305843009213693951)
+  %361 = select i1 %359, i64 2305843009213693951, i64 %360
+  %.not.i.i.i100 = icmp eq i64 %361, 0
+  br i1 %.not.i.i.i100, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i101, label %362
 
-363:                                              ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i98
-  %364 = shl nuw nsw i64 %362, 2
-  %365 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %364) #16
+362:                                              ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i98
+  %363 = shl nuw nsw i64 %361, 2
+  %364 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %363) #16
   br label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i101
 
-_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i101: ; preds = %363, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i98
-  %366 = phi ptr [ %365, %363 ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i98 ]
-  %367 = getelementptr inbounds i32, ptr %366, i64 %358
-  store i32 %339, ptr %367, align 4
-  %368 = icmp sgt i64 %355, 0
-  br i1 %368, label %369, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i102
+_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i101: ; preds = %362, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i98
+  %365 = phi ptr [ %364, %362 ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i98 ]
+  %366 = getelementptr inbounds i32, ptr %365, i64 %357
+  store i32 %338, ptr %366, align 4
+  %367 = icmp sgt i64 %354, 0
+  br i1 %367, label %368, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i102
 
-369:                                              ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i101
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %366, ptr align 4 %352, i64 %355, i1 false)
+368:                                              ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i101
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %365, ptr align 4 %351, i64 %354, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i102
 
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i102: ; preds = %369, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i101
-  %370 = getelementptr inbounds i8, ptr %366, i64 %355
-  %371 = getelementptr inbounds i8, ptr %370, i64 4
-  %.not.i17.i.i103 = icmp eq ptr %352, null
-  br i1 %.not.i17.i.i103, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i104, label %372
+_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i102: ; preds = %368, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i101
+  %369 = getelementptr inbounds i8, ptr %365, i64 %354
+  %370 = getelementptr inbounds i8, ptr %369, i64 4
+  %.not.i17.i.i103 = icmp eq ptr %351, null
+  br i1 %.not.i17.i.i103, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i104, label %371
 
-372:                                              ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i102
-  call void @_ZdlPvm(ptr noundef nonnull %352, i64 noundef %355) #14
+371:                                              ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i102
+  call void @_ZdlPvm(ptr noundef nonnull %351, i64 noundef %354) #14
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i104
 
-_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i104: ; preds = %372, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i102
-  store ptr %366, ptr %33, align 8
-  store ptr %371, ptr %34, align 8
-  %373 = getelementptr inbounds i32, ptr %366, i64 %362
-  store ptr %373, ptr %35, align 8
+_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i104: ; preds = %371, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i102
+  store ptr %365, ptr %33, align 8
+  store ptr %370, ptr %34, align 8
+  %372 = getelementptr inbounds i32, ptr %365, i64 %361
+  store ptr %372, ptr %35, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit105
 
-_ZNSt6vectorIjSaIjEE9push_backERKj.exit105:       ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i104, %348, %.lr.ph166
-  %374 = getelementptr inbounds i8, ptr %.054165, i64 4
-  %.not55 = icmp eq ptr %374, %336
+_ZNSt6vectorIjSaIjEE9push_backERKj.exit105:       ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i104, %347, %.lr.ph166
+  %373 = getelementptr inbounds i8, ptr %.054165, i64 4
+  %.not55 = icmp eq ptr %373, %335
   br i1 %.not55, label %.loopexit, label %.lr.ph166
 
 ._crit_edge169:                                   ; preds = %.loopexit142, %.preheader
@@ -3519,50 +3521,52 @@ _ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3
   %32 = phi ptr [ %9, %7 ], [ %29, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   %33 = phi ptr [ %.pre, %7 ], [ %25, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   %34 = getelementptr inbounds i8, ptr %32, i64 -20
+  %.sroa.013.0.copyload.i = load i32, ptr %34, align 4
   %.sroa.214.0..sroa.0.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 -16
   %.sroa.214.0.copyload.i = load i32, ptr %.sroa.214.0..sroa.0.0..sroa_idx.i, align 4
-  %35 = load <2 x i32>, ptr %34, align 4
   %.sroa.315.0..sroa.0.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 -12
   %.sroa.315.0.copyload.i = load i32, ptr %.sroa.315.0..sroa.0.0..sroa_idx.i, align 4
   %.sroa.416.0..sroa.0.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 -8
-  %36 = load i64, ptr %.sroa.416.0..sroa.0.0..sroa_idx.i, align 4
-  %37 = ptrtoint ptr %32 to i64
-  %38 = ptrtoint ptr %33 to i64
-  %39 = sub i64 %37, %38
-  %40 = sdiv exact i64 %39, 20
-  %41 = add nsw i64 %40, -1
-  %42 = icmp sgt i64 %39, 20
-  br i1 %42, label %.lr.ph.i.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEESt4lessIS5_EEvT_SD_T0_.exit
+  %35 = load i64, ptr %.sroa.416.0..sroa.0.0..sroa_idx.i, align 4
+  %36 = ptrtoint ptr %32 to i64
+  %37 = ptrtoint ptr %33 to i64
+  %38 = sub i64 %36, %37
+  %39 = sdiv exact i64 %38, 20
+  %40 = add nsw i64 %39, -1
+  %41 = icmp sgt i64 %38, 20
+  br i1 %41, label %.lr.ph.i.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEESt4lessIS5_EEvT_SD_T0_.exit
 
-.lr.ph.i.i:                                       ; preds = %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit, %50
-  %.018.i.i = phi i64 [ %.0919.i1718.i, %50 ], [ %41, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit ]
+.lr.ph.i.i:                                       ; preds = %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit, %49
+  %.018.i.i = phi i64 [ %.0919.i1718.i, %49 ], [ %40, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit ]
   %.0919.in.i.i = add nsw i64 %.018.i.i, -1
   %.0919.i1718.i = lshr i64 %.0919.in.i.i, 1
-  %43 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %33, i64 %.0919.i1718.i
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
-  %45 = load i32, ptr %44, align 4
-  %.not.i.i.i.i.i = icmp eq i32 %45, %.sroa.214.0.copyload.i
-  %46 = icmp ult i32 %45, %.sroa.214.0.copyload.i
-  %47 = getelementptr inbounds i8, ptr %43, i64 8
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp ult i32 %48, %.sroa.315.0.copyload.i
-  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %49, i1 %46
-  br i1 %.0.i.i.i.i.i, label %50, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEESt4lessIS5_EEvT_SD_T0_.exit
+  %42 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %33, i64 %.0919.i1718.i
+  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %44 = load i32, ptr %43, align 4
+  %.not.i.i.i.i.i = icmp eq i32 %44, %.sroa.214.0.copyload.i
+  %45 = icmp ult i32 %44, %.sroa.214.0.copyload.i
+  %46 = getelementptr inbounds i8, ptr %42, i64 8
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp ult i32 %47, %.sroa.315.0.copyload.i
+  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %48, i1 %45
+  br i1 %.0.i.i.i.i.i, label %49, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEESt4lessIS5_EEvT_SD_T0_.exit
 
-50:                                               ; preds = %.lr.ph.i.i
-  %51 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %33, i64 %.018.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %51, ptr noundef nonnull align 4 dereferenceable(20) %43, i64 20, i1 false)
+49:                                               ; preds = %.lr.ph.i.i
+  %50 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %33, i64 %.018.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %50, ptr noundef nonnull align 4 dereferenceable(20) %42, i64 20, i1 false)
   %.not.i = icmp ult i64 %.0919.in.i.i, 2
   br i1 %.not.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEESt4lessIS5_EEvT_SD_T0_.exit, label %.lr.ph.i.i, !llvm.loop !31
 
-_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEESt4lessIS5_EEvT_SD_T0_.exit: ; preds = %.lr.ph.i.i, %50, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit
-  %.0.lcssa.i.i = phi i64 [ %41, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit ], [ 0, %50 ], [ %.018.i.i, %.lr.ph.i.i ]
-  %52 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %33, i64 %.0.lcssa.i.i
-  store <2 x i32> %35, ptr %52, align 4
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %52, i64 8
+_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEESt4lessIS5_EEvT_SD_T0_.exit: ; preds = %.lr.ph.i.i, %49, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit
+  %.0.lcssa.i.i = phi i64 [ %40, %_ZNSt6vectorIN4Luau7CodeGen10IdfContext16BlockAndOrderingESaIS3_EE9push_backEOS3_.exit ], [ 0, %49 ], [ %.018.i.i, %.lr.ph.i.i ]
+  %51 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %33, i64 %.0.lcssa.i.i
+  store i32 %.sroa.013.0.copyload.i, ptr %51, align 4
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %51, i64 4
+  store i32 %.sroa.214.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 4
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %51, i64 8
   store i32 %.sroa.315.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %52, i64 12
-  store i64 %36, ptr %.sroa.6.0..sroa_idx.i, align 4
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %51, i64 12
+  store i64 %35, ptr %.sroa.6.0..sroa_idx.i, align 4
   ret void
 }
 
@@ -8126,102 +8130,104 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen13BlockOrderingESaIS2_EE13_M_deallocateEPS2_m.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_SG_SG_RT0_(ptr %0, ptr %1, ptr %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #4 comdat {
+  %.sroa.09.0.copyload = load i32, ptr %2, align 4
   %.sroa.210.0..sroa.0.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
   %.sroa.210.0.copyload = load i32, ptr %.sroa.210.0..sroa.0.0..sroa_idx, align 4
-  %5 = load <2 x i32>, ptr %2, align 4
   %.sroa.311.0..sroa.0.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.311.0.copyload = load i32, ptr %.sroa.311.0..sroa.0.0..sroa_idx, align 4
   %.sroa.412.0..sroa.0.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 12
   %.sroa.412.0.copyload = load i64, ptr %.sroa.412.0..sroa.0.0..sroa_idx, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false)
-  %6 = ptrtoint ptr %1 to i64
-  %7 = ptrtoint ptr %0 to i64
-  %8 = sub i64 %6, %7
-  %9 = sdiv exact i64 %8, 20
-  %10 = add nsw i64 %9, -1
-  %11 = sdiv i64 %10, 2
-  %12 = icmp sgt i64 %8, 40
-  br i1 %12, label %.lr.ph.i, label %._crit_edge.i
+  %5 = ptrtoint ptr %1 to i64
+  %6 = ptrtoint ptr %0 to i64
+  %7 = sub i64 %5, %6
+  %8 = sdiv exact i64 %7, 20
+  %9 = add nsw i64 %8, -1
+  %10 = sdiv i64 %9, 2
+  %11 = icmp sgt i64 %7, 40
+  br i1 %11, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.042.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ 0, %4 ]
-  %13 = shl i64 %.042.i, 1
-  %14 = add i64 %13, 2
-  %15 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %14
-  %16 = or disjoint i64 %13, 1
-  %17 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %16
-  %18 = getelementptr inbounds i8, ptr %15, i64 4
-  %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %17, i64 4
-  %21 = load i32, ptr %20, align 4
-  %.not.i.i.i.i = icmp eq i32 %19, %21
-  %22 = icmp ult i32 %19, %21
-  %23 = getelementptr inbounds i8, ptr %15, i64 8
-  %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %17, i64 8
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp ult i32 %24, %26
-  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i1 %27, i1 %22
-  %spec.select.i = select i1 %.0.i.i.i.i, i64 %16, i64 %14
-  %28 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %spec.select.i
-  %29 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.042.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %29, ptr noundef nonnull align 4 dereferenceable(20) %28, i64 20, i1 false)
-  %30 = icmp slt i64 %spec.select.i, %11
-  br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !76
+  %12 = shl i64 %.042.i, 1
+  %13 = add i64 %12, 2
+  %14 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %13
+  %15 = or disjoint i64 %12, 1
+  %16 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %15
+  %17 = getelementptr inbounds i8, ptr %14, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %16, i64 4
+  %20 = load i32, ptr %19, align 4
+  %.not.i.i.i.i = icmp eq i32 %18, %20
+  %21 = icmp ult i32 %18, %20
+  %22 = getelementptr inbounds i8, ptr %14, i64 8
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %16, i64 8
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp ult i32 %23, %25
+  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i1 %26, i1 %21
+  %spec.select.i = select i1 %.0.i.i.i.i, i64 %15, i64 %13
+  %27 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %spec.select.i
+  %28 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.042.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %28, ptr noundef nonnull align 4 dereferenceable(20) %27, i64 20, i1 false)
+  %29 = icmp slt i64 %spec.select.i, %10
+  br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !76
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %4
   %.0.lcssa.i = phi i64 [ 0, %4 ], [ %spec.select.i, %.lr.ph.i ]
-  %31 = and i64 %9, 1
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %42
+  %30 = and i64 %8, 1
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %41
 
-33:                                               ; preds = %._crit_edge.i
-  %34 = add nsw i64 %9, -2
-  %35 = ashr exact i64 %34, 1
-  %36 = icmp eq i64 %.0.lcssa.i, %35
-  br i1 %36, label %37, label %42
+32:                                               ; preds = %._crit_edge.i
+  %33 = add nsw i64 %8, -2
+  %34 = ashr exact i64 %33, 1
+  %35 = icmp eq i64 %.0.lcssa.i, %34
+  br i1 %35, label %36, label %41
 
-37:                                               ; preds = %33
-  %38 = shl nsw i64 %.0.lcssa.i, 1
-  %39 = or disjoint i64 %38, 1
-  %40 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %39
-  %41 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.0.lcssa.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %41, ptr noundef nonnull align 4 dereferenceable(20) %40, i64 20, i1 false)
-  br label %42
+36:                                               ; preds = %32
+  %37 = shl nsw i64 %.0.lcssa.i, 1
+  %38 = or disjoint i64 %37, 1
+  %39 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %38
+  %40 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.0.lcssa.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %40, ptr noundef nonnull align 4 dereferenceable(20) %39, i64 20, i1 false)
+  br label %41
 
-42:                                               ; preds = %37, %33, %._crit_edge.i
-  %.1.i = phi i64 [ %39, %37 ], [ %.0.lcssa.i, %33 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %43 = icmp sgt i64 %.1.i, 0
-  br i1 %43, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit
+41:                                               ; preds = %36, %32, %._crit_edge.i
+  %.1.i = phi i64 [ %38, %36 ], [ %.0.lcssa.i, %32 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %42 = icmp sgt i64 %.1.i, 0
+  br i1 %42, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %42, %51
-  %.018.i.i = phi i64 [ %.0919.i.i1314, %51 ], [ %.1.i, %42 ]
+.lr.ph.i.i:                                       ; preds = %41, %50
+  %.018.i.i = phi i64 [ %.0919.i.i1314, %50 ], [ %.1.i, %41 ]
   %.0919.in.i.i = add nsw i64 %.018.i.i, -1
   %.0919.i.i1314 = lshr i64 %.0919.in.i.i, 1
-  %44 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.0919.i.i1314
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
-  %46 = load i32, ptr %45, align 4
-  %.not.i.i.i.i.i = icmp eq i32 %46, %.sroa.210.0.copyload
-  %47 = icmp ult i32 %46, %.sroa.210.0.copyload
-  %48 = getelementptr inbounds i8, ptr %44, i64 8
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp ult i32 %49, %.sroa.311.0.copyload
-  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %50, i1 %47
-  br i1 %.0.i.i.i.i.i, label %51, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit
+  %43 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.0919.i.i1314
+  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %45 = load i32, ptr %44, align 4
+  %.not.i.i.i.i.i = icmp eq i32 %45, %.sroa.210.0.copyload
+  %46 = icmp ult i32 %45, %.sroa.210.0.copyload
+  %47 = getelementptr inbounds i8, ptr %43, i64 8
+  %48 = load i32, ptr %47, align 4
+  %49 = icmp ult i32 %48, %.sroa.311.0.copyload
+  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %49, i1 %46
+  br i1 %.0.i.i.i.i.i, label %50, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit
 
-51:                                               ; preds = %.lr.ph.i.i
-  %52 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.018.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %52, ptr noundef nonnull align 4 dereferenceable(20) %44, i64 20, i1 false)
+50:                                               ; preds = %.lr.ph.i.i
+  %51 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.018.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %51, ptr noundef nonnull align 4 dereferenceable(20) %43, i64 20, i1 false)
   %.not = icmp ult i64 %.0919.in.i.i, 2
   br i1 %.not, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit, label %.lr.ph.i.i, !llvm.loop !31
 
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit: ; preds = %.lr.ph.i.i, %51, %42
-  %.0.lcssa.i.i = phi i64 [ %.1.i, %42 ], [ 0, %51 ], [ %.018.i.i, %.lr.ph.i.i ]
-  %53 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.0.lcssa.i.i
-  store <2 x i32> %5, ptr %53, align 4
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %53, i64 8
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit: ; preds = %.lr.ph.i.i, %50, %41
+  %.0.lcssa.i.i = phi i64 [ %.1.i, %41 ], [ 0, %50 ], [ %.018.i.i, %.lr.ph.i.i ]
+  %52 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.0.lcssa.i.i
+  store i32 %.sroa.09.0.copyload, ptr %52, align 4
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %52, i64 4
+  store i32 %.sroa.210.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 4
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %52, i64 8
   store i32 %.sroa.311.0.copyload, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %53, i64 12
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %52, i64 12
   store i64 %.sroa.412.0.copyload, ptr %.sroa.6.0..sroa_idx.i, align 4
   ret void
 }

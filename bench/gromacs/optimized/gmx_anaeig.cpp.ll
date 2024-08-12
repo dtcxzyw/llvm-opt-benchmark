@@ -330,7 +330,7 @@ define noundef i32 @_Z10gmx_anaeigiPPc(i32 noundef %0, ptr noundef %1) local_unn
   %17 = alloca %"class.std::allocator.0", align 1
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"class.std::allocator.0", align 1
-  %20 = alloca %struct.t_rgb, align 16
+  %20 = alloca %struct.t_rgb, align 8
   %21 = alloca %struct.t_rgb, align 8
   %22 = alloca ptr, align 8
   %23 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -4612,9 +4612,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit122.i: ; preds = %1761
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %20, align 16
+  store double 1.000000e+00, ptr %20, align 8
+  %.sroa.3124.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 8
+  store double 1.000000e+00, ptr %.sroa.3124.0..sroa_idx.i, align 8
   %.sroa.4125.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 16
-  store double 1.000000e+00, ptr %.sroa.4125.0..sroa_idx.i, align 16
+  store double 1.000000e+00, ptr %.sroa.4125.0..sroa_idx.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   invoke void @_Z9write_xpmP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPKfSA_PKSA_ff5t_rgbSD_Pi(ptr noundef %1728, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef %.087.i, i32 noundef %.286.fr.i, ptr noundef %1625, ptr noundef %1600, ptr noundef %1624, float noundef 0.000000e+00, float noundef %.080.lcssa.i, ptr noundef nonnull byval(%struct.t_rgb) align 8 %20, ptr noundef nonnull byval(%struct.t_rgb) align 8 %21, ptr noundef nonnull %10)
           to label %1763 unwind label %1775

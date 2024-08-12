@@ -83,17 +83,22 @@ define void @_ZN6uu_seq6uu_app17h0039fed9134d123fE(ptr noalias nocapture noundef
   %.sroa.6.0..sroa_idx99 = getelementptr inbounds i8, ptr %27, i64 624
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %.sroa.6.0..sroa_idx99, ptr noundef nonnull align 8 dereferenceable(76) %.sroa.0.sroa.6.0..sroa_idx, i64 76, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 700
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 704
+  %.sroa.6.sroa.0.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %26, i64 708
   %37 = load i32, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4.0..sroa_idx95 = getelementptr inbounds i8, ptr %27, i64 608
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 616
-  %.sroa.6100.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 700
-  %38 = load <2 x i32>, ptr %.sroa.4.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %26)
-  %39 = or <2 x i32> %38, <i32 164, i32 128>
+  %38 = or i32 %.sroa.4.0.copyload, 164
+  %39 = or i32 %.sroa.6.sroa.0.0.copyload, 128
+  %.sroa.4.0..sroa_idx95 = getelementptr inbounds i8, ptr %27, i64 608
   store ptr @anon.b77c0e95c463a95dec2fb730fbdd4138.7, ptr %.sroa.4.0..sroa_idx95, align 8, !alias.scope !4, !noalias !8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 616
   store i64 6, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !4, !noalias !8
-  store <2 x i32> %39, ptr %.sroa.6100.0..sroa_idx, align 4, !alias.scope !4, !noalias !8
+  %.sroa.6100.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 700
+  store i32 %38, ptr %.sroa.6100.0..sroa_idx, align 4, !alias.scope !4, !noalias !8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 704
+  store i32 %39, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !4, !noalias !8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 708
   store i32 %37, ptr %.sroa.8.0..sroa_idx, align 4, !alias.scope !4, !noalias !8
   call void @_ZN12clap_builder7builder7command7Command5about17h6b4395d1ec1f3648E(ptr noalias nocapture noundef nonnull sret({ { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, i64 } } }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, ptr, i32, i32, i32, i8, [3 x i8] }) align 8 dereferenceable(712) %28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(712) %27, ptr noalias noundef nonnull readonly align 1 @anon.b77c0e95c463a95dec2fb730fbdd4138.8, i64 noundef 58)

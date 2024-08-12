@@ -1098,14 +1098,17 @@ while.body.i.i:                                   ; preds = %while.cond.i.prehea
 
 _ZN6hermes12CompactTable3setEjj.exit:             ; preds = %if.end.i.i.i.i, %if.end.i6.i.i.i, %sw.bb5.i.i.i
   %size_ = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x i32>, ptr %size_, align 8
-  %8 = add <2 x i32> %7, <i32 1, i32 1>
-  store <2 x i32> %8, ptr %size_, align 8
+  %7 = load i32, ptr %size_, align 8
+  %inc = add i32 %7, 1
+  store i32 %inc, ptr %size_, align 8
+  %nonEmptyEntryCount_ = getelementptr inbounds i8, ptr %this, i64 28
+  %8 = load i32, ptr %nonEmptyEntryCount_, align 4
+  %inc2 = add i32 %8, 1
+  store i32 %inc2, ptr %nonEmptyEntryCount_, align 4
   %9 = load i32, ptr %this, align 8
   %shr.i = lshr i32 %9, 2
   %sub.i = sub i32 %9, %shr.i
-  %10 = extractelement <2 x i32> %8, i64 1
-  %cmp.i = icmp ult i32 %sub.i, %10
+  %cmp.i = icmp ult i32 %sub.i, %inc2
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN6hermes12CompactTable3setEjj.exit

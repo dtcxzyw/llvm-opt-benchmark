@@ -206,10 +206,10 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 noundef %0, 
 
 68:                                               ; preds = %65
   %69 = and i8 %.fr, -16
-  switch i8 %69, label %92 [
+  switch i8 %69, label %101 [
     i8 -64, label %70
     i8 -48, label %75
-    i8 -32, label %87
+    i8 -32, label %96
   ]
 
 70:                                               ; preds = %68
@@ -222,72 +222,90 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 noundef %0, 
   br label %.loopexit.sink.split
 
 75:                                               ; preds = %68
-  switch i8 %.fr, label %82 [
+  switch i8 %.fr, label %91 [
     i8 -33, label %76
     i8 -41, label %.loopexit
   ]
 
 76:                                               ; preds = %75
-  store <4 x i32> <i32 1, i32 2, i32 115, i32 115>, ptr %3, align 4
-  %77 = getelementptr inbounds i8, ptr %3, i64 20
-  store <4 x i32> <i32 1, i32 2, i32 83, i32 83>, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %3, i64 40
-  store <4 x i32> <i32 1, i32 2, i32 115, i32 83>, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %3, i64 60
-  store i32 1, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %3, i64 64
-  store i32 2, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %3, i64 68
-  store i32 83, ptr %81, align 4
-  br label %.loopexit.sink.split
-
-82:                                               ; preds = %75
   store i32 1, ptr %3, align 4
-  %83 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 1, ptr %83, align 4
-  %84 = load i8, ptr %1, align 1
-  %85 = zext i8 %84 to i32
-  %86 = add nuw nsw i32 %85, 32
-  br label %.loopexit.sink.split
-
-87:                                               ; preds = %68
-  store i32 1, ptr %3, align 4
-  %88 = getelementptr inbounds i8, ptr %3, i64 4
+  %77 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 2, ptr %77, align 4
+  %78 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 115, ptr %78, align 4
+  %79 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 115, ptr %79, align 4
+  %80 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 1, ptr %80, align 4
+  %81 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 2, ptr %81, align 4
+  %82 = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 83, ptr %82, align 4
+  %83 = getelementptr inbounds i8, ptr %3, i64 32
+  store i32 83, ptr %83, align 4
+  %84 = getelementptr inbounds i8, ptr %3, i64 40
+  store i32 1, ptr %84, align 4
+  %85 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 2, ptr %85, align 4
+  %86 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 115, ptr %86, align 4
+  %87 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 83, ptr %87, align 4
+  %88 = getelementptr inbounds i8, ptr %3, i64 60
   store i32 1, ptr %88, align 4
-  %89 = load i8, ptr %1, align 1
-  %90 = zext i8 %89 to i32
-  %91 = add nsw i32 %90, -32
+  %89 = getelementptr inbounds i8, ptr %3, i64 64
+  store i32 2, ptr %89, align 4
+  %90 = getelementptr inbounds i8, ptr %3, i64 68
+  store i32 83, ptr %90, align 4
   br label %.loopexit.sink.split
 
-92:                                               ; preds = %68
-  %93 = icmp ult i8 %.fr, -16
-  br i1 %93, label %.loopexit, label %switch.early.test
+91:                                               ; preds = %75
+  store i32 1, ptr %3, align 4
+  %92 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 1, ptr %92, align 4
+  %93 = load i8, ptr %1, align 1
+  %94 = zext i8 %93 to i32
+  %95 = add nuw nsw i32 %94, 32
+  br label %.loopexit.sink.split
 
-switch.early.test:                                ; preds = %92
-  switch i8 %.fr, label %94 [
+96:                                               ; preds = %68
+  store i32 1, ptr %3, align 4
+  %97 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 1, ptr %97, align 4
+  %98 = load i8, ptr %1, align 1
+  %99 = zext i8 %98 to i32
+  %100 = add nsw i32 %99, -32
+  br label %.loopexit.sink.split
+
+101:                                              ; preds = %68
+  %102 = icmp ult i8 %.fr, -16
+  br i1 %102, label %.loopexit, label %switch.early.test
+
+switch.early.test:                                ; preds = %101
+  switch i8 %.fr, label %103 [
     i8 -1, label %.loopexit
     i8 -9, label %.loopexit
   ]
 
-94:                                               ; preds = %switch.early.test
+103:                                              ; preds = %switch.early.test
   store i32 1, ptr %3, align 4
-  %95 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 1, ptr %95, align 4
-  %96 = load i8, ptr %1, align 1
-  %97 = zext i8 %96 to i32
-  %98 = add nsw i32 %97, -32
+  %104 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 1, ptr %104, align 4
+  %105 = load i8, ptr %1, align 1
+  %106 = zext i8 %105 to i32
+  %107 = add nsw i32 %106, -32
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %43, %60, %70, %76, %82, %87, %94
-  %.sink120 = phi i64 [ 8, %94 ], [ 8, %87 ], [ 8, %82 ], [ 72, %76 ], [ 8, %70 ], [ 8, %60 ], [ 8, %43 ]
-  %.sink = phi i32 [ %98, %94 ], [ %91, %87 ], [ %86, %82 ], [ 115, %76 ], [ %74, %70 ], [ %64, %60 ], [ %47, %43 ]
-  %.092.ph = phi i32 [ 1, %94 ], [ 1, %87 ], [ 1, %82 ], [ 4, %76 ], [ 1, %70 ], [ 1, %60 ], [ 1, %43 ]
-  %99 = getelementptr inbounds i8, ptr %3, i64 %.sink120
-  store i32 %.sink, ptr %99, align 4
+.loopexit.sink.split:                             ; preds = %43, %60, %70, %76, %91, %96, %103
+  %.sink120 = phi i64 [ 8, %103 ], [ 8, %96 ], [ 8, %91 ], [ 72, %76 ], [ 8, %70 ], [ 8, %60 ], [ 8, %43 ]
+  %.sink = phi i32 [ %107, %103 ], [ %100, %96 ], [ %95, %91 ], [ 115, %76 ], [ %74, %70 ], [ %64, %60 ], [ %47, %43 ]
+  %.092.ph = phi i32 [ 1, %103 ], [ 1, %96 ], [ 1, %91 ], [ 4, %76 ], [ 1, %70 ], [ 1, %60 ], [ 1, %43 ]
+  %108 = getelementptr inbounds i8, ptr %3, i64 %.sink120
+  store i32 %.sink, ptr %108, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %.loopexit.sink.split, %switch.early.test, %switch.early.test, %92, %65, %75
-  %.092 = phi i32 [ 0, %75 ], [ 0, %switch.early.test ], [ 0, %65 ], [ 0, %92 ], [ 0, %switch.early.test ], [ %.092.ph, %.loopexit.sink.split ], [ 4, %42 ]
+.loopexit:                                        ; preds = %42, %.loopexit.sink.split, %switch.early.test, %switch.early.test, %101, %65, %75
+  %.092 = phi i32 [ 0, %75 ], [ 0, %switch.early.test ], [ 0, %65 ], [ 0, %101 ], [ 0, %switch.early.test ], [ %.092.ph, %.loopexit.sink.split ], [ 4, %42 ]
   ret i32 %.092
 }
 

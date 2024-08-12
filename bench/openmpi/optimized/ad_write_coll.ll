@@ -1383,7 +1383,7 @@ define void @ADIOI_Heap_merge(ptr nocapture noundef readonly %0, ptr nocapture n
   %39 = getelementptr inbounds i8, ptr %12, i64 8
   %40 = getelementptr inbounds i8, ptr %12, i64 16
   %wide.trip.count172 = zext nneg i32 %7 to i64
-  br label %81
+  br label %85
 
 41:                                               ; preds = %.preheader159, %70
   %.0142 = phi i32 [ %.1, %70 ], [ %.1149163, %.preheader159 ]
@@ -1434,135 +1434,144 @@ define void @ADIOI_Heap_merge(ptr nocapture noundef readonly %0, ptr nocapture n
 70:                                               ; preds = %69
   %71 = sext i32 %.0142 to i64
   %72 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %71
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
-  %74 = load i32, ptr %73, align 8
-  %75 = sext i32 %.1 to i64
-  %76 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %75
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
-  %78 = load i32, ptr %77, align 8
-  store i32 %78, ptr %73, align 8
-  %79 = load <2 x ptr>, ptr %72, align 8
-  %80 = load <2 x ptr>, ptr %76, align 8
-  store <2 x ptr> %80, ptr %72, align 8
-  store <2 x ptr> %79, ptr %76, align 8
-  store i32 %74, ptr %77, align 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %72, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %72, i64 16
+  %77 = load i32, ptr %76, align 8
+  %78 = sext i32 %.1 to i64
+  %79 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %78
+  %80 = load ptr, ptr %79, align 8
+  store ptr %80, ptr %72, align 8
+  %81 = getelementptr inbounds i8, ptr %79, i64 8
+  %82 = load ptr, ptr %81, align 8
+  store ptr %82, ptr %74, align 8
+  %83 = getelementptr inbounds i8, ptr %79, i64 16
+  %84 = load i32, ptr %83, align 8
+  store i32 %84, ptr %76, align 8
+  store ptr %73, ptr %79, align 8
+  store ptr %75, ptr %81, align 8
+  store i32 %77, ptr %83, align 8
   br label %41
 
-81:                                               ; preds = %.lr.ph166, %146
-  %indvars.iv169 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next170, %146 ]
-  %.0144165 = phi i32 [ %6, %.lr.ph166 ], [ %.1145, %146 ]
-  %82 = load ptr, ptr %12, align 8
-  %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv169
-  store i64 %83, ptr %84, align 8
-  %85 = load ptr, ptr %39, align 8
-  %86 = load i64, ptr %85, align 8
-  %87 = trunc i64 %86 to i32
-  %88 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv169
-  store i32 %87, ptr %88, align 4
-  %89 = load i32, ptr %40, align 8
-  %90 = add nsw i32 %89, -1
-  store i32 %90, ptr %40, align 8
-  %.not = icmp eq i32 %90, 0
-  br i1 %.not, label %91, label %101
+85:                                               ; preds = %.lr.ph166, %152
+  %indvars.iv169 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next170, %152 ]
+  %.0144165 = phi i32 [ %6, %.lr.ph166 ], [ %.1145, %152 ]
+  %86 = load ptr, ptr %12, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv169
+  store i64 %87, ptr %88, align 8
+  %89 = load ptr, ptr %39, align 8
+  %90 = load i64, ptr %89, align 8
+  %91 = trunc i64 %90 to i32
+  %92 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv169
+  store i32 %91, ptr %92, align 4
+  %93 = load i32, ptr %40, align 8
+  %94 = add nsw i32 %93, -1
+  store i32 %94, ptr %40, align 8
+  %.not = icmp eq i32 %94, 0
+  br i1 %.not, label %95, label %105
 
-91:                                               ; preds = %81
-  %92 = sext i32 %.0144165 to i64
-  %93 = getelementptr %struct.heap_struct, ptr %12, i64 %92
-  %94 = getelementptr i8, ptr %93, i64 -24
-  %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr %12, align 8
-  %96 = getelementptr i8, ptr %93, i64 -16
-  %97 = load ptr, ptr %96, align 8
-  store ptr %97, ptr %39, align 8
-  %98 = getelementptr i8, ptr %93, i64 -8
-  %99 = load i32, ptr %98, align 8
-  store i32 %99, ptr %40, align 8
-  %100 = add nsw i32 %.0144165, -1
-  br label %106
-
-101:                                              ; preds = %81
-  %102 = load ptr, ptr %12, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
-  store ptr %103, ptr %12, align 8
-  %104 = load ptr, ptr %39, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
-  store ptr %105, ptr %39, align 8
-  br label %106
-
-106:                                              ; preds = %101, %91
-  %107 = phi i32 [ %90, %101 ], [ %99, %91 ]
-  %108 = phi ptr [ %105, %101 ], [ %97, %91 ]
-  %109 = phi ptr [ %103, %101 ], [ %95, %91 ]
-  %.1145 = phi i32 [ %.0144165, %101 ], [ %100, %91 ]
+95:                                               ; preds = %85
+  %96 = sext i32 %.0144165 to i64
+  %97 = getelementptr %struct.heap_struct, ptr %12, i64 %96
+  %98 = getelementptr i8, ptr %97, i64 -24
+  %99 = load ptr, ptr %98, align 8
+  store ptr %99, ptr %12, align 8
+  %100 = getelementptr i8, ptr %97, i64 -16
+  %101 = load ptr, ptr %100, align 8
+  store ptr %101, ptr %39, align 8
+  %102 = getelementptr i8, ptr %97, i64 -8
+  %103 = load i32, ptr %102, align 8
+  store i32 %103, ptr %40, align 8
+  %104 = add nsw i32 %.0144165, -1
   br label %110
 
-110:                                              ; preds = %136, %106
-  %.1143 = phi i32 [ 0, %106 ], [ %.3, %136 ]
-  %111 = shl i32 %.1143, 1
-  %112 = add i32 %111, 2
-  %113 = or disjoint i32 %111, 1
-  %114 = icmp slt i32 %113, %.1145
-  br i1 %114, label %115, label %122
+105:                                              ; preds = %85
+  %106 = load ptr, ptr %12, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 8
+  store ptr %107, ptr %12, align 8
+  %108 = load ptr, ptr %39, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 8
+  store ptr %109, ptr %39, align 8
+  br label %110
 
-115:                                              ; preds = %110
-  %116 = sext i32 %113 to i64
-  %117 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %116
-  %118 = load ptr, ptr %117, align 8
-  %119 = load i64, ptr %118, align 8
-  %120 = load i64, ptr %109, align 8
-  %121 = icmp slt i64 %119, %120
-  br i1 %121, label %123, label %122
+110:                                              ; preds = %105, %95
+  %111 = phi i32 [ %94, %105 ], [ %103, %95 ]
+  %112 = phi ptr [ %109, %105 ], [ %101, %95 ]
+  %113 = phi ptr [ %107, %105 ], [ %99, %95 ]
+  %.1145 = phi i32 [ %.0144165, %105 ], [ %104, %95 ]
+  br label %114
 
-122:                                              ; preds = %115, %110
-  br label %123
+114:                                              ; preds = %140, %110
+  %.1143 = phi i32 [ 0, %110 ], [ %.3, %140 ]
+  %115 = shl i32 %.1143, 1
+  %116 = add i32 %115, 2
+  %117 = or disjoint i32 %115, 1
+  %118 = icmp slt i32 %117, %.1145
+  br i1 %118, label %119, label %126
 
-123:                                              ; preds = %115, %122
-  %.2 = phi i32 [ %.1143, %122 ], [ %113, %115 ]
-  %124 = icmp slt i32 %112, %.1145
-  br i1 %124, label %125, label %135
+119:                                              ; preds = %114
+  %120 = sext i32 %117 to i64
+  %121 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %120
+  %122 = load ptr, ptr %121, align 8
+  %123 = load i64, ptr %122, align 8
+  %124 = load i64, ptr %113, align 8
+  %125 = icmp slt i64 %123, %124
+  br i1 %125, label %127, label %126
 
-125:                                              ; preds = %123
-  %126 = sext i32 %112 to i64
-  %127 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %126
-  %128 = load ptr, ptr %127, align 8
-  %129 = load i64, ptr %128, align 8
-  %130 = sext i32 %.2 to i64
+126:                                              ; preds = %119, %114
+  br label %127
+
+127:                                              ; preds = %119, %126
+  %.2 = phi i32 [ %.1143, %126 ], [ %117, %119 ]
+  %128 = icmp slt i32 %116, %.1145
+  br i1 %128, label %129, label %139
+
+129:                                              ; preds = %127
+  %130 = sext i32 %116 to i64
   %131 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = load i64, ptr %132, align 8
-  %134 = icmp slt i64 %129, %133
-  %spec.select158 = select i1 %134, i32 %112, i32 %.2
-  br label %135
+  %134 = sext i32 %.2 to i64
+  %135 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %134
+  %136 = load ptr, ptr %135, align 8
+  %137 = load i64, ptr %136, align 8
+  %138 = icmp slt i64 %133, %137
+  %spec.select158 = select i1 %138, i32 %116, i32 %.2
+  br label %139
 
-135:                                              ; preds = %125, %123
-  %.3 = phi i32 [ %.2, %123 ], [ %spec.select158, %125 ]
+139:                                              ; preds = %129, %127
+  %.3 = phi i32 [ %.2, %127 ], [ %spec.select158, %129 ]
   %.not155 = icmp eq i32 %.3, %.1143
-  br i1 %.not155, label %146, label %136
+  br i1 %.not155, label %152, label %140
 
-136:                                              ; preds = %135
-  %137 = sext i32 %.1143 to i64
-  %138 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %137
-  %139 = getelementptr inbounds i8, ptr %138, i64 16
-  %140 = sext i32 %.3 to i64
-  %141 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %140
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
-  %143 = load <2 x ptr>, ptr %141, align 8
-  store <2 x ptr> %143, ptr %138, align 8
-  %144 = getelementptr inbounds i8, ptr %141, i64 16
-  %145 = load i32, ptr %144, align 8
-  store i32 %145, ptr %139, align 8
-  store ptr %109, ptr %141, align 8
-  store ptr %108, ptr %142, align 8
-  store i32 %107, ptr %144, align 8
-  br label %110
+140:                                              ; preds = %139
+  %141 = sext i32 %.1143 to i64
+  %142 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %141
+  %143 = getelementptr inbounds i8, ptr %142, i64 8
+  %144 = getelementptr inbounds i8, ptr %142, i64 16
+  %145 = sext i32 %.3 to i64
+  %146 = getelementptr inbounds %struct.heap_struct, ptr %12, i64 %145
+  %147 = load ptr, ptr %146, align 8
+  store ptr %147, ptr %142, align 8
+  %148 = getelementptr inbounds i8, ptr %146, i64 8
+  %149 = load ptr, ptr %148, align 8
+  store ptr %149, ptr %143, align 8
+  %150 = getelementptr inbounds i8, ptr %146, i64 16
+  %151 = load i32, ptr %150, align 8
+  store i32 %151, ptr %144, align 8
+  store ptr %113, ptr %146, align 8
+  store ptr %112, ptr %148, align 8
+  store i32 %111, ptr %150, align 8
+  br label %114
 
-146:                                              ; preds = %135
+152:                                              ; preds = %139
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %._crit_edge167, label %81, !llvm.loop !29
+  br i1 %exitcond173.not, label %._crit_edge167, label %85, !llvm.loop !29
 
-._crit_edge167:                                   ; preds = %146, %.preheader
+._crit_edge167:                                   ; preds = %152, %.preheader
   tail call void @ADIOI_Free_fn(ptr noundef %12, i32 noundef 1032, ptr noundef nonnull @.str) #6
   ret void
 }

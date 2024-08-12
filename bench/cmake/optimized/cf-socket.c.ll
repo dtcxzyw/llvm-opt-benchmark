@@ -90,9 +90,12 @@ define dso_local void @Curl_sock_assign_addr(ptr nocapture noundef writeonly %0,
   br label %8
 
 8:                                                ; preds = %3, %7, %6
-  %9 = phi <2 x i32> [ <i32 2, i32 17>, %7 ], [ <i32 1, i32 0>, %6 ], [ <i32 1, i32 6>, %3 ]
+  %.sink15 = phi i32 [ 2, %7 ], [ 1, %6 ], [ 1, %3 ]
+  %.sink = phi i32 [ 17, %7 ], [ 0, %6 ], [ 6, %3 ]
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = getelementptr inbounds i8, ptr %0, i64 4
-  store <2 x i32> %9, ptr %10, align 4
+  store i32 %.sink15, ptr %10, align 4
+  store i32 %.sink, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %spec.select = tail call i32 @llvm.umin.i32(i32 %12, i32 128)
@@ -1391,9 +1394,12 @@ define dso_local i32 @Curl_cf_tcp_create(ptr nocapture noundef writeonly %0, ptr
   br label %16
 
 16:                                               ; preds = %15, %14, %9
-  %17 = phi <2 x i32> [ <i32 2, i32 17>, %15 ], [ <i32 1, i32 0>, %14 ], [ <i32 1, i32 6>, %9 ]
+  %.sink15.i.i = phi i32 [ 2, %15 ], [ 1, %14 ], [ 1, %9 ]
+  %.sink.i.i = phi i32 [ 17, %15 ], [ 0, %14 ], [ 6, %9 ]
+  %17 = getelementptr inbounds i8, ptr %8, i64 16
   %18 = getelementptr inbounds i8, ptr %8, i64 12
-  store <2 x i32> %17, ptr %18, align 4
+  store i32 %.sink15.i.i, ptr %18, align 4
+  store i32 %.sink.i.i, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   %20 = load i32, ptr %19, align 8
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %20, i32 128)
@@ -1699,9 +1705,12 @@ define dso_local i32 @Curl_cf_udp_create(ptr nocapture noundef writeonly %0, ptr
   br label %16
 
 16:                                               ; preds = %15, %14, %9
-  %17 = phi <2 x i32> [ <i32 2, i32 17>, %15 ], [ <i32 1, i32 0>, %14 ], [ <i32 1, i32 6>, %9 ]
+  %.sink15.i.i = phi i32 [ 2, %15 ], [ 1, %14 ], [ 1, %9 ]
+  %.sink.i.i = phi i32 [ 17, %15 ], [ 0, %14 ], [ 6, %9 ]
+  %17 = getelementptr inbounds i8, ptr %8, i64 16
   %18 = getelementptr inbounds i8, ptr %8, i64 12
-  store <2 x i32> %17, ptr %18, align 4
+  store i32 %.sink15.i.i, ptr %18, align 4
+  store i32 %.sink.i.i, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   %20 = load i32, ptr %19, align 8
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %20, i32 128)
@@ -1770,9 +1779,12 @@ define dso_local i32 @Curl_cf_unix_create(ptr nocapture noundef writeonly %0, pt
   br label %16
 
 16:                                               ; preds = %15, %14, %9
-  %17 = phi <2 x i32> [ <i32 2, i32 17>, %15 ], [ <i32 1, i32 0>, %14 ], [ <i32 1, i32 6>, %9 ]
+  %.sink15.i.i = phi i32 [ 2, %15 ], [ 1, %14 ], [ 1, %9 ]
+  %.sink.i.i = phi i32 [ 17, %15 ], [ 0, %14 ], [ 6, %9 ]
+  %17 = getelementptr inbounds i8, ptr %8, i64 16
   %18 = getelementptr inbounds i8, ptr %8, i64 12
-  store <2 x i32> %17, ptr %18, align 4
+  store i32 %.sink15.i.i, ptr %18, align 4
+  store i32 %.sink.i.i, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   %20 = load i32, ptr %19, align 8
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %20, i32 128)

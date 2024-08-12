@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @clock_gettime(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = alloca %struct.timespec, align 16
+  %4 = alloca %struct.timespec, align 8
   %5 = and i32 %0, 7
   switch i32 %5, label %.thread [
     i32 4, label %6
@@ -20,12 +20,12 @@ define range(i32 -1, -2147483648) i32 @clock_gettime(i32 noundef %0, ptr noundef
 
 6:                                                ; preds = %2, %2
   %7 = tail call i32 @clock_systime_timespec(ptr noundef %1) #3
-  br label %32
+  br label %34
 
 8:                                                ; preds = %2
   %9 = call i32 @clock_systime_timespec(ptr noundef nonnull %4) #3
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %32
+  br i1 %10, label %11, label %34
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -33,60 +33,63 @@ define range(i32 -1, -2147483648) i32 @clock_gettime(i32 noundef %0, ptr noundef
   %12 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %13 = load <2 x i64>, ptr @g_basetime, align 8
-  %14 = and <2 x i64> %13, <i64 4294967295, i64 4294967295>
-  %15 = load <2 x i64>, ptr %4, align 16
-  %16 = add <2 x i64> %15, %14
-  store <2 x i64> %16, ptr %4, align 16
-  %17 = and i64 %12, 512
-  %.not.i = icmp eq i64 %17, 0
-  %18 = extractelement <2 x i64> %16, i64 0
-  %19 = extractelement <2 x i64> %16, i64 1
-  br i1 %.not.i, label %up_irq_restore.exit, label %20
+  %13 = load i64, ptr @g_basetime, align 8
+  %14 = and i64 %13, 4294967295
+  %15 = load i64, ptr %4, align 8
+  %16 = add i64 %15, %14
+  store i64 %16, ptr %4, align 8
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @g_basetime, i64 8), align 8
+  %18 = and i64 %17, 4294967295
+  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = add nsw i64 %20, %18
+  store i64 %21, ptr %19, align 8
+  %22 = and i64 %12, 512
+  %.not.i = icmp eq i64 %22, 0
+  br i1 %.not.i, label %up_irq_restore.exit, label %23
 
-20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+23:                                               ; preds = %11
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
-  %.pr = load i64, ptr %21, align 8
-  %.pre.pre = load i64, ptr %4, align 16
+  %.pr = load i64, ptr %19, align 8
+  %.pre.pre = load i64, ptr %4, align 8
   br label %up_irq_restore.exit
 
-up_irq_restore.exit:                              ; preds = %11, %20
-  %.pre = phi i64 [ %18, %11 ], [ %.pre.pre, %20 ]
-  %22 = phi i64 [ %19, %11 ], [ %.pr, %20 ]
-  %23 = icmp sgt i64 %22, 999999999
-  br i1 %23, label %24, label %.thread20
+up_irq_restore.exit:                              ; preds = %11, %23
+  %.pre = phi i64 [ %16, %11 ], [ %.pre.pre, %23 ]
+  %24 = phi i64 [ %21, %11 ], [ %.pr, %23 ]
+  %25 = icmp sgt i64 %24, 999999999
+  br i1 %25, label %26, label %.thread20
 
-24:                                               ; preds = %up_irq_restore.exit
-  %25 = udiv i64 %22, 1000000000
-  %26 = and i64 %25, 4294967295
-  %27 = add i64 %.pre, %26
-  %.neg = mul nsw i64 %26, -1000000000
-  %28 = add nsw i64 %.neg, %22
+26:                                               ; preds = %up_irq_restore.exit
+  %27 = udiv i64 %24, 1000000000
+  %28 = and i64 %27, 4294967295
+  %29 = add i64 %.pre, %28
+  %.neg = mul nsw i64 %28, -1000000000
+  %30 = add nsw i64 %.neg, %24
   br label %.thread20
 
-.thread20:                                        ; preds = %up_irq_restore.exit, %24
-  %29 = phi i64 [ %22, %up_irq_restore.exit ], [ %28, %24 ]
-  %30 = phi i64 [ %.pre, %up_irq_restore.exit ], [ %27, %24 ]
-  store i64 %30, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 %29, ptr %31, align 8
-  br label %36
+.thread20:                                        ; preds = %up_irq_restore.exit, %26
+  %31 = phi i64 [ %24, %up_irq_restore.exit ], [ %30, %26 ]
+  %32 = phi i64 [ %.pre, %up_irq_restore.exit ], [ %29, %26 ]
+  store i64 %32, ptr %1, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %31, ptr %33, align 8
+  br label %38
 
-32:                                               ; preds = %8, %6
+34:                                               ; preds = %8, %6
   %.0 = phi i32 [ %7, %6 ], [ %9, %8 ]
-  %33 = icmp slt i32 %.0, 0
-  br i1 %33, label %.thread, label %36
+  %35 = icmp slt i32 %.0, 0
+  br i1 %35, label %.thread, label %38
 
-.thread:                                          ; preds = %2, %32
-  %.019 = phi i32 [ %.0, %32 ], [ -22, %2 ]
-  %34 = sub nsw i32 0, %.019
-  %35 = call ptr @__errno() #3
-  store i32 %34, ptr %35, align 4
-  br label %36
+.thread:                                          ; preds = %2, %34
+  %.019 = phi i32 [ %.0, %34 ], [ -22, %2 ]
+  %36 = sub nsw i32 0, %.019
+  %37 = call ptr @__errno() #3
+  store i32 %36, ptr %37, align 4
+  br label %38
 
-36:                                               ; preds = %.thread20, %.thread, %32
-  %.1 = phi i32 [ -1, %.thread ], [ %.0, %32 ], [ 0, %.thread20 ]
+38:                                               ; preds = %.thread20, %.thread, %34
+  %.1 = phi i32 [ -1, %.thread ], [ %.0, %34 ], [ 0, %.thread20 ]
   ret i32 %.1
 }
 

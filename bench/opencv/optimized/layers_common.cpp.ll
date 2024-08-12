@@ -4890,28 +4890,24 @@ define hidden noundef double @_ZN2cv3dnn14getWeightScaleERKNS_3MatE(ptr noundef 
   %8 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
   call void @_ZN2cv9minMaxIdxERKNS_11_InputArrayEPdS3_PiS4_S2_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %9 = load double, ptr %2, align 8
-  %10 = load double, ptr %3, align 8
-  %11 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %10, i64 0
-  %12 = insertelement <2 x double> <double 0.000000e+00, double poison>, double %9, i64 1
-  %13 = fcmp olt <2 x double> %11, %12
-  %14 = insertelement <2 x double> poison, double %10, i64 0
-  %15 = insertelement <2 x double> %14, double %9, i64 1
-  %16 = select <2 x i1> %13, <2 x double> zeroinitializer, <2 x double> %15
-  %17 = extractelement <2 x double> %16, i64 0
-  %18 = extractelement <2 x double> %16, i64 1
-  %19 = fcmp oeq double %17, %18
-  br i1 %19, label %24, label %20
+  %10 = fcmp ogt double %9, 0.000000e+00
+  %.sroa.speculated9 = select i1 %10, double 0.000000e+00, double %9
+  %11 = load double, ptr %3, align 8
+  %12 = fcmp olt double %11, 0.000000e+00
+  %.sroa.speculated5 = select i1 %12, double 0.000000e+00, double %11
+  %13 = fcmp oeq double %.sroa.speculated5, %.sroa.speculated9
+  br i1 %13, label %18, label %14
 
-20:                                               ; preds = %1
-  %21 = fneg double %18
-  %22 = fcmp ogt double %17, %21
-  %.sroa.speculated = select i1 %22, double %17, double %21
-  %23 = fdiv double %.sroa.speculated, 1.270000e+02
-  br label %24
+14:                                               ; preds = %1
+  %15 = fneg double %.sroa.speculated9
+  %16 = fcmp ogt double %.sroa.speculated5, %15
+  %.sroa.speculated = select i1 %16, double %.sroa.speculated5, double %15
+  %17 = fdiv double %.sroa.speculated, 1.270000e+02
+  br label %18
 
-24:                                               ; preds = %1, %20
-  %25 = phi double [ %23, %20 ], [ 1.000000e+00, %1 ]
-  ret double %25
+18:                                               ; preds = %1, %14
+  %19 = phi double [ %17, %14 ], [ 1.000000e+00, %1 ]
+  ret double %19
 }
 
 declare void @_ZN2cv9minMaxIdxERKNS_11_InputArrayEPdS3_PiS4_S2_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0

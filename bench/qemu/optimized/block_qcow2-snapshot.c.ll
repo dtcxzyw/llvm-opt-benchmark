@@ -1227,12 +1227,16 @@ find_new_snapshot_id.exit:                        ; preds = %if.end2, %for.end.l
   %vm_state_size = getelementptr inbounds i8, ptr %sn_info, i64 384
   %9 = load i64, ptr %vm_state_size, align 8
   %date_sec = getelementptr inbounds i8, ptr %sn_info, i64 392
-  %10 = load <2 x i32>, ptr %date_sec, align 8
+  %10 = load i32, ptr %date_sec, align 8
+  %date_nsec = getelementptr inbounds i8, ptr %sn_info, i64 396
+  %11 = load i32, ptr %date_nsec, align 4
   %vm_clock_nsec = getelementptr inbounds i8, ptr %sn_info, i64 400
-  %11 = load <2 x i64>, ptr %vm_clock_nsec, align 8
+  %12 = load i64, ptr %vm_clock_nsec, align 8
+  %icount = getelementptr inbounds i8, ptr %sn_info, i64 408
+  %13 = load i64, ptr %icount, align 8
   %l1_size = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = load i32, ptr %l1_size, align 8
-  %conv = sext i32 %12 to i64
+  %14 = load i32, ptr %l1_size, align 8
+  %conv = sext i32 %14 to i64
   %mul15 = shl nsw i64 %conv, 3
   %call16 = tail call i64 @qcow2_alloc_clusters(ptr noundef %bs, i64 noundef %mul15) #16
   %cmp17 = icmp slt i64 %call16, 0
@@ -1243,80 +1247,80 @@ if.then19:                                        ; preds = %find_new_snapshot_i
   br label %fail
 
 if.end21:                                         ; preds = %find_new_snapshot_id.exit
-  %13 = load i32, ptr %l1_size, align 8
-  %conv26 = sext i32 %13 to i64
+  %15 = load i32, ptr %l1_size, align 8
+  %conv26 = sext i32 %15 to i64
   %call27 = tail call noalias ptr @g_try_malloc_n(i64 noundef %conv26, i64 noundef 8) #17
-  %14 = load i32, ptr %l1_size, align 8
-  %tobool = icmp ne i32 %14, 0
+  %16 = load i32, ptr %l1_size, align 8
+  %tobool = icmp ne i32 %16, 0
   %cmp29 = icmp eq ptr %call27, null
   %or.cond = select i1 %tobool, i1 %cmp29, i1 false
   br i1 %or.cond, label %fail, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end21
-  %cmp3482 = icmp sgt i32 %14, 0
+  %cmp3482 = icmp sgt i32 %16, 0
   br i1 %cmp3482, label %for.body.lr.ph, label %for.cond.preheader.for.end_crit_edge
 
 for.cond.preheader.for.end_crit_edge:             ; preds = %for.cond.preheader
-  %.pre87 = sext i32 %14 to i64
+  %.pre87 = sext i32 %16 to i64
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %l1_table36 = getelementptr inbounds i8, ptr %0, i64 72
   %.pre = load ptr, ptr %l1_table36, align 8
-  %15 = zext nneg i32 %14 to i64
+  %17 = zext nneg i32 %16 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr i64, ptr %.pre, i64 %indvars.iv
-  %16 = load i64, ptr %arrayidx, align 8
-  %17 = tail call noundef i64 @llvm.bswap.i64(i64 %16)
+  %18 = load i64, ptr %arrayidx, align 8
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %18)
   %arrayidx39 = getelementptr i64, ptr %call27, i64 %indvars.iv
-  store i64 %17, ptr %arrayidx39, align 8
+  store i64 %19, ptr %arrayidx39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp34 = icmp ult i64 %indvars.iv.next, %15
+  %cmp34 = icmp ult i64 %indvars.iv.next, %17
   br i1 %cmp34, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader.for.end_crit_edge
-  %conv42.pre-phi = phi i64 [ %.pre87, %for.cond.preheader.for.end_crit_edge ], [ %15, %for.body ]
+  %conv42.pre-phi = phi i64 [ %.pre87, %for.cond.preheader.for.end_crit_edge ], [ %17, %for.body ]
   %mul43 = shl nsw i64 %conv42.pre-phi, 3
   %call44 = tail call i32 @qcow2_pre_write_overlap_check(ptr noundef %bs, i32 noundef 0, i64 noundef %call16, i64 noundef %mul43, i1 noundef zeroext false) #16
   %cmp45 = icmp slt i32 %call44, 0
   br i1 %cmp45, label %fail, label %if.end48
 
 if.end48:                                         ; preds = %for.end
-  %18 = load ptr, ptr %2, align 8
-  %19 = load i32, ptr %l1_size, align 8
-  %conv51 = sext i32 %19 to i64
+  %20 = load ptr, ptr %2, align 8
+  %21 = load i32, ptr %l1_size, align 8
+  %conv51 = sext i32 %21 to i64
   %mul52 = shl nsw i64 %conv51, 3
-  %call53 = tail call i32 @bdrv_pwrite(ptr noundef %18, i64 noundef %call16, i64 noundef %mul52, ptr noundef %call27, i32 noundef 0) #16
+  %call53 = tail call i32 @bdrv_pwrite(ptr noundef %20, i64 noundef %call16, i64 noundef %mul52, ptr noundef %call27, i32 noundef 0) #16
   %cmp54 = icmp slt i32 %call53, 0
   br i1 %cmp54, label %fail, label %if.end57
 
 if.end57:                                         ; preds = %if.end48
   tail call void @g_free(ptr noundef %call27) #16
   %l1_table_offset58 = getelementptr inbounds i8, ptr %0, i64 64
-  %20 = load i64, ptr %l1_table_offset58, align 8
-  %21 = load i32, ptr %l1_size, align 8
-  %call60 = tail call i32 @qcow2_update_snapshot_refcount(ptr noundef nonnull %bs, i64 noundef %20, i32 noundef %21, i32 noundef 1) #16
+  %22 = load i64, ptr %l1_table_offset58, align 8
+  %23 = load i32, ptr %l1_size, align 8
+  %call60 = tail call i32 @qcow2_update_snapshot_refcount(ptr noundef nonnull %bs, i64 noundef %22, i32 noundef %23, i32 noundef 1) #16
   %cmp61 = icmp slt i32 %call60, 0
   br i1 %cmp61, label %fail, label %if.end64
 
 if.end64:                                         ; preds = %if.end57
-  %22 = load i32, ptr %nb_snapshots, align 4
-  %add = add i32 %22, 1
+  %24 = load i32, ptr %nb_snapshots, align 4
+  %add = add i32 %24, 1
   %conv66 = zext i32 %add to i64
   %call67 = tail call noalias ptr @g_malloc_n(i64 noundef %conv66, i64 noundef 88) #17
   %snapshots = getelementptr inbounds i8, ptr %0, i64 264
-  %23 = load ptr, ptr %snapshots, align 8
-  %tobool68.not = icmp eq ptr %23, null
+  %25 = load ptr, ptr %snapshots, align 8
+  %tobool68.not = icmp eq ptr %25, null
   %.pre86 = load i32, ptr %nb_snapshots, align 4
   %.pre88 = zext i32 %.pre86 to i64
   br i1 %tobool68.not, label %if.end75, label %if.then69
 
 if.then69:                                        ; preds = %if.end64
   %mul73 = mul nuw nsw i64 %.pre88, 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call67, ptr nonnull align 8 %23, i64 %mul73, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call67, ptr nonnull align 8 %25, i64 %mul73, i1 false)
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end64, %if.then69
@@ -1326,7 +1330,7 @@ if.end75:                                         ; preds = %if.end64, %if.then6
   %arrayidx81 = getelementptr %struct.QCowSnapshot, ptr %call67, i64 %.pre88
   store i64 %call16, ptr %arrayidx81, align 8
   %sn1.sroa.5.0.arrayidx81.sroa_idx = getelementptr inbounds i8, ptr %arrayidx81, i64 8
-  store i32 %13, ptr %sn1.sroa.5.0.arrayidx81.sroa_idx, align 8
+  store i32 %15, ptr %sn1.sroa.5.0.arrayidx81.sroa_idx, align 8
   %sn1.sroa.6.0.arrayidx81.sroa_idx = getelementptr inbounds i8, ptr %arrayidx81, i64 12
   store i32 0, ptr %sn1.sroa.6.0.arrayidx81.sroa_idx, align 4
   %sn1.sroa.674.0.arrayidx81.sroa_idx = getelementptr inbounds i8, ptr %arrayidx81, i64 16
@@ -1338,9 +1342,13 @@ if.end75:                                         ; preds = %if.end64, %if.then6
   %sn1.sroa.11.0.arrayidx81.sroa_idx = getelementptr inbounds i8, ptr %arrayidx81, i64 40
   store i64 %9, ptr %sn1.sroa.11.0.arrayidx81.sroa_idx, align 8
   %sn1.sroa.13.0.arrayidx81.sroa_idx = getelementptr inbounds i8, ptr %arrayidx81, i64 48
-  store <2 x i32> %10, ptr %sn1.sroa.13.0.arrayidx81.sroa_idx, align 8
+  store i32 %10, ptr %sn1.sroa.13.0.arrayidx81.sroa_idx, align 8
+  %sn1.sroa.14.0.arrayidx81.sroa_idx = getelementptr inbounds i8, ptr %arrayidx81, i64 52
+  store i32 %11, ptr %sn1.sroa.14.0.arrayidx81.sroa_idx, align 4
   %sn1.sroa.15.0.arrayidx81.sroa_idx = getelementptr inbounds i8, ptr %arrayidx81, i64 56
-  store <2 x i64> %11, ptr %sn1.sroa.15.0.arrayidx81.sroa_idx, align 8
+  store i64 %12, ptr %sn1.sroa.15.0.arrayidx81.sroa_idx, align 8
+  %sn1.sroa.16.0.arrayidx81.sroa_idx = getelementptr inbounds i8, ptr %arrayidx81, i64 64
+  store i64 %13, ptr %sn1.sroa.16.0.arrayidx81.sroa_idx, align 8
   %sn1.sroa.17.0.arrayidx81.sroa_idx = getelementptr inbounds i8, ptr %arrayidx81, i64 72
   store i32 24, ptr %sn1.sroa.17.0.arrayidx81.sroa_idx, align 8
   %sn1.sroa.18.0.arrayidx81.sroa_idx = getelementptr inbounds i8, ptr %arrayidx81, i64 76
@@ -1350,28 +1358,28 @@ if.end75:                                         ; preds = %if.end64, %if.then6
   br i1 %cmp83, label %if.then85, label %if.end89
 
 if.then85:                                        ; preds = %if.end75
-  %24 = load ptr, ptr %snapshots, align 8
-  tail call void @g_free(ptr noundef %24) #16
-  store ptr %23, ptr %snapshots, align 8
-  %25 = load i32, ptr %nb_snapshots, align 4
-  %dec = add i32 %25, -1
+  %26 = load ptr, ptr %snapshots, align 8
+  tail call void @g_free(ptr noundef %26) #16
+  store ptr %25, ptr %snapshots, align 8
+  %27 = load i32, ptr %nb_snapshots, align 4
+  %dec = add i32 %27, -1
   store i32 %dec, ptr %nb_snapshots, align 4
   br label %fail
 
 if.end89:                                         ; preds = %if.end75
-  tail call void @g_free(ptr noundef %23) #16
+  tail call void @g_free(ptr noundef %25) #16
   %l1_vm_state_index.i = getelementptr inbounds i8, ptr %0, i64 36
-  %26 = load i32, ptr %l1_vm_state_index.i, align 4
-  %conv.i = sext i32 %26 to i64
-  %27 = load i32, ptr %0, align 8
+  %28 = load i32, ptr %l1_vm_state_index.i, align 4
+  %conv.i = sext i32 %28 to i64
+  %29 = load i32, ptr %0, align 8
   %l2_bits.i = getelementptr inbounds i8, ptr %0, i64 24
-  %28 = load i32, ptr %l2_bits.i, align 8
-  %add.i = add i32 %28, %27
+  %30 = load i32, ptr %l2_bits.i, align 8
+  %add.i = add i32 %30, %29
   %sh_prom.i = zext nneg i32 %add.i to i64
   %shl.i = shl i64 %conv.i, %sh_prom.i
   %cluster_size = getelementptr inbounds i8, ptr %0, i64 4
-  %29 = load i32, ptr %cluster_size, align 4
-  %conv92 = sext i32 %29 to i64
+  %31 = load i32, ptr %cluster_size, align 4
+  %conv92 = sext i32 %31 to i64
   %add93 = add i64 %9, -1
   %sub = add i64 %add93, %conv92
   %sub96 = sub nsw i64 0, %conv92

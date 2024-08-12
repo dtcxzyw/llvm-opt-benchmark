@@ -185,20 +185,23 @@ define void @cuddCacheInsert(ptr nocapture noundef %0, i64 noundef %1, ptr nound
   %53 = icmp ne ptr %52, null
   %54 = uitofp i1 %53 to double
   %55 = getelementptr inbounds i8, ptr %0, i64 696
-  %56 = load <2 x double>, ptr %55, align 8
-  %57 = insertelement <2 x double> <double poison, double 1.000000e+00>, double %54, i64 0
-  %58 = fadd <2 x double> %56, %57
-  store <2 x double> %58, ptr %55, align 8
-  %59 = inttoptr i64 %9 to ptr
-  store ptr %59, ptr %50, align 8
-  %60 = inttoptr i64 %12 to ptr
-  %61 = getelementptr inbounds i8, ptr %50, i64 8
-  store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %50, i64 16
-  store i64 %13, ptr %62, align 8
+  %56 = load double, ptr %55, align 8
+  %57 = fadd double %56, %54
+  store double %57, ptr %55, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 704
+  %59 = load double, ptr %58, align 8
+  %60 = fadd double %59, 1.000000e+00
+  store double %60, ptr %58, align 8
+  %61 = inttoptr i64 %9 to ptr
+  store ptr %61, ptr %50, align 8
+  %62 = inttoptr i64 %12 to ptr
+  %63 = getelementptr inbounds i8, ptr %50, i64 8
+  store ptr %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %50, i64 16
+  store i64 %13, ptr %64, align 8
   store ptr %5, ptr %51, align 8
-  %63 = getelementptr inbounds i8, ptr %50, i64 32
-  store i32 %43, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %50, i64 32
+  store i32 %43, ptr %65, align 8
   ret void
 }
 
@@ -465,7 +468,7 @@ define void @cuddCacheResize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %18 = xor i32 %7, -1
   %19 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 %18, ptr %19, align 8
-  br label %80
+  br label %81
 
 20:                                               ; preds = %1
   %21 = ptrtoint ptr %13 to i64
@@ -569,24 +572,26 @@ define void @cuddCacheResize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %66 = getelementptr inbounds i8, ptr %0, i64 104
   %67 = load double, ptr %66, align 8
   %68 = fsub double %67, %65
-  store double %65, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 112
+  %69 = getelementptr inbounds i8, ptr %0, i64 688
   %70 = load double, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 680
-  %72 = load <2 x double>, ptr %71, align 8
-  %73 = insertelement <2 x double> poison, double %70, i64 0
-  %74 = insertelement <2 x double> %73, double %68, i64 1
-  %75 = fadd <2 x double> %72, %74
-  store <2 x double> %75, ptr %71, align 8
-  store double 0.000000e+00, ptr %69, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 704
-  %77 = load double, ptr %76, align 8
-  %78 = fsub double %77, %.071.lcssa
-  %79 = getelementptr inbounds i8, ptr %0, i64 712
-  store double %78, ptr %79, align 8
-  br label %80
+  %71 = fadd double %70, %68
+  store double %71, ptr %69, align 8
+  store double %65, ptr %66, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 112
+  %73 = load double, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 680
+  %75 = load double, ptr %74, align 8
+  %76 = fadd double %73, %75
+  store double %76, ptr %74, align 8
+  store double 0.000000e+00, ptr %72, align 8
+  %77 = getelementptr inbounds i8, ptr %0, i64 704
+  %78 = load double, ptr %77, align 8
+  %79 = fsub double %78, %.071.lcssa
+  %80 = getelementptr inbounds i8, ptr %0, i64 712
+  store double %79, ptr %80, align 8
+  br label %81
 
-80:                                               ; preds = %59, %15
+81:                                               ; preds = %59, %15
   ret void
 }
 

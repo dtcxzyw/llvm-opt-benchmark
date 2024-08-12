@@ -12,9 +12,21 @@ entry:
   store i32 0, ptr %offset, align 8
   %size = getelementptr inbounds i8, ptr %ctx, i64 32
   store i64 0, ptr %size, align 8
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %ctx, align 8
+  store i32 1779033703, ptr %ctx, align 8
+  %arrayidx2 = getelementptr inbounds i8, ptr %ctx, i64 4
+  store i32 -1150833019, ptr %arrayidx2, align 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %ctx, i64 8
+  store i32 1013904242, ptr %arrayidx4, align 8
+  %arrayidx6 = getelementptr inbounds i8, ptr %ctx, i64 12
+  store i32 -1521486534, ptr %arrayidx6, align 4
   %arrayidx8 = getelementptr inbounds i8, ptr %ctx, i64 16
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx8, align 8
+  store i32 1359893119, ptr %arrayidx8, align 8
+  %arrayidx10 = getelementptr inbounds i8, ptr %ctx, i64 20
+  store i32 -1694144372, ptr %arrayidx10, align 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %ctx, i64 24
+  store i32 528734635, ptr %arrayidx12, align 8
+  %arrayidx14 = getelementptr inbounds i8, ptr %ctx, i64 28
+  store i32 1541459225, ptr %arrayidx14, align 4
   ret void
 }
 

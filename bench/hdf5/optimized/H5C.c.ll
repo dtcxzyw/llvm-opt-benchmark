@@ -128,7 +128,7 @@ define ptr @H5C_create(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nound
   %21 = load i64, ptr @H5E_CACHE_g, align 8
   %22 = load i64, ptr @H5E_CANTCREATE_g, align 8
   %23 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_create, i32 noundef 149, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.3) #8
-  br label %94
+  br label %97
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds i8, ptr %10, i64 524728
@@ -144,7 +144,7 @@ define ptr @H5C_create(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nound
   %30 = load i64, ptr @H5E_CACHE_g, align 8
   %31 = load i64, ptr @H5E_CANTALLOC_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_create, i32 noundef 160, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #8
-  br label %94
+  br label %97
 
 .preheader:                                       ; preds = %24
   %33 = getelementptr inbounds i8, ptr %10, i64 16
@@ -206,118 +206,124 @@ define ptr @H5C_create(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nound
   %61 = getelementptr inbounds i8, ptr %10, i64 524928
   store i32 0, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %10, i64 524936
-  store <2 x double> <double 9.000000e-01, double 2.000000e+00>, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %10, i64 524952
-  store i8 1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %10, i64 524960
-  store i64 2097152, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %10, i64 524968
-  store i32 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %10, i64 524976
-  store <2 x double> <double 1.000000e+00, double 2.500000e-01>, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %10, i64 524992
-  store i32 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %10, i64 525000
-  store <2 x double> <double 9.999000e-01, double 9.000000e-01>, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %10, i64 525016
-  store i8 1, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %10, i64 525024
-  store i64 1048576, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %10, i64 525032
-  store i32 3, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %10, i64 525036
-  store i8 1, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %10, i64 525040
-  store double 5.000000e-02, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %10, i64 525048
-  store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %10, i64 525108
-  store i32 1, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %10, i64 525112
-  %77 = getelementptr inbounds i8, ptr %10, i64 525120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2488) %76, i8 0, i64 2488, i1 false)
-  br label %78
+  store double 9.000000e-01, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %10, i64 524944
+  store double 2.000000e+00, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %10, i64 524952
+  store i8 1, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %10, i64 524960
+  store i64 2097152, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %10, i64 524968
+  store i32 0, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %10, i64 524976
+  store double 1.000000e+00, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %10, i64 524984
+  store double 2.500000e-01, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %10, i64 524992
+  store i32 0, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %10, i64 525000
+  store double 9.999000e-01, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %10, i64 525008
+  store double 9.000000e-01, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %10, i64 525016
+  store i8 1, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %10, i64 525024
+  store i64 1048576, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %10, i64 525032
+  store i32 3, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %10, i64 525036
+  store i8 1, ptr %75, align 4
+  %76 = getelementptr inbounds i8, ptr %10, i64 525040
+  store double 5.000000e-02, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %10, i64 525048
+  store i32 0, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %10, i64 525108
+  store i32 1, ptr %78, align 4
+  %79 = getelementptr inbounds i8, ptr %10, i64 525112
+  %80 = getelementptr inbounds i8, ptr %10, i64 525120
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2488) %79, i8 0, i64 2488, i1 false)
+  br label %81
 
-78:                                               ; preds = %.preheader, %78
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %78 ]
-  %79 = getelementptr inbounds [10 x %struct.H5C_cache_entry_t], ptr %77, i64 0, i64 %indvars.iv
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
-  store i64 %indvars.iv, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %79, i64 40
-  store ptr @H5AC_EPOCH_MARKER, ptr %81, align 8
+81:                                               ; preds = %.preheader, %81
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %81 ]
+  %82 = getelementptr inbounds [10 x %struct.H5C_cache_entry_t], ptr %80, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  store i64 %indvars.iv, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %82, i64 40
+  store ptr @H5AC_EPOCH_MARKER, ptr %84, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %82, label %78
+  br i1 %exitcond.not, label %85, label %81
 
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %10, i64 527616
-  store i32 1, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %10, i64 527620
-  store i8 0, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %10, i64 527621
-  store i8 0, ptr %85, align 1
-  %86 = getelementptr inbounds i8, ptr %10, i64 527624
-  store i32 -1, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %10, i64 527628
-  store i32 15, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %10, i64 527632
-  %89 = getelementptr inbounds i8, ptr %10, i64 527640
-  store i32 0, ptr %88, align 8
-  store i64 -1, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %10, i64 527648
-  %91 = getelementptr inbounds i8, ptr %10, i64 527704
-  %92 = getelementptr inbounds i8, ptr %10, i64 527600
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %90, i8 0, i64 52, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %91, i8 0, i64 18, i1 false)
+85:                                               ; preds = %81
+  %86 = getelementptr inbounds i8, ptr %10, i64 527616
+  store i32 1, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %10, i64 527620
+  store i8 0, ptr %87, align 4
+  %88 = getelementptr inbounds i8, ptr %10, i64 527621
+  store i8 0, ptr %88, align 1
+  %89 = getelementptr inbounds i8, ptr %10, i64 527624
+  store i32 -1, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %10, i64 527628
+  store i32 15, ptr %90, align 4
+  %91 = getelementptr inbounds i8, ptr %10, i64 527632
+  %92 = getelementptr inbounds i8, ptr %10, i64 527640
+  store i32 0, ptr %91, align 8
+  store i64 -1, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %10, i64 527648
+  %94 = getelementptr inbounds i8, ptr %10, i64 527704
+  %95 = getelementptr inbounds i8, ptr %10, i64 527600
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %93, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %94, i8 0, i64 18, i1 false)
   tail call void @H5C_stats__reset(ptr noundef nonnull %10) #8
-  %93 = getelementptr inbounds i8, ptr %10, i64 527722
-  store i8 0, ptr %93, align 2
+  %96 = getelementptr inbounds i8, ptr %10, i64 527722
+  store i8 0, ptr %96, align 2
   br label %.thread
 
-94:                                               ; preds = %20, %29
-  %95 = load ptr, ptr %18, align 8
-  %.not166 = icmp eq ptr %95, null
-  br i1 %.not166, label %98, label %96
+97:                                               ; preds = %20, %29
+  %98 = load ptr, ptr %18, align 8
+  %.not166 = icmp eq ptr %98, null
+  br i1 %.not166, label %101, label %99
 
-96:                                               ; preds = %94
-  %97 = tail call i32 @H5SL_close(ptr noundef nonnull %95) #8
-  br label %98
+99:                                               ; preds = %97
+  %100 = tail call i32 @H5SL_close(ptr noundef nonnull %98) #8
+  br label %101
 
-98:                                               ; preds = %94, %96
-  %99 = getelementptr inbounds i8, ptr %10, i64 524728
-  %100 = load ptr, ptr %99, align 8
-  %.not167 = icmp eq ptr %100, null
-  br i1 %.not167, label %108, label %101
-
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %100, i64 32
+101:                                              ; preds = %97, %99
+  %102 = getelementptr inbounds i8, ptr %10, i64 524728
   %103 = load ptr, ptr %102, align 8
-  %104 = load ptr, ptr %103, align 8
-  tail call void @free(ptr noundef %104) #8
-  %105 = load ptr, ptr %99, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 32
+  %.not167 = icmp eq ptr %103, null
+  br i1 %.not167, label %111, label %104
+
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds i8, ptr %103, i64 32
+  %106 = load ptr, ptr %105, align 8
   %107 = load ptr, ptr %106, align 8
   tail call void @free(ptr noundef %107) #8
-  br label %108
-
-108:                                              ; preds = %98, %101
-  store ptr null, ptr %99, align 8
-  %109 = getelementptr inbounds i8, ptr %10, i64 8
+  %108 = load ptr, ptr %102, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 32
   %110 = load ptr, ptr %109, align 8
-  %.not168 = icmp eq ptr %110, null
-  br i1 %.not168, label %113, label %111
+  tail call void @free(ptr noundef %110) #8
+  br label %111
 
-111:                                              ; preds = %108
-  %112 = tail call ptr @H5MM_xfree(ptr noundef nonnull %110) #8
-  br label %113
+111:                                              ; preds = %101, %104
+  store ptr null, ptr %102, align 8
+  %112 = getelementptr inbounds i8, ptr %10, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %.not168 = icmp eq ptr %113, null
+  br i1 %.not168, label %116, label %114
 
-113:                                              ; preds = %111, %108
-  %114 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5C_t_reg_free_list, ptr noundef nonnull %10) #8
+114:                                              ; preds = %111
+  %115 = tail call ptr @H5MM_xfree(ptr noundef nonnull %113) #8
+  br label %116
+
+116:                                              ; preds = %114, %111
+  %117 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5C_t_reg_free_list, ptr noundef nonnull %10) #8
   br label %.thread
 
-.thread:                                          ; preds = %12, %82, %113
-  %.0171 = phi ptr [ null, %113 ], [ %10, %82 ], [ null, %12 ]
+.thread:                                          ; preds = %12, %85, %116
+  %.0171 = phi ptr [ null, %116 ], [ %10, %85 ], [ null, %12 ]
   ret ptr %.0171
 }
 

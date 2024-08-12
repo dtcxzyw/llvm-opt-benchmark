@@ -2344,7 +2344,13 @@ invoke.cont:
   %ci_ = getelementptr inbounds i8, ptr %this, i64 144
   store i64 1970, ptr %ci_, align 8
   %m.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i.i, align 8
+  store i8 1, ptr %m.i.i.i, align 8
+  %d.i.i.i = getelementptr inbounds i8, ptr %this, i64 153
+  store i8 1, ptr %d.i.i.i, align 1
+  %hh.i.i.i = getelementptr inbounds i8, ptr %this, i64 154
+  store i8 0, ptr %hh.i.i.i, align 2
+  %mm.i.i.i = getelementptr inbounds i8, ptr %this, i64 155
+  store i8 0, ptr %mm.i.i.i, align 1
   %ss.i.i.i = getelementptr inbounds i8, ptr %this, i64 156
   store i8 0, ptr %ss.i.i.i, align 4
   %subsecond.i = getelementptr inbounds i8, ptr %this, i64 160

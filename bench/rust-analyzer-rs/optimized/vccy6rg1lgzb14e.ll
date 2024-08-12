@@ -28022,10 +28022,14 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17hd1f897850
   %30 = add i64 %29, -1
   store i64 %30, ptr %28, align 8, !alias.scope !5884, !noalias !5885
   %31 = getelementptr inbounds i8, ptr %2, i64 -16
-  %32 = load <2 x ptr>, ptr %31, align 8
-  store <2 x ptr> %32, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %33, align 8
+  %32 = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
+  %33 = getelementptr inbounds i8, ptr %2, i64 -8
+  %34 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
+  store ptr %32, ptr %0, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %34, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %8, ptr %36, align 8
   ret void
 }
 

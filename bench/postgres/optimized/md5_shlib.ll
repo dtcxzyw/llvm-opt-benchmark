@@ -11,9 +11,15 @@ define void @pg_md5_init(ptr nocapture noundef writeonly %0) local_unnamed_addr 
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 0, i64 64, i1 false)
+  store i32 1732584193, ptr %0, align 8
+  %4 = getelementptr i8, ptr %0, i64 4
+  store i32 -271733879, ptr %4, align 4
+  %5 = getelementptr i8, ptr %0, i64 8
+  store i32 -1732584194, ptr %5, align 8
+  %6 = getelementptr i8, ptr %0, i64 12
+  store i32 271733878, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   ret void
 }
 

@@ -368,7 +368,13 @@ if.end30:                                         ; preds = %cleanup, %land.lhs.
   %strict = getelementptr inbounds i8, ptr %flags, i64 12
   store i8 0, ptr %strict, align 4
   %hasVal.i.i = getelementptr inbounds i8, ptr %flags, i64 14
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %hasVal.i.i, align 2
+  store i8 0, ptr %hasVal.i.i, align 2
+  %verifyIR = getelementptr inbounds i8, ptr %flags, i64 15
+  store i8 0, ptr %verifyIR, align 1
+  %emitAsyncBreakCheck = getelementptr inbounds i8, ptr %flags, i64 16
+  store i8 0, ptr %emitAsyncBreakCheck, align 4
+  %includeLibHermes = getelementptr inbounds i8, ptr %flags, i64 17
+  store i8 1, ptr %includeLibHermes, align 1
   %instrumentIR = getelementptr inbounds i8, ptr %flags, i64 18
   store i8 0, ptr %instrumentIR, align 2
   %enableGenerator = getelementptr inbounds i8, ptr %flags, i64 19

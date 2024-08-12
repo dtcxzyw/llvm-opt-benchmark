@@ -1165,18 +1165,18 @@ entry:
   %number = alloca i32, align 4
   %bagSz = alloca i32, align 4
   store ptr null, ptr %certList, align 8
-  %0 = insertelement <4 x ptr> poison, ptr %pkcs12, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %psw, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %cert, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %certSz, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
+  %cmp = icmp eq ptr %pkcs12, null
+  %cmp1 = icmp eq ptr %psw, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %cert, null
+  %or.cond1 = or i1 %or.cond, %cmp3
+  %cmp5 = icmp eq ptr %certSz, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
   %cmp7 = icmp eq ptr %pkey, null
+  %or.cond3 = or i1 %cmp7, %or.cond2
   %cmp9 = icmp eq ptr %pkeySz, null
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp ne i4 %5, 0
-  %op.rdx = or i1 %6, %cmp7
-  %op.rdx297 = or i1 %op.rdx, %cmp9
-  br i1 %op.rdx297, label %return, label %if.end
+  %or.cond4 = or i1 %cmp9, %or.cond3
+  br i1 %or.cond4, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %psw) #10
@@ -1192,29 +1192,29 @@ if.then12:                                        ; preds = %if.end
 
 if.end13:                                         ; preds = %if.then12, %if.end
   %signData = getelementptr inbounds i8, ptr %pkcs12, i64 16
-  %7 = load ptr, ptr %signData, align 8
-  %cmp14.not = icmp eq ptr %7, null
+  %0 = load ptr, ptr %signData, align 8
+  %cmp14.not = icmp eq ptr %0, null
   br i1 %cmp14.not, label %if.end27, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
   %safe = getelementptr inbounds i8, ptr %pkcs12, i64 8
-  %8 = load ptr, ptr %safe, align 8
-  %data = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %data, align 8
-  %dataSz = getelementptr inbounds i8, ptr %8, i64 24
-  %10 = load i32, ptr %dataSz, align 8
+  %1 = load ptr, ptr %safe, align 8
+  %data = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = load ptr, ptr %data, align 8
+  %dataSz = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = load i32, ptr %dataSz, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
-  %cmp3.i = icmp eq ptr %9, null
+  %cmp3.i = icmp eq ptr %2, null
   br i1 %cmp3.i, label %wc_PKCS12_verify.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then16
-  %digestSz.i = getelementptr inbounds i8, ptr %7, i64 20
-  %11 = load i32, ptr %digestSz.i, align 4
-  %cmp5.i = icmp ugt i32 %11, 64
+  %digestSz.i = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = load i32, ptr %digestSz.i, align 4
+  %cmp5.i = icmp ugt i32 %4, 64
   br i1 %cmp5.i, label %wc_PKCS12_verify.exit.thread, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call.i = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly %pkcs12, ptr noundef nonnull %9, i32 noundef %10, ptr noundef nonnull readonly %psw, i32 noundef %conv, ptr noundef nonnull %digest.i)
+  %call.i = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef nonnull readonly %pkcs12, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull readonly %psw, i32 noundef %conv, ptr noundef nonnull %digest.i)
   %cmp8.i = icmp slt i32 %call.i, 0
   br i1 %cmp8.i, label %wc_PKCS12_verify.exit.thread, label %wc_PKCS12_verify.exit
 
@@ -1223,43 +1223,43 @@ wc_PKCS12_verify.exit.thread:                     ; preds = %if.then16, %if.end.
   br label %return
 
 wc_PKCS12_verify.exit:                            ; preds = %if.end7.i
-  %12 = load ptr, ptr %7, align 8
-  %13 = load i32, ptr %digestSz.i, align 4
-  %conv.i = zext i32 %13 to i64
-  %bcmp = call i32 @bcmp(ptr nonnull %digest.i, ptr %12, i64 %conv.i)
+  %5 = load ptr, ptr %0, align 8
+  %6 = load i32, ptr %digestSz.i, align 4
+  %conv.i = zext i32 %6 to i64
+  %bcmp = call i32 @bcmp(ptr nonnull %digest.i, ptr %5, i64 %conv.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %digest.i)
   %cmp19.not = icmp eq i32 %bcmp, 0
   br i1 %cmp19.not, label %if.end27, label %return
 
 if.end27:                                         ; preds = %wc_PKCS12_verify.exit, %if.end13
   %safe28 = getelementptr inbounds i8, ptr %pkcs12, i64 8
-  %14 = load ptr, ptr %safe28, align 8
-  %cmp29 = icmp eq ptr %14, null
+  %7 = load ptr, ptr %safe28, align 8
+  %cmp29 = icmp eq ptr %7, null
   br i1 %cmp29, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end27
-  %numCI213 = getelementptr inbounds i8, ptr %14, i64 20
-  %15 = load i32, ptr %numCI213, align 4
-  %cmp37214.not = icmp eq i32 %15, 0
+  %numCI213 = getelementptr inbounds i8, ptr %7, i64 20
+  %8 = load i32, ptr %numCI213, align 4
+  %cmp37214.not = icmp eq i32 %8, 0
   br i1 %cmp37214.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end417
-  %ci.0218.in = phi ptr [ %next418, %if.end417 ], [ %14, %for.cond.preheader ]
+  %ci.0218.in = phi ptr [ %next418, %if.end417 ], [ %7, %for.cond.preheader ]
   %tailList.0217 = phi ptr [ %tailList.1.lcssa, %if.end417 ], [ null, %for.cond.preheader ]
   %i.0216 = phi i32 [ %inc, %if.end417 ], [ 0, %for.cond.preheader ]
   %call362190.lcssa203215 = phi ptr [ %call362190.lcssa, %if.end417 ], [ null, %for.cond.preheader ]
   %ci.0218 = load ptr, ptr %ci.0218.in, align 8
   store i32 0, ptr %idx, align 4
-  %16 = load ptr, ptr %ci.0218, align 8
+  %9 = load ptr, ptr %ci.0218, align 8
   %type = getelementptr inbounds i8, ptr %ci.0218, i64 24
-  %17 = load i32, ptr %type, align 8
-  %cmp41 = icmp eq i32 %17, 656
+  %10 = load i32, ptr %type, align 8
+  %cmp41 = icmp eq i32 %10, 656
   %dataSz46 = getelementptr inbounds i8, ptr %ci.0218, i64 20
-  %18 = load i32, ptr %dataSz46, align 4
-  %call47 = call i32 @GetASNTag(ptr noundef %16, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %18) #9
+  %11 = load i32, ptr %dataSz46, align 4
+  %call47 = call i32 @GetASNTag(ptr noundef %9, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %11) #9
   %cmp48 = icmp sgt i32 %call47, -1
-  %19 = load i8, ptr %tag, align 1
-  %cmp53.not = icmp eq i8 %19, -96
+  %12 = load i8, ptr %tag, align 1
+  %cmp53.not = icmp eq i8 %12, -96
   %or.cond148 = select i1 %cmp48, i1 %cmp53.not, i1 false
   br i1 %cmp41, label %do.end45, label %do.end114
 
@@ -1267,42 +1267,42 @@ do.end45:                                         ; preds = %for.body
   br i1 %or.cond148, label %if.end56, label %if.then439.loopexit170
 
 if.end56:                                         ; preds = %do.end45
-  %20 = load i32, ptr %dataSz46, align 4
-  %call58 = call i32 @GetLength(ptr noundef %16, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %20) #9
+  %13 = load i32, ptr %dataSz46, align 4
+  %call58 = call i32 @GetLength(ptr noundef %9, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %13) #9
   %cmp59 = icmp slt i32 %call58, 0
   br i1 %cmp59, label %if.then439.loopexit170, label %if.end62
 
 if.end62:                                         ; preds = %if.end56
-  %21 = load i32, ptr %dataSz46, align 4
-  %call64 = call i32 @GetSequence(ptr noundef %16, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %21) #9
+  %14 = load i32, ptr %dataSz46, align 4
+  %call64 = call i32 @GetSequence(ptr noundef %9, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %14) #9
   %cmp65 = icmp slt i32 %call64, 0
   br i1 %cmp65, label %if.then439.loopexit170, label %if.end68
 
 if.end68:                                         ; preds = %if.end62
-  %22 = load i32, ptr %dataSz46, align 4
-  %call70 = call i32 @GetShortInt(ptr noundef %16, ptr noundef nonnull %idx, ptr noundef nonnull %number, i32 noundef %22) #9
+  %15 = load i32, ptr %dataSz46, align 4
+  %call70 = call i32 @GetShortInt(ptr noundef %9, ptr noundef nonnull %idx, ptr noundef nonnull %number, i32 noundef %15) #9
   %cmp71 = icmp slt i32 %call70, 0
   br i1 %cmp71, label %if.then439.loopexit170, label %if.end74
 
 if.end74:                                         ; preds = %if.end68
-  %23 = load i32, ptr %dataSz46, align 4
-  %call82 = call i32 @GetSequence(ptr noundef %16, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %23) #9
+  %16 = load i32, ptr %dataSz46, align 4
+  %call82 = call i32 @GetSequence(ptr noundef %9, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %16) #9
   %cmp83 = icmp slt i32 %call82, 0
   br i1 %cmp83, label %if.then439.loopexit170, label %if.end86
 
 if.end86:                                         ; preds = %if.end74
-  %24 = load i32, ptr %dataSz46, align 4
-  %call88 = call i32 @GetObjectId(ptr noundef %16, ptr noundef nonnull %idx, ptr noundef nonnull %oid, i32 noundef 21, i32 noundef %24) #9
+  %17 = load i32, ptr %dataSz46, align 4
+  %call88 = call i32 @GetObjectId(ptr noundef %9, ptr noundef nonnull %idx, ptr noundef nonnull %oid, i32 noundef 21, i32 noundef %17) #9
   %cmp89 = icmp slt i32 %call88, 0
-  %25 = load i32, ptr %oid, align 4
-  %cmp92 = icmp ne i32 %25, 651
+  %18 = load i32, ptr %oid, align 4
+  %cmp92 = icmp ne i32 %18, 651
   %or.cond5 = select i1 %cmp89, i1 true, i1 %cmp92
   br i1 %or.cond5, label %if.then439.loopexit170, label %if.end97
 
 if.end97:                                         ; preds = %if.end86
-  %26 = load i32, ptr %dataSz46, align 4
-  %27 = load i32, ptr %idx, align 4
-  %sub = sub i32 %26, %27
+  %19 = load i32, ptr %dataSz46, align 4
+  %20 = load i32, ptr %idx, align 4
+  %sub = sub i32 %19, %20
   store i32 %sub, ptr %size, align 4
   %conv99 = sext i32 %sub to i64
   %call100 = call ptr @wolfSSL_Malloc(i64 noundef %conv99) #9
@@ -1310,14 +1310,14 @@ if.end97:                                         ; preds = %if.end86
   br i1 %cmp101, label %if.then439.loopexit170, label %if.end104
 
 if.end104:                                        ; preds = %if.end97
-  %28 = load i32, ptr %idx, align 4
-  %idx.ext = zext i32 %28 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %16, i64 %idx.ext
-  %29 = load i32, ptr %size, align 4
-  %conv105 = sext i32 %29 to i64
+  %21 = load i32, ptr %idx, align 4
+  %idx.ext = zext i32 %21 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %idx.ext
+  %22 = load i32, ptr %size, align 4
+  %conv105 = sext i32 %22 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call100, ptr align 1 %add.ptr, i64 %conv105, i1 false)
-  %30 = load i32, ptr %size, align 4
-  %call106 = call i32 @DecryptContent(ptr noundef nonnull %call100, i32 noundef %30, ptr noundef %psw, i32 noundef %conv) #9
+  %23 = load i32, ptr %size, align 4
+  %call106 = call i32 @DecryptContent(ptr noundef nonnull %call100, i32 noundef %23, ptr noundef %psw, i32 noundef %conv) #9
   %cmp107 = icmp slt i32 %call106, 0
   br i1 %cmp107, label %if.then439.loopexit170, label %if.end112
 
@@ -1329,64 +1329,64 @@ do.end114:                                        ; preds = %for.body
   br i1 %or.cond148, label %if.end125, label %if.then439.loopexit170
 
 if.end125:                                        ; preds = %do.end114
-  %31 = load i32, ptr %dataSz46, align 4
-  %call127 = call i32 @GetLength(ptr noundef %16, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %31) #9
+  %24 = load i32, ptr %dataSz46, align 4
+  %call127 = call i32 @GetLength(ptr noundef %9, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %24) #9
   %cmp128 = icmp slt i32 %call127, 1
   br i1 %cmp128, label %if.then439.loopexit170, label %if.end131
 
 if.end131:                                        ; preds = %if.end125
-  %32 = load i32, ptr %dataSz46, align 4
-  %call133 = call i32 @GetASNTag(ptr noundef %16, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %32) #9
+  %25 = load i32, ptr %dataSz46, align 4
+  %call133 = call i32 @GetASNTag(ptr noundef %9, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %25) #9
   %cmp134 = icmp sgt i32 %call133, -1
-  %33 = load i8, ptr %tag, align 1
-  %cmp139.not = icmp eq i8 %33, 4
+  %26 = load i8, ptr %tag, align 1
+  %cmp139.not = icmp eq i8 %26, 4
   %or.cond150 = select i1 %cmp134, i1 %cmp139.not, i1 false
   br i1 %or.cond150, label %if.end142, label %if.then439.loopexit170
 
 if.end142:                                        ; preds = %if.end131
-  %34 = load i32, ptr %dataSz46, align 4
-  %call144 = call i32 @GetLength(ptr noundef %16, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %34) #9
+  %27 = load i32, ptr %dataSz46, align 4
+  %call144 = call i32 @GetLength(ptr noundef %9, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %27) #9
   %cmp145 = icmp slt i32 %call144, 0
   br i1 %cmp145, label %if.then439.loopexit170, label %if.end149
 
 if.end149:                                        ; preds = %if.end142, %if.end112
-  %data39.0 = phi ptr [ %call100, %if.end112 ], [ %16, %if.end142 ]
+  %data39.0 = phi ptr [ %call100, %if.end112 ], [ %9, %if.end142 ]
   %buf.2 = phi ptr [ %call100, %if.end112 ], [ null, %if.end142 ]
   %dataSz150 = getelementptr inbounds i8, ptr %ci.0218, i64 20
-  %35 = load i32, ptr %dataSz150, align 4
-  %call151 = call i32 @GetSequence(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %totalSz, i32 noundef %35) #9
+  %28 = load i32, ptr %dataSz150, align 4
+  %call151 = call i32 @GetSequence(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %totalSz, i32 noundef %28) #9
   %cmp152 = icmp slt i32 %call151, 0
   br i1 %cmp152, label %if.then439.loopexit170, label %if.end155
 
 if.end155:                                        ; preds = %if.end149
-  %36 = load i32, ptr %idx, align 4
-  %37 = load i32, ptr %totalSz, align 4
-  %add = add nsw i32 %37, %36
+  %29 = load i32, ptr %idx, align 4
+  %30 = load i32, ptr %totalSz, align 4
+  %add = add nsw i32 %30, %29
   store i32 %add, ptr %totalSz, align 4
-  %cmp156198 = icmp sgt i32 %37, 0
+  %cmp156198 = icmp sgt i32 %30, 0
   br i1 %cmp156198, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end155, %if.end408
   %tailList.1200 = phi ptr [ %tailList.2, %if.end408 ], [ %tailList.0217, %if.end155 ]
   %call362190199 = phi ptr [ %call362189, %if.end408 ], [ %call362190.lcssa203215, %if.end155 ]
-  %38 = load i32, ptr %dataSz150, align 4
-  %call159 = call i32 @GetSequence(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %bagSz, i32 noundef %38) #9
+  %31 = load i32, ptr %dataSz150, align 4
+  %call159 = call i32 @GetSequence(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %bagSz, i32 noundef %31) #9
   %cmp160 = icmp slt i32 %call159, 0
   br i1 %cmp160, label %if.then439.loopexit, label %if.end163
 
 if.end163:                                        ; preds = %while.body
-  %39 = load i32, ptr %idx, align 4
-  %40 = load i32, ptr %bagSz, align 4
-  %add164 = add nsw i32 %40, %39
+  %32 = load i32, ptr %idx, align 4
+  %33 = load i32, ptr %bagSz, align 4
+  %add164 = add nsw i32 %33, %32
   store i32 %add164, ptr %bagSz, align 4
-  %41 = load i32, ptr %dataSz150, align 4
-  %call166 = call i32 @GetObjectId(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %oid, i32 noundef 21, i32 noundef %41) #9
+  %34 = load i32, ptr %dataSz150, align 4
+  %call166 = call i32 @GetObjectId(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %oid, i32 noundef 21, i32 noundef %34) #9
   %cmp167 = icmp slt i32 %call166, 0
   br i1 %cmp167, label %if.then439.loopexit, label %if.end170
 
 if.end170:                                        ; preds = %if.end163
-  %42 = load i32, ptr %oid, align 4
-  switch i32 %42, label %if.end170.sw.epilog404_crit_edge [
+  %35 = load i32, ptr %oid, align 4
+  switch i32 %35, label %if.end170.sw.epilog404_crit_edge [
     i32 667, label %do.end172
     i32 668, label %do.end212
     i32 669, label %do.end283
@@ -1397,17 +1397,17 @@ if.end170.sw.epilog404_crit_edge:                 ; preds = %if.end170
   br label %sw.epilog404
 
 do.end172:                                        ; preds = %if.end170
-  %43 = load i32, ptr %dataSz150, align 4
-  %call174 = call i32 @GetASNTag(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %43) #9
+  %36 = load i32, ptr %dataSz150, align 4
+  %call174 = call i32 @GetASNTag(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %36) #9
   %cmp175 = icmp sgt i32 %call174, -1
-  %44 = load i8, ptr %tag, align 1
-  %cmp180.not = icmp eq i8 %44, -96
+  %37 = load i8, ptr %tag, align 1
+  %cmp180.not = icmp eq i8 %37, -96
   %or.cond151 = select i1 %cmp175, i1 %cmp180.not, i1 false
   br i1 %or.cond151, label %if.end183, label %if.then439.loopexit
 
 if.end183:                                        ; preds = %do.end172
-  %45 = load i32, ptr %dataSz150, align 4
-  %call185 = call i32 @GetLength(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %45) #9
+  %38 = load i32, ptr %dataSz150, align 4
+  %call185 = call i32 @GetLength(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %38) #9
   %cmp186 = icmp slt i32 %call185, 1
   br i1 %cmp186, label %if.then188, label %if.end193
 
@@ -1418,69 +1418,69 @@ if.then188:                                       ; preds = %if.end183
   br label %if.then439
 
 if.end193:                                        ; preds = %if.end183
-  %46 = load ptr, ptr %pkey, align 8
-  %cmp194 = icmp eq ptr %46, null
+  %39 = load ptr, ptr %pkey, align 8
+  %cmp194 = icmp eq ptr %39, null
   br i1 %cmp194, label %if.then196, label %if.end208
 
 if.then196:                                       ; preds = %if.end193
-  %47 = load i32, ptr %size, align 4
-  %conv198 = sext i32 %47 to i64
+  %40 = load i32, ptr %size, align 4
+  %conv198 = sext i32 %40 to i64
   %call199 = call ptr @wolfSSL_Malloc(i64 noundef %conv198) #9
   store ptr %call199, ptr %pkey, align 8
   %cmp200 = icmp eq ptr %call199, null
   br i1 %cmp200, label %if.end447.loopexit, label %if.end203
 
 if.end203:                                        ; preds = %if.then196
-  %48 = load i32, ptr %idx, align 4
-  %idx.ext204 = zext i32 %48 to i64
+  %41 = load i32, ptr %idx, align 4
+  %idx.ext204 = zext i32 %41 to i64
   %add.ptr205 = getelementptr inbounds i8, ptr %data39.0, i64 %idx.ext204
-  %49 = load i32, ptr %size, align 4
-  %conv206 = sext i32 %49 to i64
+  %42 = load i32, ptr %size, align 4
+  %conv206 = sext i32 %42 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call199, ptr align 1 %add.ptr205, i64 %conv206, i1 false)
-  %50 = load ptr, ptr %pkey, align 8
-  %51 = load i32, ptr %size, align 4
-  %call207 = call i32 @ToTraditional_ex(ptr noundef %50, i32 noundef %51, ptr noundef nonnull %algId) #9
+  %43 = load ptr, ptr %pkey, align 8
+  %44 = load i32, ptr %size, align 4
+  %call207 = call i32 @ToTraditional_ex(ptr noundef %43, i32 noundef %44, ptr noundef nonnull %algId) #9
   store i32 %call207, ptr %pkeySz, align 4
   br label %if.end208
 
 if.end208:                                        ; preds = %if.end203, %if.end193
-  %52 = load i32, ptr %size, align 4
-  %53 = load i32, ptr %idx, align 4
-  %add209 = add i32 %53, %52
+  %45 = load i32, ptr %size, align 4
+  %46 = load i32, ptr %idx, align 4
+  %add209 = add i32 %46, %45
   store i32 %add209, ptr %idx, align 4
   br label %sw.epilog404
 
 do.end212:                                        ; preds = %if.end170
-  %54 = load i32, ptr %dataSz150, align 4
-  %call214 = call i32 @GetASNTag(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %54) #9
+  %47 = load i32, ptr %dataSz150, align 4
+  %call214 = call i32 @GetASNTag(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %47) #9
   %cmp215 = icmp sgt i32 %call214, -1
-  %55 = load i8, ptr %tag, align 1
-  %cmp220.not = icmp eq i8 %55, -96
+  %48 = load i8, ptr %tag, align 1
+  %cmp220.not = icmp eq i8 %48, -96
   %or.cond152 = select i1 %cmp215, i1 %cmp220.not, i1 false
   br i1 %or.cond152, label %if.end223, label %if.then439.loopexit
 
 if.end223:                                        ; preds = %do.end212
-  %56 = load i32, ptr %dataSz150, align 4
-  %call225 = call i32 @GetLength(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %56) #9
+  %49 = load i32, ptr %dataSz150, align 4
+  %call225 = call i32 @GetLength(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %49) #9
   %cmp226 = icmp slt i32 %call225, 0
   br i1 %cmp226, label %if.then439.loopexit, label %if.end229
 
 if.end229:                                        ; preds = %if.end223
-  %57 = load i32, ptr %size, align 4
-  %conv231 = sext i32 %57 to i64
+  %50 = load i32, ptr %size, align 4
+  %conv231 = sext i32 %50 to i64
   %call232 = call ptr @wolfSSL_Malloc(i64 noundef %conv231) #9
   %cmp233 = icmp eq ptr %call232, null
   br i1 %cmp233, label %if.then439.loopexit, label %if.end236
 
 if.end236:                                        ; preds = %if.end229
-  %58 = load i32, ptr %idx, align 4
-  %idx.ext237 = zext i32 %58 to i64
+  %51 = load i32, ptr %idx, align 4
+  %idx.ext237 = zext i32 %51 to i64
   %add.ptr238 = getelementptr inbounds i8, ptr %data39.0, i64 %idx.ext237
-  %59 = load i32, ptr %size, align 4
-  %conv239 = sext i32 %59 to i64
+  %52 = load i32, ptr %size, align 4
+  %conv239 = sext i32 %52 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call232, ptr align 1 %add.ptr238, i64 %conv239, i1 false)
-  %60 = load i32, ptr %size, align 4
-  %call240 = call i32 @ToTraditionalEnc(ptr noundef nonnull %call232, i32 noundef %60, ptr noundef %psw, i32 noundef %conv, ptr noundef nonnull %algId) #9
+  %53 = load i32, ptr %size, align 4
+  %call240 = call i32 @ToTraditionalEnc(ptr noundef nonnull %call232, i32 noundef %53, ptr noundef %psw, i32 noundef %conv, ptr noundef nonnull %algId) #9
   %cmp241 = icmp slt i32 %call240, 0
   br i1 %cmp241, label %if.then245, label %if.end247
 
@@ -1490,8 +1490,8 @@ if.then245:                                       ; preds = %if.end236
   br label %if.then439
 
 if.end247:                                        ; preds = %if.end236
-  %61 = load i32, ptr %size, align 4
-  %cmp248 = icmp slt i32 %call240, %61
+  %54 = load i32, ptr %size, align 4
+  %cmp248 = icmp slt i32 %call240, %54
   br i1 %cmp248, label %if.then250, label %if.end269
 
 if.then250:                                       ; preds = %if.end247
@@ -1513,8 +1513,8 @@ if.end262:                                        ; preds = %if.then250
 if.end269:                                        ; preds = %if.end262, %if.end247
   %k.0 = phi ptr [ %call253, %if.end262 ], [ %call232, %if.end247 ]
   store i32 %call240, ptr %size, align 4
-  %62 = load ptr, ptr %pkey, align 8
-  %cmp270 = icmp eq ptr %62, null
+  %55 = load ptr, ptr %pkey, align 8
+  %cmp270 = icmp eq ptr %55, null
   br i1 %cmp270, label %if.then272, label %if.then277
 
 if.then272:                                       ; preds = %if.end269
@@ -1528,56 +1528,56 @@ if.then277:                                       ; preds = %if.end269
   br label %if.end279
 
 if.end279:                                        ; preds = %if.then277, %if.then272
-  %63 = phi i32 [ %.pre, %if.then277 ], [ %call240, %if.then272 ]
-  %64 = load i32, ptr %idx, align 4
-  %add280 = add i32 %64, %63
+  %56 = phi i32 [ %.pre, %if.then277 ], [ %call240, %if.then272 ]
+  %57 = load i32, ptr %idx, align 4
+  %add280 = add i32 %57, %56
   store i32 %add280, ptr %idx, align 4
   br label %sw.epilog404
 
 do.end283:                                        ; preds = %if.end170
-  %65 = load i32, ptr %dataSz150, align 4
-  %call285 = call i32 @GetASNTag(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %65) #9
+  %58 = load i32, ptr %dataSz150, align 4
+  %call285 = call i32 @GetASNTag(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %58) #9
   %cmp286 = icmp sgt i32 %call285, -1
-  %66 = load i8, ptr %tag, align 1
-  %cmp291.not = icmp eq i8 %66, -96
+  %59 = load i8, ptr %tag, align 1
+  %cmp291.not = icmp eq i8 %59, -96
   %or.cond153 = select i1 %cmp286, i1 %cmp291.not, i1 false
   br i1 %or.cond153, label %if.end294, label %if.then439.loopexit
 
 if.end294:                                        ; preds = %do.end283
-  %67 = load i32, ptr %dataSz150, align 4
-  %call296 = call i32 @GetLength(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %67) #9
+  %60 = load i32, ptr %dataSz150, align 4
+  %call296 = call i32 @GetLength(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %60) #9
   %cmp297 = icmp slt i32 %call296, 0
   br i1 %cmp297, label %if.then439.loopexit, label %if.end300
 
 if.end300:                                        ; preds = %if.end294
-  %68 = load i32, ptr %dataSz150, align 4
-  %call302 = call i32 @GetSequence(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %68) #9
+  %61 = load i32, ptr %dataSz150, align 4
+  %call302 = call i32 @GetSequence(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %61) #9
   %cmp303 = icmp slt i32 %call302, 0
   br i1 %cmp303, label %if.then439.loopexit, label %if.end306
 
 if.end306:                                        ; preds = %if.end300
-  %69 = load i32, ptr %dataSz150, align 4
-  %call308 = call i32 @GetObjectId(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %oid, i32 noundef 21, i32 noundef %69) #9
+  %62 = load i32, ptr %dataSz150, align 4
+  %call308 = call i32 @GetObjectId(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %oid, i32 noundef 21, i32 noundef %62) #9
   %cmp309 = icmp slt i32 %call308, 0
   br i1 %cmp309, label %if.then439.loopexit, label %if.end312
 
 if.end312:                                        ; preds = %if.end306
-  %70 = load i32, ptr %oid, align 4
-  %cond = icmp eq i32 %70, 675
+  %63 = load i32, ptr %oid, align 4
+  %cond = icmp eq i32 %63, 675
   br i1 %cond, label %do.end315, label %sw.epilog
 
 do.end315:                                        ; preds = %if.end312
-  %71 = load i32, ptr %dataSz150, align 4
-  %call317 = call i32 @GetASNTag(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %71) #9
+  %64 = load i32, ptr %dataSz150, align 4
+  %call317 = call i32 @GetASNTag(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %64) #9
   %cmp318 = icmp sgt i32 %call317, -1
-  %72 = load i8, ptr %tag, align 1
-  %cmp323.not = icmp eq i8 %72, -96
+  %65 = load i8, ptr %tag, align 1
+  %cmp323.not = icmp eq i8 %65, -96
   %or.cond154 = select i1 %cmp318, i1 %cmp323.not, i1 false
   br i1 %or.cond154, label %if.end326, label %if.then439.loopexit
 
 if.end326:                                        ; preds = %do.end315
-  %73 = load i32, ptr %dataSz150, align 4
-  %call328 = call i32 @GetLength(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %73) #9
+  %66 = load i32, ptr %dataSz150, align 4
+  %call328 = call i32 @GetLength(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %66) #9
   %cmp329 = icmp slt i32 %call328, 1
   br i1 %cmp329, label %if.then331, label %if.end336
 
@@ -1588,26 +1588,26 @@ if.then331:                                       ; preds = %if.end326
   br label %if.then439
 
 if.end336:                                        ; preds = %if.end326
-  %74 = load i32, ptr %dataSz150, align 4
-  %call338 = call i32 @GetASNTag(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %74) #9
+  %67 = load i32, ptr %dataSz150, align 4
+  %call338 = call i32 @GetASNTag(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %tag, i32 noundef %67) #9
   %cmp339 = icmp sgt i32 %call338, -1
-  %75 = load i8, ptr %tag, align 1
-  %cmp344.not = icmp eq i8 %75, 4
+  %68 = load i8, ptr %tag, align 1
+  %cmp344.not = icmp eq i8 %68, 4
   %or.cond155 = select i1 %cmp339, i1 %cmp344.not, i1 false
   br i1 %or.cond155, label %if.end347, label %if.then439.loopexit
 
 if.end347:                                        ; preds = %if.end336
-  %76 = load i32, ptr %dataSz150, align 4
-  %call349 = call i32 @GetLength(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %76) #9
+  %69 = load i32, ptr %dataSz150, align 4
+  %call349 = call i32 @GetLength(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %size, i32 noundef %69) #9
   %cmp350 = icmp slt i32 %call349, 0
   br i1 %cmp350, label %if.then439.loopexit, label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end312, %if.end347
-  %77 = load i32, ptr %size, align 4
-  %78 = load i32, ptr %idx, align 4
-  %add356 = add nsw i32 %78, %77
-  %79 = load i32, ptr %bagSz, align 4
-  %cmp357 = icmp sgt i32 %add356, %79
+  %70 = load i32, ptr %size, align 4
+  %71 = load i32, ptr %idx, align 4
+  %add356 = add nsw i32 %71, %70
+  %72 = load i32, ptr %bagSz, align 4
+  %cmp357 = icmp sgt i32 %add356, %72
   br i1 %cmp357, label %if.then439.loopexit, label %if.end360
 
 if.end360:                                        ; preds = %sw.epilog
@@ -1617,8 +1617,8 @@ if.end360:                                        ; preds = %sw.epilog
 
 if.end366:                                        ; preds = %if.end360
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call362, i8 0, i64 24, i1 false)
-  %80 = load i32, ptr %size, align 4
-  %conv368 = sext i32 %80 to i64
+  %73 = load i32, ptr %size, align 4
+  %conv368 = sext i32 %73 to i64
   %call369 = call ptr @wolfSSL_Malloc(i64 noundef %conv368) #9
   store ptr %call369, ptr %call362, align 8
   %cmp371 = icmp eq ptr %call369, null
@@ -1630,15 +1630,15 @@ if.then377:                                       ; preds = %if.end366
   br label %if.then439
 
 if.end379:                                        ; preds = %if.end366
-  %81 = load i32, ptr %idx, align 4
-  %idx.ext381 = zext i32 %81 to i64
+  %74 = load i32, ptr %idx, align 4
+  %idx.ext381 = zext i32 %74 to i64
   %add.ptr382 = getelementptr inbounds i8, ptr %data39.0, i64 %idx.ext381
-  %82 = load i32, ptr %size, align 4
-  %conv383 = sext i32 %82 to i64
+  %75 = load i32, ptr %size, align 4
+  %conv383 = sext i32 %75 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call369, ptr align 1 %add.ptr382, i64 %conv383, i1 false)
-  %83 = load i32, ptr %size, align 4
+  %76 = load i32, ptr %size, align 4
   %bufferSz = getelementptr inbounds i8, ptr %call362, i64 8
-  store i32 %83, ptr %bufferSz, align 8
+  store i32 %76, ptr %bufferSz, align 8
   %cmp384.not = icmp eq ptr %call362190199, null
   br i1 %cmp384.not, label %if.end390, label %do.end388
 
@@ -1649,27 +1649,27 @@ do.end388:                                        ; preds = %if.end379
 
 if.end390:                                        ; preds = %if.end379, %do.end388
   %call362188 = phi ptr [ %call362190199, %do.end388 ], [ %call362, %if.end379 ]
-  %84 = load i32, ptr %idx, align 4
-  %add391 = add i32 %84, %83
+  %77 = load i32, ptr %idx, align 4
+  %add391 = add i32 %77, %76
   store i32 %add391, ptr %idx, align 4
   br label %sw.epilog404
 
 sw.epilog404:                                     ; preds = %if.end170.sw.epilog404_crit_edge, %if.end390, %if.end279, %if.end208
-  %85 = phi i32 [ %.pre245, %if.end170.sw.epilog404_crit_edge ], [ %add391, %if.end390 ], [ %add280, %if.end279 ], [ %add209, %if.end208 ]
+  %78 = phi i32 [ %.pre245, %if.end170.sw.epilog404_crit_edge ], [ %add391, %if.end390 ], [ %add280, %if.end279 ], [ %add209, %if.end208 ]
   %call362189 = phi ptr [ %call362190199, %if.end170.sw.epilog404_crit_edge ], [ %call362188, %if.end390 ], [ %call362190199, %if.end279 ], [ %call362190199, %if.end208 ]
   %tailList.2 = phi ptr [ %tailList.1200, %if.end170.sw.epilog404_crit_edge ], [ %call362, %if.end390 ], [ %tailList.1200, %if.end279 ], [ %tailList.1200, %if.end208 ]
-  %86 = load i32, ptr %bagSz, align 4
-  %cmp405 = icmp slt i32 %85, %86
+  %79 = load i32, ptr %bagSz, align 4
+  %cmp405 = icmp slt i32 %78, %79
   br i1 %cmp405, label %if.then407, label %if.end408
 
 if.then407:                                       ; preds = %sw.epilog404
-  store i32 %86, ptr %idx, align 4
+  store i32 %79, ptr %idx, align 4
   br label %if.end408
 
 if.end408:                                        ; preds = %if.then407, %sw.epilog404
-  %87 = phi i32 [ %86, %if.then407 ], [ %85, %sw.epilog404 ]
-  %88 = load i32, ptr %totalSz, align 4
-  %cmp156 = icmp slt i32 %87, %88
+  %80 = phi i32 [ %79, %if.then407 ], [ %78, %sw.epilog404 ]
+  %81 = load i32, ptr %totalSz, align 4
+  %cmp156 = icmp slt i32 %80, %81
   br i1 %cmp156, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end408, %if.end155
@@ -1685,34 +1685,34 @@ if.then415:                                       ; preds = %while.end
 if.end417:                                        ; preds = %if.then415, %while.end
   %next418 = getelementptr inbounds i8, ptr %ci.0218, i64 8
   %inc = add nuw i32 %i.0216, 1
-  %89 = load ptr, ptr %safe28, align 8
-  %numCI = getelementptr inbounds i8, ptr %89, i64 20
-  %90 = load i32, ptr %numCI, align 4
-  %cmp37 = icmp ult i32 %inc, %90
+  %82 = load ptr, ptr %safe28, align 8
+  %numCI = getelementptr inbounds i8, ptr %82, i64 20
+  %83 = load i32, ptr %numCI, align 4
+  %cmp37 = icmp ult i32 %inc, %83
   br i1 %cmp37, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end417, %for.cond.preheader
   %call362190.lcssa203.lcssa = phi ptr [ null, %for.cond.preheader ], [ %call362190.lcssa, %if.end417 ]
   store ptr %call362190.lcssa203.lcssa, ptr %certList, align 8
-  %91 = load ptr, ptr %pkey, align 8
-  %cmp421.not = icmp eq ptr %91, null
+  %84 = load ptr, ptr %pkey, align 8
+  %cmp421.not = icmp eq ptr %84, null
   br i1 %cmp421.not, label %if.end430, label %if.then423
 
 if.then423:                                       ; preds = %for.end
-  %92 = load ptr, ptr %pkcs12, align 8
-  call fastcc void @freeDecCertList(ptr noundef nonnull %certList, ptr noundef nonnull %pkey, ptr noundef %pkeySz, ptr noundef nonnull %cert, ptr noundef %certSz, ptr noundef %92)
+  %85 = load ptr, ptr %pkcs12, align 8
+  call fastcc void @freeDecCertList(ptr noundef nonnull %certList, ptr noundef nonnull %pkey, ptr noundef %pkeySz, ptr noundef nonnull %cert, ptr noundef %certSz, ptr noundef %85)
   br label %if.end430
 
 if.end430:                                        ; preds = %if.then423, %for.end
-  %93 = load ptr, ptr %certList, align 8
+  %86 = load ptr, ptr %certList, align 8
   br i1 %cmp10.not, label %if.else434, label %if.then433
 
 if.then433:                                       ; preds = %if.end430
-  store ptr %93, ptr %ca, align 8
+  store ptr %86, ptr %ca, align 8
   br label %return
 
 if.else434:                                       ; preds = %if.end430
-  call void @wc_FreeCertList(ptr noundef %93, ptr poison)
+  call void @wc_FreeCertList(ptr noundef %86, ptr poison)
   br label %return
 
 if.then439.loopexit:                              ; preds = %if.end360, %sw.epilog, %if.end336, %do.end315, %do.end283, %if.end229, %do.end212, %do.end172, %if.end223, %if.end347, %if.end306, %if.end300, %if.end294, %if.end163, %while.body
@@ -1727,7 +1727,7 @@ if.then439.loopexit170:                           ; preds = %if.end131, %if.end1
   br label %if.then439
 
 if.then439:                                       ; preds = %if.then439.loopexit170, %if.then439.loopexit, %if.then331, %if.then188, %if.then377, %if.then245, %if.then260
-  %94 = phi ptr [ %call362190199, %if.then377 ], [ %call362190199, %if.then245 ], [ %call362190199, %if.then260 ], [ %call362190199, %if.then331 ], [ %call362190199, %if.then188 ], [ %call362190199, %if.then439.loopexit ], [ %call362190.lcssa203215, %if.then439.loopexit170 ]
+  %87 = phi ptr [ %call362190199, %if.then377 ], [ %call362190199, %if.then245 ], [ %call362190199, %if.then260 ], [ %call362190199, %if.then331 ], [ %call362190199, %if.then188 ], [ %call362190199, %if.then439.loopexit ], [ %call362190.lcssa203215, %if.then439.loopexit170 ]
   %ret.0.ph.ph = phi i32 [ -125, %if.then377 ], [ %call240, %if.then245 ], [ -125, %if.then260 ], [ %spec.select169, %if.then331 ], [ %spec.select, %if.then188 ], [ %ret.0.ph.ph.ph, %if.then439.loopexit ], [ %ret.0.ph.ph.ph171, %if.then439.loopexit170 ]
   %buf.1.ph.ph = phi ptr [ %buf.2, %if.then377 ], [ %buf.2, %if.then245 ], [ %buf.2, %if.then260 ], [ %buf.2, %if.then331 ], [ %buf.2, %if.then188 ], [ %buf.2, %if.then439.loopexit ], [ %buf.1.ph.ph.ph, %if.then439.loopexit170 ]
   %.pr = load ptr, ptr %pkey, align 8
@@ -1744,7 +1744,7 @@ if.end447.loopexit:                               ; preds = %if.then196
   br label %if.end447
 
 if.end447:                                        ; preds = %if.end447.loopexit, %if.then445, %if.then439
-  %95 = phi ptr [ %94, %if.then445 ], [ %94, %if.then439 ], [ %call362190199, %if.end447.loopexit ]
+  %88 = phi ptr [ %87, %if.then445 ], [ %87, %if.then439 ], [ %call362190199, %if.end447.loopexit ]
   %buf.1.ph168 = phi ptr [ %buf.1.ph.ph, %if.then445 ], [ %buf.1.ph.ph, %if.then439 ], [ %buf.2, %if.end447.loopexit ]
   %ret.0.ph167 = phi i32 [ %ret.0.ph.ph, %if.then445 ], [ %ret.0.ph.ph, %if.then439 ], [ -125, %if.end447.loopexit ]
   %tobool448.not = icmp eq ptr %buf.1.ph168, null
@@ -1756,25 +1756,25 @@ if.then453:                                       ; preds = %if.end447
   br label %if.end455
 
 if.end455:                                        ; preds = %if.then453, %if.end447
-  %96 = phi ptr [ %.pre246, %if.then453 ], [ %95, %if.end447 ]
-  %cmp.not.i = icmp eq ptr %96, null
+  %89 = phi ptr [ %.pre246, %if.then453 ], [ %88, %if.end447 ]
+  %cmp.not.i = icmp eq ptr %89, null
   br i1 %cmp.not.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end455, %if.then11.i
-  %current.0.i = phi ptr [ %97, %if.then11.i ], [ %96, %if.end455 ]
+  %current.0.i = phi ptr [ %90, %if.then11.i ], [ %89, %if.end455 ]
   %next2.i = getelementptr inbounds i8, ptr %current.0.i, i64 16
-  %97 = load ptr, ptr %next2.i, align 8
-  %98 = load ptr, ptr %current.0.i, align 8
-  %cmp3.not.i = icmp eq ptr %98, null
+  %90 = load ptr, ptr %next2.i, align 8
+  %91 = load ptr, ptr %current.0.i, align 8
+  %cmp3.not.i = icmp eq ptr %91, null
   br i1 %cmp3.not.i, label %if.then11.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %while.body.i
-  call void @wolfSSL_Free(ptr noundef nonnull %98) #9
+  call void @wolfSSL_Free(ptr noundef nonnull %91) #9
   br label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then6.i, %while.body.i
   call void @wolfSSL_Free(ptr noundef nonnull %current.0.i) #9
-  %cmp1.old.not.i = icmp eq ptr %97, null
+  %cmp1.old.not.i = icmp eq ptr %90, null
   br i1 %cmp1.old.not.i, label %return, label %while.body.i
 
 return:                                           ; preds = %if.then11.i, %if.end455, %if.else434, %if.then433, %wc_PKCS12_verify.exit.thread, %if.end27, %wc_PKCS12_verify.exit, %entry
@@ -2766,31 +2766,31 @@ entry:
   %curveOID = alloca ptr, align 8
   %oidSz = alloca i32, align 4
   %algoID = alloca i32, align 4
-  %0 = insertelement <4 x ptr> poison, ptr %rng, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %outSz, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %key, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %pass, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %if.end, label %return
+  %cmp = icmp eq ptr %outSz, null
+  %cmp3 = icmp eq ptr %rng, null
+  %or.cond1 = or i1 %cmp3, %cmp
+  %cmp5 = icmp eq ptr %key, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
+  %cmp7 = icmp eq ptr %pass, null
+  %or.cond3 = or i1 %or.cond2, %cmp7
+  br i1 %or.cond3, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %cmp.i = icmp eq ptr %pkcs12, null
   br i1 %cmp.i, label %wc_PKCS12_GetHeap.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %6 = load ptr, ptr %pkcs12, align 8
+  %0 = load ptr, ptr %pkcs12, align 8
   br label %wc_PKCS12_GetHeap.exit
 
 wc_PKCS12_GetHeap.exit:                           ; preds = %if.end, %if.end.i
-  %retval.0.i = phi ptr [ %6, %if.end.i ], [ null, %if.end ]
+  %retval.0.i = phi ptr [ %0, %if.end.i ], [ null, %if.end ]
   %cmp8.not = icmp eq ptr %out, null
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %wc_PKCS12_GetHeap.exit
-  %7 = load i32, ptr %outSz, align 4
-  %sub = add i32 %7, -6
+  %1 = load i32, ptr %outSz, align 4
+  %sub = add i32 %1, -6
   store i32 %sub, ptr %sz, align 4
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 6
   br label %if.end10
@@ -2809,10 +2809,10 @@ if.then12:                                        ; preds = %if.end10
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.then12
-  %8 = load i32, ptr %algoID, align 4
-  %9 = load ptr, ptr %curveOID, align 8
-  %10 = load i32, ptr %oidSz, align 4
-  %call17 = call i32 @wc_CreatePKCS8Key(ptr noundef %pkcs8Key.0, ptr noundef nonnull %sz, ptr noundef nonnull %key, i32 noundef %keySz, i32 noundef %8, ptr noundef %9, i32 noundef %10) #9
+  %2 = load i32, ptr %algoID, align 4
+  %3 = load ptr, ptr %curveOID, align 8
+  %4 = load i32, ptr %oidSz, align 4
+  %call17 = call i32 @wc_CreatePKCS8Key(ptr noundef %pkcs8Key.0, ptr noundef nonnull %sz, ptr noundef nonnull %key, i32 noundef %keySz, i32 noundef %2, ptr noundef %3, i32 noundef %4) #9
   br label %if.end24
 
 do.end19:                                         ; preds = %if.end10
@@ -2828,8 +2828,8 @@ if.end24:                                         ; preds = %do.end19, %if.end16
   br i1 %cmp25, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %if.end24
-  %11 = load i32, ptr %sz, align 4
-  %add28 = add i32 %11, 6
+  %5 = load i32, ptr %sz, align 4
+  %add28 = add i32 %5, 6
   store i32 %add28, ptr %outSz, align 4
   br label %return
 

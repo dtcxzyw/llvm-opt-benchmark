@@ -4449,10 +4449,15 @@ define internal fastcc noalias noundef ptr @new_field_info(ptr nocapture noundef
   %49 = getelementptr inbounds i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 376
-  %52 = getelementptr inbounds i8, ptr %12, i64 56
-  %53 = load <2 x i8>, ptr %51, align 8
-  %54 = zext <2 x i8> %53 to <2 x i32>
-  store <2 x i32> %54, ptr %52, align 8
+  %52 = load i8, ptr %51, align 8
+  %53 = zext i8 %52 to i32
+  %54 = getelementptr inbounds i8, ptr %12, i64 56
+  store i32 %53, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %50, i64 377
+  %56 = load i8, ptr %55, align 1
+  %57 = zext i8 %56 to i32
+  %58 = getelementptr inbounds i8, ptr %12, i64 60
+  store i32 %57, ptr %58, align 4
   ret ptr %12
 }
 
@@ -23830,38 +23835,44 @@ define i32 @proto_register_protocol(ptr noundef %0, ptr noundef %1, ptr noundef 
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %16, i64 36
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 -1>, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 56
-  store ptr null, ptr %21, align 8
-  %22 = load ptr, ptr @protocols, align 8
-  %23 = tail call ptr @g_list_prepend(ptr noundef %22, ptr noundef nonnull %16) #33
-  store ptr %23, ptr @protocols, align 8
-  %24 = load ptr, ptr @proto_names, align 8
-  %25 = tail call i32 @g_hash_table_insert(ptr noundef %24, ptr noundef %0, ptr noundef nonnull %16) #33
-  %26 = load ptr, ptr @proto_filter_names, align 8
-  %27 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef %2, ptr noundef nonnull %16) #33
-  %28 = load ptr, ptr @proto_short_names, align 8
-  %29 = tail call i32 @g_hash_table_insert(ptr noundef %28, ptr noundef %1, ptr noundef nonnull %16) #33
-  %30 = tail call noalias dereferenceable_or_null(72) ptr @g_slice_alloc(i64 noundef 72) #37
-  store ptr %0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  store ptr %2, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 16
-  store i32 1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 20
-  store i32 0, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %30, i64 24
-  store ptr %16, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %30, i64 32
-  %36 = getelementptr inbounds i8, ptr %30, i64 56
-  store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %37, align 4
-  %38 = tail call fastcc i32 @proto_register_field_init(ptr noundef nonnull %30, i32 noundef -1)
-  %39 = getelementptr inbounds i8, ptr %16, i64 32
-  store i32 %38, ptr %39, align 8
-  ret i32 %38
+  store i32 1, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %16, i64 40
+  store i32 1, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %16, i64 44
+  store i32 1, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %16, i64 48
+  store i32 -1, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %16, i64 56
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr @protocols, align 8
+  %26 = tail call ptr @g_list_prepend(ptr noundef %25, ptr noundef nonnull %16) #33
+  store ptr %26, ptr @protocols, align 8
+  %27 = load ptr, ptr @proto_names, align 8
+  %28 = tail call i32 @g_hash_table_insert(ptr noundef %27, ptr noundef %0, ptr noundef nonnull %16) #33
+  %29 = load ptr, ptr @proto_filter_names, align 8
+  %30 = tail call i32 @g_hash_table_insert(ptr noundef %29, ptr noundef %2, ptr noundef nonnull %16) #33
+  %31 = load ptr, ptr @proto_short_names, align 8
+  %32 = tail call i32 @g_hash_table_insert(ptr noundef %31, ptr noundef %1, ptr noundef nonnull %16) #33
+  %33 = tail call noalias dereferenceable_or_null(72) ptr @g_slice_alloc(i64 noundef 72) #37
+  store ptr %0, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  store ptr %2, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  store i32 1, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %33, i64 20
+  store i32 0, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %33, i64 24
+  store ptr %16, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %33, i64 32
+  %39 = getelementptr inbounds i8, ptr %33, i64 56
+  store i32 0, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %33, i64 52
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  store i32 -1, ptr %40, align 4
+  %41 = tail call fastcc i32 @proto_register_field_init(ptr noundef nonnull %33, i32 noundef -1)
+  %42 = getelementptr inbounds i8, ptr %16, i64 32
+  store i32 %41, ptr %42, align 8
+  ret i32 %41
 }
 
 ; Function Attrs: nounwind uwtable

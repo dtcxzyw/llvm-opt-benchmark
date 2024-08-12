@@ -247,18 +247,23 @@ for.body75.i:                                     ; preds = %for.body75.i, %for.
   %indvars.iv170.i = phi i64 [ 0, %for.body75.preheader.i ], [ %indvars.iv.next171.i, %for.body75.i ]
   %dst.addr.1164.i = phi ptr [ %dst.addr.0.lcssa.i, %for.body75.preheader.i ], [ %add.ptr92.i, %for.body75.i ]
   %arrayidx78.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %indvars.iv170.i
-  %53 = load <2 x float>, ptr %arrayidx78.i, align 16
-  store <2 x float> %53, ptr %dst.addr.1164.i, align 4
-  %54 = or disjoint i64 %indvars.iv170.i, 2
-  %arrayidx86.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %54
-  %55 = load float, ptr %arrayidx86.i, align 8
+  %53 = load float, ptr %arrayidx78.i, align 16
+  store float %53, ptr %dst.addr.1164.i, align 4
+  %54 = or disjoint i64 %indvars.iv170.i, 1
+  %arrayidx82.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %54
+  %55 = load float, ptr %arrayidx82.i, align 4
+  %arrayidx83.i = getelementptr inbounds i8, ptr %dst.addr.1164.i, i64 4
+  store float %55, ptr %arrayidx83.i, align 4
+  %56 = or disjoint i64 %indvars.iv170.i, 2
+  %arrayidx86.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %56
+  %57 = load float, ptr %arrayidx86.i, align 8
   %arrayidx87.i = getelementptr inbounds i8, ptr %dst.addr.1164.i, i64 8
-  store float %55, ptr %arrayidx87.i, align 4
-  %56 = or disjoint i64 %indvars.iv170.i, 3
-  %arrayidx90.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %56
-  %57 = load float, ptr %arrayidx90.i, align 4
+  store float %57, ptr %arrayidx87.i, align 4
+  %58 = or disjoint i64 %indvars.iv170.i, 3
+  %arrayidx90.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %58
+  %59 = load float, ptr %arrayidx90.i, align 4
   %arrayidx91.i = getelementptr inbounds i8, ptr %dst.addr.1164.i, i64 12
-  store float %57, ptr %arrayidx91.i, align 4
+  store float %59, ptr %arrayidx91.i, align 4
   %add.ptr92.i = getelementptr inbounds i8, ptr %dst.addr.1164.i, i64 16
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 4
   %cmp74.i = icmp ult i64 %indvars.iv.next171.i, %52

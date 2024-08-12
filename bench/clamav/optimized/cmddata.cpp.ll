@@ -2962,10 +2962,13 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit206:      ; preds = %408
   br label %534
 
 530:                                              ; preds = %523
-  %531 = getelementptr inbounds i8, ptr %0, i64 32800
-  %532 = insertelement <4 x i32> poison, i32 %.0168.ph, i64 0
-  %533 = shufflevector <4 x i32> %532, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %533, ptr %531, align 8
+  store i32 %.0168.ph, ptr %527, align 4
+  %531 = getelementptr inbounds i8, ptr %0, i64 32808
+  store i32 %.0168.ph, ptr %531, align 8
+  %532 = getelementptr inbounds i8, ptr %0, i64 32804
+  store i32 %.0168.ph, ptr %532, align 4
+  %533 = getelementptr inbounds i8, ptr %0, i64 32800
+  store i32 %.0168.ph, ptr %533, align 8
   br label %.loopexit220
 
 534:                                              ; preds = %.lr.ph, %540

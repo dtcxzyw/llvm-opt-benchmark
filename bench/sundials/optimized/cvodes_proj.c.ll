@@ -26,7 +26,7 @@ define range(i32 -22, 1) i32 @CVodeSetProjFn(ptr noundef %0, ptr noundef %1) loc
 
 4:                                                ; preds = %2
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 53, ptr noundef nonnull @__func__.CVodeSetProjFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
-  br label %27
+  br label %28
 
 5:                                                ; preds = %2
   %6 = icmp eq ptr %1, null
@@ -34,7 +34,7 @@ define range(i32 -22, 1) i32 @CVodeSetProjFn(ptr noundef %0, ptr noundef %1) loc
 
 7:                                                ; preds = %5
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 62, ptr noundef nonnull @__func__.CVodeSetProjFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %27
+  br label %28
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -44,13 +44,13 @@ define range(i32 -22, 1) i32 @CVodeSetProjFn(ptr noundef %0, ptr noundef %1) loc
 
 11:                                               ; preds = %8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 70, ptr noundef nonnull @__func__.CVodeSetProjFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %27
+  br label %28
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 2520
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %23
+  br i1 %15, label %16, label %24
 
 16:                                               ; preds = %12
   %calloc.i = tail call dereferenceable_or_null(80) ptr @calloc(i64 1, i64 80)
@@ -69,24 +69,26 @@ cvProjSetDefaults.exit.i:                         ; preds = %16
   %21 = getelementptr inbounds i8, ptr %calloc.i, i64 32
   store i32 10, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %calloc.i, i64 48
-  store <2 x double> <double 1.000000e-01, double 2.500000e-01>, ptr %22, align 8
-  br label %23
+  store double 1.000000e-01, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %calloc.i, i64 56
+  store double 2.500000e-01, ptr %23, align 8
+  br label %24
 
 cvProjCreate.exit:                                ; preds = %16
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 79, ptr noundef nonnull @__func__.CVodeSetProjFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %27
+  br label %28
 
-23:                                               ; preds = %cvProjSetDefaults.exit.i, %12
-  %24 = phi ptr [ %calloc.i, %cvProjSetDefaults.exit.i ], [ %14, %12 ]
-  store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
-  store ptr %1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 2528
-  store i32 1, ptr %26, align 8
-  br label %27
+24:                                               ; preds = %cvProjSetDefaults.exit.i, %12
+  %25 = phi ptr [ %calloc.i, %cvProjSetDefaults.exit.i ], [ %14, %12 ]
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  store ptr %1, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 2528
+  store i32 1, ptr %27, align 8
+  br label %28
 
-27:                                               ; preds = %23, %cvProjCreate.exit, %11, %7, %4
-  %.0 = phi i32 [ -21, %4 ], [ -22, %7 ], [ -22, %11 ], [ -20, %cvProjCreate.exit ], [ 0, %23 ]
+28:                                               ; preds = %24, %cvProjCreate.exit, %11, %7, %4
+  %.0 = phi i32 [ -21, %4 ], [ -22, %7 ], [ -22, %11 ], [ -20, %cvProjCreate.exit ], [ 0, %24 ]
   ret i32 %.0
 }
 

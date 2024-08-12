@@ -1217,44 +1217,46 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() loca
 define void @_ZN2cv8ximgproc12segmentation23createGraphSegmentationEdfi(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, double noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_8ximgproc12segmentation21GraphSegmentationImplEED2Ev.exit:
   %4 = alloca %"class.std::allocator.8", align 1
-  %5 = alloca %"class.std::shared_ptr.1", align 16
+  %5 = alloca %"class.std::shared_ptr.1", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !24
-  store ptr null, ptr %5, align 16, !alias.scope !27, !noalias !24
+  store ptr null, ptr %5, align 8, !alias.scope !27, !noalias !24
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv8ximgproc12segmentation21GraphSegmentationImplESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull %4), !noalias !24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !24
-  %7 = load <2 x ptr>, ptr %5, align 16, !noalias !24
-  %8 = load ptr, ptr %5, align 16, !noalias !24
+  %7 = load ptr, ptr %5, align 8, !noalias !24
+  %8 = load ptr, ptr %6, align 8, !noalias !24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  store <2 x ptr> %7, ptr %0, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
-  %11 = load ptr, ptr %10, align 8
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef %1)
-          to label %12 unwind label %20
+  store ptr %7, ptr %0, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %8, ptr %9, align 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %12 = load ptr, ptr %11, align 8
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef %1)
+          to label %13 unwind label %21
 
-12:                                               ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation21GraphSegmentationImplEED2Ev.exit
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
-  %15 = load ptr, ptr %14, align 8
-  invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %8, float noundef %2)
-          to label %16 unwind label %20
+13:                                               ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation21GraphSegmentationImplEED2Ev.exit
+  %14 = load ptr, ptr %7, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 88
+  %16 = load ptr, ptr %15, align 8
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %7, float noundef %2)
+          to label %17 unwind label %21
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 104
-  %19 = load ptr, ptr %18, align 8
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %3)
-          to label %22 unwind label %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 104
+  %20 = load ptr, ptr %19, align 8
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %3)
+          to label %23 unwind label %21
 
-20:                                               ; preds = %16, %12, %_ZN2cv3PtrINS_8ximgproc12segmentation21GraphSegmentationImplEED2Ev.exit
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %17, %13, %_ZN2cv3PtrINS_8ximgproc12segmentation21GraphSegmentationImplEED2Ev.exit
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3PtrINS_8ximgproc12segmentation17GraphSegmentationEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %22
 
-22:                                               ; preds = %16
+23:                                               ; preds = %17
   ret void
 }
 

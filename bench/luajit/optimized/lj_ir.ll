@@ -1351,12 +1351,15 @@ if.else10:                                        ; preds = %if.else
   unreachable
 
 if.end12.sink.split:                              ; preds = %if.else, %if.then
-  %0 = phi <2 x i16> [ <i16 467, i16 23310>, %if.then ], [ <i16 0, i16 24206>, %if.else ]
+  %.sink14 = phi i16 [ 23310, %if.then ], [ 24206, %if.else ]
+  %.sink = phi i16 [ 467, %if.then ], [ 0, %if.else ]
   %conv = trunc i32 %tr to i16
   %fold.i17 = getelementptr inbounds i8, ptr %J, i64 184
+  %ot1.i18 = getelementptr inbounds i8, ptr %J, i64 188
+  store i16 %.sink14, ptr %ot1.i18, align 4
   store i16 %conv, ptr %fold.i17, align 8
   %op2.i21 = getelementptr inbounds i8, ptr %J, i64 186
-  store <2 x i16> %0, ptr %op2.i21, align 2
+  store i16 %.sink, ptr %op2.i21, align 2
   %call = tail call i32 @lj_opt_fold(ptr noundef %J) #12
   br label %if.end12
 

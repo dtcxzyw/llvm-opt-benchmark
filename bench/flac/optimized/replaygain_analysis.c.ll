@@ -560,31 +560,29 @@ for.body65.lr.ph:                                 ; preds = %filter.exit166
   %lsum.promoted = load double, ptr @lsum, align 8
   %48 = getelementptr float, ptr %39, i64 %7
   %49 = getelementptr float, ptr %30, i64 %7
-  %50 = insertelement <2 x double> poison, double %lsum.promoted, i64 0
-  %51 = insertelement <2 x double> %50, double %rsum.promoted, i64 1
   br label %for.body65
 
 for.body65:                                       ; preds = %for.body65.lr.ph, %for.body65
   %indvars.iv239 = phi i64 [ 0, %for.body65.lr.ph ], [ %indvars.iv.next240, %for.body65 ]
-  %52 = phi <2 x double> [ %51, %for.body65.lr.ph ], [ %59, %for.body65 ]
+  %add74228232 = phi double [ %lsum.promoted, %for.body65.lr.ph ], [ %add74, %for.body65 ]
+  %add83229231 = phi double [ %rsum.promoted, %for.body65.lr.ph ], [ %add83, %for.body65 ]
   %arrayidx68 = getelementptr float, ptr %49, i64 %indvars.iv239
-  %53 = load float, ptr %arrayidx68, align 4
+  %50 = load float, ptr %arrayidx68, align 4
+  %mul72 = fmul float %50, %50
+  %conv73 = fpext float %mul72 to double
+  %add74 = fadd double %add74228232, %conv73
   %arrayidx77 = getelementptr float, ptr %48, i64 %indvars.iv239
-  %54 = load float, ptr %arrayidx77, align 4
-  %55 = insertelement <2 x float> poison, float %53, i64 0
-  %56 = insertelement <2 x float> %55, float %54, i64 1
-  %57 = fmul <2 x float> %56, %56
-  %58 = fpext <2 x float> %57 to <2 x double>
-  %59 = fadd <2 x double> %52, %58
+  %51 = load float, ptr %arrayidx77, align 4
+  %mul81 = fmul float %51, %51
+  %conv82 = fpext float %mul81 to double
+  %add83 = fadd double %add83229231, %conv82
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next240, %cursamples.0180
   br i1 %exitcond.not, label %for.cond61.for.end86_crit_edge, label %for.body65, !llvm.loop !12
 
 for.cond61.for.end86_crit_edge:                   ; preds = %for.body65
-  %60 = extractelement <2 x double> %59, i64 0
-  store double %60, ptr @lsum, align 8
-  %61 = extractelement <2 x double> %59, i64 1
-  store double %61, ptr @rsum, align 8
+  store double %add74, ptr @lsum, align 8
+  store double %add83, ptr @rsum, align 8
   br label %for.end86
 
 for.end86:                                        ; preds = %if.end43, %for.cond61.for.end86_crit_edge, %filter.exit166
@@ -597,37 +595,37 @@ for.end86:                                        ; preds = %if.end43, %for.cond
   br i1 %cmp91, label %if.then93, label %if.end115
 
 if.then93:                                        ; preds = %for.end86
-  %62 = load double, ptr @lsum, align 8
-  %63 = load double, ptr @rsum, align 8
-  %add94 = fadd double %62, %63
+  %52 = load double, ptr @lsum, align 8
+  %53 = load double, ptr @rsum, align 8
+  %add94 = fadd double %52, %53
   %conv95 = uitofp i32 %6 to double
   %div96 = fdiv double %add94, %conv95
-  %64 = tail call double @llvm.fmuladd.f64(double %div96, double 5.000000e-01, double 1.000000e-37)
-  %call = tail call double @log10(double noundef %64) #13
+  %54 = tail call double @llvm.fmuladd.f64(double %div96, double 5.000000e-01, double 1.000000e-37)
+  %call = tail call double @log10(double noundef %54) #13
   %mul98 = fmul double %call, 1.000000e+03
   %conv99 = fptosi double %mul98 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %conv99, i32 0)
   %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 11999)
   %idxprom108 = zext nneg i32 %spec.store.select1 to i64
   %arrayidx109 = getelementptr inbounds [12000 x i32], ptr @A, i64 0, i64 %idxprom108
-  %65 = load i32, ptr %arrayidx109, align 4
-  %inc110 = add i32 %65, 1
+  %55 = load i32, ptr %arrayidx109, align 4
+  %inc110 = add i32 %55, 1
   store i32 %inc110, ptr %arrayidx109, align 4
   store double 0.000000e+00, ptr @rsum, align 8
   store double 0.000000e+00, ptr @lsum, align 8
-  %66 = load ptr, ptr @loutbuf, align 8
-  %67 = load i64, ptr @totsamp, align 8
-  %add.ptr111 = getelementptr inbounds float, ptr %66, i64 %67
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %66, ptr noundef nonnull align 4 dereferenceable(40) %add.ptr111, i64 40, i1 false)
-  %68 = load ptr, ptr @routbuf, align 8
-  %add.ptr112 = getelementptr inbounds float, ptr %68, i64 %67
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %68, ptr noundef nonnull align 4 dereferenceable(40) %add.ptr112, i64 40, i1 false)
-  %69 = load ptr, ptr @lstepbuf, align 8
-  %add.ptr113 = getelementptr inbounds float, ptr %69, i64 %67
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %69, ptr noundef nonnull align 4 dereferenceable(40) %add.ptr113, i64 40, i1 false)
-  %70 = load ptr, ptr @rstepbuf, align 8
-  %add.ptr114 = getelementptr inbounds float, ptr %70, i64 %67
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %70, ptr noundef nonnull align 4 dereferenceable(40) %add.ptr114, i64 40, i1 false)
+  %56 = load ptr, ptr @loutbuf, align 8
+  %57 = load i64, ptr @totsamp, align 8
+  %add.ptr111 = getelementptr inbounds float, ptr %56, i64 %57
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %56, ptr noundef nonnull align 4 dereferenceable(40) %add.ptr111, i64 40, i1 false)
+  %58 = load ptr, ptr @routbuf, align 8
+  %add.ptr112 = getelementptr inbounds float, ptr %58, i64 %57
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %58, ptr noundef nonnull align 4 dereferenceable(40) %add.ptr112, i64 40, i1 false)
+  %59 = load ptr, ptr @lstepbuf, align 8
+  %add.ptr113 = getelementptr inbounds float, ptr %59, i64 %57
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %59, ptr noundef nonnull align 4 dereferenceable(40) %add.ptr113, i64 40, i1 false)
+  %60 = load ptr, ptr @rstepbuf, align 8
+  %add.ptr114 = getelementptr inbounds float, ptr %60, i64 %57
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %60, ptr noundef nonnull align 4 dereferenceable(40) %add.ptr114, i64 40, i1 false)
   store i64 0, ptr @totsamp, align 8
   %.pre = load i32, ptr @sampleWindow, align 4
   %.pre246 = zext i32 %.pre to i64
@@ -635,8 +633,8 @@ if.then93:                                        ; preds = %for.end86
 
 if.end115:                                        ; preds = %if.then93, %for.end86
   %conv116.pre-phi = phi i64 [ %.pre246, %if.then93 ], [ %conv21, %for.end86 ]
-  %71 = phi i64 [ 0, %if.then93 ], [ %add89, %for.end86 ]
-  %cmp117 = icmp ugt i64 %71, %conv116.pre-phi
+  %61 = phi i64 [ 0, %if.then93 ], [ %add89, %for.end86 ]
+  %cmp117 = icmp ugt i64 %61, %conv116.pre-phi
   br i1 %cmp117, label %return, label %while.cond, !llvm.loop !13
 
 while.end:                                        ; preds = %while.cond
@@ -644,24 +642,24 @@ while.end:                                        ; preds = %while.cond
 
 if.then123:                                       ; preds = %while.end
   %add.ptr124 = getelementptr inbounds float, ptr @linprebuf, i64 %div
-  %72 = shl nuw nsw i64 %div, 2
-  %mul126 = sub nuw nsw i64 40, %72
+  %62 = shl nuw nsw i64 %div, 2
+  %mul126 = sub nuw nsw i64 40, %62
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @linprebuf, ptr nonnull align 4 %add.ptr124, i64 %mul126, i1 false)
   %add.ptr127 = getelementptr inbounds float, ptr @rinprebuf, i64 %div
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @rinprebuf, ptr nonnull align 4 %add.ptr127, i64 %mul126, i1 false)
   %idx.neg = sub nsw i64 0, %div
   %add.ptr130 = getelementptr inbounds float, ptr getelementptr inbounds (i8, ptr @linprebuf, i64 40), i64 %idx.neg
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr130, ptr align 4 %left_samples, i64 %72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr130, ptr align 4 %left_samples, i64 %62, i1 false)
   %add.ptr133 = getelementptr inbounds float, ptr getelementptr inbounds (i8, ptr @rinprebuf, i64 40), i64 %idx.neg
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr133, ptr align 4 %right_samples.addr.0, i64 %72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr133, ptr align 4 %right_samples.addr.0, i64 %62, i1 false)
   br label %return
 
 if.else135:                                       ; preds = %while.end
-  %73 = load ptr, ptr @replaygainfilter, align 8
-  %downsample136 = getelementptr inbounds i8, ptr %73, i64 8
-  %74 = load i32, ptr %downsample136, align 8
+  %63 = load ptr, ptr @replaygainfilter, align 8
+  %downsample136 = getelementptr inbounds i8, ptr %63, i64 8
+  %64 = load i32, ptr %downsample136, align 8
   %sub137 = add i64 %div, -10
-  %conv138 = zext i32 %74 to i64
+  %conv138 = zext i32 %64 to i64
   %mul139 = mul i64 %sub137, %conv138
   %add.ptr140 = getelementptr inbounds float, ptr %left_samples, i64 %mul139
   %add.ptr144 = getelementptr inbounds float, ptr %right_samples.addr.0, i64 %mul139
@@ -669,17 +667,17 @@ if.else135:                                       ; preds = %while.end
 
 for.body148:                                      ; preds = %if.else135, %for.body148
   %indvars.iv242 = phi i64 [ 0, %if.else135 ], [ %indvars.iv.next243, %for.body148 ]
-  %75 = trunc nuw nsw i64 %indvars.iv242 to i32
-  %mul149 = mul i32 %74, %75
+  %65 = trunc nuw nsw i64 %indvars.iv242 to i32
+  %mul149 = mul i32 %64, %65
   %idxprom150 = zext i32 %mul149 to i64
   %arrayidx151 = getelementptr inbounds float, ptr %add.ptr140, i64 %idxprom150
-  %76 = load float, ptr %arrayidx151, align 4
+  %66 = load float, ptr %arrayidx151, align 4
   %arrayidx153 = getelementptr inbounds [20 x float], ptr @linprebuf, i64 0, i64 %indvars.iv242
-  store float %76, ptr %arrayidx153, align 4
+  store float %66, ptr %arrayidx153, align 4
   %arrayidx156 = getelementptr inbounds float, ptr %add.ptr144, i64 %idxprom150
-  %77 = load float, ptr %arrayidx156, align 4
+  %67 = load float, ptr %arrayidx156, align 4
   %arrayidx158 = getelementptr inbounds [20 x float], ptr @rinprebuf, i64 0, i64 %indvars.iv242
-  store float %77, ptr %arrayidx158, align 4
+  store float %67, ptr %arrayidx158, align 4
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next243, 10
   br i1 %exitcond245.not, label %return, label %for.body148, !llvm.loop !14

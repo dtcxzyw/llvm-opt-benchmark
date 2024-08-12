@@ -5559,7 +5559,7 @@ define internal fastcc void @ordinary(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 ._crit_edge:                                      ; preds = %2
   %.pre = and i32 %1, 255
-  br label %33
+  br label %34
 
 9:                                                ; preds = %2
   %10 = tail call ptr @__ctype_b_loc() #13
@@ -5570,7 +5570,7 @@ define internal fastcc void @ordinary(ptr noundef %0, i32 noundef %1) unnamed_ad
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 1024
   %.not7 = icmp eq i16 %16, 0
-  br i1 %.not7, label %33, label %17
+  br i1 %.not7, label %34, label %17
 
 17:                                               ; preds = %9
   %18 = zext i16 %15 to i32
@@ -5596,89 +5596,91 @@ othercase.exit:                                   ; preds = %20, %22, %24
   %sext = shl i32 %.0.in.i, 24
   %26 = ashr exact i32 %sext, 24
   %.not8 = icmp eq i32 %26, %1
-  br i1 %.not8, label %33, label %27
+  br i1 %.not8, label %34, label %27
 
 27:                                               ; preds = %othercase.exit
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = trunc i32 %1 to i8
-  %30 = getelementptr inbounds i8, ptr %3, i64 2
-  store i8 %29, ptr %3, align 1
-  %31 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 93, ptr %31, align 1
-  store i8 0, ptr %30, align 1
-  %32 = load <2 x ptr>, ptr %0, align 8
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = trunc i32 %1 to i8
   store ptr %3, ptr %0, align 8
-  store ptr %30, ptr %28, align 8
+  %32 = getelementptr inbounds i8, ptr %3, i64 2
+  store ptr %32, ptr %29, align 8
+  store i8 %31, ptr %3, align 1
+  %33 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 93, ptr %33, align 1
+  store i8 0, ptr %32, align 1
   call fastcc void @p_bracket(ptr noundef nonnull %0) #14
-  store <2 x ptr> %32, ptr %0, align 8
+  store ptr %28, ptr %0, align 8
+  store ptr %30, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
   br label %doemit.exit
 
-33:                                               ; preds = %._crit_edge, %othercase.exit, %9
+34:                                               ; preds = %._crit_edge, %othercase.exit, %9
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %12, %othercase.exit ], [ %12, %9 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = load i32, ptr %34, align 8
-  %.not.i9 = icmp eq i32 %35, 0
-  br i1 %.not.i9, label %36, label %doemit.exit
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = load i32, ptr %35, align 8
+  %.not.i9 = icmp eq i32 %36, 0
+  br i1 %.not.i9, label %37, label %doemit.exit
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
-  %40 = load i64, ptr %39, align 8
-  %.not8.i = icmp slt i64 %38, %40
-  br i1 %.not8.i, label %enlarge.exit.thread.i, label %41
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = load i64, ptr %40, align 8
+  %.not8.i = icmp slt i64 %39, %41
+  br i1 %.not8.i, label %enlarge.exit.thread.i, label %42
 
-41:                                               ; preds = %36
-  %42 = add nsw i64 %40, 1
-  %43 = sdiv i64 %42, 2
-  %44 = mul nsw i64 %43, 3
-  %.not.i.i = icmp slt i64 %40, %44
-  br i1 %.not.i.i, label %45, label %enlarge.exit.thread.i
+42:                                               ; preds = %37
+  %43 = add nsw i64 %41, 1
+  %44 = sdiv i64 %43, 2
+  %45 = mul nsw i64 %44, 3
+  %.not.i.i = icmp slt i64 %41, %45
+  br i1 %.not.i.i, label %46, label %enlarge.exit.thread.i
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = mul i64 %43, 24
-  %49 = tail call ptr @cli_max_realloc(ptr noundef %47, i64 noundef %48) #12
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %55
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = mul i64 %44, 24
+  %50 = tail call ptr @cli_max_realloc(ptr noundef %48, i64 noundef %49) #12
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %56
 
-51:                                               ; preds = %45
-  %52 = load i32, ptr %34, align 8
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %enlarge.exit.i
+52:                                               ; preds = %46
+  %53 = load i32, ptr %35, align 8
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %enlarge.exit.i
 
-54:                                               ; preds = %51
-  store i32 12, ptr %34, align 8
+55:                                               ; preds = %52
+  store i32 12, ptr %35, align 8
   br label %enlarge.exit.i
 
-55:                                               ; preds = %45
-  store ptr %49, ptr %46, align 8
-  store i64 %44, ptr %39, align 8
-  %.pre.i = load i64, ptr %37, align 8
+56:                                               ; preds = %46
+  store ptr %50, ptr %47, align 8
+  store i64 %45, ptr %40, align 8
+  %.pre.i = load i64, ptr %38, align 8
   br label %enlarge.exit.thread.i
 
-enlarge.exit.i:                                   ; preds = %54, %51
+enlarge.exit.i:                                   ; preds = %55, %52
   store ptr @nuls, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr @nuls, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr @nuls, ptr %57, align 8
   br label %doemit.exit
 
-enlarge.exit.thread.i:                            ; preds = %55, %41, %36
-  %57 = phi i64 [ %38, %41 ], [ %.pre.i, %55 ], [ %38, %36 ]
-  %58 = or disjoint i32 %.pre-phi, 268435456
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %62 = add nsw i64 %57, 1
-  store i64 %62, ptr %37, align 8
-  %63 = getelementptr inbounds i64, ptr %61, i64 %57
-  store i64 %59, ptr %63, align 8
+enlarge.exit.thread.i:                            ; preds = %56, %42, %37
+  %58 = phi i64 [ %39, %42 ], [ %.pre.i, %56 ], [ %39, %37 ]
+  %59 = or disjoint i32 %.pre-phi, 268435456
+  %60 = zext nneg i32 %59 to i64
+  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %62 = load ptr, ptr %61, align 8
+  %63 = add nsw i64 %58, 1
+  store i64 %63, ptr %38, align 8
+  %64 = getelementptr inbounds i64, ptr %62, i64 %58
+  store i64 %60, ptr %64, align 8
   br label %doemit.exit
 
-doemit.exit:                                      ; preds = %enlarge.exit.thread.i, %enlarge.exit.i, %33, %27
+doemit.exit:                                      ; preds = %enlarge.exit.thread.i, %enlarge.exit.i, %34, %27
   ret void
 }
 
@@ -6589,18 +6591,20 @@ declare i32 @toupper(i32 noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @bothcases(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [3 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = trunc i32 %1 to i8
-  %6 = getelementptr inbounds i8, ptr %3, i64 2
-  store i8 %5, ptr %3, align 1
-  %7 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 93, ptr %7, align 1
-  store i8 0, ptr %6, align 1
-  %8 = load <2 x ptr>, ptr %0, align 8
+  %4 = load ptr, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = trunc i32 %1 to i8
   store ptr %3, ptr %0, align 8
-  store ptr %6, ptr %4, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 2
+  store ptr %8, ptr %5, align 8
+  store i8 %7, ptr %3, align 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 93, ptr %9, align 1
+  store i8 0, ptr %8, align 1
   call fastcc void @p_bracket(ptr noundef nonnull %0)
-  store <2 x ptr> %8, ptr %0, align 8
+  store ptr %4, ptr %0, align 8
+  store ptr %6, ptr %5, align 8
   ret void
 }
 

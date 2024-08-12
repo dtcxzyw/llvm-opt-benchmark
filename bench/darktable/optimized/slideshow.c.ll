@@ -696,12 +696,14 @@ define void @expose(ptr nocapture noundef readonly %0, ptr noundef %1, i32 nound
   %111 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !29
   %112 = getelementptr inbounds i8, ptr %111, i64 1456
   %113 = load double, ptr %112, align 8, !tbaa !34
-  %114 = insertelement <2 x double> poison, double %113, i64 0
-  %115 = shufflevector <2 x double> %114, <2 x double> poison, <2 x i32> zeroinitializer
-  %116 = fmul reassoc nsz arcp contract afn <2 x double> %115, %37
-  %117 = fptoui <2 x double> %116 to <2 x i64>
-  store <2 x i64> %117, ptr %15, align 8, !tbaa !36
-  %118 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #13
+  %114 = fmul reassoc nsz arcp contract afn double %113, %38
+  %115 = fptoui double %114 to i64
+  store i64 %115, ptr %15, align 8, !tbaa !49
+  %116 = fmul reassoc nsz arcp contract afn double %113, %40
+  %117 = fptoui double %116 to i64
+  %118 = getelementptr inbounds i8, ptr %9, i64 16
+  store i64 %117, ptr %118, align 8, !tbaa !51
+  %119 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #13
   ret void
 }
 

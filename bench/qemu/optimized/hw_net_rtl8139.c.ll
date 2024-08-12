@@ -214,18 +214,22 @@ entry:
   store i16 4332, ptr %arrayidx9, align 2
   %arrayidx12 = getelementptr i8, ptr %call.i, i64 10972
   store i16 -32455, ptr %arrayidx12, align 4
+  %1 = load i16, ptr %conf, align 8
   %arrayidx24 = getelementptr i8, ptr %call.i, i64 10982
-  %1 = load <2 x i16>, ptr %conf, align 8
-  store <2 x i16> %1, ptr %arrayidx24, align 2
+  store i16 %1, ptr %arrayidx24, align 2
+  %arrayidx28 = getelementptr i8, ptr %call.i, i64 2730
+  %2 = load i16, ptr %arrayidx28, align 2
+  %arrayidx40 = getelementptr i8, ptr %call.i, i64 10984
+  store i16 %2, ptr %arrayidx40, align 8
   %arrayidx44 = getelementptr i8, ptr %call.i, i64 2732
-  %2 = load i16, ptr %arrayidx44, align 4
+  %3 = load i16, ptr %arrayidx44, align 4
   %arrayidx56 = getelementptr i8, ptr %call.i, i64 10986
-  store i16 %2, ptr %arrayidx56, align 2
+  store i16 %3, ptr %arrayidx56, align 2
   %call58 = tail call ptr @object_get_typename(ptr noundef %dev) #12
   %id = getelementptr inbounds i8, ptr %call.i38, i64 40
-  %3 = load ptr, ptr %id, align 8
+  %4 = load ptr, ptr %id, align 8
   %mem_reentrancy_guard = getelementptr inbounds i8, ptr %call.i38, i64 152
-  %call59 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_rtl8139_info, ptr noundef nonnull %conf, ptr noundef %call58, ptr noundef %3, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef %call.i) #12
+  %call59 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_rtl8139_info, ptr noundef nonnull %conf, ptr noundef %call58, ptr noundef %4, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef %call.i) #12
   %nic = getelementptr inbounds i8, ptr %call.i, i64 2720
   store ptr %call59, ptr %nic, align 16
   %call61 = tail call ptr @qemu_get_queue(ptr noundef %call59) #12
@@ -302,8 +306,14 @@ for.end:                                          ; preds = %for.body
   store i32 0, ptr %currTxDesc, align 16
   %currCPlusRxDesc = getelementptr inbounds i8, ptr %call.i, i64 10952
   %RxBuf = getelementptr inbounds i8, ptr %call.i, i64 2656
+  store i32 0, ptr %RxBuf, align 16
+  %RxBufferSize.i = getelementptr inbounds i8, ptr %call.i, i64 2660
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %currCPlusRxDesc, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 0, i32 8192, i32 0, i32 0>, ptr %RxBuf, align 16
+  store i32 8192, ptr %RxBufferSize.i, align 4
+  %RxBufPtr.i = getelementptr inbounds i8, ptr %call.i, i64 2664
+  store i32 0, ptr %RxBufPtr.i, align 8
+  %RxBufAddr.i = getelementptr inbounds i8, ptr %call.i, i64 2668
+  store i32 0, ptr %RxBufAddr.i, align 4
   %TxConfig = getelementptr inbounds i8, ptr %call.i, i64 2676
   store i32 1954545664, ptr %TxConfig, align 4
   %clock_enabled = getelementptr inbounds i8, ptr %call.i, i64 2696

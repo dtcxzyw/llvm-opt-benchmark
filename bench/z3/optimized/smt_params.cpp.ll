@@ -2386,7 +2386,9 @@ entry:
   %m_qi_quick_checker = getelementptr inbounds i8, ptr %this, i64 200
   store i32 1, ptr %m_qi_quick_checker, align 8
   %m_qi_eager_threshold = getelementptr inbounds i8, ptr %this, i64 168
-  store <2 x double> <double 5.000000e+00, double 2.000000e+01>, ptr %m_qi_eager_threshold, align 8
+  store double 5.000000e+00, ptr %m_qi_eager_threshold, align 8
+  %m_qi_lazy_threshold = getelementptr inbounds i8, ptr %this, i64 176
+  store double 2.000000e+01, ptr %m_qi_lazy_threshold, align 8
   %m_macro_finder = getelementptr inbounds i8, ptr %this, i64 51
   store i8 1, ptr %m_macro_finder, align 1
   %m_ng_lift_ite = getelementptr inbounds i8, ptr %this, i64 44

@@ -31,191 +31,191 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden noundef ptr @time_string_parse(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
-  %9 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %10 = insertelement <4 x ptr> %9, ptr %5, i64 1
-  %11 = insertelement <4 x ptr> %10, ptr %6, i64 2
-  %12 = insertelement <4 x ptr> %11, ptr %7, i64 3
-  %13 = icmp eq <4 x ptr> %12, zeroinitializer
-  %14 = bitcast <4 x i1> %13 to i4
-  %15 = icmp eq i4 %14, 0
-  br i1 %15, label %.preheader, label %100
+  %9 = icmp ne ptr %0, null
+  %10 = icmp ne ptr %5, null
+  %or.cond = and i1 %9, %10
+  %11 = icmp ne ptr %6, null
+  %or.cond3 = and i1 %or.cond, %11
+  %12 = icmp ne ptr %7, null
+  %or.cond5 = and i1 %or.cond3, %12
+  br i1 %or.cond5, label %.preheader, label %97
 
 .preheader:                                       ; preds = %8
-  %16 = load ptr, ptr @g_ascii_table, align 8
-  br label %17
+  %13 = load ptr, ptr @g_ascii_table, align 8
+  br label %14
 
-17:                                               ; preds = %17, %.preheader
-  %.0 = phi ptr [ %23, %17 ], [ %0, %.preheader ]
-  %18 = load i8, ptr %.0, align 1
-  %19 = zext i8 %18 to i64
-  %20 = getelementptr i16, ptr %16, i64 %19
-  %21 = load i16, ptr %20, align 2
-  %22 = and i16 %21, 256
-  %.not = icmp eq i16 %22, 0
-  %23 = getelementptr i8, ptr %.0, i64 1
-  br i1 %.not, label %24, label %17, !llvm.loop !4
+14:                                               ; preds = %14, %.preheader
+  %.0 = phi ptr [ %20, %14 ], [ %0, %.preheader ]
+  %15 = load i8, ptr %.0, align 1
+  %16 = zext i8 %15 to i64
+  %17 = getelementptr i16, ptr %13, i64 %16
+  %18 = load i16, ptr %17, align 2
+  %19 = and i16 %18, 256
+  %.not = icmp eq i16 %19, 0
+  %20 = getelementptr i8, ptr %.0, i64 1
+  br i1 %.not, label %21, label %14, !llvm.loop !4
 
-24:                                               ; preds = %17
-  %25 = icmp ne ptr %1, null
-  %26 = icmp ne ptr %2, null
-  %or.cond7 = and i1 %25, %26
-  %27 = icmp ne ptr %3, null
-  %or.cond9 = and i1 %or.cond7, %27
-  br i1 %or.cond9, label %28, label %62
+21:                                               ; preds = %14
+  %22 = icmp ne ptr %1, null
+  %23 = icmp ne ptr %2, null
+  %or.cond7 = and i1 %22, %23
+  %24 = icmp ne ptr %3, null
+  %or.cond9 = and i1 %or.cond7, %24
+  br i1 %or.cond9, label %25, label %59
 
-28:                                               ; preds = %24
-  %29 = icmp eq i8 %18, 0
-  br i1 %29, label %100, label %30
+25:                                               ; preds = %21
+  %26 = icmp eq i8 %15, 0
+  br i1 %26, label %97, label %27
 
-30:                                               ; preds = %28
-  %31 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.2, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
-  %32 = icmp eq i32 %31, 6
-  br i1 %32, label %33, label %50
+27:                                               ; preds = %25
+  %28 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.2, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %29 = icmp eq i32 %28, 6
+  br i1 %29, label %30, label %47
+
+30:                                               ; preds = %27
+  %31 = load i32, ptr %1, align 4
+  %32 = icmp slt i32 %31, 1970
+  br i1 %32, label %97, label %33
 
 33:                                               ; preds = %30
-  %34 = load i32, ptr %1, align 4
-  %35 = icmp slt i32 %34, 1970
-  br i1 %35, label %100, label %36
+  %34 = load i32, ptr %2, align 4
+  %35 = add i32 %34, -13
+  %or.cond99 = icmp ult i32 %35, -12
+  br i1 %or.cond99, label %97, label %36
 
 36:                                               ; preds = %33
-  %37 = load i32, ptr %2, align 4
-  %38 = add i32 %37, -13
-  %or.cond99 = icmp ult i32 %38, -12
-  br i1 %or.cond99, label %100, label %39
+  %37 = load i32, ptr %3, align 4
+  %38 = add i32 %37, -32
+  %or.cond100 = icmp ult i32 %38, -31
+  br i1 %or.cond100, label %97, label %39
 
 39:                                               ; preds = %36
-  %40 = load i32, ptr %3, align 4
-  %41 = add i32 %40, -32
-  %or.cond100 = icmp ult i32 %41, -31
-  br i1 %or.cond100, label %100, label %42
+  %40 = load i32, ptr %5, align 4
+  %or.cond101 = icmp ugt i32 %40, 23
+  br i1 %or.cond101, label %97, label %41
 
-42:                                               ; preds = %39
-  %43 = load i32, ptr %5, align 4
-  %or.cond101 = icmp ugt i32 %43, 23
-  br i1 %or.cond101, label %100, label %44
+41:                                               ; preds = %39
+  %42 = load i32, ptr %6, align 4
+  %or.cond102 = icmp ugt i32 %42, 59
+  br i1 %or.cond102, label %97, label %43
 
-44:                                               ; preds = %42
-  %45 = load i32, ptr %6, align 4
-  %or.cond102 = icmp ugt i32 %45, 59
-  br i1 %or.cond102, label %100, label %46
+43:                                               ; preds = %41
+  %44 = load x86_fp80, ptr %7, align 16
+  %45 = fcmp olt x86_fp80 %44, 0xK00000000000000000000
+  %46 = fcmp ogt x86_fp80 %44, 0xK4004EC00000000000000
+  %or.cond103 = or i1 %45, %46
+  br i1 %or.cond103, label %97, label %96
 
-46:                                               ; preds = %44
-  %47 = load x86_fp80, ptr %7, align 16
-  %48 = fcmp olt x86_fp80 %47, 0xK00000000000000000000
-  %49 = fcmp ogt x86_fp80 %47, 0xK4004EC00000000000000
-  %or.cond103 = or i1 %48, %49
-  br i1 %or.cond103, label %100, label %99
+47:                                               ; preds = %27
+  %48 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %49 = icmp eq i32 %48, 3
+  br i1 %49, label %50, label %97
 
-50:                                               ; preds = %30
-  %51 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
-  %52 = icmp eq i32 %51, 3
-  br i1 %52, label %53, label %100
-
-53:                                               ; preds = %50
+50:                                               ; preds = %47
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
-  %54 = load i32, ptr %5, align 4
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %100, label %56
+  %51 = load i32, ptr %5, align 4
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %97, label %53
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %6, align 4
-  %or.cond104 = icmp ugt i32 %57, 59
-  br i1 %or.cond104, label %100, label %58
+53:                                               ; preds = %50
+  %54 = load i32, ptr %6, align 4
+  %or.cond104 = icmp ugt i32 %54, 59
+  br i1 %or.cond104, label %97, label %55
 
-58:                                               ; preds = %56
-  %59 = load x86_fp80, ptr %7, align 16
-  %60 = fcmp olt x86_fp80 %59, 0xK00000000000000000000
-  %61 = fcmp ogt x86_fp80 %59, 0xK4004EC00000000000000
-  %or.cond105 = or i1 %60, %61
-  br i1 %or.cond105, label %100, label %99
+55:                                               ; preds = %53
+  %56 = load x86_fp80, ptr %7, align 16
+  %57 = fcmp olt x86_fp80 %56, 0xK00000000000000000000
+  %58 = fcmp ogt x86_fp80 %56, 0xK4004EC00000000000000
+  %or.cond105 = or i1 %57, %58
+  br i1 %or.cond105, label %97, label %96
 
-62:                                               ; preds = %24
+59:                                               ; preds = %21
   %.not98 = icmp eq ptr %4, null
-  br i1 %.not98, label %100, label %63
+  br i1 %.not98, label %97, label %60
 
-63:                                               ; preds = %62
+60:                                               ; preds = %59
   store i32 0, ptr %4, align 4
-  %64 = load i8, ptr %.0, align 1
-  %65 = icmp eq i8 %64, 45
-  br i1 %65, label %66, label %67
+  %61 = load i8, ptr %.0, align 1
+  %62 = icmp eq i8 %61, 45
+  br i1 %62, label %63, label %64
 
-66:                                               ; preds = %63
+63:                                               ; preds = %60
   store i32 1, ptr %4, align 4
-  %.pr = load i8, ptr %23, align 1
-  br label %67
+  %.pr = load i8, ptr %20, align 1
+  br label %64
 
-67:                                               ; preds = %66, %63
-  %68 = phi i8 [ %.pr, %66 ], [ %64, %63 ]
-  %.1 = phi ptr [ %23, %66 ], [ %.0, %63 ]
-  %69 = icmp eq i8 %68, 0
-  br i1 %69, label %100, label %70
+64:                                               ; preds = %63, %60
+  %65 = phi i8 [ %.pr, %63 ], [ %61, %60 ]
+  %.1 = phi ptr [ %20, %63 ], [ %.0, %60 ]
+  %66 = icmp eq i8 %65, 0
+  br i1 %66, label %97, label %67
+
+67:                                               ; preds = %64
+  %68 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %69 = icmp eq i32 %68, 3
+  br i1 %69, label %70, label %79
 
 70:                                               ; preds = %67
-  %71 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
-  %72 = icmp eq i32 %71, 3
-  br i1 %72, label %73, label %82
+  %71 = load i32, ptr %5, align 4
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %97, label %73
 
 73:                                               ; preds = %70
-  %74 = load i32, ptr %5, align 4
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %100, label %76
+  %74 = load i32, ptr %6, align 4
+  %or.cond106 = icmp ugt i32 %74, 59
+  br i1 %or.cond106, label %97, label %75
 
-76:                                               ; preds = %73
-  %77 = load i32, ptr %6, align 4
-  %or.cond106 = icmp ugt i32 %77, 59
-  br i1 %or.cond106, label %100, label %78
+75:                                               ; preds = %73
+  %76 = load x86_fp80, ptr %7, align 16
+  %77 = fcmp olt x86_fp80 %76, 0xK00000000000000000000
+  %78 = fcmp ogt x86_fp80 %76, 0xK4004EC00000000000000
+  %or.cond107 = or i1 %77, %78
+  br i1 %or.cond107, label %97, label %96
 
-78:                                               ; preds = %76
-  %79 = load x86_fp80, ptr %7, align 16
-  %80 = fcmp olt x86_fp80 %79, 0xK00000000000000000000
-  %81 = fcmp ogt x86_fp80 %79, 0xK4004EC00000000000000
-  %or.cond107 = or i1 %80, %81
-  br i1 %or.cond107, label %100, label %99
+79:                                               ; preds = %67
+  %80 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1, ptr noundef nonnull @.str.12, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %81 = icmp eq i32 %80, 2
+  br i1 %81, label %82, label %88
 
-82:                                               ; preds = %70
-  %83 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1, ptr noundef nonnull @.str.12, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
-  %84 = icmp eq i32 %83, 2
-  br i1 %84, label %85, label %91
+82:                                               ; preds = %79
+  %83 = load i32, ptr %6, align 4
+  %or.cond108 = icmp ugt i32 %83, 59
+  br i1 %or.cond108, label %97, label %84
 
-85:                                               ; preds = %82
-  %86 = load i32, ptr %6, align 4
-  %or.cond108 = icmp ugt i32 %86, 59
-  br i1 %or.cond108, label %100, label %87
+84:                                               ; preds = %82
+  %85 = load x86_fp80, ptr %7, align 16
+  %86 = fcmp olt x86_fp80 %85, 0xK00000000000000000000
+  %87 = fcmp ogt x86_fp80 %85, 0xK4004EC00000000000000
+  %or.cond109 = or i1 %86, %87
+  br i1 %or.cond109, label %97, label %.sink.split
 
-87:                                               ; preds = %85
-  %88 = load x86_fp80, ptr %7, align 16
-  %89 = fcmp olt x86_fp80 %88, 0xK00000000000000000000
-  %90 = fcmp ogt x86_fp80 %88, 0xK4004EC00000000000000
-  %or.cond109 = or i1 %89, %90
-  br i1 %or.cond109, label %100, label %.sink.split
+88:                                               ; preds = %79
+  %89 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1, ptr noundef nonnull @.str.13, ptr noundef nonnull %7) #9
+  %90 = icmp eq i32 %89, 1
+  br i1 %90, label %91, label %97
 
-91:                                               ; preds = %82
-  %92 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1, ptr noundef nonnull @.str.13, ptr noundef nonnull %7) #9
-  %93 = icmp eq i32 %92, 1
-  br i1 %93, label %94, label %100
+91:                                               ; preds = %88
+  %92 = load x86_fp80, ptr %7, align 16
+  %93 = fcmp olt x86_fp80 %92, 0xK00000000000000000000
+  %94 = fcmp ogt x86_fp80 %92, 0xK4004EC00000000000000
+  %or.cond110 = or i1 %93, %94
+  br i1 %or.cond110, label %97, label %95
 
-94:                                               ; preds = %91
-  %95 = load x86_fp80, ptr %7, align 16
-  %96 = fcmp olt x86_fp80 %95, 0xK00000000000000000000
-  %97 = fcmp ogt x86_fp80 %95, 0xK4004EC00000000000000
-  %or.cond110 = or i1 %96, %97
-  br i1 %or.cond110, label %100, label %98
-
-98:                                               ; preds = %94
+95:                                               ; preds = %91
   store i32 0, ptr %6, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %87, %98
+.sink.split:                                      ; preds = %84, %95
   store i32 0, ptr %5, align 4
-  br label %99
+  br label %96
 
-99:                                               ; preds = %.sink.split, %78, %58, %46
-  br label %100
+96:                                               ; preds = %.sink.split, %75, %55, %43
+  br label %97
 
-100:                                              ; preds = %91, %94, %87, %85, %78, %76, %73, %67, %62, %50, %58, %56, %53, %46, %44, %42, %39, %36, %33, %28, %8, %99
-  %.080 = phi ptr [ null, %99 ], [ @.str, %8 ], [ @.str.1, %28 ], [ @.str.3, %33 ], [ @.str.4, %36 ], [ @.str.5, %39 ], [ @.str.6, %42 ], [ @.str.7, %44 ], [ @.str.8, %46 ], [ @.str.10, %53 ], [ @.str.7, %56 ], [ @.str.8, %58 ], [ @.str.11, %50 ], [ @.str, %62 ], [ @.str.1, %67 ], [ @.str.10, %73 ], [ @.str.7, %76 ], [ @.str.8, %78 ], [ @.str.7, %85 ], [ @.str.8, %87 ], [ @.str.8, %94 ], [ @.str.14, %91 ]
+97:                                               ; preds = %88, %91, %84, %82, %75, %73, %70, %64, %59, %47, %55, %53, %50, %43, %41, %39, %36, %33, %30, %25, %8, %96
+  %.080 = phi ptr [ null, %96 ], [ @.str, %8 ], [ @.str.1, %25 ], [ @.str.3, %30 ], [ @.str.4, %33 ], [ @.str.5, %36 ], [ @.str.6, %39 ], [ @.str.7, %41 ], [ @.str.8, %43 ], [ @.str.10, %50 ], [ @.str.7, %53 ], [ @.str.8, %55 ], [ @.str.11, %47 ], [ @.str, %59 ], [ @.str.1, %64 ], [ @.str.10, %70 ], [ @.str.7, %73 ], [ @.str.8, %75 ], [ @.str.7, %82 ], [ @.str.8, %84 ], [ @.str.8, %91 ], [ @.str.14, %88 ]
   ret ptr %.080
 }
 

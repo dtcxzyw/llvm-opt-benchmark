@@ -621,73 +621,82 @@ for.body.lr.ph:                                   ; preds = %entry
   %cmp30 = icmp eq i64 %stride, 4
   %conv55 = trunc i32 %conv9.i55 to i16
   %conv39 = trunc i32 %conv9.i55 to i8
-  %1 = insertelement <2 x float> poison, float %conv.i, i64 0
-  %2 = shufflevector <2 x float> %1, <2 x float> poison, <2 x i32> zeroinitializer
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.070 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %mul1 = shl i64 %i.070, 2
   %arrayidx = getelementptr inbounds float, ptr %data, i64 %mul1
-  %3 = load <2 x float>, ptr %arrayidx, align 4
+  %1 = load float, ptr %arrayidx, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %2 = load float, ptr %arrayidx3, align 4
   %arrayidx4 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %4 = load float, ptr %arrayidx4, align 4
+  %3 = load float, ptr %arrayidx4, align 4
   %arrayidx5 = getelementptr inbounds i8, ptr %arrayidx, i64 12
-  %5 = load float, ptr %arrayidx5, align 4
-  %6 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %3)
-  %shift = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %7 = fadd <2 x float> %6, %shift
-  %add = extractelement <2 x float> %7, i64 0
-  %8 = tail call float @llvm.fabs.f32(float %4)
-  %add6 = fadd float %add, %8
+  %4 = load float, ptr %arrayidx5, align 4
+  %5 = tail call float @llvm.fabs.f32(float %1)
+  %6 = tail call float @llvm.fabs.f32(float %2)
+  %add = fadd float %5, %6
+  %7 = tail call float @llvm.fabs.f32(float %3)
+  %add6 = fadd float %add, %7
   %cmp7 = fcmp oeq float %add6, 0.000000e+00
   %div = fdiv float 1.000000e+00, %add6
   %cond = select i1 %cmp7, float 0.000000e+00, float %div
-  %9 = insertelement <2 x float> poison, float %cond, i64 0
-  %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> zeroinitializer
-  %11 = fmul <2 x float> %3, %10
-  %cmp10 = fcmp ult float %4, 0.000000e+00
+  %mul8 = fmul float %1, %cond
+  %mul9 = fmul float %2, %cond
+  %cmp10 = fcmp ult float %3, 0.000000e+00
   br i1 %cmp10, label %cond.false20, label %cond.end25
 
 cond.false20:                                     ; preds = %for.body
-  %12 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %11)
-  %13 = fcmp oge <2 x float> %11, zeroinitializer
-  %14 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %12
-  %15 = shufflevector <2 x float> %14, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %16 = fneg <2 x float> %15
-  %17 = select <2 x i1> %13, <2 x float> %15, <2 x float> %16
+  %8 = tail call float @llvm.fabs.f32(float %mul9)
+  %sub = fsub float 1.000000e+00, %8
+  %cmp13 = fcmp oge float %mul8, 0.000000e+00
+  %9 = fneg float %sub
+  %mul15 = select i1 %cmp13, float %sub, float %9
+  %10 = tail call float @llvm.fabs.f32(float %mul8)
+  %sub21 = fsub float 1.000000e+00, %10
+  %cmp22 = fcmp oge float %mul9, 0.000000e+00
+  %11 = fneg float %sub21
+  %mul24 = select i1 %cmp22, float %sub21, float %11
   br label %cond.end25
 
 cond.end25:                                       ; preds = %for.body, %cond.false20
-  %18 = phi <2 x float> [ %17, %cond.false20 ], [ %11, %for.body ]
-  %19 = fcmp oge <2 x float> %18, zeroinitializer
-  %20 = fcmp oge <2 x float> %18, <float -1.000000e+00, float -1.000000e+00>
-  %21 = select <2 x i1> %19, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> <float -5.000000e-01, float -5.000000e-01>
-  %22 = select <2 x i1> %20, <2 x float> %18, <2 x float> <float -1.000000e+00, float -1.000000e+00>
-  %23 = fcmp ole <2 x float> %22, <float 1.000000e+00, float 1.000000e+00>
-  %24 = select <2 x i1> %23, <2 x float> %22, <2 x float> <float 1.000000e+00, float 1.000000e+00>
-  %25 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %24, <2 x float> %2, <2 x float> %21)
-  %26 = fptosi <2 x float> %25 to <2 x i32>
-  %cmp.i60 = fcmp oge float %5, 0.000000e+00
+  %cond1768 = phi float [ %mul15, %cond.false20 ], [ %mul8, %for.body ]
+  %cond26 = phi float [ %mul24, %cond.false20 ], [ %mul9, %for.body ]
+  %cmp.i = fcmp oge float %cond1768, 0.000000e+00
+  %cond.i = select i1 %cmp.i, float 5.000000e-01, float -5.000000e-01
+  %cmp2.i = fcmp oge float %cond1768, -1.000000e+00
+  %cond3.i = select i1 %cmp2.i, float %cond1768, float -1.000000e+00
+  %cmp4.i = fcmp ole float %cond3.i, 1.000000e+00
+  %cond8.i = select i1 %cmp4.i, float %cond3.i, float 1.000000e+00
+  %12 = tail call float @llvm.fmuladd.f32(float %cond8.i, float %conv.i, float %cond.i)
+  %conv9.i = fptosi float %12 to i32
+  %cmp.i44 = fcmp oge float %cond26, 0.000000e+00
+  %cond.i45 = select i1 %cmp.i44, float 5.000000e-01, float -5.000000e-01
+  %cmp2.i46 = fcmp oge float %cond26, -1.000000e+00
+  %cond3.i47 = select i1 %cmp2.i46, float %cond26, float -1.000000e+00
+  %cmp4.i48 = fcmp ole float %cond3.i47, 1.000000e+00
+  %cond8.i49 = select i1 %cmp4.i48, float %cond3.i47, float 1.000000e+00
+  %13 = tail call float @llvm.fmuladd.f32(float %cond8.i49, float %conv.i, float %cond.i45)
+  %conv9.i50 = fptosi float %13 to i32
+  %cmp.i60 = fcmp oge float %4, 0.000000e+00
   %cond.i61 = select i1 %cmp.i60, float 5.000000e-01, float -5.000000e-01
-  %cmp2.i62 = fcmp oge float %5, -1.000000e+00
-  %cond3.i63 = select i1 %cmp2.i62, float %5, float -1.000000e+00
+  %cmp2.i62 = fcmp oge float %4, -1.000000e+00
+  %cond3.i63 = select i1 %cmp2.i62, float %4, float -1.000000e+00
   %cmp4.i64 = fcmp ole float %cond3.i63, 1.000000e+00
   %cond8.i65 = select i1 %cmp4.i64, float %cond3.i63, float 1.000000e+00
-  %27 = tail call float @llvm.fmuladd.f32(float %cond8.i65, float %conv.i59, float %cond.i61)
-  %conv9.i66 = fptosi float %27 to i32
+  %14 = tail call float @llvm.fmuladd.f32(float %cond8.i65, float %conv.i59, float %cond.i61)
+  %conv9.i66 = fptosi float %14 to i32
+  %add37 = or disjoint i64 %mul1, 1
   %add41 = or disjoint i64 %mul1, 2
   %add45 = or disjoint i64 %mul1, 3
   br i1 %cmp30, label %if.then, label %if.else
 
 if.then:                                          ; preds = %cond.end25
-  %add37 = or disjoint i64 %mul1, 1
-  %28 = bitcast <2 x i32> %26 to <8 x i8>
-  %conv31 = extractelement <8 x i8> %28, i64 0
+  %conv31 = trunc i32 %conv9.i to i8
   %arrayidx34 = getelementptr inbounds i8, ptr %destination, i64 %mul1
   store i8 %conv31, ptr %arrayidx34, align 1
-  %29 = bitcast <2 x i32> %26 to <8 x i8>
-  %conv35 = extractelement <8 x i8> %29, i64 4
+  %conv35 = trunc i32 %conv9.i50 to i8
   %arrayidx38 = getelementptr inbounds i8, ptr %destination, i64 %add37
   store i8 %conv35, ptr %arrayidx38, align 1
   %arrayidx42 = getelementptr inbounds i8, ptr %destination, i64 %add41
@@ -698,9 +707,12 @@ if.then:                                          ; preds = %cond.end25
   br label %for.inc
 
 if.else:                                          ; preds = %cond.end25
-  %30 = trunc <2 x i32> %26 to <2 x i16>
+  %conv47 = trunc i32 %conv9.i to i16
   %arrayidx50 = getelementptr inbounds i16, ptr %destination, i64 %mul1
-  store <2 x i16> %30, ptr %arrayidx50, align 2
+  store i16 %conv47, ptr %arrayidx50, align 2
+  %conv51 = trunc i32 %conv9.i50 to i16
+  %arrayidx54 = getelementptr inbounds i16, ptr %destination, i64 %add37
+  store i16 %conv51, ptr %arrayidx54, align 2
   %arrayidx58 = getelementptr inbounds i16, ptr %destination, i64 %add41
   store i16 %conv55, ptr %arrayidx58, align 2
   %conv59 = trunc i32 %conv9.i66 to i16
@@ -741,11 +753,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul = shl i64 %i.061, 2
   %arrayidx = getelementptr inbounds float, ptr %data, i64 %mul
   %arrayidx2 = getelementptr inbounds i16, ptr %destination_, i64 %mul
-  %1 = load <2 x float>, ptr %arrayidx, align 4
-  %2 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %1)
-  %3 = extractelement <2 x float> %2, i64 0
-  %4 = extractelement <2 x float> %2, i64 1
-  %cmp5 = fcmp ogt float %4, %3
+  %arrayidx3 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %1 = load float, ptr %arrayidx3, align 4
+  %2 = tail call float @llvm.fabs.f32(float %1)
+  %3 = load float, ptr %arrayidx, align 4
+  %4 = tail call float @llvm.fabs.f32(float %3)
+  %cmp5 = fcmp ogt float %2, %4
   %cond = zext i1 %cmp5 to i32
   %arrayidx6 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load float, ptr %arrayidx6, align 4
@@ -1033,12 +1046,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

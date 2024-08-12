@@ -857,75 +857,93 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
   %72 = and i32 %3, 1
   %73 = icmp eq i32 %72, 0
   %or.cond106 = and i1 %73, %or.cond5
-  br i1 %or.cond106, label %74, label %80
+  br i1 %or.cond106, label %74, label %89
 
 74:                                               ; preds = %70
-  store <4 x i32> <i32 1, i32 2, i32 115, i32 115>, ptr %6, align 4
-  %75 = getelementptr inbounds i8, ptr %6, i64 20
-  store <4 x i32> <i32 1, i32 2, i32 83, i32 83>, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %6, i64 40
-  store <4 x i32> <i32 1, i32 2, i32 115, i32 83>, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %6, i64 60
-  store i32 1, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %6, i64 64
-  store i32 2, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %6, i64 68
-  store i32 83, ptr %79, align 4
+  store i32 1, ptr %6, align 4
+  %75 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 2, ptr %75, align 4
+  %76 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 115, ptr %76, align 4
+  %77 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 115, ptr %77, align 4
+  %78 = getelementptr inbounds i8, ptr %6, i64 20
+  store i32 1, ptr %78, align 4
+  %79 = getelementptr inbounds i8, ptr %6, i64 24
+  store i32 2, ptr %79, align 4
+  %80 = getelementptr inbounds i8, ptr %6, i64 28
+  store i32 83, ptr %80, align 4
+  %81 = getelementptr inbounds i8, ptr %6, i64 32
+  store i32 83, ptr %81, align 4
+  %82 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 1, ptr %82, align 4
+  %83 = getelementptr inbounds i8, ptr %6, i64 44
+  store i32 2, ptr %83, align 4
+  %84 = getelementptr inbounds i8, ptr %6, i64 48
+  store i32 115, ptr %84, align 4
+  %85 = getelementptr inbounds i8, ptr %6, i64 52
+  store i32 83, ptr %85, align 4
+  %86 = getelementptr inbounds i8, ptr %6, i64 60
+  store i32 1, ptr %86, align 4
+  %87 = getelementptr inbounds i8, ptr %6, i64 64
+  store i32 2, ptr %87, align 4
+  %88 = getelementptr inbounds i8, ptr %6, i64 68
+  store i32 83, ptr %88, align 4
   br label %.loopexit.sink.split
 
-80:                                               ; preds = %70
-  %81 = icmp sgt i32 %0, 0
-  %or.cond115 = and i1 %73, %81
+89:                                               ; preds = %70
+  %90 = icmp sgt i32 %0, 0
+  %or.cond115 = and i1 %73, %90
   br i1 %or.cond115, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %80
-  %82 = zext i8 %8 to i32
+.lr.ph:                                           ; preds = %89
+  %91 = zext i8 %8 to i32
   %wide.trip.count = zext nneg i32 %0 to i64
-  br label %84
+  br label %93
 
-83:                                               ; preds = %92
+92:                                               ; preds = %101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %84, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %93, !llvm.loop !18
 
-84:                                               ; preds = %.lr.ph, %83
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
-  %85 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %1, i64 %indvars.iv
-  %86 = load i32, ptr %85, align 4
-  %87 = icmp eq i32 %86, %82
-  br i1 %87, label %88, label %92
+93:                                               ; preds = %.lr.ph, %92
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
+  %94 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %1, i64 %indvars.iv
+  %95 = load i32, ptr %94, align 4
+  %96 = icmp eq i32 %95, %91
+  br i1 %96, label %97, label %101
 
-88:                                               ; preds = %84
+97:                                               ; preds = %93
   store i32 1, ptr %6, align 4
-  %89 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 1, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %85, i64 4
-  %91 = load i32, ptr %90, align 4
+  %98 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 1, ptr %98, align 4
+  %99 = getelementptr inbounds i8, ptr %94, i64 4
+  %100 = load i32, ptr %99, align 4
   br label %.loopexit.sink.split
 
-92:                                               ; preds = %84
-  %93 = getelementptr inbounds i8, ptr %85, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp eq i32 %94, %82
-  br i1 %95, label %96, label %83
+101:                                              ; preds = %93
+  %102 = getelementptr inbounds i8, ptr %94, i64 4
+  %103 = load i32, ptr %102, align 4
+  %104 = icmp eq i32 %103, %91
+  br i1 %104, label %105, label %92
 
-96:                                               ; preds = %92
+105:                                              ; preds = %101
   store i32 1, ptr %6, align 4
-  %97 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 1, ptr %97, align 4
-  %98 = load i32, ptr %85, align 4
+  %106 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 1, ptr %106, align 4
+  %107 = load i32, ptr %94, align 4
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %47, %65, %74, %88, %96
-  %.sink130 = phi i64 [ 8, %96 ], [ 8, %88 ], [ 72, %74 ], [ 8, %65 ], [ 8, %47 ]
-  %.sink = phi i32 [ %98, %96 ], [ %91, %88 ], [ 115, %74 ], [ %69, %65 ], [ %51, %47 ]
-  %.095.ph = phi i32 [ 1, %96 ], [ 1, %88 ], [ 4, %74 ], [ 1, %65 ], [ 1, %47 ]
-  %99 = getelementptr inbounds i8, ptr %6, i64 %.sink130
-  store i32 %.sink, ptr %99, align 4
+.loopexit.sink.split:                             ; preds = %47, %65, %74, %97, %105
+  %.sink130 = phi i64 [ 8, %105 ], [ 8, %97 ], [ 72, %74 ], [ 8, %65 ], [ 8, %47 ]
+  %.sink = phi i32 [ %107, %105 ], [ %100, %97 ], [ 115, %74 ], [ %69, %65 ], [ %51, %47 ]
+  %.095.ph = phi i32 [ 1, %105 ], [ 1, %97 ], [ 4, %74 ], [ 1, %65 ], [ 1, %47 ]
+  %108 = getelementptr inbounds i8, ptr %6, i64 %.sink130
+  store i32 %.sink, ptr %108, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %83, %46, %.loopexit.sink.split, %80
-  %.095 = phi i32 [ 0, %80 ], [ %.095.ph, %.loopexit.sink.split ], [ 4, %46 ], [ 0, %83 ]
+.loopexit:                                        ; preds = %92, %46, %.loopexit.sink.split, %89
+  %.095 = phi i32 [ 0, %89 ], [ %.095.ph, %.loopexit.sink.split ], [ 4, %46 ], [ 0, %92 ]
   ret i32 %.095
 }
 

@@ -2106,41 +2106,45 @@ define i32 @pmix_bfrops_base_unpack_timeval(ptr noundef %0, ptr noundef %1, ptr 
 
 .lr.ph:                                           ; preds = %16
   %20 = getelementptr inbounds i8, ptr %0, i64 128
-  br label %21
+  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  br label %22
 
-21:                                               ; preds = %.lr.ph, %31
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
+22:                                               ; preds = %.lr.ph, %32
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   store i32 2, ptr %6, align 4
-  %22 = load i32, ptr %20, align 8
-  %.not.i = icmp sgt i32 %22, 10
+  %23 = load i32, ptr %20, align 8
+  %.not.i = icmp sgt i32 %23, 10
   br i1 %.not.i, label %pmix_pointer_array_get_item.exit, label %.thread
 
-pmix_pointer_array_get_item.exit:                 ; preds = %21
-  %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 80
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %.thread, label %27
+pmix_pointer_array_get_item.exit:                 ; preds = %22
+  %24 = load ptr, ptr %17, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 80
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.thread, label %28
 
-27:                                               ; preds = %pmix_pointer_array_get_item.exit
-  %28 = getelementptr inbounds i8, ptr %25, i64 144
-  %29 = load ptr, ptr %28, align 8
-  %30 = call i32 %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %6, i16 noundef zeroext 10) #10
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %31, label %.thread
+28:                                               ; preds = %pmix_pointer_array_get_item.exit
+  %29 = getelementptr inbounds i8, ptr %26, i64 144
+  %30 = load ptr, ptr %29, align 8
+  %31 = call i32 %30(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %6, i16 noundef zeroext 10) #10
+  %.not = icmp eq i32 %31, 0
+  br i1 %.not, label %32, label %.thread
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds %struct.timeval, ptr %2, i64 %indvars.iv
-  %33 = load <2 x i64>, ptr %7, align 16
-  store <2 x i64> %33, ptr %32, align 8
+32:                                               ; preds = %28
+  %33 = load i64, ptr %7, align 16
+  %34 = load i64, ptr %21, align 8
+  %35 = getelementptr inbounds %struct.timeval, ptr %2, i64 %indvars.iv
+  store i64 %33, ptr %35, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 8
+  store i64 %34, ptr %.sroa.2.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = load i32, ptr %3, align 4
-  %35 = sext i32 %34 to i64
-  %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %21, label %.thread, !llvm.loop !33
+  %36 = load i32, ptr %3, align 4
+  %37 = sext i32 %36 to i64
+  %38 = icmp slt i64 %indvars.iv.next, %37
+  br i1 %38, label %22, label %.thread, !llvm.loop !33
 
-.thread:                                          ; preds = %27, %31, %pmix_pointer_array_get_item.exit, %21, %16
-  %.0 = phi i32 [ 0, %16 ], [ -16, %21 ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %31 ], [ %30, %27 ]
+.thread:                                          ; preds = %28, %32, %pmix_pointer_array_get_item.exit, %22, %16
+  %.0 = phi i32 [ 0, %16 ], [ -16, %22 ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %32 ], [ %31, %28 ]
   ret i32 %.0
 }
 

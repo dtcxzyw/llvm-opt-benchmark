@@ -13099,25 +13099,29 @@ s1ap_get_private_data.exit:                       ; preds = %4, %10
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %5, align 4
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
-  %19 = load <2 x i32>, ptr %17, align 8
-  store <2 x i32> %19, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 12
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %18, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %21, ptr %22, align 4
-  %23 = load ptr, ptr @s1ap_extension_dissector_table, align 8
-  %24 = call i32 @dissector_try_uint_new(ptr noundef %23, i32 noundef %21, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #7
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %27, label %25
+  %23 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %24, ptr %25, align 4
+  %26 = load ptr, ptr @s1ap_extension_dissector_table, align 8
+  %27 = call i32 @dissector_try_uint_new(ptr noundef %26, i32 noundef %24, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #7
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %30, label %28
 
-25:                                               ; preds = %s1ap_get_private_data.exit
-  %26 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  br label %27
+28:                                               ; preds = %s1ap_get_private_data.exit
+  %29 = call i32 @tvb_captured_length(ptr noundef %0) #7
+  br label %30
 
-27:                                               ; preds = %s1ap_get_private_data.exit, %25
-  %28 = phi i32 [ %26, %25 ], [ 0, %s1ap_get_private_data.exit ]
-  ret i32 %28
+30:                                               ; preds = %s1ap_get_private_data.exit, %28
+  %31 = phi i32 [ %29, %28 ], [ 0, %s1ap_get_private_data.exit ]
+  ret i32 %31
 }
 
 declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -13680,27 +13684,29 @@ s1ap_get_private_data.exit:                       ; preds = %4, %10
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %5, align 4
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
-  %19 = getelementptr inbounds i8, ptr %.0.i, i64 12
-  %20 = load i32, ptr %19, align 4
-  %21 = load <2 x i32>, ptr %17, align 8
-  store <2 x i32> %21, ptr %18, align 4
-  %22 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 12
-  store i32 %23, ptr %24, align 4
-  %25 = load ptr, ptr @s1ap_ies_dissector_table, align 8
-  %26 = call i32 @dissector_try_uint_new(ptr noundef %25, i32 noundef %20, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #7
-  %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %29, label %27
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %18, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %21, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %24, ptr %25, align 4
+  %26 = load ptr, ptr @s1ap_ies_dissector_table, align 8
+  %27 = call i32 @dissector_try_uint_new(ptr noundef %26, i32 noundef %21, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #7
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %30, label %28
 
-27:                                               ; preds = %s1ap_get_private_data.exit
-  %28 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  br label %29
+28:                                               ; preds = %s1ap_get_private_data.exit
+  %29 = call i32 @tvb_captured_length(ptr noundef %0) #7
+  br label %30
 
-29:                                               ; preds = %s1ap_get_private_data.exit, %27
-  %30 = phi i32 [ %28, %27 ], [ 0, %s1ap_get_private_data.exit ]
-  ret i32 %30
+30:                                               ; preds = %s1ap_get_private_data.exit, %28
+  %31 = phi i32 [ %29, %28 ], [ 0, %s1ap_get_private_data.exit ]
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable

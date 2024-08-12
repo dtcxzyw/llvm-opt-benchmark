@@ -195,7 +195,7 @@ declare i32 @BIO_asn1_set_suffix(ptr noundef, ptr noundef, ptr noundef) local_un
 define internal range(i32 0, 2) i32 @ndef_suffix(ptr nocapture readnone %b, ptr nocapture noundef writeonly %pbuf, ptr nocapture noundef writeonly %plen, ptr noundef readonly %parg) #0 {
 entry:
   %p = alloca ptr, align 8
-  %sarg = alloca %struct.ASN1_STREAM_ARG_st, align 16
+  %sarg = alloca %struct.ASN1_STREAM_ARG_st, align 8
   %cmp = icmp eq ptr %parg, null
   br i1 %cmp, label %return, label %if.end
 
@@ -206,13 +206,16 @@ if.end:                                           ; preds = %entry
   %funcs = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %funcs, align 8
   %ndef_bio = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load <2 x ptr>, ptr %ndef_bio, align 8
-  %4 = shufflevector <2 x ptr> %3, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %4, ptr %sarg, align 16
+  %3 = load ptr, ptr %ndef_bio, align 8
+  %ndef_bio1 = getelementptr inbounds i8, ptr %sarg, i64 8
+  store ptr %3, ptr %ndef_bio1, align 8
+  %out = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = load ptr, ptr %out, align 8
+  store ptr %4, ptr %sarg, align 8
   %boundary = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %boundary, align 8
   %boundary3 = getelementptr inbounds i8, ptr %sarg, i64 16
-  store ptr %5, ptr %boundary3, align 16
+  store ptr %5, ptr %boundary3, align 8
   %asn1_cb = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load ptr, ptr %asn1_cb, align 8
   %call = call i32 %6(i32 noundef 11, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %sarg) #3

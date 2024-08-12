@@ -33,7 +33,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef ptr @uprv_decContextDefault_75(ptr noundef returned writeonly %context, i32 noundef %kind) local_unnamed_addr #1 {
 entry:
-  store <4 x i32> <i32 9, i32 999999999, i32 -999999999, i32 2>, ptr %context, align 4
+  store i32 9, ptr %context, align 4
+  %emax = getelementptr inbounds i8, ptr %context, i64 4
+  store i32 999999999, ptr %emax, align 4
+  %emin = getelementptr inbounds i8, ptr %context, i64 8
+  store i32 -999999999, ptr %emin, align 4
+  %round = getelementptr inbounds i8, ptr %context, i64 12
+  store i32 2, ptr %round, align 4
   %traps = getelementptr inbounds i8, ptr %context, i64 16
   store i32 8927, ptr %traps, align 4
   %status = getelementptr inbounds i8, ptr %context, i64 20
@@ -49,19 +55,28 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  store <4 x i32> <i32 7, i32 96, i32 -95, i32 3>, ptr %context, align 4
+  store i32 7, ptr %context, align 4
+  store i32 96, ptr %emax, align 4
+  store i32 -95, ptr %emin, align 4
+  store i32 3, ptr %round, align 4
   store i32 0, ptr %traps, align 4
   store i8 1, ptr %clamp, align 4
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
-  store <4 x i32> <i32 16, i32 384, i32 -383, i32 3>, ptr %context, align 4
+  store i32 16, ptr %context, align 4
+  store i32 384, ptr %emax, align 4
+  store i32 -383, ptr %emin, align 4
+  store i32 3, ptr %round, align 4
   store i32 0, ptr %traps, align 4
   store i8 1, ptr %clamp, align 4
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
-  store <4 x i32> <i32 34, i32 6144, i32 -6143, i32 3>, ptr %context, align 4
+  store i32 34, ptr %context, align 4
+  store i32 6144, ptr %emax, align 4
+  store i32 -6143, ptr %emin, align 4
+  store i32 3, ptr %round, align 4
   store i32 0, ptr %traps, align 4
   store i8 1, ptr %clamp, align 4
   br label %sw.epilog

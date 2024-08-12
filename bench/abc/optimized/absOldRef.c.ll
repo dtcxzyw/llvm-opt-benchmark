@@ -42,11 +42,29 @@ define void @Gia_ManAbsSetDefaultParams(ptr nocapture noundef writeonly %0) loca
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 20
-  store <4 x i32> <i32 250, i32 5000, i32 1000000, i32 10>, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
-  store <4 x i32> <i32 1000000, i32 0, i32 0, i32 1>, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 60
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %7, align 4
+  store i32 250, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 5000, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 1000000, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 10, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 1000000, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 0, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 1, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 -1, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 -1, ptr %16, align 4
   ret void
 }
 

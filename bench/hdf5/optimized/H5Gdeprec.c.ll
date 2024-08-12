@@ -2142,12 +2142,12 @@ define internal range(i32 -1, 1) i32 @H5G__get_objinfo_cb(ptr nocapture noundef 
   %13 = load i64, ptr @H5E_SYM_g, align 8
   %14 = load i64, ptr @H5E_NOTFOUND_g, align 8
   %15 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__get_objinfo_cb, i32 noundef 975, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.45, ptr noundef %1) #4
-  br label %86
+  br label %89
 
 16:                                               ; preds = %6
   %17 = load ptr, ptr %4, align 8
   %.not36 = icmp eq ptr %17, null
-  br i1 %.not36, label %86, label %18
+  br i1 %.not36, label %89, label %18
 
 18:                                               ; preds = %16
   %19 = select i1 %11, ptr %0, ptr %3
@@ -2161,7 +2161,7 @@ define internal range(i32 -1, 1) i32 @H5G__get_objinfo_cb(ptr nocapture noundef 
   %25 = load i64, ptr @H5E_FILE_g, align 8
   %26 = load i64, ptr @H5E_BADVALUE_g, align 8
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__get_objinfo_cb, i32 noundef 983, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.46) #4
-  br label %86
+  br label %89
 
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2173,7 +2173,7 @@ define internal range(i32 -1, 1) i32 @H5G__get_objinfo_cb(ptr nocapture noundef 
 32:                                               ; preds = %28
   %33 = load i32, ptr %2, align 8
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %86
+  br i1 %34, label %35, label %89
 
 35:                                               ; preds = %32, %28
   %36 = load ptr, ptr %3, align 8
@@ -2185,7 +2185,7 @@ define internal range(i32 -1, 1) i32 @H5G__get_objinfo_cb(ptr nocapture noundef 
   %40 = load i64, ptr @H5E_OHDR_g, align 8
   %41 = load i64, ptr @H5E_CANTGET_g, align 8
   %42 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__get_objinfo_cb, i32 noundef 997, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.47) #4
-  br label %86
+  br label %89
 
 43:                                               ; preds = %35
   %44 = load ptr, ptr %3, align 8
@@ -2197,7 +2197,7 @@ define internal range(i32 -1, 1) i32 @H5G__get_objinfo_cb(ptr nocapture noundef 
   %48 = load i64, ptr @H5E_OHDR_g, align 8
   %49 = load i64, ptr @H5E_CANTGET_g, align 8
   %50 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__get_objinfo_cb, i32 noundef 999, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.48) #4
-  br label %86
+  br label %89
 
 H5G_map_obj_type.exit:                            ; preds = %43
   %51 = getelementptr inbounds i8, ptr %7, i64 24
@@ -2220,7 +2220,7 @@ H5G_map_obj_type.exit:                            ; preds = %43
   %64 = load i64, ptr @H5E_OHDR_g, align 8
   %65 = load i64, ptr @H5E_CANTUNSERIALIZE_g, align 8
   %66 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__get_objinfo_cb, i32 noundef 1007, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.49) #4
-  br label %86
+  br label %89
 
 67:                                               ; preds = %H5G_map_obj_type.exit
   %68 = load i64, ptr %9, align 8
@@ -2245,12 +2245,16 @@ H5G_map_obj_type.exit:                            ; preds = %43
   %82 = getelementptr inbounds i8, ptr %17, i64 64
   store i64 %81, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %8, i64 4
-  %84 = getelementptr inbounds i8, ptr %17, i64 72
-  %85 = load <2 x i32>, ptr %83, align 4
-  store <2 x i32> %85, ptr %84, align 8
-  br label %86
+  %84 = load i32, ptr %83, align 4
+  %85 = getelementptr inbounds i8, ptr %17, i64 72
+  store i32 %84, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %8, i64 8
+  %87 = load i32, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %17, i64 76
+  store i32 %87, ptr %88, align 4
+  br label %89
 
-86:                                               ; preds = %16, %67, %32, %63, %47, %39, %24, %12
+89:                                               ; preds = %16, %67, %32, %63, %47, %39, %24, %12
   %.0 = phi i32 [ -1, %12 ], [ -1, %24 ], [ -1, %39 ], [ -1, %47 ], [ -1, %63 ], [ 0, %67 ], [ 0, %32 ], [ 0, %16 ]
   store i32 0, ptr %5, align 4
   ret i32 %.0

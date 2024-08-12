@@ -83,32 +83,35 @@ define hidden void @_ZN9vmSymbols10initializeEv() local_unnamed_addr #0 align 2 
   store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 64), align 16
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6968), align 8
   store ptr %9, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 40), align 8
-  %10 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6976), align 8
-  %11 = shufflevector <2 x ptr> %10, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %11, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 48), align 16
-  %12 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6992), align 8
-  store <2 x ptr> %12, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 80), align 16
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7008), align 8
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 72), align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7016), align 8
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 32), align 16
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7024), align 8
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 112), align 16
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6976), align 8
+  store ptr %10, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6984), align 8
+  store ptr %11, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 48), align 16
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6992), align 8
+  store ptr %12, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 80), align 16
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7000), align 8
+  store ptr %13, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 88), align 8
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7008), align 8
+  store ptr %14, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 72), align 8
+  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7016), align 8
+  store ptr %15, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 32), align 16
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7024), align 8
+  store ptr %16, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 112), align 16
   br label %.preheader31
 
 .preheader31:                                     ; preds = %7, %0
-  br label %16
+  br label %17
 
-16:                                               ; preds = %.preheader31, %16
-  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %16 ], [ 1, %.preheader31 ]
-  %17 = getelementptr inbounds [1170 x i32], ptr @_ZL15vm_symbol_index, i64 0, i64 %indvars.iv28
-  %18 = trunc nuw nsw i64 %indvars.iv28 to i32
-  store i32 %18, ptr %17, align 4
+17:                                               ; preds = %.preheader31, %17
+  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %17 ], [ 1, %.preheader31 ]
+  %18 = getelementptr inbounds [1170 x i32], ptr @_ZL15vm_symbol_index, i64 0, i64 %indvars.iv28
+  %19 = trunc nuw nsw i64 %indvars.iv28 to i32
+  store i32 %19, ptr %18, align 4
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %.not23 = icmp eq i64 %indvars.iv.next29, 1170
-  br i1 %.not23, label %19, label %16
+  br i1 %.not23, label %20, label %17
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   tail call void @qsort(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL15vm_symbol_index, i64 4), i64 noundef 1169, i64 noundef 4, ptr noundef nonnull @_ZL20compare_vmsymbol_sidPKvS0_) #9
   ret void
 }

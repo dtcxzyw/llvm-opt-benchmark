@@ -1463,10 +1463,16 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %options_, ptr noundef nonnull %options_9)
   %name_ = getelementptr inbounds i8, ptr %this, i64 96
   %name_10 = getelementptr inbounds i8, ptr %other, i64 96
-  %6 = load <2 x ptr>, ptr %name_10, align 8
-  %7 = load <2 x i64>, ptr %name_, align 8
-  store <2 x i64> %7, ptr %name_10, align 8
-  store <2 x ptr> %6, ptr %name_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_10, align 8
+  %6 = load i64, ptr %name_, align 8
+  store i64 %6, ptr %name_10, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
+  %edition_ = getelementptr inbounds i8, ptr %this, i64 104
+  %edition_11 = getelementptr inbounds i8, ptr %other, i64 104
+  %__tmp.sroa.0.0.copyload.i9 = load ptr, ptr %edition_11, align 8
+  %7 = load i64, ptr %edition_, align 8
+  store i64 %7, ptr %edition_11, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i9, ptr %edition_, align 8
   %source_context_ = getelementptr inbounds i8, ptr %this, i64 112
   %source_context_12 = getelementptr i8, ptr %other, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
@@ -2739,16 +2745,28 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %2, ptr noundef nonnull %3)
   %name_ = getelementptr inbounds i8, ptr %this, i64 40
   %name_5 = getelementptr inbounds i8, ptr %other, i64 40
-  %4 = load <2 x ptr>, ptr %name_5, align 8
-  %5 = load <2 x i64>, ptr %name_, align 8
-  store <2 x i64> %5, ptr %name_5, align 8
-  store <2 x ptr> %4, ptr %name_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_5, align 8
+  %4 = load i64, ptr %name_, align 8
+  store i64 %4, ptr %name_5, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
+  %type_url_ = getelementptr inbounds i8, ptr %this, i64 48
+  %type_url_6 = getelementptr inbounds i8, ptr %other, i64 48
+  %__tmp.sroa.0.0.copyload.i10 = load ptr, ptr %type_url_6, align 8
+  %5 = load i64, ptr %type_url_, align 8
+  store i64 %5, ptr %type_url_6, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i10, ptr %type_url_, align 8
   %json_name_ = getelementptr inbounds i8, ptr %this, i64 56
   %json_name_7 = getelementptr inbounds i8, ptr %other, i64 56
-  %6 = load <2 x ptr>, ptr %json_name_7, align 8
-  %7 = load <2 x i64>, ptr %json_name_, align 8
-  store <2 x i64> %7, ptr %json_name_7, align 8
-  store <2 x ptr> %6, ptr %json_name_, align 8
+  %__tmp.sroa.0.0.copyload.i11 = load ptr, ptr %json_name_7, align 8
+  %6 = load i64, ptr %json_name_, align 8
+  store i64 %6, ptr %json_name_7, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i11, ptr %json_name_, align 8
+  %default_value_ = getelementptr inbounds i8, ptr %this, i64 64
+  %default_value_8 = getelementptr inbounds i8, ptr %other, i64 64
+  %__tmp.sroa.0.0.copyload.i12 = load ptr, ptr %default_value_8, align 8
+  %7 = load i64, ptr %default_value_, align 8
+  store i64 %7, ptr %default_value_8, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i12, ptr %default_value_, align 8
   %kind_ = getelementptr inbounds i8, ptr %this, i64 72
   %kind_9 = getelementptr i8, ptr %other, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
@@ -3824,10 +3842,16 @@ entry:
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %options_, ptr noundef nonnull %options_8)
   %name_ = getelementptr inbounds i8, ptr %this, i64 72
   %name_9 = getelementptr inbounds i8, ptr %other, i64 72
-  %6 = load <2 x ptr>, ptr %name_9, align 8
-  %7 = load <2 x i64>, ptr %name_, align 8
-  store <2 x i64> %7, ptr %name_9, align 8
-  store <2 x ptr> %6, ptr %name_, align 8
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_9, align 8
+  %6 = load i64, ptr %name_, align 8
+  store i64 %6, ptr %name_9, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
+  %edition_ = getelementptr inbounds i8, ptr %this, i64 80
+  %edition_10 = getelementptr inbounds i8, ptr %other, i64 80
+  %__tmp.sroa.0.0.copyload.i8 = load ptr, ptr %edition_10, align 8
+  %7 = load i64, ptr %edition_, align 8
+  store i64 %7, ptr %edition_10, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i8, ptr %edition_, align 8
   %source_context_ = getelementptr inbounds i8, ptr %this, i64 88
   %source_context_11 = getelementptr i8, ptr %other, i64 88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
@@ -5083,13 +5107,15 @@ entry:
   store i32 %4, ptr %3, align 4
   %name_ = getelementptr inbounds i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds i8, ptr %other, i64 24
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_7, align 8
   %6 = load i64, ptr %name_, align 8
+  store i64 %6, ptr %name_7, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
   %value_ = getelementptr inbounds i8, ptr %this, i64 32
   %value_8 = getelementptr inbounds i8, ptr %other, i64 32
   %7 = load ptr, ptr %value_, align 8
-  %8 = load <2 x ptr>, ptr %name_7, align 8
-  store i64 %6, ptr %name_7, align 8
-  store <2 x ptr> %8, ptr %name_, align 8
+  %8 = load ptr, ptr %value_8, align 8
+  store ptr %8, ptr %value_, align 8
   store ptr %7, ptr %value_8, align 8
   ret void
 }

@@ -4567,9 +4567,13 @@ if.end50:                                         ; preds = %found_unused_or_dum
 found_unused:                                     ; preds = %found_unused_or_dummy
   %hash5.le = getelementptr inbounds i8, ptr %entry1.0, i64 8
   %fill = getelementptr inbounds i8, ptr %so, i64 16
-  %18 = load <2 x i64>, ptr %fill, align 8
-  %19 = add <2 x i64> %18, <i64 1, i64 1>
-  store <2 x i64> %19, ptr %fill, align 8
+  %18 = load i64, ptr %fill, align 8
+  %inc53 = add i64 %18, 1
+  store i64 %inc53, ptr %fill, align 8
+  %used54 = getelementptr inbounds i8, ptr %so, i64 24
+  %19 = load i64, ptr %used54, align 8
+  %inc55 = add i64 %19, 1
+  store i64 %inc55, ptr %used54, align 8
   store ptr %key, ptr %entry1.0, align 8
   store i64 %hash, ptr %hash5.le, align 8
   %20 = load i64, ptr %fill, align 8
@@ -4579,7 +4583,6 @@ found_unused:                                     ; preds = %found_unused_or_dum
   br i1 %cmp61, label %return, label %if.end63
 
 if.end63:                                         ; preds = %found_unused
-  %used54 = getelementptr inbounds i8, ptr %so, i64 24
   %21 = load i64, ptr %used54, align 8
   %cmp65 = icmp sgt i64 %21, 50000
   %cond70.v = select i1 %cmp65, i64 1, i64 2

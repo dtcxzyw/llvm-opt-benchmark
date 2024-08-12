@@ -146,6 +146,8 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.else
+  %.sink9 = phi i32 [ 1618377090, %if.else ], [ 1697788466, %entry ]
+  %.sink8 = phi i32 [ 1357179121, %if.else ], [ 1703051906, %entry ]
   %.sink = phi i32 [ -1060384039, %if.else ], [ -597400476, %entry ]
   %.sink518 = phi i32 [ 48, %if.else ], [ 30, %entry ]
   %15 = phi <4 x i32> [ <i32 1086835932, i32 -2144456390, i32 -2143272896, i32 -3092272>, %if.else ], [ <i32 1711276031, i32 1708315346, i32 1695551091, i32 -1>, %entry ]
@@ -155,8 +157,9 @@ if.end:                                           ; preds = %entry, %if.else
   %19 = phi <4 x i32> [ <i32 -803858922, i32 -798990240, i32 1007685648, i32 -251658241>, %if.else ], [ <i32 -922746881, i32 -938990485, i32 -261856156, i32 -1>, %entry ]
   %20 = phi <2 x i32> [ <i32 -255013684, i32 -251658256>, %if.else ], [ <i32 -8882056, i32 -986881>, %entry ]
   %21 = phi <2 x i32> [ <i32 3, i32 2>, %if.else ], [ <i32 2, i32 0>, %entry ]
-  %22 = phi <2 x i32> [ <i32 1618377090, i32 1357179121>, %if.else ], [ <i32 1697788466, i32 1703051906>, %entry ]
-  store <2 x i32> %22, ptr %Colors.ptr, align 8
+  store i32 %.sink9, ptr %Colors.ptr, align 8
+  %22 = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 %.sink8, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %.sink, ptr %23, align 8
   %24 = shufflevector <2 x i32> %21, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
@@ -497,6 +500,8 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.else
+  %.sink9 = phi i32 [ 1618377090, %if.else ], [ 1697788466, %entry ]
+  %.sink8 = phi i32 [ 1357179121, %if.else ], [ 1703051906, %entry ]
   %.sink = phi i32 [ -1060384039, %if.else ], [ -597400476, %entry ]
   %.sink518 = phi i32 [ 48, %if.else ], [ 30, %entry ]
   %9 = phi <4 x i32> [ <i32 1086835932, i32 -2144456390, i32 -2143272896, i32 -3092272>, %if.else ], [ <i32 1711276031, i32 1708315346, i32 1695551091, i32 -1>, %entry ]
@@ -506,8 +511,9 @@ if.end:                                           ; preds = %entry, %if.else
   %13 = phi <4 x i32> [ <i32 -803858922, i32 -798990240, i32 1007685648, i32 -251658241>, %if.else ], [ <i32 -922746881, i32 -938990485, i32 -261856156, i32 -1>, %entry ]
   %14 = phi <2 x i32> [ <i32 -255013684, i32 -251658256>, %if.else ], [ <i32 -8882056, i32 -986881>, %entry ]
   %15 = phi <2 x i32> [ <i32 3, i32 2>, %if.else ], [ <i32 2, i32 0>, %entry ]
-  %16 = phi <2 x i32> [ <i32 1618377090, i32 1357179121>, %if.else ], [ <i32 1697788466, i32 1703051906>, %entry ]
-  store <2 x i32> %16, ptr %Colors.ptr, align 8
+  store i32 %.sink9, ptr %Colors.ptr, align 8
+  %16 = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 %.sink8, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %.sink, ptr %17, align 8
   %18 = shufflevector <2 x i32> %15, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
@@ -2466,10 +2472,11 @@ if.end6:                                          ; preds = %if.end
   %18 = load i32, ptr %r, align 4, !tbaa !47
   store i32 %18, ptr %rect, align 16, !tbaa !47
   %19 = load i32, ptr %Y14, align 4, !tbaa !46
-  %20 = load <2 x i32>, ptr %LowerRightCorner13, align 4, !tbaa !23
   %sub74 = add nsw i32 %19, -1
   store i32 %sub74, ptr %Y, align 4, !tbaa !43
-  store <2 x i32> %20, ptr %LowerRightCorner, align 8, !tbaa !23
+  store i32 %19, ptr %Y9, align 4, !tbaa !46
+  %20 = load i32, ptr %LowerRightCorner13, align 4, !tbaa !48
+  store i32 %20, ptr %LowerRightCorner, align 8, !tbaa !48
   %21 = load ptr, ptr %Driver, align 8, !tbaa !21
   %agg.tmp86.sroa.0.0.copyload = load i32, ptr %spec.select, align 4, !tbaa !23
   %vtable89 = load ptr, ptr %21, align 8, !tbaa !4
@@ -2541,14 +2548,15 @@ if.end:                                           ; preds = %entry
   store i32 %1, ptr %rect, align 4, !tbaa !47
   %LowerRightCorner = getelementptr inbounds i8, ptr %r, i64 8
   %Y = getelementptr inbounds i8, ptr %r, i64 12
+  %2 = load i32, ptr %Y, align 4, !tbaa !46
+  %sub = add nsw i32 %2, -1
   %Y8 = getelementptr inbounds i8, ptr %rect, i64 4
+  store i32 %sub, ptr %Y8, align 4, !tbaa !43
   %LowerRightCorner11 = getelementptr inbounds i8, ptr %rect, i64 8
   %Y12 = getelementptr inbounds i8, ptr %rect, i64 12
-  %2 = load i32, ptr %Y, align 4, !tbaa !46
-  %3 = load <2 x i32>, ptr %LowerRightCorner, align 4, !tbaa !23
-  %sub = add nsw i32 %2, -1
-  store i32 %sub, ptr %Y8, align 4, !tbaa !43
-  store <2 x i32> %3, ptr %LowerRightCorner11, align 4, !tbaa !23
+  store i32 %2, ptr %Y12, align 4, !tbaa !46
+  %3 = load i32, ptr %LowerRightCorner, align 4, !tbaa !48
+  store i32 %3, ptr %LowerRightCorner11, align 4, !tbaa !48
   %arrayidx = getelementptr inbounds i8, ptr %spec.select, i64 4
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %arrayidx, align 4, !tbaa !23
   %vtable = load ptr, ptr %0, align 8, !tbaa !4

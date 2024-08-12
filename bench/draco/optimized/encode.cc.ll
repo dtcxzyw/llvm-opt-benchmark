@@ -666,72 +666,76 @@ _ZN5draco18EncoderOptionsBaseIiED2Ev.exit:        ; preds = %_ZNSt3mapIiN5draco7
 29:                                               ; preds = %_ZN5draco18EncoderOptionsBaseIiED2Ev.exit, %4
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %59
 
 31:                                               ; preds = %7
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5draco18EncoderOptionsBaseIiED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %6) #17
-  br label %56
+  br label %59
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #17
   %35 = getelementptr inbounds i8, ptr %5, i64 152
-  %36 = getelementptr inbounds i8, ptr %1, i64 152
-  %37 = load <2 x i64>, ptr %35, align 8
-  store <2 x i64> %37, ptr %36, align 8
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 152
+  store i64 %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %5, i64 160
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 160
+  store i64 %39, ptr %40, align 8
   store i32 0, ptr %0, align 8, !alias.scope !11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #17
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %26
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco11EncoderBaseINS_18EncoderOptionsBaseIiEEEE, i64 16), ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 104
-  %40 = getelementptr inbounds i8, ptr %5, i64 120
-  %41 = load ptr, ptr %40, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef %41)
-          to label %_ZN5draco7OptionsD2Ev.exit.i.i.i unwind label %42
+  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %42 = getelementptr inbounds i8, ptr %5, i64 104
+  %43 = getelementptr inbounds i8, ptr %5, i64 120
+  %44 = load ptr, ptr %43, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef %44)
+          to label %_ZN5draco7OptionsD2Ev.exit.i.i.i unwind label %45
 
-42:                                               ; preds = %.critedge
-  %43 = landingpad { ptr, i32 }
+45:                                               ; preds = %.critedge
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #16
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #16
   unreachable
 
 _ZN5draco7OptionsD2Ev.exit.i.i.i:                 ; preds = %.critedge
-  %45 = getelementptr inbounds i8, ptr %5, i64 56
-  %46 = getelementptr inbounds i8, ptr %5, i64 72
-  %47 = load ptr, ptr %46, align 8
-  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef %47)
-          to label %_ZNSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEED2Ev.exit.i.i.i.i unwind label %48
+  %48 = getelementptr inbounds i8, ptr %5, i64 56
+  %49 = getelementptr inbounds i8, ptr %5, i64 72
+  %50 = load ptr, ptr %49, align 8
+  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef %50)
+          to label %_ZNSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEED2Ev.exit.i.i.i.i unwind label %51
 
-48:                                               ; preds = %_ZN5draco7OptionsD2Ev.exit.i.i.i
-  %49 = landingpad { ptr, i32 }
+51:                                               ; preds = %_ZN5draco7OptionsD2Ev.exit.i.i.i
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #16
+  %53 = extractvalue { ptr, i32 } %52, 0
+  call void @__clang_call_terminate(ptr %53) #16
   unreachable
 
 _ZNSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEED2Ev.exit.i.i.i.i: ; preds = %_ZN5draco7OptionsD2Ev.exit.i.i.i
-  %51 = getelementptr inbounds i8, ptr %5, i64 24
-  %52 = load ptr, ptr %51, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef %52)
-          to label %_ZN5draco13ExpertEncoderD2Ev.exit unwind label %53
+  %54 = getelementptr inbounds i8, ptr %5, i64 24
+  %55 = load ptr, ptr %54, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef %55)
+          to label %_ZN5draco13ExpertEncoderD2Ev.exit unwind label %56
 
-53:                                               ; preds = %_ZNSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEED2Ev.exit.i.i.i.i
-  %54 = landingpad { ptr, i32 }
+56:                                               ; preds = %_ZNSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEED2Ev.exit.i.i.i.i
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #16
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #16
   unreachable
 
 _ZN5draco13ExpertEncoderD2Ev.exit:                ; preds = %_ZNSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEED2Ev.exit.i.i.i.i
   ret void
 
-56:                                               ; preds = %31, %29
+59:                                               ; preds = %31, %29
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %32, %31 ]
   call void @_ZN5draco13ExpertEncoderD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %5) #17
   resume { ptr, i32 } %.pn
@@ -764,7 +768,7 @@ define linkonce_odr void @_ZN5draco11EncoderBaseINS_18EncoderOptionsBaseINS_17Ge
   call void @_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEE20CreateDefaultOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.draco::EncoderOptionsBase") align 8 %2)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EEaSERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %2)
-          to label %.noexc unwind label %44
+          to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -800,73 +804,75 @@ _ZNSt8_Rb_treeIN5draco17GeometryAttribute4TypeESt4pairIKS2_NS0_7OptionsEESt10_Se
   store i32 %19, ptr %11, align 8
   store ptr %16, ptr %6, align 8
   %20 = getelementptr inbounds i8, ptr %2, i64 72
-  %21 = getelementptr inbounds i8, ptr %2, i64 80
-  %22 = load <2 x ptr>, ptr %20, align 8
-  store <2 x ptr> %22, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr %11, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 88
-  %25 = load i64, ptr %24, align 8
-  store i64 %25, ptr %14, align 8
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %12, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 80
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %13, align 8
+  %24 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %11, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 88
+  %26 = load i64, ptr %25, align 8
+  store i64 %26, ptr %14, align 8
   store ptr null, ptr %15, align 8
   store ptr %18, ptr %20, align 8
-  store ptr %18, ptr %21, align 8
-  store i64 0, ptr %24, align 8
+  store ptr %18, ptr %22, align 8
+  store i64 0, ptr %25, align 8
   br label %_ZN5draco12DracoOptionsINS_17GeometryAttribute4TypeEEaSEOS3_.exit.i
 
 _ZN5draco12DracoOptionsINS_17GeometryAttribute4TypeEEaSEOS3_.exit.i: ; preds = %17, %_ZNSt8_Rb_treeIN5draco17GeometryAttribute4TypeESt4pairIKS2_NS0_7OptionsEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE5clearEv.exit.i.i.i.i.i
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
-  %27 = getelementptr inbounds i8, ptr %2, i64 96
-  %28 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EEaSERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(48) %27)
-          to label %_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEEaSEOS3_.exit unwind label %44
+  %27 = getelementptr inbounds i8, ptr %0, i64 104
+  %28 = getelementptr inbounds i8, ptr %2, i64 96
+  %29 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EEaSERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %28)
+          to label %_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEEaSEOS3_.exit unwind label %45
 
 _ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEEaSEOS3_.exit: ; preds = %_ZN5draco12DracoOptionsINS_17GeometryAttribute4TypeEEaSEOS3_.exit.i
-  %29 = getelementptr inbounds i8, ptr %2, i64 112
-  %30 = load ptr, ptr %29, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef %30)
-          to label %_ZN5draco7OptionsD2Ev.exit.i unwind label %31
+  %30 = getelementptr inbounds i8, ptr %2, i64 112
+  %31 = load ptr, ptr %30, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef %31)
+          to label %_ZN5draco7OptionsD2Ev.exit.i unwind label %32
 
-31:                                               ; preds = %_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEEaSEOS3_.exit
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEEaSEOS3_.exit
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #16
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #16
   unreachable
 
 _ZN5draco7OptionsD2Ev.exit.i:                     ; preds = %_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEEaSEOS3_.exit
-  %34 = getelementptr inbounds i8, ptr %2, i64 48
-  %35 = load ptr, ptr %15, align 8
-  invoke void @_ZNSt8_Rb_treeIN5draco17GeometryAttribute4TypeESt4pairIKS2_NS0_7OptionsEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef %35)
-          to label %_ZNSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEED2Ev.exit.i.i unwind label %36
+  %35 = getelementptr inbounds i8, ptr %2, i64 48
+  %36 = load ptr, ptr %15, align 8
+  invoke void @_ZNSt8_Rb_treeIN5draco17GeometryAttribute4TypeESt4pairIKS2_NS0_7OptionsEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef %36)
+          to label %_ZNSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEED2Ev.exit.i.i unwind label %37
 
-36:                                               ; preds = %_ZN5draco7OptionsD2Ev.exit.i
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %_ZN5draco7OptionsD2Ev.exit.i
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #16
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #16
   unreachable
 
 _ZNSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEED2Ev.exit.i.i: ; preds = %_ZN5draco7OptionsD2Ev.exit.i
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
-  %40 = load ptr, ptr %39, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %40)
-          to label %_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEED2Ev.exit unwind label %41
+  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  %41 = load ptr, ptr %40, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %41)
+          to label %_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEED2Ev.exit unwind label %42
 
-41:                                               ; preds = %_ZNSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEED2Ev.exit.i.i
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %_ZNSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEED2Ev.exit.i.i
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #16
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #16
   unreachable
 
 _ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEED2Ev.exit: ; preds = %_ZNSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEED2Ev.exit.i.i
   ret void
 
-44:                                               ; preds = %_ZN5draco12DracoOptionsINS_17GeometryAttribute4TypeEEaSEOS3_.exit.i, %1
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %_ZN5draco12DracoOptionsINS_17GeometryAttribute4TypeEEaSEOS3_.exit.i, %1
+  %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5draco18EncoderOptionsBaseINS_17GeometryAttribute4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #17
-  resume { ptr, i32 } %45
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -2842,134 +2842,136 @@ switch.early.test:                                ; preds = %103
   br i1 %or.cond276, label %.thread, label %171
 
 171:                                              ; preds = %169
-  %172 = load <4 x i32>, ptr %5, align 16
-  %.fr311 = freeze <4 x i32> %172
-  %173 = icmp eq <4 x i32> %.fr311, zeroinitializer
-  %174 = getelementptr inbounds i8, ptr %5, i64 16
-  %175 = load i32, ptr %174, align 16
+  %172 = load i32, ptr %5, align 16
+  %173 = icmp eq i32 %172, 0
+  %174 = getelementptr inbounds i8, ptr %5, i64 4
+  %175 = load i32, ptr %174, align 4
   %176 = icmp eq i32 %175, 0
-  %177 = bitcast <4 x i1> %173 to i4
-  %178 = icmp eq i4 %177, -1
-  %op.rdx = select i1 %178, i1 %176, i1 false
-  %179 = getelementptr inbounds i8, ptr %5, i64 20
-  %180 = load i32, ptr %179, align 4
-  %181 = icmp eq i32 %180, 0
-  %or.cond75 = select i1 %op.rdx, i1 %181, i1 false
-  %182 = getelementptr inbounds i8, ptr %5, i64 24
-  %183 = load i32, ptr %182, align 8
-  %184 = icmp eq i32 %183, 0
-  %or.cond78 = select i1 %or.cond75, i1 %184, i1 false
-  br i1 %or.cond78, label %185, label %188
-
-185:                                              ; preds = %171
-  %186 = getelementptr inbounds i8, ptr %5, i64 28
+  %or.cond63 = select i1 %173, i1 %176, i1 false
+  %177 = getelementptr inbounds i8, ptr %5, i64 8
+  %178 = load i32, ptr %177, align 8
+  %179 = icmp eq i32 %178, 0
+  %or.cond66 = select i1 %or.cond63, i1 %179, i1 false
+  %180 = getelementptr inbounds i8, ptr %5, i64 12
+  %181 = load i32, ptr %180, align 4
+  %182 = icmp eq i32 %181, 0
+  %or.cond69 = select i1 %or.cond66, i1 %182, i1 false
+  %183 = getelementptr inbounds i8, ptr %5, i64 16
+  %184 = load i32, ptr %183, align 16
+  %185 = icmp eq i32 %184, 0
+  %or.cond72 = select i1 %or.cond69, i1 %185, i1 false
+  %186 = getelementptr inbounds i8, ptr %5, i64 20
   %187 = load i32, ptr %186, align 4
-  %or.cond81 = icmp ult i32 %187, 2
-  br i1 %or.cond81, label %198, label %190
+  %188 = icmp eq i32 %187, 0
+  %or.cond75 = select i1 %or.cond72, i1 %188, i1 false
+  %189 = getelementptr inbounds i8, ptr %5, i64 24
+  %190 = load i32, ptr %189, align 8
+  %191 = icmp eq i32 %190, 0
+  %or.cond78 = select i1 %or.cond75, i1 %191, i1 false
+  br i1 %or.cond78, label %192, label %195
 
-188:                                              ; preds = %171
-  %189 = extractelement <4 x i32> %.fr311, i64 0
-  %.old83 = icmp eq i32 %189, 95
-  br i1 %.old83, label %198, label %190
+192:                                              ; preds = %171
+  %193 = getelementptr inbounds i8, ptr %5, i64 28
+  %194 = load i32, ptr %193, align 4
+  %or.cond81 = icmp ult i32 %194, 2
+  br i1 %or.cond81, label %202, label %196
 
-190:                                              ; preds = %185, %188
-  %191 = extractelement <4 x i32> %.fr311, i64 0
-  %192 = and i32 %191, -64
-  %or.cond88 = icmp eq i32 %192, 65152
-  br i1 %or.cond88, label %198, label %193
+195:                                              ; preds = %171
+  %.old83 = icmp eq i32 %172, 95
+  br i1 %.old83, label %202, label %196
 
-193:                                              ; preds = %190
-  switch i32 %191, label %205 [
-    i32 8193, label %194
-    i32 16371, label %198
+196:                                              ; preds = %192, %195
+  %197 = and i32 %172, -64
+  %or.cond88 = icmp eq i32 %197, 65152
+  br i1 %or.cond88, label %202, label %198
+
+198:                                              ; preds = %196
+  switch i32 %172, label %209 [
+    i32 8193, label %199
+    i32 16371, label %202
   ]
 
-194:                                              ; preds = %193
-  %195 = extractelement <4 x i32> %.fr311, i64 1
-  %196 = icmp eq i32 %195, 3512
-  %197 = and i32 %195, -16
-  %or.cond92 = icmp eq i32 %197, 16
-  %or.cond278 = or i1 %196, %or.cond92
-  br i1 %or.cond278, label %198, label %205
+199:                                              ; preds = %198
+  %200 = icmp eq i32 %175, 3512
+  %201 = and i32 %175, -16
+  %or.cond92 = icmp eq i32 %201, 16
+  %or.cond278 = or i1 %200, %or.cond92
+  br i1 %or.cond278, label %202, label %209
 
-198:                                              ; preds = %193, %190, %194, %188, %185
-  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not246 = icmp eq ptr %199, null
-  br i1 %.not246, label %200, label %.thread
+202:                                              ; preds = %198, %196, %199, %195, %192
+  %203 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not246 = icmp eq ptr %203, null
+  br i1 %.not246, label %204, label %.thread
 
-200:                                              ; preds = %198
-  %201 = and i64 %1, 134217728
-  %.not247 = icmp eq i64 %201, 0
+204:                                              ; preds = %202
+  %205 = and i64 %1, 134217728
+  %.not247 = icmp eq i64 %205, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  %202 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not247, label %204, label %203
+  %206 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not247, label %208, label %207
 
-203:                                              ; preds = %200
-  store i32 1, ptr %202, align 8
+207:                                              ; preds = %204
+  store i32 1, ptr %206, align 8
   br label %.thread
 
-204:                                              ; preds = %200
-  store i32 2, ptr %202, align 8
+208:                                              ; preds = %204
+  store i32 2, ptr %206, align 8
   br label %.thread
 
-205:                                              ; preds = %193, %194
-  br i1 %.not240, label %.thread, label %206
+209:                                              ; preds = %198, %199
+  br i1 %.not240, label %.thread, label %210
 
-206:                                              ; preds = %205
-  %207 = icmp eq i32 %180, 65535
-  %or.cond116 = select i1 %op.rdx, i1 %207, i1 false
-  br i1 %or.cond116, label %222, label %208
+210:                                              ; preds = %209
+  %211 = icmp eq i32 %187, 65535
+  %or.cond116 = select i1 %or.cond72, i1 %211, i1 false
+  br i1 %or.cond116, label %221, label %212
 
-208:                                              ; preds = %206
-  %209 = icmp eq i32 %191, 256
-  %210 = extractelement <4 x i1> %173, i64 1
-  %or.cond120 = and i1 %209, %210
-  %211 = extractelement <4 x i1> %173, i64 2
-  %212 = extractelement <4 x i1> %173, i64 3
-  %213 = and i1 %or.cond120, %212
-  %or.cond128 = and i1 %213, %211
-  br i1 %or.cond128, label %222, label %214
+212:                                              ; preds = %210
+  %213 = icmp eq i32 %172, 256
+  %or.cond120 = select i1 %213, i1 %176, i1 false
+  %or.cond124 = select i1 %or.cond120, i1 %179, i1 false
+  %or.cond128 = select i1 %or.cond124, i1 %182, i1 false
+  br i1 %or.cond128, label %221, label %214
 
-214:                                              ; preds = %208
-  %215 = icmp eq i32 %191, 8193
-  %216 = extractelement <4 x i32> %.fr311, i64 1
-  %217 = icmp slt i32 %216, 512
-  %or.cond132 = and i1 %215, %217
-  br i1 %or.cond132, label %222, label %218
+214:                                              ; preds = %212
+  %215 = icmp eq i32 %172, 8193
+  %216 = icmp slt i32 %175, 512
+  %or.cond132 = select i1 %215, i1 %216, i1 false
+  br i1 %or.cond132, label %221, label %217
 
-218:                                              ; preds = %214
-  %219 = icmp eq i32 %216, 2
-  %or.cond136 = and i1 %215, %219
-  %or.cond140 = and i1 %or.cond136, %211
-  %220 = and i32 %191, -512
-  %or.cond144 = icmp eq i32 %220, 64512
+217:                                              ; preds = %214
+  %218 = icmp eq i32 %175, 2
+  %or.cond136 = select i1 %215, i1 %218, i1 false
+  %or.cond140 = select i1 %or.cond136, i1 %179, i1 false
+  %219 = and i32 %172, -512
+  %or.cond144 = icmp eq i32 %219, 64512
   %or.cond280 = or i1 %or.cond144, %or.cond140
-  %221 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not244 = icmp eq ptr %221, null
+  %220 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not244 = icmp eq ptr %220, null
   %or.cond282 = select i1 %or.cond280, i1 %.not244, i1 false
-  br i1 %or.cond282, label %223, label %.thread
+  br i1 %or.cond282, label %222, label %.thread
 
-222:                                              ; preds = %214, %208, %206
+221:                                              ; preds = %214, %212, %210
   %.old281 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not244.old = icmp eq ptr %.old281, null
-  br i1 %.not244.old, label %223, label %.thread
+  br i1 %.not244.old, label %222, label %.thread
 
-223:                                              ; preds = %218, %222
-  %224 = and i64 %1, 134217728
-  %.not245 = icmp eq i64 %224, 0
+222:                                              ; preds = %217, %221
+  %223 = and i64 %1, 134217728
+  %.not245 = icmp eq i64 %223, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  %225 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not245, label %227, label %226
+  %224 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not245, label %226, label %225
 
-226:                                              ; preds = %223
-  store i32 1, ptr %225, align 8
+225:                                              ; preds = %222
+  store i32 1, ptr %224, align 8
   br label %.thread
 
-227:                                              ; preds = %223
-  store i32 2, ptr %225, align 8
+226:                                              ; preds = %222
+  store i32 2, ptr %224, align 8
   br label %.thread
 
-.thread:                                          ; preds = %169, %101, %218, %205, %227, %226, %222, %204, %203, %198, %168, %167, %162, %155, %154, %149, %118, %137, %146, %145, %141, %117, %116, %111, %100, %99, %94, %78, %77, %_php_filter_validate_ipv4.exit.thread, %39, %38, %33, %31, %30, %25, %19, %18, %13
+.thread:                                          ; preds = %169, %101, %217, %209, %226, %225, %221, %208, %207, %202, %168, %167, %162, %155, %154, %149, %118, %137, %146, %145, %141, %117, %116, %111, %100, %99, %94, %78, %77, %_php_filter_validate_ipv4.exit.thread, %39, %38, %33, %31, %30, %25, %19, %18, %13
   ret void
 }
 

@@ -268,7 +268,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit: ; preds = %10, %1
 27:                                               ; preds = %20, %23
   store ptr %22, ptr %7, align 8
   invoke void @_ZN5zxing6qrcode17FinderPatternInfo14calculateSidesENS_3RefINS0_13FinderPatternEEES4_S4_RfS5_S5_(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %28 unwind label %132
+          to label %28 unwind label %128
 
 28:                                               ; preds = %27
   br i1 %.not.i.i18, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit, label %29
@@ -354,125 +354,123 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit25: ; preds = %_ZN5zxing3RefIN
   %79 = fdiv float %74, %78
   %80 = tail call noundef float @acosf(float noundef %65) #9
   %81 = tail call noundef float @acosf(float noundef %72) #9
-  %82 = tail call noundef float @acosf(float noundef %79) #9
-  %83 = fmul float %80, 1.800000e+02
-  %84 = fpext float %83 to double
-  %85 = fdiv double %84, 0x400921FB54442D18
-  %86 = fptrunc double %85 to float
-  %87 = fadd float %86, -9.000000e+01
-  %88 = tail call noundef float @llvm.fabs.f32(float %87)
-  %89 = fsub float 1.000000e+02, %88
-  %90 = insertelement <2 x float> poison, float %81, i64 0
-  %91 = insertelement <2 x float> %90, float %82, i64 1
-  %92 = fmul <2 x float> %91, <float 1.800000e+02, float 1.800000e+02>
-  %93 = fpext <2 x float> %92 to <2 x double>
-  %94 = fdiv <2 x double> %93, <double 0x400921FB54442D18, double 0x400921FB54442D18>
-  %95 = fptrunc <2 x double> %94 to <2 x float>
-  %96 = extractelement <2 x float> %95, i64 0
-  %97 = extractelement <2 x float> %95, i64 1
-  %98 = fcmp olt float %96, %97
-  %99 = insertelement <2 x i1> poison, i1 %98, i64 0
-  %100 = shufflevector <2 x i1> %99, <2 x i1> poison, <2 x i32> zeroinitializer
-  %101 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %102 = select <2 x i1> %100, <2 x float> %95, <2 x float> %101
-  %103 = fadd <2 x float> %102, <float -4.500000e+01, float -4.500000e+01>
-  %104 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %103)
-  %105 = extractelement <2 x float> %104, i64 0
-  %106 = extractelement <2 x float> %104, i64 1
-  %107 = fcmp olt float %106, %105
-  %.sroa.speculated47 = select i1 %107, float %105, float %106
-  %108 = fmul float %.sroa.speculated47, 2.000000e+00
-  %109 = fsub float 1.000000e+02, %108
-  %110 = fcmp olt float %89, %109
-  %.sroa.speculated44 = select i1 %110, float %89, float %109
-  %111 = fdiv float %.sroa.speculated44, 1.000000e+02
-  %112 = getelementptr inbounds i8, ptr %0, i64 44
-  store float %111, ptr %112, align 4
-  %113 = load ptr, ptr %8, align 8
-  %114 = tail call noundef i32 @_ZNK5zxing6qrcode13FinderPattern8getCountEv(ptr noundef nonnull align 8 dereferenceable(40) %113)
-  %115 = load ptr, ptr %14, align 8
-  %116 = tail call noundef i32 @_ZNK5zxing6qrcode13FinderPattern8getCountEv(ptr noundef nonnull align 8 dereferenceable(40) %115)
-  %117 = add nsw i32 %116, %114
-  %118 = load ptr, ptr %21, align 8
-  %119 = tail call noundef i32 @_ZNK5zxing6qrcode13FinderPattern8getCountEv(ptr noundef nonnull align 8 dereferenceable(40) %118)
-  %120 = add nsw i32 %117, %119
-  %.sroa.speculated38 = tail call i32 @llvm.smin.i32(i32 %120, i32 10)
+  %82 = fmul float %81, 1.800000e+02
+  %83 = fpext float %82 to double
+  %84 = fdiv double %83, 0x400921FB54442D18
+  %85 = fptrunc double %84 to float
+  %86 = tail call noundef float @acosf(float noundef %79) #9
+  %87 = fmul float %86, 1.800000e+02
+  %88 = fpext float %87 to double
+  %89 = fdiv double %88, 0x400921FB54442D18
+  %90 = fptrunc double %89 to float
+  %91 = fcmp olt float %85, %90
+  %.056 = select i1 %91, float %85, float %90
+  %.0 = select i1 %91, float %90, float %85
+  %92 = fmul float %80, 1.800000e+02
+  %93 = fpext float %92 to double
+  %94 = fdiv double %93, 0x400921FB54442D18
+  %95 = fptrunc double %94 to float
+  %96 = fadd float %95, -9.000000e+01
+  %97 = tail call noundef float @llvm.fabs.f32(float %96)
+  %98 = fsub float 1.000000e+02, %97
+  %99 = fadd float %.0, -4.500000e+01
+  %100 = tail call noundef float @llvm.fabs.f32(float %99)
+  %101 = fadd float %.056, -4.500000e+01
+  %102 = tail call noundef float @llvm.fabs.f32(float %101)
+  %103 = fcmp olt float %100, %102
+  %.sroa.speculated47 = select i1 %103, float %102, float %100
+  %104 = fmul float %.sroa.speculated47, 2.000000e+00
+  %105 = fsub float 1.000000e+02, %104
+  %106 = fcmp olt float %98, %105
+  %.sroa.speculated44 = select i1 %106, float %98, float %105
+  %107 = fdiv float %.sroa.speculated44, 1.000000e+02
+  %108 = getelementptr inbounds i8, ptr %0, i64 44
+  store float %107, ptr %108, align 4
+  %109 = load ptr, ptr %8, align 8
+  %110 = tail call noundef i32 @_ZNK5zxing6qrcode13FinderPattern8getCountEv(ptr noundef nonnull align 8 dereferenceable(40) %109)
+  %111 = load ptr, ptr %14, align 8
+  %112 = tail call noundef i32 @_ZNK5zxing6qrcode13FinderPattern8getCountEv(ptr noundef nonnull align 8 dereferenceable(40) %111)
+  %113 = add nsw i32 %112, %110
+  %114 = load ptr, ptr %21, align 8
+  %115 = tail call noundef i32 @_ZNK5zxing6qrcode13FinderPattern8getCountEv(ptr noundef nonnull align 8 dereferenceable(40) %114)
+  %116 = add nsw i32 %113, %115
+  %.sroa.speculated38 = tail call i32 @llvm.smin.i32(i32 %116, i32 10)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated38, i32 3)
-  %121 = add nsw i32 %.sroa.speculated, -3
-  %122 = uitofp nneg i32 %121 to double
-  %123 = fdiv double %122, 7.000000e+00
-  %124 = fptrunc double %123 to float
-  %125 = load float, ptr %112, align 4
-  %126 = fpext float %125 to double
-  %127 = fpext float %124 to double
-  %128 = fmul double %127, 5.000000e-01
-  %129 = tail call double @llvm.fmuladd.f64(double %126, double 5.000000e-01, double %128)
-  %130 = fptrunc double %129 to float
-  %131 = getelementptr inbounds i8, ptr %0, i64 40
-  store float %130, ptr %131, align 8
+  %117 = add nsw i32 %.sroa.speculated, -3
+  %118 = uitofp nneg i32 %117 to double
+  %119 = fdiv double %118, 7.000000e+00
+  %120 = fptrunc double %119 to float
+  %121 = load float, ptr %108, align 4
+  %122 = fpext float %121 to double
+  %123 = fpext float %120 to double
+  %124 = fmul double %123, 5.000000e-01
+  %125 = tail call double @llvm.fmuladd.f64(double %122, double 5.000000e-01, double %124)
+  %126 = fptrunc double %125 to float
+  %127 = getelementptr inbounds i8, ptr %0, i64 40
+  store float %126, ptr %127, align 8
   ret void
 
-132:                                              ; preds = %27
-  %133 = landingpad { ptr, i32 }
+128:                                              ; preds = %27
+  %129 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i18, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit27, label %134
+  br i1 %.not.i.i18, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit27, label %130
 
-134:                                              ; preds = %132
-  %135 = getelementptr inbounds i8, ptr %22, i64 8
-  %136 = load i32, ptr %135, align 8
-  %137 = add i32 %136, -1
-  store i32 %137, ptr %135, align 8
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit27
+130:                                              ; preds = %128
+  %131 = getelementptr inbounds i8, ptr %22, i64 8
+  %132 = load i32, ptr %131, align 8
+  %133 = add i32 %132, -1
+  store i32 %133, ptr %131, align 8
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit27
 
-139:                                              ; preds = %134
-  store i32 -559026175, ptr %135, align 8
-  %140 = load ptr, ptr %22, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 8
-  %142 = load ptr, ptr %141, align 8
-  tail call void %142(ptr noundef nonnull align 8 dereferenceable(12) %22) #9
+135:                                              ; preds = %130
+  store i32 -559026175, ptr %131, align 8
+  %136 = load ptr, ptr %22, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 8
+  %138 = load ptr, ptr %137, align 8
+  tail call void %138(ptr noundef nonnull align 8 dereferenceable(12) %22) #9
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit27
 
-_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit27: ; preds = %139, %134, %132
-  br i1 %.not.i.i14, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit29, label %143
+_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit27: ; preds = %135, %130, %128
+  br i1 %.not.i.i14, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit29, label %139
 
-143:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit27
-  %144 = getelementptr inbounds i8, ptr %15, i64 8
-  %145 = load i32, ptr %144, align 8
-  %146 = add i32 %145, -1
-  store i32 %146, ptr %144, align 8
-  %147 = icmp eq i32 %146, 0
-  br i1 %147, label %148, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit29
+139:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit27
+  %140 = getelementptr inbounds i8, ptr %15, i64 8
+  %141 = load i32, ptr %140, align 8
+  %142 = add i32 %141, -1
+  store i32 %142, ptr %140, align 8
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit29
 
-148:                                              ; preds = %143
-  store i32 -559026175, ptr %144, align 8
-  %149 = load ptr, ptr %15, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  tail call void %151(ptr noundef nonnull align 8 dereferenceable(12) %15) #9
+144:                                              ; preds = %139
+  store i32 -559026175, ptr %140, align 8
+  %145 = load ptr, ptr %15, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 8
+  %147 = load ptr, ptr %146, align 8
+  tail call void %147(ptr noundef nonnull align 8 dereferenceable(12) %15) #9
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit29
 
-_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit29: ; preds = %148, %143, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit27
-  br i1 %.not.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit31, label %152
+_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit29: ; preds = %144, %139, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit27
+  br i1 %.not.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit31, label %148
 
-152:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit29
-  %153 = getelementptr inbounds i8, ptr %9, i64 8
-  %154 = load i32, ptr %153, align 8
-  %155 = add i32 %154, -1
-  store i32 %155, ptr %153, align 8
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %157, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit31
+148:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit29
+  %149 = getelementptr inbounds i8, ptr %9, i64 8
+  %150 = load i32, ptr %149, align 8
+  %151 = add i32 %150, -1
+  store i32 %151, ptr %149, align 8
+  %152 = icmp eq i32 %151, 0
+  br i1 %152, label %153, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit31
 
-157:                                              ; preds = %152
-  store i32 -559026175, ptr %153, align 8
-  %158 = load ptr, ptr %9, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 8
-  %160 = load ptr, ptr %159, align 8
-  tail call void %160(ptr noundef nonnull align 8 dereferenceable(12) %9) #9
+153:                                              ; preds = %148
+  store i32 -559026175, ptr %149, align 8
+  %154 = load ptr, ptr %9, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %156 = load ptr, ptr %155, align 8
+  tail call void %156(ptr noundef nonnull align 8 dereferenceable(12) %9) #9
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit31
 
-_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit31: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit29, %152, %157
-  resume { ptr, i32 } %133
+_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit31: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit29, %148, %153
+  resume { ptr, i32 } %129
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -558,94 +556,85 @@ define hidden void @_ZN5zxing6qrcode17FinderPatternInfo14calculateSidesENS_3RefI
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef float %15(ptr noundef nonnull align 8 dereferenceable(20) %12)
-  %17 = load ptr, ptr %0, align 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef float %20(ptr noundef nonnull align 8 dereferenceable(20) %17)
-  %22 = load ptr, ptr %1, align 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef float %25(ptr noundef nonnull align 8 dereferenceable(20) %22)
-  %27 = load ptr, ptr %0, align 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef float %30(ptr noundef nonnull align 8 dereferenceable(20) %27)
-  %32 = load ptr, ptr %2, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef float %35(ptr noundef nonnull align 8 dereferenceable(20) %32)
-  %37 = load ptr, ptr %0, align 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef float %40(ptr noundef nonnull align 8 dereferenceable(20) %37)
-  %42 = load ptr, ptr %2, align 8
+  %17 = fsub float %11, %16
+  %18 = load ptr, ptr %0, align 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call noundef float %21(ptr noundef nonnull align 8 dereferenceable(20) %18)
+  %23 = load ptr, ptr %1, align 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call noundef float %26(ptr noundef nonnull align 8 dereferenceable(20) %23)
+  %28 = fsub float %22, %27
+  %29 = fmul float %28, %28
+  %30 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %29)
+  %31 = load ptr, ptr %0, align 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef float %34(ptr noundef nonnull align 8 dereferenceable(20) %31)
+  %36 = load ptr, ptr %2, align 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef float %39(ptr noundef nonnull align 8 dereferenceable(20) %36)
+  %41 = fsub float %35, %40
+  %42 = load ptr, ptr %0, align 8
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef float %45(ptr noundef nonnull align 8 dereferenceable(20) %42)
-  %47 = insertelement <2 x float> poison, float %11, i64 0
-  %48 = insertelement <2 x float> %47, float %31, i64 1
-  %49 = insertelement <2 x float> poison, float %16, i64 0
-  %50 = insertelement <2 x float> %49, float %36, i64 1
-  %51 = fsub <2 x float> %48, %50
-  %52 = insertelement <2 x float> poison, float %21, i64 0
-  %53 = insertelement <2 x float> %52, float %41, i64 1
-  %54 = insertelement <2 x float> poison, float %26, i64 0
-  %55 = insertelement <2 x float> %54, float %46, i64 1
-  %56 = fsub <2 x float> %53, %55
-  %57 = fmul <2 x float> %56, %56
-  %58 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %51, <2 x float> %51, <2 x float> %57)
-  %59 = load ptr, ptr %1, align 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef float %62(ptr noundef nonnull align 8 dereferenceable(20) %59)
-  %64 = load ptr, ptr %2, align 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %47 = load ptr, ptr %2, align 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef float %50(ptr noundef nonnull align 8 dereferenceable(20) %47)
+  %52 = fsub float %46, %51
+  %53 = fmul float %52, %52
+  %54 = tail call float @llvm.fmuladd.f32(float %41, float %41, float %53)
+  %55 = load ptr, ptr %1, align 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call noundef float %58(ptr noundef nonnull align 8 dereferenceable(20) %55)
+  %60 = load ptr, ptr %2, align 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef float %63(ptr noundef nonnull align 8 dereferenceable(20) %60)
+  %65 = fsub float %59, %64
+  %66 = load ptr, ptr %1, align 8
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call noundef float %67(ptr noundef nonnull align 8 dereferenceable(20) %64)
-  %69 = fsub float %63, %68
-  %70 = load ptr, ptr %1, align 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 24
-  %73 = load ptr, ptr %72, align 8
-  %74 = tail call noundef float %73(ptr noundef nonnull align 8 dereferenceable(20) %70)
-  %75 = load ptr, ptr %2, align 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 24
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call noundef float %78(ptr noundef nonnull align 8 dereferenceable(20) %75)
-  %80 = fsub float %74, %79
-  %81 = fmul float %80, %80
-  %82 = tail call float @llvm.fmuladd.f32(float %69, float %69, float %81)
-  %83 = extractelement <2 x float> %58, i64 0
-  %84 = fcmp ogt float %83, %82
-  %85 = extractelement <2 x float> %58, i64 1
-  %86 = fcmp ogt float %83, %85
-  %or.cond = and i1 %86, %84
-  br i1 %or.cond, label %92, label %87
+  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef float %69(ptr noundef nonnull align 8 dereferenceable(20) %66)
+  %71 = load ptr, ptr %2, align 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 24
+  %74 = load ptr, ptr %73, align 8
+  %75 = tail call noundef float %74(ptr noundef nonnull align 8 dereferenceable(20) %71)
+  %76 = fsub float %70, %75
+  %77 = fmul float %76, %76
+  %78 = tail call float @llvm.fmuladd.f32(float %65, float %65, float %77)
+  %79 = fcmp ogt float %30, %78
+  %80 = fcmp ogt float %30, %54
+  %or.cond = and i1 %80, %79
+  br i1 %or.cond, label %84, label %81
 
-87:                                               ; preds = %6
-  %88 = insertelement <2 x float> poison, float %82, i64 0
-  %89 = shufflevector <2 x float> %88, <2 x float> poison, <2 x i32> zeroinitializer
-  %90 = fcmp ogt <2 x float> %89, %58
-  %shift = shufflevector <2 x i1> %90, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %91 = and <2 x i1> %90, %shift
-  %or.cond41 = extractelement <2 x i1> %91, i64 0
-  %. = select i1 %or.cond41, float %82, float %85
-  %.44 = select i1 %or.cond41, float %85, float %82
-  br label %92
+81:                                               ; preds = %6
+  %82 = fcmp ogt float %78, %30
+  %83 = fcmp ogt float %78, %54
+  %or.cond41 = and i1 %82, %83
+  %. = select i1 %or.cond41, float %78, float %54
+  %.44 = select i1 %or.cond41, float %54, float %78
+  br label %84
 
-92:                                               ; preds = %87, %6
-  %.sink43 = phi float [ %83, %6 ], [ %., %87 ]
-  %.sink42 = phi float [ %85, %6 ], [ %83, %87 ]
-  %.sink = phi float [ %82, %6 ], [ %.44, %87 ]
+84:                                               ; preds = %81, %6
+  %.sink43 = phi float [ %30, %6 ], [ %., %81 ]
+  %.sink42 = phi float [ %54, %6 ], [ %30, %81 ]
+  %.sink = phi float [ %78, %6 ], [ %.44, %81 ]
   store float %.sink43, ptr %3, align 4
   store float %.sink42, ptr %4, align 4
   store float %.sink, ptr %5, align 4
@@ -822,12 +811,6 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

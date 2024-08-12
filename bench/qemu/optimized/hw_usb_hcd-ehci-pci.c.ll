@@ -135,7 +135,13 @@ entry:
   %arrayidx = getelementptr i8, ptr %call.i9, i64 3949
   store i8 104, ptr %arrayidx, align 1
   %capsbase = getelementptr inbounds i8, ptr %call.i9, i64 3926
-  store <4 x i16> <i16 0, i16 32, i16 68, i16 6>, ptr %capsbase, align 2
+  store i16 0, ptr %capsbase, align 2
+  %opregbase = getelementptr inbounds i8, ptr %call.i9, i64 3928
+  store i16 32, ptr %opregbase, align 8
+  %portscbase = getelementptr inbounds i8, ptr %call.i9, i64 3930
+  store i16 68, ptr %portscbase, align 2
+  %portnr = getelementptr inbounds i8, ptr %call.i9, i64 3932
+  store i16 6, ptr %portnr, align 4
   %hotpluggable = getelementptr inbounds i8, ptr %call1.i, i64 129
   %0 = load i8, ptr %hotpluggable, align 1
   %tobool = trunc i8 %0 to i1

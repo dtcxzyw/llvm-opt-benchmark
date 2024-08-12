@@ -1387,7 +1387,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal38ReorderProgramForSchurType
   %17 = alloca %"class.Eigen::AMDOrdering", align 1
   %18 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
-  %20 = alloca %"class.std::vector", align 16
+  %20 = alloca %"class.std::vector", align 8
   %21 = alloca %"struct.google::CheckOpString", align 8
   %22 = alloca %"class.google::LogMessageFatal", align 8
   %23 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1415,14 +1415,14 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal38ReorderProgramForSchurType
   br i1 %37, label %38, label %103
 
 38:                                               ; preds = %33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   %39 = invoke noundef i32 @_ZN5ceres8internal26ComputeStableSchurOrderingERKNS0_7ProgramEPSt6vectorIPNS0_14ParameterBlockESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %20)
           to label %40 unwind label %.loopexit.split-lp
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %20, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %20, align 16
+  %43 = load ptr, ptr %20, align 8
   %44 = ptrtoint ptr %42 to i64
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
@@ -1476,7 +1476,7 @@ _ZN6google12Check_EQImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 .preheader:                                       ; preds = %_ZN6google12Check_EQImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, %_ZN6google12Check_EQImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   %61 = load ptr, ptr %41, align 8
-  %62 = load ptr, ptr %20, align 16
+  %62 = load ptr, ptr %20, align 8
   %.not59 = icmp eq ptr %61, %62
   br i1 %.not59, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1516,7 +1516,7 @@ _ZN6google12Check_EQImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %59
   %eh.lpad-body = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %72 = load ptr, ptr %20, align 16
+  %72 = load ptr, ptr %20, align 8
   %.not.i.i.i = icmp eq ptr %72, null
   br i1 %.not.i.i.i, label %common.resume, label %73
 
@@ -1548,7 +1548,7 @@ common.resume:                                    ; preds = %73, %.body, %278
 83:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = load ptr, ptr %41, align 8
-  %85 = load ptr, ptr %20, align 16
+  %85 = load ptr, ptr %20, align 8
   %86 = ptrtoint ptr %84 to i64
   %87 = ptrtoint ptr %85 to i64
   %88 = sub i64 %86, %87
@@ -1561,25 +1561,26 @@ common.resume:                                    ; preds = %73, %.body, %278
           to label %92 unwind label %.loopexit.split-lp
 
 92:                                               ; preds = %._crit_edge
-  %93 = getelementptr inbounds i8, ptr %91, i64 8
-  %94 = getelementptr inbounds i8, ptr %91, i64 16
+  %93 = load ptr, ptr %91, align 8
+  %94 = getelementptr inbounds i8, ptr %91, i64 8
   %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %20, align 16
-  %97 = getelementptr inbounds i8, ptr %20, i64 16
-  %98 = load <2 x ptr>, ptr %91, align 8
-  %99 = load ptr, ptr %91, align 8
-  store ptr %96, ptr %91, align 8
-  %100 = load ptr, ptr %41, align 8
-  store ptr %100, ptr %93, align 8
-  %101 = load ptr, ptr %97, align 16
-  store ptr %101, ptr %94, align 8
-  store <2 x ptr> %98, ptr %20, align 16
-  store ptr %95, ptr %97, align 16
-  %.not.i.i.i46 = icmp eq ptr %99, null
+  %96 = getelementptr inbounds i8, ptr %91, i64 16
+  %97 = load ptr, ptr %96, align 8
+  %98 = load ptr, ptr %20, align 8
+  store ptr %98, ptr %91, align 8
+  %99 = load ptr, ptr %41, align 8
+  store ptr %99, ptr %94, align 8
+  %100 = getelementptr inbounds i8, ptr %20, i64 16
+  %101 = load ptr, ptr %100, align 8
+  store ptr %101, ptr %96, align 8
+  store ptr %93, ptr %20, align 8
+  store ptr %95, ptr %41, align 8
+  store ptr %97, ptr %100, align 8
+  %.not.i.i.i46 = icmp eq ptr %93, null
   br i1 %.not.i.i.i46, label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit47, label %102
 
 102:                                              ; preds = %92
-  call void @_ZdlPv(ptr noundef nonnull %99) #23
+  call void @_ZdlPv(ptr noundef nonnull %93) #23
   br label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit47
 
 103:                                              ; preds = %33
@@ -4319,49 +4320,69 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi1EiEEE13InnerIteratorC2ERKS
 
 ._crit_edge77:                                    ; preds = %._crit_edge74, %.preheader
   %151 = getelementptr inbounds i8, ptr %0, i64 24
-  %152 = getelementptr inbounds i8, ptr %0, i64 8
-  %153 = load <2 x i64>, ptr %8, align 8
-  %154 = load <2 x i64>, ptr %152, align 8
-  store <2 x i64> %153, ptr %152, align 8
-  store <2 x i64> %154, ptr %8, align 8
-  %155 = load <2 x ptr>, ptr %11, align 8
-  %156 = load <2 x ptr>, ptr %151, align 8
-  %157 = load ptr, ptr %151, align 8
-  store <2 x ptr> %155, ptr %151, align 8
-  store <2 x ptr> %156, ptr %11, align 8
-  %158 = getelementptr inbounds i8, ptr %0, i64 40
-  %159 = getelementptr inbounds i8, ptr %3, i64 48
-  %160 = load <2 x ptr>, ptr %105, align 8
-  %161 = load <2 x ptr>, ptr %158, align 8
-  store <2 x ptr> %160, ptr %158, align 8
-  store <2 x ptr> %161, ptr %105, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 56
-  %163 = load <2 x i64>, ptr %10, align 8
-  %164 = load <2 x i64>, ptr %162, align 8
-  store <2 x i64> %163, ptr %162, align 8
-  store <2 x i64> %164, ptr %10, align 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = load ptr, ptr %11, align 8
+  store ptr %153, ptr %151, align 8
+  store ptr %152, ptr %11, align 8
+  %154 = getelementptr inbounds i8, ptr %0, i64 16
+  %155 = load i64, ptr %154, align 8
+  %156 = load i64, ptr %9, align 8
+  store i64 %156, ptr %154, align 8
+  store i64 %155, ptr %9, align 8
+  %157 = getelementptr inbounds i8, ptr %0, i64 8
+  %158 = load i64, ptr %157, align 8
+  %159 = load i64, ptr %8, align 8
+  store i64 %159, ptr %157, align 8
+  store i64 %158, ptr %8, align 8
+  %160 = getelementptr inbounds i8, ptr %0, i64 32
+  %161 = load ptr, ptr %160, align 8
+  %162 = load ptr, ptr %20, align 8
+  store ptr %162, ptr %160, align 8
+  store ptr %161, ptr %20, align 8
+  %163 = getelementptr inbounds i8, ptr %0, i64 40
+  %164 = load ptr, ptr %163, align 8
+  %165 = load ptr, ptr %105, align 8
+  store ptr %165, ptr %163, align 8
+  store ptr %164, ptr %105, align 8
+  %166 = getelementptr inbounds i8, ptr %0, i64 48
+  %167 = getelementptr inbounds i8, ptr %3, i64 48
+  %168 = load ptr, ptr %166, align 8
+  %169 = load ptr, ptr %167, align 8
+  store ptr %169, ptr %166, align 8
+  store ptr %168, ptr %167, align 8
+  %170 = getelementptr inbounds i8, ptr %0, i64 56
+  %171 = load i64, ptr %170, align 8
+  %172 = load i64, ptr %10, align 8
+  store i64 %172, ptr %170, align 8
+  store i64 %171, ptr %10, align 8
+  %173 = getelementptr inbounds i8, ptr %0, i64 64
+  %174 = getelementptr inbounds i8, ptr %3, i64 64
+  %175 = load i64, ptr %173, align 8
+  %176 = load i64, ptr %174, align 8
+  store i64 %176, ptr %173, align 8
+  store i64 %175, ptr %174, align 8
   call void @free(ptr noundef %.sroa.048.086) #25
-  call void @free(ptr noundef %157) #25
-  %165 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %165) #25
-  %166 = load ptr, ptr %105, align 8
-  %167 = icmp eq ptr %166, null
-  br i1 %167, label %169, label %168
+  call void @free(ptr noundef %152) #25
+  %177 = load ptr, ptr %20, align 8
+  call void @free(ptr noundef %177) #25
+  %178 = load ptr, ptr %105, align 8
+  %179 = icmp eq ptr %178, null
+  br i1 %179, label %181, label %180
 
-168:                                              ; preds = %._crit_edge77
-  call void @_ZdaPv(ptr noundef nonnull %166) #23
-  br label %169
+180:                                              ; preds = %._crit_edge77
+  call void @_ZdaPv(ptr noundef nonnull %178) #23
+  br label %181
 
-169:                                              ; preds = %168, %._crit_edge77
-  %170 = load ptr, ptr %159, align 8
-  %171 = icmp eq ptr %170, null
-  br i1 %171, label %_ZN5Eigen12SparseMatrixIiLi0EiED2Ev.exit, label %172
+181:                                              ; preds = %180, %._crit_edge77
+  %182 = load ptr, ptr %167, align 8
+  %183 = icmp eq ptr %182, null
+  br i1 %183, label %_ZN5Eigen12SparseMatrixIiLi0EiED2Ev.exit, label %184
 
-172:                                              ; preds = %169
-  call void @_ZdaPv(ptr noundef nonnull %170) #23
+184:                                              ; preds = %181
+  call void @_ZdaPv(ptr noundef nonnull %182) #23
   br label %_ZN5Eigen12SparseMatrixIiLi0EiED2Ev.exit
 
-_ZN5Eigen12SparseMatrixIiLi0EiED2Ev.exit:         ; preds = %169, %172
+_ZN5Eigen12SparseMatrixIiLi0EiED2Ev.exit:         ; preds = %181, %184
   ret ptr %0
 
 .body37:                                          ; preds = %91, %101
@@ -8569,49 +8590,69 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi0EiEEE13InnerIteratorC2ERKS
 
 ._crit_edge77:                                    ; preds = %._crit_edge74, %.preheader
   %151 = getelementptr inbounds i8, ptr %0, i64 24
-  %152 = getelementptr inbounds i8, ptr %0, i64 8
-  %153 = load <2 x i64>, ptr %8, align 8
-  %154 = load <2 x i64>, ptr %152, align 8
-  store <2 x i64> %153, ptr %152, align 8
-  store <2 x i64> %154, ptr %8, align 8
-  %155 = load <2 x ptr>, ptr %11, align 8
-  %156 = load <2 x ptr>, ptr %151, align 8
-  %157 = load ptr, ptr %151, align 8
-  store <2 x ptr> %155, ptr %151, align 8
-  store <2 x ptr> %156, ptr %11, align 8
-  %158 = getelementptr inbounds i8, ptr %0, i64 40
-  %159 = getelementptr inbounds i8, ptr %3, i64 48
-  %160 = load <2 x ptr>, ptr %105, align 8
-  %161 = load <2 x ptr>, ptr %158, align 8
-  store <2 x ptr> %160, ptr %158, align 8
-  store <2 x ptr> %161, ptr %105, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 56
-  %163 = load <2 x i64>, ptr %10, align 8
-  %164 = load <2 x i64>, ptr %162, align 8
-  store <2 x i64> %163, ptr %162, align 8
-  store <2 x i64> %164, ptr %10, align 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = load ptr, ptr %11, align 8
+  store ptr %153, ptr %151, align 8
+  store ptr %152, ptr %11, align 8
+  %154 = getelementptr inbounds i8, ptr %0, i64 16
+  %155 = load i64, ptr %154, align 8
+  %156 = load i64, ptr %9, align 8
+  store i64 %156, ptr %154, align 8
+  store i64 %155, ptr %9, align 8
+  %157 = getelementptr inbounds i8, ptr %0, i64 8
+  %158 = load i64, ptr %157, align 8
+  %159 = load i64, ptr %8, align 8
+  store i64 %159, ptr %157, align 8
+  store i64 %158, ptr %8, align 8
+  %160 = getelementptr inbounds i8, ptr %0, i64 32
+  %161 = load ptr, ptr %160, align 8
+  %162 = load ptr, ptr %20, align 8
+  store ptr %162, ptr %160, align 8
+  store ptr %161, ptr %20, align 8
+  %163 = getelementptr inbounds i8, ptr %0, i64 40
+  %164 = load ptr, ptr %163, align 8
+  %165 = load ptr, ptr %105, align 8
+  store ptr %165, ptr %163, align 8
+  store ptr %164, ptr %105, align 8
+  %166 = getelementptr inbounds i8, ptr %0, i64 48
+  %167 = getelementptr inbounds i8, ptr %3, i64 48
+  %168 = load ptr, ptr %166, align 8
+  %169 = load ptr, ptr %167, align 8
+  store ptr %169, ptr %166, align 8
+  store ptr %168, ptr %167, align 8
+  %170 = getelementptr inbounds i8, ptr %0, i64 56
+  %171 = load i64, ptr %170, align 8
+  %172 = load i64, ptr %10, align 8
+  store i64 %172, ptr %170, align 8
+  store i64 %171, ptr %10, align 8
+  %173 = getelementptr inbounds i8, ptr %0, i64 64
+  %174 = getelementptr inbounds i8, ptr %3, i64 64
+  %175 = load i64, ptr %173, align 8
+  %176 = load i64, ptr %174, align 8
+  store i64 %176, ptr %173, align 8
+  store i64 %175, ptr %174, align 8
   call void @free(ptr noundef %.sroa.048.086) #25
-  call void @free(ptr noundef %157) #25
-  %165 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %165) #25
-  %166 = load ptr, ptr %105, align 8
-  %167 = icmp eq ptr %166, null
-  br i1 %167, label %169, label %168
+  call void @free(ptr noundef %152) #25
+  %177 = load ptr, ptr %20, align 8
+  call void @free(ptr noundef %177) #25
+  %178 = load ptr, ptr %105, align 8
+  %179 = icmp eq ptr %178, null
+  br i1 %179, label %181, label %180
 
-168:                                              ; preds = %._crit_edge77
-  call void @_ZdaPv(ptr noundef nonnull %166) #23
-  br label %169
+180:                                              ; preds = %._crit_edge77
+  call void @_ZdaPv(ptr noundef nonnull %178) #23
+  br label %181
 
-169:                                              ; preds = %168, %._crit_edge77
-  %170 = load ptr, ptr %159, align 8
-  %171 = icmp eq ptr %170, null
-  br i1 %171, label %_ZN5Eigen12SparseMatrixIiLi1EiED2Ev.exit, label %172
+181:                                              ; preds = %180, %._crit_edge77
+  %182 = load ptr, ptr %167, align 8
+  %183 = icmp eq ptr %182, null
+  br i1 %183, label %_ZN5Eigen12SparseMatrixIiLi1EiED2Ev.exit, label %184
 
-172:                                              ; preds = %169
-  call void @_ZdaPv(ptr noundef nonnull %170) #23
+184:                                              ; preds = %181
+  call void @_ZdaPv(ptr noundef nonnull %182) #23
   br label %_ZN5Eigen12SparseMatrixIiLi1EiED2Ev.exit
 
-_ZN5Eigen12SparseMatrixIiLi1EiED2Ev.exit:         ; preds = %169, %172
+_ZN5Eigen12SparseMatrixIiLi1EiED2Ev.exit:         ; preds = %181, %184
   ret ptr %0
 
 .body37:                                          ; preds = %91, %101
@@ -11704,49 +11745,69 @@ _ZN5Eigen8internal15unary_evaluatorINS_9TransposeIKNS_12SparseMatrixIiLi0EiEEEEN
 
 ._crit_edge77:                                    ; preds = %._crit_edge74, %.preheader
   %151 = getelementptr inbounds i8, ptr %0, i64 24
-  %152 = getelementptr inbounds i8, ptr %0, i64 8
-  %153 = load <2 x i64>, ptr %8, align 8
-  %154 = load <2 x i64>, ptr %152, align 8
-  store <2 x i64> %153, ptr %152, align 8
-  store <2 x i64> %154, ptr %8, align 8
-  %155 = load <2 x ptr>, ptr %11, align 8
-  %156 = load <2 x ptr>, ptr %151, align 8
-  %157 = load ptr, ptr %151, align 8
-  store <2 x ptr> %155, ptr %151, align 8
-  store <2 x ptr> %156, ptr %11, align 8
-  %158 = getelementptr inbounds i8, ptr %0, i64 40
-  %159 = getelementptr inbounds i8, ptr %3, i64 48
-  %160 = load <2 x ptr>, ptr %105, align 8
-  %161 = load <2 x ptr>, ptr %158, align 8
-  store <2 x ptr> %160, ptr %158, align 8
-  store <2 x ptr> %161, ptr %105, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 56
-  %163 = load <2 x i64>, ptr %10, align 8
-  %164 = load <2 x i64>, ptr %162, align 8
-  store <2 x i64> %163, ptr %162, align 8
-  store <2 x i64> %164, ptr %10, align 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = load ptr, ptr %11, align 8
+  store ptr %153, ptr %151, align 8
+  store ptr %152, ptr %11, align 8
+  %154 = getelementptr inbounds i8, ptr %0, i64 16
+  %155 = load i64, ptr %154, align 8
+  %156 = load i64, ptr %9, align 8
+  store i64 %156, ptr %154, align 8
+  store i64 %155, ptr %9, align 8
+  %157 = getelementptr inbounds i8, ptr %0, i64 8
+  %158 = load i64, ptr %157, align 8
+  %159 = load i64, ptr %8, align 8
+  store i64 %159, ptr %157, align 8
+  store i64 %158, ptr %8, align 8
+  %160 = getelementptr inbounds i8, ptr %0, i64 32
+  %161 = load ptr, ptr %160, align 8
+  %162 = load ptr, ptr %20, align 8
+  store ptr %162, ptr %160, align 8
+  store ptr %161, ptr %20, align 8
+  %163 = getelementptr inbounds i8, ptr %0, i64 40
+  %164 = load ptr, ptr %163, align 8
+  %165 = load ptr, ptr %105, align 8
+  store ptr %165, ptr %163, align 8
+  store ptr %164, ptr %105, align 8
+  %166 = getelementptr inbounds i8, ptr %0, i64 48
+  %167 = getelementptr inbounds i8, ptr %3, i64 48
+  %168 = load ptr, ptr %166, align 8
+  %169 = load ptr, ptr %167, align 8
+  store ptr %169, ptr %166, align 8
+  store ptr %168, ptr %167, align 8
+  %170 = getelementptr inbounds i8, ptr %0, i64 56
+  %171 = load i64, ptr %170, align 8
+  %172 = load i64, ptr %10, align 8
+  store i64 %172, ptr %170, align 8
+  store i64 %171, ptr %10, align 8
+  %173 = getelementptr inbounds i8, ptr %0, i64 64
+  %174 = getelementptr inbounds i8, ptr %3, i64 64
+  %175 = load i64, ptr %173, align 8
+  %176 = load i64, ptr %174, align 8
+  store i64 %176, ptr %173, align 8
+  store i64 %175, ptr %174, align 8
   call void @free(ptr noundef %.sroa.044.086) #25
-  call void @free(ptr noundef %157) #25
-  %165 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %165) #25
-  %166 = load ptr, ptr %105, align 8
-  %167 = icmp eq ptr %166, null
-  br i1 %167, label %169, label %168
+  call void @free(ptr noundef %152) #25
+  %177 = load ptr, ptr %20, align 8
+  call void @free(ptr noundef %177) #25
+  %178 = load ptr, ptr %105, align 8
+  %179 = icmp eq ptr %178, null
+  br i1 %179, label %181, label %180
 
-168:                                              ; preds = %._crit_edge77
-  call void @_ZdaPv(ptr noundef nonnull %166) #23
-  br label %169
+180:                                              ; preds = %._crit_edge77
+  call void @_ZdaPv(ptr noundef nonnull %178) #23
+  br label %181
 
-169:                                              ; preds = %168, %._crit_edge77
-  %170 = load ptr, ptr %159, align 8
-  %171 = icmp eq ptr %170, null
-  br i1 %171, label %_ZN5Eigen12SparseMatrixIiLi0EiED2Ev.exit, label %172
+181:                                              ; preds = %180, %._crit_edge77
+  %182 = load ptr, ptr %167, align 8
+  %183 = icmp eq ptr %182, null
+  br i1 %183, label %_ZN5Eigen12SparseMatrixIiLi0EiED2Ev.exit, label %184
 
-172:                                              ; preds = %169
-  call void @_ZdaPv(ptr noundef nonnull %170) #23
+184:                                              ; preds = %181
+  call void @_ZdaPv(ptr noundef nonnull %182) #23
   br label %_ZN5Eigen12SparseMatrixIiLi0EiED2Ev.exit
 
-_ZN5Eigen12SparseMatrixIiLi0EiED2Ev.exit:         ; preds = %169, %172
+_ZN5Eigen12SparseMatrixIiLi0EiED2Ev.exit:         ; preds = %181, %184
   ret ptr %0
 
 .body34:                                          ; preds = %91, %101

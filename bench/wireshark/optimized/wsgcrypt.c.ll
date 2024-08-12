@@ -111,51 +111,63 @@ define void @crypt_des_ecb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %4 = alloca [8 x i8], align 1
   %5 = alloca ptr, align 8
   store i64 0, ptr %0, align 1
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
-  %7 = getelementptr i8, ptr %2, i64 4
+  %6 = load i8, ptr %2, align 1
+  store i8 %6, ptr %4, align 1
+  %7 = getelementptr i8, ptr %2, i64 1
   %8 = load i8, ptr %7, align 1
-  %9 = load <4 x i8>, ptr %2, align 1
-  %10 = load i8, ptr %2, align 1
-  store i8 %10, ptr %4, align 1
-  %11 = shufflevector <4 x i8> %9, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
-  %12 = insertelement <4 x i8> %11, i8 %8, i64 3
-  %13 = tail call <4 x i8> @llvm.fshl.v4i8(<4 x i8> %9, <4 x i8> %12, <4 x i8> <i8 7, i8 6, i8 5, i8 4>)
-  store <4 x i8> %13, ptr %6, align 1
-  %14 = getelementptr i8, ptr %2, i64 5
-  %15 = load i8, ptr %14, align 1
-  %16 = tail call i8 @llvm.fshl.i8(i8 %8, i8 %15, i8 3)
-  %17 = getelementptr inbounds i8, ptr %4, i64 5
-  store i8 %16, ptr %17, align 1
-  %18 = getelementptr i8, ptr %2, i64 6
-  %19 = load i8, ptr %18, align 1
-  %20 = tail call i8 @llvm.fshl.i8(i8 %15, i8 %19, i8 2)
-  %21 = getelementptr inbounds i8, ptr %4, i64 6
-  store i8 %20, ptr %21, align 1
-  %22 = shl i8 %19, 1
-  %23 = getelementptr inbounds i8, ptr %4, i64 7
-  store i8 %22, ptr %23, align 1
-  %24 = call i32 @gcry_cipher_open(ptr noundef nonnull %5, i32 noundef 302, i32 noundef 1, i32 noundef 0) #4
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %25, label %32
+  %9 = tail call i8 @llvm.fshl.i8(i8 %6, i8 %8, i8 7)
+  %10 = getelementptr inbounds i8, ptr %4, i64 1
+  store i8 %9, ptr %10, align 1
+  %11 = getelementptr i8, ptr %2, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = tail call i8 @llvm.fshl.i8(i8 %8, i8 %12, i8 6)
+  %14 = getelementptr inbounds i8, ptr %4, i64 2
+  store i8 %13, ptr %14, align 1
+  %15 = getelementptr i8, ptr %2, i64 3
+  %16 = load i8, ptr %15, align 1
+  %17 = tail call i8 @llvm.fshl.i8(i8 %12, i8 %16, i8 5)
+  %18 = getelementptr inbounds i8, ptr %4, i64 3
+  store i8 %17, ptr %18, align 1
+  %19 = getelementptr i8, ptr %2, i64 4
+  %20 = load i8, ptr %19, align 1
+  %21 = tail call i8 @llvm.fshl.i8(i8 %16, i8 %20, i8 4)
+  %22 = getelementptr inbounds i8, ptr %4, i64 4
+  store i8 %21, ptr %22, align 1
+  %23 = getelementptr i8, ptr %2, i64 5
+  %24 = load i8, ptr %23, align 1
+  %25 = tail call i8 @llvm.fshl.i8(i8 %20, i8 %24, i8 3)
+  %26 = getelementptr inbounds i8, ptr %4, i64 5
+  store i8 %25, ptr %26, align 1
+  %27 = getelementptr i8, ptr %2, i64 6
+  %28 = load i8, ptr %27, align 1
+  %29 = tail call i8 @llvm.fshl.i8(i8 %24, i8 %28, i8 2)
+  %30 = getelementptr inbounds i8, ptr %4, i64 6
+  store i8 %29, ptr %30, align 1
+  %31 = shl i8 %28, 1
+  %32 = getelementptr inbounds i8, ptr %4, i64 7
+  store i8 %31, ptr %32, align 1
+  %33 = call i32 @gcry_cipher_open(ptr noundef nonnull %5, i32 noundef 302, i32 noundef 1, i32 noundef 0) #4
+  %.not = icmp eq i32 %33, 0
+  br i1 %.not, label %34, label %41
 
-25:                                               ; preds = %3
-  %26 = load ptr, ptr %5, align 8
-  %27 = call i32 @gcry_cipher_setkey(ptr noundef %26, ptr noundef nonnull %4, i64 noundef 8) #4
-  %.not17 = icmp eq i32 %27, 0
-  %28 = load ptr, ptr %5, align 8
-  br i1 %.not17, label %29, label %.sink.split
+34:                                               ; preds = %3
+  %35 = load ptr, ptr %5, align 8
+  %36 = call i32 @gcry_cipher_setkey(ptr noundef %35, ptr noundef nonnull %4, i64 noundef 8) #4
+  %.not17 = icmp eq i32 %36, 0
+  %37 = load ptr, ptr %5, align 8
+  br i1 %.not17, label %38, label %.sink.split
 
-29:                                               ; preds = %25
-  %30 = call i32 @gcry_cipher_encrypt(ptr noundef %28, ptr noundef nonnull %0, i64 noundef 8, ptr noundef %1, i64 noundef 8) #4
-  %31 = load ptr, ptr %5, align 8
+38:                                               ; preds = %34
+  %39 = call i32 @gcry_cipher_encrypt(ptr noundef %37, ptr noundef nonnull %0, i64 noundef 8, ptr noundef %1, i64 noundef 8) #4
+  %40 = load ptr, ptr %5, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %29
-  %.sink = phi ptr [ %31, %29 ], [ %28, %25 ]
+.sink.split:                                      ; preds = %34, %38
+  %.sink = phi ptr [ %40, %38 ], [ %37, %34 ]
   call void @gcry_cipher_close(ptr noundef %.sink) #4
-  br label %32
+  br label %41
 
-32:                                               ; preds = %.sink.split, %3
+41:                                               ; preds = %.sink.split, %3
   ret void
 }
 
@@ -434,9 +446,6 @@ declare i8 @llvm.fshl.i8(i8, i8, i8) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i8> @llvm.fshl.v4i8(<4 x i8>, <4 x i8>, <4 x i8>) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

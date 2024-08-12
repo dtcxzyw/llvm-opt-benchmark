@@ -344,194 +344,196 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
   %5 = alloca [128 x i8], align 16
   %6 = alloca float, align 4
   %7 = icmp ne ptr %3, null
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
   store i32 0, ptr %3, align 4
   %9 = getelementptr inbounds i8, ptr %3, i64 4
   store i8 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 20
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %10, align 4
-  br label %11
+  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  store float 1.000000e+00, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %3, i64 20
+  store float 1.000000e+00, ptr %11, align 4
+  br label %12
 
-11:                                               ; preds = %8, %4
-  %12 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %0)
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
+12:                                               ; preds = %8, %4
+  %13 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %0)
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-14:                                               ; preds = %11
+15:                                               ; preds = %12
   call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
-15:                                               ; preds = %11
-  %16 = load i8, ptr %5, align 16
-  %17 = icmp eq i8 %16, 35
-  %18 = getelementptr inbounds i8, ptr %5, i64 1
-  %19 = load i8, ptr %18, align 1
-  %20 = icmp eq i8 %19, 63
-  %or.cond.not40 = select i1 %17, i1 %20, i1 false
+16:                                               ; preds = %12
+  %17 = load i8, ptr %5, align 16
+  %18 = icmp eq i8 %17, 35
+  %19 = getelementptr inbounds i8, ptr %5, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 63
+  %or.cond.not40 = select i1 %18, i1 %21, i1 false
   %or.cond5 = and i1 %7, %or.cond.not40
-  br i1 %or.cond5, label %21, label %37
+  br i1 %or.cond5, label %22, label %38
 
-21:                                               ; preds = %15
-  %22 = load i32, ptr %3, align 4
-  %23 = or i32 %22, 1
-  store i32 %23, ptr %3, align 4
-  %24 = getelementptr inbounds i8, ptr %3, i64 4
-  br label %25
+22:                                               ; preds = %16
+  %23 = load i32, ptr %3, align 4
+  %24 = or i32 %23, 1
+  store i32 %24, ptr %3, align 4
+  %25 = getelementptr inbounds i8, ptr %3, i64 4
+  br label %26
 
-25:                                               ; preds = %21, %33
-  %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %33 ]
-  %26 = add nuw nsw i64 %indvars.iv, 2
-  %27 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %.thread, label %30
+26:                                               ; preds = %22, %34
+  %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %34 ]
+  %27 = add nuw nsw i64 %indvars.iv, 2
+  %28 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %27
+  %29 = load i8, ptr %28, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %.thread, label %31
 
-30:                                               ; preds = %25
-  %31 = sext i8 %28 to i32
-  %32 = call i32 @isspace(i32 noundef %31) #16
-  %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %33, label %.thread
+31:                                               ; preds = %26
+  %32 = sext i8 %29 to i32
+  %33 = call i32 @isspace(i32 noundef %32) #16
+  %.not = icmp eq i32 %33, 0
+  br i1 %.not, label %34, label %.thread
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds [16 x i8], ptr %24, i64 0, i64 %indvars.iv
-  store i8 %28, ptr %34, align 1
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds [16 x i8], ptr %25, i64 0, i64 %indvars.iv
+  store i8 %29, ptr %35, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %.thread, label %25, !llvm.loop !10
+  br i1 %exitcond.not, label %.thread, label %26, !llvm.loop !10
 
-.thread:                                          ; preds = %33, %30, %25
-  %.033.lcssa = phi i64 [ %indvars.iv, %25 ], [ %indvars.iv, %30 ], [ 15, %33 ]
-  %35 = and i64 %.033.lcssa, 4294967295
-  %36 = getelementptr inbounds [16 x i8], ptr %24, i64 0, i64 %35
-  store i8 0, ptr %36, align 1
+.thread:                                          ; preds = %34, %31, %26
+  %.033.lcssa = phi i64 [ %indvars.iv, %26 ], [ %indvars.iv, %31 ], [ 15, %34 ]
+  %36 = and i64 %.033.lcssa, 4294967295
+  %37 = getelementptr inbounds [16 x i8], ptr %25, i64 0, i64 %36
+  store i8 0, ptr %37, align 1
   br label %.outer.preheader
 
-37:                                               ; preds = %15
+38:                                               ; preds = %16
   br i1 %7, label %.outer.preheader, label %.outer.us
 
-.outer.preheader:                                 ; preds = %.thread, %37
-  %38 = getelementptr inbounds i8, ptr %3, i64 24
-  %39 = getelementptr inbounds i8, ptr %3, i64 20
+.outer.preheader:                                 ; preds = %.thread, %38
+  %39 = getelementptr inbounds i8, ptr %3, i64 24
+  %40 = getelementptr inbounds i8, ptr %3, i64 20
   br label %.outer.outer
 
-.outer.us:                                        ; preds = %37, %.critedge.us
-  %.0.ph.us = phi i1 [ %.mux.us, %.critedge.us ], [ false, %37 ]
-  br label %42
+.outer.us:                                        ; preds = %38, %.critedge.us
+  %.0.ph.us = phi i1 [ %.mux.us, %.critedge.us ], [ false, %38 ]
+  br label %43
 
-40:                                               ; preds = %42
-  %41 = load i8, ptr %5, align 16
-  switch i8 %41, label %.critedge.us [
+41:                                               ; preds = %43
+  %42 = load i8, ptr %5, align 16
+  switch i8 %42, label %.critedge.us [
     i8 10, label %.split48.us
-    i8 35, label %42
+    i8 35, label %43
   ]
 
-.critedge.us:                                     ; preds = %40
+.critedge.us:                                     ; preds = %41
   %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(24) %5, ptr noundef nonnull dereferenceable(24) @.str.6, i64 24)
   %.not51 = icmp eq i32 %bcmp.us, 0
   %.mux.us = select i1 %.not51, i1 true, i1 %.0.ph.us
   br label %.outer.us, !llvm.loop !12
 
-42:                                               ; preds = %40, %.outer.us
-  %43 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %0)
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %.split50.us, label %40
+43:                                               ; preds = %41, %.outer.us
+  %44 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %0)
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %.split50.us, label %41
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
-  br label %45
+  br label %46
 
-45:                                               ; preds = %.outer, %48
-  %46 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %0)
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %.split50.us, label %48
+46:                                               ; preds = %.outer, %49
+  %47 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %0)
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %.split50.us, label %49
 
-.split50.us:                                      ; preds = %42, %45
+.split50.us:                                      ; preds = %43, %46
   call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
-48:                                               ; preds = %45
-  %49 = load i8, ptr %5, align 16
-  switch i8 %49, label %50 [
+49:                                               ; preds = %46
+  %50 = load i8, ptr %5, align 16
+  switch i8 %50, label %51 [
     i8 10, label %.split48.us
-    i8 35, label %45
+    i8 35, label %46
   ]
 
-50:                                               ; preds = %48
+51:                                               ; preds = %49
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(24) %5, ptr noundef nonnull dereferenceable(24) @.str.6, i64 24)
   %.not52 = icmp eq i32 %bcmp, 0
-  br i1 %.not52, label %.outer.outer, label %51, !llvm.loop !12
+  br i1 %.not52, label %.outer.outer, label %52, !llvm.loop !12
 
-.outer.outer:                                     ; preds = %50, %.outer.preheader
-  %.0.ph.ph = phi i1 [ false, %.outer.preheader ], [ true, %50 ]
+.outer.outer:                                     ; preds = %51, %.outer.preheader
+  %.0.ph.ph = phi i1 [ false, %.outer.preheader ], [ true, %51 ]
   br label %.outer
 
-51:                                               ; preds = %50
-  %52 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #14
-  %53 = icmp eq i32 %52, 1
-  br i1 %53, label %54, label %56
+52:                                               ; preds = %51
+  %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #14
+  %54 = icmp eq i32 %53, 1
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %51
-  %55 = load float, ptr %6, align 4
-  store float %55, ptr %39, align 4
+55:                                               ; preds = %52
+  %56 = load float, ptr %6, align 4
+  store float %56, ptr %40, align 4
   br label %.critedge.sink.split
 
-56:                                               ; preds = %51
-  %57 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef nonnull %6) #14
-  %58 = icmp eq i32 %57, 1
-  br i1 %58, label %59, label %.outer.backedge
+57:                                               ; preds = %52
+  %58 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef nonnull %6) #14
+  %59 = icmp eq i32 %58, 1
+  br i1 %59, label %60, label %.outer.backedge
 
-59:                                               ; preds = %56
-  %60 = load float, ptr %6, align 4
-  store float %60, ptr %38, align 4
+60:                                               ; preds = %57
+  %61 = load float, ptr %6, align 4
+  store float %61, ptr %39, align 4
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %59, %54
-  %.sink63 = phi i32 [ 2, %54 ], [ 4, %59 ]
-  %61 = load i32, ptr %3, align 4
-  %62 = or i32 %61, %.sink63
-  store i32 %62, ptr %3, align 4
+.critedge.sink.split:                             ; preds = %60, %55
+  %.sink63 = phi i32 [ 2, %55 ], [ 4, %60 ]
+  %62 = load i32, ptr %3, align 4
+  %63 = or i32 %62, %.sink63
+  store i32 %63, ptr %3, align 4
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %.critedge.sink.split, %56
+.outer.backedge:                                  ; preds = %.critedge.sink.split, %57
   br label %.outer, !llvm.loop !12
 
-.split48.us:                                      ; preds = %40, %48
-  %.us-phi = phi i1 [ %.0.ph.ph, %48 ], [ %.0.ph.us, %40 ]
+.split48.us:                                      ; preds = %41, %49
+  %.us-phi = phi i1 [ %.0.ph.ph, %49 ], [ %.0.ph.us, %41 ]
   %lhsv = load i16, ptr %5, align 16
   %.not42 = icmp eq i16 %lhsv, 10
-  br i1 %.not42, label %64, label %63
+  br i1 %.not42, label %65, label %64
 
-63:                                               ; preds = %.split48.us
+64:                                               ; preds = %.split48.us
   call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.10)
   unreachable
 
-64:                                               ; preds = %.split48.us
-  br i1 %.us-phi, label %66, label %65
+65:                                               ; preds = %.split48.us
+  br i1 %.us-phi, label %67, label %66
 
-65:                                               ; preds = %64
+66:                                               ; preds = %65
   call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.11)
   unreachable
 
-66:                                               ; preds = %64
-  %67 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %0)
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %69, label %70
+67:                                               ; preds = %65
+  %68 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %0)
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %70, label %71
 
-69:                                               ; preds = %66
+70:                                               ; preds = %67
   call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
-70:                                               ; preds = %66
-  %71 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.12, ptr noundef %2, ptr noundef %1) #14
-  %72 = icmp slt i32 %71, 2
-  br i1 %72, label %73, label %74
+71:                                               ; preds = %67
+  %72 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.12, ptr noundef %2, ptr noundef %1) #14
+  %73 = icmp slt i32 %72, 2
+  br i1 %73, label %74, label %75
 
-73:                                               ; preds = %70
+74:                                               ; preds = %71
   call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.13)
   unreachable
 
-74:                                               ; preds = %70
+75:                                               ; preds = %71
   ret i32 0
 }
 
@@ -625,50 +627,54 @@ define hidden noundef i32 @_Z15RGBE_ReadPixelsP8_IO_FILEPfi(ptr nocapture nounde
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 3
   %7 = getelementptr inbounds i8, ptr %4, i64 1
-  br label %8
+  %8 = getelementptr inbounds i8, ptr %4, i64 2
+  br label %9
 
-8:                                                ; preds = %.lr.ph, %_ZL10rgbe2floatPfS_S_Ph.exit
-  %.in = phi i32 [ %2, %.lr.ph ], [ %9, %_ZL10rgbe2floatPfS_S_Ph.exit ]
-  %.068 = phi ptr [ %1, %.lr.ph ], [ %31, %_ZL10rgbe2floatPfS_S_Ph.exit ]
-  %9 = add nsw i32 %.in, -1
-  %10 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 1, ptr noundef %0)
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %13
+9:                                                ; preds = %.lr.ph, %_ZL10rgbe2floatPfS_S_Ph.exit
+  %.in = phi i32 [ %2, %.lr.ph ], [ %10, %_ZL10rgbe2floatPfS_S_Ph.exit ]
+  %.068 = phi ptr [ %1, %.lr.ph ], [ %32, %_ZL10rgbe2floatPfS_S_Ph.exit ]
+  %10 = add nsw i32 %.in, -1
+  %11 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 1, ptr noundef %0)
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %8
+13:                                               ; preds = %9
   tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %.068, i64 8
-  %15 = load i8, ptr %6, align 1
-  %.not.i = icmp eq i8 %15, 0
-  br i1 %.not.i, label %_ZL10rgbe2floatPfS_S_Ph.exit, label %16
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %.068, i64 8
+  %16 = getelementptr inbounds i8, ptr %.068, i64 4
+  %17 = load i8, ptr %6, align 1
+  %.not.i = icmp eq i8 %17, 0
+  br i1 %.not.i, label %_ZL10rgbe2floatPfS_S_Ph.exit, label %18
 
-16:                                               ; preds = %13
-  %17 = zext i8 %15 to i32
-  %18 = add nsw i32 %17, -136
-  %19 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %18) #14
-  %20 = fptrunc double %19 to float
-  %21 = load i8, ptr %4, align 1
-  %22 = uitofp i8 %21 to float
-  %23 = fmul float %20, %22
-  %24 = load <2 x i8>, ptr %7, align 1
-  %25 = uitofp <2 x i8> %24 to <2 x float>
-  %26 = insertelement <2 x float> poison, float %20, i64 0
-  %27 = shufflevector <2 x float> %26, <2 x float> poison, <2 x i32> zeroinitializer
-  %28 = fmul <2 x float> %27, %25
+18:                                               ; preds = %14
+  %19 = zext i8 %17 to i32
+  %20 = add nsw i32 %19, -136
+  %21 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %20) #14
+  %22 = fptrunc double %21 to float
+  %23 = load i8, ptr %4, align 1
+  %24 = uitofp i8 %23 to float
+  %25 = fmul float %22, %24
+  %26 = load i8, ptr %7, align 1
+  %27 = uitofp i8 %26 to float
+  %28 = fmul float %22, %27
+  %29 = load i8, ptr %8, align 1
+  %30 = uitofp i8 %29 to float
+  %31 = fmul float %22, %30
   br label %_ZL10rgbe2floatPfS_S_Ph.exit
 
-_ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %13, %16
-  %.sink = phi float [ %23, %16 ], [ 0.000000e+00, %13 ]
-  %29 = phi <2 x float> [ %28, %16 ], [ zeroinitializer, %13 ]
-  %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %30, ptr %.068, align 4
-  store float %.sink, ptr %14, align 4
-  %31 = getelementptr inbounds i8, ptr %.068, i64 12
-  %32 = icmp ugt i32 %.in, 1
-  br i1 %32, label %8, label %._crit_edge, !llvm.loop !14
+_ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %14, %18
+  %.sink10 = phi float [ %31, %18 ], [ 0.000000e+00, %14 ]
+  %.sink9 = phi float [ %28, %18 ], [ 0.000000e+00, %14 ]
+  %.sink = phi float [ %25, %18 ], [ 0.000000e+00, %14 ]
+  store float %.sink10, ptr %.068, align 4
+  store float %.sink9, ptr %16, align 4
+  store float %.sink, ptr %15, align 4
+  %32 = getelementptr inbounds i8, ptr %.068, i64 12
+  %33 = icmp ugt i32 %.in, 1
+  br i1 %33, label %9, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit, %3
   ret i32 0
@@ -1120,7 +1126,7 @@ define hidden noundef i32 @_Z19RGBE_ReadPixels_RLEP8_IO_FILEPfii(ptr nocapture n
   %19 = zext nneg i32 %2 to i64
   %20 = zext nneg i32 %17 to i64
   %21 = zext nneg i32 %18 to i64
-  br label %52
+  br label %53
 
 22:                                               ; preds = %4
   %23 = mul nsw i32 %3, %2
@@ -1131,122 +1137,128 @@ define hidden noundef i32 @_Z19RGBE_ReadPixels_RLEP8_IO_FILEPfii(ptr nocapture n
 .lr.ph.i:                                         ; preds = %22
   %25 = getelementptr inbounds i8, ptr %6, i64 3
   %26 = getelementptr inbounds i8, ptr %6, i64 1
-  br label %27
+  %27 = getelementptr inbounds i8, ptr %6, i64 2
+  br label %28
 
-27:                                               ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i, %.lr.ph.i
-  %.in.i = phi i32 [ %23, %.lr.ph.i ], [ %28, %_ZL10rgbe2floatPfS_S_Ph.exit.i ]
-  %.068.i = phi ptr [ %1, %.lr.ph.i ], [ %50, %_ZL10rgbe2floatPfS_S_Ph.exit.i ]
-  %28 = add nsw i32 %.in.i, -1
-  %29 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 4, i64 noundef 1, ptr noundef %0)
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %32
+28:                                               ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i, %.lr.ph.i
+  %.in.i = phi i32 [ %23, %.lr.ph.i ], [ %29, %_ZL10rgbe2floatPfS_S_Ph.exit.i ]
+  %.068.i = phi ptr [ %1, %.lr.ph.i ], [ %51, %_ZL10rgbe2floatPfS_S_Ph.exit.i ]
+  %29 = add nsw i32 %.in.i, -1
+  %30 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 4, i64 noundef 1, ptr noundef %0)
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %27
+32:                                               ; preds = %28
   tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %.068.i, i64 8
-  %34 = load i8, ptr %25, align 1
-  %.not.i.i = icmp eq i8 %34, 0
-  br i1 %.not.i.i, label %_ZL10rgbe2floatPfS_S_Ph.exit.i, label %35
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds i8, ptr %.068.i, i64 8
+  %35 = getelementptr inbounds i8, ptr %.068.i, i64 4
+  %36 = load i8, ptr %25, align 1
+  %.not.i.i = icmp eq i8 %36, 0
+  br i1 %.not.i.i, label %_ZL10rgbe2floatPfS_S_Ph.exit.i, label %37
 
-35:                                               ; preds = %32
-  %36 = zext i8 %34 to i32
-  %37 = add nsw i32 %36, -136
-  %38 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %37) #14
-  %39 = fptrunc double %38 to float
-  %40 = load i8, ptr %6, align 1
-  %41 = uitofp i8 %40 to float
-  %42 = fmul float %39, %41
-  %43 = load <2 x i8>, ptr %26, align 1
-  %44 = uitofp <2 x i8> %43 to <2 x float>
-  %45 = insertelement <2 x float> poison, float %39, i64 0
-  %46 = shufflevector <2 x float> %45, <2 x float> poison, <2 x i32> zeroinitializer
-  %47 = fmul <2 x float> %46, %44
+37:                                               ; preds = %33
+  %38 = zext i8 %36 to i32
+  %39 = add nsw i32 %38, -136
+  %40 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %39) #14
+  %41 = fptrunc double %40 to float
+  %42 = load i8, ptr %6, align 1
+  %43 = uitofp i8 %42 to float
+  %44 = fmul float %41, %43
+  %45 = load i8, ptr %26, align 1
+  %46 = uitofp i8 %45 to float
+  %47 = fmul float %41, %46
+  %48 = load i8, ptr %27, align 1
+  %49 = uitofp i8 %48 to float
+  %50 = fmul float %41, %49
   br label %_ZL10rgbe2floatPfS_S_Ph.exit.i
 
-_ZL10rgbe2floatPfS_S_Ph.exit.i:                   ; preds = %35, %32
-  %.sink.i = phi float [ %42, %35 ], [ 0.000000e+00, %32 ]
-  %48 = phi <2 x float> [ %47, %35 ], [ zeroinitializer, %32 ]
-  %49 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %49, ptr %.068.i, align 4
-  store float %.sink.i, ptr %33, align 4
-  %50 = getelementptr inbounds i8, ptr %.068.i, i64 12
-  %51 = icmp ugt i32 %.in.i, 1
-  br i1 %51, label %27, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit, !llvm.loop !14
+_ZL10rgbe2floatPfS_S_Ph.exit.i:                   ; preds = %37, %33
+  %.sink10.i = phi float [ %50, %37 ], [ 0.000000e+00, %33 ]
+  %.sink9.i = phi float [ %47, %37 ], [ 0.000000e+00, %33 ]
+  %.sink.i = phi float [ %44, %37 ], [ 0.000000e+00, %33 ]
+  store float %.sink10.i, ptr %.068.i, align 4
+  store float %.sink9.i, ptr %35, align 4
+  store float %.sink.i, ptr %34, align 4
+  %51 = getelementptr inbounds i8, ptr %.068.i, i64 12
+  %52 = icmp ugt i32 %.in.i, 1
+  br i1 %52, label %28, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit, !llvm.loop !14
 
 _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit:            ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i, %22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %189
+  br label %187
 
-52:                                               ; preds = %.lr.ph173, %._crit_edge
+53:                                               ; preds = %.lr.ph173, %._crit_edge
   %.082172 = phi ptr [ null, %.lr.ph173 ], [ %.183233, %._crit_edge ]
-  %.084171 = phi i32 [ %3, %.lr.ph173 ], [ %187, %._crit_edge ]
-  %.085170 = phi ptr [ %1, %.lr.ph173 ], [ %186, %._crit_edge ]
-  %53 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 4, i64 noundef 1, ptr noundef %0)
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %55, label %56
+  %.084171 = phi i32 [ %3, %.lr.ph173 ], [ %185, %._crit_edge ]
+  %.085170 = phi ptr [ %1, %.lr.ph173 ], [ %184, %._crit_edge ]
+  %54 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 4, i64 noundef 1, ptr noundef %0)
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %56, label %57
 
-55:                                               ; preds = %52
+56:                                               ; preds = %53
   tail call void @free(ptr noundef %.082172) #14
   tail call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
-56:                                               ; preds = %52
-  %57 = load i8, ptr %7, align 1
-  %58 = icmp ne i8 %57, 2
-  %59 = load i8, ptr %11, align 1
-  %60 = icmp ne i8 %59, 2
-  %or.cond5 = select i1 %58, i1 true, i1 %60
-  br i1 %or.cond5, label %63, label %61
+57:                                               ; preds = %53
+  %58 = load i8, ptr %7, align 1
+  %59 = icmp ne i8 %58, 2
+  %60 = load i8, ptr %11, align 1
+  %61 = icmp ne i8 %60, 2
+  %or.cond5 = select i1 %59, i1 true, i1 %61
+  br i1 %or.cond5, label %64, label %62
 
-61:                                               ; preds = %56
-  %62 = load i8, ptr %12, align 1
-  %.not = icmp sgt i8 %62, -1
-  br i1 %.not, label %108, label %63
+62:                                               ; preds = %57
+  %63 = load i8, ptr %12, align 1
+  %.not = icmp sgt i8 %63, -1
+  br i1 %.not, label %108, label %64
 
-63:                                               ; preds = %61, %56
-  %.lcssa201 = phi i8 [ 2, %61 ], [ %59, %56 ]
-  %64 = getelementptr inbounds i8, ptr %.085170, i64 8
-  %65 = load i8, ptr %13, align 1
-  %.not.i = icmp eq i8 %65, 0
-  br i1 %.not.i, label %_ZL10rgbe2floatPfS_S_Ph.exit, label %66
+64:                                               ; preds = %62, %57
+  %.lcssa201 = phi i8 [ 2, %62 ], [ %60, %57 ]
+  %65 = getelementptr inbounds i8, ptr %.085170, i64 8
+  %66 = getelementptr inbounds i8, ptr %.085170, i64 4
+  %67 = load i8, ptr %13, align 1
+  %.not.i = icmp eq i8 %67, 0
+  br i1 %.not.i, label %_ZL10rgbe2floatPfS_S_Ph.exit, label %68
 
-66:                                               ; preds = %63
-  %67 = zext i8 %65 to i32
-  %68 = add nsw i32 %67, -136
-  %69 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %68) #14
-  %70 = fptrunc double %69 to float
-  %71 = uitofp i8 %57 to float
-  %72 = fmul float %71, %70
-  %73 = load i8, ptr %12, align 1
-  %74 = insertelement <2 x i8> poison, i8 %73, i64 0
-  %75 = insertelement <2 x i8> %74, i8 %.lcssa201, i64 1
-  %76 = uitofp <2 x i8> %75 to <2 x float>
-  %77 = insertelement <2 x float> poison, float %70, i64 0
-  %78 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> zeroinitializer
-  %79 = fmul <2 x float> %78, %76
+68:                                               ; preds = %64
+  %69 = zext i8 %67 to i32
+  %70 = add nsw i32 %69, -136
+  %71 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %70) #14
+  %72 = fptrunc double %71 to float
+  %73 = uitofp i8 %58 to float
+  %74 = fmul float %73, %72
+  %75 = uitofp i8 %.lcssa201 to float
+  %76 = fmul float %75, %72
+  %77 = load i8, ptr %12, align 1
+  %78 = uitofp i8 %77 to float
+  %79 = fmul float %72, %78
   br label %_ZL10rgbe2floatPfS_S_Ph.exit
 
-_ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %63, %66
-  %.sink = phi float [ %72, %66 ], [ 0.000000e+00, %63 ]
-  %80 = phi <2 x float> [ %79, %66 ], [ zeroinitializer, %63 ]
-  store <2 x float> %80, ptr %.085170, align 4
-  store float %.sink, ptr %64, align 4
+_ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %64, %68
+  %.sink228 = phi float [ %79, %68 ], [ 0.000000e+00, %64 ]
+  %.sink227 = phi float [ %76, %68 ], [ 0.000000e+00, %64 ]
+  %.sink = phi float [ %74, %68 ], [ 0.000000e+00, %64 ]
+  store float %.sink228, ptr %.085170, align 4
+  store float %.sink227, ptr %66, align 4
+  store float %.sink, ptr %65, align 4
   tail call void @free(ptr noundef %.082172) #14
-  %81 = mul nuw nsw i32 %.084171, %2
+  %80 = mul nuw nsw i32 %.084171, %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %82 = icmp sgt i32 %81, 1
-  br i1 %82, label %.lr.ph.i99, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107
+  %81 = icmp sgt i32 %80, 1
+  br i1 %81, label %.lr.ph.i99, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107
 
 .lr.ph.i99:                                       ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit
-  %83 = getelementptr inbounds i8, ptr %5, i64 3
-  %84 = getelementptr inbounds i8, ptr %5, i64 1
+  %82 = getelementptr inbounds i8, ptr %5, i64 3
+  %83 = getelementptr inbounds i8, ptr %5, i64 1
+  %84 = getelementptr inbounds i8, ptr %5, i64 2
   br label %85
 
 85:                                               ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i103, %.lr.ph.i99
-  %.in.i100.in = phi i32 [ %81, %.lr.ph.i99 ], [ %.in.i100, %_ZL10rgbe2floatPfS_S_Ph.exit.i103 ]
+  %.in.i100.in = phi i32 [ %80, %.lr.ph.i99 ], [ %.in.i100, %_ZL10rgbe2floatPfS_S_Ph.exit.i103 ]
   %.085.pn = phi ptr [ %.085170, %.lr.ph.i99 ], [ %.068.i101, %_ZL10rgbe2floatPfS_S_Ph.exit.i103 ]
   %.068.i101 = getelementptr inbounds i8, ptr %.085.pn, i64 12
   %.in.i100 = add nsw i32 %.in.i100.in, -1
@@ -1260,40 +1272,43 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %63, %66
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %.085.pn, i64 20
-  %91 = load i8, ptr %83, align 1
-  %.not.i.i102 = icmp eq i8 %91, 0
-  br i1 %.not.i.i102, label %_ZL10rgbe2floatPfS_S_Ph.exit.i103, label %92
+  %91 = getelementptr inbounds i8, ptr %.085.pn, i64 16
+  %92 = load i8, ptr %82, align 1
+  %.not.i.i102 = icmp eq i8 %92, 0
+  br i1 %.not.i.i102, label %_ZL10rgbe2floatPfS_S_Ph.exit.i103, label %93
 
-92:                                               ; preds = %89
-  %93 = zext i8 %91 to i32
-  %94 = add nsw i32 %93, -136
-  %95 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %94) #14
-  %96 = fptrunc double %95 to float
-  %97 = load i8, ptr %5, align 1
-  %98 = uitofp i8 %97 to float
-  %99 = fmul float %96, %98
-  %100 = load <2 x i8>, ptr %84, align 1
-  %101 = uitofp <2 x i8> %100 to <2 x float>
-  %102 = insertelement <2 x float> poison, float %96, i64 0
-  %103 = shufflevector <2 x float> %102, <2 x float> poison, <2 x i32> zeroinitializer
-  %104 = fmul <2 x float> %103, %101
+93:                                               ; preds = %89
+  %94 = zext i8 %92 to i32
+  %95 = add nsw i32 %94, -136
+  %96 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %95) #14
+  %97 = fptrunc double %96 to float
+  %98 = load i8, ptr %5, align 1
+  %99 = uitofp i8 %98 to float
+  %100 = fmul float %97, %99
+  %101 = load i8, ptr %83, align 1
+  %102 = uitofp i8 %101 to float
+  %103 = fmul float %97, %102
+  %104 = load i8, ptr %84, align 1
+  %105 = uitofp i8 %104 to float
+  %106 = fmul float %97, %105
   br label %_ZL10rgbe2floatPfS_S_Ph.exit.i103
 
-_ZL10rgbe2floatPfS_S_Ph.exit.i103:                ; preds = %92, %89
-  %.sink.i106 = phi float [ %99, %92 ], [ 0.000000e+00, %89 ]
-  %105 = phi <2 x float> [ %104, %92 ], [ zeroinitializer, %89 ]
-  %106 = shufflevector <2 x float> %105, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %106, ptr %.068.i101, align 4
+_ZL10rgbe2floatPfS_S_Ph.exit.i103:                ; preds = %93, %89
+  %.sink10.i104 = phi float [ %106, %93 ], [ 0.000000e+00, %89 ]
+  %.sink9.i105 = phi float [ %103, %93 ], [ 0.000000e+00, %89 ]
+  %.sink.i106 = phi float [ %100, %93 ], [ 0.000000e+00, %89 ]
+  store float %.sink10.i104, ptr %.068.i101, align 4
+  store float %.sink9.i105, ptr %91, align 4
   store float %.sink.i106, ptr %90, align 4
   %107 = icmp ugt i32 %.in.i100, 1
   br i1 %107, label %85, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107, !llvm.loop !14
 
 _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i103, %_ZL10rgbe2floatPfS_S_Ph.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %189
+  br label %187
 
-108:                                              ; preds = %61
-  %109 = zext nneg i8 %62 to i32
+108:                                              ; preds = %62
+  %109 = zext nneg i8 %63 to i32
   %110 = shl nuw nsw i32 %109, 8
   %111 = load i8, ptr %13, align 1
   %112 = zext i8 %111 to i32
@@ -1426,7 +1441,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
 
 .lr.ph168:                                        ; preds = %.loopexit110, %_ZL10rgbe2floatPfS_S_Ph.exit109
   %indvars.iv223 = phi i64 [ %indvars.iv.next224, %_ZL10rgbe2floatPfS_S_Ph.exit109 ], [ 0, %.loopexit110 ]
-  %.186166 = phi ptr [ %186, %_ZL10rgbe2floatPfS_S_Ph.exit109 ], [ %.085170, %.loopexit110 ]
+  %.186166 = phi ptr [ %184, %_ZL10rgbe2floatPfS_S_Ph.exit109 ], [ %.085170, %.loopexit110 ]
   %160 = getelementptr inbounds i8, ptr %.183233, i64 %indvars.iv223
   %161 = load i8, ptr %160, align 1
   store i8 %161, ptr %7, align 1
@@ -1443,45 +1458,46 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
   %170 = load i8, ptr %169, align 1
   store i8 %170, ptr %13, align 1
   %171 = getelementptr inbounds i8, ptr %.186166, i64 8
+  %172 = getelementptr inbounds i8, ptr %.186166, i64 4
   %.not.i108 = icmp eq i8 %170, 0
-  br i1 %.not.i108, label %_ZL10rgbe2floatPfS_S_Ph.exit109, label %172
+  br i1 %.not.i108, label %_ZL10rgbe2floatPfS_S_Ph.exit109, label %173
 
-172:                                              ; preds = %.lr.ph168
-  %173 = zext i8 %170 to i32
-  %174 = add nsw i32 %173, -136
-  %175 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %174) #14
-  %176 = fptrunc double %175 to float
-  %177 = uitofp i8 %161 to float
-  %178 = fmul float %177, %176
-  %179 = insertelement <2 x i8> poison, i8 %167, i64 0
-  %180 = insertelement <2 x i8> %179, i8 %164, i64 1
-  %181 = uitofp <2 x i8> %180 to <2 x float>
-  %182 = insertelement <2 x float> poison, float %176, i64 0
-  %183 = shufflevector <2 x float> %182, <2 x float> poison, <2 x i32> zeroinitializer
-  %184 = fmul <2 x float> %183, %181
+173:                                              ; preds = %.lr.ph168
+  %174 = zext i8 %170 to i32
+  %175 = add nsw i32 %174, -136
+  %176 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %175) #14
+  %177 = fptrunc double %176 to float
+  %178 = uitofp i8 %161 to float
+  %179 = fmul float %178, %177
+  %180 = uitofp i8 %164 to float
+  %181 = fmul float %180, %177
+  %182 = uitofp i8 %167 to float
+  %183 = fmul float %182, %177
   br label %_ZL10rgbe2floatPfS_S_Ph.exit109
 
-_ZL10rgbe2floatPfS_S_Ph.exit109:                  ; preds = %.lr.ph168, %172
-  %.sink229 = phi float [ %178, %172 ], [ 0.000000e+00, %.lr.ph168 ]
-  %185 = phi <2 x float> [ %184, %172 ], [ zeroinitializer, %.lr.ph168 ]
-  store <2 x float> %185, ptr %.186166, align 4
+_ZL10rgbe2floatPfS_S_Ph.exit109:                  ; preds = %.lr.ph168, %173
+  %.sink231 = phi float [ %183, %173 ], [ 0.000000e+00, %.lr.ph168 ]
+  %.sink230 = phi float [ %181, %173 ], [ 0.000000e+00, %.lr.ph168 ]
+  %.sink229 = phi float [ %179, %173 ], [ 0.000000e+00, %.lr.ph168 ]
+  store float %.sink231, ptr %.186166, align 4
+  store float %.sink230, ptr %172, align 4
   store float %.sink229, ptr %171, align 4
-  %186 = getelementptr inbounds i8, ptr %.186166, i64 12
+  %184 = getelementptr inbounds i8, ptr %.186166, i64 12
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next224, %19
   br i1 %exitcond226.not, label %._crit_edge, label %.lr.ph168, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit109
-  %187 = add nsw i32 %.084171, -1
-  %188 = icmp sgt i32 %.084171, 1
-  br i1 %188, label %52, label %._crit_edge174, !llvm.loop !26
+  %185 = add nsw i32 %.084171, -1
+  %186 = icmp sgt i32 %.084171, 1
+  br i1 %186, label %53, label %._crit_edge174, !llvm.loop !26
 
 ._crit_edge174:                                   ; preds = %._crit_edge, %.preheader113
   %.082.lcssa = phi ptr [ null, %.preheader113 ], [ %.183233, %._crit_edge ]
   tail call void @free(ptr noundef %.082.lcssa) #14
-  br label %189
+  br label %187
 
-189:                                              ; preds = %._crit_edge174, %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107, %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit
+187:                                              ; preds = %._crit_edge174, %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107, %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit
   ret i32 0
 }
 

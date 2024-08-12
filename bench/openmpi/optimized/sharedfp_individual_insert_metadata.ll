@@ -146,64 +146,67 @@ define i32 @mca_sharedfp_individual_write_metadata_file(ptr nocapture noundef re
   %20 = getelementptr inbounds i8, ptr %5, i64 16
   br label %21
 
-21:                                               ; preds = %.lr.ph, %44
-  %.02228 = phi ptr [ %15, %.lr.ph ], [ %40, %44 ]
+21:                                               ; preds = %.lr.ph, %46
+  %.02228 = phi ptr [ %15, %.lr.ph ], [ %42, %46 ]
   %22 = load i64, ptr %.02228, align 8
   store i64 %22, ptr %2, align 8
   %23 = getelementptr inbounds i8, ptr %.02228, i64 8
   %24 = load double, ptr %23, align 8
   store double %24, ptr %16, align 8
   %25 = getelementptr inbounds i8, ptr %.02228, i64 16
-  %26 = load <2 x i64>, ptr %25, align 8
-  store <2 x i64> %26, ptr %17, align 8
-  %27 = load i32, ptr @mca_sharedfp_individual_verbose, align 4
-  %.not25 = icmp eq i32 %27, 0
-  br i1 %.not25, label %37, label %28
+  %26 = load i64, ptr %25, align 8
+  store i64 %26, ptr %17, align 8
+  %27 = getelementptr inbounds i8, ptr %.02228, i64 24
+  %28 = load i64, ptr %27, align 8
+  store i64 %28, ptr %18, align 8
+  %29 = load i32, ptr @mca_sharedfp_individual_verbose, align 4
+  %.not25 = icmp eq i32 %29, 0
+  br i1 %.not25, label %39, label %30
 
-28:                                               ; preds = %21
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %29, ptr noundef nonnull @.str.3, i64 noundef %22) #4
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %31 = load double, ptr %16, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %30, ptr noundef nonnull @.str.4, double noundef %31) #4
+30:                                               ; preds = %21
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %31, ptr noundef nonnull @.str.3, i64 noundef %22) #4
   %32 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %33 = load i64, ptr %17, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %32, ptr noundef nonnull @.str.5, i64 noundef %33) #4
+  %33 = load double, ptr %16, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %32, ptr noundef nonnull @.str.4, double noundef %33) #4
   %34 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %35 = load i64, ptr %18, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %34, ptr noundef nonnull @.str.6, i64 noundef %35) #4
+  %35 = load i64, ptr %17, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %34, ptr noundef nonnull @.str.5, i64 noundef %35) #4
   %36 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %36, ptr noundef nonnull @.str.7, i64 noundef 32) #4
-  br label %37
+  %37 = load i64, ptr %18, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %36, ptr noundef nonnull @.str.6, i64 noundef %37) #4
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %38, ptr noundef nonnull @.str.7, i64 noundef 32) #4
+  br label %39
 
-37:                                               ; preds = %28, %21
-  %38 = getelementptr inbounds i8, ptr %.02228, i64 32
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %14, align 8
+39:                                               ; preds = %30, %21
+  %40 = getelementptr inbounds i8, ptr %.02228, i64 32
+  %41 = load ptr, ptr %40, align 8
+  store ptr %41, ptr %14, align 8
   call void @free(ptr noundef nonnull %.02228) #4
-  %40 = load ptr, ptr %14, align 8
-  %41 = load ptr, ptr %19, align 8
-  %42 = load i64, ptr %20, align 8
-  %43 = call i32 @mca_common_ompio_file_write_at(ptr noundef %41, i64 noundef %42, ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %3) #4
-  %.not26 = icmp eq i32 %43, 0
-  br i1 %.not26, label %44, label %.loopexit
+  %42 = load ptr, ptr %14, align 8
+  %43 = load ptr, ptr %19, align 8
+  %44 = load i64, ptr %20, align 8
+  %45 = call i32 @mca_common_ompio_file_write_at(ptr noundef %43, i64 noundef %44, ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %3) #4
+  %.not26 = icmp eq i32 %45, 0
+  br i1 %.not26, label %46, label %.loopexit
 
-44:                                               ; preds = %37
-  %45 = load i32, ptr %6, align 4
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %6, align 4
-  %47 = load i64, ptr %20, align 8
-  %48 = add i64 %47, 32
-  store i64 %48, ptr %20, align 8
-  %.not = icmp eq ptr %40, null
+46:                                               ; preds = %39
+  %47 = load i32, ptr %6, align 4
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %6, align 4
+  %49 = load i64, ptr %20, align 8
+  %50 = add i64 %49, 32
+  store i64 %50, ptr %20, align 8
+  %.not = icmp eq ptr %42, null
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %44, %13
+._crit_edge:                                      ; preds = %46, %13
   store i32 0, ptr %5, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %37, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %43, %37 ]
+.loopexit:                                        ; preds = %39, %._crit_edge
+  %.1 = phi i32 [ 0, %._crit_edge ], [ %45, %39 ]
   ret i32 %.1
 }
 

@@ -1877,7 +1877,7 @@ define ptr @Abc_NtkFraigRestore(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
 
 8:                                                ; preds = %3
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  br label %61
+  br label %64
 
 9:                                                ; preds = %3
   %10 = getelementptr i8, ptr %5, i64 8
@@ -1954,44 +1954,50 @@ Vec_PtrPush.exit:                                 ; preds = %Vec_PtrPush.exit.si
   %45 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %2, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %4, i64 16
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 36
-  store i32 0, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 1, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %4, i64 40
-  store i32 0, ptr %50, align 8
-  %51 = call ptr @Abc_NtkFraigPartitioned(ptr noundef nonnull %5, ptr noundef nonnull %4) #11
-  %52 = call ptr (...) @Abc_FrameReadStore() #11
-  %53 = getelementptr i8, ptr %52, i64 4
-  %.val7.i = load i32, ptr %53, align 4
-  %54 = icmp sgt i32 %.val7.i, 0
-  br i1 %54, label %.lr.ph.i, label %Abc_NtkFraigStoreClean.exit
+  store i32 1, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 1, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 1, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %4, i64 28
+  store i32 1, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 1, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %4, i64 36
+  store i32 0, ptr %51, align 4
+  %52 = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 1, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %4, i64 40
+  store i32 0, ptr %53, align 8
+  %54 = call ptr @Abc_NtkFraigPartitioned(ptr noundef nonnull %5, ptr noundef nonnull %4) #11
+  %55 = call ptr (...) @Abc_FrameReadStore() #11
+  %56 = getelementptr i8, ptr %55, i64 4
+  %.val7.i = load i32, ptr %56, align 4
+  %57 = icmp sgt i32 %.val7.i, 0
+  br i1 %57, label %.lr.ph.i, label %Abc_NtkFraigStoreClean.exit
 
 .lr.ph.i:                                         ; preds = %34
-  %55 = getelementptr i8, ptr %52, i64 8
-  br label %56
+  %58 = getelementptr i8, ptr %55, i64 8
+  br label %59
 
-56:                                               ; preds = %56, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
-  %.val6.i = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds ptr, ptr %.val6.i, i64 %indvars.iv.i
-  %58 = load ptr, ptr %57, align 8
-  call void @Abc_NtkDelete(ptr noundef %58) #11
+59:                                               ; preds = %59, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %59 ]
+  %.val6.i = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds ptr, ptr %.val6.i, i64 %indvars.iv.i
+  %61 = load ptr, ptr %60, align 8
+  call void @Abc_NtkDelete(ptr noundef %61) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.val.i = load i32, ptr %53, align 4
-  %59 = sext i32 %.val.i to i64
-  %60 = icmp slt i64 %indvars.iv.next.i, %59
-  br i1 %60, label %56, label %Abc_NtkFraigStoreClean.exit, !llvm.loop !30
+  %.val.i = load i32, ptr %56, align 4
+  %62 = sext i32 %.val.i to i64
+  %63 = icmp slt i64 %indvars.iv.next.i, %62
+  br i1 %63, label %59, label %Abc_NtkFraigStoreClean.exit, !llvm.loop !30
 
-Abc_NtkFraigStoreClean.exit:                      ; preds = %56, %34
-  store i32 0, ptr %53, align 4
-  br label %61
+Abc_NtkFraigStoreClean.exit:                      ; preds = %59, %34
+  store i32 0, ptr %56, align 4
+  br label %64
 
-61:                                               ; preds = %Abc_NtkFraigStoreClean.exit, %8
-  %.0 = phi ptr [ null, %8 ], [ %51, %Abc_NtkFraigStoreClean.exit ]
+64:                                               ; preds = %Abc_NtkFraigStoreClean.exit, %8
+  %.0 = phi ptr [ null, %8 ], [ %54, %Abc_NtkFraigStoreClean.exit ]
   ret ptr %.0
 }
 

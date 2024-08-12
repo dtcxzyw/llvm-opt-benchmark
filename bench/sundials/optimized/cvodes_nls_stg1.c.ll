@@ -442,7 +442,7 @@ define internal range(i32 -21, 903) i32 @cvNlsLSetupSensStg1(i32 noundef %0, ptr
 
 5:                                                ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 205, ptr noundef nonnull @__func__.cvNlsLSetupSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
-  br label %38
+  br label %42
 
 6:                                                ; preds = %3
   %.not = icmp eq i32 %0, 0
@@ -474,33 +474,39 @@ define internal range(i32 -21, 903) i32 @cvNlsLSetupSensStg1(i32 noundef %0, ptr
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %11(ptr noundef nonnull %2, i32 noundef %9, ptr noundef %13, ptr noundef %15, ptr noundef nonnull %16, ptr noundef %18, ptr noundef %20, ptr noundef %22) #2
   %24 = getelementptr inbounds i8, ptr %2, i64 1736
-  %25 = load <2 x i64>, ptr %24, align 8
-  %26 = add nsw <2 x i64> %25, <i64 1, i64 1>
-  store <2 x i64> %26, ptr %24, align 8
-  %27 = load i32, ptr %16, align 8
-  store i32 %27, ptr %1, align 4
-  %28 = getelementptr inbounds i8, ptr %2, i64 1336
-  %29 = getelementptr inbounds i8, ptr %2, i64 1320
-  %30 = load double, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 1328
-  store double %30, ptr %31, align 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 1352
-  store double 1.000000e+00, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 1576
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 2048
-  store i64 %34, ptr %35, align 8
-  %36 = icmp slt i32 %23, 0
-  br i1 %36, label %38, label %37
+  %25 = load i64, ptr %24, align 8
+  %26 = add nsw i64 %25, 1
+  store i64 %26, ptr %24, align 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 1744
+  %28 = load i64, ptr %27, align 8
+  %29 = add nsw i64 %28, 1
+  store i64 %29, ptr %27, align 8
+  %30 = load i32, ptr %16, align 8
+  store i32 %30, ptr %1, align 4
+  %31 = getelementptr inbounds i8, ptr %2, i64 1336
+  store double 1.000000e+00, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 1320
+  %33 = load double, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 1328
+  store double %33, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 1344
+  store double 1.000000e+00, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %2, i64 1352
+  store double 1.000000e+00, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %2, i64 1576
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %2, i64 2048
+  store i64 %38, ptr %39, align 8
+  %40 = icmp slt i32 %23, 0
+  br i1 %40, label %42, label %41
 
-37:                                               ; preds = %8
+41:                                               ; preds = %8
   %.not28 = icmp eq i32 %23, 0
   %. = select i1 %.not28, i32 0, i32 902
-  br label %38
+  br label %42
 
-38:                                               ; preds = %37, %8, %5
-  %.0 = phi i32 [ -21, %5 ], [ -6, %8 ], [ %., %37 ]
+42:                                               ; preds = %41, %8, %5
+  %.0 = phi i32 [ -21, %5 ], [ -6, %8 ], [ %., %41 ]
   ret i32 %.0
 }
 

@@ -748,59 +748,53 @@ define hidden void @_ZN11StringTable15gc_notificationEm(i64 noundef %0) #0 align
 
 7:                                                ; preds = %4
   %8 = load volatile i64, ptr @_ZL12_items_count, align 8
-  %9 = load i64, ptr @_ZL13_current_size, align 8
-  %10 = uitofp i64 %9 to double
-  %11 = insertelement <2 x i64> poison, i64 %0, i64 0
-  %12 = insertelement <2 x i64> %11, i64 %8, i64 1
-  %13 = uitofp <2 x i64> %12 to <2 x double>
-  %14 = insertelement <2 x double> poison, double %10, i64 0
-  %15 = shufflevector <2 x double> %14, <2 x double> poison, <2 x i32> zeroinitializer
-  %16 = fdiv <2 x double> %13, %15
-  %17 = shufflevector <2 x double> %16, <2 x double> <double poison, double 2.000000e+00>, <2 x i32> <i32 1, i32 3>
-  %18 = fcmp ogt <2 x double> %16, %17
-  %shift = shufflevector <2 x i1> %18, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %19 = or <2 x i1> %18, %shift
-  %or.cond = extractelement <2 x i1> %19, i64 0
-  %20 = extractelement <2 x double> %16, i64 0
-  %21 = fcmp ogt double %20, 5.000000e-01
-  %or.cond3 = or i1 %21, %or.cond
-  br i1 %or.cond3, label %22, label %_ZN11StringTable23trigger_concurrent_workEv.exit
+  %9 = uitofp i64 %8 to double
+  %10 = load i64, ptr @_ZL13_current_size, align 8
+  %11 = uitofp i64 %10 to double
+  %12 = fdiv double %9, %11
+  %13 = uitofp i64 %0 to double
+  %14 = fdiv double %13, %11
+  %15 = fcmp ogt double %14, %12
+  %16 = fcmp ogt double %12, 2.000000e+00
+  %or.cond = or i1 %15, %16
+  %17 = fcmp ogt double %14, 5.000000e-01
+  %or.cond3 = or i1 %17, %or.cond
+  br i1 %or.cond3, label %18, label %_ZN11StringTable23trigger_concurrent_workEv.exit
 
-22:                                               ; preds = %7
-  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE149ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not10 = icmp eq ptr %23, null
-  br i1 %.not10, label %26, label %24
+18:                                               ; preds = %7
+  %19 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE149ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not10 = icmp eq ptr %19, null
+  br i1 %.not10, label %21, label %20
 
-24:                                               ; preds = %22
-  %25 = extractelement <2 x double> %16, i64 1
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE149ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.14, double noundef %25, double noundef %20)
-  br label %26
+20:                                               ; preds = %18
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE149ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.14, double noundef %12, double noundef %14)
+  br label %21
 
-26:                                               ; preds = %22, %24
-  %27 = load volatile i8, ptr @_ZN11StringTable9_has_workE, align 1
-  %28 = trunc i8 %27 to i1
+21:                                               ; preds = %18, %20
+  %22 = load volatile i8, ptr @_ZN11StringTable9_has_workE, align 1
+  %23 = trunc i8 %22 to i1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
-  br i1 %28, label %_ZN11StringTable23trigger_concurrent_workEv.exit, label %29
+  br i1 %23, label %_ZN11StringTable23trigger_concurrent_workEv.exit, label %24
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr @Service_lock, align 8
-  %.not.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i, label %31
+24:                                               ; preds = %21
+  %25 = load ptr, ptr @Service_lock, align 8
+  %.not.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i, label %26
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i: ; preds = %29
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i: ; preds = %24
   store volatile i8 1, ptr @_ZN11StringTable9_has_workE, align 1
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) null) #17
   br label %_ZN11StringTable23trigger_concurrent_workEv.exit
 
-31:                                               ; preds = %29
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %30) #17
+26:                                               ; preds = %24
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %25) #17
   store volatile i8 1, ptr @_ZN11StringTable9_has_workE, align 1
-  %32 = load ptr, ptr @Service_lock, align 8
-  tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %32) #17
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %30) #17
+  %27 = load ptr, ptr @Service_lock, align 8
+  tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %27) #17
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %25) #17
   br label %_ZN11StringTable23trigger_concurrent_workEv.exit
 
-_ZN11StringTable23trigger_concurrent_workEv.exit: ; preds = %31, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i, %26, %7, %4
+_ZN11StringTable23trigger_concurrent_workEv.exit: ; preds = %26, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i, %21, %7, %4
   ret void
 }
 
@@ -928,72 +922,74 @@ define hidden noundef ptr @_ZN11StringTable6lookupEP6Symbol(ptr noundef nonnull 
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load <2 x ptr>, ptr %9, align 8
-  %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
-  %13 = load i64, ptr %12, align 8
-  %14 = call noundef ptr @_ZNK6Symbol10as_unicodeERi(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %2) #17
-  %15 = load i32, ptr %2, align 4
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = call noundef ptr @_ZNK6Symbol10as_unicodeERi(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %2) #17
+  %16 = load i32, ptr %2, align 4
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
-  %.08.i.i = phi i32 [ %21, %.lr.ph.i.i ], [ 0, %1 ]
-  %.047.i.i = phi i32 [ %17, %.lr.ph.i.i ], [ %15, %1 ]
-  %.056.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %14, %1 ]
-  %17 = add nsw i32 %.047.i.i, -1
-  %18 = mul i32 %.08.i.i, 31
-  %19 = load i16, ptr %.056.i.i, align 2
-  %20 = zext i16 %19 to i32
-  %21 = add i32 %18, %20
-  %22 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
-  %23 = icmp ugt i32 %.047.i.i, 1
-  br i1 %23, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i, !llvm.loop !12
+  %.08.i.i = phi i32 [ %22, %.lr.ph.i.i ], [ 0, %1 ]
+  %.047.i.i = phi i32 [ %18, %.lr.ph.i.i ], [ %16, %1 ]
+  %.056.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %15, %1 ]
+  %18 = add nsw i32 %.047.i.i, -1
+  %19 = mul i32 %.08.i.i, 31
+  %20 = load i16, ptr %.056.i.i, align 2
+  %21 = zext i16 %20 to i32
+  %22 = add i32 %19, %21
+  %23 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
+  %24 = icmp ugt i32 %.047.i.i, 1
+  br i1 %24, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i, !llvm.loop !12
 
 _ZN16java_lang_String9hash_codeEPKti.exit.i:      ; preds = %.lr.ph.i.i, %1
-  %.0.lcssa.i.i = phi i32 [ 0, %1 ], [ %21, %.lr.ph.i.i ]
-  %24 = call noundef ptr @_ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE6lookupES1_ji(ptr noundef nonnull align 8 dereferenceable(32) @_ZL13_shared_table, ptr noundef %14, i32 noundef %.0.lcssa.i.i, i32 noundef %15)
-  %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %25, label %_ZN11StringTable6lookupEPKti.exit
+  %.0.lcssa.i.i = phi i32 [ 0, %1 ], [ %22, %.lr.ph.i.i ]
+  %25 = call noundef ptr @_ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE6lookupES1_ji(ptr noundef nonnull align 8 dereferenceable(32) @_ZL13_shared_table, ptr noundef %15, i32 noundef %.0.lcssa.i.i, i32 noundef %16)
+  %.not.i = icmp eq ptr %25, null
+  br i1 %.not.i, label %26, label %_ZN11StringTable6lookupEPKti.exit
 
-25:                                               ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i
-  %26 = load volatile i8, ptr @_alt_hash, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %31
+26:                                               ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i
+  %27 = load volatile i8, ptr @_alt_hash, align 1
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %25
-  %29 = load i64, ptr @_ZL14_alt_hash_seed, align 8
-  %30 = call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %29, ptr noundef %14, i32 noundef %15) #17
-  br label %31
+29:                                               ; preds = %26
+  %30 = load i64, ptr @_ZL14_alt_hash_seed, align 8
+  %31 = call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %30, ptr noundef %15, i32 noundef %16) #17
+  br label %32
 
-31:                                               ; preds = %28, %25
-  %.012.i = phi i32 [ %30, %28 ], [ %.0.lcssa.i.i, %25 ]
-  %32 = zext i32 %.012.i to i64
-  %33 = call noundef ptr @_ZN11StringTable9do_lookupEPKtim(ptr noundef %14, i32 noundef %15, i64 noundef %32)
+32:                                               ; preds = %29, %26
+  %.012.i = phi i32 [ %31, %29 ], [ %.0.lcssa.i.i, %26 ]
+  %33 = zext i32 %.012.i to i64
+  %34 = call noundef ptr @_ZN11StringTable9do_lookupEPKtim(ptr noundef %15, i32 noundef %16, i64 noundef %33)
   br label %_ZN11StringTable6lookupEPKti.exit
 
-_ZN11StringTable6lookupEPKti.exit:                ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i, %31
-  %.0.i = phi ptr [ %33, %31 ], [ %24, %_ZN16java_lang_String9hash_codeEPKti.exit.i ]
-  %34 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i, label %36, label %35
+_ZN11StringTable6lookupEPKti.exit:                ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i, %32
+  %.0.i = phi ptr [ %34, %32 ], [ %25, %_ZN16java_lang_String9hash_codeEPKti.exit.i ]
+  %35 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i, label %37, label %36
 
-35:                                               ; preds = %_ZN11StringTable6lookupEPKti.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13) #17
+36:                                               ; preds = %_ZN11StringTable6lookupEPKti.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #17
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #17
-  br label %36
+  br label %37
 
-36:                                               ; preds = %35, %_ZN11StringTable6lookupEPKti.exit
-  %37 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %37, %11
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %38
+37:                                               ; preds = %36, %_ZN11StringTable6lookupEPKti.exit
+  %38 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %38, %10
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %39
 
-38:                                               ; preds = %36
+39:                                               ; preds = %37
   store ptr %8, ptr %7, align 8
-  store <2 x ptr> %10, ptr %9, align 8
+  store ptr %10, ptr %9, align 8
+  store ptr %12, ptr %11, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %36, %38
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %37, %39
   ret ptr %.0.i
 }
 
@@ -1187,82 +1183,84 @@ define hidden noundef ptr @_ZN11StringTable6internEP6SymbolP10JavaThread(ptr nou
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load <2 x ptr>, ptr %10, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = call noundef ptr @_ZNK6Symbol10as_unicodeERi(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %3) #17
-  %16 = load i32, ptr %3, align 4
-  %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = load i64, ptr %14, align 8
+  %16 = call noundef ptr @_ZNK6Symbol10as_unicodeERi(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %3) #17
+  %17 = load i32, ptr %3, align 4
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i
 
 .lr.ph.i.i:                                       ; preds = %5, %.lr.ph.i.i
-  %.08.i.i = phi i32 [ %22, %.lr.ph.i.i ], [ 0, %5 ]
-  %.047.i.i = phi i32 [ %18, %.lr.ph.i.i ], [ %16, %5 ]
-  %.056.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %15, %5 ]
-  %18 = add nsw i32 %.047.i.i, -1
-  %19 = mul i32 %.08.i.i, 31
-  %20 = load i16, ptr %.056.i.i, align 2
-  %21 = zext i16 %20 to i32
-  %22 = add i32 %19, %21
-  %23 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
-  %24 = icmp ugt i32 %.047.i.i, 1
-  br i1 %24, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i, !llvm.loop !12
+  %.08.i.i = phi i32 [ %23, %.lr.ph.i.i ], [ 0, %5 ]
+  %.047.i.i = phi i32 [ %19, %.lr.ph.i.i ], [ %17, %5 ]
+  %.056.i.i = phi ptr [ %24, %.lr.ph.i.i ], [ %16, %5 ]
+  %19 = add nsw i32 %.047.i.i, -1
+  %20 = mul i32 %.08.i.i, 31
+  %21 = load i16, ptr %.056.i.i, align 2
+  %22 = zext i16 %21 to i32
+  %23 = add i32 %20, %22
+  %24 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
+  %25 = icmp ugt i32 %.047.i.i, 1
+  br i1 %25, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i, !llvm.loop !12
 
 _ZN16java_lang_String9hash_codeEPKti.exit.i:      ; preds = %.lr.ph.i.i, %5
-  %.0.lcssa.i.i = phi i32 [ 0, %5 ], [ %22, %.lr.ph.i.i ]
-  %25 = call noundef ptr @_ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE6lookupES1_ji(ptr noundef nonnull align 8 dereferenceable(32) @_ZL13_shared_table, ptr noundef %15, i32 noundef %.0.lcssa.i.i, i32 noundef %16)
-  %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %26, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
+  %.0.lcssa.i.i = phi i32 [ 0, %5 ], [ %23, %.lr.ph.i.i ]
+  %26 = call noundef ptr @_ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE6lookupES1_ji(ptr noundef nonnull align 8 dereferenceable(32) @_ZL13_shared_table, ptr noundef %16, i32 noundef %.0.lcssa.i.i, i32 noundef %17)
+  %.not.i = icmp eq ptr %26, null
+  br i1 %.not.i, label %27, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
-26:                                               ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i
-  %27 = load volatile i8, ptr @_alt_hash, align 1
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %29, label %32
+27:                                               ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i
+  %28 = load volatile i8, ptr @_alt_hash, align 1
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %33
 
-29:                                               ; preds = %26
-  %30 = load i64, ptr @_ZL14_alt_hash_seed, align 8
-  %31 = call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %30, ptr noundef %15, i32 noundef %16) #17
-  br label %32
+30:                                               ; preds = %27
+  %31 = load i64, ptr @_ZL14_alt_hash_seed, align 8
+  %32 = call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %31, ptr noundef %16, i32 noundef %17) #17
+  br label %33
 
-32:                                               ; preds = %29, %26
-  %.019.i = phi i32 [ %31, %29 ], [ %.0.lcssa.i.i, %26 ]
-  %33 = zext i32 %.019.i to i64
-  %34 = call noundef ptr @_ZN11StringTable9do_lookupEPKtim(ptr noundef %15, i32 noundef %16, i64 noundef %33)
-  %.not22.i = icmp eq ptr %34, null
-  br i1 %.not22.i, label %35, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
+33:                                               ; preds = %30, %27
+  %.019.i = phi i32 [ %32, %30 ], [ %.0.lcssa.i.i, %27 ]
+  %34 = zext i32 %.019.i to i64
+  %35 = call noundef ptr @_ZN11StringTable9do_lookupEPKtim(ptr noundef %16, i32 noundef %17, i64 noundef %34)
+  %.not22.i = icmp eq ptr %35, null
+  br i1 %.not22.i, label %36, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
-35:                                               ; preds = %32
-  %36 = call noundef ptr @_ZN11StringTable9do_internE6HandlePKtimP10JavaThread(ptr null, ptr noundef %15, i32 noundef %16, i64 noundef %33, ptr noundef %1)
+36:                                               ; preds = %33
+  %37 = call noundef ptr @_ZN11StringTable9do_internE6HandlePKtimP10JavaThread(ptr null, ptr noundef %16, i32 noundef %17, i64 noundef %34, ptr noundef %1)
   br label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
-_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit: ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i, %32, %35
-  %.0.i = phi ptr [ %36, %35 ], [ %25, %_ZN16java_lang_String9hash_codeEPKti.exit.i ], [ %34, %32 ]
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %.not = icmp eq ptr %38, null
+_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit: ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i, %33, %36
+  %.0.i = phi ptr [ %37, %36 ], [ %26, %_ZN16java_lang_String9hash_codeEPKti.exit.i ], [ %35, %33 ]
+  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %.not = icmp eq ptr %39, null
   %. = select i1 %.not, ptr %.0.i, ptr null
-  %39 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.i, label %41, label %40
+  %40 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i.i.i, label %42, label %41
 
-40:                                               ; preds = %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %14) #17
+41:                                               ; preds = %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #17
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #17
-  br label %41
+  br label %42
 
-41:                                               ; preds = %40, %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
-  %42 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %42, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %43
+42:                                               ; preds = %41, %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
+  %43 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %43, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %44
 
-43:                                               ; preds = %41
+44:                                               ; preds = %42
   store ptr %9, ptr %8, align 8
-  store <2 x ptr> %11, ptr %10, align 8
+  store ptr %11, ptr %10, align 8
+  store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %43, %41, %2
-  %.0 = phi ptr [ null, %2 ], [ %., %41 ], [ %., %43 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %42, %2
+  %.0 = phi ptr [ null, %2 ], [ %., %42 ], [ %., %44 ]
   ret ptr %.0
 }
 
@@ -1331,115 +1329,117 @@ define hidden noundef ptr @_ZN11StringTable6internEP7oopDescP10JavaThread(ptr no
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load <2 x ptr>, ptr %10, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 808
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %18 to i64
-  %22 = ptrtoint ptr %20 to i64
-  %23 = sub i64 %21, %22
-  %.not.i.i.i.i = icmp ult i64 %23, 8
-  br i1 %.not.i.i.i.i, label %26, label %24
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 808
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %17, i64 32
+  %21 = load ptr, ptr %20, align 8
+  %22 = ptrtoint ptr %19 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = sub i64 %22, %23
+  %.not.i.i.i.i = icmp ult i64 %24, 8
+  br i1 %.not.i.i.i.i, label %27, label %25
 
-24:                                               ; preds = %5
-  %25 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %25, ptr %19, align 8
+25:                                               ; preds = %5
+  %26 = getelementptr inbounds i8, ptr %21, i64 8
+  store ptr %26, ptr %20, align 8
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
-26:                                               ; preds = %5
-  %27 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef 8, i32 noundef 0) #17
+27:                                               ; preds = %5
+  %28 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 noundef 8, i32 noundef 0) #17
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
-_ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %24, %26
-  %.0.i.i.i.i = phi ptr [ %20, %24 ], [ %27, %26 ]
+_ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %25, %27
+  %.0.i.i.i.i = phi ptr [ %21, %25 ], [ %28, %27 ]
   store ptr %0, ptr %.0.i.i.i.i, align 8
-  %28 = call noundef ptr @_ZN16java_lang_String17as_unicode_stringEP7oopDescRiP10JavaThread(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %1) #17
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %31, label %54
+  %29 = call noundef ptr @_ZN16java_lang_String17as_unicode_stringEP7oopDescRiP10JavaThread(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %1) #17
+  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %32, label %55
 
-31:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
-  %32 = load i32, ptr %3, align 4
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i
+32:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
+  %33 = load i32, ptr %3, align 4
+  %34 = icmp sgt i32 %33, 0
+  br i1 %34, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i
 
-.lr.ph.i.i:                                       ; preds = %31, %.lr.ph.i.i
-  %.08.i.i = phi i32 [ %38, %.lr.ph.i.i ], [ 0, %31 ]
-  %.047.i.i = phi i32 [ %34, %.lr.ph.i.i ], [ %32, %31 ]
-  %.056.i.i = phi ptr [ %39, %.lr.ph.i.i ], [ %28, %31 ]
-  %34 = add nsw i32 %.047.i.i, -1
-  %35 = mul i32 %.08.i.i, 31
-  %36 = load i16, ptr %.056.i.i, align 2
-  %37 = zext i16 %36 to i32
-  %38 = add i32 %35, %37
-  %39 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
-  %40 = icmp ugt i32 %.047.i.i, 1
-  br i1 %40, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i, !llvm.loop !12
+.lr.ph.i.i:                                       ; preds = %32, %.lr.ph.i.i
+  %.08.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %32 ]
+  %.047.i.i = phi i32 [ %35, %.lr.ph.i.i ], [ %33, %32 ]
+  %.056.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %29, %32 ]
+  %35 = add nsw i32 %.047.i.i, -1
+  %36 = mul i32 %.08.i.i, 31
+  %37 = load i16, ptr %.056.i.i, align 2
+  %38 = zext i16 %37 to i32
+  %39 = add i32 %36, %38
+  %40 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
+  %41 = icmp ugt i32 %.047.i.i, 1
+  br i1 %41, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i, !llvm.loop !12
 
-_ZN16java_lang_String9hash_codeEPKti.exit.i:      ; preds = %.lr.ph.i.i, %31
-  %.0.lcssa.i.i = phi i32 [ 0, %31 ], [ %38, %.lr.ph.i.i ]
-  %41 = call noundef ptr @_ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE6lookupES1_ji(ptr noundef nonnull align 8 dereferenceable(32) @_ZL13_shared_table, ptr noundef %28, i32 noundef %.0.lcssa.i.i, i32 noundef %32)
-  %.not.i = icmp eq ptr %41, null
-  br i1 %.not.i, label %42, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
+_ZN16java_lang_String9hash_codeEPKti.exit.i:      ; preds = %.lr.ph.i.i, %32
+  %.0.lcssa.i.i = phi i32 [ 0, %32 ], [ %39, %.lr.ph.i.i ]
+  %42 = call noundef ptr @_ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE6lookupES1_ji(ptr noundef nonnull align 8 dereferenceable(32) @_ZL13_shared_table, ptr noundef %29, i32 noundef %.0.lcssa.i.i, i32 noundef %33)
+  %.not.i = icmp eq ptr %42, null
+  br i1 %.not.i, label %43, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
-42:                                               ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i
-  %43 = load volatile i8, ptr @_alt_hash, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %48
+43:                                               ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i
+  %44 = load volatile i8, ptr @_alt_hash, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %49
 
-45:                                               ; preds = %42
-  %46 = load i64, ptr @_ZL14_alt_hash_seed, align 8
-  %47 = call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %46, ptr noundef %28, i32 noundef %32) #17
-  br label %48
+46:                                               ; preds = %43
+  %47 = load i64, ptr @_ZL14_alt_hash_seed, align 8
+  %48 = call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %47, ptr noundef %29, i32 noundef %33) #17
+  br label %49
 
-48:                                               ; preds = %45, %42
-  %.019.i = phi i32 [ %47, %45 ], [ %.0.lcssa.i.i, %42 ]
-  %49 = zext i32 %.019.i to i64
-  %50 = call noundef ptr @_ZN11StringTable9do_lookupEPKtim(ptr noundef %28, i32 noundef %32, i64 noundef %49)
-  %.not22.i = icmp eq ptr %50, null
-  br i1 %.not22.i, label %51, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
+49:                                               ; preds = %46, %43
+  %.019.i = phi i32 [ %48, %46 ], [ %.0.lcssa.i.i, %43 ]
+  %50 = zext i32 %.019.i to i64
+  %51 = call noundef ptr @_ZN11StringTable9do_lookupEPKtim(ptr noundef %29, i32 noundef %33, i64 noundef %50)
+  %.not22.i = icmp eq ptr %51, null
+  br i1 %.not22.i, label %52, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
-51:                                               ; preds = %48
-  %52 = call noundef ptr @_ZN11StringTable9do_internE6HandlePKtimP10JavaThread(ptr nonnull %.0.i.i.i.i, ptr noundef %28, i32 noundef %32, i64 noundef %49, ptr noundef %1)
+52:                                               ; preds = %49
+  %53 = call noundef ptr @_ZN11StringTable9do_internE6HandlePKtimP10JavaThread(ptr nonnull %.0.i.i.i.i, ptr noundef %29, i32 noundef %33, i64 noundef %50, ptr noundef %1)
   br label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
-_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit: ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i, %48, %51
-  %.0.i = phi ptr [ %52, %51 ], [ %41, %_ZN16java_lang_String9hash_codeEPKti.exit.i ], [ %50, %48 ]
-  %53 = load ptr, ptr %29, align 8
-  %.not18 = icmp eq ptr %53, null
+_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit: ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i, %49, %52
+  %.0.i = phi ptr [ %53, %52 ], [ %42, %_ZN16java_lang_String9hash_codeEPKti.exit.i ], [ %51, %49 ]
+  %54 = load ptr, ptr %30, align 8
+  %.not18 = icmp eq ptr %54, null
   %. = select i1 %.not18, ptr %.0.i, ptr null
-  br label %54
+  br label %55
 
-54:                                               ; preds = %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
+55:                                               ; preds = %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   %.1 = phi ptr [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %., %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit ]
-  %55 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i13 = icmp eq ptr %55, null
-  br i1 %.not.i.i.i.i13, label %57, label %56
+  %56 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i13 = icmp eq ptr %56, null
+  br i1 %.not.i.i.i.i13, label %58, label %57
 
-56:                                               ; preds = %54
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %14) #17
+57:                                               ; preds = %55
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #17
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #17
-  br label %57
+  br label %58
 
-57:                                               ; preds = %56, %54
-  %58 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %58, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %59
+58:                                               ; preds = %57, %55
+  %59 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %59, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %60
 
-59:                                               ; preds = %57
+60:                                               ; preds = %58
   store ptr %9, ptr %8, align 8
-  store <2 x ptr> %11, ptr %10, align 8
+  store ptr %11, ptr %10, align 8
+  store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %59, %57, %2
-  %.0 = phi ptr [ null, %2 ], [ %.1, %57 ], [ %.1, %59 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %60, %58, %2
+  %.0 = phi ptr [ null, %2 ], [ %.1, %58 ], [ %.1, %60 ]
   ret ptr %.0
 }
 
@@ -1458,89 +1458,91 @@ define hidden noundef ptr @_ZN11StringTable6internEPKcP10JavaThread(ptr noundef 
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = load <2 x ptr>, ptr %11, align 8
-  %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = load i64, ptr %14, align 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = load i64, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %16 = call noundef i32 @_ZN4UTF814unicode_lengthEPKcRbS2_(ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  %17 = call noundef i32 @_ZN4UTF814unicode_lengthEPKcRbS2_(ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %17 = sext i32 %16 to i64
-  %18 = shl nsw i64 %17, 1
-  %19 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %18, i32 noundef 0) #17
-  call void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr noundef nonnull %0, ptr noundef %19, i32 noundef %16) #17
-  %20 = icmp sgt i32 %16, 0
-  br i1 %20, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i
+  %18 = sext i32 %17 to i64
+  %19 = shl nsw i64 %18, 1
+  %20 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %19, i32 noundef 0) #17
+  call void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %17) #17
+  %21 = icmp sgt i32 %17, 0
+  br i1 %21, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i
 
 .lr.ph.i.i:                                       ; preds = %6, %.lr.ph.i.i
-  %.08.i.i = phi i32 [ %25, %.lr.ph.i.i ], [ 0, %6 ]
-  %.047.i.i = phi i32 [ %21, %.lr.ph.i.i ], [ %16, %6 ]
-  %.056.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %19, %6 ]
-  %21 = add nsw i32 %.047.i.i, -1
-  %22 = mul i32 %.08.i.i, 31
-  %23 = load i16, ptr %.056.i.i, align 2
-  %24 = zext i16 %23 to i32
-  %25 = add i32 %22, %24
-  %26 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
-  %27 = icmp ugt i32 %.047.i.i, 1
-  br i1 %27, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i, !llvm.loop !12
+  %.08.i.i = phi i32 [ %26, %.lr.ph.i.i ], [ 0, %6 ]
+  %.047.i.i = phi i32 [ %22, %.lr.ph.i.i ], [ %17, %6 ]
+  %.056.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %20, %6 ]
+  %22 = add nsw i32 %.047.i.i, -1
+  %23 = mul i32 %.08.i.i, 31
+  %24 = load i16, ptr %.056.i.i, align 2
+  %25 = zext i16 %24 to i32
+  %26 = add i32 %23, %25
+  %27 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
+  %28 = icmp ugt i32 %.047.i.i, 1
+  br i1 %28, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i, !llvm.loop !12
 
 _ZN16java_lang_String9hash_codeEPKti.exit.i:      ; preds = %.lr.ph.i.i, %6
-  %.0.lcssa.i.i = phi i32 [ 0, %6 ], [ %25, %.lr.ph.i.i ]
-  %28 = call noundef ptr @_ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE6lookupES1_ji(ptr noundef nonnull align 8 dereferenceable(32) @_ZL13_shared_table, ptr noundef %19, i32 noundef %.0.lcssa.i.i, i32 noundef %16)
-  %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %29, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
+  %.0.lcssa.i.i = phi i32 [ 0, %6 ], [ %26, %.lr.ph.i.i ]
+  %29 = call noundef ptr @_ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE6lookupES1_ji(ptr noundef nonnull align 8 dereferenceable(32) @_ZL13_shared_table, ptr noundef %20, i32 noundef %.0.lcssa.i.i, i32 noundef %17)
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %30, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
-29:                                               ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i
-  %30 = load volatile i8, ptr @_alt_hash, align 1
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %32, label %35
+30:                                               ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i
+  %31 = load volatile i8, ptr @_alt_hash, align 1
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %36
 
-32:                                               ; preds = %29
-  %33 = load i64, ptr @_ZL14_alt_hash_seed, align 8
-  %34 = call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %33, ptr noundef %19, i32 noundef %16) #17
-  br label %35
+33:                                               ; preds = %30
+  %34 = load i64, ptr @_ZL14_alt_hash_seed, align 8
+  %35 = call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %34, ptr noundef %20, i32 noundef %17) #17
+  br label %36
 
-35:                                               ; preds = %32, %29
-  %.019.i = phi i32 [ %34, %32 ], [ %.0.lcssa.i.i, %29 ]
-  %36 = zext i32 %.019.i to i64
-  %37 = call noundef ptr @_ZN11StringTable9do_lookupEPKtim(ptr noundef %19, i32 noundef %16, i64 noundef %36)
-  %.not22.i = icmp eq ptr %37, null
-  br i1 %.not22.i, label %38, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
+36:                                               ; preds = %33, %30
+  %.019.i = phi i32 [ %35, %33 ], [ %.0.lcssa.i.i, %30 ]
+  %37 = zext i32 %.019.i to i64
+  %38 = call noundef ptr @_ZN11StringTable9do_lookupEPKtim(ptr noundef %20, i32 noundef %17, i64 noundef %37)
+  %.not22.i = icmp eq ptr %38, null
+  br i1 %.not22.i, label %39, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
-38:                                               ; preds = %35
-  %39 = call noundef ptr @_ZN11StringTable9do_internE6HandlePKtimP10JavaThread(ptr null, ptr noundef %19, i32 noundef %16, i64 noundef %36, ptr noundef %1)
+39:                                               ; preds = %36
+  %40 = call noundef ptr @_ZN11StringTable9do_internE6HandlePKtimP10JavaThread(ptr null, ptr noundef %20, i32 noundef %17, i64 noundef %37, ptr noundef %1)
   br label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
-_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit: ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i, %35, %38
-  %.0.i = phi ptr [ %39, %38 ], [ %28, %_ZN16java_lang_String9hash_codeEPKti.exit.i ], [ %37, %35 ]
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %.not = icmp eq ptr %41, null
+_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit: ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i, %36, %39
+  %.0.i = phi ptr [ %40, %39 ], [ %29, %_ZN16java_lang_String9hash_codeEPKti.exit.i ], [ %38, %36 ]
+  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %.not = icmp eq ptr %42, null
   %. = select i1 %.not, ptr %.0.i, ptr null
-  %42 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i, label %44, label %43
+  %43 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %43, null
+  br i1 %.not.i.i.i.i, label %45, label %44
 
-43:                                               ; preds = %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %15) #17
+44:                                               ; preds = %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #17
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #17
-  br label %44
+  br label %45
 
-44:                                               ; preds = %43, %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
-  %45 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %45, %13
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %46
+45:                                               ; preds = %44, %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
+  %46 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %46, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %47
 
-46:                                               ; preds = %44
+47:                                               ; preds = %45
   store ptr %10, ptr %9, align 8
-  store <2 x ptr> %12, ptr %11, align 8
+  store ptr %12, ptr %11, align 8
+  store ptr %14, ptr %13, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %46, %44, %2
-  %.0 = phi ptr [ null, %2 ], [ %., %44 ], [ %., %46 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %47, %45, %2
+  %.0 = phi ptr [ null, %2 ], [ %., %45 ], [ %., %47 ]
   ret ptr %.0
 }
 
@@ -2533,8 +2535,8 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI17StringTableConfigL8M
   br label %12
 
 12:                                               ; preds = %.lr.ph32, %._crit_edge
-  %13 = phi ptr [ %6, %.lr.ph32 ], [ %100, %._crit_edge ]
-  %.030 = phi i64 [ 0, %.lr.ph32 ], [ %99, %._crit_edge ]
+  %13 = phi ptr [ %6, %.lr.ph32 ], [ %101, %._crit_edge ]
+  %.030 = phi i64 [ 0, %.lr.ph32 ], [ %100, %._crit_edge ]
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds %"class.ConcurrentHashTable<StringTableConfig, MEMFLAGS::mtSymbol>::Bucket", ptr %14, i64 %.030
   %16 = load volatile ptr, ptr %15, align 8
@@ -2577,136 +2579,138 @@ _ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %35, i64 32
-  %39 = load <2 x ptr>, ptr %38, align 8
-  %40 = load ptr, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %35, i64 8
-  %42 = load i64, ptr %41, align 8
-  %43 = call noundef ptr @_ZN16java_lang_String25as_unicode_string_or_nullEP7oopDescRi(ptr noundef nonnull %30, ptr noundef nonnull align 4 dereferenceable(4) %4) #17
-  %.not.i16 = icmp eq ptr %43, null
-  %44 = load i32, ptr %4, align 4
-  br i1 %.not.i16, label %66, label %45
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %35, i64 40
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %35, i64 8
+  %43 = load i64, ptr %42, align 8
+  %44 = call noundef ptr @_ZN16java_lang_String25as_unicode_string_or_nullEP7oopDescRi(ptr noundef nonnull %30, ptr noundef nonnull align 4 dereferenceable(4) %4) #17
+  %.not.i16 = icmp eq ptr %44, null
+  %45 = load i32, ptr %4, align 4
+  br i1 %.not.i16, label %67, label %46
 
-45:                                               ; preds = %32
-  %46 = load volatile i8, ptr @_alt_hash, align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %51
+46:                                               ; preds = %32
+  %47 = load volatile i8, ptr @_alt_hash, align 1
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %45
-  %49 = load i64, ptr @_ZL14_alt_hash_seed, align 8
-  %50 = call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %49, ptr noundef nonnull %43, i32 noundef %44) #17
+49:                                               ; preds = %46
+  %50 = load i64, ptr @_ZL14_alt_hash_seed, align 8
+  %51 = call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %50, ptr noundef nonnull %44, i32 noundef %45) #17
   br label %_ZL11hash_stringPKtib.exit.i
 
-51:                                               ; preds = %45
-  %52 = icmp sgt i32 %44, 0
-  br i1 %52, label %.lr.ph.i.i.i, label %_ZL11hash_stringPKtib.exit.i
+52:                                               ; preds = %46
+  %53 = icmp sgt i32 %45, 0
+  br i1 %53, label %.lr.ph.i.i.i, label %_ZL11hash_stringPKtib.exit.i
 
-.lr.ph.i.i.i:                                     ; preds = %51, %.lr.ph.i.i.i
-  %.08.i.i.i = phi i32 [ %57, %.lr.ph.i.i.i ], [ 0, %51 ]
-  %.047.i.i.i = phi i32 [ %53, %.lr.ph.i.i.i ], [ %44, %51 ]
-  %.056.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i ], [ %43, %51 ]
-  %53 = add nsw i32 %.047.i.i.i, -1
-  %54 = mul i32 %.08.i.i.i, 31
-  %55 = load i16, ptr %.056.i.i.i, align 2
-  %56 = zext i16 %55 to i32
-  %57 = add i32 %54, %56
-  %58 = getelementptr inbounds i8, ptr %.056.i.i.i, i64 2
-  %59 = icmp ugt i32 %.047.i.i.i, 1
-  br i1 %59, label %.lr.ph.i.i.i, label %_ZL11hash_stringPKtib.exit.i, !llvm.loop !12
+.lr.ph.i.i.i:                                     ; preds = %52, %.lr.ph.i.i.i
+  %.08.i.i.i = phi i32 [ %58, %.lr.ph.i.i.i ], [ 0, %52 ]
+  %.047.i.i.i = phi i32 [ %54, %.lr.ph.i.i.i ], [ %45, %52 ]
+  %.056.i.i.i = phi ptr [ %59, %.lr.ph.i.i.i ], [ %44, %52 ]
+  %54 = add nsw i32 %.047.i.i.i, -1
+  %55 = mul i32 %.08.i.i.i, 31
+  %56 = load i16, ptr %.056.i.i.i, align 2
+  %57 = zext i16 %56 to i32
+  %58 = add i32 %55, %57
+  %59 = getelementptr inbounds i8, ptr %.056.i.i.i, i64 2
+  %60 = icmp ugt i32 %.047.i.i.i, 1
+  br i1 %60, label %.lr.ph.i.i.i, label %_ZL11hash_stringPKtib.exit.i, !llvm.loop !12
 
-_ZL11hash_stringPKtib.exit.i:                     ; preds = %.lr.ph.i.i.i, %51, %48
-  %60 = phi i32 [ %50, %48 ], [ 0, %51 ], [ %57, %.lr.ph.i.i.i ]
-  %61 = load ptr, ptr %37, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i.i.i, label %63, label %62
+_ZL11hash_stringPKtib.exit.i:                     ; preds = %.lr.ph.i.i.i, %52, %49
+  %61 = phi i32 [ %51, %49 ], [ 0, %52 ], [ %58, %.lr.ph.i.i.i ]
+  %62 = load ptr, ptr %37, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %62, null
+  br i1 %.not.i.i.i.i.i, label %64, label %63
 
-62:                                               ; preds = %_ZL11hash_stringPKtib.exit.i
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %35, i64 noundef %42) #17
+63:                                               ; preds = %_ZL11hash_stringPKtib.exit.i
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %35, i64 noundef %43) #17
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %37) #17
-  br label %63
+  br label %64
 
-63:                                               ; preds = %62, %_ZL11hash_stringPKtib.exit.i
-  %64 = load ptr, ptr %38, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %64, %40
-  br i1 %.not8.i.i.i.i.i, label %68, label %65
+64:                                               ; preds = %63, %_ZL11hash_stringPKtib.exit.i
+  %65 = load ptr, ptr %38, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %65, %39
+  br i1 %.not8.i.i.i.i.i, label %69, label %66
 
-65:                                               ; preds = %63
+66:                                               ; preds = %64
   store ptr %37, ptr %36, align 8
-  store <2 x ptr> %39, ptr %38, align 8
-  br label %68
+  store ptr %39, ptr %38, align 8
+  store ptr %41, ptr %40, align 8
+  br label %69
 
-66:                                               ; preds = %32
-  %67 = sext i32 %44 to i64
-  call void (ptr, i32, i64, i32, ptr, ...) @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef nonnull @.str.29, i32 noundef 151, i64 noundef %67, i32 noundef -536870911, ptr noundef nonnull @.str.55) #18
+67:                                               ; preds = %32
+  %68 = sext i32 %45 to i64
+  call void (ptr, i32, i64, i32, ptr, ...) @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef nonnull @.str.29, i32 noundef 151, i64 noundef %68, i32 noundef -536870911, ptr noundef nonnull @.str.55) #18
   unreachable
 
 _ZN17StringTableConfig8get_hashERK10WeakHandlePb.exit: ; preds = %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2_4NodeES5_.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2_4NodeES5_.exit22
 
-68:                                               ; preds = %63, %65
-  %.0.i1726 = zext i32 %60 to i64
+69:                                               ; preds = %64, %66
+  %.0.i1726 = zext i32 %61 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %69 = load volatile ptr, ptr %10, align 8
+  %70 = load volatile ptr, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
-  %71 = load i64, ptr %70, align 8
-  %72 = and i64 %71, %.0.i1726
-  %73 = load ptr, ptr %69, align 8
-  %74 = getelementptr inbounds %"class.ConcurrentHashTable<StringTableConfig, MEMFLAGS::mtSymbol>::Bucket", ptr %73, i64 %72
-  %75 = load volatile ptr, ptr %74, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 24
+  %72 = load i64, ptr %71, align 8
+  %73 = and i64 %72, %.0.i1726
+  %74 = load ptr, ptr %70, align 8
+  %75 = getelementptr inbounds %"class.ConcurrentHashTable<StringTableConfig, MEMFLAGS::mtSymbol>::Bucket", ptr %74, i64 %73
+  %76 = load volatile ptr, ptr %75, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
-  %76 = ptrtoint ptr %75 to i64
-  %77 = and i64 %76, 2
-  %.not.i18 = icmp eq i64 %77, 0
-  br i1 %.not.i18, label %_ZNK19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE10get_bucketEm.exit, label %78
+  %77 = ptrtoint ptr %76 to i64
+  %78 = and i64 %77, 2
+  %.not.i18 = icmp eq i64 %78, 0
+  br i1 %.not.i18, label %_ZNK19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE10get_bucketEm.exit, label %79
 
-78:                                               ; preds = %68
-  %79 = load volatile ptr, ptr %11, align 8
+79:                                               ; preds = %69
+  %80 = load volatile ptr, ptr %11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
-  %81 = load i64, ptr %80, align 8
-  %82 = and i64 %81, %.0.i1726
-  %83 = load ptr, ptr %79, align 8
-  %84 = getelementptr inbounds %"class.ConcurrentHashTable<StringTableConfig, MEMFLAGS::mtSymbol>::Bucket", ptr %83, i64 %82
+  %81 = getelementptr inbounds i8, ptr %80, i64 24
+  %82 = load i64, ptr %81, align 8
+  %83 = and i64 %82, %.0.i1726
+  %84 = load ptr, ptr %80, align 8
+  %85 = getelementptr inbounds %"class.ConcurrentHashTable<StringTableConfig, MEMFLAGS::mtSymbol>::Bucket", ptr %84, i64 %83
   br label %_ZNK19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE10get_bucketEm.exit
 
-_ZNK19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE10get_bucketEm.exit: ; preds = %68, %78
-  %.0.i19 = phi ptr [ %84, %78 ], [ %74, %68 ]
-  %85 = load volatile ptr, ptr %.0.i19, align 8
+_ZNK19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE10get_bucketEm.exit: ; preds = %69, %79
+  %.0.i19 = phi ptr [ %85, %79 ], [ %75, %69 ]
+  %86 = load volatile ptr, ptr %.0.i19, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
-  %86 = ptrtoint ptr %85 to i64
-  %87 = and i64 %86, -4
-  %88 = inttoptr i64 %87 to ptr
-  store volatile ptr %88, ptr %20, align 8
-  %89 = load volatile ptr, ptr %.0.i19, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  %87 = ptrtoint ptr %86 to i64
+  %88 = and i64 %87, -4
+  %89 = inttoptr i64 %88 to ptr
+  store volatile ptr %89, ptr %20, align 8
   %90 = load volatile ptr, ptr %.0.i19, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
-  %91 = ptrtoint ptr %90 to i64
-  %92 = and i64 %91, 1
-  %.not.i20 = icmp eq i64 %92, 0
-  br i1 %.not.i20, label %93, label %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2_4NodeES5_.exit22
+  %91 = load volatile ptr, ptr %.0.i19, align 8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  %92 = ptrtoint ptr %91 to i64
+  %93 = and i64 %92, 1
+  %.not.i20 = icmp eq i64 %93, 0
+  br i1 %.not.i20, label %94, label %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2_4NodeES5_.exit22
 
-93:                                               ; preds = %_ZNK19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE10get_bucketEm.exit
-  %94 = ptrtoint ptr %89 to i64
-  %95 = and i64 %94, -4
-  %96 = inttoptr i64 %95 to ptr
-  %97 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr %96, ptr nonnull %.0.i19) #17, !srcloc !18
+94:                                               ; preds = %_ZNK19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE10get_bucketEm.exit
+  %95 = ptrtoint ptr %90 to i64
+  %96 = and i64 %95, -4
+  %97 = inttoptr i64 %96 to ptr
+  %98 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr %97, ptr nonnull %.0.i19) #17, !srcloc !18
   br label %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2_4NodeES5_.exit22
 
-_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2_4NodeES5_.exit22: ; preds = %93, %_ZNK19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE10get_bucketEm.exit, %_ZN17StringTableConfig8get_hashERK10WeakHandlePb.exit
-  %98 = load volatile ptr, ptr %15, align 8
+_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2_4NodeES5_.exit22: ; preds = %94, %_ZNK19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE10get_bucketEm.exit, %_ZN17StringTableConfig8get_hashERK10WeakHandlePb.exit
+  %99 = load volatile ptr, ptr %15, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
-  %.not = icmp ult ptr %98, inttoptr (i64 4 to ptr)
+  %.not = icmp ult ptr %99, inttoptr (i64 4 to ptr)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2_4NodeES5_.exit22, %12
-  %99 = add nuw i64 %.030, 1
-  %100 = load ptr, ptr %5, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 16
-  %102 = load i64, ptr %101, align 8
-  %103 = icmp ult i64 %99, %102
-  br i1 %103, label %12, label %._crit_edge33, !llvm.loop !20
+  %100 = add nuw i64 %.030, 1
+  %101 = load ptr, ptr %5, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %103 = load i64, ptr %102, align 8
+  %104 = icmp ult i64 %100, %103
+  br i1 %104, label %12, label %._crit_edge33, !llvm.loop !20
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %3
   ret void
@@ -3177,81 +3181,83 @@ define hidden void @_ZN11StringTable4dumpEP12outputStreamb(ptr noundef %0, i1 no
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 32
-  %14 = load <2 x ptr>, ptr %13, align 8
-  %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
-  %17 = load i64, ptr %16, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %10, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %18 = load i64, ptr %17, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21) #17
   store ptr %8, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %0, ptr %18, align 8
-  %19 = load ptr, ptr @_ZL12_local_table, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 64
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(104) %21) #17
-  br i1 %22, label %23, label %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit.thread
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %0, ptr %19, align 8
+  %20 = load ptr, ptr @_ZL12_local_table, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 64
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(104) %22) #17
+  br i1 %23, label %24, label %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit.thread
 
-23:                                               ; preds = %6
-  %24 = getelementptr inbounds i8, ptr %19, i64 72
-  %25 = load ptr, ptr %24, align 8
-  %.not.i.i = icmp eq ptr %25, null
+24:                                               ; preds = %6
+  %25 = getelementptr inbounds i8, ptr %20, i64 72
+  %26 = load ptr, ptr %25, align 8
+  %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit.thread16, label %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit
 
-_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit.thread16: ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %19, i64 80
-  store ptr null, ptr %26, align 8
-  store ptr %8, ptr %24, align 8
-  call void @_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE14do_scan_lockedI11PrintStringEEvP6ThreadRT_(ptr noundef nonnull align 8 dereferenceable(88) %19, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  %27 = load ptr, ptr %20, align 8
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %27) #17
-  br label %29
+_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit.thread16: ; preds = %24
+  %27 = getelementptr inbounds i8, ptr %20, i64 80
+  store ptr null, ptr %27, align 8
+  store ptr %8, ptr %25, align 8
+  call void @_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE14do_scan_lockedI11PrintStringEEvP6ThreadRT_(ptr noundef nonnull align 8 dereferenceable(88) %20, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  %28 = load ptr, ptr %21, align 8
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %28) #17
+  br label %30
 
-_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit: ; preds = %23
-  %28 = load ptr, ptr %20, align 8
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %28) #17
+_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit: ; preds = %24
+  %29 = load ptr, ptr %21, align 8
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %29) #17
   br label %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit.thread
 
 _ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit.thread: ; preds = %6, %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.22) #17
-  br label %29
+  br label %30
 
-29:                                               ; preds = %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit.thread16, %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit.thread
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13_shared_table, i64 12), align 4
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %34, label %32
+30:                                               ; preds = %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit.thread16, %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8try_scanI11PrintStringEEbP6ThreadRT_.exit.thread
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13_shared_table, i64 12), align 4
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %35, label %33
 
-32:                                               ; preds = %29
+33:                                               ; preds = %30
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.23) #17
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.24) #17
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.23) #17
   store ptr %8, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %0, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %0, ptr %34, align 8
   call void @_ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE7iterateI17PrintSharedStringEEvPT_(ptr noundef nonnull align 8 dereferenceable(32) @_ZL13_shared_table, ptr noundef nonnull %4)
-  br label %34
+  br label %35
 
-34:                                               ; preds = %32, %29
-  %35 = load ptr, ptr %12, align 8
-  %.not.i.i.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i.i.i, label %37, label %36
+35:                                               ; preds = %33, %30
+  %36 = load ptr, ptr %12, align 8
+  %.not.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i, label %38, label %37
 
-36:                                               ; preds = %34
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %17) #17
+37:                                               ; preds = %35
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %18) #17
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %12) #17
-  br label %37
+  br label %38
 
-37:                                               ; preds = %36, %34
-  %38 = load ptr, ptr %13, align 8
-  %.not8.i.i.i.i = icmp eq ptr %38, %15
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %39
+38:                                               ; preds = %37, %35
+  %39 = load ptr, ptr %13, align 8
+  %.not8.i.i.i.i = icmp eq ptr %39, %14
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %40
 
-39:                                               ; preds = %37
+40:                                               ; preds = %38
   store ptr %12, ptr %11, align 8
-  store <2 x ptr> %14, ptr %13, align 8
+  store ptr %14, ptr %13, align 8
+  store ptr %16, ptr %15, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %39, %37, %5
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %38, %5
   ret void
 }
 
@@ -9041,70 +9047,72 @@ define linkonce_odr hidden noundef i64 @_ZN17StringTableConfig8get_hashERK10Weak
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 32
-  %17 = load <2 x ptr>, ptr %16, align 8
-  %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 8
-  %20 = load i64, ptr %19, align 8
-  %21 = call noundef ptr @_ZN16java_lang_String25as_unicode_string_or_nullEP7oopDescRi(ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(4) %3) #17
-  %.not = icmp eq ptr %21, null
-  %22 = load i32, ptr %3, align 4
-  br i1 %.not, label %44, label %23
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %13, i64 40
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = load i64, ptr %20, align 8
+  %22 = call noundef ptr @_ZN16java_lang_String25as_unicode_string_or_nullEP7oopDescRi(ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(4) %3) #17
+  %.not = icmp eq ptr %22, null
+  %23 = load i32, ptr %3, align 4
+  br i1 %.not, label %45, label %24
 
-23:                                               ; preds = %9
-  %24 = load volatile i8, ptr @_alt_hash, align 1
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %29
+24:                                               ; preds = %9
+  %25 = load volatile i8, ptr @_alt_hash, align 1
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %30
 
-26:                                               ; preds = %23
-  %27 = load i64, ptr @_ZL14_alt_hash_seed, align 8
-  %28 = call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %27, ptr noundef nonnull %21, i32 noundef %22) #17
+27:                                               ; preds = %24
+  %28 = load i64, ptr @_ZL14_alt_hash_seed, align 8
+  %29 = call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %28, ptr noundef nonnull %22, i32 noundef %23) #17
   br label %_ZL11hash_stringPKtib.exit
 
-29:                                               ; preds = %23
-  %30 = icmp sgt i32 %22, 0
-  br i1 %30, label %.lr.ph.i.i, label %_ZL11hash_stringPKtib.exit
+30:                                               ; preds = %24
+  %31 = icmp sgt i32 %23, 0
+  br i1 %31, label %.lr.ph.i.i, label %_ZL11hash_stringPKtib.exit
 
-.lr.ph.i.i:                                       ; preds = %29, %.lr.ph.i.i
-  %.08.i.i = phi i32 [ %35, %.lr.ph.i.i ], [ 0, %29 ]
-  %.047.i.i = phi i32 [ %31, %.lr.ph.i.i ], [ %22, %29 ]
-  %.056.i.i = phi ptr [ %36, %.lr.ph.i.i ], [ %21, %29 ]
-  %31 = add nsw i32 %.047.i.i, -1
-  %32 = mul i32 %.08.i.i, 31
-  %33 = load i16, ptr %.056.i.i, align 2
-  %34 = zext i16 %33 to i32
-  %35 = add i32 %32, %34
-  %36 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
-  %37 = icmp ugt i32 %.047.i.i, 1
-  br i1 %37, label %.lr.ph.i.i, label %_ZL11hash_stringPKtib.exit, !llvm.loop !12
+.lr.ph.i.i:                                       ; preds = %30, %.lr.ph.i.i
+  %.08.i.i = phi i32 [ %36, %.lr.ph.i.i ], [ 0, %30 ]
+  %.047.i.i = phi i32 [ %32, %.lr.ph.i.i ], [ %23, %30 ]
+  %.056.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %22, %30 ]
+  %32 = add nsw i32 %.047.i.i, -1
+  %33 = mul i32 %.08.i.i, 31
+  %34 = load i16, ptr %.056.i.i, align 2
+  %35 = zext i16 %34 to i32
+  %36 = add i32 %33, %35
+  %37 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
+  %38 = icmp ugt i32 %.047.i.i, 1
+  br i1 %38, label %.lr.ph.i.i, label %_ZL11hash_stringPKtib.exit, !llvm.loop !12
 
-_ZL11hash_stringPKtib.exit:                       ; preds = %.lr.ph.i.i, %26, %29
-  %38 = phi i32 [ %28, %26 ], [ 0, %29 ], [ %35, %.lr.ph.i.i ]
-  %39 = load ptr, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.i, label %41, label %40
+_ZL11hash_stringPKtib.exit:                       ; preds = %.lr.ph.i.i, %27, %30
+  %39 = phi i32 [ %29, %27 ], [ 0, %30 ], [ %36, %.lr.ph.i.i ]
+  %40 = load ptr, ptr %15, align 8
+  %.not.i.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i.i.i, label %42, label %41
 
-40:                                               ; preds = %_ZL11hash_stringPKtib.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %20) #17
+41:                                               ; preds = %_ZL11hash_stringPKtib.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %21) #17
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %15) #17
-  br label %41
+  br label %42
 
-41:                                               ; preds = %40, %_ZL11hash_stringPKtib.exit
-  %42 = load ptr, ptr %16, align 8
-  %.not8.i.i.i.i = icmp eq ptr %42, %18
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %43
+42:                                               ; preds = %41, %_ZL11hash_stringPKtib.exit
+  %43 = load ptr, ptr %16, align 8
+  %.not8.i.i.i.i = icmp eq ptr %43, %17
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %44
 
-43:                                               ; preds = %41
+44:                                               ; preds = %42
   store ptr %15, ptr %14, align 8
-  store <2 x ptr> %17, ptr %16, align 8
+  store ptr %17, ptr %16, align 8
+  store ptr %19, ptr %18, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-44:                                               ; preds = %9
-  %45 = sext i32 %22 to i64
-  call void (ptr, i32, i64, i32, ptr, ...) @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef nonnull @.str.29, i32 noundef 151, i64 noundef %45, i32 noundef -536870911, ptr noundef nonnull @.str.55) #18
+45:                                               ; preds = %9
+  %46 = sext i32 %23 to i64
+  call void (ptr, i32, i64, i32, ptr, ...) @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef nonnull @.str.29, i32 noundef 151, i64 noundef %46, i32 noundef -536870911, ptr noundef nonnull @.str.55) #18
   unreachable
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %43, %41, %8
-  %.0.shrunk = phi i32 [ 0, %8 ], [ %38, %41 ], [ %38, %43 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %42, %8
+  %.0.shrunk = phi i32 [ 0, %8 ], [ %39, %42 ], [ %39, %44 ]
   %.0 = zext i32 %.0.shrunk to i64
   ret i64 %.0
 }
@@ -10386,7 +10394,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI17StringTableConfigL8M
   br label %12
 
 12:                                               ; preds = %.lr.ph, %.loopexit
-  %.0811 = phi i64 [ 0, %.lr.ph ], [ %90, %.loopexit ]
+  %.0811 = phi i64 [ 0, %.lr.ph ], [ %91, %.loopexit ]
   %13 = load volatile i64, ptr %9, align 8
   %14 = and i64 %13, 1
   %15 = icmp eq i64 %14, 0
@@ -10424,7 +10432,7 @@ _ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS
   br label %29
 
 29:                                               ; preds = %_ZN11PrintStringclEP10WeakHandle.exit.i, %.lr.ph.i
-  %.09.i = phi ptr [ %28, %.lr.ph.i ], [ %89, %_ZN11PrintStringclEP10WeakHandle.exit.i ]
+  %.09.i = phi ptr [ %28, %.lr.ph.i ], [ %90, %_ZN11PrintStringclEP10WeakHandle.exit.i ]
   %30 = load volatile ptr, ptr %.09.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
   call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %30, i64 0) #17, !srcloc !28
@@ -10480,68 +10488,70 @@ _ZN16java_lang_String6lengthEP7oopDesc.exit.thread.i: ; preds = %_ZN16java_lang_
   %66 = getelementptr inbounds i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %65, i64 32
-  %69 = load <2 x ptr>, ptr %68, align 8
-  %70 = load ptr, ptr %68, align 8
-  %71 = getelementptr inbounds i8, ptr %65, i64 8
-  %72 = load i64, ptr %71, align 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %65, i64 40
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %65, i64 8
+  %73 = load i64, ptr %72, align 8
   store i32 %spec.select.i.i.i, ptr %4, align 4
-  %73 = ptrtoint ptr %42 to i64
-  %74 = select i1 %49, i64 16, i64 20
-  %75 = add nsw i64 %74, %73
-  %76 = inttoptr i64 %75 to ptr
-  br i1 %63, label %79, label %77
+  %74 = ptrtoint ptr %42 to i64
+  %75 = select i1 %49, i64 16, i64 20
+  %76 = add nsw i64 %75, %74
+  %77 = inttoptr i64 %76 to ptr
+  br i1 %63, label %80, label %78
 
-77:                                               ; preds = %62
-  %78 = call noundef ptr @_ZN7UNICODE7as_utf8ItEEPcPKT_Ri(ptr noundef %76, ptr noundef nonnull align 4 dereferenceable(4) %4) #17
-  br label %81
+78:                                               ; preds = %62
+  %79 = call noundef ptr @_ZN7UNICODE7as_utf8ItEEPcPKT_Ri(ptr noundef %77, ptr noundef nonnull align 4 dereferenceable(4) %4) #17
+  br label %82
 
-79:                                               ; preds = %62
-  %80 = call noundef ptr @_ZN7UNICODE7as_utf8IaEEPcPKT_Ri(ptr noundef %76, ptr noundef nonnull align 4 dereferenceable(4) %4) #17
-  br label %81
+80:                                               ; preds = %62
+  %81 = call noundef ptr @_ZN7UNICODE7as_utf8IaEEPcPKT_Ri(ptr noundef %77, ptr noundef nonnull align 4 dereferenceable(4) %4) #17
+  br label %82
 
-81:                                               ; preds = %79, %77
-  %.0.i = phi ptr [ %80, %79 ], [ %78, %77 ]
-  %82 = load i32, ptr %4, align 4
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull @.str.63, i32 noundef %82) #17
+82:                                               ; preds = %80, %78
+  %.0.i = phi ptr [ %81, %80 ], [ %79, %78 ]
   %83 = load i32, ptr %4, align 4
-  call void @_ZN17HashtableTextDump8put_utf8EP12outputStreamPKci(ptr noundef nonnull %38, ptr noundef %.0.i, i32 noundef %83) #17
-  %84 = load ptr, ptr %67, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %84, null
-  br i1 %.not.i.i.i.i.i, label %86, label %85
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull @.str.63, i32 noundef %83) #17
+  %84 = load i32, ptr %4, align 4
+  call void @_ZN17HashtableTextDump8put_utf8EP12outputStreamPKci(ptr noundef nonnull %38, ptr noundef %.0.i, i32 noundef %84) #17
+  %85 = load ptr, ptr %67, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i, label %87, label %86
 
-85:                                               ; preds = %81
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %65, i64 noundef %72) #17
+86:                                               ; preds = %82
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %65, i64 noundef %73) #17
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %67) #17
-  br label %86
+  br label %87
 
-86:                                               ; preds = %85, %81
-  %87 = load ptr, ptr %68, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %87, %70
-  br i1 %.not8.i.i.i.i.i, label %_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit, label %88
+87:                                               ; preds = %86, %82
+  %88 = load ptr, ptr %68, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %88, %69
+  br i1 %.not8.i.i.i.i.i, label %_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit, label %89
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   store ptr %67, ptr %66, align 8
-  store <2 x ptr> %69, ptr %68, align 8
+  store ptr %69, ptr %68, align 8
+  store ptr %71, ptr %70, align 8
   br label %_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit
 
-_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit: ; preds = %_ZN16java_lang_String6lengthEP7oopDesc.exit.thread.i, %86, %88
+_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit: ; preds = %_ZN16java_lang_String6lengthEP7oopDesc.exit.thread.i, %87, %89
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %38) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %_ZN11PrintStringclEP10WeakHandle.exit.i
 
 _ZN11PrintStringclEP10WeakHandle.exit.i:          ; preds = %_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit, %29
-  %89 = load volatile ptr, ptr %.09.i, align 8
+  %90 = load volatile ptr, ptr %.09.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
-  %.not.i9 = icmp eq ptr %89, null
+  %.not.i9 = icmp eq ptr %90, null
   br i1 %.not.i9, label %.loopexit, label %29, !llvm.loop !64
 
 .loopexit:                                        ; preds = %_ZN11PrintStringclEP10WeakHandle.exit.i, %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS2_.exit
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
   store volatile i64 %13, ptr %9, align 8
-  %90 = add nuw i64 %.0811, 1
-  %91 = load i64, ptr %7, align 8
-  %92 = icmp ult i64 %90, %91
-  br i1 %92, label %12, label %._crit_edge, !llvm.loop !65
+  %91 = add nuw i64 %.0811, 1
+  %92 = load i64, ptr %7, align 8
+  %93 = icmp ult i64 %91, %92
+  br i1 %93, label %12, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -11000,7 +11010,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 define linkonce_odr hidden void @_ZN17PrintSharedString8do_valueEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca i32, align 4
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %59, label %5
+  br i1 %4, label %60, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
@@ -11048,56 +11058,58 @@ _ZN16java_lang_String6lengthEP7oopDesc.exit.thread.i: ; preds = %_ZN16java_lang_
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %35, i64 32
-  %39 = load <2 x ptr>, ptr %38, align 8
-  %40 = load ptr, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %35, i64 8
-  %42 = load i64, ptr %41, align 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %35, i64 40
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %35, i64 8
+  %43 = load i64, ptr %42, align 8
   store i32 %spec.select.i.i.i, ptr %3, align 4
-  %43 = ptrtoint ptr %12 to i64
-  %44 = select i1 %19, i64 16, i64 20
-  %45 = add nsw i64 %44, %43
-  %46 = inttoptr i64 %45 to ptr
-  br i1 %33, label %49, label %47
+  %44 = ptrtoint ptr %12 to i64
+  %45 = select i1 %19, i64 16, i64 20
+  %46 = add nsw i64 %45, %44
+  %47 = inttoptr i64 %46 to ptr
+  br i1 %33, label %50, label %48
 
-47:                                               ; preds = %32
-  %48 = call noundef ptr @_ZN7UNICODE7as_utf8ItEEPcPKT_Ri(ptr noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %3) #17
-  br label %51
+48:                                               ; preds = %32
+  %49 = call noundef ptr @_ZN7UNICODE7as_utf8ItEEPcPKT_Ri(ptr noundef %47, ptr noundef nonnull align 4 dereferenceable(4) %3) #17
+  br label %52
 
-49:                                               ; preds = %32
-  %50 = call noundef ptr @_ZN7UNICODE7as_utf8IaEEPcPKT_Ri(ptr noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %3) #17
-  br label %51
+50:                                               ; preds = %32
+  %51 = call noundef ptr @_ZN7UNICODE7as_utf8IaEEPcPKT_Ri(ptr noundef %47, ptr noundef nonnull align 4 dereferenceable(4) %3) #17
+  br label %52
 
-51:                                               ; preds = %49, %47
-  %.0.i = phi ptr [ %50, %49 ], [ %48, %47 ]
-  %52 = load i32, ptr %3, align 4
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.63, i32 noundef %52) #17
+52:                                               ; preds = %50, %48
+  %.0.i = phi ptr [ %51, %50 ], [ %49, %48 ]
   %53 = load i32, ptr %3, align 4
-  call void @_ZN17HashtableTextDump8put_utf8EP12outputStreamPKci(ptr noundef nonnull %8, ptr noundef %.0.i, i32 noundef %53) #17
-  %54 = load ptr, ptr %37, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i.i.i, label %56, label %55
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.63, i32 noundef %53) #17
+  %54 = load i32, ptr %3, align 4
+  call void @_ZN17HashtableTextDump8put_utf8EP12outputStreamPKci(ptr noundef nonnull %8, ptr noundef %.0.i, i32 noundef %54) #17
+  %55 = load ptr, ptr %37, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i.i.i, label %57, label %56
 
-55:                                               ; preds = %51
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %35, i64 noundef %42) #17
+56:                                               ; preds = %52
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %35, i64 noundef %43) #17
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %37) #17
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %51
-  %57 = load ptr, ptr %38, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %57, %40
-  br i1 %.not8.i.i.i.i.i, label %_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit, label %58
+57:                                               ; preds = %56, %52
+  %58 = load ptr, ptr %38, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %58, %39
+  br i1 %.not8.i.i.i.i.i, label %_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit, label %59
 
-58:                                               ; preds = %56
+59:                                               ; preds = %57
   store ptr %37, ptr %36, align 8
-  store <2 x ptr> %39, ptr %38, align 8
+  store ptr %39, ptr %38, align 8
+  store ptr %41, ptr %40, align 8
   br label %_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit
 
-_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit: ; preds = %_ZN16java_lang_String6lengthEP7oopDesc.exit.thread.i, %56, %58
+_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit: ; preds = %_ZN16java_lang_String6lengthEP7oopDesc.exit.thread.i, %57, %59
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %59
+  br label %60
 
-59:                                               ; preds = %2, %_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit
+60:                                               ; preds = %2, %_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit
   ret void
 }
 

@@ -8942,12 +8942,20 @@ if.then83.i:                                      ; preds = %if.else80.i
 
 if.else.i.i:                                      ; preds = %if.then83.i
   %atime_s.i.i = getelementptr inbounds i8, ptr %utime.i, i64 8
-  %41 = load <2 x i64>, ptr %atime_s.i.i, align 8
-  store <2 x i64> %41, ptr %ts.i.i, align 16
+  %41 = load i64, ptr %atime_s.i.i, align 8
+  store i64 %41, ptr %ts.i.i, align 16
+  %atime_ns.i.i = getelementptr inbounds i8, ptr %utime.i, i64 16
+  %42 = load i64, ptr %atime_ns.i.i, align 8
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
+  store i64 %42, ptr %tv_nsec.i.i, align 8
   %mtime_s.i.i = getelementptr inbounds i8, ptr %utime.i, i64 24
+  %43 = load i64, ptr %mtime_s.i.i, align 8
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 16
-  %42 = load <2 x i64>, ptr %mtime_s.i.i, align 8
-  store <2 x i64> %42, ptr %arrayidx2.i.i, align 16
+  store i64 %43, ptr %arrayidx2.i.i, align 16
+  %mtime_ns.i.i = getelementptr inbounds i8, ptr %utime.i, i64 32
+  %44 = load i64, ptr %mtime_ns.i.i, align 8
+  %tv_nsec5.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 24
+  store i64 %44, ptr %tv_nsec5.i.i, align 8
   br label %utime_fd.exit.i
 
 utime_fd.exit.i:                                  ; preds = %if.else.i.i, %if.then83.i
@@ -8957,8 +8965,8 @@ utime_fd.exit.i:                                  ; preds = %if.else.i.i, %if.th
   br label %if.end91.i
 
 if.else86.i:                                      ; preds = %if.else80.i
-  %43 = load ptr, ptr %narrow.i.i, align 8
-  %call88.i = call fastcc i32 @utime_default(ptr noundef nonnull %utime.i, ptr noundef %43)
+  %45 = load ptr, ptr %narrow.i.i, align 8
+  %call88.i = call fastcc i32 @utime_default(ptr noundef nonnull %utime.i, ptr noundef %45)
   br label %if.end91.i
 
 if.end91.i:                                       ; preds = %if.else86.i, %utime_fd.exit.i, %if.then77.i, %if.then71.i
@@ -8969,8 +8977,8 @@ if.end91.i:                                       ; preds = %if.else86.i, %utime
 
 if.then93.i:                                      ; preds = %if.end91.i
   %path.val.i = load ptr, ptr %object.i, align 8
-  %44 = load ptr, ptr @PyExc_OSError, align 8
-  %call.i.i.i.i = call ptr @PyErr_SetFromErrnoWithFilenameObject(ptr noundef %44, ptr noundef %path.val.i) #22
+  %46 = load ptr, ptr @PyExc_OSError, align 8
+  %call.i.i.i.i = call ptr @PyErr_SetFromErrnoWithFilenameObject(ptr noundef %46, ptr noundef %path.val.i) #22
   br label %os_utime_impl.exit
 
 os_utime_impl.exit:                               ; preds = %if.then.i31, %if.then6.i, %if.end7.i, %lor.lhs.false10.i, %if.then24.i, %if.end25.i, %lor.lhs.false33.i, %path_and_dir_fd_invalid.exit.i, %dir_fd_and_fd_invalid.exit.i, %fd_and_follow_symlinks_invalid.exit.i, %if.end56.i, %if.end91.i, %if.then93.i
@@ -8985,49 +8993,49 @@ os_utime_impl.exit:                               ; preds = %if.then.i31, %if.th
 exit:                                             ; preds = %dir_fd_converter.exit.thread, %if.end51, %dir_fd_converter.exit, %if.end, %cond.end9, %os_utime_impl.exit
   %return_value.0 = phi ptr [ null, %if.end51 ], [ %retval.0.i30, %os_utime_impl.exit ], [ null, %dir_fd_converter.exit ], [ null, %if.end ], [ null, %cond.end9 ], [ null, %dir_fd_converter.exit.thread ]
   %wide1.i = getelementptr inbounds i8, ptr %path, i64 24
-  %45 = load ptr, ptr %wide1.i, align 8
-  call void @PyMem_Free(ptr noundef %45) #22
+  %47 = load ptr, ptr %wide1.i, align 8
+  call void @PyMem_Free(ptr noundef %47) #22
   %object.i32 = getelementptr inbounds i8, ptr %path, i64 56
-  %46 = load ptr, ptr %object.i32, align 8
-  %cmp.not.i = icmp eq ptr %46, null
+  %48 = load ptr, ptr %object.i32, align 8
+  %cmp.not.i = icmp eq ptr %48, null
   br i1 %cmp.not.i, label %do.body3.i, label %if.then.i33
 
 if.then.i33:                                      ; preds = %exit
-  %47 = load i64, ptr %46, align 8
-  %48 = and i64 %47, 2147483648
-  %cmp.i20.not.i = icmp eq i64 %48, 0
+  %49 = load i64, ptr %48, align 8
+  %50 = and i64 %49, 2147483648
+  %cmp.i20.not.i = icmp eq i64 %50, 0
   br i1 %cmp.i20.not.i, label %if.end.i13.i, label %do.body3.i
 
 if.end.i13.i:                                     ; preds = %if.then.i33
-  %dec.i14.i = add i64 %47, -1
-  store i64 %dec.i14.i, ptr %46, align 8
+  %dec.i14.i = add i64 %49, -1
+  store i64 %dec.i14.i, ptr %48, align 8
   %cmp.i15.i = icmp eq i64 %dec.i14.i, 0
   br i1 %cmp.i15.i, label %if.then1.i16.i, label %do.body3.i
 
 if.then1.i16.i:                                   ; preds = %if.end.i13.i
-  call void @_Py_Dealloc(ptr noundef nonnull %46) #22
+  call void @_Py_Dealloc(ptr noundef nonnull %48) #22
   br label %do.body3.i
 
 do.body3.i:                                       ; preds = %if.then1.i16.i, %if.end.i13.i, %if.then.i33, %exit
   %cleanup.i = getelementptr inbounds i8, ptr %path, i64 64
-  %49 = load ptr, ptr %cleanup.i, align 8
-  %cmp6.not.i = icmp eq ptr %49, null
+  %51 = load ptr, ptr %cleanup.i, align 8
+  %cmp6.not.i = icmp eq ptr %51, null
   br i1 %cmp6.not.i, label %path_cleanup.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %do.body3.i
-  %50 = load i64, ptr %49, align 8
-  %51 = and i64 %50, 2147483648
-  %cmp.i23.not.i = icmp eq i64 %51, 0
+  %52 = load i64, ptr %51, align 8
+  %53 = and i64 %52, 2147483648
+  %cmp.i23.not.i = icmp eq i64 %53, 0
   br i1 %cmp.i23.not.i, label %if.end.i.i, label %path_cleanup.exit
 
 if.end.i.i:                                       ; preds = %if.then7.i
-  %dec.i.i = add i64 %50, -1
-  store i64 %dec.i.i, ptr %49, align 8
+  %dec.i.i = add i64 %52, -1
+  store i64 %dec.i.i, ptr %51, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %path_cleanup.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %49) #22
+  call void @_Py_Dealloc(ptr noundef nonnull %51) #22
   br label %path_cleanup.exit
 
 path_cleanup.exit:                                ; preds = %do.body3.i, %if.then7.i, %if.end.i.i, %if.then1.i.i
@@ -22404,12 +22412,20 @@ entry:
 
 if.else:                                          ; preds = %entry
   %atime_s = getelementptr inbounds i8, ptr %ut, i64 8
-  %1 = load <2 x i64>, ptr %atime_s, align 8
-  store <2 x i64> %1, ptr %ts, align 16
+  %1 = load i64, ptr %atime_s, align 8
+  store i64 %1, ptr %ts, align 16
+  %atime_ns = getelementptr inbounds i8, ptr %ut, i64 16
+  %2 = load i64, ptr %atime_ns, align 8
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
+  store i64 %2, ptr %tv_nsec, align 8
   %mtime_s = getelementptr inbounds i8, ptr %ut, i64 24
+  %3 = load i64, ptr %mtime_s, align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %ts, i64 16
-  %2 = load <2 x i64>, ptr %mtime_s, align 8
-  store <2 x i64> %2, ptr %arrayidx2, align 16
+  store i64 %3, ptr %arrayidx2, align 16
+  %mtime_ns = getelementptr inbounds i8, ptr %ut, i64 32
+  %4 = load i64, ptr %mtime_ns, align 8
+  %tv_nsec5 = getelementptr inbounds i8, ptr %ts, i64 24
+  store i64 %4, ptr %tv_nsec5, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.else
@@ -22428,12 +22444,20 @@ entry:
 
 if.else:                                          ; preds = %entry
   %atime_s = getelementptr inbounds i8, ptr %ut, i64 8
-  %1 = load <2 x i64>, ptr %atime_s, align 8
-  store <2 x i64> %1, ptr %ts, align 16
+  %1 = load i64, ptr %atime_s, align 8
+  store i64 %1, ptr %ts, align 16
+  %atime_ns = getelementptr inbounds i8, ptr %ut, i64 16
+  %2 = load i64, ptr %atime_ns, align 8
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
+  store i64 %2, ptr %tv_nsec, align 8
   %mtime_s = getelementptr inbounds i8, ptr %ut, i64 24
+  %3 = load i64, ptr %mtime_s, align 8
   %arrayidx3 = getelementptr inbounds i8, ptr %ts, i64 16
-  %2 = load <2 x i64>, ptr %mtime_s, align 8
-  store <2 x i64> %2, ptr %arrayidx3, align 16
+  store i64 %3, ptr %arrayidx3, align 16
+  %mtime_ns = getelementptr inbounds i8, ptr %ut, i64 32
+  %4 = load i64, ptr %mtime_ns, align 8
+  %tv_nsec6 = getelementptr inbounds i8, ptr %ts, i64 24
+  store i64 %4, ptr %tv_nsec6, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.else
@@ -22454,12 +22478,20 @@ entry:
 
 if.else:                                          ; preds = %entry
   %atime_s = getelementptr inbounds i8, ptr %ut, i64 8
-  %1 = load <2 x i64>, ptr %atime_s, align 8
-  store <2 x i64> %1, ptr %ts, align 16
+  %1 = load i64, ptr %atime_s, align 8
+  store i64 %1, ptr %ts, align 16
+  %atime_ns = getelementptr inbounds i8, ptr %ut, i64 16
+  %2 = load i64, ptr %atime_ns, align 8
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
+  store i64 %2, ptr %tv_nsec, align 8
   %mtime_s = getelementptr inbounds i8, ptr %ut, i64 24
+  %3 = load i64, ptr %mtime_s, align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %ts, i64 16
-  %2 = load <2 x i64>, ptr %mtime_s, align 8
-  store <2 x i64> %2, ptr %arrayidx2, align 16
+  store i64 %3, ptr %arrayidx2, align 16
+  %mtime_ns = getelementptr inbounds i8, ptr %ut, i64 32
+  %4 = load i64, ptr %mtime_ns, align 8
+  %tv_nsec5 = getelementptr inbounds i8, ptr %ts, i64 24
+  store i64 %4, ptr %tv_nsec5, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.else

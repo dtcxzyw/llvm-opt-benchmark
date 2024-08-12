@@ -5541,7 +5541,7 @@ define void @_ZN2cv3Mat7reserveEm(ptr noundef nonnull align 8 dereferenceable(96
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
-  br label %156
+  br label %167
 
 20:                                               ; preds = %2
   %21 = load i32, ptr %0, align 8
@@ -5560,7 +5560,7 @@ define void @_ZN2cv3Mat7reserveEm(ptr noundef nonnull align 8 dereferenceable(96
   %31 = getelementptr inbounds i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8
   %.not = icmp ugt ptr %30, %32
-  br i1 %.not, label %33, label %154
+  br i1 %.not, label %33, label %165
 
 33:                                               ; preds = %23, %20
   %34 = getelementptr inbounds i8, ptr %0, i64 64
@@ -5568,7 +5568,7 @@ define void @_ZN2cv3Mat7reserveEm(ptr noundef nonnull align 8 dereferenceable(96
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
   %.not26 = icmp ult i64 %37, %1
-  br i1 %.not26, label %38, label %154
+  br i1 %.not26, label %38, label %165
 
 38:                                               ; preds = %33
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
@@ -5674,13 +5674,13 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %_ZNK2cv3Mat5totalEv
 85:                                               ; preds = %._crit_edge.i, %96, %79
   %86 = landingpad { ptr, i32 }
           cleanup
-  br label %155
+  br label %166
 
 87:                                               ; preds = %81
   %88 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #21
-  br label %155
+  br label %166
 
 89:                                               ; preds = %84, %72
   %.not.i = icmp eq ptr %7, %0
@@ -5715,21 +5715,25 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %_ZNK2cv3Mat5totalEv
 103:                                              ; preds = %.noexc
   store i32 %101, ptr %39, align 4
   %104 = getelementptr inbounds i8, ptr %7, i64 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 8
-  %106 = load <2 x i32>, ptr %104, align 8
-  store <2 x i32> %106, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %7, i64 72
-  %108 = load ptr, ptr %107, align 8
-  %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 72
+  %105 = load i32, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %105, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %7, i64 12
+  %108 = load i32, ptr %107, align 4
+  %109 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %108, ptr %109, align 4
+  %110 = getelementptr inbounds i8, ptr %7, i64 72
   %111 = load ptr, ptr %110, align 8
-  store i64 %109, ptr %111, align 8
-  %112 = load ptr, ptr %107, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 8
-  %114 = load i64, ptr %113, align 8
+  %112 = load i64, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %0, i64 72
+  %114 = load ptr, ptr %113, align 8
+  store i64 %112, ptr %114, align 8
   %115 = load ptr, ptr %110, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 8
-  store i64 %114, ptr %116, align 8
+  %117 = load i64, ptr %116, align 8
+  %118 = load ptr, ptr %113, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  store i64 %117, ptr %119, align 8
   br label %_ZN2cv3Mat8copySizeERKS0_.exit.i
 
 ._crit_edge.i:                                    ; preds = %.noexc
@@ -5737,76 +5741,87 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %_ZNK2cv3Mat5totalEv
           to label %.noexc32 unwind label %85
 
 .noexc32:                                         ; preds = %._crit_edge.i
-  %117 = load i32, ptr %39, align 4
-  %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %.lr.ph.i.i, label %_ZN2cv3Mat8copySizeERKS0_.exit.i
+  %120 = load i32, ptr %39, align 4
+  %121 = icmp sgt i32 %120, 0
+  br i1 %121, label %.lr.ph.i.i, label %_ZN2cv3Mat8copySizeERKS0_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc32
-  %119 = getelementptr inbounds i8, ptr %7, i64 64
-  %120 = getelementptr inbounds i8, ptr %7, i64 72
-  %121 = getelementptr inbounds i8, ptr %0, i64 72
-  br label %122
+  %122 = getelementptr inbounds i8, ptr %7, i64 64
+  %123 = getelementptr inbounds i8, ptr %7, i64 72
+  %124 = getelementptr inbounds i8, ptr %0, i64 72
+  br label %125
 
-122:                                              ; preds = %122, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %122 ]
-  %123 = load ptr, ptr %119, align 8
-  %124 = getelementptr inbounds i32, ptr %123, i64 %indvars.iv.i.i
-  %125 = load i32, ptr %124, align 4
-  %126 = load ptr, ptr %34, align 8
+125:                                              ; preds = %125, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %125 ]
+  %126 = load ptr, ptr %122, align 8
   %127 = getelementptr inbounds i32, ptr %126, i64 %indvars.iv.i.i
-  store i32 %125, ptr %127, align 4
-  %128 = load ptr, ptr %120, align 8
-  %129 = getelementptr inbounds i64, ptr %128, i64 %indvars.iv.i.i
-  %130 = load i64, ptr %129, align 8
-  %131 = load ptr, ptr %121, align 8
+  %128 = load i32, ptr %127, align 4
+  %129 = load ptr, ptr %34, align 8
+  %130 = getelementptr inbounds i32, ptr %129, i64 %indvars.iv.i.i
+  store i32 %128, ptr %130, align 4
+  %131 = load ptr, ptr %123, align 8
   %132 = getelementptr inbounds i64, ptr %131, i64 %indvars.iv.i.i
-  store i64 %130, ptr %132, align 8
+  %133 = load i64, ptr %132, align 8
+  %134 = load ptr, ptr %124, align 8
+  %135 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv.i.i
+  store i64 %133, ptr %135, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %133 = load i32, ptr %39, align 4
-  %134 = sext i32 %133 to i64
-  %135 = icmp slt i64 %indvars.iv.next.i.i, %134
-  br i1 %135, label %122, label %_ZN2cv3Mat8copySizeERKS0_.exit.i, !llvm.loop !19
+  %136 = load i32, ptr %39, align 4
+  %137 = sext i32 %136 to i64
+  %138 = icmp slt i64 %indvars.iv.next.i.i, %137
+  br i1 %138, label %125, label %_ZN2cv3Mat8copySizeERKS0_.exit.i, !llvm.loop !19
 
-_ZN2cv3Mat8copySizeERKS0_.exit.i:                 ; preds = %122, %.noexc32, %103
-  %136 = getelementptr inbounds i8, ptr %7, i64 16
-  %137 = getelementptr inbounds i8, ptr %0, i64 16
-  %138 = load <2 x ptr>, ptr %136, align 8
-  store <2 x ptr> %138, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %7, i64 32
-  %140 = getelementptr inbounds i8, ptr %0, i64 32
-  %141 = load <2 x ptr>, ptr %139, align 8
-  store <2 x ptr> %141, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %7, i64 48
-  %143 = getelementptr inbounds i8, ptr %0, i64 48
-  %144 = load <2 x ptr>, ptr %142, align 8
-  store <2 x ptr> %144, ptr %143, align 8
+_ZN2cv3Mat8copySizeERKS0_.exit.i:                 ; preds = %125, %.noexc32, %103
+  %139 = getelementptr inbounds i8, ptr %7, i64 16
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %140, ptr %141, align 8
+  %142 = getelementptr inbounds i8, ptr %7, i64 24
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %143, ptr %144, align 8
+  %145 = getelementptr inbounds i8, ptr %7, i64 32
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %146, ptr %147, align 8
+  %148 = getelementptr inbounds i8, ptr %7, i64 40
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %149, ptr %150, align 8
+  %151 = getelementptr inbounds i8, ptr %7, i64 48
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %152, ptr %153, align 8
+  %154 = load ptr, ptr %91, align 8
+  %155 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %154, ptr %155, align 8
   br label %_ZN2cv3MataSERKS0_.exit
 
 _ZN2cv3MataSERKS0_.exit:                          ; preds = %_ZN2cv3Mat8copySizeERKS0_.exit.i, %89
-  %145 = load ptr, ptr %34, align 8
-  store i32 %36, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %0, i64 16
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 72
-  %149 = load ptr, ptr %148, align 8
-  %150 = load i64, ptr %149, align 8
-  %151 = mul i64 %150, %37
-  %152 = getelementptr inbounds i8, ptr %147, i64 %151
-  %153 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %152, ptr %153, align 8
+  %156 = load ptr, ptr %34, align 8
+  store i32 %36, ptr %156, align 4
+  %157 = getelementptr inbounds i8, ptr %0, i64 16
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %0, i64 72
+  %160 = load ptr, ptr %159, align 8
+  %161 = load i64, ptr %160, align 8
+  %162 = mul i64 %161, %37
+  %163 = getelementptr inbounds i8, ptr %158, i64 %162
+  %164 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %163, ptr %164, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #21
-  br label %154
+  br label %165
 
-154:                                              ; preds = %33, %23, %_ZN2cv3MataSERKS0_.exit
+165:                                              ; preds = %33, %23, %_ZN2cv3MataSERKS0_.exit
   ret void
 
-155:                                              ; preds = %87, %85
+166:                                              ; preds = %87, %85
   %.pn29 = phi { ptr, i32 } [ %86, %85 ], [ %88, %87 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #21
-  br label %156
+  br label %167
 
-156:                                              ; preds = %155, %19
-  %.pn29.pn = phi { ptr, i32 } [ %.pn29, %155 ], [ %.pn, %19 ]
+167:                                              ; preds = %166, %19
+  %.pn29.pn = phi { ptr, i32 } [ %.pn29, %166 ], [ %.pn, %19 ]
   resume { ptr, i32 } %.pn29.pn
 }
 

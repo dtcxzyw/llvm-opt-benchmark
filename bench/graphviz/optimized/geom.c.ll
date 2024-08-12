@@ -176,18 +176,21 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @rect2poly(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load <2 x double>, ptr %2, align 8
-  %6 = extractelement <2 x double> %5, i64 0
-  store double %6, ptr %4, align 8
-  store <2 x double> %5, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  store double %8, ptr %9, align 8
-  %10 = load double, ptr %0, align 8
-  store double %10, ptr %2, align 8
+  %3 = load double, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  store double %3, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  store double %3, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = load double, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  store double %7, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load double, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  store double %10, ptr %11, align 8
+  %12 = load double, ptr %0, align 8
+  store double %12, ptr %2, align 8
   ret void
 }
 
@@ -213,8 +216,8 @@ define { double, double } @cwrotatepf(double %0, double %1, i32 noundef %2) loca
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 164) #9
-  tail call void @abort() #10
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 164) #8
+  tail call void @abort() #9
   unreachable
 
 12:                                               ; preds = %3, %8, %6, %4
@@ -253,8 +256,8 @@ define { double, double } @ccwrotatepf(double %0, double %1, i32 noundef %2) loc
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 189) #9
-  tail call void @abort() #10
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 189) #8
+  tail call void @abort() #9
   unreachable
 
 12:                                               ; preds = %3, %8, %6, %4
@@ -268,17 +271,23 @@ define { double, double } @ccwrotatepf(double %0, double %1, i32 noundef %2) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @flip_rec_boxf(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.boxf) align 8 %0, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %1, double %2, double %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load <2 x double>, ptr %1, align 8
-  %8 = insertelement <2 x double> poison, double %3, i64 0
-  %9 = insertelement <2 x double> %8, double %2, i64 1
-  %10 = fadd <2 x double> %7, %9
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %11, ptr %0, align 8
-  %12 = load <2 x double>, ptr %5, align 8
-  %13 = fadd <2 x double> %12, %9
-  %14 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %14, ptr %6, align 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = load double, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = load double, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = load double, ptr %11, align 8
+  %13 = load double, ptr %1, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = fadd double %12, %2
+  store double %15, ptr %0, align 8
+  %16 = fadd double %13, %3
+  store double %16, ptr %14, align 8
+  %17 = fadd double %7, %2
+  store double %17, ptr %8, align 8
+  %18 = fadd double %9, %3
+  store double %18, ptr %10, align 8
   ret void
 }
 
@@ -302,53 +311,40 @@ define double @ptToLine2(double %0, double %1, double %2, double %3, double %4, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define range(i32 0, 2) i32 @line_intersect(double %0, double %1, double %2, double %3, double %4, double %5, double %6, double %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #7 {
-  %10 = insertelement <2 x double> poison, double %2, i64 0
-  %11 = insertelement <2 x double> %10, double %3, i64 1
-  %12 = insertelement <2 x double> poison, double %0, i64 0
-  %13 = insertelement <2 x double> %12, double %1, i64 1
-  %14 = fsub <2 x double> %11, %13
-  %15 = fsub double %6, %4
-  %16 = fsub double %7, %5
-  %17 = fneg double %16
-  %18 = extractelement <2 x double> %14, i64 1
-  %19 = fmul double %18, %15
-  %20 = extractelement <2 x double> %14, i64 0
-  %21 = tail call double @llvm.fmuladd.f64(double %17, double %20, double %19)
-  %22 = tail call double @llvm.fabs.f64(double %21)
-  %23 = fcmp olt double %22, 1.000000e-10
-  br i1 %23, label %41, label %24
+  %10 = fsub double %2, %0
+  %11 = fsub double %3, %1
+  %12 = fsub double %6, %4
+  %13 = fsub double %7, %5
+  %14 = fneg double %13
+  %15 = fmul double %11, %12
+  %16 = tail call double @llvm.fmuladd.f64(double %14, double %10, double %15)
+  %17 = tail call double @llvm.fabs.f64(double %16)
+  %18 = fcmp olt double %17, 1.000000e-10
+  br i1 %18, label %30, label %19
 
-24:                                               ; preds = %9
-  %25 = insertelement <2 x double> poison, double %15, i64 0
-  %26 = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> zeroinitializer
-  %27 = insertelement <2 x double> poison, double %1, i64 0
-  %28 = insertelement <2 x double> %27, double %5, i64 1
-  %29 = fmul <2 x double> %26, %28
-  %30 = insertelement <2 x double> poison, double %17, i64 0
-  %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> zeroinitializer
-  %32 = insertelement <2 x double> %12, double %4, i64 1
-  %33 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %31, <2 x double> %32, <2 x double> %29)
-  %shift = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %34 = fsub <2 x double> %33, %shift
-  %35 = extractelement <2 x double> %34, i64 0
-  %36 = fdiv double %35, %21
-  %37 = insertelement <2 x double> poison, double %36, i64 0
-  %38 = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> zeroinitializer
-  %39 = fmul <2 x double> %14, %38
-  %40 = fsub <2 x double> %13, %39
-  store <2 x double> %40, ptr %8, align 8
-  br label %41
+19:                                               ; preds = %9
+  %20 = fmul double %12, %5
+  %21 = tail call double @llvm.fmuladd.f64(double %14, double %4, double %20)
+  %22 = fmul double %12, %1
+  %23 = tail call double @llvm.fmuladd.f64(double %14, double %0, double %22)
+  %24 = fsub double %23, %21
+  %25 = fdiv double %24, %16
+  %26 = fmul double %10, %25
+  %27 = fmul double %11, %25
+  %28 = fsub double %0, %26
+  %29 = fsub double %1, %27
+  store double %28, ptr %8, align 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  store double %29, ptr %.sroa.22.0..sroa_idx, align 8
+  br label %30
 
-41:                                               ; preds = %9, %24
-  %.0 = phi i32 [ 1, %24 ], [ 0, %9 ]
+30:                                               ; preds = %9, %19
+  %.0 = phi i32 [ 1, %19 ], [ 0, %9 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -358,9 +354,8 @@ attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { cold nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #8 = { cold nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

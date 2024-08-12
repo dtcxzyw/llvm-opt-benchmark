@@ -100,41 +100,44 @@ define i32 @PMPI_Waitany(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 37:                                               ; preds = %.loopexit
   %38 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %spec.select, ptr noundef nonnull @FUNC_NAME) #2
-  br label %55
+  br label %57
 
 39:                                               ; preds = %.loopexit, %4
   %40 = icmp eq i32 %0, 0
-  br i1 %40, label %41, label %48
+  br i1 %40, label %41, label %50
 
 41:                                               ; preds = %39
   store i32 -32766, ptr %2, align 4
   %.not50 = icmp eq ptr %3, null
-  br i1 %.not50, label %55, label %42
+  br i1 %.not50, label %57, label %42
 
 42:                                               ; preds = %41
-  %43 = load <2 x i32>, ptr @ompi_status_empty, align 8
-  store <2 x i32> %43, ptr %3, align 8
-  %44 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
-  %45 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %44, ptr %45, align 8
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
-  %47 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 %46, ptr %47, align 4
-  br label %55
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 4), align 4
+  %44 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %43, ptr %44, align 4
+  %45 = load i32, ptr @ompi_status_empty, align 8
+  store i32 %45, ptr %3, align 8
+  %46 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
+  %47 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %46, ptr %47, align 8
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
+  %49 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 %48, ptr %49, align 4
+  br label %57
 
-48:                                               ; preds = %39
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 40), align 8
-  %50 = sext i32 %0 to i64
-  %51 = tail call i32 %49(i64 noundef %50, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %55, label %53
+50:                                               ; preds = %39
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 40), align 8
+  %52 = sext i32 %0 to i64
+  %53 = tail call i32 %51(i64 noundef %52, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %57, label %55
 
-53:                                               ; preds = %48
-  %54 = tail call i32 @ompi_errhandler_request_invoke(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @FUNC_NAME) #2
-  br label %55
+55:                                               ; preds = %50
+  %56 = tail call i32 @ompi_errhandler_request_invoke(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @FUNC_NAME) #2
+  br label %57
 
-55:                                               ; preds = %48, %41, %42, %53, %37
-  %.0 = phi i32 [ %spec.select, %37 ], [ %54, %53 ], [ 0, %42 ], [ 0, %41 ], [ 0, %48 ]
+57:                                               ; preds = %50, %41, %42, %55, %37
+  %.0 = phi i32 [ %spec.select, %37 ], [ %56, %55 ], [ 0, %42 ], [ 0, %41 ], [ 0, %50 ]
   ret i32 %.0
 }
 

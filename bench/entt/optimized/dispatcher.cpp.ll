@@ -11079,28 +11079,34 @@ invoke.cont58:                                    ; preds = %_ZNSt6vectorI8an_ev
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %other) #18
   %25 = load ptr, ptr %dispatcher, align 8, !tbaa !32
   %_M_finish3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dispatcher, i64 8
-  %packed9.i.i = getelementptr inbounds i8, ptr %dispatcher, i64 24
-  %_M_finish3.i.i.i.i.i.i.i23.i.i = getelementptr inbounds i8, ptr %dispatcher, i64 32
-  %_M_finish.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
-  %26 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !53
-  %27 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !56
+  %26 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !56
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dispatcher, i64 16
+  %27 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8, !tbaa !54
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dispatcher, i8 0, i64 24, i1 false)
+  %packed9.i.i = getelementptr inbounds i8, ptr %dispatcher, i64 24
   %28 = load ptr, ptr %packed9.i.i, align 8, !tbaa !35
-  %packed.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
-  %_M_finish.i.i.i.i.i.i7.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 32
-  %29 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i.i.i.i23.i.i, align 8, !tbaa !53
-  %30 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i23.i.i, align 8, !tbaa !36
+  %_M_finish3.i.i.i.i.i.i.i23.i.i = getelementptr inbounds i8, ptr %dispatcher, i64 32
+  %29 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i23.i.i, align 8, !tbaa !36
+  %_M_end_of_storage4.i.i.i.i.i.i.i25.i.i = getelementptr inbounds i8, ptr %dispatcher, i64 40
+  %30 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i25.i.i, align 8, !tbaa !55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %packed9.i.i, i8 0, i64 24, i1 false)
   %31 = load float, ptr %threshold.i.i.i.i.i, align 8, !tbaa !17
   store ptr %25, ptr %other, align 8, !tbaa !32
-  store <2 x ptr> %26, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !53
+  %_M_finish.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
+  store ptr %26, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !56
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
+  store ptr %27, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !54
+  %packed.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
   store ptr %28, ptr %packed.i.i.i.i, align 8, !tbaa !35
-  store <2 x ptr> %29, ptr %_M_finish.i.i.i.i.i.i7.i.i.i.i, align 8, !tbaa !53
+  %_M_finish.i.i.i.i.i.i7.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 32
+  store ptr %29, ptr %_M_finish.i.i.i.i.i.i7.i.i.i.i, align 8, !tbaa !36
+  %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 40
+  store ptr %30, ptr %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i, align 8, !tbaa !55
   %threshold.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 48
   store float %31, ptr %threshold.i.i.i.i, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar59) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp60) #18
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %27 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
@@ -11123,7 +11129,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNK4entt9dense_mapIjSt10shared_ptrINS_8internal24basic_dispatcher_handlerEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE4findERS9_.exit.i.i, label %for.cond.i.i.i.i, !llvm.loop !58
 
 _ZNK4entt9dense_mapIjSt10shared_ptrINS_8internal24basic_dispatcher_handlerEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE4findERS9_.exit.i.i: ; preds = %for.body.i.i.i.i
-  %cmp.i.i.i15.not.i.i = icmp eq ptr %arrayidx.i.i.i.i.i.i.i, %30
+  %cmp.i.i.i15.not.i.i = icmp eq ptr %arrayidx.i.i.i.i.i.i.i, %29
   br i1 %cmp.i.i.i15.not.i.i, label %_ZNK4entt16basic_dispatcherISaIvEE4sizeI8an_eventEEmj.exit.thread, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZNK4entt9dense_mapIjSt10shared_ptrINS_8internal24basic_dispatcher_handlerEENS_8identityESt8equal_toIjESaISt4pairIKjS4_EEE4findERS9_.exit.i.i
@@ -11287,7 +11293,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit206:         ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i202, %cleanup88
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar59) #18
-  %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %28, %30
+  %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %28, %29
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit206, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_24basic_dispatcher_handlerEEEEEvPT_.exit.i.i.i.i.i.i.i.i
@@ -11343,7 +11349,7 @@ if.then7.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %invoke.cont.i.i.i.i
 
 _ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_24basic_dispatcher_handlerEEEEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %if.then7.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 32
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %30
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %29
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !45
 
 invoke.contthread-pre-split.i.i.i.i.i:            ; preds = %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_24basic_dispatcher_handlerEEEEEvPT_.exit.i.i.i.i.i.i.i.i

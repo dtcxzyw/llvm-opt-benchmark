@@ -783,17 +783,24 @@ define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture nou
   %148 = tail call i32 @llvm.smax.i32(i32 %145, i32 %147)
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds i8, ptr %2, i64 8
-  %151 = mul nsw i64 %149, 3
-  %152 = load <2 x i32>, ptr %150, align 4, !tbaa !12
-  %153 = insertelement <2 x i64> poison, i64 %151, i64 0
-  %154 = shufflevector <2 x i64> %153, <2 x i64> poison, <2 x i32> zeroinitializer
-  %155 = sext <2 x i32> %152 to <2 x i64>
-  %156 = icmp ult <2 x i64> %154, %155
-  %157 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %152, <2 x i32> <i32 1, i32 1>)
-  %158 = zext nneg <2 x i32> %157 to <2 x i64>
-  %159 = select <2 x i1> %156, <2 x i64> %154, <2 x i64> %158
-  %160 = trunc <2 x i64> %159 to <2 x i32>
-  store <2 x i32> %160, ptr %150, align 4, !tbaa !12
+  %151 = load i32, ptr %150, align 4, !tbaa !52
+  %152 = sext i32 %151 to i64
+  %153 = mul nsw i64 %149, 3
+  %154 = icmp ult i64 %153, %152
+  %155 = tail call i32 @llvm.smax.i32(i32 %151, i32 1)
+  %156 = zext nneg i32 %155 to i64
+  %157 = select i1 %154, i64 %153, i64 %156
+  %158 = trunc i64 %157 to i32
+  store i32 %158, ptr %150, align 4, !tbaa !52
+  %159 = getelementptr inbounds i8, ptr %2, i64 12
+  %160 = load i32, ptr %159, align 4, !tbaa !53
+  %161 = sext i32 %160 to i64
+  %162 = icmp ult i64 %153, %161
+  %163 = tail call i32 @llvm.smax.i32(i32 %160, i32 1)
+  %164 = zext nneg i32 %163 to i64
+  %165 = select i1 %162, i64 %153, i64 %164
+  %166 = trunc i64 %165 to i32
+  store i32 %166, ptr %159, align 4, !tbaa !53
   ret void
 }
 

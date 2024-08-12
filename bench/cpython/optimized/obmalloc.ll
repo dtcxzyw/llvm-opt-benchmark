@@ -17260,19 +17260,21 @@ entry:
   %cmp.i = icmp uge ptr %stat, @_mi_stats_main
   %cmp1.i = icmp ult ptr %stat, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
   %0 = select i1 %cmp.i, i1 %cmp1.i, i1 false
+  %count = getelementptr inbounds i8, ptr %stat, i64 8
   br i1 %0, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %count = getelementptr inbounds i8, ptr %stat, i64 8
   %1 = atomicrmw add ptr %count, i64 1 monotonic, align 8
   %2 = atomicrmw add ptr %stat, i64 %amount monotonic, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %3 = load <2 x i64>, ptr %stat, align 8
-  %4 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %amount, i64 0
-  %5 = add <2 x i64> %3, %4
-  store <2 x i64> %5, ptr %stat, align 8
+  %3 = load i64, ptr %count, align 8
+  %inc = add i64 %3, 1
+  store i64 %inc, ptr %count, align 8
+  %4 = load i64, ptr %stat, align 8
+  %add = add i64 %4, %amount
+  store i64 %add, ptr %stat, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -17391,18 +17393,21 @@ _mi_stat_increase.exit:                           ; preds = %if.then5.i.i, %if.t
   %cmp.i.i6 = icmp uge ptr %reset_calls, @_mi_stats_main
   %cmp1.i.i7 = icmp ult ptr %reset_calls, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
   %16 = select i1 %cmp.i.i6, i1 %cmp1.i.i7, i1 false
+  %count.i = getelementptr inbounds i8, ptr %stats, i64 536
   br i1 %16, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_mi_stat_increase.exit
-  %count.i = getelementptr inbounds i8, ptr %stats, i64 536
   %17 = atomicrmw add ptr %count.i, i64 1 monotonic, align 8
   %18 = atomicrmw add ptr %reset_calls, i64 1 monotonic, align 8
   br label %_mi_stat_counter_increase.exit
 
 if.else.i:                                        ; preds = %_mi_stat_increase.exit
-  %19 = load <2 x i64>, ptr %reset_calls, align 8
-  %20 = add <2 x i64> %19, <i64 1, i64 1>
-  store <2 x i64> %20, ptr %reset_calls, align 8
+  %19 = load i64, ptr %count.i, align 8
+  %inc.i = add i64 %19, 1
+  store i64 %inc.i, ptr %count.i, align 8
+  %20 = load i64, ptr %reset_calls, align 8
+  %add.i = add i64 %20, 1
+  store i64 %add.i, ptr %reset_calls, align 8
   br label %_mi_stat_counter_increase.exit
 
 _mi_stat_counter_increase.exit:                   ; preds = %if.then.i, %if.else.i
@@ -17509,18 +17514,21 @@ if.end:                                           ; preds = %entry
   %cmp.i.i = icmp uge ptr %purge_calls, @_mi_stats_main
   %cmp1.i.i = icmp ult ptr %purge_calls, getelementptr inbounds (i8, ptr @_mi_stats_main, i64 640)
   %0 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
+  %count.i = getelementptr inbounds i8, ptr %stats, i64 552
   br i1 %0, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %count.i = getelementptr inbounds i8, ptr %stats, i64 552
   %1 = atomicrmw add ptr %count.i, i64 1 monotonic, align 8
   %2 = atomicrmw add ptr %purge_calls, i64 1 monotonic, align 8
   br label %_mi_stat_counter_increase.exit
 
 if.else.i:                                        ; preds = %if.end
-  %3 = load <2 x i64>, ptr %purge_calls, align 8
-  %4 = add <2 x i64> %3, <i64 1, i64 1>
-  store <2 x i64> %4, ptr %purge_calls, align 8
+  %3 = load i64, ptr %count.i, align 8
+  %inc.i = add i64 %3, 1
+  store i64 %inc.i, ptr %count.i, align 8
+  %4 = load i64, ptr %purge_calls, align 8
+  %add.i = add i64 %4, 1
+  store i64 %add.i, ptr %purge_calls, align 8
   br label %_mi_stat_counter_increase.exit
 
 _mi_stat_counter_increase.exit:                   ; preds = %if.then.i, %if.else.i
@@ -27029,30 +27037,33 @@ if.then77.i.i:                                    ; preds = %if.then72.i.i, %if.
 if.end83.i.i:                                     ; preds = %if.end20.i.i.i, %if.then5.i.i.i
   store i64 %31, ptr %27, align 8
   %narenas_currently_allocated.i.i = getelementptr inbounds i8, ptr %state, i64 1064
-  %58 = load <2 x i64>, ptr %narenas_currently_allocated.i.i, align 8
-  %59 = add <2 x i64> %58, <i64 1, i64 1>
-  store <2 x i64> %59, ptr %narenas_currently_allocated.i.i, align 8
+  %58 = load i64, ptr %narenas_currently_allocated.i.i, align 8
+  %inc86.i.i = add i64 %58, 1
+  store i64 %inc86.i.i, ptr %narenas_currently_allocated.i.i, align 8
+  %ntimes_arena_allocated.i.i = getelementptr inbounds i8, ptr %state, i64 1072
+  %59 = load i64, ptr %ntimes_arena_allocated.i.i, align 8
+  %inc88.i.i = add i64 %59, 1
+  store i64 %inc88.i.i, ptr %ntimes_arena_allocated.i.i, align 8
   %narenas_highwater.i.i = getelementptr inbounds i8, ptr %state, i64 1080
   %60 = load i64, ptr %narenas_highwater.i.i, align 8
-  %61 = extractelement <2 x i64> %59, i64 0
-  %cmp92.i.i = icmp ugt i64 %61, %60
+  %cmp92.i.i = icmp ugt i64 %inc86.i.i, %60
   br i1 %cmp92.i.i, label %if.then94.i.i, label %if.end99.i.i
 
 if.then94.i.i:                                    ; preds = %if.end83.i.i
-  store i64 %61, ptr %narenas_highwater.i.i, align 8
+  store i64 %inc86.i.i, ptr %narenas_highwater.i.i, align 8
   br label %if.end99.i.i
 
 if.end99.i.i:                                     ; preds = %if.then94.i.i, %if.end83.i.i
   %freepools.i.i = getelementptr inbounds i8, ptr %27, i64 24
   store ptr null, ptr %freepools.i.i, align 8
-  %62 = load i64, ptr %27, align 8
-  %63 = inttoptr i64 %62 to ptr
+  %61 = load i64, ptr %27, align 8
+  %62 = inttoptr i64 %61 to ptr
   %pool_address.i.i = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %63, ptr %pool_address.i.i, align 8
+  store ptr %62, ptr %pool_address.i.i, align 8
   %nfreepools.i.i = getelementptr inbounds i8, ptr %27, i64 16
   store i32 64, ptr %nfreepools.i.i, align 8
-  %64 = trunc i64 %62 to i32
-  %conv102.i.i = and i32 %64, 16383
+  %63 = trunc i64 %61 to i32
+  %conv102.i.i = and i32 %63, 16383
   %cmp103.not.i.i = icmp eq i32 %conv102.i.i, 0
   br i1 %cmp103.not.i.i, label %if.end.i23, label %if.then105.i.i
 
@@ -27060,7 +27071,7 @@ if.then105.i.i:                                   ; preds = %if.end99.i.i
   store i32 63, ptr %nfreepools.i.i, align 8
   %sub107.i.i = sub nuw nsw i32 16384, %conv102.i.i
   %idx.ext.i.i = zext nneg i32 %sub107.i.i to i64
-  %add.ptr.i.i = getelementptr i8, ptr %63, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %62, i64 %idx.ext.i.i
   store ptr %add.ptr.i.i, ptr %pool_address.i.i, align 8
   br label %if.end.i23
 
@@ -27069,33 +27080,33 @@ new_arena.exit.thread.i:                          ; preds = %if.then77.i.i, %if.
   br label %return
 
 if.end.i23:                                       ; preds = %if.then105.i.i, %if.end99.i.i
-  %65 = phi i32 [ 63, %if.then105.i.i ], [ 64, %if.end99.i.i ]
+  %64 = phi i32 [ 63, %if.then105.i.i ], [ 64, %if.end99.i.i ]
   %ntotalpools.i.i = getelementptr inbounds i8, ptr %27, i64 20
-  store i32 %65, ptr %ntotalpools.i.i, align 4
+  store i32 %64, ptr %ntotalpools.i.i, align 4
   store ptr %27, ptr %usable_arenas.i, align 8
   %prevarena.i = getelementptr inbounds i8, ptr %27, i64 40
   store ptr null, ptr %prevarena.i, align 8
-  %66 = load ptr, ptr %usable_arenas.i, align 8
-  %nextarena.i = getelementptr inbounds i8, ptr %66, i64 32
+  %65 = load ptr, ptr %usable_arenas.i, align 8
+  %nextarena.i = getelementptr inbounds i8, ptr %65, i64 32
   store ptr null, ptr %nextarena.i, align 8
-  %67 = load ptr, ptr %usable_arenas.i, align 8
+  %66 = load ptr, ptr %usable_arenas.i, align 8
   %nfp2lasta.i = getelementptr inbounds i8, ptr %state, i64 544
-  %nfreepools.i = getelementptr inbounds i8, ptr %67, i64 16
-  %68 = load i32, ptr %nfreepools.i, align 8
-  %idxprom.i = zext i32 %68 to i64
+  %nfreepools.i = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = load i32, ptr %nfreepools.i, align 8
+  %idxprom.i = zext i32 %67 to i64
   %arrayidx.i = getelementptr [65 x ptr], ptr %nfp2lasta.i, i64 0, i64 %idxprom.i
-  store ptr %67, ptr %arrayidx.i, align 8
+  store ptr %66, ptr %arrayidx.i, align 8
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end.i23, %if.else
-  %69 = phi ptr [ %67, %if.end.i23 ], [ %10, %if.else ]
+  %68 = phi ptr [ %66, %if.end.i23 ], [ %10, %if.else ]
   %nfp2lasta18.i = getelementptr inbounds i8, ptr %state, i64 544
-  %nfreepools21.i = getelementptr inbounds i8, ptr %69, i64 16
-  %70 = load i32, ptr %nfreepools21.i, align 8
-  %idxprom22.i = zext i32 %70 to i64
+  %nfreepools21.i = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = load i32, ptr %nfreepools21.i, align 8
+  %idxprom22.i = zext i32 %69 to i64
   %arrayidx23.i = getelementptr [65 x ptr], ptr %nfp2lasta18.i, i64 0, i64 %idxprom22.i
-  %71 = load ptr, ptr %arrayidx23.i, align 8
-  %cmp26.i = icmp eq ptr %71, %69
+  %70 = load ptr, ptr %arrayidx23.i, align 8
+  %cmp26.i = icmp eq ptr %70, %68
   br i1 %cmp26.i, label %if.then27.i, label %if.end35.i
 
 if.then27.i:                                      ; preds = %if.end16.i
@@ -27104,110 +27115,110 @@ if.then27.i:                                      ; preds = %if.end16.i
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.then27.i, %if.end16.i
-  %72 = phi i32 [ %.pr.i, %if.then27.i ], [ %70, %if.end16.i ]
-  %cmp39.i = icmp ugt i32 %72, 1
+  %71 = phi i32 [ %.pr.i, %if.then27.i ], [ %69, %if.end16.i ]
+  %cmp39.i = icmp ugt i32 %71, 1
   br i1 %cmp39.i, label %if.then40.i, label %if.end50.i
 
 if.then40.i:                                      ; preds = %if.end35.i
-  %sub.i = add i32 %72, -1
+  %sub.i = add i32 %71, -1
   %idxprom48.i = zext i32 %sub.i to i64
   %arrayidx49.i = getelementptr [65 x ptr], ptr %nfp2lasta18.i, i64 0, i64 %idxprom48.i
-  store ptr %69, ptr %arrayidx49.i, align 8
+  store ptr %68, ptr %arrayidx49.i, align 8
   br label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then40.i, %if.end35.i
-  %freepools.i = getelementptr inbounds i8, ptr %69, i64 24
-  %73 = load ptr, ptr %freepools.i, align 8
-  %cmp53.not.i = icmp eq ptr %73, null
+  %freepools.i = getelementptr inbounds i8, ptr %68, i64 24
+  %72 = load ptr, ptr %freepools.i, align 8
+  %cmp53.not.i = icmp eq ptr %72, null
   br i1 %cmp53.not.i, label %if.else80.i, label %if.then54.i
 
 if.then54.i:                                      ; preds = %if.end50.i
-  %nextpool.i13 = getelementptr inbounds i8, ptr %73, i64 16
-  %74 = load ptr, ptr %nextpool.i13, align 8
-  store ptr %74, ptr %freepools.i, align 8
-  %75 = load ptr, ptr %usable_arenas.i, align 8
-  %nfreepools60.i = getelementptr inbounds i8, ptr %75, i64 16
-  %76 = load i32, ptr %nfreepools60.i, align 8
-  %dec.i = add i32 %76, -1
+  %nextpool.i13 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = load ptr, ptr %nextpool.i13, align 8
+  store ptr %73, ptr %freepools.i, align 8
+  %74 = load ptr, ptr %usable_arenas.i, align 8
+  %nfreepools60.i = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = load i32, ptr %nfreepools60.i, align 8
+  %dec.i = add i32 %75, -1
   store i32 %dec.i, ptr %nfreepools60.i, align 8
-  %77 = load ptr, ptr %usable_arenas.i, align 8
-  %nfreepools63.i = getelementptr inbounds i8, ptr %77, i64 16
-  %78 = load i32, ptr %nfreepools63.i, align 8
-  %cmp64.i = icmp eq i32 %78, 0
+  %76 = load ptr, ptr %usable_arenas.i, align 8
+  %nfreepools63.i = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = load i32, ptr %nfreepools63.i, align 8
+  %cmp64.i = icmp eq i32 %77, 0
   br i1 %cmp64.i, label %if.then65.i, label %if.end114.i
 
 if.then65.i:                                      ; preds = %if.then54.i
-  %nextarena68.i = getelementptr inbounds i8, ptr %77, i64 32
-  %79 = load ptr, ptr %nextarena68.i, align 8
-  store ptr %79, ptr %usable_arenas.i, align 8
-  %cmp73.not.i = icmp eq ptr %79, null
+  %nextarena68.i = getelementptr inbounds i8, ptr %76, i64 32
+  %78 = load ptr, ptr %nextarena68.i, align 8
+  store ptr %78, ptr %usable_arenas.i, align 8
+  %cmp73.not.i = icmp eq ptr %78, null
   br i1 %cmp73.not.i, label %if.end114.i, label %if.end114.sink.split.i
 
 if.else80.i:                                      ; preds = %if.end50.i
-  %pool_address.i = getelementptr inbounds i8, ptr %69, i64 8
-  %80 = load ptr, ptr %pool_address.i, align 8
-  %81 = load ptr, ptr %mgmt.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %69 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %81 to i64
+  %pool_address.i = getelementptr inbounds i8, ptr %68, i64 8
+  %79 = load ptr, ptr %pool_address.i, align 8
+  %80 = load ptr, ptr %mgmt.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %68 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %80 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %conv.i = trunc i64 %sub.ptr.div.i to i32
-  %arenaindex.i = getelementptr inbounds i8, ptr %80, i64 32
+  %arenaindex.i = getelementptr inbounds i8, ptr %79, i64 32
   store i32 %conv.i, ptr %arenaindex.i, align 8
-  %szidx.i = getelementptr inbounds i8, ptr %80, i64 36
+  %szidx.i = getelementptr inbounds i8, ptr %79, i64 36
   store i32 65535, ptr %szidx.i, align 4
-  %82 = load ptr, ptr %usable_arenas.i, align 8
-  %pool_address88.i = getelementptr inbounds i8, ptr %82, i64 8
-  %83 = load ptr, ptr %pool_address88.i, align 8
-  %add.ptr.i21 = getelementptr i8, ptr %83, i64 16384
+  %81 = load ptr, ptr %usable_arenas.i, align 8
+  %pool_address88.i = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = load ptr, ptr %pool_address88.i, align 8
+  %add.ptr.i21 = getelementptr i8, ptr %82, i64 16384
   store ptr %add.ptr.i21, ptr %pool_address88.i, align 8
-  %84 = load ptr, ptr %usable_arenas.i, align 8
-  %nfreepools91.i = getelementptr inbounds i8, ptr %84, i64 16
-  %85 = load i32, ptr %nfreepools91.i, align 8
-  %dec92.i = add i32 %85, -1
+  %83 = load ptr, ptr %usable_arenas.i, align 8
+  %nfreepools91.i = getelementptr inbounds i8, ptr %83, i64 16
+  %84 = load i32, ptr %nfreepools91.i, align 8
+  %dec92.i = add i32 %84, -1
   store i32 %dec92.i, ptr %nfreepools91.i, align 8
-  %86 = load ptr, ptr %usable_arenas.i, align 8
-  %nfreepools95.i = getelementptr inbounds i8, ptr %86, i64 16
-  %87 = load i32, ptr %nfreepools95.i, align 8
-  %cmp96.i = icmp eq i32 %87, 0
+  %85 = load ptr, ptr %usable_arenas.i, align 8
+  %nfreepools95.i = getelementptr inbounds i8, ptr %85, i64 16
+  %86 = load i32, ptr %nfreepools95.i, align 8
+  %cmp96.i = icmp eq i32 %86, 0
   br i1 %cmp96.i, label %if.then98.i, label %if.end114.i
 
 if.then98.i:                                      ; preds = %if.else80.i
-  %nextarena101.i = getelementptr inbounds i8, ptr %86, i64 32
-  %88 = load ptr, ptr %nextarena101.i, align 8
-  store ptr %88, ptr %usable_arenas.i, align 8
-  %cmp106.not.i = icmp eq ptr %88, null
+  %nextarena101.i = getelementptr inbounds i8, ptr %85, i64 32
+  %87 = load ptr, ptr %nextarena101.i, align 8
+  store ptr %87, ptr %usable_arenas.i, align 8
+  %cmp106.not.i = icmp eq ptr %87, null
   br i1 %cmp106.not.i, label %if.end114.i, label %if.end114.sink.split.i
 
 if.end114.sink.split.i:                           ; preds = %if.then98.i, %if.then65.i
-  %.sink.i = phi ptr [ %79, %if.then65.i ], [ %88, %if.then98.i ]
-  %pool.0.ph.i = phi ptr [ %73, %if.then65.i ], [ %80, %if.then98.i ]
+  %.sink.i = phi ptr [ %78, %if.then65.i ], [ %87, %if.then98.i ]
+  %pool.0.ph.i = phi ptr [ %72, %if.then65.i ], [ %79, %if.then98.i ]
   %prevarena111.i = getelementptr inbounds i8, ptr %.sink.i, i64 40
   store ptr null, ptr %prevarena111.i, align 8
   br label %if.end114.i
 
 if.end114.i:                                      ; preds = %if.end114.sink.split.i, %if.then98.i, %if.else80.i, %if.then65.i, %if.then54.i
-  %pool.0.i = phi ptr [ %73, %if.then65.i ], [ %73, %if.then54.i ], [ %80, %if.then98.i ], [ %80, %if.else80.i ], [ %pool.0.ph.i, %if.end114.sink.split.i ]
-  %89 = load ptr, ptr %arrayidx, align 8
+  %pool.0.i = phi ptr [ %72, %if.then65.i ], [ %72, %if.then54.i ], [ %79, %if.then98.i ], [ %79, %if.else80.i ], [ %pool.0.ph.i, %if.end114.sink.split.i ]
+  %88 = load ptr, ptr %arrayidx, align 8
   %nextpool117.i = getelementptr inbounds i8, ptr %pool.0.i, i64 16
-  store ptr %89, ptr %nextpool117.i, align 8
+  store ptr %88, ptr %nextpool117.i, align 8
   %prevpool.i15 = getelementptr inbounds i8, ptr %pool.0.i, i64 24
-  store ptr %89, ptr %prevpool.i15, align 8
-  %nextpool118.i = getelementptr inbounds i8, ptr %89, i64 16
+  store ptr %88, ptr %prevpool.i15, align 8
+  %nextpool118.i = getelementptr inbounds i8, ptr %88, i64 16
   store ptr %pool.0.i, ptr %nextpool118.i, align 8
-  %prevpool119.i = getelementptr inbounds i8, ptr %89, i64 24
+  %prevpool119.i = getelementptr inbounds i8, ptr %88, i64 24
   store ptr %pool.0.i, ptr %prevpool119.i, align 8
   store i32 1, ptr %pool.0.i, align 8
   %szidx120.i = getelementptr inbounds i8, ptr %pool.0.i, i64 36
-  %90 = load i32, ptr %szidx120.i, align 4
-  %cmp121.i = icmp eq i32 %90, %shr
+  %89 = load i32, ptr %szidx120.i, align 4
+  %cmp121.i = icmp eq i32 %89, %shr
   br i1 %cmp121.i, label %if.then123.i, label %if.end125.i
 
 if.then123.i:                                     ; preds = %if.end114.i
   %freeblock.i20 = getelementptr inbounds i8, ptr %pool.0.i, i64 8
-  %91 = load ptr, ptr %freeblock.i20, align 8
-  %92 = load ptr, ptr %91, align 8
-  store ptr %92, ptr %freeblock.i20, align 8
+  %90 = load ptr, ptr %freeblock.i20, align 8
+  %91 = load ptr, ptr %90, align 8
+  store ptr %91, ptr %freeblock.i20, align 8
   br label %return
 
 if.end125.i:                                      ; preds = %if.end114.i
@@ -27230,7 +27241,7 @@ if.end125.i:                                      ; preds = %if.end114.i
   br label %return
 
 return:                                           ; preds = %if.end125.i, %if.then123.i, %new_arena.exit.thread.i, %if.end.i, %if.then.i, %if.then6, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %5, %if.then6 ], [ %5, %if.then.i ], [ %5, %if.end.i ], [ %91, %if.then123.i ], [ %add.ptr128.i, %if.end125.i ], [ null, %new_arena.exit.thread.i ]
+  %retval.0 = phi ptr [ null, %entry ], [ %5, %if.then6 ], [ %5, %if.then.i ], [ %5, %if.end.i ], [ %90, %if.then123.i ], [ %add.ptr128.i, %if.end125.i ], [ null, %new_arena.exit.thread.i ]
   ret ptr %retval.0
 }
 

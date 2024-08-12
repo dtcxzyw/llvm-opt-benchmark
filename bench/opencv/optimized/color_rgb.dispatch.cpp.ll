@@ -5596,9 +5596,9 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit
-  %.015 = phi i32 [ %42, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit ], [ %4, %.lr.ph.split.preheader ]
-  %.01014 = phi ptr [ %46, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit ], [ %19, %.lr.ph.split.preheader ]
-  %.01113 = phi ptr [ %44, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit ], [ %24, %.lr.ph.split.preheader ]
+  %.015 = phi i32 [ %43, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit ], [ %4, %.lr.ph.split.preheader ]
+  %.01014 = phi ptr [ %47, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit ], [ %19, %.lr.ph.split.preheader ]
+  %.01113 = phi ptr [ %45, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit ], [ %24, %.lr.ph.split.preheader ]
   %25 = load i32, ptr %10, align 8
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit
@@ -5611,63 +5611,67 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   br i1 %28, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
-  %.03.us.i = phi ptr [ %34, %.lr.ph.split.us.i ], [ %.01113, %.lr.ph.i ]
-  %.0132.us.i = phi i32 [ %33, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
-  %.0141.us.i = phi ptr [ %35, %.lr.ph.split.us.i ], [ %.01014, %.lr.ph.i ]
+  %.03.us.i = phi ptr [ %35, %.lr.ph.split.us.i ], [ %.01113, %.lr.ph.i ]
+  %.0132.us.i = phi i32 [ %34, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
+  %.0141.us.i = phi ptr [ %36, %.lr.ph.split.us.i ], [ %.01014, %.lr.ph.i ]
   %30 = load i16, ptr %.03.us.i, align 2
-  %31 = insertelement <4 x i16> <i16 poison, i16 -1, i16 poison, i16 poison>, i16 %30, i64 0
-  %32 = shufflevector <4 x i16> %31, <4 x i16> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  store <4 x i16> %32, ptr %.0141.us.i, align 2
-  %33 = add nuw nsw i32 %.0132.us.i, 1
-  %34 = getelementptr inbounds i8, ptr %.03.us.i, i64 2
-  %35 = getelementptr inbounds i16, ptr %.0141.us.i, i64 %29
-  %exitcond5.not.i = icmp eq i32 %33, %25
+  %31 = getelementptr inbounds i8, ptr %.0141.us.i, i64 4
+  store i16 %30, ptr %31, align 2
+  %32 = getelementptr inbounds i8, ptr %.0141.us.i, i64 2
+  store i16 %30, ptr %32, align 2
+  store i16 %30, ptr %.0141.us.i, align 2
+  %33 = getelementptr inbounds i8, ptr %.0141.us.i, i64 6
+  store i16 -1, ptr %33, align 2
+  %34 = add nuw nsw i32 %.0132.us.i, 1
+  %35 = getelementptr inbounds i8, ptr %.03.us.i, i64 2
+  %36 = getelementptr inbounds i16, ptr %.0141.us.i, i64 %29
+  %exitcond5.not.i = icmp eq i32 %34, %25
   br i1 %exitcond5.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit, label %.lr.ph.split.us.i, !llvm.loop !74
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
-  %.03.i = phi ptr [ %40, %.lr.ph.split.i ], [ %.01113, %.lr.ph.i ]
-  %.0132.i = phi i32 [ %39, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %.0141.i = phi ptr [ %41, %.lr.ph.split.i ], [ %.01014, %.lr.ph.i ]
-  %36 = load i16, ptr %.03.i, align 2
-  %37 = getelementptr inbounds i8, ptr %.0141.i, i64 4
-  store i16 %36, ptr %37, align 2
-  %38 = getelementptr inbounds i8, ptr %.0141.i, i64 2
-  store i16 %36, ptr %38, align 2
-  store i16 %36, ptr %.0141.i, align 2
-  %39 = add nuw nsw i32 %.0132.i, 1
-  %40 = getelementptr inbounds i8, ptr %.03.i, i64 2
-  %41 = getelementptr inbounds i16, ptr %.0141.i, i64 %29
-  %exitcond.not.i = icmp eq i32 %39, %25
+  %.03.i = phi ptr [ %41, %.lr.ph.split.i ], [ %.01113, %.lr.ph.i ]
+  %.0132.i = phi i32 [ %40, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
+  %.0141.i = phi ptr [ %42, %.lr.ph.split.i ], [ %.01014, %.lr.ph.i ]
+  %37 = load i16, ptr %.03.i, align 2
+  %38 = getelementptr inbounds i8, ptr %.0141.i, i64 4
+  store i16 %37, ptr %38, align 2
+  %39 = getelementptr inbounds i8, ptr %.0141.i, i64 2
+  store i16 %37, ptr %39, align 2
+  store i16 %37, ptr %.0141.i, align 2
+  %40 = add nuw nsw i32 %.0132.i, 1
+  %41 = getelementptr inbounds i8, ptr %.03.i, i64 2
+  %42 = getelementptr inbounds i16, ptr %.0141.i, i64 %29
+  %exitcond.not.i = icmp eq i32 %40, %25
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit, label %.lr.ph.split.i, !llvm.loop !74
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split
-  %42 = add nsw i32 %.015, 1
-  %43 = load i64, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %.01113, i64 %43
-  %45 = load i64, ptr %6, align 8
-  %46 = getelementptr inbounds i8, ptr %.01014, i64 %45
-  %47 = load i32, ptr %7, align 4
-  %48 = icmp slt i32 %42, %47
-  br i1 %48, label %.lr.ph.split, label %._crit_edge, !llvm.loop !75
+  %43 = add nsw i32 %.015, 1
+  %44 = load i64, ptr %5, align 8
+  %45 = getelementptr inbounds i8, ptr %.01113, i64 %44
+  %46 = load i64, ptr %6, align 8
+  %47 = getelementptr inbounds i8, ptr %.01014, i64 %46
+  %48 = load i32, ptr %7, align 4
+  %49 = icmp slt i32 %43, %48
+  br i1 %49, label %.lr.ph.split, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEclEPKtPti.exit, %.lr.ph, %2
-  %49 = getelementptr inbounds i8, ptr %3, i64 8
-  %50 = load i32, ptr %49, align 8
-  %.not.i = icmp eq i32 %50, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %51
+  %50 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = load i32, ptr %50, align 8
+  %.not.i = icmp eq i32 %51, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %52
 
-51:                                               ; preds = %._crit_edge
+52:                                               ; preds = %._crit_edge
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %3)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %52
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %53
 
-52:                                               ; preds = %51
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %52
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #13
+  %55 = extractvalue { ptr, i32 } %54, 0
+  call void @__clang_call_terminate(ptr %55) #13
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %51
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %52
   ret void
 }
 

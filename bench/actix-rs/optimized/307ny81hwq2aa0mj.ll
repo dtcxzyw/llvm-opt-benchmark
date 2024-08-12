@@ -530,29 +530,33 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8set_
   %eh.lpad-body = phi { ptr, i32 } [ %30, %29 ], [ %16, %15 ]
   %31 = getelementptr inbounds i8, ptr %1, i64 88
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$actix_web..error..error..Error$GT$$GT$17h51ae4a12f798720bE.llvm.16537464404008583024"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #14
-          to label %37 unwind label %35
+          to label %40 unwind label %38
 
 "_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hf729d7f1444b3ab7E.exit": ; preds = %3, %"_ZN4core3ptr195drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$actix_http..body..message_body..MessageBody$u2b$Error$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$$GT$17hb96a00a02da7eaf7E.llvm.1711877461099840233.exit.i.i", %19
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   %32 = getelementptr inbounds i8, ptr %1, i64 88
+  %33 = load ptr, ptr %32, align 8, !align !18, !noundef !4
+  %34 = getelementptr inbounds i8, ptr %1, i64 96
+  %35 = load ptr, ptr %34, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %6, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, i64 40, i1 false)
-  %33 = getelementptr inbounds i8, ptr %0, i64 88
-  %34 = load <2 x ptr>, ptr %32, align 8
-  store <2 x ptr> %34, ptr %33, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %33, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %35, ptr %37, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.5)
   ret void
 
-35:                                               ; preds = %.body
-  %36 = landingpad { ptr, i32 }
+38:                                               ; preds = %.body
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
-37:                                               ; preds = %.body
+40:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

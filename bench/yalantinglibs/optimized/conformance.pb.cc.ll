@@ -1227,20 +1227,22 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i7, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i7 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i10 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i10, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i10, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i10, align 8
-  store ptr %14, ptr %retval.i.0.i10, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
@@ -4126,29 +4128,31 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i10, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i10 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i13 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i13, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i13, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i13, align 8
-  store ptr %14, ptr %retval.i.0.i13, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %message_type_3 = getelementptr inbounds i8, ptr %other, i64 16
   %message_type_ = getelementptr inbounds i8, ptr %this, i64 16
-  %18 = load ptr, ptr %message_type_, align 8
-  %19 = load ptr, ptr %message_type_3, align 8
-  store ptr %19, ptr %message_type_, align 8
-  store ptr %18, ptr %message_type_3, align 8
+  %19 = load ptr, ptr %message_type_, align 8
+  %20 = load ptr, ptr %message_type_3, align 8
+  store ptr %20, ptr %message_type_, align 8
+  store ptr %19, ptr %message_type_3, align 8
   %jspb_encoding_options_ = getelementptr inbounds i8, ptr %this, i64 24
   %jspb_encoding_options_5 = getelementptr inbounds i8, ptr %other, i64 24
   %tmp.0.copyload.i.i = load i128, ptr %jspb_encoding_options_, align 8
@@ -4157,21 +4161,21 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 40
   %add.ptr1.i = getelementptr inbounds i8, ptr %other, i64 40
   %tmp.0.copyload.i.i.i = load i8, ptr %add.ptr.i, align 8
-  %20 = load i8, ptr %add.ptr1.i, align 1
-  store i8 %20, ptr %add.ptr.i, align 8
+  %21 = load i8, ptr %add.ptr1.i, align 1
+  store i8 %21, ptr %add.ptr.i, align 8
   store i8 %tmp.0.copyload.i.i.i, ptr %add.ptr1.i, align 1
   %payload_ = getelementptr inbounds i8, ptr %this, i64 48
   %payload_6 = getelementptr inbounds i8, ptr %other, i64 48
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %payload_, align 8
-  %21 = load i64, ptr %payload_6, align 8
-  store i64 %21, ptr %payload_, align 8
+  %22 = load i64, ptr %payload_6, align 8
+  store i64 %22, ptr %payload_, align 8
   store ptr %__tmp.sroa.0.0.copyload.i, ptr %payload_6, align 8
   %_oneof_case_ = getelementptr inbounds i8, ptr %this, i64 60
   %_oneof_case_7 = getelementptr inbounds i8, ptr %other, i64 60
-  %22 = load i32, ptr %_oneof_case_, align 4
-  %23 = load i32, ptr %_oneof_case_7, align 4
-  store i32 %23, ptr %_oneof_case_, align 4
-  store i32 %22, ptr %_oneof_case_7, align 4
+  %23 = load i32, ptr %_oneof_case_, align 4
+  %24 = load i32, ptr %_oneof_case_7, align 4
+  store i32 %24, ptr %_oneof_case_, align 4
+  store i32 %23, ptr %_oneof_case_7, align 4
   ret void
 }
 
@@ -6744,35 +6748,37 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i8, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i8 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i11 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i11, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i11, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i11, align 8
-  store ptr %14, ptr %retval.i.0.i11, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %result_ = getelementptr inbounds i8, ptr %this, i64 16
   %result_3 = getelementptr inbounds i8, ptr %other, i64 16
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %result_, align 8
-  %18 = load i64, ptr %result_3, align 8
-  store i64 %18, ptr %result_, align 8
+  %19 = load i64, ptr %result_3, align 8
+  store i64 %19, ptr %result_, align 8
   store ptr %__tmp.sroa.0.0.copyload.i, ptr %result_3, align 8
   %_oneof_case_ = getelementptr inbounds i8, ptr %this, i64 28
   %_oneof_case_4 = getelementptr inbounds i8, ptr %other, i64 28
-  %19 = load i32, ptr %_oneof_case_, align 4
-  %20 = load i32, ptr %_oneof_case_4, align 4
-  store i32 %20, ptr %_oneof_case_, align 4
-  store i32 %19, ptr %_oneof_case_4, align 4
+  %20 = load i32, ptr %_oneof_case_, align 4
+  %21 = load i32, ptr %_oneof_case_4, align 4
+  store i32 %21, ptr %_oneof_case_, align 4
+  store i32 %20, ptr %_oneof_case_4, align 4
   ret void
 }
 
@@ -7636,29 +7642,31 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i7, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i7 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i10 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i10, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i10, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i10, align 8
-  store ptr %14, ptr %retval.i.0.i10, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %use_jspb_array_any_format_ = getelementptr inbounds i8, ptr %this, i64 16
   %use_jspb_array_any_format_3 = getelementptr inbounds i8, ptr %other, i64 16
-  %18 = load i8, ptr %use_jspb_array_any_format_, align 8
-  %frombool.i = and i8 %18, 1
-  %19 = load i8, ptr %use_jspb_array_any_format_3, align 1
-  %frombool2.i = and i8 %19, 1
+  %19 = load i8, ptr %use_jspb_array_any_format_, align 8
+  %frombool.i = and i8 %19, 1
+  %20 = load i8, ptr %use_jspb_array_any_format_3, align 1
+  %frombool2.i = and i8 %20, 1
   store i8 %frombool2.i, ptr %use_jspb_array_any_format_, align 8
   store i8 %frombool.i, ptr %use_jspb_array_any_format_3, align 1
   ret void

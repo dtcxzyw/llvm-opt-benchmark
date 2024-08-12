@@ -1852,15 +1852,14 @@ define internal fastcc noundef i32 @_ZL11calc_nbeginiPff(i32 noundef %0, ptr noc
 24:                                               ; preds = %.critedge
   %25 = and i64 %indvars.iv, 4294967295
   %26 = getelementptr inbounds float, ptr %1, i64 %25
-  %27 = getelementptr i8, ptr %26, i64 -4
-  %28 = load <2 x float>, ptr %27, align 4
-  %29 = insertelement <2 x float> poison, float %2, i64 0
-  %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
-  %31 = fsub <2 x float> %28, %30
-  %32 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %31)
-  %shift = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %33 = fcmp ogt <2 x float> %shift, %32
-  %34 = extractelement <2 x i1> %33, i64 0
+  %27 = load float, ptr %26, align 4
+  %28 = fsub float %27, %2
+  %29 = tail call noundef float @llvm.fabs.f32(float %28)
+  %30 = getelementptr i8, ptr %26, i64 -4
+  %31 = load float, ptr %30, align 4
+  %32 = fsub float %31, %2
+  %33 = tail call noundef float @llvm.fabs.f32(float %32)
+  %34 = fcmp ogt float %29, %33
   %35 = sext i1 %34 to i32
   %.1 = add nsw i32 %10, %35
   %36 = sext i32 %.1 to i64
@@ -2111,6 +2110,9 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
   resume { ptr, i32 } %.pn.pn
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #8
+
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
@@ -2212,9 +2214,6 @@ declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #15
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

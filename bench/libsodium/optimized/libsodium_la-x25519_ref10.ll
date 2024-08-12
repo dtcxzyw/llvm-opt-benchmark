@@ -752,26 +752,36 @@ for.end80:                                        ; preds = %for.body20
   store i64 %xor24.i503, ptr %arrayidx3.i, align 8
   %xor26.i504 = xor i64 %and17.i499, %46
   store i64 %xor26.i504, ptr %arrayidx4.i, align 16
-  %48 = load i64, ptr %arrayidx4.i25, align 16
-  %49 = load i64, ptr %arrayidx9.i29, align 16
-  %xor13.i524 = xor i64 %49, %48
-  %50 = load <2 x i64>, ptr %z2, align 16
-  %51 = load <2 x i64>, ptr %z3, align 16
-  %52 = xor <2 x i64> %51, %50
-  %53 = load <2 x i64>, ptr %arrayidx2.i23, align 16
-  %54 = load <2 x i64>, ptr %arrayidx7.i27, align 16
-  %55 = xor <2 x i64> %54, %53
-  %56 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %sub.i481) #6, !srcloc !9
-  %57 = insertelement <2 x i64> poison, i64 %56, i64 0
-  %58 = shufflevector <2 x i64> %57, <2 x i64> poison, <2 x i32> zeroinitializer
-  %59 = and <2 x i64> %58, %52
-  %60 = and <2 x i64> %58, %55
-  %and17.i529 = and i64 %xor13.i524, %56
-  %61 = xor <2 x i64> %59, %50
-  store <2 x i64> %61, ptr %z2, align 16
-  %62 = xor <2 x i64> %60, %53
-  store <2 x i64> %62, ptr %arrayidx2.i23, align 16
-  %xor26.i534 = xor i64 %and17.i529, %48
+  %48 = load i64, ptr %z2, align 16
+  %49 = load i64, ptr %arrayidx1.i22, align 8
+  %50 = load i64, ptr %arrayidx2.i23, align 16
+  %51 = load i64, ptr %arrayidx3.i24, align 8
+  %52 = load i64, ptr %arrayidx4.i25, align 16
+  %53 = load i64, ptr %z3, align 16
+  %54 = load i64, ptr %arrayidx1.i15, align 8
+  %55 = load i64, ptr %arrayidx7.i27, align 16
+  %56 = load i64, ptr %arrayidx8.i28, align 8
+  %57 = load i64, ptr %arrayidx9.i29, align 16
+  %xor.i520 = xor i64 %53, %48
+  %xor10.i521 = xor i64 %54, %49
+  %xor11.i522 = xor i64 %55, %50
+  %xor12.i523 = xor i64 %56, %51
+  %xor13.i524 = xor i64 %57, %52
+  %58 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %sub.i481) #6, !srcloc !9
+  %and.i525 = and i64 %58, %xor.i520
+  %and14.i526 = and i64 %58, %xor10.i521
+  %and15.i527 = and i64 %58, %xor11.i522
+  %and16.i528 = and i64 %58, %xor12.i523
+  %and17.i529 = and i64 %xor13.i524, %58
+  %xor18.i530 = xor i64 %and.i525, %48
+  store i64 %xor18.i530, ptr %z2, align 16
+  %xor20.i531 = xor i64 %and14.i526, %49
+  store i64 %xor20.i531, ptr %arrayidx1.i22, align 8
+  %xor22.i532 = xor i64 %and15.i527, %50
+  store i64 %xor22.i532, ptr %arrayidx2.i23, align 16
+  %xor24.i533 = xor i64 %and16.i528, %51
+  store i64 %xor24.i533, ptr %arrayidx3.i24, align 8
+  %xor26.i534 = xor i64 %and17.i529, %52
   store i64 %xor26.i534, ptr %arrayidx4.i25, align 16
   call void @_sodium_fe25519_invert(ptr noundef nonnull %z2, ptr noundef nonnull %z2) #6
   call fastcc void @fe25519_mul(ptr noundef nonnull %x2, ptr noundef nonnull %x2, ptr noundef nonnull %z2)

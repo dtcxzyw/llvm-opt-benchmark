@@ -117,18 +117,15 @@ define dso_local i64 @brin_minmax_multi_distance_float8(ptr nocapture noundef re
 define dso_local i64 @brin_minmax_multi_distance_int2(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8
-  %6 = trunc i64 %5 to i16
-  %7 = insertelement <2 x i16> poison, i16 %6, i64 0
-  %8 = trunc i64 %3 to i16
-  %9 = insertelement <2 x i16> %7, i16 %8, i64 1
-  %10 = sitofp <2 x i16> %9 to <2 x double>
-  %shift = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %11 = fsub <2 x double> %10, %shift
-  %bc = bitcast <2 x double> %11 to <2 x i64>
-  %12 = extractelement <2 x i64> %bc, i64 0
-  ret i64 %12
+  %4 = trunc i64 %3 to i16
+  %5 = getelementptr i8, ptr %0, i64 48
+  %6 = load i64, ptr %5, align 8
+  %7 = trunc i64 %6 to i16
+  %8 = sitofp i16 %7 to double
+  %9 = sitofp i16 %4 to double
+  %10 = fsub double %8, %9
+  %11 = bitcast double %10 to i64
+  ret i64 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -376,54 +373,59 @@ define dso_local i64 @brin_minmax_multi_distance_macaddr(ptr nocapture noundef r
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
-  %10 = load <2 x i8>, ptr %8, align 1
-  %11 = uitofp <2 x i8> %10 to <2 x double>
-  %12 = load <2 x i8>, ptr %9, align 1
-  %13 = uitofp <2 x i8> %12 to <2 x double>
-  %14 = fsub <2 x double> %11, %13
-  %15 = extractelement <2 x double> %14, i64 1
-  %16 = fmul double %15, 3.906250e-03
-  %17 = extractelement <2 x double> %14, i64 0
-  %18 = fadd double %16, %17
-  %19 = fmul double %18, 3.906250e-03
-  %20 = getelementptr inbounds i8, ptr %7, i64 3
-  %21 = load i8, ptr %20, align 1
-  %22 = uitofp i8 %21 to double
-  %23 = getelementptr inbounds i8, ptr %4, i64 3
-  %24 = load i8, ptr %23, align 1
-  %25 = uitofp i8 %24 to double
-  %26 = fsub double %22, %25
-  %27 = fadd double %19, %26
-  %28 = fmul double %27, 3.906250e-03
-  %29 = getelementptr inbounds i8, ptr %7, i64 2
-  %30 = load i8, ptr %29, align 1
-  %31 = uitofp i8 %30 to double
-  %32 = getelementptr inbounds i8, ptr %4, i64 2
-  %33 = load i8, ptr %32, align 1
-  %34 = uitofp i8 %33 to double
-  %35 = fsub double %31, %34
-  %36 = fadd double %28, %35
-  %37 = fmul double %36, 3.906250e-03
-  %38 = getelementptr inbounds i8, ptr %7, i64 1
-  %39 = load i8, ptr %38, align 1
-  %40 = uitofp i8 %39 to double
-  %41 = getelementptr inbounds i8, ptr %4, i64 1
-  %42 = load i8, ptr %41, align 1
-  %43 = uitofp i8 %42 to double
-  %44 = fsub double %40, %43
-  %45 = fadd double %37, %44
-  %46 = fmul double %45, 3.906250e-03
-  %47 = load i8, ptr %7, align 1
+  %8 = getelementptr inbounds i8, ptr %7, i64 5
+  %9 = load i8, ptr %8, align 1
+  %10 = uitofp i8 %9 to double
+  %11 = getelementptr inbounds i8, ptr %4, i64 5
+  %12 = load i8, ptr %11, align 1
+  %13 = uitofp i8 %12 to double
+  %14 = fsub double %10, %13
+  %15 = fmul double %14, 3.906250e-03
+  %16 = getelementptr inbounds i8, ptr %7, i64 4
+  %17 = load i8, ptr %16, align 1
+  %18 = uitofp i8 %17 to double
+  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = load i8, ptr %19, align 1
+  %21 = uitofp i8 %20 to double
+  %22 = fsub double %18, %21
+  %23 = fadd double %15, %22
+  %24 = fmul double %23, 3.906250e-03
+  %25 = getelementptr inbounds i8, ptr %7, i64 3
+  %26 = load i8, ptr %25, align 1
+  %27 = uitofp i8 %26 to double
+  %28 = getelementptr inbounds i8, ptr %4, i64 3
+  %29 = load i8, ptr %28, align 1
+  %30 = uitofp i8 %29 to double
+  %31 = fsub double %27, %30
+  %32 = fadd double %24, %31
+  %33 = fmul double %32, 3.906250e-03
+  %34 = getelementptr inbounds i8, ptr %7, i64 2
+  %35 = load i8, ptr %34, align 1
+  %36 = uitofp i8 %35 to double
+  %37 = getelementptr inbounds i8, ptr %4, i64 2
+  %38 = load i8, ptr %37, align 1
+  %39 = uitofp i8 %38 to double
+  %40 = fsub double %36, %39
+  %41 = fadd double %33, %40
+  %42 = fmul double %41, 3.906250e-03
+  %43 = getelementptr inbounds i8, ptr %7, i64 1
+  %44 = load i8, ptr %43, align 1
+  %45 = uitofp i8 %44 to double
+  %46 = getelementptr inbounds i8, ptr %4, i64 1
+  %47 = load i8, ptr %46, align 1
   %48 = uitofp i8 %47 to double
-  %49 = load i8, ptr %4, align 1
-  %50 = uitofp i8 %49 to double
-  %51 = fsub double %48, %50
-  %52 = fadd double %46, %51
-  %53 = fmul double %52, 3.906250e-03
-  %54 = bitcast double %53 to i64
-  ret i64 %54
+  %49 = fsub double %45, %48
+  %50 = fadd double %42, %49
+  %51 = fmul double %50, 3.906250e-03
+  %52 = load i8, ptr %7, align 1
+  %53 = uitofp i8 %52 to double
+  %54 = load i8, ptr %4, align 1
+  %55 = uitofp i8 %54 to double
+  %56 = fsub double %53, %55
+  %57 = fadd double %51, %56
+  %58 = fmul double %57, 3.906250e-03
+  %59 = bitcast double %58 to i64
+  ret i64 %59
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

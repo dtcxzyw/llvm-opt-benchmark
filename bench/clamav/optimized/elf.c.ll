@@ -325,7 +325,7 @@ fmap_readn.exit:                                  ; preds = %8
 
 fmap_readn.exit.thread:                           ; preds = %8, %5, %fmap_readn.exit
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29) #8
-  br label %85
+  br label %104
 
 12:                                               ; preds = %fmap_readn.exit
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %2, ptr noundef nonnull dereferenceable(4) @.str.30, i64 4)
@@ -334,7 +334,7 @@ fmap_readn.exit.thread:                           ; preds = %8, %5, %fmap_readn.
 
 13:                                               ; preds = %12
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31) #8
-  br label %85
+  br label %104
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %2, i64 4
@@ -365,10 +365,10 @@ fmap_readn.exit.thread:                           ; preds = %8, %5, %fmap_readn.
 26:                                               ; preds = %20
   %27 = tail call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %0, ptr noundef nonnull @.str.35) #8
   %28 = icmp eq i32 %27, 1
-  br i1 %28, label %85, label %29
+  br i1 %28, label %104, label %29
 
 29:                                               ; preds = %26, %20, %18
-  br label %85
+  br label %104
 
 30:                                               ; preds = %14, %17
   %.str.33.sink = phi ptr [ @.str.33, %17 ], [ @.str.32, %14 ]
@@ -398,7 +398,7 @@ fmap_readn.exit.thread:                           ; preds = %8, %5, %fmap_readn.
 38:                                               ; preds = %35, %34
   store i8 0, ptr %3, align 1
   store i8 %.0166, ptr %4, align 1
-  br i1 %.not178, label %83, label %46
+  br i1 %.not178, label %102, label %46
 
 .thread246:                                       ; preds = %36, %37
   store i8 1, ptr %3, align 1
@@ -438,10 +438,10 @@ fmap_readn.exit236:                               ; preds = %49
 
 fmap_readn.exit236.thread:                        ; preds = %49, %46, %fmap_readn.exit236
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29) #8
-  br label %85
+  br label %104
 
 53:                                               ; preds = %fmap_readn.exit236
-  br i1 %33, label %85, label %54
+  br i1 %33, label %104, label %54
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds i8, ptr %2, i64 24
@@ -460,45 +460,81 @@ fmap_readn.exit236.thread:                        ; preds = %49, %46, %fmap_read
   %65 = load i32, ptr %64, align 8
   %66 = tail call i32 @llvm.bswap.i32(i32 %65)
   store i32 %66, ptr %64, align 8
-  %67 = load <4 x i16>, ptr %47, align 4
-  %68 = tail call <4 x i16> @llvm.bswap.v4i16(<4 x i16> %67)
-  store <4 x i16> %68, ptr %47, align 4
-  %69 = getelementptr inbounds i8, ptr %2, i64 60
-  %70 = load i16, ptr %69, align 4
-  %rev228 = tail call i16 @llvm.bswap.i16(i16 %70)
-  store i16 %rev228, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %2, i64 62
-  %72 = load i16, ptr %71, align 2
-  %rev229 = tail call i16 @llvm.bswap.i16(i16 %72)
-  store i16 %rev229, ptr %71, align 2
-  br label %85
+  %67 = load i16, ptr %47, align 4
+  %rev224 = tail call i16 @llvm.bswap.i16(i16 %67)
+  store i16 %rev224, ptr %47, align 4
+  %68 = getelementptr inbounds i8, ptr %2, i64 54
+  %69 = load i16, ptr %68, align 2
+  %rev225 = tail call i16 @llvm.bswap.i16(i16 %69)
+  store i16 %rev225, ptr %68, align 2
+  %70 = getelementptr inbounds i8, ptr %2, i64 56
+  %71 = load i16, ptr %70, align 8
+  %rev226 = tail call i16 @llvm.bswap.i16(i16 %71)
+  store i16 %rev226, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %2, i64 58
+  %73 = load i16, ptr %72, align 2
+  %rev227 = tail call i16 @llvm.bswap.i16(i16 %73)
+  store i16 %rev227, ptr %72, align 2
+  %74 = getelementptr inbounds i8, ptr %2, i64 60
+  %75 = load i16, ptr %74, align 4
+  %rev228 = tail call i16 @llvm.bswap.i16(i16 %75)
+  store i16 %rev228, ptr %74, align 4
+  %76 = getelementptr inbounds i8, ptr %2, i64 62
+  %77 = load i16, ptr %76, align 2
+  %rev229 = tail call i16 @llvm.bswap.i16(i16 %77)
+  store i16 %rev229, ptr %76, align 2
+  br label %104
 
 .thread247:                                       ; preds = %.thread246
-  %73 = getelementptr inbounds i8, ptr %2, i64 24
-  %74 = load <4 x i32>, ptr %73, align 8
-  %75 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %74)
-  store <4 x i32> %75, ptr %73, align 8
-  %76 = getelementptr inbounds i8, ptr %2, i64 40
-  %77 = load <4 x i16>, ptr %76, align 8
-  %78 = tail call <4 x i16> @llvm.bswap.v4i16(<4 x i16> %77)
-  store <4 x i16> %78, ptr %76, align 8
-  %79 = getelementptr inbounds i8, ptr %2, i64 48
-  %80 = load i16, ptr %79, align 8
-  %rev196 = tail call i16 @llvm.bswap.i16(i16 %80)
-  store i16 %rev196, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %2, i64 50
-  %82 = load i16, ptr %81, align 2
-  %rev197 = tail call i16 @llvm.bswap.i16(i16 %82)
-  store i16 %rev197, ptr %81, align 2
-  br label %83
+  %78 = getelementptr inbounds i8, ptr %2, i64 24
+  %79 = load i32, ptr %78, align 8
+  %80 = tail call i32 @llvm.bswap.i32(i32 %79)
+  store i32 %80, ptr %78, align 8
+  %81 = getelementptr inbounds i8, ptr %2, i64 28
+  %82 = load i32, ptr %81, align 4
+  %83 = tail call i32 @llvm.bswap.i32(i32 %82)
+  store i32 %83, ptr %81, align 4
+  %84 = getelementptr inbounds i8, ptr %2, i64 32
+  %85 = load i32, ptr %84, align 8
+  %86 = tail call i32 @llvm.bswap.i32(i32 %85)
+  store i32 %86, ptr %84, align 8
+  %87 = getelementptr inbounds i8, ptr %2, i64 36
+  %88 = load i32, ptr %87, align 4
+  %89 = tail call i32 @llvm.bswap.i32(i32 %88)
+  store i32 %89, ptr %87, align 4
+  %90 = getelementptr inbounds i8, ptr %2, i64 40
+  %91 = load i16, ptr %90, align 8
+  %rev192 = tail call i16 @llvm.bswap.i16(i16 %91)
+  store i16 %rev192, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %2, i64 42
+  %93 = load i16, ptr %92, align 2
+  %rev193 = tail call i16 @llvm.bswap.i16(i16 %93)
+  store i16 %rev193, ptr %92, align 2
+  %94 = getelementptr inbounds i8, ptr %2, i64 44
+  %95 = load i16, ptr %94, align 4
+  %rev194 = tail call i16 @llvm.bswap.i16(i16 %95)
+  store i16 %rev194, ptr %94, align 4
+  %96 = getelementptr inbounds i8, ptr %2, i64 46
+  %97 = load i16, ptr %96, align 2
+  %rev195 = tail call i16 @llvm.bswap.i16(i16 %97)
+  store i16 %rev195, ptr %96, align 2
+  %98 = getelementptr inbounds i8, ptr %2, i64 48
+  %99 = load i16, ptr %98, align 8
+  %rev196 = tail call i16 @llvm.bswap.i16(i16 %99)
+  store i16 %rev196, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %2, i64 50
+  %101 = load i16, ptr %100, align 2
+  %rev197 = tail call i16 @llvm.bswap.i16(i16 %101)
+  store i16 %rev197, ptr %100, align 2
+  br label %102
 
-83:                                               ; preds = %38, %.thread247
-  %84 = getelementptr inbounds i8, ptr %2, i64 52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %84, i8 0, i64 12, i1 false)
-  br label %85
+102:                                              ; preds = %38, %.thread247
+  %103 = getelementptr inbounds i8, ptr %2, i64 52
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %103, i8 0, i64 12, i1 false)
+  br label %104
 
-85:                                               ; preds = %83, %54, %53, %26, %fmap_readn.exit236.thread, %29, %13, %fmap_readn.exit.thread
-  %.0167 = phi i32 [ 22, %fmap_readn.exit.thread ], [ 22, %13 ], [ 22, %29 ], [ 22, %fmap_readn.exit236.thread ], [ 1, %26 ], [ 0, %53 ], [ 0, %54 ], [ 0, %83 ]
+104:                                              ; preds = %102, %54, %53, %26, %fmap_readn.exit236.thread, %29, %13, %fmap_readn.exit.thread
+  %.0167 = phi i32 [ 22, %fmap_readn.exit.thread ], [ 22, %13 ], [ 22, %29 ], [ 22, %fmap_readn.exit236.thread ], [ 1, %26 ], [ 0, %53 ], [ 0, %54 ], [ 0, %102 ]
   ret i32 %.0167
 }
 
@@ -2049,12 +2085,6 @@ declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i16> @llvm.bswap.v4i16(<4 x i16>) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.bswap.v4i32(<4 x i32>) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

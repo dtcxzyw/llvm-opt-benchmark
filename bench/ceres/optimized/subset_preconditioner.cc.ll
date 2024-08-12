@@ -203,95 +203,105 @@ _ZN6google12Check_GEImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
   %56 = getelementptr inbounds i8, ptr %7, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   %57 = getelementptr inbounds i8, ptr %7, i64 88
-  store <4 x i32> <i32 10, i32 -1, i32 -1, i32 -1>, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %7, i64 104
-  store i8 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %7, i64 108
-  store i32 0, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %7, i64 112
-  store i32 -1, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %7, i64 120
-  store ptr null, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
-  %63 = getelementptr inbounds i8, ptr %7, i64 16
-  %64 = load <2 x i32>, ptr %62, align 8
-  store <2 x i32> %64, ptr %63, align 8
+  store i32 10, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %7, i64 92
+  store i32 -1, ptr %58, align 4
+  %59 = getelementptr inbounds i8, ptr %7, i64 96
+  store i32 -1, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %7, i64 100
+  store i32 -1, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %7, i64 104
+  store i8 0, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %7, i64 108
+  store i32 0, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %7, i64 112
+  store i32 -1, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %7, i64 120
+  store ptr null, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = load i32, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 %66, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 20
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds i8, ptr %7, i64 20
+  store i32 %69, ptr %70, align 4
   invoke void @_ZN5ceres8internal14SparseCholesky6CreateERKNS0_12LinearSolver7OptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %7)
-          to label %65 unwind label %76
+          to label %71 unwind label %82
 
-65:                                               ; preds = %47
-  %66 = load ptr, ptr %8, align 8
+71:                                               ; preds = %47
+  %72 = load ptr, ptr %8, align 8
   store ptr null, ptr %8, align 8
-  %67 = load ptr, ptr %24, align 8
-  store ptr %66, ptr %24, align 8
-  %.not.i.i.i.i = icmp eq ptr %67, null
+  %73 = load ptr, ptr %24, align 8
+  store ptr %72, ptr %24, align 8
+  %.not.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit
 
-_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %65
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(8) %67) #9
+_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %71
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %76 = load ptr, ptr %75, align 8
+  call void %76(ptr noundef nonnull align 8 dereferenceable(8) %73) #9
   %.pr = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit
-  %71 = load ptr, ptr %.pr, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #9
+  %77 = load ptr, ptr %.pr, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  call void %79(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #9
   br label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit: ; preds = %65, %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit: ; preds = %71, %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i
   store ptr null, ptr %8, align 8
-  %74 = load ptr, ptr %56, align 8
-  %.not.i.i.i.i5 = icmp eq ptr %74, null
-  br i1 %.not.i.i.i.i5, label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit, label %75
+  %80 = load ptr, ptr %56, align 8
+  %.not.i.i.i.i5 = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i5, label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit, label %81
 
-75:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %74) #11
+81:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %80) #11
   br label %_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit
 
-_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit, %75
+_ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit, %81
   ret void
 
-76:                                               ; preds = %47
-  %77 = landingpad { ptr, i32 }
+82:                                               ; preds = %47
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %78 = load ptr, ptr %56, align 8
-  %.not.i.i.i.i6 = icmp eq ptr %78, null
-  br i1 %.not.i.i.i.i6, label %.body, label %79
+  %84 = load ptr, ptr %56, align 8
+  %.not.i.i.i.i6 = icmp eq ptr %84, null
+  br i1 %.not.i.i.i.i6, label %.body, label %85
 
-79:                                               ; preds = %76
-  call void @_ZdlPv(ptr noundef nonnull %78) #11
+85:                                               ; preds = %82
+  call void @_ZdlPv(ptr noundef nonnull %84) #11
   br label %.body
 
-.body:                                            ; preds = %79, %76, %43, %35
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %36, %35 ], [ %77, %76 ], [ %77, %79 ]
+.body:                                            ; preds = %85, %82, %43, %35
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %36, %35 ], [ %83, %82 ], [ %83, %85 ]
   call void @_ZNSt10unique_ptrIN5ceres8internal20InnerProductComputerESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #9
-  %80 = load ptr, ptr %24, align 8
-  %.not.i8 = icmp eq ptr %80, null
+  %86 = load ptr, ptr %24, align 8
+  %.not.i8 = icmp eq ptr %86, null
   br i1 %.not.i8, label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit10, label %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i9
 
 _ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i9: ; preds = %.body
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
-  %83 = load ptr, ptr %82, align 8
-  call void %83(ptr noundef nonnull align 8 dereferenceable(8) %80) #9
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %89 = load ptr, ptr %88, align 8
+  call void %89(ptr noundef nonnull align 8 dereferenceable(8) %86) #9
   br label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit10
 
 _ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit10: ; preds = %.body, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i9
   store ptr null, ptr %24, align 8
-  %84 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i11 = icmp eq ptr %84, null
-  br i1 %.not.i.i.i.i11, label %_ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit, label %85
+  %90 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i11 = icmp eq ptr %90, null
+  br i1 %.not.i.i.i.i11, label %_ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit, label %91
 
-85:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit10
-  call void @_ZdlPv(ptr noundef nonnull %84) #11
+91:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit10
+  call void @_ZdlPv(ptr noundef nonnull %90) #11
   br label %_ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit
 
-_ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit10, %85
+_ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit10, %91
   call void @_ZN5ceres8internal14PreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
   resume { ptr, i32 } %.pn
 }

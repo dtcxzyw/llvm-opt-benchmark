@@ -5695,13 +5695,17 @@ define internal void @_ZN4Luau12_GLOBAL__N_115FindExprOrLocalD0Ev(ptr noundef no
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visitEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.Luau::Location", align 16
+  %3 = alloca %"struct.Luau::Location", align 8
   %4 = alloca %"class.std::optional.255", align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.0.0.copyload = load i64, ptr %5, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  %6 = load <2 x i64>, ptr %5, align 4
-  store <2 x i64> %6, ptr %3, align 16
+  store i64 %.sroa.0.0.copyload, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.sroa.2.0.copyload, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %8 = load ptr, ptr %7, align 8, !noalias !40
@@ -5768,7 +5772,7 @@ _ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit: ; pre
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visitEPNS_15AstExprFunctionE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.Luau::Location", align 16
+  %3 = alloca %"struct.Luau::Location", align 8
   %4 = alloca %"class.std::optional.255", align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 96
   %6 = load i64, ptr %5, align 8
@@ -5777,33 +5781,37 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %12
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %13
 
-12:                                               ; preds = %.lr.ph, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit
+13:                                               ; preds = %.lr.ph, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit
   %.06 = phi i64 [ 0, %.lr.ph ], [ %31, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit ]
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %.06
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = load <2 x i64>, ptr %16, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = getelementptr inbounds ptr, ptr %14, i64 %.06
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %17, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  store <2 x i64> %17, ptr %3, align 16
+  store i64 %.sroa.0.0.copyload.i, ptr %3, align 8
+  store i64 %.sroa.2.0.copyload.i, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %18 = load ptr, ptr %8, align 8, !noalias !43
+  %18 = load ptr, ptr %9, align 8, !noalias !43
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %21, label %19
 
-19:                                               ; preds = %12
+19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %18, i64 12
   br label %.sink.split.i.i.i
 
-21:                                               ; preds = %12
-  %22 = load ptr, ptr %9, align 8, !noalias !43
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %10, align 8, !noalias !43
   %.not2.i.i.i = icmp eq ptr %22, null
   br i1 %.not2.i.i.i, label %_ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i, label %23
 
@@ -5818,8 +5826,8 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
 
 _ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i:    ; preds = %.sink.split.i.i.i, %21
   %25 = phi i8 [ 0, %21 ], [ 1, %.sink.split.i.i.i ]
-  store i8 %25, ptr %10, align 4, !alias.scope !43
-  %26 = call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(8) %11)
+  store i8 %25, ptr %11, align 4, !alias.scope !43
+  %26 = call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(8) %12)
   br i1 %26, label %27, label %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.thread4.i
 
 _ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.thread4.i: ; preds = %_ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i
@@ -5843,15 +5851,15 @@ _ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.i: ; p
   br i1 %29, label %30, label %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit
 
 30:                                               ; preds = %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.i, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.thread.i
-  store ptr %15, ptr %9, align 8
-  store ptr null, ptr %8, align 8
+  store ptr %16, ptr %10, align 8
+  store ptr null, ptr %9, align 8
   br label %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit
 
 _ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit: ; preds = %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.thread4.i, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.i, %30
   %31 = add nuw i64 %.06, 1
   %32 = load i64, ptr %5, align 8
   %33 = icmp ult i64 %31, %32
-  br i1 %33, label %12, label %._crit_edge, !llvm.loop !46
+  br i1 %33, label %13, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit, %2
   %34 = load ptr, ptr %0, align 8
@@ -5863,7 +5871,7 @@ _ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit: ; preds
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visitEPNS_12AstStatLocalE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.Luau::Location", align 16
+  %3 = alloca %"struct.Luau::Location", align 8
   %4 = alloca %"class.std::optional.255", align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load i64, ptr %5, align 8
@@ -5872,33 +5880,37 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %12
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %13
 
-12:                                               ; preds = %.lr.ph, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit
+13:                                               ; preds = %.lr.ph, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit
   %.05 = phi i64 [ 0, %.lr.ph ], [ %31, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit ]
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %.05
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = load <2 x i64>, ptr %16, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = getelementptr inbounds ptr, ptr %14, i64 %.05
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %17, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  store <2 x i64> %17, ptr %3, align 16
+  store i64 %.sroa.0.0.copyload.i, ptr %3, align 8
+  store i64 %.sroa.2.0.copyload.i, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %18 = load ptr, ptr %8, align 8, !noalias !47
+  %18 = load ptr, ptr %9, align 8, !noalias !47
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %21, label %19
 
-19:                                               ; preds = %12
+19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %18, i64 12
   br label %.sink.split.i.i.i
 
-21:                                               ; preds = %12
-  %22 = load ptr, ptr %9, align 8, !noalias !47
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %10, align 8, !noalias !47
   %.not2.i.i.i = icmp eq ptr %22, null
   br i1 %.not2.i.i.i, label %_ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i, label %23
 
@@ -5913,8 +5925,8 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
 
 _ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i:    ; preds = %.sink.split.i.i.i, %21
   %25 = phi i8 [ 0, %21 ], [ 1, %.sink.split.i.i.i ]
-  store i8 %25, ptr %10, align 4, !alias.scope !47
-  %26 = call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(8) %11)
+  store i8 %25, ptr %11, align 4, !alias.scope !47
+  %26 = call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(8) %12)
   br i1 %26, label %27, label %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.thread4.i
 
 _ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.thread4.i: ; preds = %_ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i
@@ -5938,15 +5950,15 @@ _ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.i: ; p
   br i1 %29, label %30, label %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit
 
 30:                                               ; preds = %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.i, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.thread.i
-  store ptr %15, ptr %9, align 8
-  store ptr null, ptr %8, align 8
+  store ptr %16, ptr %10, align 8
+  store ptr null, ptr %9, align 8
   br label %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit
 
 _ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit: ; preds = %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.thread4.i, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.i, %30
   %31 = add nuw i64 %.05, 1
   %32 = load i64, ptr %5, align 8
   %33 = icmp ult i64 %31, %32
-  br i1 %33, label %12, label %._crit_edge, !llvm.loop !50
+  br i1 %33, label %13, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit, %2
   ret i1 true
@@ -5954,15 +5966,19 @@ _ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit: ; preds
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visitEPNS_10AstStatForE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.Luau::Location", align 16
+  %3 = alloca %"struct.Luau::Location", align 8
   %4 = alloca %"class.std::optional.255", align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load <2 x i64>, ptr %7, align 8
+  %.sroa.0.0.copyload.i = load i64, ptr %7, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  store <2 x i64> %8, ptr %3, align 16
+  store i64 %.sroa.0.0.copyload.i, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %10 = load ptr, ptr %9, align 8, !noalias !51
@@ -6028,7 +6044,7 @@ _ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit: ; preds
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visitEPNS_12AstStatForInE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.Luau::Location", align 16
+  %3 = alloca %"struct.Luau::Location", align 8
   %4 = alloca %"class.std::optional.255", align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -6039,31 +6055,35 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %14
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %15
 
-14:                                               ; preds = %.lr.ph, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit
+15:                                               ; preds = %.lr.ph, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit
   %.010 = phi ptr [ %6, %.lr.ph ], [ %31, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit ]
-  %15 = load ptr, ptr %.010, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = load <2 x i64>, ptr %16, align 8
+  %16 = load ptr, ptr %.010, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %17, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  store <2 x i64> %17, ptr %3, align 16
+  store i64 %.sroa.0.0.copyload.i, ptr %3, align 8
+  store i64 %.sroa.2.0.copyload.i, ptr %10, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %18 = load ptr, ptr %10, align 8, !noalias !54
+  %18 = load ptr, ptr %11, align 8, !noalias !54
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %21, label %19
 
-19:                                               ; preds = %14
+19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %18, i64 12
   br label %.sink.split.i.i.i
 
-21:                                               ; preds = %14
-  %22 = load ptr, ptr %11, align 8, !noalias !54
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %12, align 8, !noalias !54
   %.not2.i.i.i = icmp eq ptr %22, null
   br i1 %.not2.i.i.i, label %_ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i, label %23
 
@@ -6078,8 +6098,8 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
 
 _ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i:    ; preds = %.sink.split.i.i.i, %21
   %25 = phi i8 [ 0, %21 ], [ 1, %.sink.split.i.i.i ]
-  store i8 %25, ptr %12, align 4, !alias.scope !54
-  %26 = call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(8) %13)
+  store i8 %25, ptr %13, align 4, !alias.scope !54
+  %26 = call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(8) %14)
   br i1 %26, label %27, label %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.thread4.i
 
 _ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.thread4.i: ; preds = %_ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i
@@ -6103,14 +6123,14 @@ _ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.i: ; p
   br i1 %29, label %30, label %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit
 
 30:                                               ; preds = %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.i, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.thread.i
-  store ptr %15, ptr %11, align 8
-  store ptr null, ptr %10, align 8
+  store ptr %16, ptr %12, align 8
+  store ptr null, ptr %11, align 8
   br label %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit
 
 _ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit: ; preds = %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.thread4.i, %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal13isCloserMatchENS_8LocationE.exit.i, %30
   %31 = getelementptr inbounds i8, ptr %.010, i64 8
   %.not = icmp eq ptr %31, %9
-  br i1 %.not, label %._crit_edge, label %14
+  br i1 %.not, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit, %2
   ret i1 true
@@ -6118,15 +6138,19 @@ _ZN4Luau12_GLOBAL__N_115FindExprOrLocal10visitLocalEPNS_8AstLocalE.exit: ; preds
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visitEPNS_20AstStatLocalFunctionE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.Luau::Location", align 16
+  %3 = alloca %"struct.Luau::Location", align 8
   %4 = alloca %"class.std::optional.255", align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load <2 x i64>, ptr %7, align 8
+  %.sroa.0.0.copyload.i = load i64, ptr %7, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  store <2 x i64> %8, ptr %3, align 16
+  store i64 %.sroa.0.0.copyload.i, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %10 = load ptr, ptr %9, align 8, !noalias !57

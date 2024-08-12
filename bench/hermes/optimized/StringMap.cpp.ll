@@ -423,9 +423,13 @@ if.end:                                           ; preds = %_ZNK4llvh13StringMa
   %15 = load ptr, ptr %arrayidx, align 8
   store ptr inttoptr (i64 -8 to ptr), ptr %arrayidx, align 8
   %NumItems = getelementptr inbounds i8, ptr %this, i64 12
-  %16 = load <2 x i32>, ptr %NumItems, align 4
-  %17 = add <2 x i32> %16, <i32 -1, i32 1>
-  store <2 x i32> %17, ptr %NumItems, align 4
+  %16 = load i32, ptr %NumItems, align 4
+  %dec = add i32 %16, -1
+  store i32 %dec, ptr %NumItems, align 4
+  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
+  %17 = load i32, ptr %NumTombstones, align 8
+  %inc = add i32 %17, 1
+  store i32 %inc, ptr %NumTombstones, align 8
   br label %return
 
 return:                                           ; preds = %while.body.i, %while.body.i.us, %entry, %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, %if.end

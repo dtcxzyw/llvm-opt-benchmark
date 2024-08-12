@@ -220,8 +220,8 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1920) @proto_register_FiveCoRAP.hf, ptr noundef nonnull align 16 dereferenceable(1920) @hf_base, i64 1920, i1 false)
   br label %.preheader104
 
-.preheader104:                                    ; preds = %.preheader104.preheader, %55
-  %indvars.iv = phi i64 [ 0, %.preheader104.preheader ], [ %indvars.iv.next, %55 ]
+.preheader104:                                    ; preds = %.preheader104.preheader, %57
+  %indvars.iv = phi i64 [ 0, %.preheader104.preheader ], [ %indvars.iv.next, %57 ]
   %0 = tail call ptr @wmem_epan_scope() #7
   %1 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef nonnull @.str) #7
   %2 = tail call ptr @wmem_epan_scope() #7
@@ -270,7 +270,7 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %8, i64 28
   %34 = load i32, ptr %33, align 4
-  br i1 %.not, label %46, label %35
+  br i1 %.not, label %47, label %35
 
 35:                                               ; preds = %25
   %36 = load ptr, ptr %26, align 8
@@ -290,108 +290,132 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   %.sroa.733.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 40
   %.sroa.935.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.733.0..sroa_idx, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %.sroa.935.0..sroa_idx, align 8
+  store i32 -1, ptr %.sroa.935.0..sroa_idx, align 8
+  %.sroa.1036.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 60
+  store i32 0, ptr %.sroa.1036.0..sroa_idx, align 4
+  %.sroa.1137.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 64
+  store i32 0, ptr %.sroa.1137.0..sroa_idx, align 16
+  %.sroa.1238.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 68
+  store i32 -1, ptr %.sroa.1238.0..sroa_idx, align 4
   %.sroa.1339.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 72
   store ptr null, ptr %.sroa.1339.0..sroa_idx, align 8
   %39 = getelementptr inbounds i8, ptr %8, i64 40
   %40 = tail call ptr @wmem_strbuf_get_str(ptr noundef %1) #7
   %41 = tail call ptr @wmem_strbuf_get_str(ptr noundef %5) #7
-  %42 = load ptr, ptr %26, align 8
-  %43 = add nuw nsw i64 %indvars.iv, 54
-  %44 = getelementptr [84 x %struct.hf_register_info], ptr @proto_register_FiveCoRAP.hf, i64 0, i64 %43
-  store ptr %39, ptr %44, align 16
-  %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 8
+  %42 = load i32, ptr %31, align 8
+  %43 = load i32, ptr %33, align 4
+  %44 = load ptr, ptr %26, align 8
+  %45 = add nuw nsw i64 %indvars.iv, 54
+  %46 = getelementptr [84 x %struct.hf_register_info], ptr @proto_register_FiveCoRAP.hf, i64 0, i64 %45
+  store ptr %39, ptr %46, align 16
+  %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 8
   store ptr %40, ptr %.sroa.215.0..sroa_idx, align 8
-  %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 16
+  %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 16
   store ptr %41, ptr %.sroa.316.0..sroa_idx, align 16
-  %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 24
-  %45 = load <2 x i32>, ptr %31, align 8
-  store <2 x i32> %45, ptr %.sroa.417.0..sroa_idx, align 8
-  %.sroa.619.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr %42, ptr %.sroa.619.0..sroa_idx, align 16
-  %.sroa.720.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 40
+  %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 24
+  store i32 %42, ptr %.sroa.417.0..sroa_idx, align 8
+  %.sroa.518.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 28
+  store i32 %43, ptr %.sroa.518.0..sroa_idx, align 4
+  %.sroa.619.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 32
+  store ptr %44, ptr %.sroa.619.0..sroa_idx, align 16
+  %.sroa.720.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.720.0..sroa_idx, i8 0, i64 16, i1 false)
-  br label %55
+  br label %57
 
-46:                                               ; preds = %25
-  %47 = add nuw nsw i64 %indvars.iv, 24
-  %48 = getelementptr [84 x %struct.hf_register_info], ptr @proto_register_FiveCoRAP.hf, i64 0, i64 %47
-  store ptr %28, ptr %48, align 16
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 8
+47:                                               ; preds = %25
+  %48 = add nuw nsw i64 %indvars.iv, 24
+  %49 = getelementptr [84 x %struct.hf_register_info], ptr @proto_register_FiveCoRAP.hf, i64 0, i64 %48
+  store ptr %28, ptr %49, align 16
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
   store ptr %29, ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 16
+  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 16
   store ptr %30, ptr %.sroa.33.0..sroa_idx, align 16
-  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 24
+  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 24
   store i32 %32, ptr %.sroa.44.0..sroa_idx, align 8
-  %.sroa.55.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 28
+  %.sroa.55.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 28
   store i32 %34, ptr %.sroa.55.0..sroa_idx, align 4
-  %.sroa.66.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 32
-  %.sroa.99.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 56
+  %.sroa.66.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 32
+  %.sroa.99.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.66.0..sroa_idx, i8 0, i64 24, i1 false)
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %.sroa.99.0..sroa_idx, align 8
-  %.sroa.1313.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 72
+  store i32 -1, ptr %.sroa.99.0..sroa_idx, align 8
+  %.sroa.1010.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 60
+  store i32 0, ptr %.sroa.1010.0..sroa_idx, align 4
+  %.sroa.1111.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 64
+  store i32 0, ptr %.sroa.1111.0..sroa_idx, align 16
+  %.sroa.1212.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 68
+  store i32 -1, ptr %.sroa.1212.0..sroa_idx, align 4
+  %.sroa.1313.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 72
   store ptr null, ptr %.sroa.1313.0..sroa_idx, align 8
-  %49 = getelementptr inbounds i8, ptr %8, i64 40
-  %50 = tail call ptr @wmem_strbuf_get_str(ptr noundef %1) #7
-  %51 = tail call ptr @wmem_strbuf_get_str(ptr noundef %5) #7
-  %52 = add nuw nsw i64 %indvars.iv, 54
-  %53 = getelementptr [84 x %struct.hf_register_info], ptr @proto_register_FiveCoRAP.hf, i64 0, i64 %52
-  store ptr %49, ptr %53, align 16
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 8
-  store ptr %50, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 16
-  store ptr %51, ptr %.sroa.3.0..sroa_idx, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 24
-  %54 = load <2 x i32>, ptr %31, align 8
-  store <2 x i32> %54, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 32
+  %50 = getelementptr inbounds i8, ptr %8, i64 40
+  %51 = tail call ptr @wmem_strbuf_get_str(ptr noundef %1) #7
+  %52 = tail call ptr @wmem_strbuf_get_str(ptr noundef %5) #7
+  %53 = load i32, ptr %31, align 8
+  %54 = load i32, ptr %33, align 4
+  %55 = add nuw nsw i64 %indvars.iv, 54
+  %56 = getelementptr [84 x %struct.hf_register_info], ptr @proto_register_FiveCoRAP.hf, i64 0, i64 %55
+  store ptr %50, ptr %56, align 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 8
+  store ptr %51, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 16
+  store ptr %52, ptr %.sroa.3.0..sroa_idx, align 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 24
+  store i32 %53, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 28
+  store i32 %54, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.6.0..sroa_idx, i8 0, i64 24, i1 false)
-  br label %55
+  br label %57
 
-55:                                               ; preds = %35, %46
-  %.sink116 = phi ptr [ %44, %35 ], [ %53, %46 ]
+57:                                               ; preds = %35, %47
+  %.sink116 = phi ptr [ %46, %35 ], [ %56, %47 ]
   %.sroa.922.0..sroa_idx.sink = getelementptr inbounds i8, ptr %.sink116, i64 56
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %.sroa.922.0..sroa_idx.sink, align 8
+  store i32 -1, ptr %.sroa.922.0..sroa_idx.sink, align 8
+  %.sroa.1023.0..sroa_idx = getelementptr inbounds i8, ptr %.sink116, i64 60
+  store i32 0, ptr %.sroa.1023.0..sroa_idx, align 4
+  %.sroa.1124.0..sroa_idx = getelementptr inbounds i8, ptr %.sink116, i64 64
+  store i32 0, ptr %.sroa.1124.0..sroa_idx, align 16
+  %.sroa.1225.0..sroa_idx = getelementptr inbounds i8, ptr %.sink116, i64 68
+  store i32 -1, ptr %.sroa.1225.0..sroa_idx, align 4
   %.sroa.1326.0..sroa_idx = getelementptr inbounds i8, ptr %.sink116, i64 72
   store ptr null, ptr %.sroa.1326.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
   br i1 %exitcond.not, label %.preheader, label %.preheader104, !llvm.loop !4
 
-.preheader:                                       ; preds = %55, %.preheader
-  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.preheader ], [ 0, %55 ]
-  %56 = getelementptr [10 x i32], ptr @ett_fiveco, i64 0, i64 %indvars.iv110
-  %57 = mul nuw nsw i64 %indvars.iv110, 5
-  %58 = getelementptr [50 x ptr], ptr @proto_register_FiveCoRAP.ett, i64 0, i64 %57
-  store ptr %56, ptr %58, align 8
-  %59 = getelementptr [10 x i32], ptr @ett_fiveco_data, i64 0, i64 %indvars.iv110
-  %60 = add nuw nsw i64 %57, 1
-  %61 = getelementptr [50 x ptr], ptr @proto_register_FiveCoRAP.ett, i64 0, i64 %60
-  store ptr %59, ptr %61, align 8
-  %62 = getelementptr [10 x i32], ptr @ett_fiveco_easyip, i64 0, i64 %indvars.iv110
-  %63 = add nuw nsw i64 %57, 2
-  %64 = getelementptr [50 x ptr], ptr @proto_register_FiveCoRAP.ett, i64 0, i64 %63
-  store ptr %62, ptr %64, align 8
-  %65 = getelementptr [10 x i32], ptr @ett_fiveco_sub, i64 0, i64 %indvars.iv110
-  %66 = add nuw nsw i64 %57, 3
-  %67 = getelementptr [50 x ptr], ptr @proto_register_FiveCoRAP.ett, i64 0, i64 %66
-  store ptr %65, ptr %67, align 8
-  %68 = getelementptr [10 x i32], ptr @ett_fiveco_sub_details, i64 0, i64 %indvars.iv110
-  %69 = add nuw nsw i64 %57, 4
-  %70 = getelementptr [50 x ptr], ptr @proto_register_FiveCoRAP.ett, i64 0, i64 %69
-  store ptr %68, ptr %70, align 8
+.preheader:                                       ; preds = %57, %.preheader
+  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.preheader ], [ 0, %57 ]
+  %58 = getelementptr [10 x i32], ptr @ett_fiveco, i64 0, i64 %indvars.iv110
+  %59 = mul nuw nsw i64 %indvars.iv110, 5
+  %60 = getelementptr [50 x ptr], ptr @proto_register_FiveCoRAP.ett, i64 0, i64 %59
+  store ptr %58, ptr %60, align 8
+  %61 = getelementptr [10 x i32], ptr @ett_fiveco_data, i64 0, i64 %indvars.iv110
+  %62 = add nuw nsw i64 %59, 1
+  %63 = getelementptr [50 x ptr], ptr @proto_register_FiveCoRAP.ett, i64 0, i64 %62
+  store ptr %61, ptr %63, align 8
+  %64 = getelementptr [10 x i32], ptr @ett_fiveco_easyip, i64 0, i64 %indvars.iv110
+  %65 = add nuw nsw i64 %59, 2
+  %66 = getelementptr [50 x ptr], ptr @proto_register_FiveCoRAP.ett, i64 0, i64 %65
+  store ptr %64, ptr %66, align 8
+  %67 = getelementptr [10 x i32], ptr @ett_fiveco_sub, i64 0, i64 %indvars.iv110
+  %68 = add nuw nsw i64 %59, 3
+  %69 = getelementptr [50 x ptr], ptr @proto_register_FiveCoRAP.ett, i64 0, i64 %68
+  store ptr %67, ptr %69, align 8
+  %70 = getelementptr [10 x i32], ptr @ett_fiveco_sub_details, i64 0, i64 %indvars.iv110
+  %71 = add nuw nsw i64 %59, 4
+  %72 = getelementptr [50 x ptr], ptr @proto_register_FiveCoRAP.ett, i64 0, i64 %71
+  store ptr %70, ptr %72, align 8
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next111, 10
-  br i1 %exitcond113.not, label %71, label %.preheader, !llvm.loop !6
+  br i1 %exitcond113.not, label %73, label %.preheader, !llvm.loop !6
 
-71:                                               ; preds = %.preheader
-  %72 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #7
-  store i32 %72, ptr @proto_FiveCoRAP, align 4
-  tail call void @proto_register_field_array(i32 noundef %72, ptr noundef nonnull @proto_register_FiveCoRAP.hf, i32 noundef 84) #7
+73:                                               ; preds = %.preheader
+  %74 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #7
+  store i32 %74, ptr @proto_FiveCoRAP, align 4
+  tail call void @proto_register_field_array(i32 noundef %74, ptr noundef nonnull @proto_register_FiveCoRAP.hf, i32 noundef 84) #7
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_FiveCoRAP.ett, i32 noundef 50) #7
   tail call void @register_init_routine(ptr noundef nonnull @fiveco_protocol_init) #7
-  %73 = load i32, ptr @proto_FiveCoRAP, align 4
-  %74 = tail call ptr @prefs_register_protocol(i32 noundef %73, ptr noundef null) #7
+  %75 = load i32, ptr @proto_FiveCoRAP, align 4
+  %76 = tail call ptr @prefs_register_protocol(i32 noundef %75, ptr noundef null) #7
   ret void
 }
 

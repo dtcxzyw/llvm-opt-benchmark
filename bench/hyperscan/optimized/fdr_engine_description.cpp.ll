@@ -125,8 +125,14 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN3ue22
   %ref.tmp.sroa.24.0.code_target.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %6, ptr %ref.tmp.sroa.24.0.code_target.i.sroa_idx.i.i.i.i, align 8
   %numBuckets.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  store i32 8, ptr %numBuckets.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %3, align 8
-  store <4 x i32> <i32 8, i32 64, i32 0, i32 0>, ptr %numBuckets.i.i.i.i.i, align 8
+  %schemeWidth.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 36
+  store i32 64, ptr %schemeWidth.i.i.i.i, align 4
+  %stride.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  store i32 0, ptr %stride.i.i.i.i, align 8
+  %bits.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 0, ptr %bits.i.i.i.i, align 4
   %7 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 48
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
@@ -621,6 +627,8 @@ _ZNSt12_Vector_baseIN3ue220FDREngineDescriptionESaIS1_EE11_M_allocateEm.exit: ; 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN3ue220FDREngineDescriptionESaIS1_EE11_M_allocateEm.exit
   %5 = extractvalue { i32, i64 } %call.i.i.i18, 0
   %6 = extractvalue { i32, i64 } %call.i.i.i18, 1
+  %numBuckets.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %7 = load i32, ptr %numBuckets.i.i.i, align 8
   %id.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i32 %3, ptr %id.i.i.i.i, align 8
   %code_target.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
@@ -628,11 +636,12 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
   %ref.tmp.sroa.24.0.code_target.i.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   store i64 %6, ptr %ref.tmp.sroa.24.0.code_target.i.sroa_idx.i.i.i, align 8
   %numBuckets.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
+  store i32 %7, ptr %numBuckets.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220FDREngineDescriptionE, i64 16), ptr %add.ptr, align 8
+  %schemeWidth.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %schemeWidth2.i.i.i = getelementptr inbounds i8, ptr %__args, i64 4
-  %7 = load <2 x i32>, ptr %schemeWidth2.i.i.i, align 4
-  %8 = shufflevector <2 x i32> %7, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %8, ptr %numBuckets.i.i.i.i, align 8
+  %8 = load i32, ptr %schemeWidth2.i.i.i, align 4
+  store i32 %8, ptr %schemeWidth.i.i.i, align 4
   %stride.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 40
   store i32 0, ptr %stride.i.i.i, align 8
   %bits.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 44

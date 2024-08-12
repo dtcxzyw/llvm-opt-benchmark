@@ -55,15 +55,15 @@ if.end:                                           ; preds = %if.then, %if.else
   br i1 %cmp17, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end
+  %7 = load i16, ptr %t, align 4
   %op2.i = getelementptr inbounds i8, ptr %J, i64 186
-  %7 = load <2 x i16>, ptr %op2.i, align 2
-  %8 = load ptr, ptr %sp, align 8
-  %cmp50.i = icmp ult ptr %stack, %8
+  %8 = load i16, ptr %op2.i, align 2
+  %9 = load ptr, ptr %sp, align 8
+  %cmp50.i = icmp ult ptr %stack, %9
   br i1 %cmp50.i, label %while.body.lr.ph.i, label %narrow_conv_emit.exit
 
 while.body.lr.ph.i:                               ; preds = %if.then19
-  %9 = load i16, ptr %t, align 4
-  %10 = and i16 %9, 128
+  %10 = and i16 %7, 128
   %tobool.not.i = icmp eq i16 %10, 0
   %conv1.i = select i1 %tobool.not.i, i16 0, i16 3200
   %ir.i = getelementptr inbounds i8, ptr %J, i64 32
@@ -96,8 +96,9 @@ if.else.i:                                        ; preds = %while.body.i
 
 if.then18.i:                                      ; preds = %if.else.i
   %conv19.i = trunc i32 %11 to i16
+  store i16 %7, ptr %t, align 4
   store i16 %conv19.i, ptr %fold, align 8
-  store <2 x i16> %7, ptr %op2.i, align 2
+  store i16 %8, ptr %op2.i, align 2
   %call.i = call i32 @lj_ir_emit(ptr noundef %J) #5
   %incdec.ptr20.i = getelementptr inbounds i8, ptr %sp6.051.i, i64 4
   store i32 %call.i, ptr %sp6.051.i, align 4
@@ -144,7 +145,7 @@ if.else44.i:                                      ; preds = %if.else.i
   br i1 %cmp48.i, label %if.then50.i, label %if.end67.i
 
 if.then50.i:                                      ; preds = %if.else44.i
-  %cmp51.i = icmp eq ptr %incdec.ptr.i, %8
+  %cmp51.i = icmp eq ptr %incdec.ptr.i, %9
   br i1 %cmp51.i, label %land.lhs.true.i, label %if.else65.i
 
 land.lhs.true.i:                                  ; preds = %if.then50.i
@@ -172,10 +173,13 @@ if.end67.i:                                       ; preds = %if.else65.i, %land.
   %mode.0.i = phi i32 [ %add66.i, %if.else65.i ], [ %15, %if.else44.i ], [ %15, %land.lhs.true58.i ]
   %conv71.i = add i16 %guardot.2.i, %trunc.i
   %arrayidx72.i = getelementptr inbounds i8, ptr %sp6.051.i, i64 -8
-  %20 = load <2 x i32>, ptr %arrayidx72.i, align 4
-  %21 = trunc <2 x i32> %20 to <2 x i16>
+  %20 = load i32, ptr %arrayidx72.i, align 4
+  %conv73.i = trunc i32 %20 to i16
+  %21 = load i32, ptr %incdec.ptr46.i, align 4
+  %conv75.i = trunc i32 %21 to i16
   store i16 %conv71.i, ptr %t, align 4
-  store <2 x i16> %21, ptr %fold, align 8
+  store i16 %conv73.i, ptr %fold, align 8
+  store i16 %conv75.i, ptr %op2.i, align 2
   %call76.i = call i32 @lj_opt_fold(ptr noundef %J) #5
   store i32 %call76.i, ptr %arrayidx72.i, align 4
   %conv78.i = trunc i32 %11 to i16
@@ -201,7 +205,7 @@ if.end88.i:                                       ; preds = %if.then80.i, %if.en
   %sp6.1.i = phi ptr [ %incdec.ptr14.i, %if.then.i ], [ %incdec.ptr20.i, %if.then18.i ], [ %sp6.051.i, %if.then25.i ], [ %incdec.ptr43.i, %cond.end.i ], [ %incdec.ptr46.i, %if.then80.i ], [ %incdec.ptr46.i, %if.end67.i ]
   %next.1.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i, %if.then18.i ], [ %incdec.ptr.i, %if.then25.i ], [ %next.2.i, %cond.end.i ], [ %incdec.ptr.i, %if.then80.i ], [ %incdec.ptr.i, %if.end67.i ]
   %guardot.1.i = phi i16 [ %guardot.053.i, %if.then.i ], [ %guardot.053.i, %if.then18.i ], [ %guardot.053.i, %if.then25.i ], [ %guardot.053.i, %cond.end.i ], [ %guardot.2.i, %if.then80.i ], [ %guardot.2.i, %if.end67.i ]
-  %cmp.i = icmp ult ptr %next.1.i, %8
+  %cmp.i = icmp ult ptr %next.1.i, %9
   br i1 %cmp.i, label %while.body.i, label %narrow_conv_emit.exit, !llvm.loop !4
 
 narrow_conv_emit.exit:                            ; preds = %if.end88.i, %if.then19

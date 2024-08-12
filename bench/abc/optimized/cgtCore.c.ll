@@ -19,9 +19,21 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Cgt_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %2, align 4
-  store <4 x i32> <i32 25, i32 1000, i32 0, i32 10>, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 1000, i32 10, i32 0, i32 0>, ptr %3, align 4
+  store i32 25, ptr %0, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 1000, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 10, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 1000, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 10, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 0, ptr %9, align 4
   ret void
 }
 
@@ -1453,7 +1465,7 @@ define ptr @Cgt_ClockGatingCandidates(ptr noundef %0, ptr noundef %1, ptr nounde
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
-  %9 = alloca %struct.Cgt_Par_t_, align 16
+  %9 = alloca %struct.Cgt_Par_t_, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #16
   %11 = icmp slt i32 %10, 0
@@ -1490,116 +1502,128 @@ Abc_Clock.exit27:                                 ; preds = %Abc_Clock.exit, %18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %22 = call i32 @Aig_ManRandom(i32 noundef 1) #16
   %23 = icmp eq ptr %2, null
-  br i1 %23, label %24, label %27
+  br i1 %23, label %24, label %33
 
 24:                                               ; preds = %Abc_Clock.exit27
   %25 = getelementptr inbounds i8, ptr %9, i64 32
-  store i32 0, ptr %25, align 16
-  store <4 x i32> <i32 25, i32 1000, i32 0, i32 10>, ptr %9, align 16
-  %26 = getelementptr inbounds i8, ptr %9, i64 16
-  store <4 x i32> <i32 1000, i32 10, i32 0, i32 0>, ptr %26, align 16
-  br label %27
+  store i32 0, ptr %25, align 4
+  store i32 25, ptr %9, align 4
+  %26 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 1000, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 10, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 1000, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %9, i64 20
+  store i32 10, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %9, i64 24
+  store i32 0, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %9, i64 28
+  store i32 0, ptr %32, align 4
+  br label %33
 
-27:                                               ; preds = %24, %Abc_Clock.exit27
+33:                                               ; preds = %24, %Abc_Clock.exit27
   %.0 = phi ptr [ %9, %24 ], [ %2, %Abc_Clock.exit27 ]
-  %28 = call ptr @Cgt_ManCreate(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0) #16
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
-  store ptr %3, ptr %29, align 8
-  %30 = call ptr @Cgt_ManDeriveAigForGating(ptr noundef %28) #16
-  %31 = getelementptr inbounds i8, ptr %28, i64 56
-  store ptr %30, ptr %31, align 8
+  %34 = call ptr @Cgt_ManCreate(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0) #16
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  store ptr %3, ptr %35, align 8
+  %36 = call ptr @Cgt_ManDeriveAigForGating(ptr noundef %34) #16
+  %37 = getelementptr inbounds i8, ptr %34, i64 56
+  store ptr %36, ptr %37, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %32 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #16
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %Abc_Clock.exit29, label %34
+  %38 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #16
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %Abc_Clock.exit29, label %40
 
-34:                                               ; preds = %27
-  %35 = load i64, ptr %6, align 8
-  %36 = mul nsw i64 %35, 1000000
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
-  %38 = load i64, ptr %37, align 8
-  %39 = sdiv i64 %38, 1000
-  %40 = add nsw i64 %39, %36
+40:                                               ; preds = %33
+  %41 = load i64, ptr %6, align 8
+  %42 = mul nsw i64 %41, 1000000
+  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %44 = load i64, ptr %43, align 8
+  %45 = sdiv i64 %44, 1000
+  %46 = add nsw i64 %45, %42
   br label %Abc_Clock.exit29
 
-Abc_Clock.exit29:                                 ; preds = %27, %34
-  %.0.i28 = phi i64 [ %40, %34 ], [ -1, %27 ]
+Abc_Clock.exit29:                                 ; preds = %33, %40
+  %.0.i28 = phi i64 [ %46, %40 ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %41 = add i64 %.0.i28, %.0.i.neg
-  %42 = getelementptr inbounds i8, ptr %28, i64 144
-  %43 = load i64, ptr %42, align 8
-  %44 = add nsw i64 %41, %43
-  store i64 %44, ptr %42, align 8
-  %45 = load ptr, ptr @stdout, align 8
-  %46 = load ptr, ptr %31, align 8
-  %47 = getelementptr i8, ptr %46, i64 140
-  %.val25 = load i32, ptr %47, align 4
-  %48 = call ptr @Bar_ProgressStart(ptr noundef %45, i32 noundef %.val25) #16
-  %49 = load ptr, ptr %31, align 8
-  %50 = getelementptr i8, ptr %49, i64 140
-  %.val37 = load i32, ptr %50, align 4
-  %51 = icmp sgt i32 %.val37, 0
-  br i1 %51, label %.lr.ph, label %._crit_edge
+  %47 = add i64 %.0.i28, %.0.i.neg
+  %48 = getelementptr inbounds i8, ptr %34, i64 144
+  %49 = load i64, ptr %48, align 8
+  %50 = add nsw i64 %47, %49
+  store i64 %50, ptr %48, align 8
+  %51 = load ptr, ptr @stdout, align 8
+  %52 = load ptr, ptr %37, align 8
+  %53 = getelementptr i8, ptr %52, i64 140
+  %.val25 = load i32, ptr %53, align 4
+  %54 = call ptr @Bar_ProgressStart(ptr noundef %51, i32 noundef %.val25) #16
+  %55 = load ptr, ptr %37, align 8
+  %56 = getelementptr i8, ptr %55, i64 140
+  %.val37 = load i32, ptr %56, align 4
+  %57 = icmp sgt i32 %.val37, 0
+  br i1 %57, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit29
-  %.not.i = icmp eq ptr %48, null
+  %.not.i = icmp eq ptr %54, null
   br i1 %.not.i, label %Bar_ProgressUpdate.exit.us, label %.lr.ph.split
 
 Bar_ProgressUpdate.exit.us:                       ; preds = %.lr.ph, %Bar_ProgressUpdate.exit.us
-  %.02338.us = phi i32 [ %52, %Bar_ProgressUpdate.exit.us ], [ 0, %.lr.ph ]
+  %.02338.us = phi i32 [ %58, %Bar_ProgressUpdate.exit.us ], [ 0, %.lr.ph ]
   call void @Bar_ProgressUpdate_int(ptr noundef null, i32 noundef %.02338.us, ptr noundef null) #16
-  %52 = call i32 @Cgt_ClockGatingRange(ptr noundef nonnull %28, i32 noundef %.02338.us)
-  %53 = load ptr, ptr %31, align 8
-  %54 = getelementptr i8, ptr %53, i64 140
-  %.val.us = load i32, ptr %54, align 4
-  %55 = icmp slt i32 %52, %.val.us
-  br i1 %55, label %Bar_ProgressUpdate.exit.us, label %._crit_edge, !llvm.loop !14
+  %58 = call i32 @Cgt_ClockGatingRange(ptr noundef nonnull %34, i32 noundef %.02338.us)
+  %59 = load ptr, ptr %37, align 8
+  %60 = getelementptr i8, ptr %59, i64 140
+  %.val.us = load i32, ptr %60, align 4
+  %61 = icmp slt i32 %58, %.val.us
+  br i1 %61, label %Bar_ProgressUpdate.exit.us, label %._crit_edge, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %Bar_ProgressUpdate.exit
-  %.02338 = phi i32 [ %59, %Bar_ProgressUpdate.exit ], [ 0, %.lr.ph ]
-  %56 = load i32, ptr %48, align 4
-  %57 = icmp sgt i32 %56, %.02338
-  br i1 %57, label %Bar_ProgressUpdate.exit, label %58
+  %.02338 = phi i32 [ %65, %Bar_ProgressUpdate.exit ], [ 0, %.lr.ph ]
+  %62 = load i32, ptr %54, align 4
+  %63 = icmp sgt i32 %62, %.02338
+  br i1 %63, label %Bar_ProgressUpdate.exit, label %64
 
-58:                                               ; preds = %.lr.ph.split
-  call void @Bar_ProgressUpdate_int(ptr noundef nonnull %48, i32 noundef %.02338, ptr noundef null) #16
+64:                                               ; preds = %.lr.ph.split
+  call void @Bar_ProgressUpdate_int(ptr noundef nonnull %54, i32 noundef %.02338, ptr noundef null) #16
   br label %Bar_ProgressUpdate.exit
 
-Bar_ProgressUpdate.exit:                          ; preds = %.lr.ph.split, %58
-  %59 = call i32 @Cgt_ClockGatingRange(ptr noundef nonnull %28, i32 noundef %.02338)
-  %60 = load ptr, ptr %31, align 8
-  %61 = getelementptr i8, ptr %60, i64 140
-  %.val = load i32, ptr %61, align 4
-  %62 = icmp slt i32 %59, %.val
-  br i1 %62, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
+Bar_ProgressUpdate.exit:                          ; preds = %.lr.ph.split, %64
+  %65 = call i32 @Cgt_ClockGatingRange(ptr noundef nonnull %34, i32 noundef %.02338)
+  %66 = load ptr, ptr %37, align 8
+  %67 = getelementptr i8, ptr %66, i64 140
+  %.val = load i32, ptr %67, align 4
+  %68 = icmp slt i32 %65, %.val
+  br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %Bar_ProgressUpdate.exit, %Bar_ProgressUpdate.exit.us, %Abc_Clock.exit29
-  call void @Bar_ProgressStop(ptr noundef %48) #16
-  %63 = getelementptr inbounds i8, ptr %28, i64 40
-  %64 = load ptr, ptr %63, align 8
-  store ptr null, ptr %63, align 8
+  call void @Bar_ProgressStop(ptr noundef %54) #16
+  %69 = getelementptr inbounds i8, ptr %34, i64 40
+  %70 = load ptr, ptr %69, align 8
+  store ptr null, ptr %69, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %65 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #16
-  %66 = icmp slt i32 %65, 0
-  br i1 %66, label %Abc_Clock.exit31, label %67
+  %71 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #16
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %Abc_Clock.exit31, label %73
 
-67:                                               ; preds = %._crit_edge
-  %68 = load i64, ptr %5, align 8
-  %69 = mul nsw i64 %68, 1000000
-  %70 = getelementptr inbounds i8, ptr %5, i64 8
-  %71 = load i64, ptr %70, align 8
-  %72 = sdiv i64 %71, 1000
-  %73 = add nsw i64 %72, %69
+73:                                               ; preds = %._crit_edge
+  %74 = load i64, ptr %5, align 8
+  %75 = mul nsw i64 %74, 1000000
+  %76 = getelementptr inbounds i8, ptr %5, i64 8
+  %77 = load i64, ptr %76, align 8
+  %78 = sdiv i64 %77, 1000
+  %79 = add nsw i64 %78, %75
   br label %Abc_Clock.exit31
 
-Abc_Clock.exit31:                                 ; preds = %._crit_edge, %67
-  %.0.i30 = phi i64 [ %73, %67 ], [ -1, %._crit_edge ]
+Abc_Clock.exit31:                                 ; preds = %._crit_edge, %73
+  %.0.i30 = phi i64 [ %79, %73 ], [ -1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %74 = add i64 %.0.i30, %.0.i26.neg
-  %75 = getelementptr inbounds i8, ptr %28, i64 208
-  store i64 %74, ptr %75, align 8
-  call void @Cgt_ManStop(ptr noundef nonnull %28) #16
-  ret ptr %64
+  %80 = add i64 %.0.i30, %.0.i26.neg
+  %81 = getelementptr inbounds i8, ptr %34, i64 208
+  store i64 %80, ptr %81, align 8
+  call void @Cgt_ManStop(ptr noundef nonnull %34) #16
+  ret ptr %70
 }
 
 declare i32 @Aig_ManRandom(i32 noundef) local_unnamed_addr #4

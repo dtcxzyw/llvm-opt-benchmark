@@ -87,391 +87,397 @@ define dso_local noundef ptr @ExecInitParallelPlan(ptr noundef %0, ptr noundef %
   %37 = getelementptr inbounds i8, ptr %34, i64 8
   store i64 %36, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %34, i64 16
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %34, i64 20
-  store i8 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %34, i64 21
-  store i8 0, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %34, i64 32
-  store ptr %20, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 24
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %34, i64 40
-  store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 56
+  store i8 0, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %34, i64 17
+  store i8 0, ptr %39, align 1
+  %40 = getelementptr inbounds i8, ptr %34, i64 18
+  store i8 1, ptr %40, align 2
+  %41 = getelementptr inbounds i8, ptr %34, i64 19
+  store i8 0, ptr %41, align 1
+  %42 = getelementptr inbounds i8, ptr %34, i64 20
+  store i8 0, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %34, i64 21
+  store i8 0, ptr %43, align 1
+  %44 = getelementptr inbounds i8, ptr %34, i64 32
+  store ptr %20, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 24
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %34, i64 48
+  %47 = getelementptr inbounds i8, ptr %34, i64 40
   store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %34, i64 56
-  %49 = getelementptr inbounds i8, ptr %34, i64 72
-  %50 = getelementptr inbounds i8, ptr %1, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 72
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
-  %.not54.i = icmp eq ptr %53, null
+  %48 = getelementptr inbounds i8, ptr %1, i64 56
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %34, i64 48
+  store ptr %49, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %34, i64 56
+  %52 = getelementptr inbounds i8, ptr %34, i64 72
+  %53 = getelementptr inbounds i8, ptr %1, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 72
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %.not54.i = icmp eq ptr %56, null
   br i1 %.not54.i, label %ExecSerializePlan.exit, label %.lr.ph69.i
 
 .lr.ph69.i:                                       ; preds = %._crit_edge.i
-  %55 = getelementptr inbounds i8, ptr %53, i64 16
-  %56 = load i32, ptr %54, align 4
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph73.i, label %ExecSerializePlan.exit
+  %58 = getelementptr inbounds i8, ptr %56, i64 16
+  %59 = load i32, ptr %57, align 4
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %.lr.ph73.i, label %ExecSerializePlan.exit
 
-.lr.ph73.i:                                       ; preds = %.lr.ph69.i, %66
-  %58 = phi ptr [ %67, %66 ], [ null, %.lr.ph69.i ]
-  %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %66 ], [ 0, %.lr.ph69.i ]
-  %59 = load ptr, ptr %55, align 8
-  %60 = getelementptr %union.ListCell, ptr %59, i64 %indvars.iv75.i
-  %61 = load ptr, ptr %60, align 8
-  %.not56.i = icmp eq ptr %61, null
-  br i1 %.not56.i, label %66, label %62
+.lr.ph73.i:                                       ; preds = %.lr.ph69.i, %69
+  %61 = phi ptr [ %70, %69 ], [ null, %.lr.ph69.i ]
+  %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %69 ], [ 0, %.lr.ph69.i ]
+  %62 = load ptr, ptr %58, align 8
+  %63 = getelementptr %union.ListCell, ptr %62, i64 %indvars.iv75.i
+  %64 = load ptr, ptr %63, align 8
+  %.not56.i = icmp eq ptr %64, null
+  br i1 %.not56.i, label %69, label %65
 
-62:                                               ; preds = %.lr.ph73.i
-  %63 = getelementptr inbounds i8, ptr %61, i64 37
-  %64 = load i8, ptr %63, align 1
-  %65 = trunc i8 %64 to i1
-  %spec.store.select.i = select i1 %65, ptr %61, ptr null
-  br label %66
+65:                                               ; preds = %.lr.ph73.i
+  %66 = getelementptr inbounds i8, ptr %64, i64 37
+  %67 = load i8, ptr %66, align 1
+  %68 = trunc i8 %67 to i1
+  %spec.store.select.i = select i1 %68, ptr %64, ptr null
+  br label %69
 
-66:                                               ; preds = %62, %.lr.ph73.i
-  %.0.i = phi ptr [ %spec.store.select.i, %62 ], [ null, %.lr.ph73.i ]
-  %67 = tail call ptr @lappend(ptr noundef %58, ptr noundef %.0.i) #9
-  store ptr %67, ptr %49, align 8
+69:                                               ; preds = %65, %.lr.ph73.i
+  %.0.i = phi ptr [ %spec.store.select.i, %65 ], [ null, %.lr.ph73.i ]
+  %70 = tail call ptr @lappend(ptr noundef %61, ptr noundef %.0.i) #9
+  store ptr %70, ptr %52, align 8
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
-  %68 = load i32, ptr %54, align 4
-  %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next76.i, %69
-  br i1 %70, label %.lr.ph73.i, label %ExecSerializePlan.exit
+  %71 = load i32, ptr %57, align 4
+  %72 = sext i32 %71 to i64
+  %73 = icmp slt i64 %indvars.iv.next76.i, %72
+  br i1 %73, label %.lr.ph73.i, label %ExecSerializePlan.exit
 
-ExecSerializePlan.exit:                           ; preds = %66, %._crit_edge.i, %.lr.ph69.i
-  %71 = getelementptr inbounds i8, ptr %34, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 32, i1 false)
-  %72 = load ptr, ptr %50, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 112
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %34, i64 112
-  store ptr %74, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %34, i64 120
-  store ptr null, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %34, i64 128
-  store i32 -1, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %34, i64 132
-  store i32 -1, ptr %78, align 4
-  %79 = tail call ptr @nodeToString(ptr noundef nonnull %34) #9
-  %80 = tail call ptr @CreateParallelContext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %3) #9
-  %81 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %80, i64 56
-  %83 = load i64, ptr %82, align 8
-  %84 = tail call i64 @add_size(i64 noundef %83, i64 noundef 32) #9
-  store i64 %84, ptr %82, align 8
-  %85 = getelementptr inbounds i8, ptr %80, i64 64
+ExecSerializePlan.exit:                           ; preds = %69, %._crit_edge.i, %.lr.ph69.i
+  %74 = getelementptr inbounds i8, ptr %34, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 0, i64 32, i1 false)
+  %75 = load ptr, ptr %53, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 112
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %34, i64 112
+  store ptr %77, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %34, i64 120
+  store ptr null, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %34, i64 128
+  store i32 -1, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %34, i64 132
+  store i32 -1, ptr %81, align 4
+  %82 = tail call ptr @nodeToString(ptr noundef nonnull %34) #9
+  %83 = tail call ptr @CreateParallelContext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %3) #9
+  %84 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %83, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %83, i64 56
   %86 = load i64, ptr %85, align 8
-  %87 = tail call i64 @add_size(i64 noundef %86, i64 noundef 1) #9
+  %87 = tail call i64 @add_size(i64 noundef %86, i64 noundef 32) #9
   store i64 %87, ptr %85, align 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 72
-  %89 = load ptr, ptr %88, align 8
-  %90 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #10
-  %91 = load i64, ptr %82, align 8
-  %92 = shl i64 %90, 32
-  %sext = add i64 %92, 4294967296
-  %93 = ashr exact i64 %sext, 32
-  %94 = add nsw i64 %93, 31
-  %95 = and i64 %94, -32
-  %96 = tail call i64 @add_size(i64 noundef %91, i64 noundef %95) #9
-  store i64 %96, ptr %82, align 8
-  %97 = load i64, ptr %85, align 8
-  %98 = tail call i64 @add_size(i64 noundef %97, i64 noundef 1) #9
-  store i64 %98, ptr %85, align 8
-  %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #10
-  %100 = load i64, ptr %82, align 8
-  %101 = shl i64 %99, 32
-  %sext178 = add i64 %101, 4294967296
-  %102 = ashr exact i64 %sext178, 32
-  %103 = add nsw i64 %102, 31
-  %104 = and i64 %103, -32
-  %105 = tail call i64 @add_size(i64 noundef %100, i64 noundef %104) #9
-  store i64 %105, ptr %82, align 8
-  %106 = load i64, ptr %85, align 8
-  %107 = tail call i64 @add_size(i64 noundef %106, i64 noundef 1) #9
-  store i64 %107, ptr %85, align 8
-  %108 = getelementptr inbounds i8, ptr %1, i64 136
-  %109 = load ptr, ptr %108, align 8
-  %110 = tail call i64 @EstimateParamListSpace(ptr noundef %109) #9
-  %111 = load i64, ptr %82, align 8
-  %sext179 = shl i64 %110, 32
-  %112 = ashr exact i64 %sext179, 32
-  %113 = add nsw i64 %112, 31
-  %114 = and i64 %113, -32
-  %115 = tail call i64 @add_size(i64 noundef %111, i64 noundef %114) #9
-  store i64 %115, ptr %82, align 8
-  %116 = load i64, ptr %85, align 8
-  %117 = tail call i64 @add_size(i64 noundef %116, i64 noundef 1) #9
-  store i64 %117, ptr %85, align 8
-  %118 = load i64, ptr %82, align 8
-  %119 = getelementptr inbounds i8, ptr %80, i64 20
-  %120 = load i32, ptr %119, align 4
-  %121 = sext i32 %120 to i64
-  %122 = tail call i64 @mul_size(i64 noundef 128, i64 noundef %121) #9
-  %123 = add i64 %122, 31
-  %124 = and i64 %123, -32
-  %125 = tail call i64 @add_size(i64 noundef %118, i64 noundef %124) #9
-  store i64 %125, ptr %82, align 8
-  %126 = load i64, ptr %85, align 8
-  %127 = tail call i64 @add_size(i64 noundef %126, i64 noundef 1) #9
-  store i64 %127, ptr %85, align 8
-  %128 = load i64, ptr %82, align 8
-  %129 = load i32, ptr %119, align 4
-  %130 = sext i32 %129 to i64
-  %131 = tail call i64 @mul_size(i64 noundef 24, i64 noundef %130) #9
-  %132 = add i64 %131, 31
-  %133 = and i64 %132, -32
-  %134 = tail call i64 @add_size(i64 noundef %128, i64 noundef %133) #9
-  store i64 %134, ptr %82, align 8
-  %135 = load i64, ptr %85, align 8
-  %136 = tail call i64 @add_size(i64 noundef %135, i64 noundef 1) #9
-  store i64 %136, ptr %85, align 8
-  %137 = load i64, ptr %82, align 8
-  %138 = load i32, ptr %119, align 4
-  %139 = sext i32 %138 to i64
-  %140 = tail call i64 @mul_size(i64 noundef 65536, i64 noundef %139) #9
-  %141 = add i64 %140, 31
-  %142 = and i64 %141, -32
-  %143 = tail call i64 @add_size(i64 noundef %137, i64 noundef %142) #9
-  store i64 %143, ptr %82, align 8
-  %144 = load i64, ptr %85, align 8
-  %145 = tail call i64 @add_size(i64 noundef %144, i64 noundef 1) #9
-  store i64 %145, ptr %85, align 8
-  store ptr %80, ptr %6, align 8
-  %146 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 0, ptr %146, align 8
-  %147 = call zeroext i1 @ExecParallelEstimate(ptr noundef %0, ptr noundef nonnull %6)
-  %148 = getelementptr inbounds i8, ptr %1, i64 196
-  %149 = load i32, ptr %148, align 4
-  %.not180 = icmp eq i32 %149, 0
-  br i1 %.not180, label %181, label %150
+  %88 = getelementptr inbounds i8, ptr %83, i64 64
+  %89 = load i64, ptr %88, align 8
+  %90 = tail call i64 @add_size(i64 noundef %89, i64 noundef 1) #9
+  store i64 %90, ptr %88, align 8
+  %91 = getelementptr inbounds i8, ptr %1, i64 72
+  %92 = load ptr, ptr %91, align 8
+  %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #10
+  %94 = load i64, ptr %85, align 8
+  %95 = shl i64 %93, 32
+  %sext = add i64 %95, 4294967296
+  %96 = ashr exact i64 %sext, 32
+  %97 = add nsw i64 %96, 31
+  %98 = and i64 %97, -32
+  %99 = tail call i64 @add_size(i64 noundef %94, i64 noundef %98) #9
+  store i64 %99, ptr %85, align 8
+  %100 = load i64, ptr %88, align 8
+  %101 = tail call i64 @add_size(i64 noundef %100, i64 noundef 1) #9
+  store i64 %101, ptr %88, align 8
+  %102 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #10
+  %103 = load i64, ptr %85, align 8
+  %104 = shl i64 %102, 32
+  %sext178 = add i64 %104, 4294967296
+  %105 = ashr exact i64 %sext178, 32
+  %106 = add nsw i64 %105, 31
+  %107 = and i64 %106, -32
+  %108 = tail call i64 @add_size(i64 noundef %103, i64 noundef %107) #9
+  store i64 %108, ptr %85, align 8
+  %109 = load i64, ptr %88, align 8
+  %110 = tail call i64 @add_size(i64 noundef %109, i64 noundef 1) #9
+  store i64 %110, ptr %88, align 8
+  %111 = getelementptr inbounds i8, ptr %1, i64 136
+  %112 = load ptr, ptr %111, align 8
+  %113 = tail call i64 @EstimateParamListSpace(ptr noundef %112) #9
+  %114 = load i64, ptr %85, align 8
+  %sext179 = shl i64 %113, 32
+  %115 = ashr exact i64 %sext179, 32
+  %116 = add nsw i64 %115, 31
+  %117 = and i64 %116, -32
+  %118 = tail call i64 @add_size(i64 noundef %114, i64 noundef %117) #9
+  store i64 %118, ptr %85, align 8
+  %119 = load i64, ptr %88, align 8
+  %120 = tail call i64 @add_size(i64 noundef %119, i64 noundef 1) #9
+  store i64 %120, ptr %88, align 8
+  %121 = load i64, ptr %85, align 8
+  %122 = getelementptr inbounds i8, ptr %83, i64 20
+  %123 = load i32, ptr %122, align 4
+  %124 = sext i32 %123 to i64
+  %125 = tail call i64 @mul_size(i64 noundef 128, i64 noundef %124) #9
+  %126 = add i64 %125, 31
+  %127 = and i64 %126, -32
+  %128 = tail call i64 @add_size(i64 noundef %121, i64 noundef %127) #9
+  store i64 %128, ptr %85, align 8
+  %129 = load i64, ptr %88, align 8
+  %130 = tail call i64 @add_size(i64 noundef %129, i64 noundef 1) #9
+  store i64 %130, ptr %88, align 8
+  %131 = load i64, ptr %85, align 8
+  %132 = load i32, ptr %122, align 4
+  %133 = sext i32 %132 to i64
+  %134 = tail call i64 @mul_size(i64 noundef 24, i64 noundef %133) #9
+  %135 = add i64 %134, 31
+  %136 = and i64 %135, -32
+  %137 = tail call i64 @add_size(i64 noundef %131, i64 noundef %136) #9
+  store i64 %137, ptr %85, align 8
+  %138 = load i64, ptr %88, align 8
+  %139 = tail call i64 @add_size(i64 noundef %138, i64 noundef 1) #9
+  store i64 %139, ptr %88, align 8
+  %140 = load i64, ptr %85, align 8
+  %141 = load i32, ptr %122, align 4
+  %142 = sext i32 %141 to i64
+  %143 = tail call i64 @mul_size(i64 noundef 65536, i64 noundef %142) #9
+  %144 = add i64 %143, 31
+  %145 = and i64 %144, -32
+  %146 = tail call i64 @add_size(i64 noundef %140, i64 noundef %145) #9
+  store i64 %146, ptr %85, align 8
+  %147 = load i64, ptr %88, align 8
+  %148 = tail call i64 @add_size(i64 noundef %147, i64 noundef 1) #9
+  store i64 %148, ptr %88, align 8
+  store ptr %83, ptr %6, align 8
+  %149 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 0, ptr %149, align 8
+  %150 = call zeroext i1 @ExecParallelEstimate(ptr noundef %0, ptr noundef nonnull %6)
+  %151 = getelementptr inbounds i8, ptr %1, i64 196
+  %152 = load i32, ptr %151, align 4
+  %.not180 = icmp eq i32 %152, 0
+  br i1 %.not180, label %184, label %153
 
-150:                                              ; preds = %ExecSerializePlan.exit
-  %151 = load i32, ptr %146, align 8
-  %152 = sext i32 %151 to i64
-  %153 = shl i32 %151, 2
-  %154 = add i32 %153, 23
-  %155 = and i32 %154, -8
-  %156 = sext i32 %3 to i64
-  %157 = call i64 @mul_size(i64 noundef %152, i64 noundef %156) #9
-  %158 = call i64 @mul_size(i64 noundef 400, i64 noundef %157) #9
-  %159 = trunc i64 %158 to i32
-  %160 = add i32 %155, %159
-  %161 = load i64, ptr %82, align 8
-  %162 = sext i32 %160 to i64
-  %163 = add nsw i64 %162, 31
-  %164 = and i64 %163, -32
-  %165 = call i64 @add_size(i64 noundef %161, i64 noundef %164) #9
-  store i64 %165, ptr %82, align 8
-  %166 = load i64, ptr %85, align 8
-  %167 = call i64 @add_size(i64 noundef %166, i64 noundef 1) #9
-  store i64 %167, ptr %85, align 8
-  %168 = getelementptr inbounds i8, ptr %1, i64 264
-  %169 = load i32, ptr %168, align 8
-  %.not181 = icmp eq i32 %169, 0
-  br i1 %.not181, label %181, label %170
+153:                                              ; preds = %ExecSerializePlan.exit
+  %154 = load i32, ptr %149, align 8
+  %155 = sext i32 %154 to i64
+  %156 = shl i32 %154, 2
+  %157 = add i32 %156, 23
+  %158 = and i32 %157, -8
+  %159 = sext i32 %3 to i64
+  %160 = call i64 @mul_size(i64 noundef %155, i64 noundef %159) #9
+  %161 = call i64 @mul_size(i64 noundef 400, i64 noundef %160) #9
+  %162 = trunc i64 %161 to i32
+  %163 = add i32 %158, %162
+  %164 = load i64, ptr %85, align 8
+  %165 = sext i32 %163 to i64
+  %166 = add nsw i64 %165, 31
+  %167 = and i64 %166, -32
+  %168 = call i64 @add_size(i64 noundef %164, i64 noundef %167) #9
+  store i64 %168, ptr %85, align 8
+  %169 = load i64, ptr %88, align 8
+  %170 = call i64 @add_size(i64 noundef %169, i64 noundef 1) #9
+  store i64 %170, ptr %88, align 8
+  %171 = getelementptr inbounds i8, ptr %1, i64 264
+  %172 = load i32, ptr %171, align 8
+  %.not181 = icmp eq i32 %172, 0
+  br i1 %.not181, label %184, label %173
 
-170:                                              ; preds = %150
-  %171 = mul i32 %3, 48
-  %172 = or disjoint i32 %171, 8
-  %173 = load i64, ptr %82, align 8
-  %174 = sext i32 %171 to i64
-  %175 = add nsw i64 %174, 39
-  %176 = and i64 %175, -32
-  %177 = call i64 @add_size(i64 noundef %173, i64 noundef %176) #9
-  store i64 %177, ptr %82, align 8
-  %178 = load i64, ptr %85, align 8
-  %179 = call i64 @add_size(i64 noundef %178, i64 noundef 1) #9
-  store i64 %179, ptr %85, align 8
-  %180 = sext i32 %172 to i64
-  br label %181
+173:                                              ; preds = %153
+  %174 = mul i32 %3, 48
+  %175 = or disjoint i32 %174, 8
+  %176 = load i64, ptr %85, align 8
+  %177 = sext i32 %174 to i64
+  %178 = add nsw i64 %177, 39
+  %179 = and i64 %178, -32
+  %180 = call i64 @add_size(i64 noundef %176, i64 noundef %179) #9
+  store i64 %180, ptr %85, align 8
+  %181 = load i64, ptr %88, align 8
+  %182 = call i64 @add_size(i64 noundef %181, i64 noundef 1) #9
+  store i64 %182, ptr %88, align 8
+  %183 = sext i32 %175 to i64
+  br label %184
 
-181:                                              ; preds = %150, %170, %ExecSerializePlan.exit
-  %.0175 = phi i32 [ %155, %170 ], [ %155, %150 ], [ 0, %ExecSerializePlan.exit ]
-  %.0174 = phi i64 [ %180, %170 ], [ 0, %150 ], [ 0, %ExecSerializePlan.exit ]
-  %.0173 = phi i32 [ %160, %170 ], [ %160, %150 ], [ 0, %ExecSerializePlan.exit ]
-  %182 = load i64, ptr %82, align 8
-  %183 = add i64 %9, 31
-  %184 = and i64 %183, -32
-  %185 = call i64 @add_size(i64 noundef %182, i64 noundef %184) #9
-  store i64 %185, ptr %82, align 8
-  %186 = load i64, ptr %85, align 8
-  %187 = call i64 @add_size(i64 noundef %186, i64 noundef 1) #9
-  store i64 %187, ptr %85, align 8
-  call void @InitializeParallelDSM(ptr noundef nonnull %80) #9
-  %188 = getelementptr inbounds i8, ptr %80, i64 88
-  %189 = load ptr, ptr %188, align 8
-  %190 = call ptr @shm_toc_allocate(ptr noundef %189, i64 noundef 24) #9
-  store i64 %4, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 8
-  store i64 0, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %1, i64 192
-  %193 = load i32, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %190, i64 16
-  store i32 %193, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %1, i64 264
+184:                                              ; preds = %153, %173, %ExecSerializePlan.exit
+  %.0175 = phi i32 [ %158, %173 ], [ %158, %153 ], [ 0, %ExecSerializePlan.exit ]
+  %.0174 = phi i64 [ %183, %173 ], [ 0, %153 ], [ 0, %ExecSerializePlan.exit ]
+  %.0173 = phi i32 [ %163, %173 ], [ %163, %153 ], [ 0, %ExecSerializePlan.exit ]
+  %185 = load i64, ptr %85, align 8
+  %186 = add i64 %9, 31
+  %187 = and i64 %186, -32
+  %188 = call i64 @add_size(i64 noundef %185, i64 noundef %187) #9
+  store i64 %188, ptr %85, align 8
+  %189 = load i64, ptr %88, align 8
+  %190 = call i64 @add_size(i64 noundef %189, i64 noundef 1) #9
+  store i64 %190, ptr %88, align 8
+  call void @InitializeParallelDSM(ptr noundef nonnull %83) #9
+  %191 = getelementptr inbounds i8, ptr %83, i64 88
+  %192 = load ptr, ptr %191, align 8
+  %193 = call ptr @shm_toc_allocate(ptr noundef %192, i64 noundef 24) #9
+  store i64 %4, ptr %193, align 8
+  %194 = getelementptr inbounds i8, ptr %193, i64 8
+  store i64 0, ptr %194, align 8
+  %195 = getelementptr inbounds i8, ptr %1, i64 192
   %196 = load i32, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %190, i64 20
-  store i32 %196, ptr %197, align 4
-  %198 = load ptr, ptr %188, align 8
-  call void @shm_toc_insert(ptr noundef %198, i64 noundef -2305843009213693951, ptr noundef nonnull %190) #9
-  %199 = load ptr, ptr %188, align 8
-  %200 = call ptr @shm_toc_allocate(ptr noundef %199, i64 noundef %93) #9
-  %201 = load ptr, ptr %88, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %200, ptr align 1 %201, i64 %93, i1 false)
-  %202 = load ptr, ptr %188, align 8
-  call void @shm_toc_insert(ptr noundef %202, i64 noundef -2305843009213693944, ptr noundef %200) #9
-  %203 = load ptr, ptr %188, align 8
-  %204 = call ptr @shm_toc_allocate(ptr noundef %203, i64 noundef %102) #9
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %204, ptr align 1 %79, i64 %102, i1 false)
-  %205 = load ptr, ptr %188, align 8
-  call void @shm_toc_insert(ptr noundef %205, i64 noundef -2305843009213693950, ptr noundef %204) #9
-  %206 = load ptr, ptr %188, align 8
-  %207 = call ptr @shm_toc_allocate(ptr noundef %206, i64 noundef %112) #9
-  store ptr %207, ptr %8, align 8
-  %208 = load ptr, ptr %188, align 8
-  call void @shm_toc_insert(ptr noundef %208, i64 noundef -2305843009213693949, ptr noundef %207) #9
-  %209 = load ptr, ptr %108, align 8
-  call void @SerializeParamList(ptr noundef %209, ptr noundef nonnull %8) #9
-  %210 = load ptr, ptr %188, align 8
-  %211 = load i32, ptr %119, align 4
-  %212 = sext i32 %211 to i64
-  %213 = call i64 @mul_size(i64 noundef 128, i64 noundef %212) #9
-  %214 = call ptr @shm_toc_allocate(ptr noundef %210, i64 noundef %213) #9
-  %215 = load ptr, ptr %188, align 8
-  call void @shm_toc_insert(ptr noundef %215, i64 noundef -2305843009213693948, ptr noundef %214) #9
-  %216 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr %214, ptr %216, align 8
-  %217 = load ptr, ptr %188, align 8
-  %218 = load i32, ptr %119, align 4
-  %219 = sext i32 %218 to i64
-  %220 = call i64 @mul_size(i64 noundef 24, i64 noundef %219) #9
-  %221 = call ptr @shm_toc_allocate(ptr noundef %217, i64 noundef %220) #9
-  %222 = load ptr, ptr %188, align 8
-  call void @shm_toc_insert(ptr noundef %222, i64 noundef -2305843009213693942, ptr noundef %221) #9
-  %223 = getelementptr inbounds i8, ptr %16, i64 24
-  store ptr %221, ptr %223, align 8
-  %224 = call fastcc ptr @ExecParallelSetupTupleQueues(ptr noundef nonnull %80, i1 noundef zeroext false)
-  %225 = getelementptr inbounds i8, ptr %16, i64 72
-  store ptr %224, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %16, i64 80
-  store ptr null, ptr %226, align 8
-  %227 = load i32, ptr %148, align 4
-  %.not182 = icmp eq i32 %227, 0
-  br i1 %.not182, label %258, label %228
+  %197 = getelementptr inbounds i8, ptr %193, i64 16
+  store i32 %196, ptr %197, align 8
+  %198 = getelementptr inbounds i8, ptr %1, i64 264
+  %199 = load i32, ptr %198, align 8
+  %200 = getelementptr inbounds i8, ptr %193, i64 20
+  store i32 %199, ptr %200, align 4
+  %201 = load ptr, ptr %191, align 8
+  call void @shm_toc_insert(ptr noundef %201, i64 noundef -2305843009213693951, ptr noundef nonnull %193) #9
+  %202 = load ptr, ptr %191, align 8
+  %203 = call ptr @shm_toc_allocate(ptr noundef %202, i64 noundef %96) #9
+  %204 = load ptr, ptr %91, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %203, ptr align 1 %204, i64 %96, i1 false)
+  %205 = load ptr, ptr %191, align 8
+  call void @shm_toc_insert(ptr noundef %205, i64 noundef -2305843009213693944, ptr noundef %203) #9
+  %206 = load ptr, ptr %191, align 8
+  %207 = call ptr @shm_toc_allocate(ptr noundef %206, i64 noundef %105) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %207, ptr align 1 %82, i64 %105, i1 false)
+  %208 = load ptr, ptr %191, align 8
+  call void @shm_toc_insert(ptr noundef %208, i64 noundef -2305843009213693950, ptr noundef %207) #9
+  %209 = load ptr, ptr %191, align 8
+  %210 = call ptr @shm_toc_allocate(ptr noundef %209, i64 noundef %115) #9
+  store ptr %210, ptr %8, align 8
+  %211 = load ptr, ptr %191, align 8
+  call void @shm_toc_insert(ptr noundef %211, i64 noundef -2305843009213693949, ptr noundef %210) #9
+  %212 = load ptr, ptr %111, align 8
+  call void @SerializeParamList(ptr noundef %212, ptr noundef nonnull %8) #9
+  %213 = load ptr, ptr %191, align 8
+  %214 = load i32, ptr %122, align 4
+  %215 = sext i32 %214 to i64
+  %216 = call i64 @mul_size(i64 noundef 128, i64 noundef %215) #9
+  %217 = call ptr @shm_toc_allocate(ptr noundef %213, i64 noundef %216) #9
+  %218 = load ptr, ptr %191, align 8
+  call void @shm_toc_insert(ptr noundef %218, i64 noundef -2305843009213693948, ptr noundef %217) #9
+  %219 = getelementptr inbounds i8, ptr %16, i64 16
+  store ptr %217, ptr %219, align 8
+  %220 = load ptr, ptr %191, align 8
+  %221 = load i32, ptr %122, align 4
+  %222 = sext i32 %221 to i64
+  %223 = call i64 @mul_size(i64 noundef 24, i64 noundef %222) #9
+  %224 = call ptr @shm_toc_allocate(ptr noundef %220, i64 noundef %223) #9
+  %225 = load ptr, ptr %191, align 8
+  call void @shm_toc_insert(ptr noundef %225, i64 noundef -2305843009213693942, ptr noundef %224) #9
+  %226 = getelementptr inbounds i8, ptr %16, i64 24
+  store ptr %224, ptr %226, align 8
+  %227 = call fastcc ptr @ExecParallelSetupTupleQueues(ptr noundef nonnull %83, i1 noundef zeroext false)
+  %228 = getelementptr inbounds i8, ptr %16, i64 72
+  store ptr %227, ptr %228, align 8
+  %229 = getelementptr inbounds i8, ptr %16, i64 80
+  store ptr null, ptr %229, align 8
+  %230 = load i32, ptr %151, align 4
+  %.not182 = icmp eq i32 %230, 0
+  br i1 %.not182, label %261, label %231
 
-228:                                              ; preds = %181
-  %229 = load ptr, ptr %188, align 8
-  %230 = sext i32 %.0173 to i64
-  %231 = call ptr @shm_toc_allocate(ptr noundef %229, i64 noundef %230) #9
-  %232 = load i32, ptr %148, align 4
-  store i32 %232, ptr %231, align 4
-  %233 = getelementptr inbounds i8, ptr %231, i64 4
-  store i32 %.0175, ptr %233, align 4
-  %234 = getelementptr inbounds i8, ptr %231, i64 8
-  store i32 %3, ptr %234, align 4
-  %235 = load i32, ptr %146, align 8
-  %236 = getelementptr inbounds i8, ptr %231, i64 12
-  store i32 %235, ptr %236, align 4
-  %237 = sext i32 %.0175 to i64
-  %238 = getelementptr i8, ptr %231, i64 %237
-  %239 = mul i32 %235, %3
-  %240 = icmp sgt i32 %239, 0
-  br i1 %240, label %.lr.ph, label %._crit_edge
+231:                                              ; preds = %184
+  %232 = load ptr, ptr %191, align 8
+  %233 = sext i32 %.0173 to i64
+  %234 = call ptr @shm_toc_allocate(ptr noundef %232, i64 noundef %233) #9
+  %235 = load i32, ptr %151, align 4
+  store i32 %235, ptr %234, align 4
+  %236 = getelementptr inbounds i8, ptr %234, i64 4
+  store i32 %.0175, ptr %236, align 4
+  %237 = getelementptr inbounds i8, ptr %234, i64 8
+  store i32 %3, ptr %237, align 4
+  %238 = load i32, ptr %149, align 8
+  %239 = getelementptr inbounds i8, ptr %234, i64 12
+  store i32 %238, ptr %239, align 4
+  %240 = sext i32 %.0175 to i64
+  %241 = getelementptr i8, ptr %234, i64 %240
+  %242 = mul i32 %238, %3
+  %243 = icmp sgt i32 %242, 0
+  br i1 %243, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %228, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %228 ]
-  %241 = getelementptr %struct.Instrumentation, ptr %238, i64 %indvars.iv
-  %242 = load i32, ptr %148, align 4
-  call void @InstrInit(ptr noundef %241, i32 noundef %242) #9
+.lr.ph:                                           ; preds = %231, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %231 ]
+  %244 = getelementptr %struct.Instrumentation, ptr %241, i64 %indvars.iv
+  %245 = load i32, ptr %151, align 4
+  call void @InstrInit(ptr noundef %244, i32 noundef %245) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %243 = load i32, ptr %146, align 8
-  %244 = mul i32 %243, %3
-  %245 = sext i32 %244 to i64
-  %246 = icmp slt i64 %indvars.iv.next, %245
-  br i1 %246, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  %246 = load i32, ptr %149, align 8
+  %247 = mul i32 %246, %3
+  %248 = sext i32 %247 to i64
+  %249 = icmp slt i64 %indvars.iv.next, %248
+  br i1 %249, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %.lr.ph, %228
-  %247 = load ptr, ptr %188, align 8
-  call void @shm_toc_insert(ptr noundef %247, i64 noundef -2305843009213693946, ptr noundef nonnull %231) #9
-  %248 = getelementptr inbounds i8, ptr %16, i64 32
-  store ptr %231, ptr %248, align 8
-  %249 = load i32, ptr %195, align 8
-  %.not183 = icmp eq i32 %249, 0
-  br i1 %.not183, label %258, label %250
+._crit_edge:                                      ; preds = %.lr.ph, %231
+  %250 = load ptr, ptr %191, align 8
+  call void @shm_toc_insert(ptr noundef %250, i64 noundef -2305843009213693946, ptr noundef nonnull %234) #9
+  %251 = getelementptr inbounds i8, ptr %16, i64 32
+  store ptr %234, ptr %251, align 8
+  %252 = load i32, ptr %198, align 8
+  %.not183 = icmp eq i32 %252, 0
+  br i1 %.not183, label %261, label %253
 
-250:                                              ; preds = %._crit_edge
-  %251 = load ptr, ptr %188, align 8
-  %252 = call ptr @shm_toc_allocate(ptr noundef %251, i64 noundef %.0174) #9
-  store i32 %3, ptr %252, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 8
-  %254 = sext i32 %3 to i64
-  %255 = mul nsw i64 %254, 48
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %253, i8 0, i64 %255, i1 false)
-  %256 = load ptr, ptr %188, align 8
-  call void @shm_toc_insert(ptr noundef %256, i64 noundef -2305843009213693943, ptr noundef nonnull %252) #9
-  %257 = getelementptr inbounds i8, ptr %16, i64 40
-  store ptr %252, ptr %257, align 8
-  br label %258
+253:                                              ; preds = %._crit_edge
+  %254 = load ptr, ptr %191, align 8
+  %255 = call ptr @shm_toc_allocate(ptr noundef %254, i64 noundef %.0174) #9
+  store i32 %3, ptr %255, align 8
+  %256 = getelementptr inbounds i8, ptr %255, i64 8
+  %257 = sext i32 %3 to i64
+  %258 = mul nsw i64 %257, 48
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %256, i8 0, i64 %258, i1 false)
+  %259 = load ptr, ptr %191, align 8
+  call void @shm_toc_insert(ptr noundef %259, i64 noundef -2305843009213693943, ptr noundef nonnull %255) #9
+  %260 = getelementptr inbounds i8, ptr %16, i64 40
+  store ptr %255, ptr %260, align 8
+  br label %261
 
-258:                                              ; preds = %._crit_edge, %250, %181
-  %.0 = phi ptr [ %231, %250 ], [ %231, %._crit_edge ], [ null, %181 ]
-  %259 = getelementptr inbounds i8, ptr %80, i64 72
-  %260 = load ptr, ptr %259, align 8
-  %.not184 = icmp eq ptr %260, null
-  br i1 %.not184, label %272, label %261
+261:                                              ; preds = %._crit_edge, %253, %184
+  %.0 = phi ptr [ %234, %253 ], [ %234, %._crit_edge ], [ null, %184 ]
+  %262 = getelementptr inbounds i8, ptr %83, i64 72
+  %263 = load ptr, ptr %262, align 8
+  %.not184 = icmp eq ptr %263, null
+  br i1 %.not184, label %275, label %264
 
-261:                                              ; preds = %258
-  %262 = load ptr, ptr %188, align 8
-  %263 = call ptr @shm_toc_allocate(ptr noundef %262, i64 noundef %9) #9
-  %264 = load ptr, ptr %188, align 8
-  call void @shm_toc_insert(ptr noundef %264, i64 noundef -2305843009213693945, ptr noundef %263) #9
-  %265 = load ptr, ptr %259, align 8
-  %266 = call ptr @dsa_create_in_place(ptr noundef %263, i64 noundef %9, i32 noundef 69, ptr noundef %265) #9
-  %267 = getelementptr inbounds i8, ptr %16, i64 48
-  store ptr %266, ptr %267, align 8
-  %268 = icmp eq ptr %2, null
-  br i1 %268, label %272, label %269
+264:                                              ; preds = %261
+  %265 = load ptr, ptr %191, align 8
+  %266 = call ptr @shm_toc_allocate(ptr noundef %265, i64 noundef %9) #9
+  %267 = load ptr, ptr %191, align 8
+  call void @shm_toc_insert(ptr noundef %267, i64 noundef -2305843009213693945, ptr noundef %266) #9
+  %268 = load ptr, ptr %262, align 8
+  %269 = call ptr @dsa_create_in_place(ptr noundef %266, i64 noundef %9, i32 noundef 69, ptr noundef %268) #9
+  %270 = getelementptr inbounds i8, ptr %16, i64 48
+  store ptr %269, ptr %270, align 8
+  %271 = icmp eq ptr %2, null
+  br i1 %271, label %275, label %272
 
-269:                                              ; preds = %261
-  %270 = call fastcc i64 @SerializeParamExecParams(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %266)
-  %271 = getelementptr inbounds i8, ptr %16, i64 56
-  store i64 %270, ptr %271, align 8
-  store i64 %270, ptr %191, align 8
-  br label %272
+272:                                              ; preds = %264
+  %273 = call fastcc i64 @SerializeParamExecParams(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %269)
+  %274 = getelementptr inbounds i8, ptr %16, i64 56
+  store i64 %273, ptr %274, align 8
+  store i64 %273, ptr %194, align 8
+  br label %275
 
-272:                                              ; preds = %261, %269, %258
-  store ptr %80, ptr %7, align 8
-  %273 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %.0, ptr %273, align 8
-  %274 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 0, ptr %274, align 8
-  %275 = getelementptr inbounds i8, ptr %16, i64 48
-  %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds i8, ptr %1, i64 256
-  store ptr %276, ptr %277, align 8
-  %278 = call zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr noundef nonnull %7)
-  store ptr null, ptr %277, align 8
-  %279 = load i32, ptr %146, align 8
-  %280 = load i32, ptr %274, align 8
-  %.not185 = icmp eq i32 %279, %280
-  br i1 %.not185, label %284, label %281
+275:                                              ; preds = %264, %272, %261
+  store ptr %83, ptr %7, align 8
+  %276 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %.0, ptr %276, align 8
+  %277 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 0, ptr %277, align 8
+  %278 = getelementptr inbounds i8, ptr %16, i64 48
+  %279 = load ptr, ptr %278, align 8
+  %280 = getelementptr inbounds i8, ptr %1, i64 256
+  store ptr %279, ptr %280, align 8
+  %281 = call zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr noundef nonnull %7)
+  store ptr null, ptr %280, align 8
+  %282 = load i32, ptr %149, align 8
+  %283 = load i32, ptr %277, align 8
+  %.not185 = icmp eq i32 %282, %283
+  br i1 %.not185, label %287, label %284
 
-281:                                              ; preds = %272
-  %282 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %282)
-  %283 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+284:                                              ; preds = %275
+  %285 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %285)
+  %286 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 860, ptr noundef nonnull @__func__.ExecInitParallelPlan) #9
   unreachable
 
-284:                                              ; preds = %272
+287:                                              ; preds = %275
   ret ptr %16
 }
 

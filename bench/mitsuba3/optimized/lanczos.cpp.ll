@@ -195,52 +195,83 @@ define weak_odr noundef float @_ZNK7mitsuba17LanczosSincFilterIfN5drjit6MatrixIN
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load float, ptr %6, align 4
   %8 = fdiv contract float %5, %7
-  %9 = insertelement <2 x float> poison, float %5, i64 0
-  %10 = insertelement <2 x float> %9, float %8, i64 1
-  %11 = tail call contract <2 x float> @llvm.fabs.v2f32(<2 x float> %10)
-  %12 = fmul contract <2 x float> %11, <float 0x3FF45F3060000000, float 0x3FF45F3060000000>
-  %13 = fptosi <2 x float> %12 to <2 x i32>
-  %14 = add nsw <2 x i32> %13, <i32 1, i32 1>
-  %15 = and <2 x i32> %14, <i32 -2, i32 -2>
-  %16 = sitofp <2 x i32> %15 to <2 x float>
-  %17 = shl <2 x i32> %14, <i32 29, i32 29>
-  %18 = bitcast <2 x float> %10 to <2 x i32>
-  %19 = xor <2 x i32> %17, %18
-  %20 = fmul contract <2 x float> %16, <float 0x3FE9200000000000, float 0x3FE9200000000000>
-  %21 = fsub contract <2 x float> %11, %20
-  %22 = fmul contract <2 x float> %16, <float 0x3F2FB40000000000, float 0x3F2FB40000000000>
-  %23 = fsub contract <2 x float> %21, %22
-  %24 = fmul contract <2 x float> %16, <float 0x3E64442D20000000, float 0x3E64442D20000000>
-  %25 = fsub contract <2 x float> %23, %24
-  %26 = fmul contract <2 x float> %25, %25
-  %27 = fcmp contract oeq <2 x float> %11, <float 0x7FF0000000000000, float 0x7FF0000000000000>
-  %28 = select <2 x i1> %27, <2 x float> <float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000>, <2 x float> %26
-  %29 = tail call contract <2 x float> @llvm.fma.v2f32(<2 x float> %28, <2 x float> <float 0x3F811073C0000000, float 0x3F811073C0000000>, <2 x float> <float 0xBFC5555460000000, float 0xBFC5555460000000>)
-  %30 = fmul contract <2 x float> %28, %28
-  %31 = tail call contract <2 x float> @llvm.fma.v2f32(<2 x float> %30, <2 x float> <float 0xBF29943F20000000, float 0xBF29943F20000000>, <2 x float> %29)
-  %32 = fmul contract <2 x float> %28, %31
-  %33 = tail call contract <2 x float> @llvm.fma.v2f32(<2 x float> %28, <2 x float> <float 0xBF56C0C340000000, float 0xBF56C0C340000000>, <2 x float> <float 0x3FA55554A0000000, float 0x3FA55554A0000000>)
-  %34 = tail call contract <2 x float> @llvm.fma.v2f32(<2 x float> %30, <2 x float> <float 0x3EF99EB9C0000000, float 0x3EF99EB9C0000000>, <2 x float> %33)
-  %35 = fmul contract <2 x float> %28, %34
-  %36 = tail call contract <2 x float> @llvm.fma.v2f32(<2 x float> %32, <2 x float> %25, <2 x float> %25)
-  %37 = tail call contract <2 x float> @llvm.fma.v2f32(<2 x float> %28, <2 x float> <float -5.000000e-01, float -5.000000e-01>, <2 x float> <float 1.000000e+00, float 1.000000e+00>)
-  %38 = tail call contract <2 x float> @llvm.fma.v2f32(<2 x float> %35, <2 x float> %28, <2 x float> %37)
-  %39 = and <2 x i32> %14, <i32 2, i32 2>
-  %40 = icmp eq <2 x i32> %39, zeroinitializer
-  %41 = select <2 x i1> %40, <2 x float> %36, <2 x float> %38
-  %42 = and <2 x i32> %19, <i32 -2147483648, i32 -2147483648>
-  %43 = bitcast <2 x float> %41 to <2 x i32>
-  %44 = xor <2 x i32> %42, %43
-  %45 = bitcast <2 x i32> %44 to <2 x float>
-  %46 = fcmp contract olt float %4, 0x3E70000000000000
-  %47 = fcmp contract ogt float %4, %7
-  %shift = shufflevector <2 x float> %45, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %48 = fmul contract <2 x float> %shift, %45
-  %49 = extractelement <2 x float> %48, i64 0
-  %50 = fmul contract float %5, %8
-  %51 = fdiv contract float %49, %50
-  %52 = select contract i1 %47, float 0.000000e+00, float %51
-  %. = select contract i1 %46, float 1.000000e+00, float %52
+  %9 = tail call contract noundef float @llvm.fabs.f32(float %5)
+  %10 = fmul contract float %9, 0x3FF45F3060000000
+  %11 = fptosi float %10 to i32
+  %12 = add nsw i32 %11, 1
+  %13 = and i32 %12, -2
+  %14 = sitofp i32 %13 to float
+  %15 = shl i32 %12, 29
+  %16 = bitcast float %5 to i32
+  %17 = xor i32 %15, %16
+  %18 = fmul contract float %14, 0x3FE9200000000000
+  %19 = fsub contract float %9, %18
+  %20 = fmul contract float %14, 0x3F2FB40000000000
+  %21 = fsub contract float %19, %20
+  %22 = fmul contract float %14, 0x3E64442D20000000
+  %23 = fsub contract float %21, %22
+  %24 = fmul contract float %23, %23
+  %25 = fcmp contract oeq float %9, 0x7FF0000000000000
+  %26 = select i1 %25, float 0xFFFFFFFFE0000000, float %24
+  %27 = tail call contract noundef float @llvm.fma.f32(float %26, float 0x3F811073C0000000, float 0xBFC5555460000000)
+  %28 = fmul contract float %26, %26
+  %29 = tail call contract noundef float @llvm.fma.f32(float %28, float 0xBF29943F20000000, float %27)
+  %30 = fmul contract float %26, %29
+  %31 = tail call contract noundef float @llvm.fma.f32(float %26, float 0xBF56C0C340000000, float 0x3FA55554A0000000)
+  %32 = tail call contract noundef float @llvm.fma.f32(float %28, float 0x3EF99EB9C0000000, float %31)
+  %33 = fmul contract float %26, %32
+  %34 = tail call contract noundef float @llvm.fma.f32(float %30, float %23, float %23)
+  %35 = tail call contract noundef float @llvm.fma.f32(float %26, float -5.000000e-01, float 1.000000e+00)
+  %36 = tail call contract noundef float @llvm.fma.f32(float %33, float %26, float %35)
+  %37 = and i32 %12, 2
+  %38 = icmp eq i32 %37, 0
+  %39 = select contract i1 %38, float %34, float %36
+  %40 = and i32 %17, -2147483648
+  %41 = bitcast float %39 to i32
+  %42 = xor i32 %40, %41
+  %43 = bitcast i32 %42 to float
+  %44 = tail call contract noundef float @llvm.fabs.f32(float %8)
+  %45 = fmul contract float %44, 0x3FF45F3060000000
+  %46 = fptosi float %45 to i32
+  %47 = add nsw i32 %46, 1
+  %48 = and i32 %47, -2
+  %49 = sitofp i32 %48 to float
+  %50 = shl i32 %47, 29
+  %51 = bitcast float %8 to i32
+  %52 = xor i32 %50, %51
+  %53 = fmul contract float %49, 0x3FE9200000000000
+  %54 = fsub contract float %44, %53
+  %55 = fmul contract float %49, 0x3F2FB40000000000
+  %56 = fsub contract float %54, %55
+  %57 = fmul contract float %49, 0x3E64442D20000000
+  %58 = fsub contract float %56, %57
+  %59 = fmul contract float %58, %58
+  %60 = fcmp contract oeq float %44, 0x7FF0000000000000
+  %61 = select i1 %60, float 0xFFFFFFFFE0000000, float %59
+  %62 = tail call contract noundef float @llvm.fma.f32(float %61, float 0x3F811073C0000000, float 0xBFC5555460000000)
+  %63 = fmul contract float %61, %61
+  %64 = tail call contract noundef float @llvm.fma.f32(float %63, float 0xBF29943F20000000, float %62)
+  %65 = fmul contract float %61, %64
+  %66 = tail call contract noundef float @llvm.fma.f32(float %61, float 0xBF56C0C340000000, float 0x3FA55554A0000000)
+  %67 = tail call contract noundef float @llvm.fma.f32(float %63, float 0x3EF99EB9C0000000, float %66)
+  %68 = fmul contract float %61, %67
+  %69 = tail call contract noundef float @llvm.fma.f32(float %65, float %58, float %58)
+  %70 = tail call contract noundef float @llvm.fma.f32(float %61, float -5.000000e-01, float 1.000000e+00)
+  %71 = tail call contract noundef float @llvm.fma.f32(float %68, float %61, float %70)
+  %72 = and i32 %47, 2
+  %73 = icmp eq i32 %72, 0
+  %74 = select contract i1 %73, float %69, float %71
+  %75 = and i32 %52, -2147483648
+  %76 = bitcast float %74 to i32
+  %77 = xor i32 %75, %76
+  %78 = bitcast i32 %77 to float
+  %79 = fcmp contract olt float %4, 0x3E70000000000000
+  %80 = fcmp contract ogt float %4, %7
+  %81 = fmul contract float %43, %78
+  %82 = fmul contract float %5, %8
+  %83 = fdiv contract float %81, %82
+  %84 = select contract i1 %80, float 0.000000e+00, float %83
+  %. = select contract i1 %79, float 1.000000e+00, float %84
   ret float %.
 }
 
@@ -574,6 +605,9 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @_ZSt9terminatev() local_unnamed_addr
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fma.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 comdat align 2 {
@@ -2166,12 +2200,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fma.v2f32(<2 x float>, <2 x float>, <2 x float>) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

@@ -55,7 +55,9 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %entry
   %last_key_ = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %last_key_) #12
   %data_block_hash_index_builder_ = getelementptr inbounds i8, ptr %this, i64 128
-  store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %data_block_hash_index_builder_, align 8
+  store double -1.000000e+00, ptr %data_block_hash_index_builder_, align 8
+  %estimated_num_buckets_.i = getelementptr inbounds i8, ptr %this, i64 136
+  store double 0.000000e+00, ptr %estimated_num_buckets_.i, align 8
   %valid_.i = getelementptr inbounds i8, ptr %this, i64 144
   store i8 0, ptr %valid_.i, align 8
   %hash_and_restart_pairs_.i = getelementptr inbounds i8, ptr %this, i64 152

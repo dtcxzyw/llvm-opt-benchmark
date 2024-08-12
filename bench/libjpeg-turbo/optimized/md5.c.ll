@@ -5,11 +5,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @MD5Init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 0, ptr %3, align 4
+  store i32 1732584193, ptr %0, align 4
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -271733879, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1732584194, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 271733878, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 0, ptr %6, align 4
   ret void
 }
 
@@ -666,9 +672,13 @@ define dso_local void @MD5Final(ptr nocapture noundef writeonly %0, ptr nocaptur
   br label %18
 
 18:                                               ; preds = %15, %13
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
-  %20 = load <2 x i32>, ptr %4, align 4
-  store <2 x i32> %20, ptr %19, align 4
+  %19 = load i32, ptr %4, align 4
+  %20 = getelementptr inbounds i8, ptr %1, i64 80
+  store i32 %19, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 84
+  store i32 %22, ptr %23, align 4
   tail call void @MD5Transform(ptr noundef nonnull %1, ptr noundef nonnull %3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %1, i8 0, i64 88, i1 false)

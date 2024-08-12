@@ -1648,13 +1648,16 @@ eh.resume:                                        ; preds = %ehcleanup14, %lpad
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEED2Ev.exit:
-  %ref.tmp = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp = alloca %"class.std::shared_ptr", align 8
   call void @_ZN19OpenColorIO_v2_4dev12CDLTransform6CreateEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp)
-  %0 = load <2 x ptr>, ptr %ref.tmp, align 16
-  %1 = load ptr, ptr %ref.tmp, align 16
-  store <2 x ptr> %0, ptr %agg.result, align 8
+  %0 = load ptr, ptr %ref.tmp, align 8
+  store ptr %0, ptr %agg.result, align 8
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %1 = load ptr, ptr %_M_refcount4.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i, align 8
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev16CDLTransformImplE, i64 0) #21
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev16CDLTransformImplE, i64 0) #21
   %m_data.i2 = getelementptr inbounds i8, ptr %2, i64 40
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i2, ptr noundef nonnull align 8 dereferenceable(168) %m_data.i)
           to label %nrvo.skipdtor unwind label %lpad
@@ -1961,7 +1964,7 @@ declare noundef i32 @_ZN19OpenColorIO_v2_4dev9CDLOpData12ConvertStyleENS_8CDLSty
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl8setSlopeEPKd(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 16
+  %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 8
   %tobool.not = icmp eq ptr %rgb, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -1982,12 +1985,16 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %1 = load double, ptr %rgb, align 8
+  %arrayidx2 = getelementptr inbounds i8, ptr %rgb, i64 8
+  %2 = load double, ptr %arrayidx2, align 8
   %arrayidx3 = getelementptr inbounds i8, ptr %rgb, i64 16
-  %1 = load double, ptr %arrayidx3, align 8
-  %2 = load <2 x double>, ptr %rgb, align 8
-  store <2 x double> %2, ptr %ref.tmp, align 16
+  %3 = load double, ptr %arrayidx3, align 8
+  store double %1, ptr %ref.tmp, align 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store double %2, ptr %arrayidx3.i.i, align 8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store double %1, ptr %arrayidx5.i.i, align 16
+  store double %3, ptr %arrayidx5.i.i, align 8
   call void @_ZN19OpenColorIO_v2_4dev9CDLOpData14setSlopeParamsERKNS0_13ChannelParamsE(ptr noundef nonnull align 8 dereferenceable(256) %m_data.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
   ret void
 }
@@ -2033,7 +2040,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl9setOffsetEPKd(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 16
+  %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 8
   %tobool.not = icmp eq ptr %rgb, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -2054,12 +2061,16 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %1 = load double, ptr %rgb, align 8
+  %arrayidx2 = getelementptr inbounds i8, ptr %rgb, i64 8
+  %2 = load double, ptr %arrayidx2, align 8
   %arrayidx3 = getelementptr inbounds i8, ptr %rgb, i64 16
-  %1 = load double, ptr %arrayidx3, align 8
-  %2 = load <2 x double>, ptr %rgb, align 8
-  store <2 x double> %2, ptr %ref.tmp, align 16
+  %3 = load double, ptr %arrayidx3, align 8
+  store double %1, ptr %ref.tmp, align 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store double %2, ptr %arrayidx3.i.i, align 8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store double %1, ptr %arrayidx5.i.i, align 16
+  store double %3, ptr %arrayidx5.i.i, align 8
   call void @_ZN19OpenColorIO_v2_4dev9CDLOpData15setOffsetParamsERKNS0_13ChannelParamsE(ptr noundef nonnull align 8 dereferenceable(256) %m_data.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
   ret void
 }
@@ -2105,7 +2116,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl8setPowerEPKd(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 16
+  %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 8
   %tobool.not = icmp eq ptr %rgb, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -2126,12 +2137,16 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %1 = load double, ptr %rgb, align 8
+  %arrayidx2 = getelementptr inbounds i8, ptr %rgb, i64 8
+  %2 = load double, ptr %arrayidx2, align 8
   %arrayidx3 = getelementptr inbounds i8, ptr %rgb, i64 16
-  %1 = load double, ptr %arrayidx3, align 8
-  %2 = load <2 x double>, ptr %rgb, align 8
-  store <2 x double> %2, ptr %ref.tmp, align 16
+  %3 = load double, ptr %arrayidx3, align 8
+  store double %1, ptr %ref.tmp, align 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store double %2, ptr %arrayidx3.i.i, align 8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store double %1, ptr %arrayidx5.i.i, align 16
+  store double %3, ptr %arrayidx5.i.i, align 8
   call void @_ZN19OpenColorIO_v2_4dev9CDLOpData14setPowerParamsERKNS0_13ChannelParamsE(ptr noundef nonnull align 8 dereferenceable(256) %m_data.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
   ret void
 }
@@ -2177,9 +2192,9 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl6setSOPEPKd(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly %vec9) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 16
-  %ref.tmp5 = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 16
-  %ref.tmp10 = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 16
+  %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 8
+  %ref.tmp5 = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 8
+  %ref.tmp10 = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 8
   %tobool.not = icmp eq ptr %vec9, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -2200,28 +2215,40 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %1 = load double, ptr %vec9, align 8
+  %arrayidx2 = getelementptr inbounds i8, ptr %vec9, i64 8
+  %2 = load double, ptr %arrayidx2, align 8
   %arrayidx3 = getelementptr inbounds i8, ptr %vec9, i64 16
-  %1 = load double, ptr %arrayidx3, align 8
-  %2 = load <2 x double>, ptr %vec9, align 8
-  store <2 x double> %2, ptr %ref.tmp, align 16
+  %3 = load double, ptr %arrayidx3, align 8
+  store double %1, ptr %ref.tmp, align 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store double %2, ptr %arrayidx3.i.i, align 8
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store double %1, ptr %arrayidx5.i.i, align 16
+  store double %3, ptr %arrayidx5.i.i, align 8
   call void @_ZN19OpenColorIO_v2_4dev9CDLOpData14setSlopeParamsERKNS0_13ChannelParamsE(ptr noundef nonnull align 8 dereferenceable(256) %m_data.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
   %arrayidx6 = getelementptr inbounds i8, ptr %vec9, i64 24
+  %4 = load double, ptr %arrayidx6, align 8
+  %arrayidx7 = getelementptr inbounds i8, ptr %vec9, i64 32
+  %5 = load double, ptr %arrayidx7, align 8
   %arrayidx8 = getelementptr inbounds i8, ptr %vec9, i64 40
-  %3 = load double, ptr %arrayidx8, align 8
-  %4 = load <2 x double>, ptr %arrayidx6, align 8
-  store <2 x double> %4, ptr %ref.tmp5, align 16
+  %6 = load double, ptr %arrayidx8, align 8
+  store double %4, ptr %ref.tmp5, align 8
+  %arrayidx3.i.i11 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+  store double %5, ptr %arrayidx3.i.i11, align 8
   %arrayidx5.i.i12 = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
-  store double %3, ptr %arrayidx5.i.i12, align 16
+  store double %6, ptr %arrayidx5.i.i12, align 8
   call void @_ZN19OpenColorIO_v2_4dev9CDLOpData15setOffsetParamsERKNS0_13ChannelParamsE(ptr noundef nonnull align 8 dereferenceable(256) %m_data.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp5)
   %arrayidx11 = getelementptr inbounds i8, ptr %vec9, i64 48
+  %7 = load double, ptr %arrayidx11, align 8
+  %arrayidx12 = getelementptr inbounds i8, ptr %vec9, i64 56
+  %8 = load double, ptr %arrayidx12, align 8
   %arrayidx13 = getelementptr inbounds i8, ptr %vec9, i64 64
-  %5 = load double, ptr %arrayidx13, align 8
-  %6 = load <2 x double>, ptr %arrayidx11, align 8
-  store <2 x double> %6, ptr %ref.tmp10, align 16
+  %9 = load double, ptr %arrayidx13, align 8
+  store double %7, ptr %ref.tmp10, align 8
+  %arrayidx3.i.i14 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
+  store double %8, ptr %arrayidx3.i.i14, align 8
   %arrayidx5.i.i15 = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
-  store double %5, ptr %arrayidx5.i.i15, align 16
+  store double %9, ptr %arrayidx5.i.i15, align 8
   call void @_ZN19OpenColorIO_v2_4dev9CDLOpData14setPowerParamsERKNS0_13ChannelParamsE(ptr noundef nonnull align 8 dereferenceable(256) %m_data.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10)
   ret void
 }
@@ -2326,7 +2353,9 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  store <2 x double> <double 2.126000e-01, double 7.152000e-01>, ptr %rgb, align 8
+  store double 2.126000e-01, ptr %rgb, align 8
+  %arrayidx2 = getelementptr inbounds i8, ptr %rgb, i64 8
+  store double 7.152000e-01, ptr %arrayidx2, align 8
   %arrayidx3 = getelementptr inbounds i8, ptr %rgb, i64 16
   store double 7.220000e-02, ptr %arrayidx3, align 8
   ret void

@@ -1475,101 +1475,112 @@ _ZN3ozz2io8IArchiversERf.exit:                    ; preds = %49, %58
   br i1 %or.cond.not, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
 
 .lr.ph.i.i:                                       ; preds = %248, %.lr.ph.i.i
-  %.03940.i.i = phi i64 [ %259, %.lr.ph.i.i ], [ 0, %248 ]
+  %.03940.i.i = phi i64 [ %267, %.lr.ph.i.i ], [ 0, %248 ]
   %256 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %.03940.i.i
-  %257 = load <4 x i8>, ptr %256, align 1
-  %258 = shufflevector <4 x i8> %257, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i8> %258, ptr %256, align 1
-  %259 = add nuw i64 %.03940.i.i, 4
-  %260 = icmp ult i64 %259, %.pre-phi
-  br i1 %260, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !9
+  %257 = or disjoint i64 %.03940.i.i, 3
+  %258 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %257
+  %259 = load i8, ptr %256, align 1
+  %260 = load i8, ptr %258, align 1
+  store i8 %259, ptr %258, align 1
+  store i8 %260, ptr %256, align 1
+  %261 = or disjoint i64 %.03940.i.i, 1
+  %262 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %261
+  %263 = or disjoint i64 %.03940.i.i, 2
+  %264 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 %263
+  %265 = load i8, ptr %262, align 1
+  %266 = load i8, ptr %264, align 1
+  store i8 %265, ptr %264, align 1
+  store i8 %266, ptr %262, align 1
+  %267 = add nuw i64 %.03940.i.i, 4
+  %268 = icmp ult i64 %267, %.pre-phi
+  br i1 %268, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !9
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %248
   call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %195, i64 noundef 1, i32 noundef 0)
   %.sroa.03.0.copyload = load ptr, ptr %27, align 8
   %.sroa.24.0.copyload = load i64, ptr %214, align 8
-  %261 = mul i64 %.sroa.24.0.copyload, 6
-  %262 = load ptr, ptr %1, align 8
-  %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 8
-  %265 = load ptr, ptr %264, align 8
-  %266 = call noundef i64 %265(ptr noundef nonnull align 8 dereferenceable(8) %262, ptr noundef %.sroa.03.0.copyload, i64 noundef %261)
-  %267 = load i8, ptr %46, align 8
-  %268 = trunc i8 %267 to i1
-  %.not30.i.i.i.i.i = icmp ne i64 %261, 0
-  %or.cond.not.i.i.i = and i1 %.not30.i.i.i.i.i, %268
+  %269 = mul i64 %.sroa.24.0.copyload, 6
+  %270 = load ptr, ptr %1, align 8
+  %271 = load ptr, ptr %270, align 8
+  %272 = getelementptr inbounds i8, ptr %271, i64 8
+  %273 = load ptr, ptr %272, align 8
+  %274 = call noundef i64 %273(ptr noundef nonnull align 8 dereferenceable(8) %270, ptr noundef %.sroa.03.0.copyload, i64 noundef %269)
+  %275 = load i8, ptr %46, align 8
+  %276 = trunc i8 %275 to i1
+  %.not30.i.i.i.i.i = icmp ne i64 %269, 0
+  %or.cond.not.i.i.i = and i1 %.not30.i.i.i.i.i, %276
   br i1 %or.cond.not.i.i.i, label %.lr.ph.i.i.i.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, %.lr.ph.i.i.i.i.i
-  %.02627.i.i.i.i.i = phi i64 [ %274, %.lr.ph.i.i.i.i.i ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit ]
-  %269 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload, i64 %.02627.i.i.i.i.i
-  %270 = or disjoint i64 %.02627.i.i.i.i.i, 1
-  %271 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload, i64 %270
-  %272 = load i8, ptr %269, align 1
-  %273 = load i8, ptr %271, align 1
-  store i8 %272, ptr %271, align 1
-  store i8 %273, ptr %269, align 1
-  %274 = add nuw i64 %.02627.i.i.i.i.i, 2
-  %275 = icmp ult i64 %274, %261
-  br i1 %275, label %.lr.ph.i.i.i.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit, !llvm.loop !10
+  %.02627.i.i.i.i.i = phi i64 [ %282, %.lr.ph.i.i.i.i.i ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit ]
+  %277 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload, i64 %.02627.i.i.i.i.i
+  %278 = or disjoint i64 %.02627.i.i.i.i.i, 1
+  %279 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload, i64 %278
+  %280 = load i8, ptr %277, align 1
+  %281 = load i8, ptr %279, align 1
+  store i8 %280, ptr %279, align 1
+  store i8 %281, ptr %277, align 1
+  %282 = add nuw i64 %.02627.i.i.i.i.i, 2
+  %283 = icmp ult i64 %282, %269
+  br i1 %283, label %.lr.ph.i.i.i.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit, !llvm.loop !10
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
   call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %25, i64 noundef 1, i32 noundef 0)
   %.sroa.01.0.copyload = load ptr, ptr %216, align 8
   %.sroa.22.0.copyload = load i64, ptr %217, align 8
-  %276 = mul i64 %.sroa.22.0.copyload, 6
-  %277 = load ptr, ptr %1, align 8
-  %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 8
-  %280 = load ptr, ptr %279, align 8
-  %281 = call noundef i64 %280(ptr noundef nonnull align 8 dereferenceable(8) %277, ptr noundef %.sroa.01.0.copyload, i64 noundef %276)
-  %282 = load i8, ptr %46, align 8
-  %283 = trunc i8 %282 to i1
-  %.not30.i.i.i.i.i64 = icmp ne i64 %276, 0
-  %or.cond.not.i.i.i65 = and i1 %.not30.i.i.i.i.i64, %283
+  %284 = mul i64 %.sroa.22.0.copyload, 6
+  %285 = load ptr, ptr %1, align 8
+  %286 = load ptr, ptr %285, align 8
+  %287 = getelementptr inbounds i8, ptr %286, i64 8
+  %288 = load ptr, ptr %287, align 8
+  %289 = call noundef i64 %288(ptr noundef nonnull align 8 dereferenceable(8) %285, ptr noundef %.sroa.01.0.copyload, i64 noundef %284)
+  %290 = load i8, ptr %46, align 8
+  %291 = trunc i8 %290 to i1
+  %.not30.i.i.i.i.i64 = icmp ne i64 %284, 0
+  %or.cond.not.i.i.i65 = and i1 %.not30.i.i.i.i.i64, %291
   br i1 %or.cond.not.i.i.i65, label %.lr.ph.i.i.i.i.i66, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit
 
 .lr.ph.i.i.i.i.i66:                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit, %.lr.ph.i.i.i.i.i66
-  %.02627.i.i.i.i.i67 = phi i64 [ %289, %.lr.ph.i.i.i.i.i66 ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit ]
-  %284 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %.02627.i.i.i.i.i67
-  %285 = or disjoint i64 %.02627.i.i.i.i.i67, 1
-  %286 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %285
-  %287 = load i8, ptr %284, align 1
-  %288 = load i8, ptr %286, align 1
-  store i8 %287, ptr %286, align 1
-  store i8 %288, ptr %284, align 1
-  %289 = add nuw i64 %.02627.i.i.i.i.i67, 2
-  %290 = icmp ult i64 %289, %276
-  br i1 %290, label %.lr.ph.i.i.i.i.i66, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit, !llvm.loop !10
+  %.02627.i.i.i.i.i67 = phi i64 [ %297, %.lr.ph.i.i.i.i.i66 ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit ]
+  %292 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %.02627.i.i.i.i.i67
+  %293 = or disjoint i64 %.02627.i.i.i.i.i67, 1
+  %294 = getelementptr inbounds i8, ptr %.sroa.01.0.copyload, i64 %293
+  %295 = load i8, ptr %292, align 1
+  %296 = load i8, ptr %294, align 1
+  store i8 %295, ptr %294, align 1
+  store i8 %296, ptr %292, align 1
+  %297 = add nuw i64 %.02627.i.i.i.i.i67, 2
+  %298 = icmp ult i64 %297, %284
+  br i1 %298, label %.lr.ph.i.i.i.i.i66, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit, !llvm.loop !10
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit: ; preds = %.lr.ph.i.i.i.i.i66, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit
   call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %26, i64 noundef 1, i32 noundef 0)
   %.sroa.0.0.copyload = load ptr, ptr %219, align 8
   %.sroa.2.0.copyload = load i64, ptr %220, align 8
-  %291 = mul i64 %.sroa.2.0.copyload, 6
-  %292 = load ptr, ptr %1, align 8
-  %293 = load ptr, ptr %292, align 8
-  %294 = getelementptr inbounds i8, ptr %293, i64 8
-  %295 = load ptr, ptr %294, align 8
-  %296 = call noundef i64 %295(ptr noundef nonnull align 8 dereferenceable(8) %292, ptr noundef %.sroa.0.0.copyload, i64 noundef %291)
-  %297 = load i8, ptr %46, align 8
-  %298 = trunc i8 %297 to i1
-  %.not30.i.i.i.i.i68 = icmp ne i64 %291, 0
-  %or.cond.not.i.i.i69 = and i1 %.not30.i.i.i.i.i68, %298
+  %299 = mul i64 %.sroa.2.0.copyload, 6
+  %300 = load ptr, ptr %1, align 8
+  %301 = load ptr, ptr %300, align 8
+  %302 = getelementptr inbounds i8, ptr %301, i64 8
+  %303 = load ptr, ptr %302, align 8
+  %304 = call noundef i64 %303(ptr noundef nonnull align 8 dereferenceable(8) %300, ptr noundef %.sroa.0.0.copyload, i64 noundef %299)
+  %305 = load i8, ptr %46, align 8
+  %306 = trunc i8 %305 to i1
+  %.not30.i.i.i.i.i68 = icmp ne i64 %299, 0
+  %or.cond.not.i.i.i69 = and i1 %.not30.i.i.i.i.i68, %306
   br i1 %or.cond.not.i.i.i69, label %.lr.ph.i.i.i.i.i70, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit72
 
 .lr.ph.i.i.i.i.i70:                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit, %.lr.ph.i.i.i.i.i70
-  %.02627.i.i.i.i.i71 = phi i64 [ %304, %.lr.ph.i.i.i.i.i70 ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit ]
-  %299 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %.02627.i.i.i.i.i71
-  %300 = or disjoint i64 %.02627.i.i.i.i.i71, 1
-  %301 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %300
-  %302 = load i8, ptr %299, align 1
-  %303 = load i8, ptr %301, align 1
-  store i8 %302, ptr %301, align 1
-  store i8 %303, ptr %299, align 1
-  %304 = add nuw i64 %.02627.i.i.i.i.i71, 2
-  %305 = icmp ult i64 %304, %291
-  br i1 %305, label %.lr.ph.i.i.i.i.i70, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit72, !llvm.loop !10
+  %.02627.i.i.i.i.i71 = phi i64 [ %312, %.lr.ph.i.i.i.i.i70 ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit ]
+  %307 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %.02627.i.i.i.i.i71
+  %308 = or disjoint i64 %.02627.i.i.i.i.i71, 1
+  %309 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %308
+  %310 = load i8, ptr %307, align 1
+  %311 = load i8, ptr %309, align 1
+  store i8 %310, ptr %309, align 1
+  store i8 %311, ptr %307, align 1
+  %312 = add nuw i64 %.02627.i.i.i.i.i71, 2
+  %313 = icmp ult i64 %312, %299
+  br i1 %313, label %.lr.ph.i.i.i.i.i70, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit72, !llvm.loop !10
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit72: ; preds = %.lr.ph.i.i.i.i.i70, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit, %37
   ret void
@@ -1816,7 +1827,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation9Animation14T
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN3ozz2io8IArchiversERf.exit
-  %.055 = phi i64 [ 0, %.lr.ph ], [ %70, %_ZN3ozz2io8IArchiversERf.exit ]
+  %.055 = phi i64 [ 0, %.lr.ph ], [ %78, %_ZN3ozz2io8IArchiversERf.exit ]
   %8 = getelementptr inbounds %"struct.ozz::animation::Animation::TKeyframesCtrl", ptr %1, i64 %.055
   %.sroa.05.0.copyload = load ptr, ptr %8, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
@@ -1882,59 +1893,70 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayItEEEEvRT_.exit: ; preds = %.lr.ph.i.i
   br i1 %or.cond54.not, label %.lr.ph.i.i35, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit
 
 .lr.ph.i.i35:                                     ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayItEEEEvRT_.exit, %.lr.ph.i.i35
-  %.03940.i.i = phi i64 [ %48, %.lr.ph.i.i35 ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayItEEEEvRT_.exit ]
+  %.03940.i.i = phi i64 [ %56, %.lr.ph.i.i35 ], [ 0, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayItEEEEvRT_.exit ]
   %45 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %.03940.i.i
-  %46 = load <4 x i8>, ptr %45, align 1
-  %47 = shufflevector <4 x i8> %46, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i8> %47, ptr %45, align 1
-  %48 = add nuw i64 %.03940.i.i, 4
-  %49 = icmp ult i64 %48, %37
-  br i1 %49, label %.lr.ph.i.i35, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit, !llvm.loop !15
+  %46 = or disjoint i64 %.03940.i.i, 3
+  %47 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %46
+  %48 = load i8, ptr %45, align 1
+  %49 = load i8, ptr %47, align 1
+  store i8 %48, ptr %47, align 1
+  store i8 %49, ptr %45, align 1
+  %50 = or disjoint i64 %.03940.i.i, 1
+  %51 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %50
+  %52 = or disjoint i64 %.03940.i.i, 2
+  %53 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %52
+  %54 = load i8, ptr %51, align 1
+  %55 = load i8, ptr %53, align 1
+  store i8 %54, ptr %53, align 1
+  store i8 %55, ptr %51, align 1
+  %56 = add nuw i64 %.03940.i.i, 4
+  %57 = icmp ult i64 %56, %37
+  br i1 %57, label %.lr.ph.i.i35, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit, !llvm.loop !15
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit: ; preds = %.lr.ph.i.i35, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayItEEEEvRT_.exit
-  %50 = getelementptr inbounds i8, ptr %8, i64 64
+  %58 = getelementptr inbounds i8, ptr %8, i64 64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %51 = load ptr, ptr %0, align 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = call noundef i64 %54(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull %5, i64 noundef 4)
-  %56 = load i8, ptr %6, align 8
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %67
+  %59 = load ptr, ptr %0, align 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = call noundef i64 %62(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull %5, i64 noundef 4)
+  %64 = load i8, ptr %6, align 8
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %75
 
-58:                                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit
-  %59 = load i32, ptr %5, align 4
-  %.3.extract.shift53.i = lshr i32 %59, 24
-  %.masked.i = and i32 %59, 255
+66:                                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit
+  %67 = load i32, ptr %5, align 4
+  %.3.extract.shift53.i = lshr i32 %67, 24
+  %.masked.i = and i32 %67, 255
   %.0.insert.ext.i = xor i32 %.masked.i, %.3.extract.shift53.i
-  %60 = shl nuw i32 %.0.insert.ext.i, 24
-  %.masked56.i = and i32 %59, -16777216
-  %.3.insert.shift.i = xor i32 %60, %.masked56.i
+  %68 = shl nuw i32 %.0.insert.ext.i, 24
+  %.masked56.i = and i32 %67, -16777216
+  %.3.insert.shift.i = xor i32 %68, %.masked56.i
   %.3.extract.shift.i = lshr exact i32 %.3.insert.shift.i, 24
-  %61 = xor i32 %.3.extract.shift.i, %.0.insert.ext.i
-  %62 = lshr i32 %59, 8
-  %.1.extract.shift4157.i = xor i32 %62, %59
-  %63 = shl i32 %.1.extract.shift4157.i, 8
-  %.2.extract.shift4458.i = xor i32 %63, %59
+  %69 = xor i32 %.3.extract.shift.i, %.0.insert.ext.i
+  %70 = lshr i32 %67, 8
+  %.1.extract.shift4157.i = xor i32 %70, %67
+  %71 = shl i32 %.1.extract.shift4157.i, 8
+  %.2.extract.shift4458.i = xor i32 %71, %67
   %.2.insert.shift.i = and i32 %.2.extract.shift4458.i, 16711680
-  %.1.insert.shift.i = and i32 %62, 65280
-  %64 = or disjoint i32 %.1.insert.shift.i, %.2.insert.shift.i
-  %65 = or disjoint i32 %64, %61
-  %.1.insert.insert.i = or disjoint i32 %65, %.3.insert.shift.i
-  %66 = bitcast i32 %.1.insert.insert.i to float
+  %.1.insert.shift.i = and i32 %70, 65280
+  %72 = or disjoint i32 %.1.insert.shift.i, %.2.insert.shift.i
+  %73 = or disjoint i32 %72, %69
+  %.1.insert.insert.i = or disjoint i32 %73, %.3.insert.shift.i
+  %74 = bitcast i32 %.1.insert.insert.i to float
   br label %_ZN3ozz2io8IArchiversERf.exit
 
-67:                                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit
-  %68 = load float, ptr %5, align 4
+75:                                               ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit
+  %76 = load float, ptr %5, align 4
   br label %_ZN3ozz2io8IArchiversERf.exit
 
-_ZN3ozz2io8IArchiversERf.exit:                    ; preds = %58, %67
-  %69 = phi float [ %66, %58 ], [ %68, %67 ]
-  store float %69, ptr %50, align 4
+_ZN3ozz2io8IArchiversERf.exit:                    ; preds = %66, %75
+  %77 = phi float [ %74, %66 ], [ %76, %75 ]
+  store float %77, ptr %58, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %70 = add nuw i64 %.055, 1
-  %exitcond.not = icmp eq i64 %70, %2
+  %78 = add nuw i64 %.055, 1
+  %exitcond.not = icmp eq i64 %78, %2
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN3ozz2io8IArchiversERf.exit, %4

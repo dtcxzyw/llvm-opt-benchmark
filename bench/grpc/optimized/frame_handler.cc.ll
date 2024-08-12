@@ -53,7 +53,13 @@ if.end3:                                          ; preds = %if.end
   %conv18.i = trunc i32 %conv to i8
   store i8 %conv18.i, ptr %header_buffer, align 1
   %add.ptr = getelementptr inbounds i8, ptr %writer, i64 12
-  store <4 x i8> <i8 6, i8 0, i8 0, i8 0>, ptr %add.ptr, align 1
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %writer, i64 15
+  store i8 0, ptr %arrayidx.i10, align 1
+  %arrayidx8.i11 = getelementptr inbounds i8, ptr %writer, i64 14
+  store i8 0, ptr %arrayidx8.i11, align 1
+  %arrayidx14.i12 = getelementptr inbounds i8, ptr %writer, i64 13
+  store i8 0, ptr %arrayidx14.i12, align 1
+  store i8 6, ptr %add.ptr, align 1
   br label %return
 
 return:                                           ; preds = %entry, %if.end3, %if.then2

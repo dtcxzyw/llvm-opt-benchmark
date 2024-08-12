@@ -291,10 +291,13 @@ entry:
   %mbAlternativeForm.i = getelementptr inbounds i8, ptr %fd, i64 8
   store i8 0, ptr %mbAlternativeForm.i, align 4
   %mnWidth.i = getelementptr inbounds i8, ptr %fd, i64 12
+  store i32 0, ptr %mnWidth.i, align 4
   %mnPrecision.i = getelementptr inbounds i8, ptr %fd, i64 16
+  store i32 2147483647, ptr %mnPrecision.i, align 4
   %mModifier.i = getelementptr inbounds i8, ptr %fd, i64 20
+  store i32 0, ptr %mModifier.i, align 4
   %mnType.i = getelementptr inbounds i8, ptr %fd, i64 24
-  store <4 x i32> <i32 0, i32 2147483647, i32 0, i32 0>, ptr %mnWidth.i, align 4
+  store i32 0, ptr %mnType.i, align 4
   %mDecimalPoint.i = getelementptr inbounds i8, ptr %fd, i64 28
   store i32 46, ptr %mDecimalPoint.i, align 4
   %mbDisplayThousands.i = getelementptr inbounds i8, ptr %fd, i64 32
@@ -1446,10 +1449,13 @@ entry:
   %mbAlternativeForm.i = getelementptr inbounds i8, ptr %fd, i64 8
   store i8 0, ptr %mbAlternativeForm.i, align 4
   %mnWidth.i = getelementptr inbounds i8, ptr %fd, i64 12
+  store i32 0, ptr %mnWidth.i, align 4
   %mnPrecision.i = getelementptr inbounds i8, ptr %fd, i64 16
+  store i32 2147483647, ptr %mnPrecision.i, align 4
   %mModifier.i = getelementptr inbounds i8, ptr %fd, i64 20
+  store i32 0, ptr %mModifier.i, align 4
   %mnType.i = getelementptr inbounds i8, ptr %fd, i64 24
-  store <4 x i32> <i32 0, i32 2147483647, i32 0, i32 0>, ptr %mnWidth.i, align 4
+  store i32 0, ptr %mnType.i, align 4
   %mDecimalPoint.i = getelementptr inbounds i8, ptr %fd, i64 28
   store i32 46, ptr %mDecimalPoint.i, align 4
   %mbDisplayThousands.i = getelementptr inbounds i8, ptr %fd, i64 32
@@ -2619,10 +2625,13 @@ entry:
   %mbAlternativeForm.i = getelementptr inbounds i8, ptr %fd, i64 8
   store i8 0, ptr %mbAlternativeForm.i, align 4
   %mnWidth.i = getelementptr inbounds i8, ptr %fd, i64 12
+  store i32 0, ptr %mnWidth.i, align 4
   %mnPrecision.i = getelementptr inbounds i8, ptr %fd, i64 16
+  store i32 2147483647, ptr %mnPrecision.i, align 4
   %mModifier.i = getelementptr inbounds i8, ptr %fd, i64 20
+  store i32 0, ptr %mModifier.i, align 4
   %mnType.i = getelementptr inbounds i8, ptr %fd, i64 24
-  store <4 x i32> <i32 0, i32 2147483647, i32 0, i32 0>, ptr %mnWidth.i, align 4
+  store i32 0, ptr %mnType.i, align 4
   %mDecimalPoint.i = getelementptr inbounds i8, ptr %fd, i64 28
   store i32 46, ptr %mDecimalPoint.i, align 4
   %mbDisplayThousands.i = getelementptr inbounds i8, ptr %fd, i64 32
@@ -3785,7 +3794,13 @@ if.then:                                          ; preds = %entry
   %fd.sroa.17.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 8
   store i8 0, ptr %fd.sroa.17.0.pFormatData.sroa_idx, align 4
   %fd.sroa.1971.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 12
-  store <4 x i32> <i32 0, i32 2147483647, i32 0, i32 37>, ptr %fd.sroa.1971.0.pFormatData.sroa_idx, align 4
+  store i32 0, ptr %fd.sroa.1971.0.pFormatData.sroa_idx, align 4
+  %fd.sroa.26.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 16
+  store i32 2147483647, ptr %fd.sroa.26.0.pFormatData.sroa_idx, align 4
+  %fd.sroa.39.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 20
+  store i32 0, ptr %fd.sroa.39.0.pFormatData.sroa_idx, align 4
+  %fd.sroa.60.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 24
+  store i32 37, ptr %fd.sroa.60.0.pFormatData.sroa_idx, align 4
   %fd.sroa.66.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 28
   store i32 46, ptr %fd.sroa.66.0.pFormatData.sroa_idx, align 4
   %fd.sroa.67.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 32
@@ -3913,7 +3928,13 @@ if.then45:                                        ; preds = %if.end42
   %fd.sroa.1971.0.pFormatData.sroa_idx72 = getelementptr inbounds i8, ptr %pFormatData, i64 12
   store i32 %fd.sroa.1971.1, ptr %fd.sroa.1971.0.pFormatData.sroa_idx72, align 4
   %fd.sroa.26.0.pFormatData.sroa_idx80 = getelementptr inbounds i8, ptr %pFormatData, i64 16
-  store <4 x i32> <i32 2147483647, i32 0, i32 0, i32 46>, ptr %fd.sroa.26.0.pFormatData.sroa_idx80, align 4
+  store i32 2147483647, ptr %fd.sroa.26.0.pFormatData.sroa_idx80, align 4
+  %fd.sroa.39.0.pFormatData.sroa_idx90 = getelementptr inbounds i8, ptr %pFormatData, i64 20
+  store i32 0, ptr %fd.sroa.39.0.pFormatData.sroa_idx90, align 4
+  %fd.sroa.60.0.pFormatData.sroa_idx96 = getelementptr inbounds i8, ptr %pFormatData, i64 24
+  store i32 0, ptr %fd.sroa.60.0.pFormatData.sroa_idx96, align 4
+  %fd.sroa.66.0.pFormatData.sroa_idx102 = getelementptr inbounds i8, ptr %pFormatData, i64 28
+  store i32 46, ptr %fd.sroa.66.0.pFormatData.sroa_idx102, align 4
   %fd.sroa.67.0.pFormatData.sroa_idx108 = getelementptr inbounds i8, ptr %pFormatData, i64 32
   store i8 %fd.sroa.67.0, ptr %fd.sroa.67.0.pFormatData.sroa_idx108, align 4
   %fd.sroa.69117.0.pFormatData.sroa_idx118 = getelementptr inbounds i8, ptr %pFormatData, i64 36
@@ -5815,7 +5836,13 @@ if.then:                                          ; preds = %entry
   %fd.sroa.17.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 8
   store i8 0, ptr %fd.sroa.17.0.pFormatData.sroa_idx, align 4
   %fd.sroa.1971.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 12
-  store <4 x i32> <i32 0, i32 2147483647, i32 0, i32 37>, ptr %fd.sroa.1971.0.pFormatData.sroa_idx, align 4
+  store i32 0, ptr %fd.sroa.1971.0.pFormatData.sroa_idx, align 4
+  %fd.sroa.26.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 16
+  store i32 2147483647, ptr %fd.sroa.26.0.pFormatData.sroa_idx, align 4
+  %fd.sroa.39.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 20
+  store i32 0, ptr %fd.sroa.39.0.pFormatData.sroa_idx, align 4
+  %fd.sroa.60.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 24
+  store i32 37, ptr %fd.sroa.60.0.pFormatData.sroa_idx, align 4
   %fd.sroa.66.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 28
   store i32 46, ptr %fd.sroa.66.0.pFormatData.sroa_idx, align 4
   %fd.sroa.67.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 32
@@ -5943,7 +5970,13 @@ if.then45:                                        ; preds = %if.end42
   %fd.sroa.1971.0.pFormatData.sroa_idx72 = getelementptr inbounds i8, ptr %pFormatData, i64 12
   store i32 %fd.sroa.1971.1, ptr %fd.sroa.1971.0.pFormatData.sroa_idx72, align 4
   %fd.sroa.26.0.pFormatData.sroa_idx80 = getelementptr inbounds i8, ptr %pFormatData, i64 16
-  store <4 x i32> <i32 2147483647, i32 0, i32 0, i32 46>, ptr %fd.sroa.26.0.pFormatData.sroa_idx80, align 4
+  store i32 2147483647, ptr %fd.sroa.26.0.pFormatData.sroa_idx80, align 4
+  %fd.sroa.39.0.pFormatData.sroa_idx90 = getelementptr inbounds i8, ptr %pFormatData, i64 20
+  store i32 0, ptr %fd.sroa.39.0.pFormatData.sroa_idx90, align 4
+  %fd.sroa.60.0.pFormatData.sroa_idx96 = getelementptr inbounds i8, ptr %pFormatData, i64 24
+  store i32 0, ptr %fd.sroa.60.0.pFormatData.sroa_idx96, align 4
+  %fd.sroa.66.0.pFormatData.sroa_idx102 = getelementptr inbounds i8, ptr %pFormatData, i64 28
+  store i32 46, ptr %fd.sroa.66.0.pFormatData.sroa_idx102, align 4
   %fd.sroa.67.0.pFormatData.sroa_idx108 = getelementptr inbounds i8, ptr %pFormatData, i64 32
   store i8 %fd.sroa.67.0, ptr %fd.sroa.67.0.pFormatData.sroa_idx108, align 4
   %fd.sroa.69117.0.pFormatData.sroa_idx118 = getelementptr inbounds i8, ptr %pFormatData, i64 36
@@ -7840,7 +7873,13 @@ if.then:                                          ; preds = %entry
   %fd.sroa.17.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 8
   store i8 0, ptr %fd.sroa.17.0.pFormatData.sroa_idx, align 4
   %fd.sroa.1974.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 12
-  store <4 x i32> <i32 0, i32 2147483647, i32 0, i32 37>, ptr %fd.sroa.1974.0.pFormatData.sroa_idx, align 4
+  store i32 0, ptr %fd.sroa.1974.0.pFormatData.sroa_idx, align 4
+  %fd.sroa.26.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 16
+  store i32 2147483647, ptr %fd.sroa.26.0.pFormatData.sroa_idx, align 4
+  %fd.sroa.39.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 20
+  store i32 0, ptr %fd.sroa.39.0.pFormatData.sroa_idx, align 4
+  %fd.sroa.60.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 24
+  store i32 37, ptr %fd.sroa.60.0.pFormatData.sroa_idx, align 4
   %fd.sroa.66.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 28
   store i32 46, ptr %fd.sroa.66.0.pFormatData.sroa_idx, align 4
   %fd.sroa.67.0.pFormatData.sroa_idx = getelementptr inbounds i8, ptr %pFormatData, i64 32
@@ -7966,7 +8005,13 @@ if.then41:                                        ; preds = %if.end38
   %fd.sroa.1974.0.pFormatData.sroa_idx75 = getelementptr inbounds i8, ptr %pFormatData, i64 12
   store i32 %fd.sroa.1974.1, ptr %fd.sroa.1974.0.pFormatData.sroa_idx75, align 4
   %fd.sroa.26.0.pFormatData.sroa_idx83 = getelementptr inbounds i8, ptr %pFormatData, i64 16
-  store <4 x i32> <i32 2147483647, i32 0, i32 0, i32 46>, ptr %fd.sroa.26.0.pFormatData.sroa_idx83, align 4
+  store i32 2147483647, ptr %fd.sroa.26.0.pFormatData.sroa_idx83, align 4
+  %fd.sroa.39.0.pFormatData.sroa_idx93 = getelementptr inbounds i8, ptr %pFormatData, i64 20
+  store i32 0, ptr %fd.sroa.39.0.pFormatData.sroa_idx93, align 4
+  %fd.sroa.60.0.pFormatData.sroa_idx99 = getelementptr inbounds i8, ptr %pFormatData, i64 24
+  store i32 0, ptr %fd.sroa.60.0.pFormatData.sroa_idx99, align 4
+  %fd.sroa.66.0.pFormatData.sroa_idx105 = getelementptr inbounds i8, ptr %pFormatData, i64 28
+  store i32 46, ptr %fd.sroa.66.0.pFormatData.sroa_idx105, align 4
   %fd.sroa.67.0.pFormatData.sroa_idx111 = getelementptr inbounds i8, ptr %pFormatData, i64 32
   store i8 %fd.sroa.67.0, ptr %fd.sroa.67.0.pFormatData.sroa_idx111, align 4
   %fd.sroa.69120.0.pFormatData.sroa_idx121 = getelementptr inbounds i8, ptr %pFormatData, i64 36

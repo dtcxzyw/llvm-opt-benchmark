@@ -37,36 +37,39 @@ define noundef range(i32 0, 2) i32 @_Z23gmx_parallel_3dfft_initPP18gmx_parallel_
   %14 = getelementptr inbounds i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %1, align 4
-  %17 = load <2 x ptr>, ptr %4, align 8
-  %18 = shufflevector <2 x ptr> %17, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %18, ptr %9, align 16
-  %19 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 69, i64 noundef 1, i64 noundef 16)
-  store ptr %19, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %9, align 16
+  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %20 = load ptr, ptr %4, align 8
+  store ptr %20, ptr %19, align 8
+  %21 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 69, i64 noundef 1, i64 noundef 16)
+  store ptr %21, ptr %0, align 8
   %spec.select = select i1 %5, i32 21, i32 5
-  %20 = call noundef ptr @_Z13fft5d_plan_3diiiPP10tmpi_comm_iPP9t_complexS4_S4_S4_iN3gmx13PinningPolicyE(i32 noundef %13, i32 noundef %15, i32 noundef %16, ptr noundef nonnull %9, i32 noundef %spec.select, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %6, i32 noundef %7)
-  %21 = load ptr, ptr %0, align 8
-  store ptr %20, ptr %21, align 8
-  %22 = and i32 %spec.select, 20
-  %23 = or disjoint i32 %22, 66
-  %24 = call noundef ptr @_Z13fft5d_plan_3diiiPP10tmpi_comm_iPP9t_complexS4_S4_S4_iN3gmx13PinningPolicyE(i32 noundef %16, i32 noundef %13, i32 noundef %15, ptr noundef nonnull %9, i32 noundef %23, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %6, i32 noundef 0)
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr %24, ptr %26, align 8
+  %22 = call noundef ptr @_Z13fft5d_plan_3diiiPP10tmpi_comm_iPP9t_complexS4_S4_S4_iN3gmx13PinningPolicyE(i32 noundef %13, i32 noundef %15, i32 noundef %16, ptr noundef nonnull %9, i32 noundef %spec.select, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %6, i32 noundef %7)
+  %23 = load ptr, ptr %0, align 8
+  store ptr %22, ptr %23, align 8
+  %24 = and i32 %spec.select, 20
+  %25 = or disjoint i32 %24, 66
+  %26 = call noundef ptr @_Z13fft5d_plan_3diiiPP10tmpi_comm_iPP9t_complexS4_S4_S4_iN3gmx13PinningPolicyE(i32 noundef %16, i32 noundef %13, i32 noundef %15, ptr noundef nonnull %9, i32 noundef %25, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %6, i32 noundef 0)
   %27 = load ptr, ptr %0, align 8
-  %28 = load ptr, ptr %27, align 8
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %34, label %29
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  store ptr %26, ptr %28, align 8
+  %29 = load ptr, ptr %0, align 8
+  %30 = load ptr, ptr %29, align 8
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %36, label %31
 
-29:                                               ; preds = %8
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp ne ptr %31, null
-  %33 = zext i1 %32 to i32
-  br label %34
+31:                                               ; preds = %8
+  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp ne ptr %33, null
+  %35 = zext i1 %34 to i32
+  br label %36
 
-34:                                               ; preds = %29, %8
-  %35 = phi i32 [ 0, %8 ], [ %33, %29 ]
-  ret i32 %35
+36:                                               ; preds = %31, %8
+  %37 = phi i32 [ 0, %8 ], [ %35, %31 ]
+  ret i32 %37
 }
 
 declare noundef ptr @_Z13fft5d_plan_3diiiPP10tmpi_comm_iPP9t_complexS4_S4_S4_iN3gmx13PinningPolicyE(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -158,18 +161,24 @@ define noundef i32 @_Z33gmx_parallel_3dfft_complex_limitsP18gmx_parallel_3dfftPi
   store i32 %31, ptr %32, align 4
   %33 = load i32, ptr %22, align 4
   store i32 %33, ptr %4, align 4
-  %34 = load i32, ptr %18, align 4
-  %35 = load <2 x i32>, ptr %2, align 4
-  store i32 %34, ptr %2, align 4
-  store <2 x i32> %35, ptr %21, align 4
-  %36 = load i32, ptr %10, align 4
-  %37 = load <2 x i32>, ptr %3, align 4
-  store i32 %36, ptr %3, align 4
-  store <2 x i32> %37, ptr %13, align 4
-  %38 = load i32, ptr %30, align 4
-  %39 = load <2 x i32>, ptr %4, align 4
-  store i32 %38, ptr %4, align 4
-  store <2 x i32> %39, ptr %32, align 4
+  %34 = load i32, ptr %2, align 4
+  %35 = load i32, ptr %18, align 4
+  store i32 %35, ptr %2, align 4
+  %36 = load i32, ptr %21, align 4
+  store i32 %36, ptr %18, align 4
+  store i32 %34, ptr %21, align 4
+  %37 = load i32, ptr %3, align 4
+  %38 = load i32, ptr %10, align 4
+  store i32 %38, ptr %3, align 4
+  %39 = load i32, ptr %13, align 4
+  store i32 %39, ptr %10, align 4
+  store i32 %37, ptr %13, align 4
+  %40 = load i32, ptr %4, align 4
+  %41 = load i32, ptr %30, align 4
+  store i32 %41, ptr %4, align 4
+  %42 = load i32, ptr %32, align 4
+  store i32 %42, ptr %30, align 4
+  store i32 %40, ptr %32, align 4
   ret i32 0
 }
 

@@ -499,36 +499,39 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4c49c9f277e6
   %22 = getelementptr inbounds i8, ptr %2, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 24
-  %25 = load <2 x i32>, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
-  %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 4
-  %29 = load i32, ptr %28, align 4
-  %30 = load i64, ptr %18, align 8
-  %.sroa.12.sroa.0.0.extract.trunc.i = trunc i64 %30 to i32
-  %.sroa.12.sroa.8.0.extract.shift.i = lshr i64 %30, 32
+  %25 = load i32, ptr %24, align 8, !range !81
+  %26 = getelementptr inbounds i8, ptr %2, i64 28
+  %27 = load i32, ptr %26, align 4
+  %28 = getelementptr inbounds i8, ptr %2, i64 32
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 4
+  %31 = load i32, ptr %30, align 4
+  %32 = load i64, ptr %18, align 8
+  %.sroa.12.sroa.0.0.extract.trunc.i = trunc i64 %32 to i32
+  %.sroa.12.sroa.8.0.extract.shift.i = lshr i64 %32, 32
   %.sroa.12.sroa.8.0.extract.trunc.i = trunc nuw i64 %.sroa.12.sroa.8.0.extract.shift.i to i32
-  %31 = getelementptr inbounds i8, ptr %2, i64 2
-  %32 = load i16, ptr %31, align 2
-  %33 = add i64 %10, %1
-  %34 = add i64 %33, -1
-  br label %35
+  %33 = getelementptr inbounds i8, ptr %2, i64 2
+  %34 = load i16, ptr %33, align 2
+  %35 = add i64 %10, %1
+  %36 = add i64 %35, -1
+  br label %37
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0dd776e98067f090E.exit"
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %38, label %._crit_edge.thread
+  br i1 %.not, label %39, label %._crit_edge.thread
 
-35:                                               ; preds = %.lr.ph, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit"
+37:                                               ; preds = %.lr.ph, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit"
   %.032 = phi ptr [ %13, %.lr.ph ], [ %41, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
-  %.sroa.03.031 = phi i64 [ 1, %.lr.ph ], [ %37, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
+  %.sroa.03.031 = phi i64 [ 1, %.lr.ph ], [ %38, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
   %.sroa.12.029 = phi i64 [ undef, %.lr.ph ], [ %.sroa.12.1, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
   %.sroa.517.028 = phi i8 [ undef, %.lr.ph ], [ %.sroa.517.1, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
   %.sroa.6.027 = phi i16 [ undef, %.lr.ph ], [ %.sroa.6.1, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
   %.sroa.7.026 = phi i32 [ undef, %.lr.ph ], [ %.sroa.7.1, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
   %.sroa.8.025 = phi i64 [ undef, %.lr.ph ], [ %.sroa.8.1, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
   %.sroa.9.024 = phi i64 [ undef, %.lr.ph ], [ %.sroa.9.1, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
-  %36 = phi <2 x i32> [ undef, %.lr.ph ], [ %40, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
-  %37 = add nuw i64 %.sroa.03.031, 1
+  %.sroa.10.023 = phi i32 [ undef, %.lr.ph ], [ %.sroa.10.1, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
+  %.sroa.11.022 = phi i32 [ undef, %.lr.ph ], [ %.sroa.11.1, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
+  %38 = add nuw i64 %.sroa.03.031, 1
   switch i8 %15, label %default.unreachable [
     i8 7, label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit"
     i8 0, label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i"
@@ -540,44 +543,45 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4c49c9f277e6
     i8 6, label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i"
   ]
 
-default.unreachable:                              ; preds = %35
+default.unreachable:                              ; preds = %37
   unreachable
 
-"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit6.i.i": ; preds = %35
+"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit6.i.i": ; preds = %37
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i"
 
-"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit12.i.i": ; preds = %35
+"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit12.i.i": ; preds = %37
   br label %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i"
 
-"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i": ; preds = %35, %35, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit12.i.i", %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit6.i.i", %35, %35, %35
-  %.sroa.12.sroa.0.0.i = phi i32 [ %.sroa.12.sroa.0.0.extract.trunc.i, %35 ], [ %.sroa.12.sroa.0.0.extract.trunc.i, %35 ], [ %.sroa.12.sroa.0.0.extract.trunc.i, %35 ], [ %19, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit6.i.i" ], [ %19, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit12.i.i" ], [ %.sroa.12.sroa.0.0.extract.trunc.i, %35 ], [ %.sroa.12.sroa.0.0.extract.trunc.i, %35 ]
-  %.sroa.12.sroa.8.0.i = phi i32 [ %.sroa.12.sroa.8.0.extract.trunc.i, %35 ], [ %.sroa.12.sroa.8.0.extract.trunc.i, %35 ], [ %.sroa.12.sroa.8.0.extract.trunc.i, %35 ], [ %21, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit6.i.i" ], [ %21, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit12.i.i" ], [ %.sroa.12.sroa.8.0.extract.trunc.i, %35 ], [ %.sroa.12.sroa.8.0.extract.trunc.i, %35 ]
+"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i": ; preds = %37, %37, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit12.i.i", %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit6.i.i", %37, %37, %37
+  %.sroa.12.sroa.0.0.i = phi i32 [ %.sroa.12.sroa.0.0.extract.trunc.i, %37 ], [ %.sroa.12.sroa.0.0.extract.trunc.i, %37 ], [ %.sroa.12.sroa.0.0.extract.trunc.i, %37 ], [ %19, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit6.i.i" ], [ %19, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit12.i.i" ], [ %.sroa.12.sroa.0.0.extract.trunc.i, %37 ], [ %.sroa.12.sroa.0.0.extract.trunc.i, %37 ]
+  %.sroa.12.sroa.8.0.i = phi i32 [ %.sroa.12.sroa.8.0.extract.trunc.i, %37 ], [ %.sroa.12.sroa.8.0.extract.trunc.i, %37 ], [ %.sroa.12.sroa.8.0.extract.trunc.i, %37 ], [ %21, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit6.i.i" ], [ %21, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Expr$u20$as$u20$core..clone..Clone$GT$5clone17hda07561bf74c99d2E.llvm.1718329805141733722.exit12.i.i" ], [ %.sroa.12.sroa.8.0.extract.trunc.i, %37 ], [ %.sroa.12.sroa.8.0.extract.trunc.i, %37 ]
   %.sroa.12.sroa.8.0.insert.ext.i = zext i32 %.sroa.12.sroa.8.0.i to i64
   %.sroa.12.sroa.8.0.insert.shift.i = shl nuw i64 %.sroa.12.sroa.8.0.insert.ext.i, 32
   %.sroa.12.sroa.0.0.insert.ext.i = zext i32 %.sroa.12.sroa.0.0.i to i64
   %.sroa.12.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.12.sroa.8.0.insert.shift.i, %.sroa.12.sroa.0.0.insert.ext.i
   br label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit"
 
-38:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.sroa.5.0 = phi i64 [ %10, %._crit_edge ], [ %39, %._crit_edge.thread ]
+39:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.sroa.5.0 = phi i64 [ %10, %._crit_edge ], [ %40, %._crit_edge.thread ]
   store i64 %.sroa.5.0, ptr %4, align 8
   ret void
 
 ._crit_edge.thread:                               ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit", %._crit_edge
   %.0.lcssa56 = phi ptr [ %13, %._crit_edge ], [ %41, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
-  %storemerge.lcssa55 = phi i64 [ %10, %._crit_edge ], [ %34, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
+  %storemerge.lcssa55 = phi i64 [ %10, %._crit_edge ], [ %36, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit" ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0.lcssa56, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %39 = add i64 %storemerge.lcssa55, 1
-  br label %38
+  %40 = add i64 %storemerge.lcssa55, 1
+  br label %39
 
-"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit": ; preds = %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i", %35
-  %.sroa.9.1 = phi i64 [ %23, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.9.024, %35 ]
-  %.sroa.8.1 = phi i64 [ %.sroa.12.sroa.0.0.insert.insert.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.8.025, %35 ]
-  %.sroa.7.1 = phi i32 [ %29, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.7.026, %35 ]
-  %.sroa.6.1 = phi i16 [ %32, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.6.027, %35 ]
-  %.sroa.517.1 = phi i8 [ %17, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.517.028, %35 ]
-  %.sroa.12.1 = phi i64 [ %27, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.12.029, %35 ]
-  %40 = phi <2 x i32> [ %25, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %36, %35 ]
+"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heef0267abda4737fE.exit": ; preds = %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i", %37
+  %.sroa.11.1 = phi i32 [ %27, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.11.022, %37 ]
+  %.sroa.10.1 = phi i32 [ %25, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.10.023, %37 ]
+  %.sroa.9.1 = phi i64 [ %23, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.9.024, %37 ]
+  %.sroa.8.1 = phi i64 [ %.sroa.12.sroa.0.0.insert.insert.i, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.8.025, %37 ]
+  %.sroa.7.1 = phi i32 [ %31, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.7.026, %37 ]
+  %.sroa.6.1 = phi i16 [ %34, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.6.027, %37 ]
+  %.sroa.517.1 = phi i8 [ %17, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.517.028, %37 ]
+  %.sroa.12.1 = phi i64 [ %29, %"_ZN71_$LT$cranelift_codegen..ir..pcc..Fact$u20$as$u20$core..clone..Clone$GT$5clone17h6e7d016d1ebd55c4E.exit.i" ], [ %.sroa.12.029, %37 ]
   store i8 %15, ptr %.032, align 8
   %.sroa.517.0..0.sroa_idx = getelementptr inbounds i8, ptr %.032, i64 1
   store i8 %.sroa.517.1, ptr %.sroa.517.0..0.sroa_idx, align 1
@@ -590,12 +594,14 @@ default.unreachable:                              ; preds = %35
   %.sroa.9.0..0.sroa_idx = getelementptr inbounds i8, ptr %.032, i64 16
   store i64 %.sroa.9.1, ptr %.sroa.9.0..0.sroa_idx, align 8
   %.sroa.10.0..0.sroa_idx = getelementptr inbounds i8, ptr %.032, i64 24
-  store <2 x i32> %40, ptr %.sroa.10.0..0.sroa_idx, align 8
+  store i32 %.sroa.10.1, ptr %.sroa.10.0..0.sroa_idx, align 8
+  %.sroa.11.0..0.sroa_idx = getelementptr inbounds i8, ptr %.032, i64 28
+  store i32 %.sroa.11.1, ptr %.sroa.11.0..0.sroa_idx, align 4
   %.sroa.12.0..0.sroa_idx = getelementptr inbounds i8, ptr %.032, i64 32
   store i64 %.sroa.12.1, ptr %.sroa.12.0..0.sroa_idx, align 8
   %41 = getelementptr inbounds i8, ptr %.032, i64 40
-  %exitcond.not = icmp eq i64 %37, %1
-  br i1 %exitcond.not, label %._crit_edge.thread, label %35
+  %exitcond.not = icmp eq i64 %38, %1
+  br i1 %exitcond.not, label %._crit_edge.thread, label %37
 }
 
 ; Function Attrs: nonlazybind uwtable

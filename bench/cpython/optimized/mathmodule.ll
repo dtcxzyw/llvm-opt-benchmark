@@ -8363,52 +8363,42 @@ sw.epilog:                                        ; preds = %sw.bb14, %sw.bb10, 
 define internal fastcc double @lanczos_sum(double noundef %x) unnamed_addr #12 {
 entry:
   %cmp = fcmp olt double %x, 5.000000e+00
-  br i1 %cmp, label %for.body.preheader, label %for.body6.preheader
+  br i1 %cmp, label %for.body, label %for.body6
 
-for.body6.preheader:                              ; preds = %entry
-  %0 = insertelement <2 x double> poison, double %x, i64 0
-  %1 = shufflevector <2 x double> %0, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %for.body6
-
-for.body.preheader:                               ; preds = %entry
-  %2 = insertelement <2 x double> poison, double %x, i64 0
-  %3 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %for.body ], [ 12, %for.body.preheader ]
-  %4 = phi <2 x double> [ %9, %for.body ], [ zeroinitializer, %for.body.preheader ]
+for.body:                                         ; preds = %entry, %for.body
+  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %for.body ], [ 12, %entry ]
+  %den.020 = phi double [ %3, %for.body ], [ 0.000000e+00, %entry ]
+  %num.019 = phi double [ %1, %for.body ], [ 0.000000e+00, %entry ]
   %arrayidx = getelementptr [13 x double], ptr @lanczos_num_coeffs, i64 0, i64 %indvars.iv25
-  %5 = load double, ptr %arrayidx, align 8
+  %0 = load double, ptr %arrayidx, align 8
+  %1 = tail call double @llvm.fmuladd.f64(double %num.019, double %x, double %0)
   %arrayidx3 = getelementptr [13 x double], ptr @lanczos_den_coeffs, i64 0, i64 %indvars.iv25
-  %6 = load double, ptr %arrayidx3, align 8
-  %7 = insertelement <2 x double> poison, double %5, i64 0
-  %8 = insertelement <2 x double> %7, double %6, i64 1
-  %9 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %4, <2 x double> %3, <2 x double> %8)
+  %2 = load double, ptr %arrayidx3, align 8
+  %3 = tail call double @llvm.fmuladd.f64(double %den.020, double %x, double %2)
   %indvars.iv.next26 = add nsw i64 %indvars.iv25, -1
   %cmp1.not = icmp eq i64 %indvars.iv25, 0
   br i1 %cmp1.not, label %if.end, label %for.body, !llvm.loop !22
 
-for.body6:                                        ; preds = %for.body6.preheader, %for.body6
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body6 ], [ 0, %for.body6.preheader ]
-  %10 = phi <2 x double> [ %16, %for.body6 ], [ zeroinitializer, %for.body6.preheader ]
-  %11 = fdiv <2 x double> %10, %1
+for.body6:                                        ; preds = %entry, %for.body6
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body6 ], [ 0, %entry ]
+  %den.217 = phi double [ %add12, %for.body6 ], [ 0.000000e+00, %entry ]
+  %num.216 = phi double [ %add, %for.body6 ], [ 0.000000e+00, %entry ]
+  %div = fdiv double %num.216, %x
   %arrayidx8 = getelementptr [13 x double], ptr @lanczos_num_coeffs, i64 0, i64 %indvars.iv
-  %12 = load double, ptr %arrayidx8, align 8
+  %4 = load double, ptr %arrayidx8, align 8
+  %add = fadd double %div, %4
+  %div9 = fdiv double %den.217, %x
   %arrayidx11 = getelementptr [13 x double], ptr @lanczos_den_coeffs, i64 0, i64 %indvars.iv
-  %13 = load double, ptr %arrayidx11, align 8
-  %14 = insertelement <2 x double> poison, double %12, i64 0
-  %15 = insertelement <2 x double> %14, double %13, i64 1
-  %16 = fadd <2 x double> %11, %15
+  %5 = load double, ptr %arrayidx11, align 8
+  %add12 = fadd double %div9, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
   br i1 %exitcond.not, label %if.end, label %for.body6, !llvm.loop !23
 
 if.end:                                           ; preds = %for.body6, %for.body
-  %17 = phi <2 x double> [ %9, %for.body ], [ %16, %for.body6 ]
-  %18 = extractelement <2 x double> %17, i64 0
-  %19 = extractelement <2 x double> %17, i64 1
-  %div14 = fdiv double %18, %19
+  %num.1 = phi double [ %1, %for.body ], [ %add, %for.body6 ]
+  %den.1 = phi double [ %3, %for.body ], [ %add12, %for.body6 ]
+  %div14 = fdiv double %num.1, %den.1
   ret double %div14
 }
 
@@ -8489,52 +8479,42 @@ if.then9:                                         ; preds = %if.end7
 
 if.end11:                                         ; preds = %if.end7
   %cmp.i = fcmp olt double %0, 5.000000e+00
-  br i1 %cmp.i, label %for.body.i.preheader, label %for.body6.i.preheader
+  br i1 %cmp.i, label %for.body.i, label %for.body6.i
 
-for.body6.i.preheader:                            ; preds = %if.end11
-  %4 = insertelement <2 x double> poison, double %0, i64 0
-  %5 = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %for.body6.i
-
-for.body.i.preheader:                             ; preds = %if.end11
-  %6 = insertelement <2 x double> poison, double %0, i64 0
-  %7 = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %for.body.i ], [ 12, %for.body.i.preheader ]
-  %8 = phi <2 x double> [ %13, %for.body.i ], [ zeroinitializer, %for.body.i.preheader ]
+for.body.i:                                       ; preds = %if.end11, %for.body.i
+  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %for.body.i ], [ 12, %if.end11 ]
+  %den.020.i = phi double [ %7, %for.body.i ], [ 0.000000e+00, %if.end11 ]
+  %num.019.i = phi double [ %5, %for.body.i ], [ 0.000000e+00, %if.end11 ]
   %arrayidx.i = getelementptr [13 x double], ptr @lanczos_num_coeffs, i64 0, i64 %indvars.iv25.i
-  %9 = load double, ptr %arrayidx.i, align 8
+  %4 = load double, ptr %arrayidx.i, align 8
+  %5 = tail call double @llvm.fmuladd.f64(double %num.019.i, double %0, double %4)
   %arrayidx3.i = getelementptr [13 x double], ptr @lanczos_den_coeffs, i64 0, i64 %indvars.iv25.i
-  %10 = load double, ptr %arrayidx3.i, align 8
-  %11 = insertelement <2 x double> poison, double %9, i64 0
-  %12 = insertelement <2 x double> %11, double %10, i64 1
-  %13 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %8, <2 x double> %7, <2 x double> %12)
+  %6 = load double, ptr %arrayidx3.i, align 8
+  %7 = tail call double @llvm.fmuladd.f64(double %den.020.i, double %0, double %6)
   %indvars.iv.next26.i = add nsw i64 %indvars.iv25.i, -1
   %cmp1.not.i = icmp eq i64 %indvars.iv25.i, 0
   br i1 %cmp1.not.i, label %lanczos_sum.exit, label %for.body.i, !llvm.loop !22
 
-for.body6.i:                                      ; preds = %for.body6.i.preheader, %for.body6.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body6.i ], [ 0, %for.body6.i.preheader ]
-  %14 = phi <2 x double> [ %20, %for.body6.i ], [ zeroinitializer, %for.body6.i.preheader ]
-  %15 = fdiv <2 x double> %14, %5
+for.body6.i:                                      ; preds = %if.end11, %for.body6.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body6.i ], [ 0, %if.end11 ]
+  %den.217.i = phi double [ %add12.i, %for.body6.i ], [ 0.000000e+00, %if.end11 ]
+  %num.216.i = phi double [ %add.i, %for.body6.i ], [ 0.000000e+00, %if.end11 ]
+  %div.i = fdiv double %num.216.i, %0
   %arrayidx8.i = getelementptr [13 x double], ptr @lanczos_num_coeffs, i64 0, i64 %indvars.iv.i
-  %16 = load double, ptr %arrayidx8.i, align 8
+  %8 = load double, ptr %arrayidx8.i, align 8
+  %add.i = fadd double %div.i, %8
+  %div9.i = fdiv double %den.217.i, %0
   %arrayidx11.i = getelementptr [13 x double], ptr @lanczos_den_coeffs, i64 0, i64 %indvars.iv.i
-  %17 = load double, ptr %arrayidx11.i, align 8
-  %18 = insertelement <2 x double> poison, double %16, i64 0
-  %19 = insertelement <2 x double> %18, double %17, i64 1
-  %20 = fadd <2 x double> %15, %19
+  %9 = load double, ptr %arrayidx11.i, align 8
+  %add12.i = fadd double %div9.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 13
   br i1 %exitcond.not.i, label %lanczos_sum.exit, label %for.body6.i, !llvm.loop !23
 
 lanczos_sum.exit:                                 ; preds = %for.body6.i, %for.body.i
-  %21 = phi <2 x double> [ %13, %for.body.i ], [ %20, %for.body6.i ]
-  %22 = extractelement <2 x double> %21, i64 0
-  %23 = extractelement <2 x double> %21, i64 1
-  %div14.i = fdiv double %22, %23
+  %num.1.i = phi double [ %5, %for.body.i ], [ %add.i, %for.body6.i ]
+  %den.1.i = phi double [ %7, %for.body.i ], [ %add12.i, %for.body6.i ]
+  %div14.i = fdiv double %num.1.i, %den.1.i
   %call13 = tail call double @log(double noundef %div14.i) #15
   %sub = fadd double %call13, 0xC0181945B9800000
   %sub14 = fadd double %0, -5.000000e-01
@@ -8542,15 +8522,15 @@ lanczos_sum.exit:                                 ; preds = %for.body6.i, %for.b
   %sub15 = fadd double %add, -5.000000e-01
   %call16 = tail call double @log(double noundef %sub15) #15
   %sub17 = fadd double %call16, -1.000000e+00
-  %24 = tail call double @llvm.fmuladd.f64(double %sub14, double %sub17, double %sub)
+  %10 = tail call double @llvm.fmuladd.f64(double %sub14, double %sub17, double %sub)
   %cmp18 = fcmp olt double %x, 0.000000e+00
   br i1 %cmp18, label %if.then19, label %if.end26
 
 if.then19:                                        ; preds = %lanczos_sum.exit
   %call.i = tail call double @fmod(double noundef %0, double noundef 2.000000e+00) #15
   %mul.i = fmul double %call.i, 2.000000e+00
-  %25 = tail call double @llvm.round.f64(double %mul.i)
-  %conv.i = fptosi double %25 to i32
+  %11 = tail call double @llvm.round.f64(double %mul.i)
+  %conv.i = fptosi double %11 to i32
   switch i32 %conv.i, label %sw.default.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb3.i
@@ -8594,18 +8574,18 @@ sw.default.i:                                     ; preds = %if.then19
 
 m_sinpi.exit:                                     ; preds = %sw.bb.i, %sw.bb3.i, %sw.bb6.i, %sw.bb10.i, %sw.bb14.i
   %r.0.i = phi double [ %call17.i, %sw.bb14.i ], [ %fneg.i, %sw.bb10.i ], [ %call9.i, %sw.bb6.i ], [ %call5.i, %sw.bb3.i ], [ %call2.i, %sw.bb.i ]
-  %26 = tail call double @llvm.fabs.f64(double %r.0.i)
-  %call21 = tail call double @log(double noundef %26) #15
+  %12 = tail call double @llvm.fabs.f64(double %r.0.i)
+  %call21 = tail call double @log(double noundef %12) #15
   %sub22 = fsub double 0x3FF250D048E7A1BD, %call21
   %call23 = tail call double @log(double noundef %0) #15
   %sub24 = fsub double %sub22, %call23
-  %sub25 = fsub double %sub24, %24
+  %sub25 = fsub double %sub24, %10
   br label %if.end26
 
 if.end26:                                         ; preds = %m_sinpi.exit, %lanczos_sum.exit
-  %r.0 = phi double [ %sub25, %m_sinpi.exit ], [ %24, %lanczos_sum.exit ]
-  %27 = tail call double @llvm.fabs.f64(double %r.0) #17
-  %isinf = fcmp oeq double %27, 0x7FF0000000000000
+  %r.0 = phi double [ %sub25, %m_sinpi.exit ], [ %10, %lanczos_sum.exit ]
+  %13 = tail call double @llvm.fabs.f64(double %r.0) #17
+  %isinf = fcmp oeq double %13, 0x7FF0000000000000
   br i1 %isinf, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end26
@@ -9402,9 +9382,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

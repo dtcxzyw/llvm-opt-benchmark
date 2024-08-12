@@ -629,7 +629,7 @@ define internal signext range(i16 -1, 1) i16 @Seg3A_LAI_Dissector(ptr noundef %0
   %6 = alloca [5 x i8], align 1
   %7 = load i32, ptr %1, align 8
   %8 = icmp slt i32 %7, 40
-  br i1 %8, label %81, label %.preheader
+  br i1 %8, label %83, label %.preheader
 
 .preheader:                                       ; preds = %5
   %9 = getelementptr inbounds i8, ptr %1, i64 4
@@ -716,12 +716,15 @@ define internal signext range(i16 -1, 1) i16 @Seg3A_LAI_Dissector(ptr noundef %0
   %76 = load i16, ptr %50, align 2
   %77 = zext i16 %76 to i32
   %78 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %66, i32 noundef %73, ptr noundef %2, i32 noundef %75, i32 noundef 10, i32 noundef %77, i32 noundef 0, ptr noundef nonnull @.str.294, i32 noundef %77) #5
-  %79 = load <2 x i32>, ptr %1, align 8
-  %80 = add <2 x i32> %79, <i32 -40, i32 40>
-  store <2 x i32> %80, ptr %1, align 8
-  br label %81
+  %79 = load i32, ptr %1, align 8
+  %80 = add i32 %79, -40
+  store i32 %80, ptr %1, align 8
+  %81 = load i32, ptr %9, align 4
+  %82 = add i32 %81, 40
+  store i32 %82, ptr %9, align 4
+  br label %83
 
-81:                                               ; preds = %5, %16
+83:                                               ; preds = %5, %16
   %.044 = phi i16 [ 0, %16 ], [ -1, %5 ]
   ret i16 %.044
 }

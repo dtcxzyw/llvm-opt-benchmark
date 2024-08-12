@@ -2881,7 +2881,7 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nocapt
   %17 = load i32, ptr %2, align 4
   %18 = icmp sgt i32 %17, 0
   %.pre = load i32, ptr %0, align 4
-  br i1 %18, label %19, label %81
+  br i1 %18, label %19, label %73
 
 19:                                               ; preds = %10
   %20 = add nsw i32 %17, -1
@@ -2923,7 +2923,7 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nocapt
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv62 = phi i64 [ %36, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %._crit_edge.us ]
-  %38 = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %72, %._crit_edge.us ]
+  %38 = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %64, %._crit_edge.us ]
   %39 = getelementptr inbounds double, ptr %24, i64 %indvars.iv62
   %40 = load double, ptr %39, align 8
   %41 = getelementptr inbounds double, ptr %25, i64 %indvars.iv62
@@ -2932,41 +2932,35 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nocapt
 
 43:                                               ; preds = %.lr.ph.us, %43
   %indvars.iv58 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next59, %43 ]
-  %44 = phi <2 x double> [ zeroinitializer, %.lr.ph.us ], [ %67, %43 ]
-  %45 = mul nsw i64 %indvars.iv58, %34
-  %46 = add nsw i64 %45, %indvars.iv62
-  %47 = getelementptr inbounds double, ptr %28, i64 %46
-  %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds double, ptr %29, i64 %46
-  %50 = load double, ptr %49, align 8
-  %51 = add nsw i64 %indvars.iv58, %35
-  %52 = getelementptr inbounds double, ptr %24, i64 %51
-  %53 = load double, ptr %52, align 8
-  %54 = getelementptr inbounds double, ptr %25, i64 %51
-  %55 = load double, ptr %54, align 8
-  %56 = fneg double %50
-  %57 = insertelement <2 x double> poison, double %55, i64 0
-  %58 = insertelement <2 x double> %57, double %50, i64 1
-  %59 = insertelement <2 x double> poison, double %56, i64 0
-  %60 = insertelement <2 x double> %59, double %53, i64 1
-  %61 = fmul <2 x double> %58, %60
-  %62 = insertelement <2 x double> poison, double %48, i64 0
-  %63 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> zeroinitializer
-  %64 = insertelement <2 x double> poison, double %53, i64 0
-  %65 = insertelement <2 x double> %64, double %55, i64 1
-  %66 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %63, <2 x double> %65, <2 x double> %61)
-  %67 = fadd <2 x double> %44, %66
+  %.04347.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %58, %43 ]
+  %.04446.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %61, %43 ]
+  %44 = mul nsw i64 %indvars.iv58, %34
+  %45 = add nsw i64 %44, %indvars.iv62
+  %46 = getelementptr inbounds double, ptr %28, i64 %45
+  %47 = load double, ptr %46, align 8
+  %48 = getelementptr inbounds double, ptr %29, i64 %45
+  %49 = load double, ptr %48, align 8
+  %50 = add nsw i64 %indvars.iv58, %35
+  %51 = getelementptr inbounds double, ptr %24, i64 %50
+  %52 = load double, ptr %51, align 8
+  %53 = getelementptr inbounds double, ptr %25, i64 %50
+  %54 = load double, ptr %53, align 8
+  %55 = fneg double %49
+  %56 = fmul double %54, %55
+  %57 = call double @llvm.fmuladd.f64(double %47, double %52, double %56)
+  %58 = fadd double %.04347.us, %57
+  %59 = fmul double %49, %52
+  %60 = call double @llvm.fmuladd.f64(double %47, double %54, double %59)
+  %61 = fadd double %.04446.us, %60
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count
   br i1 %exitcond61.not, label %._crit_edge.us, label %43
 
 ._crit_edge.us:                                   ; preds = %43
-  %68 = extractelement <2 x double> %67, i64 1
-  %69 = fmul double %42, %68
-  %70 = extractelement <2 x double> %67, i64 0
-  %71 = call double @llvm.fmuladd.f64(double %70, double %40, double %69)
-  %72 = fadd double %71, %38
-  store double %72, ptr %11, align 8
+  %62 = fmul double %42, %61
+  %63 = call double @llvm.fmuladd.f64(double %58, double %40, double %62)
+  %64 = fadd double %63, %38
+  store double %64, ptr %11, align 8
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
   %lftr.wideiv65 = trunc i64 %indvars.iv.next63 to i32
   %exitcond66.not = icmp eq i32 %37, %lftr.wideiv65
@@ -2974,15 +2968,15 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nocapt
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53.split.preheader, %.lr.ph53.split
   %indvars.iv = phi i64 [ %30, %.lr.ph53.split.preheader ], [ %indvars.iv.next, %.lr.ph53.split ]
-  %73 = phi double [ 0.000000e+00, %.lr.ph53.split.preheader ], [ %80, %.lr.ph53.split ]
-  %74 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
-  %75 = load double, ptr %74, align 8
-  %76 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
-  %77 = load double, ptr %76, align 8
-  %78 = fmul double %77, 0.000000e+00
-  %79 = call double @llvm.fmuladd.f64(double %75, double 0.000000e+00, double %78)
-  %80 = fadd double %79, %73
-  store double %80, ptr %11, align 8
+  %65 = phi double [ 0.000000e+00, %.lr.ph53.split.preheader ], [ %72, %.lr.ph53.split ]
+  %66 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
+  %67 = load double, ptr %66, align 8
+  %68 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
+  %69 = load double, ptr %68, align 8
+  %70 = fmul double %69, 0.000000e+00
+  %71 = call double @llvm.fmuladd.f64(double %67, double 0.000000e+00, double %70)
+  %72 = fadd double %71, %65
+  store double %72, ptr %11, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %31, %lftr.wideiv
@@ -2990,31 +2984,31 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nocapt
 
 ._crit_edge54:                                    ; preds = %.lr.ph53.split, %._crit_edge.us, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
-  br label %81
+  br label %73
 
-81:                                               ; preds = %._crit_edge54, %10
+73:                                               ; preds = %._crit_edge54, %10
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre)
   store ptr %11, ptr %16, align 8
-  %82 = call i32 @__kmpc_reduce_nowait(ptr nonnull @4, i32 %.pre, i32 1, i64 8, ptr nonnull %16, ptr nonnull @densmatr_calcFidelityLocal.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %82, label %90 [
-    i32 1, label %83
-    i32 2, label %87
+  %74 = call i32 @__kmpc_reduce_nowait(ptr nonnull @4, i32 %.pre, i32 1, i64 8, ptr nonnull %16, ptr nonnull @densmatr_calcFidelityLocal.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %74, label %82 [
+    i32 1, label %75
+    i32 2, label %79
   ]
 
-83:                                               ; preds = %81
-  %84 = load double, ptr %9, align 8
-  %85 = load double, ptr %11, align 8
-  %86 = fadd double %84, %85
-  store double %86, ptr %9, align 8
+75:                                               ; preds = %73
+  %76 = load double, ptr %9, align 8
+  %77 = load double, ptr %11, align 8
+  %78 = fadd double %76, %77
+  store double %78, ptr %9, align 8
   call void @__kmpc_end_reduce_nowait(ptr nonnull @4, i32 %.pre, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %90
+  br label %82
 
-87:                                               ; preds = %81
-  %88 = load double, ptr %11, align 8
-  %89 = atomicrmw fadd ptr %9, double %88 monotonic, align 8
-  br label %90
+79:                                               ; preds = %73
+  %80 = load double, ptr %11, align 8
+  %81 = atomicrmw fadd ptr %9, double %80 monotonic, align 8
+  br label %82
 
-90:                                               ; preds = %87, %83, %81
+82:                                               ; preds = %79, %75, %73
   ret void
 }
 
@@ -3080,7 +3074,7 @@ define internal void @statevec_calcInnerProductLocal.omp_outlined(ptr noalias no
   %17 = load i64, ptr %2, align 8
   %18 = icmp sgt i64 %17, 0
   %.pre = load i32, ptr %0, align 4
-  br i1 %18, label %19, label %53
+  br i1 %18, label %19, label %47
 
 19:                                               ; preds = %9
   %20 = add nsw i64 %17, -1
@@ -3104,71 +3098,65 @@ define internal void @statevec_calcInnerProductLocal.omp_outlined(ptr noalias no
   br label %28
 
 28:                                               ; preds = %.lr.ph, %28
-  %.032 = phi i64 [ %23, %.lr.ph ], [ %52, %28 ]
-  %29 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %49, %28 ]
-  %30 = getelementptr inbounds double, ptr %24, i64 %.032
-  %31 = load double, ptr %30, align 8
-  %32 = getelementptr inbounds double, ptr %25, i64 %.032
-  %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds double, ptr %26, i64 %.032
-  %35 = load double, ptr %34, align 8
-  %36 = getelementptr inbounds double, ptr %27, i64 %.032
-  %37 = load double, ptr %36, align 8
-  %38 = fneg double %33
-  %39 = insertelement <2 x double> poison, double %33, i64 0
-  %40 = insertelement <2 x double> %39, double %35, i64 1
-  %41 = insertelement <2 x double> poison, double %37, i64 0
-  %42 = insertelement <2 x double> %41, double %38, i64 1
-  %43 = fmul <2 x double> %40, %42
-  %44 = insertelement <2 x double> poison, double %31, i64 0
-  %45 = shufflevector <2 x double> %44, <2 x double> poison, <2 x i32> zeroinitializer
-  %46 = insertelement <2 x double> poison, double %35, i64 0
-  %47 = insertelement <2 x double> %46, double %37, i64 1
-  %48 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %45, <2 x double> %47, <2 x double> %43)
-  %49 = fadd <2 x double> %29, %48
-  %50 = extractelement <2 x double> %49, i64 0
-  store double %50, ptr %10, align 8
-  %51 = extractelement <2 x double> %49, i64 1
-  store double %51, ptr %11, align 8
-  %52 = add i64 %.032, 1
+  %.032 = phi i64 [ %23, %.lr.ph ], [ %46, %28 ]
+  %29 = phi double [ 0.000000e+00, %.lr.ph ], [ %41, %28 ]
+  %30 = phi double [ 0.000000e+00, %.lr.ph ], [ %45, %28 ]
+  %31 = getelementptr inbounds double, ptr %24, i64 %.032
+  %32 = load double, ptr %31, align 8
+  %33 = getelementptr inbounds double, ptr %25, i64 %.032
+  %34 = load double, ptr %33, align 8
+  %35 = getelementptr inbounds double, ptr %26, i64 %.032
+  %36 = load double, ptr %35, align 8
+  %37 = getelementptr inbounds double, ptr %27, i64 %.032
+  %38 = load double, ptr %37, align 8
+  %39 = fmul double %34, %38
+  %40 = call double @llvm.fmuladd.f64(double %32, double %36, double %39)
+  %41 = fadd double %29, %40
+  store double %41, ptr %10, align 8
+  %42 = fneg double %34
+  %43 = fmul double %36, %42
+  %44 = call double @llvm.fmuladd.f64(double %32, double %38, double %43)
+  %45 = fadd double %44, %30
+  store double %45, ptr %11, align 8
+  %46 = add i64 %.032, 1
   %exitcond.not = icmp eq i64 %.032, %22
   br i1 %exitcond.not, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %28, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
-  br label %53
+  br label %47
 
-53:                                               ; preds = %._crit_edge, %9
+47:                                               ; preds = %._crit_edge, %9
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre)
   store ptr %10, ptr %16, align 8
-  %54 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr %11, ptr %54, align 8
-  %55 = call i32 @__kmpc_reduce_nowait(ptr nonnull @4, i32 %.pre, i32 2, i64 16, ptr nonnull %16, ptr nonnull @statevec_calcInnerProductLocal.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %55, label %68 [
-    i32 1, label %56
-    i32 2, label %63
+  %48 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %11, ptr %48, align 8
+  %49 = call i32 @__kmpc_reduce_nowait(ptr nonnull @4, i32 %.pre, i32 2, i64 16, ptr nonnull %16, ptr nonnull @statevec_calcInnerProductLocal.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %49, label %62 [
+    i32 1, label %50
+    i32 2, label %57
   ]
 
-56:                                               ; preds = %53
-  %57 = load double, ptr %7, align 8
-  %58 = load double, ptr %10, align 8
-  %59 = fadd double %57, %58
-  store double %59, ptr %7, align 8
-  %60 = load double, ptr %8, align 8
-  %61 = load double, ptr %11, align 8
-  %62 = fadd double %60, %61
-  store double %62, ptr %8, align 8
+50:                                               ; preds = %47
+  %51 = load double, ptr %7, align 8
+  %52 = load double, ptr %10, align 8
+  %53 = fadd double %51, %52
+  store double %53, ptr %7, align 8
+  %54 = load double, ptr %8, align 8
+  %55 = load double, ptr %11, align 8
+  %56 = fadd double %54, %55
+  store double %56, ptr %8, align 8
   call void @__kmpc_end_reduce_nowait(ptr nonnull @4, i32 %.pre, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %68
+  br label %62
 
-63:                                               ; preds = %53
-  %64 = load double, ptr %10, align 8
-  %65 = atomicrmw fadd ptr %7, double %64 monotonic, align 8
-  %66 = load double, ptr %11, align 8
-  %67 = atomicrmw fadd ptr %8, double %66 monotonic, align 8
-  br label %68
+57:                                               ; preds = %47
+  %58 = load double, ptr %10, align 8
+  %59 = atomicrmw fadd ptr %7, double %58 monotonic, align 8
+  %60 = load double, ptr %11, align 8
+  %61 = atomicrmw fadd ptr %8, double %60 monotonic, align 8
+  br label %62
 
-68:                                               ; preds = %63, %56, %53
+62:                                               ; preds = %57, %50, %47
   ret void
 }
 
@@ -10047,7 +10035,7 @@ define internal void @statevec_setWeightedQureg.omp_outlined(ptr noalias nocaptu
   %20 = load i64, ptr %2, align 8
   %21 = icmp sgt i64 %20, 0
   %.pre = load i32, ptr %0, align 4
-  br i1 %21, label %22, label %86
+  br i1 %21, label %22, label %80
 
 22:                                               ; preds = %15
   %23 = add nsw i64 %20, -1
@@ -10064,7 +10052,7 @@ define internal void @statevec_setWeightedQureg.omp_outlined(ptr noalias nocaptu
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
-  %.044 = phi i64 [ %84, %.lr.ph ], [ %26, %22 ]
+  %.044 = phi i64 [ %78, %.lr.ph ], [ %26, %22 ]
   %27 = load ptr, ptr %3, align 8
   %28 = getelementptr inbounds double, ptr %27, i64 %.044
   %29 = load double, ptr %28, align 8
@@ -10085,56 +10073,49 @@ define internal void @statevec_setWeightedQureg.omp_outlined(ptr noalias nocaptu
   %44 = load double, ptr %43, align 8
   %45 = load double, ptr %9, align 8
   %46 = load double, ptr %10, align 8
-  %47 = load double, ptr %11, align 8
-  %48 = load double, ptr %12, align 8
-  %49 = insertelement <2 x double> poison, double %46, i64 0
-  %50 = insertelement <2 x double> %49, double %48, i64 1
-  %51 = fneg <2 x double> %50
-  %52 = insertelement <2 x double> poison, double %44, i64 0
-  %53 = insertelement <2 x double> %52, double %32, i64 1
-  %54 = fmul <2 x double> %53, %51
-  %55 = insertelement <2 x double> poison, double %45, i64 0
-  %56 = insertelement <2 x double> %55, double %47, i64 1
-  %57 = insertelement <2 x double> poison, double %41, i64 0
-  %58 = insertelement <2 x double> %57, double %29, i64 1
-  %59 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %56, <2 x double> %58, <2 x double> %54)
-  %shift = shufflevector <2 x double> %59, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %60 = fadd <2 x double> %59, %shift
-  %61 = extractelement <2 x double> %60, i64 0
-  %62 = load double, ptr %13, align 8
-  %63 = load double, ptr %14, align 8
-  %64 = fneg double %63
-  %65 = fmul double %38, %64
-  %66 = call double @llvm.fmuladd.f64(double %62, double %35, double %65)
-  %67 = fadd double %61, %66
-  store double %67, ptr %40, align 8
-  %68 = load double, ptr %9, align 8
-  %69 = load double, ptr %10, align 8
-  %70 = fmul double %41, %69
-  %71 = call double @llvm.fmuladd.f64(double %68, double %44, double %70)
-  %72 = load double, ptr %11, align 8
-  %73 = load double, ptr %12, align 8
-  %74 = fmul double %29, %73
-  %75 = call double @llvm.fmuladd.f64(double %72, double %32, double %74)
-  %76 = fadd double %71, %75
-  %77 = load double, ptr %13, align 8
-  %78 = load double, ptr %14, align 8
-  %79 = fmul double %35, %78
-  %80 = call double @llvm.fmuladd.f64(double %77, double %38, double %79)
-  %81 = fadd double %76, %80
-  %82 = load ptr, ptr %8, align 8
-  %83 = getelementptr inbounds double, ptr %82, i64 %.044
-  store double %81, ptr %83, align 8
-  %84 = add nsw i64 %.044, 1
-  %85 = load i64, ptr %17, align 8
-  %.not.not = icmp slt i64 %.044, %85
+  %47 = fneg double %46
+  %48 = fmul double %44, %47
+  %49 = call double @llvm.fmuladd.f64(double %45, double %41, double %48)
+  %50 = load double, ptr %11, align 8
+  %51 = load double, ptr %12, align 8
+  %52 = fneg double %51
+  %53 = fmul double %32, %52
+  %54 = call double @llvm.fmuladd.f64(double %50, double %29, double %53)
+  %55 = fadd double %49, %54
+  %56 = load double, ptr %13, align 8
+  %57 = load double, ptr %14, align 8
+  %58 = fneg double %57
+  %59 = fmul double %38, %58
+  %60 = call double @llvm.fmuladd.f64(double %56, double %35, double %59)
+  %61 = fadd double %55, %60
+  store double %61, ptr %40, align 8
+  %62 = load double, ptr %9, align 8
+  %63 = load double, ptr %10, align 8
+  %64 = fmul double %41, %63
+  %65 = call double @llvm.fmuladd.f64(double %62, double %44, double %64)
+  %66 = load double, ptr %11, align 8
+  %67 = load double, ptr %12, align 8
+  %68 = fmul double %29, %67
+  %69 = call double @llvm.fmuladd.f64(double %66, double %32, double %68)
+  %70 = fadd double %65, %69
+  %71 = load double, ptr %13, align 8
+  %72 = load double, ptr %14, align 8
+  %73 = fmul double %35, %72
+  %74 = call double @llvm.fmuladd.f64(double %71, double %38, double %73)
+  %75 = fadd double %70, %74
+  %76 = load ptr, ptr %8, align 8
+  %77 = getelementptr inbounds double, ptr %76, i64 %.044
+  store double %75, ptr %77, align 8
+  %78 = add nsw i64 %.044, 1
+  %79 = load i64, ptr %17, align 8
+  %.not.not = icmp slt i64 %.044, %79
   br i1 %.not.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
-  br label %86
+  br label %80
 
-86:                                               ; preds = %._crit_edge, %15
+80:                                               ; preds = %._crit_edge, %15
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre)
   ret void
 }
@@ -10553,7 +10534,7 @@ define internal void @densmatr_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
   %21 = load i64, ptr %4, align 8
   %22 = icmp slt i64 %19, %20
   %.pre = load i32, ptr %0, align 4
-  br i1 %22, label %23, label %70
+  br i1 %22, label %23, label %64
 
 23:                                               ; preds = %11
   %24 = xor i64 %19, -1
@@ -10584,75 +10565,69 @@ define internal void @densmatr_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
-  %.042 = phi i64 [ %31, %.lr.ph ], [ %68, %40 ]
-  %41 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %65, %40 ]
-  %42 = mul i64 %.042, %21
-  %43 = add i64 %42, %19
-  %44 = getelementptr inbounds double, ptr %34, i64 %43
-  %45 = load double, ptr %44, align 8
-  %46 = getelementptr inbounds double, ptr %35, i64 %43
-  %47 = load double, ptr %46, align 8
-  %48 = sub nsw i64 %43, %36
-  %49 = sdiv i64 %48, %37
-  %50 = getelementptr inbounds double, ptr %38, i64 %49
-  %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds double, ptr %39, i64 %49
-  %53 = load double, ptr %52, align 8
-  %54 = fneg double %47
-  %55 = insertelement <2 x double> poison, double %53, i64 0
-  %56 = insertelement <2 x double> %55, double %47, i64 1
-  %57 = insertelement <2 x double> poison, double %54, i64 0
-  %58 = insertelement <2 x double> %57, double %51, i64 1
-  %59 = fmul <2 x double> %56, %58
-  %60 = insertelement <2 x double> poison, double %45, i64 0
-  %61 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> zeroinitializer
-  %62 = insertelement <2 x double> poison, double %51, i64 0
-  %63 = insertelement <2 x double> %62, double %53, i64 1
-  %64 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %61, <2 x double> %63, <2 x double> %59)
-  %65 = fadd <2 x double> %41, %64
-  %66 = extractelement <2 x double> %65, i64 0
-  store double %66, ptr %12, align 8
-  %67 = extractelement <2 x double> %65, i64 1
-  store double %67, ptr %13, align 8
-  %68 = add nuw i64 %.042, 1
-  %69 = icmp ult i64 %68, %32
-  br i1 %69, label %40, label %._crit_edge
+  %.042 = phi i64 [ %31, %.lr.ph ], [ %62, %40 ]
+  %41 = phi double [ 0.000000e+00, %.lr.ph ], [ %58, %40 ]
+  %42 = phi double [ 0.000000e+00, %.lr.ph ], [ %61, %40 ]
+  %43 = mul i64 %.042, %21
+  %44 = add i64 %43, %19
+  %45 = getelementptr inbounds double, ptr %34, i64 %44
+  %46 = load double, ptr %45, align 8
+  %47 = getelementptr inbounds double, ptr %35, i64 %44
+  %48 = load double, ptr %47, align 8
+  %49 = sub nsw i64 %44, %36
+  %50 = sdiv i64 %49, %37
+  %51 = getelementptr inbounds double, ptr %38, i64 %50
+  %52 = load double, ptr %51, align 8
+  %53 = getelementptr inbounds double, ptr %39, i64 %50
+  %54 = load double, ptr %53, align 8
+  %55 = fneg double %48
+  %56 = fmul double %54, %55
+  %57 = call double @llvm.fmuladd.f64(double %46, double %52, double %56)
+  %58 = fadd double %41, %57
+  store double %58, ptr %12, align 8
+  %59 = fmul double %48, %52
+  %60 = call double @llvm.fmuladd.f64(double %46, double %54, double %59)
+  %61 = fadd double %60, %42
+  store double %61, ptr %13, align 8
+  %62 = add nuw i64 %.042, 1
+  %63 = icmp ult i64 %62, %32
+  br i1 %63, label %40, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %40, %23
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
-  br label %70
+  br label %64
 
-70:                                               ; preds = %._crit_edge, %11
+64:                                               ; preds = %._crit_edge, %11
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre)
   store ptr %12, ptr %18, align 8
-  %71 = getelementptr inbounds i8, ptr %18, i64 8
-  store ptr %13, ptr %71, align 8
-  %72 = call i32 @__kmpc_reduce_nowait(ptr nonnull @4, i32 %.pre, i32 2, i64 16, ptr nonnull %18, ptr nonnull @densmatr_calcExpecDiagonalOpLocal.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %72, label %85 [
-    i32 1, label %73
-    i32 2, label %80
+  %65 = getelementptr inbounds i8, ptr %18, i64 8
+  store ptr %13, ptr %65, align 8
+  %66 = call i32 @__kmpc_reduce_nowait(ptr nonnull @4, i32 %.pre, i32 2, i64 16, ptr nonnull %18, ptr nonnull @densmatr_calcExpecDiagonalOpLocal.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %66, label %79 [
+    i32 1, label %67
+    i32 2, label %74
   ]
 
-73:                                               ; preds = %70
-  %74 = load double, ptr %9, align 8
-  %75 = load double, ptr %12, align 8
-  %76 = fadd double %74, %75
-  store double %76, ptr %9, align 8
-  %77 = load double, ptr %10, align 8
-  %78 = load double, ptr %13, align 8
-  %79 = fadd double %77, %78
-  store double %79, ptr %10, align 8
+67:                                               ; preds = %64
+  %68 = load double, ptr %9, align 8
+  %69 = load double, ptr %12, align 8
+  %70 = fadd double %68, %69
+  store double %70, ptr %9, align 8
+  %71 = load double, ptr %10, align 8
+  %72 = load double, ptr %13, align 8
+  %73 = fadd double %71, %72
+  store double %73, ptr %10, align 8
   call void @__kmpc_end_reduce_nowait(ptr nonnull @4, i32 %.pre, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %85
+  br label %79
 
-80:                                               ; preds = %70
-  %81 = load double, ptr %12, align 8
-  %82 = atomicrmw fadd ptr %9, double %81 monotonic, align 8
-  %83 = load double, ptr %13, align 8
-  %84 = atomicrmw fadd ptr %10, double %83 monotonic, align 8
-  br label %85
+74:                                               ; preds = %64
+  %75 = load double, ptr %12, align 8
+  %76 = atomicrmw fadd ptr %9, double %75 monotonic, align 8
+  %77 = load double, ptr %13, align 8
+  %78 = atomicrmw fadd ptr %10, double %77 monotonic, align 8
+  br label %79
 
-85:                                               ; preds = %80, %73, %70
+79:                                               ; preds = %74, %67, %64
   ret void
 }
 
@@ -12214,9 +12189,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

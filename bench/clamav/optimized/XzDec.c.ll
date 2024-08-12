@@ -1440,10 +1440,10 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   %44 = icmp eq i32 %43, 6
   br i1 %44, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %322, %.outer
-  %.0232.lcssa = phi ptr [ %.0232.ph, %.outer ], [ %.1, %322 ]
-  %.lcssa288 = phi i64 [ %41, %.outer ], [ %324, %322 ]
-  %.lcssa = phi i64 [ %42, %.outer ], [ %325, %322 ]
+._crit_edge:                                      ; preds = %325, %.outer
+  %.0232.lcssa = phi ptr [ %.0232.ph, %.outer ], [ %.1, %325 ]
+  %.lcssa288 = phi i64 [ %41, %.outer ], [ %327, %325 ]
+  %.lcssa = phi i64 [ %42, %.outer ], [ %328, %325 ]
   %45 = load i64, ptr %2, align 8
   %46 = sub i64 %13, %45
   store i64 %46, ptr %8, align 8
@@ -1478,7 +1478,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
 63:                                               ; preds = %49
   %64 = load i32, ptr %6, align 4
   %65 = icmp eq i32 %64, 1
-  br i1 %65, label %66, label %87
+  br i1 %65, label %66, label %88
 
 66:                                               ; preds = %63
   %67 = load i64, ptr %30, align 8
@@ -1505,478 +1505,483 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   br label %._crit_edge304
 
 ._crit_edge304:                                   ; preds = %66, %82
-  %84 = load <2 x i64>, ptr %38, align 8
-  %85 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %.pre305, i64 1
-  %86 = add <2 x i64> %84, %85
-  store <2 x i64> %86, ptr %38, align 8
+  %84 = load i64, ptr %20, align 8
+  %85 = add i64 %84, %.pre305
+  store i64 %85, ptr %20, align 8
+  %86 = load i64, ptr %38, align 8
+  %87 = add i64 %86, 1
+  store i64 %87, ptr %38, align 8
   store i32 7, ptr %0, align 8
   store i32 0, ptr %16, align 4
   store i32 0, ptr %31, align 8
   br label %.outer.backedge
 
-87:                                               ; preds = %63
-  %88 = or i64 %52, %51
-  %or.cond3 = icmp eq i64 %88, 0
+88:                                               ; preds = %63
+  %89 = or i64 %52, %51
+  %or.cond3 = icmp eq i64 %89, 0
   br i1 %or.cond3, label %Xz_ParseHeader.exit.thread, label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %87, %._crit_edge304
+.outer.backedge:                                  ; preds = %88, %._crit_edge304
   br label %.outer
 
-.lr.ph:                                           ; preds = %.outer, %322
-  %89 = phi i32 [ %323, %322 ], [ %43, %.outer ]
-  %90 = phi i64 [ %325, %322 ], [ %42, %.outer ]
-  %91 = phi i64 [ %324, %322 ], [ %41, %.outer ]
-  %.0232293 = phi ptr [ %.1, %322 ], [ %.0232.ph, %.outer ]
-  %92 = icmp eq i64 %14, %91
-  br i1 %92, label %Xz_ParseHeader.exit.thread.sink.split, label %93
+.lr.ph:                                           ; preds = %.outer, %325
+  %90 = phi i32 [ %326, %325 ], [ %43, %.outer ]
+  %91 = phi i64 [ %328, %325 ], [ %42, %.outer ]
+  %92 = phi i64 [ %327, %325 ], [ %41, %.outer ]
+  %.0232293 = phi ptr [ %.1, %325 ], [ %.0232.ph, %.outer ]
+  %93 = icmp eq i64 %14, %92
+  br i1 %93, label %Xz_ParseHeader.exit.thread.sink.split, label %94
 
-93:                                               ; preds = %.lr.ph
-  switch i32 %89, label %thread-pre-split [
-    i32 0, label %94
-    i32 5, label %121
-    i32 7, label %171
-    i32 1, label %204
-    i32 2, label %257
-    i32 3, label %272
-    i32 4, label %311
+94:                                               ; preds = %.lr.ph
+  switch i32 %90, label %thread-pre-split [
+    i32 0, label %95
+    i32 5, label %122
+    i32 7, label %172
+    i32 1, label %205
+    i32 2, label %260
+    i32 3, label %275
+    i32 4, label %314
   ]
 
-94:                                               ; preds = %93
-  %95 = load i32, ptr %16, align 4
-  %96 = icmp ult i32 %95, 12
-  br i1 %96, label %97, label %108
+95:                                               ; preds = %94
+  %96 = load i32, ptr %16, align 4
+  %97 = icmp ult i32 %96, 12
+  br i1 %97, label %98, label %109
 
-97:                                               ; preds = %94
-  %98 = icmp ult i32 %95, 6
+98:                                               ; preds = %95
+  %99 = icmp ult i32 %96, 6
   %.pre301 = load i8, ptr %.0232293, align 1
-  %99 = zext nneg i32 %95 to i64
-  br i1 %98, label %100, label %._crit_edge303
+  %100 = zext nneg i32 %96 to i64
+  br i1 %99, label %101, label %._crit_edge303
 
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds [6 x i8], ptr @XZ_SIG, i64 0, i64 %99
-  %102 = load i8, ptr %101, align 1
-  %.not274 = icmp eq i8 %.pre301, %102
+101:                                              ; preds = %98
+  %102 = getelementptr inbounds [6 x i8], ptr @XZ_SIG, i64 0, i64 %100
+  %103 = load i8, ptr %102, align 1
+  %.not274 = icmp eq i8 %.pre301, %103
   br i1 %.not274, label %._crit_edge303, label %Xz_ParseHeader.exit.thread
 
-._crit_edge303:                                   ; preds = %97, %100
-  %103 = getelementptr inbounds i8, ptr %.0232293, i64 1
-  %104 = add nuw nsw i32 %95, 1
-  store i32 %104, ptr %16, align 4
-  %105 = getelementptr inbounds [1024 x i8], ptr %17, i64 0, i64 %99
-  store i8 %.pre301, ptr %105, align 1
-  %106 = load i64, ptr %4, align 8
-  %107 = add i64 %106, 1
-  store i64 %107, ptr %4, align 8
+._crit_edge303:                                   ; preds = %98, %101
+  %104 = getelementptr inbounds i8, ptr %.0232293, i64 1
+  %105 = add nuw nsw i32 %96, 1
+  store i32 %105, ptr %16, align 4
+  %106 = getelementptr inbounds [1024 x i8], ptr %17, i64 0, i64 %100
+  store i8 %.pre301, ptr %106, align 1
+  %107 = load i64, ptr %4, align 8
+  %108 = add i64 %107, 1
+  store i64 %108, ptr %4, align 8
   br label %thread-pre-split
 
-108:                                              ; preds = %94
-  %109 = load i8, ptr %39, align 1
-  %110 = zext i8 %109 to i16
-  %111 = shl nuw i16 %110, 8
-  %112 = load i8, ptr %40, align 1
-  %113 = zext i8 %112 to i16
-  %114 = or disjoint i16 %111, %113
-  store i16 %114, ptr %19, align 2
-  %115 = call i32 @CrcCalc(ptr noundef nonnull %39, i64 noundef 2) #10
-  %116 = load i32, ptr %22, align 1
-  %.not.i = icmp eq i32 %115, %116
-  br i1 %.not.i, label %117, label %Xz_ParseHeader.exit.thread
+109:                                              ; preds = %95
+  %110 = load i8, ptr %39, align 1
+  %111 = zext i8 %110 to i16
+  %112 = shl nuw i16 %111, 8
+  %113 = load i8, ptr %40, align 1
+  %114 = zext i8 %113 to i16
+  %115 = or disjoint i16 %112, %114
+  store i16 %115, ptr %19, align 2
+  %116 = call i32 @CrcCalc(ptr noundef nonnull %39, i64 noundef 2) #10
+  %117 = load i32, ptr %22, align 1
+  %.not.i = icmp eq i32 %116, %117
+  br i1 %.not.i, label %118, label %Xz_ParseHeader.exit.thread
 
-117:                                              ; preds = %108
-  %118 = load i16, ptr %19, align 2
-  %119 = icmp ult i16 %118, 16
-  br i1 %119, label %Xz_ParseHeader.exit, label %Xz_ParseHeader.exit.thread
+118:                                              ; preds = %109
+  %119 = load i16, ptr %19, align 2
+  %120 = icmp ult i16 %119, 16
+  br i1 %120, label %Xz_ParseHeader.exit, label %Xz_ParseHeader.exit.thread
 
-Xz_ParseHeader.exit:                              ; preds = %117
+Xz_ParseHeader.exit:                              ; preds = %118
   store i32 5, ptr %0, align 8
-  %120 = call ptr @cl_hash_init(ptr noundef nonnull @.str) #10
-  store ptr %120, ptr %28, align 8
+  %121 = call ptr @cl_hash_init(ptr noundef nonnull @.str) #10
+  store ptr %121, ptr %28, align 8
   store i32 0, ptr %16, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   br label %thread-pre-split
 
-121:                                              ; preds = %93
-  %122 = load i32, ptr %16, align 4
-  %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %149
+122:                                              ; preds = %94
+  %123 = load i32, ptr %16, align 4
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %150
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %.0232293, i64 1
-  %126 = load i8, ptr %.0232293, align 1
+125:                                              ; preds = %122
+  %126 = getelementptr inbounds i8, ptr %.0232293, i64 1
+  %127 = load i8, ptr %.0232293, align 1
   store i32 1, ptr %16, align 4
-  store i8 %126, ptr %17, align 1
-  %127 = load i64, ptr %4, align 8
-  %128 = add i64 %127, 1
-  store i64 %128, ptr %4, align 8
-  %129 = load i8, ptr %17, align 8
-  %130 = icmp eq i8 %129, 0
-  br i1 %130, label %131, label %144
+  store i8 %127, ptr %17, align 1
+  %128 = load i64, ptr %4, align 8
+  %129 = add i64 %128, 1
+  store i64 %129, ptr %4, align 8
+  %130 = load i8, ptr %17, align 8
+  %131 = icmp eq i8 %130, 0
+  br i1 %131, label %132, label %145
 
-131:                                              ; preds = %124
-  %132 = load i64, ptr %38, align 8
-  %133 = call i32 @Xz_WriteVarInt(ptr noundef nonnull %37, i64 noundef %132) #10
-  %134 = add i32 %133, 1
-  store i32 %134, ptr %26, align 4
-  %135 = zext i32 %134 to i64
-  store i64 %135, ptr %27, align 8
-  %136 = load i64, ptr %20, align 8
-  %137 = add i64 %136, %135
-  store i64 %137, ptr %20, align 8
-  %138 = load ptr, ptr %28, align 8
-  %.not272 = icmp eq ptr %138, null
-  br i1 %.not272, label %142, label %139
+132:                                              ; preds = %125
+  %133 = load i64, ptr %38, align 8
+  %134 = call i32 @Xz_WriteVarInt(ptr noundef nonnull %37, i64 noundef %133) #10
+  %135 = add i32 %134, 1
+  store i32 %135, ptr %26, align 4
+  %136 = zext i32 %135 to i64
+  store i64 %136, ptr %27, align 8
+  %137 = load i64, ptr %20, align 8
+  %138 = add i64 %137, %136
+  store i64 %138, ptr %20, align 8
+  %139 = load ptr, ptr %28, align 8
+  %.not272 = icmp eq ptr %139, null
+  br i1 %.not272, label %143, label %140
 
-139:                                              ; preds = %131
-  %140 = call i32 @cl_finish_hash(ptr noundef nonnull %138, ptr noundef nonnull %29) #10
-  %141 = call ptr @cl_hash_init(ptr noundef nonnull @.str) #10
-  store ptr %141, ptr %28, align 8
+140:                                              ; preds = %132
+  %141 = call i32 @cl_finish_hash(ptr noundef nonnull %139, ptr noundef nonnull %29) #10
+  %142 = call ptr @cl_hash_init(ptr noundef nonnull @.str) #10
+  store ptr %142, ptr %28, align 8
   %.pre = load i32, ptr %26, align 4
   %.pre302 = zext i32 %.pre to i64
-  br label %142
+  br label %143
 
-142:                                              ; preds = %139, %131
-  %.pre-phi = phi i64 [ %.pre302, %139 ], [ %135, %131 ]
-  %143 = call i32 @CrcUpdate(i32 noundef -1, ptr noundef nonnull %17, i64 noundef %.pre-phi) #10
-  store i32 %143, ptr %25, align 8
+143:                                              ; preds = %140, %132
+  %.pre-phi = phi i64 [ %.pre302, %140 ], [ %136, %132 ]
+  %144 = call i32 @CrcUpdate(i32 noundef -1, ptr noundef nonnull %17, i64 noundef %.pre-phi) #10
+  store i32 %144, ptr %25, align 8
   store i32 1, ptr %0, align 8
   %.pre300 = load i8, ptr %17, align 8
-  br label %144
+  br label %145
 
-144:                                              ; preds = %142, %124
-  %145 = phi i8 [ %.pre300, %142 ], [ %129, %124 ]
-  %146 = zext i8 %145 to i32
-  %147 = shl nuw nsw i32 %146, 2
-  %148 = add nuw nsw i32 %147, 4
-  store i32 %148, ptr %33, align 4
+145:                                              ; preds = %143, %125
+  %146 = phi i8 [ %.pre300, %143 ], [ %130, %125 ]
+  %147 = zext i8 %146 to i32
+  %148 = shl nuw nsw i32 %147, 2
+  %149 = add nuw nsw i32 %148, 4
+  store i32 %149, ptr %33, align 4
   br label %thread-pre-split
 
-149:                                              ; preds = %121
-  %150 = load i32, ptr %33, align 4
-  %.not269 = icmp eq i32 %122, %150
-  br i1 %.not269, label %164, label %151
+150:                                              ; preds = %122
+  %151 = load i32, ptr %33, align 4
+  %.not269 = icmp eq i32 %123, %151
+  br i1 %.not269, label %165, label %152
 
-151:                                              ; preds = %149
-  %152 = sub i32 %150, %122
-  %153 = zext i32 %152 to i64
-  %154 = icmp ult i64 %90, %153
-  %155 = trunc nuw i64 %90 to i32
-  %spec.select = select i1 %154, i32 %155, i32 %152
-  %156 = zext i32 %122 to i64
-  %157 = getelementptr inbounds i8, ptr %17, i64 %156
-  %158 = zext i32 %spec.select to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %157, ptr align 1 %.0232293, i64 %158, i1 false)
-  %159 = load i32, ptr %16, align 4
-  %160 = add i32 %159, %spec.select
-  store i32 %160, ptr %16, align 4
-  %161 = load i64, ptr %4, align 8
-  %162 = add i64 %161, %158
-  store i64 %162, ptr %4, align 8
-  %163 = getelementptr inbounds i8, ptr %.0232293, i64 %158
+152:                                              ; preds = %150
+  %153 = sub i32 %151, %123
+  %154 = zext i32 %153 to i64
+  %155 = icmp ult i64 %91, %154
+  %156 = trunc nuw i64 %91 to i32
+  %spec.select = select i1 %155, i32 %156, i32 %153
+  %157 = zext i32 %123 to i64
+  %158 = getelementptr inbounds i8, ptr %17, i64 %157
+  %159 = zext i32 %spec.select to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %158, ptr align 1 %.0232293, i64 %159, i1 false)
+  %160 = load i32, ptr %16, align 4
+  %161 = add i32 %160, %spec.select
+  store i32 %161, ptr %16, align 4
+  %162 = load i64, ptr %4, align 8
+  %163 = add i64 %162, %159
+  store i64 %163, ptr %4, align 8
+  %164 = getelementptr inbounds i8, ptr %.0232293, i64 %159
   br label %thread-pre-split
 
-164:                                              ; preds = %149
-  %165 = call i32 @XzBlock_Parse(ptr noundef nonnull %34, ptr noundef nonnull %17)
-  %.not270 = icmp eq i32 %165, 0
-  br i1 %.not270, label %166, label %Xz_ParseHeader.exit.thread
+165:                                              ; preds = %150
+  %166 = call i32 @XzBlock_Parse(ptr noundef nonnull %34, ptr noundef nonnull %17)
+  %.not270 = icmp eq i32 %166, 0
+  br i1 %.not270, label %167, label %Xz_ParseHeader.exit.thread
 
-166:                                              ; preds = %164
+167:                                              ; preds = %165
   store i32 6, ptr %0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  %167 = load i16, ptr %19, align 8
-  %168 = and i16 %167, 15
-  %169 = zext nneg i16 %168 to i32
-  call void @XzCheck_Init(ptr noundef nonnull %32, i32 noundef %169) #10
-  %170 = call i32 @XzDec_Init(ptr noundef nonnull %36, ptr noundef nonnull %34)
-  %.not271 = icmp eq i32 %170, 0
+  %168 = load i16, ptr %19, align 8
+  %169 = and i16 %168, 15
+  %170 = zext nneg i16 %169 to i32
+  call void @XzCheck_Init(ptr noundef nonnull %32, i32 noundef %170) #10
+  %171 = call i32 @XzDec_Init(ptr noundef nonnull %36, ptr noundef nonnull %34)
+  %.not271 = icmp eq i32 %171, 0
   br i1 %.not271, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-171:                                              ; preds = %93
-  %172 = load i64, ptr %30, align 8
-  %173 = load i32, ptr %31, align 8
-  %174 = zext i32 %173 to i64
-  %175 = add i64 %172, %174
-  %176 = and i64 %175, 3
-  %.not263 = icmp eq i64 %176, 0
-  br i1 %.not263, label %183, label %177
+172:                                              ; preds = %94
+  %173 = load i64, ptr %30, align 8
+  %174 = load i32, ptr %31, align 8
+  %175 = zext i32 %174 to i64
+  %176 = add i64 %173, %175
+  %177 = and i64 %176, 3
+  %.not263 = icmp eq i64 %177, 0
+  br i1 %.not263, label %184, label %178
 
-177:                                              ; preds = %171
-  %178 = add i64 %91, 1
-  store i64 %178, ptr %4, align 8
-  %179 = load i32, ptr %31, align 8
-  %180 = add i32 %179, 1
-  store i32 %180, ptr %31, align 8
-  %181 = getelementptr inbounds i8, ptr %.0232293, i64 1
-  %182 = load i8, ptr %.0232293, align 1
-  %.not268 = icmp eq i8 %182, 0
+178:                                              ; preds = %172
+  %179 = add i64 %92, 1
+  store i64 %179, ptr %4, align 8
+  %180 = load i32, ptr %31, align 8
+  %181 = add i32 %180, 1
+  store i32 %181, ptr %31, align 8
+  %182 = getelementptr inbounds i8, ptr %.0232293, i64 1
+  %183 = load i8, ptr %.0232293, align 1
+  %.not268 = icmp eq i8 %183, 0
   br i1 %.not268, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-183:                                              ; preds = %171
-  %184 = load i16, ptr %19, align 8
-  %185 = call i32 @XzFlags_GetCheckSize(i16 noundef zeroext %184) #10
-  %186 = load i32, ptr %16, align 4
-  %.not264 = icmp eq i32 %185, %186
-  br i1 %.not264, label %200, label %187
+184:                                              ; preds = %172
+  %185 = load i16, ptr %19, align 8
+  %186 = call i32 @XzFlags_GetCheckSize(i16 noundef zeroext %185) #10
+  %187 = load i32, ptr %16, align 4
+  %.not264 = icmp eq i32 %186, %187
+  br i1 %.not264, label %201, label %188
 
-187:                                              ; preds = %183
-  %188 = sub i32 %185, %186
-  %189 = zext i32 %188 to i64
-  %190 = icmp ult i64 %90, %189
-  %191 = trunc nuw i64 %90 to i32
-  %spec.select277 = select i1 %190, i32 %191, i32 %188
-  %192 = zext i32 %186 to i64
-  %193 = getelementptr inbounds i8, ptr %17, i64 %192
-  %194 = zext i32 %spec.select277 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %193, ptr align 1 %.0232293, i64 %194, i1 false)
-  %195 = load i32, ptr %16, align 4
-  %196 = add i32 %195, %spec.select277
-  store i32 %196, ptr %16, align 4
-  %197 = load i64, ptr %4, align 8
-  %198 = add i64 %197, %194
-  store i64 %198, ptr %4, align 8
-  %199 = getelementptr inbounds i8, ptr %.0232293, i64 %194
+188:                                              ; preds = %184
+  %189 = sub i32 %186, %187
+  %190 = zext i32 %189 to i64
+  %191 = icmp ult i64 %91, %190
+  %192 = trunc nuw i64 %91 to i32
+  %spec.select277 = select i1 %191, i32 %192, i32 %189
+  %193 = zext i32 %187 to i64
+  %194 = getelementptr inbounds i8, ptr %17, i64 %193
+  %195 = zext i32 %spec.select277 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %194, ptr align 1 %.0232293, i64 %195, i1 false)
+  %196 = load i32, ptr %16, align 4
+  %197 = add i32 %196, %spec.select277
+  store i32 %197, ptr %16, align 4
+  %198 = load i64, ptr %4, align 8
+  %199 = add i64 %198, %195
+  store i64 %199, ptr %4, align 8
+  %200 = getelementptr inbounds i8, ptr %.0232293, i64 %195
   br label %thread-pre-split
 
-200:                                              ; preds = %183
+201:                                              ; preds = %184
   store i32 5, ptr %0, align 8
   store i32 0, ptr %16, align 4
-  %201 = call i32 @XzCheck_Final(ptr noundef nonnull %32, ptr noundef nonnull %11) #10
-  %.not265 = icmp eq i32 %201, 0
-  br i1 %.not265, label %thread-pre-split, label %202
+  %202 = call i32 @XzCheck_Final(ptr noundef nonnull %32, ptr noundef nonnull %11) #10
+  %.not265 = icmp eq i32 %202, 0
+  br i1 %.not265, label %thread-pre-split, label %203
 
-202:                                              ; preds = %200
-  %203 = zext i32 %185 to i64
-  %bcmp266 = call i32 @bcmp(ptr nonnull %11, ptr nonnull %17, i64 %203)
+203:                                              ; preds = %201
+  %204 = zext i32 %186 to i64
+  %bcmp266 = call i32 @bcmp(ptr nonnull %11, ptr nonnull %17, i64 %204)
   %.not267 = icmp eq i32 %bcmp266, 0
   br i1 %.not267, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-204:                                              ; preds = %93
-  %205 = load i32, ptr %16, align 4
-  %206 = load i32, ptr %26, align 4
-  %207 = icmp ult i32 %205, %206
-  br i1 %207, label %208, label %217
+205:                                              ; preds = %94
+  %206 = load i32, ptr %16, align 4
+  %207 = load i32, ptr %26, align 4
+  %208 = icmp ult i32 %206, %207
+  br i1 %208, label %209, label %218
 
-208:                                              ; preds = %204
-  %209 = add i64 %91, 1
-  store i64 %209, ptr %4, align 8
-  %210 = getelementptr inbounds i8, ptr %.0232293, i64 1
-  %211 = load i8, ptr %.0232293, align 1
-  %212 = load i32, ptr %16, align 4
-  %213 = add i32 %212, 1
-  store i32 %213, ptr %16, align 4
-  %214 = zext i32 %212 to i64
-  %215 = getelementptr inbounds [1024 x i8], ptr %17, i64 0, i64 %214
-  %216 = load i8, ptr %215, align 1
-  %.not262 = icmp eq i8 %211, %216
+209:                                              ; preds = %205
+  %210 = add i64 %92, 1
+  store i64 %210, ptr %4, align 8
+  %211 = getelementptr inbounds i8, ptr %.0232293, i64 1
+  %212 = load i8, ptr %.0232293, align 1
+  %213 = load i32, ptr %16, align 4
+  %214 = add i32 %213, 1
+  store i32 %214, ptr %16, align 4
+  %215 = zext i32 %213 to i64
+  %216 = getelementptr inbounds [1024 x i8], ptr %17, i64 0, i64 %215
+  %217 = load i8, ptr %216, align 1
+  %.not262 = icmp eq i8 %212, %217
   br i1 %.not262, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-217:                                              ; preds = %204
-  %218 = load i64, ptr %27, align 8
-  %219 = load i64, ptr %20, align 8
-  %220 = icmp ult i64 %218, %219
-  br i1 %220, label %221, label %234
+218:                                              ; preds = %205
+  %219 = load i64, ptr %27, align 8
+  %220 = load i64, ptr %20, align 8
+  %221 = icmp ult i64 %219, %220
+  br i1 %221, label %222, label %235
 
-221:                                              ; preds = %217
-  %222 = sub nuw i64 %219, %218
-  %spec.select278 = call i64 @llvm.umin.i64(i64 %90, i64 %222)
-  %223 = load i32, ptr %25, align 8
-  %224 = call i32 @CrcUpdate(i32 noundef %223, ptr noundef %.0232293, i64 noundef %spec.select278) #10
-  store i32 %224, ptr %25, align 8
-  %225 = load ptr, ptr %28, align 8
-  %.not261 = icmp eq ptr %225, null
-  br i1 %.not261, label %228, label %226
+222:                                              ; preds = %218
+  %223 = sub nuw i64 %220, %219
+  %spec.select278 = call i64 @llvm.umin.i64(i64 %91, i64 %223)
+  %224 = load i32, ptr %25, align 8
+  %225 = call i32 @CrcUpdate(i32 noundef %224, ptr noundef %.0232293, i64 noundef %spec.select278) #10
+  store i32 %225, ptr %25, align 8
+  %226 = load ptr, ptr %28, align 8
+  %.not261 = icmp eq ptr %226, null
+  br i1 %.not261, label %229, label %227
 
-226:                                              ; preds = %221
-  %227 = call i32 @cl_update_hash(ptr noundef nonnull %225, ptr noundef %.0232293, i64 noundef %spec.select278) #10
-  br label %228
+227:                                              ; preds = %222
+  %228 = call i32 @cl_update_hash(ptr noundef nonnull %226, ptr noundef %.0232293, i64 noundef %spec.select278) #10
+  br label %229
 
-228:                                              ; preds = %226, %221
-  %229 = load i64, ptr %4, align 8
-  %230 = add i64 %229, %spec.select278
-  store i64 %230, ptr %4, align 8
-  %231 = getelementptr inbounds i8, ptr %.0232293, i64 %spec.select278
-  %232 = load i64, ptr %27, align 8
-  %233 = add i64 %232, %spec.select278
-  store i64 %233, ptr %27, align 8
+229:                                              ; preds = %227, %222
+  %230 = load i64, ptr %4, align 8
+  %231 = add i64 %230, %spec.select278
+  store i64 %231, ptr %4, align 8
+  %232 = getelementptr inbounds i8, ptr %.0232293, i64 %spec.select278
+  %233 = load i64, ptr %27, align 8
+  %234 = add i64 %233, %spec.select278
+  store i64 %234, ptr %27, align 8
   br label %thread-pre-split
 
-234:                                              ; preds = %217
-  %235 = and i64 %218, 3
-  %.not257 = icmp eq i64 %235, 0
-  br i1 %.not257, label %251, label %236
+235:                                              ; preds = %218
+  %236 = and i64 %219, 3
+  %.not257 = icmp eq i64 %236, 0
+  br i1 %.not257, label %254, label %237
 
-236:                                              ; preds = %234
-  %237 = getelementptr inbounds i8, ptr %.0232293, i64 1
-  %238 = load i8, ptr %.0232293, align 1
-  %239 = load i32, ptr %25, align 8
-  %240 = zext i8 %238 to i32
-  %.masked = and i32 %239, 255
-  %241 = xor i32 %.masked, %240
-  %242 = zext nneg i32 %241 to i64
-  %243 = getelementptr inbounds [0 x i32], ptr @g_CrcTable, i64 0, i64 %242
-  %244 = load i32, ptr %243, align 4
-  %245 = lshr i32 %239, 8
-  %246 = xor i32 %244, %245
-  store i32 %246, ptr %25, align 8
-  %247 = load i64, ptr %4, align 8
-  %248 = add i64 %247, 1
-  store i64 %248, ptr %4, align 8
-  %249 = load <2 x i64>, ptr %20, align 8
-  %250 = add <2 x i64> %249, <i64 1, i64 1>
-  store <2 x i64> %250, ptr %20, align 8
-  %.not260 = icmp eq i8 %238, 0
+237:                                              ; preds = %235
+  %238 = getelementptr inbounds i8, ptr %.0232293, i64 1
+  %239 = load i8, ptr %.0232293, align 1
+  %240 = load i32, ptr %25, align 8
+  %241 = zext i8 %239 to i32
+  %.masked = and i32 %240, 255
+  %242 = xor i32 %.masked, %241
+  %243 = zext nneg i32 %242 to i64
+  %244 = getelementptr inbounds [0 x i32], ptr @g_CrcTable, i64 0, i64 %243
+  %245 = load i32, ptr %244, align 4
+  %246 = lshr i32 %240, 8
+  %247 = xor i32 %245, %246
+  store i32 %247, ptr %25, align 8
+  %248 = load i64, ptr %4, align 8
+  %249 = add i64 %248, 1
+  store i64 %249, ptr %4, align 8
+  %250 = load i64, ptr %27, align 8
+  %251 = add i64 %250, 1
+  store i64 %251, ptr %27, align 8
+  %252 = load i64, ptr %20, align 8
+  %253 = add i64 %252, 1
+  store i64 %253, ptr %20, align 8
+  %.not260 = icmp eq i8 %239, 0
   br i1 %.not260, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-251:                                              ; preds = %234
+254:                                              ; preds = %235
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   store i32 2, ptr %0, align 8
-  %252 = add i64 %219, 4
-  store i64 %252, ptr %20, align 8
+  %255 = add i64 %220, 4
+  store i64 %255, ptr %20, align 8
   store i32 0, ptr %16, align 4
-  %253 = load ptr, ptr %28, align 8
-  %.not258 = icmp eq ptr %253, null
-  br i1 %.not258, label %256, label %254
+  %256 = load ptr, ptr %28, align 8
+  %.not258 = icmp eq ptr %256, null
+  br i1 %.not258, label %259, label %257
 
-254:                                              ; preds = %251
-  %255 = call i32 @cl_finish_hash(ptr noundef nonnull %253, ptr noundef nonnull %12) #10
+257:                                              ; preds = %254
+  %258 = call i32 @cl_finish_hash(ptr noundef nonnull %256, ptr noundef nonnull %12) #10
   store ptr null, ptr %28, align 8
-  br label %256
+  br label %259
 
-256:                                              ; preds = %254, %251
+259:                                              ; preds = %257, %254
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %12, ptr noundef nonnull dereferenceable(32) %29, i64 32)
   %.not259 = icmp eq i32 %bcmp, 0
   br i1 %.not259, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-257:                                              ; preds = %93
-  %258 = load i32, ptr %16, align 4
-  %259 = icmp ult i32 %258, 4
-  br i1 %259, label %260, label %268
+260:                                              ; preds = %94
+  %261 = load i32, ptr %16, align 4
+  %262 = icmp ult i32 %261, 4
+  br i1 %262, label %263, label %271
 
-260:                                              ; preds = %257
-  %261 = add i64 %91, 1
-  store i64 %261, ptr %4, align 8
-  %262 = getelementptr inbounds i8, ptr %.0232293, i64 1
-  %263 = load i8, ptr %.0232293, align 1
-  %264 = load i32, ptr %16, align 4
-  %265 = add i32 %264, 1
-  store i32 %265, ptr %16, align 4
-  %266 = zext i32 %264 to i64
-  %267 = getelementptr inbounds [1024 x i8], ptr %17, i64 0, i64 %266
-  store i8 %263, ptr %267, align 1
+263:                                              ; preds = %260
+  %264 = add i64 %92, 1
+  store i64 %264, ptr %4, align 8
+  %265 = getelementptr inbounds i8, ptr %.0232293, i64 1
+  %266 = load i8, ptr %.0232293, align 1
+  %267 = load i32, ptr %16, align 4
+  %268 = add i32 %267, 1
+  store i32 %268, ptr %16, align 4
+  %269 = zext i32 %267 to i64
+  %270 = getelementptr inbounds [1024 x i8], ptr %17, i64 0, i64 %269
+  store i8 %266, ptr %270, align 1
   br label %thread-pre-split
 
-268:                                              ; preds = %257
+271:                                              ; preds = %260
   store i32 3, ptr %0, align 8
   store i32 0, ptr %16, align 4
-  %269 = load i32, ptr %25, align 8
-  %270 = load i32, ptr %17, align 8
-  %271 = xor i32 %270, %269
-  %.not256 = icmp eq i32 %271, -1
+  %272 = load i32, ptr %25, align 8
+  %273 = load i32, ptr %17, align 8
+  %274 = xor i32 %273, %272
+  %.not256 = icmp eq i32 %274, -1
   br i1 %.not256, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-272:                                              ; preds = %93
-  %273 = load i32, ptr %16, align 4
-  %274 = sub i32 12, %273
-  %275 = zext i32 %274 to i64
-  %276 = icmp ult i64 %90, %275
-  %277 = trunc nuw i64 %90 to i32
-  %spec.select279 = select i1 %276, i32 %277, i32 %274
-  %278 = zext i32 %273 to i64
-  %279 = getelementptr inbounds i8, ptr %17, i64 %278
-  %280 = zext i32 %spec.select279 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %279, ptr align 1 %.0232293, i64 %280, i1 false)
-  %281 = load i32, ptr %16, align 4
-  %282 = add i32 %spec.select279, %281
-  store i32 %282, ptr %16, align 4
-  %283 = load i64, ptr %4, align 8
-  %284 = add i64 %283, %280
-  store i64 %284, ptr %4, align 8
-  %285 = getelementptr inbounds i8, ptr %.0232293, i64 %280
-  %286 = load i32, ptr %16, align 4
-  %287 = icmp eq i32 %286, 12
-  br i1 %287, label %288, label %thread-pre-split
+275:                                              ; preds = %94
+  %276 = load i32, ptr %16, align 4
+  %277 = sub i32 12, %276
+  %278 = zext i32 %277 to i64
+  %279 = icmp ult i64 %91, %278
+  %280 = trunc nuw i64 %91 to i32
+  %spec.select279 = select i1 %279, i32 %280, i32 %277
+  %281 = zext i32 %276 to i64
+  %282 = getelementptr inbounds i8, ptr %17, i64 %281
+  %283 = zext i32 %spec.select279 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %282, ptr align 1 %.0232293, i64 %283, i1 false)
+  %284 = load i32, ptr %16, align 4
+  %285 = add i32 %spec.select279, %284
+  store i32 %285, ptr %16, align 4
+  %286 = load i64, ptr %4, align 8
+  %287 = add i64 %286, %283
+  store i64 %287, ptr %4, align 8
+  %288 = getelementptr inbounds i8, ptr %.0232293, i64 %283
+  %289 = load i32, ptr %16, align 4
+  %290 = icmp eq i32 %289, 12
+  br i1 %290, label %291, label %thread-pre-split
 
-288:                                              ; preds = %272
+291:                                              ; preds = %275
   store i32 4, ptr %0, align 8
-  %289 = load i64, ptr %18, align 8
-  %290 = add i64 %289, 1
-  store i64 %290, ptr %18, align 8
+  %292 = load i64, ptr %18, align 8
+  %293 = add i64 %292, 1
+  store i64 %293, ptr %18, align 8
   store i64 0, ptr %15, align 8
-  %291 = load i16, ptr %19, align 8
-  %292 = load i64, ptr %20, align 8
-  %293 = load i32, ptr %21, align 1
-  %294 = sext i32 %293 to i64
-  %295 = shl nsw i64 %294, 2
-  %296 = add nsw i64 %295, 4
-  %297 = icmp eq i64 %296, %292
-  br i1 %297, label %298, label %Xz_ParseHeader.exit.thread
+  %294 = load i16, ptr %19, align 8
+  %295 = load i64, ptr %20, align 8
+  %296 = load i32, ptr %21, align 1
+  %297 = sext i32 %296 to i64
+  %298 = shl nsw i64 %297, 2
+  %299 = add nsw i64 %298, 4
+  %300 = icmp eq i64 %299, %295
+  br i1 %300, label %301, label %Xz_ParseHeader.exit.thread
 
-298:                                              ; preds = %288
-  %299 = load i32, ptr %17, align 1
-  %300 = call i32 @CrcCalc(ptr noundef nonnull %21, i64 noundef 6) #10
-  %301 = icmp eq i32 %299, %300
-  br i1 %301, label %302, label %Xz_ParseHeader.exit.thread
+301:                                              ; preds = %291
+  %302 = load i32, ptr %17, align 1
+  %303 = call i32 @CrcCalc(ptr noundef nonnull %21, i64 noundef 6) #10
+  %304 = icmp eq i32 %302, %303
+  br i1 %304, label %305, label %Xz_ParseHeader.exit.thread
 
-302:                                              ; preds = %298
-  %303 = zext i16 %291 to i32
-  %304 = load i8, ptr %22, align 1
-  %305 = zext i8 %304 to i32
-  %306 = shl nuw nsw i32 %305, 8
-  %307 = load i8, ptr %23, align 1
+305:                                              ; preds = %301
+  %306 = zext i16 %294 to i32
+  %307 = load i8, ptr %22, align 1
   %308 = zext i8 %307 to i32
-  %309 = or disjoint i32 %306, %308
-  %310 = icmp eq i32 %309, %303
-  br i1 %310, label %Xz_CheckFooter.exit, label %Xz_ParseHeader.exit.thread
+  %309 = shl nuw nsw i32 %308, 8
+  %310 = load i8, ptr %23, align 1
+  %311 = zext i8 %310 to i32
+  %312 = or disjoint i32 %309, %311
+  %313 = icmp eq i32 %312, %306
+  br i1 %313, label %Xz_CheckFooter.exit, label %Xz_ParseHeader.exit.thread
 
-Xz_CheckFooter.exit:                              ; preds = %302
+Xz_CheckFooter.exit:                              ; preds = %305
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull dereferenceable(2) @XZ_FOOTER_SIG, i64 2)
   %.not283 = icmp eq i32 %bcmp.i, 0
   br i1 %.not283, label %thread-pre-split, label %Xz_ParseHeader.exit.thread
 
-311:                                              ; preds = %93
-  %312 = load i8, ptr %.0232293, align 1
-  %.not = icmp eq i8 %312, 0
-  br i1 %.not, label %317, label %313
+314:                                              ; preds = %94
+  %315 = load i8, ptr %.0232293, align 1
+  %.not = icmp eq i8 %315, 0
+  br i1 %.not, label %320, label %316
 
-313:                                              ; preds = %311
-  %314 = load i64, ptr %15, align 8
-  %315 = and i64 %314, 3
-  %.not254 = icmp eq i64 %315, 0
-  br i1 %.not254, label %316, label %Xz_ParseHeader.exit.thread
+316:                                              ; preds = %314
+  %317 = load i64, ptr %15, align 8
+  %318 = and i64 %317, 3
+  %.not254 = icmp eq i64 %318, 0
+  br i1 %.not254, label %319, label %Xz_ParseHeader.exit.thread
 
-316:                                              ; preds = %313
+319:                                              ; preds = %316
   store i32 0, ptr %16, align 4
   store i32 0, ptr %0, align 8
-  br label %322
+  br label %325
 
-317:                                              ; preds = %311
-  %318 = add i64 %91, 1
-  store i64 %318, ptr %4, align 8
-  %319 = getelementptr inbounds i8, ptr %.0232293, i64 1
-  %320 = load i64, ptr %15, align 8
-  %321 = add i64 %320, 1
-  store i64 %321, ptr %15, align 8
+320:                                              ; preds = %314
+  %321 = add i64 %92, 1
+  store i64 %321, ptr %4, align 8
+  %322 = getelementptr inbounds i8, ptr %.0232293, i64 1
+  %323 = load i64, ptr %15, align 8
+  %324 = add i64 %323, 1
+  store i64 %324, ptr %15, align 8
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %93, %Xz_ParseHeader.exit, %._crit_edge303, %151, %166, %144, %187, %202, %200, %177, %228, %256, %236, %208, %268, %260, %Xz_CheckFooter.exit, %272, %317
-  %.1.ph = phi ptr [ %.0232293, %Xz_ParseHeader.exit ], [ %103, %._crit_edge303 ], [ %.0232293, %166 ], [ %163, %151 ], [ %125, %144 ], [ %.0232293, %200 ], [ %.0232293, %202 ], [ %199, %187 ], [ %181, %177 ], [ %.0232293, %256 ], [ %237, %236 ], [ %231, %228 ], [ %210, %208 ], [ %.0232293, %268 ], [ %262, %260 ], [ %285, %272 ], [ %285, %Xz_CheckFooter.exit ], [ %319, %317 ], [ %.0232293, %93 ]
+thread-pre-split:                                 ; preds = %94, %Xz_ParseHeader.exit, %._crit_edge303, %152, %167, %145, %188, %203, %201, %178, %229, %259, %237, %209, %271, %263, %Xz_CheckFooter.exit, %275, %320
+  %.1.ph = phi ptr [ %.0232293, %Xz_ParseHeader.exit ], [ %104, %._crit_edge303 ], [ %.0232293, %167 ], [ %164, %152 ], [ %126, %145 ], [ %.0232293, %201 ], [ %.0232293, %203 ], [ %200, %188 ], [ %182, %178 ], [ %.0232293, %259 ], [ %238, %237 ], [ %232, %229 ], [ %211, %209 ], [ %.0232293, %271 ], [ %265, %263 ], [ %288, %275 ], [ %288, %Xz_CheckFooter.exit ], [ %322, %320 ], [ %.0232293, %94 ]
   %.pr = load i32, ptr %0, align 8
-  br label %322
+  br label %325
 
-322:                                              ; preds = %thread-pre-split, %316
-  %323 = phi i32 [ %.pr, %thread-pre-split ], [ 0, %316 ]
-  %.1 = phi ptr [ %.1.ph, %thread-pre-split ], [ %.0232293, %316 ]
-  %324 = load i64, ptr %4, align 8
-  %325 = sub i64 %14, %324
-  %326 = icmp eq i32 %323, 6
-  br i1 %326, label %._crit_edge, label %.lr.ph
+325:                                              ; preds = %thread-pre-split, %319
+  %326 = phi i32 [ %.pr, %thread-pre-split ], [ 0, %319 ]
+  %.1 = phi ptr [ %.1.ph, %thread-pre-split ], [ %.0232293, %319 ]
+  %327 = load i64, ptr %4, align 8
+  %328 = sub i64 %14, %327
+  %329 = icmp eq i32 %326, 6
+  br i1 %329, label %._crit_edge, label %.lr.ph
 
 Xz_ParseHeader.exit.thread.sink.split:            ; preds = %._crit_edge, %.lr.ph
   %.sink = phi i32 [ 3, %.lr.ph ], [ 2, %._crit_edge ]
   store i32 %.sink, ptr %6, align 4
   br label %Xz_ParseHeader.exit.thread
 
-Xz_ParseHeader.exit.thread:                       ; preds = %87, %49, %298, %302, %288, %108, %117, %313, %Xz_CheckFooter.exit, %268, %256, %236, %208, %202, %177, %166, %164, %100, %Xz_ParseHeader.exit.thread.sink.split
-  %.0229 = phi i32 [ 0, %Xz_ParseHeader.exit.thread.sink.split ], [ 17, %100 ], [ %165, %164 ], [ %170, %166 ], [ 3, %177 ], [ 3, %202 ], [ 3, %208 ], [ 3, %236 ], [ 3, %256 ], [ 3, %268 ], [ 3, %Xz_CheckFooter.exit ], [ 17, %313 ], [ 17, %108 ], [ 4, %117 ], [ 3, %288 ], [ 3, %302 ], [ 3, %298 ], [ %50, %49 ], [ 0, %87 ]
+Xz_ParseHeader.exit.thread:                       ; preds = %88, %49, %301, %305, %291, %109, %118, %316, %Xz_CheckFooter.exit, %271, %259, %237, %209, %203, %178, %167, %165, %101, %Xz_ParseHeader.exit.thread.sink.split
+  %.0229 = phi i32 [ 0, %Xz_ParseHeader.exit.thread.sink.split ], [ 17, %101 ], [ %166, %165 ], [ %171, %167 ], [ 3, %178 ], [ 3, %203 ], [ 3, %209 ], [ 3, %237 ], [ 3, %259 ], [ 3, %271 ], [ 3, %Xz_CheckFooter.exit ], [ 17, %316 ], [ 17, %109 ], [ 4, %118 ], [ 3, %291 ], [ 3, %305 ], [ 3, %301 ], [ %50, %49 ], [ 0, %88 ]
   ret i32 %.0229
 }
 

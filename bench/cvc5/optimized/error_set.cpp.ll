@@ -1244,7 +1244,7 @@ _ZN4cvc58internal8RationalD2Ev.exit2:             ; preds = %_ZN4cvc58internal8R
 define hidden void @_ZN4cvc58internal6theory5arith6linear8ErrorSet16setSelectionRuleENS0_7options18ErrorSelectionRuleE(ptr noundef nonnull align 8 dereferenceable(240) %this, i32 noundef %rule) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i = alloca %"class.cvc5::internal::theory::arith::linear::ComparatorPivotRule", align 8
-  %into = alloca %"class.cvc5::internal::BinaryHeap", align 16
+  %into = alloca %"class.cvc5::internal::BinaryHeap", align 8
   %v = alloca i32, align 4
   %d_selectionRule.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %d_selectionRule.i, align 8
@@ -1253,10 +1253,10 @@ entry:
 
 invoke.cont5:                                     ; preds = %entry
   %d_cmp.i = getelementptr inbounds i8, ptr %into, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %into, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %into, i8 0, i64 24, i1 false)
   store ptr %this, ptr %d_cmp.i, align 8
   %ref.tmp.sroa.2.0.d_cmp.i.sroa_idx = getelementptr inbounds i8, ptr %into, i64 32
-  store i32 %rule, ptr %ref.tmp.sroa.2.0.d_cmp.i.sroa_idx, align 16
+  store i32 %rule, ptr %ref.tmp.sroa.2.0.d_cmp.i.sroa_idx, align 8
   %d_focus = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %d_focus, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -1309,25 +1309,29 @@ for.inc:                                          ; preds = %for.body, %invoke.c
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load ptr, ptr %d_focus, align 8
   %.pre11 = load ptr, ptr %_M_finish.i.i, align 8
-  %8 = load <2 x ptr>, ptr %into, align 16
+  %.pre12 = load ptr, ptr %into, align 8
+  %_M_finish.i2.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %into, i64 8
+  %.pre13 = load ptr, ptr %_M_finish.i2.i.i.i.i.phi.trans.insert, align 8
   %_M_end_of_storage.i4.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %into, i64 16
-  %.pre14 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.phi.trans.insert, align 16
+  %.pre14 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.phi.trans.insert, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %invoke.cont5
-  %9 = phi ptr [ %.pre14, %for.end.loopexit ], [ null, %invoke.cont5 ]
-  %10 = phi ptr [ %.pre11, %for.end.loopexit ], [ %2, %invoke.cont5 ]
-  %11 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %invoke.cont5 ]
-  %12 = phi <2 x ptr> [ %8, %for.end.loopexit ], [ zeroinitializer, %invoke.cont5 ]
+  %8 = phi ptr [ %.pre14, %for.end.loopexit ], [ null, %invoke.cont5 ]
+  %9 = phi ptr [ %.pre13, %for.end.loopexit ], [ null, %invoke.cont5 ]
+  %10 = phi ptr [ %.pre12, %for.end.loopexit ], [ null, %invoke.cont5 ]
+  %11 = phi ptr [ %.pre11, %for.end.loopexit ], [ %2, %invoke.cont5 ]
+  %12 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %invoke.cont5 ]
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %10, ptr %d_focus, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %into, i64 8
-  store <2 x ptr> %12, ptr %d_focus, align 8
+  store ptr %9, ptr %_M_finish.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %into, i64 16
-  store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store ptr %11, ptr %into, align 16
-  store ptr %10, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 16
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %12, ptr %into, align 8
+  store ptr %11, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   %d_cmp.i6 = getelementptr inbounds i8, ptr %this, i64 112
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %d_cmp.i6, i64 16, i1 false)
@@ -1335,11 +1339,11 @@ for.end:                                          ; preds = %for.end.loopexit, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %d_cmp.i, ptr noundef nonnull align 8 dereferenceable(12) %__tmp.i.i, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i)
   store i32 %rule, ptr %d_selectionRule.i, align 8
-  %cmp.i.not3.i.i = icmp eq ptr %11, %10
+  %cmp.i.not3.i.i = icmp eq ptr %12, %11
   br i1 %cmp.i.not3.i.i, label %_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE5clearEv.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.end, %for.inc.i.i
-  %i.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %11, %for.end ]
+  %i.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %12, %for.end ]
   %14 = load ptr, ptr %i.sroa.0.04.i.i, align 8
   %isnull.i.i = icmp eq ptr %14, null
   br i1 %isnull.i.i, label %for.inc.i.i, label %delete.notnull.i.i
@@ -1350,11 +1354,11 @@ delete.notnull.i.i:                               ; preds = %for.body.i.i
 
 for.inc.i.i:                                      ; preds = %delete.notnull.i.i, %for.body.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.04.i.i, i64 8
-  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %10
+  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %11
   br i1 %cmp.i.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !13
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %.pre.i.i = load ptr, ptr %into, align 16
+  %.pre.i.i = load ptr, ptr %into, align 8
   %.pre5.i.i = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %.pre5.i.i, %.pre.i.i
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE5clearEv.exit.i, label %invoke.cont.i.i.i.i
@@ -1364,7 +1368,7 @@ invoke.cont.i.i.i.i:                              ; preds = %for.end.i.i
   br label %_ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE5clearEv.exit.i
 
 _ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE5clearEv.exit.i: ; preds = %invoke.cont.i.i.i.i, %for.end.i.i, %for.end
-  %15 = phi ptr [ %11, %for.end ], [ %.pre.i.i, %for.end.i.i ], [ %.pre.i.i, %invoke.cont.i.i.i.i ]
+  %15 = phi ptr [ %12, %for.end ], [ %.pre.i.i, %for.end.i.i ], [ %.pre.i.i, %invoke.cont.i.i.i.i ]
   %tobool.not.i.i.i1.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i1.i, label %if.end28, label %if.then.i.i.i.i
 

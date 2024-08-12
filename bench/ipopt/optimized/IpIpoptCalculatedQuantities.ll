@@ -13062,9 +13062,17 @@ declare void @_ZN5Ipopt6Vector4ScalEd(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN5Ipopt25IpoptCalculatedQuantities19AdjustedTrialSlacksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2185) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
-  %3 = load <4 x i32>, ptr %2, align 8
-  %4 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %3)
-  ret i32 %4
+  %3 = load i32, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 276
+  %5 = load i32, ptr %4, align 4
+  %6 = add nsw i32 %5, %3
+  %7 = getelementptr inbounds i8, ptr %0, i64 280
+  %8 = load i32, ptr %7, align 8
+  %9 = add nsw i32 %6, %8
+  %10 = getelementptr inbounds i8, ptr %0, i64 284
+  %11 = load i32, ptr %10, align 4
+  %12 = add nsw i32 %9, %11
+  ret i32 %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -74133,9 +74141,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -445,7 +445,13 @@ if.end32:                                         ; preds = %_ZNK6icu_7513Unicod
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call29, i8 0, i64 %conv28, i1 false)
   store i32 45472, ptr %call29, align 4
   %fFormatVersion = getelementptr inbounds i8, ptr %call29, i64 4
-  store <4 x i8> <i8 6, i8 0, i8 0, i8 0>, ptr %fFormatVersion, align 4
+  store i8 6, ptr %fFormatVersion, align 4
+  %arrayidx35 = getelementptr inbounds i8, ptr %call29, i64 5
+  store i8 0, ptr %arrayidx35, align 1
+  %arrayidx37 = getelementptr inbounds i8, ptr %call29, i64 6
+  store i8 0, ptr %arrayidx37, align 2
+  %arrayidx39 = getelementptr inbounds i8, ptr %call29, i64 7
+  store i8 0, ptr %arrayidx39, align 1
   %fLength = getelementptr inbounds i8, ptr %call29, i64 8
   store i32 %add27, ptr %fLength, align 4
   %16 = load ptr, ptr %fSetBuilder, align 8

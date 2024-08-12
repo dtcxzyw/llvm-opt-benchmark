@@ -10156,9 +10156,9 @@ if.then:                                          ; preds = %while.body, %while.
 while.cond.i.i:                                   ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i, %if.then
   %__parent.0.i.i = phi i64 [ %div2526.i.i, %if.then ], [ %dec.i.i, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__parent.0.i.i
+  %__value.sroa.0.0.copyload.i.i = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !85
   %__value.sroa.4.0.call5.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %__value.sroa.4.0.copyload.i.i = load ptr, ptr %__value.sroa.4.0.call5.sroa_idx.i.i, align 8, !tbaa !85
-  %1 = load <2 x ptr>, ptr %add.ptr.i.i.i, align 8, !tbaa !85
   %cmp64.i.i.i = icmp sgt i64 %div.i2728.i.i, %__parent.0.i.i
   br i1 %cmp64.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -10168,10 +10168,10 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i, %wh
   %mul.i.i.i = add i64 %add.i.i.i, 2
   %sub3.i.i.i = or disjoint i64 %add.i.i.i, 1
   %TextureValue.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %mul.i.i.i, i32 1
-  %2 = load ptr, ptr %TextureValue.i.i.i.i.i, align 8, !tbaa !242
+  %1 = load ptr, ptr %TextureValue.i.i.i.i.i, align 8, !tbaa !242
   %TextureValue2.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %sub3.i.i.i, i32 1
-  %3 = load ptr, ptr %TextureValue2.i.i.i.i.i, align 8, !tbaa !242
-  %cmp.i.i.i.i.i = icmp ult ptr %2, %3
+  %2 = load ptr, ptr %TextureValue2.i.i.i.i.i, align 8, !tbaa !242
+  %cmp.i.i.i.i.i = icmp ult ptr %1, %2
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub3.i.i.i, i64 %mul.i.i.i
   %add.ptr.i55.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %spec.select.i.i.i
   %add.ptr.i56.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i
@@ -10200,8 +10200,8 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end33.i.i.i, %wh
   %__parent.033.i.i.i.i = sdiv i64 %__parent.033.in.i.i.i.i, 2
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__parent.033.i.i.i.i
   %TextureValue.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
-  %4 = load ptr, ptr %TextureValue.i.i.i.i.i.i30, align 8, !tbaa !242
-  %cmp.i.i.i.i.i.i31 = icmp ult ptr %4, %__value.sroa.4.0.copyload.i.i
+  %3 = load ptr, ptr %TextureValue.i.i.i.i.i.i30, align 8, !tbaa !242
+  %cmp.i.i.i.i.i.i31 = icmp ult ptr %3, %__value.sroa.4.0.copyload.i.i
   br i1 %cmp.i.i.i.i.i.i31, label %while.body.i.i.i.i32, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i
 
 while.body.i.i.i.i32:                             ; preds = %land.rhs.i.i.i.i
@@ -10213,7 +10213,9 @@ while.body.i.i.i.i32:                             ; preds = %land.rhs.i.i.i.i
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i: ; preds = %while.body.i.i.i.i32, %land.rhs.i.i.i.i, %if.end33.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i29 = phi i64 [ %__holeIndex.addr.1.i.i.i, %if.end33.i.i.i ], [ %__holeIndex.addr.032.i.i.i.i, %land.rhs.i.i.i.i ], [ %__parent.033.i.i.i.i, %while.body.i.i.i.i32 ]
   %add.ptr.i25.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i29
-  store <2 x ptr> %1, ptr %add.ptr.i25.i.i.i.i, align 8, !tbaa !85
+  store ptr %__value.sroa.0.0.copyload.i.i, ptr %add.ptr.i25.i.i.i.i, align 8, !tbaa !85
+  %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i25.i.i.i.i, i64 8
+  store ptr %__value.sroa.4.0.copyload.i.i, ptr %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !85
   %cmp9.not.i.i = icmp eq i64 %__parent.0.i.i, 0
   %dec.i.i = add nsw i64 %__parent.0.i.i, -1
   br i1 %cmp9.not.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit, label %while.cond.i.i, !llvm.loop !245
@@ -10225,9 +10227,9 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16
 while.body.i.i:                                   ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i
   %__last.sroa.0.012.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i ], [ %storemerge46.lcssa, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i, i64 -16
+  %__value.sroa.0.0.copyload.i.i.i = load ptr, ptr %incdec.ptr.i.i.i, align 8, !tbaa !85
   %__value.sroa.4.0.call.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i, i64 -8
   %__value.sroa.4.0.copyload.i.i.i = load ptr, ptr %__value.sroa.4.0.call.sroa_idx.i.i.i, align 8, !tbaa !85
-  %5 = load <2 x ptr>, ptr %incdec.ptr.i.i.i, align 8, !tbaa !85
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false), !tbaa.struct !153
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i
@@ -10243,10 +10245,10 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i, %wh
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
   %TextureValue.i.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %mul.i.i.i.i, i32 1
-  %6 = load ptr, ptr %TextureValue.i.i.i.i.i.i, align 8, !tbaa !242
+  %4 = load ptr, ptr %TextureValue.i.i.i.i.i.i, align 8, !tbaa !242
   %TextureValue2.i.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %sub3.i.i.i.i, i32 1
-  %7 = load ptr, ptr %TextureValue2.i.i.i.i.i.i, align 8, !tbaa !242
-  %cmp.i.i.i.i.i.i = icmp ult ptr %6, %7
+  %5 = load ptr, ptr %TextureValue2.i.i.i.i.i.i, align 8, !tbaa !242
+  %cmp.i.i.i.i.i.i = icmp ult ptr %4, %5
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
   %add.ptr.i55.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %spec.select.i.i.i.i
   %add.ptr.i56.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.065.i.i.i.i
@@ -10256,8 +10258,8 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i, %wh
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %while.body.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i.i, %while.body.i.i.i.i ]
-  %8 = and i64 %sub.ptr.sub.i.i.i.i, 16
-  %cmp16.i.i.i.i = icmp eq i64 %8, 0
+  %6 = and i64 %sub.ptr.sub.i.i.i.i, 16
+  %cmp16.i.i.i.i = icmp eq i64 %6, 0
   br i1 %cmp16.i.i.i.i, label %land.lhs.true.i.i.i.i, label %if.end33.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
@@ -10285,8 +10287,8 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end33.i.i.i.i, %
   %__parent.033.i.i1112.i.i.i = lshr i64 %__parent.033.in.i.i.i.i.i, 1
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__parent.033.i.i1112.i.i.i
   %TextureValue.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
-  %9 = load ptr, ptr %TextureValue.i.i.i.i.i.i.i, align 8, !tbaa !242
-  %cmp.i.i.i.i.i.i.i = icmp ult ptr %9, %__value.sroa.4.0.copyload.i.i.i
+  %7 = load ptr, ptr %TextureValue.i.i.i.i.i.i.i, align 8, !tbaa !242
+  %cmp.i.i.i.i.i.i.i = icmp ult ptr %7, %__value.sroa.4.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
@@ -10298,7 +10300,9 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end33.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.032.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
   %add.ptr.i25.i.i.i.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
-  store <2 x ptr> %5, ptr %add.ptr.i25.i.i.i.i.i, align 8, !tbaa !85
+  store ptr %__value.sroa.0.0.copyload.i.i.i, ptr %add.ptr.i25.i.i.i.i.i, align 8, !tbaa !85
+  %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i25.i.i.i.i.i, i64 8
+  store ptr %__value.sroa.4.0.copyload.i.i.i, ptr %__value.sroa.2.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !85
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 16
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !246
 
@@ -10310,16 +10314,16 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %div.i3536 = lshr i64 %sub.ptr.div.i4960, 1
   %add.ptr.i.i = getelementptr inbounds %"struct.irr::scene::CSceneManager::DefaultNodeEntry", ptr %__first.coerce, i64 %div.i3536
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge4662, i64 -16
-  %10 = load ptr, ptr %TextureValue.i.i.i.i, align 8, !tbaa !242
+  %8 = load ptr, ptr %TextureValue.i.i.i.i, align 8, !tbaa !242
   %TextureValue2.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %11 = load ptr, ptr %TextureValue2.i.i.i.i, align 8, !tbaa !242
-  %cmp.i.i.i.i23 = icmp ult ptr %10, %11
+  %9 = load ptr, ptr %TextureValue2.i.i.i.i, align 8, !tbaa !242
+  %cmp.i.i.i.i23 = icmp ult ptr %8, %9
   %TextureValue2.i.i64.i.i = getelementptr inbounds i8, ptr %storemerge4662, i64 -8
-  %12 = load ptr, ptr %TextureValue2.i.i64.i.i, align 8, !tbaa !242
+  %10 = load ptr, ptr %TextureValue2.i.i64.i.i, align 8, !tbaa !242
   br i1 %cmp.i.i.i.i23, label %if.then.i.i, label %if.else33.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %cmp.i.i65.i.i = icmp ult ptr %11, %12
+  %cmp.i.i65.i.i = icmp ult ptr %9, %10
   br i1 %cmp.i.i65.i.i, label %if.then12.i.i, label %if.else.i.i
 
 if.then12.i.i:                                    ; preds = %if.then.i.i
@@ -10331,7 +10335,7 @@ if.then12.i.i:                                    ; preds = %if.then.i.i
   br label %while.body.i.i24.preheader
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %cmp.i.i68.i.i = icmp ult ptr %10, %12
+  %cmp.i.i68.i.i = icmp ult ptr %8, %10
   br i1 %cmp.i.i68.i.i, label %if.then22.i.i, label %if.else27.i.i
 
 if.then22.i.i:                                    ; preds = %if.else.i.i
@@ -10351,7 +10355,7 @@ if.else27.i.i:                                    ; preds = %if.else.i.i
   br label %while.body.i.i24.preheader
 
 if.else33.i.i:                                    ; preds = %if.end
-  %cmp.i.i73.i.i = icmp ult ptr %10, %12
+  %cmp.i.i73.i.i = icmp ult ptr %8, %10
   br i1 %cmp.i.i73.i.i, label %if.then39.i.i, label %if.else44.i.i
 
 if.then39.i.i:                                    ; preds = %if.else33.i.i
@@ -10363,7 +10367,7 @@ if.then39.i.i:                                    ; preds = %if.else33.i.i
   br label %while.body.i.i24.preheader
 
 if.else44.i.i:                                    ; preds = %if.else33.i.i
-  %cmp.i.i77.i.i = icmp ult ptr %11, %12
+  %cmp.i.i77.i.i = icmp ult ptr %9, %10
   br i1 %cmp.i.i77.i.i, label %if.then50.i.i, label %if.else55.i.i
 
 if.then50.i.i:                                    ; preds = %if.else44.i.i
@@ -10388,14 +10392,14 @@ while.body.i.i24.preheader:                       ; preds = %if.else55.i.i, %if.
 while.body.i.i24:                                 ; preds = %while.body.i.i24.preheader, %if.end.i.i
   %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i25, %if.end.i.i ], [ %add.ptr.i28.i, %while.body.i.i24.preheader ]
   %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge4662, %while.body.i.i24.preheader ]
-  %13 = load ptr, ptr %TextureValue2.i.i.i32.i, align 8, !tbaa !242
+  %11 = load ptr, ptr %TextureValue2.i.i.i32.i, align 8, !tbaa !242
   br label %while.cond3.i.i
 
 while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i24
   %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i24 ], [ %incdec.ptr.i.i.i25, %while.cond3.i.i ]
   %TextureValue.i.i.i33.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 8
-  %14 = load ptr, ptr %TextureValue.i.i.i33.i, align 8, !tbaa !242
-  %cmp.i.i.i34.i = icmp ult ptr %14, %13
+  %12 = load ptr, ptr %TextureValue.i.i.i33.i, align 8, !tbaa !242
+  %cmp.i.i.i34.i = icmp ult ptr %12, %11
   %incdec.ptr.i.i.i25 = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 16
   br i1 %cmp.i.i.i34.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !247
 
@@ -10403,8 +10407,8 @@ while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %w
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
   %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -16
   %TextureValue2.i.i28.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
-  %15 = load ptr, ptr %TextureValue2.i.i28.i.i, align 8, !tbaa !242
-  %cmp.i.i29.i.i = icmp ult ptr %13, %15
+  %13 = load ptr, ptr %TextureValue2.i.i28.i.i, align 8, !tbaa !242
+  %cmp.i.i29.i.i = icmp ult ptr %11, %13
   br i1 %cmp.i.i29.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !248
 
 while.end18.i.i:                                  ; preds = %while.cond10.i.i
@@ -10501,12 +10505,12 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManage
 
 for.body.i21:                                     ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i25
   %__i.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i25 ], [ %add.ptr.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_.exit ]
+  %__val.sroa.0.0.copyload.i.i22 = load ptr, ptr %__i.sroa.0.08.i, align 8, !tbaa !85
   %__val.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.08.i, i64 8
   %__val.sroa.4.0.copyload.i.i = load ptr, ptr %__val.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !85
-  %4 = load <2 x ptr>, ptr %__i.sroa.0.08.i, align 8, !tbaa !85
   %TextureValue2.i.i16.i.i23 = getelementptr inbounds i8, ptr %__i.sroa.0.08.i, i64 -8
-  %5 = load ptr, ptr %TextureValue2.i.i16.i.i23, align 8, !tbaa !242
-  %cmp.i.i17.i.i24 = icmp ult ptr %__val.sroa.4.0.copyload.i.i, %5
+  %4 = load ptr, ptr %TextureValue2.i.i16.i.i23, align 8, !tbaa !242
+  %cmp.i.i17.i.i24 = icmp ult ptr %__val.sroa.4.0.copyload.i.i, %4
   br i1 %cmp.i.i17.i.i24, label %while.body.i.i28, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i25
 
 while.body.i.i28:                                 ; preds = %for.body.i21, %while.body.i.i28
@@ -10514,13 +10518,15 @@ while.body.i.i28:                                 ; preds = %for.body.i21, %whil
   %__next.sroa.0.0.i.i30 = getelementptr inbounds i8, ptr %__last.sroa.0.018.i.i29, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.018.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %__next.sroa.0.0.i.i30, i64 16, i1 false), !tbaa.struct !153
   %TextureValue2.i.i.i.i31 = getelementptr inbounds i8, ptr %__last.sroa.0.018.i.i29, i64 -24
-  %6 = load ptr, ptr %TextureValue2.i.i.i.i31, align 8, !tbaa !242
-  %cmp.i.i.i.i32 = icmp ult ptr %__val.sroa.4.0.copyload.i.i, %6
+  %5 = load ptr, ptr %TextureValue2.i.i.i.i31, align 8, !tbaa !242
+  %cmp.i.i.i.i32 = icmp ult ptr %__val.sroa.4.0.copyload.i.i, %5
   br i1 %cmp.i.i.i.i32, label %while.body.i.i28, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i25, !llvm.loop !250
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i25: ; preds = %while.body.i.i28, %for.body.i21
   %__last.sroa.0.0.lcssa.i.i26 = phi ptr [ %__i.sroa.0.08.i, %for.body.i21 ], [ %__next.sroa.0.0.i.i30, %while.body.i.i28 ]
-  store <2 x ptr> %4, ptr %__last.sroa.0.0.lcssa.i.i26, align 8, !tbaa !85
+  store ptr %__val.sroa.0.0.copyload.i.i22, ptr %__last.sroa.0.0.lcssa.i.i26, align 8, !tbaa !85
+  %__val.sroa.4.0..sroa_idx12.i.i27 = getelementptr inbounds i8, ptr %__last.sroa.0.0.lcssa.i.i26, i64 8
+  store ptr %__val.sroa.4.0.copyload.i.i, ptr %__val.sroa.4.0..sroa_idx12.i.i27, align 8, !tbaa !85
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.08.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__last.coerce
   br i1 %cmp.i.not.i, label %if.end, label %for.body.i21, !llvm.loop !252
@@ -10542,9 +10548,9 @@ for.body.i41:                                     ; preds = %for.inc.i53, %for.b
   %__i.sroa.0.039.i42 = phi ptr [ %__i.sroa.0.036.i36, %for.body.lr.ph.i38 ], [ %__i.sroa.0.0.i54, %for.inc.i53 ]
   %__first.coerce.pn38.i43 = phi ptr [ %__first.coerce, %for.body.lr.ph.i38 ], [ %__i.sroa.0.039.i42, %for.inc.i53 ]
   %TextureValue.i.i.i44 = getelementptr inbounds i8, ptr %__first.coerce.pn38.i43, i64 24
-  %7 = load ptr, ptr %TextureValue.i.i.i44, align 8, !tbaa !85
-  %8 = load ptr, ptr %TextureValue2.i.i.i39, align 8, !tbaa !242
-  %cmp.i.i.i45 = icmp ult ptr %7, %8
+  %6 = load ptr, ptr %TextureValue.i.i.i44, align 8, !tbaa !85
+  %7 = load ptr, ptr %TextureValue2.i.i.i39, align 8, !tbaa !242
+  %cmp.i.i.i45 = icmp ult ptr %6, %7
   br i1 %cmp.i.i.i45, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i61, label %if.else.i46
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i61: ; preds = %for.body.i41
@@ -10564,8 +10570,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16
 if.else.i46:                                      ; preds = %for.body.i41
   %__val.sroa.0.0.copyload.i.i47 = load ptr, ptr %__i.sroa.0.039.i42, align 8, !tbaa !85
   %TextureValue2.i.i16.i.i48 = getelementptr inbounds i8, ptr %__first.coerce.pn38.i43, i64 8
-  %9 = load ptr, ptr %TextureValue2.i.i16.i.i48, align 8, !tbaa !242
-  %cmp.i.i17.i.i49 = icmp ult ptr %7, %9
+  %8 = load ptr, ptr %TextureValue2.i.i16.i.i48, align 8, !tbaa !242
+  %cmp.i.i17.i.i49 = icmp ult ptr %6, %8
   br i1 %cmp.i.i17.i.i49, label %while.body.i.i56, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i50
 
 while.body.i.i56:                                 ; preds = %if.else.i46, %while.body.i.i56
@@ -10573,15 +10579,15 @@ while.body.i.i56:                                 ; preds = %if.else.i46, %while
   %__next.sroa.0.0.i.i58 = getelementptr inbounds i8, ptr %__last.sroa.0.018.i.i57, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.018.i.i57, ptr noundef nonnull align 8 dereferenceable(16) %__next.sroa.0.0.i.i58, i64 16, i1 false), !tbaa.struct !153
   %TextureValue2.i.i.i.i59 = getelementptr inbounds i8, ptr %__last.sroa.0.018.i.i57, i64 -24
-  %10 = load ptr, ptr %TextureValue2.i.i.i.i59, align 8, !tbaa !242
-  %cmp.i.i.i.i60 = icmp ult ptr %7, %10
+  %9 = load ptr, ptr %TextureValue2.i.i.i.i59, align 8, !tbaa !242
+  %cmp.i.i.i.i60 = icmp ult ptr %6, %9
   br i1 %cmp.i.i.i.i60, label %while.body.i.i56, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i50, !llvm.loop !250
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i50: ; preds = %while.body.i.i56, %if.else.i46
   %__last.sroa.0.0.lcssa.i.i51 = phi ptr [ %__i.sroa.0.039.i42, %if.else.i46 ], [ %__next.sroa.0.0.i.i58, %while.body.i.i56 ]
   store ptr %__val.sroa.0.0.copyload.i.i47, ptr %__last.sroa.0.0.lcssa.i.i51, align 8, !tbaa !85
   %__val.sroa.4.0..sroa_idx12.i.i52 = getelementptr inbounds i8, ptr %__last.sroa.0.0.lcssa.i.i51, i64 8
-  store ptr %7, ptr %__val.sroa.4.0..sroa_idx12.i.i52, align 8, !tbaa !85
+  store ptr %6, ptr %__val.sroa.4.0..sroa_idx12.i.i52, align 8, !tbaa !85
   br label %for.inc.i53
 
 for.inc.i53:                                      ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i50, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i61

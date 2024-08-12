@@ -23,29 +23,32 @@ if.end4:                                          ; preds = %if.end
   %m_cost = getelementptr inbounds i8, ptr %context, i64 80
   %1 = load i32, ptr %m_cost, align 8
   %lanes = getelementptr inbounds i8, ptr %context, i64 84
+  %2 = load i32, ptr %lanes, align 4
+  %mul = shl i32 %2, 3
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %1, i32 %mul)
+  %mul11 = shl i32 %2, 2
+  %div = udiv i32 %spec.select, %mul11
+  %mul14 = mul i32 %div, %mul11
   store ptr null, ptr %instance, align 8
   %t_cost = getelementptr inbounds i8, ptr %context, i64 76
-  %2 = load i32, ptr %t_cost, align 4
+  %3 = load i32, ptr %t_cost, align 4
   %passes = getelementptr inbounds i8, ptr %instance, i64 16
-  store i32 %2, ptr %passes, align 8
+  store i32 %3, ptr %passes, align 8
   %current_pass = getelementptr inbounds i8, ptr %instance, i64 20
   store i32 -1, ptr %current_pass, align 4
   %memory_blocks15 = getelementptr inbounds i8, ptr %instance, i64 24
-  %segment_length16 = getelementptr inbounds i8, ptr %instance, i64 28
-  %lane_length = getelementptr inbounds i8, ptr %instance, i64 32
-  %lanes19 = getelementptr inbounds i8, ptr %instance, i64 36
-  %3 = load <2 x i32>, ptr %lanes, align 4
-  %4 = load i32, ptr %lanes, align 4
-  %mul = shl i32 %4, 3
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %1, i32 %mul)
-  %mul11 = shl i32 %4, 2
-  %div = udiv i32 %spec.select, %mul11
-  %mul14 = mul i32 %div, %mul11
   store i32 %mul14, ptr %memory_blocks15, align 8
+  %segment_length16 = getelementptr inbounds i8, ptr %instance, i64 28
   store i32 %div, ptr %segment_length16, align 4
   %mul17 = shl i32 %div, 2
+  %lane_length = getelementptr inbounds i8, ptr %instance, i64 32
   store i32 %mul17, ptr %lane_length, align 8
-  store <2 x i32> %3, ptr %lanes19, align 4
+  %lanes19 = getelementptr inbounds i8, ptr %instance, i64 36
+  store i32 %2, ptr %lanes19, align 4
+  %threads = getelementptr inbounds i8, ptr %context, i64 88
+  %4 = load i32, ptr %threads, align 8
+  %threads20 = getelementptr inbounds i8, ptr %instance, i64 40
+  store i32 %4, ptr %threads20, align 8
   %type21 = getelementptr inbounds i8, ptr %instance, i64 44
   store i32 %type, ptr %type21, align 4
   %call22 = call i32 @_sodium_argon2_initialize(ptr noundef nonnull %instance, ptr noundef %context) #8

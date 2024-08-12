@@ -517,11 +517,15 @@ invoke.cont9:                                     ; preds = %entry, %if.then
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %param, i64 8
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   %m_domain.i = getelementptr inbounds i8, ptr %f, i64 48
-  %3 = load <2 x ptr>, ptr %m_domain.i, align 8
-  store <2 x ptr> %3, ptr %domain, align 16
+  %3 = load ptr, ptr %m_domain.i, align 8
+  store ptr %3, ptr %domain, align 16
+  %arrayinit.element = getelementptr inbounds i8, ptr %domain, i64 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %f, i64 56
+  %4 = load ptr, ptr %arrayidx.i, align 8
+  store ptr %4, ptr %arrayinit.element, align 8
   %m_special_relations_fid.i = getelementptr inbounds i8, ptr %c, i64 1512
-  %4 = load i32, ptr %m_special_relations_fid.i, align 8
-  %call24 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %2, i32 noundef %4, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %param, i32 noundef 2, ptr noundef nonnull %domain, ptr noundef null)
+  %5 = load i32, ptr %m_special_relations_fid.i, align 8
+  %call24 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %2, i32 noundef %5, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %param, i32 noundef 2, ptr noundef nonnull %domain, ptr noundef null)
           to label %invoke.cont23 unwind label %ehcleanup
 
 invoke.cont23:                                    ; preds = %invoke.cont9
@@ -536,11 +540,11 @@ if.then32:                                        ; preds = %do.body
           to label %if.then.i unwind label %ehcleanup.thread28
 
 ehcleanup.thread28:                               ; preds = %if.then32
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %param) #7
-  %ehselector.slot.029 = extractvalue { ptr, i32 } %5, 1
+  %ehselector.slot.029 = extractvalue { ptr, i32 } %6, 1
   br label %if.then.i17
 
 if.end34:                                         ; preds = %do.body
@@ -553,30 +557,30 @@ if.then.i:                                        ; preds = %if.then32
   br label %return
 
 ehcleanup:                                        ; preds = %invoke.cont9, %invoke.cont23
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %param) #7
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %6, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %7, 1
   br i1 %tobool.i, label %if.then.i17, label %_ZN10z3_log_ctxD2Ev.exit18
 
 if.then.i17:                                      ; preds = %ehcleanup.thread28, %ehcleanup.thread, %ehcleanup
   %ehselector.slot.027 = phi i32 [ %ehselector.slot.023, %ehcleanup.thread ], [ %ehselector.slot.0, %ehcleanup ], [ %ehselector.slot.029, %ehcleanup.thread28 ]
-  %.pn25 = phi { ptr, i32 } [ %1, %ehcleanup.thread ], [ %6, %ehcleanup ], [ %5, %ehcleanup.thread28 ]
+  %.pn25 = phi { ptr, i32 } [ %1, %ehcleanup.thread ], [ %7, %ehcleanup ], [ %6, %ehcleanup.thread28 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit18
 
 _ZN10z3_log_ctxD2Ev.exit18:                       ; preds = %ehcleanup, %if.then.i17
   %ehselector.slot.026 = phi i32 [ %ehselector.slot.0, %ehcleanup ], [ %ehselector.slot.027, %if.then.i17 ]
-  %.pn24 = phi { ptr, i32 } [ %6, %ehcleanup ], [ %.pn25, %if.then.i17 ]
-  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #7
-  %matches = icmp eq i32 %ehselector.slot.026, %7
+  %.pn24 = phi { ptr, i32 } [ %7, %ehcleanup ], [ %.pn25, %if.then.i17 ]
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #7
+  %matches = icmp eq i32 %ehselector.slot.026, %8
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %_ZN10z3_log_ctxD2Ev.exit18
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn24, 0
-  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #7
-  invoke void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonnull align 8 dereferenceable(3048) %c, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #7
+  invoke void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonnull align 8 dereferenceable(3048) %c, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %invoke.cont39 unwind label %lpad36
 
 invoke.cont39:                                    ; preds = %catch
@@ -584,7 +588,7 @@ invoke.cont39:                                    ; preds = %catch
   br label %return
 
 lpad36:                                           ; preds = %catch
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -594,14 +598,14 @@ return:                                           ; preds = %if.then.i, %if.end3
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad36, %_ZN10z3_log_ctxD2Ev.exit18
-  %lpad.val45.merged = phi { ptr, i32 } [ %9, %lpad36 ], [ %.pn24, %_ZN10z3_log_ctxD2Ev.exit18 ]
+  %lpad.val45.merged = phi { ptr, i32 } [ %10, %lpad36 ], [ %.pn24, %_ZN10z3_log_ctxD2Ev.exit18 ]
   resume { ptr, i32 } %lpad.val45.merged
 
 terminate.lpad:                                   ; preds = %lpad36
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #8
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #8
   unreachable
 }
 

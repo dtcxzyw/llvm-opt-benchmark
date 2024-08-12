@@ -2418,7 +2418,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser5ParseEPNS0_2io19ZeroCopyInputStreamEPNS0_7MessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %input, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %parser = alloca %"class.google::protobuf::TextFormat::Parser::ParserImpl", align 16
+  %parser = alloca %"class.google::protobuf::TextFormat::Parser::ParserImpl", align 8
   %vtable = load ptr, ptr %output, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
@@ -2429,65 +2429,84 @@ entry:
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call { ptr, ptr } %2(ptr noundef nonnull align 8 dereferenceable(16) %output)
+  %3 = load ptr, ptr %this, align 8
+  %finder_ = getelementptr inbounds i8, ptr %this, i64 8
+  %4 = load ptr, ptr %finder_, align 8
   %parse_info_tree_ = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load ptr, ptr %parse_info_tree_, align 8
+  %5 = load ptr, ptr %parse_info_tree_, align 8
   %allow_case_insensitive_field_ = getelementptr inbounds i8, ptr %this, i64 25
-  %4 = load <4 x i8>, ptr %allow_case_insensitive_field_, align 1
+  %6 = load i8, ptr %allow_case_insensitive_field_, align 1
+  %allow_unknown_field_ = getelementptr inbounds i8, ptr %this, i64 26
+  %7 = load i8, ptr %allow_unknown_field_, align 2
+  %allow_unknown_extension_ = getelementptr inbounds i8, ptr %this, i64 27
+  %8 = load i8, ptr %allow_unknown_extension_, align 1
+  %allow_unknown_enum_ = getelementptr inbounds i8, ptr %this, i64 28
+  %9 = load i8, ptr %allow_unknown_enum_, align 4
   %allow_field_number_ = getelementptr inbounds i8, ptr %this, i64 29
-  %5 = load i8, ptr %allow_field_number_, align 1
+  %10 = load i8, ptr %allow_field_number_, align 1
   %allow_relaxed_whitespace_ = getelementptr inbounds i8, ptr %this, i64 30
-  %6 = load i8, ptr %allow_relaxed_whitespace_, align 2
+  %11 = load i8, ptr %allow_relaxed_whitespace_, align 2
   %allow_partial_ = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load i8, ptr %allow_partial_, align 8
+  %12 = load i8, ptr %allow_partial_, align 8
   %recursion_limit_ = getelementptr inbounds i8, ptr %this, i64 32
-  %8 = load i32, ptr %recursion_limit_, align 8
+  %13 = load i32, ptr %recursion_limit_, align 8
   %no_op_fields_ = getelementptr inbounds i8, ptr %this, i64 40
-  %9 = load ptr, ptr %no_op_fields_, align 8
-  %10 = load <2 x ptr>, ptr %this, align 8
-  store <2 x ptr> %10, ptr %parser, align 16
+  %14 = load ptr, ptr %no_op_fields_, align 8
+  store ptr %3, ptr %parser, align 8
+  %finder_.i = getelementptr inbounds i8, ptr %parser, i64 8
+  store ptr %4, ptr %finder_.i, align 8
   %parse_info_tree_.i = getelementptr inbounds i8, ptr %parser, i64 16
-  store ptr %3, ptr %parse_info_tree_.i, align 16
+  store ptr %5, ptr %parse_info_tree_.i, align 8
   %tokenizer_error_collector_.i = getelementptr inbounds i8, ptr %parser, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf10TextFormat6Parser10ParserImpl20ParserErrorCollectorE, i64 16), ptr %tokenizer_error_collector_.i, align 8
   %parser_.i.i = getelementptr inbounds i8, ptr %parser, i64 32
-  store ptr %parser, ptr %parser_.i.i, align 16
+  store ptr %parser, ptr %parser_.i.i, align 8
   %tokenizer_.i = getelementptr inbounds i8, ptr %parser, i64 40
   invoke void @_ZN6google8protobuf2io9TokenizerC1EPNS1_19ZeroCopyInputStreamEPNS1_14ErrorCollectorE(ptr noundef nonnull align 8 dereferenceable(192) %tokenizer_.i, ptr noundef %input, ptr noundef nonnull %tokenizer_error_collector_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %tobool7 = trunc i8 %6 to i1
-  %11 = extractvalue { ptr, ptr } %call.i, 0
-  %12 = and i8 %1, 1
-  %13 = xor i8 %12, 1
-  %cond = zext nneg i8 %13 to i32
-  %frombool6.i = and i8 %7, 1
-  %frombool4.i = and i8 %5, 1
-  %14 = and <4 x i8> %4, <i8 1, i8 1, i8 1, i8 1>
+  %tobool7 = trunc i8 %11 to i1
+  %15 = extractvalue { ptr, ptr } %call.i, 0
+  %16 = and i8 %1, 1
+  %17 = xor i8 %16, 1
+  %cond = zext nneg i8 %17 to i32
+  %frombool6.i = and i8 %12, 1
+  %frombool4.i = and i8 %10, 1
+  %frombool3.i = and i8 %9, 1
+  %frombool2.i = and i8 %8, 1
+  %frombool1.i = and i8 %7, 1
+  %frombool.i = and i8 %6, 1
   %root_message_type_.i = getelementptr inbounds i8, ptr %parser, i64 232
-  store ptr %11, ptr %root_message_type_.i, align 8
+  store ptr %15, ptr %root_message_type_.i, align 8
   %singular_overwrite_policy_.i = getelementptr inbounds i8, ptr %parser, i64 240
-  store i32 %cond, ptr %singular_overwrite_policy_.i, align 16
+  store i32 %cond, ptr %singular_overwrite_policy_.i, align 8
   %allow_case_insensitive_field_.i = getelementptr inbounds i8, ptr %parser, i64 244
-  store <4 x i8> %14, ptr %allow_case_insensitive_field_.i, align 4
+  store i8 %frombool.i, ptr %allow_case_insensitive_field_.i, align 4
+  %allow_unknown_field_.i = getelementptr inbounds i8, ptr %parser, i64 245
+  store i8 %frombool1.i, ptr %allow_unknown_field_.i, align 1
+  %allow_unknown_extension_.i = getelementptr inbounds i8, ptr %parser, i64 246
+  store i8 %frombool2.i, ptr %allow_unknown_extension_.i, align 2
+  %allow_unknown_enum_.i = getelementptr inbounds i8, ptr %parser, i64 247
+  store i8 %frombool3.i, ptr %allow_unknown_enum_.i, align 1
   %allow_field_number_.i = getelementptr inbounds i8, ptr %parser, i64 248
   store i8 %frombool4.i, ptr %allow_field_number_.i, align 8
   %allow_partial_.i = getelementptr inbounds i8, ptr %parser, i64 249
   store i8 %frombool6.i, ptr %allow_partial_.i, align 1
   %initial_recursion_limit_.i = getelementptr inbounds i8, ptr %parser, i64 252
-  store i32 %8, ptr %initial_recursion_limit_.i, align 4
+  store i32 %13, ptr %initial_recursion_limit_.i, align 4
   %recursion_limit_.i = getelementptr inbounds i8, ptr %parser, i64 256
-  store i32 %8, ptr %recursion_limit_.i, align 16
+  store i32 %13, ptr %recursion_limit_.i, align 8
   %had_silent_marker_.i = getelementptr inbounds i8, ptr %parser, i64 260
   store i8 0, ptr %had_silent_marker_.i, align 4
   %had_errors_.i = getelementptr inbounds i8, ptr %parser, i64 261
   store i8 0, ptr %had_errors_.i, align 1
   %no_op_fields_.i = getelementptr inbounds i8, ptr %parser, i64 264
-  store ptr %9, ptr %no_op_fields_.i, align 8
+  store ptr %14, ptr %no_op_fields_.i, align 8
   %allow_f_after_float_.i.i = getelementptr inbounds i8, ptr %parser, i64 220
   store i8 1, ptr %allow_f_after_float_.i.i, align 4
   %comment_style_.i.i = getelementptr inbounds i8, ptr %parser, i64 224
-  store i32 1, ptr %comment_style_.i.i, align 16
+  store i32 1, ptr %comment_style_.i.i, align 8
   br i1 %tobool7, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
@@ -2498,12 +2517,12 @@ if.then.i:                                        ; preds = %invoke.cont.i
   br label %if.end.i
 
 lpad.i:                                           ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 lpad21.i:                                         ; preds = %if.end.i
-  %16 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io9TokenizerD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %tokenizer_.i) #35
   br label %common.resume
@@ -2513,7 +2532,7 @@ if.end.i:                                         ; preds = %if.then.i, %invoke.
           to label %_ZN6google8protobuf10TextFormat6Parser10ParserImplC2EPKNS0_10DescriptorEPNS0_2io19ZeroCopyInputStreamEPNS7_14ErrorCollectorEPKNS1_6FinderEPNS1_13ParseInfoTreeENS3_23SingularOverwritePolicyEbbbbbbbiPNS2_19UnsetFieldsMetadataE.exit unwind label %lpad21.i
 
 common.resume:                                    ; preds = %lpad.i, %lpad21.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %17, %lpad ], [ %16, %lpad21.i ], [ %15, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %lpad ], [ %19, %lpad21.i ], [ %18, %lpad.i ]
   call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tokenizer_error_collector_.i) #35
   resume { ptr, i32 } %common.resume.op
 
@@ -2527,7 +2546,7 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   ret i1 %call9
 
 lpad:                                             ; preds = %_ZN6google8protobuf10TextFormat6Parser10ParserImplC2EPKNS0_10DescriptorEPNS0_2io19ZeroCopyInputStreamEPNS7_14ErrorCollectorEPKNS1_6FinderEPNS1_13ParseInfoTreeENS3_23SingularOverwritePolicyEbbbbbbbiPNS2_19UnsetFieldsMetadataE.exit
-  %17 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io9TokenizerD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %tokenizer_.i) #35
   br label %common.resume
@@ -2881,67 +2900,86 @@ declare void @_ZN6google8protobuf2io15CordInputStreamC1EPKN4absl12lts_202308024C
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser5MergeEPNS0_2io19ZeroCopyInputStreamEPNS0_7MessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %input, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %parser = alloca %"class.google::protobuf::TextFormat::Parser::ParserImpl", align 16
+  %parser = alloca %"class.google::protobuf::TextFormat::Parser::ParserImpl", align 8
   %vtable.i = load ptr, ptr %output, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call { ptr, ptr } %0(ptr noundef nonnull align 8 dereferenceable(16) %output)
+  %1 = load ptr, ptr %this, align 8
+  %finder_ = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = load ptr, ptr %finder_, align 8
   %parse_info_tree_ = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %parse_info_tree_, align 8
+  %3 = load ptr, ptr %parse_info_tree_, align 8
   %allow_case_insensitive_field_ = getelementptr inbounds i8, ptr %this, i64 25
-  %2 = load <4 x i8>, ptr %allow_case_insensitive_field_, align 1
+  %4 = load i8, ptr %allow_case_insensitive_field_, align 1
+  %allow_unknown_field_ = getelementptr inbounds i8, ptr %this, i64 26
+  %5 = load i8, ptr %allow_unknown_field_, align 2
+  %allow_unknown_extension_ = getelementptr inbounds i8, ptr %this, i64 27
+  %6 = load i8, ptr %allow_unknown_extension_, align 1
+  %allow_unknown_enum_ = getelementptr inbounds i8, ptr %this, i64 28
+  %7 = load i8, ptr %allow_unknown_enum_, align 4
   %allow_field_number_ = getelementptr inbounds i8, ptr %this, i64 29
-  %3 = load i8, ptr %allow_field_number_, align 1
+  %8 = load i8, ptr %allow_field_number_, align 1
   %allow_relaxed_whitespace_ = getelementptr inbounds i8, ptr %this, i64 30
-  %4 = load i8, ptr %allow_relaxed_whitespace_, align 2
+  %9 = load i8, ptr %allow_relaxed_whitespace_, align 2
   %allow_partial_ = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load i8, ptr %allow_partial_, align 8
+  %10 = load i8, ptr %allow_partial_, align 8
   %recursion_limit_ = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = load i32, ptr %recursion_limit_, align 8
+  %11 = load i32, ptr %recursion_limit_, align 8
   %no_op_fields_ = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load ptr, ptr %no_op_fields_, align 8
-  %8 = load <2 x ptr>, ptr %this, align 8
-  store <2 x ptr> %8, ptr %parser, align 16
+  %12 = load ptr, ptr %no_op_fields_, align 8
+  store ptr %1, ptr %parser, align 8
+  %finder_.i = getelementptr inbounds i8, ptr %parser, i64 8
+  store ptr %2, ptr %finder_.i, align 8
   %parse_info_tree_.i = getelementptr inbounds i8, ptr %parser, i64 16
-  store ptr %1, ptr %parse_info_tree_.i, align 16
+  store ptr %3, ptr %parse_info_tree_.i, align 8
   %tokenizer_error_collector_.i = getelementptr inbounds i8, ptr %parser, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf10TextFormat6Parser10ParserImpl20ParserErrorCollectorE, i64 16), ptr %tokenizer_error_collector_.i, align 8
   %parser_.i.i = getelementptr inbounds i8, ptr %parser, i64 32
-  store ptr %parser, ptr %parser_.i.i, align 16
+  store ptr %parser, ptr %parser_.i.i, align 8
   %tokenizer_.i = getelementptr inbounds i8, ptr %parser, i64 40
   invoke void @_ZN6google8protobuf2io9TokenizerC1EPNS1_19ZeroCopyInputStreamEPNS1_14ErrorCollectorE(ptr noundef nonnull align 8 dereferenceable(192) %tokenizer_.i, ptr noundef %input, ptr noundef nonnull %tokenizer_error_collector_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %tobool6 = trunc i8 %4 to i1
-  %9 = extractvalue { ptr, ptr } %call.i, 0
-  %frombool6.i = and i8 %5, 1
-  %frombool4.i = and i8 %3, 1
-  %10 = and <4 x i8> %2, <i8 1, i8 1, i8 1, i8 1>
+  %tobool6 = trunc i8 %9 to i1
+  %13 = extractvalue { ptr, ptr } %call.i, 0
+  %frombool6.i = and i8 %10, 1
+  %frombool4.i = and i8 %8, 1
+  %frombool3.i = and i8 %7, 1
+  %frombool2.i = and i8 %6, 1
+  %frombool1.i = and i8 %5, 1
+  %frombool.i = and i8 %4, 1
   %root_message_type_.i = getelementptr inbounds i8, ptr %parser, i64 232
-  store ptr %9, ptr %root_message_type_.i, align 8
+  store ptr %13, ptr %root_message_type_.i, align 8
   %singular_overwrite_policy_.i = getelementptr inbounds i8, ptr %parser, i64 240
-  store i32 0, ptr %singular_overwrite_policy_.i, align 16
+  store i32 0, ptr %singular_overwrite_policy_.i, align 8
   %allow_case_insensitive_field_.i = getelementptr inbounds i8, ptr %parser, i64 244
-  store <4 x i8> %10, ptr %allow_case_insensitive_field_.i, align 4
+  store i8 %frombool.i, ptr %allow_case_insensitive_field_.i, align 4
+  %allow_unknown_field_.i = getelementptr inbounds i8, ptr %parser, i64 245
+  store i8 %frombool1.i, ptr %allow_unknown_field_.i, align 1
+  %allow_unknown_extension_.i = getelementptr inbounds i8, ptr %parser, i64 246
+  store i8 %frombool2.i, ptr %allow_unknown_extension_.i, align 2
+  %allow_unknown_enum_.i = getelementptr inbounds i8, ptr %parser, i64 247
+  store i8 %frombool3.i, ptr %allow_unknown_enum_.i, align 1
   %allow_field_number_.i = getelementptr inbounds i8, ptr %parser, i64 248
   store i8 %frombool4.i, ptr %allow_field_number_.i, align 8
   %allow_partial_.i = getelementptr inbounds i8, ptr %parser, i64 249
   store i8 %frombool6.i, ptr %allow_partial_.i, align 1
   %initial_recursion_limit_.i = getelementptr inbounds i8, ptr %parser, i64 252
-  store i32 %6, ptr %initial_recursion_limit_.i, align 4
+  store i32 %11, ptr %initial_recursion_limit_.i, align 4
   %recursion_limit_.i = getelementptr inbounds i8, ptr %parser, i64 256
-  store i32 %6, ptr %recursion_limit_.i, align 16
+  store i32 %11, ptr %recursion_limit_.i, align 8
   %had_silent_marker_.i = getelementptr inbounds i8, ptr %parser, i64 260
   store i8 0, ptr %had_silent_marker_.i, align 4
   %had_errors_.i = getelementptr inbounds i8, ptr %parser, i64 261
   store i8 0, ptr %had_errors_.i, align 1
   %no_op_fields_.i = getelementptr inbounds i8, ptr %parser, i64 264
-  store ptr %7, ptr %no_op_fields_.i, align 8
+  store ptr %12, ptr %no_op_fields_.i, align 8
   %allow_f_after_float_.i.i = getelementptr inbounds i8, ptr %parser, i64 220
   store i8 1, ptr %allow_f_after_float_.i.i, align 4
   %comment_style_.i.i = getelementptr inbounds i8, ptr %parser, i64 224
-  store i32 1, ptr %comment_style_.i.i, align 16
+  store i32 1, ptr %comment_style_.i.i, align 8
   br i1 %tobool6, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
@@ -2952,12 +2990,12 @@ if.then.i:                                        ; preds = %invoke.cont.i
   br label %if.end.i
 
 lpad.i:                                           ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 lpad21.i:                                         ; preds = %if.end.i
-  %12 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io9TokenizerD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %tokenizer_.i) #35
   br label %common.resume
@@ -2967,7 +3005,7 @@ if.end.i:                                         ; preds = %if.then.i, %invoke.
           to label %_ZN6google8protobuf10TextFormat6Parser10ParserImplC2EPKNS0_10DescriptorEPNS0_2io19ZeroCopyInputStreamEPNS7_14ErrorCollectorEPKNS1_6FinderEPNS1_13ParseInfoTreeENS3_23SingularOverwritePolicyEbbbbbbbiPNS2_19UnsetFieldsMetadataE.exit unwind label %lpad21.i
 
 common.resume:                                    ; preds = %lpad.i, %lpad21.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %12, %lpad21.i ], [ %11, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %lpad ], [ %15, %lpad21.i ], [ %14, %lpad.i ]
   call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tokenizer_error_collector_.i) #35
   resume { ptr, i32 } %common.resume.op
 
@@ -2981,7 +3019,7 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   ret i1 %call8
 
 lpad:                                             ; preds = %_ZN6google8protobuf10TextFormat6Parser10ParserImplC2EPKNS0_10DescriptorEPNS0_2io19ZeroCopyInputStreamEPNS7_14ErrorCollectorEPKNS1_6FinderEPNS1_13ParseInfoTreeENS3_23SingularOverwritePolicyEbbbbbbbiPNS2_19UnsetFieldsMetadataE.exit
-  %13 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io9TokenizerD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %tokenizer_.i) #35
   br label %common.resume
@@ -3170,69 +3208,88 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 define noundef zeroext i1 @_ZN6google8protobuf10TextFormat6Parser25ParseFieldValueFromStringESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_15FieldDescriptorEPNS0_7MessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %input.coerce0, ptr %input.coerce1, ptr noundef %field, ptr noundef %output) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %input_stream = alloca %"class.google::protobuf::io::ArrayInputStream", align 8
-  %parser = alloca %"class.google::protobuf::TextFormat::Parser::ParserImpl", align 16
+  %parser = alloca %"class.google::protobuf::TextFormat::Parser::ParserImpl", align 8
   %conv = trunc i64 %input.coerce0 to i32
   call void @_ZN6google8protobuf2io16ArrayInputStreamC1EPKvii(ptr noundef nonnull align 8 dereferenceable(32) %input_stream, ptr noundef %input.coerce1, i32 noundef %conv, i32 noundef -1)
   %vtable.i = load ptr, ptr %output, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i3 = call { ptr, ptr } %0(ptr noundef nonnull align 8 dereferenceable(16) %output)
+  %1 = load ptr, ptr %this, align 8
+  %finder_ = getelementptr inbounds i8, ptr %this, i64 8
+  %2 = load ptr, ptr %finder_, align 8
   %parse_info_tree_ = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %parse_info_tree_, align 8
+  %3 = load ptr, ptr %parse_info_tree_, align 8
   %allow_case_insensitive_field_ = getelementptr inbounds i8, ptr %this, i64 25
-  %2 = load <4 x i8>, ptr %allow_case_insensitive_field_, align 1
+  %4 = load i8, ptr %allow_case_insensitive_field_, align 1
+  %allow_unknown_field_ = getelementptr inbounds i8, ptr %this, i64 26
+  %5 = load i8, ptr %allow_unknown_field_, align 2
+  %allow_unknown_extension_ = getelementptr inbounds i8, ptr %this, i64 27
+  %6 = load i8, ptr %allow_unknown_extension_, align 1
+  %allow_unknown_enum_ = getelementptr inbounds i8, ptr %this, i64 28
+  %7 = load i8, ptr %allow_unknown_enum_, align 4
   %allow_field_number_ = getelementptr inbounds i8, ptr %this, i64 29
-  %3 = load i8, ptr %allow_field_number_, align 1
+  %8 = load i8, ptr %allow_field_number_, align 1
   %allow_relaxed_whitespace_ = getelementptr inbounds i8, ptr %this, i64 30
-  %4 = load i8, ptr %allow_relaxed_whitespace_, align 2
+  %9 = load i8, ptr %allow_relaxed_whitespace_, align 2
   %allow_partial_ = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load i8, ptr %allow_partial_, align 8
+  %10 = load i8, ptr %allow_partial_, align 8
   %recursion_limit_ = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = load i32, ptr %recursion_limit_, align 8
+  %11 = load i32, ptr %recursion_limit_, align 8
   %no_op_fields_ = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load ptr, ptr %no_op_fields_, align 8
-  %8 = load <2 x ptr>, ptr %this, align 8
-  store <2 x ptr> %8, ptr %parser, align 16
+  %12 = load ptr, ptr %no_op_fields_, align 8
+  store ptr %1, ptr %parser, align 8
+  %finder_.i = getelementptr inbounds i8, ptr %parser, i64 8
+  store ptr %2, ptr %finder_.i, align 8
   %parse_info_tree_.i = getelementptr inbounds i8, ptr %parser, i64 16
-  store ptr %1, ptr %parse_info_tree_.i, align 16
+  store ptr %3, ptr %parse_info_tree_.i, align 8
   %tokenizer_error_collector_.i = getelementptr inbounds i8, ptr %parser, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf10TextFormat6Parser10ParserImpl20ParserErrorCollectorE, i64 16), ptr %tokenizer_error_collector_.i, align 8
   %parser_.i.i = getelementptr inbounds i8, ptr %parser, i64 32
-  store ptr %parser, ptr %parser_.i.i, align 16
+  store ptr %parser, ptr %parser_.i.i, align 8
   %tokenizer_.i = getelementptr inbounds i8, ptr %parser, i64 40
   invoke void @_ZN6google8protobuf2io9TokenizerC1EPNS1_19ZeroCopyInputStreamEPNS1_14ErrorCollectorE(ptr noundef nonnull align 8 dereferenceable(192) %tokenizer_.i, ptr noundef nonnull %input_stream, ptr noundef nonnull %tokenizer_error_collector_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %tobool8 = trunc i8 %4 to i1
-  %9 = extractvalue { ptr, ptr } %call.i3, 0
-  %frombool6.i = and i8 %5, 1
-  %frombool4.i = and i8 %3, 1
-  %10 = and <4 x i8> %2, <i8 1, i8 1, i8 1, i8 1>
+  %tobool8 = trunc i8 %9 to i1
+  %13 = extractvalue { ptr, ptr } %call.i3, 0
+  %frombool6.i = and i8 %10, 1
+  %frombool4.i = and i8 %8, 1
+  %frombool3.i = and i8 %7, 1
+  %frombool2.i = and i8 %6, 1
+  %frombool1.i = and i8 %5, 1
+  %frombool.i = and i8 %4, 1
   %root_message_type_.i = getelementptr inbounds i8, ptr %parser, i64 232
-  store ptr %9, ptr %root_message_type_.i, align 8
+  store ptr %13, ptr %root_message_type_.i, align 8
   %singular_overwrite_policy_.i = getelementptr inbounds i8, ptr %parser, i64 240
-  store i32 0, ptr %singular_overwrite_policy_.i, align 16
+  store i32 0, ptr %singular_overwrite_policy_.i, align 8
   %allow_case_insensitive_field_.i = getelementptr inbounds i8, ptr %parser, i64 244
-  store <4 x i8> %10, ptr %allow_case_insensitive_field_.i, align 4
+  store i8 %frombool.i, ptr %allow_case_insensitive_field_.i, align 4
+  %allow_unknown_field_.i = getelementptr inbounds i8, ptr %parser, i64 245
+  store i8 %frombool1.i, ptr %allow_unknown_field_.i, align 1
+  %allow_unknown_extension_.i = getelementptr inbounds i8, ptr %parser, i64 246
+  store i8 %frombool2.i, ptr %allow_unknown_extension_.i, align 2
+  %allow_unknown_enum_.i = getelementptr inbounds i8, ptr %parser, i64 247
+  store i8 %frombool3.i, ptr %allow_unknown_enum_.i, align 1
   %allow_field_number_.i = getelementptr inbounds i8, ptr %parser, i64 248
   store i8 %frombool4.i, ptr %allow_field_number_.i, align 8
   %allow_partial_.i = getelementptr inbounds i8, ptr %parser, i64 249
   store i8 %frombool6.i, ptr %allow_partial_.i, align 1
   %initial_recursion_limit_.i = getelementptr inbounds i8, ptr %parser, i64 252
-  store i32 %6, ptr %initial_recursion_limit_.i, align 4
+  store i32 %11, ptr %initial_recursion_limit_.i, align 4
   %recursion_limit_.i = getelementptr inbounds i8, ptr %parser, i64 256
-  store i32 %6, ptr %recursion_limit_.i, align 16
+  store i32 %11, ptr %recursion_limit_.i, align 8
   %had_silent_marker_.i = getelementptr inbounds i8, ptr %parser, i64 260
   store i8 0, ptr %had_silent_marker_.i, align 4
   %had_errors_.i = getelementptr inbounds i8, ptr %parser, i64 261
   store i8 0, ptr %had_errors_.i, align 1
   %no_op_fields_.i = getelementptr inbounds i8, ptr %parser, i64 264
-  store ptr %7, ptr %no_op_fields_.i, align 8
+  store ptr %12, ptr %no_op_fields_.i, align 8
   %allow_f_after_float_.i.i = getelementptr inbounds i8, ptr %parser, i64 220
   store i8 1, ptr %allow_f_after_float_.i.i, align 4
   %comment_style_.i.i = getelementptr inbounds i8, ptr %parser, i64 224
-  store i32 1, ptr %comment_style_.i.i, align 16
+  store i32 1, ptr %comment_style_.i.i, align 8
   br i1 %tobool8, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
@@ -3243,12 +3300,12 @@ if.then.i:                                        ; preds = %invoke.cont.i
   br label %if.end.i
 
 lpad.i:                                           ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad21.i:                                         ; preds = %if.end.i
-  %12 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io9TokenizerD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %tokenizer_.i) #35
   br label %ehcleanup
@@ -3267,13 +3324,13 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   ret i1 %call13
 
 lpad11:                                           ; preds = %invoke.cont10
-  %13 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io9TokenizerD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %tokenizer_.i) #35
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad21.i, %lpad11
-  %.pn = phi { ptr, i32 } [ %13, %lpad11 ], [ %12, %lpad21.i ], [ %11, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %16, %lpad11 ], [ %15, %lpad21.i ], [ %14, %lpad.i ]
   call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tokenizer_error_collector_.i) #35
   resume { ptr, i32 } %.pn
 }

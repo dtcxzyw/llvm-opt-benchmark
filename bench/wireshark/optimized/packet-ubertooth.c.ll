@@ -2959,7 +2959,7 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   %.neg = add i32 %4, 64
   %58 = sub i32 %.neg, %.0198
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %57, ptr noundef %3, i32 noundef %.0198, i32 noundef %58, i32 noundef 0) #2
-  br label %157
+  br label %160
 
 60:                                               ; preds = %7
   %61 = load i32, ptr @hf_chip_status_reserved, align 4
@@ -3005,7 +3005,7 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %100, ptr noundef %3, i32 noundef %99, i32 noundef 50, i32 noundef 0) #2
   %102 = load i32, ptr @ett_usb_rx_packet_data, align 4
   %103 = tail call ptr @proto_item_add_subtree(ptr noundef %101, i32 noundef %102) #2
-  switch i16 %5, label %155 [
+  switch i16 %5, label %158 [
     i16 27, label %.preheader
     i16 49, label %124
   ]
@@ -3036,21 +3036,21 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   %121 = load i32, ptr @hf_reserved, align 4
   %122 = tail call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %121, ptr noundef %3, i32 noundef %113, i32 noundef 2, i32 noundef 0) #2
   %123 = add i32 %.1204, 5
-  br label %157
+  br label %160
 
 124:                                              ; preds = %60
-  switch i8 %14, label %147 [
+  switch i8 %14, label %150 [
     i8 0, label %125
     i8 1, label %127
-    i8 6, label %143
-    i8 4, label %145
-    i8 3, label %145
-    i8 2, label %145
+    i8 6, label %146
+    i8 4, label %148
+    i8 3, label %148
+    i8 2, label %148
   ]
 
 125:                                              ; preds = %124
   %126 = add i32 %4, 64
-  br label %147
+  br label %150
 
 127:                                              ; preds = %124
   %128 = tail call i32 @tvb_get_letohl(ptr noundef %3, i32 noundef %99) #2
@@ -3064,45 +3064,49 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   %133 = getelementptr inbounds i8, ptr %2, i64 408
   %134 = load ptr, ptr %133, align 8
   %135 = tail call noalias ptr @wmem_alloc(ptr noundef %134, i64 noundef 12) #2
-  %136 = load <2 x i16>, ptr %6, align 8
-  store <2 x i16> %136, ptr %135, align 4
-  %137 = getelementptr inbounds i8, ptr %135, i64 4
-  store i32 %83, ptr %137, align 4
-  %138 = getelementptr inbounds i8, ptr %135, i64 8
-  store i8 %76, ptr %138, align 4
-  %139 = tail call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %99, i32 noundef %.0200) #2
-  %140 = load ptr, ptr @bluetooth_ubertooth_handle, align 8
-  %141 = tail call i32 @call_dissector_with_data(ptr noundef %140, ptr noundef %139, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %135) #2
-  %142 = add i32 %99, %.0200
-  br label %147
+  %136 = load i16, ptr %6, align 8
+  store i16 %136, ptr %135, align 4
+  %137 = getelementptr inbounds i8, ptr %6, i64 2
+  %138 = load i16, ptr %137, align 2
+  %139 = getelementptr inbounds i8, ptr %135, i64 2
+  store i16 %138, ptr %139, align 2
+  %140 = getelementptr inbounds i8, ptr %135, i64 4
+  store i32 %83, ptr %140, align 4
+  %141 = getelementptr inbounds i8, ptr %135, i64 8
+  store i8 %76, ptr %141, align 4
+  %142 = tail call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %99, i32 noundef %.0200) #2
+  %143 = load ptr, ptr @bluetooth_ubertooth_handle, align 8
+  %144 = tail call i32 @call_dissector_with_data(ptr noundef %143, ptr noundef %142, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %135) #2
+  %145 = add i32 %99, %.0200
+  br label %150
 
-143:                                              ; preds = %124
-  %144 = add i32 %4, 64
-  br label %147
+146:                                              ; preds = %124
+  %147 = add i32 %4, 64
+  br label %150
 
-145:                                              ; preds = %124, %124, %124
-  %146 = add i32 %4, 64
-  br label %147
+148:                                              ; preds = %124, %124, %124
+  %149 = add i32 %4, 64
+  br label %150
 
-147:                                              ; preds = %124, %127, %145, %143, %125
-  %.3 = phi i32 [ %126, %125 ], [ %142, %127 ], [ %144, %143 ], [ %146, %145 ], [ %99, %124 ]
-  %148 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.3) #2
-  %149 = icmp sgt i32 %148, 0
-  br i1 %149, label %150, label %157
+150:                                              ; preds = %124, %127, %148, %146, %125
+  %.3 = phi i32 [ %126, %125 ], [ %145, %127 ], [ %147, %146 ], [ %149, %148 ], [ %99, %124 ]
+  %151 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.3) #2
+  %152 = icmp sgt i32 %151, 0
+  br i1 %152, label %153, label %160
 
-150:                                              ; preds = %147
-  %151 = load i32, ptr @hf_reserved, align 4
-  %152 = tail call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %151, ptr noundef %3, i32 noundef %.3, i32 noundef -1, i32 noundef 0) #2
-  %153 = tail call i32 @tvb_captured_length_remaining(ptr noundef %3, i32 noundef %.3) #2
-  %154 = add i32 %153, %.3
-  br label %157
+153:                                              ; preds = %150
+  %154 = load i32, ptr @hf_reserved, align 4
+  %155 = tail call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %154, ptr noundef %3, i32 noundef %.3, i32 noundef -1, i32 noundef 0) #2
+  %156 = tail call i32 @tvb_captured_length_remaining(ptr noundef %3, i32 noundef %.3) #2
+  %157 = add i32 %156, %.3
+  br label %160
 
-155:                                              ; preds = %60
-  %156 = add i32 %4, 64
-  br label %157
+158:                                              ; preds = %60
+  %159 = add i32 %4, 64
+  br label %160
 
-157:                                              ; preds = %120, %155, %150, %147, %56
-  %.0 = phi i32 [ %.neg, %56 ], [ %156, %155 ], [ %154, %150 ], [ %.3, %147 ], [ %123, %120 ]
+160:                                              ; preds = %120, %158, %153, %150, %56
+  %.0 = phi i32 [ %.neg, %56 ], [ %159, %158 ], [ %157, %153 ], [ %.3, %150 ], [ %123, %120 ]
   ret i32 %.0
 }
 

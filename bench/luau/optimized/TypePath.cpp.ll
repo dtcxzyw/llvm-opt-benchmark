@@ -1505,7 +1505,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau8TypePath9ReductioneqERKS1_(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4Luau8TypePath4Path6appendERKS1_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypePath::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::vector", align 16
+  %4 = alloca %"class.std::vector", align 8
   call void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1515,35 +1515,38 @@ define dso_local void @_ZNK4Luau8TypePath4Path6appendERKS1_(ptr dead_on_unwind n
   %10 = sub i64 %8, %9
   %11 = sdiv exact i64 %10, 48
   invoke void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %11)
-          to label %12 unwind label %26
+          to label %12 unwind label %28
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %2, align 8
   %16 = load ptr, ptr %5, align 8
-  %17 = load ptr, ptr %4, align 16
+  %17 = load ptr, ptr %4, align 8
   %18 = ptrtoint ptr %14 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = getelementptr inbounds i8, ptr %17, i64 %20
   invoke void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEEvNSD_IPS8_SA_EET_SJ_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %21, ptr %15, ptr %16)
-          to label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev.exit16 unwind label %26
+          to label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev.exit16 unwind label %28
 
 _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev.exit16: ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
-  %23 = load ptr, ptr %22, align 16
-  %24 = load <2 x ptr>, ptr %4, align 16
-  store <2 x ptr> %24, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %23, ptr %25, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = load ptr, ptr %13, align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr %22, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %23, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %25, ptr %27, align 8
   ret void
 
-26:                                               ; preds = %12, %3
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %12, %3
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #22
-  resume { ptr, i32 } %27
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1864,9 +1867,9 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4Luau8TypePath4Path10push_frontENS_7VariantIJNS0_8PropertyENS0_5IndexENS0_9TypeFieldENS0_9PackFieldENS0_9ReductionEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypePath::Path") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::vector", align 16
+  %4 = alloca %"class.std::vector", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -1875,13 +1878,13 @@ define dso_local void @_ZNK4Luau8TypePath4Path10push_frontENS_7VariantIJNS0_8Pro
   %11 = sdiv exact i64 %10, 48
   %12 = add nsw i64 %11, 1
   invoke void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %12)
-          to label %13 unwind label %39
+          to label %13 unwind label %41
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 16
-  %17 = load ptr, ptr %16, align 16
+  %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %15, %17
   br i1 %.not.i.i, label %27, label %18
 
@@ -1894,7 +1897,7 @@ define dso_local void @_ZNK4Luau8TypePath4Path10push_frontENS_7VariantIJNS0_8Pro
   %23 = getelementptr inbounds i8, ptr %15, i64 8
   %24 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void %22(ptr noundef nonnull %23, ptr noundef nonnull %24)
-          to label %.noexc unwind label %39
+          to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %18
   %25 = load ptr, ptr %14, align 8
@@ -1904,7 +1907,7 @@ define dso_local void @_ZNK4Luau8TypePath4Path10push_frontENS_7VariantIJNS0_8Pro
 
 27:                                               ; preds = %13
   invoke void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %15, ptr noundef nonnull align 8 dereferenceable(48) %2)
-          to label %._ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit_crit_edge unwind label %39
+          to label %._ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit_crit_edge unwind label %41
 
 ._ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit_crit_edge: ; preds = %27
   %.pre = load ptr, ptr %14, align 8
@@ -1914,27 +1917,30 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS
   %28 = phi ptr [ %.pre, %._ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit_crit_edge ], [ %26, %.noexc ]
   %29 = load ptr, ptr %1, align 8
   %30 = load ptr, ptr %5, align 8
-  %31 = load ptr, ptr %4, align 16
+  %31 = load ptr, ptr %4, align 8
   %32 = ptrtoint ptr %28 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
   invoke void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS8_SA_EEEEvNSD_IPS8_SA_EET_SJ_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %35, ptr %29, ptr %30)
-          to label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev.exit15 unwind label %39
+          to label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev.exit15 unwind label %41
 
 _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev.exit15: ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit
-  %36 = load ptr, ptr %16, align 16
-  %37 = load <2 x ptr>, ptr %4, align 16
-  store <2 x ptr> %37, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %36, ptr %38, align 8
+  %36 = load ptr, ptr %4, align 8
+  %37 = load ptr, ptr %14, align 8
+  %38 = load ptr, ptr %16, align 8
+  store ptr %36, ptr %0, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %37, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %38, ptr %40, align 8
   ret void
 
-39:                                               ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit, %27, %18, %3
-  %40 = landingpad { ptr, i32 }
+41:                                               ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EE9push_backEOS8_.exit, %27, %18, %3
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #22
-  resume { ptr, i32 } %40
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1942,7 +1948,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4Luau8TypePath4Path3popEv(ptr dead_on_unwind noalias writable sret(%"struct.Luau::TypePath::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::vector", align 16
+  %3 = alloca %"class.std::vector", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1975,12 +1981,15 @@ define dso_local void @_ZNK4Luau8TypePath4Path3popEv(ptr dead_on_unwind noalias 
   unreachable
 
 _ZSt8_DestroyIPN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEES8_EvT_SA_RSaIT0_E.exit.i8: ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
-  %22 = load ptr, ptr %21, align 16
-  %23 = load <2 x ptr>, ptr %3, align 16
-  store <2 x ptr> %23, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %22, ptr %24, align 8
+  %21 = load ptr, ptr %3, align 8
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = load ptr, ptr %23, align 8
+  store ptr %21, ptr %0, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %22, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %24, ptr %26, align 8
   br label %_ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev.exit10
 
 _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev.exit10: ; preds = %_ZSt8_DestroyIPN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEES8_EvT_SA_RSaIT0_E.exit.i8, %8
@@ -2171,13 +2180,17 @@ define dso_local noundef i64 @_ZNK4Luau8TypePath8PathHashclERKNS0_4PathE(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4Luau8TypePath11PathBuilder5buildEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypePath::Path") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEESaIS8_EED2Ev.exit:
-  %2 = getelementptr inbounds i8, ptr %1, i64 16
-  %3 = load ptr, ptr %2, align 8
-  %4 = load <2 x ptr>, ptr %1, align 8
+  %2 = load ptr, ptr %1, align 8
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  store <2 x ptr> %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %3, ptr %5, align 8
+  store ptr %2, ptr %0, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %4, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %6, ptr %8, align 8
   ret void
 }
 

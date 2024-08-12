@@ -549,13 +549,25 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit: ; preds = %invoke.cont
   %civil_sec = getelementptr inbounds i8, ptr %dst, i64 16
   store i64 1970, ptr %civil_sec, align 8
   %m.i.i24 = getelementptr inbounds i8, ptr %dst, i64 24
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i24, align 8
+  store i8 1, ptr %m.i.i24, align 8
+  %d.i.i25 = getelementptr inbounds i8, ptr %dst, i64 25
+  store i8 1, ptr %d.i.i25, align 1
+  %hh.i.i26 = getelementptr inbounds i8, ptr %dst, i64 26
+  store i8 0, ptr %hh.i.i26, align 2
+  %mm.i.i27 = getelementptr inbounds i8, ptr %dst, i64 27
+  store i8 0, ptr %mm.i.i27, align 1
   %ss.i.i28 = getelementptr inbounds i8, ptr %dst, i64 28
   store i8 0, ptr %ss.i.i28, align 4
   %prev_civil_sec = getelementptr inbounds i8, ptr %dst, i64 32
   store i64 1970, ptr %prev_civil_sec, align 8
   %m.i.i29 = getelementptr inbounds i8, ptr %dst, i64 40
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i29, align 8
+  store i8 1, ptr %m.i.i29, align 8
+  %d.i.i30 = getelementptr inbounds i8, ptr %dst, i64 41
+  store i8 1, ptr %d.i.i30, align 1
+  %hh.i.i31 = getelementptr inbounds i8, ptr %dst, i64 42
+  store i8 0, ptr %hh.i.i31, align 2
+  %mm.i.i32 = getelementptr inbounds i8, ptr %dst, i64 43
+  store i8 0, ptr %mm.i.i32, align 1
   %ss.i.i33 = getelementptr inbounds i8, ptr %dst, i64 44
   store i8 0, ptr %ss.i.i33, align 4
   %type_index52 = getelementptr inbounds i8, ptr %std, i64 8
@@ -564,13 +576,25 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit: ; preds = %invoke.cont
   %civil_sec53 = getelementptr inbounds i8, ptr %std, i64 16
   store i64 1970, ptr %civil_sec53, align 8
   %m.i.i34 = getelementptr inbounds i8, ptr %std, i64 24
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i34, align 8
+  store i8 1, ptr %m.i.i34, align 8
+  %d.i.i35 = getelementptr inbounds i8, ptr %std, i64 25
+  store i8 1, ptr %d.i.i35, align 1
+  %hh.i.i36 = getelementptr inbounds i8, ptr %std, i64 26
+  store i8 0, ptr %hh.i.i36, align 2
+  %mm.i.i37 = getelementptr inbounds i8, ptr %std, i64 27
+  store i8 0, ptr %mm.i.i37, align 1
   %ss.i.i38 = getelementptr inbounds i8, ptr %std, i64 28
   store i8 0, ptr %ss.i.i38, align 4
   %prev_civil_sec54 = getelementptr inbounds i8, ptr %std, i64 32
   store i64 1970, ptr %prev_civil_sec54, align 8
   %m.i.i39 = getelementptr inbounds i8, ptr %std, i64 40
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %m.i.i39, align 8
+  store i8 1, ptr %m.i.i39, align 8
+  %d.i.i40 = getelementptr inbounds i8, ptr %std, i64 41
+  store i8 1, ptr %d.i.i40, align 1
+  %hh.i.i41 = getelementptr inbounds i8, ptr %std, i64 42
+  store i8 0, ptr %hh.i.i41, align 2
+  %mm.i.i42 = getelementptr inbounds i8, ptr %std, i64 43
+  store i8 0, ptr %mm.i.i42, align 1
   %ss.i.i43 = getelementptr inbounds i8, ptr %std, i64 44
   store i8 0, ptr %ss.i.i43, align 4
   %40 = load i64, ptr %last_year_, align 8

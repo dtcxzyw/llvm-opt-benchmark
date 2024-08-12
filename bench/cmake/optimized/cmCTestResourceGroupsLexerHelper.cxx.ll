@@ -382,106 +382,114 @@ _ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirem
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.std::vector", ptr %23, i64 %19
   invoke void @_ZNSt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit unwind label %41
+          to label %_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit unwind label %47
 
 _ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE11_M_allocateEm.exit
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
-  %.0911.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
+  %.012.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
+  %.0911.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %25 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !22, !noalias !19
-  store <2 x ptr> %25, ptr %.012.i.i.i, align 8, !alias.scope !19, !noalias !22
-  %26 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %27 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %25 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !22, !noalias !19
+  store ptr %25, ptr %.012.i.i.i, align 8, !alias.scope !19, !noalias !22
+  %26 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
+  %27 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !22, !noalias !19
   store ptr %28, ptr %26, align 8, !alias.scope !19, !noalias !22
+  %29 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %30 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %31 = load ptr, ptr %30, align 8, !alias.scope !22, !noalias !19
+  store ptr %31, ptr %29, align 8, !alias.scope !19, !noalias !22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !22, !noalias !19
-  %29 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %30 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %29, %1
+  %32 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %33 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %32, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !24
 
 _ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %30, %.lr.ph.i.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
+  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %33, %.lr.ph.i.i.i ]
+  %34 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i26 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i27
-  %.012.i.i.i28 = phi ptr [ %37, %.lr.ph.i.i.i27 ], [ %31, %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  %.0911.i.i.i29 = phi ptr [ %36, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.012.i.i.i28 = phi ptr [ %43, %.lr.ph.i.i.i27 ], [ %34, %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.0911.i.i.i29 = phi ptr [ %42, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %32 = load <2 x ptr>, ptr %.0911.i.i.i29, align 8, !alias.scope !28, !noalias !25
-  store <2 x ptr> %32, ptr %.012.i.i.i28, align 8, !alias.scope !25, !noalias !28
-  %33 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 16
-  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 16
-  %35 = load ptr, ptr %34, align 8, !alias.scope !28, !noalias !25
-  store ptr %35, ptr %33, align 8, !alias.scope !25, !noalias !28
+  %35 = load ptr, ptr %.0911.i.i.i29, align 8, !alias.scope !28, !noalias !25
+  store ptr %35, ptr %.012.i.i.i28, align 8, !alias.scope !25, !noalias !28
+  %36 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 8
+  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 8
+  %38 = load ptr, ptr %37, align 8, !alias.scope !28, !noalias !25
+  store ptr %38, ptr %36, align 8, !alias.scope !25, !noalias !28
+  %39 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 16
+  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 16
+  %41 = load ptr, ptr %40, align 8, !alias.scope !28, !noalias !25
+  store ptr %41, ptr %39, align 8, !alias.scope !25, !noalias !28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i29, i8 0, i64 24, i1 false), !alias.scope !28, !noalias !25
-  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 24
-  %37 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 24
-  %.not.i.i.i30 = icmp eq ptr %36, %5
+  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 24
+  %43 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 24
+  %.not.i.i.i30 = icmp eq ptr %42, %5
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !24
 
 _ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
-  %.0.lcssa.i.i.i31 = phi ptr [ %31, %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %37, %.lr.ph.i.i.i27 ]
+  %.0.lcssa.i.i.i31 = phi ptr [ %34, %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %43, %.lr.ph.i.i.i27 ]
   %.not.i33 = icmp eq ptr %6, null
-  br i1 %.not.i33, label %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit, label %38
+  br i1 %.not.i33, label %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit, label %44
 
-38:                                               ; preds = %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32
+44:                                               ; preds = %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32
   tail call void @_ZdlPv(ptr noundef nonnull %6) #17
   br label %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit
 
-_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %38
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIS_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %44
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %40 = getelementptr inbounds %"class.std::vector", ptr %23, i64 %16
-  store ptr %40, ptr %39, align 8
+  %46 = getelementptr inbounds %"class.std::vector", ptr %23, i64 %16
+  store ptr %46, ptr %45, align 8
   ret void
 
-41:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE11_M_allocateEm.exit
-  %42 = landingpad { ptr, i32 }
+47:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE11_M_allocateEm.exit
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  %44 = tail call ptr @__cxa_begin_catch(ptr %43) #14
+  %49 = extractvalue { ptr, i32 } %48, 0
+  %50 = tail call ptr @__cxa_begin_catch(ptr %49) #14
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %.thread, label %47
+  br i1 %.not, label %.thread, label %53
 
-.thread:                                          ; preds = %41
+.thread:                                          ; preds = %47
   tail call void @_ZNSt16allocator_traitsISaISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EEEE7destroyIS4_EEvRS5_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %24) #14
   br label %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37
 
-45:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37
-  %46 = landingpad { ptr, i32 }
+51:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37
+  %52 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %48 unwind label %49
+          to label %54 unwind label %55
 
-47:                                               ; preds = %41
+53:                                               ; preds = %47
   tail call void @_ZdlPv(ptr noundef nonnull %23) #17
   br label %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37
 
-_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37: ; preds = %47, %.thread
+_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37: ; preds = %53, %.thread
   invoke void @__cxa_rethrow() #15
-          to label %52 unwind label %45
+          to label %58 unwind label %51
 
-48:                                               ; preds = %45
-  resume { ptr, i32 } %46
+54:                                               ; preds = %51
+  resume { ptr, i32 } %52
 
-49:                                               ; preds = %45
-  %50 = landingpad { ptr, i32 }
+55:                                               ; preds = %51
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #18
+  %57 = extractvalue { ptr, i32 } %56, 0
+  tail call void @__clang_call_terminate(ptr %57) #18
   unreachable
 
-52:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37
+58:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit37
   unreachable
 }
 

@@ -96,6 +96,8 @@ define void @_Z14LoadDictionaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %5 = alloca %"class.std::shared_ptr.3", align 8
   %6 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.1) #11
   %7 = icmp eq i32 %6, 0
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink.sroa.gep16 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %3
@@ -192,9 +194,13 @@ common.resume:                                    ; preds = %36, %18
   unreachable
 
 _ZNSt10shared_ptrIN6opencc8TextDictEED2Ev.exit:   ; preds = %28, %10
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %10 ], [ %.sink.sroa.gep16, %28 ]
   %.sink = phi ptr [ %4, %10 ], [ %5, %28 ]
-  %42 = load <2 x ptr>, ptr %.sink, align 8
-  store <2 x ptr> %42, ptr %0, align 8
+  %.sink15 = load ptr, ptr %.sink, align 8
+  store ptr %.sink15, ptr %0, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = load ptr, ptr %.sink.sroa.phi, align 8
+  store ptr %43, ptr %42, align 8
   ret void
 }
 
@@ -422,20 +428,21 @@ declare void @_ZN6opencc10MarisaDict11NewFromDictERKNS_4DictE(ptr dead_on_unwind
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6opencc17ConvertDictionaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.std::shared_ptr", align 16
+  %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.std::shared_ptr.6", align 8
-  %7 = alloca %"class.std::shared_ptr", align 16
+  %7 = alloca %"class.std::shared_ptr", align 8
   call void @_Z14LoadDictionaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = load <2 x ptr>, ptr %5, align 16
-  store <2 x ptr> %11, ptr %7, align 16
-  %.not.i.i.i = icmp eq ptr %10, null
+  %8 = load ptr, ptr %5, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %9, align 8
+  %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6opencc4DictEEC2ERKS2_.exit, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %14, 0
   br i1 %.not.i.i.i.i, label %18, label %15
@@ -455,7 +462,7 @@ _ZNSt10shared_ptrIN6opencc4DictEEC2ERKS2_.exit:   ; preds = %4, %15, %18
           to label %20 unwind label %132
 
 20:                                               ; preds = %_ZNSt10shared_ptrIN6opencc4DictEEC2ERKS2_.exit
-  %21 = load ptr, ptr %8, align 8
+  %21 = load ptr, ptr %9, align 8
   %.not.i.i.i7 = icmp eq ptr %21, null
   br i1 %.not.i.i.i7, label %_ZNSt10shared_ptrIN6opencc4DictEED2Ev.exit, label %22
 
@@ -610,7 +617,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN6opencc16SerializableDictEED2Ev.exit
 
 _ZNSt10shared_ptrIN6opencc16SerializableDictEED2Ev.exit: ; preds = %60, %79, %92, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14
-  %97 = load ptr, ptr %9, align 8
+  %97 = load ptr, ptr %10, align 8
   %.not.i.i.i15 = icmp eq ptr %97, null
   br i1 %.not.i.i.i15, label %_ZNSt10shared_ptrIN6opencc4DictEED2Ev.exit21, label %98
 

@@ -137,7 +137,7 @@ define noundef zeroext i1 @_ZN15dtProximityGrid4initEif(ptr nocapture noundef no
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %31, ptr %32, align 8
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %46, label %33
+  br i1 %.not, label %49, label %33
 
 33:                                               ; preds = %13
   %34 = getelementptr inbounds i8, ptr %0, i64 20
@@ -150,7 +150,7 @@ define noundef zeroext i1 @_ZN15dtProximityGrid4initEif(ptr nocapture noundef no
   %39 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %38, ptr %39, align 8
   %.not15 = icmp eq ptr %38, null
-  br i1 %.not15, label %46, label %40
+  br i1 %.not15, label %49, label %40
 
 40:                                               ; preds = %33
   %41 = load ptr, ptr %32, align 8
@@ -160,10 +160,16 @@ define noundef zeroext i1 @_ZN15dtProximityGrid4initEif(ptr nocapture noundef no
   tail call void @llvm.memset.p0.i64(ptr align 2 %41, i8 -1, i64 %44, i1 false)
   store i32 0, ptr %35, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 36
-  store <4 x i32> <i32 65535, i32 65535, i32 -65535, i32 -65535>, ptr %45, align 4
-  br label %46
+  store i32 65535, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 65535, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 -65535, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 -65535, ptr %48, align 8
+  br label %49
 
-46:                                               ; preds = %33, %13, %40
+49:                                               ; preds = %33, %13, %40
   %.0 = phi i1 [ true, %40 ], [ false, %13 ], [ false, %33 ]
   ret i1 %.0
 }
@@ -182,7 +188,13 @@ define void @_ZN15dtProximityGrid5clearEv(ptr nocapture noundef nonnull align 8 
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 36
-  store <4 x i32> <i32 65535, i32 65535, i32 -65535, i32 -65535>, ptr %9, align 4
+  store i32 65535, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 65535, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 -65535, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 -65535, ptr %12, align 8
   ret void
 }
 
@@ -192,102 +204,107 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN15dtProximityGrid7addItemEtffff(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, i16 noundef zeroext %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #7 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 4
-  %8 = load <4 x float>, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 36
-  %10 = shufflevector <4 x float> %8, <4 x float> poison, <2 x i32> zeroinitializer
-  %11 = insertelement <2 x float> poison, float %2, i64 0
-  %12 = insertelement <2 x float> %11, float %3, i64 1
-  %13 = fmul <2 x float> %10, %12
-  %14 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %13)
-  %15 = fptosi <2 x float> %14 to <2 x i32>
-  %16 = load <2 x i32>, ptr %9, align 4
-  %17 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %16, <2 x i32> %15)
-  store <2 x i32> %17, ptr %9, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
-  %19 = insertelement <2 x float> poison, float %4, i64 0
-  %20 = insertelement <2 x float> %19, float %5, i64 1
-  %21 = fmul <2 x float> %10, %20
-  %22 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %21)
-  %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = load <2 x i32>, ptr %18, align 4
-  %25 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %24, <2 x i32> %23)
-  store <2 x i32> %25, ptr %18, align 4
-  %26 = extractelement <2 x i32> %23, i64 1
-  %27 = extractelement <2 x i32> %15, i64 1
-  %.not33 = icmp sgt i32 %27, %26
+  %8 = load float, ptr %7, align 4
+  %9 = fmul float %8, %2
+  %10 = tail call noundef float @llvm.floor.f32(float %9)
+  %11 = fptosi float %10 to i32
+  %12 = fmul float %8, %3
+  %13 = tail call noundef float @llvm.floor.f32(float %12)
+  %14 = fptosi float %13 to i32
+  %15 = fmul float %8, %4
+  %16 = tail call noundef float @llvm.floor.f32(float %15)
+  %17 = fptosi float %16 to i32
+  %18 = fmul float %8, %5
+  %19 = tail call noundef float @llvm.floor.f32(float %18)
+  %20 = fptosi float %19 to i32
+  %21 = getelementptr inbounds i8, ptr %0, i64 36
+  %22 = load i32, ptr %21, align 4
+  %23 = tail call noundef i32 @llvm.smin.i32(i32 %22, i32 %11)
+  store i32 %23, ptr %21, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = load i32, ptr %24, align 8
+  %26 = tail call noundef i32 @llvm.smin.i32(i32 %25, i32 %14)
+  store i32 %26, ptr %24, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 44
+  %28 = load i32, ptr %27, align 4
+  %29 = tail call noundef i32 @llvm.smax.i32(i32 %28, i32 %17)
+  store i32 %29, ptr %27, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = load i32, ptr %30, align 8
+  %32 = tail call noundef i32 @llvm.smax.i32(i32 %31, i32 %20)
+  store i32 %32, ptr %30, align 8
+  %.not33 = icmp sgt i32 %14, %20
   br i1 %.not33, label %._crit_edge35, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %6
-  %28 = extractelement <2 x i32> %23, i64 0
-  %29 = extractelement <2 x i32> %15, i64 0
-  %.not3031 = icmp sgt i32 %29, %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %.not3031 = icmp sgt i32 %11, %17
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds i8, ptr %0, i64 20
+  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
   br i1 %.not3031, label %._crit_edge35, label %.preheader.lr.ph.split
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
-  %35 = load i32, ptr %30, align 8
-  %36 = load i32, ptr %31, align 4
-  %37 = icmp slt i32 %35, %36
-  br i1 %37, label %.preheader, label %._crit_edge35
+  %38 = load i32, ptr %33, align 8
+  %39 = load i32, ptr %34, align 4
+  %40 = icmp slt i32 %38, %39
+  br i1 %40, label %.preheader, label %._crit_edge35
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %._crit_edge
-  %.034 = phi i32 [ %69, %._crit_edge ], [ %27, %.preheader.lr.ph.split ]
-  %38 = mul nsw i32 %.034, 19349663
-  %39 = trunc i32 %.034 to i16
-  %40 = load i32, ptr %30, align 8
-  %41 = load i32, ptr %31, align 4
-  %42 = icmp slt i32 %40, %41
-  br i1 %42, label %.lr.ph.split, label %._crit_edge
-
-.lr.ph.split:                                     ; preds = %.preheader, %67
-  %.02932 = phi i32 [ %68, %67 ], [ %29, %.preheader ]
-  %43 = load i32, ptr %30, align 8
-  %44 = load i32, ptr %31, align 4
+  %.034 = phi i32 [ %72, %._crit_edge ], [ %14, %.preheader.lr.ph.split ]
+  %41 = mul nsw i32 %.034, 19349663
+  %42 = trunc i32 %.034 to i16
+  %43 = load i32, ptr %33, align 8
+  %44 = load i32, ptr %34, align 4
   %45 = icmp slt i32 %43, %44
-  br i1 %45, label %46, label %67
+  br i1 %45, label %.lr.ph.split, label %._crit_edge
 
-46:                                               ; preds = %.lr.ph.split
-  %47 = load i32, ptr %32, align 8
-  %48 = mul nsw i32 %.02932, 73856093
-  %49 = xor i32 %48, %38
-  %50 = add nsw i32 %47, -1
-  %51 = and i32 %50, %49
-  %52 = trunc i32 %43 to i16
-  %53 = add nsw i32 %43, 1
-  store i32 %53, ptr %30, align 8
-  %54 = load ptr, ptr %33, align 8
-  %.mask = and i32 %43, 65535
-  %55 = zext nneg i32 %.mask to i64
-  %56 = getelementptr inbounds %"struct.dtProximityGrid::Item", ptr %54, i64 %55
-  %57 = trunc i32 %.02932 to i16
-  %58 = getelementptr inbounds i8, ptr %56, i64 2
-  store i16 %57, ptr %58, align 2
-  %59 = getelementptr inbounds i8, ptr %56, i64 4
-  store i16 %39, ptr %59, align 2
-  store i16 %1, ptr %56, align 2
-  %60 = load ptr, ptr %34, align 8
-  %61 = sext i32 %51 to i64
-  %62 = getelementptr inbounds i16, ptr %60, i64 %61
-  %63 = load i16, ptr %62, align 2
-  %64 = getelementptr inbounds i8, ptr %56, i64 6
-  store i16 %63, ptr %64, align 2
-  %65 = load ptr, ptr %34, align 8
-  %66 = getelementptr inbounds i16, ptr %65, i64 %61
-  store i16 %52, ptr %66, align 2
-  br label %67
+.lr.ph.split:                                     ; preds = %.preheader, %70
+  %.02932 = phi i32 [ %71, %70 ], [ %11, %.preheader ]
+  %46 = load i32, ptr %33, align 8
+  %47 = load i32, ptr %34, align 4
+  %48 = icmp slt i32 %46, %47
+  br i1 %48, label %49, label %70
 
-67:                                               ; preds = %.lr.ph.split, %46
-  %68 = add i32 %.02932, 1
-  %exitcond.not = icmp eq i32 %.02932, %28
+49:                                               ; preds = %.lr.ph.split
+  %50 = load i32, ptr %35, align 8
+  %51 = mul nsw i32 %.02932, 73856093
+  %52 = xor i32 %51, %41
+  %53 = add nsw i32 %50, -1
+  %54 = and i32 %53, %52
+  %55 = trunc i32 %46 to i16
+  %56 = add nsw i32 %46, 1
+  store i32 %56, ptr %33, align 8
+  %57 = load ptr, ptr %36, align 8
+  %.mask = and i32 %46, 65535
+  %58 = zext nneg i32 %.mask to i64
+  %59 = getelementptr inbounds %"struct.dtProximityGrid::Item", ptr %57, i64 %58
+  %60 = trunc i32 %.02932 to i16
+  %61 = getelementptr inbounds i8, ptr %59, i64 2
+  store i16 %60, ptr %61, align 2
+  %62 = getelementptr inbounds i8, ptr %59, i64 4
+  store i16 %42, ptr %62, align 2
+  store i16 %1, ptr %59, align 2
+  %63 = load ptr, ptr %37, align 8
+  %64 = sext i32 %54 to i64
+  %65 = getelementptr inbounds i16, ptr %63, i64 %64
+  %66 = load i16, ptr %65, align 2
+  %67 = getelementptr inbounds i8, ptr %59, i64 6
+  store i16 %66, ptr %67, align 2
+  %68 = load ptr, ptr %37, align 8
+  %69 = getelementptr inbounds i16, ptr %68, i64 %64
+  store i16 %55, ptr %69, align 2
+  br label %70
+
+70:                                               ; preds = %.lr.ph.split, %49
+  %71 = add i32 %.02932, 1
+  %exitcond.not = icmp eq i32 %.02932, %17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %67, %.preheader
-  %69 = add i32 %.034, 1
-  %exitcond42.not = icmp eq i32 %.034, %26
+._crit_edge:                                      ; preds = %70, %.preheader
+  %72 = add i32 %.034, 1
+  %exitcond42.not = icmp eq i32 %.034, %20
   br i1 %exitcond42.not, label %._crit_edge35, label %.preheader, !llvm.loop !7
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %.preheader.lr.ph.split, %.preheader.lr.ph, %6
@@ -472,13 +489,10 @@ define noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr nocapture nound
 declare float @llvm.floor.f32(float) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.floor.v2f32(<2 x float>) #11
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.smin.v2i32(<2 x i32>, <2 x i32>) #11
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

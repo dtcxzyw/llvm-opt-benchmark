@@ -1843,43 +1843,46 @@ define hidden void @rdp_transport_set_udp_conversation(ptr nocapture noundef rea
   store i32 %3, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = load <2 x i32>, ptr %0, align 8
-  store <2 x i32> %13, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
-  store i16 %1, ptr %16, align 8
-  %17 = load ptr, ptr @rdp_transport_links, align 8
-  %18 = call ptr @wmem_map_lookup(ptr noundef %17, ptr noundef nonnull %7) #12
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %19, label %copy_address_wmem.exit
+  %11 = load i32, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  store i32 %11, ptr %7, align 8
+  %16 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %13, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %15, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr null, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 24
+  store i16 %1, ptr %19, align 8
+  %20 = load ptr, ptr @rdp_transport_links, align 8
+  %21 = call ptr @wmem_map_lookup(ptr noundef %20, ptr noundef nonnull %7) #12
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %22, label %copy_address_wmem.exit
 
-19:                                               ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
-  %21 = call ptr @wmem_file_scope() #12
-  %22 = call noalias ptr @wmem_alloc(ptr noundef %21, i64 noundef 72) #12
+22:                                               ; preds = %6
   %23 = call ptr @wmem_file_scope() #12
-  %24 = load i32, ptr %0, align 8
-  %25 = load i32, ptr %20, align 4
-  %26 = load ptr, ptr %11, align 8
+  %24 = call noalias ptr @wmem_alloc(ptr noundef %23, i64 noundef 72) #12
+  %25 = call ptr @wmem_file_scope() #12
+  %26 = load i32, ptr %0, align 8
+  %27 = load i32, ptr %12, align 4
+  %28 = load ptr, ptr %14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store i32 %24, ptr %7, align 8
-  %27 = icmp eq i32 %25, 0
-  br i1 %27, label %copy_address_wmem.exit, label %28
+  store i32 %26, ptr %7, align 8
+  %29 = icmp eq i32 %27, 0
+  br i1 %29, label %copy_address_wmem.exit, label %30
 
-28:                                               ; preds = %19
-  %29 = sext i32 %25 to i64
-  %30 = call noalias ptr @wmem_memdup(ptr noundef %23, ptr noundef %26, i64 noundef %29) #12
+30:                                               ; preds = %22
+  %31 = sext i32 %27 to i64
+  %32 = call noalias ptr @wmem_memdup(ptr noundef %25, ptr noundef %28, i64 noundef %31) #12
   br label %copy_address_wmem.exit
 
-copy_address_wmem.exit:                           ; preds = %28, %19, %6
-  %.0 = phi ptr [ %18, %6 ], [ %22, %19 ], [ %22, %28 ]
-  %31 = getelementptr inbounds i8, ptr %.0, i64 64
-  store ptr %5, ptr %31, align 8
+copy_address_wmem.exit:                           ; preds = %30, %22, %6
+  %.0 = phi ptr [ %21, %6 ], [ %24, %22 ], [ %24, %30 ]
+  %33 = getelementptr inbounds i8, ptr %.0, i64 64
+  store ptr %5, ptr %33, align 8
   ret void
 }
 
@@ -2201,7 +2204,7 @@ define internal range(i32 0, 9) i32 @dissect_rdp_cc(ptr noundef %0, ptr noundef 
   %21 = load i32, ptr @ett_rdp, align 4
   %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #12
   %switch = icmp eq i8 %11, 2
-  br i1 %switch, label %23, label %53
+  br i1 %switch, label %23, label %56
 
 23:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -2240,21 +2243,27 @@ define internal range(i32 0, 9) i32 @dissect_rdp_cc(ptr noundef %0, ptr noundef 
 45:                                               ; preds = %40
   %46 = call ptr @wmem_file_scope() #12
   %47 = call noalias ptr @wmem_alloc0(ptr noundef %46, i64 noundef 832) #12
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 0>, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 60
-  store i32 0, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %47, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %50, i8 0, i64 33, i1 false)
-  %51 = load i32, ptr @proto_rdp, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %41, i32 noundef %51, ptr noundef nonnull %47) #12
+  store i32 -1, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  store i32 -1, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  store i32 0, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %47, i64 12
+  store i32 0, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %47, i64 16
+  store i32 0, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %47, i64 60
+  store i32 0, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %47, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %53, i8 0, i64 33, i1 false)
+  %54 = load i32, ptr @proto_rdp, align 4
+  call void @conversation_add_proto_data(ptr noundef nonnull %41, i32 noundef %54, ptr noundef nonnull %47) #12
   br label %rdp_get_conversation_data.exit.i
 
 rdp_get_conversation_data.exit.i:                 ; preds = %45, %40
   %.0.i.i = phi ptr [ %47, %45 ], [ %43, %40 ]
-  %52 = getelementptr inbounds i8, ptr %.0.i.i, i64 60
-  store i32 1, ptr %52, align 4
+  %55 = getelementptr inbounds i8, ptr %.0.i.i, i64 60
+  store i32 1, ptr %55, align 4
   br label %dissect_rdpNegRsp.exit
 
 dissect_rdpNegRsp.exit:                           ; preds = %33, %35, %rdp_get_conversation_data.exit.i
@@ -2263,36 +2272,36 @@ dissect_rdpNegRsp.exit:                           ; preds = %33, %35, %rdp_get_c
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %.thread
 
-53:                                               ; preds = %15
+56:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %54 = load ptr, ptr %16, align 8
-  tail call void @col_append_str(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.974) #12
-  %55 = load i32, ptr @hf_rdp_neg_type, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %55, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
-  %57 = load i32, ptr @hf_rdp_negReq_flags, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %57, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #12
-  %59 = load i32, ptr @hf_rdp_neg_length, align 4
-  %60 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %59, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #12
-  %61 = load i32, ptr %5, align 4
-  %.not.i34 = icmp eq i32 %61, 8
-  br i1 %.not.i34, label %64, label %62
+  %57 = load ptr, ptr %16, align 8
+  tail call void @col_append_str(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.974) #12
+  %58 = load i32, ptr @hf_rdp_neg_type, align 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %58, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
+  %60 = load i32, ptr @hf_rdp_negReq_flags, align 4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %60, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #12
+  %62 = load i32, ptr @hf_rdp_neg_length, align 4
+  %63 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %62, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #12
+  %64 = load i32, ptr %5, align 4
+  %.not.i34 = icmp eq i32 %64, 8
+  br i1 %.not.i34, label %67, label %65
 
-62:                                               ; preds = %53
-  %63 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %60, ptr noundef nonnull @ei_rdp_neg_len_invalid, ptr noundef nonnull @.str.975, i32 noundef %61) #12
+65:                                               ; preds = %56
+  %66 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %63, ptr noundef nonnull @ei_rdp_neg_len_invalid, ptr noundef nonnull @.str.975, i32 noundef %64) #12
   br label %dissect_rdpNegFailure.exit
 
-64:                                               ; preds = %53
-  %65 = load i32, ptr @hf_rdp_negFailure_failureCode, align 4
-  %66 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %65, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #12
-  %67 = load ptr, ptr %16, align 8
-  %68 = load i32, ptr %6, align 4
-  %69 = call ptr @val_to_str(i32 noundef %68, ptr noundef nonnull @failure_code_vals, ptr noundef nonnull @.str.977) #12
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %67, i32 noundef 25, ptr noundef nonnull @.str.976, ptr noundef %69) #12
+67:                                               ; preds = %56
+  %68 = load i32, ptr @hf_rdp_negFailure_failureCode, align 4
+  %69 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %68, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #12
+  %70 = load ptr, ptr %16, align 8
+  %71 = load i32, ptr %6, align 4
+  %72 = call ptr @val_to_str(i32 noundef %71, ptr noundef nonnull @failure_code_vals, ptr noundef nonnull @.str.977) #12
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %70, i32 noundef 25, ptr noundef nonnull @.str.976, ptr noundef %72) #12
   br label %dissect_rdpNegFailure.exit
 
-dissect_rdpNegFailure.exit:                       ; preds = %62, %64
-  %.0.i35 = phi i32 [ 4, %62 ], [ 8, %64 ]
+dissect_rdpNegFailure.exit:                       ; preds = %65, %67
+  %.0.i35 = phi i32 [ 4, %65 ], [ 8, %67 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %.thread
@@ -2317,7 +2326,7 @@ define internal range(i32 0, 2) i32 @dissect_rdp_heur(ptr noundef %0, ptr nounde
   %15 = load ptr, ptr @rdp_heur_subdissector_list, align 8
   %16 = call i32 @dissector_try_heuristic(ptr noundef %15, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %14, ptr noundef null) #12
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %294
+  br i1 %.not, label %17, label %297
 
 17:                                               ; preds = %4
   %18 = call nonnull ptr @find_or_create_conversation(ptr noundef %1) #12
@@ -2329,25 +2338,31 @@ define internal range(i32 0, 2) i32 @dissect_rdp_heur(ptr noundef %0, ptr nounde
 22:                                               ; preds = %17
   %23 = call ptr @wmem_file_scope() #12
   %24 = call noalias ptr @wmem_alloc0(ptr noundef %23, i64 noundef 832) #12
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 0>, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 60
-  store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %24, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %27, i8 0, i64 33, i1 false)
-  %28 = load i32, ptr @proto_rdp, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %18, i32 noundef %28, ptr noundef nonnull %24) #12
+  store i32 -1, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  store i32 -1, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  store i32 0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %24, i64 12
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %24, i64 60
+  store i32 0, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %24, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %30, i8 0, i64 33, i1 false)
+  %31 = load i32, ptr @proto_rdp, align 4
+  call void @conversation_add_proto_data(ptr noundef nonnull %18, i32 noundef %31, ptr noundef nonnull %24) #12
   br label %rdp_get_conversation_data.exit
 
 rdp_get_conversation_data.exit:                   ; preds = %22, %17
   %.0.i = phi ptr [ %24, %22 ], [ %20, %17 ]
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 60
-  %30 = load i32, ptr %29, align 4
-  %.not14 = icmp eq i32 %30, 0
-  br i1 %.not14, label %136, label %31
+  %32 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %33 = load i32, ptr %32, align 4
+  %.not14 = icmp eq i32 %33, 0
+  br i1 %.not14, label %139, label %34
 
-31:                                               ; preds = %rdp_get_conversation_data.exit
+34:                                               ; preds = %rdp_get_conversation_data.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
@@ -2361,221 +2376,221 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
   store i32 0, ptr %10, align 4
   store i32 0, ptr %11, align 4
   store ptr @hf_rdp_rdstls_redirectionGuidLen, ptr %12, align 16
-  %32 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr %7, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %12, i64 24
-  %35 = getelementptr inbounds i8, ptr %12, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  store ptr @hf_rdp_rdstls_redirectionGuid, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %12, i64 48
-  store i32 0, ptr %36, align 16
-  %37 = getelementptr inbounds i8, ptr %12, i64 56
-  store ptr %7, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %12, i64 64
-  store i32 0, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %12, i64 68
-  store i32 6, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %12, i64 72
-  store ptr null, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %12, i64 80
-  store ptr @hf_rdp_rdstls_usernameLen, ptr %41, align 16
-  %42 = getelementptr inbounds i8, ptr %12, i64 88
-  store i32 2, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %12, i64 96
-  store ptr %8, ptr %43, align 16
-  %44 = getelementptr inbounds i8, ptr %12, i64 104
-  %45 = getelementptr inbounds i8, ptr %12, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
-  store ptr @hf_rdp_rdstls_username, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %12, i64 128
-  store i32 0, ptr %46, align 16
-  %47 = getelementptr inbounds i8, ptr %12, i64 136
-  store ptr %8, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %12, i64 144
-  store i32 0, ptr %48, align 16
-  %49 = getelementptr inbounds i8, ptr %12, i64 148
-  store i32 6, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %12, i64 152
-  store ptr null, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %12, i64 160
-  store ptr @hf_rdp_rdstls_domainLen, ptr %51, align 16
-  %52 = getelementptr inbounds i8, ptr %12, i64 168
-  store i32 2, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %12, i64 176
-  store ptr %9, ptr %53, align 16
-  %54 = getelementptr inbounds i8, ptr %12, i64 184
-  %55 = getelementptr inbounds i8, ptr %12, i64 200
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  store ptr @hf_rdp_rdstls_domain, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %12, i64 208
-  store i32 0, ptr %56, align 16
-  %57 = getelementptr inbounds i8, ptr %12, i64 216
-  store ptr %9, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %12, i64 224
-  store i32 0, ptr %58, align 16
-  %59 = getelementptr inbounds i8, ptr %12, i64 228
-  store i32 6, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %12, i64 232
-  store ptr null, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %12, i64 240
-  store ptr @hf_rdp_rdstls_passwordLen, ptr %61, align 16
-  %62 = getelementptr inbounds i8, ptr %12, i64 248
-  store i32 2, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %12, i64 256
-  store ptr %10, ptr %63, align 16
-  %64 = getelementptr inbounds i8, ptr %12, i64 264
-  %65 = getelementptr inbounds i8, ptr %12, i64 280
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
-  store ptr @hf_rdp_rdstls_password, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %12, i64 288
-  store i32 0, ptr %66, align 16
-  %67 = getelementptr inbounds i8, ptr %12, i64 296
-  store ptr %10, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %12, i64 304
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %68, i8 0, i64 56, i1 false)
+  %35 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 2, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %7, ptr %36, align 16
+  %37 = getelementptr inbounds i8, ptr %12, i64 24
+  %38 = getelementptr inbounds i8, ptr %12, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
+  store ptr @hf_rdp_rdstls_redirectionGuid, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %12, i64 48
+  store i32 0, ptr %39, align 16
+  %40 = getelementptr inbounds i8, ptr %12, i64 56
+  store ptr %7, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %12, i64 64
+  store i32 0, ptr %41, align 16
+  %42 = getelementptr inbounds i8, ptr %12, i64 68
+  store i32 6, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %12, i64 72
+  store ptr null, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %12, i64 80
+  store ptr @hf_rdp_rdstls_usernameLen, ptr %44, align 16
+  %45 = getelementptr inbounds i8, ptr %12, i64 88
+  store i32 2, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %12, i64 96
+  store ptr %8, ptr %46, align 16
+  %47 = getelementptr inbounds i8, ptr %12, i64 104
+  %48 = getelementptr inbounds i8, ptr %12, i64 120
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
+  store ptr @hf_rdp_rdstls_username, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %12, i64 128
+  store i32 0, ptr %49, align 16
+  %50 = getelementptr inbounds i8, ptr %12, i64 136
+  store ptr %8, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %12, i64 144
+  store i32 0, ptr %51, align 16
+  %52 = getelementptr inbounds i8, ptr %12, i64 148
+  store i32 6, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %12, i64 152
+  store ptr null, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %12, i64 160
+  store ptr @hf_rdp_rdstls_domainLen, ptr %54, align 16
+  %55 = getelementptr inbounds i8, ptr %12, i64 168
+  store i32 2, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %12, i64 176
+  store ptr %9, ptr %56, align 16
+  %57 = getelementptr inbounds i8, ptr %12, i64 184
+  %58 = getelementptr inbounds i8, ptr %12, i64 200
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
+  store ptr @hf_rdp_rdstls_domain, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %12, i64 208
+  store i32 0, ptr %59, align 16
+  %60 = getelementptr inbounds i8, ptr %12, i64 216
+  store ptr %9, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %12, i64 224
+  store i32 0, ptr %61, align 16
+  %62 = getelementptr inbounds i8, ptr %12, i64 228
+  store i32 6, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %12, i64 232
+  store ptr null, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %12, i64 240
+  store ptr @hf_rdp_rdstls_passwordLen, ptr %64, align 16
+  %65 = getelementptr inbounds i8, ptr %12, i64 248
+  store i32 2, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %12, i64 256
+  store ptr %10, ptr %66, align 16
+  %67 = getelementptr inbounds i8, ptr %12, i64 264
+  %68 = getelementptr inbounds i8, ptr %12, i64 280
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
+  store ptr @hf_rdp_rdstls_password, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %12, i64 288
+  store i32 0, ptr %69, align 16
+  %70 = getelementptr inbounds i8, ptr %12, i64 296
+  store ptr %10, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %12, i64 304
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %71, i8 0, i64 56, i1 false)
   store ptr @hf_rdp_rdstls_sessionId, ptr %13, align 16
-  %69 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 4, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %13, i64 16
-  %71 = getelementptr inbounds i8, ptr %13, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %70, i8 0, i64 24, i1 false)
-  store ptr @hf_rdp_rdstls_autoReconnectCookieLen, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %13, i64 48
-  store i32 2, ptr %72, align 16
-  %73 = getelementptr inbounds i8, ptr %13, i64 56
-  store ptr %11, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %13, i64 64
-  %75 = getelementptr inbounds i8, ptr %13, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %74, i8 0, i64 16, i1 false)
-  store ptr @hf_rdp_rdstls_autoReconnectCookie, ptr %75, align 16
-  %76 = getelementptr inbounds i8, ptr %13, i64 88
-  store i32 0, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %13, i64 96
-  store ptr %11, ptr %77, align 16
-  %78 = getelementptr inbounds i8, ptr %13, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %78, i8 0, i64 56, i1 false)
-  %79 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #12
-  %80 = icmp slt i32 %79, 6
-  br i1 %80, label %dissect_rdp_rdstls.exit.thread, label %81
+  %72 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 4, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %13, i64 16
+  %74 = getelementptr inbounds i8, ptr %13, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %73, i8 0, i64 24, i1 false)
+  store ptr @hf_rdp_rdstls_autoReconnectCookieLen, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %13, i64 48
+  store i32 2, ptr %75, align 16
+  %76 = getelementptr inbounds i8, ptr %13, i64 56
+  store ptr %11, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %13, i64 64
+  %78 = getelementptr inbounds i8, ptr %13, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %77, i8 0, i64 16, i1 false)
+  store ptr @hf_rdp_rdstls_autoReconnectCookie, ptr %78, align 16
+  %79 = getelementptr inbounds i8, ptr %13, i64 88
+  store i32 0, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %13, i64 96
+  store ptr %11, ptr %80, align 16
+  %81 = getelementptr inbounds i8, ptr %13, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %81, i8 0, i64 56, i1 false)
+  %82 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #12
+  %83 = icmp slt i32 %82, 6
+  br i1 %83, label %dissect_rdp_rdstls.exit.thread, label %84
 
-81:                                               ; preds = %31
-  %82 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 0, i32 noundef -2147483648) #12
-  %.not.i = icmp eq i16 %82, 1
-  br i1 %.not.i, label %83, label %dissect_rdp_rdstls.exit.thread
+84:                                               ; preds = %34
+  %85 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 0, i32 noundef -2147483648) #12
+  %.not.i = icmp eq i16 %85, 1
+  br i1 %.not.i, label %86, label %dissect_rdp_rdstls.exit.thread
 
-83:                                               ; preds = %81
-  %84 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 2, i32 noundef -2147483648) #12
-  %85 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 4, i32 noundef -2147483648) #12
-  switch i16 %84, label %dissect_rdp_rdstls.exit.thread [
-    i16 1, label %86
-    i16 2, label %89
-    i16 4, label %109
+86:                                               ; preds = %84
+  %87 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 2, i32 noundef -2147483648) #12
+  %88 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 4, i32 noundef -2147483648) #12
+  switch i16 %87, label %dissect_rdp_rdstls.exit.thread [
+    i16 1, label %89
+    i16 2, label %92
+    i16 4, label %112
   ]
 
-86:                                               ; preds = %83
-  %.not66.i = icmp eq i16 %85, 1
-  br i1 %.not66.i, label %87, label %dissect_rdp_rdstls.exit.thread
+89:                                               ; preds = %86
+  %.not66.i = icmp eq i16 %88, 1
+  br i1 %.not66.i, label %90, label %dissect_rdp_rdstls.exit.thread
 
-87:                                               ; preds = %86
-  %88 = load i32, ptr @hf_rdp_rdstls_dataTypeCapabilities, align 4
+90:                                               ; preds = %89
+  %91 = load i32, ptr @hf_rdp_rdstls_dataTypeCapabilities, align 4
   br label %.loopexit.i
 
-89:                                               ; preds = %83
-  %90 = load i32, ptr @hf_rdp_rdstls_dataTypeAuthReq, align 4
-  switch i16 %85, label %dissect_rdp_rdstls.exit.thread [
-    i16 1, label %94
-    i16 2, label %91
+92:                                               ; preds = %86
+  %93 = load i32, ptr @hf_rdp_rdstls_dataTypeAuthReq, align 4
+  switch i16 %88, label %dissect_rdp_rdstls.exit.thread [
+    i16 1, label %97
+    i16 2, label %94
   ]
 
-91:                                               ; preds = %89
-  %92 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 6) #12
-  %93 = icmp slt i32 %92, 4
-  br i1 %93, label %dissect_rdp_rdstls.exit.thread, label %94
+94:                                               ; preds = %92
+  %95 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 6) #12
+  %96 = icmp slt i32 %95, 4
+  br i1 %96, label %dissect_rdp_rdstls.exit.thread, label %97
 
-94:                                               ; preds = %91, %89
-  %.063.i = phi i32 [ 4, %89 ], [ 1, %91 ]
-  %.061.i = phi i32 [ 6, %89 ], [ 10, %91 ]
-  %.159.i = phi ptr [ %12, %89 ], [ %13, %91 ]
-  br label %95
+97:                                               ; preds = %94, %92
+  %.063.i = phi i32 [ 4, %92 ], [ 1, %94 ]
+  %.061.i = phi i32 [ 6, %92 ], [ 10, %94 ]
+  %.159.i = phi ptr [ %12, %92 ], [ %13, %94 ]
+  br label %98
 
-95:                                               ; preds = %104, %94
-  %.15.i = phi i32 [ 6, %94 ], [ %106, %104 ]
-  %.0604.i = phi i32 [ 0, %94 ], [ %108, %104 ]
-  %.1623.i = phi i32 [ %.061.i, %94 ], [ %107, %104 ]
-  %96 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1623.i) #12
-  %97 = icmp slt i32 %96, 2
-  br i1 %97, label %dissect_rdp_rdstls.exit.thread, label %98
+98:                                               ; preds = %107, %97
+  %.15.i = phi i32 [ 6, %97 ], [ %109, %107 ]
+  %.0604.i = phi i32 [ 0, %97 ], [ %111, %107 ]
+  %.1623.i = phi i32 [ %.061.i, %97 ], [ %110, %107 ]
+  %99 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1623.i) #12
+  %100 = icmp slt i32 %99, 2
+  br i1 %100, label %dissect_rdp_rdstls.exit.thread, label %101
 
-98:                                               ; preds = %95
-  %99 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.1623.i, i32 noundef -2147483648) #12
-  %100 = zext i16 %99 to i32
-  %101 = add i32 %.1623.i, 2
-  %102 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %101) #12
-  %103 = icmp slt i32 %102, %100
-  br i1 %103, label %dissect_rdp_rdstls.exit.thread, label %104
+101:                                              ; preds = %98
+  %102 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.1623.i, i32 noundef -2147483648) #12
+  %103 = zext i16 %102 to i32
+  %104 = add i32 %.1623.i, 2
+  %105 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %104) #12
+  %106 = icmp slt i32 %105, %103
+  br i1 %106, label %dissect_rdp_rdstls.exit.thread, label %107
 
-104:                                              ; preds = %98
-  %105 = add i32 %.15.i, 2
-  %106 = add i32 %105, %100
-  %107 = add i32 %101, %100
-  %108 = add nuw nsw i32 %.0604.i, 1
-  %exitcond.not.i = icmp eq i32 %108, %.063.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %95, !llvm.loop !6
+107:                                              ; preds = %101
+  %108 = add i32 %.15.i, 2
+  %109 = add i32 %108, %103
+  %110 = add i32 %104, %103
+  %111 = add nuw nsw i32 %.0604.i, 1
+  %exitcond.not.i = icmp eq i32 %111, %.063.i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %98, !llvm.loop !6
 
-109:                                              ; preds = %83
-  %.not65.i = icmp eq i16 %85, 1
-  br i1 %.not65.i, label %110, label %dissect_rdp_rdstls.exit.thread
+112:                                              ; preds = %86
+  %.not65.i = icmp eq i16 %88, 1
+  br i1 %.not65.i, label %113, label %dissect_rdp_rdstls.exit.thread
 
-110:                                              ; preds = %109
-  %111 = load i32, ptr @hf_rdp_rdstls_dataTypeAuthResp, align 4
+113:                                              ; preds = %112
+  %114 = load i32, ptr @hf_rdp_rdstls_dataTypeAuthResp, align 4
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %104, %110, %87
-  %.058.i = phi ptr [ null, %110 ], [ null, %87 ], [ %.159.i, %104 ]
-  %.057.i = phi i32 [ %111, %110 ], [ %88, %87 ], [ %90, %104 ]
-  %.056.i = phi i32 [ 10, %110 ], [ 8, %87 ], [ %106, %104 ]
-  %112 = load i32, ptr @proto_rdp, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %112, ptr noundef %0, i32 noundef 0, i32 noundef %.056.i, i32 noundef 0) #12
-  %114 = load i32, ptr @ett_rdp, align 4
-  %115 = call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #12
-  %116 = load i32, ptr @hf_rdp_rdstls_version, align 4
-  %117 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %116, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #12
-  %118 = load i32, ptr @hf_rdp_rdstls_pduType, align 4
-  %119 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %118, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #12
-  %120 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %.057.i, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #12
-  switch i16 %84, label %dissect_rdp_rdstls.exit [
-    i16 1, label %121
-    i16 2, label %126
-    i16 4, label %131
+.loopexit.i:                                      ; preds = %107, %113, %90
+  %.058.i = phi ptr [ null, %113 ], [ null, %90 ], [ %.159.i, %107 ]
+  %.057.i = phi i32 [ %114, %113 ], [ %91, %90 ], [ %93, %107 ]
+  %.056.i = phi i32 [ 10, %113 ], [ 8, %90 ], [ %109, %107 ]
+  %115 = load i32, ptr @proto_rdp, align 4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %115, ptr noundef %0, i32 noundef 0, i32 noundef %.056.i, i32 noundef 0) #12
+  %117 = load i32, ptr @ett_rdp, align 4
+  %118 = call ptr @proto_item_add_subtree(ptr noundef %116, i32 noundef %117) #12
+  %119 = load i32, ptr @hf_rdp_rdstls_version, align 4
+  %120 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #12
+  %121 = load i32, ptr @hf_rdp_rdstls_pduType, align 4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %121, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #12
+  %123 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %.057.i, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #12
+  switch i16 %87, label %dissect_rdp_rdstls.exit [
+    i16 1, label %124
+    i16 2, label %129
+    i16 4, label %134
   ]
 
-121:                                              ; preds = %.loopexit.i
-  %122 = getelementptr inbounds i8, ptr %1, i64 8
-  %123 = load ptr, ptr %122, align 8
-  call void @col_set_str(ptr noundef %123, i32 noundef 25, ptr noundef nonnull @.str.978) #12
-  %124 = load i32, ptr @hf_rdp_rdstls_supportedVersions, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %124, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #12
+124:                                              ; preds = %.loopexit.i
+  %125 = getelementptr inbounds i8, ptr %1, i64 8
+  %126 = load ptr, ptr %125, align 8
+  call void @col_set_str(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.978) #12
+  %127 = load i32, ptr @hf_rdp_rdstls_supportedVersions, align 4
+  %128 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %127, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #12
   br label %dissect_rdp_rdstls.exit
 
-126:                                              ; preds = %.loopexit.i
-  %127 = getelementptr inbounds i8, ptr %1, i64 8
-  %128 = load ptr, ptr %127, align 8
-  call void @col_set_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.979) #12
-  %129 = add i32 %.056.i, -6
-  %130 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef 6, ptr noundef %1, ptr noundef %115, ptr noundef %.058.i, i32 noundef %129)
+129:                                              ; preds = %.loopexit.i
+  %130 = getelementptr inbounds i8, ptr %1, i64 8
+  %131 = load ptr, ptr %130, align 8
+  call void @col_set_str(ptr noundef %131, i32 noundef 25, ptr noundef nonnull @.str.979) #12
+  %132 = add i32 %.056.i, -6
+  %133 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef 6, ptr noundef %1, ptr noundef %118, ptr noundef %.058.i, i32 noundef %132)
   br label %dissect_rdp_rdstls.exit
 
-131:                                              ; preds = %.loopexit.i
-  %132 = getelementptr inbounds i8, ptr %1, i64 8
-  %133 = load ptr, ptr %132, align 8
-  call void @col_set_str(ptr noundef %133, i32 noundef 25, ptr noundef nonnull @.str.980) #12
-  %134 = load i32, ptr @hf_rdp_rdstls_resultCode, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %134, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648) #12
+134:                                              ; preds = %.loopexit.i
+  %135 = getelementptr inbounds i8, ptr %1, i64 8
+  %136 = load ptr, ptr %135, align 8
+  call void @col_set_str(ptr noundef %136, i32 noundef 25, ptr noundef nonnull @.str.980) #12
+  %137 = load i32, ptr @hf_rdp_rdstls_resultCode, align 4
+  %138 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %137, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648) #12
   br label %dissect_rdp_rdstls.exit
 
-dissect_rdp_rdstls.exit.thread:                   ; preds = %95, %98, %31, %81, %86, %91, %89, %109, %83
+dissect_rdp_rdstls.exit.thread:                   ; preds = %98, %101, %34, %84, %89, %94, %92, %112, %86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -2583,9 +2598,9 @@ dissect_rdp_rdstls.exit.thread:                   ; preds = %95, %98, %31, %81, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13)
-  br label %136
+  br label %139
 
-dissect_rdp_rdstls.exit:                          ; preds = %.loopexit.i, %121, %126, %131
+dissect_rdp_rdstls.exit:                          ; preds = %.loopexit.i, %124, %129, %134
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -2593,317 +2608,317 @@ dissect_rdp_rdstls.exit:                          ; preds = %.loopexit.i, %121, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13)
-  br label %294
+  br label %297
 
-136:                                              ; preds = %dissect_rdp_rdstls.exit.thread, %rdp_get_conversation_data.exit
+139:                                              ; preds = %dissect_rdp_rdstls.exit.thread, %rdp_get_conversation_data.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %137 = call i32 @tvb_captured_length(ptr noundef %0) #12
-  %138 = icmp ult i32 %137, 3
-  br i1 %138, label %dissect_rdp_fastpath.exit, label %139
+  %140 = call i32 @tvb_captured_length(ptr noundef %0) #12
+  %141 = icmp ult i32 %140, 3
+  br i1 %141, label %dissect_rdp_fastpath.exit, label %142
 
-139:                                              ; preds = %136
-  %140 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #12
-  %141 = zext i8 %140 to i32
-  %142 = and i32 %141, 3
-  %.not.i17 = icmp eq i32 %142, 0
-  br i1 %.not.i17, label %143, label %dissect_rdp_fastpath.exit
+142:                                              ; preds = %139
+  %143 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #12
+  %144 = zext i8 %143 to i32
+  %145 = and i32 %144, 3
+  %.not.i17 = icmp eq i32 %145, 0
+  br i1 %.not.i17, label %146, label %dissect_rdp_fastpath.exit
 
-143:                                              ; preds = %139
-  %144 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #12
-  %145 = icmp eq i8 %144, 0
-  br i1 %145, label %dissect_rdp_fastpath.exit, label %146
+146:                                              ; preds = %142
+  %147 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #12
+  %148 = icmp eq i8 %147, 0
+  br i1 %148, label %dissect_rdp_fastpath.exit, label %149
 
-146:                                              ; preds = %143
-  %147 = zext nneg i8 %144 to i32
-  %.not155.i = icmp sgt i8 %144, -1
-  br i1 %.not155.i, label %155, label %148
+149:                                              ; preds = %146
+  %150 = zext nneg i8 %147 to i32
+  %.not155.i = icmp sgt i8 %147, -1
+  br i1 %.not155.i, label %158, label %151
 
-148:                                              ; preds = %146
-  %149 = and i8 %144, 127
-  %150 = zext nneg i8 %149 to i32
-  %151 = shl nuw nsw i32 %150, 8
-  %152 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #12
-  %153 = zext i8 %152 to i32
-  %154 = or disjoint i32 %151, %153
-  br label %155
+151:                                              ; preds = %149
+  %152 = and i8 %147, 127
+  %153 = zext nneg i8 %152 to i32
+  %154 = shl nuw nsw i32 %153, 8
+  %155 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #12
+  %156 = zext i8 %155 to i32
+  %157 = or disjoint i32 %154, %156
+  br label %158
 
-155:                                              ; preds = %148, %146
-  %.0147.i = phi i32 [ 2, %148 ], [ 1, %146 ]
-  %.0145.i = phi i32 [ %154, %148 ], [ %147, %146 ]
-  %156 = call i32 @tvb_captured_length(ptr noundef %0) #12
-  %.not156.i = icmp eq i32 %.0145.i, %156
-  br i1 %.not156.i, label %157, label %dissect_rdp_fastpath.exit
+158:                                              ; preds = %151, %149
+  %.0147.i = phi i32 [ 2, %151 ], [ 1, %149 ]
+  %.0145.i = phi i32 [ %157, %151 ], [ %150, %149 ]
+  %159 = call i32 @tvb_captured_length(ptr noundef %0) #12
+  %.not156.i = icmp eq i32 %.0145.i, %159
+  br i1 %.not156.i, label %160, label %dissect_rdp_fastpath.exit
 
-157:                                              ; preds = %155
-  %158 = call ptr @find_conversation_pinfo(ptr noundef %1, i32 noundef 0) #12
-  %.not.i.i = icmp eq ptr %158, null
-  br i1 %.not.i.i, label %rdp_isServerAddressTarget.exit.i, label %159
+160:                                              ; preds = %158
+  %161 = call ptr @find_conversation_pinfo(ptr noundef %1, i32 noundef 0) #12
+  %.not.i.i = icmp eq ptr %161, null
+  br i1 %.not.i.i, label %rdp_isServerAddressTarget.exit.i, label %162
 
-159:                                              ; preds = %157
-  %160 = load i32, ptr @proto_rdp, align 4
-  %161 = call ptr @conversation_get_proto_data(ptr noundef nonnull %158, i32 noundef %160) #12
-  %.not11.i.i = icmp eq ptr %161, null
-  br i1 %.not11.i.i, label %rdp_isServerAddressTarget.exit.i, label %162
+162:                                              ; preds = %160
+  %163 = load i32, ptr @proto_rdp, align 4
+  %164 = call ptr @conversation_get_proto_data(ptr noundef nonnull %161, i32 noundef %163) #12
+  %.not11.i.i = icmp eq ptr %164, null
+  br i1 %.not11.i.i, label %rdp_isServerAddressTarget.exit.i, label %165
 
-162:                                              ; preds = %159
-  %163 = getelementptr inbounds i8, ptr %161, i64 24
-  %164 = getelementptr inbounds i8, ptr %1, i64 232
-  %165 = load i32, ptr %163, align 8
-  %166 = load i32, ptr %164, align 8
-  %167 = icmp eq i32 %165, %166
-  br i1 %167, label %168, label %rdp_isServerAddressTarget.exit.i
+165:                                              ; preds = %162
+  %166 = getelementptr inbounds i8, ptr %164, i64 24
+  %167 = getelementptr inbounds i8, ptr %1, i64 232
+  %168 = load i32, ptr %166, align 8
+  %169 = load i32, ptr %167, align 8
+  %170 = icmp eq i32 %168, %169
+  br i1 %170, label %171, label %rdp_isServerAddressTarget.exit.i
 
-168:                                              ; preds = %162
-  %169 = getelementptr inbounds i8, ptr %161, i64 28
-  %170 = load i32, ptr %169, align 4
-  %171 = getelementptr inbounds i8, ptr %1, i64 236
-  %172 = load i32, ptr %171, align 4
-  %173 = icmp eq i32 %170, %172
-  br i1 %173, label %174, label %rdp_isServerAddressTarget.exit.i
+171:                                              ; preds = %165
+  %172 = getelementptr inbounds i8, ptr %164, i64 28
+  %173 = load i32, ptr %172, align 4
+  %174 = getelementptr inbounds i8, ptr %1, i64 236
+  %175 = load i32, ptr %174, align 4
+  %176 = icmp eq i32 %173, %175
+  br i1 %176, label %177, label %rdp_isServerAddressTarget.exit.i
 
-174:                                              ; preds = %168
-  %175 = icmp eq i32 %170, 0
-  br i1 %175, label %183, label %176
+177:                                              ; preds = %171
+  %178 = icmp eq i32 %173, 0
+  br i1 %178, label %186, label %179
 
-176:                                              ; preds = %174
-  %177 = getelementptr inbounds i8, ptr %161, i64 32
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %1, i64 240
-  %180 = load ptr, ptr %179, align 8
-  %181 = sext i32 %170 to i64
-  %bcmp.i.i.i = call i32 @bcmp(ptr %178, ptr %180, i64 %181)
-  %182 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %182, label %183, label %rdp_isServerAddressTarget.exit.i
+179:                                              ; preds = %177
+  %180 = getelementptr inbounds i8, ptr %164, i64 32
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds i8, ptr %1, i64 240
+  %183 = load ptr, ptr %182, align 8
+  %184 = sext i32 %173 to i64
+  %bcmp.i.i.i = call i32 @bcmp(ptr %181, ptr %183, i64 %184)
+  %185 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %185, label %186, label %rdp_isServerAddressTarget.exit.i
 
-183:                                              ; preds = %176, %174
-  %184 = getelementptr inbounds i8, ptr %1, i64 288
-  %185 = load i32, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %161, i64 48
-  %187 = load i16, ptr %186, align 8
-  %188 = zext i16 %187 to i32
-  %189 = icmp ne i32 %185, %188
+186:                                              ; preds = %179, %177
+  %187 = getelementptr inbounds i8, ptr %1, i64 288
+  %188 = load i32, ptr %187, align 8
+  %189 = getelementptr inbounds i8, ptr %164, i64 48
+  %190 = load i16, ptr %189, align 8
+  %191 = zext i16 %190 to i32
+  %192 = icmp ne i32 %188, %191
   br label %rdp_isServerAddressTarget.exit.i
 
-rdp_isServerAddressTarget.exit.i:                 ; preds = %183, %176, %168, %162, %159, %157
-  %.0.i.i = phi i1 [ true, %157 ], [ %189, %183 ], [ true, %159 ], [ true, %162 ], [ true, %168 ], [ true, %176 ]
-  %190 = getelementptr inbounds i8, ptr %1, i64 8
-  %191 = load ptr, ptr %190, align 8
-  call void @col_set_str(ptr noundef %191, i32 noundef 34, ptr noundef nonnull @.str.700) #12
-  %192 = load ptr, ptr %190, align 8
-  call void @col_clear(ptr noundef %192, i32 noundef 25) #12
-  %193 = load ptr, ptr %190, align 8
-  call void @col_set_str(ptr noundef %193, i32 noundef 25, ptr noundef nonnull @.str.981) #12
-  %194 = load i32, ptr @proto_rdp, align 4
-  %195 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %194, ptr noundef %0, i32 noundef 0, i32 noundef %.0145.i, i32 noundef 0) #12
-  %196 = load i32, ptr @ett_rdp, align 4
-  %197 = call ptr @proto_item_add_subtree(ptr noundef %195, i32 noundef %196) #12
-  %198 = load i32, ptr @hf_rdp_fastpathHeader, align 4
-  %199 = load i32, ptr @ett_rdp_fastpath_header, align 4
-  %200 = select i1 %.0.i.i, ptr @fastpath_serverHeader_flags, ptr @fastpath_clientHeader_flags
-  %201 = call ptr @proto_tree_add_bitmask(ptr noundef %197, ptr noundef %0, i32 noundef 0, i32 noundef %198, i32 noundef %199, ptr noundef nonnull %200, i32 noundef -2147483648) #12
-  %202 = load i32, ptr @hf_rdp_fastpathPDULength, align 4
-  %203 = call ptr @proto_tree_add_uint(ptr noundef %197, i32 noundef %202, ptr noundef %0, i32 noundef 1, i32 noundef %.0147.i, i32 noundef %.0145.i) #12
-  br i1 %.0.i.i, label %204, label %207
-
-204:                                              ; preds = %rdp_isServerAddressTarget.exit.i
-  %.not15814.i = icmp slt i8 %140, 0
-  %spec.select.v.i = select i1 %.not15814.i, i32 9, i32 1
-  %spec.select.i = add nuw nsw i32 %.0147.i, %spec.select.v.i
-  %205 = add nsw i32 %.0145.i, -1
-  %206 = icmp ult i32 %spec.select.i, %205
-  br i1 %206, label %.lr.ph19.i, label %dissect_rdp_fastpath.exit
+rdp_isServerAddressTarget.exit.i:                 ; preds = %186, %179, %171, %165, %162, %160
+  %.0.i.i = phi i1 [ true, %160 ], [ %192, %186 ], [ true, %162 ], [ true, %165 ], [ true, %171 ], [ true, %179 ]
+  %193 = getelementptr inbounds i8, ptr %1, i64 8
+  %194 = load ptr, ptr %193, align 8
+  call void @col_set_str(ptr noundef %194, i32 noundef 34, ptr noundef nonnull @.str.700) #12
+  %195 = load ptr, ptr %193, align 8
+  call void @col_clear(ptr noundef %195, i32 noundef 25) #12
+  %196 = load ptr, ptr %193, align 8
+  call void @col_set_str(ptr noundef %196, i32 noundef 25, ptr noundef nonnull @.str.981) #12
+  %197 = load i32, ptr @proto_rdp, align 4
+  %198 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %197, ptr noundef %0, i32 noundef 0, i32 noundef %.0145.i, i32 noundef 0) #12
+  %199 = load i32, ptr @ett_rdp, align 4
+  %200 = call ptr @proto_item_add_subtree(ptr noundef %198, i32 noundef %199) #12
+  %201 = load i32, ptr @hf_rdp_fastpathHeader, align 4
+  %202 = load i32, ptr @ett_rdp_fastpath_header, align 4
+  %203 = select i1 %.0.i.i, ptr @fastpath_serverHeader_flags, ptr @fastpath_clientHeader_flags
+  %204 = call ptr @proto_tree_add_bitmask(ptr noundef %200, ptr noundef %0, i32 noundef 0, i32 noundef %201, i32 noundef %202, ptr noundef nonnull %203, i32 noundef -2147483648) #12
+  %205 = load i32, ptr @hf_rdp_fastpathPDULength, align 4
+  %206 = call ptr @proto_tree_add_uint(ptr noundef %200, i32 noundef %205, ptr noundef %0, i32 noundef 1, i32 noundef %.0147.i, i32 noundef %.0145.i) #12
+  br i1 %.0.i.i, label %207, label %210
 
 207:                                              ; preds = %rdp_isServerAddressTarget.exit.i
-  %208 = lshr exact i32 %141, 2
-  %209 = and i32 %208, 15
-  store i32 %209, ptr %5, align 4
-  %.not158113.i = icmp slt i8 %140, 0
+  %.not15814.i = icmp slt i8 %143, 0
+  %spec.select.v.i = select i1 %.not15814.i, i32 9, i32 1
+  %spec.select.i = add nuw nsw i32 %.0147.i, %spec.select.v.i
+  %208 = add nsw i32 %.0145.i, -1
+  %209 = icmp ult i32 %spec.select.i, %208
+  br i1 %209, label %.lr.ph19.i, label %dissect_rdp_fastpath.exit
+
+210:                                              ; preds = %rdp_isServerAddressTarget.exit.i
+  %211 = lshr exact i32 %144, 2
+  %212 = and i32 %211, 15
+  store i32 %212, ptr %5, align 4
+  %.not158113.i = icmp slt i8 %143, 0
   %spec.select2.v.i = select i1 %.not158113.i, i32 9, i32 1
   %spec.select2.i = add nuw nsw i32 %.0147.i, %spec.select2.v.i
-  %.not160.i = icmp eq i32 %209, 0
-  br i1 %.not160.i, label %210, label %.lr.ph.i.preheader
+  %.not160.i = icmp eq i32 %212, 0
+  br i1 %.not160.i, label %213, label %.lr.ph.i.preheader
 
-210:                                              ; preds = %207
-  %211 = load i32, ptr @hf_rdp_fastpathClientNumEvents2, align 4
-  %212 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %197, i32 noundef %211, ptr noundef %0, i32 noundef %spec.select2.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #12
-  %213 = add nuw nsw i32 %spec.select2.i, 1
+213:                                              ; preds = %210
+  %214 = load i32, ptr @hf_rdp_fastpathClientNumEvents2, align 4
+  %215 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %214, ptr noundef %0, i32 noundef %spec.select2.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #12
+  %216 = add nuw nsw i32 %spec.select2.i, 1
   %.pre.i = load i32, ptr %5, align 4
-  %214 = icmp eq i32 %.pre.i, 0
-  br i1 %214, label %dissect_rdp_fastpath.exit, label %.lr.ph.i.preheader
+  %217 = icmp eq i32 %.pre.i, 0
+  br i1 %217, label %dissect_rdp_fastpath.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %210, %207
-  %.217.i.ph = phi i32 [ %spec.select2.i, %207 ], [ %213, %210 ]
+.lr.ph.i.preheader:                               ; preds = %213, %210
+  %.217.i.ph = phi i32 [ %spec.select2.i, %210 ], [ %216, %213 ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %259
-  %.217.i = phi i32 [ %260, %259 ], [ %.217.i.ph, %.lr.ph.i.preheader ]
-  %.014916.i = phi i32 [ %261, %259 ], [ 0, %.lr.ph.i.preheader ]
-  %215 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.217.i) #12
-  %216 = lshr i8 %215, 5
-  switch i8 %216, label %default.unreachable [
-    i8 0, label %223
-    i8 1, label %217
-    i8 2, label %218
-    i8 3, label %219
-    i8 4, label %220
-    i8 5, label %221
-    i8 6, label %222
-    i8 7, label %259
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %262
+  %.217.i = phi i32 [ %263, %262 ], [ %.217.i.ph, %.lr.ph.i.preheader ]
+  %.014916.i = phi i32 [ %264, %262 ], [ 0, %.lr.ph.i.preheader ]
+  %218 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.217.i) #12
+  %219 = lshr i8 %218, 5
+  switch i8 %219, label %default.unreachable [
+    i8 0, label %226
+    i8 1, label %220
+    i8 2, label %221
+    i8 3, label %222
+    i8 4, label %223
+    i8 5, label %224
+    i8 6, label %225
+    i8 7, label %262
   ]
 
-217:                                              ; preds = %.lr.ph.i
-  br label %223
-
-218:                                              ; preds = %.lr.ph.i
-  br label %223
-
-219:                                              ; preds = %.lr.ph.i
-  br label %223
-
 220:                                              ; preds = %.lr.ph.i
-  br label %223
+  br label %226
 
 221:                                              ; preds = %.lr.ph.i
-  br label %223
+  br label %226
 
 222:                                              ; preds = %.lr.ph.i
-  br label %223
+  br label %226
+
+223:                                              ; preds = %.lr.ph.i
+  br label %226
+
+224:                                              ; preds = %.lr.ph.i
+  br label %226
+
+225:                                              ; preds = %.lr.ph.i
+  br label %226
 
 default.unreachable:                              ; preds = %.lr.ph.i
   unreachable
 
-223:                                              ; preds = %222, %221, %220, %219, %218, %217, %.lr.ph.i
-  %.0152.ph.i = phi ptr [ @.str.851, %.lr.ph.i ], [ @.str.852, %217 ], [ @.str.853, %218 ], [ @.str.854, %219 ], [ @.str.855, %220 ], [ @.str.856, %221 ], [ @.str.982, %222 ]
-  %.0151.ph.i = phi ptr [ @fastpath_scancode_flags, %.lr.ph.i ], [ @fastpath_inputHeader_flags, %217 ], [ @fastpath_inputHeader_flags, %218 ], [ @fastpath_inputsync_flags, %219 ], [ @fastpath_inputunicode_flags, %220 ], [ @fastpath_inputHeader_flags, %221 ], [ @fastpath_inputHeader_flags, %222 ]
-  %.0150.ph.i = phi i32 [ 2, %.lr.ph.i ], [ 7, %217 ], [ 7, %218 ], [ 1, %219 ], [ 3, %220 ], [ 7, %221 ], [ 5, %222 ]
-  %224 = load ptr, ptr %190, align 8
-  call void @col_append_sep_str(ptr noundef %224, i32 noundef 25, ptr noundef nonnull @.str.983, ptr noundef nonnull %.0152.ph.i) #12
-  %225 = load i32, ptr @ett_rdp_fastpath, align 4
-  %226 = call ptr @proto_tree_add_subtree(ptr noundef %197, ptr noundef %0, i32 noundef %.217.i, i32 noundef %.0150.ph.i, i32 noundef %225, ptr noundef null, ptr noundef nonnull %.0152.ph.i) #12
-  %227 = load i32, ptr @hf_rdp_fastpathInputHeader, align 4
-  %228 = load i32, ptr @ett_rdp_fastpath_header, align 4
-  %229 = call ptr @proto_tree_add_bitmask(ptr noundef %226, ptr noundef %0, i32 noundef %.217.i, i32 noundef %227, i32 noundef %228, ptr noundef nonnull %.0151.ph.i, i32 noundef -2147483648) #12
-  switch i8 %216, label %259 [
+226:                                              ; preds = %225, %224, %223, %222, %221, %220, %.lr.ph.i
+  %.0152.ph.i = phi ptr [ @.str.851, %.lr.ph.i ], [ @.str.852, %220 ], [ @.str.853, %221 ], [ @.str.854, %222 ], [ @.str.855, %223 ], [ @.str.856, %224 ], [ @.str.982, %225 ]
+  %.0151.ph.i = phi ptr [ @fastpath_scancode_flags, %.lr.ph.i ], [ @fastpath_inputHeader_flags, %220 ], [ @fastpath_inputHeader_flags, %221 ], [ @fastpath_inputsync_flags, %222 ], [ @fastpath_inputunicode_flags, %223 ], [ @fastpath_inputHeader_flags, %224 ], [ @fastpath_inputHeader_flags, %225 ]
+  %.0150.ph.i = phi i32 [ 2, %.lr.ph.i ], [ 7, %220 ], [ 7, %221 ], [ 1, %222 ], [ 3, %223 ], [ 7, %224 ], [ 5, %225 ]
+  %227 = load ptr, ptr %193, align 8
+  call void @col_append_sep_str(ptr noundef %227, i32 noundef 25, ptr noundef nonnull @.str.983, ptr noundef nonnull %.0152.ph.i) #12
+  %228 = load i32, ptr @ett_rdp_fastpath, align 4
+  %229 = call ptr @proto_tree_add_subtree(ptr noundef %200, ptr noundef %0, i32 noundef %.217.i, i32 noundef %.0150.ph.i, i32 noundef %228, ptr noundef null, ptr noundef nonnull %.0152.ph.i) #12
+  %230 = load i32, ptr @hf_rdp_fastpathInputHeader, align 4
+  %231 = load i32, ptr @ett_rdp_fastpath_header, align 4
+  %232 = call ptr @proto_tree_add_bitmask(ptr noundef %229, ptr noundef %0, i32 noundef %.217.i, i32 noundef %230, i32 noundef %231, ptr noundef nonnull %.0151.ph.i, i32 noundef -2147483648) #12
+  switch i8 %219, label %262 [
     i8 0, label %.sink.split.i
-    i8 1, label %230
-    i8 2, label %238
-    i8 6, label %255
-    i8 4, label %246
-    i8 5, label %247
+    i8 1, label %233
+    i8 2, label %241
+    i8 6, label %258
+    i8 4, label %249
+    i8 5, label %250
   ]
 
-230:                                              ; preds = %223
-  %231 = add i32 %.217.i, 1
-  %232 = load i32, ptr @hf_rdp_pointerFlags, align 4
-  %233 = load i32, ptr @ett_rdp_fastpath_mouse_flags, align 4
-  %234 = call ptr @proto_tree_add_bitmask(ptr noundef %226, ptr noundef %0, i32 noundef %231, i32 noundef %232, i32 noundef %233, ptr noundef nonnull @ts_pointer_flags, i32 noundef -2147483648) #12
-  %235 = load i32, ptr @hf_rdp_pointer_xpos, align 4
-  %236 = add i32 %.217.i, 3
-  %237 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %235, ptr noundef %0, i32 noundef %236, i32 noundef 2, i32 noundef -2147483648) #12
+233:                                              ; preds = %226
+  %234 = add i32 %.217.i, 1
+  %235 = load i32, ptr @hf_rdp_pointerFlags, align 4
+  %236 = load i32, ptr @ett_rdp_fastpath_mouse_flags, align 4
+  %237 = call ptr @proto_tree_add_bitmask(ptr noundef %229, ptr noundef %0, i32 noundef %234, i32 noundef %235, i32 noundef %236, ptr noundef nonnull @ts_pointer_flags, i32 noundef -2147483648) #12
+  %238 = load i32, ptr @hf_rdp_pointer_xpos, align 4
+  %239 = add i32 %.217.i, 3
+  %240 = call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %238, ptr noundef %0, i32 noundef %239, i32 noundef 2, i32 noundef -2147483648) #12
   br label %.sink.split.i
 
-238:                                              ; preds = %223
-  %239 = add i32 %.217.i, 1
-  %240 = load i32, ptr @hf_rdp_pointerxFlags, align 4
-  %241 = load i32, ptr @ett_rdp_fastpath_mousex_flags, align 4
-  %242 = call ptr @proto_tree_add_bitmask(ptr noundef %226, ptr noundef %0, i32 noundef %239, i32 noundef %240, i32 noundef %241, ptr noundef nonnull @ts_pointerx_flags, i32 noundef -2147483648) #12
-  %243 = load i32, ptr @hf_rdp_pointerx_xpos, align 4
-  %244 = add i32 %.217.i, 3
-  %245 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %243, ptr noundef %0, i32 noundef %244, i32 noundef 2, i32 noundef -2147483648) #12
+241:                                              ; preds = %226
+  %242 = add i32 %.217.i, 1
+  %243 = load i32, ptr @hf_rdp_pointerxFlags, align 4
+  %244 = load i32, ptr @ett_rdp_fastpath_mousex_flags, align 4
+  %245 = call ptr @proto_tree_add_bitmask(ptr noundef %229, ptr noundef %0, i32 noundef %242, i32 noundef %243, i32 noundef %244, ptr noundef nonnull @ts_pointerx_flags, i32 noundef -2147483648) #12
+  %246 = load i32, ptr @hf_rdp_pointerx_xpos, align 4
+  %247 = add i32 %.217.i, 3
+  %248 = call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %246, ptr noundef %0, i32 noundef %247, i32 noundef 2, i32 noundef -2147483648) #12
   br label %.sink.split.i
 
-246:                                              ; preds = %223
+249:                                              ; preds = %226
   br label %.sink.split.i
 
-247:                                              ; preds = %223
-  %248 = add i32 %.217.i, 1
-  %249 = load i32, ptr @hf_rdp_fastpathRelMouseFlags, align 4
-  %250 = load i32, ptr @ett_rdp_fastpath_relmouse_flags, align 4
-  %251 = call ptr @proto_tree_add_bitmask(ptr noundef %226, ptr noundef %0, i32 noundef %248, i32 noundef %249, i32 noundef %250, ptr noundef nonnull @ts_relpointer_flags, i32 noundef -2147483648) #12
-  %252 = load i32, ptr @hf_rdp_fastpathRelMouseDeltaX, align 4
-  %253 = add i32 %.217.i, 3
-  %254 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %252, ptr noundef %0, i32 noundef %253, i32 noundef 2, i32 noundef -2147483648) #12
+250:                                              ; preds = %226
+  %251 = add i32 %.217.i, 1
+  %252 = load i32, ptr @hf_rdp_fastpathRelMouseFlags, align 4
+  %253 = load i32, ptr @ett_rdp_fastpath_relmouse_flags, align 4
+  %254 = call ptr @proto_tree_add_bitmask(ptr noundef %229, ptr noundef %0, i32 noundef %251, i32 noundef %252, i32 noundef %253, ptr noundef nonnull @ts_relpointer_flags, i32 noundef -2147483648) #12
+  %255 = load i32, ptr @hf_rdp_fastpathRelMouseDeltaX, align 4
+  %256 = add i32 %.217.i, 3
+  %257 = call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %255, ptr noundef %0, i32 noundef %256, i32 noundef 2, i32 noundef -2147483648) #12
   br label %.sink.split.i
 
-255:                                              ; preds = %223
+258:                                              ; preds = %226
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %255, %247, %246, %238, %230, %223
-  %hf_rdp_fastpathScancodeKeyCode.sink.i = phi ptr [ @hf_rdp_pointer_ypos, %230 ], [ @hf_rdp_pointerx_ypos, %238 ], [ @hf_rdp_fastpathUnicodeCode, %246 ], [ @hf_rdp_fastpathRelMouseDeltaY, %247 ], [ @hf_rdp_fastpathQoeTimestamp, %255 ], [ @hf_rdp_fastpathScancodeKeyCode, %223 ]
-  %.sink28.i = phi i32 [ 5, %230 ], [ 5, %238 ], [ 1, %246 ], [ 5, %247 ], [ 1, %255 ], [ 1, %223 ]
-  %.sink27.i = phi i32 [ 2, %230 ], [ 2, %238 ], [ 2, %246 ], [ 2, %247 ], [ 4, %255 ], [ 1, %223 ]
-  %256 = load i32, ptr %hf_rdp_fastpathScancodeKeyCode.sink.i, align 4
-  %257 = add i32 %.sink28.i, %.217.i
-  %258 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %256, ptr noundef %0, i32 noundef %257, i32 noundef %.sink27.i, i32 noundef -2147483648) #12
-  br label %259
+.sink.split.i:                                    ; preds = %258, %250, %249, %241, %233, %226
+  %hf_rdp_fastpathScancodeKeyCode.sink.i = phi ptr [ @hf_rdp_pointer_ypos, %233 ], [ @hf_rdp_pointerx_ypos, %241 ], [ @hf_rdp_fastpathUnicodeCode, %249 ], [ @hf_rdp_fastpathRelMouseDeltaY, %250 ], [ @hf_rdp_fastpathQoeTimestamp, %258 ], [ @hf_rdp_fastpathScancodeKeyCode, %226 ]
+  %.sink28.i = phi i32 [ 5, %233 ], [ 5, %241 ], [ 1, %249 ], [ 5, %250 ], [ 1, %258 ], [ 1, %226 ]
+  %.sink27.i = phi i32 [ 2, %233 ], [ 2, %241 ], [ 2, %249 ], [ 2, %250 ], [ 4, %258 ], [ 1, %226 ]
+  %259 = load i32, ptr %hf_rdp_fastpathScancodeKeyCode.sink.i, align 4
+  %260 = add i32 %.sink28.i, %.217.i
+  %261 = call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %259, ptr noundef %0, i32 noundef %260, i32 noundef %.sink27.i, i32 noundef -2147483648) #12
+  br label %262
 
-259:                                              ; preds = %.sink.split.i, %223, %.lr.ph.i
-  %.015012.i = phi i32 [ %.0150.ph.i, %223 ], [ 1, %.lr.ph.i ], [ %.0150.ph.i, %.sink.split.i ]
-  %260 = add i32 %.015012.i, %.217.i
-  %261 = add nuw i32 %.014916.i, 1
-  %262 = load i32, ptr %5, align 4
-  %263 = icmp ult i32 %261, %262
-  br i1 %263, label %.lr.ph.i, label %dissect_rdp_fastpath.exit, !llvm.loop !7
+262:                                              ; preds = %.sink.split.i, %226, %.lr.ph.i
+  %.015012.i = phi i32 [ %.0150.ph.i, %226 ], [ 1, %.lr.ph.i ], [ %.0150.ph.i, %.sink.split.i ]
+  %263 = add i32 %.015012.i, %.217.i
+  %264 = add nuw i32 %.014916.i, 1
+  %265 = load i32, ptr %5, align 4
+  %266 = icmp ult i32 %264, %265
+  br i1 %266, label %.lr.ph.i, label %dissect_rdp_fastpath.exit, !llvm.loop !7
 
-.lr.ph19.i:                                       ; preds = %204, %288
-  %.318.i = phi i32 [ %292, %288 ], [ %spec.select.i, %204 ]
-  %264 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.318.i) #12
-  %265 = and i8 %264, 15
-  %266 = add nuw i32 %.318.i, 1
-  %.not159.i = icmp ult i8 %264, 64
-  %267 = add i32 %.318.i, 2
+.lr.ph19.i:                                       ; preds = %207, %291
+  %.318.i = phi i32 [ %295, %291 ], [ %spec.select.i, %207 ]
+  %267 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.318.i) #12
+  %268 = and i8 %267, 15
+  %269 = add nuw i32 %.318.i, 1
+  %.not159.i = icmp ult i8 %267, 64
+  %270 = add i32 %.318.i, 2
   %spec.select162.i = select i1 %.not159.i, i16 1, i16 2
-  %spec.select163.i = select i1 %.not159.i, i32 %266, i32 %267
-  %268 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %spec.select163.i, i32 noundef -2147483648) #12
-  %269 = zext i16 %268 to i32
-  %270 = add i16 %spec.select162.i, %268
-  %271 = icmp ult i8 %265, 13
-  br i1 %271, label %switch.lookup, label %273
+  %spec.select163.i = select i1 %.not159.i, i32 %269, i32 %270
+  %271 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %spec.select163.i, i32 noundef -2147483648) #12
+  %272 = zext i16 %271 to i32
+  %273 = add i16 %spec.select162.i, %271
+  %274 = icmp ult i8 %268, 13
+  br i1 %274, label %switch.lookup, label %276
 
 switch.lookup:                                    ; preds = %.lr.ph19.i
-  %272 = zext nneg i8 %265 to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table.dissect_rdp_heur, i64 0, i64 %272
+  %275 = zext nneg i8 %268 to i64
+  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table.dissect_rdp_heur, i64 0, i64 %275
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %273
+  br label %276
 
-273:                                              ; preds = %.lr.ph19.i, %switch.lookup
+276:                                              ; preds = %.lr.ph19.i, %switch.lookup
   %.0.i19 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.992, %.lr.ph19.i ]
-  %274 = load ptr, ptr %190, align 8
-  call void @col_append_sep_str(ptr noundef %274, i32 noundef 25, ptr noundef nonnull @.str.983, ptr noundef nonnull %.0.i19) #12
-  %275 = zext i16 %270 to i32
-  %276 = load i32, ptr @ett_rdp_fastpath, align 4
-  %277 = call ptr @proto_tree_add_subtree(ptr noundef %197, ptr noundef %0, i32 noundef %.318.i, i32 noundef %275, i32 noundef %276, ptr noundef null, ptr noundef nonnull %.0.i19) #12
-  %278 = load i32, ptr @hf_rdp_fastpathServerUpdateCode, align 4
-  %279 = call ptr @proto_tree_add_item(ptr noundef %277, i32 noundef %278, ptr noundef %0, i32 noundef %.318.i, i32 noundef 1, i32 noundef -2147483648) #12
-  %280 = load i32, ptr @hf_rdp_fastpathServerFragmentation, align 4
-  %281 = call ptr @proto_tree_add_item(ptr noundef %277, i32 noundef %280, ptr noundef %0, i32 noundef %.318.i, i32 noundef 1, i32 noundef -2147483648) #12
-  %282 = load i32, ptr @hf_rdp_fastpathServerCompression, align 4
-  %283 = call ptr @proto_tree_add_item(ptr noundef %277, i32 noundef %282, ptr noundef %0, i32 noundef %.318.i, i32 noundef 1, i32 noundef -2147483648) #12
-  br i1 %.not159.i, label %288, label %284
+  %277 = load ptr, ptr %193, align 8
+  call void @col_append_sep_str(ptr noundef %277, i32 noundef 25, ptr noundef nonnull @.str.983, ptr noundef nonnull %.0.i19) #12
+  %278 = zext i16 %273 to i32
+  %279 = load i32, ptr @ett_rdp_fastpath, align 4
+  %280 = call ptr @proto_tree_add_subtree(ptr noundef %200, ptr noundef %0, i32 noundef %.318.i, i32 noundef %278, i32 noundef %279, ptr noundef null, ptr noundef nonnull %.0.i19) #12
+  %281 = load i32, ptr @hf_rdp_fastpathServerUpdateCode, align 4
+  %282 = call ptr @proto_tree_add_item(ptr noundef %280, i32 noundef %281, ptr noundef %0, i32 noundef %.318.i, i32 noundef 1, i32 noundef -2147483648) #12
+  %283 = load i32, ptr @hf_rdp_fastpathServerFragmentation, align 4
+  %284 = call ptr @proto_tree_add_item(ptr noundef %280, i32 noundef %283, ptr noundef %0, i32 noundef %.318.i, i32 noundef 1, i32 noundef -2147483648) #12
+  %285 = load i32, ptr @hf_rdp_fastpathServerCompression, align 4
+  %286 = call ptr @proto_tree_add_item(ptr noundef %280, i32 noundef %285, ptr noundef %0, i32 noundef %.318.i, i32 noundef 1, i32 noundef -2147483648) #12
+  br i1 %.not159.i, label %291, label %287
 
-284:                                              ; preds = %273
-  %285 = load i32, ptr @hf_rdp_fastpathServerCompressionType, align 4
-  %286 = load i32, ptr @ett_rdp_fastpath_compression, align 4
-  %287 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %277, ptr noundef %0, i32 noundef %266, i32 noundef %285, i32 noundef %286, ptr noundef nonnull @fastpath_servercompression_flags, i32 noundef -2147483648, ptr noundef nonnull %6) #12
-  br label %288
+287:                                              ; preds = %276
+  %288 = load i32, ptr @hf_rdp_fastpathServerCompressionType, align 4
+  %289 = load i32, ptr @ett_rdp_fastpath_compression, align 4
+  %290 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %280, ptr noundef %0, i32 noundef %269, i32 noundef %288, i32 noundef %289, ptr noundef nonnull @fastpath_servercompression_flags, i32 noundef -2147483648, ptr noundef nonnull %6) #12
+  br label %291
 
-288:                                              ; preds = %284, %273
-  %.4.i = phi i32 [ %267, %284 ], [ %266, %273 ]
-  %289 = load i32, ptr @hf_rdp_fastpathServerSize, align 4
-  %290 = call ptr @proto_tree_add_item(ptr noundef %277, i32 noundef %289, ptr noundef %0, i32 noundef %.4.i, i32 noundef 2, i32 noundef -2147483648) #12
-  %291 = add nuw nsw i32 %269, 2
-  %292 = add i32 %291, %.4.i
-  %293 = icmp ult i32 %292, %205
-  br i1 %293, label %.lr.ph19.i, label %dissect_rdp_fastpath.exit, !llvm.loop !8
+291:                                              ; preds = %287, %276
+  %.4.i = phi i32 [ %270, %287 ], [ %269, %276 ]
+  %292 = load i32, ptr @hf_rdp_fastpathServerSize, align 4
+  %293 = call ptr @proto_tree_add_item(ptr noundef %280, i32 noundef %292, ptr noundef %0, i32 noundef %.4.i, i32 noundef 2, i32 noundef -2147483648) #12
+  %294 = add nuw nsw i32 %272, 2
+  %295 = add i32 %294, %.4.i
+  %296 = icmp ult i32 %295, %208
+  br i1 %296, label %.lr.ph19.i, label %dissect_rdp_fastpath.exit, !llvm.loop !8
 
-dissect_rdp_fastpath.exit:                        ; preds = %259, %288, %136, %139, %143, %155, %204, %210
-  %.0143.i = phi i32 [ 0, %136 ], [ 0, %139 ], [ 0, %143 ], [ 0, %155 ], [ 1, %204 ], [ 1, %210 ], [ 1, %288 ], [ 1, %259 ]
+dissect_rdp_fastpath.exit:                        ; preds = %262, %291, %139, %142, %146, %158, %207, %213
+  %.0143.i = phi i32 [ 0, %139 ], [ 0, %142 ], [ 0, %146 ], [ 0, %158 ], [ 1, %207 ], [ 1, %213 ], [ 1, %291 ], [ 1, %262 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %294
+  br label %297
 
-294:                                              ; preds = %dissect_rdp_rdstls.exit, %4, %dissect_rdp_fastpath.exit
+297:                                              ; preds = %dissect_rdp_rdstls.exit, %4, %dissect_rdp_fastpath.exit
   %.0 = phi i32 [ %.0143.i, %dissect_rdp_fastpath.exit ], [ 1, %4 ], [ 1, %dissect_rdp_rdstls.exit ]
   ret i32 %.0
 }
@@ -2970,137 +2985,143 @@ define internal i32 @dissect_rdp_ClientData(ptr noundef %0, ptr noundef %1, ptr 
 40:                                               ; preds = %4
   %41 = call ptr @wmem_file_scope() #12
   %42 = call noalias ptr @wmem_alloc0(ptr noundef %41, i64 noundef 832) #12
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 0>, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
-  store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 60
-  store i32 0, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %42, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %45, i8 0, i64 33, i1 false)
-  %46 = load i32, ptr @proto_rdp, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %36, i32 noundef %46, ptr noundef nonnull %42) #12
+  store i32 -1, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  store i32 -1, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  store i32 0, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %42, i64 12
+  store i32 0, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %42, i64 16
+  store i32 0, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %42, i64 60
+  store i32 0, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %42, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %48, i8 0, i64 33, i1 false)
+  %49 = load i32, ptr @proto_rdp, align 4
+  call void @conversation_add_proto_data(ptr noundef nonnull %36, i32 noundef %49, ptr noundef nonnull %42) #12
   br label %rdp_get_conversation_data.exit
 
 rdp_get_conversation_data.exit:                   ; preds = %4, %40
   %.0.i = phi ptr [ %42, %40 ], [ %38, %4 ]
-  %47 = call ptr @wmem_file_scope() #12
-  %48 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %49 = getelementptr inbounds i8, ptr %1, i64 232
-  %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 236
-  %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %1, i64 240
-  %54 = load ptr, ptr %53, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
-  store i32 %50, ptr %48, align 8
-  %55 = icmp eq i32 %52, 0
-  br i1 %55, label %copy_address_wmem.exit, label %56
+  %50 = call ptr @wmem_file_scope() #12
+  %51 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %52 = getelementptr inbounds i8, ptr %1, i64 232
+  %53 = load i32, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %1, i64 236
+  %55 = load i32, ptr %54, align 4
+  %56 = getelementptr inbounds i8, ptr %1, i64 240
+  %57 = load ptr, ptr %56, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
+  store i32 %53, ptr %51, align 8
+  %58 = icmp eq i32 %55, 0
+  br i1 %58, label %copy_address_wmem.exit, label %59
 
-56:                                               ; preds = %rdp_get_conversation_data.exit
-  %57 = sext i32 %52 to i64
-  %58 = call noalias ptr @wmem_memdup(ptr noundef %47, ptr noundef %54, i64 noundef %57) #12
-  %59 = getelementptr inbounds i8, ptr %.0.i, i64 40
-  store ptr %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %.0.i, i64 32
-  store ptr %58, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %.0.i, i64 28
-  store i32 %52, ptr %61, align 4
+59:                                               ; preds = %rdp_get_conversation_data.exit
+  %60 = sext i32 %55 to i64
+  %61 = call noalias ptr @wmem_memdup(ptr noundef %50, ptr noundef %57, i64 noundef %60) #12
+  %62 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  store ptr %61, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  store ptr %61, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  store i32 %55, ptr %64, align 4
   br label %copy_address_wmem.exit
 
-copy_address_wmem.exit:                           ; preds = %rdp_get_conversation_data.exit, %56
-  %62 = getelementptr inbounds i8, ptr %1, i64 288
-  %63 = load i32, ptr %62, align 8
-  %64 = trunc i32 %63 to i16
-  %65 = getelementptr inbounds i8, ptr %.0.i, i64 48
-  store i16 %64, ptr %65, align 8
-  %66 = load ptr, ptr %29, align 8
-  call void @col_append_sep_str(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.42) #12
-  %67 = load i32, ptr @hf_rdp_ClientData, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
-  %69 = load i32, ptr @ett_rdp_ClientData, align 4
-  %70 = call ptr @proto_item_add_subtree(ptr noundef %68, i32 noundef %69) #12
-  %71 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
-  %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph, label %._crit_edge
+copy_address_wmem.exit:                           ; preds = %rdp_get_conversation_data.exit, %59
+  %65 = getelementptr inbounds i8, ptr %1, i64 288
+  %66 = load i32, ptr %65, align 8
+  %67 = trunc i32 %66 to i16
+  %68 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  store i16 %67, ptr %68, align 8
+  %69 = load ptr, ptr %29, align 8
+  call void @col_append_sep_str(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.42) #12
+  %70 = load i32, ptr @hf_rdp_ClientData, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %70, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
+  %72 = load i32, ptr @ett_rdp_ClientData, align 4
+  %73 = call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %72) #12
+  %74 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
+  %75 = icmp sgt i32 %74, 0
+  br i1 %75, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %copy_address_wmem.exit
-  %73 = getelementptr inbounds i8, ptr %6, i64 8
-  %74 = getelementptr inbounds i8, ptr %6, i64 16
-  %75 = getelementptr inbounds i8, ptr %6, i64 40
-  %76 = getelementptr inbounds i8, ptr %6, i64 48
-  %77 = getelementptr inbounds i8, ptr %6, i64 56
-  %78 = getelementptr inbounds i8, ptr %6, i64 80
-  %79 = getelementptr inbounds i8, ptr %6, i64 88
-  %80 = getelementptr inbounds i8, ptr %6, i64 96
-  %81 = getelementptr inbounds i8, ptr %6, i64 120
-  %82 = getelementptr inbounds i8, ptr %6, i64 128
-  %83 = getelementptr inbounds i8, ptr %6, i64 136
-  %84 = getelementptr inbounds i8, ptr %6, i64 144
-  %85 = getelementptr inbounds i8, ptr %8, i64 8
-  %86 = getelementptr inbounds i8, ptr %8, i64 16
-  %87 = getelementptr inbounds i8, ptr %8, i64 40
-  %88 = getelementptr inbounds i8, ptr %8, i64 48
-  %89 = getelementptr inbounds i8, ptr %8, i64 56
-  %90 = getelementptr inbounds i8, ptr %8, i64 80
-  %91 = getelementptr inbounds i8, ptr %8, i64 88
-  %92 = getelementptr inbounds i8, ptr %8, i64 96
-  %93 = getelementptr inbounds i8, ptr %8, i64 104
-  %94 = getelementptr inbounds i8, ptr %10, i64 8
-  %95 = getelementptr inbounds i8, ptr %10, i64 16
-  %96 = getelementptr inbounds i8, ptr %10, i64 24
-  %97 = getelementptr inbounds i8, ptr %10, i64 28
-  %98 = getelementptr inbounds i8, ptr %10, i64 32
-  %99 = getelementptr inbounds i8, ptr %10, i64 40
-  %100 = getelementptr inbounds i8, ptr %10, i64 48
-  %101 = getelementptr inbounds i8, ptr %10, i64 56
-  %102 = getelementptr inbounds i8, ptr %10, i64 64
-  %103 = getelementptr inbounds i8, ptr %10, i64 68
-  %104 = getelementptr inbounds i8, ptr %10, i64 72
-  %105 = getelementptr inbounds i8, ptr %10, i64 80
-  %106 = getelementptr inbounds i8, ptr %11, i64 8
-  %107 = getelementptr inbounds i8, ptr %11, i64 16
-  %108 = getelementptr inbounds i8, ptr %11, i64 24
-  %109 = getelementptr inbounds i8, ptr %11, i64 28
-  %110 = getelementptr inbounds i8, ptr %11, i64 32
-  %111 = getelementptr inbounds i8, ptr %11, i64 40
-  %112 = getelementptr inbounds i8, ptr %.0.i, i64 56
-  %113 = getelementptr inbounds i8, ptr %.0.i, i64 64
-  br label %114
+  %76 = getelementptr inbounds i8, ptr %6, i64 8
+  %77 = getelementptr inbounds i8, ptr %6, i64 16
+  %78 = getelementptr inbounds i8, ptr %6, i64 40
+  %79 = getelementptr inbounds i8, ptr %6, i64 48
+  %80 = getelementptr inbounds i8, ptr %6, i64 56
+  %81 = getelementptr inbounds i8, ptr %6, i64 80
+  %82 = getelementptr inbounds i8, ptr %6, i64 88
+  %83 = getelementptr inbounds i8, ptr %6, i64 96
+  %84 = getelementptr inbounds i8, ptr %6, i64 120
+  %85 = getelementptr inbounds i8, ptr %6, i64 128
+  %86 = getelementptr inbounds i8, ptr %6, i64 136
+  %87 = getelementptr inbounds i8, ptr %6, i64 144
+  %88 = getelementptr inbounds i8, ptr %8, i64 8
+  %89 = getelementptr inbounds i8, ptr %8, i64 16
+  %90 = getelementptr inbounds i8, ptr %8, i64 40
+  %91 = getelementptr inbounds i8, ptr %8, i64 48
+  %92 = getelementptr inbounds i8, ptr %8, i64 56
+  %93 = getelementptr inbounds i8, ptr %8, i64 80
+  %94 = getelementptr inbounds i8, ptr %8, i64 88
+  %95 = getelementptr inbounds i8, ptr %8, i64 96
+  %96 = getelementptr inbounds i8, ptr %8, i64 104
+  %97 = getelementptr inbounds i8, ptr %10, i64 8
+  %98 = getelementptr inbounds i8, ptr %10, i64 16
+  %99 = getelementptr inbounds i8, ptr %10, i64 24
+  %100 = getelementptr inbounds i8, ptr %10, i64 28
+  %101 = getelementptr inbounds i8, ptr %10, i64 32
+  %102 = getelementptr inbounds i8, ptr %10, i64 40
+  %103 = getelementptr inbounds i8, ptr %10, i64 48
+  %104 = getelementptr inbounds i8, ptr %10, i64 56
+  %105 = getelementptr inbounds i8, ptr %10, i64 64
+  %106 = getelementptr inbounds i8, ptr %10, i64 68
+  %107 = getelementptr inbounds i8, ptr %10, i64 72
+  %108 = getelementptr inbounds i8, ptr %10, i64 80
+  %109 = getelementptr inbounds i8, ptr %11, i64 8
+  %110 = getelementptr inbounds i8, ptr %11, i64 16
+  %111 = getelementptr inbounds i8, ptr %11, i64 24
+  %112 = getelementptr inbounds i8, ptr %11, i64 28
+  %113 = getelementptr inbounds i8, ptr %11, i64 32
+  %114 = getelementptr inbounds i8, ptr %11, i64 40
+  %115 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %116 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  br label %117
 
-114:                                              ; preds = %.lr.ph, %218
-  %.0105 = phi i32 [ 0, %.lr.ph ], [ %220, %218 ]
-  %115 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0105) #12
-  %116 = add i32 %.0105, 2
-  %117 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %116) #12
-  %118 = zext i16 %117 to i32
-  switch i16 %115, label %212 [
-    i16 -16383, label %119
-    i16 -16382, label %125
-    i16 -16381, label %131
-    i16 -16380, label %173
-    i16 -16379, label %179
-    i16 -16376, label %194
-    i16 -16378, label %200
-    i16 -16374, label %206
+117:                                              ; preds = %.lr.ph, %221
+  %.0105 = phi i32 [ 0, %.lr.ph ], [ %223, %221 ]
+  %118 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0105) #12
+  %119 = add i32 %.0105, 2
+  %120 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %119) #12
+  %121 = zext i16 %120 to i32
+  switch i16 %118, label %215 [
+    i16 -16383, label %122
+    i16 -16382, label %128
+    i16 -16381, label %134
+    i16 -16380, label %176
+    i16 -16379, label %182
+    i16 -16376, label %197
+    i16 -16378, label %203
+    i16 -16374, label %209
   ]
 
-119:                                              ; preds = %114
-  %120 = load i32, ptr @hf_rdp_clientCoreData, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %120, ptr noundef %0, i32 noundef %.0105, i32 noundef %118, i32 noundef 0) #12
-  %122 = load i32, ptr @ett_rdp_clientCoreData, align 4
-  %123 = call ptr @proto_item_add_subtree(ptr noundef %121, i32 noundef %122) #12
-  %124 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %123, ptr noundef nonnull @__const.dissect_rdp_ClientData.core_fields, i32 noundef %118)
-  br label %218
+122:                                              ; preds = %117
+  %123 = load i32, ptr @hf_rdp_clientCoreData, align 4
+  %124 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %123, ptr noundef %0, i32 noundef %.0105, i32 noundef %121, i32 noundef 0) #12
+  %125 = load i32, ptr @ett_rdp_clientCoreData, align 4
+  %126 = call ptr @proto_item_add_subtree(ptr noundef %124, i32 noundef %125) #12
+  %127 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %126, ptr noundef nonnull @__const.dissect_rdp_ClientData.core_fields, i32 noundef %121)
+  br label %221
 
-125:                                              ; preds = %114
-  %126 = load i32, ptr @hf_rdp_clientSecurityData, align 4
-  %127 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %126, ptr noundef %0, i32 noundef %.0105, i32 noundef %118, i32 noundef 0) #12
-  %128 = load i32, ptr @ett_rdp_clientSecurityData, align 4
-  %129 = call ptr @proto_item_add_subtree(ptr noundef %127, i32 noundef %128) #12
-  %130 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %129, ptr noundef nonnull @__const.dissect_rdp_ClientData.security_fields, i32 noundef 0)
-  br label %218
+128:                                              ; preds = %117
+  %129 = load i32, ptr @hf_rdp_clientSecurityData, align 4
+  %130 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %129, ptr noundef %0, i32 noundef %.0105, i32 noundef %121, i32 noundef 0) #12
+  %131 = load i32, ptr @ett_rdp_clientSecurityData, align 4
+  %132 = call ptr @proto_item_add_subtree(ptr noundef %130, i32 noundef %131) #12
+  %133 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %132, ptr noundef nonnull @__const.dissect_rdp_ClientData.security_fields, i32 noundef 0)
+  br label %221
 
-131:                                              ; preds = %114
+134:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %9)
@@ -3108,215 +3129,215 @@ copy_address_wmem.exit:                           ; preds = %rdp_get_conversatio
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11)
   store i32 0, ptr %7, align 4
   store ptr @hf_rdp_headerType, ptr %8, align 16
-  store i32 2, ptr %85, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %86, i8 0, i64 24, i1 false)
-  store ptr @hf_rdp_headerLength, ptr %87, align 8
-  store i32 2, ptr %88, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
-  store ptr @hf_rdp_channelCount, ptr %90, align 16
-  store i32 4, ptr %91, align 8
-  store ptr %7, ptr %92, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %93, i8 0, i64 56, i1 false)
+  store i32 2, ptr %88, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %89, i8 0, i64 24, i1 false)
+  store ptr @hf_rdp_headerLength, ptr %90, align 8
+  store i32 2, ptr %91, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
+  store ptr @hf_rdp_channelCount, ptr %93, align 16
+  store i32 4, ptr %94, align 8
+  store ptr %7, ptr %95, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %96, i8 0, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(480) %9, ptr noundef nonnull align 16 dereferenceable(480) @__const.dissect_rdp_clientNetworkData.option_fields, i64 480, i1 false)
   store ptr @hf_rdp_name, ptr %10, align 16
-  store i32 8, ptr %94, align 8
-  store ptr null, ptr %95, align 16
-  store i32 0, ptr %96, align 8
-  store i32 10, ptr %97, align 4
+  store i32 8, ptr %97, align 8
   store ptr null, ptr %98, align 16
-  store ptr @hf_rdp_options, ptr %99, align 8
-  store i32 4, ptr %100, align 16
-  store ptr null, ptr %101, align 8
-  %132 = load i32, ptr @ett_rdp_options, align 4
-  store i32 %132, ptr %102, align 16
-  store i32 32, ptr %103, align 4
-  store ptr %9, ptr %104, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %105, i8 0, i64 40, i1 false)
+  store i32 0, ptr %99, align 8
+  store i32 10, ptr %100, align 4
+  store ptr null, ptr %101, align 16
+  store ptr @hf_rdp_options, ptr %102, align 8
+  store i32 4, ptr %103, align 16
+  store ptr null, ptr %104, align 8
+  %135 = load i32, ptr @ett_rdp_options, align 4
+  store i32 %135, ptr %105, align 16
+  store i32 32, ptr %106, align 4
+  store ptr %9, ptr %107, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %108, i8 0, i64 40, i1 false)
   store ptr @hf_rdp_channelDef, ptr %11, align 16
-  store i32 12, ptr %106, align 8
-  store ptr null, ptr %107, align 16
-  %133 = load i32, ptr @ett_rdp_channelDef, align 4
-  store i32 %133, ptr %108, align 8
-  store i32 32, ptr %109, align 4
-  store ptr %10, ptr %110, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %111, i8 0, i64 40, i1 false)
-  %134 = load i32, ptr @hf_rdp_clientNetworkData, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %134, ptr noundef %0, i32 noundef %.0105, i32 noundef %118, i32 noundef 0) #12
-  %136 = load i32, ptr @ett_rdp_clientNetworkData, align 4
-  %137 = call ptr @proto_item_add_subtree(ptr noundef %135, i32 noundef %136) #12
-  %138 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %137, ptr noundef nonnull %8, i32 noundef 0)
-  %139 = load i32, ptr %7, align 4
-  %.not.i = icmp eq i32 %139, 0
+  store i32 12, ptr %109, align 8
+  store ptr null, ptr %110, align 16
+  %136 = load i32, ptr @ett_rdp_channelDef, align 4
+  store i32 %136, ptr %111, align 8
+  store i32 32, ptr %112, align 4
+  store ptr %10, ptr %113, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %114, i8 0, i64 40, i1 false)
+  %137 = load i32, ptr @hf_rdp_clientNetworkData, align 4
+  %138 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %137, ptr noundef %0, i32 noundef %.0105, i32 noundef %121, i32 noundef 0) #12
+  %139 = load i32, ptr @ett_rdp_clientNetworkData, align 4
+  %140 = call ptr @proto_item_add_subtree(ptr noundef %138, i32 noundef %139) #12
+  %141 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %140, ptr noundef nonnull %8, i32 noundef 0)
+  %142 = load i32, ptr %7, align 4
+  %.not.i = icmp eq i32 %142, 0
   br i1 %.not.i, label %dissect_rdp_clientNetworkData.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %131
-  %140 = load i32, ptr @hf_rdp_channelDefArray, align 4
-  %141 = mul i32 %139, 12
-  %142 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %140, ptr noundef %0, i32 noundef %138, i32 noundef %141, i32 noundef 0) #12
-  %143 = load i32, ptr @ett_rdp_channelDefArray, align 4
-  %144 = call ptr @proto_item_add_subtree(ptr noundef %142, i32 noundef %143) #12
+.thread.i:                                        ; preds = %134
+  %143 = load i32, ptr @hf_rdp_channelDefArray, align 4
+  %144 = mul i32 %142, 12
+  %145 = call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %143, ptr noundef %0, i32 noundef %141, i32 noundef %144, i32 noundef 0) #12
+  %146 = load i32, ptr @ett_rdp_channelDefArray, align 4
+  %147 = call ptr @proto_item_add_subtree(ptr noundef %145, i32 noundef %146) #12
   %.pre.i = load i32, ptr %7, align 4
-  %145 = call i32 @llvm.umin.i32(i32 %.pre.i, i32 31)
-  %146 = trunc nuw nsw i32 %145 to i8
-  store i8 %146, ptr %112, align 8
+  %148 = call i32 @llvm.umin.i32(i32 %.pre.i, i32 31)
+  %149 = trunc nuw nsw i32 %148 to i8
+  store i8 %149, ptr %115, align 8
   %.not4450.i = icmp eq i32 %.pre.i, 0
   br i1 %.not4450.i, label %._crit_edge.thread.i, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.thread.i, %find_known_channel_by_name.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %find_known_channel_by_name.exit.i ], [ 0, %.thread.i ]
-  %.141.i = phi i32 [ %166, %find_known_channel_by_name.exit.i ], [ %138, %.thread.i ]
-  %147 = getelementptr [32 x %struct._rdp_channel_def], ptr %113, i64 0, i64 %indvars.iv.i
-  store i32 -1, ptr %147, align 8
-  %148 = call ptr @wmem_file_scope() #12
-  %149 = call ptr @tvb_get_string_enc(ptr noundef %148, ptr noundef %0, i32 noundef %.141.i, i32 noundef 8, i32 noundef 0) #12
-  %150 = getelementptr inbounds i8, ptr %147, i64 8
-  store ptr %149, ptr %150, align 8
-  %151 = call i32 @g_ascii_strcasecmp(ptr noundef %149, ptr noundef nonnull @.str.994) #12
-  %152 = icmp eq i32 %151, 0
-  br i1 %152, label %find_known_channel_by_name.exit.i, label %153
-
-153:                                              ; preds = %.lr.ph.split.i
-  %154 = call i32 @g_ascii_strcasecmp(ptr noundef %149, ptr noundef nonnull @.str.995) #12
+  %.141.i = phi i32 [ %169, %find_known_channel_by_name.exit.i ], [ %141, %.thread.i ]
+  %150 = getelementptr [32 x %struct._rdp_channel_def], ptr %116, i64 0, i64 %indvars.iv.i
+  store i32 -1, ptr %150, align 8
+  %151 = call ptr @wmem_file_scope() #12
+  %152 = call ptr @tvb_get_string_enc(ptr noundef %151, ptr noundef %0, i32 noundef %.141.i, i32 noundef 8, i32 noundef 0) #12
+  %153 = getelementptr inbounds i8, ptr %150, i64 8
+  store ptr %152, ptr %153, align 8
+  %154 = call i32 @g_ascii_strcasecmp(ptr noundef %152, ptr noundef nonnull @.str.994) #12
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %find_known_channel_by_name.exit.i, label %156
 
-156:                                              ; preds = %153
-  %157 = call i32 @g_ascii_strcasecmp(ptr noundef %149, ptr noundef nonnull @.str.996) #12
+156:                                              ; preds = %.lr.ph.split.i
+  %157 = call i32 @g_ascii_strcasecmp(ptr noundef %152, ptr noundef nonnull @.str.995) #12
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %find_known_channel_by_name.exit.i, label %159
 
 159:                                              ; preds = %156
-  %160 = call i32 @g_ascii_strcasecmp(ptr noundef %149, ptr noundef nonnull @.str.997) #12
+  %160 = call i32 @g_ascii_strcasecmp(ptr noundef %152, ptr noundef nonnull @.str.996) #12
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %find_known_channel_by_name.exit.i, label %162
 
 162:                                              ; preds = %159
-  %163 = call i32 @g_ascii_strcasecmp(ptr noundef %149, ptr noundef nonnull @.str.998) #12
+  %163 = call i32 @g_ascii_strcasecmp(ptr noundef %152, ptr noundef nonnull @.str.997) #12
   %164 = icmp eq i32 %163, 0
-  %..i.i = select i1 %164, i32 5, i32 0
+  br i1 %164, label %find_known_channel_by_name.exit.i, label %165
+
+165:                                              ; preds = %162
+  %166 = call i32 @g_ascii_strcasecmp(ptr noundef %152, ptr noundef nonnull @.str.998) #12
+  %167 = icmp eq i32 %166, 0
+  %..i.i = select i1 %167, i32 5, i32 0
   br label %find_known_channel_by_name.exit.i
 
-find_known_channel_by_name.exit.i:                ; preds = %162, %159, %156, %153, %.lr.ph.split.i
-  %.0.i.i = phi i32 [ 1, %.lr.ph.split.i ], [ 4, %153 ], [ 3, %156 ], [ 2, %159 ], [ %..i.i, %162 ]
-  %165 = getelementptr inbounds i8, ptr %147, i64 16
-  store i32 %.0.i.i, ptr %165, align 8
-  %166 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.141.i, ptr noundef %1, ptr noundef %144, ptr noundef nonnull %11, i32 noundef 0)
+find_known_channel_by_name.exit.i:                ; preds = %165, %162, %159, %156, %.lr.ph.split.i
+  %.0.i.i = phi i32 [ 1, %.lr.ph.split.i ], [ 4, %156 ], [ 3, %159 ], [ 2, %162 ], [ %..i.i, %165 ]
+  %168 = getelementptr inbounds i8, ptr %150, i64 16
+  store i32 %.0.i.i, ptr %168, align 8
+  %169 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.141.i, ptr noundef %1, ptr noundef %147, ptr noundef nonnull %11, i32 noundef 0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %167 = load i32, ptr %7, align 4
-  %168 = call i32 @llvm.umin.i32(i32 %167, i32 31)
-  %169 = zext nneg i32 %168 to i64
-  %170 = icmp ult i64 %indvars.iv.next.i, %169
-  br i1 %170, label %.lr.ph.split.i, label %._crit_edge.thread.i, !llvm.loop !9
+  %170 = load i32, ptr %7, align 4
+  %171 = call i32 @llvm.umin.i32(i32 %170, i32 31)
+  %172 = zext nneg i32 %171 to i64
+  %173 = icmp ult i64 %indvars.iv.next.i, %172
+  br i1 %173, label %.lr.ph.split.i, label %._crit_edge.thread.i, !llvm.loop !9
 
 ._crit_edge.thread.i:                             ; preds = %find_known_channel_by_name.exit.i, %.thread.i
   %.035.lcssa53.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i, %find_known_channel_by_name.exit.i ]
-  %171 = getelementptr [32 x %struct._rdp_channel_def], ptr %113, i64 0, i64 %.035.lcssa53.i
-  store i32 0, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 8
-  store ptr null, ptr %172, align 8
+  %174 = getelementptr [32 x %struct._rdp_channel_def], ptr %116, i64 0, i64 %.035.lcssa53.i
+  store i32 0, ptr %174, align 8
+  %175 = getelementptr inbounds i8, ptr %174, i64 8
+  store ptr null, ptr %175, align 8
   br label %dissect_rdp_clientNetworkData.exit
 
-dissect_rdp_clientNetworkData.exit:               ; preds = %131, %._crit_edge.thread.i
+dissect_rdp_clientNetworkData.exit:               ; preds = %134, %._crit_edge.thread.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11)
-  br label %218
+  br label %221
 
-173:                                              ; preds = %114
-  %174 = load i32, ptr @hf_rdp_clientClusterData, align 4
-  %175 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %174, ptr noundef %0, i32 noundef %.0105, i32 noundef %118, i32 noundef 0) #12
-  %176 = load i32, ptr @ett_rdp_clientClusterData, align 4
-  %177 = call ptr @proto_item_add_subtree(ptr noundef %175, i32 noundef %176) #12
-  %178 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %177, ptr noundef nonnull %13, i32 noundef 0)
-  br label %218
+176:                                              ; preds = %117
+  %177 = load i32, ptr @hf_rdp_clientClusterData, align 4
+  %178 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %177, ptr noundef %0, i32 noundef %.0105, i32 noundef %121, i32 noundef 0) #12
+  %179 = load i32, ptr @ett_rdp_clientClusterData, align 4
+  %180 = call ptr @proto_item_add_subtree(ptr noundef %178, i32 noundef %179) #12
+  %181 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %180, ptr noundef nonnull %13, i32 noundef 0)
+  br label %221
 
-179:                                              ; preds = %114
-  %180 = load i32, ptr @hf_rdp_clientMonitorData, align 4
-  %181 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %180, ptr noundef %0, i32 noundef %.0105, i32 noundef %118, i32 noundef 0) #12
-  %182 = load i32, ptr @ett_rdp_clientMonitorData, align 4
-  %183 = call ptr @proto_item_add_subtree(ptr noundef %181, i32 noundef %182) #12
+182:                                              ; preds = %117
+  %183 = load i32, ptr @hf_rdp_clientMonitorData, align 4
+  %184 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %183, ptr noundef %0, i32 noundef %.0105, i32 noundef %121, i32 noundef 0) #12
+  %185 = load i32, ptr @ett_rdp_clientMonitorData, align 4
+  %186 = call ptr @proto_item_add_subtree(ptr noundef %184, i32 noundef %185) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6)
   store ptr @hf_rdp_headerType, ptr %6, align 16
-  store i32 2, ptr %73, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %74, i8 0, i64 24, i1 false)
-  store ptr @hf_rdp_headerLength, ptr %75, align 8
-  store i32 2, ptr %76, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
-  store ptr @hf_rdp_monitorFlags, ptr %78, align 16
-  store i32 4, ptr %79, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %80, i8 0, i64 24, i1 false)
-  store ptr @hf_rdp_monitorCount, ptr %81, align 8
-  store i32 4, ptr %82, align 16
-  store ptr %5, ptr %83, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %84, i8 0, i64 56, i1 false)
-  %184 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %183, ptr noundef nonnull %6, i32 noundef 0)
-  %185 = load i32, ptr %5, align 4
-  %.not.i103 = icmp eq i32 %185, 0
+  store i32 2, ptr %76, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %77, i8 0, i64 24, i1 false)
+  store ptr @hf_rdp_headerLength, ptr %78, align 8
+  store i32 2, ptr %79, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
+  store ptr @hf_rdp_monitorFlags, ptr %81, align 16
+  store i32 4, ptr %82, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %83, i8 0, i64 24, i1 false)
+  store ptr @hf_rdp_monitorCount, ptr %84, align 8
+  store i32 4, ptr %85, align 16
+  store ptr %5, ptr %86, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %87, i8 0, i64 56, i1 false)
+  %187 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %186, ptr noundef nonnull %6, i32 noundef 0)
+  %188 = load i32, ptr %5, align 4
+  %.not.i103 = icmp eq i32 %188, 0
   br i1 %.not.i103, label %dissect_rdp_monitor.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %179, %.lr.ph.i
-  %.016.i = phi i32 [ %190, %.lr.ph.i ], [ %184, %179 ]
-  %.01415.i = phi i32 [ %191, %.lr.ph.i ], [ 0, %179 ]
-  %186 = load i32, ptr @hf_rdp_clientMonitorDefData, align 4
-  %187 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %186, ptr noundef %0, i32 noundef %.016.i, i32 noundef 20, i32 noundef 0) #12
-  %188 = load i32, ptr @ett_rdp_clientMonitorDefData, align 4
-  %189 = call ptr @proto_item_add_subtree(ptr noundef %187, i32 noundef %188) #12
-  %190 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.016.i, ptr noundef %1, ptr noundef %189, ptr noundef nonnull @__const.dissect_rdp_monitor.monitorDef_fields, i32 noundef 0)
-  %191 = add nuw i32 %.01415.i, 1
-  %192 = load i32, ptr %5, align 4
-  %193 = icmp ult i32 %191, %192
-  br i1 %193, label %.lr.ph.i, label %dissect_rdp_monitor.exit, !llvm.loop !10
+.lr.ph.i:                                         ; preds = %182, %.lr.ph.i
+  %.016.i = phi i32 [ %193, %.lr.ph.i ], [ %187, %182 ]
+  %.01415.i = phi i32 [ %194, %.lr.ph.i ], [ 0, %182 ]
+  %189 = load i32, ptr @hf_rdp_clientMonitorDefData, align 4
+  %190 = call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %189, ptr noundef %0, i32 noundef %.016.i, i32 noundef 20, i32 noundef 0) #12
+  %191 = load i32, ptr @ett_rdp_clientMonitorDefData, align 4
+  %192 = call ptr @proto_item_add_subtree(ptr noundef %190, i32 noundef %191) #12
+  %193 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.016.i, ptr noundef %1, ptr noundef %192, ptr noundef nonnull @__const.dissect_rdp_monitor.monitorDef_fields, i32 noundef 0)
+  %194 = add nuw i32 %.01415.i, 1
+  %195 = load i32, ptr %5, align 4
+  %196 = icmp ult i32 %194, %195
+  br i1 %196, label %.lr.ph.i, label %dissect_rdp_monitor.exit, !llvm.loop !10
 
-dissect_rdp_monitor.exit:                         ; preds = %.lr.ph.i, %179
+dissect_rdp_monitor.exit:                         ; preds = %.lr.ph.i, %182
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6)
-  br label %218
+  br label %221
 
-194:                                              ; preds = %114
-  %195 = load i32, ptr @hf_rdp_clientMonitorExData, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %195, ptr noundef %0, i32 noundef %.0105, i32 noundef %118, i32 noundef 0) #12
-  %197 = load i32, ptr @ett_rdp_clientMonitorExData, align 4
-  %198 = call ptr @proto_item_add_subtree(ptr noundef %196, i32 noundef %197) #12
-  %199 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %198, ptr noundef nonnull @__const.dissect_rdp_ClientData.monitorex_fields, i32 noundef 0)
-  br label %218
+197:                                              ; preds = %117
+  %198 = load i32, ptr @hf_rdp_clientMonitorExData, align 4
+  %199 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %198, ptr noundef %0, i32 noundef %.0105, i32 noundef %121, i32 noundef 0) #12
+  %200 = load i32, ptr @ett_rdp_clientMonitorExData, align 4
+  %201 = call ptr @proto_item_add_subtree(ptr noundef %199, i32 noundef %200) #12
+  %202 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %201, ptr noundef nonnull @__const.dissect_rdp_ClientData.monitorex_fields, i32 noundef 0)
+  br label %221
 
-200:                                              ; preds = %114
-  %201 = load i32, ptr @hf_rdp_clientMsgChannelData, align 4
-  %202 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %201, ptr noundef %0, i32 noundef %.0105, i32 noundef %118, i32 noundef 0) #12
-  %203 = load i32, ptr @ett_rdp_clientMsgChannelData, align 4
-  %204 = call ptr @proto_item_add_subtree(ptr noundef %202, i32 noundef %203) #12
-  %205 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %204, ptr noundef nonnull @__const.dissect_rdp_ClientData.msgchannel_fields, i32 noundef 0)
-  br label %218
+203:                                              ; preds = %117
+  %204 = load i32, ptr @hf_rdp_clientMsgChannelData, align 4
+  %205 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %204, ptr noundef %0, i32 noundef %.0105, i32 noundef %121, i32 noundef 0) #12
+  %206 = load i32, ptr @ett_rdp_clientMsgChannelData, align 4
+  %207 = call ptr @proto_item_add_subtree(ptr noundef %205, i32 noundef %206) #12
+  %208 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %207, ptr noundef nonnull @__const.dissect_rdp_ClientData.msgchannel_fields, i32 noundef 0)
+  br label %221
 
-206:                                              ; preds = %114
-  %207 = load i32, ptr @hf_rdp_clientMultiTransportData, align 4
-  %208 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %207, ptr noundef %0, i32 noundef %.0105, i32 noundef %118, i32 noundef 0) #12
-  %209 = load i32, ptr @ett_rdp_clientMultiTransportData, align 4
-  %210 = call ptr @proto_item_add_subtree(ptr noundef %208, i32 noundef %209) #12
-  %211 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %210, ptr noundef nonnull @__const.dissect_rdp_ServerData.multitransport_fields, i32 noundef 0)
-  br label %218
+209:                                              ; preds = %117
+  %210 = load i32, ptr @hf_rdp_clientMultiTransportData, align 4
+  %211 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %210, ptr noundef %0, i32 noundef %.0105, i32 noundef %121, i32 noundef 0) #12
+  %212 = load i32, ptr @ett_rdp_clientMultiTransportData, align 4
+  %213 = call ptr @proto_item_add_subtree(ptr noundef %211, i32 noundef %212) #12
+  %214 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %213, ptr noundef nonnull @__const.dissect_rdp_ServerData.multitransport_fields, i32 noundef 0)
+  br label %221
 
-212:                                              ; preds = %114
-  %213 = load i32, ptr @hf_rdp_clientUnknownData, align 4
-  %214 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %213, ptr noundef %0, i32 noundef %.0105, i32 noundef %118, i32 noundef 0) #12
-  %215 = load i32, ptr @ett_rdp_clientUnknownData, align 4
-  %216 = call ptr @proto_item_add_subtree(ptr noundef %214, i32 noundef %215) #12
-  %217 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %216, ptr noundef nonnull @__const.dissect_rdp_ServerData.header_fields, i32 noundef 0)
-  br label %218
+215:                                              ; preds = %117
+  %216 = load i32, ptr @hf_rdp_clientUnknownData, align 4
+  %217 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %216, ptr noundef %0, i32 noundef %.0105, i32 noundef %121, i32 noundef 0) #12
+  %218 = load i32, ptr @ett_rdp_clientUnknownData, align 4
+  %219 = call ptr @proto_item_add_subtree(ptr noundef %217, i32 noundef %218) #12
+  %220 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0105, ptr noundef %1, ptr noundef %219, ptr noundef nonnull @__const.dissect_rdp_ServerData.header_fields, i32 noundef 0)
+  br label %221
 
-218:                                              ; preds = %212, %206, %200, %194, %dissect_rdp_monitor.exit, %173, %dissect_rdp_clientNetworkData.exit, %125, %119
-  %219 = call i32 @llvm.umax.i32(i32 %118, i32 4)
-  %220 = add i32 %219, %.0105
-  %221 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %220) #12
-  %222 = icmp sgt i32 %221, 0
-  br i1 %222, label %114, label %._crit_edge, !llvm.loop !11
+221:                                              ; preds = %215, %209, %203, %197, %dissect_rdp_monitor.exit, %176, %dissect_rdp_clientNetworkData.exit, %128, %122
+  %222 = call i32 @llvm.umax.i32(i32 %121, i32 4)
+  %223 = add i32 %222, %.0105
+  %224 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %223) #12
+  %225 = icmp sgt i32 %224, 0
+  br i1 %225, label %117, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %218, %copy_address_wmem.exit
-  %223 = call i32 @tvb_captured_length(ptr noundef %0) #12
-  ret i32 %223
+._crit_edge:                                      ; preds = %221, %copy_address_wmem.exit
+  %226 = call i32 @tvb_captured_length(ptr noundef %0) #12
+  ret i32 %226
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3470,194 +3491,200 @@ define internal i32 @dissect_rdp_ServerData(ptr noundef %0, ptr noundef %1, ptr 
 81:                                               ; preds = %4
   %82 = call ptr @wmem_file_scope() #12
   %83 = call noalias ptr @wmem_alloc0(ptr noundef %82, i64 noundef 832) #12
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 0>, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
-  store i32 0, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %83, i64 60
-  store i32 0, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %83, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %86, i8 0, i64 33, i1 false)
-  %87 = load i32, ptr @proto_rdp, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %77, i32 noundef %87, ptr noundef nonnull %83) #12
+  store i32 -1, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  store i32 -1, ptr %84, align 4
+  %85 = getelementptr inbounds i8, ptr %83, i64 8
+  store i32 0, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %83, i64 12
+  store i32 0, ptr %86, align 4
+  %87 = getelementptr inbounds i8, ptr %83, i64 16
+  store i32 0, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %83, i64 60
+  store i32 0, ptr %88, align 4
+  %89 = getelementptr inbounds i8, ptr %83, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %89, i8 0, i64 33, i1 false)
+  %90 = load i32, ptr @proto_rdp, align 4
+  call void @conversation_add_proto_data(ptr noundef nonnull %77, i32 noundef %90, ptr noundef nonnull %83) #12
   br label %rdp_get_conversation_data.exit
 
 rdp_get_conversation_data.exit:                   ; preds = %4, %81
   %.0.i = phi ptr [ %83, %81 ], [ %79, %4 ]
-  %88 = load ptr, ptr %70, align 8
-  call void @col_append_sep_str(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.76) #12
-  %89 = load i32, ptr @hf_rdp_ServerData, align 4
-  %90 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %89, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
-  %91 = load i32, ptr @ett_rdp_ServerData, align 4
-  %92 = call ptr @proto_item_add_subtree(ptr noundef %90, i32 noundef %91) #12
-  %93 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
-  %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %.lr.ph120, label %._crit_edge121
+  %91 = load ptr, ptr %70, align 8
+  call void @col_append_sep_str(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.76) #12
+  %92 = load i32, ptr @hf_rdp_ServerData, align 4
+  %93 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %92, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
+  %94 = load i32, ptr @ett_rdp_ServerData, align 4
+  %95 = call ptr @proto_item_add_subtree(ptr noundef %93, i32 noundef %94) #12
+  %96 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
+  %97 = icmp sgt i32 %96, 0
+  br i1 %97, label %.lr.ph120, label %._crit_edge121
 
 .lr.ph120:                                        ; preds = %rdp_get_conversation_data.exit
-  %95 = getelementptr inbounds i8, ptr %.0.i, i64 4
-  %96 = getelementptr inbounds i8, ptr %15, i64 8
-  %97 = getelementptr inbounds i8, ptr %.0.i, i64 64
-  %98 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %99 = getelementptr inbounds i8, ptr %.0.i, i64 12
-  br label %100
+  %98 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %99 = getelementptr inbounds i8, ptr %15, i64 8
+  %100 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %101 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %102 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  br label %103
 
-100:                                              ; preds = %.lr.ph120, %._crit_edge.thread
-  %.0108119 = phi i32 [ 0, %.lr.ph120 ], [ %183, %._crit_edge.thread ]
-  %101 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0108119) #12
-  %102 = add i32 %.0108119, 2
-  %103 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %102) #12
-  %104 = zext i16 %103 to i32
-  switch i16 %101, label %176 [
-    i16 3073, label %105
-    i16 3074, label %111
-    i16 3075, label %131
-    i16 3076, label %162
-    i16 3080, label %170
+103:                                              ; preds = %.lr.ph120, %._crit_edge.thread
+  %.0108119 = phi i32 [ 0, %.lr.ph120 ], [ %186, %._crit_edge.thread ]
+  %104 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0108119) #12
+  %105 = add i32 %.0108119, 2
+  %106 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %105) #12
+  %107 = zext i16 %106 to i32
+  switch i16 %104, label %179 [
+    i16 3073, label %108
+    i16 3074, label %114
+    i16 3075, label %134
+    i16 3076, label %165
+    i16 3080, label %173
   ]
 
-105:                                              ; preds = %100
-  %106 = load i32, ptr @hf_rdp_serverCoreData, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %106, ptr noundef %0, i32 noundef %.0108119, i32 noundef %104, i32 noundef 0) #12
-  %108 = load i32, ptr @ett_rdp_serverCoreData, align 4
-  %109 = call ptr @proto_item_add_subtree(ptr noundef %107, i32 noundef %108) #12
-  %110 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0108119, ptr noundef %1, ptr noundef %109, ptr noundef nonnull @__const.dissect_rdp_ServerData.sc_fields, i32 noundef %104)
+108:                                              ; preds = %103
+  %109 = load i32, ptr @hf_rdp_serverCoreData, align 4
+  %110 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %109, ptr noundef %0, i32 noundef %.0108119, i32 noundef %107, i32 noundef 0) #12
+  %111 = load i32, ptr @ett_rdp_serverCoreData, align 4
+  %112 = call ptr @proto_item_add_subtree(ptr noundef %110, i32 noundef %111) #12
+  %113 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0108119, ptr noundef %1, ptr noundef %112, ptr noundef nonnull @__const.dissect_rdp_ServerData.sc_fields, i32 noundef %107)
   br label %._crit_edge.thread
 
-111:                                              ; preds = %100
-  %112 = load i32, ptr @hf_rdp_serverSecurityData, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %112, ptr noundef %0, i32 noundef %.0108119, i32 noundef %104, i32 noundef 0) #12
-  %114 = load i32, ptr @ett_rdp_serverSecurityData, align 4
-  %115 = call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #12
-  %116 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0108119, ptr noundef %1, ptr noundef %115, ptr noundef nonnull %12, i32 noundef 0)
-  %117 = load ptr, ptr %70, align 8
-  %118 = load i32, ptr %7, align 4
-  %119 = call ptr @val_to_str_const(i32 noundef %118, ptr noundef nonnull @rdp_encryptionMethod_vals, ptr noundef nonnull @.str.992) #12
-  %120 = load i32, ptr %8, align 4
-  %121 = call ptr @val_to_str_const(i32 noundef %120, ptr noundef nonnull @rdp_encryptionLevel_vals, ptr noundef nonnull @.str.992) #12
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %117, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.999, ptr noundef %119, ptr noundef %121) #12
-  %122 = load i32, ptr %8, align 4
-  %123 = icmp ne i32 %122, 0
-  %124 = load i32, ptr %7, align 4
-  %125 = icmp ne i32 %124, 0
-  %or.cond = select i1 %123, i1 true, i1 %125
-  br i1 %or.cond, label %126, label %128
+114:                                              ; preds = %103
+  %115 = load i32, ptr @hf_rdp_serverSecurityData, align 4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %115, ptr noundef %0, i32 noundef %.0108119, i32 noundef %107, i32 noundef 0) #12
+  %117 = load i32, ptr @ett_rdp_serverSecurityData, align 4
+  %118 = call ptr @proto_item_add_subtree(ptr noundef %116, i32 noundef %117) #12
+  %119 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0108119, ptr noundef %1, ptr noundef %118, ptr noundef nonnull %12, i32 noundef 0)
+  %120 = load ptr, ptr %70, align 8
+  %121 = load i32, ptr %7, align 4
+  %122 = call ptr @val_to_str_const(i32 noundef %121, ptr noundef nonnull @rdp_encryptionMethod_vals, ptr noundef nonnull @.str.992) #12
+  %123 = load i32, ptr %8, align 4
+  %124 = call ptr @val_to_str_const(i32 noundef %123, ptr noundef nonnull @rdp_encryptionLevel_vals, ptr noundef nonnull @.str.992) #12
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.999, ptr noundef %122, ptr noundef %124) #12
+  %125 = load i32, ptr %8, align 4
+  %126 = icmp ne i32 %125, 0
+  %127 = load i32, ptr %7, align 4
+  %128 = icmp ne i32 %127, 0
+  %or.cond = select i1 %126, i1 true, i1 %128
+  br i1 %or.cond, label %129, label %131
 
-126:                                              ; preds = %111
-  %127 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %116, ptr noundef nonnull %1, ptr noundef %115, ptr noundef nonnull %13, i32 noundef 0)
+129:                                              ; preds = %114
+  %130 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %119, ptr noundef nonnull %1, ptr noundef %118, ptr noundef nonnull %13, i32 noundef 0)
   %.pre126 = load i32, ptr %7, align 4
   %.pre127 = load i32, ptr %8, align 4
-  br label %128
+  br label %131
 
-128:                                              ; preds = %111, %126
-  %129 = phi i32 [ 0, %111 ], [ %.pre127, %126 ]
-  %130 = phi i32 [ 0, %111 ], [ %.pre126, %126 ]
-  store i32 %130, ptr %98, align 8
-  store i32 %129, ptr %99, align 4
+131:                                              ; preds = %114, %129
+  %132 = phi i32 [ 0, %114 ], [ %.pre127, %129 ]
+  %133 = phi i32 [ 0, %114 ], [ %.pre126, %129 ]
+  store i32 %133, ptr %101, align 8
+  store i32 %132, ptr %102, align 4
   br label %._crit_edge.thread
 
-131:                                              ; preds = %100
-  %132 = load i32, ptr @hf_rdp_serverNetworkData, align 4
-  %133 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %132, ptr noundef %0, i32 noundef %.0108119, i32 noundef %104, i32 noundef 0) #12
-  %134 = load i32, ptr @ett_rdp_serverNetworkData, align 4
-  %135 = call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %134) #12
-  %136 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0108119, ptr noundef %1, ptr noundef %135, ptr noundef nonnull %14, i32 noundef 0)
-  %137 = load i32, ptr %10, align 4
-  store i32 %137, ptr %.0.i, align 8
-  %138 = load i32, ptr @proto_rdp, align 4
-  call void @register_t124_sd_dissector(ptr noundef %1, i32 noundef %137, ptr noundef nonnull @dissect_rdp_SendData, i32 noundef %138) #12
-  %139 = load i32, ptr %9, align 4
-  %.not = icmp eq i32 %139, 0
-  br i1 %.not, label %._crit_edge.thread, label %140
+134:                                              ; preds = %103
+  %135 = load i32, ptr @hf_rdp_serverNetworkData, align 4
+  %136 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %135, ptr noundef %0, i32 noundef %.0108119, i32 noundef %107, i32 noundef 0) #12
+  %137 = load i32, ptr @ett_rdp_serverNetworkData, align 4
+  %138 = call ptr @proto_item_add_subtree(ptr noundef %136, i32 noundef %137) #12
+  %139 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0108119, ptr noundef %1, ptr noundef %138, ptr noundef nonnull %14, i32 noundef 0)
+  %140 = load i32, ptr %10, align 4
+  store i32 %140, ptr %.0.i, align 8
+  %141 = load i32, ptr @proto_rdp, align 4
+  call void @register_t124_sd_dissector(ptr noundef %1, i32 noundef %140, ptr noundef nonnull @dissect_rdp_SendData, i32 noundef %141) #12
+  %142 = load i32, ptr %9, align 4
+  %.not = icmp eq i32 %142, 0
+  br i1 %.not, label %._crit_edge.thread, label %143
 
-140:                                              ; preds = %131
-  %141 = shl i32 %139, 1
-  store i32 %141, ptr %96, align 8
-  %142 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %136, ptr noundef %1, ptr noundef %135, ptr noundef nonnull %15, i32 noundef 0)
-  %.not114 = icmp eq ptr %135, null
-  br i1 %.not114, label %148, label %143
+143:                                              ; preds = %134
+  %144 = shl i32 %142, 1
+  store i32 %144, ptr %99, align 8
+  %145 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %139, ptr noundef %1, ptr noundef %138, ptr noundef nonnull %15, i32 noundef 0)
+  %.not114 = icmp eq ptr %138, null
+  br i1 %.not114, label %151, label %146
 
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %135, i64 8
-  %145 = load ptr, ptr %144, align 8
-  %146 = load i32, ptr @ett_rdp_channelIdArray, align 4
-  %147 = call ptr @proto_item_add_subtree(ptr noundef %145, i32 noundef %146) #12
-  br label %148
+146:                                              ; preds = %143
+  %147 = getelementptr inbounds i8, ptr %138, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %149 = load i32, ptr @ett_rdp_channelIdArray, align 4
+  %150 = call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149) #12
+  br label %151
 
-148:                                              ; preds = %143, %140
-  %.0110 = phi ptr [ %147, %143 ], [ null, %140 ]
-  %149 = load i32, ptr %9, align 4
-  %.not122 = icmp eq i32 %149, 0
+151:                                              ; preds = %146, %143
+  %.0110 = phi ptr [ %150, %146 ], [ null, %143 ]
+  %152 = load i32, ptr %9, align 4
+  %.not122 = icmp eq i32 %152, 0
   br i1 %.not122, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %148, %154
-  %indvars.iv = phi i64 [ %indvars.iv.next, %154 ], [ 0, %148 ]
-  %.0117 = phi i32 [ %150, %154 ], [ %136, %148 ]
-  %150 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0117, ptr noundef %1, ptr noundef %.0110, ptr noundef nonnull %16, i32 noundef 0)
-  %151 = icmp ult i64 %indvars.iv, 31
+.lr.ph:                                           ; preds = %151, %157
+  %indvars.iv = phi i64 [ %indvars.iv.next, %157 ], [ 0, %151 ]
+  %.0117 = phi i32 [ %153, %157 ], [ %139, %151 ]
+  %153 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0117, ptr noundef %1, ptr noundef %.0110, ptr noundef nonnull %16, i32 noundef 0)
+  %154 = icmp ult i64 %indvars.iv, 31
   %.pre = load i32, ptr %10, align 4
-  br i1 %151, label %152, label %154
+  br i1 %154, label %155, label %157
 
-152:                                              ; preds = %.lr.ph
-  %153 = getelementptr [32 x %struct._rdp_channel_def], ptr %97, i64 0, i64 %indvars.iv
-  store i32 %.pre, ptr %153, align 8
-  br label %154
+155:                                              ; preds = %.lr.ph
+  %156 = getelementptr [32 x %struct._rdp_channel_def], ptr %100, i64 0, i64 %indvars.iv
+  store i32 %.pre, ptr %156, align 8
+  br label %157
 
-154:                                              ; preds = %152, %.lr.ph
-  %155 = load i32, ptr @proto_rdp, align 4
-  call void @register_t124_sd_dissector(ptr noundef %1, i32 noundef %.pre, ptr noundef nonnull @dissect_rdp_SendData, i32 noundef %155) #12
+157:                                              ; preds = %155, %.lr.ph
+  %158 = load i32, ptr @proto_rdp, align 4
+  call void @register_t124_sd_dissector(ptr noundef %1, i32 noundef %.pre, ptr noundef nonnull @dissect_rdp_SendData, i32 noundef %158) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %156 = load i32, ptr %9, align 4
-  %157 = zext i32 %156 to i64
-  %158 = icmp ult i64 %indvars.iv.next, %157
-  br i1 %158, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  %159 = load i32, ptr %9, align 4
+  %160 = zext i32 %159 to i64
+  %161 = icmp ult i64 %indvars.iv.next, %160
+  br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %154
-  %159 = and i32 %156, 1
-  %.not115 = icmp eq i32 %159, 0
-  br i1 %.not115, label %._crit_edge.thread, label %160
+._crit_edge:                                      ; preds = %157
+  %162 = and i32 %159, 1
+  %.not115 = icmp eq i32 %162, 0
+  br i1 %.not115, label %._crit_edge.thread, label %163
 
-160:                                              ; preds = %._crit_edge
-  %161 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %150, ptr noundef %1, ptr noundef %.0110, ptr noundef nonnull @__const.dissect_rdp_ServerData.pad_fields, i32 noundef 0)
+163:                                              ; preds = %._crit_edge
+  %164 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %153, ptr noundef %1, ptr noundef %.0110, ptr noundef nonnull @__const.dissect_rdp_ServerData.pad_fields, i32 noundef 0)
   br label %._crit_edge.thread
 
-162:                                              ; preds = %100
-  %163 = load i32, ptr @hf_rdp_serverMsgChannelData, align 4
-  %164 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %163, ptr noundef %0, i32 noundef %.0108119, i32 noundef %104, i32 noundef 0) #12
-  %165 = load i32, ptr @ett_rdp_serverMsgChannelData, align 4
-  %166 = call ptr @proto_item_add_subtree(ptr noundef %164, i32 noundef %165) #12
-  %167 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0108119, ptr noundef %1, ptr noundef %166, ptr noundef nonnull %17, i32 noundef %104)
-  %168 = load i32, ptr %11, align 4
-  store i32 %168, ptr %95, align 4
-  %169 = load i32, ptr @proto_rdp, align 4
-  call void @register_t124_sd_dissector(ptr noundef %1, i32 noundef %168, ptr noundef nonnull @dissect_rdp_MessageChannelData, i32 noundef %169) #12
+165:                                              ; preds = %103
+  %166 = load i32, ptr @hf_rdp_serverMsgChannelData, align 4
+  %167 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %166, ptr noundef %0, i32 noundef %.0108119, i32 noundef %107, i32 noundef 0) #12
+  %168 = load i32, ptr @ett_rdp_serverMsgChannelData, align 4
+  %169 = call ptr @proto_item_add_subtree(ptr noundef %167, i32 noundef %168) #12
+  %170 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0108119, ptr noundef %1, ptr noundef %169, ptr noundef nonnull %17, i32 noundef %107)
+  %171 = load i32, ptr %11, align 4
+  store i32 %171, ptr %98, align 4
+  %172 = load i32, ptr @proto_rdp, align 4
+  call void @register_t124_sd_dissector(ptr noundef %1, i32 noundef %171, ptr noundef nonnull @dissect_rdp_MessageChannelData, i32 noundef %172) #12
   br label %._crit_edge.thread
 
-170:                                              ; preds = %100
-  %171 = load i32, ptr @hf_rdp_serverMultiTransportData, align 4
-  %172 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %171, ptr noundef %0, i32 noundef %.0108119, i32 noundef %104, i32 noundef 0) #12
-  %173 = load i32, ptr @ett_rdp_serverMultiTransportData, align 4
-  %174 = call ptr @proto_item_add_subtree(ptr noundef %172, i32 noundef %173) #12
-  %175 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0108119, ptr noundef %1, ptr noundef %174, ptr noundef nonnull @__const.dissect_rdp_ServerData.multitransport_fields, i32 noundef %104)
+173:                                              ; preds = %103
+  %174 = load i32, ptr @hf_rdp_serverMultiTransportData, align 4
+  %175 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %174, ptr noundef %0, i32 noundef %.0108119, i32 noundef %107, i32 noundef 0) #12
+  %176 = load i32, ptr @ett_rdp_serverMultiTransportData, align 4
+  %177 = call ptr @proto_item_add_subtree(ptr noundef %175, i32 noundef %176) #12
+  %178 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0108119, ptr noundef %1, ptr noundef %177, ptr noundef nonnull @__const.dissect_rdp_ServerData.multitransport_fields, i32 noundef %107)
   br label %._crit_edge.thread
 
-176:                                              ; preds = %100
-  %177 = load i32, ptr @hf_rdp_serverUnknownData, align 4
-  %178 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %177, ptr noundef %0, i32 noundef %.0108119, i32 noundef %104, i32 noundef 0) #12
-  %179 = load i32, ptr @ett_rdp_serverUnknownData, align 4
-  %180 = call ptr @proto_item_add_subtree(ptr noundef %178, i32 noundef %179) #12
-  %181 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0108119, ptr noundef %1, ptr noundef %180, ptr noundef nonnull @__const.dissect_rdp_ServerData.header_fields, i32 noundef 0)
+179:                                              ; preds = %103
+  %180 = load i32, ptr @hf_rdp_serverUnknownData, align 4
+  %181 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %180, ptr noundef %0, i32 noundef %.0108119, i32 noundef %107, i32 noundef 0) #12
+  %182 = load i32, ptr @ett_rdp_serverUnknownData, align 4
+  %183 = call ptr @proto_item_add_subtree(ptr noundef %181, i32 noundef %182) #12
+  %184 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0108119, ptr noundef %1, ptr noundef %183, ptr noundef nonnull @__const.dissect_rdp_ServerData.header_fields, i32 noundef 0)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %148, %131, %160, %._crit_edge, %176, %170, %162, %128, %105
-  %182 = call i32 @llvm.umax.i32(i32 %104, i32 4)
-  %183 = add i32 %182, %.0108119
-  %184 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %183) #12
-  %185 = icmp sgt i32 %184, 0
-  br i1 %185, label %100, label %._crit_edge121, !llvm.loop !13
+._crit_edge.thread:                               ; preds = %151, %134, %163, %._crit_edge, %179, %173, %165, %131, %108
+  %185 = call i32 @llvm.umax.i32(i32 %107, i32 4)
+  %186 = add i32 %185, %.0108119
+  %187 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %186) #12
+  %188 = icmp sgt i32 %187, 0
+  br i1 %188, label %103, label %._crit_edge121, !llvm.loop !13
 
 ._crit_edge121:                                   ; preds = %._crit_edge.thread, %rdp_get_conversation_data.exit
-  %186 = call i32 @tvb_captured_length(ptr noundef %0) #12
-  ret i32 %186
+  %189 = call i32 @tvb_captured_length(ptr noundef %0) #12
+  ret i32 %189
 }
 
 declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #2
@@ -5012,7 +5039,7 @@ define internal i32 @dissect_rdp_MessageChannelData(ptr noundef %0, ptr noundef 
   %30 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %27, ptr noundef nonnull %6, i32 noundef 0)
   %31 = and i32 %29, 2
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %77, label %32
+  br i1 %.not, label %78, label %32
 
 32:                                               ; preds = %4
   %33 = load ptr, ptr %17, align 8
@@ -5027,222 +5054,224 @@ define internal i32 @dissect_rdp_MessageChannelData(ptr noundef %0, ptr noundef 
   %40 = getelementptr inbounds i8, ptr %7, i64 32
   store i32 %39, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %1, i64 208
-  %42 = getelementptr inbounds i8, ptr %1, i64 216
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %7, i64 4
-  %45 = load <2 x i32>, ptr %41, align 8
-  store <2 x i32> %45, ptr %7, align 8
-  %46 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %43, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr null, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 284
-  %49 = load i32, ptr %48, align 4
-  %50 = trunc i32 %49 to i16
-  %51 = getelementptr inbounds i8, ptr %7, i64 24
-  store i16 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %7, i64 36
-  %53 = add i32 %30, 8
-  %54 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %52, i32 noundef %53, i64 noundef 16) #12
-  %55 = load ptr, ptr @rdp_transport_links, align 8
-  %56 = call ptr @wmem_map_lookup(ptr noundef %55, ptr noundef nonnull %7) #12
-  %.not80 = icmp eq ptr %56, null
-  br i1 %.not80, label %57, label %73
+  %42 = load i32, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 212
+  %44 = load i32, ptr %43, align 4
+  %45 = getelementptr inbounds i8, ptr %1, i64 216
+  %46 = load ptr, ptr %45, align 8
+  store i32 %42, ptr %7, align 8
+  %47 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %44, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %46, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr null, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 284
+  %51 = load i32, ptr %50, align 4
+  %52 = trunc i32 %51 to i16
+  %53 = getelementptr inbounds i8, ptr %7, i64 24
+  store i16 %52, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %7, i64 36
+  %55 = add i32 %30, 8
+  %56 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %54, i32 noundef %55, i64 noundef 16) #12
+  %57 = load ptr, ptr @rdp_transport_links, align 8
+  %58 = call ptr @wmem_map_lookup(ptr noundef %57, ptr noundef nonnull %7) #12
+  %.not80 = icmp eq ptr %58, null
+  br i1 %.not80, label %59, label %74
 
-57:                                               ; preds = %32
-  %58 = getelementptr inbounds i8, ptr %1, i64 212
-  %59 = call ptr @wmem_file_scope() #12
-  %60 = call noalias ptr @wmem_alloc(ptr noundef %59, i64 noundef 72) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
-  %61 = call ptr @wmem_file_scope() #12
-  %62 = load i32, ptr %41, align 8
-  %63 = load i32, ptr %58, align 4
-  %64 = load ptr, ptr %42, align 8
+59:                                               ; preds = %32
+  %60 = call ptr @wmem_file_scope() #12
+  %61 = call noalias ptr @wmem_alloc(ptr noundef %60, i64 noundef 72) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %61, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
+  %62 = call ptr @wmem_file_scope() #12
+  %63 = load i32, ptr %41, align 8
+  %64 = load i32, ptr %43, align 4
+  %65 = load ptr, ptr %45, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  store i32 %62, ptr %7, align 8
-  %65 = icmp eq i32 %63, 0
-  br i1 %65, label %copy_address_wmem.exit, label %66
+  store i32 %63, ptr %7, align 8
+  %66 = icmp eq i32 %64, 0
+  br i1 %66, label %copy_address_wmem.exit, label %67
 
-66:                                               ; preds = %57
-  %67 = sext i32 %63 to i64
-  %68 = call noalias ptr @wmem_memdup(ptr noundef %61, ptr noundef %64, i64 noundef %67) #12
-  store ptr %68, ptr %47, align 8
-  store ptr %68, ptr %46, align 8
-  store i32 %63, ptr %44, align 4
+67:                                               ; preds = %59
+  %68 = sext i32 %64 to i64
+  %69 = call noalias ptr @wmem_memdup(ptr noundef %62, ptr noundef %65, i64 noundef %68) #12
+  store ptr %69, ptr %49, align 8
+  store ptr %69, ptr %48, align 8
+  store i32 %64, ptr %47, align 4
   br label %copy_address_wmem.exit
 
-copy_address_wmem.exit:                           ; preds = %57, %66
-  %69 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #12
-  %70 = getelementptr inbounds i8, ptr %60, i64 56
-  store ptr %69, ptr %70, align 8
-  %71 = load ptr, ptr @rdp_transport_links, align 8
-  %72 = call ptr @wmem_map_insert(ptr noundef %71, ptr noundef nonnull %60, ptr noundef nonnull %60) #12
-  br label %73
+copy_address_wmem.exit:                           ; preds = %59, %67
+  %70 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #12
+  %71 = getelementptr inbounds i8, ptr %61, i64 56
+  store ptr %70, ptr %71, align 8
+  %72 = load ptr, ptr @rdp_transport_links, align 8
+  %73 = call ptr @wmem_map_insert(ptr noundef %72, ptr noundef nonnull %61, ptr noundef nonnull %61) #12
+  br label %74
 
-73:                                               ; preds = %copy_address_wmem.exit, %32
-  %74 = load i32, ptr @ett_rdp_mt_req, align 4
-  %75 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %30, i32 noundef -1, i32 noundef %74, ptr noundef null, ptr noundef nonnull @.str.1014) #12
-  %76 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %75, ptr noundef nonnull @__const.dissect_rdp_MessageChannelData.mt_req_fields, i32 noundef 0)
-  br label %171
+74:                                               ; preds = %copy_address_wmem.exit, %32
+  %75 = load i32, ptr @ett_rdp_mt_req, align 4
+  %76 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %30, i32 noundef -1, i32 noundef %75, ptr noundef null, ptr noundef nonnull @.str.1014) #12
+  %77 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %76, ptr noundef nonnull @__const.dissect_rdp_MessageChannelData.mt_req_fields, i32 noundef 0)
+  br label %172
 
-77:                                               ; preds = %4
-  %78 = and i32 %29, 4
-  %.not76 = icmp eq i32 %78, 0
-  br i1 %.not76, label %84, label %79
+78:                                               ; preds = %4
+  %79 = and i32 %29, 4
+  %.not76 = icmp eq i32 %79, 0
+  br i1 %.not76, label %85, label %80
 
-79:                                               ; preds = %77
-  %80 = load ptr, ptr %17, align 8
-  call void @col_append_sep_str(ptr noundef %80, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.1015) #12
-  %81 = load i32, ptr @ett_rdp_mt_rsp, align 4
-  %82 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %30, i32 noundef -1, i32 noundef %81, ptr noundef null, ptr noundef nonnull @.str.1015) #12
-  %83 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %82, ptr noundef nonnull @__const.dissect_rdp_MessageChannelData.mt_resp_fields, i32 noundef 0)
-  br label %171
+80:                                               ; preds = %78
+  %81 = load ptr, ptr %17, align 8
+  call void @col_append_sep_str(ptr noundef %81, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.1015) #12
+  %82 = load i32, ptr @ett_rdp_mt_rsp, align 4
+  %83 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %30, i32 noundef -1, i32 noundef %82, ptr noundef null, ptr noundef nonnull @.str.1015) #12
+  %84 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %83, ptr noundef nonnull @__const.dissect_rdp_MessageChannelData.mt_resp_fields, i32 noundef 0)
+  br label %172
 
-84:                                               ; preds = %77
-  %85 = and i32 %29, 4096
-  %.not77 = icmp eq i32 %85, 0
-  br i1 %.not77, label %124, label %86
+85:                                               ; preds = %78
+  %86 = and i32 %29, 4096
+  %.not77 = icmp eq i32 %86, 0
+  br i1 %.not77, label %125, label %87
 
-86:                                               ; preds = %84
-  %87 = load ptr, ptr %17, align 8
-  call void @col_append_sep_str(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.1016) #12
-  %88 = load i32, ptr @ett_rdp_mt_req, align 4
-  %89 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %30, i32 noundef -1, i32 noundef %88, ptr noundef null, ptr noundef nonnull @.str.1017) #12
-  %90 = call ptr @find_conversation_pinfo(ptr noundef nonnull %1, i32 noundef 0) #12
-  %.not.i = icmp eq ptr %90, null
-  br i1 %.not.i, label %rdp_isServerAddressTarget.exit, label %91
+87:                                               ; preds = %85
+  %88 = load ptr, ptr %17, align 8
+  call void @col_append_sep_str(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.1016) #12
+  %89 = load i32, ptr @ett_rdp_mt_req, align 4
+  %90 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %30, i32 noundef -1, i32 noundef %89, ptr noundef null, ptr noundef nonnull @.str.1017) #12
+  %91 = call ptr @find_conversation_pinfo(ptr noundef nonnull %1, i32 noundef 0) #12
+  %.not.i = icmp eq ptr %91, null
+  br i1 %.not.i, label %rdp_isServerAddressTarget.exit, label %92
 
-91:                                               ; preds = %86
-  %92 = load i32, ptr @proto_rdp, align 4
-  %93 = call ptr @conversation_get_proto_data(ptr noundef nonnull %90, i32 noundef %92) #12
-  %.not11.i = icmp eq ptr %93, null
-  br i1 %.not11.i, label %rdp_isServerAddressTarget.exit, label %94
+92:                                               ; preds = %87
+  %93 = load i32, ptr @proto_rdp, align 4
+  %94 = call ptr @conversation_get_proto_data(ptr noundef nonnull %91, i32 noundef %93) #12
+  %.not11.i = icmp eq ptr %94, null
+  br i1 %.not11.i, label %rdp_isServerAddressTarget.exit, label %95
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %93, i64 24
-  %96 = getelementptr inbounds i8, ptr %1, i64 232
-  %97 = load i32, ptr %95, align 8
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds i8, ptr %94, i64 24
+  %97 = getelementptr inbounds i8, ptr %1, i64 232
   %98 = load i32, ptr %96, align 8
-  %99 = icmp eq i32 %97, %98
-  br i1 %99, label %100, label %rdp_isServerAddressTarget.exit
+  %99 = load i32, ptr %97, align 8
+  %100 = icmp eq i32 %98, %99
+  br i1 %100, label %101, label %rdp_isServerAddressTarget.exit
 
-100:                                              ; preds = %94
-  %101 = getelementptr inbounds i8, ptr %93, i64 28
-  %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %1, i64 236
-  %104 = load i32, ptr %103, align 4
-  %105 = icmp eq i32 %102, %104
-  br i1 %105, label %106, label %rdp_isServerAddressTarget.exit
+101:                                              ; preds = %95
+  %102 = getelementptr inbounds i8, ptr %94, i64 28
+  %103 = load i32, ptr %102, align 4
+  %104 = getelementptr inbounds i8, ptr %1, i64 236
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %103, %105
+  br i1 %106, label %107, label %rdp_isServerAddressTarget.exit
 
-106:                                              ; preds = %100
-  %107 = icmp eq i32 %102, 0
-  br i1 %107, label %115, label %108
+107:                                              ; preds = %101
+  %108 = icmp eq i32 %103, 0
+  br i1 %108, label %116, label %109
 
-108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %93, i64 32
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %1, i64 240
-  %112 = load ptr, ptr %111, align 8
-  %113 = sext i32 %102 to i64
-  %bcmp.i.i = call i32 @bcmp(ptr %110, ptr %112, i64 %113)
-  %114 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %114, label %115, label %rdp_isServerAddressTarget.exit
+109:                                              ; preds = %107
+  %110 = getelementptr inbounds i8, ptr %94, i64 32
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds i8, ptr %1, i64 240
+  %113 = load ptr, ptr %112, align 8
+  %114 = sext i32 %103 to i64
+  %bcmp.i.i = call i32 @bcmp(ptr %111, ptr %113, i64 %114)
+  %115 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %115, label %116, label %rdp_isServerAddressTarget.exit
 
-115:                                              ; preds = %108, %106
-  %116 = getelementptr inbounds i8, ptr %1, i64 288
-  %117 = load i32, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %93, i64 48
-  %119 = load i16, ptr %118, align 8
-  %120 = zext i16 %119 to i32
-  %121 = icmp eq i32 %117, %120
-  %122 = zext i1 %121 to i32
+116:                                              ; preds = %109, %107
+  %117 = getelementptr inbounds i8, ptr %1, i64 288
+  %118 = load i32, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %94, i64 48
+  %120 = load i16, ptr %119, align 8
+  %121 = zext i16 %120 to i32
+  %122 = icmp eq i32 %118, %121
+  %123 = zext i1 %122 to i32
   br label %rdp_isServerAddressTarget.exit
 
-rdp_isServerAddressTarget.exit:                   ; preds = %86, %91, %94, %100, %108, %115
-  %.0.i = phi i32 [ 0, %86 ], [ %122, %115 ], [ 0, %91 ], [ 0, %94 ], [ 0, %100 ], [ 0, %108 ]
-  %123 = call i32 @dissect_rdp_bandwidth_req(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %89, i32 noundef %.0.i)
-  br label %171
+rdp_isServerAddressTarget.exit:                   ; preds = %87, %92, %95, %101, %109, %116
+  %.0.i = phi i32 [ 0, %87 ], [ %123, %116 ], [ 0, %92 ], [ 0, %95 ], [ 0, %101 ], [ 0, %109 ]
+  %124 = call i32 @dissect_rdp_bandwidth_req(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %90, i32 noundef %.0.i)
+  br label %172
 
-124:                                              ; preds = %84
-  %125 = and i32 %29, 8192
-  %.not78 = icmp eq i32 %125, 0
-  br i1 %.not78, label %164, label %126
+125:                                              ; preds = %85
+  %126 = and i32 %29, 8192
+  %.not78 = icmp eq i32 %126, 0
+  br i1 %.not78, label %165, label %127
 
-126:                                              ; preds = %124
-  %127 = load ptr, ptr %17, align 8
-  call void @col_append_sep_str(ptr noundef %127, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.1018) #12
-  %128 = load i32, ptr @ett_rdp_mt_req, align 4
-  %129 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %30, i32 noundef -1, i32 noundef %128, ptr noundef null, ptr noundef nonnull @.str.1019) #12
-  %130 = call ptr @find_conversation_pinfo(ptr noundef nonnull %1, i32 noundef 0) #12
-  %.not.i81 = icmp eq ptr %130, null
-  br i1 %.not.i81, label %rdp_isServerAddressTarget.exit85, label %131
+127:                                              ; preds = %125
+  %128 = load ptr, ptr %17, align 8
+  call void @col_append_sep_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.1018) #12
+  %129 = load i32, ptr @ett_rdp_mt_req, align 4
+  %130 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %30, i32 noundef -1, i32 noundef %129, ptr noundef null, ptr noundef nonnull @.str.1019) #12
+  %131 = call ptr @find_conversation_pinfo(ptr noundef nonnull %1, i32 noundef 0) #12
+  %.not.i81 = icmp eq ptr %131, null
+  br i1 %.not.i81, label %rdp_isServerAddressTarget.exit85, label %132
 
-131:                                              ; preds = %126
-  %132 = load i32, ptr @proto_rdp, align 4
-  %133 = call ptr @conversation_get_proto_data(ptr noundef nonnull %130, i32 noundef %132) #12
-  %.not11.i82 = icmp eq ptr %133, null
-  br i1 %.not11.i82, label %rdp_isServerAddressTarget.exit85, label %134
+132:                                              ; preds = %127
+  %133 = load i32, ptr @proto_rdp, align 4
+  %134 = call ptr @conversation_get_proto_data(ptr noundef nonnull %131, i32 noundef %133) #12
+  %.not11.i82 = icmp eq ptr %134, null
+  br i1 %.not11.i82, label %rdp_isServerAddressTarget.exit85, label %135
 
-134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %133, i64 24
-  %136 = getelementptr inbounds i8, ptr %1, i64 232
-  %137 = load i32, ptr %135, align 8
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds i8, ptr %134, i64 24
+  %137 = getelementptr inbounds i8, ptr %1, i64 232
   %138 = load i32, ptr %136, align 8
-  %139 = icmp eq i32 %137, %138
-  br i1 %139, label %140, label %rdp_isServerAddressTarget.exit85
+  %139 = load i32, ptr %137, align 8
+  %140 = icmp eq i32 %138, %139
+  br i1 %140, label %141, label %rdp_isServerAddressTarget.exit85
 
-140:                                              ; preds = %134
-  %141 = getelementptr inbounds i8, ptr %133, i64 28
-  %142 = load i32, ptr %141, align 4
-  %143 = getelementptr inbounds i8, ptr %1, i64 236
-  %144 = load i32, ptr %143, align 4
-  %145 = icmp eq i32 %142, %144
-  br i1 %145, label %146, label %rdp_isServerAddressTarget.exit85
+141:                                              ; preds = %135
+  %142 = getelementptr inbounds i8, ptr %134, i64 28
+  %143 = load i32, ptr %142, align 4
+  %144 = getelementptr inbounds i8, ptr %1, i64 236
+  %145 = load i32, ptr %144, align 4
+  %146 = icmp eq i32 %143, %145
+  br i1 %146, label %147, label %rdp_isServerAddressTarget.exit85
 
-146:                                              ; preds = %140
-  %147 = icmp eq i32 %142, 0
-  br i1 %147, label %155, label %148
+147:                                              ; preds = %141
+  %148 = icmp eq i32 %143, 0
+  br i1 %148, label %156, label %149
 
-148:                                              ; preds = %146
-  %149 = getelementptr inbounds i8, ptr %133, i64 32
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %1, i64 240
-  %152 = load ptr, ptr %151, align 8
-  %153 = sext i32 %142 to i64
-  %bcmp.i.i84 = call i32 @bcmp(ptr %150, ptr %152, i64 %153)
-  %154 = icmp eq i32 %bcmp.i.i84, 0
-  br i1 %154, label %155, label %rdp_isServerAddressTarget.exit85
+149:                                              ; preds = %147
+  %150 = getelementptr inbounds i8, ptr %134, i64 32
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %1, i64 240
+  %153 = load ptr, ptr %152, align 8
+  %154 = sext i32 %143 to i64
+  %bcmp.i.i84 = call i32 @bcmp(ptr %151, ptr %153, i64 %154)
+  %155 = icmp eq i32 %bcmp.i.i84, 0
+  br i1 %155, label %156, label %rdp_isServerAddressTarget.exit85
 
-155:                                              ; preds = %148, %146
-  %156 = getelementptr inbounds i8, ptr %1, i64 288
-  %157 = load i32, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %133, i64 48
-  %159 = load i16, ptr %158, align 8
-  %160 = zext i16 %159 to i32
-  %161 = icmp eq i32 %157, %160
-  %162 = zext i1 %161 to i32
+156:                                              ; preds = %149, %147
+  %157 = getelementptr inbounds i8, ptr %1, i64 288
+  %158 = load i32, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %134, i64 48
+  %160 = load i16, ptr %159, align 8
+  %161 = zext i16 %160 to i32
+  %162 = icmp eq i32 %158, %161
+  %163 = zext i1 %162 to i32
   br label %rdp_isServerAddressTarget.exit85
 
-rdp_isServerAddressTarget.exit85:                 ; preds = %126, %131, %134, %140, %148, %155
-  %.0.i83 = phi i32 [ 0, %126 ], [ %162, %155 ], [ 0, %131 ], [ 0, %134 ], [ 0, %140 ], [ 0, %148 ]
-  %163 = call i32 @dissect_rdp_bandwidth_req(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %129, i32 noundef %.0.i83)
-  br label %171
+rdp_isServerAddressTarget.exit85:                 ; preds = %127, %132, %135, %141, %149, %156
+  %.0.i83 = phi i32 [ 0, %127 ], [ %163, %156 ], [ 0, %132 ], [ 0, %135 ], [ 0, %141 ], [ 0, %149 ]
+  %164 = call i32 @dissect_rdp_bandwidth_req(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %130, i32 noundef %.0.i83)
+  br label %172
 
-164:                                              ; preds = %124
-  %165 = and i32 %29, 16384
-  %.not79 = icmp eq i32 %165, 0
-  br i1 %.not79, label %171, label %166
+165:                                              ; preds = %125
+  %166 = and i32 %29, 16384
+  %.not79 = icmp eq i32 %166, 0
+  br i1 %.not79, label %172, label %167
 
-166:                                              ; preds = %164
-  %167 = load ptr, ptr %17, align 8
-  call void @col_append_sep_str(ptr noundef %167, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.1020) #12
-  %168 = load i32, ptr @ett_rdp_heartbeat, align 4
-  %169 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %30, i32 noundef -1, i32 noundef %168, ptr noundef null, ptr noundef nonnull @.str.1020) #12
-  %170 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %169, ptr noundef nonnull @__const.dissect_rdp_MessageChannelData.heartbeat_fields, i32 noundef 0)
-  br label %171
+167:                                              ; preds = %165
+  %168 = load ptr, ptr %17, align 8
+  call void @col_append_sep_str(ptr noundef %168, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.1020) #12
+  %169 = load i32, ptr @ett_rdp_heartbeat, align 4
+  %170 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %0, i32 noundef %30, i32 noundef -1, i32 noundef %169, ptr noundef null, ptr noundef nonnull @.str.1020) #12
+  %171 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %170, ptr noundef nonnull @__const.dissect_rdp_MessageChannelData.heartbeat_fields, i32 noundef 0)
+  br label %172
 
-171:                                              ; preds = %79, %rdp_isServerAddressTarget.exit85, %166, %164, %rdp_isServerAddressTarget.exit, %73
-  %.0 = phi i32 [ %76, %73 ], [ %30, %79 ], [ %123, %rdp_isServerAddressTarget.exit ], [ %163, %rdp_isServerAddressTarget.exit85 ], [ %170, %166 ], [ %30, %164 ]
+172:                                              ; preds = %80, %rdp_isServerAddressTarget.exit85, %167, %165, %rdp_isServerAddressTarget.exit, %74
+  %.0 = phi i32 [ %77, %74 ], [ %30, %80 ], [ %124, %rdp_isServerAddressTarget.exit ], [ %164, %rdp_isServerAddressTarget.exit85 ], [ %171, %167 ], [ %30, %165 ]
   ret i32 %.0
 }
 

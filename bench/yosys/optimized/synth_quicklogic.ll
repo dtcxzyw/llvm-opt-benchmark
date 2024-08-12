@@ -406,11 +406,17 @@ define internal void @_ZN12_GLOBAL__N_119SynthQuickLogicPass11clear_flagsEv(ptr 
   %12 = getelementptr inbounds i8, ptr %0, i64 280
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.36)
   %14 = getelementptr inbounds i8, ptr %0, i64 408
-  store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 376
-  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.37)
-  %17 = getelementptr inbounds i8, ptr %0, i64 412
-  store i8 1, ptr %17, align 4
+  store i8 1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 409
+  store i8 1, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 410
+  store i8 0, ptr %16, align 2
+  %17 = getelementptr inbounds i8, ptr %0, i64 411
+  store i8 0, ptr %17, align 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 376
+  %19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.37)
+  %20 = getelementptr inbounds i8, ptr %0, i64 412
+  store i8 1, ptr %20, align 4
   ret void
 }
 

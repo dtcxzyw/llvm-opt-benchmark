@@ -57,13 +57,13 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %35 = getelementptr inbounds i8, ptr %24, i64 %34
   br label %36
 
-36:                                               ; preds = %.lr.ph, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
+36:                                               ; preds = %.lr.ph, %78
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %37 = getelementptr inbounds %struct.cli_exe_section, ptr %3, i64 %indvars.iv
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 4
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %68, label %40
+  br i1 %.not, label %78, label %40
 
 40:                                               ; preds = %36
   %41 = mul i64 %indvars.iv, 40
@@ -73,76 +73,85 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %45 = getelementptr inbounds i8, ptr %37, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, 0
-  %48 = insertelement <8 x i32> poison, i32 %44, i64 0
-  %49 = shufflevector <8 x i32> %48, <8 x i32> poison, <8 x i32> zeroinitializer
-  %.fr = freeze <8 x i32> %49
-  %50 = icmp eq <8 x i32> %.fr, <i32 1668445042, i32 1920168494, i32 1869374834, i32 1818587694, i32 1633969454, i32 1633972782, i32 1633970478, i32 1936487470>
-  %51 = and i32 %44, 65535
-  %52 = icmp eq i32 %51, 17273
-  %53 = bitcast <8 x i1> %50 to i8
-  %54 = icmp ne i8 %53, 0
-  %55 = or i1 %47, %54
-  %op.rdx105 = select i1 %55, i1 true, i1 %52
-  br i1 %op.rdx105, label %68, label %56
+  %48 = icmp eq i32 %44, 1668445042
+  %49 = icmp eq i32 %44, 1920168494
+  %50 = or i1 %48, %49
+  %51 = icmp eq i32 %44, 1869374834
+  %52 = or i1 %51, %50
+  %53 = icmp eq i32 %44, 1818587694
+  %54 = or i1 %53, %52
+  %55 = icmp eq i32 %44, 1633969454
+  %56 = or i1 %55, %54
+  %57 = icmp eq i32 %44, 1633972782
+  %58 = or i1 %57, %56
+  %59 = icmp eq i32 %44, 1633970478
+  %60 = or i1 %59, %58
+  %61 = icmp eq i32 %44, 1936487470
+  %62 = or i1 %61, %60
+  %63 = and i32 %44, 65535
+  %64 = icmp eq i32 %63, 17273
+  %65 = or i1 %64, %62
+  %or.cond = select i1 %47, i1 true, i1 %65
+  br i1 %or.cond, label %78, label %66
 
-56:                                               ; preds = %40
-  %57 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, i32 noundef %57) #3
-  %58 = load i32, ptr %38, align 4
-  %59 = sub i32 %32, %58
-  %60 = icmp ugt i32 %58, %32
-  br i1 %60, label %61, label %62
+66:                                               ; preds = %40
+  %67 = trunc nuw i64 %indvars.iv to i32
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, i32 noundef %67) #3
+  %68 = load i32, ptr %38, align 4
+  %69 = sub i32 %32, %68
+  %70 = icmp ugt i32 %68, %32
+  br i1 %70, label %71, label %72
 
-61:                                               ; preds = %56
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i32 noundef %59) #3
+71:                                               ; preds = %66
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i32 noundef %69) #3
   br label %.loopexit
 
-62:                                               ; preds = %56
-  %63 = zext i32 %58 to i64
-  %64 = getelementptr inbounds i8, ptr %1, i64 %63
-  %65 = getelementptr inbounds i8, ptr %37, i64 32
-  %66 = load i32, ptr %65, align 4
-  %67 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %35, ptr noundef %64, i32 noundef %66, i32 noundef %59)
-  switch i32 %67, label %68 [
+72:                                               ; preds = %66
+  %73 = zext i32 %68 to i64
+  %74 = getelementptr inbounds i8, ptr %1, i64 %73
+  %75 = getelementptr inbounds i8, ptr %37, i64 32
+  %76 = load i32, ptr %75, align 4
+  %77 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %35, ptr noundef %74, i32 noundef %76, i32 noundef %69)
+  switch i32 %77, label %78 [
     i32 2, label %.loopexit.loopexit
     i32 1, label %.loopexit
   ]
 
-68:                                               ; preds = %62, %36, %40
+78:                                               ; preds = %72, %36, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %._crit_edge, label %36
 
-._crit_edge:                                      ; preds = %68, %29
-  %69 = trunc i32 %4 to i16
-  %70 = getelementptr inbounds i8, ptr %17, i64 6
-  store i16 %69, ptr %70, align 2
-  %71 = getelementptr inbounds i8, ptr %17, i64 128
-  store i64 0, ptr %71, align 1
-  %72 = getelementptr inbounds i8, ptr %24, i64 2575
-  %73 = load i32, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %17, i64 40
-  store i32 %73, ptr %74, align 1
-  %75 = getelementptr inbounds i8, ptr %17, i64 80
-  %76 = load i32, ptr %75, align 1
-  %77 = getelementptr inbounds i8, ptr %11, i64 4
-  %78 = load i32, ptr %77, align 4
-  %79 = sub i32 %76, %78
-  store i32 %79, ptr %75, align 1
-  %80 = zext i32 %32 to i64
-  %81 = tail call i64 @cli_writen(i32 noundef %6, ptr noundef %1, i64 noundef %80) #3
-  %82 = icmp eq i64 %81, -1
-  br i1 %82, label %83, label %.loopexit
+._crit_edge:                                      ; preds = %78, %29
+  %79 = trunc i32 %4 to i16
+  %80 = getelementptr inbounds i8, ptr %17, i64 6
+  store i16 %79, ptr %80, align 2
+  %81 = getelementptr inbounds i8, ptr %17, i64 128
+  store i64 0, ptr %81, align 1
+  %82 = getelementptr inbounds i8, ptr %24, i64 2575
+  %83 = load i32, ptr %82, align 1
+  %84 = getelementptr inbounds i8, ptr %17, i64 40
+  store i32 %83, ptr %84, align 1
+  %85 = getelementptr inbounds i8, ptr %17, i64 80
+  %86 = load i32, ptr %85, align 1
+  %87 = getelementptr inbounds i8, ptr %11, i64 4
+  %88 = load i32, ptr %87, align 4
+  %89 = sub i32 %86, %88
+  store i32 %89, ptr %85, align 1
+  %90 = zext i32 %32 to i64
+  %91 = tail call i64 @cli_writen(i32 noundef %6, ptr noundef %1, i64 noundef %90) #3
+  %92 = icmp eq i64 %91, -1
+  br i1 %92, label %93, label %.loopexit
 
-83:                                               ; preds = %._crit_edge
+93:                                               ; preds = %._crit_edge
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #3
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %62
+.loopexit.loopexit:                               ; preds = %72
   br label %.loopexit
 
-.loopexit:                                        ; preds = %62, %.loopexit.loopexit, %._crit_edge, %9, %83, %61, %28
-  %.0 = phi i32 [ 1, %61 ], [ 7, %83 ], [ 7, %28 ], [ 1, %9 ], [ 0, %._crit_edge ], [ 1, %.loopexit.loopexit ], [ 7, %62 ]
+.loopexit:                                        ; preds = %72, %.loopexit.loopexit, %._crit_edge, %9, %93, %71, %28
+  %.0 = phi i32 [ 1, %71 ], [ 7, %93 ], [ 7, %28 ], [ 1, %9 ], [ 0, %._crit_edge ], [ 1, %.loopexit.loopexit ], [ 7, %72 ]
   ret i32 %.0
 }
 

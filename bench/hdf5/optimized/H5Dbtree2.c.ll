@@ -620,36 +620,40 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_get_addr(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5D__bt2_idx_load_metadata(ptr nocapture noundef readonly %0) #1 {
-  %2 = alloca %struct.H5D_chunk_ud_t, align 16
+  %2 = alloca %struct.H5D_chunk_ud_t, align 8
   %3 = alloca [33 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %3, i8 0, i64 264, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %5, ptr %2, align 16
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %3, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
-  store i64 -1, ptr %7, align 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
-  store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 48
-  store i32 0, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 52
-  store i8 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 -1, ptr %11, align 8
-  %12 = call i32 @H5D__bt2_idx_get_addr(ptr noundef %0, ptr noundef nonnull %2)
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %18
+  %5 = load ptr, ptr %4, align 8
+  store ptr %5, ptr %2, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %7, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %3, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  store i64 -1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  store i64 0, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 52
+  store i8 0, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 -1, ptr %14, align 8
+  %15 = call i32 @H5D__bt2_idx_get_addr(ptr noundef %0, ptr noundef nonnull %2)
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %17, label %21
 
-14:                                               ; preds = %1
-  %15 = load i64, ptr @H5E_DATASET_g, align 8
-  %16 = load i64, ptr @H5E_CANTGET_g, align 8
-  %17 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__bt2_idx_load_metadata, i32 noundef 1109, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.32) #14
-  br label %18
+17:                                               ; preds = %1
+  %18 = load i64, ptr @H5E_DATASET_g, align 8
+  %19 = load i64, ptr @H5E_CANTGET_g, align 8
+  %20 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__bt2_idx_load_metadata, i32 noundef 1109, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.32) #14
+  br label %21
 
-18:                                               ; preds = %1, %14
-  %.0 = phi i32 [ -1, %14 ], [ 0, %1 ]
+21:                                               ; preds = %1, %17
+  %.0 = phi i32 [ -1, %17 ], [ 0, %1 ]
   ret i32 %.0
 }
 

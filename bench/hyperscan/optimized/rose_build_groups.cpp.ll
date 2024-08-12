@@ -7590,7 +7590,7 @@ lpad:                                             ; preds = %invoke.cont13
 define linkonce_odr hidden void @_ZN5boost18depth_first_searchIN3ue29RoseGraphENS_17topo_sort_visitorISt20back_insert_iteratorISt6vectorINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS2_NS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISC_EEEEENS_25shared_array_property_mapINS_18default_color_typeENSB_8prop_mapIRKmS9_EEEEEEvRKT_T0_T1_NS_12graph_traitsISO_E17vertex_descriptorE(ptr noundef nonnull align 8 dereferenceable(56) %g, ptr %vis.coerce, ptr noundef %color, ptr %start_vertex.coerce0, i64 %start_vertex.coerce1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %vis = alloca %"struct.boost::topo_sort_visitor", align 8
-  %agg.tmp15 = alloca %"class.boost::shared_array_property_map", align 16
+  %agg.tmp15 = alloca %"class.boost::shared_array_property_map", align 8
   %agg.tmp32 = alloca %"class.boost::shared_array_property_map", align 8
   %0 = getelementptr inbounds i8, ptr %vis, i64 8
   store ptr %vis.coerce, ptr %0, align 8
@@ -7628,16 +7628,17 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
+  %5 = load ptr, ptr %color, align 8
+  store ptr %5, ptr %agg.tmp15, align 8
   %pn.i.i = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
   %pn3.i.i = getelementptr inbounds i8, ptr %color, i64 8
-  %5 = load ptr, ptr %pn3.i.i, align 8
-  %6 = load <2 x ptr>, ptr %color, align 8
-  store <2 x ptr> %6, ptr %agg.tmp15, align 16
-  %cmp.not.i.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %pn3.i.i, align 8
+  store ptr %6, ptr %pn.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZN5boost25shared_array_property_mapINS_18default_color_typeEN3ue29ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEE8prop_mapIRKmS5_EEEC2ERKSC_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %use_count_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %use_count_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4
   br label %_ZN5boost25shared_array_property_mapINS_18default_color_typeEN3ue29ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEE8prop_mapIRKmS5_EEEC2ERKSC_.exit
 
@@ -7645,7 +7646,7 @@ _ZN5boost25shared_array_property_mapINS_18default_color_typeEN3ue29ue2_graphINS2
   %index.i = getelementptr inbounds i8, ptr %agg.tmp15, i64 16
   %index3.i = getelementptr inbounds i8, ptr %color, i64 16
   %8 = load i64, ptr %index3.i, align 8
-  store i64 %8, ptr %index.i, align 16
+  store i64 %8, ptr %index.i, align 8
   invoke void @_ZN5boost6detail22depth_first_visit_implIN3ue29RoseGraphENS_17topo_sort_visitorISt20back_insert_iteratorISt6vectorINS2_12graph_detail17vertex_descriptorINS2_9ue2_graphIS3_NS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESaISD_EEEEENS_25shared_array_property_mapINS_18default_color_typeENSC_8prop_mapIRKmSA_EEEENS0_9nontruth2EEEvRKT_NS_12graph_traitsISQ_E17vertex_descriptorERT0_T1_T2_(ptr noundef nonnull align 8 dereferenceable(56) %g, ptr %start_vertex.coerce0, i64 %start_vertex.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %vis, ptr noundef nonnull %agg.tmp15)
           to label %invoke.cont unwind label %lpad
 

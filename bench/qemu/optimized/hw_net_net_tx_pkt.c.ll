@@ -400,51 +400,59 @@ eth_get_l2_hdr_length.exit.i:                     ; preds = %sw.default.i.i, %sw
   store i64 %retval.0.i61.i, ptr %iov_len5.i, align 8
   %12 = load i8, ptr %6, align 1
   %arrayidx1.i.i.i = getelementptr i8, ptr %6, i64 1
-  %13 = load <4 x i8>, ptr %arrayidx1.i.i.i, align 1
+  %13 = load i8, ptr %arrayidx1.i.i.i, align 1
+  %arrayidx3.i.i.i = getelementptr i8, ptr %6, i64 2
+  %14 = load i8, ptr %arrayidx3.i.i.i, align 1
+  %arrayidx6.i.i.i = getelementptr i8, ptr %6, i64 3
+  %15 = load i8, ptr %arrayidx6.i.i.i, align 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %6, i64 4
+  %16 = load i8, ptr %arrayidx9.i.i.i, align 1
   %arrayidx12.i.i.i = getelementptr i8, ptr %6, i64 5
-  %14 = load i8, ptr %arrayidx12.i.i.i, align 1
-  %15 = tail call i8 @llvm.vector.reduce.and.v4i8(<4 x i8> %13)
-  %op.rdx = and i8 %15, %14
-  %op.rdx9 = and i8 %op.rdx, %12
-  %cmp.i.not.i.i = icmp eq i8 %op.rdx9, -1
-  %16 = and i8 %12, 1
-  %tobool4.not.i.i = icmp eq i8 %16, 0
+  %17 = load i8, ptr %arrayidx12.i.i.i, align 1
+  %18 = and i8 %13, %14
+  %19 = and i8 %18, %15
+  %20 = and i8 %19, %16
+  %21 = and i8 %20, %17
+  %and1410.i.i.i = and i8 %21, %12
+  %cmp.i.not.i.i = icmp eq i8 %and1410.i.i.i, -1
+  %22 = and i8 %12, 1
+  %tobool4.not.i.i = icmp eq i8 %22, 0
   %..i62.i = select i1 %tobool4.not.i.i, i32 -1430533120, i32 -1430533118
   %retval.0.i63.i = select i1 %cmp.i.not.i.i, i32 -1430533119, i32 %..i62.i
   %packet_type26.i = getelementptr inbounds i8, ptr %pkt, i64 65620
   store i32 %retval.0.i63.i, ptr %packet_type26.i, align 4
-  %17 = load i64, ptr %iov_len5.i, align 8
-  %call29.i = tail call zeroext i16 @eth_get_l3_proto(ptr noundef nonnull %arrayidx.i, i32 noundef 1, i64 noundef %17) #17
+  %23 = load i64, ptr %iov_len5.i, align 8
+  %call29.i = tail call zeroext i16 @eth_get_l3_proto(ptr noundef nonnull %arrayidx.i, i32 noundef 1, i64 noundef %23) #17
   switch i16 %call29.i, label %sw.epilog109.sink.split.i [
     i16 2048, label %sw.bb31.i
     i16 -31011, label %sw.bb81.i
   ]
 
 sw.bb31.i:                                        ; preds = %eth_get_l2_hdr_length.exit.i
-  %18 = load ptr, ptr %raw.i, align 8
-  %19 = load i32, ptr %raw_frags.i, align 8
-  %20 = load i64, ptr %iov_len5.i, align 8
-  %21 = load ptr, ptr %arrayidx2.i, align 8
-  %tobool.i64.not.i = icmp eq i32 %19, 0
+  %24 = load ptr, ptr %raw.i, align 8
+  %25 = load i32, ptr %raw_frags.i, align 8
+  %26 = load i64, ptr %iov_len5.i, align 8
+  %27 = load ptr, ptr %arrayidx2.i, align 8
+  %tobool.i64.not.i = icmp eq i32 %25, 0
   br i1 %tobool.i64.not.i, label %iov_to_buf.exit72.i, label %land.lhs.true1.i68.i
 
 land.lhs.true1.i68.i:                             ; preds = %sw.bb31.i
-  %iov_len.i69.i = getelementptr inbounds i8, ptr %18, i64 8
-  %22 = load i64, ptr %iov_len.i69.i, align 8
-  %cmp.not.i.i = icmp ult i64 %22, %20
-  %sub.i.i = sub nuw i64 %22, %20
+  %iov_len.i69.i = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = load i64, ptr %iov_len.i69.i, align 8
+  %cmp.not.i.i = icmp ult i64 %28, %26
+  %sub.i.i = sub nuw i64 %28, %26
   %cmp5.not.i70.i = icmp ult i64 %sub.i.i, 20
   %or.cond13.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp5.not.i70.i
   br i1 %or.cond13.i.i, label %iov_to_buf.exit72.i, label %iov_to_buf.exit72.thread.i
 
 iov_to_buf.exit72.thread.i:                       ; preds = %land.lhs.true1.i68.i
-  %23 = load ptr, ptr %18, align 8
-  %add.ptr.i.i = getelementptr i8, ptr %23, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %21, ptr noundef nonnull align 1 dereferenceable(20) %add.ptr.i.i, i64 20, i1 false)
+  %29 = load ptr, ptr %24, align 8
+  %add.ptr.i.i = getelementptr i8, ptr %29, i64 %26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %27, ptr noundef nonnull align 1 dereferenceable(20) %add.ptr.i.i, i64 20, i1 false)
   br label %if.end41.i
 
 iov_to_buf.exit72.i:                              ; preds = %land.lhs.true1.i68.i, %sw.bb31.i
-  %call.i66.i = tail call i64 @iov_to_buf_full(ptr noundef %18, i32 noundef %19, i64 noundef %20, ptr noundef %21, i64 noundef 20) #17
+  %call.i66.i = tail call i64 @iov_to_buf_full(ptr noundef %24, i32 noundef %25, i64 noundef %26, ptr noundef %27, i64 noundef 20) #17
   %cmp37.i = icmp ult i64 %call.i66.i, 20
   br i1 %cmp37.i, label %if.then39.i, label %if.end41.i
 
@@ -454,8 +462,8 @@ if.then39.i:                                      ; preds = %iov_to_buf.exit72.i
   br label %net_tx_pkt_parse_headers.exit.thread
 
 if.end41.i:                                       ; preds = %iov_to_buf.exit72.i, %iov_to_buf.exit72.thread.i
-  %24 = load ptr, ptr %arrayidx2.i, align 8
-  %.val.i = load i8, ptr %24, align 1
+  %30 = load ptr, ptr %arrayidx2.i, align 8
+  %.val.i = load i8, ptr %30, align 1
   %conv.i.i = zext i8 %.val.i to i32
   %and.i = shl nuw nsw i32 %conv.i.i, 2
   %shl.i = and i32 %and.i, 60
@@ -470,27 +478,27 @@ if.then49.i:                                      ; preds = %if.end41.i
   br label %net_tx_pkt_parse_headers.exit.thread
 
 if.end51.i:                                       ; preds = %if.end41.i
-  %add.ptr53.i = getelementptr i8, ptr %24, i64 9
+  %add.ptr53.i = getelementptr i8, ptr %30, i64 9
   %add.ptr53.val.i = load i8, ptr %add.ptr53.i, align 1
   %l4proto.i = getelementptr inbounds i8, ptr %pkt, i64 65624
   store i8 %add.ptr53.val.i, ptr %l4proto.i, align 8
-  %25 = load ptr, ptr %arrayidx2.i, align 8
-  %.val60.i = load i8, ptr %25, align 1
-  %26 = and i8 %.val60.i, 15
-  %cmp62.not.i = icmp eq i8 %26, 5
+  %31 = load ptr, ptr %arrayidx2.i, align 8
+  %.val60.i = load i8, ptr %31, align 1
+  %32 = and i8 %.val60.i, 15
+  %cmp62.not.i = icmp eq i8 %32, 5
   br i1 %cmp62.not.i, label %if.then, label %if.else.i76.i
 
 if.else.i76.i:                                    ; preds = %if.end51.i
-  %27 = load i64, ptr %iov_len45.i, align 8
-  %sub.i = add i64 %27, -20
-  %add.ptr70.i = getelementptr i8, ptr %25, i64 20
-  %28 = load i64, ptr %iov_len5.i, align 8
-  %add68.i = add i64 %28, 20
-  %29 = load i32, ptr %raw_frags.i, align 8
-  %30 = load ptr, ptr %raw.i, align 8
-  %call.i77.i = tail call i64 @iov_to_buf_full(ptr noundef %30, i32 noundef %29, i64 noundef %add68.i, ptr noundef %add.ptr70.i, i64 noundef %sub.i) #17
-  %31 = load i64, ptr %iov_len45.i, align 8
-  %sub74.i = add i64 %31, -20
+  %33 = load i64, ptr %iov_len45.i, align 8
+  %sub.i = add i64 %33, -20
+  %add.ptr70.i = getelementptr i8, ptr %31, i64 20
+  %34 = load i64, ptr %iov_len5.i, align 8
+  %add68.i = add i64 %34, 20
+  %35 = load i32, ptr %raw_frags.i, align 8
+  %36 = load ptr, ptr %raw.i, align 8
+  %call.i77.i = tail call i64 @iov_to_buf_full(ptr noundef %36, i32 noundef %35, i64 noundef %add68.i, ptr noundef %add.ptr70.i, i64 noundef %sub.i) #17
+  %37 = load i64, ptr %iov_len45.i, align 8
+  %sub74.i = add i64 %37, -20
   %cmp75.i = icmp ult i64 %call.i77.i, %sub74.i
   br i1 %cmp75.i, label %if.then77.i, label %if.then
 
@@ -499,10 +507,10 @@ if.then77.i:                                      ; preds = %if.else.i76.i
   br label %net_tx_pkt_parse_headers.exit.thread
 
 sw.bb81.i:                                        ; preds = %eth_get_l2_hdr_length.exit.i
-  %32 = load ptr, ptr %raw.i, align 8
-  %33 = load i32, ptr %raw_frags.i, align 8
-  %34 = load i64, ptr %iov_len5.i, align 8
-  %call85.i = call zeroext i1 @eth_parse_ipv6_hdr(ptr noundef %32, i32 noundef %33, i64 noundef %34, ptr noundef nonnull %hdrinfo.i) #17
+  %38 = load ptr, ptr %raw.i, align 8
+  %39 = load i32, ptr %raw_frags.i, align 8
+  %40 = load i64, ptr %iov_len5.i, align 8
+  %call85.i = call zeroext i1 @eth_parse_ipv6_hdr(ptr noundef %38, i32 noundef %39, i64 noundef %40, ptr noundef nonnull %hdrinfo.i) #17
   br i1 %call85.i, label %if.end88.i, label %if.then86.i
 
 if.then86.i:                                      ; preds = %sw.bb81.i
@@ -511,12 +519,12 @@ if.then86.i:                                      ; preds = %sw.bb81.i
   br label %net_tx_pkt_parse_headers.exit.thread
 
 if.end88.i:                                       ; preds = %sw.bb81.i
-  %35 = load i8, ptr %hdrinfo.i, align 8
+  %41 = load i8, ptr %hdrinfo.i, align 8
   %l4proto90.i = getelementptr inbounds i8, ptr %pkt, i64 65624
-  store i8 %35, ptr %l4proto90.i, align 8
+  store i8 %41, ptr %l4proto90.i, align 8
   %full_hdr_len.i = getelementptr inbounds i8, ptr %hdrinfo.i, i64 8
-  %36 = load i64, ptr %full_hdr_len.i, align 8
-  %cmp91.i = icmp ugt i64 %36, 65535
+  %42 = load i64, ptr %full_hdr_len.i, align 8
+  %cmp91.i = icmp ugt i64 %42, 65535
   br i1 %cmp91.i, label %if.then93.i, label %iov_to_buf.exit101.i
 
 if.then93.i:                                      ; preds = %if.end88.i
@@ -525,12 +533,12 @@ if.then93.i:                                      ; preds = %if.end88.i
   br label %net_tx_pkt_parse_headers.exit.thread
 
 iov_to_buf.exit101.i:                             ; preds = %if.end88.i
-  %37 = load ptr, ptr %arrayidx2.i, align 8
-  %38 = load i64, ptr %iov_len5.i, align 8
-  %39 = load i32, ptr %raw_frags.i, align 8
-  %40 = load ptr, ptr %raw.i, align 8
-  %call.i91.i = call i64 @iov_to_buf_full(ptr noundef %40, i32 noundef %39, i64 noundef %38, ptr noundef %37, i64 noundef %36) #17
-  %cmp101.i = icmp ult i64 %call.i91.i, %36
+  %43 = load ptr, ptr %arrayidx2.i, align 8
+  %44 = load i64, ptr %iov_len5.i, align 8
+  %45 = load i32, ptr %raw_frags.i, align 8
+  %46 = load ptr, ptr %raw.i, align 8
+  %call.i91.i = call i64 @iov_to_buf_full(ptr noundef %46, i32 noundef %45, i64 noundef %44, ptr noundef %43, i64 noundef %42) #17
+  %cmp101.i = icmp ult i64 %call.i91.i, %42
   br i1 %cmp101.i, label %if.then103.i, label %sw.epilog109.sink.split.i
 
 if.then103.i:                                     ; preds = %iov_to_buf.exit101.i
@@ -539,7 +547,7 @@ if.then103.i:                                     ; preds = %iov_to_buf.exit101.
   br label %net_tx_pkt_parse_headers.exit.thread
 
 sw.epilog109.sink.split.i:                        ; preds = %iov_to_buf.exit101.i, %eth_get_l2_hdr_length.exit.i
-  %.sink.i = phi i64 [ %36, %iov_to_buf.exit101.i ], [ 0, %eth_get_l2_hdr_length.exit.i ]
+  %.sink.i = phi i64 [ %42, %iov_to_buf.exit101.i ], [ 0, %eth_get_l2_hdr_length.exit.i ]
   %iov_len108.i = getelementptr i8, ptr %0, i64 40
   store i64 %.sink.i, ptr %iov_len108.i, align 8
   br label %if.then
@@ -549,33 +557,33 @@ net_tx_pkt_parse_headers.exit.thread:             ; preds = %if.then3.i, %if.the
   br label %return
 
 if.then:                                          ; preds = %sw.epilog109.sink.split.i, %if.else.i76.i, %if.end51.i
-  %41 = load ptr, ptr %vec.i, align 8
-  %iov_len.i102.i = getelementptr i8, ptr %41, i64 24
-  %42 = load i64, ptr %iov_len.i102.i, align 8
-  %iov_len3.i.i = getelementptr i8, ptr %41, i64 40
-  %43 = load i64, ptr %iov_len3.i.i, align 8
-  %add.i.i = add i64 %43, %42
+  %47 = load ptr, ptr %vec.i, align 8
+  %iov_len.i102.i = getelementptr i8, ptr %47, i64 24
+  %48 = load i64, ptr %iov_len.i102.i, align 8
+  %iov_len3.i.i = getelementptr i8, ptr %47, i64 40
+  %49 = load i64, ptr %iov_len3.i.i, align 8
+  %add.i.i = add i64 %49, %48
   %conv.i103.i = trunc i64 %add.i.i to i16
   %hdr_len.i.i = getelementptr inbounds i8, ptr %pkt, i64 65616
   store i16 %conv.i103.i, ptr %hdr_len.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %hdrinfo.i)
-  %44 = load ptr, ptr %raw.i, align 8
-  %45 = load i32, ptr %raw_frags.i, align 8
-  %call.i = call i64 @iov_size(ptr noundef %44, i32 noundef %45) #17
-  %46 = load i16, ptr %hdr_len.i.i, align 8
-  %conv.i = zext i16 %46 to i64
+  %50 = load ptr, ptr %raw.i, align 8
+  %51 = load i32, ptr %raw_frags.i, align 8
+  %call.i = call i64 @iov_size(ptr noundef %50, i32 noundef %51) #17
+  %52 = load i16, ptr %hdr_len.i.i, align 8
+  %conv.i = zext i16 %52 to i64
   %sub.i4 = sub i64 %call.i, %conv.i
   %conv1.i = trunc i64 %sub.i4 to i32
   %payload_len.i = getelementptr inbounds i8, ptr %pkt, i64 65604
   store i32 %conv1.i, ptr %payload_len.i, align 4
-  %47 = load ptr, ptr %vec.i, align 8
-  %arrayidx.i6 = getelementptr i8, ptr %47, i64 48
+  %53 = load ptr, ptr %vec.i, align 8
+  %arrayidx.i6 = getelementptr i8, ptr %53, i64 48
   %max_payload_frags.i = getelementptr inbounds i8, ptr %pkt, i64 65612
-  %48 = load i32, ptr %max_payload_frags.i, align 4
-  %49 = load ptr, ptr %raw.i, align 8
-  %50 = load i32, ptr %raw_frags.i, align 8
+  %54 = load i32, ptr %max_payload_frags.i, align 4
+  %55 = load ptr, ptr %raw.i, align 8
+  %56 = load i32, ptr %raw_frags.i, align 8
   %conv7.i = and i64 %sub.i4, 4294967295
-  %call8.i = call i32 @iov_copy(ptr noundef %arrayidx.i6, i32 noundef %48, ptr noundef %49, i32 noundef %50, i64 noundef %conv.i, i64 noundef %conv7.i) #17
+  %call8.i = call i32 @iov_copy(ptr noundef %arrayidx.i6, i32 noundef %54, ptr noundef %55, i32 noundef %56, i64 noundef %conv.i, i64 noundef %conv7.i) #17
   %payload_frags.i = getelementptr inbounds i8, ptr %pkt, i64 65608
   store i32 %call8.i, ptr %payload_frags.i, align 8
   br label %return
@@ -1663,9 +1671,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.vector.reduce.and.v4i8(<4 x i8>) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

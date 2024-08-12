@@ -713,31 +713,39 @@ define hidden void @_ZNK14XPageAllocator5statsEv(ptr dead_on_unwind noalias noca
 _ZN7XLockerI5XLockED2Ev.exit:
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #14
   %3 = getelementptr inbounds i8, ptr %1, i64 392
-  %4 = getelementptr inbounds i8, ptr %1, i64 408
-  %5 = getelementptr inbounds i8, ptr %1, i64 416
-  %6 = getelementptr inbounds i8, ptr %1, i64 432
-  %7 = getelementptr inbounds i8, ptr %1, i64 440
-  %8 = getelementptr inbounds i8, ptr %1, i64 456
-  %9 = load <2 x i64>, ptr %3, align 8
-  %10 = load volatile i64, ptr @SoftMaxHeapSize, align 8
-  %11 = load volatile i64, ptr %4, align 8
-  %12 = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %11)
-  %13 = load volatile i64, ptr %5, align 8
-  %14 = load volatile i64, ptr %6, align 8
-  %15 = load i64, ptr %8, align 8
-  store <2 x i64> %9, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %12, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %13, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %14, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
-  %20 = load <2 x i64>, ptr %7, align 8
-  store <2 x i64> %20, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %15, ptr %21, align 8
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #14
+  %4 = load i64, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 400
+  %6 = load i64, ptr %5, align 8
+  %7 = load volatile i64, ptr @SoftMaxHeapSize, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = load volatile i64, ptr %8, align 8
+  %10 = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 %9)
+  %11 = getelementptr inbounds i8, ptr %1, i64 416
+  %12 = load volatile i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 432
+  %14 = load volatile i64, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 440
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 448
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 456
+  %20 = load i64, ptr %19, align 8
+  store i64 %4, ptr %0, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %6, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %10, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %12, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %14, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %16, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %18, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %20, ptr %27, align 8
+  %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #14
   ret void
 }
 

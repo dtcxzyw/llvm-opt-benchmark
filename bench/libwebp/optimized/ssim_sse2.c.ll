@@ -18,7 +18,7 @@ define hidden void @VP8SSIMDspInitSSE2() local_unnamed_addr #0 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 {
   %4 = icmp sgt i32 %2, 15
-  br i1 %4, label %5, label %55
+  br i1 %4, label %5, label %58
 
 5:                                                ; preds = %3
   %.05864 = load <2 x i64>, ptr %1, align 1
@@ -95,38 +95,44 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
   %51 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %50, <8 x i16> %50)
   %52 = add <4 x i32> %49, %.lcssa
   %53 = add <4 x i32> %52, %51
-  %54 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %53)
-  br label %55
+  %shift = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %54 = add nsw <4 x i32> %shift, %53
+  %shift96 = shufflevector <4 x i32> %54, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
+  %55 = add nsw <4 x i32> %shift96, %53
+  %shift97 = shufflevector <4 x i32> %55, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %56 = add nsw <4 x i32> %shift97, %53
+  %57 = extractelement <4 x i32> %56, i64 0
+  br label %58
 
-55:                                               ; preds = %._crit_edge, %3
-  %.055 = phi i32 [ %54, %._crit_edge ], [ 0, %3 ]
+58:                                               ; preds = %._crit_edge, %3
+  %.055 = phi i32 [ %57, %._crit_edge ], [ 0, %3 ]
   %.0 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %3 ]
-  %56 = icmp slt i32 %.0, %2
-  br i1 %56, label %.lr.ph76.preheader, label %._crit_edge77
+  %59 = icmp slt i32 %.0, %2
+  br i1 %59, label %.lr.ph76.preheader, label %._crit_edge77
 
-.lr.ph76.preheader:                               ; preds = %55
-  %57 = zext nneg i32 %.0 to i64
+.lr.ph76.preheader:                               ; preds = %58
+  %60 = zext nneg i32 %.0 to i64
   %wide.trip.count = zext i32 %2 to i64
   br label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
-  %indvars.iv85 = phi i64 [ %57, %.lr.ph76.preheader ], [ %indvars.iv.next86, %.lr.ph76 ]
-  %.15673 = phi i32 [ %.055, %.lr.ph76.preheader ], [ %66, %.lr.ph76 ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv85
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv85
+  %indvars.iv85 = phi i64 [ %60, %.lr.ph76.preheader ], [ %indvars.iv.next86, %.lr.ph76 ]
+  %.15673 = phi i32 [ %.055, %.lr.ph76.preheader ], [ %69, %.lr.ph76 ]
+  %61 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv85
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
-  %64 = sub nsw i32 %60, %63
-  %65 = mul nsw i32 %64, %64
-  %66 = add i32 %65, %.15673
+  %64 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv85
+  %65 = load i8, ptr %64, align 1
+  %66 = zext i8 %65 to i32
+  %67 = sub nsw i32 %63, %66
+  %68 = mul nsw i32 %67, %67
+  %69 = add i32 %68, %.15673
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge77, label %.lr.ph76, !llvm.loop !6
 
-._crit_edge77:                                    ; preds = %.lr.ph76, %55
-  %.156.lcssa = phi i32 [ %.055, %55 ], [ %66, %.lr.ph76 ]
+._crit_edge77:                                    ; preds = %.lr.ph76, %58
+  %.156.lcssa = phi i32 [ %.055, %58 ], [ %69, %.lr.ph76 ]
   ret i32 %.156.lcssa
 }
 
@@ -284,41 +290,57 @@ define internal double @SSIMGet_SSE2(ptr nocapture noundef readonly %0, i32 noun
   %154 = add <4 x i32> %132, %153
   %155 = shufflevector <8 x i16> %147, <8 x i16> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
   %156 = add <8 x i16> %147, %155
-  %157 = getelementptr inbounds i8, ptr %5, i64 4
-  %158 = shufflevector <8 x i16> %148, <8 x i16> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
-  %159 = add <8 x i16> %148, %158
-  %160 = shufflevector <8 x i16> %156, <8 x i16> %159, <2 x i32> <i32 3, i32 11>
-  %161 = zext <2 x i16> %160 to <2 x i32>
-  %162 = shufflevector <8 x i16> %156, <8 x i16> %159, <2 x i32> <i32 2, i32 10>
-  %163 = zext <2 x i16> %162 to <2 x i32>
-  %164 = add nuw nsw <2 x i32> %161, %163
-  %165 = shufflevector <8 x i16> %156, <8 x i16> %159, <2 x i32> <i32 1, i32 9>
-  %166 = zext <2 x i16> %165 to <2 x i32>
-  %167 = add nuw nsw <2 x i32> %164, %166
-  %168 = shufflevector <8 x i16> %156, <8 x i16> %159, <2 x i32> <i32 0, i32 8>
-  %169 = zext <2 x i16> %168 to <2 x i32>
-  %170 = add nuw nsw <2 x i32> %167, %169
-  store <2 x i32> %170, ptr %157, align 4
-  %171 = shufflevector <4 x i32> %150, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
-  %172 = add <4 x i32> %150, %171
-  %173 = shufflevector <4 x i32> %172, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %174 = add <4 x i32> %172, %173
-  %175 = getelementptr inbounds i8, ptr %5, i64 12
-  %176 = shufflevector <4 x i32> %152, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
-  %177 = add <4 x i32> %152, %176
-  %178 = shufflevector <4 x i32> %177, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %179 = add <4 x i32> %177, %178
-  %180 = shufflevector <4 x i32> %174, <4 x i32> %179, <2 x i32> <i32 0, i32 4>
-  store <2 x i32> %180, ptr %175, align 4
-  %181 = shufflevector <4 x i32> %154, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
-  %182 = add <4 x i32> %154, %181
+  %.sroa.0.6.vec.extract.i = extractelement <8 x i16> %156, i64 3
+  %157 = zext i16 %.sroa.0.6.vec.extract.i to i32
+  %.sroa.0.4.vec.extract.i = extractelement <8 x i16> %156, i64 2
+  %158 = zext i16 %.sroa.0.4.vec.extract.i to i32
+  %159 = add nuw nsw i32 %157, %158
+  %.sroa.0.2.vec.extract.i = extractelement <8 x i16> %156, i64 1
+  %160 = zext i16 %.sroa.0.2.vec.extract.i to i32
+  %161 = add nuw nsw i32 %159, %160
+  %.sroa.0.0.vec.extract.i = extractelement <8 x i16> %156, i64 0
+  %162 = zext i16 %.sroa.0.0.vec.extract.i to i32
+  %163 = add nuw nsw i32 %161, %162
+  %164 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %163, ptr %164, align 4
+  %165 = shufflevector <8 x i16> %148, <8 x i16> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
+  %166 = add <8 x i16> %148, %165
+  %.sroa.0.6.vec.extract.i507 = extractelement <8 x i16> %166, i64 3
+  %167 = zext i16 %.sroa.0.6.vec.extract.i507 to i32
+  %.sroa.0.4.vec.extract.i508 = extractelement <8 x i16> %166, i64 2
+  %168 = zext i16 %.sroa.0.4.vec.extract.i508 to i32
+  %169 = add nuw nsw i32 %167, %168
+  %.sroa.0.2.vec.extract.i509 = extractelement <8 x i16> %166, i64 1
+  %170 = zext i16 %.sroa.0.2.vec.extract.i509 to i32
+  %171 = add nuw nsw i32 %169, %170
+  %.sroa.0.0.vec.extract.i510 = extractelement <8 x i16> %166, i64 0
+  %172 = zext i16 %.sroa.0.0.vec.extract.i510 to i32
+  %173 = add nuw nsw i32 %171, %172
+  %174 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %173, ptr %174, align 4
+  %175 = shufflevector <4 x i32> %150, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %176 = add <4 x i32> %150, %175
+  %177 = shufflevector <4 x i32> %176, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %178 = add <4 x i32> %176, %177
+  %179 = extractelement <4 x i32> %178, i64 0
+  %180 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %179, ptr %180, align 4
+  %181 = shufflevector <4 x i32> %152, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %182 = add <4 x i32> %152, %181
   %183 = shufflevector <4 x i32> %182, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %184 = add <4 x i32> %182, %183
   %185 = extractelement <4 x i32> %184, i64 0
-  %186 = getelementptr inbounds i8, ptr %5, i64 20
+  %186 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 %185, ptr %186, align 4
-  %187 = call double @VP8SSIMFromStats(ptr noundef nonnull %5) #7
-  ret double %187
+  %187 = shufflevector <4 x i32> %154, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %188 = add <4 x i32> %154, %187
+  %189 = shufflevector <4 x i32> %188, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %190 = add <4 x i32> %188, %189
+  %191 = extractelement <4 x i32> %190, i64 0
+  %192 = getelementptr inbounds i8, ptr %5, i64 20
+  store i32 %191, ptr %192, align 4
+  %193 = call double @VP8SSIMFromStats(ptr noundef nonnull %5) #6
+  ret double %193
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -329,17 +351,13 @@ declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #4
 
 declare double @VP8SSIMFromStats(ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #6
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

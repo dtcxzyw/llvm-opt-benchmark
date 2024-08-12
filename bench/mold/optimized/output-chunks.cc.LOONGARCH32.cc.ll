@@ -4255,7 +4255,7 @@ entry:
   %shards = alloca %"class.std::vector.267", align 8
   %ref.tmp20 = alloca %class.anon.272, align 8
   %pos = alloca %"class.std::vector.8", align 8
-  %ref.tmp21 = alloca %"class.std::vector.8", align 16
+  %ref.tmp21 = alloca %"class.std::vector.8", align 8
   %pic = getelementptr inbounds i8, ptr %ctx, i64 115
   %0 = load i8, ptr %pic, align 1
   %tobool = trunc i8 %0 to i1
@@ -4358,12 +4358,16 @@ _ZN3tbb6detail2d112parallel_forIlZN4mold3elf13OutputSectionINS4_11LOONGARCH32EE1
   call fastcc void @_ZN4mold3elfL11encode_relrINS0_11LOONGARCH32EEESt6vectorImSaImEESt4spanImLm18446744073709551615EE(ptr noalias nonnull align 8 %ref.tmp21, ptr %10, i64 %sub.ptr.div.i.i.i)
   %relr = getelementptr inbounds i8, ptr %this, i64 152
   %12 = load ptr, ptr %relr, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  %13 = load <2 x ptr>, ptr %ref.tmp21, align 16
-  store <2 x ptr> %13, ptr %relr, align 8
+  %13 = load ptr, ptr %ref.tmp21, align 8
+  store ptr %13, ptr %relr, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
+  %14 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %14, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp21, i64 16
-  %14 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %14, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i.i.i
 
@@ -4372,33 +4376,33 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN3tbb6detail2d112
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %if.then.i.i.i.i.i, %_ZN3tbb6detail2d112parallel_forIlZN4mold3elf13OutputSectionINS4_11LOONGARCH32EE14construct_relrERNS4_7ContextIS6_EEEUllE_EEvT_SC_RKT0_.exit
-  %15 = load ptr, ptr %pos, align 8
-  %tobool.not.i.i.i9 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %pos, align 8
+  %tobool.not.i.i.i9 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i9, label %_ZNSt6vectorImSaImEED2Ev.exit11, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %_ZNSt6vectorImSaImEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %15) #28
+  call void @_ZdlPv(ptr noundef nonnull %16) #28
   br label %_ZNSt6vectorImSaImEED2Ev.exit11
 
 _ZNSt6vectorImSaImEED2Ev.exit11:                  ; preds = %_ZNSt6vectorImSaImEED2Ev.exit, %if.then.i.i.i10
-  %16 = load ptr, ptr %shards, align 8
-  %17 = load ptr, ptr %_M_finish.i.i7.i19, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %16, %17
+  %17 = load ptr, ptr %shards, align 8
+  %18 = load ptr, ptr %_M_finish.i.i7.i19, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %17, %18
   br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt6vectorImSaImEED2Ev.exit11, %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i ], [ %16, %_ZNSt6vectorImSaImEED2Ev.exit11 ]
-  %18 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %18, null
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i ], [ %17, %_ZNSt6vectorImSaImEED2Ev.exit11 ]
+  %19 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %18) #28
+  call void @_ZdlPv(ptr noundef nonnull %19) #28
   br label %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
-  %cmp.not.i.i.i.i13 = icmp eq ptr %incdec.ptr.i.i.i.i, %17
+  %cmp.not.i.i.i.i13 = icmp eq ptr %incdec.ptr.i.i.i.i, %18
   br i1 %cmp.not.i.i.i.i13, label %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !21
 
 _ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt6vectorImSaImEEEvPT_.exit.i.i.i.i
@@ -4406,12 +4410,12 @@ _ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; pre
   br label %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorImSaImEED2Ev.exit11
-  %19 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %16, %_ZNSt6vectorImSaImEED2Ev.exit11 ]
-  %tobool.not.i.i.i14 = icmp eq ptr %19, null
+  %20 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %17, %_ZNSt6vectorImSaImEED2Ev.exit11 ]
+  %tobool.not.i.i.i14 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i14, label %return, label %if.then.i.i.i15
 
 if.then.i.i.i15:                                  ; preds = %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %19) #28
+  call void @_ZdlPv(ptr noundef nonnull %20) #28
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i15, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i, %if.end4, %if.end, %entry
@@ -7266,7 +7270,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
 define weak_odr dso_local void @_ZN4mold3elf10GotSectionINS0_11LOONGARCH32EE14construct_relrERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(276) %this, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) unnamed_addr #4 comdat align 2 {
 entry:
   %ref.tmp = alloca %"class.std::vector.288", align 8
-  %ref.tmp9 = alloca %"class.std::vector.8", align 16
+  %ref.tmp9 = alloca %"class.std::vector.8", align 8
   call fastcc void @_ZN4mold3elfL15get_got_entriesINS0_11LOONGARCH32EEESt6vectorINS0_12_GLOBAL__N_18GotEntryIT_EESaIS7_EERNS0_7ContextIS6_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(4568) %ctx)
   %ref.tmp.val4 = load ptr, ptr %ref.tmp, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -7301,14 +7305,18 @@ _ZNSt6vectorIN4mold3elf12_GLOBAL__N_18GotEntryINS1_11LOONGARCH32EEESaIS5_EED2Ev.
   call fastcc void @_ZN4mold3elfL11encode_relrINS0_11LOONGARCH32EEESt6vectorImSaImEESt4spanImLm18446744073709551615EE(ptr noalias nonnull align 8 %ref.tmp9, ptr %pos.sroa.0.0.lcssa, i64 %sub.ptr.div.i.i.i)
   %relr = getelementptr inbounds i8, ptr %this, i64 152
   %3 = load ptr, ptr %relr, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  %4 = load <2 x ptr>, ptr %ref.tmp9, align 16
-  store <2 x ptr> %4, ptr %relr, align 8
+  %4 = load ptr, ptr %ref.tmp9, align 8
+  store ptr %4, ptr %relr, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
+  %5 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %5, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 16
-  %5 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %6 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %6, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN4mold3elf12_GLOBAL__N_18GotEntryINS1_11LOONGARCH32EEESaIS5_EED2Ev.exit
@@ -7331,17 +7339,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %pos.sroa.5.024 = phi ptr [ null, %for.body.lr.ph ], [ %pos.sroa.5.1, %for.inc ]
   %pos.sroa.10.023 = phi ptr [ null, %for.body.lr.ph ], [ %pos.sroa.10.1, %for.inc ]
   %__begin1.sroa.0.022 = phi ptr [ %ref.tmp.val4, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %6 = getelementptr i8, ptr %__begin1.sroa.0.022, i64 16
-  %call5.val = load i64, ptr %6, align 8
+  %7 = getelementptr i8, ptr %__begin1.sroa.0.022, i64 16
+  %call5.val = load i64, ptr %7, align 8
   %ctx.val = load i8, ptr %1, align 1
   %cmp.i13 = icmp eq i64 %call5.val, 3
   %tobool.i = trunc i8 %ctx.val to i1
-  %7 = select i1 %cmp.i13, i1 %tobool.i, i1 false
-  br i1 %7, label %if.then, label %for.inc
+  %8 = select i1 %cmp.i13, i1 %tobool.i, i1 false
+  br i1 %8, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %8 = load i64, ptr %__begin1.sroa.0.022, align 8
-  %mul = shl i64 %8, 2
+  %9 = load i64, ptr %__begin1.sroa.0.022, align 8
+  %mul = shl i64 %9, 2
   %cmp.not.i.i = icmp eq ptr %pos.sroa.5.024, %pos.sroa.10.023
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -7366,8 +7374,8 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %9 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %9
+  %10 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %10
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
@@ -14023,7 +14031,13 @@ entry:
   %x.0.copyload.i = load i32, ptr %sh_offset, align 8
   %idx.ext = zext i32 %x.0.copyload.i to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
-  store <4 x i8> <i8 1, i8 27, i8 3, i8 59>, ptr %add.ptr, align 1
+  store i8 1, ptr %add.ptr, align 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  store i8 27, ptr %arrayidx2, align 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  store i8 3, ptr %arrayidx3, align 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %add.ptr, i64 3
+  store i8 59, ptr %arrayidx4, align 1
   %eh_frame = getelementptr inbounds i8, ptr %ctx, i64 4152
   %1 = load ptr, ptr %eh_frame, align 8
   %sh_addr = getelementptr inbounds i8, ptr %1, i64 36
@@ -17161,12 +17175,17 @@ _ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapp
   %my_cancellation_requested.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i.i.i.i, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i.i.i.i.i.i, align 8
   %my_version.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i.i.i.i, i64 12
+  store i8 1, ptr %my_version.i.i.i.i.i.i.i, align 4
+  %my_may_have_children.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i.i.i.i, i64 14
+  store i8 0, ptr %my_may_have_children.i.i.i.i.i.i.i, align 2
   %my_state.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i.i.i.i, i64 15
+  store i8 0, ptr %my_state.i.i.i.i.i.i.i, align 1
   %my_node.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i.i.i.i, i64 32
   %my_name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i.i.i.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i.i.i.i.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i.i.i.i.i.i, align 4
+  %my_traits2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i.i.i.i, i64 13
+  store i8 4, ptr %my_traits2.i.i.i.i.i.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context.i.i.i.i.i) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i.i.i.i.i.i)
@@ -24459,12 +24478,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
@@ -24878,10 +24902,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !230
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -25602,12 +25629,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
@@ -26081,10 +26113,13 @@ _ZN3tbb6detail2d06invokeIRKZN4mold3elf13OutputSectionINS4_11LOONGARCH32EE8write_
   br i1 %exitcond.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !235
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -26398,12 +26433,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 2, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %w_context.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %root_task.i)
@@ -26924,10 +26964,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !238
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -27686,12 +27729,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %my_context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %my_context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %my_context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %my_context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %my_context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %my_context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 6, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %my_context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %my_context) #13
   %r_type5.i.phi.trans.insert = getelementptr inbounds i8, ptr %begin, i64 4
   %.pre = load i8, ptr %r_type5.i.phi.trans.insert, align 1
@@ -28716,12 +28764,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
@@ -29099,10 +29152,13 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %lor.lhs.false, %if.
   br label %if.end22
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 96
@@ -30027,10 +30083,13 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end22
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 104
@@ -30970,12 +31029,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 2, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %w_context.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %root_task.i)
@@ -31499,10 +31563,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !274
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -31740,12 +31807,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 2, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %w_context.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %root_task.i)
@@ -32266,10 +32338,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !277
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -32506,12 +32581,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 2, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %w_context.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %root_task.i)
@@ -33032,10 +33112,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !280
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -33862,12 +33945,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
@@ -34313,10 +34401,13 @@ _ZN3tbb6detail2d06invokeIRKZN4mold3elf13DynsymSectionINS4_11LOONGARCH32EE8finali
   br i1 %exitcond.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !290
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -34606,12 +34697,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %my_context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %my_context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %my_context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %my_context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %my_context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %my_context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 6, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %my_context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %my_context) #13
   %0 = ptrtoint ptr %begin.coerce to i64
   %1 = load ptr, ptr %comp, align 8
@@ -35808,12 +35904,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
@@ -36193,10 +36294,13 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %lor.lhs.false, %if.
   br label %if.end22
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 96
@@ -37289,10 +37393,13 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end22
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 104
@@ -37697,12 +37804,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
@@ -38136,10 +38248,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !315
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -38586,12 +38701,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
@@ -39037,10 +39157,13 @@ _ZN3tbb6detail2d06invokeIRKZN4mold3elf11HashSectionINS4_11LOONGARCH32EE8copy_buf
   br i1 %exitcond.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !323
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -40126,12 +40249,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
@@ -40534,10 +40662,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !334
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -42059,12 +42190,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
@@ -42512,10 +42648,13 @@ _ZN3tbb6detail2d06invokeIRKZN4mold3elf13MergedSectionINS4_11LOONGARCH32EE14assig
   br i1 %exitcond.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !356
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -42801,12 +42940,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
@@ -43274,10 +43418,13 @@ _ZN3tbb6detail2d06invokeIRKZN4mold3elf13MergedSectionINS4_11LOONGARCH32EE8write_
   br i1 %exitcond.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !360
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -43592,12 +43739,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 2, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %w_context.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %root_task.i)
@@ -44117,10 +44269,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !363
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -44552,12 +44707,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 2, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %w_context.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %root_task.i)
@@ -45077,10 +45237,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !368
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -45660,12 +45823,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %my_context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %my_context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %my_context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %my_context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %my_context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %my_context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 6, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %my_context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %my_context) #13
   br label %for.cond
 
@@ -45947,9 +46115,10 @@ if.else7.i.i:                                     ; preds = %if.end
   br i1 %cmp.i.i27.i.i, label %if.then9.i.i, label %if.else10.i.i
 
 if.then9.i.i:                                     ; preds = %if.else7.i.i
-  %10 = load <2 x i64>, ptr %__first, align 1
-  %11 = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %11, ptr %__first, align 1
+  %10 = load i64, ptr %__first, align 1
+  %11 = load i64, ptr %add.ptr1.i, align 1
+  store i64 %11, ptr %__first, align 1
+  store i64 %10, ptr %add.ptr1.i, align 1
   br label %while.body.i.i13.preheader
 
 if.else10.i.i:                                    ; preds = %if.else7.i.i
@@ -46374,12 +46543,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
@@ -46723,10 +46897,13 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %lor.lhs.false, %if.
   br label %if.end22
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 96
@@ -47641,10 +47818,13 @@ for.inc.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !390
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 104
@@ -47918,12 +48098,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 2, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %w_context.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %root_task.i)
@@ -48443,10 +48628,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end22, label %for.body.i.i.i.i.i.i, !llvm.loop !394
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112
@@ -50768,10 +50956,13 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   br label %_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elfL14compute_blake3INSB_11LOONGARCH32EEEvRNSB_7ContextIT_EElEUllE_lEEKNS1_16auto_partitionerEEES8_EEvRSF_RT0_RNS1_14execution_dataE.exit
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
+  store i8 0, ptr %range_pool.i.i, align 8
   %my_tail.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 1
+  store i8 0, ptr %my_tail.i.i.i, align 1
   %my_size.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 2
+  store i8 1, ptr %my_size.i.i.i, align 2
   %my_depth.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool.i.i, align 8
+  store i8 0, ptr %my_depth.i.i.i, align 1
   %my_pool2.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i.i.i, ptr noundef nonnull readonly align 64 dereferenceable(24) %my_range, i64 24, i1 false)
   %my_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -51638,12 +51829,17 @@ if.then:                                          ; preds = %entry
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 5, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   store ptr null, ptr %root, align 8
   store i64 1, ptr %w_ctx, align 8
@@ -52876,12 +53072,17 @@ entry:
   %my_cancellation_requested.i.i = getelementptr inbounds i8, ptr %context, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i, align 8
   %my_version.i.i = getelementptr inbounds i8, ptr %context, i64 12
+  store i8 1, ptr %my_version.i.i, align 4
+  %my_may_have_children.i.i = getelementptr inbounds i8, ptr %context, i64 14
+  store i8 0, ptr %my_may_have_children.i.i, align 2
   %my_state.i.i = getelementptr inbounds i8, ptr %context, i64 15
+  store i8 0, ptr %my_state.i.i, align 1
   %my_node.i.i = getelementptr inbounds i8, ptr %context, i64 32
   %my_name.i.i = getelementptr inbounds i8, ptr %context, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i, i8 0, i64 24, i1 false)
   store i64 1, ptr %my_name.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i, align 4
+  %my_traits2.i.i = getelementptr inbounds i8, ptr %context, i64 13
+  store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i)
@@ -53265,10 +53466,13 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end22
 
 if.else:                                          ; preds = %lor.lhs.false
+  store i8 0, ptr %range_pool, align 8
   %my_tail.i = getelementptr inbounds i8, ptr %range_pool, i64 1
+  store i8 0, ptr %my_tail.i, align 1
   %my_size.i = getelementptr inbounds i8, ptr %range_pool, i64 2
+  store i8 1, ptr %my_size.i, align 2
   %my_depth.i = getelementptr inbounds i8, ptr %range_pool, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool, align 8
+  store i8 0, ptr %my_depth.i, align 1
   %my_pool2.i = getelementptr inbounds i8, ptr %range_pool, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_parent.i.i = getelementptr inbounds i8, ptr %start, i64 112

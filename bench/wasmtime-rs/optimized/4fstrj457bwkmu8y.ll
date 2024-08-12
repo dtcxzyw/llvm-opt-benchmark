@@ -2171,20 +2171,23 @@ default.unreachable:                              ; preds = %20
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %.sroa.15.0.ph, ptr %.sroa.15.0..sroa_idx, align 8
   %32 = call noundef align 4 dereferenceable(8) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h365a1451f2ca31a4E.llvm.13519484168320487909"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %3, i32 noundef %4)
-  br label %38
+  br label %40
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h5620cfb188660f01E.llvm.13519484168320487909.exit": ; preds = %20
   %33 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
   %34 = getelementptr inbounds { [2 x i32] }, ptr %33, i64 %.sroa.8.0.i.i.i.i
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
-  %37 = load <2 x i32>, ptr %34, align 4, !noalias !477
+  %35 = load i32, ptr %34, align 4, !noalias !477, !noundef !9
+  %36 = getelementptr inbounds i8, ptr %34, i64 4
+  %37 = load i32, ptr %36, align 4, !noalias !477, !noundef !9
   store i32 %3, ptr %34, align 4, !noalias !477
-  store i32 %4, ptr %35, align 4, !noalias !477
-  store <2 x i32> %37, ptr %36, align 4
-  br label %38
+  store i32 %4, ptr %36, align 4, !noalias !477
+  %38 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %35, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %37, ptr %39, align 4
+  br label %40
 
-38:                                               ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h5620cfb188660f01E.llvm.13519484168320487909.exit", %.loopexit
+40:                                               ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h5620cfb188660f01E.llvm.13519484168320487909.exit", %.loopexit
   %storemerge = phi i32 [ 1, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h5620cfb188660f01E.llvm.13519484168320487909.exit" ], [ 0, %.loopexit ]
   store i32 %storemerge, ptr %0, align 4
   ret void

@@ -557,28 +557,23 @@ Cudd_ApaCompare.exit.thread:                      ; preds = %63, %.lr.ph53.i, %5
 
 67:                                               ; preds = %65, %66
   %68 = icmp eq i32 %.036.i51, 0
-  br i1 %68, label %69, label %80
+  br i1 %68, label %69, label %75
 
 69:                                               ; preds = %67
-  %70 = insertelement <2 x double> poison, double %.015.lcssa.i, i64 0
-  %71 = insertelement <2 x double> %70, double %.015.lcssa.i33, i64 1
-  %72 = insertelement <2 x double> poison, double %10, i64 0
-  %73 = insertelement <2 x double> %72, double %28, i64 1
-  %74 = fdiv <2 x double> %71, %73
-  %75 = extractelement <2 x double> %74, i64 0
-  %76 = extractelement <2 x double> %74, i64 1
-  %77 = fcmp ogt double %75, %76
-  br i1 %77, label %81, label %78
+  %70 = fdiv double %.015.lcssa.i, %10
+  %71 = fdiv double %.015.lcssa.i33, %28
+  %72 = fcmp ogt double %70, %71
+  br i1 %72, label %76, label %73
 
-78:                                               ; preds = %69
-  %79 = fcmp olt double %75, %76
-  br i1 %79, label %81, label %80
+73:                                               ; preds = %69
+  %74 = fcmp olt double %70, %71
+  br i1 %74, label %76, label %75
 
-80:                                               ; preds = %78, %67
-  br label %81
+75:                                               ; preds = %73, %67
+  br label %76
 
-81:                                               ; preds = %78, %69, %80
-  %.0 = phi i32 [ %.036.i51, %80 ], [ 1, %69 ], [ -1, %78 ]
+76:                                               ; preds = %73, %69, %75
+  %.0 = phi i32 [ %.036.i51, %75 ], [ 1, %69 ], [ -1, %73 ]
   ret i32 %.0
 }
 

@@ -1304,193 +1304,199 @@ fun_so_from_utf_32be.exit:                        ; preds = %105, %90, %.thread.
 define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %73
+  br i1 %7, label %8, label %76
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
-  store <4 x i8> <i8 0, i8 0, i8 -2, i8 -1>, ptr %3, align 1
-  store i8 1, ptr %0, align 1
-  store i8 0, ptr %9, align 1
-  %10 = load i8, ptr %1, align 1
-  %11 = zext i8 %10 to i32
-  %.not.i = icmp sgt i8 %10, -1
-  br i1 %.not.i, label %12, label %16
-
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %3, i64 6
-  store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %3, i64 5
-  store i8 0, ptr %14, align 1
-  %15 = load i8, ptr %1, align 1
-  br label %fun_so_to_utf_32be.exit
-
-16:                                               ; preds = %8
-  %17 = and i32 %11, 224
-  %18 = icmp eq i32 %17, 192
-  br i1 %18, label %19, label %31
-
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %3, i64 5
-  store i8 0, ptr %20, align 1
-  %21 = load i8, ptr %1, align 1
-  %22 = lshr i8 %21, 2
-  %23 = and i8 %22, 7
-  %24 = getelementptr inbounds i8, ptr %3, i64 6
-  store i8 %23, ptr %24, align 1
-  %25 = load i8, ptr %1, align 1
-  %26 = shl i8 %25, 6
-  %27 = getelementptr inbounds i8, ptr %1, i64 1
-  %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 63
-  %30 = or disjoint i8 %29, %26
-  br label %fun_so_to_utf_32be.exit
-
-31:                                               ; preds = %16
-  %32 = and i32 %11, 240
-  %33 = icmp eq i32 %32, 224
-  br i1 %33, label %34, label %50
-
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %3, i64 5
-  store i8 0, ptr %35, align 1
-  %36 = load i8, ptr %1, align 1
-  %37 = shl i8 %36, 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 1
-  %39 = load i8, ptr %38, align 1
-  %40 = lshr i8 %39, 2
-  %41 = xor i8 %40, 32
-  %42 = or i8 %41, %37
-  %43 = getelementptr inbounds i8, ptr %3, i64 6
-  store i8 %42, ptr %43, align 1
-  %44 = load i8, ptr %38, align 1
-  %45 = shl i8 %44, 6
-  %46 = getelementptr inbounds i8, ptr %1, i64 2
-  %47 = load i8, ptr %46, align 1
-  %48 = xor i8 %47, -128
-  %49 = or i8 %48, %45
-  br label %fun_so_to_utf_32be.exit
-
-50:                                               ; preds = %31
-  %51 = shl i8 %10, 2
-  %52 = and i8 %51, 28
-  %53 = getelementptr inbounds i8, ptr %1, i64 1
-  %54 = load i8, ptr %53, align 1
-  %55 = lshr i8 %54, 4
-  %56 = and i8 %55, 3
-  %57 = or disjoint i8 %56, %52
-  %58 = getelementptr inbounds i8, ptr %3, i64 5
-  store i8 %57, ptr %58, align 1
-  %59 = load i8, ptr %53, align 1
-  %60 = shl i8 %59, 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 2
-  %62 = load i8, ptr %61, align 1
-  %63 = lshr i8 %62, 2
-  %64 = and i8 %63, 15
-  %65 = or disjoint i8 %64, %60
-  %66 = getelementptr inbounds i8, ptr %3, i64 6
-  store i8 %65, ptr %66, align 1
-  %67 = load i8, ptr %61, align 1
-  %68 = shl i8 %67, 6
-  %69 = getelementptr inbounds i8, ptr %1, i64 3
-  %70 = load i8, ptr %69, align 1
-  %71 = and i8 %70, 63
-  %72 = or disjoint i8 %71, %68
-  br label %fun_so_to_utf_32be.exit
-
-73:                                               ; preds = %5
+  %9 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %3, align 1
-  %74 = load i8, ptr %1, align 1
-  %75 = zext i8 %74 to i32
-  %.not.i17 = icmp sgt i8 %74, -1
-  br i1 %.not.i17, label %76, label %80
+  %10 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %9, align 1
+  %11 = getelementptr inbounds i8, ptr %3, i64 3
+  store i8 -2, ptr %10, align 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 4
+  store i8 -1, ptr %11, align 1
+  store i8 1, ptr %0, align 1
+  store i8 0, ptr %12, align 1
+  %13 = load i8, ptr %1, align 1
+  %14 = zext i8 %13 to i32
+  %.not.i = icmp sgt i8 %13, -1
+  br i1 %.not.i, label %15, label %19
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %3, i64 2
-  store i8 0, ptr %77, align 1
-  %78 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 0, ptr %78, align 1
-  %79 = load i8, ptr %1, align 1
+15:                                               ; preds = %8
+  %16 = getelementptr inbounds i8, ptr %3, i64 6
+  store i8 0, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %3, i64 5
+  store i8 0, ptr %17, align 1
+  %18 = load i8, ptr %1, align 1
   br label %fun_so_to_utf_32be.exit
 
-80:                                               ; preds = %73
-  %81 = and i32 %75, 224
-  %82 = icmp eq i32 %81, 192
-  br i1 %82, label %83, label %95
+19:                                               ; preds = %8
+  %20 = and i32 %14, 224
+  %21 = icmp eq i32 %20, 192
+  br i1 %21, label %22, label %34
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 0, ptr %84, align 1
-  %85 = load i8, ptr %1, align 1
-  %86 = lshr i8 %85, 2
-  %87 = and i8 %86, 7
-  %88 = getelementptr inbounds i8, ptr %3, i64 2
-  store i8 %87, ptr %88, align 1
-  %89 = load i8, ptr %1, align 1
-  %90 = shl i8 %89, 6
-  %91 = getelementptr inbounds i8, ptr %1, i64 1
-  %92 = load i8, ptr %91, align 1
-  %93 = and i8 %92, 63
-  %94 = or disjoint i8 %93, %90
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %3, i64 5
+  store i8 0, ptr %23, align 1
+  %24 = load i8, ptr %1, align 1
+  %25 = lshr i8 %24, 2
+  %26 = and i8 %25, 7
+  %27 = getelementptr inbounds i8, ptr %3, i64 6
+  store i8 %26, ptr %27, align 1
+  %28 = load i8, ptr %1, align 1
+  %29 = shl i8 %28, 6
+  %30 = getelementptr inbounds i8, ptr %1, i64 1
+  %31 = load i8, ptr %30, align 1
+  %32 = and i8 %31, 63
+  %33 = or disjoint i8 %32, %29
   br label %fun_so_to_utf_32be.exit
 
-95:                                               ; preds = %80
-  %96 = and i32 %75, 240
-  %97 = icmp eq i32 %96, 224
-  br i1 %97, label %98, label %114
+34:                                               ; preds = %19
+  %35 = and i32 %14, 240
+  %36 = icmp eq i32 %35, 224
+  br i1 %36, label %37, label %53
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 0, ptr %99, align 1
-  %100 = load i8, ptr %1, align 1
-  %101 = shl i8 %100, 4
-  %102 = getelementptr inbounds i8, ptr %1, i64 1
-  %103 = load i8, ptr %102, align 1
-  %104 = lshr i8 %103, 2
-  %105 = xor i8 %104, 32
-  %106 = or i8 %105, %101
-  %107 = getelementptr inbounds i8, ptr %3, i64 2
-  store i8 %106, ptr %107, align 1
-  %108 = load i8, ptr %102, align 1
-  %109 = shl i8 %108, 6
-  %110 = getelementptr inbounds i8, ptr %1, i64 2
-  %111 = load i8, ptr %110, align 1
-  %112 = xor i8 %111, -128
-  %113 = or i8 %112, %109
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %3, i64 5
+  store i8 0, ptr %38, align 1
+  %39 = load i8, ptr %1, align 1
+  %40 = shl i8 %39, 4
+  %41 = getelementptr inbounds i8, ptr %1, i64 1
+  %42 = load i8, ptr %41, align 1
+  %43 = lshr i8 %42, 2
+  %44 = xor i8 %43, 32
+  %45 = or i8 %44, %40
+  %46 = getelementptr inbounds i8, ptr %3, i64 6
+  store i8 %45, ptr %46, align 1
+  %47 = load i8, ptr %41, align 1
+  %48 = shl i8 %47, 6
+  %49 = getelementptr inbounds i8, ptr %1, i64 2
+  %50 = load i8, ptr %49, align 1
+  %51 = xor i8 %50, -128
+  %52 = or i8 %51, %48
   br label %fun_so_to_utf_32be.exit
 
-114:                                              ; preds = %95
-  %115 = shl i8 %74, 2
-  %116 = and i8 %115, 28
-  %117 = getelementptr inbounds i8, ptr %1, i64 1
-  %118 = load i8, ptr %117, align 1
-  %119 = lshr i8 %118, 4
-  %120 = and i8 %119, 3
-  %121 = or disjoint i8 %120, %116
-  %122 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %121, ptr %122, align 1
-  %123 = load i8, ptr %117, align 1
-  %124 = shl i8 %123, 4
-  %125 = getelementptr inbounds i8, ptr %1, i64 2
-  %126 = load i8, ptr %125, align 1
-  %127 = lshr i8 %126, 2
-  %128 = and i8 %127, 15
-  %129 = or disjoint i8 %128, %124
-  %130 = getelementptr inbounds i8, ptr %3, i64 2
-  store i8 %129, ptr %130, align 1
-  %131 = load i8, ptr %125, align 1
-  %132 = shl i8 %131, 6
-  %133 = getelementptr inbounds i8, ptr %1, i64 3
-  %134 = load i8, ptr %133, align 1
-  %135 = and i8 %134, 63
-  %136 = or disjoint i8 %135, %132
+53:                                               ; preds = %34
+  %54 = shl i8 %13, 2
+  %55 = and i8 %54, 28
+  %56 = getelementptr inbounds i8, ptr %1, i64 1
+  %57 = load i8, ptr %56, align 1
+  %58 = lshr i8 %57, 4
+  %59 = and i8 %58, 3
+  %60 = or disjoint i8 %59, %55
+  %61 = getelementptr inbounds i8, ptr %3, i64 5
+  store i8 %60, ptr %61, align 1
+  %62 = load i8, ptr %56, align 1
+  %63 = shl i8 %62, 4
+  %64 = getelementptr inbounds i8, ptr %1, i64 2
+  %65 = load i8, ptr %64, align 1
+  %66 = lshr i8 %65, 2
+  %67 = and i8 %66, 15
+  %68 = or disjoint i8 %67, %63
+  %69 = getelementptr inbounds i8, ptr %3, i64 6
+  store i8 %68, ptr %69, align 1
+  %70 = load i8, ptr %64, align 1
+  %71 = shl i8 %70, 6
+  %72 = getelementptr inbounds i8, ptr %1, i64 3
+  %73 = load i8, ptr %72, align 1
+  %74 = and i8 %73, 63
+  %75 = or disjoint i8 %74, %71
   br label %fun_so_to_utf_32be.exit
 
-fun_so_to_utf_32be.exit:                          ; preds = %114, %98, %83, %76, %50, %34, %19, %12
-  %.sink20 = phi i64 [ 7, %12 ], [ 7, %19 ], [ 7, %34 ], [ 7, %50 ], [ 3, %76 ], [ 3, %83 ], [ 3, %98 ], [ 3, %114 ]
-  %.sink.i18.sink = phi i8 [ %15, %12 ], [ %30, %19 ], [ %49, %34 ], [ %72, %50 ], [ %79, %76 ], [ %94, %83 ], [ %113, %98 ], [ %136, %114 ]
-  %.0 = phi i64 [ 8, %12 ], [ 8, %19 ], [ 8, %34 ], [ 8, %50 ], [ 4, %76 ], [ 4, %83 ], [ 4, %98 ], [ 4, %114 ]
-  %137 = getelementptr inbounds i8, ptr %3, i64 %.sink20
-  store i8 %.sink.i18.sink, ptr %137, align 1
+76:                                               ; preds = %5
+  store i8 0, ptr %3, align 1
+  %77 = load i8, ptr %1, align 1
+  %78 = zext i8 %77 to i32
+  %.not.i17 = icmp sgt i8 %77, -1
+  br i1 %.not.i17, label %79, label %83
+
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 0, ptr %80, align 1
+  %81 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %81, align 1
+  %82 = load i8, ptr %1, align 1
+  br label %fun_so_to_utf_32be.exit
+
+83:                                               ; preds = %76
+  %84 = and i32 %78, 224
+  %85 = icmp eq i32 %84, 192
+  br i1 %85, label %86, label %98
+
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %87, align 1
+  %88 = load i8, ptr %1, align 1
+  %89 = lshr i8 %88, 2
+  %90 = and i8 %89, 7
+  %91 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 %90, ptr %91, align 1
+  %92 = load i8, ptr %1, align 1
+  %93 = shl i8 %92, 6
+  %94 = getelementptr inbounds i8, ptr %1, i64 1
+  %95 = load i8, ptr %94, align 1
+  %96 = and i8 %95, 63
+  %97 = or disjoint i8 %96, %93
+  br label %fun_so_to_utf_32be.exit
+
+98:                                               ; preds = %83
+  %99 = and i32 %78, 240
+  %100 = icmp eq i32 %99, 224
+  br i1 %100, label %101, label %117
+
+101:                                              ; preds = %98
+  %102 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 0, ptr %102, align 1
+  %103 = load i8, ptr %1, align 1
+  %104 = shl i8 %103, 4
+  %105 = getelementptr inbounds i8, ptr %1, i64 1
+  %106 = load i8, ptr %105, align 1
+  %107 = lshr i8 %106, 2
+  %108 = xor i8 %107, 32
+  %109 = or i8 %108, %104
+  %110 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 %109, ptr %110, align 1
+  %111 = load i8, ptr %105, align 1
+  %112 = shl i8 %111, 6
+  %113 = getelementptr inbounds i8, ptr %1, i64 2
+  %114 = load i8, ptr %113, align 1
+  %115 = xor i8 %114, -128
+  %116 = or i8 %115, %112
+  br label %fun_so_to_utf_32be.exit
+
+117:                                              ; preds = %98
+  %118 = shl i8 %77, 2
+  %119 = and i8 %118, 28
+  %120 = getelementptr inbounds i8, ptr %1, i64 1
+  %121 = load i8, ptr %120, align 1
+  %122 = lshr i8 %121, 4
+  %123 = and i8 %122, 3
+  %124 = or disjoint i8 %123, %119
+  %125 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 %124, ptr %125, align 1
+  %126 = load i8, ptr %120, align 1
+  %127 = shl i8 %126, 4
+  %128 = getelementptr inbounds i8, ptr %1, i64 2
+  %129 = load i8, ptr %128, align 1
+  %130 = lshr i8 %129, 2
+  %131 = and i8 %130, 15
+  %132 = or disjoint i8 %131, %127
+  %133 = getelementptr inbounds i8, ptr %3, i64 2
+  store i8 %132, ptr %133, align 1
+  %134 = load i8, ptr %128, align 1
+  %135 = shl i8 %134, 6
+  %136 = getelementptr inbounds i8, ptr %1, i64 3
+  %137 = load i8, ptr %136, align 1
+  %138 = and i8 %137, 63
+  %139 = or disjoint i8 %138, %135
+  br label %fun_so_to_utf_32be.exit
+
+fun_so_to_utf_32be.exit:                          ; preds = %117, %101, %86, %79, %53, %37, %22, %15
+  %.sink20 = phi i64 [ 7, %15 ], [ 7, %22 ], [ 7, %37 ], [ 7, %53 ], [ 3, %79 ], [ 3, %86 ], [ 3, %101 ], [ 3, %117 ]
+  %.sink.i18.sink = phi i8 [ %18, %15 ], [ %33, %22 ], [ %52, %37 ], [ %75, %53 ], [ %82, %79 ], [ %97, %86 ], [ %116, %101 ], [ %139, %117 ]
+  %.0 = phi i64 [ 8, %15 ], [ 8, %22 ], [ 8, %37 ], [ 8, %53 ], [ 4, %79 ], [ 4, %86 ], [ 4, %101 ], [ 4, %117 ]
+  %140 = getelementptr inbounds i8, ptr %3, i64 %.sink20
+  store i8 %.sink.i18.sink, ptr %140, align 1
   ret i64 %.0
 }
 

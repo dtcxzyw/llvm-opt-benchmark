@@ -179,37 +179,47 @@ define void @Map_MappingEstimateRefs(ptr nocapture noundef readonly %0) local_un
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %7 = phi ptr [ %29, %.lr.ph ], [ %3, %1 ]
+  %7 = phi ptr [ %38, %.lr.ph ], [ %3, %1 ]
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 44
-  %12 = getelementptr inbounds i8, ptr %10, i64 32
-  %13 = load <2 x float>, ptr %11, align 4
-  %14 = fpext <2 x float> %13 to <2 x double>
-  %15 = load <2 x i32>, ptr %12, align 8
-  %16 = sitofp <2 x i32> %15 to <2 x double>
-  %17 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> <double 3.000000e+00, double 3.000000e+00>, <2 x double> %16)
-  %18 = fmul <2 x double> %17, <double 2.500000e-01, double 2.500000e-01>
-  %19 = fptrunc <2 x double> %18 to <2 x float>
-  store <2 x float> %19, ptr %11, align 4
-  %20 = getelementptr inbounds i8, ptr %10, i64 52
+  %12 = load float, ptr %11, align 4
+  %13 = fpext float %12 to double
+  %14 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = load i32, ptr %14, align 8
+  %16 = sitofp i32 %15 to double
+  %17 = tail call double @llvm.fmuladd.f64(double %13, double 3.000000e+00, double %16)
+  %18 = fmul double %17, 2.500000e-01
+  %19 = fptrunc double %18 to float
+  store float %19, ptr %11, align 4
+  %20 = getelementptr inbounds i8, ptr %10, i64 48
   %21 = load float, ptr %20, align 4
   %22 = fpext float %21 to double
-  %23 = getelementptr inbounds i8, ptr %10, i64 40
-  %24 = load i32, ptr %23, align 8
+  %23 = getelementptr inbounds i8, ptr %10, i64 36
+  %24 = load i32, ptr %23, align 4
   %25 = sitofp i32 %24 to double
   %26 = tail call double @llvm.fmuladd.f64(double %22, double 3.000000e+00, double %25)
   %27 = fmul double %26, 2.500000e-01
   %28 = fptrunc double %27 to float
   store float %28, ptr %20, align 4
+  %29 = getelementptr inbounds i8, ptr %10, i64 52
+  %30 = load float, ptr %29, align 4
+  %31 = fpext float %30 to double
+  %32 = getelementptr inbounds i8, ptr %10, i64 40
+  %33 = load i32, ptr %32, align 8
+  %34 = sitofp i32 %33 to double
+  %35 = tail call double @llvm.fmuladd.f64(double %31, double 3.000000e+00, double %34)
+  %36 = fmul double %35, 2.500000e-01
+  %37 = fptrunc double %36 to float
+  store float %37, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load i32, ptr %30, align 8
-  %32 = sext i32 %31 to i64
-  %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = load i32, ptr %39, align 8
+  %41 = sext i32 %40 to i64
+  %42 = icmp slt i64 %indvars.iv.next, %41
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -313,7 +323,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call float @Map_CutGetRootArea(ptr noundef nonnull %0, i32 noundef %1) #8
+  %9 = tail call float @Map_CutGetRootArea(ptr noundef nonnull %0, i32 noundef %1) #7
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %18, label %10
 
@@ -328,7 +338,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br i1 %.not59, label %.thread, label %17
 
 17:                                               ; preds = %10
-  tail call void @Mio_GateIncProfile2(ptr noundef %16) #8
+  tail call void @Mio_GateIncProfile2(ptr noundef %16) #7
   br label %18
 
 18:                                               ; preds = %17, %8
@@ -337,7 +347,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .thread:                                          ; preds = %10
-  tail call void @Mio_GateDecProfile2(ptr noundef %16) #8
+  tail call void @Mio_GateDecProfile2(ptr noundef %16) #7
   %21 = load i8, ptr %5, align 4
   %22 = icmp sgt i8 %21, 0
   br i1 %22, label %.lr.ph.split.us.preheader, label %.loopexit
@@ -357,7 +367,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %25 = getelementptr inbounds [6 x ptr], ptr %24, i64 0, i64 %indvars.iv70
   %26 = load ptr, ptr %25, align 8
   %27 = trunc nuw nsw i64 %indvars.iv70 to i32
-  %28 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %27) #8
+  %28 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %27) #7
   %29 = getelementptr inbounds i8, ptr %26, i64 144
   %30 = load ptr, ptr %29, align 8
   %.not61.us = icmp eq ptr %30, null
@@ -454,7 +464,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %83 = getelementptr inbounds [6 x ptr], ptr %23, i64 0, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8
   %85 = trunc nuw nsw i64 %indvars.iv to i32
-  %86 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %85) #8
+  %86 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %85) #7
   %87 = getelementptr inbounds i8, ptr %84, i64 144
   %88 = load ptr, ptr %87, align 8
   %.not63 = icmp eq ptr %88, null
@@ -611,12 +621,12 @@ define void @Map_MappingSetRefs_rec(ptr nocapture noundef readonly %0, ptr nound
   %19 = phi i32 [ %32, %tailrecurse ], [ %7, %2 ]
   %20 = phi ptr [ %30, %tailrecurse ], [ %5, %2 ]
   %21 = phi i64 [ %28, %tailrecurse ], [ %3, %2 ]
-  %22 = tail call i32 @Map_NodeIsVar(ptr noundef nonnull %20) #8
+  %22 = tail call i32 @Map_NodeIsVar(ptr noundef nonnull %20) #7
   %.not32 = icmp eq i32 %22, 0
   br i1 %.not32, label %23, label %.loopexit
 
 23:                                               ; preds = %.lr.ph
-  %24 = tail call i32 @Map_NodeIsBuf(ptr noundef nonnull %20) #8
+  %24 = tail call i32 @Map_NodeIsBuf(ptr noundef nonnull %20) #7
   %.not33 = icmp eq i32 %24, 0
   br i1 %.not33, label %42, label %tailrecurse
 
@@ -675,7 +685,7 @@ tailrecurse:                                      ; preds = %23
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 64
   %60 = load ptr, ptr %59, align 8
-  tail call void @Mio_GateIncProfile2(ptr noundef %60) #8
+  tail call void @Mio_GateIncProfile2(ptr noundef %60) #7
   br label %61
 
 61:                                               ; preds = %._crit_edge, %54
@@ -730,7 +740,7 @@ define void @Map_MappingSetRefs(ptr nocapture noundef readonly %0) local_unnamed
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @Mio_LibraryCleanProfile2(ptr noundef %8) #8
+  tail call void @Mio_LibraryCleanProfile2(ptr noundef %8) #7
   br label %9
 
 9:                                                ; preds = %4, %1
@@ -776,7 +786,7 @@ define void @Map_MappingSetRefs(ptr nocapture noundef readonly %0) local_unnamed
   %32 = load ptr, ptr %18, align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv22
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @Map_NodeIsConst(ptr noundef %34) #8
+  %35 = tail call i32 @Map_NodeIsConst(ptr noundef %34) #7
   %.not17 = icmp eq i32 %35, 0
   br i1 %.not17, label %36, label %37
 
@@ -811,7 +821,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @Mio_LibraryCleanProfile2(ptr noundef %8) #8
+  tail call void @Mio_LibraryCleanProfile2(ptr noundef %8) #7
   br label %9
 
 9:                                                ; preds = %4, %1
@@ -852,12 +862,12 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   br i1 %29, label %94, label %30
 
 30:                                               ; preds = %21
-  %31 = tail call i32 @Map_NodeIsBuf(ptr noundef nonnull %25) #8
+  %31 = tail call i32 @Map_NodeIsBuf(ptr noundef nonnull %25) #7
   %.not43 = icmp eq i32 %31, 0
   br i1 %.not43, label %32, label %94
 
 32:                                               ; preds = %30
-  %33 = tail call i32 @Map_NodeIsAnd(ptr noundef nonnull %25) #8
+  %33 = tail call i32 @Map_NodeIsAnd(ptr noundef nonnull %25) #7
   %.not44 = icmp eq i32 %33, 0
   br i1 %.not44, label %74, label %34
 
@@ -891,7 +901,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
 51:                                               ; preds = %44
   %52 = getelementptr inbounds i8, ptr %46, i64 64
   %53 = load ptr, ptr %52, align 8
-  tail call void @Mio_GateIncProfile2(ptr noundef %53) #8
+  tail call void @Mio_GateIncProfile2(ptr noundef %53) #7
   br label %54
 
 54:                                               ; preds = %44, %51, %40, %34
@@ -925,7 +935,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
 71:                                               ; preds = %64
   %72 = getelementptr inbounds i8, ptr %66, i64 64
   %73 = load ptr, ptr %72, align 8
-  tail call void @Mio_GateIncProfile2(ptr noundef %73) #8
+  tail call void @Mio_GateIncProfile2(ptr noundef %73) #7
   br label %74
 
 74:                                               ; preds = %54, %61, %71, %64, %32
@@ -975,7 +985,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   %101 = load ptr, ptr %19, align 8
   %102 = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv56
   %103 = load ptr, ptr %102, align 8
-  %104 = tail call i32 @Map_NodeIsVar(ptr noundef %103) #8
+  %104 = tail call i32 @Map_NodeIsVar(ptr noundef %103) #7
   %.not41 = icmp eq i32 %104, 0
   br i1 %.not41, label %116, label %105
 
@@ -1010,9 +1020,6 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
 
 declare i32 @Map_NodeIsAnd(ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #7
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1020,8 +1027,7 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

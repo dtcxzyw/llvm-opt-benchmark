@@ -7716,9 +7716,12 @@ if.end.i:                                         ; preds = %if.end
   %inc.i = add nsw i32 %3, 1
   store i32 %inc.i, ptr %group_depth_.i, align 4
   %call.i9 = tail call noundef ptr @_ZN6google8protobuf8internal16WireFormatParserINS1_28UnknownFieldLiteParserHelperEEEPKcRT_S5_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %ptr, ptr noundef nonnull %ctx)
-  %4 = load <2 x i32>, ptr %depth_.i, align 8
-  %5 = add nsw <2 x i32> %4, <i32 1, i32 -1>
-  store <2 x i32> %5, ptr %depth_.i, align 8
+  %4 = load i32, ptr %group_depth_.i, align 4
+  %dec14.i = add nsw i32 %4, -1
+  store i32 %dec14.i, ptr %group_depth_.i, align 4
+  %5 = load i32, ptr %depth_.i, align 8
+  %inc16.i = add nsw i32 %5, 1
+  store i32 %inc16.i, ptr %depth_.i, align 8
   %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %6 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i10 = icmp ne i32 %6, %add4

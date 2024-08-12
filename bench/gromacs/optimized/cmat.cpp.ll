@@ -55,35 +55,37 @@ define noundef ptr @_Z8init_matib(i32 noundef %0, i1 noundef zeroext %1) local_u
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i8 %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 20
-  store <2 x float> <float 0x4415AF1D80000000, float 0.000000e+00>, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
-  store float 0.000000e+00, ptr %8, align 4
-  %9 = tail call noundef ptr @_Z9mk_matrixiib(i32 noundef %0, i32 noundef %0, i1 noundef zeroext %1)
-  %10 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 32
-  %12 = sext i32 %0 to i64
-  %13 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 59, i64 noundef %12, i64 noundef 4)
-  store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
-  %15 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 60, i64 noundef %12, i64 noundef 4)
-  store ptr %15, ptr %14, align 8
-  %16 = load i32, ptr %4, align 8
-  %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph.i, label %_Z11reset_indexP5t_mat.exit
+  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  store float 0.000000e+00, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 20
+  store float 0x4415AF1D80000000, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  store float 0.000000e+00, ptr %9, align 4
+  %10 = tail call noundef ptr @_Z9mk_matrixiib(i32 noundef %0, i32 noundef %0, i1 noundef zeroext %1)
+  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr %10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = sext i32 %0 to i64
+  %14 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 59, i64 noundef %13, i64 noundef 4)
+  store ptr %14, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 60, i64 noundef %13, i64 noundef 4)
+  store ptr %16, ptr %15, align 8
+  %17 = load i32, ptr %4, align 8
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %.lr.ph.i, label %_Z11reset_indexP5t_mat.exit
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %2 ]
-  %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv.i
-  %20 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %20, ptr %19, align 4
+  %19 = load ptr, ptr %15, align 8
+  %20 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.i
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %21, ptr %20, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %21 = load i32, ptr %4, align 8
-  %22 = sext i32 %21 to i64
-  %23 = icmp slt i64 %indvars.iv.next.i, %22
-  br i1 %23, label %.lr.ph.i, label %_Z11reset_indexP5t_mat.exit, !llvm.loop !5
+  %22 = load i32, ptr %4, align 8
+  %23 = sext i32 %22 to i64
+  %24 = icmp slt i64 %indvars.iv.next.i, %23
+  br i1 %24, label %.lr.ph.i, label %_Z11reset_indexP5t_mat.exit, !llvm.loop !5
 
 _Z11reset_indexP5t_mat.exit:                      ; preds = %.lr.ph.i, %2
   ret ptr %4

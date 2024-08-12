@@ -13700,15 +13700,19 @@ define void @"_ZN114_$LT$wasmtime_runtime..instance..allocator..pooling..Pooling
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @"_ZN108_$LT$wasmtime_runtime..traphandlers..call_thread_state..CallThreadState$u20$as$u20$core..ops..drop..Drop$GT$4drop17h71e69f0ccc54007cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(200) %0) unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
-  %4 = load ptr, ptr %3, align 8, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
-  %6 = load <2 x i64>, ptr %2, align 8
-  store <2 x i64> %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
+  %3 = load i64, ptr %2, align 8, !noundef !4
+  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = load ptr, ptr %4, align 8, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 %3, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 176
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds i8, ptr %5, i64 32
   store i64 %8, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 184
+  %11 = load i64, ptr %10, align 8, !noundef !4
+  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  store i64 %11, ptr %12, align 8
   ret void
 }
 

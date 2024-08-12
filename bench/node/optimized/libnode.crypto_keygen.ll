@@ -810,23 +810,24 @@ declare void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i16 @_ZN4node6crypto18SecretKeyGenTraits9EncodeKeyEPNS_11EnvironmentEPNS0_18SecretKeyGenConfigEPN2v85LocalINS6_5ValueEEE(ptr noundef %env, ptr noundef %params, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
-  %data = alloca %"class.std::shared_ptr.20", align 16
+  %data = alloca %"class.std::shared_ptr.20", align 8
   %agg.tmp = alloca %"class.node::crypto::ByteSource", align 8
-  %agg.tmp2 = alloca %"class.std::shared_ptr.20", align 16
+  %agg.tmp2 = alloca %"class.std::shared_ptr.20", align 8
   %out = getelementptr inbounds i8, ptr %params, i64 16
   call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %out) #16
   call void @_ZN4node6crypto13KeyObjectData12CreateSecretENS0_10ByteSourceE(ptr nonnull sret(%"class.std::shared_ptr.20") align 8 %data, ptr noundef nonnull %agg.tmp) #16
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #16
+  %0 = load ptr, ptr %data, align 8
+  store ptr %0, ptr %agg.tmp2, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %data, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %1 = load <2 x ptr>, ptr %data, align 16
-  store <2 x ptr> %1, ptr %agg.tmp2, align 16
-  %cmp.not.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

@@ -879,9 +879,9 @@ if.end:
   %ref.tmp36 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp51 = alloca %"struct.net::QuicFrame", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %buffer = alloca %"class.std::unique_ptr.40", align 16
+  %buffer = alloca %"class.std::unique_ptr.40", align 8
   %ref.tmp70 = alloca %"struct.net::QuicFrame", align 8
-  %agg.tmp74 = alloca %"class.std::unique_ptr.40", align 16
+  %agg.tmp74 = alloca %"class.std::unique_ptr.40", align 8
   %0 = load i8, ptr @FLAGS_quic_simple_packet_number_length_2, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end5, label %if.then4
@@ -1251,9 +1251,11 @@ invoke.cont69:                                    ; preds = %_ZN3net17QuicPacket
 
 invoke.cont71:                                    ; preds = %invoke.cont69
   %conv = trunc i64 %.sroa.speculated to i16
-  %75 = getelementptr inbounds i8, ptr %agg.tmp74, i64 8
-  %76 = load <2 x i64>, ptr %buffer, align 16
-  store <2 x i64> %76, ptr %agg.tmp74, align 16
+  %75 = load i64, ptr %buffer, align 8
+  store i64 %75, ptr %agg.tmp74, align 8
+  %76 = getelementptr inbounds i8, ptr %agg.tmp74, i64 8
+  %77 = load i64, ptr %add.ptr.i.i.i.i.i70, align 8
+  store i64 %77, ptr %76, align 8
   store ptr null, ptr %add.ptr.i.i.i.i.i70, align 8
   invoke void @_ZN3net15QuicStreamFrameC1EjbmtSt10unique_ptrIA_cNS_19StreamBufferDeleterEE(ptr noundef nonnull align 8 dereferenceable(40) %call72, i32 noundef %id, i1 noundef zeroext %72, i64 noundef %offset, i16 noundef zeroext %conv, ptr noundef nonnull %agg.tmp74)
           to label %invoke.cont76 unwind label %cleanup.action79
@@ -1264,61 +1266,61 @@ invoke.cont76:                                    ; preds = %invoke.cont71
 
 invoke.cont77:                                    ; preds = %invoke.cont76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frame, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp70, i64 16, i1 false)
-  %77 = load ptr, ptr %75, align 8
-  %cmp.not.i = icmp eq ptr %77, null
+  %78 = load ptr, ptr %76, align 8
+  %cmp.not.i = icmp eq ptr %78, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont77
-  invoke void @_ZNK3net19StreamBufferDeleterclEPc(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp74, ptr noundef nonnull %77)
+  invoke void @_ZNK3net19StreamBufferDeleterclEPc(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp74, ptr noundef nonnull %78)
           to label %_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %78 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #20
+  %80 = extractvalue { ptr, i32 } %79, 0
+  call void @__clang_call_terminate(ptr %80) #20
   unreachable
 
 _ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit: ; preds = %invoke.cont77, %if.then.i
-  store ptr null, ptr %75, align 8
-  %80 = load ptr, ptr %add.ptr.i.i.i.i.i70, align 8
-  %cmp.not.i75 = icmp eq ptr %80, null
+  store ptr null, ptr %76, align 8
+  %81 = load ptr, ptr %add.ptr.i.i.i.i.i70, align 8
+  %cmp.not.i75 = icmp eq ptr %81, null
   br i1 %cmp.not.i75, label %return, label %if.then.i76
 
 if.then.i76:                                      ; preds = %_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit
-  invoke void @_ZNK3net19StreamBufferDeleterclEPc(ptr noundef nonnull align 8 dereferenceable(8) %buffer, ptr noundef nonnull %80)
+  invoke void @_ZNK3net19StreamBufferDeleterclEPc(ptr noundef nonnull align 8 dereferenceable(8) %buffer, ptr noundef nonnull %81)
           to label %return unwind label %terminate.lpad.i77
 
 terminate.lpad.i77:                               ; preds = %if.then.i76
-  %81 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           catch ptr null
-  %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #20
+  %83 = extractvalue { ptr, i32 } %82, 0
+  call void @__clang_call_terminate(ptr %83) #20
   unreachable
 
 return:                                           ; preds = %if.then.i76, %_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit, %invoke.cont55
   ret void
 
 lpad68:                                           ; preds = %invoke.cont69, %_ZN3net17QuicPacketCreator9BytesFreeEv.exit68
-  %83 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad75:                                           ; preds = %invoke.cont76
-  %84 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp74) #18
   br label %ehcleanup
 
 cleanup.action79:                                 ; preds = %invoke.cont71
-  %85 = landingpad { ptr, i32 }
+  %86 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp74) #18
   call void @_ZdlPv(ptr noundef nonnull %call72) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad75, %cleanup.action79, %lpad68
-  %.pn = phi { ptr, i32 } [ %85, %cleanup.action79 ], [ %84, %lpad75 ], [ %83, %lpad68 ]
+  %.pn = phi { ptr, i32 } [ %86, %cleanup.action79 ], [ %85, %lpad75 ], [ %84, %lpad68 ]
   call void @_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %buffer) #18
   br label %eh.resume
 
@@ -2808,13 +2810,19 @@ if.end:                                           ; preds = %entry
   %8 = load ptr, ptr %vfn21, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %packet_)
   %has_ack.i = getelementptr inbounds i8, ptr %this, i64 219
+  store i8 0, ptr %has_ack.i, align 1
+  %has_stop_waiting.i = getelementptr inbounds i8, ptr %this, i64 220
+  store i8 0, ptr %has_stop_waiting.i, align 4
   %has_crypto_handshake.i = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %has_crypto_handshake.i, align 8
   %num_padding_bytes.i = getelementptr inbounds i8, ptr %this, i64 202
   store i16 0, ptr %num_padding_bytes.i, align 2
+  %original_path_id.i = getelementptr inbounds i8, ptr %this, i64 222
+  store i8 -1, ptr %original_path_id.i, align 2
   %original_packet_number.i = getelementptr inbounds i8, ptr %this, i64 224
   store i64 0, ptr %original_packet_number.i, align 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 -1>, ptr %has_ack.i, align 1
+  %transmission_type.i = getelementptr inbounds i8, ptr %this, i64 221
+  store i8 0, ptr %transmission_type.i, align 1
   store ptr null, ptr %packet_, align 8
   %encrypted_length.i = getelementptr inbounds i8, ptr %this, i64 168
   store i16 0, ptr %encrypted_length.i, align 8
@@ -2884,13 +2892,19 @@ define dso_local void @_ZN3net17QuicPacketCreator11ClearPacketEv(ptr noundef non
 entry:
   %packet_ = getelementptr inbounds i8, ptr %this, i64 160
   %has_ack = getelementptr inbounds i8, ptr %this, i64 219
+  store i8 0, ptr %has_ack, align 1
+  %has_stop_waiting = getelementptr inbounds i8, ptr %this, i64 220
+  store i8 0, ptr %has_stop_waiting, align 4
   %has_crypto_handshake = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %has_crypto_handshake, align 8
   %num_padding_bytes = getelementptr inbounds i8, ptr %this, i64 202
   store i16 0, ptr %num_padding_bytes, align 2
+  %original_path_id = getelementptr inbounds i8, ptr %this, i64 222
+  store i8 -1, ptr %original_path_id, align 2
   %original_packet_number = getelementptr inbounds i8, ptr %this, i64 224
   store i64 0, ptr %original_packet_number, align 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 -1>, ptr %has_ack, align 1
+  %transmission_type = getelementptr inbounds i8, ptr %this, i64 221
+  store i8 0, ptr %transmission_type, align 1
   store ptr null, ptr %packet_, align 8
   %encrypted_length = getelementptr inbounds i8, ptr %this, i64 168
   store i16 0, ptr %encrypted_length, align 8
@@ -2925,9 +2939,9 @@ entry:
   %writer = alloca %"class.net::QuicDataWriter", align 8
   %ref.tmp8 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp26 = alloca %"class.logging::LogMessage", align 8
-  %stream_buffer = alloca %"class.std::unique_ptr.40", align 16
+  %stream_buffer = alloca %"class.std::unique_ptr.40", align 8
   %frame = alloca %"class.std::unique_ptr.48", align 8
-  %agg.tmp61 = alloca %"class.std::unique_ptr.40", align 16
+  %agg.tmp61 = alloca %"class.std::unique_ptr.40", align 8
   %ref.tmp68 = alloca %"struct.net::QuicFrame", align 8
   %ref.tmp81 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp109 = alloca %"class.logging::LogMessage", align 8
@@ -3120,38 +3134,40 @@ invoke.cont57:                                    ; preds = %invoke.cont54
 
 invoke.cont58:                                    ; preds = %invoke.cont57
   %conv = trunc i64 %.sroa.speculated to i16
-  %28 = getelementptr inbounds i8, ptr %agg.tmp61, i64 8
-  %29 = load <2 x i64>, ptr %stream_buffer, align 16
-  store <2 x i64> %29, ptr %agg.tmp61, align 16
+  %28 = load i64, ptr %stream_buffer, align 8
+  store i64 %28, ptr %agg.tmp61, align 8
+  %29 = getelementptr inbounds i8, ptr %agg.tmp61, i64 8
+  %30 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  store i64 %30, ptr %29, align 8
   store ptr null, ptr %add.ptr.i.i.i.i.i, align 8
   invoke void @_ZN3net15QuicStreamFrameC1EjbmtSt10unique_ptrIA_cNS_19StreamBufferDeleterEE(ptr noundef nonnull align 8 dereferenceable(40) %call59, i32 noundef %id, i1 noundef zeroext %25, i64 noundef %stream_offset, i16 noundef zeroext %conv, ptr noundef nonnull %agg.tmp61)
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %invoke.cont58
   store ptr %call59, ptr %frame, align 8
-  %30 = load ptr, ptr %28, align 8
-  %cmp.not.i = icmp eq ptr %30, null
+  %31 = load ptr, ptr %29, align 8
+  %cmp.not.i = icmp eq ptr %31, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont63
-  invoke void @_ZNK3net19StreamBufferDeleterclEPc(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp61, ptr noundef nonnull %30)
+  invoke void @_ZNK3net19StreamBufferDeleterclEPc(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp61, ptr noundef nonnull %31)
           to label %_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #20
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #20
   unreachable
 
 _ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit: ; preds = %invoke.cont63, %if.then.i
-  store ptr null, ptr %28, align 8
-  %33 = load ptr, ptr %framer_, align 8
+  store ptr null, ptr %29, align 8
+  %34 = load ptr, ptr %framer_, align 8
   invoke void @_ZN3net9QuicFrameC1EPNS_15QuicStreamFrameE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp68, ptr noundef nonnull %call59)
           to label %invoke.cont71 unwind label %lpad70
 
 invoke.cont71:                                    ; preds = %_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit
-  %call73 = invoke noundef zeroext i1 @_ZN3net10QuicFramer14AppendTypeByteERKNS_9QuicFrameEbPNS_14QuicDataWriterE(ptr noundef nonnull align 8 dereferenceable(408) %33, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp68, i1 noundef zeroext true, ptr noundef nonnull %writer)
+  %call73 = invoke noundef zeroext i1 @_ZN3net10QuicFramer14AppendTypeByteERKNS_9QuicFrameEbPNS_14QuicDataWriterE(ptr noundef nonnull align 8 dereferenceable(408) %34, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp68, i1 noundef zeroext true, ptr noundef nonnull %writer)
           to label %invoke.cont72 unwind label %lpad70
 
 invoke.cont72:                                    ; preds = %invoke.cont71
@@ -3174,37 +3190,37 @@ invoke.cont82:                                    ; preds = %cond.false78
           to label %_ZNKSt14default_deleteIN3net15QuicStreamFrameEEclEPS1_.exit.i.sink.split unwind label %lpad84
 
 lpad29:                                           ; preds = %invoke.cont27
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp26) #18
   br label %ehcleanup191
 
 lpad56:                                           ; preds = %invoke.cont57, %invoke.cont54
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup189
 
 lpad62:                                           ; preds = %invoke.cont58
-  %36 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp61) #18
   call void @_ZdlPv(ptr noundef nonnull %call59) #19
   br label %ehcleanup189
 
 lpad70:                                           ; preds = %cond.true.i.i.i.i, %if.then.i.i.i.i, %if.then177, %invoke.cont186, %if.end181, %if.end166, %cond.false144, %if.then140, %invoke.cont132, %if.end125, %cond.false106, %if.then102, %if.end97, %cond.false78, %if.then74, %invoke.cont71, %_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad84:                                           ; preds = %invoke.cont82
-  %38 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp81) #18
   br label %ehcleanup
 
 if.end97:                                         ; preds = %invoke.cont72
-  %39 = load ptr, ptr %framer_, align 8
-  %call101 = invoke noundef zeroext i1 @_ZN3net10QuicFramer17AppendStreamFrameERKNS_15QuicStreamFrameEbPNS_14QuicDataWriterE(ptr noundef nonnull align 8 dereferenceable(408) %39, ptr noundef nonnull align 8 dereferenceable(40) %call59, i1 noundef zeroext true, ptr noundef nonnull %writer)
+  %40 = load ptr, ptr %framer_, align 8
+  %call101 = invoke noundef zeroext i1 @_ZN3net10QuicFramer17AppendStreamFrameERKNS_15QuicStreamFrameEbPNS_14QuicDataWriterE(ptr noundef nonnull align 8 dereferenceable(408) %40, ptr noundef nonnull align 8 dereferenceable(40) %call59, i1 noundef zeroext true, ptr noundef nonnull %writer)
           to label %invoke.cont100 unwind label %lpad70
 
 invoke.cont100:                                   ; preds = %if.end97
@@ -3227,25 +3243,25 @@ invoke.cont110:                                   ; preds = %cond.false106
           to label %_ZNKSt14default_deleteIN3net15QuicStreamFrameEEclEPS1_.exit.i.sink.split unwind label %lpad112
 
 lpad112:                                          ; preds = %invoke.cont110
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp109) #18
   br label %ehcleanup
 
 if.end125:                                        ; preds = %invoke.cont100
-  %41 = load ptr, ptr %framer_, align 8
+  %42 = load ptr, ptr %framer_, align 8
   %packet_ = getelementptr inbounds i8, ptr %this, i64 160
-  %42 = load i8, ptr %encryption_level.i.i, align 1
-  %43 = load i8, ptr %path_id.i, align 4
-  %44 = load i64, ptr %packet_number.i, align 8
-  %quic_version_.i = getelementptr inbounds i8, ptr %41, i64 268
-  %45 = load i32, ptr %quic_version_.i, align 4
-  %call133 = invoke noundef i64 @_ZN3net23GetStartOfEncryptedDataENS_11QuicVersionERKNS_16QuicPacketHeaderE(i32 noundef %45, ptr noundef nonnull align 8 dereferenceable(60) %header)
+  %43 = load i8, ptr %encryption_level.i.i, align 1
+  %44 = load i8, ptr %path_id.i, align 4
+  %45 = load i64, ptr %packet_number.i, align 8
+  %quic_version_.i = getelementptr inbounds i8, ptr %42, i64 268
+  %46 = load i32, ptr %quic_version_.i, align 4
+  %call133 = invoke noundef i64 @_ZN3net23GetStartOfEncryptedDataENS_11QuicVersionERKNS_16QuicPacketHeaderE(i32 noundef %46, ptr noundef nonnull align 8 dereferenceable(60) %header)
           to label %invoke.cont132 unwind label %lpad70
 
 invoke.cont132:                                   ; preds = %if.end125
-  %46 = load i64, ptr %length_.i, align 8
-  %call138 = invoke noundef i64 @_ZN3net10QuicFramer14EncryptInPlaceENS_15EncryptionLevelEhmmmmPc(ptr noundef nonnull align 8 dereferenceable(408) %41, i8 noundef signext %42, i8 noundef zeroext %43, i64 noundef %44, i64 noundef %call133, i64 noundef %46, i64 noundef 1452, ptr noundef nonnull %encrypted_buffer)
+  %47 = load i64, ptr %length_.i, align 8
+  %call138 = invoke noundef i64 @_ZN3net10QuicFramer14EncryptInPlaceENS_15EncryptionLevelEhmmmmPc(ptr noundef nonnull align 8 dereferenceable(408) %42, i8 noundef signext %43, i8 noundef zeroext %44, i64 noundef %45, i64 noundef %call133, i64 noundef %47, i64 noundef 1452, ptr noundef nonnull %encrypted_buffer)
           to label %invoke.cont137 unwind label %lpad70
 
 invoke.cont137:                                   ; preds = %invoke.cont132
@@ -3269,12 +3285,12 @@ invoke.cont148:                                   ; preds = %cond.false144
           to label %invoke.cont153 unwind label %lpad150
 
 invoke.cont153:                                   ; preds = %invoke.cont148
-  %47 = load i64, ptr %packet_number19.i, align 8
-  %call157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call154, i64 noundef %47)
+  %48 = load i64, ptr %packet_number19.i, align 8
+  %call157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call154, i64 noundef %48)
           to label %_ZNKSt14default_deleteIN3net15QuicStreamFrameEEclEPS1_.exit.i.sink.split unwind label %lpad150
 
 lpad150:                                          ; preds = %invoke.cont153, %invoke.cont148
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp147) #18
   br label %ehcleanup
@@ -3307,7 +3323,7 @@ call5.i.i.i.i.i.i.noexc:                          ; preds = %if.then177
           to label %_ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE12emplace_backIJRPNS1_24QuicAckListenerInterfaceERKmEEERS2_DpOT_.exit unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net18AckListenerWrapperEEEED2Ev.exit9.i.i.i
 
 _ZNSt15__allocated_ptrISaISt10_List_nodeIN3net18AckListenerWrapperEEEED2Ev.exit9.i.i.i: ; preds = %call5.i.i.i.i.i.i.noexc
-  %49 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i21) #19
   br label %ehcleanup
@@ -3315,8 +3331,8 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN3net18AckListenerWrapperEEEED2Ev.exit9
 _ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE12emplace_backIJRPNS1_24QuicAckListenerInterfaceERKmEEERS2_DpOT_.exit: ; preds = %call5.i.i.i.i.i.i.noexc
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i21, ptr noundef nonnull %listeners) #18
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
-  %50 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %50, 1
+  %51 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %51, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   br label %if.end181
 
@@ -3328,23 +3344,23 @@ if.end181:                                        ; preds = %_ZNSt7__cxx114listI
 invoke.cont185:                                   ; preds = %if.end181
   %retransmittable_frames = getelementptr inbounds i8, ptr %this, i64 176
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 184
-  %51 = load ptr, ptr %_M_finish.i.i, align 8
+  %52 = load ptr, ptr %_M_finish.i.i, align 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  %52 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %51, %52
+  %53 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %52, %53
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i22
 
 if.then.i.i22:                                    ; preds = %invoke.cont185
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp183, i64 16, i1 false)
-  %53 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %53, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp183, i64 16, i1 false)
+  %54 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %54, i64 16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont186
 
 if.else.i.i:                                      ; preds = %invoke.cont185
-  %54 = load ptr, ptr %retransmittable_frames, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %51 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %54 to i64
+  %55 = load ptr, ptr %retransmittable_frames, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %52 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %55 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775792
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -3361,8 +3377,8 @@ _ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = 
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
   %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %55 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
-  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %55
+  %56 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %56
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
@@ -3375,26 +3391,26 @@ _ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds 
   %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i24, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.net::QuicFrame", ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp183, i64 16, i1 false)
-  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %54, %51
+  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %55, %52
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i.i ]
-  %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %54, %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i.i ]
+  %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %55, %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !23
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %51
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %52
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !11
 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
-  %tobool.not.i.i.i.i = icmp eq ptr %54, null
+  %tobool.not.i.i.i.i = icmp eq ptr %55, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %54) #19
+  call void @_ZdlPv(ptr noundef nonnull %55) #19
   br label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i
@@ -3420,19 +3436,19 @@ _ZNKSt14default_deleteIN3net15QuicStreamFrameEEclEPS1_.exit.i: ; preds = %_ZNKSt
 
 _ZNSt10unique_ptrIN3net15QuicStreamFrameESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont186, %_ZNKSt14default_deleteIN3net15QuicStreamFrameEEclEPS1_.exit.i
   store ptr null, ptr %frame, align 8
-  %56 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %cmp.not.i27 = icmp eq ptr %56, null
+  %57 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
+  %cmp.not.i27 = icmp eq ptr %57, null
   br i1 %cmp.not.i27, label %_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit30, label %if.then.i28
 
 if.then.i28:                                      ; preds = %_ZNSt10unique_ptrIN3net15QuicStreamFrameESt14default_deleteIS1_EED2Ev.exit
-  invoke void @_ZNK3net19StreamBufferDeleterclEPc(ptr noundef nonnull align 8 dereferenceable(8) %stream_buffer, ptr noundef nonnull %56)
+  invoke void @_ZNK3net19StreamBufferDeleterclEPc(ptr noundef nonnull align 8 dereferenceable(8) %stream_buffer, ptr noundef nonnull %57)
           to label %_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit30 unwind label %terminate.lpad.i29
 
 terminate.lpad.i29:                               ; preds = %if.then.i28
-  %57 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #20
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #20
   unreachable
 
 _ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev.exit30: ; preds = %_ZNSt10unique_ptrIN3net15QuicStreamFrameESt14default_deleteIS1_EED2Ev.exit, %if.then.i28
@@ -3445,17 +3461,17 @@ cleanup190:                                       ; preds = %cleanup.action, %in
   ret void
 
 ehcleanup:                                        ; preds = %lpad70, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net18AckListenerWrapperEEEED2Ev.exit9.i.i.i, %lpad150, %lpad112, %lpad84
-  %.pn = phi { ptr, i32 } [ %38, %lpad84 ], [ %48, %lpad150 ], [ %40, %lpad112 ], [ %37, %lpad70 ], [ %49, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net18AckListenerWrapperEEEED2Ev.exit9.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %39, %lpad84 ], [ %49, %lpad150 ], [ %41, %lpad112 ], [ %38, %lpad70 ], [ %50, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3net18AckListenerWrapperEEEED2Ev.exit9.i.i.i ]
   call void @_ZNSt10unique_ptrIN3net15QuicStreamFrameESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %frame) #18
   br label %ehcleanup189
 
 ehcleanup189:                                     ; preds = %lpad62, %ehcleanup, %lpad56
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %36, %lpad62 ], [ %35, %lpad56 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %37, %lpad62 ], [ %36, %lpad56 ]
   call void @_ZNSt10unique_ptrIA_cN3net19StreamBufferDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %stream_buffer) #18
   br label %ehcleanup191
 
 ehcleanup191:                                     ; preds = %lpad29, %lpad10, %ehcleanup189, %lpad3
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup189 ], [ %18, %lpad3 ], [ %34, %lpad29 ], [ %19, %lpad10 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup189 ], [ %18, %lpad3 ], [ %35, %lpad29 ], [ %19, %lpad10 ]
   call void @_ZN3net14QuicDataWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %writer) #18
   br label %ehcleanup193
 

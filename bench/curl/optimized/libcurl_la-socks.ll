@@ -1688,7 +1688,13 @@ if.end156.i.i:                                    ; preds = %if.end154.i.i, %CON
 
 if.then161.i.i:                                   ; preds = %if.end156.i.i
   %arrayidx162.i.i = getelementptr inbounds i8, ptr %134, i64 4
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %arrayidx162.i.i, align 1
+  store i8 0, ptr %arrayidx162.i.i, align 1
+  %arrayidx163.i.i = getelementptr inbounds i8, ptr %134, i64 5
+  store i8 0, ptr %arrayidx163.i.i, align 1
+  %arrayidx164.i.i = getelementptr inbounds i8, ptr %134, i64 6
+  store i8 0, ptr %arrayidx164.i.i, align 1
+  %arrayidx165.i35.i = getelementptr inbounds i8, ptr %134, i64 7
+  store i8 1, ptr %arrayidx165.i35.i, align 1
   %hostname166.i.i = getelementptr inbounds i8, ptr %sx.0, i64 24
   %169 = load ptr, ptr %hostname166.i.i, align 8
   %call167.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %169) #8

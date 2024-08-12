@@ -556,7 +556,13 @@ invoke.cont:
   %headerErrorValue.i = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headerErrorValue.i) #21
   %decodeError.i = getelementptr inbounds i8, ptr %this, i64 328
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %decodeError.i, align 8
+  store i8 0, ptr %decodeError.i, align 8
+  %isRequest_.i = getelementptr inbounds i8, ptr %this, i64 329
+  store i8 0, ptr %isRequest_.i, align 1
+  %isRequestTrailers_.i = getelementptr inbounds i8, ptr %this, i64 330
+  store i8 0, ptr %isRequestTrailers_.i, align 2
+  %validate_.i = getelementptr inbounds i8, ptr %this, i64 331
+  store i8 1, ptr %validate_.i, align 1
   %hasStatus_.i = getelementptr inbounds i8, ptr %this, i64 332
   %contentLength_.i = getelementptr inbounds i8, ptr %this, i64 340
   store i8 0, ptr %contentLength_.i, align 4
@@ -1870,18 +1876,19 @@ invoke.cont12:                                    ; preds = %cleanup.done
   store ptr null, ptr %function_.i.i.i10, align 16, !alias.scope !10
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %g2, i64 64
   %call_2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 48
+  %3 = load ptr, ptr %call_2.i.i.i.i, align 16, !noalias !10
+  store ptr %3, ptr %call_.i.i.i.i, align 16, !alias.scope !10
   %exec_.i.i.i.i = getelementptr inbounds i8, ptr %g2, i64 72
   %exec_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 56
-  %3 = load ptr, ptr %exec_3.i.i.i.i, align 8, !noalias !10
-  %4 = load <2 x ptr>, ptr %call_2.i.i.i.i, align 16, !noalias !10
-  store <2 x ptr> %4, ptr %call_.i.i.i.i, align 16, !alias.scope !10
+  %4 = load ptr, ptr %exec_3.i.i.i.i, align 8, !noalias !10
+  store ptr %4, ptr %exec_.i.i.i.i, align 8, !alias.scope !10
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i.i, align 16, !noalias !10
   store ptr null, ptr %exec_3.i.i.i.i, align 8, !noalias !10
-  %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %_ZN5folly9makeGuardINS_8FunctionIFvvEEEEENS_6detail14ScopeGuardImplINSt5decayIT_E4typeELb1EEEOS7_.exit
 
 _ZN5folly9makeGuardINS_8FunctionIFvvEEEEENS_6detail14ScopeGuardImplINSt5decayIT_E4typeELb1EEEOS7_.exit: ; preds = %invoke.cont12
-  %call.i.i.i.i.i = call noundef i64 %3(i32 noundef 0, ptr noundef nonnull %ref.tmp10, ptr noundef nonnull %function_.i.i.i10) #21
+  %call.i.i.i.i.i = call noundef i64 %4(i32 noundef 0, ptr noundef nonnull %ref.tmp10, ptr noundef nonnull %function_.i.i.i10) #21
   %.pr = load ptr, ptr %exec_3.i.i.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i
@@ -2579,18 +2586,19 @@ if.then42:                                        ; preds = %if.end
   store ptr null, ptr %function_.i.i.i, align 16, !alias.scope !25
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 64
   %call_2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp43, i64 48
+  %7 = load ptr, ptr %call_2.i.i.i.i, align 16, !noalias !25
+  store ptr %7, ptr %call_.i.i.i.i, align 16, !alias.scope !25
   %exec_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 72
   %exec_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp43, i64 56
-  %7 = load ptr, ptr %exec_3.i.i.i.i, align 8, !noalias !25
-  %8 = load <2 x ptr>, ptr %call_2.i.i.i.i, align 16, !noalias !25
-  store <2 x ptr> %8, ptr %call_.i.i.i.i, align 16, !alias.scope !25
+  %8 = load ptr, ptr %exec_3.i.i.i.i, align 8, !noalias !25
+  store ptr %8, ptr %exec_.i.i.i.i, align 8, !alias.scope !25
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i.i, align 16, !noalias !25
   store ptr null, ptr %exec_3.i.i.i.i, align 8, !noalias !25
-  %tobool.not.i.i.i.i.i = icmp eq ptr %7, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %_ZN5folly9makeGuardINS_8FunctionIFvvEEEEENS_6detail14ScopeGuardImplINSt5decayIT_E4typeELb1EEEOS7_.exit
 
 _ZN5folly9makeGuardINS_8FunctionIFvvEEEEENS_6detail14ScopeGuardImplINSt5decayIT_E4typeELb1EEEOS7_.exit: ; preds = %if.then42
-  %call.i.i.i.i.i = call noundef i64 %7(i32 noundef 0, ptr noundef nonnull %ref.tmp43, ptr noundef nonnull %function_.i.i.i) #21
+  %call.i.i.i.i.i = call noundef i64 %8(i32 noundef 0, ptr noundef nonnull %ref.tmp43, ptr noundef nonnull %function_.i.i.i) #21
   %.pr = load ptr, ptr %exec_3.i.i.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i
@@ -3553,41 +3561,58 @@ entry:
   %0 = load ptr, ptr %headerCodec_, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %1 = load i32, ptr %capacity_.i.i.i, align 8, !noalias !36
+  %bytes_.i.i.i = getelementptr inbounds i8, ptr %0, i64 204
+  %2 = load i32, ptr %bytes_.i.i.i, align 4, !noalias !36
   %size_.i.i.i = getelementptr inbounds i8, ptr %0, i64 232
-  %1 = load i32, ptr %size_.i.i.i, align 8, !noalias !36
+  %3 = load i32, ptr %size_.i.i.i, align 8, !noalias !36
   %insertCount_.i.i.i = getelementptr inbounds i8, ptr %0, i64 240
-  %2 = load i32, ptr %insertCount_.i.i.i, align 8, !noalias !36
+  %4 = load i32, ptr %insertCount_.i.i.i, align 8, !noalias !36
   %blockedInsertions_.i.i = getelementptr inbounds i8, ptr %0, i64 296
-  %3 = load i32, ptr %blockedInsertions_.i.i, align 8, !noalias !36
+  %5 = load i32, ptr %blockedInsertions_.i.i, align 8, !noalias !36
   %duplications_.i.i = getelementptr inbounds i8, ptr %0, i64 300
-  %4 = load <2 x i32>, ptr %duplications_.i.i, align 4, !noalias !36
+  %6 = load i32, ptr %duplications_.i.i, align 4, !noalias !36
+  %staticRefs_.i.i = getelementptr inbounds i8, ptr %0, i64 304
+  %7 = load i32, ptr %staticRefs_.i.i, align 8, !noalias !36
   %capacity_.i.i1.i = getelementptr inbounds i8, ptr %0, i64 704
-  %5 = load <2 x i32>, ptr %capacity_.i.i1.i, align 8, !noalias !36
+  %8 = load i32, ptr %capacity_.i.i1.i, align 8, !noalias !36
+  %bytes_.i.i2.i = getelementptr inbounds i8, ptr %0, i64 708
+  %9 = load i32, ptr %bytes_.i.i2.i, align 4, !noalias !36
   %size_.i.i3.i = getelementptr inbounds i8, ptr %0, i64 736
-  %6 = load i32, ptr %size_.i.i3.i, align 8, !noalias !36
+  %10 = load i32, ptr %size_.i.i3.i, align 8, !noalias !36
   %insertCount_.i.i4.i = getelementptr inbounds i8, ptr %0, i64 744
-  %7 = load i32, ptr %insertCount_.i.i4.i, align 8, !noalias !36
+  %11 = load i32, ptr %insertCount_.i.i4.i, align 8, !noalias !36
   %duplications_.i5.i = getelementptr inbounds i8, ptr %0, i64 804
-  %8 = load <2 x i32>, ptr %capacity_.i.i.i, align 8, !noalias !36
-  store <2 x i32> %8, ptr %agg.result, align 4, !alias.scope !36
+  %12 = load i32, ptr %duplications_.i5.i, align 4, !noalias !36
+  %staticRefs_.i6.i = getelementptr inbounds i8, ptr %0, i64 808
+  %13 = load i32, ptr %staticRefs_.i6.i, align 8, !noalias !36
+  store i32 %1, ptr %agg.result, align 4, !alias.scope !36
+  %bytesStored_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  store i32 %2, ptr %bytesStored_.i.i.i, align 4, !alias.scope !36
   %headersStored_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i32 %1, ptr %headersStored_.i.i.i, align 4, !alias.scope !36
+  store i32 %3, ptr %headersStored_.i.i.i, align 4, !alias.scope !36
   %inserts_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 12
-  store i32 %2, ptr %inserts_.i.i.i, align 4, !alias.scope !36
+  store i32 %4, ptr %inserts_.i.i.i, align 4, !alias.scope !36
   %blockedInserts_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i32 %3, ptr %blockedInserts_.i.i.i, align 4, !alias.scope !36
+  store i32 %5, ptr %blockedInserts_.i.i.i, align 4, !alias.scope !36
   %duplications_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 20
-  %9 = shufflevector <2 x i32> %4, <2 x i32> %5, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i32> %9, ptr %duplications_.i.i.i, align 4, !alias.scope !36
+  store i32 %6, ptr %duplications_.i.i.i, align 4, !alias.scope !36
+  %staticRefs_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  store i32 %7, ptr %staticRefs_.i.i.i, align 4, !alias.scope !36
+  %ingress.i.i = getelementptr inbounds i8, ptr %agg.result, i64 28
+  store i32 %8, ptr %ingress.i.i, align 4, !alias.scope !36
+  %bytesStored_.i1.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  store i32 %9, ptr %bytesStored_.i1.i.i, align 4, !alias.scope !36
   %headersStored_.i2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 36
-  store i32 %6, ptr %headersStored_.i2.i.i, align 4, !alias.scope !36
+  store i32 %10, ptr %headersStored_.i2.i.i, align 4, !alias.scope !36
   %inserts_.i3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store i32 %7, ptr %inserts_.i3.i.i, align 4, !alias.scope !36
+  store i32 %11, ptr %inserts_.i3.i.i, align 4, !alias.scope !36
   %blockedInserts_.i4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 44
   store i32 0, ptr %blockedInserts_.i4.i.i, align 4, !alias.scope !36
   %duplications_.i5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
-  %10 = load <2 x i32>, ptr %duplications_.i5.i, align 4, !noalias !36
-  store <2 x i32> %10, ptr %duplications_.i5.i.i, align 4, !alias.scope !36
+  store i32 %12, ptr %duplications_.i5.i.i, align 4, !alias.scope !36
+  %staticRefs_.i6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 52
+  store i32 %13, ptr %staticRefs_.i6.i.i, align 4, !alias.scope !36
   ret void
 }
 
@@ -3731,18 +3756,19 @@ if.then:                                          ; preds = %land.lhs.true
   store ptr null, ptr %function_.i.i.i, align 16, !alias.scope !42
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 64
   %call_2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
+  %2 = load ptr, ptr %call_2.i.i.i.i, align 16, !noalias !42
+  store ptr %2, ptr %call_.i.i.i.i, align 16, !alias.scope !42
   %exec_.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 72
   %exec_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
-  %2 = load ptr, ptr %exec_3.i.i.i.i, align 8, !noalias !42
-  %3 = load <2 x ptr>, ptr %call_2.i.i.i.i, align 16, !noalias !42
-  store <2 x ptr> %3, ptr %call_.i.i.i.i, align 16, !alias.scope !42
+  %3 = load ptr, ptr %exec_3.i.i.i.i, align 8, !noalias !42
+  store ptr %3, ptr %exec_.i.i.i.i, align 8, !alias.scope !42
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i.i, align 16, !noalias !42
   store ptr null, ptr %exec_3.i.i.i.i, align 8, !noalias !42
-  %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %_ZN5folly9makeGuardINS_8FunctionIFvvEEEEENS_6detail14ScopeGuardImplINSt5decayIT_E4typeELb1EEEOS7_.exit
 
 _ZN5folly9makeGuardINS_8FunctionIFvvEEEEENS_6detail14ScopeGuardImplINSt5decayIT_E4typeELb1EEEOS7_.exit: ; preds = %if.then
-  %call.i.i.i.i.i = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %ref.tmp, ptr noundef nonnull %function_.i.i.i) #21
+  %call.i.i.i.i.i = call noundef i64 %3(i32 noundef 0, ptr noundef nonnull %ref.tmp, ptr noundef nonnull %function_.i.i.i) #21
   %.pr = load ptr, ptr %exec_3.i.i.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i

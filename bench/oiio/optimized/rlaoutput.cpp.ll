@@ -886,7 +886,7 @@ entry:
   %ref.tmp1.i.i = alloca %"class.fmt::v8::format_arg_store.126", align 16
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %agg.tmp = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 16
+  %agg.tmp = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %agg.tmp8 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp16 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp66 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -955,9 +955,21 @@ entry:
   %agg.tmp576 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp577 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %ref.tmp600 = alloca i32, align 4
-  store <4 x i32> <i32 0, i32 65535, i32 0, i32 65535>, ptr %agg.tmp, align 16
+  store i32 0, ptr %agg.tmp, align 8
+  %xend3.i = getelementptr inbounds i8, ptr %agg.tmp, i64 4
+  store i32 65535, ptr %xend3.i, align 4
+  %ybegin4.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i32 0, ptr %ybegin4.i, align 8
+  %yend5.i = getelementptr inbounds i8, ptr %agg.tmp, i64 12
+  store i32 65535, ptr %yend5.i, align 4
   %zbegin6.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store <4 x i32> <i32 0, i32 1, i32 0, i32 256>, ptr %zbegin6.i, align 16
+  store i32 0, ptr %zbegin6.i, align 8
+  %zend7.i = getelementptr inbounds i8, ptr %agg.tmp, i64 20
+  store i32 1, ptr %zend7.i, align 4
+  %chbegin8.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  store i32 0, ptr %chbegin8.i, align 8
+  %chend9.i = getelementptr inbounds i8, ptr %agg.tmp, i64 28
+  store i32 256, ptr %chend9.i, align 4
   %call = tail call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput10check_openENS0_8OpenModeERKNS_9ImageSpecENS_3ROIEm(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %mode, ptr noundef nonnull align 8 dereferenceable(160) %userspec, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp, i64 noundef 0)
   br i1 %call, label %if.end, label %return
 
@@ -1713,7 +1725,13 @@ if.end364:                                        ; preds = %if.else344, %if.end
   store ptr @.str.18, ptr %agg.tmp366, align 8
   %m_len.i214 = getelementptr inbounds i8, ptr %agg.tmp366, i64 8
   store i64 13, ptr %m_len.i214, align 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp367, align 4
+  store i8 0, ptr %agg.tmp367, align 4
+  %aggregate.i215 = getelementptr inbounds i8, ptr %agg.tmp367, i64 1
+  store i8 1, ptr %aggregate.i215, align 1
+  %vecsemantics.i216 = getelementptr inbounds i8, ptr %agg.tmp367, i64 2
+  store i8 0, ptr %vecsemantics.i216, align 2
+  %reserved.i217 = getelementptr inbounds i8, ptr %agg.tmp367, i64 3
+  store i8 0, ptr %reserved.i217, align 1
   %arraylen4.i218 = getelementptr inbounds i8, ptr %agg.tmp367, i64 4
   store i32 0, ptr %arraylen4.i218, align 4
   %call368 = call noundef ptr @_ZN18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp366, ptr noundef nonnull %agg.tmp367, i1 noundef zeroext false)
@@ -1722,7 +1740,13 @@ if.end364:                                        ; preds = %if.else344, %if.end
   store ptr @.str.20, ptr %agg.tmp372, align 8
   %m_len.i220 = getelementptr inbounds i8, ptr %agg.tmp372, i64 8
   store i64 15, ptr %m_len.i220, align 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp373, align 4
+  store i8 0, ptr %agg.tmp373, align 4
+  %aggregate.i221 = getelementptr inbounds i8, ptr %agg.tmp373, i64 1
+  store i8 1, ptr %aggregate.i221, align 1
+  %vecsemantics.i222 = getelementptr inbounds i8, ptr %agg.tmp373, i64 2
+  store i8 0, ptr %vecsemantics.i222, align 2
+  %reserved.i223 = getelementptr inbounds i8, ptr %agg.tmp373, i64 3
+  store i8 0, ptr %reserved.i223, align 1
   %arraylen4.i224 = getelementptr inbounds i8, ptr %agg.tmp373, i64 4
   store i32 0, ptr %arraylen4.i224, align 4
   %call374 = call noundef ptr @_ZN18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp372, ptr noundef nonnull %agg.tmp373, i1 noundef zeroext false)
@@ -1731,7 +1755,13 @@ if.end364:                                        ; preds = %if.else344, %if.end
   store ptr @.str.22, ptr %agg.tmp378, align 8
   %m_len.i226 = getelementptr inbounds i8, ptr %agg.tmp378, i64 8
   store i64 14, ptr %m_len.i226, align 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp379, align 4
+  store i8 0, ptr %agg.tmp379, align 4
+  %aggregate.i227 = getelementptr inbounds i8, ptr %agg.tmp379, i64 1
+  store i8 1, ptr %aggregate.i227, align 1
+  %vecsemantics.i228 = getelementptr inbounds i8, ptr %agg.tmp379, i64 2
+  store i8 0, ptr %vecsemantics.i228, align 2
+  %reserved.i229 = getelementptr inbounds i8, ptr %agg.tmp379, i64 3
+  store i8 0, ptr %reserved.i229, align 1
   %arraylen4.i230 = getelementptr inbounds i8, ptr %agg.tmp379, i64 4
   store i32 0, ptr %arraylen4.i230, align 4
   %call380 = call noundef ptr @_ZN18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp378, ptr noundef nonnull %agg.tmp379, i1 noundef zeroext false)
@@ -1740,7 +1770,13 @@ if.end364:                                        ; preds = %if.else344, %if.end
   store ptr @.str.24, ptr %agg.tmp384, align 8
   %m_len.i232 = getelementptr inbounds i8, ptr %agg.tmp384, i64 8
   store i64 14, ptr %m_len.i232, align 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp385, align 4
+  store i8 0, ptr %agg.tmp385, align 4
+  %aggregate.i233 = getelementptr inbounds i8, ptr %agg.tmp385, i64 1
+  store i8 1, ptr %aggregate.i233, align 1
+  %vecsemantics.i234 = getelementptr inbounds i8, ptr %agg.tmp385, i64 2
+  store i8 0, ptr %vecsemantics.i234, align 2
+  %reserved.i235 = getelementptr inbounds i8, ptr %agg.tmp385, i64 3
+  store i8 0, ptr %reserved.i235, align 1
   %arraylen4.i236 = getelementptr inbounds i8, ptr %agg.tmp385, i64 4
   store i32 0, ptr %arraylen4.i236, align 4
   %call386 = call noundef ptr @_ZN18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp384, ptr noundef nonnull %agg.tmp385, i1 noundef zeroext false)
@@ -2250,74 +2286,158 @@ if.else588:                                       ; preds = %_ZNK18OpenImageIO_v
 
 if.end592:                                        ; preds = %if.else588, %if.then580
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s573) #23
-  %149 = load <8 x i16>, ptr %m_rla, align 8
-  %150 = call <8 x i16> @llvm.bswap.v8i16(<8 x i16> %149)
-  store <8 x i16> %150, ptr %m_rla, align 8
-  %151 = load <4 x i16>, ptr %FrameNumber, align 8
-  %152 = call <4 x i16> @llvm.bswap.v4i16(<4 x i16> %151)
-  store <4 x i16> %152, ptr %FrameNumber, align 8
-  %NumOfAuxChannels.i = getelementptr inbounds i8, ptr %this, i64 232
-  %153 = load i16, ptr %NumOfAuxChannels.i, align 8
+  %149 = load i16, ptr %m_rla, align 8
+  %150 = call i16 @llvm.bswap.i16(i16 %149)
+  store i16 %150, ptr %m_rla, align 8
+  %151 = load i16, ptr %WindowRight, align 2
+  %152 = call i16 @llvm.bswap.i16(i16 %151)
+  store i16 %152, ptr %WindowRight, align 2
+  %153 = load i16, ptr %WindowBottom, align 4
   %154 = call i16 @llvm.bswap.i16(i16 %153)
-  store i16 %154, ptr %NumOfAuxChannels.i, align 8
-  %155 = load i16, ptr %Revision, align 2
+  store i16 %154, ptr %WindowBottom, align 4
+  %155 = load i16, ptr %WindowTop, align 2
   %156 = call i16 @llvm.bswap.i16(i16 %155)
-  store i16 %156, ptr %Revision, align 2
-  %157 = load i32, ptr %JobNumber, align 4
-  %158 = call i32 @llvm.bswap.i32(i32 %157)
-  store i32 %158, ptr %JobNumber, align 4
-  %159 = load i16, ptr %FieldRendered, align 4
+  store i16 %156, ptr %WindowTop, align 2
+  %157 = load i16, ptr %ActiveLeft, align 8
+  %158 = call i16 @llvm.bswap.i16(i16 %157)
+  store i16 %158, ptr %ActiveLeft, align 8
+  %159 = load i16, ptr %ActiveRight, align 2
   %160 = call i16 @llvm.bswap.i16(i16 %159)
-  store i16 %160, ptr %FieldRendered, align 4
-  %NumOfChannelBits.i = getelementptr inbounds i8, ptr %this, i64 866
-  %161 = load <4 x i16>, ptr %NumOfChannelBits.i, align 2
-  %162 = call <4 x i16> @llvm.bswap.v4i16(<4 x i16> %161)
-  store <4 x i16> %162, ptr %NumOfChannelBits.i, align 2
-  %NumOfAuxBits.i = getelementptr inbounds i8, ptr %this, i64 874
-  %163 = load i16, ptr %NumOfAuxBits.i, align 2
+  store i16 %160, ptr %ActiveRight, align 2
+  %161 = load i16, ptr %ActiveBottom, align 4
+  %162 = call i16 @llvm.bswap.i16(i16 %161)
+  store i16 %162, ptr %ActiveBottom, align 4
+  %163 = load i16, ptr %ActiveTop, align 2
   %164 = call i16 @llvm.bswap.i16(i16 %163)
-  store i16 %164, ptr %NumOfAuxBits.i, align 2
-  %NextOffset.i = getelementptr inbounds i8, ptr %this, i64 944
-  %165 = load i32, ptr %NextOffset.i, align 8
-  %166 = call i32 @llvm.bswap.i32(i32 %165)
-  store i32 %166, ptr %NextOffset.i, align 8
-  %call.i349 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %m_rla, i64 noundef 740, i64 noundef 1)
-  %167 = load <8 x i16>, ptr %m_rla, align 8
-  %168 = call <8 x i16> @llvm.bswap.v8i16(<8 x i16> %167)
-  store <8 x i16> %168, ptr %m_rla, align 8
-  %169 = load <4 x i16>, ptr %FrameNumber, align 8
-  %170 = call <4 x i16> @llvm.bswap.v4i16(<4 x i16> %169)
-  store <4 x i16> %170, ptr %FrameNumber, align 8
-  %171 = load i16, ptr %NumOfAuxChannels.i, align 8
+  store i16 %164, ptr %ActiveTop, align 2
+  %165 = load i16, ptr %FrameNumber, align 8
+  %166 = call i16 @llvm.bswap.i16(i16 %165)
+  store i16 %166, ptr %FrameNumber, align 8
+  %ColorChannelType.i = getelementptr inbounds i8, ptr %this, i64 226
+  %167 = load i16, ptr %ColorChannelType.i, align 2
+  %168 = call i16 @llvm.bswap.i16(i16 %167)
+  store i16 %168, ptr %ColorChannelType.i, align 2
+  %NumOfColorChannels.i = getelementptr inbounds i8, ptr %this, i64 228
+  %169 = load i16, ptr %NumOfColorChannels.i, align 4
+  %170 = call i16 @llvm.bswap.i16(i16 %169)
+  store i16 %170, ptr %NumOfColorChannels.i, align 4
+  %NumOfMatteChannels.i = getelementptr inbounds i8, ptr %this, i64 230
+  %171 = load i16, ptr %NumOfMatteChannels.i, align 2
   %172 = call i16 @llvm.bswap.i16(i16 %171)
-  store i16 %172, ptr %NumOfAuxChannels.i, align 8
-  %173 = load i16, ptr %Revision, align 2
+  store i16 %172, ptr %NumOfMatteChannels.i, align 2
+  %NumOfAuxChannels.i = getelementptr inbounds i8, ptr %this, i64 232
+  %173 = load i16, ptr %NumOfAuxChannels.i, align 8
   %174 = call i16 @llvm.bswap.i16(i16 %173)
-  store i16 %174, ptr %Revision, align 2
-  %175 = load i32, ptr %JobNumber, align 4
-  %176 = call i32 @llvm.bswap.i32(i32 %175)
-  store i32 %176, ptr %JobNumber, align 4
-  %177 = load i16, ptr %FieldRendered, align 4
-  %178 = call i16 @llvm.bswap.i16(i16 %177)
-  store i16 %178, ptr %FieldRendered, align 4
-  %179 = load <4 x i16>, ptr %NumOfChannelBits.i, align 2
-  %180 = call <4 x i16> @llvm.bswap.v4i16(<4 x i16> %179)
-  store <4 x i16> %180, ptr %NumOfChannelBits.i, align 2
-  %181 = load i16, ptr %NumOfAuxBits.i, align 2
+  store i16 %174, ptr %NumOfAuxChannels.i, align 8
+  %175 = load i16, ptr %Revision, align 2
+  %176 = call i16 @llvm.bswap.i16(i16 %175)
+  store i16 %176, ptr %Revision, align 2
+  %177 = load i32, ptr %JobNumber, align 4
+  %178 = call i32 @llvm.bswap.i32(i32 %177)
+  store i32 %178, ptr %JobNumber, align 4
+  %179 = load i16, ptr %FieldRendered, align 4
+  %180 = call i16 @llvm.bswap.i16(i16 %179)
+  store i16 %180, ptr %FieldRendered, align 4
+  %NumOfChannelBits.i = getelementptr inbounds i8, ptr %this, i64 866
+  %181 = load i16, ptr %NumOfChannelBits.i, align 2
   %182 = call i16 @llvm.bswap.i16(i16 %181)
-  store i16 %182, ptr %NumOfAuxBits.i, align 2
-  %183 = load i32, ptr %NextOffset.i, align 8
-  %184 = call i32 @llvm.bswap.i32(i32 %183)
-  store i32 %184, ptr %NextOffset.i, align 8
+  store i16 %182, ptr %NumOfChannelBits.i, align 2
+  %MatteChannelType.i = getelementptr inbounds i8, ptr %this, i64 868
+  %183 = load i16, ptr %MatteChannelType.i, align 4
+  %184 = call i16 @llvm.bswap.i16(i16 %183)
+  store i16 %184, ptr %MatteChannelType.i, align 4
+  %NumOfMatteBits.i = getelementptr inbounds i8, ptr %this, i64 870
+  %185 = load i16, ptr %NumOfMatteBits.i, align 2
+  %186 = call i16 @llvm.bswap.i16(i16 %185)
+  store i16 %186, ptr %NumOfMatteBits.i, align 2
+  %AuxChannelType.i = getelementptr inbounds i8, ptr %this, i64 872
+  %187 = load i16, ptr %AuxChannelType.i, align 8
+  %188 = call i16 @llvm.bswap.i16(i16 %187)
+  store i16 %188, ptr %AuxChannelType.i, align 8
+  %NumOfAuxBits.i = getelementptr inbounds i8, ptr %this, i64 874
+  %189 = load i16, ptr %NumOfAuxBits.i, align 2
+  %190 = call i16 @llvm.bswap.i16(i16 %189)
+  store i16 %190, ptr %NumOfAuxBits.i, align 2
+  %NextOffset.i = getelementptr inbounds i8, ptr %this, i64 944
+  %191 = load i32, ptr %NextOffset.i, align 8
+  %192 = call i32 @llvm.bswap.i32(i32 %191)
+  store i32 %192, ptr %NextOffset.i, align 8
+  %call.i349 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %m_rla, i64 noundef 740, i64 noundef 1)
+  %193 = load i16, ptr %m_rla, align 8
+  %194 = call i16 @llvm.bswap.i16(i16 %193)
+  store i16 %194, ptr %m_rla, align 8
+  %195 = load i16, ptr %WindowRight, align 2
+  %196 = call i16 @llvm.bswap.i16(i16 %195)
+  store i16 %196, ptr %WindowRight, align 2
+  %197 = load i16, ptr %WindowBottom, align 4
+  %198 = call i16 @llvm.bswap.i16(i16 %197)
+  store i16 %198, ptr %WindowBottom, align 4
+  %199 = load i16, ptr %WindowTop, align 2
+  %200 = call i16 @llvm.bswap.i16(i16 %199)
+  store i16 %200, ptr %WindowTop, align 2
+  %201 = load i16, ptr %ActiveLeft, align 8
+  %202 = call i16 @llvm.bswap.i16(i16 %201)
+  store i16 %202, ptr %ActiveLeft, align 8
+  %203 = load i16, ptr %ActiveRight, align 2
+  %204 = call i16 @llvm.bswap.i16(i16 %203)
+  store i16 %204, ptr %ActiveRight, align 2
+  %205 = load i16, ptr %ActiveBottom, align 4
+  %206 = call i16 @llvm.bswap.i16(i16 %205)
+  store i16 %206, ptr %ActiveBottom, align 4
+  %207 = load i16, ptr %ActiveTop, align 2
+  %208 = call i16 @llvm.bswap.i16(i16 %207)
+  store i16 %208, ptr %ActiveTop, align 2
+  %209 = load i16, ptr %FrameNumber, align 8
+  %210 = call i16 @llvm.bswap.i16(i16 %209)
+  store i16 %210, ptr %FrameNumber, align 8
+  %211 = load i16, ptr %ColorChannelType.i, align 2
+  %212 = call i16 @llvm.bswap.i16(i16 %211)
+  store i16 %212, ptr %ColorChannelType.i, align 2
+  %213 = load i16, ptr %NumOfColorChannels.i, align 4
+  %214 = call i16 @llvm.bswap.i16(i16 %213)
+  store i16 %214, ptr %NumOfColorChannels.i, align 4
+  %215 = load i16, ptr %NumOfMatteChannels.i, align 2
+  %216 = call i16 @llvm.bswap.i16(i16 %215)
+  store i16 %216, ptr %NumOfMatteChannels.i, align 2
+  %217 = load i16, ptr %NumOfAuxChannels.i, align 8
+  %218 = call i16 @llvm.bswap.i16(i16 %217)
+  store i16 %218, ptr %NumOfAuxChannels.i, align 8
+  %219 = load i16, ptr %Revision, align 2
+  %220 = call i16 @llvm.bswap.i16(i16 %219)
+  store i16 %220, ptr %Revision, align 2
+  %221 = load i32, ptr %JobNumber, align 4
+  %222 = call i32 @llvm.bswap.i32(i32 %221)
+  store i32 %222, ptr %JobNumber, align 4
+  %223 = load i16, ptr %FieldRendered, align 4
+  %224 = call i16 @llvm.bswap.i16(i16 %223)
+  store i16 %224, ptr %FieldRendered, align 4
+  %225 = load i16, ptr %NumOfChannelBits.i, align 2
+  %226 = call i16 @llvm.bswap.i16(i16 %225)
+  store i16 %226, ptr %NumOfChannelBits.i, align 2
+  %227 = load i16, ptr %MatteChannelType.i, align 4
+  %228 = call i16 @llvm.bswap.i16(i16 %227)
+  store i16 %228, ptr %MatteChannelType.i, align 4
+  %229 = load i16, ptr %NumOfMatteBits.i, align 2
+  %230 = call i16 @llvm.bswap.i16(i16 %229)
+  store i16 %230, ptr %NumOfMatteBits.i, align 2
+  %231 = load i16, ptr %AuxChannelType.i, align 8
+  %232 = call i16 @llvm.bswap.i16(i16 %231)
+  store i16 %232, ptr %AuxChannelType.i, align 8
+  %233 = load i16, ptr %NumOfAuxBits.i, align 2
+  %234 = call i16 @llvm.bswap.i16(i16 %233)
+  store i16 %234, ptr %NumOfAuxBits.i, align 2
+  %235 = load i32, ptr %NextOffset.i, align 8
+  %236 = call i32 @llvm.bswap.i32(i32 %235)
+  store i32 %236, ptr %NextOffset.i, align 8
   %m_sot = getelementptr inbounds i8, ptr %this, i64 952
-  %185 = load i32, ptr %height, align 8
-  %conv599 = sext i32 %185 to i64
+  %237 = load i32, ptr %height, align 8
+  %conv599 = sext i32 %237 to i64
   store i32 0, ptr %ref.tmp600, align 4
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 960
-  %186 = load ptr, ptr %_M_finish.i.i, align 8
-  %187 = load ptr, ptr %m_sot, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %186 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %187 to i64
+  %238 = load ptr, ptr %_M_finish.i.i, align 8
+  %239 = load ptr, ptr %m_sot, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %238 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %239 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %cmp.i371 = icmp ult i64 %sub.ptr.div.i.i, %conv599
@@ -2325,7 +2445,7 @@ if.end592:                                        ; preds = %if.else588, %if.the
 
 if.then.i:                                        ; preds = %if.end592
   %sub.i = sub nuw nsw i64 %conv599, %sub.ptr.div.i.i
-  call void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %m_sot, ptr %186, i64 noundef %sub.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp600)
+  call void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %m_sot, ptr %238, i64 noundef %sub.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp600)
   %.pre447 = load ptr, ptr %m_sot, align 8
   %.pre448 = load ptr, ptr %_M_finish.i.i, align 8
   %.pre449 = ptrtoint ptr %.pre447 to i64
@@ -2336,8 +2456,8 @@ if.else.i:                                        ; preds = %if.end592
   br i1 %cmp6.i, label %if.then7.i, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
 
 if.then7.i:                                       ; preds = %if.else.i
-  %add.ptr.i372 = getelementptr inbounds i32, ptr %187, i64 %conv599
-  %tobool.not.i.i = icmp eq ptr %186, %add.ptr.i372
+  %add.ptr.i372 = getelementptr inbounds i32, ptr %239, i64 %conv599
+  %tobool.not.i.i = icmp eq ptr %238, %add.ptr.i372
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then7.i
@@ -2346,18 +2466,18 @@ invoke.cont.i.i:                                  ; preds = %if.then7.i
 
 _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %if.then.i, %if.else.i, %if.then7.i, %invoke.cont.i.i
   %sub.ptr.rhs.cast.i376.pre-phi = phi i64 [ %.pre449, %if.then.i ], [ %sub.ptr.rhs.cast.i.i, %if.else.i ], [ %sub.ptr.rhs.cast.i.i, %if.then7.i ], [ %sub.ptr.rhs.cast.i.i, %invoke.cont.i.i ]
-  %188 = phi ptr [ %.pre448, %if.then.i ], [ %186, %if.else.i ], [ %186, %if.then7.i ], [ %add.ptr.i372, %invoke.cont.i.i ]
-  %189 = phi ptr [ %.pre447, %if.then.i ], [ %187, %if.else.i ], [ %187, %if.then7.i ], [ %187, %invoke.cont.i.i ]
-  %sub.ptr.lhs.cast.i375 = ptrtoint ptr %188 to i64
+  %240 = phi ptr [ %.pre448, %if.then.i ], [ %238, %if.else.i ], [ %238, %if.then7.i ], [ %add.ptr.i372, %invoke.cont.i.i ]
+  %241 = phi ptr [ %.pre447, %if.then.i ], [ %239, %if.else.i ], [ %239, %if.then7.i ], [ %239, %invoke.cont.i.i ]
+  %sub.ptr.lhs.cast.i375 = ptrtoint ptr %240 to i64
   %sub.ptr.sub.i377 = sub i64 %sub.ptr.lhs.cast.i375, %sub.ptr.rhs.cast.i376.pre-phi
   %sub.ptr.div.i378 = ashr exact i64 %sub.ptr.sub.i377, 2
-  %call605 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_09RLAOutput5writeIjEEbPKT_m(ptr noundef nonnull align 8 dereferenceable(1032) %this, ptr noundef nonnull %189, i64 noundef %sub.ptr.div.i378)
+  %call605 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_09RLAOutput5writeIjEEbPKT_m(ptr noundef nonnull align 8 dereferenceable(1032) %this, ptr noundef nonnull %241, i64 noundef %sub.ptr.div.i378)
   %tile_width = getelementptr inbounds i8, ptr %this, i64 56
-  %190 = load i32, ptr %tile_width, align 8
-  %tobool607.not = icmp eq i32 %190, 0
+  %242 = load i32, ptr %tile_width, align 8
+  %tobool607.not = icmp eq i32 %242, 0
   %tile_height = getelementptr inbounds i8, ptr %this, i64 60
-  %191 = load i32, ptr %tile_height, align 4
-  %tobool610.not = icmp eq i32 %191, 0
+  %243 = load i32, ptr %tile_height, align 4
+  %tobool610.not = icmp eq i32 %243, 0
   %or.cond25 = select i1 %tobool607.not, i1 true, i1 %tobool610.not
   br i1 %or.cond25, label %return, label %if.then611
 
@@ -3827,7 +3947,13 @@ entry:
   store i32 %3, ptr %arraylen.i, align 4
   %m_tilebuffer = getelementptr inbounds i8, ptr %this, i64 1000
   %4 = load ptr, ptr %m_tilebuffer, align 8
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %agg.tmp2, align 4
+  store i8 0, ptr %agg.tmp2, align 4
+  %aggregate.i1 = getelementptr inbounds i8, ptr %agg.tmp2, i64 1
+  store i8 1, ptr %aggregate.i1, align 1
+  %vecsemantics.i2 = getelementptr inbounds i8, ptr %agg.tmp2, i64 2
+  store i8 0, ptr %vecsemantics.i2, align 2
+  %reserved.i3 = getelementptr inbounds i8, ptr %agg.tmp2, i64 3
+  store i8 0, ptr %reserved.i3, align 1
   %arraylen4.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 4
   store i32 0, ptr %arraylen4.i, align 4
   %call3 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput25copy_tile_to_image_bufferEiiiNS_8TypeDescEPKvlllPvS1_(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %x, i32 noundef %y, i32 noundef %z, ptr noundef nonnull %agg.tmp, ptr noundef %data, i64 noundef %xstride, i64 noundef %ystride, i64 noundef %zstride, ptr noundef nonnull %4, ptr noundef nonnull %agg.tmp2)
@@ -4034,6 +4160,9 @@ while.body.lr.ph.lr.ph:                           ; preds = %entry
   %type.i = getelementptr inbounds i8, ptr %specs, i64 8
   %align.i = getelementptr inbounds i8, ptr %specs, i64 9
   %fill.i = getelementptr inbounds i8, ptr %specs, i64 11
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %specs, i64 12
+  %arrayinit.element2.i.i = getelementptr inbounds i8, ptr %specs, i64 13
+  %arrayinit.element3.i.i = getelementptr inbounds i8, ptr %specs, i64 14
   %size_.i.i229 = getelementptr inbounds i8, ptr %specs, i64 15
   %type_.i = getelementptr inbounds i8, ptr %ref.tmp59, i64 16
   %type_.i275 = getelementptr inbounds i8, ptr %arg, i64 16
@@ -4205,7 +4334,10 @@ _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EE.exit
   store i8 0, ptr %type.i, align 8
   %bf.load.i = load i16, ptr %align.i, align 1
   %bf.clear9.i = and i16 %bf.load.i, -512
-  store <4 x i8> <i8 32, i8 0, i8 0, i8 0>, ptr %fill.i, align 1
+  store i8 32, ptr %fill.i, align 1
+  store i8 0, ptr %arrayinit.element.i.i, align 4
+  store i8 0, ptr %arrayinit.element2.i.i, align 1
+  store i8 0, ptr %arrayinit.element3.i.i, align 2
   store i8 1, ptr %size_.i.i229, align 1
   %bf.set = or disjoint i16 %bf.clear9.i, 2
   store i16 %bf.set, ptr %align.i, align 1
@@ -17067,14 +17199,14 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9en
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.100, align 8
-  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp.i = alloca %class.anon.97, align 8
-  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp77 = alloca %"class.std::allocator.22", align 1
   %fp = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 16
+  store i64 %specs.coerce0, ptr %specs, align 8
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call4 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -17109,11 +17241,13 @@ if.end24:                                         ; preds = %if.else, %if.then9
 
 if.then26:                                        ; preds = %if.end24
   %6 = fcmp oeq float %value.addr.0, 0x7FF0000000000000
+  %agg.tmp28.sroa.0.0.copyload = load i64, ptr %specs, align 8
+  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
-  %7 = load <2 x i64>, ptr %specs, align 16
-  store <2 x i64> %7, ptr %specs.i, align 16
+  store i64 %agg.tmp28.sroa.0.0.copyload, ptr %specs.i, align 8
+  %7 = getelementptr inbounds i8, ptr %specs.i, i64 8
+  store i64 %agg.tmp28.sroa.2.0.copyload, ptr %7, align 8
   %8 = and i64 %agg.tmp28.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %8, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -17180,13 +17314,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %if
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %12, ptr %arrayidx.i.i, align 1
   %bf.clear70 = and i32 %fspecs.sroa.5.0, -65281
-  %18 = load i32, ptr %specs, align 16
+  %18 = load i32, ptr %specs, align 8
   %cmp72.not = icmp eq i32 %18, 0
   br i1 %cmp72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %specs, align 16
+  store i32 %dec, ptr %specs, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
@@ -25683,14 +25817,14 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9en
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.100, align 8
-  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp.i = alloca %class.anon.97, align 8
-  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp77 = alloca %"class.std::allocator.22", align 1
   %fp = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 16
+  store i64 %specs.coerce0, ptr %specs, align 8
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call4 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -25725,11 +25859,13 @@ if.end24:                                         ; preds = %if.else, %if.then9
 
 if.then26:                                        ; preds = %if.end24
   %6 = fcmp oeq double %value.addr.0, 0x7FF0000000000000
+  %agg.tmp28.sroa.0.0.copyload = load i64, ptr %specs, align 8
+  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
-  %7 = load <2 x i64>, ptr %specs, align 16
-  store <2 x i64> %7, ptr %specs.i, align 16
+  store i64 %agg.tmp28.sroa.0.0.copyload, ptr %specs.i, align 8
+  %7 = getelementptr inbounds i8, ptr %specs.i, i64 8
+  store i64 %agg.tmp28.sroa.2.0.copyload, ptr %7, align 8
   %8 = and i64 %agg.tmp28.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %8, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -25796,13 +25932,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %if
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %12, ptr %arrayidx.i.i, align 1
   %bf.clear70 = and i32 %fspecs.sroa.5.0, -65281
-  %18 = load i32, ptr %specs, align 16
+  %18 = load i32, ptr %specs, align 8
   %cmp72.not = icmp eq i32 %18, 0
   br i1 %cmp72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %specs, align 16
+  store i32 %dec, ptr %specs, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
@@ -25969,14 +26105,14 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEeTnNSt9en
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.100, align 8
-  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp.i = alloca %class.anon.97, align 8
-  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 16
+  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 8
   %ref.tmp = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp77 = alloca %"class.std::allocator.22", align 1
   %fp = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 16
+  store i64 %specs.coerce0, ptr %specs, align 8
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call4 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -26011,11 +26147,13 @@ if.end24:                                         ; preds = %if.else, %if.then9
 
 if.then26:                                        ; preds = %if.end24
   %6 = fcmp oeq x86_fp80 %value.addr.0, 0xK7FFF8000000000000000
+  %agg.tmp28.sroa.0.0.copyload = load i64, ptr %specs, align 8
+  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
-  %7 = load <2 x i64>, ptr %specs, align 16
-  store <2 x i64> %7, ptr %specs.i, align 16
+  store i64 %agg.tmp28.sroa.0.0.copyload, ptr %specs.i, align 8
+  %7 = getelementptr inbounds i8, ptr %specs.i, i64 8
+  store i64 %agg.tmp28.sroa.2.0.copyload, ptr %7, align 8
   %8 = and i64 %agg.tmp28.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %8, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -26082,13 +26220,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %if
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %12, ptr %arrayidx.i.i, align 1
   %bf.clear70 = and i32 %fspecs.sroa.5.0, -65281
-  %18 = load i32, ptr %specs, align 16
+  %18 = load i32, ptr %specs, align 8
   %cmp72.not = icmp eq i32 %18, 0
   br i1 %cmp72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %specs, align 16
+  store i32 %dec, ptr %specs, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
@@ -27268,30 +27406,46 @@ lor.lhs.false6.i:                                 ; preds = %land.rhs.i
   %or.cond2.i = icmp ult i32 %20, 30288
   %cmp10.i = icmp ne i32 %cond, 12351
   %or.cond3.i = and i1 %cmp10.i, %or.cond2.i
-  %21 = and i32 %cond, -65538
-  %22 = insertelement <8 x i32> poison, i32 %cond, i64 0
-  %23 = insertelement <8 x i32> %22, i32 %21, i64 1
-  %24 = shufflevector <8 x i32> %23, <8 x i32> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0>
-  %25 = add <8 x i32> %24, <i32 -44032, i32 -63744, i32 -65040, i32 -65072, i32 -65280, i32 -65504, i32 -131072, i32 -127744>
-  %26 = icmp ult <8 x i32> %25, <i32 11172, i32 512, i32 10, i32 64, i32 97, i32 7, i32 65534, i32 848>
-  %27 = bitcast <8 x i1> %26 to i8
-  %28 = icmp ne i8 %27, 0
-  %op.rdx = or i1 %28, %or.cond3.i
-  br i1 %op.rdx, label %_ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %lor.rhs.i
+  %21 = add i32 %cond, -44032
+  %or.cond4.i = icmp ult i32 %21, 11172
+  %or.cond.i = or i1 %or.cond4.i, %or.cond3.i
+  %22 = add i32 %cond, -63744
+  %or.cond5.i = icmp ult i32 %22, 512
+  %or.cond39.i = or i1 %or.cond5.i, %or.cond.i
+  %23 = add i32 %cond, -65040
+  %or.cond6.i = icmp ult i32 %23, 10
+  %or.cond40.i = or i1 %or.cond6.i, %or.cond39.i
+  %24 = add i32 %cond, -65072
+  %or.cond7.i = icmp ult i32 %24, 64
+  %or.cond41.i = or i1 %or.cond7.i, %or.cond40.i
+  %25 = add i32 %cond, -65280
+  %or.cond8.i = icmp ult i32 %25, 97
+  %or.cond42.i = or i1 %or.cond8.i, %or.cond41.i
+  %26 = add i32 %cond, -65504
+  %or.cond9.i = icmp ult i32 %26, 7
+  %or.cond43.i = or i1 %or.cond9.i, %or.cond42.i
+  %27 = and i32 %cond, -65538
+  %28 = add i32 %27, -131072
+  %29 = icmp ult i32 %28, 65534
+  %or.cond45.i = or i1 %29, %or.cond43.i
+  %30 = add i32 %cond, -127744
+  %or.cond12.i = icmp ult i32 %30, 848
+  %or.cond46.i = or i1 %or.cond12.i, %or.cond45.i
+  br i1 %or.cond46.i, label %_ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false6.i
-  %29 = and i32 %cond, -256
-  %30 = icmp eq i32 %29, 129280
-  %31 = select i1 %30, i64 2, i64 1
+  %31 = and i32 %cond, -256
+  %32 = icmp eq i32 %31, 129280
+  %33 = select i1 %32, i64 2, i64 1
   br label %_ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit
 
 _ZZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit: ; preds = %entry, %land.rhs.i, %lor.lhs.false6.i, %lor.rhs.i
-  %conv.i4 = phi i64 [ 1, %entry ], [ 2, %land.rhs.i ], [ %31, %lor.rhs.i ], [ 2, %lor.lhs.false6.i ]
+  %conv.i4 = phi i64 [ 1, %entry ], [ 2, %land.rhs.i ], [ %33, %lor.rhs.i ], [ 2, %lor.lhs.false6.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %buf_ptr, i64 %add.i.i
-  %32 = load ptr, ptr %this, align 8
-  %33 = load i64, ptr %32, align 8
-  %add52.i = add i64 %33, %conv.i4
-  store i64 %add52.i, ptr %32, align 8
+  %34 = load ptr, ptr %this, align 8
+  %35 = load i64, ptr %34, align 8
+  %add52.i = add i64 %35, %conv.i4
+  store i64 %add52.i, ptr %34, align 8
   ret ptr %add.ptr.i
 }
 
@@ -27935,12 +28089,6 @@ declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.bswap.v8i16(<8 x i16>) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i16> @llvm.bswap.v4i16(<4 x i16>) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

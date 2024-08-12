@@ -306,34 +306,36 @@ define hidden void @_ZN21ShenandoahThreadRoots7oops_doEP10OopClosureP14NMethodCl
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 32
-  %14 = load <2 x ptr>, ptr %13, align 8
-  %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
-  %19 = load i8, ptr %18, align 4
-  %20 = trunc i8 %19 to i1
-  call void @_ZN7Threads25possibly_parallel_oops_doEbP10OopClosureP14NMethodClosure(i1 noundef zeroext %20, ptr noundef %1, ptr noundef %2) #12
-  %21 = load ptr, ptr %12, align 8
-  %.not.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i, label %23, label %22
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %10, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = load i8, ptr %19, align 4
+  %21 = trunc i8 %20 to i1
+  call void @_ZN7Threads25possibly_parallel_oops_doEbP10OopClosureP14NMethodClosure(i1 noundef zeroext %21, ptr noundef %1, ptr noundef %2) #12
+  %22 = load ptr, ptr %12, align 8
+  %.not.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i, label %24, label %23
 
-22:                                               ; preds = %4
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %17) #12
+23:                                               ; preds = %4
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %18) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %12) #12
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %4
-  %24 = load ptr, ptr %13, align 8
-  %.not8.i.i.i.i = icmp eq ptr %24, %15
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %25
+24:                                               ; preds = %23, %4
+  %25 = load ptr, ptr %13, align 8
+  %.not8.i.i.i.i = icmp eq ptr %25, %14
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %26
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   store ptr %12, ptr %11, align 8
-  store <2 x ptr> %14, ptr %13, align 8
+  store ptr %14, ptr %13, align 8
+  store ptr %16, ptr %15, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %23, %25
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %24, %26
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #12
   ret void
 }
@@ -352,34 +354,36 @@ define hidden void @_ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej(ptr
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
-  %18 = load i8, ptr %17, align 4
-  %19 = trunc i8 %18 to i1
-  call void @_ZN7Threads28possibly_parallel_threads_doEbP13ThreadClosure(i1 noundef zeroext %19, ptr noundef %1) #12
-  %20 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i, label %22, label %21
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = load i8, ptr %18, align 4
+  %20 = trunc i8 %19 to i1
+  call void @_ZN7Threads28possibly_parallel_threads_doEbP13ThreadClosure(i1 noundef zeroext %20, ptr noundef %1) #12
+  %21 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i.i, label %23, label %22
 
-21:                                               ; preds = %3
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %16) #12
+22:                                               ; preds = %3
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %17) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %11) #12
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %3
-  %23 = load ptr, ptr %12, align 8
-  %.not8.i.i.i.i = icmp eq ptr %23, %14
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %24
+23:                                               ; preds = %22, %3
+  %24 = load ptr, ptr %12, align 8
+  %.not8.i.i.i.i = icmp eq ptr %24, %13
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %25
 
-24:                                               ; preds = %22
+25:                                               ; preds = %23
   store ptr %11, ptr %10, align 8
-  store <2 x ptr> %13, ptr %12, align 8
+  store ptr %13, ptr %12, align 8
+  store ptr %15, ptr %14, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %22, %24
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %23, %25
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #12
   ret void
 }
@@ -1098,34 +1102,36 @@ define hidden void @_ZN22ShenandoahRootAdjuster8roots_doEjP10OopClosure(ptr noun
   %37 = getelementptr inbounds i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %36, i64 32
-  %40 = load <2 x ptr>, ptr %39, align 8
-  %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %36, i64 8
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 460
-  %45 = load i8, ptr %44, align 4
-  %46 = trunc i8 %45 to i1
-  call void @_ZN7Threads25possibly_parallel_oops_doEbP10OopClosureP14NMethodClosure(i1 noundef zeroext %46, ptr noundef %2, ptr noundef null) #12
-  %47 = load ptr, ptr %38, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i.i, label %49, label %48
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %36, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %36, i64 8
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 460
+  %46 = load i8, ptr %45, align 4
+  %47 = trunc i8 %46 to i1
+  call void @_ZN7Threads25possibly_parallel_oops_doEbP10OopClosureP14NMethodClosure(i1 noundef zeroext %47, ptr noundef %2, ptr noundef null) #12
+  %48 = load ptr, ptr %38, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i.i.i, label %50, label %49
 
-48:                                               ; preds = %3
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %36, i64 noundef %43) #12
+49:                                               ; preds = %3
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %36, i64 noundef %44) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %38) #12
-  br label %49
+  br label %50
 
-49:                                               ; preds = %48, %3
-  %50 = load ptr, ptr %39, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %50, %41
-  br i1 %.not8.i.i.i.i.i, label %_ZN21ShenandoahThreadRoots7oops_doEP10OopClosureP14NMethodClosurej.exit, label %51
+50:                                               ; preds = %49, %3
+  %51 = load ptr, ptr %39, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %51, %40
+  br i1 %.not8.i.i.i.i.i, label %_ZN21ShenandoahThreadRoots7oops_doEP10OopClosureP14NMethodClosurej.exit, label %52
 
-51:                                               ; preds = %49
+52:                                               ; preds = %50
   store ptr %38, ptr %37, align 8
-  store <2 x ptr> %40, ptr %39, align 8
+  store ptr %40, ptr %39, align 8
+  store ptr %42, ptr %41, align 8
   br label %_ZN21ShenandoahThreadRoots7oops_doEP10OopClosureP14NMethodClosurej.exit
 
-_ZN21ShenandoahThreadRoots7oops_doEP10OopClosureP14NMethodClosurej.exit: ; preds = %49, %51
+_ZN21ShenandoahThreadRoots7oops_doEP10OopClosureP14NMethodClosurej.exit: ; preds = %50, %52
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   ret void
@@ -1285,95 +1291,99 @@ define hidden void @_ZN34ShenandoahHeapIterationRootScanner8roots_doEP10OopClosu
   %24 = getelementptr inbounds i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 32
-  %27 = load <2 x ptr>, ptr %26, align 8
-  %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
-  call void @_ZN17ShenandoahVMRootsILb0EE7oops_doI10OopClosureEEvPT_j(ptr noundef nonnull align 8 dereferenceable(292) %31, ptr noundef %1, i32 noundef 0)
-  %32 = getelementptr inbounds i8, ptr %0, i64 464
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %23, i64 40
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  call void @_ZN17ShenandoahVMRootsILb0EE7oops_doI10OopClosureEEvPT_j(ptr noundef nonnull align 8 dereferenceable(292) %32, ptr noundef %1, i32 noundef 0)
+  %33 = getelementptr inbounds i8, ptr %0, i64 464
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
-  %33 = getelementptr inbounds i8, ptr %0, i64 1032
-  %34 = load i32, ptr %33, align 8
-  call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %34, i32 noundef 4, i32 noundef 0) #12
-  call void @_ZN25OopStorageSetWeakParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_(ptr noundef nonnull align 8 dereferenceable(568) %32, ptr noundef %1)
+  %34 = getelementptr inbounds i8, ptr %0, i64 1032
+  %35 = load i32, ptr %34, align 8
+  call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %35, i32 noundef 4, i32 noundef 0) #12
+  call void @_ZN25OopStorageSetWeakParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_(ptr noundef nonnull align 8 dereferenceable(568) %33, ptr noundef %1)
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
-  %35 = getelementptr inbounds i8, ptr %0, i64 460
-  %36 = load i32, ptr %35, align 4
-  call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %36, i32 noundef 5, i32 noundef 0) #12
+  %36 = getelementptr inbounds i8, ptr %0, i64 460
+  %37 = load i32, ptr %36, align 4
+  call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %37, i32 noundef 5, i32 noundef 0) #12
   call void @_ZN20ClassLoaderDataGraph6cld_doEP10CLDClosure(ptr noundef nonnull %7) #12
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
-  %37 = getelementptr inbounds i8, ptr %0, i64 1040
+  %38 = getelementptr inbounds i8, ptr %0, i64 1040
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  %38 = load i32, ptr %37, align 8
-  call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef %38, i32 noundef 2, i32 noundef 0) #12
-  %39 = getelementptr inbounds i8, ptr %0, i64 1048
-  call void @_ZN27ShenandoahCodeRootsIterator29possibly_parallel_nmethods_doEP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull %8) #12
+  %39 = load i32, ptr %38, align 8
+  call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef %39, i32 noundef 2, i32 noundef 0) #12
+  %40 = getelementptr inbounds i8, ptr %0, i64 1048
+  call void @_ZN27ShenandoahCodeRootsIterator29possibly_parallel_nmethods_doEP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %8) #12
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  %41 = load i32, ptr %40, align 8
-  call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %41, i32 noundef 1, i32 noundef 0) #12
-  %42 = load ptr, ptr %20, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 800
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 32
-  %48 = load <2 x ptr>, ptr %47, align 8
-  %49 = load ptr, ptr %47, align 8
-  %50 = getelementptr inbounds i8, ptr %44, i64 8
-  %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 28
-  %53 = load i8, ptr %52, align 4
-  %54 = trunc i8 %53 to i1
-  call void @_ZN7Threads28possibly_parallel_threads_doEbP13ThreadClosure(i1 noundef zeroext %54, ptr noundef nonnull %9) #12
-  %55 = load ptr, ptr %46, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i.i.i.i, label %57, label %56
+  %42 = load i32, ptr %41, align 8
+  call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %42, i32 noundef 1, i32 noundef 0) #12
+  %43 = load ptr, ptr %20, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 800
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %45, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %45, i64 40
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %45, i64 8
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 28
+  %55 = load i8, ptr %54, align 4
+  %56 = trunc i8 %55 to i1
+  call void @_ZN7Threads28possibly_parallel_threads_doEbP13ThreadClosure(i1 noundef zeroext %56, ptr noundef nonnull %9) #12
+  %57 = load ptr, ptr %47, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %57, null
+  br i1 %.not.i.i.i.i.i, label %59, label %58
 
-56:                                               ; preds = %2
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %44, i64 noundef %51) #12
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %46) #12
-  br label %57
+58:                                               ; preds = %2
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %45, i64 noundef %53) #12
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %47) #12
+  br label %59
 
-57:                                               ; preds = %56, %2
-  %58 = load ptr, ptr %47, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %58, %49
-  br i1 %.not8.i.i.i.i.i, label %_ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej.exit, label %59
+59:                                               ; preds = %58, %2
+  %60 = load ptr, ptr %48, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %60, %49
+  br i1 %.not8.i.i.i.i.i, label %_ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej.exit, label %61
 
-59:                                               ; preds = %57
-  store ptr %46, ptr %45, align 8
-  store <2 x ptr> %48, ptr %47, align 8
+61:                                               ; preds = %59
+  store ptr %47, ptr %46, align 8
+  store ptr %49, ptr %48, align 8
+  store ptr %51, ptr %50, align 8
   br label %_ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej.exit
 
-_ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej.exit: ; preds = %57, %59
+_ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej.exit: ; preds = %59, %61
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  %60 = load ptr, ptr %25, align 8
-  %.not.i.i.i.i = icmp eq ptr %60, null
-  br i1 %.not.i.i.i.i, label %62, label %61
+  %62 = load ptr, ptr %25, align 8
+  %.not.i.i.i.i = icmp eq ptr %62, null
+  br i1 %.not.i.i.i.i, label %64, label %63
 
-61:                                               ; preds = %_ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef %30) #12
+63:                                               ; preds = %_ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef %31) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %25) #12
-  br label %62
+  br label %64
 
-62:                                               ; preds = %61, %_ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej.exit
-  %63 = load ptr, ptr %26, align 8
-  %.not8.i.i.i.i = icmp eq ptr %63, %28
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %64
+64:                                               ; preds = %63, %_ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej.exit
+  %65 = load ptr, ptr %26, align 8
+  %.not8.i.i.i.i = icmp eq ptr %65, %27
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %66
 
-64:                                               ; preds = %62
+66:                                               ; preds = %64
   store ptr %25, ptr %24, align 8
-  store <2 x ptr> %27, ptr %26, align 8
+  store ptr %27, ptr %26, align 8
+  store ptr %29, ptr %28, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %62, %64
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %64, %66
   ret void
 }
 

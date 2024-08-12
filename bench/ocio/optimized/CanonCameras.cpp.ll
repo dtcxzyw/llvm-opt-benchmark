@@ -21,7 +21,7 @@ $_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev = com
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE = internal global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 16
+@_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE = internal global %"struct.OpenColorIO_v2_4dev::Primaries" zeroinitializer, align 8
 @.str = private unnamed_addr constant [33 x i8] c"CANON_CLOG2-CGAMUT_to_ACES2065-1\00", align 1
 @.str.6 = private unnamed_addr constant [47 x i8] c"Convert Canon Log 2 Cinema Gamut to ACES2065-1\00", align 1
 @.str.7 = private unnamed_addr constant [30 x i8] c"CURVE - CANON_CLOG2_to_LINEAR\00", align 1
@@ -859,10 +859,14 @@ define internal void @_GLOBAL__sub_I_CanonCameras.cpp() #10 section ".text.start
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
-  store <2 x double> <double 0x3FE7AE147AE147AE, double 2.700000e-01>, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, align 16
-  store <2 x double> <double 1.700000e-01, double 1.140000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 16), align 16
-  store <2 x double> <double 8.000000e-02, double -1.000000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 32), align 16
-  store <2 x double> <double 3.127000e-01, double 3.290000e-01>, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 48), align 16
+  store double 0x3FE7AE147AE147AE, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, align 8
+  store double 2.700000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 8), align 8
+  store double 1.700000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 16), align 8
+  store double 1.140000e+00, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 24), align 8
+  store double 8.000000e-02, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 32), align 8
+  store double -1.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 40), align 8
+  store double 3.127000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 48), align 8
+  store double 3.290000e-01, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 56), align 8
   ret void
 }
 

@@ -35,7 +35,7 @@ define hidden range(i32 0, 2) i32 @ir_perf_jitdump_open() local_unnamed_addr #0 
 
 ir_perf_timestamp.exit.thread:                    ; preds = %0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br label %55
+  br label %64
 
 ir_perf_timestamp.exit:                           ; preds = %0
   %9 = load i64, ptr %2, align 8
@@ -45,89 +45,99 @@ ir_perf_timestamp.exit:                           ; preds = %0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %13 = sub i64 0, %12
   %.not = icmp eq i64 %10, %13
-  br i1 %.not, label %55, label %14
+  br i1 %.not, label %64, label %14
 
 14:                                               ; preds = %ir_perf_timestamp.exit
   %15 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.1, i32 noundef 0) #7
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %55, label %17
+  br i1 %16, label %64, label %17
 
 17:                                               ; preds = %14
   %18 = call i64 @read(i32 noundef %15, ptr noundef nonnull %4, i64 noundef 64) #7
   %19 = call i32 @close(i32 noundef %15) #7
   %sext.mask = and i64 %18, 4294967295
   %20 = icmp ne i64 %sext.mask, 64
-  %21 = load <4 x i8>, ptr %4, align 8
-  %.fr = freeze <4 x i8> %21
-  %.fr.scalar = bitcast <4 x i8> %.fr to i32
-  %22 = icmp ne i32 %.fr.scalar, 1179403647
-  %op.rdx = or i1 %20, %22
-  br i1 %op.rdx, label %55, label %23
+  %21 = load i8, ptr %4, align 8
+  %22 = icmp ne i8 %21, 127
+  %or.cond = select i1 %20, i1 true, i1 %22
+  %23 = getelementptr inbounds i8, ptr %4, i64 1
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp ne i8 %24, 69
+  %or.cond9 = select i1 %or.cond, i1 true, i1 %25
+  %26 = getelementptr inbounds i8, ptr %4, i64 2
+  %27 = load i8, ptr %26, align 2
+  %28 = icmp ne i8 %27, 76
+  %or.cond14 = select i1 %or.cond9, i1 true, i1 %28
+  %29 = getelementptr inbounds i8, ptr %4, i64 3
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp ne i8 %30, 70
+  %or.cond19 = select i1 %or.cond14, i1 true, i1 %31
+  br i1 %or.cond19, label %64, label %32
 
-23:                                               ; preds = %17
-  %24 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 578, i32 noundef 438) #7
-  store i32 %24, ptr @jitdump_fd, align 4
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %55, label %26
+32:                                               ; preds = %17
+  %33 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 578, i32 noundef 438) #7
+  store i32 %33, ptr @jitdump_fd, align 4
+  %34 = icmp slt i32 %33, 0
+  br i1 %34, label %64, label %35
 
-26:                                               ; preds = %23
-  %27 = call i64 @sysconf(i32 noundef 30) #7
-  %28 = load i32, ptr @jitdump_fd, align 4
-  %29 = call ptr @mmap(ptr noundef null, i64 noundef %27, i32 noundef 5, i32 noundef 2, i32 noundef %28, i64 noundef 0) #7
-  store ptr %29, ptr @jitdump_mem, align 8
-  %30 = icmp eq ptr %29, inttoptr (i64 -1 to ptr)
-  br i1 %30, label %31, label %34
+35:                                               ; preds = %32
+  %36 = call i64 @sysconf(i32 noundef 30) #7
+  %37 = load i32, ptr @jitdump_fd, align 4
+  %38 = call ptr @mmap(ptr noundef null, i64 noundef %36, i32 noundef 5, i32 noundef 2, i32 noundef %37, i64 noundef 0) #7
+  store ptr %38, ptr @jitdump_mem, align 8
+  %39 = icmp eq ptr %38, inttoptr (i64 -1 to ptr)
+  br i1 %39, label %40, label %43
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr @jitdump_fd, align 4
-  %33 = call i32 @close(i32 noundef %32) #7
+40:                                               ; preds = %35
+  %41 = load i32, ptr @jitdump_fd, align 4
+  %42 = call i32 @close(i32 noundef %41) #7
   store i32 -1, ptr @jitdump_fd, align 4
-  br label %55
+  br label %64
 
-34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 0, ptr %35, align 8
+43:                                               ; preds = %35
+  %44 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 0, ptr %44, align 8
   store i32 1248416836, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 40, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 18
-  %39 = load i16, ptr %38, align 2
-  %40 = zext i16 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %5, i64 12
-  store i32 %40, ptr %41, align 4
-  %42 = call i32 @getpid() #7
-  %43 = getelementptr inbounds i8, ptr %5, i64 20
-  store i32 %42, ptr %43, align 4
+  %45 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 1, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 40, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %4, i64 18
+  %48 = load i16, ptr %47, align 2
+  %49 = zext i16 %48 to i32
+  %50 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %49, ptr %50, align 4
+  %51 = call i32 @getpid() #7
+  %52 = getelementptr inbounds i8, ptr %5, i64 20
+  store i32 %51, ptr %52, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  %44 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #7
-  %.not.i26 = icmp eq i32 %44, 0
-  br i1 %.not.i26, label %45, label %ir_perf_timestamp.exit28
+  %53 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #7
+  %.not.i26 = icmp eq i32 %53, 0
+  br i1 %.not.i26, label %54, label %ir_perf_timestamp.exit28
 
-45:                                               ; preds = %34
-  %46 = load i64, ptr %1, align 8
-  %47 = mul i64 %46, 1000000000
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
-  %49 = load i64, ptr %48, align 8
-  %50 = add i64 %47, %49
+54:                                               ; preds = %43
+  %55 = load i64, ptr %1, align 8
+  %56 = mul i64 %55, 1000000000
+  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = add i64 %56, %58
   br label %ir_perf_timestamp.exit28
 
-ir_perf_timestamp.exit28:                         ; preds = %34, %45
-  %.0.i27 = phi i64 [ %50, %45 ], [ 0, %34 ]
+ir_perf_timestamp.exit28:                         ; preds = %43, %54
+  %.0.i27 = phi i64 [ %59, %54 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
-  %51 = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 %.0.i27, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 32
-  store i64 0, ptr %52, align 8
-  %53 = load i32, ptr @jitdump_fd, align 4
-  %54 = call i64 @write(i32 noundef %53, ptr noundef nonnull %5, i64 noundef 40) #7
-  %.not25 = icmp eq i64 %54, 40
+  %60 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 %.0.i27, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %5, i64 32
+  store i64 0, ptr %61, align 8
+  %62 = load i32, ptr @jitdump_fd, align 4
+  %63 = call i64 @write(i32 noundef %62, ptr noundef nonnull %5, i64 noundef 40) #7
+  %.not25 = icmp eq i64 %63, 40
   %. = zext i1 %.not25 to i32
-  br label %55
+  br label %64
 
-55:                                               ; preds = %ir_perf_timestamp.exit.thread, %ir_perf_timestamp.exit28, %23, %17, %14, %ir_perf_timestamp.exit, %31
-  %.0 = phi i32 [ 0, %31 ], [ 0, %ir_perf_timestamp.exit ], [ 0, %14 ], [ 0, %17 ], [ 0, %23 ], [ %., %ir_perf_timestamp.exit28 ], [ 0, %ir_perf_timestamp.exit.thread ]
+64:                                               ; preds = %ir_perf_timestamp.exit.thread, %ir_perf_timestamp.exit28, %32, %17, %14, %ir_perf_timestamp.exit, %40
+  %.0 = phi i32 [ 0, %40 ], [ 0, %ir_perf_timestamp.exit ], [ 0, %14 ], [ 0, %17 ], [ 0, %32 ], [ %., %ir_perf_timestamp.exit28 ], [ 0, %ir_perf_timestamp.exit.thread ]
   ret i32 %.0
 }
 

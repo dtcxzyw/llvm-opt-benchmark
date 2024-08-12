@@ -1588,7 +1588,7 @@ define linkonce_odr void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrName
   %4 = alloca %"struct.pkpy::SmallNameDict", align 8
   %5 = load i8, ptr %0, align 8
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %83
+  br i1 %6, label %7, label %84
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1659,81 +1659,85 @@ _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit: ; preds = 
   store i8 0, ptr %0, align 8
   store float 0x3FE570A3E0000000, ptr %8, align 4
   %39 = getelementptr inbounds i8, ptr %0, i64 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 12
-  %41 = getelementptr inbounds i8, ptr %0, i64 14
-  store <4 x i16> <i16 0, i16 32, i16 21, i16 31>, ptr %39, align 8
+  store i16 0, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 10
+  store i16 32, ptr %40, align 2
+  %41 = getelementptr inbounds i8, ptr %0, i64 12
+  store i16 21, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %0, i64 14
+  store i16 31, ptr %42, align 2
   %calloc.i.i = tail call dereferenceable_or_null(512) ptr @calloc(i64 1, i64 512)
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %calloc.i.i, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %calloc.i.i, ptr %43, align 8
   call void @_ZNK4pkpy13SmallNameDictIPNS_8PyObjectEE5applyIZNS_12NameDictImplIS2_E3setENS_7StrNameES2_EUlS7_S2_E_EEvT_(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr nonnull %0)
-  %43 = load i16, ptr %41, align 2
-  %44 = and i16 %43, %1
-  %45 = load ptr, ptr %42, align 8
-  %46 = zext i16 %44 to i64
-  %47 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %45, i64 %46
-  %48 = load i16, ptr %47, align 2
-  %49 = icmp eq i16 %48, 0
-  br i1 %49, label %.critedge.i, label %.lr.ph.i
+  %44 = load i16, ptr %42, align 2
+  %45 = and i16 %44, %1
+  %46 = load ptr, ptr %43, align 8
+  %47 = zext i16 %45 to i64
+  %48 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %46, i64 %47
+  %49 = load i16, ptr %48, align 2
+  %50 = icmp eq i16 %49, 0
+  br i1 %50, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit, %52
-  %50 = phi i16 [ %57, %52 ], [ %48, %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit ]
-  %.017.i = phi i16 [ %54, %52 ], [ %44, %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit ]
-  %51 = icmp eq i16 %50, %1
-  br i1 %51, label %.loopexit14.i, label %52
+.lr.ph.i:                                         ; preds = %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit, %53
+  %51 = phi i16 [ %58, %53 ], [ %49, %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit ]
+  %.017.i = phi i16 [ %55, %53 ], [ %45, %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit ]
+  %52 = icmp eq i16 %51, %1
+  br i1 %52, label %.loopexit14.i, label %53
 
-52:                                               ; preds = %.lr.ph.i
-  %53 = add i16 %.017.i, 1
-  %54 = and i16 %53, %43
-  %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %45, i64 %55
-  %57 = load i16, ptr %56, align 2
-  %58 = icmp eq i16 %57, 0
-  br i1 %58, label %.critedge.i, label %.lr.ph.i, !llvm.loop !7
+53:                                               ; preds = %.lr.ph.i
+  %54 = add i16 %.017.i, 1
+  %55 = and i16 %54, %44
+  %56 = zext i16 %55 to i64
+  %57 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %46, i64 %56
+  %58 = load i16, ptr %57, align 2
+  %59 = icmp eq i16 %58, 0
+  br i1 %59, label %.critedge.i, label %.lr.ph.i, !llvm.loop !7
 
-.critedge.i:                                      ; preds = %52, %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit
-  %.0.lcssa.i = phi i16 [ %44, %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit ], [ %54, %52 ]
-  %59 = load i16, ptr %39, align 8
-  %60 = add i16 %59, 1
-  store i16 %60, ptr %39, align 8
-  %61 = load i16, ptr %40, align 4
-  %62 = icmp ugt i16 %60, %61
-  br i1 %62, label %63, label %.critedge..loopexit_crit_edge.i
+.critedge.i:                                      ; preds = %53, %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit
+  %.0.lcssa.i = phi i16 [ %45, %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit ], [ %55, %53 ]
+  %60 = load i16, ptr %39, align 8
+  %61 = add i16 %60, 1
+  store i16 %61, ptr %39, align 8
+  %62 = load i16, ptr %41, align 4
+  %63 = icmp ugt i16 %61, %62
+  br i1 %63, label %64, label %.critedge..loopexit_crit_edge.i
 
 .critedge..loopexit_crit_edge.i:                  ; preds = %.critedge.i
   %.pre25.i = zext i16 %.0.lcssa.i to i64
   br label %.loopexit.i
 
-63:                                               ; preds = %.critedge.i
+64:                                               ; preds = %.critedge.i
   call void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %64 = load i16, ptr %41, align 2
-  %65 = and i16 %64, %1
-  %66 = load ptr, ptr %42, align 8
-  %67 = zext i16 %65 to i64
-  %68 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %66, i64 %67
-  %69 = load i16, ptr %68, align 2
-  %70 = icmp eq i16 %69, 0
-  %71 = icmp eq i16 %69, %1
-  %or.cond18.i = or i1 %70, %71
+  %65 = load i16, ptr %42, align 2
+  %66 = and i16 %65, %1
+  %67 = load ptr, ptr %43, align 8
+  %68 = zext i16 %66 to i64
+  %69 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %67, i64 %68
+  %70 = load i16, ptr %69, align 2
+  %71 = icmp eq i16 %70, 0
+  %72 = icmp eq i16 %70, %1
+  %or.cond18.i = or i1 %71, %72
   br i1 %or.cond18.i, label %.loopexit.i, label %.lr.ph20.i
 
-.lr.ph20.i:                                       ; preds = %63, %.lr.ph20.i
-  %.319.i = phi i16 [ %73, %.lr.ph20.i ], [ %65, %63 ]
-  %72 = add i16 %.319.i, 1
-  %73 = and i16 %72, %64
-  %74 = zext i16 %73 to i64
-  %75 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %66, i64 %74
-  %76 = load i16, ptr %75, align 2
-  %77 = icmp eq i16 %76, 0
-  %78 = icmp eq i16 %76, %1
-  %or.cond.i = or i1 %77, %78
+.lr.ph20.i:                                       ; preds = %64, %.lr.ph20.i
+  %.319.i = phi i16 [ %74, %.lr.ph20.i ], [ %66, %64 ]
+  %73 = add i16 %.319.i, 1
+  %74 = and i16 %73, %65
+  %75 = zext i16 %74 to i64
+  %76 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %67, i64 %75
+  %77 = load i16, ptr %76, align 2
+  %78 = icmp eq i16 %77, 0
+  %79 = icmp eq i16 %77, %1
+  %or.cond.i = or i1 %78, %79
   br i1 %or.cond.i, label %.loopexit.i, label %.lr.ph20.i, !llvm.loop !8
 
-.loopexit.i:                                      ; preds = %.lr.ph20.i, %63, %.critedge..loopexit_crit_edge.i
-  %.pre-phi26.i = phi i64 [ %.pre25.i, %.critedge..loopexit_crit_edge.i ], [ %67, %63 ], [ %74, %.lr.ph20.i ]
-  %79 = phi ptr [ %45, %.critedge..loopexit_crit_edge.i ], [ %66, %63 ], [ %66, %.lr.ph20.i ]
-  %80 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %79, i64 %.pre-phi26.i
-  store i16 %1, ptr %80, align 8
-  %.pre.i = load ptr, ptr %42, align 8
+.loopexit.i:                                      ; preds = %.lr.ph20.i, %64, %.critedge..loopexit_crit_edge.i
+  %.pre-phi26.i = phi i64 [ %.pre25.i, %.critedge..loopexit_crit_edge.i ], [ %68, %64 ], [ %75, %.lr.ph20.i ]
+  %80 = phi ptr [ %46, %.critedge..loopexit_crit_edge.i ], [ %67, %64 ], [ %67, %.lr.ph20.i ]
+  %81 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %80, i64 %.pre-phi26.i
+  store i16 %1, ptr %81, align 8
+  %.pre.i = load ptr, ptr %43, align 8
   br label %_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit
 
 .loopexit14.i:                                    ; preds = %.lr.ph.i
@@ -1742,84 +1746,84 @@ _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit: ; preds = 
 
 _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.loopexit.i, %.loopexit14.i
   %.pre-phi.i = phi i64 [ %.pre24.i, %.loopexit14.i ], [ %.pre-phi26.i, %.loopexit.i ]
-  %81 = phi ptr [ %45, %.loopexit14.i ], [ %.pre.i, %.loopexit.i ]
-  %82 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %81, i64 %.pre-phi.i, i32 1
-  store ptr %2, ptr %82, align 8
+  %82 = phi ptr [ %46, %.loopexit14.i ], [ %.pre.i, %.loopexit.i ]
+  %83 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %82, i64 %.pre-phi.i, i32 1
+  store ptr %2, ptr %83, align 8
   br label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit.thread
 
-83:                                               ; preds = %3
-  %84 = getelementptr inbounds i8, ptr %0, i64 14
-  %85 = load i16, ptr %84, align 2
-  %86 = and i16 %85, %1
-  %87 = getelementptr inbounds i8, ptr %0, i64 16
-  %88 = load ptr, ptr %87, align 8
-  %89 = zext i16 %86 to i64
-  %90 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %88, i64 %89
-  %91 = load i16, ptr %90, align 2
-  %92 = icmp eq i16 %91, 0
-  br i1 %92, label %.critedge.i12, label %.lr.ph.i10
+84:                                               ; preds = %3
+  %85 = getelementptr inbounds i8, ptr %0, i64 14
+  %86 = load i16, ptr %85, align 2
+  %87 = and i16 %86, %1
+  %88 = getelementptr inbounds i8, ptr %0, i64 16
+  %89 = load ptr, ptr %88, align 8
+  %90 = zext i16 %87 to i64
+  %91 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %89, i64 %90
+  %92 = load i16, ptr %91, align 2
+  %93 = icmp eq i16 %92, 0
+  br i1 %93, label %.critedge.i12, label %.lr.ph.i10
 
-.lr.ph.i10:                                       ; preds = %83, %95
-  %93 = phi i16 [ %100, %95 ], [ %91, %83 ]
-  %.017.i11 = phi i16 [ %97, %95 ], [ %86, %83 ]
-  %94 = icmp eq i16 %93, %1
-  br i1 %94, label %.loopexit14.i24, label %95
+.lr.ph.i10:                                       ; preds = %84, %96
+  %94 = phi i16 [ %101, %96 ], [ %92, %84 ]
+  %.017.i11 = phi i16 [ %98, %96 ], [ %87, %84 ]
+  %95 = icmp eq i16 %94, %1
+  br i1 %95, label %.loopexit14.i24, label %96
 
-95:                                               ; preds = %.lr.ph.i10
-  %96 = add i16 %.017.i11, 1
-  %97 = and i16 %96, %85
-  %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %88, i64 %98
-  %100 = load i16, ptr %99, align 2
-  %101 = icmp eq i16 %100, 0
-  br i1 %101, label %.critedge.i12, label %.lr.ph.i10, !llvm.loop !7
+96:                                               ; preds = %.lr.ph.i10
+  %97 = add i16 %.017.i11, 1
+  %98 = and i16 %97, %86
+  %99 = zext i16 %98 to i64
+  %100 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %89, i64 %99
+  %101 = load i16, ptr %100, align 2
+  %102 = icmp eq i16 %101, 0
+  br i1 %102, label %.critedge.i12, label %.lr.ph.i10, !llvm.loop !7
 
-.critedge.i12:                                    ; preds = %95, %83
-  %.0.lcssa.i13 = phi i16 [ %86, %83 ], [ %97, %95 ]
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
-  %103 = load i16, ptr %102, align 8
-  %104 = add i16 %103, 1
-  store i16 %104, ptr %102, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 12
-  %106 = load i16, ptr %105, align 4
-  %107 = icmp ugt i16 %104, %106
-  br i1 %107, label %108, label %.critedge..loopexit_crit_edge.i14
+.critedge.i12:                                    ; preds = %96, %84
+  %.0.lcssa.i13 = phi i16 [ %87, %84 ], [ %98, %96 ]
+  %103 = getelementptr inbounds i8, ptr %0, i64 8
+  %104 = load i16, ptr %103, align 8
+  %105 = add i16 %104, 1
+  store i16 %105, ptr %103, align 8
+  %106 = getelementptr inbounds i8, ptr %0, i64 12
+  %107 = load i16, ptr %106, align 4
+  %108 = icmp ugt i16 %105, %107
+  br i1 %108, label %109, label %.critedge..loopexit_crit_edge.i14
 
 .critedge..loopexit_crit_edge.i14:                ; preds = %.critedge.i12
   %.pre25.i15 = zext i16 %.0.lcssa.i13 to i64
   br label %.loopexit.i16
 
-108:                                              ; preds = %.critedge.i12
+109:                                              ; preds = %.critedge.i12
   tail call void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %109 = load i16, ptr %84, align 2
-  %110 = and i16 %109, %1
-  %111 = load ptr, ptr %87, align 8
-  %112 = zext i16 %110 to i64
-  %113 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %111, i64 %112
-  %114 = load i16, ptr %113, align 2
-  %115 = icmp eq i16 %114, 0
-  %116 = icmp eq i16 %114, %1
-  %or.cond18.i20 = or i1 %115, %116
+  %110 = load i16, ptr %85, align 2
+  %111 = and i16 %110, %1
+  %112 = load ptr, ptr %88, align 8
+  %113 = zext i16 %111 to i64
+  %114 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %112, i64 %113
+  %115 = load i16, ptr %114, align 2
+  %116 = icmp eq i16 %115, 0
+  %117 = icmp eq i16 %115, %1
+  %or.cond18.i20 = or i1 %116, %117
   br i1 %or.cond18.i20, label %.loopexit.i16, label %.lr.ph20.i21
 
-.lr.ph20.i21:                                     ; preds = %108, %.lr.ph20.i21
-  %.319.i22 = phi i16 [ %118, %.lr.ph20.i21 ], [ %110, %108 ]
-  %117 = add i16 %.319.i22, 1
-  %118 = and i16 %117, %109
-  %119 = zext i16 %118 to i64
-  %120 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %111, i64 %119
-  %121 = load i16, ptr %120, align 2
-  %122 = icmp eq i16 %121, 0
-  %123 = icmp eq i16 %121, %1
-  %or.cond.i23 = or i1 %122, %123
+.lr.ph20.i21:                                     ; preds = %109, %.lr.ph20.i21
+  %.319.i22 = phi i16 [ %119, %.lr.ph20.i21 ], [ %111, %109 ]
+  %118 = add i16 %.319.i22, 1
+  %119 = and i16 %118, %110
+  %120 = zext i16 %119 to i64
+  %121 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %112, i64 %120
+  %122 = load i16, ptr %121, align 2
+  %123 = icmp eq i16 %122, 0
+  %124 = icmp eq i16 %122, %1
+  %or.cond.i23 = or i1 %123, %124
   br i1 %or.cond.i23, label %.loopexit.i16, label %.lr.ph20.i21, !llvm.loop !8
 
-.loopexit.i16:                                    ; preds = %.lr.ph20.i21, %108, %.critedge..loopexit_crit_edge.i14
-  %.pre-phi26.i17 = phi i64 [ %.pre25.i15, %.critedge..loopexit_crit_edge.i14 ], [ %112, %108 ], [ %119, %.lr.ph20.i21 ]
-  %124 = phi ptr [ %88, %.critedge..loopexit_crit_edge.i14 ], [ %111, %108 ], [ %111, %.lr.ph20.i21 ]
-  %125 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %124, i64 %.pre-phi26.i17
-  store i16 %1, ptr %125, align 8
-  %.pre.i18 = load ptr, ptr %87, align 8
+.loopexit.i16:                                    ; preds = %.lr.ph20.i21, %109, %.critedge..loopexit_crit_edge.i14
+  %.pre-phi26.i17 = phi i64 [ %.pre25.i15, %.critedge..loopexit_crit_edge.i14 ], [ %113, %109 ], [ %120, %.lr.ph20.i21 ]
+  %125 = phi ptr [ %89, %.critedge..loopexit_crit_edge.i14 ], [ %112, %109 ], [ %112, %.lr.ph20.i21 ]
+  %126 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %125, i64 %.pre-phi26.i17
+  store i16 %1, ptr %126, align 8
+  %.pre.i18 = load ptr, ptr %88, align 8
   br label %_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit26
 
 .loopexit14.i24:                                  ; preds = %.lr.ph.i10
@@ -1828,9 +1832,9 @@ _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit: ; preds = %.lo
 
 _ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit26: ; preds = %.loopexit.i16, %.loopexit14.i24
   %.pre-phi.i19 = phi i64 [ %.pre24.i25, %.loopexit14.i24 ], [ %.pre-phi26.i17, %.loopexit.i16 ]
-  %126 = phi ptr [ %88, %.loopexit14.i24 ], [ %.pre.i18, %.loopexit.i16 ]
-  %127 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %126, i64 %.pre-phi.i19, i32 1
-  store ptr %2, ptr %127, align 8
+  %127 = phi ptr [ %89, %.loopexit14.i24 ], [ %.pre.i18, %.loopexit.i16 ]
+  %128 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %127, i64 %.pre-phi.i19, i32 1
+  store ptr %2, ptr %128, align 8
   br label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit.thread
 
 _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE7try_setENS_7StrNameES2_.exit.thread: ; preds = %34, %26, %14, %_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit, %_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE3setENS_7StrNameES2_.exit26
@@ -5873,85 +5877,84 @@ define noundef zeroext i1 @_ZNK4pkpy6Mat3x3neERKS0_(ptr nocapture noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4pkpy6Mat3x36matmulERKS0_(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Mat3x3") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2) local_unnamed_addr #3 align 2 {
   tail call void @_ZN4pkpy6Mat3x3C1Ev(ptr noundef nonnull align 4 dereferenceable(36) %0)
-  %4 = load <4 x float>, ptr %1, align 4
+  %4 = load float, ptr %1, align 4
   %5 = load float, ptr %2, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = load <4 x float>, ptr %6, align 4
+  %7 = load float, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %2, i64 12
   %9 = load float, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load <4 x float>, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = fmul float %7, %9
+  %11 = tail call float @llvm.fmuladd.f32(float %4, float %5, float %10)
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load float, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
-  %16 = getelementptr inbounds i8, ptr %2, i64 28
-  %17 = load <2 x float>, ptr %14, align 4
-  %18 = load <2 x float>, ptr %15, align 4
-  %19 = load <2 x float>, ptr %16, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 12
-  %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 20
-  %25 = load float, ptr %24, align 4
-  %26 = insertelement <4 x float> poison, float %9, i64 0
-  %27 = shufflevector <2 x float> %18, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %28 = shufflevector <4 x float> %26, <4 x float> %27, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %29 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %30 = insertelement <4 x float> %7, float %23, i64 1
-  %31 = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %32 = fmul <4 x float> %29, %31
-  %33 = insertelement <4 x float> %4, float %21, i64 1
-  %34 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %35 = insertelement <4 x float> poison, float %5, i64 0
-  %36 = shufflevector <2 x float> %17, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %37 = shufflevector <4 x float> %35, <4 x float> %36, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %38 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %39 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %34, <4 x float> %38, <4 x float> %32)
-  %40 = insertelement <4 x float> %11, float %25, i64 1
-  %41 = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %42 = insertelement <4 x float> poison, float %13, i64 0
-  %43 = shufflevector <2 x float> %19, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %44 = shufflevector <4 x float> %42, <4 x float> %43, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %45 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %46 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %41, <4 x float> %45, <4 x float> %39)
-  store <4 x float> %46, ptr %0, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
-  %48 = getelementptr inbounds i8, ptr %1, i64 24
-  %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 28
-  %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 32
-  %53 = load float, ptr %52, align 4
-  %54 = insertelement <4 x float> %27, float %9, i64 1
-  %55 = shufflevector <4 x float> %54, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %56 = insertelement <4 x float> poison, float %23, i64 0
-  %57 = insertelement <4 x float> %56, float %51, i64 1
-  %58 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %59 = fmul <4 x float> %55, %58
-  %60 = insertelement <4 x float> poison, float %21, i64 0
-  %61 = insertelement <4 x float> %60, float %49, i64 1
-  %62 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %63 = insertelement <4 x float> %36, float %5, i64 1
-  %64 = shufflevector <4 x float> %63, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %65 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %62, <4 x float> %64, <4 x float> %59)
-  %66 = insertelement <4 x float> poison, float %25, i64 0
-  %67 = insertelement <4 x float> %66, float %53, i64 1
-  %68 = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %69 = insertelement <4 x float> %43, float %13, i64 1
-  %70 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %71 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %68, <4 x float> %70, <4 x float> %65)
-  %72 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  store <4 x float> %72, ptr %47, align 4
-  %73 = extractelement <2 x float> %18, i64 1
-  %74 = fmul float %73, %51
-  %75 = extractelement <2 x float> %17, i64 1
-  %76 = tail call float @llvm.fmuladd.f32(float %49, float %75, float %74)
-  %77 = extractelement <2 x float> %19, i64 1
-  %78 = tail call float @llvm.fmuladd.f32(float %53, float %77, float %76)
-  %79 = getelementptr inbounds i8, ptr %0, i64 32
-  store float %78, ptr %79, align 4
+  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = load float, ptr %14, align 4
+  %16 = tail call float @llvm.fmuladd.f32(float %13, float %15, float %11)
+  store float %16, ptr %0, align 4
+  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %18 = load float, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = load float, ptr %19, align 4
+  %21 = fmul float %7, %20
+  %22 = tail call float @llvm.fmuladd.f32(float %4, float %18, float %21)
+  %23 = getelementptr inbounds i8, ptr %2, i64 28
+  %24 = load float, ptr %23, align 4
+  %25 = tail call float @llvm.fmuladd.f32(float %13, float %24, float %22)
+  %26 = getelementptr inbounds i8, ptr %0, i64 4
+  store float %25, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = load float, ptr %27, align 4
+  %29 = getelementptr inbounds i8, ptr %2, i64 20
+  %30 = load float, ptr %29, align 4
+  %31 = fmul float %7, %30
+  %32 = tail call float @llvm.fmuladd.f32(float %4, float %28, float %31)
+  %33 = getelementptr inbounds i8, ptr %2, i64 32
+  %34 = load float, ptr %33, align 4
+  %35 = tail call float @llvm.fmuladd.f32(float %13, float %34, float %32)
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  store float %35, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %1, i64 12
+  %38 = load float, ptr %37, align 4
+  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = load float, ptr %39, align 4
+  %41 = fmul float %9, %40
+  %42 = tail call float @llvm.fmuladd.f32(float %38, float %5, float %41)
+  %43 = getelementptr inbounds i8, ptr %1, i64 20
+  %44 = load float, ptr %43, align 4
+  %45 = tail call float @llvm.fmuladd.f32(float %44, float %15, float %42)
+  %46 = getelementptr inbounds i8, ptr %0, i64 12
+  store float %45, ptr %46, align 4
+  %47 = fmul float %20, %40
+  %48 = tail call float @llvm.fmuladd.f32(float %38, float %18, float %47)
+  %49 = tail call float @llvm.fmuladd.f32(float %44, float %24, float %48)
+  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  store float %49, ptr %50, align 4
+  %51 = fmul float %30, %40
+  %52 = tail call float @llvm.fmuladd.f32(float %38, float %28, float %51)
+  %53 = tail call float @llvm.fmuladd.f32(float %44, float %34, float %52)
+  %54 = getelementptr inbounds i8, ptr %0, i64 20
+  store float %53, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = load float, ptr %55, align 4
+  %57 = getelementptr inbounds i8, ptr %1, i64 28
+  %58 = load float, ptr %57, align 4
+  %59 = fmul float %9, %58
+  %60 = tail call float @llvm.fmuladd.f32(float %56, float %5, float %59)
+  %61 = getelementptr inbounds i8, ptr %1, i64 32
+  %62 = load float, ptr %61, align 4
+  %63 = tail call float @llvm.fmuladd.f32(float %62, float %15, float %60)
+  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  store float %63, ptr %64, align 4
+  %65 = fmul float %20, %58
+  %66 = tail call float @llvm.fmuladd.f32(float %56, float %18, float %65)
+  %67 = tail call float @llvm.fmuladd.f32(float %62, float %24, float %66)
+  %68 = getelementptr inbounds i8, ptr %0, i64 28
+  store float %67, ptr %68, align 4
+  %69 = fmul float %30, %58
+  %70 = tail call float @llvm.fmuladd.f32(float %56, float %28, float %69)
+  %71 = tail call float @llvm.fmuladd.f32(float %62, float %34, float %70)
+  %72 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %71, ptr %72, align 4
   ret void
 }
 
@@ -5960,48 +5963,41 @@ declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { <2 x float>, float } @_ZNK4pkpy6Mat3x36matmulERKNS_4Vec3E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #7 align 2 {
-  %3 = load <4 x float>, ptr %0, align 4
-  %4 = shufflevector <4 x float> %3, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %5 = load float, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %7 = load <4 x float>, ptr %6, align 4
-  %8 = shufflevector <4 x float> %7, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
-  %10 = load float, ptr %9, align 4
+  %3 = load float, ptr %0, align 4
+  %4 = load float, ptr %1, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = load float, ptr %5, align 4
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = load float, ptr %7, align 4
+  %9 = fmul float %6, %8
+  %10 = tail call float @llvm.fmuladd.f32(float %3, float %4, float %9)
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load <4 x float>, ptr %11, align 4
-  %13 = shufflevector <4 x float> %12, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = load float, ptr %14, align 4
+  %12 = load float, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load float, ptr %13, align 4
+  %15 = tail call float @llvm.fmuladd.f32(float %12, float %14, float %10)
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %15, i64 0
   %16 = getelementptr inbounds i8, ptr %0, i64 12
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
-  %21 = load float, ptr %20, align 4
-  %22 = insertelement <2 x float> poison, float %10, i64 0
-  %23 = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> zeroinitializer
-  %24 = insertelement <2 x float> %8, float %19, i64 1
-  %25 = fmul <2 x float> %23, %24
-  %26 = insertelement <2 x float> %4, float %17, i64 1
-  %27 = insertelement <2 x float> poison, float %5, i64 0
-  %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
-  %29 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> %28, <2 x float> %25)
-  %30 = insertelement <2 x float> %13, float %21, i64 1
-  %31 = insertelement <2 x float> poison, float %15, i64 0
-  %32 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> zeroinitializer
-  %33 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %30, <2 x float> %32, <2 x float> %29)
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 28
-  %37 = load float, ptr %36, align 4
-  %38 = fmul float %10, %37
-  %39 = tail call float @llvm.fmuladd.f32(float %35, float %5, float %38)
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
-  %41 = load float, ptr %40, align 4
-  %42 = tail call float @llvm.fmuladd.f32(float %41, float %15, float %39)
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %33, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %42, 1
+  %20 = fmul float %8, %19
+  %21 = tail call float @llvm.fmuladd.f32(float %17, float %4, float %20)
+  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = load float, ptr %22, align 4
+  %24 = tail call float @llvm.fmuladd.f32(float %23, float %14, float %21)
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %24, i64 1
+  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = load float, ptr %25, align 4
+  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  %28 = load float, ptr %27, align 4
+  %29 = fmul float %8, %28
+  %30 = tail call float @llvm.fmuladd.f32(float %26, float %4, float %29)
+  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = load float, ptr %31, align 4
+  %33 = tail call float @llvm.fmuladd.f32(float %32, float %14, float %30)
+  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.4.vec.insert, 0
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %33, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 
@@ -6045,13 +6041,40 @@ define noundef float @_ZNK4pkpy6Mat3x311determinantEv(ptr nocapture noundef nonn
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4pkpy6Mat3x39transposeEv(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Mat3x3") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %1) local_unnamed_addr #3 align 2 {
   tail call void @_ZN4pkpy6Mat3x3C1Ev(ptr noundef nonnull align 4 dereferenceable(36) %0)
-  %3 = load <8 x float>, ptr %1, align 4
-  %4 = shufflevector <8 x float> %3, <8 x float> poison, <8 x i32> <i32 0, i32 3, i32 6, i32 1, i32 4, i32 7, i32 2, i32 5>
-  store <8 x float> %4, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
-  %6 = load float, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  store float %6, ptr %7, align 4
+  %3 = load float, ptr %1, align 4
+  store float %3, ptr %0, align 4
+  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = load float, ptr %4, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  store float %5, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = load float, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store float %8, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = load float, ptr %10, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  store float %11, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = load float, ptr %13, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store float %14, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %1, i64 28
+  %17 = load float, ptr %16, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  store float %17, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = load float, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  store float %20, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %1, i64 20
+  %23 = load float, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 28
+  store float %23, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = load float, ptr %25, align 4
+  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %26, ptr %27, align 4
   ret void
 }
 
@@ -6272,13 +6295,22 @@ declare float @atan2f(float noundef, float noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define <2 x float> @_ZNK4pkpy6Mat3x32_sEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %0) local_unnamed_addr #12 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
-  %3 = load <2 x float>, ptr %0, align 4
-  %4 = load <2 x float>, ptr %2, align 4
-  %5 = fmul <2 x float> %4, %4
-  %6 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %3, <2 x float> %3, <2 x float> %5)
-  %7 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %6)
-  ret <2 x float> %7
+  %2 = load float, ptr %0, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = load float, ptr %3, align 4
+  %5 = fmul float %4, %4
+  %6 = tail call float @llvm.fmuladd.f32(float %2, float %2, float %5)
+  %sqrt2 = tail call float @llvm.sqrt.f32(float %6)
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = load float, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = load float, ptr %9, align 4
+  %11 = fmul float %10, %10
+  %12 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %11)
+  %sqrt = tail call float @llvm.sqrt.f32(float %12)
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %sqrt2, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %sqrt, i64 1
+  ret <2 x float> %.sroa.0.4.vec.insert
 }
 
 declare i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
@@ -7123,82 +7155,84 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJEEEPNS_8P
   store ptr null, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_4Vec2EEE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 24
-  store <2 x float> zeroinitializer, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8
-  %.not.i = icmp eq ptr %11, %13
-  br i1 %.not.i, label %17, label %14
+  store float 0.000000e+00, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %3, i64 28
+  store float 0.000000e+00, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %.not.i = icmp eq ptr %12, %14
+  br i1 %.not.i, label %18, label %15
 
-14:                                               ; preds = %2
-  store ptr %3, ptr %11, align 8
-  %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %16, ptr %10, align 8
+15:                                               ; preds = %2
+  store ptr %3, ptr %12, align 8
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %17, ptr %11, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %9, align 8
-  %19 = ptrtoint ptr %11 to i64
-  %20 = ptrtoint ptr %18 to i64
-  %21 = sub i64 %19, %20
-  %22 = icmp eq i64 %21, 9223372036854775800
-  br i1 %22, label %23, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %10, align 8
+  %20 = ptrtoint ptr %12 to i64
+  %21 = ptrtoint ptr %19 to i64
+  %22 = sub i64 %20, %21
+  %23 = icmp eq i64 %22, 9223372036854775800
+  br i1 %23, label %24, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-23:                                               ; preds = %17
+24:                                               ; preds = %18
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.74) #32
   unreachable
 
-_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %17
-  %24 = ashr exact i64 %21, 3
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
-  %25 = add nsw i64 %.sroa.speculated.i.i.i, %24
-  %26 = icmp ult i64 %25, %24
-  %27 = tail call i64 @llvm.umin.i64(i64 %25, i64 1152921504606846975)
-  %28 = select i1 %26, i64 1152921504606846975, i64 %27
-  %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i, label %29
+_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %18
+  %25 = ashr exact i64 %22, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
+  %26 = add nsw i64 %.sroa.speculated.i.i.i, %25
+  %27 = icmp ult i64 %26, %25
+  %28 = tail call i64 @llvm.umin.i64(i64 %26, i64 1152921504606846975)
+  %29 = select i1 %27, i64 1152921504606846975, i64 %28
+  %.not.i.i.i = icmp eq i64 %29, 0
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i, label %30
 
-29:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %30 = shl nuw nsw i64 %28, 3
-  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #33
+30:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %31 = shl nuw nsw i64 %29, 3
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %29, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %32 = phi ptr [ %31, %29 ], [ null, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %24
-  store ptr %3, ptr %33, align 8
-  %34 = icmp sgt i64 %21, 0
-  br i1 %34, label %35, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %30, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %33 = phi ptr [ %32, %30 ], [ null, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %25
+  store ptr %3, ptr %34, align 8
+  %35 = icmp sgt i64 %22, 0
+  br i1 %35, label %36, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-35:                                               ; preds = %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %32, ptr align 8 %18, i64 %21, i1 false)
+36:                                               ; preds = %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr align 8 %19, i64 %22, i1 false)
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %35, %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %32, i64 %21
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  %.not.i17.i.i = icmp eq ptr %18, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %38
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %36, %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
+  %37 = getelementptr inbounds i8, ptr %33, i64 %22
+  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %.not.i17.i.i = icmp eq ptr %19, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %39
 
-38:                                               ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %21) #34
+39:                                               ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %22) #34
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %32, ptr %9, align 8
-  store ptr %37, ptr %10, align 8
-  %39 = getelementptr inbounds ptr, ptr %32, i64 %28
-  store ptr %39, ptr %12, align 8
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  store ptr %33, ptr %10, align 8
+  store ptr %38, ptr %11, align 8
+  %40 = getelementptr inbounds ptr, ptr %33, i64 %29
+  store ptr %40, ptr %13, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %14, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %40 = getelementptr inbounds i8, ptr %0, i64 76
-  %41 = load i32, ptr %40, align 4
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %40, align 4
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %15, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+  %41 = getelementptr inbounds i8, ptr %0, i64 76
+  %42 = load i32, ptr %41, align 4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %41, align 4
   ret ptr %3
 }
 
@@ -8338,61 +8372,77 @@ _ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %30, %_Z
   %56 = fmul float %51, %55
   %57 = tail call float @llvm.fmuladd.f32(float %56, float %51, float %54)
   %58 = fdiv float 1.000000e+00, %57
+  %.sroa.081.0.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 0
+  %.sroa.070.0.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i15.i, i64 0
   %59 = fsub <2 x float> %.sroa.06.0.copyload.i.i.i, %.sroa.06.0.copyload.i.i15.i
-  %60 = fmul float %.sroa.speculated.i.i, %44
-  %61 = fmul float %60, %60
-  %62 = fmul <2 x float> %59, %59
-  %63 = extractelement <2 x float> %62, i64 1
-  %64 = extractelement <2 x float> %59, i64 0
-  %65 = tail call float @llvm.fmuladd.f32(float %64, float %64, float %63)
-  %66 = fcmp ogt float %65, %61
-  br i1 %66, label %67, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit"
+  %60 = extractelement <2 x float> %59, i64 0
+  %.sroa.081.4.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 1
+  %.sroa.070.4.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i15.i, i64 1
+  %61 = fsub float %.sroa.081.4.vec.extract.i.i, %.sroa.070.4.vec.extract.i.i
+  %62 = fmul float %.sroa.speculated.i.i, %44
+  %63 = fmul float %62, %62
+  %64 = fmul float %61, %61
+  %65 = tail call float @llvm.fmuladd.f32(float %60, float %60, float %64)
+  %66 = fcmp ogt float %65, %63
+  br i1 %66, label %67, label %72
 
 67:                                               ; preds = %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i
   %sqrt.i.i = tail call float @llvm.sqrt.f32(float %65)
-  %68 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
-  %69 = shufflevector <2 x float> %68, <2 x float> poison, <2 x i32> zeroinitializer
-  %70 = fdiv <2 x float> %59, %69
-  %71 = insertelement <2 x float> poison, float %60, i64 0
-  %72 = shufflevector <2 x float> %71, <2 x float> poison, <2 x i32> zeroinitializer
-  %73 = fmul <2 x float> %70, %72
+  %68 = fdiv float %60, %sqrt.i.i
+  %69 = fmul float %68, %62
+  %70 = fdiv float %61, %sqrt.i.i
+  %71 = fmul float %70, %62
+  br label %72
+
+72:                                               ; preds = %67, %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i
+  %.090.i.i = phi float [ %71, %67 ], [ %61, %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i ]
+  %.0.i.i = phi float [ %69, %67 ], [ %60, %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i ]
+  %73 = fsub float %.sroa.081.0.vec.extract.i.i, %.0.i.i
+  %74 = fsub float %.sroa.081.4.vec.extract.i.i, %.090.i.i
+  %75 = load float, ptr %36, align 4
+  %76 = tail call float @llvm.fmuladd.f32(float %50, float %.0.i.i, float %75)
+  %77 = fmul float %76, %48
+  %78 = getelementptr inbounds i8, ptr %27, i64 28
+  %79 = load float, ptr %78, align 4
+  %80 = tail call float @llvm.fmuladd.f32(float %50, float %.090.i.i, float %79)
+  %81 = fmul float %80, %48
+  %82 = fneg float %50
+  %83 = tail call float @llvm.fmuladd.f32(float %82, float %77, float %75)
+  %84 = fmul float %58, %83
+  store float %84, ptr %36, align 4
+  %85 = tail call float @llvm.fmuladd.f32(float %82, float %81, float %79)
+  %86 = fmul float %58, %85
+  store float %86, ptr %78, align 4
+  %87 = fadd float %.0.i.i, %77
+  %88 = tail call float @llvm.fmuladd.f32(float %87, float %58, float %73)
+  %89 = fadd float %.090.i.i, %81
+  %90 = tail call float @llvm.fmuladd.f32(float %89, float %58, float %74)
+  %91 = fsub <2 x float> %.sroa.06.0.copyload.i.i15.i, %.sroa.06.0.copyload.i.i.i
+  %92 = extractelement <2 x float> %91, i64 0
+  %93 = fsub float %.sroa.070.4.vec.extract.i.i, %.sroa.081.4.vec.extract.i.i
+  %94 = fsub float %88, %.sroa.070.0.vec.extract.i.i
+  %95 = fsub float %90, %.sroa.070.4.vec.extract.i.i
+  %96 = fmul float %93, %95
+  %97 = tail call float @llvm.fmuladd.f32(float %92, float %94, float %96)
+  %98 = fcmp ogt float %97, 0.000000e+00
+  br i1 %98, label %99, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit"
+
+99:                                               ; preds = %72
+  %100 = fsub <2 x float> %.sroa.06.0.copyload.i.i15.i, %.sroa.06.0.copyload.i.i15.i
+  %101 = extractelement <2 x float> %100, i64 0
+  %102 = fdiv float %101, %48
+  store float %102, ptr %36, align 4
+  %103 = fsub float %.sroa.070.4.vec.extract.i.i, %.sroa.070.4.vec.extract.i.i
+  %104 = fdiv float %103, %48
+  store float %104, ptr %78, align 4
   br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit": ; preds = %67, %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i
-  %74 = phi <2 x float> [ %73, %67 ], [ %59, %_ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i ]
-  %75 = fsub <2 x float> %.sroa.06.0.copyload.i.i.i, %74
-  %76 = fneg float %50
-  %77 = load <2 x float>, ptr %36, align 4
-  %78 = insertelement <2 x float> poison, float %50, i64 0
-  %79 = shufflevector <2 x float> %78, <2 x float> poison, <2 x i32> zeroinitializer
-  %80 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %79, <2 x float> %74, <2 x float> %77)
-  %81 = insertelement <2 x float> poison, float %48, i64 0
-  %82 = shufflevector <2 x float> %81, <2 x float> poison, <2 x i32> zeroinitializer
-  %83 = fmul <2 x float> %80, %82
-  %84 = insertelement <2 x float> poison, float %76, i64 0
-  %85 = shufflevector <2 x float> %84, <2 x float> poison, <2 x i32> zeroinitializer
-  %86 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %85, <2 x float> %83, <2 x float> %77)
-  %87 = insertelement <2 x float> poison, float %58, i64 0
-  %88 = shufflevector <2 x float> %87, <2 x float> poison, <2 x i32> zeroinitializer
-  %89 = fmul <2 x float> %88, %86
-  %90 = fadd <2 x float> %74, %83
-  %91 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %90, <2 x float> %88, <2 x float> %75)
-  %92 = fsub <2 x float> %.sroa.06.0.copyload.i.i15.i, %.sroa.06.0.copyload.i.i.i
-  %93 = extractelement <2 x float> %92, i64 0
-  %94 = fsub <2 x float> %.sroa.06.0.copyload.i.i15.i, %.sroa.06.0.copyload.i.i.i
-  %95 = fsub <2 x float> %91, %.sroa.06.0.copyload.i.i15.i
-  %96 = extractelement <2 x float> %95, i64 0
-  %97 = fsub <2 x float> %91, %.sroa.06.0.copyload.i.i15.i
-  %98 = fmul <2 x float> %94, %97
-  %99 = extractelement <2 x float> %98, i64 1
-  %100 = tail call float @llvm.fmuladd.f32(float %93, float %96, float %99)
-  %101 = fcmp ogt float %100, 0.000000e+00
-  %102 = fsub <2 x float> %.sroa.06.0.copyload.i.i15.i, %.sroa.06.0.copyload.i.i15.i
-  %103 = fdiv <2 x float> %102, %82
-  %storemerge = select i1 %101, <2 x float> %103, <2 x float> %89
-  %104 = select i1 %101, <2 x float> %.sroa.06.0.copyload.i.i15.i, <2 x float> %91
-  store <2 x float> %storemerge, ptr %36, align 4
-  store <2 x float> %104, ptr %4, align 8
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit": ; preds = %72, %99
+  %.092.i.i = phi float [ %.sroa.070.4.vec.extract.i.i, %99 ], [ %90, %72 ]
+  %.091.i.i = phi float [ %.sroa.070.0.vec.extract.i.i, %99 ], [ %88, %72 ]
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %.091.i.i, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %.092.i.i, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   %105 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %106 = getelementptr inbounds i8, ptr %0, i64 16
   %107 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %106, i16 %105, ptr noundef nonnull align 4 dereferenceable(8) %4)
@@ -8669,21 +8719,18 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %14 = tail call float @cosf(float noundef %13) #31
   %15 = tail call float @sinf(float noundef %13) #31
   %16 = fneg float %9
-  %17 = insertelement <2 x float> poison, float %15, i64 0
-  %18 = insertelement <2 x float> %17, float %9, i64 1
-  %19 = insertelement <2 x float> poison, float %16, i64 0
-  %20 = insertelement <2 x float> %19, float %14, i64 1
-  %21 = fmul <2 x float> %18, %20
-  %22 = insertelement <2 x float> poison, float %8, i64 0
-  %23 = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> zeroinitializer
-  %24 = shufflevector <2 x float> %20, <2 x float> %17, <2 x i32> <i32 1, i32 2>
-  %25 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %23, <2 x float> %24, <2 x float> %21)
-  store <2 x float> %25, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %28 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %26, i16 %27, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %17 = fmul float %15, %16
+  %18 = tail call float @llvm.fmuladd.f32(float %8, float %14, float %17)
+  %19 = fmul float %9, %14
+  %20 = tail call float @llvm.fmuladd.f32(float %8, float %15, float %19)
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %18, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %20, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %23 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %21, i16 %22, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret ptr %28
+  ret ptr %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8794,19 +8841,16 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %14 = getelementptr inbounds i8, ptr %4, i64 28
   %15 = load float, ptr %14, align 4
   %16 = fneg float %15
-  %17 = insertelement <2 x float> poison, float %12, i64 0
-  %18 = insertelement <2 x float> %17, float %11, i64 1
-  %19 = insertelement <2 x float> poison, float %16, i64 0
-  %20 = insertelement <2 x float> %19, float %15, i64 1
-  %21 = fmul <2 x float> %18, %20
-  %22 = insertelement <2 x float> poison, float %13, i64 0
-  %23 = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> zeroinitializer
-  %24 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %25 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %23, <2 x float> %24, <2 x float> %21)
-  store <2 x float> %25, ptr %6, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 264520
-  %27 = load ptr, ptr %26, align 8
-  ret ptr %27
+  %17 = fmul float %12, %16
+  %18 = tail call float @llvm.fmuladd.f32(float %13, float %11, float %17)
+  %19 = fmul float %11, %15
+  %20 = tail call float @llvm.fmuladd.f32(float %13, float %12, float %19)
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %18, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %20, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %6, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 264520
+  %22 = load ptr, ptr %21, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9124,15 +9168,22 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
 "_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit": ; preds = %3, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %2, i64 24
-  %16 = load <2 x float>, ptr %14, align 4
-  %17 = load <2 x float>, ptr %15, align 4
-  %18 = fadd <2 x float> %16, %17
-  store <2 x float> %18, ptr %4, align 8
-  %19 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %20, i16 %19, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %16 = load float, ptr %14, align 4
+  %17 = load float, ptr %15, align 4
+  %18 = fadd float %16, %17
+  %19 = getelementptr inbounds i8, ptr %1, i64 28
+  %20 = load float, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %2, i64 28
+  %22 = load float, ptr %21, align 4
+  %23 = fadd float %20, %22
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %18, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %23, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
+  %24 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %25, i16 %24, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret ptr %21
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9157,15 +9208,22 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
 "_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.exit": ; preds = %3, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %2, i64 24
-  %16 = load <2 x float>, ptr %14, align 4
-  %17 = load <2 x float>, ptr %15, align 4
-  %18 = fsub <2 x float> %16, %17
-  store <2 x float> %18, ptr %4, align 8
-  %19 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %20, i16 %19, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %16 = load float, ptr %14, align 4
+  %17 = load float, ptr %15, align 4
+  %18 = fsub float %16, %17
+  %19 = getelementptr inbounds i8, ptr %1, i64 28
+  %20 = load float, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %2, i64 28
+  %22 = load float, ptr %21, align 4
+  %23 = fsub float %20, %22
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %18, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %23, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
+  %24 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %25, i16 %24, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret ptr %21
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9184,35 +9242,45 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %12, align 2
   %13 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %14 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, %13
-  br i1 %14, label %15, label %21
+  br i1 %14, label %15, label %26
 
 15:                                               ; preds = %3
   %16 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %17 = getelementptr inbounds i8, ptr %2, i64 24
-  %18 = load <2 x float>, ptr %7, align 4
-  %19 = load <2 x float>, ptr %17, align 4
-  %20 = fmul <2 x float> %18, %19
-  store <2 x float> %20, ptr %4, align 8
+  %18 = load float, ptr %7, align 4
+  %19 = load float, ptr %17, align 4
+  %20 = fmul float %18, %19
+  %21 = getelementptr inbounds i8, ptr %1, i64 28
+  %22 = load float, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %2, i64 28
+  %24 = load float, ptr %23, align 4
+  %25 = fmul float %22, %24
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %20, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %25, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit"
 
-21:                                               ; preds = %3
-  %22 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
-  %23 = fptrunc double %22 to float
-  %24 = load <2 x float>, ptr %7, align 4
-  %25 = insertelement <2 x float> poison, float %23, i64 0
-  %26 = shufflevector <2 x float> %25, <2 x float> poison, <2 x i32> zeroinitializer
-  %27 = fmul <2 x float> %24, %26
-  store <2 x float> %27, ptr %5, align 8
+26:                                               ; preds = %3
+  %27 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
+  %28 = fptrunc double %27 to float
+  %29 = load float, ptr %7, align 4
+  %30 = fmul float %29, %28
+  %31 = getelementptr inbounds i8, ptr %1, i64 28
+  %32 = load float, ptr %31, align 4
+  %33 = fmul float %32, %28
+  %.sroa.0.0.vec.insert.i15.i = insertelement <2 x float> poison, float %30, i64 0
+  %.sroa.0.4.vec.insert.i16.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i15.i, float %33, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i16.i, ptr %5, align 8
   br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit": ; preds = %15, %21
-  %.sink2.i = phi ptr [ %5, %21 ], [ %4, %15 ]
-  %28 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  %30 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %29, i16 %28, ptr noundef nonnull align 4 dereferenceable(8) %.sink2.i)
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit": ; preds = %15, %26
+  %.sink2.i = phi ptr [ %5, %26 ], [ %4, %15 ]
+  %34 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %35, i16 %34, ptr noundef nonnull align 4 dereferenceable(8) %.sink2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %30
+  ret ptr %36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9226,16 +9294,19 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %9)
   %11 = fptrunc double %10 to float
-  %12 = load <2 x float>, ptr %7, align 4
-  %13 = insertelement <2 x float> poison, float %11, i64 0
-  %14 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> zeroinitializer
-  %15 = fmul <2 x float> %12, %14
-  store <2 x float> %15, ptr %4, align 8
-  %16 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %17, i16 %16, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %12 = load float, ptr %7, align 4
+  %13 = fmul float %12, %11
+  %14 = getelementptr inbounds i8, ptr %5, i64 28
+  %15 = load float, ptr %14, align 4
+  %16 = fmul float %15, %11
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %13, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %16, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
+  %17 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %18, i16 %17, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret ptr %18
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9246,16 +9317,19 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
   %8 = fptrunc double %7 to float
-  %9 = load <2 x float>, ptr %6, align 4
-  %10 = insertelement <2 x float> poison, float %8, i64 0
-  %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
-  %12 = fdiv <2 x float> %9, %11
-  store <2 x float> %12, ptr %4, align 8
-  %13 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %14, i16 %13, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %9 = load float, ptr %6, align 4
+  %10 = fdiv float %9, %8
+  %11 = getelementptr inbounds i8, ptr %1, i64 28
+  %12 = load float, ptr %11, align 4
+  %13 = fdiv float %12, %8
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %10, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %13, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
+  %14 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %15, i16 %14, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret ptr %15
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9266,16 +9340,19 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
   %8 = fptrunc double %7 to float
-  %9 = load <2 x float>, ptr %6, align 4
-  %10 = insertelement <2 x float> poison, float %8, i64 0
-  %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
-  %12 = fdiv <2 x float> %9, %11
-  store <2 x float> %12, ptr %4, align 8
-  %13 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %14, i16 %13, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %9 = load float, ptr %6, align 4
+  %10 = fdiv float %9, %8
+  %11 = getelementptr inbounds i8, ptr %1, i64 28
+  %12 = load float, ptr %11, align 4
+  %13 = fdiv float %12, %8
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %10, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %13, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
+  %14 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %15, i16 %14, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret ptr %15
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9443,21 +9520,22 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = getelementptr inbounds i8, ptr %5, i64 24
-  %8 = load <2 x float>, ptr %7, align 4
-  %9 = fmul <2 x float> %8, %8
-  %10 = extractelement <2 x float> %9, i64 1
-  %11 = extractelement <2 x float> %8, i64 0
-  %12 = tail call float @llvm.fmuladd.f32(float %11, float %11, float %10)
+  %8 = load float, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %5, i64 28
+  %10 = load float, ptr %9, align 4
+  %11 = fmul float %10, %10
+  %12 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %11)
   %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %12)
-  %13 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
-  %14 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> zeroinitializer
-  %15 = fdiv <2 x float> %8, %14
-  store <2 x float> %15, ptr %4, align 8
-  %16 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %17, i16 %16, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %13 = fdiv float %8, %sqrt.i.i.i
+  %14 = fdiv float %10, %sqrt.i.i.i
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %13, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %14, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
+  %15 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %16, i16 %15, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret ptr %18
+  ret ptr %17
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9465,19 +9543,19 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %6 = getelementptr inbounds i8, ptr %4, i64 24
-  %7 = load <2 x float>, ptr %6, align 4
-  %8 = fmul <2 x float> %7, %7
-  %9 = extractelement <2 x float> %8, i64 1
-  %10 = extractelement <2 x float> %7, i64 0
-  %11 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %9)
+  %7 = load float, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = load float, ptr %8, align 4
+  %10 = fmul float %9, %9
+  %11 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %10)
   %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %11)
-  %12 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
-  %13 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> zeroinitializer
-  %14 = fdiv <2 x float> %7, %13
-  store <2 x float> %14, ptr %6, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 264520
-  %16 = load ptr, ptr %15, align 8
-  ret ptr %16
+  %12 = fdiv float %7, %sqrt.i.i.i
+  store float %12, ptr %6, align 4
+  %13 = fdiv float %9, %sqrt.i.i.i
+  store float %13, ptr %8, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 264520
+  %15 = load ptr, ptr %14, align 8
+  ret ptr %15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9820,84 +9898,86 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJEEEPNS_8P
   store ptr null, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_4Vec3EEE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 24
-  store <2 x float> zeroinitializer, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  store float 0.000000e+00, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %3, i64 28
   store float 0.000000e+00, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %.not.i = icmp eq ptr %12, %14
-  br i1 %.not.i, label %18, label %15
+  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  store float 0.000000e+00, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = load ptr, ptr %14, align 8
+  %.not.i = icmp eq ptr %13, %15
+  br i1 %.not.i, label %19, label %16
 
-15:                                               ; preds = %2
-  store ptr %3, ptr %12, align 8
-  %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr %17, ptr %11, align 8
+16:                                               ; preds = %2
+  store ptr %3, ptr %13, align 8
+  %17 = load ptr, ptr %12, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  store ptr %18, ptr %12, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
-18:                                               ; preds = %2
-  %19 = load ptr, ptr %10, align 8
-  %20 = ptrtoint ptr %12 to i64
-  %21 = ptrtoint ptr %19 to i64
-  %22 = sub i64 %20, %21
-  %23 = icmp eq i64 %22, 9223372036854775800
-  br i1 %23, label %24, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %11, align 8
+  %21 = ptrtoint ptr %13 to i64
+  %22 = ptrtoint ptr %20 to i64
+  %23 = sub i64 %21, %22
+  %24 = icmp eq i64 %23, 9223372036854775800
+  br i1 %24, label %25, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-24:                                               ; preds = %18
+25:                                               ; preds = %19
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.74) #32
   unreachable
 
-_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %18
-  %25 = ashr exact i64 %22, 3
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
-  %26 = add nsw i64 %.sroa.speculated.i.i.i, %25
-  %27 = icmp ult i64 %26, %25
-  %28 = tail call i64 @llvm.umin.i64(i64 %26, i64 1152921504606846975)
-  %29 = select i1 %27, i64 1152921504606846975, i64 %28
-  %.not.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i, label %30
+_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %19
+  %26 = ashr exact i64 %23, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
+  %27 = add nsw i64 %.sroa.speculated.i.i.i, %26
+  %28 = icmp ult i64 %27, %26
+  %29 = tail call i64 @llvm.umin.i64(i64 %27, i64 1152921504606846975)
+  %30 = select i1 %28, i64 1152921504606846975, i64 %29
+  %.not.i.i.i = icmp eq i64 %30, 0
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i, label %31
 
-30:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %31 = shl nuw nsw i64 %29, 3
-  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #33
+31:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %32 = shl nuw nsw i64 %30, 3
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %30, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %33 = phi ptr [ %32, %30 ], [ null, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %25
-  store ptr %3, ptr %34, align 8
-  %35 = icmp sgt i64 %22, 0
-  br i1 %35, label %36, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %31, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %34 = phi ptr [ %33, %31 ], [ null, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  %35 = getelementptr inbounds ptr, ptr %34, i64 %26
+  store ptr %3, ptr %35, align 8
+  %36 = icmp sgt i64 %23, 0
+  br i1 %36, label %37, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-36:                                               ; preds = %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr align 8 %19, i64 %22, i1 false)
+37:                                               ; preds = %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr align 8 %20, i64 %23, i1 false)
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %36, %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %33, i64 %22
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  %.not.i17.i.i = icmp eq ptr %19, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %39
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %37, %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
+  %38 = getelementptr inbounds i8, ptr %34, i64 %23
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %.not.i17.i.i = icmp eq ptr %20, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %40
 
-39:                                               ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %22) #34
+40:                                               ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %23) #34
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %33, ptr %10, align 8
-  store ptr %38, ptr %11, align 8
-  %40 = getelementptr inbounds ptr, ptr %33, i64 %29
-  store ptr %40, ptr %13, align 8
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  store ptr %34, ptr %11, align 8
+  store ptr %39, ptr %12, align 8
+  %41 = getelementptr inbounds ptr, ptr %34, i64 %30
+  store ptr %41, ptr %14, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %15, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %41 = getelementptr inbounds i8, ptr %0, i64 76
-  %42 = load i32, ptr %41, align 4
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %41, align 4
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+  %42 = getelementptr inbounds i8, ptr %0, i64 76
+  %43 = load i32, ptr %42, align 4
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %42, align 4
   ret ptr %3
 }
 
@@ -10745,22 +10825,29 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
 "_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_14clES2_S4_S4_.exit": ; preds = %3, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %2, i64 24
-  %16 = load <2 x float>, ptr %14, align 4
-  %17 = load <2 x float>, ptr %15, align 4
-  %18 = fadd <2 x float> %16, %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = load float, ptr %14, align 4
+  %17 = load float, ptr %15, align 4
+  %18 = fadd float %16, %17
+  %19 = getelementptr inbounds i8, ptr %1, i64 28
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 32
+  %21 = getelementptr inbounds i8, ptr %2, i64 28
   %22 = load float, ptr %21, align 4
   %23 = fadd float %20, %22
-  store <2 x float> %18, ptr %4, align 8
+  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = load float, ptr %24, align 4
+  %26 = getelementptr inbounds i8, ptr %2, i64 32
+  %27 = load float, ptr %26, align 4
+  %28 = fadd float %25, %27
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %18, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %23, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  store float %23, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %24 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %26 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %25, i16 %24, ptr noundef nonnull align 4 dereferenceable(12) %4)
+  store float %28, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %29 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %30, i16 %29, ptr noundef nonnull align 4 dereferenceable(12) %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  ret ptr %26
+  ret ptr %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10877,22 +10964,29 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
 "_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_S4_S4_.exit": ; preds = %3, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %2, i64 24
-  %16 = load <2 x float>, ptr %14, align 4
-  %17 = load <2 x float>, ptr %15, align 4
-  %18 = fsub <2 x float> %16, %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = load float, ptr %14, align 4
+  %17 = load float, ptr %15, align 4
+  %18 = fsub float %16, %17
+  %19 = getelementptr inbounds i8, ptr %1, i64 28
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 32
+  %21 = getelementptr inbounds i8, ptr %2, i64 28
   %22 = load float, ptr %21, align 4
   %23 = fsub float %20, %22
-  store <2 x float> %18, ptr %4, align 8
+  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = load float, ptr %24, align 4
+  %26 = getelementptr inbounds i8, ptr %2, i64 32
+  %27 = load float, ptr %26, align 4
+  %28 = fsub float %25, %27
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %18, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %23, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  store float %23, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %24 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %26 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %25, i16 %24, ptr noundef nonnull align 4 dereferenceable(12) %4)
+  store float %28, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %29 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %30, i16 %29, ptr noundef nonnull align 4 dereferenceable(12) %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  ret ptr %26
+  ret ptr %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10911,48 +11005,58 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %12, align 2
   %13 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %14 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, %13
-  br i1 %14, label %15, label %26
+  br i1 %14, label %15, label %31
 
 15:                                               ; preds = %3
   %.sink3.i.sroa.gep3 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %17 = getelementptr inbounds i8, ptr %2, i64 24
-  %18 = load <2 x float>, ptr %7, align 4
-  %19 = load <2 x float>, ptr %17, align 4
-  %20 = fmul <2 x float> %18, %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = load float, ptr %7, align 4
+  %19 = load float, ptr %17, align 4
+  %20 = fmul float %18, %19
+  %21 = getelementptr inbounds i8, ptr %1, i64 28
   %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %2, i64 32
+  %23 = getelementptr inbounds i8, ptr %2, i64 28
   %24 = load float, ptr %23, align 4
   %25 = fmul float %22, %24
-  store <2 x float> %20, ptr %4, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = load float, ptr %26, align 4
+  %28 = getelementptr inbounds i8, ptr %2, i64 32
+  %29 = load float, ptr %28, align 4
+  %30 = fmul float %27, %29
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %20, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %25, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
-26:                                               ; preds = %3
+31:                                               ; preds = %3
   %.sink3.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
-  %27 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
-  %28 = fptrunc double %27 to float
-  %29 = load <2 x float>, ptr %7, align 4
-  %30 = insertelement <2 x float> poison, float %28, i64 0
-  %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
-  %32 = fmul <2 x float> %29, %31
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
-  %34 = load float, ptr %33, align 4
-  %35 = fmul float %34, %28
-  store <2 x float> %32, ptr %5, align 8
+  %32 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
+  %33 = fptrunc double %32 to float
+  %34 = load float, ptr %7, align 4
+  %35 = fmul float %34, %33
+  %36 = getelementptr inbounds i8, ptr %1, i64 28
+  %37 = load float, ptr %36, align 4
+  %38 = fmul float %37, %33
+  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %40 = load float, ptr %39, align 4
+  %41 = fmul float %40, %33
+  %.sroa.0.0.vec.insert.i19.i = insertelement <2 x float> poison, float %35, i64 0
+  %.sroa.0.4.vec.insert.i20.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i19.i, float %38, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i20.i, ptr %5, align 8
   br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit": ; preds = %15, %26
-  %.sink3.i.sroa.phi = phi ptr [ %.sink3.i.sroa.gep, %26 ], [ %.sink3.i.sroa.gep3, %15 ]
-  %.sink3.i = phi ptr [ %5, %26 ], [ %4, %15 ]
-  %.sink.i = phi float [ %35, %26 ], [ %25, %15 ]
+"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit": ; preds = %15, %31
+  %.sink3.i.sroa.phi = phi ptr [ %.sink3.i.sroa.gep, %31 ], [ %.sink3.i.sroa.gep3, %15 ]
+  %.sink3.i = phi ptr [ %5, %31 ], [ %4, %15 ]
+  %.sink.i = phi float [ %41, %31 ], [ %30, %15 ]
   store float %.sink.i, ptr %.sink3.i.sroa.phi, align 4
-  %36 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  %38 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %37, i16 %36, ptr noundef nonnull align 4 dereferenceable(12) %.sink3.i)
+  %42 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %43, i16 %42, ptr noundef nonnull align 4 dereferenceable(12) %.sink3.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  ret ptr %38
+  ret ptr %44
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10966,21 +11070,24 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %9)
   %11 = fptrunc double %10 to float
-  %12 = load <2 x float>, ptr %7, align 4
-  %13 = insertelement <2 x float> poison, float %11, i64 0
-  %14 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> zeroinitializer
-  %15 = fmul <2 x float> %12, %14
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
-  %17 = load float, ptr %16, align 4
-  %18 = fmul float %17, %11
-  store <2 x float> %15, ptr %4, align 8
+  %12 = load float, ptr %7, align 4
+  %13 = fmul float %12, %11
+  %14 = getelementptr inbounds i8, ptr %5, i64 28
+  %15 = load float, ptr %14, align 4
+  %16 = fmul float %15, %11
+  %17 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = load float, ptr %17, align 4
+  %19 = fmul float %18, %11
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %13, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %16, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  store float %18, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %19 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %20, i16 %19, ptr noundef nonnull align 4 dereferenceable(12) %4)
+  store float %19, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %20 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %21, i16 %20, ptr noundef nonnull align 4 dereferenceable(12) %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  ret ptr %21
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10991,21 +11098,24 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
   %8 = fptrunc double %7 to float
-  %9 = load <2 x float>, ptr %6, align 4
-  %10 = insertelement <2 x float> poison, float %8, i64 0
-  %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
-  %12 = fdiv <2 x float> %9, %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
-  %14 = load float, ptr %13, align 4
-  %15 = fdiv float %14, %8
-  store <2 x float> %12, ptr %4, align 8
+  %9 = load float, ptr %6, align 4
+  %10 = fdiv float %9, %8
+  %11 = getelementptr inbounds i8, ptr %1, i64 28
+  %12 = load float, ptr %11, align 4
+  %13 = fdiv float %12, %8
+  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = load float, ptr %14, align 4
+  %16 = fdiv float %15, %8
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %10, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %13, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  store float %15, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %16 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %17, i16 %16, ptr noundef nonnull align 4 dereferenceable(12) %4)
+  store float %16, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %17 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %18, i16 %17, ptr noundef nonnull align 4 dereferenceable(12) %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  ret ptr %18
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11080,31 +11190,34 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %19 = getelementptr inbounds i8, ptr %5, i64 28
-  %20 = getelementptr inbounds i8, ptr %8, i64 28
-  %21 = load float, ptr %18, align 4
-  %22 = load float, ptr %17, align 4
-  %23 = load <2 x float>, ptr %19, align 4
-  %24 = load <2 x float>, ptr %20, align 4
-  %25 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %26 = insertelement <2 x float> %25, float %22, i64 1
-  %27 = fneg <2 x float> %26
-  %28 = fmul <2 x float> %24, %27
-  %29 = shufflevector <2 x float> %24, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %30 = insertelement <2 x float> %29, float %21, i64 1
-  %31 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %23, <2 x float> %30, <2 x float> %28)
-  %32 = extractelement <2 x float> %23, i64 0
-  %33 = fneg float %32
-  %34 = fmul float %21, %33
-  %35 = extractelement <2 x float> %24, i64 0
-  %36 = tail call float @llvm.fmuladd.f32(float %22, float %35, float %34)
-  store <2 x float> %31, ptr %4, align 8
+  %20 = load float, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %8, i64 32
+  %22 = load float, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %5, i64 32
+  %24 = load float, ptr %23, align 4
+  %25 = getelementptr inbounds i8, ptr %8, i64 28
+  %26 = load float, ptr %25, align 4
+  %27 = fneg float %24
+  %28 = fmul float %26, %27
+  %29 = tail call float @llvm.fmuladd.f32(float %20, float %22, float %28)
+  %30 = load float, ptr %18, align 4
+  %31 = load float, ptr %17, align 4
+  %32 = fneg float %31
+  %33 = fmul float %22, %32
+  %34 = tail call float @llvm.fmuladd.f32(float %24, float %30, float %33)
+  %35 = fneg float %20
+  %36 = fmul float %30, %35
+  %37 = tail call float @llvm.fmuladd.f32(float %31, float %26, float %36)
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %29, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %34, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  store float %36, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %37 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
-  %39 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %38, i16 %37, ptr noundef nonnull align 4 dereferenceable(12) %4)
+  store float %37, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %38 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %39, i16 %38, ptr noundef nonnull align 4 dereferenceable(12) %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  ret ptr %39
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11199,27 +11312,28 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = getelementptr inbounds i8, ptr %5, i64 24
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load float, ptr %8, align 4
-  %10 = load <2 x float>, ptr %7, align 4
-  %11 = fmul <2 x float> %10, %10
-  %12 = extractelement <2 x float> %11, i64 1
-  %13 = extractelement <2 x float> %10, i64 0
-  %14 = tail call float @llvm.fmuladd.f32(float %13, float %13, float %12)
-  %15 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %14)
+  %8 = load float, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %5, i64 28
+  %10 = load float, ptr %9, align 4
+  %11 = fmul float %10, %10
+  %12 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %11)
+  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %14 = load float, ptr %13, align 4
+  %15 = tail call float @llvm.fmuladd.f32(float %14, float %14, float %12)
   %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %15)
-  %16 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
-  %17 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> zeroinitializer
-  %18 = fdiv <2 x float> %10, %17
-  %19 = fdiv float %9, %sqrt.i.i.i
-  store <2 x float> %18, ptr %4, align 8
+  %16 = fdiv float %8, %sqrt.i.i.i
+  %17 = fdiv float %10, %sqrt.i.i.i
+  %18 = fdiv float %14, %sqrt.i.i.i
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %16, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %17, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  store float %19, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %20 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %21, i16 %20, ptr noundef nonnull align 4 dereferenceable(12) %4)
+  store float %18, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %19 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %20, i16 %19, ptr noundef nonnull align 4 dereferenceable(12) %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  ret ptr %22
+  ret ptr %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11227,24 +11341,24 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %6 = getelementptr inbounds i8, ptr %4, i64 24
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
-  %8 = load float, ptr %7, align 4
-  %9 = load <2 x float>, ptr %6, align 4
-  %10 = fmul <2 x float> %9, %9
-  %11 = extractelement <2 x float> %10, i64 1
-  %12 = extractelement <2 x float> %9, i64 0
-  %13 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %11)
-  %14 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %13)
+  %7 = load float, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = load float, ptr %8, align 4
+  %10 = fmul float %9, %9
+  %11 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %10)
+  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = load float, ptr %12, align 4
+  %14 = tail call float @llvm.fmuladd.f32(float %13, float %13, float %11)
   %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %14)
-  %15 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
-  %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
-  %17 = fdiv <2 x float> %9, %16
-  store <2 x float> %17, ptr %6, align 4
-  %18 = fdiv float %8, %sqrt.i.i.i
-  store float %18, ptr %7, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 264520
-  %20 = load ptr, ptr %19, align 8
-  ret ptr %20
+  %15 = fdiv float %7, %sqrt.i.i.i
+  store float %15, ptr %6, align 4
+  %16 = fdiv float %9, %sqrt.i.i.i
+  store float %16, ptr %8, align 4
+  %17 = fdiv float %13, %sqrt.i.i.i
+  store float %17, ptr %12, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 264520
+  %19 = load ptr, ptr %18, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12344,22 +12458,36 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
 "_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit": ; preds = %3, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %2, i64 24
-  %16 = load <2 x float>, ptr %14, align 4
-  %17 = load <2 x float>, ptr %15, align 4
-  %18 = fadd <2 x float> %16, %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
-  %21 = load <2 x float>, ptr %19, align 4
-  %22 = load <2 x float>, ptr %20, align 4
-  %23 = fadd <2 x float> %21, %22
-  store <2 x float> %18, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  store <2 x float> %23, ptr %24, align 8
-  %25 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %26, i16 %25, ptr noundef nonnull align 4 dereferenceable(16) %4)
+  %16 = load float, ptr %14, align 4
+  %17 = load float, ptr %15, align 4
+  %18 = fadd float %16, %17
+  %19 = getelementptr inbounds i8, ptr %1, i64 28
+  %20 = load float, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %2, i64 28
+  %22 = load float, ptr %21, align 4
+  %23 = fadd float %20, %22
+  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = load float, ptr %24, align 4
+  %26 = getelementptr inbounds i8, ptr %2, i64 32
+  %27 = load float, ptr %26, align 4
+  %28 = fadd float %25, %27
+  %29 = getelementptr inbounds i8, ptr %1, i64 36
+  %30 = load float, ptr %29, align 4
+  %31 = getelementptr inbounds i8, ptr %2, i64 36
+  %32 = load float, ptr %31, align 4
+  %33 = fadd float %30, %32
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %18, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %23, i64 1
+  %.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %28, i64 0
+  %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i, float %33, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %34, align 8
+  %35 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %36, i16 %35, ptr noundef nonnull align 4 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  ret ptr %27
+  ret ptr %37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12476,22 +12604,36 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
 "_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.exit": ; preds = %3, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %2, i64 24
-  %16 = load <2 x float>, ptr %14, align 4
-  %17 = load <2 x float>, ptr %15, align 4
-  %18 = fsub <2 x float> %16, %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
-  %21 = load <2 x float>, ptr %19, align 4
-  %22 = load <2 x float>, ptr %20, align 4
-  %23 = fsub <2 x float> %21, %22
-  store <2 x float> %18, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  store <2 x float> %23, ptr %24, align 8
-  %25 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %26, i16 %25, ptr noundef nonnull align 4 dereferenceable(16) %4)
+  %16 = load float, ptr %14, align 4
+  %17 = load float, ptr %15, align 4
+  %18 = fsub float %16, %17
+  %19 = getelementptr inbounds i8, ptr %1, i64 28
+  %20 = load float, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %2, i64 28
+  %22 = load float, ptr %21, align 4
+  %23 = fsub float %20, %22
+  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = load float, ptr %24, align 4
+  %26 = getelementptr inbounds i8, ptr %2, i64 32
+  %27 = load float, ptr %26, align 4
+  %28 = fsub float %25, %27
+  %29 = getelementptr inbounds i8, ptr %1, i64 36
+  %30 = load float, ptr %29, align 4
+  %31 = getelementptr inbounds i8, ptr %2, i64 36
+  %32 = load float, ptr %31, align 4
+  %33 = fsub float %30, %32
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %18, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %23, i64 1
+  %.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %28, i64 0
+  %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i, float %33, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %34, align 8
+  %35 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %36, i16 %35, ptr noundef nonnull align 4 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  ret ptr %27
+  ret ptr %37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12510,48 +12652,70 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %12, align 2
   %13 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %14 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, %13
-  br i1 %14, label %15, label %26
+  br i1 %14, label %15, label %36
 
 15:                                               ; preds = %3
   %.sink3.i.sroa.gep3 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %17 = getelementptr inbounds i8, ptr %2, i64 24
-  %18 = load <2 x float>, ptr %7, align 4
-  %19 = load <2 x float>, ptr %17, align 4
-  %20 = fmul <2 x float> %18, %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
-  %22 = getelementptr inbounds i8, ptr %2, i64 32
-  %23 = load <2 x float>, ptr %21, align 4
-  %24 = load <2 x float>, ptr %22, align 4
-  %25 = fmul <2 x float> %23, %24
-  store <2 x float> %20, ptr %4, align 8
+  %18 = load float, ptr %7, align 4
+  %19 = load float, ptr %17, align 4
+  %20 = fmul float %18, %19
+  %21 = getelementptr inbounds i8, ptr %1, i64 28
+  %22 = load float, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %2, i64 28
+  %24 = load float, ptr %23, align 4
+  %25 = fmul float %22, %24
+  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = load float, ptr %26, align 4
+  %28 = getelementptr inbounds i8, ptr %2, i64 32
+  %29 = load float, ptr %28, align 4
+  %30 = fmul float %27, %29
+  %31 = getelementptr inbounds i8, ptr %1, i64 36
+  %32 = load float, ptr %31, align 4
+  %33 = getelementptr inbounds i8, ptr %2, i64 36
+  %34 = load float, ptr %33, align 4
+  %35 = fmul float %32, %34
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %20, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %25, i64 1
+  %.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %30, i64 0
+  %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i, float %35, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit"
 
-26:                                               ; preds = %3
+36:                                               ; preds = %3
   %.sink3.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
-  %27 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
-  %28 = fptrunc double %27 to float
-  %29 = load <2 x float>, ptr %7, align 4
-  %30 = insertelement <2 x float> poison, float %28, i64 0
-  %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
-  %32 = fmul <2 x float> %29, %31
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
-  %34 = load <2 x float>, ptr %33, align 4
-  %35 = fmul <2 x float> %34, %31
-  store <2 x float> %32, ptr %5, align 8
+  %37 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
+  %38 = fptrunc double %37 to float
+  %39 = load float, ptr %7, align 4
+  %40 = fmul float %39, %38
+  %41 = getelementptr inbounds i8, ptr %1, i64 28
+  %42 = load float, ptr %41, align 4
+  %43 = fmul float %42, %38
+  %44 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = load float, ptr %44, align 4
+  %46 = fmul float %45, %38
+  %47 = getelementptr inbounds i8, ptr %1, i64 36
+  %48 = load float, ptr %47, align 4
+  %49 = fmul float %48, %38
+  %.sroa.0.0.vec.insert.i15.i = insertelement <2 x float> poison, float %40, i64 0
+  %.sroa.0.4.vec.insert.i16.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i15.i, float %43, i64 1
+  %.sroa.3.8.vec.insert.i17.i = insertelement <2 x float> poison, float %46, i64 0
+  %.sroa.3.12.vec.insert.i18.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i17.i, float %49, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i16.i, ptr %5, align 8
   br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit": ; preds = %15, %26
-  %.sink3.i.sroa.phi = phi ptr [ %.sink3.i.sroa.gep, %26 ], [ %.sink3.i.sroa.gep3, %15 ]
-  %.sink3.i = phi ptr [ %5, %26 ], [ %4, %15 ]
-  %.sroa.3.12.vec.insert.i18.sink.i = phi <2 x float> [ %35, %26 ], [ %25, %15 ]
+"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit": ; preds = %15, %36
+  %.sink3.i.sroa.phi = phi ptr [ %.sink3.i.sroa.gep, %36 ], [ %.sink3.i.sroa.gep3, %15 ]
+  %.sink3.i = phi ptr [ %5, %36 ], [ %4, %15 ]
+  %.sroa.3.12.vec.insert.i18.sink.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i18.i, %36 ], [ %.sroa.3.12.vec.insert.i.i, %15 ]
   store <2 x float> %.sroa.3.12.vec.insert.i18.sink.i, ptr %.sink3.i.sroa.phi, align 4
-  %36 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  %38 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %37, i16 %36, ptr noundef nonnull align 4 dereferenceable(16) %.sink3.i)
+  %50 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %51, i16 %50, ptr noundef nonnull align 4 dereferenceable(16) %.sink3.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  ret ptr %38
+  ret ptr %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12565,21 +12729,29 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %9)
   %11 = fptrunc double %10 to float
-  %12 = load <2 x float>, ptr %7, align 4
-  %13 = insertelement <2 x float> poison, float %11, i64 0
-  %14 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> zeroinitializer
-  %15 = fmul <2 x float> %12, %14
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
-  %17 = load <2 x float>, ptr %16, align 4
-  %18 = fmul <2 x float> %17, %14
-  store <2 x float> %15, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
-  store <2 x float> %18, ptr %19, align 8
-  %20 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %21, i16 %20, ptr noundef nonnull align 4 dereferenceable(16) %4)
+  %12 = load float, ptr %7, align 4
+  %13 = fmul float %12, %11
+  %14 = getelementptr inbounds i8, ptr %5, i64 28
+  %15 = load float, ptr %14, align 4
+  %16 = fmul float %15, %11
+  %17 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = load float, ptr %17, align 4
+  %19 = fmul float %18, %11
+  %20 = getelementptr inbounds i8, ptr %5, i64 36
+  %21 = load float, ptr %20, align 4
+  %22 = fmul float %21, %11
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %13, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %16, i64 1
+  %.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %19, i64 0
+  %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i, float %22, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %23, align 8
+  %24 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %25, i16 %24, ptr noundef nonnull align 4 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  ret ptr %22
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12590,21 +12762,29 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
   %8 = fptrunc double %7 to float
-  %9 = load <2 x float>, ptr %6, align 4
-  %10 = insertelement <2 x float> poison, float %8, i64 0
-  %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
-  %12 = fdiv <2 x float> %9, %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
-  %14 = load <2 x float>, ptr %13, align 4
-  %15 = fdiv <2 x float> %14, %11
-  store <2 x float> %12, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  store <2 x float> %15, ptr %16, align 8
-  %17 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %18, i16 %17, ptr noundef nonnull align 4 dereferenceable(16) %4)
+  %9 = load float, ptr %6, align 4
+  %10 = fdiv float %9, %8
+  %11 = getelementptr inbounds i8, ptr %1, i64 28
+  %12 = load float, ptr %11, align 4
+  %13 = fdiv float %12, %8
+  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = load float, ptr %14, align 4
+  %16 = fdiv float %15, %8
+  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %18 = load float, ptr %17, align 4
+  %19 = fdiv float %18, %8
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %10, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %13, i64 1
+  %.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %16, i64 0
+  %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i, float %19, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %20, align 8
+  %21 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %22, i16 %21, ptr noundef nonnull align 4 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  ret ptr %19
+  ret ptr %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12760,25 +12940,29 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = getelementptr inbounds i8, ptr %5, i64 24
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load <2 x float>, ptr %8, align 4
-  %10 = extractelement <2 x float> %9, i64 0
-  %11 = extractelement <2 x float> %9, i64 1
-  %12 = load <2 x float>, ptr %7, align 4
-  %13 = fmul <2 x float> %12, %12
-  %14 = extractelement <2 x float> %13, i64 1
-  %15 = extractelement <2 x float> %12, i64 0
-  %16 = tail call float @llvm.fmuladd.f32(float %15, float %15, float %14)
-  %17 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %16)
-  %18 = tail call float @llvm.fmuladd.f32(float %11, float %11, float %17)
+  %8 = load float, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %5, i64 28
+  %10 = load float, ptr %9, align 4
+  %11 = fmul float %10, %10
+  %12 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %11)
+  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %14 = load float, ptr %13, align 4
+  %15 = tail call float @llvm.fmuladd.f32(float %14, float %14, float %12)
+  %16 = getelementptr inbounds i8, ptr %5, i64 36
+  %17 = load float, ptr %16, align 4
+  %18 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %15)
   %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %18)
-  %19 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
-  %20 = shufflevector <2 x float> %19, <2 x float> poison, <2 x i32> zeroinitializer
-  %21 = fdiv <2 x float> %12, %20
-  %22 = fdiv <2 x float> %9, %20
-  store <2 x float> %21, ptr %4, align 8
+  %19 = fdiv float %8, %sqrt.i.i.i
+  %20 = fdiv float %10, %sqrt.i.i.i
+  %21 = fdiv float %14, %sqrt.i.i.i
+  %22 = fdiv float %17, %sqrt.i.i.i
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %19, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %20, i64 1
+  %.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %21, i64 0
+  %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i, float %22, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   %23 = getelementptr inbounds i8, ptr %4, i64 8
-  store <2 x float> %22, ptr %23, align 8
+  store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %23, align 8
   %24 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   %26 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %25, i16 %24, ptr noundef nonnull align 4 dereferenceable(16) %4)
@@ -12791,23 +12975,29 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %6 = getelementptr inbounds i8, ptr %4, i64 24
-  %7 = load <4 x float>, ptr %6, align 4
-  %8 = fmul <4 x float> %7, %7
-  %9 = extractelement <4 x float> %8, i64 1
-  %10 = extractelement <4 x float> %7, i64 0
-  %11 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %9)
-  %12 = extractelement <4 x float> %7, i64 2
-  %13 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %11)
-  %14 = extractelement <4 x float> %7, i64 3
-  %15 = tail call float @llvm.fmuladd.f32(float %14, float %14, float %13)
-  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %15)
-  %16 = insertelement <4 x float> poison, float %sqrt.i.i.i, i64 0
-  %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
-  %18 = fdiv <4 x float> %7, %17
-  store <4 x float> %18, ptr %6, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 264520
-  %20 = load ptr, ptr %19, align 8
-  ret ptr %20
+  %7 = load float, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = load float, ptr %8, align 4
+  %10 = fmul float %9, %9
+  %11 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %10)
+  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = load float, ptr %12, align 4
+  %14 = tail call float @llvm.fmuladd.f32(float %13, float %13, float %11)
+  %15 = getelementptr inbounds i8, ptr %4, i64 36
+  %16 = load float, ptr %15, align 4
+  %17 = tail call float @llvm.fmuladd.f32(float %16, float %16, float %14)
+  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %17)
+  %18 = fdiv float %7, %sqrt.i.i.i
+  store float %18, ptr %6, align 4
+  %19 = fdiv float %9, %sqrt.i.i.i
+  store float %19, ptr %8, align 4
+  %20 = fdiv float %13, %sqrt.i.i.i
+  store float %20, ptr %12, align 4
+  %21 = fdiv float %16, %sqrt.i.i.i
+  store float %21, ptr %15, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 264520
+  %23 = load ptr, ptr %22, align 8
+  ret ptr %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14411,7 +14601,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_EN4$_168__invokeES2_S4_S4_"(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2) #10 align 2 {
-  %4 = alloca %"struct.pkpy::Mat3x3", align 16
+  %4 = alloca %"struct.pkpy::Mat3x3", align 4
   %5 = alloca %"struct.pkpy::Vec3", align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
@@ -14425,7 +14615,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %12, align 2
   %13 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %14 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, %13
-  br i1 %14, label %15, label %100
+  br i1 %14, label %15, label %90
 
 15:                                               ; preds = %3
   %16 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
@@ -14438,151 +14628,140 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %21 = load float, ptr %20, align 4, !noalias !52
   %22 = getelementptr inbounds i8, ptr %2, i64 36
   %23 = load float, ptr %22, align 4, !noalias !52
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
-  %25 = load float, ptr %24, align 4, !noalias !52
-  %26 = getelementptr inbounds i8, ptr %2, i64 48
+  %24 = fmul float %21, %23
+  %25 = call float @llvm.fmuladd.f32(float %18, float %19, float %24)
+  %26 = getelementptr inbounds i8, ptr %1, i64 32
   %27 = load float, ptr %26, align 4, !noalias !52
-  %28 = getelementptr inbounds i8, ptr %2, i64 28
-  %29 = getelementptr inbounds i8, ptr %2, i64 40
-  %30 = getelementptr inbounds i8, ptr %2, i64 52
-  %31 = load <2 x float>, ptr %28, align 4, !noalias !52
-  %32 = load <2 x float>, ptr %29, align 4, !noalias !52
-  %33 = load <2 x float>, ptr %30, align 4, !noalias !52
-  %34 = getelementptr inbounds i8, ptr %1, i64 36
-  %35 = load float, ptr %34, align 4, !noalias !52
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
-  %37 = load float, ptr %36, align 4, !noalias !52
-  %38 = getelementptr inbounds i8, ptr %1, i64 44
-  %39 = load float, ptr %38, align 4, !noalias !52
-  %40 = insertelement <4 x float> poison, float %23, i64 0
-  %41 = shufflevector <2 x float> %32, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %42 = shufflevector <4 x float> %40, <4 x float> %41, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %43 = shufflevector <4 x float> %42, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %44 = insertelement <4 x float> poison, float %21, i64 0
-  %45 = insertelement <4 x float> %44, float %37, i64 1
-  %46 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %47 = fmul <4 x float> %43, %46
-  %48 = insertelement <4 x float> poison, float %18, i64 0
-  %49 = insertelement <4 x float> %48, float %35, i64 1
-  %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %51 = insertelement <4 x float> poison, float %19, i64 0
-  %52 = shufflevector <2 x float> %31, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %53 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %54 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %55 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %50, <4 x float> %54, <4 x float> %47)
-  %56 = insertelement <4 x float> poison, float %25, i64 0
-  %57 = insertelement <4 x float> %56, float %39, i64 1
-  %58 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %59 = insertelement <4 x float> poison, float %27, i64 0
-  %60 = shufflevector <2 x float> %33, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %61 = shufflevector <4 x float> %59, <4 x float> %60, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %62 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %63 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %58, <4 x float> %62, <4 x float> %55)
-  store <4 x float> %63, ptr %4, align 16, !alias.scope !52
+  %28 = getelementptr inbounds i8, ptr %2, i64 48
+  %29 = load float, ptr %28, align 4, !noalias !52
+  %30 = call float @llvm.fmuladd.f32(float %27, float %29, float %25)
+  store float %30, ptr %4, align 4, !alias.scope !52
+  %31 = getelementptr inbounds i8, ptr %2, i64 28
+  %32 = load float, ptr %31, align 4, !noalias !52
+  %33 = getelementptr inbounds i8, ptr %2, i64 40
+  %34 = load float, ptr %33, align 4, !noalias !52
+  %35 = fmul float %21, %34
+  %36 = call float @llvm.fmuladd.f32(float %18, float %32, float %35)
+  %37 = getelementptr inbounds i8, ptr %2, i64 52
+  %38 = load float, ptr %37, align 4, !noalias !52
+  %39 = call float @llvm.fmuladd.f32(float %27, float %38, float %36)
+  %40 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %39, ptr %40, align 4, !alias.scope !52
+  %41 = getelementptr inbounds i8, ptr %2, i64 32
+  %42 = load float, ptr %41, align 4, !noalias !52
+  %43 = getelementptr inbounds i8, ptr %2, i64 44
+  %44 = load float, ptr %43, align 4, !noalias !52
+  %45 = fmul float %21, %44
+  %46 = call float @llvm.fmuladd.f32(float %18, float %42, float %45)
+  %47 = getelementptr inbounds i8, ptr %2, i64 56
+  %48 = load float, ptr %47, align 4, !noalias !52
+  %49 = call float @llvm.fmuladd.f32(float %27, float %48, float %46)
+  %50 = getelementptr inbounds i8, ptr %4, i64 8
+  store float %49, ptr %50, align 4, !alias.scope !52
+  %51 = getelementptr inbounds i8, ptr %1, i64 36
+  %52 = load float, ptr %51, align 4, !noalias !52
+  %53 = getelementptr inbounds i8, ptr %1, i64 40
+  %54 = load float, ptr %53, align 4, !noalias !52
+  %55 = fmul float %23, %54
+  %56 = call float @llvm.fmuladd.f32(float %52, float %19, float %55)
+  %57 = getelementptr inbounds i8, ptr %1, i64 44
+  %58 = load float, ptr %57, align 4, !noalias !52
+  %59 = call float @llvm.fmuladd.f32(float %58, float %29, float %56)
+  %60 = getelementptr inbounds i8, ptr %4, i64 12
+  store float %59, ptr %60, align 4, !alias.scope !52
+  %61 = fmul float %34, %54
+  %62 = call float @llvm.fmuladd.f32(float %52, float %32, float %61)
+  %63 = call float @llvm.fmuladd.f32(float %58, float %38, float %62)
   %64 = getelementptr inbounds i8, ptr %4, i64 16
-  %65 = getelementptr inbounds i8, ptr %1, i64 48
-  %66 = load float, ptr %65, align 4, !noalias !52
-  %67 = getelementptr inbounds i8, ptr %1, i64 52
-  %68 = load float, ptr %67, align 4, !noalias !52
-  %69 = getelementptr inbounds i8, ptr %1, i64 56
+  store float %63, ptr %64, align 4, !alias.scope !52
+  %65 = fmul float %44, %54
+  %66 = call float @llvm.fmuladd.f32(float %52, float %42, float %65)
+  %67 = call float @llvm.fmuladd.f32(float %58, float %48, float %66)
+  %68 = getelementptr inbounds i8, ptr %4, i64 20
+  store float %67, ptr %68, align 4, !alias.scope !52
+  %69 = getelementptr inbounds i8, ptr %1, i64 48
   %70 = load float, ptr %69, align 4, !noalias !52
-  %71 = insertelement <4 x float> %41, float %23, i64 1
-  %72 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %73 = insertelement <4 x float> poison, float %37, i64 0
-  %74 = insertelement <4 x float> %73, float %68, i64 1
-  %75 = shufflevector <4 x float> %74, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %76 = fmul <4 x float> %72, %75
-  %77 = insertelement <4 x float> poison, float %35, i64 0
-  %78 = insertelement <4 x float> %77, float %66, i64 1
-  %79 = shufflevector <4 x float> %78, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %80 = insertelement <4 x float> %52, float %19, i64 1
-  %81 = shufflevector <4 x float> %80, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %82 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %79, <4 x float> %81, <4 x float> %76)
-  %83 = insertelement <4 x float> poison, float %39, i64 0
-  %84 = insertelement <4 x float> %83, float %70, i64 1
-  %85 = shufflevector <4 x float> %84, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %86 = insertelement <4 x float> %60, float %27, i64 1
-  %87 = shufflevector <4 x float> %86, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %88 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %85, <4 x float> %87, <4 x float> %82)
-  %89 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  store <4 x float> %89, ptr %64, align 16, !alias.scope !52
-  %90 = extractelement <2 x float> %32, i64 1
-  %91 = fmul float %90, %68
-  %92 = extractelement <2 x float> %31, i64 1
-  %93 = call float @llvm.fmuladd.f32(float %66, float %92, float %91)
-  %94 = extractelement <2 x float> %33, i64 1
-  %95 = call float @llvm.fmuladd.f32(float %70, float %94, float %93)
-  %96 = getelementptr inbounds i8, ptr %4, i64 32
-  store float %95, ptr %96, align 16, !alias.scope !52
-  %97 = getelementptr inbounds i8, ptr %0, i64 16
-  %98 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %99 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %97, i16 %98, ptr noundef nonnull align 4 dereferenceable(36) %4)
+  %71 = getelementptr inbounds i8, ptr %1, i64 52
+  %72 = load float, ptr %71, align 4, !noalias !52
+  %73 = fmul float %23, %72
+  %74 = call float @llvm.fmuladd.f32(float %70, float %19, float %73)
+  %75 = getelementptr inbounds i8, ptr %1, i64 56
+  %76 = load float, ptr %75, align 4, !noalias !52
+  %77 = call float @llvm.fmuladd.f32(float %76, float %29, float %74)
+  %78 = getelementptr inbounds i8, ptr %4, i64 24
+  store float %77, ptr %78, align 4, !alias.scope !52
+  %79 = fmul float %34, %72
+  %80 = call float @llvm.fmuladd.f32(float %70, float %32, float %79)
+  %81 = call float @llvm.fmuladd.f32(float %76, float %38, float %80)
+  %82 = getelementptr inbounds i8, ptr %4, i64 28
+  store float %81, ptr %82, align 4, !alias.scope !52
+  %83 = fmul float %44, %72
+  %84 = call float @llvm.fmuladd.f32(float %70, float %42, float %83)
+  %85 = call float @llvm.fmuladd.f32(float %76, float %48, float %84)
+  %86 = getelementptr inbounds i8, ptr %4, i64 32
+  store float %85, ptr %86, align 4, !alias.scope !52
+  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  %88 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %89 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %87, i16 %88, ptr noundef nonnull align 4 dereferenceable(36) %4)
   br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
-100:                                              ; preds = %3
+90:                                               ; preds = %3
   %.sroa.0.0.copyload.i.i18.i = load i16, ptr %12, align 2
-  %101 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %102 = icmp eq i16 %.sroa.0.0.copyload.i.i18.i, %101
-  br i1 %102, label %103, label %149
+  %91 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %92 = icmp eq i16 %.sroa.0.0.copyload.i.i18.i, %91
+  br i1 %92, label %93, label %130
 
-103:                                              ; preds = %100
-  %104 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %105 = getelementptr inbounds i8, ptr %2, i64 24
-  %106 = load float, ptr %7, align 4
-  %107 = load float, ptr %105, align 4
-  %108 = getelementptr inbounds i8, ptr %1, i64 28
-  %109 = load float, ptr %108, align 4
-  %110 = getelementptr inbounds i8, ptr %2, i64 28
-  %111 = load float, ptr %110, align 4
-  %112 = getelementptr inbounds i8, ptr %1, i64 32
-  %113 = load float, ptr %112, align 4
-  %114 = getelementptr inbounds i8, ptr %2, i64 32
-  %115 = load float, ptr %114, align 4
-  %116 = getelementptr inbounds i8, ptr %1, i64 36
-  %117 = load float, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %1, i64 40
+93:                                               ; preds = %90
+  %94 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %95 = getelementptr inbounds i8, ptr %2, i64 24
+  %96 = load float, ptr %7, align 4
+  %97 = load float, ptr %95, align 4
+  %98 = getelementptr inbounds i8, ptr %1, i64 28
+  %99 = load float, ptr %98, align 4
+  %100 = getelementptr inbounds i8, ptr %2, i64 28
+  %101 = load float, ptr %100, align 4
+  %102 = fmul float %99, %101
+  %103 = tail call float @llvm.fmuladd.f32(float %96, float %97, float %102)
+  %104 = getelementptr inbounds i8, ptr %1, i64 32
+  %105 = load float, ptr %104, align 4
+  %106 = getelementptr inbounds i8, ptr %2, i64 32
+  %107 = load float, ptr %106, align 4
+  %108 = tail call float @llvm.fmuladd.f32(float %105, float %107, float %103)
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %108, i64 0
+  %109 = getelementptr inbounds i8, ptr %1, i64 36
+  %110 = load float, ptr %109, align 4
+  %111 = getelementptr inbounds i8, ptr %1, i64 40
+  %112 = load float, ptr %111, align 4
+  %113 = fmul float %101, %112
+  %114 = tail call float @llvm.fmuladd.f32(float %110, float %97, float %113)
+  %115 = getelementptr inbounds i8, ptr %1, i64 44
+  %116 = load float, ptr %115, align 4
+  %117 = tail call float @llvm.fmuladd.f32(float %116, float %107, float %114)
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %117, i64 1
+  %118 = getelementptr inbounds i8, ptr %1, i64 48
   %119 = load float, ptr %118, align 4
-  %120 = getelementptr inbounds i8, ptr %1, i64 44
+  %120 = getelementptr inbounds i8, ptr %1, i64 52
   %121 = load float, ptr %120, align 4
-  %122 = insertelement <2 x float> poison, float %111, i64 0
-  %123 = shufflevector <2 x float> %122, <2 x float> poison, <2 x i32> zeroinitializer
-  %124 = insertelement <2 x float> poison, float %109, i64 0
-  %125 = insertelement <2 x float> %124, float %119, i64 1
-  %126 = fmul <2 x float> %123, %125
-  %127 = insertelement <2 x float> poison, float %106, i64 0
-  %128 = insertelement <2 x float> %127, float %117, i64 1
-  %129 = insertelement <2 x float> poison, float %107, i64 0
-  %130 = shufflevector <2 x float> %129, <2 x float> poison, <2 x i32> zeroinitializer
-  %131 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %128, <2 x float> %130, <2 x float> %126)
-  %132 = insertelement <2 x float> poison, float %113, i64 0
-  %133 = insertelement <2 x float> %132, float %121, i64 1
-  %134 = insertelement <2 x float> poison, float %115, i64 0
-  %135 = shufflevector <2 x float> %134, <2 x float> poison, <2 x i32> zeroinitializer
-  %136 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %133, <2 x float> %135, <2 x float> %131)
-  %137 = getelementptr inbounds i8, ptr %1, i64 48
-  %138 = load float, ptr %137, align 4
-  %139 = getelementptr inbounds i8, ptr %1, i64 52
-  %140 = load float, ptr %139, align 4
-  %141 = fmul float %111, %140
-  %142 = tail call float @llvm.fmuladd.f32(float %138, float %107, float %141)
-  %143 = getelementptr inbounds i8, ptr %1, i64 56
-  %144 = load float, ptr %143, align 4
-  %145 = tail call float @llvm.fmuladd.f32(float %144, float %115, float %142)
-  store <2 x float> %136, ptr %5, align 8
+  %122 = fmul float %101, %121
+  %123 = tail call float @llvm.fmuladd.f32(float %119, float %97, float %122)
+  %124 = getelementptr inbounds i8, ptr %1, i64 56
+  %125 = load float, ptr %124, align 4
+  %126 = tail call float @llvm.fmuladd.f32(float %125, float %107, float %123)
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
-  store float %145, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 16
-  %147 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %148 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %146, i16 %147, ptr noundef nonnull align 4 dereferenceable(12) %5)
+  store float %126, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %127 = getelementptr inbounds i8, ptr %0, i64 16
+  %128 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %129 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %127, i16 %128, ptr noundef nonnull align 4 dereferenceable(12) %5)
   br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
-149:                                              ; preds = %100
-  %150 = getelementptr inbounds i8, ptr %0, i64 264544
-  %151 = load ptr, ptr %150, align 8
+130:                                              ; preds = %90
+  %131 = getelementptr inbounds i8, ptr %0, i64 264544
+  %132 = load ptr, ptr %131, align 8
   br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit": ; preds = %15, %103, %149
-  %.0.i = phi ptr [ %99, %15 ], [ %148, %103 ], [ %151, %149 ]
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit": ; preds = %15, %93, %130
+  %.0.i = phi ptr [ %89, %15 ], [ %129, %93 ], [ %132, %130 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   ret ptr %.0.i
@@ -14590,8 +14769,8 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_EN4$_178__invokeES2_NS_8ArgsViewE"(ptr noundef nonnull %0, ptr nocapture readonly %1, ptr nocapture readnone %2) #3 align 2 {
-  %4 = alloca %"struct.pkpy::Mat3x3", align 16
-  %5 = alloca %"struct.pkpy::Mat3x3", align 16
+  %4 = alloca %"struct.pkpy::Mat3x3", align 4
+  %5 = alloca %"struct.pkpy::Mat3x3", align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5)
   %6 = load ptr, ptr %1, align 8
@@ -14620,7 +14799,7 @@ _ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %13, %
   %22 = getelementptr inbounds i8, ptr %0, i64 264520
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %21, %23
-  br i1 %24, label %25, label %108
+  br i1 %24, label %25, label %98
 
 25:                                               ; preds = %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
@@ -14631,194 +14810,186 @@ _ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %13, %
   %29 = load float, ptr %28, align 4, !noalias !55
   %30 = getelementptr inbounds i8, ptr %10, i64 36
   %31 = load float, ptr %30, align 4, !noalias !55
-  %32 = getelementptr inbounds i8, ptr %6, i64 32
-  %33 = load float, ptr %32, align 4, !noalias !55
-  %34 = getelementptr inbounds i8, ptr %10, i64 48
+  %32 = fmul float %29, %31
+  %33 = call float @llvm.fmuladd.f32(float %26, float %27, float %32)
+  %34 = getelementptr inbounds i8, ptr %6, i64 32
   %35 = load float, ptr %34, align 4, !noalias !55
-  %36 = getelementptr inbounds i8, ptr %10, i64 28
-  %37 = getelementptr inbounds i8, ptr %10, i64 40
-  %38 = getelementptr inbounds i8, ptr %10, i64 52
-  %39 = load <2 x float>, ptr %36, align 4, !noalias !55
-  %40 = load <2 x float>, ptr %37, align 4, !noalias !55
-  %41 = load <2 x float>, ptr %38, align 4, !noalias !55
-  %42 = getelementptr inbounds i8, ptr %6, i64 36
-  %43 = load float, ptr %42, align 4, !noalias !55
-  %44 = getelementptr inbounds i8, ptr %6, i64 40
-  %45 = load float, ptr %44, align 4, !noalias !55
-  %46 = getelementptr inbounds i8, ptr %6, i64 44
-  %47 = load float, ptr %46, align 4, !noalias !55
-  %48 = insertelement <4 x float> poison, float %31, i64 0
-  %49 = shufflevector <2 x float> %40, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %50 = shufflevector <4 x float> %48, <4 x float> %49, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %51 = shufflevector <4 x float> %50, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %52 = insertelement <4 x float> poison, float %29, i64 0
-  %53 = insertelement <4 x float> %52, float %45, i64 1
-  %54 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %55 = fmul <4 x float> %51, %54
-  %56 = insertelement <4 x float> poison, float %26, i64 0
-  %57 = insertelement <4 x float> %56, float %43, i64 1
-  %58 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %59 = insertelement <4 x float> poison, float %27, i64 0
-  %60 = shufflevector <2 x float> %39, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %61 = shufflevector <4 x float> %59, <4 x float> %60, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %62 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %63 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %58, <4 x float> %62, <4 x float> %55)
-  %64 = insertelement <4 x float> poison, float %33, i64 0
-  %65 = insertelement <4 x float> %64, float %47, i64 1
-  %66 = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %67 = insertelement <4 x float> poison, float %35, i64 0
-  %68 = shufflevector <2 x float> %41, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %69 = shufflevector <4 x float> %67, <4 x float> %68, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %70 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %71 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %66, <4 x float> %70, <4 x float> %63)
-  store <4 x float> %71, ptr %4, align 16, !alias.scope !55
+  %36 = getelementptr inbounds i8, ptr %10, i64 48
+  %37 = load float, ptr %36, align 4, !noalias !55
+  %38 = call float @llvm.fmuladd.f32(float %35, float %37, float %33)
+  store float %38, ptr %4, align 4, !alias.scope !55
+  %39 = getelementptr inbounds i8, ptr %10, i64 28
+  %40 = load float, ptr %39, align 4, !noalias !55
+  %41 = getelementptr inbounds i8, ptr %10, i64 40
+  %42 = load float, ptr %41, align 4, !noalias !55
+  %43 = fmul float %29, %42
+  %44 = call float @llvm.fmuladd.f32(float %26, float %40, float %43)
+  %45 = getelementptr inbounds i8, ptr %10, i64 52
+  %46 = load float, ptr %45, align 4, !noalias !55
+  %47 = call float @llvm.fmuladd.f32(float %35, float %46, float %44)
+  %48 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %47, ptr %48, align 4, !alias.scope !55
+  %49 = getelementptr inbounds i8, ptr %10, i64 32
+  %50 = load float, ptr %49, align 4, !noalias !55
+  %51 = getelementptr inbounds i8, ptr %10, i64 44
+  %52 = load float, ptr %51, align 4, !noalias !55
+  %53 = fmul float %29, %52
+  %54 = call float @llvm.fmuladd.f32(float %26, float %50, float %53)
+  %55 = getelementptr inbounds i8, ptr %10, i64 56
+  %56 = load float, ptr %55, align 4, !noalias !55
+  %57 = call float @llvm.fmuladd.f32(float %35, float %56, float %54)
+  %58 = getelementptr inbounds i8, ptr %4, i64 8
+  store float %57, ptr %58, align 4, !alias.scope !55
+  %59 = getelementptr inbounds i8, ptr %6, i64 36
+  %60 = load float, ptr %59, align 4, !noalias !55
+  %61 = getelementptr inbounds i8, ptr %6, i64 40
+  %62 = load float, ptr %61, align 4, !noalias !55
+  %63 = fmul float %31, %62
+  %64 = call float @llvm.fmuladd.f32(float %60, float %27, float %63)
+  %65 = getelementptr inbounds i8, ptr %6, i64 44
+  %66 = load float, ptr %65, align 4, !noalias !55
+  %67 = call float @llvm.fmuladd.f32(float %66, float %37, float %64)
+  %68 = getelementptr inbounds i8, ptr %4, i64 12
+  store float %67, ptr %68, align 4, !alias.scope !55
+  %69 = fmul float %42, %62
+  %70 = call float @llvm.fmuladd.f32(float %60, float %40, float %69)
+  %71 = call float @llvm.fmuladd.f32(float %66, float %46, float %70)
   %72 = getelementptr inbounds i8, ptr %4, i64 16
-  %73 = getelementptr inbounds i8, ptr %6, i64 48
-  %74 = load float, ptr %73, align 4, !noalias !55
-  %75 = getelementptr inbounds i8, ptr %6, i64 52
-  %76 = load float, ptr %75, align 4, !noalias !55
-  %77 = getelementptr inbounds i8, ptr %6, i64 56
+  store float %71, ptr %72, align 4, !alias.scope !55
+  %73 = fmul float %52, %62
+  %74 = call float @llvm.fmuladd.f32(float %60, float %50, float %73)
+  %75 = call float @llvm.fmuladd.f32(float %66, float %56, float %74)
+  %76 = getelementptr inbounds i8, ptr %4, i64 20
+  store float %75, ptr %76, align 4, !alias.scope !55
+  %77 = getelementptr inbounds i8, ptr %6, i64 48
   %78 = load float, ptr %77, align 4, !noalias !55
-  %79 = insertelement <4 x float> %49, float %31, i64 1
-  %80 = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %81 = insertelement <4 x float> poison, float %45, i64 0
-  %82 = insertelement <4 x float> %81, float %76, i64 1
-  %83 = shufflevector <4 x float> %82, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %84 = fmul <4 x float> %80, %83
-  %85 = insertelement <4 x float> poison, float %43, i64 0
-  %86 = insertelement <4 x float> %85, float %74, i64 1
-  %87 = shufflevector <4 x float> %86, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %88 = insertelement <4 x float> %60, float %27, i64 1
-  %89 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %90 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %87, <4 x float> %89, <4 x float> %84)
-  %91 = insertelement <4 x float> poison, float %47, i64 0
-  %92 = insertelement <4 x float> %91, float %78, i64 1
-  %93 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %94 = insertelement <4 x float> %68, float %35, i64 1
-  %95 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %96 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %93, <4 x float> %95, <4 x float> %90)
-  %97 = shufflevector <4 x float> %96, <4 x float> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  store <4 x float> %97, ptr %72, align 16, !alias.scope !55
-  %98 = extractelement <2 x float> %40, i64 1
-  %99 = fmul float %98, %76
-  %100 = extractelement <2 x float> %39, i64 1
-  %101 = call float @llvm.fmuladd.f32(float %74, float %100, float %99)
-  %102 = extractelement <2 x float> %41, i64 1
-  %103 = call float @llvm.fmuladd.f32(float %78, float %102, float %101)
-  %104 = getelementptr inbounds i8, ptr %4, i64 32
-  store float %103, ptr %104, align 16, !alias.scope !55
-  %105 = getelementptr inbounds i8, ptr %0, i64 16
-  %106 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %107 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %105, i16 %106, ptr noundef nonnull align 4 dereferenceable(36) %4)
+  %79 = getelementptr inbounds i8, ptr %6, i64 52
+  %80 = load float, ptr %79, align 4, !noalias !55
+  %81 = fmul float %31, %80
+  %82 = call float @llvm.fmuladd.f32(float %78, float %27, float %81)
+  %83 = getelementptr inbounds i8, ptr %6, i64 56
+  %84 = load float, ptr %83, align 4, !noalias !55
+  %85 = call float @llvm.fmuladd.f32(float %84, float %37, float %82)
+  %86 = getelementptr inbounds i8, ptr %4, i64 24
+  store float %85, ptr %86, align 4, !alias.scope !55
+  %87 = fmul float %42, %80
+  %88 = call float @llvm.fmuladd.f32(float %78, float %40, float %87)
+  %89 = call float @llvm.fmuladd.f32(float %84, float %46, float %88)
+  %90 = getelementptr inbounds i8, ptr %4, i64 28
+  store float %89, ptr %90, align 4, !alias.scope !55
+  %91 = fmul float %52, %80
+  %92 = call float @llvm.fmuladd.f32(float %78, float %50, float %91)
+  %93 = call float @llvm.fmuladd.f32(float %84, float %56, float %92)
+  %94 = getelementptr inbounds i8, ptr %4, i64 32
+  store float %93, ptr %94, align 4, !alias.scope !55
+  %95 = getelementptr inbounds i8, ptr %0, i64 16
+  %96 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %97 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %95, i16 %96, ptr noundef nonnull align 4 dereferenceable(36) %4)
   br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_NS_8ArgsViewE.exit"
 
-108:                                              ; preds = %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit.i
-  %109 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %110 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %21, i16 %109)
-  br i1 %110, label %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit13.i, label %111
+98:                                               ; preds = %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit.i
+  %99 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %100 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %21, i16 %99)
+  br i1 %100, label %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit13.i, label %101
 
-111:                                              ; preds = %108
-  %112 = ptrtoint ptr %21 to i64
-  %113 = and i64 %112, 3
-  %114 = icmp eq i64 %113, 2
-  %115 = getelementptr inbounds i8, ptr %21, i64 10
-  %116 = select i1 %114, ptr @_ZN4pkpy2VM6tp_intE, ptr %115
-  %.sroa.0.0.copyload.i.i.i.i12.i = load i16, ptr %116, align 2
-  tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %109, i16 %.sroa.0.0.copyload.i.i.i.i12.i)
+101:                                              ; preds = %98
+  %102 = ptrtoint ptr %21 to i64
+  %103 = and i64 %102, 3
+  %104 = icmp eq i64 %103, 2
+  %105 = getelementptr inbounds i8, ptr %21, i64 10
+  %106 = select i1 %104, ptr @_ZN4pkpy2VM6tp_intE, ptr %105
+  %.sroa.0.0.copyload.i.i.i.i12.i = load i16, ptr %106, align 2
+  tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %99, i16 %.sroa.0.0.copyload.i.i.i.i12.i)
   br label %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit13.i
 
-_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit13.i: ; preds = %111, %108
-  %117 = getelementptr inbounds i8, ptr %21, i64 24
+_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit13.i: ; preds = %101, %98
+  %107 = getelementptr inbounds i8, ptr %21, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   call void @_ZN4pkpy6Mat3x3C1Ev(ptr noundef nonnull align 4 dereferenceable(36) %5)
-  %118 = load float, ptr %8, align 4, !noalias !58
-  %119 = load float, ptr %19, align 4, !noalias !58
-  %120 = getelementptr inbounds i8, ptr %6, i64 28
-  %121 = load float, ptr %120, align 4, !noalias !58
-  %122 = getelementptr inbounds i8, ptr %10, i64 36
-  %123 = load float, ptr %122, align 4, !noalias !58
-  %124 = getelementptr inbounds i8, ptr %6, i64 32
-  %125 = load float, ptr %124, align 4, !noalias !58
-  %126 = getelementptr inbounds i8, ptr %10, i64 48
-  %127 = load float, ptr %126, align 4, !noalias !58
-  %128 = getelementptr inbounds i8, ptr %10, i64 28
-  %129 = getelementptr inbounds i8, ptr %10, i64 40
-  %130 = getelementptr inbounds i8, ptr %10, i64 52
-  %131 = load <2 x float>, ptr %128, align 4, !noalias !58
-  %132 = load <2 x float>, ptr %129, align 4, !noalias !58
-  %133 = load <2 x float>, ptr %130, align 4, !noalias !58
-  %134 = getelementptr inbounds i8, ptr %6, i64 36
-  %135 = load float, ptr %134, align 4, !noalias !58
-  %136 = getelementptr inbounds i8, ptr %6, i64 40
-  %137 = load float, ptr %136, align 4, !noalias !58
-  %138 = getelementptr inbounds i8, ptr %6, i64 44
-  %139 = load float, ptr %138, align 4, !noalias !58
-  %140 = insertelement <4 x float> poison, float %123, i64 0
-  %141 = shufflevector <2 x float> %132, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %142 = shufflevector <4 x float> %140, <4 x float> %141, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %143 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %144 = insertelement <4 x float> poison, float %121, i64 0
-  %145 = insertelement <4 x float> %144, float %137, i64 1
-  %146 = shufflevector <4 x float> %145, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %147 = fmul <4 x float> %143, %146
-  %148 = insertelement <4 x float> poison, float %118, i64 0
-  %149 = insertelement <4 x float> %148, float %135, i64 1
-  %150 = shufflevector <4 x float> %149, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %151 = insertelement <4 x float> poison, float %119, i64 0
-  %152 = shufflevector <2 x float> %131, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %153 = shufflevector <4 x float> %151, <4 x float> %152, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %154 = shufflevector <4 x float> %153, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %155 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %150, <4 x float> %154, <4 x float> %147)
-  %156 = insertelement <4 x float> poison, float %125, i64 0
-  %157 = insertelement <4 x float> %156, float %139, i64 1
-  %158 = shufflevector <4 x float> %157, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %159 = insertelement <4 x float> poison, float %127, i64 0
-  %160 = shufflevector <2 x float> %133, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 poison>
-  %161 = shufflevector <4 x float> %159, <4 x float> %160, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %162 = shufflevector <4 x float> %161, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %163 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %158, <4 x float> %162, <4 x float> %155)
-  store <4 x float> %163, ptr %5, align 16, !alias.scope !58
-  %164 = getelementptr inbounds i8, ptr %5, i64 16
-  %165 = getelementptr inbounds i8, ptr %6, i64 48
+  %108 = load float, ptr %8, align 4, !noalias !58
+  %109 = load float, ptr %19, align 4, !noalias !58
+  %110 = getelementptr inbounds i8, ptr %6, i64 28
+  %111 = load float, ptr %110, align 4, !noalias !58
+  %112 = getelementptr inbounds i8, ptr %10, i64 36
+  %113 = load float, ptr %112, align 4, !noalias !58
+  %114 = fmul float %111, %113
+  %115 = call float @llvm.fmuladd.f32(float %108, float %109, float %114)
+  %116 = getelementptr inbounds i8, ptr %6, i64 32
+  %117 = load float, ptr %116, align 4, !noalias !58
+  %118 = getelementptr inbounds i8, ptr %10, i64 48
+  %119 = load float, ptr %118, align 4, !noalias !58
+  %120 = call float @llvm.fmuladd.f32(float %117, float %119, float %115)
+  store float %120, ptr %5, align 4, !alias.scope !58
+  %121 = getelementptr inbounds i8, ptr %10, i64 28
+  %122 = load float, ptr %121, align 4, !noalias !58
+  %123 = getelementptr inbounds i8, ptr %10, i64 40
+  %124 = load float, ptr %123, align 4, !noalias !58
+  %125 = fmul float %111, %124
+  %126 = call float @llvm.fmuladd.f32(float %108, float %122, float %125)
+  %127 = getelementptr inbounds i8, ptr %10, i64 52
+  %128 = load float, ptr %127, align 4, !noalias !58
+  %129 = call float @llvm.fmuladd.f32(float %117, float %128, float %126)
+  %130 = getelementptr inbounds i8, ptr %5, i64 4
+  store float %129, ptr %130, align 4, !alias.scope !58
+  %131 = getelementptr inbounds i8, ptr %10, i64 32
+  %132 = load float, ptr %131, align 4, !noalias !58
+  %133 = getelementptr inbounds i8, ptr %10, i64 44
+  %134 = load float, ptr %133, align 4, !noalias !58
+  %135 = fmul float %111, %134
+  %136 = call float @llvm.fmuladd.f32(float %108, float %132, float %135)
+  %137 = getelementptr inbounds i8, ptr %10, i64 56
+  %138 = load float, ptr %137, align 4, !noalias !58
+  %139 = call float @llvm.fmuladd.f32(float %117, float %138, float %136)
+  %140 = getelementptr inbounds i8, ptr %5, i64 8
+  store float %139, ptr %140, align 4, !alias.scope !58
+  %141 = getelementptr inbounds i8, ptr %6, i64 36
+  %142 = load float, ptr %141, align 4, !noalias !58
+  %143 = getelementptr inbounds i8, ptr %6, i64 40
+  %144 = load float, ptr %143, align 4, !noalias !58
+  %145 = fmul float %113, %144
+  %146 = call float @llvm.fmuladd.f32(float %142, float %109, float %145)
+  %147 = getelementptr inbounds i8, ptr %6, i64 44
+  %148 = load float, ptr %147, align 4, !noalias !58
+  %149 = call float @llvm.fmuladd.f32(float %148, float %119, float %146)
+  %150 = getelementptr inbounds i8, ptr %5, i64 12
+  store float %149, ptr %150, align 4, !alias.scope !58
+  %151 = fmul float %124, %144
+  %152 = call float @llvm.fmuladd.f32(float %142, float %122, float %151)
+  %153 = call float @llvm.fmuladd.f32(float %148, float %128, float %152)
+  %154 = getelementptr inbounds i8, ptr %5, i64 16
+  store float %153, ptr %154, align 4, !alias.scope !58
+  %155 = fmul float %134, %144
+  %156 = call float @llvm.fmuladd.f32(float %142, float %132, float %155)
+  %157 = call float @llvm.fmuladd.f32(float %148, float %138, float %156)
+  %158 = getelementptr inbounds i8, ptr %5, i64 20
+  store float %157, ptr %158, align 4, !alias.scope !58
+  %159 = getelementptr inbounds i8, ptr %6, i64 48
+  %160 = load float, ptr %159, align 4, !noalias !58
+  %161 = getelementptr inbounds i8, ptr %6, i64 52
+  %162 = load float, ptr %161, align 4, !noalias !58
+  %163 = fmul float %113, %162
+  %164 = call float @llvm.fmuladd.f32(float %160, float %109, float %163)
+  %165 = getelementptr inbounds i8, ptr %6, i64 56
   %166 = load float, ptr %165, align 4, !noalias !58
-  %167 = getelementptr inbounds i8, ptr %6, i64 52
-  %168 = load float, ptr %167, align 4, !noalias !58
-  %169 = getelementptr inbounds i8, ptr %6, i64 56
-  %170 = load float, ptr %169, align 4, !noalias !58
-  %171 = insertelement <4 x float> %141, float %123, i64 1
-  %172 = shufflevector <4 x float> %171, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %173 = insertelement <4 x float> poison, float %137, i64 0
-  %174 = insertelement <4 x float> %173, float %168, i64 1
-  %175 = shufflevector <4 x float> %174, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %176 = fmul <4 x float> %172, %175
-  %177 = insertelement <4 x float> poison, float %135, i64 0
-  %178 = insertelement <4 x float> %177, float %166, i64 1
-  %179 = shufflevector <4 x float> %178, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %180 = insertelement <4 x float> %152, float %119, i64 1
-  %181 = shufflevector <4 x float> %180, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %182 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %179, <4 x float> %181, <4 x float> %176)
-  %183 = insertelement <4 x float> poison, float %139, i64 0
-  %184 = insertelement <4 x float> %183, float %170, i64 1
-  %185 = shufflevector <4 x float> %184, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %186 = insertelement <4 x float> %160, float %127, i64 1
-  %187 = shufflevector <4 x float> %186, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %188 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %185, <4 x float> %187, <4 x float> %182)
-  %189 = shufflevector <4 x float> %188, <4 x float> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  store <4 x float> %189, ptr %164, align 16, !alias.scope !58
-  %190 = extractelement <2 x float> %132, i64 1
-  %191 = fmul float %190, %168
-  %192 = extractelement <2 x float> %131, i64 1
-  %193 = call float @llvm.fmuladd.f32(float %166, float %192, float %191)
-  %194 = extractelement <2 x float> %133, i64 1
-  %195 = call float @llvm.fmuladd.f32(float %170, float %194, float %193)
-  %196 = getelementptr inbounds i8, ptr %5, i64 32
-  store float %195, ptr %196, align 16, !alias.scope !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %117, ptr noundef nonnull align 16 dereferenceable(36) %5, i64 36, i1 false)
-  %197 = load ptr, ptr %22, align 8
+  %167 = call float @llvm.fmuladd.f32(float %166, float %119, float %164)
+  %168 = getelementptr inbounds i8, ptr %5, i64 24
+  store float %167, ptr %168, align 4, !alias.scope !58
+  %169 = fmul float %124, %162
+  %170 = call float @llvm.fmuladd.f32(float %160, float %122, float %169)
+  %171 = call float @llvm.fmuladd.f32(float %166, float %128, float %170)
+  %172 = getelementptr inbounds i8, ptr %5, i64 28
+  store float %171, ptr %172, align 4, !alias.scope !58
+  %173 = fmul float %134, %162
+  %174 = call float @llvm.fmuladd.f32(float %160, float %132, float %173)
+  %175 = call float @llvm.fmuladd.f32(float %166, float %138, float %174)
+  %176 = getelementptr inbounds i8, ptr %5, i64 32
+  store float %175, ptr %176, align 4, !alias.scope !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %107, ptr noundef nonnull align 4 dereferenceable(36) %5, i64 36, i1 false)
+  %177 = load ptr, ptr %22, align 8
   br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_NS_8ArgsViewE.exit"
 
 "_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_NS_8ArgsViewE.exit": ; preds = %25, %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit13.i
-  %.0.i = phi ptr [ %107, %25 ], [ %197, %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit13.i ]
+  %.0.i = phi ptr [ %97, %25 ], [ %177, %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit13.i ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5)
   ret ptr %.0.i
@@ -14880,18 +15051,45 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   call void @_ZN4pkpy6Mat3x3C1Ev(ptr noundef nonnull align 4 dereferenceable(36) %4)
-  %8 = load <8 x float>, ptr %7, align 4, !noalias !61
-  %9 = shufflevector <8 x float> %8, <8 x float> poison, <8 x i32> <i32 0, i32 3, i32 6, i32 1, i32 4, i32 7, i32 2, i32 5>
-  store <8 x float> %9, ptr %4, align 4, !alias.scope !61
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
-  %11 = load float, ptr %10, align 4, !noalias !61
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
-  store float %11, ptr %12, align 4, !alias.scope !61
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %15 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %13, i16 %14, ptr noundef nonnull align 4 dereferenceable(36) %4)
+  %8 = load float, ptr %7, align 4, !noalias !61
+  store float %8, ptr %4, align 4, !alias.scope !61
+  %9 = getelementptr inbounds i8, ptr %5, i64 36
+  %10 = load float, ptr %9, align 4, !noalias !61
+  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %10, ptr %11, align 4, !alias.scope !61
+  %12 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = load float, ptr %12, align 4, !noalias !61
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  store float %13, ptr %14, align 4, !alias.scope !61
+  %15 = getelementptr inbounds i8, ptr %5, i64 28
+  %16 = load float, ptr %15, align 4, !noalias !61
+  %17 = getelementptr inbounds i8, ptr %4, i64 12
+  store float %16, ptr %17, align 4, !alias.scope !61
+  %18 = getelementptr inbounds i8, ptr %5, i64 40
+  %19 = load float, ptr %18, align 4, !noalias !61
+  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  store float %19, ptr %20, align 4, !alias.scope !61
+  %21 = getelementptr inbounds i8, ptr %5, i64 52
+  %22 = load float, ptr %21, align 4, !noalias !61
+  %23 = getelementptr inbounds i8, ptr %4, i64 20
+  store float %22, ptr %23, align 4, !alias.scope !61
+  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  %25 = load float, ptr %24, align 4, !noalias !61
+  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  store float %25, ptr %26, align 4, !alias.scope !61
+  %27 = getelementptr inbounds i8, ptr %5, i64 44
+  %28 = load float, ptr %27, align 4, !noalias !61
+  %29 = getelementptr inbounds i8, ptr %4, i64 28
+  store float %28, ptr %29, align 4, !alias.scope !61
+  %30 = getelementptr inbounds i8, ptr %5, i64 56
+  %31 = load float, ptr %30, align 4, !noalias !61
+  %32 = getelementptr inbounds i8, ptr %4, i64 32
+  store float %31, ptr %32, align 4, !alias.scope !61
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %35 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %33, i16 %34, ptr noundef nonnull align 4 dereferenceable(36) %4)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
-  ret ptr %15
+  ret ptr %35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15025,18 +15223,45 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   call void @_ZN4pkpy6Mat3x3C1Ev(ptr noundef nonnull align 4 dereferenceable(36) %4)
-  %8 = load <8 x float>, ptr %7, align 4, !noalias !64
-  %9 = shufflevector <8 x float> %8, <8 x float> poison, <8 x i32> <i32 0, i32 3, i32 6, i32 1, i32 4, i32 7, i32 2, i32 5>
-  store <8 x float> %9, ptr %4, align 4, !alias.scope !64
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
-  %11 = load float, ptr %10, align 4, !noalias !64
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
-  store float %11, ptr %12, align 4, !alias.scope !64
+  %8 = load float, ptr %7, align 4, !noalias !64
+  store float %8, ptr %4, align 4, !alias.scope !64
+  %9 = getelementptr inbounds i8, ptr %5, i64 36
+  %10 = load float, ptr %9, align 4, !noalias !64
+  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %10, ptr %11, align 4, !alias.scope !64
+  %12 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = load float, ptr %12, align 4, !noalias !64
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  store float %13, ptr %14, align 4, !alias.scope !64
+  %15 = getelementptr inbounds i8, ptr %5, i64 28
+  %16 = load float, ptr %15, align 4, !noalias !64
+  %17 = getelementptr inbounds i8, ptr %4, i64 12
+  store float %16, ptr %17, align 4, !alias.scope !64
+  %18 = getelementptr inbounds i8, ptr %5, i64 40
+  %19 = load float, ptr %18, align 4, !noalias !64
+  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  store float %19, ptr %20, align 4, !alias.scope !64
+  %21 = getelementptr inbounds i8, ptr %5, i64 52
+  %22 = load float, ptr %21, align 4, !noalias !64
+  %23 = getelementptr inbounds i8, ptr %4, i64 20
+  store float %22, ptr %23, align 4, !alias.scope !64
+  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  %25 = load float, ptr %24, align 4, !noalias !64
+  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  store float %25, ptr %26, align 4, !alias.scope !64
+  %27 = getelementptr inbounds i8, ptr %5, i64 44
+  %28 = load float, ptr %27, align 4, !noalias !64
+  %29 = getelementptr inbounds i8, ptr %4, i64 28
+  store float %28, ptr %29, align 4, !alias.scope !64
+  %30 = getelementptr inbounds i8, ptr %5, i64 56
+  %31 = load float, ptr %30, align 4, !noalias !64
+  %32 = getelementptr inbounds i8, ptr %4, i64 32
+  store float %31, ptr %32, align 4, !alias.scope !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %7, ptr noundef nonnull align 4 dereferenceable(36) %4, i64 36, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 264520
-  %14 = load ptr, ptr %13, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 264520
+  %34 = load ptr, ptr %33, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
-  ret ptr %14
+  ret ptr %34
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15447,23 +15672,32 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = getelementptr inbounds i8, ptr %5, i64 24
-  %8 = getelementptr inbounds i8, ptr %5, i64 36
-  %9 = load <2 x float>, ptr %7, align 4
-  %10 = load <2 x float>, ptr %8, align 4
-  %11 = fmul <2 x float> %10, %10
-  %12 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %9, <2 x float> %9, <2 x float> %11)
-  %13 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %12)
-  store <2 x float> %13, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %16 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %14, i16 %15, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %8 = load float, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %5, i64 36
+  %10 = load float, ptr %9, align 4
+  %11 = fmul float %10, %10
+  %12 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %11)
+  %sqrt2.i.i = tail call float @llvm.sqrt.f32(float %12)
+  %13 = getelementptr inbounds i8, ptr %5, i64 28
+  %14 = load float, ptr %13, align 4
+  %15 = getelementptr inbounds i8, ptr %5, i64 40
+  %16 = load float, ptr %15, align 4
+  %17 = fmul float %16, %16
+  %18 = tail call float @llvm.fmuladd.f32(float %14, float %14, float %17)
+  %sqrt.i.i = tail call float @llvm.sqrt.f32(float %18)
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %sqrt2.i.i, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %sqrt.i.i, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %21 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %19, i16 %20, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret ptr %16
+  ret ptr %21
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_EN4$_368__invokeES2_NS_8ArgsViewE"(ptr noundef nonnull %0, ptr nocapture readonly %1, ptr nocapture readnone %2) #10 align 2 {
-  %4 = alloca %"struct.pkpy::Vec2", align 8
+  %4 = alloca %"struct.pkpy::Vec2", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
@@ -15488,40 +15722,39 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %.sroa.06.0.copyload.i.i.i = load <2 x float>, ptr %18, align 8
   %19 = load float, ptr %17, align 4
+  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 0
   %20 = getelementptr inbounds i8, ptr %5, i64 28
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
-  %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 36
+  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 1
+  %22 = fmul float %.sroa.0.4.vec.extract.i, %21
+  %23 = tail call float @llvm.fmuladd.f32(float %19, float %.sroa.0.0.vec.extract.i, float %22)
+  %24 = getelementptr inbounds i8, ptr %5, i64 32
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 40
-  %27 = load float, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %5, i64 44
-  %29 = load float, ptr %28, align 4
-  %30 = shufflevector <2 x float> %.sroa.06.0.copyload.i.i.i, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %31 = insertelement <2 x float> poison, float %21, i64 0
-  %32 = insertelement <2 x float> %31, float %27, i64 1
-  %33 = fmul <2 x float> %30, %32
-  %34 = insertelement <2 x float> poison, float %19, i64 0
-  %35 = insertelement <2 x float> %34, float %25, i64 1
-  %36 = shufflevector <2 x float> %.sroa.06.0.copyload.i.i.i, <2 x float> poison, <2 x i32> zeroinitializer
-  %37 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %35, <2 x float> %36, <2 x float> %33)
-  %38 = insertelement <2 x float> poison, float %23, i64 0
-  %39 = insertelement <2 x float> %38, float %29, i64 1
-  %40 = fadd <2 x float> %39, %37
-  store <2 x float> %40, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
-  %42 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %43 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %41, i16 %42, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %26 = fadd float %25, %23
+  %27 = getelementptr inbounds i8, ptr %5, i64 36
+  %28 = load float, ptr %27, align 4
+  %29 = getelementptr inbounds i8, ptr %5, i64 40
+  %30 = load float, ptr %29, align 4
+  %31 = fmul float %.sroa.0.4.vec.extract.i, %30
+  %32 = tail call float @llvm.fmuladd.f32(float %28, float %.sroa.0.0.vec.extract.i, float %31)
+  %33 = getelementptr inbounds i8, ptr %5, i64 44
+  %34 = load float, ptr %33, align 4
+  %35 = fadd float %34, %32
+  store float %26, ptr %4, align 4
+  %36 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %35, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %39 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %37, i16 %38, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret ptr %43
+  ret ptr %39
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_EN4$_378__invokeES2_NS_8ArgsViewE"(ptr noundef nonnull %0, ptr nocapture readonly %1, ptr nocapture readnone %2) #10 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"struct.pkpy::Mat3x3", align 16
+  %4 = alloca %"struct.pkpy::Mat3x3", align 4
   %5 = alloca %"struct.pkpy::Str", align 8
-  %6 = alloca %"struct.pkpy::Vec2", align 8
+  %6 = alloca %"struct.pkpy::Vec2", align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -15571,41 +15804,40 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   resume { ptr, i32 } %25
 
 "_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_37clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
-  %26 = load <4 x float>, ptr %4, align 16
-  %27 = shufflevector <4 x float> %26, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %28 = getelementptr inbounds i8, ptr %4, i64 4
-  %29 = load <4 x float>, ptr %28, align 4
-  %30 = shufflevector <4 x float> %29, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %26 = load float, ptr %4, align 4
+  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 0
+  %27 = getelementptr inbounds i8, ptr %4, i64 4
+  %28 = load float, ptr %27, align 4
+  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 1
+  %29 = fmul float %.sroa.0.4.vec.extract.i, %28
+  %30 = call float @llvm.fmuladd.f32(float %26, float %.sroa.0.0.vec.extract.i, float %29)
   %31 = getelementptr inbounds i8, ptr %4, i64 8
-  %32 = load <4 x float>, ptr %31, align 8
-  %33 = shufflevector <4 x float> %32, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %32 = load float, ptr %31, align 4
+  %33 = fadd float %32, %30
   %34 = getelementptr inbounds i8, ptr %4, i64 12
   %35 = load float, ptr %34, align 4
   %36 = getelementptr inbounds i8, ptr %4, i64 16
-  %37 = load float, ptr %36, align 16
-  %38 = getelementptr inbounds i8, ptr %4, i64 20
-  %39 = load float, ptr %38, align 4
-  %40 = shufflevector <2 x float> %.sroa.06.0.copyload.i.i.i, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %41 = insertelement <2 x float> %30, float %37, i64 1
-  %42 = fmul <2 x float> %40, %41
-  %43 = insertelement <2 x float> %27, float %35, i64 1
-  %44 = shufflevector <2 x float> %.sroa.06.0.copyload.i.i.i, <2 x float> poison, <2 x i32> zeroinitializer
-  %45 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %43, <2 x float> %44, <2 x float> %42)
-  %46 = insertelement <2 x float> %33, float %39, i64 1
-  %47 = fadd <2 x float> %46, %45
-  store <2 x float> %47, ptr %6, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %50 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %48, i16 %49, ptr noundef nonnull align 4 dereferenceable(8) %6)
+  %37 = load float, ptr %36, align 4
+  %38 = fmul float %.sroa.0.4.vec.extract.i, %37
+  %39 = call float @llvm.fmuladd.f32(float %35, float %.sroa.0.0.vec.extract.i, float %38)
+  %40 = getelementptr inbounds i8, ptr %4, i64 20
+  %41 = load float, ptr %40, align 4
+  %42 = fadd float %41, %39
+  store float %33, ptr %6, align 4
+  %43 = getelementptr inbounds i8, ptr %6, i64 4
+  store float %42, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %46 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %44, i16 %45, ptr noundef nonnull align 4 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  ret ptr %50
+  ret ptr %46
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_EN4$_388__invokeES2_NS_8ArgsViewE"(ptr noundef nonnull %0, ptr nocapture readonly %1, ptr nocapture readnone %2) #10 align 2 {
-  %4 = alloca %"struct.pkpy::Vec2", align 8
+  %4 = alloca %"struct.pkpy::Vec2", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
@@ -15630,33 +15862,33 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %.sroa.06.0.copyload.i.i.i = load <2 x float>, ptr %18, align 8
   %19 = load float, ptr %17, align 4
+  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 0
   %20 = getelementptr inbounds i8, ptr %5, i64 28
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %5, i64 36
-  %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 1
+  %22 = fmul float %.sroa.0.4.vec.extract.i, %21
+  %23 = tail call float @llvm.fmuladd.f32(float %19, float %.sroa.0.0.vec.extract.i, float %22)
+  %24 = getelementptr inbounds i8, ptr %5, i64 36
   %25 = load float, ptr %24, align 4
-  %26 = shufflevector <2 x float> %.sroa.06.0.copyload.i.i.i, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %27 = insertelement <2 x float> poison, float %21, i64 0
-  %28 = insertelement <2 x float> %27, float %25, i64 1
-  %29 = fmul <2 x float> %26, %28
-  %30 = insertelement <2 x float> poison, float %19, i64 0
-  %31 = insertelement <2 x float> %30, float %23, i64 1
-  %32 = shufflevector <2 x float> %.sroa.06.0.copyload.i.i.i, <2 x float> poison, <2 x i32> zeroinitializer
-  %33 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %31, <2 x float> %32, <2 x float> %29)
-  store <2 x float> %33, ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %36 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %34, i16 %35, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %26 = getelementptr inbounds i8, ptr %5, i64 40
+  %27 = load float, ptr %26, align 4
+  %28 = fmul float %.sroa.0.4.vec.extract.i, %27
+  %29 = tail call float @llvm.fmuladd.f32(float %25, float %.sroa.0.0.vec.extract.i, float %28)
+  store float %23, ptr %4, align 4
+  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %29, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %33 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %31, i16 %32, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  ret ptr %36
+  ret ptr %33
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_EN4$_398__invokeES2_NS_8ArgsViewE"(ptr noundef nonnull %0, ptr nocapture readonly %1, ptr nocapture readnone %2) #10 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"struct.pkpy::Mat3x3", align 16
+  %4 = alloca %"struct.pkpy::Mat3x3", align 4
   %5 = alloca %"struct.pkpy::Str", align 8
-  %6 = alloca %"struct.pkpy::Vec2", align 8
+  %6 = alloca %"struct.pkpy::Vec2", align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -15706,29 +15938,29 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   resume { ptr, i32 } %25
 
 "_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_39clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
-  %26 = load <4 x float>, ptr %4, align 16
-  %27 = shufflevector <4 x float> %26, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %28 = getelementptr inbounds i8, ptr %4, i64 4
-  %29 = load <4 x float>, ptr %28, align 4
-  %30 = shufflevector <4 x float> %29, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
+  %26 = load float, ptr %4, align 4
+  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 0
+  %27 = getelementptr inbounds i8, ptr %4, i64 4
+  %28 = load float, ptr %27, align 4
+  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 1
+  %29 = fmul float %.sroa.0.4.vec.extract.i, %28
+  %30 = call float @llvm.fmuladd.f32(float %26, float %.sroa.0.0.vec.extract.i, float %29)
   %31 = getelementptr inbounds i8, ptr %4, i64 12
   %32 = load float, ptr %31, align 4
   %33 = getelementptr inbounds i8, ptr %4, i64 16
-  %34 = load float, ptr %33, align 16
-  %35 = shufflevector <2 x float> %.sroa.06.0.copyload.i.i.i, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %36 = insertelement <2 x float> %30, float %34, i64 1
-  %37 = fmul <2 x float> %35, %36
-  %38 = insertelement <2 x float> %27, float %32, i64 1
-  %39 = shufflevector <2 x float> %.sroa.06.0.copyload.i.i.i, <2 x float> poison, <2 x i32> zeroinitializer
-  %40 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %38, <2 x float> %39, <2 x float> %37)
-  store <2 x float> %40, ptr %6, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
-  %42 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
-  %43 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %41, i16 %42, ptr noundef nonnull align 4 dereferenceable(8) %6)
+  %34 = load float, ptr %33, align 4
+  %35 = fmul float %.sroa.0.4.vec.extract.i, %34
+  %36 = call float @llvm.fmuladd.f32(float %32, float %.sroa.0.0.vec.extract.i, float %35)
+  store float %30, ptr %6, align 4
+  %37 = getelementptr inbounds i8, ptr %6, i64 4
+  store float %36, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
+  %40 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %38, i16 %39, ptr noundef nonnull align 4 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  ret ptr %43
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -16288,11 +16520,12 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJiiEEEPNS_
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_4Vec2EEE, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   %11 = load i32, ptr %2, align 4
-  %12 = load i32, ptr %3, align 4
-  %13 = insertelement <2 x i32> poison, i32 %11, i64 0
-  %14 = insertelement <2 x i32> %13, i32 %12, i64 1
-  %15 = sitofp <2 x i32> %14 to <2 x float>
-  store <2 x float> %15, ptr %10, align 4
+  %12 = sitofp i32 %11 to float
+  %13 = load i32, ptr %3, align 4
+  %14 = sitofp i32 %13 to float
+  store float %12, ptr %10, align 4
+  %15 = getelementptr inbounds i8, ptr %5, i64 28
+  store float %14, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
@@ -16385,15 +16618,16 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJiiiEEEPNS
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_4Vec3EEE, i64 16), ptr %6, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 24
   %12 = load i32, ptr %2, align 4
-  %13 = load i32, ptr %3, align 4
-  %14 = load i32, ptr %4, align 4
+  %13 = sitofp i32 %12 to float
+  %14 = load i32, ptr %3, align 4
   %15 = sitofp i32 %14 to float
-  %16 = insertelement <2 x i32> poison, i32 %12, i64 0
-  %17 = insertelement <2 x i32> %16, i32 %13, i64 1
-  %18 = sitofp <2 x i32> %17 to <2 x float>
-  store <2 x float> %18, ptr %11, align 4
+  %16 = load i32, ptr %4, align 4
+  %17 = sitofp i32 %16 to float
+  store float %13, ptr %11, align 4
+  %18 = getelementptr inbounds i8, ptr %6, i64 28
+  store float %15, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %6, i64 32
-  store float %15, ptr %19, align 4
+  store float %17, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %0, i64 24
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -16486,90 +16720,95 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJiiiiEEEPN
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_4Vec4EEE, i64 16), ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 24
   %13 = load i32, ptr %2, align 4
-  %14 = load i32, ptr %3, align 4
-  %15 = load i32, ptr %4, align 4
-  %16 = load i32, ptr %5, align 4
-  %17 = insertelement <4 x i32> poison, i32 %13, i64 0
-  %18 = insertelement <4 x i32> %17, i32 %14, i64 1
-  %19 = insertelement <4 x i32> %18, i32 %15, i64 2
-  %20 = insertelement <4 x i32> %19, i32 %16, i64 3
-  %21 = sitofp <4 x i32> %20 to <4 x float>
-  store <4 x float> %21, ptr %12, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = sitofp i32 %13 to float
+  %15 = load i32, ptr %3, align 4
+  %16 = sitofp i32 %15 to float
+  %17 = load i32, ptr %4, align 4
+  %18 = sitofp i32 %17 to float
+  %19 = load i32, ptr %5, align 4
+  %20 = sitofp i32 %19 to float
+  store float %14, ptr %12, align 4
+  %21 = getelementptr inbounds i8, ptr %7, i64 28
+  store float %16, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  store float %18, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %7, i64 36
+  store float %20, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
-  %.not.i = icmp eq ptr %24, %26
-  br i1 %.not.i, label %30, label %27
+  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = load ptr, ptr %27, align 8
+  %.not.i = icmp eq ptr %26, %28
+  br i1 %.not.i, label %32, label %29
 
-27:                                               ; preds = %6
-  store ptr %7, ptr %24, align 8
-  %28 = load ptr, ptr %23, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %29, ptr %23, align 8
+29:                                               ; preds = %6
+  store ptr %7, ptr %26, align 8
+  %30 = load ptr, ptr %25, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %31, ptr %25, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
-30:                                               ; preds = %6
-  %31 = load ptr, ptr %22, align 8
-  %32 = ptrtoint ptr %24 to i64
-  %33 = ptrtoint ptr %31 to i64
-  %34 = sub i64 %32, %33
-  %35 = icmp eq i64 %34, 9223372036854775800
-  br i1 %35, label %36, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+32:                                               ; preds = %6
+  %33 = load ptr, ptr %24, align 8
+  %34 = ptrtoint ptr %26 to i64
+  %35 = ptrtoint ptr %33 to i64
+  %36 = sub i64 %34, %35
+  %37 = icmp eq i64 %36, 9223372036854775800
+  br i1 %37, label %38, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-36:                                               ; preds = %30
+38:                                               ; preds = %32
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.74) #32
   unreachable
 
-_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %30
-  %37 = ashr exact i64 %34, 3
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %37, i64 1)
-  %38 = add nsw i64 %.sroa.speculated.i.i.i, %37
-  %39 = icmp ult i64 %38, %37
-  %40 = tail call i64 @llvm.umin.i64(i64 %38, i64 1152921504606846975)
-  %41 = select i1 %39, i64 1152921504606846975, i64 %40
-  %.not.i.i.i = icmp eq i64 %41, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i, label %42
+_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %32
+  %39 = ashr exact i64 %36, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %39, i64 1)
+  %40 = add nsw i64 %.sroa.speculated.i.i.i, %39
+  %41 = icmp ult i64 %40, %39
+  %42 = tail call i64 @llvm.umin.i64(i64 %40, i64 1152921504606846975)
+  %43 = select i1 %41, i64 1152921504606846975, i64 %42
+  %.not.i.i.i = icmp eq i64 %43, 0
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i, label %44
 
-42:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %43 = shl nuw nsw i64 %41, 3
-  %44 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #33
+44:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %45 = shl nuw nsw i64 %43, 3
+  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %42, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %45 = phi ptr [ %44, %42 ], [ null, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %37
-  store ptr %7, ptr %46, align 8
-  %47 = icmp sgt i64 %34, 0
-  br i1 %47, label %48, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %44, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %47 = phi ptr [ %46, %44 ], [ null, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  %48 = getelementptr inbounds ptr, ptr %47, i64 %39
+  store ptr %7, ptr %48, align 8
+  %49 = icmp sgt i64 %36, 0
+  br i1 %49, label %50, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-48:                                               ; preds = %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %45, ptr align 8 %31, i64 %34, i1 false)
+50:                                               ; preds = %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %47, ptr align 8 %33, i64 %36, i1 false)
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %48, %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
-  %49 = getelementptr inbounds i8, ptr %45, i64 %34
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
-  %.not.i17.i.i = icmp eq ptr %31, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %51
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %50, %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
+  %51 = getelementptr inbounds i8, ptr %47, i64 %36
+  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %.not.i17.i.i = icmp eq ptr %33, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %53
 
-51:                                               ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %34) #34
+53:                                               ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %36) #34
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %51, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %45, ptr %22, align 8
-  store ptr %50, ptr %23, align 8
-  %52 = getelementptr inbounds ptr, ptr %45, i64 %41
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %53, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  store ptr %47, ptr %24, align 8
   store ptr %52, ptr %25, align 8
+  %54 = getelementptr inbounds ptr, ptr %47, i64 %43
+  store ptr %54, ptr %27, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %27, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 76
-  %54 = load i32, ptr %53, align 4
-  %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %53, align 4
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %29, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+  %55 = getelementptr inbounds i8, ptr %0, i64 76
+  %56 = load i32, ptr %55, align 4
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %55, align 4
   ret ptr %7
 }
 
@@ -17139,93 +17378,97 @@ _ZZN4pkpy2VM10bind_fieldINS_6Mat3x3EfLb0EEEPNS_8PyObjectES4_PKcMT_T0_ENKUlPS0_NS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_8PropertyEJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %0, i16 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 40) #31
+  %.sroa.0.0.copyload = load ptr, ptr %2, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 9
-  %7 = getelementptr inbounds i8, ptr %4, i64 10
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = load <2 x ptr>, ptr %2, align 8
   store i8 1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %4, i64 9
   store i8 0, ptr %6, align 1
+  %7 = getelementptr inbounds i8, ptr %4, i64 10
   store i16 %1, ptr %7, align 2
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy3Py_INS_8PropertyEEE, i64 16), ptr %4, align 8
-  store <2 x ptr> %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %.not.i = icmp eq ptr %13, %15
-  br i1 %.not.i, label %19, label %16
+  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %.sroa.0.0.copyload, ptr %9, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %.not.i = icmp eq ptr %12, %14
+  br i1 %.not.i, label %18, label %15
 
-16:                                               ; preds = %3
-  store ptr %4, ptr %13, align 8
-  %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr %18, ptr %12, align 8
+15:                                               ; preds = %3
+  store ptr %4, ptr %12, align 8
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %17, ptr %11, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
-19:                                               ; preds = %3
-  %20 = load ptr, ptr %11, align 8
-  %21 = ptrtoint ptr %13 to i64
-  %22 = ptrtoint ptr %20 to i64
-  %23 = sub i64 %21, %22
-  %24 = icmp eq i64 %23, 9223372036854775800
-  br i1 %24, label %25, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %10, align 8
+  %20 = ptrtoint ptr %12 to i64
+  %21 = ptrtoint ptr %19 to i64
+  %22 = sub i64 %20, %21
+  %23 = icmp eq i64 %22, 9223372036854775800
+  br i1 %23, label %24, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-25:                                               ; preds = %19
+24:                                               ; preds = %18
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.74) #32
   unreachable
 
-_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %19
-  %26 = ashr exact i64 %23, 3
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
-  %27 = add nsw i64 %.sroa.speculated.i.i.i, %26
-  %28 = icmp ult i64 %27, %26
-  %29 = tail call i64 @llvm.umin.i64(i64 %27, i64 1152921504606846975)
-  %30 = select i1 %28, i64 1152921504606846975, i64 %29
-  %.not.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i, label %31
+_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %18
+  %25 = ashr exact i64 %22, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
+  %26 = add nsw i64 %.sroa.speculated.i.i.i, %25
+  %27 = icmp ult i64 %26, %25
+  %28 = tail call i64 @llvm.umin.i64(i64 %26, i64 1152921504606846975)
+  %29 = select i1 %27, i64 1152921504606846975, i64 %28
+  %.not.i.i.i = icmp eq i64 %29, 0
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i, label %30
 
-31:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %32 = shl nuw nsw i64 %30, 3
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #33
+30:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %31 = shl nuw nsw i64 %29, 3
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %31, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %34 = phi ptr [ %33, %31 ], [ null, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %26
-  store ptr %4, ptr %35, align 8
-  %36 = icmp sgt i64 %23, 0
-  br i1 %36, label %37, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %30, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %33 = phi ptr [ %32, %30 ], [ null, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %25
+  store ptr %4, ptr %34, align 8
+  %35 = icmp sgt i64 %22, 0
+  br i1 %35, label %36, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-37:                                               ; preds = %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr align 8 %20, i64 %23, i1 false)
+36:                                               ; preds = %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr align 8 %19, i64 %22, i1 false)
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %37, %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
-  %38 = getelementptr inbounds i8, ptr %34, i64 %23
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  %.not.i17.i.i = icmp eq ptr %20, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %40
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %36, %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
+  %37 = getelementptr inbounds i8, ptr %33, i64 %22
+  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %.not.i17.i.i = icmp eq ptr %19, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %39
 
-40:                                               ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %23) #34
+39:                                               ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %22) #34
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %34, ptr %11, align 8
-  store ptr %39, ptr %12, align 8
-  %41 = getelementptr inbounds ptr, ptr %34, i64 %30
-  store ptr %41, ptr %14, align 8
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  store ptr %33, ptr %10, align 8
+  store ptr %38, ptr %11, align 8
+  %40 = getelementptr inbounds ptr, ptr %33, i64 %29
+  store ptr %40, ptr %13, align 8
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
-_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %42 = getelementptr inbounds i8, ptr %0, i64 76
-  %43 = load i32, ptr %42, align 4
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %42, align 4
+_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %15, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+  %41 = getelementptr inbounds i8, ptr %0, i64 76
+  %42 = load i32, ptr %41, align 4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %41, align 4
   ret ptr %4
 }
 
@@ -18427,15 +18670,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #26
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #26
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #26
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #26
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

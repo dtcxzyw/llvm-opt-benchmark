@@ -204,7 +204,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   %.sroa.249.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 4
   store float %85, ptr %.sroa.249.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 8
-  store <2 x float> zeroinitializer, ptr %.sroa.3.0..sroa_idx, align 4
+  store float 0.000000e+00, ptr %.sroa.3.0..sroa_idx, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 12
+  store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 16
   store float %83, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 20

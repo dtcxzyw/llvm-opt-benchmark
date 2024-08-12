@@ -884,22 +884,26 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_Z26ScanImageAndR
   %.phi.trans.insert58 = getelementptr inbounds i8, ptr %6, i64 16
   %.pre59 = load ptr, ptr %.phi.trans.insert58, align 8
   %.phi.trans.insert60 = getelementptr inbounds i8, ptr %6, i64 24
-  %29 = load <2 x ptr>, ptr %.phi.trans.insert60, align 8
+  %.pre61 = load ptr, ptr %.phi.trans.insert60, align 8
+  %.phi.trans.insert62 = getelementptr inbounds i8, ptr %6, i64 32
+  %.pre63 = load ptr, ptr %.phi.trans.insert62, align 8
   br label %_ZN2cv3Mat5beginIhEENS_12MatIterator_IT_EEv.exit
 
 _ZN2cv3Mat5beginIhEENS_12MatIterator_IT_EEv.exit: ; preds = %27, %28
+  %29 = phi ptr [ null, %27 ], [ %.pre63, %28 ]
+  %30 = phi ptr [ null, %27 ], [ %.pre61, %28 ]
   %.val1539 = phi ptr [ null, %27 ], [ %.pre59, %28 ]
-  %30 = phi i64 [ 0, %27 ], [ %.pre57, %28 ]
+  %31 = phi i64 [ 0, %27 ], [ %.pre57, %28 ]
   %.val38 = phi ptr [ null, %27 ], [ %.pre55, %28 ]
-  %31 = phi <2 x ptr> [ zeroinitializer, %27 ], [ %29, %28 ]
   store ptr %.val38, ptr %5, align 8
   %32 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %30, ptr %32, align 8
+  store i64 %31, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %.val1539, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %30, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %5, i64 32
-  store <2 x ptr> %31, ptr %34, align 8
+  store ptr %29, ptr %35, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %36 = call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %0), !noalias !16
   br i1 %36, label %37, label %38
@@ -1001,22 +1005,26 @@ _ZN2cv12MatIterator_IhEppEv.exit:                 ; preds = %.lr.ph42, %66, %70
   %.phi.trans.insert45 = getelementptr inbounds i8, ptr %9, i64 16
   %.pre46 = load ptr, ptr %.phi.trans.insert45, align 8
   %.phi.trans.insert47 = getelementptr inbounds i8, ptr %9, i64 24
-  %77 = load <2 x ptr>, ptr %.phi.trans.insert47, align 8
+  %.pre48 = load ptr, ptr %.phi.trans.insert47, align 8
+  %.phi.trans.insert49 = getelementptr inbounds i8, ptr %9, i64 32
+  %.pre50 = load ptr, ptr %.phi.trans.insert49, align 8
   br label %_ZN2cv3Mat5beginINS_3VecIhLi3EEEEENS_12MatIterator_IT_EEv.exit
 
 _ZN2cv3Mat5beginINS_3VecIhLi3EEEEENS_12MatIterator_IT_EEv.exit: ; preds = %75, %76
+  %77 = phi ptr [ null, %75 ], [ %.pre50, %76 ]
+  %78 = phi ptr [ null, %75 ], [ %.pre48, %76 ]
   %.val1935 = phi ptr [ null, %75 ], [ %.pre46, %76 ]
-  %78 = phi i64 [ 0, %75 ], [ %.pre44, %76 ]
+  %79 = phi i64 [ 0, %75 ], [ %.pre44, %76 ]
   %.val1834 = phi ptr [ null, %75 ], [ %.pre, %76 ]
-  %79 = phi <2 x ptr> [ zeroinitializer, %75 ], [ %77, %76 ]
   store ptr %.val1834, ptr %8, align 8
   %80 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %78, ptr %80, align 8
+  store i64 %79, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %.val1935, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %8, i64 24
+  store ptr %78, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %8, i64 32
-  store <2 x ptr> %79, ptr %82, align 8
+  store ptr %77, ptr %83, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %84 = call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %0), !noalias !23
   br i1 %84, label %85, label %86

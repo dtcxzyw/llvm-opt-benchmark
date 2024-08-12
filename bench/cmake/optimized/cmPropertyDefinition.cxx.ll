@@ -518,49 +518,61 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10cmProperty9ScopeTypeEES0_IKS9_20cmPropertyDefinitionESt10_Select1stISC_ESt4lessIS9_ESaISC_EE14_M_create_nodeIJRKSt21piecewise_construct_tSt5tupleIJRKS6_RS8_EESN_IJSP_SP_RbSP_EEEEEPSt13_Rb_tree_nodeISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.std::tuple", align 16
-  %6 = alloca %"class.std::tuple.8", align 16
+  %5 = alloca %"class.std::tuple", align 8
+  %6 = alloca %"class.std::tuple.8", align 8
   %7 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #13
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %9 = load <2 x i64>, ptr %2, align 8
-  store <2 x i64> %9, ptr %5, align 16
-  %10 = load <2 x i64>, ptr %3, align 8
-  store <2 x i64> %10, ptr %6, align 16
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
-  %13 = load <2 x i64>, ptr %12, align 8
-  store <2 x i64> %13, ptr %11, align 16
+  %9 = load i64, ptr %2, align 8
+  store i64 %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load i64, ptr %11, align 8
+  store i64 %12, ptr %10, align 8
+  %13 = load i64, ptr %3, align 8
+  store i64 %13, ptr %6, align 8
+  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = load i64, ptr %15, align 8
+  store i64 %16, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = load i64, ptr %18, align 8
+  store i64 %19, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 24
+  %21 = getelementptr inbounds i8, ptr %3, i64 24
+  %22 = load i64, ptr %21, align 8
+  store i64 %22, ptr %20, align 8
   invoke void @_ZNSt4pairIKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10cmProperty9ScopeTypeEE20cmPropertyDefinitionEC2IJRKS5_RS7_EJLm0ELm1EEJSE_SE_RbSE_EJLm0ELm1ELm2ELm3EEEERSt5tupleIJDpT_EERSH_IJDpT1_EESt12_Index_tupleIJXspT0_EEESQ_IJXspT2_EEE(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10cmProperty9ScopeTypeEES0_IKS9_20cmPropertyDefinitionESt10_Select1stISC_ESt4lessIS9_ESaISC_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRKS6_RS8_EESN_IJSP_SP_RbSP_EEEEEvPSt13_Rb_tree_nodeISC_EDpOT_.exit unwind label %14
+          to label %_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10cmProperty9ScopeTypeEES0_IKS9_20cmPropertyDefinitionESt10_Select1stISC_ESt4lessIS9_ESaISC_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRKS6_RS8_EESN_IJSP_SP_RbSP_EEEEEvPSt13_Rb_tree_nodeISC_EDpOT_.exit unwind label %23
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+23:                                               ; preds = %4
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  %17 = call ptr @__cxa_begin_catch(ptr %16) #9
+  %25 = extractvalue { ptr, i32 } %24, 0
+  %26 = call ptr @__cxa_begin_catch(ptr %25) #9
   call void @_ZdlPv(ptr noundef nonnull %7) #11
   invoke void @__cxa_rethrow() #14
-          to label %24 unwind label %18
+          to label %33 unwind label %27
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+27:                                               ; preds = %23
+  %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %20 unwind label %21
+          to label %29 unwind label %30
 
-20:                                               ; preds = %18
-  resume { ptr, i32 } %19
+29:                                               ; preds = %27
+  resume { ptr, i32 } %28
 
-21:                                               ; preds = %18
-  %22 = landingpad { ptr, i32 }
+30:                                               ; preds = %27
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #10
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #10
   unreachable
 
-24:                                               ; preds = %14
+33:                                               ; preds = %23
   unreachable
 
 _ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10cmProperty9ScopeTypeEES0_IKS9_20cmPropertyDefinitionESt10_Select1stISC_ESt4lessIS9_ESaISC_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRKS6_RS8_EESN_IJSP_SP_RbSP_EEEEEvPSt13_Rb_tree_nodeISC_EDpOT_.exit: ; preds = %4

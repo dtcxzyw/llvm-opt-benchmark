@@ -158,7 +158,7 @@ $_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIdJEEEJNS
 @_ZZN4node11performance21MarkBootstrapCompleteERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args = internal constant %"struct.node::AssertionInfo" { ptr @.str.18, ptr @.str.10, ptr @.str.19 }, align 8
 @.str.18 = private unnamed_addr constant [27 x i8] c"../../src/node_perf.cc:289\00", align 1
 @.str.19 = private unnamed_addr constant [83 x i8] c"void node::performance::MarkBootstrapComplete(const FunctionCallbackInfo<Value> &)\00", align 1
-@_ZN4node11performanceL20fast_performance_nowE = internal global %"class.v8::CFunction" zeroinitializer, align 16
+@_ZN4node11performanceL20fast_performance_nowE = internal global %"class.v8::CFunction" zeroinitializer, align 8
 @.str.21 = private unnamed_addr constant [15 x i8] c"observerCounts\00", align 1
 @.str.22 = private unnamed_addr constant [11 x i8] c"milestones\00", align 1
 @.str.23 = private unnamed_addr constant [26 x i8] c"NODE_PERFORMANCE_GC_MAJOR\00", align 1
@@ -5089,7 +5089,7 @@ declare void @_ZN2v813CFunctionInfoC2ERKNS_9CTypeInfoEjPS2_NS0_19Int64Representa
 define internal void @_GLOBAL__sub_I_node_perf.cc() #16 section ".text.startup" {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i.i = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i.i = alloca %"class.v8::CFunction", align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #20
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
   %call.i = tail call i64 @uv_hrtime() #20
@@ -5117,9 +5117,12 @@ init.i.i.i.i:                                     ; preds = %init.check.i.i.i.i
 
 __cxx_global_var_init.20.exit:                    ; preds = %entry, %init.check.i.i.i.i, %init.i.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i, ptr noundef nonnull @_ZN4node11performanceL18FastPerformanceNowEN2v85LocalINS1_5ValueEEE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIdJEEEJNS2_INS_5LocalINS_5ValueEEEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #20
-  %3 = load <2 x ptr>, ptr %retval.i.i.i.i, align 16
+  %.fca.0.load.i.i.i.i = load ptr, ptr %retval.i.i.i.i, align 8
+  %.fca.1.gep.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i.i, i64 8
+  %.fca.1.load.i.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i)
-  store <2 x ptr> %3, ptr @_ZN4node11performanceL20fast_performance_nowE, align 16
+  store ptr %.fca.0.load.i.i.i.i, ptr @_ZN4node11performanceL20fast_performance_nowE, align 8
+  store ptr %.fca.1.load.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4node11performanceL20fast_performance_nowE, i64 8), align 8
   ret void
 }
 

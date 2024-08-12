@@ -1604,9 +1604,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_set_command_header(ptr nocapture noundef readonly %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
-  %tmp = alloca %struct.AHCICommandHeader, align 4
+  %tmp = alloca %struct.AHCICommandHeader, align 2
   %0 = getelementptr inbounds i8, ptr %tmp, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %0, i8 0, i64 16, i1 false)
   %port1 = getelementptr inbounds i8, ptr %ahci, i64 56
   %idxprom = zext i8 %port to i64
   %clb = getelementptr [32 x %struct.AHCIPortQState], ptr %port1, i64 0, i64 %idxprom, i32 1
@@ -1614,19 +1614,23 @@ entry:
   %conv = zext i8 %slot to i64
   %mul = shl nuw nsw i64 %conv, 5
   %add = add i64 %1, %mul
-  %2 = load <2 x i16>, ptr %cmd, align 1
-  store <2 x i16> %2, ptr %tmp, align 4
+  %2 = load i16, ptr %cmd, align 1
+  store i16 %2, ptr %tmp, align 2
+  %prdtl = getelementptr inbounds i8, ptr %cmd, i64 2
+  %3 = load i16, ptr %prdtl, align 1
+  %prdtl4 = getelementptr inbounds i8, ptr %tmp, i64 2
+  store i16 %3, ptr %prdtl4, align 2
   %prdbc = getelementptr inbounds i8, ptr %cmd, i64 4
-  %3 = load i32, ptr %prdbc, align 1
+  %4 = load i32, ptr %prdbc, align 1
   %prdbc6 = getelementptr inbounds i8, ptr %tmp, i64 4
-  store i32 %3, ptr %prdbc6, align 4
+  store i32 %4, ptr %prdbc6, align 2
   %ctba = getelementptr inbounds i8, ptr %cmd, i64 8
-  %4 = load i64, ptr %ctba, align 1
+  %5 = load i64, ptr %ctba, align 1
   %ctba8 = getelementptr inbounds i8, ptr %tmp, i64 8
-  store i64 %4, ptr %ctba8, align 4
-  %5 = load ptr, ptr %ahci, align 8
-  %6 = load ptr, ptr %5, align 8
-  call void @qtest_memwrite(ptr noundef %6, i64 noundef %add, ptr noundef nonnull %tmp, i64 noundef 32) #16
+  store i64 %5, ptr %ctba8, align 2
+  %6 = load ptr, ptr %ahci, align 8
+  %7 = load ptr, ptr %6, align 8
+  call void @qtest_memwrite(ptr noundef %7, i64 noundef %add, ptr noundef nonnull %tmp, i64 noundef 32) #16
   ret void
 }
 
@@ -2316,7 +2320,7 @@ entry:
 define dso_local void @ahci_command_commit(ptr nocapture noundef %ahci, ptr nocapture noundef %cmd, i8 noundef zeroext %port) local_unnamed_addr #0 {
 entry:
   %tmp.i56 = alloca %struct.RegH2DFIS, align 1
-  %tmp.i = alloca %struct.AHCICommandHeader, align 4
+  %tmp.i = alloca %struct.AHCICommandHeader, align 2
   %prd = alloca %struct.PRD, align 8
   %port1 = getelementptr inbounds i8, ptr %cmd, i64 1
   store i8 %port, ptr %port1, align 1
@@ -2443,57 +2447,60 @@ do.end21:                                         ; preds = %do.body15
   %15 = load i8, ptr %slot, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
   %16 = getelementptr inbounds i8, ptr %tmp.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %16, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %16, i8 0, i64 16, i1 false)
   %clb.i = getelementptr [32 x %struct.AHCIPortQState], ptr %port1.i, i64 0, i64 %conv.i.i.i, i32 1
   %17 = load i64, ptr %clb.i, align 8
   %conv.i54 = zext i8 %15 to i64
   %mul.i = shl nuw nsw i64 %conv.i54, 5
   %add.i55 = add i64 %17, %mul.i
+  %18 = load i16, ptr %header, align 1
+  store i16 %18, ptr %tmp.i, align 2
   %prdtl.i = getelementptr inbounds i8, ptr %cmd, i64 42
-  %18 = load <2 x i16>, ptr %header, align 1
-  store <2 x i16> %18, ptr %tmp.i, align 4
+  %19 = load i16, ptr %prdtl.i, align 1
+  %prdtl4.i = getelementptr inbounds i8, ptr %tmp.i, i64 2
+  store i16 %19, ptr %prdtl4.i, align 2
   %prdbc.i = getelementptr inbounds i8, ptr %cmd, i64 44
-  %19 = load i32, ptr %prdbc.i, align 1
+  %20 = load i32, ptr %prdbc.i, align 1
   %prdbc6.i = getelementptr inbounds i8, ptr %tmp.i, i64 4
-  store i32 %19, ptr %prdbc6.i, align 4
+  store i32 %20, ptr %prdbc6.i, align 2
   %ctba8.i = getelementptr inbounds i8, ptr %tmp.i, i64 8
-  store i64 %call.i.i, ptr %ctba8.i, align 4
-  %20 = load ptr, ptr %ahci, align 8
-  %21 = load ptr, ptr %20, align 8
-  call void @qtest_memwrite(ptr noundef %21, i64 noundef %add.i55, ptr noundef nonnull %tmp.i, i64 noundef 32) #16
+  store i64 %call.i.i, ptr %ctba8.i, align 2
+  %21 = load ptr, ptr %ahci, align 8
+  %22 = load ptr, ptr %21, align 8
+  call void @qtest_memwrite(ptr noundef %22, i64 noundef %add.i55, ptr noundef nonnull %tmp.i, i64 noundef 32) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i56)
   %fis.i = getelementptr inbounds i8, ptr %cmd, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %tmp.i56, ptr noundef nonnull readonly align 8 dereferenceable(20) %fis.i, i64 20, i1 false)
-  %22 = load i64, ptr %ctba, align 8
-  %23 = load ptr, ptr %ahci, align 8
-  %24 = load ptr, ptr %23, align 8
-  call void @qtest_memwrite(ptr noundef %24, i64 noundef %22, ptr noundef nonnull %tmp.i56, i64 noundef 20) #16
+  %23 = load i64, ptr %ctba, align 8
+  %24 = load ptr, ptr %ahci, align 8
+  %25 = load ptr, ptr %24, align 8
+  call void @qtest_memwrite(ptr noundef %25, i64 noundef %23, ptr noundef nonnull %tmp.i56, i64 noundef 20) #16
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %tmp.i56)
-  %25 = load ptr, ptr %props, align 8
-  %atapi = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load i8, ptr %atapi, align 8
-  %tobool25 = trunc i8 %26 to i1
+  %26 = load ptr, ptr %props, align 8
+  %atapi = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = load i8, ptr %atapi, align 8
+  %tobool25 = trunc i8 %27 to i1
   br i1 %tobool25, label %if.then26, label %do.body29
 
 if.then26:                                        ; preds = %do.end21
-  %27 = load ptr, ptr %ahci, align 8
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %ahci, align 8
+  %29 = load ptr, ptr %28, align 8
   %add27 = or disjoint i64 %call.i.i, 64
   %atapi_cmd = getelementptr inbounds i8, ptr %cmd, i64 96
-  %29 = load ptr, ptr %atapi_cmd, align 8
-  call void @qtest_memwrite(ptr noundef %28, i64 noundef %add27, ptr noundef %29, i64 noundef 16) #16
+  %30 = load ptr, ptr %atapi_cmd, align 8
+  call void @qtest_memwrite(ptr noundef %29, i64 noundef %add27, ptr noundef %30, i64 noundef 16) #16
   br label %do.body29
 
 do.body29:                                        ; preds = %do.end21, %if.then26
-  %30 = load i16, ptr %prdtl.i, align 2
-  %31 = trunc i32 %div.i to i16
-  %cmp34 = icmp eq i16 %30, %31
+  %31 = load i16, ptr %prdtl.i, align 2
+  %32 = trunc i32 %div.i to i16
+  %cmp34 = icmp eq i16 %31, %32
   br i1 %cmp34, label %do.end41, label %if.else37
 
 if.else37:                                        ; preds = %do.body29
   %conv38 = uitofp nneg i32 %conv7.mask to x86_fp80
-  %conv39 = uitofp i16 %30 to x86_fp80
+  %conv39 = uitofp i16 %31 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1220, ptr noundef nonnull @__func__.ahci_command_commit, ptr noundef nonnull @.str.69, x86_fp80 noundef %conv38, ptr noundef nonnull @.str.5, x86_fp80 noundef %conv39, i8 noundef signext 120) #16
   br label %do.end41
 
@@ -2502,7 +2509,7 @@ do.end41:                                         ; preds = %if.else37, %do.body
   br i1 %cmp4560.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end41
-  %32 = load i64, ptr %xbytes, align 8
+  %33 = load i64, ptr %xbytes, align 8
   %buffer = getelementptr inbounds i8, ptr %cmd, i64 24
   %res = getelementptr inbounds i8, ptr %prd, i64 8
   %dbc67 = getelementptr inbounds i8, ptr %prd, i64 12
@@ -2511,45 +2518,45 @@ for.body.lr.ph:                                   ; preds = %do.end41
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %conv4363 = phi i32 [ 0, %for.body.lr.ph ], [ %39, %for.body ]
-  %remaining.061 = phi i64 [ %32, %for.body.lr.ph ], [ %remaining.1, %for.body ]
-  %33 = load i64, ptr %buffer, align 8
-  %34 = load i32, ptr %prd_size, align 8
-  %mul49 = mul i32 %34, %conv4363
+  %conv4363 = phi i32 [ 0, %for.body.lr.ph ], [ %40, %for.body ]
+  %remaining.061 = phi i64 [ %33, %for.body.lr.ph ], [ %remaining.1, %for.body ]
+  %34 = load i64, ptr %buffer, align 8
+  %35 = load i32, ptr %prd_size, align 8
+  %mul49 = mul i32 %35, %conv4363
   %conv50 = zext i32 %mul49 to i64
-  %add51 = add i64 %33, %conv50
+  %add51 = add i64 %34, %conv50
   store i64 %add51, ptr %prd, align 8
   store i32 0, ptr %res, align 8
-  %conv54 = zext i32 %34 to i64
+  %conv54 = zext i32 %35 to i64
   %cmp55 = icmp ugt i64 %remaining.061, %conv54
-  %35 = trunc i64 %remaining.061 to i32
-  %.v = select i1 %cmp55, i32 %34, i32 %35
-  %36 = add i32 %.v, 2147483647
+  %36 = trunc i64 %remaining.061 to i32
+  %.v = select i1 %cmp55, i32 %35, i32 %36
+  %37 = add i32 %.v, 2147483647
   %remaining.1 = call i64 @llvm.usub.sat.i64(i64 %remaining.061, i64 %conv54)
-  %or = or i32 %36, -2147483648
+  %or = or i32 %37, -2147483648
   store i32 %or, ptr %dbc67, align 4
-  %37 = load ptr, ptr %ahci, align 8
-  %38 = load ptr, ptr %37, align 8
+  %38 = load ptr, ptr %ahci, align 8
+  %39 = load ptr, ptr %38, align 8
   %mul75 = shl nuw nsw i64 %indvars.iv, 4
   %add76 = add i64 %add73, %mul75
-  call void @qtest_memwrite(ptr noundef %38, i64 noundef %add76, ptr noundef nonnull %prd, i64 noundef 16) #16
+  call void @qtest_memwrite(ptr noundef %39, i64 noundef %add76, ptr noundef nonnull %prd, i64 noundef 16) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = trunc nuw i64 %indvars.iv.next to i32
-  %cmp45 = icmp ugt i32 %conv7.mask, %39
+  %40 = trunc nuw i64 %indvars.iv.next to i32
+  %cmp45 = icmp ugt i32 %conv7.mask, %40
   br i1 %cmp45, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %do.end41
   %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port1.i, i64 0, i64 %conv.i.i.i
   %ctba78 = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %40 = load i8, ptr %slot, align 2
-  %idxprom80 = zext i8 %40 to i64
+  %41 = load i8, ptr %slot, align 2
+  %idxprom80 = zext i8 %41 to i64
   %arrayidx81 = getelementptr [32 x i64], ptr %ctba78, i64 0, i64 %idxprom80
   store i64 %call.i.i, ptr %arrayidx81, align 8
   %prdtl85 = getelementptr inbounds i8, ptr %arrayidx, i64 272
-  %41 = load i8, ptr %slot, align 2
-  %idxprom87 = zext i8 %41 to i64
+  %42 = load i8, ptr %slot, align 2
+  %idxprom87 = zext i8 %42 to i64
   %arrayidx88 = getelementptr [32 x i16], ptr %prdtl85, i64 0, i64 %idxprom87
-  store i16 %31, ptr %arrayidx88, align 2
+  store i16 %32, ptr %arrayidx88, align 2
   ret void
 }
 

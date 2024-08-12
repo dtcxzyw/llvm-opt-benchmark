@@ -2643,7 +2643,7 @@ define internal fastcc void @_update_sinfo(ptr noundef %0, ptr nocapture noundef
   %105 = load ptr, ptr %104, align 8
   %106 = tail call i32 @hostlist_find(ptr noundef %103, ptr noundef %105) #13
   %.not = icmp eq i32 %106, -1
-  br i1 %.not, label %107, label %316
+  br i1 %.not, label %107, label %318
 
 107:                                              ; preds = %101
   %108 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2976,42 +2976,45 @@ define internal fastcc void @_update_sinfo(ptr noundef %0, ptr nocapture noundef
   br label %292
 
 292:                                              ; preds = %284, %288, %276
-  %293 = load i16, ptr %4, align 2
-  %294 = zext i16 %293 to i32
-  %295 = load <2 x i32>, ptr %8, align 4
-  %296 = insertelement <2 x i32> <i32 1, i32 poison>, i32 %294, i64 1
-  %297 = add <2 x i32> %295, %296
-  store <2 x i32> %297, ptr %8, align 4
-  %298 = getelementptr inbounds i8, ptr %0, i64 36
-  %299 = load i32, ptr %298, align 4
-  %300 = add i32 %299, %266
-  store i32 %300, ptr %298, align 4
-  %301 = sub nsw i32 %266, %294
-  %302 = load i64, ptr %3, align 8
-  %303 = getelementptr inbounds i8, ptr %0, i64 136
-  store i64 %302, ptr %303, align 8
-  %304 = load i32, ptr %5, align 8
-  %305 = and i32 %304, 512
-  %306 = icmp ne i32 %305, 0
-  %307 = icmp eq i32 %7, 1
-  %or.cond5 = select i1 %306, i1 true, i1 %307
-  br i1 %or.cond5, label %308, label %312
+  %293 = load i32, ptr %8, align 4
+  %294 = add i32 %293, 1
+  store i32 %294, ptr %8, align 4
+  %295 = load i16, ptr %4, align 2
+  %296 = zext i16 %295 to i32
+  %297 = getelementptr inbounds i8, ptr %0, i64 24
+  %298 = load i32, ptr %297, align 8
+  %299 = add i32 %298, %296
+  store i32 %299, ptr %297, align 8
+  %300 = getelementptr inbounds i8, ptr %0, i64 36
+  %301 = load i32, ptr %300, align 4
+  %302 = add i32 %301, %266
+  store i32 %302, ptr %300, align 4
+  %303 = sub nsw i32 %266, %296
+  %304 = load i64, ptr %3, align 8
+  %305 = getelementptr inbounds i8, ptr %0, i64 136
+  store i64 %304, ptr %305, align 8
+  %306 = load i32, ptr %5, align 8
+  %307 = and i32 %306, 512
+  %308 = icmp ne i32 %307, 0
+  %309 = icmp eq i32 %7, 1
+  %or.cond5 = select i1 %308, i1 true, i1 %309
+  br i1 %or.cond5, label %310, label %314
 
-308:                                              ; preds = %292
-  %309 = getelementptr inbounds i8, ptr %0, i64 32
-  %310 = load i32, ptr %309, align 8
-  %311 = add i32 %310, %301
-  store i32 %311, ptr %309, align 8
-  br label %316
+310:                                              ; preds = %292
+  %311 = getelementptr inbounds i8, ptr %0, i64 32
+  %312 = load i32, ptr %311, align 8
+  %313 = add i32 %312, %303
+  store i32 %313, ptr %311, align 8
+  br label %318
 
-312:                                              ; preds = %292
-  %313 = getelementptr inbounds i8, ptr %0, i64 28
-  %314 = load i32, ptr %313, align 4
-  %315 = add i32 %314, %301
-  store i32 %315, ptr %313, align 4
-  br label %316
+314:                                              ; preds = %292
+  %315 = getelementptr inbounds i8, ptr %0, i64 28
+  %316 = load i32, ptr %315, align 4
+  %317 = add i32 %316, %303
+  store i32 %317, ptr %315, align 4
+  br label %318
 
-316:                                              ; preds = %101, %312, %308
+318:                                              ; preds = %101, %314, %310
   ret void
 }
 

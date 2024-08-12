@@ -217,7 +217,7 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
 
 102:                                              ; preds = %.loopexit
   %103 = fdiv double %sqrt165, %sqrt165
-  br label %158
+  br label %152
 
 104:                                              ; preds = %.loopexit
   %sqrt = tail call double @llvm.sqrt.f64(double %.sroa.speculated155)
@@ -227,7 +227,7 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   %108 = fsub double %105, %107
   %109 = fdiv double %108, %sqrt165
   %110 = fdiv double %109, %sqrt
-  br label %158
+  br label %152
 
 111:                                              ; preds = %30, %26, %23
   %112 = getelementptr inbounds i8, ptr %4, i64 16
@@ -274,42 +274,36 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   %132 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %1, ptr %132, align 8
   %133 = call noundef double @_ZNK2cv3Mat3dotERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  %134 = sitofp i32 %24 to double
-  %135 = insertelement <2 x double> poison, double %119, i64 0
-  %136 = insertelement <2 x double> %135, double %115, i64 1
-  %137 = fmul <2 x double> %136, %136
-  %138 = insertelement <2 x double> poison, double %134, i64 0
-  %139 = shufflevector <2 x double> %138, <2 x double> poison, <2 x i32> zeroinitializer
-  %140 = fdiv <2 x double> %137, %139
-  %141 = insertelement <2 x double> poison, double %129, i64 0
-  %142 = insertelement <2 x double> %141, double %124, i64 1
-  %143 = fsub <2 x double> %142, %140
-  %144 = fcmp ogt <2 x double> %143, zeroinitializer
-  %145 = extractelement <2 x i1> %144, i64 1
-  %146 = extractelement <2 x double> %143, i64 1
-  %.sroa.speculated150 = select i1 %145, double %146, double 0.000000e+00
+  %134 = fmul double %115, %115
+  %135 = sitofp i32 %24 to double
+  %136 = fdiv double %134, %135
+  %137 = fsub double %124, %136
+  %138 = fcmp ogt double %137, 0.000000e+00
+  %.sroa.speculated150 = select i1 %138, double %137, double 0.000000e+00
   %sqrt167 = call double @llvm.sqrt.f64(double %.sroa.speculated150)
-  %147 = extractelement <2 x i1> %144, i64 0
-  %148 = extractelement <2 x double> %143, i64 0
-  %.sroa.speculated = select i1 %147, double %148, double 0.000000e+00
-  %149 = fcmp oeq double %.sroa.speculated, 0.000000e+00
-  br i1 %149, label %150, label %152
+  %139 = fmul double %119, %119
+  %140 = fdiv double %139, %135
+  %141 = fsub double %129, %140
+  %142 = fcmp ogt double %141, 0.000000e+00
+  %.sroa.speculated = select i1 %142, double %141, double 0.000000e+00
+  %143 = fcmp oeq double %.sroa.speculated, 0.000000e+00
+  br i1 %143, label %144, label %146
 
-150:                                              ; preds = %111
-  %151 = fdiv double %sqrt167, %sqrt167
-  br label %158
+144:                                              ; preds = %111
+  %145 = fdiv double %sqrt167, %sqrt167
+  br label %152
 
-152:                                              ; preds = %111
+146:                                              ; preds = %111
   %sqrt166 = call double @llvm.sqrt.f64(double %.sroa.speculated)
-  %153 = fmul double %115, %119
-  %154 = fdiv double %153, %134
-  %155 = fsub double %133, %154
-  %156 = fdiv double %155, %sqrt167
-  %157 = fdiv double %156, %sqrt166
-  br label %158
+  %147 = fmul double %115, %119
+  %148 = fdiv double %147, %135
+  %149 = fsub double %133, %148
+  %150 = fdiv double %149, %sqrt167
+  %151 = fdiv double %150, %sqrt166
+  br label %152
 
-158:                                              ; preds = %150, %152, %102, %104
-  %.0 = phi double [ %103, %102 ], [ %110, %104 ], [ %151, %150 ], [ %157, %152 ]
+152:                                              ; preds = %144, %146, %102, %104
+  %.0 = phi double [ %103, %102 ], [ %110, %104 ], [ %145, %144 ], [ %151, %146 ]
   ret double %.0
 }
 

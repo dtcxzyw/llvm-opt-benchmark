@@ -46,7 +46,7 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
   %8 = load i32, ptr %1, align 4
   %.not33 = icmp ne i32 %8, -12
   %. = sext i1 %.not33 to i32
-  br label %68
+  br label %76
 
 9:                                                ; preds = %3
   %10 = load i8, ptr %4, align 4
@@ -54,7 +54,7 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
   store i8 %11, ptr %4, align 4
   %.off = add nsw i8 %11, -5
   %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %12, label %68
+  br i1 %switch, label %12, label %76
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8
@@ -67,7 +67,7 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
   %17 = load i32, ptr %1, align 4
   %.not35 = icmp ne i32 %17, -12
   %.36 = sext i1 %.not35 to i32
-  br label %68
+  br label %76
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %4, i64 40
@@ -81,7 +81,7 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
   %26 = load i32, ptr %25, align 4
   %27 = icmp ne i32 %26, 0
   %or.cond9 = select i1 %or.cond, i1 true, i1 %27
-  br i1 %or.cond9, label %68, label %28
+  br i1 %or.cond9, label %76, label %28
 
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %4, i64 24
@@ -92,13 +92,13 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
   %33 = load i32, ptr %32, align 4
   %34 = call i32 @llvm.bswap.i32(i32 %33)
   store i32 %34, ptr %32, align 4
-  switch i32 %34, label %68 [
+  switch i32 %34, label %76 [
     i32 0, label %35
     i32 1, label %37
   ]
 
 35:                                               ; preds = %28
-  switch i32 %31, label %68 [
+  switch i32 %31, label %76 [
     i32 0, label %38
     i32 1, label %36
   ]
@@ -108,68 +108,79 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
 
 37:                                               ; preds = %28
   %cond = icmp eq i32 %30, 0
-  br i1 %cond, label %38, label %68
+  br i1 %cond, label %38, label %76
 
 38:                                               ; preds = %37, %35, %36
   %.032 = phi i32 [ 2, %36 ], [ 1, %35 ], [ 22, %37 ]
-  %39 = load <4 x i32>, ptr %14, align 4
-  %40 = call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %39)
-  store <4 x i32> %40, ptr %14, align 4
-  %41 = getelementptr inbounds i8, ptr %4, i64 20
+  %39 = load i32, ptr %14, align 4
+  %40 = call i32 @llvm.bswap.i32(i32 %39)
+  store i32 %40, ptr %14, align 4
+  %41 = getelementptr inbounds i8, ptr %4, i64 8
   %42 = load i32, ptr %41, align 4
   %43 = call i32 @llvm.bswap.i32(i32 %42)
   store i32 %43, ptr %41, align 4
-  %44 = getelementptr inbounds i8, ptr %4, i64 32
+  %44 = getelementptr inbounds i8, ptr %4, i64 12
   %45 = load i32, ptr %44, align 4
   %46 = call i32 @llvm.bswap.i32(i32 %45)
   store i32 %46, ptr %44, align 4
-  %47 = getelementptr inbounds i8, ptr %4, i64 36
+  %47 = getelementptr inbounds i8, ptr %4, i64 16
   %48 = load i32, ptr %47, align 4
   %49 = call i32 @llvm.bswap.i32(i32 %48)
   store i32 %49, ptr %47, align 4
-  %50 = extractelement <4 x i32> %40, i64 2
-  %51 = add i32 %50, -2082844800
-  %52 = zext i32 %51 to i64
-  %53 = call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #7
-  %54 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %53, ptr %54, align 8
-  store i64 %52, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %.032, ptr %55, align 8
-  %56 = load i8, ptr %4, align 4
-  %switch.tableidx = add i8 %56, -5
-  %57 = icmp ult i8 %switch.tableidx, 3
-  br i1 %57, label %switch.lookup, label %58
+  %50 = getelementptr inbounds i8, ptr %4, i64 20
+  %51 = load i32, ptr %50, align 4
+  %52 = call i32 @llvm.bswap.i32(i32 %51)
+  store i32 %52, ptr %50, align 4
+  %53 = getelementptr inbounds i8, ptr %4, i64 32
+  %54 = load i32, ptr %53, align 4
+  %55 = call i32 @llvm.bswap.i32(i32 %54)
+  store i32 %55, ptr %53, align 4
+  %56 = getelementptr inbounds i8, ptr %4, i64 36
+  %57 = load i32, ptr %56, align 4
+  %58 = call i32 @llvm.bswap.i32(i32 %57)
+  store i32 %58, ptr %56, align 4
+  %59 = add i32 %46, -2082844800
+  %60 = zext i32 %59 to i64
+  %61 = call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #7
+  %62 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %61, ptr %62, align 8
+  store i64 %60, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 %.032, ptr %63, align 8
+  %64 = load i8, ptr %4, align 4
+  %switch.tableidx = add i8 %64, -5
+  %65 = icmp ult i8 %switch.tableidx, 3
+  br i1 %65, label %switch.lookup, label %66
 
-58:                                               ; preds = %38
+66:                                               ; preds = %38
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 346, ptr noundef nonnull @__func__.peekclassic_open, ptr noundef nonnull @.str.2) #8
   unreachable
 
 switch.lookup:                                    ; preds = %38
-  %59 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.peekclassic_open, i64 0, i64 %59
+  %67 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.peekclassic_open, i64 0, i64 %67
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %60 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep38 = getelementptr inbounds [3 x ptr], ptr @switch.table.peekclassic_open.2, i64 0, i64 %60
+  %68 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep38 = getelementptr inbounds [3 x ptr], ptr @switch.table.peekclassic_open.2, i64 0, i64 %68
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
-  %61 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep40 = getelementptr inbounds [3 x ptr], ptr @switch.table.peekclassic_open.3, i64 0, i64 %61
+  %69 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep40 = getelementptr inbounds [3 x ptr], ptr @switch.table.peekclassic_open.3, i64 0, i64 %69
   %switch.load41 = load ptr, ptr %switch.gep40, align 8
-  %62 = load i32, ptr %switch.load, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %62, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr %switch.load39, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %switch.load41, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 6, ptr %67, align 4
+  %70 = load i32, ptr %switch.load, align 4
+  %71 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %70, ptr %71, align 4
+  %72 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr %switch.load39, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %switch.load41, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 6, ptr %75, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #6
-  br label %68
+  br label %76
 
-68:                                               ; preds = %9, %28, %37, %35, %18, %16, %7, %switch.lookup
+76:                                               ; preds = %9, %28, %37, %35, %18, %16, %7, %switch.lookup
   %.0 = phi i32 [ 1, %switch.lookup ], [ %., %7 ], [ %.36, %16 ], [ 0, %18 ], [ 0, %35 ], [ 0, %37 ], [ 0, %28 ], [ 0, %9 ]
   ret i32 %.0
 }
@@ -658,9 +669,6 @@ define internal fastcc i32 @peekclassic_read_packet_v56(ptr nocapture noundef re
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.bswap.v4i32(<4 x i32>) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

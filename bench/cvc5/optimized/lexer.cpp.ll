@@ -131,7 +131,13 @@ define hidden void @_ZN4cvc56parser5LexerC2Ev(ptr noundef nonnull align 8 derefe
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser5LexerE, i64 16), ptr %this, align 8
   %d_span = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr %d_span, align 8
+  store i32 1, ptr %d_span, align 8
+  %d_column.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 1, ptr %d_column.i.i, align 4
+  %d_end.i = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 1, ptr %d_end.i, align 8
+  %d_column.i1.i = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 1, ptr %d_column.i1.i, align 4
   %d_inputName = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName) #15
   %d_peeked = getelementptr inbounds i8, ptr %this, i64 56
@@ -306,7 +312,13 @@ entry:
 define hidden void @_ZN4cvc56parser5Lexer8initSpanEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32892) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_span = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x i32> <i32 1, i32 0, i32 1, i32 0>, ptr %d_span, align 8
+  store i32 1, ptr %d_span, align 8
+  %d_column = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %d_column, align 4
+  %d_end = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 1, ptr %d_end, align 8
+  %d_column8 = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 0, ptr %d_column8, align 4
   ret void
 }
 
@@ -329,7 +341,13 @@ entry:
   %d_inputName = getelementptr inbounds i8, ptr %this, i64 24
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName, ptr noundef nonnull align 8 dereferenceable(32) %inputName)
   %d_span.i = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x i32> <i32 1, i32 0, i32 1, i32 0>, ptr %d_span.i, align 8
+  store i32 1, ptr %d_span.i, align 8
+  %d_column.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %d_column.i, align 4
+  %d_end.i = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 1, ptr %d_end.i, align 8
+  %d_column8.i = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 0, ptr %d_column8.i, align 4
   %d_peeked = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %d_peeked, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64

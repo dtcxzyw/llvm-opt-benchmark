@@ -276,8 +276,14 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store <4 x i32> <i32 436207630, i32 1162669, i32 683672015, i32 50287021>, ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, align 16
-  store <4 x i32> <i32 46137804, i32 4523437, i32 683680140, i32 1275068896>, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 16), align 16
+  store i32 436207630, ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, align 16
+  store i32 1162669, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 4), align 4
+  store i32 683672015, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 8), align 8
+  store i32 50287021, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 12), align 4
+  store i32 46137804, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 16), align 16
+  store i32 4523437, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 20), align 4
+  store i32 683680140, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 24), align 8
+  store i32 1275068896, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 28), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64) #19
   br label %init.end
 
@@ -399,16 +405,20 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH64EE12get_plt_addrERNS0_7ContextIS2_EE.exit:
   %and.i1.i = and i64 %retval.0.i, 4294963200
   %sub.i = sub i64 %add.i14, %and.i1.i
   %10 = trunc i64 %sub.i to i32
+  %x.0.copyload.i.i.i = load i32, ptr %buf, align 1
+  %and.i.i = and i32 %x.0.copyload.i.i.i, -33554401
   %11 = lshr i32 %10, 7
+  %12 = and i32 %11, 33554400
+  %or.i.i = or disjoint i32 %12, %and.i.i
+  store i32 %or.i.i, ptr %buf, align 1
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 4
   %conv3 = trunc i64 %add3.i22 to i32
-  %12 = shl i32 %conv3, 10
-  %13 = load <2 x i32>, ptr %buf, align 1
-  %14 = and <2 x i32> %13, <i32 -33554401, i32 -4193281>
-  %15 = insertelement <2 x i32> poison, i32 %11, i64 0
-  %16 = insertelement <2 x i32> %15, i32 %12, i64 1
-  %17 = and <2 x i32> %16, <i32 33554400, i32 4193280>
-  %18 = or disjoint <2 x i32> %14, %17
-  store <2 x i32> %18, ptr %buf, align 1
+  %x.0.copyload.i.i.i15 = load i32, ptr %add.ptr, align 1
+  %and.i.i16 = and i32 %x.0.copyload.i.i.i15, -4193281
+  %13 = shl i32 %conv3, 10
+  %conv2.i17 = and i32 %13, 4193280
+  %or.i.i18 = or disjoint i32 %and.i.i16, %conv2.i17
+  store i32 %or.i.i18, ptr %add.ptr, align 1
   ret void
 }
 
@@ -537,16 +547,20 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH64EE12get_plt_addrERNS0_7ContextIS2_EE.exit:
   %and.i1.i = and i64 %retval.0.i9, 4294963200
   %sub.i = sub i64 %add.i10, %and.i1.i
   %26 = trunc i64 %sub.i to i32
+  %x.0.copyload.i.i.i11 = load i32, ptr %buf, align 1
+  %and.i.i = and i32 %x.0.copyload.i.i.i11, -33554401
   %27 = lshr i32 %26, 7
+  %28 = and i32 %27, 33554400
+  %or.i.i = or disjoint i32 %28, %and.i.i
+  store i32 %or.i.i, ptr %buf, align 1
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 4
   %conv3 = trunc i64 %retval.0.i to i32
-  %28 = shl i32 %conv3, 10
-  %29 = load <2 x i32>, ptr %buf, align 1
-  %30 = and <2 x i32> %29, <i32 -33554401, i32 -4193281>
-  %31 = insertelement <2 x i32> poison, i32 %27, i64 0
-  %32 = insertelement <2 x i32> %31, i32 %28, i64 1
-  %33 = and <2 x i32> %32, <i32 33554400, i32 4193280>
-  %34 = or disjoint <2 x i32> %30, %33
-  store <2 x i32> %34, ptr %buf, align 1
+  %x.0.copyload.i.i.i12 = load i32, ptr %add.ptr, align 1
+  %and.i.i13 = and i32 %x.0.copyload.i.i.i12, -4193281
+  %29 = shl i32 %conv3, 10
+  %conv2.i14 = and i32 %29, 4193280
+  %or.i.i15 = or disjoint i32 %and.i.i13, %conv2.i14
+  store i32 %or.i.i15, ptr %add.ptr, align 1
   ret void
 }
 
@@ -4356,7 +4370,10 @@ define internal void @_GLOBAL__sub_I_arch_loongarch.cc.LOONGARCH64.cc() #14 sect
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #19
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
-  store <4 x i32> <i32 436207631, i32 683672047, i32 1275068909, i32 54525952>, ptr @_ZN4mold3elfL12plt_entry_64E, align 16
+  store i32 436207631, ptr @_ZN4mold3elfL12plt_entry_64E, align 16
+  store i32 683672047, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL12plt_entry_64E, i64 4), align 4
+  store i32 1275068909, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL12plt_entry_64E, i64 8), align 8
+  store i32 54525952, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL12plt_entry_64E, i64 12), align 4
   ret void
 }
 

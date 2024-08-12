@@ -309,9 +309,12 @@ if.then195:                                       ; preds = %if.end192
   %add.ptr200 = getelementptr inbounds i8, ptr %20, i64 65504
   %sub = add nsw i64 %litSize.0, -65536
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr200, ptr align 1 %20, i64 %sub, i1 false)
-  %21 = load <2 x ptr>, ptr %litBuffer198, align 8
-  %22 = getelementptr i8, <2 x ptr> %21, <2 x i64> <i64 65504, i64 -32>
-  store <2 x ptr> %22, ptr %litBuffer198, align 8
+  %21 = load ptr, ptr %litBuffer198, align 8
+  %add.ptr203 = getelementptr inbounds i8, ptr %21, i64 65504
+  store ptr %add.ptr203, ptr %litBuffer198, align 8
+  %22 = load ptr, ptr %litBufferEnd12.i, align 8
+  %add.ptr205 = getelementptr inbounds i8, ptr %22, i64 -32
+  store ptr %add.ptr205, ptr %litBufferEnd12.i, align 8
   br label %do.body207
 
 do.body207:                                       ; preds = %if.end192, %if.then195

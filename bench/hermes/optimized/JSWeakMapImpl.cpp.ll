@@ -1265,9 +1265,13 @@ _ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapI
   %ref.tmp.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %cond.sink.i.i.ph.pn.i, i64 8
   store i32 1, ptr %ref.tmp.sroa.2.0.call4.sroa_idx.i.i, align 8
   %NumEntries.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
-  %21 = load <2 x i32>, ptr %NumEntries.i.i.i.i.i, align 8
-  %22 = add <2 x i32> %21, <i32 -1, i32 1>
-  store <2 x i32> %22, ptr %NumEntries.i.i.i.i.i, align 8
+  %21 = load i32, ptr %NumEntries.i.i.i.i.i, align 8
+  %sub.i.i.i13 = add i32 %21, -1
+  store i32 %sub.i.i.i13, ptr %NumEntries.i.i.i.i.i, align 8
+  %NumTombstones.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 36
+  %22 = load i32, ptr %NumTombstones.i.i.i.i.i, align 4
+  %add.i.i.i14 = add i32 %22, 1
+  store i32 %add.i.i.i14, ptr %NumTombstones.i.i.i.i.i, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm6detail10WeakRefKeyEjNS4_11WeakRefInfoENS_6detail12DenseMapPairIS5_jEEEES5_jS6_S9_E4findERKS5_.exit, %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit
@@ -1344,9 +1348,13 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE9setNonPtrILNS3_6InlineE0EE
   %ref.tmp.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %it.coerce0, i64 8
   store i32 1, ptr %ref.tmp.sroa.2.0.call4.sroa_idx.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %11 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
-  %12 = add <2 x i32> %11, <i32 -1, i32 1>
-  store <2 x i32> %12, ptr %NumEntries.i.i.i.i, align 8
+  %11 = load i32, ptr %NumEntries.i.i.i.i, align 8
+  %sub.i.i = add i32 %11, -1
+  store i32 %sub.i.i, ptr %NumEntries.i.i.i.i, align 8
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  %12 = load i32, ptr %NumTombstones.i.i.i.i, align 4
+  %add.i.i = add i32 %12, 1
+  store i32 %add.i.i, ptr %NumTombstones.i.i.i.i, align 4
   ret void
 }
 
@@ -1931,6 +1939,7 @@ for.body.lr.ph:                                   ; preds = %_ZN4llvh12DenseMapB
   %freeListHead_.i = getelementptr inbounds i8, ptr %this, i64 52
   %youngGen_.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
   %ogMarkingBarriers_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8497
+  %NumTombstones.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh16DenseMapIteratorIN6hermes2vm6detail10WeakRefKeyEjNS3_11WeakRefInfoENS_6detail12DenseMapPairIS4_jEELb0EEppEv.exit
@@ -2000,9 +2009,12 @@ _ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapI
   store ptr inttoptr (i64 1 to ptr), ptr %it.sroa.0.09, align 8
   %ref.tmp.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %it.sroa.0.09, i64 8
   store i32 1, ptr %ref.tmp.sroa.2.0.call4.sroa_idx.i.i, align 8
-  %17 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
-  %18 = add <2 x i32> %17, <i32 -1, i32 1>
-  store <2 x i32> %18, ptr %NumEntries.i.i.i.i, align 8
+  %17 = load i32, ptr %NumEntries.i.i.i.i, align 8
+  %sub.i.i.i = add i32 %17, -1
+  store i32 %sub.i.i.i, ptr %NumEntries.i.i.i.i, align 8
+  %18 = load i32, ptr %NumTombstones.i.i.i.i.i, align 4
+  %add.i.i.i = add i32 %18, 1
+  store i32 %add.i.i.i, ptr %NumTombstones.i.i.i.i.i, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit

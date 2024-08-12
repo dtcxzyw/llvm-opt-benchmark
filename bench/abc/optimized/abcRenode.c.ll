@@ -36,132 +36,134 @@ define ptr @Abc_NtkRenode(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %19 = getelementptr inbounds i8, ptr %12, i64 12
   store i32 %4, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %12, i64 24
-  store <2 x float> <float -1.000000e+00, float 0x3F747AE140000000>, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 52
-  store i32 1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %12, i64 56
-  store i32 %5, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %12, i64 64
-  store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 188
-  store i32 %10, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %12, i64 220
-  store i32 1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %12, i64 224
-  store i32 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 248
-  store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %12, i64 280
-  %29 = getelementptr inbounds i8, ptr %12, i64 228
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
-  store i32 %6, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %12, i64 232
-  store i32 %7, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %12, i64 236
-  store i32 %8, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %12, i64 240
-  store i32 %9, ptr %32, align 8
+  store float -1.000000e+00, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %12, i64 28
+  store float 0x3F747AE140000000, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %12, i64 52
+  store i32 1, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %12, i64 56
+  store i32 %5, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %12, i64 64
+  store i32 0, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %12, i64 188
+  store i32 %10, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %12, i64 220
+  store i32 1, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %12, i64 224
+  store i32 1, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %12, i64 248
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %12, i64 280
+  %30 = getelementptr inbounds i8, ptr %12, i64 228
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
+  store i32 %6, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %12, i64 232
+  store i32 %7, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %12, i64 236
+  store i32 %8, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %12, i64 240
+  store i32 %9, ptr %33, align 8
   %.not52 = icmp eq i32 %6, 0
-  br i1 %.not52, label %33, label %42
+  br i1 %.not52, label %34, label %43
 
-33:                                               ; preds = %15
+34:                                               ; preds = %15
   %.not53 = icmp eq i32 %7, 0
-  br i1 %.not53, label %36, label %34
+  br i1 %.not53, label %37, label %35
 
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %12, i64 304
-  store ptr @Abc_NtkRenodeEvalSop, ptr %35, align 8
-  br label %50
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds i8, ptr %12, i64 304
+  store ptr @Abc_NtkRenodeEvalSop, ptr %36, align 8
+  br label %51
 
-36:                                               ; preds = %33
+37:                                               ; preds = %34
   %.not54 = icmp eq i32 %8, 0
-  %37 = getelementptr inbounds i8, ptr %12, i64 304
-  br i1 %.not54, label %39, label %38
+  %38 = getelementptr inbounds i8, ptr %12, i64 304
+  br i1 %.not54, label %40, label %39
 
-38:                                               ; preds = %36
-  store i32 1, ptr %22, align 8
-  store ptr @Abc_NtkRenodeEvalCnf, ptr %37, align 8
-  br label %50
+39:                                               ; preds = %37
+  store i32 1, ptr %23, align 8
+  store ptr @Abc_NtkRenodeEvalCnf, ptr %38, align 8
+  br label %51
 
-39:                                               ; preds = %36
+40:                                               ; preds = %37
   %.not55 = icmp eq i32 %9, 0
-  br i1 %.not55, label %41, label %40
+  br i1 %.not55, label %42, label %41
 
-40:                                               ; preds = %39
-  store ptr @Abc_NtkRenodeEvalMv, ptr %37, align 8
-  br label %50
+41:                                               ; preds = %40
+  store ptr @Abc_NtkRenodeEvalMv, ptr %38, align 8
+  br label %51
 
-41:                                               ; preds = %39
-  store ptr @Abc_NtkRenodeEvalAig, ptr %37, align 8
-  br label %50
+42:                                               ; preds = %40
+  store ptr @Abc_NtkRenodeEvalAig, ptr %38, align 8
+  br label %51
 
-42:                                               ; preds = %15
-  %43 = getelementptr inbounds i8, ptr %12, i64 304
-  store ptr @Abc_NtkRenodeEvalBdd, ptr %43, align 8
-  %44 = tail call ptr @Cudd_Init(i32 noundef %1, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #7
-  store ptr %44, ptr @s_pDd, align 8
-  %45 = tail call ptr @Extra_ReorderInit(i32 noundef %1, i32 noundef 100) #7
-  store ptr %45, ptr @s_pReo, align 8
-  %46 = getelementptr inbounds i8, ptr %12, i64 344
-  store ptr %45, ptr %46, align 8
-  %47 = call ptr @Abc_NtkIf(ptr noundef %0, ptr noundef nonnull %12) #7
-  %48 = load ptr, ptr @s_pDd, align 8
-  call void @Extra_StopManager(ptr noundef %48) #7
-  %49 = load ptr, ptr @s_pReo, align 8
-  call void @Extra_ReorderQuit(ptr noundef %49) #7
-  br label %68
+43:                                               ; preds = %15
+  %44 = getelementptr inbounds i8, ptr %12, i64 304
+  store ptr @Abc_NtkRenodeEvalBdd, ptr %44, align 8
+  %45 = tail call ptr @Cudd_Init(i32 noundef %1, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #7
+  store ptr %45, ptr @s_pDd, align 8
+  %46 = tail call ptr @Extra_ReorderInit(i32 noundef %1, i32 noundef 100) #7
+  store ptr %46, ptr @s_pReo, align 8
+  %47 = getelementptr inbounds i8, ptr %12, i64 344
+  store ptr %46, ptr %47, align 8
+  %48 = call ptr @Abc_NtkIf(ptr noundef %0, ptr noundef nonnull %12) #7
+  %49 = load ptr, ptr @s_pDd, align 8
+  call void @Extra_StopManager(ptr noundef %49) #7
+  %50 = load ptr, ptr @s_pReo, align 8
+  call void @Extra_ReorderQuit(ptr noundef %50) #7
+  br label %69
 
-50:                                               ; preds = %38, %41, %40, %34
-  %51 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
-  store i32 0, ptr %52, align 4
-  store i32 65536, ptr %51, align 8
-  %53 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #8
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
-  store ptr %53, ptr %54, align 8
-  store ptr %51, ptr @s_vMemory, align 8
-  %55 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
-  store i32 0, ptr %56, align 4
-  store i32 65536, ptr %55, align 8
-  %57 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #8
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
-  store ptr %57, ptr %58, align 8
-  store ptr %55, ptr @s_vMemory2, align 8
-  %59 = call ptr @Abc_NtkIf(ptr noundef %0, ptr noundef nonnull %12) #7
-  %60 = load ptr, ptr @s_vMemory, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %.not.i = icmp eq ptr %62, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %63
+51:                                               ; preds = %39, %42, %41, %35
+  %52 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
+  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  store i32 0, ptr %53, align 4
+  store i32 65536, ptr %52, align 8
+  %54 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #8
+  %55 = getelementptr inbounds i8, ptr %52, i64 8
+  store ptr %54, ptr %55, align 8
+  store ptr %52, ptr @s_vMemory, align 8
+  %56 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
+  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  store i32 0, ptr %57, align 4
+  store i32 65536, ptr %56, align 8
+  %58 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #8
+  %59 = getelementptr inbounds i8, ptr %56, i64 8
+  store ptr %58, ptr %59, align 8
+  store ptr %56, ptr @s_vMemory2, align 8
+  %60 = call ptr @Abc_NtkIf(ptr noundef %0, ptr noundef nonnull %12) #7
+  %61 = load ptr, ptr @s_vMemory, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %.not.i = icmp eq ptr %63, null
+  br i1 %.not.i, label %Vec_IntFree.exit, label %64
 
-63:                                               ; preds = %50
-  call void @free(ptr noundef nonnull %62) #7
+64:                                               ; preds = %51
+  call void @free(ptr noundef nonnull %63) #7
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %50, %63
-  call void @free(ptr noundef nonnull %60) #7
-  %64 = load ptr, ptr @s_vMemory2, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %.not.i56 = icmp eq ptr %66, null
-  br i1 %.not.i56, label %Vec_IntFree.exit57, label %67
+Vec_IntFree.exit:                                 ; preds = %51, %64
+  call void @free(ptr noundef nonnull %61) #7
+  %65 = load ptr, ptr @s_vMemory2, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %.not.i56 = icmp eq ptr %67, null
+  br i1 %.not.i56, label %Vec_IntFree.exit57, label %68
 
-67:                                               ; preds = %Vec_IntFree.exit
-  call void @free(ptr noundef nonnull %66) #7
+68:                                               ; preds = %Vec_IntFree.exit
+  call void @free(ptr noundef nonnull %67) #7
   br label %Vec_IntFree.exit57
 
-Vec_IntFree.exit57:                               ; preds = %Vec_IntFree.exit, %67
-  call void @free(ptr noundef nonnull %64) #7
-  br label %68
+Vec_IntFree.exit57:                               ; preds = %Vec_IntFree.exit, %68
+  call void @free(ptr noundef nonnull %65) #7
+  br label %69
 
-68:                                               ; preds = %Vec_IntFree.exit57, %42
-  %s_vMemory.sink = phi ptr [ @s_vMemory, %Vec_IntFree.exit57 ], [ @s_pReo, %42 ]
-  %s_vMemory2.sink = phi ptr [ @s_vMemory2, %Vec_IntFree.exit57 ], [ @s_pDd, %42 ]
-  %69 = phi ptr [ %59, %Vec_IntFree.exit57 ], [ %47, %42 ]
+69:                                               ; preds = %Vec_IntFree.exit57, %43
+  %s_vMemory.sink = phi ptr [ @s_vMemory, %Vec_IntFree.exit57 ], [ @s_pReo, %43 ]
+  %s_vMemory2.sink = phi ptr [ @s_vMemory2, %Vec_IntFree.exit57 ], [ @s_pDd, %43 ]
+  %70 = phi ptr [ %60, %Vec_IntFree.exit57 ], [ %48, %43 ]
   store ptr null, ptr %s_vMemory.sink, align 8
   store ptr null, ptr %s_vMemory2.sink, align 8
-  ret ptr %69
+  ret ptr %70
 }
 
 declare i32 @Abc_NtkGetChoiceNum(ptr noundef) local_unnamed_addr #1

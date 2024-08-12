@@ -546,46 +546,53 @@ entry:
   %separators_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %separators_, align 8
   %closeBracket.i = getelementptr inbounds i8, ptr %0, i64 1
-  %1 = load <4 x i8>, ptr %closeBracket.i, align 1
-  %2 = insertelement <4 x i8> poison, i8 %expected, i64 0
-  %3 = shufflevector <4 x i8> %2, <4 x i8> poison, <4 x i32> zeroinitializer
-  %4 = icmp eq <4 x i8> %1, %3
-  %5 = freeze <4 x i1> %4
-  %6 = bitcast <4 x i1> %5 to i4
-  %.not = icmp eq i4 %6, 0
-  br i1 %.not, label %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit, label %land.rhs
+  %1 = load i8, ptr %closeBracket.i, align 1
+  %cmp.i = icmp eq i8 %1, %expected
+  %dot.i = getelementptr inbounds i8, ptr %0, i64 2
+  %2 = load i8, ptr %dot.i, align 1
+  %cmp5.i = icmp eq i8 %2, %expected
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp5.i
+  %openBracket.i = getelementptr inbounds i8, ptr %0, i64 3
+  %3 = load i8, ptr %openBracket.i, align 1
+  %cmp9.i = icmp eq i8 %3, %expected
+  %or.cond5.i = select i1 %or.cond.i, i1 true, i1 %cmp9.i
+  %quote.i = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = load i8, ptr %quote.i, align 1
+  %cmp13.i = icmp eq i8 %4, %expected
+  %or.cond6.i = select i1 %or.cond5.i, i1 true, i1 %cmp13.i
+  br i1 %or.cond6.i, label %land.rhs, label %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit
 
 _ZNK8facebook5velox6common10Separators11isSeparatorEc.exit: ; preds = %entry
   %wildCard.i = getelementptr inbounds i8, ptr %0, i64 5
-  %7 = load i8, ptr %wildCard.i, align 1
-  %cmp16.i = icmp eq i8 %7, %expected
+  %5 = load i8, ptr %wildCard.i, align 1
+  %cmp16.i = icmp eq i8 %5, %expected
   br i1 %cmp16.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry, %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit
   %index_.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %8 = load i32, ptr %index_.i.i, align 8
-  %conv.i.i = sext i32 %8 to i64
+  %6 = load i32, ptr %index_.i.i, align 8
+  %conv.i.i = sext i32 %6 to i64
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
   %cmp.i.i = icmp ugt i64 %call.i.i, %conv.i.i
   br i1 %cmp.i.i, label %lor.lhs.false.i, label %land.end
 
 lor.lhs.false.i:                                  ; preds = %land.rhs
-  %9 = load i32, ptr %index_.i.i, align 8
-  %conv.i2.i = sext i32 %9 to i64
+  %7 = load i32, ptr %index_.i.i, align 8
+  %conv.i2.i = sext i32 %7 to i64
   %call.i3.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i2.i) #20
-  %10 = load i8, ptr %call.i3.i, align 1
-  %cmp.not.i = icmp eq i8 %10, %expected
+  %8 = load i8, ptr %call.i3.i, align 1
+  %cmp.not.i = icmp eq i8 %8, %expected
   br i1 %cmp.not.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %11 = load i32, ptr %index_.i.i, align 8
-  %inc.i = add nsw i32 %11, 1
+  %9 = load i32, ptr %index_.i.i, align 8
+  %inc.i = add nsw i32 %9, 1
   store i32 %inc.i, ptr %index_.i.i, align 8
   br label %land.end
 
 land.end:                                         ; preds = %if.end.i, %lor.lhs.false.i, %land.rhs, %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit
-  %12 = phi i1 [ false, %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit ], [ true, %if.end.i ], [ false, %lor.lhs.false.i ], [ false, %land.rhs ]
-  ret i1 %12
+  %10 = phi i1 [ false, %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit ], [ true, %if.end.i ], [ false, %lor.lhs.false.i ], [ false, %land.rhs ]
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -610,32 +617,39 @@ land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph
   %call.i4 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i3) #20
   %3 = load i8, ptr %call.i4, align 1
   %closeBracket.i = getelementptr inbounds i8, ptr %1, i64 1
-  %4 = load <4 x i8>, ptr %closeBracket.i, align 1
-  %5 = insertelement <4 x i8> poison, i8 %3, i64 0
-  %6 = shufflevector <4 x i8> %5, <4 x i8> poison, <4 x i32> zeroinitializer
-  %7 = icmp eq <4 x i8> %4, %6
-  %8 = freeze <4 x i1> %7
-  %9 = bitcast <4 x i1> %8 to i4
-  %.not = icmp eq i4 %9, 0
-  br i1 %.not, label %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit, label %while.end
+  %4 = load i8, ptr %closeBracket.i, align 1
+  %cmp.i5 = icmp eq i8 %4, %3
+  %dot.i = getelementptr inbounds i8, ptr %1, i64 2
+  %5 = load i8, ptr %dot.i, align 1
+  %cmp5.i = icmp eq i8 %5, %3
+  %or.cond.i = select i1 %cmp.i5, i1 true, i1 %cmp5.i
+  %openBracket.i = getelementptr inbounds i8, ptr %1, i64 3
+  %6 = load i8, ptr %openBracket.i, align 1
+  %cmp9.i = icmp eq i8 %6, %3
+  %or.cond5.i = select i1 %or.cond.i, i1 true, i1 %cmp9.i
+  %quote.i = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = load i8, ptr %quote.i, align 1
+  %cmp13.i = icmp eq i8 %7, %3
+  %or.cond6.i = select i1 %or.cond5.i, i1 true, i1 %cmp13.i
+  br i1 %or.cond6.i, label %while.end, label %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit
 
 _ZNK8facebook5velox6common10Separators11isSeparatorEc.exit: ; preds = %land.lhs.true
   %wildCard.i = getelementptr inbounds i8, ptr %1, i64 5
-  %10 = load i8, ptr %wildCard.i, align 1
-  %cmp16.i = icmp eq i8 %10, %3
+  %8 = load i8, ptr %wildCard.i, align 1
+  %cmp16.i = icmp eq i8 %8, %3
   br i1 %cmp16.i, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit
-  %11 = load i32, ptr %index_, align 8
-  %conv.i7 = sext i32 %11 to i64
+  %9 = load i32, ptr %index_, align 8
+  %conv.i7 = sext i32 %9 to i64
   %call.i8 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i7) #20
-  %12 = load i8, ptr %call.i8, align 1
-  %call6 = tail call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer23isUnquotedPathCharacterEc(ptr nonnull align 8 poison, i8 noundef signext %12)
+  %10 = load i8, ptr %call.i8, align 1
+  %call6 = tail call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer23isUnquotedPathCharacterEc(ptr nonnull align 8 poison, i8 noundef signext %10)
   br i1 %call6, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %13 = load i32, ptr %index_, align 8
-  %inc.i = add nsw i32 %13, 1
+  %11 = load i32, ptr %index_, align 8
+  %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %index_, align 8
   %conv.i = sext i32 %inc.i to i64
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
@@ -643,8 +657,8 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp.i, label %land.lhs.true, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %land.rhs, %while.body, %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit, %land.lhs.true, %entry
-  %14 = load i32, ptr %index_, align 8
-  %sub = sub nsw i32 %14, %0
+  %12 = load i32, ptr %index_, align 8
+  %sub = sub nsw i32 %12, %0
   %conv8 = sext i32 %sub to i64
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %token, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i13, i64 noundef %conv8)
   %call9 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %token) #20
@@ -655,12 +669,12 @@ if.then:                                          ; preds = %while.end
   unreachable
 
 lpad:                                             ; preds = %if.end
-  %15 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %15, %lpad ], [ %16, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %14, %lpad.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #20
   resume { ptr, i32 } %eh.lpad-body
 
@@ -684,7 +698,7 @@ if.then.i.i:                                      ; preds = %.noexc.i
   unreachable
 
 lpad.i:                                           ; preds = %call.i10.noexc
-  %16 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call.i1011) #22, !noalias !12
   br label %lpad.body

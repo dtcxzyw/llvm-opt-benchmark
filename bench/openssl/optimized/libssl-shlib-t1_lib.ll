@@ -3010,9 +3010,12 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %if.end
-  %1 = load <2 x i32>, ptr %mask_k, align 8
-  %2 = or <2 x i32> %1, <i32 456, i32 16>
-  store <2 x i32> %2, ptr %mask_k, align 8
+  %1 = load i32, ptr %mask_a, align 4
+  %or = or i32 %1, 16
+  store i32 %or, ptr %mask_a, align 4
+  %2 = load i32, ptr %mask_k, align 8
+  %or17 = or i32 %2, 456
+  store i32 %or17, ptr %mask_k, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then10, %if.end
@@ -3023,9 +3026,12 @@ if.end18:                                         ; preds = %if.then10, %if.end
   br i1 %tobool19.not, label %if.then20, label %return
 
 if.then20:                                        ; preds = %if.end18
-  %4 = load <2 x i32>, ptr %mask_k, align 8
-  %5 = or <2 x i32> %4, <i32 32, i32 64>
-  store <2 x i32> %5, ptr %mask_k, align 8
+  %4 = load i32, ptr %mask_a, align 4
+  %or24 = or i32 %4, 64
+  store i32 %or24, ptr %mask_a, align 4
+  %5 = load i32, ptr %mask_k, align 8
+  %or28 = or i32 %5, 32
+  store i32 %or28, ptr %mask_k, align 8
   br label %return
 
 return:                                           ; preds = %if.end18, %if.then20, %entry

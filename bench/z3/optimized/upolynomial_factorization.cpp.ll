@@ -9954,12 +9954,13 @@ if.then117:                                       ; preds = %invoke.cont114
   %54 = load ptr, ptr %m_data2.i.i, align 8
   store ptr %54, ptr %m_data.i.i, align 8
   store ptr %53, ptr %m_data2.i.i, align 8
-  %55 = load i32, ptr %m_capacity.i.i, align 4
-  %56 = load <2 x i32>, ptr %current_degree_set, align 8
-  %57 = load i32, ptr %current_degree_set, align 8
+  %55 = load i32, ptr %current_degree_set, align 8
+  store i32 %55, ptr %degree_set, align 8
   store i32 1, ptr %current_degree_set, align 8
-  store <2 x i32> %56, ptr %degree_set, align 8
-  store i32 %55, ptr %m_capacity4.i.i, align 4
+  %56 = load i32, ptr %m_capacity.i.i, align 4
+  %57 = load i32, ptr %m_capacity4.i.i, align 4
+  store i32 %57, ptr %m_capacity.i.i, align 4
+  store i32 %56, ptr %m_capacity4.i.i, align 4
   br label %if.end119
 
 lpad113:                                          ; preds = %if.then.i2.i232, %if.else.i.i228, %if.else, %if.then122
@@ -9977,7 +9978,7 @@ if.else.if.end119_crit_edge:                      ; preds = %if.else
   br label %if.end119
 
 if.end119:                                        ; preds = %if.else.if.end119_crit_edge, %if.then117
-  %59 = phi i32 [ %.pre602, %if.else.if.end119_crit_edge ], [ %57, %if.then117 ]
+  %59 = phi i32 [ %.pre602, %if.else.if.end119_crit_edge ], [ %55, %if.then117 ]
   %sub.i214 = add i32 %59, -1
   %cmp3.i215 = icmp slt i32 %59, 3
   br i1 %cmp3.i215, label %if.then122, label %for.body.lr.ph.i
@@ -11559,16 +11560,17 @@ invoke.cont7:                                     ; preds = %if.end.i.i12, %invo
 
 for.body13:                                       ; preds = %invoke.cont7, %_ZN10bit_vectorD2Ev.exit
   %k.026 = phi i32 [ %inc, %_ZN10bit_vectorD2Ev.exit ], [ 0, %invoke.cont7 ]
-  %8 = load i32, ptr %m_capacity.i, align 4
-  %9 = load <2 x i32>, ptr %this, align 8
-  store <2 x i32> %9, ptr %tmp, align 8
+  %8 = load i32, ptr %this, align 8
+  store i32 %8, ptr %tmp, align 8
+  %9 = load i32, ptr %m_capacity.i, align 4
+  store i32 %9, ptr %m_capacity.i17, align 4
   store ptr null, ptr %m_data.i, align 8
   %10 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %invoke.cont15, label %if.then.i18
 
 if.then.i18:                                      ; preds = %for.body13
-  %conv.i = zext i32 %8 to i64
+  %conv.i = zext i32 %9 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 2
   %call.i19 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %mul.i)
           to label %call.i.noexc unwind label %lpad.loopexit

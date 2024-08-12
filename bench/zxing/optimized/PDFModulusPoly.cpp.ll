@@ -1504,8 +1504,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %87, %84, %10
 define void @_ZNK5ZXing6Pdf41711ModulusPoly6divideERKS1_RS1_S4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.ZXing::Pdf417::ModulusPoly", align 8
   %6 = alloca %"class.ZXing::Pdf417::ModulusPoly", align 8
-  %7 = alloca %"class.ZXing::Pdf417::ModulusPoly", align 16
-  %8 = alloca %"class.ZXing::Pdf417::ModulusPoly", align 16
+  %7 = alloca %"class.ZXing::Pdf417::ModulusPoly", align 8
+  %8 = alloca %"class.ZXing::Pdf417::ModulusPoly", align 8
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %9, %10
@@ -1601,8 +1601,8 @@ _ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit: ; preds = %29
   tail call void @__cxa_throw(ptr nonnull %52, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #12
   unreachable
 
-common.resume:                                    ; preds = %14, %27, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45, %162, %54
-  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %15, %14 ], [ %28, %27 ], [ %.pn, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45 ], [ %.pn, %162 ]
+common.resume:                                    ; preds = %14, %27, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45, %170, %54
+  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %15, %14 ], [ %28, %27 ], [ %.pn, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45 ], [ %.pn, %170 ]
   resume { ptr, i32 } %common.resume.op
 
 54:                                               ; preds = %51
@@ -1645,185 +1645,197 @@ _ZNK5ZXing6Pdf4179ModulusGF7inverseEi.exit:       ; preds = %_ZNK5ZXing6Pdf41711
   %82 = sext i16 %80 to i64
   %83 = getelementptr inbounds i8, ptr %7, i64 8
   %84 = getelementptr inbounds i8, ptr %2, i64 16
-  %85 = getelementptr inbounds i8, ptr %7, i64 16
-  %86 = getelementptr inbounds i8, ptr %8, i64 8
-  %87 = getelementptr inbounds i8, ptr %8, i64 16
-  %88 = getelementptr inbounds i8, ptr %6, i64 8
-  %89 = getelementptr inbounds i8, ptr %5, i64 8
-  br label %90
+  %85 = getelementptr inbounds i8, ptr %2, i64 24
+  %86 = getelementptr inbounds i8, ptr %7, i64 16
+  %87 = getelementptr inbounds i8, ptr %7, i64 24
+  %88 = getelementptr inbounds i8, ptr %8, i64 8
+  %89 = getelementptr inbounds i8, ptr %3, i64 24
+  %90 = getelementptr inbounds i8, ptr %8, i64 16
+  %91 = getelementptr inbounds i8, ptr %8, i64 24
+  %92 = getelementptr inbounds i8, ptr %6, i64 8
+  %93 = getelementptr inbounds i8, ptr %5, i64 8
+  br label %94
 
-90:                                               ; preds = %.lr.ph, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43
-  %91 = phi i32 [ %65, %.lr.ph ], [ %154, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43 ]
-  %92 = phi i32 [ %63, %.lr.ph ], [ %147, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43 ]
-  %93 = phi i64 [ %61, %.lr.ph ], [ %145, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43 ]
-  %94 = phi ptr [ %58, %.lr.ph ], [ %142, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43 ]
-  %95 = phi ptr [ %57, %.lr.ph ], [ %141, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43 ]
-  %.not.i.i.not.i32 = icmp eq ptr %95, %94
-  br i1 %.not.i.i.not.i32, label %96, label %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit33
+94:                                               ; preds = %.lr.ph, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43
+  %95 = phi i32 [ %65, %.lr.ph ], [ %162, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43 ]
+  %96 = phi i32 [ %63, %.lr.ph ], [ %155, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43 ]
+  %97 = phi i64 [ %61, %.lr.ph ], [ %153, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43 ]
+  %98 = phi ptr [ %58, %.lr.ph ], [ %150, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43 ]
+  %99 = phi ptr [ %57, %.lr.ph ], [ %149, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43 ]
+  %.not.i.i.not.i32 = icmp eq ptr %99, %98
+  br i1 %.not.i.i.not.i32, label %100, label %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit33
 
-96:                                               ; preds = %90
+100:                                              ; preds = %94
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #12
   unreachable
 
-_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit33:   ; preds = %90
-  %97 = load i32, ptr %94, align 4
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %.critedge, label %99
+_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit33:   ; preds = %94
+  %101 = load i32, ptr %98, align 4
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %.critedge, label %103
 
-99:                                               ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit33
-  %100 = sub i32 %92, %91
-  %101 = load ptr, ptr %0, align 8
-  %102 = ashr exact i64 %93, 2
-  %.neg49 = mul i64 %93, -1073741824
-  %103 = ashr i64 %.neg49, 32
-  %104 = add nsw i64 %103, %102
-  %.not.i.i.i34 = icmp ugt i64 %102, %104
-  br i1 %.not.i.i.i34, label %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit35, label %105
+103:                                              ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit33
+  %104 = sub i32 %96, %95
+  %105 = load ptr, ptr %0, align 8
+  %106 = ashr exact i64 %97, 2
+  %.neg49 = mul i64 %97, -1073741824
+  %107 = ashr i64 %.neg49, 32
+  %108 = add nsw i64 %107, %106
+  %.not.i.i.i34 = icmp ugt i64 %106, %108
+  br i1 %.not.i.i.i34, label %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit35, label %109
 
-105:                                              ; preds = %99
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef %104, i64 noundef %102) #12
+109:                                              ; preds = %103
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.3, i64 noundef %108, i64 noundef %106) #12
   unreachable
 
-_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit35: ; preds = %99
-  %106 = getelementptr inbounds i32, ptr %94, i64 %104
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp eq i32 %107, 0
-  %or.cond.i = or i1 %81, %108
-  br i1 %or.cond.i, label %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit, label %109
+_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit35: ; preds = %103
+  %110 = getelementptr inbounds i32, ptr %98, i64 %108
+  %111 = load i32, ptr %110, align 4
+  %112 = icmp eq i32 %111, 0
+  %or.cond.i = or i1 %81, %112
+  br i1 %or.cond.i, label %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit, label %113
 
-109:                                              ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit35
-  %110 = getelementptr inbounds i8, ptr %101, i64 8
-  %111 = getelementptr inbounds i8, ptr %101, i64 32
-  %112 = sext i32 %107 to i64
-  %113 = load ptr, ptr %111, align 8
-  %114 = getelementptr inbounds i16, ptr %113, i64 %112
-  %115 = load i16, ptr %114, align 2
-  %116 = sext i16 %115 to i64
-  %117 = getelementptr inbounds i16, ptr %113, i64 %82
-  %118 = load i16, ptr %117, align 2
-  %119 = sext i16 %118 to i64
-  %120 = load ptr, ptr %110, align 8
-  %121 = getelementptr i16, ptr %120, i64 %116
-  %122 = getelementptr i16, ptr %121, i64 %119
-  %123 = load i16, ptr %122, align 2
-  %124 = sext i16 %123 to i32
+113:                                              ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit35
+  %114 = getelementptr inbounds i8, ptr %105, i64 8
+  %115 = getelementptr inbounds i8, ptr %105, i64 32
+  %116 = sext i32 %111 to i64
+  %117 = load ptr, ptr %115, align 8
+  %118 = getelementptr inbounds i16, ptr %117, i64 %116
+  %119 = load i16, ptr %118, align 2
+  %120 = sext i16 %119 to i64
+  %121 = getelementptr inbounds i16, ptr %117, i64 %82
+  %122 = load i16, ptr %121, align 2
+  %123 = sext i16 %122 to i64
+  %124 = load ptr, ptr %114, align 8
+  %125 = getelementptr i16, ptr %124, i64 %120
+  %126 = getelementptr i16, ptr %125, i64 %123
+  %127 = load i16, ptr %126, align 2
+  %128 = sext i16 %127 to i32
   br label %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit
 
-_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit:     ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit35, %109
-  %.0.i = phi i32 [ %124, %109 ], [ 0, %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit35 ]
-  call void @_ZNK5ZXing6Pdf41711ModulusPoly18multiplyByMonomialEii(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::Pdf417::ModulusPoly") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %100, i32 noundef %.0.i)
-  %125 = load ptr, ptr %0, align 8
-  invoke void @_ZNK5ZXing6Pdf4179ModulusGF13buildMonomialEii(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::Pdf417::ModulusPoly") align 8 %6, ptr noundef nonnull align 8 dereferenceable(120) %125, i32 noundef %100, i32 noundef %.0.i)
-          to label %126 unwind label %155
+_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit:     ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit35, %113
+  %.0.i = phi i32 [ %128, %113 ], [ 0, %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit35 ]
+  call void @_ZNK5ZXing6Pdf41711ModulusPoly18multiplyByMonomialEii(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::Pdf417::ModulusPoly") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %104, i32 noundef %.0.i)
+  %129 = load ptr, ptr %0, align 8
+  invoke void @_ZNK5ZXing6Pdf4179ModulusGF13buildMonomialEii(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::Pdf417::ModulusPoly") align 8 %6, ptr noundef nonnull align 8 dereferenceable(120) %129, i32 noundef %104, i32 noundef %.0.i)
+          to label %130 unwind label %163
 
-126:                                              ; preds = %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit
+130:                                              ; preds = %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit
   invoke void @_ZNK5ZXing6Pdf41711ModulusPoly3addERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::Pdf417::ModulusPoly") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %127 unwind label %157
+          to label %131 unwind label %165
 
-127:                                              ; preds = %126
-  %128 = load ptr, ptr %32, align 8
-  %129 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %129, ptr %2, align 8
-  %130 = load <2 x ptr>, ptr %85, align 16
-  store <2 x ptr> %130, ptr %84, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %128, null
+131:                                              ; preds = %130
+  %132 = load ptr, ptr %7, align 8
+  store ptr %132, ptr %2, align 8
+  %133 = load ptr, ptr %32, align 8
+  %134 = load ptr, ptr %83, align 8
+  store ptr %134, ptr %32, align 8
+  %135 = load ptr, ptr %86, align 8
+  store ptr %135, ptr %84, align 8
+  %136 = load ptr, ptr %87, align 8
+  store ptr %136, ptr %85, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %133, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit, label %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit
 
-_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit:        ; preds = %127
-  call void @_ZdlPv(ptr noundef nonnull %128) #11
+_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit:        ; preds = %131
+  call void @_ZdlPv(ptr noundef nonnull %133) #11
   %.pr = load ptr, ptr %83, align 8
   %.not.i.i.i.i = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i.i, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit, label %131
+  br i1 %.not.i.i.i.i, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit, label %137
 
-131:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit
+137:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit
   call void @_ZdlPv(ptr noundef nonnull %.pr) #11
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit
 
-_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit:           ; preds = %127, %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit, %131
+_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit:           ; preds = %131, %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit, %137
   invoke void @_ZNK5ZXing6Pdf41711ModulusPoly8subtractERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::Pdf417::ModulusPoly") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %132 unwind label %157
+          to label %138 unwind label %165
 
-132:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit
-  %133 = load ptr, ptr %36, align 8
-  %134 = load <2 x ptr>, ptr %8, align 16
-  store <2 x ptr> %134, ptr %3, align 8
-  %135 = load <2 x ptr>, ptr %87, align 16
-  store <2 x ptr> %135, ptr %56, align 8
-  %.not.i.i.i.i.i.i36 = icmp eq ptr %133, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
+138:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit
+  %139 = load ptr, ptr %8, align 8
+  store ptr %139, ptr %3, align 8
+  %140 = load ptr, ptr %36, align 8
+  %141 = load ptr, ptr %88, align 8
+  store ptr %141, ptr %36, align 8
+  %142 = load ptr, ptr %90, align 8
+  store ptr %142, ptr %56, align 8
+  %143 = load ptr, ptr %91, align 8
+  store ptr %143, ptr %89, align 8
+  %.not.i.i.i.i.i.i36 = icmp eq ptr %140, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i36, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39, label %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit37
 
-_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit37:      ; preds = %132
-  call void @_ZdlPv(ptr noundef nonnull %133) #11
-  %.pr48 = load ptr, ptr %86, align 8
+_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit37:      ; preds = %138
+  call void @_ZdlPv(ptr noundef nonnull %140) #11
+  %.pr48 = load ptr, ptr %88, align 8
   %.not.i.i.i.i38 = icmp eq ptr %.pr48, null
-  br i1 %.not.i.i.i.i38, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39, label %136
+  br i1 %.not.i.i.i.i38, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39, label %144
 
-136:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit37
+144:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit37
   call void @_ZdlPv(ptr noundef nonnull %.pr48) #11
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39
 
-_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39:         ; preds = %132, %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit37, %136
-  %137 = load ptr, ptr %88, align 8
-  %.not.i.i.i.i40 = icmp eq ptr %137, null
-  br i1 %.not.i.i.i.i40, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41, label %138
+_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39:         ; preds = %138, %_ZN5ZXing6Pdf41711ModulusPolyaSEOS1_.exit37, %144
+  %145 = load ptr, ptr %92, align 8
+  %.not.i.i.i.i40 = icmp eq ptr %145, null
+  br i1 %.not.i.i.i.i40, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41, label %146
 
-138:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39
-  call void @_ZdlPv(ptr noundef nonnull %137) #11
+146:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39
+  call void @_ZdlPv(ptr noundef nonnull %145) #11
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41
 
-_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41:         ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39, %138
-  %139 = load ptr, ptr %89, align 8
-  %.not.i.i.i.i42 = icmp eq ptr %139, null
-  br i1 %.not.i.i.i.i42, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43, label %140
+_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41:         ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit39, %146
+  %147 = load ptr, ptr %93, align 8
+  %.not.i.i.i.i42 = icmp eq ptr %147, null
+  br i1 %.not.i.i.i.i42, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43, label %148
 
-140:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41
-  call void @_ZdlPv(ptr noundef nonnull %139) #11
+148:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41
+  call void @_ZdlPv(ptr noundef nonnull %147) #11
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43
 
-_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43:         ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41, %140
-  %141 = load ptr, ptr %56, align 8
-  %142 = load ptr, ptr %36, align 8
-  %143 = ptrtoint ptr %141 to i64
-  %144 = ptrtoint ptr %142 to i64
-  %145 = sub i64 %143, %144
-  %146 = lshr exact i64 %145, 2
-  %147 = trunc i64 %146 to i32
-  %148 = load ptr, ptr %18, align 8
-  %149 = load ptr, ptr %17, align 8
-  %150 = ptrtoint ptr %148 to i64
+_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43:         ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit41, %148
+  %149 = load ptr, ptr %56, align 8
+  %150 = load ptr, ptr %36, align 8
   %151 = ptrtoint ptr %149 to i64
-  %152 = sub i64 %150, %151
-  %153 = lshr exact i64 %152, 2
-  %154 = trunc i64 %153 to i32
-  %.not28 = icmp slt i32 %147, %154
-  br i1 %.not28, label %.critedge, label %90, !llvm.loop !14
+  %152 = ptrtoint ptr %150 to i64
+  %153 = sub i64 %151, %152
+  %154 = lshr exact i64 %153, 2
+  %155 = trunc i64 %154 to i32
+  %156 = load ptr, ptr %18, align 8
+  %157 = load ptr, ptr %17, align 8
+  %158 = ptrtoint ptr %156 to i64
+  %159 = ptrtoint ptr %157 to i64
+  %160 = sub i64 %158, %159
+  %161 = lshr exact i64 %160, 2
+  %162 = trunc i64 %161 to i32
+  %.not28 = icmp slt i32 %155, %162
+  br i1 %.not28, label %.critedge, label %94, !llvm.loop !14
 
-155:                                              ; preds = %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit
-  %156 = landingpad { ptr, i32 }
+163:                                              ; preds = %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit
+  %164 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45
 
-157:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit, %126
-  %158 = landingpad { ptr, i32 }
+165:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit, %130
+  %166 = landingpad { ptr, i32 }
           cleanup
-  %159 = load ptr, ptr %88, align 8
-  %.not.i.i.i.i44 = icmp eq ptr %159, null
-  br i1 %.not.i.i.i.i44, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45, label %160
+  %167 = load ptr, ptr %92, align 8
+  %.not.i.i.i.i44 = icmp eq ptr %167, null
+  br i1 %.not.i.i.i.i44, label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45, label %168
 
-160:                                              ; preds = %157
-  call void @_ZdlPv(ptr noundef nonnull %159) #11
+168:                                              ; preds = %165
+  call void @_ZdlPv(ptr noundef nonnull %167) #11
   br label %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45
 
-_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45:         ; preds = %160, %157, %155
-  %.pn = phi { ptr, i32 } [ %156, %155 ], [ %158, %157 ], [ %158, %160 ]
-  %161 = load ptr, ptr %89, align 8
-  %.not.i.i.i.i46 = icmp eq ptr %161, null
-  br i1 %.not.i.i.i.i46, label %common.resume, label %162
+_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45:         ; preds = %168, %165, %163
+  %.pn = phi { ptr, i32 } [ %164, %163 ], [ %166, %165 ], [ %166, %168 ]
+  %169 = load ptr, ptr %93, align 8
+  %.not.i.i.i.i46 = icmp eq ptr %169, null
+  br i1 %.not.i.i.i.i46, label %common.resume, label %170
 
-162:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45
-  call void @_ZdlPv(ptr noundef nonnull %161) #11
+170:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit45
+  call void @_ZdlPv(ptr noundef nonnull %169) #11
   br label %common.resume
 
 .critedge:                                        ; preds = %_ZNK5ZXing6Pdf41711ModulusPoly6isZeroEv.exit33, %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit43, %_ZNK5ZXing6Pdf4179ModulusGF7inverseEi.exit

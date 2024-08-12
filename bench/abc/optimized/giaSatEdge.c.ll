@@ -908,65 +908,69 @@ define noundef ptr @Seg_ManAlloc(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %33 = getelementptr inbounds i8, ptr %26, i64 100
   store i32 %32, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %26, i64 16
-  %35 = getelementptr inbounds i8, ptr %26, i64 32
-  %36 = load <2 x i32>, ptr %34, align 8
-  store <2 x i32> %36, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %26, i64 40
+  %35 = load i32, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %26, i64 32
+  store i32 %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %26, i64 20
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %26, i64 48
-  %40 = load i32, ptr %39, align 8
-  %41 = shl i32 %38, %40
-  %42 = getelementptr inbounds i8, ptr %26, i64 64
-  %43 = load ptr, ptr %42, align 8
-  %44 = sext i32 %38 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
+  %39 = getelementptr inbounds i8, ptr %26, i64 36
+  store i32 %38, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %26, i64 40
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %26, i64 48
+  %43 = load i32, ptr %42, align 8
+  %44 = shl i32 %41, %43
+  %45 = getelementptr inbounds i8, ptr %26, i64 64
   %46 = load ptr, ptr %45, align 8
-  %.val.i.i.i = load i32, ptr %46, align 4
-  %47 = or i32 %.val.i.i.i, %41
-  %48 = getelementptr inbounds i8, ptr %26, i64 24
-  store i32 %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %26, i64 44
-  %50 = load i32, ptr %49, align 4
-  %51 = shl i32 %50, %40
-  %52 = sext i32 %50 to i64
-  %53 = getelementptr inbounds ptr, ptr %43, i64 %52
-  %54 = load ptr, ptr %53, align 8
-  %.val.i8.i.i = load i32, ptr %54, align 4
-  %55 = or i32 %.val.i8.i.i, %51
-  %56 = getelementptr inbounds i8, ptr %26, i64 28
-  store i32 %55, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %26, i64 152
-  %58 = load ptr, ptr %57, align 8
-  %.not.i = icmp eq ptr %58, null
-  br i1 %.not.i, label %sat_solver_bookmark.exit, label %59
+  %47 = sext i32 %41 to i64
+  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %49 = load ptr, ptr %48, align 8
+  %.val.i.i.i = load i32, ptr %49, align 4
+  %50 = or i32 %.val.i.i.i, %44
+  %51 = getelementptr inbounds i8, ptr %26, i64 24
+  store i32 %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %26, i64 44
+  %53 = load i32, ptr %52, align 4
+  %54 = shl i32 %53, %43
+  %55 = sext i32 %53 to i64
+  %56 = getelementptr inbounds ptr, ptr %46, i64 %55
+  %57 = load ptr, ptr %56, align 8
+  %.val.i8.i.i = load i32, ptr %57, align 4
+  %58 = or i32 %.val.i8.i.i, %54
+  %59 = getelementptr inbounds i8, ptr %26, i64 28
+  store i32 %58, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %26, i64 152
+  %61 = load ptr, ptr %60, align 8
+  %.not.i = icmp eq ptr %61, null
+  br i1 %.not.i, label %sat_solver_bookmark.exit, label %62
 
-59:                                               ; preds = %2
-  %60 = getelementptr inbounds i8, ptr %26, i64 120
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %26, i64 128
-  store i64 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %26, i64 144
-  %64 = load ptr, ptr %63, align 8
-  %65 = sext i32 %29 to i64
-  %66 = shl nsw i64 %65, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %58, ptr align 8 %64, i64 %66, i1 false)
+62:                                               ; preds = %2
+  %63 = getelementptr inbounds i8, ptr %26, i64 120
+  %64 = load i64, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %26, i64 128
+  store i64 %64, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %26, i64 144
+  %67 = load ptr, ptr %66, align 8
+  %68 = sext i32 %29 to i64
+  %69 = shl nsw i64 %68, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr align 8 %67, i64 %69, i1 false)
   br label %sat_solver_bookmark.exit
 
-sat_solver_bookmark.exit:                         ; preds = %2, %59
-  %67 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr %0, ptr %67, align 8
+sat_solver_bookmark.exit:                         ; preds = %2, %62
+  %70 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %0, ptr %70, align 8
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %68 = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr %calloc, ptr %68, align 8
+  %71 = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %calloc, ptr %71, align 8
   %calloc29 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %69 = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr %calloc29, ptr %69, align 8
+  %72 = getelementptr inbounds i8, ptr %3, i64 88
+  store ptr %calloc29, ptr %72, align 8
   %calloc30 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %70 = getelementptr inbounds i8, ptr %3, i64 96
-  store ptr %calloc30, ptr %70, align 8
-  %71 = tail call i32 @Seg_ManCountIntLevels(ptr noundef nonnull %3, i32 noundef %27)
-  %72 = load ptr, ptr %3, align 8
-  tail call void @sat_solver_setnvars(ptr noundef %72, i32 noundef %71) #16
+  %73 = getelementptr inbounds i8, ptr %3, i64 96
+  store ptr %calloc30, ptr %73, align 8
+  %74 = tail call i32 @Seg_ManCountIntLevels(ptr noundef nonnull %3, i32 noundef %27)
+  %75 = load ptr, ptr %3, align 8
+  tail call void @sat_solver_setnvars(ptr noundef %75, i32 noundef %74) #16
   tail call void @Gia_ManFillValue(ptr noundef %0) #16
   ret ptr %3
 }
@@ -1015,78 +1019,82 @@ Abc_Clock.exit:                                   ; preds = %1, %5
   %19 = getelementptr inbounds i8, ptr %14, i64 100
   store i32 %18, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %14, i64 16
-  %21 = getelementptr inbounds i8, ptr %14, i64 32
-  %22 = load <2 x i32>, ptr %20, align 8
-  store <2 x i32> %22, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %14, i64 40
+  %21 = load i32, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %14, i64 32
+  store i32 %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %14, i64 20
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %14, i64 48
-  %26 = load i32, ptr %25, align 8
-  %27 = shl i32 %24, %26
-  %28 = getelementptr inbounds i8, ptr %14, i64 64
-  %29 = load ptr, ptr %28, align 8
-  %30 = sext i32 %24 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %25 = getelementptr inbounds i8, ptr %14, i64 36
+  store i32 %24, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %14, i64 40
+  %27 = load i32, ptr %26, align 4
+  %28 = getelementptr inbounds i8, ptr %14, i64 48
+  %29 = load i32, ptr %28, align 8
+  %30 = shl i32 %27, %29
+  %31 = getelementptr inbounds i8, ptr %14, i64 64
   %32 = load ptr, ptr %31, align 8
-  %.val.i.i.i = load i32, ptr %32, align 4
-  %33 = or i32 %.val.i.i.i, %27
-  %34 = getelementptr inbounds i8, ptr %14, i64 24
-  store i32 %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %14, i64 44
-  %36 = load i32, ptr %35, align 4
-  %37 = shl i32 %36, %26
-  %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds ptr, ptr %29, i64 %38
-  %40 = load ptr, ptr %39, align 8
-  %.val.i8.i.i = load i32, ptr %40, align 4
-  %41 = or i32 %.val.i8.i.i, %37
-  %42 = getelementptr inbounds i8, ptr %14, i64 28
-  store i32 %41, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %14, i64 152
-  %44 = load ptr, ptr %43, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %sat_solver_bookmark.exit, label %45
+  %33 = sext i32 %27 to i64
+  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %.val.i.i.i = load i32, ptr %35, align 4
+  %36 = or i32 %.val.i.i.i, %30
+  %37 = getelementptr inbounds i8, ptr %14, i64 24
+  store i32 %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %14, i64 44
+  %39 = load i32, ptr %38, align 4
+  %40 = shl i32 %39, %29
+  %41 = sext i32 %39 to i64
+  %42 = getelementptr inbounds ptr, ptr %32, i64 %41
+  %43 = load ptr, ptr %42, align 8
+  %.val.i8.i.i = load i32, ptr %43, align 4
+  %44 = or i32 %.val.i8.i.i, %40
+  %45 = getelementptr inbounds i8, ptr %14, i64 28
+  store i32 %44, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %14, i64 152
+  %47 = load ptr, ptr %46, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %sat_solver_bookmark.exit, label %48
 
-45:                                               ; preds = %Abc_Clock.exit
-  %46 = getelementptr inbounds i8, ptr %14, i64 120
-  %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %14, i64 128
-  store i64 %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %14, i64 144
-  %50 = load ptr, ptr %49, align 8
-  %51 = sext i32 %15 to i64
-  %52 = shl nsw i64 %51, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %44, ptr align 8 %50, i64 %52, i1 false)
+48:                                               ; preds = %Abc_Clock.exit
+  %49 = getelementptr inbounds i8, ptr %14, i64 120
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %14, i64 128
+  store i64 %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %14, i64 144
+  %53 = load ptr, ptr %52, align 8
+  %54 = sext i32 %15 to i64
+  %55 = shl nsw i64 %54, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr align 8 %53, i64 %55, i1 false)
   br label %sat_solver_bookmark.exit
 
-sat_solver_bookmark.exit:                         ; preds = %Abc_Clock.exit, %45
-  %53 = getelementptr inbounds i8, ptr %0, i64 72
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
-  store i32 0, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 80
+sat_solver_bookmark.exit:                         ; preds = %Abc_Clock.exit, %48
+  %56 = getelementptr inbounds i8, ptr %0, i64 72
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 4
   store i32 0, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 88
+  %59 = getelementptr inbounds i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 4
   store i32 0, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 96
+  %62 = getelementptr inbounds i8, ptr %0, i64 88
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 4
   store i32 0, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 56
+  %65 = getelementptr inbounds i8, ptr %0, i64 96
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 4
   store i32 0, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %0, i64 64
+  %68 = getelementptr inbounds i8, ptr %0, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 4
   store i32 0, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %0, i64 48
+  %71 = getelementptr inbounds i8, ptr %0, i64 64
   %72 = load ptr, ptr %71, align 8
-  call void @Gia_ManFillValue(ptr noundef %72) #16
+  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  store i32 0, ptr %73, align 4
+  %74 = getelementptr inbounds i8, ptr %0, i64 48
+  %75 = load ptr, ptr %74, align 8
+  call void @Gia_ManFillValue(ptr noundef %75) #16
   ret void
 }
 

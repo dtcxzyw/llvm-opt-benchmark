@@ -590,36 +590,38 @@ define void @_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting12setSample
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetStateC2ERKNS_6Point_IfEEiibRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(96) %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x float> zeroinitializer, ptr %7, align 8
+  store float 0.000000e+00, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  store float 0.000000e+00, ptr %8, align 4
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetStateE, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #19
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
   invoke void @_ZN2cv6detail8tracking18TrackerTargetState17setTargetPositionERKNS_6Point_IfEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(8) %1)
-          to label %9 unwind label %15
+          to label %10 unwind label %16
 
-9:                                                ; preds = %6
+10:                                               ; preds = %6
   invoke void @_ZN2cv6detail8tracking18TrackerTargetState14setTargetWidthEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %2)
-          to label %10 unwind label %15
-
-10:                                               ; preds = %9
-  invoke void @_ZN2cv6detail8tracking18TrackerTargetState15setTargetHeightEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %3)
-          to label %11 unwind label %15
+          to label %11 unwind label %16
 
 11:                                               ; preds = %10
-  %12 = zext i1 %4 to i8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %12, ptr %13, align 8
-  %14 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %5)
-          to label %_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetState18setTargetResponsesERKNS_3MatE.exit unwind label %15
+  invoke void @_ZN2cv6detail8tracking18TrackerTargetState15setTargetHeightEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %3)
+          to label %12 unwind label %16
 
-_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetState18setTargetResponsesERKNS_3MatE.exit: ; preds = %11
+12:                                               ; preds = %11
+  %13 = zext i1 %4 to i8
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %13, ptr %14, align 8
+  %15 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %5)
+          to label %_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetState18setTargetResponsesERKNS_3MatE.exit unwind label %16
+
+_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetState18setTargetResponsesERKNS_3MatE.exit: ; preds = %12
   ret void
 
-15:                                               ; preds = %11, %10, %9, %6
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %12, %11, %10, %6
+  %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #19
-  resume { ptr, i32 } %16
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
+  resume { ptr, i32 } %17
 }
 
 ; Function Attrs: nounwind
@@ -1582,7 +1584,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoos
 80:                                               ; preds = %100, %._crit_edge
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %120
+  br label %121
 
 82:                                               ; preds = %_ZNK2cv3PtrINS_6detail8tracking18TrackerTargetStateEE10staticCastINS2_32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetStateEEENS0_IT_EEv.exit
   %83 = landingpad { ptr, i32 }
@@ -1598,7 +1600,7 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoos
 86:                                               ; preds = %84, %82
   %.pn = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ]
   call void @_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
-  br label %120
+  br label %121
 
 ._crit_edge:                                      ; preds = %_ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetStateEED2Ev.exit
   %87 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1628,41 +1630,43 @@ _ZN2cv3PtrINS_6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoos
 
 101:                                              ; preds = %91
   %102 = getelementptr inbounds %"struct.std::pair", ptr %95, i64 %93
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = load <2 x ptr>, ptr %102, align 8
-  store <2 x ptr> %105, ptr %0, align 8
-  %.not.i.i.i.i17 = icmp eq ptr %104, null
-  br i1 %.not.i.i.i.i17, label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit, label %106
+  %103 = load ptr, ptr %102, align 8
+  store ptr %103, ptr %0, align 8
+  %104 = getelementptr inbounds i8, ptr %0, i64 8
+  %105 = getelementptr inbounds i8, ptr %102, i64 8
+  %106 = load ptr, ptr %105, align 8
+  store ptr %106, ptr %104, align 8
+  %.not.i.i.i.i17 = icmp eq ptr %106, null
+  br i1 %.not.i.i.i.i17, label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit, label %107
 
-106:                                              ; preds = %101
-  %107 = getelementptr inbounds i8, ptr %104, i64 8
-  %108 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i18 = icmp eq i8 %108, 0
-  br i1 %.not.i.i.i.i.i18, label %112, label %109
+107:                                              ; preds = %101
+  %108 = getelementptr inbounds i8, ptr %106, i64 8
+  %109 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i18 = icmp eq i8 %109, 0
+  br i1 %.not.i.i.i.i.i18, label %113, label %110
 
-109:                                              ; preds = %106
-  %110 = load i32, ptr %107, align 4
-  %111 = add nsw i32 %110, 1
-  store i32 %111, ptr %107, align 4
+110:                                              ; preds = %107
+  %111 = load i32, ptr %108, align 4
+  %112 = add nsw i32 %111, 1
+  store i32 %112, ptr %108, align 4
   br label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit
 
-112:                                              ; preds = %106
-  %113 = atomicrmw volatile add ptr %107, i32 1 acq_rel, align 4
+113:                                              ; preds = %107
+  %114 = atomicrmw volatile add ptr %108, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit
 
-_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit: ; preds = %101, %109, %112
-  %114 = load ptr, ptr %4, align 8
-  %115 = getelementptr inbounds i8, ptr %4, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %.not4.i.i.i.i = icmp eq ptr %114, %116
+_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit: ; preds = %101, %110, %113
+  %115 = load ptr, ptr %4, align 8
+  %116 = getelementptr inbounds i8, ptr %4, i64 8
+  %117 = load ptr, ptr %116, align 8
+  %.not4.i.i.i.i = icmp eq ptr %115, %117
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %117, %.lr.ph.i.i.i.i ], [ %114, %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit ]
+  %.05.i.i.i.i = phi ptr [ %118, %.lr.ph.i.i.i.i ], [ %115, %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #19
-  %117 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 96
-  %.not.i.i.i.i19 = icmp eq ptr %117, %116
+  %118 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 96
+  %.not.i.i.i.i19 = icmp eq ptr %118, %117
   br i1 %.not.i.i.i.i19, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !16
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
@@ -1670,20 +1674,20 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.l
   br label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit
-  %118 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %114, %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit ]
-  %.not.i.i.i = icmp eq ptr %118, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %119
+  %119 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %115, %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit ]
+  %.not.i.i.i = icmp eq ptr %119, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %120
 
-119:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %118) #23
+120:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %119) #23
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
-120:                                              ; preds = %86, %80
+121:                                              ; preds = %86, %80
   %.pn.pn = phi { ptr, i32 } [ %.pn, %86 ], [ %81, %80 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #19
   resume { ptr, i32 } %.pn.pn
 
-_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %119, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %13
+_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %120, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %13
   ret void
 }
 
@@ -2791,30 +2795,32 @@ define void @_ZN2cv6detail8tracking24TrackerStateEstimatorSVM12estimateImplERKSt
   %6 = getelementptr inbounds i8, ptr %5, i64 -16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -24
-  %9 = getelementptr inbounds i8, ptr %7, i64 -16
-  %10 = load ptr, ptr %9, align 8
-  %11 = load <2 x ptr>, ptr %8, align 8
-  store <2 x ptr> %11, ptr %0, align 8
-  %.not.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit, label %12
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %0, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 -16
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit, label %13
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  %14 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i.i.i.i, label %18, label %15
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %15, 0
+  br i1 %.not.i.i.i.i.i, label %19, label %16
 
-15:                                               ; preds = %12
-  %16 = load i32, ptr %13, align 4
-  %17 = add nsw i32 %16, 1
-  store i32 %17, ptr %13, align 4
+16:                                               ; preds = %13
+  %17 = load i32, ptr %14, align 4
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %14, align 4
   br label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit
 
-18:                                               ; preds = %12
-  %19 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4
+19:                                               ; preds = %13
+  %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit
 
-_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit: ; preds = %3, %15, %18
+_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit: ; preds = %3, %16, %19
   ret void
 }
 

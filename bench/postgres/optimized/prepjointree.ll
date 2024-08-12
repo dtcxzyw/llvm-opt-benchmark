@@ -1556,7 +1556,7 @@ define internal fastcc void @reduce_outer_joins_pass2(ptr noundef %0, ptr nocapt
 
 11:                                               ; preds = %6
   %12 = load i32, ptr %0, align 4
-  switch i32 %12, label %162 [
+  switch i32 %12, label %163 [
     i32 55, label %13
     i32 57, label %16
     i32 56, label %57
@@ -1710,27 +1710,29 @@ define internal fastcc void @reduce_outer_joins_pass2(ptr noundef %0, ptr nocapt
 
 .thread156:                                       ; preds = %88, %71
   %98 = getelementptr inbounds i8, ptr %0, i64 16
-  %99 = load <2 x ptr>, ptr %98, align 8
-  %100 = shufflevector <2 x ptr> %99, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %100, ptr %98, align 8
-  %101 = load ptr, ptr %62, align 8
-  %102 = getelementptr i8, ptr %101, i64 16
-  %.val146 = load ptr, ptr %102, align 8
-  %103 = load ptr, ptr %.val146, align 8
-  %104 = getelementptr i8, ptr %.val146, i64 8
-  %105 = load ptr, ptr %104, align 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 24
+  %101 = load ptr, ptr %100, align 8
+  store ptr %101, ptr %98, align 8
+  store ptr %99, ptr %100, align 8
+  %102 = load ptr, ptr %62, align 8
+  %103 = getelementptr i8, ptr %102, i64 16
+  %.val146 = load ptr, ptr %103, align 8
+  %104 = load ptr, ptr %.val146, align 8
+  %105 = getelementptr i8, ptr %.val146, i64 8
+  %106 = load ptr, ptr %105, align 8
   br label %.thread151.thread169
 
 .thread151.thread169:                             ; preds = %80, %68, %.thread156
-  %.0127163 = phi ptr [ %103, %.thread156 ], [ %67, %68 ], [ %67, %80 ]
-  %.0128161 = phi ptr [ %105, %.thread156 ], [ %65, %68 ], [ %65, %80 ]
-  %106 = getelementptr inbounds i8, ptr %0, i64 48
-  %107 = load ptr, ptr %106, align 8
-  %108 = tail call ptr @find_nonnullable_vars(ptr noundef %107) #7
-  %109 = tail call ptr @mbms_overlap_sets(ptr noundef %108, ptr noundef %5) #7
-  %110 = load ptr, ptr %.0127163, align 8
-  %111 = tail call zeroext i1 @bms_overlap(ptr noundef %109, ptr noundef %110) #7
-  %spec.select144 = select i1 %111, i32 5, i32 1
+  %.0127163 = phi ptr [ %104, %.thread156 ], [ %67, %68 ], [ %67, %80 ]
+  %.0128161 = phi ptr [ %106, %.thread156 ], [ %65, %68 ], [ %65, %80 ]
+  %107 = getelementptr inbounds i8, ptr %0, i64 48
+  %108 = load ptr, ptr %107, align 8
+  %109 = tail call ptr @find_nonnullable_vars(ptr noundef %108) #7
+  %110 = tail call ptr @mbms_overlap_sets(ptr noundef %109, ptr noundef %5) #7
+  %111 = load ptr, ptr %.0127163, align 8
+  %112 = tail call zeroext i1 @bms_overlap(ptr noundef %110, ptr noundef %111) #7
+  %spec.select144 = select i1 %112, i32 5, i32 1
   br label %.thread151.thread
 
 .thread151.thread:                                ; preds = %57, %57, %57, %68, %71, %87, %79, %.thread151.thread169
@@ -1738,112 +1740,112 @@ define internal fastcc void @reduce_outer_joins_pass2(ptr noundef %0, ptr nocapt
   %.0128160 = phi ptr [ %.0128161, %.thread151.thread169 ], [ %65, %79 ], [ %65, %87 ], [ %65, %71 ], [ %65, %68 ], [ %65, %57 ], [ %65, %57 ], [ %65, %57 ]
   %.2 = phi i32 [ %spec.select144, %.thread151.thread169 ], [ 0, %79 ], [ 2, %87 ], [ 0, %71 ], [ 0, %68 ], [ %61, %57 ], [ %61, %57 ], [ %61, %57 ]
   %.not = icmp eq i32 %59, 0
-  br i1 %.not, label %129, label %112
+  br i1 %.not, label %130, label %113
 
-112:                                              ; preds = %.thread151.thread
-  %113 = load i32, ptr %60, align 4
-  %.not139 = icmp eq i32 %.2, %113
-  br i1 %.not139, label %129, label %114
+113:                                              ; preds = %.thread151.thread
+  %114 = load i32, ptr %60, align 4
+  %.not139 = icmp eq i32 %.2, %114
+  br i1 %.not139, label %130, label %115
 
-114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %3, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 64
-  %118 = load ptr, ptr %117, align 8
-  %119 = add i32 %59, -1
-  %120 = getelementptr i8, ptr %118, i64 16
-  %.val149 = load ptr, ptr %120, align 8
-  %121 = sext i32 %119 to i64
-  %122 = getelementptr %union.ListCell, ptr %.val149, i64 %121
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 52
-  store i32 %.2, ptr %124, align 4
-  %125 = icmp eq i32 %.2, 0
-  br i1 %125, label %126, label %129
+115:                                              ; preds = %113
+  %116 = getelementptr inbounds i8, ptr %3, i64 8
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 64
+  %119 = load ptr, ptr %118, align 8
+  %120 = add i32 %59, -1
+  %121 = getelementptr i8, ptr %119, i64 16
+  %.val149 = load ptr, ptr %121, align 8
+  %122 = sext i32 %120 to i64
+  %123 = getelementptr %union.ListCell, ptr %.val149, i64 %122
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 52
+  store i32 %.2, ptr %125, align 4
+  %126 = icmp eq i32 %.2, 0
+  br i1 %126, label %127, label %130
 
-126:                                              ; preds = %114
-  %127 = load ptr, ptr %2, align 8
-  %128 = tail call ptr @bms_add_member(ptr noundef %127, i32 noundef %59) #7
-  store ptr %128, ptr %2, align 8
-  br label %129
+127:                                              ; preds = %115
+  %128 = load ptr, ptr %2, align 8
+  %129 = tail call ptr @bms_add_member(ptr noundef %128, i32 noundef %59) #7
+  store ptr %129, ptr %2, align 8
+  br label %130
 
-129:                                              ; preds = %114, %126, %112, %.thread151.thread
+130:                                              ; preds = %115, %127, %113, %.thread151.thread
   store i32 %.2, ptr %60, align 4
-  %130 = getelementptr inbounds i8, ptr %.0128160, i64 8
-  %131 = load i8, ptr %130, align 8
-  %132 = trunc i8 %131 to i1
-  br i1 %132, label %137, label %133
+  %131 = getelementptr inbounds i8, ptr %.0128160, i64 8
+  %132 = load i8, ptr %131, align 8
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %138, label %134
 
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds i8, ptr %.0127162, i64 8
-  %135 = load i8, ptr %134, align 8
-  %136 = trunc i8 %135 to i1
-  br i1 %136, label %137, label %166
+134:                                              ; preds = %130
+  %135 = getelementptr inbounds i8, ptr %.0127162, i64 8
+  %136 = load i8, ptr %135, align 8
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %138, label %167
 
-137:                                              ; preds = %133, %129
+138:                                              ; preds = %134, %130
   %.not140 = icmp eq i32 %.2, 2
-  br i1 %.not140, label %148, label %138
+  br i1 %.not140, label %149, label %139
 
-138:                                              ; preds = %137
-  %139 = getelementptr inbounds i8, ptr %0, i64 48
-  %140 = load ptr, ptr %139, align 8
-  %141 = tail call ptr @find_nonnullable_rels(ptr noundef %140) #7
-  %142 = load ptr, ptr %139, align 8
-  %143 = tail call ptr @find_forced_null_vars(ptr noundef %142) #7
-  %144 = and i32 %.2, -5
-  %or.cond = icmp eq i32 %144, 0
-  br i1 %or.cond, label %145, label %148
+139:                                              ; preds = %138
+  %140 = getelementptr inbounds i8, ptr %0, i64 48
+  %141 = load ptr, ptr %140, align 8
+  %142 = tail call ptr @find_nonnullable_rels(ptr noundef %141) #7
+  %143 = load ptr, ptr %140, align 8
+  %144 = tail call ptr @find_forced_null_vars(ptr noundef %143) #7
+  %145 = and i32 %.2, -5
+  %or.cond = icmp eq i32 %145, 0
+  br i1 %or.cond, label %146, label %149
 
-145:                                              ; preds = %138
-  %146 = tail call ptr @bms_add_members(ptr noundef %141, ptr noundef %4) #7
-  %147 = tail call ptr @mbms_add_members(ptr noundef %143, ptr noundef %5) #7
-  br label %148
+146:                                              ; preds = %139
+  %147 = tail call ptr @bms_add_members(ptr noundef %142, ptr noundef %4) #7
+  %148 = tail call ptr @mbms_add_members(ptr noundef %144, ptr noundef %5) #7
+  br label %149
 
-148:                                              ; preds = %137, %145, %138
-  %.0124 = phi ptr [ %146, %145 ], [ %141, %138 ], [ null, %137 ]
-  %.0123 = phi ptr [ %147, %145 ], [ %143, %138 ], [ null, %137 ]
-  %149 = load i8, ptr %130, align 8
-  %150 = trunc i8 %149 to i1
-  br i1 %150, label %151, label %155
+149:                                              ; preds = %138, %146, %139
+  %.0124 = phi ptr [ %147, %146 ], [ %142, %139 ], [ null, %138 ]
+  %.0123 = phi ptr [ %148, %146 ], [ %144, %139 ], [ null, %138 ]
+  %150 = load i8, ptr %131, align 8
+  %151 = trunc i8 %150 to i1
+  br i1 %151, label %152, label %156
 
-151:                                              ; preds = %148
-  %152 = and i32 %.2, -5
-  %or.cond3 = icmp eq i32 %152, 0
+152:                                              ; preds = %149
+  %153 = and i32 %.2, -5
+  %or.cond3 = icmp eq i32 %153, 0
   %. = select i1 %.not140, ptr null, ptr %4
   %.145 = select i1 %.not140, ptr null, ptr %5
   %.0121 = select i1 %or.cond3, ptr %.0124, ptr %.
   %.0 = select i1 %or.cond3, ptr %.0123, ptr %.145
-  %153 = getelementptr inbounds i8, ptr %0, i64 16
-  %154 = load ptr, ptr %153, align 8
-  tail call fastcc void @reduce_outer_joins_pass2(ptr noundef %154, ptr noundef nonnull %.0128160, ptr noundef %2, ptr noundef %3, ptr noundef %.0121, ptr noundef %.0)
-  br label %155
+  %154 = getelementptr inbounds i8, ptr %0, i64 16
+  %155 = load ptr, ptr %154, align 8
+  tail call fastcc void @reduce_outer_joins_pass2(ptr noundef %155, ptr noundef nonnull %.0128160, ptr noundef %2, ptr noundef %3, ptr noundef %.0121, ptr noundef %.0)
+  br label %156
 
-155:                                              ; preds = %151, %148
-  %156 = getelementptr inbounds i8, ptr %.0127162, i64 8
-  %157 = load i8, ptr %156, align 8
-  %158 = trunc i8 %157 to i1
-  br i1 %158, label %159, label %.sink.split
+156:                                              ; preds = %152, %149
+  %157 = getelementptr inbounds i8, ptr %.0127162, i64 8
+  %158 = load i8, ptr %157, align 8
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %160, label %.sink.split
 
-159:                                              ; preds = %155
-  %160 = getelementptr inbounds i8, ptr %0, i64 24
-  %161 = load ptr, ptr %160, align 8
-  tail call fastcc void @reduce_outer_joins_pass2(ptr noundef %161, ptr noundef nonnull %.0127162, ptr noundef %2, ptr noundef %3, ptr noundef %.0124, ptr noundef %.0123)
+160:                                              ; preds = %156
+  %161 = getelementptr inbounds i8, ptr %0, i64 24
+  %162 = load ptr, ptr %161, align 8
+  tail call fastcc void @reduce_outer_joins_pass2(ptr noundef %162, ptr noundef nonnull %.0127162, ptr noundef %2, ptr noundef %3, ptr noundef %.0124, ptr noundef %.0123)
   br label %.sink.split
 
-162:                                              ; preds = %11
-  %163 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %163)
-  %164 = load i32, ptr %0, align 4
-  %165 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %164) #7
+163:                                              ; preds = %11
+  %164 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %164)
+  %165 = load i32, ptr %0, align 4
+  %166 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %165) #7
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3096, ptr noundef nonnull @__func__.reduce_outer_joins_pass2) #7
   unreachable
 
-.sink.split:                                      ; preds = %43, %38, %155, %159, %16
-  %.sink = phi ptr [ %20, %16 ], [ %.0124, %159 ], [ %.0124, %155 ], [ %20, %38 ], [ %20, %43 ]
+.sink.split:                                      ; preds = %43, %38, %156, %160, %16
+  %.sink = phi ptr [ %20, %16 ], [ %.0124, %160 ], [ %.0124, %156 ], [ %20, %38 ], [ %20, %43 ]
   tail call void @bms_free(ptr noundef %.sink) #7
-  br label %166
+  br label %167
 
-166:                                              ; preds = %.sink.split, %133
+167:                                              ; preds = %.sink.split, %134
   ret void
 }
 

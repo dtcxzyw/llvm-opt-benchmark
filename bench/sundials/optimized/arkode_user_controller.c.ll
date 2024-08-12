@@ -17,12 +17,12 @@ define ptr @ARKUserControl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %or.cond = or i1 %6, %5
   %7 = icmp eq ptr %0, null
   %or.cond3 = or i1 %7, %or.cond
-  br i1 %or.cond3, label %33, label %8
+  br i1 %or.cond3, label %34, label %8
 
 8:                                                ; preds = %4
   %9 = tail call ptr @SUNAdaptController_NewEmpty(ptr noundef nonnull %0) #11
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %33, label %11
+  br i1 %10, label %34, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %9, i64 8
@@ -49,7 +49,7 @@ define ptr @ARKUserControl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 26:                                               ; preds = %11
   %27 = tail call i32 @SUNAdaptController_Destroy(ptr noundef nonnull %9) #11
-  br label %33
+  br label %34
 
 28:                                               ; preds = %11
   store ptr %24, ptr %9, align 8
@@ -60,11 +60,13 @@ define ptr @ARKUserControl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %31 = getelementptr inbounds i8, ptr %24, i64 48
   store ptr %3, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %24, i64 16
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %32, align 8
+  store double 1.000000e+00, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %24, i64 24
+  store double 1.000000e+00, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  br label %33
+  br label %34
 
-33:                                               ; preds = %8, %4, %28, %26
+34:                                               ; preds = %8, %4, %28, %26
   %.0 = phi ptr [ null, %26 ], [ %9, %28 ], [ null, %4 ], [ null, %8 ]
   ret ptr %.0
 }

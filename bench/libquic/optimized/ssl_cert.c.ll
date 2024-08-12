@@ -49,16 +49,20 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %mask_k = getelementptr inbounds i8, ptr %cert, i64 32
+  %0 = load i32, ptr %mask_k, align 8
   %mask_k1 = getelementptr inbounds i8, ptr %calloc, i64 32
-  %0 = load <2 x i32>, ptr %mask_k, align 8
-  store <2 x i32> %0, ptr %mask_k1, align 8
+  store i32 %0, ptr %mask_k1, align 8
+  %mask_a = getelementptr inbounds i8, ptr %cert, i64 36
+  %1 = load i32, ptr %mask_a, align 4
+  %mask_a2 = getelementptr inbounds i8, ptr %calloc, i64 36
+  store i32 %1, ptr %mask_a2, align 4
   %dh_tmp = getelementptr inbounds i8, ptr %cert, i64 40
-  %1 = load ptr, ptr %dh_tmp, align 8
-  %cmp3.not = icmp eq ptr %1, null
+  %2 = load ptr, ptr %dh_tmp, align 8
+  %cmp3.not = icmp eq ptr %2, null
   br i1 %cmp3.not, label %if.end12, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %call6 = tail call ptr @DHparams_dup(ptr noundef nonnull %1) #10
+  %call6 = tail call ptr @DHparams_dup(ptr noundef nonnull %2) #10
   %dh_tmp7 = getelementptr inbounds i8, ptr %calloc, i64 40
   store ptr %call6, ptr %dh_tmp7, align 8
   %cmp9 = icmp eq ptr %call6, null
@@ -69,40 +73,40 @@ if.then10:                                        ; preds = %if.then4
   br label %ssl_cert_free.exit
 
 if.end12:                                         ; preds = %if.then4, %if.end
-  %2 = phi ptr [ %call6, %if.then4 ], [ null, %if.end ]
+  %3 = phi ptr [ %call6, %if.then4 ], [ null, %if.end ]
   %dh_tmp_cb = getelementptr inbounds i8, ptr %cert, i64 48
-  %3 = load ptr, ptr %dh_tmp_cb, align 8
+  %4 = load ptr, ptr %dh_tmp_cb, align 8
   %dh_tmp_cb13 = getelementptr inbounds i8, ptr %calloc, i64 48
-  store ptr %3, ptr %dh_tmp_cb13, align 8
-  %4 = load ptr, ptr %cert, align 8
-  %cmp14.not = icmp eq ptr %4, null
+  store ptr %4, ptr %dh_tmp_cb13, align 8
+  %5 = load ptr, ptr %cert, align 8
+  %cmp14.not = icmp eq ptr %5, null
   br i1 %cmp14.not, label %if.end19, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  %call17 = tail call ptr @X509_up_ref(ptr noundef nonnull %4) #10
+  %call17 = tail call ptr @X509_up_ref(ptr noundef nonnull %5) #10
   store ptr %call17, ptr %calloc, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then15, %if.end12
   %privatekey = getelementptr inbounds i8, ptr %cert, i64 8
-  %5 = load ptr, ptr %privatekey, align 8
-  %cmp20.not = icmp eq ptr %5, null
+  %6 = load ptr, ptr %privatekey, align 8
+  %cmp20.not = icmp eq ptr %6, null
   br i1 %cmp20.not, label %if.end25, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %call23 = tail call ptr @EVP_PKEY_up_ref(ptr noundef nonnull %5) #10
+  %call23 = tail call ptr @EVP_PKEY_up_ref(ptr noundef nonnull %6) #10
   %privatekey24 = getelementptr inbounds i8, ptr %calloc, i64 8
   store ptr %call23, ptr %privatekey24, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then21, %if.end19
   %chain = getelementptr inbounds i8, ptr %cert, i64 16
-  %6 = load ptr, ptr %chain, align 8
-  %tobool.not = icmp eq ptr %6, null
+  %7 = load ptr, ptr %chain, align 8
+  %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end34, label %if.then26
 
 if.then26:                                        ; preds = %if.end25
-  %call28 = tail call ptr @X509_chain_up_ref(ptr noundef nonnull %6) #10
+  %call28 = tail call ptr @X509_chain_up_ref(ptr noundef nonnull %7) #10
   %chain29 = getelementptr inbounds i8, ptr %calloc, i64 16
   store ptr %call28, ptr %chain29, align 8
   %tobool31.not = icmp eq ptr %call28, null
@@ -114,48 +118,52 @@ if.then32:                                        ; preds = %if.then26
 
 if.end34:                                         ; preds = %if.then26, %if.end25
   %key_method = getelementptr inbounds i8, ptr %cert, i64 24
-  %7 = load ptr, ptr %key_method, align 8
+  %8 = load ptr, ptr %key_method, align 8
   %key_method35 = getelementptr inbounds i8, ptr %calloc, i64 24
-  store ptr %7, ptr %key_method35, align 8
+  store ptr %8, ptr %key_method35, align 8
   %cert_cb = getelementptr inbounds i8, ptr %cert, i64 88
+  %9 = load ptr, ptr %cert_cb, align 8
   %cert_cb36 = getelementptr inbounds i8, ptr %calloc, i64 88
-  %8 = load <2 x ptr>, ptr %cert_cb, align 8
-  store <2 x ptr> %8, ptr %cert_cb36, align 8
+  store ptr %9, ptr %cert_cb36, align 8
+  %cert_cb_arg = getelementptr inbounds i8, ptr %cert, i64 96
+  %10 = load ptr, ptr %cert_cb_arg, align 8
+  %cert_cb_arg37 = getelementptr inbounds i8, ptr %calloc, i64 96
+  store ptr %10, ptr %cert_cb_arg37, align 8
   %verify_store = getelementptr inbounds i8, ptr %cert, i64 104
-  %9 = load ptr, ptr %verify_store, align 8
-  %cmp38.not = icmp eq ptr %9, null
+  %11 = load ptr, ptr %verify_store, align 8
+  %cmp38.not = icmp eq ptr %11, null
   br i1 %cmp38.not, label %return, label %if.then39
 
 if.then39:                                        ; preds = %if.end34
-  tail call void @X509_STORE_up_ref(ptr noundef nonnull %9) #10
-  %10 = load ptr, ptr %verify_store, align 8
+  tail call void @X509_STORE_up_ref(ptr noundef nonnull %11) #10
+  %12 = load ptr, ptr %verify_store, align 8
   %verify_store42 = getelementptr inbounds i8, ptr %calloc, i64 104
-  store ptr %10, ptr %verify_store42, align 8
+  store ptr %12, ptr %verify_store42, align 8
   br label %return
 
 ssl_cert_free.exit:                               ; preds = %if.then32, %if.then10
-  %11 = phi ptr [ %2, %if.then32 ], [ null, %if.then10 ]
-  tail call void @DH_free(ptr noundef %11) #10
-  %12 = load ptr, ptr %calloc, align 8
-  tail call void @X509_free(ptr noundef %12) #10
+  %13 = phi ptr [ %3, %if.then32 ], [ null, %if.then10 ]
+  tail call void @DH_free(ptr noundef %13) #10
+  %14 = load ptr, ptr %calloc, align 8
+  tail call void @X509_free(ptr noundef %14) #10
   store ptr null, ptr %calloc, align 8
   %privatekey.i.i = getelementptr inbounds i8, ptr %calloc, i64 8
-  %13 = load ptr, ptr %privatekey.i.i, align 8
-  tail call void @EVP_PKEY_free(ptr noundef %13) #10
+  %15 = load ptr, ptr %privatekey.i.i, align 8
+  tail call void @EVP_PKEY_free(ptr noundef %15) #10
   store ptr null, ptr %privatekey.i.i, align 8
   %chain.i.i = getelementptr inbounds i8, ptr %calloc, i64 16
-  %14 = load ptr, ptr %chain.i.i, align 8
-  tail call void @sk_pop_free(ptr noundef %14, ptr noundef nonnull @X509_free) #10
+  %16 = load ptr, ptr %chain.i.i, align 8
+  tail call void @sk_pop_free(ptr noundef %16, ptr noundef nonnull @X509_free) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %chain.i.i, i8 0, i64 16, i1 false)
   %peer_sigalgs.i = getelementptr inbounds i8, ptr %calloc, i64 56
-  %15 = load ptr, ptr %peer_sigalgs.i, align 8
-  tail call void @free(ptr noundef %15) #10
+  %17 = load ptr, ptr %peer_sigalgs.i, align 8
+  tail call void @free(ptr noundef %17) #10
   %digest_nids.i = getelementptr inbounds i8, ptr %calloc, i64 72
-  %16 = load ptr, ptr %digest_nids.i, align 8
-  tail call void @free(ptr noundef %16) #10
+  %18 = load ptr, ptr %digest_nids.i, align 8
+  tail call void @free(ptr noundef %18) #10
   %verify_store.i = getelementptr inbounds i8, ptr %calloc, i64 104
-  %17 = load ptr, ptr %verify_store.i, align 8
-  tail call void @X509_STORE_free(ptr noundef %17) #10
+  %19 = load ptr, ptr %verify_store.i, align 8
+  tail call void @X509_STORE_free(ptr noundef %19) #10
   tail call void @free(ptr noundef nonnull %calloc) #10
   br label %return
 

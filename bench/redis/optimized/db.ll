@@ -7556,7 +7556,7 @@ declare void @signalKeyAsReady(ptr noundef, ptr noundef, i32 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @dbSwapDatabases(i32 noundef %id1, i32 noundef %id2) local_unnamed_addr #0 {
 entry:
-  %aux = alloca %struct.redisDb, align 16
+  %aux = alloca %struct.redisDb, align 8
   %cmp = icmp slt i32 %id1, 0
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -7577,23 +7577,31 @@ if.end8:                                          ; preds = %if.end
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 64), align 8
   %idxprom = zext nneg i32 %id1 to i64
   %arrayidx = getelementptr inbounds %struct.redisDb, ptr %1, i64 %idxprom
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(152) %aux, ptr noundef nonnull align 8 dereferenceable(152) %arrayidx, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %aux, ptr noundef nonnull align 8 dereferenceable(152) %arrayidx, i64 152, i1 false)
   %idxprom11 = zext nneg i32 %id2 to i64
   %arrayidx12 = getelementptr inbounds %struct.redisDb, ptr %1, i64 %idxprom11
   tail call void @touchAllWatchedKeysInDb(ptr noundef %arrayidx, ptr noundef %arrayidx12) #17
   tail call void @touchAllWatchedKeysInDb(ptr noundef %arrayidx12, ptr noundef %arrayidx) #17
   tail call void @scanDatabaseForDeletedKeys(ptr noundef %arrayidx, ptr noundef %arrayidx12)
   tail call void @scanDatabaseForDeletedKeys(ptr noundef %arrayidx12, ptr noundef %arrayidx)
-  %2 = load <2 x ptr>, ptr %arrayidx12, align 8
-  store <2 x ptr> %2, ptr %arrayidx, align 8
+  %2 = load ptr, ptr %arrayidx12, align 8
+  store ptr %2, ptr %arrayidx, align 8
+  %expires = getelementptr inbounds i8, ptr %arrayidx12, i64 8
+  %3 = load ptr, ptr %expires, align 8
+  %expires14 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  store ptr %3, ptr %expires14, align 8
   %avg_ttl = getelementptr inbounds i8, ptr %arrayidx12, i64 56
+  %4 = load i64, ptr %avg_ttl, align 8
   %avg_ttl15 = getelementptr inbounds i8, ptr %arrayidx, i64 56
-  %3 = load <2 x i64>, ptr %avg_ttl, align 8
-  store <2 x i64> %3, ptr %avg_ttl15, align 8
+  store i64 %4, ptr %avg_ttl15, align 8
+  %expires_cursor = getelementptr inbounds i8, ptr %arrayidx12, i64 64
+  %5 = load i64, ptr %expires_cursor, align 8
+  %expires_cursor16 = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  store i64 %5, ptr %expires_cursor16, align 8
   %dict_count = getelementptr inbounds i8, ptr %arrayidx12, i64 80
-  %4 = load i32, ptr %dict_count, align 8
+  %6 = load i32, ptr %dict_count, align 8
   %dict_count17 = getelementptr inbounds i8, ptr %arrayidx, i64 80
-  store i32 %4, ptr %dict_count17, align 8
+  store i32 %6, ptr %dict_count17, align 8
   %sub_dict = getelementptr inbounds i8, ptr %arrayidx12, i64 88
   %sub_dict21 = getelementptr inbounds i8, ptr %arrayidx, i64 88
   br label %for.body
@@ -7603,27 +7611,41 @@ for.body:                                         ; preds = %if.end8, %for.body
   %indvars.iv = phi i64 [ 0, %if.end8 ], [ 1, %for.body ]
   %arrayidx20 = getelementptr inbounds [2 x %struct.dbDictState], ptr %sub_dict, i64 0, i64 %indvars.iv
   %key_count = getelementptr inbounds i8, ptr %arrayidx20, i64 8
+  %7 = load i64, ptr %key_count, align 8
   %arrayidx23 = getelementptr inbounds [2 x %struct.dbDictState], ptr %sub_dict21, i64 0, i64 %indvars.iv
   %key_count24 = getelementptr inbounds i8, ptr %arrayidx23, i64 8
-  %5 = load <2 x i64>, ptr %key_count, align 8
-  store <2 x i64> %5, ptr %key_count24, align 8
-  %6 = load <2 x i32>, ptr %arrayidx20, align 8
-  store <2 x i32> %6, ptr %arrayidx23, align 8
+  store i64 %7, ptr %key_count24, align 8
+  %bucket_count = getelementptr inbounds i8, ptr %arrayidx20, i64 16
+  %8 = load i64, ptr %bucket_count, align 8
+  %bucket_count31 = getelementptr inbounds i8, ptr %arrayidx23, i64 16
+  store i64 %8, ptr %bucket_count31, align 8
+  %non_empty_slots = getelementptr inbounds i8, ptr %arrayidx20, i64 4
+  %9 = load i32, ptr %non_empty_slots, align 4
+  %non_empty_slots38 = getelementptr inbounds i8, ptr %arrayidx23, i64 4
+  store i32 %9, ptr %non_empty_slots38, align 4
+  %10 = load i32, ptr %arrayidx20, align 8
+  store i32 %10, ptr %arrayidx23, align 8
   %slot_size_index = getelementptr inbounds i8, ptr %arrayidx20, i64 24
-  %7 = load ptr, ptr %slot_size_index, align 8
+  %11 = load ptr, ptr %slot_size_index, align 8
   %slot_size_index52 = getelementptr inbounds i8, ptr %arrayidx23, i64 24
-  store ptr %7, ptr %slot_size_index52, align 8
+  store ptr %11, ptr %slot_size_index52, align 8
   br i1 %cmp18, label %for.body, label %for.end, !llvm.loop !34
 
 for.end:                                          ; preds = %for.body
-  %8 = load <2 x ptr>, ptr %aux, align 16
-  store <2 x ptr> %8, ptr %arrayidx12, align 8
+  %12 = load ptr, ptr %aux, align 8
+  store ptr %12, ptr %arrayidx12, align 8
+  %expires55 = getelementptr inbounds i8, ptr %aux, i64 8
+  %13 = load ptr, ptr %expires55, align 8
+  store ptr %13, ptr %expires, align 8
   %avg_ttl57 = getelementptr inbounds i8, ptr %aux, i64 56
-  %9 = load <2 x i64>, ptr %avg_ttl57, align 8
-  store <2 x i64> %9, ptr %avg_ttl, align 8
+  %14 = load i64, ptr %avg_ttl57, align 8
+  store i64 %14, ptr %avg_ttl, align 8
+  %expires_cursor59 = getelementptr inbounds i8, ptr %aux, i64 64
+  %15 = load i64, ptr %expires_cursor59, align 8
+  store i64 %15, ptr %expires_cursor, align 8
   %dict_count61 = getelementptr inbounds i8, ptr %aux, i64 80
-  %10 = load i32, ptr %dict_count61, align 16
-  store i32 %10, ptr %dict_count, align 8
+  %16 = load i32, ptr %dict_count61, align 8
+  store i32 %16, ptr %dict_count, align 8
   %sub_dict67 = getelementptr inbounds i8, ptr %aux, i64 88
   br label %for.body66
 
@@ -7632,16 +7654,24 @@ for.body66:                                       ; preds = %for.end, %for.body6
   %indvars.iv73 = phi i64 [ 0, %for.end ], [ 1, %for.body66 ]
   %arrayidx69 = getelementptr inbounds [2 x %struct.dbDictState], ptr %sub_dict67, i64 0, i64 %indvars.iv73
   %key_count70 = getelementptr inbounds i8, ptr %arrayidx69, i64 8
+  %17 = load i64, ptr %key_count70, align 8
   %arrayidx73 = getelementptr inbounds [2 x %struct.dbDictState], ptr %sub_dict, i64 0, i64 %indvars.iv73
   %key_count74 = getelementptr inbounds i8, ptr %arrayidx73, i64 8
-  %11 = load <2 x i64>, ptr %key_count70, align 16
-  store <2 x i64> %11, ptr %key_count74, align 8
-  %12 = load <2 x i32>, ptr %arrayidx69, align 8
-  store <2 x i32> %12, ptr %arrayidx73, align 8
+  store i64 %17, ptr %key_count74, align 8
+  %bucket_count78 = getelementptr inbounds i8, ptr %arrayidx69, i64 16
+  %18 = load i64, ptr %bucket_count78, align 8
+  %bucket_count82 = getelementptr inbounds i8, ptr %arrayidx73, i64 16
+  store i64 %18, ptr %bucket_count82, align 8
+  %non_empty_slots86 = getelementptr inbounds i8, ptr %arrayidx69, i64 4
+  %19 = load i32, ptr %non_empty_slots86, align 4
+  %non_empty_slots90 = getelementptr inbounds i8, ptr %arrayidx73, i64 4
+  store i32 %19, ptr %non_empty_slots90, align 4
+  %20 = load i32, ptr %arrayidx69, align 8
+  store i32 %20, ptr %arrayidx73, align 8
   %slot_size_index102 = getelementptr inbounds i8, ptr %arrayidx69, i64 24
-  %13 = load ptr, ptr %slot_size_index102, align 16
+  %21 = load ptr, ptr %slot_size_index102, align 8
   %slot_size_index106 = getelementptr inbounds i8, ptr %arrayidx73, i64 24
-  store ptr %13, ptr %slot_size_index106, align 8
+  store ptr %21, ptr %slot_size_index106, align 8
   br i1 %cmp65, label %for.body66, label %for.end109, !llvm.loop !35
 
 for.end109:                                       ; preds = %for.body66
@@ -7660,13 +7690,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local void @swapMainDbWithTempDb(ptr noundef %tempDb) local_unnamed_addr #0 {
 entry:
-  %aux = alloca %struct.redisDb, align 16
+  %aux = alloca %struct.redisDb, align 8
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
   %cmp62 = icmp sgt i32 %0, 0
   br i1 %cmp62, label %for.body.lr.ph, label %for.end106
 
 for.body.lr.ph:                                   ; preds = %entry
+  %expires49 = getelementptr inbounds i8, ptr %aux, i64 8
   %avg_ttl51 = getelementptr inbounds i8, ptr %aux, i64 56
+  %expires_cursor53 = getelementptr inbounds i8, ptr %aux, i64 64
   %dict_count55 = getelementptr inbounds i8, ptr %aux, i64 80
   %sub_dict61 = getelementptr inbounds i8, ptr %aux, i64 88
   br label %for.body
@@ -7675,7 +7707,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv68 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next69, %for.end103 ]
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 64), align 8
   %arrayidx = getelementptr inbounds %struct.redisDb, ptr %1, i64 %indvars.iv68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(152) %aux, ptr noundef nonnull align 8 dereferenceable(152) %arrayidx, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %aux, ptr noundef nonnull align 8 dereferenceable(152) %arrayidx, i64 152, i1 false)
   %arrayidx4 = getelementptr inbounds %struct.redisDb, ptr %tempDb, i64 %indvars.iv68
   tail call void @touchAllWatchedKeysInDb(ptr noundef %arrayidx, ptr noundef %arrayidx4) #17
   tail call void @scanDatabaseForDeletedKeys(ptr noundef %arrayidx, ptr noundef %arrayidx4)
@@ -7727,12 +7759,16 @@ for.body12:                                       ; preds = %for.body, %for.body
   br i1 %cmp11, label %for.body12, label %for.end, !llvm.loop !36
 
 for.end:                                          ; preds = %for.body12
-  %12 = load <2 x ptr>, ptr %aux, align 16
-  store <2 x ptr> %12, ptr %arrayidx4, align 8
-  %13 = load <2 x i64>, ptr %avg_ttl51, align 8
-  store <2 x i64> %13, ptr %avg_ttl, align 8
-  %14 = load i32, ptr %dict_count55, align 16
-  store i32 %14, ptr %dict_count, align 8
+  %12 = load ptr, ptr %aux, align 8
+  store ptr %12, ptr %arrayidx4, align 8
+  %13 = load ptr, ptr %expires49, align 8
+  store ptr %13, ptr %expires, align 8
+  %14 = load i64, ptr %avg_ttl51, align 8
+  store i64 %14, ptr %avg_ttl, align 8
+  %15 = load i64, ptr %expires_cursor53, align 8
+  store i64 %15, ptr %expires_cursor, align 8
+  %16 = load i32, ptr %dict_count55, align 8
+  store i32 %16, ptr %dict_count, align 8
   br label %for.body60
 
 for.body60:                                       ; preds = %for.end, %for.body60
@@ -7740,24 +7776,32 @@ for.body60:                                       ; preds = %for.end, %for.body6
   %indvars.iv65 = phi i64 [ 0, %for.end ], [ 1, %for.body60 ]
   %arrayidx63 = getelementptr inbounds [2 x %struct.dbDictState], ptr %sub_dict61, i64 0, i64 %indvars.iv65
   %key_count64 = getelementptr inbounds i8, ptr %arrayidx63, i64 8
+  %17 = load i64, ptr %key_count64, align 8
   %arrayidx67 = getelementptr inbounds [2 x %struct.dbDictState], ptr %sub_dict, i64 0, i64 %indvars.iv65
   %key_count68 = getelementptr inbounds i8, ptr %arrayidx67, i64 8
-  %15 = load <2 x i64>, ptr %key_count64, align 16
-  store <2 x i64> %15, ptr %key_count68, align 8
-  %16 = load <2 x i32>, ptr %arrayidx63, align 8
-  store <2 x i32> %16, ptr %arrayidx67, align 8
+  store i64 %17, ptr %key_count68, align 8
+  %bucket_count72 = getelementptr inbounds i8, ptr %arrayidx63, i64 16
+  %18 = load i64, ptr %bucket_count72, align 8
+  %bucket_count76 = getelementptr inbounds i8, ptr %arrayidx67, i64 16
+  store i64 %18, ptr %bucket_count76, align 8
+  %non_empty_slots80 = getelementptr inbounds i8, ptr %arrayidx63, i64 4
+  %19 = load i32, ptr %non_empty_slots80, align 4
+  %non_empty_slots84 = getelementptr inbounds i8, ptr %arrayidx67, i64 4
+  store i32 %19, ptr %non_empty_slots84, align 4
+  %20 = load i32, ptr %arrayidx63, align 8
+  store i32 %20, ptr %arrayidx67, align 8
   %slot_size_index96 = getelementptr inbounds i8, ptr %arrayidx63, i64 24
-  %17 = load ptr, ptr %slot_size_index96, align 16
+  %21 = load ptr, ptr %slot_size_index96, align 8
   %slot_size_index100 = getelementptr inbounds i8, ptr %arrayidx67, i64 24
-  store ptr %17, ptr %slot_size_index100, align 8
+  store ptr %21, ptr %slot_size_index100, align 8
   br i1 %cmp59, label %for.body60, label %for.end103, !llvm.loop !37
 
 for.end103:                                       ; preds = %for.body60
   tail call void @scanDatabaseForReadyKeys(ptr noundef nonnull %arrayidx)
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %19 = sext i32 %18 to i64
-  %cmp = icmp slt i64 %indvars.iv.next69, %19
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
+  %23 = sext i32 %22 to i64
+  %cmp = icmp slt i64 %indvars.iv.next69, %23
   br i1 %cmp, label %for.body, label %for.end106, !llvm.loop !38
 
 for.end106:                                       ; preds = %for.end103, %entry

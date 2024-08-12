@@ -1089,22 +1089,26 @@ _ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit.i.i: ; preds = %86, %84
   %.phi.trans.insert93.i = getelementptr inbounds i8, ptr %14, i64 16
   %.pre94.i = load ptr, ptr %.phi.trans.insert93.i, align 8, !noalias !11
   %.phi.trans.insert95.i = getelementptr inbounds i8, ptr %14, i64 24
-  %123 = load <2 x ptr>, ptr %.phi.trans.insert95.i, align 8, !noalias !11
+  %.pre96.i = load ptr, ptr %.phi.trans.insert95.i, align 8, !noalias !11
+  %.phi.trans.insert97.i = getelementptr inbounds i8, ptr %14, i64 32
+  %.pre98.i = load ptr, ptr %.phi.trans.insert97.i, align 8, !noalias !11
   br label %_ZN2cv3Mat5beginIdEENS_12MatIterator_IT_EEv.exit.i
 
 _ZN2cv3Mat5beginIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc10, %121
+  %123 = phi ptr [ null, %121 ], [ %.pre98.i, %.noexc10 ]
+  %124 = phi ptr [ null, %121 ], [ %.pre96.i, %.noexc10 ]
   %.val2971.i = phi ptr [ null, %121 ], [ %.pre94.i, %.noexc10 ]
-  %124 = phi i64 [ 0, %121 ], [ %.pre92.i, %.noexc10 ]
+  %125 = phi i64 [ 0, %121 ], [ %.pre92.i, %.noexc10 ]
   %.val2870.i = phi ptr [ null, %121 ], [ %.pre90.i, %.noexc10 ]
-  %125 = phi <2 x ptr> [ zeroinitializer, %121 ], [ %123, %.noexc10 ]
   store ptr %.val2870.i, ptr %13, align 8, !noalias !11
   %126 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 %124, ptr %126, align 8, !noalias !11
+  store i64 %125, ptr %126, align 8, !noalias !11
   %127 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %.val2971.i, ptr %127, align 8, !noalias !11
   %128 = getelementptr inbounds i8, ptr %13, i64 24
+  store ptr %124, ptr %128, align 8, !noalias !11
   %129 = getelementptr inbounds i8, ptr %13, i64 32
-  store <2 x ptr> %125, ptr %128, align 8, !noalias !11
+  store ptr %123, ptr %129, align 8, !noalias !11
   %130 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %22)
           to label %.noexc11 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1259,22 +1263,26 @@ _ZN2cv12MatIterator_IdEppEv.exit.i:               ; preds = %.noexc15, %175, %"_
   %.phi.trans.insert79.i = getelementptr inbounds i8, ptr %17, i64 16
   %.pre80.i = load ptr, ptr %.phi.trans.insert79.i, align 8, !noalias !11
   %.phi.trans.insert81.i = getelementptr inbounds i8, ptr %17, i64 24
-  %186 = load <2 x ptr>, ptr %.phi.trans.insert81.i, align 8, !noalias !11
+  %.pre82.i = load ptr, ptr %.phi.trans.insert81.i, align 8, !noalias !11
+  %.phi.trans.insert83.i = getelementptr inbounds i8, ptr %17, i64 32
+  %.pre84.i = load ptr, ptr %.phi.trans.insert83.i, align 8, !noalias !11
   br label %_ZN2cv3Mat5beginINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i
 
 _ZN2cv3Mat5beginINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc17, %184
+  %186 = phi ptr [ null, %184 ], [ %.pre84.i, %.noexc17 ]
+  %187 = phi ptr [ null, %184 ], [ %.pre82.i, %.noexc17 ]
   %.val3368.i = phi ptr [ null, %184 ], [ %.pre80.i, %.noexc17 ]
-  %187 = phi i64 [ 0, %184 ], [ %.pre78.i, %.noexc17 ]
+  %188 = phi i64 [ 0, %184 ], [ %.pre78.i, %.noexc17 ]
   %.val3267.i = phi ptr [ null, %184 ], [ %.pre77.i, %.noexc17 ]
-  %188 = phi <2 x ptr> [ zeroinitializer, %184 ], [ %186, %.noexc17 ]
   store ptr %.val3267.i, ptr %16, align 8, !noalias !11
   %189 = getelementptr inbounds i8, ptr %16, i64 8
-  store i64 %187, ptr %189, align 8, !noalias !11
+  store i64 %188, ptr %189, align 8, !noalias !11
   %190 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %.val3368.i, ptr %190, align 8, !noalias !11
   %191 = getelementptr inbounds i8, ptr %16, i64 24
+  store ptr %187, ptr %191, align 8, !noalias !11
   %192 = getelementptr inbounds i8, ptr %16, i64 32
-  store <2 x ptr> %188, ptr %191, align 8, !noalias !11
+  store ptr %186, ptr %192, align 8, !noalias !11
   %193 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %22)
           to label %.noexc18 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -4527,63 +4535,65 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4p
   %3 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #18
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   invoke void @_ZN2cv3ccm10ColorSpaceC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(200) %1)
-          to label %.noexc.i unwind label %18
+          to label %.noexc.i unwind label %19
 
 .noexc.i:                                         ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 232
   %6 = getelementptr inbounds i8, ptr %1, i64 200
-  %7 = getelementptr inbounds i8, ptr %1, i64 208
-  %8 = load ptr, ptr %7, align 8
-  %9 = load <2 x ptr>, ptr %6, align 8
-  store <2 x ptr> %9, ptr %5, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit, label %10
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 240
+  %9 = getelementptr inbounds i8, ptr %1, i64 208
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit, label %11
 
-10:                                               ; preds = %.noexc.i
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
-  %12 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %16, label %13
+11:                                               ; preds = %.noexc.i
+  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %17, label %14
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr %11, align 4
-  %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %11, align 4
+14:                                               ; preds = %11
+  %15 = load i32, ptr %12, align 4
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %12, align 4
   br label %_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit
 
-16:                                               ; preds = %10
-  %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
+17:                                               ; preds = %11
+  %18 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4
   br label %_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #17
+  %21 = extractvalue { ptr, i32 } %20, 0
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #17
   tail call void @_ZdlPv(ptr noundef nonnull %3) #21
   invoke void @__cxa_rethrow() #20
-          to label %28 unwind label %22
+          to label %29 unwind label %23
 
-22:                                               ; preds = %18
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %19
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %24 unwind label %25
+          to label %25 unwind label %26
 
-24:                                               ; preds = %22
-  resume { ptr, i32 } %23
+25:                                               ; preds = %23
+  resume { ptr, i32 } %24
 
-25:                                               ; preds = %22
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %23
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #19
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #19
   unreachable
 
-28:                                               ; preds = %18
+29:                                               ; preds = %19
   unreachable
 
-_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit: ; preds = %.noexc.i, %13, %16
+_ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit: ; preds = %.noexc.i, %14, %17
   ret ptr %3
 }
 

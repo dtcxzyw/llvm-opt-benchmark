@@ -8894,64 +8894,71 @@ define linkonce_odr dso_local void @_ZSt19__relocate_object_aI4TreeS0_SaIS0_EEvP
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %1, i64 32
-  %6 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %4, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i.i, label %25, label %13
+  store ptr %12, ptr %10, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %15 = load ptr, ptr %14, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %15, null
+  br i1 %.not.i.i.i.i.i.i.i, label %30, label %16
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
-  %15 = load i32, ptr %14, align 8
-  store i32 %15, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %12, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
-  %19 = getelementptr inbounds i8, ptr %1, i64 88
-  %20 = load <2 x ptr>, ptr %17, align 8
-  store <2 x ptr> %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %10, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 96
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
-  store i64 %23, ptr %24, align 8
-  store ptr null, ptr %11, align 8
-  store ptr %14, ptr %17, align 8
-  store ptr %14, ptr %19, align 8
-  br label %_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
-
-25:                                               ; preds = %3
-  store i32 0, ptr %10, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %10, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %10, ptr %28, align 8
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds i8, ptr %1, i64 64
+  %18 = load i32, ptr %17, align 8
+  store i32 %18, ptr %13, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %15, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 80
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 88
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %13, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 96
+  %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 %28, ptr %29, align 8
+  store ptr null, ptr %14, align 8
+  store ptr %17, ptr %20, align 8
+  store ptr %17, ptr %23, align 8
   br label %_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit: ; preds = %13, %25
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %29, %25 ], [ %22, %13 ]
-  store i64 0, ptr %.sink.i.i.i.i.i.i.i, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 56
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef null)
-          to label %_ZNSt16allocator_traitsISaI4TreeEE7destroyIS0_EEvRS1_PT_.exit unwind label %31
+30:                                               ; preds = %3
+  store i32 0, ptr %13, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr null, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %13, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %13, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  br label %_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
 
-31:                                               ; preds = %_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
-  %32 = landingpad { ptr, i32 }
+_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit: ; preds = %16, %30
+  %.sink.i.i.i.i.i.i.i = phi ptr [ %34, %30 ], [ %27, %16 ]
+  store i64 0, ptr %.sink.i.i.i.i.i.i.i, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 56
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef null)
+          to label %_ZNSt16allocator_traitsISaI4TreeEE7destroyIS0_EEvRS1_PT_.exit unwind label %36
+
+36:                                               ; preds = %_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #22
+  %38 = extractvalue { ptr, i32 } %37, 0
+  tail call void @__clang_call_terminate(ptr %38) #22
   unreachable
 
 _ZNSt16allocator_traitsISaI4TreeEE7destroyIS0_EEvRS1_PT_.exit: ; preds = %_ZNSt16allocator_traitsISaI4TreeEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit

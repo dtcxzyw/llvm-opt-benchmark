@@ -4851,21 +4851,33 @@ Llb_ManResultPrint.exit:                          ; preds = %96, %.critedge.thre
 define void @Llb_BddSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 80, i1 false)
-  store <4 x i32> <i32 1000000, i32 10000000, i32 20, i32 0>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 0, i32 0, i32 100, i32 30>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
-  %6 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 1000000, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 10000000, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 20, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
-  store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %9, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 100, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 30, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %12 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 0, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  store i32 -1, ptr %15, align 8
   ret void
 }
 
@@ -4874,81 +4886,93 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define void @Llb_ManMinCutTest(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = alloca %struct.Gia_ParLlb_t_, align 16
+  %3 = alloca %struct.Gia_ParLlb_t_, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %4, i8 0, i64 80, i1 false)
-  store <4 x i32> <i32 1000000, i32 10000000, i32 20, i32 0>, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  store <4 x i32> <i32 0, i32 0, i32 100, i32 30>, ptr %5, align 16
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 44
-  %8 = getelementptr inbounds i8, ptr %3, i64 84
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %9, align 8
-  %10 = tail call ptr @Aig_ManDupFlopsOnly(ptr noundef %0) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 80, i1 false)
+  store i32 1000000, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 10000000, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 20, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 100, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 30, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %3, i64 44
+  %14 = getelementptr inbounds i8, ptr %3, i64 84
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %3, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  store i32 -1, ptr %15, align 8
+  %16 = tail call ptr @Aig_ManDupFlopsOnly(ptr noundef %0) #21
   tail call void @Aig_ManPrintStats(ptr noundef %0) #21
-  tail call void @Aig_ManPrintStats(ptr noundef %10) #21
-  tail call void @Aig_ManFanoutStart(ptr noundef %10) #21
-  %11 = tail call ptr @Llb_ManComputeCuts(ptr noundef %10, i32 noundef %1, i32 noundef 1, i32 noundef 0)
-  %12 = call i32 @Llb_CoreExperiment(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %3, ptr noundef %11, i64 noundef 0) #21
-  %13 = getelementptr i8, ptr %11, i64 4
-  %.val11.i = load i32, ptr %13, align 4
-  %14 = icmp sgt i32 %.val11.i, 0
-  br i1 %14, label %.lr.ph.i, label %.critedge.i
+  tail call void @Aig_ManPrintStats(ptr noundef %16) #21
+  tail call void @Aig_ManFanoutStart(ptr noundef %16) #21
+  %17 = tail call ptr @Llb_ManComputeCuts(ptr noundef %16, i32 noundef %1, i32 noundef 1, i32 noundef 0)
+  %18 = call i32 @Llb_CoreExperiment(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %3, ptr noundef %17, i64 noundef 0) #21
+  %19 = getelementptr i8, ptr %17, i64 4
+  %.val11.i = load i32, ptr %19, align 4
+  %20 = icmp sgt i32 %.val11.i, 0
+  br i1 %20, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %2
-  %15 = getelementptr i8, ptr %11, i64 8
-  br label %16
+  %21 = getelementptr i8, ptr %17, i64 8
+  br label %22
 
-16:                                               ; preds = %23, %.lr.ph.i
-  %.val14.i = phi i32 [ %.val11.i, %.lr.ph.i ], [ %.val.i, %23 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %.val8.i = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds ptr, ptr %.val8.i, i64 %indvars.iv.i
-  %18 = load ptr, ptr %17, align 8
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %23, label %19
+22:                                               ; preds = %29, %.lr.ph.i
+  %.val14.i = phi i32 [ %.val11.i, %.lr.ph.i ], [ %.val.i, %29 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
+  %.val8.i = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds ptr, ptr %.val8.i, i64 %indvars.iv.i
+  %24 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %24, null
+  br i1 %.not.i, label %29, label %25
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %22
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %.not.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %28
 
-22:                                               ; preds = %19
-  call void @free(ptr noundef nonnull %21) #21
+28:                                               ; preds = %25
+  call void @free(ptr noundef nonnull %27) #21
   br label %Vec_PtrFree.exit.i
 
-Vec_PtrFree.exit.i:                               ; preds = %22, %19
-  call void @free(ptr noundef nonnull %18) #21
-  %.val.pre.i = load i32, ptr %13, align 4
-  br label %23
+Vec_PtrFree.exit.i:                               ; preds = %28, %25
+  call void @free(ptr noundef nonnull %24) #21
+  %.val.pre.i = load i32, ptr %19, align 4
+  br label %29
 
-23:                                               ; preds = %Vec_PtrFree.exit.i, %16
-  %.val.i = phi i32 [ %.val14.i, %16 ], [ %.val.pre.i, %Vec_PtrFree.exit.i ]
+29:                                               ; preds = %Vec_PtrFree.exit.i, %22
+  %.val.i = phi i32 [ %.val14.i, %22 ], [ %.val.pre.i, %Vec_PtrFree.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %24 = sext i32 %.val.i to i64
-  %25 = icmp slt i64 %indvars.iv.next.i, %24
-  br i1 %25, label %16, label %.critedge.i, !llvm.loop !57
+  %30 = sext i32 %.val.i to i64
+  %31 = icmp slt i64 %indvars.iv.next.i, %30
+  br i1 %31, label %22, label %.critedge.i, !llvm.loop !57
 
-.critedge.i:                                      ; preds = %23, %2
-  %26 = getelementptr inbounds i8, ptr %11, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %.not.i9.i = icmp eq ptr %27, null
-  br i1 %.not.i9.i, label %Vec_VecFree.exit, label %28
+.critedge.i:                                      ; preds = %29, %2
+  %32 = getelementptr inbounds i8, ptr %17, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %.not.i9.i = icmp eq ptr %33, null
+  br i1 %.not.i9.i, label %Vec_VecFree.exit, label %34
 
-28:                                               ; preds = %.critedge.i
-  call void @free(ptr noundef nonnull %27) #21
+34:                                               ; preds = %.critedge.i
+  call void @free(ptr noundef nonnull %33) #21
   br label %Vec_VecFree.exit
 
-Vec_VecFree.exit:                                 ; preds = %.critedge.i, %28
-  call void @free(ptr noundef nonnull %11) #21
-  call void @Aig_ManFanoutStop(ptr noundef %10) #21
-  call void @Aig_ManCleanMarkAB(ptr noundef %10) #21
-  call void @Aig_ManStop(ptr noundef %10) #21
+Vec_VecFree.exit:                                 ; preds = %.critedge.i, %34
+  call void @free(ptr noundef nonnull %17) #21
+  call void @Aig_ManFanoutStop(ptr noundef %16) #21
+  call void @Aig_ManCleanMarkAB(ptr noundef %16) #21
+  call void @Aig_ManStop(ptr noundef %16) #21
   ret void
 }
 

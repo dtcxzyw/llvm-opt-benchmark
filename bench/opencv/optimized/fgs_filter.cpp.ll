@@ -308,11 +308,12 @@ define hidden void @_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl4initERKNS_11_I
   br label %173
 
 51:                                               ; preds = %40, %37
-  %52 = insertelement <2 x double> poison, double %3, i64 0
-  %53 = insertelement <2 x double> %52, double %2, i64 1
-  %54 = fptrunc <2 x double> %53 to <2 x float>
-  %55 = getelementptr inbounds i8, ptr %0, i64 20
-  store <2 x float> %54, ptr %55, align 4
+  %52 = fptrunc double %3 to float
+  %53 = getelementptr inbounds i8, ptr %0, i64 20
+  store float %52, ptr %53, align 4
+  %54 = fptrunc double %2 to float
+  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  store float %54, ptr %55, align 8
   %56 = fptrunc double %5 to float
   %57 = getelementptr inbounds i8, ptr %0, i64 28
   store float %56, ptr %57, align 4
@@ -2137,10 +2138,14 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl18ComputeLUT_P
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv8ximgproc30createFastGlobalSmootherFilterERKNS_11_InputArrayEdddi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_8ximgproc28FastGlobalSmootherFilterImplEED2Ev.exit:
-  %6 = alloca %"struct.cv::Ptr", align 16
+  %6 = alloca %"struct.cv::Ptr", align 8
   call void @_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl6createERKNS_11_InputArrayEddid(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1, double noundef %2, double noundef %3, i32 noundef %5, double noundef %4)
-  %7 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %7, ptr %0, align 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %0, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
   ret void
 }
 

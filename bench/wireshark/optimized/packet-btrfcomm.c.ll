@@ -420,7 +420,7 @@ define internal i32 @dissect_btrfcomm(ptr noundef %0, ptr noundef %1, ptr nounde
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = icmp eq ptr %3, null
-  br i1 %17, label %526, label %18
+  br i1 %17, label %532, label %18
 
 18:                                               ; preds = %4
   %19 = load i32, ptr @proto_btrfcomm, align 4
@@ -935,7 +935,7 @@ get_le_multi_byte_value.exit:                     ; preds = %313, %315
 
 320:                                              ; preds = %get_le_multi_byte_value.exit
   %321 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %268, ptr noundef nonnull @ei_btrfcomm_mcc_length_bad, ptr noundef nonnull @.str.168, i32 noundef %308) #6
-  br label %526
+  br label %532
 
 322:                                              ; preds = %get_le_multi_byte_value.exit
   switch i32 %285, label %.thread286 [
@@ -1120,127 +1120,135 @@ dissect_ctrl_msc.exit:                            ; preds = %390, %437
   %.1 = phi i32 [ %453, %452 ], [ %.0.i, %262 ], [ %.0209.ph, %.thread283 ]
   %457 = add nuw nsw i32 %.0.i.pn, %.020.in.i
   %or.cond25 = and i1 %236, %456
-  br i1 %or.cond25, label %458, label %522
+  br i1 %or.cond25, label %458, label %528
 
 458:                                              ; preds = %455
   %459 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1, i32 noundef %.020.in.i) #6
   %460 = load ptr, ptr %44, align 8
   %461 = call noalias ptr @wmem_alloc(ptr noundef %460, i64 noundef 28) #6
-  %462 = load <2 x i32>, ptr %3, align 8
-  store <2 x i32> %462, ptr %461, align 4
-  %463 = getelementptr inbounds i8, ptr %3, i64 16
-  %464 = load i16, ptr %463, align 8
-  %465 = getelementptr inbounds i8, ptr %461, i64 8
-  store i16 %464, ptr %465, align 4
-  %466 = getelementptr inbounds i8, ptr %3, i64 48
+  %462 = load i32, ptr %3, align 8
+  store i32 %462, ptr %461, align 4
+  %463 = getelementptr inbounds i8, ptr %3, i64 4
+  %464 = load i32, ptr %463, align 4
+  %465 = getelementptr inbounds i8, ptr %461, i64 4
+  store i32 %464, ptr %465, align 4
+  %466 = getelementptr inbounds i8, ptr %3, i64 16
   %467 = load i16, ptr %466, align 8
-  %468 = getelementptr inbounds i8, ptr %461, i64 10
-  store i16 %467, ptr %468, align 2
-  %469 = getelementptr inbounds i8, ptr %3, i64 60
-  %470 = load i32, ptr %469, align 4
-  %471 = getelementptr inbounds i8, ptr %461, i64 12
-  store i32 %470, ptr %471, align 4
-  %472 = getelementptr inbounds i8, ptr %461, i64 16
-  store i8 %32, ptr %472, align 4
-  %473 = getelementptr inbounds i8, ptr %3, i64 64
-  %474 = getelementptr inbounds i8, ptr %461, i64 20
-  %475 = load <2 x i32>, ptr %473, align 8
-  store <2 x i32> %475, ptr %474, align 4
-  br i1 %238, label %476, label %492
+  %468 = getelementptr inbounds i8, ptr %461, i64 8
+  store i16 %467, ptr %468, align 4
+  %469 = getelementptr inbounds i8, ptr %3, i64 48
+  %470 = load i16, ptr %469, align 8
+  %471 = getelementptr inbounds i8, ptr %461, i64 10
+  store i16 %470, ptr %471, align 2
+  %472 = getelementptr inbounds i8, ptr %3, i64 60
+  %473 = load i32, ptr %472, align 4
+  %474 = getelementptr inbounds i8, ptr %461, i64 12
+  store i32 %473, ptr %474, align 4
+  %475 = getelementptr inbounds i8, ptr %461, i64 16
+  store i8 %32, ptr %475, align 4
+  %476 = getelementptr inbounds i8, ptr %3, i64 64
+  %477 = load i32, ptr %476, align 8
+  %478 = getelementptr inbounds i8, ptr %461, i64 20
+  store i32 %477, ptr %478, align 4
+  %479 = getelementptr inbounds i8, ptr %3, i64 68
+  %480 = load i32, ptr %479, align 4
+  %481 = getelementptr inbounds i8, ptr %461, i64 24
+  store i32 %480, ptr %481, align 4
+  br i1 %238, label %482, label %498
 
-476:                                              ; preds = %458
-  %477 = getelementptr inbounds i8, ptr %.0210, i64 32
-  %478 = getelementptr inbounds i8, ptr %.0210, i64 34
-  %479 = load i8, ptr %478, align 2
-  %.not232 = icmp eq i8 %479, 0
-  br i1 %.not232, label %492, label %480
+482:                                              ; preds = %458
+  %483 = getelementptr inbounds i8, ptr %.0210, i64 32
+  %484 = getelementptr inbounds i8, ptr %.0210, i64 34
+  %485 = load i8, ptr %484, align 2
+  %.not232 = icmp eq i8 %485, 0
+  br i1 %.not232, label %498, label %486
 
-480:                                              ; preds = %476
-  %481 = load ptr, ptr %44, align 8
-  %482 = load i32, ptr @proto_bluetooth, align 4
-  %483 = call ptr @p_get_proto_data(ptr noundef %481, ptr noundef nonnull %1, i32 noundef %482, i32 noundef 0) #6
-  %484 = icmp eq ptr %483, null
-  br i1 %484, label %485, label %492
-
-485:                                              ; preds = %480
-  %486 = call ptr @wmem_file_scope() #6
+486:                                              ; preds = %482
   %487 = load ptr, ptr %44, align 8
-  %488 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %487, ptr noundef nonnull %477) #6
-  %489 = call noalias ptr @wmem_strdup(ptr noundef %486, ptr noundef %488) #6
-  %490 = load ptr, ptr %44, align 8
-  %491 = load i32, ptr @proto_bluetooth, align 4
-  call void @p_add_proto_data(ptr noundef %490, ptr noundef nonnull %1, i32 noundef %491, i32 noundef 0, ptr noundef %489) #6
-  br label %492
+  %488 = load i32, ptr @proto_bluetooth, align 4
+  %489 = call ptr @p_get_proto_data(ptr noundef %487, ptr noundef nonnull %1, i32 noundef %488, i32 noundef 0) #6
+  %490 = icmp eq ptr %489, null
+  br i1 %490, label %491, label %498
 
-492:                                              ; preds = %485, %480, %476, %458
-  %493 = load ptr, ptr @rfcomm_dlci_dissector_table, align 8
-  %494 = call i32 @dissector_try_uint_new(ptr noundef %493, i32 noundef %36, ptr noundef %459, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %461) #6
-  %495 = icmp eq i32 %494, 0
-  %or.cond29 = select i1 %495, i1 %238, i1 false
-  br i1 %or.cond29, label %496, label %522
+491:                                              ; preds = %486
+  %492 = call ptr @wmem_file_scope() #6
+  %493 = load ptr, ptr %44, align 8
+  %494 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %493, ptr noundef nonnull %483) #6
+  %495 = call noalias ptr @wmem_strdup(ptr noundef %492, ptr noundef %494) #6
+  %496 = load ptr, ptr %44, align 8
+  %497 = load i32, ptr @proto_bluetooth, align 4
+  call void @p_add_proto_data(ptr noundef %496, ptr noundef nonnull %1, i32 noundef %497, i32 noundef 0, ptr noundef %495) #6
+  br label %498
 
-496:                                              ; preds = %492
-  %497 = getelementptr inbounds i8, ptr %.0210, i64 34
-  %498 = load i8, ptr %497, align 2
-  %499 = icmp eq i8 %498, 0
-  br i1 %499, label %506, label %500
+498:                                              ; preds = %491, %486, %482, %458
+  %499 = load ptr, ptr @rfcomm_dlci_dissector_table, align 8
+  %500 = call i32 @dissector_try_uint_new(ptr noundef %499, i32 noundef %36, ptr noundef %459, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %461) #6
+  %501 = icmp eq i32 %500, 0
+  %or.cond29 = select i1 %501, i1 %238, i1 false
+  br i1 %or.cond29, label %502, label %528
 
-500:                                              ; preds = %496
-  %501 = getelementptr inbounds i8, ptr %.0210, i64 32
-  %502 = load ptr, ptr @bluetooth_uuid_table, align 8
-  %503 = load ptr, ptr %44, align 8
-  %504 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %503, ptr noundef nonnull %501) #6
-  %505 = call i32 @dissector_try_string(ptr noundef %502, ptr noundef %504, ptr noundef %459, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %461) #6
-  %.not233 = icmp eq i32 %505, 0
-  br i1 %.not233, label %506, label %522
+502:                                              ; preds = %498
+  %503 = getelementptr inbounds i8, ptr %.0210, i64 34
+  %504 = load i8, ptr %503, align 2
+  %505 = icmp eq i8 %504, 0
+  br i1 %505, label %512, label %506
 
-506:                                              ; preds = %500, %496
-  %507 = load i32, ptr @num_rfcomm_channels, align 4
-  %.not.i239 = icmp eq i32 %507, 0
+506:                                              ; preds = %502
+  %507 = getelementptr inbounds i8, ptr %.0210, i64 32
+  %508 = load ptr, ptr @bluetooth_uuid_table, align 8
+  %509 = load ptr, ptr %44, align 8
+  %510 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %509, ptr noundef nonnull %507) #6
+  %511 = call i32 @dissector_try_string(ptr noundef %508, ptr noundef %510, ptr noundef %459, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %461) #6
+  %.not233 = icmp eq i32 %511, 0
+  br i1 %.not233, label %512, label %528
+
+512:                                              ; preds = %506, %502
+  %513 = load i32, ptr @num_rfcomm_channels, align 4
+  %.not.i239 = icmp eq i32 %513, 0
   br i1 %.not.i239, label %find_proto_by_channel.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %506
-  %508 = load ptr, ptr @rfcomm_channels, align 8
-  %wide.trip.count.i = zext i32 %507 to i64
-  br label %510
+.lr.ph.i:                                         ; preds = %512
+  %514 = load ptr, ptr @rfcomm_channels, align 8
+  %wide.trip.count.i = zext i32 %513 to i64
+  br label %516
 
-509:                                              ; preds = %510
+515:                                              ; preds = %516
   %indvars.iv.next.i241 = add nuw nsw i64 %indvars.iv.i240, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i241, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %find_proto_by_channel.exit.thread, label %510, !llvm.loop !6
+  br i1 %exitcond.not.i, label %find_proto_by_channel.exit.thread, label %516, !llvm.loop !6
 
-510:                                              ; preds = %509, %.lr.ph.i
-  %indvars.iv.i240 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i241, %509 ]
-  %511 = getelementptr %struct.uat_rfcomm_channels_t, ptr %508, i64 %indvars.iv.i240
-  %512 = load i32, ptr %511, align 8
-  %513 = icmp eq i32 %512, %235
-  br i1 %513, label %find_proto_by_channel.exit, label %509
+516:                                              ; preds = %515, %.lr.ph.i
+  %indvars.iv.i240 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i241, %515 ]
+  %517 = getelementptr %struct.uat_rfcomm_channels_t, ptr %514, i64 %indvars.iv.i240
+  %518 = load i32, ptr %517, align 8
+  %519 = icmp eq i32 %518, %235
+  br i1 %519, label %find_proto_by_channel.exit, label %515
 
-find_proto_by_channel.exit:                       ; preds = %510
-  %514 = getelementptr inbounds i8, ptr %511, i64 16
-  %515 = load ptr, ptr %514, align 8
-  %516 = load i32, ptr @rfcomm_channels_enabled, align 4
-  %517 = icmp ne i32 %516, 0
-  %518 = icmp ne ptr %515, null
-  %or.cond27 = select i1 %517, i1 %518, i1 false
-  br i1 %or.cond27, label %519, label %find_proto_by_channel.exit.thread
+find_proto_by_channel.exit:                       ; preds = %516
+  %520 = getelementptr inbounds i8, ptr %517, i64 16
+  %521 = load ptr, ptr %520, align 8
+  %522 = load i32, ptr @rfcomm_channels_enabled, align 4
+  %523 = icmp ne i32 %522, 0
+  %524 = icmp ne ptr %521, null
+  %or.cond27 = select i1 %523, i1 %524, i1 false
+  br i1 %or.cond27, label %525, label %find_proto_by_channel.exit.thread
 
-519:                                              ; preds = %find_proto_by_channel.exit
-  %520 = call i32 @call_dissector_with_data(ptr noundef nonnull %515, ptr noundef %459, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %461) #6
-  br label %522
+525:                                              ; preds = %find_proto_by_channel.exit
+  %526 = call i32 @call_dissector_with_data(ptr noundef nonnull %521, ptr noundef %459, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %461) #6
+  br label %528
 
-find_proto_by_channel.exit.thread:                ; preds = %509, %506, %find_proto_by_channel.exit
-  %521 = call i32 @call_data_dissector(ptr noundef %459, ptr noundef %1, ptr noundef %2) #6
-  br label %522
+find_proto_by_channel.exit.thread:                ; preds = %515, %512, %find_proto_by_channel.exit
+  %527 = call i32 @call_data_dissector(ptr noundef %459, ptr noundef %1, ptr noundef %2) #6
+  br label %528
 
-522:                                              ; preds = %492, %519, %find_proto_by_channel.exit.thread, %500, %455
-  %523 = load i32, ptr @hf_fcs, align 4
-  %524 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %523, ptr noundef %0, i32 noundef %457, i32 noundef 1, i32 noundef -2147483648) #6
-  %525 = add i32 %.1, 1
-  br label %526
+528:                                              ; preds = %498, %525, %find_proto_by_channel.exit.thread, %506, %455
+  %529 = load i32, ptr @hf_fcs, align 4
+  %530 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %529, ptr noundef %0, i32 noundef %457, i32 noundef 1, i32 noundef -2147483648) #6
+  %531 = add i32 %.1, 1
+  br label %532
 
-526:                                              ; preds = %4, %522, %320
-  %.0 = phi i32 [ %303, %320 ], [ %525, %522 ], [ 0, %4 ]
+532:                                              ; preds = %4, %528, %320
+  %.0 = phi i32 [ %303, %320 ], [ %531, %528 ], [ 0, %4 ]
   ret i32 %.0
 }
 

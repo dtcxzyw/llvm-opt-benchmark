@@ -5747,12 +5747,12 @@ entry:
   %output = alloca %"class.std::vector.107", align 8
   %dist = alloca %"class.absl::zipf_distribution.112", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp15 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp15 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 4
   %ref.tmp31 = alloca %"class.testing::Message", align 8
   %ref.tmp34 = alloca %"class.testing::internal::AssertHelper", align 8
   %dist43 = alloca %"class.absl::zipf_distribution.112", align 8
   %gtest_ar58 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp59 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp59 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 4
   %ref.tmp77 = alloca %"class.testing::Message", align 8
   %ref.tmp80 = alloca %"class.testing::internal::AssertHelper", align 8
   %data_.i = getelementptr inbounds i8, ptr %urbg, i64 8
@@ -5782,13 +5782,19 @@ invoke.cont4:                                     ; preds = %entry
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   store i32 2147483647, ptr %dist, align 8
   %q_.i.i = getelementptr inbounds i8, ptr %dist, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i.i, align 8
+  %v_.i.i = getelementptr inbounds i8, ptr %dist, i64 16
+  store double 1.000000e+00, ptr %v_.i.i, align 8
   %one_minus_q_.i.i = getelementptr inbounds i8, ptr %dist, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i.i, align 8
   %one_minus_q_inv_.i.i = getelementptr inbounds i8, ptr %dist, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBDFFFFFFFFE00000>, ptr %one_minus_q_inv_.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i.i, align 8
+  %hxm_.i.i = getelementptr inbounds i8, ptr %dist, i64 48
+  store double 0xBDFFFFFFFFE00000, ptr %hxm_.i.i, align 8
   %hx0_minus_hxm_.i.i = getelementptr inbounds i8, ptr %dist, i64 56
   store double 0xBFFAAAAAAA8AAAAA, ptr %hx0_minus_hxm_.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i.i, align 8
+  %s_.i.i = getelementptr inbounds i8, ptr %dist, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i.i, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont4, %call.i.i.i.noexc
@@ -5804,11 +5810,23 @@ call.i.i.i.noexc:                                 ; preds = %for.body.i
   br i1 %cmp.i.not.i, label %invoke.cont28, label %for.body.i, !llvm.loop !69
 
 invoke.cont28:                                    ; preds = %call.i.i.i.noexc
-  store <4 x i32> <i32 0, i32 0, i32 47, i32 7>, ptr %ref.tmp15, align 16
+  store i32 0, ptr %ref.tmp15, align 4
+  %agg.tmp1612.sroa.4.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 4
+  store i32 0, ptr %agg.tmp1612.sroa.4.0.ref.tmp15.sroa_idx, align 4
+  %agg.tmp1612.sroa.5.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
+  store i32 47, ptr %agg.tmp1612.sroa.5.0.ref.tmp15.sroa_idx, align 4
+  %agg.tmp1612.sroa.6.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 12
+  store i32 7, ptr %agg.tmp1612.sroa.6.0.ref.tmp15.sroa_idx, align 4
   %agg.tmp1612.sroa.7.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
-  store <4 x i32> <i32 0, i32 6, i32 3, i32 0>, ptr %agg.tmp1612.sroa.7.0.ref.tmp15.sroa_idx, align 16
+  store i32 0, ptr %agg.tmp1612.sroa.7.0.ref.tmp15.sroa_idx, align 4
+  %agg.tmp1612.sroa.8.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 20
+  store i32 6, ptr %agg.tmp1612.sroa.8.0.ref.tmp15.sroa_idx, align 4
+  %agg.tmp1612.sroa.9.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 24
+  store i32 3, ptr %agg.tmp1612.sroa.9.0.ref.tmp15.sroa_idx, align 4
+  %agg.tmp1612.sroa.10.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 28
+  store i32 0, ptr %agg.tmp1612.sroa.10.0.ref.tmp15.sroa_idx, align 4
   %agg.tmp1612.sroa.11.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 32
-  store i32 0, ptr %agg.tmp1612.sroa.11.0.ref.tmp15.sroa_idx, align 16
+  store i32 0, ptr %agg.tmp1612.sroa.11.0.ref.tmp15.sroa_idx, align 4
   %agg.tmp1612.sroa.12.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 36
   store i32 10031, ptr %agg.tmp1612.sroa.12.0.ref.tmp15.sroa_idx, align 4
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJiiiiiiiiiiEEEEEclISt6vectorIiSaIiEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp15, ptr noundef nonnull @.str.62, ptr noundef nonnull align 8 dereferenceable(24) %output)
@@ -5947,9 +5965,15 @@ call.i.i.i.noexc25:                               ; preds = %for.body.i21
   br i1 %cmp.i.not.i24, label %invoke.cont72, label %for.body.i21, !llvm.loop !70
 
 invoke.cont72:                                    ; preds = %call.i.i.i.noexc25, %invoke.cont45
-  store <4 x i32> <i32 0, i32 3, i32 1, i32 0>, ptr %ref.tmp59, align 16
+  store i32 0, ptr %ref.tmp59, align 4
+  %agg.tmp6036.sroa.4.0.ref.tmp59.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp59, i64 4
+  store i32 3, ptr %agg.tmp6036.sroa.4.0.ref.tmp59.sroa_idx, align 4
+  %agg.tmp6036.sroa.5.0.ref.tmp59.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp59, i64 8
+  store i32 1, ptr %agg.tmp6036.sroa.5.0.ref.tmp59.sroa_idx, align 4
+  %agg.tmp6036.sroa.6.0.ref.tmp59.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp59, i64 12
+  store i32 0, ptr %agg.tmp6036.sroa.6.0.ref.tmp59.sroa_idx, align 4
   %agg.tmp6036.sroa.7.0.ref.tmp59.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp59, i64 16
-  store i32 1, ptr %agg.tmp6036.sroa.7.0.ref.tmp59.sroa_idx, align 16
+  store i32 1, ptr %agg.tmp6036.sroa.7.0.ref.tmp59.sroa_idx, align 4
   %agg.tmp6036.sroa.8.0.ref.tmp59.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp59, i64 20
   %agg.tmp6036.sroa.12.0.ref.tmp59.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp59, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp6036.sroa.8.0.ref.tmp59.sroa_idx, i8 0, i64 16, i1 false)
@@ -10156,13 +10180,19 @@ entry:
   %ref.tmp200 = alloca %"class.testing::internal::AssertHelper", align 8
   store i32 2147483647, ptr %dist, align 8
   %q_.i.i = getelementptr inbounds i8, ptr %dist, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i.i, align 8
+  store double 2.000000e+00, ptr %q_.i.i, align 8
+  %v_.i.i = getelementptr inbounds i8, ptr %dist, i64 16
+  store double 1.000000e+00, ptr %v_.i.i, align 8
   %one_minus_q_.i.i = getelementptr inbounds i8, ptr %dist, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i.i, align 8
   %one_minus_q_inv_.i.i = getelementptr inbounds i8, ptr %dist, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBDFFFFFFFFE00000>, ptr %one_minus_q_inv_.i.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i.i, align 8
+  %hxm_.i.i = getelementptr inbounds i8, ptr %dist, i64 48
+  store double 0xBDFFFFFFFFE00000, ptr %hxm_.i.i, align 8
   %hx0_minus_hxm_.i.i = getelementptr inbounds i8, ptr %dist, i64 56
   store double 0xBFFAAAAAAA8AAAAA, ptr %hx0_minus_hxm_.i.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i.i, align 8
+  %s_.i.i = getelementptr inbounds i8, ptr %dist, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i.i, align 8
   store i64 -1, ptr %kInputs, align 16
   %second.i = getelementptr inbounds i8, ptr %kInputs, i64 8
   store i32 0, ptr %second.i, align 8
@@ -11124,23 +11154,35 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i32 2147483647, ptr %ref.tmp2, align 8
   %q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i, align 8
+  store double 2.000000e+00, ptr %q_.i, align 8
+  %v_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  store double 1.000000e+00, ptr %v_.i, align 8
   %one_minus_q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i, align 8
   %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBDFFFFFFFFE00000>, ptr %one_minus_q_inv_.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i, align 8
+  %hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
+  store double 0xBDFFFFFFFFE00000, ptr %hxm_.i, align 8
   %hx0_minus_hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store double 0xBFFAAAAAAA8AAAAA, ptr %hx0_minus_hxm_.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i, align 8
+  %s_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i, align 8
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
   store i32 32, ptr %arrayinit.element, align 8
   %q_.i63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i63, align 8
+  store double 2.000000e+00, ptr %q_.i63, align 8
+  %v_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
+  store double 1.000000e+00, ptr %v_.i64, align 8
   %one_minus_q_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store double -1.000000e+00, ptr %one_minus_q_.i65, align 8
   %one_minus_q_inv_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
-  store <2 x double> <double -1.000000e+00, double 0xBF9E9131ABF0B767>, ptr %one_minus_q_inv_.i66, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i66, align 8
+  %hxm_.i67 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
+  store double 0xBF9E9131ABF0B767, ptr %hxm_.i67, align 8
   %hx0_minus_hxm_.i70 = getelementptr inbounds i8, ptr %ref.tmp2, i64 120
   store double 0xBFFA3065E3FAE7CC, ptr %hx0_minus_hxm_.i70, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i65, align 8
+  %s_.i71 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
+  store double 0x3FDD89D89D89D898, ptr %s_.i71, align 8
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
   call void @_ZN4absl17zipf_distributionIiE10param_typeC2Eidd(ptr noundef nonnull align 8 dereferenceable(64) %arrayinit.element3, i32 noundef 100, double noundef 3.000000e+00, double noundef 2.000000e+00)
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 192
@@ -11148,13 +11190,19 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 256
   store i32 1073741823, ptr %arrayinit.element6, align 8
   %q_.i72 = getelementptr inbounds i8, ptr %ref.tmp2, i64 264
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i72, align 8
+  store double 2.000000e+00, ptr %q_.i72, align 8
+  %v_.i73 = getelementptr inbounds i8, ptr %ref.tmp2, i64 272
+  store double 1.000000e+00, ptr %v_.i73, align 8
   %one_minus_q_.i74 = getelementptr inbounds i8, ptr %ref.tmp2, i64 280
+  store double -1.000000e+00, ptr %one_minus_q_.i74, align 8
   %one_minus_q_inv_.i75 = getelementptr inbounds i8, ptr %ref.tmp2, i64 296
-  store <2 x double> <double -1.000000e+00, double 0xBE0FFFFFFFC00000>, ptr %one_minus_q_inv_.i75, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i75, align 8
+  %hxm_.i76 = getelementptr inbounds i8, ptr %ref.tmp2, i64 304
+  store double 0xBE0FFFFFFFC00000, ptr %hxm_.i76, align 8
   %hx0_minus_hxm_.i79 = getelementptr inbounds i8, ptr %ref.tmp2, i64 312
   store double 0xBFFAAAAAAA6AAAAA, ptr %hx0_minus_hxm_.i79, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i74, align 8
+  %s_.i80 = getelementptr inbounds i8, ptr %ref.tmp2, i64 288
+  store double 0x3FDD89D89D89D898, ptr %s_.i80, align 8
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %q_.i.i = getelementptr inbounds i8, ptr %before, i64 8
   %message_.i.i94 = getelementptr inbounds i8, ptr %gtest_ar27, i64 8
@@ -16144,23 +16192,35 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i8 127, ptr %ref.tmp2, align 8
   %q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i, align 8
+  store double 2.000000e+00, ptr %q_.i, align 8
+  %v_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  store double 1.000000e+00, ptr %v_.i, align 8
   %one_minus_q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i, align 8
   %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF7FE01FE01FE020>, ptr %one_minus_q_inv_.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i, align 8
+  %hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
+  store double 0xBF7FE01FE01FE020, ptr %hxm_.i, align 8
   %hx0_minus_hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store double 0xBFFA8ACA8ACA8ACA, ptr %hx0_minus_hxm_.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i, align 8
+  %s_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i, align 8
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
   store i8 32, ptr %arrayinit.element, align 8
   %q_.i62 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i62, align 8
+  store double 2.000000e+00, ptr %q_.i62, align 8
+  %v_.i63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
+  store double 1.000000e+00, ptr %v_.i63, align 8
   %one_minus_q_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store double -1.000000e+00, ptr %one_minus_q_.i64, align 8
   %one_minus_q_inv_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
-  store <2 x double> <double -1.000000e+00, double 0xBF9E9131ABF0B767>, ptr %one_minus_q_inv_.i65, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i65, align 8
+  %hxm_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
+  store double 0xBF9E9131ABF0B767, ptr %hxm_.i66, align 8
   %hx0_minus_hxm_.i69 = getelementptr inbounds i8, ptr %ref.tmp2, i64 120
   store double 0xBFFA3065E3FAE7CC, ptr %hx0_minus_hxm_.i69, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i64, align 8
+  %s_.i70 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
+  store double 0x3FDD89D89D89D898, ptr %s_.i70, align 8
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
   call void @_ZN4absl17zipf_distributionIaE10param_typeC2Eadd(ptr noundef nonnull align 8 dereferenceable(64) %arrayinit.element3, i8 noundef signext 100, double noundef 3.000000e+00, double noundef 2.000000e+00)
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 192
@@ -16168,13 +16228,19 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 256
   store i8 63, ptr %arrayinit.element6, align 8
   %q_.i71 = getelementptr inbounds i8, ptr %ref.tmp2, i64 264
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i71, align 8
+  store double 2.000000e+00, ptr %q_.i71, align 8
+  %v_.i72 = getelementptr inbounds i8, ptr %ref.tmp2, i64 272
+  store double 1.000000e+00, ptr %v_.i72, align 8
   %one_minus_q_.i73 = getelementptr inbounds i8, ptr %ref.tmp2, i64 280
+  store double -1.000000e+00, ptr %one_minus_q_.i73, align 8
   %one_minus_q_inv_.i74 = getelementptr inbounds i8, ptr %ref.tmp2, i64 296
-  store <2 x double> <double -1.000000e+00, double 0xBF8FC07F01FC07F0>, ptr %one_minus_q_inv_.i74, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i74, align 8
+  %hxm_.i75 = getelementptr inbounds i8, ptr %ref.tmp2, i64 304
+  store double 0xBF8FC07F01FC07F0, ptr %hxm_.i75, align 8
   %hx0_minus_hxm_.i78 = getelementptr inbounds i8, ptr %ref.tmp2, i64 312
   store double 0xBFFA6B29ACA6B29A, ptr %hx0_minus_hxm_.i78, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i73, align 8
+  %s_.i79 = getelementptr inbounds i8, ptr %ref.tmp2, i64 288
+  store double 0x3FDD89D89D89D898, ptr %s_.i79, align 8
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %q_.i.i = getelementptr inbounds i8, ptr %before, i64 8
   %message_.i.i93 = getelementptr inbounds i8, ptr %gtest_ar28, i64 8
@@ -22579,23 +22645,35 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i16 32767, ptr %ref.tmp2, align 8
   %q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i, align 8
+  store double 2.000000e+00, ptr %q_.i, align 8
+  %v_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  store double 1.000000e+00, ptr %v_.i, align 8
   %one_minus_q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i, align 8
   %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBEFFFFE0001FFFE0>, ptr %one_minus_q_inv_.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i, align 8
+  %hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
+  store double 0xBEFFFFE0001FFFE0, ptr %hxm_.i, align 8
   %hx0_minus_hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store double 0xBFFAAA8AAACAAA8A, ptr %hx0_minus_hxm_.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i, align 8
+  %s_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i, align 8
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
   store i16 32, ptr %arrayinit.element, align 8
   %q_.i62 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i62, align 8
+  store double 2.000000e+00, ptr %q_.i62, align 8
+  %v_.i63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
+  store double 1.000000e+00, ptr %v_.i63, align 8
   %one_minus_q_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store double -1.000000e+00, ptr %one_minus_q_.i64, align 8
   %one_minus_q_inv_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
-  store <2 x double> <double -1.000000e+00, double 0xBF9E9131ABF0B767>, ptr %one_minus_q_inv_.i65, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i65, align 8
+  %hxm_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
+  store double 0xBF9E9131ABF0B767, ptr %hxm_.i66, align 8
   %hx0_minus_hxm_.i69 = getelementptr inbounds i8, ptr %ref.tmp2, i64 120
   store double 0xBFFA3065E3FAE7CC, ptr %hx0_minus_hxm_.i69, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i64, align 8
+  %s_.i70 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
+  store double 0x3FDD89D89D89D898, ptr %s_.i70, align 8
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
   call void @_ZN4absl17zipf_distributionIsE10param_typeC2Esdd(ptr noundef nonnull align 8 dereferenceable(64) %arrayinit.element3, i16 noundef signext 100, double noundef 3.000000e+00, double noundef 2.000000e+00)
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 192
@@ -22603,13 +22681,19 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 256
   store i16 16383, ptr %arrayinit.element6, align 8
   %q_.i71 = getelementptr inbounds i8, ptr %ref.tmp2, i64 264
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i71, align 8
+  store double 2.000000e+00, ptr %q_.i71, align 8
+  %v_.i72 = getelementptr inbounds i8, ptr %ref.tmp2, i64 272
+  store double 1.000000e+00, ptr %v_.i72, align 8
   %one_minus_q_.i73 = getelementptr inbounds i8, ptr %ref.tmp2, i64 280
+  store double -1.000000e+00, ptr %one_minus_q_.i73, align 8
   %one_minus_q_inv_.i74 = getelementptr inbounds i8, ptr %ref.tmp2, i64 296
-  store <2 x double> <double -1.000000e+00, double 0xBF0FFFC0007FFF00>, ptr %one_minus_q_inv_.i74, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i74, align 8
+  %hxm_.i75 = getelementptr inbounds i8, ptr %ref.tmp2, i64 304
+  store double 0xBF0FFFC0007FFF00, ptr %hxm_.i75, align 8
   %hx0_minus_hxm_.i78 = getelementptr inbounds i8, ptr %ref.tmp2, i64 312
   store double 0xBFFAAA6AAB2AA9AA, ptr %hx0_minus_hxm_.i78, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i73, align 8
+  %s_.i79 = getelementptr inbounds i8, ptr %ref.tmp2, i64 288
+  store double 0x3FDD89D89D89D898, ptr %s_.i79, align 8
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %q_.i.i = getelementptr inbounds i8, ptr %before, i64 8
   %message_.i.i93 = getelementptr inbounds i8, ptr %gtest_ar28, i64 8
@@ -27075,23 +27159,35 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i64 9223372036854775807, ptr %ref.tmp2, align 8
   %q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i, align 8
+  store double 2.000000e+00, ptr %q_.i, align 8
+  %v_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  store double 1.000000e+00, ptr %v_.i, align 8
   %one_minus_q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i, align 8
   %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBC00000000000000>, ptr %one_minus_q_inv_.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i, align 8
+  %hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
+  store double 0xBC00000000000000, ptr %hxm_.i, align 8
   %hx0_minus_hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store double 0xBFFAAAAAAAAAAAAA, ptr %hx0_minus_hxm_.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i, align 8
+  %s_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i, align 8
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
   store i64 32, ptr %arrayinit.element, align 8
   %q_.i63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i63, align 8
+  store double 2.000000e+00, ptr %q_.i63, align 8
+  %v_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
+  store double 1.000000e+00, ptr %v_.i64, align 8
   %one_minus_q_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store double -1.000000e+00, ptr %one_minus_q_.i65, align 8
   %one_minus_q_inv_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
-  store <2 x double> <double -1.000000e+00, double 0xBF9E9131ABF0B767>, ptr %one_minus_q_inv_.i66, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i66, align 8
+  %hxm_.i67 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
+  store double 0xBF9E9131ABF0B767, ptr %hxm_.i67, align 8
   %hx0_minus_hxm_.i70 = getelementptr inbounds i8, ptr %ref.tmp2, i64 120
   store double 0xBFFA3065E3FAE7CC, ptr %hx0_minus_hxm_.i70, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i65, align 8
+  %s_.i71 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
+  store double 0x3FDD89D89D89D898, ptr %s_.i71, align 8
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
   call void @_ZN4absl17zipf_distributionIlE10param_typeC2Eldd(ptr noundef nonnull align 8 dereferenceable(64) %arrayinit.element3, i64 noundef 100, double noundef 3.000000e+00, double noundef 2.000000e+00)
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 192
@@ -27099,13 +27195,19 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 256
   store i64 4611686018427387903, ptr %arrayinit.element6, align 8
   %q_.i72 = getelementptr inbounds i8, ptr %ref.tmp2, i64 264
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i72, align 8
+  store double 2.000000e+00, ptr %q_.i72, align 8
+  %v_.i73 = getelementptr inbounds i8, ptr %ref.tmp2, i64 272
+  store double 1.000000e+00, ptr %v_.i73, align 8
   %one_minus_q_.i74 = getelementptr inbounds i8, ptr %ref.tmp2, i64 280
+  store double -1.000000e+00, ptr %one_minus_q_.i74, align 8
   %one_minus_q_inv_.i75 = getelementptr inbounds i8, ptr %ref.tmp2, i64 296
-  store <2 x double> <double -1.000000e+00, double 0xBC10000000000000>, ptr %one_minus_q_inv_.i75, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i75, align 8
+  %hxm_.i76 = getelementptr inbounds i8, ptr %ref.tmp2, i64 304
+  store double 0xBC10000000000000, ptr %hxm_.i76, align 8
   %hx0_minus_hxm_.i79 = getelementptr inbounds i8, ptr %ref.tmp2, i64 312
   store double 0xBFFAAAAAAAAAAAAA, ptr %hx0_minus_hxm_.i79, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i74, align 8
+  %s_.i80 = getelementptr inbounds i8, ptr %ref.tmp2, i64 288
+  store double 0x3FDD89D89D89D898, ptr %s_.i80, align 8
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %q_.i.i = getelementptr inbounds i8, ptr %before, i64 8
   %message_.i.i94 = getelementptr inbounds i8, ptr %gtest_ar27, i64 8
@@ -31570,23 +31672,35 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i8 -1, ptr %ref.tmp2, align 8
   %q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i, align 8
+  store double 2.000000e+00, ptr %q_.i, align 8
+  %v_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  store double 1.000000e+00, ptr %v_.i, align 8
   %one_minus_q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i, align 8
   %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBF6FF007FC01FF00>, ptr %one_minus_q_inv_.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i, align 8
+  %hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
+  store double 0xBF6FF007FC01FF00, ptr %hxm_.i, align 8
   %hx0_minus_hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store double 0xBFFA9AB2A6ACA9AA, ptr %hx0_minus_hxm_.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i, align 8
+  %s_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i, align 8
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
   store i8 32, ptr %arrayinit.element, align 8
   %q_.i62 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i62, align 8
+  store double 2.000000e+00, ptr %q_.i62, align 8
+  %v_.i63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
+  store double 1.000000e+00, ptr %v_.i63, align 8
   %one_minus_q_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store double -1.000000e+00, ptr %one_minus_q_.i64, align 8
   %one_minus_q_inv_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
-  store <2 x double> <double -1.000000e+00, double 0xBF9E9131ABF0B767>, ptr %one_minus_q_inv_.i65, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i65, align 8
+  %hxm_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
+  store double 0xBF9E9131ABF0B767, ptr %hxm_.i66, align 8
   %hx0_minus_hxm_.i69 = getelementptr inbounds i8, ptr %ref.tmp2, i64 120
   store double 0xBFFA3065E3FAE7CC, ptr %hx0_minus_hxm_.i69, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i64, align 8
+  %s_.i70 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
+  store double 0x3FDD89D89D89D898, ptr %s_.i70, align 8
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
   call void @_ZN4absl17zipf_distributionIhE10param_typeC2Ehdd(ptr noundef nonnull align 8 dereferenceable(64) %arrayinit.element3, i8 noundef zeroext 100, double noundef 3.000000e+00, double noundef 2.000000e+00)
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 192
@@ -31594,13 +31708,19 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 256
   store i8 127, ptr %arrayinit.element6, align 8
   %q_.i71 = getelementptr inbounds i8, ptr %ref.tmp2, i64 264
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i71, align 8
+  store double 2.000000e+00, ptr %q_.i71, align 8
+  %v_.i72 = getelementptr inbounds i8, ptr %ref.tmp2, i64 272
+  store double 1.000000e+00, ptr %v_.i72, align 8
   %one_minus_q_.i73 = getelementptr inbounds i8, ptr %ref.tmp2, i64 280
+  store double -1.000000e+00, ptr %one_minus_q_.i73, align 8
   %one_minus_q_inv_.i74 = getelementptr inbounds i8, ptr %ref.tmp2, i64 296
-  store <2 x double> <double -1.000000e+00, double 0xBF7FE01FE01FE020>, ptr %one_minus_q_inv_.i74, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i74, align 8
+  %hxm_.i75 = getelementptr inbounds i8, ptr %ref.tmp2, i64 304
+  store double 0xBF7FE01FE01FE020, ptr %hxm_.i75, align 8
   %hx0_minus_hxm_.i78 = getelementptr inbounds i8, ptr %ref.tmp2, i64 312
   store double 0xBFFA8ACA8ACA8ACA, ptr %hx0_minus_hxm_.i78, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i73, align 8
+  %s_.i79 = getelementptr inbounds i8, ptr %ref.tmp2, i64 288
+  store double 0x3FDD89D89D89D898, ptr %s_.i79, align 8
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %q_.i.i = getelementptr inbounds i8, ptr %before, i64 8
   %message_.i.i93 = getelementptr inbounds i8, ptr %gtest_ar28, i64 8
@@ -36056,23 +36176,35 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i16 -1, ptr %ref.tmp2, align 8
   %q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i, align 8
+  store double 2.000000e+00, ptr %q_.i, align 8
+  %v_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  store double 1.000000e+00, ptr %v_.i, align 8
   %one_minus_q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i, align 8
   %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBEEFFFF00007FFFC>, ptr %one_minus_q_inv_.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i, align 8
+  %hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
+  store double 0xBEEFFFF00007FFFC, ptr %hxm_.i, align 8
   %hx0_minus_hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store double 0xBFFAAA9AAAB2AAA6, ptr %hx0_minus_hxm_.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i, align 8
+  %s_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i, align 8
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
   store i16 32, ptr %arrayinit.element, align 8
   %q_.i62 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i62, align 8
+  store double 2.000000e+00, ptr %q_.i62, align 8
+  %v_.i63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
+  store double 1.000000e+00, ptr %v_.i63, align 8
   %one_minus_q_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store double -1.000000e+00, ptr %one_minus_q_.i64, align 8
   %one_minus_q_inv_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
-  store <2 x double> <double -1.000000e+00, double 0xBF9E9131ABF0B767>, ptr %one_minus_q_inv_.i65, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i65, align 8
+  %hxm_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
+  store double 0xBF9E9131ABF0B767, ptr %hxm_.i66, align 8
   %hx0_minus_hxm_.i69 = getelementptr inbounds i8, ptr %ref.tmp2, i64 120
   store double 0xBFFA3065E3FAE7CC, ptr %hx0_minus_hxm_.i69, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i64, align 8
+  %s_.i70 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
+  store double 0x3FDD89D89D89D898, ptr %s_.i70, align 8
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
   call void @_ZN4absl17zipf_distributionItE10param_typeC2Etdd(ptr noundef nonnull align 8 dereferenceable(64) %arrayinit.element3, i16 noundef zeroext 100, double noundef 3.000000e+00, double noundef 2.000000e+00)
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 192
@@ -36080,13 +36212,19 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 256
   store i16 32767, ptr %arrayinit.element6, align 8
   %q_.i71 = getelementptr inbounds i8, ptr %ref.tmp2, i64 264
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i71, align 8
+  store double 2.000000e+00, ptr %q_.i71, align 8
+  %v_.i72 = getelementptr inbounds i8, ptr %ref.tmp2, i64 272
+  store double 1.000000e+00, ptr %v_.i72, align 8
   %one_minus_q_.i73 = getelementptr inbounds i8, ptr %ref.tmp2, i64 280
+  store double -1.000000e+00, ptr %one_minus_q_.i73, align 8
   %one_minus_q_inv_.i74 = getelementptr inbounds i8, ptr %ref.tmp2, i64 296
-  store <2 x double> <double -1.000000e+00, double 0xBEFFFFE0001FFFE0>, ptr %one_minus_q_inv_.i74, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i74, align 8
+  %hxm_.i75 = getelementptr inbounds i8, ptr %ref.tmp2, i64 304
+  store double 0xBEFFFFE0001FFFE0, ptr %hxm_.i75, align 8
   %hx0_minus_hxm_.i78 = getelementptr inbounds i8, ptr %ref.tmp2, i64 312
   store double 0xBFFAAA8AAACAAA8A, ptr %hx0_minus_hxm_.i78, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i73, align 8
+  %s_.i79 = getelementptr inbounds i8, ptr %ref.tmp2, i64 288
+  store double 0x3FDD89D89D89D898, ptr %s_.i79, align 8
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %q_.i.i = getelementptr inbounds i8, ptr %before, i64 8
   %message_.i.i93 = getelementptr inbounds i8, ptr %gtest_ar28, i64 8
@@ -40542,23 +40680,35 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i32 -1, ptr %ref.tmp2, align 8
   %q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i, align 8
+  store double 2.000000e+00, ptr %q_.i, align 8
+  %v_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  store double 1.000000e+00, ptr %v_.i, align 8
   %one_minus_q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i, align 8
   %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBDEFFFFFFFF00000>, ptr %one_minus_q_inv_.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i, align 8
+  %hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
+  store double 0xBDEFFFFFFFF00000, ptr %hxm_.i, align 8
   %hx0_minus_hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store double 0xBFFAAAAAAA9AAAAA, ptr %hx0_minus_hxm_.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i, align 8
+  %s_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i, align 8
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
   store i32 32, ptr %arrayinit.element, align 8
   %q_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i64, align 8
+  store double 2.000000e+00, ptr %q_.i64, align 8
+  %v_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
+  store double 1.000000e+00, ptr %v_.i65, align 8
   %one_minus_q_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store double -1.000000e+00, ptr %one_minus_q_.i66, align 8
   %one_minus_q_inv_.i67 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
-  store <2 x double> <double -1.000000e+00, double 0xBF9E9131ABF0B767>, ptr %one_minus_q_inv_.i67, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i67, align 8
+  %hxm_.i68 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
+  store double 0xBF9E9131ABF0B767, ptr %hxm_.i68, align 8
   %hx0_minus_hxm_.i71 = getelementptr inbounds i8, ptr %ref.tmp2, i64 120
   store double 0xBFFA3065E3FAE7CC, ptr %hx0_minus_hxm_.i71, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i66, align 8
+  %s_.i72 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
+  store double 0x3FDD89D89D89D898, ptr %s_.i72, align 8
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
   call void @_ZN4absl17zipf_distributionIjE10param_typeC2Ejdd(ptr noundef nonnull align 8 dereferenceable(64) %arrayinit.element3, i32 noundef 100, double noundef 3.000000e+00, double noundef 2.000000e+00)
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 192
@@ -40566,13 +40716,19 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 256
   store i32 2147483647, ptr %arrayinit.element6, align 8
   %q_.i73 = getelementptr inbounds i8, ptr %ref.tmp2, i64 264
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i73, align 8
+  store double 2.000000e+00, ptr %q_.i73, align 8
+  %v_.i74 = getelementptr inbounds i8, ptr %ref.tmp2, i64 272
+  store double 1.000000e+00, ptr %v_.i74, align 8
   %one_minus_q_.i75 = getelementptr inbounds i8, ptr %ref.tmp2, i64 280
+  store double -1.000000e+00, ptr %one_minus_q_.i75, align 8
   %one_minus_q_inv_.i76 = getelementptr inbounds i8, ptr %ref.tmp2, i64 296
-  store <2 x double> <double -1.000000e+00, double 0xBDFFFFFFFFE00000>, ptr %one_minus_q_inv_.i76, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i76, align 8
+  %hxm_.i77 = getelementptr inbounds i8, ptr %ref.tmp2, i64 304
+  store double 0xBDFFFFFFFFE00000, ptr %hxm_.i77, align 8
   %hx0_minus_hxm_.i80 = getelementptr inbounds i8, ptr %ref.tmp2, i64 312
   store double 0xBFFAAAAAAA8AAAAA, ptr %hx0_minus_hxm_.i80, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i75, align 8
+  %s_.i81 = getelementptr inbounds i8, ptr %ref.tmp2, i64 288
+  store double 0x3FDD89D89D89D898, ptr %s_.i81, align 8
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %q_.i.i = getelementptr inbounds i8, ptr %before, i64 8
   %message_.i.i95 = getelementptr inbounds i8, ptr %gtest_ar27, i64 8
@@ -45028,23 +45184,35 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
   store i64 -1, ptr %ref.tmp2, align 8
   %q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i, align 8
+  store double 2.000000e+00, ptr %q_.i, align 8
+  %v_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  store double 1.000000e+00, ptr %v_.i, align 8
   %one_minus_q_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
+  store double -1.000000e+00, ptr %one_minus_q_.i, align 8
   %one_minus_q_inv_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
-  store <2 x double> <double -1.000000e+00, double 0xBBF0000000000001>, ptr %one_minus_q_inv_.i, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i, align 8
+  %hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
+  store double 0xBBF0000000000001, ptr %hxm_.i, align 8
   %hx0_minus_hxm_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
   store double 0xBFFAAAAAAAAAAAAA, ptr %hx0_minus_hxm_.i, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i, align 8
+  %s_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
+  store double 0x3FDD89D89D89D898, ptr %s_.i, align 8
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
   store i64 32, ptr %arrayinit.element, align 8
   %q_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i64, align 8
+  store double 2.000000e+00, ptr %q_.i64, align 8
+  %v_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
+  store double 1.000000e+00, ptr %v_.i65, align 8
   %one_minus_q_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store double -1.000000e+00, ptr %one_minus_q_.i66, align 8
   %one_minus_q_inv_.i67 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
-  store <2 x double> <double -1.000000e+00, double 0xBF9E9131ABF0B767>, ptr %one_minus_q_inv_.i67, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i67, align 8
+  %hxm_.i68 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
+  store double 0xBF9E9131ABF0B767, ptr %hxm_.i68, align 8
   %hx0_minus_hxm_.i71 = getelementptr inbounds i8, ptr %ref.tmp2, i64 120
   store double 0xBFFA3065E3FAE7CC, ptr %hx0_minus_hxm_.i71, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i66, align 8
+  %s_.i72 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
+  store double 0x3FDD89D89D89D898, ptr %s_.i72, align 8
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
   call void @_ZN4absl17zipf_distributionImE10param_typeC2Emdd(ptr noundef nonnull align 8 dereferenceable(64) %arrayinit.element3, i64 noundef 100, double noundef 3.000000e+00, double noundef 2.000000e+00)
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 192
@@ -45052,13 +45220,19 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 256
   store i64 9223372036854775807, ptr %arrayinit.element6, align 8
   %q_.i73 = getelementptr inbounds i8, ptr %ref.tmp2, i64 264
-  store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %q_.i73, align 8
+  store double 2.000000e+00, ptr %q_.i73, align 8
+  %v_.i74 = getelementptr inbounds i8, ptr %ref.tmp2, i64 272
+  store double 1.000000e+00, ptr %v_.i74, align 8
   %one_minus_q_.i75 = getelementptr inbounds i8, ptr %ref.tmp2, i64 280
+  store double -1.000000e+00, ptr %one_minus_q_.i75, align 8
   %one_minus_q_inv_.i76 = getelementptr inbounds i8, ptr %ref.tmp2, i64 296
-  store <2 x double> <double -1.000000e+00, double 0xBC00000000000000>, ptr %one_minus_q_inv_.i76, align 8
+  store double -1.000000e+00, ptr %one_minus_q_inv_.i76, align 8
+  %hxm_.i77 = getelementptr inbounds i8, ptr %ref.tmp2, i64 304
+  store double 0xBC00000000000000, ptr %hxm_.i77, align 8
   %hx0_minus_hxm_.i80 = getelementptr inbounds i8, ptr %ref.tmp2, i64 312
   store double 0xBFFAAAAAAAAAAAAA, ptr %hx0_minus_hxm_.i80, align 8
-  store <2 x double> <double -1.000000e+00, double 0x3FDD89D89D89D898>, ptr %one_minus_q_.i75, align 8
+  %s_.i81 = getelementptr inbounds i8, ptr %ref.tmp2, i64 288
+  store double 0x3FDD89D89D89D898, ptr %s_.i81, align 8
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %q_.i.i = getelementptr inbounds i8, ptr %before, i64 8
   %message_.i.i95 = getelementptr inbounds i8, ptr %gtest_ar27, i64 8
@@ -51891,7 +52065,7 @@ ehcleanup10.i:                                    ; preds = %ehcleanup.i, %lpad3
 
 common.resume:                                    ; preds = %lpad.i.i85, %lpad.i80, %ehcleanup16.i88, %lpad.i.i68, %lpad.i63, %ehcleanup16.i70, %lpad.i.i43, %lpad.i40, %ehcleanup16.i, %lpad.i.i.i, %lpad.i.i8, %ehcleanup21.i.i, %lpad.i.i, %lpad.i, %ehcleanup10.i
   %ref.tmp1.i78.sink = phi ptr [ %ref.tmp2.i, %ehcleanup10.i ], [ %ref.tmp2.i, %lpad.i ], [ %ref.tmp2.i, %lpad.i.i ], [ %ref.tmp2.i.i7, %ehcleanup21.i.i ], [ %ref.tmp2.i.i7, %lpad.i.i8 ], [ %ref.tmp2.i.i7, %lpad.i.i.i ], [ %ref.tmp2.i39, %ehcleanup16.i ], [ %ref.tmp2.i39, %lpad.i40 ], [ %ref.tmp2.i39, %lpad.i.i43 ], [ %ref.tmp1.i62, %ehcleanup16.i70 ], [ %ref.tmp1.i62, %lpad.i63 ], [ %ref.tmp1.i62, %lpad.i.i68 ], [ %ref.tmp1.i78, %ehcleanup16.i88 ], [ %ref.tmp1.i78, %lpad.i80 ], [ %ref.tmp1.i78, %lpad.i.i85 ]
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup10.i ], [ %64, %lpad.i ], [ %1, %lpad.i.i ], [ %.pn.pn.pn.pn.i.i13, %ehcleanup21.i.i ], [ %95, %lpad.i.i8 ], [ %67, %lpad.i.i.i ], [ %.pn.pn.pn.i46, %ehcleanup16.i ], [ %110, %lpad.i40 ], [ %101, %lpad.i.i43 ], [ %.pn.i71, %ehcleanup16.i70 ], [ %116, %lpad.i63 ], [ %115, %lpad.i.i68 ], [ %.pn.i89, %ehcleanup16.i88 ], [ %120, %lpad.i80 ], [ %119, %lpad.i.i85 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup10.i ], [ %64, %lpad.i ], [ %1, %lpad.i.i ], [ %.pn.pn.pn.pn.i.i13, %ehcleanup21.i.i ], [ %96, %lpad.i.i8 ], [ %67, %lpad.i.i.i ], [ %.pn.pn.pn.i46, %ehcleanup16.i ], [ %111, %lpad.i40 ], [ %102, %lpad.i.i43 ], [ %.pn.i71, %ehcleanup16.i70 ], [ %117, %lpad.i63 ], [ %116, %lpad.i.i68 ], [ %.pn.i89, %ehcleanup16.i88 ], [ %121, %lpad.i80 ], [ %120, %lpad.i.i85 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i78.sink) #29
   resume { ptr, i32 } %common.resume.op
 
@@ -52218,10 +52392,13 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call5.i.i.i.i.i.i.n
   %__first.addr.02.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %this.val10.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1378)
   call void @llvm.experimental.noalias.scope.decl(metadata !1381)
+  %92 = load ptr, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1381, !noalias !1378
+  store ptr %92, ptr %__cur.03.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1378, !noalias !1381
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i.i, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i, i64 8
-  %92 = load <2 x ptr>, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1381, !noalias !1378
+  %93 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1381, !noalias !1378
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1381, !noalias !1378
-  store <2 x ptr> %92, ptr %__cur.03.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1378, !noalias !1381
+  store ptr %93, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1378, !noalias !1381
   store ptr null, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1381, !noalias !1378
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i.i, i64 16
@@ -52246,18 +52423,18 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_G
   br label %__cxx_global_var_init.5.exit
 
 ehcleanup7.thread.i.i.i:                          ; preds = %call.i.noexc19.i.i
-  %93 = landingpad { ptr, i32 }
+  %94 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action.i.i.i
 
 lpad5.i.i.i:                                      ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEE8TestInfoEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %94 = landingpad { ptr, i32 }
+  %95 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEE8TestInfoEED2Ev(ptr nonnull %call.i.i.i.i.i.i.i) #29
   br label %ehcleanup7.thread7.i.i.i
 
 ehcleanup7.thread7.i.i.i:                         ; preds = %lpad5.i.i.i, %lpad3.i.i.i.i.i.i.i
-  %.pn.ph.i.i.i = phi { ptr, i32 } [ %85, %lpad3.i.i.i.i.i.i.i ], [ %94, %lpad5.i.i.i ]
+  %.pn.ph.i.i.i = phi { ptr, i32 } [ %85, %lpad3.i.i.i.i.i.i.i ], [ %95, %lpad5.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i4) #29
   br label %lpad17.body.i.i
 
@@ -52267,62 +52444,62 @@ ehcleanup7.i.i.i:                                 ; preds = %ehcleanup.i.i.i.i, 
   br label %cleanup.action.i.i.i
 
 cleanup.action.i.i.i:                             ; preds = %ehcleanup7.i.i.i, %ehcleanup7.thread.i.i.i
-  %.pn.pn6.i.i.i = phi { ptr, i32 } [ %93, %ehcleanup7.thread.i.i.i ], [ %.pn.i.i.i23, %ehcleanup7.i.i.i ]
+  %.pn.pn6.i.i.i = phi { ptr, i32 } [ %94, %ehcleanup7.thread.i.i.i ], [ %.pn.i.i.i23, %ehcleanup7.i.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %call.i20.i.i) #30
   br label %lpad17.body.i.i
 
 lpad.i.i8:                                        ; preds = %call.i.noexc.i.i10, %__cxx_global_var_init.1.exit
-  %95 = landingpad { ptr, i32 }
+  %96 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 lpad3.i.i:                                        ; preds = %invoke.cont.i.i12
-  %96 = landingpad { ptr, i32 }
+  %97 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup21.i.i
 
 lpad5.i.i:                                        ; preds = %invoke.cont6.i.i, %invoke.cont4.i.i
-  %97 = landingpad { ptr, i32 }
+  %98 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup20.i.i
 
 lpad13.i.i16:                                     ; preds = %call.i.noexc11.i.i, %invoke.cont8.i.i
-  %98 = landingpad { ptr, i32 }
+  %99 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup19.i.i
 
 lpad15.i.i:                                       ; preds = %invoke.cont14.i.i18
-  %99 = landingpad { ptr, i32 }
+  %100 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
 
 lpad17.i.i20:                                     ; preds = %invoke.cont16.i.i
-  %100 = landingpad { ptr, i32 }
+  %101 = landingpad { ptr, i32 }
           cleanup
   br label %lpad17.body.i.i
 
 lpad17.body.i.i:                                  ; preds = %lpad17.i.i20, %cleanup.action.i.i.i, %ehcleanup7.thread7.i.i.i
-  %eh.lpad-body21.i.i = phi { ptr, i32 } [ %100, %lpad17.i.i20 ], [ %.pn.pn6.i.i.i, %cleanup.action.i.i.i ], [ %.pn.ph.i.i.i, %ehcleanup7.thread7.i.i.i ]
+  %eh.lpad-body21.i.i = phi { ptr, i32 } [ %101, %lpad17.i.i20 ], [ %.pn.pn6.i.i.i, %cleanup.action.i.i.i ], [ %.pn.ph.i.i.i, %ehcleanup7.thread7.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10.i.i) #29
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad17.body.i.i, %lpad15.i.i
-  %.pn.i.i19 = phi { ptr, i32 } [ %eh.lpad-body21.i.i, %lpad17.body.i.i ], [ %99, %lpad15.i.i ]
+  %.pn.i.i19 = phi { ptr, i32 } [ %eh.lpad-body21.i.i, %lpad17.body.i.i ], [ %100, %lpad15.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i.i) #29
   br label %ehcleanup19.i.i
 
 ehcleanup19.i.i:                                  ; preds = %ehcleanup.i.i, %lpad13.i.i16, %lpad.i10.i.i
-  %.pn.pn.i.i17 = phi { ptr, i32 } [ %.pn.i.i19, %ehcleanup.i.i ], [ %98, %lpad13.i.i16 ], [ %68, %lpad.i10.i.i ]
+  %.pn.pn.i.i17 = phi { ptr, i32 } [ %.pn.i.i19, %ehcleanup.i.i ], [ %99, %lpad13.i.i16 ], [ %68, %lpad.i10.i.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12.i.i) #29
   br label %ehcleanup20.i.i
 
 ehcleanup20.i.i:                                  ; preds = %ehcleanup19.i.i, %lpad5.i.i
-  %.pn.pn.pn.i.i15 = phi { ptr, i32 } [ %.pn.pn.i.i17, %ehcleanup19.i.i ], [ %97, %lpad5.i.i ]
+  %.pn.pn.pn.i.i15 = phi { ptr, i32 } [ %.pn.pn.i.i17, %ehcleanup19.i.i ], [ %98, %lpad5.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i5) #29
   br label %ehcleanup21.i.i
 
 ehcleanup21.i.i:                                  ; preds = %ehcleanup20.i.i, %lpad3.i.i
-  %.pn.pn.pn.pn.i.i13 = phi { ptr, i32 } [ %.pn.pn.pn.i.i15, %ehcleanup20.i.i ], [ %96, %lpad3.i.i ]
+  %.pn.pn.pn.pn.i.i13 = phi { ptr, i32 } [ %.pn.pn.pn.i.i15, %ehcleanup20.i.i ], [ %97, %lpad3.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i6) #29
   br label %common.resume
 
@@ -52361,7 +52538,7 @@ call.i.noexc.i41:                                 ; preds = %__cxx_global_var_in
           to label %invoke.cont.i44 unwind label %lpad.i.i43
 
 lpad.i.i43:                                       ; preds = %.noexc.i42
-  %101 = landingpad { ptr, i32 }
+  %102 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i38) #29
   br label %common.resume
@@ -52391,10 +52568,10 @@ call.i.noexc10.i:                                 ; preds = %invoke.cont6.i
           to label %if.end.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %.noexc12.i
-  %102 = landingpad { ptr, i32 }
+  %103 = landingpad { ptr, i32 }
           catch ptr null
-  %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #33
+  %104 = extractvalue { ptr, i32 } %103, 0
+  call void @__clang_call_terminate(ptr %104) #33
   unreachable
 
 if.end.i:                                         ; preds = %.noexc12.i
@@ -52409,7 +52586,7 @@ invoke.cont.i104:                                 ; preds = %if.end.i
           to label %invoke.cont11.i unwind label %lpad.i103
 
 lpad.i103:                                        ; preds = %invoke.cont.i104, %if.end.i
-  %104 = landingpad { ptr, i32 }
+  %105 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.i) #29
@@ -52432,24 +52609,24 @@ invoke.cont11.i:                                  ; preds = %invoke.cont.i104
   %line.i.i.i52 = getelementptr inbounds i8, ptr %ref.tmp.i.i37, i64 56
   store i32 347, ptr %line.i.i.i52, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %call7.i, i64 112
-  %105 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %106 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %call7.i, i64 120
-  %106 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %105, %106
+  %107 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %106, %107
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i55, label %if.then.i.i.i.i53
 
 if.then.i.i.i.i53:                                ; preds = %.noexc16.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i37) #29
-  %generator.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %105, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i37) #29
+  %generator.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %106, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i, i64 28, i1 false)
-  %107 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i54 = getelementptr inbounds i8, ptr %107, i64 64
+  %108 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i54 = getelementptr inbounds i8, ptr %108, i64 64
   store ptr %incdec.ptr.i.i.i.i54, ptr %_M_finish.i.i.i.i, align 8
   br label %__cxx_global_var_init.6.exit
 
 if.else.i.i.i.i55:                                ; preds = %.noexc16.i
   %this.val10.i.i.i.i.i = load ptr, ptr %instantiations_.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %105 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %106 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %this.val10.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i.i, 9223372036854775744
@@ -52464,12 +52641,12 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i55
 
 _ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEE17InstantiationInfoESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i55
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 6
-  %cmp.i.i.i.i.i.i.i56 = icmp eq ptr %105, %this.val10.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i56 = icmp eq ptr %106, %this.val10.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i56, i64 1, i64 %sub.ptr.div.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
-  %108 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 144115188075855871)
-  %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 144115188075855871, i64 %108
+  %109 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 144115188075855871)
+  %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 144115188075855871, i64 %109
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %cond.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
@@ -52496,7 +52673,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt12_Vector_base
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i.i.i) #29
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i, i64 64
   %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i, i64 64
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %105
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %106
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !1388
 
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit23.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -52517,53 +52694,53 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18Zipf
   br label %__cxx_global_var_init.6.exit
 
 lpad.i15.i57:                                     ; preds = %cond.true.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %109 = landingpad { ptr, i32 }
+  %110 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i37) #29
   br label %lpad12.body.i
 
 lpad.i40:                                         ; preds = %call.i.noexc.i41, %__cxx_global_var_init.5.exit
-  %110 = landingpad { ptr, i32 }
+  %111 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 lpad3.i45:                                        ; preds = %invoke.cont.i44
-  %111 = landingpad { ptr, i32 }
+  %112 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i
 
 lpad5.i:                                          ; preds = %invoke.cont4.i47
-  %112 = landingpad { ptr, i32 }
+  %113 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup15.i
 
 lpad10.i:                                         ; preds = %call.i.noexc10.i, %invoke.cont6.i
-  %113 = landingpad { ptr, i32 }
+  %114 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i50
 
 lpad12.i:                                         ; preds = %invoke.cont11.i
-  %114 = landingpad { ptr, i32 }
+  %115 = landingpad { ptr, i32 }
           cleanup
   br label %lpad12.body.i
 
 lpad12.body.i:                                    ; preds = %lpad12.i, %lpad.i15.i57
-  %eh.lpad-body17.i = phi { ptr, i32 } [ %114, %lpad12.i ], [ %109, %lpad.i15.i57 ]
+  %eh.lpad-body17.i = phi { ptr, i32 } [ %115, %lpad12.i ], [ %110, %lpad.i15.i57 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i) #29
   br label %ehcleanup.i50
 
 ehcleanup.i50:                                    ; preds = %lpad12.body.i, %lpad10.i, %lpad.i103
-  %.pn.i51 = phi { ptr, i32 } [ %eh.lpad-body17.i, %lpad12.body.i ], [ %113, %lpad10.i ], [ %104, %lpad.i103 ]
+  %.pn.i51 = phi { ptr, i32 } [ %eh.lpad-body17.i, %lpad12.body.i ], [ %114, %lpad10.i ], [ %105, %lpad.i103 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9.i) #29
   br label %ehcleanup15.i
 
 ehcleanup15.i:                                    ; preds = %ehcleanup.i50, %lpad5.i
-  %.pn.pn.i49 = phi { ptr, i32 } [ %.pn.i51, %ehcleanup.i50 ], [ %112, %lpad5.i ]
+  %.pn.pn.i49 = phi { ptr, i32 } [ %.pn.i51, %ehcleanup.i50 ], [ %113, %lpad5.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #29
   br label %ehcleanup16.i
 
 ehcleanup16.i:                                    ; preds = %ehcleanup15.i, %lpad3.i45
-  %.pn.pn.pn.i46 = phi { ptr, i32 } [ %.pn.pn.i49, %ehcleanup15.i ], [ %111, %lpad3.i45 ]
+  %.pn.pn.pn.i46 = phi { ptr, i32 } [ %.pn.pn.i49, %ehcleanup15.i ], [ %112, %lpad3.i45 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i38) #29
   br label %common.resume
 
@@ -52596,7 +52773,7 @@ call.i.noexc.i66:                                 ; preds = %__cxx_global_var_in
           to label %invoke.cont.i69 unwind label %lpad.i.i68
 
 lpad.i.i68:                                       ; preds = %.noexc.i67
-  %115 = landingpad { ptr, i32 }
+  %116 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i61) #29
   br label %common.resume
@@ -52629,23 +52806,23 @@ invoke.cont10.i:                                  ; preds = %invoke.cont8.i
           to label %__cxx_global_var_init.9.exit unwind label %lpad4.i
 
 lpad.i63:                                         ; preds = %call.i.noexc.i66, %__cxx_global_var_init.6.exit
-  %116 = landingpad { ptr, i32 }
+  %117 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 lpad2.i:                                          ; preds = %invoke.cont.i69
-  %117 = landingpad { ptr, i32 }
+  %118 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i70
 
 lpad4.i:                                          ; preds = %invoke.cont10.i, %invoke.cont8.i, %invoke.cont6.i75, %invoke.cont5.i, %invoke.cont3.i
-  %118 = landingpad { ptr, i32 }
+  %119 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i60) #29
   br label %ehcleanup16.i70
 
 ehcleanup16.i70:                                  ; preds = %lpad4.i, %lpad2.i
-  %.pn.i71 = phi { ptr, i32 } [ %118, %lpad4.i ], [ %117, %lpad2.i ]
+  %.pn.i71 = phi { ptr, i32 } [ %119, %lpad4.i ], [ %118, %lpad2.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i61) #29
   br label %common.resume
 
@@ -52673,7 +52850,7 @@ call.i.noexc.i83:                                 ; preds = %__cxx_global_var_in
           to label %invoke.cont.i86 unwind label %lpad.i.i85
 
 lpad.i.i85:                                       ; preds = %.noexc.i84
-  %119 = landingpad { ptr, i32 }
+  %120 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i77) #29
   br label %common.resume
@@ -52706,23 +52883,23 @@ invoke.cont10.i100:                               ; preds = %invoke.cont8.i98
           to label %__cxx_global_var_init.12.exit unwind label %lpad4.i93
 
 lpad.i80:                                         ; preds = %call.i.noexc.i83, %__cxx_global_var_init.9.exit
-  %120 = landingpad { ptr, i32 }
+  %121 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 lpad2.i87:                                        ; preds = %invoke.cont.i86
-  %121 = landingpad { ptr, i32 }
+  %122 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i88
 
 lpad4.i93:                                        ; preds = %invoke.cont10.i100, %invoke.cont8.i98, %invoke.cont6.i96, %invoke.cont5.i94, %invoke.cont3.i90
-  %122 = landingpad { ptr, i32 }
+  %123 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i76) #29
   br label %ehcleanup16.i88
 
 ehcleanup16.i88:                                  ; preds = %lpad4.i93, %lpad2.i87
-  %.pn.i89 = phi { ptr, i32 } [ %122, %lpad4.i93 ], [ %121, %lpad2.i87 ]
+  %.pn.i89 = phi { ptr, i32 } [ %123, %lpad4.i93 ], [ %122, %lpad2.i87 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i77) #29
   br label %common.resume
 

@@ -2041,16 +2041,20 @@ entry:
   %ptr_.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %ptr_.i, align 8
   %size_.i = getelementptr inbounds i8, ptr %other, i64 16
+  %1 = load i64, ptr %size_.i, align 8
+  %capacity_.i = getelementptr inbounds i8, ptr %other, i64 24
+  %2 = load i64, ptr %capacity_.i, align 8
   %ptr_.i6 = getelementptr inbounds i8, ptr %this, i64 8
-  %size_.i7 = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load <2 x i64>, ptr %size_.i, align 8
   store ptr %0, ptr %ptr_.i6, align 8
-  store <2 x i64> %1, ptr %size_.i7, align 8
+  %size_.i7 = getelementptr inbounds i8, ptr %this, i64 16
+  store i64 %1, ptr %size_.i7, align 8
+  %capacity_.i8 = getelementptr inbounds i8, ptr %this, i64 24
+  store i64 %2, ptr %capacity_.i8, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail11file_bufferE, i64 16), ptr %this, align 8
   %file_ = getelementptr inbounds i8, ptr %this, i64 32
   %file_4 = getelementptr inbounds i8, ptr %other, i64 32
-  %2 = load i32, ptr %file_4, align 8
-  store i32 %2, ptr %file_, align 8
+  %3 = load i32, ptr %file_4, align 8
+  store i32 %3, ptr %file_, align 8
   store i32 -1, ptr %file_4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i, i8 0, i64 24, i1 false)
   ret void

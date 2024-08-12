@@ -3649,36 +3649,41 @@ define noundef zeroext i1 @_ZN5Ipopt31OptimalityErrorConvergenceCheck19CurrentIs
 
 100:                                              ; preds = %50, %43
   %101 = getelementptr inbounds i8, ptr %0, i64 88
-  %102 = load <4 x double>, ptr %101, align 8
-  %103 = insertelement <4 x double> poison, double %7, i64 0
-  %104 = insertelement <4 x double> %103, double %12, i64 1
-  %105 = insertelement <4 x double> %104, double %17, i64 2
-  %106 = insertelement <4 x double> %105, double %24, i64 3
-  %107 = fcmp ugt <4 x double> %106, %102
-  %108 = freeze <4 x i1> %107
-  %109 = bitcast <4 x i1> %108 to i4
-  %.not18 = icmp eq i4 %109, 0
-  br i1 %.not18, label %110, label %123
+  %102 = load double, ptr %101, align 8
+  %103 = fcmp ugt double %7, %102
+  %104 = getelementptr inbounds i8, ptr %0, i64 96
+  %105 = load double, ptr %104, align 8
+  %106 = fcmp ugt double %12, %105
+  %or.cond = select i1 %103, i1 true, i1 %106
+  %107 = getelementptr inbounds i8, ptr %0, i64 104
+  %108 = load double, ptr %107, align 8
+  %109 = fcmp ugt double %17, %108
+  %or.cond13 = select i1 %or.cond, i1 true, i1 %109
+  %110 = getelementptr inbounds i8, ptr %0, i64 112
+  %111 = load double, ptr %110, align 8
+  %112 = fcmp ugt double %24, %111
+  %or.cond16 = select i1 %or.cond13, i1 true, i1 %112
+  br i1 %or.cond16, label %126, label %113
 
-110:                                              ; preds = %100
-  %111 = getelementptr inbounds i8, ptr %0, i64 176
-  %112 = load double, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 168
-  %114 = load double, ptr %113, align 8
-  %115 = fsub double %112, %114
-  %116 = tail call noundef double @llvm.fabs.f64(double %115)
-  %117 = tail call noundef double @llvm.fabs.f64(double %112)
-  %118 = fcmp ogt double %117, 1.000000e+00
-  %.sroa.speculated.i17 = select i1 %118, double %117, double 1.000000e+00
-  %119 = fdiv double %116, %.sroa.speculated.i17
-  %120 = getelementptr inbounds i8, ptr %0, i64 120
-  %121 = load double, ptr %120, align 8
-  %122 = fcmp ole double %119, %121
-  br label %123
+113:                                              ; preds = %100
+  %114 = getelementptr inbounds i8, ptr %0, i64 176
+  %115 = load double, ptr %114, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 168
+  %117 = load double, ptr %116, align 8
+  %118 = fsub double %115, %117
+  %119 = tail call noundef double @llvm.fabs.f64(double %118)
+  %120 = tail call noundef double @llvm.fabs.f64(double %115)
+  %121 = fcmp ogt double %120, 1.000000e+00
+  %.sroa.speculated.i17 = select i1 %121, double %120, double 1.000000e+00
+  %122 = fdiv double %119, %.sroa.speculated.i17
+  %123 = getelementptr inbounds i8, ptr %0, i64 120
+  %124 = load double, ptr %123, align 8
+  %125 = fcmp ole double %122, %124
+  br label %126
 
-123:                                              ; preds = %110, %100
-  %124 = phi i1 [ false, %100 ], [ %122, %110 ]
-  ret i1 %124
+126:                                              ; preds = %113, %100
+  %127 = phi i1 [ false, %100 ], [ %125, %113 ]
+  ret i1 %127
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr

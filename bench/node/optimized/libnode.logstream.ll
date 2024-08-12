@@ -546,16 +546,17 @@ if.end:                                           ; preds = %entry
   %_M_start.i = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !11
   %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 184
   %2 = load ptr, ptr %_M_finish.i, align 8, !noalias !12
   %_M_first3.i.i4 = getelementptr inbounds i8, ptr %this, i64 192
+  %_M_last4.i.i6 = getelementptr inbounds i8, ptr %this, i64 200
   %_M_node5.i.i8 = getelementptr inbounds i8, ptr %this, i64 208
   %cmp.i.i.not17 = icmp eq ptr %1, %2
   br i1 %cmp.i.i.not17, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %3 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !15
   %4 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !15
   %bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -608,46 +609,48 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %10 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %if.end ]
   %total_ = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %total_, align 8
-  %11 = load <2 x ptr>, ptr %_M_first3.i.i, align 8, !noalias !18
-  %12 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !18
-  %13 = load ptr, ptr %_M_node5.i.i8, align 8
-  %cmp3.i.i.i = icmp ult ptr %12, %13
+  %11 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !18
+  %12 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !18
+  %13 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !18
+  %14 = load ptr, ptr %_M_node5.i.i8, align 8
+  %cmp3.i.i.i = icmp ult ptr %13, %14
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5clearEv.exit
 
 for.body.i.i.i:                                   ; preds = %for.end, %for.body.i.i.i
-  %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %12, %for.end ]
+  %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %13, %for.end ]
   %__n.04.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i, i64 8
-  %14 = load ptr, ptr %__n.04.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %14) #21
-  %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %13
+  %15 = load ptr, ptr %__n.04.i.i.i, align 8
+  tail call void @_ZdlPv(ptr noundef %15) #21
+  %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %14
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5clearEv.exit, !llvm.loop !21
 
 _ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5clearEv.exit: ; preds = %for.body.i.i.i, %for.end
   store ptr %10, ptr %_M_finish.i, align 8
-  store <2 x ptr> %11, ptr %_M_first3.i.i4, align 8
-  store ptr %12, ptr %_M_node5.i.i8, align 8
+  store ptr %11, ptr %_M_first3.i.i4, align 8
+  store ptr %12, ptr %_M_last4.i.i6, align 8
+  store ptr %13, ptr %_M_node5.i.i8, align 8
   %fin_seen_ = getelementptr inbounds i8, ptr %this, i64 128
-  %15 = load i8, ptr %fin_seen_, align 8
-  %tobool5 = trunc i8 %15 to i1
+  %16 = load i8, ptr %fin_seen_, align 8
+  %tobool5 = trunc i8 %16 to i1
   br i1 %tobool5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5clearEv.exit
   %call8 = tail call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #18
-  %16 = extractvalue { ptr, i64 } %call8, 0
-  store ptr %16, ptr %ref.tmp, align 8
-  %17 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %18 = extractvalue { ptr, i64 } %call8, 1
-  store i64 %18, ptr %17, align 8
+  %17 = extractvalue { ptr, i64 } %call8, 0
+  store ptr %17, ptr %ref.tmp, align 8
+  %18 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %19 = extractvalue { ptr, i64 } %call8, 1
+  store i64 %19, ptr %18, align 8
   %listener_.i12 = getelementptr inbounds i8, ptr %this, i64 64
-  %19 = load ptr, ptr %listener_.i12, align 8
-  %vtable.i13 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %listener_.i12, align 8
+  %vtable.i13 = load ptr, ptr %20, align 8
   %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 24
-  %20 = load ptr, ptr %vfn.i14, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef -4095, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #18
+  %21 = load ptr, ptr %vfn.i14, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef -4095, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #18
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
-  %21 = load ptr, ptr %vfn, align 8
-  %call9 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(216) %this) #18
+  %22 = load ptr, ptr %vfn, align 8
+  %call9 = call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(216) %this) #18
   br label %return
 
 if.end10:                                         ; preds = %_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5clearEv.exit

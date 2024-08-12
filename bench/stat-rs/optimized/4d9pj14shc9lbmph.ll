@@ -447,34 +447,29 @@ define { i64, double } @"_ZN125_$LT$statrs..distribution..fisher_snedecor..Fishe
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load double, ptr %2, align 8, !noundef !5
   %4 = fcmp ugt double %3, 4.000000e+00
-  br i1 %4, label %5, label %23
+  br i1 %4, label %5, label %18
 
 5:                                                ; preds = %1
   %6 = fmul double %3, 2.000000e+00
-  %7 = load double, ptr %0, align 8, !noundef !5
-  %8 = fadd double %3, %7
-  %9 = fadd double %3, -2.000000e+00
-  %10 = fmul double %9, %7
-  %11 = insertelement <2 x double> poison, double %3, i64 0
-  %12 = insertelement <2 x double> %11, double %10, i64 1
-  %13 = insertelement <2 x double> poison, double %6, i64 0
-  %14 = insertelement <2 x double> %13, double %9, i64 1
-  %15 = fmul <2 x double> %12, %14
-  %16 = insertelement <2 x double> poison, double %8, i64 0
-  %17 = insertelement <2 x double> %16, double %3, i64 1
-  %18 = fadd <2 x double> %17, <double -2.000000e+00, double -4.000000e+00>
-  %19 = fmul <2 x double> %15, %18
-  %20 = extractelement <2 x double> %19, i64 0
-  %21 = extractelement <2 x double> %19, i64 1
-  %22 = fdiv double %20, %21
-  br label %23
+  %7 = fmul double %3, %6
+  %8 = load double, ptr %0, align 8, !noundef !5
+  %9 = fadd double %3, %8
+  %10 = fadd double %9, -2.000000e+00
+  %11 = fmul double %7, %10
+  %12 = fadd double %3, -2.000000e+00
+  %13 = fmul double %12, %8
+  %14 = fmul double %12, %13
+  %15 = fadd double %3, -4.000000e+00
+  %16 = fmul double %15, %14
+  %17 = fdiv double %11, %16
+  br label %18
 
-23:                                               ; preds = %1, %5
-  %.sroa.3.0 = phi double [ %22, %5 ], [ undef, %1 ]
+18:                                               ; preds = %1, %5
+  %.sroa.3.0 = phi double [ %17, %5 ], [ undef, %1 ]
   %.sroa.0.0 = phi i64 [ 1, %5 ], [ 0, %1 ]
-  %24 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
-  %25 = insertvalue { i64, double } %24, double %.sroa.3.0, 1
-  ret { i64, double } %25
+  %19 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
+  %20 = insertvalue { i64, double } %19, double %.sroa.3.0, 1
+  ret { i64, double } %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -482,62 +477,56 @@ define { i64, double } @"_ZN125_$LT$statrs..distribution..fisher_snedecor..Fishe
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load double, ptr %2, align 8, !noundef !5
   %4 = fcmp ugt double %3, 6.000000e+00
-  br i1 %4, label %5, label %23
+  br i1 %4, label %5, label %21
 
 5:                                                ; preds = %1
   %6 = load double, ptr %0, align 8, !noundef !5
   %7 = fmul double %6, 2.000000e+00
   %8 = fadd double %3, %7
-  %9 = fadd double %3, %6
-  %10 = insertelement <2 x double> poison, double %8, i64 0
-  %11 = insertelement <2 x double> %10, double %3, i64 1
-  %12 = fadd <2 x double> %11, <double -2.000000e+00, double -6.000000e+00>
-  %13 = insertelement <2 x double> poison, double %3, i64 0
-  %14 = insertelement <2 x double> %13, double %9, i64 1
-  %15 = fadd <2 x double> %14, <double -4.000000e+00, double -2.000000e+00>
-  %16 = insertelement <2 x double> <double 8.000000e+00, double poison>, double %6, i64 1
-  %17 = fmul <2 x double> %16, %15
-  %18 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %17)
-  %19 = fmul <2 x double> %18, %12
-  %20 = extractelement <2 x double> %19, i64 0
-  %21 = extractelement <2 x double> %19, i64 1
-  %22 = fdiv double %20, %21
-  br label %23
+  %9 = fadd double %8, -2.000000e+00
+  %10 = fadd double %3, -4.000000e+00
+  %11 = fmul double %10, 8.000000e+00
+  %12 = tail call double @llvm.sqrt.f64(double %11)
+  %13 = fmul double %12, %9
+  %14 = fadd double %3, -6.000000e+00
+  %15 = fadd double %3, %6
+  %16 = fadd double %15, -2.000000e+00
+  %17 = fmul double %6, %16
+  %18 = tail call double @llvm.sqrt.f64(double %17)
+  %19 = fmul double %14, %18
+  %20 = fdiv double %13, %19
+  br label %21
 
-23:                                               ; preds = %1, %5
-  %.sroa.3.0 = phi double [ %22, %5 ], [ undef, %1 ]
+21:                                               ; preds = %1, %5
+  %.sroa.3.0 = phi double [ %20, %5 ], [ undef, %1 ]
   %.sroa.0.0 = phi i64 [ 1, %5 ], [ 0, %1 ]
-  %24 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
-  %25 = insertvalue { i64, double } %24, double %.sroa.3.0, 1
-  ret { i64, double } %25
+  %22 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
+  %23 = insertvalue { i64, double } %22, double %.sroa.3.0, 1
+  ret { i64, double } %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, double } @"_ZN145_$LT$statrs..distribution..fisher_snedecor..FisherSnedecor$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$f64$GT$$GT$$GT$4mode17h44a81cd87aa951f4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = load double, ptr %0, align 8, !noundef !5
   %3 = fcmp ugt double %2, 2.000000e+00
-  br i1 %3, label %4, label %16
+  br i1 %3, label %4, label %12
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8, !noundef !5
-  %7 = insertelement <2 x double> poison, double %6, i64 0
-  %8 = insertelement <2 x double> %7, double %2, i64 1
-  %9 = fadd <2 x double> %8, <double 2.000000e+00, double -2.000000e+00>
-  %10 = insertelement <2 x double> poison, double %2, i64 0
-  %11 = insertelement <2 x double> %10, double %6, i64 1
-  %12 = fmul <2 x double> %9, %11
-  %13 = extractelement <2 x double> %12, i64 0
-  %14 = extractelement <2 x double> %12, i64 1
-  %15 = fdiv double %14, %13
-  br label %16
+  %7 = fadd double %2, -2.000000e+00
+  %8 = fmul double %7, %6
+  %9 = fadd double %6, 2.000000e+00
+  %10 = fmul double %2, %9
+  %11 = fdiv double %8, %10
+  br label %12
 
-16:                                               ; preds = %1, %4
-  %.sroa.3.0 = phi double [ %15, %4 ], [ undef, %1 ]
+12:                                               ; preds = %1, %4
+  %.sroa.3.0 = phi double [ %11, %4 ], [ undef, %1 ]
   %.sroa.0.0 = phi i64 [ 1, %4 ], [ 0, %1 ]
-  %17 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
-  %18 = insertvalue { i64, double } %17, double %.sroa.3.0, 1
-  ret { i64, double } %18
+  %13 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
+  %14 = insertvalue { i64, double } %13, double %.sroa.3.0, 1
+  ret { i64, double } %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -729,19 +718,16 @@ define { i64, double } @"_ZN114_$LT$statrs..distribution..geometric..Geometric$u
 define { i64, double } @"_ZN114_$LT$statrs..distribution..geometric..Geometric$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$7entropy17hbbd31581cc9bddecE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load double, ptr %0, align 8, !noundef !5
   %3 = fdiv double 1.000000e+00, %2
-  %4 = insertelement <2 x double> poison, double %3, i64 0
-  %5 = insertelement <2 x double> %4, double %2, i64 1
-  %6 = fadd <2 x double> %5, <double -1.000000e+00, double poison>
-  %7 = fsub <2 x double> <double poison, double 1.000000e+00>, %5
-  %8 = shufflevector <2 x double> %6, <2 x double> %7, <2 x i32> <i32 0, i32 3>
-  %9 = tail call <2 x double> @llvm.log.v2f64(<2 x double> %8)
-  %10 = fdiv <2 x double> %9, <double 0x3FE62E42FEFA39EF, double 0x3FE62E42FEFA39EF>
-  %11 = extractelement <2 x double> %10, i64 1
-  %12 = fmul double %3, %11
-  %13 = extractelement <2 x double> %10, i64 0
-  %14 = fsub double %13, %12
-  %15 = insertvalue { i64, double } { i64 1, double poison }, double %14, 1
-  ret { i64, double } %15
+  %4 = fsub double 1.000000e+00, %2
+  %5 = tail call noundef double @llvm.log.f64(double %4)
+  %6 = fdiv double %5, 0x3FE62E42FEFA39EF
+  %7 = fadd double %3, -1.000000e+00
+  %8 = tail call noundef double @llvm.log.f64(double %7)
+  %9 = fdiv double %8, 0x3FE62E42FEFA39EF
+  %10 = fmul double %3, %6
+  %11 = fsub double %9, %10
+  %12 = insertvalue { i64, double } { i64 1, double poison }, double %11, 1
+  ret { i64, double } %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1547,7 +1533,7 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   store ptr @anon.add817559d7beeee5c0788ec3c34287f.41.llvm.10715550030521876899, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %123
+  br label %120
 
 9:                                                ; preds = %6
   %10 = fcmp oge double %3, 0.000000e+00
@@ -1561,17 +1547,19 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   store ptr @anon.add817559d7beeee5c0788ec3c34287f.40.llvm.10715550030521876899, ptr %.sroa.427.0..sroa_idx, align 8
   %.sroa.528.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.528.0..sroa_idx, align 8
-  br label %123
+  br label %120
 
 13:                                               ; preds = %9
   store i64 4, ptr %0, align 8
   %.sroa.431.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %.sroa.431.0..sroa_idx, align 8
+  store double 0.000000e+00, ptr %.sroa.431.0..sroa_idx, align 8
+  %.sroa.532.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store double 1.000000e+00, ptr %.sroa.532.0..sroa_idx, align 8
   %.sroa.633.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store ptr @anon.add817559d7beeee5c0788ec3c34287f.45, ptr %.sroa.633.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 1, ptr %.sroa.7.0..sroa_idx, align 8
-  br label %123
+  br label %120
 
 14:                                               ; preds = %9
   %15 = tail call double @llvm.fabs.f64(double %3)
@@ -1645,9 +1633,9 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   br label %60
 
 60:                                               ; preds = %67, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread"
-  %.sroa.040.1 = phi double [ %59, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %110, %67 ]
-  %.sroa.055.0 = phi double [ 1.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %111, %67 ]
-  %.sroa.065.0 = phi double [ %59, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %113, %67 ]
+  %.sroa.040.1 = phi double [ %59, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %108, %67 ]
+  %.sroa.055.0 = phi double [ 1.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %.sroa.055.2, %67 ]
+  %.sroa.065.0 = phi double [ %59, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %110, %67 ]
   %.sroa.071.0 = phi i32 [ 1, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %68, %67 ]
   %exitcond.not = icmp eq i32 %.sroa.071.0, 141
   br i1 %exitcond.not, label %61, label %67
@@ -1661,7 +1649,7 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   %66 = getelementptr inbounds i8, ptr %0, i64 8
   store double %.sink, ptr %66, align 8
   store i64 21, ptr %0, align 8
-  br label %123
+  br label %120
 
 67:                                               ; preds = %60
   %68 = add nuw nsw i32 %.sroa.071.0, 1
@@ -1697,37 +1685,35 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   %97 = fmul double %76, %96
   %98 = fdiv double %95, %97
   %99 = fmul double %98, %88
-  %100 = fdiv double %98, %.sroa.055.1
-  %101 = insertelement <2 x double> poison, double %99, i64 0
-  %102 = insertelement <2 x double> %101, double %100, i64 1
-  %103 = fadd <2 x double> %102, <double 1.000000e+00, double 1.000000e+00>
-  %104 = extractelement <2 x double> %103, i64 0
-  %105 = fdiv double 1.000000e+00, %104
-  %106 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %103)
-  %107 = fcmp olt <2 x double> %106, <double 0x360000000000000, double 0x360000000000000>
-  %108 = insertelement <2 x double> %103, double %105, i64 0
-  %109 = select <2 x i1> %107, <2 x double> <double 0x7C80000000000000, double 0x360000000000000>, <2 x double> %108
-  %110 = extractelement <2 x double> %109, i64 0
-  %111 = extractelement <2 x double> %109, i64 1
-  %112 = fmul double %110, %111
-  %113 = fmul double %90, %112
-  %114 = fadd double %112, -1.000000e+00
-  %115 = tail call double @llvm.fabs.f64(double %114)
-  %116 = fcmp ugt double %115, 0x3CA0000000000000
-  br i1 %116, label %60, label %117
+  %100 = fadd double %99, 1.000000e+00
+  %101 = tail call double @llvm.fabs.f64(double %100)
+  %102 = fcmp olt double %101, 0x360000000000000
+  %103 = fdiv double 1.000000e+00, %100
+  %104 = fdiv double %98, %.sroa.055.1
+  %105 = fadd double %104, 1.000000e+00
+  %106 = tail call double @llvm.fabs.f64(double %105)
+  %107 = fcmp olt double %106, 0x360000000000000
+  %.sroa.055.2 = select i1 %107, double 0x360000000000000, double %105
+  %108 = select i1 %102, double 0x7C80000000000000, double %103
+  %109 = fmul double %108, %.sroa.055.2
+  %110 = fmul double %90, %109
+  %111 = fadd double %109, -1.000000e+00
+  %112 = tail call double @llvm.fabs.f64(double %111)
+  %113 = fcmp ugt double %112, 0x3CA0000000000000
+  br i1 %113, label %60, label %114
 
-117:                                              ; preds = %67
-  %118 = fmul double %.sroa.061.0, %113
-  %119 = fdiv double %118, %2
-  %120 = fsub double 1.000000e+00, %119
-  %121 = fdiv double %118, %1
-  %.sink98 = select i1 %49, double %120, double %121
-  %122 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %.sink98, ptr %122, align 8
+114:                                              ; preds = %67
+  %115 = fmul double %.sroa.061.0, %110
+  %116 = fdiv double %115, %2
+  %117 = fsub double 1.000000e+00, %116
+  %118 = fdiv double %115, %1
+  %.sink98 = select i1 %49, double %117, double %118
+  %119 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %.sink98, ptr %119, align 8
   store i64 21, ptr %0, align 8
-  br label %123
+  br label %120
 
-123:                                              ; preds = %8, %13, %61, %12, %117
+120:                                              ; preds = %8, %13, %61, %12, %114
   ret void
 }
 
@@ -1762,245 +1748,232 @@ _ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit: ; preds = %8
   %15 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %14), !noalias !116
   %16 = fsub double %13, %15
   %17 = fcmp oeq double %2, 0.000000e+00
-  br i1 %17, label %171, label %18
+  br i1 %17, label %156, label %18
 
 18:                                               ; preds = %_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit
   %19 = fcmp oeq double %2, 1.000000e+00
-  br i1 %19, label %171, label %20
+  br i1 %19, label %156, label %20
 
 20:                                               ; preds = %18
   %21 = fcmp ogt double %2, 5.000000e-01
   %22 = fsub double 1.000000e+00, %2
   %.sroa.028.0 = select i1 %21, double %22, double %2
-  %23 = insertelement <2 x i1> poison, i1 %21, i64 0
-  %24 = shufflevector <2 x i1> %23, <2 x i1> poison, <2 x i32> zeroinitializer
-  %25 = insertelement <2 x double> poison, double %0, i64 0
-  %26 = insertelement <2 x double> %25, double %1, i64 1
-  %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %28 = select <2 x i1> %24, <2 x double> %26, <2 x double> %27
-  %29 = fmul double %.sroa.028.0, %.sroa.028.0
-  %30 = tail call noundef double @llvm.log.f64(double %29)
-  %31 = fneg double %30
-  %32 = tail call double @llvm.sqrt.f64(double %31)
-  %33 = fmul double %32, 2.706100e-01
-  %34 = fadd double %33, 2.307530e+00
-  %35 = fmul double %32, 4.481000e-02
-  %36 = fadd double %35, 9.922900e-01
-  %37 = fmul double %32, %36
-  %38 = fadd double %37, 1.000000e+00
-  %39 = fdiv double %34, %38
-  %40 = fsub double %32, %39
-  %41 = extractelement <2 x double> %28, i64 1
-  %42 = fcmp ogt double %41, 1.000000e+00
-  %43 = extractelement <2 x double> %28, i64 0
-  %44 = fcmp ogt double %43, 1.000000e+00
-  %or.cond = and i1 %42, %44
-  br i1 %or.cond, label %56, label %45
+  %.sroa.016.0 = select i1 %21, double %0, double %1
+  %.sroa.0.0 = select i1 %21, double %1, double %0
+  %23 = fmul double %.sroa.028.0, %.sroa.028.0
+  %24 = tail call noundef double @llvm.log.f64(double %23)
+  %25 = fneg double %24
+  %26 = tail call double @llvm.sqrt.f64(double %25)
+  %27 = fmul double %26, 2.706100e-01
+  %28 = fadd double %27, 2.307530e+00
+  %29 = fmul double %26, 4.481000e-02
+  %30 = fadd double %29, 9.922900e-01
+  %31 = fmul double %26, %30
+  %32 = fadd double %31, 1.000000e+00
+  %33 = fdiv double %28, %32
+  %34 = fsub double %26, %33
+  %35 = fcmp ogt double %.sroa.0.0, 1.000000e+00
+  %36 = fcmp ogt double %.sroa.016.0, 1.000000e+00
+  %or.cond = and i1 %35, %36
+  br i1 %or.cond, label %48, label %37
 
-45:                                               ; preds = %20
-  %46 = fmul double %43, 9.000000e+00
-  %47 = fdiv double 1.000000e+00, %46
-  %48 = fmul double %43, 2.000000e+00
-  %49 = fsub double 1.000000e+00, %47
-  %50 = tail call double @llvm.sqrt.f64(double %47)
-  %51 = fmul double %50, %40
-  %52 = fadd double %49, %51
-  %53 = tail call double @llvm.pow.f64(double %52, double 3.000000e+00)
-  %54 = fmul double %48, %53
-  %55 = fcmp ugt double %54, 0.000000e+00
-  br i1 %55, label %88, label %95
+37:                                               ; preds = %20
+  %38 = fmul double %.sroa.016.0, 9.000000e+00
+  %39 = fdiv double 1.000000e+00, %38
+  %40 = fmul double %.sroa.016.0, 2.000000e+00
+  %41 = fsub double 1.000000e+00, %39
+  %42 = tail call double @llvm.sqrt.f64(double %39)
+  %43 = fmul double %42, %34
+  %44 = fadd double %41, %43
+  %45 = tail call double @llvm.pow.f64(double %44, double 3.000000e+00)
+  %46 = fmul double %40, %45
+  %47 = fcmp ugt double %46, 0.000000e+00
+  br i1 %47, label %76, label %83
 
-56:                                               ; preds = %20
-  %57 = fmul double %40, %40
-  %58 = fadd double %57, -3.000000e+00
-  %59 = fmul <2 x double> %28, <double 2.000000e+00, double 2.000000e+00>
-  %60 = fadd <2 x double> %59, <double -1.000000e+00, double -1.000000e+00>
-  %61 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %60
-  %62 = extractelement <2 x double> %61, i64 0
-  %63 = extractelement <2 x double> %61, i64 1
-  %64 = fadd double %63, %62
-  %65 = fsub double %62, %63
-  %66 = insertelement <2 x double> <double poison, double 2.000000e+00>, double %58, i64 0
-  %67 = insertelement <2 x double> <double 6.000000e+00, double poison>, double %64, i64 1
-  %68 = fdiv <2 x double> %66, %67
-  %69 = extractelement <2 x double> %68, i64 0
-  %70 = extractelement <2 x double> %68, i64 1
-  %71 = fadd double %70, %69
-  %72 = tail call double @llvm.sqrt.f64(double %71)
-  %73 = fmul double %40, %72
-  %74 = fdiv double %73, %70
-  %75 = extractelement <2 x double> %68, i64 1
-  %76 = fmul double %75, 3.000000e+00
-  %77 = fdiv double 2.000000e+00, %76
-  %78 = extractelement <2 x double> %68, i64 0
-  %79 = fadd double %78, 0x3FEAAAAAAAAAAAAB
-  %80 = fsub double %79, %77
-  %81 = fmul double %65, %80
-  %82 = fsub double %74, %81
-  %83 = fmul double %82, 2.000000e+00
-  %84 = tail call double @llvm.exp.f64(double %83)
-  %85 = fmul double %43, %84
-  %86 = fadd double %41, %85
-  %87 = fdiv double %41, %86
-  br label %113
+48:                                               ; preds = %20
+  %49 = fmul double %34, %34
+  %50 = fadd double %49, -3.000000e+00
+  %51 = fdiv double %50, 6.000000e+00
+  %52 = fmul double %.sroa.0.0, 2.000000e+00
+  %53 = fadd double %52, -1.000000e+00
+  %54 = fdiv double 1.000000e+00, %53
+  %55 = fmul double %.sroa.016.0, 2.000000e+00
+  %56 = fadd double %55, -1.000000e+00
+  %57 = fdiv double 1.000000e+00, %56
+  %58 = fadd double %54, %57
+  %59 = fdiv double 2.000000e+00, %58
+  %60 = fadd double %59, %51
+  %61 = tail call double @llvm.sqrt.f64(double %60)
+  %62 = fmul double %34, %61
+  %63 = fdiv double %62, %59
+  %64 = fsub double %57, %54
+  %65 = fadd double %51, 0x3FEAAAAAAAAAAAAB
+  %66 = fmul double %59, 3.000000e+00
+  %67 = fdiv double 2.000000e+00, %66
+  %68 = fsub double %65, %67
+  %69 = fmul double %64, %68
+  %70 = fsub double %63, %69
+  %71 = fmul double %70, 2.000000e+00
+  %72 = tail call double @llvm.exp.f64(double %71)
+  %73 = fmul double %.sroa.016.0, %72
+  %74 = fadd double %.sroa.0.0, %73
+  %75 = fdiv double %.sroa.0.0, %74
+  br label %101
 
-88:                                               ; preds = %45
-  %89 = fmul double %41, 2.000000e+00
-  %90 = fadd double %43, %89
-  %91 = fadd double %90, -1.000000e+00
-  %92 = fmul double %91, 2.000000e+00
-  %93 = fdiv double %92, %54
-  %94 = fcmp ugt double %93, 1.000000e+00
-  br i1 %94, label %103, label %107
+76:                                               ; preds = %37
+  %77 = fmul double %.sroa.0.0, 2.000000e+00
+  %78 = fadd double %.sroa.016.0, %77
+  %79 = fadd double %78, -1.000000e+00
+  %80 = fmul double %79, 2.000000e+00
+  %81 = fdiv double %80, %46
+  %82 = fcmp ugt double %81, 1.000000e+00
+  br i1 %82, label %91, label %95
 
-95:                                               ; preds = %45
-  %96 = fsub double 1.000000e+00, %.sroa.028.0
-  %97 = fmul double %43, %96
-  %98 = tail call noundef double @llvm.log.f64(double %97)
-  %99 = fadd double %98, %16
-  %100 = fdiv double %99, %43
-  %101 = tail call double @llvm.exp.f64(double %100)
-  %102 = fsub double 1.000000e+00, %101
-  br label %113
+83:                                               ; preds = %37
+  %84 = fsub double 1.000000e+00, %.sroa.028.0
+  %85 = fmul double %.sroa.016.0, %84
+  %86 = tail call noundef double @llvm.log.f64(double %85)
+  %87 = fadd double %86, %16
+  %88 = fdiv double %87, %.sroa.016.0
+  %89 = tail call double @llvm.exp.f64(double %88)
+  %90 = fsub double 1.000000e+00, %89
+  br label %101
 
-103:                                              ; preds = %88
-  %104 = fadd double %93, 1.000000e+00
-  %105 = fdiv double 2.000000e+00, %104
-  %106 = fsub double 1.000000e+00, %105
-  br label %113
+91:                                               ; preds = %76
+  %92 = fadd double %81, 1.000000e+00
+  %93 = fdiv double 2.000000e+00, %92
+  %94 = fsub double 1.000000e+00, %93
+  br label %101
 
-107:                                              ; preds = %88
-  %108 = fmul double %.sroa.028.0, %41
-  %109 = tail call noundef double @llvm.log.f64(double %108)
-  %110 = fadd double %109, %16
-  %111 = fdiv double %110, %41
-  %112 = tail call double @llvm.exp.f64(double %111)
-  br label %113
+95:                                               ; preds = %76
+  %96 = fmul double %.sroa.028.0, %.sroa.0.0
+  %97 = tail call noundef double @llvm.log.f64(double %96)
+  %98 = fadd double %97, %16
+  %99 = fdiv double %98, %.sroa.0.0
+  %100 = tail call double @llvm.exp.f64(double %99)
+  br label %101
 
-113:                                              ; preds = %95, %107, %103, %56
-  %.sroa.038.1 = phi double [ %87, %56 ], [ %102, %95 ], [ %112, %107 ], [ %106, %103 ]
-  %114 = fcmp olt double %.sroa.038.1, 1.000000e-04
-  %.sroa.0.0.i = select i1 %114, double 1.000000e-04, double %.sroa.038.1
-  %115 = fcmp ogt double %.sroa.0.0.i, 9.999000e-01
-  %.sroa.0.1.i = select i1 %115, double 9.999000e-01, double %.sroa.0.0.i
-  %116 = tail call double @llvm.pow.f64(double %.sroa.028.0, double 2.000000e-01)
-  %117 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %118 = insertelement <2 x double> %117, double %116, i64 1
-  %119 = fdiv <2 x double> <double -5.000000e+00, double 1.000000e+00>, %118
-  %120 = extractelement <2 x double> %119, i64 0
-  %121 = fdiv double %120, %41
-  %122 = extractelement <2 x double> %119, i64 1
-  %123 = fsub double %121, %122
-  %124 = fadd double %123, -1.300000e+01
-  %125 = tail call i32 @llvm.fptosi.sat.i32.f64(double %124)
-  %126 = icmp sgt i32 %125, -30
-  %127 = tail call double @llvm.powi.f64.i32(double 1.000000e+01, i32 %125)
-  %.sroa.057.0 = select i1 %126, double %127, double 1.000000e-30
-  %128 = getelementptr inbounds i8, ptr %5, i64 8
-  %129 = fsub double 1.000000e+00, %41
-  %130 = fsub double 1.000000e+00, %43
-  br label %131
+101:                                              ; preds = %83, %95, %91, %48
+  %.sroa.038.1 = phi double [ %75, %48 ], [ %90, %83 ], [ %100, %95 ], [ %94, %91 ]
+  %102 = fcmp olt double %.sroa.038.1, 1.000000e-04
+  %.sroa.0.0.i = select i1 %102, double 1.000000e-04, double %.sroa.038.1
+  %103 = fcmp ogt double %.sroa.0.0.i, 9.999000e-01
+  %.sroa.0.1.i = select i1 %103, double 9.999000e-01, double %.sroa.0.0.i
+  %104 = fdiv double -5.000000e+00, %.sroa.0.0
+  %105 = fdiv double %104, %.sroa.0.0
+  %106 = tail call double @llvm.pow.f64(double %.sroa.028.0, double 2.000000e-01)
+  %107 = fdiv double 1.000000e+00, %106
+  %108 = fsub double %105, %107
+  %109 = fadd double %108, -1.300000e+01
+  %110 = tail call i32 @llvm.fptosi.sat.i32.f64(double %109)
+  %111 = icmp sgt i32 %110, -30
+  %112 = tail call double @llvm.powi.f64.i32(double 1.000000e+01, i32 %110)
+  %.sroa.057.0 = select i1 %111, double %112, double 1.000000e-30
+  %113 = getelementptr inbounds i8, ptr %5, i64 8
+  %114 = fsub double 1.000000e+00, %.sroa.0.0
+  %115 = fsub double 1.000000e+00, %.sroa.016.0
+  br label %116
 
-131:                                              ; preds = %.split.us, %113
-  %.sroa.077.0 = phi double [ 0.000000e+00, %113 ], [ %145, %.split.us ]
-  %.sroa.071.0 = phi double [ 1.000000e+00, %113 ], [ %153, %.split.us ]
-  %.sroa.059.0 = phi double [ 1.000000e+00, %113 ], [ %.sroa.059.1, %.split.us ]
-  %.sroa.038.2 = phi double [ %.sroa.0.1.i, %113 ], [ %156, %.split.us ]
+116:                                              ; preds = %.split.us, %101
+  %.sroa.077.0 = phi double [ 0.000000e+00, %101 ], [ %130, %.split.us ]
+  %.sroa.071.0 = phi double [ 1.000000e+00, %101 ], [ %138, %.split.us ]
+  %.sroa.059.0 = phi double [ 1.000000e+00, %101 ], [ %.sroa.059.1, %.split.us ]
+  %.sroa.038.2 = phi double [ %.sroa.0.1.i, %101 ], [ %141, %.split.us ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  call void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %5, double noundef %41, double noundef %43, double noundef %.sroa.038.2)
+  call void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %5, double noundef %.sroa.0.0, double noundef %.sroa.016.0, double noundef %.sroa.038.2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
-  %132 = load i64, ptr %5, align 8, !range !4, !alias.scope !119, !noalias !122, !noundef !5
-  %133 = icmp eq i64 %132, 21
-  br i1 %133, label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit, label %134
+  %117 = load i64, ptr %5, align 8, !range !4, !alias.scope !119, !noalias !122, !noundef !5
+  %118 = icmp eq i64 %117, 21
+  br i1 %118, label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit, label %119
 
-134:                                              ; preds = %131
+119:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !122
   call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #15, !noalias !119
   unreachable
 
-_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %131
-  %135 = load double, ptr %128, align 8, !alias.scope !119, !noalias !122, !noundef !5
+_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %116
+  %120 = load double, ptr %113, align 8, !alias.scope !119, !noalias !122, !noundef !5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  %136 = fsub double %135, %.sroa.028.0
-  %137 = tail call noundef double @llvm.log.f64(double %.sroa.038.2)
-  %138 = fmul double %129, %137
-  %139 = fadd double %16, %138
-  %140 = fsub double 1.000000e+00, %.sroa.038.2
-  %141 = tail call noundef double @llvm.log.f64(double %140)
-  %142 = fmul double %130, %141
-  %143 = fadd double %139, %142
-  %144 = tail call double @llvm.exp.f64(double %143)
-  %145 = fmul double %144, %136
-  %146 = fmul double %.sroa.077.0, %145
-  %147 = fcmp ugt double %146, 0.000000e+00
-  %148 = fcmp ogt double %.sroa.071.0, 1.000000e-30
-  %.sroa.071.1 = select i1 %148, double %.sroa.071.0, double 1.000000e-30
-  %.sroa.059.1 = select i1 %147, double %.sroa.059.0, double %.sroa.071.1
-  %149 = fcmp ugt double %.sroa.059.1, %.sroa.057.0
-  %150 = fmul double %145, %145
-  %151 = fcmp ugt double %150, %.sroa.057.0
-  %or.cond91 = and i1 %151, %149
+  %121 = fsub double %120, %.sroa.028.0
+  %122 = tail call noundef double @llvm.log.f64(double %.sroa.038.2)
+  %123 = fmul double %114, %122
+  %124 = fadd double %16, %123
+  %125 = fsub double 1.000000e+00, %.sroa.038.2
+  %126 = tail call noundef double @llvm.log.f64(double %125)
+  %127 = fmul double %115, %126
+  %128 = fadd double %124, %127
+  %129 = tail call double @llvm.exp.f64(double %128)
+  %130 = fmul double %129, %121
+  %131 = fmul double %.sroa.077.0, %130
+  %132 = fcmp ugt double %131, 0.000000e+00
+  %133 = fcmp ogt double %.sroa.071.0, 1.000000e-30
+  %.sroa.071.1 = select i1 %133, double %.sroa.071.0, double 1.000000e-30
+  %.sroa.059.1 = select i1 %132, double %.sroa.059.0, double %.sroa.071.1
+  %134 = fcmp ugt double %.sroa.059.1, %.sroa.057.0
+  %135 = fmul double %130, %130
+  %136 = fcmp ugt double %135, %.sroa.057.0
+  %or.cond91 = and i1 %136, %134
   %or.cond91.fr = freeze i1 %or.cond91
   br i1 %or.cond91.fr, label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us, label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split
 
 _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us: ; preds = %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit, %.backedge.us
   %.sroa.074.0.us = phi double [ %.sroa.074.0.be.us, %.backedge.us ], [ 1.000000e+00, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit ]
-  %152 = fmul double %145, %.sroa.074.0.us
-  %153 = fmul double %152, %152
-  %154 = fcmp olt double %153, %.sroa.059.1
-  br i1 %154, label %155, label %.backedge.us
+  %137 = fmul double %130, %.sroa.074.0.us
+  %138 = fmul double %137, %137
+  %139 = fcmp olt double %138, %.sroa.059.1
+  br i1 %139, label %140, label %.backedge.us
 
-155:                                              ; preds = %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us
-  %156 = fsub double %.sroa.038.2, %152
-  %157 = fcmp oge double %156, 0.000000e+00
-  %158 = fcmp ole double %156, 1.000000e+00
-  %.sroa.04.0.i.us = and i1 %157, %158
-  br i1 %.sroa.04.0.i.us, label %159, label %.backedge.us
+140:                                              ; preds = %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us
+  %141 = fsub double %.sroa.038.2, %137
+  %142 = fcmp oge double %141, 0.000000e+00
+  %143 = fcmp ole double %141, 1.000000e+00
+  %.sroa.04.0.i.us = and i1 %142, %143
+  br i1 %.sroa.04.0.i.us, label %144, label %.backedge.us
 
-159:                                              ; preds = %155
-  %160 = fcmp une double %156, 0.000000e+00
-  %161 = fcmp une double %156, 1.000000e+00
-  %or.cond3.us = and i1 %160, %161
+144:                                              ; preds = %140
+  %145 = fcmp une double %141, 0.000000e+00
+  %146 = fcmp une double %141, 1.000000e+00
+  %or.cond3.us = and i1 %145, %146
   br i1 %or.cond3.us, label %.split.us, label %.backedge.us
 
-.backedge.us:                                     ; preds = %159, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us, %155
+.backedge.us:                                     ; preds = %144, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us, %140
   %.sroa.074.0.be.us = fdiv double %.sroa.074.0.us, 3.000000e+00
   br label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split.us
 
-.split.us:                                        ; preds = %159
-  %162 = fcmp oeq double %156, %.sroa.038.2
-  br i1 %162, label %.loopexit, label %131
+.split.us:                                        ; preds = %144
+  %147 = fcmp oeq double %141, %.sroa.038.2
+  br i1 %147, label %.loopexit, label %116
 
 _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split: ; preds = %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit, %.backedge
-  %.sroa.074.0 = phi double [ %170, %.backedge ], [ 1.000000e+00, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit ]
-  %163 = fmul double %145, %.sroa.074.0
-  %164 = fmul double %163, %163
-  %165 = fcmp olt double %164, %.sroa.059.1
-  br i1 %165, label %166, label %.backedge
+  %.sroa.074.0 = phi double [ %155, %.backedge ], [ 1.000000e+00, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit ]
+  %148 = fmul double %130, %.sroa.074.0
+  %149 = fmul double %148, %148
+  %150 = fcmp olt double %149, %.sroa.059.1
+  br i1 %150, label %151, label %.backedge
 
-166:                                              ; preds = %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split
-  %167 = fsub double %.sroa.038.2, %163
-  %168 = fcmp oge double %167, 0.000000e+00
-  %169 = fcmp ole double %167, 1.000000e+00
-  %.sroa.04.0.i = and i1 %168, %169
+151:                                              ; preds = %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split
+  %152 = fsub double %.sroa.038.2, %148
+  %153 = fcmp oge double %152, 0.000000e+00
+  %154 = fcmp ole double %152, 1.000000e+00
+  %.sroa.04.0.i = and i1 %153, %154
   br i1 %.sroa.04.0.i, label %.loopexit.loopexit, label %.backedge
 
-.backedge:                                        ; preds = %166, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split
-  %170 = fdiv double %.sroa.074.0, 3.000000e+00
+.backedge:                                        ; preds = %151, %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split
+  %155 = fdiv double %.sroa.074.0, 3.000000e+00
   br label %_ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit.split
 
-.loopexit.loopexit:                               ; preds = %166
-  %.pre = fsub double 1.000000e+00, %167
+.loopexit.loopexit:                               ; preds = %151
+  %.pre = fsub double 1.000000e+00, %152
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split.us, %.loopexit.loopexit
-  %.pre-phi = phi double [ %.pre, %.loopexit.loopexit ], [ %140, %.split.us ]
-  %.sroa.038.3 = phi double [ %167, %.loopexit.loopexit ], [ %.sroa.038.2, %.split.us ]
+  %.pre-phi = phi double [ %.pre, %.loopexit.loopexit ], [ %125, %.split.us ]
+  %.sroa.038.3 = phi double [ %152, %.loopexit.loopexit ], [ %.sroa.038.2, %.split.us ]
   %.sroa.038.4 = select i1 %21, double %.pre-phi, double %.sroa.038.3
-  br label %171
+  br label %156
 
-171:                                              ; preds = %18, %_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit, %.loopexit
+156:                                              ; preds = %18, %_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit, %.loopexit
   %.sroa.038.0 = phi double [ %.sroa.038.4, %.loopexit ], [ 0.000000e+00, %_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit ], [ 1.000000e+00, %18 ]
   ret double %.sroa.038.0
 }
@@ -2026,7 +1999,9 @@ define noundef double @_ZN6statrs8function8logistic5logit17hac7411a972977cb7E(do
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2), !noalias !125
   store i64 4, ptr %2, align 8, !noalias !129
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !129
+  store double 0.000000e+00, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !129
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  store double 1.000000e+00, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !129
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
   store ptr @anon.add817559d7beeee5c0788ec3c34287f.49, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !129
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
@@ -2397,15 +2372,6 @@ declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.log.v2f64(<2 x double>) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #13
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

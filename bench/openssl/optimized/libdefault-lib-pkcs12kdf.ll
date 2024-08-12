@@ -245,15 +245,14 @@ if.end19.i:                                       ; preds = %if.then14.i, %if.en
   %Plen.0.i = phi i64 [ %mul18.i, %if.then14.i ], [ 0, %if.end6.i ]
   %add20.i = add i64 %Plen.0.i, %mul.i
   %call21.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add20.i, ptr noundef nonnull @.str, i32 noundef 83) #6
-  %10 = insertelement <4 x ptr> poison, ptr %call8.i, i64 0
-  %11 = insertelement <4 x ptr> %10, ptr %call9.i, i64 1
-  %12 = insertelement <4 x ptr> %11, ptr %call10.i, i64 2
-  %13 = insertelement <4 x ptr> %12, ptr %call21.i, i64 3
-  %.fr = freeze <4 x ptr> %13
-  %14 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %15 = bitcast <4 x i1> %14 to i4
-  %.not = icmp eq i4 %15, 0
-  br i1 %.not, label %for.cond.preheader.i, label %pkcs12kdf_derive.exit
+  %cmp22.i = icmp eq ptr %call8.i, null
+  %cmp25.i = icmp eq ptr %call9.i, null
+  %or.cond1.i = select i1 %cmp22.i, i1 true, i1 %cmp25.i
+  %cmp28.i = icmp eq ptr %call10.i, null
+  %or.cond2.i = select i1 %or.cond1.i, i1 true, i1 %cmp28.i
+  %cmp31.i = icmp eq ptr %call21.i, null
+  %or.cond3.i = select i1 %or.cond2.i, i1 true, i1 %cmp31.i
+  br i1 %or.cond3.i, label %pkcs12kdf_derive.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end19.i
   %conv37.i = trunc i32 %6 to i8
@@ -271,9 +270,9 @@ for.body41.i:                                     ; preds = %for.cond.preheader.
   %p.089.i = phi ptr [ %incdec.ptr.i, %for.body41.i ], [ %call21.i, %for.cond.preheader.i ]
   %rem.i = urem i64 %i.190.i, %5
   %arrayidx42.i = getelementptr inbounds i8, ptr %4, i64 %rem.i
-  %16 = load i8, ptr %arrayidx42.i, align 1
+  %10 = load i8, ptr %arrayidx42.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.089.i, i64 1
-  store i8 %16, ptr %p.089.i, align 1
+  store i8 %10, ptr %p.089.i, align 1
   %inc44.i = add nuw i64 %i.190.i, 1
   %cmp39.i = icmp ult i64 %inc44.i, %mul.i
   br i1 %cmp39.i, label %for.body41.i, label %for.cond46.preheader.i, !llvm.loop !4
@@ -293,9 +292,9 @@ for.body49.i:                                     ; preds = %for.cond46.preheade
   %p.192.i = phi ptr [ %incdec.ptr52.i, %for.body49.i ], [ %p.0.lcssa.i, %for.cond46.preheader.i ]
   %rem50.i = urem i64 %i.293.i, %3
   %arrayidx51.i = getelementptr inbounds i8, ptr %2, i64 %rem50.i
-  %17 = load i8, ptr %arrayidx51.i, align 1
+  %11 = load i8, ptr %arrayidx51.i, align 1
   %incdec.ptr52.i = getelementptr inbounds i8, ptr %p.192.i, i64 1
-  store i8 %17, ptr %p.192.i, align 1
+  store i8 %11, ptr %p.192.i, align 1
   %inc54.i = add nuw i64 %i.293.i, 1
   %exitcond.not.i = icmp eq i64 %inc54.i, %Plen.0.i
   br i1 %exitcond.not.i, label %for.cond56.preheader.i, label %for.body49.i, !llvm.loop !6
@@ -361,9 +360,9 @@ for.body96.i:                                     ; preds = %for.end85.i, %for.b
   %j.096.i = phi i64 [ %inc101.i, %for.body96.i ], [ 0, %for.end85.i ]
   %rem97.i = urem i64 %j.096.i, %conv.i
   %arrayidx98.i = getelementptr inbounds i8, ptr %call9.i, i64 %rem97.i
-  %18 = load i8, ptr %arrayidx98.i, align 1
+  %12 = load i8, ptr %arrayidx98.i, align 1
   %arrayidx99.i = getelementptr inbounds i8, ptr %call10.i, i64 %j.096.i
-  store i8 %18, ptr %arrayidx99.i, align 1
+  store i8 %12, ptr %arrayidx99.i, align 1
   %inc101.i = add nuw nsw i64 %j.096.i, 1
   %exitcond113.not.i = icmp eq i64 %inc101.i, %conv7.i
   br i1 %exitcond113.not.i, label %for.cond103.preheader.i, label %for.body96.i, !llvm.loop !8
@@ -378,11 +377,11 @@ for.body111.i:                                    ; preds = %for.body111.i, %for
   %k.097.i = phi i64 [ %conv7.i, %for.body106.i ], [ %dec.i, %for.body111.i ]
   %dec.i = add nsw i64 %k.097.i, -1
   %arrayidx112.i = getelementptr inbounds i8, ptr %add.ptr107.i, i64 %dec.i
-  %19 = load i8, ptr %arrayidx112.i, align 1
-  %conv113.i = zext i8 %19 to i16
+  %13 = load i8, ptr %arrayidx112.i, align 1
+  %conv113.i = zext i8 %13 to i16
   %arrayidx114.i = getelementptr inbounds i8, ptr %call10.i, i64 %dec.i
-  %20 = load i8, ptr %arrayidx114.i, align 1
-  %conv115.i = zext i8 %20 to i16
+  %14 = load i8, ptr %arrayidx114.i, align 1
+  %conv115.i = zext i8 %14 to i16
   %add116.i = add nuw nsw i16 %c.098.i, %conv113.i
   %add118.i = add nuw nsw i16 %add116.i, %conv115.i
   %conv120.i = trunc i16 %add118.i to i8

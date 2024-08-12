@@ -342,7 +342,7 @@ define void @_ZN3gmx25GpuTaskAssignmentsBuilder5buildENS_8ArrayRefIKiEES3_RK13gm
   %25 = alloca %"class.std::vector.13", align 8
   %26 = alloca %"class.std::vector.18", align 8
   %27 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
-  %28 = alloca %"class.std::vector", align 16
+  %28 = alloca %"class.std::vector", align 8
   %29 = alloca %"class.std::vector.0", align 8
   %30 = alloca %"class.std::vector.0", align 8
   %31 = alloca [4096 x i8], align 16
@@ -355,7 +355,7 @@ define void @_ZN3gmx25GpuTaskAssignmentsBuilder5buildENS_8ArrayRefIKiEES3_RK13gm
   %38 = alloca %"class.gmx::ExceptionInitializer", align 8
   %39 = alloca %"class.std::__cxx11::basic_string", align 8
   %40 = alloca %"class.gmx::ExceptionInfo", align 8
-  %41 = alloca %"class.std::vector", align 16
+  %41 = alloca %"class.std::vector", align 8
   %42 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %43 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %44 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -399,7 +399,7 @@ define void @_ZN3gmx25GpuTaskAssignmentsBuilder5buildENS_8ArrayRefIKiEES3_RK13gm
 _ZN3gmx12_GLOBAL__N_123countGpuTasksOnThisNodeERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EE.exit: ; preds = %.lr.ph.i, %56
   %.0.lcssa.i = phi i64 [ 0, %56 ], [ %65, %.lr.ph.i ]
   store ptr null, ptr %27, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %28, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %67 = icmp eq ptr %3, %4
   br i1 %67, label %68, label %143
@@ -771,12 +771,12 @@ _ZNSt6vectorIS_IN3gmx14GpuTaskMappingESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_
           to label %.noexc93 unwind label %82
 
 .noexc93:                                         ; preds = %.lr.ph53.preheader.i
-  store ptr %191, ptr %41, align 16, !alias.scope !10
+  store ptr %191, ptr %41, align 8, !alias.scope !10
   %192 = getelementptr i8, ptr %191, i64 %188
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %191, i8 0, i64 %188, i1 false), !noalias !10
   %193 = getelementptr inbounds i8, ptr %41, i64 8
   %194 = getelementptr inbounds i8, ptr %41, i64 16
-  store ptr %192, ptr %194, align 16, !alias.scope !10
+  store ptr %192, ptr %194, align 8, !alias.scope !10
   store ptr %192, ptr %193, align 8, !alias.scope !10
   br label %.lr.ph53.i
 
@@ -1075,25 +1075,28 @@ _ZNSt6vectorIN3gmx14GpuTaskMappingESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_Z
   unreachable
 
 .loopexit.loopexit:                               ; preds = %294
-  %297 = load <2 x ptr>, ptr %41, align 16
-  %.pre223 = load ptr, ptr %194, align 16
+  %.pre219 = load ptr, ptr %41, align 8
+  %.pre221 = load ptr, ptr %193, align 8
+  %.pre223 = load ptr, ptr %194, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIS_IN3gmx14GpuTaskMappingESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i, %.loopexit.loopexit
-  %298 = phi ptr [ %.pre223, %.loopexit.loopexit ], [ null, %_ZNSt6vectorIS_IN3gmx14GpuTaskMappingESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
-  %299 = phi <2 x ptr> [ %297, %.loopexit.loopexit ], [ zeroinitializer, %_ZNSt6vectorIS_IN3gmx14GpuTaskMappingESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
+  %297 = phi ptr [ %.pre223, %.loopexit.loopexit ], [ null, %_ZNSt6vectorIS_IN3gmx14GpuTaskMappingESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
+  %298 = phi ptr [ %.pre221, %.loopexit.loopexit ], [ null, %_ZNSt6vectorIS_IN3gmx14GpuTaskMappingESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
+  %299 = phi ptr [ %.pre219, %.loopexit.loopexit ], [ null, %_ZNSt6vectorIS_IN3gmx14GpuTaskMappingESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  %300 = load ptr, ptr %28, align 16
+  %300 = load ptr, ptr %28, align 8
   %301 = getelementptr inbounds i8, ptr %28, i64 8
   %302 = load ptr, ptr %301, align 8
   %303 = getelementptr inbounds i8, ptr %28, i64 16
+  store ptr %299, ptr %28, align 8
   %304 = getelementptr inbounds i8, ptr %41, i64 8
-  store <2 x ptr> %299, ptr %28, align 16
-  store ptr %298, ptr %303, align 16
+  store ptr %298, ptr %301, align 8
+  store ptr %297, ptr %303, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %300, %302
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %41, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.loopexit, %_ZSt8_DestroyISt6vectorIN3gmx14GpuTaskMappingESaIS2_EEEvPT_.exit.i.i.i.i.i.i
@@ -1120,7 +1123,7 @@ _ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i
   br label %_ZNSt6vectorIS_IN3gmx14GpuTaskMappingESaIS1_EESaIS3_EEaSEOS5_.exit
 
 _ZNSt6vectorIS_IN3gmx14GpuTaskMappingESaIS1_EESaIS3_EEaSEOS5_.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i.i, %308
-  %309 = load ptr, ptr %41, align 16
+  %309 = load ptr, ptr %41, align 8
   %310 = load ptr, ptr %304, align 8
   %.not4.i.i.i.i = icmp eq ptr %309, %310
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -1141,7 +1144,7 @@ _ZSt8_DestroyISt6vectorIN3gmx14GpuTaskMappingESaIS2_EEEvPT_.exit.i.i.i.i: ; pred
   br i1 %.not.i.i.i.i97, label %_ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
 _ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt6vectorIN3gmx14GpuTaskMappingESaIS2_EEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %41, align 16
+  %.pr.i = load ptr, ptr %41, align 8
   br label %_ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorIS_IN3gmx14GpuTaskMappingESaIS1_EESaIS3_EEaSEOS5_.exit
@@ -1443,7 +1446,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit: ; pr
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit120
 
 _ZNSt6vectorIiSaIiEED2Ev.exit120:                 ; preds = %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit, %417
-  %418 = load ptr, ptr %28, align 16
+  %418 = load ptr, ptr %28, align 8
   %419 = getelementptr inbounds i8, ptr %28, i64 8
   %420 = load ptr, ptr %419, align 8
   %.not4.i.i.i.i121 = icmp eq ptr %418, %420
@@ -1465,7 +1468,7 @@ _ZSt8_DestroyISt6vectorIN3gmx14GpuTaskMappingESaIS2_EEEvPT_.exit.i.i.i.i125: ; p
   br i1 %.not.i.i.i.i126, label %_ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i127, label %.lr.ph.i.i.i.i122, !llvm.loop !13
 
 _ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i127: ; preds = %_ZSt8_DestroyISt6vectorIN3gmx14GpuTaskMappingESaIS2_EEEvPT_.exit.i.i.i.i125
-  %.pr.i128 = load ptr, ptr %28, align 16
+  %.pr.i128 = load ptr, ptr %28, align 8
   br label %_ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i129
 
 _ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i129: ; preds = %_ZSt8_DestroyIPSt6vectorIN3gmx14GpuTaskMappingESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i127, %_ZNSt6vectorIiSaIiEED2Ev.exit120
@@ -1647,10 +1650,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %0, align 8
   ret void
@@ -2672,10 +2678,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %0, align 8
   ret void

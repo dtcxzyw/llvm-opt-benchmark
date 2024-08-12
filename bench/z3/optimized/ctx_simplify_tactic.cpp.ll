@@ -5645,9 +5645,12 @@ lor.lhs.false9:                                   ; preds = %_ZNK6vectorIN19ctx_
   br i1 %call13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %lor.lhs.false9
-  %27 = load <2 x i32>, ptr %m_depth, align 8
-  %28 = add <2 x i32> %27, <i32 1, i32 1>
-  store <2 x i32> %28, ptr %m_depth, align 8
+  %27 = load i32, ptr %m_num_steps, align 4
+  %inc = add i32 %27, 1
+  store i32 %inc, ptr %m_num_steps, align 4
+  %28 = load i32, ptr %m_depth, align 8
+  %inc18 = add i32 %28, 1
+  store i32 %inc18, ptr %m_depth, align 8
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i, align 4
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %cmp.i.i29 = icmp eq i32 %bf.clear.i.i.i, 0

@@ -172,9 +172,13 @@ define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, 
   br i1 %.not74, label %.thread92, label %77
 
 77:                                               ; preds = %74
+  %.sroa.0.0.copyload = load i64, ptr %.6, align 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.6, i64 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 1
   %78 = getelementptr inbounds i8, ptr %2, i64 312
-  %79 = load <2 x i64>, ptr %.6, align 1
-  store <2 x i64> %79, ptr %78, align 8
+  store i64 %.sroa.0.0.copyload, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %2, i64 320
+  store i64 %.sroa.2.0.copyload, ptr %79, align 8
   br label %.thread92
 
 .thread92:                                        ; preds = %3, %77, %74
@@ -307,9 +311,13 @@ define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, p
   br i1 %.not64, label %.thread79, label %66
 
 66:                                               ; preds = %63
+  %.sroa.0.0.copyload = load i64, ptr %.5, align 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.5, i64 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 1
   %67 = getelementptr inbounds i8, ptr %2, i64 272
-  %68 = load <2 x i64>, ptr %.5, align 1
-  store <2 x i64> %68, ptr %67, align 8
+  store i64 %.sroa.0.0.copyload, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %2, i64 280
+  store i64 %.sroa.2.0.copyload, ptr %68, align 8
   br label %.thread79
 
 .thread79:                                        ; preds = %3, %66, %63

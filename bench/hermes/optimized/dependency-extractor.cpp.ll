@@ -1078,7 +1078,13 @@ entry:
   %preemptiveFunctionCompilationThreshold_ = getelementptr inbounds i8, ptr %this, i64 172
   %generatorEnabled_ = getelementptr inbounds i8, ptr %this, i64 181
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %preemptiveFunctionCompilationThreshold_, i8 0, i64 9, i1 false)
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %generatorEnabled_, align 1
+  store i8 1, ptr %generatorEnabled_, align 1
+  %useCJSModules_ = getelementptr inbounds i8, ptr %this, i64 182
+  store i8 0, ptr %useCJSModules_, align 2
+  %parseJSX_ = getelementptr inbounds i8, ptr %this, i64 183
+  store i8 0, ptr %parseJSX_, align 1
+  %parseFlowComponentSyntax_ = getelementptr inbounds i8, ptr %this, i64 184
+  store i8 0, ptr %parseFlowComponentSyntax_, align 8
   %parseFlow_ = getelementptr inbounds i8, ptr %this, i64 188
   store i32 0, ptr %parseFlow_, align 4
   %parseTS_ = getelementptr inbounds i8, ptr %this, i64 192

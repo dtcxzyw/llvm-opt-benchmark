@@ -210,7 +210,7 @@ $_ZZN4node23ArrayBufferViewContentsIcLm64EEC1EN2v85LocalINS2_6ObjectEEEE4args = 
 @.str.19 = private unnamed_addr constant [29 x i8] c"../../src/node_buffer.cc:497\00", align 1
 @.str.20 = private unnamed_addr constant [18 x i8] c"(data) != nullptr\00", align 1
 @.str.21 = private unnamed_addr constant [68 x i8] c"MaybeLocal<Object> node::Buffer::New(Environment *, char *, size_t)\00", align 1
-@_ZN4node6Buffer12_GLOBAL__N_121fast_byte_length_utf8E = internal global %"class.v8::CFunction" zeroinitializer, align 16
+@_ZN4node6Buffer12_GLOBAL__N_121fast_byte_length_utf8E = internal global %"class.v8::CFunction" zeroinitializer, align 8
 @_ZL7_module = internal global %"struct.node::node_module" { i32 120, i32 4, ptr null, ptr @.str.202, ptr null, ptr @_ZN4node6Buffer12_GLOBAL__N_110InitializeEN2v85LocalINS2_6ObjectEEENS3_INS2_5ValueEEENS3_INS2_7ContextEEEPv, ptr @.str.203, ptr null, ptr null }, align 8
 @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE = external local_unnamed_addr constant ptr, align 8
 @.str.23 = private unnamed_addr constant [48 x i8] c"Buffer is not available for the current Context\00", align 1
@@ -13093,8 +13093,8 @@ _ZN2v811ReturnValueINS_5ValueEE3SetINS_11Uint32ArrayEEEvNS_5LocalIT_EE.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node6Buffer12_GLOBAL__N_117DetachArrayBufferERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 {
 entry:
-  %store = alloca %"class.std::shared_ptr.273", align 16
-  %agg.tmp30 = alloca %"class.std::shared_ptr.273", align 16
+  %store = alloca %"class.std::shared_ptr.273", align 8
+  %agg.tmp30 = alloca %"class.std::shared_ptr.273", align 8
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i15 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i15, align 8
@@ -13192,16 +13192,17 @@ _ZNK2v85MaybeIbE5CheckEv.exit:                    ; preds = %if.then.i, %if.then
   %arrayidx.i182 = getelementptr inbounds i8, ptr %24, i64 24
   %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %25 = load ptr, ptr %isolate_.i, align 8
+  %26 = load ptr, ptr %store, align 8
+  store ptr %26, ptr %agg.tmp30, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp30, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %store, i64 8
-  %26 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %27 = load <2 x ptr>, ptr %store, align 16
-  store <2 x ptr> %27, ptr %agg.tmp30, align 16
-  %cmp.not.i.i.i = icmp eq ptr %26, null
+  %27 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %27, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %27, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK2v85MaybeIbE5CheckEv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %28, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -18352,7 +18353,7 @@ _ZNK2v85MaybeIbE5CheckEv.exit:                    ; preds = %if.then.i90, %_ZN4n
 define internal void @_GLOBAL__sub_I_node_buffer.cc() #17 section ".text.startup" {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i.i = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i.i = alloca %"class.v8::CFunction", align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #22
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i)
@@ -18377,9 +18378,12 @@ init.i.i.i.i:                                     ; preds = %init.check.i.i.i.i
 
 __cxx_global_var_init.22.exit:                    ; preds = %entry, %init.check.i.i.i.i, %init.i.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i, ptr noundef nonnull @_ZN4node6Buffer12_GLOBAL__N_118FastByteLengthUtf8EN2v85LocalINS2_5ValueEEERKNS2_17FastOneByteStringE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #22
-  %3 = load <2 x ptr>, ptr %retval.i.i.i.i, align 16
+  %.fca.0.load.i.i.i.i = load ptr, ptr %retval.i.i.i.i, align 8
+  %.fca.1.gep.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i.i, i64 8
+  %.fca.1.load.i.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i)
-  store <2 x ptr> %3, ptr @_ZN4node6Buffer12_GLOBAL__N_121fast_byte_length_utf8E, align 16
+  store ptr %.fca.0.load.i.i.i.i, ptr @_ZN4node6Buffer12_GLOBAL__N_121fast_byte_length_utf8E, align 8
+  store ptr %.fca.1.load.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4node6Buffer12_GLOBAL__N_121fast_byte_length_utf8E, i64 8), align 8
   ret void
 }
 

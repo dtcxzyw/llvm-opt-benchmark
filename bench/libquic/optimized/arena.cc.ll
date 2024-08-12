@@ -630,11 +630,15 @@ invoke.cont:                                      ; preds = %_ZNKSt6vectorIN3net
   %add.ptr = getelementptr inbounds %"struct.net::UnsafeArena::Block", ptr %cond.i19, i64 %sub.ptr.div.i
   %size.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %size2.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %3 = load <2 x i64>, ptr %size2.i.i.i, align 8
-  store <2 x i64> %3, ptr %size.i.i.i, align 8
-  %4 = load ptr, ptr %__args, align 8
+  %3 = load i64, ptr %size2.i.i.i, align 8
+  store i64 %3, ptr %size.i.i.i, align 8
+  %used.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %used3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
+  %4 = load i64, ptr %used3.i.i.i, align 8
+  store i64 %4, ptr %used.i.i.i, align 8
+  %5 = load ptr, ptr %__args, align 8
   store ptr null, ptr %__args, align 8
-  store ptr %4, ptr %add.ptr, align 8
+  store ptr %5, ptr %add.ptr, align 8
   %cmp.i.i.not7.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.i.i.not7.i.i.i.i.i, label %invoke.cont10, label %for.inc.i.i.i.i.i
 
@@ -643,15 +647,15 @@ for.inc.i.i.i.i.i:                                ; preds = %invoke.cont, %for.i
   %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
   %size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 8
   %size2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 8
-  %5 = load i64, ptr %size2.i.i.i.i.i.i.i, align 8
-  store i64 %5, ptr %size.i.i.i.i.i.i.i, align 8
+  %6 = load i64, ptr %size2.i.i.i.i.i.i.i, align 8
+  store i64 %6, ptr %size.i.i.i.i.i.i.i, align 8
   %used.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 16
   %used3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 16
-  %6 = load i64, ptr %used3.i.i.i.i.i.i.i, align 8
-  store i64 %6, ptr %used.i.i.i.i.i.i.i, align 8
-  %7 = load ptr, ptr %__first.sroa.0.08.i.i.i.i.i, align 8
+  %7 = load i64, ptr %used3.i.i.i.i.i.i.i, align 8
+  store i64 %7, ptr %used.i.i.i.i.i.i.i, align 8
+  %8 = load ptr, ptr %__first.sroa.0.08.i.i.i.i.i, align 8
   store ptr null, ptr %__first.sroa.0.08.i.i.i.i.i, align 8
-  store ptr %7, ptr %__cur.09.i.i.i.i.i, align 8
+  store ptr %8, ptr %__cur.09.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 24
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 24
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %__position.coerce
@@ -669,21 +673,21 @@ for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for
   store ptr null, ptr %__cur.09.i.i.i.i.i22, align 8
   %size.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 8
   %size2.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i23, i64 8
-  %8 = load i64, ptr %size2.i.i.i.i.i.i.i25, align 8
-  store i64 %8, ptr %size.i.i.i.i.i.i.i24, align 8
+  %9 = load i64, ptr %size2.i.i.i.i.i.i.i25, align 8
+  store i64 %9, ptr %size.i.i.i.i.i.i.i24, align 8
   %used.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i22, i64 16
   %used3.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i23, i64 16
-  %9 = load i64, ptr %used3.i.i.i.i.i.i.i27, align 8
-  store i64 %9, ptr %used.i.i.i.i.i.i.i26, align 8
-  %10 = load ptr, ptr %__first.sroa.0.08.i.i.i.i.i23, align 8
+  %10 = load i64, ptr %used3.i.i.i.i.i.i.i27, align 8
+  store i64 %10, ptr %used.i.i.i.i.i.i.i26, align 8
+  %11 = load ptr, ptr %__first.sroa.0.08.i.i.i.i.i23, align 8
   store ptr null, ptr %__first.sroa.0.08.i.i.i.i.i23, align 8
-  %11 = load ptr, ptr %__cur.09.i.i.i.i.i22, align 8
-  store ptr %10, ptr %__cur.09.i.i.i.i.i22, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i28 = icmp eq ptr %11, null
+  %12 = load ptr, ptr %__cur.09.i.i.i.i.i22, align 8
+  store ptr %11, ptr %__cur.09.i.i.i.i.i22, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i28 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i28, label %for.inc.i.i.i.i.i30, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i29
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i29: ; preds = %for.body.i.i.i.i.i21
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
   br label %for.inc.i.i.i.i.i30
 
 for.inc.i.i.i.i.i30:                              ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i.i.i.i.i.i29, %for.body.i.i.i.i.i21
@@ -699,12 +703,12 @@ invoke.cont14:                                    ; preds = %for.inc.i.i.i.i.i30
 
 for.body.i.i.i:                                   ; preds = %invoke.cont14, %_ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i ], [ %1, %invoke.cont14 ]
-  %12 = load ptr, ptr %__first.addr.04.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %12, null
+  %13 = load ptr, ptr %__first.addr.04.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %12) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %13) #12
   br label %_ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN3net11UnsafeArena5BlockEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i, %for.body.i.i.i

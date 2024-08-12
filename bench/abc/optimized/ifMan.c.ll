@@ -2958,7 +2958,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 ; Function Attrs: nounwind uwtable
 define ptr @If_ManCreateAnd(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, %2
-  br i1 %4, label %96, label %5
+  br i1 %4, label %102, label %5
 
 5:                                                ; preds = %3
   %6 = ptrtoint ptr %2 to i64
@@ -2973,7 +2973,7 @@ define ptr @If_ManCreateAnd(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   %13 = ptrtoint ptr %12 to i64
   %14 = xor i64 %13, 1
   %15 = inttoptr i64 %14 to ptr
-  br label %96
+  br label %102
 
 16:                                               ; preds = %5
   %17 = ptrtoint ptr %1 to i64
@@ -2986,12 +2986,12 @@ define ptr @If_ManCreateAnd(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
 
 23:                                               ; preds = %16
   %24 = icmp eq ptr %19, %1
-  br i1 %24, label %96, label %25
+  br i1 %24, label %102, label %25
 
 25:                                               ; preds = %23
   %26 = or i64 %17, 1
   %27 = inttoptr i64 %26 to ptr
-  br label %96
+  br label %102
 
 28:                                               ; preds = %16
   %29 = and i64 %6, -2
@@ -3001,13 +3001,13 @@ define ptr @If_ManCreateAnd(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
 
 32:                                               ; preds = %28
   %33 = icmp eq ptr %21, %2
-  br i1 %33, label %96, label %34
+  br i1 %33, label %102, label %34
 
 34:                                               ; preds = %32
   %35 = ptrtoint ptr %21 to i64
   %36 = xor i64 %35, 1
   %37 = inttoptr i64 %36 to ptr
-  br label %96
+  br label %102
 
 38:                                               ; preds = %28
   %39 = tail call fastcc ptr @If_ManSetupObj(ptr noundef nonnull %0)
@@ -3026,67 +3026,75 @@ define ptr @If_ManCreateAnd(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   %51 = getelementptr inbounds i8, ptr %39, i64 24
   store ptr %19, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %19, i64 12
-  %53 = load <2 x i32>, ptr %52, align 4
-  %54 = add nsw <2 x i32> %53, <i32 1, i32 1>
-  store <2 x i32> %54, ptr %52, align 4
-  %55 = getelementptr inbounds i8, ptr %19, i64 20
-  %56 = load i32, ptr %55, align 4
+  %53 = load i32, ptr %52, align 4
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %52, align 4
+  %55 = getelementptr inbounds i8, ptr %19, i64 16
+  %56 = load i32, ptr %55, align 8
   %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %55, align 4
-  %58 = getelementptr inbounds i8, ptr %39, i64 32
-  store ptr %30, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %30, i64 12
-  %60 = load <2 x i32>, ptr %59, align 4
-  %61 = add nsw <2 x i32> %60, <i32 1, i32 1>
-  store <2 x i32> %61, ptr %59, align 4
-  %62 = getelementptr inbounds i8, ptr %30, i64 20
+  store i32 %57, ptr %55, align 8
+  %58 = getelementptr inbounds i8, ptr %19, i64 20
+  %59 = load i32, ptr %58, align 4
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %58, align 4
+  %61 = getelementptr inbounds i8, ptr %39, i64 32
+  store ptr %30, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %30, i64 12
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %62, align 4
-  %65 = load i32, ptr %39, align 8
-  %66 = lshr i32 %65, 4
-  %67 = load i32, ptr %19, align 8
-  %68 = lshr i32 %67, 6
-  %69 = xor i32 %68, %66
-  %70 = lshr i32 %65, 5
-  %71 = load i32, ptr %30, align 8
-  %72 = lshr i32 %71, 6
-  %73 = xor i32 %72, %70
-  %74 = and i32 %69, 1
-  %75 = and i32 %74, %73
-  %76 = shl nuw nsw i32 %75, 6
-  %77 = and i32 %65, -65
-  %78 = or disjoint i32 %76, %77
-  store i32 %78, ptr %39, align 8
-  %79 = load i32, ptr %19, align 8
-  %80 = lshr i32 %79, 13
-  %81 = load i32, ptr %30, align 8
-  %82 = lshr i32 %81, 13
-  %. = tail call i32 @llvm.umax.i32(i32 %80, i32 %82)
-  %83 = shl nuw i32 %., 13
-  %84 = add i32 %83, 8192
-  %85 = and i32 %78, 8191
-  %86 = or disjoint i32 %85, %84
-  store i32 %86, ptr %39, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 84
-  %88 = load i32, ptr %87, align 4
-  %89 = lshr exact i32 %84, 13
-  %90 = icmp slt i32 %88, %89
-  br i1 %90, label %91, label %92
+  %65 = getelementptr inbounds i8, ptr %30, i64 16
+  %66 = load i32, ptr %65, align 8
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %65, align 8
+  %68 = getelementptr inbounds i8, ptr %30, i64 20
+  %69 = load i32, ptr %68, align 4
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr %68, align 4
+  %71 = load i32, ptr %39, align 8
+  %72 = lshr i32 %71, 4
+  %73 = load i32, ptr %19, align 8
+  %74 = lshr i32 %73, 6
+  %75 = xor i32 %74, %72
+  %76 = lshr i32 %71, 5
+  %77 = load i32, ptr %30, align 8
+  %78 = lshr i32 %77, 6
+  %79 = xor i32 %78, %76
+  %80 = and i32 %75, 1
+  %81 = and i32 %80, %79
+  %82 = shl nuw nsw i32 %81, 6
+  %83 = and i32 %71, -65
+  %84 = or disjoint i32 %82, %83
+  store i32 %84, ptr %39, align 8
+  %85 = load i32, ptr %19, align 8
+  %86 = lshr i32 %85, 13
+  %87 = load i32, ptr %30, align 8
+  %88 = lshr i32 %87, 13
+  %. = tail call i32 @llvm.umax.i32(i32 %86, i32 %88)
+  %89 = shl nuw i32 %., 13
+  %90 = add i32 %89, 8192
+  %91 = and i32 %84, 8191
+  %92 = or disjoint i32 %91, %90
+  store i32 %92, ptr %39, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 84
+  %94 = load i32, ptr %93, align 4
+  %95 = lshr exact i32 %90, 13
+  %96 = icmp slt i32 %94, %95
+  br i1 %96, label %97, label %98
 
-91:                                               ; preds = %38
-  store i32 %89, ptr %87, align 4
-  br label %92
+97:                                               ; preds = %38
+  store i32 %95, ptr %93, align 4
+  br label %98
 
-92:                                               ; preds = %91, %38
-  %93 = getelementptr inbounds i8, ptr %0, i64 80
-  %94 = load i32, ptr %93, align 8
-  %95 = add nsw i32 %94, 1
-  store i32 %95, ptr %93, align 8
-  br label %96
+98:                                               ; preds = %97, %38
+  %99 = getelementptr inbounds i8, ptr %0, i64 80
+  %100 = load i32, ptr %99, align 8
+  %101 = add nsw i32 %100, 1
+  store i32 %101, ptr %99, align 8
+  br label %102
 
-96:                                               ; preds = %34, %32, %25, %23, %3, %92, %10
-  %.0 = phi ptr [ %15, %10 ], [ %39, %92 ], [ %1, %3 ], [ %27, %25 ], [ %2, %23 ], [ %37, %34 ], [ %1, %32 ]
+102:                                              ; preds = %34, %32, %25, %23, %3, %98, %10
+  %.0 = phi ptr [ %15, %10 ], [ %39, %98 ], [ %1, %3 ], [ %27, %25 ], [ %2, %23 ], [ %37, %34 ], [ %1, %32 ]
   ret ptr %.0
 }
 
@@ -3141,7 +3149,7 @@ define void @If_ManCreateChoice(ptr nocapture noundef %0, ptr nocapture noundef 
   br label %5
 
 5:                                                ; preds = %2, %5
-  %.019 = phi ptr [ %1, %2 ], [ %17, %5 ]
+  %.019 = phi ptr [ %1, %2 ], [ %20, %5 ]
   %6 = load i32, ptr %1, align 8
   %7 = lshr i32 %6, 13
   %8 = load i32, ptr %.019, align 8
@@ -3152,31 +3160,35 @@ define void @If_ManCreateChoice(ptr nocapture noundef %0, ptr nocapture noundef 
   %12 = or disjoint i32 %10, %11
   store i32 %12, ptr %1, align 8
   %13 = getelementptr inbounds i8, ptr %.019, i64 16
-  %14 = load <2 x i32>, ptr %13, align 8
-  %15 = add nsw <2 x i32> %14, <i32 1, i32 1>
-  store <2 x i32> %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %.019, i64 40
-  %17 = load ptr, ptr %16, align 8
-  %.not = icmp eq ptr %17, null
-  br i1 %.not, label %18, label %5, !llvm.loop !37
+  %14 = load i32, ptr %13, align 8
+  %15 = add nsw i32 %14, 1
+  store i32 %15, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %.019, i64 20
+  %17 = load i32, ptr %16, align 4
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %16, align 4
+  %19 = getelementptr inbounds i8, ptr %.019, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %21, label %5, !llvm.loop !37
 
-18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %0, i64 84
-  %20 = load i32, ptr %19, align 4
-  %21 = load i32, ptr %1, align 8
-  %22 = lshr i32 %21, 13
-  %23 = icmp slt i32 %20, %22
-  br i1 %23, label %24, label %25
+21:                                               ; preds = %5
+  %22 = getelementptr inbounds i8, ptr %0, i64 84
+  %23 = load i32, ptr %22, align 4
+  %24 = load i32, ptr %1, align 8
+  %25 = lshr i32 %24, 13
+  %26 = icmp slt i32 %23, %25
+  br i1 %26, label %27, label %28
 
-24:                                               ; preds = %18
-  store i32 %22, ptr %19, align 4
-  br label %25
+27:                                               ; preds = %21
+  store i32 %25, ptr %22, align 4
+  br label %28
 
-25:                                               ; preds = %24, %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 168
-  %27 = load i32, ptr %26, align 8
-  %28 = add nsw i32 %27, 1
-  store i32 %28, ptr %26, align 8
+28:                                               ; preds = %27, %21
+  %29 = getelementptr inbounds i8, ptr %0, i64 168
+  %30 = load i32, ptr %29, align 8
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %29, align 8
   ret void
 }
 

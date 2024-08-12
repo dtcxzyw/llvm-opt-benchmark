@@ -415,15 +415,25 @@ entry:
   %1 = load ptr, ptr %mSurfaces, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %mColor.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  store <2 x float> <float 0x3FE9191140000000, float 0x3FE9191140000000>, ptr %mColor.i, align 8
+  store float 0x3FE9191140000000, ptr %mColor.i, align 8
+  %g.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  store float 0x3FE9191140000000, ptr %g.i.i, align 4
   %b.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store float 0x3FE9191140000000, ptr %b.i.i, align 8
   %bDoubleSided.i = getelementptr inbounds i8, ptr %ref.tmp, i64 44
   store i8 0, ptr %bDoubleSided.i, align 4
   %mDiffuseValue.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0x3FD99999A0000000>, ptr %mDiffuseValue.i, align 8
+  store float 1.000000e+00, ptr %mDiffuseValue.i, align 8
+  %mSpecularValue.i = getelementptr inbounds i8, ptr %ref.tmp, i64 52
+  store float 0.000000e+00, ptr %mSpecularValue.i, align 4
+  %mTransparency.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
+  store float 0.000000e+00, ptr %mTransparency.i, align 8
+  %mGlossiness.i = getelementptr inbounds i8, ptr %ref.tmp, i64 60
+  store float 0x3FD99999A0000000, ptr %mGlossiness.i, align 4
   %mLuminosity.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
-  store <2 x float> zeroinitializer, ptr %mLuminosity.i, align 8
+  store float 0.000000e+00, ptr %mLuminosity.i, align 8
+  %mColorHighlights.i = getelementptr inbounds i8, ptr %ref.tmp, i64 68
+  store float 0.000000e+00, ptr %mColorHighlights.i, align 4
   %mMaximumSmoothAngle.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   store float 0.000000e+00, ptr %mMaximumSmoothAngle.i, align 8
   %mVCMap.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
@@ -479,7 +489,9 @@ entry:
   %_M_size.i.i.i.i.i14.i = getelementptr inbounds i8, ptr %ref.tmp, i64 304
   store i64 0, ptr %_M_size.i.i.i.i.i14.i, align 8
   %mIOR.i = getelementptr inbounds i8, ptr %ref.tmp, i64 312
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %mIOR.i, align 8
+  store float 1.000000e+00, ptr %mIOR.i, align 8
+  %mBumpIntensity.i = getelementptr inbounds i8, ptr %ref.tmp, i64 316
+  store float 1.000000e+00, ptr %mBumpIntensity.i, align 4
   %mWireframe.i = getelementptr inbounds i8, ptr %ref.tmp, i64 320
   store i8 0, ptr %mWireframe.i, align 8
   %mAdditiveTransparency.i = getelementptr inbounds i8, ptr %ref.tmp, i64 324
@@ -2137,7 +2149,9 @@ invoke.cont:                                      ; preds = %.noexc
   %majorAxis = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %majorAxis, align 4
   %wrapAmountH = getelementptr inbounds i8, ptr %this, i64 104
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %wrapAmountH, align 8
+  store float 1.000000e+00, ptr %wrapAmountH, align 8
+  %wrapAmountW = getelementptr inbounds i8, ptr %this, i64 108
+  store float 1.000000e+00, ptr %wrapAmountW, align 4
   %wrapModeWidth = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %wrapModeWidth, align 8
   %wrapModeHeight = getelementptr inbounds i8, ptr %this, i64 116

@@ -23,7 +23,7 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   store i32 0, ptr %17, align 4, !tbaa !3
   %27 = load i32, ptr %0, align 4, !tbaa !3
   %28 = icmp slt i32 %27, 1
-  br i1 %28, label %423, label %29
+  br i1 %28, label %422, label %29
 
 29:                                               ; preds = %18
   %30 = getelementptr inbounds i8, ptr %6, i64 -8
@@ -76,50 +76,50 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %77 = tail call double @llvm.fmuladd.f64(double %58, double 2.500000e-01, double %76)
   %78 = getelementptr inbounds double, ptr %31, i64 %39
   %79 = load double, ptr %78, align 8, !tbaa !7
-  %80 = getelementptr double, ptr %31, i64 %35
-  %81 = getelementptr i8, ptr %80, i64 -8
-  %82 = load double, ptr %81, align 8, !tbaa !7
-  %83 = insertelement <2 x double> poison, double %54, i64 0
-  %84 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> zeroinitializer
-  %85 = insertelement <2 x double> poison, double %79, i64 0
-  %86 = insertelement <2 x double> %85, double %82, i64 1
-  %87 = fcmp oge <2 x double> %84, %86
-  %88 = select <2 x i1> %87, <2 x double> %84, <2 x double> %86
-  %89 = fmul <2 x double> %88, <double 5.000000e-01, double 5.000000e-01>
-  %90 = tail call double @dlamch_(ptr noundef nonnull @.str.1) #5
-  %91 = fdiv double 1.000000e+00, %90
-  %92 = load i32, ptr %0, align 4, !tbaa !3
-  %93 = add nsw i32 %92, -1
-  %94 = sitofp i32 %93 to double
-  %95 = fmul double %58, %94
-  %96 = load double, ptr %9, align 8, !tbaa !7
-  %97 = fmul double %33, %96
-  %98 = fdiv double %95, %97
-  %99 = tail call double @sqrt(double noundef %33) #5
-  %100 = fmul double %96, %99
-  %101 = fdiv double %95, %100
-  %102 = load double, ptr %9, align 8, !tbaa !7
-  %103 = fmul double %102, 8.000000e+00
-  %104 = fmul double %58, 7.812500e-03
-  %105 = fcmp olt double %51, %104
-  %106 = insertelement <2 x double> poison, double %77, i64 0
-  %107 = shufflevector <2 x double> %106, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %108
+  %80 = fcmp oge double %54, %79
+  %81 = select i1 %80, double %54, double %79
+  %82 = fmul double %81, 5.000000e-01
+  %83 = getelementptr double, ptr %31, i64 %35
+  %84 = getelementptr i8, ptr %83, i64 -8
+  %85 = load double, ptr %84, align 8, !tbaa !7
+  %86 = fcmp oge double %54, %85
+  %87 = select i1 %86, double %54, double %85
+  %88 = fmul double %87, 5.000000e-01
+  %89 = tail call double @dlamch_(ptr noundef nonnull @.str.1) #5
+  %90 = fdiv double 1.000000e+00, %89
+  %91 = load i32, ptr %0, align 4, !tbaa !3
+  %92 = add nsw i32 %91, -1
+  %93 = sitofp i32 %92 to double
+  %94 = fmul double %58, %93
+  %95 = load double, ptr %9, align 8, !tbaa !7
+  %96 = fmul double %33, %95
+  %97 = fdiv double %94, %96
+  %98 = tail call double @sqrt(double noundef %33) #5
+  %99 = fmul double %95, %98
+  %100 = fdiv double %94, %99
+  %101 = load double, ptr %9, align 8, !tbaa !7
+  %102 = fmul double %101, 8.000000e+00
+  %103 = fmul double %58, 7.812500e-03
+  %104 = fcmp olt double %51, %103
+  br label %105
 
-108:                                              ; preds = %.backedge, %29
-  %109 = phi i32 [ undef, %29 ], [ %399, %.backedge ]
-  %110 = phi i1 [ true, %29 ], [ false, %.backedge ]
-  %111 = phi double [ %69, %29 ], [ %400, %.backedge ]
-  %112 = phi double [ %91, %29 ], [ %401, %.backedge ]
-  %113 = phi double [ %69, %29 ], [ %.be, %.backedge ]
-  %114 = phi i1 [ true, %29 ], [ %110, %.backedge ]
-  %115 = phi double [ %74, %29 ], [ %.be85, %.backedge ]
-  %116 = phi <2 x double> [ %89, %29 ], [ %.be86, %.backedge ]
-  %117 = fcmp ole <2 x double> %107, %116
-  %118 = select <2 x i1> %117, <2 x double> %107, <2 x double> %116
-  %119 = fneg double %113
+105:                                              ; preds = %.backedge, %29
+  %106 = phi i32 [ undef, %29 ], [ %399, %.backedge ]
+  %107 = phi i1 [ true, %29 ], [ false, %.backedge ]
+  %108 = phi double [ %69, %29 ], [ %400, %.backedge ]
+  %109 = phi double [ %90, %29 ], [ %401, %.backedge ]
+  %110 = phi double [ %82, %29 ], [ %.be, %.backedge ]
+  %111 = phi double [ %69, %29 ], [ %.be84, %.backedge ]
+  %112 = phi double [ %88, %29 ], [ %.be85, %.backedge ]
+  %113 = phi i1 [ true, %29 ], [ %107, %.backedge ]
+  %114 = phi double [ %74, %29 ], [ %.be87, %.backedge ]
+  %115 = fcmp ole double %77, %110
+  %116 = select i1 %115, double %77, double %110
+  %117 = fcmp ole double %77, %112
+  %118 = select i1 %117, double %77, double %112
+  %119 = fneg double %111
   %120 = load double, ptr %1, align 8, !tbaa !7
-  %121 = fsub double %120, %113
+  %121 = fsub double %120, %111
   store double %121, ptr %14, align 8, !tbaa !7
   %122 = fcmp ult double %121, 0.000000e+00
   %123 = fneg double %121
@@ -128,15 +128,15 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %126 = fcmp olt double %124, %125
   br i1 %126, label %127, label %129
 
-127:                                              ; preds = %108
+127:                                              ; preds = %105
   %128 = fneg double %125
   store double %128, ptr %14, align 8, !tbaa !7
   br label %129
 
-129:                                              ; preds = %127, %108
-  %.pre-phi = phi double [ %125, %127 ], [ %123, %108 ]
-  %130 = phi double [ %128, %127 ], [ %121, %108 ]
-  %131 = phi i32 [ 1, %127 ], [ 0, %108 ]
+129:                                              ; preds = %127, %105
+  %.pre-phi = phi double [ %125, %127 ], [ %123, %105 ]
+  %130 = phi double [ %128, %127 ], [ %121, %105 ]
+  %131 = phi i32 [ 1, %127 ], [ 0, %105 ]
   %132 = fcmp ult double %130, 0.000000e+00
   %133 = select i1 %132, double %.pre-phi, double %130
   store double %133, ptr %20, align 8, !tbaa !7
@@ -209,22 +209,22 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 180:                                              ; preds = %177, %174
   %181 = phi i1 [ true, %174 ], [ %179, %177 ]
-  br i1 %114, label %182, label %186
+  br i1 %113, label %182, label %186
 
 182:                                              ; preds = %180
   %183 = load double, ptr %20, align 8, !tbaa !7
-  %184 = fcmp ugt double %183, %103
+  %184 = fcmp ugt double %183, %102
   %185 = select i1 %184, i1 true, i1 %181
   br i1 %185, label %187, label %186
 
 186:                                              ; preds = %182, %180
-  store double %113, ptr %13, align 8, !tbaa !7
-  br label %423
+  store double %111, ptr %13, align 8, !tbaa !7
+  br label %422
 
 187:                                              ; preds = %182
-  %188 = fneg double %115
+  %188 = fneg double %114
   %189 = load double, ptr %1, align 8, !tbaa !7
-  %190 = fsub double %189, %115
+  %190 = fsub double %189, %114
   store double %190, ptr %16, align 8, !tbaa !7
   %191 = fcmp ult double %190, 0.000000e+00
   %192 = fneg double %190
@@ -315,9 +315,9 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %250 = call i32 @disnan_(ptr noundef nonnull %21) #5
   %251 = icmp ne i32 %250, 0
   %252 = load double, ptr %21, align 8
-  %253 = fcmp ugt double %252, %103
+  %253 = fcmp ugt double %252, %102
   %254 = select i1 %253, i1 true, i1 %251
-  br i1 %254, label %.thread, label %417
+  br i1 %254, label %.thread, label %416
 
 .thread:                                          ; preds = %245, %249
   %255 = phi double [ %252, %249 ], [ %246, %245 ]
@@ -330,16 +330,16 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 259:                                              ; preds = %258
   %260 = load double, ptr %20, align 8, !tbaa !7
-  %261 = fcmp ugt double %260, %112
+  %261 = fcmp ugt double %260, %109
   br i1 %261, label %263, label %262
 
 262:                                              ; preds = %259
   br label %263
 
 263:                                              ; preds = %262, %259, %258
-  %264 = phi i32 [ %109, %258 ], [ 1, %262 ], [ 1, %259 ]
-  %265 = phi double [ %111, %258 ], [ %113, %262 ], [ %111, %259 ]
-  %266 = phi double [ %112, %258 ], [ %260, %262 ], [ %112, %259 ]
+  %264 = phi i32 [ %106, %258 ], [ 1, %262 ], [ 1, %259 ]
+  %265 = phi double [ %108, %258 ], [ %111, %262 ], [ %108, %259 ]
+  %266 = phi double [ %109, %258 ], [ %260, %262 ], [ %109, %259 ]
   br i1 %256, label %274, label %267
 
 267:                                              ; preds = %263
@@ -355,15 +355,15 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 274:                                              ; preds = %273, %267, %263
   %275 = phi i32 [ %264, %263 ], [ %271, %273 ], [ %271, %267 ]
-  %276 = phi double [ %265, %263 ], [ %115, %273 ], [ %265, %267 ]
+  %276 = phi double [ %265, %263 ], [ %114, %273 ], [ %265, %267 ]
   %277 = phi double [ %266, %263 ], [ %255, %273 ], [ %266, %267 ]
-  br i1 %105, label %278, label %398
+  br i1 %104, label %278, label %398
 
 278:                                              ; preds = %274
   %279 = load double, ptr %20, align 8
   %280 = fcmp ole double %279, %255
   %281 = select i1 %280, double %279, double %255
-  %282 = fcmp uge double %281, %101
+  %282 = fcmp uge double %281, %100
   %283 = select i1 %282, i1 true, i1 %181
   %284 = select i1 %283, i1 true, i1 %256
   br i1 %284, label %398, label %285
@@ -451,8 +451,8 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br i1 %344, label %398, label %345
 
 345:                                              ; preds = %.loopexit
-  store double %113, ptr %13, align 8, !tbaa !7
-  br label %423
+  store double %111, ptr %13, align 8, !tbaa !7
+  br label %422
 
 346:                                              ; preds = %285
   %347 = load i32, ptr %0, align 4, !tbaa !3
@@ -521,55 +521,55 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %395 = fmul double %393, %394
   %396 = fdiv double %391, %395
   %397 = fcmp ugt double %396, 8.000000e+00
-  br i1 %397, label %398, label %417
+  br i1 %397, label %398, label %416
 
 398:                                              ; preds = %.loopexit14, %.loopexit, %285, %278, %274, %.thread
-  %399 = phi i32 [ %109, %.thread ], [ 1, %.loopexit ], [ 2, %.loopexit14 ], [ %275, %285 ], [ %275, %278 ], [ %275, %274 ]
-  %400 = phi double [ %111, %.thread ], [ %276, %.loopexit ], [ %276, %.loopexit14 ], [ %276, %285 ], [ %276, %278 ], [ %276, %274 ]
-  %401 = phi double [ %112, %.thread ], [ %277, %.loopexit ], [ %277, %.loopexit14 ], [ %277, %285 ], [ %277, %278 ], [ %277, %274 ]
-  br i1 %110, label %402, label %414
+  %399 = phi i32 [ %106, %.thread ], [ 1, %.loopexit ], [ 2, %.loopexit14 ], [ %275, %285 ], [ %275, %278 ], [ %275, %274 ]
+  %400 = phi double [ %108, %.thread ], [ %276, %.loopexit ], [ %276, %.loopexit14 ], [ %276, %285 ], [ %276, %278 ], [ %276, %274 ]
+  %401 = phi double [ %109, %.thread ], [ %277, %.loopexit ], [ %277, %.loopexit14 ], [ %277, %285 ], [ %277, %278 ], [ %277, %274 ]
+  br i1 %107, label %402, label %413
 
 402:                                              ; preds = %398
-  %403 = extractelement <2 x double> %118, i64 0
-  %404 = fsub double %113, %403
-  %405 = fsub double %113, %77
-  %406 = fcmp oge double %404, %405
-  %407 = select i1 %406, double %404, double %405
-  %408 = extractelement <2 x double> %118, i64 1
-  %409 = fadd double %115, %408
-  %410 = fadd double %77, %115
-  %411 = fcmp ole double %409, %410
-  %412 = select i1 %411, double %409, double %410
-  %413 = fmul <2 x double> %118, <double 2.000000e+00, double 2.000000e+00>
+  %403 = fsub double %111, %116
+  %404 = fsub double %111, %77
+  %405 = fcmp oge double %403, %404
+  %406 = select i1 %405, double %403, double %404
+  %407 = fadd double %114, %118
+  %408 = fadd double %77, %114
+  %409 = fcmp ole double %407, %408
+  %410 = select i1 %409, double %407, double %408
+  %411 = fmul double %116, 2.000000e+00
+  %412 = fmul double %118, 2.000000e+00
   br label %.backedge
 
-414:                                              ; preds = %398
-  %415 = fcmp olt double %401, %98
-  br i1 %415, label %.backedge, label %416
+413:                                              ; preds = %398
+  %414 = fcmp olt double %401, %97
+  br i1 %414, label %.backedge, label %415
 
-.backedge:                                        ; preds = %414, %402
-  %.be = phi double [ %400, %414 ], [ %407, %402 ]
-  %.be85 = phi double [ %400, %414 ], [ %412, %402 ]
-  %.be86 = phi <2 x double> [ %118, %414 ], [ %413, %402 ]
-  br label %108
+.backedge:                                        ; preds = %413, %402
+  %.be = phi double [ %116, %413 ], [ %411, %402 ]
+  %.be84 = phi double [ %400, %413 ], [ %406, %402 ]
+  %.be85 = phi double [ %118, %413 ], [ %412, %402 ]
+  %.be87 = phi double [ %400, %413 ], [ %410, %402 ]
+  br label %105
 
-416:                                              ; preds = %414
+415:                                              ; preds = %413
   store i32 1, ptr %17, align 4, !tbaa !3
-  br label %423
+  br label %422
 
-417:                                              ; preds = %.loopexit14, %249
-  store double %115, ptr %13, align 8, !tbaa !7
+416:                                              ; preds = %.loopexit14, %249
+  store double %114, ptr %13, align 8, !tbaa !7
   call void @dcopy_(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull @c__1, ptr noundef nonnull %14, ptr noundef nonnull @c__1) #5
-  %418 = load i32, ptr %0, align 4, !tbaa !3
-  %419 = add nsw i32 %418, -1
-  store i32 %419, ptr %19, align 4, !tbaa !3
-  %420 = sext i32 %418 to i64
-  %421 = getelementptr double, ptr %22, i64 %420
-  %422 = getelementptr i8, ptr %421, i64 8
-  call void @dcopy_(ptr noundef nonnull %19, ptr noundef %422, ptr noundef nonnull @c__1, ptr noundef %15, ptr noundef nonnull @c__1) #5
-  br label %423
+  %417 = load i32, ptr %0, align 4, !tbaa !3
+  %418 = add nsw i32 %417, -1
+  store i32 %418, ptr %19, align 4, !tbaa !3
+  %419 = sext i32 %417 to i64
+  %420 = getelementptr double, ptr %22, i64 %419
+  %421 = getelementptr i8, ptr %420, i64 8
+  call void @dcopy_(ptr noundef nonnull %19, ptr noundef %421, ptr noundef nonnull @c__1, ptr noundef %15, ptr noundef nonnull @c__1) #5
+  br label %422
 
-423:                                              ; preds = %417, %416, %345, %186, %18
+422:                                              ; preds = %416, %415, %345, %186, %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #5

@@ -5295,7 +5295,13 @@ entry:
   %payload_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %payload_.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr %0, align 8
+  store i32 0, ptr %0, align 8
+  %num_buckets_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 1, ptr %num_buckets_.i.i.i.i, align 4
+  %seed_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 0, ptr %seed_.i.i.i.i, align 8
+  %index_of_first_non_null_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 1, ptr %index_of_first_non_null_.i.i.i.i, align 4
   %table_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, ptr %table_.i.i.i.i, align 8
   %alloc_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -5313,7 +5319,13 @@ entry:
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %payload_.i.i, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
-  store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr %1, align 8
+  store i32 0, ptr %1, align 8
+  %num_buckets_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 1, ptr %num_buckets_.i.i.i.i, align 4
+  %seed_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 0, ptr %seed_.i.i.i.i, align 8
+  %index_of_first_non_null_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 1, ptr %index_of_first_non_null_.i.i.i.i, align 4
   %table_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, ptr %table_.i.i.i.i, align 8
   %alloc_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -8210,7 +8222,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapVa
 entry:
   %tmp.i.i = alloca %"struct.std::pair.51", align 8
   %tmp.i.i.i = alloca %"struct.std::pair.51", align 8
-  %copy = alloca %"class.google::protobuf::Map", align 16
+  %copy = alloca %"class.google::protobuf::Map", align 8
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %alloc_.i, align 8
   %alloc_.i4 = getelementptr inbounds i8, ptr %other, i64 24
@@ -8254,11 +8266,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
+  store i32 0, ptr %copy, align 8
   %num_buckets_.i.i.i.i = getelementptr inbounds i8, ptr %copy, i64 4
+  store i32 1, ptr %num_buckets_.i.i.i.i, align 4
+  %seed_.i.i.i.i = getelementptr inbounds i8, ptr %copy, i64 8
+  store i32 0, ptr %seed_.i.i.i.i, align 8
   %index_of_first_non_null_.i.i.i.i = getelementptr inbounds i8, ptr %copy, i64 12
-  store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr %copy, align 16
+  store i32 1, ptr %index_of_first_non_null_.i.i.i.i, align 4
   %table_.i.i.i.i = getelementptr inbounds i8, ptr %copy, i64 16
-  store ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, ptr %table_.i.i.i.i, align 16
+  store ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, ptr %table_.i.i.i.i, align 8
   %alloc_.i.i.i.i = getelementptr inbounds i8, ptr %copy, i64 24
   store ptr null, ptr %alloc_.i.i.i.i, align 8
   %index_of_first_non_null_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -8391,7 +8407,7 @@ _ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i: 
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit.i
-  %38 = load ptr, ptr %table_.i.i.i.i, align 16, !noalias !53
+  %38 = load ptr, ptr %table_.i.i.i.i, align 8, !noalias !53
   %idxprom.i.i.i.i = zext i32 %36 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i64, ptr %38, i64 %idxprom.i.i.i.i
   %39 = load i64, ptr %arrayidx.i.i.i.i, align 8, !noalias !53
@@ -8439,7 +8455,7 @@ if.then.i.i.i6.i:                                 ; preds = %.noexc15
   br i1 %cmp8.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i6.i
-  %48 = load ptr, ptr %table_.i.i.i.i, align 16
+  %48 = load ptr, ptr %table_.i.i.i.i, align 8
   %49 = zext i32 %add.i.i.i.i to i64
   %wide.trip.count.i.i.i.i.i = zext i32 %47 to i64
   br label %for.body.i.i.i.i.i

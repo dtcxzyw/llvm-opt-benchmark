@@ -996,7 +996,7 @@ entry:
           to label %_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %7, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %8, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
@@ -1028,21 +1028,24 @@ invoke.cont:                                      ; preds = %if.else.i, %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 64, i1 false)
   %args.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  %4 = load <2 x ptr>, ptr %args, align 8
-  store <2 x ptr> %4, ptr %args.i, align 8
+  %4 = load ptr, ptr %args, align 8
+  store ptr %4, ptr %args.i, align 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 72
+  %5 = load ptr, ptr %_M_finish.i, align 8
+  store ptr %5, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 80
-  %5 = load ptr, ptr %_M_end_of_storage.i, align 8
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %6 = load ptr, ptr %_M_end_of_storage.i, align 8
+  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args, i8 0, i64 24, i1 false)
   %suppressed.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   %suppressed4.i = getelementptr inbounds i8, ptr %this, i64 88
-  %6 = load i8, ptr %suppressed4.i, align 8
-  %frombool.i = and i8 %6, 1
+  %7 = load i8, ptr %suppressed4.i, align 8
+  %frombool.i = and i8 %7, 1
   store i8 %frombool.i, ptr %suppressed.i, align 8
   ret void
 
 lpad:                                             ; preds = %if.else.i
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 }
@@ -4211,7 +4214,7 @@ entry:
           to label %_ZN4absl12lts_2023080210SubstituteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS0_19substitute_internal3ArgES8_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %9, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %10, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
@@ -4244,21 +4247,24 @@ invoke.cont:                                      ; preds = %if.else.i, %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 64, i1 false)
   %args.i = getelementptr inbounds i8, ptr %agg.result, i64 64
-  %6 = load <2 x ptr>, ptr %args4, align 8
-  store <2 x ptr> %6, ptr %args.i, align 8
+  %6 = load ptr, ptr %args4, align 8
+  store ptr %6, ptr %args.i, align 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 72
+  %7 = load ptr, ptr %_M_finish.i, align 8
+  store ptr %7, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 80
-  %7 = load ptr, ptr %_M_end_of_storage.i, align 8
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %8 = load ptr, ptr %_M_end_of_storage.i, align 8
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args4, i8 0, i64 24, i1 false)
   %suppressed.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   %suppressed4.i = getelementptr inbounds i8, ptr %this, i64 88
-  %8 = load i8, ptr %suppressed4.i, align 8
-  %frombool.i = and i8 %8, 1
+  %9 = load i8, ptr %suppressed4.i, align 8
+  %frombool.i = and i8 %9, 1
   store i8 %frombool.i, ptr %suppressed.i, align 8
   ret void
 
 lpad:                                             ; preds = %if.else.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 }

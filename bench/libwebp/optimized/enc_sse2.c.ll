@@ -1360,14 +1360,18 @@ VE4_SSE2.exit:                                    ; preds = %51
   store i8 %365, ptr %366, align 1
   %367 = getelementptr inbounds i8, ptr %0, i64 1703
   store i8 %365, ptr %367, align 1
-  %368 = getelementptr inbounds i8, ptr %0, i64 1764
-  %369 = insertelement <4 x i8> poison, i8 %329, i64 0
-  %370 = shufflevector <4 x i8> %369, <4 x i8> poison, <4 x i32> zeroinitializer
-  store <4 x i8> %370, ptr %368, align 1
-  %371 = getelementptr inbounds i8, ptr %0, i64 1734
+  %368 = getelementptr inbounds i8, ptr %0, i64 1767
+  store i8 %329, ptr %368, align 1
+  %369 = getelementptr inbounds i8, ptr %0, i64 1766
+  store i8 %329, ptr %369, align 1
+  %370 = getelementptr inbounds i8, ptr %0, i64 1765
+  store i8 %329, ptr %370, align 1
+  %371 = getelementptr inbounds i8, ptr %0, i64 1764
   store i8 %329, ptr %371, align 1
-  %372 = getelementptr inbounds i8, ptr %0, i64 1735
+  %372 = getelementptr inbounds i8, ptr %0, i64 1734
   store i8 %329, ptr %372, align 1
+  %373 = getelementptr inbounds i8, ptr %0, i64 1735
+  store i8 %329, ptr %373, align 1
   ret void
 }
 
@@ -2473,8 +2477,14 @@ define internal i32 @SSE16x16_SSE2(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %exitcond.not.i, label %SSE_16xN_SSE2.exit, label %.lr.ph.i, !llvm.loop !19
 
 SSE_16xN_SSE2.exit:                               ; preds = %.lr.ph.i
-  %35 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %31)
-  ret i32 %35
+  %shift = shufflevector <4 x i32> %31, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %35 = add nsw <4 x i32> %shift, %31
+  %shift2 = shufflevector <4 x i32> %35, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
+  %36 = add nsw <4 x i32> %shift2, %31
+  %shift3 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %37 = add nsw <4 x i32> %shift3, %31
+  %38 = extractelement <4 x i32> %37, i64 0
+  ret i32 %38
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -2521,8 +2531,14 @@ define internal i32 @SSE16x8_SSE2(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %exitcond.not.i, label %SSE_16xN_SSE2.exit, label %.lr.ph.i, !llvm.loop !19
 
 SSE_16xN_SSE2.exit:                               ; preds = %.lr.ph.i
-  %35 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %31)
-  ret i32 %35
+  %shift = shufflevector <4 x i32> %31, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %35 = add nsw <4 x i32> %shift, %31
+  %shift2 = shufflevector <4 x i32> %35, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
+  %36 = add nsw <4 x i32> %shift2, %31
+  %shift3 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %37 = add nsw <4 x i32> %shift3, %31
+  %38 = extractelement <4 x i32> %37, i64 0
+  ret i32 %38
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -2569,8 +2585,14 @@ define internal i32 @SSE8x8_SSE2(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %36, label %3, label %37, !llvm.loop !20
 
 37:                                               ; preds = %3
-  %38 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %33)
-  ret i32 %38
+  %shift = shufflevector <4 x i32> %33, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %38 = add nsw <4 x i32> %shift, %33
+  %shift62 = shufflevector <4 x i32> %38, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
+  %39 = add nsw <4 x i32> %shift62, %33
+  %shift63 = shufflevector <4 x i32> %39, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %40 = add nsw <4 x i32> %shift63, %33
+  %41 = extractelement <4 x i32> %40, i64 0
+  ret i32 %41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -2626,8 +2648,14 @@ define internal i32 @SSE4x4_SSE2(ptr nocapture noundef readonly %0, ptr nocaptur
   %51 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %47, <8 x i16> %47)
   %52 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %50, <8 x i16> %50)
   %53 = add <4 x i32> %52, %51
-  %54 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %53)
-  ret i32 %54
+  %shift = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
+  %54 = add nsw <4 x i32> %shift, %53
+  %shift80 = shufflevector <4 x i32> %54, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
+  %55 = add nsw <4 x i32> %shift80, %53
+  %shift81 = shufflevector <4 x i32> %55, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %56 = add nsw <4 x i32> %shift81, %53
+  %57 = extractelement <4 x i32> %56, i64 0
+  ret i32 %57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -2744,10 +2772,16 @@ define internal range(i32 0, 67108864) i32 @Disto4x4_SSE2(ptr nocapture noundef 
   %.neg5 = add <4 x i32> %107, %106
   %110 = add <4 x i32> %108, %109
   %111 = sub <4 x i32> %.neg5, %110
-  %112 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %111)
-  %113 = tail call i32 @llvm.abs.i32(i32 %112, i1 true)
-  %114 = lshr i32 %113, 5
-  ret i32 %114
+  %shift = shufflevector <4 x i32> %111, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %112 = add nsw <4 x i32> %111, %shift
+  %shift6 = shufflevector <4 x i32> %111, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %113 = add nsw <4 x i32> %112, %shift6
+  %shift7 = shufflevector <4 x i32> %111, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %114 = add nsw <4 x i32> %113, %shift7
+  %115 = extractelement <4 x i32> %114, i64 0
+  %116 = tail call i32 @llvm.abs.i32(i32 %115, i1 true)
+  %117 = lshr i32 %116, 5
+  ret i32 %117
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -2757,16 +2791,16 @@ define internal i32 @Disto16x16_SSE2(ptr nocapture noundef readonly %0, ptr noca
   %.val3.i = load <8 x i16>, ptr %4, align 1
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %118
-  %indvars.iv23 = phi i64 [ 0, %3 ], [ %indvars.iv.next24, %118 ]
-  %.01320 = phi i32 [ 0, %3 ], [ %116, %118 ]
+.preheader:                                       ; preds = %3, %121
+  %indvars.iv23 = phi i64 [ 0, %3 ], [ %indvars.iv.next24, %121 ]
+  %.01320 = phi i32 [ 0, %3 ], [ %119, %121 ]
   %invariant.gep = getelementptr inbounds i8, ptr %0, i64 %indvars.iv23
   %invariant.gep16 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv23
   br label %5
 
 5:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %.118 = phi i32 [ %.01320, %.preheader ], [ %116, %5 ]
+  %.118 = phi i32 [ %.01320, %.preheader ], [ %119, %5 ]
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
   %gep17 = getelementptr inbounds i8, ptr %invariant.gep16, i64 %indvars.iv
   %6 = load i64, ptr %gep, align 1
@@ -2878,21 +2912,27 @@ define internal i32 @Disto16x16_SSE2(ptr nocapture noundef readonly %0, ptr noca
   %.neg15 = add <4 x i32> %108, %107
   %111 = add <4 x i32> %109, %110
   %112 = sub <4 x i32> %.neg15, %111
-  %113 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %112)
-  %114 = tail call i32 @llvm.abs.i32(i32 %113, i1 true)
-  %115 = lshr i32 %114, 5
-  %116 = add nsw i32 %115, %.118
+  %shift = shufflevector <4 x i32> %112, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %113 = add nsw <4 x i32> %112, %shift
+  %shift26 = shufflevector <4 x i32> %112, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %114 = add nsw <4 x i32> %113, %shift26
+  %shift27 = shufflevector <4 x i32> %112, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %115 = add nsw <4 x i32> %114, %shift27
+  %116 = extractelement <4 x i32> %115, i64 0
+  %117 = tail call i32 @llvm.abs.i32(i32 %116, i1 true)
+  %118 = lshr i32 %117, 5
+  %119 = add nsw i32 %118, %.118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %117 = icmp ult i64 %indvars.iv, 12
-  br i1 %117, label %5, label %118, !llvm.loop !21
+  %120 = icmp ult i64 %indvars.iv, 12
+  br i1 %120, label %5, label %121, !llvm.loop !21
 
-118:                                              ; preds = %5
+121:                                              ; preds = %5
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 128
-  %119 = icmp ult i64 %indvars.iv23, 384
-  br i1 %119, label %.preheader, label %120, !llvm.loop !22
+  %122 = icmp ult i64 %indvars.iv23, 384
+  br i1 %122, label %.preheader, label %123, !llvm.loop !22
 
-120:                                              ; preds = %118
-  ret i32 %116
+123:                                              ; preds = %121
+  ret i32 %119
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -2932,11 +2972,33 @@ define internal void @Mean16x4_SSE2(ptr nocapture noundef readonly %0, ptr nocap
   %35 = add nuw nsw <4 x i32> %34, %29
   %36 = add nuw nsw <4 x i32> %35, %27
   %37 = bitcast <4 x i32> %36 to <8 x i16>
-  %38 = and <4 x i32> %36, <i32 65535, i32 65535, i32 65535, i32 65535>
-  %39 = shufflevector <8 x i16> %37, <8 x i16> poison, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
-  %40 = zext <4 x i16> %39 to <4 x i32>
-  %41 = add nuw nsw <4 x i32> %38, %40
-  store <4 x i32> %41, ptr %1, align 4
+  %.sroa.0.0.vec.extract = extractelement <8 x i16> %37, i64 0
+  %38 = zext i16 %.sroa.0.0.vec.extract to i32
+  %.sroa.0.2.vec.extract = extractelement <8 x i16> %37, i64 1
+  %39 = zext i16 %.sroa.0.2.vec.extract to i32
+  %40 = add nuw nsw i32 %38, %39
+  store i32 %40, ptr %1, align 4
+  %.sroa.0.4.vec.extract = extractelement <8 x i16> %37, i64 2
+  %41 = zext i16 %.sroa.0.4.vec.extract to i32
+  %.sroa.0.6.vec.extract = extractelement <8 x i16> %37, i64 3
+  %42 = zext i16 %.sroa.0.6.vec.extract to i32
+  %43 = add nuw nsw i32 %41, %42
+  %44 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 %43, ptr %44, align 4
+  %.sroa.0.8.vec.extract = extractelement <8 x i16> %37, i64 4
+  %45 = zext i16 %.sroa.0.8.vec.extract to i32
+  %.sroa.0.10.vec.extract = extractelement <8 x i16> %37, i64 5
+  %46 = zext i16 %.sroa.0.10.vec.extract to i32
+  %47 = add nuw nsw i32 %45, %46
+  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %47, ptr %48, align 4
+  %.sroa.0.12.vec.extract = extractelement <8 x i16> %37, i64 6
+  %49 = zext i16 %.sroa.0.12.vec.extract to i32
+  %.sroa.0.14.vec.extract = extractelement <8 x i16> %37, i64 7
+  %50 = zext i16 %.sroa.0.14.vec.extract to i32
+  %51 = add nuw nsw i32 %49, %50
+  %52 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 %51, ptr %52, align 4
   ret void
 }
 
@@ -2986,9 +3048,6 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <8 x i16> @llvm.abs.v8i16(<8 x i16>, i1 immarg) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

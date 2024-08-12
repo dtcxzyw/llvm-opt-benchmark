@@ -301,14 +301,16 @@ CombineLengthCodes.exit:                          ; preds = %if.else.i119, %if.t
 if.then29:                                        ; preds = %CombineLengthCodes.exit
   %24 = load i32, ptr %arrayidx30, align 4
   store i32 %24, ptr %arrayidx31, align 4
-  %25 = load <2 x i32>, ptr %dist_cache, align 4
-  store <2 x i32> %25, ptr %arrayidx32, align 4
+  %25 = load i32, ptr %arrayidx32, align 4
+  store i32 %25, ptr %arrayidx30, align 4
+  %26 = load i32, ptr %dist_cache, align 4
+  store i32 %26, ptr %arrayidx32, align 4
   store i32 %11, ptr %dist_cache, align 4
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then29, %CombineLengthCodes.exit
-  %26 = load i64, ptr %num_literals, align 8
-  %add39 = add i64 %26, %insert_length.0
+  %27 = load i64, ptr %num_literals, align 8
+  %add39 = add i64 %27, %insert_length.0
   store i64 %add39, ptr %num_literals, align 8
   %add40 = add i64 %add5, %conv3
   %inc = add i64 %i.092, 1
@@ -318,8 +320,8 @@ if.end38:                                         ; preds = %if.then29, %Combine
 for.end:                                          ; preds = %if.end38, %entry
   %pos.0.lcssa = phi i64 [ 0, %entry ], [ %add40, %if.end38 ]
   %sub41 = sub i64 %num_bytes, %pos.0.lcssa
-  %27 = load i64, ptr %last_insert_len, align 8
-  %add42 = add i64 %sub41, %27
+  %28 = load i64, ptr %last_insert_len, align 8
+  %add42 = add i64 %sub41, %28
   store i64 %add42, ptr %last_insert_len, align 8
   ret void
 }

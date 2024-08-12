@@ -126,40 +126,52 @@ define internal noundef i32 @cid_driver_init(ptr nocapture noundef %0) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 60
   store i8 1, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 64
-  store <4 x i32> <i32 500, i32 400, i32 1000, i32 275>, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  store <4 x i32> <i32 1667, i32 275, i32 2333, i32 0>, ptr %7, align 8
-  %8 = ptrtoint ptr %3 to i64
-  %9 = ptrtoint ptr %2 to i64
-  %10 = xor i64 %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %14 = xor i64 %10, %13
-  %15 = trunc i64 %14 to i32
-  %16 = lshr i32 %15, 10
-  %17 = lshr i32 %15, 20
-  %18 = xor i32 %16, %17
-  %19 = xor i32 %18, %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 %19, ptr %20, align 8
-  %21 = icmp slt i32 %15, 0
-  br i1 %21, label %22, label %24
+  store i32 500, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 400, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 1000, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 275, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 1667, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 275, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 2333, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 92
+  store i32 0, ptr %13, align 4
+  %14 = ptrtoint ptr %3 to i64
+  %15 = ptrtoint ptr %2 to i64
+  %16 = xor i64 %14, %15
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = ptrtoint ptr %18 to i64
+  %20 = xor i64 %16, %19
+  %21 = trunc i64 %20 to i32
+  %22 = lshr i32 %21, 10
+  %23 = lshr i32 %21, 20
+  %24 = xor i32 %22, %23
+  %25 = xor i32 %24, %21
+  %26 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 %25, ptr %26, align 8
+  %27 = icmp slt i32 %21, 0
+  br i1 %27, label %28, label %30
 
-22:                                               ; preds = %1
-  %23 = sub nsw i32 0, %19
+28:                                               ; preds = %1
+  %29 = sub nsw i32 0, %25
   br label %.sink.split
 
-24:                                               ; preds = %1
-  %25 = icmp eq i32 %18, %15
-  br i1 %25, label %.sink.split, label %26
+30:                                               ; preds = %1
+  %31 = icmp eq i32 %24, %21
+  br i1 %31, label %.sink.split, label %32
 
-.sink.split:                                      ; preds = %24, %22
-  %.sink = phi i32 [ %23, %22 ], [ 123456789, %24 ]
-  store i32 %.sink, ptr %20, align 8
-  br label %26
+.sink.split:                                      ; preds = %30, %28
+  %.sink = phi i32 [ %29, %28 ], [ 123456789, %30 ]
+  store i32 %.sink, ptr %26, align 8
+  br label %32
 
-26:                                               ; preds = %.sink.split, %24
+32:                                               ; preds = %.sink.split, %30
   ret i32 0
 }
 
@@ -195,7 +207,7 @@ define internal i32 @cid_face_init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @FT_Get_Module_Interface(ptr noundef %18, ptr noundef nonnull @.str.7) #13
   %.not109 = icmp eq ptr %19, null
-  br i1 %.not109, label %464, label %20
+  br i1 %.not109, label %467, label %20
 
 20:                                               ; preds = %14
   store ptr %19, ptr %12, align 8
@@ -219,7 +231,7 @@ define internal i32 @cid_face_init(ptr noundef %0, ptr noundef %1, i32 noundef %
 30:                                               ; preds = %24, %21
   %31 = tail call i32 @FT_Stream_Seek(ptr noundef %0, i64 noundef 0) #13
   %.not111 = icmp eq i32 %31, 0
-  br i1 %.not111, label %32, label %464
+  br i1 %.not111, label %32, label %467
 
 32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %9)
@@ -975,12 +987,12 @@ cid_face_open.exit:                               ; preds = %361, %364
   %369 = icmp ne i32 %368, 0
   %370 = icmp slt i32 %2, 0
   %or.cond = or i1 %370, %369
-  br i1 %or.cond, label %464, label %371
+  br i1 %or.cond, label %467, label %371
 
 371:                                              ; preds = %cid_face_open.exit
   %372 = and i32 %2, 65535
   %.not112 = icmp eq i32 %372, 0
-  br i1 %.not112, label %373, label %464
+  br i1 %.not112, label %373, label %467
 
 373:                                              ; preds = %371
   %374 = getelementptr inbounds i8, ptr %1, i64 560
@@ -1160,12 +1172,16 @@ cid_face_open.exit:                               ; preds = %361, %364
   %storemerge = trunc i32 %spec.select to i16
   store i16 %storemerge, ptr %455, align 2
   %461 = getelementptr inbounds i8, ptr %1, i64 362
-  %462 = getelementptr inbounds i8, ptr %1, i64 148
-  %463 = load <2 x i16>, ptr %461, align 2
-  store <2 x i16> %463, ptr %462, align 4
-  br label %464
+  %462 = load i16, ptr %461, align 2
+  %463 = getelementptr inbounds i8, ptr %1, i64 148
+  store i16 %462, ptr %463, align 4
+  %464 = getelementptr inbounds i8, ptr %1, i64 364
+  %465 = load i16, ptr %464, align 4
+  %466 = getelementptr inbounds i8, ptr %1, i64 150
+  store i16 %465, ptr %466, align 2
+  br label %467
 
-464:                                              ; preds = %371, %14, %cid_face_open.exit, %30, %446
+467:                                              ; preds = %371, %14, %cid_face_open.exit, %30, %446
   %.095 = phi i32 [ %31, %30 ], [ %368, %cid_face_open.exit ], [ 0, %446 ], [ 11, %14 ], [ 6, %371 ]
   ret i32 %.095
 }
@@ -1431,7 +1447,7 @@ define internal void @cid_slot_done(ptr nocapture noundef readonly %0) #3 {
 define internal i32 @cid_slot_load_glyph(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #2 {
   %5 = alloca %struct.T1_DecoderRec_, align 8
   %6 = alloca %struct.FT_Matrix_, align 8
-  %7 = alloca %struct.FT_BBox_, align 16
+  %7 = alloca %struct.FT_BBox_, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
@@ -1490,7 +1506,7 @@ define internal i32 @cid_slot_load_glyph(ptr noundef %0, ptr noundef %1, i32 nou
   store i8 %45, ptr %46, align 1
   %47 = call i32 @cid_load_glyph(ptr noundef nonnull %5, i32 noundef %2)
   %.not130 = icmp eq i32 %47, 0
-  br i1 %.not130, label %48, label %218
+  br i1 %.not130, label %48, label %221
 
 48:                                               ; preds = %43
   %.not129 = icmp eq i64 %44, 0
@@ -1738,35 +1754,39 @@ define internal i32 @cid_slot_load_glyph(ptr noundef %0, ptr noundef %1, i32 nou
 205:                                              ; preds = %146, %.loopexit
   call void @FT_Outline_Get_CBox(ptr noundef nonnull %24, ptr noundef nonnull %7) #13
   %206 = getelementptr inbounds i8, ptr %7, i64 16
-  %207 = getelementptr inbounds i8, ptr %7, i64 24
-  %208 = load i64, ptr %207, align 8
-  %209 = load <2 x i64>, ptr %206, align 16
-  %210 = load <2 x i64>, ptr %7, align 16
-  %211 = load i64, ptr %7, align 16
-  %212 = sub nsw <2 x i64> %209, %210
-  store <2 x i64> %212, ptr %77, align 8
-  %213 = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %211, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 %208, ptr %214, align 8
-  %215 = and i64 %26, 16
-  %.not131 = icmp eq i64 %215, 0
-  br i1 %.not131, label %.thread, label %216
+  %207 = load i64, ptr %206, align 8
+  %208 = load i64, ptr %7, align 8
+  %209 = sub nsw i64 %207, %208
+  store i64 %209, ptr %77, align 8
+  %210 = getelementptr inbounds i8, ptr %7, i64 24
+  %211 = load i64, ptr %210, align 8
+  %212 = getelementptr inbounds i8, ptr %7, i64 8
+  %213 = load i64, ptr %212, align 8
+  %214 = sub nsw i64 %211, %213
+  %215 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %214, ptr %215, align 8
+  %216 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %208, ptr %216, align 8
+  %217 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 %211, ptr %217, align 8
+  %218 = and i64 %26, 16
+  %.not131 = icmp eq i64 %218, 0
+  br i1 %.not131, label %.thread, label %219
 
-216:                                              ; preds = %205
-  %217 = load i64, ptr %96, align 8
-  call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %77, i64 noundef %217) #13
+219:                                              ; preds = %205
+  %220 = load i64, ptr %96, align 8
+  call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %77, i64 noundef %220) #13
   br label %.thread
 
-218:                                              ; preds = %43
-  %219 = load ptr, ptr %37, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 8
-  %221 = load ptr, ptr %220, align 8
-  call void %221(ptr noundef nonnull %5) #13
+221:                                              ; preds = %43
+  %222 = load ptr, ptr %37, align 8
+  %223 = getelementptr inbounds i8, ptr %222, i64 8
+  %224 = load ptr, ptr %223, align 8
+  call void %224(ptr noundef nonnull %5) #13
   br label %.thread
 
-.thread:                                          ; preds = %4, %205, %216, %60, %13, %218
-  %.0120135 = phi i32 [ %47, %218 ], [ 6, %4 ], [ 0, %205 ], [ 0, %216 ], [ 0, %60 ], [ %42, %13 ]
+.thread:                                          ; preds = %4, %205, %219, %60, %13, %221
+  %.0120135 = phi i32 [ %47, %221 ], [ 6, %4 ], [ 0, %205 ], [ 0, %219 ], [ 0, %60 ], [ %42, %13 ]
   ret i32 %.0120135
 }
 
@@ -2801,7 +2821,7 @@ define internal i32 @cid_load_glyph(ptr noundef %0, i32 noundef %1) #2 {
   %29 = call i32 %26(ptr noundef %28, i32 noundef %1, ptr noundef nonnull %5) #13
   store i32 %29, ptr %4, align 4
   %.not99 = icmp eq i32 %29, 0
-  br i1 %.not99, label %30, label %171
+  br i1 %.not99, label %30, label %173
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2809,7 +2829,7 @@ define internal i32 @cid_load_glyph(ptr noundef %0, i32 noundef %1) #2 {
   %33 = getelementptr inbounds i8, ptr %12, i64 552
   %34 = load i32, ptr %33, align 8
   %35 = icmp ult i32 %32, %34
-  br i1 %35, label %171, label %36
+  br i1 %35, label %173, label %36
 
 36:                                               ; preds = %30
   %.not10.i = icmp eq i32 %34, 0
@@ -2858,26 +2878,26 @@ cid_get_offset.exit:                              ; preds = %.lr.ph.i, %36
   call void %56(ptr noundef %57, ptr noundef nonnull %5) #13
   %58 = load i32, ptr %4, align 4
   %.not101 = icmp eq i32 %58, 0
-  br i1 %.not101, label %75, label %171
+  br i1 %.not101, label %75, label %173
 
 59:                                               ; preds = %2
   %60 = call fastcc i32 @cid_compute_fd_and_offsets(ptr noundef nonnull %12, i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7)
   store i32 %60, ptr %4, align 4
   %.not = icmp eq i32 %60, 0
-  br i1 %.not, label %61, label %171
+  br i1 %.not, label %61, label %173
 
 61:                                               ; preds = %59
   %62 = load i64, ptr %7, align 8
   %63 = load i64, ptr %6, align 8
   %64 = sub i64 %62, %63
   %65 = icmp eq i64 %64, 0
-  br i1 %65, label %171, label %66
+  br i1 %65, label %173, label %66
 
 66:                                               ; preds = %61
   %67 = call ptr @ft_mem_qalloc(ptr noundef %16, i64 noundef %64, ptr noundef nonnull %4) #13
   %68 = load i32, ptr %4, align 4
   %.not97 = icmp eq i32 %68, 0
-  br i1 %.not97, label %69, label %171
+  br i1 %.not97, label %69, label %173
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds i8, ptr %12, i64 584
@@ -2887,7 +2907,7 @@ cid_get_offset.exit:                              ; preds = %.lr.ph.i, %36
   %74 = call i32 @FT_Stream_ReadAt(ptr noundef %14, i64 noundef %73, ptr noundef %67, i64 noundef %64) #13
   store i32 %74, ptr %4, align 4
   %.not98 = icmp eq i32 %74, 0
-  br i1 %.not98, label %._crit_edge, label %171
+  br i1 %.not98, label %._crit_edge, label %173
 
 ._crit_edge:                                      ; preds = %69
   %.pre = load i64, ptr %3, align 8
@@ -2930,7 +2950,7 @@ cid_get_offset.exit:                              ; preds = %.lr.ph.i, %36
 
 98:                                               ; preds = %75
   store i32 9, ptr %4, align 4
-  br label %171
+  br label %173
 
 99:                                               ; preds = %75
   br i1 %96, label %100, label %103
@@ -2997,14 +3017,14 @@ cid_get_offset.exit:                              ; preds = %.lr.ph.i, %36
   %.090 = phi i8 [ 0, %106 ], [ 1, %130 ], [ 0, %115 ]
   %140 = icmp eq i32 %139, 0
   %or.cond = and i1 %23, %140
-  br i1 %or.cond, label %141, label %171
+  br i1 %or.cond, label %141, label %173
 
 141:                                              ; preds = %138
   %142 = load ptr, ptr %22, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 8
   %.not103 = icmp eq ptr %144, null
-  br i1 %.not103, label %171, label %145
+  br i1 %.not103, label %173, label %145
 
 145:                                              ; preds = %141
   %146 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3036,21 +3056,24 @@ cid_get_offset.exit:                              ; preds = %.lr.ph.i, %36
   %167 = load i64, ptr %10, align 8
   %168 = shl nsw i64 %167, 16
   store i64 %168, ptr %146, align 8
-  %169 = load <2 x i64>, ptr %155, align 8
-  %170 = shl nsw <2 x i64> %169, <i64 16, i64 16>
-  store <2 x i64> %170, ptr %151, align 8
-  br label %171
+  %169 = load i64, ptr %155, align 8
+  %170 = shl nsw i64 %169, 16
+  store i64 %170, ptr %151, align 8
+  %171 = load i64, ptr %160, align 8
+  %172 = shl nsw i64 %171, 16
+  store i64 %172, ptr %156, align 8
+  br label %173
 
-171:                                              ; preds = %98, %30, %24, %53, %59, %69, %66, %61, %145, %141, %138
+173:                                              ; preds = %98, %30, %24, %53, %59, %69, %66, %61, %145, %141, %138
   %.191 = phi i8 [ 0, %24 ], [ 0, %30 ], [ 0, %53 ], [ 0, %98 ], [ %.090, %145 ], [ %.090, %141 ], [ %.090, %138 ], [ 0, %59 ], [ 0, %61 ], [ 0, %66 ], [ 0, %69 ]
   %.1 = phi ptr [ null, %24 ], [ null, %30 ], [ %46, %53 ], [ %.0, %98 ], [ %.0, %145 ], [ %.0, %141 ], [ %.0, %138 ], [ null, %59 ], [ null, %61 ], [ %67, %66 ], [ %67, %69 ]
   call void @ft_mem_free(ptr noundef %16, ptr noundef %.1) #13
-  %172 = getelementptr inbounds i8, ptr %0, i64 16
-  %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 305
-  store i8 %.191, ptr %174, align 1
-  %175 = load i32, ptr %4, align 4
-  ret i32 %175
+  %174 = getelementptr inbounds i8, ptr %0, i64 16
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 305
+  store i8 %.191, ptr %176, align 1
+  %177 = load i32, ptr %4, align 4
+  ret i32 %177
 }
 
 declare i64 @FT_RoundFix(i64 noundef) local_unnamed_addr #4

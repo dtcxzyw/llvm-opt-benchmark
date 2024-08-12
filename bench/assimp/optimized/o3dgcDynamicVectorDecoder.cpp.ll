@@ -126,9 +126,11 @@ for.cond.preheader:                               ; preds = %entry, %for.end
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.011 = phi i64 [ %add4, %for.body ], [ %a.015, %for.cond.preheader ]
   %arrayidx = getelementptr inbounds i64, ptr %data, i64 %i.011
-  %0 = load <2 x i64>, ptr %arrayidx, align 8
-  %1 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %1, ptr %arrayidx, align 8
+  %arrayidx3 = getelementptr i8, ptr %arrayidx, i64 8
+  %0 = load i64, ptr %arrayidx, align 8
+  %1 = load i64, ptr %arrayidx3, align 8
+  store i64 %1, ptr %arrayidx, align 8
+  store i64 %0, ptr %arrayidx3, align 8
   %add4 = add nsw i64 %i.011, 2
   %cmp1 = icmp slt i64 %add4, %b.014
   br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !7
@@ -1194,9 +1196,11 @@ for.cond.preheader.i:                             ; preds = %for.body, %for.end.
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %i.011.i = phi i64 [ %add4.i, %for.body.i ], [ %a.015.i, %for.cond.preheader.i ]
   %arrayidx.i = getelementptr inbounds i64, ptr %data, i64 %i.011.i
-  %1 = load <2 x i64>, ptr %arrayidx.i, align 8
-  %2 = shufflevector <2 x i64> %1, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %2, ptr %arrayidx.i, align 8
+  %arrayidx3.i = getelementptr i8, ptr %arrayidx.i, i64 8
+  %1 = load i64, ptr %arrayidx.i, align 8
+  %2 = load i64, ptr %arrayidx3.i, align 8
+  store i64 %2, ptr %arrayidx.i, align 8
+  store i64 %1, ptr %arrayidx3.i, align 8
   %add4.i = add nsw i64 %i.011.i, 2
   %cmp1.i = icmp slt i64 %add4.i, %b.014.i
   br i1 %cmp1.i, label %for.body.i, label %for.end.i, !llvm.loop !7

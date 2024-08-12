@@ -66,27 +66,33 @@ declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10cmCPackLogC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  store i8 0, ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 0, ptr %2, align 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 2
+  store i8 0, ptr %3, align 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 3
+  store i8 1, ptr %4, align 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
-  %9 = getelementptr inbounds i8, ptr %0, i64 200
-  %10 = getelementptr inbounds i8, ptr %0, i64 208
-  %11 = getelementptr inbounds i8, ptr %0, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  store ptr @_ZSt4cout, ptr %9, align 8
-  store ptr @_ZSt4cerr, ptr %10, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
+  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #12
+  %11 = getelementptr inbounds i8, ptr %0, i64 168
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
+  %12 = getelementptr inbounds i8, ptr %0, i64 200
+  %13 = getelementptr inbounds i8, ptr %0, i64 208
+  %14 = getelementptr inbounds i8, ptr %0, i64 216
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  store ptr @_ZSt4cout, ptr %12, align 8
+  store ptr @_ZSt4cerr, ptr %13, align 8
   ret void
 }
 

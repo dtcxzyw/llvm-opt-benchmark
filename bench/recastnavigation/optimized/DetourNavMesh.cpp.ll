@@ -339,51 +339,55 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN9dtNavMesh4initEPhii(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = alloca %struct.dtNavMeshParams, align 8
+  %5 = alloca %struct.dtNavMeshParams, align 4
   %6 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %6, 1145979222
-  br i1 %.not, label %7, label %33
+  br i1 %.not, label %7, label %35
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %.not15 = icmp eq i32 %9, 7
-  br i1 %.not15, label %10, label %33
+  br i1 %.not15, label %10, label %35
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %1, i64 72
-  %12 = load <2 x float>, ptr %11, align 4
-  store <2 x float> %12, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = load float, ptr %11, align 4
+  store float %12, ptr %5, align 4
+  %13 = getelementptr inbounds i8, ptr %1, i64 76
   %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  store float %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 84
+  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  store float %14, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %1, i64 80
   %17 = load float, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %5, i64 12
-  %19 = getelementptr inbounds i8, ptr %1, i64 92
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  store float %17, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %1, i64 84
   %20 = load float, ptr %19, align 4
-  %21 = insertelement <2 x float> poison, float %17, i64 0
-  %22 = insertelement <2 x float> %21, float %20, i64 1
-  %23 = insertelement <2 x float> %12, float %14, i64 1
-  %24 = fsub <2 x float> %22, %23
-  store <2 x float> %24, ptr %18, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 20
-  store i32 1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
-  %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %5, i64 24
-  store i32 %27, ptr %28, align 8
-  %29 = call noundef i32 @_ZN9dtNavMesh4initEPK15dtNavMeshParams(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %5)
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %33, label %31
+  %21 = fsub float %20, %12
+  %22 = getelementptr inbounds i8, ptr %5, i64 12
+  store float %21, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 92
+  %24 = load float, ptr %23, align 4
+  %25 = fsub float %24, %17
+  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  store float %25, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %5, i64 20
+  store i32 1, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 %29, ptr %30, align 4
+  %31 = call noundef i32 @_ZN9dtNavMesh4initEPK15dtNavMeshParams(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %5)
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %35, label %33
 
-31:                                               ; preds = %10
-  %32 = tail call noundef i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef null)
-  br label %33
+33:                                               ; preds = %10
+  %34 = tail call noundef i32 @_ZN9dtNavMesh7addTileEPhiijPj(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef null)
+  br label %35
 
-33:                                               ; preds = %10, %7, %4, %31
-  %.0 = phi i32 [ %32, %31 ], [ -2147483647, %4 ], [ -2147483646, %7 ], [ %29, %10 ]
+35:                                               ; preds = %10, %7, %4, %33
+  %.0 = phi i32 [ %34, %33 ], [ -2147483647, %4 ], [ -2147483646, %7 ], [ %31, %10 ]
   ret i32 %.0
 }
 
@@ -1352,7 +1356,7 @@ define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr nocapture noun
   br label %16
 
 16:                                               ; preds = %.lr.ph102, %._crit_edge
-  %17 = phi ptr [ %8, %.lr.ph102 ], [ %102, %._crit_edge ]
+  %17 = phi ptr [ %8, %.lr.ph102 ], [ %101, %._crit_edge ]
   %indvars.iv111 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next112, %._crit_edge ]
   %18 = load ptr, ptr %12, align 8
   %19 = getelementptr inbounds %struct.dtPoly, ptr %18, i64 %indvars.iv111
@@ -1458,39 +1462,38 @@ _Z9allocLinkP10dtMeshTile.exit.thread.sink.split: ; preds = %58, %70
   %.sink143 = phi ptr [ %45, %70 ], [ %53, %58 ]
   %71 = shl nuw nsw i64 %indvars.iv, 1
   %72 = getelementptr inbounds [8 x float], ptr %6, i64 0, i64 %71
-  %73 = load float, ptr %.sink146, align 4
-  %74 = load float, ptr %.sink143, align 4
-  %75 = fsub float %74, %73
-  %76 = load <2 x float>, ptr %72, align 8
-  %77 = insertelement <2 x float> poison, float %73, i64 0
-  %78 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> zeroinitializer
-  %79 = fsub <2 x float> %76, %78
-  %80 = insertelement <2 x float> poison, float %75, i64 0
-  %81 = shufflevector <2 x float> %80, <2 x float> poison, <2 x i32> zeroinitializer
-  %82 = fdiv <2 x float> %79, %81
-  %83 = extractelement <2 x float> %82, i64 0
-  %84 = extractelement <2 x float> %82, i64 1
-  %85 = fcmp ogt float %83, %84
-  %.094 = select i1 %85, float %84, float %83
-  %.093 = select i1 %85, float %83, float %84
-  %86 = fcmp olt float %.094, 0.000000e+00
-  %87 = fcmp ogt float %.094, 1.000000e+00
-  %88 = select i1 %87, float 1.000000e+00, float %.094
-  %89 = fmul float %88, 2.550000e+02
-  %90 = select i1 %86, float 0.000000e+00, float %89
-  %91 = tail call float @llvm.round.f32(float %90)
-  %92 = fptoui float %91 to i8
-  %93 = getelementptr inbounds i8, ptr %63, i64 10
-  store i8 %92, ptr %93, align 2
-  %94 = fcmp olt float %.093, 0.000000e+00
-  %95 = fcmp ogt float %.093, 1.000000e+00
-  %96 = select i1 %95, float 1.000000e+00, float %.093
-  %97 = fmul float %96, 2.550000e+02
-  %98 = select i1 %94, float 0.000000e+00, float %97
-  %99 = tail call float @llvm.round.f32(float %98)
-  %100 = fptoui float %99 to i8
-  %101 = getelementptr inbounds i8, ptr %63, i64 11
-  store i8 %100, ptr %101, align 1
+  %73 = load float, ptr %72, align 8
+  %74 = load float, ptr %.sink146, align 4
+  %75 = fsub float %73, %74
+  %76 = load float, ptr %.sink143, align 4
+  %77 = fsub float %76, %74
+  %78 = fdiv float %75, %77
+  %79 = or disjoint i64 %71, 1
+  %80 = getelementptr inbounds [8 x float], ptr %6, i64 0, i64 %79
+  %81 = load float, ptr %80, align 4
+  %82 = fsub float %81, %74
+  %83 = fdiv float %82, %77
+  %84 = fcmp ogt float %78, %83
+  %.094 = select i1 %84, float %83, float %78
+  %.093 = select i1 %84, float %78, float %83
+  %85 = fcmp olt float %.094, 0.000000e+00
+  %86 = fcmp ogt float %.094, 1.000000e+00
+  %87 = select i1 %86, float 1.000000e+00, float %.094
+  %88 = fmul float %87, 2.550000e+02
+  %89 = select i1 %85, float 0.000000e+00, float %88
+  %90 = tail call float @llvm.round.f32(float %89)
+  %91 = fptoui float %90 to i8
+  %92 = getelementptr inbounds i8, ptr %63, i64 10
+  store i8 %91, ptr %92, align 2
+  %93 = fcmp olt float %.093, 0.000000e+00
+  %94 = fcmp ogt float %.093, 1.000000e+00
+  %95 = select i1 %94, float 1.000000e+00, float %.093
+  %96 = fmul float %95, 2.550000e+02
+  %97 = select i1 %93, float 0.000000e+00, float %96
+  %98 = tail call float @llvm.round.f32(float %97)
+  %99 = fptoui float %98 to i8
+  %100 = getelementptr inbounds i8, ptr %63, i64 11
+  store i8 %99, ptr %100, align 1
   br label %_Z9allocLinkP10dtMeshTile.exit.thread
 
 _Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %_Z9allocLinkP10dtMeshTile.exit.thread.sink.split, %58, %.lr.ph.split
@@ -1508,13 +1511,13 @@ _Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %_Z9allocLinkP10dtMe
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %16
-  %102 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %17, %16 ]
+  %101 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %17, %16 ]
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %103 = getelementptr inbounds i8, ptr %102, i64 24
-  %104 = load i32, ptr %103, align 4
-  %105 = sext i32 %104 to i64
-  %106 = icmp slt i64 %indvars.iv.next112, %105
-  br i1 %106, label %16, label %.loopexit97, !llvm.loop !21
+  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %103 = load i32, ptr %102, align 4
+  %104 = sext i32 %103 to i64
+  %105 = icmp slt i64 %indvars.iv.next112, %104
+  br i1 %105, label %16, label %.loopexit97, !llvm.loop !21
 
 .loopexit97:                                      ; preds = %._crit_edge, %.preheader, %4
   ret void
@@ -1564,7 +1567,7 @@ define void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr nocaptu
 
 34:                                               ; preds = %.lr.ph, %_Z9allocLinkP10dtMeshTile.exit72.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z9allocLinkP10dtMeshTile.exit72.thread ]
-  %35 = phi ptr [ %14, %.lr.ph ], [ %133, %_Z9allocLinkP10dtMeshTile.exit72.thread ]
+  %35 = phi ptr [ %14, %.lr.ph ], [ %130, %_Z9allocLinkP10dtMeshTile.exit72.thread ]
   %36 = load ptr, ptr %18, align 8
   %37 = getelementptr inbounds %struct.dtOffMeshConnection, ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds i8, ptr %37, i64 31
@@ -1598,126 +1601,122 @@ define void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr nocaptu
 55:                                               ; preds = %48
   %56 = load float, ptr %6, align 4
   %57 = load float, ptr %53, align 4
-  %58 = load float, ptr %22, align 4
-  %59 = getelementptr inbounds i8, ptr %37, i64 20
-  %60 = load float, ptr %59, align 4
-  %61 = insertelement <2 x float> poison, float %56, i64 0
-  %62 = insertelement <2 x float> %61, float %58, i64 1
-  %63 = insertelement <2 x float> poison, float %57, i64 0
-  %64 = insertelement <2 x float> %63, float %60, i64 1
-  %65 = fsub <2 x float> %62, %64
-  %66 = fmul <2 x float> %65, %65
-  %shift = shufflevector <2 x float> %66, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %67 = fadd <2 x float> %66, %shift
-  %68 = extractelement <2 x float> %67, i64 0
-  %69 = load float, ptr %49, align 4
-  %70 = fmul float %69, %69
-  %71 = fcmp ogt float %68, %70
-  br i1 %71, label %_Z9allocLinkP10dtMeshTile.exit72.thread, label %72
+  %58 = fsub float %56, %57
+  %59 = fmul float %58, %58
+  %60 = load float, ptr %22, align 4
+  %61 = getelementptr inbounds i8, ptr %37, i64 20
+  %62 = load float, ptr %61, align 4
+  %63 = fsub float %60, %62
+  %64 = fmul float %63, %63
+  %65 = fadd float %59, %64
+  %66 = load float, ptr %49, align 4
+  %67 = fmul float %66, %66
+  %68 = fcmp ogt float %65, %67
+  br i1 %68, label %_Z9allocLinkP10dtMeshTile.exit72.thread, label %69
 
-72:                                               ; preds = %55
-  %73 = load ptr, ptr %23, align 8
-  %74 = getelementptr inbounds i8, ptr %45, i64 6
-  %75 = load i16, ptr %74, align 2
-  %76 = zext i16 %75 to i64
-  %.idx = mul nuw nsw i64 %76, 12
-  %77 = getelementptr inbounds i8, ptr %73, i64 %.idx
-  store float %56, ptr %77, align 4
-  %78 = load float, ptr %24, align 4
-  %79 = getelementptr inbounds i8, ptr %77, i64 4
-  store float %78, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %77, i64 8
-  store float %58, ptr %80, align 4
-  %81 = load i32, ptr %25, align 4
-  %82 = icmp eq i32 %81, -1
-  br i1 %82, label %_Z9allocLinkP10dtMeshTile.exit.thread, label %83
+69:                                               ; preds = %55
+  %70 = load ptr, ptr %23, align 8
+  %71 = getelementptr inbounds i8, ptr %45, i64 6
+  %72 = load i16, ptr %71, align 2
+  %73 = zext i16 %72 to i64
+  %.idx = mul nuw nsw i64 %73, 12
+  %74 = getelementptr inbounds i8, ptr %70, i64 %.idx
+  store float %56, ptr %74, align 4
+  %75 = load float, ptr %24, align 4
+  %76 = getelementptr inbounds i8, ptr %74, i64 4
+  store float %75, ptr %76, align 4
+  %77 = getelementptr inbounds i8, ptr %74, i64 8
+  store float %60, ptr %77, align 4
+  %78 = load i32, ptr %25, align 4
+  %79 = icmp eq i32 %78, -1
+  br i1 %79, label %_Z9allocLinkP10dtMeshTile.exit.thread, label %80
 
-83:                                               ; preds = %72
-  %84 = load ptr, ptr %26, align 8
-  %85 = zext i32 %81 to i64
-  %86 = getelementptr inbounds %struct.dtLink, ptr %84, i64 %85, i32 1
-  %87 = load i32, ptr %86, align 4
-  store i32 %87, ptr %25, align 4
-  %88 = getelementptr inbounds %struct.dtLink, ptr %84, i64 %85
-  store i32 %54, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
-  store i8 1, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %88, i64 9
-  store i8 %12, ptr %90, align 1
-  %91 = getelementptr inbounds i8, ptr %88, i64 11
-  store i8 0, ptr %91, align 1
-  %92 = getelementptr inbounds i8, ptr %88, i64 10
-  store i8 0, ptr %92, align 2
-  %93 = load i32, ptr %45, align 4
-  %94 = getelementptr inbounds i8, ptr %88, i64 4
-  store i32 %93, ptr %94, align 4
-  store i32 %81, ptr %45, align 4
+80:                                               ; preds = %69
+  %81 = load ptr, ptr %26, align 8
+  %82 = zext i32 %78 to i64
+  %83 = getelementptr inbounds %struct.dtLink, ptr %81, i64 %82, i32 1
+  %84 = load i32, ptr %83, align 4
+  store i32 %84, ptr %25, align 4
+  %85 = getelementptr inbounds %struct.dtLink, ptr %81, i64 %82
+  store i32 %54, ptr %85, align 4
+  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  store i8 1, ptr %86, align 4
+  %87 = getelementptr inbounds i8, ptr %85, i64 9
+  store i8 %12, ptr %87, align 1
+  %88 = getelementptr inbounds i8, ptr %85, i64 11
+  store i8 0, ptr %88, align 1
+  %89 = getelementptr inbounds i8, ptr %85, i64 10
+  store i8 0, ptr %89, align 2
+  %90 = load i32, ptr %45, align 4
+  %91 = getelementptr inbounds i8, ptr %85, i64 4
+  store i32 %90, ptr %91, align 4
+  store i32 %78, ptr %45, align 4
   br label %_Z9allocLinkP10dtMeshTile.exit.thread
 
-_Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %72, %83
-  %95 = getelementptr inbounds i8, ptr %37, i64 30
-  %96 = load i8, ptr %95, align 2
-  %97 = and i8 %96, 1
-  %.not70 = icmp eq i8 %97, 0
-  br i1 %.not70, label %_Z9allocLinkP10dtMeshTile.exit72.thread, label %98
+_Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %69, %80
+  %92 = getelementptr inbounds i8, ptr %37, i64 30
+  %93 = load i8, ptr %92, align 2
+  %94 = and i8 %93, 1
+  %.not70 = icmp eq i8 %94, 0
+  br i1 %.not70, label %_Z9allocLinkP10dtMeshTile.exit72.thread, label %95
 
-98:                                               ; preds = %_Z9allocLinkP10dtMeshTile.exit.thread
-  %99 = load i32, ptr %27, align 4
-  %100 = icmp eq i32 %99, -1
-  br i1 %100, label %_Z9allocLinkP10dtMeshTile.exit72.thread, label %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit
+95:                                               ; preds = %_Z9allocLinkP10dtMeshTile.exit.thread
+  %96 = load i32, ptr %27, align 4
+  %97 = icmp eq i32 %96, -1
+  br i1 %97, label %_Z9allocLinkP10dtMeshTile.exit72.thread, label %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit
 
-_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %98
-  %101 = load ptr, ptr %28, align 8
-  %102 = zext i32 %99 to i64
-  %103 = getelementptr inbounds %struct.dtLink, ptr %101, i64 %102, i32 1
-  %104 = load i32, ptr %103, align 4
-  store i32 %104, ptr %27, align 4
-  %105 = load i32, ptr %29, align 8
-  %notmask.i = shl nsw i32 -1, %105
-  %106 = xor i32 %notmask.i, -1
-  %107 = load ptr, ptr %30, align 8
-  %108 = and i32 %54, 65535
-  %109 = and i32 %108, %106
-  %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds %struct.dtPoly, ptr %107, i64 %110
-  %112 = getelementptr inbounds %struct.dtLink, ptr %101, i64 %102
-  %113 = load ptr, ptr %31, align 8
-  %114 = ptrtoint ptr %113 to i64
-  %115 = sub i64 %32, %114
-  %116 = sdiv exact i64 %115, 104
-  %117 = trunc i64 %116 to i32
-  %118 = load i32, ptr %2, align 8
-  %119 = load i32, ptr %33, align 4
-  %120 = add i32 %119, %105
-  %121 = shl i32 %118, %120
-  %122 = shl i32 %117, %105
-  %123 = load i16, ptr %42, align 4
-  %124 = zext i16 %123 to i32
-  %125 = or i32 %121, %124
-  %126 = or i32 %125, %122
-  store i32 %126, ptr %112, align 4
-  %127 = getelementptr inbounds i8, ptr %112, i64 8
-  store i8 -1, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %112, i64 9
-  store i8 %9, ptr %128, align 1
-  %129 = getelementptr inbounds i8, ptr %112, i64 11
-  store i8 0, ptr %129, align 1
-  %130 = getelementptr inbounds i8, ptr %112, i64 10
-  store i8 0, ptr %130, align 2
-  %131 = load i32, ptr %111, align 4
-  %132 = getelementptr inbounds i8, ptr %112, i64 4
-  store i32 %131, ptr %132, align 4
-  store i32 %99, ptr %111, align 4
+_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %95
+  %98 = load ptr, ptr %28, align 8
+  %99 = zext i32 %96 to i64
+  %100 = getelementptr inbounds %struct.dtLink, ptr %98, i64 %99, i32 1
+  %101 = load i32, ptr %100, align 4
+  store i32 %101, ptr %27, align 4
+  %102 = load i32, ptr %29, align 8
+  %notmask.i = shl nsw i32 -1, %102
+  %103 = xor i32 %notmask.i, -1
+  %104 = load ptr, ptr %30, align 8
+  %105 = and i32 %54, 65535
+  %106 = and i32 %105, %103
+  %107 = zext nneg i32 %106 to i64
+  %108 = getelementptr inbounds %struct.dtPoly, ptr %104, i64 %107
+  %109 = getelementptr inbounds %struct.dtLink, ptr %98, i64 %99
+  %110 = load ptr, ptr %31, align 8
+  %111 = ptrtoint ptr %110 to i64
+  %112 = sub i64 %32, %111
+  %113 = sdiv exact i64 %112, 104
+  %114 = trunc i64 %113 to i32
+  %115 = load i32, ptr %2, align 8
+  %116 = load i32, ptr %33, align 4
+  %117 = add i32 %116, %102
+  %118 = shl i32 %115, %117
+  %119 = shl i32 %114, %102
+  %120 = load i16, ptr %42, align 4
+  %121 = zext i16 %120 to i32
+  %122 = or i32 %118, %121
+  %123 = or i32 %122, %119
+  store i32 %123, ptr %109, align 4
+  %124 = getelementptr inbounds i8, ptr %109, i64 8
+  store i8 -1, ptr %124, align 4
+  %125 = getelementptr inbounds i8, ptr %109, i64 9
+  store i8 %9, ptr %125, align 1
+  %126 = getelementptr inbounds i8, ptr %109, i64 11
+  store i8 0, ptr %126, align 1
+  %127 = getelementptr inbounds i8, ptr %109, i64 10
+  store i8 0, ptr %127, align 2
+  %128 = load i32, ptr %108, align 4
+  %129 = getelementptr inbounds i8, ptr %109, i64 4
+  store i32 %128, ptr %129, align 4
+  store i32 %96, ptr %108, align 4
   br label %_Z9allocLinkP10dtMeshTile.exit72.thread
 
-_Z9allocLinkP10dtMeshTile.exit72.thread:          ; preds = %98, %_Z9allocLinkP10dtMeshTile.exit.thread, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %55, %48, %40, %34
+_Z9allocLinkP10dtMeshTile.exit72.thread:          ; preds = %95, %_Z9allocLinkP10dtMeshTile.exit.thread, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %55, %48, %40, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %133 = load ptr, ptr %13, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 52
-  %135 = load i32, ptr %134, align 4
-  %136 = sext i32 %135 to i64
-  %137 = icmp slt i64 %indvars.iv.next, %136
-  br i1 %137, label %34, label %.loopexit, !llvm.loop !22
+  %130 = load ptr, ptr %13, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 52
+  %132 = load i32, ptr %131, align 4
+  %133 = sext i32 %132 to i64
+  %134 = icmp slt i64 %indvars.iv.next, %133
+  br i1 %134, label %34, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_Z9allocLinkP10dtMeshTile.exit72.thread, %7, %4
   ret void
@@ -1725,99 +1724,110 @@ _Z9allocLinkP10dtMeshTile.exit72.thread:          ; preds = %98, %_Z9allocLinkP1
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK9dtNavMesh21findNearestPolyInTileEPK10dtMeshTilePKfS4_Pf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 2 {
-  %6 = alloca [3 x float], align 8
-  %7 = alloca [3 x float], align 8
+  %6 = alloca [3 x float], align 4
+  %7 = alloca [3 x float], align 4
   %8 = alloca [128 x i32], align 16
-  %9 = alloca [3 x float], align 8
+  %9 = alloca [3 x float], align 4
   %10 = alloca i8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 4
-  %12 = load <2 x float>, ptr %2, align 4
-  %13 = load <2 x float>, ptr %3, align 4
-  %14 = fsub <2 x float> %12, %13
-  store <2 x float> %14, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %18 = load float, ptr %17, align 4
-  %19 = fsub float %16, %18
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
-  store float %19, ptr %20, align 8
-  %21 = fadd <2 x float> %12, %13
-  store <2 x float> %21, ptr %7, align 8
-  %22 = fadd float %16, %18
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
-  store float %22, ptr %23, align 8
-  %24 = call noundef i32 @_ZNK9dtNavMesh19queryPolygonsInTileEPK10dtMeshTilePKfS4_Pji(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 128)
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph, label %._crit_edge
+  %11 = load float, ptr %2, align 4
+  %12 = load float, ptr %3, align 4
+  %13 = fsub float %11, %12
+  store float %13, ptr %6, align 4
+  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %15 = load float, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %17 = load float, ptr %16, align 4
+  %18 = fsub float %15, %17
+  %19 = getelementptr inbounds i8, ptr %6, i64 4
+  store float %18, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = load float, ptr %20, align 4
+  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = load float, ptr %22, align 4
+  %24 = fsub float %21, %23
+  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  store float %24, ptr %25, align 4
+  %26 = fadd float %11, %12
+  store float %26, ptr %7, align 4
+  %27 = fadd float %15, %17
+  %28 = getelementptr inbounds i8, ptr %7, i64 4
+  store float %27, ptr %28, align 4
+  %29 = fadd float %21, %23
+  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  store float %29, ptr %30, align 4
+  %31 = call noundef i32 @_ZNK9dtNavMesh19queryPolygonsInTileEPK10dtMeshTilePKfS4_Pji(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 128)
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %26 = getelementptr inbounds i8, ptr %9, i64 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
-  %wide.trip.count = zext nneg i32 %24 to i64
-  br label %29
+  %33 = getelementptr inbounds i8, ptr %9, i64 4
+  %34 = getelementptr inbounds i8, ptr %9, i64 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds i8, ptr %4, i64 4
+  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %wide.trip.count = zext nneg i32 %31 to i64
+  br label %38
 
-29:                                               ; preds = %.lr.ph, %62
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %.02229 = phi i32 [ 0, %.lr.ph ], [ %.1, %62 ]
-  %.02427 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.125, %62 ]
-  %30 = getelementptr inbounds [128 x i32], ptr %8, i64 0, i64 %indvars.iv
-  %31 = load i32, ptr %30, align 4
+38:                                               ; preds = %.lr.ph, %70
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
+  %.02229 = phi i32 [ 0, %.lr.ph ], [ %.1, %70 ]
+  %.02427 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.125, %70 ]
+  %39 = getelementptr inbounds [128 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %40 = load i32, ptr %39, align 4
   store i8 0, ptr %10, align 1
-  call void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %31, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %32 = load float, ptr %11, align 4
-  %33 = load <2 x float>, ptr %9, align 8
-  %34 = extractelement <2 x float> %33, i64 1
-  %35 = fsub float %32, %34
-  %36 = load float, ptr %26, align 8
-  %37 = load i8, ptr %10, align 1
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %39, label %50
+  call void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %40, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %41 = load float, ptr %9, align 4
+  %42 = load float, ptr %14, align 4
+  %43 = load float, ptr %33, align 4
+  %44 = fsub float %42, %43
+  %45 = load float, ptr %34, align 4
+  %46 = load i8, ptr %10, align 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %59
 
-39:                                               ; preds = %29
-  %40 = fcmp olt float %35, 0.000000e+00
-  %41 = fneg float %35
-  %42 = select i1 %40, float %41, float %35
-  %43 = load ptr, ptr %27, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 68
-  %45 = load float, ptr %44, align 4
-  %46 = fsub float %42, %45
-  %47 = fcmp ogt float %46, 0.000000e+00
-  %48 = fmul float %46, %46
-  %49 = select i1 %47, float %48, float 0.000000e+00
-  br label %59
+48:                                               ; preds = %38
+  %49 = fcmp olt float %44, 0.000000e+00
+  %50 = fneg float %44
+  %51 = select i1 %49, float %50, float %44
+  %52 = load ptr, ptr %35, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 68
+  %54 = load float, ptr %53, align 4
+  %55 = fsub float %51, %54
+  %56 = fcmp ogt float %55, 0.000000e+00
+  %57 = fmul float %55, %55
+  %58 = select i1 %56, float %57, float 0.000000e+00
+  br label %67
 
-50:                                               ; preds = %29
-  %51 = load float, ptr %15, align 4
-  %52 = fsub float %51, %36
-  %53 = load float, ptr %2, align 4
-  %54 = extractelement <2 x float> %33, i64 0
-  %55 = fsub float %53, %54
-  %56 = fmul float %35, %35
-  %57 = call float @llvm.fmuladd.f32(float %55, float %55, float %56)
-  %58 = call noundef float @llvm.fmuladd.f32(float %52, float %52, float %57)
-  br label %59
+59:                                               ; preds = %38
+  %60 = load float, ptr %20, align 4
+  %61 = fsub float %60, %45
+  %62 = load float, ptr %2, align 4
+  %63 = fsub float %62, %41
+  %64 = fmul float %44, %44
+  %65 = call float @llvm.fmuladd.f32(float %63, float %63, float %64)
+  %66 = call noundef float @llvm.fmuladd.f32(float %61, float %61, float %65)
+  br label %67
 
-59:                                               ; preds = %50, %39
-  %.0 = phi float [ %49, %39 ], [ %58, %50 ]
-  %60 = fcmp olt float %.0, %.02427
-  br i1 %60, label %61, label %62
+67:                                               ; preds = %59, %48
+  %.0 = phi float [ %58, %48 ], [ %66, %59 ]
+  %68 = fcmp olt float %.0, %.02427
+  br i1 %68, label %69, label %70
 
-61:                                               ; preds = %59
-  store <2 x float> %33, ptr %4, align 4
-  store float %36, ptr %28, align 4
-  br label %62
+69:                                               ; preds = %67
+  store float %41, ptr %4, align 4
+  store float %43, ptr %36, align 4
+  store float %45, ptr %37, align 4
+  br label %70
 
-62:                                               ; preds = %59, %61
-  %.125 = phi float [ %.0, %61 ], [ %.02427, %59 ]
-  %.1 = phi i32 [ %31, %61 ], [ %.02229, %59 ]
+70:                                               ; preds = %67, %69
+  %.125 = phi float [ %.0, %69 ], [ %.02427, %67 ]
+  %.1 = phi i32 [ %40, %69 ], [ %.02229, %67 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %62, %5
-  %.022.lcssa = phi i32 [ 0, %5 ], [ %.1, %62 ]
+._crit_edge:                                      ; preds = %70, %5
+  %.022.lcssa = phi i32 [ 0, %5 ], [ %.1, %70 ]
   ret i32 %.022.lcssa
 }
 
@@ -1980,7 +1990,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
 
 35:                                               ; preds = %.lr.ph, %_Z9allocLinkP10dtMeshTile.exit61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z9allocLinkP10dtMeshTile.exit61 ]
-  %36 = phi ptr [ %22, %.lr.ph ], [ %106, %_Z9allocLinkP10dtMeshTile.exit61 ]
+  %36 = phi ptr [ %22, %.lr.ph ], [ %109, %_Z9allocLinkP10dtMeshTile.exit61 ]
   %37 = load ptr, ptr %26, align 8
   %38 = getelementptr inbounds %struct.dtOffMeshConnection, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %27, align 8
@@ -2002,59 +2012,61 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
 49:                                               ; preds = %35
   %50 = load float, ptr %4, align 4
   %51 = load float, ptr %38, align 4
-  %52 = load float, ptr %30, align 4
-  %53 = getelementptr inbounds i8, ptr %38, i64 8
-  %54 = load float, ptr %53, align 4
-  %55 = insertelement <2 x float> poison, float %50, i64 0
-  %56 = insertelement <2 x float> %55, float %52, i64 1
-  %57 = insertelement <2 x float> poison, float %51, i64 0
-  %58 = insertelement <2 x float> %57, float %54, i64 1
-  %59 = fsub <2 x float> %56, %58
-  %60 = fmul <2 x float> %59, %59
-  %shift = shufflevector <2 x float> %60, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %61 = fadd <2 x float> %60, %shift
-  %62 = extractelement <2 x float> %61, i64 0
-  %63 = load float, ptr %44, align 4
-  %64 = fmul float %63, %63
-  %65 = fcmp ogt float %62, %64
-  br i1 %65, label %_Z9allocLinkP10dtMeshTile.exit61, label %66
+  %52 = fsub float %50, %51
+  %53 = fmul float %52, %52
+  %54 = load float, ptr %30, align 4
+  %55 = getelementptr inbounds i8, ptr %38, i64 8
+  %56 = load float, ptr %55, align 4
+  %57 = fsub float %54, %56
+  %58 = fmul float %57, %57
+  %59 = fadd float %53, %58
+  %60 = load float, ptr %44, align 4
+  %61 = fmul float %60, %60
+  %62 = fcmp ogt float %59, %61
+  br i1 %62, label %_Z9allocLinkP10dtMeshTile.exit61, label %63
 
-66:                                               ; preds = %49
-  %67 = load ptr, ptr %31, align 8
-  %68 = getelementptr inbounds i8, ptr %43, i64 4
-  %69 = load i16, ptr %68, align 4
-  %70 = zext i16 %69 to i64
-  %.idx = mul nuw nsw i64 %70, 12
-  %71 = getelementptr inbounds i8, ptr %67, i64 %.idx
-  store float %50, ptr %71, align 4
-  %72 = load float, ptr %32, align 4
-  %73 = getelementptr inbounds i8, ptr %71, i64 4
-  store float %72, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
-  store float %52, ptr %74, align 4
-  %75 = load i32, ptr %33, align 4
-  %76 = icmp eq i32 %75, -1
-  br i1 %76, label %_Z9allocLinkP10dtMeshTile.exit61, label %77
+63:                                               ; preds = %49
+  %64 = load ptr, ptr %31, align 8
+  %65 = getelementptr inbounds i8, ptr %43, i64 4
+  %66 = load i16, ptr %65, align 4
+  %67 = zext i16 %66 to i64
+  %.idx = mul nuw nsw i64 %67, 12
+  %68 = getelementptr inbounds i8, ptr %64, i64 %.idx
+  store float %50, ptr %68, align 4
+  %69 = load float, ptr %32, align 4
+  %70 = getelementptr inbounds i8, ptr %68, i64 4
+  store float %69, ptr %70, align 4
+  %71 = getelementptr inbounds i8, ptr %68, i64 8
+  store float %54, ptr %71, align 4
+  %72 = load i32, ptr %33, align 4
+  %73 = icmp eq i32 %72, -1
+  br i1 %73, label %_Z9allocLinkP10dtMeshTile.exit61, label %74
 
-77:                                               ; preds = %66
-  %78 = load ptr, ptr %34, align 8
-  %79 = zext i32 %75 to i64
-  %80 = getelementptr inbounds %struct.dtLink, ptr %78, i64 %79, i32 1
-  %81 = load i32, ptr %80, align 4
-  store i32 %81, ptr %33, align 4
-  %82 = getelementptr inbounds %struct.dtLink, ptr %78, i64 %79
-  store i32 %48, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
-  store <4 x i8> <i8 0, i8 -1, i8 0, i8 0>, ptr %83, align 4
+74:                                               ; preds = %63
+  %75 = load ptr, ptr %34, align 8
+  %76 = zext i32 %72 to i64
+  %77 = getelementptr inbounds %struct.dtLink, ptr %75, i64 %76, i32 1
+  %78 = load i32, ptr %77, align 4
+  store i32 %78, ptr %33, align 4
+  %79 = getelementptr inbounds %struct.dtLink, ptr %75, i64 %76
+  store i32 %48, ptr %79, align 4
+  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  store i8 0, ptr %80, align 4
+  %81 = getelementptr inbounds i8, ptr %79, i64 9
+  store i8 -1, ptr %81, align 1
+  %82 = getelementptr inbounds i8, ptr %79, i64 11
+  store i8 0, ptr %82, align 1
+  %83 = getelementptr inbounds i8, ptr %79, i64 10
+  store i8 0, ptr %83, align 2
   %84 = load i32, ptr %43, align 4
-  %85 = getelementptr inbounds i8, ptr %82, i64 4
+  %85 = getelementptr inbounds i8, ptr %79, i64 4
   store i32 %84, ptr %85, align 4
-  store i32 %75, ptr %43, align 4
+  store i32 %72, ptr %43, align 4
   %.pr = load i32, ptr %33, align 4
   %86 = icmp eq i32 %.pr, -1
   br i1 %86, label %_Z9allocLinkP10dtMeshTile.exit61, label %87
 
-87:                                               ; preds = %77
+87:                                               ; preds = %74
   %88 = load ptr, ptr %34, align 8
   %89 = zext i32 %.pr to i64
   %90 = getelementptr inbounds %struct.dtLink, ptr %88, i64 %89, i32 1
@@ -2074,21 +2086,27 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
   %102 = or i32 %20, %101
   store i32 %102, ptr %99, align 4
   %103 = getelementptr inbounds i8, ptr %99, i64 8
-  store <4 x i8> <i8 -1, i8 -1, i8 0, i8 0>, ptr %103, align 4
-  %104 = load i32, ptr %98, align 4
-  %105 = getelementptr inbounds i8, ptr %99, i64 4
-  store i32 %104, ptr %105, align 4
+  store i8 -1, ptr %103, align 4
+  %104 = getelementptr inbounds i8, ptr %99, i64 9
+  store i8 -1, ptr %104, align 1
+  %105 = getelementptr inbounds i8, ptr %99, i64 11
+  store i8 0, ptr %105, align 1
+  %106 = getelementptr inbounds i8, ptr %99, i64 10
+  store i8 0, ptr %106, align 2
+  %107 = load i32, ptr %98, align 4
+  %108 = getelementptr inbounds i8, ptr %99, i64 4
+  store i32 %107, ptr %108, align 4
   store i32 %.pr, ptr %98, align 4
   br label %_Z9allocLinkP10dtMeshTile.exit61
 
-_Z9allocLinkP10dtMeshTile.exit61:                 ; preds = %77, %66, %87, %49, %35
+_Z9allocLinkP10dtMeshTile.exit61:                 ; preds = %74, %63, %87, %49, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %106 = load ptr, ptr %21, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 52
-  %108 = load i32, ptr %107, align 4
-  %109 = sext i32 %108 to i64
-  %110 = icmp slt i64 %indvars.iv.next, %109
-  br i1 %110, label %35, label %.loopexit, !llvm.loop !26
+  %109 = load ptr, ptr %21, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 52
+  %111 = load i32, ptr %110, align 4
+  %112 = sext i32 %111 to i64
+  %113 = icmp slt i64 %indvars.iv.next, %112
+  br i1 %113, label %35, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %_Z9allocLinkP10dtMeshTile.exit61, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %2
   ret void
@@ -2930,60 +2948,61 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109: ; preds = %6
   %188 = zext i16 %187 to i64
   %.idx = mul nuw nsw i64 %188, 12
   %189 = getelementptr inbounds i8, ptr %185, i64 %.idx
-  %190 = load <2 x float>, ptr %189, align 4
-  %191 = getelementptr inbounds i8, ptr %189, i64 8
+  %190 = load float, ptr %189, align 4
+  %191 = getelementptr inbounds i8, ptr %189, i64 4
   %192 = load float, ptr %191, align 4
-  %193 = getelementptr inbounds i8, ptr %180, i64 30
-  %194 = load i8, ptr %193, align 2
-  %195 = icmp ugt i8 %194, 1
-  %196 = extractelement <2 x float> %190, i64 0
-  %197 = extractelement <2 x float> %190, i64 1
-  br i1 %195, label %.lr.ph140.preheader, label %._crit_edge
+  %193 = getelementptr inbounds i8, ptr %189, i64 8
+  %194 = load float, ptr %193, align 4
+  %195 = getelementptr inbounds i8, ptr %180, i64 30
+  %196 = load i8, ptr %195, align 2
+  %197 = icmp ugt i8 %196, 1
+  br i1 %197, label %.lr.ph140.preheader, label %._crit_edge
 
 .lr.ph140.preheader:                              ; preds = %184
-  %wide.trip.count = zext i8 %194 to i64
+  %wide.trip.count = zext i8 %196 to i64
   br label %.lr.ph140
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
   %indvars.iv = phi i64 [ 1, %.lr.ph140.preheader ], [ %indvars.iv.next, %.lr.ph140 ]
-  %.sroa.8.0136 = phi float [ %192, %.lr.ph140.preheader ], [ %214, %.lr.ph140 ]
-  %.sroa.8117.0133 = phi float [ %192, %.lr.ph140.preheader ], [ %210, %.lr.ph140 ]
-  %198 = phi <2 x float> [ %190, %.lr.ph140.preheader ], [ %206, %.lr.ph140 ]
-  %199 = phi <2 x float> [ %190, %.lr.ph140.preheader ], [ %212, %.lr.ph140 ]
-  %200 = getelementptr inbounds [6 x i16], ptr %186, i64 0, i64 %indvars.iv
-  %201 = load i16, ptr %200, align 2
-  %202 = zext i16 %201 to i64
-  %.idx102 = mul nuw nsw i64 %202, 12
-  %203 = getelementptr inbounds i8, ptr %185, i64 %.idx102
-  %204 = load <2 x float>, ptr %203, align 4
-  %205 = fcmp olt <2 x float> %198, %204
-  %206 = select <2 x i1> %205, <2 x float> %198, <2 x float> %204
-  %207 = getelementptr inbounds i8, ptr %203, i64 8
-  %208 = load float, ptr %207, align 4
-  %209 = fcmp olt float %.sroa.8117.0133, %208
-  %210 = select i1 %209, float %.sroa.8117.0133, float %208
-  %211 = fcmp ogt <2 x float> %199, %204
-  %212 = select <2 x i1> %211, <2 x float> %199, <2 x float> %204
-  %213 = fcmp ogt float %.sroa.8.0136, %208
-  %214 = select i1 %213, float %.sroa.8.0136, float %208
+  %.sroa.0.0138 = phi float [ %190, %.lr.ph140.preheader ], [ %214, %.lr.ph140 ]
+  %.sroa.4.0137 = phi float [ %192, %.lr.ph140.preheader ], [ %216, %.lr.ph140 ]
+  %.sroa.8.0136 = phi float [ %194, %.lr.ph140.preheader ], [ %218, %.lr.ph140 ]
+  %.sroa.0113.0135 = phi float [ %190, %.lr.ph140.preheader ], [ %204, %.lr.ph140 ]
+  %.sroa.4115.0134 = phi float [ %192, %.lr.ph140.preheader ], [ %208, %.lr.ph140 ]
+  %.sroa.8117.0133 = phi float [ %194, %.lr.ph140.preheader ], [ %212, %.lr.ph140 ]
+  %198 = getelementptr inbounds [6 x i16], ptr %186, i64 0, i64 %indvars.iv
+  %199 = load i16, ptr %198, align 2
+  %200 = zext i16 %199 to i64
+  %.idx102 = mul nuw nsw i64 %200, 12
+  %201 = getelementptr inbounds i8, ptr %185, i64 %.idx102
+  %202 = load float, ptr %201, align 4
+  %203 = fcmp olt float %.sroa.0113.0135, %202
+  %204 = select i1 %203, float %.sroa.0113.0135, float %202
+  %205 = getelementptr inbounds i8, ptr %201, i64 4
+  %206 = load float, ptr %205, align 4
+  %207 = fcmp olt float %.sroa.4115.0134, %206
+  %208 = select i1 %207, float %.sroa.4115.0134, float %206
+  %209 = getelementptr inbounds i8, ptr %201, i64 8
+  %210 = load float, ptr %209, align 4
+  %211 = fcmp olt float %.sroa.8117.0133, %210
+  %212 = select i1 %211, float %.sroa.8117.0133, float %210
+  %213 = fcmp ogt float %.sroa.0.0138, %202
+  %214 = select i1 %213, float %.sroa.0.0138, float %202
+  %215 = fcmp ogt float %.sroa.4.0137, %206
+  %216 = select i1 %215, float %.sroa.4.0137, float %206
+  %217 = fcmp ogt float %.sroa.8.0136, %210
+  %218 = select i1 %217, float %.sroa.8.0136, float %210
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph140, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph140, !llvm.loop !37
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph140
-  %215 = extractelement <2 x float> %212, i64 1
-  %216 = extractelement <2 x float> %212, i64 0
-  %217 = extractelement <2 x float> %206, i64 1
-  %218 = extractelement <2 x float> %206, i64 0
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %184
-  %.sroa.8117.0.lcssa = phi float [ %192, %184 ], [ %210, %._crit_edge.loopexit ]
-  %.sroa.4115.0.lcssa = phi float [ %197, %184 ], [ %217, %._crit_edge.loopexit ]
-  %.sroa.0113.0.lcssa = phi float [ %196, %184 ], [ %218, %._crit_edge.loopexit ]
-  %.sroa.8.0.lcssa = phi float [ %192, %184 ], [ %214, %._crit_edge.loopexit ]
-  %.sroa.4.0.lcssa = phi float [ %197, %184 ], [ %215, %._crit_edge.loopexit ]
-  %.sroa.0.0.lcssa = phi float [ %196, %184 ], [ %216, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph140, %184
+  %.sroa.8117.0.lcssa = phi float [ %194, %184 ], [ %212, %.lr.ph140 ]
+  %.sroa.4115.0.lcssa = phi float [ %192, %184 ], [ %208, %.lr.ph140 ]
+  %.sroa.0113.0.lcssa = phi float [ %190, %184 ], [ %204, %.lr.ph140 ]
+  %.sroa.8.0.lcssa = phi float [ %194, %184 ], [ %218, %.lr.ph140 ]
+  %.sroa.4.0.lcssa = phi float [ %192, %184 ], [ %216, %.lr.ph140 ]
+  %.sroa.0.0.lcssa = phi float [ %190, %184 ], [ %214, %.lr.ph140 ]
   %219 = load float, ptr %2, align 4
   %220 = fcmp ogt float %219, %.sroa.0.0.lcssa
   br i1 %220, label %225, label %221

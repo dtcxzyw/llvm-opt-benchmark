@@ -63,14 +63,20 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds [64 x [3 x i8]], ptr @stbvox_default_palette_compact, i64 0, i64 %indvars.iv
+  %0 = load i8, ptr %arrayidx, align 1
+  %conv2 = uitofp i8 %0 to float
+  %div = fdiv float %conv2, 2.550000e+02
   %arrayidx4 = getelementptr inbounds [64 x [4 x float]], ptr @stbvox_default_palette, i64 0, i64 %indvars.iv
-  %0 = load <2 x i8>, ptr %arrayidx, align 1
-  %1 = uitofp <2 x i8> %0 to <2 x float>
-  %2 = fdiv <2 x float> %1, <float 2.550000e+02, float 2.550000e+02>
-  store <2 x float> %2, ptr %arrayidx4, align 16
+  store float %div, ptr %arrayidx4, align 16
+  %arrayidx8 = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %1 = load i8, ptr %arrayidx8, align 1
+  %conv10 = uitofp i8 %1 to float
+  %div11 = fdiv float %conv10, 2.550000e+02
+  %arrayidx14 = getelementptr inbounds i8, ptr %arrayidx4, i64 4
+  store float %div11, ptr %arrayidx14, align 4
   %arrayidx17 = getelementptr inbounds i8, ptr %arrayidx, i64 2
-  %3 = load i8, ptr %arrayidx17, align 1
-  %conv19 = uitofp i8 %3 to float
+  %2 = load i8, ptr %arrayidx17, align 1
+  %conv19 = uitofp i8 %2 to float
   %div20 = fdiv float %conv19, 2.550000e+02
   %arrayidx23 = getelementptr inbounds i8, ptr %arrayidx4, i64 8
   store float %div20, ptr %arrayidx23, align 8
@@ -567,86 +573,98 @@ if.then:                                          ; preds = %entry
   %3 = load i8, ptr %arrayidx6, align 1
   %conv = zext i8 %3 to i32
   %shl = shl i32 %conv, 29
-  %4 = insertelement <4 x i32> poison, i32 %shl, i64 0
-  %5 = shufflevector <4 x i32> %4, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %5, ptr %p1, align 16
+  %arrayidx7 = getelementptr inbounds i8, ptr %p1, i64 12
+  store i32 %shl, ptr %arrayidx7, align 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %p1, i64 8
+  store i32 %shl, ptr %arrayidx8, align 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %p1, i64 4
+  store i32 %shl, ptr %arrayidx9, align 4
+  store i32 %shl, ptr %p1, align 16
   br label %if.end331
 
 if.else:                                          ; preds = %entry
   %block_texlerp_face = getelementptr inbounds i8, ptr %mm, i64 120
-  %6 = load ptr, ptr %block_texlerp_face, align 8
-  %tobool12.not = icmp eq ptr %6, null
+  %4 = load ptr, ptr %block_texlerp_face, align 8
+  %tobool12.not = icmp eq ptr %4, null
   br i1 %tobool12.not, label %if.else37, label %if.then13
 
 if.then13:                                        ; preds = %if.else
   %blocktype16 = getelementptr inbounds i8, ptr %mm, i64 24
-  %7 = load ptr, ptr %blocktype16, align 8
+  %5 = load ptr, ptr %blocktype16, align 8
   %idxprom17 = sext i32 %v_off to i64
-  %arrayidx18 = getelementptr inbounds i8, ptr %7, i64 %idxprom17
-  %8 = load i8, ptr %arrayidx18, align 1
+  %arrayidx18 = getelementptr inbounds i8, ptr %5, i64 %idxprom17
+  %6 = load i8, ptr %arrayidx18, align 1
   %idxprom19 = sext i32 %face to i64
   %bf.clear = and i8 %rot.coerce, 3
   %idxprom21 = zext nneg i8 %bf.clear to i64
   %arrayidx22 = getelementptr inbounds [6 x [4 x i8]], ptr @stbvox_rotate_face, i64 0, i64 %idxprom19, i64 %idxprom21
-  %9 = load i8, ptr %arrayidx22, align 1
-  %idxprom26 = zext i8 %8 to i64
-  %idxprom28 = zext i8 %9 to i64
-  %arrayidx29 = getelementptr inbounds [6 x i8], ptr %6, i64 %idxprom26, i64 %idxprom28
-  %10 = load i8, ptr %arrayidx29, align 1
-  %conv30 = zext i8 %10 to i32
+  %7 = load i8, ptr %arrayidx22, align 1
+  %idxprom26 = zext i8 %6 to i64
+  %idxprom28 = zext i8 %7 to i64
+  %arrayidx29 = getelementptr inbounds [6 x i8], ptr %4, i64 %idxprom26, i64 %idxprom28
+  %8 = load i8, ptr %arrayidx29, align 1
+  %conv30 = zext i8 %8 to i32
   %shl31 = shl i32 %conv30, 29
-  %11 = insertelement <4 x i32> poison, i32 %shl31, i64 0
-  %12 = shufflevector <4 x i32> %11, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %12, ptr %p1, align 16
+  %arrayidx33 = getelementptr inbounds i8, ptr %p1, i64 12
+  store i32 %shl31, ptr %arrayidx33, align 4
+  %arrayidx34 = getelementptr inbounds i8, ptr %p1, i64 8
+  store i32 %shl31, ptr %arrayidx34, align 8
+  %arrayidx35 = getelementptr inbounds i8, ptr %p1, i64 4
+  store i32 %shl31, ptr %arrayidx35, align 4
+  store i32 %shl31, ptr %p1, align 16
   br label %if.end331
 
 if.else37:                                        ; preds = %if.else
   %texlerp_face3 = getelementptr inbounds i8, ptr %mm, i64 320
-  %13 = load ptr, ptr %texlerp_face3, align 8
-  %tobool39.not = icmp eq ptr %13, null
+  %9 = load ptr, ptr %texlerp_face3, align 8
+  %tobool39.not = icmp eq ptr %9, null
   br i1 %tobool39.not, label %if.else62, label %if.then40
 
 if.then40:                                        ; preds = %if.else37
   %idxprom44 = sext i32 %v_off to i64
-  %arrayidx45 = getelementptr inbounds i16, ptr %13, i64 %idxprom44
-  %14 = load i16, ptr %arrayidx45, align 2
-  %conv46 = zext i16 %14 to i32
+  %arrayidx45 = getelementptr inbounds i16, ptr %9, i64 %idxprom44
+  %10 = load i16, ptr %arrayidx45, align 2
+  %conv46 = zext i16 %10 to i32
   %idxprom47 = sext i32 %face to i64
   %arrayidx48 = getelementptr inbounds [6 x i8], ptr @stbvox_face3_lerp, i64 0, i64 %idxprom47
-  %15 = load i8, ptr %arrayidx48, align 1
-  %conv49 = zext nneg i8 %15 to i32
+  %11 = load i8, ptr %arrayidx48, align 1
+  %conv49 = zext nneg i8 %11 to i32
   %shr = lshr i32 %conv46, %conv49
-  %16 = trunc i32 %shr to i8
-  %conv50 = and i8 %16, 7
+  %12 = trunc i32 %shr to i8
+  %conv50 = and i8 %12, 7
   %cmp = icmp sgt i32 %face, 3
   br i1 %cmp, label %if.then52, label %if.end
 
 if.then52:                                        ; preds = %if.then40
   %idxprom53 = zext nneg i8 %conv50 to i64
   %arrayidx54 = getelementptr inbounds [8 x i8], ptr @stbvox_face3_updown, i64 0, i64 %idxprom53
-  %17 = load i8, ptr %arrayidx54, align 1
+  %13 = load i8, ptr %arrayidx54, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then52, %if.then40
-  %val41.0 = phi i8 [ %17, %if.then52 ], [ %conv50, %if.then40 ]
+  %val41.0 = phi i8 [ %13, %if.then52 ], [ %conv50, %if.then40 ]
   %conv55 = zext i8 %val41.0 to i32
   %shl56 = shl i32 %conv55, 29
-  %18 = insertelement <4 x i32> poison, i32 %shl56, i64 0
-  %19 = shufflevector <4 x i32> %18, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %19, ptr %p1, align 16
+  %arrayidx58 = getelementptr inbounds i8, ptr %p1, i64 12
+  store i32 %shl56, ptr %arrayidx58, align 4
+  %arrayidx59 = getelementptr inbounds i8, ptr %p1, i64 8
+  store i32 %shl56, ptr %arrayidx59, align 8
+  %arrayidx60 = getelementptr inbounds i8, ptr %p1, i64 4
+  store i32 %shl56, ptr %arrayidx60, align 4
+  store i32 %shl56, ptr %p1, align 16
   br label %if.end331
 
 if.else62:                                        ; preds = %if.else37
   %texlerp_simple = getelementptr inbounds i8, ptr %mm, i64 296
-  %20 = load ptr, ptr %texlerp_simple, align 8
-  %tobool64.not = icmp eq ptr %20, null
+  %14 = load ptr, ptr %texlerp_simple, align 8
+  %tobool64.not = icmp eq ptr %14, null
   br i1 %tobool64.not, label %if.else159, label %if.then65
 
 if.then65:                                        ; preds = %if.else62
   %idxprom69 = sext i32 %v_off to i64
-  %arrayidx70 = getelementptr inbounds i8, ptr %20, i64 %idxprom69
-  %21 = load i8, ptr %arrayidx70, align 1
-  %shr72 = lshr i8 %21, 2
+  %arrayidx70 = getelementptr inbounds i8, ptr %14, i64 %idxprom69
+  %15 = load i8, ptr %arrayidx70, align 1
+  %shr72 = lshr i8 %15, 2
   %and73 = and i8 %shr72, 7
   %conv75 = zext nneg i8 %and73 to i32
   %cmp76 = icmp eq i32 %conv75, %face
@@ -656,39 +674,39 @@ if.then78:                                        ; preds = %if.then65
   %cube_vertex_offset = getelementptr inbounds i8, ptr %mm, i64 400
   %idxprom81 = zext nneg i32 %face to i64
   %arrayidx82 = getelementptr inbounds [6 x [4 x i32]], ptr %cube_vertex_offset, i64 0, i64 %idxprom81
-  %22 = load i32, ptr %arrayidx82, align 8
-  %add84 = add nsw i32 %22, %v_off
+  %16 = load i32, ptr %arrayidx82, align 8
+  %add84 = add nsw i32 %16, %v_off
   %idxprom85 = sext i32 %add84 to i64
-  %arrayidx86 = getelementptr inbounds i8, ptr %20, i64 %idxprom85
-  %23 = load i8, ptr %arrayidx86, align 1
-  %24 = lshr i8 %23, 5
-  %shr88 = zext nneg i8 %24 to i32
+  %arrayidx86 = getelementptr inbounds i8, ptr %14, i64 %idxprom85
+  %17 = load i8, ptr %arrayidx86, align 1
+  %18 = lshr i8 %17, 5
+  %shr88 = zext nneg i8 %18 to i32
   %arrayidx96 = getelementptr inbounds i8, ptr %arrayidx82, i64 4
-  %25 = load i32, ptr %arrayidx96, align 4
-  %add97 = add nsw i32 %25, %v_off
+  %19 = load i32, ptr %arrayidx96, align 4
+  %add97 = add nsw i32 %19, %v_off
   %idxprom98 = sext i32 %add97 to i64
-  %arrayidx99 = getelementptr inbounds i8, ptr %20, i64 %idxprom98
-  %26 = load i8, ptr %arrayidx99, align 1
-  %27 = lshr i8 %26, 5
-  %shr101 = zext nneg i8 %27 to i32
+  %arrayidx99 = getelementptr inbounds i8, ptr %14, i64 %idxprom98
+  %20 = load i8, ptr %arrayidx99, align 1
+  %21 = lshr i8 %20, 5
+  %shr101 = zext nneg i8 %21 to i32
   %arrayidx103 = getelementptr inbounds i8, ptr %p1, i64 4
   %arrayidx109 = getelementptr inbounds i8, ptr %arrayidx82, i64 8
-  %28 = load i32, ptr %arrayidx109, align 8
-  %add110 = add nsw i32 %28, %v_off
+  %22 = load i32, ptr %arrayidx109, align 8
+  %add110 = add nsw i32 %22, %v_off
   %idxprom111 = sext i32 %add110 to i64
-  %arrayidx112 = getelementptr inbounds i8, ptr %20, i64 %idxprom111
-  %29 = load i8, ptr %arrayidx112, align 1
-  %30 = lshr i8 %29, 5
-  %shr114 = zext nneg i8 %30 to i32
+  %arrayidx112 = getelementptr inbounds i8, ptr %14, i64 %idxprom111
+  %23 = load i8, ptr %arrayidx112, align 1
+  %24 = lshr i8 %23, 5
+  %shr114 = zext nneg i8 %24 to i32
   %arrayidx116 = getelementptr inbounds i8, ptr %p1, i64 8
   %arrayidx122 = getelementptr inbounds i8, ptr %arrayidx82, i64 12
-  %31 = load i32, ptr %arrayidx122, align 4
-  %add123 = add nsw i32 %31, %v_off
+  %25 = load i32, ptr %arrayidx122, align 4
+  %add123 = add nsw i32 %25, %v_off
   %idxprom124 = sext i32 %add123 to i64
-  %arrayidx125 = getelementptr inbounds i8, ptr %20, i64 %idxprom124
-  %32 = load i8, ptr %arrayidx125, align 1
-  %33 = lshr i8 %32, 5
-  %shr127 = zext nneg i8 %33 to i32
+  %arrayidx125 = getelementptr inbounds i8, ptr %14, i64 %idxprom124
+  %26 = load i8, ptr %arrayidx125, align 1
+  %27 = lshr i8 %26, 5
+  %shr127 = zext nneg i8 %27 to i32
   %arrayidx129 = getelementptr inbounds i8, ptr %p1, i64 12
   %shl131 = shl nuw i32 %shr88, 29
   store i32 %shl131, ptr %p1, align 16
@@ -701,32 +719,36 @@ if.then78:                                        ; preds = %if.then65
   br label %if.end331
 
 if.else146:                                       ; preds = %if.then65
-  %34 = and i8 %21, 3
-  %idxprom149 = zext nneg i8 %34 to i64
+  %28 = and i8 %15, 3
+  %idxprom149 = zext nneg i8 %28 to i64
   %arrayidx150 = getelementptr inbounds [4 x i8], ptr @stbvox_vert_lerp_for_simple, i64 0, i64 %idxprom149
-  %35 = load i8, ptr %arrayidx150, align 1
-  %conv151 = zext i8 %35 to i32
+  %29 = load i8, ptr %arrayidx150, align 1
+  %conv151 = zext i8 %29 to i32
   %shl152 = shl i32 %conv151, 29
-  %36 = insertelement <4 x i32> poison, i32 %shl152, i64 0
-  %37 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %37, ptr %p1, align 16
+  %arrayidx154 = getelementptr inbounds i8, ptr %p1, i64 12
+  store i32 %shl152, ptr %arrayidx154, align 4
+  %arrayidx155 = getelementptr inbounds i8, ptr %p1, i64 8
+  store i32 %shl152, ptr %arrayidx155, align 8
+  %arrayidx156 = getelementptr inbounds i8, ptr %p1, i64 4
+  store i32 %shl152, ptr %arrayidx156, align 4
+  store i32 %shl152, ptr %p1, align 16
   br label %if.end331
 
 if.else159:                                       ; preds = %if.else62
   %texlerp = getelementptr inbounds i8, ptr %mm, i64 304
-  %38 = load ptr, ptr %texlerp, align 8
-  %tobool161.not = icmp eq ptr %38, null
+  %30 = load ptr, ptr %texlerp, align 8
+  %tobool161.not = icmp eq ptr %30, null
   br i1 %tobool161.not, label %if.else322, label %if.then162
 
 if.then162:                                       ; preds = %if.else159
   %idxprom165 = sext i32 %v_off to i64
-  %arrayidx166 = getelementptr inbounds i8, ptr %38, i64 %idxprom165
-  %39 = load i8, ptr %arrayidx166, align 1
-  %conv167 = zext i8 %39 to i32
+  %arrayidx166 = getelementptr inbounds i8, ptr %30, i64 %idxprom165
+  %31 = load i8, ptr %arrayidx166, align 1
+  %conv167 = zext i8 %31 to i32
   %idxprom168 = sext i32 %face to i64
   %arrayidx169 = getelementptr inbounds [6 x i8], ptr @stbvox_face_lerp, i64 0, i64 %idxprom168
-  %40 = load i8, ptr %arrayidx169, align 1
-  %conv170 = zext nneg i8 %40 to i32
+  %32 = load i8, ptr %arrayidx169, align 1
+  %conv170 = zext nneg i8 %32 to i32
   %shr171 = lshr i32 %conv167, %conv170
   %conv174 = and i32 %shr171, 3
   %cmp175 = icmp eq i32 %conv174, 3
@@ -734,47 +756,47 @@ if.then162:                                       ; preds = %if.else159
 
 if.then177:                                       ; preds = %if.then162
   %texlerp_vert3 = getelementptr inbounds i8, ptr %mm, i64 312
-  %41 = load ptr, ptr %texlerp_vert3, align 8
-  %tobool179 = icmp ne ptr %41, null
+  %33 = load ptr, ptr %texlerp_vert3, align 8
+  %tobool179 = icmp ne ptr %33, null
   %cmp180 = icmp ne i32 %face, 5
   %or.cond = and i1 %cmp180, %tobool179
   br i1 %or.cond, label %if.then182, label %if.else237
 
 if.then182:                                       ; preds = %if.then177
   %arrayidx184 = getelementptr inbounds [5 x i8], ptr @stbvox_vert3_lerp, i64 0, i64 %idxprom168
-  %42 = load i8, ptr %arrayidx184, align 1
+  %34 = load i8, ptr %arrayidx184, align 1
   %cube_vertex_offset187 = getelementptr inbounds i8, ptr %mm, i64 400
   %arrayidx189 = getelementptr inbounds [6 x [4 x i32]], ptr %cube_vertex_offset187, i64 0, i64 %idxprom168
-  %43 = load i32, ptr %arrayidx189, align 8
-  %idxprom191 = sext i32 %43 to i64
-  %arrayidx192 = getelementptr inbounds i16, ptr %41, i64 %idxprom191
-  %44 = load i16, ptr %arrayidx192, align 2
-  %conv193 = zext i16 %44 to i32
-  %conv194 = zext i8 %42 to i32
+  %35 = load i32, ptr %arrayidx189, align 8
+  %idxprom191 = sext i32 %35 to i64
+  %arrayidx192 = getelementptr inbounds i16, ptr %33, i64 %idxprom191
+  %36 = load i16, ptr %arrayidx192, align 2
+  %conv193 = zext i16 %36 to i32
+  %conv194 = zext i8 %34 to i32
   %shr195 = lshr i32 %conv193, %conv194
   %and196 = and i32 %shr195, 7
   %arrayidx203 = getelementptr inbounds i8, ptr %arrayidx189, i64 4
-  %45 = load i32, ptr %arrayidx203, align 4
-  %idxprom204 = sext i32 %45 to i64
-  %arrayidx205 = getelementptr inbounds i16, ptr %41, i64 %idxprom204
-  %46 = load i16, ptr %arrayidx205, align 2
-  %conv206 = zext i16 %46 to i32
+  %37 = load i32, ptr %arrayidx203, align 4
+  %idxprom204 = sext i32 %37 to i64
+  %arrayidx205 = getelementptr inbounds i16, ptr %33, i64 %idxprom204
+  %38 = load i16, ptr %arrayidx205, align 2
+  %conv206 = zext i16 %38 to i32
   %shr208 = lshr i32 %conv206, %conv194
   %and209 = and i32 %shr208, 7
   %arrayidx216 = getelementptr inbounds i8, ptr %arrayidx189, i64 8
-  %47 = load i32, ptr %arrayidx216, align 8
-  %idxprom217 = sext i32 %47 to i64
-  %arrayidx218 = getelementptr inbounds i16, ptr %41, i64 %idxprom217
-  %48 = load i16, ptr %arrayidx218, align 2
-  %conv219 = zext i16 %48 to i32
+  %39 = load i32, ptr %arrayidx216, align 8
+  %idxprom217 = sext i32 %39 to i64
+  %arrayidx218 = getelementptr inbounds i16, ptr %33, i64 %idxprom217
+  %40 = load i16, ptr %arrayidx218, align 2
+  %conv219 = zext i16 %40 to i32
   %shr221 = lshr i32 %conv219, %conv194
   %and222 = and i32 %shr221, 7
   %arrayidx229 = getelementptr inbounds i8, ptr %arrayidx189, i64 12
-  %49 = load i32, ptr %arrayidx229, align 4
-  %idxprom230 = sext i32 %49 to i64
-  %arrayidx231 = getelementptr inbounds i16, ptr %41, i64 %idxprom230
-  %50 = load i16, ptr %arrayidx231, align 2
-  %conv232 = zext i16 %50 to i32
+  %41 = load i32, ptr %arrayidx229, align 4
+  %idxprom230 = sext i32 %41 to i64
+  %arrayidx231 = getelementptr inbounds i16, ptr %33, i64 %idxprom230
+  %42 = load i16, ptr %arrayidx231, align 2
+  %conv232 = zext i16 %42 to i32
   %shr234 = lshr i32 %conv232, %conv194
   %and235 = and i32 %shr234, 7
   br label %if.end294
@@ -782,45 +804,45 @@ if.then182:                                       ; preds = %if.then177
 if.else237:                                       ; preds = %if.then177
   %cube_vertex_offset240 = getelementptr inbounds i8, ptr %mm, i64 400
   %arrayidx242 = getelementptr inbounds [6 x [4 x i32]], ptr %cube_vertex_offset240, i64 0, i64 %idxprom168
-  %51 = load i32, ptr %arrayidx242, align 8
-  %idxprom244 = sext i32 %51 to i64
-  %arrayidx245 = getelementptr inbounds i8, ptr %38, i64 %idxprom244
-  %52 = load i8, ptr %arrayidx245, align 1
-  %53 = lshr i8 %52, 6
-  %idxprom248 = zext nneg i8 %53 to i64
+  %43 = load i32, ptr %arrayidx242, align 8
+  %idxprom244 = sext i32 %43 to i64
+  %arrayidx245 = getelementptr inbounds i8, ptr %30, i64 %idxprom244
+  %44 = load i8, ptr %arrayidx245, align 1
+  %45 = lshr i8 %44, 6
+  %idxprom248 = zext nneg i8 %45 to i64
   %arrayidx249 = getelementptr inbounds [4 x i8], ptr @stbvox_vert_lerp_for_simple, i64 0, i64 %idxprom248
-  %54 = load i8, ptr %arrayidx249, align 1
-  %conv250 = zext i8 %54 to i32
+  %46 = load i8, ptr %arrayidx249, align 1
+  %conv250 = zext i8 %46 to i32
   %arrayidx257 = getelementptr inbounds i8, ptr %arrayidx242, i64 4
-  %55 = load i32, ptr %arrayidx257, align 4
-  %idxprom258 = sext i32 %55 to i64
-  %arrayidx259 = getelementptr inbounds i8, ptr %38, i64 %idxprom258
-  %56 = load i8, ptr %arrayidx259, align 1
-  %57 = lshr i8 %56, 6
-  %idxprom262 = zext nneg i8 %57 to i64
+  %47 = load i32, ptr %arrayidx257, align 4
+  %idxprom258 = sext i32 %47 to i64
+  %arrayidx259 = getelementptr inbounds i8, ptr %30, i64 %idxprom258
+  %48 = load i8, ptr %arrayidx259, align 1
+  %49 = lshr i8 %48, 6
+  %idxprom262 = zext nneg i8 %49 to i64
   %arrayidx263 = getelementptr inbounds [4 x i8], ptr @stbvox_vert_lerp_for_simple, i64 0, i64 %idxprom262
-  %58 = load i8, ptr %arrayidx263, align 1
-  %conv264 = zext i8 %58 to i32
+  %50 = load i8, ptr %arrayidx263, align 1
+  %conv264 = zext i8 %50 to i32
   %arrayidx271 = getelementptr inbounds i8, ptr %arrayidx242, i64 8
-  %59 = load i32, ptr %arrayidx271, align 8
-  %idxprom272 = sext i32 %59 to i64
-  %arrayidx273 = getelementptr inbounds i8, ptr %38, i64 %idxprom272
-  %60 = load i8, ptr %arrayidx273, align 1
-  %61 = lshr i8 %60, 6
-  %idxprom276 = zext nneg i8 %61 to i64
+  %51 = load i32, ptr %arrayidx271, align 8
+  %idxprom272 = sext i32 %51 to i64
+  %arrayidx273 = getelementptr inbounds i8, ptr %30, i64 %idxprom272
+  %52 = load i8, ptr %arrayidx273, align 1
+  %53 = lshr i8 %52, 6
+  %idxprom276 = zext nneg i8 %53 to i64
   %arrayidx277 = getelementptr inbounds [4 x i8], ptr @stbvox_vert_lerp_for_simple, i64 0, i64 %idxprom276
-  %62 = load i8, ptr %arrayidx277, align 1
-  %conv278 = zext i8 %62 to i32
+  %54 = load i8, ptr %arrayidx277, align 1
+  %conv278 = zext i8 %54 to i32
   %arrayidx285 = getelementptr inbounds i8, ptr %arrayidx242, i64 12
-  %63 = load i32, ptr %arrayidx285, align 4
-  %idxprom286 = sext i32 %63 to i64
-  %arrayidx287 = getelementptr inbounds i8, ptr %38, i64 %idxprom286
-  %64 = load i8, ptr %arrayidx287, align 1
-  %65 = lshr i8 %64, 6
-  %idxprom290 = zext nneg i8 %65 to i64
+  %55 = load i32, ptr %arrayidx285, align 4
+  %idxprom286 = sext i32 %55 to i64
+  %arrayidx287 = getelementptr inbounds i8, ptr %30, i64 %idxprom286
+  %56 = load i8, ptr %arrayidx287, align 1
+  %57 = lshr i8 %56, 6
+  %idxprom290 = zext nneg i8 %57 to i64
   %arrayidx291 = getelementptr inbounds [4 x i8], ptr @stbvox_vert_lerp_for_simple, i64 0, i64 %idxprom290
-  %66 = load i8, ptr %arrayidx291, align 1
-  %conv292 = zext i8 %66 to i32
+  %58 = load i8, ptr %arrayidx291, align 1
+  %conv292 = zext i8 %58 to i32
   br label %if.end294
 
 if.end294:                                        ; preds = %if.else237, %if.then182
@@ -828,49 +850,59 @@ if.end294:                                        ; preds = %if.else237, %if.the
   %conv264.sink = phi i32 [ %and209, %if.then182 ], [ %conv264, %if.else237 ]
   %conv278.sink = phi i32 [ %and222, %if.then182 ], [ %conv278, %if.else237 ]
   %conv292.sink = phi i32 [ %and235, %if.then182 ], [ %conv292, %if.else237 ]
-  %67 = getelementptr inbounds i8, ptr %p1, i64 4
-  %68 = getelementptr inbounds i8, ptr %p1, i64 8
-  %69 = getelementptr inbounds i8, ptr %p1, i64 12
+  %59 = getelementptr inbounds i8, ptr %p1, i64 4
+  %60 = getelementptr inbounds i8, ptr %p1, i64 8
+  %61 = getelementptr inbounds i8, ptr %p1, i64 12
   %shl296 = shl i32 %conv250.sink, 29
   store i32 %shl296, ptr %p1, align 16
   %shl300 = shl i32 %conv264.sink, 29
-  store i32 %shl300, ptr %67, align 4
+  store i32 %shl300, ptr %59, align 4
   %shl304 = shl i32 %conv278.sink, 29
-  store i32 %shl304, ptr %68, align 8
+  store i32 %shl304, ptr %60, align 8
   %shl308 = shl i32 %conv292.sink, 29
-  store i32 %shl308, ptr %69, align 4
+  store i32 %shl308, ptr %61, align 4
   br label %if.end331
 
 if.else311:                                       ; preds = %if.then162
   %conv173 = zext nneg i32 %conv174 to i64
   %arrayidx313 = getelementptr inbounds [4 x i8], ptr @stbvox_vert_lerp_for_face_lerp, i64 0, i64 %conv173
-  %70 = load i8, ptr %arrayidx313, align 1
-  %conv314 = zext i8 %70 to i32
+  %62 = load i8, ptr %arrayidx313, align 1
+  %conv314 = zext i8 %62 to i32
   %shl315 = shl i32 %conv314, 29
-  %71 = insertelement <4 x i32> poison, i32 %shl315, i64 0
-  %72 = shufflevector <4 x i32> %71, <4 x i32> poison, <4 x i32> zeroinitializer
-  store <4 x i32> %72, ptr %p1, align 16
+  %arrayidx317 = getelementptr inbounds i8, ptr %p1, i64 12
+  store i32 %shl315, ptr %arrayidx317, align 4
+  %arrayidx318 = getelementptr inbounds i8, ptr %p1, i64 8
+  store i32 %shl315, ptr %arrayidx318, align 8
+  %arrayidx319 = getelementptr inbounds i8, ptr %p1, i64 4
+  store i32 %shl315, ptr %arrayidx319, align 4
+  store i32 %shl315, ptr %p1, align 16
   br label %if.end331
 
 if.else322:                                       ; preds = %if.else159
-  store <4 x i32> <i32 -536870912, i32 -536870912, i32 -536870912, i32 -536870912>, ptr %p1, align 16
+  %arrayidx323 = getelementptr inbounds i8, ptr %p1, i64 12
+  store i32 -536870912, ptr %arrayidx323, align 4
+  %arrayidx324 = getelementptr inbounds i8, ptr %p1, i64 8
+  store i32 -536870912, ptr %arrayidx324, align 8
+  %arrayidx325 = getelementptr inbounds i8, ptr %p1, i64 4
+  store i32 -536870912, ptr %arrayidx325, align 4
+  store i32 -536870912, ptr %p1, align 16
   br label %if.end331
 
 if.end331:                                        ; preds = %if.then13, %if.else146, %if.then78, %if.end294, %if.else311, %if.else322, %if.end, %if.then
-  %73 = phi i32 [ %shl31, %if.then13 ], [ %shl152, %if.else146 ], [ %shl143, %if.then78 ], [ %shl308, %if.end294 ], [ %shl315, %if.else311 ], [ -536870912, %if.else322 ], [ %shl56, %if.end ], [ %shl, %if.then ]
-  %74 = phi i32 [ %shl31, %if.then13 ], [ %shl152, %if.else146 ], [ %shl139, %if.then78 ], [ %shl304, %if.end294 ], [ %shl315, %if.else311 ], [ -536870912, %if.else322 ], [ %shl56, %if.end ], [ %shl, %if.then ]
-  %75 = phi i32 [ %shl31, %if.then13 ], [ %shl152, %if.else146 ], [ %shl135, %if.then78 ], [ %shl300, %if.end294 ], [ %shl315, %if.else311 ], [ -536870912, %if.else322 ], [ %shl56, %if.end ], [ %shl, %if.then ]
-  %76 = phi i32 [ %shl31, %if.then13 ], [ %shl152, %if.else146 ], [ %shl131, %if.then78 ], [ %shl296, %if.end294 ], [ %shl315, %if.else311 ], [ -536870912, %if.else322 ], [ %shl56, %if.end ], [ %shl, %if.then ]
+  %63 = phi i32 [ %shl31, %if.then13 ], [ %shl152, %if.else146 ], [ %shl143, %if.then78 ], [ %shl308, %if.end294 ], [ %shl315, %if.else311 ], [ -536870912, %if.else322 ], [ %shl56, %if.end ], [ %shl, %if.then ]
+  %64 = phi i32 [ %shl31, %if.then13 ], [ %shl152, %if.else146 ], [ %shl139, %if.then78 ], [ %shl304, %if.end294 ], [ %shl315, %if.else311 ], [ -536870912, %if.else322 ], [ %shl56, %if.end ], [ %shl, %if.then ]
+  %65 = phi i32 [ %shl31, %if.then13 ], [ %shl152, %if.else146 ], [ %shl135, %if.then78 ], [ %shl300, %if.end294 ], [ %shl315, %if.else311 ], [ -536870912, %if.else322 ], [ %shl56, %if.end ], [ %shl, %if.then ]
+  %66 = phi i32 [ %shl31, %if.then13 ], [ %shl152, %if.else146 ], [ %shl131, %if.then78 ], [ %shl296, %if.end294 ], [ %shl315, %if.else311 ], [ -536870912, %if.else322 ], [ %shl56, %if.end ], [ %shl, %if.then ]
   %output_cur.i = getelementptr inbounds i8, ptr %mm, i64 608
   %idxprom.i = zext i8 %mesh to i64
   %arrayidx.i = getelementptr inbounds [2 x [3 x ptr]], ptr %output_cur.i, i64 0, i64 %idxprom.i
-  %77 = load ptr, ptr %arrayidx.i, align 8
+  %67 = load ptr, ptr %arrayidx.i, align 8
   %output_step.i = getelementptr inbounds i8, ptr %mm, i64 800
   %arrayidx3.i = getelementptr inbounds [2 x [3 x i32]], ptr %output_step.i, i64 0, i64 %idxprom.i
-  %78 = load i32, ptr %arrayidx3.i, align 4
-  store ptr %77, ptr %mv, align 16
-  %idx.ext.i = sext i32 %78 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %77, i64 %idx.ext.i
+  %68 = load i32, ptr %arrayidx3.i, align 4
+  store ptr %67, ptr %mv, align 16
+  %idx.ext.i = sext i32 %68 to i64
+  %add.ptr.i = getelementptr inbounds i8, ptr %67, i64 %idx.ext.i
   %arrayidx6.i = getelementptr inbounds i8, ptr %mv, i64 8
   store ptr %add.ptr.i, ptr %arrayidx6.i, align 8
   %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i
@@ -881,7 +913,7 @@ if.end331:                                        ; preds = %if.then13, %if.else
   store ptr %add.ptr11.i, ptr %arrayidx12.i, align 8
   %add.ptr14.i = getelementptr inbounds i8, ptr %add.ptr11.i, i64 %idx.ext.i
   store ptr %add.ptr14.i, ptr %arrayidx.i, align 8
-  %add.ptr20.i = getelementptr inbounds i8, ptr %77, i64 4
+  %add.ptr20.i = getelementptr inbounds i8, ptr %67, i64 4
   store i32 %call, ptr %add.ptr20.i, align 1
   %add.ptr22.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   store i32 %call, ptr %add.ptr22.i, align 1
@@ -890,13 +922,13 @@ if.end331:                                        ; preds = %if.then13, %if.else
   %add.ptr26.i = getelementptr inbounds i8, ptr %add.ptr11.i, i64 4
   store i32 %call, ptr %add.ptr26.i, align 1
   %lighting = getelementptr inbounds i8, ptr %mm, i64 16
-  %79 = load ptr, ptr %lighting, align 8
-  %tobool334.not = icmp eq ptr %79, null
+  %69 = load ptr, ptr %lighting, align 8
+  %tobool334.not = icmp eq ptr %69, null
   br i1 %tobool334.not, label %if.else415, label %if.then335
 
 if.then335:                                       ; preds = %if.end331
-  %80 = load i8, ptr %mm, align 8
-  %tobool337.not = icmp eq i8 %80, 0
+  %70 = load i8, ptr %mm, align 8
+  %tobool337.not = icmp eq i8 %70, 0
   br i1 %tobool337.not, label %if.else365, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then335
@@ -907,32 +939,32 @@ for.cond.preheader:                               ; preds = %if.then335
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx342 = getelementptr inbounds i32, ptr %face_coord, i64 %indvars.iv
-  %81 = load i32, ptr %arrayidx342, align 4
-  %add343 = add i32 %81, %vertbase
-  %82 = load ptr, ptr %lighting, align 8
+  %71 = load i32, ptr %arrayidx342, align 4
+  %add343 = add i32 %71, %vertbase
+  %72 = load ptr, ptr %lighting, align 8
   %arrayidx350 = getelementptr inbounds [6 x [4 x i32]], ptr %cube_vertex_offset346, i64 0, i64 %idxprom347, i64 %indvars.iv
-  %83 = load i32, ptr %arrayidx350, align 4
-  %add351 = add nsw i32 %83, %v_off
+  %73 = load i32, ptr %arrayidx350, align 4
+  %add351 = add nsw i32 %73, %v_off
   %idxprom352 = sext i32 %add351 to i64
-  %arrayidx353 = getelementptr inbounds i8, ptr %82, i64 %idxprom352
-  %84 = load i8, ptr %arrayidx353, align 1
-  %85 = and i8 %84, 63
-  %and355 = zext nneg i8 %85 to i32
+  %arrayidx353 = getelementptr inbounds i8, ptr %72, i64 %idxprom352
+  %74 = load i8, ptr %arrayidx353, align 1
+  %75 = and i8 %74, 63
+  %and355 = zext nneg i8 %75 to i32
   %shl356 = shl nuw nsw i32 %and355, 23
   %arrayidx361 = getelementptr inbounds [4 x i32], ptr %p1, i64 0, i64 %indvars.iv
-  %86 = load i32, ptr %arrayidx361, align 4
-  %add359 = add i32 %add343, %86
+  %76 = load i32, ptr %arrayidx361, align 4
+  %add359 = add i32 %add343, %76
   %add362 = add i32 %add359, %shl356
   %arrayidx364 = getelementptr inbounds [4 x ptr], ptr %mv, i64 0, i64 %indvars.iv
-  %87 = load ptr, ptr %arrayidx364, align 8
-  store i32 %add362, ptr %87, align 4
+  %77 = load ptr, ptr %arrayidx364, align 8
+  store i32 %add362, ptr %77, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %if.end437, label %for.body, !llvm.loop !6
 
 if.else365:                                       ; preds = %if.then335
   %idxprom368 = sext i32 %v_off to i64
-  %arrayidx369 = getelementptr inbounds i8, ptr %79, i64 %idxprom368
+  %arrayidx369 = getelementptr inbounds i8, ptr %69, i64 %idxprom368
   %cube_vertex_offset375 = getelementptr inbounds i8, ptr %mm, i64 400
   %idxprom376 = sext i32 %face to i64
   %vertex_gather_offset = getelementptr inbounds i8, ptr %mm, i64 496
@@ -941,8 +973,8 @@ if.else365:                                       ; preds = %if.then335
 for.body374:                                      ; preds = %if.else365, %for.end396
   %indvars.iv127 = phi i64 [ 0, %if.else365 ], [ %indvars.iv.next128, %for.end396 ]
   %arrayidx379 = getelementptr inbounds [6 x [4 x i32]], ptr %cube_vertex_offset375, i64 0, i64 %idxprom376, i64 %indvars.iv127
-  %88 = load i32, ptr %arrayidx379, align 4
-  %idxprom380 = sext i32 %88 to i64
+  %78 = load i32, ptr %arrayidx379, align 4
+  %idxprom380 = sext i32 %78 to i64
   %arrayidx381 = getelementptr inbounds i8, ptr %arrayidx369, i64 %idxprom380
   br label %for.body385
 
@@ -950,11 +982,11 @@ for.body385:                                      ; preds = %for.body374, %for.b
   %indvars.iv123 = phi i64 [ 0, %for.body374 ], [ %indvars.iv.next124, %for.body385 ]
   %total.0119 = phi i32 [ 0, %for.body374 ], [ %add393, %for.body385 ]
   %arrayidx389 = getelementptr inbounds [6 x [4 x i32]], ptr %vertex_gather_offset, i64 0, i64 %idxprom376, i64 %indvars.iv123
-  %89 = load i32, ptr %arrayidx389, align 4
-  %idxprom390 = sext i32 %89 to i64
+  %79 = load i32, ptr %arrayidx389, align 4
+  %idxprom390 = sext i32 %79 to i64
   %arrayidx391 = getelementptr inbounds i8, ptr %arrayidx381, i64 %idxprom390
-  %90 = load i8, ptr %arrayidx391, align 1
-  %conv392 = zext i8 %90 to i32
+  %80 = load i8, ptr %arrayidx391, align 1
+  %conv392 = zext i8 %80 to i32
   %add393 = add nuw nsw i32 %total.0119, %conv392
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next124, 4
@@ -962,42 +994,42 @@ for.body385:                                      ; preds = %for.body374, %for.b
 
 for.end396:                                       ; preds = %for.body385
   %arrayidx398 = getelementptr inbounds i32, ptr %face_coord, i64 %indvars.iv127
-  %91 = load i32, ptr %arrayidx398, align 4
+  %81 = load i32, ptr %arrayidx398, align 4
   %add400 = shl i32 %add393, 19
-  %92 = add i32 %add400, 1048576
-  %shl402 = and i32 %92, -8388608
+  %82 = add i32 %add400, 1048576
+  %shl402 = and i32 %82, -8388608
   %arrayidx407 = getelementptr inbounds [4 x i32], ptr %p1, i64 0, i64 %indvars.iv127
-  %93 = load i32, ptr %arrayidx407, align 4
+  %83 = load i32, ptr %arrayidx407, align 4
   %add399 = add i32 %shl402, %vertbase
-  %add405 = add i32 %add399, %91
-  %add408 = add i32 %add405, %93
+  %add405 = add i32 %add399, %81
+  %add408 = add i32 %add405, %83
   %arrayidx410 = getelementptr inbounds [4 x ptr], ptr %mv, i64 0, i64 %indvars.iv127
-  %94 = load ptr, ptr %arrayidx410, align 8
-  store i32 %add408, ptr %94, align 4
+  %84 = load ptr, ptr %arrayidx410, align 8
+  store i32 %add408, ptr %84, align 4
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, 4
   br i1 %exitcond130.not, label %if.end437, label %for.body374, !llvm.loop !8
 
 if.else415:                                       ; preds = %if.end331
   %add416 = add i32 %vertbase, 528482304
-  %95 = load i32, ptr %face_coord, align 4
-  %add418 = add i32 %95, %add416
-  %add420 = add i32 %add418, %76
-  store i32 %add420, ptr %77, align 4
+  %85 = load i32, ptr %face_coord, align 4
+  %add418 = add i32 %85, %add416
+  %add420 = add i32 %add418, %66
+  store i32 %add420, ptr %67, align 4
   %arrayidx422 = getelementptr inbounds i8, ptr %face_coord, i64 4
-  %96 = load i32, ptr %arrayidx422, align 4
-  %add423 = add i32 %96, %add416
-  %add425 = add i32 %add423, %75
+  %86 = load i32, ptr %arrayidx422, align 4
+  %add423 = add i32 %86, %add416
+  %add425 = add i32 %add423, %65
   store i32 %add425, ptr %add.ptr.i, align 4
   %arrayidx427 = getelementptr inbounds i8, ptr %face_coord, i64 8
-  %97 = load i32, ptr %arrayidx427, align 4
-  %add428 = add i32 %97, %add416
-  %add430 = add i32 %add428, %74
+  %87 = load i32, ptr %arrayidx427, align 4
+  %add428 = add i32 %87, %add416
+  %add430 = add i32 %add428, %64
   store i32 %add430, ptr %add.ptr8.i, align 4
   %arrayidx432 = getelementptr inbounds i8, ptr %face_coord, i64 12
-  %98 = load i32, ptr %arrayidx432, align 4
-  %add433 = add i32 %98, %add416
-  %add435 = add i32 %add433, %73
+  %88 = load i32, ptr %arrayidx432, align 4
+  %add433 = add i32 %88, %add416
+  %add435 = add i32 %add433, %63
   store i32 %add435, ptr %add.ptr11.i, align 4
   br label %if.end437
 
@@ -1040,17 +1072,24 @@ if.end:                                           ; preds = %if.then, %entry
   %normal2.0 = phi i8 [ %7, %if.then ], [ %5, %entry ]
   %normal1.0 = phi i8 [ %6, %if.then ], [ %3, %entry ]
   %arrayidx21 = getelementptr inbounds i8, ptr %face_coord, i64 8
-  %8 = load <2 x i32>, ptr %arrayidx21, align 4
+  %8 = load i32, ptr %arrayidx21, align 4
+  store i32 %8, ptr %v, align 16
+  %arrayidx23 = getelementptr inbounds i8, ptr %face_coord, i64 12
+  %9 = load i32, ptr %arrayidx23, align 4
   %arrayidx24 = getelementptr inbounds i8, ptr %v, i64 4
-  %9 = load i32, ptr %face_coord, align 4
-  %10 = shufflevector <2 x i32> %8, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %11 = insertelement <4 x i32> %10, i32 %9, i64 2
-  %12 = shufflevector <4 x i32> %11, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  store <4 x i32> %12, ptr %v, align 16
+  store i32 %9, ptr %arrayidx24, align 4
+  %10 = load i32, ptr %face_coord, align 4
+  %arrayidx26 = getelementptr inbounds i8, ptr %v, i64 8
+  store i32 %10, ptr %arrayidx26, align 8
+  %arrayidx28 = getelementptr inbounds i8, ptr %v, i64 12
+  store i32 %8, ptr %arrayidx28, align 4
   %conv = zext i8 %normal1.0 to i32
   call void @stbvox_make_mesh_for_face(ptr noundef %mm, i8 %rot.coerce, i32 noundef %face, i32 noundef %v_off, i24 poison, i32 noundef %vertbase, ptr noundef nonnull %v, i8 noundef zeroext %mesh, i32 noundef %conv)
-  %13 = load <2 x i32>, ptr %face_coord, align 4
-  store <2 x i32> %13, ptr %arrayidx24, align 4
+  %11 = load i32, ptr %face_coord, align 4
+  store i32 %11, ptr %arrayidx24, align 4
+  %arrayidx33 = getelementptr inbounds i8, ptr %face_coord, i64 4
+  %12 = load i32, ptr %arrayidx33, align 4
+  store i32 %12, ptr %arrayidx26, align 8
   %conv36 = zext i8 %normal2.0 to i32
   call void @stbvox_make_mesh_for_face(ptr noundef %mm, i8 %rot.coerce, i32 noundef %face, i32 noundef %v_off, i24 poison, i32 noundef %vertbase, ptr noundef nonnull %v, i8 noundef zeroext %mesh, i32 noundef %conv36)
   ret void
@@ -1092,22 +1131,23 @@ if.end:                                           ; preds = %if.then, %entry
   %normal1.0 = phi i8 [ %6, %if.then ], [ %3, %entry ]
   %arrayidx21 = getelementptr inbounds i8, ptr %face_coord, i64 4
   %8 = load i32, ptr %arrayidx21, align 4
+  store i32 %8, ptr %v, align 16
   %arrayidx23 = getelementptr inbounds i8, ptr %face_coord, i64 8
+  %9 = load i32, ptr %arrayidx23, align 4
   %arrayidx24 = getelementptr inbounds i8, ptr %v, i64 4
+  store i32 %9, ptr %arrayidx24, align 4
   %arrayidx25 = getelementptr inbounds i8, ptr %face_coord, i64 12
-  %9 = load <2 x i32>, ptr %arrayidx23, align 4
+  %10 = load i32, ptr %arrayidx25, align 4
   %arrayidx26 = getelementptr inbounds i8, ptr %v, i64 8
-  %10 = insertelement <4 x i32> poison, i32 %8, i64 0
-  %11 = shufflevector <2 x i32> %9, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %12 = shufflevector <4 x i32> %10, <4 x i32> %11, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %13 = shufflevector <4 x i32> %12, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  store <4 x i32> %13, ptr %v, align 16
+  store i32 %10, ptr %arrayidx26, align 8
+  %arrayidx28 = getelementptr inbounds i8, ptr %v, i64 12
+  store i32 %8, ptr %arrayidx28, align 4
   %conv = zext i8 %normal1.0 to i32
   call void @stbvox_make_mesh_for_face(ptr noundef %mm, i8 %rot.coerce, i32 noundef %face, i32 noundef %v_off, i24 poison, i32 noundef %vertbase, ptr noundef nonnull %v, i8 noundef zeroext %mesh, i32 noundef %conv)
-  %14 = load i32, ptr %arrayidx25, align 4
-  store i32 %14, ptr %arrayidx24, align 4
-  %15 = load i32, ptr %face_coord, align 4
-  store i32 %15, ptr %arrayidx26, align 8
+  %11 = load i32, ptr %arrayidx25, align 4
+  store i32 %11, ptr %arrayidx24, align 4
+  %12 = load i32, ptr %face_coord, align 4
+  store i32 %12, ptr %arrayidx26, align 8
   %conv36 = zext i8 %normal2.0 to i32
   call void @stbvox_make_mesh_for_face(ptr noundef %mm, i8 %rot.coerce, i32 noundef %face, i32 noundef %v_off, i24 poison, i32 noundef %vertbase, ptr noundef nonnull %v, i8 noundef zeroext %mesh, i32 noundef %conv36)
   ret void
@@ -1299,7 +1339,7 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %mm, i24 %pos.coerc
 entry:
   %nbt = alloca [6 x i8], align 1
   %ngeo = alloca [6 x i8], align 1
-  %nrot = alloca [6 x i8], align 4
+  %nrot = alloca [6 x i8], align 1
   %vmesh = alloca [6 x [4 x i32]], align 16
   %vmesh764 = alloca [6 x [4 x i32]], align 16
   %cube = alloca [8 x i32], align 16
@@ -1438,31 +1478,39 @@ if.then119:                                       ; preds = %if.then115
   %28 = load i8, ptr %arrayidx123, align 1
   %arrayidx132 = getelementptr inbounds i8, ptr %26, i64 %idxprom3
   %29 = load i8, ptr %arrayidx132, align 1
+  %30 = lshr i8 %29, 4
+  %31 = and i8 %30, 3
+  store i8 %31, ptr %nrot, align 1
   %arrayidx142 = getelementptr inbounds i8, ptr %26, i64 %idxprom9
-  %30 = load i8, ptr %arrayidx142, align 1
+  %32 = load i8, ptr %arrayidx142, align 1
+  %33 = lshr i8 %32, 4
+  %34 = and i8 %33, 3
+  %arrayidx147 = getelementptr inbounds i8, ptr %nrot, i64 1
+  store i8 %34, ptr %arrayidx147, align 1
   %arrayidx152 = getelementptr inbounds i8, ptr %26, i64 %idxprom14
-  %31 = load i8, ptr %arrayidx152, align 1
+  %35 = load i8, ptr %arrayidx152, align 1
+  %36 = lshr i8 %35, 4
+  %37 = and i8 %36, 3
+  %arrayidx157 = getelementptr inbounds i8, ptr %nrot, i64 2
+  store i8 %37, ptr %arrayidx157, align 1
   %arrayidx162 = getelementptr inbounds i8, ptr %26, i64 %idxprom20
-  %32 = load i8, ptr %arrayidx162, align 1
-  %33 = insertelement <4 x i8> poison, i8 %29, i64 0
-  %34 = insertelement <4 x i8> %33, i8 %30, i64 1
-  %35 = insertelement <4 x i8> %34, i8 %31, i64 2
-  %36 = insertelement <4 x i8> %35, i8 %32, i64 3
-  %37 = lshr <4 x i8> %36, <i8 4, i8 4, i8 4, i8 4>
-  %38 = and <4 x i8> %37, <i8 3, i8 3, i8 3, i8 3>
-  store <4 x i8> %38, ptr %nrot, align 4
+  %38 = load i8, ptr %arrayidx162, align 1
+  %39 = lshr i8 %38, 4
+  %40 = and i8 %39, 3
+  %arrayidx167 = getelementptr inbounds i8, ptr %nrot, i64 3
+  store i8 %40, ptr %arrayidx167, align 1
   %arrayidx172 = getelementptr inbounds i8, ptr %26, i64 %idxprom26
-  %39 = load i8, ptr %arrayidx172, align 1
-  %40 = lshr i8 %39, 4
-  %41 = and i8 %40, 3
+  %41 = load i8, ptr %arrayidx172, align 1
+  %42 = lshr i8 %41, 4
+  %43 = and i8 %42, 3
   %arrayidx177 = getelementptr inbounds i8, ptr %nrot, i64 4
-  store i8 %41, ptr %arrayidx177, align 4
+  store i8 %43, ptr %arrayidx177, align 1
   %arrayidx182 = getelementptr inbounds i8, ptr %26, i64 %idxprom32
-  %42 = load i8, ptr %arrayidx182, align 1
-  %43 = lshr i8 %42, 4
-  %44 = and i8 %43, 3
+  %44 = load i8, ptr %arrayidx182, align 1
+  %45 = lshr i8 %44, 4
+  %46 = and i8 %45, 3
   %arrayidx187 = getelementptr inbounds i8, ptr %nrot, i64 5
-  store i8 %44, ptr %arrayidx187, align 1
+  store i8 %46, ptr %arrayidx187, align 1
   br label %if.end223.thread
 
 if.else188:                                       ; preds = %for.end112
@@ -1471,24 +1519,24 @@ if.else188:                                       ; preds = %for.end112
 for.body204:                                      ; preds = %if.else188, %for.body204
   %indvars.iv737 = phi i64 [ %indvars.iv.next738, %for.body204 ], [ 0, %if.else188 ]
   %arrayidx206 = getelementptr inbounds [6 x i8], ptr %ngeo, i64 0, i64 %indvars.iv737
-  %45 = load i8, ptr %arrayidx206, align 1
-  %46 = lshr i8 %45, 4
-  %47 = and i8 %46, 3
+  %47 = load i8, ptr %arrayidx206, align 1
+  %48 = lshr i8 %47, 4
+  %49 = and i8 %48, 3
   %arrayidx212 = getelementptr inbounds [6 x i8], ptr %nrot, i64 0, i64 %indvars.iv737
-  store i8 %47, ptr %arrayidx212, align 1
-  %48 = and i8 %45, 15
-  store i8 %48, ptr %arrayidx206, align 1
+  store i8 %49, ptr %arrayidx212, align 1
+  %50 = and i8 %47, 15
+  store i8 %50, ptr %arrayidx206, align 1
   %indvars.iv.next738 = add nuw nsw i64 %indvars.iv737, 1
   %exitcond740.not = icmp eq i64 %indvars.iv.next738, 6
   br i1 %exitcond740.not, label %if.end223.loopexit, label %for.body204, !llvm.loop !11
 
 if.end223.loopexit:                               ; preds = %for.body204
-  %49 = and i8 %23, 15
+  %51 = and i8 %23, 15
   br label %if.end223.thread
 
 if.end223.thread:                                 ; preds = %if.then119, %if.end223.loopexit
   %rot.0.ph.in.in = phi i8 [ %23, %if.end223.loopexit ], [ %28, %if.then119 ]
-  %geo.0.ph = phi i8 [ %49, %if.end223.loopexit ], [ %23, %if.then119 ]
+  %geo.0.ph = phi i8 [ %51, %if.end223.loopexit ], [ %23, %if.then119 ]
   %rot.0.ph.in = lshr i8 %rot.0.ph.in.in, 4
   %rot.0.ph = and i8 %rot.0.ph.in, 3
   %packed_compact225766 = getelementptr inbounds i8, ptr %mm, i64 336
@@ -1499,7 +1547,7 @@ if.end223.thread771:                              ; preds = %if.then115, %if.els
   br label %if.then227
 
 if.end223:                                        ; preds = %for.body
-  %50 = and i8 %11, 15
+  %52 = and i8 %11, 15
   %packed_compact225.phi.trans.insert = getelementptr inbounds i8, ptr %mm, i64 336
   %.pre = load ptr, ptr %packed_compact225.phi.trans.insert, align 8
   %packed_compact225 = getelementptr inbounds i8, ptr %mm, i64 336
@@ -1508,61 +1556,61 @@ if.end223:                                        ; preds = %for.body
 
 if.then227:                                       ; preds = %if.end223.thread771, %if.end223
   %packed_compact225778 = phi ptr [ %packed_compact225774, %if.end223.thread771 ], [ %packed_compact225, %if.end223 ]
-  %geo.0777 = phi i8 [ %23, %if.end223.thread771 ], [ %50, %if.end223 ]
+  %geo.0777 = phi i8 [ %23, %if.end223.thread771 ], [ %52, %if.end223 ]
   %rot.0776 = phi i8 [ undef, %if.end223.thread771 ], [ %and, %if.end223 ]
-  %51 = phi ptr [ %27, %if.end223.thread771 ], [ %.pre, %if.end223 ]
+  %53 = phi ptr [ %27, %if.end223.thread771 ], [ %.pre, %if.end223 ]
   %idxprom230 = zext i8 %rot.0776 to i64
-  %arrayidx231 = getelementptr inbounds i8, ptr %51, i64 %idxprom230
-  %52 = load i8, ptr %arrayidx231, align 1
-  %53 = and i8 %52, 3
-  %arrayidx239 = getelementptr inbounds i8, ptr %51, i64 %idxprom3
-  %54 = load i8, ptr %arrayidx239, align 1
+  %arrayidx231 = getelementptr inbounds i8, ptr %53, i64 %idxprom230
+  %54 = load i8, ptr %arrayidx231, align 1
   %55 = and i8 %54, 3
-  store i8 %55, ptr %nrot, align 4
-  %arrayidx248 = getelementptr inbounds i8, ptr %51, i64 %idxprom9
-  %56 = load i8, ptr %arrayidx248, align 1
+  %arrayidx239 = getelementptr inbounds i8, ptr %53, i64 %idxprom3
+  %56 = load i8, ptr %arrayidx239, align 1
   %57 = and i8 %56, 3
-  %arrayidx252 = getelementptr inbounds i8, ptr %nrot, i64 1
-  store i8 %57, ptr %arrayidx252, align 1
-  %arrayidx257 = getelementptr inbounds i8, ptr %51, i64 %idxprom14
-  %58 = load i8, ptr %arrayidx257, align 1
+  store i8 %57, ptr %nrot, align 1
+  %arrayidx248 = getelementptr inbounds i8, ptr %53, i64 %idxprom9
+  %58 = load i8, ptr %arrayidx248, align 1
   %59 = and i8 %58, 3
-  %arrayidx261 = getelementptr inbounds i8, ptr %nrot, i64 2
-  store i8 %59, ptr %arrayidx261, align 2
-  %arrayidx266 = getelementptr inbounds i8, ptr %51, i64 %idxprom20
-  %60 = load i8, ptr %arrayidx266, align 1
+  %arrayidx252 = getelementptr inbounds i8, ptr %nrot, i64 1
+  store i8 %59, ptr %arrayidx252, align 1
+  %arrayidx257 = getelementptr inbounds i8, ptr %53, i64 %idxprom14
+  %60 = load i8, ptr %arrayidx257, align 1
   %61 = and i8 %60, 3
-  %arrayidx270 = getelementptr inbounds i8, ptr %nrot, i64 3
-  store i8 %61, ptr %arrayidx270, align 1
-  %arrayidx275 = getelementptr inbounds i8, ptr %51, i64 %idxprom26
-  %62 = load i8, ptr %arrayidx275, align 1
+  %arrayidx261 = getelementptr inbounds i8, ptr %nrot, i64 2
+  store i8 %61, ptr %arrayidx261, align 1
+  %arrayidx266 = getelementptr inbounds i8, ptr %53, i64 %idxprom20
+  %62 = load i8, ptr %arrayidx266, align 1
   %63 = and i8 %62, 3
-  %arrayidx279 = getelementptr inbounds i8, ptr %nrot, i64 4
-  store i8 %63, ptr %arrayidx279, align 4
-  %arrayidx284 = getelementptr inbounds i8, ptr %51, i64 %idxprom32
-  %64 = load i8, ptr %arrayidx284, align 1
+  %arrayidx270 = getelementptr inbounds i8, ptr %nrot, i64 3
+  store i8 %63, ptr %arrayidx270, align 1
+  %arrayidx275 = getelementptr inbounds i8, ptr %53, i64 %idxprom26
+  %64 = load i8, ptr %arrayidx275, align 1
   %65 = and i8 %64, 3
+  %arrayidx279 = getelementptr inbounds i8, ptr %nrot, i64 4
+  store i8 %65, ptr %arrayidx279, align 1
+  %arrayidx284 = getelementptr inbounds i8, ptr %53, i64 %idxprom32
+  %66 = load i8, ptr %arrayidx284, align 1
+  %67 = and i8 %66, 3
   %arrayidx288 = getelementptr inbounds i8, ptr %nrot, i64 5
-  store i8 %65, ptr %arrayidx288, align 1
+  store i8 %67, ptr %arrayidx288, align 1
   br label %if.end289
 
 if.end289:                                        ; preds = %if.end223.thread, %if.then227, %if.end223
   %packed_compact225769 = phi ptr [ %packed_compact225778, %if.then227 ], [ %packed_compact225, %if.end223 ], [ %packed_compact225766, %if.end223.thread ]
-  %geo.0768 = phi i8 [ %geo.0777, %if.then227 ], [ %50, %if.end223 ], [ %geo.0.ph, %if.end223.thread ]
-  %rot.1 = phi i8 [ %53, %if.then227 ], [ %and, %if.end223 ], [ %rot.0.ph, %if.end223.thread ]
+  %geo.0768 = phi i8 [ %geo.0777, %if.then227 ], [ %52, %if.end223 ], [ %geo.0.ph, %if.end223.thread ]
+  %rot.1 = phi i8 [ %55, %if.then227 ], [ %and, %if.end223 ], [ %rot.0.ph, %if.end223.thread ]
   %cmp291 = icmp eq i8 %geo.0768, 3
   br i1 %cmp291, label %for.body298, label %if.end317
 
 for.body298:                                      ; preds = %if.end289, %for.body298
   %indvars.iv741 = phi i64 [ %indvars.iv.next742, %for.body298 ], [ 0, %if.end289 ]
   %arrayidx300 = getelementptr inbounds [6 x i8], ptr %nbt, i64 0, i64 %indvars.iv741
-  %66 = load i8, ptr %arrayidx300, align 1
-  %cmp303.not = icmp eq i8 %66, %3
-  %spec.store.select791 = select i1 %cmp303.not, i8 %66, i8 0
+  %68 = load i8, ptr %arrayidx300, align 1
+  %cmp303.not = icmp eq i8 %68, %3
+  %spec.store.select791 = select i1 %cmp303.not, i8 %68, i8 0
   store i8 %spec.store.select791, ptr %arrayidx300, align 1
   %spec.select = select i1 %cmp303.not, i8 2, i8 0
-  %67 = getelementptr inbounds [6 x i8], ptr %ngeo, i64 0, i64 %indvars.iv741
-  store i8 %spec.select, ptr %67, align 1
+  %69 = getelementptr inbounds [6 x i8], ptr %ngeo, i64 0, i64 %indvars.iv741
+  store i8 %spec.select, ptr %69, align 1
   %indvars.iv.next742 = add nuw nsw i64 %indvars.iv741, 1
   %exitcond744.not = icmp eq i64 %indvars.iv.next742, 6
   br i1 %exitcond744.not, label %if.end317, label %for.body298, !llvm.loop !12
@@ -1572,8 +1620,8 @@ if.end317:                                        ; preds = %for.body298, %if.en
   %idxprom318 = zext i8 %geo.1 to i64
   %idxprom320 = zext nneg i8 %rot.1 to i64
   %arrayidx321 = getelementptr inbounds [16 x [4 x i8]], ptr @stbvox_hasface, i64 0, i64 %idxprom318, i64 %idxprom320
-  %68 = load i8, ptr %arrayidx321, align 1
-  %conv322 = zext i8 %68 to i32
+  %70 = load i8, ptr %arrayidx321, align 1
+  %conv322 = zext i8 %70 to i32
   %and323 = and i32 %conv322, 1
   %tobool324.not = icmp eq i32 %and323, 0
   br i1 %tobool324.not, label %if.end351, label %if.then325
@@ -1581,20 +1629,20 @@ if.end317:                                        ; preds = %for.body298, %if.en
 if.then325:                                       ; preds = %if.end317
   %idxprom331 = zext nneg i8 %rot.1 to i64
   %arrayidx332 = getelementptr inbounds [16 x [6 x i8]], ptr @stbvox_facetype, i64 0, i64 %idxprom318, i64 %idxprom331
-  %69 = load i8, ptr %arrayidx332, align 1
-  %70 = load i8, ptr %ngeo, align 1
-  %idxprom335 = zext i8 %70 to i64
-  %71 = load i8, ptr %nrot, align 4
-  %72 = and i8 %71, 3
-  %73 = xor i8 %72, 2
-  %idxprom341 = zext nneg i8 %73 to i64
+  %71 = load i8, ptr %arrayidx332, align 1
+  %72 = load i8, ptr %ngeo, align 1
+  %idxprom335 = zext i8 %72 to i64
+  %73 = load i8, ptr %nrot, align 1
+  %74 = and i8 %73, 3
+  %75 = xor i8 %74, 2
+  %idxprom341 = zext nneg i8 %75 to i64
   %arrayidx342 = getelementptr inbounds [16 x [6 x i8]], ptr @stbvox_facetype, i64 0, i64 %idxprom335, i64 %idxprom341
-  %74 = load i8, ptr %arrayidx342, align 1
-  %conv343 = zext i8 %74 to i32
-  %idxprom344 = zext i8 %69 to i64
+  %76 = load i8, ptr %arrayidx342, align 1
+  %conv343 = zext i8 %76 to i32
+  %idxprom344 = zext i8 %71 to i64
   %arrayidx345 = getelementptr inbounds [10 x i16], ptr @stbvox_face_visible, i64 0, i64 %idxprom344
-  %75 = load i16, ptr %arrayidx345, align 2
-  %conv346 = zext i16 %75 to i32
+  %77 = load i16, ptr %arrayidx345, align 2
+  %conv346 = zext i16 %77 to i32
   %add347 = add nuw nsw i32 %conv343, 5
   %shr349 = lshr i32 %conv346, %add347
   %and350 = and i32 %shr349, 1
@@ -1607,26 +1655,26 @@ if.end351:                                        ; preds = %if.then325, %if.end
   br i1 %tobool353.not, label %if.end383, label %if.then354
 
 if.then354:                                       ; preds = %if.end351
-  %76 = add nuw nsw i8 %rot.1, 1
-  %77 = and i8 %76, 3
-  %idxprom361 = zext nneg i8 %77 to i64
+  %78 = add nuw nsw i8 %rot.1, 1
+  %79 = and i8 %78, 3
+  %idxprom361 = zext nneg i8 %79 to i64
   %arrayidx362 = getelementptr inbounds [16 x [6 x i8]], ptr @stbvox_facetype, i64 0, i64 %idxprom318, i64 %idxprom361
-  %78 = load i8, ptr %arrayidx362, align 1
+  %80 = load i8, ptr %arrayidx362, align 1
   %arrayidx365 = getelementptr inbounds i8, ptr %ngeo, i64 1
-  %79 = load i8, ptr %arrayidx365, align 1
-  %idxprom366 = zext i8 %79 to i64
+  %81 = load i8, ptr %arrayidx365, align 1
+  %idxprom366 = zext i8 %81 to i64
   %arrayidx368 = getelementptr inbounds i8, ptr %nrot, i64 1
-  %80 = load i8, ptr %arrayidx368, align 1
-  %81 = add i8 %80, 3
-  %82 = and i8 %81, 3
-  %idxprom372 = zext nneg i8 %82 to i64
+  %82 = load i8, ptr %arrayidx368, align 1
+  %83 = add i8 %82, 3
+  %84 = and i8 %83, 3
+  %idxprom372 = zext nneg i8 %84 to i64
   %arrayidx373 = getelementptr inbounds [16 x [6 x i8]], ptr @stbvox_facetype, i64 0, i64 %idxprom366, i64 %idxprom372
-  %83 = load i8, ptr %arrayidx373, align 1
-  %conv374 = zext i8 %83 to i32
-  %idxprom375 = zext i8 %78 to i64
+  %85 = load i8, ptr %arrayidx373, align 1
+  %conv374 = zext i8 %85 to i32
+  %idxprom375 = zext i8 %80 to i64
   %arrayidx376 = getelementptr inbounds [10 x i16], ptr @stbvox_face_visible, i64 0, i64 %idxprom375
-  %84 = load i16, ptr %arrayidx376, align 2
-  %conv377 = zext i16 %84 to i32
+  %86 = load i16, ptr %arrayidx376, align 2
+  %conv377 = zext i16 %86 to i32
   %sub379 = add nuw nsw i32 %conv374, 4
   %shr380 = lshr i32 %conv377, %sub379
   %and381 = and i32 %shr380, 2
@@ -1640,24 +1688,24 @@ if.end383:                                        ; preds = %if.then354, %if.end
   br i1 %tobool385.not, label %if.end415, label %if.then386
 
 if.then386:                                       ; preds = %if.end383
-  %85 = xor i8 %rot.1, 2
-  %idxprom393 = zext nneg i8 %85 to i64
+  %87 = xor i8 %rot.1, 2
+  %idxprom393 = zext nneg i8 %87 to i64
   %arrayidx394 = getelementptr inbounds [16 x [6 x i8]], ptr @stbvox_facetype, i64 0, i64 %idxprom318, i64 %idxprom393
-  %86 = load i8, ptr %arrayidx394, align 1
+  %88 = load i8, ptr %arrayidx394, align 1
   %arrayidx397 = getelementptr inbounds i8, ptr %ngeo, i64 2
-  %87 = load i8, ptr %arrayidx397, align 1
-  %idxprom398 = zext i8 %87 to i64
+  %89 = load i8, ptr %arrayidx397, align 1
+  %idxprom398 = zext i8 %89 to i64
   %arrayidx400 = getelementptr inbounds i8, ptr %nrot, i64 2
-  %88 = load i8, ptr %arrayidx400, align 2
-  %89 = and i8 %88, 3
-  %idxprom404 = zext nneg i8 %89 to i64
+  %90 = load i8, ptr %arrayidx400, align 1
+  %91 = and i8 %90, 3
+  %idxprom404 = zext nneg i8 %91 to i64
   %arrayidx405 = getelementptr inbounds [16 x [6 x i8]], ptr @stbvox_facetype, i64 0, i64 %idxprom398, i64 %idxprom404
-  %90 = load i8, ptr %arrayidx405, align 1
-  %conv406 = zext i8 %90 to i32
-  %idxprom407 = zext i8 %86 to i64
+  %92 = load i8, ptr %arrayidx405, align 1
+  %conv406 = zext i8 %92 to i32
+  %idxprom407 = zext i8 %88 to i64
   %arrayidx408 = getelementptr inbounds [10 x i16], ptr @stbvox_face_visible, i64 0, i64 %idxprom407
-  %91 = load i16, ptr %arrayidx408, align 2
-  %conv409 = zext i16 %91 to i32
+  %93 = load i16, ptr %arrayidx408, align 2
+  %conv409 = zext i16 %93 to i32
   %sub411 = add nuw nsw i32 %conv406, 3
   %shr412 = lshr i32 %conv409, %sub411
   %and413 = and i32 %shr412, 4
@@ -1671,26 +1719,26 @@ if.end415:                                        ; preds = %if.then386, %if.end
   br i1 %tobool417.not, label %if.end447, label %if.then418
 
 if.then418:                                       ; preds = %if.end415
-  %92 = add nuw nsw i8 %rot.1, 3
-  %93 = and i8 %92, 3
-  %idxprom425 = zext nneg i8 %93 to i64
+  %94 = add nuw nsw i8 %rot.1, 3
+  %95 = and i8 %94, 3
+  %idxprom425 = zext nneg i8 %95 to i64
   %arrayidx426 = getelementptr inbounds [16 x [6 x i8]], ptr @stbvox_facetype, i64 0, i64 %idxprom318, i64 %idxprom425
-  %94 = load i8, ptr %arrayidx426, align 1
+  %96 = load i8, ptr %arrayidx426, align 1
   %arrayidx429 = getelementptr inbounds i8, ptr %ngeo, i64 3
-  %95 = load i8, ptr %arrayidx429, align 1
-  %idxprom430 = zext i8 %95 to i64
+  %97 = load i8, ptr %arrayidx429, align 1
+  %idxprom430 = zext i8 %97 to i64
   %arrayidx432 = getelementptr inbounds i8, ptr %nrot, i64 3
-  %96 = load i8, ptr %arrayidx432, align 1
-  %97 = add i8 %96, 1
-  %98 = and i8 %97, 3
-  %idxprom436 = zext nneg i8 %98 to i64
+  %98 = load i8, ptr %arrayidx432, align 1
+  %99 = add i8 %98, 1
+  %100 = and i8 %99, 3
+  %idxprom436 = zext nneg i8 %100 to i64
   %arrayidx437 = getelementptr inbounds [16 x [6 x i8]], ptr @stbvox_facetype, i64 0, i64 %idxprom430, i64 %idxprom436
-  %99 = load i8, ptr %arrayidx437, align 1
-  %conv438 = zext i8 %99 to i32
-  %idxprom439 = zext i8 %94 to i64
+  %101 = load i8, ptr %arrayidx437, align 1
+  %conv438 = zext i8 %101 to i32
+  %idxprom439 = zext i8 %96 to i64
   %arrayidx440 = getelementptr inbounds [10 x i16], ptr @stbvox_face_visible, i64 0, i64 %idxprom439
-  %100 = load i16, ptr %arrayidx440, align 2
-  %conv441 = zext i16 %100 to i32
+  %102 = load i16, ptr %arrayidx440, align 2
+  %conv441 = zext i16 %102 to i32
   %sub443 = add nuw nsw i32 %conv438, 2
   %shr444 = lshr i32 %conv441, %sub443
   %and445 = and i32 %shr444, 8
@@ -1705,17 +1753,17 @@ if.end447:                                        ; preds = %if.then418, %if.end
 
 if.then450:                                       ; preds = %if.end447
   %arrayidx454 = getelementptr inbounds [16 x [6 x i8]], ptr @stbvox_facetype, i64 0, i64 %idxprom318, i64 4
-  %101 = load i8, ptr %arrayidx454, align 2
+  %103 = load i8, ptr %arrayidx454, align 2
   %arrayidx457 = getelementptr inbounds i8, ptr %ngeo, i64 4
-  %102 = load i8, ptr %arrayidx457, align 1
-  %idxprom458 = zext i8 %102 to i64
+  %104 = load i8, ptr %arrayidx457, align 1
+  %idxprom458 = zext i8 %104 to i64
   %arrayidx460 = getelementptr inbounds [16 x [6 x i8]], ptr @stbvox_facetype, i64 0, i64 %idxprom458, i64 5
-  %103 = load i8, ptr %arrayidx460, align 1
-  %conv461 = zext i8 %103 to i32
-  %idxprom462 = zext i8 %101 to i64
+  %105 = load i8, ptr %arrayidx460, align 1
+  %conv461 = zext i8 %105 to i32
+  %idxprom462 = zext i8 %103 to i64
   %arrayidx463 = getelementptr inbounds [10 x i16], ptr @stbvox_face_visible, i64 0, i64 %idxprom462
-  %104 = load i16, ptr %arrayidx463, align 2
-  %conv464 = zext i16 %104 to i32
+  %106 = load i16, ptr %arrayidx463, align 2
+  %conv464 = zext i16 %106 to i32
   %sub466 = add nuw nsw i32 %conv461, 1
   %shr467 = lshr i32 %conv464, %sub466
   %and468 = and i32 %shr467, 16
@@ -1730,17 +1778,17 @@ if.end470:                                        ; preds = %if.then450, %if.end
 
 if.then473:                                       ; preds = %if.end470
   %arrayidx477 = getelementptr inbounds [16 x [6 x i8]], ptr @stbvox_facetype, i64 0, i64 %idxprom318, i64 5
-  %105 = load i8, ptr %arrayidx477, align 1
+  %107 = load i8, ptr %arrayidx477, align 1
   %arrayidx480 = getelementptr inbounds i8, ptr %ngeo, i64 5
-  %106 = load i8, ptr %arrayidx480, align 1
-  %idxprom481 = zext i8 %106 to i64
+  %108 = load i8, ptr %arrayidx480, align 1
+  %idxprom481 = zext i8 %108 to i64
   %arrayidx483 = getelementptr inbounds [16 x [6 x i8]], ptr @stbvox_facetype, i64 0, i64 %idxprom481, i64 4
-  %107 = load i8, ptr %arrayidx483, align 2
-  %conv484 = zext nneg i8 %107 to i32
-  %idxprom485 = zext i8 %105 to i64
+  %109 = load i8, ptr %arrayidx483, align 2
+  %conv484 = zext nneg i8 %109 to i32
+  %idxprom485 = zext i8 %107 to i64
   %arrayidx486 = getelementptr inbounds [10 x i16], ptr @stbvox_face_visible, i64 0, i64 %idxprom485
-  %108 = load i16, ptr %arrayidx486, align 2
-  %conv487 = zext i16 %108 to i32
+  %110 = load i16, ptr %arrayidx486, align 2
+  %conv487 = zext i16 %110 to i32
   %shr490 = lshr i32 %conv487, %conv484
   %and491 = and i32 %shr490, 32
   %or492 = or i32 %and491, %visible_faces.4
@@ -1756,34 +1804,34 @@ if.end493:                                        ; preds = %if.then473, %if.end
 if.end502:                                        ; preds = %if.end493
   %default_mesh = getelementptr inbounds i8, ptr %mm, i64 392
   %selector505 = getelementptr inbounds i8, ptr %mm, i64 136
-  %109 = load ptr, ptr %selector505, align 8
-  %tobool506.not = icmp eq ptr %109, null
+  %111 = load ptr, ptr %selector505, align 8
+  %tobool506.not = icmp eq ptr %111, null
   br i1 %tobool506.not, label %if.else512, label %if.then507
 
 if.then507:                                       ; preds = %if.end502
-  %arrayidx511 = getelementptr inbounds i8, ptr %109, i64 %idxprom
+  %arrayidx511 = getelementptr inbounds i8, ptr %111, i64 %idxprom
   br label %if.end521.sink.split
 
 if.else512:                                       ; preds = %if.end502
-  %110 = load i32, ptr %default_mesh, align 8
-  %conv503 = trunc i32 %110 to i8
+  %112 = load i32, ptr %default_mesh, align 8
+  %conv503 = trunc i32 %112 to i8
   %block_selector = getelementptr inbounds i8, ptr %mm, i64 144
-  %111 = load ptr, ptr %block_selector, align 8
-  %tobool514.not = icmp eq ptr %111, null
+  %113 = load ptr, ptr %block_selector, align 8
+  %tobool514.not = icmp eq ptr %113, null
   br i1 %tobool514.not, label %if.end521, label %if.then515
 
 if.then515:                                       ; preds = %if.else512
   %idxprom518 = zext i8 %3 to i64
-  %arrayidx519 = getelementptr inbounds i8, ptr %111, i64 %idxprom518
+  %arrayidx519 = getelementptr inbounds i8, ptr %113, i64 %idxprom518
   br label %if.end521.sink.split
 
 if.end521.sink.split:                             ; preds = %if.then507, %if.then515
   %arrayidx519.sink = phi ptr [ %arrayidx519, %if.then515 ], [ %arrayidx511, %if.then507 ]
-  %112 = load i8, ptr %arrayidx519.sink, align 1
+  %114 = load i8, ptr %arrayidx519.sink, align 1
   br label %if.end521
 
 if.end521:                                        ; preds = %if.end521.sink.split, %if.else512
-  %mesh.0 = phi i8 [ %conv503, %if.else512 ], [ %112, %if.end521.sink.split ]
+  %mesh.0 = phi i8 [ %conv503, %if.else512 ], [ %114, %if.end521.sink.split ]
   %cmp523 = icmp ult i8 %spec.store.select, 8
   br i1 %cmp523, label %for.cond527.preheader, label %if.end759
 
@@ -1794,16 +1842,16 @@ for.cond527.preheader:                            ; preds = %if.end521
 for.body530:                                      ; preds = %for.cond527.preheader, %for.body530
   %indvars.iv745 = phi i64 [ 0, %for.cond527.preheader ], [ %indvars.iv.next746, %for.body530 ]
   %arrayidx532 = getelementptr inbounds [4 x i8], ptr @stbvox_vertex_selector, i64 0, i64 %indvars.iv745
-  %113 = load i8, ptr %arrayidx532, align 1
-  %idxprom534 = zext i8 %113 to i64
+  %115 = load i8, ptr %arrayidx532, align 1
+  %idxprom534 = zext i8 %115 to i64
   %arrayidx537 = getelementptr inbounds [8 x [4 x i8]], ptr @stbvox_rotate_vertex, i64 0, i64 %idxprom534, i64 %idxprom320
-  %114 = load i8, ptr %arrayidx537, align 1
+  %116 = load i8, ptr %arrayidx537, align 1
   %arrayidx540 = getelementptr inbounds [4 x i32], ptr @stbvox_vmesh_pre_vheight, i64 0, i64 %indvars.iv745
-  %115 = load i32, ptr %arrayidx540, align 4
-  %idxprom543 = zext i8 %114 to i64
+  %117 = load i32, ptr %arrayidx540, align 4
+  %idxprom543 = zext i8 %116 to i64
   %arrayidx544 = getelementptr inbounds [8 x [8 x i32]], ptr @stbvox_geometry_vheight, i64 0, i64 %idxprom541, i64 %idxprom543
-  %116 = load i32, ptr %arrayidx544, align 4
-  %add545 = add i32 %116, %115
+  %118 = load i32, ptr %arrayidx544, align 4
+  %add545 = add i32 %118, %117
   %arrayidx548 = getelementptr inbounds [4 x i32], ptr %vmesh, i64 0, i64 %indvars.iv745
   store i32 %add545, ptr %arrayidx548, align 4
   %indvars.iv.next746 = add nuw nsw i64 %indvars.iv745, 1
@@ -1813,49 +1861,49 @@ for.body530:                                      ; preds = %for.cond527.prehead
 for.end551:                                       ; preds = %for.body530
   %pos.sroa.0.0.extract.trunc.mask = and i24 %pos.coerce, 255
   %pos.sroa.28.0.extract.trunc.mask = shl nuw nsw i24 %pos.sroa.28.0.extract.shift, 7
-  %117 = and i24 %pos.sroa.28.0.extract.trunc.mask, 32640
-  %118 = shl nuw nsw i24 %pos.sroa.31.0.extract.shift, 15
-  %narrow = or disjoint i24 %118, %pos.sroa.0.0.extract.trunc.mask
-  %narrow688 = add nuw i24 %narrow, %117
+  %119 = and i24 %pos.sroa.28.0.extract.trunc.mask, 32640
+  %120 = shl nuw nsw i24 %pos.sroa.31.0.extract.shift, 15
+  %narrow = or disjoint i24 %120, %pos.sroa.0.0.extract.trunc.mask
+  %narrow688 = add nuw i24 %narrow, %119
   %add558 = zext i24 %narrow688 to i32
   br i1 %tobool506.not, label %if.else569, label %if.then564
 
 if.then564:                                       ; preds = %for.end551
-  %arrayidx568 = getelementptr inbounds i8, ptr %109, i64 %idxprom
+  %arrayidx568 = getelementptr inbounds i8, ptr %111, i64 %idxprom
   br label %if.end579.sink.split
 
 if.else569:                                       ; preds = %for.end551
   %block_selector571 = getelementptr inbounds i8, ptr %mm, i64 144
-  %119 = load ptr, ptr %block_selector571, align 8
-  %tobool572.not = icmp eq ptr %119, null
+  %121 = load ptr, ptr %block_selector571, align 8
+  %tobool572.not = icmp eq ptr %121, null
   br i1 %tobool572.not, label %if.end579, label %if.then573
 
 if.then573:                                       ; preds = %if.else569
   %idxprom576 = zext i8 %3 to i64
-  %arrayidx577 = getelementptr inbounds i8, ptr %119, i64 %idxprom576
+  %arrayidx577 = getelementptr inbounds i8, ptr %121, i64 %idxprom576
   br label %if.end579.sink.split
 
 if.end579.sink.split:                             ; preds = %if.then564, %if.then573
   %arrayidx577.sink = phi ptr [ %arrayidx577, %if.then573 ], [ %arrayidx568, %if.then564 ]
-  %120 = load i8, ptr %arrayidx577.sink, align 1
+  %122 = load i8, ptr %arrayidx577.sink, align 1
   br label %if.end579
 
 if.end579:                                        ; preds = %if.end579.sink.split, %if.else569
-  %mesh.2 = phi i8 [ %mesh.0, %if.else569 ], [ %120, %if.end579.sink.split ]
+  %mesh.2 = phi i8 [ %mesh.0, %if.else569 ], [ %122, %if.end579.sink.split ]
   %output_cur = getelementptr inbounds i8, ptr %mm, i64 608
   %idxprom580 = zext i8 %mesh.2 to i64
   %arrayidx581 = getelementptr inbounds [2 x [3 x ptr]], ptr %output_cur, i64 0, i64 %idxprom580
-  %121 = load ptr, ptr %arrayidx581, align 8
+  %123 = load ptr, ptr %arrayidx581, align 8
   %output_size = getelementptr inbounds i8, ptr %mm, i64 776
   %arrayidx584 = getelementptr inbounds [2 x [3 x i32]], ptr %output_size, i64 0, i64 %idxprom580
-  %122 = load i32, ptr %arrayidx584, align 4
-  %mul = mul nsw i32 %122, 6
+  %124 = load i32, ptr %arrayidx584, align 4
+  %mul = mul nsw i32 %124, 6
   %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %121, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %123, i64 %idx.ext
   %output_end = getelementptr inbounds i8, ptr %mm, i64 656
   %arrayidx587 = getelementptr inbounds [2 x [3 x ptr]], ptr %output_end, i64 0, i64 %idxprom580
-  %123 = load ptr, ptr %arrayidx587, align 8
-  %cmp589 = icmp ugt ptr %add.ptr, %123
+  %125 = load ptr, ptr %arrayidx587, align 8
+  %cmp589 = icmp ugt ptr %add.ptr, %125
   br i1 %cmp589, label %if.then591, label %if.end592
 
 if.then591:                                       ; preds = %if.end579
@@ -1878,8 +1926,8 @@ if.then599:                                       ; preds = %if.then596
 
 cond.true:                                        ; preds = %if.then599
   %arrayidx604 = getelementptr inbounds [4 x i8], ptr @stbvox_floor_slope_for_rot, i64 0, i64 %idxprom320
-  %124 = load i8, ptr %arrayidx604, align 1
-  %conv605 = zext i8 %124 to i32
+  %126 = load i8, ptr %arrayidx604, align 1
+  %conv605 = zext i8 %126 to i32
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then599, %cond.true
@@ -1901,8 +1949,8 @@ if.then611:                                       ; preds = %if.end608
 
 cond.true616:                                     ; preds = %if.then611
   %arrayidx618 = getelementptr inbounds [4 x i8], ptr @stbvox_ceil_slope_for_rot, i64 0, i64 %idxprom320
-  %125 = load i8, ptr %arrayidx618, align 1
-  %conv619 = zext i8 %125 to i32
+  %127 = load i8, ptr %arrayidx618, align 1
+  %conv619 = zext i8 %127 to i32
   br label %if.end673.sink.split
 
 if.else639:                                       ; preds = %if.end592
@@ -1923,21 +1971,21 @@ if.end652:                                        ; preds = %if.then642, %if.els
 if.end673.sink.split:                             ; preds = %if.end652, %cond.true616, %if.then611
   %rotate.sroa.0.2.sink = phi i8 [ %rotate.sroa.0.0, %if.then611 ], [ %rotate.sroa.0.0, %cond.true616 ], [ %rotate.sroa.0.2, %if.end652 ]
   %.sink = phi i32 [ 5, %if.then611 ], [ %conv619, %cond.true616 ], [ 5, %if.end652 ]
-  %126 = sub nsw i8 0, %rotate.sroa.0.2.sink
-  %bf.shl665 = and i8 %126, 48
+  %128 = sub nsw i8 0, %rotate.sroa.0.2.sink
+  %bf.shl665 = and i8 %128, 48
   %arrayidx668 = getelementptr inbounds i8, ptr %vmesh, i64 80
   call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.shl665, i32 noundef 5, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx668, i8 noundef zeroext %mesh.2, i32 noundef %.sink)
   br label %if.end673
 
 if.end673:                                        ; preds = %if.end673.sink.split, %if.end652, %if.end608
   %rotate675 = getelementptr inbounds i8, ptr %mm, i64 208
-  %127 = load ptr, ptr %rotate675, align 8
-  %tobool676.not = icmp eq ptr %127, null
+  %129 = load ptr, ptr %rotate675, align 8
+  %tobool676.not = icmp eq ptr %129, null
   br i1 %tobool676.not, label %if.else708, label %if.then677
 
 if.then677:                                       ; preds = %if.end673
-  %arrayidx681 = getelementptr inbounds i8, ptr %127, i64 %idxprom
-  %128 = load i8, ptr %arrayidx681, align 1
+  %arrayidx681 = getelementptr inbounds i8, ptr %129, i64 %idxprom
+  %130 = load i8, ptr %arrayidx681, align 1
   br label %if.end723
 
 if.else708:                                       ; preds = %if.end673
@@ -1948,7 +1996,7 @@ if.else708:                                       ; preds = %if.end673
   br label %if.end723
 
 if.end723:                                        ; preds = %if.else708, %if.then677
-  %rotate.sroa.0.3 = phi i8 [ %128, %if.then677 ], [ %bf.set722, %if.else708 ]
+  %rotate.sroa.0.3 = phi i8 [ %130, %if.then677 ], [ %bf.set722, %if.else708 ]
   %bf.clear725 = and i8 %rotate.sroa.0.3, -49
   %and727 = and i32 %visible_faces.5, 2
   %tobool728.not = icmp eq i32 %and727, 0
@@ -1995,126 +2043,126 @@ if.end759:                                        ; preds = %if.end750, %if.then
 
 if.then763:                                       ; preds = %if.end759
   %vheight = getelementptr inbounds i8, ptr %mm, i64 328
-  %129 = load ptr, ptr %vheight, align 8
-  %tobool769.not = icmp eq ptr %129, null
+  %131 = load ptr, ptr %vheight, align 8
+  %tobool769.not = icmp eq ptr %131, null
   br i1 %tobool769.not, label %if.else795, label %if.then770
 
 if.then770:                                       ; preds = %if.then763
-  %arrayidx774 = getelementptr inbounds i8, ptr %129, i64 %idxprom
-  %130 = load i8, ptr %arrayidx774, align 1
-  %and777 = and i8 %130, 3
+  %arrayidx774 = getelementptr inbounds i8, ptr %131, i64 %idxprom
+  %132 = load i8, ptr %arrayidx774, align 1
+  %and777 = and i8 %132, 3
   store i8 %and777, ptr %ht, align 1
-  %shr781 = lshr i8 %130, 2
+  %shr781 = lshr i8 %132, 2
   %and782 = and i8 %shr781, 3
   %arrayidx784 = getelementptr inbounds i8, ptr %ht, i64 1
   store i8 %and782, ptr %arrayidx784, align 1
-  %shr786 = lshr i8 %130, 4
+  %shr786 = lshr i8 %132, 4
   %and787 = and i8 %shr786, 3
   %arrayidx789 = getelementptr inbounds i8, ptr %ht, i64 2
   store i8 %and787, ptr %arrayidx789, align 1
-  %131 = lshr i8 %130, 6
+  %133 = lshr i8 %132, 6
   %arrayidx794 = getelementptr inbounds i8, ptr %ht, i64 3
-  store i8 %131, ptr %arrayidx794, align 1
+  store i8 %133, ptr %arrayidx794, align 1
   br label %if.end930
 
 if.else795:                                       ; preds = %if.then763
   %block_vheight = getelementptr inbounds i8, ptr %mm, i64 128
-  %132 = load ptr, ptr %block_vheight, align 8
-  %tobool797.not = icmp eq ptr %132, null
+  %134 = load ptr, ptr %block_vheight, align 8
+  %tobool797.not = icmp eq ptr %134, null
   br i1 %tobool797.not, label %if.else840, label %if.then798
 
 if.then798:                                       ; preds = %if.else795
   %idxprom802 = zext i8 %3 to i64
-  %arrayidx803 = getelementptr inbounds i8, ptr %132, i64 %idxprom802
-  %133 = load i8, ptr %arrayidx803, align 1
-  %and807 = and i8 %133, 3
+  %arrayidx803 = getelementptr inbounds i8, ptr %134, i64 %idxprom802
+  %135 = load i8, ptr %arrayidx803, align 1
+  %and807 = and i8 %135, 3
   store i8 %and807, ptr %raw, align 1
-  %shr811 = lshr i8 %133, 2
+  %shr811 = lshr i8 %135, 2
   %and812 = and i8 %shr811, 3
   %arrayidx814 = getelementptr inbounds i8, ptr %raw, i64 1
   store i8 %and812, ptr %arrayidx814, align 1
-  %shr816 = lshr i8 %133, 4
+  %shr816 = lshr i8 %135, 4
   %and817 = and i8 %shr816, 3
   %arrayidx819 = getelementptr inbounds i8, ptr %raw, i64 2
   store i8 %and817, ptr %arrayidx819, align 1
-  %134 = lshr i8 %133, 6
+  %136 = lshr i8 %135, 6
   %arrayidx824 = getelementptr inbounds i8, ptr %raw, i64 3
-  store i8 %134, ptr %arrayidx824, align 1
+  store i8 %136, ptr %arrayidx824, align 1
   br label %for.body828
 
 for.body828:                                      ; preds = %if.then798, %for.body828
   %indvars.iv749 = phi i64 [ 0, %if.then798 ], [ %indvars.iv.next750, %for.body828 ]
   %arrayidx832 = getelementptr inbounds [8 x [4 x i8]], ptr @stbvox_rotate_vertex, i64 0, i64 %indvars.iv749, i64 %idxprom320
-  %135 = load i8, ptr %arrayidx832, align 1
-  %idxprom833 = zext i8 %135 to i64
+  %137 = load i8, ptr %arrayidx832, align 1
+  %idxprom833 = zext i8 %137 to i64
   %arrayidx834 = getelementptr inbounds [4 x i8], ptr %raw, i64 0, i64 %idxprom833
-  %136 = load i8, ptr %arrayidx834, align 1
+  %138 = load i8, ptr %arrayidx834, align 1
   %arrayidx836 = getelementptr inbounds [4 x i8], ptr %ht, i64 0, i64 %indvars.iv749
-  store i8 %136, ptr %arrayidx836, align 1
+  store i8 %138, ptr %arrayidx836, align 1
   %indvars.iv.next750 = add nuw nsw i64 %indvars.iv749, 1
   %exitcond752.not = icmp eq i64 %indvars.iv.next750, 4
   br i1 %exitcond752.not, label %if.end930.loopexit, label %for.body828, !llvm.loop !14
 
 if.else840:                                       ; preds = %if.else795
-  %137 = load ptr, ptr %packed_compact225769, align 8
-  %tobool843.not = icmp eq ptr %137, null
+  %139 = load ptr, ptr %packed_compact225769, align 8
+  %tobool843.not = icmp eq ptr %139, null
   br i1 %tobool843.not, label %if.else885, label %if.then844
 
 if.then844:                                       ; preds = %if.else840
-  %arrayidx848 = getelementptr inbounds i8, ptr %137, i64 %idxprom
-  %138 = load i8, ptr %arrayidx848, align 1
-  %139 = lshr i8 %138, 2
-  %140 = and i8 %139, 3
-  store i8 %140, ptr %ht, align 1
-  %arrayidx858 = getelementptr inbounds i8, ptr %137, i64 %idxprom3
-  %141 = load i8, ptr %arrayidx858, align 1
-  %142 = lshr i8 %141, 2
-  %143 = and i8 %142, 3
+  %arrayidx848 = getelementptr inbounds i8, ptr %139, i64 %idxprom
+  %140 = load i8, ptr %arrayidx848, align 1
+  %141 = lshr i8 %140, 2
+  %142 = and i8 %141, 3
+  store i8 %142, ptr %ht, align 1
+  %arrayidx858 = getelementptr inbounds i8, ptr %139, i64 %idxprom3
+  %143 = load i8, ptr %arrayidx858, align 1
+  %144 = lshr i8 %143, 2
+  %145 = and i8 %144, 3
   %arrayidx863 = getelementptr inbounds i8, ptr %ht, i64 1
-  store i8 %143, ptr %arrayidx863, align 1
-  %arrayidx868 = getelementptr inbounds i8, ptr %137, i64 %idxprom9
-  %144 = load i8, ptr %arrayidx868, align 1
-  %145 = lshr i8 %144, 2
-  %146 = and i8 %145, 3
+  store i8 %145, ptr %arrayidx863, align 1
+  %arrayidx868 = getelementptr inbounds i8, ptr %139, i64 %idxprom9
+  %146 = load i8, ptr %arrayidx868, align 1
+  %147 = lshr i8 %146, 2
+  %148 = and i8 %147, 3
   %arrayidx873 = getelementptr inbounds i8, ptr %ht, i64 2
-  store i8 %146, ptr %arrayidx873, align 1
+  store i8 %148, ptr %arrayidx873, align 1
   %add877 = add nsw i32 %add, %0
   %idxprom878 = sext i32 %add877 to i64
-  %arrayidx879 = getelementptr inbounds i8, ptr %137, i64 %idxprom878
-  %147 = load i8, ptr %arrayidx879, align 1
-  %148 = lshr i8 %147, 2
-  %149 = and i8 %148, 3
+  %arrayidx879 = getelementptr inbounds i8, ptr %139, i64 %idxprom878
+  %149 = load i8, ptr %arrayidx879, align 1
+  %150 = lshr i8 %149, 2
+  %151 = and i8 %150, 3
   %arrayidx884 = getelementptr inbounds i8, ptr %ht, i64 3
-  store i8 %149, ptr %arrayidx884, align 1
+  store i8 %151, ptr %arrayidx884, align 1
   br label %if.end930
 
 if.else885:                                       ; preds = %if.else840
-  %150 = load ptr, ptr %geometry, align 8
-  %tobool888.not = icmp eq ptr %150, null
+  %152 = load ptr, ptr %geometry, align 8
+  %tobool888.not = icmp eq ptr %152, null
   br i1 %tobool888.not, label %lor.end, label %if.then889
 
 if.then889:                                       ; preds = %if.else885
-  %arrayidx893 = getelementptr inbounds i8, ptr %150, i64 %idxprom
-  %151 = load i8, ptr %arrayidx893, align 1
-  %152 = lshr i8 %151, 6
-  store i8 %152, ptr %ht, align 1
-  %arrayidx902 = getelementptr inbounds i8, ptr %150, i64 %idxprom3
-  %153 = load i8, ptr %arrayidx902, align 1
+  %arrayidx893 = getelementptr inbounds i8, ptr %152, i64 %idxprom
+  %153 = load i8, ptr %arrayidx893, align 1
   %154 = lshr i8 %153, 6
-  %arrayidx906 = getelementptr inbounds i8, ptr %ht, i64 1
-  store i8 %154, ptr %arrayidx906, align 1
-  %arrayidx911 = getelementptr inbounds i8, ptr %150, i64 %idxprom9
-  %155 = load i8, ptr %arrayidx911, align 1
+  store i8 %154, ptr %ht, align 1
+  %arrayidx902 = getelementptr inbounds i8, ptr %152, i64 %idxprom3
+  %155 = load i8, ptr %arrayidx902, align 1
   %156 = lshr i8 %155, 6
+  %arrayidx906 = getelementptr inbounds i8, ptr %ht, i64 1
+  store i8 %156, ptr %arrayidx906, align 1
+  %arrayidx911 = getelementptr inbounds i8, ptr %152, i64 %idxprom9
+  %157 = load i8, ptr %arrayidx911, align 1
+  %158 = lshr i8 %157, 6
   %arrayidx915 = getelementptr inbounds i8, ptr %ht, i64 2
-  store i8 %156, ptr %arrayidx915, align 1
+  store i8 %158, ptr %arrayidx915, align 1
   %add919 = add nsw i32 %add, %0
   %idxprom920 = sext i32 %add919 to i64
-  %arrayidx921 = getelementptr inbounds i8, ptr %150, i64 %idxprom920
-  %157 = load i8, ptr %arrayidx921, align 1
-  %158 = lshr i8 %157, 6
+  %arrayidx921 = getelementptr inbounds i8, ptr %152, i64 %idxprom920
+  %159 = load i8, ptr %arrayidx921, align 1
+  %160 = lshr i8 %159, 6
   %arrayidx925 = getelementptr inbounds i8, ptr %ht, i64 3
-  store i8 %158, ptr %arrayidx925, align 1
+  store i8 %160, ptr %arrayidx925, align 1
   br label %if.end930
 
 if.end930.loopexit:                               ; preds = %for.body828
@@ -2126,20 +2174,20 @@ if.end930.loopexit:                               ; preds = %for.body828
   br label %if.end930
 
 if.end930:                                        ; preds = %if.end930.loopexit, %if.then889, %if.then844, %if.then770
-  %159 = phi i8 [ %.pre763, %if.end930.loopexit ], [ %156, %if.then889 ], [ %146, %if.then844 ], [ %and787, %if.then770 ]
-  %160 = phi i8 [ %.pre762, %if.end930.loopexit ], [ %154, %if.then889 ], [ %143, %if.then844 ], [ %and782, %if.then770 ]
-  %161 = phi i8 [ %.pre761, %if.end930.loopexit ], [ %152, %if.then889 ], [ %140, %if.then844 ], [ %and777, %if.then770 ]
-  %cmp933 = icmp eq i8 %161, 3
-  %cmp937 = icmp eq i8 %160, 3
+  %161 = phi i8 [ %.pre763, %if.end930.loopexit ], [ %158, %if.then889 ], [ %148, %if.then844 ], [ %and787, %if.then770 ]
+  %162 = phi i8 [ %.pre762, %if.end930.loopexit ], [ %156, %if.then889 ], [ %145, %if.then844 ], [ %and782, %if.then770 ]
+  %163 = phi i8 [ %.pre761, %if.end930.loopexit ], [ %154, %if.then889 ], [ %142, %if.then844 ], [ %and777, %if.then770 ]
+  %cmp933 = icmp eq i8 %163, 3
+  %cmp937 = icmp eq i8 %162, 3
   %or.cond = select i1 %cmp933, i1 true, i1 %cmp937
-  %cmp942 = icmp eq i8 %159, 3
+  %cmp942 = icmp eq i8 %161, 3
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp942
   br i1 %or.cond1, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end930
   %arrayidx944 = getelementptr inbounds i8, ptr %ht, i64 3
-  %162 = load i8, ptr %arrayidx944, align 1
-  %cmp946 = icmp eq i8 %162, 3
+  %164 = load i8, ptr %arrayidx944, align 1
+  %cmp946 = icmp eq i8 %164, 3
   br label %lor.end
 
 lor.end:                                          ; preds = %if.else885, %lor.rhs, %if.end930
@@ -2147,20 +2195,20 @@ lor.end:                                          ; preds = %if.else885, %lor.rh
   %or.cond786 = phi i1 [ %or.cond, %if.end930 ], [ %or.cond, %lor.rhs ], [ true, %if.else885 ]
   %cmp937785 = phi i1 [ %cmp937, %if.end930 ], [ %cmp937, %lor.rhs ], [ undef, %if.else885 ]
   %cmp933784 = phi i1 [ %cmp933, %if.end930 ], [ %cmp933, %lor.rhs ], [ undef, %if.else885 ]
-  %163 = phi i8 [ %161, %if.end930 ], [ %161, %lor.rhs ], [ undef, %if.else885 ]
-  %164 = phi i8 [ %160, %if.end930 ], [ %160, %lor.rhs ], [ undef, %if.else885 ]
-  %165 = phi i8 [ %159, %if.end930 ], [ %159, %lor.rhs ], [ undef, %if.else885 ]
-  %166 = phi i1 [ true, %if.end930 ], [ %cmp946, %lor.rhs ], [ true, %if.else885 ]
+  %165 = phi i8 [ %163, %if.end930 ], [ %163, %lor.rhs ], [ undef, %if.else885 ]
+  %166 = phi i8 [ %162, %if.end930 ], [ %162, %lor.rhs ], [ undef, %if.else885 ]
+  %167 = phi i8 [ %161, %if.end930 ], [ %161, %lor.rhs ], [ undef, %if.else885 ]
+  %168 = phi i1 [ true, %if.end930 ], [ %cmp946, %lor.rhs ], [ true, %if.else885 ]
   %cmp949 = icmp ugt i8 %spec.store.select, 13
-  %conv953 = zext i8 %163 to i32
+  %conv953 = zext i8 %165 to i32
   %shl954 = shl nuw nsw i32 %conv953, 14
-  %conv960 = zext i8 %164 to i32
+  %conv960 = zext i8 %166 to i32
   %shl961 = shl nuw nsw i32 %conv960, 14
-  %conv967 = zext i8 %165 to i32
+  %conv967 = zext i8 %167 to i32
   %shl968 = shl nuw nsw i32 %conv967, 14
   %arrayidx973 = getelementptr inbounds i8, ptr %ht, i64 3
-  %167 = load i8, ptr %arrayidx973, align 1
-  %conv974 = zext i8 %167 to i32
+  %169 = load i8, ptr %arrayidx973, align 1
+  %conv974 = zext i8 %169 to i32
   %shl975 = shl nuw nsw i32 %conv974, 14
   %shl954. = select i1 %cmp949, i32 %shl954, i32 0
   %shl961. = select i1 %cmp949, i32 %shl961, i32 0
@@ -2171,32 +2219,32 @@ lor.end:                                          ; preds = %if.else885, %lor.rh
   %.shl968 = select i1 %cmp949, i32 32768, i32 %shl968
   %.shl975 = select i1 %cmp949, i32 32768, i32 %shl975
   store i32 %shl954., ptr %cube, align 16
-  %168 = getelementptr inbounds i8, ptr %cube, i64 4
-  store i32 %shl961., ptr %168, align 4
-  %169 = getelementptr inbounds i8, ptr %cube, i64 8
-  store i32 %shl968., ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %cube, i64 12
-  store i32 %shl975., ptr %170, align 4
-  %171 = getelementptr inbounds i8, ptr %cube, i64 16
-  store i32 %.shl954, ptr %171, align 16
-  %172 = getelementptr inbounds i8, ptr %cube, i64 20
-  store i32 %.shl961, ptr %172, align 4
-  %173 = getelementptr inbounds i8, ptr %cube, i64 24
-  store i32 %.shl968, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %cube, i64 28
-  store i32 %.shl975, ptr %174, align 4
+  %170 = getelementptr inbounds i8, ptr %cube, i64 4
+  store i32 %shl961., ptr %170, align 4
+  %171 = getelementptr inbounds i8, ptr %cube, i64 8
+  store i32 %shl968., ptr %171, align 8
+  %172 = getelementptr inbounds i8, ptr %cube, i64 12
+  store i32 %shl975., ptr %172, align 4
+  %173 = getelementptr inbounds i8, ptr %cube, i64 16
+  store i32 %.shl954, ptr %173, align 16
+  %174 = getelementptr inbounds i8, ptr %cube, i64 20
+  store i32 %.shl961, ptr %174, align 4
+  %175 = getelementptr inbounds i8, ptr %cube, i64 24
+  store i32 %.shl968, ptr %175, align 8
+  %176 = getelementptr inbounds i8, ptr %cube, i64 28
+  store i32 %.shl975, ptr %176, align 4
   br label %for.body1030
 
 for.body1030:                                     ; preds = %lor.end, %for.body1030
   %indvars.iv753 = phi i64 [ 0, %lor.end ], [ %indvars.iv.next754, %for.body1030 ]
   %arrayidx1033 = getelementptr inbounds [4 x i8], ptr @stbvox_vertex_selector, i64 0, i64 %indvars.iv753
-  %175 = load i8, ptr %arrayidx1033, align 1
+  %177 = load i8, ptr %arrayidx1033, align 1
   %arrayidx1036 = getelementptr inbounds [4 x i32], ptr @stbvox_vmesh_pre_vheight, i64 0, i64 %indvars.iv753
-  %176 = load i32, ptr %arrayidx1036, align 4
-  %idxprom1037 = zext i8 %175 to i64
+  %178 = load i32, ptr %arrayidx1036, align 4
+  %idxprom1037 = zext i8 %177 to i64
   %arrayidx1038 = getelementptr inbounds [8 x i32], ptr %cube, i64 0, i64 %idxprom1037
-  %177 = load i32, ptr %arrayidx1038, align 4
-  %add1039 = add i32 %177, %176
+  %179 = load i32, ptr %arrayidx1038, align 4
+  %add1039 = add i32 %179, %178
   %arrayidx1042 = getelementptr inbounds [4 x i32], ptr %vmesh764, i64 0, i64 %indvars.iv753
   store i32 %add1039, ptr %arrayidx1042, align 4
   %indvars.iv.next754 = add nuw nsw i64 %indvars.iv753, 1
@@ -2206,25 +2254,25 @@ for.body1030:                                     ; preds = %lor.end, %for.body1
 for.end1045:                                      ; preds = %for.body1030
   %pos.sroa.0.0.extract.trunc.mask689 = and i24 %pos.coerce, 255
   %pos.sroa.28.0.extract.trunc.mask690 = shl nuw nsw i24 %pos.sroa.28.0.extract.shift, 7
-  %178 = and i24 %pos.sroa.28.0.extract.trunc.mask690, 32640
-  %179 = shl nuw nsw i24 %pos.sroa.31.0.extract.shift, 15
-  %narrow691 = or disjoint i24 %179, %pos.sroa.0.0.extract.trunc.mask689
-  %narrow692 = add nuw i24 %narrow691, %178
+  %180 = and i24 %pos.sroa.28.0.extract.trunc.mask690, 32640
+  %181 = shl nuw nsw i24 %pos.sroa.31.0.extract.shift, 15
+  %narrow691 = or disjoint i24 %181, %pos.sroa.0.0.extract.trunc.mask689
+  %narrow692 = add nuw i24 %narrow691, %180
   %add1056 = zext i24 %narrow692 to i32
   %output_cur1059 = getelementptr inbounds i8, ptr %mm, i64 608
   %idxprom1060 = zext i8 %mesh.1 to i64
   %arrayidx1061 = getelementptr inbounds [2 x [3 x ptr]], ptr %output_cur1059, i64 0, i64 %idxprom1060
-  %180 = load ptr, ptr %arrayidx1061, align 8
+  %182 = load ptr, ptr %arrayidx1061, align 8
   %output_size1063 = getelementptr inbounds i8, ptr %mm, i64 776
   %arrayidx1065 = getelementptr inbounds [2 x [3 x i32]], ptr %output_size1063, i64 0, i64 %idxprom1060
-  %181 = load i32, ptr %arrayidx1065, align 4
-  %mul1067 = mul nsw i32 %181, 6
+  %183 = load i32, ptr %arrayidx1065, align 4
+  %mul1067 = mul nsw i32 %183, 6
   %idx.ext1068 = sext i32 %mul1067 to i64
-  %add.ptr1069 = getelementptr inbounds i8, ptr %180, i64 %idx.ext1068
+  %add.ptr1069 = getelementptr inbounds i8, ptr %182, i64 %idx.ext1068
   %output_end1070 = getelementptr inbounds i8, ptr %mm, i64 656
   %arrayidx1072 = getelementptr inbounds [2 x [3 x ptr]], ptr %output_end1070, i64 0, i64 %idxprom1060
-  %182 = load ptr, ptr %arrayidx1072, align 8
-  %cmp1074 = icmp ugt ptr %add.ptr1069, %182
+  %184 = load ptr, ptr %arrayidx1072, align 8
+  %cmp1074 = icmp ugt ptr %add.ptr1069, %184
   br i1 %cmp1074, label %if.then1076, label %if.end1078
 
 if.then1076:                                      ; preds = %for.end1045
@@ -2262,12 +2310,12 @@ if.else1109:                                      ; preds = %if.then1099
 
 if.else1116:                                      ; preds = %if.else1090
   %arrayidx1117 = getelementptr inbounds i8, ptr %vmesh764, i64 64
-  %idxprom1120 = zext i8 %165 to i64
-  %idxprom1123 = zext i8 %164 to i64
-  %idxprom1126 = zext i8 %163 to i64
+  %idxprom1120 = zext i8 %167 to i64
+  %idxprom1123 = zext i8 %166 to i64
+  %idxprom1126 = zext i8 %165 to i64
   %arrayidx1127 = getelementptr inbounds [4 x [4 x [4 x i8]]], ptr @stbvox_planar_face_up_normal, i64 0, i64 %idxprom1120, i64 %idxprom1123, i64 %idxprom1126
-  %183 = load i8, ptr %arrayidx1127, align 1
-  %conv1128 = zext i8 %183 to i32
+  %185 = load i8, ptr %arrayidx1127, align 1
+  %conv1128 = zext i8 %185 to i32
   call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 4, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1117, i8 noundef zeroext %mesh.1, i32 noundef %conv1128)
   br label %if.end1133
 
@@ -2312,33 +2360,33 @@ if.else1164:                                      ; preds = %if.then1154
 
 if.else1171:                                      ; preds = %if.else1145
   %arrayidx1172 = getelementptr inbounds i8, ptr %vmesh764, i64 80
-  %idxprom1175 = zext i8 %165 to i64
-  %idxprom1178 = zext i8 %164 to i64
-  %idxprom1181 = zext i8 %163 to i64
+  %idxprom1175 = zext i8 %167 to i64
+  %idxprom1178 = zext i8 %166 to i64
+  %idxprom1181 = zext i8 %165 to i64
   %arrayidx1182 = getelementptr inbounds [4 x [4 x [4 x i8]]], ptr @stbvox_planar_face_up_normal, i64 0, i64 %idxprom1175, i64 %idxprom1178, i64 %idxprom1181
-  %184 = load i8, ptr %arrayidx1182, align 1
-  %idxprom1183 = zext i8 %184 to i64
+  %186 = load i8, ptr %arrayidx1182, align 1
+  %idxprom1183 = zext i8 %186 to i64
   %arrayidx1184 = getelementptr inbounds [32 x i8], ptr @stbvox_reverse_face, i64 0, i64 %idxprom1183
-  %185 = load i8, ptr %arrayidx1184, align 1
-  %conv1185 = zext i8 %185 to i32
+  %187 = load i8, ptr %arrayidx1184, align 1
+  %conv1185 = zext i8 %187 to i32
   call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 0, i32 noundef 5, i32 noundef %v_off, i24 poison, i32 noundef %add1056, ptr noundef nonnull %arrayidx1172, i8 noundef zeroext %mesh.1, i32 noundef %conv1185)
   br label %if.end1190
 
 if.end1190:                                       ; preds = %if.end1133.thread, %if.then1140, %if.then1158, %if.else1164, %if.else1171, %if.end1133
   %rotate1192 = getelementptr inbounds i8, ptr %mm, i64 208
-  %186 = load ptr, ptr %rotate1192, align 8
-  %tobool1193.not = icmp eq ptr %186, null
+  %188 = load ptr, ptr %rotate1192, align 8
+  %tobool1193.not = icmp eq ptr %188, null
   br i1 %tobool1193.not, label %if.else1226, label %if.then1194
 
 if.then1194:                                      ; preds = %if.end1190
-  %arrayidx1199 = getelementptr inbounds i8, ptr %186, i64 %idxprom
-  %187 = load i8, ptr %arrayidx1199, align 1
-  %bf.set1225 = and i8 %187, -49
+  %arrayidx1199 = getelementptr inbounds i8, ptr %188, i64 %idxprom
+  %189 = load i8, ptr %arrayidx1199, align 1
+  %bf.set1225 = and i8 %189, -49
   br label %if.end1246
 
 if.else1226:                                      ; preds = %if.end1190
-  %188 = load ptr, ptr %selector505, align 8
-  %tobool1229.not = icmp eq ptr %188, null
+  %190 = load ptr, ptr %selector505, align 8
+  %tobool1229.not = icmp eq ptr %190, null
   %bf.set1244 = mul nuw i8 %rot.1, 69
   %spec.select795 = select i1 %tobool1229.not, i8 0, i8 %bf.set1244
   br label %if.end1246
@@ -2350,10 +2398,10 @@ if.end1246:                                       ; preds = %if.else1226, %if.th
   br i1 %tobool1248.not, label %lor.lhs.false1249, label %if.end1266
 
 lor.lhs.false1249:                                ; preds = %if.end1246
-  br i1 %166, label %land.lhs.true1251, label %if.end1266.thread
+  br i1 %168, label %land.lhs.true1251, label %if.end1266.thread
 
 land.lhs.true1251:                                ; preds = %lor.lhs.false1249
-  %cmp1259 = icmp eq i8 %167, 3
+  %cmp1259 = icmp eq i8 %169, 3
   %or.cond2 = select i1 %cmp942787, i1 true, i1 %cmp1259
   br i1 %or.cond2, label %if.end1266.thread714, label %if.end1266.thread702
 
@@ -2384,7 +2432,7 @@ if.end1266.thread:                                ; preds = %lor.lhs.false1249
   br i1 %tobool1268.not701, label %if.end1286, label %if.then1281
 
 lor.lhs.false1269:                                ; preds = %if.end1266
-  br i1 %166, label %land.lhs.true1271, label %if.end1286
+  br i1 %168, label %land.lhs.true1271, label %if.end1286
 
 land.lhs.true1271:                                ; preds = %lor.lhs.false1269
   br i1 %or.cond786, label %if.then1281, label %if.end1286.thread
@@ -2402,16 +2450,16 @@ if.end1286:                                       ; preds = %if.end1266.thread, 
 if.end1286.thread:                                ; preds = %if.end1266.thread702, %if.end1266.thread714, %land.lhs.true1271
   %and1287706 = and i32 %visible_faces.5, 1
   %tobool1288.not707 = icmp ne i32 %and1287706, 0
-  %cmp1299 = icmp eq i8 %167, 3
-  %189 = select i1 %tobool1288.not707, i1 true, i1 %cmp937785
-  %or.cond793 = select i1 %189, i1 true, i1 %cmp1299
+  %cmp1299 = icmp eq i8 %169, 3
+  %191 = select i1 %tobool1288.not707, i1 true, i1 %cmp937785
+  %or.cond793 = select i1 %191, i1 true, i1 %cmp1299
   br i1 %or.cond793, label %if.end1306, label %if.end1306.thread710
 
 lor.lhs.false1289:                                ; preds = %if.end1286
-  br i1 %166, label %land.lhs.true1291, label %if.end1306.thread
+  br i1 %168, label %land.lhs.true1291, label %if.end1306.thread
 
 land.lhs.true1291:                                ; preds = %lor.lhs.false1289
-  %cmp1299.old = icmp eq i8 %167, 3
+  %cmp1299.old = icmp eq i8 %169, 3
   %or.cond4.old = select i1 %cmp937785, i1 true, i1 %cmp1299.old
   br i1 %or.cond4.old, label %if.end1306, label %if.end1306.thread710
 
@@ -2420,15 +2468,15 @@ if.end1306:                                       ; preds = %if.end1286, %land.l
   %and1307 = and i32 %visible_faces.5, 4
   %tobool1308.not = icmp ne i32 %and1307, 0
   %or.cond5.old = select i1 %cmp933784, i1 true, i1 %cmp942787
-  %or.cond721 = select i1 %166, i1 %or.cond5.old, i1 false
+  %or.cond721 = select i1 %168, i1 %or.cond5.old, i1 false
   %or.cond722 = select i1 %tobool1308.not, i1 true, i1 %or.cond721
   br i1 %or.cond722, label %if.then1321, label %if.end1327
 
 if.end1306.thread710:                             ; preds = %if.end1286.thread, %land.lhs.true1291
   %and1307711 = and i32 %visible_faces.5, 4
   %tobool1308.not712 = icmp ne i32 %and1307711, 0
-  %190 = or i1 %tobool1308.not712, %cmp933784
-  %or.cond720 = select i1 %190, i1 true, i1 %cmp942787
+  %192 = or i1 %tobool1308.not712, %cmp933784
+  %or.cond720 = select i1 %192, i1 true, i1 %cmp942787
   br i1 %or.cond720, label %if.then1321, label %if.end1327
 
 if.end1306.thread:                                ; preds = %lor.lhs.false1289
@@ -2448,56 +2496,56 @@ if.end1327:                                       ; preds = %if.end1306, %if.end
 if.then1331:                                      ; preds = %if.end1327
   %pos.sroa.0.0.extract.trunc.mask693 = and i24 %pos.coerce, 255
   %pos.sroa.28.0.extract.trunc.mask694 = shl nuw nsw i24 %pos.sroa.28.0.extract.shift, 7
-  %191 = and i24 %pos.sroa.28.0.extract.trunc.mask694, 32640
-  %192 = shl nuw nsw i24 %pos.sroa.31.0.extract.shift, 15
-  %narrow695 = or disjoint i24 %192, %pos.sroa.0.0.extract.trunc.mask693
-  %narrow696 = add nuw i24 %narrow695, %191
+  %193 = and i24 %pos.sroa.28.0.extract.trunc.mask694, 32640
+  %194 = shl nuw nsw i24 %pos.sroa.31.0.extract.shift, 15
+  %narrow695 = or disjoint i24 %194, %pos.sroa.0.0.extract.trunc.mask693
+  %narrow696 = add nuw i24 %narrow695, %193
   %add1343 = zext i24 %narrow696 to i32
-  %193 = load i32, ptr %default_mesh, align 8
-  %conv1350 = trunc i32 %193 to i8
-  %194 = load ptr, ptr %selector505, align 8
-  %tobool1353.not = icmp eq ptr %194, null
+  %195 = load i32, ptr %default_mesh, align 8
+  %conv1350 = trunc i32 %195 to i8
+  %196 = load ptr, ptr %selector505, align 8
+  %tobool1353.not = icmp eq ptr %196, null
   br i1 %tobool1353.not, label %if.end1365, label %if.then1354
 
 if.then1354:                                      ; preds = %if.then1331
-  %arrayidx1358 = getelementptr inbounds i8, ptr %194, i64 %idxprom
-  %195 = load i8, ptr %arrayidx1358, align 1
-  %shr1360 = lshr i8 %195, 4
-  %196 = and i8 %195, 15
-  %197 = and i8 %shr1360, 3
-  %198 = mul nuw i8 %197, 69
+  %arrayidx1358 = getelementptr inbounds i8, ptr %196, i64 %idxprom
+  %197 = load i8, ptr %arrayidx1358, align 1
+  %shr1360 = lshr i8 %197, 4
+  %198 = and i8 %197, 15
+  %199 = and i8 %shr1360, 3
+  %200 = mul nuw i8 %199, 69
   br label %if.end1365
 
 if.end1365:                                       ; preds = %if.then1354, %if.then1331
-  %spec.select794 = phi i8 [ %198, %if.then1354 ], [ 0, %if.then1331 ]
-  %mesh1348.0 = phi i8 [ %196, %if.then1354 ], [ %conv1350, %if.then1331 ]
+  %spec.select794 = phi i8 [ %200, %if.then1354 ], [ 0, %if.then1331 ]
+  %mesh1348.0 = phi i8 [ %198, %if.then1354 ], [ %conv1350, %if.then1331 ]
   %block_selector1367 = getelementptr inbounds i8, ptr %mm, i64 144
-  %199 = load ptr, ptr %block_selector1367, align 8
-  %tobool1368.not = icmp eq ptr %199, null
+  %201 = load ptr, ptr %block_selector1367, align 8
+  %tobool1368.not = icmp eq ptr %201, null
   br i1 %tobool1368.not, label %if.end1374, label %if.then1369
 
 if.then1369:                                      ; preds = %if.end1365
   %idxprom1372 = zext i8 %3 to i64
-  %arrayidx1373 = getelementptr inbounds i8, ptr %199, i64 %idxprom1372
-  %200 = load i8, ptr %arrayidx1373, align 1
+  %arrayidx1373 = getelementptr inbounds i8, ptr %201, i64 %idxprom1372
+  %202 = load i8, ptr %arrayidx1373, align 1
   br label %if.end1374
 
 if.end1374:                                       ; preds = %if.then1369, %if.end1365
-  %mesh1348.1 = phi i8 [ %200, %if.then1369 ], [ %mesh1348.0, %if.end1365 ]
+  %mesh1348.1 = phi i8 [ %202, %if.then1369 ], [ %mesh1348.0, %if.end1365 ]
   %output_cur1375 = getelementptr inbounds i8, ptr %mm, i64 608
   %idxprom1376 = zext i8 %mesh1348.1 to i64
   %arrayidx1377 = getelementptr inbounds [2 x [3 x ptr]], ptr %output_cur1375, i64 0, i64 %idxprom1376
-  %201 = load ptr, ptr %arrayidx1377, align 8
+  %203 = load ptr, ptr %arrayidx1377, align 8
   %output_size1379 = getelementptr inbounds i8, ptr %mm, i64 776
   %arrayidx1381 = getelementptr inbounds [2 x [3 x i32]], ptr %output_size1379, i64 0, i64 %idxprom1376
-  %202 = load i32, ptr %arrayidx1381, align 4
-  %mul1383 = shl nsw i32 %202, 2
+  %204 = load i32, ptr %arrayidx1381, align 4
+  %mul1383 = shl nsw i32 %204, 2
   %idx.ext1384 = sext i32 %mul1383 to i64
-  %add.ptr1385 = getelementptr inbounds i8, ptr %201, i64 %idx.ext1384
+  %add.ptr1385 = getelementptr inbounds i8, ptr %203, i64 %idx.ext1384
   %output_end1386 = getelementptr inbounds i8, ptr %mm, i64 656
   %arrayidx1388 = getelementptr inbounds [2 x [3 x ptr]], ptr %output_end1386, i64 0, i64 %idxprom1376
-  %203 = load ptr, ptr %arrayidx1388, align 8
-  %cmp1390 = icmp ugt ptr %add.ptr1385, %203
+  %205 = load ptr, ptr %arrayidx1388, align 8
+  %cmp1390 = icmp ugt ptr %add.ptr1385, %205
   br i1 %cmp1390, label %if.then1392, label %if.end1394
 
 if.then1392:                                      ; preds = %if.end1374
@@ -2507,14 +2555,14 @@ if.then1392:                                      ; preds = %if.end1374
 
 if.end1394:                                       ; preds = %if.end1374
   %rotate1396 = getelementptr inbounds i8, ptr %mm, i64 208
-  %204 = load ptr, ptr %rotate1396, align 8
-  %tobool1397.not = icmp eq ptr %204, null
+  %206 = load ptr, ptr %rotate1396, align 8
+  %tobool1397.not = icmp eq ptr %206, null
   br i1 %tobool1397.not, label %if.end1450, label %if.then1398
 
 if.then1398:                                      ; preds = %if.end1394
-  %arrayidx1403 = getelementptr inbounds i8, ptr %204, i64 %idxprom
-  %205 = load i8, ptr %arrayidx1403, align 1
-  %bf.set1429 = and i8 %205, -49
+  %arrayidx1403 = getelementptr inbounds i8, ptr %206, i64 %idxprom
+  %207 = load i8, ptr %arrayidx1403, align 1
+  %bf.set1429 = and i8 %207, -49
   br label %if.end1450
 
 if.end1450:                                       ; preds = %if.end1394, %if.then1398
@@ -3074,14 +3122,20 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [64 x [3 x i8]], ptr @stbvox_default_palette_compact, i64 0, i64 %indvars.iv.i
+  %0 = load i8, ptr %arrayidx.i, align 1
+  %conv2.i = uitofp i8 %0 to float
+  %div.i = fdiv float %conv2.i, 2.550000e+02
   %arrayidx4.i = getelementptr inbounds [64 x [4 x float]], ptr @stbvox_default_palette, i64 0, i64 %indvars.iv.i
-  %0 = load <2 x i8>, ptr %arrayidx.i, align 1
-  %1 = uitofp <2 x i8> %0 to <2 x float>
-  %2 = fdiv <2 x float> %1, <float 2.550000e+02, float 2.550000e+02>
-  store <2 x float> %2, ptr %arrayidx4.i, align 16
+  store float %div.i, ptr %arrayidx4.i, align 16
+  %arrayidx8.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
+  %1 = load i8, ptr %arrayidx8.i, align 1
+  %conv10.i = uitofp i8 %1 to float
+  %div11.i = fdiv float %conv10.i, 2.550000e+02
+  %arrayidx14.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 4
+  store float %div11.i, ptr %arrayidx14.i, align 4
   %arrayidx17.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
-  %3 = load i8, ptr %arrayidx17.i, align 1
-  %conv19.i = uitofp i8 %3 to float
+  %2 = load i8, ptr %arrayidx17.i, align 1
+  %conv19.i = uitofp i8 %2 to float
   %div20.i = fdiv float %conv19.i, 2.550000e+02
   %arrayidx23.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 8
   store float %div20.i, ptr %arrayidx23.i, align 8
@@ -3255,7 +3309,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @stbvox_get_transform(ptr nocapture noundef readonly %mm, ptr nocapture noundef writeonly %transform) local_unnamed_addr #10 {
 entry:
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %transform, align 4
+  store float 1.000000e+00, ptr %transform, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %transform, i64 4
+  store float 1.000000e+00, ptr %arrayidx3, align 4
   %arrayidx5 = getelementptr inbounds i8, ptr %transform, i64 8
   store float 5.000000e-01, ptr %arrayidx5, align 4
   %pos_x = getelementptr inbounds i8, ptr %mm, i64 592

@@ -34,6 +34,10 @@ entry:
   %block_type_trees = getelementptr inbounds i8, ptr %s, i64 256
   %ringbuffer = getelementptr inbounds i8, ptr %s, i64 136
   store ptr null, ptr %ringbuffer, align 8
+  %ringbuffer_size = getelementptr inbounds i8, ptr %s, i64 100
+  store i32 0, ptr %ringbuffer_size, align 4
+  %ringbuffer_mask = getelementptr inbounds i8, ptr %s, i64 104
+  store i32 0, ptr %ringbuffer_mask, align 8
   %context_map = getelementptr inbounds i8, ptr %s, i64 784
   %dist_context_map = getelementptr inbounds i8, ptr %s, i64 408
   store ptr null, ptr %dist_context_map, align 8
@@ -50,9 +54,17 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context_map, i8 0, i64 16, i1 false)
   store i32 %bf.set27, ptr %large_window, align 4
   %max_distance = getelementptr inbounds i8, ptr %s, i64 96
+  store i32 0, ptr %max_distance, align 8
   %dist_rb = getelementptr inbounds i8, ptr %s, i64 112
-  store <4 x i32> <i32 16, i32 15, i32 11, i32 4>, ptr %dist_rb, align 8
-  store <4 x i32> zeroinitializer, ptr %max_distance, align 8
+  store i32 16, ptr %dist_rb, align 8
+  %arrayidx32 = getelementptr inbounds i8, ptr %s, i64 116
+  store i32 15, ptr %arrayidx32, align 4
+  %arrayidx34 = getelementptr inbounds i8, ptr %s, i64 120
+  store i32 11, ptr %arrayidx34, align 8
+  %arrayidx36 = getelementptr inbounds i8, ptr %s, i64 124
+  store i32 4, ptr %arrayidx36, align 4
+  %dist_rb_idx = getelementptr inbounds i8, ptr %s, i64 108
+  store i32 0, ptr %dist_rb_idx, align 4
   %mtf_upper_bound = getelementptr inbounds i8, ptr %s, i64 440
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %block_type_trees, i8 0, i64 16, i1 false)
   store i64 63, ptr %mtf_upper_bound, align 8

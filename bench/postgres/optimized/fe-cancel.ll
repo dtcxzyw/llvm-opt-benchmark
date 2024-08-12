@@ -23,87 +23,91 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef ptr @PQgetCancel(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %44, label %2
+  br i1 %.not, label %47, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 472
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -1
-  br i1 %5, label %44, label %6
+  br i1 %5, label %47, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noalias dereferenceable_or_null(168) ptr @malloc(i64 noundef 168) #14
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %44, label %9
+  br i1 %8, label %47, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 616
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(136) %10, i64 136, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 820
-  %12 = getelementptr inbounds i8, ptr %7, i64 136
-  %13 = load <2 x i32>, ptr %11, align 4
-  store <2 x i32> %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 144
-  %15 = getelementptr inbounds i8, ptr %7, i64 148
-  %16 = getelementptr inbounds i8, ptr %7, i64 152
-  %17 = getelementptr inbounds i8, ptr %7, i64 156
-  %18 = getelementptr inbounds i8, ptr %7, i64 160
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, i8 -1, i64 20, i1 false)
-  %20 = load ptr, ptr %19, align 8
-  %.not44 = icmp eq ptr %20, null
-  br i1 %.not44, label %23, label %21
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %7, i64 136
+  store i32 %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 824
+  %15 = load i32, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %7, i64 140
+  store i32 %15, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %7, i64 144
+  %18 = getelementptr inbounds i8, ptr %7, i64 148
+  %19 = getelementptr inbounds i8, ptr %7, i64 152
+  %20 = getelementptr inbounds i8, ptr %7, i64 156
+  %21 = getelementptr inbounds i8, ptr %7, i64 160
+  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %17, i8 -1, i64 20, i1 false)
+  %23 = load ptr, ptr %22, align 8
+  %.not44 = icmp eq ptr %23, null
+  br i1 %.not44, label %26, label %24
 
-21:                                               ; preds = %9
-  %22 = tail call zeroext i1 @pqParseIntParam(ptr noundef nonnull %20, ptr noundef nonnull %14, ptr noundef nonnull %0, ptr noundef nonnull @.str) #15
-  br i1 %22, label %23, label %43
+24:                                               ; preds = %9
+  %25 = tail call zeroext i1 @pqParseIntParam(ptr noundef nonnull %23, ptr noundef nonnull %17, ptr noundef nonnull %0, ptr noundef nonnull @.str) #15
+  br i1 %25, label %26, label %46
 
-23:                                               ; preds = %21, %9
-  %24 = getelementptr inbounds i8, ptr %0, i64 120
-  %25 = load ptr, ptr %24, align 8
-  %.not45 = icmp eq ptr %25, null
-  br i1 %.not45, label %28, label %26
+26:                                               ; preds = %24, %9
+  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %28 = load ptr, ptr %27, align 8
+  %.not45 = icmp eq ptr %28, null
+  br i1 %.not45, label %31, label %29
 
-26:                                               ; preds = %23
-  %27 = tail call zeroext i1 @pqParseIntParam(ptr noundef nonnull %25, ptr noundef nonnull %15, ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #15
-  br i1 %27, label %28, label %43
+29:                                               ; preds = %26
+  %30 = tail call zeroext i1 @pqParseIntParam(ptr noundef nonnull %28, ptr noundef nonnull %18, ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #15
+  br i1 %30, label %31, label %46
 
-28:                                               ; preds = %26, %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
-  %30 = load ptr, ptr %29, align 8
-  %.not46 = icmp eq ptr %30, null
-  br i1 %.not46, label %33, label %31
+31:                                               ; preds = %29, %26
+  %32 = getelementptr inbounds i8, ptr %0, i64 128
+  %33 = load ptr, ptr %32, align 8
+  %.not46 = icmp eq ptr %33, null
+  br i1 %.not46, label %36, label %34
 
-31:                                               ; preds = %28
-  %32 = tail call zeroext i1 @pqParseIntParam(ptr noundef nonnull %30, ptr noundef nonnull %16, ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #15
-  br i1 %32, label %33, label %43
+34:                                               ; preds = %31
+  %35 = tail call zeroext i1 @pqParseIntParam(ptr noundef nonnull %33, ptr noundef nonnull %19, ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #15
+  br i1 %35, label %36, label %46
 
-33:                                               ; preds = %31, %28
-  %34 = getelementptr inbounds i8, ptr %0, i64 136
-  %35 = load ptr, ptr %34, align 8
-  %.not47 = icmp eq ptr %35, null
-  br i1 %.not47, label %38, label %36
+36:                                               ; preds = %34, %31
+  %37 = getelementptr inbounds i8, ptr %0, i64 136
+  %38 = load ptr, ptr %37, align 8
+  %.not47 = icmp eq ptr %38, null
+  br i1 %.not47, label %41, label %39
 
-36:                                               ; preds = %33
-  %37 = tail call zeroext i1 @pqParseIntParam(ptr noundef nonnull %35, ptr noundef nonnull %17, ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
-  br i1 %37, label %38, label %43
+39:                                               ; preds = %36
+  %40 = tail call zeroext i1 @pqParseIntParam(ptr noundef nonnull %38, ptr noundef nonnull %20, ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
+  br i1 %40, label %41, label %46
 
-38:                                               ; preds = %36, %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 144
-  %40 = load ptr, ptr %39, align 8
-  %.not48 = icmp eq ptr %40, null
-  br i1 %.not48, label %44, label %41
+41:                                               ; preds = %39, %36
+  %42 = getelementptr inbounds i8, ptr %0, i64 144
+  %43 = load ptr, ptr %42, align 8
+  %.not48 = icmp eq ptr %43, null
+  br i1 %.not48, label %47, label %44
 
-41:                                               ; preds = %38
-  %42 = tail call zeroext i1 @pqParseIntParam(ptr noundef nonnull %40, ptr noundef nonnull %18, ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #15
-  br i1 %42, label %44, label %43
+44:                                               ; preds = %41
+  %45 = tail call zeroext i1 @pqParseIntParam(ptr noundef nonnull %43, ptr noundef nonnull %21, ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #15
+  br i1 %45, label %47, label %46
 
-43:                                               ; preds = %41, %36, %31, %26, %21
+46:                                               ; preds = %44, %39, %34, %29, %24
   tail call void @free(ptr noundef nonnull %7) #15
-  br label %44
+  br label %47
 
-44:                                               ; preds = %38, %41, %6, %2, %1, %43
-  %.0 = phi ptr [ null, %43 ], [ null, %1 ], [ null, %2 ], [ null, %6 ], [ %7, %41 ], [ %7, %38 ]
+47:                                               ; preds = %41, %44, %6, %2, %1, %46
+  %.0 = phi ptr [ null, %46 ], [ null, %1 ], [ null, %2 ], [ null, %6 ], [ %7, %44 ], [ %7, %41 ]
   ret ptr %.0
 }
 

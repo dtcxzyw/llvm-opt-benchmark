@@ -991,7 +991,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %42, label %3
+  br i1 %.not, label %46, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1012,57 +1012,65 @@ define linkonce_odr void @_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_E
   %18 = icmp ule i64 %15, %17
   tail call void @llvm.assume(i1 %18)
   %.not28 = icmp ult i64 %15, %1
-  br i1 %.not28, label %24, label %.lr.ph.i.i.i
+  br i1 %.not28, label %26, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
-  %.08.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i ], [ %5, %3 ]
-  %.057.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i ], [ %1, %3 ]
+  %.08.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %5, %3 ]
+  %.057.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i.i, i8 0, i64 32, i1 false)
-  store <2 x float> <float 0x7FF0000000000000, float 0xFFF0000000000000>, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 40
-  %21 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %21, align 8
-  %22 = add i64 %.057.i.i.i, -1
-  %23 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 80
-  %.not.i.i.i = icmp eq i64 %22, 0
+  store float 0x7FF0000000000000, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 36
+  store float 0xFFF0000000000000, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 40
+  %22 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
+  store double 0x7FF8000000000000, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 72
+  store double 0x7FF8000000000000, ptr %23, align 8
+  %24 = add i64 %.057.i.i.i, -1
+  %25 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 80
+  %.not.i.i.i = icmp eq i64 %24, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i
-  store ptr %23, ptr %4, align 8
-  br label %42
+  store ptr %25, ptr %4, align 8
+  br label %46
 
-24:                                               ; preds = %3
-  %25 = icmp ult i64 %17, %1
-  br i1 %25, label %26, label %_ZNKSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE12_M_check_lenEmPKc.exit
+26:                                               ; preds = %3
+  %27 = icmp ult i64 %17, %1
+  br i1 %27, label %28, label %_ZNKSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE12_M_check_lenEmPKc.exit
 
-26:                                               ; preds = %24
+28:                                               ; preds = %26
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #24
   unreachable
 
-_ZNKSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %24
+_ZNKSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %26
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %10, i64 %1)
-  %27 = add nuw nsw i64 %.sroa.speculated.i, %10
-  %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 115292150460684697)
-  %29 = mul nuw nsw i64 %28, 80
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #21
-  %31 = getelementptr inbounds i8, ptr %30, i64 %9
+  %29 = add nuw nsw i64 %.sroa.speculated.i, %10
+  %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 115292150460684697)
+  %31 = mul nuw nsw i64 %30, 80
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #21
+  %33 = getelementptr inbounds i8, ptr %32, i64 %9
   br label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
-  %.08.i.i.i31 = phi ptr [ %36, %.lr.ph.i.i.i30 ], [ %31, %_ZNKSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %.057.i.i.i32 = phi i64 [ %35, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %32 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 32
+  %.08.i.i.i31 = phi ptr [ %40, %.lr.ph.i.i.i30 ], [ %33, %_ZNKSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %.057.i.i.i32 = phi i64 [ %39, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %34 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i.i31, i8 0, i64 32, i1 false)
-  store <2 x float> <float 0x7FF0000000000000, float 0xFFF0000000000000>, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 40
-  %34 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %34, align 8
-  %35 = add i64 %.057.i.i.i32, -1
-  %36 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 80
-  %.not.i.i.i33 = icmp eq i64 %35, 0
+  store float 0x7FF0000000000000, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 36
+  store float 0xFFF0000000000000, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 40
+  %37 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
+  store double 0x7FF8000000000000, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 72
+  store double 0x7FF8000000000000, ptr %38, align 8
+  %39 = add i64 %.057.i.i.i32, -1
+  %40 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 80
+  %.not.i.i.i33 = icmp eq i64 %39, 0
   br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !14
 
 _ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i30
@@ -1070,31 +1078,31 @@ _ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i37
 
 .lr.ph.i.i.i37:                                   ; preds = %_ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T0_RSaIT1_E.exit35, %.lr.ph.i.i.i37
-  %.012.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i37 ], [ %30, %_ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T0_RSaIT1_E.exit35 ]
-  %.0911.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i37 ], [ %6, %_ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T0_RSaIT1_E.exit35 ]
+  %.012.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i37 ], [ %32, %_ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T0_RSaIT1_E.exit35 ]
+  %.0911.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i37 ], [ %6, %_ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T0_RSaIT1_E.exit35 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.0911.i.i.i, i64 80, i1 false), !alias.scope !15
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 80
-  %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 80
-  %.not.i.i.i38 = icmp eq ptr %37, %5
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 80
+  %42 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 80
+  %.not.i.i.i38 = icmp eq ptr %41, %5
   br i1 %.not.i.i.i38, label %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i37, !llvm.loop !19
 
 _ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i37, %_ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T0_RSaIT1_E.exit35
   %.not.i40 = icmp eq ptr %6, null
-  br i1 %.not.i40, label %_ZNSt12_Vector_baseIN5faiss11MatrixStats11PerDimStatsESaIS2_EE13_M_deallocateEPS2_m.exit41, label %39
+  br i1 %.not.i40, label %_ZNSt12_Vector_baseIN5faiss11MatrixStats11PerDimStatsESaIS2_EE13_M_deallocateEPS2_m.exit41, label %43
 
-39:                                               ; preds = %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
+43:                                               ; preds = %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #22
   br label %_ZNSt12_Vector_baseIN5faiss11MatrixStats11PerDimStatsESaIS2_EE13_M_deallocateEPS2_m.exit41
 
-_ZNSt12_Vector_baseIN5faiss11MatrixStats11PerDimStatsESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %39
-  store ptr %30, ptr %0, align 8
-  %40 = getelementptr inbounds %"struct.faiss::MatrixStats::PerDimStats", ptr %31, i64 %1
-  store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds %"struct.faiss::MatrixStats::PerDimStats", ptr %30, i64 %28
-  store ptr %41, ptr %11, align 8
-  br label %42
+_ZNSt12_Vector_baseIN5faiss11MatrixStats11PerDimStatsESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %43
+  store ptr %32, ptr %0, align 8
+  %44 = getelementptr inbounds %"struct.faiss::MatrixStats::PerDimStats", ptr %33, i64 %1
+  store ptr %44, ptr %4, align 8
+  %45 = getelementptr inbounds %"struct.faiss::MatrixStats::PerDimStats", ptr %32, i64 %30
+  store ptr %45, ptr %11, align 8
+  br label %46
 
-42:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN5faiss11MatrixStats11PerDimStatsESaIS2_EE13_M_deallocateEPS2_m.exit41, %2
+46:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN5faiss11MatrixStats11PerDimStatsEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN5faiss11MatrixStats11PerDimStatsESaIS2_EE13_M_deallocateEPS2_m.exit41, %2
   ret void
 }
 

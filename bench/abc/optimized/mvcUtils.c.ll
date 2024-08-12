@@ -1349,38 +1349,41 @@ define void @Mvc_CoverInverse(ptr nocapture noundef readonly %0) local_unnamed_a
 
 13:                                               ; preds = %.lr.ph23
   %14 = getelementptr inbounds i8, ptr %.01722, i64 16
-  %15 = lshr i32 %4, 24
-  %16 = and i32 %15, 63
-  %17 = lshr i32 -1, %16
-  %18 = load <2 x i32>, ptr %14, align 8
-  %19 = insertelement <2 x i32> <i32 -1, i32 poison>, i32 %17, i64 1
-  %20 = xor <2 x i32> %18, %19
-  store <2 x i32> %20, ptr %14, align 8
+  %15 = load i32, ptr %14, align 8
+  %16 = xor i32 %15, -1
+  store i32 %16, ptr %14, align 8
+  %17 = lshr i32 %4, 24
+  %18 = and i32 %17, 63
+  %19 = lshr i32 -1, %18
+  %20 = getelementptr inbounds i8, ptr %.01722, i64 20
+  %21 = load i32, ptr %20, align 4
+  %22 = xor i32 %21, %19
+  store i32 %22, ptr %20, align 4
   br label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph23
-  %21 = lshr i32 %4, 24
-  %22 = and i32 %21, 63
-  %23 = lshr i32 -1, %22
-  %24 = getelementptr inbounds i8, ptr %.01722, i64 16
-  %25 = zext nneg i32 %5 to i64
-  %26 = getelementptr inbounds [1 x i32], ptr %24, i64 0, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = xor i32 %27, %23
-  store i32 %28, ptr %26, align 4
-  %29 = and i32 %4, 16777215
-  %30 = zext nneg i32 %29 to i64
+  %23 = lshr i32 %4, 24
+  %24 = and i32 %23, 63
+  %25 = lshr i32 -1, %24
+  %26 = getelementptr inbounds i8, ptr %.01722, i64 16
+  %27 = zext nneg i32 %5 to i64
+  %28 = getelementptr inbounds [1 x i32], ptr %26, i64 0, i64 %27
+  %29 = load i32, ptr %28, align 4
+  %30 = xor i32 %29, %25
+  store i32 %30, ptr %28, align 4
+  %31 = and i32 %4, 16777215
+  %32 = zext nneg i32 %31 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %30, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %indvars.iv = phi i64 [ %32, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %31 = getelementptr inbounds [1 x i32], ptr %24, i64 0, i64 %indvars.iv.next
-  %32 = load i32, ptr %31, align 4
-  %33 = xor i32 %32, -1
-  store i32 %33, ptr %31, align 4
-  %34 = icmp ugt i64 %indvars.iv, 1
-  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  %33 = getelementptr inbounds [1 x i32], ptr %26, i64 0, i64 %indvars.iv.next
+  %34 = load i32, ptr %33, align 4
+  %35 = xor i32 %34, -1
+  store i32 %35, ptr %33, align 4
+  %36 = icmp ugt i64 %indvars.iv, 1
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %13
   %.017 = load ptr, ptr %.01722, align 8

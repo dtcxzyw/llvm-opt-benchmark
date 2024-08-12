@@ -127,7 +127,7 @@ define internal fastcc void @gavl_tree_remove_nodes(ptr nocapture noundef %0, i6
   br label %11
 
 11:                                               ; preds = %.lr.ph, %gavl_tree_remove_node_internal.exit
-  %12 = phi ptr [ %5, %.lr.ph ], [ %107, %gavl_tree_remove_node_internal.exit ]
+  %12 = phi ptr [ %5, %.lr.ph ], [ %108, %gavl_tree_remove_node_internal.exit ]
   store i32 0, ptr %6, align 8
   br label %13
 
@@ -223,11 +223,11 @@ gavl_tree_search_internal.exit:                   ; preds = %MPLI_gavl_subset_cm
 48:                                               ; preds = %45
   store ptr %47, ptr %0, align 8
   store ptr null, ptr %47, align 8
-  br label %99
+  br label %100
 
 49:                                               ; preds = %45
   store ptr null, ptr %0, align 8
-  br label %99
+  br label %100
 
 50:                                               ; preds = %42
   %51 = getelementptr inbounds i8, ptr %43, i64 8
@@ -252,7 +252,7 @@ gavl_tree_search_internal.exit:                   ; preds = %MPLI_gavl_subset_cm
   %61 = sext i32 %59 to i64
   %62 = getelementptr inbounds [64 x ptr], ptr %8, i64 0, i64 %61
   store ptr %43, ptr %62, align 8
-  br label %99
+  br label %100
 
 63:                                               ; preds = %37
   %64 = load i32, ptr %6, align 8
@@ -313,44 +313,46 @@ gavl_tree_search_internal.exit:                   ; preds = %MPLI_gavl_subset_cm
 88:                                               ; preds = %87, %83
   %89 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %.0.i, i64 40
-  %92 = getelementptr inbounds i8, ptr %.061.lcssa.i, i64 32
+  %91 = load i64, ptr %38, align 8
+  %92 = getelementptr inbounds i8, ptr %.0.i, i64 40
   %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %.061.lcssa.i, i64 40
-  %95 = getelementptr inbounds i8, ptr %.061.lcssa.i, i64 48
-  %96 = load <2 x i64>, ptr %38, align 8
-  store i64 %93, ptr %38, align 8
-  %97 = load i64, ptr %94, align 8
-  store i64 %97, ptr %91, align 8
-  %98 = load ptr, ptr %95, align 8
-  store ptr %98, ptr %89, align 8
-  store <2 x i64> %96, ptr %92, align 8
-  store ptr %90, ptr %95, align 8
-  br label %99
+  %94 = getelementptr inbounds i8, ptr %.061.lcssa.i, i64 32
+  %95 = load i64, ptr %94, align 8
+  store i64 %95, ptr %38, align 8
+  %96 = getelementptr inbounds i8, ptr %.061.lcssa.i, i64 40
+  %97 = load i64, ptr %96, align 8
+  store i64 %97, ptr %92, align 8
+  %98 = getelementptr inbounds i8, ptr %.061.lcssa.i, i64 48
+  %99 = load ptr, ptr %98, align 8
+  store ptr %99, ptr %89, align 8
+  store i64 %91, ptr %94, align 8
+  store i64 %93, ptr %96, align 8
+  store ptr %90, ptr %98, align 8
+  br label %100
 
-99:                                               ; preds = %88, %58, %49, %48
+100:                                              ; preds = %88, %58, %49, %48
   %.0.i9 = phi ptr [ %.0.i, %48 ], [ %.0.i, %49 ], [ %.0.i, %58 ], [ %.061.lcssa.i, %88 ]
-  %100 = load ptr, ptr %10, align 8
-  store ptr %100, ptr %.0.i9, align 8
+  %101 = load ptr, ptr %10, align 8
+  store ptr %101, ptr %.0.i9, align 8
   store ptr %.0.i9, ptr %10, align 8
-  %101 = load i32, ptr %6, align 8
-  %.not74.i = icmp eq i32 %101, 0
-  br i1 %.not74.i, label %gavl_tree_remove_node_internal.exit, label %102
+  %102 = load i32, ptr %6, align 8
+  %.not74.i = icmp eq i32 %102, 0
+  br i1 %.not74.i, label %gavl_tree_remove_node_internal.exit, label %103
 
-102:                                              ; preds = %99
-  %103 = add nsw i32 %101, -1
-  store i32 %103, ptr %6, align 8
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds [64 x ptr], ptr %8, i64 0, i64 %104
-  %106 = load ptr, ptr %105, align 8
+103:                                              ; preds = %100
+  %104 = add nsw i32 %102, -1
+  store i32 %104, ptr %6, align 8
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds [64 x ptr], ptr %8, i64 0, i64 %105
+  %107 = load ptr, ptr %106, align 8
   br label %gavl_tree_remove_node_internal.exit
 
-gavl_tree_remove_node_internal.exit:              ; preds = %99, %102
-  %.sink.i = phi ptr [ %106, %102 ], [ null, %99 ]
+gavl_tree_remove_node_internal.exit:              ; preds = %100, %103
+  %.sink.i = phi ptr [ %107, %103 ], [ null, %100 ]
   store ptr %.sink.i, ptr %9, align 8
   tail call fastcc void @gavl_tree_rebalance(ptr noundef nonnull %0)
-  %107 = load ptr, ptr %0, align 8
-  %.not = icmp eq ptr %107, null
+  %108 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %108, null
   br i1 %.not, label %.loopexit, label %11, !llvm.loop !6
 
 .loopexit:                                        ; preds = %gavl_tree_remove_node_internal.exit, %4, %gavl_tree_search_internal.exit

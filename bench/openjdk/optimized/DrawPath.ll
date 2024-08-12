@@ -23,14 +23,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_loops_DrawPath_DrawPath(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
-  %8 = alloca %struct.SurfaceDataRasInfo, align 16
+  %8 = alloca %struct.SurfaceDataRasInfo, align 8
   %9 = alloca %struct._CompositeInfo, align 4
   %10 = alloca %struct.DrawHandlerData, align 8
   %11 = alloca %struct._DrawHandler, align 8
   %12 = tail call i32 @GrPrim_Sg2dGetPixel(ptr noundef %0, ptr noundef %2) #4
   %13 = tail call ptr @GetNativePrim(ptr noundef %0, ptr noundef %1) #4
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %134, label %15
+  br i1 %14, label %140, label %15
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %13, i64 16
@@ -52,7 +52,7 @@ define void @Java_sun_java2d_loops_DrawPath_DrawPath(ptr noundef %0, ptr noundef
   %26 = call i32 %24(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %25) #4
   %27 = call ptr @SurfaceData_GetOps(ptr noundef nonnull %0, ptr noundef %3) #4
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %134, label %29
+  br i1 %28, label %140, label %29
 
 29:                                               ; preds = %21
   %30 = load ptr, ptr %0, align 8
@@ -70,7 +70,7 @@ define void @Java_sun_java2d_loops_DrawPath_DrawPath(ptr noundef %0, ptr noundef
 
 41:                                               ; preds = %29
   call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str) #4
-  br label %134
+  br label %140
 
 42:                                               ; preds = %29
   %43 = load ptr, ptr %0, align 8
@@ -87,7 +87,7 @@ define void @Java_sun_java2d_loops_DrawPath_DrawPath(ptr noundef %0, ptr noundef
 
 53:                                               ; preds = %42
   call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #4
-  br label %134
+  br label %140
 
 54:                                               ; preds = %42
   call void @GrPrim_Sg2dGetClip(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %8) #4
@@ -97,7 +97,7 @@ define void @Java_sun_java2d_loops_DrawPath_DrawPath(ptr noundef %0, ptr noundef
   %58 = or i32 %57, 32
   %59 = call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %8, i32 noundef %58) #4
   %60 = icmp eq i32 %59, -1
-  br i1 %60, label %134, label %61
+  br i1 %60, label %140, label %61
 
 61:                                               ; preds = %54
   %62 = load ptr, ptr %0, align 8
@@ -115,11 +115,11 @@ define void @Java_sun_java2d_loops_DrawPath_DrawPath(ptr noundef %0, ptr noundef
   %72 = getelementptr inbounds i8, ptr %27, i64 24
   %73 = load ptr, ptr %72, align 8
   %.not109 = icmp eq ptr %73, null
-  br i1 %.not109, label %134, label %74
+  br i1 %.not109, label %140, label %74
 
 74:                                               ; preds = %71
   call void %73(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %8) #4
-  br label %134
+  br label %140
 
 75:                                               ; preds = %61
   %76 = icmp eq i32 %59, 1
@@ -129,7 +129,7 @@ define void @Java_sun_java2d_loops_DrawPath_DrawPath(ptr noundef %0, ptr noundef
   call void @GrPrim_RefineBounds(ptr noundef nonnull %8, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %69, i32 noundef %65) #4
   %78 = getelementptr inbounds i8, ptr %8, i64 8
   %79 = load i32, ptr %78, align 8
-  %80 = load i32, ptr %8, align 16
+  %80 = load i32, ptr %8, align 8
   %81 = icmp sle i32 %79, %80
   %82 = getelementptr inbounds i8, ptr %8, i64 12
   %83 = load i32, ptr %82, align 4
@@ -137,23 +137,23 @@ define void @Java_sun_java2d_loops_DrawPath_DrawPath(ptr noundef %0, ptr noundef
   %85 = load i32, ptr %84, align 4
   %86 = icmp sle i32 %83, %85
   %.not102 = select i1 %81, i1 true, i1 %86
-  br i1 %.not102, label %125, label %.critedge
+  br i1 %.not102, label %131, label %.critedge
 
 .critedge:                                        ; preds = %75, %77
   %87 = getelementptr inbounds i8, ptr %27, i64 8
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %8) #4
   %89 = getelementptr inbounds i8, ptr %8, i64 16
-  %90 = load ptr, ptr %89, align 16
+  %90 = load ptr, ptr %89, align 8
   %.not103 = icmp eq ptr %90, null
-  br i1 %.not103, label %121, label %91
+  br i1 %.not103, label %127, label %91
 
 91:                                               ; preds = %.critedge
   %92 = getelementptr inbounds i8, ptr %8, i64 8
   %93 = load i32, ptr %92, align 8
-  %94 = load i32, ptr %8, align 16
+  %94 = load i32, ptr %8, align 8
   %95 = icmp sgt i32 %93, %94
-  br i1 %95, label %96, label %121
+  br i1 %95, label %96, label %127
 
 96:                                               ; preds = %91
   %97 = getelementptr inbounds i8, ptr %8, i64 12
@@ -161,7 +161,7 @@ define void @Java_sun_java2d_loops_DrawPath_DrawPath(ptr noundef %0, ptr noundef
   %99 = getelementptr inbounds i8, ptr %8, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = icmp sgt i32 %98, %100
-  br i1 %101, label %102, label %121
+  br i1 %101, label %102, label %127
 
 102:                                              ; preds = %96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) @__const.Java_sun_java2d_loops_DrawPath_DrawPath.drawHandler, i64 56, i1 false)
@@ -176,62 +176,71 @@ define void @Java_sun_java2d_loops_DrawPath_DrawPath(ptr noundef %0, ptr noundef
   store ptr %13, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %10, i64 24
   store ptr %9, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %11, i64 24
-  %111 = load <4 x i32>, ptr %8, align 16
-  store <4 x i32> %111, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %11, i64 56
-  store ptr %10, ptr %112, align 8
+  %110 = load i32, ptr %8, align 8
+  %111 = getelementptr inbounds i8, ptr %11, i64 24
+  store i32 %110, ptr %111, align 8
+  %112 = load i32, ptr %99, align 4
+  %113 = getelementptr inbounds i8, ptr %11, i64 28
+  store i32 %112, ptr %113, align 4
+  %114 = load i32, ptr %92, align 8
+  %115 = getelementptr inbounds i8, ptr %11, i64 32
+  store i32 %114, ptr %115, align 8
+  %116 = load i32, ptr %97, align 4
+  %117 = getelementptr inbounds i8, ptr %11, i64 36
+  store i32 %116, ptr %117, align 4
+  %118 = getelementptr inbounds i8, ptr %11, i64 56
+  store ptr %10, ptr %118, align 8
   %.not104 = icmp eq ptr %106, null
-  br i1 %.not104, label %121, label %113
+  br i1 %.not104, label %127, label %119
 
-113:                                              ; preds = %102
-  %114 = load i32, ptr @sunHints_INTVAL_STROKE_PURE, align 4
-  %115 = icmp ne i32 %26, %114
-  %116 = zext i1 %115 to i32
-  %117 = call zeroext i8 @doDrawPath(ptr noundef nonnull %11, ptr noundef null, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %69, i32 noundef %65, ptr noundef nonnull %106, i32 noundef %47, i32 noundef %116) #4
-  %.not105 = icmp eq i8 %117, 0
+119:                                              ; preds = %102
+  %120 = load i32, ptr @sunHints_INTVAL_STROKE_PURE, align 4
+  %121 = icmp ne i32 %26, %120
+  %122 = zext i1 %121 to i32
+  %123 = call zeroext i8 @doDrawPath(ptr noundef nonnull %11, ptr noundef null, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %69, i32 noundef %65, ptr noundef nonnull %106, i32 noundef %47, i32 noundef %122) #4
+  %.not105 = icmp eq i8 %123, 0
   %spec.select = zext i1 %.not105 to i8
-  %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 1784
-  %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef nonnull %0, ptr noundef %34, ptr noundef nonnull %106, i32 noundef 2) #4
-  br label %121
+  %124 = load ptr, ptr %0, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 1784
+  %126 = load ptr, ptr %125, align 8
+  call void %126(ptr noundef nonnull %0, ptr noundef %34, ptr noundef nonnull %106, i32 noundef 2) #4
+  br label %127
 
-121:                                              ; preds = %.critedge, %102, %113, %96, %91
-  %.2 = phi i8 [ %spec.select, %113 ], [ 0, %102 ], [ 0, %96 ], [ 0, %91 ], [ 0, %.critedge ]
-  %122 = getelementptr inbounds i8, ptr %27, i64 16
-  %123 = load ptr, ptr %122, align 8
-  %.not106 = icmp eq ptr %123, null
-  br i1 %.not106, label %125, label %124
+127:                                              ; preds = %.critedge, %102, %119, %96, %91
+  %.2 = phi i8 [ %spec.select, %119 ], [ 0, %102 ], [ 0, %96 ], [ 0, %91 ], [ 0, %.critedge ]
+  %128 = getelementptr inbounds i8, ptr %27, i64 16
+  %129 = load ptr, ptr %128, align 8
+  %.not106 = icmp eq ptr %129, null
+  br i1 %.not106, label %131, label %130
 
-124:                                              ; preds = %121
-  call void %123(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %8) #4
-  br label %125
+130:                                              ; preds = %127
+  call void %129(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %8) #4
+  br label %131
 
-125:                                              ; preds = %124, %121, %77
-  %.088 = phi i8 [ %.2, %124 ], [ %.2, %121 ], [ 0, %77 ]
-  %126 = load ptr, ptr %0, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 1784
-  %128 = load ptr, ptr %127, align 8
-  call void %128(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef nonnull %69, i32 noundef 2) #4
+131:                                              ; preds = %130, %127, %77
+  %.088 = phi i8 [ %.2, %130 ], [ %.2, %127 ], [ 0, %77 ]
+  %132 = load ptr, ptr %0, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 1784
+  %134 = load ptr, ptr %133, align 8
+  call void %134(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef nonnull %69, i32 noundef 2) #4
   %.not107 = icmp eq i8 %.088, 0
-  br i1 %.not107, label %130, label %129
+  br i1 %.not107, label %136, label %135
 
-129:                                              ; preds = %125
+135:                                              ; preds = %131
   call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #4
-  br label %130
+  br label %136
 
-130:                                              ; preds = %125, %129
-  %131 = getelementptr inbounds i8, ptr %27, i64 24
-  %132 = load ptr, ptr %131, align 8
-  %.not108 = icmp eq ptr %132, null
-  br i1 %.not108, label %134, label %133
+136:                                              ; preds = %131, %135
+  %137 = getelementptr inbounds i8, ptr %27, i64 24
+  %138 = load ptr, ptr %137, align 8
+  %.not108 = icmp eq ptr %138, null
+  br i1 %.not108, label %140, label %139
 
-133:                                              ; preds = %130
-  call void %132(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %8) #4
-  br label %134
+139:                                              ; preds = %136
+  call void %138(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %8) #4
+  br label %140
 
-134:                                              ; preds = %130, %133, %74, %71, %54, %21, %7, %53, %41
+140:                                              ; preds = %136, %139, %74, %71, %54, %21, %7, %53, %41
   ret void
 }
 

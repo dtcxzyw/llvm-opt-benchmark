@@ -425,8 +425,14 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store <4 x i32> <i32 -1509783427, i32 83926850, i32 -1509791619, i32 -1509717891>, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, align 16
-  store <4 x i32> <i32 27453, i32 27449, i32 35817, i32 134237160>, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, i64 16), align 16
+  store i32 -1509783427, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, align 16
+  store i32 83926850, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, i64 4), align 4
+  store i32 -1509791619, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, i64 8), align 8
+  store i32 -1509717891, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, i64 12), align 4
+  store i32 27453, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, i64 16), align 16
+  store i32 27449, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, i64 20), align 4
+  store i32 35817, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, i64 24), align 8
+  store i32 134237160, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, i64 28), align 4
   store i32 -1509717635, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, i64 32), align 16
   store i32 268463081, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, i64 36), align 4
   store i32 537165902, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn, i64 40), align 8
@@ -2787,7 +2793,10 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store <4 x i32> <i32 671105528, i32 33341, i32 36073, i32 134237416>, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE12pltgot_thunk, align 16
+  store i32 671105528, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE12pltgot_thunk, align 16
+  store i32 33341, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE12pltgot_thunk, i64 4), align 4
+  store i32 36073, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE12pltgot_thunk, i64 8), align 8
+  store i32 134237416, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE12pltgot_thunk, i64 12), align 4
   store i32 36073, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE12pltgot_thunk, i64 16), align 16
   store i32 -1509717635, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE12pltgot_thunk, i64 20), align 4
   store i32 537165902, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE12pltgot_thunk, i64 24), align 8
@@ -2805,7 +2814,10 @@ init.check3:                                      ; preds = %init.end
   br i1 %tobool4.not, label %init.end6, label %init5
 
 init5:                                            ; preds = %init.check3
-  store <4 x i32> <i32 671105528, i32 33341, i32 35897, i32 134237416>, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, align 16
+  store i32 671105528, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, align 16
+  store i32 33341, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 4), align 4
+  store i32 35897, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 8), align 8
+  store i32 134237416, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 12), align 4
   store i32 36073, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 16), align 16
   store i32 -1509717635, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 20), align 4
   store i32 537165902, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE9plt_thunk, i64 24), align 8
@@ -2823,7 +2835,10 @@ init.check8:                                      ; preds = %init.end6
   br i1 %tobool9.not, label %init.end11, label %init10
 
 init10:                                           ; preds = %init.check8
-  store <4 x i32> <i32 33341, i32 35897, i32 -1509717635, i32 537165902>, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, align 16
+  store i32 33341, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, align 16
+  store i32 35897, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 4), align 4
+  store i32 -1509717635, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 8), align 8
+  store i32 537165902, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 12), align 4
   store i32 96, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 16), align 16
   store i32 96, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 20), align 4
   store i32 96, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_7PPC64V1EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 24), align 8
@@ -2991,12 +3006,17 @@ entry:
   %my_cancellation_requested.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i.i.i, align 8
   %my_version.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 12
+  store i8 1, ptr %my_version.i.i.i.i, align 4
+  %my_may_have_children.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 14
+  store i8 0, ptr %my_may_have_children.i.i.i.i, align 2
   %my_state.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 15
+  store i8 0, ptr %my_state.i.i.i.i, align 1
   %my_node.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 32
   %my_name.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i.i.i, i8 0, i64 24, i1 false)
   store i64 2, ptr %my_name.i.i.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i.i.i, align 4
+  %my_traits2.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 13
+  store i8 4, ptr %my_traits2.i.i.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context.i.i) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %w_context.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %root_task.i.i.i)
@@ -3065,12 +3085,17 @@ entry:
   %my_cancellation_requested.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 8
   store i32 0, ptr %my_cancellation_requested.i.i.i.i, align 8
   %my_version.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 12
+  store i8 1, ptr %my_version.i.i.i.i, align 4
+  %my_may_have_children.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 14
+  store i8 0, ptr %my_may_have_children.i.i.i.i, align 2
   %my_state.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 15
+  store i8 0, ptr %my_state.i.i.i.i, align 1
   %my_node.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 32
   %my_name.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_node.i.i.i.i, i8 0, i64 24, i1 false)
   store i64 2, ptr %my_name.i.i.i.i, align 8
-  store <4 x i8> <i8 1, i8 4, i8 0, i8 0>, ptr %my_version.i.i.i.i, align 4
+  %my_traits2.i.i.i.i = getelementptr inbounds i8, ptr %context.i.i, i64 13
+  store i8 4, ptr %my_traits2.i.i.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %context.i.i) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %w_context.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %root_task.i.i.i)
@@ -4842,10 +4867,13 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   br label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSE_7PPC64V1EEESt6vectorISI_SaISI_EEEEZNSE_19ppc64v1_rewrite_opdERNSE_7ContextISG_EEE3$_0SI_EEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit"
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
+  store i8 0, ptr %range_pool.i.i, align 8
   %my_tail.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 1
+  store i8 0, ptr %my_tail.i.i.i, align 1
   %my_size.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 2
+  store i8 1, ptr %my_size.i.i.i, align 2
   %my_depth.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool.i.i, align 8
+  store i8 0, ptr %my_depth.i.i.i, align 1
   %my_pool2.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i.i.i, ptr noundef nonnull readonly align 64 dereferenceable(24) %my_range, i64 24, i1 false)
   %my_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -7548,10 +7576,13 @@ for.inc.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then10.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINSE_7PPC64V1EEESt6vectorISI_SaISI_EEEEZNSE_20ppc64v1_scan_symbolsERNSE_7ContextISG_EEE3$_0SI_EEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !41
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
+  store i8 0, ptr %range_pool.i.i, align 8
   %my_tail.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 1
+  store i8 0, ptr %my_tail.i.i.i, align 1
   %my_size.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 2
+  store i8 1, ptr %my_size.i.i.i, align 2
   %my_depth.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 3
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %range_pool.i.i, align 8
+  store i8 0, ptr %my_depth.i.i.i, align 1
   %my_pool2.i.i.i = getelementptr inbounds i8, ptr %range_pool.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %my_pool2.i.i.i, ptr noundef nonnull readonly align 64 dereferenceable(24) %my_range, i64 24, i1 false)
   %my_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112

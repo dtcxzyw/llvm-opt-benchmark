@@ -82,7 +82,7 @@ define noundef ptr @KINCreate() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
-  br label %34
+  br label %36
 
 3:                                                ; preds = %0
   store double 0x3CB0000000000000, ptr %calloc, align 8
@@ -122,28 +122,32 @@ define noundef ptr @KINCreate() local_unnamed_addr #0 {
   %23 = getelementptr inbounds i8, ptr %calloc, i64 80
   store i32 1, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %calloc, i64 168
+  store double 1.000000e-01, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %calloc, i64 184
   store double 2.000000e+00, ptr %25, align 8
-  store <2 x double> <double 1.000000e-01, double 9.000000e-01>, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %calloc, i64 576
-  store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %calloc, i64 88
+  %26 = getelementptr inbounds i8, ptr %calloc, i64 176
+  store double 9.000000e-01, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %calloc, i64 576
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %calloc, i64 544
-  store i32 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %calloc, i64 552
-  store <2 x double> <double 0.000000e+00, double 1.000000e-05>, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %calloc, i64 568
-  store double 9.000000e-01, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %calloc, i64 440
-  store i64 17, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %calloc, i64 448
-  store i64 22, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %calloc, i64 424
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  br label %34
+  %28 = getelementptr inbounds i8, ptr %calloc, i64 88
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %calloc, i64 544
+  store i32 1, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %calloc, i64 552
+  store double 0.000000e+00, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %calloc, i64 560
+  store double 1.000000e-05, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %calloc, i64 568
+  store double 9.000000e-01, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %calloc, i64 440
+  store i64 17, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %calloc, i64 448
+  store i64 22, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %calloc, i64 424
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+  br label %36
 
-34:                                               ; preds = %3, %2
+36:                                               ; preds = %3, %2
   ret ptr %calloc
 }
 
@@ -242,7 +246,7 @@ define range(i32 -4, 1) i32 @KINInit(ptr noundef %0, ptr noundef %1, ptr noundef
 
 7:                                                ; preds = %3
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
-  br label %241
+  br label %245
 
 8:                                                ; preds = %3
   %9 = icmp eq ptr %1, null
@@ -250,7 +254,7 @@ define range(i32 -4, 1) i32 @KINInit(ptr noundef %0, ptr noundef %1, ptr noundef
 
 10:                                               ; preds = %8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5)
-  br label %241
+  br label %245
 
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %2, i64 8
@@ -321,7 +325,7 @@ KINCheckNvector.exit:                             ; preds = %47
 
 KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, %27, %31, %35, %39, %43, %47, %KINCheckNvector.exit
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6)
-  br label %241
+  br label %245
 
 53:                                               ; preds = %KINCheckNvector.exit
   %54 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -346,7 +350,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
   %63 = getelementptr inbounds i8, ptr %0, i64 272
   store ptr %62, ptr %63, align 8
   %64 = icmp eq ptr %62, null
-  br i1 %64, label %236, label %65
+  br i1 %64, label %240, label %65
 
 65:                                               ; preds = %59
   %66 = call ptr @N_VClone(ptr noundef nonnull %2) #12
@@ -358,7 +362,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
 69:                                               ; preds = %65
   %70 = load ptr, ptr %63, align 8
   call void @N_VDestroy(ptr noundef %70) #12
-  br label %236
+  br label %240
 
 71:                                               ; preds = %65
   %72 = call ptr @N_VClone(ptr noundef nonnull %2) #12
@@ -372,7 +376,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
   call void @N_VDestroy(ptr noundef %76) #12
   %77 = load ptr, ptr %67, align 8
   call void @N_VDestroy(ptr noundef %77) #12
-  br label %236
+  br label %240
 
 78:                                               ; preds = %71
   %79 = call ptr @N_VClone(ptr noundef nonnull %2) #12
@@ -388,7 +392,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
   call void @N_VDestroy(ptr noundef %84) #12
   %85 = load ptr, ptr %73, align 8
   call void @N_VDestroy(ptr noundef %85) #12
-  br label %236
+  br label %240
 
 86:                                               ; preds = %78
   %87 = call ptr @N_VClone(ptr noundef nonnull %2) #12
@@ -406,267 +410,272 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
   call void @N_VDestroy(ptr noundef %93) #12
   %94 = load ptr, ptr %80, align 8
   call void @N_VDestroy(ptr noundef %94) #12
-  br label %236
+  br label %240
 
 95:                                               ; preds = %86
-  %96 = getelementptr inbounds i8, ptr %0, i64 448
-  %97 = getelementptr inbounds i8, ptr %0, i64 440
-  %98 = load <2 x i64>, ptr %60, align 8
-  %99 = mul nsw <2 x i64> %98, <i64 5, i64 5>
-  %100 = load <2 x i64>, ptr %97, align 8
-  %101 = add nsw <2 x i64> %100, %99
-  store <2 x i64> %101, ptr %97, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 408
-  %103 = load i64, ptr %102, align 8
-  %.not.i = icmp eq i64 %103, 0
-  br i1 %.not.i, label %KINAllocVectors.exit, label %104
+  %96 = load i64, ptr %61, align 8
+  %97 = mul nsw i64 %96, 5
+  %98 = getelementptr inbounds i8, ptr %0, i64 448
+  %99 = load i64, ptr %98, align 8
+  %100 = add nsw i64 %99, %97
+  store i64 %100, ptr %98, align 8
+  %101 = load i64, ptr %60, align 8
+  %102 = mul nsw i64 %101, 5
+  %103 = getelementptr inbounds i8, ptr %0, i64 440
+  %104 = load i64, ptr %103, align 8
+  %105 = add nsw i64 %104, %102
+  store i64 %105, ptr %103, align 8
+  %106 = getelementptr inbounds i8, ptr %0, i64 408
+  %107 = load i64, ptr %106, align 8
+  %.not.i = icmp eq i64 %107, 0
+  br i1 %.not.i, label %KINAllocVectors.exit, label %108
 
-104:                                              ; preds = %95
-  %105 = shl i64 %103, 3
-  %106 = mul i64 %105, %103
-  %107 = call noalias ptr @malloc(i64 noundef %106) #14
-  %108 = getelementptr inbounds i8, ptr %0, i64 400
-  store ptr %107, ptr %108, align 8
-  %109 = icmp eq ptr %107, null
-  br i1 %109, label %110, label %111
+108:                                              ; preds = %95
+  %109 = shl i64 %107, 3
+  %110 = mul i64 %109, %107
+  %111 = call noalias ptr @malloc(i64 noundef %110) #14
+  %112 = getelementptr inbounds i8, ptr %0, i64 400
+  store ptr %111, ptr %112, align 8
+  %113 = icmp eq ptr %111, null
+  br i1 %113, label %114, label %115
 
-110:                                              ; preds = %104
+114:                                              ; preds = %108
   call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.2)
   br label %KINAllocVectors.exit
 
-111:                                              ; preds = %104
-  %112 = call noalias ptr @malloc(i64 noundef %105) #14
-  %113 = getelementptr inbounds i8, ptr %0, i64 392
-  store ptr %112, ptr %113, align 8
-  %114 = icmp eq ptr %112, null
-  br i1 %114, label %115, label %116
+115:                                              ; preds = %108
+  %116 = call noalias ptr @malloc(i64 noundef %109) #14
+  %117 = getelementptr inbounds i8, ptr %0, i64 392
+  store ptr %116, ptr %117, align 8
+  %118 = icmp eq ptr %116, null
+  br i1 %118, label %119, label %120
 
-115:                                              ; preds = %111
+119:                                              ; preds = %115
   call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.2)
   br label %KINAllocVectors.exit
 
-116:                                              ; preds = %111
-  %117 = call ptr @N_VClone(ptr noundef nonnull %2) #12
-  %118 = getelementptr inbounds i8, ptr %0, i64 344
-  store ptr %117, ptr %118, align 8
-  %119 = icmp eq ptr %117, null
-  br i1 %119, label %120, label %126
+120:                                              ; preds = %115
+  %121 = call ptr @N_VClone(ptr noundef nonnull %2) #12
+  %122 = getelementptr inbounds i8, ptr %0, i64 344
+  store ptr %121, ptr %122, align 8
+  %123 = icmp eq ptr %121, null
+  br i1 %123, label %124, label %130
 
-120:                                              ; preds = %116
-  %121 = load ptr, ptr %63, align 8
-  call void @N_VDestroy(ptr noundef %121) #12
-  %122 = load ptr, ptr %67, align 8
-  call void @N_VDestroy(ptr noundef %122) #12
-  %123 = load ptr, ptr %73, align 8
-  call void @N_VDestroy(ptr noundef %123) #12
-  %124 = load ptr, ptr %80, align 8
-  call void @N_VDestroy(ptr noundef %124) #12
-  %125 = load ptr, ptr %88, align 8
+124:                                              ; preds = %120
+  %125 = load ptr, ptr %63, align 8
   call void @N_VDestroy(ptr noundef %125) #12
-  br label %236
+  %126 = load ptr, ptr %67, align 8
+  call void @N_VDestroy(ptr noundef %126) #12
+  %127 = load ptr, ptr %73, align 8
+  call void @N_VDestroy(ptr noundef %127) #12
+  %128 = load ptr, ptr %80, align 8
+  call void @N_VDestroy(ptr noundef %128) #12
+  %129 = load ptr, ptr %88, align 8
+  call void @N_VDestroy(ptr noundef %129) #12
+  br label %240
 
-126:                                              ; preds = %116
-  %127 = call ptr @N_VClone(ptr noundef nonnull %2) #12
-  %128 = getelementptr inbounds i8, ptr %0, i64 352
-  store ptr %127, ptr %128, align 8
-  %129 = icmp eq ptr %127, null
-  br i1 %129, label %130, label %137
+130:                                              ; preds = %120
+  %131 = call ptr @N_VClone(ptr noundef nonnull %2) #12
+  %132 = getelementptr inbounds i8, ptr %0, i64 352
+  store ptr %131, ptr %132, align 8
+  %133 = icmp eq ptr %131, null
+  br i1 %133, label %134, label %141
 
-130:                                              ; preds = %126
-  %131 = load ptr, ptr %63, align 8
-  call void @N_VDestroy(ptr noundef %131) #12
-  %132 = load ptr, ptr %67, align 8
-  call void @N_VDestroy(ptr noundef %132) #12
-  %133 = load ptr, ptr %73, align 8
-  call void @N_VDestroy(ptr noundef %133) #12
-  %134 = load ptr, ptr %80, align 8
-  call void @N_VDestroy(ptr noundef %134) #12
-  %135 = load ptr, ptr %88, align 8
+134:                                              ; preds = %130
+  %135 = load ptr, ptr %63, align 8
   call void @N_VDestroy(ptr noundef %135) #12
-  %136 = load ptr, ptr %118, align 8
+  %136 = load ptr, ptr %67, align 8
   call void @N_VDestroy(ptr noundef %136) #12
-  br label %236
+  %137 = load ptr, ptr %73, align 8
+  call void @N_VDestroy(ptr noundef %137) #12
+  %138 = load ptr, ptr %80, align 8
+  call void @N_VDestroy(ptr noundef %138) #12
+  %139 = load ptr, ptr %88, align 8
+  call void @N_VDestroy(ptr noundef %139) #12
+  %140 = load ptr, ptr %122, align 8
+  call void @N_VDestroy(ptr noundef %140) #12
+  br label %240
 
-137:                                              ; preds = %126
-  %138 = load i64, ptr %102, align 8
-  %139 = trunc i64 %138 to i32
-  %140 = call ptr @N_VCloneVectorArray(i32 noundef %139, ptr noundef nonnull %2) #12
-  %141 = getelementptr inbounds i8, ptr %0, i64 360
-  store ptr %140, ptr %141, align 8
-  %142 = icmp eq ptr %140, null
-  br i1 %142, label %143, label %151
+141:                                              ; preds = %130
+  %142 = load i64, ptr %106, align 8
+  %143 = trunc i64 %142 to i32
+  %144 = call ptr @N_VCloneVectorArray(i32 noundef %143, ptr noundef nonnull %2) #12
+  %145 = getelementptr inbounds i8, ptr %0, i64 360
+  store ptr %144, ptr %145, align 8
+  %146 = icmp eq ptr %144, null
+  br i1 %146, label %147, label %155
 
-143:                                              ; preds = %137
-  %144 = load ptr, ptr %63, align 8
-  call void @N_VDestroy(ptr noundef %144) #12
-  %145 = load ptr, ptr %67, align 8
-  call void @N_VDestroy(ptr noundef %145) #12
-  %146 = load ptr, ptr %73, align 8
-  call void @N_VDestroy(ptr noundef %146) #12
-  %147 = load ptr, ptr %80, align 8
-  call void @N_VDestroy(ptr noundef %147) #12
-  %148 = load ptr, ptr %88, align 8
+147:                                              ; preds = %141
+  %148 = load ptr, ptr %63, align 8
   call void @N_VDestroy(ptr noundef %148) #12
-  %149 = load ptr, ptr %118, align 8
+  %149 = load ptr, ptr %67, align 8
   call void @N_VDestroy(ptr noundef %149) #12
-  %150 = load ptr, ptr %128, align 8
+  %150 = load ptr, ptr %73, align 8
   call void @N_VDestroy(ptr noundef %150) #12
-  br label %236
+  %151 = load ptr, ptr %80, align 8
+  call void @N_VDestroy(ptr noundef %151) #12
+  %152 = load ptr, ptr %88, align 8
+  call void @N_VDestroy(ptr noundef %152) #12
+  %153 = load ptr, ptr %122, align 8
+  call void @N_VDestroy(ptr noundef %153) #12
+  %154 = load ptr, ptr %132, align 8
+  call void @N_VDestroy(ptr noundef %154) #12
+  br label %240
 
-151:                                              ; preds = %137
-  %152 = load i64, ptr %102, align 8
-  %153 = trunc i64 %152 to i32
-  %154 = call ptr @N_VCloneVectorArray(i32 noundef %153, ptr noundef nonnull %2) #12
-  %155 = getelementptr inbounds i8, ptr %0, i64 368
-  store ptr %154, ptr %155, align 8
-  %156 = icmp eq ptr %154, null
-  br i1 %156, label %157, label %168
+155:                                              ; preds = %141
+  %156 = load i64, ptr %106, align 8
+  %157 = trunc i64 %156 to i32
+  %158 = call ptr @N_VCloneVectorArray(i32 noundef %157, ptr noundef nonnull %2) #12
+  %159 = getelementptr inbounds i8, ptr %0, i64 368
+  store ptr %158, ptr %159, align 8
+  %160 = icmp eq ptr %158, null
+  br i1 %160, label %161, label %172
 
-157:                                              ; preds = %151
-  %158 = load ptr, ptr %63, align 8
-  call void @N_VDestroy(ptr noundef %158) #12
-  %159 = load ptr, ptr %67, align 8
-  call void @N_VDestroy(ptr noundef %159) #12
-  %160 = load ptr, ptr %73, align 8
-  call void @N_VDestroy(ptr noundef %160) #12
-  %161 = load ptr, ptr %80, align 8
-  call void @N_VDestroy(ptr noundef %161) #12
-  %162 = load ptr, ptr %88, align 8
+161:                                              ; preds = %155
+  %162 = load ptr, ptr %63, align 8
   call void @N_VDestroy(ptr noundef %162) #12
-  %163 = load ptr, ptr %118, align 8
+  %163 = load ptr, ptr %67, align 8
   call void @N_VDestroy(ptr noundef %163) #12
-  %164 = load ptr, ptr %128, align 8
+  %164 = load ptr, ptr %73, align 8
   call void @N_VDestroy(ptr noundef %164) #12
-  %165 = load ptr, ptr %141, align 8
-  %166 = load i64, ptr %102, align 8
-  %167 = trunc i64 %166 to i32
-  call void @N_VDestroyVectorArray(ptr noundef %165, i32 noundef %167) #12
-  br label %236
+  %165 = load ptr, ptr %80, align 8
+  call void @N_VDestroy(ptr noundef %165) #12
+  %166 = load ptr, ptr %88, align 8
+  call void @N_VDestroy(ptr noundef %166) #12
+  %167 = load ptr, ptr %122, align 8
+  call void @N_VDestroy(ptr noundef %167) #12
+  %168 = load ptr, ptr %132, align 8
+  call void @N_VDestroy(ptr noundef %168) #12
+  %169 = load ptr, ptr %145, align 8
+  %170 = load i64, ptr %106, align 8
+  %171 = trunc i64 %170 to i32
+  call void @N_VDestroyVectorArray(ptr noundef %169, i32 noundef %171) #12
+  br label %240
 
-168:                                              ; preds = %151
-  %169 = load i64, ptr %102, align 8
-  %170 = shl nsw i64 %169, 1
-  %171 = load i64, ptr %61, align 8
-  %172 = mul nsw i64 %170, %171
-  %173 = add nsw i64 %172, 2
-  %174 = load i64, ptr %96, align 8
-  %175 = add nsw i64 %173, %174
-  store i64 %175, ptr %96, align 8
-  %176 = load i64, ptr %60, align 8
-  %177 = mul nsw i64 %176, %170
-  %178 = add nsw i64 %177, 2
-  %179 = load i64, ptr %97, align 8
-  %180 = add nsw i64 %178, %179
-  store i64 %180, ptr %97, align 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 416
-  %182 = load i32, ptr %181, align 8
-  %.not128.i = icmp eq i32 %182, 0
-  br i1 %.not128.i, label %KINAllocVectors.exit, label %183
+172:                                              ; preds = %155
+  %173 = load i64, ptr %106, align 8
+  %174 = shl nsw i64 %173, 1
+  %175 = load i64, ptr %61, align 8
+  %176 = mul nsw i64 %174, %175
+  %177 = add nsw i64 %176, 2
+  %178 = load i64, ptr %98, align 8
+  %179 = add nsw i64 %177, %178
+  store i64 %179, ptr %98, align 8
+  %180 = load i64, ptr %60, align 8
+  %181 = mul nsw i64 %180, %174
+  %182 = add nsw i64 %181, 2
+  %183 = load i64, ptr %103, align 8
+  %184 = add nsw i64 %182, %183
+  store i64 %184, ptr %103, align 8
+  %185 = getelementptr inbounds i8, ptr %0, i64 416
+  %186 = load i32, ptr %185, align 8
+  %.not128.i = icmp eq i32 %186, 0
+  br i1 %.not128.i, label %KINAllocVectors.exit, label %187
 
-183:                                              ; preds = %168
-  %184 = trunc i64 %169 to i32
-  %185 = call ptr @N_VCloneVectorArray(i32 noundef %184, ptr noundef nonnull %2) #12
-  %186 = getelementptr inbounds i8, ptr %0, i64 376
-  store ptr %185, ptr %186, align 8
-  %187 = icmp eq ptr %185, null
-  br i1 %187, label %188, label %202
+187:                                              ; preds = %172
+  %188 = trunc i64 %173 to i32
+  %189 = call ptr @N_VCloneVectorArray(i32 noundef %188, ptr noundef nonnull %2) #12
+  %190 = getelementptr inbounds i8, ptr %0, i64 376
+  store ptr %189, ptr %190, align 8
+  %191 = icmp eq ptr %189, null
+  br i1 %191, label %192, label %206
 
-188:                                              ; preds = %183
-  %189 = load ptr, ptr %63, align 8
-  call void @N_VDestroy(ptr noundef %189) #12
-  %190 = load ptr, ptr %67, align 8
-  call void @N_VDestroy(ptr noundef %190) #12
-  %191 = load ptr, ptr %73, align 8
-  call void @N_VDestroy(ptr noundef %191) #12
-  %192 = load ptr, ptr %80, align 8
-  call void @N_VDestroy(ptr noundef %192) #12
-  %193 = load ptr, ptr %88, align 8
+192:                                              ; preds = %187
+  %193 = load ptr, ptr %63, align 8
   call void @N_VDestroy(ptr noundef %193) #12
-  %194 = load ptr, ptr %118, align 8
+  %194 = load ptr, ptr %67, align 8
   call void @N_VDestroy(ptr noundef %194) #12
-  %195 = load ptr, ptr %128, align 8
+  %195 = load ptr, ptr %73, align 8
   call void @N_VDestroy(ptr noundef %195) #12
-  %196 = load ptr, ptr %141, align 8
-  %197 = load i64, ptr %102, align 8
-  %198 = trunc i64 %197 to i32
-  call void @N_VDestroyVectorArray(ptr noundef %196, i32 noundef %198) #12
-  %199 = load ptr, ptr %155, align 8
-  %200 = load i64, ptr %102, align 8
-  %201 = trunc i64 %200 to i32
-  call void @N_VDestroyVectorArray(ptr noundef %199, i32 noundef %201) #12
-  br label %236
+  %196 = load ptr, ptr %80, align 8
+  call void @N_VDestroy(ptr noundef %196) #12
+  %197 = load ptr, ptr %88, align 8
+  call void @N_VDestroy(ptr noundef %197) #12
+  %198 = load ptr, ptr %122, align 8
+  call void @N_VDestroy(ptr noundef %198) #12
+  %199 = load ptr, ptr %132, align 8
+  call void @N_VDestroy(ptr noundef %199) #12
+  %200 = load ptr, ptr %145, align 8
+  %201 = load i64, ptr %106, align 8
+  %202 = trunc i64 %201 to i32
+  call void @N_VDestroyVectorArray(ptr noundef %200, i32 noundef %202) #12
+  %203 = load ptr, ptr %159, align 8
+  %204 = load i64, ptr %106, align 8
+  %205 = trunc i64 %204 to i32
+  call void @N_VDestroyVectorArray(ptr noundef %203, i32 noundef %205) #12
+  br label %240
 
-202:                                              ; preds = %183
-  %203 = load i64, ptr %102, align 8
-  %204 = trunc i64 %203 to i32
-  %205 = call ptr @N_VCloneVectorArray(i32 noundef %204, ptr noundef nonnull %2) #12
-  %206 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr %205, ptr %206, align 8
-  %207 = icmp eq ptr %205, null
-  br i1 %207, label %208, label %225
+206:                                              ; preds = %187
+  %207 = load i64, ptr %106, align 8
+  %208 = trunc i64 %207 to i32
+  %209 = call ptr @N_VCloneVectorArray(i32 noundef %208, ptr noundef nonnull %2) #12
+  %210 = getelementptr inbounds i8, ptr %0, i64 384
+  store ptr %209, ptr %210, align 8
+  %211 = icmp eq ptr %209, null
+  br i1 %211, label %212, label %229
 
-208:                                              ; preds = %202
-  %209 = load ptr, ptr %63, align 8
-  call void @N_VDestroy(ptr noundef %209) #12
-  %210 = load ptr, ptr %67, align 8
-  call void @N_VDestroy(ptr noundef %210) #12
-  %211 = load ptr, ptr %73, align 8
-  call void @N_VDestroy(ptr noundef %211) #12
-  %212 = load ptr, ptr %80, align 8
-  call void @N_VDestroy(ptr noundef %212) #12
-  %213 = load ptr, ptr %88, align 8
+212:                                              ; preds = %206
+  %213 = load ptr, ptr %63, align 8
   call void @N_VDestroy(ptr noundef %213) #12
-  %214 = load ptr, ptr %118, align 8
+  %214 = load ptr, ptr %67, align 8
   call void @N_VDestroy(ptr noundef %214) #12
-  %215 = load ptr, ptr %128, align 8
+  %215 = load ptr, ptr %73, align 8
   call void @N_VDestroy(ptr noundef %215) #12
-  %216 = load ptr, ptr %141, align 8
-  %217 = load i64, ptr %102, align 8
-  %218 = trunc i64 %217 to i32
-  call void @N_VDestroyVectorArray(ptr noundef %216, i32 noundef %218) #12
-  %219 = load ptr, ptr %155, align 8
-  %220 = load i64, ptr %102, align 8
-  %221 = trunc i64 %220 to i32
-  call void @N_VDestroyVectorArray(ptr noundef %219, i32 noundef %221) #12
-  %222 = load ptr, ptr %186, align 8
-  %223 = load i64, ptr %102, align 8
-  %224 = trunc i64 %223 to i32
-  call void @N_VDestroyVectorArray(ptr noundef %222, i32 noundef %224) #12
-  br label %236
+  %216 = load ptr, ptr %80, align 8
+  call void @N_VDestroy(ptr noundef %216) #12
+  %217 = load ptr, ptr %88, align 8
+  call void @N_VDestroy(ptr noundef %217) #12
+  %218 = load ptr, ptr %122, align 8
+  call void @N_VDestroy(ptr noundef %218) #12
+  %219 = load ptr, ptr %132, align 8
+  call void @N_VDestroy(ptr noundef %219) #12
+  %220 = load ptr, ptr %145, align 8
+  %221 = load i64, ptr %106, align 8
+  %222 = trunc i64 %221 to i32
+  call void @N_VDestroyVectorArray(ptr noundef %220, i32 noundef %222) #12
+  %223 = load ptr, ptr %159, align 8
+  %224 = load i64, ptr %106, align 8
+  %225 = trunc i64 %224 to i32
+  call void @N_VDestroyVectorArray(ptr noundef %223, i32 noundef %225) #12
+  %226 = load ptr, ptr %190, align 8
+  %227 = load i64, ptr %106, align 8
+  %228 = trunc i64 %227 to i32
+  call void @N_VDestroyVectorArray(ptr noundef %226, i32 noundef %228) #12
+  br label %240
 
-225:                                              ; preds = %202
-  %226 = load i64, ptr %102, align 8
-  %227 = shl nsw i64 %226, 1
-  %228 = load i64, ptr %61, align 8
-  %229 = mul nsw i64 %227, %228
-  %230 = load i64, ptr %96, align 8
-  %231 = add nsw i64 %230, %229
-  store i64 %231, ptr %96, align 8
-  %232 = load i64, ptr %60, align 8
-  %233 = mul nsw i64 %232, %227
-  %234 = load i64, ptr %97, align 8
+229:                                              ; preds = %206
+  %230 = load i64, ptr %106, align 8
+  %231 = shl nsw i64 %230, 1
+  %232 = load i64, ptr %61, align 8
+  %233 = mul nsw i64 %231, %232
+  %234 = load i64, ptr %98, align 8
   %235 = add nsw i64 %234, %233
-  store i64 %235, ptr %97, align 8
+  store i64 %235, ptr %98, align 8
+  %236 = load i64, ptr %60, align 8
+  %237 = mul nsw i64 %236, %231
+  %238 = load i64, ptr %103, align 8
+  %239 = add nsw i64 %238, %237
+  store i64 %239, ptr %103, align 8
   br label %KINAllocVectors.exit
 
-236:                                              ; preds = %69, %75, %82, %90, %120, %130, %143, %157, %188, %208, %59
+240:                                              ; preds = %69, %75, %82, %90, %124, %134, %147, %161, %192, %212, %59
   call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2)
   call void @free(ptr noundef nonnull %0) #12
-  br label %241
+  br label %245
 
-KINAllocVectors.exit:                             ; preds = %225, %168, %115, %110, %95
-  %237 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %237, align 8
-  %238 = getelementptr inbounds i8, ptr %0, i64 456
-  %239 = getelementptr inbounds i8, ptr %0, i64 496
-  store ptr null, ptr %239, align 8
-  %240 = getelementptr inbounds i8, ptr %0, i64 576
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %238, i8 0, i64 32, i1 false)
-  store i32 1, ptr %240, align 8
-  br label %241
+KINAllocVectors.exit:                             ; preds = %229, %172, %119, %114, %95
+  %241 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %241, align 8
+  %242 = getelementptr inbounds i8, ptr %0, i64 456
+  %243 = getelementptr inbounds i8, ptr %0, i64 496
+  store ptr null, ptr %243, align 8
+  %244 = getelementptr inbounds i8, ptr %0, i64 576
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %242, i8 0, i64 32, i1 false)
+  store i32 1, ptr %244, align 8
+  br label %245
 
-241:                                              ; preds = %KINAllocVectors.exit, %236, %KINCheckNvector.exit.thread, %10, %7
-  %.0 = phi i32 [ -1, %7 ], [ -2, %10 ], [ 0, %KINAllocVectors.exit ], [ -4, %236 ], [ -2, %KINCheckNvector.exit.thread ]
+245:                                              ; preds = %KINAllocVectors.exit, %240, %KINCheckNvector.exit.thread, %10, %7
+  %.0 = phi i32 [ -1, %7 ], [ -2, %10 ], [ 0, %KINAllocVectors.exit ], [ -4, %240 ], [ -2, %KINCheckNvector.exit.thread ]
   ret i32 %.0
 }
 
@@ -1474,12 +1483,12 @@ KINPicardFcnEval.exit.thread.i:                   ; preds = %396, %383, %381, %3
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.15, i32 noundef %.181.i)
   br label %KINPicardAA.exit
 
-441:                                              ; preds = %.preheader, %970
-  %442 = phi i32 [ %.pre, %970 ], [ %261, %.preheader ]
-  %.0204 = phi double [ %.2206, %970 ], [ -1.000000e+00, %.preheader ]
-  %.0199 = phi double [ %.2201, %970 ], [ -1.000000e+00, %.preheader ]
-  %.0194 = phi i32 [ %.2196, %970 ], [ 0, %.preheader ]
-  %.0122 = phi i32 [ -999, %970 ], [ 0, %.preheader ]
+441:                                              ; preds = %.preheader, %969
+  %442 = phi i32 [ %.pre, %969 ], [ %261, %.preheader ]
+  %.0204 = phi double [ %.2206, %969 ], [ -1.000000e+00, %.preheader ]
+  %.0199 = phi double [ %.2201, %969 ], [ -1.000000e+00, %.preheader ]
+  %.0194 = phi i32 [ %.2196, %969 ], [ 0, %.preheader ]
+  %.0122 = phi i32 [ -999, %969 ], [ 0, %.preheader ]
   store i32 0, ptr %275, align 4
   %443 = load i64, ptr %204, align 8
   %444 = add nsw i64 %443, 1
@@ -1507,11 +1516,11 @@ KINPicardFcnEval.exit.thread.i:                   ; preds = %396, %383, %381, %3
 .preheader519:                                    ; preds = %445, %452, %441
   br label %454
 
-454:                                              ; preds = %.preheader519, %960
-  %.1205 = phi double [ %.2206, %960 ], [ %.0204, %.preheader519 ]
-  %.1200 = phi double [ %.2201, %960 ], [ %.0199, %.preheader519 ]
-  %.1195 = phi i32 [ %.2196, %960 ], [ %.0194, %.preheader519 ]
-  %.1 = phi i32 [ -998, %960 ], [ %.0122, %.preheader519 ]
+454:                                              ; preds = %.preheader519, %959
+  %.1205 = phi double [ %.2206, %959 ], [ %.0204, %.preheader519 ]
+  %.1200 = phi double [ %.2201, %959 ], [ %.0199, %.preheader519 ]
+  %.1195 = phi i32 [ %.2196, %959 ], [ %.0194, %.preheader519 ]
+  %.1 = phi i32 [ -998, %959 ], [ %.0122, %.preheader519 ]
   %455 = load i32, ptr %17, align 8
   switch i32 %455, label %KINFullNewton.exit.thread [
     i32 0, label %456
@@ -1691,11 +1700,12 @@ KINLinSolDrv.exit:                                ; preds = %469
   %538 = tail call double @N_VWL2Norm(ptr noundef %536, ptr noundef %537) #12
   %539 = fmul double %538, 5.000000e-01
   %540 = fmul double %538, %539
-  %541 = load <2 x double>, ptr %287, align 8
-  %542 = insertelement <2 x double> poison, double %.287.i, i64 0
-  %543 = shufflevector <2 x double> %542, <2 x double> poison, <2 x i32> zeroinitializer
-  %544 = fmul <2 x double> %543, %541
-  store <2 x double> %544, ptr %287, align 8
+  %541 = load double, ptr %287, align 8
+  %542 = fmul double %.287.i, %541
+  store double %542, ptr %287, align 8
+  %543 = load double, ptr %286, align 8
+  %544 = fmul double %.287.i, %543
+  store double %544, ptr %286, align 8
   %545 = load i32, ptr %161, align 4
   %546 = icmp sgt i32 %545, 1
   br i1 %546, label %547, label %548
@@ -1839,7 +1849,7 @@ KINLinSolDrv.exit173:                             ; preds = %566
   %607 = load ptr, ptr %284, align 8
   %608 = load ptr, ptr %283, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %606, double noundef 1.000000e+00, ptr noundef %607, ptr noundef %608) #12
-  br label %849
+  br label %848
 
 609:                                              ; preds = %.preheader516, %623
   %.0312409.i = phi i32 [ %627, %623 ], [ 1, %.preheader516 ]
@@ -2023,7 +2033,7 @@ KINLinSolDrv.exit173:                             ; preds = %566
   %729 = load ptr, ptr %14, align 8
   %730 = load ptr, ptr %283, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %729, ptr noundef %730) #12
-  br label %849
+  br label %848
 
 731:                                              ; preds = %661
   %732 = fmul double %635, 9.000000e-01
@@ -2218,363 +2228,363 @@ KINLinSolDrv.exit173:                             ; preds = %566
   br label %836
 
 836:                                              ; preds = %835, %.thread.i176
-  %837 = load <2 x double>, ptr %287, align 8
-  %838 = insertelement <2 x double> poison, double %.1322.i, i64 0
-  %839 = shufflevector <2 x double> %838, <2 x double> poison, <2 x i32> zeroinitializer
-  %840 = fmul <2 x double> %839, %837
-  %841 = insertelement <2 x double> poison, double %.2319407.i, i64 0
-  %842 = shufflevector <2 x double> %841, <2 x double> poison, <2 x i32> zeroinitializer
-  %843 = fmul <2 x double> %842, %840
-  store <2 x double> %843, ptr %287, align 8
-  %844 = fmul double %.2316408.i, %.1322.i
-  %845 = load double, ptr %179, align 8
-  %846 = fmul double %845, 0x3FEFAE147AE147AE
-  %847 = fcmp ogt double %844, %846
-  br i1 %847, label %848, label %849
+  %837 = load double, ptr %287, align 8
+  %838 = fmul double %.1322.i, %837
+  %839 = fmul double %.2319407.i, %838
+  store double %839, ptr %287, align 8
+  %840 = load double, ptr %286, align 8
+  %841 = fmul double %.1322.i, %840
+  %842 = fmul double %.2319407.i, %841
+  store double %842, ptr %286, align 8
+  %843 = fmul double %.2316408.i, %.1322.i
+  %844 = load double, ptr %179, align 8
+  %845 = fmul double %844, 0x3FEFAE147AE147AE
+  %846 = fcmp ogt double %843, %845
+  br i1 %846, label %847, label %848
 
-848:                                              ; preds = %836
-  br label %849
+847:                                              ; preds = %836
+  br label %848
 
-849:                                              ; preds = %848, %836, %728, %605
-  %.10214 = phi double [ %724, %728 ], [ %.5209, %848 ], [ %.5209, %836 ], [ %.1205, %605 ]
-  %.10 = phi double [ %726, %728 ], [ %.5, %848 ], [ %.5, %836 ], [ %.1200, %605 ]
-  %.4198 = phi i32 [ 0, %728 ], [ 1, %848 ], [ 0, %836 ], [ 0, %605 ]
-  %.0313.i = phi i32 [ -997, %728 ], [ 0, %848 ], [ 0, %836 ], [ -997, %605 ]
-  %850 = load i64, ptr %294, align 8
-  %851 = load i64, ptr %296, align 8
-  %852 = icmp sgt i64 %850, %851
-  br i1 %852, label %KINLinSolDrv.exit.thread, label %KINFullNewton.exit.thread
+848:                                              ; preds = %847, %836, %728, %605
+  %.10214 = phi double [ %724, %728 ], [ %.5209, %847 ], [ %.5209, %836 ], [ %.1205, %605 ]
+  %.10 = phi double [ %726, %728 ], [ %.5, %847 ], [ %.5, %836 ], [ %.1200, %605 ]
+  %.4198 = phi i32 [ 0, %728 ], [ 1, %847 ], [ 0, %836 ], [ 0, %605 ]
+  %.0313.i = phi i32 [ -997, %728 ], [ 0, %847 ], [ 0, %836 ], [ -997, %605 ]
+  %849 = load i64, ptr %294, align 8
+  %850 = load i64, ptr %296, align 8
+  %851 = icmp sgt i64 %849, %850
+  br i1 %851, label %KINLinSolDrv.exit.thread, label %KINFullNewton.exit.thread
 
-KINFullNewton.exit.thread:                        ; preds = %548, %552, %512, %454, %849
-  %.2206 = phi double [ %.1205, %454 ], [ %.10214, %849 ], [ %.1205, %512 ], [ %538, %548 ], [ %538, %552 ]
-  %.2201 = phi double [ %.1200, %454 ], [ %.10, %849 ], [ %.1200, %512 ], [ %540, %548 ], [ %540, %552 ]
-  %.2196 = phi i32 [ %.1195, %454 ], [ %.4198, %849 ], [ 0, %512 ], [ 0, %548 ], [ 1, %552 ]
-  %.3 = phi i32 [ %.1, %454 ], [ 0, %849 ], [ 0, %512 ], [ 0, %548 ], [ 0, %552 ]
-  %.0 = phi i32 [ 0, %454 ], [ %.0313.i, %849 ], [ -997, %512 ], [ 0, %548 ], [ 0, %552 ]
-  %853 = load i32, ptr %17, align 8
-  %854 = and i32 %853, -2
-  %switch = icmp eq i32 %854, 2
-  br i1 %switch, label %KINStop.exit.thread, label %855
+KINFullNewton.exit.thread:                        ; preds = %548, %552, %512, %454, %848
+  %.2206 = phi double [ %.1205, %454 ], [ %.10214, %848 ], [ %.1205, %512 ], [ %538, %548 ], [ %538, %552 ]
+  %.2201 = phi double [ %.1200, %454 ], [ %.10, %848 ], [ %.1200, %512 ], [ %540, %548 ], [ %540, %552 ]
+  %.2196 = phi i32 [ %.1195, %454 ], [ %.4198, %848 ], [ 0, %512 ], [ 0, %548 ], [ 1, %552 ]
+  %.3 = phi i32 [ %.1, %454 ], [ 0, %848 ], [ 0, %512 ], [ 0, %548 ], [ 0, %552 ]
+  %.0 = phi i32 [ 0, %454 ], [ %.0313.i, %848 ], [ -997, %512 ], [ 0, %548 ], [ 0, %552 ]
+  %852 = load i32, ptr %17, align 8
+  %853 = and i32 %852, -2
+  %switch = icmp eq i32 %853, 2
+  br i1 %switch, label %KINStop.exit.thread, label %854
 
-855:                                              ; preds = %KINFullNewton.exit.thread
-  %856 = load i32, ptr %297, align 4
-  %.not148 = icmp eq i32 %856, 0
-  br i1 %.not148, label %858, label %857
+854:                                              ; preds = %KINFullNewton.exit.thread
+  %855 = load i32, ptr %297, align 4
+  %.not148 = icmp eq i32 %855, 0
+  br i1 %.not148, label %857, label %856
 
-857:                                              ; preds = %855
+856:                                              ; preds = %854
   tail call fastcc void @KINForcingTerm(ptr noundef nonnull %0, double noundef %.2206)
-  br label %858
+  br label %857
 
-858:                                              ; preds = %857, %855
+857:                                              ; preds = %856, %854
   store double %.2206, ptr %247, align 8
-  %859 = icmp eq i32 %.0, -997
-  br i1 %859, label %860, label %867
+  %858 = icmp eq i32 %.0, -997
+  br i1 %858, label %859, label %866
 
-860:                                              ; preds = %858
-  %861 = load i32, ptr %280, align 8
-  %.not87.i187 = icmp eq i32 %861, 0
-  br i1 %.not87.i187, label %864, label %862
+859:                                              ; preds = %857
+  %860 = load i32, ptr %280, align 8
+  %.not87.i187 = icmp eq i32 %860, 0
+  br i1 %.not87.i187, label %863, label %861
 
-862:                                              ; preds = %860
-  %863 = load i32, ptr %281, align 8
-  %.not88.i188 = icmp eq i32 %863, 0
-  br i1 %.not88.i188, label %960, label %864
+861:                                              ; preds = %859
+  %862 = load i32, ptr %281, align 8
+  %.not88.i188 = icmp eq i32 %862, 0
+  br i1 %.not88.i188, label %959, label %863
 
-864:                                              ; preds = %862, %860
-  %865 = load i32, ptr %17, align 8
-  %866 = icmp eq i32 %865, 0
-  %..i = select i1 %866, i32 2, i32 -5
+863:                                              ; preds = %861, %859
+  %864 = load i32, ptr %17, align 8
+  %865 = icmp eq i32 %864, 0
+  %..i = select i1 %865, i32 2, i32 -5
   br label %KINStop.exit.thread
 
-867:                                              ; preds = %858
-  %868 = load ptr, ptr %209, align 8
-  %869 = load ptr, ptr %16, align 8
+866:                                              ; preds = %857
+  %867 = load ptr, ptr %209, align 8
+  %868 = load ptr, ptr %16, align 8
+  %869 = load ptr, ptr %292, align 8
+  tail call void @N_VProd(ptr noundef %868, ptr noundef %867, ptr noundef %869) #12
   %870 = load ptr, ptr %292, align 8
-  tail call void @N_VProd(ptr noundef %869, ptr noundef %868, ptr noundef %870) #12
-  %871 = load ptr, ptr %292, align 8
-  %872 = tail call double @N_VMaxNorm(ptr noundef %871) #12
-  %873 = load i32, ptr %161, align 4
-  %874 = icmp sgt i32 %873, 1
-  br i1 %874, label %875, label %876
+  %871 = tail call double @N_VMaxNorm(ptr noundef %870) #12
+  %872 = load i32, ptr %161, align 4
+  %873 = icmp sgt i32 %872, 1
+  br i1 %873, label %874, label %875
 
-875:                                              ; preds = %867
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.51, double noundef %872)
-  br label %876
+874:                                              ; preds = %866
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.51, double noundef %871)
+  br label %875
 
-876:                                              ; preds = %875, %867
-  %877 = load double, ptr %224, align 8
-  %878 = fcmp ugt double %872, %877
-  br i1 %878, label %879, label %KINStop.exit.thread
+875:                                              ; preds = %874, %866
+  %876 = load double, ptr %224, align 8
+  %877 = fcmp ugt double %871, %876
+  br i1 %877, label %878, label %KINStop.exit.thread
 
-879:                                              ; preds = %876
-  %880 = load ptr, ptr %284, align 8
-  %881 = load ptr, ptr %283, align 8
-  %882 = load ptr, ptr %14, align 8
-  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %881, double noundef -1.000000e+00, ptr noundef %882, ptr noundef %880) #12
-  %883 = load ptr, ptr %283, align 8
-  %884 = load ptr, ptr %15, align 8
-  %885 = load ptr, ptr %292, align 8
-  tail call void @N_VInv(ptr noundef %884, ptr noundef %885) #12
-  %886 = load ptr, ptr %293, align 8
-  tail call void @N_VAbs(ptr noundef %883, ptr noundef %886) #12
-  %887 = load ptr, ptr %292, align 8
-  %888 = load ptr, ptr %293, align 8
-  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %887, double noundef 1.000000e+00, ptr noundef %888, ptr noundef %887) #12
+878:                                              ; preds = %875
+  %879 = load ptr, ptr %284, align 8
+  %880 = load ptr, ptr %283, align 8
+  %881 = load ptr, ptr %14, align 8
+  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %880, double noundef -1.000000e+00, ptr noundef %881, ptr noundef %879) #12
+  %882 = load ptr, ptr %283, align 8
+  %883 = load ptr, ptr %15, align 8
+  %884 = load ptr, ptr %292, align 8
+  tail call void @N_VInv(ptr noundef %883, ptr noundef %884) #12
+  %885 = load ptr, ptr %293, align 8
+  tail call void @N_VAbs(ptr noundef %882, ptr noundef %885) #12
+  %886 = load ptr, ptr %292, align 8
+  %887 = load ptr, ptr %293, align 8
+  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %886, double noundef 1.000000e+00, ptr noundef %887, ptr noundef %886) #12
+  %888 = load ptr, ptr %292, align 8
+  tail call void @N_VDiv(ptr noundef %879, ptr noundef %888, ptr noundef %888) #12
   %889 = load ptr, ptr %292, align 8
-  tail call void @N_VDiv(ptr noundef %880, ptr noundef %889, ptr noundef %889) #12
-  %890 = load ptr, ptr %292, align 8
-  %891 = tail call double @N_VMaxNorm(ptr noundef %890) #12
-  %892 = load double, ptr %291, align 8
-  %893 = fcmp ugt double %891, %892
-  br i1 %893, label %899, label %894
+  %890 = tail call double @N_VMaxNorm(ptr noundef %889) #12
+  %891 = load double, ptr %291, align 8
+  %892 = fcmp ugt double %890, %891
+  br i1 %892, label %898, label %893
 
-894:                                              ; preds = %879
-  %895 = load i32, ptr %280, align 8
-  %.not85.i180 = icmp eq i32 %895, 0
-  br i1 %.not85.i180, label %KINStop.exit.thread, label %896
+893:                                              ; preds = %878
+  %894 = load i32, ptr %280, align 8
+  %.not85.i180 = icmp eq i32 %894, 0
+  br i1 %.not85.i180, label %KINStop.exit.thread, label %895
 
-896:                                              ; preds = %894
-  %897 = load i32, ptr %281, align 8
-  %.not86.i181 = icmp eq i32 %897, 0
-  br i1 %.not86.i181, label %898, label %KINStop.exit.thread
+895:                                              ; preds = %893
+  %896 = load i32, ptr %281, align 8
+  %.not86.i181 = icmp eq i32 %896, 0
+  br i1 %.not86.i181, label %897, label %KINStop.exit.thread
 
-898:                                              ; preds = %896
+897:                                              ; preds = %895
   store double 2.000000e+00, ptr %260, align 8
   br label %KINStop.exit.thread
 
-899:                                              ; preds = %879
-  %900 = load i64, ptr %204, align 8
-  %901 = load i64, ptr %301, align 8
-  %.not.i182 = icmp slt i64 %900, %901
-  br i1 %.not.i182, label %902, label %KINStop.exit.thread
+898:                                              ; preds = %878
+  %899 = load i64, ptr %204, align 8
+  %900 = load i64, ptr %301, align 8
+  %.not.i182 = icmp slt i64 %899, %900
+  br i1 %.not.i182, label %901, label %KINStop.exit.thread
 
-902:                                              ; preds = %899
+901:                                              ; preds = %898
   %.not75.i = icmp eq i32 %.2196, 0
-  br i1 %.not75.i, label %.thread.i186, label %903
+  br i1 %.not75.i, label %.thread.i186, label %902
 
-.thread.i186:                                     ; preds = %902
+.thread.i186:                                     ; preds = %901
   store i64 0, ptr %257, align 8
-  br label %907
+  br label %906
 
-903:                                              ; preds = %902
-  %904 = load i64, ptr %257, align 8
-  %905 = add nsw i64 %904, 1
-  store i64 %905, ptr %257, align 8
-  %906 = icmp eq i64 %905, 5
-  br i1 %906, label %KINStop.exit.thread, label %907
+902:                                              ; preds = %901
+  %903 = load i64, ptr %257, align 8
+  %904 = add nsw i64 %903, 1
+  store i64 %904, ptr %257, align 8
+  %905 = icmp eq i64 %904, 5
+  br i1 %905, label %KINStop.exit.thread, label %906
 
-907:                                              ; preds = %903, %.thread.i186
-  %908 = load i32, ptr %181, align 8
-  %.not76.i = icmp eq i32 %908, 0
-  br i1 %.not76.i, label %910, label %909
+906:                                              ; preds = %902, %.thread.i186
+  %907 = load i32, ptr %181, align 8
+  %.not76.i = icmp eq i32 %907, 0
+  br i1 %.not76.i, label %909, label %908
 
-909:                                              ; preds = %907
-  store double %891, ptr %260, align 8
+908:                                              ; preds = %906
+  store double %890, ptr %260, align 8
   br label %KINStop.exit.thread
 
-910:                                              ; preds = %907
-  %911 = load i32, ptr %302, align 8
-  %.not77.i = icmp eq i32 %911, 0
-  br i1 %.not77.i, label %912, label %KINStop.exit.thread
+909:                                              ; preds = %906
+  %910 = load i32, ptr %302, align 8
+  %.not77.i = icmp eq i32 %910, 0
+  br i1 %.not77.i, label %911, label %KINStop.exit.thread
 
-912:                                              ; preds = %910
-  %913 = load i64, ptr %282, align 8
-  %914 = sub nsw i64 %900, %913
-  %915 = load i64, ptr %303, align 8
-  %.not78.i = icmp slt i64 %914, %915
-  br i1 %.not78.i, label %952, label %916
+911:                                              ; preds = %909
+  %912 = load i64, ptr %282, align 8
+  %913 = sub nsw i64 %899, %912
+  %914 = load i64, ptr %303, align 8
+  %.not78.i = icmp slt i64 %913, %914
+  br i1 %.not78.i, label %951, label %915
 
-916:                                              ; preds = %912
-  store i64 %900, ptr %282, align 8
-  %917 = load i32, ptr %272, align 8
-  %.not82.i = icmp eq i32 %917, 0
-  br i1 %.not82.i, label %._crit_edge.i183, label %918
+915:                                              ; preds = %911
+  store i64 %899, ptr %282, align 8
+  %916 = load i32, ptr %272, align 8
+  %.not82.i = icmp eq i32 %916, 0
+  br i1 %.not82.i, label %._crit_edge.i183, label %917
 
-._crit_edge.i183:                                 ; preds = %916
+._crit_edge.i183:                                 ; preds = %915
   %.pre.i185 = load double, ptr %269, align 8
-  br label %940
+  br label %939
 
-918:                                              ; preds = %916
-  %919 = load double, ptr %247, align 8
-  %920 = load double, ptr %224, align 8
-  %921 = fdiv double %919, %920
-  %922 = fadd double %921, -1.000000e+00
-  %923 = fcmp olt double %922, 0.000000e+00
-  %924 = select i1 %923, double 0.000000e+00, double %922
-  %925 = fcmp ogt double %924, 1.200000e+01
-  br i1 %925, label %926, label %928
+917:                                              ; preds = %915
+  %918 = load double, ptr %247, align 8
+  %919 = load double, ptr %224, align 8
+  %920 = fdiv double %918, %919
+  %921 = fadd double %920, -1.000000e+00
+  %922 = fcmp olt double %921, 0.000000e+00
+  %923 = select i1 %922, double 0.000000e+00, double %921
+  %924 = fcmp ogt double %923, 1.200000e+01
+  br i1 %924, label %925, label %927
 
-926:                                              ; preds = %918
-  %927 = load double, ptr %305, align 8
-  br label %938
+925:                                              ; preds = %917
+  %926 = load double, ptr %305, align 8
+  br label %937
 
-928:                                              ; preds = %918
-  %929 = load double, ptr %304, align 8
-  %930 = tail call double @SUNRexp(double noundef %924) #12
-  %931 = fmul double %929, %930
-  %932 = load double, ptr %305, align 8
-  %933 = fcmp olt double %931, %932
-  br i1 %933, label %934, label %938
+927:                                              ; preds = %917
+  %928 = load double, ptr %304, align 8
+  %929 = tail call double @SUNRexp(double noundef %923) #12
+  %930 = fmul double %928, %929
+  %931 = load double, ptr %305, align 8
+  %932 = fcmp olt double %930, %931
+  br i1 %932, label %933, label %937
 
-934:                                              ; preds = %928
-  %935 = load double, ptr %304, align 8
-  %936 = tail call double @SUNRexp(double noundef %924) #12
-  %937 = fmul double %935, %936
-  br label %938
+933:                                              ; preds = %927
+  %934 = load double, ptr %304, align 8
+  %935 = tail call double @SUNRexp(double noundef %923) #12
+  %936 = fmul double %934, %935
+  br label %937
 
-938:                                              ; preds = %934, %928, %926
-  %939 = phi double [ %927, %926 ], [ %937, %934 ], [ %932, %928 ]
-  store double %939, ptr %269, align 8
-  br label %940
+937:                                              ; preds = %933, %927, %925
+  %938 = phi double [ %926, %925 ], [ %936, %933 ], [ %931, %927 ]
+  store double %938, ptr %269, align 8
+  br label %939
 
-940:                                              ; preds = %938, %._crit_edge.i183
-  %941 = phi double [ %.pre.i185, %._crit_edge.i183 ], [ %939, %938 ]
-  %942 = load double, ptr %247, align 8
-  %943 = load double, ptr %251, align 8
-  %944 = fmul double %941, %943
-  %945 = fcmp ogt double %942, %944
-  br i1 %945, label %946, label %951
+939:                                              ; preds = %937, %._crit_edge.i183
+  %940 = phi double [ %.pre.i185, %._crit_edge.i183 ], [ %938, %937 ]
+  %941 = load double, ptr %247, align 8
+  %942 = load double, ptr %251, align 8
+  %943 = fmul double %940, %942
+  %944 = fcmp ogt double %941, %943
+  br i1 %944, label %945, label %950
 
-946:                                              ; preds = %940
-  %947 = load i32, ptr %280, align 8
-  %.not83.i = icmp eq i32 %947, 0
-  br i1 %.not83.i, label %KINStop.exit.thread, label %948
+945:                                              ; preds = %939
+  %946 = load i32, ptr %280, align 8
+  %.not83.i = icmp eq i32 %946, 0
+  br i1 %.not83.i, label %KINStop.exit.thread, label %947
 
-948:                                              ; preds = %946
-  %949 = load i32, ptr %281, align 8
-  %.not84.i = icmp eq i32 %949, 0
-  br i1 %.not84.i, label %950, label %KINStop.exit.thread
+947:                                              ; preds = %945
+  %948 = load i32, ptr %281, align 8
+  %.not84.i = icmp eq i32 %948, 0
+  br i1 %.not84.i, label %949, label %KINStop.exit.thread
 
-950:                                              ; preds = %948
+949:                                              ; preds = %947
   store double 2.000000e+00, ptr %260, align 8
   br label %KINStop.exit.thread
 
-951:                                              ; preds = %940
-  store double %942, ptr %251, align 8
+950:                                              ; preds = %939
+  store double %941, ptr %251, align 8
   store double 1.000000e+00, ptr %260, align 8
   br label %KINStop.exit.thread
 
-952:                                              ; preds = %912
-  %953 = load i32, ptr %275, align 4
-  %.not79.i = icmp eq i32 %953, 0
-  %954 = load i32, ptr %278, align 8
-  %.not80.i = icmp eq i32 %954, 0
-  br i1 %.not79.i, label %955, label %957
+951:                                              ; preds = %911
+  %952 = load i32, ptr %275, align 4
+  %.not79.i = icmp eq i32 %952, 0
+  %953 = load i32, ptr %278, align 8
+  %.not80.i = icmp eq i32 %953, 0
+  br i1 %.not79.i, label %954, label %956
 
-955:                                              ; preds = %952
+954:                                              ; preds = %951
   br i1 %.not80.i, label %.thread93.i, label %.thread95.i
 
-.thread95.i:                                      ; preds = %955
-  %956 = load double, ptr %247, align 8
-  store double %956, ptr %251, align 8
-  br label %959
+.thread95.i:                                      ; preds = %954
+  %955 = load double, ptr %247, align 8
+  store double %955, ptr %251, align 8
+  br label %958
 
-957:                                              ; preds = %952
-  %958 = load double, ptr %247, align 8
-  store double %958, ptr %251, align 8
-  br i1 %.not80.i, label %.thread93.i, label %959
+956:                                              ; preds = %951
+  %957 = load double, ptr %247, align 8
+  store double %957, ptr %251, align 8
+  br i1 %.not80.i, label %.thread93.i, label %958
 
-959:                                              ; preds = %957, %.thread95.i
+958:                                              ; preds = %956, %.thread95.i
   store i32 0, ptr %278, align 8
   br label %.thread93.i
 
-.thread93.i:                                      ; preds = %959, %957, %955
+.thread93.i:                                      ; preds = %958, %956, %954
   store double 1.000000e+00, ptr %260, align 8
   br label %KINStop.exit.thread
 
-960:                                              ; preds = %862
+959:                                              ; preds = %861
   store double 2.000000e+00, ptr %260, align 8
   store i32 1, ptr %275, align 4
   br label %454
 
-KINStop.exit.thread:                              ; preds = %KINFullNewton.exit.thread, %909, %.thread93.i, %948, %946, %951, %910, %903, %899, %894, %896, %876, %864, %950, %898
-  %.4 = phi i32 [ -999, %909 ], [ -999, %.thread93.i ], [ -999, %948 ], [ -999, %946 ], [ -999, %951 ], [ -999, %910 ], [ -7, %903 ], [ -6, %899 ], [ 2, %894 ], [ 2, %896 ], [ 0, %876 ], [ %..i, %864 ], [ -999, %950 ], [ -999, %898 ], [ %.3, %KINFullNewton.exit.thread ]
-  %961 = load ptr, ptr %283, align 8
-  %962 = load ptr, ptr %14, align 8
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %961, ptr noundef %962) #12
+KINStop.exit.thread:                              ; preds = %KINFullNewton.exit.thread, %908, %.thread93.i, %947, %945, %950, %909, %902, %898, %893, %895, %875, %863, %949, %897
+  %.4 = phi i32 [ -999, %908 ], [ -999, %.thread93.i ], [ -999, %947 ], [ -999, %945 ], [ -999, %950 ], [ -999, %909 ], [ -7, %902 ], [ -6, %898 ], [ 2, %893 ], [ 2, %895 ], [ 0, %875 ], [ %..i, %863 ], [ -999, %949 ], [ -999, %897 ], [ %.3, %KINFullNewton.exit.thread ]
+  %960 = load ptr, ptr %283, align 8
+  %961 = load ptr, ptr %14, align 8
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %960, ptr noundef %961) #12
   store double %.2201, ptr %250, align 8
-  %963 = load i32, ptr %161, align 4
-  %964 = icmp sgt i32 %963, 0
-  br i1 %964, label %965, label %969
+  %962 = load i32, ptr %161, align 4
+  %963 = icmp sgt i32 %962, 0
+  br i1 %963, label %964, label %968
 
-965:                                              ; preds = %KINStop.exit.thread
-  %966 = load i64, ptr %204, align 8
-  %967 = load i64, ptr %205, align 8
-  %968 = load double, ptr %247, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.14, i64 noundef %966, i64 noundef %967, double noundef %968)
-  br label %969
+964:                                              ; preds = %KINStop.exit.thread
+  %965 = load i64, ptr %204, align 8
+  %966 = load i64, ptr %205, align 8
+  %967 = load double, ptr %247, align 8
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.14, i64 noundef %965, i64 noundef %966, double noundef %967)
+  br label %968
 
-969:                                              ; preds = %965, %KINStop.exit.thread
+968:                                              ; preds = %964, %KINStop.exit.thread
   %.not149 = icmp eq i32 %.4, -999
-  br i1 %.not149, label %970, label %KINLinSolDrv.exit.thread
+  br i1 %.not149, label %969, label %KINLinSolDrv.exit.thread
 
-970:                                              ; preds = %969
-  %971 = load ptr, ptr %306, align 8
-  %972 = tail call i32 @fflush(ptr noundef %971)
+969:                                              ; preds = %968
+  %970 = load ptr, ptr %306, align 8
+  %971 = tail call i32 @fflush(ptr noundef %970)
   %.pre = load i32, ptr %181, align 8
   br label %441
 
-KINLinSolDrv.exit.thread:                         ; preds = %969, %811, %575, %577, %573, %562, %478, %480, %476, %465, %849, %621, %623, %704, %.preheader.i, %530, %528, %.critedge2.i
-  %.2 = phi i32 [ -13, %.critedge2.i ], [ -13, %528 ], [ -15, %530 ], [ -13, %.preheader.i ], [ -13, %704 ], [ -15, %623 ], [ -13, %621 ], [ -13, %811 ], [ -11, %562 ], [ -12, %573 ], [ -9, %577 ], [ -9, %575 ], [ -11, %465 ], [ -12, %476 ], [ -9, %480 ], [ -9, %478 ], [ -8, %849 ], [ %.4, %969 ]
-  %973 = load i32, ptr %161, align 4
-  %974 = icmp sgt i32 %973, 0
-  br i1 %974, label %975, label %976
+KINLinSolDrv.exit.thread:                         ; preds = %968, %811, %575, %577, %573, %562, %478, %480, %476, %465, %848, %621, %623, %704, %.preheader.i, %530, %528, %.critedge2.i
+  %.2 = phi i32 [ -13, %.critedge2.i ], [ -13, %528 ], [ -15, %530 ], [ -13, %.preheader.i ], [ -13, %704 ], [ -15, %623 ], [ -13, %621 ], [ -13, %811 ], [ -11, %562 ], [ -12, %573 ], [ -9, %577 ], [ -9, %575 ], [ -11, %465 ], [ -12, %476 ], [ -9, %480 ], [ -9, %478 ], [ -8, %848 ], [ %.4, %968 ]
+  %972 = load i32, ptr %161, align 4
+  %973 = icmp sgt i32 %972, 0
+  br i1 %973, label %974, label %975
 
-975:                                              ; preds = %KINLinSolDrv.exit.thread
+974:                                              ; preds = %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.15, i32 noundef %.2)
-  br label %976
+  br label %975
 
-976:                                              ; preds = %975, %KINLinSolDrv.exit.thread
+975:                                              ; preds = %974, %KINLinSolDrv.exit.thread
   switch i32 %.2, label %KINPicardAA.exit [
-    i32 -13, label %977
-    i32 -15, label %978
-    i32 -11, label %979
-    i32 -12, label %980
-    i32 -9, label %981
-    i32 -5, label %982
-    i32 -8, label %983
-    i32 -6, label %984
-    i32 -7, label %985
+    i32 -13, label %976
+    i32 -15, label %977
+    i32 -11, label %978
+    i32 -12, label %979
+    i32 -9, label %980
+    i32 -5, label %981
+    i32 -8, label %982
+    i32 -6, label %983
+    i32 -7, label %984
   ]
 
-977:                                              ; preds = %976
+976:                                              ; preds = %975
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -13, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.12)
   br label %KINPicardAA.exit
 
-978:                                              ; preds = %976
+977:                                              ; preds = %975
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.16)
   br label %KINPicardAA.exit
 
-979:                                              ; preds = %976
+978:                                              ; preds = %975
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.17)
   br label %KINPicardAA.exit
 
-980:                                              ; preds = %976
+979:                                              ; preds = %975
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -12, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.18)
   br label %KINPicardAA.exit
 
-981:                                              ; preds = %976
+980:                                              ; preds = %975
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.19)
   br label %KINPicardAA.exit
 
-982:                                              ; preds = %976
+981:                                              ; preds = %975
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.20)
   br label %KINPicardAA.exit
 
-983:                                              ; preds = %976
+982:                                              ; preds = %975
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.21)
   br label %KINPicardAA.exit
 
-984:                                              ; preds = %976
+983:                                              ; preds = %975
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.13)
   br label %KINPicardAA.exit
 
-985:                                              ; preds = %976
+984:                                              ; preds = %975
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.22)
   br label %KINPicardAA.exit
 
-KINPicardAA.exit:                                 ; preds = %153, %159, %242, %228, %219, %217, %140, %133, %129, %125, %121, %118, %116, %440, %KINPicardFcnEval.exit.thread.i, %976, %977, %978, %979, %980, %981, %982, %983, %984, %985, %KINFP.exit, %113, %114, %25, %21, %12, %7
-  %.0123 = phi i32 [ -1, %7 ], [ -3, %12 ], [ -2, %21 ], [ -2, %25 ], [ -6, %114 ], [ -13, %113 ], [ %.155.i, %KINFP.exit ], [ -7, %985 ], [ -6, %984 ], [ -8, %983 ], [ -5, %982 ], [ -9, %981 ], [ -12, %980 ], [ -11, %979 ], [ -15, %978 ], [ -13, %977 ], [ %.2, %976 ], [ %.181.i, %KINPicardFcnEval.exit.thread.i ], [ %.181.i, %440 ], [ -2, %153 ], [ -2, %159 ], [ -10, %242 ], [ 1, %228 ], [ -14, %219 ], [ -13, %217 ], [ -2, %140 ], [ -2, %133 ], [ -2, %129 ], [ -2, %125 ], [ -2, %121 ], [ -2, %118 ], [ -2, %116 ]
+KINPicardAA.exit:                                 ; preds = %153, %159, %242, %228, %219, %217, %140, %133, %129, %125, %121, %118, %116, %440, %KINPicardFcnEval.exit.thread.i, %975, %976, %977, %978, %979, %980, %981, %982, %983, %984, %KINFP.exit, %113, %114, %25, %21, %12, %7
+  %.0123 = phi i32 [ -1, %7 ], [ -3, %12 ], [ -2, %21 ], [ -2, %25 ], [ -6, %114 ], [ -13, %113 ], [ %.155.i, %KINFP.exit ], [ -7, %984 ], [ -6, %983 ], [ -8, %982 ], [ -5, %981 ], [ -9, %980 ], [ -12, %979 ], [ -11, %978 ], [ -15, %977 ], [ -13, %976 ], [ %.2, %975 ], [ %.181.i, %KINPicardFcnEval.exit.thread.i ], [ %.181.i, %440 ], [ -2, %153 ], [ -2, %159 ], [ -10, %242 ], [ 1, %228 ], [ -14, %219 ], [ -13, %217 ], [ -2, %140 ], [ -2, %133 ], [ -2, %129 ], [ -2, %125 ], [ -2, %121 ], [ -2, %118 ], [ -2, %116 ]
   ret i32 %.0123
 }
 

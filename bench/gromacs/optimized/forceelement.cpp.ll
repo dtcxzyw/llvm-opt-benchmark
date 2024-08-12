@@ -965,11 +965,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx12ForceElement3runILb1EEEvldj(ptr noundef nonnull align 8 dereferenceable(304) %0, i64 noundef %1, double noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.gmx::StepWorkload", align 1
-  %6 = alloca %"class.gmx::ArrayRefWithPadding", align 16
+  %6 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %7 = alloca [3 x [3 x float]], align 16
-  %8 = alloca %"class.gmx::ArrayRefWithPadding", align 16
-  %9 = alloca %"class.gmx::ArrayRefWithPadding", align 16
-  %10 = alloca %"class.gmx::ArrayRefWithPadding", align 16
+  %8 = alloca %"class.gmx::ArrayRefWithPadding", align 8
+  %9 = alloca %"class.gmx::ArrayRefWithPadding", align 8
+  %10 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %11 = alloca %"class.gmx::ArrayRef", align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 200
   %13 = load ptr, ptr %12, align 8
@@ -1111,60 +1111,68 @@ define linkonce_odr void @_ZN3gmx12ForceElement3runILb1EEEvldj(ptr noundef nonnu
   %112 = call noundef ptr @_ZN3gmx10EnergyData8enerdataEv(ptr noundef nonnull align 8 dereferenceable(552) %111)
   %113 = load ptr, ptr %66, align 8
   %114 = call noundef i32 @_ZNK3gmx19StatePropagatorData13localNumAtomsEv(ptr noundef nonnull align 8 dereferenceable(632) %113)
-  %115 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %115, ptr %9, align 16
-  %116 = getelementptr inbounds i8, ptr %9, i64 16
-  %117 = getelementptr inbounds i8, ptr %6, i64 16
-  %118 = load ptr, ptr %117, align 16
-  store ptr %118, ptr %116, align 16
-  %119 = load <2 x ptr>, ptr %8, align 16
-  store <2 x ptr> %119, ptr %10, align 16
-  %120 = getelementptr inbounds i8, ptr %10, i64 16
-  %121 = getelementptr inbounds i8, ptr %8, i64 16
-  %122 = load ptr, ptr %121, align 16
-  store ptr %122, ptr %120, align 16
+  %115 = load ptr, ptr %6, align 8
+  store ptr %115, ptr %9, align 8
+  %116 = getelementptr inbounds i8, ptr %9, i64 8
+  %117 = getelementptr inbounds i8, ptr %6, i64 8
+  %118 = load ptr, ptr %117, align 8
+  store ptr %118, ptr %116, align 8
+  %119 = getelementptr inbounds i8, ptr %9, i64 16
+  %120 = getelementptr inbounds i8, ptr %6, i64 16
+  %121 = load ptr, ptr %120, align 8
+  store ptr %121, ptr %119, align 8
+  %122 = load ptr, ptr %8, align 8
+  store ptr %122, ptr %10, align 8
+  %123 = getelementptr inbounds i8, ptr %10, i64 8
+  %124 = getelementptr inbounds i8, ptr %8, i64 8
+  %125 = load ptr, ptr %124, align 8
+  store ptr %125, ptr %123, align 8
+  %126 = getelementptr inbounds i8, ptr %10, i64 16
+  %127 = getelementptr inbounds i8, ptr %8, i64 16
+  %128 = load ptr, ptr %127, align 8
+  store ptr %128, ptr %126, align 8
   store ptr %.sroa.0.0, ptr %11, align 8
-  %123 = getelementptr inbounds i8, ptr %11, i64 8
-  %124 = ptrtoint ptr %.sroa.3.0 to i64
-  %125 = ptrtoint ptr %.sroa.0.0 to i64
-  %126 = sub i64 %124, %125
-  %127 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %126
-  store ptr %127, ptr %123, align 8
-  %128 = load ptr, ptr %84, align 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr %82, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 232
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 240
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 40
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 248
+  %129 = getelementptr inbounds i8, ptr %11, i64 8
+  %130 = ptrtoint ptr %.sroa.3.0 to i64
+  %131 = ptrtoint ptr %.sroa.0.0 to i64
+  %132 = sub i64 %130, %131
+  %133 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %132
+  store ptr %133, ptr %129, align 8
+  %134 = load ptr, ptr %84, align 8
+  %135 = load ptr, ptr %134, align 8
+  %136 = load ptr, ptr %82, align 8
+  %137 = getelementptr inbounds i8, ptr %0, i64 232
   %138 = load ptr, ptr %137, align 8
-  %139 = load ptr, ptr %61, align 8
-  %140 = load ptr, ptr %110, align 8
-  %141 = call noundef ptr @_ZN3gmx10EnergyData5muTotEv(ptr noundef nonnull align 8 dereferenceable(552) %140)
-  %142 = getelementptr inbounds i8, ptr %0, i64 256
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 136
-  call void @_Z19relax_shell_flexconP8_IO_FILEPK9t_commrecPK14gmx_multisim_tbP10gmx_enfrotlPK10t_inputrecRKN3gmx18MDModulesNotifiersEPNSC_10ImdSessionEP6pull_tbPK14gmx_localtop_tPNSC_11ConstraintsEP14gmx_enerdata_tiNSC_19ArrayRefWithPaddingINSC_11BasicVectorIfEEEESU_PA3_KfNSC_8ArrayRefIfEEPK9history_tPNSC_16ForceBuffersViewEPA3_fRK9t_mdatomsP24CpuPpLongRangeNonbondedsP6t_nrnbP13gmx_wallcycleP13gmx_shellfc_tP10t_forcerecRKNSC_21MdrunScheduleWorkloadEdPfPNSC_19VirtualSitesHandlerERK22DDBalanceRegionHandler(ptr noundef %89, ptr noundef %90, ptr noundef null, i1 noundef zeroext %93, ptr noundef %95, i64 noundef %1, ptr noundef %96, ptr noundef nonnull align 1 %98, ptr noundef %100, ptr noundef %102, i1 noundef zeroext %105, ptr noundef %107, ptr noundef %109, ptr noundef %112, i32 noundef %114, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %71, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %11, ptr noundef null, ptr noundef nonnull %69, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(648) %129, ptr noundef %130, ptr noundef %132, ptr noundef %134, ptr noundef %136, ptr noundef %138, ptr noundef nonnull align 1 dereferenceable(52) %139, double noundef %2, ptr noundef %141, ptr noundef %143, ptr noundef nonnull align 8 dereferenceable(16) %144)
-  %145 = getelementptr inbounds i8, ptr %0, i64 128
-  %146 = load i64, ptr %145, align 8
-  %147 = add nsw i64 %146, 1
-  store i64 %147, ptr %145, align 8
-  %148 = load ptr, ptr %110, align 8
-  call void @_ZN3gmx10EnergyData16addToForceVirialEPA3_Kfl(ptr noundef nonnull align 8 dereferenceable(552) %148, ptr noundef nonnull %7, i64 noundef %1)
+  %139 = getelementptr inbounds i8, ptr %0, i64 240
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds i8, ptr %0, i64 40
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %0, i64 248
+  %144 = load ptr, ptr %143, align 8
+  %145 = load ptr, ptr %61, align 8
+  %146 = load ptr, ptr %110, align 8
+  %147 = call noundef ptr @_ZN3gmx10EnergyData5muTotEv(ptr noundef nonnull align 8 dereferenceable(552) %146)
+  %148 = getelementptr inbounds i8, ptr %0, i64 256
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds i8, ptr %0, i64 136
+  call void @_Z19relax_shell_flexconP8_IO_FILEPK9t_commrecPK14gmx_multisim_tbP10gmx_enfrotlPK10t_inputrecRKN3gmx18MDModulesNotifiersEPNSC_10ImdSessionEP6pull_tbPK14gmx_localtop_tPNSC_11ConstraintsEP14gmx_enerdata_tiNSC_19ArrayRefWithPaddingINSC_11BasicVectorIfEEEESU_PA3_KfNSC_8ArrayRefIfEEPK9history_tPNSC_16ForceBuffersViewEPA3_fRK9t_mdatomsP24CpuPpLongRangeNonbondedsP6t_nrnbP13gmx_wallcycleP13gmx_shellfc_tP10t_forcerecRKNSC_21MdrunScheduleWorkloadEdPfPNSC_19VirtualSitesHandlerERK22DDBalanceRegionHandler(ptr noundef %89, ptr noundef %90, ptr noundef null, i1 noundef zeroext %93, ptr noundef %95, i64 noundef %1, ptr noundef %96, ptr noundef nonnull align 1 %98, ptr noundef %100, ptr noundef %102, i1 noundef zeroext %105, ptr noundef %107, ptr noundef %109, ptr noundef %112, i32 noundef %114, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %71, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %11, ptr noundef null, ptr noundef nonnull %69, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(648) %135, ptr noundef %136, ptr noundef %138, ptr noundef %140, ptr noundef %142, ptr noundef %144, ptr noundef nonnull align 1 dereferenceable(52) %145, double noundef %2, ptr noundef %147, ptr noundef %149, ptr noundef nonnull align 8 dereferenceable(16) %150)
+  %151 = getelementptr inbounds i8, ptr %0, i64 128
+  %152 = load i64, ptr %151, align 8
+  %153 = add nsw i64 %152, 1
+  store i64 %153, ptr %151, align 8
+  %154 = load ptr, ptr %110, align 8
+  call void @_ZN3gmx10EnergyData16addToForceVirialEPA3_Kfl(ptr noundef nonnull align 8 dereferenceable(552) %154, ptr noundef nonnull %7, i64 noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx12ForceElement3runILb0EEEvldj(ptr noundef nonnull align 8 dereferenceable(304) %0, i64 noundef %1, double noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.gmx::StepWorkload", align 1
-  %6 = alloca %"class.gmx::ArrayRefWithPadding", align 16
+  %6 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %7 = alloca [3 x [3 x float]], align 16
-  %8 = alloca %"class.gmx::ArrayRefWithPadding", align 16
-  %9 = alloca %"class.gmx::ArrayRefWithPadding", align 16
-  %10 = alloca %"class.gmx::ArrayRef.386", align 16
+  %8 = alloca %"class.gmx::ArrayRefWithPadding", align 8
+  %9 = alloca %"class.gmx::ArrayRefWithPadding", align 8
+  %10 = alloca %"class.gmx::ArrayRef.386", align 8
   %11 = alloca %"class.gmx::ArrayRef.298", align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 200
   %13 = load ptr, ptr %12, align 8
@@ -1297,38 +1305,46 @@ define linkonce_odr void @_ZN3gmx12ForceElement3runILb0EEEvldj(ptr noundef nonnu
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %0, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %106, ptr %9, align 16
-  %107 = getelementptr inbounds i8, ptr %9, i64 16
-  %108 = getelementptr inbounds i8, ptr %6, i64 16
-  %109 = load ptr, ptr %108, align 16
-  store ptr %109, ptr %107, align 16
-  %110 = load <2 x ptr>, ptr %8, align 16
-  store <2 x ptr> %110, ptr %10, align 16
-  %111 = load ptr, ptr %84, align 8
+  %106 = load ptr, ptr %6, align 8
+  store ptr %106, ptr %9, align 8
+  %107 = getelementptr inbounds i8, ptr %9, i64 8
+  %108 = getelementptr inbounds i8, ptr %6, i64 8
+  %109 = load ptr, ptr %108, align 8
+  store ptr %109, ptr %107, align 8
+  %110 = getelementptr inbounds i8, ptr %9, i64 16
+  %111 = getelementptr inbounds i8, ptr %6, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 96
-  %114 = load ptr, ptr %113, align 8
-  %115 = call noundef ptr @_ZN3gmx10EnergyData8enerdataEv(ptr noundef nonnull align 8 dereferenceable(552) %114)
+  store ptr %112, ptr %110, align 8
+  %113 = load ptr, ptr %8, align 8
+  %114 = getelementptr inbounds i8, ptr %8, i64 8
+  %115 = load ptr, ptr %114, align 8
+  store ptr %113, ptr %10, align 8
+  %116 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %115, ptr %116, align 8
+  %117 = load ptr, ptr %84, align 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 96
+  %120 = load ptr, ptr %119, align 8
+  %121 = call noundef ptr @_ZN3gmx10EnergyData8enerdataEv(ptr noundef nonnull align 8 dereferenceable(552) %120)
   store ptr %.sroa.0.0, ptr %11, align 8
-  %116 = getelementptr inbounds i8, ptr %11, i64 8
-  %117 = ptrtoint ptr %.sroa.3.0 to i64
-  %118 = ptrtoint ptr %.sroa.0.0 to i64
-  %119 = sub i64 %117, %118
-  %120 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %119
-  store ptr %120, ptr %116, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 248
-  %122 = load ptr, ptr %121, align 8
-  %123 = load ptr, ptr %61, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 256
-  %125 = load ptr, ptr %124, align 8
-  %126 = load ptr, ptr %113, align 8
-  %127 = call noundef ptr @_ZN3gmx10EnergyData5muTotEv(ptr noundef nonnull align 8 dereferenceable(552) %126)
-  %128 = load ptr, ptr %82, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 136
-  call void @_Z8do_forceP8_IO_FILEPK9t_commrecPK14gmx_multisim_tRK10t_inputrecRKN3gmx18MDModulesNotifiersEPNSA_3AwhEP10gmx_enfrotPNSA_10ImdSessionEP6pull_tlP6t_nrnbP13gmx_wallcyclePK14gmx_localtop_tPA3_KfNSA_19ArrayRefWithPaddingINSA_11BasicVectorIfEEEENSA_8ArrayRefISY_EEPK9history_tPNSA_16ForceBuffersViewEPA3_fPK9t_mdatomsP14gmx_enerdata_tNS10_IST_EEP10t_forcerecRKNSA_21MdrunScheduleWorkloadEPNSA_19VirtualSitesHandlerEPfdP9gmx_edsamP24CpuPpLongRangeNonbondedsRK22DDBalanceRegionHandler(ptr noundef %89, ptr noundef %90, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(856) %91, ptr noundef nonnull align 1 %93, ptr noundef null, ptr noundef %95, ptr noundef %97, ptr noundef %99, i64 noundef %1, ptr noundef %101, ptr noundef %103, ptr noundef %105, ptr noundef %71, ptr noundef nonnull %9, ptr noundef nonnull byval(%"class.gmx::ArrayRef.386") align 8 %10, ptr noundef null, ptr noundef nonnull %69, ptr noundef nonnull %7, ptr noundef %112, ptr noundef %115, ptr noundef nonnull byval(%"class.gmx::ArrayRef.298") align 8 %11, ptr noundef %122, ptr noundef nonnull align 1 dereferenceable(52) %123, ptr noundef %125, ptr noundef %127, double noundef %2, ptr noundef null, ptr noundef %128, ptr noundef nonnull align 8 dereferenceable(16) %129)
-  %130 = load ptr, ptr %113, align 8
-  call void @_ZN3gmx10EnergyData16addToForceVirialEPA3_Kfl(ptr noundef nonnull align 8 dereferenceable(552) %130, ptr noundef nonnull %7, i64 noundef %1)
+  %122 = getelementptr inbounds i8, ptr %11, i64 8
+  %123 = ptrtoint ptr %.sroa.3.0 to i64
+  %124 = ptrtoint ptr %.sroa.0.0 to i64
+  %125 = sub i64 %123, %124
+  %126 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %125
+  store ptr %126, ptr %122, align 8
+  %127 = getelementptr inbounds i8, ptr %0, i64 248
+  %128 = load ptr, ptr %127, align 8
+  %129 = load ptr, ptr %61, align 8
+  %130 = getelementptr inbounds i8, ptr %0, i64 256
+  %131 = load ptr, ptr %130, align 8
+  %132 = load ptr, ptr %119, align 8
+  %133 = call noundef ptr @_ZN3gmx10EnergyData5muTotEv(ptr noundef nonnull align 8 dereferenceable(552) %132)
+  %134 = load ptr, ptr %82, align 8
+  %135 = getelementptr inbounds i8, ptr %0, i64 136
+  call void @_Z8do_forceP8_IO_FILEPK9t_commrecPK14gmx_multisim_tRK10t_inputrecRKN3gmx18MDModulesNotifiersEPNSA_3AwhEP10gmx_enfrotPNSA_10ImdSessionEP6pull_tlP6t_nrnbP13gmx_wallcyclePK14gmx_localtop_tPA3_KfNSA_19ArrayRefWithPaddingINSA_11BasicVectorIfEEEENSA_8ArrayRefISY_EEPK9history_tPNSA_16ForceBuffersViewEPA3_fPK9t_mdatomsP14gmx_enerdata_tNS10_IST_EEP10t_forcerecRKNSA_21MdrunScheduleWorkloadEPNSA_19VirtualSitesHandlerEPfdP9gmx_edsamP24CpuPpLongRangeNonbondedsRK22DDBalanceRegionHandler(ptr noundef %89, ptr noundef %90, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(856) %91, ptr noundef nonnull align 1 %93, ptr noundef null, ptr noundef %95, ptr noundef %97, ptr noundef %99, i64 noundef %1, ptr noundef %101, ptr noundef %103, ptr noundef %105, ptr noundef %71, ptr noundef nonnull %9, ptr noundef nonnull byval(%"class.gmx::ArrayRef.386") align 8 %10, ptr noundef null, ptr noundef nonnull %69, ptr noundef nonnull %7, ptr noundef %118, ptr noundef %121, ptr noundef nonnull byval(%"class.gmx::ArrayRef.298") align 8 %11, ptr noundef %128, ptr noundef nonnull align 1 dereferenceable(52) %129, ptr noundef %131, ptr noundef %133, double noundef %2, ptr noundef null, ptr noundef %134, ptr noundef nonnull align 8 dereferenceable(16) %135)
+  %136 = load ptr, ptr %119, align 8
+  call void @_ZN3gmx10EnergyData16addToForceVirialEPA3_Kfl(ptr noundef nonnull align 8 dereferenceable(552) %136, ptr noundef nonnull %7, i64 noundef %1)
   ret void
 }
 
@@ -1955,10 +1971,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx20ElementNotFoundErrorE, i64 16), ptr %0, align 8
   ret void

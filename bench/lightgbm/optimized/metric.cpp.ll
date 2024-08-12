@@ -20106,7 +20106,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %38, label %3
+  br i1 %.not, label %41, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20134,7 +20134,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RSaIT1_E.exit: 
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
-  br label %38
+  br label %41
 
 20:                                               ; preds = %3
   %21 = icmp ult i64 %17, %1
@@ -20157,39 +20157,43 @@ _ZNKSt6vectorIS_IdSaIdEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %20
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIS_IdSaIdEESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %26, %_ZNKSt6vectorIS_IdSaIdEESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %.0911.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIS_IdSaIdEESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %.012.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %26, %_ZNKSt6vectorIS_IdSaIdEESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %.0911.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIS_IdSaIdEESaIS1_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
-  %29 = load <2 x ptr>, ptr %.0911.i.i.i.i, align 8, !alias.scope !126, !noalias !123
-  store <2 x ptr> %29, ptr %.012.i.i.i.i, align 8, !alias.scope !123, !noalias !126
-  %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !126, !noalias !123
+  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !123, !noalias !126
+  %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !126, !noalias !123
   store ptr %32, ptr %30, align 8, !alias.scope !123, !noalias !126
+  %33 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %35 = load ptr, ptr %34, align 8, !alias.scope !126, !noalias !123
+  store ptr %35, ptr %33, align 8, !alias.scope !123, !noalias !126
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !126, !noalias !123
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
-  %34 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
-  %.not.i.i.i.i = icmp eq ptr %33, %5
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
+  %37 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
+  %.not.i.i.i.i = icmp eq ptr %36, %5
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !128
 
 _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIS_IdSaIdEESaIS1_EE12_M_check_lenEmPKc.exit
   %.not.i35 = icmp eq ptr %6, null
-  br i1 %.not.i35, label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit36, label %35
+  br i1 %.not.i35, label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit36, label %38
 
-35:                                               ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
+38:                                               ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #28
   br label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit36
 
-_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %35
+_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8
-  %36 = getelementptr inbounds %"class.std::vector.8", ptr %27, i64 %1
-  store ptr %36, ptr %4, align 8
-  %37 = getelementptr inbounds %"class.std::vector.8", ptr %26, i64 %24
-  store ptr %37, ptr %11, align 8
-  br label %38
+  %39 = getelementptr inbounds %"class.std::vector.8", ptr %27, i64 %1
+  store ptr %39, ptr %4, align 8
+  %40 = getelementptr inbounds %"class.std::vector.8", ptr %26, i64 %24
+  store ptr %40, ptr %11, align 8
+  br label %41
 
-38:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit36, %2
+41:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit36, %2
   ret void
 }
 
@@ -20850,7 +20854,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit: ; preds = %_Z
 
 .noexc.i.i:                                       ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE11_M_allocateEm.exit
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.27) #29
-          to label %.noexc unwind label %52
+          to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %.noexc.i.i
   unreachable
@@ -20887,108 +20891,116 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %_ZNSt12_Ve
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.loopexit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i ], [ %24, %.loopexit ]
-  %.0911.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i ], [ %7, %.loopexit ]
+  %.012.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %24, %.loopexit ]
+  %.0911.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %7, %.loopexit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
-  %36 = load <2 x ptr>, ptr %.0911.i.i.i.i, align 8, !alias.scope !137, !noalias !134
-  store <2 x ptr> %36, ptr %.012.i.i.i.i, align 8, !alias.scope !134, !noalias !137
-  %37 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %36 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !137, !noalias !134
+  store ptr %36, ptr %.012.i.i.i.i, align 8, !alias.scope !134, !noalias !137
+  %37 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
   %39 = load ptr, ptr %38, align 8, !alias.scope !137, !noalias !134
   store ptr %39, ptr %37, align 8, !alias.scope !134, !noalias !137
+  %40 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %42 = load ptr, ptr %41, align 8, !alias.scope !137, !noalias !134
+  store ptr %42, ptr %40, align 8, !alias.scope !134, !noalias !137
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !137, !noalias !134
-  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
-  %41 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
-  %.not.i.i.i.i = icmp eq ptr %40, %1
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
+  %44 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
+  %.not.i.i.i.i = icmp eq ptr %43, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !128
 
 _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %.loopexit
-  %.0.lcssa.i.i.i.i = phi ptr [ %24, %.loopexit ], [ %41, %.lr.ph.i.i.i.i ]
-  %42 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
+  %.0.lcssa.i.i.i.i = phi ptr [ %24, %.loopexit ], [ %44, %.lr.ph.i.i.i.i ]
+  %45 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
   %.not10.i.i.i.i28 = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i.i28, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, label %.lr.ph.i.i.i.i29
 
 .lr.ph.i.i.i.i29:                                 ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i29
-  %.012.i.i.i.i30 = phi ptr [ %48, %.lr.ph.i.i.i.i29 ], [ %42, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  %.0911.i.i.i.i31 = phi ptr [ %47, %.lr.ph.i.i.i.i29 ], [ %1, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.012.i.i.i.i30 = phi ptr [ %54, %.lr.ph.i.i.i.i29 ], [ %45, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.0911.i.i.i.i31 = phi ptr [ %53, %.lr.ph.i.i.i.i29 ], [ %1, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
-  %43 = load <2 x ptr>, ptr %.0911.i.i.i.i31, align 8, !alias.scope !142, !noalias !139
-  store <2 x ptr> %43, ptr %.012.i.i.i.i30, align 8, !alias.scope !139, !noalias !142
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i.i30, i64 16
-  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i.i31, i64 16
-  %46 = load ptr, ptr %45, align 8, !alias.scope !142, !noalias !139
-  store ptr %46, ptr %44, align 8, !alias.scope !139, !noalias !142
+  %46 = load ptr, ptr %.0911.i.i.i.i31, align 8, !alias.scope !142, !noalias !139
+  store ptr %46, ptr %.012.i.i.i.i30, align 8, !alias.scope !139, !noalias !142
+  %47 = getelementptr inbounds i8, ptr %.012.i.i.i.i30, i64 8
+  %48 = getelementptr inbounds i8, ptr %.0911.i.i.i.i31, i64 8
+  %49 = load ptr, ptr %48, align 8, !alias.scope !142, !noalias !139
+  store ptr %49, ptr %47, align 8, !alias.scope !139, !noalias !142
+  %50 = getelementptr inbounds i8, ptr %.012.i.i.i.i30, i64 16
+  %51 = getelementptr inbounds i8, ptr %.0911.i.i.i.i31, i64 16
+  %52 = load ptr, ptr %51, align 8, !alias.scope !142, !noalias !139
+  store ptr %52, ptr %50, align 8, !alias.scope !139, !noalias !142
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i31, i8 0, i64 24, i1 false), !alias.scope !142, !noalias !139
-  %47 = getelementptr inbounds i8, ptr %.0911.i.i.i.i31, i64 24
-  %48 = getelementptr inbounds i8, ptr %.012.i.i.i.i30, i64 24
-  %.not.i.i.i.i32 = icmp eq ptr %47, %6
+  %53 = getelementptr inbounds i8, ptr %.0911.i.i.i.i31, i64 24
+  %54 = getelementptr inbounds i8, ptr %.012.i.i.i.i30, i64 24
+  %.not.i.i.i.i32 = icmp eq ptr %53, %6
   br i1 %.not.i.i.i.i32, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, label %.lr.ph.i.i.i.i29, !llvm.loop !128
 
 _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34: ; preds = %.lr.ph.i.i.i.i29, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
-  %.0.lcssa.i.i.i.i33 = phi ptr [ %42, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %48, %.lr.ph.i.i.i.i29 ]
+  %.0.lcssa.i.i.i.i33 = phi ptr [ %45, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %54, %.lr.ph.i.i.i.i29 ]
   %.not.i35 = icmp eq ptr %7, null
-  br i1 %.not.i35, label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit, label %49
+  br i1 %.not.i35, label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit, label %55
 
-49:                                               ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34
+55:                                               ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34
   tail call void @_ZdlPv(ptr noundef nonnull %7) #28
   br label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, %49
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, %55
+  %56 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %24, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i33, ptr %5, align 8
-  %51 = getelementptr inbounds %"class.std::vector.8", ptr %24, i64 %17
-  store ptr %51, ptr %50, align 8
+  %57 = getelementptr inbounds %"class.std::vector.8", ptr %24, i64 %17
+  store ptr %57, ptr %56, align 8
   ret void
 
-52:                                               ; preds = %.noexc.i.i
-  %53 = landingpad { ptr, i32 }
+58:                                               ; preds = %.noexc.i.i
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  %55 = tail call ptr @__cxa_begin_catch(ptr %54) #11
+  %60 = extractvalue { ptr, i32 } %59, 0
+  %61 = tail call ptr @__cxa_begin_catch(ptr %60) #11
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %56, label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.sink.split
+  br i1 %.not, label %62, label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.sink.split
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %25, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %57, null
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %25, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37, label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.sink.split
 
-58:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37
-  %59 = landingpad { ptr, i32 }
+64:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37
+  %65 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %63 unwind label %64
+          to label %69 unwind label %70
 
 _ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE7destroyIS2_EEvRS3_PT_.exit: ; preds = %.noexc4.i.i
-  %60 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  %62 = tail call ptr @__cxa_begin_catch(ptr %61) #11
+  %67 = extractvalue { ptr, i32 } %66, 0
+  %68 = tail call ptr @__cxa_begin_catch(ptr %67) #11
   br label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.sink.split
 
-_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.sink.split: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE7destroyIS2_EEvRS3_PT_.exit, %52, %56
-  %.sink = phi ptr [ %57, %56 ], [ %24, %52 ], [ %24, %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE7destroyIS2_EEvRS3_PT_.exit ]
+_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.sink.split: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE7destroyIS2_EEvRS3_PT_.exit, %58, %62
+  %.sink = phi ptr [ %63, %62 ], [ %24, %58 ], [ %24, %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE7destroyIS2_EEvRS3_PT_.exit ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sink) #28
   br label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37
 
-_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.sink.split, %56
+_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.sink.split, %62
   invoke void @__cxa_rethrow() #29
-          to label %67 unwind label %58
+          to label %73 unwind label %64
 
-63:                                               ; preds = %58
-  resume { ptr, i32 } %59
+69:                                               ; preds = %64
+  resume { ptr, i32 } %65
 
-64:                                               ; preds = %58
-  %65 = landingpad { ptr, i32 }
+70:                                               ; preds = %64
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  tail call void @__clang_call_terminate(ptr %66) #30
+  %72 = extractvalue { ptr, i32 } %71, 0
+  tail call void @__clang_call_terminate(ptr %72) #30
   unreachable
 
-67:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37
+73:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37
   unreachable
 }
 
@@ -32219,7 +32231,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %64
+  br i1 %14, label %15, label %59
 
 15:                                               ; preds = %5
   %16 = add nsw i32 %13, -1
@@ -32244,7 +32256,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
-  %25 = phi double [ 0.000000e+00, %.lr.ph ], [ %53, %24 ]
+  %25 = phi double [ 0.000000e+00, %.lr.ph ], [ %48, %24 ]
   %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %26 = load ptr, ptr %21, align 8
   %27 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
@@ -32256,56 +32268,50 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %33 = fcmp olt double %31, 0x3DDB7CDFE0000000
   %.0.i = select i1 %33, double 0x3DDB7CDFE0000000, double %31
   %34 = fpext float %28 to double
-  %35 = call double @log(double noundef %.0.i) #11
-  %36 = insertelement <2 x double> poison, double %32, i64 0
-  %37 = shufflevector <2 x double> %36, <2 x double> poison, <2 x i32> zeroinitializer
-  %38 = fsub <2 x double> <double 1.000000e+00, double 2.000000e+00>, %37
-  %39 = extractelement <2 x double> %38, i64 0
-  %40 = fmul double %39, %35
-  %41 = call double @exp(double noundef %40) #11
-  %42 = call double @log(double noundef %.0.i) #11
-  %43 = extractelement <2 x double> %38, i64 1
-  %44 = fmul double %43, %42
-  %45 = call double @exp(double noundef %44) #11
-  %46 = fneg double %41
-  %47 = fmul double %34, %46
-  %48 = insertelement <2 x double> poison, double %47, i64 0
-  %49 = insertelement <2 x double> %48, double %45, i64 1
-  %50 = fdiv <2 x double> %49, %38
-  %shift = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %51 = fadd <2 x double> %50, %shift
-  %52 = extractelement <2 x double> %51, i64 0
-  %53 = fadd double %25, %52
-  store double %53, ptr %10, align 8
+  %35 = fsub double 1.000000e+00, %32
+  %36 = call double @log(double noundef %.0.i) #11
+  %37 = fmul double %35, %36
+  %38 = call double @exp(double noundef %37) #11
+  %39 = fsub double 2.000000e+00, %32
+  %40 = call double @log(double noundef %.0.i) #11
+  %41 = fmul double %39, %40
+  %42 = call double @exp(double noundef %41) #11
+  %43 = fdiv double %42, %39
+  %44 = fneg double %38
+  %45 = fmul double %34, %44
+  %46 = fdiv double %45, %35
+  %47 = fadd double %46, %43
+  %48 = fadd double %25, %47
+  store double %48, ptr %10, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %54 = load i32, ptr %7, align 4
-  %55 = sext i32 %54 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %55
+  %49 = load i32, ptr %7, align 4
+  %50 = sext i32 %49 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %50
   br i1 %.not.not, label %24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
   store ptr %10, ptr %11, align 8
-  %56 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %56, label %64 [
-    i32 1, label %57
-    i32 2, label %61
+  %51 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %51, label %59 [
+    i32 1, label %52
+    i32 2, label %56
   ]
 
-57:                                               ; preds = %._crit_edge
-  %58 = load double, ptr %3, align 8
-  %59 = load double, ptr %10, align 8
-  %60 = fadd double %58, %59
-  store double %60, ptr %3, align 8
+52:                                               ; preds = %._crit_edge
+  %53 = load double, ptr %3, align 8
+  %54 = load double, ptr %10, align 8
+  %55 = fadd double %53, %54
+  store double %55, ptr %3, align 8
   call void @__kmpc_end_reduce_nowait(ptr nonnull @2, i32 %17, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %64
+  br label %59
 
-61:                                               ; preds = %._crit_edge
-  %62 = load double, ptr %10, align 8
-  %63 = atomicrmw fadd ptr %3, double %62 monotonic, align 8
-  br label %64
+56:                                               ; preds = %._crit_edge
+  %57 = load double, ptr %10, align 8
+  %58 = atomicrmw fadd ptr %3, double %57 monotonic, align 8
+  br label %59
 
-64:                                               ; preds = %._crit_edge, %57, %61, %5
+59:                                               ; preds = %._crit_edge, %52, %56, %5
   ret void
 }
 
@@ -32331,7 +32337,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %69
+  br i1 %14, label %15, label %64
 
 15:                                               ; preds = %5
   %16 = add nsw i32 %13, -1
@@ -32357,7 +32363,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   br label %25
 
 25:                                               ; preds = %.lr.ph, %25
-  %26 = phi double [ 0.000000e+00, %.lr.ph ], [ %58, %25 ]
+  %26 = phi double [ 0.000000e+00, %.lr.ph ], [ %53, %25 ]
   %indvars.iv = phi i64 [ %24, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %27 = load ptr, ptr %21, align 8
   %28 = getelementptr inbounds float, ptr %27, i64 %indvars.iv
@@ -32369,60 +32375,54 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %34 = fcmp olt double %32, 0x3DDB7CDFE0000000
   %.0.i = select i1 %34, double 0x3DDB7CDFE0000000, double %32
   %35 = fpext float %29 to double
-  %36 = call double @log(double noundef %.0.i) #11
-  %37 = insertelement <2 x double> poison, double %33, i64 0
-  %38 = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> zeroinitializer
-  %39 = fsub <2 x double> <double 1.000000e+00, double 2.000000e+00>, %38
-  %40 = extractelement <2 x double> %39, i64 0
-  %41 = fmul double %40, %36
-  %42 = call double @exp(double noundef %41) #11
-  %43 = call double @log(double noundef %.0.i) #11
-  %44 = extractelement <2 x double> %39, i64 1
-  %45 = fmul double %44, %43
-  %46 = call double @exp(double noundef %45) #11
-  %47 = fneg double %42
-  %48 = fmul double %35, %47
-  %49 = insertelement <2 x double> poison, double %48, i64 0
-  %50 = insertelement <2 x double> %49, double %46, i64 1
-  %51 = fdiv <2 x double> %50, %39
-  %shift = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %52 = fadd <2 x double> %51, %shift
-  %53 = extractelement <2 x double> %52, i64 0
-  %54 = load ptr, ptr %23, align 8
-  %55 = getelementptr inbounds float, ptr %54, i64 %indvars.iv
-  %56 = load float, ptr %55, align 4
-  %57 = fpext float %56 to double
-  %58 = call double @llvm.fmuladd.f64(double %53, double %57, double %26)
-  store double %58, ptr %10, align 8
+  %36 = fsub double 1.000000e+00, %33
+  %37 = call double @log(double noundef %.0.i) #11
+  %38 = fmul double %36, %37
+  %39 = call double @exp(double noundef %38) #11
+  %40 = fsub double 2.000000e+00, %33
+  %41 = call double @log(double noundef %.0.i) #11
+  %42 = fmul double %40, %41
+  %43 = call double @exp(double noundef %42) #11
+  %44 = fdiv double %43, %40
+  %45 = fneg double %39
+  %46 = fmul double %35, %45
+  %47 = fdiv double %46, %36
+  %48 = fadd double %47, %44
+  %49 = load ptr, ptr %23, align 8
+  %50 = getelementptr inbounds float, ptr %49, i64 %indvars.iv
+  %51 = load float, ptr %50, align 4
+  %52 = fpext float %51 to double
+  %53 = call double @llvm.fmuladd.f64(double %48, double %52, double %26)
+  store double %53, ptr %10, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %59 = load i32, ptr %7, align 4
-  %60 = sext i32 %59 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %60
+  %54 = load i32, ptr %7, align 4
+  %55 = sext i32 %54 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %55
   br i1 %.not.not, label %25, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %25, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
   store ptr %10, ptr %11, align 8
-  %61 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.110.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %61, label %69 [
-    i32 1, label %62
-    i32 2, label %66
+  %56 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.110.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %56, label %64 [
+    i32 1, label %57
+    i32 2, label %61
   ]
 
-62:                                               ; preds = %._crit_edge
-  %63 = load double, ptr %3, align 8
-  %64 = load double, ptr %10, align 8
-  %65 = fadd double %63, %64
-  store double %65, ptr %3, align 8
+57:                                               ; preds = %._crit_edge
+  %58 = load double, ptr %3, align 8
+  %59 = load double, ptr %10, align 8
+  %60 = fadd double %58, %59
+  store double %60, ptr %3, align 8
   call void @__kmpc_end_reduce_nowait(ptr nonnull @2, i32 %17, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %69
+  br label %64
 
-66:                                               ; preds = %._crit_edge
-  %67 = load double, ptr %10, align 8
-  %68 = atomicrmw fadd ptr %3, double %67 monotonic, align 8
-  br label %69
+61:                                               ; preds = %._crit_edge
+  %62 = load double, ptr %10, align 8
+  %63 = atomicrmw fadd ptr %3, double %62 monotonic, align 8
+  br label %64
 
-69:                                               ; preds = %._crit_edge, %62, %66, %5
+64:                                               ; preds = %._crit_edge, %57, %61, %5
   ret void
 }
 
@@ -32449,7 +32449,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %17, label %71
+  br i1 %16, label %17, label %66
 
 17:                                               ; preds = %6
   %18 = add nsw i32 %15, -1
@@ -32474,7 +32474,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   br label %26
 
 26:                                               ; preds = %.lr.ph, %34
-  %27 = phi double [ 0.000000e+00, %.lr.ph ], [ %60, %34 ]
+  %27 = phi double [ 0.000000e+00, %.lr.ph ], [ %55, %34 ]
   %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %34 ]
   store double 0.000000e+00, ptr %12, align 8
   %28 = load ptr, ptr %3, align 8
@@ -32484,7 +32484,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %32 = getelementptr inbounds i8, ptr %31, i64 128
   %33 = load ptr, ptr %32, align 8
   invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %30, ptr noundef nonnull %12)
-          to label %34 unwind label %72
+          to label %34 unwind label %67
 
 34:                                               ; preds = %26
   %35 = load ptr, ptr %23, align 8
@@ -32495,63 +32495,57 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %40 = fcmp olt double %38, 0x3DDB7CDFE0000000
   %.0.i = select i1 %40, double 0x3DDB7CDFE0000000, double %38
   %41 = fpext float %37 to double
-  %42 = call double @log(double noundef %.0.i) #11
-  %43 = insertelement <2 x double> poison, double %39, i64 0
-  %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
-  %45 = fsub <2 x double> <double 1.000000e+00, double 2.000000e+00>, %44
-  %46 = extractelement <2 x double> %45, i64 0
-  %47 = fmul double %46, %42
-  %48 = call double @exp(double noundef %47) #11
-  %49 = call double @log(double noundef %.0.i) #11
-  %50 = extractelement <2 x double> %45, i64 1
-  %51 = fmul double %50, %49
-  %52 = call double @exp(double noundef %51) #11
-  %53 = fneg double %48
-  %54 = fmul double %41, %53
-  %55 = insertelement <2 x double> poison, double %54, i64 0
-  %56 = insertelement <2 x double> %55, double %52, i64 1
-  %57 = fdiv <2 x double> %56, %45
-  %shift = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %58 = fadd <2 x double> %57, %shift
-  %59 = extractelement <2 x double> %58, i64 0
-  %60 = fadd double %27, %59
-  store double %60, ptr %11, align 8
+  %42 = fsub double 1.000000e+00, %39
+  %43 = call double @log(double noundef %.0.i) #11
+  %44 = fmul double %42, %43
+  %45 = call double @exp(double noundef %44) #11
+  %46 = fsub double 2.000000e+00, %39
+  %47 = call double @log(double noundef %.0.i) #11
+  %48 = fmul double %46, %47
+  %49 = call double @exp(double noundef %48) #11
+  %50 = fdiv double %49, %46
+  %51 = fneg double %45
+  %52 = fmul double %41, %51
+  %53 = fdiv double %52, %42
+  %54 = fadd double %53, %50
+  %55 = fadd double %27, %54
+  store double %55, ptr %11, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %61 = load i32, ptr %8, align 4
-  %62 = sext i32 %61 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %62
+  %56 = load i32, ptr %8, align 4
+  %57 = sext i32 %56 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %57
   br i1 %.not.not, label %26, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %34, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
   store ptr %11, ptr %13, align 8
-  %63 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %19, i32 1, i64 8, ptr nonnull %13, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.111.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %63, label %71 [
-    i32 1, label %64
-    i32 2, label %68
+  %58 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %19, i32 1, i64 8, ptr nonnull %13, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.111.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %58, label %66 [
+    i32 1, label %59
+    i32 2, label %63
   ]
 
-64:                                               ; preds = %._crit_edge
-  %65 = load double, ptr %5, align 8
-  %66 = load double, ptr %11, align 8
-  %67 = fadd double %65, %66
-  store double %67, ptr %5, align 8
+59:                                               ; preds = %._crit_edge
+  %60 = load double, ptr %5, align 8
+  %61 = load double, ptr %11, align 8
+  %62 = fadd double %60, %61
+  store double %62, ptr %5, align 8
   call void @__kmpc_end_reduce_nowait(ptr nonnull @2, i32 %19, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %71
+  br label %66
 
-68:                                               ; preds = %._crit_edge
-  %69 = load double, ptr %11, align 8
-  %70 = atomicrmw fadd ptr %5, double %69 monotonic, align 8
-  br label %71
+63:                                               ; preds = %._crit_edge
+  %64 = load double, ptr %11, align 8
+  %65 = atomicrmw fadd ptr %5, double %64 monotonic, align 8
+  br label %66
 
-71:                                               ; preds = %._crit_edge, %64, %68, %6
+66:                                               ; preds = %._crit_edge, %59, %63, %6
   ret void
 
-72:                                               ; preds = %26
-  %73 = landingpad { ptr, i32 }
+67:                                               ; preds = %26
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #30
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #30
   unreachable
 }
 
@@ -32578,7 +32572,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %17, label %76
+  br i1 %16, label %17, label %71
 
 17:                                               ; preds = %6
   %18 = add nsw i32 %15, -1
@@ -32604,7 +32598,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   br label %27
 
 27:                                               ; preds = %.lr.ph, %35
-  %28 = phi double [ 0.000000e+00, %.lr.ph ], [ %65, %35 ]
+  %28 = phi double [ 0.000000e+00, %.lr.ph ], [ %60, %35 ]
   %indvars.iv = phi i64 [ %26, %.lr.ph ], [ %indvars.iv.next, %35 ]
   store double 0.000000e+00, ptr %12, align 8
   %29 = load ptr, ptr %3, align 8
@@ -32614,7 +32608,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %33 = getelementptr inbounds i8, ptr %32, i64 128
   %34 = load ptr, ptr %33, align 8
   invoke void %34(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %31, ptr noundef nonnull %12)
-          to label %35 unwind label %77
+          to label %35 unwind label %72
 
 35:                                               ; preds = %27
   %36 = load ptr, ptr %23, align 8
@@ -32625,67 +32619,61 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %41 = fcmp olt double %39, 0x3DDB7CDFE0000000
   %.0.i = select i1 %41, double 0x3DDB7CDFE0000000, double %39
   %42 = fpext float %38 to double
-  %43 = call double @log(double noundef %.0.i) #11
-  %44 = insertelement <2 x double> poison, double %40, i64 0
-  %45 = shufflevector <2 x double> %44, <2 x double> poison, <2 x i32> zeroinitializer
-  %46 = fsub <2 x double> <double 1.000000e+00, double 2.000000e+00>, %45
-  %47 = extractelement <2 x double> %46, i64 0
-  %48 = fmul double %47, %43
-  %49 = call double @exp(double noundef %48) #11
-  %50 = call double @log(double noundef %.0.i) #11
-  %51 = extractelement <2 x double> %46, i64 1
-  %52 = fmul double %51, %50
-  %53 = call double @exp(double noundef %52) #11
-  %54 = fneg double %49
-  %55 = fmul double %42, %54
-  %56 = insertelement <2 x double> poison, double %55, i64 0
-  %57 = insertelement <2 x double> %56, double %53, i64 1
-  %58 = fdiv <2 x double> %57, %46
-  %shift = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %59 = fadd <2 x double> %58, %shift
-  %60 = extractelement <2 x double> %59, i64 0
-  %61 = load ptr, ptr %25, align 8
-  %62 = getelementptr inbounds float, ptr %61, i64 %indvars.iv
-  %63 = load float, ptr %62, align 4
-  %64 = fpext float %63 to double
-  %65 = call double @llvm.fmuladd.f64(double %60, double %64, double %28)
-  store double %65, ptr %11, align 8
+  %43 = fsub double 1.000000e+00, %40
+  %44 = call double @log(double noundef %.0.i) #11
+  %45 = fmul double %43, %44
+  %46 = call double @exp(double noundef %45) #11
+  %47 = fsub double 2.000000e+00, %40
+  %48 = call double @log(double noundef %.0.i) #11
+  %49 = fmul double %47, %48
+  %50 = call double @exp(double noundef %49) #11
+  %51 = fdiv double %50, %47
+  %52 = fneg double %46
+  %53 = fmul double %42, %52
+  %54 = fdiv double %53, %43
+  %55 = fadd double %54, %51
+  %56 = load ptr, ptr %25, align 8
+  %57 = getelementptr inbounds float, ptr %56, i64 %indvars.iv
+  %58 = load float, ptr %57, align 4
+  %59 = fpext float %58 to double
+  %60 = call double @llvm.fmuladd.f64(double %55, double %59, double %28)
+  store double %60, ptr %11, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %66 = load i32, ptr %8, align 4
-  %67 = sext i32 %66 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %67
+  %61 = load i32, ptr %8, align 4
+  %62 = sext i32 %61 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %62
   br i1 %.not.not, label %27, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %35, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
   store ptr %11, ptr %13, align 8
-  %68 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %19, i32 1, i64 8, ptr nonnull %13, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.112.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %68, label %76 [
-    i32 1, label %69
-    i32 2, label %73
+  %63 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %19, i32 1, i64 8, ptr nonnull %13, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.112.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %63, label %71 [
+    i32 1, label %64
+    i32 2, label %68
   ]
 
-69:                                               ; preds = %._crit_edge
-  %70 = load double, ptr %5, align 8
-  %71 = load double, ptr %11, align 8
-  %72 = fadd double %70, %71
-  store double %72, ptr %5, align 8
+64:                                               ; preds = %._crit_edge
+  %65 = load double, ptr %5, align 8
+  %66 = load double, ptr %11, align 8
+  %67 = fadd double %65, %66
+  store double %67, ptr %5, align 8
   call void @__kmpc_end_reduce_nowait(ptr nonnull @2, i32 %19, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %76
+  br label %71
 
-73:                                               ; preds = %._crit_edge
-  %74 = load double, ptr %11, align 8
-  %75 = atomicrmw fadd ptr %5, double %74 monotonic, align 8
-  br label %76
+68:                                               ; preds = %._crit_edge
+  %69 = load double, ptr %11, align 8
+  %70 = atomicrmw fadd ptr %5, double %69 monotonic, align 8
+  br label %71
 
-76:                                               ; preds = %._crit_edge, %69, %73, %6
+71:                                               ; preds = %._crit_edge, %64, %68, %6
   ret void
 
-77:                                               ; preds = %27
-  %78 = landingpad { ptr, i32 }
+72:                                               ; preds = %27
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #30
+  %74 = extractvalue { ptr, i32 } %73, 0
+  call void @__clang_call_terminate(ptr %74) #30
   unreachable
 }
 

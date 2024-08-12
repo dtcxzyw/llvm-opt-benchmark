@@ -652,55 +652,57 @@ define linkonce_odr hidden void @_Z3logP6SymbolP16PlaceholderEntryPKcN16Placehol
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 32
-  %15 = load <2 x ptr>, ptr %14, align 8
-  %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
-  %18 = load i64, ptr %17, align 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 40
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = load i64, ptr %18, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %19) #12
-  %20 = getelementptr inbounds i8, ptr %5, i64 144
-  store i32 2, ptr %20, align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %20) #12
+  %21 = getelementptr inbounds i8, ptr %5, i64 144
+  store i32 2, ptr %21, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_74ELS1_116ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %5, align 8
-  %21 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #12
+  %22 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #12
   %switch.tableidx = add i32 %3, -1
-  %22 = icmp ult i32 %switch.tableidx, 3
-  br i1 %22, label %switch.lookup, label %_ZL16action_to_stringN16PlaceholderTable15classloadActionE.exit
+  %23 = icmp ult i32 %switch.tableidx, 3
+  br i1 %23, label %switch.lookup, label %_ZL16action_to_stringN16PlaceholderTable15classloadActionE.exit
 
 switch.lookup:                                    ; preds = %7
-  %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._Z3logP6SymbolP16PlaceholderEntryPKcN16PlaceholderTable15classloadActionE, i64 0, i64 %23
+  %24 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._Z3logP6SymbolP16PlaceholderEntryPKcN16PlaceholderTable15classloadActionE, i64 0, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL16action_to_stringN16PlaceholderTable15classloadActionE.exit
 
 _ZL16action_to_stringN16PlaceholderTable15classloadActionE.exit: ; preds = %7, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.23, %7 ]
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.19, ptr noundef %21, ptr noundef %2, ptr noundef nonnull %.0.i) #12
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.19, ptr noundef %22, ptr noundef %2, ptr noundef nonnull %.0.i) #12
   call void @_ZNK16PlaceholderEntry8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %5)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %5) #12
-  %24 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i, label %26, label %25
+  %25 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i.i, label %27, label %26
 
-25:                                               ; preds = %_ZL16action_to_stringN16PlaceholderTable15classloadActionE.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %18) #12
+26:                                               ; preds = %_ZL16action_to_stringN16PlaceholderTable15classloadActionE.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %19) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %13) #12
-  br label %26
+  br label %27
 
-26:                                               ; preds = %25, %_ZL16action_to_stringN16PlaceholderTable15classloadActionE.exit
-  %27 = load ptr, ptr %14, align 8
-  %.not8.i.i.i.i = icmp eq ptr %27, %16
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %28
+27:                                               ; preds = %26, %_ZL16action_to_stringN16PlaceholderTable15classloadActionE.exit
+  %28 = load ptr, ptr %14, align 8
+  %.not8.i.i.i.i = icmp eq ptr %28, %15
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %29
 
-28:                                               ; preds = %26
+29:                                               ; preds = %27
   store ptr %13, ptr %12, align 8
-  store <2 x ptr> %15, ptr %14, align 8
+  store ptr %15, ptr %14, align 8
+  store ptr %17, ptr %16, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %28, %26, %4
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %29, %27, %4
   ret void
 }
 

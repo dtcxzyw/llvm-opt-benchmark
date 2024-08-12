@@ -14,15 +14,19 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %temp.sroa.0.0.copyload = load i32, ptr %inIv, align 1
+  %temp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %inIv, i64 4
+  %temp.sroa.2.0.copyload = load i32, ptr %temp.sroa.2.0..sroa_idx, align 1
   %temp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %inIv, i64 8
   %temp.sroa.3.0.copyload = load i32, ptr %temp.sroa.3.0..sroa_idx, align 1
   %left = getelementptr inbounds i8, ptr %ctx, i64 64
-  %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 48
-  %arrayidx4 = getelementptr inbounds i8, ptr %ctx, i64 52
-  %0 = load <2 x i32>, ptr %inIv, align 1
   store i32 0, ptr %left, align 4
+  %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 %counter, ptr %arrayidx, align 4
-  store <2 x i32> %0, ptr %arrayidx4, align 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %ctx, i64 52
+  store i32 %temp.sroa.0.0.copyload, ptr %arrayidx4, align 4
+  %arrayidx7 = getelementptr inbounds i8, ptr %ctx, i64 56
+  store i32 %temp.sroa.2.0.copyload, ptr %arrayidx7, align 4
   %arrayidx10 = getelementptr inbounds i8, ptr %ctx, i64 60
   store i32 %temp.sroa.3.0.copyload, ptr %arrayidx10, align 4
   br label %return

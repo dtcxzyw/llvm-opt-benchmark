@@ -2266,7 +2266,13 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit143: ; preds = %if.end.i135, %
   %components.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 48
   %port.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %components.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %port.i.i.i.i.i.i.i.i, align 8
+  store i32 -1, ptr %port.i.i.i.i.i.i.i.i, align 8
+  %pathname_start.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 68
+  store i32 0, ptr %pathname_start.i.i.i.i.i.i.i.i, align 4
+  %search_start.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 72
+  store i32 -1, ptr %search_start.i.i.i.i.i.i.i.i, align 8
+  %hash_start.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 76
+  store i32 -1, ptr %hash_start.i.i.i.i.i.i.i.i, align 4
   %m_has_val.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 80
   store i8 1, ptr %m_has_val.i.i.i.i.i.i.i, align 8
   %31 = load i32, ptr %length_.i, align 8
@@ -6405,9 +6411,9 @@ _ZNK2v85MaybeIbE5CheckEv.exit:                    ; preds = %if.then.i, %_ZN4nod
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_node_url.cc() #16 section ".text.startup" {
 entry:
-  %retval.i.i.i1.i = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i1.i = alloca %"class.v8::CFunction", align 8
   %ref.tmp.i.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i.i = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i.i = alloca %"class.v8::CFunction", align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #22
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i)
@@ -6432,17 +6438,20 @@ init.i.i.i.i:                                     ; preds = %init.check.i.i.i.i
 
 _ZN2v89CFunction4MakeIFbNS_5LocalINS_5ValueEEERKNS_17FastOneByteStringEEEES0_PT_.exit.i: ; preds = %init.i.i.i.i, %init.check.i.i.i.i, %entry
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i, ptr noundef nonnull @_ZN4node3url11BindingData12FastCanParseEN2v85LocalINS2_5ValueEEERKNS2_17FastOneByteStringE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #22
-  %3 = load <2 x ptr>, ptr %retval.i.i.i.i, align 16
+  %.fca.0.load.i.i.i.i = load ptr, ptr %retval.i.i.i.i, align 8
+  %.fca.1.gep.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i.i, i64 8
+  %.fca.1.load.i.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i)
-  store <2 x ptr> %3, ptr @_ZN4node3url11BindingData23fast_can_parse_methods_E, align 16
+  store ptr %.fca.0.load.i.i.i.i, ptr @_ZN4node3url11BindingData23fast_can_parse_methods_E, align 16
+  store ptr %.fca.1.load.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4node3url11BindingData23fast_can_parse_methods_E, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i1.i)
-  %4 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEESB_EE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
-  %guard.uninitialized.i.i.i2.i = icmp eq i8 %4, 0
+  %3 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEESB_EE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
+  %guard.uninitialized.i.i.i2.i = icmp eq i8 %3, 0
   br i1 %guard.uninitialized.i.i.i2.i, label %init.check.i.i.i8.i, label %__cxx_global_var_init.21.exit, !prof !73
 
 init.check.i.i.i8.i:                              ; preds = %_ZN2v89CFunction4MakeIFbNS_5LocalINS_5ValueEEERKNS_17FastOneByteStringEEEES0_PT_.exit.i
-  %5 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEESB_EE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #22
-  %tobool.not.i.i.i9.i = icmp eq i32 %5, 0
+  %4 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEESB_EE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #22
+  %tobool.not.i.i.i9.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i.i.i9.i, label %__cxx_global_var_init.21.exit, label %init.i.i.i10.i
 
 init.i.i.i10.i:                                   ; preds = %init.check.i.i.i8.i
@@ -6452,9 +6461,12 @@ init.i.i.i10.i:                                   ; preds = %init.check.i.i.i8.i
 
 __cxx_global_var_init.21.exit:                    ; preds = %_ZN2v89CFunction4MakeIFbNS_5LocalINS_5ValueEEERKNS_17FastOneByteStringEEEES0_PT_.exit.i, %init.check.i.i.i8.i, %init.i.i.i10.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i1.i, ptr noundef nonnull @_ZN4node3url11BindingData20FastCanParseWithBaseEN2v85LocalINS2_5ValueEEERKNS2_17FastOneByteStringES8_, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIbJEEEJNS2_INS_5LocalINS_5ValueEEEJEEENS2_IRKNS_17FastOneByteStringEJEEESB_EE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #22
-  %6 = load <2 x ptr>, ptr %retval.i.i.i1.i, align 16
+  %.fca.0.load.i.i.i3.i = load ptr, ptr %retval.i.i.i1.i, align 8
+  %.fca.1.gep.i.i.i5.i = getelementptr inbounds i8, ptr %retval.i.i.i1.i, i64 8
+  %.fca.1.load.i.i.i6.i = load ptr, ptr %.fca.1.gep.i.i.i5.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i1.i)
-  store <2 x ptr> %6, ptr getelementptr inbounds (i8, ptr @_ZN4node3url11BindingData23fast_can_parse_methods_E, i64 16), align 16
+  store ptr %.fca.0.load.i.i.i3.i, ptr getelementptr inbounds (i8, ptr @_ZN4node3url11BindingData23fast_can_parse_methods_E, i64 16), align 16
+  store ptr %.fca.1.load.i.i.i6.i, ptr getelementptr inbounds (i8, ptr @_ZN4node3url11BindingData23fast_can_parse_methods_E, i64 24), align 8
   ret void
 }
 

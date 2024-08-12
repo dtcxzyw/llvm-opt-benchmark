@@ -293,9 +293,15 @@ define noundef zeroext i1 @"_ZN69_$LT$span..hygiene..SyntaxContextData$u20$as$u2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN4span7hygiene17SyntaxContextData4root17hfab45935596d3e19E(ptr noalias nocapture noundef writeonly sret({ i32, i32, i32, i32, i8, [3 x i8] }) align 4 dereferenceable(20) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 2, ptr %2, align 4
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 0>, ptr %0, align 4
+  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 0, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 2, ptr %3, align 4
+  store i32 1, ptr %0, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 1, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 1, ptr %5, align 4
   ret void
 }
 

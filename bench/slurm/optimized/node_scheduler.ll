@@ -6472,7 +6472,7 @@ define dso_local void @launch_prolog(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %164, ptr %165, align 4
   %166 = load ptr, ptr %72, align 8
   %.not.i = icmp eq ptr %166, null
-  br i1 %.not.i, label %189, label %167
+  br i1 %.not.i, label %192, label %167
 
 167:                                              ; preds = %114
   %168 = getelementptr inbounds i8, ptr %166, i64 216
@@ -6492,174 +6492,181 @@ define dso_local void @launch_prolog(ptr noundef %0) local_unnamed_addr #0 {
   store i16 %177, ptr %178, align 4
   %179 = load ptr, ptr %72, align 8
   %180 = getelementptr inbounds i8, ptr %179, i64 416
-  %181 = getelementptr inbounds i8, ptr %2, i64 256
-  %182 = load <2 x ptr>, ptr %180, align 8
-  store <2 x ptr> %182, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %179, i64 432
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds i8, ptr %2, i64 256
+  store ptr %181, ptr %182, align 8
+  %183 = getelementptr inbounds i8, ptr %179, i64 424
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %2, i64 272
+  %185 = getelementptr inbounds i8, ptr %2, i64 264
   store ptr %184, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %179, i64 480
-  %187 = load i16, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %2, i64 280
-  store i16 %187, ptr %188, align 8
+  %186 = getelementptr inbounds i8, ptr %179, i64 432
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %2, i64 272
+  store ptr %187, ptr %188, align 8
+  %189 = getelementptr inbounds i8, ptr %179, i64 480
+  %190 = load i16, ptr %189, align 8
+  %191 = getelementptr inbounds i8, ptr %2, i64 280
+  store i16 %190, ptr %191, align 8
   %.pre = load ptr, ptr %122, align 8
-  br label %189
+  br label %192
 
-189:                                              ; preds = %167, %114
-  %190 = phi ptr [ %.pre, %167 ], [ %123, %114 ]
-  %.not73.i = icmp eq ptr %190, null
-  br i1 %.not73.i, label %216, label %191
+192:                                              ; preds = %167, %114
+  %193 = phi ptr [ %.pre, %167 ], [ %123, %114 ]
+  %.not73.i = icmp eq ptr %193, null
+  br i1 %.not73.i, label %221, label %194
 
-191:                                              ; preds = %189
-  %192 = getelementptr inbounds i8, ptr %190, i64 56
-  %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr %193, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %190, i64 16
-  %196 = load i32, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %2, i64 64
-  store i32 %196, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %190, i64 24
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %2, i64 72
-  store ptr %199, ptr %200, align 8
-  %201 = getelementptr inbounds i8, ptr %190, i64 32
+194:                                              ; preds = %192
+  %195 = getelementptr inbounds i8, ptr %193, i64 56
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr %196, ptr %197, align 8
+  %198 = getelementptr inbounds i8, ptr %193, i64 16
+  %199 = load i32, ptr %198, align 8
+  %200 = getelementptr inbounds i8, ptr %2, i64 64
+  store i32 %199, ptr %200, align 8
+  %201 = getelementptr inbounds i8, ptr %193, i64 24
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %2, i64 80
+  %203 = getelementptr inbounds i8, ptr %2, i64 72
   store ptr %202, ptr %203, align 8
-  %204 = load ptr, ptr %190, align 8
-  %205 = getelementptr inbounds i8, ptr %2, i64 120
-  store ptr %204, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %190, i64 112
-  %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %2, i64 152
+  %204 = getelementptr inbounds i8, ptr %193, i64 32
+  %205 = load ptr, ptr %204, align 8
+  %206 = getelementptr inbounds i8, ptr %2, i64 80
+  store ptr %205, ptr %206, align 8
+  %207 = load ptr, ptr %193, align 8
+  %208 = getelementptr inbounds i8, ptr %2, i64 120
   store ptr %207, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %190, i64 88
-  %210 = load i32, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %2, i64 188
-  store i32 %210, ptr %211, align 4
-  %212 = getelementptr inbounds i8, ptr %190, i64 128
-  %213 = getelementptr inbounds i8, ptr %2, i64 48
-  %214 = load <2 x ptr>, ptr %212, align 8
-  %215 = shufflevector <2 x ptr> %214, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %215, ptr %213, align 8
-  br label %216
+  %209 = getelementptr inbounds i8, ptr %193, i64 112
+  %210 = load ptr, ptr %209, align 8
+  %211 = getelementptr inbounds i8, ptr %2, i64 152
+  store ptr %210, ptr %211, align 8
+  %212 = getelementptr inbounds i8, ptr %193, i64 88
+  %213 = load i32, ptr %212, align 8
+  %214 = getelementptr inbounds i8, ptr %2, i64 188
+  store i32 %213, ptr %214, align 4
+  %215 = getelementptr inbounds i8, ptr %193, i64 128
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds i8, ptr %2, i64 56
+  store ptr %216, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %193, i64 136
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr %219, ptr %220, align 8
+  br label %221
 
-216:                                              ; preds = %191, %189
-  %217 = getelementptr inbounds i8, ptr %0, i64 664
-  %218 = load ptr, ptr %217, align 8
-  %.not74.i = icmp eq ptr %218, null
-  br i1 %.not74.i, label %setup_cred_arg.exit, label %219
+221:                                              ; preds = %194, %192
+  %222 = getelementptr inbounds i8, ptr %0, i64 664
+  %223 = load ptr, ptr %222, align 8
+  %.not74.i = icmp eq ptr %223, null
+  br i1 %.not74.i, label %setup_cred_arg.exit, label %224
 
-219:                                              ; preds = %216
-  %220 = getelementptr inbounds i8, ptr %218, i64 224
-  %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %2, i64 216
-  store ptr %221, ptr %222, align 8
+224:                                              ; preds = %221
+  %225 = getelementptr inbounds i8, ptr %223, i64 224
+  %226 = load ptr, ptr %225, align 8
+  %227 = getelementptr inbounds i8, ptr %2, i64 216
+  store ptr %226, ptr %227, align 8
   br label %setup_cred_arg.exit
 
-setup_cred_arg.exit:                              ; preds = %216, %219
-  %223 = load i32, ptr %46, align 8
-  store i32 %223, ptr %2, align 8
-  %224 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 -4, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 -2, ptr %225, align 4
-  %226 = getelementptr inbounds i8, ptr %123, i64 72
-  %227 = load ptr, ptr %226, align 8
-  %.not108 = icmp eq ptr %227, null
-  br i1 %.not108, label %234, label %228
+setup_cred_arg.exit:                              ; preds = %221, %224
+  %228 = load i32, ptr %46, align 8
+  store i32 %228, ptr %2, align 8
+  %229 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 -4, ptr %229, align 8
+  %230 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 -2, ptr %230, align 4
+  %231 = getelementptr inbounds i8, ptr %123, i64 72
+  %232 = load ptr, ptr %231, align 8
+  %.not108 = icmp eq ptr %232, null
+  br i1 %.not108, label %239, label %233
 
-228:                                              ; preds = %setup_cred_arg.exit
-  %229 = getelementptr inbounds i8, ptr %123, i64 88
-  %230 = load i32, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %2, i64 168
-  %232 = getelementptr inbounds i8, ptr %2, i64 176
-  %233 = getelementptr inbounds i8, ptr %2, i64 184
-  call void @slurm_array64_to_value_reps(ptr noundef nonnull %227, i32 noundef %230, ptr noundef nonnull %231, ptr noundef nonnull %232, ptr noundef nonnull %233) #13
+233:                                              ; preds = %setup_cred_arg.exit
+  %234 = getelementptr inbounds i8, ptr %123, i64 88
+  %235 = load i32, ptr %234, align 8
+  %236 = getelementptr inbounds i8, ptr %2, i64 168
+  %237 = getelementptr inbounds i8, ptr %2, i64 176
+  %238 = getelementptr inbounds i8, ptr %2, i64 184
+  call void @slurm_array64_to_value_reps(ptr noundef nonnull %232, i32 noundef %235, ptr noundef nonnull %236, ptr noundef nonnull %237, ptr noundef nonnull %238) #13
   %.pre123 = load ptr, ptr %122, align 8
-  br label %234
+  br label %239
 
-234:                                              ; preds = %228, %setup_cred_arg.exit
-  %235 = phi ptr [ %.pre123, %228 ], [ %190, %setup_cred_arg.exit ]
-  %236 = load ptr, ptr %123, align 8
-  %237 = getelementptr inbounds i8, ptr %2, i64 288
-  store ptr %236, ptr %237, align 8
-  %238 = getelementptr inbounds i8, ptr %235, i64 112
-  %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds i8, ptr %2, i64 296
-  store ptr %239, ptr %240, align 8
-  %241 = call ptr @slurm_cred_create(ptr noundef nonnull %2, i1 noundef zeroext false, i16 noundef zeroext %.0.lcssa) #13
-  %242 = getelementptr inbounds i8, ptr %28, i64 8
+239:                                              ; preds = %233, %setup_cred_arg.exit
+  %240 = phi ptr [ %.pre123, %233 ], [ %193, %setup_cred_arg.exit ]
+  %241 = load ptr, ptr %123, align 8
+  %242 = getelementptr inbounds i8, ptr %2, i64 288
   store ptr %241, ptr %242, align 8
-  %243 = getelementptr inbounds i8, ptr %2, i64 168
-  call void @slurm_xfree(ptr noundef nonnull %243) #13
-  %244 = getelementptr inbounds i8, ptr %2, i64 176
-  call void @slurm_xfree(ptr noundef nonnull %244) #13
-  %245 = load ptr, ptr %242, align 8
-  %.not109 = icmp eq ptr %245, null
-  br i1 %.not109, label %246, label %255
+  %243 = getelementptr inbounds i8, ptr %240, i64 112
+  %244 = load ptr, ptr %243, align 8
+  %245 = getelementptr inbounds i8, ptr %2, i64 296
+  store ptr %244, ptr %245, align 8
+  %246 = call ptr @slurm_cred_create(ptr noundef nonnull %2, i1 noundef zeroext false, i16 noundef zeroext %.0.lcssa) #13
+  %247 = getelementptr inbounds i8, ptr %28, i64 8
+  store ptr %246, ptr %247, align 8
+  %248 = getelementptr inbounds i8, ptr %2, i64 168
+  call void @slurm_xfree(ptr noundef nonnull %248) #13
+  %249 = getelementptr inbounds i8, ptr %2, i64 176
+  call void @slurm_xfree(ptr noundef nonnull %249) #13
+  %250 = load ptr, ptr %247, align 8
+  %.not109 = icmp eq ptr %250, null
+  br i1 %.not109, label %251, label %260
 
-246:                                              ; preds = %234
-  %247 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__.launch_prolog, ptr noundef nonnull %0) #13
+251:                                              ; preds = %239
+  %252 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__.launch_prolog, ptr noundef nonnull %0) #13
   call void @slurm_free_prolog_launch_msg(ptr noundef nonnull %28) #13
-  %248 = call i64 @time(ptr noundef null) #13
-  %249 = add nsw i64 %248, 120
-  %250 = load ptr, ptr %72, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 48
-  store i64 %249, ptr %251, align 8
-  %252 = load i32, ptr %46, align 8
-  %253 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %254 = call i32 @job_complete(i32 noundef %252, i32 noundef %253, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0) #13
-  br label %278
+  %253 = call i64 @time(ptr noundef null) #13
+  %254 = add nsw i64 %253, 120
+  %255 = load ptr, ptr %72, align 8
+  %256 = getelementptr inbounds i8, ptr %255, i64 48
+  store i64 %254, ptr %256, align 8
+  %257 = load i32, ptr %46, align 8
+  %258 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %259 = call i32 @job_complete(i32 noundef %257, i32 noundef %258, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0) #13
+  br label %283
 
-255:                                              ; preds = %234
-  %256 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3140, ptr noundef nonnull @__func__.launch_prolog) #13
-  %257 = getelementptr inbounds i8, ptr %256, i64 4
-  store i16 0, ptr %257, align 4
-  %258 = getelementptr inbounds i8, ptr %256, i64 32
-  store i16 %.0.lcssa, ptr %258, align 8
-  %259 = load ptr, ptr %42, align 8
-  %260 = call ptr @hostlist_create(ptr noundef %259) #13
-  %261 = getelementptr inbounds i8, ptr %256, i64 24
-  store ptr %260, ptr %261, align 8
-  %262 = getelementptr inbounds i8, ptr %0, i64 600
-  %263 = load i32, ptr %262, align 8
-  store i32 %263, ptr %256, align 8
-  %264 = getelementptr inbounds i8, ptr %256, i64 36
-  store i32 6017, ptr %264, align 4
-  %265 = getelementptr inbounds i8, ptr %256, i64 40
-  store ptr %28, ptr %265, align 8
-  %266 = getelementptr inbounds i8, ptr %256, i64 48
-  store i16 %.094.lcssa, ptr %266, align 8
-  %267 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 946), align 2
-  %268 = and i16 %267, 4
-  %.not110 = icmp eq i16 %268, 0
-  br i1 %.not110, label %275, label %269
+260:                                              ; preds = %239
+  %261 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3140, ptr noundef nonnull @__func__.launch_prolog) #13
+  %262 = getelementptr inbounds i8, ptr %261, i64 4
+  store i16 0, ptr %262, align 4
+  %263 = getelementptr inbounds i8, ptr %261, i64 32
+  store i16 %.0.lcssa, ptr %263, align 8
+  %264 = load ptr, ptr %42, align 8
+  %265 = call ptr @hostlist_create(ptr noundef %264) #13
+  %266 = getelementptr inbounds i8, ptr %261, i64 24
+  store ptr %265, ptr %266, align 8
+  %267 = getelementptr inbounds i8, ptr %0, i64 600
+  %268 = load i32, ptr %267, align 8
+  store i32 %268, ptr %261, align 8
+  %269 = getelementptr inbounds i8, ptr %261, i64 36
+  store i32 6017, ptr %269, align 4
+  %270 = getelementptr inbounds i8, ptr %261, i64 40
+  store ptr %28, ptr %270, align 8
+  %271 = getelementptr inbounds i8, ptr %261, i64 48
+  store i16 %.094.lcssa, ptr %271, align 8
+  %272 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 946), align 2
+  %273 = and i16 %272, 4
+  %.not110 = icmp eq i16 %273, 0
+  br i1 %.not110, label %280, label %274
 
-269:                                              ; preds = %255
-  %270 = call ptr @build_extern_step(ptr noundef nonnull %0) #13
-  %.not111 = icmp eq ptr %270, null
-  br i1 %.not111, label %273, label %271
+274:                                              ; preds = %260
+  %275 = call ptr @build_extern_step(ptr noundef nonnull %0) #13
+  %.not111 = icmp eq ptr %275, null
+  br i1 %.not111, label %278, label %276
 
-271:                                              ; preds = %269
-  %272 = call i32 @select_g_step_start(ptr noundef nonnull %270) #13
-  br label %275
+276:                                              ; preds = %274
+  %277 = call i32 @select_g_step_start(ptr noundef nonnull %275) #13
+  br label %280
 
-273:                                              ; preds = %269
-  %274 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__.launch_prolog, ptr noundef nonnull %0) #13
-  br label %275
+278:                                              ; preds = %274
+  %279 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__.launch_prolog, ptr noundef nonnull %0) #13
+  br label %280
 
-275:                                              ; preds = %271, %273, %255
-  %276 = call i64 @time(ptr noundef null) #13
-  %277 = getelementptr inbounds i8, ptr %0, i64 744
-  store i64 %276, ptr %277, align 8
-  call void @set_agent_arg_r_uid(ptr noundef nonnull %256, i32 noundef -1) #13
-  call void @agent_queue_request(ptr noundef nonnull %256) #13
-  br label %278
+280:                                              ; preds = %276, %278, %260
+  %281 = call i64 @time(ptr noundef null) #13
+  %282 = getelementptr inbounds i8, ptr %0, i64 744
+  store i64 %281, ptr %282, align 8
+  call void @set_agent_arg_r_uid(ptr noundef nonnull %261, i32 noundef -1) #13
+  call void @agent_queue_request(ptr noundef nonnull %261) #13
+  br label %283
 
-278:                                              ; preds = %275, %246
+283:                                              ; preds = %280, %251
   ret void
 }
 

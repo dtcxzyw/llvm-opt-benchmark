@@ -20542,7 +20542,7 @@ declare i32 @dissect_per_open_type_pdu_new(ptr noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca %struct._ngap_ctx_t, align 16
+  %5 = alloca %struct._ngap_ctx_t, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_ngap, align 4
@@ -20562,24 +20562,33 @@ define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0
 
 ngap_get_private_data.exit:                       ; preds = %4, %10
   %.0.i = phi ptr [ %9, %4 ], [ %12, %10 ]
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %18 = load i32, ptr %17, align 8
-  %19 = load <4 x i32>, ptr %16, align 8
-  %20 = shufflevector <4 x i32> %19, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  store <4 x i32> %20, ptr %5, align 16
-  %21 = load ptr, ptr @ngap_extension_dissector_table, align 8
-  %22 = call i32 @dissector_try_uint_new(ptr noundef %21, i32 noundef %18, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %5) #10
-  %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %25, label %23
+  %16 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %5, align 4
+  %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %19 = load i32, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %19, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %22, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %25 = load i32, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %25, ptr %26, align 4
+  %27 = load ptr, ptr @ngap_extension_dissector_table, align 8
+  %28 = call i32 @dissector_try_uint_new(ptr noundef %27, i32 noundef %25, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %5) #10
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %31, label %29
 
-23:                                               ; preds = %ngap_get_private_data.exit
-  %24 = call i32 @tvb_captured_length(ptr noundef %0) #10
-  br label %25
+29:                                               ; preds = %ngap_get_private_data.exit
+  %30 = call i32 @tvb_captured_length(ptr noundef %0) #10
+  br label %31
 
-25:                                               ; preds = %ngap_get_private_data.exit, %23
-  %26 = phi i32 [ %24, %23 ], [ 0, %ngap_get_private_data.exit ]
-  ret i32 %26
+31:                                               ; preds = %ngap_get_private_data.exit, %29
+  %32 = phi i32 [ %30, %29 ], [ 0, %ngap_get_private_data.exit ]
+  ret i32 %32
 }
 
 declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -20761,7 +20770,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca %struct._ngap_ctx_t, align 16
+  %5 = alloca %struct._ngap_ctx_t, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_ngap, align 4
@@ -20781,24 +20790,33 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
 
 ngap_get_private_data.exit:                       ; preds = %4, %10
   %.0.i = phi ptr [ %9, %4 ], [ %12, %10 ]
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 12
-  %18 = load <4 x i32>, ptr %16, align 8
-  %19 = load i32, ptr %17, align 4
-  %20 = shufflevector <4 x i32> %18, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  store <4 x i32> %20, ptr %5, align 16
-  %21 = load ptr, ptr @ngap_ies_dissector_table, align 8
-  %22 = call i32 @dissector_try_uint_new(ptr noundef %21, i32 noundef %19, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #10
-  %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %25, label %23
+  %16 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %5, align 4
+  %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %19 = load i32, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %19, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %22, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %25 = load i32, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %25, ptr %26, align 4
+  %27 = load ptr, ptr @ngap_ies_dissector_table, align 8
+  %28 = call i32 @dissector_try_uint_new(ptr noundef %27, i32 noundef %22, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #10
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %31, label %29
 
-23:                                               ; preds = %ngap_get_private_data.exit
-  %24 = call i32 @tvb_captured_length(ptr noundef %0) #10
-  br label %25
+29:                                               ; preds = %ngap_get_private_data.exit
+  %30 = call i32 @tvb_captured_length(ptr noundef %0) #10
+  br label %31
 
-25:                                               ; preds = %ngap_get_private_data.exit, %23
-  %26 = phi i32 [ %24, %23 ], [ 0, %ngap_get_private_data.exit ]
-  ret i32 %26
+31:                                               ; preds = %ngap_get_private_data.exit, %29
+  %32 = phi i32 [ %30, %29 ], [ 0, %ngap_get_private_data.exit ]
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable

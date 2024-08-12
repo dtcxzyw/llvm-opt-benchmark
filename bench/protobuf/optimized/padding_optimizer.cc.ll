@@ -1565,12 +1565,16 @@ _ZNKSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EE1
   store double %8, ptr %add.ptr.i.i, align 8
   %fields_.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %fields_3.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 8
-  %9 = load <2 x ptr>, ptr %fields_3.i.i.i.i.i, align 8
-  store <2 x ptr> %9, ptr %fields_.i.i.i.i.i, align 8
+  %9 = load ptr, ptr %fields_3.i.i.i.i.i, align 8
+  store ptr %9, ptr %fields_.i.i.i.i.i, align 8
+  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
+  %_M_finish3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 16
+  %10 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %10, ptr %_M_finish.i.i.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 24
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 24
-  %10 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
+  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields_3.i.i.i.i.i, i8 0, i64 24, i1 false)
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i, label %for.body.i.i.i.i.i
 
@@ -1579,16 +1583,20 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN6goo
   %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val.i.i, %_ZNKSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EE12_M_check_lenEmPKc.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %11 = load double, ptr %__first.addr.02.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
-  store double %11, ptr %__cur.03.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
+  %12 = load double, ptr %__first.addr.02.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
+  store double %12, ptr %__cur.03.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
   %fields_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 8
   %fields_3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 8
-  %12 = load <2 x ptr>, ptr %fields_3.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
-  store <2 x ptr> %12, ptr %fields_.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
+  %13 = load ptr, ptr %fields_3.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
+  store ptr %13, ptr %fields_.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 16
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 16
+  %14 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
+  store ptr %14, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 24
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
-  store ptr %13, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
+  %15 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
+  store ptr %15, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields_3.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !17, !noalias !14
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 32
@@ -1792,12 +1800,16 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
   store double %12, ptr %__cur.03.i.i.i.i, align 8, !alias.scope !20, !noalias !23
   %fields_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 8
   %fields_3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 8
-  %13 = load <2 x ptr>, ptr %fields_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !23, !noalias !20
-  store <2 x ptr> %13, ptr %fields_.i.i.i.i.i.i.i.i, align 8, !alias.scope !20, !noalias !23
+  %13 = load ptr, ptr %fields_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !23, !noalias !20
+  store ptr %13, ptr %fields_.i.i.i.i.i.i.i.i, align 8, !alias.scope !20, !noalias !23
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 16
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 16
+  %14 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !23, !noalias !20
+  store ptr %14, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !20, !noalias !23
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 24
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 24
-  %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !23, !noalias !20
-  store ptr %14, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !20, !noalias !23
+  %15 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !23, !noalias !20
+  store ptr %15, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !20, !noalias !23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields_3.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !23, !noalias !20
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 32
@@ -1815,28 +1827,28 @@ if.then.i36.i:                                    ; preds = %_ZNSt6vectorIN6goog
   br label %_ZNSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit
 
 lpad17.i:                                         ; preds = %invoke.cont19.i
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
 invoke.cont19.i:                                  ; preds = %_ZNSt16allocator_traitsISaIPKN6google8protobuf15FieldDescriptorEEE8allocateERS5_m.exit.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i.i
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #28
+  %18 = extractvalue { ptr, i32 } %17, 0
+  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #28
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i19.i) #25
   invoke void @__cxa_rethrow() #23
           to label %unreachable.i unwind label %lpad17.i
 
 eh.resume.i:                                      ; preds = %lpad17.i
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %16
 
 terminate.lpad.i:                                 ; preds = %lpad17.i
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #27
+  %21 = extractvalue { ptr, i32 } %20, 0
+  tail call void @__clang_call_terminate(ptr %21) #27
   unreachable
 
 unreachable.i:                                    ; preds = %invoke.cont19.i
@@ -1886,13 +1898,16 @@ if.then.i.i:                                      ; preds = %while.body.i.i.i
   store double %0, ptr %call.i.i.i, align 8
   %fields_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   %fields_3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 8
+  %1 = load ptr, ptr %fields_3.i.i.i.i.i.i, align 8
+  store ptr %1, ptr %fields_.i.i.i.i.i.i, align 8
+  %_M_finish.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %_M_finish3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 16
-  %1 = load <2 x ptr>, ptr %fields_3.i.i.i.i.i.i, align 8
-  store <2 x ptr> %1, ptr %fields_.i.i.i.i.i.i, align 8
+  %2 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 24
-  %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8
+  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_finish3.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %cmp1.not18.i.i.i.i = icmp eq i64 %storemerge27.i.i.i, 1
   br i1 %cmp1.not18.i.i.i.i, label %if.end22.i, label %for.body.i.i.preheader.i.i
@@ -1904,16 +1919,20 @@ for.body.i.i.preheader.i.i:                       ; preds = %if.then.i.i
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.preheader.i.i
   %__cur.021.i.i.i.i = phi ptr [ %__cur.0.i.i.i.i, %for.body.i.i.i.i ], [ %__cur.017.i.i.i.i, %for.body.i.i.preheader.i.i ]
   %__prev.020.i.i.i.i = phi ptr [ %incdec.ptr4.i.i.i.i, %for.body.i.i.i.i ], [ %call.i.i.i, %for.body.i.i.preheader.i.i ]
-  %3 = load double, ptr %__prev.020.i.i.i.i, align 8
-  store double %3, ptr %__cur.021.i.i.i.i, align 8
+  %4 = load double, ptr %__prev.020.i.i.i.i, align 8
+  store double %4, ptr %__cur.021.i.i.i.i, align 8
   %fields_.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %__prev.020.i.i.i.i, i64 40
   %fields_3.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %__prev.020.i.i.i.i, i64 8
-  %4 = load <2 x ptr>, ptr %fields_3.i.i12.i.i.i.i, align 8
-  store <2 x ptr> %4, ptr %fields_.i.i11.i.i.i.i, align 8
+  %5 = load ptr, ptr %fields_3.i.i12.i.i.i.i, align 8
+  store ptr %5, ptr %fields_.i.i11.i.i.i.i, align 8
+  %_M_finish.i.i.i.i.i.i13.i.i.i.i = getelementptr inbounds i8, ptr %__prev.020.i.i.i.i, i64 48
+  %_M_finish3.i.i.i.i.i.i14.i.i.i.i = getelementptr inbounds i8, ptr %__prev.020.i.i.i.i, i64 16
+  %6 = load ptr, ptr %_M_finish3.i.i.i.i.i.i14.i.i.i.i, align 8
+  store ptr %6, ptr %_M_finish.i.i.i.i.i.i13.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i15.i.i.i.i = getelementptr inbounds i8, ptr %__prev.020.i.i.i.i, i64 56
   %_M_end_of_storage4.i.i.i.i.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %__prev.020.i.i.i.i, i64 24
-  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i16.i.i.i.i, align 8
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i15.i.i.i.i, align 8
+  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i16.i.i.i.i, align 8
+  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i15.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields_3.i.i12.i.i.i.i, i8 0, i64 24, i1 false)
   %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %__prev.020.i.i.i.i, i64 32
   %__cur.0.i.i.i.i = getelementptr inbounds i8, ptr %__cur.021.i.i.i.i, i64 32
@@ -1929,18 +1948,18 @@ if.end22.i.thread:                                ; preds = %if.end4.i.i.i, %if.
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES7_ED2Ev.exit.i
 
 if.end22.i:                                       ; preds = %if.then.i.i, %for.end.loopexit.i.i.i.i
-  %6 = phi double [ %0, %if.then.i.i ], [ %.pre.i.i, %for.end.loopexit.i.i.i.i ]
+  %8 = phi double [ %0, %if.then.i.i ], [ %.pre.i.i, %for.end.loopexit.i.i.i.i ]
   %__prev.0.lcssa.i.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i ], [ %incdec.ptr4.i.i.i.i, %for.end.loopexit.i.i.i.i ]
-  store double %6, ptr %__first.coerce, align 8
+  store double %8, ptr %__first.coerce, align 8
   %fields_3.i.i.i.i.i = getelementptr inbounds i8, ptr %__prev.0.lcssa.i.i.i.i, i64 8
-  %7 = load ptr, ptr %fields_3.i.i.i.i.i, align 8
-  store ptr %7, ptr %fields_3.i.i.i.i.i.i, align 8
+  %9 = load ptr, ptr %fields_3.i.i.i.i.i, align 8
+  store ptr %9, ptr %fields_3.i.i.i.i.i.i, align 8
   %_M_finish.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__prev.0.lcssa.i.i.i.i, i64 16
-  %8 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i, align 8
+  %10 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i.i.i, align 8
+  store ptr %10, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__prev.0.lcssa.i.i.i.i, i64 24
-  %9 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8
+  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i.i, align 8
+  store ptr %11, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields_3.i.i.i.i.i, i8 0, i64 24, i1 false)
   tail call fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES8_lNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_T2_(ptr nonnull %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %call.i.i.i, i64 noundef %storemerge27.i.i.i)
   %add.ptr.i7.i = getelementptr inbounds %"class.google::protobuf::compiler::cpp::(anonymous namespace)::FieldGroup", ptr %call.i.i.i, i64 %storemerge27.i.i.i
@@ -1949,8 +1968,8 @@ if.end22.i:                                       ; preds = %if.then.i.i, %for.e
 
 for.body.i.i.i8.i:                                ; preds = %if.end22.i, %_ZSt8_DestroyIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEEvPT_.exit.i.i.i.i ], [ %call.i.i.i, %if.end22.i ]
-  %10 = getelementptr i8, ptr %__first.addr.04.i.i.i.i, i64 8
-  %__first.addr.0.val.i.i.i.i = load ptr, ptr %10, align 8
+  %12 = getelementptr i8, ptr %__first.addr.04.i.i.i.i, i64 8
+  %__first.addr.0.val.i.i.i.i = load ptr, ptr %12, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.val.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
@@ -2191,12 +2210,16 @@ while.body.i:                                     ; preds = %if.else, %_ZN6googl
   %fields_.i4.i = getelementptr inbounds i8, ptr %__last.sroa.0.022.i, i64 8
   %fields_3.i5.i = getelementptr inbounds i8, ptr %__last.sroa.0.022.i, i64 -24
   %9 = load ptr, ptr %fields_.i4.i, align 8
+  %_M_finish.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %__last.sroa.0.022.i, i64 16
   %_M_end_of_storage.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %__last.sroa.0.022.i, i64 24
-  %10 = load <2 x ptr>, ptr %fields_3.i5.i, align 8
-  store <2 x ptr> %10, ptr %fields_.i4.i, align 8
+  %10 = load ptr, ptr %fields_3.i5.i, align 8
+  store ptr %10, ptr %fields_.i4.i, align 8
+  %_M_finish.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.022.i, i64 -16
+  %11 = load ptr, ptr %_M_finish.i2.i.i.i.i.i, align 8
+  store ptr %11, ptr %_M_finish.i.i.i.i.i6.i, align 8
   %_M_end_of_storage.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.022.i, i64 -8
-  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i7.i, align 8
+  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i7.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields_3.i5.i, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit.i, label %if.then.i.i.i.i.i.i.i
@@ -2265,25 +2288,27 @@ if.then5:                                         ; preds = %if.end
 
 if.then9:                                         ; preds = %if.then5
   %fields_3.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.tr60, i64 8
+  %0 = load ptr, ptr %fields_3.i.i.i, align 8
   %_M_finish3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.tr60, i64 16
+  %1 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.tr60, i64 24
-  %0 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
-  %fields_3.i4.i.i = getelementptr inbounds i8, ptr %__middle.coerce.tr62, i64 8
-  %_M_finish.i2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__middle.coerce.tr62, i64 16
-  %_M_end_of_storage.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__middle.coerce.tr62, i64 24
-  %1 = load <2 x ptr>, ptr %fields_3.i.i.i, align 8
+  %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields_3.i.i.i, i8 0, i64 24, i1 false)
-  %2 = load double, ptr %__middle.coerce.tr62, align 8
-  store double %2, ptr %__first.coerce.tr60, align 8
-  %3 = load ptr, ptr %fields_3.i4.i.i, align 8
-  store ptr %3, ptr %fields_3.i.i.i, align 8
-  %4 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i, align 8
-  store ptr %4, ptr %_M_finish3.i.i.i.i.i.i.i, align 8
-  %5 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i, align 8
-  store ptr %5, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
+  %3 = load double, ptr %__middle.coerce.tr62, align 8
+  store double %3, ptr %__first.coerce.tr60, align 8
+  %fields_3.i4.i.i = getelementptr inbounds i8, ptr %__middle.coerce.tr62, i64 8
+  %4 = load ptr, ptr %fields_3.i4.i.i, align 8
+  store ptr %4, ptr %fields_3.i.i.i, align 8
+  %_M_finish.i2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__middle.coerce.tr62, i64 16
+  %5 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_finish3.i.i.i.i.i.i.i, align 8
+  %_M_end_of_storage.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__middle.coerce.tr62, i64 24
+  %6 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i, align 8
+  store ptr %6, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   store double %call3.val.i, ptr %__middle.coerce.tr62, align 8
-  store <2 x ptr> %1, ptr %fields_3.i4.i.i, align 8
-  store ptr %0, ptr %_M_end_of_storage.i4.i.i.i.i.i.i, align 8
+  store ptr %0, ptr %fields_3.i4.i.i, align 8
+  store ptr %1, ptr %_M_finish.i2.i.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_end_of_storage.i4.i.i.i.i.i.i, align 8
   br label %return
 
 if.end15:                                         ; preds = %if.end
@@ -2308,8 +2333,8 @@ while.body.i:                                     ; preds = %if.then17, %while.b
   %call.val.i.i = load double, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i5.i = fcmp olt double %call.val.i.i, %call20.val
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 32
-  %6 = xor i64 %shr.i, -1
-  %sub9.i = add nsw i64 %__len.04.i, %6
+  %7 = xor i64 %shr.i, -1
+  %sub9.i = add nsw i64 %__len.04.i, %7
   %__first.sroa.0.1.i = select i1 %cmp.i.i5.i, ptr %incdec.ptr.i.i, ptr %__first.sroa.0.03.i
   %__len.1.i = select i1 %cmp.i.i5.i, i64 %sub9.i, i64 %shr.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
@@ -2344,8 +2369,8 @@ while.body.i33:                                   ; preds = %if.else, %while.bod
   %call.val.i.i42 = load double, ptr %add.ptr.i.i.i.i39, align 8
   %cmp.i.i5.i43 = fcmp ogt double %call.val.i.i42, %call36.val
   %incdec.ptr.i.i44 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i39, i64 32
-  %7 = xor i64 %shr.i36, -1
-  %sub9.i45 = add nsw i64 %__len.04.i34, %7
+  %8 = xor i64 %shr.i36, -1
+  %sub9.i45 = add nsw i64 %__len.04.i34, %8
   %__first.sroa.0.1.i46 = select i1 %cmp.i.i5.i43, ptr %__first.sroa.0.03.i35, ptr %incdec.ptr.i.i44
   %__len.1.i47 = select i1 %cmp.i.i5.i43, i64 %shr.i36, i64 %sub9.i45
   %cmp.i48 = icmp sgt i64 %__len.1.i47, 0
@@ -2407,25 +2432,27 @@ for.body.i.i:                                     ; preds = %if.end5.i, %for.bod
   %__first1.sroa.0.03.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %__first.coerce, %if.end5.i ]
   %0 = load double, ptr %__first1.sroa.0.03.i.i, align 8
   %fields_3.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.03.i.i, i64 8
+  %1 = load ptr, ptr %fields_3.i.i.i.i.i, align 8
   %_M_finish3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.03.i.i, i64 16
+  %2 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.03.i.i, i64 24
-  %1 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
-  %fields_3.i4.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.04.i.i, i64 8
-  %_M_finish.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.04.i.i, i64 16
-  %_M_end_of_storage.i4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.04.i.i, i64 24
-  %2 = load <2 x ptr>, ptr %fields_3.i.i.i.i.i, align 8
+  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields_3.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %3 = load double, ptr %__first2.sroa.0.04.i.i, align 8
-  store double %3, ptr %__first1.sroa.0.03.i.i, align 8
-  %4 = load ptr, ptr %fields_3.i4.i.i.i.i, align 8
-  store ptr %4, ptr %fields_3.i.i.i.i.i, align 8
-  %5 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i.i.i, align 8
-  store ptr %5, ptr %_M_finish3.i.i.i.i.i.i.i.i.i, align 8
-  %6 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i.i, align 8
-  store ptr %6, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
+  %4 = load double, ptr %__first2.sroa.0.04.i.i, align 8
+  store double %4, ptr %__first1.sroa.0.03.i.i, align 8
+  %fields_3.i4.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.04.i.i, i64 8
+  %5 = load ptr, ptr %fields_3.i4.i.i.i.i, align 8
+  store ptr %5, ptr %fields_3.i.i.i.i.i, align 8
+  %_M_finish.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.04.i.i, i64 16
+  %6 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i.i.i, align 8
+  store ptr %6, ptr %_M_finish3.i.i.i.i.i.i.i.i.i, align 8
+  %_M_end_of_storage.i4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.04.i.i, i64 24
+  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i.i, align 8
+  store ptr %7, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
   store double %0, ptr %__first2.sroa.0.04.i.i, align 8
-  store <2 x ptr> %2, ptr %fields_3.i4.i.i.i.i, align 8
-  store ptr %1, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i.i, align 8
+  store ptr %1, ptr %fields_3.i4.i.i.i.i, align 8
+  store ptr %2, ptr %_M_finish.i2.i.i.i.i.i.i.i.i, align 8
+  store ptr %3, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.03.i.i, i64 32
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.04.i.i, i64 32
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__middle.coerce
@@ -2456,27 +2483,29 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %__i.057.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.preheader.i ]
   %__q.sroa.0.056.i = phi ptr [ %incdec.ptr.i24.i, %for.body.i ], [ %add.ptr.i23.i, %for.body.preheader.i ]
   %__p.sroa.0.155.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %__p.sroa.0.0.i, %for.body.preheader.i ]
-  %7 = load double, ptr %__p.sroa.0.155.i, align 8
+  %8 = load double, ptr %__p.sroa.0.155.i, align 8
   %fields_3.i.i.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.155.i, i64 8
+  %9 = load ptr, ptr %fields_3.i.i.i.i, align 8
   %_M_finish3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.155.i, i64 16
+  %10 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.155.i, i64 24
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8
-  %fields_3.i4.i.i.i = getelementptr inbounds i8, ptr %__q.sroa.0.056.i, i64 8
-  %_M_finish.i2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__q.sroa.0.056.i, i64 16
-  %_M_end_of_storage.i4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__q.sroa.0.056.i, i64 24
-  %9 = load <2 x ptr>, ptr %fields_3.i.i.i.i, align 8
+  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields_3.i.i.i.i, i8 0, i64 24, i1 false)
-  %10 = load double, ptr %__q.sroa.0.056.i, align 8
-  store double %10, ptr %__p.sroa.0.155.i, align 8
-  %11 = load ptr, ptr %fields_3.i4.i.i.i, align 8
-  store ptr %11, ptr %fields_3.i.i.i.i, align 8
-  %12 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i.i, align 8
-  store ptr %12, ptr %_M_finish3.i.i.i.i.i.i.i.i, align 8
-  %13 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i, align 8
-  store ptr %13, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8
-  store double %7, ptr %__q.sroa.0.056.i, align 8
-  store <2 x ptr> %9, ptr %fields_3.i4.i.i.i, align 8
-  store ptr %8, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i, align 8
+  %12 = load double, ptr %__q.sroa.0.056.i, align 8
+  store double %12, ptr %__p.sroa.0.155.i, align 8
+  %fields_3.i4.i.i.i = getelementptr inbounds i8, ptr %__q.sroa.0.056.i, i64 8
+  %13 = load ptr, ptr %fields_3.i4.i.i.i, align 8
+  store ptr %13, ptr %fields_3.i.i.i.i, align 8
+  %_M_finish.i2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__q.sroa.0.056.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i.i, align 8
+  store ptr %14, ptr %_M_finish3.i.i.i.i.i.i.i.i, align 8
+  %_M_end_of_storage.i4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__q.sroa.0.056.i, i64 24
+  %15 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i, align 8
+  store double %8, ptr %__q.sroa.0.056.i, align 8
+  store ptr %9, ptr %fields_3.i4.i.i.i, align 8
+  store ptr %10, ptr %_M_finish.i2.i.i.i.i.i.i.i, align 8
+  store ptr %11, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.155.i, i64 32
   %incdec.ptr.i24.i = getelementptr inbounds i8, ptr %__q.sroa.0.056.i, i64 32
   %inc.i = add nuw nsw i64 %__i.057.i, 1
@@ -2506,27 +2535,29 @@ for.body49.i:                                     ; preds = %if.else38.i, %for.b
   %__p.sroa.0.351.i = phi ptr [ %incdec.ptr.i27.i, %for.body49.i ], [ %add.ptr.i26.i, %if.else38.i ]
   %incdec.ptr.i27.i = getelementptr inbounds i8, ptr %__p.sroa.0.351.i, i64 -32
   %incdec.ptr.i28.i = getelementptr inbounds i8, ptr %__q40.sroa.0.052.i, i64 -32
-  %14 = load double, ptr %incdec.ptr.i27.i, align 8
+  %16 = load double, ptr %incdec.ptr.i27.i, align 8
   %fields_3.i.i.i29.i = getelementptr inbounds i8, ptr %__p.sroa.0.351.i, i64 -24
+  %17 = load ptr, ptr %fields_3.i.i.i29.i, align 8
   %_M_finish3.i.i.i.i.i.i.i30.i = getelementptr inbounds i8, ptr %__p.sroa.0.351.i, i64 -16
+  %18 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i30.i, align 8
   %_M_end_of_storage4.i.i.i.i.i.i.i31.i = getelementptr inbounds i8, ptr %__p.sroa.0.351.i, i64 -8
-  %15 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i31.i, align 8
-  %fields_3.i4.i.i32.i = getelementptr inbounds i8, ptr %__q40.sroa.0.052.i, i64 -24
-  %_M_finish.i2.i.i.i.i.i.i33.i = getelementptr inbounds i8, ptr %__q40.sroa.0.052.i, i64 -16
-  %_M_end_of_storage.i4.i.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %__q40.sroa.0.052.i, i64 -8
-  %16 = load <2 x ptr>, ptr %fields_3.i.i.i29.i, align 8
+  %19 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i31.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fields_3.i.i.i29.i, i8 0, i64 24, i1 false)
-  %17 = load double, ptr %incdec.ptr.i28.i, align 8
-  store double %17, ptr %incdec.ptr.i27.i, align 8
-  %18 = load ptr, ptr %fields_3.i4.i.i32.i, align 8
-  store ptr %18, ptr %fields_3.i.i.i29.i, align 8
-  %19 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i33.i, align 8
-  store ptr %19, ptr %_M_finish3.i.i.i.i.i.i.i30.i, align 8
-  %20 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i34.i, align 8
-  store ptr %20, ptr %_M_end_of_storage4.i.i.i.i.i.i.i31.i, align 8
-  store double %14, ptr %incdec.ptr.i28.i, align 8
-  store <2 x ptr> %16, ptr %fields_3.i4.i.i32.i, align 8
-  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i.i.i34.i, align 8
+  %20 = load double, ptr %incdec.ptr.i28.i, align 8
+  store double %20, ptr %incdec.ptr.i27.i, align 8
+  %fields_3.i4.i.i32.i = getelementptr inbounds i8, ptr %__q40.sroa.0.052.i, i64 -24
+  %21 = load ptr, ptr %fields_3.i4.i.i32.i, align 8
+  store ptr %21, ptr %fields_3.i.i.i29.i, align 8
+  %_M_finish.i2.i.i.i.i.i.i33.i = getelementptr inbounds i8, ptr %__q40.sroa.0.052.i, i64 -16
+  %22 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i33.i, align 8
+  store ptr %22, ptr %_M_finish3.i.i.i.i.i.i.i30.i, align 8
+  %_M_end_of_storage.i4.i.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %__q40.sroa.0.052.i, i64 -8
+  %23 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i34.i, align 8
+  store ptr %23, ptr %_M_end_of_storage4.i.i.i.i.i.i.i31.i, align 8
+  store double %16, ptr %incdec.ptr.i28.i, align 8
+  store ptr %17, ptr %fields_3.i4.i.i32.i, align 8
+  store ptr %18, ptr %_M_finish.i2.i.i.i.i.i.i33.i, align 8
+  store ptr %19, ptr %_M_end_of_storage.i4.i.i.i.i.i.i34.i, align 8
   %inc57.i = add nuw nsw i64 %__i45.053.i, 1
   %exitcond.not.i = icmp eq i64 %inc57.i, %__k.0.i
   br i1 %exitcond.not.i, label %for.end58.i, label %for.body49.i, !llvm.loop !34

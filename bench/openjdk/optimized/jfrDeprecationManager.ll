@@ -1012,45 +1012,47 @@ _ZL17is_unnamed_modulePK11ModuleEntry.exit.i:     ; preds = %2
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = load <2 x ptr>, ptr %11, align 8
-  %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %5) #11
-  %strncmp.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str, i64 5)
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %5) #11
+  %strncmp.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %17, ptr noundef nonnull dereferenceable(6) @.str, i64 5)
   %cmp.i.i = icmp eq i32 %strncmp.i.i, 0
-  br i1 %cmp.i.i, label %_ZL13is_jdk_modulePKc.exit.i, label %17
+  br i1 %cmp.i.i, label %_ZL13is_jdk_modulePKc.exit.i, label %18
 
-17:                                               ; preds = %6
-  %strncmp4.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull dereferenceable(5) @.str.12, i64 4)
+18:                                               ; preds = %6
+  %strncmp4.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.12, i64 4)
   %cmp5.i.i = icmp eq i32 %strncmp4.i.i, 0
   br label %_ZL13is_jdk_modulePKc.exit.i
 
-_ZL13is_jdk_modulePKc.exit.i:                     ; preds = %17, %6
-  %18 = phi i1 [ true, %6 ], [ %cmp5.i.i, %17 ]
-  %19 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i.i.i, label %21, label %20
+_ZL13is_jdk_modulePKc.exit.i:                     ; preds = %18, %6
+  %19 = phi i1 [ true, %6 ], [ %cmp5.i.i, %18 ]
+  %20 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i.i.i.i, label %22, label %21
 
-20:                                               ; preds = %_ZL13is_jdk_modulePKc.exit.i
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %15) #11
+21:                                               ; preds = %_ZL13is_jdk_modulePKc.exit.i
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #11
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #11
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %_ZL13is_jdk_modulePKc.exit.i
-  %22 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %22, %13
-  br i1 %.not8.i.i.i.i.i, label %_ZL13is_jdk_modulePK11ModuleEntryP10JavaThread.exit, label %23
+22:                                               ; preds = %21, %_ZL13is_jdk_modulePKc.exit.i
+  %23 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %23, %12
+  br i1 %.not8.i.i.i.i.i, label %_ZL13is_jdk_modulePK11ModuleEntryP10JavaThread.exit, label %24
 
-23:                                               ; preds = %21
+24:                                               ; preds = %22
   store ptr %10, ptr %9, align 8
-  store <2 x ptr> %12, ptr %11, align 8
+  store ptr %12, ptr %11, align 8
+  store ptr %14, ptr %13, align 8
   br label %_ZL13is_jdk_modulePK11ModuleEntryP10JavaThread.exit
 
-_ZL13is_jdk_modulePK11ModuleEntryP10JavaThread.exit: ; preds = %2, %_ZL17is_unnamed_modulePK11ModuleEntry.exit.i, %21, %23
-  %.0.i = phi i1 [ false, %_ZL17is_unnamed_modulePK11ModuleEntry.exit.i ], [ %18, %21 ], [ %18, %23 ], [ false, %2 ]
-  %24 = xor i1 %.0.i, true
-  ret i1 %24
+_ZL13is_jdk_modulePK11ModuleEntryP10JavaThread.exit: ; preds = %2, %_ZL17is_unnamed_modulePK11ModuleEntry.exit.i, %22, %24
+  %.0.i = phi i1 [ false, %_ZL17is_unnamed_modulePK11ModuleEntry.exit.i ], [ %19, %22 ], [ %19, %24 ], [ false, %2 ]
+  %25 = xor i1 %.0.i, true
+  ret i1 %25
 }
 
 declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2

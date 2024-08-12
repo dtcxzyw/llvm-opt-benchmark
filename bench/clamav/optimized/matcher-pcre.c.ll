@@ -220,293 +220,293 @@ declare void @cli_events_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @cli_pcre_addpatt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
-  %10 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %11 = insertelement <4 x ptr> %10, ptr %2, i64 1
-  %12 = insertelement <4 x ptr> %11, ptr %3, i64 2
-  %13 = insertelement <4 x ptr> %12, ptr %5, i64 3
-  %14 = icmp eq <4 x ptr> %13, zeroinitializer
-  %15 = bitcast <4 x i1> %14 to i4
-  %16 = icmp eq i4 %15, 0
-  br i1 %16, label %18, label %17
+  %10 = icmp ne ptr %0, null
+  %11 = icmp ne ptr %2, null
+  %or.cond = and i1 %10, %11
+  %12 = icmp ne ptr %3, null
+  %or.cond3 = and i1 %or.cond, %12
+  %13 = icmp ne ptr %5, null
+  %or.cond5 = and i1 %or.cond3, %13
+  br i1 %or.cond5, label %15, label %14
 
-17:                                               ; preds = %8
+14:                                               ; preds = %8
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.15) #12
-  br label %131
+  br label %128
 
-18:                                               ; preds = %8
-  %19 = load i8, ptr %2, align 1
+15:                                               ; preds = %8
+  %16 = load i8, ptr %2, align 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %21, label %18
+
+18:                                               ; preds = %15
+  %19 = load i8, ptr %3, align 1
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %24, label %21
+  br i1 %20, label %21, label %22
 
-21:                                               ; preds = %18
-  %22 = load i8, ptr %3, align 1
-  %23 = icmp eq i8 %22, 0
-  br i1 %23, label %24, label %25
-
-24:                                               ; preds = %21, %18
+21:                                               ; preds = %18, %15
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.16) #12
-  br label %131
+  br label %128
 
-25:                                               ; preds = %21
+22:                                               ; preds = %18
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %29, label %26
+  br i1 %.not, label %26, label %23
 
-26:                                               ; preds = %25
-  %27 = load i8, ptr %4, align 1
-  %28 = icmp eq i8 %27, 0
-  %spec.store.select = select i1 %28, ptr null, ptr %4
-  br label %29
+23:                                               ; preds = %22
+  %24 = load i8, ptr %4, align 1
+  %25 = icmp eq i8 %24, 0
+  %spec.store.select = select i1 %25, ptr null, ptr %4
+  br label %26
 
-29:                                               ; preds = %26, %25
-  %.097 = phi ptr [ %spec.store.select, %26 ], [ null, %25 ]
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(31) @.str.17) #13
-  %.not112 = icmp eq i32 %30, 0
-  br i1 %.not112, label %47, label %31
+26:                                               ; preds = %23, %22
+  %.097 = phi ptr [ %spec.store.select, %23 ], [ null, %22 ]
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(31) @.str.17) #13
+  %.not112 = icmp eq i32 %27, 0
+  br i1 %.not112, label %44, label %28
 
-31:                                               ; preds = %29
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
-  %33 = getelementptr inbounds i8, ptr %2, i64 %32
-  %34 = tail call i32 @cli_ac_chklsig(ptr noundef nonnull %2, ptr noundef nonnull %33, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #12
-  %35 = icmp eq i32 %34, -1
-  br i1 %35, label %36, label %37
+28:                                               ; preds = %26
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
+  %30 = getelementptr inbounds i8, ptr %2, i64 %29
+  %31 = tail call i32 @cli_ac_chklsig(ptr noundef nonnull %2, ptr noundef nonnull %30, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #12
+  %32 = icmp eq i32 %31, -1
+  br i1 %32, label %33, label %34
 
-36:                                               ; preds = %31
+33:                                               ; preds = %28
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %3) #12
-  br label %131
+  br label %128
 
-37:                                               ; preds = %31
+34:                                               ; preds = %28
   %.not113 = icmp eq ptr %6, null
-  br i1 %.not113, label %46, label %38
+  br i1 %.not113, label %43, label %35
 
-38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %6, i64 4
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp ugt i32 %34, %40
-  br i1 %41, label %42, label %43
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds i8, ptr %6, i64 4
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp ugt i32 %31, %37
+  br i1 %38, label %39, label %40
 
-42:                                               ; preds = %38
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.19, i32 noundef %40, i32 noundef %34) #12
-  br label %131
+39:                                               ; preds = %35
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.19, i32 noundef %37, i32 noundef %31) #12
+  br label %128
 
-43:                                               ; preds = %38
-  %44 = icmp eq i32 %34, %40
-  br i1 %44, label %45, label %47
+40:                                               ; preds = %35
+  %41 = icmp eq i32 %31, %37
+  br i1 %41, label %42, label %44
 
-45:                                               ; preds = %43
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.20, i32 noundef %34) #12
-  br label %131
+42:                                               ; preds = %40
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.20, i32 noundef %31) #12
+  br label %128
 
-46:                                               ; preds = %37
+43:                                               ; preds = %34
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21) #12
-  br label %47
+  br label %44
 
-47:                                               ; preds = %46, %43, %29
-  %48 = getelementptr inbounds i8, ptr %0, i64 408
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call ptr @mpool_calloc(ptr noundef %49, i64 noundef 1, i64 noundef 112) #12
-  %.not114 = icmp eq ptr %50, null
-  br i1 %.not114, label %51, label %52
+44:                                               ; preds = %43, %40, %26
+  %45 = getelementptr inbounds i8, ptr %0, i64 408
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call ptr @mpool_calloc(ptr noundef %46, i64 noundef 1, i64 noundef 112) #12
+  %.not114 = icmp eq ptr %47, null
+  br i1 %.not114, label %48, label %49
 
-51:                                               ; preds = %47
+48:                                               ; preds = %44
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.22) #12
-  br label %131
+  br label %128
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %48, align 8
-  %54 = tail call ptr @cli_mpool_strdup(ptr noundef %53, ptr noundef nonnull %2) #12
-  store ptr %54, ptr %50, align 8
-  %.not115 = icmp eq ptr %54, null
-  br i1 %.not115, label %55, label %65
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %45, align 8
+  %51 = tail call ptr @cli_mpool_strdup(ptr noundef %50, ptr noundef nonnull %2) #12
+  store ptr %51, ptr %47, align 8
+  %.not115 = icmp eq ptr %51, null
+  br i1 %.not115, label %52, label %62
 
-55:                                               ; preds = %52
+52:                                               ; preds = %49
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.23) #12
-  %56 = load ptr, ptr %50, align 8
-  %.not11.i = icmp eq ptr %56, null
-  br i1 %.not11.i, label %59, label %57
+  %53 = load ptr, ptr %47, align 8
+  %.not11.i = icmp eq ptr %53, null
+  br i1 %.not11.i, label %56, label %54
 
-57:                                               ; preds = %55
-  %58 = load ptr, ptr %48, align 8
-  tail call void @mpool_free(ptr noundef %58, ptr noundef nonnull %56) #12
-  store ptr null, ptr %50, align 8
-  br label %59
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %45, align 8
+  tail call void @mpool_free(ptr noundef %55, ptr noundef nonnull %53) #12
+  store ptr null, ptr %47, align 8
+  br label %56
 
-59:                                               ; preds = %57, %55
-  %60 = getelementptr inbounds i8, ptr %50, i64 96
-  %61 = load ptr, ptr %60, align 8
-  %.not12.i = icmp eq ptr %61, null
-  br i1 %.not12.i, label %cli_pcre_freemeta.exit, label %62
+56:                                               ; preds = %54, %52
+  %57 = getelementptr inbounds i8, ptr %47, i64 96
+  %58 = load ptr, ptr %57, align 8
+  %.not12.i = icmp eq ptr %58, null
+  br i1 %.not12.i, label %cli_pcre_freemeta.exit, label %59
 
-62:                                               ; preds = %59
-  tail call void @free(ptr noundef nonnull %61) #12
-  store ptr null, ptr %60, align 8
+59:                                               ; preds = %56
+  tail call void @free(ptr noundef nonnull %58) #12
+  store ptr null, ptr %57, align 8
   br label %cli_pcre_freemeta.exit
 
-cli_pcre_freemeta.exit:                           ; preds = %59, %62
-  %63 = getelementptr inbounds i8, ptr %50, i64 24
-  tail call void @cli_pcre_free_single(ptr noundef nonnull %63) #12
-  %64 = load ptr, ptr %48, align 8
-  tail call void @mpool_free(ptr noundef %64, ptr noundef nonnull %50) #12
-  br label %131
+cli_pcre_freemeta.exit:                           ; preds = %56, %59
+  %60 = getelementptr inbounds i8, ptr %47, i64 24
+  tail call void @cli_pcre_free_single(ptr noundef nonnull %60) #12
+  %61 = load ptr, ptr %45, align 8
+  tail call void @mpool_free(ptr noundef %61, ptr noundef nonnull %47) #12
+  br label %128
 
-65:                                               ; preds = %52
+62:                                               ; preds = %49
   %.not116 = icmp eq ptr %6, null
-  %66 = getelementptr inbounds i8, ptr %50, i64 8
-  br i1 %.not116, label %73, label %67
+  %63 = getelementptr inbounds i8, ptr %47, i64 8
+  br i1 %.not116, label %70, label %64
 
-67:                                               ; preds = %65
-  store i32 1, ptr %66, align 8
-  %68 = load i32, ptr %6, align 4
-  %69 = getelementptr inbounds i8, ptr %50, i64 12
-  store i32 %68, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %6, i64 4
-  %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %50, i64 16
-  store i32 %71, ptr %72, align 8
-  br label %74
+64:                                               ; preds = %62
+  store i32 1, ptr %63, align 8
+  %65 = load i32, ptr %6, align 4
+  %66 = getelementptr inbounds i8, ptr %47, i64 12
+  store i32 %65, ptr %66, align 4
+  %67 = getelementptr inbounds i8, ptr %6, i64 4
+  %68 = load i32, ptr %67, align 4
+  %69 = getelementptr inbounds i8, ptr %47, i64 16
+  store i32 %68, ptr %69, align 8
+  br label %71
 
-73:                                               ; preds = %65
-  store i32 0, ptr %66, align 8
-  br label %74
+70:                                               ; preds = %62
+  store i32 0, ptr %63, align 8
+  br label %71
 
-74:                                               ; preds = %73, %67
-  %75 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #12
-  %76 = getelementptr inbounds i8, ptr %50, i64 24
-  %77 = getelementptr inbounds i8, ptr %50, i64 48
-  store ptr %75, ptr %77, align 8
-  %.not117 = icmp eq ptr %75, null
-  br i1 %.not117, label %78, label %80
+71:                                               ; preds = %70, %64
+  %72 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #12
+  %73 = getelementptr inbounds i8, ptr %47, i64 24
+  %74 = getelementptr inbounds i8, ptr %47, i64 48
+  store ptr %72, ptr %74, align 8
+  %.not117 = icmp eq ptr %72, null
+  br i1 %.not117, label %75, label %77
 
-78:                                               ; preds = %74
+75:                                               ; preds = %71
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.24) #12
-  tail call void @cli_pcre_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %50)
-  %79 = load ptr, ptr %48, align 8
-  tail call void @mpool_free(ptr noundef %79, ptr noundef nonnull %50) #12
-  br label %131
+  tail call void @cli_pcre_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %47)
+  %76 = load ptr, ptr %45, align 8
+  tail call void @mpool_free(ptr noundef %76, ptr noundef nonnull %47) #12
+  br label %128
 
-80:                                               ; preds = %74
-  %81 = load i32, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %50, i64 64
-  %83 = getelementptr inbounds i8, ptr %50, i64 80
-  %84 = getelementptr inbounds i8, ptr %50, i64 84
-  %85 = tail call i32 @cli_caloff(ptr noundef nonnull %5, ptr noundef null, i32 noundef %81, ptr noundef nonnull %82, ptr noundef nonnull %83, ptr noundef nonnull %84) #12
-  %.not118 = icmp eq i32 %85, 0
-  br i1 %.not118, label %88, label %86
+77:                                               ; preds = %71
+  %78 = load i32, ptr %0, align 8
+  %79 = getelementptr inbounds i8, ptr %47, i64 64
+  %80 = getelementptr inbounds i8, ptr %47, i64 80
+  %81 = getelementptr inbounds i8, ptr %47, i64 84
+  %82 = tail call i32 @cli_caloff(ptr noundef nonnull %5, ptr noundef null, i32 noundef %78, ptr noundef nonnull %79, ptr noundef nonnull %80, ptr noundef nonnull %81) #12
+  %.not118 = icmp eq i32 %82, 0
+  br i1 %.not118, label %85, label %83
 
-86:                                               ; preds = %80
+83:                                               ; preds = %77
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.25, ptr noundef nonnull %5, ptr noundef nonnull %3) #12
-  tail call void @cli_pcre_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %50)
-  %87 = load ptr, ptr %48, align 8
-  tail call void @mpool_free(ptr noundef %87, ptr noundef nonnull %50) #12
-  br label %131
+  tail call void @cli_pcre_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %47)
+  %84 = load ptr, ptr %45, align 8
+  tail call void @mpool_free(ptr noundef %84, ptr noundef nonnull %47) #12
+  br label %128
 
-88:                                               ; preds = %80
-  %89 = load i32, ptr %82, align 8
-  switch i32 %89, label %94 [
-    i32 -1, label %98
-    i32 1, label %90
+85:                                               ; preds = %77
+  %86 = load i32, ptr %79, align 8
+  switch i32 %86, label %91 [
+    i32 -1, label %95
+    i32 1, label %87
   ]
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %0, i64 348
-  %92 = load i32, ptr %91, align 4
-  %93 = add i32 %92, 1
-  store i32 %93, ptr %91, align 4
-  br label %98
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds i8, ptr %0, i64 348
+  %89 = load i32, ptr %88, align 4
+  %90 = add i32 %89, 1
+  store i32 %90, ptr %88, align 4
+  br label %95
 
-94:                                               ; preds = %88
-  %95 = getelementptr inbounds i8, ptr %0, i64 344
-  %96 = load i32, ptr %95, align 8
-  %97 = add i32 %96, 1
-  store i32 %97, ptr %95, align 8
-  br label %98
+91:                                               ; preds = %85
+  %92 = getelementptr inbounds i8, ptr %0, i64 344
+  %93 = load i32, ptr %92, align 8
+  %94 = add i32 %93, 1
+  store i32 %94, ptr %92, align 8
+  br label %95
 
-98:                                               ; preds = %88, %90, %94
+95:                                               ; preds = %85, %87, %91
   %.not120 = icmp eq ptr %.097, null
   br i1 %.not120, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %98
+.preheader:                                       ; preds = %95
   store ptr %.097, ptr %9, align 8
-  %99 = call i32 @cli_pcre_addoptions(ptr noundef nonnull %76, ptr noundef nonnull %9, i32 noundef 0) #12
-  %.not121124 = icmp eq i32 %99, 0
+  %96 = call i32 @cli_pcre_addoptions(ptr noundef nonnull %73, ptr noundef nonnull %9, i32 noundef 0) #12
+  %.not121124 = icmp eq i32 %96, 0
   br i1 %.not121124, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %100 = getelementptr inbounds i8, ptr %50, i64 88
-  br label %101
+  %97 = getelementptr inbounds i8, ptr %47, i64 88
+  br label %98
 
-101:                                              ; preds = %.lr.ph, %109
-  %102 = load ptr, ptr %9, align 8
-  %103 = load i8, ptr %102, align 1
-  switch i8 %103, label %106 [
-    i8 103, label %109
-    i8 114, label %104
-    i8 101, label %105
+98:                                               ; preds = %.lr.ph, %106
+  %99 = load ptr, ptr %9, align 8
+  %100 = load i8, ptr %99, align 1
+  switch i8 %100, label %103 [
+    i8 103, label %106
+    i8 114, label %101
+    i8 101, label %102
   ]
 
-104:                                              ; preds = %101
-  br label %109
+101:                                              ; preds = %98
+  br label %106
 
-105:                                              ; preds = %101
-  br label %109
+102:                                              ; preds = %98
+  br label %106
 
-106:                                              ; preds = %101
-  %107 = sext i8 %103 to i32
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.26, i32 noundef %107) #12
-  call void @cli_pcre_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %50)
-  %108 = load ptr, ptr %48, align 8
-  call void @mpool_free(ptr noundef %108, ptr noundef nonnull %50) #12
-  br label %131
+103:                                              ; preds = %98
+  %104 = sext i8 %100 to i32
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.26, i32 noundef %104) #12
+  call void @cli_pcre_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %47)
+  %105 = load ptr, ptr %45, align 8
+  call void @mpool_free(ptr noundef %105, ptr noundef nonnull %47) #12
+  br label %128
 
-109:                                              ; preds = %101, %105, %104
-  %.sink128 = phi i32 [ 2, %105 ], [ 4, %104 ], [ 1, %101 ]
-  %110 = load i32, ptr %100, align 8
-  %111 = or i32 %110, %.sink128
-  store i32 %111, ptr %100, align 8
-  %112 = getelementptr inbounds i8, ptr %102, i64 1
-  store ptr %112, ptr %9, align 8
-  %113 = call i32 @cli_pcre_addoptions(ptr noundef nonnull %76, ptr noundef nonnull %9, i32 noundef 0) #12
-  %.not121 = icmp eq i32 %113, 0
-  br i1 %.not121, label %.loopexit, label %101
+106:                                              ; preds = %98, %102, %101
+  %.sink128 = phi i32 [ 2, %102 ], [ 4, %101 ], [ 1, %98 ]
+  %107 = load i32, ptr %97, align 8
+  %108 = or i32 %107, %.sink128
+  store i32 %108, ptr %97, align 8
+  %109 = getelementptr inbounds i8, ptr %99, i64 1
+  store ptr %109, ptr %9, align 8
+  %110 = call i32 @cli_pcre_addoptions(ptr noundef nonnull %73, ptr noundef nonnull %9, i32 noundef 0) #12
+  %.not121 = icmp eq i32 %110, 0
+  br i1 %.not121, label %.loopexit, label %98
 
-.loopexit:                                        ; preds = %109, %.preheader, %98
-  %114 = and i32 %7, 524288
-  %.not122 = icmp eq i32 %114, 0
-  br i1 %.not122, label %116, label %115
+.loopexit:                                        ; preds = %106, %.preheader, %95
+  %111 = and i32 %7, 524288
+  %.not122 = icmp eq i32 %111, 0
+  br i1 %.not122, label %113, label %112
 
-115:                                              ; preds = %.loopexit
-  call fastcc void @pcre_perf_events_init(ptr noundef nonnull %50, ptr noundef %1)
-  br label %116
+112:                                              ; preds = %.loopexit
+  call fastcc void @pcre_perf_events_init(ptr noundef nonnull %47, ptr noundef %1)
+  br label %113
 
-116:                                              ; preds = %115, %.loopexit
-  %117 = getelementptr inbounds i8, ptr %0, i64 332
-  %118 = load i32, ptr %117, align 4
-  %119 = add i32 %118, 1
-  %120 = load ptr, ptr %48, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 336
-  %122 = load ptr, ptr %121, align 8
-  %123 = zext i32 %119 to i64
-  %124 = shl nuw nsw i64 %123, 3
-  %125 = call ptr @mpool_realloc(ptr noundef %120, ptr noundef %122, i64 noundef %124) #12
-  %.not123 = icmp eq ptr %125, null
-  br i1 %.not123, label %126, label %128
+113:                                              ; preds = %112, %.loopexit
+  %114 = getelementptr inbounds i8, ptr %0, i64 332
+  %115 = load i32, ptr %114, align 4
+  %116 = add i32 %115, 1
+  %117 = load ptr, ptr %45, align 8
+  %118 = getelementptr inbounds i8, ptr %0, i64 336
+  %119 = load ptr, ptr %118, align 8
+  %120 = zext i32 %116 to i64
+  %121 = shl nuw nsw i64 %120, 3
+  %122 = call ptr @mpool_realloc(ptr noundef %117, ptr noundef %119, i64 noundef %121) #12
+  %.not123 = icmp eq ptr %122, null
+  br i1 %.not123, label %123, label %125
 
-126:                                              ; preds = %116
+123:                                              ; preds = %113
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.27) #12
-  call void @cli_pcre_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %50)
-  %127 = load ptr, ptr %48, align 8
-  call void @mpool_free(ptr noundef %127, ptr noundef nonnull %50) #12
-  br label %131
+  call void @cli_pcre_freemeta(ptr noundef nonnull %0, ptr noundef nonnull %47)
+  %124 = load ptr, ptr %45, align 8
+  call void @mpool_free(ptr noundef %124, ptr noundef nonnull %47) #12
+  br label %128
 
-128:                                              ; preds = %116
-  %129 = zext i32 %118 to i64
-  %130 = getelementptr inbounds ptr, ptr %125, i64 %129
-  store ptr %50, ptr %130, align 8
-  store ptr %125, ptr %121, align 8
-  store i32 %119, ptr %117, align 4
-  br label %131
+125:                                              ; preds = %113
+  %126 = zext i32 %115 to i64
+  %127 = getelementptr inbounds ptr, ptr %122, i64 %126
+  store ptr %47, ptr %127, align 8
+  store ptr %122, ptr %118, align 8
+  store i32 %116, ptr %114, align 4
+  br label %128
 
-131:                                              ; preds = %128, %126, %106, %86, %78, %cli_pcre_freemeta.exit, %51, %45, %42, %36, %24, %17
-  %.0 = phi i32 [ 4, %24 ], [ 4, %36 ], [ 4, %42 ], [ 4, %45 ], [ %85, %86 ], [ 4, %106 ], [ 0, %128 ], [ 20, %126 ], [ 20, %78 ], [ 20, %cli_pcre_freemeta.exit ], [ 20, %51 ], [ 2, %17 ]
+128:                                              ; preds = %125, %123, %103, %83, %75, %cli_pcre_freemeta.exit, %48, %42, %39, %33, %21, %14
+  %.0 = phi i32 [ 4, %21 ], [ 4, %33 ], [ 4, %39 ], [ 4, %42 ], [ %82, %83 ], [ 4, %103 ], [ 0, %125 ], [ 20, %123 ], [ 20, %75 ], [ 20, %cli_pcre_freemeta.exit ], [ 20, %48 ], [ 2, %14 ]
   ret i32 %.0
 }
 

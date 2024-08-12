@@ -2565,14 +2565,14 @@ define internal fastcc void @_color_finetuning_slider(ptr nocapture readonly %0)
   tail call void @dt_bauhaus_slider_set_feedback(ptr noundef %4, i32 noundef %8) #23
   %9 = load i32, ptr %5, align 8, !tbaa !135
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %97, label %11
+  br i1 %10, label %103, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !103
   %14 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %13) #23
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %88, label %16
+  br i1 %15, label %94, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %14, i64 4
@@ -2594,7 +2594,7 @@ define internal fastcc void @_color_finetuning_slider(ptr nocapture readonly %0)
   %31 = getelementptr inbounds i8, ptr %24, i64 32
   %32 = load double, ptr %31, align 8, !tbaa !67
   %33 = fcmp reassoc nsz arcp contract afn olt double %30, %32
-  br i1 %33, label %75, label %74
+  br i1 %33, label %82, label %81
 
 34:                                               ; preds = %16
   %35 = getelementptr inbounds i8, ptr %21, i64 32
@@ -2605,75 +2605,81 @@ define internal fastcc void @_color_finetuning_slider(ptr nocapture readonly %0)
   %40 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %39
   %41 = getelementptr inbounds i8, ptr %19, i64 32
   %42 = getelementptr inbounds i8, ptr %24, i64 32
-  %43 = load <2 x double>, ptr %42, align 8, !tbaa !67
-  %44 = getelementptr inbounds i8, ptr %19, i64 48
-  %45 = load double, ptr %44, align 8, !tbaa !67
-  %46 = getelementptr inbounds i8, ptr %24, i64 48
+  %43 = load double, ptr %41, align 8, !tbaa !67
+  %44 = extractelement <2 x double> %37, i64 0
+  %45 = fmul reassoc nsz arcp contract afn double %43, %44
+  %46 = getelementptr inbounds i8, ptr %19, i64 40
   %47 = load double, ptr %46, align 8, !tbaa !67
-  %48 = shufflevector <2 x double> %43, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %49 = insertelement <4 x double> %48, double %47, i64 2
-  %50 = insertelement <4 x double> %49, double %45, i64 3
-  %51 = shufflevector <2 x double> %37, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %52 = insertelement <4 x double> %51, double %40, i64 2
-  %53 = shufflevector <4 x double> %52, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 2>
-  %54 = fmul reassoc nsz arcp contract afn <4 x double> %50, %53
-  %55 = shufflevector <4 x double> %54, <4 x double> poison, <2 x i32> <i32 0, i32 poison>
-  %56 = shufflevector <4 x double> %54, <4 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %57 = shufflevector <4 x double> %54, <4 x double> poison, <2 x i32> <i32 2, i32 3>
-  %58 = fptrunc <2 x double> %57 to <2 x float>
-  %59 = load <2 x double>, ptr %41, align 8, !tbaa !67
-  %60 = fmul reassoc nsz arcp contract afn <2 x double> %59, %37
-  %61 = shufflevector <2 x double> %55, <2 x double> %60, <2 x i32> <i32 0, i32 2>
-  %62 = fptrunc <2 x double> %61 to <2 x float>
-  %63 = shufflevector <2 x double> %56, <2 x double> %60, <2 x i32> <i32 0, i32 3>
+  %48 = extractelement <2 x double> %37, i64 1
+  %49 = fmul reassoc nsz arcp contract afn double %47, %48
+  %50 = load <2 x double>, ptr %42, align 8, !tbaa !67
+  %51 = getelementptr inbounds i8, ptr %19, i64 48
+  %52 = load double, ptr %51, align 8, !tbaa !67
+  %53 = getelementptr inbounds i8, ptr %24, i64 48
+  %54 = load double, ptr %53, align 8, !tbaa !67
+  %55 = shufflevector <2 x double> %50, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %56 = insertelement <4 x double> %55, double %54, i64 2
+  %57 = insertelement <4 x double> %56, double %52, i64 3
+  %58 = shufflevector <2 x double> %37, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %59 = insertelement <4 x double> %58, double %40, i64 2
+  %60 = shufflevector <4 x double> %59, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 2>
+  %61 = fmul reassoc nsz arcp contract afn <4 x double> %57, %60
+  %62 = shufflevector <4 x double> %61, <4 x double> poison, <2 x i32> <i32 0, i32 poison>
+  %63 = insertelement <2 x double> %62, double %45, i64 1
   %64 = fptrunc <2 x double> %63 to <2 x float>
-  %65 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %62, <2 x float> %64)
-  %66 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %65, <2 x float> %58)
-  %67 = fpext <2 x float> %66 to <2 x double>
-  %68 = shufflevector <2 x double> %67, <2 x double> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %69 = shufflevector <2 x double> %67, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %70 = fdiv reassoc nsz arcp contract afn <2 x double> %60, %69
-  %71 = fdiv reassoc nsz arcp contract afn <4 x double> %54, %68
-  %72 = fptrunc <2 x double> %70 to <2 x float>
-  %73 = fptrunc <4 x double> %71 to <4 x float>
-  br label %75
+  %65 = shufflevector <4 x double> %61, <4 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %66 = insertelement <2 x double> %65, double %49, i64 1
+  %67 = fptrunc <2 x double> %66 to <2 x float>
+  %68 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %64, <2 x float> %67)
+  %69 = shufflevector <4 x double> %61, <4 x double> poison, <2 x i32> <i32 2, i32 3>
+  %70 = fptrunc <2 x double> %69 to <2 x float>
+  %71 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %68, <2 x float> %70)
+  %72 = fpext <2 x float> %71 to <2 x double>
+  %73 = shufflevector <2 x double> %72, <2 x double> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %74 = extractelement <2 x double> %72, i64 1
+  %75 = fdiv reassoc nsz arcp contract afn double %45, %74
+  %76 = fdiv reassoc nsz arcp contract afn double %49, %74
+  %77 = fdiv reassoc nsz arcp contract afn <4 x double> %61, %73
+  %78 = fptrunc double %75 to float
+  %79 = fptrunc double %76 to float
+  %80 = fptrunc <4 x double> %77 to <4 x float>
+  br label %82
 
-74:                                               ; preds = %28
-  br label %75
+81:                                               ; preds = %28
+  br label %82
 
-75:                                               ; preds = %74, %34, %28
-  %76 = phi float [ 1.000000e+00, %34 ], [ 0x3FECCCCCC0000000, %74 ], [ 0x3FECCCCCC0000000, %28 ]
-  %77 = phi <4 x float> [ %73, %34 ], [ <float 0x3FB99999A0000000, float 5.000000e-01, float 0x3FECCCCCC0000000, float 0x3FB99999A0000000>, %74 ], [ <float 0x3FECCCCCC0000000, float 5.000000e-01, float 0x3FB99999A0000000, float 0x3FECCCCCC0000000>, %28 ]
-  %78 = phi <2 x float> [ %72, %34 ], [ <float 0x3FECCCCCC0000000, float 5.000000e-01>, %74 ], [ <float 0x3FB99999A0000000, float 5.000000e-01>, %28 ]
-  %79 = load ptr, ptr %2, align 8, !tbaa !104
-  %80 = extractelement <4 x float> %77, i64 3
-  %81 = extractelement <2 x float> %78, i64 0
-  %82 = extractelement <2 x float> %78, i64 1
-  tail call void @dt_bauhaus_slider_set_stop(ptr noundef %79, float noundef 0.000000e+00, float noundef %81, float noundef %82, float noundef %80) #23
-  %83 = load ptr, ptr %2, align 8, !tbaa !104
-  tail call void @dt_bauhaus_slider_set_stop(ptr noundef %83, float noundef 5.000000e-01, float noundef %76, float noundef %76, float noundef %76) #23
-  %84 = load ptr, ptr %2, align 8, !tbaa !104
-  %85 = extractelement <4 x float> %77, i64 0
-  %86 = extractelement <4 x float> %77, i64 1
-  %87 = extractelement <4 x float> %77, i64 2
-  tail call void @dt_bauhaus_slider_set_stop(ptr noundef %84, float noundef 1.000000e+00, float noundef %85, float noundef %86, float noundef %87) #23
-  br label %88
-
-88:                                               ; preds = %75, %11
+82:                                               ; preds = %81, %34, %28
+  %83 = phi float [ 1.000000e+00, %34 ], [ 0x3FECCCCCC0000000, %81 ], [ 0x3FECCCCCC0000000, %28 ]
+  %84 = phi float [ %79, %34 ], [ 5.000000e-01, %81 ], [ 5.000000e-01, %28 ]
+  %85 = phi float [ %78, %34 ], [ 0x3FECCCCCC0000000, %81 ], [ 0x3FB99999A0000000, %28 ]
+  %86 = phi <4 x float> [ %80, %34 ], [ <float 0x3FB99999A0000000, float 5.000000e-01, float 0x3FECCCCCC0000000, float 0x3FB99999A0000000>, %81 ], [ <float 0x3FECCCCCC0000000, float 5.000000e-01, float 0x3FB99999A0000000, float 0x3FECCCCCC0000000>, %28 ]
+  %87 = load ptr, ptr %2, align 8, !tbaa !104
+  %88 = extractelement <4 x float> %86, i64 3
+  tail call void @dt_bauhaus_slider_set_stop(ptr noundef %87, float noundef 0.000000e+00, float noundef %85, float noundef %84, float noundef %88) #23
   %89 = load ptr, ptr %2, align 8, !tbaa !104
-  %90 = tail call i64 @gtk_widget_get_type() #24
-  %91 = tail call ptr @g_type_check_instance_cast(ptr noundef %89, i64 noundef %90) #23
-  %92 = tail call i32 @gtk_widget_get_visible(ptr noundef %91) #23
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %97, label %94
+  tail call void @dt_bauhaus_slider_set_stop(ptr noundef %89, float noundef 5.000000e-01, float noundef %83, float noundef %83, float noundef %83) #23
+  %90 = load ptr, ptr %2, align 8, !tbaa !104
+  %91 = extractelement <4 x float> %86, i64 0
+  %92 = extractelement <4 x float> %86, i64 1
+  %93 = extractelement <4 x float> %86, i64 2
+  tail call void @dt_bauhaus_slider_set_stop(ptr noundef %90, float noundef 1.000000e+00, float noundef %91, float noundef %92, float noundef %93) #23
+  br label %94
 
-94:                                               ; preds = %88
+94:                                               ; preds = %82, %11
   %95 = load ptr, ptr %2, align 8, !tbaa !104
-  %96 = tail call ptr @g_type_check_instance_cast(ptr noundef %95, i64 noundef %90) #23
-  tail call void @gtk_widget_queue_draw(ptr noundef %96) #23
-  br label %97
+  %96 = tail call i64 @gtk_widget_get_type() #24
+  %97 = tail call ptr @g_type_check_instance_cast(ptr noundef %95, i64 noundef %96) #23
+  %98 = tail call i32 @gtk_widget_get_visible(ptr noundef %97) #23
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %103, label %100
 
-97:                                               ; preds = %94, %88, %1
+100:                                              ; preds = %94
+  %101 = load ptr, ptr %2, align 8, !tbaa !104
+  %102 = tail call ptr @g_type_check_instance_cast(ptr noundef %101, i64 noundef %96) #23
+  tail call void @gtk_widget_queue_draw(ptr noundef %102) #23
+  br label %103
+
+103:                                              ; preds = %100, %94, %1
   ret void
 }
 
@@ -3374,7 +3380,7 @@ define internal fastcc void @_find_coeffs(ptr nocapture noundef readonly %0, ptr
   %19 = getelementptr inbounds i8, ptr %1, i64 16
   store double %18, ptr %19, align 8, !tbaa !67
   %20 = fpext float %15 to double
-  br label %161
+  br label %162
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds i8, ptr %5, i64 1860
@@ -3416,7 +3422,7 @@ define internal fastcc void @_find_coeffs(ptr nocapture noundef readonly %0, ptr
   %48 = getelementptr inbounds i8, ptr %46, i64 1728
   %49 = call i32 @dt_colorspaces_conversion_matrices_rgb(ptr noundef nonnull %47, ptr noundef null, ptr noundef null, ptr noundef nonnull %48, ptr noundef nonnull %3) #23
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %68, label %51
+  br i1 %50, label %69, label %51
 
 51:                                               ; preds = %45
   %52 = load <2 x double>, ptr %3, align 16
@@ -3435,173 +3441,175 @@ define internal fastcc void @_find_coeffs(ptr nocapture noundef readonly %0, ptr
 62:                                               ; preds = %51, %.critedge
   %63 = phi double [ %61, %51 ], [ 1.000000e+00, %.critedge ]
   %64 = phi <2 x double> [ %58, %51 ], [ <double 1.000000e+00, double 1.000000e+00>, %.critedge ]
-  %65 = insertelement <2 x double> %64, double 1.000000e+00, i64 1
-  store <2 x double> %65, ptr %1, align 8, !tbaa !67
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
-  %67 = extractelement <2 x double> %64, i64 1
-  store double %67, ptr %66, align 8, !tbaa !67
-  br label %161
+  %65 = extractelement <2 x double> %64, i64 0
+  store double %65, ptr %1, align 8, !tbaa !67
+  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  store double 1.000000e+00, ptr %66, align 8, !tbaa !67
+  %67 = getelementptr inbounds i8, ptr %1, i64 16
+  %68 = extractelement <2 x double> %64, i64 1
+  store double %68, ptr %67, align 8, !tbaa !67
+  br label %162
 
-68:                                               ; preds = %45
+69:                                               ; preds = %45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
-  %69 = call i32 @dt_wb_presets_count() #23
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %71, label %.loopexit
+  %70 = call i32 @dt_wb_presets_count() #23
+  %71 = icmp sgt i32 %70, 0
+  br i1 %71, label %72, label %.loopexit
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %5, i64 904
-  %73 = getelementptr inbounds i8, ptr %5, i64 968
-  br label %74
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds i8, ptr %5, i64 904
+  %74 = getelementptr inbounds i8, ptr %5, i64 968
+  br label %75
 
-74:                                               ; preds = %93, %71
-  %75 = phi i32 [ 0, %71 ], [ %94, %93 ]
-  %76 = call ptr @dt_wb_preset(i32 noundef %75) #23
-  %77 = load ptr, ptr %76, align 8, !tbaa !106
-  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) %72) #25
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %93
+75:                                               ; preds = %94, %72
+  %76 = phi i32 [ 0, %72 ], [ %95, %94 ]
+  %77 = call ptr @dt_wb_preset(i32 noundef %76) #23
+  %78 = load ptr, ptr %77, align 8, !tbaa !106
+  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %73) #25
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %94
 
-80:                                               ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %76, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !108
-  %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) %73) #25
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %93
+81:                                               ; preds = %75
+  %82 = getelementptr inbounds i8, ptr %77, i64 8
+  %83 = load ptr, ptr %82, align 8, !tbaa !108
+  %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(1) %74) #25
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %94
 
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %76, i64 32
-  %87 = load double, ptr %86, align 8, !tbaa !67
-  store double %87, ptr %1, align 8, !tbaa !67
-  %88 = getelementptr inbounds i8, ptr %76, i64 40
-  %89 = load double, ptr %88, align 8, !tbaa !67
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
-  store double %89, ptr %90, align 8, !tbaa !67
-  %91 = getelementptr inbounds i8, ptr %76, i64 48
-  %92 = load double, ptr %91, align 8, !tbaa !67
-  br label %161
+86:                                               ; preds = %81
+  %87 = getelementptr inbounds i8, ptr %77, i64 32
+  %88 = load double, ptr %87, align 8, !tbaa !67
+  store double %88, ptr %1, align 8, !tbaa !67
+  %89 = getelementptr inbounds i8, ptr %77, i64 40
+  %90 = load double, ptr %89, align 8, !tbaa !67
+  %91 = getelementptr inbounds i8, ptr %1, i64 8
+  store double %90, ptr %91, align 8, !tbaa !67
+  %92 = getelementptr inbounds i8, ptr %77, i64 48
+  %93 = load double, ptr %92, align 8, !tbaa !67
+  br label %162
 
-93:                                               ; preds = %80, %74
-  %94 = add nuw nsw i32 %75, 1
-  %95 = call i32 @dt_wb_presets_count() #23
-  %96 = icmp slt i32 %94, %95
-  br i1 %96, label %74, label %.loopexit
+94:                                               ; preds = %81, %75
+  %95 = add nuw nsw i32 %76, 1
+  %96 = call i32 @dt_wb_presets_count() #23
+  %97 = icmp slt i32 %95, %96
+  br i1 %97, label %75, label %.loopexit
 
-.loopexit:                                        ; preds = %93, %68
-  %97 = load ptr, ptr %4, align 8, !tbaa !58
-  %98 = getelementptr inbounds i8, ptr %97, i64 1228
-  %99 = call i32 @g_str_has_suffix(ptr noundef nonnull %98, ptr noundef nonnull @.str.71) #23
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %159
+.loopexit:                                        ; preds = %94, %69
+  %98 = load ptr, ptr %4, align 8, !tbaa !58
+  %99 = getelementptr inbounds i8, ptr %98, i64 1228
+  %100 = call i32 @g_str_has_suffix(ptr noundef nonnull %99, ptr noundef nonnull @.str.71) #23
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %160
 
-101:                                              ; preds = %.loopexit
-  %102 = getelementptr inbounds i8, ptr %97, i64 1096
-  %103 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(21) @.str.72) #25
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %159, label %105
+102:                                              ; preds = %.loopexit
+  %103 = getelementptr inbounds i8, ptr %98, i64 1096
+  %104 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(21) @.str.72) #25
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %160, label %106
 
-105:                                              ; preds = %101
-  %106 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(22) @.str.73) #25
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %159, label %108
+106:                                              ; preds = %102
+  %107 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(22) @.str.73) #25
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %160, label %109
 
-108:                                              ; preds = %105
-  %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(21) @.str.74) #25
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %159, label %111
+109:                                              ; preds = %106
+  %110 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(21) @.str.74) #25
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %160, label %112
 
-111:                                              ; preds = %108
-  %112 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(24) @.str.75) #25
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %159, label %114
+112:                                              ; preds = %109
+  %113 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(24) @.str.75) #25
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %160, label %115
 
-114:                                              ; preds = %111
-  %115 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(21) @.str.76) #25
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %159, label %117
+115:                                              ; preds = %112
+  %116 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(21) @.str.76) #25
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %160, label %118
 
-117:                                              ; preds = %114
-  %118 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(21) @.str.77) #25
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %159, label %120
+118:                                              ; preds = %115
+  %119 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(21) @.str.77) #25
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %160, label %121
 
-120:                                              ; preds = %117
-  %121 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(21) @.str.78) #25
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %159, label %123
+121:                                              ; preds = %118
+  %122 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(21) @.str.78) #25
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %160, label %124
 
-123:                                              ; preds = %120
-  %124 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(25) @.str.79) #25
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %159, label %126
+124:                                              ; preds = %121
+  %125 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(25) @.str.79) #25
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %160, label %127
 
-126:                                              ; preds = %123
-  %127 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(10) @.str.80) #25
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %159, label %129
+127:                                              ; preds = %124
+  %128 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(10) @.str.80) #25
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %160, label %130
 
-129:                                              ; preds = %126
-  %130 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(17) @.str.81) #25
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %159, label %132
+130:                                              ; preds = %127
+  %131 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(17) @.str.81) #25
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %160, label %133
 
-132:                                              ; preds = %129
-  %133 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(16) @.str.82) #25
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %159, label %135
+133:                                              ; preds = %130
+  %134 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(16) @.str.82) #25
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %160, label %136
 
-135:                                              ; preds = %132
-  %136 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(14) @.str.83) #25
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %159, label %138
+136:                                              ; preds = %133
+  %137 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(14) @.str.83) #25
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %160, label %139
 
-138:                                              ; preds = %135
-  %139 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(14) @.str.84) #25
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %159, label %141
+139:                                              ; preds = %136
+  %140 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(14) @.str.84) #25
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %160, label %142
 
-141:                                              ; preds = %138
-  %142 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(12) @.str.85) #25
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %159, label %144
+142:                                              ; preds = %139
+  %143 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(12) @.str.85) #25
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %160, label %145
 
-144:                                              ; preds = %141
-  %145 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(14) @.str.86) #25
-  %146 = icmp eq i32 %145, 0
-  br i1 %146, label %159, label %147
+145:                                              ; preds = %142
+  %146 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(14) @.str.86) #25
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %160, label %148
 
-147:                                              ; preds = %144
-  %148 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(11) @.str.87) #25
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %159, label %150
+148:                                              ; preds = %145
+  %149 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(11) @.str.87) #25
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %160, label %151
 
-150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %5, i64 1224
-  %152 = load i32, ptr %151, align 8, !tbaa !151
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %154, label %157
+151:                                              ; preds = %148
+  %152 = getelementptr inbounds i8, ptr %5, i64 1224
+  %153 = load i32, ptr %152, align 8, !tbaa !151
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %155, label %158
 
-154:                                              ; preds = %150
-  %155 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.69, i32 noundef 5) #23
-  %156 = getelementptr inbounds i8, ptr %5, i64 1228
-  call void (ptr, ...) @dt_control_log(ptr noundef %155, ptr noundef nonnull %156) #23
-  br label %157
+155:                                              ; preds = %151
+  %156 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.69, i32 noundef 5) #23
+  %157 = getelementptr inbounds i8, ptr %5, i64 1228
+  call void (ptr, ...) @dt_control_log(ptr noundef %156, ptr noundef nonnull %157) #23
+  br label %158
 
-157:                                              ; preds = %154, %150
-  %158 = getelementptr inbounds i8, ptr %5, i64 1228
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.70, ptr noundef nonnull %158) #23
-  br label %159
+158:                                              ; preds = %155, %151
+  %159 = getelementptr inbounds i8, ptr %5, i64 1228
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.70, ptr noundef nonnull %159) #23
+  br label %160
 
-159:                                              ; preds = %157, %147, %144, %141, %138, %135, %132, %129, %126, %123, %120, %117, %114, %111, %108, %105, %101, %.loopexit
+160:                                              ; preds = %158, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %102, %.loopexit
   store <2 x double> <double 2.000000e+00, double 1.000000e+00>, ptr %1, align 8, !tbaa !67
-  %160 = getelementptr inbounds i8, ptr %1, i64 16
-  store double 1.500000e+00, ptr %160, align 8, !tbaa !67
-  br label %161
+  %161 = getelementptr inbounds i8, ptr %1, i64 16
+  store double 1.500000e+00, ptr %161, align 8, !tbaa !67
+  br label %162
 
-161:                                              ; preds = %159, %85, %62, %14
-  %162 = phi i64 [ 24, %159 ], [ 24, %62 ], [ 16, %85 ], [ 24, %14 ]
-  %163 = phi double [ 1.000000e+00, %159 ], [ %63, %62 ], [ %92, %85 ], [ %20, %14 ]
-  %164 = getelementptr inbounds i8, ptr %1, i64 %162
-  store double %163, ptr %164, align 8, !tbaa !67
+162:                                              ; preds = %160, %86, %62, %14
+  %163 = phi i64 [ 24, %160 ], [ 24, %62 ], [ 16, %86 ], [ 24, %14 ]
+  %164 = phi double [ 1.000000e+00, %160 ], [ %63, %62 ], [ %93, %86 ], [ %20, %14 ]
+  %165 = getelementptr inbounds i8, ptr %1, i64 %163
+  store double %164, ptr %165, align 8, !tbaa !67
   ret void
 }
 

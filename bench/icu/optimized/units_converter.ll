@@ -2329,7 +2329,9 @@ _ZN6icu_7515MeasureUnitImplC2EOS0_.exit18:        ; preds = %if.then.i.i.i.i14, 
   %identifier4.i13 = getelementptr inbounds i8, ptr %target, i64 96
   tail call void @_ZN6icu_7510CharStringC1EOS0_(ptr noundef nonnull align 8 dereferenceable(60) %identifier.i12, ptr noundef nonnull align 8 dereferenceable(60) %identifier4.i13) #16
   %factorNum = getelementptr inbounds i8, ptr %this, i64 328
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %factorNum, align 8
+  store double 1.000000e+00, ptr %factorNum, align 8
+  %factorDen = getelementptr inbounds i8, ptr %this, i64 336
+  store double 1.000000e+00, ptr %factorDen, align 8
   %sourceOffset = getelementptr inbounds i8, ptr %this, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %sourceOffset, i8 0, i64 17, i1 false)
   ret void
@@ -2814,24 +2816,27 @@ _ZN6icu_7516MaybeStackVectorINS_5units18ConversionRateInfoELi8EED2Ev.exit: ; pre
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN6icu_755units12_GLOBAL__N_118loadConversionRateERNS0_14ConversionRateERKNS_15MeasureUnitImplES6_NS0_14ConvertibilityERKNS0_15ConversionRatesER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(361) %conversionRate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %target, i32 noundef %unitsState, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 {
 entry:
-  %finalFactor = alloca %"struct.icu_75::units::Factor", align 16
-  %sourceToBase = alloca %"struct.icu_75::units::Factor", align 16
-  %targetToBase = alloca %"struct.icu_75::units::Factor", align 16
+  %finalFactor = alloca %"struct.icu_75::units::Factor", align 8
+  %sourceToBase = alloca %"struct.icu_75::units::Factor", align 8
+  %targetToBase = alloca %"struct.icu_75::units::Factor", align 8
+  %factorDen.i = getelementptr inbounds i8, ptr %finalFactor, i64 8
   %scevgep.i = getelementptr inbounds i8, ptr %finalFactor, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %scevgep.i, i8 0, i64 60, i1 false)
   call fastcc void @_ZN6icu_755units12_GLOBAL__N_118loadCompoundFactorERKNS_15MeasureUnitImplERKNS0_15ConversionRatesER10UErrorCode(ptr noalias nonnull align 8 %sourceToBase, ptr noundef nonnull align 8 dereferenceable(160) %source, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status)
   call fastcc void @_ZN6icu_755units12_GLOBAL__N_118loadCompoundFactorERKNS_15MeasureUnitImplERKNS0_15ConversionRatesER10UErrorCode(ptr noalias nonnull align 8 %targetToBase, ptr noundef nonnull align 8 dereferenceable(160) %target, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %0 = load <2 x double>, ptr %sourceToBase, align 16
+  %0 = load double, ptr %sourceToBase, align 8
+  %factorDen.i15 = getelementptr inbounds i8, ptr %sourceToBase, i64 8
+  %1 = load double, ptr %factorDen.i15, align 8
   %constantExponents.i = getelementptr inbounds i8, ptr %sourceToBase, i64 28
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [15 x i32], ptr %constantExponents.i, i64 0, i64 %indvars.iv.i
-  %1 = load i32, ptr %arrayidx.i, align 4
+  %2 = load i32, ptr %arrayidx.i, align 4
   %arrayidx7.i = getelementptr inbounds [15 x i32], ptr %scevgep.i, i64 0, i64 %indvars.iv.i
-  %2 = load i32, ptr %arrayidx7.i, align 4
-  %add.i = add nsw i32 %2, %1
+  %3 = load i32, ptr %arrayidx7.i, align 4
+  %add.i = add nsw i32 %3, %2
   store i32 %add.i, ptr %arrayidx7.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
@@ -2839,78 +2844,81 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 _ZN6icu_755units6Factor10multiplyByERKS1_.exit:   ; preds = %for.body.i
   %offset.i16 = getelementptr inbounds i8, ptr %sourceToBase, i64 16
-  %3 = load <2 x double>, ptr %offset.i16, align 16
+  %4 = load double, ptr %offset.i16, align 8
   %cmp = icmp eq i32 %unitsState, 1
   %constantExponents.i21 = getelementptr inbounds i8, ptr %targetToBase, i64 28
   br i1 %cmp, label %if.then, label %if.then2
 
 if.then:                                          ; preds = %_ZN6icu_755units6Factor10multiplyByERKS1_.exit
-  %4 = load <2 x double>, ptr %targetToBase, align 16
-  %5 = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %6 = fmul <2 x double> %0, %5
-  store <2 x double> %6, ptr %finalFactor, align 16
-  %7 = extractelement <2 x double> %4, i64 0
-  %8 = extractelement <2 x double> %4, i64 1
+  %factorDen.i17 = getelementptr inbounds i8, ptr %targetToBase, i64 8
+  %5 = load double, ptr %factorDen.i17, align 8
+  %mul.i18 = fmul double %0, %5
+  store double %mul.i18, ptr %finalFactor, align 8
+  %6 = load double, ptr %targetToBase, align 8
+  %mul4.i20 = fmul double %1, %6
+  store double %mul4.i20, ptr %factorDen.i, align 8
   br label %for.body.i23
 
 for.body.i23:                                     ; preds = %for.body.i23, %if.then
   %indvars.iv.i24 = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i27, %for.body.i23 ]
   %arrayidx.i25 = getelementptr inbounds [15 x i32], ptr %constantExponents.i21, i64 0, i64 %indvars.iv.i24
-  %9 = load i32, ptr %arrayidx.i25, align 4
+  %7 = load i32, ptr %arrayidx.i25, align 4
   %arrayidx7.i26 = getelementptr inbounds [15 x i32], ptr %scevgep.i, i64 0, i64 %indvars.iv.i24
-  %10 = load i32, ptr %arrayidx7.i26, align 4
-  %sub.i = sub nsw i32 %10, %9
+  %8 = load i32, ptr %arrayidx7.i26, align 4
+  %sub.i = sub nsw i32 %8, %7
   store i32 %sub.i, ptr %arrayidx7.i26, align 4
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 15
   br i1 %exitcond.not.i28, label %if.end4, label %for.body.i23, !llvm.loop !6
 
 if.then2:                                         ; preds = %_ZN6icu_755units6Factor10multiplyByERKS1_.exit
-  %11 = load <2 x double>, ptr %targetToBase, align 16
-  %12 = fmul <2 x double> %0, %11
-  store <2 x double> %12, ptr %finalFactor, align 16
-  %13 = extractelement <2 x double> %11, i64 0
-  %14 = extractelement <2 x double> %11, i64 1
+  %9 = load double, ptr %targetToBase, align 8
+  %mul.i32 = fmul double %0, %9
+  store double %mul.i32, ptr %finalFactor, align 8
+  %factorDen.i33 = getelementptr inbounds i8, ptr %targetToBase, i64 8
+  %10 = load double, ptr %factorDen.i33, align 8
+  %mul4.i35 = fmul double %1, %10
+  store double %mul4.i35, ptr %factorDen.i, align 8
   br label %for.body.i38
 
 for.body.i38:                                     ; preds = %for.body.i38, %if.then2
   %indvars.iv.i39 = phi i64 [ 0, %if.then2 ], [ %indvars.iv.next.i43, %for.body.i38 ]
   %arrayidx.i40 = getelementptr inbounds [15 x i32], ptr %constantExponents.i21, i64 0, i64 %indvars.iv.i39
-  %15 = load i32, ptr %arrayidx.i40, align 4
+  %11 = load i32, ptr %arrayidx.i40, align 4
   %arrayidx7.i41 = getelementptr inbounds [15 x i32], ptr %scevgep.i, i64 0, i64 %indvars.iv.i39
-  %16 = load i32, ptr %arrayidx7.i41, align 4
-  %add.i42 = add nsw i32 %16, %15
+  %12 = load i32, ptr %arrayidx7.i41, align 4
+  %add.i42 = add nsw i32 %12, %11
   store i32 %add.i42, ptr %arrayidx7.i41, align 4
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 15
   br i1 %exitcond.not.i44, label %if.end4, label %for.body.i38, !llvm.loop !4
 
 if.end4:                                          ; preds = %for.body.i38, %for.body.i23
-  %17 = phi double [ %7, %for.body.i23 ], [ %13, %for.body.i38 ]
-  %18 = phi double [ %8, %for.body.i23 ], [ %14, %for.body.i38 ]
+  %13 = phi double [ %6, %for.body.i23 ], [ %9, %for.body.i38 ]
+  %14 = phi double [ %5, %for.body.i23 ], [ %10, %for.body.i38 ]
   %offset.i45 = getelementptr inbounds i8, ptr %targetToBase, i64 16
-  %19 = load double, ptr %offset.i45, align 16
+  %15 = load double, ptr %offset.i45, align 8
   br label %for.body.i50
 
 for.body.i50:                                     ; preds = %for.inc.i, %if.end4
   %indvars.iv.i51 = phi i64 [ 0, %if.end4 ], [ %indvars.iv.next.i53, %for.inc.i ]
   %arrayidx.i52 = getelementptr inbounds [15 x i32], ptr %scevgep.i, i64 0, i64 %indvars.iv.i51
-  %20 = load i32, ptr %arrayidx.i52, align 4
-  %cmp2.i = icmp eq i32 %20, 0
+  %16 = load i32, ptr %arrayidx.i52, align 4
+  %cmp2.i = icmp eq i32 %16, 0
   br i1 %cmp2.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i50
-  %21 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
+  %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %arrayidx11.i = getelementptr inbounds [15 x double], ptr @_ZN6icu_755unitsL15constantsValuesE, i64 0, i64 %indvars.iv.i51
-  %22 = load double, ptr %arrayidx11.i, align 8
-  %conv.i.i = uitofp nneg i32 %21 to double
-  %call.i.i = tail call noundef double @pow(double noundef %22, double noundef %conv.i.i) #16
-  %23 = lshr i32 %20, 28
-  %24 = and i32 %23, 8
-  %factorDen.this.idx.i = zext nneg i32 %24 to i64
+  %18 = load double, ptr %arrayidx11.i, align 8
+  %conv.i.i = uitofp nneg i32 %17 to double
+  %call.i.i = tail call noundef double @pow(double noundef %18, double noundef %conv.i.i) #16
+  %19 = lshr i32 %16, 28
+  %20 = and i32 %19, 8
+  %factorDen.this.idx.i = zext nneg i32 %20 to i64
   %factorDen.this.i = getelementptr inbounds i8, ptr %finalFactor, i64 %factorDen.this.idx.i
-  %25 = load double, ptr %factorDen.this.i, align 8
-  %mul14.i = fmul double %call.i.i, %25
+  %21 = load double, ptr %factorDen.this.i, align 8
+  %mul14.i = fmul double %call.i.i, %21
   store double %mul14.i, ptr %factorDen.this.i, align 8
   store i32 0, ptr %arrayidx.i52, align 4
   br label %for.inc.i
@@ -2921,35 +2929,38 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   br i1 %exitcond.not.i54, label %_ZN6icu_755units6Factor19substituteConstantsEv.exit, label %for.body.i50, !llvm.loop !8
 
 _ZN6icu_755units6Factor19substituteConstantsEv.exit: ; preds = %for.inc.i
+  %22 = load double, ptr %finalFactor, align 8
   %factorNum5 = getelementptr inbounds i8, ptr %conversionRate, i64 328
-  %26 = load <2 x double>, ptr %finalFactor, align 16
-  store <2 x double> %26, ptr %factorNum5, align 8
+  store double %22, ptr %factorNum5, align 8
+  %23 = load double, ptr %factorDen.i, align 8
+  %factorDen6 = getelementptr inbounds i8, ptr %conversionRate, i64 336
+  store double %23, ptr %factorDen6, align 8
   %status.val = load i32, ptr %status, align 4
   %cmp.i.i55 = icmp slt i32 %status.val, 1
-  %27 = load i32, ptr %source, align 8
-  %cmp.not.i = icmp eq i32 %27, 0
+  %24 = load i32, ptr %source, align 8
+  %cmp.not.i = icmp eq i32 %24, 0
   %or.cond3.i = select i1 %cmp.i.i55, i1 %cmp.not.i, i1 false
   br i1 %or.cond3.i, label %if.end2.i, label %if.end17
 
 if.end2.i:                                        ; preds = %_ZN6icu_755units6Factor19substituteConstantsEv.exit
   %singleUnits.i = getelementptr inbounds i8, ptr %source, i64 8
-  %28 = load i32, ptr %singleUnits.i, align 8
-  %cmp4.i = icmp eq i32 %28, 0
+  %25 = load i32, ptr %singleUnits.i, align 8
+  %cmp4.i = icmp eq i32 %25, 0
   br i1 %cmp4.i, label %land.lhs.true, label %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit
 
 _ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit: ; preds = %if.end2.i
   %fPool.i.i = getelementptr inbounds i8, ptr %source, i64 16
-  %29 = load ptr, ptr %fPool.i.i, align 8
-  %30 = load ptr, ptr %29, align 8
-  %singleUnit.sroa.1.0.call8.sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 4
+  %26 = load ptr, ptr %fPool.i.i, align 8
+  %27 = load ptr, ptr %26, align 8
+  %singleUnit.sroa.1.0.call8.sroa_idx.i = getelementptr inbounds i8, ptr %27, i64 4
   %singleUnit.sroa.1.0.copyload.i = load i32, ptr %singleUnit.sroa.1.0.call8.sroa_idx.i, align 4
-  %singleUnit.sroa.2.0.call8.sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 8
+  %singleUnit.sroa.2.0.call8.sroa_idx.i = getelementptr inbounds i8, ptr %27, i64 8
   %singleUnit.sroa.2.0.copyload.i = load i32, ptr %singleUnit.sroa.2.0.call8.sroa_idx.i, align 4
   %cmp9.i = icmp eq i32 %singleUnit.sroa.2.0.copyload.i, 1
   %cmp10.i = icmp eq i32 %singleUnit.sroa.1.0.copyload.i, 30
   %or.cond.not.i = select i1 %cmp9.i, i1 %cmp10.i, i1 false
-  %31 = load i32, ptr %target, align 8
-  %cmp.not.i57 = icmp eq i32 %31, 0
+  %28 = load i32, ptr %target, align 8
+  %cmp.not.i57 = icmp eq i32 %28, 0
   %or.cond = select i1 %or.cond.not.i, i1 %cmp.not.i57, i1 false
   br i1 %or.cond, label %if.end2.i60, label %if.end17
 
@@ -2960,17 +2971,17 @@ land.lhs.true:                                    ; preds = %if.end2.i
 
 if.end2.i60:                                      ; preds = %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit, %land.lhs.true
   %singleUnits.i61 = getelementptr inbounds i8, ptr %target, i64 8
-  %32 = load i32, ptr %singleUnits.i61, align 8
-  %cmp4.i62 = icmp eq i32 %32, 0
+  %29 = load i32, ptr %singleUnits.i61, align 8
+  %cmp4.i62 = icmp eq i32 %29, 0
   br i1 %cmp4.i62, label %if.then9, label %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit73
 
 _ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit73: ; preds = %if.end2.i60
   %fPool.i.i64 = getelementptr inbounds i8, ptr %target, i64 16
-  %33 = load ptr, ptr %fPool.i.i64, align 8
-  %34 = load ptr, ptr %33, align 8
-  %singleUnit.sroa.1.0.call8.sroa_idx.i65 = getelementptr inbounds i8, ptr %34, i64 4
+  %30 = load ptr, ptr %fPool.i.i64, align 8
+  %31 = load ptr, ptr %30, align 8
+  %singleUnit.sroa.1.0.call8.sroa_idx.i65 = getelementptr inbounds i8, ptr %31, i64 4
   %singleUnit.sroa.1.0.copyload.i66 = load i32, ptr %singleUnit.sroa.1.0.call8.sroa_idx.i65, align 4
-  %singleUnit.sroa.2.0.call8.sroa_idx.i67 = getelementptr inbounds i8, ptr %34, i64 8
+  %singleUnit.sroa.2.0.call8.sroa_idx.i67 = getelementptr inbounds i8, ptr %31, i64 8
   %singleUnit.sroa.2.0.copyload.i68 = load i32, ptr %singleUnit.sroa.2.0.call8.sroa_idx.i67, align 4
   %cmp9.i69 = icmp ne i32 %singleUnit.sroa.2.0.copyload.i68, 1
   %cmp10.i70 = icmp ne i32 %singleUnit.sroa.1.0.copyload.i66, 30
@@ -2978,14 +2989,14 @@ _ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UError
   br i1 %or.cond.not.i71.not, label %if.end17, label %if.then9
 
 if.then9:                                         ; preds = %if.end2.i60, %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit73
-  %35 = shufflevector <2 x double> %0, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %36 = insertelement <2 x double> %35, double %19, i64 1
-  %37 = insertelement <2 x double> %3, double %18, i64 1
-  %38 = fmul <2 x double> %36, %37
+  %mul = fmul double %1, %4
+  %div = fdiv double %mul, %0
   %sourceOffset = getelementptr inbounds i8, ptr %conversionRate, i64 344
-  %39 = insertelement <2 x double> %0, double %17, i64 1
-  %40 = fdiv <2 x double> %38, %39
-  store <2 x double> %40, ptr %sourceOffset, align 8
+  store double %div, ptr %sourceOffset, align 8
+  %mul14 = fmul double %15, %14
+  %div16 = fdiv double %mul14, %13
+  %targetOffset = getelementptr inbounds i8, ptr %conversionRate, i64 352
+  store double %div16, ptr %targetOffset, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %land.lhs.true, %_ZN6icu_755units6Factor19substituteConstantsEv.exit, %if.then9, %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit73, %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit
@@ -2999,7 +3010,7 @@ if.end17:                                         ; preds = %land.lhs.true, %_ZN
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 2) i32 @_ZN6icu_755units14UnitsConverter15compareTwoUnitsERKNS_15MeasureUnitImplES4_RKNS0_15ConversionRatesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %firstUnit, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %secondUnit, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %firstUnitToBase = alloca %"struct.icu_75::units::Factor", align 16
+  %firstUnitToBase = alloca %"struct.icu_75::units::Factor", align 8
   %secondUnitToBase = alloca %"struct.icu_75::units::Factor", align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -3099,18 +3110,15 @@ for.inc.i30:                                      ; preds = %if.end.i23, %for.bo
   br i1 %exitcond.not.i32, label %_ZN6icu_755units6Factor19substituteConstantsEv.exit33, label %for.body.i19, !llvm.loop !8
 
 _ZN6icu_755units6Factor19substituteConstantsEv.exit33: ; preds = %for.inc.i30
-  %17 = load <2 x double>, ptr %firstUnitToBase, align 16
+  %17 = load double, ptr %firstUnitToBase, align 8
   %factorDen = getelementptr inbounds i8, ptr %firstUnitToBase, i64 8
-  %18 = load <2 x double>, ptr %factorDen, align 8
+  %18 = load double, ptr %factorDen, align 8
+  %div = fdiv double %17, %18
   %19 = load double, ptr %secondUnitToBase, align 8
   %factorDen16 = getelementptr inbounds i8, ptr %secondUnitToBase, i64 8
   %20 = load double, ptr %factorDen16, align 8
-  %21 = insertelement <2 x double> %17, double %19, i64 1
-  %22 = insertelement <2 x double> %18, double %20, i64 1
-  %23 = fdiv <2 x double> %21, %22
-  %shift = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %24 = fsub <2 x double> %23, %shift
-  %sub = extractelement <2 x double> %24, i64 0
+  %div17 = fdiv double %19, %20
+  %sub = fsub double %div, %div17
   %cmp18 = fcmp ogt double %sub, 0.000000e+00
   br i1 %cmp18, label %return, label %if.end20
 
@@ -3140,10 +3148,11 @@ entry:
   %retval.i.i.i = alloca %"class.icu_75::StringPiece", align 8
   %stringFactor.i.i = alloca %"class.icu_75::StringPiece", align 8
   %singleUnit = alloca %"struct.icu_75::SingleUnitImpl", align 4
-  %singleFactor = alloca %"struct.icu_75::units::Factor", align 16
+  %singleFactor = alloca %"struct.icu_75::units::Factor", align 8
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
+  store double 1.000000e+00, ptr %agg.result, align 8
   %factorDen.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %agg.result, align 8
+  store double 1.000000e+00, ptr %factorDen.i, align 8
   %offset.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double 0.000000e+00, ptr %offset.i, align 8
   %reciprocal.i = getelementptr inbounds i8, ptr %agg.result, i64 24
@@ -3222,8 +3231,9 @@ if.end3.i:                                        ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stringFactor.i.i), !noalias !17
   store ptr %14, ptr %stringFactor.i.i, align 8, !noalias !23
   store i32 %15, ptr %3, align 8, !noalias !23
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %singleFactor, align 16, !alias.scope !23
-  store double 0.000000e+00, ptr %offset.i.i, align 16, !alias.scope !23
+  store double 1.000000e+00, ptr %singleFactor, align 8, !alias.scope !23
+  store double 1.000000e+00, ptr %factorDen.i.i, align 8, !alias.scope !23
+  store double 0.000000e+00, ptr %offset.i.i, align 8, !alias.scope !23
   store i8 0, ptr %2, align 8, !alias.scope !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %scevgep.i.i, i8 0, i64 60, i1 false), !alias.scope !23
   %cmp22.i.i = icmp sgt i32 %15, 0
@@ -3387,7 +3397,7 @@ _ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit3
 _ZN6icu_755units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15ConversionRatesER10UErrorCode.exit: ; preds = %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit23.i.i, %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit33.i.i
   %retval.0.i.i = phi double [ %div.i.i, %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit23.i.i ], [ %call2.i30.i.i, %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit33.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %strWithDivide.i.i), !noalias !17
-  store double %retval.0.i.i, ptr %offset.i.i, align 16, !alias.scope !17
+  store double %retval.0.i.i, ptr %offset.i.i, align 8, !alias.scope !17
   %.pre = load i32, ptr %status, align 4
   %cmp.i7 = icmp slt i32 %.pre, 1
   br i1 %cmp.i7, label %if.end, label %return
@@ -3429,18 +3439,18 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN6ic
 
 for.end.i:                                        ; preds = %for.body.i
   %cmp2.i = icmp slt i32 %33, 0
-  %35 = load double, ptr %singleFactor, align 16
+  %35 = load double, ptr %singleFactor, align 8
   %36 = call i32 @llvm.abs.i32(i32 %33, i1 true)
   %conv.i.i = uitofp nneg i32 %36 to double
   %call.i.i = call noundef double @pow(double noundef %35, double noundef %conv.i.i) #16
-  store double %call.i.i, ptr %singleFactor, align 16
+  store double %call.i.i, ptr %singleFactor, align 8
   %37 = load double, ptr %factorDen.i.i, align 8
   %call.i7.i = call noundef double @pow(double noundef %37, double noundef %conv.i.i) #16
   store double %call.i7.i, ptr %factorDen.i.i, align 8
   br i1 %cmp2.i, label %if.then.i14, label %_ZN6icu_755units6Factor5powerEi.exit
 
 if.then.i14:                                      ; preds = %for.end.i
-  store double %call.i7.i, ptr %singleFactor, align 16
+  store double %call.i7.i, ptr %singleFactor, align 8
   store double %call.i.i, ptr %factorDen.i.i, align 8
   br label %_ZN6icu_755units6Factor5powerEi.exit
 

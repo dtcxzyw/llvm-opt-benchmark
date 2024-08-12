@@ -105,8 +105,14 @@ if.then.i.i:                                      ; preds = %lj_buf_need.exit
 
 lj_buf_need.exit.i:                               ; preds = %if.then.i.i, %lj_buf_need.exit
   %retval.i.0.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %3, %lj_buf_need.exit ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 1
+  store i8 27, ptr %retval.i.0.i, align 1
+  %incdec.ptr3.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 2
+  store i8 76, ptr %incdec.ptr.i, align 1
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 3
+  store i8 74, ptr %incdec.ptr3.i, align 1
   %incdec.ptr5.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 4
-  store <4 x i8> <i8 27, i8 76, i8 74, i8 2>, ptr %retval.i.0.i, align 1
+  store i8 2, ptr %incdec.ptr4.i, align 1
   %strip.i = getelementptr inbounds i8, ptr %ud, i64 56
   %8 = load i32, ptr %strip.i, align 8
   %tobool.not.i = icmp eq i32 %8, 0

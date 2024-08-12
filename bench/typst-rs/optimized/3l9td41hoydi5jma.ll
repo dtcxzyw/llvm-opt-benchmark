@@ -285,81 +285,88 @@ define void @"_ZN67_$LT$typst_timing..TimingScope$u20$as$u20$core..ops..drop..Dr
   %2 = tail call { i64, i32 } @_ZN3std4time10SystemTime3now17h7abd419117abb24dE()
   %3 = extractvalue { i64, i32 } %2, 0
   %4 = extractvalue { i64, i32 } %2, 1
-  %5 = load ptr, ptr %0, align 8, !nonnull !7, !align !31, !noundef !7
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load <2 x i64>, ptr %7, align 8
-  %9 = load <2 x i64>, ptr %6, align 8
-  %10 = cmpxchg weak ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 0, i8 1 acquire monotonic, align 1
-  %11 = extractvalue { i8, i1 } %10, 1
-  br i1 %11, label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit", label %12
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = load i64, ptr %5, align 8, !noundef !7
+  %7 = load ptr, ptr %0, align 8, !nonnull !7, !align !31, !noundef !7
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8, !noundef !7
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load i64, ptr %10, align 8, !noundef !7
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = load i64, ptr %12, align 8, !range !71, !noundef !7
+  %14 = cmpxchg weak ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 0, i8 1 acquire monotonic, align 1
+  %15 = extractvalue { i8, i1 } %14, 1
+  br i1 %15, label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit", label %16
 
-12:                                               ; preds = %1
-  %13 = tail call noundef zeroext i1 @_ZN11parking_lot9raw_mutex8RawMutex9lock_slow17hab3c003b90560b92E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 undef, i32 noundef 1000000000)
+16:                                               ; preds = %1
+  %17 = tail call noundef zeroext i1 @_ZN11parking_lot9raw_mutex8RawMutex9lock_slow17hab3c003b90560b92E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 undef, i32 noundef 1000000000)
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
 
-"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit": ; preds = %1, %12
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !noalias !71, !noundef !7
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 8), align 8, !noalias !71, !noundef !7
-  %16 = icmp eq i64 %14, %15
-  br i1 %16, label %17, label %23
+"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit": ; preds = %1, %16
+  %18 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !noalias !72, !noundef !7
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 8), align 8, !noalias !72, !noundef !7
+  %20 = icmp eq i64 %18, %19
+  br i1 %20, label %21, label %27
 
-17:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25d327088fa66b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 8), i64 noundef %14)
-          to label %.noexc unwind label %18
+21:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25d327088fa66b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 8), i64 noundef %18)
+          to label %.noexc unwind label %22
 
-.noexc:                                           ; preds = %17
-  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !noalias !71
-  br label %23
+.noexc:                                           ; preds = %21
+  %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !noalias !72
+  br label %27
 
-18:                                               ; preds = %17
-  %19 = landingpad { ptr, i32 }
+22:                                               ; preds = %21
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %20 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
-  %21 = extractvalue { i8, i1 } %20, 1
-  br i1 %21, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit", label %22
+  %24 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
+  %25 = extractvalue { i8, i1 } %24, 1
+  br i1 %25, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit", label %26
 
-22:                                               ; preds = %18
+26:                                               ; preds = %22
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h8341eb7c85773489E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit" unwind label %32
+          to label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit" unwind label %35
 
-23:                                               ; preds = %.noexc, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
-  %24 = phi i64 [ %.pre.i, %.noexc ], [ %14, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit" ]
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 16), align 8, !noalias !71, !nonnull !7, !noundef !7
-  %26 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { ptr, i64 }, i64, i64, i64, i8, [7 x i8] }, ptr %25, i64 %24
-  store i64 %3, ptr %26, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
+27:                                               ; preds = %.noexc, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
+  %28 = phi i64 [ %.pre.i, %.noexc ], [ %18, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit" ]
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 16), align 8, !noalias !72, !nonnull !7, !noundef !7
+  %30 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { ptr, i64 }, i64, i64, i64, i8, [7 x i8] }, ptr %29, i64 %28
+  store i64 %3, ptr %30, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   store i32 %4, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.34.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 16
-  store ptr %5, ptr %.sroa.34.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 24
-  store <2 x i64> %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 40
-  %27 = shufflevector <2 x i64> %8, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %27, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 56
+  %.sroa.34.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 16
+  store ptr %7, ptr %.sroa.34.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 24
+  store i64 %9, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 32
+  store i64 %13, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 40
+  store i64 %6, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 48
+  store i64 %11, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 56
   store i8 1, ptr %.sroa.8.0..sroa_idx, align 8
-  %28 = add i64 %24, 1
-  store i64 %28, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !noalias !71
-  %29 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
-  %30 = extractvalue { i8, i1 } %29, 1
-  br i1 %30, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit3", label %31
+  %31 = add i64 %28, 1
+  store i64 %31, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !noalias !72
+  %32 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
+  %33 = extractvalue { i8, i1 } %32, 1
+  br i1 %33, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit3", label %34
 
-31:                                               ; preds = %23
+34:                                               ; preds = %27
   tail call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h8341eb7c85773489E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i1 noundef zeroext false)
   br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit3"
 
-"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit3": ; preds = %23, %31
+"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit3": ; preds = %27, %34
   ret void
 
-32:                                               ; preds = %22
-  %33 = landingpad { ptr, i32 }
+35:                                               ; preds = %26
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #13
   unreachable
 
-"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit": ; preds = %18, %22
-  resume { ptr, i32 } %19
+"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit": ; preds = %22, %26
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
@@ -484,6 +491,7 @@ attributes #13 = { cold noreturn nounwind }
 !68 = !{!69}
 !69 = distinct !{!69, !70, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb547b3fa2703f57E.llvm.7582899215610987004: argument 0"}
 !70 = distinct !{!70, !"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb547b3fa2703f57E.llvm.7582899215610987004"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfbc142e384ae046bE: argument 0"}
-!73 = distinct !{!73, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfbc142e384ae046bE"}
+!71 = !{i64 1, i64 0}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfbc142e384ae046bE: argument 0"}
+!74 = distinct !{!74, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfbc142e384ae046bE"}

@@ -2725,10 +2725,11 @@ define internal noundef i32 @_ZL8lua_vec2P9lua_State(ptr noundef %0) #4 {
   %4 = tail call noundef ptr @_Z21lua_newuserdatataggedP9lua_Statemi(ptr noundef %0, i64 noundef 8, i32 noundef 12)
   tail call void @_Z24lua_getuserdatametatableP9lua_Statei(ptr noundef %0, i32 noundef 12)
   %5 = tail call noundef i32 @_Z16lua_setmetatableP9lua_Statei(ptr noundef %0, i32 noundef -2)
-  %6 = insertelement <2 x double> poison, double %2, i64 0
-  %7 = insertelement <2 x double> %6, double %3, i64 1
-  %8 = fptrunc <2 x double> %7 to <2 x float>
-  store <2 x float> %8, ptr %4, align 4
+  %6 = fptrunc double %2 to float
+  store float %6, ptr %4, align 4
+  %7 = fptrunc double %3 to float
+  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %7, ptr %8, align 4
   ret i32 1
 }
 
@@ -15331,34 +15332,40 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL21DOCTEST_ANON_FUNC_112v() #4 personality ptr @__gxx_personality_v0 {
-  %1 = alloca %struct.lua_CompileOptions, align 16
+  %1 = alloca %struct.lua_CompileOptions, align 8
   %2 = alloca %"class.std::unique_ptr", align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 0, i64 40, i1 false), !alias.scope !113
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
-  store ptr @.str.53, ptr %4, align 8, !alias.scope !113
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
-  store ptr @.str.53, ptr %5, align 16, !alias.scope !113
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 2>, ptr %1, align 16
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 40, i1 false), !alias.scope !113
+  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 1, ptr %5, align 4, !alias.scope !113
+  store i32 1, ptr %3, align 8, !alias.scope !113
+  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  store ptr @.str.53, ptr %6, align 8, !alias.scope !113
+  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  store ptr @.str.53, ptr %7, align 8, !alias.scope !113
+  store i32 1, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 2, ptr %8, align 4
   call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.431, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_112vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null)
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = load ptr, ptr %6, align 8
-  %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit, label %8
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit, label %11
 
-8:                                                ; preds = %0
-  %9 = load ptr, ptr %2, align 8
-  invoke void %9(ptr noundef nonnull %7)
-          to label %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit unwind label %10
+11:                                               ; preds = %0
+  %12 = load ptr, ptr %2, align 8
+  invoke void %12(ptr noundef nonnull %10)
+          to label %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit unwind label %13
 
-10:                                               ; preds = %8
-  %11 = landingpad { ptr, i32 }
+13:                                               ; preds = %11
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #36
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #36
   unreachable
 
-_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %8
+_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %11
   ret void
 }
 

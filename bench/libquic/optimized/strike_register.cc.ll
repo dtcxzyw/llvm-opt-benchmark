@@ -716,50 +716,54 @@ if.end94:                                         ; preds = %if.end94.loopexit, 
   %shl.i127 = or disjoint i32 %or84, %and.i
   %or.i128 = or i32 %shl.i127, -2147483648
   store i32 %or.i128, ptr %arrayidx.i126, align 4
-  %58 = load <2 x i32>, ptr %arrayidx83, align 4
-  %59 = and <2 x i32> %58, <i32 -256, i32 -256>
-  %60 = insertelement <2 x i8> poison, i8 %differing_byte.0.lcssa, i64 0
-  %61 = insertelement <2 x i8> %60, i8 %xor69, i64 1
-  %62 = zext <2 x i8> %61 to <2 x i32>
-  %63 = or disjoint <2 x i32> %59, %62
-  store <2 x i32> %63, ptr %arrayidx83, align 4
-  %64 = load i32, ptr %internal_node_head_.i61, align 8
-  %cmp99177 = icmp sgt i32 %64, -1
+  %58 = load i32, ptr %arrayidx83, align 4
+  %and.i129 = and i32 %58, -256
+  %conv.i130 = zext nneg i8 %differing_byte.0.lcssa to i32
+  %or.i131 = or disjoint i32 %and.i129, %conv.i130
+  store i32 %or.i131, ptr %arrayidx83, align 4
+  %arrayidx.i132 = getelementptr inbounds i8, ptr %arrayidx83, i64 4
+  %59 = load i32, ptr %arrayidx.i132, align 4
+  %and.i133 = and i32 %59, -256
+  %conv.i134 = zext i8 %xor69 to i32
+  %or.i135 = or disjoint i32 %and.i133, %conv.i134
+  store i32 %or.i135, ptr %arrayidx.i132, align 4
+  %60 = load i32, ptr %internal_node_head_.i61, align 8
+  %cmp99177 = icmp sgt i32 %60, -1
   br i1 %cmp99177, label %while.body100.preheader, label %while.end148
 
 while.body100.preheader:                          ; preds = %if.end94
-  %shr97207 = lshr i32 %64, 8
-  %65 = load ptr, ptr %internal_nodes_.i82, align 8
+  %shr97207 = lshr i32 %60, 8
+  %61 = load ptr, ptr %internal_nodes_.i82, align 8
   %idxprom103208 = zext nneg i32 %shr97207 to i64
-  %arrayidx104209 = getelementptr inbounds %"class.net::StrikeRegister::InternalNode", ptr %65, i64 %idxprom103208
-  %66 = load i32, ptr %arrayidx104209, align 4
-  %conv.i138210 = trunc i32 %66 to i8
+  %arrayidx104209 = getelementptr inbounds %"class.net::StrikeRegister::InternalNode", ptr %61, i64 %idxprom103208
+  %62 = load i32, ptr %arrayidx104209, align 4
+  %conv.i138210 = trunc i32 %62 to i8
   %cmp108211 = icmp ult i8 %differing_byte.0.lcssa, %conv.i138210
   br i1 %cmp108211, label %while.end148, label %if.end110
 
 while.body100:                                    ; preds = %if.end137
-  %shr97 = lshr i32 %76, 8
-  %67 = load ptr, ptr %internal_nodes_.i82, align 8
+  %shr97 = lshr i32 %72, 8
+  %63 = load ptr, ptr %internal_nodes_.i82, align 8
   %idxprom103 = zext nneg i32 %shr97 to i64
-  %arrayidx104 = getelementptr inbounds %"class.net::StrikeRegister::InternalNode", ptr %67, i64 %idxprom103
-  %68 = load i32, ptr %arrayidx104, align 4
-  %conv.i138 = trunc i32 %68 to i8
+  %arrayidx104 = getelementptr inbounds %"class.net::StrikeRegister::InternalNode", ptr %63, i64 %idxprom103
+  %64 = load i32, ptr %arrayidx104, align 4
+  %conv.i138 = trunc i32 %64 to i8
   %cmp108 = icmp ult i8 %differing_byte.0.lcssa, %conv.i138
   br i1 %cmp108, label %while.end148, label %if.end110, !llvm.loop !12
 
 if.end110:                                        ; preds = %while.body100.preheader, %while.body100
   %conv.i138214 = phi i8 [ %conv.i138, %while.body100 ], [ %conv.i138210, %while.body100.preheader ]
-  %69 = phi i32 [ %68, %while.body100 ], [ %66, %while.body100.preheader ]
+  %65 = phi i32 [ %64, %while.body100 ], [ %62, %while.body100.preheader ]
   %arrayidx104213 = phi ptr [ %arrayidx104, %while.body100 ], [ %arrayidx104209, %while.body100.preheader ]
   %where_index.0178212 = phi ptr [ %arrayidx147, %while.body100 ], [ %internal_node_head_.i61, %while.body100.preheader ]
-  %70 = phi i32 [ %76, %while.body100 ], [ %64, %while.body100.preheader ]
+  %66 = phi i32 [ %72, %while.body100 ], [ %60, %while.body100.preheader ]
   %cmp114 = icmp eq i8 %differing_byte.0.lcssa, %conv.i138214
   br i1 %cmp114, label %land.lhs.true, label %if.end137
 
 land.lhs.true:                                    ; preds = %if.end110
   %arrayidx.i140 = getelementptr inbounds i8, ptr %arrayidx104213, i64 4
-  %71 = load i32, ptr %arrayidx.i140, align 4
-  %conv.i141 = trunc i32 %71 to i8
+  %67 = load i32, ptr %arrayidx.i140, align 4
+  %conv.i141 = trunc i32 %67 to i8
   %cmp118 = icmp ult i8 %xor69, %conv.i141
   br i1 %cmp118, label %while.end148, label %land.lhs.true125
 
@@ -774,36 +778,36 @@ if.then130:                                       ; preds = %land.lhs.true125
   br label %if.end137
 
 if.end137:                                        ; preds = %if.end110, %if.then130, %land.lhs.true125
-  %72 = phi i32 [ %69, %if.end110 ], [ %.pre194, %if.then130 ], [ %69, %land.lhs.true125 ]
-  %73 = and i32 %72, 255
-  %idxprom139 = zext nneg i32 %73 to i64
+  %68 = phi i32 [ %65, %if.end110 ], [ %.pre194, %if.then130 ], [ %65, %land.lhs.true125 ]
+  %69 = and i32 %68, 255
+  %idxprom139 = zext nneg i32 %69 to i64
   %arrayidx140 = getelementptr inbounds [24 x i8], ptr %value, i64 0, i64 %idxprom139
-  %74 = load i8, ptr %arrayidx140, align 1
+  %70 = load i8, ptr %arrayidx140, align 1
   %arrayidx.i147 = getelementptr inbounds i8, ptr %arrayidx104213, i64 4
-  %75 = load i32, ptr %arrayidx.i147, align 4
-  %conv.i148 = trunc i32 %75 to i8
-  %or14451 = or i8 %74, %conv.i148
+  %71 = load i32, ptr %arrayidx.i147, align 4
+  %conv.i148 = trunc i32 %71 to i8
+  %or14451 = or i8 %70, %conv.i148
   %or144 = zext i8 %or14451 to i64
   %add = add nuw nsw i64 %or144, 1
   %shr145 = lshr i64 %add, 8
   %arrayidx147 = getelementptr inbounds [2 x i32], ptr %arrayidx104213, i64 0, i64 %shr145
-  %76 = load i32, ptr %arrayidx147, align 4
-  %cmp99 = icmp sgt i32 %76, -1
+  %72 = load i32, ptr %arrayidx147, align 4
+  %cmp99 = icmp sgt i32 %72, -1
   br i1 %cmp99, label %while.body100, label %while.end148, !llvm.loop !12
 
 while.end148:                                     ; preds = %land.lhs.true, %while.body100, %if.end137, %while.body100.preheader, %if.end94
   %where_index.0.lcssa = phi ptr [ %internal_node_head_.i61, %if.end94 ], [ %internal_node_head_.i61, %while.body100.preheader ], [ %arrayidx147, %if.end137 ], [ %arrayidx147, %while.body100 ], [ %where_index.0178212, %land.lhs.true ]
-  %.lcssa = phi i32 [ %64, %if.end94 ], [ %64, %while.body100.preheader ], [ %76, %if.end137 ], [ %76, %while.body100 ], [ %70, %land.lhs.true ]
-  %77 = xor i1 %cmp76, true
+  %.lcssa = phi i32 [ %60, %if.end94 ], [ %60, %while.body100.preheader ], [ %72, %if.end137 ], [ %72, %while.body100 ], [ %66, %land.lhs.true ]
+  %73 = xor i1 %cmp76, true
   %shr150 = and i32 %.lcssa, -256
-  %idxprom.i149 = zext i1 %77 to i64
+  %idxprom.i149 = zext i1 %73 to i64
   %arrayidx.i150 = getelementptr inbounds [2 x i32], ptr %arrayidx83, i64 0, i64 %idxprom.i149
-  %78 = load i32, ptr %arrayidx.i150, align 4
-  %and.i151 = and i32 %78, 255
+  %74 = load i32, ptr %arrayidx.i150, align 4
+  %and.i151 = and i32 %74, 255
   %or.i153 = or disjoint i32 %and.i151, %shr150
   store i32 %or.i153, ptr %arrayidx.i150, align 4
-  %79 = load i32, ptr %where_index.0.lcssa, align 4
-  %and151 = and i32 %79, 255
+  %75 = load i32, ptr %where_index.0.lcssa, align 4
+  %and151 = and i32 %75, 255
   %shl152 = shl i32 %.lcssa161, 8
   %or153 = or disjoint i32 %and151, %shl152
   store i32 %or153, ptr %where_index.0.lcssa, align 4

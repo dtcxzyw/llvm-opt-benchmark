@@ -5957,8 +5957,8 @@ declare void @_ZN4node22SetConstructorFunctionEN2v85LocalINS0_7ContextEEENS1_INS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_7ArgsGetES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -5976,9 +5976,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_7ArgsGetES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_7ArgsGetES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -6550,8 +6554,8 @@ declare noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_12ArgsSizesGetES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -6569,9 +6573,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_12ArgsSizesGetES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_12ArgsSizesGetES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -6840,8 +6848,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_11ClockResGetES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -6859,9 +6867,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_11ClockResGetES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_11ClockResGetES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -7227,8 +7239,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmjEXadL_ZNS1_12ClockTimeGetES3_S4_jmjEEjJjmjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_ImJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -7246,9 +7258,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjmjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmjEXadL_ZNS1_12ClockTimeGetES3_S4_jmjEEjJjmjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjmjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_ImJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmjEXadL_ZNS1_12ClockTimeGetES3_S4_jmjEEjJjmjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -7695,8 +7711,8 @@ declare noundef i64 @_ZNK2v86BigInt11Uint64ValueEPb(ptr noundef nonnull align 1 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_10EnvironGetES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -7714,9 +7730,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_10EnvironGetES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_10EnvironGetES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -7985,8 +8005,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_15EnvironSizesGetES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -8004,9 +8024,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_15EnvironSizesGetES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_15EnvironSizesGetES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -8276,8 +8300,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmmjEXadL_ZNS1_8FdAdviseES3_S4_jmmjEEjJjmmjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_ImJEEES8_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -8299,9 +8323,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjmmjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmmjEXadL_ZNS1_8FdAdviseES3_S4_jmmjEEjJjmmjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjmmjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_ImJEEES8_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmmjEXadL_ZNS1_8FdAdviseES3_S4_jmmjEEjJjmmjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -8780,8 +8808,8 @@ _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJmmjEEEbRKN2v820FunctionCallbackInfoINS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmmEXadL_ZNS1_10FdAllocateES3_S4_jmmEEjJjmmEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_ImJEEES8_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -8799,9 +8827,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjmmRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmmEXadL_ZNS1_10FdAllocateES3_S4_jmmEEjJjmmEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjmmRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_ImJEEES8_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmmEXadL_ZNS1_10FdAllocateES3_S4_jmmEEjJjmmEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -9206,8 +9238,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjEXadL_ZNS1_7FdCloseES3_S4_jEEjJjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -9225,9 +9257,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjEXadL_ZNS1_7FdCloseES3_S4_jEEjJjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjEXadL_ZNS1_7FdCloseES3_S4_jEEjJjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -9508,8 +9544,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjEXadL_ZNS1_10FdDatasyncES3_S4_jEEjJjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -9527,9 +9563,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjEXadL_ZNS1_10FdDatasyncES3_S4_jEEjJjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjEXadL_ZNS1_10FdDatasyncES3_S4_jEEjJjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -9795,8 +9835,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_11FdFdstatGetES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -9814,9 +9854,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_11FdFdstatGetES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_11FdFdstatGetES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -10180,8 +10224,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_16FdFdstatSetFlagsES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -10199,9 +10243,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_16FdFdstatSetFlagsES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_16FdFdstatSetFlagsES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -10526,8 +10574,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmmEXadL_ZNS1_17FdFdstatSetRightsES3_S4_jmmEEjJjmmEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_ImJEEES8_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -10545,9 +10593,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjmmRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmmEXadL_ZNS1_17FdFdstatSetRightsES3_S4_jmmEEjJjmmEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjmmRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_ImJEEES8_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmmEXadL_ZNS1_17FdFdstatSetRightsES3_S4_jmmEEjJjmmEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -10933,8 +10985,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_13FdFilestatGetES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -10952,9 +11004,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_13FdFilestatGetES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_13FdFilestatGetES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -11318,8 +11374,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmEXadL_ZNS1_17FdFilestatSetSizeES3_S4_jmEEjJjmEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_ImJEEENS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -11337,9 +11393,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjmRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmEXadL_ZNS1_17FdFilestatSetSizeES3_S4_jmEEjJjmEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjmRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_ImJEEENS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmEXadL_ZNS1_17FdFilestatSetSizeES3_S4_jmEEjJjmEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -11683,8 +11743,8 @@ entry:
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmmjEXadL_ZNS1_18FdFilestatSetTimesES3_S4_jmmjEEjJjmmjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_ImJEEES8_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -11706,9 +11766,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjmmjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmmjEXadL_ZNS1_18FdFilestatSetTimesES3_S4_jmmjEEjJjmmjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjmmjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_ImJEEES8_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjmmjEXadL_ZNS1_18FdFilestatSetTimesES3_S4_jmmjEEjJjmmjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -12081,8 +12145,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjmjEXadL_ZNS1_7FdPreadES3_S4_jjjmjEEjJjjjmjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_ImJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -12104,9 +12168,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjmjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjmjEXadL_ZNS1_7FdPreadES3_S4_jjjmjEEjJjjjmjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjmjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_ImJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjmjEXadL_ZNS1_7FdPreadES3_S4_jjjmjEEjJjjjmjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -12548,8 +12616,8 @@ _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjmjEEEbRKN2v820FunctionCallbackInfoIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_12FdPrestatGetES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -12567,9 +12635,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_12FdPrestatGetES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_12FdPrestatGetES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -12933,8 +13005,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_16FdPrestatDirNameES3_S4_jjjEEjJjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -12952,9 +13024,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_16FdPrestatDirNameES3_S4_jjjEEjJjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_16FdPrestatDirNameES3_S4_jjjEEjJjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -13385,8 +13461,8 @@ entry:
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjmjEXadL_ZNS1_8FdPwriteES3_S4_jjjmjEEjJjjjmjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_ImJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -13408,9 +13484,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjmjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjmjEXadL_ZNS1_8FdPwriteES3_S4_jjjmjEEjJjjjmjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjmjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_ImJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjmjEXadL_ZNS1_8FdPwriteES3_S4_jjjmjEEjJjjjmjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -13721,8 +13801,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjEXadL_ZNS1_6FdReadES3_S4_jjjjEEjJjjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -13744,9 +13824,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjEXadL_ZNS1_6FdReadES3_S4_jjjjEEjJjjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjEXadL_ZNS1_6FdReadES3_S4_jjjjEEjJjjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -14140,8 +14224,8 @@ _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjEEEbRKN2v820FunctionCallbackInfoINS
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjmjEXadL_ZNS1_9FdReaddirES3_S4_jjjmjEEjJjjjmjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_ImJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -14163,9 +14247,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjmjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjmjEXadL_ZNS1_9FdReaddirES3_S4_jjjmjEEjJjjjmjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjmjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_ImJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjmjEXadL_ZNS1_9FdReaddirES3_S4_jjjmjEEjJjjjmjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -14475,8 +14563,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_10FdRenumberES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -14494,9 +14582,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_10FdRenumberES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_10FdRenumberES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -14820,8 +14912,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjljjEXadL_ZNS1_6FdSeekES3_S4_jljjEEjJjljjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_IlJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -14843,9 +14935,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjljjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjljjEXadL_ZNS1_6FdSeekES3_S4_jljjEEjJjljjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjljjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_IlJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjljjEXadL_ZNS1_6FdSeekES3_S4_jljjEEjJjljjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -15209,8 +15305,8 @@ declare noundef i64 @_ZNK2v86BigInt10Int64ValueEPb(ptr noundef nonnull align 1 d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjEXadL_ZNS1_6FdSyncES3_S4_jEEjJjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -15228,9 +15324,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjEXadL_ZNS1_6FdSyncES3_S4_jEEjJjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjEXadL_ZNS1_6FdSyncES3_S4_jEEjJjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -15496,8 +15596,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_6FdTellES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -15515,9 +15615,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_6FdTellES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_6FdTellES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -15884,8 +15988,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjEXadL_ZNS1_7FdWriteES3_S4_jjjjEEjJjjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -15907,9 +16011,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjEXadL_ZNS1_7FdWriteES3_S4_jjjjEEjJjjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjEXadL_ZNS1_7FdWriteES3_S4_jjjjEEjJjjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -16195,8 +16303,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_19PathCreateDirectoryES3_S4_jjjEEjJjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -16214,9 +16322,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_19PathCreateDirectoryES3_S4_jjjEEjJjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_19PathCreateDirectoryES3_S4_jjjEEjJjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -16628,8 +16740,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjEXadL_ZNS1_15PathFilestatGetES3_S4_jjjjjEEjJjjjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -16651,9 +16763,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjEXadL_ZNS1_15PathFilestatGetES3_S4_jjjjjEEjJjjjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjEXadL_ZNS1_15PathFilestatGetES3_S4_jjjjjEEjJjjjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -17103,8 +17219,8 @@ return:                                           ; preds = %_ZN4node4wasi12_GLO
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjmmjEXadL_ZNS1_20PathFilestatSetTimesES3_S4_jjjjmmjEEjJjjjjmmjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_NS2_ImJEEES8_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -17126,9 +17242,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjjmmjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjmmjEXadL_ZNS1_20PathFilestatSetTimesES3_S4_jjjjmmjEEjJjjjjmmjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjjmmjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_NS2_ImJEEES8_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjmmjEXadL_ZNS1_20PathFilestatSetTimesES3_S4_jjjjmmjEEjJjjjjmmjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 7, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -17629,8 +17749,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjjjEXadL_ZNS1_8PathLinkES3_S4_jjjjjjjEEjJjjjjjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -17652,9 +17772,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjjjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjjjEXadL_ZNS1_8PathLinkES3_S4_jjjjjjjEEjJjjjjjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjjjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjjjEXadL_ZNS1_8PathLinkES3_S4_jjjjjjjEEjJjjjjjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 7, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -18033,8 +18157,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjmmjjEXadL_ZNS1_8PathOpenES3_S4_jjjjjmmjjEEjJjjjjjmmjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_NS2_ImJEEES8_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -18056,9 +18180,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjjjmmjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjmmjjEXadL_ZNS1_8PathOpenES3_S4_jjjjjmmjjEEjJjjjjjmmjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjjjmmjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_NS2_ImJEEES8_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjmmjjEXadL_ZNS1_8PathOpenES3_S4_jjjjjmmjjEEjJjjjjjmmjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 9, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -18649,8 +18777,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjjEXadL_ZNS1_12PathReadlinkES3_S4_jjjjjjEEjJjjjjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -18672,9 +18800,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjjEXadL_ZNS1_12PathReadlinkES3_S4_jjjjjjEEjJjjjjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjjEXadL_ZNS1_12PathReadlinkES3_S4_jjjjjjEEjJjjjjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 6, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -19007,8 +19139,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_19PathRemoveDirectoryES3_S4_jjjEEjJjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -19026,9 +19158,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_19PathRemoveDirectoryES3_S4_jjjEEjJjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_19PathRemoveDirectoryES3_S4_jjjEEjJjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -19440,8 +19576,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjjEXadL_ZNS1_10PathRenameES3_S4_jjjjjjEEjJjjjjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -19463,9 +19599,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjjEXadL_ZNS1_10PathRenameES3_S4_jjjjjjEEjJjjjjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjjEXadL_ZNS1_10PathRenameES3_S4_jjjjjjEEjJjjjjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 6, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -19799,8 +19939,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjEXadL_ZNS1_11PathSymlinkES3_S4_jjjjjEEjJjjjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -19822,9 +19962,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjEXadL_ZNS1_11PathSymlinkES3_S4_jjjjjEEjJjjjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjEXadL_ZNS1_11PathSymlinkES3_S4_jjjjjEEjJjjjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -20131,8 +20275,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_14PathUnlinkFileES3_S4_jjjEEjJjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -20150,9 +20294,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_14PathUnlinkFileES3_S4_jjjEEjJjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_14PathUnlinkFileES3_S4_jjjEEjJjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -20564,8 +20712,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjEXadL_ZNS1_10PollOneoffES3_S4_jjjjEEjJjjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -20587,9 +20735,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjEXadL_ZNS1_10PollOneoffES3_S4_jjjjEEjJjjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjEXadL_ZNS1_10PollOneoffES3_S4_jjjjEEjJjjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -20875,8 +21027,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFvRS1_NS0_10WasmMemoryEjEXadL_ZNS1_8ProcExitES3_S4_jEEvJjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIvJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEENS2_IjJEEENS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -20894,9 +21046,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFvNS_5LocalINS_6ObjectEEEjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFvRS1_NS0_10WasmMemoryEjEXadL_ZNS1_8ProcExitES3_S4_jEEvJjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIvJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEENS2_IjJEEENS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFvRS1_NS0_10WasmMemoryEjEXadL_ZNS1_8ProcExitES3_S4_jEEvJjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -21171,8 +21327,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjEXadL_ZNS1_9ProcRaiseES3_S4_jEEjJjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -21190,9 +21346,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjEXadL_ZNS1_9ProcRaiseES3_S4_jEEjJjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjEXadL_ZNS1_9ProcRaiseES3_S4_jEEjJjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -21460,8 +21620,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_9RandomGetES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -21479,9 +21639,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_9RandomGetES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_9RandomGetES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -21838,8 +22002,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEEXadL_ZNS1_10SchedYieldES3_S4_EEjJEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEENS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -21862,9 +22026,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEERNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEEXadL_ZNS1_10SchedYieldES3_S4_EEjJEE12FastCallbackEN2v85LocalINS8_6ObjectEEERNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEENS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEEXadL_ZNS1_10SchedYieldES3_S4_EEjJEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -22096,8 +22264,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_10SockAcceptES3_S4_jjjEEjJjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -22115,9 +22283,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_10SockAcceptES3_S4_jjjEEjJjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjEXadL_ZNS1_10SockAcceptES3_S4_jjjEEjJjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -22526,8 +22698,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjjEXadL_ZNS1_8SockRecvES3_S4_jjjjjjEEjJjjjjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -22549,9 +22721,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjjEXadL_ZNS1_8SockRecvES3_S4_jjjjjjEEjJjjjjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjjEXadL_ZNS1_8SockRecvES3_S4_jjjjjjEEjJjjjjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 6, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -22885,8 +23061,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjEXadL_ZNS1_8SockSendES3_S4_jjjjjEEjJjjjjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.v8::CTypeInfo", align 4
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -22908,9 +23084,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjjjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjEXadL_ZNS1_8SockSendES3_S4_jjjjjEEjJjjjjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjjjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_S3_S3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjjjjEXadL_ZNS1_8SockSendES3_S4_jjjjjEEjJjjjjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23
@@ -23217,8 +23397,8 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_12SockShutdownES3_S4_jjEEjJjjEE11SetFunctionEPNS_11EnvironmentEPKcN2v85LocalINSC_16FunctionTemplateEEE(ptr noundef %env, ptr noundef %name, ptr %tmpl.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %retval.i.i.i = alloca %"class.v8::CFunction", align 16
-  %c_function = alloca %"class.v8::CFunction", align 16
+  %retval.i.i.i = alloca %"class.v8::CFunction", align 8
+  %c_function = alloca %"class.v8::CFunction", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %0, 0
@@ -23236,9 +23416,13 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
 
 _ZN2v89CFunction4MakeIFjNS_5LocalINS_6ObjectEEEjjRNS_22FastApiCallbackOptionsEEEES0_PT_.exit: ; preds = %entry, %init.check.i.i.i, %init.i.i.i
   call void @_ZN2v89CFunctionC1EPKvPKNS_13CFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_12SockShutdownES3_S4_jjEEjJjjEE12FastCallbackEN2v85LocalINS8_6ObjectEEEjjRNS8_22FastApiCallbackOptionsE, ptr noundef nonnull @_ZZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIjJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEES3_S3_NS2_IRNS_22FastApiCallbackOptionsEJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance) #23
-  %2 = load <2 x ptr>, ptr %retval.i.i.i, align 16
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8
+  %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
+  %.fca.1.load.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
-  store <2 x ptr> %2, ptr %c_function, align 16
+  store ptr %.fca.0.load.i.i.i, ptr %c_function, align 8
+  %2 = getelementptr inbounds i8, ptr %c_function, i64 8
+  store ptr %.fca.1.load.i.i.i, ptr %2, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i, align 8
   %call11 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %3, ptr noundef nonnull @_ZN4node4wasi4WASI12WasiFunctionIPFjRS1_NS0_10WasmMemoryEjjEXadL_ZNS1_12SockShutdownES3_S4_jjEEjJjjEE12SlowCallbackERKN2v820FunctionCallbackInfoINS8_5ValueEEE, ptr null, ptr null, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c_function, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #23

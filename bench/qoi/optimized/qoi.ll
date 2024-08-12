@@ -59,10 +59,13 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly %0, ptr no
   br i1 %.not185, label %168, label %32
 
 32:                                               ; preds = %25
+  store i8 113, ptr %31, align 1
   %33 = getelementptr i8, ptr %31, i64 1
+  store i8 111, ptr %33, align 1
   %34 = getelementptr i8, ptr %31, i64 2
+  store i8 105, ptr %34, align 1
   %35 = getelementptr i8, ptr %31, i64 3
-  store <4 x i8> <i8 113, i8 111, i8 105, i8 102>, ptr %31, align 1
+  store i8 102, ptr %35, align 1
   %36 = lshr i32 %9, 24
   %37 = trunc nuw i32 %36 to i8
   %38 = getelementptr i8, ptr %31, i64 4

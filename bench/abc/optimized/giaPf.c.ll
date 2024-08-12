@@ -1029,9 +1029,11 @@ define void @Pf_StoCreateGate(ptr nocapture noundef readonly %0, ptr nocapture n
   %64 = lshr i64 %63, %58
   %65 = or i64 %60, %64
   %66 = getelementptr inbounds i32, ptr %6, i64 %50
-  %67 = load <2 x i32>, ptr %66, align 4
-  %68 = shufflevector <2 x i32> %67, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %68, ptr %66, align 4
+  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %68 = load i32, ptr %66, align 4
+  %69 = load i32, ptr %67, align 4
+  store i32 %69, ptr %66, align 4
+  store i32 %68, ptr %67, align 4
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
   br i1 %exitcond58.not, label %._crit_edge49, label %.preheader, !llvm.loop !16
@@ -5268,27 +5270,41 @@ define void @Pf_ManComputeMapping(ptr nocapture noundef readnone %0) local_unnam
 define void @Pf_ManSetDefaultPars(ptr nocapture noundef writeonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, i8 0, i64 232, i1 false)
-  store <4 x i32> <i32 6, i32 16, i32 0, i32 3>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 0, i32 0, i32 3, i32 1>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 5, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 -1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 116
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 140
-  store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 32, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 236
-  store <2 x float> <float -1.000000e+00, float 0x3F847AE140000000>, ptr %12, align 4
+  store i32 6, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 16, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 3, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 3, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 1, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 5, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 -1, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 116
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 140
+  store i32 0, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 6, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 32, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 236
+  store float -1.000000e+00, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %0, i64 240
+  store float 0x3F847AE140000000, ptr %19, align 8
   ret void
 }
 

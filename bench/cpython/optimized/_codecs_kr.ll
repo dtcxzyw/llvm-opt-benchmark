@@ -373,28 +373,34 @@ add_codecs.exit.i:                                ; preds = %for.body.i.i, %if.e
   br i1 %cmp620.i, label %for.body.lr.ph.i, label %register_maps.exit
 
 for.body.lr.ph.i:                                 ; preds = %add_codecs.exit.i
-  %9 = getelementptr inbounds i8, ptr %mhname.i, i64 4
-  %10 = getelementptr inbounds i8, ptr %mhname.i, i64 5
+  %9 = getelementptr inbounds i8, ptr %mhname.i, i64 1
+  %10 = getelementptr inbounds i8, ptr %mhname.i, i64 2
+  %11 = getelementptr inbounds i8, ptr %mhname.i, i64 3
+  %12 = getelementptr inbounds i8, ptr %mhname.i, i64 4
+  %13 = getelementptr inbounds i8, ptr %mhname.i, i64 5
   %add.ptr7.i = getelementptr inbounds i8, ptr %mhname.i, i64 6
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %11 = load i32, ptr %call.i.i, align 8
-  %12 = sext i32 %11 to i64
-  %cmp6.i = icmp slt i64 %indvars.iv.next.i, %12
+  %14 = load i32, ptr %call.i.i, align 8
+  %15 = sext i32 %14 to i64
+  %cmp6.i = icmp slt i64 %indvars.iv.next.i, %15
   br i1 %cmp6.i, label %for.body.i, label %register_maps.exit, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %13 = load ptr, ptr %mapping_list.i.i, align 8
-  %arrayidx.i = getelementptr %struct.dbcs_map, ptr %13, i64 %indvars.iv.i
+  %16 = load ptr, ptr %mapping_list.i.i, align 8
+  %arrayidx.i = getelementptr %struct.dbcs_map, ptr %16, i64 %indvars.iv.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %mhname.i, i8 0, i64 256, i1 false)
-  store <4 x i8> <i8 95, i8 95, i8 109, i8 97>, ptr %mhname.i, align 16
-  store i8 112, ptr %9, align 4
-  store i8 95, ptr %10, align 1
-  %14 = load ptr, ptr %arrayidx.i, align 8
-  %call8.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr7.i, ptr noundef nonnull dereferenceable(1) %14) #7
+  store i8 95, ptr %mhname.i, align 16
+  store i8 95, ptr %9, align 1
+  store i8 109, ptr %10, align 2
+  store i8 97, ptr %11, align 1
+  store i8 112, ptr %12, align 4
+  store i8 95, ptr %13, align 1
+  %17 = load ptr, ptr %arrayidx.i, align 8
+  %call8.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr7.i, ptr noundef nonnull dereferenceable(1) %17) #7
   %call9.i = call ptr @PyCapsule_New(ptr noundef nonnull %arrayidx.i, ptr noundef nonnull @.str.8, ptr noundef null) #7
   %call11.i = call i32 @PyModule_Add(ptr noundef %module, ptr noundef nonnull %mhname.i, ptr noundef %call9.i) #7
   %cmp12.i = icmp slt i32 %call11.i, 0

@@ -145,11 +145,17 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @make_empty_acl() local_unnamed_addr #0 {
   %1 = tail call ptr @palloc0(i64 noundef 24) #15
-  store <4 x i32> <i32 96, i32 1, i32 0, i32 1033>, ptr %1, align 4
-  %2 = getelementptr i8, ptr %1, i64 16
-  %3 = getelementptr i8, ptr %1, i64 20
-  store i32 1, ptr %3, align 4
-  store i32 0, ptr %2, align 4
+  store i32 96, ptr %1, align 4
+  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 1, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 0, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 1033, ptr %4, align 4
+  %5 = getelementptr i8, ptr %1, i64 16
+  %6 = getelementptr i8, ptr %1, i64 20
+  store i32 1, ptr %6, align 4
+  store i32 0, ptr %5, align 4
   ret ptr %1
 }
 

@@ -845,10 +845,14 @@ define void @phpdbg_stack_separate(ptr nocapture noundef %0) local_unnamed_addr 
   %2 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #25
   store i32 9, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
-  %4 = getelementptr inbounds i8, ptr %2, i64 72
-  %5 = load <2 x ptr>, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr %4, ptr %5, align 8
   store ptr %2, ptr %3, align 8
-  store <2 x ptr> %5, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 80
+  store ptr %7, ptr %8, align 8
   ret void
 }
 

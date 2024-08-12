@@ -277,32 +277,30 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %74 = getelementptr [10 x i32], ptr %71, i64 0, i64 %indvars.iv178
   %75 = load i32, ptr %74, align 4
   %.not = icmp eq i32 %75, 0
-  br i1 %.not, label %143, label %.preheader
+  br i1 %.not, label %136, label %.preheader
 
 .preheader:                                       ; preds = %73
   %76 = getelementptr [10 x %struct._timestat_t], ptr %4, i64 0, i64 %indvars.iv178
   %77 = getelementptr inbounds i8, ptr %76, i64 32
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %76, i64 40
-  %80 = load i32, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %76, i64 16
-  %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %76, i64 24
-  %84 = load i32, ptr %83, align 8
-  %85 = insertelement <2 x i64> poison, i64 %78, i64 0
-  %86 = insertelement <2 x i64> %85, i64 %82, i64 1
-  %87 = sitofp <2 x i64> %86 to <2 x double>
-  %88 = insertelement <2 x i32> poison, i32 %80, i64 0
-  %89 = insertelement <2 x i32> %88, i32 %84, i64 1
-  %90 = sitofp <2 x i32> %89 to <2 x double>
-  %91 = fdiv <2 x double> %90, <double 1.000000e+06, double 1.000000e+06>
-  %92 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %87, <2 x double> <double 1.000000e+03, double 1.000000e+03>, <2 x double> %91)
-  %93 = extractelement <2 x double> %92, i64 1
-  %94 = extractelement <2 x double> %92, i64 0
-  %95 = fsub double %94, %93
-  %96 = fcmp ogt double %95, 1.000000e-03
-  %97 = uitofp i32 %75 to double
-  br i1 %96, label %.lr.ph.us.preheader, label %.preheader.split
+  %79 = sitofp i64 %78 to double
+  %80 = getelementptr inbounds i8, ptr %76, i64 40
+  %81 = load i32, ptr %80, align 8
+  %82 = sitofp i32 %81 to double
+  %83 = fdiv double %82, 1.000000e+06
+  %84 = tail call double @llvm.fmuladd.f64(double %79, double 1.000000e+03, double %83)
+  %85 = getelementptr inbounds i8, ptr %76, i64 16
+  %86 = load i64, ptr %85, align 8
+  %87 = sitofp i64 %86 to double
+  %88 = getelementptr inbounds i8, ptr %76, i64 24
+  %89 = load i32, ptr %88, align 8
+  %90 = sitofp i32 %89 to double
+  %91 = fdiv double %90, 1.000000e+06
+  %92 = tail call double @llvm.fmuladd.f64(double %87, double 1.000000e+03, double %91)
+  %93 = fsub double %84, %92
+  %94 = fcmp ogt double %93, 1.000000e-03
+  %95 = uitofp i32 %75 to double
+  br i1 %94, label %.lr.ph.us.preheader, label %.preheader.split
 
 .lr.ph.us.preheader:                              ; preds = %.preheader
   %wide.trip.count = zext i32 %75 to i64
@@ -310,126 +308,129 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv169 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next170, %._crit_edge.us ]
-  %98 = getelementptr [7 x double], ptr @__const.camelsrt_draw.criteria, i64 0, i64 %indvars.iv169
-  %99 = load double, ptr %98, align 8
-  %100 = fmul double %99, %97
-  br label %101
+  %96 = getelementptr [7 x double], ptr @__const.camelsrt_draw.criteria, i64 0, i64 %indvars.iv169
+  %97 = load double, ptr %96, align 8
+  %98 = fmul double %97, %95
+  br label %99
 
-101:                                              ; preds = %.lr.ph.us, %103
-  %.0115148.us = phi double [ %93, %.lr.ph.us ], [ %119, %103 ]
-  %.0117147.us = phi double [ %94, %.lr.ph.us ], [ %.1118.us, %103 ]
-  %.0119146.us = phi double [ %93, %.lr.ph.us ], [ %.1120.us, %103 ]
-  %.0125145.us = phi i32 [ 0, %.lr.ph.us ], [ %104, %103 ]
-  %102 = phi <2 x double> [ %92, %.lr.ph.us ], [ %118, %103 ]
-  br label %120
+99:                                               ; preds = %.lr.ph.us, %109
+  %.0115148.us = phi double [ %92, %.lr.ph.us ], [ %.1116.us, %109 ]
+  %.0117147.us = phi double [ %84, %.lr.ph.us ], [ %.1118.us, %109 ]
+  %.0119146.us = phi double [ %92, %.lr.ph.us ], [ %.1120.us, %109 ]
+  %.0125145.us = phi i32 [ 0, %.lr.ph.us ], [ %101, %109 ]
+  br label %113
 
-103:                                              ; preds = %120
-  %104 = add nuw nsw i32 %.0125145.us, 1
-  %105 = mul i32 %.1127.us, 100
-  %106 = sitofp i32 %105 to double
-  %107 = fcmp olt double %100, %106
+100:                                              ; preds = %113
+  %101 = add nuw nsw i32 %.0125145.us, 1
+  %102 = mul i32 %.1127.us, 100
+  %103 = sitofp i32 %102 to double
+  %104 = fcmp olt double %98, %103
+  br i1 %104, label %107, label %105
+
+105:                                              ; preds = %100
+  %106 = fsub double %.0117147.us, %.0119146.us
+  br label %109
+
+107:                                              ; preds = %100
   %108 = fsub double %.0119146.us, %.0115148.us
-  %109 = insertelement <2 x double> poison, double %.0115148.us, i64 0
-  %110 = shufflevector <2 x double> %109, <2 x double> poison, <2 x i32> zeroinitializer
-  %111 = fsub double %.0117147.us, %.0119146.us
-  %.1118.us = select i1 %107, double %.0119146.us, double %.0117147.us
-  %.1.us = select i1 %107, double %108, double %111
-  %112 = select i1 %107, <2 x double> %110, <2 x double> %102
-  %113 = extractelement <2 x double> %112, i64 0
-  %.1120.in.us = fadd double %.0119146.us, %113
-  %.1120.us = fmul double %.1120.in.us, 5.000000e-01
-  %114 = fcmp ogt double %.1.us, 1.000000e-03
-  %115 = icmp ult i32 %.0125145.us, 9999
-  %116 = select i1 %114, i1 %115, i1 false
-  %117 = insertelement <2 x double> poison, double %.1118.us, i64 0
-  %118 = insertelement <2 x double> %117, double %.1120.us, i64 1
-  %119 = extractelement <2 x double> %112, i64 1
-  br i1 %116, label %101, label %._crit_edge.us, !llvm.loop !10
+  br label %109
 
-120:                                              ; preds = %120, %101
-  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %120 ], [ 0, %101 ]
-  %.0126144.us = phi i32 [ %.1127.us, %120 ], [ 0, %101 ]
-  %121 = getelementptr [10 x [500000 x %struct.nstime_t]], ptr %72, i64 0, i64 %indvars.iv178, i64 %indvars.iv165
-  %122 = load i64, ptr %121, align 8
-  %123 = mul i64 %122, 1000
-  %124 = sitofp i64 %123 to double
-  %125 = getelementptr inbounds i8, ptr %121, i64 8
-  %126 = load i32, ptr %125, align 8
-  %127 = sitofp i32 %126 to double
-  %128 = fdiv double %127, 1.000000e+06
-  %129 = fadd double %128, %124
-  %130 = fcmp ole double %129, %.0119146.us
-  %131 = zext i1 %130 to i32
-  %.1127.us = add i32 %.0126144.us, %131
+109:                                              ; preds = %107, %105
+  %.0115148.us.pn = phi double [ %.0115148.us, %107 ], [ %.0117147.us, %105 ]
+  %.1118.us = phi double [ %.0119146.us, %107 ], [ %.0117147.us, %105 ]
+  %.1116.us = phi double [ %.0115148.us, %107 ], [ %.0119146.us, %105 ]
+  %.1.us = phi double [ %108, %107 ], [ %106, %105 ]
+  %.1120.in.us = fadd double %.0119146.us, %.0115148.us.pn
+  %.1120.us = fmul double %.1120.in.us, 5.000000e-01
+  %110 = fcmp ogt double %.1.us, 1.000000e-03
+  %111 = icmp ult i32 %.0125145.us, 9999
+  %112 = select i1 %110, i1 %111, i1 false
+  br i1 %112, label %99, label %._crit_edge.us, !llvm.loop !10
+
+113:                                              ; preds = %113, %99
+  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %113 ], [ 0, %99 ]
+  %.0126144.us = phi i32 [ %.1127.us, %113 ], [ 0, %99 ]
+  %114 = getelementptr [10 x [500000 x %struct.nstime_t]], ptr %72, i64 0, i64 %indvars.iv178, i64 %indvars.iv165
+  %115 = load i64, ptr %114, align 8
+  %116 = mul i64 %115, 1000
+  %117 = sitofp i64 %116 to double
+  %118 = getelementptr inbounds i8, ptr %114, i64 8
+  %119 = load i32, ptr %118, align 8
+  %120 = sitofp i32 %119 to double
+  %121 = fdiv double %120, 1.000000e+06
+  %122 = fadd double %121, %117
+  %123 = fcmp ole double %122, %.0119146.us
+  %124 = zext i1 %123 to i32
+  %.1127.us = add i32 %.0126144.us, %124
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count
-  br i1 %exitcond168.not, label %103, label %120, !llvm.loop !11
+  br i1 %exitcond168.not, label %100, label %113, !llvm.loop !11
 
-._crit_edge.us:                                   ; preds = %103
-  %132 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv169
-  store double %.1120.us, ptr %132, align 8
+._crit_edge.us:                                   ; preds = %109
+  %125 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv169
+  store double %.1120.us, ptr %125, align 8
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 7
   br i1 %exitcond172.not, label %.split.us, label %.lr.ph.us, !llvm.loop !12
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %.preheader.split ], [ 0, %.preheader ]
-  %133 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv161
-  store double %93, ptr %133, align 8
+  %126 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv161
+  store double %92, ptr %126, align 8
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next162, 7
   br i1 %exitcond164.not, label %.split.us, label %.preheader.split, !llvm.loop !12
 
 .split.us:                                        ; preds = %.preheader.split, %._crit_edge.us
-  %134 = trunc nuw nsw i64 %indvars.iv178 to i32
-  %135 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %134, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.9) #10
-  %136 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %135)
-  tail call void @wmem_free(ptr noundef null, ptr noundef %135) #10
-  br label %137
+  %127 = trunc nuw nsw i64 %indvars.iv178 to i32
+  %128 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %127, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.9) #10
+  %129 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %128)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %128) #10
+  br label %130
 
-137:                                              ; preds = %.split.us, %137
-  %indvars.iv173 = phi i64 [ 0, %.split.us ], [ %indvars.iv.next174, %137 ]
-  %138 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv173
-  %139 = load double, ptr %138, align 8
-  %140 = fcmp ogt double %139, 9.999000e+03
-  %141 = select i1 %140, double 9.999000e+03, double %139
-  %142 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, double noundef %141)
+130:                                              ; preds = %.split.us, %130
+  %indvars.iv173 = phi i64 [ 0, %.split.us ], [ %indvars.iv.next174, %130 ]
+  %131 = getelementptr [7 x double], ptr %2, i64 0, i64 %indvars.iv173
+  %132 = load double, ptr %131, align 8
+  %133 = fcmp ogt double %132, 9.999000e+03
+  %134 = select i1 %133, double 9.999000e+03, double %132
+  %135 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, double noundef %134)
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next174, 7
-  br i1 %exitcond176.not, label %.loopexit, label %137, !llvm.loop !13
+  br i1 %exitcond176.not, label %.loopexit, label %130, !llvm.loop !13
 
-143:                                              ; preds = %73
-  %144 = trunc nuw nsw i64 %indvars.iv178 to i32
-  %145 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %144, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.9) #10
-  %146 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %145)
-  tail call void @wmem_free(ptr noundef null, ptr noundef %145) #10
-  br label %147
+136:                                              ; preds = %73
+  %137 = trunc nuw nsw i64 %indvars.iv178 to i32
+  %138 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %137, ptr noundef nonnull @camelSRTtype_naming, ptr noundef nonnull @.str.9) #10
+  %139 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %138)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %138) #10
+  br label %140
 
-147:                                              ; preds = %143, %147
-  %.4151 = phi i32 [ 0, %143 ], [ %149, %147 ]
-  %148 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, double noundef 0.000000e+00)
-  %149 = add nuw nsw i32 %.4151, 1
-  %exitcond177.not = icmp eq i32 %149, 7
-  br i1 %exitcond177.not, label %.loopexit, label %147, !llvm.loop !14
+140:                                              ; preds = %136, %140
+  %.4151 = phi i32 [ 0, %136 ], [ %142, %140 ]
+  %141 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, double noundef 0.000000e+00)
+  %142 = add nuw nsw i32 %.4151, 1
+  %exitcond177.not = icmp eq i32 %142, 7
+  br i1 %exitcond177.not, label %.loopexit, label %140, !llvm.loop !14
 
-.loopexit:                                        ; preds = %137, %147
+.loopexit:                                        ; preds = %130, %140
   %putchar139 = tail call i32 @putchar(i32 10)
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next179, 10
-  br i1 %exitcond181.not, label %150, label %73, !llvm.loop !15
+  br i1 %exitcond181.not, label %143, label %73, !llvm.loop !15
 
-150:                                              ; preds = %.loopexit
-  %151 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18)
-  br label %152
+143:                                              ; preds = %.loopexit
+  %144 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18)
+  br label %145
 
-152:                                              ; preds = %150, %152
-  %.5153 = phi i32 [ 0, %150 ], [ %154, %152 ]
-  %153 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19)
-  %154 = add nuw nsw i32 %.5153, 1
-  %exitcond182.not = icmp eq i32 %154, 7
-  br i1 %exitcond182.not, label %155, label %152, !llvm.loop !16
+145:                                              ; preds = %143, %145
+  %.5153 = phi i32 [ 0, %143 ], [ %147, %145 ]
+  %146 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19)
+  %147 = add nuw nsw i32 %.5153, 1
+  %exitcond182.not = icmp eq i32 %147, 7
+  br i1 %exitcond182.not, label %148, label %145, !llvm.loop !16
 
-155:                                              ; preds = %152
+148:                                              ; preds = %145
   %putchar137 = tail call i32 @putchar(i32 10)
   ret void
 }
@@ -464,14 +465,14 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare double @nstime_to_msec(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #9
+; Function Attrs: nofree nounwind
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -481,8 +482,8 @@ attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-ma
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nofree nounwind }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(0,1) }
 attributes #12 = { nounwind willreturn memory(read) }

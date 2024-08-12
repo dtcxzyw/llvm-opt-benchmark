@@ -35,17 +35,21 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load <2 x i32>, ptr %cipher, align 8
+  %1 = load i32, ptr %cipher, align 8
+  %block_size = getelementptr inbounds i8, ptr %cipher, i64 4
+  %2 = load i32, ptr %block_size, align 4
   %key_len = getelementptr inbounds i8, ptr %cipher, i64 8
-  %2 = load i32, ptr %key_len, align 8
+  %3 = load i32, ptr %key_len, align 8
   %call.i = tail call ptr @evp_cipher_new() #5
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  store <2 x i32> %1, ptr %call.i, align 8
+  store i32 %1, ptr %call.i, align 8
+  %block_size1.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  store i32 %2, ptr %block_size1.i, align 4
   %key_len2.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  store i32 %2, ptr %key_len2.i, align 8
+  store i32 %3, ptr %key_len2.i, align 8
   %origin.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 2, ptr %origin.i, align 8
   %refcnt3 = getelementptr inbounds i8, ptr %call.i, i64 128

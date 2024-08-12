@@ -43,7 +43,13 @@ if.then.i.i.i:
   %frombool = zext i1 %use32bitIndices to i8
   %frombool1 = zext i1 %use4componentVertices to i8
   %m_scaling.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_scaling.i.i, align 8
+  store float 1.000000e+00, ptr %m_scaling.i.i, align 8
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  store float 1.000000e+00, ptr %arrayidx3.i.i.i, align 4
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  store float 1.000000e+00, ptr %arrayidx5.i.i.i, align 8
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
+  store float 0.000000e+00, ptr %arrayidx7.i.i.i, align 4
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 40

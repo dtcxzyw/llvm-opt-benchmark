@@ -147,11 +147,17 @@ entry:
   tail call void @usb_desc_create_serial(ptr noundef %dev) #10
   tail call void @usb_desc_init(ptr noundef %dev) #10
   %rndis_state = getelementptr inbounds i8, ptr %call.i, i64 5864
+  store i32 0, ptr %rndis_state, align 8
   %rndis_resp = getelementptr inbounds i8, ptr %call.i, i64 18256
   store ptr null, ptr %rndis_resp, align 8
   %tql_prev = getelementptr inbounds i8, ptr %call.i, i64 18264
   store ptr %rndis_resp, ptr %tql_prev, align 8
-  store <4 x i32> <i32 0, i32 0, i32 1000000, i32 0>, ptr %rndis_state, align 8
+  %medium = getelementptr inbounds i8, ptr %call.i, i64 5868
+  store i32 0, ptr %medium, align 4
+  %speed = getelementptr inbounds i8, ptr %call.i, i64 5872
+  store i32 1000000, ptr %speed, align 8
+  %media_state = getelementptr inbounds i8, ptr %call.i, i64 5876
+  store i32 0, ptr %media_state, align 4
   %filter = getelementptr inbounds i8, ptr %call.i, i64 5880
   store i16 0, ptr %filter, align 8
   %vendorid = getelementptr inbounds i8, ptr %call.i, i64 5884
@@ -277,9 +283,21 @@ rndis_init_response.exit.i:                       ; preds = %if.then.i.i.i, %sw.
   %RequestID3.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 28
   store i32 %7, ptr %RequestID3.i.i, align 4
   %Status.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
-  store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr %Status.i.i, align 4
+  store i32 0, ptr %Status.i.i, align 4
+  %MajorVersion.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 36
+  store i32 1, ptr %MajorVersion.i.i, align 4
+  %MinorVersion.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
+  store i32 0, ptr %MinorVersion.i.i, align 4
+  %DeviceFlags.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 44
+  store i32 1, ptr %DeviceFlags.i.i, align 4
   %Medium.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
-  store <4 x i32> <i32 0, i32 1, i32 1580, i32 0>, ptr %Medium.i.i, align 4
+  store i32 0, ptr %Medium.i.i, align 4
+  %MaxPacketsPerTransfer.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 52
+  store i32 1, ptr %MaxPacketsPerTransfer.i.i, align 4
+  %MaxTransferSize.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
+  store i32 1580, ptr %MaxTransferSize.i.i, align 4
+  %PacketAlignmentFactor.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 60
+  store i32 0, ptr %PacketAlignmentFactor.i.i, align 4
   %AFListOffset.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store i32 0, ptr %AFListOffset.i.i, align 4
   %AFListSize.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 68
@@ -657,7 +675,13 @@ rndis_reset_response.exit.i:                      ; preds = %if.then.i.i54.i, %r
   store ptr %call.i.i45.i, ptr %41, align 8
   store ptr %call.i.i45.i, ptr %tql_prev.i.i48.i, align 8
   %length10.i.i50.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 16
-  store <4 x i32> <i32 16, i32 -2147483642, i32 16, i32 0>, ptr %length10.i.i50.i, align 8
+  store i32 16, ptr %length10.i.i50.i, align 8
+  %buf.i.i51.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 20
+  store i32 -2147483642, ptr %buf.i.i51.i, align 4
+  %MessageLength.i52.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 24
+  store i32 16, ptr %MessageLength.i52.i, align 4
+  %Status.i53.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 28
+  store i32 0, ptr %Status.i53.i, align 4
   %AddressingReset.i.i = getelementptr inbounds i8, ptr %call.i.i45.i, i64 32
   store i32 1, ptr %AddressingReset.i.i, align 4
   br label %sw.epilog

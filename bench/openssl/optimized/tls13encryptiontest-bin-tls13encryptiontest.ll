@@ -105,19 +105,18 @@ for.body:                                         ; preds = %entry, %if.end55
   %4 = load ptr, ptr %seq4.i, align 8
   %call5.i = call ptr @OPENSSL_hexstr2buf(ptr noundef %4, ptr noundef null) #5
   %call6.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %arrayidx, ptr noundef nonnull %ptlen.i)
-  %5 = insertelement <4 x ptr> poison, ptr %call.i, i64 0
-  %6 = insertelement <4 x ptr> %5, ptr %call3.i, i64 1
-  %7 = insertelement <4 x ptr> %6, ptr %call5.i, i64 2
-  %8 = insertelement <4 x ptr> %7, ptr %call6.i, i64 3
-  %.fr = freeze <4 x ptr> %8
-  %9 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %10 = bitcast <4 x i1> %9 to i4
-  %.not = icmp eq i4 %10, 0
-  br i1 %.not, label %if.end.i, label %if.then
+  %cmp.i = icmp eq ptr %call.i, null
+  %cmp7.i = icmp eq ptr %call3.i, null
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp7.i
+  %cmp9.i = icmp eq ptr %call5.i, null
+  %or.cond1.i = select i1 %or.cond.i, i1 true, i1 %cmp9.i
+  %cmp11.i = icmp eq ptr %call6.i, null
+  %or.cond2.i = select i1 %or.cond1.i, i1 true, i1 %cmp11.i
+  br i1 %or.cond2.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %11 = load i64, ptr %ptlen.i, align 8
-  %add.i = add i64 %11, 16
+  %5 = load i64, ptr %ptlen.i, align 8
+  %add.i = add i64 %5, 16
   %call12.i = call noalias ptr @CRYPTO_malloc(i64 noundef %add.i, ptr noundef nonnull @.str.1, i32 noundef 256) #5
   store ptr %call12.i, ptr %input.i, align 8
   store ptr %call12.i, ptr %data, align 8
@@ -134,10 +133,10 @@ if.then:                                          ; preds = %for.body, %if.end.i
   br label %err
 
 if.end:                                           ; preds = %if.end.i
-  store i64 %11, ptr %length.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call12.i, ptr nonnull align 1 %call6.i, i64 %11, i1 false)
+  store i64 %5, ptr %length.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call12.i, ptr nonnull align 1 %call6.i, i64 %5, i1 false)
   call void @CRYPTO_free(ptr noundef nonnull %call6.i, ptr noundef nonnull @.str.1, i32 noundef 263) #5
-  %12 = load i64, ptr %call5.i, align 1
+  %6 = load i64, ptr %call5.i, align 1
   call void @CRYPTO_free(ptr noundef nonnull %call5.i, ptr noundef nonnull @.str.1, i32 noundef 265) #5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %iv, ptr nonnull align 1 %call3.i, i64 %conv, i1 false)
   call void @CRYPTO_free(ptr noundef nonnull %call3.i, ptr noundef nonnull @.str.1, i32 noundef 267) #5
@@ -151,14 +150,14 @@ if.end:                                           ; preds = %if.end.i
   br i1 %tobool10.not, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end
-  %13 = load ptr, ptr %wrl, align 8
-  %sequence = getelementptr inbounds i8, ptr %13, i64 4096
-  store i64 %12, ptr %sequence, align 8
-  %funcs = getelementptr inbounds i8, ptr %13, i64 4424
-  %14 = load ptr, ptr %funcs, align 8
-  %cipher = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load ptr, ptr %cipher, align 8
-  %call15 = call i32 %15(ptr noundef %13, ptr noundef nonnull %rec, i64 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef 0) #5
+  %7 = load ptr, ptr %wrl, align 8
+  %sequence = getelementptr inbounds i8, ptr %7, i64 4096
+  store i64 %6, ptr %sequence, align 8
+  %funcs = getelementptr inbounds i8, ptr %7, i64 4424
+  %8 = load ptr, ptr %funcs, align 8
+  %cipher = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load ptr, ptr %cipher, align 8
+  %call15 = call i32 %9(ptr noundef %7, ptr noundef nonnull %rec, i64 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef 0) #5
   %conv16 = sext i32 %call15 to i64
   %call17 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 347, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %conv16, i64 noundef 1) #5
   %tobool18.not = icmp eq i32 %call17, 0
@@ -182,10 +181,10 @@ if.then5.i:                                       ; preds = %if.end20
   br label %test_record.exit
 
 if.end6.i:                                        ; preds = %if.end20
-  %16 = load ptr, ptr %data, align 8
-  %17 = load i64, ptr %length.i, align 8
-  %18 = load i64, ptr %refdatalen.i, align 8
-  %call7.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 295, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.43, ptr noundef %16, i64 noundef %17, ptr noundef %call.i12, i64 noundef %18) #5
+  %10 = load ptr, ptr %data, align 8
+  %11 = load i64, ptr %length.i, align 8
+  %12 = load i64, ptr %refdatalen.i, align 8
+  %call7.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 295, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.43, ptr noundef %10, i64 noundef %11, ptr noundef %call.i12, i64 noundef %12) #5
   %tobool8.not.i = icmp ne i32 %call7.i, 0
   %spec.select.i = zext i1 %tobool8.not.i to i32
   br label %test_record.exit
@@ -212,14 +211,14 @@ if.end28:                                         ; preds = %test_record.exit
   br i1 %tobool35.not, label %err, label %if.end37
 
 if.end37:                                         ; preds = %if.end28
-  %19 = load ptr, ptr %rrl, align 8
-  %sequence38 = getelementptr inbounds i8, ptr %19, i64 4096
-  store i64 %12, ptr %sequence38, align 8
-  %funcs41 = getelementptr inbounds i8, ptr %19, i64 4424
-  %20 = load ptr, ptr %funcs41, align 8
-  %cipher42 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load ptr, ptr %cipher42, align 8
-  %call43 = call i32 %21(ptr noundef %19, ptr noundef nonnull %rec, i64 noundef 1, i32 noundef 0, ptr noundef null, i64 noundef 0) #5
+  %13 = load ptr, ptr %rrl, align 8
+  %sequence38 = getelementptr inbounds i8, ptr %13, i64 4096
+  store i64 %6, ptr %sequence38, align 8
+  %funcs41 = getelementptr inbounds i8, ptr %13, i64 4424
+  %14 = load ptr, ptr %funcs41, align 8
+  %cipher42 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load ptr, ptr %cipher42, align 8
+  %call43 = call i32 %15(ptr noundef %13, ptr noundef nonnull %rec, i64 noundef 1, i32 noundef 0, ptr noundef null, i64 noundef 0) #5
   %call44 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 370, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.5, i32 noundef %call43, i32 noundef 1) #5
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %if.then46, label %if.end47
@@ -241,10 +240,10 @@ if.then5.i30:                                     ; preds = %if.end47
   br label %test_record.exit31
 
 if.end6.i22:                                      ; preds = %if.end47
-  %22 = load ptr, ptr %data, align 8
-  %23 = load i64, ptr %length.i, align 8
-  %24 = load i64, ptr %refdatalen.i18, align 8
-  %call7.i25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 295, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.43, ptr noundef %22, i64 noundef %23, ptr noundef %call2.i, i64 noundef %24) #5
+  %16 = load ptr, ptr %data, align 8
+  %17 = load i64, ptr %length.i, align 8
+  %18 = load i64, ptr %refdatalen.i18, align 8
+  %call7.i25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 295, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.43, ptr noundef %16, i64 noundef %17, ptr noundef %call2.i, i64 noundef %18) #5
   %tobool8.not.i26 = icmp ne i32 %call7.i25, 0
   %spec.select.i27 = zext i1 %tobool8.not.i26 to i32
   br label %test_record.exit31
@@ -262,14 +261,14 @@ if.then54:                                        ; preds = %test_record.exit31
   br label %err
 
 if.end55:                                         ; preds = %test_record.exit31
-  %25 = load ptr, ptr %rrl, align 8
-  %call56 = call i32 %1(ptr noundef %25) #5
-  %26 = load ptr, ptr %wrl, align 8
-  %call57 = call i32 %1(ptr noundef %26) #5
+  %19 = load ptr, ptr %rrl, align 8
+  %call56 = call i32 %1(ptr noundef %19) #5
+  %20 = load ptr, ptr %wrl, align 8
+  %call57 = call i32 %1(ptr noundef %20) #5
   store ptr null, ptr %wrl, align 8
   store ptr null, ptr %rrl, align 8
-  %27 = load ptr, ptr %data, align 8
-  call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str.1, i32 noundef 383) #5
+  %21 = load ptr, ptr %data, align 8
+  call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str.1, i32 noundef 383) #5
   call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, i32 noundef 384) #5
   store ptr null, ptr %data, align 8
   %inc = add nuw nsw i64 %ctr.068, 1
@@ -283,12 +282,12 @@ for.end:                                          ; preds = %if.end55
 err:                                              ; preds = %if.end28, %if.end, %for.end, %if.then54, %if.then46, %if.then27, %if.then19, %if.then
   %key.1 = phi ptr [ null, %if.then ], [ %call.i, %if.then19 ], [ %call.i, %if.then27 ], [ %call.i, %if.then46 ], [ %call.i, %if.then54 ], [ null, %for.end ], [ %call.i, %if.end ], [ %call.i, %if.end28 ]
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then19 ], [ 0, %if.then27 ], [ 0, %if.then46 ], [ 0, %if.then54 ], [ 1, %for.end ], [ 0, %if.end ], [ 0, %if.end28 ]
-  %28 = load ptr, ptr %rrl, align 8
-  %call60 = call i32 %1(ptr noundef %28) #5
-  %29 = load ptr, ptr %wrl, align 8
-  %call61 = call i32 %1(ptr noundef %29) #5
-  %30 = load ptr, ptr %data, align 8
-  call void @CRYPTO_free(ptr noundef %30, ptr noundef nonnull @.str.1, i32 noundef 395) #5
+  %22 = load ptr, ptr %rrl, align 8
+  %call60 = call i32 %1(ptr noundef %22) #5
+  %23 = load ptr, ptr %wrl, align 8
+  %call61 = call i32 %1(ptr noundef %23) #5
+  %24 = load ptr, ptr %data, align 8
+  call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str.1, i32 noundef 395) #5
   call void @CRYPTO_free(ptr noundef %key.1, ptr noundef nonnull @.str.1, i32 noundef 396) #5
   ret i32 %ret.0
 }

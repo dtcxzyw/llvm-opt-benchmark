@@ -429,47 +429,59 @@ define internal range(i32 0, 2) i32 @_5views_dump(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_5views_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
-  %4 = alloca %struct.t_5VW_Capture_Header, align 16
+  %4 = alloca %struct.t_5VW_Capture_Header, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @wtap_dump_file_seek(ptr noundef %0, i64 noundef 0, i32 noundef 0, ptr noundef %1) #5
   %8 = icmp eq i64 %7, -1
-  br i1 %8, label %28, label %9
+  br i1 %8, label %34, label %9
 
 9:                                                ; preds = %3
-  store <4 x i32> <i32 -1431655766, i32 32, i32 65536, i32 24>, ptr %4, align 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 8
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr [2 x i32], ptr @wtap_encap, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 %14, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %4, i64 20
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 -2147483641>, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 36
-  store i16 4, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 38
-  store i16 1, ptr %18, align 2
-  %19 = tail call i64 @time(ptr noundef null) #5
-  %20 = trunc i64 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
-  store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 44
-  store i32 536870912, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 48
-  store i16 4, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %4, i64 50
+  store i32 -1431655766, ptr %4, align 4
+  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 32, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 65536, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 24, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = load i32, ptr %13, align 8
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr [2 x i32], ptr @wtap_encap, i64 0, i64 %15
+  %17 = load i32, ptr %16, align 4
+  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 %17, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 0, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %4, i64 28
+  store i32 0, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 -2147483641, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %4, i64 36
+  store i16 4, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %4, i64 38
   store i16 1, ptr %24, align 2
-  %25 = load i32, ptr %6, align 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 52
-  store i32 %25, ptr %26, align 4
-  %27 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 56, ptr noundef %1) #5
-  %.not = icmp ne i32 %27, 0
+  %25 = tail call i64 @time(ptr noundef null) #5
+  %26 = trunc i64 %25 to i32
+  %27 = getelementptr inbounds i8, ptr %4, i64 40
+  store i32 %26, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %4, i64 44
+  store i32 536870912, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %4, i64 48
+  store i16 4, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %4, i64 50
+  store i16 1, ptr %30, align 2
+  %31 = load i32, ptr %6, align 4
+  %32 = getelementptr inbounds i8, ptr %4, i64 52
+  store i32 %31, ptr %32, align 4
+  %33 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 56, ptr noundef %1) #5
+  %.not = icmp ne i32 %33, 0
   %. = zext i1 %.not to i32
-  br label %28
+  br label %34
 
-28:                                               ; preds = %9, %3
+34:                                               ; preds = %9, %3
   %.0 = phi i32 [ 0, %3 ], [ %., %9 ]
   ret i32 %.0
 }

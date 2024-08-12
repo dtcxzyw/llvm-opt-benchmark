@@ -1071,19 +1071,19 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr nocapture noundef readonl
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
-  %12 = alloca %struct.FT_BBox_, align 16
+  %12 = alloca %struct.FT_BBox_, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 200
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 1)
   %.not94 = icmp eq ptr %14, null
-  br i1 %.not94, label %431, label %16
+  br i1 %.not94, label %438, label %16
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %14, i64 584
   %18 = load i32, ptr %17, align 8
   %.not95 = icmp ult i32 %spec.select, %18
-  br i1 %.not95, label %19, label %431
+  br i1 %.not95, label %19, label %438
 
 19:                                               ; preds = %16
   %20 = zext i32 %3 to i64
@@ -1627,12 +1627,12 @@ pfr_slot_load_bitmap.exit:                        ; preds = %264, %303
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %431
+  br label %438
 
 311:                                              ; preds = %pfr_slot_load_bitmap.exit.thread107, %pfr_slot_load_bitmap.exit.thread, %19
   %312 = and i64 %20, 16384
   %.not98 = icmp eq i64 %312, 0
-  br i1 %.not98, label %313, label %431
+  br i1 %.not98, label %313, label %438
 
 313:                                              ; preds = %311
   %314 = getelementptr inbounds i8, ptr %14, i64 600
@@ -1663,7 +1663,7 @@ pfr_slot_load_bitmap.exit:                        ; preds = %264, %303
   store i32 0, ptr %334, align 8
   %335 = tail call fastcc i32 @pfr_glyph_load_rec(ptr noundef nonnull %323, ptr noundef %325, i64 noundef %322, i64 noundef %328, i64 noundef %331)
   %.not99 = icmp eq i32 %335, 0
-  br i1 %.not99, label %336, label %431
+  br i1 %.not99, label %336, label %438
 
 336:                                              ; preds = %313
   %337 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1826,15 +1826,24 @@ pfr_slot_load_bitmap.exit:                        ; preds = %264, %303
 425:                                              ; preds = %._crit_edge, %369
   call void @FT_Outline_Get_CBox(ptr noundef nonnull %15, ptr noundef nonnull %12) #12
   %426 = getelementptr inbounds i8, ptr %12, i64 16
-  %427 = load <2 x i64>, ptr %426, align 16
-  %428 = load <2 x i64>, ptr %12, align 16
-  %429 = sub nsw <2 x i64> %427, %428
-  store <2 x i64> %429, ptr %337, align 8
-  %430 = getelementptr inbounds i8, ptr %0, i64 64
-  store <2 x i64> %428, ptr %430, align 8
-  br label %431
+  %427 = load i64, ptr %426, align 8
+  %428 = load i64, ptr %12, align 8
+  %429 = sub nsw i64 %427, %428
+  store i64 %429, ptr %337, align 8
+  %430 = getelementptr inbounds i8, ptr %12, i64 24
+  %431 = load i64, ptr %430, align 8
+  %432 = getelementptr inbounds i8, ptr %12, i64 8
+  %433 = load i64, ptr %432, align 8
+  %434 = sub nsw i64 %431, %433
+  %435 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %434, ptr %435, align 8
+  %436 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %428, ptr %436, align 8
+  %437 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 %433, ptr %437, align 8
+  br label %438
 
-431:                                              ; preds = %pfr_slot_load_bitmap.exit, %311, %4, %16, %313, %425
+438:                                              ; preds = %pfr_slot_load_bitmap.exit, %311, %4, %16, %313, %425
   %.084 = phi i32 [ %335, %313 ], [ 0, %425 ], [ 0, %pfr_slot_load_bitmap.exit ], [ 6, %16 ], [ 6, %4 ], [ 6, %311 ]
   ret i32 %.084
 }

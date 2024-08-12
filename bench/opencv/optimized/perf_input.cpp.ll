@@ -5531,227 +5531,239 @@ _ZNSt12_Vector_baseIN2cv12VideoCaptureESaIS1_EE11_M_allocateEm.exit: ; preds = %
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv12VideoCaptureE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = getelementptr inbounds i8, ptr %2, i64 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = load <2 x ptr>, ptr %26, align 8
-  store <2 x ptr> %29, ptr %25, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i, label %30
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %28, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i, label %31
 
-30:                                               ; preds = %_ZNSt12_Vector_baseIN2cv12VideoCaptureESaIS1_EE11_M_allocateEm.exit
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
-  %32 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %36, label %33
+31:                                               ; preds = %_ZNSt12_Vector_baseIN2cv12VideoCaptureESaIS1_EE11_M_allocateEm.exit
+  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %33, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %37, label %34
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %31, align 4
-  %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %31, align 4
+34:                                               ; preds = %31
+  %35 = load i32, ptr %32, align 4
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %32, align 4
   br label %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i
 
-36:                                               ; preds = %30
-  %37 = atomicrmw volatile add ptr %31, i32 1 acq_rel, align 4
+37:                                               ; preds = %31
+  %38 = atomicrmw volatile add ptr %32, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i
 
-_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i:        ; preds = %36, %33, %_ZNSt12_Vector_baseIN2cv12VideoCaptureESaIS1_EE11_M_allocateEm.exit
-  %38 = getelementptr inbounds i8, ptr %24, i64 24
-  %39 = getelementptr inbounds i8, ptr %2, i64 24
-  %40 = getelementptr inbounds i8, ptr %2, i64 32
+_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i:        ; preds = %37, %34, %_ZNSt12_Vector_baseIN2cv12VideoCaptureESaIS1_EE11_M_allocateEm.exit
+  %39 = getelementptr inbounds i8, ptr %24, i64 24
+  %40 = getelementptr inbounds i8, ptr %2, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = load <2 x ptr>, ptr %39, align 8
-  store <2 x ptr> %42, ptr %38, align 8
-  %.not.i.i.i.i4.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i.i4.i.i.i, label %_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, label %43
+  store ptr %41, ptr %39, align 8
+  %42 = getelementptr inbounds i8, ptr %24, i64 32
+  %43 = getelementptr inbounds i8, ptr %2, i64 32
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %42, align 8
+  %.not.i.i.i.i4.i.i.i = icmp eq ptr %44, null
+  br i1 %.not.i.i.i.i4.i.i.i, label %_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, label %45
 
-43:                                               ; preds = %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
-  %45 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i5.i.i.i = icmp eq i8 %45, 0
-  br i1 %.not.i.i.i.i.i5.i.i.i, label %49, label %46
+45:                                               ; preds = %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i
+  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %47 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i5.i.i.i = icmp eq i8 %47, 0
+  br i1 %.not.i.i.i.i.i5.i.i.i, label %51, label %48
 
-46:                                               ; preds = %43
-  %47 = load i32, ptr %44, align 4
-  %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %44, align 4
+48:                                               ; preds = %45
+  %49 = load i32, ptr %46, align 4
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %46, align 4
   br label %_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 
-49:                                               ; preds = %43
-  %50 = atomicrmw volatile add ptr %44, i32 1 acq_rel, align 4
+51:                                               ; preds = %45
+  %52 = atomicrmw volatile add ptr %46, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i, %46, %49
-  %51 = getelementptr inbounds i8, ptr %24, i64 40
-  %52 = getelementptr inbounds i8, ptr %2, i64 40
-  %53 = load i8, ptr %52, align 8
-  %54 = and i8 %53, 1
-  store i8 %54, ptr %51, align 8
+_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i, %48, %51
+  %53 = getelementptr inbounds i8, ptr %24, i64 40
+  %54 = getelementptr inbounds i8, ptr %2, i64 40
+  %55 = load i8, ptr %54, align 8
+  %56 = and i8 %55, 1
+  store i8 %56, ptr %53, align 8
   %.not10.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %88, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
-  %.0911.i.i.i.i = phi ptr [ %87, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
+  %.012.i.i.i.i = phi ptr [ %92, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
+  %.0911.i.i.i.i = phi ptr [ %91, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv12VideoCaptureE, i64 16), ptr %.012.i.i.i.i, align 8, !alias.scope !66, !noalias !69
-  %55 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
-  %56 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %57 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
-  %58 = load ptr, ptr %57, align 8, !alias.scope !69, !noalias !66
-  %59 = load <2 x ptr>, ptr %56, align 8, !alias.scope !69, !noalias !66
-  store <2 x ptr> %59, ptr %55, align 8, !alias.scope !66, !noalias !69
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i, label %60
+  %57 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %58 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %59 = load ptr, ptr %58, align 8, !alias.scope !69, !noalias !66
+  store ptr %59, ptr %57, align 8, !alias.scope !66, !noalias !69
+  %60 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %61 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %62 = load ptr, ptr %61, align 8, !alias.scope !69, !noalias !66
+  store ptr %62, ptr %60, align 8, !alias.scope !66, !noalias !69
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %62, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i, label %63
 
-60:                                               ; preds = %.lr.ph.i.i.i.i
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
-  %62 = load i8, ptr @__libc_single_threaded, align 1, !noalias !71
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %62, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %66, label %63
+63:                                               ; preds = %.lr.ph.i.i.i.i
+  %64 = getelementptr inbounds i8, ptr %62, i64 8
+  %65 = load i8, ptr @__libc_single_threaded, align 1, !noalias !71
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %65, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %69, label %66
 
-63:                                               ; preds = %60
-  %64 = load i32, ptr %61, align 4, !noalias !71
-  %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %61, align 4, !noalias !71
+66:                                               ; preds = %63
+  %67 = load i32, ptr %64, align 4, !noalias !71
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %64, align 4, !noalias !71
   br label %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i
 
-66:                                               ; preds = %60
-  %67 = atomicrmw volatile add ptr %61, i32 1 acq_rel, align 4, !noalias !71
+69:                                               ; preds = %63
+  %70 = atomicrmw volatile add ptr %64, i32 1 acq_rel, align 4, !noalias !71
   br label %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i
 
-_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %66, %63, %.lr.ph.i.i.i.i
-  %68 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
-  %69 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
-  %70 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
-  %71 = load ptr, ptr %70, align 8, !alias.scope !69, !noalias !66
-  %72 = load <2 x ptr>, ptr %69, align 8, !alias.scope !69, !noalias !66
-  store <2 x ptr> %72, ptr %68, align 8, !alias.scope !66, !noalias !69
-  %.not.i.i.i.i4.i.i.i.i.i.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i4.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i, label %73
+_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %69, %66, %.lr.ph.i.i.i.i
+  %71 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
+  %72 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
+  %73 = load ptr, ptr %72, align 8, !alias.scope !69, !noalias !66
+  store ptr %73, ptr %71, align 8, !alias.scope !66, !noalias !69
+  %74 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %75 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
+  %76 = load ptr, ptr %75, align 8, !alias.scope !69, !noalias !66
+  store ptr %76, ptr %74, align 8, !alias.scope !66, !noalias !69
+  %.not.i.i.i.i4.i.i.i.i.i.i.i.i = icmp eq ptr %76, null
+  br i1 %.not.i.i.i.i4.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i, label %77
 
-73:                                               ; preds = %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
-  %75 = load i8, ptr @__libc_single_threaded, align 1, !noalias !71
-  %.not.i.i.i.i.i5.i.i.i.i.i.i.i.i = icmp eq i8 %75, 0
-  br i1 %.not.i.i.i.i.i5.i.i.i.i.i.i.i.i, label %79, label %76
+77:                                               ; preds = %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i
+  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  %79 = load i8, ptr @__libc_single_threaded, align 1, !noalias !71
+  %.not.i.i.i.i.i5.i.i.i.i.i.i.i.i = icmp eq i8 %79, 0
+  br i1 %.not.i.i.i.i.i5.i.i.i.i.i.i.i.i, label %83, label %80
 
-76:                                               ; preds = %73
-  %77 = load i32, ptr %74, align 4, !noalias !71
-  %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %74, align 4, !noalias !71
+80:                                               ; preds = %77
+  %81 = load i32, ptr %78, align 4, !noalias !71
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %78, align 4, !noalias !71
   br label %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i
 
-79:                                               ; preds = %73
-  %80 = atomicrmw volatile add ptr %74, i32 1 acq_rel, align 4, !noalias !71
+83:                                               ; preds = %77
+  %84 = atomicrmw volatile add ptr %78, i32 1 acq_rel, align 4, !noalias !71
   br label %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i
 
-_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %79, %76, %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i
-  %81 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
-  %82 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 40
-  %83 = load i8, ptr %82, align 8, !alias.scope !69, !noalias !66
-  %84 = and i8 %83, 1
-  store i8 %84, ptr %81, align 8, !alias.scope !66, !noalias !69
-  %85 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !69, !noalias !66
-  %86 = load ptr, ptr %85, align 8, !noalias !71
-  tail call void %86(ptr noundef nonnull align 8 dereferenceable(41) %.0911.i.i.i.i) #25, !noalias !66
-  %87 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 48
-  %88 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 48
-  %.not.i.i.i.i = icmp eq ptr %87, %1
+_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %83, %80, %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i
+  %85 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
+  %86 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 40
+  %87 = load i8, ptr %86, align 8, !alias.scope !69, !noalias !66
+  %88 = and i8 %87, 1
+  store i8 %88, ptr %85, align 8, !alias.scope !66, !noalias !69
+  %89 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !69, !noalias !66
+  %90 = load ptr, ptr %89, align 8, !noalias !71
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(41) %.0911.i.i.i.i) #25, !noalias !66
+  %91 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 48
+  %92 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 48
+  %.not.i.i.i.i = icmp eq ptr %91, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !72
 
 _ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %88, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i ]
-  %89 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 48
+  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv12VideoCaptureEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %92, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i ]
+  %93 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 48
   %.not10.i.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit28, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25
-  %.012.i.i.i.i18 = phi ptr [ %123, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25 ], [ %89, %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  %.0911.i.i.i.i19 = phi ptr [ %122, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25 ], [ %1, %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.012.i.i.i.i18 = phi ptr [ %129, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25 ], [ %93, %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.0911.i.i.i.i19 = phi ptr [ %128, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25 ], [ %1, %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv12VideoCaptureE, i64 16), ptr %.012.i.i.i.i18, align 8, !alias.scope !73, !noalias !76
-  %90 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 8
-  %91 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
-  %92 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
-  %93 = load ptr, ptr %92, align 8, !alias.scope !76, !noalias !73
-  %94 = load <2 x ptr>, ptr %91, align 8, !alias.scope !76, !noalias !73
-  store <2 x ptr> %94, ptr %90, align 8, !alias.scope !73, !noalias !76
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i20 = icmp eq ptr %93, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i20, label %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i22, label %95
+  %94 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 8
+  %95 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
+  %96 = load ptr, ptr %95, align 8, !alias.scope !76, !noalias !73
+  store ptr %96, ptr %94, align 8, !alias.scope !73, !noalias !76
+  %97 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
+  %98 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
+  %99 = load ptr, ptr %98, align 8, !alias.scope !76, !noalias !73
+  store ptr %99, ptr %97, align 8, !alias.scope !73, !noalias !76
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i20 = icmp eq ptr %99, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i20, label %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i22, label %100
 
-95:                                               ; preds = %.lr.ph.i.i.i.i17
-  %96 = getelementptr inbounds i8, ptr %93, i64 8
-  %97 = load i8, ptr @__libc_single_threaded, align 1, !noalias !78
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i21 = icmp eq i8 %97, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i21, label %101, label %98
+100:                                              ; preds = %.lr.ph.i.i.i.i17
+  %101 = getelementptr inbounds i8, ptr %99, i64 8
+  %102 = load i8, ptr @__libc_single_threaded, align 1, !noalias !78
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i21 = icmp eq i8 %102, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i21, label %106, label %103
 
-98:                                               ; preds = %95
-  %99 = load i32, ptr %96, align 4, !noalias !78
-  %100 = add nsw i32 %99, 1
-  store i32 %100, ptr %96, align 4, !noalias !78
+103:                                              ; preds = %100
+  %104 = load i32, ptr %101, align 4, !noalias !78
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %101, align 4, !noalias !78
   br label %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i22
 
-101:                                              ; preds = %95
-  %102 = atomicrmw volatile add ptr %96, i32 1 acq_rel, align 4, !noalias !78
+106:                                              ; preds = %100
+  %107 = atomicrmw volatile add ptr %101, i32 1 acq_rel, align 4, !noalias !78
   br label %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i22
 
-_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i22: ; preds = %101, %98, %.lr.ph.i.i.i.i17
-  %103 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 24
-  %104 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 24
-  %105 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 32
-  %106 = load ptr, ptr %105, align 8, !alias.scope !76, !noalias !73
-  %107 = load <2 x ptr>, ptr %104, align 8, !alias.scope !76, !noalias !73
-  store <2 x ptr> %107, ptr %103, align 8, !alias.scope !73, !noalias !76
-  %.not.i.i.i.i4.i.i.i.i.i.i.i.i23 = icmp eq ptr %106, null
-  br i1 %.not.i.i.i.i4.i.i.i.i.i.i.i.i23, label %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25, label %108
+_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i22: ; preds = %106, %103, %.lr.ph.i.i.i.i17
+  %108 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 24
+  %109 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 24
+  %110 = load ptr, ptr %109, align 8, !alias.scope !76, !noalias !73
+  store ptr %110, ptr %108, align 8, !alias.scope !73, !noalias !76
+  %111 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 32
+  %112 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 32
+  %113 = load ptr, ptr %112, align 8, !alias.scope !76, !noalias !73
+  store ptr %113, ptr %111, align 8, !alias.scope !73, !noalias !76
+  %.not.i.i.i.i4.i.i.i.i.i.i.i.i23 = icmp eq ptr %113, null
+  br i1 %.not.i.i.i.i4.i.i.i.i.i.i.i.i23, label %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25, label %114
 
-108:                                              ; preds = %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i22
-  %109 = getelementptr inbounds i8, ptr %106, i64 8
-  %110 = load i8, ptr @__libc_single_threaded, align 1, !noalias !78
-  %.not.i.i.i.i.i5.i.i.i.i.i.i.i.i24 = icmp eq i8 %110, 0
-  br i1 %.not.i.i.i.i.i5.i.i.i.i.i.i.i.i24, label %114, label %111
+114:                                              ; preds = %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i22
+  %115 = getelementptr inbounds i8, ptr %113, i64 8
+  %116 = load i8, ptr @__libc_single_threaded, align 1, !noalias !78
+  %.not.i.i.i.i.i5.i.i.i.i.i.i.i.i24 = icmp eq i8 %116, 0
+  br i1 %.not.i.i.i.i.i5.i.i.i.i.i.i.i.i24, label %120, label %117
 
-111:                                              ; preds = %108
-  %112 = load i32, ptr %109, align 4, !noalias !78
-  %113 = add nsw i32 %112, 1
-  store i32 %113, ptr %109, align 4, !noalias !78
+117:                                              ; preds = %114
+  %118 = load i32, ptr %115, align 4, !noalias !78
+  %119 = add nsw i32 %118, 1
+  store i32 %119, ptr %115, align 4, !noalias !78
   br label %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25
 
-114:                                              ; preds = %108
-  %115 = atomicrmw volatile add ptr %109, i32 1 acq_rel, align 4, !noalias !78
+120:                                              ; preds = %114
+  %121 = atomicrmw volatile add ptr %115, i32 1 acq_rel, align 4, !noalias !78
   br label %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25
 
-_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25: ; preds = %114, %111, %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i22
-  %116 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 40
-  %117 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 40
-  %118 = load i8, ptr %117, align 8, !alias.scope !76, !noalias !73
-  %119 = and i8 %118, 1
-  store i8 %119, ptr %116, align 8, !alias.scope !73, !noalias !76
-  %120 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !76, !noalias !73
-  %121 = load ptr, ptr %120, align 8, !noalias !78
-  tail call void %121(ptr noundef nonnull align 8 dereferenceable(41) %.0911.i.i.i.i19) #25, !noalias !73
-  %122 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 48
-  %123 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 48
-  %.not.i.i.i.i26 = icmp eq ptr %122, %5
+_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25: ; preds = %120, %117, %_ZN2cv3PtrI9CvCaptureEC2ERKS2_.exit.i.i.i.i.i.i.i.i22
+  %122 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 40
+  %123 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 40
+  %124 = load i8, ptr %123, align 8, !alias.scope !76, !noalias !73
+  %125 = and i8 %124, 1
+  store i8 %125, ptr %122, align 8, !alias.scope !73, !noalias !76
+  %126 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !76, !noalias !73
+  %127 = load ptr, ptr %126, align 8, !noalias !78
+  tail call void %127(ptr noundef nonnull align 8 dereferenceable(41) %.0911.i.i.i.i19) #25, !noalias !73
+  %128 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 48
+  %129 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 48
+  %.not.i.i.i.i26 = icmp eq ptr %128, %5
   br i1 %.not.i.i.i.i26, label %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit28, label %.lr.ph.i.i.i.i17, !llvm.loop !72
 
 _ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit28: ; preds = %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25, %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
-  %.0.lcssa.i.i.i.i27 = phi ptr [ %89, %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %123, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25 ]
+  %.0.lcssa.i.i.i.i27 = phi ptr [ %93, %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %129, %_ZSt19__relocate_object_aIN2cv12VideoCaptureES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i25 ]
   %.not.i29 = icmp eq ptr %6, null
-  br i1 %.not.i29, label %_ZNSt12_Vector_baseIN2cv12VideoCaptureESaIS1_EE13_M_deallocateEPS1_m.exit, label %124
+  br i1 %.not.i29, label %_ZNSt12_Vector_baseIN2cv12VideoCaptureESaIS1_EE13_M_deallocateEPS1_m.exit, label %130
 
-124:                                              ; preds = %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit28
+130:                                              ; preds = %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit28
   tail call void @_ZdlPv(ptr noundef nonnull %6) #28
   br label %_ZNSt12_Vector_baseIN2cv12VideoCaptureESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN2cv12VideoCaptureESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit28, %124
-  %125 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN2cv12VideoCaptureESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN2cv12VideoCaptureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit28, %130
+  %131 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i27, ptr %4, align 8
-  %126 = getelementptr inbounds %"class.cv::VideoCapture", ptr %23, i64 %16
-  store ptr %126, ptr %125, align 8
+  %132 = getelementptr inbounds %"class.cv::VideoCapture", ptr %23, i64 %16
+  store ptr %132, ptr %131, align 8
   ret void
 }
 

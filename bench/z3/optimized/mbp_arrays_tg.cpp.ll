@@ -4548,8 +4548,9 @@ invoke.cont:                                      ; preds = %_ZN11ast_manager7in
   br i1 %tobool.not.i, label %invoke.cont7, label %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE8capacityEv.exit.i.i
 
 _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE8capacityEv.exit.i.i: ; preds = %invoke.cont
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %8, i64 -4
+  %9 = load i32, ptr %arrayidx.i.i.i, align 4
   %arrayidx.i11.i.i = getelementptr inbounds i8, ptr %8, i64 -8
-  %9 = load <2 x i32>, ptr %arrayidx.i11.i.i, align 4
   %10 = load i32, ptr %arrayidx.i11.i.i, align 4
   %conv.i.i = zext i32 %10 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 4
@@ -4558,7 +4559,9 @@ _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE8capacityEv.exit.i.i: ; preds 
           to label %call3.i.i.noexc unwind label %lpad6
 
 call3.i.i.noexc:                                  ; preds = %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE8capacityEv.exit.i.i
-  store <2 x i32> %9, ptr %call3.i.i19, align 4
+  store i32 %10, ptr %call3.i.i19, align 4
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call3.i.i19, i64 4
+  store i32 %9, ptr %incdec.ptr.i.i, align 4
   %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %call3.i.i19, i64 8
   store ptr %incdec.ptr4.i.i, ptr %m_diff_indices, align 8
   %11 = load ptr, ptr %m_diff_indices5, align 8

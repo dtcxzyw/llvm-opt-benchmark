@@ -173,8 +173,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core12EvaluateArgs14PerChannelArgsC2EP17grpc_auth_contextP13grpc_endpoint(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef %auth_context, ptr noundef %endpoint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp7 = alloca %"class.std::vector", align 16
-  %ref.tmp11 = alloca %"class.std::vector", align 16
+  %ref.tmp7 = alloca %"class.std::vector", align 8
+  %ref.tmp11 = alloca %"class.std::vector", align 8
   %ref.tmp25 = alloca %"struct.grpc_core::EvaluateArgs::PerChannelArgs::Address", align 8
   %ref.tmp31 = alloca %"struct.grpc_core::EvaluateArgs::PerChannelArgs::Address", align 8
   %spiffe_id = getelementptr inbounds i8, ptr %this, i64 16
@@ -220,19 +220,23 @@ invoke.cont4:                                     ; preds = %invoke.cont
 
 invoke.cont8:                                     ; preds = %invoke.cont4
   %4 = load ptr, ptr %uri_sans, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %5 = load <2 x ptr>, ptr %ref.tmp7, align 16
-  store <2 x ptr> %5, ptr %uri_sans, align 8
+  %5 = load ptr, ptr %ref.tmp7, align 8
+  store ptr %5, ptr %uri_sans, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
+  %6 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %6, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
-  %6 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %7, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEaSEOS5_.exit
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEaSEOS5_.exit: ; preds = %invoke.cont8
   call void @_ZdlPv(ptr noundef nonnull %4) #21
-  %.pr = load ptr, ptr %ref.tmp7, align 16
+  %.pr = load ptr, ptr %ref.tmp7, align 8
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
@@ -245,20 +249,24 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; pred
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit
-  %7 = load ptr, ptr %dns_sans, align 8
+  %8 = load ptr, ptr %dns_sans, align 8
+  %_M_finish.i.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 64
   %_M_end_of_storage.i.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 72
-  %8 = load <2 x ptr>, ptr %ref.tmp11, align 16
-  store <2 x ptr> %8, ptr %dns_sans, align 8
+  %9 = load ptr, ptr %ref.tmp11, align 8
+  store ptr %9, ptr %dns_sans, align 8
+  %_M_finish.i2.i.i.i13 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  %10 = load ptr, ptr %_M_finish.i2.i.i.i13, align 8
+  store ptr %10, ptr %_M_finish.i.i.i.i11, align 8
   %_M_end_of_storage.i4.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
-  %9 = load ptr, ptr %_M_end_of_storage.i4.i.i.i14, align 16
-  store ptr %9, ptr %_M_end_of_storage.i.i.i.i12, align 8
-  %tobool.not.i.i.i.i.i15 = icmp eq ptr %7, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp11, i8 0, i64 24, i1 false)
+  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i14, align 8
+  store ptr %11, ptr %_M_end_of_storage.i.i.i.i12, align 8
+  %tobool.not.i.i.i.i.i15 = icmp eq ptr %8, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i15, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit20, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEaSEOS5_.exit17
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EEaSEOS5_.exit17: ; preds = %invoke.cont12
-  call void @_ZdlPv(ptr noundef nonnull %7) #21
-  %.pr38 = load ptr, ptr %ref.tmp11, align 16
+  call void @_ZdlPv(ptr noundef nonnull %8) #21
+  %.pr38 = load ptr, ptr %ref.tmp11, align 8
   %tobool.not.i.i.i18 = icmp eq ptr %.pr38, null
   br i1 %tobool.not.i.i.i18, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit20, label %if.then.i.i.i19
 
@@ -271,46 +279,46 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit20: ; pr
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit20
-  %10 = extractvalue { i64, ptr } %call17, 0
-  %11 = extractvalue { i64, ptr } %call17, 1
-  store i64 %10, ptr %common_name, align 8
+  %12 = extractvalue { i64, ptr } %call17, 0
+  %13 = extractvalue { i64, ptr } %call17, 1
+  store i64 %12, ptr %common_name, align 8
   %ref.tmp15.sroa.2.0.common_name18.sroa_idx = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr %11, ptr %ref.tmp15.sroa.2.0.common_name18.sroa_idx, align 8
+  store ptr %13, ptr %ref.tmp15.sroa.2.0.common_name18.sroa_idx, align 8
   %call21 = invoke { i64, ptr } @_ZN9grpc_core20GetAuthPropertyValueEP17grpc_auth_contextPKc(ptr noundef nonnull %auth_context, ptr noundef nonnull @.str.5)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont16
-  %12 = extractvalue { i64, ptr } %call21, 0
-  %13 = extractvalue { i64, ptr } %call21, 1
-  store i64 %12, ptr %subject, align 8
+  %14 = extractvalue { i64, ptr } %call21, 0
+  %15 = extractvalue { i64, ptr } %call21, 1
+  store i64 %14, ptr %subject, align 8
   %ref.tmp19.sroa.2.0.subject22.sroa_idx = getelementptr inbounds i8, ptr %this, i64 104
-  store ptr %13, ptr %ref.tmp19.sroa.2.0.subject22.sroa_idx, align 8
+  store ptr %15, ptr %ref.tmp19.sroa.2.0.subject22.sroa_idx, align 8
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont33, %invoke.cont28, %invoke.cont26, %if.then24, %invoke.cont16, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit20, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit, %invoke.cont4, %invoke.cont, %if.then
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address_str.i9) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address_str.i) #20
-  %15 = load ptr, ptr %dns_sans, align 8
-  %tobool.not.i.i.i23 = icmp eq ptr %15, null
+  %17 = load ptr, ptr %dns_sans, align 8
+  %tobool.not.i.i.i23 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i23, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit25, label %if.then.i.i.i24
 
 if.then.i.i.i24:                                  ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %15) #21
+  call void @_ZdlPv(ptr noundef nonnull %17) #21
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit25
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit25: ; preds = %lpad, %if.then.i.i.i24
-  %16 = load ptr, ptr %uri_sans, align 8
-  %tobool.not.i.i.i26 = icmp eq ptr %16, null
+  %18 = load ptr, ptr %uri_sans, align 8
+  %tobool.not.i.i.i26 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i26, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit28, label %if.then.i.i.i27
 
 if.then.i.i.i27:                                  ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit25
-  call void @_ZdlPv(ptr noundef nonnull %16) #21
+  call void @_ZdlPv(ptr noundef nonnull %18) #21
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit28
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit28: ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit25, %if.then.i.i.i27
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %16
 
 if.end:                                           ; preds = %invoke.cont20, %entry
   %cmp23.not = icmp eq ptr %endpoint, null
@@ -321,9 +329,9 @@ if.then24:                                        ; preds = %if.end
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %if.then24
-  %17 = extractvalue { i64, ptr } %call27, 0
-  %18 = extractvalue { i64, ptr } %call27, 1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116ParseEndpointUriESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp25, i64 %17, ptr %18)
+  %19 = extractvalue { i64, ptr } %call27, 0
+  %20 = extractvalue { i64, ptr } %call27, 1
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116ParseEndpointUriESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp25, i64 %19, ptr %20)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont26
@@ -331,16 +339,16 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   %address_str3.i = getelementptr inbounds i8, ptr %ref.tmp25, i64 136
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %address_str.i, ptr noundef nonnull align 8 dereferenceable(32) %address_str3.i) #20
   %port.i30 = getelementptr inbounds i8, ptr %ref.tmp25, i64 168
-  %19 = load i32, ptr %port.i30, align 8
-  store i32 %19, ptr %port.i, align 8
+  %21 = load i32, ptr %port.i30, align 8
+  store i32 %21, ptr %port.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address_str3.i) #20
   %call34 = invoke { i64, ptr } @_Z22grpc_endpoint_get_peerP13grpc_endpoint(ptr noundef nonnull %endpoint)
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont28
-  %20 = extractvalue { i64, ptr } %call34, 0
-  %21 = extractvalue { i64, ptr } %call34, 1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116ParseEndpointUriESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp31, i64 %20, ptr %21)
+  %22 = extractvalue { i64, ptr } %call34, 0
+  %23 = extractvalue { i64, ptr } %call34, 1
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116ParseEndpointUriESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp31, i64 %22, ptr %23)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %invoke.cont33
@@ -348,8 +356,8 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   %address_str3.i33 = getelementptr inbounds i8, ptr %ref.tmp31, i64 136
   %call.i34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %address_str.i9, ptr noundef nonnull align 8 dereferenceable(32) %address_str3.i33) #20
   %port.i35 = getelementptr inbounds i8, ptr %ref.tmp31, i64 168
-  %22 = load i32, ptr %port.i35, align 8
-  store i32 %22, ptr %port.i10, align 8
+  %24 = load i32, ptr %port.i35, align 8
+  store i32 %24, ptr %port.i10, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address_str3.i33) #20
   br label %if.end38
 

@@ -1147,9 +1147,10 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92
   %60 = load i8, ptr %59, align 1
   store i8 %60, ptr %57, align 1
   store i8 %58, ptr %59, align 1
-  %61 = load <2 x i32>, ptr %52, align 4
-  %62 = shufflevector <2 x i32> %61, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %62, ptr %52, align 4
+  %61 = load i32, ptr %52, align 4
+  %62 = load i32, ptr %54, align 4
+  store i32 %62, ptr %52, align 4
+  store i32 %61, ptr %54, align 4
   %63 = trunc nuw nsw i64 %indvars.iv126 to i32
   %64 = lshr i32 %.4118.us, %63
   %65 = shl nuw i32 2, %63

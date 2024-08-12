@@ -2306,9 +2306,10 @@ if.else34.i:                                      ; preds = %entry
   br i1 %call4.i3.i, label %if.then40.i, label %if.else45.i
 
 if.then40.i:                                      ; preds = %if.else34.i
-  %5 = load <2 x i64>, ptr %__first.coerce, align 4
-  %6 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %6, ptr %__first.coerce, align 4
+  %5 = load i64, ptr %__first.coerce, align 4
+  %6 = load i64, ptr %add.ptr.i1, align 4
+  store i64 %6, ptr %__first.coerce, align 4
+  store i64 %5, ptr %add.ptr.i1, align 4
   br label %while.body.i.preheader
 
 if.else45.i:                                      ; preds = %if.else34.i

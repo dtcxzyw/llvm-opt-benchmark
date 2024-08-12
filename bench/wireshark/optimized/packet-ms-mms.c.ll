@@ -706,7 +706,7 @@ define internal fastcc void @dissect_client_transport_info(ptr noundef %0, ptr n
   %6 = alloca [4 x i32], align 16
   %7 = alloca [4 x i8], align 4
   %8 = alloca i32, align 4
-  %9 = alloca [4 x i8], align 4
+  %9 = alloca [4 x i8], align 1
   %10 = alloca %struct._address, align 8
   store i32 0, ptr %7, align 4
   %11 = load i32, ptr @hf_msmms_command_prefix1, align 4
@@ -729,7 +729,7 @@ define internal fastcc void @dissect_client_transport_info(ptr noundef %0, ptr n
   %27 = getelementptr inbounds i8, ptr %6, i64 12
   %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %18, ptr noundef nonnull @.str.180, ptr noundef nonnull %6, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %29 = icmp eq i32 %28, 6
-  br i1 %29, label %30, label %52
+  br i1 %29, label %30, label %61
 
 30:                                               ; preds = %4
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %7, ptr noundef nonnull dereferenceable(3) @.str.181, i64 3)
@@ -739,52 +739,64 @@ define internal fastcc void @dissect_client_transport_info(ptr noundef %0, ptr n
 32:                                               ; preds = %30
   %bcmp28 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %7, ptr noundef nonnull dereferenceable(3) @.str.182, i64 3)
   %.not = icmp eq i32 %bcmp28, 0
-  br i1 %.not, label %.thread, label %52
+  br i1 %.not, label %.thread, label %61
 
 .thread:                                          ; preds = %30, %32
   %.032 = phi i32 [ 2, %32 ], [ 3, %30 ]
-  %33 = load <4 x i32>, ptr %6, align 16
-  %34 = trunc <4 x i32> %33 to <4 x i8>
-  store <4 x i8> %34, ptr %9, align 4
+  %33 = load i32, ptr %6, align 16
+  %34 = trunc i32 %33 to i8
+  store i8 %34, ptr %9, align 1
+  %35 = load i32, ptr %25, align 4
+  %36 = trunc i32 %35 to i8
+  %37 = getelementptr inbounds i8, ptr %9, i64 1
+  store i8 %36, ptr %37, align 1
+  %38 = load i32, ptr %26, align 8
+  %39 = trunc i32 %38 to i8
+  %40 = getelementptr inbounds i8, ptr %9, i64 2
+  store i8 %39, ptr %40, align 1
+  %41 = load i32, ptr %27, align 4
+  %42 = trunc i32 %41 to i8
+  %43 = getelementptr inbounds i8, ptr %9, i64 3
+  store i8 %42, ptr %43, align 1
   store i32 2, ptr %10, align 8
-  %35 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 4, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %9, ptr %36, align 8
-  %37 = load i32, ptr %8, align 4
+  %44 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 4, ptr %44, align 4
+  %45 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %45, align 8
+  %46 = load i32, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %38 = getelementptr inbounds i8, ptr %1, i64 80
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 50
-  %41 = load i16, ptr %40, align 2
-  %42 = and i16 %41, 8
-  %.not.i = icmp eq i16 %42, 0
-  br i1 %.not.i, label %43, label %msmms_data_add_address.exit
+  %47 = getelementptr inbounds i8, ptr %1, i64 80
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 50
+  %50 = load i16, ptr %49, align 2
+  %51 = and i16 %50, 8
+  %.not.i = icmp eq i16 %51, 0
+  br i1 %.not.i, label %52, label %msmms_data_add_address.exit
 
-43:                                               ; preds = %.thread
+52:                                               ; preds = %.thread
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %44 = getelementptr inbounds i8, ptr %1, i64 20
-  %45 = load i32, ptr %44, align 4
-  %46 = call ptr @find_conversation(i32 noundef %45, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %.032, i32 noundef %37, i32 noundef 0, i32 noundef 196608) #6
-  %.not11.i = icmp eq ptr %46, null
-  br i1 %.not11.i, label %47, label %50
+  %53 = getelementptr inbounds i8, ptr %1, i64 20
+  %54 = load i32, ptr %53, align 4
+  %55 = call ptr @find_conversation(i32 noundef %54, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %.032, i32 noundef %46, i32 noundef 0, i32 noundef 196608) #6
+  %.not11.i = icmp eq ptr %55, null
+  br i1 %.not11.i, label %56, label %59
 
-47:                                               ; preds = %43
-  %48 = load i32, ptr %44, align 4
-  %49 = call nonnull ptr @conversation_new(i32 noundef %48, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %.032, i32 noundef %37, i32 noundef 0, i32 noundef 3) #6
-  br label %50
+56:                                               ; preds = %52
+  %57 = load i32, ptr %53, align 4
+  %58 = call nonnull ptr @conversation_new(i32 noundef %57, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %.032, i32 noundef %46, i32 noundef 0, i32 noundef 3) #6
+  br label %59
 
-50:                                               ; preds = %47, %43
-  %.0.i = phi ptr [ %46, %43 ], [ %49, %47 ]
-  %51 = load ptr, ptr @msmms_handle, align 8
-  call void @conversation_set_dissector(ptr noundef nonnull %.0.i, ptr noundef %51) #6
+59:                                               ; preds = %56, %52
+  %.0.i = phi ptr [ %55, %52 ], [ %58, %56 ]
+  %60 = load ptr, ptr @msmms_handle, align 8
+  call void @conversation_set_dissector(ptr noundef nonnull %.0.i, ptr noundef %60) #6
   br label %msmms_data_add_address.exit
 
-msmms_data_add_address.exit:                      ; preds = %.thread, %50
+msmms_data_add_address.exit:                      ; preds = %.thread, %59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %52
+  br label %61
 
-52:                                               ; preds = %32, %msmms_data_add_address.exit, %4
+61:                                               ; preds = %32, %msmms_data_add_address.exit, %4
   ret void
 }
 

@@ -1788,13 +1788,19 @@ if.end:                                           ; preds = %if.then, %entry
   %rbr = getelementptr inbounds i8, ptr %opaque, i64 162
   store i8 0, ptr %rbr, align 2
   %ier = getelementptr inbounds i8, ptr %opaque, i64 165
+  store i8 0, ptr %ier, align 1
+  %iir = getelementptr inbounds i8, ptr %opaque, i64 166
+  store i8 1, ptr %iir, align 2
+  %lcr = getelementptr inbounds i8, ptr %opaque, i64 167
+  store i8 0, ptr %lcr, align 1
   %lsr = getelementptr inbounds i8, ptr %opaque, i64 169
   store i8 96, ptr %lsr, align 1
   %msr = getelementptr inbounds i8, ptr %opaque, i64 170
   store i8 -80, ptr %msr, align 2
   %divider = getelementptr inbounds i8, ptr %opaque, i64 160
   store i16 12, ptr %divider, align 16
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 8>, ptr %ier, align 1
+  %mcr = getelementptr inbounds i8, ptr %opaque, i64 168
+  store i8 8, ptr %mcr, align 8
   %scr = getelementptr inbounds i8, ptr %opaque, i64 171
   store i8 0, ptr %scr, align 1
   %tsr_retry = getelementptr inbounds i8, ptr %opaque, i64 256

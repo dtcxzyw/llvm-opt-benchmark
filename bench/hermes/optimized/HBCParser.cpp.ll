@@ -1453,12 +1453,12 @@ _ZN6hermes3hbc15BytecodeVisitorD2Ev.exit:         ; preds = %_ZNSt13unordered_se
 define hidden void @_ZN6hermes9HBCParser27generateFunctionChecksumMapB5cxx11Ev(ptr noalias sret(%"class.std::unordered_map") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator.88", align 1
-  %retval.i = alloca %"struct.llvh::MD5::MD5Result", align 16
+  %retval.i = alloca %"struct.llvh::MD5::MD5Result", align 8
   %md5.i = alloca %"class.llvh::MD5", align 4
   %funcId = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.llvh::SmallString", align 8
-  %ref.tmp13 = alloca %"struct.llvh::MD5::MD5Result", align 16
+  %ref.tmp13 = alloca %"struct.llvh::MD5::MD5Result", align 8
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store ptr %_M_single_bucket.i.i, ptr %agg.result, align 8
   %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1477,52 +1477,56 @@ entry:
   br i1 %cmp4.not, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
+  %2 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %Size.i.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh11SmallStringILj32EED2Ev.exit
-  %2 = phi ptr [ %0, %for.body.lr.ph ], [ %15, %_ZN4llvh11SmallStringILj32EED2Ev.exit ]
+  %3 = phi ptr [ %0, %for.body.lr.ph ], [ %15, %_ZN4llvh11SmallStringILj32EED2Ev.exit ]
   %storemerge5 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4llvh11SmallStringILj32EED2Ev.exit ]
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
-  %3 = load ptr, ptr %vfn, align 8
-  %call5 = call ptr %3(ptr noundef nonnull align 8 dereferenceable(280) %2, i32 noundef %storemerge5) #10
-  %4 = load ptr, ptr %this, align 8
-  %5 = load i32, ptr %funcId, align 4
-  %vtable8 = load ptr, ptr %4, align 8
+  %4 = load ptr, ptr %vfn, align 8
+  %call5 = call ptr %4(ptr noundef nonnull align 8 dereferenceable(280) %3, i32 noundef %storemerge5) #10
+  %5 = load ptr, ptr %this, align 8
+  %6 = load i32, ptr %funcId, align 4
+  %vtable8 = load ptr, ptr %5, align 8
   %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 40
-  %6 = load ptr, ptr %vfn9, align 8
-  %call10 = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(280) %4, i32 noundef %5) #10
-  %7 = ptrtoint ptr %call5 to i64
-  %and.i.i = and i64 %7, 1
+  %7 = load ptr, ptr %vfn9, align 8
+  %call10 = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(280) %5, i32 noundef %6) #10
+  %8 = ptrtoint ptr %call5 to i64
+  %and.i.i = and i64 %8, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
   %bytecodeSizeInBytes.i = getelementptr inbounds i8, ptr %call5, i64 7
-  %8 = load i32, ptr %bytecodeSizeInBytes.i, align 1
+  %9 = load i32, ptr %bytecodeSizeInBytes.i, align 1
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
 
 if.else.i:                                        ; preds = %for.body
   %bf.load.i = load i120, ptr %call5, align 1
   %bf.lshr.i = lshr i120 %bf.load.i, 32
-  %9 = trunc i120 %bf.lshr.i to i32
-  %bf.cast.i = and i32 %9, 32767
+  %10 = trunc i120 %bf.lshr.i to i32
+  %bf.cast.i = and i32 %10, 32767
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
 
 _ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit: ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi i32 [ %8, %if.then.i ], [ %bf.cast.i, %if.else.i ]
+  %retval.0.i = phi i32 [ %9, %if.then.i ], [ %bf.cast.i, %if.else.i ]
   %conv = zext i32 %retval.0.i to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %md5.i)
   call void @_ZN4llvh3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %md5.i) #10
   call void @_ZN4llvh3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %md5.i, ptr %call10, i64 %conv) #10
   call void @_ZN4llvh3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %md5.i, ptr noundef nonnull align 1 dereferenceable(16) %retval.i) #10
-  %10 = load <2 x i64>, ptr %retval.i, align 16
+  %.fca.0.load.i = load i64, ptr %retval.i, align 8
+  %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %md5.i)
-  store <2 x i64> %10, ptr %ref.tmp13, align 16
+  store i64 %.fca.0.load.i, ptr %ref.tmp13, align 8
+  store i64 %.fca.1.load.i, ptr %2, align 8
   call void @_ZNK4llvh3MD59MD5Result6digestEv(ptr nonnull sret(%"class.llvh::SmallString") align 8 %ref.tmp12, ptr noundef nonnull align 1 dereferenceable(16) %ref.tmp13) #10
   %11 = load ptr, ptr %ref.tmp12, align 8
   %12 = load i32, ptr %Size.i.i, align 8

@@ -705,98 +705,101 @@ define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_w
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !alias.scope !138
   %.sroa.5.0..0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load <2 x ptr>, ptr %.sroa.5.0..0..sroa_idx.i, align 8, !alias.scope !138
   %.sroa.5.sroa.0.0.copyload.i = load ptr, ptr %.sroa.5.0..0..sroa_idx.i, align 8, !alias.scope !138
+  %.sroa.5.sroa.4.0..sroa.5.0..0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.5.sroa.4.0.copyload.i = load ptr, ptr %.sroa.5.sroa.4.0..sroa.5.0..0..sroa_idx.sroa_idx.i, align 8, !alias.scope !138
   store ptr null, ptr %1, align 8, !alias.scope !138
-  %9 = icmp eq ptr %.sroa.0.0.copyload.i, null
-  br i1 %9, label %10, label %11
+  %8 = icmp eq ptr %.sroa.0.0.copyload.i, null
+  br i1 %8, label %9, label %10
 
-10:                                               ; preds = %7
+9:                                                ; preds = %7
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.832e62666b6255bc19293ed26de40573.54.llvm.9340333246167201960, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.832e62666b6255bc19293ed26de40573.57) #29, !noalias !138
   unreachable
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 56
-  %.val.i = load ptr, ptr %12, align 8, !noalias !138, !noundef !47
-  %13 = icmp eq ptr %.val.i, null
-  br i1 %13, label %14, label %29
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds i8, ptr %5, i64 56
+  %.val.i = load ptr, ptr %11, align 8, !noalias !138, !noundef !47
+  %12 = icmp eq ptr %.val.i, null
+  br i1 %12, label %13, label %28
 
-14:                                               ; preds = %11
+13:                                               ; preds = %10
   tail call void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$16push_remote_task17habbc8f485975e0e2E.llvm.9340333246167201960"(ptr noundef nonnull align 8 %.sroa.0.0.copyload.i, ptr noundef nonnull %.sroa.5.sroa.0.0.copyload.i), !noalias !141
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 160
-  %16 = tail call { i64, i64 } @_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle16worker_to_notify17h2c175fb3b833b4a0E(ptr noundef nonnull align 8 %15, ptr noundef nonnull align 8 %.sroa.0.0.copyload.i), !noalias !141
-  %.fca.0.extract.i.i.i.i.i = extractvalue { i64, i64 } %16, 0
-  %.fca.1.extract.i.i.i.i.i = extractvalue { i64, i64 } %16, 1
-  %17 = icmp eq i64 %.fca.0.extract.i.i.i.i.i, 1
-  br i1 %17, label %18, label %"_ZN5tokio7runtime7context14with_scheduler28_$u7b$$u7b$closure$u7d$$u7d$17hc53d8d8b49c7a8f3E.exit"
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 160
+  %15 = tail call { i64, i64 } @_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle16worker_to_notify17h2c175fb3b833b4a0E(ptr noundef nonnull align 8 %14, ptr noundef nonnull align 8 %.sroa.0.0.copyload.i), !noalias !141
+  %.fca.0.extract.i.i.i.i.i = extractvalue { i64, i64 } %15, 0
+  %.fca.1.extract.i.i.i.i.i = extractvalue { i64, i64 } %15, 1
+  %16 = icmp eq i64 %.fca.0.extract.i.i.i.i.i, 1
+  br i1 %16, label %17, label %"_ZN5tokio7runtime7context14with_scheduler28_$u7b$$u7b$closure$u7d$$u7d$17hc53d8d8b49c7a8f3E.exit"
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 80
-  %20 = load i64, ptr %19, align 8, !noalias !141, !noundef !47
-  %21 = icmp ult i64 %.fca.1.extract.i.i.i.i.i, %20
-  br i1 %21, label %22, label %.noexc14.i.i.i.i, !prof !148
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 80
+  %19 = load i64, ptr %18, align 8, !noalias !141, !noundef !47
+  %20 = icmp ult i64 %.fca.1.extract.i.i.i.i.i, %19
+  br i1 %20, label %21, label %.noexc14.i.i.i.i, !prof !148
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 72
-  %24 = load ptr, ptr %23, align 8, !noalias !141, !nonnull !47, !align !129, !noundef !47
-  %25 = getelementptr inbounds [0 x { ptr, ptr }], ptr %24, i64 0, i64 %.fca.1.extract.i.i.i.i.i, i32 1
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 264
-  %27 = load ptr, ptr %25, align 8, !alias.scope !149, !noalias !141, !nonnull !47, !noundef !47
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
-  tail call void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner6unpark17h5ef358d1dec04b97E.llvm.4117860391599875382(ptr noundef nonnull align 8 %28, ptr noundef nonnull align 8 %26), !noalias !141
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 72
+  %23 = load ptr, ptr %22, align 8, !noalias !141, !nonnull !47, !align !129, !noundef !47
+  %24 = getelementptr inbounds [0 x { ptr, ptr }], ptr %23, i64 0, i64 %.fca.1.extract.i.i.i.i.i, i32 1
+  %25 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 264
+  %26 = load ptr, ptr %24, align 8, !alias.scope !149, !noalias !141, !nonnull !47, !noundef !47
+  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  tail call void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner6unpark17h5ef358d1dec04b97E.llvm.4117860391599875382(ptr noundef nonnull align 8 %27, ptr noundef nonnull align 8 %25), !noalias !141
   br label %"_ZN5tokio7runtime7context14with_scheduler28_$u7b$$u7b$closure$u7d$$u7d$17hc53d8d8b49c7a8f3E.exit"
 
-.noexc14.i.i.i.i:                                 ; preds = %18
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.fca.1.extract.i.i.i.i.i, i64 noundef %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.832e62666b6255bc19293ed26de40573.79) #29, !noalias !141
+.noexc14.i.i.i.i:                                 ; preds = %17
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.fca.1.extract.i.i.i.i.i, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.832e62666b6255bc19293ed26de40573.79) #29, !noalias !141
   unreachable
 
-29:                                               ; preds = %11
-  %30 = load i64, ptr %.val.i, align 8, !range !152, !noalias !153, !noundef !47
-  %.not5.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not5.i.i.i, label %31, label %47
+28:                                               ; preds = %10
+  %29 = load i64, ptr %.val.i, align 8, !range !152, !noalias !153, !noundef !47
+  %.not5.i.i.i = icmp eq i64 %29, 0
+  br i1 %.not5.i.i.i, label %30, label %46
 
-31:                                               ; preds = %29
-  %32 = icmp ne ptr %.sroa.5.sroa.0.0.copyload.i, null
-  tail call void @llvm.assume(i1 %32)
+30:                                               ; preds = %28
+  %31 = icmp ne ptr %.sroa.5.sroa.0.0.copyload.i, null
+  tail call void @llvm.assume(i1 %31)
   tail call void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$16push_remote_task17habbc8f485975e0e2E.llvm.9340333246167201960"(ptr noundef nonnull align 8 %.sroa.0.0.copyload.i, ptr noundef nonnull %.sroa.5.sroa.0.0.copyload.i), !noalias !156
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 160
-  %34 = tail call { i64, i64 } @_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle16worker_to_notify17h2c175fb3b833b4a0E(ptr noundef nonnull align 8 %33, ptr noundef nonnull align 8 %.sroa.0.0.copyload.i), !noalias !156
-  %.fca.0.extract.i.i.i7.i.i = extractvalue { i64, i64 } %34, 0
-  %.fca.1.extract.i.i.i8.i.i = extractvalue { i64, i64 } %34, 1
-  %35 = icmp eq i64 %.fca.0.extract.i.i.i7.i.i, 1
-  br i1 %35, label %36, label %"_ZN5tokio7runtime7context14with_scheduler28_$u7b$$u7b$closure$u7d$$u7d$17hc53d8d8b49c7a8f3E.exit"
+  %32 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 160
+  %33 = tail call { i64, i64 } @_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle16worker_to_notify17h2c175fb3b833b4a0E(ptr noundef nonnull align 8 %32, ptr noundef nonnull align 8 %.sroa.0.0.copyload.i), !noalias !156
+  %.fca.0.extract.i.i.i7.i.i = extractvalue { i64, i64 } %33, 0
+  %.fca.1.extract.i.i.i8.i.i = extractvalue { i64, i64 } %33, 1
+  %34 = icmp eq i64 %.fca.0.extract.i.i.i7.i.i, 1
+  br i1 %34, label %35, label %"_ZN5tokio7runtime7context14with_scheduler28_$u7b$$u7b$closure$u7d$$u7d$17hc53d8d8b49c7a8f3E.exit"
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 80
-  %38 = load i64, ptr %37, align 8, !noalias !156, !noundef !47
-  %39 = icmp ult i64 %.fca.1.extract.i.i.i8.i.i, %38
-  br i1 %39, label %40, label %.noexc14.i.i9.i.i, !prof !148
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 80
+  %37 = load i64, ptr %36, align 8, !noalias !156, !noundef !47
+  %38 = icmp ult i64 %.fca.1.extract.i.i.i8.i.i, %37
+  br i1 %38, label %39, label %.noexc14.i.i9.i.i, !prof !148
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 72
-  %42 = load ptr, ptr %41, align 8, !noalias !156, !nonnull !47, !align !129, !noundef !47
-  %43 = getelementptr inbounds [0 x { ptr, ptr }], ptr %42, i64 0, i64 %.fca.1.extract.i.i.i8.i.i, i32 1
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 264
-  %45 = load ptr, ptr %43, align 8, !alias.scope !159, !noalias !156, !nonnull !47, !noundef !47
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
-  tail call void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner6unpark17h5ef358d1dec04b97E.llvm.4117860391599875382(ptr noundef nonnull align 8 %46, ptr noundef nonnull align 8 %44), !noalias !156
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 72
+  %41 = load ptr, ptr %40, align 8, !noalias !156, !nonnull !47, !align !129, !noundef !47
+  %42 = getelementptr inbounds [0 x { ptr, ptr }], ptr %41, i64 0, i64 %.fca.1.extract.i.i.i8.i.i, i32 1
+  %43 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 264
+  %44 = load ptr, ptr %42, align 8, !alias.scope !159, !noalias !156, !nonnull !47, !noundef !47
+  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  tail call void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner6unpark17h5ef358d1dec04b97E.llvm.4117860391599875382(ptr noundef nonnull align 8 %45, ptr noundef nonnull align 8 %43), !noalias !156
   br label %"_ZN5tokio7runtime7context14with_scheduler28_$u7b$$u7b$closure$u7d$$u7d$17hc53d8d8b49c7a8f3E.exit"
 
-.noexc14.i.i9.i.i:                                ; preds = %36
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.fca.1.extract.i.i.i8.i.i, i64 noundef %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.832e62666b6255bc19293ed26de40573.79) #29, !noalias !156
+.noexc14.i.i9.i.i:                                ; preds = %35
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.fca.1.extract.i.i.i8.i.i, i64 noundef %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.832e62666b6255bc19293ed26de40573.79) #29, !noalias !156
   unreachable
 
-47:                                               ; preds = %29
+46:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !153
   store ptr %.sroa.0.0.copyload.i, ptr %3, align 8, !noalias !162
   %.sroa.53.0..sroa_idx4.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  store <2 x ptr> %8, ptr %.sroa.53.0..sroa_idx4.i.i, align 8, !noalias !162
-  %48 = getelementptr inbounds i8, ptr %.val.i, i64 8
-  call void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$13schedule_task28_$u7b$$u7b$closure$u7d$$u7d$17h5e966f40408b6f7fE.llvm.9340333246167201960"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %48), !noalias !153
+  store ptr %.sroa.5.sroa.0.0.copyload.i, ptr %.sroa.53.0..sroa_idx4.i.i, align 8, !noalias !162
+  %.sroa.6.0..sroa_idx6.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %.sroa.5.sroa.4.0.copyload.i, ptr %.sroa.6.0..sroa_idx6.i.i, align 8, !noalias !162
+  %47 = getelementptr inbounds i8, ptr %.val.i, i64 8
+  call void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$13schedule_task28_$u7b$$u7b$closure$u7d$$u7d$17h5e966f40408b6f7fE.llvm.9340333246167201960"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %47), !noalias !153
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !153
   br label %"_ZN5tokio7runtime7context14with_scheduler28_$u7b$$u7b$closure$u7d$$u7d$17hc53d8d8b49c7a8f3E.exit"
 
-"_ZN5tokio7runtime7context14with_scheduler28_$u7b$$u7b$closure$u7d$$u7d$17hc53d8d8b49c7a8f3E.exit": ; preds = %47, %40, %31, %22, %14, %2
+"_ZN5tokio7runtime7context14with_scheduler28_$u7b$$u7b$closure$u7d$$u7d$17hc53d8d8b49c7a8f3E.exit": ; preds = %46, %39, %30, %21, %13, %2
   ret i1 %6
 }
 

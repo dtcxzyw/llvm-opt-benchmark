@@ -2355,7 +2355,7 @@ define internal fastcc void @ConvertRowsToUV(ptr nocapture noundef readonly %0, 
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %.023 = phi ptr [ %0, %.lr.ph ], [ %78, %10 ]
+  %.023 = phi ptr [ %0, %.lr.ph ], [ %82, %10 ]
   %11 = load i16, ptr %.023, align 2
   %12 = zext i16 %11 to i32
   %13 = getelementptr inbounds i8, ptr %.023, i64 2
@@ -2376,64 +2376,74 @@ define internal fastcc void @ConvertRowsToUV(ptr nocapture noundef readonly %0, 
   %28 = sub i32 %23, %27
   %29 = and i32 %28, 2147483647
   store i32 %29, ptr %22, align 4
-  %30 = load <2 x i32>, ptr %4, align 4
-  %31 = add nsw <2 x i32> %30, <i32 1, i32 1>
-  %32 = icmp eq <2 x i32> %31, <i32 55, i32 55>
-  %33 = select <2 x i1> %32, <2 x i32> zeroinitializer, <2 x i32> %31
-  store <2 x i32> %33, ptr %4, align 4
-  %34 = shl nuw i32 %29, 1
-  %35 = ashr i32 %34, 14
-  %36 = mul nsw i32 %35, %19
-  %37 = ashr i32 %36, 8
-  %38 = mul nsw i32 %12, -9719
+  %30 = load i32, ptr %4, align 4
+  %31 = add nsw i32 %30, 1
+  %32 = icmp eq i32 %31, 55
+  %storemerge.i.i.i = select i1 %32, i32 0, i32 %31
+  store i32 %storemerge.i.i.i, ptr %4, align 4
+  %33 = load i32, ptr %9, align 4
+  %34 = add nsw i32 %33, 1
+  %35 = icmp eq i32 %34, 55
+  %storemerge20.i.i.i = select i1 %35, i32 0, i32 %34
+  store i32 %storemerge20.i.i.i, ptr %9, align 4
+  %36 = shl nuw i32 %29, 1
+  %37 = ashr i32 %36, 14
+  %38 = mul nsw i32 %37, %19
+  %39 = ashr i32 %38, 8
+  %40 = mul nsw i32 %12, -9719
   %.neg.i.i = mul nsw i32 %15, -19081
-  %39 = mul nuw nsw i32 %18, 28800
-  %40 = add nsw i32 %38, 33685504
-  %41 = add nsw i32 %40, %.neg.i.i
-  %42 = add nsw i32 %41, %39
-  %43 = add nsw i32 %42, %37
-  %44 = ashr i32 %43, 18
-  %45 = tail call i32 @llvm.smax.i32(i32 %44, i32 0)
-  %46 = tail call noundef range(i32 -7104, 7361) i32 @llvm.umin.i32(i32 %45, i32 255)
-  %47 = trunc nuw i32 %46 to i8
-  %48 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
-  store i8 %47, ptr %48, align 1
-  %49 = load i32, ptr %7, align 4
-  %50 = load i32, ptr %4, align 4
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [55 x i32], ptr %8, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = load i32, ptr %9, align 4
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [55 x i32], ptr %8, i64 0, i64 %55
-  %57 = load i32, ptr %56, align 4
-  %58 = sub i32 %53, %57
-  %59 = and i32 %58, 2147483647
-  store i32 %59, ptr %52, align 4
-  %60 = load <2 x i32>, ptr %4, align 4
-  %61 = add nsw <2 x i32> %60, <i32 1, i32 1>
-  %62 = icmp eq <2 x i32> %61, <i32 55, i32 55>
-  %63 = select <2 x i1> %62, <2 x i32> zeroinitializer, <2 x i32> %61
-  store <2 x i32> %63, ptr %4, align 4
-  %64 = shl nuw i32 %59, 1
-  %65 = ashr i32 %64, 14
-  %66 = mul nsw i32 %65, %49
-  %67 = ashr i32 %66, 8
-  %68 = mul nuw nsw i32 %12, 28800
+  %41 = mul nuw nsw i32 %18, 28800
+  %42 = add nsw i32 %40, 33685504
+  %43 = add nsw i32 %42, %.neg.i.i
+  %44 = add nsw i32 %43, %41
+  %45 = add nsw i32 %44, %39
+  %46 = ashr i32 %45, 18
+  %47 = tail call i32 @llvm.smax.i32(i32 %46, i32 0)
+  %48 = tail call noundef range(i32 -7104, 7361) i32 @llvm.umin.i32(i32 %47, i32 255)
+  %49 = trunc nuw i32 %48 to i8
+  %50 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  store i8 %49, ptr %50, align 1
+  %51 = load i32, ptr %7, align 4
+  %52 = load i32, ptr %4, align 4
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds [55 x i32], ptr %8, i64 0, i64 %53
+  %55 = load i32, ptr %54, align 4
+  %56 = load i32, ptr %9, align 4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds [55 x i32], ptr %8, i64 0, i64 %57
+  %59 = load i32, ptr %58, align 4
+  %60 = sub i32 %55, %59
+  %61 = and i32 %60, 2147483647
+  store i32 %61, ptr %54, align 4
+  %62 = load i32, ptr %4, align 4
+  %63 = add nsw i32 %62, 1
+  %64 = icmp eq i32 %63, 55
+  %storemerge.i.i.i19 = select i1 %64, i32 0, i32 %63
+  store i32 %storemerge.i.i.i19, ptr %4, align 4
+  %65 = load i32, ptr %9, align 4
+  %66 = add nsw i32 %65, 1
+  %67 = icmp eq i32 %66, 55
+  %storemerge20.i.i.i20 = select i1 %67, i32 0, i32 %66
+  store i32 %storemerge20.i.i.i20, ptr %9, align 4
+  %68 = shl nuw i32 %61, 1
+  %69 = ashr i32 %68, 14
+  %70 = mul nsw i32 %69, %51
+  %71 = ashr i32 %70, 8
+  %72 = mul nuw nsw i32 %12, 28800
   %.neg.i.i21 = mul nsw i32 %15, -24116
   %.neg5.i.i = mul nsw i32 %18, -4684
-  %69 = add nuw nsw i32 %68, 33685504
-  %70 = add nsw i32 %69, %.neg.i.i21
-  %71 = add nsw i32 %70, %.neg5.i.i
-  %72 = add nsw i32 %71, %67
-  %73 = ashr i32 %72, 18
-  %74 = tail call i32 @llvm.smax.i32(i32 %73, i32 0)
-  %75 = tail call noundef range(i32 -7104, 7361) i32 @llvm.umin.i32(i32 %74, i32 255)
-  %76 = trunc nuw i32 %75 to i8
-  %77 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
-  store i8 %76, ptr %77, align 1
+  %73 = add nuw nsw i32 %72, 33685504
+  %74 = add nsw i32 %73, %.neg.i.i21
+  %75 = add nsw i32 %74, %.neg5.i.i
+  %76 = add nsw i32 %75, %71
+  %77 = ashr i32 %76, 18
+  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %79 = tail call noundef range(i32 -7104, 7361) i32 @llvm.umin.i32(i32 %78, i32 255)
+  %80 = trunc nuw i32 %79 to i8
+  %81 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  store i8 %80, ptr %81, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = getelementptr inbounds i8, ptr %.023, i64 8
+  %82 = getelementptr inbounds i8, ptr %.023, i64 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !19
 

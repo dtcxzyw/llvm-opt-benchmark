@@ -648,9 +648,13 @@ if.end.i:                                         ; preds = %if.end13.i.i.i, %if
   %cond.sink.i.i.ph.i = phi ptr [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end13.i.i.i ]
   store ptr inttoptr (i64 -8 to ptr), ptr %cond.sink.i.i.ph.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %15 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
-  %16 = add <2 x i32> %15, <i32 -1, i32 1>
-  store <2 x i32> %16, ptr %NumEntries.i.i.i.i, align 8
+  %15 = load i32, ptr %NumEntries.i.i.i.i, align 8
+  %sub.i.i = add i32 %15, -1
+  store i32 %sub.i.i, ptr %NumEntries.i.i.i.i, align 8
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
+  %16 = load i32, ptr %NumTombstones.i.i.i.i, align 4
+  %add.i.i = add i32 %16, 1
+  store i32 %add.i.i, ptr %NumTombstones.i.i.i.i, align 4
   br label %return
 
 return:                                           ; preds = %if.end9.i.i.i, %if.end.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_EixERKS2_.exit, %entry

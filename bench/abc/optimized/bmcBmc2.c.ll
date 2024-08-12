@@ -733,54 +733,60 @@ Vec_IntFill.exit:                                 ; preds = %29, %7
   call void @satoko_configure(ptr noundef %53, ptr noundef nonnull %9) #18
   call void @satoko_setnvars(ptr noundef %53, i32 noundef 2000) #18
   %55 = call i32 @satoko_add_clause(ptr noundef %53, ptr noundef nonnull %8, i32 noundef 1) #18
-  br label %62
+  br label %65
 
 56:                                               ; preds = %.critedge
   %57 = tail call ptr @sat_solver_new() #18
   %58 = getelementptr inbounds i8, ptr %calloc, i64 64
   store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 472
-  store <4 x i32> <i32 10000, i32 10000, i32 5000, i32 75>, ptr %59, align 8
+  %59 = getelementptr inbounds i8, ptr %57, i64 476
+  store i32 10000, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %57, i64 480
+  store i32 5000, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %57, i64 484
+  store i32 75, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %57, i64 472
+  store i32 10000, ptr %62, align 8
   tail call void @sat_solver_setnvars(ptr noundef %57, i32 noundef 2000) #18
-  %60 = getelementptr inbounds i8, ptr %8, i64 4
-  %61 = call i32 @sat_solver_addclause(ptr noundef %57, ptr noundef nonnull %8, ptr noundef nonnull %60) #18
-  br label %62
+  %63 = getelementptr inbounds i8, ptr %8, i64 4
+  %64 = call i32 @sat_solver_addclause(ptr noundef %57, ptr noundef nonnull %8, ptr noundef nonnull %63) #18
+  br label %65
 
-62:                                               ; preds = %56, %51
-  %63 = getelementptr inbounds i8, ptr %calloc, i64 80
-  %64 = getelementptr i8, ptr %32, i64 48
-  %.val54 = load ptr, ptr %64, align 8
-  store i32 2, ptr %63, align 8
-  %65 = getelementptr i8, ptr %.val54, i64 36
-  %.val59 = load i32, ptr %65, align 4
-  %66 = add nsw i32 %.val59, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %calloc62, i32 noundef %66)
+65:                                               ; preds = %56, %51
+  %66 = getelementptr inbounds i8, ptr %calloc, i64 80
+  %67 = getelementptr i8, ptr %32, i64 48
+  %.val54 = load ptr, ptr %67, align 8
+  store i32 2, ptr %66, align 8
+  %68 = getelementptr i8, ptr %.val54, i64 36
+  %.val59 = load i32, ptr %68, align 4
+  %69 = add nsw i32 %.val59, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %calloc62, i32 noundef %69)
   %.val.i.i = load ptr, ptr %24, align 8
-  %67 = sext i32 %.val59 to i64
-  %68 = getelementptr inbounds i32, ptr %.val.i.i, i64 %67
-  store i32 1, ptr %68, align 4
-  %69 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
-  store i32 0, ptr %70, align 4
-  store i32 1000, ptr %69, align 8
-  %71 = call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #19
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
-  store ptr %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %calloc, i64 104
-  store ptr %69, ptr %73, align 8
-  %74 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
-  store i32 0, ptr %75, align 4
-  store i32 1000, ptr %74, align 8
-  %76 = call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #19
-  %77 = getelementptr inbounds i8, ptr %74, i64 8
-  store ptr %76, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %calloc, i64 40
-  store ptr %74, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %calloc, i64 128
-  store i32 -1, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %calloc, i64 124
-  store i32 -1, ptr %80, align 4
+  %70 = sext i32 %.val59 to i64
+  %71 = getelementptr inbounds i32, ptr %.val.i.i, i64 %70
+  store i32 1, ptr %71, align 4
+  %72 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
+  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  store i32 0, ptr %73, align 4
+  store i32 1000, ptr %72, align 8
+  %74 = call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #19
+  %75 = getelementptr inbounds i8, ptr %72, i64 8
+  store ptr %74, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %calloc, i64 104
+  store ptr %72, ptr %76, align 8
+  %77 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
+  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  store i32 0, ptr %78, align 4
+  store i32 1000, ptr %77, align 8
+  %79 = call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #19
+  %80 = getelementptr inbounds i8, ptr %77, i64 8
+  store ptr %79, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %calloc, i64 40
+  store ptr %77, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %calloc, i64 128
+  store i32 -1, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %calloc, i64 124
+  store i32 -1, ptr %83, align 4
   ret ptr %calloc
 }
 

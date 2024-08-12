@@ -1425,7 +1425,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i ], [ %12, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   store ptr %.0.i.i.i.i.i.i.i, ptr %15, align 8
   invoke void @_ZN5faiss17AdditiveQuantizerC2EmRKSt6vectorImSaImEENS0_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(308) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %4)
-          to label %16 unwind label %33
+          to label %16 unwind label %34
 
 16:                                               ; preds = %.loopexit
   %17 = load ptr, ptr %6, align 8
@@ -1447,38 +1447,40 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %16, %18
   %22 = getelementptr inbounds i8, ptr %0, i64 344
   store i64 4, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 352
-  store <2 x float> <float 5.000000e-01, float 0x3F847AE140000000>, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 360
-  store i64 10000, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 368
-  store i32 74565, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 376
-  store i64 4, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 392
-  store i8 1, ptr %28, align 8
-  %29 = trunc i64 %3 to i32
-  %30 = shl nuw i32 1, %29
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %0, i64 312
-  store i64 %31, ptr %32, align 8
+  store float 5.000000e-01, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 356
+  store float 0x3F847AE140000000, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 360
+  store i64 10000, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 368
+  store i32 74565, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 376
+  store i64 4, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 384
+  store ptr null, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 392
+  store i8 1, ptr %29, align 8
+  %30 = trunc i64 %3 to i32
+  %31 = shl nuw i32 1, %30
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i8, ptr %0, i64 312
+  store i64 %32, ptr %33, align 8
   call void @srand(i32 noundef 74565) #12
   ret void
 
-33:                                               ; preds = %.loopexit
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %.loopexit
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %6, align 8
-  %.not.i.i.i8 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i8, label %_ZNSt6vectorImSaImEED2Ev.exit9, label %36
+  %36 = load ptr, ptr %6, align 8
+  %.not.i.i.i8 = icmp eq ptr %36, null
+  br i1 %.not.i.i.i8, label %_ZNSt6vectorImSaImEED2Ev.exit9, label %37
 
-36:                                               ; preds = %33
-  call void @_ZdlPv(ptr noundef nonnull %35) #25
+37:                                               ; preds = %34
+  call void @_ZdlPv(ptr noundef nonnull %36) #25
   br label %_ZNSt6vectorImSaImEED2Ev.exit9
 
-_ZNSt6vectorImSaImEED2Ev.exit9:                   ; preds = %36, %33
-  resume { ptr, i32 } %34
+_ZNSt6vectorImSaImEED2Ev.exit9:                   ; preds = %37, %34
+  resume { ptr, i32 } %35
 }
 
 declare void @_ZN5faiss17AdditiveQuantizerC2EmRKSt6vectorImSaImEENS0_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(308), i64 noundef, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) unnamed_addr #2
@@ -1563,19 +1565,21 @@ _ZN5faiss20LocalSearchQuantizerC2EmmmNS_17AdditiveQuantizer13Search_type_tE.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 344
   store i64 4, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 352
-  store <2 x float> <float 5.000000e-01, float 0x3F847AE140000000>, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 360
-  store i64 10000, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 368
-  store i32 74565, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 376
-  store i64 4, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 392
-  store i8 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 312
-  store i64 1, ptr %20, align 8
+  store float 5.000000e-01, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 356
+  store float 0x3F847AE140000000, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 360
+  store i64 10000, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 368
+  store i32 74565, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 376
+  store i64 4, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 384
+  store ptr null, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 392
+  store i8 1, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 312
+  store i64 1, ptr %21, align 8
   call void @srand(i32 noundef 74565) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void

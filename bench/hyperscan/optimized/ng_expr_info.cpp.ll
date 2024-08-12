@@ -98,7 +98,7 @@ entry:
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::allocator.64", align 1
   %depths = alloca %"class.std::vector.67", align 8
-  %d = alloca %"struct.ue2::DepthMinMax", align 8
+  %d = alloca %"struct.ue2::DepthMinMax", align 4
   tail call void @_ZN3ue212clearReportsERNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136) %g)
   tail call void @_ZN3ue220ensureCodePointStartERNS_13ReportManagerERNS_8NGHolderERKNS_14ExpressionInfoE(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(49) %expr)
   %call = tail call noundef zeroext i1 @_ZN3ue215can_never_matchERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136) %g)
@@ -204,7 +204,7 @@ invoke.cont36:                                    ; preds = %if.end
   %agg.tmp30.sroa.0.0.copyload = load ptr, ptr %start, align 8
   %agg.tmp30.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.start.sroa_idx, align 8
   call void @_ZN3ue214calcDepthsFromERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr nonnull sret(%"class.std::vector.67") align 8 %depths, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp30.sroa.0.0.copyload, i64 %agg.tmp30.sroa.2.0.copyload)
-  store i32 2147483647, ptr %d, align 8
+  store i32 2147483647, ptr %d, align 4
   %max.i = getelementptr inbounds i8, ptr %d, i64 4
   store i32 0, ptr %max.i, align 4
   %accept = getelementptr inbounds i8, ptr %g, i64 104
@@ -273,10 +273,15 @@ invoke.cont58:                                    ; preds = %invoke.cont54
           to label %invoke.cont54 unwind label %lpad32.loopexit
 
 for.end65:                                        ; preds = %invoke.cont54
-  %13 = load <2 x i32>, ptr %d, align 8
-  %14 = icmp ult <2 x i32> %13, <i32 2147483647, i32 2147483647>
-  %15 = select <2 x i1> %14, <2 x i32> %13, <2 x i32> <i32 -1, i32 -1>
-  store <2 x i32> %15, ptr %info, align 4
+  %13 = load i32, ptr %max.i, align 4
+  %cmp.i = icmp ult i32 %13, 2147483647
+  %spec.select91 = select i1 %cmp.i, i32 %13, i32 -1
+  %14 = getelementptr inbounds i8, ptr %info, i64 4
+  store i32 %spec.select91, ptr %14, align 4
+  %15 = load i32, ptr %d, align 4
+  %cmp.i67 = icmp ult i32 %15, 2147483647
+  %spec.select = select i1 %cmp.i67, i32 %15, i32 -1
+  store i32 %spec.select, ptr %info, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   invoke void @_ZN3ue211all_reportsERKNS_8NGHolderE(ptr nonnull sret(%"class.std::set") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(136) %g)
           to label %.noexc73 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp

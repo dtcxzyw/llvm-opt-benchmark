@@ -167,9 +167,21 @@ entry:
   %bitlen = getelementptr inbounds i8, ptr %ctx, i64 72
   store i64 0, ptr %bitlen, align 8
   %state = getelementptr inbounds i8, ptr %ctx, i64 80
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %state, align 8
+  store i32 1779033703, ptr %state, align 8
+  %arrayidx2 = getelementptr inbounds i8, ptr %ctx, i64 84
+  store i32 -1150833019, ptr %arrayidx2, align 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %ctx, i64 88
+  store i32 1013904242, ptr %arrayidx4, align 8
+  %arrayidx6 = getelementptr inbounds i8, ptr %ctx, i64 92
+  store i32 -1521486534, ptr %arrayidx6, align 4
   %arrayidx8 = getelementptr inbounds i8, ptr %ctx, i64 96
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx8, align 8
+  store i32 1359893119, ptr %arrayidx8, align 8
+  %arrayidx10 = getelementptr inbounds i8, ptr %ctx, i64 100
+  store i32 -1694144372, ptr %arrayidx10, align 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %ctx, i64 104
+  store i32 528734635, ptr %arrayidx12, align 8
+  %arrayidx14 = getelementptr inbounds i8, ptr %ctx, i64 108
+  store i32 1541459225, ptr %arrayidx14, align 4
   ret void
 }
 

@@ -268,21 +268,31 @@ define hidden <2 x float> @_ZN2cv3mcc11mace_centerERKSt6vectorINS_6Point_IfEESaI
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.sroa.010.030 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %13, %.lr.ph ]
+  %.sroa.010.030 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %.sroa.010.4.vec.insert23, %.lr.ph ]
   %11 = getelementptr inbounds %"class.cv::Point_.5", ptr %4, i64 %indvars.iv
-  %12 = load <2 x float>, ptr %11, align 4
-  %13 = fadd <2 x float> %.sroa.010.030, %12
+  %12 = load float, ptr %11, align 4
+  %.sroa.010.0.vec.extract = extractelement <2 x float> %.sroa.010.030, i64 0
+  %13 = fadd float %.sroa.010.0.vec.extract, %12
+  %.sroa.010.0.vec.insert14 = insertelement <2 x float> poison, float %13, i64 0
+  %14 = getelementptr inbounds i8, ptr %11, i64 4
+  %15 = load float, ptr %14, align 4
+  %.sroa.010.4.vec.extract = extractelement <2 x float> %.sroa.010.030, i64 1
+  %16 = fadd float %.sroa.010.4.vec.extract, %15
+  %.sroa.010.4.vec.insert23 = insertelement <2 x float> %.sroa.010.0.vec.insert14, float %16, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.sroa.010.0.lcssa = phi <2 x float> [ zeroinitializer, %1 ], [ %13, %.lr.ph ]
-  %14 = sitofp i32 %9 to float
-  %15 = insertelement <2 x float> poison, float %14, i64 0
-  %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
-  %17 = fdiv <2 x float> %.sroa.010.0.lcssa, %16
-  ret <2 x float> %17
+  %.sroa.010.0.lcssa = phi <2 x float> [ zeroinitializer, %1 ], [ %.sroa.010.4.vec.insert23, %.lr.ph ]
+  %.sroa.010.0.vec.extract16 = extractelement <2 x float> %.sroa.010.0.lcssa, i64 0
+  %17 = sitofp i32 %9 to float
+  %18 = fdiv float %.sroa.010.0.vec.extract16, %17
+  %.sroa.010.0.vec.insert18 = insertelement <2 x float> poison, float %18, i64 0
+  %.sroa.010.4.vec.extract25 = extractelement <2 x float> %.sroa.010.0.lcssa, i64 1
+  %19 = fdiv float %.sroa.010.4.vec.extract25, %17
+  %.sroa.010.4.vec.insert27 = insertelement <2 x float> %.sroa.010.0.vec.insert18, float %19, i64 1
+  ret <2 x float> %.sroa.010.4.vec.insert27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable

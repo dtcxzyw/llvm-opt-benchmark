@@ -1309,7 +1309,7 @@ define internal fastcc ptr @get_http2_session(ptr noundef %0, ptr noundef %1) un
   %3 = load i32, ptr @proto_http2, align 4
   %4 = tail call ptr @conversation_get_proto_data(ptr noundef %1, i32 noundef %3) #6
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %5, label %19
+  br i1 %.not, label %5, label %22
 
 5:                                                ; preds = %2
   %6 = tail call ptr @get_tcp_conversation_data(ptr noundef %1, ptr noundef %0) #6
@@ -1327,12 +1327,18 @@ define internal fastcc ptr @get_http2_session(ptr noundef %0, ptr noundef %1) un
   %16 = getelementptr i8, ptr %8, i64 8
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %8, i64 32
-  store <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>, ptr %17, align 8
-  %18 = load i32, ptr @proto_http2, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %1, i32 noundef %18, ptr noundef nonnull %8) #6
-  br label %19
+  store i32 65535, ptr %17, align 8
+  %18 = getelementptr i8, ptr %8, i64 36
+  store i32 65535, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %8, i64 40
+  store i32 65535, ptr %19, align 8
+  %20 = getelementptr i8, ptr %8, i64 44
+  store i32 65535, ptr %20, align 4
+  %21 = load i32, ptr @proto_http2, align 4
+  tail call void @conversation_add_proto_data(ptr noundef %1, i32 noundef %21, ptr noundef nonnull %8) #6
+  br label %22
 
-19:                                               ; preds = %5, %2
+22:                                               ; preds = %5, %2
   %.0 = phi ptr [ %4, %2 ], [ %8, %5 ]
   ret ptr %.0
 }

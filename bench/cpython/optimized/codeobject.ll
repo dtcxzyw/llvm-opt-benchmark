@@ -2856,7 +2856,13 @@ if.end16:                                         ; preds = %if.end12
   %localspluskinds = getelementptr inbounds i8, ptr %con, i64 80
   store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 12040), ptr %localspluskinds, align 8
   %argcount = getelementptr inbounds i8, ptr %con, i64 88
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 1>, ptr %argcount, align 8
+  store i32 0, ptr %argcount, align 8
+  %posonlyargcount = getelementptr inbounds i8, ptr %con, i64 92
+  store i32 0, ptr %posonlyargcount, align 4
+  %kwonlyargcount = getelementptr inbounds i8, ptr %con, i64 96
+  store i32 0, ptr %kwonlyargcount, align 8
+  %stacksize = getelementptr inbounds i8, ptr %con, i64 100
+  store i32 1, ptr %stacksize, align 4
   %exceptiontable = getelementptr inbounds i8, ptr %con, i64 104
   store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 12040), ptr %exceptiontable, align 8
   %call19 = call ptr @_PyCode_New(ptr noundef nonnull %con)

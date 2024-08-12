@@ -3143,10 +3143,16 @@ define internal fastcc void @_ZN11opencv_test12_GLOBAL__N_117getTrackingParamsB5
   %2 = alloca %"class.std::allocator.0", align 1
   %3 = alloca %"class.std::allocator.0", align 1
   %4 = alloca %"class.std::allocator.0", align 1
-  %5 = alloca [3 x %"class.std::tuple"], align 16
-  store <4 x i32> <i32 163, i32 62, i32 47, i32 56>, ptr %5, align 16
+  %5 = alloca [3 x %"class.std::tuple"], align 8
+  store i32 163, ptr %5, align 8
+  %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 62, ptr %.sroa.220.0..sroa_idx, align 4
+  %.sroa.321.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 47, ptr %.sroa.321.0..sroa_idx, align 8
+  %.sroa.422.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 56, ptr %.sroa.422.0..sroa_idx, align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 300, ptr %6, align 16
+  store i32 300, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
@@ -3163,7 +3169,13 @@ define internal fastcc void @_ZN11opencv_test12_GLOBAL__N_117getTrackingParamsB5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %10 = getelementptr inbounds i8, ptr %5, i64 56
-  store <4 x i32> <i32 123, i32 87, i32 132, i32 176>, ptr %10, align 8
+  store i32 123, ptr %10, align 8
+  %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 60
+  store i32 87, ptr %.sroa.215.0..sroa_idx, align 4
+  %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 64
+  store i32 132, ptr %.sroa.316.0..sroa_idx, align 8
+  %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 68
+  store i32 176, ptr %.sroa.417.0..sroa_idx, align 4
   %11 = getelementptr inbounds i8, ptr %5, i64 72
   store i32 1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 80
@@ -3181,9 +3193,15 @@ define internal fastcc void @_ZN11opencv_test12_GLOBAL__N_117getTrackingParamsB5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %16 = getelementptr inbounds i8, ptr %5, i64 112
-  store <4 x i32> <i32 118, i32 57, i32 82, i32 98>, ptr %16, align 16
+  store i32 118, ptr %16, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 116
+  store i32 57, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 120
+  store i32 82, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 124
+  store i32 98, ptr %.sroa.4.0..sroa_idx, align 4
   %17 = getelementptr inbounds i8, ptr %5, i64 128
-  store i32 1, ptr %17, align 16
+  store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 136
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #24

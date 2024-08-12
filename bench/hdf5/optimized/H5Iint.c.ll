@@ -771,7 +771,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5I__register(i32 noundef %0, pt
   %9 = load i64, ptr @H5E_ARGS_g, align 8
   %10 = load i64, ptr @H5E_BADRANGE_g, align 8
   %11 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5I__register, i32 noundef 495, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.2) #7
-  br label %397
+  br label %399
 
 12:                                               ; preds = %5
   %13 = zext nneg i32 %0 to i64
@@ -790,7 +790,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5I__register(i32 noundef %0, pt
   %22 = load i64, ptr @H5E_ID_g, align 8
   %23 = load i64, ptr @H5E_BADGROUP_g, align 8
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5I__register, i32 noundef 498, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.3) #7
-  br label %397
+  br label %399
 
 25:                                               ; preds = %17
   %26 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5I_id_info_t_reg_free_list) #7
@@ -801,7 +801,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5I__register(i32 noundef %0, pt
   %29 = load i64, ptr @H5E_ID_g, align 8
   %30 = load i64, ptr @H5E_NOSPACE_g, align 8
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5I__register, i32 noundef 500, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.5) #7
-  br label %397
+  br label %399
 
 32:                                               ; preds = %25
   %33 = shl i64 %13, 56
@@ -1380,14 +1380,17 @@ define range(i64 -1, -9223372036854775808) i64 @H5I__register(i32 noundef %0, pt
 
 .critedge409:                                     ; preds = %268, %275, %174, %168, %392, %391
   %393 = getelementptr inbounds i8, ptr %15, i64 16
-  %394 = load <2 x i64>, ptr %393, align 8
-  %395 = add <2 x i64> %394, <i64 1, i64 1>
-  store <2 x i64> %395, ptr %393, align 8
-  %396 = getelementptr inbounds i8, ptr %15, i64 32
-  store ptr %26, ptr %396, align 8
-  br label %397
+  %394 = load i64, ptr %393, align 8
+  %395 = add i64 %394, 1
+  store i64 %395, ptr %393, align 8
+  %396 = load i64, ptr %35, align 8
+  %397 = add i64 %396, 1
+  store i64 %397, ptr %35, align 8
+  %398 = getelementptr inbounds i8, ptr %15, i64 32
+  store ptr %26, ptr %398, align 8
+  br label %399
 
-397:                                              ; preds = %.critedge409, %28, %21, %8
+399:                                              ; preds = %.critedge409, %28, %21, %8
   %.0 = phi i64 [ -1, %8 ], [ -1, %21 ], [ -1, %28 ], [ %38, %.critedge409 ]
   ret i64 %.0
 }

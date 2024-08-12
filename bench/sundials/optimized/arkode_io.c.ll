@@ -203,7 +203,7 @@ define range(i32 -21, 1) i32 @arkSetDefaults(ptr noundef %0) local_unnamed_addr 
 
 3:                                                ; preds = %1
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 50, ptr noundef nonnull @__func__.arkSetDefaults, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
-  br label %58
+  br label %62
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 680
@@ -211,93 +211,101 @@ define range(i32 -21, 1) i32 @arkSetDefaults(ptr noundef %0) local_unnamed_addr 
   %6 = getelementptr inbounds i8, ptr %0, i64 440
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
+  store double 1.000000e-04, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %9, align 4
-  store <2 x double> <double 1.000000e-04, double 1.000000e-09>, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  store double 1.000000e-09, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr @arkEwtSetSS, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @arkRwtSet, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 456
-  store i64 500, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 464
-  store <4 x i32> <i32 10, i32 10, i32 7, i32 10>, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 384
-  %22 = getelementptr inbounds i8, ptr %0, i64 348
-  store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 352
-  store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 360
-  %25 = getelementptr inbounds i8, ptr %0, i64 448
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  store double 1.000000e+04, ptr %27, align 8
-  %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
-  store double 3.000000e-01, ptr %29, align 8
-  %30 = load ptr, ptr %25, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
-  store double 1.000000e-01, ptr %31, align 8
-  %32 = load ptr, ptr %25, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
-  store i32 2, ptr %33, align 8
-  %34 = load ptr, ptr %25, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
-  store double 2.500000e-01, ptr %35, align 8
-  %36 = load ptr, ptr %25, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
-  store double 5.000000e-01, ptr %37, align 8
-  %38 = load ptr, ptr %25, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
-  store double 0x3FEEB851EB851EB8, ptr %39, align 8
-  %40 = load ptr, ptr %25, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 64
-  store double 2.000000e+01, ptr %41, align 8
-  %42 = load ptr, ptr %25, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 72
-  store double 1.000000e+00, ptr %43, align 8
-  %44 = load ptr, ptr %25, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 80
-  store double 1.500000e+00, ptr %45, align 8
-  %46 = load ptr, ptr %25, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 120
-  store ptr @arkExpStab, ptr %47, align 8
-  %48 = load ptr, ptr %25, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 128
-  store ptr null, ptr %49, align 8
-  %50 = load ptr, ptr %25, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 96
-  store i32 0, ptr %51, align 8
-  %52 = load ptr, ptr %25, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 88
-  store i32 0, ptr %53, align 8
-  %54 = load ptr, ptr %25, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 92
-  store i32 0, ptr %55, align 4
-  %56 = load ptr, ptr %25, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 100
-  store i32 -1, ptr %57, align 4
-  br label %58
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  store double 1.000000e-09, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  store double 1.000000e-09, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr @arkEwtSetSS, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @arkRwtSet, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %0, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 456
+  store i64 500, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 464
+  store i32 10, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 472
+  store i32 7, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 476
+  store i32 10, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 468
+  store i32 10, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 384
+  %26 = getelementptr inbounds i8, ptr %0, i64 348
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %0, i64 352
+  store i32 0, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 360
+  %29 = getelementptr inbounds i8, ptr %0, i64 448
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  store double 1.000000e+04, ptr %31, align 8
+  %32 = load ptr, ptr %29, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  store double 3.000000e-01, ptr %33, align 8
+  %34 = load ptr, ptr %29, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  store double 1.000000e-01, ptr %35, align 8
+  %36 = load ptr, ptr %29, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  store i32 2, ptr %37, align 8
+  %38 = load ptr, ptr %29, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 40
+  store double 2.500000e-01, ptr %39, align 8
+  %40 = load ptr, ptr %29, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  store double 5.000000e-01, ptr %41, align 8
+  %42 = load ptr, ptr %29, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 56
+  store double 0x3FEEB851EB851EB8, ptr %43, align 8
+  %44 = load ptr, ptr %29, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 64
+  store double 2.000000e+01, ptr %45, align 8
+  %46 = load ptr, ptr %29, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 72
+  store double 1.000000e+00, ptr %47, align 8
+  %48 = load ptr, ptr %29, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 80
+  store double 1.500000e+00, ptr %49, align 8
+  %50 = load ptr, ptr %29, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 120
+  store ptr @arkExpStab, ptr %51, align 8
+  %52 = load ptr, ptr %29, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 128
+  store ptr null, ptr %53, align 8
+  %54 = load ptr, ptr %29, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 96
+  store i32 0, ptr %55, align 8
+  %56 = load ptr, ptr %29, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 88
+  store i32 0, ptr %57, align 8
+  %58 = load ptr, ptr %29, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 92
+  store i32 0, ptr %59, align 4
+  %60 = load ptr, ptr %29, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 100
+  store i32 -1, ptr %61, align 4
+  br label %62
 
-58:                                               ; preds = %4, %3
+62:                                               ; preds = %4, %3
   %.0 = phi i32 [ -21, %3 ], [ 0, %4 ]
   ret i32 %.0
 }

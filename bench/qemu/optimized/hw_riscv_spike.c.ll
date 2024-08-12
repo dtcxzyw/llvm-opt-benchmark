@@ -364,7 +364,13 @@ if.end.i:                                         ; preds = %if.end83
   br i1 %htif_custom_base.091, label %do.body.i, label %if.end24.i
 
 do.body.i:                                        ; preds = %if.end.i
-  store <4 x i32> <i32 0, i32 16777216, i32 0, i32 4096>, ptr %qdt_tmp.i, align 16
+  store i32 0, ptr %qdt_tmp.i, align 16
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %qdt_tmp.i, i64 4
+  store i32 16777216, ptr %arrayinit.element.i, align 4
+  %arrayinit.element12.i = getelementptr inbounds i8, ptr %qdt_tmp.i, i64 8
+  store i32 0, ptr %arrayinit.element12.i, align 8
+  %arrayinit.element13.i = getelementptr inbounds i8, ptr %qdt_tmp.i, i64 12
+  store i32 4096, ptr %arrayinit.element13.i, align 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %do.body.i

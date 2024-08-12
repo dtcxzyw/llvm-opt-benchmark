@@ -356,8 +356,8 @@ define dso_local void @_ZN4i18n12phonenumbers11RegExpCacheC2ERKNS0_21AbstractReg
 8:                                                ; preds = %7
   unreachable
 
-common.resume:                                    ; preds = %45, %9
-  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %.pn, %45 ]
+common.resume:                                    ; preds = %46, %9
+  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %.pn, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 9:                                                ; preds = %7
@@ -369,102 +369,104 @@ common.resume:                                    ; preds = %45, %9
 _ZN5boost5mutexC2Ev.exit:                         ; preds = %3
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %11 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-          to label %12 unwind label %40
+          to label %12 unwind label %41
 
 12:                                               ; preds = %_ZN5boost5mutexC2Ev.exit
   %13 = getelementptr inbounds i8, ptr %11, i64 32
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 0, ptr %14, align 8
-  store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %13, align 8
+  store float 1.000000e+00, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %11, i64 36
+  store float 2.000000e+00, ptr %15, align 4
   br label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i
 
 _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i:       ; preds = %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i, %12
   %.017.i.i.i.i.i.i = phi ptr [ @_ZNSt3tr18__detail12__prime_listE, %12 ], [ %.1.i.i.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i ]
   %.01116.i.i.i.i.i.i = phi i64 [ 303, %12 ], [ %.112.i.i.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i ]
-  %15 = lshr i64 %.01116.i.i.i.i.i.i, 1
-  %16 = getelementptr inbounds i64, ptr %.017.i.i.i.i.i.i, i64 %15
-  %17 = load i64, ptr %16, align 8
-  %18 = icmp ult i64 %17, %2
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
-  %20 = xor i64 %15, -1
-  %21 = add nsw i64 %.01116.i.i.i.i.i.i, %20
-  %.112.i.i.i.i.i.i = select i1 %18, i64 %21, i64 %15
-  %.1.i.i.i.i.i.i = select i1 %18, ptr %19, ptr %.017.i.i.i.i.i.i
-  %22 = icmp sgt i64 %.112.i.i.i.i.i.i, 0
-  br i1 %22, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i, label %23, !llvm.loop !5
+  %16 = lshr i64 %.01116.i.i.i.i.i.i, 1
+  %17 = getelementptr inbounds i64, ptr %.017.i.i.i.i.i.i, i64 %16
+  %18 = load i64, ptr %17, align 8
+  %19 = icmp ult i64 %18, %2
+  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = xor i64 %16, -1
+  %22 = add nsw i64 %.01116.i.i.i.i.i.i, %21
+  %.112.i.i.i.i.i.i = select i1 %19, i64 %22, i64 %16
+  %.1.i.i.i.i.i.i = select i1 %19, ptr %20, ptr %.017.i.i.i.i.i.i
+  %23 = icmp sgt i64 %.112.i.i.i.i.i.i, 0
+  br i1 %23, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i, label %24, !llvm.loop !5
 
-23:                                               ; preds = %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i
-  %24 = getelementptr inbounds i8, ptr %11, i64 16
-  %25 = getelementptr inbounds i8, ptr %11, i64 40
-  %26 = load i64, ptr %.1.i.i.i.i.i.i, align 8
-  %27 = uitofp i64 %26 to float
-  %28 = fptoui float %27 to i64
-  store i64 %28, ptr %25, align 8
-  store i64 %26, ptr %24, align 8
-  %29 = add i64 %26, 1
-  %30 = icmp ugt i64 %29, 1152921504606846975
-  br i1 %30, label %31, label %_ZNSt15__new_allocatorIPNSt3tr18__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0EEEE8allocateEmPKv.exit.i.i.i.i
+24:                                               ; preds = %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i
+  %25 = getelementptr inbounds i8, ptr %11, i64 16
+  %26 = getelementptr inbounds i8, ptr %11, i64 40
+  %27 = load i64, ptr %.1.i.i.i.i.i.i, align 8
+  %28 = uitofp i64 %27 to float
+  %29 = fptoui float %28 to i64
+  store i64 %29, ptr %26, align 8
+  store i64 %27, ptr %25, align 8
+  %30 = add i64 %27, 1
+  %31 = icmp ugt i64 %30, 1152921504606846975
+  br i1 %31, label %32, label %_ZNSt15__new_allocatorIPNSt3tr18__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0EEEE8allocateEmPKv.exit.i.i.i.i
 
-31:                                               ; preds = %23
-  %32 = icmp ugt i64 %29, 2305843009213693951
-  br i1 %32, label %.noexc.i.i.i.i, label %.noexc9.i.i.i.i
+32:                                               ; preds = %24
+  %33 = icmp ugt i64 %30, 2305843009213693951
+  br i1 %33, label %.noexc.i.i.i.i, label %.noexc9.i.i.i.i
 
-.noexc.i.i.i.i:                                   ; preds = %31
+.noexc.i.i.i.i:                                   ; preds = %32
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
-          to label %.noexc unwind label %42
+          to label %.noexc unwind label %43
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i
   unreachable
 
-.noexc9.i.i.i.i:                                  ; preds = %31
+.noexc9.i.i.i.i:                                  ; preds = %32
   invoke void @_ZSt17__throw_bad_allocv() #21
-          to label %.noexc7 unwind label %42
+          to label %.noexc7 unwind label %43
 
 .noexc7:                                          ; preds = %.noexc9.i.i.i.i
   unreachable
 
-_ZNSt15__new_allocatorIPNSt3tr18__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0EEEE8allocateEmPKv.exit.i.i.i.i: ; preds = %23
-  %33 = shl nuw nsw i64 %29, 3
-  %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #23
-          to label %.noexc8 unwind label %42
+_ZNSt15__new_allocatorIPNSt3tr18__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0EEEE8allocateEmPKv.exit.i.i.i.i: ; preds = %24
+  %34 = shl nuw nsw i64 %30, 3
+  %35 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #23
+          to label %.noexc8 unwind label %43
 
 .noexc8:                                          ; preds = %_ZNSt15__new_allocatorIPNSt3tr18__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0EEEE8allocateEmPKv.exit.i.i.i.i
-  %.not6.i.i.i.i.i.i.i = icmp eq i64 %26, 0
-  br i1 %.not6.i.i.i.i.i.i.i, label %36, label %.lr.ph.i.i.i.preheader.i.i.i.i
+  %.not6.i.i.i.i.i.i.i = icmp eq i64 %27, 0
+  br i1 %.not6.i.i.i.i.i.i.i, label %37, label %.lr.ph.i.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %.noexc8
-  %35 = shl nsw i64 %26, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %34, i8 0, i64 %35, i1 false)
-  br label %36
+  %36 = shl nsw i64 %27, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %36, i1 false)
+  br label %37
 
-36:                                               ; preds = %.lr.ph.i.i.i.preheader.i.i.i.i, %.noexc8
-  %37 = getelementptr inbounds ptr, ptr %34, i64 %26
-  store ptr inttoptr (i64 4096 to ptr), ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %34, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %11, ptr %39, align 8
+37:                                               ; preds = %.lr.ph.i.i.i.preheader.i.i.i.i, %.noexc8
+  %38 = getelementptr inbounds ptr, ptr %35, i64 %27
+  store ptr inttoptr (i64 4096 to ptr), ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %35, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %11, ptr %40, align 8
   ret void
 
-40:                                               ; preds = %_ZN5boost5mutexC2Ev.exit
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %_ZN5boost5mutexC2Ev.exit
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %44
-
-42:                                               ; preds = %_ZNSt15__new_allocatorIPNSt3tr18__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0EEEE8allocateEmPKv.exit.i.i.i.i, %.noexc9.i.i.i.i, %.noexc.i.i.i.i
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
-  br label %44
-
-44:                                               ; preds = %42, %40
-  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ]
   br label %45
 
-45:                                               ; preds = %45, %44
-  %46 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %5) #20
-  %47 = icmp eq i32 %46, 4
-  br i1 %47, label %45, label %common.resume, !llvm.loop !7
+43:                                               ; preds = %_ZNSt15__new_allocatorIPNSt3tr18__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4i18n12phonenumbers6RegExpEELb0EEEE8allocateEmPKv.exit.i.i.i.i, %.noexc9.i.i.i.i, %.noexc.i.i.i.i
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
+  br label %45
+
+45:                                               ; preds = %43, %41
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
+  br label %46
+
+46:                                               ; preds = %46, %45
+  %47 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %5) #20
+  %48 = icmp eq i32 %47, 4
+  br i1 %48, label %46, label %common.resume, !llvm.loop !7
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

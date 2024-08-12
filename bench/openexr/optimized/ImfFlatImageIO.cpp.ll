@@ -106,13 +106,15 @@ declare noundef zeroext i1 @_ZNK7Imf_3_26Header18hasTileDescriptionEv(ptr nounde
 define void @_ZN7Imf_3_218saveFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderERKNS_9FlatImageENS_16DataWindowSourceE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef %dws) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %newHdr = alloca %"class.Imf_3_2::Header", align 8
-  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
   %ref.tmp31 = alloca %"class.Imf_3_2::TileDescription", align 4
   %ref.tmp42 = alloca %"class.Imf_3_2::TileDescription", align 4
   %ref.tmp50 = alloca %"class.Imath_3_2::Box", align 4
   %ref.tmp75 = alloca %"struct.Imf_3_2::Channel", align 8
   %out = alloca %"class.Imf_3_2::TiledOutputFile", align 8
-  store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
+  store float 0.000000e+00, ptr %ref.tmp, align 4
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %newHdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %ref.tmp31.sink60.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp31, i64 4
   %ref.tmp31.sink60.sroa.gep63 = getelementptr inbounds i8, ptr %ref.tmp42, i64 4
@@ -409,13 +411,15 @@ ehcleanup:                                        ; preds = %lpad.loopexit49, %l
 define void @_ZN7Imf_3_221saveFlatScanLineImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderERKNS_9FlatImageENS_16DataWindowSourceE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef %dws) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %newHdr = alloca %"class.Imf_3_2::Header", align 8
-  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
   %ref.tmp28 = alloca %"class.Imath_3_2::Box", align 4
   %fb = alloca %"class.Imf_3_2::FrameBuffer", align 8
   %ref.tmp54 = alloca %"struct.Imf_3_2::Channel", align 8
   %ref.tmp62 = alloca %"struct.Imf_3_2::Slice", align 8
   %out = alloca %"class.Imf_3_2::OutputFile", align 8
-  store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
+  store float 0.000000e+00, ptr %ref.tmp, align 4
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %newHdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %call = invoke ptr @_ZNK7Imf_3_26Header5beginEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
           to label %for.cond unwind label %lpad.loopexit.split-lp29
@@ -635,8 +639,10 @@ ehcleanup85:                                      ; preds = %lpad.loopexit28, %l
 define void @_ZN7Imf_3_213saveFlatImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9FlatImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(104) %img) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
-  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 8
-  store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
+  store float 0.000000e+00, ptr %ref.tmp, align 4
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %call = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(104) %img)
           to label %invoke.cont unwind label %lpad
@@ -1388,8 +1394,10 @@ ehcleanup106:                                     ; preds = %lpad.loopexit35, %l
 define void @_ZN7Imf_3_213loadFlatImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9FlatImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(104) %img) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
-  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 8
-  store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
+  store float 0.000000e+00, ptr %ref.tmp, align 4
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   invoke void @_ZN7Imf_3_213loadFlatImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6HeaderERNS_9FlatImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img)
           to label %invoke.cont unwind label %lpad
@@ -1464,8 +1472,10 @@ _ZNSt3mapIN7Imf_3_24NameENS0_5SliceESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev.exit: 
 define void @_ZN7Imf_3_221saveFlatScanLineImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9FlatImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(104) %img) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
-  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 8
-  store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
+  store float 0.000000e+00, ptr %ref.tmp, align 4
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %call = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(104) %img)
           to label %invoke.cont unwind label %lpad
@@ -1543,8 +1553,10 @@ declare void @_ZN7Imf_3_29InputFileD1Ev(ptr noundef nonnull align 8 dereferencea
 define void @_ZN7Imf_3_221loadFlatScanLineImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9FlatImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(104) %img) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
-  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 8
-  store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
+  store float 0.000000e+00, ptr %ref.tmp, align 4
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   invoke void @_ZN7Imf_3_221loadFlatScanLineImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6HeaderERNS_9FlatImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img)
           to label %invoke.cont unwind label %lpad
@@ -1679,8 +1691,10 @@ declare void @_ZN7Imf_3_215TiledOutputFileD1Ev(ptr noundef nonnull align 8 deref
 define void @_ZN7Imf_3_218saveFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9FlatImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(104) %img) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
-  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 8
-  store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
+  store float 0.000000e+00, ptr %ref.tmp, align 4
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %call = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(104) %img)
           to label %invoke.cont unwind label %lpad
@@ -1833,8 +1847,10 @@ declare void @_ZN7Imf_3_214TiledInputFileD1Ev(ptr noundef nonnull align 8 derefe
 define void @_ZN7Imf_3_218loadFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9FlatImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(104) %img) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
-  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 8
-  store <2 x float> zeroinitializer, ptr %ref.tmp, align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
+  store float 0.000000e+00, ptr %ref.tmp, align 4
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   invoke void @_ZN7Imf_3_218loadFlatTiledImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6HeaderERNS_9FlatImageE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img)
           to label %invoke.cont unwind label %lpad

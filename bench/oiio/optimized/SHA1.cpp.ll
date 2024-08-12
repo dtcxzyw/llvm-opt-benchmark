@@ -45,7 +45,13 @@ invoke.cont:
   %m_workspace.i = getelementptr inbounds i8, ptr %call, i64 128
   %m_block.i = getelementptr inbounds i8, ptr %call, i64 192
   store ptr %m_workspace.i, ptr %m_block.i, align 8
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %call, align 8
+  store i32 1732584193, ptr %call, align 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %call, i64 4
+  store i32 -271733879, ptr %arrayidx3.i.i, align 4
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  store i32 -1732584194, ptr %arrayidx5.i.i, align 8
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  store i32 271733878, ptr %arrayidx7.i.i, align 4
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 -1009589776, ptr %arrayidx9.i.i, align 8
   %m_count.i.i = getelementptr inbounds i8, ptr %call, i64 20
@@ -475,7 +481,13 @@ entry:
   %m_workspace = getelementptr inbounds i8, ptr %this, i64 128
   %m_block = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %m_workspace, ptr %m_block, align 8
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %this, align 8
+  store i32 1732584193, ptr %this, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
+  store i32 -271733879, ptr %arrayidx3.i, align 4
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i32 -1732584194, ptr %arrayidx5.i, align 8
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 271733878, ptr %arrayidx7.i, align 4
   %arrayidx9.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 -1009589776, ptr %arrayidx9.i, align 8
   %m_count.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -488,7 +500,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN18OpenImageIO_v2_6_05CSHA15ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %this) local_unnamed_addr #11 align 2 {
 entry:
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %this, align 8
+  store i32 1732584193, ptr %this, align 8
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 4
+  store i32 -271733879, ptr %arrayidx3, align 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 8
+  store i32 -1732584194, ptr %arrayidx5, align 8
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 271733878, ptr %arrayidx7, align 4
   %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 -1009589776, ptr %arrayidx9, align 8
   %m_count = getelementptr inbounds i8, ptr %this, i64 20
@@ -2168,19 +2186,24 @@ entry:
   store i32 %or3039, ptr %arrayidx3024, align 4
   %or3046 = tail call i32 @llvm.fshl.i32(i32 %add3009, i32 %add3009, i32 5)
   %or3051 = tail call i32 @llvm.fshl.i32(i32 %add2970, i32 %add2970, i32 30)
+  %358 = load i32, ptr %pState, align 4
   %add3042 = add i32 %or2934, -899497514
   %add3043 = add i32 %add3042, %xor3014
   %add3047 = add i32 %add3043, %or3046
   %add3048 = add i32 %add3047, %or3039
-  %358 = load <4 x i32>, ptr %pState, align 4
-  %359 = insertelement <4 x i32> poison, i32 %add3048, i64 0
-  %360 = insertelement <4 x i32> %359, i32 %add3009, i64 1
-  %361 = insertelement <4 x i32> %360, i32 %or3051, i64 2
-  %362 = insertelement <4 x i32> %361, i32 %or3012, i64 3
-  %363 = add <4 x i32> %362, %358
-  store <4 x i32> %363, ptr %pState, align 4
-  %364 = load i32, ptr %arrayidx5, align 4
-  %add3061 = add i32 %364, %or2973
+  %add3053 = add i32 %add3048, %358
+  store i32 %add3053, ptr %pState, align 4
+  %359 = load i32, ptr %arrayidx2, align 4
+  %add3055 = add i32 %359, %add3009
+  store i32 %add3055, ptr %arrayidx2, align 4
+  %360 = load i32, ptr %arrayidx3, align 4
+  %add3057 = add i32 %360, %or3051
+  store i32 %add3057, ptr %arrayidx3, align 4
+  %361 = load i32, ptr %arrayidx4, align 4
+  %add3059 = add i32 %361, %or3012
+  store i32 %add3059, ptr %arrayidx4, align 4
+  %362 = load i32, ptr %arrayidx5, align 4
+  %add3061 = add i32 %362, %or2973
   store i32 %add3061, ptr %arrayidx5, align 4
   ret void
 }

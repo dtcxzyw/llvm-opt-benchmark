@@ -540,162 +540,170 @@ thread-pre-split.i.i:                             ; preds = %72
   %85 = load ptr, ptr %24, align 8
   %86 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   %87 = getelementptr inbounds i8, ptr %86, i64 8
+  store i32 0, ptr %87, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui11GroupLayoutE, i64 16), ptr %86, align 8
-  store <4 x i32> <i32 0, i32 10, i32 6, i32 14>, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %86, i64 24
-  store i32 20, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %85, i64 32
-  %90 = load ptr, ptr %89, align 8
-  %.not.i.i19 = icmp eq ptr %90, %86
-  br i1 %.not.i.i19, label %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit23, label %91
+  %88 = getelementptr inbounds i8, ptr %86, i64 12
+  store i32 10, ptr %88, align 4
+  %89 = getelementptr inbounds i8, ptr %86, i64 16
+  store i32 6, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %86, i64 20
+  store i32 14, ptr %90, align 4
+  %91 = getelementptr inbounds i8, ptr %86, i64 24
+  store i32 20, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %85, i64 32
+  %93 = load ptr, ptr %92, align 8
+  %.not.i.i19 = icmp eq ptr %93, %86
+  br i1 %.not.i.i19, label %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit23, label %94
 
-91:                                               ; preds = %84
+94:                                               ; preds = %84
   invoke void @_ZNK7nanogui6Object7inc_refEv(ptr noundef nonnull align 8 dereferenceable(12) %86)
-          to label %thread-pre-split.i.i20 unwind label %94
+          to label %thread-pre-split.i.i20 unwind label %97
 
-thread-pre-split.i.i20:                           ; preds = %91
-  %.pr.i.i21 = load ptr, ptr %89, align 8
+thread-pre-split.i.i20:                           ; preds = %94
+  %.pr.i.i21 = load ptr, ptr %92, align 8
   %.not7.i.i22 = icmp eq ptr %.pr.i.i21, null
-  br i1 %.not7.i.i22, label %93, label %92
+  br i1 %.not7.i.i22, label %96, label %95
 
-92:                                               ; preds = %thread-pre-split.i.i20
+95:                                               ; preds = %thread-pre-split.i.i20
   tail call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %.pr.i.i21, i1 noundef zeroext true) #13
-  br label %93
+  br label %96
 
-93:                                               ; preds = %92, %thread-pre-split.i.i20
-  store ptr %86, ptr %89, align 8
+96:                                               ; preds = %95, %thread-pre-split.i.i20
+  store ptr %86, ptr %92, align 8
   br label %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit23
 
-94:                                               ; preds = %91
-  %95 = landingpad { ptr, i32 }
+97:                                               ; preds = %94
+  %98 = landingpad { ptr, i32 }
           catch ptr null
-  %96 = extractvalue { ptr, i32 } %95, 0
-  tail call void @__clang_call_terminate(ptr %96) #15
+  %99 = extractvalue { ptr, i32 } %98, 0
+  tail call void @__clang_call_terminate(ptr %99) #15
   unreachable
 
-_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit23: ; preds = %84, %93
-  %97 = load ptr, ptr %1, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %.not3237 = icmp eq ptr %97, %99
+_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit23: ; preds = %84, %96
+  %100 = load ptr, ptr %1, align 8
+  %101 = getelementptr inbounds i8, ptr %1, i64 8
+  %102 = load ptr, ptr %101, align 8
+  %.not3237 = icmp eq ptr %100, %102
   br i1 %.not3237, label %._crit_edge41, label %.lr.ph40
 
 .lr.ph40:                                         ; preds = %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit23
-  %100 = getelementptr inbounds i8, ptr %5, i64 16
-  %101 = getelementptr inbounds i8, ptr %5, i64 24
+  %103 = getelementptr inbounds i8, ptr %5, i64 16
+  %104 = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.227.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %102 = getelementptr inbounds i8, ptr %4, i64 16
-  br label %103
+  %105 = getelementptr inbounds i8, ptr %4, i64 16
+  %106 = getelementptr inbounds i8, ptr %4, i64 24
+  br label %107
 
-103:                                              ; preds = %.lr.ph40, %_ZNSt8functionIFvvEED2Ev.exit
-  %.01539 = phi i32 [ 0, %.lr.ph40 ], [ %124, %_ZNSt8functionIFvvEED2Ev.exit ]
-  %.sroa.029.038 = phi ptr [ %97, %.lr.ph40 ], [ %125, %_ZNSt8functionIFvvEED2Ev.exit ]
-  %104 = call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #16
-  %105 = load ptr, ptr %24, align 8
-  invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(312) %104, ptr noundef %105, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.029.038, i32 noundef 0)
-          to label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i unwind label %126
+107:                                              ; preds = %.lr.ph40, %_ZNSt8functionIFvvEED2Ev.exit
+  %.01539 = phi i32 [ 0, %.lr.ph40 ], [ %128, %_ZNSt8functionIFvvEED2Ev.exit ]
+  %.sroa.029.038 = phi ptr [ %100, %.lr.ph40 ], [ %129, %_ZNSt8functionIFvvEED2Ev.exit ]
+  %108 = call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #16
+  %109 = load ptr, ptr %24, align 8
+  invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(312) %108, ptr noundef %109, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.029.038, i32 noundef 0)
+          to label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i unwind label %130
 
-_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %103
-  %106 = getelementptr inbounds i8, ptr %104, i64 188
-  store i32 2, ptr %106, align 4
+_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %107
+  %110 = getelementptr inbounds i8, ptr %108, i64 188
+  store i32 2, ptr %110, align 4
   store i64 0, ptr %5, align 8
   store i32 %.01539, ptr %5, align 8
   store ptr %0, ptr %.sroa.227.0..sroa_idx, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui8ComboBox9set_itemsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_E3$_0E9_M_invokeERKSt9_Any_data", ptr %101, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui8ComboBox9set_itemsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_E3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %100, align 8
-  %107 = getelementptr inbounds i8, ptr %104, i64 224
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui8ComboBox9set_itemsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_E3$_0E9_M_invokeERKSt9_Any_data", ptr %104, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui8ComboBox9set_itemsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_E3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %103, align 8
+  %111 = getelementptr inbounds i8, ptr %108, i64 224
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %107, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  %108 = getelementptr inbounds i8, ptr %104, i64 240
-  %109 = getelementptr inbounds i8, ptr %104, i64 248
-  %110 = load <2 x ptr>, ptr %108, align 8
-  %111 = load ptr, ptr %108, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui8ComboBox9set_itemsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_E3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %108, align 8
-  store <2 x ptr> %110, ptr %102, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui8ComboBox9set_itemsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_E3$_0E9_M_invokeERKSt9_Any_data", ptr %109, align 8
-  %.not.i.i2.i.i = icmp eq ptr %111, null
-  br i1 %.not.i.i2.i.i, label %.thread, label %112
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %111, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  %112 = getelementptr inbounds i8, ptr %108, i64 240
+  %113 = load ptr, ptr %112, align 8
+  store ptr %113, ptr %105, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui8ComboBox9set_itemsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_E3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %108, i64 248
+  %115 = load ptr, ptr %114, align 8
+  store ptr %115, ptr %106, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui8ComboBox9set_itemsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_E3$_0E9_M_invokeERKSt9_Any_data", ptr %114, align 8
+  %.not.i.i2.i.i = icmp eq ptr %113, null
+  br i1 %.not.i.i2.i.i, label %.thread, label %116
 
 .thread:                                          ; preds = %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  br label %118
+  br label %122
 
-112:                                              ; preds = %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i
-  %113 = invoke noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %117 unwind label %114
+116:                                              ; preds = %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i
+  %117 = invoke noundef zeroext i1 %113(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %121 unwind label %118
 
-114:                                              ; preds = %112
-  %115 = landingpad { ptr, i32 }
+118:                                              ; preds = %116
+  %119 = landingpad { ptr, i32 }
           catch ptr null
-  %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #15
+  %120 = extractvalue { ptr, i32 } %119, 0
+  call void @__clang_call_terminate(ptr %120) #15
   unreachable
 
-117:                                              ; preds = %112
-  %.pre = load ptr, ptr %100, align 8
+121:                                              ; preds = %116
+  %.pre = load ptr, ptr %103, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %.not.i.i24 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i24, label %_ZNSt8functionIFvvEED2Ev.exit, label %118
+  br i1 %.not.i.i24, label %_ZNSt8functionIFvvEED2Ev.exit, label %122
 
-118:                                              ; preds = %.thread, %117
-  %119 = phi ptr [ @"_ZNSt17_Function_handlerIFvvEZN7nanogui8ComboBox9set_itemsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_E3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", %.thread ], [ %.pre, %117 ]
-  %120 = invoke noundef zeroext i1 %119(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %121
+122:                                              ; preds = %.thread, %121
+  %123 = phi ptr [ @"_ZNSt17_Function_handlerIFvvEZN7nanogui8ComboBox9set_itemsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_E3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", %.thread ], [ %.pre, %121 ]
+  %124 = invoke noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+          to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %125
 
-121:                                              ; preds = %118
-  %122 = landingpad { ptr, i32 }
+125:                                              ; preds = %122
+  %126 = landingpad { ptr, i32 }
           catch ptr null
-  %123 = extractvalue { ptr, i32 } %122, 0
-  call void @__clang_call_terminate(ptr %123) #15
+  %127 = extractvalue { ptr, i32 } %126, 0
+  call void @__clang_call_terminate(ptr %127) #15
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %117, %118
-  %124 = add nuw nsw i32 %.01539, 1
-  %125 = getelementptr inbounds i8, ptr %.sroa.029.038, i64 32
-  %.not32 = icmp eq ptr %125, %99
-  br i1 %.not32, label %._crit_edge41, label %103
+_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %121, %122
+  %128 = add nuw nsw i32 %.01539, 1
+  %129 = getelementptr inbounds i8, ptr %.sroa.029.038, i64 32
+  %.not32 = icmp eq ptr %129, %102
+  br i1 %.not32, label %._crit_edge41, label %107
 
-126:                                              ; preds = %103
-  %127 = landingpad { ptr, i32 }
+130:                                              ; preds = %107
+  %131 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %104) #14
+  call void @_ZdlPv(ptr noundef nonnull %108) #14
   br label %_ZNSt8functionIFvvEED2Ev.exit26
 
 ._crit_edge41:                                    ; preds = %_ZNSt8functionIFvvEED2Ev.exit, %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit23
-  %128 = load ptr, ptr %8, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 376
-  %130 = load ptr, ptr %129, align 8
-  %131 = icmp eq ptr %128, %130
-  br i1 %131, label %_ZN7nanogui8ComboBox18set_selected_indexEi.exit, label %132
+  %132 = load ptr, ptr %8, align 8
+  %133 = getelementptr inbounds i8, ptr %0, i64 376
+  %134 = load ptr, ptr %133, align 8
+  %135 = icmp eq ptr %132, %134
+  br i1 %135, label %_ZN7nanogui8ComboBox18set_selected_indexEi.exit, label %136
 
-132:                                              ; preds = %._crit_edge41
-  %133 = load i32, ptr %10, align 8
-  %134 = load ptr, ptr %24, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 64
-  %136 = sext i32 %133 to i64
-  %137 = load ptr, ptr %135, align 8
-  %138 = getelementptr inbounds ptr, ptr %137, i64 %136
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 184
-  store i8 0, ptr %140, align 8
-  %141 = load ptr, ptr %135, align 8
-  %142 = getelementptr inbounds ptr, ptr %141, i64 %136
+136:                                              ; preds = %._crit_edge41
+  %137 = load i32, ptr %10, align 8
+  %138 = load ptr, ptr %24, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 64
+  %140 = sext i32 %137 to i64
+  %141 = load ptr, ptr %139, align 8
+  %142 = getelementptr inbounds ptr, ptr %141, i64 %140
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 184
-  store i8 1, ptr %144, align 8
-  store i32 %133, ptr %10, align 8
-  %145 = load ptr, ptr %8, align 8
-  %146 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %145, i64 %136
-  %147 = getelementptr inbounds i8, ptr %0, i64 144
-  %148 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(32) %146)
+  store i8 0, ptr %144, align 8
+  %145 = load ptr, ptr %139, align 8
+  %146 = getelementptr inbounds ptr, ptr %145, i64 %140
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 184
+  store i8 1, ptr %148, align 8
+  store i32 %137, ptr %10, align 8
+  %149 = load ptr, ptr %8, align 8
+  %150 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %149, i64 %140
+  %151 = getelementptr inbounds i8, ptr %0, i64 144
+  %152 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef nonnull align 8 dereferenceable(32) %150)
   br label %_ZN7nanogui8ComboBox18set_selected_indexEi.exit
 
-_ZN7nanogui8ComboBox18set_selected_indexEi.exit:  ; preds = %._crit_edge41, %132
+_ZN7nanogui8ComboBox18set_selected_indexEi.exit:  ; preds = %._crit_edge41, %136
   ret void
 
-_ZNSt8functionIFvvEED2Ev.exit26:                  ; preds = %126, %82, %80, %78
-  %.pn = phi { ptr, i32 } [ %127, %126 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ]
+_ZNSt8functionIFvvEED2Ev.exit26:                  ; preds = %130, %82, %80, %78
+  %.pn = phi { ptr, i32 } [ %131, %130 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ]
   resume { ptr, i32 } %.pn
 }
 

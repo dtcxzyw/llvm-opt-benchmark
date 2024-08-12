@@ -9154,7 +9154,13 @@ _ZN16BCEscapeAnalyzer17set_global_escapeENS_11ArgumentMapEb.exit: ; preds = %_ZN
   %74 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 0, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %0, i64 144
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 1>, ptr %75, align 8
+  store i8 0, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 145
+  store i8 0, ptr %76, align 1
+  %77 = getelementptr inbounds i8, ptr %0, i64 146
+  store i8 1, ptr %77, align 2
+  %78 = getelementptr inbounds i8, ptr %0, i64 147
+  store i8 1, ptr %78, align 1
   ret void
 }
 

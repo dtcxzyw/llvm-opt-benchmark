@@ -1990,11 +1990,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %90 = sub nsw i32 %.val57, %1
   %91 = getelementptr inbounds i8, ptr %88, i64 4
   store i32 %90, ptr %91, align 4
-  %92 = load <2 x i32>, ptr %84, align 4
-  %93 = insertelement <2 x i32> poison, i32 %1, i64 0
-  %94 = shufflevector <2 x i32> %93, <2 x i32> poison, <2 x i32> zeroinitializer
-  %95 = sub nsw <2 x i32> %92, %94
-  store <2 x i32> %95, ptr %84, align 4
+  %92 = load i32, ptr %84, align 4
+  %93 = sub nsw i32 %92, %1
+  store i32 %93, ptr %84, align 4
+  %94 = load i32, ptr %89, align 8
+  %95 = sub nsw i32 %94, %1
+  store i32 %95, ptr %89, align 8
   %96 = getelementptr inbounds i8, ptr %0, i64 148
   %97 = load i32, ptr %96, align 4
   %98 = add nsw i32 %97, %1

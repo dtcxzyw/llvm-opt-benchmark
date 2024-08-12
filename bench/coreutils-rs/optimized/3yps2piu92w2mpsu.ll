@@ -83,7 +83,7 @@ define hidden void @_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h37ac3
   br i1 %21, label %28, label %31
 
 22:                                               ; preds = %3, %28
-  %23 = phi i64 [ %8, %3 ], [ %30, %28 ]
+  %23 = phi i64 [ %8, %3 ], [ %29, %28 ]
   %24 = phi i64 [ %6, %3 ], [ 0, %28 ]
   %25 = sub nuw i64 %23, %24
   %26 = getelementptr inbounds i8, ptr %.pre, i64 %24
@@ -94,9 +94,10 @@ define hidden void @_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h37ac3
 
 28:                                               ; preds = %9
   store i64 0, ptr %5, align 8
-  %29 = load <2 x i64>, ptr %13, align 8
-  %30 = load i64, ptr %13, align 8, !noundef !4
-  store <2 x i64> %29, ptr %7, align 8
+  %29 = load i64, ptr %13, align 8, !noundef !4
+  store i64 %29, ptr %7, align 8
+  %30 = load i64, ptr %14, align 8, !noundef !4
+  store i64 %30, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %22
 
@@ -206,7 +207,7 @@ define hidden void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   br i1 %21, label %28, label %31
 
 22:                                               ; preds = %28, %2
-  %23 = phi i64 [ %7, %2 ], [ %30, %28 ]
+  %23 = phi i64 [ %7, %2 ], [ %29, %28 ]
   %24 = phi i64 [ %5, %2 ], [ 0, %28 ]
   %25 = sub nuw i64 %23, %24
   %26 = getelementptr inbounds i8, ptr %.pre.i, i64 %24
@@ -217,9 +218,10 @@ define hidden void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 
 28:                                               ; preds = %8
   store i64 0, ptr %4, align 8, !alias.scope !25, !noalias !29
-  %29 = load <2 x i64>, ptr %13, align 8, !noalias !30
-  %30 = load i64, ptr %13, align 8, !noalias !30, !noundef !4
-  store <2 x i64> %29, ptr %6, align 8, !alias.scope !25, !noalias !29
+  %29 = load i64, ptr %13, align 8, !noalias !30, !noundef !4
+  store i64 %29, ptr %6, align 8, !alias.scope !25, !noalias !29
+  %30 = load i64, ptr %14, align 8, !noalias !30, !noundef !4
+  store i64 %30, ptr %15, align 8, !alias.scope !25, !noalias !29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !30
   br label %22
 

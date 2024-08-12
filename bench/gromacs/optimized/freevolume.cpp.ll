@@ -2343,54 +2343,50 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110FreeVolume11writeO
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef float @_ZNK3gmx25AnalysisDataAverageModule7averageEii(ptr noundef nonnull align 8 dereferenceable(112) %3, i32 noundef 0, i32 noundef 0)
-  %5 = load ptr, ptr %2, align 8
-  %6 = tail call noundef float @_ZNK3gmx25AnalysisDataAverageModule17standardDeviationEii(ptr noundef nonnull align 8 dereferenceable(112) %5, i32 noundef 0, i32 noundef 0)
-  %7 = fpext float %6 to double
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
-  %10 = fpext float %4 to double
-  %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, double noundef %10, double noundef %7)
-  %12 = load ptr, ptr %2, align 8
-  %13 = tail call noundef float @_ZNK3gmx25AnalysisDataAverageModule7averageEii(ptr noundef nonnull align 8 dereferenceable(112) %12, i32 noundef 0, i32 noundef 1)
-  %14 = fpext float %13 to double
-  %15 = load ptr, ptr %2, align 8
-  %16 = tail call noundef float @_ZNK3gmx25AnalysisDataAverageModule17standardDeviationEii(ptr noundef nonnull align 8 dereferenceable(112) %15, i32 noundef 0, i32 noundef 1)
-  %17 = fpext float %16 to double
-  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, double noundef %14, double noundef %17)
-  %19 = load i32, ptr %8, align 8
-  %20 = load double, ptr %9, align 8
-  %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.65, i32 noundef %19, double noundef %20)
-  %22 = load double, ptr %9, align 8
-  %23 = fmul double %14, 0x3AF357C299A88EA7
+  %5 = fpext float %4 to double
+  %6 = load ptr, ptr %2, align 8
+  %7 = tail call noundef float @_ZNK3gmx25AnalysisDataAverageModule17standardDeviationEii(ptr noundef nonnull align 8 dereferenceable(112) %6, i32 noundef 0, i32 noundef 0)
+  %8 = fpext float %7 to double
+  %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, double noundef %5, double noundef %8)
+  %10 = load ptr, ptr %2, align 8
+  %11 = tail call noundef float @_ZNK3gmx25AnalysisDataAverageModule7averageEii(ptr noundef nonnull align 8 dereferenceable(112) %10, i32 noundef 0, i32 noundef 1)
+  %12 = fpext float %11 to double
+  %13 = load ptr, ptr %2, align 8
+  %14 = tail call noundef float @_ZNK3gmx25AnalysisDataAverageModule17standardDeviationEii(ptr noundef nonnull align 8 dereferenceable(112) %13, i32 noundef 0, i32 noundef 1)
+  %15 = fpext float %14 to double
+  %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, double noundef %12, double noundef %15)
+  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = load double, ptr %19, align 8
+  %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.65, i32 noundef %18, double noundef %20)
+  %22 = load double, ptr %19, align 8
+  %23 = fmul double %12, 0x3AF357C299A88EA7
   %24 = fmul double %23, 0x44DFE185CA57C517
   %25 = fdiv double %22, %24
-  %26 = fdiv double %25, %14
+  %26 = fdiv double %25, %12
   %27 = fmul double %26, %26
-  %28 = fmul double %27, %17
-  %29 = load i32, ptr %8, align 8
+  %28 = fmul double %27, %15
+  %29 = load i32, ptr %17, align 8
   %30 = sitofp i32 %29 to double
   %31 = fdiv double %22, %30
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, double noundef %31)
-  %33 = load i32, ptr %8, align 8
+  %33 = load i32, ptr %17, align 8
   %34 = sitofp i32 %33 to double
-  %35 = fdiv double %17, %34
-  %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, double noundef %25, double noundef %28)
-  %37 = insertelement <2 x double> poison, double %10, i64 0
-  %38 = insertelement <2 x double> %37, double %14, i64 1
-  %39 = insertelement <2 x double> <double 1.000000e+02, double poison>, double %34, i64 1
-  %40 = fdiv <2 x double> %38, %39
-  %41 = extractelement <2 x double> %40, i64 1
-  %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, double noundef %41, double noundef %35)
-  %43 = extractelement <2 x double> %40, i64 0
-  %44 = fsub double 1.000000e+00, %43
-  %45 = fmul double %44, %41
-  %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.69, double noundef %45, double noundef 0.000000e+00)
-  %47 = fsub double 1.000000e+02, %10
-  %48 = fdiv double %47, 1.000000e+02
-  %49 = tail call double @llvm.fmuladd.f64(double %48, double -1.300000e+00, double 1.000000e+00)
-  %50 = fdiv double %7, %10
-  %51 = fmul double %50, %49
-  %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, double noundef %49, double noundef %51)
+  %35 = fdiv double %12, %34
+  %36 = fdiv double %15, %34
+  %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, double noundef %25, double noundef %28)
+  %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, double noundef %35, double noundef %36)
+  %39 = fdiv double %5, 1.000000e+02
+  %40 = fsub double 1.000000e+00, %39
+  %41 = fmul double %40, %35
+  %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.69, double noundef %41, double noundef 0.000000e+00)
+  %43 = fsub double 1.000000e+02, %5
+  %44 = fdiv double %43, 1.000000e+02
+  %45 = tail call double @llvm.fmuladd.f64(double %44, double -1.300000e+00, double 1.000000e+00)
+  %46 = fdiv double %8, %5
+  %47 = fmul double %46, %45
+  %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, double noundef %45, double noundef %47)
   ret void
 }
 
@@ -2631,10 +2627,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %0, align 8
   ret void

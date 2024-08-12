@@ -4421,15 +4421,33 @@ declare ptr @Abc_NamStr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Acb_ParSetDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
-  store <4 x i32> <i32 4, i32 2, i32 3, i32 20>, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x i32> <i32 100, i32 0, i32 0, i32 0>, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 0>, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 0, ptr %5, align 4
+  store i32 4, ptr %0, align 4
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 2, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 3, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 20, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 100, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 1, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 0, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 0, ptr %14, align 4
   ret void
 }
 

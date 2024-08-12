@@ -969,9 +969,12 @@ entry:
   %si = alloca %struct.siginfo_t, align 8
   %0 = getelementptr inbounds i8, ptr %si, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 120, i1 false)
-  %1 = load <2 x i32>, ptr %info, align 8
-  %2 = load i32, ptr %info, align 8
-  store <2 x i32> %1, ptr %si, align 8
+  %1 = load i32, ptr %info, align 8
+  store i32 %1, ptr %si, align 8
+  %ssi_errno = getelementptr inbounds i8, ptr %info, i64 4
+  %2 = load i32, ptr %ssi_errno, align 4
+  %si_errno = getelementptr inbounds i8, ptr %si, i64 4
+  store i32 %2, ptr %si_errno, align 4
   %ssi_code = getelementptr inbounds i8, ptr %info, i64 8
   %3 = load i32, ptr %ssi_code, align 8
   %si_code = getelementptr inbounds i8, ptr %si, i64 8
@@ -987,13 +990,17 @@ lor.lhs.false4:                                   ; preds = %entry
 
 if.then:                                          ; preds = %entry, %entry, %lor.lhs.false4
   %ssi_pid = getelementptr inbounds i8, ptr %info, i64 12
+  %4 = load i32, ptr %ssi_pid, align 4
   %_sifields = getelementptr inbounds i8, ptr %si, i64 16
-  %4 = load <2 x i32>, ptr %ssi_pid, align 4
-  store <2 x i32> %4, ptr %_sifields, align 8
+  store i32 %4, ptr %_sifields, align 8
+  %ssi_uid = getelementptr inbounds i8, ptr %info, i64 16
+  %5 = load i32, ptr %ssi_uid, align 8
+  %si_uid = getelementptr inbounds i8, ptr %si, i64 20
+  store i32 %5, ptr %si_uid, align 4
   br label %if.end33
 
 if.else:                                          ; preds = %lor.lhs.false4
-  switch i32 %2, label %if.end33 [
+  switch i32 %1, label %if.end33 [
     i32 4, label %if.then19
     i32 8, label %if.then19
     i32 11, label %if.then19
@@ -1003,26 +1010,30 @@ if.else:                                          ; preds = %lor.lhs.false4
 
 if.then19:                                        ; preds = %if.else, %if.else, %if.else, %if.else
   %ssi_addr = getelementptr inbounds i8, ptr %info, i64 72
-  %5 = load i64, ptr %ssi_addr, align 8
-  %6 = inttoptr i64 %5 to ptr
+  %6 = load i64, ptr %ssi_addr, align 8
+  %7 = inttoptr i64 %6 to ptr
   %_sifields20 = getelementptr inbounds i8, ptr %si, i64 16
-  store ptr %6, ptr %_sifields20, align 8
+  store ptr %7, ptr %_sifields20, align 8
   br label %if.end33
 
 if.then24:                                        ; preds = %if.else
   %ssi_pid25 = getelementptr inbounds i8, ptr %info, i64 12
+  %8 = load i32, ptr %ssi_pid25, align 4
   %_sifields26 = getelementptr inbounds i8, ptr %si, i64 16
+  store i32 %8, ptr %_sifields26, align 8
   %ssi_status = getelementptr inbounds i8, ptr %info, i64 40
-  %7 = load i32, ptr %ssi_status, align 8
+  %9 = load i32, ptr %ssi_status, align 8
   %si_status = getelementptr inbounds i8, ptr %si, i64 24
-  store i32 %7, ptr %si_status, align 8
-  %8 = load <2 x i32>, ptr %ssi_pid25, align 4
-  store <2 x i32> %8, ptr %_sifields26, align 8
+  store i32 %9, ptr %si_status, align 8
+  %ssi_uid29 = getelementptr inbounds i8, ptr %info, i64 16
+  %10 = load i32, ptr %ssi_uid29, align 8
+  %si_uid31 = getelementptr inbounds i8, ptr %si, i64 20
+  store i32 %10, ptr %si_uid31, align 4
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else, %if.then19, %if.then24, %if.then
-  %9 = load ptr, ptr %action, align 8
-  call void %9(i32 noundef %2, ptr noundef nonnull %si, ptr noundef null) #15
+  %11 = load ptr, ptr %action, align 8
+  call void %11(i32 noundef %1, ptr noundef nonnull %si, ptr noundef null) #15
   ret void
 }
 

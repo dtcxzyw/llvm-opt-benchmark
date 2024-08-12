@@ -130,7 +130,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h88
   ret void
 
 .lr.ph:                                           ; preds = %5, %17
-  %.012 = phi i64 [ %22, %17 ], [ 0, %5 ]
+  %.012 = phi i64 [ %26, %17 ], [ 0, %5 ]
   %exitcond.not = icmp eq i64 %.012, %8
   br i1 %exitcond.not, label %16, label %12, !prof !3
 
@@ -138,7 +138,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h88
   %13 = xor i64 %.012, -1
   %14 = add i64 %13, %4
   %15 = icmp ult i64 %14, %11
-  br i1 %15, label %17, label %23, !prof !4
+  br i1 %15, label %17, label %27, !prof !4
 
 16:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %8, i64 %8, ptr nonnull align 8 @anon.8e92f385f7022704794a38667b439943.3) #2
@@ -147,15 +147,21 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h88
 17:                                               ; preds = %12
   %18 = getelementptr inbounds [0 x { ptr, ptr }], ptr %7, i64 0, i64 %.012
   %19 = getelementptr inbounds [0 x { ptr, ptr }], ptr %10, i64 0, i64 %14
-  %20 = load <2 x ptr>, ptr %19, align 8
-  %21 = load <2 x ptr>, ptr %18, align 8
-  store <2 x ptr> %20, ptr %18, align 8
-  store <2 x ptr> %21, ptr %19, align 8
-  %22 = add nuw i64 %.012, 1
-  %exitcond16.not = icmp eq i64 %22, %4
+  %20 = load ptr, ptr %18, align 8, !nonnull !5, !align !7, !noundef !5
+  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %22 = load ptr, ptr %21, align 8, !nonnull !5, !align !7, !noundef !5
+  %23 = load ptr, ptr %19, align 8, !nonnull !5, !align !7, !noundef !5
+  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %25 = load ptr, ptr %24, align 8, !nonnull !5, !align !7, !noundef !5
+  store ptr %23, ptr %18, align 8
+  store ptr %25, ptr %21, align 8
+  store ptr %20, ptr %19, align 8
+  store ptr %22, ptr %24, align 8
+  %26 = add nuw i64 %.012, 1
+  %exitcond16.not = icmp eq i64 %26, %4
   br i1 %exitcond16.not, label %._crit_edge, label %.lr.ph
 
-23:                                               ; preds = %12
+27:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %14, i64 %11, ptr nonnull align 8 @anon.8e92f385f7022704794a38667b439943.4) #2
   unreachable
 }
@@ -231,3 +237,4 @@ attributes #2 = { noreturn }
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = !{}
 !6 = !{i64 1}
+!7 = !{i64 8}

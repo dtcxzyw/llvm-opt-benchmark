@@ -1913,12 +1913,13 @@ opal_datatype_is_contiguous_memory_layout.exit111: ; preds = %opal_obj_run_const
 266:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit111
   %267 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 16
-  %269 = getelementptr inbounds i8, ptr %12, i64 16
-  %270 = getelementptr inbounds i8, ptr %267, i64 20
-  %271 = getelementptr inbounds i8, ptr %12, i64 20
-  %272 = load i32, ptr %270, align 4
-  %273 = load <2 x i32>, ptr %268, align 8
-  store <2 x i32> %273, ptr %269, align 8
+  %269 = load i32, ptr %268, align 8
+  %270 = getelementptr inbounds i8, ptr %12, i64 16
+  store i32 %269, ptr %270, align 8
+  %271 = getelementptr inbounds i8, ptr %267, i64 20
+  %272 = load i32, ptr %271, align 4
+  %273 = getelementptr inbounds i8, ptr %12, i64 20
+  store i32 %272, ptr %273, align 4
   %274 = getelementptr inbounds i8, ptr %267, i64 96
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds i8, ptr %12, i64 96
@@ -1929,7 +1930,7 @@ opal_datatype_is_contiguous_memory_layout.exit111: ; preds = %opal_obj_run_const
   %280 = shl i32 %279, 29
   %spec.select82 = and i32 %280, 1073741824
   %281 = or i32 %spec.select82, %272
-  store i32 %281, ptr %271, align 4
+  store i32 %281, ptr %273, align 4
   br label %331
 
 opal_datatype_is_contiguous_memory_layout.exit111.thread: ; preds = %opal_obj_run_constructors.exit, %opal_datatype_is_contiguous_memory_layout.exit111

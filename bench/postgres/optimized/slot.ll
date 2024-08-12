@@ -1482,7 +1482,7 @@ declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [1024 x i8], align 16
-  %6 = alloca %struct.ReplicationSlotOnDisk, align 16
+  %6 = alloca %struct.ReplicationSlotOnDisk, align 8
   %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i8 1, ptr elementtype(i8) %0) #15, !srcloc !10
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %10, label %8
@@ -1499,7 +1499,7 @@ define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef %1, i32 
   store i8 0, ptr %14, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !22
   store i8 0, ptr %0, align 8
-  br i1 %13, label %15, label %98
+  br i1 %13, label %15, label %99
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %0, i64 208
@@ -1516,163 +1516,167 @@ define internal fastcc void @SaveSlotToPath(ptr noundef %0, ptr noundef %1, i32 
   call void @LWLockRelease(ptr noundef nonnull %16) #15
   store i32 %24, ptr %23, align 4
   %25 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #15
-  br i1 %25, label %26, label %98
+  br i1 %25, label %26, label %99
 
 26:                                               ; preds = %22
   %27 = call i32 @errcode_for_file_access() #15
   %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, ptr noundef nonnull %4) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2002, ptr noundef nonnull @__func__.SaveSlotToPath) #15
-  br label %98
+  br label %99
 
 29:                                               ; preds = %15
+  store i32 17112225, ptr %6, align 8
   %30 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 -1, ptr %30, align 4
   %31 = getelementptr inbounds i8, ptr %6, i64 8
-  store <4 x i32> <i32 17112225, i32 -1, i32 5, i32 184>, ptr %6, align 16
-  %32 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #15, !srcloc !10
-  %.not87 = icmp eq i8 %32, 0
-  br i1 %.not87, label %35, label %33
+  store i32 5, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 184, ptr %32, align 4
+  %33 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #15, !srcloc !10
+  %.not87 = icmp eq i8 %33, 0
+  br i1 %.not87, label %36, label %34
 
-33:                                               ; preds = %29
-  %34 = call i32 @s_lock(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef 2011, ptr noundef nonnull @__func__.SaveSlotToPath) #15
-  br label %35
+34:                                               ; preds = %29
+  %35 = call i32 @s_lock(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef 2011, ptr noundef nonnull @__func__.SaveSlotToPath) #15
+  br label %36
 
-35:                                               ; preds = %29, %33
-  %36 = getelementptr inbounds i8, ptr %6, i64 16
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(184) %36, ptr noundef nonnull align 8 dereferenceable(184) %37, i64 184, i1 false)
+36:                                               ; preds = %29, %34
+  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %37, ptr noundef nonnull align 8 dereferenceable(184) %38, i64 184, i1 false)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !23
   store i8 0, ptr %0, align 8
-  %38 = load ptr, ptr @pg_comp_crc32c, align 8
-  %39 = call i32 %38(i32 noundef -1, ptr noundef nonnull %31, i64 noundef 192) #15
-  %40 = xor i32 %39, -1
-  store i32 %40, ptr %30, align 4
-  %41 = tail call ptr @__errno_location() #18
-  store i32 0, ptr %41, align 4
-  %42 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772205, ptr %42, align 4
-  %43 = call i64 @write(i32 noundef %20, ptr noundef nonnull %6, i64 noundef 200) #15
-  %.not88 = icmp eq i64 %43, 200
-  br i1 %.not88, label %53, label %44
+  %39 = load ptr, ptr @pg_comp_crc32c, align 8
+  %40 = call i32 %39(i32 noundef -1, ptr noundef nonnull %31, i64 noundef 192) #15
+  %41 = xor i32 %40, -1
+  store i32 %41, ptr %30, align 4
+  %42 = tail call ptr @__errno_location() #18
+  store i32 0, ptr %42, align 4
+  %43 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772205, ptr %43, align 4
+  %44 = call i64 @write(i32 noundef %20, ptr noundef nonnull %6, i64 noundef 200) #15
+  %.not88 = icmp eq i64 %44, 200
+  br i1 %.not88, label %54, label %45
 
-44:                                               ; preds = %35
-  %45 = load i32, ptr %41, align 4
-  %46 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %46, align 4
-  %47 = call i32 @CloseTransientFile(i32 noundef %20) #15
+45:                                               ; preds = %36
+  %46 = load i32, ptr %42, align 4
+  %47 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %47, align 4
+  %48 = call i32 @CloseTransientFile(i32 noundef %20) #15
   call void @LWLockRelease(ptr noundef nonnull %16) #15
-  %.not93 = icmp eq i32 %45, 0
-  %48 = select i1 %.not93, i32 28, i32 %45
-  store i32 %48, ptr %41, align 4
-  %49 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #15
-  br i1 %49, label %50, label %98
+  %.not93 = icmp eq i32 %46, 0
+  %49 = select i1 %.not93, i32 28, i32 %46
+  store i32 %49, ptr %42, align 4
+  %50 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #15
+  br i1 %50, label %51, label %99
 
-50:                                               ; preds = %44
-  %51 = call i32 @errcode_for_file_access() #15
-  %52 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef nonnull %4) #15
+51:                                               ; preds = %45
+  %52 = call i32 @errcode_for_file_access() #15
+  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef nonnull %4) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2037, ptr noundef nonnull @__func__.SaveSlotToPath) #15
-  br label %98
+  br label %99
 
-53:                                               ; preds = %35
-  %54 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %54, align 4
+54:                                               ; preds = %36
   %55 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772204, ptr %55, align 4
-  %56 = call i32 @pg_fsync(i32 noundef %20) #15
-  %.not89 = icmp eq i32 %56, 0
-  br i1 %.not89, label %65, label %57
+  store volatile i32 0, ptr %55, align 4
+  %56 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772204, ptr %56, align 4
+  %57 = call i32 @pg_fsync(i32 noundef %20) #15
+  %.not89 = icmp eq i32 %57, 0
+  br i1 %.not89, label %66, label %58
 
-57:                                               ; preds = %53
-  %58 = load i32, ptr %41, align 4
-  %59 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %59, align 4
-  %60 = call i32 @CloseTransientFile(i32 noundef %20) #15
+58:                                               ; preds = %54
+  %59 = load i32, ptr %42, align 4
+  %60 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %60, align 4
+  %61 = call i32 @CloseTransientFile(i32 noundef %20) #15
   call void @LWLockRelease(ptr noundef nonnull %16) #15
-  store i32 %58, ptr %41, align 4
-  %61 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #15
-  br i1 %61, label %62, label %98
+  store i32 %59, ptr %42, align 4
+  %62 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #15
+  br i1 %62, label %63, label %99
 
-62:                                               ; preds = %57
-  %63 = call i32 @errcode_for_file_access() #15
-  %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56, ptr noundef nonnull %4) #15
+63:                                               ; preds = %58
+  %64 = call i32 @errcode_for_file_access() #15
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56, ptr noundef nonnull %4) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2055, ptr noundef nonnull @__func__.SaveSlotToPath) #15
-  br label %98
+  br label %99
 
-65:                                               ; preds = %53
-  %66 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %66, align 4
-  %67 = call i32 @CloseTransientFile(i32 noundef %20) #15
-  %.not90 = icmp eq i32 %67, 0
-  br i1 %.not90, label %74, label %68
+66:                                               ; preds = %54
+  %67 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %67, align 4
+  %68 = call i32 @CloseTransientFile(i32 noundef %20) #15
+  %.not90 = icmp eq i32 %68, 0
+  br i1 %.not90, label %75, label %69
 
-68:                                               ; preds = %65
-  %69 = load i32, ptr %41, align 4
+69:                                               ; preds = %66
+  %70 = load i32, ptr %42, align 4
   call void @LWLockRelease(ptr noundef nonnull %16) #15
-  store i32 %69, ptr %41, align 4
-  %70 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #15
-  br i1 %70, label %71, label %98
+  store i32 %70, ptr %42, align 4
+  %71 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #15
+  br i1 %71, label %72, label %99
 
-71:                                               ; preds = %68
-  %72 = call i32 @errcode_for_file_access() #15
-  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57, ptr noundef nonnull %4) #15
+72:                                               ; preds = %69
+  %73 = call i32 @errcode_for_file_access() #15
+  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57, ptr noundef nonnull %4) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2069, ptr noundef nonnull @__func__.SaveSlotToPath) #15
-  br label %98
+  br label %99
 
-74:                                               ; preds = %65
-  %75 = call i32 @rename(ptr noundef nonnull %4, ptr noundef nonnull %5) #15
-  %.not91 = icmp eq i32 %75, 0
-  br i1 %.not91, label %82, label %76
+75:                                               ; preds = %66
+  %76 = call i32 @rename(ptr noundef nonnull %4, ptr noundef nonnull %5) #15
+  %.not91 = icmp eq i32 %76, 0
+  br i1 %.not91, label %83, label %77
 
-76:                                               ; preds = %74
-  %77 = load i32, ptr %41, align 4
+77:                                               ; preds = %75
+  %78 = load i32, ptr %42, align 4
   call void @LWLockRelease(ptr noundef nonnull %16) #15
-  store i32 %77, ptr %41, align 4
-  %78 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #15
-  br i1 %78, label %79, label %98
+  store i32 %78, ptr %42, align 4
+  %79 = call zeroext i1 @errstart(i32 noundef %2, ptr noundef null) #15
+  br i1 %79, label %80, label %99
 
-79:                                               ; preds = %76
-  %80 = call i32 @errcode_for_file_access() #15
-  %81 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
+80:                                               ; preds = %77
+  %81 = call i32 @errcode_for_file_access() #15
+  %82 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2083, ptr noundef nonnull @__func__.SaveSlotToPath) #15
-  br label %98
+  br label %99
 
-82:                                               ; preds = %74
-  %83 = load volatile i32, ptr @CritSectionCount, align 4
-  %84 = add i32 %83, 1
-  store volatile i32 %84, ptr @CritSectionCount, align 4
+83:                                               ; preds = %75
+  %84 = load volatile i32, ptr @CritSectionCount, align 4
+  %85 = add i32 %84, 1
+  store volatile i32 %85, ptr @CritSectionCount, align 4
   call void @fsync_fname(ptr noundef nonnull %5, i1 noundef zeroext false) #15
   call void @fsync_fname(ptr noundef %1, i1 noundef zeroext true) #15
   call void @fsync_fname(ptr noundef nonnull @.str.35, i1 noundef zeroext true) #15
-  %85 = load volatile i32, ptr @CritSectionCount, align 4
-  %86 = add i32 %85, -1
-  store volatile i32 %86, ptr @CritSectionCount, align 4
-  %87 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #15, !srcloc !10
-  %.not92 = icmp eq i8 %87, 0
-  br i1 %.not92, label %90, label %88
+  %86 = load volatile i32, ptr @CritSectionCount, align 4
+  %87 = add i32 %86, -1
+  store volatile i32 %87, ptr @CritSectionCount, align 4
+  %88 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #15, !srcloc !10
+  %.not92 = icmp eq i8 %88, 0
+  br i1 %.not92, label %91, label %89
 
-88:                                               ; preds = %82
-  %89 = call i32 @s_lock(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef 2102, ptr noundef nonnull @__func__.SaveSlotToPath) #15
-  br label %90
+89:                                               ; preds = %83
+  %90 = call i32 @s_lock(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef 2102, ptr noundef nonnull @__func__.SaveSlotToPath) #15
+  br label %91
 
-90:                                               ; preds = %82, %88
-  %91 = load i8, ptr %14, align 8
-  %92 = trunc i8 %91 to i1
-  br i1 %92, label %94, label %93
+91:                                               ; preds = %83, %89
+  %92 = load i8, ptr %14, align 8
+  %93 = trunc i8 %92 to i1
+  br i1 %93, label %95, label %94
 
-93:                                               ; preds = %90
+94:                                               ; preds = %91
   store i8 0, ptr %11, align 1
-  br label %94
+  br label %95
 
-94:                                               ; preds = %93, %90
-  %95 = getelementptr inbounds i8, ptr %6, i64 112
-  %96 = load i64, ptr %95, align 16
-  %97 = getelementptr inbounds i8, ptr %0, i64 264
-  store i64 %96, ptr %97, align 8
+95:                                               ; preds = %94, %91
+  %96 = getelementptr inbounds i8, ptr %6, i64 112
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %0, i64 264
+  store i64 %97, ptr %98, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
   store i8 0, ptr %0, align 8
   call void @LWLockRelease(ptr noundef nonnull %16) #15
-  br label %98
+  br label %99
 
-98:                                               ; preds = %76, %79, %68, %71, %57, %62, %44, %50, %22, %26, %10, %94
+99:                                               ; preds = %77, %80, %69, %72, %58, %63, %45, %51, %22, %26, %10, %95
   ret void
 }
 

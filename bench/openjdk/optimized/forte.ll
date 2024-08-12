@@ -116,19 +116,19 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %1
 
 13:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit
   tail call void @_ZN18vframeStreamCommon27fill_from_interpreter_frameEv(ptr noundef nonnull align 8 dereferenceable(5104) %0)
-  br label %96
+  br label %102
 
 _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %1, %_ZNK5frame20is_interpreted_frameEv.exit
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %75, label %16
+  br i1 %.not, label %81, label %16
 
 16:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.thread
   %17 = getelementptr inbounds i8, ptr %15, i64 52
   %18 = load i8, ptr %17, align 4
   %19 = icmp eq i8 %18, 1
-  br i1 %19, label %20, label %75
+  br i1 %19, label %20, label %81
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %15, i64 72
@@ -145,137 +145,149 @@ _ZNK7nmethod16is_native_methodEv.exit:            ; preds = %20
 
 25:                                               ; preds = %_ZNK7nmethod16is_native_methodEv.exit
   %26 = getelementptr inbounds i8, ptr %0, i64 5048
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %26, align 8
-  %27 = load ptr, ptr %21, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 5064
-  store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 5072
-  store i32 0, ptr %29, align 8
-  br label %96
+  store i32 1, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 5056
+  store i32 0, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 5052
+  store i32 0, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %0, i64 5060
+  store i32 0, ptr %29, align 4
+  %30 = load ptr, ptr %21, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 5064
+  store ptr %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 5072
+  store i32 0, ptr %32, align 8
+  br label %102
 
 _ZNK7nmethod16is_native_methodEv.exit.thread:     ; preds = %20, %_ZNK7nmethod16is_native_methodEv.exit
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %15, i64 96
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %_ZN7nmethod10pc_desc_atEPh.exit.thread, label %35
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %15, i64 96
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %_ZN7nmethod10pc_desc_atEPh.exit.thread, label %38
 
-35:                                               ; preds = %_ZNK7nmethod16is_native_methodEv.exit.thread
-  %36 = getelementptr inbounds i8, ptr %15, i64 36
-  %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %15, i64 %38
-  %40 = getelementptr inbounds i8, ptr %15, i64 88
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %15, i64 188
-  %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %15, i64 192
-  %45 = load i32, ptr %44, align 8
-  %46 = load volatile ptr, ptr %33, align 8
-  %47 = load i32, ptr %46, align 4
-  %48 = sext i32 %47 to i64
-  %49 = ptrtoint ptr %31 to i64
-  %50 = ptrtoint ptr %39 to i64
-  %51 = sub i64 %49, %50
-  %52 = icmp eq i64 %51, %48
-  br i1 %52, label %_ZN7nmethod10pc_desc_atEPh.exit.thread11, label %_ZN7nmethod10pc_desc_atEPh.exit
+38:                                               ; preds = %_ZNK7nmethod16is_native_methodEv.exit.thread
+  %39 = getelementptr inbounds i8, ptr %15, i64 36
+  %40 = load i32, ptr %39, align 4
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i8, ptr %15, i64 %41
+  %43 = getelementptr inbounds i8, ptr %15, i64 88
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %15, i64 188
+  %46 = load i32, ptr %45, align 4
+  %47 = getelementptr inbounds i8, ptr %15, i64 192
+  %48 = load i32, ptr %47, align 8
+  %49 = load volatile ptr, ptr %36, align 8
+  %50 = load i32, ptr %49, align 4
+  %51 = sext i32 %50 to i64
+  %52 = ptrtoint ptr %34 to i64
+  %53 = ptrtoint ptr %42 to i64
+  %54 = sub i64 %52, %53
+  %55 = icmp eq i64 %54, %51
+  br i1 %55, label %_ZN7nmethod10pc_desc_atEPh.exit.thread11, label %_ZN7nmethod10pc_desc_atEPh.exit
 
-_ZN7nmethod10pc_desc_atEPh.exit:                  ; preds = %35
-  %53 = sext i32 %45 to i64
-  %54 = getelementptr inbounds i8, ptr %41, i64 %53
-  %55 = sext i32 %43 to i64
-  %56 = getelementptr inbounds i8, ptr %41, i64 %55
-  %57 = tail call noundef ptr @_ZN15PcDescContainer21find_pc_desc_internalEPhbS0_P6PcDescS2_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %31, i1 noundef zeroext false, ptr noundef nonnull %39, ptr noundef %56, ptr noundef %54) #8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %_ZN7nmethod10pc_desc_atEPh.exit.thread, label %_ZN7nmethod10pc_desc_atEPh.exit.thread11
+_ZN7nmethod10pc_desc_atEPh.exit:                  ; preds = %38
+  %56 = sext i32 %48 to i64
+  %57 = getelementptr inbounds i8, ptr %44, i64 %56
+  %58 = sext i32 %46 to i64
+  %59 = getelementptr inbounds i8, ptr %44, i64 %58
+  %60 = tail call noundef ptr @_ZN15PcDescContainer21find_pc_desc_internalEPhbS0_P6PcDescS2_(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef %34, i1 noundef zeroext false, ptr noundef nonnull %42, ptr noundef %59, ptr noundef %57) #8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %_ZN7nmethod10pc_desc_atEPh.exit.thread, label %_ZN7nmethod10pc_desc_atEPh.exit.thread11
 
 _ZN7nmethod10pc_desc_atEPh.exit.thread:           ; preds = %_ZNK7nmethod16is_native_methodEv.exit.thread, %_ZN7nmethod10pc_desc_atEPh.exit
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
-  %60 = load ptr, ptr %59, align 8
-  %.not8 = icmp eq ptr %60, null
-  br i1 %.not8, label %.critedge, label %61
+  %62 = getelementptr inbounds i8, ptr %0, i64 56
+  %63 = load ptr, ptr %62, align 8
+  %.not8 = icmp eq ptr %63, null
+  br i1 %.not8, label %.critedge, label %64
 
-61:                                               ; preds = %_ZN7nmethod10pc_desc_atEPh.exit.thread
-  %62 = getelementptr inbounds i8, ptr %60, i64 1092
-  %63 = load volatile i32, ptr %62, align 4
-  %64 = icmp eq i32 %63, 8
-  br i1 %64, label %.critedge, label %73
+64:                                               ; preds = %_ZN7nmethod10pc_desc_atEPh.exit.thread
+  %65 = getelementptr inbounds i8, ptr %63, i64 1092
+  %66 = load volatile i32, ptr %65, align 4
+  %67 = icmp eq i32 %66, 8
+  br i1 %67, label %.critedge, label %79
 
-.critedge:                                        ; preds = %_ZN7nmethod10pc_desc_atEPh.exit.thread, %61
-  %65 = getelementptr inbounds i8, ptr %0, i64 5048
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %65, align 8
-  %66 = load ptr, ptr %14, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 72
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 5064
-  store ptr %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 5072
-  store i32 0, ptr %70, align 8
-  br label %96
+.critedge:                                        ; preds = %_ZN7nmethod10pc_desc_atEPh.exit.thread, %64
+  %68 = getelementptr inbounds i8, ptr %0, i64 5048
+  store i32 1, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 5056
+  store i32 0, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %0, i64 5052
+  store i32 0, ptr %70, align 4
+  %71 = getelementptr inbounds i8, ptr %0, i64 5060
+  store i32 0, ptr %71, align 4
+  %72 = load ptr, ptr %14, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 72
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %0, i64 5064
+  store ptr %74, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 5072
+  store i32 0, ptr %76, align 8
+  br label %102
 
-_ZN7nmethod10pc_desc_atEPh.exit.thread11:         ; preds = %35, %_ZN7nmethod10pc_desc_atEPh.exit
-  %.0.i.i13 = phi ptr [ %57, %_ZN7nmethod10pc_desc_atEPh.exit ], [ %46, %35 ]
-  %71 = getelementptr inbounds i8, ptr %.0.i.i13, i64 4
-  %72 = load i32, ptr %71, align 4
-  br label %73
+_ZN7nmethod10pc_desc_atEPh.exit.thread11:         ; preds = %38, %_ZN7nmethod10pc_desc_atEPh.exit
+  %.0.i.i13 = phi ptr [ %60, %_ZN7nmethod10pc_desc_atEPh.exit ], [ %49, %38 ]
+  %77 = getelementptr inbounds i8, ptr %.0.i.i13, i64 4
+  %78 = load i32, ptr %77, align 4
+  br label %79
 
-73:                                               ; preds = %61, %_ZN7nmethod10pc_desc_atEPh.exit.thread11
-  %.05 = phi i32 [ %72, %_ZN7nmethod10pc_desc_atEPh.exit.thread11 ], [ 0, %61 ]
+79:                                               ; preds = %64, %_ZN7nmethod10pc_desc_atEPh.exit.thread11
+  %.05 = phi i32 [ %78, %_ZN7nmethod10pc_desc_atEPh.exit.thread11 ], [ 0, %64 ]
   tail call void @_ZN18vframeStreamCommon24fill_from_compiled_frameEi(ptr noundef nonnull align 8 dereferenceable(5104) %0, i32 noundef %.05)
-  %74 = getelementptr inbounds i8, ptr %0, i64 5060
-  store i32 0, ptr %74, align 4
-  br label %96
+  %80 = getelementptr inbounds i8, ptr %0, i64 5060
+  store i32 0, ptr %80, align 4
+  br label %102
 
-75:                                               ; preds = %16, %_ZNK5frame20is_interpreted_frameEv.exit.thread
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr @_ZN12StubRoutines25_call_stub_return_addressE, align 8
-  %79 = icmp eq ptr %78, %77
-  br i1 %79, label %80, label %82
+81:                                               ; preds = %16, %_ZNK5frame20is_interpreted_frameEv.exit.thread
+  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr @_ZN12StubRoutines25_call_stub_return_addressE, align 8
+  %85 = icmp eq ptr %84, %83
+  br i1 %85, label %86, label %88
 
-80:                                               ; preds = %75
-  %81 = tail call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
-  br i1 %81, label %_ZNK5frame14is_first_frameEv.exit.thread14, label %._crit_edge
+86:                                               ; preds = %81
+  %87 = tail call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
+  br i1 %87, label %_ZNK5frame14is_first_frameEv.exit.thread14, label %._crit_edge
 
-._crit_edge:                                      ; preds = %80
+._crit_edge:                                      ; preds = %86
   %.pre = load ptr, ptr %14, align 8
-  br label %82
+  br label %88
 
-82:                                               ; preds = %._crit_edge, %75
-  %83 = phi ptr [ %.pre, %._crit_edge ], [ %15, %75 ]
-  %.not.i.i9 = icmp eq ptr %83, null
+88:                                               ; preds = %._crit_edge, %81
+  %89 = phi ptr [ %.pre, %._crit_edge ], [ %15, %81 ]
+  %.not.i.i9 = icmp eq ptr %89, null
   br i1 %.not.i.i9, label %_ZNK5frame14is_first_frameEv.exit.thread, label %_ZNK5frame20is_upcall_stub_frameEv.exit.i
 
-_ZNK5frame20is_upcall_stub_frameEv.exit.i:        ; preds = %82
-  %84 = getelementptr inbounds i8, ptr %83, i64 52
-  %85 = load i8, ptr %84, align 4
-  %86 = icmp eq i8 %85, 11
-  br i1 %86, label %_ZNK5frame14is_first_frameEv.exit, label %_ZNK5frame14is_first_frameEv.exit.thread
+_ZNK5frame20is_upcall_stub_frameEv.exit.i:        ; preds = %88
+  %90 = getelementptr inbounds i8, ptr %89, i64 52
+  %91 = load i8, ptr %90, align 4
+  %92 = icmp eq i8 %91, 11
+  br i1 %92, label %_ZNK5frame14is_first_frameEv.exit, label %_ZNK5frame14is_first_frameEv.exit.thread
 
 _ZNK5frame14is_first_frameEv.exit:                ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i
-  %87 = tail call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
-  br i1 %87, label %_ZNK5frame14is_first_frameEv.exit.thread14, label %_ZNK5frame14is_first_frameEv.exit.thread
+  %93 = tail call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
+  br i1 %93, label %_ZNK5frame14is_first_frameEv.exit.thread14, label %_ZNK5frame14is_first_frameEv.exit.thread
 
-_ZNK5frame14is_first_frameEv.exit.thread:         ; preds = %82, %_ZNK5frame20is_upcall_stub_frameEv.exit.i, %_ZNK5frame14is_first_frameEv.exit
-  %88 = getelementptr inbounds i8, ptr %0, i64 5088
-  %89 = load i8, ptr %88, align 8
-  %90 = trunc i8 %89 to i1
-  br i1 %90, label %91, label %96
+_ZNK5frame14is_first_frameEv.exit.thread:         ; preds = %88, %_ZNK5frame20is_upcall_stub_frameEv.exit.i, %_ZNK5frame14is_first_frameEv.exit
+  %94 = getelementptr inbounds i8, ptr %0, i64 5088
+  %95 = load i8, ptr %94, align 8
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %97, label %102
 
-91:                                               ; preds = %_ZNK5frame14is_first_frameEv.exit.thread
-  %92 = load ptr, ptr %76, align 8
-  %93 = load ptr, ptr @_ZN12StubRoutines25_call_stub_return_addressE, align 8
-  %94 = icmp eq ptr %93, %92
-  br i1 %94, label %_ZNK5frame14is_first_frameEv.exit.thread14, label %96
+97:                                               ; preds = %_ZNK5frame14is_first_frameEv.exit.thread
+  %98 = load ptr, ptr %82, align 8
+  %99 = load ptr, ptr @_ZN12StubRoutines25_call_stub_return_addressE, align 8
+  %100 = icmp eq ptr %99, %98
+  br i1 %100, label %_ZNK5frame14is_first_frameEv.exit.thread14, label %102
 
-_ZNK5frame14is_first_frameEv.exit.thread14:       ; preds = %80, %91, %_ZNK5frame14is_first_frameEv.exit
-  %95 = getelementptr inbounds i8, ptr %0, i64 5048
-  store i32 2, ptr %95, align 8
-  br label %96
+_ZNK5frame14is_first_frameEv.exit.thread14:       ; preds = %86, %97, %_ZNK5frame14is_first_frameEv.exit
+  %101 = getelementptr inbounds i8, ptr %0, i64 5048
+  store i32 2, ptr %101, align 8
+  br label %102
 
-96:                                               ; preds = %_ZNK5frame14is_first_frameEv.exit.thread, %91, %25, %73, %_ZNK5frame14is_first_frameEv.exit.thread14, %.critedge, %13
-  %.0 = phi i1 [ true, %13 ], [ true, %.critedge ], [ true, %_ZNK5frame14is_first_frameEv.exit.thread14 ], [ true, %73 ], [ true, %25 ], [ false, %91 ], [ false, %_ZNK5frame14is_first_frameEv.exit.thread ]
+102:                                              ; preds = %_ZNK5frame14is_first_frameEv.exit.thread, %97, %25, %79, %_ZNK5frame14is_first_frameEv.exit.thread14, %.critedge, %13
+  %.0 = phi i1 [ true, %13 ], [ true, %.critedge ], [ true, %_ZNK5frame14is_first_frameEv.exit.thread14 ], [ true, %79 ], [ true, %25 ], [ false, %97 ], [ false, %_ZNK5frame14is_first_frameEv.exit.thread ]
   ret i1 %.0
 }
 

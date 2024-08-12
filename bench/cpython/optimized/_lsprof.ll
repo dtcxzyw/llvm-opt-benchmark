@@ -951,45 +951,52 @@ if.end:                                           ; preds = %if.then, %entry
   %inc = add i64 %6, %sub.
   store i64 %inc, ptr %recursivecallcount, align 8
   %it10 = getelementptr inbounds i8, ptr %entry1, i64 40
-  %7 = load <2 x i64>, ptr %it10, align 8
-  %8 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %sub2, i64 0
-  %9 = add <2 x i64> %7, %8
-  store <2 x i64> %9, ptr %it10, align 8
+  %7 = load i64, ptr %it10, align 8
+  %add11 = add i64 %7, %sub2
+  store i64 %add11, ptr %it10, align 8
+  %callcount = getelementptr inbounds i8, ptr %entry1, i64 48
+  %8 = load i64, ptr %callcount, align 8
+  %inc12 = add i64 %8, 1
+  store i64 %inc12, ptr %callcount, align 8
   %flags = getelementptr inbounds i8, ptr %pObj, i64 40
-  %10 = load i32, ptr %flags, align 8
-  %and = and i32 %10, 2
+  %9 = load i32, ptr %flags, align 8
+  %and = and i32 %9, 2
   %tobool13.not = icmp eq i32 %and, 0
   br i1 %tobool13.not, label %if.end36, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %11 = load ptr, ptr %previous, align 8
-  %tobool15.not = icmp eq ptr %11, null
+  %10 = load ptr, ptr %previous, align 8
+  %tobool15.not = icmp eq ptr %10, null
   br i1 %tobool15.not, label %if.end36, label %if.then16
 
 if.then16:                                        ; preds = %land.lhs.true
-  %ctxEntry = getelementptr inbounds i8, ptr %11, i64 24
-  %12 = load ptr, ptr %ctxEntry, align 8
-  %calls.i = getelementptr inbounds i8, ptr %12, i64 72
+  %ctxEntry = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = load ptr, ptr %ctxEntry, align 8
+  %calls.i = getelementptr inbounds i8, ptr %11, i64 72
   %call.i = tail call ptr @RotatingTree_Get(ptr noundef nonnull %calls.i, ptr noundef nonnull %entry1) #4
   %tobool19.not = icmp eq ptr %call.i, null
   br i1 %tobool19.not, label %if.end36, label %if.then20
 
 if.then20:                                        ; preds = %if.then16
   %recursionLevel21 = getelementptr inbounds i8, ptr %call.i, i64 56
-  %13 = load i64, ptr %recursionLevel21, align 8
-  %dec22 = add i64 %13, -1
+  %12 = load i64, ptr %recursionLevel21, align 8
+  %dec22 = add i64 %12, -1
   store i64 %dec22, ptr %recursionLevel21, align 8
   %cmp23 = icmp eq i64 %dec22, 0
   %.31 = select i1 %cmp23, i64 24, i64 48
   %sub.32 = select i1 %cmp23, i64 %sub, i64 1
   %recursivecallcount28 = getelementptr inbounds i8, ptr %call.i, i64 %.31
-  %14 = load i64, ptr %recursivecallcount28, align 8
-  %inc29 = add i64 %14, %sub.32
+  %13 = load i64, ptr %recursivecallcount28, align 8
+  %inc29 = add i64 %13, %sub.32
   store i64 %inc29, ptr %recursivecallcount28, align 8
   %it31 = getelementptr inbounds i8, ptr %call.i, i64 32
-  %15 = load <2 x i64>, ptr %it31, align 8
-  %16 = add <2 x i64> %15, %8
-  store <2 x i64> %16, ptr %it31, align 8
+  %14 = load i64, ptr %it31, align 8
+  %add32 = add i64 %14, %sub2
+  store i64 %add32, ptr %it31, align 8
+  %callcount33 = getelementptr inbounds i8, ptr %call.i, i64 40
+  %15 = load i64, ptr %callcount33, align 8
+  %inc34 = add i64 %15, 1
+  store i64 %inc34, ptr %callcount33, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then16, %if.then20, %land.lhs.true, %if.end

@@ -3779,8 +3779,8 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   call void @_ZdlPv(ptr noundef nonnull %35) #27
   br label %common.resume
 
-common.resume:                                    ; preds = %13, %24, %113, %33, %36
-  %common.resume.op = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %14, %13 ], [ %25, %24 ], [ %.pn, %113 ]
+common.resume:                                    ; preds = %13, %24, %111, %33, %36
+  %common.resume.op = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %14, %13 ], [ %25, %24 ], [ %.pn, %111 ]
   resume { ptr, i32 } %common.resume.op
 
 .lr.ph:                                           ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i
@@ -3837,13 +3837,13 @@ common.resume:                                    ; preds = %13, %24, %113, %33,
 66:                                               ; preds = %.noexc.i128, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread, %62
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %113
+  br label %111
 
 68:                                               ; preds = %64
   %69 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #24
-  br label %113
+  br label %111
 
 70:                                               ; preds = %45
   %71 = fcmp contract ogt double %55, 0.000000e+00
@@ -3857,91 +3857,89 @@ common.resume:                                    ; preds = %13, %24, %113, %33,
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %70
-  %.sroa.0.0.insert.ext = zext i32 %76 to i64
-  %.sroa.0.4.insert.ext = zext i32 %74 to i64
-  %.sroa.0.4.insert.shift = shl nuw i64 %.sroa.0.4.insert.ext, 32
-  %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
-  %78 = bitcast i64 %.sroa.0.4.insert.insert to <2 x i32>
-  %79 = icmp eq <2 x i32> %78, <i32 -1, i32 -1>
-  %80 = extractelement <2 x i1> %79, i64 0
-  %81 = extractelement <2 x i1> %79, i64 1
-  %or.cond141.not = or i1 %81, %80
+  %78 = icmp eq i32 %76, -1
+  %79 = icmp eq i32 %74, -1
+  %or.cond141.not = or i1 %79, %78
   br i1 %or.cond141.not, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread, label %.noexc.i128
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread: ; preds = %._crit_edge
-  %82 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
+  %80 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
   invoke void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %8, ptr noundef nonnull @.str.19)
-          to label %83 unwind label %66
+          to label %81 unwind label %66
 
-83:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
-  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %82, ptr noundef nonnull @.str.15, i32 noundef 580, ptr noundef nonnull align 8 dereferenceable(24) %8) #25
-          to label %84 unwind label %85
+81:                                               ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
+  invoke void @_ZN7mitsuba6detail5ThrowENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(i32 noundef 400, ptr noundef %80, ptr noundef nonnull @.str.15, i32 noundef 580, ptr noundef nonnull align 8 dereferenceable(24) %8) #25
+          to label %82 unwind label %83
 
-84:                                               ; preds = %83
+82:                                               ; preds = %81
   unreachable
 
-85:                                               ; preds = %83
-  %86 = landingpad { ptr, i32 }
+83:                                               ; preds = %81
+  %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #24
-  br label %113
+  br label %111
 
 .noexc.i128:                                      ; preds = %._crit_edge
-  %87 = getelementptr inbounds i8, ptr %0, i64 76
-  store i64 %.sroa.0.4.insert.insert, ptr %87, align 4
-  %88 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %31) #26
-          to label %89 unwind label %66
+  %.sroa.2.0.insert.ext = zext i32 %74 to i64
+  %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
+  %.sroa.0.0.insert.ext = zext i32 %76 to i64
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
+  %85 = getelementptr inbounds i8, ptr %0, i64 76
+  store i64 %.sroa.0.0.insert.insert, ptr %85, align 4
+  %86 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %31) #26
+          to label %87 unwind label %66
 
-89:                                               ; preds = %.noexc.i128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %88, ptr nonnull align 1 %32, i64 %31, i1 false), !noalias !29
-  %90 = getelementptr inbounds i8, ptr %0, i64 24
-  %91 = load ptr, ptr %90, align 8
-  store ptr %88, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 40
-  %93 = load i8, ptr %92, align 8
-  store i8 1, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %27, ptr %94, align 8
-  %95 = trunc i8 %93 to i1
-  %96 = icmp ne ptr %91, null
-  %or.cond138.not = select i1 %95, i1 %96, i1 false
-  br i1 %or.cond138.not, label %97, label %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit
+87:                                               ; preds = %.noexc.i128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %86, ptr nonnull align 1 %32, i64 %31, i1 false), !noalias !29
+  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  %89 = load ptr, ptr %88, align 8
+  store ptr %86, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 40
+  %91 = load i8, ptr %90, align 8
+  store i8 1, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %27, ptr %92, align 8
+  %93 = trunc i8 %91 to i1
+  %94 = icmp ne ptr %89, null
+  %or.cond138.not = select i1 %93, i1 %94, i1 false
+  br i1 %or.cond138.not, label %95, label %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit
 
-97:                                               ; preds = %89
-  tail call void @_ZdaPv(ptr noundef nonnull %91) #27
+95:                                               ; preds = %87
+  tail call void @_ZdaPv(ptr noundef nonnull %89) #27
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 80
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.pre158 = load i64, ptr %94, align 8
-  %.pre159 = load ptr, ptr %90, align 8
+  %.pre158 = load i64, ptr %92, align 8
+  %.pre159 = load ptr, ptr %88, align 8
   br label %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit
 
-_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit: ; preds = %97, %89
-  %98 = phi ptr [ %.pre159, %97 ], [ %88, %89 ]
-  %99 = phi i64 [ %.pre158, %97 ], [ %27, %89 ]
-  %100 = phi i32 [ %.pre, %97 ], [ %74, %89 ]
-  %101 = zext i32 %100 to i64
-  %102 = icmp eq i64 %99, 1
-  %spec.store.select.i = select i1 %102, i64 0, i64 %101
-  %103 = getelementptr inbounds float, ptr %98, i64 %spec.store.select.i
-  %104 = load float, ptr %103, align 4
-  %105 = getelementptr inbounds i8, ptr %0, i64 48
-  store float %104, ptr %105, align 8
-  %106 = fdiv contract float 1.000000e+00, %104
-  %107 = getelementptr inbounds i8, ptr %0, i64 52
-  store float %106, ptr %107, align 4
-  %108 = fptrunc double %41 to float
-  %109 = getelementptr inbounds i8, ptr %0, i64 56
+_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit: ; preds = %95, %87
+  %96 = phi ptr [ %.pre159, %95 ], [ %86, %87 ]
+  %97 = phi i64 [ %.pre158, %95 ], [ %27, %87 ]
+  %98 = phi i32 [ %.pre, %95 ], [ %74, %87 ]
+  %99 = zext i32 %98 to i64
+  %100 = icmp eq i64 %97, 1
+  %spec.store.select.i = select i1 %100, i64 0, i64 %99
+  %101 = getelementptr inbounds float, ptr %96, i64 %spec.store.select.i
+  %102 = load float, ptr %101, align 4
+  %103 = getelementptr inbounds i8, ptr %0, i64 48
+  store float %102, ptr %103, align 8
+  %104 = fdiv contract float 1.000000e+00, %102
+  %105 = getelementptr inbounds i8, ptr %0, i64 52
+  store float %104, ptr %105, align 4
+  %106 = fptrunc double %41 to float
+  %107 = getelementptr inbounds i8, ptr %0, i64 56
+  store float %106, ptr %107, align 8
+  %108 = fdiv contract float 1.000000e+00, %106
+  %109 = getelementptr inbounds i8, ptr %0, i64 64
   store float %108, ptr %109, align 8
-  %110 = fdiv contract float 1.000000e+00, %108
-  %111 = getelementptr inbounds i8, ptr %0, i64 64
-  store float %110, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 60
-  store float %108, ptr %112, align 4
+  %110 = getelementptr inbounds i8, ptr %0, i64 60
+  store float %106, ptr %110, align 4
   tail call void @_ZdlPv(ptr noundef nonnull %32) #27
   ret void
 
-113:                                              ; preds = %66, %68, %85
-  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %67, %66 ], [ %86, %85 ]
+111:                                              ; preds = %66, %68, %83
+  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %67, %66 ], [ %84, %83 ]
   call void @_ZdlPv(ptr noundef nonnull %32) #27
   br label %common.resume
 }

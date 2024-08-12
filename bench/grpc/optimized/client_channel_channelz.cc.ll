@@ -3931,14 +3931,17 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt8__detail9__va
   store i32 %10, ptr %9, align 8
   %_M_parent6.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %8, ptr %_M_parent6.i.i.i.i.i.i.i.i, align 8
+  %11 = load ptr, ptr %_M_left.i.i.i.i, align 8
   %_M_left9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %11 = load <2 x ptr>, ptr %_M_left.i.i.i.i, align 8
-  store <2 x ptr> %11, ptr %_M_left9.i.i.i.i.i.i.i.i, align 8
+  store ptr %11, ptr %_M_left9.i.i.i.i.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_right.i.i.i.i, align 8
+  %_M_right12.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  store ptr %12, ptr %_M_right12.i.i.i.i.i.i.i.i, align 8
   %_M_parent16.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %9, ptr %_M_parent16.i.i.i.i.i.i.i.i, align 8
-  %12 = load i64, ptr %_M_node_count.i.i.i.i, align 8
+  %13 = load i64, ptr %_M_node_count.i.i.i.i, align 8
   %_M_node_count17.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  store i64 %12, ptr %_M_node_count17.i.i.i.i.i.i.i.i, align 8
+  store i64 %13, ptr %_M_node_count17.i.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %1, ptr %_M_left.i.i.i.i, align 8
   store ptr %1, ptr %_M_right.i.i.i.i, align 8
@@ -3963,17 +3966,17 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
           to label %if.end unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #18
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #18
   unreachable
 
 lpad:                                             ; preds = %if.end.i.i.i
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #16
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %16
 
 if.end:                                           ; preds = %invoke.cont, %_ZSt3getILm4EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSQ_.exit
   ret ptr %this

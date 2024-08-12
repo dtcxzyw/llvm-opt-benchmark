@@ -32,7 +32,7 @@ define dso_local void @lzma_lzma_optimum_normal(ptr noalias noundef %0, ptr noal
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %2, align 4
   store i32 %17, ptr %11, align 8
-  br label %1327
+  br label %1330
 
 21:                                               ; preds = %5
   %22 = getelementptr inbounds i8, ptr %1, i64 28
@@ -879,13 +879,13 @@ get_dist_len_price.exit.i:                        ; preds = %481, %476
 helper1.exit.thread:                              ; preds = %165, %235, %351, %204, %206, %212, %221
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %1327
+  br label %1330
 
 helper1.exit:                                     ; preds = %516, %444
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %521 = icmp eq i32 %.0184..i, -1
-  br i1 %521, label %1327, label %.lr.ph
+  br i1 %521, label %1330, label %.lr.ph
 
 .lr.ph:                                           ; preds = %helper1.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %170, i64 16, i1 false)
@@ -2139,10 +2139,10 @@ helper2.exit:                                     ; preds = %1286, %753, %1081
   %1296 = load i32, ptr %1295, align 4, !alias.scope !55, !noalias !62
   br label %1297
 
-1297:                                             ; preds = %1319, %._crit_edge
-  %.045.i = phi i32 [ %1296, %._crit_edge ], [ %1321, %1319 ]
-  %.044.i = phi i32 [ %1294, %._crit_edge ], [ %1320, %1319 ]
-  %.0.i104 = phi i32 [ %.0.lcssa.ph, %._crit_edge ], [ %.044.i, %1319 ]
+1297:                                             ; preds = %1322, %._crit_edge
+  %.045.i = phi i32 [ %1296, %._crit_edge ], [ %1324, %1322 ]
+  %.044.i = phi i32 [ %1294, %._crit_edge ], [ %1323, %1322 ]
+  %.0.i104 = phi i32 [ %.0.lcssa.ph, %._crit_edge ], [ %.044.i, %1322 ]
   %1298 = zext i32 %.0.i104 to i64
   %1299 = getelementptr inbounds [4096 x %struct.lzma_optimal], ptr %239, i64 0, i64 %1298
   %1300 = getelementptr inbounds i8, ptr %1299, i64 4
@@ -2157,7 +2157,7 @@ helper2.exit:                                     ; preds = %1286, %753, %1081
   %.pre.i106 = load i32, ptr %1305, align 4, !alias.scope !55, !noalias !62
   %.phi.trans.insert50.i = getelementptr inbounds i8, ptr %1304, i64 20
   %.pre51.i = load i32, ptr %.phi.trans.insert50.i, align 4, !alias.scope !55, !noalias !62
-  br label %1319
+  br label %1322
 
 1306:                                             ; preds = %1297
   %1307 = getelementptr inbounds i8, ptr %1304, i64 4
@@ -2166,7 +2166,7 @@ helper2.exit:                                     ; preds = %1286, %753, %1081
   %1309 = getelementptr inbounds i8, ptr %1299, i64 5
   %1310 = load i8, ptr %1309, align 1, !alias.scope !55, !noalias !62
   %1311 = trunc i8 %1310 to i1
-  br i1 %1311, label %1312, label %1319
+  br i1 %1311, label %1312, label %1322
 
 1312:                                             ; preds = %1306
   %1313 = zext i32 %1308 to i64
@@ -2174,31 +2174,35 @@ helper2.exit:                                     ; preds = %1286, %753, %1081
   %1315 = getelementptr inbounds i8, ptr %1314, i64 4
   store i8 0, ptr %1315, align 4, !alias.scope !55, !noalias !62
   %1316 = getelementptr inbounds i8, ptr %1299, i64 8
-  %1317 = getelementptr inbounds i8, ptr %1314, i64 20
-  %1318 = load <2 x i32>, ptr %1316, align 4, !alias.scope !55, !noalias !62
-  store <2 x i32> %1318, ptr %1317, align 4, !alias.scope !55, !noalias !62
-  br label %1319
+  %1317 = load i32, ptr %1316, align 4, !alias.scope !55, !noalias !62
+  %1318 = getelementptr inbounds i8, ptr %1314, i64 20
+  store i32 %1317, ptr %1318, align 4, !alias.scope !55, !noalias !62
+  %1319 = getelementptr inbounds i8, ptr %1299, i64 12
+  %1320 = load i32, ptr %1319, align 4, !alias.scope !55, !noalias !62
+  %1321 = getelementptr inbounds i8, ptr %1314, i64 24
+  store i32 %1320, ptr %1321, align 4, !alias.scope !55, !noalias !62
+  br label %1322
 
-1319:                                             ; preds = %1312, %1306, %._crit_edge.i105
-  %1320 = phi i32 [ %.pre51.i, %._crit_edge.i105 ], [ %1308, %1306 ], [ %1308, %1312 ]
-  %1321 = phi i32 [ %.pre.i106, %._crit_edge.i105 ], [ -1, %1306 ], [ -1, %1312 ]
-  %1322 = getelementptr inbounds i8, ptr %1304, i64 20
+1322:                                             ; preds = %1312, %1306, %._crit_edge.i105
+  %1323 = phi i32 [ %.pre51.i, %._crit_edge.i105 ], [ %1308, %1306 ], [ %1308, %1312 ]
+  %1324 = phi i32 [ %.pre.i106, %._crit_edge.i105 ], [ -1, %1306 ], [ -1, %1312 ]
+  %1325 = getelementptr inbounds i8, ptr %1304, i64 20
   store i32 %.045.i, ptr %1305, align 4, !alias.scope !55, !noalias !62
-  store i32 %.0.i104, ptr %1322, align 4, !alias.scope !55, !noalias !62
+  store i32 %.0.i104, ptr %1325, align 4, !alias.scope !55, !noalias !62
   %.not.i107 = icmp eq i32 %.044.i, 0
   br i1 %.not.i107, label %backward.exit, label %1297, !llvm.loop !63
 
-backward.exit:                                    ; preds = %1319
-  %1323 = getelementptr inbounds i8, ptr %0, i64 69368
-  %1324 = load i32, ptr %1323, align 4, !alias.scope !55, !noalias !62
-  store i32 %1324, ptr %11, align 8, !alias.scope !55, !noalias !62
-  store i32 %1324, ptr %3, align 4, !alias.scope !58, !noalias !64
-  %1325 = getelementptr inbounds i8, ptr %0, i64 69372
-  %1326 = load i32, ptr %1325, align 4, !alias.scope !55, !noalias !62
-  store i32 %1326, ptr %2, align 4, !alias.scope !60, !noalias !65
-  br label %1327
+backward.exit:                                    ; preds = %1322
+  %1326 = getelementptr inbounds i8, ptr %0, i64 69368
+  %1327 = load i32, ptr %1326, align 4, !alias.scope !55, !noalias !62
+  store i32 %1327, ptr %11, align 8, !alias.scope !55, !noalias !62
+  store i32 %1327, ptr %3, align 4, !alias.scope !58, !noalias !64
+  %1328 = getelementptr inbounds i8, ptr %0, i64 69372
+  %1329 = load i32, ptr %1328, align 4, !alias.scope !55, !noalias !62
+  store i32 %1329, ptr %2, align 4, !alias.scope !60, !noalias !65
+  br label %1330
 
-1327:                                             ; preds = %helper1.exit.thread, %helper1.exit, %backward.exit, %13
+1330:                                             ; preds = %helper1.exit.thread, %helper1.exit, %backward.exit, %13
   ret void
 }
 

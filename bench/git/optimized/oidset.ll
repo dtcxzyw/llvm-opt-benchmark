@@ -511,9 +511,12 @@ if.then81.i:                                      ; preds = %if.end71.i
   %and92.i = and i32 %21, %not.i
   store i32 %and92.i, ptr %arrayidx91.i, align 4
   %size94.i = getelementptr inbounds i8, ptr %set, i64 4
-  %22 = load <2 x i32>, ptr %size94.i, align 4
-  %23 = add <2 x i32> %22, <i32 1, i32 1>
-  store <2 x i32> %23, ptr %size94.i, align 4
+  %22 = load i32, ptr %size94.i, align 4
+  %inc95.i = add i32 %22, 1
+  store i32 %inc95.i, ptr %size94.i, align 4
+  %23 = load i32, ptr %n_occupied.i, align 8
+  %inc97.i = add i32 %23, 1
+  store i32 %inc97.i, ptr %n_occupied.i, align 8
   br label %kh_put_oid_set.exit
 
 if.else98.i:                                      ; preds = %if.end71.i

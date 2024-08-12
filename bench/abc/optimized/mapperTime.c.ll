@@ -88,7 +88,8 @@ define float @Map_TimeCutComputeArrival(ptr nocapture noundef readonly %0, ptr n
 22:                                               ; preds = %4, %16
   %23 = phi float [ %21, %16 ], [ 0.000000e+00, %4 ]
   %24 = getelementptr inbounds i8, ptr %7, i64 28
-  store <2 x float> zeroinitializer, ptr %12, align 4
+  store float 0.000000e+00, ptr %24, align 4
+  store float 0.000000e+00, ptr %12, align 4
   %25 = getelementptr inbounds i8, ptr %7, i64 32
   store float 0x47B9999980000000, ptr %25, align 4
   %26 = getelementptr inbounds i8, ptr %1, i64 76
@@ -368,7 +369,8 @@ define float @Map_MatchComputeReqTimes(ptr nocapture noundef readonly %0, i32 no
   %9 = getelementptr inbounds i8, ptr %6, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %2, i64 4
-  store <2 x float> <float 0xC7B9999980000000, float 0xC7B9999980000000>, ptr %2, align 4
+  store float 0xC7B9999980000000, ptr %11, align 4
+  store float 0xC7B9999980000000, ptr %2, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 76
   %13 = load i8, ptr %12, align 4
   %14 = icmp sgt i8 %13, 0

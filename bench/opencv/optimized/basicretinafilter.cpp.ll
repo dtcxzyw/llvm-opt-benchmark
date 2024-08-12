@@ -210,7 +210,7 @@ _ZN2cv11bioinspired14TemplateBufferIfEC2Emmm.exit: ; preds = %5, %.lr.ph.i.i.i.p
   %23 = getelementptr inbounds i8, ptr %0, i64 72
   %24 = shl nuw nsw i64 %22, 2
   %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #16
-          to label %26 unwind label %63
+          to label %26 unwind label %67
 
 26:                                               ; preds = %_ZN2cv11bioinspired14TemplateBufferIfEC2Emmm.exit
   store ptr %25, ptr %23, align 8
@@ -222,7 +222,7 @@ _ZN2cv11bioinspired14TemplateBufferIfEC2Emmm.exit: ; preds = %5, %.lr.ph.i.i.i.p
   %30 = getelementptr inbounds i8, ptr %0, i64 96
   %31 = shl nuw nsw i64 %29, 2
   %32 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #16
-          to label %33 unwind label %65
+          to label %33 unwind label %69
 
 33:                                               ; preds = %26
   store ptr %32, ptr %30, align 8
@@ -231,7 +231,7 @@ _ZN2cv11bioinspired14TemplateBufferIfEC2Emmm.exit: ; preds = %5, %.lr.ph.i.i.i.p
   store i64 0, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 112
   %36 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 0) #16
-          to label %37 unwind label %67
+          to label %37 unwind label %71
 
 37:                                               ; preds = %33
   store ptr %36, ptr %35, align 8
@@ -239,149 +239,154 @@ _ZN2cv11bioinspired14TemplateBufferIfEC2Emmm.exit: ; preds = %5, %.lr.ph.i.i.i.p
   store i64 0, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   %40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 0) #16
-          to label %41 unwind label %69
+          to label %41 unwind label %73
 
 41:                                               ; preds = %37
   store ptr %40, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
-  %43 = load <2 x i64>, ptr %13, align 8
-  %44 = trunc <2 x i64> %43 to <2 x i32>
-  %45 = lshr <2 x i32> %44, <i32 1, i32 1>
-  store <2 x i32> %45, ptr %42, align 8
-  br i1 %4, label %46, label %_ZNSt8valarrayIfE6resizeEmf.exit26
+  %42 = load i64, ptr %13, align 8
+  %43 = trunc i64 %42 to i32
+  %44 = lshr i32 %43, 1
+  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %44, ptr %45, align 8
+  %46 = load i64, ptr %14, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = lshr i32 %47, 1
+  %49 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 %48, ptr %49, align 4
+  br i1 %4, label %50, label %_ZNSt8valarrayIfE6resizeEmf.exit26
 
-46:                                               ; preds = %41
-  %47 = load i64, ptr %8, align 8
-  %48 = load i64, ptr %34, align 8
-  %.not.i = icmp eq i64 %48, %47
+50:                                               ; preds = %41
+  %51 = load i64, ptr %8, align 8
+  %52 = load i64, ptr %34, align 8
+  %.not.i = icmp eq i64 %52, %51
   %.pre.i = load ptr, ptr %35, align 8
-  br i1 %.not.i, label %52, label %49
+  br i1 %.not.i, label %56, label %53
 
-49:                                               ; preds = %46
+53:                                               ; preds = %50
   tail call void @_ZdlPv(ptr noundef %.pre.i) #17
-  store i64 %47, ptr %34, align 8
-  %50 = shl i64 %47, 2
-  %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #16
-          to label %.noexc unwind label %71
+  store i64 %51, ptr %34, align 8
+  %54 = shl i64 %51, 2
+  %55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #16
+          to label %.noexc unwind label %75
 
-.noexc:                                           ; preds = %49
-  store ptr %51, ptr %35, align 8
-  br label %52
+.noexc:                                           ; preds = %53
+  store ptr %55, ptr %35, align 8
+  br label %56
 
-52:                                               ; preds = %.noexc, %46
-  %53 = phi ptr [ %51, %.noexc ], [ %.pre.i, %46 ]
-  %.not4.i.i.i = icmp eq i64 %47, 0
+56:                                               ; preds = %.noexc, %50
+  %57 = phi ptr [ %55, %.noexc ], [ %.pre.i, %50 ]
+  %.not4.i.i.i = icmp eq i64 %51, 0
   br i1 %.not4.i.i.i, label %_ZNSt8valarrayIfE6resizeEmf.exit, label %.lr.ph.i.i.i.preheader
 
-.lr.ph.i.i.i.preheader:                           ; preds = %52
-  %54 = shl i64 %47, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %53, i8 0, i64 %54, i1 false)
+.lr.ph.i.i.i.preheader:                           ; preds = %56
+  %58 = shl i64 %51, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %57, i8 0, i64 %58, i1 false)
   br label %_ZNSt8valarrayIfE6resizeEmf.exit
 
-_ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.preheader, %52
-  %55 = load i64, ptr %8, align 8
-  %56 = load i64, ptr %38, align 8
-  %.not.i19 = icmp eq i64 %56, %55
+_ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.preheader, %56
+  %59 = load i64, ptr %8, align 8
+  %60 = load i64, ptr %38, align 8
+  %.not.i19 = icmp eq i64 %60, %59
   %.pre.i20 = load ptr, ptr %39, align 8
-  br i1 %.not.i19, label %60, label %57
+  br i1 %.not.i19, label %64, label %61
 
-57:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit
+61:                                               ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit
   tail call void @_ZdlPv(ptr noundef %.pre.i20) #17
-  store i64 %55, ptr %38, align 8
-  %58 = shl i64 %55, 2
-  %59 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #16
-          to label %.noexc25 unwind label %71
+  store i64 %59, ptr %38, align 8
+  %62 = shl i64 %59, 2
+  %63 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %62) #16
+          to label %.noexc25 unwind label %75
 
-.noexc25:                                         ; preds = %57
-  store ptr %59, ptr %39, align 8
-  br label %60
+.noexc25:                                         ; preds = %61
+  store ptr %63, ptr %39, align 8
+  br label %64
 
-60:                                               ; preds = %.noexc25, %_ZNSt8valarrayIfE6resizeEmf.exit
-  %61 = phi ptr [ %59, %.noexc25 ], [ %.pre.i20, %_ZNSt8valarrayIfE6resizeEmf.exit ]
-  %.not4.i.i.i21 = icmp eq i64 %55, 0
+64:                                               ; preds = %.noexc25, %_ZNSt8valarrayIfE6resizeEmf.exit
+  %65 = phi ptr [ %63, %.noexc25 ], [ %.pre.i20, %_ZNSt8valarrayIfE6resizeEmf.exit ]
+  %.not4.i.i.i21 = icmp eq i64 %59, 0
   br i1 %.not4.i.i.i21, label %_ZNSt8valarrayIfE6resizeEmf.exit26, label %.lr.ph.i.i.i22.preheader
 
-.lr.ph.i.i.i22.preheader:                         ; preds = %60
-  %62 = shl i64 %55, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %61, i8 0, i64 %62, i1 false)
+.lr.ph.i.i.i22.preheader:                         ; preds = %64
+  %66 = shl i64 %59, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %65, i8 0, i64 %66, i1 false)
   br label %_ZNSt8valarrayIfE6resizeEmf.exit26
 
-63:                                               ; preds = %_ZN2cv11bioinspired14TemplateBufferIfEC2Emmm.exit
-  %64 = landingpad { ptr, i32 }
+67:                                               ; preds = %_ZN2cv11bioinspired14TemplateBufferIfEC2Emmm.exit
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  br label %91
+
+69:                                               ; preds = %26
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  br label %89
+
+71:                                               ; preds = %33
+  %72 = landingpad { ptr, i32 }
           cleanup
   br label %87
 
-65:                                               ; preds = %26
-  %66 = landingpad { ptr, i32 }
+73:                                               ; preds = %37
+  %74 = landingpad { ptr, i32 }
           cleanup
   br label %85
 
-67:                                               ; preds = %33
-  %68 = landingpad { ptr, i32 }
+75:                                               ; preds = %61, %53
+  %76 = landingpad { ptr, i32 }
           cleanup
-  br label %83
+  %77 = load ptr, ptr %39, align 8
+  tail call void @_ZdlPv(ptr noundef %77) #17
+  br label %85
 
-69:                                               ; preds = %37
-  %70 = landingpad { ptr, i32 }
-          cleanup
-  br label %81
-
-71:                                               ; preds = %57, %49
-  %72 = landingpad { ptr, i32 }
-          cleanup
-  %73 = load ptr, ptr %39, align 8
-  tail call void @_ZdlPv(ptr noundef %73) #17
-  br label %81
-
-_ZNSt8valarrayIfE6resizeEmf.exit26:               ; preds = %.lr.ph.i.i.i22.preheader, %60, %41
-  %74 = getelementptr inbounds i8, ptr %0, i64 140
-  store float 2.560000e+02, ptr %74, align 4
-  %75 = load i64, ptr %8, align 8
-  %.not3.i.i.i.i.i = icmp eq i64 %75, 0
+_ZNSt8valarrayIfE6resizeEmf.exit26:               ; preds = %.lr.ph.i.i.i22.preheader, %64, %41
+  %78 = getelementptr inbounds i8, ptr %0, i64 140
+  store float 2.560000e+02, ptr %78, align 4
+  %79 = load i64, ptr %8, align 8
+  %.not3.i.i.i.i.i = icmp eq i64 %79, 0
   br i1 %.not3.i.i.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %_ZNSt8valarrayIfE6resizeEmf.exit26
-  %76 = load ptr, ptr %10, align 8
-  %77 = shl nuw i64 %75, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %76, i8 0, i64 %77, i1 false), !alias.scope !4
+  %80 = load ptr, ptr %10, align 8
+  %81 = shl nuw i64 %79, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %80, i8 0, i64 %81, i1 false), !alias.scope !4
   br label %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i
 
 _ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i: ; preds = %.lr.ph.i.i.i.preheader.i.i, %_ZNSt8valarrayIfE6resizeEmf.exit26
-  %78 = load i64, ptr %20, align 8
-  %.not3.i.i.i.i = icmp eq i64 %78, 0
+  %82 = load i64, ptr %20, align 8
+  %.not3.i.i.i.i = icmp eq i64 %82, 0
   br i1 %.not3.i.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i
-  %79 = load ptr, ptr %23, align 8
-  %80 = shl nuw i64 %78, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %79, i8 0, i64 %80, i1 false), !alias.scope !7
+  %83 = load ptr, ptr %23, align 8
+  %84 = shl nuw i64 %82, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %83, i8 0, i64 %84, i1 false), !alias.scope !7
   br label %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit
 
 _ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit: ; preds = %.lr.ph.i.i.preheader.i.i, %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i
   ret void
 
-81:                                               ; preds = %71, %69
-  %.pn = phi { ptr, i32 } [ %72, %71 ], [ %70, %69 ]
-  %82 = load ptr, ptr %35, align 8
-  tail call void @_ZdlPv(ptr noundef %82) #17
-  br label %83
-
-83:                                               ; preds = %81, %67
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %81 ], [ %68, %67 ]
-  %84 = load ptr, ptr %30, align 8
-  tail call void @_ZdlPv(ptr noundef %84) #17
-  br label %85
-
-85:                                               ; preds = %83, %65
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %83 ], [ %66, %65 ]
-  %86 = load ptr, ptr %23, align 8
+85:                                               ; preds = %75, %73
+  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %74, %73 ]
+  %86 = load ptr, ptr %35, align 8
   tail call void @_ZdlPv(ptr noundef %86) #17
   br label %87
 
-87:                                               ; preds = %85, %63
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %85 ], [ %64, %63 ]
-  %88 = load ptr, ptr %10, align 8
+87:                                               ; preds = %85, %71
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %85 ], [ %72, %71 ]
+  %88 = load ptr, ptr %30, align 8
   tail call void @_ZdlPv(ptr noundef %88) #17
+  br label %89
+
+89:                                               ; preds = %87, %69
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %87 ], [ %70, %69 ]
+  %90 = load ptr, ptr %23, align 8
+  tail call void @_ZdlPv(ptr noundef %90) #17
+  br label %91
+
+91:                                               ; preds = %89, %67
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %89 ], [ %68, %67 ]
+  %92 = load ptr, ptr %10, align 8
+  tail call void @_ZdlPv(ptr noundef %92) #17
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -1151,67 +1156,71 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdapt
 
 ._crit_edge19:                                    ; preds = %5
   %.phi.trans.insert20 = getelementptr inbounds i8, ptr %0, i64 148
-  %10 = load <2 x float>, ptr %.phi.trans.insert20, align 4
+  %.pre21 = load float, ptr %.phi.trans.insert20, align 4
+  %.phi.trans.insert22 = getelementptr inbounds i8, ptr %0, i64 152
+  %.pre23 = load float, ptr %.phi.trans.insert22, align 8
   %.pre24 = trunc i64 %9 to i32
-  br label %24
+  br label %22
 
 .preheader:                                       ; preds = %5
-  %11 = trunc i64 %9 to i32
-  %.not = icmp eq i32 %11, 0
+  %10 = trunc i64 %9 to i32
+  %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.017 = phi float [ %14, %.lr.ph ], [ 0.000000e+00, %.preheader ]
-  %.01316 = phi ptr [ %12, %.lr.ph ], [ %1, %.preheader ]
-  %.01415 = phi i32 [ %15, %.lr.ph ], [ 0, %.preheader ]
-  %12 = getelementptr inbounds i8, ptr %.01316, i64 4
-  %13 = load float, ptr %.01316, align 4
-  %14 = fadd float %.017, %13
-  %15 = add nuw i32 %.01415, 1
-  %exitcond.not = icmp eq i32 %15, %11
+  %.017 = phi float [ %13, %.lr.ph ], [ 0.000000e+00, %.preheader ]
+  %.01316 = phi ptr [ %11, %.lr.ph ], [ %1, %.preheader ]
+  %.01415 = phi i32 [ %14, %.lr.ph ], [ 0, %.preheader ]
+  %11 = getelementptr inbounds i8, ptr %.01316, i64 4
+  %12 = load float, ptr %.01316, align 4
+  %13 = fadd float %.017, %12
+  %14 = add nuw i32 %.01415, 1
+  %exitcond.not = icmp eq i32 %14, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %14, %.lr.ph ]
-  %16 = uitofp i32 %11 to float
-  %17 = fdiv float %.0.lcssa, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 148
-  store float 1.000000e+00, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 136
-  %20 = load float, ptr %19, align 8
-  %21 = fmul float %17, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 152
-  store float %21, ptr %22, align 8
-  %23 = insertelement <2 x float> <float 1.000000e+00, float poison>, float %21, i64 1
-  br label %24
+  %.0.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %13, %.lr.ph ]
+  %15 = uitofp i32 %10 to float
+  %16 = fdiv float %.0.lcssa, %15
+  %17 = getelementptr inbounds i8, ptr %0, i64 148
+  store float 1.000000e+00, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 136
+  %19 = load float, ptr %18, align 8
+  %20 = fmul float %16, %19
+  %21 = getelementptr inbounds i8, ptr %0, i64 152
+  store float %20, ptr %21, align 8
+  br label %22
 
-24:                                               ; preds = %._crit_edge19, %._crit_edge
-  %.pre-phi = phi i32 [ %.pre24, %._crit_edge19 ], [ %11, %._crit_edge ]
-  %25 = phi <2 x float> [ %10, %._crit_edge19 ], [ %23, %._crit_edge ]
+22:                                               ; preds = %._crit_edge19, %._crit_edge
+  %.pre-phi = phi i32 [ %.pre24, %._crit_edge19 ], [ %10, %._crit_edge ]
+  %23 = phi float [ %.pre23, %._crit_edge19 ], [ %20, %._crit_edge ]
+  %24 = phi float [ %.pre21, %._crit_edge19 ], [ 1.000000e+00, %._crit_edge ]
   store i32 0, ptr %6, align 4
-  %26 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %.pre-phi, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 140
-  %28 = load float, ptr %27, align 4
+  %25 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %.pre-phi, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %0, i64 140
+  %27 = load float, ptr %26, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv11bioinspired17BasicRetinaFilter24Parallel_localAdaptationE, i64 16), ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr %3, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 32
-  store <2 x float> %25, ptr %32, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %2, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %1, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr %3, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %7, i64 32
+  store float %24, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %7, i64 36
+  store float %23, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %7, i64 40
-  store float %28, ptr %33, align 8
+  store float %27, ptr %33, align 8
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef -1.000000e+00)
           to label %34 unwind label %35
 
-34:                                               ; preds = %24
+34:                                               ; preds = %22
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   ret void
 
-35:                                               ; preds = %24
+35:                                               ; preds = %22
   %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
@@ -1625,6 +1634,9 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdapt
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %.phi.trans.insert20.i = getelementptr inbounds i8, ptr %0, i64 148
+  %.pre21.i = load float, ptr %.phi.trans.insert20.i, align 4
+  %.phi.trans.insert22.i = getelementptr inbounds i8, ptr %0, i64 152
+  %.pre23.i = load float, ptr %.phi.trans.insert22.i, align 8
   %.pre24.i = trunc i64 %7 to i32
   store i32 0, ptr %4, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 4
@@ -1639,8 +1651,9 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter25_localLuminanceAdapt
   %13 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 32
-  %15 = load <2 x float>, ptr %.phi.trans.insert20.i, align 4
-  store <2 x float> %15, ptr %14, align 8
+  store float %.pre21.i, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 36
+  store float %.pre23.i, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %5, i64 40
   store float %10, ptr %16, align 8
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef -1.000000e+00)
@@ -2021,29 +2034,34 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter21_verticalCausalFilte
   %7 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %3, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 156
-  %10 = load float, ptr %9, align 4
+  %9 = load i64, ptr %8, align 8
+  %10 = trunc i64 %9 to i32
+  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = load i64, ptr %11, align 8
+  %13 = trunc i64 %12 to i32
+  %14 = getelementptr inbounds i8, ptr %0, i64 156
+  %15 = load float, ptr %14, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv11bioinspired17BasicRetinaFilter29Parallel_verticalCausalFilterE, i64 16), ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
-  %13 = load <2 x i64>, ptr %8, align 8
-  %14 = trunc <2 x i64> %13 to <2 x i32>
-  store <2 x i32> %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
-  store float %10, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 %10, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %6, i64 20
+  store i32 %13, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %6, i64 24
+  store float %15, ptr %19, align 8
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef -1.000000e+00)
-          to label %16 unwind label %17
+          to label %20 unwind label %21
 
-16:                                               ; preds = %4
+20:                                               ; preds = %4
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   ret void
 
-17:                                               ; preds = %4
-  %18 = landingpad { ptr, i32 }
+21:                                               ; preds = %4
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2054,33 +2072,38 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter34_verticalAnticausalF
   %7 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %3, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 156
-  %10 = load float, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 164
-  %12 = load float, ptr %11, align 4
+  %9 = load i64, ptr %8, align 8
+  %10 = trunc i64 %9 to i32
+  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = load i64, ptr %11, align 8
+  %13 = trunc i64 %12 to i32
+  %14 = getelementptr inbounds i8, ptr %0, i64 156
+  %15 = load float, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 164
+  %17 = load float, ptr %16, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv11bioinspired17BasicRetinaFilter42Parallel_verticalAnticausalFilter_multGainE, i64 16), ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
-  %15 = load <2 x i64>, ptr %8, align 8
-  %16 = trunc <2 x i64> %15 to <2 x i32>
-  store <2 x i32> %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 24
-  store float %10, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 28
-  store float %12, ptr %18, align 4
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 %10, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 20
+  store i32 %13, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %6, i64 24
+  store float %15, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %6, i64 28
+  store float %17, ptr %22, align 4
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef -1.000000e+00)
-          to label %19 unwind label %20
+          to label %23 unwind label %24
 
-19:                                               ; preds = %4
+23:                                               ; preds = %4
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   ret void
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2094,30 +2117,34 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter32_horizontalCausalFil
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds i8, ptr %0, i64 156
+  %13 = load float, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 160
+  %15 = load float, ptr %14, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv11bioinspired17BasicRetinaFilter40Parallel_horizontalCausalFilter_addInputE, i64 16), ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
-  store i32 %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 28
-  store i32 %11, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
-  %18 = load <2 x float>, ptr %12, align 4
-  store <2 x float> %18, ptr %17, align 8
+  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %2, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 24
+  store i32 %3, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 28
+  store i32 %11, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %7, i64 32
+  store float %13, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 36
+  store float %15, ptr %21, align 4
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef -1.000000e+00)
-          to label %19 unwind label %20
+          to label %22 unwind label %23
 
-19:                                               ; preds = %5
+22:                                               ; preds = %5
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   ret void
 
-20:                                               ; preds = %5
-  %21 = landingpad { ptr, i32 }
+23:                                               ; preds = %5
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3464,27 +3491,32 @@ define hidden void @_ZN2cv11bioinspired17BasicRetinaFilter31_verticalCausalFilte
   %8 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %3, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = load i64, ptr %9, align 8
+  %11 = trunc i64 %10 to i32
+  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = load i64, ptr %12, align 8
+  %14 = trunc i64 %13 to i32
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv11bioinspired17BasicRetinaFilter39Parallel_verticalCausalFilter_IrregularE, i64 16), ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
-  %13 = load <2 x i64>, ptr %9, align 8
-  %14 = trunc <2 x i64> %13 to <2 x i32>
-  store <2 x i32> %14, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %1, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %4, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 24
+  store i32 %11, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 28
+  store i32 %14, ptr %18, align 4
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef -1.000000e+00)
-          to label %15 unwind label %16
+          to label %19 unwind label %20
 
-15:                                               ; preds = %5
+19:                                               ; preds = %5
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   ret void
 
-16:                                               ; preds = %5
-  %17 = landingpad { ptr, i32 }
+20:                                               ; preds = %5
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

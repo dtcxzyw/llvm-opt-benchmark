@@ -3854,15 +3854,17 @@ _Py_XNewRef.exit:                                 ; preds = %if.end4, %if.then.i
   %itemsize = getelementptr inbounds i8, ptr %view, i64 24
   store i64 1, ptr %itemsize, align 8
   %format = getelementptr inbounds i8, ptr %view, i64 40
-  %3 = insertelement <2 x i32> poison, i32 %flags, i64 0
-  %4 = shufflevector <2 x i32> %3, <2 x i32> poison, <2 x i32> zeroinitializer
-  %5 = and <2 x i32> %4, <i32 4, i32 8>
+  %and9 = and i32 %flags, 4
+  %cmp10.not = icmp eq i32 %and9, 0
+  %spec.select = select i1 %cmp10.not, ptr null, ptr @.str.15
+  store ptr %spec.select, ptr %format, align 8
   %ndim = getelementptr inbounds i8, ptr %view, i64 36
   store i32 1, ptr %ndim, align 4
-  %6 = icmp eq <2 x i32> %5, zeroinitializer
-  %7 = insertelement <2 x ptr> <ptr @.str.15, ptr poison>, ptr %len7, i64 1
-  %8 = select <2 x i1> %6, <2 x ptr> zeroinitializer, <2 x ptr> %7
-  store <2 x ptr> %8, ptr %format, align 8
+  %shape = getelementptr inbounds i8, ptr %view, i64 48
+  %and14 = and i32 %flags, 8
+  %cmp15.not = icmp eq i32 %and14, 0
+  %storemerge21 = select i1 %cmp15.not, ptr null, ptr %len7
+  store ptr %storemerge21, ptr %shape, align 8
   %strides = getelementptr inbounds i8, ptr %view, i64 56
   %and20 = and i32 %flags, 24
   %cmp21 = icmp eq i32 %and20, 24

@@ -1760,7 +1760,7 @@ entry:
   %ref.tmp256 = alloca %"class.std::allocator.0", align 1
   %wireframe = alloca i32, align 4
   %iMode280 = alloca i32, align 4
-  %clr = alloca %struct.aiColor3D, align 8
+  %clr = alloca %struct.aiColor3D, align 4
   %two_sided290 = alloca i32, align 4
   %name295 = alloca %struct.aiString, align 4
   %ref.tmp296 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2383,13 +2383,16 @@ if.else274:                                       ; preds = %for.inc187, %entry,
 invoke.cont278:                                   ; preds = %if.else274
   store i32 2, ptr %iMode280, align 4
   %call.i85 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call276, ptr noundef nonnull %iMode280, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef 4)
+  %g.i = getelementptr inbounds i8, ptr %clr, i64 4
   %b.i = getelementptr inbounds i8, ptr %clr, i64 8
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %clr, align 8
-  store float 1.000000e+00, ptr %b.i, align 8
+  store float 1.000000e+00, ptr %clr, align 4
+  store float 1.000000e+00, ptr %g.i, align 4
+  store float 1.000000e+00, ptr %b.i, align 4
   %call.i86 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call276, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.16, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %call.i87 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call276, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.17, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %clr, align 8
-  store float 1.000000e+00, ptr %b.i, align 8
+  store float 1.000000e+00, ptr %clr, align 4
+  store float 1.000000e+00, ptr %g.i, align 4
+  store float 1.000000e+00, ptr %b.i, align 4
   %call.i88 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call276, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.18, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   br i1 %pointsOnly, label %if.end292, label %if.then289
 
@@ -4629,9 +4632,11 @@ if.then286:                                       ; preds = %if.end252
   %91 = load ptr, ptr %mFaces288, align 8
   %mIndices291 = getelementptr inbounds %struct.aiFace, ptr %91, i64 %idxprom255, i32 1
   %92 = load ptr, ptr %mIndices291, align 8
-  %93 = load <2 x i32>, ptr %92, align 4
-  %94 = shufflevector <2 x i32> %93, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %94, ptr %92, align 4
+  %arrayidx298 = getelementptr inbounds i8, ptr %92, i64 4
+  %93 = load i32, ptr %92, align 4
+  %94 = load i32, ptr %arrayidx298, align 4
+  store i32 %94, ptr %92, align 4
+  store i32 %93, ptr %arrayidx298, align 4
   br label %for.inc303
 
 for.inc303:                                       ; preds = %if.end252, %if.then286, %if.end225, %if.end220, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit

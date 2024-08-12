@@ -28,9 +28,13 @@ if.end15.i:
   %h.i = getelementptr inbounds i8, ptr %state, i64 24
   %arrayidx16.i = getelementptr i8, ptr %key, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %h.i, i8 0, i64 24, i1 false)
+  %arrayidx16.val.i = load i64, ptr %arrayidx16.i, align 1
   %pad.i = getelementptr inbounds i8, ptr %state, i64 48
-  %0 = load <2 x i64>, ptr %arrayidx16.i, align 1
-  store <2 x i64> %0, ptr %pad.i, align 16
+  store i64 %arrayidx16.val.i, ptr %pad.i, align 16
+  %arrayidx19.i = getelementptr i8, ptr %key, i64 24
+  %arrayidx19.val.i = load i64, ptr %arrayidx19.i, align 1
+  %arrayidx22.i = getelementptr inbounds i8, ptr %state, i64 56
+  store i64 %arrayidx19.val.i, ptr %arrayidx22.i, align 8
   %leftover.i = getelementptr inbounds i8, ptr %state, i64 64
   store i64 0, ptr %leftover.i, align 64
   %final.i = getelementptr inbounds i8, ptr %state, i64 88
@@ -131,18 +135,18 @@ for.cond24.preheader.i:                           ; preds = %if.end21.i
 for.body26.i:                                     ; preds = %for.body26.i, %for.cond24.preheader.i
   %i.140.i = phi i64 [ 0, %for.cond24.preheader.i ], [ %inc33.i, %for.body26.i ]
   %arrayidx27.i = getelementptr i8, ptr %m.addr.1.i, i64 %i.140.i
-  %1 = load i8, ptr %arrayidx27.i, align 1
-  %2 = load i64, ptr %leftover.i, align 64
-  %add30.i = add i64 %2, %i.140.i
+  %0 = load i8, ptr %arrayidx27.i, align 1
+  %1 = load i64, ptr %leftover.i, align 64
+  %add30.i = add i64 %1, %i.140.i
   %arrayidx31.i = getelementptr [16 x i8], ptr %buffer28.i, i64 0, i64 %add30.i
-  store i8 %1, ptr %arrayidx31.i, align 1
+  store i8 %0, ptr %arrayidx31.i, align 1
   %inc33.i = add nuw nsw i64 %i.140.i, 1
   %exitcond41.not.i = icmp eq i64 %inc33.i, %bytes.addr.1.i
   br i1 %exitcond41.not.i, label %for.end34.i, label %for.body26.i, !llvm.loop !6
 
 for.end34.i:                                      ; preds = %for.body26.i
-  %3 = load i64, ptr %leftover.i, align 64
-  %add36.i = add i64 %3, %bytes.addr.1.i
+  %2 = load i64, ptr %leftover.i, align 64
+  %add36.i = add i64 %2, %bytes.addr.1.i
   store i64 %add36.i, ptr %leftover.i, align 64
   br label %poly1305_update.exit
 

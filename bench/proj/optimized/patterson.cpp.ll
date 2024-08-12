@@ -72,45 +72,39 @@ define internal { double, double } @_ZL19patterson_s_inverse5PJ_XYP8PJconsts(dou
 8:                                                ; preds = %3, %5, %7
   %.sroa.2.0 = phi double [ 0xBFFCA759DC8CAAC0, %7 ], [ %1, %5 ], [ 0x3FFCA759DC8CAAC0, %3 ]
   %9 = fneg double %.sroa.2.0
-  %10 = insertelement <2 x double> <double poison, double 1.014800e+00>, double %9, i64 0
-  br label %13
+  br label %12
 
-11:                                               ; preds = %13
-  %12 = add nsw i32 %.02430, -1
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %32, label %13, !llvm.loop !4
+10:                                               ; preds = %12
+  %11 = add nsw i32 %.02430, -1
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %26, label %12, !llvm.loop !4
 
-13:                                               ; preds = %8, %11
-  %.031 = phi double [ %1, %8 ], [ %29, %11 ]
-  %.02430 = phi i32 [ 100, %8 ], [ %12, %11 ]
-  %14 = fmul double %.031, %.031
-  %15 = fmul double %14, %14
-  %16 = tail call double @llvm.fmuladd.f64(double %14, double 2.406000e-02, double -1.449900e-01)
-  %17 = insertelement <2 x double> poison, double %14, i64 0
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
-  %19 = insertelement <2 x double> <double poison, double 2.165400e-01>, double %16, i64 0
-  %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %19, <2 x double> <double 2.318500e-01, double -1.014930e+00>)
-  %21 = insertelement <2 x double> %18, double %15, i64 0
-  %22 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %21, <2 x double> %20, <2 x double> <double 1.014800e+00, double 0x3FF28C49BA5E3540>)
-  %23 = insertelement <2 x double> poison, double %.031, i64 0
-  %24 = insertelement <2 x double> %23, double %15, i64 1
-  %25 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %24, <2 x double> %22, <2 x double> %10)
-  %26 = extractelement <2 x double> %25, i64 0
-  %27 = extractelement <2 x double> %25, i64 1
-  %28 = fdiv double %26, %27
-  %29 = fsub double %.031, %28
-  %30 = tail call double @llvm.fabs.f64(double %28)
-  %31 = fcmp olt double %30, 0x3DA5FD7FE1796495
-  br i1 %31, label %.loopexit, label %11
+12:                                               ; preds = %8, %10
+  %.031 = phi double [ %1, %8 ], [ %23, %10 ]
+  %.02430 = phi i32 [ 100, %8 ], [ %11, %10 ]
+  %13 = fmul double %.031, %.031
+  %14 = fmul double %13, %13
+  %15 = tail call double @llvm.fmuladd.f64(double %13, double 2.406000e-02, double -1.449900e-01)
+  %16 = tail call double @llvm.fmuladd.f64(double %13, double %15, double 2.318500e-01)
+  %17 = tail call double @llvm.fmuladd.f64(double %14, double %16, double 1.014800e+00)
+  %18 = tail call double @llvm.fmuladd.f64(double %.031, double %17, double %9)
+  %19 = tail call double @llvm.fmuladd.f64(double %13, double 2.165400e-01, double -1.014930e+00)
+  %20 = tail call double @llvm.fmuladd.f64(double %13, double %19, double 0x3FF28C49BA5E3540)
+  %21 = tail call double @llvm.fmuladd.f64(double %14, double %20, double 1.014800e+00)
+  %22 = fdiv double %18, %21
+  %23 = fsub double %.031, %22
+  %24 = tail call double @llvm.fabs.f64(double %22)
+  %25 = fcmp olt double %24, 0x3DA5FD7FE1796495
+  br i1 %25, label %.loopexit, label %10
 
-32:                                               ; preds = %11
-  %33 = load ptr, ptr %2, align 8
-  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %33, i32 noundef 2050)
+26:                                               ; preds = %10
+  %27 = load ptr, ptr %2, align 8
+  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %27, i32 noundef 2050)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %13, %32
+.loopexit:                                        ; preds = %12, %26
   %.fca.0.insert = insertvalue { double, double } poison, double %0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %29, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %23, 1
   ret { double, double } %.fca.1.insert
 }
 
@@ -135,15 +129,11 @@ declare double @llvm.fabs.f64(double) #4
 
 declare void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #5
-
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

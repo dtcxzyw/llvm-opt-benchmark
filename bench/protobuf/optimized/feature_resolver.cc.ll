@@ -727,7 +727,13 @@ if.then.i220:                                     ; preds = %for.end58
 call5.i.i2.i.i.i.i.noexc:                         ; preds = %if.then.i220
   store ptr %call5.i.i2.i.i.i.i222, ptr %call5.i.i2.i.i.i.i222, align 8, !noalias !19
   %add.ptr.i.i.i.i.i.i221 = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i222, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %add.ptr.i.i.i.i.i.i221, align 1, !noalias !19
+  store i8 0, ptr %add.ptr.i.i.i.i.i.i221, align 1, !noalias !19
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i222, i64 9
+  store i8 0, ptr %arrayidx.i.i.i.i, align 1, !noalias !19
+  %arrayidx.i2.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i222, i64 10
+  store i8 0, ptr %arrayidx.i2.i.i.i, align 1, !noalias !19
+  %arrayidx.i3.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i222, i64 11
+  store i8 1, ptr %arrayidx.i3.i.i.i, align 1, !noalias !19
   store ptr %call5.i.i2.i.i.i.i222, ptr %rightmost_.i.i.i.i, align 8, !noalias !19
   store ptr %call5.i.i2.i.i.i.i222, ptr %editions, align 8, !noalias !19
   %.pre = load i32, ptr %minimum_edition.addr, align 4, !noalias !19
@@ -1635,7 +1641,13 @@ if.then.i:                                        ; preds = %if.end
   %call5.i.i2.i.i.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !38
   store ptr %call5.i.i2.i.i.i.i, ptr %call5.i.i2.i.i.i.i, align 8, !noalias !38
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i, i64 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %add.ptr.i.i.i.i.i.i, align 1, !noalias !38
+  store i8 0, ptr %add.ptr.i.i.i.i.i.i, align 1, !noalias !38
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i, i64 9
+  store i8 0, ptr %arrayidx.i.i.i.i, align 1, !noalias !38
+  %arrayidx.i2.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i, i64 10
+  store i8 0, ptr %arrayidx.i2.i.i.i, align 1, !noalias !38
+  %arrayidx.i3.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i, i64 11
+  store i8 1, ptr %arrayidx.i3.i.i.i, align 1, !noalias !38
   store ptr %call5.i.i2.i.i.i.i, ptr %rightmost_.i.i, align 8, !noalias !38
   store ptr %call5.i.i2.i.i.i.i, ptr %editions, align 8, !noalias !38
   br label %for.cond.i.i.preheader

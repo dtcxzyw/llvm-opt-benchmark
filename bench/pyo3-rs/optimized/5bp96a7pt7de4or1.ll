@@ -7,1303 +7,1644 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h0d871b18e98ca73eE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..weakref$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h7bbce977acd4a75aE"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h215a14291bde550aE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_87_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..eq$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h73d22d35eb835160E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h23e8f9093eae9743E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..item$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h5f40cf487848b62dE"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h2a456b18e6e51856E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..subclass$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h9a84a6ec26390bb6E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h2a7d970e3d3bed1dE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..signature$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hce1fdc8bfe50e912E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h2bd2e03dd7164d49E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..from_item_all$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h1be801ead7bb3893E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h343e5485587c8f4eE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..rename_all$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hdf4d28ceb4243b64E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h4903791d0a7d993bE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..transparent$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hfe490121ed1afdb7E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h499804af4c0a1838E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..set$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h053e2ba215ab09e7E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h4e1983b5f935d3e4E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..eq_int$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17ha39aab709911551fE"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h5b26ff784f8becd3E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..dict$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17he16999cd35a8d21cE"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h686c5bb2c0f0256cE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..name$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hbd90bb60e272740fE"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h72e3e3eb964ef847E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..frozen$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h4a6032b3d18103b7E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h7c59945262d89db8E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..freelist$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h47c93b70ea1ef663E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h8c5511d79e8a30e5E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..unsendable$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hcaa78a0244d862b5E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17h95dc0eee455004d8E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..module$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h23b99f5c56e77c48E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17ha454a51d098f0f92E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..get_all$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hc9de24622e37e553E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17ha7158461117a8561E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..get$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h0f3d0512675a58f1E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17haa479d84277eb9aeE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..annotation$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h2c06b60b1f5e20f9E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17hac269c7928a67d90E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..set_all$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h601e570d0c541418E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17hb073d437efa2c90aE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..constructor$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h1df1477ff59cb6beE"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17hb222adbac59b5c9dE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..pass_module$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h5c069e5613f71044E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17hb23745d62a7fcf0fE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..mapping$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hd220746ea9e0e296E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17hb8494ca47154c9bbE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..text_signature$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hb30042f657d9e158E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17hb9c4efbec303a6e7E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..cancel_handle$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17ha5e2dfcd3e0caf69E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17hcb3b3f8d487dd45eE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..attribute$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17hc0766159726bd231E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17hcebd72b3848af44aE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..sequence$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17he59af03174a66d47E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17hd35c2dfc73ef95c2E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h55af34b5fcaed9d4E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17hd5462bd54679bc1fE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..from_py_with$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h36601f1146100756E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17hd597ebda6a4c52dcE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..extends$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17h2e391b4aa3e2e3b9E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer4step17hf9d2cec6007a5132E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
-  %3 = alloca [24 x i8], align 16
+  %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %3, align 16
+  %7 = load ptr, ptr %1, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %7, ptr %3, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %9, ptr %.sroa.217.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 16
+  store i32 %6, ptr %.sroa.3.0..sroa_idx, align 8
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..ord$GT$5parse28_$u7b$$u7b$closure$u7d$$u7d$17he3380bf631419276E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
-  %8 = load i64, ptr %4, align 8
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.022.0.copyload = load i32, ptr %10, align 8
-  br i1 %9, label %11, label %14
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.022.0.copyload = load i32, ptr %12, align 8
+  br i1 %11, label %13, label %15
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = load <2 x ptr>, ptr %.sroa.324.0..sroa_idx, align 8
-  store <2 x ptr> %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.022.0.copyload, ptr %13, align 8
+  %.sroa.324.0.copyload = load ptr, ptr %.sroa.324.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
+  store ptr %.sroa.324.0.copyload, ptr %1, align 8
+  store ptr %.sroa.425.0.copyload, ptr %8, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.022.0.copyload, ptr %14, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %16
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %.sroa.231.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %.sroa.231.0.copyload = load i32, ptr %.sroa.231.0..sroa_idx, align 4
   %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.332.0.copyload = load ptr, ptr %.sroa.332.0..sroa_idx, align 8
+  %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8
   store i32 %.sroa.022.0.copyload, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.231.0.copyload, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load <2 x ptr>, ptr %.sroa.332.0..sroa_idx, align 8
-  store <2 x ptr> %15, ptr %.sroa.336.0..sroa_idx, align 8
+  store ptr %.sroa.332.0.copyload, ptr %.sroa.336.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sroa.433.0.copyload, ptr %.sroa.437.0..sroa_idx, align 8
   br label %16
 
-16:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %13
   ret void
 }
 

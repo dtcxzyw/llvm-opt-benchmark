@@ -123,12 +123,9 @@ entry:
   %0 = load float, ptr %m_contactStiffness.i, align 4
   %m_contactStiffness.i1 = getelementptr inbounds i8, ptr %body1, i64 268
   %1 = load float, ptr %m_contactStiffness.i1, align 4
-  %2 = insertelement <2 x float> poison, float %0, i64 0
-  %3 = insertelement <2 x float> %2, float %1, i64 1
-  %4 = fdiv <2 x float> <float 1.000000e+00, float 1.000000e+00>, %3
-  %shift = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %5 = fadd <2 x float> %4, %shift
-  %add = extractelement <2 x float> %5, i64 0
+  %div = fdiv float 1.000000e+00, %0
+  %div2 = fdiv float 1.000000e+00, %1
+  %add = fadd float %div, %div2
   %div3 = fdiv float 1.000000e+00, %add
   ret float %div3
 }
@@ -175,152 +172,167 @@ if.end:                                           ; preds = %entry
   %m_cachedPoints.i = getelementptr inbounds i8, ptr %1, i64 856
   %5 = load i32, ptr %m_cachedPoints.i, align 8
   %cmp8 = icmp ne i32 %5, 0
+  %6 = load float, ptr %normalOnBInWorld, align 4
+  %mul.i = fmul float %6, %depth
+  %arrayidx3.i = getelementptr inbounds i8, ptr %normalOnBInWorld, i64 4
+  %7 = load float, ptr %arrayidx3.i, align 4
+  %mul4.i = fmul float %7, %depth
   %arrayidx7.i = getelementptr inbounds i8, ptr %normalOnBInWorld, i64 8
-  %6 = load float, ptr %arrayidx7.i, align 4
-  %mul8.i = fmul float %6, %depth
-  %7 = load <2 x float>, ptr %normalOnBInWorld, align 4
-  %8 = insertelement <2 x float> poison, float %depth, i64 0
-  %9 = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> zeroinitializer
-  %10 = fmul <2 x float> %7, %9
-  %11 = load <2 x float>, ptr %pointInWorld, align 4
-  %12 = fadd <2 x float> %10, %11
+  %8 = load float, ptr %arrayidx7.i, align 4
+  %mul8.i = fmul float %8, %depth
+  %9 = load float, ptr %pointInWorld, align 4
+  %add.i = fadd float %mul.i, %9
+  %arrayidx5.i = getelementptr inbounds i8, ptr %pointInWorld, i64 4
+  %10 = load float, ptr %arrayidx5.i, align 4
+  %add8.i = fadd float %mul4.i, %10
   %arrayidx11.i = getelementptr inbounds i8, ptr %pointInWorld, i64 8
-  %13 = load float, ptr %arrayidx11.i, align 4
-  %add14.i = fadd float %mul8.i, %13
+  %11 = load float, ptr %arrayidx11.i, align 4
+  %add14.i = fadd float %mul8.i, %11
+  %retval.sroa.0.0.vec.insert.i11 = insertelement <2 x float> poison, float %add.i, i64 0
+  %retval.sroa.0.4.vec.insert.i12 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i11, float %add8.i, i64 1
   %retval.sroa.3.12.vec.insert.i13 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
   br i1 %cmp5.not, label %if.else, label %if.then13
 
 if.then13:                                        ; preds = %if.end
   %m_body1Wrap = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %m_body1Wrap, align 8
-  %m_collisionObject.i16 = getelementptr inbounds i8, ptr %14, i64 16
-  %15 = load ptr, ptr %m_collisionObject.i16, align 8
-  %m_worldTransform.i = getelementptr inbounds i8, ptr %15, i64 8
-  %m_origin.i = getelementptr inbounds i8, ptr %15, i64 56
-  %16 = load float, ptr %m_origin.i, align 4
-  %17 = extractelement <2 x float> %12, i64 0
-  %sub.i.i = fsub float %17, %16
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %15, i64 60
-  %18 = load float, ptr %arrayidx7.i.i, align 4
-  %19 = extractelement <2 x float> %12, i64 1
-  %sub8.i.i = fsub float %19, %18
-  %arrayidx13.i.i = getelementptr inbounds i8, ptr %15, i64 64
-  %20 = load float, ptr %arrayidx13.i.i, align 4
-  %sub14.i.i = fsub float %add14.i, %20
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %15, i64 24
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %15, i64 40
-  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %15, i64 16
-  %arrayidx.i4.i.i = getelementptr inbounds i8, ptr %15, i64 32
-  %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %15, i64 48
-  %21 = load float, ptr %arrayidx.i3.i.i, align 4, !noalias !5
-  %22 = load float, ptr %arrayidx.i4.i.i, align 4, !noalias !5
-  %23 = load float, ptr %arrayidx.i5.i.i, align 4, !noalias !5
-  %24 = load <2 x float>, ptr %m_worldTransform.i, align 4, !noalias !5
-  %25 = load <2 x float>, ptr %arrayidx3.i.i, align 4, !noalias !5
-  %26 = load <2 x float>, ptr %arrayidx6.i.i, align 4, !noalias !5
-  %27 = insertelement <2 x float> poison, float %sub8.i.i, i64 0
-  %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
-  %29 = fmul <2 x float> %28, %25
-  %30 = insertelement <2 x float> poison, float %sub.i.i, i64 0
-  %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
-  %32 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %24, <2 x float> %31, <2 x float> %29)
-  %33 = insertelement <2 x float> poison, float %sub14.i.i, i64 0
-  %34 = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> zeroinitializer
-  %35 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %26, <2 x float> %34, <2 x float> %32)
-  %mul8.i13.i.i = fmul float %sub8.i.i, %22
-  %36 = tail call float @llvm.fmuladd.f32(float %21, float %sub.i.i, float %mul8.i13.i.i)
-  %37 = tail call noundef float @llvm.fmuladd.f32(float %23, float %sub14.i.i, float %36)
-  %retval.sroa.3.12.vec.insert.i4.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %37, i64 0
+  %12 = load ptr, ptr %m_body1Wrap, align 8
+  %m_collisionObject.i16 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = load ptr, ptr %m_collisionObject.i16, align 8
+  %m_worldTransform.i = getelementptr inbounds i8, ptr %13, i64 8
+  %m_origin.i = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = load float, ptr %m_origin.i, align 4
+  %sub.i.i = fsub float %add.i, %14
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %13, i64 60
+  %15 = load float, ptr %arrayidx7.i.i, align 4
+  %sub8.i.i = fsub float %add8.i, %15
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %13, i64 64
+  %16 = load float, ptr %arrayidx13.i.i, align 4
+  %sub14.i.i = fsub float %add14.i, %16
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %13, i64 24
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %13, i64 40
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %13, i64 12
+  %arrayidx.i1.i.i = getelementptr inbounds i8, ptr %13, i64 28
+  %arrayidx.i2.i.i = getelementptr inbounds i8, ptr %13, i64 44
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %13, i64 16
+  %arrayidx.i4.i.i = getelementptr inbounds i8, ptr %13, i64 32
+  %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %13, i64 48
+  %17 = load float, ptr %m_worldTransform.i, align 4, !noalias !5
+  %18 = load float, ptr %arrayidx3.i.i, align 4, !noalias !5
+  %19 = load float, ptr %arrayidx6.i.i, align 4, !noalias !5
+  %20 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !5
+  %21 = load float, ptr %arrayidx.i1.i.i, align 4, !noalias !5
+  %22 = load float, ptr %arrayidx.i2.i.i, align 4, !noalias !5
+  %23 = load float, ptr %arrayidx.i3.i.i, align 4, !noalias !5
+  %24 = load float, ptr %arrayidx.i4.i.i, align 4, !noalias !5
+  %25 = load float, ptr %arrayidx.i5.i.i, align 4, !noalias !5
+  %mul8.i.i.i = fmul float %sub8.i.i, %18
+  %26 = tail call float @llvm.fmuladd.f32(float %17, float %sub.i.i, float %mul8.i.i.i)
+  %27 = tail call noundef float @llvm.fmuladd.f32(float %19, float %sub14.i.i, float %26)
+  %mul8.i7.i.i = fmul float %sub8.i.i, %21
+  %28 = tail call float @llvm.fmuladd.f32(float %20, float %sub.i.i, float %mul8.i7.i.i)
+  %29 = tail call noundef float @llvm.fmuladd.f32(float %22, float %sub14.i.i, float %28)
+  %mul8.i13.i.i = fmul float %sub8.i.i, %24
+  %30 = tail call float @llvm.fmuladd.f32(float %23, float %sub.i.i, float %mul8.i13.i.i)
+  %31 = tail call noundef float @llvm.fmuladd.f32(float %25, float %sub14.i.i, float %30)
+  %retval.sroa.0.0.vec.insert.i2.i = insertelement <2 x float> poison, float %27, i64 0
+  %retval.sroa.0.4.vec.insert.i3.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i2.i, float %29, i64 1
+  %retval.sroa.3.12.vec.insert.i4.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %31, i64 0
   br label %if.end37
 
 if.else:                                          ; preds = %if.end
   %m_worldTransform.i44 = getelementptr inbounds i8, ptr %4, i64 8
   %m_origin.i45 = getelementptr inbounds i8, ptr %4, i64 56
-  %38 = load float, ptr %m_origin.i45, align 4
-  %39 = extractelement <2 x float> %12, i64 0
-  %sub.i.i46 = fsub float %39, %38
+  %32 = load float, ptr %m_origin.i45, align 4
+  %sub.i.i46 = fsub float %add.i, %32
   %arrayidx7.i.i48 = getelementptr inbounds i8, ptr %4, i64 60
-  %40 = load float, ptr %arrayidx7.i.i48, align 4
-  %41 = extractelement <2 x float> %12, i64 1
-  %sub8.i.i49 = fsub float %41, %40
+  %33 = load float, ptr %arrayidx7.i.i48, align 4
+  %sub8.i.i49 = fsub float %add8.i, %33
   %arrayidx13.i.i51 = getelementptr inbounds i8, ptr %4, i64 64
-  %42 = load float, ptr %arrayidx13.i.i51, align 4
-  %sub14.i.i52 = fsub float %add14.i, %42
+  %34 = load float, ptr %arrayidx13.i.i51, align 4
+  %sub14.i.i52 = fsub float %add14.i, %34
   %arrayidx3.i.i53 = getelementptr inbounds i8, ptr %4, i64 24
   %arrayidx6.i.i54 = getelementptr inbounds i8, ptr %4, i64 40
+  %arrayidx.i.i.i55 = getelementptr inbounds i8, ptr %4, i64 12
+  %arrayidx.i1.i.i56 = getelementptr inbounds i8, ptr %4, i64 28
+  %arrayidx.i2.i.i57 = getelementptr inbounds i8, ptr %4, i64 44
   %arrayidx.i3.i.i58 = getelementptr inbounds i8, ptr %4, i64 16
   %arrayidx.i4.i.i59 = getelementptr inbounds i8, ptr %4, i64 32
   %arrayidx.i5.i.i60 = getelementptr inbounds i8, ptr %4, i64 48
-  %43 = load float, ptr %arrayidx.i3.i.i58, align 4, !noalias !8
-  %44 = load float, ptr %arrayidx.i4.i.i59, align 4, !noalias !8
-  %45 = load float, ptr %arrayidx.i5.i.i60, align 4, !noalias !8
-  %46 = load <2 x float>, ptr %m_worldTransform.i44, align 4, !noalias !8
-  %47 = load <2 x float>, ptr %arrayidx3.i.i53, align 4, !noalias !8
-  %48 = load <2 x float>, ptr %arrayidx6.i.i54, align 4, !noalias !8
-  %49 = insertelement <2 x float> poison, float %sub8.i.i49, i64 0
-  %50 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> zeroinitializer
-  %51 = fmul <2 x float> %50, %47
-  %52 = insertelement <2 x float> poison, float %sub.i.i46, i64 0
-  %53 = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> zeroinitializer
-  %54 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %46, <2 x float> %53, <2 x float> %51)
-  %55 = insertelement <2 x float> poison, float %sub14.i.i52, i64 0
-  %56 = shufflevector <2 x float> %55, <2 x float> poison, <2 x i32> zeroinitializer
-  %57 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %48, <2 x float> %56, <2 x float> %54)
-  %mul8.i13.i.i63 = fmul float %sub8.i.i49, %44
-  %58 = tail call float @llvm.fmuladd.f32(float %43, float %sub.i.i46, float %mul8.i13.i.i63)
-  %59 = tail call noundef float @llvm.fmuladd.f32(float %45, float %sub14.i.i52, float %58)
-  %retval.sroa.3.12.vec.insert.i4.i66 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %59, i64 0
+  %35 = load float, ptr %m_worldTransform.i44, align 4, !noalias !8
+  %36 = load float, ptr %arrayidx3.i.i53, align 4, !noalias !8
+  %37 = load float, ptr %arrayidx6.i.i54, align 4, !noalias !8
+  %38 = load float, ptr %arrayidx.i.i.i55, align 4, !noalias !8
+  %39 = load float, ptr %arrayidx.i1.i.i56, align 4, !noalias !8
+  %40 = load float, ptr %arrayidx.i2.i.i57, align 4, !noalias !8
+  %41 = load float, ptr %arrayidx.i3.i.i58, align 4, !noalias !8
+  %42 = load float, ptr %arrayidx.i4.i.i59, align 4, !noalias !8
+  %43 = load float, ptr %arrayidx.i5.i.i60, align 4, !noalias !8
+  %mul8.i.i.i61 = fmul float %sub8.i.i49, %36
+  %44 = tail call float @llvm.fmuladd.f32(float %35, float %sub.i.i46, float %mul8.i.i.i61)
+  %45 = tail call noundef float @llvm.fmuladd.f32(float %37, float %sub14.i.i52, float %44)
+  %mul8.i7.i.i62 = fmul float %sub8.i.i49, %39
+  %46 = tail call float @llvm.fmuladd.f32(float %38, float %sub.i.i46, float %mul8.i7.i.i62)
+  %47 = tail call noundef float @llvm.fmuladd.f32(float %40, float %sub14.i.i52, float %46)
+  %mul8.i13.i.i63 = fmul float %sub8.i.i49, %42
+  %48 = tail call float @llvm.fmuladd.f32(float %41, float %sub.i.i46, float %mul8.i13.i.i63)
+  %49 = tail call noundef float @llvm.fmuladd.f32(float %43, float %sub14.i.i52, float %48)
+  %retval.sroa.0.0.vec.insert.i2.i64 = insertelement <2 x float> poison, float %45, i64 0
+  %retval.sroa.0.4.vec.insert.i3.i65 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i2.i64, float %47, i64 1
+  %retval.sroa.3.12.vec.insert.i4.i66 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %49, i64 0
   %m_body1Wrap32 = getelementptr inbounds i8, ptr %this, i64 24
-  %60 = load ptr, ptr %m_body1Wrap32, align 8
-  %m_collisionObject.i69 = getelementptr inbounds i8, ptr %60, i64 16
-  %61 = load ptr, ptr %m_collisionObject.i69, align 8
+  %50 = load ptr, ptr %m_body1Wrap32, align 8
+  %m_collisionObject.i69 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = load ptr, ptr %m_collisionObject.i69, align 8
   br label %if.end37
 
 if.end37:                                         ; preds = %if.else, %if.then13
-  %.sink181 = phi ptr [ %61, %if.else ], [ %4, %if.then13 ]
+  %.sink181 = phi ptr [ %51, %if.else ], [ %4, %if.then13 ]
   %localA.sroa.3.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i4.i66, %if.else ], [ %retval.sroa.3.12.vec.insert.i4.i, %if.then13 ]
-  %localA.sroa.0.0 = phi <2 x float> [ %57, %if.else ], [ %35, %if.then13 ]
+  %localA.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i3.i65, %if.else ], [ %retval.sroa.0.4.vec.insert.i3.i, %if.then13 ]
   %m_worldTransform.i70 = getelementptr inbounds i8, ptr %.sink181, i64 8
   %m_origin.i71 = getelementptr inbounds i8, ptr %.sink181, i64 56
-  %62 = load float, ptr %m_origin.i71, align 4
-  %63 = extractelement <2 x float> %11, i64 0
-  %sub.i.i72 = fsub float %63, %62
+  %52 = load float, ptr %m_origin.i71, align 4
+  %sub.i.i72 = fsub float %9, %52
   %arrayidx7.i.i74 = getelementptr inbounds i8, ptr %.sink181, i64 60
-  %64 = load float, ptr %arrayidx7.i.i74, align 4
-  %65 = extractelement <2 x float> %11, i64 1
-  %sub8.i.i75 = fsub float %65, %64
+  %53 = load float, ptr %arrayidx7.i.i74, align 4
+  %sub8.i.i75 = fsub float %10, %53
   %arrayidx13.i.i77 = getelementptr inbounds i8, ptr %.sink181, i64 64
-  %66 = load float, ptr %arrayidx13.i.i77, align 4
-  %sub14.i.i78 = fsub float %13, %66
+  %54 = load float, ptr %arrayidx13.i.i77, align 4
+  %sub14.i.i78 = fsub float %11, %54
   %arrayidx3.i.i79 = getelementptr inbounds i8, ptr %.sink181, i64 24
   %arrayidx6.i.i80 = getelementptr inbounds i8, ptr %.sink181, i64 40
+  %arrayidx.i.i.i81 = getelementptr inbounds i8, ptr %.sink181, i64 12
+  %arrayidx.i1.i.i82 = getelementptr inbounds i8, ptr %.sink181, i64 28
+  %arrayidx.i2.i.i83 = getelementptr inbounds i8, ptr %.sink181, i64 44
   %arrayidx.i3.i.i84 = getelementptr inbounds i8, ptr %.sink181, i64 16
   %arrayidx.i4.i.i85 = getelementptr inbounds i8, ptr %.sink181, i64 32
   %arrayidx.i5.i.i86 = getelementptr inbounds i8, ptr %.sink181, i64 48
-  %67 = load float, ptr %arrayidx.i3.i.i84, align 4, !noalias !11
-  %68 = load float, ptr %arrayidx.i4.i.i85, align 4, !noalias !11
-  %69 = load float, ptr %arrayidx.i5.i.i86, align 4, !noalias !11
-  %70 = load <2 x float>, ptr %m_worldTransform.i70, align 4, !noalias !11
-  %71 = load <2 x float>, ptr %arrayidx3.i.i79, align 4, !noalias !11
-  %72 = load <2 x float>, ptr %arrayidx6.i.i80, align 4, !noalias !11
-  %73 = insertelement <2 x float> poison, float %sub8.i.i75, i64 0
-  %74 = shufflevector <2 x float> %73, <2 x float> poison, <2 x i32> zeroinitializer
-  %75 = fmul <2 x float> %74, %71
-  %76 = insertelement <2 x float> poison, float %sub.i.i72, i64 0
-  %77 = shufflevector <2 x float> %76, <2 x float> poison, <2 x i32> zeroinitializer
-  %78 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %70, <2 x float> %77, <2 x float> %75)
-  %79 = insertelement <2 x float> poison, float %sub14.i.i78, i64 0
-  %80 = shufflevector <2 x float> %79, <2 x float> poison, <2 x i32> zeroinitializer
-  %81 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %72, <2 x float> %80, <2 x float> %78)
-  %mul8.i13.i.i89 = fmul float %sub8.i.i75, %68
-  %82 = tail call float @llvm.fmuladd.f32(float %67, float %sub.i.i72, float %mul8.i13.i.i89)
-  %83 = tail call noundef float @llvm.fmuladd.f32(float %69, float %sub14.i.i78, float %82)
-  %retval.sroa.3.12.vec.insert.i4.i92 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %83, i64 0
+  %55 = load float, ptr %m_worldTransform.i70, align 4, !noalias !11
+  %56 = load float, ptr %arrayidx3.i.i79, align 4, !noalias !11
+  %57 = load float, ptr %arrayidx6.i.i80, align 4, !noalias !11
+  %58 = load float, ptr %arrayidx.i.i.i81, align 4, !noalias !11
+  %59 = load float, ptr %arrayidx.i1.i.i82, align 4, !noalias !11
+  %60 = load float, ptr %arrayidx.i2.i.i83, align 4, !noalias !11
+  %61 = load float, ptr %arrayidx.i3.i.i84, align 4, !noalias !11
+  %62 = load float, ptr %arrayidx.i4.i.i85, align 4, !noalias !11
+  %63 = load float, ptr %arrayidx.i5.i.i86, align 4, !noalias !11
+  %mul8.i.i.i87 = fmul float %sub8.i.i75, %56
+  %64 = tail call float @llvm.fmuladd.f32(float %55, float %sub.i.i72, float %mul8.i.i.i87)
+  %65 = tail call noundef float @llvm.fmuladd.f32(float %57, float %sub14.i.i78, float %64)
+  %mul8.i7.i.i88 = fmul float %sub8.i.i75, %59
+  %66 = tail call float @llvm.fmuladd.f32(float %58, float %sub.i.i72, float %mul8.i7.i.i88)
+  %67 = tail call noundef float @llvm.fmuladd.f32(float %60, float %sub14.i.i78, float %66)
+  %mul8.i13.i.i89 = fmul float %sub8.i.i75, %62
+  %68 = tail call float @llvm.fmuladd.f32(float %61, float %sub.i.i72, float %mul8.i13.i.i89)
+  %69 = tail call noundef float @llvm.fmuladd.f32(float %63, float %sub14.i.i78, float %68)
+  %retval.sroa.0.0.vec.insert.i2.i90 = insertelement <2 x float> poison, float %65, i64 0
+  %retval.sroa.0.4.vec.insert.i3.i91 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i2.i90, float %67, i64 1
+  %retval.sroa.3.12.vec.insert.i4.i92 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %69, i64 0
   store <2 x float> %localA.sroa.0.0, ptr %newPt, align 8
   %localA.sroa.3.0.newPt.sroa_idx = getelementptr inbounds i8, ptr %newPt, i64 8
   store <2 x float> %localA.sroa.3.0, ptr %localA.sroa.3.0.newPt.sroa_idx, align 8
   %m_localPointB.i = getelementptr inbounds i8, ptr %newPt, i64 16
-  store <2 x float> %81, ptr %m_localPointB.i, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i3.i91, ptr %m_localPointB.i, align 8
   %localB.sroa.3.0.m_localPointB.i.sroa_idx = getelementptr inbounds i8, ptr %newPt, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i92, ptr %localB.sroa.3.0.m_localPointB.i.sroa_idx, align 8
   %m_positionWorldOnB.i = getelementptr inbounds i8, ptr %newPt, i64 32
@@ -335,88 +347,88 @@ if.end37:                                         ; preds = %if.else, %if.then13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_partId0.i, i8 -1, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %m_userPersistentData.i, i8 0, i64 84, i1 false)
   %m_positionWorldOnA = getelementptr inbounds i8, ptr %newPt, i64 48
-  store <2 x float> %12, ptr %m_positionWorldOnA, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i12, ptr %m_positionWorldOnA, align 8
   %pointA.sroa.6.0.m_positionWorldOnA.sroa_idx = getelementptr inbounds i8, ptr %newPt, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i13, ptr %pointA.sroa.6.0.m_positionWorldOnA.sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_positionWorldOnB.i, ptr noundef nonnull align 4 dereferenceable(16) %pointInWorld, i64 16, i1 false)
   %call39 = call noundef i32 @_ZNK20btPersistentManifold13getCacheEntryERK15btManifoldPoint(ptr noundef nonnull align 8 dereferenceable(880) %1, ptr noundef nonnull align 8 dereferenceable(204) %newPt)
-  %84 = load ptr, ptr @gCalculateCombinedFrictionCallback, align 8
-  %85 = load ptr, ptr %m_body0Wrap, align 8
-  %m_collisionObject.i95 = getelementptr inbounds i8, ptr %85, i64 16
-  %86 = load ptr, ptr %m_collisionObject.i95, align 8
+  %70 = load ptr, ptr @gCalculateCombinedFrictionCallback, align 8
+  %71 = load ptr, ptr %m_body0Wrap, align 8
+  %m_collisionObject.i95 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = load ptr, ptr %m_collisionObject.i95, align 8
   %m_body1Wrap42 = getelementptr inbounds i8, ptr %this, i64 24
-  %87 = load ptr, ptr %m_body1Wrap42, align 8
-  %m_collisionObject.i96 = getelementptr inbounds i8, ptr %87, i64 16
-  %88 = load ptr, ptr %m_collisionObject.i96, align 8
-  %call44 = call noundef float %84(ptr noundef %86, ptr noundef %88)
+  %73 = load ptr, ptr %m_body1Wrap42, align 8
+  %m_collisionObject.i96 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = load ptr, ptr %m_collisionObject.i96, align 8
+  %call44 = call noundef float %70(ptr noundef %72, ptr noundef %74)
   store float %call44, ptr %m_combinedFriction.i, align 4
-  %89 = load ptr, ptr @gCalculateCombinedRestitutionCallback, align 8
-  %90 = load ptr, ptr %m_body0Wrap, align 8
-  %m_collisionObject.i97 = getelementptr inbounds i8, ptr %90, i64 16
-  %91 = load ptr, ptr %m_collisionObject.i97, align 8
-  %92 = load ptr, ptr %m_body1Wrap42, align 8
-  %m_collisionObject.i98 = getelementptr inbounds i8, ptr %92, i64 16
-  %93 = load ptr, ptr %m_collisionObject.i98, align 8
-  %call49 = call noundef float %89(ptr noundef %91, ptr noundef %93)
+  %75 = load ptr, ptr @gCalculateCombinedRestitutionCallback, align 8
+  %76 = load ptr, ptr %m_body0Wrap, align 8
+  %m_collisionObject.i97 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = load ptr, ptr %m_collisionObject.i97, align 8
+  %78 = load ptr, ptr %m_body1Wrap42, align 8
+  %m_collisionObject.i98 = getelementptr inbounds i8, ptr %78, i64 16
+  %79 = load ptr, ptr %m_collisionObject.i98, align 8
+  %call49 = call noundef float %75(ptr noundef %77, ptr noundef %79)
   %m_combinedRestitution = getelementptr inbounds i8, ptr %newPt, i64 96
   store float %call49, ptr %m_combinedRestitution, align 8
-  %94 = load ptr, ptr @gCalculateCombinedRollingFrictionCallback, align 8
-  %95 = load ptr, ptr %m_body0Wrap, align 8
-  %m_collisionObject.i99 = getelementptr inbounds i8, ptr %95, i64 16
-  %96 = load ptr, ptr %m_collisionObject.i99, align 8
-  %97 = load ptr, ptr %m_body1Wrap42, align 8
-  %m_collisionObject.i100 = getelementptr inbounds i8, ptr %97, i64 16
-  %98 = load ptr, ptr %m_collisionObject.i100, align 8
-  %call54 = call noundef float %94(ptr noundef %96, ptr noundef %98)
+  %80 = load ptr, ptr @gCalculateCombinedRollingFrictionCallback, align 8
+  %81 = load ptr, ptr %m_body0Wrap, align 8
+  %m_collisionObject.i99 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = load ptr, ptr %m_collisionObject.i99, align 8
+  %83 = load ptr, ptr %m_body1Wrap42, align 8
+  %m_collisionObject.i100 = getelementptr inbounds i8, ptr %83, i64 16
+  %84 = load ptr, ptr %m_collisionObject.i100, align 8
+  %call54 = call noundef float %80(ptr noundef %82, ptr noundef %84)
   %m_combinedRollingFriction = getelementptr inbounds i8, ptr %newPt, i64 88
   store float %call54, ptr %m_combinedRollingFriction, align 8
-  %99 = load ptr, ptr @gCalculateCombinedSpinningFrictionCallback, align 8
-  %100 = load ptr, ptr %m_body0Wrap, align 8
-  %m_collisionObject.i101 = getelementptr inbounds i8, ptr %100, i64 16
-  %101 = load ptr, ptr %m_collisionObject.i101, align 8
-  %102 = load ptr, ptr %m_body1Wrap42, align 8
-  %m_collisionObject.i102 = getelementptr inbounds i8, ptr %102, i64 16
-  %103 = load ptr, ptr %m_collisionObject.i102, align 8
-  %call59 = call noundef float %99(ptr noundef %101, ptr noundef %103)
+  %85 = load ptr, ptr @gCalculateCombinedSpinningFrictionCallback, align 8
+  %86 = load ptr, ptr %m_body0Wrap, align 8
+  %m_collisionObject.i101 = getelementptr inbounds i8, ptr %86, i64 16
+  %87 = load ptr, ptr %m_collisionObject.i101, align 8
+  %88 = load ptr, ptr %m_body1Wrap42, align 8
+  %m_collisionObject.i102 = getelementptr inbounds i8, ptr %88, i64 16
+  %89 = load ptr, ptr %m_collisionObject.i102, align 8
+  %call59 = call noundef float %85(ptr noundef %87, ptr noundef %89)
   %m_combinedSpinningFriction = getelementptr inbounds i8, ptr %newPt, i64 92
   store float %call59, ptr %m_combinedSpinningFriction, align 4
-  %104 = load ptr, ptr %m_body0Wrap, align 8
-  %m_collisionObject.i103 = getelementptr inbounds i8, ptr %104, i64 16
-  %105 = load ptr, ptr %m_collisionObject.i103, align 8
-  %m_collisionFlags.i = getelementptr inbounds i8, ptr %105, i64 224
-  %106 = load i32, ptr %m_collisionFlags.i, align 8
-  %and = and i32 %106, 128
+  %90 = load ptr, ptr %m_body0Wrap, align 8
+  %m_collisionObject.i103 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = load ptr, ptr %m_collisionObject.i103, align 8
+  %m_collisionFlags.i = getelementptr inbounds i8, ptr %91, i64 224
+  %92 = load i32, ptr %m_collisionFlags.i, align 8
+  %and = and i32 %92, 128
   %tobool63.not = icmp eq i32 %and, 0
   %.pre = load ptr, ptr %m_body1Wrap42, align 8
   %m_collisionObject.i104 = getelementptr inbounds i8, ptr %.pre, i64 16
-  %107 = load ptr, ptr %m_collisionObject.i104, align 8
+  %93 = load ptr, ptr %m_collisionObject.i104, align 8
   br i1 %tobool63.not, label %lor.lhs.false, label %if.then69
 
 lor.lhs.false:                                    ; preds = %if.end37
-  %m_collisionFlags.i105 = getelementptr inbounds i8, ptr %107, i64 224
-  %108 = load i32, ptr %m_collisionFlags.i105, align 8
-  %and67 = and i32 %108, 128
+  %m_collisionFlags.i105 = getelementptr inbounds i8, ptr %93, i64 224
+  %94 = load i32, ptr %m_collisionFlags.i105, align 8
+  %and67 = and i32 %94, 128
   %tobool68.not = icmp eq i32 %and67, 0
   br i1 %tobool68.not, label %if.end80, label %if.then69
 
 if.then69:                                        ; preds = %if.end37, %lor.lhs.false
-  %109 = load ptr, ptr @gCalculateCombinedContactDampingCallback, align 8
-  %call74 = call noundef float %109(ptr noundef nonnull %105, ptr noundef %107)
-  %110 = getelementptr inbounds i8, ptr %newPt, i64 160
-  store float %call74, ptr %110, align 8
-  %111 = load ptr, ptr @gCalculateCombinedContactStiffnessCallback, align 8
-  %112 = load ptr, ptr %m_body0Wrap, align 8
-  %m_collisionObject.i108 = getelementptr inbounds i8, ptr %112, i64 16
-  %113 = load ptr, ptr %m_collisionObject.i108, align 8
-  %114 = load ptr, ptr %m_body1Wrap42, align 8
-  %m_collisionObject.i109 = getelementptr inbounds i8, ptr %114, i64 16
-  %115 = load ptr, ptr %m_collisionObject.i109, align 8
-  %call79 = call noundef float %111(ptr noundef %113, ptr noundef %115)
-  %116 = getelementptr inbounds i8, ptr %newPt, i64 156
-  store float %call79, ptr %116, align 4
+  %95 = load ptr, ptr @gCalculateCombinedContactDampingCallback, align 8
+  %call74 = call noundef float %95(ptr noundef nonnull %91, ptr noundef %93)
+  %96 = getelementptr inbounds i8, ptr %newPt, i64 160
+  store float %call74, ptr %96, align 8
+  %97 = load ptr, ptr @gCalculateCombinedContactStiffnessCallback, align 8
+  %98 = load ptr, ptr %m_body0Wrap, align 8
+  %m_collisionObject.i108 = getelementptr inbounds i8, ptr %98, i64 16
+  %99 = load ptr, ptr %m_collisionObject.i108, align 8
+  %100 = load ptr, ptr %m_body1Wrap42, align 8
+  %m_collisionObject.i109 = getelementptr inbounds i8, ptr %100, i64 16
+  %101 = load ptr, ptr %m_collisionObject.i109, align 8
+  %call79 = call noundef float %97(ptr noundef %99, ptr noundef %101)
+  %102 = getelementptr inbounds i8, ptr %newPt, i64 156
+  store float %call79, ptr %102, align 4
   %m_contactPointFlags = getelementptr inbounds i8, ptr %newPt, i64 128
-  %117 = load i32, ptr %m_contactPointFlags, align 8
-  %or = or i32 %117, 8
+  %103 = load i32, ptr %m_contactPointFlags, align 8
+  %or = or i32 %103, 8
   store i32 %or, ptr %m_contactPointFlags, align 8
   %.pre143 = load ptr, ptr %m_body0Wrap, align 8
   %m_collisionObject.i110.phi.trans.insert = getelementptr inbounds i8, ptr %.pre143, i64 16
@@ -426,25 +438,25 @@ if.then69:                                        ; preds = %if.end37, %lor.lhs.
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then69, %lor.lhs.false
-  %118 = phi i32 [ %.pre145, %if.then69 ], [ %106, %lor.lhs.false ]
-  %and84 = and i32 %118, 512
+  %104 = phi i32 [ %.pre145, %if.then69 ], [ %92, %lor.lhs.false ]
+  %and84 = and i32 %104, 512
   %tobool85.not = icmp eq i32 %and84, 0
   br i1 %tobool85.not, label %lor.lhs.false86, label %if.then92
 
 lor.lhs.false86:                                  ; preds = %if.end80
-  %119 = load ptr, ptr %m_body1Wrap42, align 8
-  %m_collisionObject.i112 = getelementptr inbounds i8, ptr %119, i64 16
-  %120 = load ptr, ptr %m_collisionObject.i112, align 8
-  %m_collisionFlags.i113 = getelementptr inbounds i8, ptr %120, i64 224
-  %121 = load i32, ptr %m_collisionFlags.i113, align 8
-  %and90 = and i32 %121, 512
+  %105 = load ptr, ptr %m_body1Wrap42, align 8
+  %m_collisionObject.i112 = getelementptr inbounds i8, ptr %105, i64 16
+  %106 = load ptr, ptr %m_collisionObject.i112, align 8
+  %m_collisionFlags.i113 = getelementptr inbounds i8, ptr %106, i64 224
+  %107 = load i32, ptr %m_collisionFlags.i113, align 8
+  %and90 = and i32 %107, 512
   %tobool91.not = icmp eq i32 %and90, 0
   br i1 %tobool91.not, label %if.end95, label %if.then92
 
 if.then92:                                        ; preds = %lor.lhs.false86, %if.end80
   %m_contactPointFlags93 = getelementptr inbounds i8, ptr %newPt, i64 128
-  %122 = load i32, ptr %m_contactPointFlags93, align 8
-  %or94 = or i32 %122, 16
+  %108 = load i32, ptr %m_contactPointFlags93, align 8
+  %or94 = or i32 %108, 16
   store i32 %or94, ptr %m_contactPointFlags93, align 8
   br label %if.end95
 
@@ -452,68 +464,62 @@ if.end95:                                         ; preds = %if.then92, %lor.lhs
   %m_lateralFrictionDir1 = getelementptr inbounds i8, ptr %newPt, i64 172
   %m_lateralFrictionDir2 = getelementptr inbounds i8, ptr %newPt, i64 188
   %arrayidx.i = getelementptr inbounds i8, ptr %newPt, i64 72
-  %123 = load float, ptr %arrayidx.i, align 8
-  %124 = call noundef float @llvm.fabs.f32(float %123)
-  %cmp.i = fcmp ogt float %124, 0x3FE6A09E60000000
+  %109 = load float, ptr %arrayidx.i, align 8
+  %110 = call noundef float @llvm.fabs.f32(float %109)
+  %cmp.i = fcmp ogt float %110, 0x3FE6A09E60000000
   %arrayidx22.i = getelementptr inbounds i8, ptr %newPt, i64 180
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end95
   %arrayidx3.i114 = getelementptr inbounds i8, ptr %newPt, i64 68
-  %125 = load float, ptr %arrayidx3.i114, align 4
-  %mul10.i = fmul float %123, %123
-  %126 = call float @llvm.fmuladd.f32(float %125, float %125, float %mul10.i)
-  %sqrt.i = call float @llvm.sqrt.f32(float %126)
+  %111 = load float, ptr %arrayidx3.i114, align 4
+  %mul10.i = fmul float %109, %109
+  %112 = call float @llvm.fmuladd.f32(float %111, float %111, float %mul10.i)
+  %sqrt.i = call float @llvm.sqrt.f32(float %112)
   %div.i = fdiv float 1.000000e+00, %sqrt.i
-  %fneg.i = fneg float %123
+  %fneg.i = fneg float %109
   %mul.i115 = fmul float %div.i, %fneg.i
-  %mul20.i = fmul float %125, %div.i
-  %127 = load float, ptr %m_normalWorldOnB.i, align 8
-  %fneg28.i = fneg float %127
-  %128 = insertelement <2 x float> poison, float %126, i64 0
-  %129 = insertelement <2 x float> %128, float %fneg28.i, i64 1
-  %130 = insertelement <2 x float> poison, float %div.i, i64 0
-  %131 = insertelement <2 x float> %130, float %mul20.i, i64 1
-  %132 = fmul <2 x float> %129, %131
-  %mul38.i = fmul float %mul.i115, %127
+  %mul20.i = fmul float %111, %div.i
+  %mul23.i = fmul float %112, %div.i
+  %113 = load float, ptr %m_normalWorldOnB.i, align 8
+  %fneg28.i = fneg float %113
+  %mul31.i = fmul float %mul20.i, %fneg28.i
+  %mul38.i = fmul float %mul.i115, %113
   br label %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
 
 if.else.i:                                        ; preds = %if.end95
-  %133 = load float, ptr %m_normalWorldOnB.i, align 8
+  %114 = load float, ptr %m_normalWorldOnB.i, align 8
   %arrayidx48.i = getelementptr inbounds i8, ptr %newPt, i64 68
-  %134 = load float, ptr %arrayidx48.i, align 4
-  %mul51.i = fmul float %134, %134
-  %135 = call float @llvm.fmuladd.f32(float %133, float %133, float %mul51.i)
-  %sqrt38.i = call float @llvm.sqrt.f32(float %135)
+  %115 = load float, ptr %arrayidx48.i, align 4
+  %mul51.i = fmul float %115, %115
+  %116 = call float @llvm.fmuladd.f32(float %114, float %114, float %mul51.i)
+  %sqrt38.i = call float @llvm.sqrt.f32(float %116)
   %div54.i = fdiv float 1.000000e+00, %sqrt38.i
-  %fneg57.i = fneg float %134
-  %136 = insertelement <2 x float> poison, float %133, i64 0
-  %137 = insertelement <2 x float> %136, float %fneg57.i, i64 1
-  %138 = insertelement <2 x float> poison, float %div54.i, i64 0
-  %139 = shufflevector <2 x float> %138, <2 x float> poison, <2 x i32> zeroinitializer
-  %140 = fmul <2 x float> %137, %139
-  %fneg70.i = fneg float %123
-  %141 = insertelement <2 x float> poison, float %fneg70.i, i64 0
-  %142 = insertelement <2 x float> %141, float %123, i64 1
-  %143 = fmul <2 x float> %140, %142
-  %mul83.i = fmul float %135, %div54.i
-  %144 = extractelement <2 x float> %140, i64 0
-  %145 = extractelement <2 x float> %140, i64 1
+  %fneg57.i = fneg float %115
+  %mul58.i = fmul float %div54.i, %fneg57.i
+  %mul63.i = fmul float %114, %div54.i
+  %fneg70.i = fneg float %109
+  %mul73.i = fmul float %mul63.i, %fneg70.i
+  %mul80.i = fmul float %109, %mul58.i
+  %mul83.i = fmul float %116, %div54.i
   br label %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
 
 _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i, %if.else.i
-  %mul58.i.sink = phi float [ 0.000000e+00, %if.then.i ], [ %145, %if.else.i ]
-  %mul63.i.sink = phi float [ %mul.i115, %if.then.i ], [ %144, %if.else.i ]
+  %mul58.i.sink = phi float [ 0.000000e+00, %if.then.i ], [ %mul58.i, %if.else.i ]
+  %mul63.i.sink = phi float [ %mul.i115, %if.then.i ], [ %mul63.i, %if.else.i ]
   %.sink = phi float [ %mul20.i, %if.then.i ], [ 0.000000e+00, %if.else.i ]
+  %mul73.i.sink = phi float [ %mul23.i, %if.then.i ], [ %mul73.i, %if.else.i ]
+  %mul80.i.sink = phi float [ %mul31.i, %if.then.i ], [ %mul80.i, %if.else.i ]
   %mul83.sink.i = phi float [ %mul38.i, %if.then.i ], [ %mul83.i, %if.else.i ]
-  %146 = phi <2 x float> [ %132, %if.then.i ], [ %143, %if.else.i ]
   store float %mul58.i.sink, ptr %m_lateralFrictionDir1, align 4
-  %147 = getelementptr inbounds i8, ptr %newPt, i64 176
-  store float %mul63.i.sink, ptr %147, align 8
+  %117 = getelementptr inbounds i8, ptr %newPt, i64 176
+  store float %mul63.i.sink, ptr %117, align 8
   store float %.sink, ptr %arrayidx22.i, align 4
-  store <2 x float> %146, ptr %m_lateralFrictionDir2, align 4
-  %148 = getelementptr inbounds i8, ptr %newPt, i64 196
-  store float %mul83.sink.i, ptr %148, align 4
+  store float %mul73.i.sink, ptr %m_lateralFrictionDir2, align 4
+  %118 = getelementptr inbounds i8, ptr %newPt, i64 192
+  store float %mul80.i.sink, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %newPt, i64 196
+  store float %mul83.sink.i, ptr %119, align 4
   %. = select i1 %cmp5.not, i64 32, i64 36
   %.186 = select i1 %cmp5.not, i64 36, i64 32
   %.187 = select i1 %cmp5.not, i64 40, i64 44
@@ -527,108 +533,113 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i, %if.else
   %.sink140 = load i32, ptr %m_partId1105, align 4
   %.sink141 = load i32, ptr %m_partId0103, align 4
   store i32 %.sink141, ptr %m_partId0.i, align 4
-  %149 = getelementptr inbounds i8, ptr %newPt, i64 104
-  store i32 %.sink140, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %newPt, i64 108
-  store i32 %.sink139, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %newPt, i64 112
-  store i32 %.sink138, ptr %151, align 8
+  %120 = getelementptr inbounds i8, ptr %newPt, i64 104
+  store i32 %.sink140, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %newPt, i64 108
+  store i32 %.sink139, ptr %121, align 4
+  %122 = getelementptr inbounds i8, ptr %newPt, i64 112
+  store i32 %.sink138, ptr %122, align 8
   %cmp112 = icmp sgt i32 %call39, -1
-  %152 = load ptr, ptr %m_manifoldPtr, align 8
+  %123 = load ptr, ptr %m_manifoldPtr, align 8
   br i1 %cmp112, label %if.then113, label %if.else115
 
 if.then113:                                       ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
-  %m_pointCache.i = getelementptr inbounds i8, ptr %152, i64 8
+  %m_pointCache.i = getelementptr inbounds i8, ptr %123, i64 8
   %idxprom.i = zext nneg i32 %call39 to i64
   %arrayidx.i116 = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache.i, i64 0, i64 %idxprom.i
   %m_lifeTime.i.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 168
-  %153 = load i32, ptr %m_lifeTime.i.i, align 8
+  %124 = load i32, ptr %m_lifeTime.i.i, align 8
   %m_appliedImpulse.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 132
-  %154 = load <4 x float>, ptr %m_appliedImpulse.i, align 4
+  %125 = load float, ptr %m_appliedImpulse.i, align 4
+  %m_prevRHS.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 136
+  %126 = load float, ptr %m_prevRHS.i, align 8
+  %m_appliedImpulseLateral1.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 140
+  %127 = load float, ptr %m_appliedImpulseLateral1.i, align 4
+  %m_appliedImpulseLateral2.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 144
+  %128 = load float, ptr %m_appliedImpulseLateral2.i, align 8
   %m_contactPointFlags.i = getelementptr inbounds i8, ptr %newPt, i64 128
-  %155 = load i32, ptr %m_contactPointFlags.i, align 8
-  %and.i = and i32 %155, 16
+  %129 = load i32, ptr %m_contactPointFlags.i, align 8
+  %and.i = and i32 %129, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then19.i, label %if.then.i117
 
 if.then.i117:                                     ; preds = %if.then113
-  %m_appliedImpulseLateral1.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 140
-  %156 = load float, ptr %m_appliedImpulseLateral1.i, align 4
   %m_combinedFriction.i118 = getelementptr inbounds i8, ptr %arrayidx.i116, i64 84
-  %157 = load float, ptr %m_combinedFriction.i118, align 4
-  %158 = fmul <4 x float> %154, %154
-  %mul17.i = extractelement <4 x float> %158, i64 3
-  %159 = call float @llvm.fmuladd.f32(float %156, float %156, float %mul17.i)
-  %160 = extractelement <4 x float> %154, i64 0
-  %161 = call float @llvm.fmuladd.f32(float %157, float %160, float 0.000000e+00)
-  %mul.i119 = fmul float %161, %161
-  %cmp.i120 = fcmp ogt float %159, %mul.i119
+  %130 = load float, ptr %m_combinedFriction.i118, align 4
+  %mul17.i = fmul float %128, %128
+  %131 = call float @llvm.fmuladd.f32(float %127, float %127, float %mul17.i)
+  %132 = call float @llvm.fmuladd.f32(float %130, float %125, float 0.000000e+00)
+  %mul.i119 = fmul float %132, %132
+  %cmp.i120 = fcmp ogt float %131, %mul.i119
   br i1 %cmp.i120, label %if.then19.i, label %_ZN20btPersistentManifold19replaceContactPointERK15btManifoldPointi.exit
 
 if.then19.i:                                      ; preds = %if.then.i117, %if.then113
   %m_userPersistentData.i121 = getelementptr inbounds i8, ptr %arrayidx.i116, i64 120
-  %162 = load ptr, ptr %m_userPersistentData.i121, align 8
+  %133 = load ptr, ptr %m_userPersistentData.i121, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(204) %arrayidx.i116, ptr noundef nonnull align 8 dereferenceable(204) %newPt, i64 204, i1 false)
-  store ptr %162, ptr %m_userPersistentData.i121, align 8
-  store <4 x float> %154, ptr %m_appliedImpulse.i, align 4
+  store ptr %133, ptr %m_userPersistentData.i121, align 8
+  store float %125, ptr %m_appliedImpulse.i, align 4
+  store float %126, ptr %m_prevRHS.i, align 8
+  store float %127, ptr %m_appliedImpulseLateral1.i, align 4
+  store float %128, ptr %m_appliedImpulseLateral2.i, align 8
   br label %_ZN20btPersistentManifold19replaceContactPointERK15btManifoldPointi.exit
 
 _ZN20btPersistentManifold19replaceContactPointERK15btManifoldPointi.exit: ; preds = %if.then.i117, %if.then19.i
-  store i32 %153, ptr %m_lifeTime.i.i, align 8
+  store i32 %124, ptr %m_lifeTime.i.i, align 8
   br label %if.end118
 
 if.else115:                                       ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
-  %call117 = call noundef i32 @_ZN20btPersistentManifold16addManifoldPointERK15btManifoldPointb(ptr noundef nonnull align 8 dereferenceable(880) %152, ptr noundef nonnull align 8 dereferenceable(204) %newPt, i1 noundef zeroext false)
+  %call117 = call noundef i32 @_ZN20btPersistentManifold16addManifoldPointERK15btManifoldPointb(ptr noundef nonnull align 8 dereferenceable(880) %123, ptr noundef nonnull align 8 dereferenceable(204) %newPt, i1 noundef zeroext false)
   br label %if.end118
 
 if.end118:                                        ; preds = %if.else115, %_ZN20btPersistentManifold19replaceContactPointERK15btManifoldPointi.exit
   %insertIndex.0 = phi i32 [ %call39, %_ZN20btPersistentManifold19replaceContactPointERK15btManifoldPointi.exit ], [ %call117, %if.else115 ]
-  %163 = load ptr, ptr @gContactAddedCallback, align 8
-  %tobool119.not = icmp eq ptr %163, null
+  %134 = load ptr, ptr @gContactAddedCallback, align 8
+  %tobool119.not = icmp eq ptr %134, null
   br i1 %tobool119.not, label %if.end149, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end118
-  %164 = load ptr, ptr %m_body0Wrap, align 8
-  %m_collisionObject.i122 = getelementptr inbounds i8, ptr %164, i64 16
-  %165 = load ptr, ptr %m_collisionObject.i122, align 8
-  %m_collisionFlags.i123 = getelementptr inbounds i8, ptr %165, i64 224
-  %166 = load i32, ptr %m_collisionFlags.i123, align 8
-  %and123 = and i32 %166, 8
+  %135 = load ptr, ptr %m_body0Wrap, align 8
+  %m_collisionObject.i122 = getelementptr inbounds i8, ptr %135, i64 16
+  %136 = load ptr, ptr %m_collisionObject.i122, align 8
+  %m_collisionFlags.i123 = getelementptr inbounds i8, ptr %136, i64 224
+  %137 = load i32, ptr %m_collisionFlags.i123, align 8
+  %and123 = and i32 %137, 8
   %tobool124.not = icmp eq i32 %and123, 0
   %m_body1Wrap42.val.pre = load ptr, ptr %m_body1Wrap42, align 8
   br i1 %tobool124.not, label %lor.lhs.false125, label %if.then131
 
 lor.lhs.false125:                                 ; preds = %land.lhs.true
   %m_collisionObject.i124 = getelementptr inbounds i8, ptr %m_body1Wrap42.val.pre, i64 16
-  %167 = load ptr, ptr %m_collisionObject.i124, align 8
-  %m_collisionFlags.i125 = getelementptr inbounds i8, ptr %167, i64 224
-  %168 = load i32, ptr %m_collisionFlags.i125, align 8
-  %and129 = and i32 %168, 8
+  %138 = load ptr, ptr %m_collisionObject.i124, align 8
+  %m_collisionFlags.i125 = getelementptr inbounds i8, ptr %138, i64 224
+  %139 = load i32, ptr %m_collisionFlags.i125, align 8
+  %and129 = and i32 %139, 8
   %tobool130.not = icmp eq i32 %and129, 0
   br i1 %tobool130.not, label %if.end149, label %if.then131
 
 if.then131:                                       ; preds = %lor.lhs.false125, %land.lhs.true
-  %cond = select i1 %cmp5.not, ptr %164, ptr %m_body1Wrap42.val.pre
-  %cond141 = select i1 %cmp5.not, ptr %m_body1Wrap42.val.pre, ptr %164
-  %169 = load ptr, ptr %m_manifoldPtr, align 8
-  %m_pointCache.i126 = getelementptr inbounds i8, ptr %169, i64 8
+  %cond = select i1 %cmp5.not, ptr %135, ptr %m_body1Wrap42.val.pre
+  %cond141 = select i1 %cmp5.not, ptr %m_body1Wrap42.val.pre, ptr %135
+  %140 = load ptr, ptr %m_manifoldPtr, align 8
+  %m_pointCache.i126 = getelementptr inbounds i8, ptr %140, i64 8
   %idxprom.i127 = sext i32 %insertIndex.0 to i64
   %arrayidx.i128 = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache.i126, i64 0, i64 %idxprom.i127
-  %170 = load i32, ptr %m_partId0.i, align 4
-  %171 = load i32, ptr %150, align 4
-  %172 = load i32, ptr %149, align 8
-  %173 = load i32, ptr %151, align 8
-  %call148 = call noundef zeroext i1 %163(ptr noundef nonnull align 8 dereferenceable(204) %arrayidx.i128, ptr noundef %cond, i32 noundef %170, i32 noundef %171, ptr noundef %cond141, i32 noundef %172, i32 noundef %173)
+  %141 = load i32, ptr %m_partId0.i, align 4
+  %142 = load i32, ptr %121, align 4
+  %143 = load i32, ptr %120, align 8
+  %144 = load i32, ptr %122, align 8
+  %call148 = call noundef zeroext i1 %134(ptr noundef nonnull align 8 dereferenceable(204) %arrayidx.i128, ptr noundef %cond, i32 noundef %141, i32 noundef %142, ptr noundef %cond141, i32 noundef %143, i32 noundef %144)
   br label %if.end149
 
 if.end149:                                        ; preds = %if.then131, %lor.lhs.false125, %if.end118
-  %174 = load ptr, ptr @gContactStartedCallback, align 8
-  %tobool150.not = icmp eq ptr %174, null
+  %145 = load ptr, ptr @gContactStartedCallback, align 8
+  %tobool150.not = icmp eq ptr %145, null
   %brmerge = or i1 %cmp8, %tobool150.not
   br i1 %brmerge, label %if.end155, label %if.then153
 
 if.then153:                                       ; preds = %if.end149
-  call void %174(ptr noundef nonnull align 8 dereferenceable(8) %m_manifoldPtr)
+  call void %145(ptr noundef nonnull align 8 dereferenceable(8) %m_manifoldPtr)
   br label %if.end155
 
 if.end155:                                        ; preds = %if.end149, %entry, %if.then153
@@ -688,9 +699,6 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

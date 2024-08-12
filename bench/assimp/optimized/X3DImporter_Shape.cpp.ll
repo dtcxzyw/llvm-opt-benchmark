@@ -1268,24 +1268,28 @@ define hidden void @_ZN6Assimp11X3DImporter12readMaterialERN4pugi8xml_nodeE(ptr 
 entry:
   %use = alloca %"class.std::__cxx11::basic_string", align 8
   %def = alloca %"class.std::__cxx11::basic_string", align 8
-  %diffuseColor = alloca %struct.aiColor3D, align 8
-  %emissiveColor = alloca %struct.aiColor3D, align 8
-  %specularColor = alloca %struct.aiColor3D, align 8
+  %diffuseColor = alloca %struct.aiColor3D, align 4
+  %emissiveColor = alloca %struct.aiColor3D, align 4
+  %specularColor = alloca %struct.aiColor3D, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp39 = alloca %"class.std::allocator", align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %use) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %def) #17
+  store float 0x3FE99999A0000000, ptr %diffuseColor, align 4
   %g.i = getelementptr inbounds i8, ptr %diffuseColor, i64 4
-  store <2 x float> <float 0x3FE99999A0000000, float 0x3FE99999A0000000>, ptr %diffuseColor, align 8
+  store float 0x3FE99999A0000000, ptr %g.i, align 4
   %b.i = getelementptr inbounds i8, ptr %diffuseColor, i64 8
-  store float 0x3FE99999A0000000, ptr %b.i, align 8
+  store float 0x3FE99999A0000000, ptr %b.i, align 4
+  store float 0.000000e+00, ptr %emissiveColor, align 4
   %g.i14 = getelementptr inbounds i8, ptr %emissiveColor, i64 4
-  store <2 x float> zeroinitializer, ptr %emissiveColor, align 8
+  store float 0.000000e+00, ptr %g.i14, align 4
   %b.i15 = getelementptr inbounds i8, ptr %emissiveColor, i64 8
-  store float 0.000000e+00, ptr %b.i15, align 8
-  store <2 x float> zeroinitializer, ptr %specularColor, align 8
+  store float 0.000000e+00, ptr %b.i15, align 4
+  store float 0.000000e+00, ptr %specularColor, align 4
+  %g.i16 = getelementptr inbounds i8, ptr %specularColor, i64 4
+  store float 0.000000e+00, ptr %g.i16, align 4
   %b.i17 = getelementptr inbounds i8, ptr %specularColor, i64 8
-  store float 0.000000e+00, ptr %b.i17, align 8
+  store float 0.000000e+00, ptr %b.i17, align 4
   %0 = load ptr, ptr %node, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont11, label %if.end.i.i
@@ -1563,23 +1567,32 @@ if.end:                                           ; preds = %if.then27, %invoke.
   store float %shininess.0151, ptr %Shininess, align 8
   store float %transparency.0, ptr %Transparency.i, align 8
   %DiffuseColor = getelementptr inbounds i8, ptr %call23, i64 80
-  %13 = load float, ptr %diffuseColor, align 8
-  %14 = load <2 x float>, ptr %g.i, align 4
-  %15 = load float, ptr %emissiveColor, align 8
-  %16 = insertelement <4 x float> poison, float %13, i64 0
-  %17 = shufflevector <2 x float> %14, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %18 = shufflevector <4 x float> %16, <4 x float> %17, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %19 = insertelement <4 x float> %18, float %15, i64 3
-  store <4 x float> %19, ptr %DiffuseColor, align 4
+  %13 = load float, ptr %diffuseColor, align 4
+  store float %13, ptr %DiffuseColor, align 4
+  %14 = load float, ptr %g.i, align 4
+  %g3.i = getelementptr inbounds i8, ptr %call23, i64 84
+  store float %14, ptr %g3.i, align 4
+  %15 = load float, ptr %b.i, align 4
+  %b4.i = getelementptr inbounds i8, ptr %call23, i64 88
+  store float %15, ptr %b4.i, align 4
+  %EmissiveColor = getelementptr inbounds i8, ptr %call23, i64 92
+  %16 = load float, ptr %emissiveColor, align 4
+  store float %16, ptr %EmissiveColor, align 4
+  %17 = load float, ptr %g.i14, align 4
   %g3.i117 = getelementptr inbounds i8, ptr %call23, i64 96
-  %20 = load <2 x float>, ptr %g.i14, align 4
-  store <2 x float> %20, ptr %g3.i117, align 4
+  store float %17, ptr %g3.i117, align 4
+  %18 = load float, ptr %b.i15, align 4
+  %b4.i119 = getelementptr inbounds i8, ptr %call23, i64 100
+  store float %18, ptr %b4.i119, align 4
   %SpecularColor = getelementptr inbounds i8, ptr %call23, i64 108
-  %21 = load <2 x float>, ptr %specularColor, align 8
-  store <2 x float> %21, ptr %SpecularColor, align 4
-  %22 = load float, ptr %b.i17, align 8
+  %19 = load float, ptr %specularColor, align 4
+  store float %19, ptr %SpecularColor, align 4
+  %20 = load float, ptr %g.i16, align 4
+  %g3.i121 = getelementptr inbounds i8, ptr %call23, i64 112
+  store float %20, ptr %g3.i121, align 4
+  %21 = load float, ptr %b.i17, align 4
   %b4.i123 = getelementptr inbounds i8, ptr %call23, i64 116
-  store float %22, ptr %b4.i123, align 4
+  store float %21, ptr %b4.i123, align 4
   %call37 = invoke noundef zeroext i1 @_ZN6Assimp11X3DImporter11isNodeEmptyERN4pugi8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %node)
           to label %invoke.cont36 unwind label %lpad
 
@@ -1600,7 +1613,7 @@ call.i.noexc:                                     ; preds = %if.then38
           to label %invoke.cont41 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
   br label %ehcleanup
@@ -1615,34 +1628,34 @@ invoke.cont43:                                    ; preds = %invoke.cont41
   br label %if.end47
 
 lpad40:                                           ; preds = %call.i.noexc, %if.then38
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad42:                                           ; preds = %invoke.cont41
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad40, %lpad.i, %lpad42
-  %.pn = phi { ptr, i32 } [ %25, %lpad42 ], [ %24, %lpad40 ], [ %23, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %24, %lpad42 ], [ %23, %lpad40 ], [ %22, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39) #17
   br label %ehcleanup50
 
 if.else44:                                        ; preds = %invoke.cont36
-  %26 = load ptr, ptr %mNodeElementCur, align 8
+  %25 = load ptr, ptr %mNodeElementCur, align 8
   %call5.i.i.i.i.i.i125 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %_ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EE9push_backERKS2_.exit unwind label %lpad
 
 _ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EE9push_backERKS2_.exit: ; preds = %if.else44
-  %Children = getelementptr inbounds i8, ptr %26, i64 48
+  %Children = getelementptr inbounds i8, ptr %25, i64 48
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i125, i64 16
   store ptr %call23, ptr %_M_storage.i.i.i.i, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i125, ptr noundef nonnull %Children) #17
-  %_M_size.i.i.i = getelementptr inbounds i8, ptr %26, i64 64
-  %27 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %27, 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %25, i64 64
+  %26 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %26, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   br label %if.end47
 
@@ -1656,8 +1669,8 @@ _ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EE9push_backERKS2_.exit130: ; pred
   store ptr %call23, ptr %_M_storage.i.i.i.i126, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i129, ptr noundef nonnull %NodeElement_List) #17
   %_M_size.i.i.i127 = getelementptr inbounds i8, ptr %this, i64 88
-  %28 = load i64, ptr %_M_size.i.i.i127, align 8
-  %add.i.i.i128 = add i64 %28, 1
+  %27 = load i64, ptr %_M_size.i.i.i127, align 8
+  %add.i.i.i128 = add i64 %27, 1
   store i64 %add.i.i.i128, ptr %_M_size.i.i.i127, align 8
   br label %if.end49
 

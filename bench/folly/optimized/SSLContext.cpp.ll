@@ -2710,15 +2710,17 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 define linkonce_odr void @_ZN5folly10SSLContext17passwordCollectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %collector_ = getelementptr inbounds i8, ptr %this, i64 64
+  %0 = load ptr, ptr %collector_, align 8, !tbaa !117
+  store ptr %0, ptr %agg.result, align 8, !tbaa !117
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %0 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !118
-  %1 = load <2 x ptr>, ptr %collector_, align 8, !tbaa !81
-  store <2 x ptr> %1, ptr %agg.result, align 8, !tbaa !81
-  %cmp.not.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !118
+  store ptr %1, ptr %_M_refcount.i.i, align 8, !tbaa !118
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5folly17PasswordCollectorEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !80
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2745,6 +2747,7 @@ entry:
   %serverNameCb_ = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #26
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %cb, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !122
@@ -2788,15 +2791,17 @@ _ZNSt8functionIFN5folly10SSLContext24ServerNameCallbackResultEP6ssl_stEEC2ERKS6_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %serverNameCb_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !123
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %7 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !81
-  %8 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !81
-  store <2 x ptr> %7, ptr %_M_manager.i.i.i, align 8, !tbaa !81
+  %7 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !81
+  store ptr %7, ptr %_M_manager.i.i.i, align 8, !tbaa !81
+  %_M_invoker4.i3.i = getelementptr inbounds i8, ptr %this, i64 104
+  %8 = load ptr, ptr %_M_invoker4.i3.i, align 8, !tbaa !81
+  store ptr %8, ptr %_M_invoker.i.i, align 8, !tbaa !81
   store <2 x ptr> %6, ptr %_M_manager3.i.i, align 8, !tbaa !81
-  %tobool.not.i.i = icmp eq ptr %8, null
+  %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFN5folly10SSLContext24ServerNameCallbackResultEP6ssl_stEEaSERKS6_.exit, label %if.then.i5.i
 
 if.then.i5.i:                                     ; preds = %_ZNSt8functionIFN5folly10SSLContext24ServerNameCallbackResultEP6ssl_stEEC2ERKS6_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFN5folly10SSLContext24ServerNameCallbackResultEP6ssl_stEEaSERKS6_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i5.i

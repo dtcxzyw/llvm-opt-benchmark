@@ -1939,7 +1939,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN11pool_solver14get_proof_coreEv(ptr noundef nonnull align 8 dereferenceable(228) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pc = alloca %class.elim_aux_assertions, align 16
+  %pc = alloca %class.elim_aux_assertions, align 8
   %m_pool = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_pool, align 8
   %m_proof_watch = getelementptr inbounds i8, ptr %0, i64 112
@@ -2005,15 +2005,17 @@ invoke.cont7:                                     ; preds = %if.then.i.i.i, %if.
 
 if.then12:                                        ; preds = %invoke.cont7
   %m_pred = getelementptr inbounds i8, ptr %this, i64 128
+  %9 = load ptr, ptr %m_pred, align 8
+  store ptr %9, ptr %pc, align 8
   %m_manager.i.i2 = getelementptr inbounds i8, ptr %pc, i64 8
-  %9 = load <2 x ptr>, ptr %m_pred, align 8
-  %10 = load ptr, ptr %m_pred, align 8
-  store <2 x ptr> %9, ptr %pc, align 16
-  %tobool.not.i.i.i = icmp eq ptr %10, null
+  %m_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %10 = load ptr, ptr %m_manager3.i.i, align 8
+  store ptr %10, ptr %m_manager.i.i2, align 8
+  %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %invoke.cont13, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i.i:        ; preds = %if.then12
-  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4
   %inc.i.i.i.i.i = add i32 %11, 1
   store i32 %inc.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i, align 4
@@ -2028,7 +2030,7 @@ invoke.cont13:                                    ; preds = %_ZN11ast_manager7in
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont13
-  %14 = load ptr, ptr %pc, align 16
+  %14 = load ptr, ptr %pc, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i3, label %if.end19, label %if.then.i.i.i.i
 

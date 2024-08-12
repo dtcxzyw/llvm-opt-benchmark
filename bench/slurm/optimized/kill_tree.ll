@@ -415,11 +415,11 @@ define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr nocapt
   %.not27 = icmp eq ptr %.01926, null
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %22
-  %.01928 = phi ptr [ %.019, %22 ], [ %.01926, %3 ]
+.lr.ph:                                           ; preds = %3, %25
+  %.01928 = phi ptr [ %.019, %25 ], [ %.01926, %3 ]
   %7 = load i32, ptr %.01928, align 8
   %8 = icmp eq i32 %7, %0
-  br i1 %8, label %9, label %22
+  br i1 %8, label %9, label %25
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.01928, i64 8
@@ -434,40 +434,44 @@ define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr nocapt
 
 .lr.ph33:                                         ; preds = %9, %.lr.ph33
   %.032 = phi ptr [ %.0, %.lr.ph33 ], [ %.029, %9 ]
-  %.12131 = phi ptr [ %14, %.lr.ph33 ], [ %1, %9 ]
-  %11 = getelementptr inbounds i8, ptr %.032, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = load <2 x i32>, ptr %.032, align 8
-  %14 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @__func__._alloc_pid) #9
-  store <2 x i32> %13, ptr %14, align 8
-  %15 = tail call ptr @xstrdup(ptr noundef %12) #9
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr %.12131, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %.032, i64 16
-  %.0 = load ptr, ptr %18, align 8
+  %.12131 = phi ptr [ %16, %.lr.ph33 ], [ %1, %9 ]
+  %11 = load i32, ptr %.032, align 8
+  %12 = getelementptr inbounds i8, ptr %.032, i64 4
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %.032, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @__func__._alloc_pid) #9
+  store i32 %11, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  store i32 %13, ptr %17, align 4
+  %18 = tail call ptr @xstrdup(ptr noundef %15) #9
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  store ptr %.12131, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %.032, i64 16
+  %.0 = load ptr, ptr %21, align 8
   %.not22 = icmp eq ptr %.0, null
   br i1 %.not22, label %.preheader, label %.lr.ph33, !llvm.loop !14
 
 .lr.ph38:                                         ; preds = %.preheader, %.lr.ph38
   %.137 = phi ptr [ %.1, %.lr.ph38 ], [ %.134.pre, %.preheader ]
-  %.236 = phi ptr [ %20, %.lr.ph38 ], [ %14, %.preheader ]
-  %19 = load i32, ptr %.137, align 8
-  %20 = tail call fastcc ptr @_get_list(i32 noundef %19, ptr noundef %.236, ptr noundef %2)
-  %21 = getelementptr inbounds i8, ptr %.137, i64 16
-  %.1 = load ptr, ptr %21, align 8
+  %.236 = phi ptr [ %23, %.lr.ph38 ], [ %16, %.preheader ]
+  %22 = load i32, ptr %.137, align 8
+  %23 = tail call fastcc ptr @_get_list(i32 noundef %22, ptr noundef %.236, ptr noundef %2)
+  %24 = getelementptr inbounds i8, ptr %.137, i64 16
+  %.1 = load ptr, ptr %24, align 8
   %.not23 = icmp eq ptr %.1, null
   br i1 %.not23, label %.loopexit, label %.lr.ph38, !llvm.loop !15
 
-22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.01928, i64 16
-  %.019 = load ptr, ptr %23, align 8
+25:                                               ; preds = %.lr.ph
+  %26 = getelementptr inbounds i8, ptr %.01928, i64 16
+  %.019 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %.019, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
-.loopexit:                                        ; preds = %22, %.lr.ph38, %9, %3, %.preheader
-  %.020 = phi ptr [ %14, %.preheader ], [ %1, %3 ], [ %1, %9 ], [ %20, %.lr.ph38 ], [ %1, %22 ]
+.loopexit:                                        ; preds = %25, %.lr.ph38, %9, %3, %.preheader
+  %.020 = phi ptr [ %16, %.preheader ], [ %1, %3 ], [ %1, %9 ], [ %23, %.lr.ph38 ], [ %1, %25 ]
   ret ptr %.020
 }
 

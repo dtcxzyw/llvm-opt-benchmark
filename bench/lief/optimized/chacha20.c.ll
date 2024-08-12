@@ -42,38 +42,44 @@ define hidden void @mbedtls_chacha20_free(ptr noundef %0) local_unnamed_addr #0 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i32 @mbedtls_chacha20_setkey(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %0, align 8
-  %3 = load i32, ptr %1, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 1634760805, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 857760878, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 2036477234, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 1797285236, ptr %5, align 4
+  %6 = load i32, ptr %1, align 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %6, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %9, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 12
   %15 = load i32, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 %15, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %22 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 %21, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 24
   %24 = load i32, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %24, ptr %25, align 4
+  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 28
+  %27 = load i32, ptr %26, align 1
+  %28 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 %27, ptr %28, align 4
   ret i32 0
 }
 
@@ -431,189 +437,253 @@ define internal fastcc void @chacha20_block(ptr nocapture noundef readonly %0, p
   %135 = add i32 %90, %134
   store i32 %135, ptr %3, align 16
   %136 = getelementptr inbounds i8, ptr %0, i64 4
-  %137 = load <4 x i32>, ptr %136, align 4
-  %138 = insertelement <4 x i32> poison, i32 %102, i64 0
-  %139 = insertelement <4 x i32> %138, i32 %114, i64 1
-  %140 = insertelement <4 x i32> %139, i32 %126, i64 2
-  %141 = insertelement <4 x i32> %140, i32 %131, i64 3
-  %142 = add <4 x i32> %141, %137
-  store <4 x i32> %142, ptr %8, align 4
-  %143 = getelementptr inbounds i8, ptr %0, i64 20
-  %144 = load <4 x i32>, ptr %143, align 4
-  %145 = insertelement <4 x i32> poison, i32 %95, i64 0
-  %146 = insertelement <4 x i32> %145, i32 %107, i64 1
-  %147 = insertelement <4 x i32> %146, i32 %119, i64 2
-  %148 = insertelement <4 x i32> %147, i32 %117, i64 3
-  %149 = add <4 x i32> %148, %144
-  store <4 x i32> %149, ptr %7, align 4
-  %150 = getelementptr inbounds i8, ptr %0, i64 36
-  %151 = load <4 x i32>, ptr %150, align 4
-  %152 = insertelement <4 x i32> poison, i32 %129, i64 0
-  %153 = insertelement <4 x i32> %152, i32 %93, i64 1
-  %154 = insertelement <4 x i32> %153, i32 %105, i64 2
-  %155 = insertelement <4 x i32> %154, i32 %104, i64 3
-  %156 = add <4 x i32> %155, %151
-  store <4 x i32> %156, ptr %10, align 4
-  %157 = getelementptr inbounds i8, ptr %0, i64 52
+  %137 = load i32, ptr %136, align 4
+  %138 = add i32 %102, %137
+  store i32 %138, ptr %8, align 4
+  %139 = getelementptr inbounds i8, ptr %0, i64 8
+  %140 = load i32, ptr %139, align 4
+  %141 = add i32 %114, %140
+  store i32 %141, ptr %12, align 8
+  %142 = getelementptr inbounds i8, ptr %0, i64 12
+  %143 = load i32, ptr %142, align 4
+  %144 = add i32 %126, %143
+  store i32 %144, ptr %16, align 4
+  %145 = getelementptr inbounds i8, ptr %0, i64 16
+  %146 = load i32, ptr %145, align 4
+  %147 = add i32 %131, %146
+  store i32 %147, ptr %4, align 16
+  %148 = getelementptr inbounds i8, ptr %0, i64 20
+  %149 = load i32, ptr %148, align 4
+  %150 = add i32 %95, %149
+  store i32 %150, ptr %7, align 4
+  %151 = getelementptr inbounds i8, ptr %0, i64 24
+  %152 = load i32, ptr %151, align 4
+  %153 = add i32 %107, %152
+  store i32 %153, ptr %11, align 8
+  %154 = getelementptr inbounds i8, ptr %0, i64 28
+  %155 = load i32, ptr %154, align 4
+  %156 = add i32 %119, %155
+  store i32 %156, ptr %15, align 4
+  %157 = getelementptr inbounds i8, ptr %0, i64 32
   %158 = load i32, ptr %157, align 4
-  %159 = add i32 %116, %158
-  store i32 %159, ptr %9, align 4
-  %160 = getelementptr inbounds i8, ptr %0, i64 56
+  %159 = add i32 %117, %158
+  store i32 %159, ptr %6, align 16
+  %160 = getelementptr inbounds i8, ptr %0, i64 36
   %161 = load i32, ptr %160, align 4
-  %162 = add i32 %128, %161
-  store i32 %162, ptr %13, align 8
-  %163 = getelementptr inbounds i8, ptr %0, i64 60
+  %162 = add i32 %129, %161
+  store i32 %162, ptr %10, align 4
+  %163 = getelementptr inbounds i8, ptr %0, i64 40
   %164 = load i32, ptr %163, align 4
-  %165 = add i32 %92, %164
-  store i32 %165, ptr %17, align 4
-  br label %166
+  %165 = add i32 %93, %164
+  store i32 %165, ptr %14, align 8
+  %166 = getelementptr inbounds i8, ptr %0, i64 44
+  %167 = load i32, ptr %166, align 4
+  %168 = add i32 %105, %167
+  store i32 %168, ptr %18, align 4
+  %169 = getelementptr inbounds i8, ptr %0, i64 48
+  %170 = load i32, ptr %169, align 4
+  %171 = add i32 %104, %170
+  store i32 %171, ptr %5, align 16
+  %172 = getelementptr inbounds i8, ptr %0, i64 52
+  %173 = load i32, ptr %172, align 4
+  %174 = add i32 %116, %173
+  store i32 %174, ptr %9, align 4
+  %175 = getelementptr inbounds i8, ptr %0, i64 56
+  %176 = load i32, ptr %175, align 4
+  %177 = add i32 %128, %176
+  store i32 %177, ptr %13, align 8
+  %178 = getelementptr inbounds i8, ptr %0, i64 60
+  %179 = load i32, ptr %178, align 4
+  %180 = add i32 %92, %179
+  store i32 %180, ptr %17, align 4
+  br label %181
 
-166:                                              ; preds = %133, %166
-  %.164 = phi i64 [ 0, %133 ], [ %184, %166 ]
-  %167 = shl nuw nsw i64 %.164, 2
-  %168 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %.164
-  %169 = load i32, ptr %168, align 4
-  %170 = trunc i32 %169 to i8
-  %171 = getelementptr inbounds i8, ptr %1, i64 %167
-  store i8 %170, ptr %171, align 1
-  %172 = lshr i32 %169, 8
-  %173 = trunc i32 %172 to i8
-  %174 = or disjoint i64 %167, 1
-  %175 = getelementptr inbounds i8, ptr %1, i64 %174
-  store i8 %173, ptr %175, align 1
-  %176 = lshr i32 %169, 16
-  %177 = trunc i32 %176 to i8
-  %178 = or disjoint i64 %167, 2
-  %179 = getelementptr inbounds i8, ptr %1, i64 %178
-  store i8 %177, ptr %179, align 1
-  %180 = lshr i32 %169, 24
-  %181 = trunc nuw i32 %180 to i8
-  %182 = or disjoint i64 %167, 3
-  %183 = getelementptr inbounds i8, ptr %1, i64 %182
-  store i8 %181, ptr %183, align 1
-  %184 = add nuw nsw i64 %.164, 1
-  %exitcond80.not = icmp eq i64 %184, 16
-  br i1 %exitcond80.not, label %185, label %166, !llvm.loop !10
+181:                                              ; preds = %133, %181
+  %.164 = phi i64 [ 0, %133 ], [ %199, %181 ]
+  %182 = shl nuw nsw i64 %.164, 2
+  %183 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %.164
+  %184 = load i32, ptr %183, align 4
+  %185 = trunc i32 %184 to i8
+  %186 = getelementptr inbounds i8, ptr %1, i64 %182
+  store i8 %185, ptr %186, align 1
+  %187 = lshr i32 %184, 8
+  %188 = trunc i32 %187 to i8
+  %189 = or disjoint i64 %182, 1
+  %190 = getelementptr inbounds i8, ptr %1, i64 %189
+  store i8 %188, ptr %190, align 1
+  %191 = lshr i32 %184, 16
+  %192 = trunc i32 %191 to i8
+  %193 = or disjoint i64 %182, 2
+  %194 = getelementptr inbounds i8, ptr %1, i64 %193
+  store i8 %192, ptr %194, align 1
+  %195 = lshr i32 %184, 24
+  %196 = trunc nuw i32 %195 to i8
+  %197 = or disjoint i64 %182, 3
+  %198 = getelementptr inbounds i8, ptr %1, i64 %197
+  store i8 %196, ptr %198, align 1
+  %199 = add nuw nsw i64 %.164, 1
+  %exitcond80.not = icmp eq i64 %199, 16
+  br i1 %exitcond80.not, label %200, label %181, !llvm.loop !10
 
-185:                                              ; preds = %166
+200:                                              ; preds = %181
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 64) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_chacha20_crypt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
-  %7 = alloca %struct.mbedtls_chacha20_context, align 16
+  %7 = alloca %struct.mbedtls_chacha20_context, align 8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 64) #10
   %8 = getelementptr inbounds i8, ptr %7, i64 64
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 64) #10
   %9 = getelementptr inbounds i8, ptr %7, i64 128
-  store i64 64, ptr %9, align 16
-  store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %7, align 16
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
-  %11 = load <4 x i32>, ptr %0, align 1
-  store <4 x i32> %11, ptr %10, align 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
-  %14 = load <4 x i32>, ptr %12, align 1
-  store <4 x i32> %14, ptr %13, align 16
-  %15 = getelementptr inbounds i8, ptr %7, i64 48
-  store i32 %2, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %7, i64 52
-  %17 = load <2 x i32>, ptr %1, align 1
-  store <2 x i32> %17, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 64, ptr %9, align 8
+  store i32 1634760805, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 857760878, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 2036477234, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 1797285236, ptr %12, align 4
+  %13 = load i32, ptr %0, align 1
+  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 %13, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = load i32, ptr %15, align 1
+  %17 = getelementptr inbounds i8, ptr %7, i64 20
+  store i32 %16, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %7, i64 60
-  store i32 %19, ptr %20, align 4
+  %20 = getelementptr inbounds i8, ptr %7, i64 24
+  store i32 %19, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = load i32, ptr %21, align 1
+  %23 = getelementptr inbounds i8, ptr %7, i64 28
+  store i32 %22, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load i32, ptr %24, align 1
+  %26 = getelementptr inbounds i8, ptr %7, i64 32
+  store i32 %25, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = load i32, ptr %27, align 1
+  %29 = getelementptr inbounds i8, ptr %7, i64 36
+  store i32 %28, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = load i32, ptr %30, align 1
+  %32 = getelementptr inbounds i8, ptr %7, i64 40
+  store i32 %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 28
+  %34 = load i32, ptr %33, align 1
+  %35 = getelementptr inbounds i8, ptr %7, i64 44
+  store i32 %34, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %7, i64 48
+  store i32 %2, ptr %36, align 8
+  %37 = load i32, ptr %1, align 1
+  %38 = getelementptr inbounds i8, ptr %7, i64 52
+  store i32 %37, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %1, i64 4
+  %40 = load i32, ptr %39, align 1
+  %41 = getelementptr inbounds i8, ptr %7, i64 56
+  store i32 %40, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = load i32, ptr %42, align 1
+  %44 = getelementptr inbounds i8, ptr %7, i64 60
+  store i32 %43, ptr %44, align 4
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 64) #10
-  store i64 64, ptr %9, align 16
-  %21 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %7, i64 noundef %3, ptr noundef %4, ptr noundef %5)
+  store i64 64, ptr %9, align 8
+  %45 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %7, i64 noundef %3, ptr noundef %4, ptr noundef %5)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 136) #10
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = alloca %struct.mbedtls_chacha20_context, align 16
+  %2 = alloca %struct.mbedtls_chacha20_context, align 8
   %3 = alloca [381 x i8], align 16
   %.not20 = icmp eq i32 %0, 0
   %4 = getelementptr inbounds i8, ptr %2, i64 64
   %5 = getelementptr inbounds i8, ptr %2, i64 128
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 44
-  %8 = getelementptr inbounds i8, ptr %2, i64 48
-  %9 = getelementptr inbounds i8, ptr %2, i64 52
-  %10 = getelementptr inbounds i8, ptr %2, i64 56
-  %11 = getelementptr inbounds i8, ptr %2, i64 60
+  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 12
+  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds i8, ptr %2, i64 44
+  %11 = getelementptr inbounds i8, ptr %2, i64 48
+  %12 = getelementptr inbounds i8, ptr %2, i64 52
+  %13 = getelementptr inbounds i8, ptr %2, i64 56
+  %14 = getelementptr inbounds i8, ptr %2, i64 60
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
-  %12 = phi i1 [ true, %1 ], [ false, %.backedge.backedge ]
+  %15 = phi i1 [ true, %1 ], [ false, %.backedge.backedge ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %.backedge.backedge ]
-  br i1 %.not20, label %16, label %13
+  br i1 %.not20, label %19, label %16
 
-13:                                               ; preds = %.backedge
-  %14 = trunc nuw nsw i64 %indvars.iv to i32
-  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %14)
-  br label %16
+16:                                               ; preds = %.backedge
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
+  %18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %17)
+  br label %19
 
-16:                                               ; preds = %13, %.backedge
-  %17 = getelementptr inbounds [2 x i32], ptr @test_counters, i64 0, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds [2 x i64], ptr @test_lengths, i64 0, i64 %indvars.iv
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds [2 x [375 x i8]], ptr @test_input, i64 0, i64 %indvars.iv
+19:                                               ; preds = %16, %.backedge
+  %20 = getelementptr inbounds [2 x i32], ptr @test_counters, i64 0, i64 %indvars.iv
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds [2 x i64], ptr @test_lengths, i64 0, i64 %indvars.iv
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds [2 x [375 x i8]], ptr @test_input, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 64) #10
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
-  store i64 64, ptr %5, align 16
-  store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %2, align 16
+  store i64 64, ptr %5, align 8
+  store i32 1634760805, ptr %2, align 8
+  store i32 857760878, ptr %6, align 4
+  store i32 2036477234, ptr %7, align 8
+  store i32 1797285236, ptr %8, align 4
   %gep = getelementptr inbounds [2 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @test_keys, i64 28), i64 0, i64 %indvars.iv
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %6, i8 0, i64 28, i1 false)
-  %22 = load i32, ptr %gep, align 4
-  store i32 %22, ptr %7, align 4
-  store i32 %18, ptr %8, align 16
-  store i32 0, ptr %9, align 4
-  store i32 0, ptr %10, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false)
+  %25 = load i32, ptr %gep, align 4
+  store i32 %25, ptr %10, align 4
+  store i32 %21, ptr %11, align 8
+  store i32 0, ptr %12, align 4
+  store i32 0, ptr %13, align 8
   %gep22 = getelementptr inbounds [2 x [12 x i8]], ptr getelementptr inbounds (i8, ptr @test_nonces, i64 8), i64 0, i64 %indvars.iv
-  %23 = load i32, ptr %gep22, align 4
-  store i32 %23, ptr %11, align 4
+  %26 = load i32, ptr %gep22, align 4
+  store i32 %26, ptr %14, align 4
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
-  store i64 64, ptr %5, align 16
-  %24 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %2, i64 noundef %20, ptr noundef nonnull readonly %21, ptr noundef nonnull %3)
+  store i64 64, ptr %5, align 8
+  %27 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %2, i64 noundef %23, ptr noundef nonnull readonly %24, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 136) #10
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2)
-  %25 = getelementptr inbounds [2 x [375 x i8]], ptr @test_output, i64 0, i64 %indvars.iv
-  %bcmp = call i32 @bcmp(ptr nonnull %3, ptr nonnull %25, i64 %20)
-  %26 = icmp eq i32 %bcmp, 0
-  br i1 %26, label %29, label %27
+  %28 = getelementptr inbounds [2 x [375 x i8]], ptr @test_output, i64 0, i64 %indvars.iv
+  %bcmp = call i32 @bcmp(ptr nonnull %3, ptr nonnull %28, i64 %23)
+  %29 = icmp eq i32 %bcmp, 0
+  br i1 %29, label %32, label %30
 
-27:                                               ; preds = %16
-  br i1 %.not20, label %.loopexit, label %28
+30:                                               ; preds = %19
+  br i1 %.not20, label %.loopexit, label %31
 
-28:                                               ; preds = %27
+31:                                               ; preds = %30
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.loopexit
 
-29:                                               ; preds = %16
-  br i1 %.not20, label %30, label %.thread
+32:                                               ; preds = %19
+  br i1 %.not20, label %33, label %.thread
 
-30:                                               ; preds = %29
-  br i1 %12, label %.backedge.backedge, label %.loopexit
+33:                                               ; preds = %32
+  br i1 %15, label %.backedge.backedge, label %.loopexit
 
-.backedge.backedge:                               ; preds = %30, %.thread
+.backedge.backedge:                               ; preds = %33, %.thread
   br label %.backedge, !llvm.loop !11
 
-.thread:                                          ; preds = %29
+.thread:                                          ; preds = %32
   %puts21 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br i1 %12, label %.backedge.backedge, label %31
+  br i1 %15, label %.backedge.backedge, label %34
 
-31:                                               ; preds = %.thread
+34:                                               ; preds = %.thread
   %putchar = call i32 @putchar(i32 10)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %30, %31, %27, %28
-  %.018 = phi i32 [ -1, %28 ], [ -1, %27 ], [ 0, %31 ], [ 0, %30 ]
+.loopexit:                                        ; preds = %33, %34, %30, %31
+  %.018 = phi i32 [ -1, %31 ], [ -1, %30 ], [ 0, %34 ], [ 0, %33 ]
   ret i32 %.018
 }
 

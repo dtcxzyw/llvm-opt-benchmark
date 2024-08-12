@@ -20,7 +20,7 @@ declare void @make_digest_ex(ptr noundef, ptr noundef, i32 noundef) local_unname
 define hidden void @zif_sha1(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
-  %5 = alloca %struct.PHP_SHA1_CTX, align 16
+  %5 = alloca %struct.PHP_SHA1_CTX, align 4
   %6 = alloca [20 x i8], align 16
   store i8 0, ptr %4, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 44
@@ -81,89 +81,95 @@ define hidden void @zif_sha1(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.0202238 = phi ptr [ %12, %17 ], [ null, %10 ], [ %26, %25 ]
   %.0203237 = phi i32 [ 4, %17 ], [ 0, %10 ], [ 2, %25 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0201239, i32 noundef %.0200240, ptr noundef null, i32 noundef %.0203237, ptr noundef %.0202238) #7
-  br label %66
+  br label %69
 
 .thread224:                                       ; preds = %25, %.thread220, %19
   %28 = getelementptr inbounds i8, ptr %5, i64 20
   %29 = getelementptr inbounds i8, ptr %5, i64 24
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %5, align 16
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 -1009589776, ptr %30, align 16
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
-  %33 = getelementptr inbounds i8, ptr %31, i64 16
-  %34 = load i64, ptr %33, align 8
-  %35 = trunc i64 %34 to i32
-  %36 = shl i32 %35, 3
-  store i32 %36, ptr %28, align 4
-  %37 = lshr i64 %34, 29
+  store i32 1732584193, ptr %5, align 4
+  %30 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 -271733879, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 -1732584194, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 271733878, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 -1009589776, ptr %33, align 4
+  %34 = load ptr, ptr %3, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %36 = getelementptr inbounds i8, ptr %34, i64 16
+  %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  store i32 %38, ptr %29, align 8
-  %.not.i = icmp ult i64 %34, 64
-  br i1 %.not.i, label %PHP_SHA1Update.exit, label %39
+  %39 = shl i32 %38, 3
+  store i32 %39, ptr %28, align 4
+  %40 = lshr i64 %37, 29
+  %41 = trunc i64 %40 to i32
+  store i32 %41, ptr %29, align 4
+  %.not.i = icmp ult i64 %37, 64
+  br i1 %.not.i, label %PHP_SHA1Update.exit, label %42
 
-39:                                               ; preds = %.thread224
-  %40 = getelementptr inbounds i8, ptr %5, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %40, ptr noundef nonnull readonly align 1 dereferenceable(64) %32, i64 64, i1 false)
-  call fastcc void @SHA1Transform(ptr noundef nonnull %5, ptr noundef nonnull %40)
-  %41 = icmp ugt i64 %34, 127
-  br i1 %41, label %.lr.ph.i, label %PHP_SHA1Update.exit
+42:                                               ; preds = %.thread224
+  %43 = getelementptr inbounds i8, ptr %5, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %43, ptr noundef nonnull readonly align 1 dereferenceable(64) %35, i64 64, i1 false)
+  call fastcc void @SHA1Transform(ptr noundef nonnull %5, ptr noundef nonnull %43)
+  %44 = icmp ugt i64 %37, 127
+  br i1 %44, label %.lr.ph.i, label %PHP_SHA1Update.exit
 
-.lr.ph.i:                                         ; preds = %39, %.lr.ph.i
-  %.031.i = phi i64 [ %43, %.lr.ph.i ], [ 64, %39 ]
-  %42 = getelementptr inbounds i8, ptr %32, i64 %.031.i
-  call fastcc void @SHA1Transform(ptr noundef nonnull %5, ptr noundef nonnull readonly %42)
-  %43 = add i64 %.031.i, 64
-  %44 = add i64 %.031.i, 127
-  %45 = icmp ult i64 %44, %34
-  br i1 %45, label %.lr.ph.i, label %PHP_SHA1Update.exit
+.lr.ph.i:                                         ; preds = %42, %.lr.ph.i
+  %.031.i = phi i64 [ %46, %.lr.ph.i ], [ 64, %42 ]
+  %45 = getelementptr inbounds i8, ptr %35, i64 %.031.i
+  call fastcc void @SHA1Transform(ptr noundef nonnull %5, ptr noundef nonnull readonly %45)
+  %46 = add i64 %.031.i, 64
+  %47 = add i64 %.031.i, 127
+  %48 = icmp ult i64 %47, %37
+  br i1 %48, label %.lr.ph.i, label %PHP_SHA1Update.exit
 
-PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %.thread224, %39
-  %.1.i = phi i64 [ 64, %39 ], [ 0, %.thread224 ], [ %43, %.lr.ph.i ]
-  %46 = getelementptr inbounds i8, ptr %5, i64 28
-  %47 = getelementptr inbounds i8, ptr %32, i64 %.1.i
-  %48 = sub i64 %34, %.1.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %46, ptr nonnull readonly align 1 %47, i64 %48, i1 false)
+PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %.thread224, %42
+  %.1.i = phi i64 [ 64, %42 ], [ 0, %.thread224 ], [ %46, %.lr.ph.i ]
+  %49 = getelementptr inbounds i8, ptr %5, i64 28
+  %50 = getelementptr inbounds i8, ptr %35, i64 %.1.i
+  %51 = sub i64 %37, %.1.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %49, ptr nonnull readonly align 1 %50, i64 %51, i1 false)
   call void @PHP_SHA1Final(ptr noundef nonnull %6, ptr noundef nonnull %5)
-  %49 = load i8, ptr %4, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %59
+  %52 = load i8, ptr %4, align 1
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %62
 
-51:                                               ; preds = %PHP_SHA1Update.exit
-  %52 = call noalias ptr @_emalloc_48() #7
-  store i32 1, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
-  store i32 22, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
-  store i64 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %52, i64 16
-  store i64 20, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %56, ptr noundef nonnull align 16 dereferenceable(20) %6, i64 20, i1 false)
-  %57 = getelementptr inbounds i8, ptr %52, i64 44
-  store i8 0, ptr %57, align 1
-  store ptr %52, ptr %1, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %58, align 8
-  br label %66
+54:                                               ; preds = %PHP_SHA1Update.exit
+  %55 = call noalias ptr @_emalloc_48() #7
+  store i32 1, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  store i32 22, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  store i64 0, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %55, i64 16
+  store i64 20, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %55, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %59, ptr noundef nonnull align 16 dereferenceable(20) %6, i64 20, i1 false)
+  %60 = getelementptr inbounds i8, ptr %55, i64 44
+  store i8 0, ptr %60, align 1
+  store ptr %55, ptr %1, align 8
+  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %61, align 8
+  br label %69
 
-59:                                               ; preds = %PHP_SHA1Update.exit
-  %60 = call noalias ptr @_emalloc_80() #7
-  store i32 1, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %60, i64 4
-  store i32 22, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
-  store i64 0, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 16
-  store i64 40, ptr %63, align 8
-  store ptr %60, ptr %1, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %60, i64 24
-  call void @make_digest_ex(ptr noundef nonnull %65, ptr noundef nonnull %6, i32 noundef 20) #7
-  br label %66
+62:                                               ; preds = %PHP_SHA1Update.exit
+  %63 = call noalias ptr @_emalloc_80() #7
+  store i32 1, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  store i32 22, ptr %64, align 4
+  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  store i64 0, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %63, i64 16
+  store i64 40, ptr %66, align 8
+  store ptr %63, ptr %1, align 8
+  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %63, i64 24
+  call void @make_digest_ex(ptr noundef nonnull %68, ptr noundef nonnull %6, i32 noundef 20) #7
+  br label %69
 
-66:                                               ; preds = %59, %51, %.thread231
+69:                                               ; preds = %62, %54, %.thread231
   ret void
 }
 
@@ -177,9 +183,15 @@ define void @PHP_SHA1InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture 
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1009589776, ptr %5, align 4
+  store i32 1732584193, ptr %0, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 -271733879, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1732584194, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 271733878, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1009589776, ptr %8, align 4
   ret void
 }
 
@@ -407,7 +419,7 @@ define hidden void @zif_sha1_file(ptr noundef %0, ptr nocapture noundef writeonl
   %4 = alloca i8, align 1
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [20 x i8], align 16
-  %7 = alloca %struct.PHP_SHA1_CTX, align 16
+  %7 = alloca %struct.PHP_SHA1_CTX, align 4
   store i8 0, ptr %4, align 1
   %8 = getelementptr inbounds i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
@@ -485,7 +497,7 @@ thread-pre-split:                                 ; preds = %18
   %.0228267 = phi i32 [ 16, %18 ], [ 16, %22 ], [ 0, %11 ], [ 2, %34 ]
   %.0229266 = phi ptr [ %13, %18 ], [ %13, %22 ], [ null, %11 ], [ %35, %34 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0226269, i32 noundef %.0227268, ptr noundef null, i32 noundef %.0228267, ptr noundef %.0229266) #7
-  br label %96
+  br label %99
 
 .thread270:                                       ; preds = %34, %.thread278, %27
   %37 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %28, ptr noundef nonnull @.str, i32 noundef 8, ptr noundef null, ptr noundef null) #7
@@ -495,117 +507,123 @@ thread-pre-split:                                 ; preds = %18
 38:                                               ; preds = %.thread270
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %39, align 8
-  br label %96
+  br label %99
 
 40:                                               ; preds = %.thread270
   %41 = getelementptr inbounds i8, ptr %7, i64 20
   %42 = getelementptr inbounds i8, ptr %7, i64 24
-  store i32 0, ptr %42, align 8
+  store i32 0, ptr %42, align 4
   store i32 0, ptr %41, align 4
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %7, align 16
-  %43 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 -1009589776, ptr %43, align 16
-  %44 = call i64 @_php_stream_read(ptr noundef nonnull %37, ptr noundef nonnull %5, i64 noundef 1024) #7
-  %45 = icmp sgt i64 %44, 0
-  br i1 %45, label %.lr.ph, label %._crit_edge
+  store i32 1732584193, ptr %7, align 4
+  %43 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 -271733879, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 -1732584194, ptr %44, align 4
+  %45 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 271733878, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 -1009589776, ptr %46, align 4
+  %47 = call i64 @_php_stream_read(ptr noundef nonnull %37, ptr noundef nonnull %5, i64 noundef 1024) #7
+  %48 = icmp sgt i64 %47, 0
+  br i1 %48, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %7, i64 28
-  br label %47
+  %49 = getelementptr inbounds i8, ptr %7, i64 28
+  br label %50
 
-47:                                               ; preds = %.lr.ph, %PHP_SHA1Update.exit
-  %48 = phi i64 [ %44, %.lr.ph ], [ %76, %PHP_SHA1Update.exit ]
-  %49 = load i32, ptr %41, align 4
-  %50 = lshr i32 %49, 3
-  %51 = and i32 %50, 63
-  %52 = trunc i64 %48 to i32
-  %53 = shl i32 %52, 3
-  %54 = add i32 %49, %53
-  store i32 %54, ptr %41, align 4
-  %55 = icmp ult i32 %54, %53
-  %56 = load i32, ptr %42, align 8
-  %57 = zext i1 %55 to i32
-  %58 = lshr i64 %48, 29
-  %59 = trunc i64 %58 to i32
-  %60 = add i32 %56, %59
-  %61 = add i32 %60, %57
-  store i32 %61, ptr %42, align 8
-  %62 = sub nuw nsw i32 64, %51
-  %63 = zext nneg i32 %62 to i64
-  %.not.i = icmp ult i64 %48, %63
-  %64 = zext nneg i32 %51 to i64
-  br i1 %.not.i, label %PHP_SHA1Update.exit, label %65
+50:                                               ; preds = %.lr.ph, %PHP_SHA1Update.exit
+  %51 = phi i64 [ %47, %.lr.ph ], [ %79, %PHP_SHA1Update.exit ]
+  %52 = load i32, ptr %41, align 4
+  %53 = lshr i32 %52, 3
+  %54 = and i32 %53, 63
+  %55 = trunc i64 %51 to i32
+  %56 = shl i32 %55, 3
+  %57 = add i32 %52, %56
+  store i32 %57, ptr %41, align 4
+  %58 = icmp ult i32 %57, %56
+  %59 = load i32, ptr %42, align 4
+  %60 = zext i1 %58 to i32
+  %61 = lshr i64 %51, 29
+  %62 = trunc i64 %61 to i32
+  %63 = add i32 %59, %62
+  %64 = add i32 %63, %60
+  store i32 %64, ptr %42, align 4
+  %65 = sub nuw nsw i32 64, %54
+  %66 = zext nneg i32 %65 to i64
+  %.not.i = icmp ult i64 %51, %66
+  %67 = zext nneg i32 %54 to i64
+  br i1 %.not.i, label %PHP_SHA1Update.exit, label %68
 
-65:                                               ; preds = %47
-  %66 = getelementptr inbounds [64 x i8], ptr %46, i64 0, i64 %64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull readonly align 16 dereferenceable(1) %5, i64 %63, i1 false)
-  call fastcc void @SHA1Transform(ptr noundef nonnull %7, ptr noundef nonnull %46)
-  %67 = add nuw nsw i64 %63, 63
-  %68 = icmp ult i64 %67, %48
-  br i1 %68, label %.lr.ph.i, label %PHP_SHA1Update.exit
+68:                                               ; preds = %50
+  %69 = getelementptr inbounds [64 x i8], ptr %49, i64 0, i64 %67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %69, ptr noundef nonnull readonly align 16 dereferenceable(1) %5, i64 %66, i1 false)
+  call fastcc void @SHA1Transform(ptr noundef nonnull %7, ptr noundef nonnull %49)
+  %70 = add nuw nsw i64 %66, 63
+  %71 = icmp ult i64 %70, %51
+  br i1 %71, label %.lr.ph.i, label %PHP_SHA1Update.exit
 
-.lr.ph.i:                                         ; preds = %65, %.lr.ph.i
-  %.031.i = phi i64 [ %70, %.lr.ph.i ], [ %63, %65 ]
-  %69 = getelementptr inbounds i8, ptr %5, i64 %.031.i
-  call fastcc void @SHA1Transform(ptr noundef nonnull %7, ptr noundef nonnull readonly %69)
-  %70 = add i64 %.031.i, 64
-  %71 = add i64 %.031.i, 127
-  %72 = icmp ult i64 %71, %48
-  br i1 %72, label %.lr.ph.i, label %PHP_SHA1Update.exit
+.lr.ph.i:                                         ; preds = %68, %.lr.ph.i
+  %.031.i = phi i64 [ %73, %.lr.ph.i ], [ %66, %68 ]
+  %72 = getelementptr inbounds i8, ptr %5, i64 %.031.i
+  call fastcc void @SHA1Transform(ptr noundef nonnull %7, ptr noundef nonnull readonly %72)
+  %73 = add i64 %.031.i, 64
+  %74 = add i64 %.031.i, 127
+  %75 = icmp ult i64 %74, %51
+  br i1 %75, label %.lr.ph.i, label %PHP_SHA1Update.exit
 
-PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %47, %65
-  %.028.i = phi i64 [ 0, %65 ], [ %64, %47 ], [ 0, %.lr.ph.i ]
-  %.1.i = phi i64 [ %63, %65 ], [ 0, %47 ], [ %70, %.lr.ph.i ]
-  %73 = getelementptr inbounds [64 x i8], ptr %46, i64 0, i64 %.028.i
-  %74 = getelementptr inbounds i8, ptr %5, i64 %.1.i
-  %75 = sub i64 %48, %.1.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %74, i64 %75, i1 false)
-  %76 = call i64 @_php_stream_read(ptr noundef nonnull %37, ptr noundef nonnull %5, i64 noundef 1024) #7
-  %77 = icmp sgt i64 %76, 0
-  br i1 %77, label %47, label %._crit_edge
+PHP_SHA1Update.exit:                              ; preds = %.lr.ph.i, %50, %68
+  %.028.i = phi i64 [ 0, %68 ], [ %67, %50 ], [ 0, %.lr.ph.i ]
+  %.1.i = phi i64 [ %66, %68 ], [ 0, %50 ], [ %73, %.lr.ph.i ]
+  %76 = getelementptr inbounds [64 x i8], ptr %49, i64 0, i64 %.028.i
+  %77 = getelementptr inbounds i8, ptr %5, i64 %.1.i
+  %78 = sub i64 %51, %.1.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr nonnull readonly align 1 %77, i64 %78, i1 false)
+  %79 = call i64 @_php_stream_read(ptr noundef nonnull %37, ptr noundef nonnull %5, i64 noundef 1024) #7
+  %80 = icmp sgt i64 %79, 0
+  br i1 %80, label %50, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %PHP_SHA1Update.exit, %40
   call void @PHP_SHA1Final(ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %78 = call i32 @_php_stream_free(ptr noundef nonnull %37, i32 noundef 3) #7
-  %79 = load i8, ptr %4, align 1
-  %80 = trunc i8 %79 to i1
-  br i1 %80, label %81, label %89
+  %81 = call i32 @_php_stream_free(ptr noundef nonnull %37, i32 noundef 3) #7
+  %82 = load i8, ptr %4, align 1
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %84, label %92
 
-81:                                               ; preds = %._crit_edge
-  %82 = call noalias ptr @_emalloc_48() #7
-  store i32 1, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
-  store i32 22, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %82, i64 8
-  store i64 0, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %82, i64 16
-  store i64 20, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %82, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %86, ptr noundef nonnull align 16 dereferenceable(20) %6, i64 20, i1 false)
-  %87 = getelementptr inbounds i8, ptr %82, i64 44
-  store i8 0, ptr %87, align 1
-  store ptr %82, ptr %1, align 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %88, align 8
-  br label %96
+84:                                               ; preds = %._crit_edge
+  %85 = call noalias ptr @_emalloc_48() #7
+  store i32 1, ptr %85, align 4
+  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  store i32 22, ptr %86, align 4
+  %87 = getelementptr inbounds i8, ptr %85, i64 8
+  store i64 0, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %85, i64 16
+  store i64 20, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %85, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %89, ptr noundef nonnull align 16 dereferenceable(20) %6, i64 20, i1 false)
+  %90 = getelementptr inbounds i8, ptr %85, i64 44
+  store i8 0, ptr %90, align 1
+  store ptr %85, ptr %1, align 8
+  %91 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %91, align 8
+  br label %99
 
-89:                                               ; preds = %._crit_edge
-  %90 = call noalias ptr @_emalloc_80() #7
-  store i32 1, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %90, i64 4
-  store i32 22, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %90, i64 8
-  store i64 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %90, i64 16
-  store i64 40, ptr %93, align 8
-  store ptr %90, ptr %1, align 8
-  %94 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %90, i64 24
-  call void @make_digest_ex(ptr noundef nonnull %95, ptr noundef nonnull %6, i32 noundef 20) #7
-  br label %96
+92:                                               ; preds = %._crit_edge
+  %93 = call noalias ptr @_emalloc_80() #7
+  store i32 1, ptr %93, align 4
+  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  store i32 22, ptr %94, align 4
+  %95 = getelementptr inbounds i8, ptr %93, i64 8
+  store i64 0, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %93, i64 16
+  store i64 40, ptr %96, align 8
+  store ptr %93, ptr %1, align 8
+  %97 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %93, i64 24
+  call void @make_digest_ex(ptr noundef nonnull %98, ptr noundef nonnull %6, i32 noundef 20) #7
+  br label %99
 
-96:                                               ; preds = %89, %81, %38, %.thread259
+99:                                               ; preds = %92, %84, %38, %.thread259
   ret void
 }
 

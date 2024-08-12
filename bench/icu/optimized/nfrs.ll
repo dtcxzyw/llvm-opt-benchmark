@@ -1877,8 +1877,12 @@ if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %workingPos, align 8
   %index.i22 = getelementptr inbounds i8, ptr %workingPos, i64 8
   %index2.i = getelementptr inbounds i8, ptr %pos, i64 8
-  %3 = load <2 x i32>, ptr %index2.i, align 8
-  store <2 x i32> %3, ptr %index.i22, align 8
+  %3 = load i32, ptr %index2.i, align 8
+  store i32 %3, ptr %index.i22, align 8
+  %errorIndex.i23 = getelementptr inbounds i8, ptr %workingPos, i64 12
+  %errorIndex3.i = getelementptr inbounds i8, ptr %pos, i64 12
+  %4 = load i32, ptr %errorIndex3.i, align 4
+  store i32 %4, ptr %errorIndex.i23, align 4
   %nonNumericalRules = getelementptr inbounds i8, ptr %this, i64 88
   br label %for.body
 
@@ -1886,25 +1890,25 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %nonNumericalExecutedRuleMask.addr.070 = phi i32 [ %nonNumericalExecutedRuleMask, %if.end ], [ %nonNumericalExecutedRuleMask.addr.1, %for.inc ]
   %arrayidx = getelementptr inbounds [6 x ptr], ptr %nonNumericalRules, i64 0, i64 %indvars.iv
-  %4 = load ptr, ptr %arrayidx, align 8
-  %tobool.not = icmp eq ptr %4, null
+  %5 = load ptr, ptr %arrayidx, align 8
+  %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %5 = trunc nuw nsw i64 %indvars.iv to i32
-  %6 = shl nuw nsw i32 1, %5
-  %7 = and i32 %nonNumericalExecutedRuleMask.addr.070, %6
-  %cmp3 = icmp eq i32 %7, 0
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
+  %7 = shl nuw nsw i32 1, %6
+  %8 = and i32 %nonNumericalExecutedRuleMask.addr.070, %7
+  %cmp3 = icmp eq i32 %8, 0
   br i1 %cmp3, label %if.then4, label %for.inc
 
 if.then4:                                         ; preds = %land.lhs.true
-  %or = or i32 %nonNumericalExecutedRuleMask.addr.070, %6
+  %or = or i32 %nonNumericalExecutedRuleMask.addr.070, %7
   invoke void @_ZN6icu_7511FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %tempResult)
           to label %invoke.cont6 unwind label %lpad5.loopexit.split-lp.loopexit
 
 invoke.cont6:                                     ; preds = %if.then4
-  %8 = load ptr, ptr %arrayidx, align 8
-  %call12 = invoke noundef signext i8 @_ZNK6icu_756NFRule7doParseERKNS_13UnicodeStringERNS_13ParsePositionEadjRNS_11FormattableE(ptr noundef nonnull align 8 dereferenceable(112) %8, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(16) %workingPos, i8 noundef signext 0, double noundef %upperBound, i32 noundef %or, ptr noundef nonnull align 8 dereferenceable(112) %tempResult)
+  %9 = load ptr, ptr %arrayidx, align 8
+  %call12 = invoke noundef signext i8 @_ZNK6icu_756NFRule7doParseERKNS_13UnicodeStringERNS_13ParsePositionEadjRNS_11FormattableE(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(16) %workingPos, i8 noundef signext 0, double noundef %upperBound, i32 noundef %or, ptr noundef nonnull align 8 dereferenceable(112) %tempResult)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont6
@@ -1912,9 +1916,9 @@ invoke.cont11:                                    ; preds = %invoke.cont6
   br i1 %tobool13.not, label %if.end25, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %invoke.cont11
-  %9 = load i32, ptr %index.i22, align 8
-  %10 = load i32, ptr %index.i, align 8
-  %cmp19 = icmp sgt i32 %9, %10
+  %10 = load i32, ptr %index.i22, align 8
+  %11 = load i32, ptr %index.i, align 8
+  %cmp19 = icmp sgt i32 %10, %11
   br i1 %cmp19, label %if.then20, label %if.end25
 
 if.then20:                                        ; preds = %land.lhs.true14
@@ -1922,8 +1926,10 @@ if.then20:                                        ; preds = %land.lhs.true14
           to label %invoke.cont21 unwind label %lpad10
 
 invoke.cont21:                                    ; preds = %if.then20
-  %11 = load <2 x i32>, ptr %index.i22, align 8
-  store <2 x i32> %11, ptr %index.i, align 8
+  %12 = load i32, ptr %index.i22, align 8
+  store i32 %12, ptr %index.i, align 8
+  %13 = load i32, ptr %errorIndex.i23, align 4
+  store i32 %13, ptr %errorIndex.i, align 4
   br label %if.end25
 
 lpad5.loopexit:                                   ; preds = %if.end51
@@ -1942,14 +1948,16 @@ lpad5.loopexit.split-lp.loopexit.split-lp:        ; preds = %if.end6.i, %if.then
   br label %ehcleanup
 
 lpad10:                                           ; preds = %if.then20, %invoke.cont6
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %tempResult) #14
   br label %ehcleanup
 
 if.end25:                                         ; preds = %invoke.cont21, %land.lhs.true14, %invoke.cont11
-  %13 = load <2 x i32>, ptr %index2.i, align 8
-  store <2 x i32> %13, ptr %index.i22, align 8
+  %15 = load i32, ptr %index2.i, align 8
+  store i32 %15, ptr %index.i22, align 8
+  %16 = load i32, ptr %errorIndex3.i, align 4
+  store i32 %16, ptr %errorIndex.i23, align 4
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %tempResult) #14
   br label %for.inc
 
@@ -2003,39 +2011,39 @@ invoke.cont29:                                    ; preds = %if.then15.i, %call1
   %result.0.i = phi i64 [ 0, %call.i.noexc ], [ %sub.i, %if.then15.i ], [ %conv13.i, %call12.i.noexc ]
   %rules = getelementptr inbounds i8, ptr %this, i64 72
   %fCount.i = getelementptr inbounds i8, ptr %this, i64 80
-  %14 = load i32, ptr %fCount.i, align 8
-  %cmp3572 = icmp sgt i32 %14, 0
+  %17 = load i32, ptr %fCount.i, align 8
+  %cmp3572 = icmp sgt i32 %17, 0
   br i1 %cmp3572, label %invoke.cont38.lr.ph, label %for.end77
 
 invoke.cont38.lr.ph:                              ; preds = %invoke.cont29
   %fIsFractionRuleSet = getelementptr inbounds i8, ptr %this, i64 160
-  %15 = zext nneg i32 %14 to i64
+  %18 = zext nneg i32 %17 to i64
   br label %invoke.cont38
 
 invoke.cont38:                                    ; preds = %invoke.cont38.lr.ph, %for.cond34.backedge
-  %indvars.iv75 = phi i64 [ %15, %invoke.cont38.lr.ph ], [ %indvars.iv.next76, %for.cond34.backedge ]
+  %indvars.iv75 = phi i64 [ %18, %invoke.cont38.lr.ph ], [ %indvars.iv.next76, %for.cond34.backedge ]
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, -1
-  %16 = load i32, ptr %index.i, align 8
-  %17 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i39 = icmp slt i16 %17, 0
-  %18 = ashr i16 %17, 5
-  %shr.i.i40 = sext i16 %18 to i32
-  %19 = load i32, ptr %fLength.i, align 4
-  %cond.i42 = select i1 %cmp.i.i39, i32 %19, i32 %shr.i.i40
-  %cmp40 = icmp slt i32 %16, %cond.i42
+  %19 = load i32, ptr %index.i, align 8
+  %20 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i39 = icmp slt i16 %20, 0
+  %21 = ashr i16 %20, 5
+  %shr.i.i40 = sext i16 %21 to i32
+  %22 = load i32, ptr %fLength.i, align 4
+  %cond.i42 = select i1 %cmp.i.i39, i32 %22, i32 %shr.i.i40
+  %cmp40 = icmp slt i32 %19, %cond.i42
   br i1 %cmp40, label %for.body41, label %for.end77
 
 for.body41:                                       ; preds = %invoke.cont38
-  %20 = load i8, ptr %fIsFractionRuleSet, align 8
-  %tobool42.not = icmp eq i8 %20, 0
+  %23 = load i8, ptr %fIsFractionRuleSet, align 8
+  %tobool42.not = icmp eq i8 %23, 0
   br i1 %tobool42.not, label %land.lhs.true43, label %if.end51
 
 land.lhs.true43:                                  ; preds = %for.body41
-  %21 = load ptr, ptr %rules, align 8, !nonnull !10, !noundef !10
-  %arrayidx.i = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.next76
-  %22 = load ptr, ptr %arrayidx.i, align 8
-  %23 = load i64, ptr %22, align 8
-  %cmp49.not = icmp slt i64 %23, %result.0.i
+  %24 = load ptr, ptr %rules, align 8, !nonnull !10, !noundef !10
+  %arrayidx.i = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv.next76
+  %25 = load ptr, ptr %arrayidx.i, align 8
+  %26 = load i64, ptr %25, align 8
+  %cmp49.not = icmp slt i64 %26, %result.0.i
   br i1 %cmp49.not, label %if.end51, label %for.cond34.backedge
 
 if.end51:                                         ; preds = %land.lhs.true43, %for.body41
@@ -2043,11 +2051,11 @@ if.end51:                                         ; preds = %land.lhs.true43, %f
           to label %invoke.cont53 unwind label %lpad5.loopexit
 
 invoke.cont53:                                    ; preds = %if.end51
-  %24 = load ptr, ptr %rules, align 8, !nonnull !10, !noundef !10
-  %arrayidx.i47 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv.next76
-  %25 = load ptr, ptr %arrayidx.i47, align 8
-  %26 = load i8, ptr %fIsFractionRuleSet, align 8
-  %call61 = invoke noundef signext i8 @_ZNK6icu_756NFRule7doParseERKNS_13UnicodeStringERNS_13ParsePositionEadjRNS_11FormattableE(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(16) %workingPos, i8 noundef signext %26, double noundef %upperBound, i32 noundef %nonNumericalExecutedRuleMask.addr.1, ptr noundef nonnull align 8 dereferenceable(112) %tempResult52)
+  %27 = load ptr, ptr %rules, align 8, !nonnull !10, !noundef !10
+  %arrayidx.i47 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.next76
+  %28 = load ptr, ptr %arrayidx.i47, align 8
+  %29 = load i8, ptr %fIsFractionRuleSet, align 8
+  %call61 = invoke noundef signext i8 @_ZNK6icu_756NFRule7doParseERKNS_13UnicodeStringERNS_13ParsePositionEadjRNS_11FormattableE(ptr noundef nonnull align 8 dereferenceable(112) %28, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(16) %workingPos, i8 noundef signext %29, double noundef %upperBound, i32 noundef %nonNumericalExecutedRuleMask.addr.1, ptr noundef nonnull align 8 dereferenceable(112) %tempResult52)
           to label %invoke.cont60 unwind label %lpad56
 
 invoke.cont60:                                    ; preds = %invoke.cont53
@@ -2055,9 +2063,9 @@ invoke.cont60:                                    ; preds = %invoke.cont53
   br i1 %tobool62.not, label %if.end74, label %land.lhs.true63
 
 land.lhs.true63:                                  ; preds = %invoke.cont60
-  %27 = load i32, ptr %index.i22, align 8
-  %28 = load i32, ptr %index.i, align 8
-  %cmp68 = icmp sgt i32 %27, %28
+  %30 = load i32, ptr %index.i22, align 8
+  %31 = load i32, ptr %index.i, align 8
+  %cmp68 = icmp sgt i32 %30, %31
   br i1 %cmp68, label %if.then69, label %if.end74
 
 if.then69:                                        ; preds = %land.lhs.true63
@@ -2065,19 +2073,23 @@ if.then69:                                        ; preds = %land.lhs.true63
           to label %invoke.cont70 unwind label %lpad56
 
 invoke.cont70:                                    ; preds = %if.then69
-  %29 = load <2 x i32>, ptr %index.i22, align 8
-  store <2 x i32> %29, ptr %index.i, align 8
+  %32 = load i32, ptr %index.i22, align 8
+  store i32 %32, ptr %index.i, align 8
+  %33 = load i32, ptr %errorIndex.i23, align 4
+  store i32 %33, ptr %errorIndex.i, align 4
   br label %if.end74
 
 lpad56:                                           ; preds = %if.then69, %invoke.cont53
-  %30 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %tempResult52) #14
   br label %ehcleanup
 
 if.end74:                                         ; preds = %invoke.cont70, %land.lhs.true63, %invoke.cont60
-  %31 = load <2 x i32>, ptr %index2.i, align 8
-  store <2 x i32> %31, ptr %index.i22, align 8
+  %35 = load i32, ptr %index2.i, align 8
+  store i32 %35, ptr %index.i22, align 8
+  %36 = load i32, ptr %errorIndex3.i, align 4
+  store i32 %36, ptr %errorIndex.i23, align 4
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %tempResult52) #14
   br label %for.cond34.backedge
 
@@ -2086,14 +2098,16 @@ for.cond34.backedge:                              ; preds = %if.end74, %land.lhs
   br i1 %cmp35, label %invoke.cont38, label %for.end77, !llvm.loop !26
 
 for.end77:                                        ; preds = %invoke.cont38, %for.cond34.backedge, %invoke.cont29
-  %32 = load <2 x i32>, ptr %index.i, align 8
-  store <2 x i32> %32, ptr %index2.i, align 8
+  %37 = load i32, ptr %index.i, align 8
+  store i32 %37, ptr %index2.i, align 8
+  %38 = load i32, ptr %errorIndex.i, align 4
+  store i32 %38, ptr %errorIndex3.i, align 4
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %workingPos) #14
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %highWaterMark) #14
   br label %return
 
 ehcleanup:                                        ; preds = %lpad5.loopexit, %lpad5.loopexit.split-lp.loopexit.split-lp, %lpad5.loopexit.split-lp.loopexit, %lpad56, %lpad10
-  %.pn = phi { ptr, i32 } [ %12, %lpad10 ], [ %30, %lpad56 ], [ %lpad.loopexit, %lpad5.loopexit ], [ %lpad.loopexit64, %lpad5.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp65, %lpad5.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %14, %lpad10 ], [ %34, %lpad56 ], [ %lpad.loopexit, %lpad5.loopexit ], [ %lpad.loopexit64, %lpad5.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp65, %lpad5.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %workingPos) #14
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %highWaterMark) #14
   resume { ptr, i32 } %.pn

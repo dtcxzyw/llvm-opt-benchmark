@@ -1892,32 +1892,35 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %functionId = getelementptr inbounds i8, ptr %left, i64 8
+  %2 = load i32, ptr %functionId, align 8
   %functionId3 = getelementptr inbounds i8, ptr %right, i64 8
-  %2 = load <2 x i32>, ptr %functionId, align 8
-  %3 = load <2 x i32>, ptr %functionId3, align 8
-  %4 = icmp eq <2 x i32> %2, %3
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %5, i1 %6, i1 false
+  %3 = load i32, ptr %functionId3, align 8
+  %cmp4 = icmp eq i32 %2, %3
+  %offset = getelementptr inbounds i8, ptr %left, i64 12
+  %4 = load i32, ptr %offset, align 4
+  %offset5 = getelementptr inbounds i8, ptr %right, i64 12
+  %5 = load i32, ptr %offset5, align 4
+  %cmp6 = icmp eq i32 %4, %5
+  %6 = select i1 %cmp4, i1 %cmp6, i1 false
   br label %return
 
 sw.bb7:                                           ; preds = %if.end, %if.end
-  %8 = load i64, ptr %left, align 8
-  %9 = load i64, ptr %right, align 8
-  %cmp8 = icmp eq i64 %8, %9
+  %7 = load i64, ptr %left, align 8
+  %8 = load i64, ptr %right, align 8
+  %cmp8 = icmp eq i64 %7, %8
   br label %return
 
 sw.bb9:                                           ; preds = %if.end
-  %10 = load ptr, ptr %left, align 8
-  %11 = load ptr, ptr %right, align 8
-  %cmp10 = icmp eq ptr %10, %11
+  %9 = load ptr, ptr %left, align 8
+  %10 = load ptr, ptr %right, align 8
+  %cmp10 = icmp eq ptr %9, %10
   br label %return
 
 sw.default:                                       ; preds = %if.end
   unreachable
 
 return:                                           ; preds = %entry, %sw.bb9, %sw.bb7, %sw.bb
-  %retval.0 = phi i1 [ %cmp10, %sw.bb9 ], [ %cmp8, %sw.bb7 ], [ %7, %sw.bb ], [ false, %entry ]
+  %retval.0 = phi i1 [ %cmp10, %sw.bb9 ], [ %cmp8, %sw.bb7 ], [ %6, %sw.bb ], [ false, %entry ]
   ret i1 %retval.0
 }
 

@@ -292,7 +292,7 @@ for.body34.preheader:                             ; preds = %invoke.cont27
   br label %for.body34
 
 for.body34:                                       ; preds = %for.body34.preheader, %if.end75
-  %38 = phi i32 [ %36, %for.body34.preheader ], [ %62, %if.end75 ]
+  %38 = phi i32 [ %36, %for.body34.preheader ], [ %55, %if.end75 ]
   %indvars.iv106 = phi i64 [ 1, %for.body34.preheader ], [ %indvars.iv.next107, %if.end75 ]
   %pcontact.0103 = phi ptr [ %37, %for.body34.preheader ], [ %pcontact.1, %if.end75 ]
   %last_key.0102 = phi i32 [ %33, %for.body34.preheader ], [ %40, %if.end75 ]
@@ -347,7 +347,9 @@ if.else63:                                        ; preds = %for.body34
 
 for.body.preheader.i:                             ; preds = %if.else63
   %m_normal.i = getelementptr inbounds i8, ptr %pcontact.0103, i64 16
-  %46 = load <2 x float>, ptr %m_normal.i, align 4
+  %vec_sum.sroa.0.0.copyload.i = load float, ptr %m_normal.i, align 4
+  %vec_sum.sroa.5.0.m_normal.sroa_idx.i = getelementptr inbounds i8, ptr %pcontact.0103, i64 20
+  %vec_sum.sroa.5.0.copyload.i = load float, ptr %vec_sum.sroa.5.0.m_normal.sroa_idx.i, align 4
   %vec_sum.sroa.9.0.m_normal.sroa_idx.i = getelementptr inbounds i8, ptr %pcontact.0103, i64 24
   %vec_sum.sroa.9.0.copyload.i = load float, ptr %vec_sum.sroa.9.0.m_normal.sroa_idx.i, align 4
   %wide.trip.count.i = zext nneg i32 %coincident_count.0101 to i64
@@ -356,35 +358,38 @@ for.body.preheader.i:                             ; preds = %if.else63
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %vec_sum.sroa.9.014.i = phi float [ %vec_sum.sroa.9.0.copyload.i, %for.body.preheader.i ], [ %add13.i.i, %for.body.i ]
-  %47 = phi <2 x float> [ %46, %for.body.preheader.i ], [ %49, %for.body.i ]
+  %vec_sum.sroa.0.013.i = phi float [ %vec_sum.sroa.0.0.copyload.i, %for.body.preheader.i ], [ %add.i.i, %for.body.i ]
+  %vec_sum.sroa.5.012.i = phi float [ %vec_sum.sroa.5.0.copyload.i, %for.body.preheader.i ], [ %add8.i.i, %for.body.i ]
   %arrayidx.i82 = getelementptr inbounds %class.btVector3, ptr %coincident_normals, i64 %indvars.iv.i
-  %48 = load <2 x float>, ptr %arrayidx.i82, align 16
-  %49 = fadd <2 x float> %47, %48
+  %46 = load float, ptr %arrayidx.i82, align 16
+  %add.i.i = fadd float %vec_sum.sroa.0.013.i, %46
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx.i82, i64 4
+  %47 = load float, ptr %arrayidx5.i.i, align 4
+  %add8.i.i = fadd float %vec_sum.sroa.5.012.i, %47
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i82, i64 8
-  %50 = load float, ptr %arrayidx10.i.i, align 8
-  %add13.i.i = fadd float %vec_sum.sroa.9.014.i, %50
+  %48 = load float, ptr %arrayidx10.i.i, align 8
+  %add13.i.i = fadd float %vec_sum.sroa.9.014.i, %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i
-  %51 = fmul <2 x float> %49, %49
-  %mul8.i.i.i = extractelement <2 x float> %51, i64 1
-  %52 = extractelement <2 x float> %49, i64 0
-  %53 = call float @llvm.fmuladd.f32(float %52, float %52, float %mul8.i.i.i)
-  %54 = call noundef float @llvm.fmuladd.f32(float %add13.i.i, float %add13.i.i, float %53)
-  %cmp3.i = fcmp olt float %54, 0x3EE4F8B580000000
+  %mul8.i.i.i = fmul float %add8.i.i, %add8.i.i
+  %49 = call float @llvm.fmuladd.f32(float %add.i.i, float %add.i.i, float %mul8.i.i.i)
+  %50 = call noundef float @llvm.fmuladd.f32(float %add13.i.i, float %add13.i.i, float %49)
+  %cmp3.i = fcmp olt float %50, 0x3EE4F8B580000000
   br i1 %cmp3.i, label %if.end68, label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i
-  %sqrt.i = call float @llvm.sqrt.f32(float %54)
+  %sqrt.i = call float @llvm.sqrt.f32(float %50)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i
-  %55 = insertelement <2 x float> poison, float %div.i.i, i64 0
-  %56 = shufflevector <2 x float> %55, <2 x float> poison, <2 x i32> zeroinitializer
-  %57 = fmul <2 x float> %49, %56
+  %mul.i.i.i81 = fmul float %add.i.i, %div.i.i
+  %mul4.i.i.i = fmul float %add8.i.i, %div.i.i
   %mul8.i.i4.i = fmul float %add13.i.i, %div.i.i
+  %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %mul.i.i.i81, i64 0
+  %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i, float %mul4.i.i.i, i64 1
   %retval.sroa.3.12.vec.insert.i.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i4.i, i64 0
-  store <2 x float> %57, ptr %m_normal.i, align 4
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i, ptr %m_normal.i, align 4
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i, ptr %vec_sum.sroa.9.0.m_normal.sroa_idx.i, align 4
   br label %if.end68
 
@@ -394,42 +399,42 @@ if.end68:                                         ; preds = %if.end.i, %for.end.
           to label %invoke.cont69 unwind label %lpad.loopexit
 
 invoke.cont69:                                    ; preds = %if.end68
-  %58 = load i32, ptr %m_size.i.i, align 4
-  %59 = load ptr, ptr %m_data.i.i, align 8
-  %60 = sext i32 %58 to i64
-  %61 = getelementptr %class.GIM_CONTACT, ptr %59, i64 %60
-  %arrayidx.i86 = getelementptr i8, ptr %61, i64 -48
+  %51 = load i32, ptr %m_size.i.i, align 4
+  %52 = load ptr, ptr %m_data.i.i, align 8
+  %53 = sext i32 %51 to i64
+  %54 = getelementptr %class.GIM_CONTACT, ptr %52, i64 %53
+  %arrayidx.i86 = getelementptr i8, ptr %54, i64 -48
   %.pre111 = load i32, ptr %m_size.i.i32, align 4
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then47, %if.then48, %if.then57, %if.else, %invoke.cont69
-  %62 = phi i32 [ %38, %if.then47 ], [ %38, %if.then57 ], [ %38, %if.then48 ], [ %38, %if.else ], [ %.pre111, %invoke.cont69 ]
+  %55 = phi i32 [ %38, %if.then47 ], [ %38, %if.then57 ], [ %38, %if.then48 ], [ %38, %if.else ], [ %.pre111, %invoke.cont69 ]
   %coincident_count.1 = phi i32 [ 0, %if.then47 ], [ %inc58, %if.then57 ], [ %coincident_count.0101, %if.then48 ], [ %coincident_count.0101, %if.else ], [ %coincident_count.2, %invoke.cont69 ]
   %pcontact.1 = phi ptr [ %pcontact.0103, %if.then47 ], [ %pcontact.0103, %if.then57 ], [ %pcontact.0103, %if.then48 ], [ %pcontact.0103, %if.else ], [ %arrayidx.i86, %invoke.cont69 ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %63 = sext i32 %62 to i64
-  %cmp33 = icmp slt i64 %indvars.iv.next107, %63
+  %56 = sext i32 %55 to i64
+  %cmp33 = icmp slt i64 %indvars.iv.next107, %56
   br i1 %cmp33, label %for.body34, label %for.end78, !llvm.loop !9
 
 for.end78:                                        ; preds = %if.end75, %invoke.cont27
-  %64 = load ptr, ptr %m_data.i.i31, align 8
-  %tobool.not.i.i.i88 = icmp eq ptr %64, null
+  %57 = load ptr, ptr %m_data.i.i31, align 8
+  %tobool.not.i.i.i88 = icmp eq ptr %57, null
   br i1 %tobool.not.i.i.i88, label %return, label %if.then.i.i.i89
 
 if.then.i.i.i89:                                  ; preds = %for.end78
-  %65 = load i8, ptr %m_ownsMemory.i.i30, align 8
-  %tobool2.i.i.i91 = trunc i8 %65 to i1
+  %58 = load i8, ptr %m_ownsMemory.i.i30, align 8
+  %tobool2.i.i.i91 = trunc i8 %58 to i1
   br i1 %tobool2.i.i.i91, label %if.then3.i.i.i92, label %return
 
 if.then3.i.i.i92:                                 ; preds = %if.then.i.i.i89
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %64)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %57)
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i92
-  %66 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #9
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #9
   unreachable
 
 return:                                           ; preds = %if.then3.i.i.i92, %if.then.i.i.i89, %for.end78, %_ZN20btAlignedObjectArrayI11GIM_CONTACTE5clearEv.exit, %if.then4

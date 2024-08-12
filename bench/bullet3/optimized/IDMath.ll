@@ -29,7 +29,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %v) local_unnamed_addr #0 {
 entry:
-  store <2 x float> zeroinitializer, ptr %v, align 4
+  store float 0.000000e+00, ptr %v, align 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %v, i64 4
+  store float 0.000000e+00, ptr %arrayidx.i, align 4
   %arrayidx.i3 = getelementptr inbounds i8, ptr %v, i64 8
   store float 0.000000e+00, ptr %arrayidx.i3, align 4
   ret void
@@ -65,15 +67,21 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet37setZeroERNS_5mat33E(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %m) local_unnamed_addr #0 {
 entry:
-  store <2 x float> zeroinitializer, ptr %m, align 4
+  store float 0.000000e+00, ptr %m, align 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %m, i64 4
+  store float 0.000000e+00, ptr %arrayidx.i, align 4
   %arrayidx.i9 = getelementptr inbounds i8, ptr %m, i64 8
   store float 0.000000e+00, ptr %arrayidx.i9, align 4
   %arrayidx.i.i = getelementptr inbounds i8, ptr %m, i64 16
-  store <2 x float> zeroinitializer, ptr %arrayidx.i.i, align 4
+  store float 0.000000e+00, ptr %arrayidx.i.i, align 4
+  %arrayidx.i12 = getelementptr inbounds i8, ptr %m, i64 20
+  store float 0.000000e+00, ptr %arrayidx.i12, align 4
   %arrayidx.i14 = getelementptr inbounds i8, ptr %m, i64 24
   store float 0.000000e+00, ptr %arrayidx.i14, align 4
   %arrayidx.i.i15 = getelementptr inbounds i8, ptr %m, i64 32
-  store <2 x float> zeroinitializer, ptr %arrayidx.i.i15, align 4
+  store float 0.000000e+00, ptr %arrayidx.i.i15, align 4
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %m, i64 36
+  store float 0.000000e+00, ptr %arrayidx.i18, align 4
   %arrayidx.i20 = getelementptr inbounds i8, ptr %m, i64 40
   store float 0.000000e+00, ptr %arrayidx.i20, align 4
   ret void
@@ -478,7 +486,9 @@ entry:
   %call.i = tail call noundef float @cosf(float noundef %0) #13
   %1 = load float, ptr %alpha, align 4
   %call.i4 = tail call noundef float @sinf(float noundef %1) #13
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %agg.result, align 4
+  store float 1.000000e+00, ptr %agg.result, align 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  store float 0.000000e+00, ptr %arrayidx.i, align 4
   %arrayidx.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store float 0.000000e+00, ptr %arrayidx.i5, align 4
   %arrayidx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -511,7 +521,9 @@ entry:
   %arrayidx.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store float %fneg, ptr %arrayidx.i5, align 4
   %arrayidx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i, align 4
+  store float 0.000000e+00, ptr %arrayidx.i.i, align 4
+  %arrayidx.i8 = getelementptr inbounds i8, ptr %agg.result, i64 20
+  store float 1.000000e+00, ptr %arrayidx.i8, align 4
   %arrayidx.i10 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store float 0.000000e+00, ptr %arrayidx.i10, align 4
   %arrayidx.i.i11 = getelementptr inbounds i8, ptr %agg.result, i64 32
@@ -543,7 +555,9 @@ entry:
   %arrayidx.i10 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store float 0.000000e+00, ptr %arrayidx.i10, align 4
   %arrayidx.i.i11 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store <2 x float> zeroinitializer, ptr %arrayidx.i.i11, align 4
+  store float 0.000000e+00, ptr %arrayidx.i.i11, align 4
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %agg.result, i64 36
+  store float 0.000000e+00, ptr %arrayidx.i14, align 4
   %arrayidx.i16 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store float 1.000000e+00, ptr %arrayidx.i16, align 4
   ret void
@@ -589,33 +603,32 @@ entry:
   %call.i26 = tail call noundef float @cosf(float noundef %theta) #13
   store float %a, ptr %r, align 4
   %fneg = fneg float %call.i
+  %mul = fmul float %fneg, %d
   %arrayidx.i = getelementptr inbounds i8, ptr %r, i64 4
-  %0 = insertelement <2 x float> poison, float %fneg, i64 0
-  %1 = insertelement <2 x float> %0, float %call.i24, i64 1
-  %2 = insertelement <2 x float> poison, float %d, i64 0
-  %3 = shufflevector <2 x float> %2, <2 x float> poison, <2 x i32> zeroinitializer
-  %4 = fmul <2 x float> %1, %3
-  store <2 x float> %4, ptr %arrayidx.i, align 4
+  store float %mul, ptr %arrayidx.i, align 4
+  %mul6 = fmul float %call.i24, %d
+  %arrayidx.i27 = getelementptr inbounds i8, ptr %r, i64 8
+  store float %mul6, ptr %arrayidx.i27, align 4
   store float %call.i26, ptr %T, align 4
   %fneg9 = fneg float %call.i25
   %arrayidx.i29 = getelementptr inbounds i8, ptr %T, i64 4
   store float %fneg9, ptr %arrayidx.i29, align 4
   %arrayidx.i30 = getelementptr inbounds i8, ptr %T, i64 8
   store float 0.000000e+00, ptr %arrayidx.i30, align 4
+  %mul12 = fmul float %call.i24, %call.i25
   %arrayidx.i.i = getelementptr inbounds i8, ptr %T, i64 16
-  %5 = insertelement <2 x float> poison, float %call.i24, i64 0
-  %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> zeroinitializer
-  %7 = insertelement <2 x float> poison, float %call.i25, i64 0
-  %8 = insertelement <2 x float> %7, float %call.i26, i64 1
-  %9 = fmul <2 x float> %6, %8
-  store <2 x float> %9, ptr %arrayidx.i.i, align 4
+  store float %mul12, ptr %arrayidx.i.i, align 4
+  %mul14 = fmul float %call.i24, %call.i26
+  %arrayidx.i33 = getelementptr inbounds i8, ptr %T, i64 20
+  store float %mul14, ptr %arrayidx.i33, align 4
   %arrayidx.i35 = getelementptr inbounds i8, ptr %T, i64 24
   store float %fneg, ptr %arrayidx.i35, align 4
+  %mul18 = fmul float %call.i, %call.i25
   %arrayidx.i.i36 = getelementptr inbounds i8, ptr %T, i64 32
-  %10 = insertelement <2 x float> poison, float %call.i, i64 0
-  %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
-  %12 = fmul <2 x float> %11, %8
-  store <2 x float> %12, ptr %arrayidx.i.i36, align 4
+  store float %mul18, ptr %arrayidx.i.i36, align 4
+  %mul20 = fmul float %call.i, %call.i26
+  %arrayidx.i39 = getelementptr inbounds i8, ptr %T, i64 36
+  store float %mul20, ptr %arrayidx.i39, align 4
   %arrayidx.i41 = getelementptr inbounds i8, ptr %T, i64 40
   store float %call.i24, ptr %arrayidx.i41, align 4
   ret void

@@ -213,9 +213,10 @@ WebPRescalerHasPendingOutput.exit.thread:         ; preds = %17, %WebPRescalerHa
   br i1 %.not28, label %24, label %21
 
 21:                                               ; preds = %WebPRescalerHasPendingOutput.exit.thread
-  %22 = load <2 x ptr>, ptr %10, align 8
-  %23 = shufflevector <2 x ptr> %22, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %23, ptr %10, align 8
+  %22 = load ptr, ptr %10, align 8
+  %23 = load ptr, ptr %11, align 8
+  store ptr %23, ptr %10, align 8
+  store ptr %22, ptr %11, align 8
   br label %24
 
 24:                                               ; preds = %21, %WebPRescalerHasPendingOutput.exit.thread

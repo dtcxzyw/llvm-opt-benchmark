@@ -9,15 +9,21 @@ define void @_ZN4core3ptr19swap_nonoverlapping17h147197e4434a14a0E(ptr nocapture
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.0910 = phi i64 [ %8, %.lr.ph ], [ 0, %3 ]
+  %.0910 = phi i64 [ %12, %.lr.ph ], [ 0, %3 ]
   %4 = getelementptr inbounds { [2 x i64] }, ptr %0, i64 %.0910
   %5 = getelementptr inbounds { [2 x i64] }, ptr %1, i64 %.0910
-  %6 = load <2 x ptr>, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %6, ptr %4, align 8
-  store <2 x ptr> %7, ptr %5, align 8
-  %8 = add nuw i64 %.0910, 1
-  %exitcond.not = icmp eq i64 %8, %2
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = load ptr, ptr %10, align 8
+  store ptr %9, ptr %4, align 8
+  store ptr %11, ptr %7, align 8
+  store ptr %6, ptr %5, align 8
+  store ptr %8, ptr %10, align 8
+  %12 = add nuw i64 %.0910, 1
+  %exitcond.not = icmp eq i64 %12, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

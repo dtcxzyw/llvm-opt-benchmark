@@ -14709,9 +14709,9 @@ define void @cvFloodFill(ptr noundef %0, i64 %1, ptr nocapture noundef readonly 
   %10 = alloca %"class.cv::Mat", align 8
   %11 = alloca %"class.cv::_InputOutputArray", align 8
   %12 = alloca %"class.cv::_InputOutputArray", align 8
-  %13 = alloca %"class.cv::Scalar_", align 16
-  %14 = alloca %"class.cv::Scalar_", align 16
-  %15 = alloca %"class.cv::Scalar_", align 16
+  %13 = alloca %"class.cv::Scalar_", align 8
+  %14 = alloca %"class.cv::Scalar_", align 8
+  %15 = alloca %"class.cv::Scalar_", align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %16
 
@@ -14722,7 +14722,7 @@ define void @cvFloodFill(ptr noundef %0, i64 %1, ptr nocapture noundef readonly 
 17:                                               ; preds = %16, %8
   call void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %9, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   invoke void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %10, ptr noundef %7, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
-          to label %18 unwind label %42
+          to label %18 unwind label %60
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds i8, ptr %11, i64 8
@@ -14736,59 +14736,83 @@ define void @cvFloodFill(ptr noundef %0, i64 %1, ptr nocapture noundef readonly 
   store i32 50397184, ptr %12, align 8
   store ptr %10, ptr %21, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !282)
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
-  %24 = load <2 x double>, ptr %2, align 8, !noalias !282
-  store <2 x double> %24, ptr %13, align 16, !alias.scope !282
-  %25 = getelementptr inbounds i8, ptr %13, i64 16
-  %26 = load <2 x double>, ptr %23, align 8, !noalias !282
-  store <2 x double> %26, ptr %25, align 16, !alias.scope !282
-  %27 = getelementptr inbounds i8, ptr %5, i64 40
-  %28 = select i1 %.not, ptr null, ptr %27
+  %23 = load double, ptr %2, align 8, !noalias !282
+  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = load double, ptr %24, align 8, !noalias !282
+  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %27 = load double, ptr %26, align 8, !noalias !282
+  %28 = getelementptr inbounds i8, ptr %2, i64 24
+  %29 = load double, ptr %28, align 8, !noalias !282
+  store double %23, ptr %13, align 8, !alias.scope !282
+  %30 = getelementptr inbounds i8, ptr %13, i64 8
+  store double %25, ptr %30, align 8, !alias.scope !282
+  %31 = getelementptr inbounds i8, ptr %13, i64 16
+  store double %27, ptr %31, align 8, !alias.scope !282
+  %32 = getelementptr inbounds i8, ptr %13, i64 24
+  store double %29, ptr %32, align 8, !alias.scope !282
+  %33 = getelementptr inbounds i8, ptr %5, i64 40
+  %34 = select i1 %.not, ptr null, ptr %33
   call void @llvm.experimental.noalias.scope.decl(metadata !285)
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
-  %30 = load <2 x double>, ptr %3, align 8, !noalias !285
-  store <2 x double> %30, ptr %14, align 16, !alias.scope !285
-  %31 = getelementptr inbounds i8, ptr %14, i64 16
-  %32 = load <2 x double>, ptr %29, align 8, !noalias !285
-  store <2 x double> %32, ptr %31, align 16, !alias.scope !285
+  %35 = load double, ptr %3, align 8, !noalias !285
+  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = load double, ptr %36, align 8, !noalias !285
+  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %39 = load double, ptr %38, align 8, !noalias !285
+  %40 = getelementptr inbounds i8, ptr %3, i64 24
+  %41 = load double, ptr %40, align 8, !noalias !285
+  store double %35, ptr %14, align 8, !alias.scope !285
+  %42 = getelementptr inbounds i8, ptr %14, i64 8
+  store double %37, ptr %42, align 8, !alias.scope !285
+  %43 = getelementptr inbounds i8, ptr %14, i64 16
+  store double %39, ptr %43, align 8, !alias.scope !285
+  %44 = getelementptr inbounds i8, ptr %14, i64 24
+  store double %41, ptr %44, align 8, !alias.scope !285
   call void @llvm.experimental.noalias.scope.decl(metadata !288)
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
-  %34 = load <2 x double>, ptr %4, align 8, !noalias !288
-  store <2 x double> %34, ptr %15, align 16, !alias.scope !288
-  %35 = getelementptr inbounds i8, ptr %15, i64 16
-  %36 = load <2 x double>, ptr %33, align 8, !noalias !288
-  store <2 x double> %36, ptr %35, align 16, !alias.scope !288
-  %37 = invoke noundef i32 @_ZN2cv9floodFillERKNS_17_InputOutputArrayES2_NS_6Point_IiEENS_7Scalar_IdEEPNS_5Rect_IiEES6_S6_i(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 %1, ptr noundef nonnull %13, ptr noundef %28, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef %6)
-          to label %38 unwind label %44
+  %45 = load double, ptr %4, align 8, !noalias !288
+  %46 = getelementptr inbounds i8, ptr %4, i64 8
+  %47 = load double, ptr %46, align 8, !noalias !288
+  %48 = getelementptr inbounds i8, ptr %4, i64 16
+  %49 = load double, ptr %48, align 8, !noalias !288
+  %50 = getelementptr inbounds i8, ptr %4, i64 24
+  %51 = load double, ptr %50, align 8, !noalias !288
+  store double %45, ptr %15, align 8, !alias.scope !288
+  %52 = getelementptr inbounds i8, ptr %15, i64 8
+  store double %47, ptr %52, align 8, !alias.scope !288
+  %53 = getelementptr inbounds i8, ptr %15, i64 16
+  store double %49, ptr %53, align 8, !alias.scope !288
+  %54 = getelementptr inbounds i8, ptr %15, i64 24
+  store double %51, ptr %54, align 8, !alias.scope !288
+  %55 = invoke noundef i32 @_ZN2cv9floodFillERKNS_17_InputOutputArrayES2_NS_6Point_IiEENS_7Scalar_IdEEPNS_5Rect_IiEES6_S6_i(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 %1, ptr noundef nonnull %13, ptr noundef %34, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef %6)
+          to label %56 unwind label %62
 
-38:                                               ; preds = %18
-  br i1 %.not, label %46, label %39
+56:                                               ; preds = %18
+  br i1 %.not, label %64, label %57
 
-39:                                               ; preds = %38
-  %40 = sitofp i32 %37 to double
-  store double %40, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  br label %46
+57:                                               ; preds = %56
+  %58 = sitofp i32 %55 to double
+  store double %58, ptr %5, align 8
+  %59 = getelementptr inbounds i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  br label %64
 
-42:                                               ; preds = %17
-  %43 = landingpad { ptr, i32 }
+60:                                               ; preds = %17
+  %61 = landingpad { ptr, i32 }
           cleanup
-  br label %47
+  br label %65
 
-44:                                               ; preds = %18
-  %45 = landingpad { ptr, i32 }
+62:                                               ; preds = %18
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #17
-  br label %47
+  br label %65
 
-46:                                               ; preds = %39, %38
+64:                                               ; preds = %57, %56
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #17
   ret void
 
-47:                                               ; preds = %44, %42
-  %.pn.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
+65:                                               ; preds = %62, %60
+  %.pn.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #17
   resume { ptr, i32 } %.pn.pn.pn
 }

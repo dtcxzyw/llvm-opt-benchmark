@@ -512,7 +512,13 @@ pflash_cfi01_fill_cfi_table.exit:                 ; preds = %if.then.i, %if.else
   %sector_len_per_device.0.i = phi i64 [ %13, %if.then.i ], [ %div11.i, %if.else.i ]
   %blocks_per_device.0.in.i = phi i32 [ %div5.i, %if.then.i ], [ %12, %if.else.i ]
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 876
-  store <4 x i8> <i8 81, i8 82, i8 89, i8 1>, ptr %arrayidx.i, align 4
+  store i8 81, ptr %arrayidx.i, align 4
+  %arrayidx13.i = getelementptr i8, ptr %call.i, i64 877
+  store i8 82, ptr %arrayidx13.i, align 1
+  %arrayidx15.i = getelementptr i8, ptr %call.i, i64 878
+  store i8 89, ptr %arrayidx15.i, align 2
+  %arrayidx17.i = getelementptr i8, ptr %call.i, i64 879
+  store i8 1, ptr %arrayidx17.i, align 1
   %arrayidx19.i = getelementptr i8, ptr %call.i, i64 880
   store i8 0, ptr %arrayidx19.i, align 4
   %arrayidx21.i = getelementptr i8, ptr %call.i, i64 881
@@ -520,9 +526,29 @@ pflash_cfi01_fill_cfi_table.exit:                 ; preds = %if.then.i, %if.else
   %arrayidx23.i = getelementptr i8, ptr %call.i, i64 882
   %arrayidx33.i = getelementptr i8, ptr %call.i, i64 887
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %arrayidx23.i, i8 0, i64 5, i1 false)
-  store <8 x i8> <i8 69, i8 85, i8 0, i8 0, i8 7, i8 7, i8 10, i8 0>, ptr %arrayidx33.i, align 1
+  store i8 69, ptr %arrayidx33.i, align 1
+  %arrayidx35.i = getelementptr i8, ptr %call.i, i64 888
+  store i8 85, ptr %arrayidx35.i, align 4
+  %arrayidx37.i = getelementptr i8, ptr %call.i, i64 889
+  store i8 0, ptr %arrayidx37.i, align 1
+  %arrayidx39.i = getelementptr i8, ptr %call.i, i64 890
+  store i8 0, ptr %arrayidx39.i, align 2
+  %arrayidx41.i = getelementptr i8, ptr %call.i, i64 891
+  store i8 7, ptr %arrayidx41.i, align 1
+  %arrayidx43.i = getelementptr i8, ptr %call.i, i64 892
+  store i8 7, ptr %arrayidx43.i, align 4
+  %arrayidx45.i = getelementptr i8, ptr %call.i, i64 893
+  store i8 10, ptr %arrayidx45.i, align 1
+  %arrayidx47.i = getelementptr i8, ptr %call.i, i64 894
+  store i8 0, ptr %arrayidx47.i, align 2
   %arrayidx49.i = getelementptr i8, ptr %call.i, i64 895
-  store <4 x i8> <i8 4, i8 4, i8 4, i8 0>, ptr %arrayidx49.i, align 1
+  store i8 4, ptr %arrayidx49.i, align 1
+  %arrayidx51.i = getelementptr i8, ptr %call.i, i64 896
+  store i8 4, ptr %arrayidx51.i, align 4
+  %arrayidx53.i = getelementptr i8, ptr %call.i, i64 897
+  store i8 4, ptr %arrayidx53.i, align 1
+  %arrayidx55.i = getelementptr i8, ptr %call.i, i64 898
+  store i8 0, ptr %arrayidx55.i, align 2
   %15 = trunc i64 %sector_len_per_device.0.i to i32
   %conv56.i = mul i32 %blocks_per_device.0.in.i, %15
   %16 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv56.i, i1 false)
@@ -568,7 +594,13 @@ pflash_cfi01_fill_cfi_table.exit:                 ; preds = %if.then.i, %if.else
   %arrayidx103.i = getelementptr i8, ptr %call.i, i64 908
   store i8 %conv101.i, ptr %arrayidx103.i, align 4
   %arrayidx105.i = getelementptr i8, ptr %call.i, i64 909
-  store <4 x i8> <i8 80, i8 82, i8 73, i8 49>, ptr %arrayidx105.i, align 1
+  store i8 80, ptr %arrayidx105.i, align 1
+  %arrayidx107.i = getelementptr i8, ptr %call.i, i64 910
+  store i8 82, ptr %arrayidx107.i, align 2
+  %arrayidx109.i = getelementptr i8, ptr %call.i, i64 911
+  store i8 73, ptr %arrayidx109.i, align 1
+  %arrayidx111.i = getelementptr i8, ptr %call.i, i64 912
+  store i8 49, ptr %arrayidx111.i, align 4
   %arrayidx113.i = getelementptr i8, ptr %call.i, i64 913
   store i8 48, ptr %arrayidx113.i, align 1
   %arrayidx115.i = getelementptr i8, ptr %call.i, i64 914

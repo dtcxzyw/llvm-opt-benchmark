@@ -6403,14 +6403,17 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZN7obj_mapI9func_decl7svectorIP4exprjEE8key_dataC2EPS0_RKS4_.exit, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i.i.i
 
 _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i.i.i: ; preds = %entry
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
+  %1 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %arrayidx.i11.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
-  %1 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i, align 4
   %2 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %2 to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 3
   %add.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i, 8
   %call3.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i)
-  store <2 x i32> %1, ptr %call3.i.i.i.i, align 4
+  store i32 %2, ptr %call3.i.i.i.i, align 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i, i64 4
+  store i32 %1, ptr %incdec.ptr.i.i.i.i, align 4
   %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %m_value.i, align 8
   %3 = load ptr, ptr %v, align 8
@@ -7094,14 +7097,17 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZN7obj_mapI9func_decl7svectorIP4exprjEE8key_dataC2ERKS6_.exit, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i.i.i
 
 _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i.i.i: ; preds = %entry
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
+  %2 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %arrayidx.i11.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
-  %2 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i, align 4
   %3 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %3 to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 3
   %add.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i, 8
   %call3.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i)
-  store <2 x i32> %2, ptr %call3.i.i.i.i, align 4
+  store i32 %3, ptr %call3.i.i.i.i, align 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i, i64 4
+  store i32 %2, ptr %incdec.ptr.i.i.i.i, align 4
   %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %m_value.i, align 8
   %4 = load ptr, ptr %m_value3.i, align 8
@@ -12303,32 +12309,46 @@ if.end:                                           ; preds = %for.body
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx.i, align 8
   %6 = load i32, ptr %5, align 4
-  %7 = insertelement <2 x i32> poison, i32 %6, i64 0
-  %8 = insertelement <2 x i32> %7, i32 %a.08, i64 1
-  %9 = add <2 x i32> %8, <i32 2127912214, i32 2127912214>
-  %10 = shl <2 x i32> %8, <i32 12, i32 12>
-  %11 = add <2 x i32> %9, %10
-  %12 = lshr <2 x i32> %11, <i32 19, i32 19>
-  %13 = xor <2 x i32> %11, %12
-  %14 = xor <2 x i32> %13, <i32 -949894596, i32 -949894596>
-  %15 = add <2 x i32> %14, <i32 374761393, i32 374761393>
-  %16 = shl <2 x i32> %14, <i32 5, i32 5>
-  %17 = add <2 x i32> %15, %16
-  %18 = add <2 x i32> %17, <i32 -744332180, i32 -744332180>
-  %19 = shl <2 x i32> %17, <i32 9, i32 9>
-  %20 = xor <2 x i32> %18, %19
-  %21 = add <2 x i32> %20, <i32 -42973499, i32 -42973499>
-  %22 = shl <2 x i32> %20, <i32 3, i32 3>
-  %23 = add <2 x i32> %21, %22
-  %24 = lshr <2 x i32> %23, <i32 16, i32 16>
-  %25 = xor <2 x i32> %23, %24
-  %26 = xor <2 x i32> %25, <i32 -1252372727, i32 -1252372727>
-  %27 = extractelement <2 x i32> %26, i64 0
-  %28 = extractelement <2 x i32> %26, i64 1
-  %sub.i.i = sub i32 %27, %28
-  %shl.i17.i = shl i32 %28, 8
+  %add.i.i = add i32 %a.08, 2127912214
+  %shl.i.i6 = shl i32 %a.08, 12
+  %add1.i.i = add i32 %add.i.i, %shl.i.i6
+  %shr.i.i = lshr i32 %add1.i.i, 19
+  %7 = xor i32 %add1.i.i, %shr.i.i
+  %xor2.i.i = xor i32 %7, -949894596
+  %add3.i.i = add i32 %xor2.i.i, 374761393
+  %shl4.i.i = shl i32 %xor2.i.i, 5
+  %add5.i.i = add i32 %add3.i.i, %shl4.i.i
+  %add6.i.i = add i32 %add5.i.i, -744332180
+  %shl7.i.i = shl i32 %add5.i.i, 9
+  %xor8.i.i = xor i32 %add6.i.i, %shl7.i.i
+  %add9.i.i = add i32 %xor8.i.i, -42973499
+  %shl10.i.i = shl i32 %xor8.i.i, 3
+  %add11.i.i = add i32 %add9.i.i, %shl10.i.i
+  %shr13.i.i = lshr i32 %add11.i.i, 16
+  %8 = xor i32 %add11.i.i, %shr13.i.i
+  %xor14.i.i = xor i32 %8, -1252372727
+  %add.i1.i = add i32 %6, 2127912214
+  %shl.i2.i = shl i32 %6, 12
+  %add1.i3.i = add i32 %add.i1.i, %shl.i2.i
+  %shr.i4.i = lshr i32 %add1.i3.i, 19
+  %9 = xor i32 %add1.i3.i, %shr.i4.i
+  %xor2.i5.i = xor i32 %9, -949894596
+  %add3.i6.i = add i32 %xor2.i5.i, 374761393
+  %shl4.i7.i = shl i32 %xor2.i5.i, 5
+  %add5.i8.i = add i32 %add3.i6.i, %shl4.i7.i
+  %add6.i9.i = add i32 %add5.i8.i, -744332180
+  %shl7.i10.i = shl i32 %add5.i8.i, 9
+  %xor8.i11.i = xor i32 %add6.i9.i, %shl7.i10.i
+  %add9.i12.i = add i32 %xor8.i11.i, -42973499
+  %shl10.i13.i = shl i32 %xor8.i11.i, 3
+  %add11.i14.i = add i32 %add9.i12.i, %shl10.i13.i
+  %shr13.i15.i = lshr i32 %add11.i14.i, 16
+  %10 = xor i32 %add11.i14.i, %shr13.i15.i
+  %xor14.i16.i = xor i32 %10, -1252372727
+  %sub.i.i = sub i32 %xor14.i16.i, %xor14.i.i
+  %shl.i17.i = shl i32 %xor14.i.i, 8
   %xor.i.i = xor i32 %sub.i.i, %shl.i17.i
-  %sub1.i.i = sub i32 %28, %xor.i.i
+  %sub1.i.i = sub i32 %xor14.i.i, %xor.i.i
   %shl2.i.i = shl i32 %sub1.i.i, 16
   %xor3.i.i = xor i32 %shl2.i.i, %xor.i.i
   %sub4.i.i = sub i32 %xor3.i.i, %sub1.i.i
@@ -21404,8 +21424,9 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %_ZNK6vectorI14dependent_exprLb1EjE8capacityEv.exit.i.i
 
 _ZNK6vectorI14dependent_exprLb1EjE8capacityEv.exit.i.i: ; preds = %entry
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
+  %1 = load i32, ptr %arrayidx.i.i.i, align 4
   %arrayidx.i11.i.i = getelementptr inbounds i8, ptr %0, i64 -8
-  %1 = load <2 x i32>, ptr %arrayidx.i11.i.i, align 4
   %2 = load i32, ptr %arrayidx.i11.i.i, align 4
   %conv.i.i = zext i32 %2 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 5
@@ -21414,7 +21435,9 @@ _ZNK6vectorI14dependent_exprLb1EjE8capacityEv.exit.i.i: ; preds = %entry
           to label %call3.i.i.noexc unwind label %lpad
 
 call3.i.i.noexc:                                  ; preds = %_ZNK6vectorI14dependent_exprLb1EjE8capacityEv.exit.i.i
-  store <2 x i32> %1, ptr %call3.i.i2, align 4
+  store i32 %2, ptr %call3.i.i2, align 4
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call3.i.i2, i64 4
+  store i32 %1, ptr %incdec.ptr.i.i, align 4
   %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %call3.i.i2, i64 8
   store ptr %incdec.ptr4.i.i, ptr %m_removed, align 8
   %3 = load ptr, ptr %rem, align 8
@@ -21501,8 +21524,9 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, 
   br i1 %tobool.not.i3, label %invoke.cont5, label %_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE8capacityEv.exit.i.i
 
 _ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE8capacityEv.exit.i.i: ; preds = %invoke.cont
+  %arrayidx.i.i.i4 = getelementptr inbounds i8, ptr %14, i64 -4
+  %15 = load i32, ptr %arrayidx.i.i.i4, align 4
   %arrayidx.i11.i.i5 = getelementptr inbounds i8, ptr %14, i64 -8
-  %15 = load <2 x i32>, ptr %arrayidx.i11.i.i5, align 4
   %16 = load i32, ptr %arrayidx.i11.i.i5, align 4
   %conv.i.i6 = zext i32 %16 to i64
   %mul.i.i7 = mul nuw nsw i64 %conv.i.i6, 48
@@ -21511,7 +21535,9 @@ _ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18depen
           to label %call3.i.i.noexc22 unwind label %lpad4
 
 call3.i.i.noexc22:                                ; preds = %_ZNK6vectorISt5tupleIJ7obj_refI9func_decl11ast_managerES1_I4exprS3_ES1_IN18dependency_managerINS3_22expr_dependency_configEE10dependencyES3_EEELb1EjE8capacityEv.exit.i.i
-  store <2 x i32> %15, ptr %call3.i.i23, align 4
+  store i32 %16, ptr %call3.i.i23, align 4
+  %incdec.ptr.i.i9 = getelementptr inbounds i8, ptr %call3.i.i23, i64 4
+  store i32 %15, ptr %incdec.ptr.i.i9, align 4
   %incdec.ptr4.i.i10 = getelementptr inbounds i8, ptr %call3.i.i23, i64 8
   store ptr %incdec.ptr4.i.i10, ptr %m_defs, align 8
   %17 = load ptr, ptr %defs, align 8

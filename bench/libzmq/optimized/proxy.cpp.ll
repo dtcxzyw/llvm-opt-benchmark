@@ -41,13 +41,13 @@ entry:
   %sz.i = alloca i64, align 8
   %msg = alloca %"class.zmq::msg_t", align 8
   %events = alloca [4 x %struct.zmq_poller_event_t], align 16
-  %stats = alloca %struct.stats_proxy, align 16
+  %stats = alloca %struct.stats_proxy, align 8
   %call = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %msg)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %stats, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %stats, i8 0, i64 64, i1 false)
   %call1 = call noalias noundef dereferenceable_or_null(56) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #10
   %new.isnull = icmp eq ptr %call1, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
@@ -1183,11 +1183,19 @@ do.end702:                                        ; preds = %delete.end698, %del
 if.end706:                                        ; preds = %do.end675, %if.end493
   %nevents.0 = phi i32 [ 4, %do.end675 ], [ 3, %if.end493 ]
   %recv.i = getelementptr inbounds i8, ptr %stats, i64 16
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 8
+  %bytes.i = getelementptr inbounds i8, ptr %stats, i64 24
   %arrayinit.element13.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 16
+  %arrayinit.element16.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 24
+  %bytes19.i = getelementptr inbounds i8, ptr %stats, i64 8
   %arrayinit.element20.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 32
   %backend.i = getelementptr inbounds i8, ptr %stats, i64 32
   %recv21.i = getelementptr inbounds i8, ptr %stats, i64 48
+  %arrayinit.element23.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 40
+  %bytes26.i = getelementptr inbounds i8, ptr %stats, i64 56
   %arrayinit.element27.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 48
+  %arrayinit.element31.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 56
+  %bytes34.i = getelementptr inbounds i8, ptr %stats, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %if.end706, %if.end997
@@ -1267,10 +1275,14 @@ do.body752:                                       ; preds = %do.end743
   br i1 %cmp781381.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.body752
-  %21 = load <2 x i64>, ptr %recv.i, align 16
-  %22 = load <2 x i64>, ptr %stats, align 16
-  %23 = load <2 x i64>, ptr %recv21.i, align 16
-  %24 = load <2 x i64>, ptr %backend.i, align 16
+  %21 = load i64, ptr %recv.i, align 8
+  %22 = load i64, ptr %bytes.i, align 8
+  %23 = load i64, ptr %stats, align 8
+  %24 = load i64, ptr %bytes19.i, align 8
+  %25 = load i64, ptr %recv21.i, align 8
+  %26 = load i64, ptr %bytes26.i, align 8
+  %27 = load i64, ptr %backend.i, align 8
+  %28 = load i64, ptr %bytes34.i, align 8
   br i1 %tobool494.not, label %for.body.us.preheader, label %for.body
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
@@ -1284,33 +1296,33 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %backend_in.1384.us = phi i8 [ %backend_in.0399, %for.body.us.preheader ], [ %backend_in.2.us, %for.inc.us ]
   %backend_out.1383.us = phi i8 [ %backend_out.0398, %for.body.us.preheader ], [ %backend_out.2.us, %for.inc.us ]
   %arrayidx818.us = getelementptr inbounds [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv405
-  %25 = load ptr, ptr %arrayidx818.us, align 16
-  %cmp820.us = icmp eq ptr %25, %frontend_
+  %29 = load ptr, ptr %arrayidx818.us, align 16
+  %cmp820.us = icmp eq ptr %29, %frontend_
   br i1 %cmp820.us, label %if.then821.us, label %if.else833.us
 
 if.else833.us:                                    ; preds = %for.body.us
-  %cmp837.us = icmp eq ptr %25, %backend_
+  %cmp837.us = icmp eq ptr %29, %backend_
   br i1 %cmp837.us, label %if.then838.us, label %for.inc.us
 
 if.then838.us:                                    ; preds = %if.else833.us
   %events841.us = getelementptr inbounds i8, ptr %arrayidx818.us, i64 24
-  %26 = load i16, ptr %events841.us, align 8
-  %27 = trunc i16 %26 to i8
-  %28 = lshr i8 %27, 1
+  %30 = load i16, ptr %events841.us, align 8
+  %31 = trunc i16 %30 to i8
+  %32 = lshr i8 %31, 1
   br label %for.inc.us
 
 if.then821.us:                                    ; preds = %for.body.us
   %events824.us = getelementptr inbounds i8, ptr %arrayidx818.us, i64 24
-  %29 = load i16, ptr %events824.us, align 8
-  %30 = trunc i16 %29 to i8
-  %31 = lshr i8 %30, 1
+  %33 = load i16, ptr %events824.us, align 8
+  %34 = trunc i16 %33 to i8
+  %35 = lshr i8 %34, 1
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then821.us, %if.then838.us, %if.else833.us
-  %backend_out.2.us = phi i8 [ %backend_out.1383.us, %if.then821.us ], [ %28, %if.then838.us ], [ %backend_out.1383.us, %if.else833.us ]
-  %backend_in.2.us = phi i8 [ %backend_in.1384.us, %if.then821.us ], [ %27, %if.then838.us ], [ %backend_in.1384.us, %if.else833.us ]
-  %frontend_out.2.us = phi i8 [ %31, %if.then821.us ], [ %frontend_out.1385.us, %if.then838.us ], [ %frontend_out.1385.us, %if.else833.us ]
-  %frontend_in.2.us = phi i8 [ %30, %if.then821.us ], [ %frontend_in.1386.us, %if.then838.us ], [ %frontend_in.1386.us, %if.else833.us ]
+  %backend_out.2.us = phi i8 [ %backend_out.1383.us, %if.then821.us ], [ %32, %if.then838.us ], [ %backend_out.1383.us, %if.else833.us ]
+  %backend_in.2.us = phi i8 [ %backend_in.1384.us, %if.then821.us ], [ %31, %if.then838.us ], [ %backend_in.1384.us, %if.else833.us ]
+  %frontend_out.2.us = phi i8 [ %35, %if.then821.us ], [ %frontend_out.1385.us, %if.then838.us ], [ %frontend_out.1385.us, %if.else833.us ]
+  %frontend_in.2.us = phi i8 [ %34, %if.then821.us ], [ %frontend_in.1386.us, %if.then838.us ], [ %frontend_in.1386.us, %if.else833.us ]
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next406, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !4
@@ -1368,8 +1380,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %backend_out.1383 = phi i8 [ %backend_out.2, %for.inc ], [ %backend_out.0398, %for.body.lr.ph ]
   %state.1382 = phi i32 [ %state.2, %for.inc ], [ %state.0397, %for.body.lr.ph ]
   %arrayidx = getelementptr inbounds [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv
-  %32 = load ptr, ptr %arrayidx, align 16
-  %cmp784 = icmp eq ptr %32, %control_
+  %36 = load ptr, ptr %arrayidx, align 16
+  %cmp784 = icmp eq ptr %36, %control_
   br i1 %cmp784, label %if.then785, label %if.end816
 
 if.then785:                                       ; preds = %for.body
@@ -1402,10 +1414,14 @@ land.lhs.true.i:                                  ; preds = %if.end4.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end62.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  store <2 x i64> %21, ptr %stat_vals.i, align 16
-  store <2 x i64> %22, ptr %arrayinit.element13.i, align 16
-  store <2 x i64> %23, ptr %arrayinit.element20.i, align 16
-  store <2 x i64> %24, ptr %arrayinit.element27.i, align 16
+  store i64 %21, ptr %stat_vals.i, align 16
+  store i64 %22, ptr %arrayinit.element.i, align 8
+  store i64 %23, ptr %arrayinit.element13.i, align 16
+  store i64 %24, ptr %arrayinit.element16.i, align 8
+  store i64 %25, ptr %arrayinit.element20.i, align 16
+  store i64 %26, ptr %arrayinit.element23.i, align 8
+  store i64 %27, ptr %arrayinit.element27.i, align 16
+  store i64 %28, ptr %arrayinit.element31.i, align 8
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -1418,8 +1434,8 @@ for.body.i:                                       ; preds = %for.cond.i, %if.the
   %call36.i = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %cmsg.i, i64 noundef 8)
   %call37.i = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %cmsg.i)
   %add.ptr.i = getelementptr inbounds i64, ptr %stat_vals.i, i64 %ind.028.i
-  %33 = load i64, ptr %add.ptr.i, align 8
-  store i64 %33, ptr %call37.i, align 1
+  %37 = load i64, ptr %add.ptr.i, align 8
+  store i64 %37, ptr %call37.i, align 1
   %cmp38.not.i = icmp eq i64 %ind.028.i, 7
   %cond.i = select i1 %cmp38.not.i, i32 0, i32 2
   %call39.i = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %control_, ptr noundef nonnull %cmsg.i, i32 noundef %cond.i)
@@ -1449,8 +1465,8 @@ if.end62.i:                                       ; preds = %if.end62.sink.split
   %state.3 = phi i32 [ %state.1382, %if.end4.i ], [ %.sink.i, %if.end62.sink.split.i ], [ %state.1382, %land.lhs.true56.i ], [ %state.1382, %land.lhs.true50.i ], [ %state.1382, %land.lhs.true45.i ], [ %state.1382, %land.lhs.true.i ]
   store i64 4, ptr %sz.i, align 8
   %call63.i = call i32 @zmq_getsockopt(ptr noundef nonnull %control_, i32 noundef 16, ptr noundef nonnull %type.i, ptr noundef nonnull %sz.i)
-  %34 = load i32, ptr %type.i, align 4
-  %cmp64.i = icmp eq i32 %34, 4
+  %38 = load i32, ptr %type.i, align 4
+  %cmp64.i = icmp eq i32 %38, 4
   br i1 %cmp64.i, label %if.then65.i, label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit
 
 if.then65.i:                                      ; preds = %if.end62.i
@@ -1516,37 +1532,37 @@ do.end812:                                        ; preds = %delete.end808, %del
   br label %return
 
 if.end816:                                        ; preds = %for.body
-  %cmp820 = icmp eq ptr %32, %frontend_
+  %cmp820 = icmp eq ptr %36, %frontend_
   br i1 %cmp820, label %if.then821, label %if.else833
 
 if.then821:                                       ; preds = %if.end816
   %events824 = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %35 = load i16, ptr %events824, align 8
-  %36 = trunc i16 %35 to i8
-  %37 = lshr i8 %36, 1
+  %39 = load i16, ptr %events824, align 8
+  %40 = trunc i16 %39 to i8
+  %41 = lshr i8 %40, 1
   br label %for.inc
 
 if.else833:                                       ; preds = %if.end816
-  %cmp837 = icmp eq ptr %32, %backend_
+  %cmp837 = icmp eq ptr %36, %backend_
   br i1 %cmp837, label %if.then838, label %for.inc
 
 if.then838:                                       ; preds = %if.else833
   %events841 = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %38 = load i16, ptr %events841, align 8
-  %39 = trunc i16 %38 to i8
-  %40 = lshr i8 %39, 1
+  %42 = load i16, ptr %events841, align 8
+  %43 = trunc i16 %42 to i8
+  %44 = lshr i8 %43, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit, %if.then821, %if.then838, %if.else833
   %state.2 = phi i32 [ %state.1382, %if.then821 ], [ %state.1382, %if.then838 ], [ %state.1382, %if.else833 ], [ %state.4, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %backend_out.2 = phi i8 [ %backend_out.1383, %if.then821 ], [ %40, %if.then838 ], [ %backend_out.1383, %if.else833 ], [ %backend_out.1383, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %backend_in.2 = phi i8 [ %backend_in.1384, %if.then821 ], [ %39, %if.then838 ], [ %backend_in.1384, %if.else833 ], [ %backend_in.1384, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %frontend_out.2 = phi i8 [ %37, %if.then821 ], [ %frontend_out.1385, %if.then838 ], [ %frontend_out.1385, %if.else833 ], [ %frontend_out.1385, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %frontend_in.2 = phi i8 [ %36, %if.then821 ], [ %frontend_in.1386, %if.then838 ], [ %frontend_in.1386, %if.else833 ], [ %frontend_in.1386, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %backend_out.2 = phi i8 [ %backend_out.1383, %if.then821 ], [ %44, %if.then838 ], [ %backend_out.1383, %if.else833 ], [ %backend_out.1383, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %backend_in.2 = phi i8 [ %backend_in.1384, %if.then821 ], [ %43, %if.then838 ], [ %backend_in.1384, %if.else833 ], [ %backend_in.1384, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %frontend_out.2 = phi i8 [ %41, %if.then821 ], [ %frontend_out.1385, %if.then838 ], [ %frontend_out.1385, %if.else833 ], [ %frontend_out.1385, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %frontend_in.2 = phi i8 [ %40, %if.then821 ], [ %frontend_in.1386, %if.then838 ], [ %frontend_in.1386, %if.else833 ], [ %frontend_in.1386, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
   %rc.3 = phi i32 [ %rc.2387, %if.then821 ], [ %rc.2387, %if.then838 ], [ %rc.2387, %if.else833 ], [ 0, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = sext i32 %rc.3 to i64
-  %cmp781 = icmp slt i64 %indvars.iv.next, %41
+  %45 = sext i32 %rc.3 to i64
+  %cmp781 = icmp slt i64 %indvars.iv.next, %45
   br i1 %cmp781, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %land.lhs.true747, %do.body752
@@ -1877,7 +1893,9 @@ entry:
   %ctrl.i = alloca %"class.zmq::msg_t", align 8
   %more = alloca i32, align 4
   %moresz = alloca i64, align 8
+  %bytes = getelementptr inbounds i8, ptr %recving, i64 8
   %tobool.not.i = icmp eq ptr %capture_, null
+  %bytes23 = getelementptr inbounds i8, ptr %sending, i64 8
   br i1 %tobool.not.i, label %while.body.preheader.us, label %while.body.preheader
 
 while.body.preheader.us:                          ; preds = %entry, %for.inc.split.us.us
@@ -1891,29 +1909,34 @@ while.body.us.us:                                 ; preds = %if.end20.us.us, %wh
 
 if.end6.us.us:                                    ; preds = %while.body.us.us
   %call7.us.us = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %0 = load <2 x i64>, ptr %recving, align 8
-  %1 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %call7.us.us, i64 1
-  %2 = add <2 x i64> %0, %1
-  store <2 x i64> %2, ptr %recving, align 8
+  %0 = load i64, ptr %recving, align 8
+  %add.us.us = add i64 %0, 1
+  store i64 %add.us.us, ptr %recving, align 8
+  %1 = load i64, ptr %bytes, align 8
+  %add8.us.us = add i64 %1, %call7.us.us
+  store i64 %add8.us.us, ptr %bytes, align 8
   store i64 4, ptr %moresz, align 8
   %call9.us.us = call noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %from_, i32 noundef 13, ptr noundef nonnull %more, ptr noundef nonnull %moresz)
   %cmp10.us.us = icmp slt i32 %call9.us.us, 0
   br i1 %cmp10.us.us, label %return, label %if.end12.us.us
 
 if.end12.us.us:                                   ; preds = %if.end6.us.us
-  %3 = load i32, ptr %more, align 4
-  %tobool.not.us.us = icmp eq i32 %3, 0
+  %2 = load i32, ptr %more, align 4
+  %tobool.not.us.us = icmp eq i32 %2, 0
   %cond.us.us = select i1 %tobool.not.us.us, i32 0, i32 2
   %call17.us.us = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %to_, ptr noundef nonnull %msg_, i32 noundef %cond.us.us)
   %cmp18.us.us = icmp slt i32 %call17.us.us, 0
   br i1 %cmp18.us.us, label %return, label %if.end20.us.us
 
 if.end20.us.us:                                   ; preds = %if.end12.us.us
-  %4 = load <2 x i64>, ptr %sending, align 8
-  %5 = add <2 x i64> %4, %1
-  store <2 x i64> %5, ptr %sending, align 8
-  %6 = load i32, ptr %more, align 4
-  %cmp25.us.us = icmp eq i32 %6, 0
+  %3 = load i64, ptr %sending, align 8
+  %add22.us.us = add i64 %3, 1
+  store i64 %add22.us.us, ptr %sending, align 8
+  %4 = load i64, ptr %bytes23, align 8
+  %add24.us.us = add i64 %4, %call7.us.us
+  store i64 %add24.us.us, ptr %bytes23, align 8
+  %5 = load i32, ptr %more, align 4
+  %cmp25.us.us = icmp eq i32 %5, 0
   br i1 %cmp25.us.us, label %for.inc.split.us.us, label %while.body.us.us, !llvm.loop !8
 
 for.inc.split.us.us:                              ; preds = %if.end20.us.us
@@ -1933,8 +1956,8 @@ while.body:                                       ; preds = %while.body.preheade
 if.then:                                          ; preds = %while.body, %while.body.us.us
   %.us-phi = phi i32 [ %i.019.us, %while.body.us.us ], [ %i.019, %while.body ]
   %call2 = tail call ptr @__errno_location() #13
-  %7 = load i32, ptr %call2, align 4
-  %cmp3 = icmp ne i32 %7, 11
+  %6 = load i32, ptr %call2, align 4
+  %cmp3 = icmp ne i32 %6, 11
   %cmp4 = icmp eq i32 %.us-phi, 0
   %.not = or i1 %cmp4, %cmp3
   %. = sext i1 %.not to i32
@@ -1942,17 +1965,19 @@ if.then:                                          ; preds = %while.body, %while.
 
 if.end6:                                          ; preds = %while.body
   %call7 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %8 = load <2 x i64>, ptr %recving, align 8
-  %9 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %call7, i64 1
-  %10 = add <2 x i64> %8, %9
-  store <2 x i64> %10, ptr %recving, align 8
+  %7 = load i64, ptr %recving, align 8
+  %add = add i64 %7, 1
+  store i64 %add, ptr %recving, align 8
+  %8 = load i64, ptr %bytes, align 8
+  %add8 = add i64 %8, %call7
+  store i64 %add8, ptr %bytes, align 8
   store i64 4, ptr %moresz, align 8
   %call9 = call noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %from_, i32 noundef 13, ptr noundef nonnull %more, ptr noundef nonnull %moresz)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end6
-  %11 = load i32, ptr %more, align 4
+  %9 = load i32, ptr %more, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ctrl.i)
   %call.i = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %ctrl.i)
   %cmp.i = icmp slt i32 %call.i, 0
@@ -1964,7 +1989,7 @@ if.end.i:                                         ; preds = %if.end12
   br i1 %cmp3.i, label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %tobool6.not.i = icmp eq i32 %11, 0
+  %tobool6.not.i = icmp eq i32 %9, 0
   %cond.i = select i1 %tobool6.not.i, i32 0, i32 2
   %call7.i = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %capture_, ptr noundef nonnull %ctrl.i, i32 noundef %cond.i)
   %cmp8.i = icmp slt i32 %call7.i, 0
@@ -1976,19 +2001,22 @@ _ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread: ; preds = %if.end12, 
 
 if.end16:                                         ; preds = %if.end5.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ctrl.i)
-  %12 = load i32, ptr %more, align 4
-  %tobool.not = icmp eq i32 %12, 0
+  %10 = load i32, ptr %more, align 4
+  %tobool.not = icmp eq i32 %10, 0
   %cond = select i1 %tobool.not, i32 0, i32 2
   %call17 = call noundef i32 @_ZN3zmq13socket_base_t4sendEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %to_, ptr noundef nonnull %msg_, i32 noundef %cond)
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end16
-  %13 = load <2 x i64>, ptr %sending, align 8
-  %14 = add <2 x i64> %13, %9
-  store <2 x i64> %14, ptr %sending, align 8
-  %15 = load i32, ptr %more, align 4
-  %cmp25 = icmp eq i32 %15, 0
+  %11 = load i64, ptr %sending, align 8
+  %add22 = add i64 %11, 1
+  store i64 %add22, ptr %sending, align 8
+  %12 = load i64, ptr %bytes23, align 8
+  %add24 = add i64 %12, %call7
+  store i64 %add24, ptr %bytes23, align 8
+  %13 = load i32, ptr %more, align 4
+  %cmp25 = icmp eq i32 %13, 0
   br i1 %cmp25, label %for.inc.split, label %while.body, !llvm.loop !8
 
 for.inc.split:                                    ; preds = %if.end20

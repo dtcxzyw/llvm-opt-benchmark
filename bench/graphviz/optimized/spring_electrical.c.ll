@@ -70,29 +70,37 @@ define noalias noundef ptr @spring_electrical_control_new() local_unnamed_addr #
   unreachable
 
 gv_alloc.exit:                                    ; preds = %0
-  store <2 x double> <double 0xBFF0008164EF6DE2, double 1.000000e+00>, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 92
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  store <2 x double> <double -1.000000e+00, double 2.000000e-01>, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
-  store i32 45, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
-  store i32 10, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 48
-  store <2 x double> <double 6.000000e-01, double 1.000000e-03>, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 64
-  store i32 500, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
-  store <2 x double> <double 9.000000e-01, double 1.000000e-01>, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 88
-  store i32 123, ptr %13, align 8
-  store i8 3, ptr %6, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 104
-  store i8 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 108
-  store i32 3, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 112
-  store double -4.000000e+00, ptr %16, align 8
+  store double 0xBFF0008164EF6DE2, ptr %1, align 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  store double 1.000000e+00, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 92
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  store double -1.000000e+00, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  store double 2.000000e-01, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 36
+  store i32 45, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  store i32 10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  store double 6.000000e-01, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 56
+  store double 1.000000e-03, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  store i32 500, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 72
+  store double 9.000000e-01, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  store double 1.000000e-01, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 88
+  store i32 123, ptr %17, align 8
+  store i8 3, ptr %7, align 4
+  %18 = getelementptr inbounds i8, ptr %1, i64 104
+  store i8 1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %1, i64 108
+  store i32 3, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %1, i64 112
+  store double -4.000000e+00, ptr %20, align 8
   ret ptr %1
 }
 
@@ -3069,34 +3077,30 @@ define void @pcp_rotate(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2
   %.sroa.0.0 = phi double [ %63, %48 ], [ 0.000000e+00, %._crit_edge ]
   %65 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0, double %.sroa.0.0, double 1.000000e+00)
   %sqrt = tail call double @llvm.sqrt.f64(double %65)
-  %66 = insertelement <2 x double> <double poison, double 1.000000e+00>, double %.sroa.0.0, i64 0
-  %67 = insertelement <2 x double> poison, double %sqrt, i64 0
-  %68 = shufflevector <2 x double> %67, <2 x double> poison, <2 x i32> zeroinitializer
-  %69 = fdiv <2 x double> %66, %68
+  %66 = fdiv double %.sroa.0.0, %sqrt
+  %67 = fdiv double 1.000000e+00, %sqrt
   br i1 %44, label %.lr.ph125.lver.check, label %._crit_edge126
 
 .lr.ph125.lver.check:                             ; preds = %64
-  %70 = sext i32 %1 to i64
+  %68 = sext i32 %1 to i64
   %wide.trip.count171 = zext nneg i32 %0 to i64
   %ident.check.not = icmp eq i32 %1, 1
   br i1 %ident.check.not, label %.lr.ph125.ph, label %.lr.ph125.lver.orig
 
 .lr.ph125.lver.orig:                              ; preds = %.lr.ph125.lver.check, %.lr.ph125.lver.orig
   %indvars.iv168.lver.orig = phi i64 [ %indvars.iv.next169.lver.orig, %.lr.ph125.lver.orig ], [ 0, %.lr.ph125.lver.check ]
-  %71 = mul nsw i64 %indvars.iv168.lver.orig, %70
-  %72 = getelementptr inbounds double, ptr %2, i64 %71
+  %69 = mul nsw i64 %indvars.iv168.lver.orig, %68
+  %70 = getelementptr inbounds double, ptr %2, i64 %69
+  %71 = load double, ptr %70, align 8
+  %72 = getelementptr i8, ptr %70, i64 8
   %73 = load double, ptr %72, align 8
-  %74 = getelementptr i8, ptr %72, i64 8
-  %75 = load double, ptr %74, align 8
-  %76 = fneg double %73
-  %77 = insertelement <2 x double> poison, double %75, i64 0
-  %78 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> zeroinitializer
-  %79 = fmul <2 x double> %69, %78
-  %80 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %81 = insertelement <2 x double> poison, double %73, i64 0
-  %82 = insertelement <2 x double> %81, double %76, i64 1
-  %83 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %82, <2 x double> %69, <2 x double> %80)
-  store <2 x double> %83, ptr %72, align 8
+  %74 = fmul double %67, %73
+  %75 = tail call double @llvm.fmuladd.f64(double %71, double %66, double %74)
+  %76 = fneg double %71
+  %77 = fmul double %66, %73
+  %78 = tail call double @llvm.fmuladd.f64(double %76, double %67, double %77)
+  store double %75, ptr %70, align 8
+  store double %78, ptr %72, align 8
   %indvars.iv.next169.lver.orig = add nuw nsw i64 %indvars.iv168.lver.orig, 1
   %exitcond172.not.lver.orig = icmp eq i64 %indvars.iv.next169.lver.orig, %wide.trip.count171
   br i1 %exitcond172.not.lver.orig, label %._crit_edge126, label %.lr.ph125.lver.orig
@@ -3106,24 +3110,21 @@ define void @pcp_rotate(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2
   br label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %.lr.ph125.ph, %.lr.ph125
-  %store_forwarded = phi double [ %load_initial, %.lr.ph125.ph ], [ %96, %.lr.ph125 ]
+  %store_forwarded = phi double [ %load_initial, %.lr.ph125.ph ], [ %87, %.lr.ph125 ]
   %indvars.iv168 = phi i64 [ 0, %.lr.ph125.ph ], [ %indvars.iv.next169, %.lr.ph125 ]
-  %84 = mul nuw nsw i64 %indvars.iv168, %70
-  %85 = getelementptr inbounds double, ptr %2, i64 %84
-  %86 = getelementptr i8, ptr %85, i64 8
-  %87 = load double, ptr %86, align 8
-  %88 = fneg double %store_forwarded
-  %89 = insertelement <2 x double> poison, double %87, i64 0
-  %90 = shufflevector <2 x double> %89, <2 x double> poison, <2 x i32> zeroinitializer
-  %91 = fmul <2 x double> %69, %90
-  %92 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %93 = insertelement <2 x double> poison, double %store_forwarded, i64 0
-  %94 = insertelement <2 x double> %93, double %88, i64 1
-  %95 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %94, <2 x double> %69, <2 x double> %92)
-  store <2 x double> %95, ptr %85, align 8
+  %79 = mul nuw nsw i64 %indvars.iv168, %68
+  %80 = getelementptr inbounds double, ptr %2, i64 %79
+  %81 = getelementptr i8, ptr %80, i64 8
+  %82 = load double, ptr %81, align 8
+  %83 = fmul double %67, %82
+  %84 = tail call double @llvm.fmuladd.f64(double %store_forwarded, double %66, double %83)
+  %85 = fneg double %store_forwarded
+  %86 = fmul double %66, %82
+  %87 = tail call double @llvm.fmuladd.f64(double %85, double %67, double %86)
+  store double %84, ptr %80, align 8
+  store double %87, ptr %81, align 8
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  %96 = extractelement <2 x double> %95, i64 1
   br i1 %exitcond172.not, label %._crit_edge126, label %.lr.ph125
 
 ._crit_edge126:                                   ; preds = %.lr.ph125.lver.orig, %.lr.ph125, %64
@@ -3138,7 +3139,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false)
   store i32 0, ptr %7, align 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %733, label %12
+  br i1 %.not, label %722, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %1, i64 4
@@ -3146,7 +3147,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
   %15 = icmp slt i32 %14, 1
   %16 = icmp slt i32 %0, 1
   %or.cond = or i1 %16, %15
-  br i1 %or.cond, label %733, label %17
+  br i1 %or.cond, label %722, label %17
 
 17:                                               ; preds = %12
   %18 = tail call zeroext i1 @SparseMatrix_is_symmetric(ptr noundef nonnull %1, i1 noundef zeroext false) #23
@@ -3774,11 +3775,11 @@ attach_edge_label_coordinates.exit:               ; preds = %._crit_edge121.i.lo
   tail call void @SparseMatrix_delete(ptr noundef %202) #23
   tail call void @free(ptr noundef %38) #23
   %.not157 = icmp eq ptr %.0, %1
-  br i1 %.not157, label %733, label %281
+  br i1 %.not157, label %722, label %281
 
 281:                                              ; preds = %attach_edge_label_coordinates.exit
   tail call void @SparseMatrix_delete(ptr noundef nonnull %.0) #23
-  br label %733
+  br label %722
 
 282:                                              ; preds = %33, %30
   call void @Multilevel_control_new(ptr dead_on_unwind nonnull writable sret(%struct.Multilevel_control) align 8 %11) #23
@@ -4452,7 +4453,7 @@ spring_electrical_embedding_slow.exit:            ; preds = %543, %365, %349, %5
 
 563:                                              ; preds = %561
   call void @free(ptr noundef %.1) #23
-  br label %730
+  br label %719
 
 564:                                              ; preds = %561
   %565 = getelementptr inbounds i8, ptr %.0140, i64 16
@@ -4671,14 +4672,14 @@ prolongate.exit:                                  ; preds = %.loopexit30.us.i, %
   %663 = getelementptr inbounds i8, ptr %2, i64 120
   %664 = load double, ptr %663, align 8
   %665 = fcmp une double %664, 0.000000e+00
-  br i1 %665, label %669, label %721
+  br i1 %665, label %669, label %710
 
 .thread209:                                       ; preds = %660
   call void @pcp_rotate(i32 noundef %14, i32 noundef 2, ptr noundef %4)
   %666 = getelementptr inbounds i8, ptr %2, i64 120
   %667 = load double, ptr %666, align 8
   %668 = fcmp une double %667, 0.000000e+00
-  br i1 %668, label %.thread210, label %721
+  br i1 %668, label %.thread210, label %710
 
 .thread210:                                       ; preds = %.thread209
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
@@ -4759,90 +4760,78 @@ prolongate.exit:                                  ; preds = %.loopexit30.us.i, %
   %689 = call double @cos(double noundef %688) #23
   %690 = call double @sin(double noundef %688) #23
   %ident.check.not = icmp eq i32 %0, 1
-  br i1 %ident.check.not, label %.lr.ph83.i.ph, label %.lr.ph83.i.lver.orig.preheader
+  br i1 %ident.check.not, label %.lr.ph83.i.ph, label %.lr.ph83.i.lver.orig
 
-.lr.ph83.i.lver.orig.preheader:                   ; preds = %.lr.ph83.i.lver.check
-  %691 = insertelement <2 x double> poison, double %690, i64 0
-  %692 = insertelement <2 x double> %691, double %689, i64 1
-  %693 = shufflevector <2 x double> %692, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  br label %.lr.ph83.i.lver.orig
-
-.lr.ph83.i.lver.orig:                             ; preds = %.lr.ph83.i.lver.orig.preheader, %.lr.ph83.i.lver.orig
-  %indvars.iv108.i.lver.orig = phi i64 [ %indvars.iv.next109.i.lver.orig, %.lr.ph83.i.lver.orig ], [ 0, %.lr.ph83.i.lver.orig.preheader ]
-  %694 = mul nuw nsw i64 %indvars.iv108.i.lver.orig, %345
-  %695 = getelementptr inbounds double, ptr %4, i64 %694
-  %696 = load double, ptr %695, align 8
-  %697 = getelementptr i8, ptr %695, i64 8
-  %698 = load double, ptr %697, align 8
-  %699 = fneg double %696
-  %700 = insertelement <2 x double> poison, double %698, i64 0
-  %701 = shufflevector <2 x double> %700, <2 x double> poison, <2 x i32> zeroinitializer
-  %702 = fmul <2 x double> %692, %701
-  %703 = insertelement <2 x double> poison, double %696, i64 0
-  %704 = insertelement <2 x double> %703, double %699, i64 1
-  %705 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %704, <2 x double> %693, <2 x double> %702)
-  store <2 x double> %705, ptr %695, align 8
+.lr.ph83.i.lver.orig:                             ; preds = %.lr.ph83.i.lver.check, %.lr.ph83.i.lver.orig
+  %indvars.iv108.i.lver.orig = phi i64 [ %indvars.iv.next109.i.lver.orig, %.lr.ph83.i.lver.orig ], [ 0, %.lr.ph83.i.lver.check ]
+  %691 = mul nuw nsw i64 %indvars.iv108.i.lver.orig, %345
+  %692 = getelementptr inbounds double, ptr %4, i64 %691
+  %693 = load double, ptr %692, align 8
+  %694 = getelementptr i8, ptr %692, i64 8
+  %695 = load double, ptr %694, align 8
+  %696 = fmul double %690, %695
+  %697 = call double @llvm.fmuladd.f64(double %693, double %689, double %696)
+  %698 = fneg double %693
+  %699 = fmul double %689, %695
+  %700 = call double @llvm.fmuladd.f64(double %698, double %690, double %699)
+  store double %697, ptr %692, align 8
+  store double %700, ptr %694, align 8
   %indvars.iv.next109.i.lver.orig = add nuw nsw i64 %indvars.iv108.i.lver.orig, 1
   %exitcond112.not.i.lver.orig = icmp eq i64 %indvars.iv.next109.i.lver.orig, %wide.trip.count91.i
   br i1 %exitcond112.not.i.lver.orig, label %rotate.exit, label %.lr.ph83.i.lver.orig
 
 .lr.ph83.i.ph:                                    ; preds = %.lr.ph83.i.lver.check
   %load_initial = load double, ptr %4, align 8
-  %706 = insertelement <2 x double> poison, double %690, i64 0
-  %707 = insertelement <2 x double> %706, double %689, i64 1
-  %708 = shufflevector <2 x double> %707, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   br label %.lr.ph83.i
 
 .lr.ph83.i:                                       ; preds = %.lr.ph83.i, %.lr.ph83.i.ph
-  %store_forwarded = phi double [ %load_initial, %.lr.ph83.i.ph ], [ %720, %.lr.ph83.i ]
+  %store_forwarded = phi double [ %load_initial, %.lr.ph83.i.ph ], [ %709, %.lr.ph83.i ]
   %indvars.iv108.i = phi i64 [ 0, %.lr.ph83.i.ph ], [ %indvars.iv.next109.i, %.lr.ph83.i ]
-  %709 = mul nuw nsw i64 %indvars.iv108.i, %345
-  %710 = getelementptr inbounds double, ptr %4, i64 %709
-  %711 = getelementptr i8, ptr %710, i64 8
-  %712 = load double, ptr %711, align 8
-  %713 = fneg double %store_forwarded
-  %714 = insertelement <2 x double> poison, double %712, i64 0
-  %715 = shufflevector <2 x double> %714, <2 x double> poison, <2 x i32> zeroinitializer
-  %716 = fmul <2 x double> %707, %715
-  %717 = insertelement <2 x double> poison, double %store_forwarded, i64 0
-  %718 = insertelement <2 x double> %717, double %713, i64 1
-  %719 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %718, <2 x double> %708, <2 x double> %716)
-  store <2 x double> %719, ptr %710, align 8
+  %701 = mul nuw nsw i64 %indvars.iv108.i, %345
+  %702 = getelementptr inbounds double, ptr %4, i64 %701
+  %703 = getelementptr i8, ptr %702, i64 8
+  %704 = load double, ptr %703, align 8
+  %705 = fmul double %690, %704
+  %706 = call double @llvm.fmuladd.f64(double %store_forwarded, double %689, double %705)
+  %707 = fneg double %store_forwarded
+  %708 = fmul double %689, %704
+  %709 = call double @llvm.fmuladd.f64(double %707, double %690, double %708)
+  store double %706, ptr %702, align 8
+  store double %709, ptr %703, align 8
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
   %exitcond112.not.i = icmp eq i64 %indvars.iv.next109.i, %wide.trip.count91.i
-  %720 = extractelement <2 x double> %719, i64 1
   br i1 %exitcond112.not.i, label %rotate.exit, label %.lr.ph83.i
 
 rotate.exit:                                      ; preds = %.lr.ph83.i.lver.orig, %.lr.ph83.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %721
+  br label %710
 
-721:                                              ; preds = %.thread209, %rotate.exit, %662
-  %722 = getelementptr inbounds i8, ptr %2, i64 100
-  %723 = load i32, ptr %722, align 4
-  %724 = getelementptr inbounds i8, ptr %2, i64 112
-  %725 = load double, ptr %724, align 8
-  %726 = load i32, ptr %27, align 8
-  %727 = getelementptr inbounds i8, ptr %2, i64 104
-  %728 = load i8, ptr %727, align 8
-  %729 = trunc i8 %728 to i1
-  call void @remove_overlap(i32 noundef %0, ptr noundef nonnull %.0, ptr noundef %4, ptr noundef %3, i32 noundef %723, double noundef %725, i32 noundef %726, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %.0, i1 noundef zeroext %729) #23
-  br label %730
+710:                                              ; preds = %.thread209, %rotate.exit, %662
+  %711 = getelementptr inbounds i8, ptr %2, i64 100
+  %712 = load i32, ptr %711, align 4
+  %713 = getelementptr inbounds i8, ptr %2, i64 112
+  %714 = load double, ptr %713, align 8
+  %715 = load i32, ptr %27, align 8
+  %716 = getelementptr inbounds i8, ptr %2, i64 104
+  %717 = load i8, ptr %716, align 8
+  %718 = trunc i8 %717 to i1
+  call void @remove_overlap(i32 noundef %0, ptr noundef nonnull %.0, ptr noundef %4, ptr noundef %3, i32 noundef %712, double noundef %714, i32 noundef %715, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %.0, i1 noundef zeroext %718) #23
+  br label %719
 
-730:                                              ; preds = %721, %563
+719:                                              ; preds = %710, %563
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(136) %10, i64 136, i1 false)
   %.not156 = icmp eq ptr %.0, %1
-  br i1 %.not156, label %732, label %731
+  br i1 %.not156, label %721, label %720
 
-731:                                              ; preds = %730
+720:                                              ; preds = %719
   call void @SparseMatrix_delete(ptr noundef nonnull %.0) #23
-  br label %732
+  br label %721
 
-732:                                              ; preds = %731, %730
+721:                                              ; preds = %720, %719
   call void @Multilevel_delete(ptr noundef %286) #23
-  br label %733
+  br label %722
 
-733:                                              ; preds = %attach_edge_label_coordinates.exit, %281, %12, %8, %732
+722:                                              ; preds = %attach_edge_label_coordinates.exit, %281, %12, %8, %721
   ret void
 }
 
@@ -4915,9 +4904,6 @@ declare double @llvm.sqrt.f64(double) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #18
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

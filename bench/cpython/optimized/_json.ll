@@ -1681,7 +1681,13 @@ sw.default61.i:                                   ; preds = %for.body22.i
 
 if.then64.i:                                      ; preds = %sw.default61.i
   %arrayidx66.i = getelementptr i8, ptr %retval.0.i199.i, i64 %chars.0269.i
-  store <4 x i8> <i8 92, i8 117, i8 48, i8 48>, ptr %arrayidx66.i, align 1
+  store i8 92, ptr %arrayidx66.i, align 1
+  %arrayidx68.i = getelementptr i8, ptr %arrayidx66.i, i64 1
+  store i8 117, ptr %arrayidx68.i, align 1
+  %arrayidx70.i = getelementptr i8, ptr %arrayidx66.i, i64 2
+  store i8 48, ptr %arrayidx70.i, align 1
+  %arrayidx72.i = getelementptr i8, ptr %arrayidx66.i, i64 3
+  store i8 48, ptr %arrayidx72.i, align 1
   %16 = load ptr, ptr @Py_hexdigits, align 8
   %shr.i = lshr i32 %conv.i205.i, 4
   %idxprom.i = zext nneg i32 %shr.i to i64
@@ -1815,7 +1821,13 @@ sw.default144.i:                                  ; preds = %for.body104.i
 
 if.then147.i:                                     ; preds = %sw.default144.i
   %arrayidx149.i = getelementptr i16, ptr %retval.0.i213.i, i64 %chars.2265.i
-  store <4 x i16> <i16 92, i16 117, i16 48, i16 48>, ptr %arrayidx149.i, align 2
+  store i16 92, ptr %arrayidx149.i, align 2
+  %arrayidx151.i = getelementptr i8, ptr %arrayidx149.i, i64 2
+  store i16 117, ptr %arrayidx151.i, align 2
+  %arrayidx153.i = getelementptr i8, ptr %arrayidx149.i, i64 4
+  store i16 48, ptr %arrayidx153.i, align 2
+  %arrayidx155.i = getelementptr i8, ptr %arrayidx149.i, i64 6
+  store i16 48, ptr %arrayidx155.i, align 2
   %23 = load ptr, ptr @Py_hexdigits, align 8
   %shr156.i = lshr i32 %conv5.i219.i, 4
   %idxprom158.i = zext nneg i32 %shr156.i to i64
@@ -1972,7 +1984,13 @@ sw.default228.i:                                  ; preds = %PyUnicode_READ.exit
 
 if.then231.i:                                     ; preds = %sw.default228.i
   %arrayidx233.i = getelementptr i32, ptr %retval.0.i227.i, i64 %chars.4273.i
-  store <4 x i32> <i32 92, i32 117, i32 48, i32 48>, ptr %arrayidx233.i, align 4
+  store i32 92, ptr %arrayidx233.i, align 4
+  %arrayidx235.i = getelementptr i8, ptr %arrayidx233.i, i64 4
+  store i32 117, ptr %arrayidx235.i, align 4
+  %arrayidx237.i = getelementptr i8, ptr %arrayidx233.i, i64 8
+  store i32 48, ptr %arrayidx237.i, align 4
+  %arrayidx239.i = getelementptr i8, ptr %arrayidx233.i, i64 12
+  store i32 48, ptr %arrayidx239.i, align 4
   %32 = load ptr, ptr @Py_hexdigits, align 8
   %shr240.i = lshr i32 %retval.0.i234.i, 4
   %idxprom242.i = zext nneg i32 %shr240.i to i64

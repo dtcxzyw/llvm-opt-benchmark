@@ -1516,9 +1516,12 @@ if.end.i8:                                        ; preds = %_ZN6google8protobuf
   %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 56
   %18 = load ptr, ptr %vfn.i10, align 8
   %call.i11 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %ctx)
-  %19 = load <2 x i32>, ptr %depth_.i, align 8
-  %20 = add nsw <2 x i32> %19, <i32 1, i32 -1>
-  store <2 x i32> %20, ptr %depth_.i, align 8
+  %19 = load i32, ptr %group_depth_.i, align 4
+  %dec14.i = add nsw i32 %19, -1
+  store i32 %dec14.i, ptr %group_depth_.i, align 4
+  %20 = load i32, ptr %depth_.i, align 8
+  %inc16.i = add nsw i32 %20, 1
+  store i32 %inc16.i, ptr %depth_.i, align 8
   %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %21 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i = icmp eq i32 %21, %conv.i27
@@ -1628,9 +1631,12 @@ if.end.i8:                                        ; preds = %_ZN6google8protobuf
   %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 56
   %17 = load ptr, ptr %vfn.i10, align 8
   %call.i11 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %ctx)
-  %18 = load <2 x i32>, ptr %depth_.i, align 8
-  %19 = add nsw <2 x i32> %18, <i32 1, i32 -1>
-  store <2 x i32> %19, ptr %depth_.i, align 8
+  %18 = load i32, ptr %group_depth_.i, align 4
+  %dec14.i = add nsw i32 %18, -1
+  store i32 %dec14.i, ptr %group_depth_.i, align 4
+  %19 = load i32, ptr %depth_.i, align 8
+  %inc16.i = add nsw i32 %19, 1
+  store i32 %inc16.i, ptr %depth_.i, align 8
   %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %20 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i = icmp eq i32 %20, %shr.i29
@@ -2726,9 +2732,12 @@ if.end.i52:                                       ; preds = %do.body.i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %10 = load ptr, ptr %vfn.i, align 8
   %call.i53 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %call15.i, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %ctx)
-  %11 = load <2 x i32>, ptr %depth_.i, align 8
-  %12 = add nsw <2 x i32> %11, <i32 1, i32 -1>
-  store <2 x i32> %12, ptr %depth_.i, align 8
+  %11 = load i32, ptr %group_depth_.i, align 4
+  %dec14.i = add nsw i32 %11, -1
+  store i32 %dec14.i, ptr %group_depth_.i, align 4
+  %12 = load i32, ptr %depth_.i, align 8
+  %inc16.i = add nsw i32 %12, 1
+  store i32 %inc16.i, ptr %depth_.i, align 8
   %13 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i = icmp ne i32 %13, %conv.i55
   store i32 0, ptr %last_tag_minus_1_.i, align 8
@@ -2848,9 +2857,12 @@ if.end.i52:                                       ; preds = %do.body.i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %9 = load ptr, ptr %vfn.i, align 8
   %call.i53 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(16) %call15.i, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %ctx)
-  %10 = load <2 x i32>, ptr %depth_.i, align 8
-  %11 = add nsw <2 x i32> %10, <i32 1, i32 -1>
-  store <2 x i32> %11, ptr %depth_.i, align 8
+  %10 = load i32, ptr %group_depth_.i, align 4
+  %dec14.i = add nsw i32 %10, -1
+  store i32 %dec14.i, ptr %group_depth_.i, align 4
+  %11 = load i32, ptr %depth_.i, align 8
+  %inc16.i = add nsw i32 %11, 1
+  store i32 %inc16.i, ptr %depth_.i, align 8
   %12 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i = icmp ne i32 %12, %shr.i57
   store i32 0, ptr %last_tag_minus_1_.i, align 8
@@ -17831,9 +17843,12 @@ if.end.i130:                                      ; preds = %if.then99
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %77 = load ptr, ptr %vfn.i, align 8
   %call.i135 = tail call noundef ptr %77(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef %ptr, ptr noundef nonnull %ctx)
-  %78 = load <2 x i32>, ptr %depth_.i127, align 8
-  %79 = add nsw <2 x i32> %78, <i32 1, i32 -1>
-  store <2 x i32> %79, ptr %depth_.i127, align 8
+  %78 = load i32, ptr %group_depth_.i131, align 4
+  %dec14.i139 = add nsw i32 %78, -1
+  store i32 %dec14.i139, ptr %group_depth_.i131, align 4
+  %79 = load i32, ptr %depth_.i127, align 8
+  %inc16.i141 = add nsw i32 %79, 1
+  store i32 %inc16.i141, ptr %depth_.i127, align 8
   %last_tag_minus_1_.i174 = getelementptr inbounds i8, ptr %ctx, i64 80
   %80 = load i32, ptr %last_tag_minus_1_.i174, align 8
   %cmp.i175 = icmp eq i32 %80, %conv.i84
@@ -20121,9 +20136,12 @@ if.end.i:                                         ; preds = %if.then99
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %87 = load ptr, ptr %vfn.i, align 8
   %call.i104 = tail call noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef %ptr, ptr noundef nonnull %ctx)
-  %88 = load <2 x i32>, ptr %depth_.i, align 8
-  %89 = add nsw <2 x i32> %88, <i32 1, i32 -1>
-  store <2 x i32> %89, ptr %depth_.i, align 8
+  %88 = load i32, ptr %group_depth_.i, align 4
+  %dec14.i = add nsw i32 %88, -1
+  store i32 %dec14.i, ptr %group_depth_.i, align 4
+  %89 = load i32, ptr %depth_.i, align 8
+  %inc16.i = add nsw i32 %89, 1
+  store i32 %inc16.i, ptr %depth_.i, align 8
   %last_tag_minus_1_.i182 = getelementptr inbounds i8, ptr %ctx, i64 80
   %90 = load i32, ptr %last_tag_minus_1_.i182, align 8
   %cmp.i183 = icmp eq i32 %90, %conv.i84
@@ -26921,9 +26939,12 @@ if.end.i127:                                      ; preds = %do.body56
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %37 = load ptr, ptr %vfn.i, align 8
   %call.i128 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(16) %call58, ptr noundef %ptr254.0, ptr noundef nonnull %ctx)
-  %38 = load <2 x i32>, ptr %depth_.i, align 8
-  %39 = add nsw <2 x i32> %38, <i32 1, i32 -1>
-  store <2 x i32> %39, ptr %depth_.i, align 8
+  %38 = load i32, ptr %group_depth_.i, align 4
+  %dec14.i = add nsw i32 %38, -1
+  store i32 %dec14.i, ptr %group_depth_.i, align 4
+  %39 = load i32, ptr %depth_.i, align 8
+  %inc16.i = add nsw i32 %39, 1
+  store i32 %inc16.i, ptr %depth_.i, align 8
   %40 = load i32, ptr %last_tag_minus_1_.i82, align 8
   %cmp.i83 = icmp ne i32 %40, %conv.i70
   store i32 0, ptr %last_tag_minus_1_.i82, align 8
@@ -35273,9 +35294,12 @@ if.end.i127:                                      ; preds = %do.body56
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %54 = load ptr, ptr %vfn.i, align 8
   %call.i128 = tail call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(16) %call58, ptr noundef %ptr254.0, ptr noundef nonnull %ctx)
-  %55 = load <2 x i32>, ptr %depth_.i, align 8
-  %56 = add nsw <2 x i32> %55, <i32 1, i32 -1>
-  store <2 x i32> %56, ptr %depth_.i, align 8
+  %55 = load i32, ptr %group_depth_.i, align 4
+  %dec14.i = add nsw i32 %55, -1
+  store i32 %dec14.i, ptr %group_depth_.i, align 4
+  %56 = load i32, ptr %depth_.i, align 8
+  %inc16.i = add nsw i32 %56, 1
+  store i32 %inc16.i, ptr %depth_.i, align 8
   %57 = load i32, ptr %last_tag_minus_1_.i102, align 8
   %cmp.i103 = icmp ne i32 %57, %conv.i70
   store i32 0, ptr %last_tag_minus_1_.i102, align 8

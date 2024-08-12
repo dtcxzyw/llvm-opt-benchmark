@@ -6,8 +6,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @geohashGetCoordRange(ptr nocapture noundef writeonly %long_range, ptr nocapture noundef writeonly %lat_range) local_unnamed_addr #0 {
 entry:
-  store <2 x double> <double -1.800000e+02, double 1.800000e+02>, ptr %long_range, align 8
-  store <2 x double> <double 0xC0554345B1A57F00, double 0x40554345B1A57F00>, ptr %lat_range, align 8
+  %max = getelementptr inbounds i8, ptr %long_range, i64 8
+  store double 1.800000e+02, ptr %max, align 8
+  store double -1.800000e+02, ptr %long_range, align 8
+  %max1 = getelementptr inbounds i8, ptr %lat_range, i64 8
+  store double 0x40554345B1A57F00, ptr %max1, align 8
+  store double 0xC0554345B1A57F00, ptr %lat_range, align 8
   ret void
 }
 
@@ -108,30 +112,40 @@ return:                                           ; preds = %if.end33, %lor.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc i64 @interleave64(i32 noundef %xlo, i32 noundef %ylo) unnamed_addr #2 {
 entry:
-  %0 = insertelement <2 x i32> poison, i32 %ylo, i64 0
-  %1 = insertelement <2 x i32> %0, i32 %xlo, i64 1
-  %2 = zext <2 x i32> %1 to <2 x i64>
-  %3 = shl nuw nsw <2 x i64> %2, <i64 16, i64 16>
-  %4 = or <2 x i64> %3, %2
-  %5 = and <2 x i64> %4, <i64 281470681808895, i64 281470681808895>
-  %6 = shl nuw nsw <2 x i64> %5, <i64 8, i64 8>
-  %7 = or <2 x i64> %6, %5
-  %8 = and <2 x i64> %7, <i64 71777214294589695, i64 71777214294589695>
-  %9 = shl nuw nsw <2 x i64> %8, <i64 4, i64 4>
-  %10 = or <2 x i64> %9, %8
-  %11 = and <2 x i64> %10, <i64 1085102592571150095, i64 1085102592571150095>
-  %12 = shl nuw nsw <2 x i64> %11, <i64 2, i64 2>
-  %13 = or <2 x i64> %12, %11
-  %14 = and <2 x i64> %13, <i64 3689348814741910323, i64 3689348814741910323>
-  %15 = shl nuw <2 x i64> %14, <i64 2, i64 1>
-  %16 = extractelement <2 x i64> %14, i64 0
-  %17 = shl nuw nsw i64 %16, 1
-  %18 = insertelement <2 x i64> %14, i64 %17, i64 0
-  %19 = or <2 x i64> %15, %18
-  %20 = and <2 x i64> %19, <i64 -6148914691236517206, i64 6148914691236517205>
-  %shift = shufflevector <2 x i64> %20, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %21 = or disjoint <2 x i64> %20, %shift
-  %or39 = extractelement <2 x i64> %21, i64 0
+  %conv = zext i32 %xlo to i64
+  %conv1 = zext i32 %ylo to i64
+  %shl = shl nuw nsw i64 %conv, 16
+  %or = or i64 %shl, %conv
+  %and = and i64 %or, 281470681808895
+  %shl3 = shl nuw nsw i64 %conv1, 16
+  %or4 = or i64 %shl3, %conv1
+  %and5 = and i64 %or4, 281470681808895
+  %shl7 = shl nuw nsw i64 %and, 8
+  %or8 = or i64 %shl7, %and
+  %and9 = and i64 %or8, 71777214294589695
+  %shl11 = shl nuw nsw i64 %and5, 8
+  %or12 = or i64 %shl11, %and5
+  %and13 = and i64 %or12, 71777214294589695
+  %shl15 = shl nuw nsw i64 %and9, 4
+  %or16 = or i64 %shl15, %and9
+  %and17 = and i64 %or16, 1085102592571150095
+  %shl19 = shl nuw nsw i64 %and13, 4
+  %or20 = or i64 %shl19, %and13
+  %and21 = and i64 %or20, 1085102592571150095
+  %shl23 = shl nuw nsw i64 %and17, 2
+  %or24 = or i64 %shl23, %and17
+  %and25 = and i64 %or24, 3689348814741910323
+  %shl27 = shl nuw nsw i64 %and21, 2
+  %or28 = or i64 %shl27, %and21
+  %and29 = and i64 %or28, 3689348814741910323
+  %shl31 = shl nuw nsw i64 %and25, 1
+  %or32 = or i64 %shl31, %and25
+  %and33 = and i64 %or32, 6148914691236517205
+  %0 = shl nuw i64 %and29, 2
+  %1 = shl nuw nsw i64 %and29, 1
+  %and37 = or i64 %0, %1
+  %shl38 = and i64 %and37, -6148914691236517206
+  %or39 = or disjoint i64 %shl38, %and33
   ret i64 %or39
 }
 
@@ -313,35 +327,31 @@ if.end:                                           ; preds = %lor.lhs.false6
   %sub20 = fsub double %long_range.coerce1, %long_range.coerce0
   %conv = trunc nuw i64 %and41.i to i32
   %conv21 = trunc nuw i64 %and45.i to i32
+  %conv23 = uitofp i32 %conv to double
   %sh_prom = zext nneg i8 %hash.coerce1 to i64
   %shl = shl nuw i64 1, %sh_prom
   %conv25 = uitofp i64 %shl to double
+  %div = fdiv double %conv23, %conv25
+  %2 = tail call double @llvm.fmuladd.f64(double %div, double %sub, double %lat_range.coerce0)
   %latitude = getelementptr inbounds i8, ptr %area, i64 32
+  store double %2, ptr %latitude, align 8
   %add = add i32 %conv, 1
-  %2 = insertelement <2 x i32> poison, i32 %conv, i64 0
-  %3 = insertelement <2 x i32> %2, i32 %add, i64 1
-  %4 = uitofp <2 x i32> %3 to <2 x double>
-  %5 = insertelement <2 x double> poison, double %conv25, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = fdiv <2 x double> %4, %6
-  %8 = insertelement <2 x double> poison, double %sub, i64 0
-  %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
-  %10 = insertelement <2 x double> poison, double %lat_range.coerce0, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %7, <2 x double> %9, <2 x double> %11)
-  store <2 x double> %12, ptr %latitude, align 8
+  %conv29 = uitofp i32 %add to double
+  %div35 = fdiv double %conv29, %conv25
+  %3 = tail call double @llvm.fmuladd.f64(double %div35, double %sub, double %lat_range.coerce0)
+  %max38 = getelementptr inbounds i8, ptr %area, i64 40
+  store double %3, ptr %max38, align 8
+  %conv40 = uitofp i32 %conv21 to double
+  %div46 = fdiv double %conv40, %conv25
+  %4 = tail call double @llvm.fmuladd.f64(double %div46, double %sub20, double %long_range.coerce0)
   %longitude = getelementptr inbounds i8, ptr %area, i64 16
+  store double %4, ptr %longitude, align 8
   %add50 = add i32 %conv21, 1
-  %13 = insertelement <2 x i32> poison, i32 %conv21, i64 0
-  %14 = insertelement <2 x i32> %13, i32 %add50, i64 1
-  %15 = uitofp <2 x i32> %14 to <2 x double>
-  %16 = fdiv <2 x double> %15, %6
-  %17 = insertelement <2 x double> poison, double %sub20, i64 0
-  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
-  %19 = insertelement <2 x double> poison, double %long_range.coerce0, i64 0
-  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
-  %21 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %16, <2 x double> %18, <2 x double> %20)
-  store <2 x double> %21, ptr %longitude, align 8
+  %conv51 = uitofp i32 %add50 to double
+  %div57 = fdiv double %conv51, %conv25
+  %5 = tail call double @llvm.fmuladd.f64(double %div57, double %sub20, double %long_range.coerce0)
+  %max60 = getelementptr inbounds i8, ptr %area, i64 24
+  store double %5, ptr %max60, align 8
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false2, %lor.lhs.false6, %if.end
@@ -351,6 +361,9 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local range(i32 0, 2) i32 @geohashDecodeType(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef %area) local_unnamed_addr #0 {
@@ -408,27 +421,31 @@ lor.lhs.false2.i:                                 ; preds = %entry
   %and45.i.i = or disjoint i64 %shr43.i.i, %and37.masked.i.i
   %conv.i = trunc nuw i64 %and41.i.i to i32
   %conv21.i = trunc nuw i64 %and45.i.i to i32
+  %conv23.i = uitofp i32 %conv.i to double
   %sh_prom.i = zext nneg i8 %hash.coerce1 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %conv25.i = uitofp i64 %shl.i to double
+  %div.i = fdiv double %conv23.i, %conv25.i
+  %2 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x40654345B1A57F00, double 0xC0554345B1A57F00)
   %latitude.i = getelementptr inbounds i8, ptr %area, i64 32
+  store double %2, ptr %latitude.i, align 8
   %add.i = add i32 %conv.i, 1
-  %2 = insertelement <2 x i32> poison, i32 %conv.i, i64 0
-  %3 = insertelement <2 x i32> %2, i32 %add.i, i64 1
-  %4 = uitofp <2 x i32> %3 to <2 x double>
-  %5 = insertelement <2 x double> poison, double %conv25.i, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = fdiv <2 x double> %4, %6
-  %8 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %7, <2 x double> <double 0x40654345B1A57F00, double 0x40654345B1A57F00>, <2 x double> <double 0xC0554345B1A57F00, double 0xC0554345B1A57F00>)
-  store <2 x double> %8, ptr %latitude.i, align 8
+  %conv29.i = uitofp i32 %add.i to double
+  %div35.i = fdiv double %conv29.i, %conv25.i
+  %3 = tail call double @llvm.fmuladd.f64(double %div35.i, double 0x40654345B1A57F00, double 0xC0554345B1A57F00)
+  %max38.i = getelementptr inbounds i8, ptr %area, i64 40
+  store double %3, ptr %max38.i, align 8
+  %conv40.i = uitofp i32 %conv21.i to double
+  %div46.i = fdiv double %conv40.i, %conv25.i
+  %4 = tail call double @llvm.fmuladd.f64(double %div46.i, double 3.600000e+02, double -1.800000e+02)
   %longitude.i = getelementptr inbounds i8, ptr %area, i64 16
+  store double %4, ptr %longitude.i, align 8
   %add50.i = add i32 %conv21.i, 1
-  %9 = insertelement <2 x i32> poison, i32 %conv21.i, i64 0
-  %10 = insertelement <2 x i32> %9, i32 %add50.i, i64 1
-  %11 = uitofp <2 x i32> %10 to <2 x double>
-  %12 = fdiv <2 x double> %11, %6
-  %13 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %12, <2 x double> <double 3.600000e+02, double 3.600000e+02>, <2 x double> <double -1.800000e+02, double -1.800000e+02>)
-  store <2 x double> %13, ptr %longitude.i, align 8
+  %conv51.i = uitofp i32 %add50.i to double
+  %div57.i = fdiv double %conv51.i, %conv25.i
+  %5 = tail call double @llvm.fmuladd.f64(double %div57.i, double 3.600000e+02, double -1.800000e+02)
+  %max60.i = getelementptr inbounds i8, ptr %area, i64 24
+  store double %5, ptr %max60.i, align 8
   br label %geohashDecode.exit
 
 geohashDecode.exit:                               ; preds = %entry, %lor.lhs.false2.i
@@ -514,34 +531,45 @@ geohashDecodeAreaToLongLat.exit:                  ; preds = %lor.lhs.false
   %and33.i.i = lshr i64 %or32.i.i, 16
   %shr39.i.i = and i64 %and33.i.i, 4294901760
   %and33.masked.i.i = and i64 %or32.i.i, 65535
+  %and41.i.i = or disjoint i64 %shr39.i.i, %and33.masked.i.i
   %and37.i.i = lshr i64 %or36.i.i, 16
   %shr43.i.i = and i64 %and37.i.i, 4294901760
   %and37.masked.i.i = and i64 %or36.i.i, 65535
+  %and45.i.i = or disjoint i64 %shr43.i.i, %and37.masked.i.i
+  %conv.i = trunc nuw i64 %and41.i.i to i32
+  %conv21.i = trunc nuw i64 %and45.i.i to i32
+  %conv23.i = uitofp i32 %conv.i to double
   %sh_prom.i = zext nneg i8 %hash.coerce1 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %conv25.i = uitofp i64 %shl.i to double
-  %2 = insertelement <2 x i64> poison, i64 %shr43.i.i, i64 0
-  %3 = insertelement <2 x i64> %2, i64 %shr39.i.i, i64 1
-  %4 = insertelement <2 x i64> poison, i64 %and37.masked.i.i, i64 0
-  %5 = insertelement <2 x i64> %4, i64 %and33.masked.i.i, i64 1
-  %6 = or disjoint <2 x i64> %3, %5
-  %7 = trunc nuw <2 x i64> %6 to <2 x i32>
-  %8 = uitofp <2 x i32> %7 to <2 x double>
-  %9 = insertelement <2 x double> poison, double %conv25.i, i64 0
-  %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
-  %11 = fdiv <2 x double> %8, %10
-  %12 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %11, <2 x double> <double 3.600000e+02, double 0x40654345B1A57F00>, <2 x double> <double -1.800000e+02, double 0xC0554345B1A57F00>)
-  %13 = add <2 x i32> %7, <i32 1, i32 1>
-  %14 = uitofp <2 x i32> %13 to <2 x double>
-  %15 = fdiv <2 x double> %14, %10
-  %16 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %15, <2 x double> <double 3.600000e+02, double 0x40654345B1A57F00>, <2 x double> <double -1.800000e+02, double 0xC0554345B1A57F00>)
-  %17 = fadd <2 x double> %12, %16
-  %18 = fmul <2 x double> %17, <double 5.000000e-01, double 5.000000e-01>
-  %19 = fcmp ogt <2 x double> %18, <double 1.800000e+02, double 0x40554345B1A57F00>
-  %20 = select <2 x i1> %19, <2 x double> <double 1.800000e+02, double 0x40554345B1A57F00>, <2 x double> %18
-  %21 = fcmp olt <2 x double> %20, <double -1.800000e+02, double 0xC0554345B1A57F00>
-  %22 = select <2 x i1> %21, <2 x double> <double -1.800000e+02, double 0xC0554345B1A57F00>, <2 x double> %20
-  store <2 x double> %22, ptr %xy, align 8
+  %div.i4 = fdiv double %conv23.i, %conv25.i
+  %2 = tail call double @llvm.fmuladd.f64(double %div.i4, double 0x40654345B1A57F00, double 0xC0554345B1A57F00)
+  %add.i6 = add i32 %conv.i, 1
+  %conv29.i = uitofp i32 %add.i6 to double
+  %div35.i = fdiv double %conv29.i, %conv25.i
+  %3 = tail call double @llvm.fmuladd.f64(double %div35.i, double 0x40654345B1A57F00, double 0xC0554345B1A57F00)
+  %conv40.i = uitofp i32 %conv21.i to double
+  %div46.i = fdiv double %conv40.i, %conv25.i
+  %4 = tail call double @llvm.fmuladd.f64(double %div46.i, double 3.600000e+02, double -1.800000e+02)
+  %add50.i = add i32 %conv21.i, 1
+  %conv51.i = uitofp i32 %add50.i to double
+  %div57.i = fdiv double %conv51.i, %conv25.i
+  %5 = tail call double @llvm.fmuladd.f64(double %div57.i, double 3.600000e+02, double -1.800000e+02)
+  %add.i = fadd double %4, %5
+  %div.i = fmul double %add.i, 5.000000e-01
+  %cmp.i = fcmp ogt double %div.i, 1.800000e+02
+  %storemerge.i = select i1 %cmp.i, double 1.800000e+02, double %div.i
+  %cmp7.i = fcmp olt double %storemerge.i, -1.800000e+02
+  %storemerge14.i = select i1 %cmp7.i, double -1.800000e+02, double %storemerge.i
+  store double %storemerge14.i, ptr %xy, align 8
+  %add14.i = fadd double %2, %3
+  %div15.i = fmul double %add14.i, 5.000000e-01
+  %arrayidx16.i = getelementptr inbounds i8, ptr %xy, i64 8
+  %cmp18.i = fcmp ogt double %div15.i, 0x40554345B1A57F00
+  %storemerge15.i = select i1 %cmp18.i, double 0x40554345B1A57F00, double %div15.i
+  %cmp23.i = fcmp olt double %storemerge15.i, 0xC0554345B1A57F00
+  %storemerge16.i = select i1 %cmp23.i, double 0xC0554345B1A57F00, double %storemerge15.i
+  store double %storemerge16.i, ptr %arrayidx16.i, align 8
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %entry, %geohashDecodeAreaToLongLat.exit
@@ -717,16 +745,14 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #4
+declare double @llvm.fabs.f64(double) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

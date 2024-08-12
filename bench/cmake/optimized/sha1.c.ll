@@ -8,9 +8,15 @@ define dso_local void @rhash_sha1_init(ptr nocapture noundef writeonly %0) local
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 -1009589776, ptr %4, align 8
+  store i32 1732584193, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 -271733879, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 -1732584194, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 271733878, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 -1009589776, ptr %7, align 8
   ret void
 }
 

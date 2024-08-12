@@ -113,9 +113,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Rect_") align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = add nsw i32 %1, -1
-  switch i32 %3, label %31 [
+  switch i32 %3, label %37 [
     i32 0, label %.thread
-    i32 1, label %16
+    i32 1, label %20
   ]
 
 .thread:                                          ; preds = %4
@@ -123,53 +123,69 @@ define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwin
   %7 = getelementptr inbounds [10 x ptr], ptr @_ZN2cv6detail8tracking3tld13tldFolderNameE, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds [10 x %"class.cv::Rect_"], ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 0, i64 %6
-  %10 = load <2 x double>, ptr %9, align 16
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
-  %12 = load <2 x double>, ptr %11, align 16
-  %13 = getelementptr inbounds [10 x i32], ptr @_ZN2cv6detail8tracking3tld14tldFrameOffsetE, i64 0, i64 %6
-  %14 = load i32, ptr %13, align 4
-  store i32 %14, ptr @_ZN2cv6detail8tracking3tld8frameNumE, align 4
-  %15 = getelementptr inbounds [10 x i8], ptr @_ZN2cv6detail8tracking3tld10tldFlagPNGE, i64 0, i64 %6
+  %10 = load double, ptr %9, align 16
+  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = load double, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = load double, ptr %13, align 16
+  %15 = getelementptr inbounds i8, ptr %9, i64 24
+  %16 = load double, ptr %15, align 8
+  %17 = getelementptr inbounds [10 x i32], ptr @_ZN2cv6detail8tracking3tld14tldFrameOffsetE, i64 0, i64 %6
+  %18 = load i32, ptr %17, align 4
+  store i32 %18, ptr @_ZN2cv6detail8tracking3tld8frameNumE, align 4
+  %19 = getelementptr inbounds [10 x i8], ptr @_ZN2cv6detail8tracking3tld10tldFlagPNGE, i64 0, i64 %6
   br label %.sink.split
 
-16:                                               ; preds = %4
-  %17 = sext i32 %5 to i64
-  %18 = getelementptr inbounds [60 x ptr], ptr @_ZN2cv6detail8tracking3tld13votFolderNameE, i64 0, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds [60 x %"class.cv::Rect_"], ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 0, i64 %17
-  %21 = load <2 x double>, ptr %20, align 16
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
-  %23 = load <2 x double>, ptr %22, align 16
-  %24 = getelementptr inbounds [60 x i32], ptr @_ZN2cv6detail8tracking3tld14votFrameOffsetE, i64 0, i64 %17
-  %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr @_ZN2cv6detail8tracking3tld8frameNumE, align 4
-  %26 = getelementptr inbounds [60 x i8], ptr @_ZN2cv6detail8tracking3tld10votFlagPNGE, i64 0, i64 %17
+20:                                               ; preds = %4
+  %21 = sext i32 %5 to i64
+  %22 = getelementptr inbounds [60 x ptr], ptr @_ZN2cv6detail8tracking3tld13votFolderNameE, i64 0, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds [60 x %"class.cv::Rect_"], ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 0, i64 %21
+  %25 = load double, ptr %24, align 16
+  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = load double, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = load double, ptr %28, align 16
+  %30 = getelementptr inbounds i8, ptr %24, i64 24
+  %31 = load double, ptr %30, align 8
+  %32 = getelementptr inbounds [60 x i32], ptr @_ZN2cv6detail8tracking3tld14votFrameOffsetE, i64 0, i64 %21
+  %33 = load i32, ptr %32, align 4
+  store i32 %33, ptr @_ZN2cv6detail8tracking3tld8frameNumE, align 4
+  %34 = getelementptr inbounds [60 x i8], ptr @_ZN2cv6detail8tracking3tld10votFlagPNGE, i64 0, i64 %21
   br label %.sink.split
 
-.sink.split:                                      ; preds = %16, %.thread
-  %.sink37 = phi ptr [ %15, %.thread ], [ %26, %16 ]
-  %.sink = phi i8 [ 0, %.thread ], [ 1, %16 ]
-  %.1.ph = phi ptr [ %8, %.thread ], [ %19, %16 ]
-  %27 = phi <2 x double> [ %10, %.thread ], [ %21, %16 ]
-  %28 = phi <2 x double> [ %12, %.thread ], [ %23, %16 ]
-  %29 = load i8, ptr %.sink37, align 1
-  %30 = and i8 %29, 1
-  store i8 %30, ptr @_ZN2cv6detail8tracking3tld7flagPNGE, align 1
+.sink.split:                                      ; preds = %20, %.thread
+  %.sink37 = phi ptr [ %19, %.thread ], [ %34, %20 ]
+  %.sink = phi i8 [ 0, %.thread ], [ 1, %20 ]
+  %.129.ph = phi double [ %10, %.thread ], [ %25, %20 ]
+  %.127.ph = phi double [ %12, %.thread ], [ %27, %20 ]
+  %.125.ph = phi double [ %14, %.thread ], [ %29, %20 ]
+  %.123.ph = phi double [ %16, %.thread ], [ %31, %20 ]
+  %.1.ph = phi ptr [ %8, %.thread ], [ %23, %20 ]
+  %35 = load i8, ptr %.sink37, align 1
+  %36 = and i8 %35, 1
+  store i8 %36, ptr @_ZN2cv6detail8tracking3tld7flagPNGE, align 1
   store i8 %.sink, ptr @_ZN2cv6detail8tracking3tld7flagVOTE, align 1
-  br label %31
+  br label %37
 
-31:                                               ; preds = %.sink.split, %4
+37:                                               ; preds = %.sink.split, %4
+  %.129 = phi double [ 0.000000e+00, %4 ], [ %.129.ph, %.sink.split ]
+  %.127 = phi double [ 0.000000e+00, %4 ], [ %.127.ph, %.sink.split ]
+  %.125 = phi double [ 0.000000e+00, %4 ], [ %.125.ph, %.sink.split ]
+  %.123 = phi double [ 0.000000e+00, %4 ], [ %.123.ph, %.sink.split ]
   %.1 = phi ptr [ @.str.72, %4 ], [ %.1.ph, %.sink.split ]
-  %32 = phi <2 x double> [ zeroinitializer, %4 ], [ %27, %.sink.split ]
-  %33 = phi <2 x double> [ zeroinitializer, %4 ], [ %28, %.sink.split ]
-  %34 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %2) #10
+  %38 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %2) #10
   %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE)
   %endptr = getelementptr inbounds i8, ptr @_ZN2cv6detail8tracking3tld11tldRootPathE, i64 %strlen
   store i16 92, ptr %endptr, align 1
-  %35 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %.1) #10
-  store <2 x double> %32, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x double> %33, ptr %36, align 8
+  %39 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @_ZN2cv6detail8tracking3tld11tldRootPathE, ptr noundef nonnull dereferenceable(1) %.1) #10
+  store double %.129, ptr %0, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %.127, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %.125, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %.123, ptr %42, align 8
   ret void
 }
 
@@ -292,146 +308,286 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define internal void @_GLOBAL__sub_I_tldDataset.cpp() #7 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
-  store <2 x double> <double 1.650000e+02, double 9.300000e+01>, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, align 16
-  store <2 x double> <double 5.100000e+01, double 5.400000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 16), align 16
-  store <2 x double> <double 1.470000e+02, double 1.100000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 32), align 16
-  store <2 x double> <double 3.300000e+01, double 3.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 48), align 16
-  store <2 x double> <double 4.700000e+01, double 5.100000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 64), align 16
-  store <2 x double> <double 2.100000e+01, double 3.600000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 80), align 16
-  store <2 x double> <double 1.300000e+02, double 1.340000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 96), align 16
-  store <2 x double> <double 2.100000e+01, double 5.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 112), align 16
-  store <2 x double> <double 1.540000e+02, double 1.020000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 128), align 16
-  store <2 x double> <double 2.400000e+01, double 5.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 144), align 16
-  store <2 x double> <double 1.420000e+02, double 1.250000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 160), align 16
-  store <2 x double> <double 9.000000e+01, double 3.900000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 176), align 16
-  store <2 x double> <double 2.900000e+02, double 4.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 192), align 16
-  store <2 x double> <double 2.300000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 208), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 224), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 240), align 16
-  store <2 x double> <double 3.370000e+02, double 2.190000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 256), align 16
-  store <2 x double> <double 5.400000e+01, double 3.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 272), align 16
-  store <2 x double> <double 5.800000e+01, double 1.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 288), align 16
-  store <2 x double> <double 2.700000e+01, double 2.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 304), align 16
-  store <2 x double> <double 1.420000e+02, double 1.250000e+02>, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, align 16
-  store <2 x double> <double 9.000000e+01, double 3.900000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 16), align 16
-  store <2 x double> <double 4.900000e+02, double 4.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 32), align 16
-  store <2 x double> <double 4.000000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 48), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 64), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 80), align 16
-  store <2 x double> <double 1.450000e+02, double 8.400000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 96), align 16
-  store <2 x double> <double 5.400000e+01, double 3.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 112), align 16
-  store <2 x double> <double 5.800000e+01, double 1.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 128), align 16
-  store <2 x double> <double 2.700000e+01, double 2.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 144), align 16
-  store <2 x double> <double 4.500000e+02, double 3.800000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 160), align 16
-  store <2 x double> <double 6.000000e+01, double 6.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 176), align 16
-  store <2 x double> <double 2.900000e+02, double 4.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 192), align 16
-  store <2 x double> <double 2.300000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 208), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 224), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 240), align 16
-  store <2 x double> <double 2.250000e+02, double 1.750000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 256), align 16
-  store <2 x double> <double 5.000000e+01, double 5.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 272), align 16
-  store <2 x double> <double 5.800000e+01, double 1.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 288), align 16
-  store <2 x double> <double 2.700000e+01, double 2.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 304), align 16
-  store <2 x double> <double 1.420000e+02, double 1.250000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 320), align 16
-  store <2 x double> <double 9.000000e+01, double 3.900000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 336), align 16
-  store <2 x double> <double 2.900000e+02, double 4.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 352), align 16
-  store <2 x double> <double 2.300000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 368), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 384), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 400), align 16
-  store <2 x double> <double 1.450000e+02, double 8.400000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 416), align 16
-  store <2 x double> <double 5.400000e+01, double 3.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 432), align 16
-  store <2 x double> <double 5.600000e+02, double 4.600000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 448), align 16
-  store <2 x double> <double 5.000000e+01, double 1.200000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 464), align 16
-  store <2 x double> <double 1.420000e+02, double 1.250000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 480), align 16
-  store <2 x double> <double 9.000000e+01, double 3.900000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 496), align 16
-  store <2 x double> <double 2.900000e+02, double 4.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 512), align 16
-  store <2 x double> <double 2.300000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 528), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 544), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 560), align 16
-  store <2 x double> <double 1.450000e+02, double 8.400000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 576), align 16
-  store <2 x double> <double 5.400000e+01, double 3.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 592), align 16
-  store <2 x double> <double 5.800000e+01, double 1.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 608), align 16
-  store <2 x double> <double 2.700000e+01, double 2.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 624), align 16
-  store <2 x double> <double 1.420000e+02, double 1.250000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 640), align 16
-  store <2 x double> <double 9.000000e+01, double 3.900000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 656), align 16
-  store <2 x double> <double 2.900000e+02, double 4.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 672), align 16
-  store <2 x double> <double 2.300000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 688), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 704), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 720), align 16
-  store <2 x double> <double 1.450000e+02, double 8.400000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 736), align 16
-  store <2 x double> <double 5.400000e+01, double 3.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 752), align 16
-  store <2 x double> <double 5.800000e+01, double 1.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 768), align 16
-  store <2 x double> <double 2.700000e+01, double 2.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 784), align 16
-  store <2 x double> <double 1.420000e+02, double 1.250000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 800), align 16
-  store <2 x double> <double 9.000000e+01, double 3.900000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 816), align 16
-  store <2 x double> <double 2.900000e+02, double 4.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 832), align 16
-  store <2 x double> <double 2.300000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 848), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 864), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 880), align 16
-  store <2 x double> <double 1.450000e+02, double 8.400000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 896), align 16
-  store <2 x double> <double 5.400000e+01, double 3.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 912), align 16
-  store <2 x double> <double 5.800000e+01, double 1.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 928), align 16
-  store <2 x double> <double 2.700000e+01, double 2.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 944), align 16
-  store <2 x double> <double 1.420000e+02, double 1.250000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 960), align 16
-  store <2 x double> <double 9.000000e+01, double 3.900000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 976), align 16
-  store <2 x double> <double 2.900000e+02, double 4.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 992), align 16
-  store <2 x double> <double 2.300000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1008), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1024), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1040), align 16
-  store <2 x double> <double 1.450000e+02, double 8.400000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1056), align 16
-  store <2 x double> <double 5.400000e+01, double 3.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1072), align 16
-  store <2 x double> <double 5.800000e+01, double 1.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1088), align 16
-  store <2 x double> <double 2.700000e+01, double 2.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1104), align 16
-  store <2 x double> <double 1.420000e+02, double 1.250000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1120), align 16
-  store <2 x double> <double 9.000000e+01, double 3.900000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1136), align 16
-  store <2 x double> <double 2.900000e+02, double 4.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1152), align 16
-  store <2 x double> <double 2.300000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1168), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1184), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1200), align 16
-  store <2 x double> <double 1.450000e+02, double 8.400000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1216), align 16
-  store <2 x double> <double 5.400000e+01, double 3.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1232), align 16
-  store <2 x double> <double 5.800000e+01, double 1.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1248), align 16
-  store <2 x double> <double 2.700000e+01, double 2.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1264), align 16
-  store <2 x double> <double 1.420000e+02, double 1.250000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1280), align 16
-  store <2 x double> <double 9.000000e+01, double 3.900000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1296), align 16
-  store <2 x double> <double 2.900000e+02, double 4.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1312), align 16
-  store <2 x double> <double 2.300000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1328), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1344), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1360), align 16
-  store <2 x double> <double 1.450000e+02, double 8.400000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1376), align 16
-  store <2 x double> <double 5.400000e+01, double 3.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1392), align 16
-  store <2 x double> <double 5.800000e+01, double 1.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1408), align 16
-  store <2 x double> <double 2.700000e+01, double 2.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1424), align 16
-  store <2 x double> <double 1.420000e+02, double 1.250000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1440), align 16
-  store <2 x double> <double 9.000000e+01, double 3.900000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1456), align 16
-  store <2 x double> <double 2.900000e+02, double 4.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1472), align 16
-  store <2 x double> <double 2.300000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1488), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1504), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1520), align 16
-  store <2 x double> <double 1.450000e+02, double 8.400000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1536), align 16
-  store <2 x double> <double 5.400000e+01, double 3.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1552), align 16
-  store <2 x double> <double 5.800000e+01, double 1.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1568), align 16
-  store <2 x double> <double 2.700000e+01, double 2.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1584), align 16
-  store <2 x double> <double 1.420000e+02, double 1.250000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1600), align 16
-  store <2 x double> <double 9.000000e+01, double 3.900000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1616), align 16
-  store <2 x double> <double 2.900000e+02, double 4.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1632), align 16
-  store <2 x double> <double 2.300000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1648), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1664), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1680), align 16
-  store <2 x double> <double 1.450000e+02, double 8.400000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1696), align 16
-  store <2 x double> <double 5.400000e+01, double 3.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1712), align 16
-  store <2 x double> <double 5.800000e+01, double 1.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1728), align 16
-  store <2 x double> <double 2.700000e+01, double 2.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1744), align 16
-  store <2 x double> <double 1.420000e+02, double 1.250000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1760), align 16
-  store <2 x double> <double 9.000000e+01, double 3.900000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1776), align 16
-  store <2 x double> <double 2.900000e+02, double 4.300000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1792), align 16
-  store <2 x double> <double 2.300000e+01, double 4.000000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1808), align 16
-  store <2 x double> <double 2.730000e+02, double 7.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1824), align 16
-  store <2 x double> <double 2.700000e+01, double 2.500000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1840), align 16
-  store <2 x double> <double 1.450000e+02, double 8.400000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1856), align 16
-  store <2 x double> <double 5.400000e+01, double 3.700000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1872), align 16
-  store <2 x double> <double 5.800000e+01, double 1.000000e+02>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1888), align 16
-  store <2 x double> <double 2.700000e+01, double 2.200000e+01>, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1904), align 16
+  store double 1.650000e+02, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, align 16
+  store double 9.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 8), align 8
+  store double 5.100000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 16), align 16
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 24), align 8
+  store double 1.470000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 32), align 16
+  store double 1.100000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 40), align 8
+  store double 3.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 48), align 16
+  store double 3.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 56), align 8
+  store double 4.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 64), align 16
+  store double 5.100000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 72), align 8
+  store double 2.100000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 80), align 16
+  store double 3.600000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 88), align 8
+  store double 1.300000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 96), align 16
+  store double 1.340000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 104), align 8
+  store double 2.100000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 112), align 16
+  store double 5.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 120), align 8
+  store double 1.540000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 128), align 16
+  store double 1.020000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 136), align 8
+  store double 2.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 144), align 16
+  store double 5.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 152), align 8
+  store double 1.420000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 160), align 16
+  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 168), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 176), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 184), align 8
+  store double 2.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 192), align 16
+  store double 4.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 200), align 8
+  store double 2.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 208), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 216), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 224), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 232), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 240), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 248), align 8
+  store double 3.370000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 256), align 16
+  store double 2.190000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 264), align 8
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 272), align 16
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 280), align 8
+  store double 5.800000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 288), align 16
+  store double 1.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 296), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 304), align 16
+  store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9tldInitBBE, i64 312), align 8
+  store double 1.420000e+02, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, align 16
+  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 8), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 16), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 24), align 8
+  store double 4.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 32), align 16
+  store double 4.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 40), align 8
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 48), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 56), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 64), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 72), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 80), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 88), align 8
+  store double 1.450000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 96), align 16
+  store double 8.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 104), align 8
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 112), align 16
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 120), align 8
+  store double 5.800000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 128), align 16
+  store double 1.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 136), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 144), align 16
+  store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 152), align 8
+  store double 4.500000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 160), align 16
+  store double 3.800000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 168), align 8
+  store double 6.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 176), align 16
+  store double 6.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 184), align 8
+  store double 2.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 192), align 16
+  store double 4.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 200), align 8
+  store double 2.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 208), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 216), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 224), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 232), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 240), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 248), align 8
+  store double 2.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 256), align 16
+  store double 1.750000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 264), align 8
+  store double 5.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 272), align 16
+  store double 5.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 280), align 8
+  store double 5.800000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 288), align 16
+  store double 1.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 296), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 304), align 16
+  store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 312), align 8
+  store double 1.420000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 320), align 16
+  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 328), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 336), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 344), align 8
+  store double 2.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 352), align 16
+  store double 4.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 360), align 8
+  store double 2.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 368), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 376), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 384), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 392), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 400), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 408), align 8
+  store double 1.450000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 416), align 16
+  store double 8.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 424), align 8
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 432), align 16
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 440), align 8
+  store double 5.600000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 448), align 16
+  store double 4.600000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 456), align 8
+  store double 5.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 464), align 16
+  store double 1.200000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 472), align 8
+  store double 1.420000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 480), align 16
+  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 488), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 496), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 504), align 8
+  store double 2.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 512), align 16
+  store double 4.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 520), align 8
+  store double 2.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 528), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 536), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 544), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 552), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 560), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 568), align 8
+  store double 1.450000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 576), align 16
+  store double 8.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 584), align 8
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 592), align 16
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 600), align 8
+  store double 5.800000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 608), align 16
+  store double 1.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 616), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 624), align 16
+  store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 632), align 8
+  store double 1.420000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 640), align 16
+  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 648), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 656), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 664), align 8
+  store double 2.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 672), align 16
+  store double 4.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 680), align 8
+  store double 2.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 688), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 696), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 704), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 712), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 720), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 728), align 8
+  store double 1.450000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 736), align 16
+  store double 8.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 744), align 8
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 752), align 16
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 760), align 8
+  store double 5.800000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 768), align 16
+  store double 1.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 776), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 784), align 16
+  store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 792), align 8
+  store double 1.420000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 800), align 16
+  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 808), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 816), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 824), align 8
+  store double 2.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 832), align 16
+  store double 4.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 840), align 8
+  store double 2.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 848), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 856), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 864), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 872), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 880), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 888), align 8
+  store double 1.450000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 896), align 16
+  store double 8.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 904), align 8
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 912), align 16
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 920), align 8
+  store double 5.800000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 928), align 16
+  store double 1.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 936), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 944), align 16
+  store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 952), align 8
+  store double 1.420000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 960), align 16
+  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 968), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 976), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 984), align 8
+  store double 2.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 992), align 16
+  store double 4.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1000), align 8
+  store double 2.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1008), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1016), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1024), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1032), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1040), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1048), align 8
+  store double 1.450000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1056), align 16
+  store double 8.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1064), align 8
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1072), align 16
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1080), align 8
+  store double 5.800000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1088), align 16
+  store double 1.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1096), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1104), align 16
+  store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1112), align 8
+  store double 1.420000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1120), align 16
+  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1128), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1136), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1144), align 8
+  store double 2.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1152), align 16
+  store double 4.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1160), align 8
+  store double 2.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1168), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1176), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1184), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1192), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1200), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1208), align 8
+  store double 1.450000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1216), align 16
+  store double 8.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1224), align 8
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1232), align 16
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1240), align 8
+  store double 5.800000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1248), align 16
+  store double 1.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1256), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1264), align 16
+  store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1272), align 8
+  store double 1.420000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1280), align 16
+  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1288), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1296), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1304), align 8
+  store double 2.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1312), align 16
+  store double 4.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1320), align 8
+  store double 2.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1328), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1336), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1344), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1352), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1360), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1368), align 8
+  store double 1.450000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1376), align 16
+  store double 8.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1384), align 8
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1392), align 16
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1400), align 8
+  store double 5.800000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1408), align 16
+  store double 1.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1416), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1424), align 16
+  store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1432), align 8
+  store double 1.420000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1440), align 16
+  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1448), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1456), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1464), align 8
+  store double 2.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1472), align 16
+  store double 4.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1480), align 8
+  store double 2.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1488), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1496), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1504), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1512), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1520), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1528), align 8
+  store double 1.450000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1536), align 16
+  store double 8.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1544), align 8
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1552), align 16
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1560), align 8
+  store double 5.800000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1568), align 16
+  store double 1.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1576), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1584), align 16
+  store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1592), align 8
+  store double 1.420000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1600), align 16
+  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1608), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1616), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1624), align 8
+  store double 2.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1632), align 16
+  store double 4.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1640), align 8
+  store double 2.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1648), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1656), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1664), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1672), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1680), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1688), align 8
+  store double 1.450000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1696), align 16
+  store double 8.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1704), align 8
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1712), align 16
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1720), align 8
+  store double 5.800000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1728), align 16
+  store double 1.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1736), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1744), align 16
+  store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1752), align 8
+  store double 1.420000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1760), align 16
+  store double 1.250000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1768), align 8
+  store double 9.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1776), align 16
+  store double 3.900000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1784), align 8
+  store double 2.900000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1792), align 16
+  store double 4.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1800), align 8
+  store double 2.300000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1808), align 16
+  store double 4.000000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1816), align 8
+  store double 2.730000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1824), align 16
+  store double 7.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1832), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1840), align 16
+  store double 2.500000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1848), align 8
+  store double 1.450000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1856), align 16
+  store double 8.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1864), align 8
+  store double 5.400000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1872), align 16
+  store double 3.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1880), align 8
+  store double 5.800000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1888), align 16
+  store double 1.000000e+02, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1896), align 8
+  store double 2.700000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1904), align 16
+  store double 2.200000e+01, ptr getelementptr inbounds (i8, ptr @_ZN2cv6detail8tracking3tldL9votInitBBE, i64 1912), align 8
   ret void
 }
 

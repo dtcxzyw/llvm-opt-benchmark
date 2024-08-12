@@ -1319,7 +1319,7 @@ agsubrep.exit25:                                  ; preds = %43, %45
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @agdeledge(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Agsubnode_s, align 8
-  %4 = alloca %struct.Agedge_s, align 16
+  %4 = alloca %struct.Agedge_s, align 8
   %5 = load i32, ptr %1, align 8
   %6 = and i32 %5, 3
   %7 = icmp eq i32 %6, 2
@@ -1337,100 +1337,103 @@ define range(i32 -1, 1) i32 @agdeledge(ptr noundef %0, ptr noundef %1) local_unn
   %16 = getelementptr inbounds i8, ptr %8, i64 %.idx28
   %17 = getelementptr inbounds i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
-  %20 = load <2 x i64>, ptr %8, align 8
+  %19 = load i64, ptr %8, align 8
+  %20 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = load i64, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  %21 = icmp eq ptr %14, null
-  %22 = icmp eq ptr %18, null
-  %or.cond.i = or i1 %21, %22
-  br i1 %or.cond.i, label %agfindedge_by_key.exit.thread, label %23
+  %22 = icmp eq ptr %14, null
+  %23 = icmp eq ptr %18, null
+  %or.cond.i = or i1 %22, %23
+  br i1 %or.cond.i, label %agfindedge_by_key.exit.thread, label %24
 
-23:                                               ; preds = %2
-  store <2 x i64> %20, ptr %4, align 16
-  %24 = getelementptr inbounds i8, ptr %4, i64 56
-  store ptr %14, ptr %24, align 8
+24:                                               ; preds = %2
+  store i64 %19, ptr %4, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %21, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr %14, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  %25 = getelementptr inbounds i8, ptr %18, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, %0
-  br i1 %27, label %agsubrep.exit.thread.i, label %agsubrep.exit.i
+  %26 = getelementptr inbounds i8, ptr %18, i64 24
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, %0
+  br i1 %28, label %agsubrep.exit.thread.i, label %agsubrep.exit.i
 
-agsubrep.exit.thread.i:                           ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %18, i64 32
+agsubrep.exit.thread.i:                           ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %18, i64 32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   br label %agfindedge_by_key.exit
 
-agsubrep.exit.i:                                  ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %18, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
-  %31 = load ptr, ptr %30, align 8
+agsubrep.exit.i:                                  ; preds = %24
+  %30 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %18, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 72
   %32 = load ptr, ptr %31, align 8
-  %33 = call ptr %32(ptr noundef nonnull %31, ptr noundef nonnull %3, i32 noundef 4) #6
+  %33 = load ptr, ptr %32, align 8
+  %34 = call ptr %33(ptr noundef nonnull %32, ptr noundef nonnull %3, i32 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  %.not.i = icmp eq ptr %33, null
+  %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %agfindedge_by_key.exit.thread, label %agfindedge_by_key.exit
 
 agfindedge_by_key.exit.thread:                    ; preds = %2, %agsubrep.exit.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  br label %62
+  br label %63
 
 agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.thread.i, %agsubrep.exit.i
-  %.0.i21.i = phi ptr [ %28, %agsubrep.exit.thread.i ], [ %33, %agsubrep.exit.i ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 88
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i21.i, i64 40
-  %37 = load ptr, ptr %36, align 8
-  %38 = call i32 @dtrestore(ptr noundef %35, ptr noundef %37) #6
-  %39 = load ptr, ptr %34, align 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = call ptr %40(ptr noundef nonnull %39, ptr noundef nonnull %4, i32 noundef 4) #6
-  %42 = load ptr, ptr %34, align 8
-  %43 = call ptr @dtextract(ptr noundef %42) #6
-  store ptr %43, ptr %36, align 8
+  %.0.i21.i = phi ptr [ %29, %agsubrep.exit.thread.i ], [ %34, %agsubrep.exit.i ]
+  %35 = getelementptr inbounds i8, ptr %0, i64 88
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %.0.i21.i, i64 40
+  %38 = load ptr, ptr %37, align 8
+  %39 = call i32 @dtrestore(ptr noundef %36, ptr noundef %38) #6
+  %40 = load ptr, ptr %35, align 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = call ptr %41(ptr noundef nonnull %40, ptr noundef nonnull %4, i32 noundef 4) #6
+  %43 = load ptr, ptr %35, align 8
+  %44 = call ptr @dtextract(ptr noundef %43) #6
+  store ptr %44, ptr %37, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  %44 = icmp eq ptr %41, null
-  br i1 %44, label %62, label %45
+  %45 = icmp eq ptr %42, null
+  br i1 %45, label %63, label %46
 
-45:                                               ; preds = %agfindedge_by_key.exit
-  %46 = call ptr @agroot(ptr noundef nonnull %0) #6
-  %47 = icmp eq ptr %46, %0
-  br i1 %47, label %48, label %55
+46:                                               ; preds = %agfindedge_by_key.exit
+  %47 = call ptr @agroot(ptr noundef nonnull %0) #6
+  %48 = icmp eq ptr %47, %0
+  br i1 %48, label %49, label %56
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
-  %50 = load i8, ptr %49, align 8
-  %51 = and i8 %50, 32
-  %.not = icmp eq i8 %51, 0
-  br i1 %.not, label %53, label %52
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = load i8, ptr %50, align 8
+  %52 = and i8 %51, 32
+  %.not = icmp eq i8 %52, 0
+  br i1 %.not, label %54, label %53
 
-52:                                               ; preds = %48
+53:                                               ; preds = %49
   call void @agedgeattr_delete(ptr noundef nonnull %8) #6
-  br label %53
+  br label %54
 
-53:                                               ; preds = %52, %48
+54:                                               ; preds = %53, %49
   call void @agmethod_delete(ptr noundef nonnull %0, ptr noundef nonnull %8) #6
   call void @agrecclose(ptr noundef nonnull %8) #6
-  %54 = load i64, ptr %19, align 8
-  call void @agfreeid(ptr noundef nonnull %0, i32 noundef 2, i64 noundef %54) #6
-  br label %55
+  %55 = load i64, ptr %20, align 8
+  call void @agfreeid(ptr noundef nonnull %0, i32 noundef 2, i64 noundef %55) #6
+  br label %56
 
-55:                                               ; preds = %53, %45
-  %56 = call i32 @agapply(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @agdeledgeimage, ptr noundef null, i32 noundef 0) #6
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %62
+56:                                               ; preds = %54, %46
+  %57 = call i32 @agapply(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @agdeledgeimage, ptr noundef null, i32 noundef 0) #6
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %63
 
-58:                                               ; preds = %55
-  %59 = call ptr @agroot(ptr noundef nonnull %0) #6
-  %60 = icmp eq ptr %59, %0
-  br i1 %60, label %61, label %62
+59:                                               ; preds = %56
+  %60 = call ptr @agroot(ptr noundef nonnull %0) #6
+  %61 = icmp eq ptr %60, %0
+  br i1 %61, label %62, label %63
 
-61:                                               ; preds = %58
+62:                                               ; preds = %59
   call void @agfree(ptr noundef nonnull %0, ptr noundef nonnull %8) #6
-  br label %62
+  br label %63
 
-62:                                               ; preds = %agfindedge_by_key.exit.thread, %55, %58, %61, %agfindedge_by_key.exit
-  %.0 = phi i32 [ -1, %agfindedge_by_key.exit ], [ 0, %61 ], [ 0, %58 ], [ -1, %55 ], [ -1, %agfindedge_by_key.exit.thread ]
+63:                                               ; preds = %agfindedge_by_key.exit.thread, %56, %59, %62, %agfindedge_by_key.exit
+  %.0 = phi i32 [ -1, %agfindedge_by_key.exit ], [ 0, %62 ], [ 0, %59 ], [ -1, %56 ], [ -1, %agfindedge_by_key.exit.thread ]
   ret i32 %.0
 }
 
@@ -1449,7 +1452,7 @@ declare void @agfree(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @agsubedge(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Agsubnode_s, align 8
-  %5 = alloca %struct.Agedge_s, align 16
+  %5 = alloca %struct.Agedge_s, align 8
   %6 = load i32, ptr %1, align 8
   %7 = and i32 %6, 3
   %8 = icmp eq i32 %7, 3
@@ -1469,83 +1472,87 @@ define ptr @agsubedge(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   %20 = icmp ne ptr %12, null
   %21 = icmp ne ptr %19, null
   %or.cond = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond, label %22, label %56
+  br i1 %or.cond, label %22, label %58
 
 22:                                               ; preds = %3
+  %23 = load i64, ptr %1, align 8
+  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = load i64, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %23 = load <2 x i64>, ptr %1, align 8
-  store <2 x i64> %23, ptr %5, align 16
-  %24 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr %12, ptr %24, align 8
+  store i64 %23, ptr %5, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %25, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %26 = getelementptr inbounds i8, ptr %5, i64 56
+  store ptr %12, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  %25 = getelementptr inbounds i8, ptr %19, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, %0
-  br i1 %27, label %agsubrep.exit.thread.i, label %agsubrep.exit.i
+  %27 = getelementptr inbounds i8, ptr %19, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, %0
+  br i1 %29, label %agsubrep.exit.thread.i, label %agsubrep.exit.i
 
 agsubrep.exit.thread.i:                           ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %19, i64 32
+  %30 = getelementptr inbounds i8, ptr %19, i64 32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  br label %34
+  br label %36
 
 agsubrep.exit.i:                                  ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %19, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = call ptr %32(ptr noundef nonnull %31, ptr noundef nonnull %4, i32 noundef 4) #6
+  %31 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %19, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = call ptr %34(ptr noundef nonnull %33, ptr noundef nonnull %4, i32 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %agfindedge_by_key.exit, label %34
+  %.not.i = icmp eq ptr %35, null
+  br i1 %.not.i, label %agfindedge_by_key.exit, label %36
 
-34:                                               ; preds = %agsubrep.exit.i, %agsubrep.exit.thread.i
-  %.0.i21.i = phi ptr [ %28, %agsubrep.exit.thread.i ], [ %33, %agsubrep.exit.i ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 88
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i21.i, i64 40
+36:                                               ; preds = %agsubrep.exit.i, %agsubrep.exit.thread.i
+  %.0.i21.i = phi ptr [ %30, %agsubrep.exit.thread.i ], [ %35, %agsubrep.exit.i ]
+  %37 = getelementptr inbounds i8, ptr %0, i64 88
   %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @dtrestore(ptr noundef %36, ptr noundef %38) #6
-  %40 = load ptr, ptr %35, align 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = call ptr %41(ptr noundef nonnull %40, ptr noundef nonnull %5, i32 noundef 4) #6
-  %43 = load ptr, ptr %35, align 8
-  %44 = call ptr @dtextract(ptr noundef %43) #6
-  store ptr %44, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %.0.i21.i, i64 40
+  %40 = load ptr, ptr %39, align 8
+  %41 = call i32 @dtrestore(ptr noundef %38, ptr noundef %40) #6
+  %42 = load ptr, ptr %37, align 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = call ptr %43(ptr noundef nonnull %42, ptr noundef nonnull %5, i32 noundef 4) #6
+  %45 = load ptr, ptr %37, align 8
+  %46 = call ptr @dtextract(ptr noundef %45) #6
+  store ptr %46, ptr %39, align 8
   br label %agfindedge_by_key.exit
 
-agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.i, %34
-  %.0.i = phi ptr [ %42, %34 ], [ null, %agsubrep.exit.i ]
+agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.i, %36
+  %.0.i = phi ptr [ %44, %36 ], [ null, %agsubrep.exit.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %45 = icmp ne i32 %2, 0
-  %46 = icmp eq ptr %.0.i, null
-  %or.cond3 = select i1 %45, i1 %46, i1 false
-  br i1 %or.cond3, label %.thread, label %47
+  %47 = icmp ne i32 %2, 0
+  %48 = icmp eq ptr %.0.i, null
+  %or.cond3 = select i1 %47, i1 %48, i1 false
+  br i1 %or.cond3, label %.thread, label %49
 
 .thread:                                          ; preds = %agfindedge_by_key.exit
   call fastcc void @installedge(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %48
+  br label %50
 
-47:                                               ; preds = %agfindedge_by_key.exit
-  br i1 %46, label %56, label %48
+49:                                               ; preds = %agfindedge_by_key.exit
+  br i1 %48, label %58, label %50
 
-48:                                               ; preds = %.thread, %47
-  %.137 = phi ptr [ %1, %.thread ], [ %.0.i, %47 ]
-  %49 = load i32, ptr %.137, align 8
-  %50 = and i32 %49, 3
-  %51 = load i32, ptr %1, align 8
+50:                                               ; preds = %.thread, %49
+  %.137 = phi ptr [ %1, %.thread ], [ %.0.i, %49 ]
+  %51 = load i32, ptr %.137, align 8
   %52 = and i32 %51, 3
-  %.not34 = icmp eq i32 %50, %52
-  br i1 %.not34, label %56, label %53
+  %53 = load i32, ptr %1, align 8
+  %54 = and i32 %53, 3
+  %.not34 = icmp eq i32 %52, %54
+  br i1 %.not34, label %58, label %55
 
-53:                                               ; preds = %48
-  %54 = icmp eq i32 %50, 3
-  %.v = select i1 %54, i64 -64, i64 64
-  %55 = getelementptr inbounds i8, ptr %.137, i64 %.v
-  br label %56
+55:                                               ; preds = %50
+  %56 = icmp eq i32 %52, 3
+  %.v = select i1 %56, i64 -64, i64 64
+  %57 = getelementptr inbounds i8, ptr %.137, i64 %.v
+  br label %58
 
-56:                                               ; preds = %47, %48, %53, %3
-  %.0 = phi ptr [ %55, %53 ], [ %.137, %48 ], [ null, %47 ], [ null, %3 ]
+58:                                               ; preds = %49, %50, %55, %3
+  %.0 = phi ptr [ %57, %55 ], [ %.137, %50 ], [ null, %49 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1556,7 +1563,7 @@ define internal fastcc void @installedge(ptr noundef %0, ptr noundef %1) unnamed
   %3 = alloca %struct.Agsubnode_s, align 8
   %4 = alloca %struct.Agsubnode_s, align 8
   %5 = alloca %struct.Agsubnode_s, align 8
-  %6 = alloca %struct.Agedge_s, align 16
+  %6 = alloca %struct.Agedge_s, align 8
   %7 = load i32, ptr %1, align 8
   %8 = and i32 %7, 3
   %9 = icmp eq i32 %8, 2
@@ -1573,138 +1580,142 @@ define internal fastcc void @installedge(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %.not41, label %agfindedge_by_key.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %17 = icmp eq ptr %14, null
-  %18 = icmp eq ptr %16, null
-  %or.cond.i = or i1 %17, %18
-  %19 = getelementptr inbounds i8, ptr %6, i64 56
-  %20 = getelementptr inbounds i8, ptr %16, i64 24
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
-  %22 = getelementptr inbounds i8, ptr %16, i64 32
-  %23 = getelementptr inbounds i8, ptr %14, i64 24
-  %24 = getelementptr inbounds i8, ptr %4, i64 32
-  %25 = getelementptr inbounds i8, ptr %14, i64 32
-  %26 = getelementptr inbounds i8, ptr %3, i64 32
-  br label %27
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = icmp eq ptr %14, null
+  %19 = icmp eq ptr %16, null
+  %or.cond.i = or i1 %18, %19
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 56
+  %21 = getelementptr inbounds i8, ptr %16, i64 24
+  %22 = getelementptr inbounds i8, ptr %5, i64 32
+  %23 = getelementptr inbounds i8, ptr %16, i64 32
+  %24 = getelementptr inbounds i8, ptr %14, i64 24
+  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %26 = getelementptr inbounds i8, ptr %14, i64 32
+  %27 = getelementptr inbounds i8, ptr %3, i64 32
+  br label %28
 
-27:                                               ; preds = %.lr.ph, %agsubrep.exit38
-  %.042 = phi ptr [ %0, %.lr.ph ], [ %91, %agsubrep.exit38 ]
-  %28 = load <2 x i64>, ptr %1, align 8
+28:                                               ; preds = %.lr.ph, %agsubrep.exit38
+  %.042 = phi ptr [ %0, %.lr.ph ], [ %93, %agsubrep.exit38 ]
+  %29 = load i64, ptr %1, align 8
+  %30 = load i64, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  br i1 %or.cond.i, label %agfindedge_by_key.exit.thread, label %29
+  br i1 %or.cond.i, label %agfindedge_by_key.exit.thread, label %31
 
-29:                                               ; preds = %27
-  store <2 x i64> %28, ptr %6, align 16
-  store ptr %14, ptr %19, align 8
+31:                                               ; preds = %28
+  store i64 %29, ptr %6, align 8
+  store i64 %30, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store ptr %14, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
-  %30 = load ptr, ptr %20, align 8
-  %31 = icmp eq ptr %30, %.042
-  br i1 %31, label %agsubrep.exit.thread.i, label %agsubrep.exit.i
+  %32 = load ptr, ptr %21, align 8
+  %33 = icmp eq ptr %32, %.042
+  br i1 %33, label %agsubrep.exit.thread.i, label %agsubrep.exit.i
 
-agsubrep.exit.thread.i:                           ; preds = %29
+agsubrep.exit.thread.i:                           ; preds = %31
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   br label %agfindedge_by_key.exit
 
-agsubrep.exit.i:                                  ; preds = %29
-  store ptr %16, ptr %21, align 8
-  %32 = getelementptr inbounds i8, ptr %.042, i64 72
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = call ptr %34(ptr noundef nonnull %33, ptr noundef nonnull %5, i32 noundef 4) #6
+agsubrep.exit.i:                                  ; preds = %31
+  store ptr %16, ptr %22, align 8
+  %34 = getelementptr inbounds i8, ptr %.042, i64 72
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = call ptr %36(ptr noundef nonnull %35, ptr noundef nonnull %5, i32 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
-  %.not.i = icmp eq ptr %35, null
+  %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %agfindedge_by_key.exit.thread, label %agfindedge_by_key.exit
 
-agfindedge_by_key.exit.thread:                    ; preds = %27, %agsubrep.exit.i
+agfindedge_by_key.exit.thread:                    ; preds = %28, %agsubrep.exit.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br label %46
+  br label %48
 
 agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.thread.i, %agsubrep.exit.i
-  %.0.i21.i = phi ptr [ %22, %agsubrep.exit.thread.i ], [ %35, %agsubrep.exit.i ]
-  %36 = getelementptr inbounds i8, ptr %.042, i64 88
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i21.i, i64 40
+  %.0.i21.i = phi ptr [ %23, %agsubrep.exit.thread.i ], [ %37, %agsubrep.exit.i ]
+  %38 = getelementptr inbounds i8, ptr %.042, i64 88
   %39 = load ptr, ptr %38, align 8
-  %40 = call i32 @dtrestore(ptr noundef %37, ptr noundef %39) #6
-  %41 = load ptr, ptr %36, align 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = call ptr %42(ptr noundef nonnull %41, ptr noundef nonnull %6, i32 noundef 4) #6
-  %44 = load ptr, ptr %36, align 8
-  %45 = call ptr @dtextract(ptr noundef %44) #6
-  store ptr %45, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %.0.i21.i, i64 40
+  %41 = load ptr, ptr %40, align 8
+  %42 = call i32 @dtrestore(ptr noundef %39, ptr noundef %41) #6
+  %43 = load ptr, ptr %38, align 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = call ptr %44(ptr noundef nonnull %43, ptr noundef nonnull %6, i32 noundef 4) #6
+  %46 = load ptr, ptr %38, align 8
+  %47 = call ptr @dtextract(ptr noundef %46) #6
+  store ptr %47, ptr %40, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  %.not35 = icmp eq ptr %43, null
-  br i1 %.not35, label %46, label %agfindedge_by_key.exit._crit_edge
+  %.not35 = icmp eq ptr %45, null
+  br i1 %.not35, label %48, label %agfindedge_by_key.exit._crit_edge
 
-46:                                               ; preds = %agfindedge_by_key.exit.thread, %agfindedge_by_key.exit
+48:                                               ; preds = %agfindedge_by_key.exit.thread, %agfindedge_by_key.exit
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  %47 = load ptr, ptr %23, align 8
-  %48 = icmp eq ptr %47, %.042
-  br i1 %48, label %agsubrep.exit, label %49
+  %49 = load ptr, ptr %24, align 8
+  %50 = icmp eq ptr %49, %.042
+  br i1 %50, label %agsubrep.exit, label %51
 
-49:                                               ; preds = %46
-  store ptr %14, ptr %24, align 8
-  %50 = getelementptr inbounds i8, ptr %.042, i64 72
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = call ptr %52(ptr noundef nonnull %51, ptr noundef nonnull %4, i32 noundef 4) #6
+51:                                               ; preds = %48
+  store ptr %14, ptr %25, align 8
+  %52 = getelementptr inbounds i8, ptr %.042, i64 72
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = call ptr %54(ptr noundef nonnull %53, ptr noundef nonnull %4, i32 noundef 4) #6
   br label %agsubrep.exit
 
-agsubrep.exit:                                    ; preds = %46, %49
-  %.0.i36 = phi ptr [ %53, %49 ], [ %25, %46 ]
+agsubrep.exit:                                    ; preds = %48, %51
+  %.0.i36 = phi ptr [ %55, %51 ], [ %26, %48 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  %54 = getelementptr inbounds i8, ptr %.042, i64 80
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.0.i36, i64 64
+  %56 = getelementptr inbounds i8, ptr %.042, i64 80
   %57 = load ptr, ptr %56, align 8
-  %58 = call i32 @dtrestore(ptr noundef %55, ptr noundef %57) #6
-  %59 = load ptr, ptr %55, align 8
-  %60 = call ptr %59(ptr noundef nonnull %55, ptr noundef nonnull %10, i32 noundef 1) #6
-  %61 = call ptr @dtextract(ptr noundef nonnull %55) #6
-  store ptr %61, ptr %56, align 8
-  %62 = getelementptr inbounds i8, ptr %.042, i64 88
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.0.i36, i64 48
+  %58 = getelementptr inbounds i8, ptr %.0.i36, i64 64
+  %59 = load ptr, ptr %58, align 8
+  %60 = call i32 @dtrestore(ptr noundef %57, ptr noundef %59) #6
+  %61 = load ptr, ptr %57, align 8
+  %62 = call ptr %61(ptr noundef nonnull %57, ptr noundef nonnull %10, i32 noundef 1) #6
+  %63 = call ptr @dtextract(ptr noundef nonnull %57) #6
+  store ptr %63, ptr %58, align 8
+  %64 = getelementptr inbounds i8, ptr %.042, i64 88
   %65 = load ptr, ptr %64, align 8
-  %66 = call i32 @dtrestore(ptr noundef %63, ptr noundef %65) #6
-  %67 = load ptr, ptr %63, align 8
-  %68 = call ptr %67(ptr noundef nonnull %63, ptr noundef nonnull %10, i32 noundef 1) #6
-  %69 = call ptr @dtextract(ptr noundef nonnull %63) #6
-  store ptr %69, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %.0.i36, i64 48
+  %67 = load ptr, ptr %66, align 8
+  %68 = call i32 @dtrestore(ptr noundef %65, ptr noundef %67) #6
+  %69 = load ptr, ptr %65, align 8
+  %70 = call ptr %69(ptr noundef nonnull %65, ptr noundef nonnull %10, i32 noundef 1) #6
+  %71 = call ptr @dtextract(ptr noundef nonnull %65) #6
+  store ptr %71, ptr %66, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  %70 = load ptr, ptr %20, align 8
-  %71 = icmp eq ptr %70, %.042
-  br i1 %71, label %agsubrep.exit38, label %72
+  %72 = load ptr, ptr %21, align 8
+  %73 = icmp eq ptr %72, %.042
+  br i1 %73, label %agsubrep.exit38, label %74
 
-72:                                               ; preds = %agsubrep.exit
-  store ptr %16, ptr %26, align 8
-  %73 = getelementptr inbounds i8, ptr %.042, i64 72
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = call ptr %75(ptr noundef nonnull %74, ptr noundef nonnull %3, i32 noundef 4) #6
+74:                                               ; preds = %agsubrep.exit
+  store ptr %16, ptr %27, align 8
+  %75 = getelementptr inbounds i8, ptr %.042, i64 72
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = call ptr %77(ptr noundef nonnull %76, ptr noundef nonnull %3, i32 noundef 4) #6
   br label %agsubrep.exit38
 
-agsubrep.exit38:                                  ; preds = %agsubrep.exit, %72
-  %.0.i37 = phi ptr [ %76, %72 ], [ %22, %agsubrep.exit ]
+agsubrep.exit38:                                  ; preds = %agsubrep.exit, %74
+  %.0.i37 = phi ptr [ %78, %74 ], [ %23, %agsubrep.exit ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  %77 = load ptr, ptr %54, align 8
-  %78 = getelementptr inbounds i8, ptr %.0.i37, i64 56
-  %79 = load ptr, ptr %78, align 8
-  %80 = call i32 @dtrestore(ptr noundef %77, ptr noundef %79) #6
-  %81 = load ptr, ptr %77, align 8
-  %82 = call ptr %81(ptr noundef nonnull %77, ptr noundef nonnull %12, i32 noundef 1) #6
-  %83 = call ptr @dtextract(ptr noundef nonnull %77) #6
-  store ptr %83, ptr %78, align 8
-  %84 = load ptr, ptr %62, align 8
-  %85 = getelementptr inbounds i8, ptr %.0.i37, i64 40
-  %86 = load ptr, ptr %85, align 8
-  %87 = call i32 @dtrestore(ptr noundef %84, ptr noundef %86) #6
-  %88 = load ptr, ptr %84, align 8
-  %89 = call ptr %88(ptr noundef nonnull %84, ptr noundef nonnull %12, i32 noundef 1) #6
-  %90 = call ptr @dtextract(ptr noundef nonnull %84) #6
-  store ptr %90, ptr %85, align 8
-  %91 = call ptr @agparent(ptr noundef nonnull %.042) #6
-  %.not = icmp eq ptr %91, null
-  br i1 %.not, label %agfindedge_by_key.exit._crit_edge, label %27
+  %79 = load ptr, ptr %56, align 8
+  %80 = getelementptr inbounds i8, ptr %.0.i37, i64 56
+  %81 = load ptr, ptr %80, align 8
+  %82 = call i32 @dtrestore(ptr noundef %79, ptr noundef %81) #6
+  %83 = load ptr, ptr %79, align 8
+  %84 = call ptr %83(ptr noundef nonnull %79, ptr noundef nonnull %12, i32 noundef 1) #6
+  %85 = call ptr @dtextract(ptr noundef nonnull %79) #6
+  store ptr %85, ptr %80, align 8
+  %86 = load ptr, ptr %64, align 8
+  %87 = getelementptr inbounds i8, ptr %.0.i37, i64 40
+  %88 = load ptr, ptr %87, align 8
+  %89 = call i32 @dtrestore(ptr noundef %86, ptr noundef %88) #6
+  %90 = load ptr, ptr %86, align 8
+  %91 = call ptr %90(ptr noundef nonnull %86, ptr noundef nonnull %12, i32 noundef 1) #6
+  %92 = call ptr @dtextract(ptr noundef nonnull %86) #6
+  store ptr %92, ptr %87, align 8
+  %93 = call ptr @agparent(ptr noundef nonnull %.042) #6
+  %.not = icmp eq ptr %93, null
+  br i1 %.not, label %agfindedge_by_key.exit._crit_edge, label %28
 
 agfindedge_by_key.exit._crit_edge:                ; preds = %agsubrep.exit38, %agfindedge_by_key.exit, %2
   ret void

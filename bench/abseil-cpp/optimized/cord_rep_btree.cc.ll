@@ -6375,7 +6375,13 @@ entry:
   store i32 2, ptr %refcount.i.i.i, align 4
   store i64 0, ptr %call.i, align 8
   %tag.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
-  store <4 x i8> <i8 3, i8 0, i8 0, i8 0>, ptr %tag.i.i, align 4
+  store i8 3, ptr %tag.i.i, align 4
+  %storage.i.i = getelementptr inbounds i8, ptr %call.i, i64 13
+  store i8 0, ptr %storage.i.i, align 1
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %call.i, i64 14
+  store i8 0, ptr %arrayidx4.i.i, align 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %call.i, i64 15
+  store i8 0, ptr %arrayidx7.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %stack, i8 0, i64 104, i1 false)
   store ptr %call.i, ptr %stack, align 16
   call void @_ZN4absl13cord_internal12CordRepBtree7RebuildEPPS1_S2_b(ptr noundef nonnull %stack, ptr noundef %tree, i1 noundef zeroext true)
@@ -6787,7 +6793,13 @@ if.then:                                          ; preds = %sw.bb
   store i32 2, ptr %refcount.i.i.i.i, align 4
   store i64 0, ptr %call.i.i, align 8
   %tag.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
-  store <4 x i8> <i8 3, i8 0, i8 0, i8 0>, ptr %tag.i.i.i, align 4
+  store i8 3, ptr %tag.i.i.i, align 4
+  %storage.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 13
+  store i8 0, ptr %storage.i.i.i, align 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 14
+  store i8 0, ptr %arrayidx4.i.i.i, align 1
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 15
+  store i8 0, ptr %arrayidx7.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %stack.i, i8 0, i64 104, i1 false)
   store ptr %call.i.i, ptr %stack.i, align 16
   call void @_ZN4absl13cord_internal12CordRepBtree7RebuildEPPS1_S2_b(ptr noundef nonnull %stack.i, ptr noundef nonnull %call.i, i1 noundef zeroext true)
@@ -6879,7 +6891,13 @@ if.then:                                          ; preds = %sw.bb
   store i32 2, ptr %refcount.i.i.i.i, align 4
   store i64 0, ptr %call.i.i, align 8
   %tag.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
-  store <4 x i8> <i8 3, i8 0, i8 0, i8 0>, ptr %tag.i.i.i, align 4
+  store i8 3, ptr %tag.i.i.i, align 4
+  %storage.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 13
+  store i8 0, ptr %storage.i.i.i, align 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 14
+  store i8 0, ptr %arrayidx4.i.i.i, align 1
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 15
+  store i8 0, ptr %arrayidx7.i.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %stack.i, i8 0, i64 104, i1 false)
   store ptr %call.i.i, ptr %stack.i, align 16
   call void @_ZN4absl13cord_internal12CordRepBtree7RebuildEPPS1_S2_b(ptr noundef nonnull %stack.i, ptr noundef nonnull %call.i, i1 noundef zeroext true)

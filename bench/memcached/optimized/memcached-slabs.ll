@@ -709,14 +709,22 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %indvars.iv
   %arrayidx2 = getelementptr inbounds %struct.slab_stats_automove, ptr %am, i64 %indvars.iv
+  %perslab = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %0 = load i32, ptr %perslab, align 4
+  store i32 %0, ptr %arrayidx2, align 8
   %sl_curr = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %1 = load i32, ptr %sl_curr, align 8
+  %conv = zext i32 %1 to i64
   %free_chunks = getelementptr inbounds i8, ptr %arrayidx2, i64 8
-  %0 = load <2 x i32>, ptr %sl_curr, align 8
-  %1 = zext <2 x i32> %0 to <2 x i64>
-  store <2 x i64> %1, ptr %free_chunks, align 8
-  %2 = load <2 x i32>, ptr %arrayidx, align 8
-  %3 = shufflevector <2 x i32> %2, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %3, ptr %arrayidx2, align 8
+  store i64 %conv, ptr %free_chunks, align 8
+  %slabs = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %2 = load i32, ptr %slabs, align 4
+  %conv3 = zext i32 %2 to i64
+  %total_pages = getelementptr inbounds i8, ptr %arrayidx2, i64 16
+  store i64 %conv3, ptr %total_pages, align 8
+  %3 = load i32, ptr %arrayidx, align 8
+  %chunk_size = getelementptr inbounds i8, ptr %arrayidx2, i64 4
+  store i32 %3, ptr %chunk_size, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
@@ -2211,42 +2219,49 @@ if.end18.i:                                       ; preds = %while.body.i.i, %ge
   store i32 0, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 60), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @slab_rebal, i8 0, i64 32, i1 false)
-  %142 = load i32, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 36), align 4
-  %143 = load i32, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 48), align 8
-  %144 = load i32, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 52), align 4
-  %conv21.i = zext i32 %142 to i64
-  %145 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %conv21.i, i64 1
-  %146 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 40), align 8
+  %142 = load i32, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 40), align 8
+  %143 = load i32, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 44), align 4
+  %144 = load i32, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 36), align 4
+  %145 = load i32, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 48), align 8
+  %146 = load i32, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 52), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (i8, ptr @slab_rebal, i64 36), i8 0, i64 20, i1 false)
   store volatile i32 0, ptr @slab_rebalance_signal, align 4
   %147 = load ptr, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 64), align 8
   tail call void @free(ptr noundef %147) #22
   %call19.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #22
   tail call void @STATS_LOCK() #22
-  %148 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @stats, i64 40), align 8
-  %149 = add <2 x i64> %148, %145
-  store <2 x i64> %149, ptr getelementptr inbounds (i8, ptr @stats, i64 40), align 8
-  %150 = zext <2 x i32> %146 to <2 x i64>
-  %151 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @stats, i64 56), align 8
-  %152 = add <2 x i64> %151, %150
-  store <2 x i64> %152, ptr getelementptr inbounds (i8, ptr @stats, i64 56), align 8
-  %conv27.i = zext i32 %143 to i64
-  %153 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 72), align 8
-  %add28.i = add i64 %153, %conv27.i
+  %148 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 40), align 8
+  %inc20.i = add i64 %148, 1
+  store i64 %inc20.i, ptr getelementptr inbounds (i8, ptr @stats, i64 40), align 8
+  %conv21.i = zext i32 %144 to i64
+  %149 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 48), align 8
+  %add22.i = add i64 %149, %conv21.i
+  store i64 %add22.i, ptr getelementptr inbounds (i8, ptr @stats, i64 48), align 8
+  %conv23.i = zext i32 %142 to i64
+  %150 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 56), align 8
+  %add24.i = add i64 %150, %conv23.i
+  store i64 %add24.i, ptr getelementptr inbounds (i8, ptr @stats, i64 56), align 8
+  %conv25.i = zext i32 %143 to i64
+  %151 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 64), align 8
+  %add26.i = add i64 %151, %conv25.i
+  store i64 %add26.i, ptr getelementptr inbounds (i8, ptr @stats, i64 64), align 8
+  %conv27.i = zext i32 %145 to i64
+  %152 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 72), align 8
+  %add28.i = add i64 %152, %conv27.i
   store i64 %add28.i, ptr getelementptr inbounds (i8, ptr @stats, i64 72), align 8
-  %conv29.i = zext i32 %144 to i64
-  %154 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 88), align 8
-  %add30.i = add i64 %154, %conv29.i
+  %conv29.i = zext i32 %146 to i64
+  %153 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 88), align 8
+  %add30.i = add i64 %153, %conv29.i
   store i64 %add30.i, ptr getelementptr inbounds (i8, ptr @stats, i64 88), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @stats_state, i64 50), align 2
   tail call void @STATS_UNLOCK() #22
-  %155 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
-  %cmp31.i27 = icmp sgt i32 %155, 1
+  %154 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
+  %cmp31.i27 = icmp sgt i32 %154, 1
   br i1 %cmp31.i27, label %if.then33.i, label %if.end21
 
 if.then33.i:                                      ; preds = %if.end18.i
-  %156 = load ptr, ptr @stderr, align 8
-  %157 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 21, i64 1, ptr %156) #23
+  %155 = load ptr, ptr @stderr, align 8
+  %156 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 21, i64 1, ptr %155) #23
   br label %if.end21
 
 if.else13:                                        ; preds = %if.end10
@@ -2262,8 +2277,8 @@ if.then15:                                        ; preds = %if.else13
 
 if.end21:                                         ; preds = %if.then33.i, %if.end18.i, %if.then15, %if.else13
   %backoff_timer.1 = phi i32 [ %backoff_timer.0, %if.else13 ], [ %spec.select, %if.then15 ], [ %backoff_timer.0, %if.end18.i ], [ %backoff_timer.0, %if.then33.i ]
-  %158 = load volatile i32, ptr @slab_rebalance_signal, align 4
-  %cmp22 = icmp eq i32 %158, 0
+  %157 = load volatile i32, ptr @slab_rebalance_signal, align 4
+  %cmp22 = icmp eq i32 %157, 0
   br i1 %cmp22, label %if.then23, label %while.cond.backedge
 
 if.then23:                                        ; preds = %if.end21

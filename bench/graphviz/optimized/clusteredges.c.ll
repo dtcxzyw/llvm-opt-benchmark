@@ -365,7 +365,7 @@ define internal fastcc void @addGraphObjs(ptr nocapture noundef %0, ptr noundef 
   %.not34 = icmp eq ptr %6, null
   br i1 %.not34, label %.preheader, label %.lr.ph
 
-.preheader:                                       ; preds = %23, %5
+.preheader:                                       ; preds = %24, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 236
@@ -375,133 +375,156 @@ define internal fastcc void @addGraphObjs(ptr nocapture noundef %0, ptr noundef 
 
 .lr.ph38:                                         ; preds = %.preheader
   %11 = getelementptr inbounds i8, ptr %4, i64 8
-  br label %25
+  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  br label %26
 
-.lr.ph:                                           ; preds = %5, %23
-  %.02535 = phi ptr [ %24, %23 ], [ %6, %5 ]
-  %12 = getelementptr inbounds i8, ptr %.02535, i64 16
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 336
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp ne ptr %15, %1
+.lr.ph:                                           ; preds = %5, %24
+  %.02535 = phi ptr [ %25, %24 ], [ %6, %5 ]
+  %13 = getelementptr inbounds i8, ptr %.02535, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 336
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr %16, %1
   %.not30 = icmp eq ptr %.02535, %2
-  %or.cond = or i1 %.not30, %16
+  %or.cond = or i1 %.not30, %17
   %.not31 = icmp eq ptr %.02535, %3
   %or.cond32 = or i1 %.not31, %or.cond
-  br i1 %or.cond32, label %23, label %17
+  br i1 %or.cond32, label %24, label %18
 
-17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %13, i64 162
-  %19 = load i8, ptr %18, align 2
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %23, label %21
+18:                                               ; preds = %.lr.ph
+  %19 = getelementptr inbounds i8, ptr %14, i64 162
+  %20 = load i8, ptr %19, align 2
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %24, label %22
 
-21:                                               ; preds = %17
-  %22 = tail call ptr @makeObstacle(ptr noundef nonnull %.02535, ptr noundef %4, i1 noundef zeroext false) #14
-  tail call fastcc void @objlist_append(ptr noundef %0, ptr noundef %22)
-  br label %23
+22:                                               ; preds = %18
+  %23 = tail call ptr @makeObstacle(ptr noundef nonnull %.02535, ptr noundef %4, i1 noundef zeroext false) #14
+  tail call fastcc void @objlist_append(ptr noundef %0, ptr noundef %23)
+  br label %24
 
-23:                                               ; preds = %.lr.ph, %17, %21
-  %24 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.02535) #14
-  %.not = icmp eq ptr %24, null
+24:                                               ; preds = %.lr.ph, %18, %22
+  %25 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.02535) #14
+  %.not = icmp eq ptr %25, null
   br i1 %.not, label %.preheader, label %.lr.ph
 
-25:                                               ; preds = %.lr.ph38, %74
-  %26 = phi ptr [ %8, %.lr.ph38 ], [ %75, %74 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph38 ], [ %indvars.iv.next, %74 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 240
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv
-  %30 = load ptr, ptr %29, align 8
-  %.not28 = icmp eq ptr %30, %2
-  %.not29 = icmp eq ptr %30, %3
+26:                                               ; preds = %.lr.ph38, %84
+  %27 = phi ptr [ %8, %.lr.ph38 ], [ %85, %84 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph38 ], [ %indvars.iv.next, %84 ]
+  %28 = getelementptr inbounds i8, ptr %27, i64 240
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
+  %31 = load ptr, ptr %30, align 8
+  %.not28 = icmp eq ptr %31, %2
+  %.not29 = icmp eq ptr %31, %3
   %or.cond33 = or i1 %.not28, %.not29
-  br i1 %or.cond33, label %74, label %31
+  br i1 %or.cond33, label %84, label %32
 
-31:                                               ; preds = %25
-  %32 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #15
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %gv_alloc.exit.i
+32:                                               ; preds = %26
+  %33 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #15
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %gv_alloc.exit.i
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @stderr, align 8
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.6, i64 noundef 16) #16
+35:                                               ; preds = %32
+  %36 = load ptr, ptr @stderr, align 8
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.6, i64 noundef 16) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
 
-gv_alloc.exit.i:                                  ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %30, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %38, i64 48
-  %40 = load <2 x double>, ptr %39, align 8
-  %41 = load <2 x double>, ptr %.sroa.7.0..sroa_idx.i, align 8
-  %42 = getelementptr inbounds i8, ptr %32, i64 8
-  store i32 4, ptr %42, align 8
-  %43 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 4, i64 noundef 16) #15
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %gv_calloc.exit.i
+gv_alloc.exit.i:                                  ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %31, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 32
+  %.sroa.011.0.copyload.i = load double, ptr %40, align 8
+  %.sroa.414.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 40
+  %.sroa.414.0.copyload.i = load double, ptr %.sroa.414.0..sroa_idx.i, align 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 48
+  %.sroa.7.0.copyload.i = load double, ptr %.sroa.7.0..sroa_idx.i, align 8
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 56
+  %.sroa.10.0.copyload.i = load double, ptr %.sroa.10.0..sroa_idx.i, align 8
+  %41 = getelementptr inbounds i8, ptr %33, i64 8
+  store i32 4, ptr %41, align 8
+  %42 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 4, i64 noundef 16) #15
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %gv_calloc.exit.i
 
-45:                                               ; preds = %gv_alloc.exit.i
-  %46 = load ptr, ptr @stderr, align 8
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.6, i64 noundef 64) #16
+44:                                               ; preds = %gv_alloc.exit.i
+  %45 = load ptr, ptr @stderr, align 8
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.6, i64 noundef 64) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %gv_alloc.exit.i
-  store ptr %43, ptr %32, align 8
-  %48 = load i8, ptr %11, align 4
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %55
+  store ptr %42, ptr %33, align 8
+  %47 = load i8, ptr %11, align 4
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %58
 
-50:                                               ; preds = %gv_calloc.exit.i
-  %51 = load <2 x float>, ptr %4, align 4
-  %52 = fpext <2 x float> %51 to <2 x double>
-  %53 = fadd <2 x double> %41, %52
-  %54 = fsub <2 x double> %40, %52
+49:                                               ; preds = %gv_calloc.exit.i
+  %50 = load float, ptr %4, align 4
+  %51 = fpext float %50 to double
+  %52 = fadd double %.sroa.7.0.copyload.i, %51
+  %53 = load float, ptr %12, align 4
+  %54 = fpext float %53 to double
+  %55 = fadd double %.sroa.10.0.copyload.i, %54
+  %56 = fsub double %.sroa.011.0.copyload.i, %51
+  %57 = fsub double %.sroa.414.0.copyload.i, %54
   br label %makeClustObs.exit
 
-55:                                               ; preds = %gv_calloc.exit.i
-  %56 = fadd <2 x double> %40, %41
-  %57 = fmul <2 x double> %56, <double 5.000000e-01, double 5.000000e-01>
-  %58 = load <2 x float>, ptr %4, align 4
-  %59 = fpext <2 x float> %58 to <2 x double>
-  %60 = fadd <2 x double> %59, <double -1.000000e+00, double -1.000000e+00>
-  %61 = fneg <2 x double> %60
-  %62 = fmul <2 x double> %57, %61
-  %63 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %59, <2 x double> %41, <2 x double> %62)
-  %64 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %59, <2 x double> %40, <2 x double> %62)
+58:                                               ; preds = %gv_calloc.exit.i
+  %59 = fadd double %.sroa.414.0.copyload.i, %.sroa.10.0.copyload.i
+  %60 = fmul double %59, 5.000000e-01
+  %61 = fadd double %.sroa.011.0.copyload.i, %.sroa.7.0.copyload.i
+  %62 = fmul double %61, 5.000000e-01
+  %63 = load float, ptr %4, align 4
+  %64 = fpext float %63 to double
+  %65 = fadd double %64, -1.000000e+00
+  %66 = load float, ptr %12, align 4
+  %67 = fpext float %66 to double
+  %68 = fadd double %67, -1.000000e+00
+  %69 = fneg double %65
+  %70 = fmul double %62, %69
+  %71 = tail call double @llvm.fmuladd.f64(double %64, double %.sroa.7.0.copyload.i, double %70)
+  %72 = fneg double %68
+  %73 = fmul double %60, %72
+  %74 = tail call double @llvm.fmuladd.f64(double %67, double %.sroa.10.0.copyload.i, double %73)
+  %75 = tail call double @llvm.fmuladd.f64(double %64, double %.sroa.011.0.copyload.i, double %70)
+  %76 = tail call double @llvm.fmuladd.f64(double %67, double %.sroa.414.0.copyload.i, double %73)
   br label %makeClustObs.exit
 
-makeClustObs.exit:                                ; preds = %50, %55
-  %65 = phi <2 x double> [ %54, %50 ], [ %64, %55 ]
-  %66 = phi <2 x double> [ %53, %50 ], [ %63, %55 ]
-  store <2 x double> %65, ptr %43, align 8
-  %67 = getelementptr inbounds i8, ptr %43, i64 16
-  %68 = extractelement <2 x double> %65, i64 0
-  store double %68, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %43, i64 24
-  %70 = shufflevector <2 x double> %66, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %70, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %43, i64 40
-  store <2 x double> %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %43, i64 56
-  %73 = extractelement <2 x double> %65, i64 1
-  store double %73, ptr %72, align 8
-  tail call fastcc void @objlist_append(ptr noundef %0, ptr noundef nonnull %32)
+makeClustObs.exit:                                ; preds = %49, %58
+  %.sroa.06.0.i = phi double [ %56, %49 ], [ %75, %58 ]
+  %.sroa.4.0.i = phi double [ %57, %49 ], [ %76, %58 ]
+  %.sroa.8.0.i = phi double [ %52, %49 ], [ %71, %58 ]
+  %.sroa.12.0.i = phi double [ %55, %49 ], [ %74, %58 ]
+  store double %.sroa.06.0.i, ptr %42, align 8
+  %77 = getelementptr inbounds i8, ptr %42, i64 8
+  store double %.sroa.4.0.i, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %42, i64 16
+  store double %.sroa.06.0.i, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %42, i64 24
+  store double %.sroa.12.0.i, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %42, i64 32
+  store double %.sroa.8.0.i, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %42, i64 40
+  store double %.sroa.12.0.i, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %42, i64 48
+  store double %.sroa.8.0.i, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %42, i64 56
+  store double %.sroa.4.0.i, ptr %83, align 8
+  tail call fastcc void @objlist_append(ptr noundef %0, ptr noundef nonnull %33)
   %.pre = load ptr, ptr %7, align 8
-  br label %74
+  br label %84
 
-74:                                               ; preds = %25, %makeClustObs.exit
-  %75 = phi ptr [ %26, %25 ], [ %.pre, %makeClustObs.exit ]
+84:                                               ; preds = %26, %makeClustObs.exit
+  %85 = phi ptr [ %27, %26 ], [ %.pre, %makeClustObs.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = getelementptr inbounds i8, ptr %75, i64 236
-  %77 = load i32, ptr %76, align 4
-  %78 = sext i32 %77 to i64
-  %.not27.not = icmp slt i64 %indvars.iv, %78
-  br i1 %.not27.not, label %25, label %._crit_edge
+  %86 = getelementptr inbounds i8, ptr %85, i64 236
+  %87 = load i32, ptr %86, align 4
+  %88 = sext i32 %87 to i64
+  %.not27.not = icmp slt i64 %indvars.iv, %88
+  br i1 %.not27.not, label %26, label %._crit_edge
 
-._crit_edge:                                      ; preds = %74, %.preheader
+._crit_edge:                                      ; preds = %84, %.preheader
   ret void
 }
 
@@ -583,23 +606,23 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #9
+
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -610,11 +633,11 @@ attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #6 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind allocsize(0,1) }
 attributes #16 = { cold nounwind }

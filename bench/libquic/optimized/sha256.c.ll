@@ -13,9 +13,21 @@ define hidden noundef i32 @SHA224_Init(ptr nocapture noundef writeonly %sha) loc
 entry:
   %0 = getelementptr inbounds i8, ptr %sha, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %sha, align 4
+  store i32 -1056596264, ptr %sha, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %sha, i64 4
+  store i32 914150663, ptr %arrayidx2, align 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %sha, i64 8
+  store i32 812702999, ptr %arrayidx4, align 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %sha, i64 12
+  store i32 -150054599, ptr %arrayidx6, align 4
   %arrayidx8 = getelementptr inbounds i8, ptr %sha, i64 16
-  store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx8, align 4
+  store i32 -4191439, ptr %arrayidx8, align 4
+  %arrayidx10 = getelementptr inbounds i8, ptr %sha, i64 20
+  store i32 1750603025, ptr %arrayidx10, align 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %sha, i64 24
+  store i32 1694076839, ptr %arrayidx12, align 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %sha, i64 28
+  store i32 -1090891868, ptr %arrayidx14, align 4
   %md_len = getelementptr inbounds i8, ptr %sha, i64 108
   store i32 28, ptr %md_len, align 4
   ret i32 1
@@ -29,9 +41,21 @@ define hidden noundef i32 @SHA256_Init(ptr nocapture noundef writeonly %sha) loc
 entry:
   %0 = getelementptr inbounds i8, ptr %sha, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %sha, align 4
+  store i32 1779033703, ptr %sha, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %sha, i64 4
+  store i32 -1150833019, ptr %arrayidx2, align 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %sha, i64 8
+  store i32 1013904242, ptr %arrayidx4, align 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %sha, i64 12
+  store i32 -1521486534, ptr %arrayidx6, align 4
   %arrayidx8 = getelementptr inbounds i8, ptr %sha, i64 16
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx8, align 4
+  store i32 1359893119, ptr %arrayidx8, align 4
+  %arrayidx10 = getelementptr inbounds i8, ptr %sha, i64 20
+  store i32 -1694144372, ptr %arrayidx10, align 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %sha, i64 24
+  store i32 528734635, ptr %arrayidx12, align 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %sha, i64 28
+  store i32 1541459225, ptr %arrayidx14, align 4
   %md_len = getelementptr inbounds i8, ptr %sha, i64 108
   store i32 32, ptr %md_len, align 4
   ret i32 1
@@ -40,12 +64,24 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden noundef nonnull ptr @SHA224(ptr noundef %data, i64 noundef %len, ptr noundef writeonly %out) local_unnamed_addr #2 {
 entry:
-  %ctx = alloca %struct.sha256_state_st, align 16
+  %ctx = alloca %struct.sha256_state_st, align 4
   %0 = getelementptr inbounds i8, ptr %ctx, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %ctx, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
+  store i32 -1056596264, ptr %ctx, align 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %ctx, i64 4
+  store i32 914150663, ptr %arrayidx2.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  store i32 812702999, ptr %arrayidx4.i, align 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %ctx, i64 12
+  store i32 -150054599, ptr %arrayidx6.i, align 4
   %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
-  store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx8.i, align 16
+  store i32 -4191439, ptr %arrayidx8.i, align 4
+  %arrayidx10.i = getelementptr inbounds i8, ptr %ctx, i64 20
+  store i32 1750603025, ptr %arrayidx10.i, align 4
+  %arrayidx12.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  store i32 1694076839, ptr %arrayidx12.i, align 4
+  %arrayidx14.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  store i32 -1090891868, ptr %arrayidx14.i, align 4
   %md_len.i = getelementptr inbounds i8, ptr %ctx, i64 108
   store i32 28, ptr %md_len.i, align 4
   %cmp.i.i = icmp eq i64 %len, 0
@@ -58,7 +94,7 @@ if.end37.i.i:                                     ; preds = %entry
   %shr.i.i = lshr i64 %len, 29
   %conv6.i.i = trunc i64 %shr.i.i to i32
   store i32 %conv6.i.i, ptr %Nh.i.i, align 4
-  store i32 %shl.i.i, ptr %0, align 16
+  store i32 %shl.i.i, ptr %0, align 4
   %num.i.i = getelementptr inbounds i8, ptr %ctx, i64 104
   %cmp38.not.i.i = icmp ult i64 %len, 64
   br i1 %cmp38.not.i.i, label %if.then48.i.i, label %if.end45.i.i
@@ -76,9 +112,9 @@ if.then48.i.i:                                    ; preds = %if.end37.i.i, %if.e
   %data.1.i.i7 = phi ptr [ %add.ptr43.i.i, %if.end45.i.i ], [ %data, %if.end37.i.i ]
   %len.addr.1.i.i6 = phi i64 [ %sub44.i.i, %if.end45.i.i ], [ %len, %if.end37.i.i ]
   %conv49.i.i = trunc nuw i64 %len.addr.1.i.i6 to i32
-  store i32 %conv49.i.i, ptr %num.i.i, align 8
+  store i32 %conv49.i.i, ptr %num.i.i, align 4
   %data51.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data51.i.i, ptr align 1 %data.1.i.i7, i64 %len.addr.1.i.i6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data51.i.i, ptr align 1 %data.1.i.i7, i64 %len.addr.1.i.i6, i1 false)
   br label %SHA224_Update.exit
 
 SHA224_Update.exit:                               ; preds = %entry, %if.end45.i.i, %if.then48.i.i
@@ -185,12 +221,24 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden noundef nonnull ptr @SHA256(ptr noundef %data, i64 noundef %len, ptr noundef writeonly %out) local_unnamed_addr #2 {
 entry:
-  %ctx = alloca %struct.sha256_state_st, align 16
+  %ctx = alloca %struct.sha256_state_st, align 4
   %0 = getelementptr inbounds i8, ptr %ctx, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %0, i8 0, i64 76, i1 false)
-  store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %ctx, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
+  store i32 1779033703, ptr %ctx, align 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %ctx, i64 4
+  store i32 -1150833019, ptr %arrayidx2.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  store i32 1013904242, ptr %arrayidx4.i, align 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %ctx, i64 12
+  store i32 -1521486534, ptr %arrayidx6.i, align 4
   %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
-  store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx8.i, align 16
+  store i32 1359893119, ptr %arrayidx8.i, align 4
+  %arrayidx10.i = getelementptr inbounds i8, ptr %ctx, i64 20
+  store i32 -1694144372, ptr %arrayidx10.i, align 4
+  %arrayidx12.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  store i32 528734635, ptr %arrayidx12.i, align 4
+  %arrayidx14.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  store i32 1541459225, ptr %arrayidx14.i, align 4
   %md_len.i = getelementptr inbounds i8, ptr %ctx, i64 108
   store i32 32, ptr %md_len.i, align 4
   %cmp.i = icmp eq i64 %len, 0
@@ -203,7 +251,7 @@ if.end37.i:                                       ; preds = %entry
   %shr.i = lshr i64 %len, 29
   %conv6.i = trunc i64 %shr.i to i32
   store i32 %conv6.i, ptr %Nh.i, align 4
-  store i32 %shl.i, ptr %0, align 16
+  store i32 %shl.i, ptr %0, align 4
   %num.i = getelementptr inbounds i8, ptr %ctx, i64 104
   %cmp38.not.i = icmp ult i64 %len, 64
   br i1 %cmp38.not.i, label %if.then48.i, label %if.end45.i
@@ -221,9 +269,9 @@ if.then48.i:                                      ; preds = %if.end37.i, %if.end
   %data.1.i7 = phi ptr [ %add.ptr43.i, %if.end45.i ], [ %data, %if.end37.i ]
   %len.addr.1.i6 = phi i64 [ %sub44.i, %if.end45.i ], [ %len, %if.end37.i ]
   %conv49.i = trunc nuw i64 %len.addr.1.i6 to i32
-  store i32 %conv49.i, ptr %num.i, align 8
+  store i32 %conv49.i, ptr %num.i, align 4
   %data51.i = getelementptr inbounds i8, ptr %ctx, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data51.i, ptr align 1 %data.1.i7, i64 %len.addr.1.i6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data51.i, ptr align 1 %data.1.i7, i64 %len.addr.1.i6, i1 false)
   br label %SHA256_Update.exit
 
 SHA256_Update.exit:                               ; preds = %entry, %if.end45.i, %if.then48.i

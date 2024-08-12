@@ -18799,14 +18799,14 @@ return:                                           ; preds = %if.then16, %SetASNI
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 -2147483648, 1) i32 @StoreECC_DSA_Sig_Bin(ptr noundef writeonly %out, ptr noundef %outLen, ptr noundef readonly %r, i32 noundef %rLen, ptr noundef readonly %s, i32 noundef %sLen) local_unnamed_addr #1 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %out, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %outLen, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %r, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %s, i64 3
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %if.end, label %return
+  %cmp = icmp eq ptr %out, null
+  %cmp1 = icmp eq ptr %outLen, null
+  %or.cond = or i1 %cmp, %cmp1
+  %cmp3 = icmp eq ptr %r, null
+  %or.cond1 = or i1 %or.cond, %cmp3
+  %cmp5 = icmp eq ptr %s, null
+  %or.cond2 = or i1 %or.cond1, %cmp5
+  br i1 %or.cond2, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %cmp12.i = icmp sgt i32 %rLen, 0
@@ -18819,8 +18819,8 @@ for.body.preheader.i:                             ; preds = %if.end
 for.body.i:                                       ; preds = %if.end.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %if.end.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %r, i64 %indvars.iv.i
-  %6 = load i8, ptr %arrayidx.i, align 1
-  %cmp1.not.i = icmp eq i8 %6, 0
+  %0 = load i8, ptr %arrayidx.i, align 1
+  %cmp1.not.i = icmp eq i8 %0, 0
   br i1 %cmp1.not.i, label %if.end.i, label %for.end.loopexit.split.loop.exit.i
 
 if.end.i:                                         ; preds = %for.body.i
@@ -18852,8 +18852,8 @@ for.body.preheader.i50:                           ; preds = %trim_leading_zeros.
 for.body.i52:                                     ; preds = %if.end.i58, %for.body.preheader.i50
   %indvars.iv.i53 = phi i64 [ 0, %for.body.preheader.i50 ], [ %indvars.iv.next.i59, %if.end.i58 ]
   %arrayidx.i54 = getelementptr inbounds i8, ptr %s, i64 %indvars.iv.i53
-  %7 = load i8, ptr %arrayidx.i54, align 1
-  %cmp1.not.i55 = icmp eq i8 %7, 0
+  %1 = load i8, ptr %arrayidx.i54, align 1
+  %cmp1.not.i55 = icmp eq i8 %1, 0
   br i1 %cmp1.not.i55, label %if.end.i58, label %for.end.loopexit.split.loop.exit.i56
 
 if.end.i58:                                       ; preds = %for.body.i52
@@ -18879,30 +18879,30 @@ trim_leading_zeros.exit61:                        ; preds = %if.end.i58, %trim_l
   br i1 %cmp.not.i, label %is_leading_bit_set.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %trim_leading_zeros.exit61
-  %8 = load i8, ptr %add.ptr.i, align 1
-  %.lobit.i = lshr i8 %8, 7
-  %9 = zext nneg i8 %.lobit.i to i32
+  %2 = load i8, ptr %add.ptr.i, align 1
+  %.lobit.i = lshr i8 %2, 7
+  %3 = zext nneg i8 %.lobit.i to i32
   br label %is_leading_bit_set.exit
 
 is_leading_bit_set.exit:                          ; preds = %trim_leading_zeros.exit61, %if.then.i
-  %c.0.i = phi i32 [ %9, %if.then.i ], [ 0, %trim_leading_zeros.exit61 ]
+  %c.0.i = phi i32 [ %3, %if.then.i ], [ 0, %trim_leading_zeros.exit61 ]
   %cmp.not.i63 = icmp eq i32 %leadingZeroCount.1.i46, %sLen
   br i1 %cmp.not.i63, label %is_leading_bit_set.exit68, label %if.then.i64
 
 if.then.i64:                                      ; preds = %is_leading_bit_set.exit
-  %10 = load i8, ptr %add.ptr.i48, align 1
-  %.lobit.i65 = lshr i8 %10, 7
-  %11 = zext nneg i8 %.lobit.i65 to i32
+  %4 = load i8, ptr %add.ptr.i48, align 1
+  %.lobit.i65 = lshr i8 %4, 7
+  %5 = zext nneg i8 %.lobit.i65 to i32
   br label %is_leading_bit_set.exit68
 
 is_leading_bit_set.exit68:                        ; preds = %is_leading_bit_set.exit, %if.then.i64
-  %c.0.i67 = phi i32 [ %11, %if.then.i64 ], [ 0, %is_leading_bit_set.exit ]
-  %12 = load i32, ptr %outLen, align 4
+  %c.0.i67 = phi i32 [ %5, %if.then.i64 ], [ 0, %is_leading_bit_set.exit ]
+  %6 = load i32, ptr %outLen, align 4
   %add = add i32 %sub.i49, %sub.i
   %add9 = add i32 %add, %c.0.i
   %add10 = add i32 %add9, %c.0.i67
   %add12 = add i32 %add10, 6
-  %cmp13 = icmp ult i32 %12, %add12
+  %cmp13 = icmp ult i32 %6, %add12
   br i1 %cmp13, label %return, label %if.end.thread.i.i
 
 if.end.thread.i.i:                                ; preds = %is_leading_bit_set.exit68
@@ -18956,12 +18956,12 @@ for.body.i.i.i:                                   ; preds = %if.end9.thread.i.i.
   br i1 %cmp12.not.wide.i.i.i, label %if.end22.loopexit23.i.i.i, label %for.body.i.i.i, !llvm.loop !8
 
 if.end22.loopexit23.i.i.i:                        ; preds = %for.body.i.i.i
-  %13 = trunc nuw nsw i64 %indvars.iv.next26.i.i.i to i32
-  %14 = add i32 %13, 1
+  %7 = trunc nuw nsw i64 %indvars.iv.next26.i.i.i to i32
+  %8 = add i32 %7, 1
   br label %SetSequence.exit
 
 SetSequence.exit:                                 ; preds = %if.end9.thread.i.i.i.thread, %if.then1.i.i.i, %if.end9.thread.i.i.i, %if.end22.loopexit23.i.i.i
-  %i.0.i.i.i = phi i32 [ 2, %if.then1.i.i.i ], [ %14, %if.end22.loopexit23.i.i.i ], [ 2, %if.end9.thread.i.i.i ], [ 2, %if.end9.thread.i.i.i.thread ]
+  %i.0.i.i.i = phi i32 [ 2, %if.then1.i.i.i ], [ %8, %if.end22.loopexit23.i.i.i ], [ 2, %if.end9.thread.i.i.i ], [ 2, %if.end9.thread.i.i.i.thread ]
   %tobool.not = icmp ne i32 %c.0.i, 0
   %idxprom = zext i32 %i.0.i.i.i to i64
   %arrayidx = getelementptr inbounds i8, ptr %out, i64 %idxprom
@@ -19016,24 +19016,24 @@ for.body.i.i:                                     ; preds = %if.end9.thread.i.i,
   br i1 %cmp12.not.wide.i.i, label %if.end22.loopexit23.i.i, label %for.body.i.i, !llvm.loop !8
 
 if.end22.loopexit23.i.i:                          ; preds = %for.body.i.i
-  %15 = trunc nuw nsw i64 %indvars.iv.next26.i.i to i32
-  %add537.i = add nsw i32 %15, 1
+  %9 = trunc nuw nsw i64 %indvars.iv.next26.i.i to i32
+  %add537.i = add nsw i32 %9, 1
   br i1 %tobool.not, label %if.then11.i, label %SetASNInt.exit
 
 SetLength.exit.i:                                 ; preds = %if.end9.thread.i.i.thread, %if.end9.thread.i.i
   br i1 %tobool.not, label %if.then11.i, label %if.end25
 
 if.then11.i:                                      ; preds = %if.end22.loopexit23.i.i, %SetLength.exit.i, %if.then1.i.i
-  %i.0.i3445.i = phi i32 [ 1, %if.then1.i.i ], [ 1, %SetLength.exit.i ], [ %15, %if.end22.loopexit23.i.i ]
+  %i.0.i3445.i = phi i32 [ 1, %if.then1.i.i ], [ 1, %SetLength.exit.i ], [ %9, %if.end22.loopexit23.i.i ]
   %add53544.i = phi i32 [ 2, %if.then1.i.i ], [ 2, %SetLength.exit.i ], [ %add537.i, %if.end22.loopexit23.i.i ]
   %idxprom12.i = sext i32 %add53544.i to i64
   %arrayidx13.i = getelementptr inbounds i8, ptr %arrayidx, i64 %idxprom12.i
   store i8 0, ptr %arrayidx13.i, align 1
-  %16 = add nsw i32 %i.0.i3445.i, 2
+  %10 = add nsw i32 %i.0.i3445.i, 2
   br label %SetASNInt.exit
 
 SetASNInt.exit:                                   ; preds = %if.end22.loopexit23.i.i, %if.then11.i
-  %idx.0.i = phi i32 [ %16, %if.then11.i ], [ %add537.i, %if.end22.loopexit23.i.i ]
+  %idx.0.i = phi i32 [ %10, %if.then11.i ], [ %add537.i, %if.end22.loopexit23.i.i ]
   %cmp22 = icmp slt i32 %idx.0.i, 0
   br i1 %cmp22, label %return, label %if.end25
 
@@ -19099,24 +19099,24 @@ for.body.i.i96:                                   ; preds = %if.end9.thread.i.i9
   br i1 %cmp12.not.wide.i.i106, label %if.end22.loopexit23.i.i107, label %for.body.i.i96, !llvm.loop !8
 
 if.end22.loopexit23.i.i107:                       ; preds = %for.body.i.i96
-  %17 = trunc nuw nsw i64 %indvars.iv.next26.i.i104 to i32
-  %add537.i108 = add nsw i32 %17, 1
+  %11 = trunc nuw nsw i64 %indvars.iv.next26.i.i104 to i32
+  %add537.i108 = add nsw i32 %11, 1
   br i1 %tobool31.not, label %if.then11.i112, label %SetASNInt.exit136
 
 SetLength.exit.i121:                              ; preds = %if.end9.thread.i.i93.thread, %if.end9.thread.i.i93
   br i1 %tobool31.not, label %if.then11.i112, label %if.end40
 
 if.then11.i112:                                   ; preds = %if.end22.loopexit23.i.i107, %SetLength.exit.i121, %if.then1.i.i129
-  %i.0.i3445.i113 = phi i32 [ 1, %if.then1.i.i129 ], [ 1, %SetLength.exit.i121 ], [ %17, %if.end22.loopexit23.i.i107 ]
+  %i.0.i3445.i113 = phi i32 [ 1, %if.then1.i.i129 ], [ 1, %SetLength.exit.i121 ], [ %11, %if.end22.loopexit23.i.i107 ]
   %add53544.i114 = phi i32 [ 2, %if.then1.i.i129 ], [ 2, %SetLength.exit.i121 ], [ %add537.i108, %if.end22.loopexit23.i.i107 ]
   %idxprom12.i115 = sext i32 %add53544.i114 to i64
   %arrayidx13.i116 = getelementptr inbounds i8, ptr %arrayidx35, i64 %idxprom12.i115
   store i8 0, ptr %arrayidx13.i116, align 1
-  %18 = add nsw i32 %i.0.i3445.i113, 2
+  %12 = add nsw i32 %i.0.i3445.i113, 2
   br label %SetASNInt.exit136
 
 SetASNInt.exit136:                                ; preds = %if.end22.loopexit23.i.i107, %if.then11.i112
-  %idx.0.i120 = phi i32 [ %18, %if.then11.i112 ], [ %add537.i108, %if.end22.loopexit23.i.i107 ]
+  %idx.0.i120 = phi i32 [ %12, %if.then11.i112 ], [ %add537.i108, %if.end22.loopexit23.i.i107 ]
   %cmp37 = icmp slt i32 %idx.0.i120, 0
   br i1 %cmp37, label %return, label %if.end40
 

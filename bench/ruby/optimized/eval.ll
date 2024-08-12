@@ -3712,51 +3712,55 @@ rb_ec_ractor_hooks.exit:
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @rb_vm_frame_method_entry(ptr noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = load <2 x i64>, ptr %10, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = load i64, ptr %12, align 8
   tail call void @rb_vm_pop_frame(ptr noundef %4) #9
-  %12 = getelementptr i8, ptr %4, i64 48
-  %.val = load ptr, ptr %12, align 8, !nonnull !21, !noundef !21
-  %13 = getelementptr inbounds i8, ptr %.val, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
-  %16 = load i32, ptr %15, align 8
-  %17 = and i32 %16, 64
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %33, label %18
+  %14 = getelementptr i8, ptr %4, i64 48
+  %.val = load ptr, ptr %14, align 8, !nonnull !21, !noundef !21
+  %15 = getelementptr inbounds i8, ptr %.val, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, 64
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %36, label %20
 
-18:                                               ; preds = %rb_ec_ractor_hooks.exit
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
-  %23 = load i64, ptr %22, align 8
+20:                                               ; preds = %rb_ec_ractor_hooks.exit
+  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = getelementptr inbounds i8, ptr %7, i64 16
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %25 = load i64, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
   store i32 64, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %4, ptr %24, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 %9, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 32
-  store i64 %23, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 40
-  store <2 x i64> %11, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 56
-  store i64 4, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 72
-  store i64 36, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 64
-  store i32 0, ptr %32, align 8
-  call void @rb_exec_event_hooks(ptr noundef nonnull %2, ptr noundef nonnull %19, i32 noundef 0) #9
+  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %4, ptr %26, align 8
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 %11, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 32
+  store i64 %25, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 40
+  store i64 %13, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 48
+  store i64 %9, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 56
+  store i64 4, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 72
+  store i64 36, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 64
+  store i32 0, ptr %35, align 8
+  call void @rb_exec_event_hooks(ptr noundef nonnull %2, ptr noundef nonnull %21, i32 noundef 0) #9
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
-  br label %33
+  br label %36
 
-33:                                               ; preds = %rb_ec_ractor_hooks.exit, %18
+36:                                               ; preds = %rb_ec_ractor_hooks.exit, %20
   call fastcc void @rb_longjmp(ptr noundef nonnull %4, i32 noundef 6, i64 noundef %0, i64 noundef %1) #29
   unreachable
 }

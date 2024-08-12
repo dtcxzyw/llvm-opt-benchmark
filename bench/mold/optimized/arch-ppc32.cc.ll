@@ -264,10 +264,22 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store <4 x i32> <i32 -1509816196, i32 83926850, i32 -1509783427, i32 -1509750660>, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, align 16
-  store <4 x i32> <i32 35901, i32 35897, i32 1347972221, i32 50359069>, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 16), align 16
-  store <4 x i32> <i32 -117502848, i32 -1509750404, i32 -50361215, i32 537165902>, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 32), align 16
-  store <4 x i32> <i32 96, i32 96, i32 96, i32 96>, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 48), align 16
+  store i32 -1509816196, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, align 16
+  store i32 83926850, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 4), align 4
+  store i32 -1509783427, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 8), align 8
+  store i32 -1509750660, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 12), align 4
+  store i32 35901, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 16), align 16
+  store i32 35897, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 20), align 4
+  store i32 1347972221, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 24), align 8
+  store i32 50359069, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 28), align 4
+  store i32 -117502848, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 32), align 16
+  store i32 -1509750404, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 36), align 4
+  store i32 -50361215, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 40), align 8
+  store i32 537165902, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 44), align 4
+  store i32 96, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 48), align 16
+  store i32 96, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 52), align 4
+  store i32 96, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 56), align 8
+  store i32 96, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn, i64 60), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn) #19
   br label %init.end
 
@@ -2416,8 +2428,14 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store <4 x i32> <i32 -1509816196, i32 83926850, i32 -1509783427, i32 -1509750660>, ptr @_ZZN4mold3elf5ThunkINS0_5PPC32EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, align 16
-  store <4 x i32> <i32 27709, i32 27449, i32 -1509725827, i32 537165902>, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_5PPC32EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 16), align 16
+  store i32 -1509816196, ptr @_ZZN4mold3elf5ThunkINS0_5PPC32EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, align 16
+  store i32 83926850, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_5PPC32EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 4), align 4
+  store i32 -1509783427, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_5PPC32EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 8), align 8
+  store i32 -1509750660, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_5PPC32EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 12), align 4
+  store i32 27709, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_5PPC32EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 16), align 16
+  store i32 27449, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_5PPC32EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 20), align 4
+  store i32 -1509725827, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_5PPC32EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 24), align 8
+  store i32 537165902, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_5PPC32EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 28), align 4
   store i32 96, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf5ThunkINS0_5PPC32EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk, i64 32), align 16
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf5ThunkINS0_5PPC32EE8copy_bufERNS0_7ContextIS2_EEE11local_thunk) #19
   br label %init.end
@@ -3402,8 +3420,14 @@ define internal void @_GLOBAL__sub_I_arch_ppc32.cc() #14 section ".text.startup"
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #19
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
-  store <4 x i32> <i32 -1509816196, i32 83926850, i32 -1509783427, i32 -1509750660>, ptr @_ZN4mold3elfL9plt_entryE, align 16
-  store <4 x i32> <i32 27709, i32 27449, i32 35713, i32 -1509717635>, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL9plt_entryE, i64 16), align 16
+  store i32 -1509816196, ptr @_ZN4mold3elfL9plt_entryE, align 16
+  store i32 83926850, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL9plt_entryE, i64 4), align 4
+  store i32 -1509783427, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL9plt_entryE, i64 8), align 8
+  store i32 -1509750660, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL9plt_entryE, i64 12), align 4
+  store i32 27709, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL9plt_entryE, i64 16), align 16
+  store i32 27449, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL9plt_entryE, i64 20), align 4
+  store i32 35713, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL9plt_entryE, i64 24), align 8
+  store i32 -1509717635, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL9plt_entryE, i64 28), align 4
   store i32 537165902, ptr getelementptr inbounds (i8, ptr @_ZN4mold3elfL9plt_entryE, i64 32), align 16
   ret void
 }

@@ -222,36 +222,42 @@ define internal void @tikz_box(ptr nocapture noundef readonly %0, ptr nocapture 
 lstopo_obj_cpukind_style.exit:                    ; preds = %9, %22, %25
   %.0.i = phi i32 [ %27, %25 ], [ 0, %22 ], [ 0, %9 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, i8 0, i64 64, i1 false)
-  store <4 x i8> <i8 115, i8 111, i8 108, i8 105>, ptr %10, align 16
-  %28 = getelementptr inbounds i8, ptr %10, i64 4
-  store i8 100, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 944
-  %30 = load i32, ptr %29, align 8
+  store i8 115, ptr %10, align 16
+  %28 = getelementptr inbounds i8, ptr %10, i64 1
+  store i8 111, ptr %28, align 1
+  %29 = getelementptr inbounds i8, ptr %10, i64 2
+  store i8 108, ptr %29, align 2
+  %30 = getelementptr inbounds i8, ptr %10, i64 3
+  store i8 105, ptr %30, align 1
+  %31 = getelementptr inbounds i8, ptr %10, i64 4
+  store i8 100, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %0, i64 944
+  %33 = load i32, ptr %32, align 8
   %.not = icmp eq i32 %.0.i, 0
-  br i1 %.not, label %42, label %31
+  br i1 %.not, label %45, label %34
 
-31:                                               ; preds = %lstopo_obj_cpukind_style.exit
-  %32 = mul i32 %30, %.0.i
-  %33 = shl nuw i32 1, %.0.i
-  %34 = uitofp i32 %33 to float
-  %35 = fmul float %34, 0x3FF2666660000000
-  %36 = fpext float %35 to double
-  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 20, ptr noundef nonnull @.str.22, double noundef %36) #12
-  %38 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 44) #15
-  %.not25 = icmp eq ptr %38, null
-  br i1 %.not25, label %40, label %39
+34:                                               ; preds = %lstopo_obj_cpukind_style.exit
+  %35 = mul i32 %33, %.0.i
+  %36 = shl nuw i32 1, %.0.i
+  %37 = uitofp i32 %36 to float
+  %38 = fmul float %37, 0x3FF2666660000000
+  %39 = fpext float %38 to double
+  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 20, ptr noundef nonnull @.str.22, double noundef %39) #12
+  %41 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 44) #15
+  %.not25 = icmp eq ptr %41, null
+  br i1 %.not25, label %43, label %42
 
-39:                                               ; preds = %31
-  store i8 46, ptr %38, align 1
-  br label %40
+42:                                               ; preds = %34
+  store i8 46, ptr %41, align 1
+  br label %43
 
-40:                                               ; preds = %39, %31
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 64, ptr noundef nonnull @.str.23, ptr noundef nonnull %11, ptr noundef nonnull %11) #12
-  br label %42
+43:                                               ; preds = %42, %34
+  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 64, ptr noundef nonnull @.str.23, ptr noundef nonnull %11, ptr noundef nonnull %11) #12
+  br label %45
 
-42:                                               ; preds = %40, %lstopo_obj_cpukind_style.exit
-  %.0 = phi i32 [ %32, %40 ], [ %30, %lstopo_obj_cpukind_style.exit ]
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.24, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %.0, ptr noundef nonnull %10, i32 noundef %3, i32 noundef %5, i32 noundef %4, i32 noundef %6) #12
+45:                                               ; preds = %43, %lstopo_obj_cpukind_style.exit
+  %.0 = phi i32 [ %35, %43 ], [ %33, %lstopo_obj_cpukind_style.exit ]
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.24, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %.0, ptr noundef nonnull %10, i32 noundef %3, i32 noundef %5, i32 noundef %4, i32 noundef %6) #12
   ret void
 }
 

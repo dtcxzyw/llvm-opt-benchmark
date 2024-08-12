@@ -701,18 +701,18 @@ if.end.i62.i:                                     ; preds = %land.lhs.true31.i
   br i1 %cmp3.not.i.i, label %qcrypto_tls_creds_check_cert_pair.exit.i, label %if.then5.i63.i
 
 if.then5.i63.i:                                   ; preds = %if.end.i62.i
-  %37 = insertelement <4 x i32> poison, i32 %36, i64 0
-  %38 = shufflevector <4 x i32> %37, <4 x i32> poison, <4 x i32> zeroinitializer
-  %39 = and <4 x i32> %38, <i32 256, i32 32, i32 64, i32 2>
-  %40 = icmp eq <4 x i32> %39, zeroinitializer
-  %41 = extractelement <4 x i1> %40, i64 3
-  %spec.store.select.i.i = select i1 %41, ptr @.str.64, ptr @.str.65
-  %42 = extractelement <4 x i1> %40, i64 2
-  %spec.store.select1.i.i = select i1 %42, ptr %spec.store.select.i.i, ptr @.str.66
-  %43 = extractelement <4 x i1> %40, i64 1
-  %spec.store.select2.i.i = select i1 %43, ptr %spec.store.select1.i.i, ptr @.str.67
-  %44 = extractelement <4 x i1> %40, i64 0
-  %spec.store.select3.i.i = select i1 %44, ptr %spec.store.select2.i.i, ptr @.str.68
+  %and.i.i = and i32 %36, 2
+  %tobool6.not.i.i = icmp eq i32 %and.i.i, 0
+  %spec.store.select.i.i = select i1 %tobool6.not.i.i, ptr @.str.64, ptr @.str.65
+  %and9.i.i = and i32 %36, 64
+  %tobool10.not.i.i = icmp eq i32 %and9.i.i, 0
+  %spec.store.select1.i.i = select i1 %tobool10.not.i.i, ptr %spec.store.select.i.i, ptr @.str.66
+  %and13.i.i = and i32 %36, 32
+  %tobool14.not.i.i = icmp eq i32 %and13.i.i, 0
+  %spec.store.select2.i.i = select i1 %tobool14.not.i.i, ptr %spec.store.select1.i.i, ptr @.str.67
+  %and17.i.i = and i32 %36, 256
+  %tobool18.not.i.i = icmp eq i32 %and17.i.i, 0
+  %spec.store.select3.i.i = select i1 %tobool18.not.i.i, ptr %spec.store.select2.i.i, ptr @.str.68
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 364, ptr noundef nonnull @__func__.qcrypto_tls_creds_check_cert_pair, ptr noundef nonnull @.str.69, ptr noundef %11, ptr noundef %10, ptr noundef nonnull %spec.store.select3.i.i) #9
   br label %qcrypto_tls_creds_check_cert_pair.exit.thread.i
 
@@ -752,8 +752,8 @@ for.body43.i.preheader:                           ; preds = %for.end.i, %if.end4
 for.body43.i:                                     ; preds = %for.body43.i.preheader, %for.body43.i
   %i.194.i = phi i64 [ %inc46.i, %for.body43.i ], [ 0, %for.body43.i.preheader ]
   %arrayidx44.i = getelementptr [16 x ptr], ptr %cacerts.i, i64 0, i64 %i.194.i
-  %45 = load ptr, ptr %arrayidx44.i, align 8
-  call void @gnutls_x509_crt_deinit(ptr noundef %45) #9
+  %37 = load ptr, ptr %arrayidx44.i, align 8
+  call void @gnutls_x509_crt_deinit(ptr noundef %37) #9
   %inc46.i = add nuw nsw i64 %i.194.i, 1
   %exitcond95.not.i = icmp eq i64 %inc46.i, %ncacerts.081.i64
   br i1 %exitcond95.not.i, label %qcrypto_tls_creds_x509_sanity_check.exit, label %for.body43.i, !llvm.loop !7
@@ -780,34 +780,34 @@ if.then46:                                        ; preds = %if.end43
   br label %cleanup
 
 if.end48:                                         ; preds = %if.end43
-  %46 = load ptr, ptr %data, align 8
-  %47 = load ptr, ptr %cacert, align 8
-  %call50 = call i32 @gnutls_certificate_set_x509_trust_file(ptr noundef %46, ptr noundef %47, i32 noundef 1) #9
+  %38 = load ptr, ptr %data, align 8
+  %39 = load ptr, ptr %cacert, align 8
+  %call50 = call i32 @gnutls_certificate_set_x509_trust_file(ptr noundef %38, ptr noundef %39, i32 noundef 1) #9
   %cmp51 = icmp slt i32 %call50, 0
   br i1 %cmp51, label %if.then52, label %if.end54
 
 if.then52:                                        ; preds = %if.end48
-  %48 = load ptr, ptr %cacert, align 8
+  %40 = load ptr, ptr %cacert, align 8
   %call53 = call ptr @gnutls_strerror(i32 noundef %call50) #10
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 596, ptr noundef nonnull @__func__.qcrypto_tls_creds_x509_load, ptr noundef nonnull @.str.19, ptr noundef %48, ptr noundef %call53) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 596, ptr noundef nonnull @__func__.qcrypto_tls_creds_x509_load, ptr noundef nonnull @.str.19, ptr noundef %40, ptr noundef %call53) #9
   br label %cleanup
 
 if.end54:                                         ; preds = %if.end48
-  %49 = load ptr, ptr %cert, align 8
-  %cmp55 = icmp ne ptr %49, null
-  %50 = load ptr, ptr %key, align 8
-  %cmp57 = icmp ne ptr %50, null
+  %41 = load ptr, ptr %cert, align 8
+  %cmp55 = icmp ne ptr %41, null
+  %42 = load ptr, ptr %key, align 8
+  %cmp57 = icmp ne ptr %42, null
   %or.cond = select i1 %cmp55, i1 %cmp57, i1 false
   br i1 %or.cond, label %if.then58, label %if.end73
 
 if.then58:                                        ; preds = %if.end54
   %passwordid = getelementptr inbounds i8, ptr %creds, i64 96
-  %51 = load ptr, ptr %passwordid, align 8
-  %tobool59.not = icmp eq ptr %51, null
+  %43 = load ptr, ptr %passwordid, align 8
+  %tobool59.not = icmp eq ptr %43, null
   br i1 %tobool59.not, label %if.end66, label %if.then60
 
 if.then60:                                        ; preds = %if.then58
-  %call62 = call ptr @qcrypto_secret_lookup_as_utf8(ptr noundef nonnull %51, ptr noundef %errp) #9
+  %call62 = call ptr @qcrypto_secret_lookup_as_utf8(ptr noundef nonnull %43, ptr noundef %errp) #9
   %tobool63.not = icmp eq ptr %call62, null
   br i1 %tobool63.not, label %cleanup, label %if.then60.if.end66_crit_edge
 
@@ -817,68 +817,68 @@ if.then60.if.end66_crit_edge:                     ; preds = %if.then60
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then60.if.end66_crit_edge, %if.then58
-  %52 = phi ptr [ %.pre58, %if.then60.if.end66_crit_edge ], [ %50, %if.then58 ]
-  %53 = phi ptr [ %.pre, %if.then60.if.end66_crit_edge ], [ %49, %if.then58 ]
+  %44 = phi ptr [ %.pre58, %if.then60.if.end66_crit_edge ], [ %42, %if.then58 ]
+  %45 = phi ptr [ %.pre, %if.then60.if.end66_crit_edge ], [ %41, %if.then58 ]
   %password.0 = phi ptr [ %call62, %if.then60.if.end66_crit_edge ], [ null, %if.then58 ]
-  %54 = load ptr, ptr %data, align 8
-  %call68 = call i32 @gnutls_certificate_set_x509_key_file2(ptr noundef %54, ptr noundef %53, ptr noundef %52, i32 noundef 1, ptr noundef %password.0, i32 noundef 0) #9
+  %46 = load ptr, ptr %data, align 8
+  %call68 = call i32 @gnutls_certificate_set_x509_key_file2(ptr noundef %46, ptr noundef %45, ptr noundef %44, i32 noundef 1, ptr noundef %password.0, i32 noundef 0) #9
   call void @g_free(ptr noundef %password.0) #9
   %cmp69 = icmp slt i32 %call68, 0
   br i1 %cmp69, label %if.then70, label %if.end73
 
 if.then70:                                        ; preds = %if.end66
-  %55 = load ptr, ptr %cert, align 8
-  %56 = load ptr, ptr %key, align 8
+  %47 = load ptr, ptr %cert, align 8
+  %48 = load ptr, ptr %key, align 8
   %call71 = call ptr @gnutls_strerror(i32 noundef %call68) #10
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 617, ptr noundef nonnull @__func__.qcrypto_tls_creds_x509_load, ptr noundef nonnull @.str.20, ptr noundef %55, ptr noundef %56, ptr noundef %call71) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 617, ptr noundef nonnull @__func__.qcrypto_tls_creds_x509_load, ptr noundef nonnull @.str.20, ptr noundef %47, ptr noundef %48, ptr noundef %call71) #9
   br label %cleanup
 
 if.end73:                                         ; preds = %if.end66, %if.end54
-  %57 = load ptr, ptr %cacrl, align 8
-  %cmp74.not = icmp eq ptr %57, null
+  %49 = load ptr, ptr %cacrl, align 8
+  %cmp74.not = icmp eq ptr %49, null
   br i1 %cmp74.not, label %if.end82, label %if.then75
 
 if.then75:                                        ; preds = %if.end73
-  %58 = load ptr, ptr %data, align 8
-  %call77 = call i32 @gnutls_certificate_set_x509_crl_file(ptr noundef %58, ptr noundef nonnull %57, i32 noundef 1) #9
+  %50 = load ptr, ptr %data, align 8
+  %call77 = call i32 @gnutls_certificate_set_x509_crl_file(ptr noundef %50, ptr noundef nonnull %49, i32 noundef 1) #9
   %cmp78 = icmp slt i32 %call77, 0
   br i1 %cmp78, label %if.then79, label %if.end82
 
 if.then79:                                        ; preds = %if.then75
-  %59 = load ptr, ptr %cacrl, align 8
+  %51 = load ptr, ptr %cacrl, align 8
   %call80 = call ptr @gnutls_strerror(i32 noundef %call77) #10
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 628, ptr noundef nonnull @__func__.qcrypto_tls_creds_x509_load, ptr noundef nonnull @.str.21, ptr noundef %59, ptr noundef %call80) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.17, i32 noundef 628, ptr noundef nonnull @__func__.qcrypto_tls_creds_x509_load, ptr noundef nonnull @.str.21, ptr noundef %51, ptr noundef %call80) #9
   br label %cleanup
 
 if.end82:                                         ; preds = %if.then75, %if.end73
-  %60 = load i32, ptr %endpoint, align 8
-  %cmp85 = icmp eq i32 %60, 1
+  %52 = load i32, ptr %endpoint, align 8
+  %cmp85 = icmp eq i32 %52, 1
   br i1 %cmp85, label %if.then86, label %cleanup
 
 if.then86:                                        ; preds = %if.end82
-  %61 = load ptr, ptr %dhparams, align 8
+  %53 = load ptr, ptr %dhparams, align 8
   %dh_params = getelementptr inbounds i8, ptr %creds, i64 56
-  %call89 = call i32 @qcrypto_tls_creds_get_dh_params_file(ptr noundef nonnull %creds, ptr noundef %61, ptr noundef nonnull %dh_params, ptr noundef %errp) #9
+  %call89 = call i32 @qcrypto_tls_creds_get_dh_params_file(ptr noundef nonnull %creds, ptr noundef %53, ptr noundef nonnull %dh_params, ptr noundef %errp) #9
   %cmp90 = icmp slt i32 %call89, 0
   br i1 %cmp90, label %cleanup, label %if.end92
 
 if.end92:                                         ; preds = %if.then86
-  %62 = load ptr, ptr %data, align 8
-  %63 = load ptr, ptr %dh_params, align 8
-  call void @gnutls_certificate_set_dh_params(ptr noundef %62, ptr noundef %63) #9
+  %54 = load ptr, ptr %data, align 8
+  %55 = load ptr, ptr %dh_params, align 8
+  call void @gnutls_certificate_set_dh_params(ptr noundef %54, ptr noundef %55) #9
   br label %cleanup
 
 cleanup:                                          ; preds = %qcrypto_tls_creds_x509_sanity_check.exit.thread, %if.end82, %if.end92, %if.then86, %if.then60, %qcrypto_tls_creds_x509_sanity_check.exit, %if.else, %lor.lhs.false25, %lor.lhs.false29, %if.then, %lor.lhs.false, %lor.lhs.false9, %lor.lhs.false13, %lor.lhs.false17, %if.then79, %if.then70, %if.then52, %if.then46
-  %64 = load ptr, ptr %cacert, align 8
-  call void @g_free(ptr noundef %64) #9
-  %65 = load ptr, ptr %cacrl, align 8
-  call void @g_free(ptr noundef %65) #9
-  %66 = load ptr, ptr %cert, align 8
-  call void @g_free(ptr noundef %66) #9
-  %67 = load ptr, ptr %key, align 8
-  call void @g_free(ptr noundef %67) #9
-  %68 = load ptr, ptr %dhparams, align 8
-  call void @g_free(ptr noundef %68) #9
+  %56 = load ptr, ptr %cacert, align 8
+  call void @g_free(ptr noundef %56) #9
+  %57 = load ptr, ptr %cacrl, align 8
+  call void @g_free(ptr noundef %57) #9
+  %58 = load ptr, ptr %cert, align 8
+  call void @g_free(ptr noundef %58) #9
+  %59 = load ptr, ptr %key, align 8
+  call void @g_free(ptr noundef %59) #9
+  %60 = load ptr, ptr %dhparams, align 8
+  call void @g_free(ptr noundef %60) #9
   ret void
 }
 

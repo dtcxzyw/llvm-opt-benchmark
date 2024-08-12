@@ -2340,12 +2340,15 @@ Abc_Clock.exit85:                                 ; preds = %.critedge2._crit_ed
   %.0.i84 = phi i64 [ %240, %234 ], [ -1, %.critedge2._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %241 = add i64 %.0.i84, %.0.i.neg
-  %242 = trunc i64 %241 to i32
-  %243 = getelementptr inbounds i8, ptr %0, i64 32
-  %244 = load <2 x i32>, ptr %243, align 8
-  %245 = insertelement <2 x i32> <i32 1, i32 poison>, i32 %242, i64 1
-  %246 = add <2 x i32> %244, %245
-  store <2 x i32> %246, ptr %243, align 8
+  %242 = getelementptr inbounds i8, ptr %0, i64 36
+  %243 = load i32, ptr %242, align 4
+  %244 = trunc i64 %241 to i32
+  %245 = add i32 %243, %244
+  store i32 %245, ptr %242, align 4
+  %246 = getelementptr inbounds i8, ptr %0, i64 32
+  %247 = load i32, ptr %246, align 8
+  %248 = add nsw i32 %247, 1
+  store i32 %248, ptr %246, align 8
   ret void
 }
 

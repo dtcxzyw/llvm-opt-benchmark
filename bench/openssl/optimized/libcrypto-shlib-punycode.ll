@@ -238,7 +238,7 @@ entry:
   %buf = alloca [512 x i32], align 16
   %pkt = alloca %struct.wpacket_st, align 8
   %bufsize = alloca i32, align 4
-  %seed = alloca [6 x i8], align 4
+  %seed = alloca [6 x i8], align 1
   %cmp.not = icmp eq ptr %out, null
   %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %seed, i64 3
   %.sink.i.sroa.gep17 = getelementptr inbounds i8, ptr %seed, i64 4
@@ -307,7 +307,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then.i:                                        ; preds = %for.body
   %conv.i = trunc nuw i32 %1 to i8
-  store i8 %conv.i, ptr %seed, align 4
+  store i8 %conv.i, ptr %seed, align 1
   br label %if.end34
 
 if.else.i:                                        ; preds = %for.body
@@ -318,7 +318,7 @@ if.then4.i:                                       ; preds = %if.else.i
   %shr.i = lshr i32 %1, 6
   %2 = trunc nuw i32 %shr.i to i8
   %conv5.i = or disjoint i8 %2, -64
-  store i8 %conv5.i, ptr %seed, align 4
+  store i8 %conv5.i, ptr %seed, align 1
   %3 = trunc i32 %1 to i8
   %4 = and i8 %3, 63
   %conv10.i = or disjoint i8 %4, -128
@@ -333,7 +333,7 @@ if.then16.i:                                      ; preds = %if.else13.i
   %shr17.i = lshr i32 %1, 12
   %5 = trunc nuw i32 %shr17.i to i8
   %conv20.i = or disjoint i8 %5, -32
-  store i8 %conv20.i, ptr %seed, align 4
+  store i8 %conv20.i, ptr %seed, align 1
   %shr22.i = lshr i32 %1, 6
   %6 = trunc i32 %shr22.i to i8
   %7 = and i8 %6, 63
@@ -342,7 +342,7 @@ if.then16.i:                                      ; preds = %if.else13.i
   %8 = trunc i32 %1 to i8
   %9 = and i8 %8, 63
   %conv30.i = or disjoint i8 %9, -128
-  store i8 %conv30.i, ptr %.sink.i.sroa.gep19, align 2
+  store i8 %conv30.i, ptr %.sink.i.sroa.gep19, align 1
   br label %if.end34
 
 if.else33.i:                                      ; preds = %if.else13.i
@@ -353,7 +353,7 @@ if.then36.i:                                      ; preds = %if.else33.i
   %shr37.i = lshr i32 %1, 18
   %10 = trunc nuw i32 %shr37.i to i8
   %conv40.i = or disjoint i8 %10, -16
-  store i8 %conv40.i, ptr %seed, align 4
+  store i8 %conv40.i, ptr %seed, align 1
   %shr42.i = lshr i32 %1, 12
   %11 = trunc i32 %shr42.i to i8
   %12 = and i8 %11, 63
@@ -363,7 +363,7 @@ if.then36.i:                                      ; preds = %if.else33.i
   %13 = trunc i32 %shr47.i to i8
   %14 = and i8 %13, 63
   %conv50.i = or disjoint i8 %14, -128
-  store i8 %conv50.i, ptr %.sink.i.sroa.gep19, align 2
+  store i8 %conv50.i, ptr %.sink.i.sroa.gep19, align 1
   %15 = trunc i32 %1 to i8
   %16 = and i8 %15, 63
   %conv55.i = or disjoint i8 %16, -128
@@ -371,7 +371,10 @@ if.then36.i:                                      ; preds = %if.else33.i
   br label %if.end34
 
 codepoint2utf8.exit:                              ; preds = %if.else33.i
-  store <4 x i8> <i8 -17, i8 -65, i8 -67, i8 0>, ptr %seed, align 4
+  store i8 -17, ptr %seed, align 1
+  store i8 -65, ptr %.sink.i.sroa.gep20, align 1
+  store i8 -67, ptr %.sink.i.sroa.gep19, align 1
+  store i8 0, ptr %.sink.i.sroa.gep, align 1
   br label %end
 
 if.end34:                                         ; preds = %if.then36.i, %if.then16.i, %if.then4.i, %if.then.i

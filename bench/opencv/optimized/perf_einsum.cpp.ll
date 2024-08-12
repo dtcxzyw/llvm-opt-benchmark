@@ -8240,7 +8240,13 @@ _ZN11opencv_test12EinsumParamsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %172 = getelementptr inbounds i8, ptr %168, i64 16
   %173 = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %172, ptr %173, align 8
-  store <4 x i32> <i32 1, i32 4, i32 7, i32 9>, ptr %168, align 4
+  store i32 1, ptr %168, align 4
+  %.sroa.2775.0..sroa_idx.i = getelementptr inbounds i8, ptr %168, i64 4
+  store i32 4, ptr %.sroa.2775.0..sroa_idx.i, align 4
+  %.sroa.3776.0..sroa_idx.i = getelementptr inbounds i8, ptr %168, i64 8
+  store i32 7, ptr %.sroa.3776.0..sroa_idx.i, align 4
+  %.sroa.4777.0..sroa_idx.i = getelementptr inbounds i8, ptr %168, i64 12
+  store i32 9, ptr %.sroa.4777.0..sroa_idx.i, align 4
   %174 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %172, ptr %174, align 8
   %175 = getelementptr inbounds i8, ptr %22, i64 24
@@ -8253,7 +8259,13 @@ _ZN11opencv_test12EinsumParamsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %178 = getelementptr inbounds i8, ptr %176, i64 16
   %179 = getelementptr inbounds i8, ptr %22, i64 40
   store ptr %178, ptr %179, align 8
-  store <4 x i32> <i32 1, i32 5, i32 9, i32 8>, ptr %176, align 4
+  store i32 1, ptr %176, align 4
+  %.sroa.2771.0..sroa_idx.i = getelementptr inbounds i8, ptr %176, i64 4
+  store i32 5, ptr %.sroa.2771.0..sroa_idx.i, align 4
+  %.sroa.3772.0..sroa_idx.i = getelementptr inbounds i8, ptr %176, i64 8
+  store i32 9, ptr %.sroa.3772.0..sroa_idx.i, align 4
+  %.sroa.4773.0..sroa_idx.i = getelementptr inbounds i8, ptr %176, i64 12
+  store i32 8, ptr %.sroa.4773.0..sroa_idx.i, align 4
   %180 = getelementptr inbounds i8, ptr %22, i64 32
   store ptr %178, ptr %180, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
@@ -8327,7 +8339,13 @@ _ZN11opencv_test12EinsumParamsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %209 = getelementptr inbounds i8, ptr %205, i64 16
   %210 = getelementptr inbounds i8, ptr %26, i64 16
   store ptr %209, ptr %210, align 8
-  store <4 x i32> <i32 1, i32 4, i32 70, i32 90>, ptr %205, align 4
+  store i32 1, ptr %205, align 4
+  %.sroa.2767.0..sroa_idx.i = getelementptr inbounds i8, ptr %205, i64 4
+  store i32 4, ptr %.sroa.2767.0..sroa_idx.i, align 4
+  %.sroa.3768.0..sroa_idx.i = getelementptr inbounds i8, ptr %205, i64 8
+  store i32 70, ptr %.sroa.3768.0..sroa_idx.i, align 4
+  %.sroa.4769.0..sroa_idx.i = getelementptr inbounds i8, ptr %205, i64 12
+  store i32 90, ptr %.sroa.4769.0..sroa_idx.i, align 4
   %211 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %209, ptr %211, align 8
   %212 = getelementptr inbounds i8, ptr %26, i64 24
@@ -8340,7 +8358,13 @@ _ZN11opencv_test12EinsumParamsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %215 = getelementptr inbounds i8, ptr %213, i64 16
   %216 = getelementptr inbounds i8, ptr %26, i64 40
   store ptr %215, ptr %216, align 8
-  store <4 x i32> <i32 1, i32 5, i32 90, i32 80>, ptr %213, align 4
+  store i32 1, ptr %213, align 4
+  %.sroa.2763.0..sroa_idx.i = getelementptr inbounds i8, ptr %213, i64 4
+  store i32 5, ptr %.sroa.2763.0..sroa_idx.i, align 4
+  %.sroa.3764.0..sroa_idx.i = getelementptr inbounds i8, ptr %213, i64 8
+  store i32 90, ptr %.sroa.3764.0..sroa_idx.i, align 4
+  %.sroa.4765.0..sroa_idx.i = getelementptr inbounds i8, ptr %213, i64 12
+  store i32 80, ptr %.sroa.4765.0..sroa_idx.i, align 4
   %217 = getelementptr inbounds i8, ptr %26, i64 32
   store ptr %215, ptr %217, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
@@ -8414,7 +8438,13 @@ _ZN11opencv_test12EinsumParamsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %246 = getelementptr inbounds i8, ptr %242, i64 16
   %247 = getelementptr inbounds i8, ptr %30, i64 16
   store ptr %246, ptr %247, align 8
-  store <4 x i32> <i32 1, i32 4, i32 73, i32 91>, ptr %242, align 4
+  store i32 1, ptr %242, align 4
+  %.sroa.2759.0..sroa_idx.i = getelementptr inbounds i8, ptr %242, i64 4
+  store i32 4, ptr %.sroa.2759.0..sroa_idx.i, align 4
+  %.sroa.3760.0..sroa_idx.i = getelementptr inbounds i8, ptr %242, i64 8
+  store i32 73, ptr %.sroa.3760.0..sroa_idx.i, align 4
+  %.sroa.4761.0..sroa_idx.i = getelementptr inbounds i8, ptr %242, i64 12
+  store i32 91, ptr %.sroa.4761.0..sroa_idx.i, align 4
   %248 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %246, ptr %248, align 8
   %249 = getelementptr inbounds i8, ptr %30, i64 24
@@ -8427,7 +8457,13 @@ _ZN11opencv_test12EinsumParamsC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %252 = getelementptr inbounds i8, ptr %250, i64 16
   %253 = getelementptr inbounds i8, ptr %30, i64 40
   store ptr %252, ptr %253, align 8
-  store <4 x i32> <i32 1, i32 5, i32 91, i32 57>, ptr %250, align 4
+  store i32 1, ptr %250, align 4
+  %.sroa.2757.0..sroa_idx.i = getelementptr inbounds i8, ptr %250, i64 4
+  store i32 5, ptr %.sroa.2757.0..sroa_idx.i, align 4
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %250, i64 8
+  store i32 91, ptr %.sroa.3.0..sroa_idx.i, align 4
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %250, i64 12
+  store i32 57, ptr %.sroa.4.0..sroa_idx.i, align 4
   %254 = getelementptr inbounds i8, ptr %30, i64 32
   store ptr %252, ptr %254, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)

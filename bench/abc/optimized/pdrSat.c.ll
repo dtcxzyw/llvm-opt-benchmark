@@ -1039,7 +1039,7 @@ Pdr_ManTimeLimit.exit:                            ; preds = %Abc_Clock.exit, %45
   %52 = call i32 @sat_solver_solve(ptr noundef %17, ptr noundef nonnull %13, ptr noundef nonnull %50, i64 noundef %51, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
   store i64 %49, ptr %48, align 8
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %248, label %181
+  br i1 %53, label %250, label %181
 
 54:                                               ; preds = %7
   %.not = icmp eq i32 %6, 0
@@ -1281,14 +1281,14 @@ Pdr_ManTimeLimit.exit109:                         ; preds = %Abc_Clock.exit106, 
   br i1 %175, label %176, label %181
 
 176:                                              ; preds = %171
-  br i1 %.not86, label %248, label %177
+  br i1 %.not86, label %250, label %177
 
 177:                                              ; preds = %176
   %178 = load ptr, ptr %0, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 12
   %180 = load i32, ptr %179, align 4
   %.not87 = icmp eq i32 %180, 0
-  br i1 %.not87, label %248, label %181
+  br i1 %.not87, label %250, label %181
 
 181:                                              ; preds = %177, %171, %Pdr_ManTimeLimit.exit
   %.079 = phi i32 [ %52, %Pdr_ManTimeLimit.exit ], [ %174, %171 ], [ 1, %177 ]
@@ -1328,11 +1328,11 @@ Abc_Clock.exit111:                                ; preds = %181, %184
   %201 = load i32, ptr %200, align 4
   %202 = add nsw i32 %201, 1
   store i32 %202, ptr %200, align 4
-  br i1 %.not90, label %248, label %203
+  br i1 %.not90, label %250, label %203
 
 203:                                              ; preds = %196
   store ptr null, ptr %3, align 8
-  br label %248
+  br label %250
 
 204:                                              ; preds = %Abc_Clock.exit111
   %205 = getelementptr inbounds i8, ptr %0, i64 392
@@ -1343,7 +1343,7 @@ Abc_Clock.exit111:                                ; preds = %181, %184
   %209 = load i32, ptr %208, align 8
   %210 = add nsw i32 %209, 1
   store i32 %210, ptr %208, align 8
-  br i1 %.not90, label %248, label %211
+  br i1 %.not90, label %250, label %211
 
 211:                                              ; preds = %204
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
@@ -1407,14 +1407,17 @@ Abc_Clock.exit115:                                ; preds = %227, %230
   %241 = load ptr, ptr %3, align 8
   %242 = getelementptr inbounds i8, ptr %241, i64 16
   %243 = load i32, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %0, i64 356
-  %245 = load <2 x i32>, ptr %244, align 4
-  %246 = insertelement <2 x i32> <i32 1, i32 poison>, i32 %243, i64 1
-  %247 = add nsw <2 x i32> %245, %246
-  store <2 x i32> %247, ptr %244, align 4
-  br label %248
+  %244 = getelementptr inbounds i8, ptr %0, i64 360
+  %245 = load i32, ptr %244, align 8
+  %246 = add nsw i32 %245, %243
+  store i32 %246, ptr %244, align 8
+  %247 = getelementptr inbounds i8, ptr %0, i64 356
+  %248 = load i32, ptr %247, align 4
+  %249 = add nsw i32 %248, 1
+  store i32 %249, ptr %247, align 4
+  br label %250
 
-248:                                              ; preds = %203, %196, %Abc_Clock.exit115, %204, %176, %177, %Pdr_ManTimeLimit.exit
+250:                                              ; preds = %203, %196, %Abc_Clock.exit115, %204, %176, %177, %Pdr_ManTimeLimit.exit
   %.0 = phi i32 [ -1, %Pdr_ManTimeLimit.exit ], [ -1, %177 ], [ -1, %176 ], [ 1, %203 ], [ 1, %196 ], [ 0, %Abc_Clock.exit115 ], [ 0, %204 ]
   ret i32 %.0
 }

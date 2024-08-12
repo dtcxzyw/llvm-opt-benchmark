@@ -496,43 +496,49 @@ define noundef i64 @Java_sun_jvm_hotspot_debugger_linux_amd64_DwarfParser_create
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 20
-  store <4 x i32> <i32 7, i32 16, i32 0, i32 0>, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %9, i8 0, i64 21, i1 false)
-  %10 = getelementptr inbounds i8, ptr %5, i64 4400
-  %11 = load ptr, ptr %10, align 8
-  %.not8 = icmp eq ptr %11, null
-  br i1 %.not8, label %12, label %27
+  store i32 7, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 16, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  store i32 0, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %12, i8 0, i64 21, i1 false)
+  %13 = getelementptr inbounds i8, ptr %5, i64 4400
+  %14 = load ptr, ptr %13, align 8
+  %.not8 = icmp eq ptr %14, null
+  br i1 %.not8, label %15, label %30
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull %0, ptr noundef nonnull @.str.21)
-  %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 120
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr %19(ptr noundef nonnull %0)
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %21, label %26
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noundef ptr %18(ptr noundef nonnull %0, ptr noundef nonnull @.str.21)
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 120
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef ptr %22(ptr noundef nonnull %0)
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %24, label %29
 
-21:                                               ; preds = %12
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 112
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef i32 %24(ptr noundef nonnull %0, ptr noundef %16, ptr noundef nonnull @.str.22)
-  br label %26
+24:                                               ; preds = %15
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 112
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef i32 %27(ptr noundef nonnull %0, ptr noundef %19, ptr noundef nonnull @.str.22)
+  br label %29
 
-26:                                               ; preds = %12, %21
+29:                                               ; preds = %15, %24
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #7
-  br label %29
+  br label %32
 
-27:                                               ; preds = %3
-  %28 = ptrtoint ptr %4 to i64
-  br label %29
+30:                                               ; preds = %3
+  %31 = ptrtoint ptr %4 to i64
+  br label %32
 
-29:                                               ; preds = %27, %26
-  %.0 = phi i64 [ %28, %27 ], [ 0, %26 ]
+32:                                               ; preds = %30, %29
+  %.0 = phi i64 [ %31, %30 ], [ 0, %29 ]
   ret i64 %.0
 }
 

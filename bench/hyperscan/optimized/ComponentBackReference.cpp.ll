@@ -76,8 +76,12 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #10
   %pos_begin.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %pos_begin2.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load <2 x i32>, ptr %pos_begin2.i.i, align 8
-  store <2 x i32> %0, ptr %pos_begin.i.i, align 8
+  %0 = load i32, ptr %pos_begin2.i.i, align 8
+  store i32 %0, ptr %pos_begin.i.i, align 8
+  %pos_end.i.i = getelementptr inbounds i8, ptr %call, i64 12
+  %pos_end3.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %1 = load i32, ptr %pos_end3.i.i, align 4
+  store i32 %1, ptr %pos_end.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentBackReferenceE, i64 16), ptr %call, align 8
   %name.i = getelementptr inbounds i8, ptr %call, i64 16
   %name2.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -85,17 +89,17 @@ entry:
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call) #9
   tail call void @_ZdlPv(ptr noundef nonnull %call) #11
-  resume { ptr, i32 } %1
+  resume { ptr, i32 } %2
 
 invoke.cont:                                      ; preds = %entry
   %ref_id.i = getelementptr inbounds i8, ptr %call, i64 48
   %ref_id3.i = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = load i32, ptr %ref_id3.i, align 8
-  store i32 %2, ptr %ref_id.i, align 8
+  %3 = load i32, ptr %ref_id3.i, align 8
+  store i32 %3, ptr %ref_id.i, align 8
   ret ptr %call
 }
 

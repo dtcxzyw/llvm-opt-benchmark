@@ -6204,8 +6204,8 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
   %101 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %100, ptr noundef %0, i32 noundef %.0293, i32 noundef 1, i32 noundef 0) #13
   br label %.backedge
 
-.backedge:                                        ; preds = %dissect_opt_apn6.exit, %707, %99, %124
-  %.0.be = phi i32 [ %87, %99 ], [ %127, %124 ], [ %705, %707 ], [ %.1, %dissect_opt_apn6.exit ]
+.backedge:                                        ; preds = %dissect_opt_apn6.exit, %703, %99, %124
+  %.0.be = phi i32 [ %87, %99 ], [ %127, %124 ], [ %701, %703 ], [ %.1, %dissect_opt_apn6.exit ]
   %102 = icmp slt i32 %.0.be, %19
   br i1 %102, label %85, label %._crit_edge, !llvm.loop !20
 
@@ -6250,7 +6250,7 @@ ipv6_opt_type_hdr.exit.thread:                    ; preds = %.lr.ph, %ipv6_opt_t
   %121 = load i32, ptr @hf_ipv6_opt_length, align 4
   %122 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %121, ptr noundef %0, i32 noundef %87, i32 noundef 1, i32 noundef 0) #13
   %123 = add nsw i32 %.0293, 2
-  switch i8 %86, label %699 [
+  switch i8 %86, label %695 [
     i8 1, label %124
     i8 -62, label %128
     i8 35, label %149
@@ -6261,24 +6261,24 @@ ipv6_opt_type_hdr.exit.thread:                    ; preds = %.lr.ph, %ipv6_opt_t
     i8 19, label %192
     i8 38, label %239
     i8 49, label %285
-    i8 65, label %554
-    i8 7, label %560
-    i8 8, label %583
-    i8 15, label %611
-    i8 -55, label %632
-    i8 -117, label %641
-    i8 -116, label %645
-    i8 109, label %659
-    i8 -18, label %679
-    i8 -118, label %689
-    i8 30, label %695
-    i8 62, label %695
-    i8 94, label %695
-    i8 126, label %695
-    i8 -98, label %695
-    i8 -66, label %695
-    i8 -34, label %695
-    i8 -2, label %695
+    i8 65, label %550
+    i8 7, label %556
+    i8 8, label %579
+    i8 15, label %607
+    i8 -55, label %628
+    i8 -117, label %637
+    i8 -116, label %641
+    i8 109, label %655
+    i8 -18, label %675
+    i8 -118, label %685
+    i8 30, label %691
+    i8 62, label %691
+    i8 94, label %691
+    i8 126, label %691
+    i8 -98, label %691
+    i8 -66, label %691
+    i8 -34, label %691
+    i8 -2, label %691
   ]
 
 124:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
@@ -6685,346 +6685,358 @@ dissect_opt_quickstart.exit:                      ; preds = %dissect_opt_quickst
   %.not138.i.i.i = icmp eq i32 %362, 0
   %363 = and i32 %329, 131072
   %.not139.i.i.i = icmp eq i32 %363, 0
-  %364 = insertelement <16 x i32> poison, i32 %329, i64 0
-  %365 = shufflevector <16 x i32> %364, <16 x i32> poison, <16 x i32> zeroinitializer
-  %366 = and <16 x i32> %365, <i32 2, i32 4, i32 8, i32 16, i32 32, i32 64, i32 128, i32 256, i32 512, i32 1024, i32 2048, i32 4096, i32 8192, i32 16384, i32 32768, i32 65536>
-  %367 = trunc nuw nsw i32 %352 to i16
-  %368 = icmp eq <16 x i32> %366, zeroinitializer
-  %369 = extractelement <16 x i1> %368, i64 0
-  %370 = extractelement <16 x i1> %368, i64 1
-  %371 = extractelement <16 x i1> %368, i64 2
-  %372 = extractelement <16 x i1> %368, i64 3
-  %373 = extractelement <16 x i1> %368, i64 4
-  %374 = extractelement <16 x i1> %368, i64 5
-  %375 = extractelement <16 x i1> %368, i64 6
-  %376 = extractelement <16 x i1> %368, i64 7
-  %377 = extractelement <16 x i1> %368, i64 8
-  %378 = extractelement <16 x i1> %368, i64 9
-  %379 = extractelement <16 x i1> %368, i64 10
-  %380 = extractelement <16 x i1> %368, i64 11
-  %381 = extractelement <16 x i1> %368, i64 12
-  %382 = extractelement <16 x i1> %368, i64 13
-  %383 = extractelement <16 x i1> %368, i64 14
-  %384 = extractelement <16 x i1> %368, i64 15
-  br label %385
+  %364 = and i32 %329, 65536
+  %.not140.i.i.i = icmp eq i32 %364, 0
+  %365 = and i32 %329, 32768
+  %.not141.i.i.i = icmp eq i32 %365, 0
+  %366 = and i32 %329, 16384
+  %.not142.i.i.i = icmp eq i32 %366, 0
+  %367 = and i32 %329, 8192
+  %.not143.i.i.i = icmp eq i32 %367, 0
+  %368 = and i32 %329, 4096
+  %.not144.i.i.i = icmp eq i32 %368, 0
+  %369 = and i32 %329, 2048
+  %.not145.i.i.i = icmp eq i32 %369, 0
+  %370 = and i32 %329, 1024
+  %.not146.i.i.i = icmp eq i32 %370, 0
+  %371 = and i32 %329, 512
+  %.not147.i.i.i = icmp eq i32 %371, 0
+  %372 = and i32 %329, 256
+  %.not148.i.i.i = icmp eq i32 %372, 0
+  %373 = and i32 %329, 128
+  %.not149.i.i.i = icmp eq i32 %373, 0
+  %374 = and i32 %329, 64
+  %.not150.i.i.i = icmp eq i32 %374, 0
+  %375 = and i32 %329, 32
+  %.not151.i.i.i = icmp eq i32 %375, 0
+  %376 = and i32 %329, 16
+  %.not152.i.i.i = icmp eq i32 %376, 0
+  %377 = and i32 %329, 8
+  %.not153.i.i.i = icmp eq i32 %377, 0
+  %378 = and i32 %329, 4
+  %.not154.i.i.i = icmp eq i32 %378, 0
+  %379 = trunc nuw nsw i32 %352 to i16
+  %380 = and i32 %329, 2
+  %.not134.i.i = icmp eq i32 %380, 0
+  br label %381
 
-385:                                              ; preds = %547, %.lr.ph.i.i
-  %.1146.i.i = phi i32 [ %.0119.i.i, %.lr.ph.i.i ], [ %.2.i.i, %547 ]
-  %.0120145.i.i = phi i16 [ %350, %.lr.ph.i.i ], [ %.1121.i.i, %547 ]
-  %.0122144.i.i = phi i8 [ 0, %.lr.ph.i.i ], [ %386, %547 ]
-  %386 = add i8 %.0122144.i.i, 1
-  %387 = zext i8 %386 to i32
-  %388 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %343, ptr noundef %0, i32 noundef %.1146.i.i, i32 noundef %352, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.897, i32 noundef %387) #13
-  br i1 %.not.i.i.i, label %397, label %389
+381:                                              ; preds = %543, %.lr.ph.i.i
+  %.1146.i.i = phi i32 [ %.0119.i.i, %.lr.ph.i.i ], [ %.2.i.i, %543 ]
+  %.0120145.i.i = phi i16 [ %350, %.lr.ph.i.i ], [ %.1121.i.i, %543 ]
+  %.0122144.i.i = phi i8 [ 0, %.lr.ph.i.i ], [ %382, %543 ]
+  %382 = add i8 %.0122144.i.i, 1
+  %383 = zext i8 %382 to i32
+  %384 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %343, ptr noundef %0, i32 noundef %.1146.i.i, i32 noundef %352, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.897, i32 noundef %383) #13
+  br i1 %.not.i.i.i, label %393, label %385
 
-389:                                              ; preds = %385
-  %390 = call ptr @proto_tree_add_subtree(ptr noundef %388, ptr noundef %0, i32 noundef %.1146.i.i, i32 noundef 4, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.382) #13
-  %391 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_hlim, align 4
-  %392 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %391, ptr noundef %0, i32 noundef %.1146.i.i, i32 noundef 1, i32 noundef 0) #13
-  %393 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_id, align 4
-  %394 = add i32 %.1146.i.i, 1
-  %395 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %393, ptr noundef %0, i32 noundef %394, i32 noundef 3, i32 noundef 0) #13
-  %396 = add i32 %.1146.i.i, 4
-  br label %397
+385:                                              ; preds = %381
+  %386 = call ptr @proto_tree_add_subtree(ptr noundef %384, ptr noundef %0, i32 noundef %.1146.i.i, i32 noundef 4, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.382) #13
+  %387 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_hlim, align 4
+  %388 = call ptr @proto_tree_add_item(ptr noundef %386, i32 noundef %387, ptr noundef %0, i32 noundef %.1146.i.i, i32 noundef 1, i32 noundef 0) #13
+  %389 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_id, align 4
+  %390 = add i32 %.1146.i.i, 1
+  %391 = call ptr @proto_tree_add_item(ptr noundef %386, i32 noundef %389, ptr noundef %0, i32 noundef %390, i32 noundef 3, i32 noundef 0) #13
+  %392 = add i32 %.1146.i.i, 4
+  br label %393
 
-397:                                              ; preds = %389, %385
-  %.0.i.i.i = phi i32 [ %396, %389 ], [ %.1146.i.i, %385 ]
-  br i1 %.not134.i.i.i, label %406, label %398
+393:                                              ; preds = %385, %381
+  %.0.i.i.i = phi i32 [ %392, %385 ], [ %.1146.i.i, %381 ]
+  br i1 %.not134.i.i.i, label %402, label %394
 
-398:                                              ; preds = %397
-  %399 = call ptr @proto_tree_add_subtree(ptr noundef %388, ptr noundef %0, i32 noundef %.0.i.i.i, i32 noundef 4, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.384) #13
-  %400 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_iif, align 4
-  %401 = call ptr @proto_tree_add_item(ptr noundef %399, i32 noundef %400, ptr noundef %0, i32 noundef %.0.i.i.i, i32 noundef 2, i32 noundef 0) #13
-  %402 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_eif, align 4
-  %403 = add i32 %.0.i.i.i, 2
-  %404 = call ptr @proto_tree_add_item(ptr noundef %399, i32 noundef %402, ptr noundef %0, i32 noundef %403, i32 noundef 2, i32 noundef 0) #13
-  %405 = add i32 %.0.i.i.i, 4
-  br label %406
+394:                                              ; preds = %393
+  %395 = call ptr @proto_tree_add_subtree(ptr noundef %384, ptr noundef %0, i32 noundef %.0.i.i.i, i32 noundef 4, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.384) #13
+  %396 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_iif, align 4
+  %397 = call ptr @proto_tree_add_item(ptr noundef %395, i32 noundef %396, ptr noundef %0, i32 noundef %.0.i.i.i, i32 noundef 2, i32 noundef 0) #13
+  %398 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_eif, align 4
+  %399 = add i32 %.0.i.i.i, 2
+  %400 = call ptr @proto_tree_add_item(ptr noundef %395, i32 noundef %398, ptr noundef %0, i32 noundef %399, i32 noundef 2, i32 noundef 0) #13
+  %401 = add i32 %.0.i.i.i, 4
+  br label %402
 
-406:                                              ; preds = %398, %397
-  %.1.i.i.i = phi i32 [ %405, %398 ], [ %.0.i.i.i, %397 ]
-  br i1 %.not135.i.i.i, label %411, label %407
+402:                                              ; preds = %394, %393
+  %.1.i.i.i = phi i32 [ %401, %394 ], [ %.0.i.i.i, %393 ]
+  br i1 %.not135.i.i.i, label %407, label %403
 
-407:                                              ; preds = %406
-  %408 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_tss, align 4
-  %409 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %408, ptr noundef %0, i32 noundef %.1.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %410 = add i32 %.1.i.i.i, 4
-  br label %411
+403:                                              ; preds = %402
+  %404 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_tss, align 4
+  %405 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %404, ptr noundef %0, i32 noundef %.1.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %406 = add i32 %.1.i.i.i, 4
+  br label %407
 
-411:                                              ; preds = %407, %406
-  %.2.i.i.i = phi i32 [ %410, %407 ], [ %.1.i.i.i, %406 ]
-  br i1 %.not136.i.i.i, label %416, label %412
+407:                                              ; preds = %403, %402
+  %.2.i.i.i = phi i32 [ %406, %403 ], [ %.1.i.i.i, %402 ]
+  br i1 %.not136.i.i.i, label %412, label %408
 
-412:                                              ; preds = %411
-  %413 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_tsf, align 4
-  %414 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %413, ptr noundef %0, i32 noundef %.2.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %415 = add i32 %.2.i.i.i, 4
-  br label %416
+408:                                              ; preds = %407
+  %409 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_tsf, align 4
+  %410 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %409, ptr noundef %0, i32 noundef %.2.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %411 = add i32 %.2.i.i.i, 4
+  br label %412
 
-416:                                              ; preds = %412, %411
-  %.3.i.i.i = phi i32 [ %415, %412 ], [ %.2.i.i.i, %411 ]
-  br i1 %.not137.i.i.i, label %421, label %417
+412:                                              ; preds = %408, %407
+  %.3.i.i.i = phi i32 [ %411, %408 ], [ %.2.i.i.i, %407 ]
+  br i1 %.not137.i.i.i, label %417, label %413
 
-417:                                              ; preds = %416
-  %418 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_trdelay, align 4
-  %419 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %418, ptr noundef %0, i32 noundef %.3.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %420 = add i32 %.3.i.i.i, 4
-  br label %421
+413:                                              ; preds = %412
+  %414 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_trdelay, align 4
+  %415 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %414, ptr noundef %0, i32 noundef %.3.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %416 = add i32 %.3.i.i.i, 4
+  br label %417
 
-421:                                              ; preds = %417, %416
-  %.4.i.i.i = phi i32 [ %420, %417 ], [ %.3.i.i.i, %416 ]
-  br i1 %.not138.i.i.i, label %426, label %422
+417:                                              ; preds = %413, %412
+  %.4.i.i.i = phi i32 [ %416, %413 ], [ %.3.i.i.i, %412 ]
+  br i1 %.not138.i.i.i, label %422, label %418
 
-422:                                              ; preds = %421
-  %423 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_nsdata, align 4
-  %424 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %423, ptr noundef %0, i32 noundef %.4.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %425 = add i32 %.4.i.i.i, 4
-  br label %426
+418:                                              ; preds = %417
+  %419 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_nsdata, align 4
+  %420 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %419, ptr noundef %0, i32 noundef %.4.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %421 = add i32 %.4.i.i.i, 4
+  br label %422
 
-426:                                              ; preds = %422, %421
-  %.5.i.i.i = phi i32 [ %425, %422 ], [ %.4.i.i.i, %421 ]
-  br i1 %.not139.i.i.i, label %431, label %427
+422:                                              ; preds = %418, %417
+  %.5.i.i.i = phi i32 [ %421, %418 ], [ %.4.i.i.i, %417 ]
+  br i1 %.not139.i.i.i, label %427, label %423
 
-427:                                              ; preds = %426
-  %428 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_qdepth, align 4
-  %429 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %428, ptr noundef %0, i32 noundef %.5.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %430 = add i32 %.5.i.i.i, 4
-  br label %431
+423:                                              ; preds = %422
+  %424 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_qdepth, align 4
+  %425 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %424, ptr noundef %0, i32 noundef %.5.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %426 = add i32 %.5.i.i.i, 4
+  br label %427
 
-431:                                              ; preds = %427, %426
-  %.6.i.i.i = phi i32 [ %430, %427 ], [ %.5.i.i.i, %426 ]
-  br i1 %384, label %436, label %432
+427:                                              ; preds = %423, %422
+  %.6.i.i.i = phi i32 [ %426, %423 ], [ %.5.i.i.i, %422 ]
+  br i1 %.not140.i.i.i, label %432, label %428
 
-432:                                              ; preds = %431
-  %433 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_csum, align 4
-  %434 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %433, ptr noundef %0, i32 noundef %.6.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %435 = add i32 %.6.i.i.i, 4
-  br label %436
+428:                                              ; preds = %427
+  %429 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_csum, align 4
+  %430 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %429, ptr noundef %0, i32 noundef %.6.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %431 = add i32 %.6.i.i.i, 4
+  br label %432
 
-436:                                              ; preds = %432, %431
-  %.7.i.i.i = phi i32 [ %435, %432 ], [ %.6.i.i.i, %431 ]
-  br i1 %383, label %445, label %437
+432:                                              ; preds = %428, %427
+  %.7.i.i.i = phi i32 [ %431, %428 ], [ %.6.i.i.i, %427 ]
+  br i1 %.not141.i.i.i, label %441, label %433
 
-437:                                              ; preds = %436
-  %438 = call ptr @proto_tree_add_subtree(ptr noundef %388, ptr noundef %0, i32 noundef %.7.i.i.i, i32 noundef 8, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.398) #13
-  %439 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_hlim, align 4
-  %440 = call ptr @proto_tree_add_item(ptr noundef %438, i32 noundef %439, ptr noundef %0, i32 noundef %.7.i.i.i, i32 noundef 1, i32 noundef 0) #13
-  %441 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_id_wide, align 4
-  %442 = add i32 %.7.i.i.i, 1
-  %443 = call ptr @proto_tree_add_item(ptr noundef %438, i32 noundef %441, ptr noundef %0, i32 noundef %442, i32 noundef 7, i32 noundef 0) #13
-  %444 = add i32 %.7.i.i.i, 8
-  br label %445
+433:                                              ; preds = %432
+  %434 = call ptr @proto_tree_add_subtree(ptr noundef %384, ptr noundef %0, i32 noundef %.7.i.i.i, i32 noundef 8, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.398) #13
+  %435 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_hlim, align 4
+  %436 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %435, ptr noundef %0, i32 noundef %.7.i.i.i, i32 noundef 1, i32 noundef 0) #13
+  %437 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_id_wide, align 4
+  %438 = add i32 %.7.i.i.i, 1
+  %439 = call ptr @proto_tree_add_item(ptr noundef %434, i32 noundef %437, ptr noundef %0, i32 noundef %438, i32 noundef 7, i32 noundef 0) #13
+  %440 = add i32 %.7.i.i.i, 8
+  br label %441
 
-445:                                              ; preds = %437, %436
-  %.8.i.i.i = phi i32 [ %444, %437 ], [ %.7.i.i.i, %436 ]
-  br i1 %382, label %454, label %446
+441:                                              ; preds = %433, %432
+  %.8.i.i.i = phi i32 [ %440, %433 ], [ %.7.i.i.i, %432 ]
+  br i1 %.not142.i.i.i, label %450, label %442
 
-446:                                              ; preds = %445
-  %447 = call ptr @proto_tree_add_subtree(ptr noundef %388, ptr noundef %0, i32 noundef %.8.i.i.i, i32 noundef 8, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.400) #13
-  %448 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_iif_wide, align 4
-  %449 = call ptr @proto_tree_add_item(ptr noundef %447, i32 noundef %448, ptr noundef %0, i32 noundef %.8.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %450 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_eif_wide, align 4
-  %451 = add i32 %.8.i.i.i, 4
-  %452 = call ptr @proto_tree_add_item(ptr noundef %447, i32 noundef %450, ptr noundef %0, i32 noundef %451, i32 noundef 4, i32 noundef 0) #13
-  %453 = add i32 %.8.i.i.i, 8
-  br label %454
+442:                                              ; preds = %441
+  %443 = call ptr @proto_tree_add_subtree(ptr noundef %384, ptr noundef %0, i32 noundef %.8.i.i.i, i32 noundef 8, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.400) #13
+  %444 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_iif_wide, align 4
+  %445 = call ptr @proto_tree_add_item(ptr noundef %443, i32 noundef %444, ptr noundef %0, i32 noundef %.8.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %446 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_eif_wide, align 4
+  %447 = add i32 %.8.i.i.i, 4
+  %448 = call ptr @proto_tree_add_item(ptr noundef %443, i32 noundef %446, ptr noundef %0, i32 noundef %447, i32 noundef 4, i32 noundef 0) #13
+  %449 = add i32 %.8.i.i.i, 8
+  br label %450
 
-454:                                              ; preds = %446, %445
-  %.9.i.i.i = phi i32 [ %453, %446 ], [ %.8.i.i.i, %445 ]
-  br i1 %381, label %459, label %455
+450:                                              ; preds = %442, %441
+  %.9.i.i.i = phi i32 [ %449, %442 ], [ %.8.i.i.i, %441 ]
+  br i1 %.not143.i.i.i, label %455, label %451
 
-455:                                              ; preds = %454
-  %456 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_nsdata_wide, align 4
-  %457 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %456, ptr noundef %0, i32 noundef %.9.i.i.i, i32 noundef 8, i32 noundef 0) #13
-  %458 = add i32 %.9.i.i.i, 8
-  br label %459
+451:                                              ; preds = %450
+  %452 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_nsdata_wide, align 4
+  %453 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %452, ptr noundef %0, i32 noundef %.9.i.i.i, i32 noundef 8, i32 noundef 0) #13
+  %454 = add i32 %.9.i.i.i, 8
+  br label %455
 
-459:                                              ; preds = %455, %454
-  %.10.i.i.i = phi i32 [ %458, %455 ], [ %.9.i.i.i, %454 ]
-  br i1 %380, label %464, label %460
+455:                                              ; preds = %451, %450
+  %.10.i.i.i = phi i32 [ %454, %451 ], [ %.9.i.i.i, %450 ]
+  br i1 %.not144.i.i.i, label %460, label %456
 
-460:                                              ; preds = %459
-  %461 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_bufoccup, align 4
-  %462 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %461, ptr noundef %0, i32 noundef %.10.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %463 = add i32 %.10.i.i.i, 4
-  br label %464
+456:                                              ; preds = %455
+  %457 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_bufoccup, align 4
+  %458 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %457, ptr noundef %0, i32 noundef %.10.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %459 = add i32 %.10.i.i.i, 4
+  br label %460
 
-464:                                              ; preds = %460, %459
-  %.11.i.i.i = phi i32 [ %463, %460 ], [ %.10.i.i.i, %459 ]
-  br i1 %379, label %469, label %465
+460:                                              ; preds = %456, %455
+  %.11.i.i.i = phi i32 [ %459, %456 ], [ %.10.i.i.i, %455 ]
+  br i1 %.not145.i.i.i, label %465, label %461
 
-465:                                              ; preds = %464
-  %466 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
-  %467 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %466, ptr noundef %0, i32 noundef %.11.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %468 = add i32 %.11.i.i.i, 4
-  br label %469
+461:                                              ; preds = %460
+  %462 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
+  %463 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %462, ptr noundef %0, i32 noundef %.11.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %464 = add i32 %.11.i.i.i, 4
+  br label %465
 
-469:                                              ; preds = %465, %464
-  %.12.i.i.i = phi i32 [ %468, %465 ], [ %.11.i.i.i, %464 ]
-  br i1 %378, label %474, label %470
+465:                                              ; preds = %461, %460
+  %.12.i.i.i = phi i32 [ %464, %461 ], [ %.11.i.i.i, %460 ]
+  br i1 %.not146.i.i.i, label %470, label %466
 
-470:                                              ; preds = %469
-  %471 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
-  %472 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %471, ptr noundef %0, i32 noundef %.12.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %473 = add i32 %.12.i.i.i, 4
-  br label %474
+466:                                              ; preds = %465
+  %467 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
+  %468 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %467, ptr noundef %0, i32 noundef %.12.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %469 = add i32 %.12.i.i.i, 4
+  br label %470
 
-474:                                              ; preds = %470, %469
-  %.13.i.i.i = phi i32 [ %473, %470 ], [ %.12.i.i.i, %469 ]
-  br i1 %377, label %479, label %475
+470:                                              ; preds = %466, %465
+  %.13.i.i.i = phi i32 [ %469, %466 ], [ %.12.i.i.i, %465 ]
+  br i1 %.not147.i.i.i, label %475, label %471
 
-475:                                              ; preds = %474
-  %476 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
-  %477 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %476, ptr noundef %0, i32 noundef %.13.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %478 = add i32 %.13.i.i.i, 4
-  br label %479
+471:                                              ; preds = %470
+  %472 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
+  %473 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %472, ptr noundef %0, i32 noundef %.13.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %474 = add i32 %.13.i.i.i, 4
+  br label %475
 
-479:                                              ; preds = %475, %474
-  %.14.i.i.i = phi i32 [ %478, %475 ], [ %.13.i.i.i, %474 ]
-  br i1 %376, label %484, label %480
+475:                                              ; preds = %471, %470
+  %.14.i.i.i = phi i32 [ %474, %471 ], [ %.13.i.i.i, %470 ]
+  br i1 %.not148.i.i.i, label %480, label %476
 
-480:                                              ; preds = %479
-  %481 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
-  %482 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %481, ptr noundef %0, i32 noundef %.14.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %483 = add i32 %.14.i.i.i, 4
-  br label %484
+476:                                              ; preds = %475
+  %477 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
+  %478 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %477, ptr noundef %0, i32 noundef %.14.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %479 = add i32 %.14.i.i.i, 4
+  br label %480
 
-484:                                              ; preds = %480, %479
-  %.15.i.i.i = phi i32 [ %483, %480 ], [ %.14.i.i.i, %479 ]
-  br i1 %375, label %489, label %485
+480:                                              ; preds = %476, %475
+  %.15.i.i.i = phi i32 [ %479, %476 ], [ %.14.i.i.i, %475 ]
+  br i1 %.not149.i.i.i, label %485, label %481
 
-485:                                              ; preds = %484
-  %486 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
-  %487 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %486, ptr noundef %0, i32 noundef %.15.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %488 = add i32 %.15.i.i.i, 4
-  br label %489
+481:                                              ; preds = %480
+  %482 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
+  %483 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %482, ptr noundef %0, i32 noundef %.15.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %484 = add i32 %.15.i.i.i, 4
+  br label %485
 
-489:                                              ; preds = %485, %484
-  %.16.i.i.i = phi i32 [ %488, %485 ], [ %.15.i.i.i, %484 ]
-  br i1 %374, label %494, label %490
+485:                                              ; preds = %481, %480
+  %.16.i.i.i = phi i32 [ %484, %481 ], [ %.15.i.i.i, %480 ]
+  br i1 %.not150.i.i.i, label %490, label %486
 
-490:                                              ; preds = %489
-  %491 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
-  %492 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %491, ptr noundef %0, i32 noundef %.16.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %493 = add i32 %.16.i.i.i, 4
-  br label %494
+486:                                              ; preds = %485
+  %487 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
+  %488 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %487, ptr noundef %0, i32 noundef %.16.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %489 = add i32 %.16.i.i.i, 4
+  br label %490
 
-494:                                              ; preds = %490, %489
-  %.17.i.i.i = phi i32 [ %493, %490 ], [ %.16.i.i.i, %489 ]
-  br i1 %373, label %499, label %495
+490:                                              ; preds = %486, %485
+  %.17.i.i.i = phi i32 [ %489, %486 ], [ %.16.i.i.i, %485 ]
+  br i1 %.not151.i.i.i, label %495, label %491
 
-495:                                              ; preds = %494
-  %496 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
-  %497 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %496, ptr noundef %0, i32 noundef %.17.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %498 = add i32 %.17.i.i.i, 4
-  br label %499
+491:                                              ; preds = %490
+  %492 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
+  %493 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %492, ptr noundef %0, i32 noundef %.17.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %494 = add i32 %.17.i.i.i, 4
+  br label %495
 
-499:                                              ; preds = %495, %494
-  %.18.i.i.i = phi i32 [ %498, %495 ], [ %.17.i.i.i, %494 ]
-  br i1 %372, label %504, label %500
+495:                                              ; preds = %491, %490
+  %.18.i.i.i = phi i32 [ %494, %491 ], [ %.17.i.i.i, %490 ]
+  br i1 %.not152.i.i.i, label %500, label %496
 
-500:                                              ; preds = %499
-  %501 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
-  %502 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %501, ptr noundef %0, i32 noundef %.18.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %503 = add i32 %.18.i.i.i, 4
-  br label %504
+496:                                              ; preds = %495
+  %497 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
+  %498 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %497, ptr noundef %0, i32 noundef %.18.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %499 = add i32 %.18.i.i.i, 4
+  br label %500
 
-504:                                              ; preds = %500, %499
-  %.19.i.i.i = phi i32 [ %503, %500 ], [ %.18.i.i.i, %499 ]
-  br i1 %371, label %509, label %505
+500:                                              ; preds = %496, %495
+  %.19.i.i.i = phi i32 [ %499, %496 ], [ %.18.i.i.i, %495 ]
+  br i1 %.not153.i.i.i, label %505, label %501
 
-505:                                              ; preds = %504
-  %506 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
-  %507 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %506, ptr noundef %0, i32 noundef %.19.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %508 = add i32 %.19.i.i.i, 4
-  br label %509
+501:                                              ; preds = %500
+  %502 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
+  %503 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %502, ptr noundef %0, i32 noundef %.19.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %504 = add i32 %.19.i.i.i, 4
+  br label %505
 
-509:                                              ; preds = %505, %504
-  %.20.i.i.i = phi i32 [ %508, %505 ], [ %.19.i.i.i, %504 ]
-  br i1 %370, label %dissect_opt_ioam_trace_node.exit.i.i, label %510
+505:                                              ; preds = %501, %500
+  %.20.i.i.i = phi i32 [ %504, %501 ], [ %.19.i.i.i, %500 ]
+  br i1 %.not154.i.i.i, label %dissect_opt_ioam_trace_node.exit.i.i, label %506
 
-510:                                              ; preds = %509
-  %511 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
-  %512 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %511, ptr noundef %0, i32 noundef %.20.i.i.i, i32 noundef 4, i32 noundef 0) #13
-  %513 = add i32 %.20.i.i.i, 4
+506:                                              ; preds = %505
+  %507 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_undefined, align 4
+  %508 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %507, ptr noundef %0, i32 noundef %.20.i.i.i, i32 noundef 4, i32 noundef 0) #13
+  %509 = add i32 %.20.i.i.i, 4
   br label %dissect_opt_ioam_trace_node.exit.i.i
 
-dissect_opt_ioam_trace_node.exit.i.i:             ; preds = %510, %509
-  %.21.i.i.i = phi i32 [ %513, %510 ], [ %.20.i.i.i, %509 ]
-  %514 = sub i32 %.21.i.i.i, %.1146.i.i
-  %.not133.i.i = icmp eq i32 %514, %352
-  br i1 %.not133.i.i, label %517, label %515
+dissect_opt_ioam_trace_node.exit.i.i:             ; preds = %506, %505
+  %.21.i.i.i = phi i32 [ %509, %506 ], [ %.20.i.i.i, %505 ]
+  %510 = sub i32 %.21.i.i.i, %.1146.i.i
+  %.not133.i.i = icmp eq i32 %510, %352
+  br i1 %.not133.i.i, label %513, label %511
 
-515:                                              ; preds = %dissect_opt_ioam_trace_node.exit.i.i
-  %516 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %332, ptr noundef nonnull @ei_ipv6_opt_ioam_invalid_trace_type) #13
+511:                                              ; preds = %dissect_opt_ioam_trace_node.exit.i.i
+  %512 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %332, ptr noundef nonnull @ei_ipv6_opt_ioam_invalid_trace_type) #13
   br label %dissect_opt_ioam_trace.exit.i
 
-517:                                              ; preds = %dissect_opt_ioam_trace_node.exit.i.i
-  %518 = sub i16 %.0120145.i.i, %367
-  br i1 %369, label %547, label %519
+513:                                              ; preds = %dissect_opt_ioam_trace_node.exit.i.i
+  %514 = sub i16 %.0120145.i.i, %379
+  br i1 %.not134.i.i, label %543, label %515
 
-519:                                              ; preds = %517
-  %520 = icmp ult i16 %518, 4
-  br i1 %520, label %521, label %523
+515:                                              ; preds = %513
+  %516 = icmp ult i16 %514, 4
+  br i1 %516, label %517, label %519
 
-521:                                              ; preds = %519
-  %522 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
+517:                                              ; preds = %515
+  %518 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
   br label %dissect_opt_ioam_trace.exit.i
 
-523:                                              ; preds = %519
-  %524 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.21.i.i.i) #13
-  %525 = zext i8 %524 to i32
-  %526 = shl nuw nsw i32 %525, 2
-  %527 = add nuw nsw i32 %526, 4
-  %528 = call ptr @proto_tree_add_subtree(ptr noundef %388, ptr noundef %0, i32 noundef %.21.i.i.i, i32 noundef %527, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.408) #13
-  %529 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_oss_len, align 4
-  %530 = call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %529, ptr noundef %0, i32 noundef %.21.i.i.i, i32 noundef 1, i32 noundef 0) #13
-  %531 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_oss_scid, align 4
-  %532 = add i32 %.21.i.i.i, 1
-  %533 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %528, i32 noundef %531, ptr noundef %0, i32 noundef %532, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %9) #13
-  %534 = add i32 %.21.i.i.i, 4
-  %535 = add i16 %518, -4
-  %536 = zext i16 %535 to i32
-  %537 = icmp ugt i32 %526, %536
-  br i1 %537, label %538, label %540
+519:                                              ; preds = %515
+  %520 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.21.i.i.i) #13
+  %521 = zext i8 %520 to i32
+  %522 = shl nuw nsw i32 %521, 2
+  %523 = add nuw nsw i32 %522, 4
+  %524 = call ptr @proto_tree_add_subtree(ptr noundef %384, ptr noundef %0, i32 noundef %.21.i.i.i, i32 noundef %523, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.408) #13
+  %525 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_oss_len, align 4
+  %526 = call ptr @proto_tree_add_item(ptr noundef %524, i32 noundef %525, ptr noundef %0, i32 noundef %.21.i.i.i, i32 noundef 1, i32 noundef 0) #13
+  %527 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_oss_scid, align 4
+  %528 = add i32 %.21.i.i.i, 1
+  %529 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %524, i32 noundef %527, ptr noundef %0, i32 noundef %528, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %9) #13
+  %530 = add i32 %.21.i.i.i, 4
+  %531 = add i16 %514, -4
+  %532 = zext i16 %531 to i32
+  %533 = icmp ugt i32 %522, %532
+  br i1 %533, label %534, label %536
 
-538:                                              ; preds = %523
-  %539 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
+534:                                              ; preds = %519
+  %535 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
   br label %dissect_opt_ioam_trace.exit.i
 
-540:                                              ; preds = %523
-  %.not135.i.i = icmp eq i8 %524, 0
-  br i1 %.not135.i.i, label %547, label %541
+536:                                              ; preds = %519
+  %.not135.i.i = icmp eq i8 %520, 0
+  br i1 %.not135.i.i, label %543, label %537
 
-541:                                              ; preds = %540
-  %542 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_oss_data, align 4
-  %543 = call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %542, ptr noundef %0, i32 noundef %534, i32 noundef %526, i32 noundef 0) #13
-  %544 = trunc nuw nsw i32 %526 to i16
-  %545 = sub i16 %535, %544
-  %546 = add i32 %526, %534
-  br label %547
+537:                                              ; preds = %536
+  %538 = load i32, ptr @hf_ipv6_opt_ioam_trace_node_oss_data, align 4
+  %539 = call ptr @proto_tree_add_item(ptr noundef %524, i32 noundef %538, ptr noundef %0, i32 noundef %530, i32 noundef %522, i32 noundef 0) #13
+  %540 = trunc nuw nsw i32 %522 to i16
+  %541 = sub i16 %531, %540
+  %542 = add i32 %522, %530
+  br label %543
 
-547:                                              ; preds = %541, %540, %517
-  %.1121.i.i = phi i16 [ %545, %541 ], [ %535, %540 ], [ %518, %517 ]
-  %.2.i.i = phi i32 [ %546, %541 ], [ %534, %540 ], [ %.21.i.i.i, %517 ]
-  %548 = zext i16 %.1121.i.i to i32
-  %549 = icmp ne i16 %.1121.i.i, 0
-  %550 = icmp ule i32 %352, %548
-  %551 = select i1 %549, i1 %550, i1 false
-  br i1 %551, label %385, label %._crit_edge.i.i, !llvm.loop !22
+543:                                              ; preds = %537, %536, %513
+  %.1121.i.i = phi i16 [ %541, %537 ], [ %531, %536 ], [ %514, %513 ]
+  %.2.i.i = phi i32 [ %542, %537 ], [ %530, %536 ], [ %.21.i.i.i, %513 ]
+  %544 = zext i16 %.1121.i.i to i32
+  %545 = icmp ne i16 %.1121.i.i, 0
+  %546 = icmp ule i32 %352, %544
+  %547 = select i1 %545, i1 %546, i1 false
+  br i1 %547, label %381, label %._crit_edge.i.i, !llvm.loop !22
 
-._crit_edge.i.i:                                  ; preds = %547, %348
-  %.0120.lcssa.i.i = phi i16 [ %350, %348 ], [ %.1121.i.i, %547 ]
-  %.1.lcssa.i.i = phi i32 [ %.0119.i.i, %348 ], [ %.2.i.i, %547 ]
+._crit_edge.i.i:                                  ; preds = %543, %348
+  %.0120.lcssa.i.i = phi i16 [ %350, %348 ], [ %.1121.i.i, %543 ]
+  %.1.lcssa.i.i = phi i32 [ %.0119.i.i, %348 ], [ %.2.i.i, %543 ]
   %.not132.i.i = icmp eq i16 %.0120.lcssa.i.i, 0
-  br i1 %.not132.i.i, label %dissect_opt_ioam_trace.exit.i, label %552
+  br i1 %.not132.i.i, label %dissect_opt_ioam_trace.exit.i, label %548
 
-552:                                              ; preds = %._crit_edge.i.i
-  %553 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
+548:                                              ; preds = %._crit_edge.i.i
+  %549 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
   br label %dissect_opt_ioam_trace.exit.i
 
-dissect_opt_ioam_trace.exit.i:                    ; preds = %552, %._crit_edge.i.i, %538, %521, %515, %341, %339
-  %.0.i.i = phi i32 [ %336, %339 ], [ %.1146.i.i, %515 ], [ %.21.i.i.i, %521 ], [ %534, %538 ], [ %336, %341 ], [ %.1.lcssa.i.i, %552 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
+dissect_opt_ioam_trace.exit.i:                    ; preds = %548, %._crit_edge.i.i, %534, %517, %511, %341, %339
+  %.0.i.i = phi i32 [ %336, %339 ], [ %.1146.i.i, %511 ], [ %.21.i.i.i, %517 ], [ %530, %534 ], [ %336, %341 ], [ %.1.lcssa.i.i, %548 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %dissect_opt_ioam.exit
 
@@ -7033,279 +7045,279 @@ dissect_opt_ioam.exit:                            ; preds = %289, %dissect_opt_i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %dissect_opt_apn6.exit
 
-554:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
+550:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %.not.i260 = icmp eq i8 %88, 4
-  br i1 %.not.i260, label %dissect_opt_tpf.exit, label %555
+  br i1 %.not.i260, label %dissect_opt_tpf.exit, label %551
 
-555:                                              ; preds = %554
-  %556 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.898, i32 noundef %92) #13
+551:                                              ; preds = %550
+  %552 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.898, i32 noundef %92) #13
   br label %dissect_opt_tpf.exit
 
-dissect_opt_tpf.exit:                             ; preds = %554, %555
-  %557 = load i32, ptr @hf_ipv6_opt_tpf_information, align 4
-  %558 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %557, ptr noundef %0, i32 noundef %123, i32 noundef 4, i32 noundef 0) #13
-  %559 = add nsw i32 %.0293, 6
+dissect_opt_tpf.exit:                             ; preds = %550, %551
+  %553 = load i32, ptr @hf_ipv6_opt_tpf_information, align 4
+  %554 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %553, ptr noundef %0, i32 noundef %123, i32 noundef 4, i32 noundef 0) #13
+  %555 = add nsw i32 %.0293, 6
   br label %dissect_opt_apn6.exit
 
-560:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
+556:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  %561 = icmp ult i8 %88, 8
-  br i1 %561, label %562, label %dissect_opt_calipso.exit
+  %557 = icmp ult i8 %88, 8
+  br i1 %557, label %558, label %dissect_opt_calipso.exit
 
-562:                                              ; preds = %560
-  %563 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.899, i32 noundef %92) #13
+558:                                              ; preds = %556
+  %559 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.899, i32 noundef %92) #13
   br label %dissect_opt_calipso.exit
 
-dissect_opt_calipso.exit:                         ; preds = %560, %562
-  %564 = load i32, ptr @hf_ipv6_opt_calipso_doi, align 4
-  %565 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %564, ptr noundef %0, i32 noundef %123, i32 noundef 4, i32 noundef 0) #13
-  %566 = add nsw i32 %.0293, 6
-  %567 = load i32, ptr @hf_ipv6_opt_calipso_cmpt_length, align 4
-  %568 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %96, i32 noundef %567, ptr noundef %0, i32 noundef %566, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #13
-  %569 = add nsw i32 %.0293, 7
-  %570 = load i32, ptr @hf_ipv6_opt_calipso_sens_level, align 4
-  %571 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %570, ptr noundef %0, i32 noundef %569, i32 noundef 1, i32 noundef 0) #13
-  %572 = add nsw i32 %.0293, 8
-  %573 = load i32, ptr @hf_ipv6_opt_calipso_checksum, align 4
-  %574 = call ptr @proto_tree_add_checksum(ptr noundef %96, ptr noundef %0, i32 noundef %572, i32 noundef %573, i32 noundef -1, ptr noundef null, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
-  %575 = add nsw i32 %.0293, 10
-  %576 = load i32, ptr @hf_ipv6_opt_calipso_cmpt_bitmap, align 4
-  %577 = load i32, ptr %8, align 4
-  %578 = shl i32 %577, 2
-  %579 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %576, ptr noundef %0, i32 noundef %575, i32 noundef %578, i32 noundef 0) #13
-  %580 = load i32, ptr %8, align 4
-  %581 = shl i32 %580, 2
-  %582 = add i32 %581, %575
+dissect_opt_calipso.exit:                         ; preds = %556, %558
+  %560 = load i32, ptr @hf_ipv6_opt_calipso_doi, align 4
+  %561 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %560, ptr noundef %0, i32 noundef %123, i32 noundef 4, i32 noundef 0) #13
+  %562 = add nsw i32 %.0293, 6
+  %563 = load i32, ptr @hf_ipv6_opt_calipso_cmpt_length, align 4
+  %564 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %96, i32 noundef %563, ptr noundef %0, i32 noundef %562, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #13
+  %565 = add nsw i32 %.0293, 7
+  %566 = load i32, ptr @hf_ipv6_opt_calipso_sens_level, align 4
+  %567 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %566, ptr noundef %0, i32 noundef %565, i32 noundef 1, i32 noundef 0) #13
+  %568 = add nsw i32 %.0293, 8
+  %569 = load i32, ptr @hf_ipv6_opt_calipso_checksum, align 4
+  %570 = call ptr @proto_tree_add_checksum(ptr noundef %96, ptr noundef %0, i32 noundef %568, i32 noundef %569, i32 noundef -1, ptr noundef null, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
+  %571 = add nsw i32 %.0293, 10
+  %572 = load i32, ptr @hf_ipv6_opt_calipso_cmpt_bitmap, align 4
+  %573 = load i32, ptr %8, align 4
+  %574 = shl i32 %573, 2
+  %575 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %572, ptr noundef %0, i32 noundef %571, i32 noundef %574, i32 noundef 0) #13
+  %576 = load i32, ptr %8, align 4
+  %577 = shl i32 %576, 2
+  %578 = add i32 %577, %571
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %dissect_opt_apn6.exit
 
-583:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
-  %584 = load i32, ptr @hf_ipv6_opt_smf_dpd_hash_bit, align 4
-  %585 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %584, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #13
-  %586 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %123) #13
-  %.not.i261 = icmp sgt i8 %586, -1
-  br i1 %.not.i261, label %591, label %587
+579:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
+  %580 = load i32, ptr @hf_ipv6_opt_smf_dpd_hash_bit, align 4
+  %581 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %580, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #13
+  %582 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %123) #13
+  %.not.i261 = icmp sgt i8 %582, -1
+  br i1 %.not.i261, label %587, label %583
 
-587:                                              ; preds = %583
-  %588 = load i32, ptr @hf_ipv6_opt_smf_dpd_hav, align 4
-  %589 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %588, ptr noundef %0, i32 noundef %123, i32 noundef %92, i32 noundef 0) #13
-  %590 = add nsw i32 %123, %92
+583:                                              ; preds = %579
+  %584 = load i32, ptr @hf_ipv6_opt_smf_dpd_hav, align 4
+  %585 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %584, ptr noundef %0, i32 noundef %123, i32 noundef %92, i32 noundef 0) #13
+  %586 = add nsw i32 %123, %92
   br label %dissect_opt_apn6.exit
 
-591:                                              ; preds = %583
-  %592 = load i32, ptr @hf_ipv6_opt_smf_dpd_tid_type, align 4
-  %593 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %592, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #13
-  %594 = load i32, ptr @hf_ipv6_opt_smf_dpd_tid_len, align 4
-  %595 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %594, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #13
-  %596 = add nsw i32 %.0293, 3
-  %597 = add nsw i32 %92, -1
-  %.not40.i = icmp ult i8 %586, 16
-  br i1 %.not40.i, label %605, label %598
+587:                                              ; preds = %579
+  %588 = load i32, ptr @hf_ipv6_opt_smf_dpd_tid_type, align 4
+  %589 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %588, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #13
+  %590 = load i32, ptr @hf_ipv6_opt_smf_dpd_tid_len, align 4
+  %591 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %590, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #13
+  %592 = add nsw i32 %.0293, 3
+  %593 = add nsw i32 %92, -1
+  %.not40.i = icmp ult i8 %582, 16
+  br i1 %.not40.i, label %601, label %594
 
-598:                                              ; preds = %591
-  %599 = and i8 %586, 15
-  %narrow.i = add nuw nsw i8 %599, 1
-  %600 = load i32, ptr @hf_ipv6_opt_smf_dpd_tagger_id, align 4
-  %601 = zext nneg i8 %narrow.i to i32
-  %602 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %600, ptr noundef %0, i32 noundef %596, i32 noundef %601, i32 noundef 0) #13
-  %603 = add nsw i32 %596, %601
-  %604 = sub nsw i32 %597, %601
-  br label %605
+594:                                              ; preds = %587
+  %595 = and i8 %582, 15
+  %narrow.i = add nuw nsw i8 %595, 1
+  %596 = load i32, ptr @hf_ipv6_opt_smf_dpd_tagger_id, align 4
+  %597 = zext nneg i8 %narrow.i to i32
+  %598 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %596, ptr noundef %0, i32 noundef %592, i32 noundef %597, i32 noundef 0) #13
+  %599 = add nsw i32 %592, %597
+  %600 = sub nsw i32 %593, %597
+  br label %601
 
-605:                                              ; preds = %598, %591
-  %.039.i = phi i32 [ %603, %598 ], [ %596, %591 ]
-  %.0.i262 = phi i32 [ %604, %598 ], [ %597, %591 ]
-  %606 = icmp sgt i32 %.0.i262, 0
-  br i1 %606, label %607, label %dissect_opt_apn6.exit
+601:                                              ; preds = %594, %587
+  %.039.i = phi i32 [ %599, %594 ], [ %592, %587 ]
+  %.0.i262 = phi i32 [ %600, %594 ], [ %593, %587 ]
+  %602 = icmp sgt i32 %.0.i262, 0
+  br i1 %602, label %603, label %dissect_opt_apn6.exit
 
-607:                                              ; preds = %605
-  %608 = load i32, ptr @hf_ipv6_opt_smf_dpd_ident, align 4
-  %609 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %608, ptr noundef %0, i32 noundef %.039.i, i32 noundef %.0.i262, i32 noundef 0) #13
-  %610 = add i32 %.0.i262, %.039.i
+603:                                              ; preds = %601
+  %604 = load i32, ptr @hf_ipv6_opt_smf_dpd_ident, align 4
+  %605 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %604, ptr noundef %0, i32 noundef %.039.i, i32 noundef %.0.i262, i32 noundef 0) #13
+  %606 = add i32 %.0.i262, %.039.i
   br label %dissect_opt_apn6.exit
 
-611:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
+607:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %.not.i263 = icmp eq i8 %88, 10
-  br i1 %.not.i263, label %dissect_opt_pdm.exit, label %612
+  br i1 %.not.i263, label %dissect_opt_pdm.exit, label %608
 
-612:                                              ; preds = %611
-  %613 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.900, i32 noundef %92) #13
+608:                                              ; preds = %607
+  %609 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.900, i32 noundef %92) #13
   br label %dissect_opt_pdm.exit
 
-dissect_opt_pdm.exit:                             ; preds = %611, %612
-  %614 = load i32, ptr @hf_ipv6_opt_pdm_scale_dtlr, align 4
-  %615 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %614, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #13
-  %616 = add nsw i32 %.0293, 3
-  %617 = load i32, ptr @hf_ipv6_opt_pdm_scale_dtls, align 4
-  %618 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %617, ptr noundef %0, i32 noundef %616, i32 noundef 1, i32 noundef 0) #13
-  %619 = add nsw i32 %.0293, 4
-  %620 = load i32, ptr @hf_ipv6_opt_pdm_psn_this_pkt, align 4
-  %621 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %620, ptr noundef %0, i32 noundef %619, i32 noundef 2, i32 noundef 0) #13
-  %622 = add nsw i32 %.0293, 6
-  %623 = load i32, ptr @hf_ipv6_opt_pdm_psn_last_recv, align 4
-  %624 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %623, ptr noundef %0, i32 noundef %622, i32 noundef 2, i32 noundef 0) #13
-  %625 = add nsw i32 %.0293, 8
-  %626 = load i32, ptr @hf_ipv6_opt_pdm_delta_last_recv, align 4
-  %627 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %626, ptr noundef %0, i32 noundef %625, i32 noundef 2, i32 noundef 0) #13
-  %628 = add nsw i32 %.0293, 10
-  %629 = load i32, ptr @hf_ipv6_opt_pdm_delta_last_sent, align 4
-  %630 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %629, ptr noundef %0, i32 noundef %628, i32 noundef 2, i32 noundef 0) #13
-  %631 = add nsw i32 %.0293, 12
+dissect_opt_pdm.exit:                             ; preds = %607, %608
+  %610 = load i32, ptr @hf_ipv6_opt_pdm_scale_dtlr, align 4
+  %611 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %610, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #13
+  %612 = add nsw i32 %.0293, 3
+  %613 = load i32, ptr @hf_ipv6_opt_pdm_scale_dtls, align 4
+  %614 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %613, ptr noundef %0, i32 noundef %612, i32 noundef 1, i32 noundef 0) #13
+  %615 = add nsw i32 %.0293, 4
+  %616 = load i32, ptr @hf_ipv6_opt_pdm_psn_this_pkt, align 4
+  %617 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %616, ptr noundef %0, i32 noundef %615, i32 noundef 2, i32 noundef 0) #13
+  %618 = add nsw i32 %.0293, 6
+  %619 = load i32, ptr @hf_ipv6_opt_pdm_psn_last_recv, align 4
+  %620 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %619, ptr noundef %0, i32 noundef %618, i32 noundef 2, i32 noundef 0) #13
+  %621 = add nsw i32 %.0293, 8
+  %622 = load i32, ptr @hf_ipv6_opt_pdm_delta_last_recv, align 4
+  %623 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %622, ptr noundef %0, i32 noundef %621, i32 noundef 2, i32 noundef 0) #13
+  %624 = add nsw i32 %.0293, 10
+  %625 = load i32, ptr @hf_ipv6_opt_pdm_delta_last_sent, align 4
+  %626 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %625, ptr noundef %0, i32 noundef %624, i32 noundef 2, i32 noundef 0) #13
+  %627 = add nsw i32 %.0293, 12
   br label %dissect_opt_apn6.exit
 
-632:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
+628:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %.not.i264 = icmp eq i8 %88, 16
-  br i1 %.not.i264, label %dissect_opt_home_address.exit, label %633
+  br i1 %.not.i264, label %dissect_opt_home_address.exit, label %629
 
-633:                                              ; preds = %632
-  %634 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.901, i32 noundef %92) #13
+629:                                              ; preds = %628
+  %630 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.901, i32 noundef %92) #13
   br label %dissect_opt_home_address.exit
 
-dissect_opt_home_address.exit:                    ; preds = %632, %633
-  %635 = load i32, ptr @hf_ipv6_opt_mipv6_home_address, align 4
-  %636 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %635, ptr noundef %0, i32 noundef %123, i32 noundef 16, i32 noundef 0) #13
-  %637 = load ptr, ptr %20, align 8
-  %638 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %123, i32 noundef 16) #13
+dissect_opt_home_address.exit:                    ; preds = %628, %629
+  %631 = load i32, ptr @hf_ipv6_opt_mipv6_home_address, align 4
+  %632 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %631, ptr noundef %0, i32 noundef %123, i32 noundef 16, i32 noundef 0) #13
+  %633 = load ptr, ptr %20, align 8
+  %634 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %123, i32 noundef 16) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
   store i32 3, ptr %80, align 8
-  %639 = call noalias ptr @wmem_memdup(ptr noundef %637, ptr noundef %638, i64 noundef 16) #13
-  store ptr %639, ptr %81, align 8
-  store ptr %639, ptr %82, align 8
+  %635 = call noalias ptr @wmem_memdup(ptr noundef %633, ptr noundef %634, i64 noundef 16) #13
+  store ptr %635, ptr %81, align 8
+  store ptr %635, ptr %82, align 8
   store i32 16, ptr %83, align 4
-  %640 = add nsw i32 %.0293, 18
+  %636 = add nsw i32 %.0293, 18
+  br label %dissect_opt_apn6.exit
+
+637:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
+  %638 = load i32, ptr @hf_ipv6_opt_ilnp_nonce, align 4
+  %639 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %638, ptr noundef %0, i32 noundef %123, i32 noundef %92, i32 noundef 0) #13
+  %640 = add nsw i32 %123, %92
   br label %dissect_opt_apn6.exit
 
 641:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
-  %642 = load i32, ptr @hf_ipv6_opt_ilnp_nonce, align 4
-  %643 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %642, ptr noundef %0, i32 noundef %123, i32 noundef %92, i32 noundef 0) #13
-  %644 = add nsw i32 %123, %92
-  br label %dissect_opt_apn6.exit
-
-645:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  %646 = load i32, ptr @hf_ipv6_opt_lio_len, align 4
-  %647 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %96, i32 noundef %646, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #13
-  %648 = load i32, ptr %7, align 4
-  %649 = add i32 %648, 1
-  %650 = icmp ugt i32 %649, %92
-  br i1 %650, label %651, label %dissect_opt_lio.exit
+  %642 = load i32, ptr @hf_ipv6_opt_lio_len, align 4
+  %643 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %96, i32 noundef %642, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #13
+  %644 = load i32, ptr %7, align 4
+  %645 = add i32 %644, 1
+  %646 = icmp ugt i32 %645, %92
+  br i1 %646, label %647, label %dissect_opt_lio.exit
 
-651:                                              ; preds = %645
-  %652 = add nsw i32 %92, -1
-  store i32 %652, ptr %7, align 4
+647:                                              ; preds = %641
+  %648 = add nsw i32 %92, -1
+  store i32 %648, ptr %7, align 4
   br label %dissect_opt_lio.exit
 
-dissect_opt_lio.exit:                             ; preds = %645, %651
-  %653 = phi i32 [ %652, %651 ], [ %648, %645 ]
-  %654 = add nsw i32 %.0293, 3
-  %655 = load i32, ptr @hf_ipv6_opt_lio_id, align 4
-  %656 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %655, ptr noundef %0, i32 noundef %654, i32 noundef %653, i32 noundef 0) #13
-  %657 = load i32, ptr %7, align 4
-  %658 = add i32 %657, %654
+dissect_opt_lio.exit:                             ; preds = %641, %647
+  %649 = phi i32 [ %648, %647 ], [ %644, %641 ]
+  %650 = add nsw i32 %.0293, 3
+  %651 = load i32, ptr @hf_ipv6_opt_lio_id, align 4
+  %652 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %651, ptr noundef %0, i32 noundef %650, i32 noundef %649, i32 noundef 0) #13
+  %653 = load i32, ptr %7, align 4
+  %654 = add i32 %653, %650
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %dissect_opt_apn6.exit
 
-659:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
-  %660 = load i32, ptr @hf_ipv6_opt_mpl_flag, align 4
-  %661 = load i32, ptr @ett_ipv6_opt_mpl, align 4
-  %662 = call ptr @proto_tree_add_bitmask(ptr noundef %96, ptr noundef %0, i32 noundef %123, i32 noundef %660, i32 noundef %661, ptr noundef nonnull @dissect_opt_mpl.mpl_flags, i32 noundef 0) #13
-  %663 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %123) #13
-  %664 = lshr i8 %663, 6
-  %665 = zext nneg i8 %664 to i64
-  %666 = getelementptr [4 x i8], ptr @dissect_opt_mpl.seed_id_len_arr, i64 0, i64 %665
-  %667 = load i8, ptr %666, align 1
-  %668 = add nsw i32 %.0293, 3
-  %669 = load i32, ptr @hf_ipv6_opt_mpl_sequence, align 4
-  %670 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %669, ptr noundef %0, i32 noundef %668, i32 noundef 1, i32 noundef 0) #13
-  %671 = add nsw i32 %.0293, 4
-  %.not.i265 = icmp ult i8 %663, 64
-  br i1 %.not.i265, label %677, label %672
+655:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
+  %656 = load i32, ptr @hf_ipv6_opt_mpl_flag, align 4
+  %657 = load i32, ptr @ett_ipv6_opt_mpl, align 4
+  %658 = call ptr @proto_tree_add_bitmask(ptr noundef %96, ptr noundef %0, i32 noundef %123, i32 noundef %656, i32 noundef %657, ptr noundef nonnull @dissect_opt_mpl.mpl_flags, i32 noundef 0) #13
+  %659 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %123) #13
+  %660 = lshr i8 %659, 6
+  %661 = zext nneg i8 %660 to i64
+  %662 = getelementptr [4 x i8], ptr @dissect_opt_mpl.seed_id_len_arr, i64 0, i64 %661
+  %663 = load i8, ptr %662, align 1
+  %664 = add nsw i32 %.0293, 3
+  %665 = load i32, ptr @hf_ipv6_opt_mpl_sequence, align 4
+  %666 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %665, ptr noundef %0, i32 noundef %664, i32 noundef 1, i32 noundef 0) #13
+  %667 = add nsw i32 %.0293, 4
+  %.not.i265 = icmp ult i8 %659, 64
+  br i1 %.not.i265, label %673, label %668
 
-672:                                              ; preds = %659
-  %673 = zext i8 %667 to i32
-  %674 = load i32, ptr @hf_ipv6_opt_mpl_seed_id, align 4
-  %675 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %674, ptr noundef %0, i32 noundef %671, i32 noundef %673, i32 noundef 0) #13
-  %676 = add nsw i32 %671, %673
+668:                                              ; preds = %655
+  %669 = zext i8 %663 to i32
+  %670 = load i32, ptr @hf_ipv6_opt_mpl_seed_id, align 4
+  %671 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %670, ptr noundef %0, i32 noundef %667, i32 noundef %669, i32 noundef 0) #13
+  %672 = add nsw i32 %667, %669
   br label %dissect_opt_apn6.exit
 
-677:                                              ; preds = %659
-  %678 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %98, ptr noundef nonnull @ei_ipv6_opt_mpl_ipv6_src_seed_id) #13
+673:                                              ; preds = %655
+  %674 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %98, ptr noundef nonnull @ei_ipv6_opt_mpl_ipv6_src_seed_id) #13
   br label %dissect_opt_apn6.exit
 
-679:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
+675:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %.not.i267 = icmp eq i8 %88, 3
-  br i1 %.not.i267, label %dissect_opt_dff.exit, label %680
+  br i1 %.not.i267, label %dissect_opt_dff.exit, label %676
 
-680:                                              ; preds = %679
-  %681 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.902, i32 noundef %92) #13
+676:                                              ; preds = %675
+  %677 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.902, i32 noundef %92) #13
   br label %dissect_opt_dff.exit
 
-dissect_opt_dff.exit:                             ; preds = %679, %680
-  %682 = load i32, ptr @hf_ipv6_opt_dff_flags, align 4
-  %683 = load i32, ptr @ett_ipv6_opt_dff_flags, align 4
-  %684 = call ptr @proto_tree_add_bitmask(ptr noundef %96, ptr noundef %0, i32 noundef %123, i32 noundef %682, i32 noundef %683, ptr noundef nonnull @dissect_opt_dff.dff_flags, i32 noundef 0) #13
-  %685 = add nsw i32 %.0293, 3
-  %686 = load i32, ptr @hf_ipv6_opt_dff_seqnum, align 4
-  %687 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %686, ptr noundef %0, i32 noundef %685, i32 noundef 2, i32 noundef 0) #13
-  %688 = add nsw i32 %.0293, 5
+dissect_opt_dff.exit:                             ; preds = %675, %676
+  %678 = load i32, ptr @hf_ipv6_opt_dff_flags, align 4
+  %679 = load i32, ptr @ett_ipv6_opt_dff_flags, align 4
+  %680 = call ptr @proto_tree_add_bitmask(ptr noundef %96, ptr noundef %0, i32 noundef %123, i32 noundef %678, i32 noundef %679, ptr noundef nonnull @dissect_opt_dff.dff_flags, i32 noundef 0) #13
+  %681 = add nsw i32 %.0293, 3
+  %682 = load i32, ptr @hf_ipv6_opt_dff_seqnum, align 4
+  %683 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %682, ptr noundef %0, i32 noundef %681, i32 noundef 2, i32 noundef 0) #13
+  %684 = add nsw i32 %.0293, 5
   br label %dissect_opt_apn6.exit
 
-689:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
-  %690 = load i32, ptr @hf_ipv6_opt_unknown, align 4
-  %691 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %690, ptr noundef %0, i32 noundef %123, i32 noundef %92, i32 noundef 0) #13
-  %692 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %691, ptr noundef nonnull @ei_ipv6_opt_unknown_data) #13
-  %693 = add nsw i32 %123, %92
-  %694 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %98, ptr noundef nonnull @ei_ipv6_opt_deprecated) #13
+685:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
+  %686 = load i32, ptr @hf_ipv6_opt_unknown, align 4
+  %687 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %686, ptr noundef %0, i32 noundef %123, i32 noundef %92, i32 noundef 0) #13
+  %688 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %687, ptr noundef nonnull @ei_ipv6_opt_unknown_data) #13
+  %689 = add nsw i32 %123, %92
+  %690 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %98, ptr noundef nonnull @ei_ipv6_opt_deprecated) #13
   br label %dissect_opt_apn6.exit
 
-695:                                              ; preds = %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread
-  %696 = load i32, ptr @hf_ipv6_opt_experimental, align 4
+691:                                              ; preds = %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread
+  %692 = load i32, ptr @hf_ipv6_opt_experimental, align 4
+  %693 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %692, ptr noundef %0, i32 noundef %123, i32 noundef %92, i32 noundef 0) #13
+  %694 = add nsw i32 %123, %92
+  br label %dissect_opt_apn6.exit
+
+695:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
+  %696 = load i32, ptr @hf_ipv6_opt_unknown, align 4
   %697 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %696, ptr noundef %0, i32 noundef %123, i32 noundef %92, i32 noundef 0) #13
-  %698 = add nsw i32 %123, %92
+  %698 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %697, ptr noundef nonnull @ei_ipv6_opt_unknown_data) #13
+  %699 = add nsw i32 %123, %92
   br label %dissect_opt_apn6.exit
 
-699:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
-  %700 = load i32, ptr @hf_ipv6_opt_unknown, align 4
-  %701 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %700, ptr noundef %0, i32 noundef %123, i32 noundef %92, i32 noundef 0) #13
-  %702 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %701, ptr noundef nonnull @ei_ipv6_opt_unknown_data) #13
-  %703 = add nsw i32 %123, %92
-  br label %dissect_opt_apn6.exit
+dissect_opt_apn6.exit:                            ; preds = %673, %668, %603, %601, %583, %232, %222, %213, %206, %695, %691, %685, %dissect_opt_dff.exit, %dissect_opt_lio.exit, %637, %dissect_opt_home_address.exit, %dissect_opt_pdm.exit, %dissect_opt_calipso.exit, %dissect_opt_tpf.exit, %dissect_opt_ioam.exit, %dissect_opt_quickstart.exit, %dissect_opt_pmtu.exit, %dissect_opt_rtalert.exit, %dissect_opt_tel.exit, %dissect_opt_rpl.exit, %dissect_opt_jumbo.exit
+  %.1 = phi i32 [ %699, %695 ], [ %694, %691 ], [ %689, %685 ], [ %684, %dissect_opt_dff.exit ], [ %654, %dissect_opt_lio.exit ], [ %640, %637 ], [ %636, %dissect_opt_home_address.exit ], [ %627, %dissect_opt_pdm.exit ], [ %578, %dissect_opt_calipso.exit ], [ %555, %dissect_opt_tpf.exit ], [ %.0.i258, %dissect_opt_ioam.exit ], [ %.0.i257, %dissect_opt_quickstart.exit ], [ %191, %dissect_opt_pmtu.exit ], [ %174, %dissect_opt_rtalert.exit ], [ %168, %dissect_opt_tel.exit ], [ %162, %dissect_opt_rpl.exit ], [ %148, %dissect_opt_jumbo.exit ], [ %238, %232 ], [ %225, %222 ], [ %216, %213 ], [ %212, %206 ], [ %586, %583 ], [ %606, %603 ], [ %.039.i, %601 ], [ %672, %668 ], [ %667, %673 ]
+  %700 = and i32 %123, 255
+  %701 = add nuw nsw i32 %700, %92
+  %702 = icmp slt i32 %.1, %701
+  br i1 %702, label %703, label %.backedge
 
-dissect_opt_apn6.exit:                            ; preds = %677, %672, %607, %605, %587, %232, %222, %213, %206, %699, %695, %689, %dissect_opt_dff.exit, %dissect_opt_lio.exit, %641, %dissect_opt_home_address.exit, %dissect_opt_pdm.exit, %dissect_opt_calipso.exit, %dissect_opt_tpf.exit, %dissect_opt_ioam.exit, %dissect_opt_quickstart.exit, %dissect_opt_pmtu.exit, %dissect_opt_rtalert.exit, %dissect_opt_tel.exit, %dissect_opt_rpl.exit, %dissect_opt_jumbo.exit
-  %.1 = phi i32 [ %703, %699 ], [ %698, %695 ], [ %693, %689 ], [ %688, %dissect_opt_dff.exit ], [ %658, %dissect_opt_lio.exit ], [ %644, %641 ], [ %640, %dissect_opt_home_address.exit ], [ %631, %dissect_opt_pdm.exit ], [ %582, %dissect_opt_calipso.exit ], [ %559, %dissect_opt_tpf.exit ], [ %.0.i258, %dissect_opt_ioam.exit ], [ %.0.i257, %dissect_opt_quickstart.exit ], [ %191, %dissect_opt_pmtu.exit ], [ %174, %dissect_opt_rtalert.exit ], [ %168, %dissect_opt_tel.exit ], [ %162, %dissect_opt_rpl.exit ], [ %148, %dissect_opt_jumbo.exit ], [ %238, %232 ], [ %225, %222 ], [ %216, %213 ], [ %212, %206 ], [ %590, %587 ], [ %610, %607 ], [ %.039.i, %605 ], [ %676, %672 ], [ %671, %677 ]
-  %704 = and i32 %123, 255
-  %705 = add nuw nsw i32 %704, %92
-  %706 = icmp slt i32 %.1, %705
-  br i1 %706, label %707, label %.backedge
-
-707:                                              ; preds = %dissect_opt_apn6.exit
-  %708 = load i32, ptr @hf_ipv6_opt_unknown_data, align 4
-  %709 = sub i32 %705, %.1
-  %710 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %708, ptr noundef %0, i32 noundef %.1, i32 noundef %709, i32 noundef 0) #13
-  %711 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %710, ptr noundef nonnull @ei_ipv6_opt_unknown_data) #13
+703:                                              ; preds = %dissect_opt_apn6.exit
+  %704 = load i32, ptr @hf_ipv6_opt_unknown_data, align 4
+  %705 = sub i32 %701, %.1
+  %706 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %704, ptr noundef %0, i32 noundef %.1, i32 noundef %705, i32 noundef 0) #13
+  %707 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %706, ptr noundef nonnull @ei_ipv6_opt_unknown_data) #13
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %15, ptr %6, align 1
-  %712 = load ptr, ptr %20, align 8
-  %713 = call noalias ptr @wmem_memdup(ptr noundef %712, ptr noundef nonnull %6, i64 noundef 1) #13
-  %714 = load ptr, ptr %20, align 8
-  %715 = load i32, ptr @proto_ipv6, align 4
-  %716 = getelementptr inbounds i8, ptr %2, i64 376
-  %717 = load i8, ptr %716, align 8
-  %718 = zext i8 %717 to i32
-  %719 = shl nuw nsw i32 %718, 8
-  %720 = or disjoint i32 %719, 1
-  call void @p_add_proto_data(ptr noundef %714, ptr noundef %2, i32 noundef %715, i32 noundef %720, ptr noundef %713) #13
+  %708 = load ptr, ptr %20, align 8
+  %709 = call noalias ptr @wmem_memdup(ptr noundef %708, ptr noundef nonnull %6, i64 noundef 1) #13
+  %710 = load ptr, ptr %20, align 8
+  %711 = load i32, ptr @proto_ipv6, align 4
+  %712 = getelementptr inbounds i8, ptr %2, i64 376
+  %713 = load i8, ptr %712, align 8
+  %714 = zext i8 %713 to i32
+  %715 = shl nuw nsw i32 %714, 8
+  %716 = or disjoint i32 %715, 1
+  call void @p_add_proto_data(ptr noundef %710, ptr noundef %2, i32 noundef %711, i32 noundef %716, ptr noundef %709) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %721 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %19) #13
-  %722 = zext i8 %15 to i32
-  call void @ipv6_dissect_next(i32 noundef %722, ptr noundef %721, ptr noundef %2, ptr noundef %1, ptr noundef %3)
-  %723 = call i32 @tvb_captured_length(ptr noundef %0) #13
-  ret i32 %723
+  %717 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %19) #13
+  %718 = zext i8 %15 to i32
+  call void @ipv6_dissect_next(i32 noundef %718, ptr noundef %717, ptr noundef %2, ptr noundef %1, ptr noundef %3)
+  %719 = call i32 @tvb_captured_length(ptr noundef %0) #13
+  ret i32 %719
 }
 
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1

@@ -625,18 +625,23 @@ for.body47:                                       ; preds = %for.body47.preheade
   %indvars.iv144 = phi i64 [ 0, %for.body47.preheader ], [ %indvars.iv.next145, %for.body47 ]
   %dst.1138 = phi ptr [ %dst.0.lcssa, %for.body47.preheader ], [ %add.ptr64, %for.body47 ]
   %arrayidx50 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %indvars.iv144
-  %144 = load <2 x i16>, ptr %arrayidx50, align 8
-  store <2 x i16> %144, ptr %dst.1138, align 2
-  %145 = or disjoint i64 %indvars.iv144, 2
-  %arrayidx58 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %145
-  %146 = load i16, ptr %arrayidx58, align 4
+  %144 = load i16, ptr %arrayidx50, align 8
+  store i16 %144, ptr %dst.1138, align 2
+  %145 = or disjoint i64 %indvars.iv144, 1
+  %arrayidx54 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %145
+  %146 = load i16, ptr %arrayidx54, align 2
+  %arrayidx55 = getelementptr inbounds i8, ptr %dst.1138, i64 2
+  store i16 %146, ptr %arrayidx55, align 2
+  %147 = or disjoint i64 %indvars.iv144, 2
+  %arrayidx58 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %147
+  %148 = load i16, ptr %arrayidx58, align 4
   %arrayidx59 = getelementptr inbounds i8, ptr %dst.1138, i64 4
-  store i16 %146, ptr %arrayidx59, align 2
-  %147 = or disjoint i64 %indvars.iv144, 3
-  %arrayidx62 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %147
-  %148 = load i16, ptr %arrayidx62, align 2
+  store i16 %148, ptr %arrayidx59, align 2
+  %149 = or disjoint i64 %indvars.iv144, 3
+  %arrayidx62 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %149
+  %150 = load i16, ptr %arrayidx62, align 2
   %arrayidx63 = getelementptr inbounds i8, ptr %dst.1138, i64 6
-  store i16 %148, ptr %arrayidx63, align 2
+  store i16 %150, ptr %arrayidx63, align 2
   %add.ptr64 = getelementptr inbounds i8, ptr %dst.1138, i64 8
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 4
   %cmp46 = icmp ult i64 %indvars.iv.next145, %143
@@ -926,18 +931,23 @@ for.body47:                                       ; preds = %for.body47.preheade
   %indvars.iv144 = phi i64 [ 0, %for.body47.preheader ], [ %indvars.iv.next145, %for.body47 ]
   %dst.1138 = phi ptr [ %dst.0.lcssa, %for.body47.preheader ], [ %add.ptr64, %for.body47 ]
   %arrayidx50 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %indvars.iv144
-  %144 = load <2 x i16>, ptr %arrayidx50, align 8
-  store <2 x i16> %144, ptr %dst.1138, align 2
-  %145 = or disjoint i64 %indvars.iv144, 2
-  %arrayidx58 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %145
-  %146 = load i16, ptr %arrayidx58, align 4
+  %144 = load i16, ptr %arrayidx50, align 8
+  store i16 %144, ptr %dst.1138, align 2
+  %145 = or disjoint i64 %indvars.iv144, 1
+  %arrayidx54 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %145
+  %146 = load i16, ptr %arrayidx54, align 2
+  %arrayidx55 = getelementptr inbounds i8, ptr %dst.1138, i64 2
+  store i16 %146, ptr %arrayidx55, align 2
+  %147 = or disjoint i64 %indvars.iv144, 2
+  %arrayidx58 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %147
+  %148 = load i16, ptr %arrayidx58, align 4
   %arrayidx59 = getelementptr inbounds i8, ptr %dst.1138, i64 4
-  store i16 %146, ptr %arrayidx59, align 2
-  %147 = or disjoint i64 %indvars.iv144, 3
-  %arrayidx62 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %147
-  %148 = load i16, ptr %arrayidx62, align 2
+  store i16 %148, ptr %arrayidx59, align 2
+  %149 = or disjoint i64 %indvars.iv144, 3
+  %arrayidx62 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %149
+  %150 = load i16, ptr %arrayidx62, align 2
   %arrayidx63 = getelementptr inbounds i8, ptr %dst.1138, i64 6
-  store i16 %148, ptr %arrayidx63, align 2
+  store i16 %150, ptr %arrayidx63, align 2
   %add.ptr64 = getelementptr inbounds i8, ptr %dst.1138, i64 8
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 4
   %cmp46 = icmp ult i64 %indvars.iv.next145, %143
@@ -1227,18 +1237,23 @@ for.body47:                                       ; preds = %for.body47.preheade
   %indvars.iv144 = phi i64 [ 0, %for.body47.preheader ], [ %indvars.iv.next145, %for.body47 ]
   %dst.1138 = phi ptr [ %dst.0.lcssa, %for.body47.preheader ], [ %add.ptr64, %for.body47 ]
   %arrayidx50 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %indvars.iv144
-  %144 = load <2 x i16>, ptr %arrayidx50, align 8
-  store <2 x i16> %144, ptr %dst.1138, align 2
-  %145 = or disjoint i64 %indvars.iv144, 2
-  %arrayidx58 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %145
-  %146 = load i16, ptr %arrayidx58, align 4
+  %144 = load i16, ptr %arrayidx50, align 8
+  store i16 %144, ptr %dst.1138, align 2
+  %145 = or disjoint i64 %indvars.iv144, 1
+  %arrayidx54 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %145
+  %146 = load i16, ptr %arrayidx54, align 2
+  %arrayidx55 = getelementptr inbounds i8, ptr %dst.1138, i64 2
+  store i16 %146, ptr %arrayidx55, align 2
+  %147 = or disjoint i64 %indvars.iv144, 2
+  %arrayidx58 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %147
+  %148 = load i16, ptr %arrayidx58, align 4
   %arrayidx59 = getelementptr inbounds i8, ptr %dst.1138, i64 4
-  store i16 %146, ptr %arrayidx59, align 2
-  %147 = or disjoint i64 %indvars.iv144, 3
-  %arrayidx62 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %147
-  %148 = load i16, ptr %arrayidx62, align 2
+  store i16 %148, ptr %arrayidx59, align 2
+  %149 = or disjoint i64 %indvars.iv144, 3
+  %arrayidx62 = getelementptr inbounds [32 x i16], ptr %out_buf, i64 0, i64 %149
+  %150 = load i16, ptr %arrayidx62, align 2
   %arrayidx63 = getelementptr inbounds i8, ptr %dst.1138, i64 6
-  store i16 %148, ptr %arrayidx63, align 2
+  store i16 %150, ptr %arrayidx63, align 2
   %add.ptr64 = getelementptr inbounds i8, ptr %dst.1138, i64 8
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 4
   %cmp46 = icmp ult i64 %indvars.iv.next145, %143
@@ -1456,18 +1471,23 @@ for.body47:                                       ; preds = %for.body47.preheade
   %indvars.iv132 = phi i64 [ 0, %for.body47.preheader ], [ %indvars.iv.next133, %for.body47 ]
   %dst.1126 = phi ptr [ %dst.0.lcssa, %for.body47.preheader ], [ %add.ptr64, %for.body47 ]
   %arrayidx50 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %out_buf, i64 0, i64 %indvars.iv132
-  %92 = load <2 x i16>, ptr %arrayidx50, align 8
-  store <2 x i16> %92, ptr %dst.1126, align 2
-  %93 = or disjoint i64 %indvars.iv132, 2
-  %arrayidx58 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %out_buf, i64 0, i64 %93
+  %92 = load i16, ptr %arrayidx50, align 8
+  store i16 %92, ptr %dst.1126, align 2
+  %93 = or disjoint i64 %indvars.iv132, 1
+  %arrayidx54 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %out_buf, i64 0, i64 %93
+  %arrayidx55 = getelementptr inbounds i8, ptr %dst.1126, i64 2
+  %94 = load i16, ptr %arrayidx54, align 2
+  store i16 %94, ptr %arrayidx55, align 2
+  %95 = or disjoint i64 %indvars.iv132, 2
+  %arrayidx58 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %out_buf, i64 0, i64 %95
   %arrayidx59 = getelementptr inbounds i8, ptr %dst.1126, i64 4
-  %94 = load i16, ptr %arrayidx58, align 4
-  store i16 %94, ptr %arrayidx59, align 2
-  %95 = or disjoint i64 %indvars.iv132, 3
-  %arrayidx62 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %out_buf, i64 0, i64 %95
+  %96 = load i16, ptr %arrayidx58, align 4
+  store i16 %96, ptr %arrayidx59, align 2
+  %97 = or disjoint i64 %indvars.iv132, 3
+  %arrayidx62 = getelementptr inbounds [32 x %"class.Imath_3_1::half"], ptr %out_buf, i64 0, i64 %97
   %arrayidx63 = getelementptr inbounds i8, ptr %dst.1126, i64 6
-  %96 = load i16, ptr %arrayidx62, align 2
-  store i16 %96, ptr %arrayidx63, align 2
+  %98 = load i16, ptr %arrayidx62, align 2
+  store i16 %98, ptr %arrayidx63, align 2
   %add.ptr64 = getelementptr inbounds i8, ptr %dst.1126, i64 8
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 4
   %cmp46 = icmp ult i64 %indvars.iv.next133, %91
@@ -1679,18 +1699,23 @@ for.body44:                                       ; preds = %for.body44.preheade
   %indvars.iv124 = phi i64 [ 0, %for.body44.preheader ], [ %indvars.iv.next125, %for.body44 ]
   %dst.1118 = phi ptr [ %dst.0.lcssa, %for.body44.preheader ], [ %add.ptr61, %for.body44 ]
   %arrayidx47 = getelementptr inbounds [32 x float], ptr %out_buf, i64 0, i64 %indvars.iv124
-  %80 = load <2 x float>, ptr %arrayidx47, align 16
-  store <2 x float> %80, ptr %dst.1118, align 4
-  %81 = or disjoint i64 %indvars.iv124, 2
-  %arrayidx55 = getelementptr inbounds [32 x float], ptr %out_buf, i64 0, i64 %81
-  %82 = load float, ptr %arrayidx55, align 8
+  %80 = load float, ptr %arrayidx47, align 16
+  store float %80, ptr %dst.1118, align 4
+  %81 = or disjoint i64 %indvars.iv124, 1
+  %arrayidx51 = getelementptr inbounds [32 x float], ptr %out_buf, i64 0, i64 %81
+  %82 = load float, ptr %arrayidx51, align 4
+  %arrayidx52 = getelementptr inbounds i8, ptr %dst.1118, i64 4
+  store float %82, ptr %arrayidx52, align 4
+  %83 = or disjoint i64 %indvars.iv124, 2
+  %arrayidx55 = getelementptr inbounds [32 x float], ptr %out_buf, i64 0, i64 %83
+  %84 = load float, ptr %arrayidx55, align 8
   %arrayidx56 = getelementptr inbounds i8, ptr %dst.1118, i64 8
-  store float %82, ptr %arrayidx56, align 4
-  %83 = or disjoint i64 %indvars.iv124, 3
-  %arrayidx59 = getelementptr inbounds [32 x float], ptr %out_buf, i64 0, i64 %83
-  %84 = load float, ptr %arrayidx59, align 4
+  store float %84, ptr %arrayidx56, align 4
+  %85 = or disjoint i64 %indvars.iv124, 3
+  %arrayidx59 = getelementptr inbounds [32 x float], ptr %out_buf, i64 0, i64 %85
+  %86 = load float, ptr %arrayidx59, align 4
   %arrayidx60 = getelementptr inbounds i8, ptr %dst.1118, i64 12
-  store float %84, ptr %arrayidx60, align 4
+  store float %86, ptr %arrayidx60, align 4
   %add.ptr61 = getelementptr inbounds i8, ptr %dst.1118, i64 16
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 4
   %cmp43 = icmp ult i64 %indvars.iv.next125, %79

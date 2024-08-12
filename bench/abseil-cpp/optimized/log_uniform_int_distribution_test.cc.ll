@@ -3262,49 +3262,181 @@ entry:
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 360
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 1>, ptr %call5.i.i.i.i2.i, align 4
+  store i32 0, ptr %call5.i.i.i.i2.i, align 4
+  %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 4
+  store i32 1, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  store i32 2, ptr %ref.tmp.sroa.3.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 12
+  store i32 1, ptr %ref.tmp.sroa.4.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 2>, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 1, ptr %ref.tmp.sroa.5.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 20
+  store i32 1, ptr %ref.tmp.sroa.6.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.7.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 24
+  store i32 1, ptr %ref.tmp.sroa.7.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.8.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 28
+  store i32 2, ptr %ref.tmp.sroa.8.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.9.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 2>, ptr %ref.tmp.sroa.9.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 0, ptr %ref.tmp.sroa.9.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.10.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 36
+  store i32 0, ptr %ref.tmp.sroa.10.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.11.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 40
+  store i32 0, ptr %ref.tmp.sroa.11.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.12.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 44
+  store i32 2, ptr %ref.tmp.sroa.12.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 48
-  store <4 x i32> <i32 2, i32 2, i32 2, i32 0>, ptr %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 2, ptr %ref.tmp.sroa.13.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.14.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 52
+  store i32 2, ptr %ref.tmp.sroa.14.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 56
+  store i32 2, ptr %ref.tmp.sroa.15.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.16.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 60
+  store i32 0, ptr %ref.tmp.sroa.16.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.17.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 64
-  store <4 x i32> <i32 3, i32 2, i32 3, i32 2>, ptr %ref.tmp.sroa.17.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 3, ptr %ref.tmp.sroa.17.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.18.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 68
+  store i32 2, ptr %ref.tmp.sroa.18.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.19.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 72
+  store i32 3, ptr %ref.tmp.sroa.19.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.20.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 76
+  store i32 2, ptr %ref.tmp.sroa.20.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.21.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 80
-  store <4 x i32> <i32 0, i32 4, i32 2, i32 4>, ptr %ref.tmp.sroa.21.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 0, ptr %ref.tmp.sroa.21.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.22.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 84
+  store i32 4, ptr %ref.tmp.sroa.22.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.23.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 88
+  store i32 2, ptr %ref.tmp.sroa.23.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.24.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 92
+  store i32 4, ptr %ref.tmp.sroa.24.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.25.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 96
-  store <4 x i32> <i32 3, i32 0, i32 9, i32 10>, ptr %ref.tmp.sroa.25.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 3, ptr %ref.tmp.sroa.25.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.26.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 100
+  store i32 0, ptr %ref.tmp.sroa.26.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.27.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 104
+  store i32 9, ptr %ref.tmp.sroa.27.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.28.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 108
+  store i32 10, ptr %ref.tmp.sroa.28.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.29.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 112
-  store <4 x i32> <i32 9, i32 1, i32 0, i32 10>, ptr %ref.tmp.sroa.29.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 9, ptr %ref.tmp.sroa.29.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.31.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 116
+  store i32 1, ptr %ref.tmp.sroa.31.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.32.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 120
+  store i32 0, ptr %ref.tmp.sroa.32.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.33.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 124
+  store i32 10, ptr %ref.tmp.sroa.33.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.34.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 128
-  store <4 x i32> <i32 10, i32 10, i32 2, i32 0>, ptr %ref.tmp.sroa.34.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 10, ptr %ref.tmp.sroa.34.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.35.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 132
+  store i32 10, ptr %ref.tmp.sroa.35.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.37.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 136
+  store i32 2, ptr %ref.tmp.sroa.37.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.38.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 140
+  store i32 0, ptr %ref.tmp.sroa.38.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.39.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 144
-  store <4 x i32> <i32 11, i32 10, i32 11, i32 2>, ptr %ref.tmp.sroa.39.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 11, ptr %ref.tmp.sroa.39.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.40.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 148
+  store i32 10, ptr %ref.tmp.sroa.40.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.41.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 152
+  store i32 11, ptr %ref.tmp.sroa.41.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.43.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 156
+  store i32 2, ptr %ref.tmp.sroa.43.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.44.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 160
-  store <4 x i32> <i32 1, i32 10, i32 10, i32 9>, ptr %ref.tmp.sroa.44.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 1, ptr %ref.tmp.sroa.44.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.45.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 164
+  store i32 10, ptr %ref.tmp.sroa.45.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.46.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 168
+  store i32 10, ptr %ref.tmp.sroa.46.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.47.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 172
+  store i32 9, ptr %ref.tmp.sroa.47.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.49.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 176
-  store <4 x i32> <i32 1, i32 0, i32 255, i32 2>, ptr %ref.tmp.sroa.49.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 1, ptr %ref.tmp.sroa.49.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.50.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 180
+  store i32 0, ptr %ref.tmp.sroa.50.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.51.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 184
+  store i32 255, ptr %ref.tmp.sroa.51.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.52.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 188
+  store i32 2, ptr %ref.tmp.sroa.52.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.53.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 192
-  store <4 x i32> <i32 255, i32 8, i32 0, i32 256>, ptr %ref.tmp.sroa.53.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 255, ptr %ref.tmp.sroa.53.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.54.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 196
+  store i32 8, ptr %ref.tmp.sroa.54.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.55.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 200
+  store i32 0, ptr %ref.tmp.sroa.55.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.56.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 204
+  store i32 256, ptr %ref.tmp.sroa.56.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.57.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 208
-  store <4 x i32> <i32 2, i32 256, i32 9, i32 0>, ptr %ref.tmp.sroa.57.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 2, ptr %ref.tmp.sroa.57.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.58.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 212
+  store i32 256, ptr %ref.tmp.sroa.58.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.59.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 216
+  store i32 9, ptr %ref.tmp.sroa.59.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.60.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 220
+  store i32 0, ptr %ref.tmp.sroa.60.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.61.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 224
-  store <4 x i32> <i32 1073741823, i32 2, i32 1073741823, i32 30>, ptr %ref.tmp.sroa.61.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 1073741823, ptr %ref.tmp.sroa.61.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.62.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 228
+  store i32 2, ptr %ref.tmp.sroa.62.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.63.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 232
+  store i32 1073741823, ptr %ref.tmp.sroa.63.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.64.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 236
+  store i32 30, ptr %ref.tmp.sroa.64.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.65.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 240
-  store <4 x i32> <i32 -1000, i32 1000, i32 10, i32 2000>, ptr %ref.tmp.sroa.65.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 -1000, ptr %ref.tmp.sroa.65.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.66.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 244
+  store i32 1000, ptr %ref.tmp.sroa.66.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.67.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 248
+  store i32 10, ptr %ref.tmp.sroa.67.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.68.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 252
+  store i32 2000, ptr %ref.tmp.sroa.68.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.70.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 256
-  store <4 x i32> <i32 4, i32 0, i32 2147483647, i32 2>, ptr %ref.tmp.sroa.70.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 4, ptr %ref.tmp.sroa.70.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.71.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 260
+  store i32 0, ptr %ref.tmp.sroa.71.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.72.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 264
+  store i32 2147483647, ptr %ref.tmp.sroa.72.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.73.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 268
+  store i32 2, ptr %ref.tmp.sroa.73.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.74.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 272
-  store <4 x i32> <i32 2147483647, i32 31, i32 0, i32 2147483647>, ptr %ref.tmp.sroa.74.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 2147483647, ptr %ref.tmp.sroa.74.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.75.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 276
+  store i32 31, ptr %ref.tmp.sroa.75.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.76.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 280
+  store i32 0, ptr %ref.tmp.sroa.76.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.77.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 284
+  store i32 2147483647, ptr %ref.tmp.sroa.77.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.78.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 288
-  store <4 x i32> <i32 3, i32 2147483647, i32 20, i32 0>, ptr %ref.tmp.sroa.78.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 3, ptr %ref.tmp.sroa.78.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.79.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 292
+  store i32 2147483647, ptr %ref.tmp.sroa.79.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.81.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 296
+  store i32 20, ptr %ref.tmp.sroa.81.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.82.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 300
+  store i32 0, ptr %ref.tmp.sroa.82.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.83.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 304
-  store <4 x i32> <i32 2147483647, i32 10, i32 2147483647, i32 10>, ptr %ref.tmp.sroa.83.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 2147483647, ptr %ref.tmp.sroa.83.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.84.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 308
+  store i32 10, ptr %ref.tmp.sroa.84.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.85.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 312
+  store i32 2147483647, ptr %ref.tmp.sroa.85.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.87.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 316
+  store i32 10, ptr %ref.tmp.sroa.87.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.88.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 320
-  store <4 x i32> <i32 -2147483648, i32 0, i32 2, i32 -2147483648>, ptr %ref.tmp.sroa.88.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 -2147483648, ptr %ref.tmp.sroa.88.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.89.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 324
+  store i32 0, ptr %ref.tmp.sroa.89.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.90.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 328
+  store i32 2, ptr %ref.tmp.sroa.90.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.91.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 332
+  store i32 -2147483648, ptr %ref.tmp.sroa.91.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.92.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 336
-  store <4 x i32> <i32 32, i32 -2147483648, i32 2147483647, i32 2>, ptr %ref.tmp.sroa.92.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  store i32 32, ptr %ref.tmp.sroa.92.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.93.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 340
+  store i32 -2147483648, ptr %ref.tmp.sroa.93.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.94.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 344
+  store i32 2147483647, ptr %ref.tmp.sroa.94.0.call5.i.i.i.i2.i.sroa_idx, align 4
+  %ref.tmp.sroa.95.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 348
+  store i32 2, ptr %ref.tmp.sroa.95.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.96.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 352
   store i32 -1, ptr %ref.tmp.sroa.96.0.call5.i.i.i.i2.i.sroa_idx, align 4
   %ref.tmp.sroa.97.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 356
@@ -3911,14 +4043,14 @@ define internal void @_ZN12_GLOBAL__N_148LogUniformIntDistributionTest_Stability
 entry:
   %urbg = alloca %"class.absl::random_internal::sequence_urbg", align 8
   %output = alloca %"class.std::vector.95", align 8
-  %dist = alloca %"class.absl::log_uniform_int_distribution", align 16
+  %dist = alloca %"class.absl::log_uniform_int_distribution", align 4
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp15 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp15 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 4
   %ref.tmp27 = alloca %"class.testing::Message", align 8
   %ref.tmp30 = alloca %"class.testing::internal::AssertHelper", align 8
-  %dist39 = alloca %"class.absl::log_uniform_int_distribution", align 16
+  %dist39 = alloca %"class.absl::log_uniform_int_distribution", align 4
   %gtest_ar53 = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp54 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 16
+  %ref.tmp54 = alloca %"class.testing::internal::PredicateFormatterFromMatcher", align 4
   %ref.tmp68 = alloca %"class.testing::Message", align 8
   %ref.tmp71 = alloca %"class.testing::internal::AssertHelper", align 8
   %data_.i = getelementptr inbounds i8, ptr %urbg, i64 8
@@ -3946,14 +4078,20 @@ invoke.cont4:                                     ; preds = %entry
   %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %output, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %call5.i.i.i.i2.i.i810, i8 0, i64 24, i1 false)
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  store <4 x i32> <i32 0, i32 256, i32 2, i32 256>, ptr %dist, align 16
+  store i32 0, ptr %dist, align 4
+  %max_.i.i = getelementptr inbounds i8, ptr %dist, i64 4
+  store i32 256, ptr %max_.i.i, align 4
+  %base_.i.i = getelementptr inbounds i8, ptr %dist, i64 8
+  store i32 2, ptr %base_.i.i, align 4
+  %range_.i.i = getelementptr inbounds i8, ptr %dist, i64 12
+  store i32 256, ptr %range_.i.i, align 4
   %log_range_.i.i = getelementptr inbounds i8, ptr %dist, i64 16
-  store i32 9, ptr %log_range_.i.i, align 16
+  store i32 9, ptr %log_range_.i.i, align 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont4, %call2.i.i.i.i.noexc
   %__first.sroa.0.05.i.idx = phi i64 [ %__first.sroa.0.05.i.add, %call2.i.i.i.i.noexc ], [ 0, %invoke.cont4 ]
-  %0 = load i32, ptr %dist, align 16
+  %0 = load i32, ptr %dist, align 4
   %call2.i.i.i.i11 = invoke noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal13sequence_urbgEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist, ptr noundef nonnull align 8 dereferenceable(32) %urbg, ptr noundef nonnull align 4 dereferenceable(20) %dist)
           to label %call2.i.i.i.i.noexc unwind label %lpad3.loopexit.split-lp.loopexit
 
@@ -3966,9 +4104,15 @@ call2.i.i.i.i.noexc:                              ; preds = %for.body.i
   br i1 %cmp.i.not.i, label %invoke.cont24, label %for.body.i, !llvm.loop !43
 
 invoke.cont24:                                    ; preds = %call2.i.i.i.i.noexc
-  store <4 x i32> <i32 103, i32 57, i32 6, i32 4>, ptr %ref.tmp15, align 16
+  store i32 103, ptr %ref.tmp15, align 4
+  %agg.tmp1612.sroa.4.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 4
+  store i32 57, ptr %agg.tmp1612.sroa.4.0.ref.tmp15.sroa_idx, align 4
+  %agg.tmp1612.sroa.5.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
+  store i32 6, ptr %agg.tmp1612.sroa.5.0.ref.tmp15.sroa_idx, align 4
+  %agg.tmp1612.sroa.6.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 12
+  store i32 4, ptr %agg.tmp1612.sroa.6.0.ref.tmp15.sroa_idx, align 4
   %agg.tmp1612.sroa.7.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
-  store i32 66, ptr %agg.tmp1612.sroa.7.0.ref.tmp15.sroa_idx, align 16
+  store i32 66, ptr %agg.tmp1612.sroa.7.0.ref.tmp15.sroa_idx, align 4
   %agg.tmp1612.sroa.8.0.ref.tmp15.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp15, i64 20
   store i32 256, ptr %agg.tmp1612.sroa.8.0.ref.tmp15.sroa_idx, align 4
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJiiiiiiEEEEEclISt6vectorIiSaIiEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp15, ptr noundef nonnull @.str.49, ptr noundef nonnull align 8 dereferenceable(24) %output)
@@ -4086,9 +4230,15 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 invoke.cont40:                                    ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %if.end
   store ptr null, ptr %message_.i, align 8
   store i64 0, ptr %urbg, align 8
-  store <4 x i32> <i32 0, i32 256, i32 10, i32 256>, ptr %dist39, align 16
+  store i32 0, ptr %dist39, align 4
+  %max_.i.i19 = getelementptr inbounds i8, ptr %dist39, i64 4
+  store i32 256, ptr %max_.i.i19, align 4
+  %base_.i.i20 = getelementptr inbounds i8, ptr %dist39, i64 8
+  store i32 10, ptr %base_.i.i20, align 4
+  %range_.i.i21 = getelementptr inbounds i8, ptr %dist39, i64 12
+  store i32 256, ptr %range_.i.i21, align 4
   %log_range_.i.i22 = getelementptr inbounds i8, ptr %dist39, i64 16
-  store i32 3, ptr %log_range_.i.i22, align 16
+  store i32 3, ptr %log_range_.i.i22, align 4
   %12 = load ptr, ptr %output, align 8
   %13 = load ptr, ptr %_M_finish.i.i7.i, align 8
   %cmp.i.not4.i24 = icmp eq ptr %12, %13
@@ -4096,7 +4246,7 @@ invoke.cont40:                                    ; preds = %_ZNKSt14default_del
 
 for.body.i25:                                     ; preds = %invoke.cont40, %call2.i.i.i.i.noexc30
   %__first.sroa.0.05.i26 = phi ptr [ %incdec.ptr.i.i28, %call2.i.i.i.i.noexc30 ], [ %12, %invoke.cont40 ]
-  %14 = load i32, ptr %dist39, align 16
+  %14 = load i32, ptr %dist39, align 4
   %call2.i.i.i.i31 = invoke noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateINS_15random_internal13sequence_urbgEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %dist39, ptr noundef nonnull align 8 dereferenceable(32) %urbg, ptr noundef nonnull align 4 dereferenceable(20) %dist39)
           to label %call2.i.i.i.i.noexc30 unwind label %lpad3.loopexit
 
@@ -4108,9 +4258,15 @@ call2.i.i.i.i.noexc30:                            ; preds = %for.body.i25
   br i1 %cmp.i.not.i29, label %invoke.cont63, label %for.body.i25, !llvm.loop !44
 
 invoke.cont63:                                    ; preds = %call2.i.i.i.i.noexc30, %invoke.cont40
-  store <4 x i32> <i32 69, i32 0, i32 0, i32 0>, ptr %ref.tmp54, align 16
+  store i32 69, ptr %ref.tmp54, align 4
+  %agg.tmp5537.sroa.4.0.ref.tmp54.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp54, i64 4
+  store i32 0, ptr %agg.tmp5537.sroa.4.0.ref.tmp54.sroa_idx, align 4
+  %agg.tmp5537.sroa.5.0.ref.tmp54.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
+  store i32 0, ptr %agg.tmp5537.sroa.5.0.ref.tmp54.sroa_idx, align 4
+  %agg.tmp5537.sroa.6.0.ref.tmp54.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp54, i64 12
+  store i32 0, ptr %agg.tmp5537.sroa.6.0.ref.tmp54.sroa_idx, align 4
   %agg.tmp5537.sroa.7.0.ref.tmp54.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp54, i64 16
-  store i32 4, ptr %agg.tmp5537.sroa.7.0.ref.tmp54.sroa_idx, align 16
+  store i32 4, ptr %agg.tmp5537.sroa.7.0.ref.tmp54.sroa_idx, align 4
   %agg.tmp5537.sroa.8.0.ref.tmp54.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp54, i64 20
   store i32 8, ptr %agg.tmp5537.sroa.8.0.ref.tmp54.sroa_idx, align 4
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ElementsAreMatcherISt5tupleIJiiiiiiEEEEEclISt6vectorIiSaIiEEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar53, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp54, ptr noundef nonnull @.str.49, ptr noundef nonnull align 8 dereferenceable(24) %output)
@@ -8140,51 +8296,123 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
-  store <4 x i8> <i8 0, i8 1, i8 2, i8 1>, ptr %ref.tmp2, align 4
+  store i8 0, ptr %ref.tmp2, align 4
+  %max_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 1
+  store i8 1, ptr %max_.i, align 1
+  %base_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 2
+  store i8 2, ptr %base_.i, align 2
+  %range_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 3
+  store i8 1, ptr %range_.i, align 1
   %log_range_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
   store i32 1, ptr %log_range_.i, align 4
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store <4 x i8> <i8 0, i8 2, i8 2, i8 2>, ptr %arrayinit.element, align 4
+  store i8 0, ptr %arrayinit.element, align 4
+  %max_.i59 = getelementptr inbounds i8, ptr %ref.tmp2, i64 9
+  store i8 2, ptr %max_.i59, align 1
+  %base_.i60 = getelementptr inbounds i8, ptr %ref.tmp2, i64 10
+  store i8 2, ptr %base_.i60, align 2
+  %range_.i61 = getelementptr inbounds i8, ptr %ref.tmp2, i64 11
+  store i8 2, ptr %range_.i61, align 1
   %log_range_.i62 = getelementptr inbounds i8, ptr %ref.tmp2, i64 12
   store i32 2, ptr %log_range_.i62, align 4
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
-  store <4 x i8> <i8 0, i8 2, i8 10, i8 2>, ptr %arrayinit.element3, align 4
+  store i8 0, ptr %arrayinit.element3, align 4
+  %max_.i63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
+  store i8 2, ptr %max_.i63, align 1
+  %base_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 18
+  store i8 10, ptr %base_.i64, align 2
+  %range_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 19
+  store i8 2, ptr %range_.i65, align 1
   %log_range_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 20
   store i32 1, ptr %log_range_.i66, align 4
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
-  store <4 x i8> <i8 9, i8 32, i8 4, i8 23>, ptr %arrayinit.element4, align 4
+  store i8 9, ptr %arrayinit.element4, align 4
+  %max_.i67 = getelementptr inbounds i8, ptr %ref.tmp2, i64 25
+  store i8 32, ptr %max_.i67, align 1
+  %base_.i68 = getelementptr inbounds i8, ptr %ref.tmp2, i64 26
+  store i8 4, ptr %base_.i68, align 2
+  %range_.i69 = getelementptr inbounds i8, ptr %ref.tmp2, i64 27
+  store i8 23, ptr %range_.i69, align 1
   %log_range_.i77 = getelementptr inbounds i8, ptr %ref.tmp2, i64 28
   store i32 3, ptr %log_range_.i77, align 4
   %arrayinit.element5 = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
-  store <4 x i8> <i8 1, i8 101, i8 10, i8 100>, ptr %arrayinit.element5, align 4
+  store i8 1, ptr %arrayinit.element5, align 4
+  %max_.i78 = getelementptr inbounds i8, ptr %ref.tmp2, i64 33
+  store i8 101, ptr %max_.i78, align 1
+  %base_.i79 = getelementptr inbounds i8, ptr %ref.tmp2, i64 34
+  store i8 10, ptr %base_.i79, align 2
+  %range_.i80 = getelementptr inbounds i8, ptr %ref.tmp2, i64 35
+  store i8 100, ptr %range_.i80, align 1
   %log_range_.i88 = getelementptr inbounds i8, ptr %ref.tmp2, i64 36
   store i32 3, ptr %log_range_.i88, align 4
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
-  store <4 x i8> <i8 1, i8 63, i8 2, i8 62>, ptr %arrayinit.element6, align 4
+  store i8 1, ptr %arrayinit.element6, align 4
+  %max_.i89 = getelementptr inbounds i8, ptr %ref.tmp2, i64 41
+  store i8 63, ptr %max_.i89, align 1
+  %base_.i90 = getelementptr inbounds i8, ptr %ref.tmp2, i64 42
+  store i8 2, ptr %base_.i90, align 2
+  %range_.i91 = getelementptr inbounds i8, ptr %ref.tmp2, i64 43
+  store i8 62, ptr %range_.i91, align 1
   %log_range_.i92 = getelementptr inbounds i8, ptr %ref.tmp2, i64 44
   store i32 6, ptr %log_range_.i92, align 4
   %arrayinit.element8 = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
-  store <4 x i8> <i8 0, i8 126, i8 2, i8 126>, ptr %arrayinit.element8, align 4
+  store i8 0, ptr %arrayinit.element8, align 4
+  %max_.i93 = getelementptr inbounds i8, ptr %ref.tmp2, i64 49
+  store i8 126, ptr %max_.i93, align 1
+  %base_.i94 = getelementptr inbounds i8, ptr %ref.tmp2, i64 50
+  store i8 2, ptr %base_.i94, align 2
+  %range_.i95 = getelementptr inbounds i8, ptr %ref.tmp2, i64 51
+  store i8 126, ptr %range_.i95, align 1
   %log_range_.i100 = getelementptr inbounds i8, ptr %ref.tmp2, i64 52
   store i32 7, ptr %log_range_.i100, align 4
   %arrayinit.element12 = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
-  store <4 x i8> <i8 0, i8 127, i8 2, i8 127>, ptr %arrayinit.element12, align 4
+  store i8 0, ptr %arrayinit.element12, align 4
+  %max_.i101 = getelementptr inbounds i8, ptr %ref.tmp2, i64 57
+  store i8 127, ptr %max_.i101, align 1
+  %base_.i102 = getelementptr inbounds i8, ptr %ref.tmp2, i64 58
+  store i8 2, ptr %base_.i102, align 2
+  %range_.i103 = getelementptr inbounds i8, ptr %ref.tmp2, i64 59
+  store i8 127, ptr %range_.i103, align 1
   %log_range_.i104 = getelementptr inbounds i8, ptr %ref.tmp2, i64 60
   store i32 7, ptr %log_range_.i104, align 4
   %arrayinit.element14 = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
-  store <4 x i8> <i8 0, i8 127, i8 10, i8 127>, ptr %arrayinit.element14, align 4
+  store i8 0, ptr %arrayinit.element14, align 4
+  %max_.i105 = getelementptr inbounds i8, ptr %ref.tmp2, i64 65
+  store i8 127, ptr %max_.i105, align 1
+  %base_.i106 = getelementptr inbounds i8, ptr %ref.tmp2, i64 66
+  store i8 10, ptr %base_.i106, align 2
+  %range_.i107 = getelementptr inbounds i8, ptr %ref.tmp2, i64 67
+  store i8 127, ptr %range_.i107, align 1
   %log_range_.i115 = getelementptr inbounds i8, ptr %ref.tmp2, i64 68
   store i32 3, ptr %log_range_.i115, align 4
   %arrayinit.element16 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store <4 x i8> <i8 -128, i8 0, i8 2, i8 -128>, ptr %arrayinit.element16, align 4
+  store i8 -128, ptr %arrayinit.element16, align 4
+  %max_.i116 = getelementptr inbounds i8, ptr %ref.tmp2, i64 73
+  store i8 0, ptr %max_.i116, align 1
+  %base_.i117 = getelementptr inbounds i8, ptr %ref.tmp2, i64 74
+  store i8 2, ptr %base_.i117, align 2
+  %range_.i118 = getelementptr inbounds i8, ptr %ref.tmp2, i64 75
+  store i8 -128, ptr %range_.i118, align 1
   %log_range_.i119 = getelementptr inbounds i8, ptr %ref.tmp2, i64 76
   store i32 8, ptr %log_range_.i119, align 4
   %arrayinit.element18 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
-  store <4 x i8> <i8 -128, i8 127, i8 2, i8 -1>, ptr %arrayinit.element18, align 4
+  store i8 -128, ptr %arrayinit.element18, align 4
+  %max_.i120 = getelementptr inbounds i8, ptr %ref.tmp2, i64 81
+  store i8 127, ptr %max_.i120, align 1
+  %base_.i121 = getelementptr inbounds i8, ptr %ref.tmp2, i64 82
+  store i8 2, ptr %base_.i121, align 2
+  %range_.i122 = getelementptr inbounds i8, ptr %ref.tmp2, i64 83
+  store i8 -1, ptr %range_.i122, align 1
   %log_range_.i123 = getelementptr inbounds i8, ptr %ref.tmp2, i64 84
   store i32 8, ptr %log_range_.i123, align 4
   %arrayinit.element21 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
-  store <4 x i8> <i8 -128, i8 127, i8 2, i8 -1>, ptr %arrayinit.element21, align 4
+  store i8 -128, ptr %arrayinit.element21, align 4
+  %max_.i124 = getelementptr inbounds i8, ptr %ref.tmp2, i64 89
+  store i8 127, ptr %max_.i124, align 1
+  %base_.i125 = getelementptr inbounds i8, ptr %ref.tmp2, i64 90
+  store i8 2, ptr %base_.i125, align 2
+  %range_.i126 = getelementptr inbounds i8, ptr %ref.tmp2, i64 91
+  store i8 -1, ptr %range_.i126, align 1
   %log_range_.i127 = getelementptr inbounds i8, ptr %ref.tmp2, i64 92
   store i32 8, ptr %log_range_.i127, align 4
   %max_.i.i = getelementptr inbounds i8, ptr %before, i64 1
@@ -8701,7 +8929,10 @@ _ZN7testing15AssertionResultD2Ev.exit214:         ; preds = %if.end103, %_ZNKSt1
           to label %invoke.cont108 unwind label %lpad105.loopexit.split-lp
 
 invoke.cont108:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit214
-  store <4 x i8> <i8 3, i8 6, i8 17, i8 3>, ptr %after, align 8
+  store i8 3, ptr %after, align 8
+  store i8 6, ptr %max_.i.i215, align 1
+  store i8 17, ptr %base_.i.i216, align 2
+  store i8 3, ptr %range_.i.i217, align 1
   store i32 1, ptr %log_range_.i.i227, align 4
   %65 = load i8, ptr %max_.i.i, align 1
   store i8 %65, ptr %ref.tmp110, align 1
@@ -14439,7 +14670,7 @@ entry:
   %v.addr.i565 = alloca i16, align 2
   %v.addr.i = alloca i16, align 2
   %buffer.i.i.i.i.i = alloca [4 x i32], align 16
-  %ref.tmp2 = alloca [12 x %"class.absl::log_uniform_int_distribution<short>::param_type"], align 8
+  %ref.tmp2 = alloca [12 x %"class.absl::log_uniform_int_distribution<short>::param_type"], align 4
   %before = alloca %"class.absl::log_uniform_int_distribution.166", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp29 = alloca i16, align 2
@@ -14558,51 +14789,123 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
-  store <4 x i16> <i16 0, i16 1, i16 2, i16 1>, ptr %ref.tmp2, align 8
+  store i16 0, ptr %ref.tmp2, align 4
+  %max_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 2
+  store i16 1, ptr %max_.i, align 2
+  %base_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
+  store i16 2, ptr %base_.i, align 4
+  %range_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 6
+  store i16 1, ptr %range_.i, align 2
   %log_range_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store i32 1, ptr %log_range_.i, align 8
+  store i32 1, ptr %log_range_.i, align 4
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 12
-  store <4 x i16> <i16 0, i16 2, i16 2, i16 2>, ptr %arrayinit.element, align 4
+  store i16 0, ptr %arrayinit.element, align 4
+  %max_.i59 = getelementptr inbounds i8, ptr %ref.tmp2, i64 14
+  store i16 2, ptr %max_.i59, align 2
+  %base_.i60 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  store i16 2, ptr %base_.i60, align 4
+  %range_.i61 = getelementptr inbounds i8, ptr %ref.tmp2, i64 18
+  store i16 2, ptr %range_.i61, align 2
   %log_range_.i62 = getelementptr inbounds i8, ptr %ref.tmp2, i64 20
   store i32 2, ptr %log_range_.i62, align 4
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
-  store <4 x i16> <i16 0, i16 2, i16 10, i16 2>, ptr %arrayinit.element3, align 8
+  store i16 0, ptr %arrayinit.element3, align 4
+  %max_.i63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 26
+  store i16 2, ptr %max_.i63, align 2
+  %base_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 28
+  store i16 10, ptr %base_.i64, align 4
+  %range_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 30
+  store i16 2, ptr %range_.i65, align 2
   %log_range_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
-  store i32 1, ptr %log_range_.i66, align 8
+  store i32 1, ptr %log_range_.i66, align 4
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 36
-  store <4 x i16> <i16 9, i16 32, i16 4, i16 23>, ptr %arrayinit.element4, align 4
+  store i16 9, ptr %arrayinit.element4, align 4
+  %max_.i67 = getelementptr inbounds i8, ptr %ref.tmp2, i64 38
+  store i16 32, ptr %max_.i67, align 2
+  %base_.i68 = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
+  store i16 4, ptr %base_.i68, align 4
+  %range_.i69 = getelementptr inbounds i8, ptr %ref.tmp2, i64 42
+  store i16 23, ptr %range_.i69, align 2
   %log_range_.i77 = getelementptr inbounds i8, ptr %ref.tmp2, i64 44
   store i32 3, ptr %log_range_.i77, align 4
   %arrayinit.element5 = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
-  store <4 x i16> <i16 1, i16 101, i16 10, i16 100>, ptr %arrayinit.element5, align 8
+  store i16 1, ptr %arrayinit.element5, align 4
+  %max_.i78 = getelementptr inbounds i8, ptr %ref.tmp2, i64 50
+  store i16 101, ptr %max_.i78, align 2
+  %base_.i79 = getelementptr inbounds i8, ptr %ref.tmp2, i64 52
+  store i16 10, ptr %base_.i79, align 4
+  %range_.i80 = getelementptr inbounds i8, ptr %ref.tmp2, i64 54
+  store i16 100, ptr %range_.i80, align 2
   %log_range_.i88 = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
-  store i32 3, ptr %log_range_.i88, align 8
+  store i32 3, ptr %log_range_.i88, align 4
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 60
-  store <4 x i16> <i16 1, i16 16383, i16 2, i16 16382>, ptr %arrayinit.element6, align 4
+  store i16 1, ptr %arrayinit.element6, align 4
+  %max_.i89 = getelementptr inbounds i8, ptr %ref.tmp2, i64 62
+  store i16 16383, ptr %max_.i89, align 2
+  %base_.i90 = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
+  store i16 2, ptr %base_.i90, align 4
+  %range_.i91 = getelementptr inbounds i8, ptr %ref.tmp2, i64 66
+  store i16 16382, ptr %range_.i91, align 2
   %log_range_.i92 = getelementptr inbounds i8, ptr %ref.tmp2, i64 68
   store i32 14, ptr %log_range_.i92, align 4
   %arrayinit.element8 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store <4 x i16> <i16 0, i16 32766, i16 2, i16 32766>, ptr %arrayinit.element8, align 8
+  store i16 0, ptr %arrayinit.element8, align 4
+  %max_.i93 = getelementptr inbounds i8, ptr %ref.tmp2, i64 74
+  store i16 32766, ptr %max_.i93, align 2
+  %base_.i94 = getelementptr inbounds i8, ptr %ref.tmp2, i64 76
+  store i16 2, ptr %base_.i94, align 4
+  %range_.i95 = getelementptr inbounds i8, ptr %ref.tmp2, i64 78
+  store i16 32766, ptr %range_.i95, align 2
   %log_range_.i100 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
-  store i32 15, ptr %log_range_.i100, align 8
+  store i32 15, ptr %log_range_.i100, align 4
   %arrayinit.element12 = getelementptr inbounds i8, ptr %ref.tmp2, i64 84
-  store <4 x i16> <i16 0, i16 32767, i16 2, i16 32767>, ptr %arrayinit.element12, align 4
+  store i16 0, ptr %arrayinit.element12, align 4
+  %max_.i101 = getelementptr inbounds i8, ptr %ref.tmp2, i64 86
+  store i16 32767, ptr %max_.i101, align 2
+  %base_.i102 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store i16 2, ptr %base_.i102, align 4
+  %range_.i103 = getelementptr inbounds i8, ptr %ref.tmp2, i64 90
+  store i16 32767, ptr %range_.i103, align 2
   %log_range_.i104 = getelementptr inbounds i8, ptr %ref.tmp2, i64 92
   store i32 15, ptr %log_range_.i104, align 4
   %arrayinit.element14 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
-  store <4 x i16> <i16 0, i16 32767, i16 10, i16 32767>, ptr %arrayinit.element14, align 8
+  store i16 0, ptr %arrayinit.element14, align 4
+  %max_.i105 = getelementptr inbounds i8, ptr %ref.tmp2, i64 98
+  store i16 32767, ptr %max_.i105, align 2
+  %base_.i106 = getelementptr inbounds i8, ptr %ref.tmp2, i64 100
+  store i16 10, ptr %base_.i106, align 4
+  %range_.i107 = getelementptr inbounds i8, ptr %ref.tmp2, i64 102
+  store i16 32767, ptr %range_.i107, align 2
   %log_range_.i115 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
-  store i32 5, ptr %log_range_.i115, align 8
+  store i32 5, ptr %log_range_.i115, align 4
   %arrayinit.element16 = getelementptr inbounds i8, ptr %ref.tmp2, i64 108
-  store <4 x i16> <i16 -32768, i16 0, i16 2, i16 -32768>, ptr %arrayinit.element16, align 4
+  store i16 -32768, ptr %arrayinit.element16, align 4
+  %max_.i116 = getelementptr inbounds i8, ptr %ref.tmp2, i64 110
+  store i16 0, ptr %max_.i116, align 2
+  %base_.i117 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
+  store i16 2, ptr %base_.i117, align 4
+  %range_.i118 = getelementptr inbounds i8, ptr %ref.tmp2, i64 114
+  store i16 -32768, ptr %range_.i118, align 2
   %log_range_.i119 = getelementptr inbounds i8, ptr %ref.tmp2, i64 116
   store i32 16, ptr %log_range_.i119, align 4
   %arrayinit.element18 = getelementptr inbounds i8, ptr %ref.tmp2, i64 120
-  store <4 x i16> <i16 -32768, i16 32767, i16 2, i16 -1>, ptr %arrayinit.element18, align 8
+  store i16 -32768, ptr %arrayinit.element18, align 4
+  %max_.i120 = getelementptr inbounds i8, ptr %ref.tmp2, i64 122
+  store i16 32767, ptr %max_.i120, align 2
+  %base_.i121 = getelementptr inbounds i8, ptr %ref.tmp2, i64 124
+  store i16 2, ptr %base_.i121, align 4
+  %range_.i122 = getelementptr inbounds i8, ptr %ref.tmp2, i64 126
+  store i16 -1, ptr %range_.i122, align 2
   %log_range_.i123 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
-  store i32 16, ptr %log_range_.i123, align 8
+  store i32 16, ptr %log_range_.i123, align 4
   %arrayinit.element21 = getelementptr inbounds i8, ptr %ref.tmp2, i64 132
-  store <4 x i16> <i16 -32768, i16 32767, i16 2, i16 -1>, ptr %arrayinit.element21, align 4
+  store i16 -32768, ptr %arrayinit.element21, align 4
+  %max_.i124 = getelementptr inbounds i8, ptr %ref.tmp2, i64 134
+  store i16 32767, ptr %max_.i124, align 2
+  %base_.i125 = getelementptr inbounds i8, ptr %ref.tmp2, i64 136
+  store i16 2, ptr %base_.i125, align 4
+  %range_.i126 = getelementptr inbounds i8, ptr %ref.tmp2, i64 138
+  store i16 -1, ptr %range_.i126, align 2
   %log_range_.i127 = getelementptr inbounds i8, ptr %ref.tmp2, i64 140
   store i32 16, ptr %log_range_.i127, align 4
   %max_.i.i = getelementptr inbounds i8, ptr %before, i64 2
@@ -15124,7 +15427,10 @@ _ZN7testing15AssertionResultD2Ev.exit214:         ; preds = %if.end103, %_ZNKSt1
           to label %invoke.cont108 unwind label %lpad105.loopexit.split-lp
 
 invoke.cont108:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit214
-  store <4 x i16> <i16 3, i16 6, i16 17, i16 3>, ptr %after, align 8
+  store i16 3, ptr %after, align 8
+  store i16 6, ptr %max_.i.i215, align 2
+  store i16 17, ptr %base_.i.i216, align 4
+  store i16 3, ptr %range_.i.i217, align 2
   store i32 1, ptr %log_range_.i.i227, align 8
   %62 = load i16, ptr %max_.i.i, align 2
   store i16 %62, ptr %ref.tmp110, align 2
@@ -18777,7 +19083,7 @@ entry:
   %v.addr.i549 = alloca i32, align 4
   %v.addr.i = alloca i32, align 4
   %buffer.i.i.i.i.i = alloca [4 x i32], align 16
-  %ref.tmp2 = alloca [12 x %"class.absl::log_uniform_int_distribution<>::param_type"], align 16
+  %ref.tmp2 = alloca [12 x %"class.absl::log_uniform_int_distribution<>::param_type"], align 4
   %before = alloca %"class.absl::log_uniform_int_distribution", align 4
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp26 = alloca i32, align 4
@@ -18799,7 +19105,7 @@ entry:
   %ref.tmp88 = alloca %"class.testing::Message", align 8
   %ref.tmp91 = alloca %"class.testing::internal::AssertHelper", align 8
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %after = alloca %"class.absl::log_uniform_int_distribution", align 16
+  %after = alloca %"class.absl::log_uniform_int_distribution", align 4
   %gtest_ar106 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp107 = alloca i32, align 4
   %ref.tmp110 = alloca i32, align 4
@@ -18896,35 +19202,125 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 1>, ptr %ref.tmp2, align 16
+  store i32 0, ptr %ref.tmp2, align 4
+  %max_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
+  store i32 1, ptr %max_.i, align 4
+  %base_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  store i32 2, ptr %base_.i, align 4
+  %range_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 12
+  store i32 1, ptr %range_.i, align 4
   %log_range_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
-  store <4 x i32> <i32 1, i32 0, i32 2, i32 2>, ptr %log_range_.i, align 16
+  store i32 1, ptr %log_range_.i, align 4
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 20
+  store i32 0, ptr %arrayinit.element, align 4
+  %max_.i60 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
+  store i32 2, ptr %max_.i60, align 4
+  %base_.i61 = getelementptr inbounds i8, ptr %ref.tmp2, i64 28
+  store i32 2, ptr %base_.i61, align 4
   %range_.i62 = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
-  store <4 x i32> <i32 2, i32 2, i32 0, i32 2>, ptr %range_.i62, align 16
+  store i32 2, ptr %range_.i62, align 4
+  %log_range_.i63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 36
+  store i32 2, ptr %log_range_.i63, align 4
+  %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
+  store i32 0, ptr %arrayinit.element3, align 4
+  %max_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 44
+  store i32 2, ptr %max_.i64, align 4
   %base_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
-  store <4 x i32> <i32 10, i32 2, i32 1, i32 9>, ptr %base_.i65, align 16
+  store i32 10, ptr %base_.i65, align 4
+  %range_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 52
+  store i32 2, ptr %range_.i66, align 4
+  %log_range_.i67 = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
+  store i32 1, ptr %log_range_.i67, align 4
+  %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 60
+  store i32 9, ptr %arrayinit.element4, align 4
   %max_.i68 = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
-  store <4 x i32> <i32 32, i32 4, i32 23, i32 3>, ptr %max_.i68, align 16
+  store i32 32, ptr %max_.i68, align 4
+  %base_.i69 = getelementptr inbounds i8, ptr %ref.tmp2, i64 68
+  store i32 4, ptr %base_.i69, align 4
+  %range_.i70 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
+  store i32 23, ptr %range_.i70, align 4
+  %log_range_.i78 = getelementptr inbounds i8, ptr %ref.tmp2, i64 76
+  store i32 3, ptr %log_range_.i78, align 4
   %arrayinit.element5 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
-  store <4 x i32> <i32 1, i32 101, i32 10, i32 100>, ptr %arrayinit.element5, align 16
+  store i32 1, ptr %arrayinit.element5, align 4
+  %max_.i79 = getelementptr inbounds i8, ptr %ref.tmp2, i64 84
+  store i32 101, ptr %max_.i79, align 4
+  %base_.i80 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store i32 10, ptr %base_.i80, align 4
+  %range_.i81 = getelementptr inbounds i8, ptr %ref.tmp2, i64 92
+  store i32 100, ptr %range_.i81, align 4
   %log_range_.i89 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
-  store <4 x i32> <i32 3, i32 1, i32 1073741823, i32 2>, ptr %log_range_.i89, align 16
+  store i32 3, ptr %log_range_.i89, align 4
+  %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 100
+  store i32 1, ptr %arrayinit.element6, align 4
+  %max_.i90 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
+  store i32 1073741823, ptr %max_.i90, align 4
+  %base_.i91 = getelementptr inbounds i8, ptr %ref.tmp2, i64 108
+  store i32 2, ptr %base_.i91, align 4
   %range_.i92 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
-  store <4 x i32> <i32 1073741822, i32 30, i32 0, i32 2147483646>, ptr %range_.i92, align 16
+  store i32 1073741822, ptr %range_.i92, align 4
+  %log_range_.i93 = getelementptr inbounds i8, ptr %ref.tmp2, i64 116
+  store i32 30, ptr %log_range_.i93, align 4
+  %arrayinit.element7 = getelementptr inbounds i8, ptr %ref.tmp2, i64 120
+  store i32 0, ptr %arrayinit.element7, align 4
+  %max_.i94 = getelementptr inbounds i8, ptr %ref.tmp2, i64 124
+  store i32 2147483646, ptr %max_.i94, align 4
   %base_.i95 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
-  store <4 x i32> <i32 2, i32 2147483646, i32 31, i32 0>, ptr %base_.i95, align 16
+  store i32 2, ptr %base_.i95, align 4
+  %range_.i96 = getelementptr inbounds i8, ptr %ref.tmp2, i64 132
+  store i32 2147483646, ptr %range_.i96, align 4
+  %log_range_.i99 = getelementptr inbounds i8, ptr %ref.tmp2, i64 136
+  store i32 31, ptr %log_range_.i99, align 4
+  %arrayinit.element9 = getelementptr inbounds i8, ptr %ref.tmp2, i64 140
+  store i32 0, ptr %arrayinit.element9, align 4
   %max_.i100 = getelementptr inbounds i8, ptr %ref.tmp2, i64 144
-  store <4 x i32> <i32 2147483647, i32 2, i32 2147483647, i32 31>, ptr %max_.i100, align 16
+  store i32 2147483647, ptr %max_.i100, align 4
+  %base_.i101 = getelementptr inbounds i8, ptr %ref.tmp2, i64 148
+  store i32 2, ptr %base_.i101, align 4
+  %range_.i102 = getelementptr inbounds i8, ptr %ref.tmp2, i64 152
+  store i32 2147483647, ptr %range_.i102, align 4
+  %log_range_.i103 = getelementptr inbounds i8, ptr %ref.tmp2, i64 156
+  store i32 31, ptr %log_range_.i103, align 4
   %arrayinit.element11 = getelementptr inbounds i8, ptr %ref.tmp2, i64 160
-  store <4 x i32> <i32 0, i32 2147483647, i32 10, i32 2147483647>, ptr %arrayinit.element11, align 16
+  store i32 0, ptr %arrayinit.element11, align 4
+  %max_.i104 = getelementptr inbounds i8, ptr %ref.tmp2, i64 164
+  store i32 2147483647, ptr %max_.i104, align 4
+  %base_.i105 = getelementptr inbounds i8, ptr %ref.tmp2, i64 168
+  store i32 10, ptr %base_.i105, align 4
+  %range_.i106 = getelementptr inbounds i8, ptr %ref.tmp2, i64 172
+  store i32 2147483647, ptr %range_.i106, align 4
   %log_range_.i114 = getelementptr inbounds i8, ptr %ref.tmp2, i64 176
-  store <4 x i32> <i32 10, i32 -2147483648, i32 0, i32 2>, ptr %log_range_.i114, align 16
+  store i32 10, ptr %log_range_.i114, align 4
+  %arrayinit.element13 = getelementptr inbounds i8, ptr %ref.tmp2, i64 180
+  store i32 -2147483648, ptr %arrayinit.element13, align 4
+  %max_.i115 = getelementptr inbounds i8, ptr %ref.tmp2, i64 184
+  store i32 0, ptr %max_.i115, align 4
+  %base_.i116 = getelementptr inbounds i8, ptr %ref.tmp2, i64 188
+  store i32 2, ptr %base_.i116, align 4
   %range_.i117 = getelementptr inbounds i8, ptr %ref.tmp2, i64 192
-  store <4 x i32> <i32 -2147483648, i32 32, i32 -2147483648, i32 2147483647>, ptr %range_.i117, align 16
+  store i32 -2147483648, ptr %range_.i117, align 4
+  %log_range_.i118 = getelementptr inbounds i8, ptr %ref.tmp2, i64 196
+  store i32 32, ptr %log_range_.i118, align 4
+  %arrayinit.element15 = getelementptr inbounds i8, ptr %ref.tmp2, i64 200
+  store i32 -2147483648, ptr %arrayinit.element15, align 4
+  %max_.i119 = getelementptr inbounds i8, ptr %ref.tmp2, i64 204
+  store i32 2147483647, ptr %max_.i119, align 4
   %base_.i120 = getelementptr inbounds i8, ptr %ref.tmp2, i64 208
-  store <4 x i32> <i32 2, i32 -1, i32 32, i32 -2147483648>, ptr %base_.i120, align 16
+  store i32 2, ptr %base_.i120, align 4
+  %range_.i121 = getelementptr inbounds i8, ptr %ref.tmp2, i64 212
+  store i32 -1, ptr %range_.i121, align 4
+  %log_range_.i122 = getelementptr inbounds i8, ptr %ref.tmp2, i64 216
+  store i32 32, ptr %log_range_.i122, align 4
+  %arrayinit.element18 = getelementptr inbounds i8, ptr %ref.tmp2, i64 220
+  store i32 -2147483648, ptr %arrayinit.element18, align 4
   %max_.i123 = getelementptr inbounds i8, ptr %ref.tmp2, i64 224
-  store <4 x i32> <i32 2147483647, i32 2, i32 -1, i32 32>, ptr %max_.i123, align 16
+  store i32 2147483647, ptr %max_.i123, align 4
+  %base_.i124 = getelementptr inbounds i8, ptr %ref.tmp2, i64 228
+  store i32 2, ptr %base_.i124, align 4
+  %range_.i125 = getelementptr inbounds i8, ptr %ref.tmp2, i64 232
+  store i32 -1, ptr %range_.i125, align 4
+  %log_range_.i126 = getelementptr inbounds i8, ptr %ref.tmp2, i64 236
+  store i32 32, ptr %log_range_.i126, align 4
   %max_.i.i = getelementptr inbounds i8, ptr %before, i64 4
   %base_.i.i = getelementptr inbounds i8, ptr %before, i64 8
   %range_.i.i = getelementptr inbounds i8, ptr %before, i64 12
@@ -19446,8 +19842,11 @@ _ZN7testing15AssertionResultD2Ev.exit213:         ; preds = %if.end100, %_ZNKSt1
           to label %invoke.cont105 unwind label %lpad102.loopexit.split-lp
 
 invoke.cont105:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit213
-  store <4 x i32> <i32 3, i32 6, i32 17, i32 3>, ptr %after, align 16
-  store i32 1, ptr %log_range_.i.i226, align 16
+  store i32 3, ptr %after, align 4
+  store i32 6, ptr %max_.i.i214, align 4
+  store i32 17, ptr %base_.i.i215, align 4
+  store i32 3, ptr %range_.i.i216, align 4
+  store i32 1, ptr %log_range_.i.i226, align 4
   %62 = load i32, ptr %max_.i.i, align 4
   store i32 %62, ptr %ref.tmp107, align 4
   store i32 6, ptr %ref.tmp110, align 4
@@ -19568,7 +19967,7 @@ _ZN7testing15AssertionResultD2Ev.exit250:         ; preds = %if.end129, %_ZNKSt1
   store ptr null, ptr %message_.i.i231, align 8
   %73 = load i32, ptr %base_.i.i, align 4
   store i32 %73, ptr %ref.tmp132, align 4
-  %74 = load i32, ptr %base_.i.i215, align 8
+  %74 = load i32, ptr %base_.i.i215, align 4
   store i32 %74, ptr %ref.tmp135, align 4
   %cmp.not.i253 = icmp eq i32 %73, %74
   br i1 %cmp.not.i253, label %if.else.i255, label %if.then.i254
@@ -19676,7 +20075,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit279:         ; preds = %if.end154, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i278
   store ptr null, ptr %message_.i.i260, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp157, ptr noundef nonnull align 4 dereferenceable(20) %before, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp159, ptr noundef nonnull align 16 dereferenceable(20) %after, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp159, ptr noundef nonnull align 4 dereferenceable(20) %after, i64 20, i1 false)
   %85 = load i32, ptr %ref.tmp157, align 4, !noalias !415
   %86 = load i32, ptr %ref.tmp159, align 4, !noalias !415
   %cmp.i.i.i = icmp eq i32 %85, %86
@@ -19797,7 +20196,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit304:         ; preds = %if.end177, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i303
   store ptr null, ptr %message_.i.i285, align 8
   %101 = load i32, ptr %before, align 4, !noalias !418
-  %102 = load i32, ptr %after, align 16, !noalias !418
+  %102 = load i32, ptr %after, align 4, !noalias !418
   %cmp.i.i.i.i305 = icmp eq i32 %101, %102
   br i1 %cmp.i.i.i.i305, label %land.lhs.true.i.i.i.i307, label %if.then.i306
 
@@ -19809,7 +20208,7 @@ land.lhs.true.i.i.i.i307:                         ; preds = %_ZN7testing15Assert
 
 _ZN4abslneERKNS_28log_uniform_int_distributionIiEES3_.exit.i: ; preds = %land.lhs.true.i.i.i.i307
   %105 = load i32, ptr %base_.i.i, align 4, !noalias !418
-  %106 = load i32, ptr %base_.i.i215, align 8, !noalias !418
+  %106 = load i32, ptr %base_.i.i215, align 4, !noalias !418
   %cmp5.i.i.i.not.i = icmp eq i32 %105, %106
   br i1 %cmp5.i.i.i.not.i, label %if.else.i313, label %if.then.i306
 
@@ -19921,7 +20320,7 @@ _ZN7testing15AssertionResultD2Ev.exit336:         ; preds = %if.end196, %_ZNKSt1
 invoke.cont198:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit336
   %117 = load i32, ptr %before, align 4
   store i32 %117, ptr %ref.tmp201, align 4
-  %118 = load i32, ptr %after, align 16
+  %118 = load i32, ptr %after, align 4
   store i32 %118, ptr %ref.tmp204, align 4
   %cmp.i.i337 = icmp eq i32 %117, %118
   br i1 %cmp.i.i337, label %if.then.i.i339, label %if.end.i.i338
@@ -20139,7 +20538,7 @@ _ZN7testing15AssertionResultD2Ev.exit392:         ; preds = %if.end248, %_ZNKSt1
   store ptr null, ptr %message_.i.i373, align 8
   %141 = load i32, ptr %base_.i.i, align 4
   store i32 %141, ptr %ref.tmp251, align 4
-  %142 = load i32, ptr %base_.i.i215, align 8
+  %142 = load i32, ptr %base_.i.i215, align 4
   store i32 %142, ptr %ref.tmp254, align 4
   %cmp.i.i395 = icmp eq i32 %141, %142
   br i1 %cmp.i.i395, label %if.then.i.i397, label %if.end.i.i396
@@ -20247,7 +20646,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit421:         ; preds = %if.end273, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i420
   store ptr null, ptr %message_.i.i402, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp276, ptr noundef nonnull align 4 dereferenceable(20) %before, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp278, ptr noundef nonnull align 16 dereferenceable(20) %after, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp278, ptr noundef nonnull align 4 dereferenceable(20) %after, i64 20, i1 false)
   %153 = load i32, ptr %ref.tmp276, align 4, !noalias !421
   %154 = load i32, ptr %ref.tmp278, align 4, !noalias !421
   %cmp.i.i.i422 = icmp eq i32 %153, %154
@@ -20368,7 +20767,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit453:         ; preds = %if.end296, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i452
   store ptr null, ptr %message_.i.i434, align 8
   %169 = load i32, ptr %before, align 4, !noalias !426
-  %170 = load i32, ptr %after, align 16, !noalias !426
+  %170 = load i32, ptr %after, align 4, !noalias !426
   %cmp.i.i.i.i454 = icmp eq i32 %169, %170
   br i1 %cmp.i.i.i.i454, label %land.lhs.true.i.i.i.i456, label %if.end.i.i455
 
@@ -20380,7 +20779,7 @@ land.lhs.true.i.i.i.i456:                         ; preds = %_ZN7testing15Assert
 
 _ZN4absleqERKNS_28log_uniform_int_distributionIiEES3_.exit.i.i460: ; preds = %land.lhs.true.i.i.i.i456
   %173 = load i32, ptr %base_.i.i, align 4, !noalias !426
-  %174 = load i32, ptr %base_.i.i215, align 8, !noalias !426
+  %174 = load i32, ptr %base_.i.i215, align 4, !noalias !426
   %cmp5.i.i.i.i463 = icmp eq i32 %173, %174
   br i1 %cmp5.i.i.i.i463, label %if.then.i.i464, label %if.end.i.i455
 
@@ -20487,7 +20886,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit488:         ; preds = %if.end315, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i487
   store ptr null, ptr %message_.i.i469, align 8
   %185 = load i32, ptr %max_.i.i214, align 4
-  %186 = load i32, ptr %after, align 16
+  %186 = load i32, ptr %after, align 4
   br label %for.body323
 
 for.body323:                                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit488, %_ZN7testing15AssertionResultD2Ev.exit544
@@ -20496,8 +20895,8 @@ for.body323:                                      ; preds = %_ZN7testing15Assert
   %sample_min.0595 = phi i32 [ %185, %_ZN7testing15AssertionResultD2Ev.exit488 ], [ %sample_min.1, %_ZN7testing15AssertionResultD2Ev.exit544 ]
   %gen.sroa.7.1594 = phi i64 [ %gen.sroa.7.0599, %_ZN7testing15AssertionResultD2Ev.exit488 ], [ %gen.sroa.7.6, %_ZN7testing15AssertionResultD2Ev.exit544 ]
   %gen.sroa.0.1593 = phi i64 [ %gen.sroa.0.0598, %_ZN7testing15AssertionResultD2Ev.exit488 ], [ %gen.sroa.0.6, %_ZN7testing15AssertionResultD2Ev.exit544 ]
-  %187 = load i32, ptr %after, align 16
-  %188 = load i32, ptr %log_range_.i.i226, align 16
+  %187 = load i32, ptr %after, align 4
+  %188 = load i32, ptr %log_range_.i.i226, align 4
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i = zext i64 %gen.sroa.7.1594 to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i = zext i64 %gen.sroa.0.1593 to i128
@@ -20574,7 +20973,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 
 if.end.i:                                         ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i
   %sub.i555 = add nsw i32 %retval.0.i.i.i.i, -1
-  %191 = load i32, ptr %base_.i.i215, align 8
+  %191 = load i32, ptr %base_.i.i215, align 4
   %cmp4.i = icmp eq i32 %191, 2
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i557
 
@@ -20592,7 +20991,7 @@ if.else.i557:                                     ; preds = %if.end.i
   %conv.i = sitofp i32 %191 to double
   %conv.i.i558 = sitofp i32 %sub.i555 to double
   %call.i.i = call noundef double @pow(double noundef %conv.i, double noundef %conv.i.i558) #28
-  %192 = load i32, ptr %base_.i.i215, align 8
+  %192 = load i32, ptr %base_.i.i215, align 4
   %conv13.i559 = sitofp i32 %192 to double
   %193 = call double @llvm.fmuladd.f64(double %call.i.i, double %conv13.i559, double -1.000000e+00)
   %.inv.i = fcmp oge double %call.i.i, 0x41EFFFFFFFE00000
@@ -20684,7 +21083,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %retval.0.i.i.in.i54.i = phi i64 [ %and2.i.i1.i83.i, %if.then.i.i.i82.i ], [ %shr.i.i.i.i53.i, %if.end13.i.i.i51.i ]
   %retval.0.i.i.i55.i = trunc nuw i64 %retval.0.i.i.in.i54.i to i32
   %add.i.i57.i = add i32 %spec.select.i, %retval.0.i.i.i55.i
-  %.pre617 = load i32, ptr %after, align 16
+  %.pre617 = load i32, ptr %after, align 4
   br label %invoke.cont324
 
 invoke.cont324:                                   ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i, %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit84.i
@@ -27063,51 +27462,123 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
-  store <4 x i8> <i8 0, i8 1, i8 2, i8 1>, ptr %ref.tmp2, align 4
+  store i8 0, ptr %ref.tmp2, align 4
+  %max_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 1
+  store i8 1, ptr %max_.i, align 1
+  %base_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 2
+  store i8 2, ptr %base_.i, align 2
+  %range_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 3
+  store i8 1, ptr %range_.i, align 1
   %log_range_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
   store i32 1, ptr %log_range_.i, align 4
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store <4 x i8> <i8 0, i8 2, i8 2, i8 2>, ptr %arrayinit.element, align 4
+  store i8 0, ptr %arrayinit.element, align 4
+  %max_.i59 = getelementptr inbounds i8, ptr %ref.tmp2, i64 9
+  store i8 2, ptr %max_.i59, align 1
+  %base_.i60 = getelementptr inbounds i8, ptr %ref.tmp2, i64 10
+  store i8 2, ptr %base_.i60, align 2
+  %range_.i61 = getelementptr inbounds i8, ptr %ref.tmp2, i64 11
+  store i8 2, ptr %range_.i61, align 1
   %log_range_.i62 = getelementptr inbounds i8, ptr %ref.tmp2, i64 12
   store i32 2, ptr %log_range_.i62, align 4
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
-  store <4 x i8> <i8 0, i8 2, i8 10, i8 2>, ptr %arrayinit.element3, align 4
+  store i8 0, ptr %arrayinit.element3, align 4
+  %max_.i63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
+  store i8 2, ptr %max_.i63, align 1
+  %base_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 18
+  store i8 10, ptr %base_.i64, align 2
+  %range_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 19
+  store i8 2, ptr %range_.i65, align 1
   %log_range_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 20
   store i32 1, ptr %log_range_.i66, align 4
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
-  store <4 x i8> <i8 9, i8 32, i8 4, i8 23>, ptr %arrayinit.element4, align 4
+  store i8 9, ptr %arrayinit.element4, align 4
+  %max_.i67 = getelementptr inbounds i8, ptr %ref.tmp2, i64 25
+  store i8 32, ptr %max_.i67, align 1
+  %base_.i68 = getelementptr inbounds i8, ptr %ref.tmp2, i64 26
+  store i8 4, ptr %base_.i68, align 2
+  %range_.i69 = getelementptr inbounds i8, ptr %ref.tmp2, i64 27
+  store i8 23, ptr %range_.i69, align 1
   %log_range_.i77 = getelementptr inbounds i8, ptr %ref.tmp2, i64 28
   store i32 3, ptr %log_range_.i77, align 4
   %arrayinit.element5 = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
-  store <4 x i8> <i8 1, i8 101, i8 10, i8 100>, ptr %arrayinit.element5, align 4
+  store i8 1, ptr %arrayinit.element5, align 4
+  %max_.i78 = getelementptr inbounds i8, ptr %ref.tmp2, i64 33
+  store i8 101, ptr %max_.i78, align 1
+  %base_.i79 = getelementptr inbounds i8, ptr %ref.tmp2, i64 34
+  store i8 10, ptr %base_.i79, align 2
+  %range_.i80 = getelementptr inbounds i8, ptr %ref.tmp2, i64 35
+  store i8 100, ptr %range_.i80, align 1
   %log_range_.i88 = getelementptr inbounds i8, ptr %ref.tmp2, i64 36
   store i32 3, ptr %log_range_.i88, align 4
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
-  store <4 x i8> <i8 1, i8 127, i8 2, i8 126>, ptr %arrayinit.element6, align 4
+  store i8 1, ptr %arrayinit.element6, align 4
+  %max_.i89 = getelementptr inbounds i8, ptr %ref.tmp2, i64 41
+  store i8 127, ptr %max_.i89, align 1
+  %base_.i90 = getelementptr inbounds i8, ptr %ref.tmp2, i64 42
+  store i8 2, ptr %base_.i90, align 2
+  %range_.i91 = getelementptr inbounds i8, ptr %ref.tmp2, i64 43
+  store i8 126, ptr %range_.i91, align 1
   %log_range_.i92 = getelementptr inbounds i8, ptr %ref.tmp2, i64 44
   store i32 7, ptr %log_range_.i92, align 4
   %arrayinit.element8 = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
-  store <4 x i8> <i8 0, i8 -2, i8 2, i8 -2>, ptr %arrayinit.element8, align 4
+  store i8 0, ptr %arrayinit.element8, align 4
+  %max_.i93 = getelementptr inbounds i8, ptr %ref.tmp2, i64 49
+  store i8 -2, ptr %max_.i93, align 1
+  %base_.i94 = getelementptr inbounds i8, ptr %ref.tmp2, i64 50
+  store i8 2, ptr %base_.i94, align 2
+  %range_.i95 = getelementptr inbounds i8, ptr %ref.tmp2, i64 51
+  store i8 -2, ptr %range_.i95, align 1
   %log_range_.i100 = getelementptr inbounds i8, ptr %ref.tmp2, i64 52
   store i32 8, ptr %log_range_.i100, align 4
   %arrayinit.element12 = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
-  store <4 x i8> <i8 0, i8 -1, i8 2, i8 -1>, ptr %arrayinit.element12, align 4
+  store i8 0, ptr %arrayinit.element12, align 4
+  %max_.i101 = getelementptr inbounds i8, ptr %ref.tmp2, i64 57
+  store i8 -1, ptr %max_.i101, align 1
+  %base_.i102 = getelementptr inbounds i8, ptr %ref.tmp2, i64 58
+  store i8 2, ptr %base_.i102, align 2
+  %range_.i103 = getelementptr inbounds i8, ptr %ref.tmp2, i64 59
+  store i8 -1, ptr %range_.i103, align 1
   %log_range_.i104 = getelementptr inbounds i8, ptr %ref.tmp2, i64 60
   store i32 8, ptr %log_range_.i104, align 4
   %arrayinit.element14 = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
-  store <4 x i8> <i8 0, i8 -1, i8 10, i8 -1>, ptr %arrayinit.element14, align 4
+  store i8 0, ptr %arrayinit.element14, align 4
+  %max_.i105 = getelementptr inbounds i8, ptr %ref.tmp2, i64 65
+  store i8 -1, ptr %max_.i105, align 1
+  %base_.i106 = getelementptr inbounds i8, ptr %ref.tmp2, i64 66
+  store i8 10, ptr %base_.i106, align 2
+  %range_.i107 = getelementptr inbounds i8, ptr %ref.tmp2, i64 67
+  store i8 -1, ptr %range_.i107, align 1
   %log_range_.i115 = getelementptr inbounds i8, ptr %ref.tmp2, i64 68
   store i32 3, ptr %log_range_.i115, align 4
   %arrayinit.element16 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store <4 x i8> <i8 0, i8 0, i8 2, i8 0>, ptr %arrayinit.element16, align 4
+  store i8 0, ptr %arrayinit.element16, align 4
+  %max_.i116 = getelementptr inbounds i8, ptr %ref.tmp2, i64 73
+  store i8 0, ptr %max_.i116, align 1
+  %base_.i117 = getelementptr inbounds i8, ptr %ref.tmp2, i64 74
+  store i8 2, ptr %base_.i117, align 2
+  %range_.i118 = getelementptr inbounds i8, ptr %ref.tmp2, i64 75
+  store i8 0, ptr %range_.i118, align 1
   %log_range_.i119 = getelementptr inbounds i8, ptr %ref.tmp2, i64 76
   store i32 0, ptr %log_range_.i119, align 4
   %arrayinit.element18 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
-  store <4 x i8> <i8 0, i8 -1, i8 2, i8 -1>, ptr %arrayinit.element18, align 4
+  store i8 0, ptr %arrayinit.element18, align 4
+  %max_.i120 = getelementptr inbounds i8, ptr %ref.tmp2, i64 81
+  store i8 -1, ptr %max_.i120, align 1
+  %base_.i121 = getelementptr inbounds i8, ptr %ref.tmp2, i64 82
+  store i8 2, ptr %base_.i121, align 2
+  %range_.i122 = getelementptr inbounds i8, ptr %ref.tmp2, i64 83
+  store i8 -1, ptr %range_.i122, align 1
   %log_range_.i123 = getelementptr inbounds i8, ptr %ref.tmp2, i64 84
   store i32 8, ptr %log_range_.i123, align 4
   %arrayinit.element21 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
-  store <4 x i8> <i8 0, i8 -1, i8 2, i8 -1>, ptr %arrayinit.element21, align 4
+  store i8 0, ptr %arrayinit.element21, align 4
+  %max_.i124 = getelementptr inbounds i8, ptr %ref.tmp2, i64 89
+  store i8 -1, ptr %max_.i124, align 1
+  %base_.i125 = getelementptr inbounds i8, ptr %ref.tmp2, i64 90
+  store i8 2, ptr %base_.i125, align 2
+  %range_.i126 = getelementptr inbounds i8, ptr %ref.tmp2, i64 91
+  store i8 -1, ptr %range_.i126, align 1
   %log_range_.i127 = getelementptr inbounds i8, ptr %ref.tmp2, i64 92
   store i32 8, ptr %log_range_.i127, align 4
   %max_.i.i = getelementptr inbounds i8, ptr %before, i64 1
@@ -27624,7 +28095,10 @@ _ZN7testing15AssertionResultD2Ev.exit214:         ; preds = %if.end103, %_ZNKSt1
           to label %invoke.cont108 unwind label %lpad105.loopexit.split-lp
 
 invoke.cont108:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit214
-  store <4 x i8> <i8 3, i8 6, i8 17, i8 3>, ptr %after, align 8
+  store i8 3, ptr %after, align 8
+  store i8 6, ptr %max_.i.i215, align 1
+  store i8 17, ptr %base_.i.i216, align 2
+  store i8 3, ptr %range_.i.i217, align 1
   store i32 1, ptr %log_range_.i.i227, align 4
   %65 = load i8, ptr %max_.i.i, align 1
   store i8 %65, ptr %ref.tmp110, align 1
@@ -31281,7 +31755,7 @@ entry:
   %v.addr.i565 = alloca i16, align 2
   %v.addr.i = alloca i16, align 2
   %buffer.i.i.i.i.i = alloca [4 x i32], align 16
-  %ref.tmp2 = alloca [12 x %"class.absl::log_uniform_int_distribution<unsigned short>::param_type"], align 8
+  %ref.tmp2 = alloca [12 x %"class.absl::log_uniform_int_distribution<unsigned short>::param_type"], align 4
   %before = alloca %"class.absl::log_uniform_int_distribution.189", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp29 = alloca i16, align 2
@@ -31400,47 +31874,101 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
-  store <4 x i16> <i16 0, i16 1, i16 2, i16 1>, ptr %ref.tmp2, align 8
+  store i16 0, ptr %ref.tmp2, align 4
+  %max_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 2
+  store i16 1, ptr %max_.i, align 2
+  %base_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
+  store i16 2, ptr %base_.i, align 4
+  %range_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 6
+  store i16 1, ptr %range_.i, align 2
   %log_range_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  store i32 1, ptr %log_range_.i, align 8
+  store i32 1, ptr %log_range_.i, align 4
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 12
-  store <4 x i16> <i16 0, i16 2, i16 2, i16 2>, ptr %arrayinit.element, align 4
+  store i16 0, ptr %arrayinit.element, align 4
+  %max_.i59 = getelementptr inbounds i8, ptr %ref.tmp2, i64 14
+  store i16 2, ptr %max_.i59, align 2
+  %base_.i60 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  store i16 2, ptr %base_.i60, align 4
+  %range_.i61 = getelementptr inbounds i8, ptr %ref.tmp2, i64 18
+  store i16 2, ptr %range_.i61, align 2
   %log_range_.i62 = getelementptr inbounds i8, ptr %ref.tmp2, i64 20
   store i32 2, ptr %log_range_.i62, align 4
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
-  store <4 x i16> <i16 0, i16 2, i16 10, i16 2>, ptr %arrayinit.element3, align 8
+  store i16 0, ptr %arrayinit.element3, align 4
+  %max_.i63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 26
+  store i16 2, ptr %max_.i63, align 2
+  %base_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 28
+  store i16 10, ptr %base_.i64, align 4
+  %range_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 30
+  store i16 2, ptr %range_.i65, align 2
   %log_range_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
-  store i32 1, ptr %log_range_.i66, align 8
+  store i32 1, ptr %log_range_.i66, align 4
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 36
-  store <4 x i16> <i16 9, i16 32, i16 4, i16 23>, ptr %arrayinit.element4, align 4
+  store i16 9, ptr %arrayinit.element4, align 4
+  %max_.i67 = getelementptr inbounds i8, ptr %ref.tmp2, i64 38
+  store i16 32, ptr %max_.i67, align 2
+  %base_.i68 = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
+  store i16 4, ptr %base_.i68, align 4
+  %range_.i69 = getelementptr inbounds i8, ptr %ref.tmp2, i64 42
+  store i16 23, ptr %range_.i69, align 2
   %log_range_.i77 = getelementptr inbounds i8, ptr %ref.tmp2, i64 44
   store i32 3, ptr %log_range_.i77, align 4
   %arrayinit.element5 = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
-  store <4 x i16> <i16 1, i16 101, i16 10, i16 100>, ptr %arrayinit.element5, align 8
+  store i16 1, ptr %arrayinit.element5, align 4
+  %max_.i78 = getelementptr inbounds i8, ptr %ref.tmp2, i64 50
+  store i16 101, ptr %max_.i78, align 2
+  %base_.i79 = getelementptr inbounds i8, ptr %ref.tmp2, i64 52
+  store i16 10, ptr %base_.i79, align 4
+  %range_.i80 = getelementptr inbounds i8, ptr %ref.tmp2, i64 54
+  store i16 100, ptr %range_.i80, align 2
   %log_range_.i88 = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
-  store i32 3, ptr %log_range_.i88, align 8
+  store i32 3, ptr %log_range_.i88, align 4
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 60
-  store <4 x i16> <i16 1, i16 32767, i16 2, i16 32766>, ptr %arrayinit.element6, align 4
+  store i16 1, ptr %arrayinit.element6, align 4
+  %max_.i89 = getelementptr inbounds i8, ptr %ref.tmp2, i64 62
+  store i16 32767, ptr %max_.i89, align 2
+  %base_.i90 = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
+  store i16 2, ptr %base_.i90, align 4
+  %range_.i91 = getelementptr inbounds i8, ptr %ref.tmp2, i64 66
+  store i16 32766, ptr %range_.i91, align 2
   %log_range_.i92 = getelementptr inbounds i8, ptr %ref.tmp2, i64 68
   store i32 15, ptr %log_range_.i92, align 4
   %arrayinit.element8 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
-  store <4 x i16> <i16 0, i16 -2, i16 2, i16 -2>, ptr %arrayinit.element8, align 8
+  store i16 0, ptr %arrayinit.element8, align 4
+  %max_.i93 = getelementptr inbounds i8, ptr %ref.tmp2, i64 74
+  store i16 -2, ptr %max_.i93, align 2
+  %base_.i94 = getelementptr inbounds i8, ptr %ref.tmp2, i64 76
+  store i16 2, ptr %base_.i94, align 4
+  %range_.i95 = getelementptr inbounds i8, ptr %ref.tmp2, i64 78
+  store i16 -2, ptr %range_.i95, align 2
   %log_range_.i100 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
-  store i32 16, ptr %log_range_.i100, align 8
+  store i32 16, ptr %log_range_.i100, align 4
   %arrayinit.element12 = getelementptr inbounds i8, ptr %ref.tmp2, i64 84
-  store <4 x i16> <i16 0, i16 -1, i16 2, i16 -1>, ptr %arrayinit.element12, align 4
+  store i16 0, ptr %arrayinit.element12, align 4
+  %max_.i101 = getelementptr inbounds i8, ptr %ref.tmp2, i64 86
+  store i16 -1, ptr %max_.i101, align 2
+  %base_.i102 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store i16 2, ptr %base_.i102, align 4
+  %range_.i103 = getelementptr inbounds i8, ptr %ref.tmp2, i64 90
+  store i16 -1, ptr %range_.i103, align 2
   %log_range_.i104 = getelementptr inbounds i8, ptr %ref.tmp2, i64 92
   store i32 16, ptr %log_range_.i104, align 4
   %arrayinit.element14 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
-  store <4 x i16> <i16 0, i16 -1, i16 10, i16 -1>, ptr %arrayinit.element14, align 8
+  store i16 0, ptr %arrayinit.element14, align 4
+  %max_.i105 = getelementptr inbounds i8, ptr %ref.tmp2, i64 98
+  store i16 -1, ptr %max_.i105, align 2
+  %base_.i106 = getelementptr inbounds i8, ptr %ref.tmp2, i64 100
+  store i16 10, ptr %base_.i106, align 4
+  %range_.i107 = getelementptr inbounds i8, ptr %ref.tmp2, i64 102
+  store i16 -1, ptr %range_.i107, align 2
   %log_range_.i115 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
-  store i32 5, ptr %log_range_.i115, align 8
+  store i32 5, ptr %log_range_.i115, align 4
   %arrayinit.element16 = getelementptr inbounds i8, ptr %ref.tmp2, i64 108
   store i16 0, ptr %arrayinit.element16, align 4
   %max_.i116 = getelementptr inbounds i8, ptr %ref.tmp2, i64 110
   store i16 0, ptr %max_.i116, align 2
   %base_.i117 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
-  store i16 2, ptr %base_.i117, align 8
+  store i16 2, ptr %base_.i117, align 4
   %range_.i118 = getelementptr inbounds i8, ptr %ref.tmp2, i64 114
   %max_.i120 = getelementptr inbounds i8, ptr %ref.tmp2, i64 122
   store i64 0, ptr %range_.i118, align 2
@@ -31450,9 +31978,15 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %range_.i122 = getelementptr inbounds i8, ptr %ref.tmp2, i64 126
   store i16 -1, ptr %range_.i122, align 2
   %log_range_.i123 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
-  store i32 16, ptr %log_range_.i123, align 8
+  store i32 16, ptr %log_range_.i123, align 4
   %arrayinit.element21 = getelementptr inbounds i8, ptr %ref.tmp2, i64 132
-  store <4 x i16> <i16 0, i16 -1, i16 2, i16 -1>, ptr %arrayinit.element21, align 4
+  store i16 0, ptr %arrayinit.element21, align 4
+  %max_.i124 = getelementptr inbounds i8, ptr %ref.tmp2, i64 134
+  store i16 -1, ptr %max_.i124, align 2
+  %base_.i125 = getelementptr inbounds i8, ptr %ref.tmp2, i64 136
+  store i16 2, ptr %base_.i125, align 4
+  %range_.i126 = getelementptr inbounds i8, ptr %ref.tmp2, i64 138
+  store i16 -1, ptr %range_.i126, align 2
   %log_range_.i127 = getelementptr inbounds i8, ptr %ref.tmp2, i64 140
   store i32 16, ptr %log_range_.i127, align 4
   %max_.i.i = getelementptr inbounds i8, ptr %before, i64 2
@@ -31974,7 +32508,10 @@ _ZN7testing15AssertionResultD2Ev.exit214:         ; preds = %if.end103, %_ZNKSt1
           to label %invoke.cont108 unwind label %lpad105.loopexit.split-lp
 
 invoke.cont108:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit214
-  store <4 x i16> <i16 3, i16 6, i16 17, i16 3>, ptr %after, align 8
+  store i16 3, ptr %after, align 8
+  store i16 6, ptr %max_.i.i215, align 2
+  store i16 17, ptr %base_.i.i216, align 4
+  store i16 3, ptr %range_.i.i217, align 2
   store i32 1, ptr %log_range_.i.i227, align 8
   %62 = load i16, ptr %max_.i.i, align 2
   store i16 %62, ptr %ref.tmp110, align 2
@@ -35627,7 +36164,7 @@ entry:
   %v.addr.i550 = alloca i32, align 4
   %v.addr.i = alloca i32, align 4
   %buffer.i.i.i.i.i = alloca [4 x i32], align 16
-  %ref.tmp2 = alloca [12 x %"class.absl::log_uniform_int_distribution<unsigned int>::param_type"], align 16
+  %ref.tmp2 = alloca [12 x %"class.absl::log_uniform_int_distribution<unsigned int>::param_type"], align 4
   %before = alloca %"class.absl::log_uniform_int_distribution.195", align 4
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp26 = alloca i32, align 4
@@ -35649,7 +36186,7 @@ entry:
   %ref.tmp88 = alloca %"class.testing::Message", align 8
   %ref.tmp91 = alloca %"class.testing::internal::AssertHelper", align 8
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %after = alloca %"class.absl::log_uniform_int_distribution.195", align 16
+  %after = alloca %"class.absl::log_uniform_int_distribution.195", align 4
   %gtest_ar106 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp107 = alloca i32, align 4
   %ref.tmp110 = alloca i32, align 4
@@ -35746,35 +36283,125 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %.tr.i.i.i.i.i.i.i = trunc nuw i128 %5 to i64
   %.narrow.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i, 6364136223846793005
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i.i)
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 1>, ptr %ref.tmp2, align 16
+  store i32 0, ptr %ref.tmp2, align 4
+  %max_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
+  store i32 1, ptr %max_.i, align 4
+  %base_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  store i32 2, ptr %base_.i, align 4
+  %range_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 12
+  store i32 1, ptr %range_.i, align 4
   %log_range_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
-  store <4 x i32> <i32 1, i32 0, i32 2, i32 2>, ptr %log_range_.i, align 16
+  store i32 1, ptr %log_range_.i, align 4
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 20
+  store i32 0, ptr %arrayinit.element, align 4
+  %max_.i61 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
+  store i32 2, ptr %max_.i61, align 4
+  %base_.i62 = getelementptr inbounds i8, ptr %ref.tmp2, i64 28
+  store i32 2, ptr %base_.i62, align 4
   %range_.i63 = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
-  store <4 x i32> <i32 2, i32 2, i32 0, i32 2>, ptr %range_.i63, align 16
+  store i32 2, ptr %range_.i63, align 4
+  %log_range_.i64 = getelementptr inbounds i8, ptr %ref.tmp2, i64 36
+  store i32 2, ptr %log_range_.i64, align 4
+  %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
+  store i32 0, ptr %arrayinit.element3, align 4
+  %max_.i65 = getelementptr inbounds i8, ptr %ref.tmp2, i64 44
+  store i32 2, ptr %max_.i65, align 4
   %base_.i66 = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
-  store <4 x i32> <i32 10, i32 2, i32 1, i32 9>, ptr %base_.i66, align 16
+  store i32 10, ptr %base_.i66, align 4
+  %range_.i67 = getelementptr inbounds i8, ptr %ref.tmp2, i64 52
+  store i32 2, ptr %range_.i67, align 4
+  %log_range_.i68 = getelementptr inbounds i8, ptr %ref.tmp2, i64 56
+  store i32 1, ptr %log_range_.i68, align 4
+  %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 60
+  store i32 9, ptr %arrayinit.element4, align 4
   %max_.i69 = getelementptr inbounds i8, ptr %ref.tmp2, i64 64
-  store <4 x i32> <i32 32, i32 4, i32 23, i32 3>, ptr %max_.i69, align 16
+  store i32 32, ptr %max_.i69, align 4
+  %base_.i70 = getelementptr inbounds i8, ptr %ref.tmp2, i64 68
+  store i32 4, ptr %base_.i70, align 4
+  %range_.i71 = getelementptr inbounds i8, ptr %ref.tmp2, i64 72
+  store i32 23, ptr %range_.i71, align 4
+  %log_range_.i79 = getelementptr inbounds i8, ptr %ref.tmp2, i64 76
+  store i32 3, ptr %log_range_.i79, align 4
   %arrayinit.element5 = getelementptr inbounds i8, ptr %ref.tmp2, i64 80
-  store <4 x i32> <i32 1, i32 101, i32 10, i32 100>, ptr %arrayinit.element5, align 16
+  store i32 1, ptr %arrayinit.element5, align 4
+  %max_.i80 = getelementptr inbounds i8, ptr %ref.tmp2, i64 84
+  store i32 101, ptr %max_.i80, align 4
+  %base_.i81 = getelementptr inbounds i8, ptr %ref.tmp2, i64 88
+  store i32 10, ptr %base_.i81, align 4
+  %range_.i82 = getelementptr inbounds i8, ptr %ref.tmp2, i64 92
+  store i32 100, ptr %range_.i82, align 4
   %log_range_.i90 = getelementptr inbounds i8, ptr %ref.tmp2, i64 96
-  store <4 x i32> <i32 3, i32 1, i32 2147483647, i32 2>, ptr %log_range_.i90, align 16
+  store i32 3, ptr %log_range_.i90, align 4
+  %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp2, i64 100
+  store i32 1, ptr %arrayinit.element6, align 4
+  %max_.i91 = getelementptr inbounds i8, ptr %ref.tmp2, i64 104
+  store i32 2147483647, ptr %max_.i91, align 4
+  %base_.i92 = getelementptr inbounds i8, ptr %ref.tmp2, i64 108
+  store i32 2, ptr %base_.i92, align 4
   %range_.i93 = getelementptr inbounds i8, ptr %ref.tmp2, i64 112
-  store <4 x i32> <i32 2147483646, i32 31, i32 0, i32 -2>, ptr %range_.i93, align 16
+  store i32 2147483646, ptr %range_.i93, align 4
+  %log_range_.i94 = getelementptr inbounds i8, ptr %ref.tmp2, i64 116
+  store i32 31, ptr %log_range_.i94, align 4
+  %arrayinit.element7 = getelementptr inbounds i8, ptr %ref.tmp2, i64 120
+  store i32 0, ptr %arrayinit.element7, align 4
+  %max_.i95 = getelementptr inbounds i8, ptr %ref.tmp2, i64 124
+  store i32 -2, ptr %max_.i95, align 4
   %base_.i96 = getelementptr inbounds i8, ptr %ref.tmp2, i64 128
-  store <4 x i32> <i32 2, i32 -2, i32 32, i32 0>, ptr %base_.i96, align 16
+  store i32 2, ptr %base_.i96, align 4
+  %range_.i97 = getelementptr inbounds i8, ptr %ref.tmp2, i64 132
+  store i32 -2, ptr %range_.i97, align 4
+  %log_range_.i100 = getelementptr inbounds i8, ptr %ref.tmp2, i64 136
+  store i32 32, ptr %log_range_.i100, align 4
+  %arrayinit.element9 = getelementptr inbounds i8, ptr %ref.tmp2, i64 140
+  store i32 0, ptr %arrayinit.element9, align 4
   %max_.i101 = getelementptr inbounds i8, ptr %ref.tmp2, i64 144
-  store <4 x i32> <i32 -1, i32 2, i32 -1, i32 32>, ptr %max_.i101, align 16
+  store i32 -1, ptr %max_.i101, align 4
+  %base_.i102 = getelementptr inbounds i8, ptr %ref.tmp2, i64 148
+  store i32 2, ptr %base_.i102, align 4
+  %range_.i103 = getelementptr inbounds i8, ptr %ref.tmp2, i64 152
+  store i32 -1, ptr %range_.i103, align 4
+  %log_range_.i104 = getelementptr inbounds i8, ptr %ref.tmp2, i64 156
+  store i32 32, ptr %log_range_.i104, align 4
   %arrayinit.element11 = getelementptr inbounds i8, ptr %ref.tmp2, i64 160
-  store <4 x i32> <i32 0, i32 -1, i32 10, i32 -1>, ptr %arrayinit.element11, align 16
+  store i32 0, ptr %arrayinit.element11, align 4
+  %max_.i105 = getelementptr inbounds i8, ptr %ref.tmp2, i64 164
+  store i32 -1, ptr %max_.i105, align 4
+  %base_.i106 = getelementptr inbounds i8, ptr %ref.tmp2, i64 168
+  store i32 10, ptr %base_.i106, align 4
+  %range_.i107 = getelementptr inbounds i8, ptr %ref.tmp2, i64 172
+  store i32 -1, ptr %range_.i107, align 4
   %log_range_.i115 = getelementptr inbounds i8, ptr %ref.tmp2, i64 176
-  store <4 x i32> <i32 10, i32 0, i32 0, i32 2>, ptr %log_range_.i115, align 16
+  store i32 10, ptr %log_range_.i115, align 4
+  %arrayinit.element13 = getelementptr inbounds i8, ptr %ref.tmp2, i64 180
+  store i32 0, ptr %arrayinit.element13, align 4
+  %max_.i116 = getelementptr inbounds i8, ptr %ref.tmp2, i64 184
+  store i32 0, ptr %max_.i116, align 4
+  %base_.i117 = getelementptr inbounds i8, ptr %ref.tmp2, i64 188
+  store i32 2, ptr %base_.i117, align 4
   %range_.i118 = getelementptr inbounds i8, ptr %ref.tmp2, i64 192
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %range_.i118, align 16
+  store i32 0, ptr %range_.i118, align 4
+  %log_range_.i119 = getelementptr inbounds i8, ptr %ref.tmp2, i64 196
+  store i32 0, ptr %log_range_.i119, align 4
+  %arrayinit.element15 = getelementptr inbounds i8, ptr %ref.tmp2, i64 200
+  store i32 0, ptr %arrayinit.element15, align 4
+  %max_.i120 = getelementptr inbounds i8, ptr %ref.tmp2, i64 204
+  store i32 -1, ptr %max_.i120, align 4
   %base_.i121 = getelementptr inbounds i8, ptr %ref.tmp2, i64 208
-  store <4 x i32> <i32 2, i32 -1, i32 32, i32 0>, ptr %base_.i121, align 16
+  store i32 2, ptr %base_.i121, align 4
+  %range_.i122 = getelementptr inbounds i8, ptr %ref.tmp2, i64 212
+  store i32 -1, ptr %range_.i122, align 4
+  %log_range_.i123 = getelementptr inbounds i8, ptr %ref.tmp2, i64 216
+  store i32 32, ptr %log_range_.i123, align 4
+  %arrayinit.element18 = getelementptr inbounds i8, ptr %ref.tmp2, i64 220
+  store i32 0, ptr %arrayinit.element18, align 4
   %max_.i124 = getelementptr inbounds i8, ptr %ref.tmp2, i64 224
-  store <4 x i32> <i32 -1, i32 2, i32 -1, i32 32>, ptr %max_.i124, align 16
+  store i32 -1, ptr %max_.i124, align 4
+  %base_.i125 = getelementptr inbounds i8, ptr %ref.tmp2, i64 228
+  store i32 2, ptr %base_.i125, align 4
+  %range_.i126 = getelementptr inbounds i8, ptr %ref.tmp2, i64 232
+  store i32 -1, ptr %range_.i126, align 4
+  %log_range_.i127 = getelementptr inbounds i8, ptr %ref.tmp2, i64 236
+  store i32 32, ptr %log_range_.i127, align 4
   %max_.i.i = getelementptr inbounds i8, ptr %before, i64 4
   %base_.i.i = getelementptr inbounds i8, ptr %before, i64 8
   %range_.i.i = getelementptr inbounds i8, ptr %before, i64 12
@@ -36296,8 +36923,11 @@ _ZN7testing15AssertionResultD2Ev.exit214:         ; preds = %if.end100, %_ZNKSt1
           to label %invoke.cont105 unwind label %lpad102.loopexit.split-lp
 
 invoke.cont105:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit214
-  store <4 x i32> <i32 3, i32 6, i32 17, i32 3>, ptr %after, align 16
-  store i32 1, ptr %log_range_.i.i227, align 16
+  store i32 3, ptr %after, align 4
+  store i32 6, ptr %max_.i.i215, align 4
+  store i32 17, ptr %base_.i.i216, align 4
+  store i32 3, ptr %range_.i.i217, align 4
+  store i32 1, ptr %log_range_.i.i227, align 4
   %62 = load i32, ptr %max_.i.i, align 4
   store i32 %62, ptr %ref.tmp107, align 4
   store i32 6, ptr %ref.tmp110, align 4
@@ -36418,7 +37048,7 @@ _ZN7testing15AssertionResultD2Ev.exit251:         ; preds = %if.end129, %_ZNKSt1
   store ptr null, ptr %message_.i.i232, align 8
   %73 = load i32, ptr %base_.i.i, align 4
   store i32 %73, ptr %ref.tmp132, align 4
-  %74 = load i32, ptr %base_.i.i216, align 8
+  %74 = load i32, ptr %base_.i.i216, align 4
   store i32 %74, ptr %ref.tmp135, align 4
   %cmp.not.i254 = icmp eq i32 %73, %74
   br i1 %cmp.not.i254, label %if.else.i256, label %if.then.i255
@@ -36526,7 +37156,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit280:         ; preds = %if.end154, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i279
   store ptr null, ptr %message_.i.i261, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp157, ptr noundef nonnull align 4 dereferenceable(20) %before, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp159, ptr noundef nonnull align 16 dereferenceable(20) %after, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp159, ptr noundef nonnull align 4 dereferenceable(20) %after, i64 20, i1 false)
   %85 = load i32, ptr %ref.tmp157, align 4, !noalias !894
   %86 = load i32, ptr %ref.tmp159, align 4, !noalias !894
   %cmp.i.i.i = icmp eq i32 %85, %86
@@ -36647,7 +37277,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit305:         ; preds = %if.end177, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i304
   store ptr null, ptr %message_.i.i286, align 8
   %101 = load i32, ptr %before, align 4, !noalias !897
-  %102 = load i32, ptr %after, align 16, !noalias !897
+  %102 = load i32, ptr %after, align 4, !noalias !897
   %cmp.i.i.i.i306 = icmp eq i32 %101, %102
   br i1 %cmp.i.i.i.i306, label %land.lhs.true.i.i.i.i308, label %if.then.i307
 
@@ -36659,7 +37289,7 @@ land.lhs.true.i.i.i.i308:                         ; preds = %_ZN7testing15Assert
 
 _ZN4abslneERKNS_28log_uniform_int_distributionIjEES3_.exit.i: ; preds = %land.lhs.true.i.i.i.i308
   %105 = load i32, ptr %base_.i.i, align 4, !noalias !897
-  %106 = load i32, ptr %base_.i.i216, align 8, !noalias !897
+  %106 = load i32, ptr %base_.i.i216, align 4, !noalias !897
   %cmp5.i.i.i.not.i = icmp eq i32 %105, %106
   br i1 %cmp5.i.i.i.not.i, label %if.else.i314, label %if.then.i307
 
@@ -36771,7 +37401,7 @@ _ZN7testing15AssertionResultD2Ev.exit337:         ; preds = %if.end196, %_ZNKSt1
 invoke.cont198:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit337
   %117 = load i32, ptr %before, align 4
   store i32 %117, ptr %ref.tmp201, align 4
-  %118 = load i32, ptr %after, align 16
+  %118 = load i32, ptr %after, align 4
   store i32 %118, ptr %ref.tmp204, align 4
   %cmp.i.i338 = icmp eq i32 %117, %118
   br i1 %cmp.i.i338, label %if.then.i.i340, label %if.end.i.i339
@@ -36989,7 +37619,7 @@ _ZN7testing15AssertionResultD2Ev.exit393:         ; preds = %if.end248, %_ZNKSt1
   store ptr null, ptr %message_.i.i374, align 8
   %141 = load i32, ptr %base_.i.i, align 4
   store i32 %141, ptr %ref.tmp251, align 4
-  %142 = load i32, ptr %base_.i.i216, align 8
+  %142 = load i32, ptr %base_.i.i216, align 4
   store i32 %142, ptr %ref.tmp254, align 4
   %cmp.i.i396 = icmp eq i32 %141, %142
   br i1 %cmp.i.i396, label %if.then.i.i398, label %if.end.i.i397
@@ -37097,7 +37727,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit422:         ; preds = %if.end273, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i421
   store ptr null, ptr %message_.i.i403, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp276, ptr noundef nonnull align 4 dereferenceable(20) %before, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp278, ptr noundef nonnull align 16 dereferenceable(20) %after, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp278, ptr noundef nonnull align 4 dereferenceable(20) %after, i64 20, i1 false)
   %153 = load i32, ptr %ref.tmp276, align 4, !noalias !900
   %154 = load i32, ptr %ref.tmp278, align 4, !noalias !900
   %cmp.i.i.i423 = icmp eq i32 %153, %154
@@ -37218,7 +37848,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit454:         ; preds = %if.end296, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i453
   store ptr null, ptr %message_.i.i435, align 8
   %169 = load i32, ptr %before, align 4, !noalias !905
-  %170 = load i32, ptr %after, align 16, !noalias !905
+  %170 = load i32, ptr %after, align 4, !noalias !905
   %cmp.i.i.i.i455 = icmp eq i32 %169, %170
   br i1 %cmp.i.i.i.i455, label %land.lhs.true.i.i.i.i457, label %if.end.i.i456
 
@@ -37230,7 +37860,7 @@ land.lhs.true.i.i.i.i457:                         ; preds = %_ZN7testing15Assert
 
 _ZN4absleqERKNS_28log_uniform_int_distributionIjEES3_.exit.i.i461: ; preds = %land.lhs.true.i.i.i.i457
   %173 = load i32, ptr %base_.i.i, align 4, !noalias !905
-  %174 = load i32, ptr %base_.i.i216, align 8, !noalias !905
+  %174 = load i32, ptr %base_.i.i216, align 4, !noalias !905
   %cmp5.i.i.i.i464 = icmp eq i32 %173, %174
   br i1 %cmp5.i.i.i.i464, label %if.then.i.i465, label %if.end.i.i456
 
@@ -37337,7 +37967,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit489:         ; preds = %if.end315, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i488
   store ptr null, ptr %message_.i.i470, align 8
   %185 = load i32, ptr %max_.i.i215, align 4
-  %186 = load i32, ptr %after, align 16
+  %186 = load i32, ptr %after, align 4
   br label %for.body323
 
 for.body323:                                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit489, %_ZN7testing15AssertionResultD2Ev.exit545
@@ -37346,8 +37976,8 @@ for.body323:                                      ; preds = %_ZN7testing15Assert
   %sample_min.0596 = phi i32 [ %185, %_ZN7testing15AssertionResultD2Ev.exit489 ], [ %sample_min.1, %_ZN7testing15AssertionResultD2Ev.exit545 ]
   %gen.sroa.7.1595 = phi i64 [ %gen.sroa.7.0600, %_ZN7testing15AssertionResultD2Ev.exit489 ], [ %gen.sroa.7.6, %_ZN7testing15AssertionResultD2Ev.exit545 ]
   %gen.sroa.0.1594 = phi i64 [ %gen.sroa.0.0599, %_ZN7testing15AssertionResultD2Ev.exit489 ], [ %gen.sroa.0.6, %_ZN7testing15AssertionResultD2Ev.exit545 ]
-  %187 = load i32, ptr %after, align 16
-  %188 = load i32, ptr %log_range_.i.i227, align 16
+  %187 = load i32, ptr %after, align 4
+  %188 = load i32, ptr %log_range_.i.i227, align 4
   %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i = zext i64 %gen.sroa.7.1595 to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i.i.i, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i = zext i64 %gen.sroa.0.1594 to i128
@@ -37424,7 +38054,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 
 if.end.i:                                         ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i
   %sub.i556 = add nsw i32 %retval.0.i.i.i.i, -1
-  %191 = load i32, ptr %base_.i.i216, align 8
+  %191 = load i32, ptr %base_.i.i216, align 4
   %cmp4.i = icmp eq i32 %191, 2
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i558
 
@@ -37442,7 +38072,7 @@ if.else.i558:                                     ; preds = %if.end.i
   %conv.i = uitofp i32 %191 to double
   %conv.i.i559 = sitofp i32 %sub.i556 to double
   %call.i.i = call noundef double @pow(double noundef %conv.i, double noundef %conv.i.i559) #28
-  %192 = load i32, ptr %base_.i.i216, align 8
+  %192 = load i32, ptr %base_.i.i216, align 4
   %conv13.i560 = uitofp i32 %192 to double
   %193 = call double @llvm.fmuladd.f64(double %call.i.i, double %conv13.i560, double -1.000000e+00)
   %.inv.i = fcmp oge double %call.i.i, 0x41EFFFFFFFE00000
@@ -37534,7 +38164,7 @@ _ZN4absl24uniform_int_distributionIjEclINS_15random_internal17NonsecureURBGBaseI
   %retval.0.i.i.in.i54.i = phi i64 [ %and2.i.i1.i83.i, %if.then.i.i.i82.i ], [ %shr.i.i.i.i53.i, %if.end13.i.i.i51.i ]
   %retval.0.i.i.i55.i = trunc nuw i64 %retval.0.i.i.in.i54.i to i32
   %add.i.i57.i = add i32 %spec.select.i, %retval.0.i.i.i55.i
-  %.pre618 = load i32, ptr %after, align 16
+  %.pre618 = load i32, ptr %after, align 4
   br label %invoke.cont324
 
 invoke.cont324:                                   ; preds = %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit.i, %_ZN4absl24uniform_int_distributionIjEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEjRT_.exit.i
@@ -47230,7 +47860,7 @@ ehcleanup10.i:                                    ; preds = %ehcleanup.i, %lpad3
 
 common.resume:                                    ; preds = %lpad.i.i57, %lpad.i52, %ehcleanup16.i59, %lpad.i.i32, %lpad.i29, %ehcleanup16.i, %lpad.i.i.i, %lpad.i.i6, %ehcleanup21.i.i, %lpad.i.i, %lpad.i, %ehcleanup10.i
   %ref.tmp1.i51.sink = phi ptr [ %ref.tmp2.i, %ehcleanup10.i ], [ %ref.tmp2.i, %lpad.i ], [ %ref.tmp2.i, %lpad.i.i ], [ %ref.tmp2.i.i5, %ehcleanup21.i.i ], [ %ref.tmp2.i.i5, %lpad.i.i6 ], [ %ref.tmp2.i.i5, %lpad.i.i.i ], [ %ref.tmp2.i28, %ehcleanup16.i ], [ %ref.tmp2.i28, %lpad.i29 ], [ %ref.tmp2.i28, %lpad.i.i32 ], [ %ref.tmp1.i51, %ehcleanup16.i59 ], [ %ref.tmp1.i51, %lpad.i52 ], [ %ref.tmp1.i51, %lpad.i.i57 ]
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup10.i ], [ %46, %lpad.i ], [ %1, %lpad.i.i ], [ %.pn.pn.pn.pn.i.i11, %ehcleanup21.i.i ], [ %75, %lpad.i.i6 ], [ %49, %lpad.i.i.i ], [ %.pn.pn.pn.i35, %ehcleanup16.i ], [ %90, %lpad.i29 ], [ %81, %lpad.i.i32 ], [ %.pn.i60, %ehcleanup16.i59 ], [ %96, %lpad.i52 ], [ %95, %lpad.i.i57 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup10.i ], [ %46, %lpad.i ], [ %1, %lpad.i.i ], [ %.pn.pn.pn.pn.i.i11, %ehcleanup21.i.i ], [ %76, %lpad.i.i6 ], [ %49, %lpad.i.i.i ], [ %.pn.pn.pn.i35, %ehcleanup16.i ], [ %91, %lpad.i29 ], [ %82, %lpad.i.i32 ], [ %.pn.i60, %ehcleanup16.i59 ], [ %97, %lpad.i52 ], [ %96, %lpad.i.i57 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i51.sink) #28
   resume { ptr, i32 } %common.resume.op
 
@@ -47536,10 +48166,13 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call5.i.i.i.i.i.i.n
   %__first.addr.02.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %this.val10.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1221)
   call void @llvm.experimental.noalias.scope.decl(metadata !1224)
+  %72 = load ptr, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1224, !noalias !1221
+  store ptr %72, ptr %__cur.03.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1221, !noalias !1224
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i.i, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i, i64 8
-  %72 = load <2 x ptr>, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1224, !noalias !1221
+  %73 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1224, !noalias !1221
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1224, !noalias !1221
-  store <2 x ptr> %72, ptr %__cur.03.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1221, !noalias !1224
+  store ptr %73, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1221, !noalias !1224
   store ptr null, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1224, !noalias !1221
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i.i, i64 16
@@ -47564,18 +48197,18 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_G
   br label %__cxx_global_var_init.5.exit
 
 ehcleanup7.thread.i.i.i:                          ; preds = %call.i.noexc19.i.i
-  %73 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action.i.i.i
 
 lpad5.i.i.i:                                      ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_127LogUniformIntChiSquaredTestEE8TestInfoEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %74 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_127LogUniformIntChiSquaredTestEE8TestInfoEED2Ev(ptr nonnull %call.i.i.i.i.i.i.i) #28
   br label %ehcleanup7.thread7.i.i.i
 
 ehcleanup7.thread7.i.i.i:                         ; preds = %lpad5.i.i.i, %lpad3.i.i.i.i.i.i.i
-  %.pn.ph.i.i.i = phi { ptr, i32 } [ %65, %lpad3.i.i.i.i.i.i.i ], [ %74, %lpad5.i.i.i ]
+  %.pn.ph.i.i.i = phi { ptr, i32 } [ %65, %lpad3.i.i.i.i.i.i.i ], [ %75, %lpad5.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i2) #28
   br label %lpad17.body.i.i
 
@@ -47585,62 +48218,62 @@ ehcleanup7.i.i.i:                                 ; preds = %ehcleanup.i.i.i.i, 
   br label %cleanup.action.i.i.i
 
 cleanup.action.i.i.i:                             ; preds = %ehcleanup7.i.i.i, %ehcleanup7.thread.i.i.i
-  %.pn.pn6.i.i.i = phi { ptr, i32 } [ %73, %ehcleanup7.thread.i.i.i ], [ %.pn.i.i.i21, %ehcleanup7.i.i.i ]
+  %.pn.pn6.i.i.i = phi { ptr, i32 } [ %74, %ehcleanup7.thread.i.i.i ], [ %.pn.i.i.i21, %ehcleanup7.i.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %call.i20.i.i) #29
   br label %lpad17.body.i.i
 
 lpad.i.i6:                                        ; preds = %call.i.noexc.i.i8, %__cxx_global_var_init.1.exit
-  %75 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 lpad3.i.i:                                        ; preds = %invoke.cont.i.i10
-  %76 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup21.i.i
 
 lpad5.i.i:                                        ; preds = %invoke.cont6.i.i, %invoke.cont4.i.i
-  %77 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup20.i.i
 
 lpad13.i.i14:                                     ; preds = %call.i.noexc11.i.i, %invoke.cont8.i.i
-  %78 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup19.i.i
 
 lpad15.i.i:                                       ; preds = %invoke.cont14.i.i16
-  %79 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
 
 lpad17.i.i18:                                     ; preds = %invoke.cont16.i.i
-  %80 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
   br label %lpad17.body.i.i
 
 lpad17.body.i.i:                                  ; preds = %lpad17.i.i18, %cleanup.action.i.i.i, %ehcleanup7.thread7.i.i.i
-  %eh.lpad-body21.i.i = phi { ptr, i32 } [ %80, %lpad17.i.i18 ], [ %.pn.pn6.i.i.i, %cleanup.action.i.i.i ], [ %.pn.ph.i.i.i, %ehcleanup7.thread7.i.i.i ]
+  %eh.lpad-body21.i.i = phi { ptr, i32 } [ %81, %lpad17.i.i18 ], [ %.pn.pn6.i.i.i, %cleanup.action.i.i.i ], [ %.pn.ph.i.i.i, %ehcleanup7.thread7.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10.i.i) #28
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad17.body.i.i, %lpad15.i.i
-  %.pn.i.i17 = phi { ptr, i32 } [ %eh.lpad-body21.i.i, %lpad17.body.i.i ], [ %79, %lpad15.i.i ]
+  %.pn.i.i17 = phi { ptr, i32 } [ %eh.lpad-body21.i.i, %lpad17.body.i.i ], [ %80, %lpad15.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i.i) #28
   br label %ehcleanup19.i.i
 
 ehcleanup19.i.i:                                  ; preds = %ehcleanup.i.i, %lpad13.i.i14, %lpad.i10.i.i
-  %.pn.pn.i.i15 = phi { ptr, i32 } [ %.pn.i.i17, %ehcleanup.i.i ], [ %78, %lpad13.i.i14 ], [ %50, %lpad.i10.i.i ]
+  %.pn.pn.i.i15 = phi { ptr, i32 } [ %.pn.i.i17, %ehcleanup.i.i ], [ %79, %lpad13.i.i14 ], [ %50, %lpad.i10.i.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12.i.i) #28
   br label %ehcleanup20.i.i
 
 ehcleanup20.i.i:                                  ; preds = %ehcleanup19.i.i, %lpad5.i.i
-  %.pn.pn.pn.i.i13 = phi { ptr, i32 } [ %.pn.pn.i.i15, %ehcleanup19.i.i ], [ %77, %lpad5.i.i ]
+  %.pn.pn.pn.i.i13 = phi { ptr, i32 } [ %.pn.pn.i.i15, %ehcleanup19.i.i ], [ %78, %lpad5.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i3) #28
   br label %ehcleanup21.i.i
 
 ehcleanup21.i.i:                                  ; preds = %ehcleanup20.i.i, %lpad3.i.i
-  %.pn.pn.pn.pn.i.i11 = phi { ptr, i32 } [ %.pn.pn.pn.i.i13, %ehcleanup20.i.i ], [ %76, %lpad3.i.i ]
+  %.pn.pn.pn.pn.i.i11 = phi { ptr, i32 } [ %.pn.pn.pn.i.i13, %ehcleanup20.i.i ], [ %77, %lpad3.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i4) #28
   br label %common.resume
 
@@ -47679,7 +48312,7 @@ call.i.noexc.i30:                                 ; preds = %__cxx_global_var_in
           to label %invoke.cont.i33 unwind label %lpad.i.i32
 
 lpad.i.i32:                                       ; preds = %.noexc.i31
-  %81 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i27) #28
   br label %common.resume
@@ -47709,10 +48342,10 @@ call.i.noexc10.i:                                 ; preds = %invoke.cont6.i
           to label %if.end.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %.noexc12.i
-  %82 = landingpad { ptr, i32 }
+  %83 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #32
+  %84 = extractvalue { ptr, i32 } %83, 0
+  call void @__clang_call_terminate(ptr %84) #32
   unreachable
 
 if.end.i:                                         ; preds = %.noexc12.i
@@ -47727,7 +48360,7 @@ invoke.cont.i67:                                  ; preds = %if.end.i
           to label %invoke.cont11.i unwind label %lpad.i66
 
 lpad.i66:                                         ; preds = %invoke.cont.i67, %if.end.i
-  %84 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #28
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.i) #28
@@ -47750,24 +48383,24 @@ invoke.cont11.i:                                  ; preds = %invoke.cont.i67
   %line.i.i.i41 = getelementptr inbounds i8, ptr %ref.tmp.i.i26, i64 56
   store i32 247, ptr %line.i.i.i41, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %call7.i, i64 112
-  %85 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %86 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %call7.i, i64 120
-  %86 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %85, %86
+  %87 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %86, %87
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i44, label %if.then.i.i.i.i42
 
 if.then.i.i.i.i42:                                ; preds = %.noexc16.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i26) #28
-  %generator.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %85, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i26) #28
+  %generator.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %86, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i, i64 28, i1 false)
-  %87 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i43 = getelementptr inbounds i8, ptr %87, i64 64
+  %88 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i43 = getelementptr inbounds i8, ptr %88, i64 64
   store ptr %incdec.ptr.i.i.i.i43, ptr %_M_finish.i.i.i.i, align 8
   br label %__cxx_global_var_init.6.exit
 
 if.else.i.i.i.i44:                                ; preds = %.noexc16.i
   %this.val10.i.i.i.i.i = load ptr, ptr %instantiations_.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %85 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %86 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %this.val10.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i.i, 9223372036854775744
@@ -47782,12 +48415,12 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i44
 
 _ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_127LogUniformIntChiSquaredTestEE17InstantiationInfoESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i44
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 6
-  %cmp.i.i.i.i.i.i.i45 = icmp eq ptr %85, %this.val10.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i45 = icmp eq ptr %86, %this.val10.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i45, i64 1, i64 %sub.ptr.div.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
-  %88 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 144115188075855871)
-  %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 144115188075855871, i64 %88
+  %89 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 144115188075855871)
+  %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 144115188075855871, i64 %89
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %cond.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_127LogUniformIntChiSquaredTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
@@ -47814,7 +48447,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt12_Vector_base
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i.i.i) #28
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i, i64 64
   %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i, i64 64
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %85
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %86
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_127LogUniformIntChiSquaredTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !1231
 
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_127LogUniformIntChiSquaredTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit23.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_127LogUniformIntChiSquaredTestEE17InstantiationInfoESaIS6_EE11_M_allocateEm.exit.i.i.i.i.i
@@ -47835,53 +48468,53 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_127Log
   br label %__cxx_global_var_init.6.exit
 
 lpad.i15.i46:                                     ; preds = %cond.true.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %89 = landingpad { ptr, i32 }
+  %90 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i26) #28
   br label %lpad12.body.i
 
 lpad.i29:                                         ; preds = %call.i.noexc.i30, %__cxx_global_var_init.5.exit
-  %90 = landingpad { ptr, i32 }
+  %91 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 lpad3.i34:                                        ; preds = %invoke.cont.i33
-  %91 = landingpad { ptr, i32 }
+  %92 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i
 
 lpad5.i:                                          ; preds = %invoke.cont4.i36
-  %92 = landingpad { ptr, i32 }
+  %93 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup15.i
 
 lpad10.i:                                         ; preds = %call.i.noexc10.i, %invoke.cont6.i
-  %93 = landingpad { ptr, i32 }
+  %94 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i39
 
 lpad12.i:                                         ; preds = %invoke.cont11.i
-  %94 = landingpad { ptr, i32 }
+  %95 = landingpad { ptr, i32 }
           cleanup
   br label %lpad12.body.i
 
 lpad12.body.i:                                    ; preds = %lpad12.i, %lpad.i15.i46
-  %eh.lpad-body17.i = phi { ptr, i32 } [ %94, %lpad12.i ], [ %89, %lpad.i15.i46 ]
+  %eh.lpad-body17.i = phi { ptr, i32 } [ %95, %lpad12.i ], [ %90, %lpad.i15.i46 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i) #28
   br label %ehcleanup.i39
 
 ehcleanup.i39:                                    ; preds = %lpad12.body.i, %lpad10.i, %lpad.i66
-  %.pn.i40 = phi { ptr, i32 } [ %eh.lpad-body17.i, %lpad12.body.i ], [ %93, %lpad10.i ], [ %84, %lpad.i66 ]
+  %.pn.i40 = phi { ptr, i32 } [ %eh.lpad-body17.i, %lpad12.body.i ], [ %94, %lpad10.i ], [ %85, %lpad.i66 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9.i) #28
   br label %ehcleanup15.i
 
 ehcleanup15.i:                                    ; preds = %ehcleanup.i39, %lpad5.i
-  %.pn.pn.i38 = phi { ptr, i32 } [ %.pn.i40, %ehcleanup.i39 ], [ %92, %lpad5.i ]
+  %.pn.pn.i38 = phi { ptr, i32 } [ %.pn.i40, %ehcleanup.i39 ], [ %93, %lpad5.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #28
   br label %ehcleanup16.i
 
 ehcleanup16.i:                                    ; preds = %ehcleanup15.i, %lpad3.i34
-  %.pn.pn.pn.i35 = phi { ptr, i32 } [ %.pn.pn.i38, %ehcleanup15.i ], [ %91, %lpad3.i34 ]
+  %.pn.pn.pn.i35 = phi { ptr, i32 } [ %.pn.pn.i38, %ehcleanup15.i ], [ %92, %lpad3.i34 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i27) #28
   br label %common.resume
 
@@ -47914,7 +48547,7 @@ call.i.noexc.i55:                                 ; preds = %__cxx_global_var_in
           to label %invoke.cont.i58 unwind label %lpad.i.i57
 
 lpad.i.i57:                                       ; preds = %.noexc.i56
-  %95 = landingpad { ptr, i32 }
+  %96 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i50) #28
   br label %common.resume
@@ -47947,23 +48580,23 @@ invoke.cont10.i:                                  ; preds = %invoke.cont8.i
           to label %__cxx_global_var_init.9.exit unwind label %lpad4.i
 
 lpad.i52:                                         ; preds = %call.i.noexc.i55, %__cxx_global_var_init.6.exit
-  %96 = landingpad { ptr, i32 }
+  %97 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 lpad2.i:                                          ; preds = %invoke.cont.i58
-  %97 = landingpad { ptr, i32 }
+  %98 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i59
 
 lpad4.i:                                          ; preds = %invoke.cont10.i, %invoke.cont8.i, %invoke.cont6.i64, %invoke.cont5.i, %invoke.cont3.i
-  %98 = landingpad { ptr, i32 }
+  %99 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i49) #28
   br label %ehcleanup16.i59
 
 ehcleanup16.i59:                                  ; preds = %lpad4.i, %lpad2.i
-  %.pn.i60 = phi { ptr, i32 } [ %98, %lpad4.i ], [ %97, %lpad2.i ]
+  %.pn.i60 = phi { ptr, i32 } [ %99, %lpad4.i ], [ %98, %lpad2.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i50) #28
   br label %common.resume
 

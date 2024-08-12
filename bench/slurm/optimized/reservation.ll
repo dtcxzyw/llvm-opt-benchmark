@@ -16595,14 +16595,14 @@ define internal fastcc void @_advance_slot(ptr noundef %0) unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.133, ptr noundef nonnull @__func__._advance_slot) #21
-  br label %38
+  br label %39
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 34370224148
   %.not7 = icmp eq i64 %8, 0
-  br i1 %.not7, label %38, label %9
+  br i1 %.not7, label %39, label %9
 
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
@@ -16656,19 +16656,21 @@ define internal fastcc void @_advance_slot(ptr noundef %0) unnamed_addr #0 {
 _get_advance_secs.exit:                           ; preds = %30
   %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.136, ptr noundef nonnull @__func__._get_advance_secs) #21
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
-  br label %38
+  br label %39
 
 33:                                               ; preds = %22, %17, %26, %28, %30, %11
   %.08.i.ph = phi i64 [ %switch.select16.i, %11 ], [ 3600, %30 ], [ 86400, %28 ], [ 604800, %26 ], [ 86400, %17 ], [ %25, %22 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
-  %34 = load <2 x i64>, ptr %0, align 8
-  %35 = insertelement <2 x i64> poison, i64 %.08.i.ph, i64 0
-  %36 = shufflevector <2 x i64> %35, <2 x i64> poison, <2 x i32> zeroinitializer
-  %37 = add nsw <2 x i64> %34, %36
-  store <2 x i64> %37, ptr %0, align 8
-  br label %38
+  %34 = load i64, ptr %0, align 8
+  %35 = add nsw i64 %34, %.08.i.ph
+  store i64 %35, ptr %0, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load i64, ptr %36, align 8
+  %38 = add nsw i64 %37, %.08.i.ph
+  store i64 %38, ptr %36, align 8
+  br label %39
 
-38:                                               ; preds = %_get_advance_secs.exit, %5, %33, %3
+39:                                               ; preds = %_get_advance_secs.exit, %5, %33, %3
   ret void
 }
 
@@ -19141,11 +19143,14 @@ define internal noundef i32 @_switch_select_alloc_gres(ptr nocapture noundef rea
 
 20:                                               ; preds = %._crit_edge, %2
   %21 = getelementptr inbounds i8, ptr %4, i64 88
-  %22 = getelementptr inbounds i8, ptr %4, i64 96
-  %23 = load <2 x ptr>, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %8, align 8
   store ptr null, ptr %21, align 8
-  store <2 x ptr> %23, ptr %8, align 8
-  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 96
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 136
+  store ptr %24, ptr %25, align 8
+  store ptr null, ptr %23, align 8
   ret i32 0
 }
 

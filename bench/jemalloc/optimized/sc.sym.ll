@@ -21,13 +21,25 @@ entry:
 define hidden void @sc_data_init(ptr nocapture noundef writeonly %sc_data) local_unnamed_addr #1 {
 entry:
   %sc2.i = getelementptr inbounds i8, ptr %sc_data, i64 76
-  store <4 x i32> <i32 0, i32 3, i32 3, i32 0>, ptr %sc2.i, align 4
+  store i32 0, ptr %sc2.i, align 4
+  %lg_base2.i.i = getelementptr inbounds i8, ptr %sc_data, i64 80
+  store i32 3, ptr %lg_base2.i.i, align 4
+  %lg_delta3.i.i = getelementptr inbounds i8, ptr %sc_data, i64 84
+  store i32 3, ptr %lg_delta3.i.i, align 4
+  %ndelta4.i.i = getelementptr inbounds i8, ptr %sc_data, i64 88
+  store i32 0, ptr %ndelta4.i.i, align 4
   %psz.i.i = getelementptr inbounds i8, ptr %sc_data, i64 92
   store i8 0, ptr %psz.i.i, align 4
   %bin.i.i = getelementptr inbounds i8, ptr %sc_data, i64 93
   store i8 1, ptr %bin.i.i, align 1
   %pgs.i.i = getelementptr inbounds i8, ptr %sc_data, i64 96
-  store <4 x i32> <i32 1, i32 3, i32 1, i32 3>, ptr %pgs.i.i, align 4
+  store i32 1, ptr %pgs.i.i, align 4
+  %lg_delta_lookup19.i.i = getelementptr inbounds i8, ptr %sc_data, i64 100
+  store i32 3, ptr %lg_delta_lookup19.i.i, align 4
+  %arrayidx18.i = getelementptr inbounds i8, ptr %sc_data, i64 104
+  store i32 1, ptr %arrayidx18.i, align 4
+  %lg_base2.i107.i = getelementptr inbounds i8, ptr %sc_data, i64 108
+  store i32 3, ptr %lg_base2.i107.i, align 4
   %lg_delta3.i108.i = getelementptr inbounds i8, ptr %sc_data, i64 112
   store i32 3, ptr %lg_delta3.i108.i, align 4
   %ndelta4.i109.i = getelementptr inbounds i8, ptr %sc_data, i64 116

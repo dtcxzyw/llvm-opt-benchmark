@@ -6321,7 +6321,13 @@ entry:
   %u.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
   call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %u.i.i, ptr noundef nonnull align 8 dereferenceable(976) %0)
   %m_int.i.i = getelementptr inbounds i8, ptr %p.i, i64 24
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %m_int.i.i, align 8
+  store i8 1, ptr %m_int.i.i, align 8
+  %m_real.i.i = getelementptr inbounds i8, ptr %p.i, i64 25
+  store i8 0, ptr %m_real.i.i, align 1
+  %m_quant.i.i = getelementptr inbounds i8, ptr %p.i, i64 26
+  store i8 0, ptr %m_quant.i.i, align 2
+  %m_linear.i.i = getelementptr inbounds i8, ptr %p.i, i64 27
+  store i8 0, ptr %m_linear.i.i, align 1
   %call1.i = call fastcc noundef zeroext i1 @_Z4testIN12_GLOBAL__N_119is_non_nira_functorEEbRK4goalRT_(ptr noundef nonnull align 8 dereferenceable(124) %g, ptr noundef nonnull align 8 dereferenceable(28) %p.i)
   br i1 %call1.i, label %_ZN12_GLOBAL__N_18is_qfniaERK4goal.exit.thread, label %_ZN12_GLOBAL__N_18is_qfniaERK4goal.exit
 
@@ -8778,7 +8784,13 @@ entry:
   %u.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
   call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %u.i.i, ptr noundef nonnull align 8 dereferenceable(976) %0)
   %m_int.i.i = getelementptr inbounds i8, ptr %p.i, i64 24
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %m_int.i.i, align 8
+  store i8 0, ptr %m_int.i.i, align 8
+  %m_real.i.i = getelementptr inbounds i8, ptr %p.i, i64 25
+  store i8 1, ptr %m_real.i.i, align 1
+  %m_quant.i.i = getelementptr inbounds i8, ptr %p.i, i64 26
+  store i8 0, ptr %m_quant.i.i, align 2
+  %m_linear.i.i = getelementptr inbounds i8, ptr %p.i, i64 27
+  store i8 0, ptr %m_linear.i.i, align 1
   %call1.i = call fastcc noundef zeroext i1 @_Z4testIN12_GLOBAL__N_119is_non_nira_functorEEbRK4goalRT_(ptr noundef nonnull align 8 dereferenceable(124) %g, ptr noundef nonnull align 8 dereferenceable(28) %p.i)
   br i1 %call1.i, label %_ZN12_GLOBAL__N_18is_qfnraERK4goal.exit.thread, label %_ZN12_GLOBAL__N_18is_qfnraERK4goal.exit
 
@@ -8822,7 +8834,13 @@ entry:
   %u.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
   call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %u.i.i, ptr noundef nonnull align 8 dereferenceable(976) %0)
   %m_int.i.i = getelementptr inbounds i8, ptr %p.i, i64 24
-  store <4 x i8> <i8 1, i8 0, i8 1, i8 0>, ptr %m_int.i.i, align 8
+  store i8 1, ptr %m_int.i.i, align 8
+  %m_real.i.i = getelementptr inbounds i8, ptr %p.i, i64 25
+  store i8 0, ptr %m_real.i.i, align 1
+  %m_quant.i.i = getelementptr inbounds i8, ptr %p.i, i64 26
+  store i8 1, ptr %m_quant.i.i, align 2
+  %m_linear.i.i = getelementptr inbounds i8, ptr %p.i, i64 27
+  store i8 0, ptr %m_linear.i.i, align 1
   %call1.i = call fastcc noundef zeroext i1 @_Z4testIN12_GLOBAL__N_119is_non_nira_functorEEbRK4goalRT_(ptr noundef nonnull align 8 dereferenceable(124) %g, ptr noundef nonnull align 8 dereferenceable(28) %p.i)
   br i1 %call1.i, label %_ZN12_GLOBAL__N_16is_niaERK4goal.exit.thread, label %_ZN12_GLOBAL__N_16is_niaERK4goal.exit
 
@@ -8866,7 +8884,13 @@ entry:
   %u.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
   call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %u.i.i, ptr noundef nonnull align 8 dereferenceable(976) %0)
   %m_int.i.i = getelementptr inbounds i8, ptr %p.i, i64 24
-  store <4 x i8> <i8 0, i8 1, i8 1, i8 0>, ptr %m_int.i.i, align 8
+  store i8 0, ptr %m_int.i.i, align 8
+  %m_real.i.i = getelementptr inbounds i8, ptr %p.i, i64 25
+  store i8 1, ptr %m_real.i.i, align 1
+  %m_quant.i.i = getelementptr inbounds i8, ptr %p.i, i64 26
+  store i8 1, ptr %m_quant.i.i, align 2
+  %m_linear.i.i = getelementptr inbounds i8, ptr %p.i, i64 27
+  store i8 0, ptr %m_linear.i.i, align 1
   %call1.i = call fastcc noundef zeroext i1 @_Z4testIN12_GLOBAL__N_119is_non_nira_functorEEbRK4goalRT_(ptr noundef nonnull align 8 dereferenceable(124) %g, ptr noundef nonnull align 8 dereferenceable(28) %p.i)
   br i1 %call1.i, label %_ZN12_GLOBAL__N_16is_nraERK4goal.exit.thread, label %_ZN12_GLOBAL__N_16is_nraERK4goal.exit
 
@@ -8910,7 +8934,13 @@ entry:
   %u.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
   call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %u.i.i, ptr noundef nonnull align 8 dereferenceable(976) %0)
   %m_int.i.i = getelementptr inbounds i8, ptr %p.i, i64 24
-  store <4 x i8> <i8 1, i8 1, i8 1, i8 0>, ptr %m_int.i.i, align 8
+  store i8 1, ptr %m_int.i.i, align 8
+  %m_real.i.i = getelementptr inbounds i8, ptr %p.i, i64 25
+  store i8 1, ptr %m_real.i.i, align 1
+  %m_quant.i.i = getelementptr inbounds i8, ptr %p.i, i64 26
+  store i8 1, ptr %m_quant.i.i, align 2
+  %m_linear.i.i = getelementptr inbounds i8, ptr %p.i, i64 27
+  store i8 0, ptr %m_linear.i.i, align 1
   %call1.i = call fastcc noundef zeroext i1 @_Z4testIN12_GLOBAL__N_119is_non_nira_functorEEbRK4goalRT_(ptr noundef nonnull align 8 dereferenceable(124) %g, ptr noundef nonnull align 8 dereferenceable(28) %p.i)
   br i1 %call1.i, label %_ZN12_GLOBAL__N_17is_niraERK4goal.exit.thread, label %_ZN12_GLOBAL__N_17is_niraERK4goal.exit
 
@@ -8954,7 +8984,13 @@ entry:
   %u.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
   call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %u.i.i, ptr noundef nonnull align 8 dereferenceable(976) %0)
   %m_int.i.i = getelementptr inbounds i8, ptr %p.i, i64 24
-  store <4 x i8> <i8 1, i8 0, i8 1, i8 1>, ptr %m_int.i.i, align 8
+  store i8 1, ptr %m_int.i.i, align 8
+  %m_real.i.i = getelementptr inbounds i8, ptr %p.i, i64 25
+  store i8 0, ptr %m_real.i.i, align 1
+  %m_quant.i.i = getelementptr inbounds i8, ptr %p.i, i64 26
+  store i8 1, ptr %m_quant.i.i, align 2
+  %m_linear.i.i = getelementptr inbounds i8, ptr %p.i, i64 27
+  store i8 1, ptr %m_linear.i.i, align 1
   %call1.i = call fastcc noundef zeroext i1 @_Z4testIN12_GLOBAL__N_119is_non_nira_functorEEbRK4goalRT_(ptr noundef nonnull align 8 dereferenceable(124) %g, ptr noundef nonnull align 8 dereferenceable(28) %p.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %p.i)
   %cond.i = select i1 %call1.i, double 0.000000e+00, double 1.000000e+00
@@ -8984,7 +9020,13 @@ entry:
   %u.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
   call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %u.i.i, ptr noundef nonnull align 8 dereferenceable(976) %0)
   %m_int.i.i = getelementptr inbounds i8, ptr %p.i, i64 24
-  store <4 x i8> <i8 0, i8 1, i8 1, i8 1>, ptr %m_int.i.i, align 8
+  store i8 0, ptr %m_int.i.i, align 8
+  %m_real.i.i = getelementptr inbounds i8, ptr %p.i, i64 25
+  store i8 1, ptr %m_real.i.i, align 1
+  %m_quant.i.i = getelementptr inbounds i8, ptr %p.i, i64 26
+  store i8 1, ptr %m_quant.i.i, align 2
+  %m_linear.i.i = getelementptr inbounds i8, ptr %p.i, i64 27
+  store i8 1, ptr %m_linear.i.i, align 1
   %call1.i = call fastcc noundef zeroext i1 @_Z4testIN12_GLOBAL__N_119is_non_nira_functorEEbRK4goalRT_(ptr noundef nonnull align 8 dereferenceable(124) %g, ptr noundef nonnull align 8 dereferenceable(28) %p.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %p.i)
   %cond.i = select i1 %call1.i, double 0.000000e+00, double 1.000000e+00

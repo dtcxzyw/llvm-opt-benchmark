@@ -68,7 +68,13 @@ entry:
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   tail call void @sysbus_init_mmio(ptr noundef %call.i9, ptr noundef nonnull %mmio) #3
   %hfrosccfg = getelementptr inbounds i8, ptr %call.i, i64 1088
-  store <4 x i32> <i32 -1073741824, i32 -1073741824, i32 -2147090432, i32 256>, ptr %hfrosccfg, align 16
+  store i32 -1073741824, ptr %hfrosccfg, align 16
+  %hfxosccfg = getelementptr inbounds i8, ptr %call.i, i64 1092
+  store i32 -1073741824, ptr %hfxosccfg, align 4
+  %pllcfg = getelementptr inbounds i8, ptr %call.i, i64 1096
+  store i32 -2147090432, ptr %pllcfg, align 8
+  %plloutdiv = getelementptr inbounds i8, ptr %call.i, i64 1100
+  store i32 256, ptr %plloutdiv, align 4
   ret void
 }
 

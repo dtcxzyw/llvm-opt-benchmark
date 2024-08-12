@@ -3501,16 +3501,16 @@ define void @cvRandArr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocap
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.cv::_InputOutputArray", align 8
   %8 = alloca %"class.cv::_InputArray", align 8
-  %9 = alloca %"class.cv::Scalar_", align 16
+  %9 = alloca %"class.cv::Scalar_", align 8
   %10 = alloca %"class.cv::_InputArray", align 8
-  %11 = alloca %"class.cv::Scalar_", align 16
+  %11 = alloca %"class.cv::Scalar_", align 8
   call void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %6, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %5
   %13 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getCoreTlsDataEv()
-          to label %14 unwind label %33
+          to label %14 unwind label %45
 
 14:                                               ; preds = %5, %12
   %15 = phi ptr [ %0, %5 ], [ %13, %12 ]
@@ -3522,48 +3522,64 @@ define void @cvRandArr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocap
   %18 = icmp eq i32 %2, 1
   %19 = zext i1 %18 to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  %20 = getelementptr inbounds i8, ptr %3, i64 16
-  %21 = load <2 x double>, ptr %3, align 8, !noalias !70
-  store <2 x double> %21, ptr %9, align 16, !alias.scope !70
-  %22 = getelementptr inbounds i8, ptr %9, i64 16
-  %23 = load <2 x double>, ptr %20, align 8, !noalias !70
-  store <2 x double> %23, ptr %22, align 16, !alias.scope !70
-  %24 = getelementptr inbounds i8, ptr %8, i64 16
+  %20 = load double, ptr %3, align 8, !noalias !70
+  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = load double, ptr %21, align 8, !noalias !70
+  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = load double, ptr %23, align 8, !noalias !70
+  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = load double, ptr %25, align 8, !noalias !70
+  store double %20, ptr %9, align 8, !alias.scope !70
+  %27 = getelementptr inbounds i8, ptr %9, i64 8
+  store double %22, ptr %27, align 8, !alias.scope !70
+  %28 = getelementptr inbounds i8, ptr %9, i64 16
+  store double %24, ptr %28, align 8, !alias.scope !70
+  %29 = getelementptr inbounds i8, ptr %9, i64 24
+  store double %26, ptr %29, align 8, !alias.scope !70
+  %30 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 -1056833530, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %9, ptr %25, align 8
-  store i64 17179869185, ptr %24, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %26 = getelementptr inbounds i8, ptr %4, i64 16
-  %27 = load <2 x double>, ptr %4, align 8, !noalias !73
-  store <2 x double> %27, ptr %11, align 16, !alias.scope !73
-  %28 = getelementptr inbounds i8, ptr %11, i64 16
-  %29 = load <2 x double>, ptr %26, align 8, !noalias !73
-  store <2 x double> %29, ptr %28, align 16, !alias.scope !73
-  %30 = getelementptr inbounds i8, ptr %10, i64 16
-  store i32 -1056833530, ptr %10, align 8
-  %31 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %11, ptr %31, align 8
+  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %9, ptr %31, align 8
   store i64 17179869185, ptr %30, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  %32 = load double, ptr %4, align 8, !noalias !73
+  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = load double, ptr %33, align 8, !noalias !73
+  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = load double, ptr %35, align 8, !noalias !73
+  %37 = getelementptr inbounds i8, ptr %4, i64 24
+  %38 = load double, ptr %37, align 8, !noalias !73
+  store double %32, ptr %11, align 8, !alias.scope !73
+  %39 = getelementptr inbounds i8, ptr %11, i64 8
+  store double %34, ptr %39, align 8, !alias.scope !73
+  %40 = getelementptr inbounds i8, ptr %11, i64 16
+  store double %36, ptr %40, align 8, !alias.scope !73
+  %41 = getelementptr inbounds i8, ptr %11, i64 24
+  store double %38, ptr %41, align 8, !alias.scope !73
+  %42 = getelementptr inbounds i8, ptr %10, i64 16
+  store i32 -1056833530, ptr %10, align 8
+  %43 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %11, ptr %43, align 8
+  store i64 17179869185, ptr %42, align 8
   invoke void @_ZN2cv3RNG4fillERKNS_17_InputOutputArrayEiRKNS_11_InputArrayES6_b(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i1 noundef zeroext false)
-          to label %32 unwind label %35
+          to label %44 unwind label %47
 
-32:                                               ; preds = %14
+44:                                               ; preds = %14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
   ret void
 
-33:                                               ; preds = %12
-  %34 = landingpad { ptr, i32 }
+45:                                               ; preds = %12
+  %46 = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %49
 
-35:                                               ; preds = %14
-  %36 = landingpad { ptr, i32 }
+47:                                               ; preds = %14
+  %48 = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %49
 
-37:                                               ; preds = %35, %33
-  %.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %36, %35 ]
+49:                                               ; preds = %47, %45
+  %.pn.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %48, %47 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
   resume { ptr, i32 } %.pn.pn.pn
 }

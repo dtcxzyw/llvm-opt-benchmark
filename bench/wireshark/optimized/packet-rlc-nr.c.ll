@@ -2317,82 +2317,87 @@ define internal fastcc i32 @get_reassembly_start_frame(ptr nocapture noundef rea
   store i32 %13, ptr %10, align 4
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   %15 = getelementptr inbounds i8, ptr %2, i64 3
-  %16 = load <2 x i8>, ptr %15, align 1
-  %17 = zext <2 x i8> %16 to <2 x i32>
-  store <2 x i32> %17, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 %3, ptr %18, align 16
-  %19 = getelementptr inbounds i8, ptr %5, i64 20
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr %19, align 4
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i32
+  store i32 %17, ptr %14, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 12
+  %19 = getelementptr inbounds i8, ptr %2, i64 4
+  %20 = load i8, ptr %19, align 2
+  %21 = zext i8 %20 to i32
+  store i32 %21, ptr %18, align 4
+  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 %3, ptr %22, align 16
+  %23 = getelementptr inbounds i8, ptr %5, i64 20
+  %24 = getelementptr inbounds i8, ptr %0, i64 20
+  %25 = load i32, ptr %24, align 4
+  store i32 %25, ptr %23, align 4
   store i32 5, ptr %6, align 16
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %5, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 0, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 50
-  %28 = load i16, ptr %27, align 2
-  %29 = and i16 %28, 8
-  %.not = icmp eq i16 %29, 0
-  br i1 %.not, label %30, label %50
+  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %5, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 0, ptr %27, align 16
+  %28 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr null, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 50
+  %32 = load i16, ptr %31, align 2
+  %33 = and i16 %32, 8
+  %.not = icmp eq i16 %33, 0
+  br i1 %.not, label %34, label %54
 
-30:                                               ; preds = %4
-  %31 = and i32 %1, 2
-  %32 = icmp eq i32 %31, 0
-  %33 = load ptr, ptr @reassembly_start_table, align 8
-  %34 = call ptr @wmem_tree_lookup32_array(ptr noundef %33, ptr noundef nonnull %6) #9
-  br i1 %32, label %35, label %41
+34:                                               ; preds = %4
+  %35 = and i32 %1, 2
+  %36 = icmp eq i32 %35, 0
+  %37 = load ptr, ptr @reassembly_start_table, align 8
+  %38 = call ptr @wmem_tree_lookup32_array(ptr noundef %37, ptr noundef nonnull %6) #9
+  br i1 %36, label %39, label %45
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr @reassembly_start_table, align 8
-  %37 = load i32, ptr %20, align 4
-  %38 = zext i32 %37 to i64
-  %39 = inttoptr i64 %38 to ptr
-  call void @wmem_tree_insert32_array(ptr noundef %36, ptr noundef nonnull %6, ptr noundef %39) #9
-  %40 = load i32, ptr %20, align 4
-  br label %45
+39:                                               ; preds = %34
+  %40 = load ptr, ptr @reassembly_start_table, align 8
+  %41 = load i32, ptr %24, align 4
+  %42 = zext i32 %41 to i64
+  %43 = inttoptr i64 %42 to ptr
+  call void @wmem_tree_insert32_array(ptr noundef %40, ptr noundef nonnull %6, ptr noundef %43) #9
+  %44 = load i32, ptr %24, align 4
+  br label %49
 
-41:                                               ; preds = %30
-  %.not19 = icmp eq ptr %34, null
-  br i1 %.not19, label %.thread, label %42
-
-42:                                               ; preds = %41
-  %43 = ptrtoint ptr %34 to i64
-  %44 = trunc i64 %43 to i32
-  br label %45
-
-45:                                               ; preds = %42, %35
-  %.0 = phi i32 [ %40, %35 ], [ %44, %42 ]
-  %.not20 = icmp eq i32 %.0, 0
-  br i1 %.not20, label %.thread, label %46
+45:                                               ; preds = %34
+  %.not19 = icmp eq ptr %38, null
+  br i1 %.not19, label %.thread, label %46
 
 46:                                               ; preds = %45
-  store i32 6, ptr %6, align 16
-  %47 = load ptr, ptr @reassembly_start_table_stored, align 8
-  %48 = zext i32 %.0 to i64
-  %49 = inttoptr i64 %48 to ptr
-  call void @wmem_tree_insert32_array(ptr noundef %47, ptr noundef nonnull %6, ptr noundef nonnull %49) #9
-  br label %.thread
+  %47 = ptrtoint ptr %38 to i64
+  %48 = trunc i64 %47 to i32
+  br label %49
 
-50:                                               ; preds = %4
+49:                                               ; preds = %46, %39
+  %.0 = phi i32 [ %44, %39 ], [ %48, %46 ]
+  %.not20 = icmp eq i32 %.0, 0
+  br i1 %.not20, label %.thread, label %50
+
+50:                                               ; preds = %49
   store i32 6, ptr %6, align 16
   %51 = load ptr, ptr @reassembly_start_table_stored, align 8
-  %52 = call ptr @wmem_tree_lookup32_array(ptr noundef %51, ptr noundef nonnull %6) #9
-  %.not21 = icmp eq ptr %52, null
-  br i1 %.not21, label %.thread, label %53
-
-53:                                               ; preds = %50
-  %54 = ptrtoint ptr %52 to i64
-  %55 = trunc i64 %54 to i32
+  %52 = zext i32 %.0 to i64
+  %53 = inttoptr i64 %52 to ptr
+  call void @wmem_tree_insert32_array(ptr noundef %51, ptr noundef nonnull %6, ptr noundef nonnull %53) #9
   br label %.thread
 
-.thread:                                          ; preds = %41, %50, %53, %45, %46
-  %.1 = phi i32 [ %55, %53 ], [ 0, %50 ], [ %.0, %46 ], [ 0, %45 ], [ 0, %41 ]
+54:                                               ; preds = %4
+  store i32 6, ptr %6, align 16
+  %55 = load ptr, ptr @reassembly_start_table_stored, align 8
+  %56 = call ptr @wmem_tree_lookup32_array(ptr noundef %55, ptr noundef nonnull %6) #9
+  %.not21 = icmp eq ptr %56, null
+  br i1 %.not21, label %.thread, label %57
+
+57:                                               ; preds = %54
+  %58 = ptrtoint ptr %56 to i64
+  %59 = trunc i64 %58 to i32
+  br label %.thread
+
+.thread:                                          ; preds = %45, %54, %57, %49, %50
+  %.1 = phi i32 [ %59, %57 ], [ 0, %54 ], [ %.0, %50 ], [ 0, %49 ], [ 0, %45 ]
   ret i32 %.1
 }
 

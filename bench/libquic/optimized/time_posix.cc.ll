@@ -138,7 +138,7 @@ entry:
 define dso_local void @_ZNK4base4Time7ExplodeEbPNS0_8ExplodedE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i1 noundef zeroext %is_local, ptr nocapture noundef writeonly %exploded) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.addr.i = alloca i64, align 8
-  %timestruct = alloca %struct.tm, align 16
+  %timestruct = alloca %struct.tm, align 8
   %0 = load i64, ptr %this, align 8
   %cmp = icmp sgt i64 %0, 11644473599999999
   br i1 %cmp, label %if.then, label %if.else
@@ -211,19 +211,34 @@ terminate.lpad.i.i:                               ; preds = %if.end.i
 
 _ZN12_GLOBAL__N_119SysTimeToTimeStructElP2tmb.exit: ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.addr.i)
+  %tm_year = getelementptr inbounds i8, ptr %timestruct, i64 20
+  %7 = load i32, ptr %tm_year, align 4
+  %add16 = add nsw i32 %7, 1900
+  store i32 %add16, ptr %exploded, align 4
   %tm_mon = getelementptr inbounds i8, ptr %timestruct, i64 16
-  %7 = load <2 x i32>, ptr %tm_mon, align 16
-  %8 = add nsw <2 x i32> %7, <i32 1, i32 1900>
-  %9 = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %9, ptr %exploded, align 4
+  %8 = load i32, ptr %tm_mon, align 8
+  %add17 = add nsw i32 %8, 1
+  %month = getelementptr inbounds i8, ptr %exploded, i64 4
+  store i32 %add17, ptr %month, align 4
   %tm_wday = getelementptr inbounds i8, ptr %timestruct, i64 24
-  %10 = load i32, ptr %tm_wday, align 8
+  %9 = load i32, ptr %tm_wday, align 8
   %day_of_week = getelementptr inbounds i8, ptr %exploded, i64 8
-  store i32 %10, ptr %day_of_week, align 4
+  store i32 %9, ptr %day_of_week, align 4
+  %tm_mday = getelementptr inbounds i8, ptr %timestruct, i64 12
+  %10 = load i32, ptr %tm_mday, align 4
   %day_of_month = getelementptr inbounds i8, ptr %exploded, i64 12
-  %11 = load <4 x i32>, ptr %timestruct, align 16
-  %12 = shufflevector <4 x i32> %11, <4 x i32> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i32> %12, ptr %day_of_month, align 4
+  store i32 %10, ptr %day_of_month, align 4
+  %tm_hour = getelementptr inbounds i8, ptr %timestruct, i64 8
+  %11 = load i32, ptr %tm_hour, align 8
+  %hour = getelementptr inbounds i8, ptr %exploded, i64 16
+  store i32 %11, ptr %hour, align 4
+  %tm_min = getelementptr inbounds i8, ptr %timestruct, i64 4
+  %12 = load i32, ptr %tm_min, align 4
+  %minute = getelementptr inbounds i8, ptr %exploded, i64 20
+  store i32 %12, ptr %minute, align 4
+  %13 = load i32, ptr %timestruct, align 8
+  %second = getelementptr inbounds i8, ptr %exploded, i64 24
+  store i32 %13, ptr %second, align 4
   %millisecond18 = getelementptr inbounds i8, ptr %exploded, i64 28
   store i32 %millisecond.0, ptr %millisecond18, align 4
   ret void
@@ -232,40 +247,55 @@ _ZN12_GLOBAL__N_119SysTimeToTimeStructElP2tmb.exit: ; preds = %if.end.i
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4base4Time12FromExplodedEbRKNS0_8ExplodedEPS0_(i1 noundef zeroext %is_local, ptr noundef nonnull align 4 dereferenceable(32) %exploded, ptr nocapture noundef writeonly %time) local_unnamed_addr #0 align 2 {
 entry:
-  %timestruct = alloca %struct.tm, align 16
+  %timestruct = alloca %struct.tm, align 8
   %timestruct0 = alloca %struct.tm, align 8
   %converted_time = alloca %"class.base::Time", align 8
   %to_exploded = alloca %"struct.base::Time::Exploded", align 4
+  %second = getelementptr inbounds i8, ptr %exploded, i64 24
+  %0 = load i32, ptr %second, align 4
+  store i32 %0, ptr %timestruct, align 8
+  %minute = getelementptr inbounds i8, ptr %exploded, i64 20
+  %1 = load i32, ptr %minute, align 4
+  %tm_min = getelementptr inbounds i8, ptr %timestruct, i64 4
+  store i32 %1, ptr %tm_min, align 4
+  %hour = getelementptr inbounds i8, ptr %exploded, i64 16
+  %2 = load i32, ptr %hour, align 4
+  %tm_hour = getelementptr inbounds i8, ptr %timestruct, i64 8
+  store i32 %2, ptr %tm_hour, align 8
   %day_of_month = getelementptr inbounds i8, ptr %exploded, i64 12
-  %0 = load <4 x i32>, ptr %day_of_month, align 4
-  %1 = shufflevector <4 x i32> %0, <4 x i32> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i32> %1, ptr %timestruct, align 16
+  %3 = load i32, ptr %day_of_month, align 4
+  %tm_mday = getelementptr inbounds i8, ptr %timestruct, i64 12
+  store i32 %3, ptr %tm_mday, align 4
+  %month = getelementptr inbounds i8, ptr %exploded, i64 4
+  %4 = load i32, ptr %month, align 4
+  %sub = add nsw i32 %4, -1
   %tm_mon = getelementptr inbounds i8, ptr %timestruct, i64 16
-  %2 = load <2 x i32>, ptr %exploded, align 4
-  %3 = add nsw <2 x i32> %2, <i32 -1900, i32 -1>
-  %4 = shufflevector <2 x i32> %3, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %4, ptr %tm_mon, align 16
+  store i32 %sub, ptr %tm_mon, align 8
+  %5 = load i32, ptr %exploded, align 4
+  %sub1 = add nsw i32 %5, -1900
+  %tm_year = getelementptr inbounds i8, ptr %timestruct, i64 20
+  store i32 %sub1, ptr %tm_year, align 4
   %day_of_week = getelementptr inbounds i8, ptr %exploded, i64 8
-  %5 = load i32, ptr %day_of_week, align 4
+  %6 = load i32, ptr %day_of_week, align 4
   %tm_wday = getelementptr inbounds i8, ptr %timestruct, i64 24
-  store i32 %5, ptr %tm_wday, align 8
+  store i32 %6, ptr %tm_wday, align 8
   %tm_yday = getelementptr inbounds i8, ptr %timestruct, i64 28
   store i32 0, ptr %tm_yday, align 4
   %tm_isdst = getelementptr inbounds i8, ptr %timestruct, i64 32
-  store i32 -1, ptr %tm_isdst, align 16
+  store i32 -1, ptr %tm_isdst, align 8
   %tm_gmtoff = getelementptr inbounds i8, ptr %timestruct, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tm_gmtoff, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %timestruct0, ptr noundef nonnull align 16 dereferenceable(56) %timestruct, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %timestruct0, ptr noundef nonnull align 8 dereferenceable(56) %timestruct, i64 56, i1 false)
   %call = call fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef nonnull %timestruct, i1 noundef zeroext %is_local)
   %cmp = icmp eq i64 %call, -1
   br i1 %cmp, label %if.then, label %if.else27
 
 if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %timestruct, ptr noundef nonnull align 8 dereferenceable(56) %timestruct0, i64 56, i1 false)
-  store i32 0, ptr %tm_isdst, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %timestruct, ptr noundef nonnull align 8 dereferenceable(56) %timestruct0, i64 56, i1 false)
+  store i32 0, ptr %tm_isdst, align 8
   %call4 = call fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef nonnull %timestruct, i1 noundef zeroext %is_local)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %timestruct, ptr noundef nonnull align 8 dereferenceable(56) %timestruct0, i64 56, i1 false)
-  store i32 1, ptr %tm_isdst, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %timestruct, ptr noundef nonnull align 8 dereferenceable(56) %timestruct0, i64 56, i1 false)
+  store i32 1, ptr %tm_isdst, align 8
   %call7 = call fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef nonnull %timestruct, i1 noundef zeroext %is_local)
   %cmp8 = icmp slt i64 %call4, 0
   br i1 %cmp8, label %if.end15, label %if.else
@@ -283,13 +313,13 @@ if.end15:                                         ; preds = %if.then
   br i1 %cmp16, label %land.lhs.true, label %if.else27
 
 land.lhs.true:                                    ; preds = %if.end15
-  %6 = load i32, ptr %exploded, align 4
-  %7 = add i32 %6, -1971
-  %or.cond = icmp ult i32 %7, -2
+  %7 = load i32, ptr %exploded, align 4
+  %8 = add i32 %7, -1971
+  %or.cond = icmp ult i32 %8, -2
   br i1 %or.cond, label %if.then21, label %if.else27
 
 if.then21:                                        ; preds = %land.lhs.true
-  %cmp18 = icmp slt i32 %6, 1969
+  %cmp18 = icmp slt i32 %7, 1969
   %. = select i1 %cmp18, i64 9496989952000000, i64 13791957247999000
   br label %if.end29
 
@@ -297,15 +327,15 @@ if.else27:                                        ; preds = %if.else, %entry, %i
   %seconds.025 = phi i64 [ -1, %land.lhs.true ], [ %call7, %if.end15 ], [ %call4, %if.else ], [ %call, %entry ], [ %.sroa.speculated, %if.else12 ]
   %mul = mul nsw i64 %seconds.025, 1000
   %millisecond = getelementptr inbounds i8, ptr %exploded, i64 28
-  %8 = load i32, ptr %millisecond, align 4
-  %conv = sext i32 %8 to i64
+  %9 = load i32, ptr %millisecond, align 4
+  %conv = sext i32 %9 to i64
   %add28 = add nsw i64 %mul, %conv
-  %9 = mul nsw i64 %add28, 1000
-  %10 = add nsw i64 %9, 11644473600000000
+  %10 = mul nsw i64 %add28, 1000
+  %11 = add nsw i64 %10, 11644473600000000
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then21, %if.else27
-  %milliseconds.0 = phi i64 [ %10, %if.else27 ], [ %., %if.then21 ]
+  %milliseconds.0 = phi i64 [ %11, %if.else27 ], [ %., %if.then21 ]
   store i64 %milliseconds.0, ptr %converted_time, align 8
   call void @_ZNK4base4Time7ExplodeEbPNS0_8ExplodedE(ptr noundef nonnull align 8 dereferenceable(8) %converted_time, i1 noundef zeroext %is_local, ptr noundef nonnull %to_exploded)
   %call36 = call noundef zeroext i1 @_ZN4base4Time20ExplodedMostlyEqualsERKNS0_8ExplodedES3_(ptr noundef nonnull align 4 dereferenceable(32) %to_exploded, ptr noundef nonnull align 4 dereferenceable(32) %exploded)

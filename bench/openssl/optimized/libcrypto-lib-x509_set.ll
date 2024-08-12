@@ -492,9 +492,13 @@ entry:
   %call = tail call ptr @X509_PUBKEY_get0(ptr noundef %0) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pknid.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %mdnid.i)
+  store i32 0, ptr %siginf, align 4
+  %pknid2.i = getelementptr inbounds i8, ptr %x, i64 180
+  store i32 0, ptr %pknid2.i, align 4
   %secbits.i = getelementptr inbounds i8, ptr %x, i64 184
+  store i32 -1, ptr %secbits.i, align 4
   %flags.i = getelementptr inbounds i8, ptr %x, i64 188
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %siginf, align 4
+  store i32 0, ptr %flags.i, align 4
   %1 = load ptr, ptr %sig_alg, align 8
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %1) #8
   %call3.i = call i32 @OBJ_find_sigid_algs(i32 noundef %call.i, ptr noundef nonnull %mdnid.i, ptr noundef nonnull %pknid.i) #8
@@ -511,7 +515,6 @@ if.then.i:                                        ; preds = %entry
   br label %x509_sig_info_init.exit
 
 if.end.i:                                         ; preds = %entry
-  %pknid2.i = getelementptr inbounds i8, ptr %x, i64 180
   %3 = load i32, ptr %mdnid.i, align 4
   store i32 %3, ptr %siginf, align 4
   store i32 %2, ptr %pknid2.i, align 4

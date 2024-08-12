@@ -1749,8 +1749,9 @@ invoke.cont311:                                   ; preds = %do.end
   %lut1D.i = getelementptr inbounds i8, ptr %call309, i64 8
   %domain_max.i = getelementptr inbounds i8, ptr %call309, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %lut1D.i, i8 0, i64 44, i1 false)
+  store float 1.000000e+00, ptr %domain_max.i, align 4
   %arrayinit.element4.i = getelementptr inbounds i8, ptr %call309, i64 56
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %domain_max.i, align 4
+  store float 1.000000e+00, ptr %arrayinit.element4.i, align 4
   %arrayinit.element5.i = getelementptr inbounds i8, ptr %call309, i64 60
   store float 1.000000e+00, ptr %arrayinit.element5.i, align 4
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -2993,18 +2994,28 @@ lpad31:                                           ; preds = %if.end77, %if.then7
 
 if.end33:                                         ; preds = %if.then30, %invoke.cont29
   %domain_min = getelementptr inbounds i8, ptr %4, i64 40
-  %19 = load <2 x float>, ptr %domain_min, align 8
-  %20 = fpext <2 x float> %19 to <2 x double>
-  store <2 x double> %20, ptr %dmin, align 16
+  %19 = load float, ptr %domain_min, align 8
+  %conv = fpext float %19 to double
+  store double %conv, ptr %dmin, align 16
+  %arrayinit.element = getelementptr inbounds i8, ptr %dmin, i64 8
+  %arrayidx37 = getelementptr inbounds i8, ptr %4, i64 44
+  %20 = load float, ptr %arrayidx37, align 4
+  %conv38 = fpext float %20 to double
+  store double %conv38, ptr %arrayinit.element, align 8
   %arrayinit.element39 = getelementptr inbounds i8, ptr %dmin, i64 16
   %arrayidx42 = getelementptr inbounds i8, ptr %4, i64 48
   %21 = load float, ptr %arrayidx42, align 8
   %conv43 = fpext float %21 to double
   store double %conv43, ptr %arrayinit.element39, align 16
   %domain_max = getelementptr inbounds i8, ptr %4, i64 52
-  %22 = load <2 x float>, ptr %domain_max, align 4
-  %23 = fpext <2 x float> %22 to <2 x double>
-  store <2 x double> %23, ptr %dmax, align 16
+  %22 = load float, ptr %domain_max, align 4
+  %conv47 = fpext float %22 to double
+  store double %conv47, ptr %dmax, align 16
+  %arrayinit.element48 = getelementptr inbounds i8, ptr %dmax, i64 8
+  %arrayidx51 = getelementptr inbounds i8, ptr %4, i64 56
+  %23 = load float, ptr %arrayidx51, align 4
+  %conv52 = fpext float %23 to double
+  store double %conv52, ptr %arrayinit.element48, align 8
   %arrayinit.element53 = getelementptr inbounds i8, ptr %dmax, i64 16
   %arrayidx56 = getelementptr inbounds i8, ptr %4, i64 60
   %24 = load float, ptr %arrayidx56, align 4

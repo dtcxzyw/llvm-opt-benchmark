@@ -423,11 +423,11 @@ define range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr noundef write
 5:                                                ; preds = %1
   %6 = tail call i32 @slurm_get_log_level() #11
   %7 = icmp sgt i32 %6, 5
-  br i1 %7, label %8, label %53
+  br i1 %7, label %8, label %62
 
 8:                                                ; preds = %5
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.acct_gather_filesystem_p_get_data, ptr noundef nonnull @__func__.acct_gather_filesystem_p_get_data) #11
-  br label %53
+  br label %62
 
 9:                                                ; preds = %1
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @lustre_lock) #11
@@ -463,7 +463,7 @@ define range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr noundef write
   store i32 %23, ptr @acct_gather_filesystem_p_get_data.errors, align 4
   %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lustre_lock) #11
   %.not21 = icmp eq i32 %24, 0
-  br i1 %.not21, label %53, label %25
+  br i1 %.not21, label %62, label %25
 
 25:                                               ; preds = %21
   %26 = tail call ptr @__errno_location() #12
@@ -489,35 +489,46 @@ define range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr noundef write
   br label %34
 
 34:                                               ; preds = %33, %27
-  %35 = load i32, ptr @tres_pos, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %36, i32 1
-  %38 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @lstats, i64 8), align 8
-  %39 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 8), align 8
-  %40 = sub <2 x i64> %38, %39
-  %41 = shufflevector <2 x i64> %40, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %41, ptr %37, align 8
-  %42 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %36, i32 3
-  %43 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @lstats, i64 24), align 8
-  %44 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 24), align 8
-  %45 = sub <2 x i64> %43, %44
-  %46 = uitofp <2 x i64> %45 to <2 x double>
-  %47 = fmul <2 x double> %46, <double 0x3EB0000000000000, double 0x3EB0000000000000>
-  %48 = fptoui <2 x double> %47 to <2 x i64>
-  %49 = shufflevector <2 x i64> %48, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %49, ptr %42, align 8
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 16), align 8
+  %36 = load i64, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 16), align 8
+  %37 = sub i64 %35, %36
+  %38 = load i32, ptr @tres_pos, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %39, i32 1
+  store i64 %37, ptr %40, align 8
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 8), align 8
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 8), align 8
+  %43 = sub i64 %41, %42
+  %44 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %39, i32 2
+  store i64 %43, ptr %44, align 8
+  %45 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 32), align 8
+  %46 = load i64, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 32), align 8
+  %47 = sub i64 %45, %46
+  %48 = uitofp i64 %47 to double
+  %49 = fmul double %48, 0x3EB0000000000000
+  %50 = fptoui double %49 to i64
+  %51 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %39, i32 3
+  store i64 %50, ptr %51, align 8
+  %52 = load i64, ptr getelementptr inbounds (i8, ptr @lstats, i64 24), align 8
+  %53 = load i64, ptr getelementptr inbounds (i8, ptr @lstats_prev, i64 24), align 8
+  %54 = sub i64 %52, %53
+  %55 = uitofp i64 %54 to double
+  %56 = fmul double %55, 0x3EB0000000000000
+  %57 = fptoui double %56 to i64
+  %58 = getelementptr inbounds %struct.acct_gather_data, ptr %0, i64 %39, i32 4
+  store i64 %57, ptr %58, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @lstats_prev, ptr noundef nonnull align 8 dereferenceable(40) @lstats, i64 40, i1 false)
-  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lustre_lock) #11
-  %.not19 = icmp eq i32 %50, 0
-  br i1 %.not19, label %53, label %51
+  %59 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lustre_lock) #11
+  %.not19 = icmp eq i32 %59, 0
+  br i1 %.not19, label %62, label %60
 
-51:                                               ; preds = %34
-  %52 = tail call ptr @__errno_location() #12
-  store i32 %50, ptr %52, align 4
+60:                                               ; preds = %34
+  %61 = tail call ptr @__errno_location() #12
+  store i32 %59, ptr %61, align 4
   tail call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, i32 noundef 481, ptr noundef nonnull @__func__.acct_gather_filesystem_p_get_data) #13
   unreachable
 
-53:                                               ; preds = %34, %21, %5, %8
+62:                                               ; preds = %34, %21, %5, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %5 ], [ -1, %21 ], [ 0, %34 ]
   ret i32 %.0
 }

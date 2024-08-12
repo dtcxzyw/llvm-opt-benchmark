@@ -960,17 +960,20 @@ if.then96:                                        ; preds = %if.end87, %if.end87
 invoke.cont98:                                    ; preds = %if.then96
   %60 = load i8, ptr %ref.tmp97, align 8
   store i8 %60, ptr %new_bg_err, align 8
+  store i8 0, ptr %ref.tmp97, align 8
   %subcode_.i143 = getelementptr inbounds i8, ptr %ref.tmp97, i64 1
   %61 = load i8, ptr %subcode_.i143, align 1
   store i8 %61, ptr %subcode_4.i, align 1
+  store i8 0, ptr %subcode_.i143, align 1
   %sev_.i145 = getelementptr inbounds i8, ptr %ref.tmp97, i64 2
   %62 = load i8, ptr %sev_.i145, align 2
   store i8 %62, ptr %sev_6.i, align 2
+  store i8 0, ptr %sev_.i145, align 2
   %retryable_.i147 = getelementptr inbounds i8, ptr %ref.tmp97, i64 3
   %63 = load i8, ptr %retryable_.i147, align 1
   %frombool.i149 = and i8 %63, 1
   store i8 %frombool.i149, ptr %retryable_8.i, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp97, align 8
+  store i8 0, ptr %retryable_.i147, align 1
   %data_loss_.i150 = getelementptr inbounds i8, ptr %ref.tmp97, i64 4
   %64 = load i8, ptr %data_loss_.i150, align 4
   %frombool12.i152 = and i8 %64, 1

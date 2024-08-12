@@ -166,7 +166,7 @@ _cmsChain2Lab.exit.thread:                        ; preds = %8, %16
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12)
-  br label %49
+  br label %50
 
 _cmsChain2Lab.exit:                               ; preds = %.preheader.i, %.lr.ph.preheader.i
   %.pre-phi.i = phi i64 [ %19, %.lr.ph.preheader.i ], [ 0, %.preheader.i ]
@@ -186,7 +186,7 @@ _cmsChain2Lab.exit:                               ; preds = %.preheader.i, %.lr.
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12)
   %29 = icmp eq ptr %27, null
-  br i1 %29, label %49, label %30
+  br i1 %29, label %50, label %30
 
 30:                                               ; preds = %_cmsChain2Lab.exit
   %31 = call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %1, i32 noundef 4) #6
@@ -198,46 +198,48 @@ _cmsChain2Lab.exit:                               ; preds = %.preheader.i, %.lr.
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %14, i64 8
-  %34 = add i32 %1, -1
-  %35 = uitofp i32 %34 to double
-  %36 = getelementptr inbounds i8, ptr %14, i64 12
+  %33 = getelementptr inbounds i8, ptr %14, i64 4
+  %34 = getelementptr inbounds i8, ptr %14, i64 8
+  %35 = add i32 %1, -1
+  %36 = uitofp i32 %35 to double
+  %37 = getelementptr inbounds i8, ptr %14, i64 12
   %wide.trip.count = zext i32 %1 to i64
-  br label %37
+  br label %38
 
 .thread:                                          ; preds = %30
   call void @cmsDeleteTransform(ptr noundef nonnull %27) #6
-  br label %49
+  br label %50
 
-37:                                               ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  store <2 x float> zeroinitializer, ptr %14, align 16
-  store float 0.000000e+00, ptr %33, align 8
-  %38 = trunc nuw i64 %indvars.iv to i32
-  %39 = uitofp i32 %38 to double
-  %40 = fmul double %39, 1.000000e+02
-  %41 = fdiv double %40, %35
-  %42 = fptrunc double %41 to float
-  store float %42, ptr %36, align 4
+38:                                               ; preds = %.lr.ph, %38
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
+  store float 0.000000e+00, ptr %14, align 16
+  store float 0.000000e+00, ptr %33, align 4
+  store float 0.000000e+00, ptr %34, align 8
+  %39 = trunc nuw i64 %indvars.iv to i32
+  %40 = uitofp i32 %39 to double
+  %41 = fmul double %40, 1.000000e+02
+  %42 = fdiv double %41, %36
+  %43 = fptrunc double %42 to float
+  store float %43, ptr %37, align 4
   call void @cmsDoTransform(ptr noundef nonnull %27, ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef 1) #6
-  %43 = load double, ptr %13, align 8
-  %44 = fdiv double %43, 1.000000e+02
-  %45 = fsub double 1.000000e+00, %44
-  %46 = fptrunc double %45 to float
-  %47 = getelementptr inbounds float, ptr %31, i64 %indvars.iv
-  store float %46, ptr %47, align 4
+  %44 = load double, ptr %13, align 8
+  %45 = fdiv double %44, 1.000000e+02
+  %46 = fsub double 1.000000e+00, %45
+  %47 = fptrunc double %46 to float
+  %48 = getelementptr inbounds float, ptr %31, i64 %indvars.iv
+  store float %47, ptr %48, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %37, %.preheader
-  %48 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %31) #6
+._crit_edge:                                      ; preds = %38, %.preheader
+  %49 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %31) #6
   call void @cmsDeleteTransform(ptr noundef nonnull %27) #6
   call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %31) #6
-  br label %49
+  br label %50
 
-49:                                               ; preds = %.thread, %_cmsChain2Lab.exit.thread, %._crit_edge, %_cmsChain2Lab.exit
-  %.0 = phi ptr [ null, %_cmsChain2Lab.exit ], [ %48, %._crit_edge ], [ null, %_cmsChain2Lab.exit.thread ], [ null, %.thread ]
+50:                                               ; preds = %.thread, %_cmsChain2Lab.exit.thread, %._crit_edge, %_cmsChain2Lab.exit
+  %.0 = phi ptr [ null, %_cmsChain2Lab.exit ], [ %49, %._crit_edge ], [ null, %_cmsChain2Lab.exit.thread ], [ null, %.thread ]
   ret ptr %.0
 }
 

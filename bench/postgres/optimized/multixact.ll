@@ -185,7 +185,7 @@ select.unfold.i:                                  ; preds = %12, %9
 mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_head.exit.i.i.i
   %30 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %.preheader, label %240
+  br i1 %.not, label %.preheader, label %242
 
 .preheader:                                       ; preds = %select.unfold.i, %2, %mXactCacheGetBySet.exit
   %31 = icmp sgt i32 %0, 0
@@ -560,31 +560,34 @@ GetNewMultiXactId.exit:                           ; preds = %222, %200
   %227 = add i32 %226, 1
   store volatile i32 %227, ptr @CritSectionCount, align 4
   %228 = load ptr, ptr @MultiXactState, align 8
-  %229 = load <2 x i32>, ptr %228, align 4
-  %230 = insertelement <2 x i32> <i32 1, i32 poison>, i32 %spec.select63.i, i64 1
-  %231 = add <2 x i32> %229, %230
-  store <2 x i32> %231, ptr %228, align 4
-  %232 = load ptr, ptr @MainLWLockArray, align 8
-  %233 = getelementptr i8, ptr %232, i64 1664
-  call void @LWLockRelease(ptr noundef %233) #13
+  %229 = load i32, ptr %228, align 4
+  %230 = add i32 %229, 1
+  store i32 %230, ptr %228, align 4
+  %231 = getelementptr inbounds i8, ptr %228, i64 4
+  %232 = load i32, ptr %231, align 4
+  %233 = add i32 %232, %spec.select63.i
+  store i32 %233, ptr %231, align 4
+  %234 = load ptr, ptr @MainLWLockArray, align 8
+  %235 = getelementptr i8, ptr %234, i64 1664
+  call void @LWLockRelease(ptr noundef %235) #13
   store i32 %.046.i, ptr %5, align 4
-  %234 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %spec.select.i, ptr %234, align 4
-  %235 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %0, ptr %235, align 4
+  %236 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %spec.select.i, ptr %236, align 4
+  %237 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %0, ptr %237, align 4
   call void @XLogBeginInsert() #13
   call void @XLogRegisterData(ptr noundef nonnull %5, i32 noundef 12) #13
-  %236 = shl i32 %0, 3
-  call void @XLogRegisterData(ptr noundef %1, i32 noundef %236) #13
-  %237 = call i64 @XLogInsert(i8 noundef zeroext 6, i8 noundef zeroext 32) #13
+  %238 = shl i32 %0, 3
+  call void @XLogRegisterData(ptr noundef %1, i32 noundef %238) #13
+  %239 = call i64 @XLogInsert(i8 noundef zeroext 6, i8 noundef zeroext 32) #13
   call fastcc void @RecordNewMultiXact(i32 noundef %.046.i, i32 noundef %spec.select.i, i32 noundef %0, ptr noundef %1)
-  %238 = load volatile i32, ptr @CritSectionCount, align 4
-  %239 = add i32 %238, -1
-  store volatile i32 %239, ptr @CritSectionCount, align 4
+  %240 = load volatile i32, ptr @CritSectionCount, align 4
+  %241 = add i32 %240, -1
+  store volatile i32 %241, ptr @CritSectionCount, align 4
   call fastcc void @mXactCachePut(i32 noundef %.046.i, i32 noundef %0, ptr noundef %1)
-  br label %240
+  br label %242
 
-240:                                              ; preds = %mXactCacheGetBySet.exit, %GetNewMultiXactId.exit
+242:                                              ; preds = %mXactCacheGetBySet.exit, %GetNewMultiXactId.exit
   %.025 = phi i32 [ %.046.i, %GetNewMultiXactId.exit ], [ %30, %mXactCacheGetBySet.exit ]
   ret i32 %.025
 }

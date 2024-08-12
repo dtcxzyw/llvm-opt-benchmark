@@ -1139,13 +1139,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define weak_odr void @_ZN3gmx18ConstraintsElementILNS_18ConstraintVariableE0EE5applyElbbb(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
   %6 = alloca [3 x [3 x float]], align 16
   %7 = alloca float, align 4
-  %8 = alloca %"class.gmx::ArrayRefWithPadding", align 16
-  %9 = alloca %"class.gmx::ArrayRefWithPadding", align 16
-  %10 = alloca %"class.gmx::ArrayRefWithPadding", align 16
-  %11 = alloca %"class.gmx::ArrayRefWithPadding", align 16
-  %12 = alloca %"class.gmx::ArrayRefWithPadding", align 16
+  %8 = alloca %"class.gmx::ArrayRefWithPadding", align 8
+  %9 = alloca %"class.gmx::ArrayRefWithPadding", align 8
+  %10 = alloca %"class.gmx::ArrayRefWithPadding", align 8
+  %11 = alloca %"class.gmx::ArrayRefWithPadding", align 8
+  %12 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %13 = alloca %"class.gmx::ArrayRef", align 8
-  %14 = alloca %"class.gmx::ArrayRefWithPadding", align 16
+  %14 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 80
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -1164,74 +1164,86 @@ define weak_odr void @_ZN3gmx18ConstraintsElementILNS_18ConstraintVariableE0EE5a
   %24 = getelementptr inbounds i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8
   call void @_ZN3gmx19StatePropagatorData21previousPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %8, ptr noundef nonnull align 8 dereferenceable(632) %25)
-  %26 = getelementptr inbounds i8, ptr %8, i64 16
-  %27 = load ptr, ptr %26, align 16
-  %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds i8, ptr %9, i64 16
-  %30 = getelementptr inbounds i8, ptr %10, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 88
-  %32 = or i1 %3, %4
-  %33 = load <2 x ptr>, ptr %8, align 16
-  call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %9, ptr noundef nonnull align 8 dereferenceable(632) %28)
-  %34 = load ptr, ptr %29, align 16
-  %35 = load ptr, ptr %24, align 8
-  %36 = getelementptr inbounds i8, ptr %11, i64 16
-  %37 = load <2 x ptr>, ptr %9, align 16
-  call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %10, ptr noundef nonnull align 8 dereferenceable(632) %35)
-  %38 = load ptr, ptr %30, align 16
-  %39 = load ptr, ptr %31, align 8
-  store <2 x ptr> %33, ptr %11, align 16
-  store ptr %27, ptr %36, align 16
-  store <2 x ptr> %37, ptr %12, align 16
-  %40 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr %34, ptr %40, align 16
+  %26 = load ptr, ptr %8, align 8
+  %27 = getelementptr inbounds i8, ptr %8, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %8, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %24, align 8
+  call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %9, ptr noundef nonnull align 8 dereferenceable(632) %31)
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds i8, ptr %9, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %9, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %24, align 8
+  call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %10, ptr noundef nonnull align 8 dereferenceable(632) %37)
+  %38 = load ptr, ptr %10, align 8
+  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %10, i64 16
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 88
+  %44 = load ptr, ptr %43, align 8
+  %45 = or i1 %3, %4
+  store ptr %26, ptr %11, align 8
+  %46 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %28, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %30, ptr %47, align 8
+  store ptr %32, ptr %12, align 8
+  %48 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %34, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %36, ptr %49, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %41 = load ptr, ptr %24, align 8
-  %42 = load <2 x ptr>, ptr %10, align 16
-  %43 = call noundef ptr @_ZN3gmx19StatePropagatorData3boxEv(ptr noundef nonnull align 8 dereferenceable(632) %41)
-  store <2 x ptr> %42, ptr %14, align 16
-  %44 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr %38, ptr %44, align 16
-  %45 = call noundef zeroext i1 @_ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4_NS_8ArrayRefIS3_EEPA3_KffPfS4_bPA3_fNS_18ConstraintVariableE(ptr noundef nonnull align 8 dereferenceable(8) %39, i1 noundef zeroext %32, i64 noundef %1, i32 noundef 1, float noundef 1.000000e+00, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %13, ptr noundef %43, float noundef %23, ptr noundef nonnull %7, ptr noundef nonnull %14, i1 noundef zeroext %2, ptr noundef nonnull %6, i32 noundef 0)
-  br i1 %2, label %46, label %59
+  %50 = load ptr, ptr %24, align 8
+  %51 = call noundef ptr @_ZN3gmx19StatePropagatorData3boxEv(ptr noundef nonnull align 8 dereferenceable(632) %50)
+  store ptr %38, ptr %14, align 8
+  %52 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %40, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %14, i64 16
+  store ptr %42, ptr %53, align 8
+  %54 = call noundef zeroext i1 @_ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4_NS_8ArrayRefIS3_EEPA3_KffPfS4_bPA3_fNS_18ConstraintVariableE(ptr noundef nonnull align 8 dereferenceable(8) %44, i1 noundef zeroext %45, i64 noundef %1, i32 noundef 1, float noundef 1.000000e+00, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %13, ptr noundef %51, float noundef %23, ptr noundef nonnull %7, ptr noundef nonnull %14, i1 noundef zeroext %2, ptr noundef nonnull %6, i32 noundef 0)
+  br i1 %2, label %55, label %68
 
-46:                                               ; preds = %22
-  %47 = getelementptr inbounds i8, ptr %0, i64 104
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp eq i32 %50, 10
-  br i1 %51, label %52, label %56
+55:                                               ; preds = %22
+  %56 = getelementptr inbounds i8, ptr %0, i64 104
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp eq i32 %59, 10
+  br i1 %60, label %61, label %65
 
-52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %0, i64 72
-  %54 = load ptr, ptr %53, align 8
-  %55 = call noundef ptr @_ZN3gmx10EnergyData16constraintVirialEl(ptr noundef nonnull align 8 dereferenceable(552) %54, i64 noundef %1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %55, i8 0, i64 36, i1 false)
-  br label %56
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds i8, ptr %0, i64 72
+  %63 = load ptr, ptr %62, align 8
+  %64 = call noundef ptr @_ZN3gmx10EnergyData16constraintVirialEl(ptr noundef nonnull align 8 dereferenceable(552) %63, i64 noundef %1)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %64, i8 0, i64 36, i1 false)
+  br label %65
 
-56:                                               ; preds = %52, %46
-  %57 = getelementptr inbounds i8, ptr %0, i64 72
-  %58 = load ptr, ptr %57, align 8
-  call void @_ZN3gmx10EnergyData21addToConstraintVirialEPA3_Kfl(ptr noundef nonnull align 8 dereferenceable(552) %58, ptr noundef nonnull %6, i64 noundef %1)
-  br label %59
+65:                                               ; preds = %61, %55
+  %66 = getelementptr inbounds i8, ptr %0, i64 72
+  %67 = load ptr, ptr %66, align 8
+  call void @_ZN3gmx10EnergyData21addToConstraintVirialEPA3_Kfl(ptr noundef nonnull align 8 dereferenceable(552) %67, ptr noundef nonnull %6, i64 noundef %1)
+  br label %68
 
-59:                                               ; preds = %56, %22
-  %60 = getelementptr inbounds i8, ptr %0, i64 104
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
-  %63 = load i32, ptr %62, align 4
-  %64 = and i32 %63, -2
-  %65 = icmp eq i32 %64, 10
-  %66 = select i1 %65, float 2.000000e+00, float 1.000000e+00
-  %67 = load float, ptr %7, align 4
-  %68 = getelementptr inbounds i8, ptr %0, i64 72
-  %69 = load ptr, ptr %68, align 8
-  %70 = call noundef ptr @_ZN3gmx10EnergyData8enerdataEv(ptr noundef nonnull align 8 dereferenceable(552) %69)
-  %71 = getelementptr inbounds i8, ptr %70, i64 344
-  %72 = load float, ptr %71, align 4
-  %73 = call float @llvm.fmuladd.f32(float %66, float %67, float %72)
-  store float %73, ptr %71, align 4
+68:                                               ; preds = %65, %22
+  %69 = getelementptr inbounds i8, ptr %0, i64 104
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %72 = load i32, ptr %71, align 4
+  %73 = and i32 %72, -2
+  %74 = icmp eq i32 %73, 10
+  %75 = select i1 %74, float 2.000000e+00, float 1.000000e+00
+  %76 = load float, ptr %7, align 4
+  %77 = getelementptr inbounds i8, ptr %0, i64 72
+  %78 = load ptr, ptr %77, align 8
+  %79 = call noundef ptr @_ZN3gmx10EnergyData8enerdataEv(ptr noundef nonnull align 8 dereferenceable(552) %78)
+  %80 = getelementptr inbounds i8, ptr %79, i64 344
+  %81 = load float, ptr %80, align 4
+  %82 = call float @llvm.fmuladd.f32(float %75, float %76, float %81)
+  store float %82, ptr %80, align 4
   ret void
 }
 
@@ -1677,10 +1689,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx20ElementNotFoundErrorE, i64 16), ptr %0, align 8
   ret void
@@ -2841,11 +2856,11 @@ _ZNSt14_Function_base13_Base_managerIZN3gmx18ConstraintsElementILNS1_18Constrain
 define weak_odr void @_ZN3gmx18ConstraintsElementILNS_18ConstraintVariableE1EE5applyElbbb(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
   %6 = alloca [3 x [3 x float]], align 16
   %7 = alloca float, align 4
-  %8 = alloca %"class.gmx::ArrayRefWithPadding", align 16
-  %9 = alloca %"class.gmx::ArrayRefWithPadding", align 16
+  %8 = alloca %"class.gmx::ArrayRefWithPadding", align 8
+  %9 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %10 = alloca %"class.gmx::ArrayRefWithPadding", align 8
-  %11 = alloca %"class.gmx::ArrayRefWithPadding", align 16
-  %12 = alloca %"class.gmx::ArrayRefWithPadding", align 16
+  %11 = alloca %"class.gmx::ArrayRefWithPadding", align 8
+  %12 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %13 = alloca %"class.gmx::ArrayRef", align 8
   %14 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2866,78 +2881,86 @@ define weak_odr void @_ZN3gmx18ConstraintsElementILNS_18ConstraintVariableE1EE5a
   %24 = getelementptr inbounds i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %8, ptr noundef nonnull align 8 dereferenceable(632) %25)
-  %26 = getelementptr inbounds i8, ptr %8, i64 16
-  %27 = load ptr, ptr %26, align 16
-  %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds i8, ptr %9, i64 16
-  %30 = getelementptr inbounds i8, ptr %10, i64 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 88
-  %32 = or i1 %3, %4
-  %33 = load <2 x ptr>, ptr %8, align 16
-  call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %9, ptr noundef nonnull align 8 dereferenceable(632) %28)
-  %34 = load ptr, ptr %29, align 16
-  %35 = load ptr, ptr %24, align 8
-  %36 = getelementptr inbounds i8, ptr %11, i64 16
-  %37 = load <2 x ptr>, ptr %9, align 16
-  call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %10, ptr noundef nonnull align 8 dereferenceable(632) %35)
+  %26 = load ptr, ptr %8, align 8
+  %27 = getelementptr inbounds i8, ptr %8, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %8, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %24, align 8
+  call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %9, ptr noundef nonnull align 8 dereferenceable(632) %31)
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds i8, ptr %9, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %9, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %24, align 8
+  call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %10, ptr noundef nonnull align 8 dereferenceable(632) %37)
   %38 = load ptr, ptr %10, align 8
-  %39 = load ptr, ptr %30, align 8
-  %40 = load ptr, ptr %31, align 8
-  store <2 x ptr> %33, ptr %11, align 16
-  store ptr %27, ptr %36, align 16
-  store <2 x ptr> %37, ptr %12, align 16
-  %41 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr %34, ptr %41, align 16
+  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 88
+  %42 = load ptr, ptr %41, align 8
+  %43 = or i1 %3, %4
+  store ptr %26, ptr %11, align 8
+  %44 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %28, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %30, ptr %45, align 8
+  store ptr %32, ptr %12, align 8
+  %46 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %34, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %36, ptr %47, align 8
   store ptr %38, ptr %13, align 8
-  %42 = getelementptr inbounds i8, ptr %13, i64 8
-  %43 = ptrtoint ptr %39 to i64
-  %44 = ptrtoint ptr %38 to i64
-  %45 = sub i64 %43, %44
-  %46 = getelementptr inbounds i8, ptr %38, i64 %45
-  store ptr %46, ptr %42, align 8
-  %47 = load ptr, ptr %24, align 8
-  %48 = call noundef ptr @_ZN3gmx19StatePropagatorData3boxEv(ptr noundef nonnull align 8 dereferenceable(632) %47)
+  %48 = getelementptr inbounds i8, ptr %13, i64 8
+  %49 = ptrtoint ptr %40 to i64
+  %50 = ptrtoint ptr %38 to i64
+  %51 = sub i64 %49, %50
+  %52 = getelementptr inbounds i8, ptr %38, i64 %51
+  store ptr %52, ptr %48, align 8
+  %53 = load ptr, ptr %24, align 8
+  %54 = call noundef ptr @_ZN3gmx19StatePropagatorData3boxEv(ptr noundef nonnull align 8 dereferenceable(632) %53)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %49 = call noundef zeroext i1 @_ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4_NS_8ArrayRefIS3_EEPA3_KffPfS4_bPA3_fNS_18ConstraintVariableE(ptr noundef nonnull align 8 dereferenceable(8) %40, i1 noundef zeroext %32, i64 noundef %1, i32 noundef 1, float noundef 1.000000e+00, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %13, ptr noundef %48, float noundef %23, ptr noundef nonnull %7, ptr noundef nonnull %14, i1 noundef zeroext %2, ptr noundef nonnull %6, i32 noundef 1)
-  br i1 %2, label %50, label %63
+  %55 = call noundef zeroext i1 @_ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4_NS_8ArrayRefIS3_EEPA3_KffPfS4_bPA3_fNS_18ConstraintVariableE(ptr noundef nonnull align 8 dereferenceable(8) %42, i1 noundef zeroext %43, i64 noundef %1, i32 noundef 1, float noundef 1.000000e+00, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %13, ptr noundef %54, float noundef %23, ptr noundef nonnull %7, ptr noundef nonnull %14, i1 noundef zeroext %2, ptr noundef nonnull %6, i32 noundef 1)
+  br i1 %2, label %56, label %69
 
-50:                                               ; preds = %22
-  %51 = getelementptr inbounds i8, ptr %0, i64 104
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %54, 10
-  br i1 %55, label %56, label %60
-
-56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %0, i64 72
+56:                                               ; preds = %22
+  %57 = getelementptr inbounds i8, ptr %0, i64 104
   %58 = load ptr, ptr %57, align 8
-  %59 = call noundef ptr @_ZN3gmx10EnergyData16constraintVirialEl(ptr noundef nonnull align 8 dereferenceable(552) %58, i64 noundef %1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %59, i8 0, i64 36, i1 false)
-  br label %60
+  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp eq i32 %60, 10
+  br i1 %61, label %62, label %66
 
-60:                                               ; preds = %56, %50
-  %61 = getelementptr inbounds i8, ptr %0, i64 72
-  %62 = load ptr, ptr %61, align 8
-  call void @_ZN3gmx10EnergyData21addToConstraintVirialEPA3_Kfl(ptr noundef nonnull align 8 dereferenceable(552) %62, ptr noundef nonnull %6, i64 noundef %1)
-  br label %63
+62:                                               ; preds = %56
+  %63 = getelementptr inbounds i8, ptr %0, i64 72
+  %64 = load ptr, ptr %63, align 8
+  %65 = call noundef ptr @_ZN3gmx10EnergyData16constraintVirialEl(ptr noundef nonnull align 8 dereferenceable(552) %64, i64 noundef %1)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %65, i8 0, i64 36, i1 false)
+  br label %66
 
-63:                                               ; preds = %60, %22
-  %64 = getelementptr inbounds i8, ptr %0, i64 104
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
-  %67 = load i32, ptr %66, align 4
-  %68 = and i32 %67, -2
-  %69 = icmp eq i32 %68, 10
-  %70 = select i1 %69, float 2.000000e+00, float 1.000000e+00
-  %71 = load float, ptr %7, align 4
-  %72 = getelementptr inbounds i8, ptr %0, i64 72
-  %73 = load ptr, ptr %72, align 8
-  %74 = call noundef ptr @_ZN3gmx10EnergyData8enerdataEv(ptr noundef nonnull align 8 dereferenceable(552) %73)
-  %75 = getelementptr inbounds i8, ptr %74, i64 344
-  %76 = load float, ptr %75, align 4
-  %77 = call float @llvm.fmuladd.f32(float %70, float %71, float %76)
-  store float %77, ptr %75, align 4
+66:                                               ; preds = %62, %56
+  %67 = getelementptr inbounds i8, ptr %0, i64 72
+  %68 = load ptr, ptr %67, align 8
+  call void @_ZN3gmx10EnergyData21addToConstraintVirialEPA3_Kfl(ptr noundef nonnull align 8 dereferenceable(552) %68, ptr noundef nonnull %6, i64 noundef %1)
+  br label %69
+
+69:                                               ; preds = %66, %22
+  %70 = getelementptr inbounds i8, ptr %0, i64 104
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 4
+  %73 = load i32, ptr %72, align 4
+  %74 = and i32 %73, -2
+  %75 = icmp eq i32 %74, 10
+  %76 = select i1 %75, float 2.000000e+00, float 1.000000e+00
+  %77 = load float, ptr %7, align 4
+  %78 = getelementptr inbounds i8, ptr %0, i64 72
+  %79 = load ptr, ptr %78, align 8
+  %80 = call noundef ptr @_ZN3gmx10EnergyData8enerdataEv(ptr noundef nonnull align 8 dereferenceable(552) %79)
+  %81 = getelementptr inbounds i8, ptr %80, i64 344
+  %82 = load float, ptr %81, align 4
+  %83 = call float @llvm.fmuladd.f32(float %76, float %77, float %82)
+  store float %83, ptr %81, align 4
   ret void
 }
 

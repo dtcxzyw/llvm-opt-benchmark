@@ -17,9 +17,11 @@ define dso_local void @_ZN3ozz9animation8IKAimJobC2Ev(ptr nocapture noundef nonn
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %5, align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 80
-  store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  store float 0.000000e+00, ptr %6, align 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 84
+  store float 1.000000e+00, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   ret void
 }
 

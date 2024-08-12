@@ -259,20 +259,30 @@ define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr noca
   br i1 %exitcond153.not, label %120, label %.preheader, !llvm.loop !8
 
 120:                                              ; preds = %.preheader
-  %121 = load <4 x i32>, ptr %0, align 8
-  %122 = insertelement <4 x i32> poison, i32 %119, i64 0
-  %123 = insertelement <4 x i32> %122, i32 %.1127, i64 1
-  %124 = insertelement <4 x i32> %123, i32 %.1129, i64 2
-  %125 = insertelement <4 x i32> %124, i32 %.1141, i64 3
-  %126 = add <4 x i32> %121, %125
-  store <4 x i32> %126, ptr %0, align 8
-  %127 = load <4 x i32>, ptr %11, align 8
-  %128 = insertelement <4 x i32> poison, i32 %118, i64 0
-  %129 = insertelement <4 x i32> %128, i32 %.1137, i64 1
-  %130 = insertelement <4 x i32> %129, i32 %.1135, i64 2
-  %131 = insertelement <4 x i32> %130, i32 %.1133, i64 3
-  %132 = add <4 x i32> %127, %131
-  store <4 x i32> %132, ptr %11, align 8
+  %121 = load i32, ptr %0, align 8
+  %122 = add i32 %121, %119
+  store i32 %122, ptr %0, align 8
+  %123 = load i32, ptr %5, align 4
+  %124 = add i32 %123, %.1127
+  store i32 %124, ptr %5, align 4
+  %125 = load i32, ptr %7, align 8
+  %126 = add i32 %125, %.1129
+  store i32 %126, ptr %7, align 8
+  %127 = load i32, ptr %9, align 4
+  %128 = add i32 %127, %.1141
+  store i32 %128, ptr %9, align 4
+  %129 = load i32, ptr %11, align 8
+  %130 = add i32 %129, %118
+  store i32 %130, ptr %11, align 8
+  %131 = load i32, ptr %13, align 4
+  %132 = add i32 %131, %.1137
+  store i32 %132, ptr %13, align 4
+  %133 = load i32, ptr %15, align 8
+  %134 = add i32 %133, %.1135
+  store i32 %134, ptr %15, align 8
+  %135 = load i32, ptr %17, align 4
+  %136 = add i32 %135, %.1133
+  store i32 %136, ptr %17, align 4
   ret void
 }
 
@@ -684,7 +694,7 @@ define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr noca
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @pg_sha512_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %40, label %3
+  br i1 %.not, label %41, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -741,28 +751,30 @@ define dso_local void @pg_sha512_final(ptr nocapture noundef %0, ptr noundef wri
   br label %SHA512_Last.exit
 
 SHA512_Last.exit:                                 ; preds = %19, %30, %31
-  %32 = getelementptr i8, ptr %0, i64 192
-  %33 = load <2 x i64>, ptr %4, align 8
-  %34 = shufflevector <2 x i64> %33, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %34, ptr %32, align 8
+  %32 = load i64, ptr %10, align 8
+  %33 = getelementptr i8, ptr %0, i64 192
+  store i64 %32, ptr %33, align 8
+  %34 = load i64, ptr %4, align 8
+  %35 = getelementptr i8, ptr %0, i64 200
+  store i64 %34, ptr %35, align 8
   tail call fastcc void @SHA512_Transform(ptr noundef nonnull %0, ptr noundef nonnull %13)
-  br label %35
+  br label %36
 
-35:                                               ; preds = %SHA512_Last.exit, %35
-  %indvars.iv = phi i64 [ 0, %SHA512_Last.exit ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr [8 x i64], ptr %0, i64 0, i64 %indvars.iv
-  %37 = load i64, ptr %36, align 8
-  %38 = tail call i64 @llvm.bswap.i64(i64 %37)
-  store i64 %38, ptr %36, align 8
+36:                                               ; preds = %SHA512_Last.exit, %36
+  %indvars.iv = phi i64 [ 0, %SHA512_Last.exit ], [ %indvars.iv.next, %36 ]
+  %37 = getelementptr [8 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %38 = load i64, ptr %37, align 8
+  %39 = tail call i64 @llvm.bswap.i64(i64 %38)
+  store i64 %39, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %39, label %35, !llvm.loop !13
+  br i1 %exitcond.not, label %40, label %36, !llvm.loop !13
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  br label %40
+  br label %41
 
-40:                                               ; preds = %39, %2
+41:                                               ; preds = %40, %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false)
   ret void
 }
@@ -791,7 +803,7 @@ define dso_local void @pg_sha384_update(ptr nocapture noundef %0, ptr nocapture 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @pg_sha384_final(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %40, label %3
+  br i1 %.not, label %41, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -848,28 +860,30 @@ define dso_local void @pg_sha384_final(ptr nocapture noundef %0, ptr noundef wri
   br label %SHA512_Last.exit
 
 SHA512_Last.exit:                                 ; preds = %19, %30, %31
-  %32 = getelementptr i8, ptr %0, i64 192
-  %33 = load <2 x i64>, ptr %4, align 8
-  %34 = shufflevector <2 x i64> %33, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %34, ptr %32, align 8
+  %32 = load i64, ptr %10, align 8
+  %33 = getelementptr i8, ptr %0, i64 192
+  store i64 %32, ptr %33, align 8
+  %34 = load i64, ptr %4, align 8
+  %35 = getelementptr i8, ptr %0, i64 200
+  store i64 %34, ptr %35, align 8
   tail call fastcc void @SHA512_Transform(ptr noundef nonnull %0, ptr noundef nonnull %13)
-  br label %35
+  br label %36
 
-35:                                               ; preds = %SHA512_Last.exit, %35
-  %indvars.iv = phi i64 [ 0, %SHA512_Last.exit ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr [8 x i64], ptr %0, i64 0, i64 %indvars.iv
-  %37 = load i64, ptr %36, align 8
-  %38 = tail call i64 @llvm.bswap.i64(i64 %37)
-  store i64 %38, ptr %36, align 8
+36:                                               ; preds = %SHA512_Last.exit, %36
+  %indvars.iv = phi i64 [ 0, %SHA512_Last.exit ], [ %indvars.iv.next, %36 ]
+  %37 = getelementptr [8 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %38 = load i64, ptr %37, align 8
+  %39 = tail call i64 @llvm.bswap.i64(i64 %38)
+  store i64 %39, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %39, label %35, !llvm.loop !14
+  br i1 %exitcond.not, label %40, label %36, !llvm.loop !14
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
-  br label %40
+  br label %41
 
-40:                                               ; preds = %39, %2
+41:                                               ; preds = %40, %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false)
   ret void
 }

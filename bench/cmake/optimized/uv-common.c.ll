@@ -361,24 +361,24 @@ uv__realloc.exit:                                 ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local range(i32 -22, 1) i32 @uv_replace_allocator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
-  %5 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %6 = insertelement <4 x ptr> %5, ptr %1, i64 1
-  %7 = insertelement <4 x ptr> %6, ptr %2, i64 2
-  %8 = insertelement <4 x ptr> %7, ptr %3, i64 3
-  %9 = icmp eq <4 x ptr> %8, zeroinitializer
-  %10 = bitcast <4 x i1> %9 to i4
-  %.not = icmp eq i4 %10, 0
-  br i1 %.not, label %11, label %12
+  %5 = icmp eq ptr %0, null
+  %6 = icmp eq ptr %1, null
+  %or.cond = or i1 %5, %6
+  %7 = icmp eq ptr %2, null
+  %or.cond3 = or i1 %or.cond, %7
+  %8 = icmp eq ptr %3, null
+  %or.cond5 = or i1 %or.cond3, %8
+  br i1 %or.cond5, label %10, label %9
 
-11:                                               ; preds = %4
+9:                                                ; preds = %4
   store ptr %0, ptr @uv__allocator.0, align 8
   store ptr %1, ptr @uv__allocator.1, align 8
   store ptr %2, ptr @uv__allocator.2, align 8
   store ptr %3, ptr @uv__allocator.3, align 8
-  br label %12
+  br label %10
 
-12:                                               ; preds = %4, %11
-  %.0 = phi i32 [ 0, %11 ], [ -22, %4 ]
+10:                                               ; preds = %4, %9
+  %.0 = phi i32 [ 0, %9 ], [ -22, %4 ]
   ret i32 %.0
 }
 

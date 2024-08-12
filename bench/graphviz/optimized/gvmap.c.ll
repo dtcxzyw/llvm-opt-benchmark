@@ -426,7 +426,7 @@ init.exit:                                        ; preds = %openFile.exit.i
   br label %196
 
 196:                                              ; preds = %.lr.ph, %mapFromGraph.exit
-  %197 = phi ptr [ %193, %.lr.ph ], [ %260, %mapFromGraph.exit ]
+  %197 = phi ptr [ %193, %.lr.ph ], [ %257, %mapFromGraph.exit ]
   %.0202 = phi ptr [ null, %.lr.ph ], [ %197, %mapFromGraph.exit ]
   %.sroa.70.0201 = phi i32 [ %.sroa.70.1, %.lr.ph ], [ %.sroa.70.3, %mapFromGraph.exit ]
   %.not6 = icmp eq ptr %.0202, null
@@ -520,78 +520,77 @@ validateCluster.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %._cr
 
 224:                                              ; preds = %220, %validateCluster.exit.i.i
   %225 = load ptr, ptr %12, align 8
-  %226 = insertelement <4 x ptr> poison, ptr %225, i64 0
-  %227 = insertelement <4 x ptr> %226, ptr %208, i64 1
-  %228 = insertelement <4 x ptr> %227, ptr %209, i64 2
-  %229 = insertelement <4 x ptr> %228, ptr %210, i64 3
-  %.fr = freeze <4 x ptr> %229
-  %230 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %231 = bitcast <4 x i1> %230 to i4
-  %232 = icmp eq i4 %231, 0
-  %op.rdx = and i1 %.sroa.51.0, %232
-  br i1 %op.rdx, label %233, label %234
+  %226 = icmp ne ptr %225, null
+  %or.cond.i.i = select i1 %.sroa.51.0, i1 %226, i1 false
+  %227 = icmp ne ptr %208, null
+  %or.cond3.i.i = and i1 %227, %or.cond.i.i
+  %228 = icmp ne ptr %209, null
+  %or.cond5.i.i = and i1 %228, %or.cond3.i.i
+  %229 = icmp ne ptr %210, null
+  %or.cond7.i.i = and i1 %229, %or.cond5.i.i
+  br i1 %or.cond7.i.i, label %230, label %231
 
-233:                                              ; preds = %224
+230:                                              ; preds = %224
   call void @map_optimal_coloring(i32 noundef %.sroa.76.0, ptr noundef nonnull %225, ptr noundef nonnull %208, ptr noundef nonnull %209, ptr noundef nonnull %210) #11
-  br label %236
+  br label %233
 
-234:                                              ; preds = %224
-  br i1 %.not97.i.i, label %236, label %235
+231:                                              ; preds = %224
+  br i1 %.not97.i.i, label %233, label %232
 
-235:                                              ; preds = %234
+232:                                              ; preds = %231
   call void @map_palette_optimal_coloring(ptr noundef nonnull %.sroa.40.0, ptr noundef %225, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
-  br label %236
+  br label %233
 
-236:                                              ; preds = %235, %234, %233
-  %237 = icmp ne ptr %201, null
-  %or.cond9.i.i = select i1 %237, i1 %194, i1 false
+233:                                              ; preds = %232, %231, %230
+  %234 = icmp ne ptr %201, null
+  %or.cond9.i.i = select i1 %234, i1 %194, i1 false
   br i1 %or.cond9.i.i, label %.preheader.i.i, label %mapFromGraph.exit
 
-.preheader.i.i:                                   ; preds = %236
+.preheader.i.i:                                   ; preds = %233
   br i1 %195, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.098.i.i = phi i32 [ %239, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %238 = load ptr, ptr %8, align 8
-  call void @improve_contiguity(i32 noundef %202, i32 noundef 2, ptr noundef %205, ptr noundef %238, ptr noundef %203, ptr noundef nonnull %201) #11
+  %.098.i.i = phi i32 [ %236, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
+  %235 = load ptr, ptr %8, align 8
+  call void @improve_contiguity(i32 noundef %202, i32 noundef 2, ptr noundef %205, ptr noundef %235, ptr noundef %203, ptr noundef nonnull %201) #11
   store i32 %.sroa.48.0, ptr %13, align 4
   call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef nonnull %201, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #11
-  %239 = add nuw nsw i32 %.098.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %239, %.sroa.45.0
+  %236 = add nuw nsw i32 %.098.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %236, %.sroa.45.0
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %240 = call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef nonnull %201) #11
-  call void @remove_overlap(i32 noundef 2, ptr noundef %240, ptr noundef %203, ptr noundef %204, i32 noundef 1000, double noundef 5.000000e+03, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #11
-  call void @SparseMatrix_delete(ptr noundef %240) #11
+  %237 = call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef nonnull %201) #11
+  call void @remove_overlap(i32 noundef 2, ptr noundef %237, ptr noundef %203, ptr noundef %204, i32 noundef 1000, double noundef 5.000000e+03, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #11
+  call void @SparseMatrix_delete(ptr noundef %237) #11
   store i32 %.sroa.48.0, ptr %13, align 4
   call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef nonnull %201, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #11
   br label %mapFromGraph.exit
 
-mapFromGraph.exit:                                ; preds = %236, %._crit_edge.i.i
-  %241 = load ptr, ptr %3, align 8
-  %242 = load ptr, ptr %4, align 8
-  %243 = load ptr, ptr %5, align 8
-  call void @Dot_SetClusterColor(ptr noundef nonnull %197, ptr noundef %241, ptr noundef %242, ptr noundef %243, ptr noundef %205) #11
-  %244 = load ptr, ptr %7, align 8
-  %245 = load ptr, ptr %6, align 8
-  %246 = load ptr, ptr %11, align 8
-  %247 = load ptr, ptr %10, align 8
-  %248 = load ptr, ptr %3, align 8
-  %249 = load ptr, ptr %4, align 8
-  %250 = load ptr, ptr %5, align 8
-  %251 = select i1 %.sroa.31.0, ptr %201, ptr null
-  call void @plot_dot_map(ptr noundef nonnull %197, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %244, ptr noundef %245, double noundef %.sroa.37.0, ptr noundef %.sroa.62.0, ptr noundef %246, ptr noundef %247, ptr noundef %206, ptr noundef %207, ptr noundef %248, ptr noundef %249, ptr noundef %250, ptr noundef %.sroa.43.0, ptr noundef %251, ptr noundef %.sroa.5.2) #11
-  %252 = load ptr, ptr %7, align 8
-  call void @SparseMatrix_delete(ptr noundef %252) #11
-  %253 = load ptr, ptr %6, align 8
-  call void @SparseMatrix_delete(ptr noundef %253) #11
-  %254 = load ptr, ptr %8, align 8
-  call void @SparseMatrix_delete(ptr noundef %254) #11
-  %255 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %255) #11
-  %256 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %256) #11
+mapFromGraph.exit:                                ; preds = %233, %._crit_edge.i.i
+  %238 = load ptr, ptr %3, align 8
+  %239 = load ptr, ptr %4, align 8
+  %240 = load ptr, ptr %5, align 8
+  call void @Dot_SetClusterColor(ptr noundef nonnull %197, ptr noundef %238, ptr noundef %239, ptr noundef %240, ptr noundef %205) #11
+  %241 = load ptr, ptr %7, align 8
+  %242 = load ptr, ptr %6, align 8
+  %243 = load ptr, ptr %11, align 8
+  %244 = load ptr, ptr %10, align 8
+  %245 = load ptr, ptr %3, align 8
+  %246 = load ptr, ptr %4, align 8
+  %247 = load ptr, ptr %5, align 8
+  %248 = select i1 %.sroa.31.0, ptr %201, ptr null
+  call void @plot_dot_map(ptr noundef nonnull %197, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %241, ptr noundef %242, double noundef %.sroa.37.0, ptr noundef %.sroa.62.0, ptr noundef %243, ptr noundef %244, ptr noundef %206, ptr noundef %207, ptr noundef %245, ptr noundef %246, ptr noundef %247, ptr noundef %.sroa.43.0, ptr noundef %248, ptr noundef %.sroa.5.2) #11
+  %249 = load ptr, ptr %7, align 8
+  call void @SparseMatrix_delete(ptr noundef %249) #11
+  %250 = load ptr, ptr %6, align 8
+  call void @SparseMatrix_delete(ptr noundef %250) #11
+  %251 = load ptr, ptr %8, align 8
+  call void @SparseMatrix_delete(ptr noundef %251) #11
+  %252 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %252) #11
+  %253 = load ptr, ptr %10, align 8
+  call void @free(ptr noundef %253) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -603,12 +602,12 @@ mapFromGraph.exit:                                ; preds = %236, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  %257 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %257) #11
-  %258 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %258) #11
-  %259 = load ptr, ptr %21, align 8
-  call void @free(ptr noundef %259) #11
+  %254 = load ptr, ptr %19, align 8
+  call void @free(ptr noundef %254) #11
+  %255 = load ptr, ptr %20, align 8
+  call void @free(ptr noundef %255) #11
+  %256 = load ptr, ptr %21, align 8
+  call void @free(ptr noundef %256) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
@@ -618,8 +617,8 @@ mapFromGraph.exit:                                ; preds = %236, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  %260 = call ptr @nextGraph(ptr noundef nonnull %27) #11
-  %.not = icmp eq ptr %260, null
+  %257 = call ptr @nextGraph(ptr noundef nonnull %27) #11
+  %.not = icmp eq ptr %257, null
   br i1 %.not, label %._crit_edge, label %196
 
 ._crit_edge:                                      ; preds = %mapFromGraph.exit, %init.exit

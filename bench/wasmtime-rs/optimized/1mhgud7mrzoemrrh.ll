@@ -720,224 +720,245 @@ define hidden void @"_ZN182_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h4879c7ece58f557dE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h66df1ecf80b6791bE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h42d0373c1776af8bE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i32, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h36cd8a37ea897999E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i32, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hb69d0330d8085377E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i32, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h61925cf92a570becE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17he084efc2ac91017eE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config22deserialize_disk_space17h1a49c67e4566e290E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
@@ -1014,672 +1035,735 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h0e29c6a1d7b333d3E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h13347e7c7e6bd7adE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17h7e48039a6f53913dE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17he0941892ecbccd64E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b7a6eb0fbE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h96e59c4a033894e2E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17he4b163595fc88bf9E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17h7e48039a6f53913dE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hff520c661c669a7fE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b7a6eb0fbE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h12f53aefafd0fb31E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i32, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h48b188fdd50ff2c7E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h91e757e6f5823089E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i32, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17ha82fda2358b4e911E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i32, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h41a77a504a5dfb91E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i32, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h53f4d68aa1ccfc46E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i32, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h9d45abf08ae610f8E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h91e757e6f5823089E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i32, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h14d55db27af27383E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i32, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h6d4694f020cf944bE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i32, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hf4d21d17a8451000E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h91e757e6f5823089E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i32, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h238b7e8328e8daa0E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17h7e48039a6f53913dE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hf1035a301281a452E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b7a6eb0fbE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hfe0638d122e92c4dE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h29ef7551abf3411aE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config22deserialize_disk_space17h86a911fb053088d9E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h33983cff77ccc66fE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config22deserialize_disk_space17h1a49c67e4566e290E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h50dd42418433dfd8E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
-  %3 = alloca { i64, [11 x i64] }, align 16
+  %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config22deserialize_disk_space17habfae793b67ec783E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
-  %4 = load <2 x i64>, ptr %3, align 16
-  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
-  %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %7, align 16
-  br i1 %6, label %9, label %10
-
-9:                                                ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %11
+  %4 = load i64, ptr %3, align 8, !range !136, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i64, ptr %8, align 8
+  br i1 %5, label %10, label %11
 
 10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
   %.sroa.09.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.sroa.6.0..sroa_idx, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.416, i64 72, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %12, align 8
-  store <2 x i64> %4, ptr %0, align 8
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 

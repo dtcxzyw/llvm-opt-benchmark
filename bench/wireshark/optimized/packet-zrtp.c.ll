@@ -1193,35 +1193,41 @@ define internal fastcc void @dissect_DHPart(ptr noundef %0, ptr %.8.val, ptr nou
 define internal fastcc void @dissect_Conf2ACK(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @wmem_file_scope() #4
   %3 = tail call noalias ptr @wmem_alloc0(ptr noundef %2, i64 noundef 16) #4
-  store <4 x i32> <i32 2, i32 1, i32 0, i32 4>, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
-  %5 = getelementptr inbounds i8, ptr %0, i64 284
-  %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 288
-  %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4
-  tail call void @srtp_add_address(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %4, i32 noundef %6, i32 noundef %8, ptr noundef nonnull @.str.86, i32 noundef %10, i32 noundef 1, ptr noundef null, ptr noundef nonnull %3, ptr noundef null) #4
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
-  %12 = load i32, ptr %7, align 8
-  %13 = load i32, ptr %5, align 4
-  %14 = load i32, ptr %9, align 4
-  tail call void @srtp_add_address(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %11, i32 noundef %12, i32 noundef %13, ptr noundef nonnull @.str.86, i32 noundef %14, i32 noundef 1, ptr noundef null, ptr noundef nonnull %3, ptr noundef null) #4
-  %15 = load i32, ptr %5, align 4
-  %16 = add i32 %15, 1
-  %17 = load i32, ptr %7, align 8
-  %18 = add i32 %17, 1
-  %19 = load i32, ptr %9, align 4
-  tail call void @srtcp_add_address(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %16, i32 noundef %18, ptr noundef nonnull @.str.86, i32 noundef %19, ptr noundef nonnull %3) #4
-  %20 = load i32, ptr %7, align 8
+  store i32 2, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 1, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 4, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %8 = getelementptr inbounds i8, ptr %0, i64 284
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 288
+  %11 = load i32, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = load i32, ptr %12, align 4
+  tail call void @srtp_add_address(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %9, i32 noundef %11, ptr noundef nonnull @.str.86, i32 noundef %13, i32 noundef 1, ptr noundef null, ptr noundef nonnull %3, ptr noundef null) #4
+  %14 = getelementptr inbounds i8, ptr %0, i64 184
+  %15 = load i32, ptr %10, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load i32, ptr %12, align 4
+  tail call void @srtp_add_address(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %14, i32 noundef %15, i32 noundef %16, ptr noundef nonnull @.str.86, i32 noundef %17, i32 noundef 1, ptr noundef null, ptr noundef nonnull %3, ptr noundef null) #4
+  %18 = load i32, ptr %8, align 4
+  %19 = add i32 %18, 1
+  %20 = load i32, ptr %10, align 8
   %21 = add i32 %20, 1
-  %22 = load i32, ptr %5, align 4
-  %23 = add i32 %22, 1
-  %24 = load i32, ptr %9, align 4
-  tail call void @srtcp_add_address(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %21, i32 noundef %23, ptr noundef nonnull @.str.86, i32 noundef %24, ptr noundef nonnull %3) #4
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8
-  tail call void @col_set_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.217) #4
+  %22 = load i32, ptr %12, align 4
+  tail call void @srtcp_add_address(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %19, i32 noundef %21, ptr noundef nonnull @.str.86, i32 noundef %22, ptr noundef nonnull %3) #4
+  %23 = load i32, ptr %10, align 8
+  %24 = add i32 %23, 1
+  %25 = load i32, ptr %8, align 4
+  %26 = add i32 %25, 1
+  %27 = load i32, ptr %12, align 4
+  tail call void @srtcp_add_address(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %24, i32 noundef %26, ptr noundef nonnull @.str.86, i32 noundef %27, ptr noundef nonnull %3) #4
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = load ptr, ptr %28, align 8
+  tail call void @col_set_str(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.217) #4
   ret void
 }
 

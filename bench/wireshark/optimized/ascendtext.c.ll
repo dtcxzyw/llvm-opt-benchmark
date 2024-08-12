@@ -396,7 +396,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_ascend(ptr nocapture noundef %
   %27 = getelementptr inbounds i8, ptr %9, i64 76
   %28 = load i32, ptr %27, align 4
   %.not40 = icmp eq i32 %28, 0
-  br i1 %.not40, label %61, label %29
+  br i1 %.not40, label %62, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %0, i64 8
@@ -451,41 +451,43 @@ define internal fastcc range(i32 0, 2) i32 @parse_ascend(ptr nocapture noundef %
   %56 = mul i32 %55, 1000
   %57 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %9, i64 72
-  %59 = load <2 x i32>, ptr %58, align 8
-  %60 = shufflevector <2 x i32> %59, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %60, ptr %12, align 8
-  br label %73
+  %58 = load i32, ptr %27, align 4
+  store i32 %58, ptr %12, align 8
+  %59 = getelementptr inbounds i8, ptr %9, i64 72
+  %60 = load i32, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %2, i64 68
+  store i32 %60, ptr %61, align 4
+  br label %74
 
-61:                                               ; preds = %26
-  %62 = load i32, ptr %6, align 4
-  %63 = icmp eq i32 %62, 0
-  br i1 %.0.shrunk, label %64, label %70
+62:                                               ; preds = %26
+  %63 = load i32, ptr %6, align 4
+  %64 = icmp eq i32 %63, 0
+  br i1 %.0.shrunk, label %65, label %71
 
-64:                                               ; preds = %61
-  br i1 %63, label %65, label %73
+65:                                               ; preds = %62
+  br i1 %64, label %66, label %74
 
-65:                                               ; preds = %64
+66:                                               ; preds = %65
   store i32 -13, ptr %6, align 4
-  %66 = getelementptr inbounds i8, ptr %9, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %.not41 = icmp eq ptr %67, null
-  %68 = select i1 %.not41, ptr @.str.11, ptr %67
-  %69 = call noalias ptr @g_strdup(ptr noundef nonnull %68) #4
-  store ptr %69, ptr %7, align 8
-  br label %73
+  %67 = getelementptr inbounds i8, ptr %9, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %.not41 = icmp eq ptr %68, null
+  %69 = select i1 %.not41, ptr @.str.11, ptr %68
+  %70 = call noalias ptr @g_strdup(ptr noundef nonnull %69) #4
+  store ptr %70, ptr %7, align 8
+  br label %74
 
-70:                                               ; preds = %61
-  br i1 %63, label %71, label %73
+71:                                               ; preds = %62
+  br i1 %64, label %72, label %74
 
-71:                                               ; preds = %70
+72:                                               ; preds = %71
   store i32 -13, ptr %6, align 4
-  %72 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.12) #4
-  store ptr %72, ptr %7, align 8
-  br label %73
+  %73 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.12) #4
+  store ptr %73, ptr %7, align 8
+  br label %74
 
-73:                                               ; preds = %65, %64, %71, %70, %45
-  %.033 = phi i32 [ 1, %45 ], [ 0, %70 ], [ 0, %71 ], [ 0, %64 ], [ 0, %65 ]
+74:                                               ; preds = %66, %65, %72, %71, %45
+  %.033 = phi i32 [ 1, %45 ], [ 0, %71 ], [ 0, %72 ], [ 0, %65 ], [ 0, %66 ]
   ret i32 %.033
 }
 

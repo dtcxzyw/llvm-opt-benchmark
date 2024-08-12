@@ -24,27 +24,39 @@ entry:
   %key.i = alloca [8 x i8], align 1
   %ks = alloca %struct.DES_ks, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.i)
+  %0 = load i8, ptr %keys, align 1
+  store i8 %0, ptr %key.i, align 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %keys, i64 1
+  %1 = load i8, ptr %arrayidx3.i.i, align 1
+  %or.i.i = tail call i8 @llvm.fshl.i8(i8 %0, i8 %1, i8 7)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %key.i, i64 1
+  store i8 %or.i.i, ptr %arrayidx6.i.i, align 1
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %keys, i64 2
+  %2 = load i8, ptr %arrayidx11.i.i, align 1
+  %or14.i.i = tail call i8 @llvm.fshl.i8(i8 %1, i8 %2, i8 6)
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %key.i, i64 2
+  store i8 %or14.i.i, ptr %arrayidx16.i.i, align 1
+  %arrayidx21.i.i = getelementptr inbounds i8, ptr %keys, i64 3
+  %3 = load i8, ptr %arrayidx21.i.i, align 1
+  %or24.i.i = tail call i8 @llvm.fshl.i8(i8 %2, i8 %3, i8 5)
+  %arrayidx26.i.i = getelementptr inbounds i8, ptr %key.i, i64 3
+  store i8 %or24.i.i, ptr %arrayidx26.i.i, align 1
   %arrayidx31.i.i = getelementptr inbounds i8, ptr %keys, i64 4
-  %0 = load i8, ptr %arrayidx31.i.i, align 1
-  %1 = load <4 x i8>, ptr %keys, align 1
-  %2 = load i8, ptr %keys, align 1
-  store i8 %2, ptr %key.i, align 1
-  %3 = shufflevector <4 x i8> %1, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
-  %4 = insertelement <4 x i8> %3, i8 %0, i64 3
-  %5 = tail call <4 x i8> @llvm.fshl.v4i8(<4 x i8> %1, <4 x i8> %4, <4 x i8> <i8 7, i8 6, i8 5, i8 4>)
-  store <4 x i8> %5, ptr %arrayidx6.i.i, align 1
+  %4 = load i8, ptr %arrayidx31.i.i, align 1
+  %or34.i.i = tail call i8 @llvm.fshl.i8(i8 %3, i8 %4, i8 4)
+  %arrayidx36.i.i = getelementptr inbounds i8, ptr %key.i, i64 4
+  store i8 %or34.i.i, ptr %arrayidx36.i.i, align 1
   %arrayidx41.i.i = getelementptr inbounds i8, ptr %keys, i64 5
-  %6 = load i8, ptr %arrayidx41.i.i, align 1
-  %or44.i.i = tail call i8 @llvm.fshl.i8(i8 %0, i8 %6, i8 3)
+  %5 = load i8, ptr %arrayidx41.i.i, align 1
+  %or44.i.i = tail call i8 @llvm.fshl.i8(i8 %4, i8 %5, i8 3)
   %arrayidx46.i.i = getelementptr inbounds i8, ptr %key.i, i64 5
   store i8 %or44.i.i, ptr %arrayidx46.i.i, align 1
   %arrayidx51.i.i = getelementptr inbounds i8, ptr %keys, i64 6
-  %7 = load i8, ptr %arrayidx51.i.i, align 1
-  %or54.i.i = tail call i8 @llvm.fshl.i8(i8 %6, i8 %7, i8 2)
+  %6 = load i8, ptr %arrayidx51.i.i, align 1
+  %or54.i.i = tail call i8 @llvm.fshl.i8(i8 %5, i8 %6, i8 2)
   %arrayidx56.i.i = getelementptr inbounds i8, ptr %key.i, i64 6
   store i8 %or54.i.i, ptr %arrayidx56.i.i, align 1
-  %shl59.i.i = shl i8 %7, 1
+  %shl59.i.i = shl i8 %6, 1
   %arrayidx62.i.i = getelementptr inbounds i8, ptr %key.i, i64 7
   store i8 %shl59.i.i, ptr %arrayidx62.i.i, align 1
   call void @DES_set_odd_parity(ptr noundef nonnull %key.i) #8
@@ -53,27 +65,39 @@ entry:
   call void @DES_ecb_encrypt(ptr noundef %plaintext, ptr noundef %results, ptr noundef nonnull %ks, i32 noundef 1) #8
   %add.ptr = getelementptr inbounds i8, ptr %keys, i64 7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.i7)
+  %7 = load i8, ptr %add.ptr, align 1
+  store i8 %7, ptr %key.i7, align 1
+  %arrayidx3.i.i8 = getelementptr inbounds i8, ptr %keys, i64 8
+  %8 = load i8, ptr %arrayidx3.i.i8, align 1
+  %or.i.i9 = call i8 @llvm.fshl.i8(i8 %7, i8 %8, i8 7)
   %arrayidx6.i.i10 = getelementptr inbounds i8, ptr %key.i7, i64 1
+  store i8 %or.i.i9, ptr %arrayidx6.i.i10, align 1
+  %arrayidx11.i.i11 = getelementptr inbounds i8, ptr %keys, i64 9
+  %9 = load i8, ptr %arrayidx11.i.i11, align 1
+  %or14.i.i12 = call i8 @llvm.fshl.i8(i8 %8, i8 %9, i8 6)
+  %arrayidx16.i.i13 = getelementptr inbounds i8, ptr %key.i7, i64 2
+  store i8 %or14.i.i12, ptr %arrayidx16.i.i13, align 1
+  %arrayidx21.i.i14 = getelementptr inbounds i8, ptr %keys, i64 10
+  %10 = load i8, ptr %arrayidx21.i.i14, align 1
+  %or24.i.i15 = call i8 @llvm.fshl.i8(i8 %9, i8 %10, i8 5)
+  %arrayidx26.i.i16 = getelementptr inbounds i8, ptr %key.i7, i64 3
+  store i8 %or24.i.i15, ptr %arrayidx26.i.i16, align 1
   %arrayidx31.i.i17 = getelementptr inbounds i8, ptr %keys, i64 11
-  %8 = load i8, ptr %arrayidx31.i.i17, align 1
-  %9 = load <4 x i8>, ptr %add.ptr, align 1
-  %10 = load i8, ptr %add.ptr, align 1
-  store i8 %10, ptr %key.i7, align 1
-  %11 = shufflevector <4 x i8> %9, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
-  %12 = insertelement <4 x i8> %11, i8 %8, i64 3
-  %13 = call <4 x i8> @llvm.fshl.v4i8(<4 x i8> %9, <4 x i8> %12, <4 x i8> <i8 7, i8 6, i8 5, i8 4>)
-  store <4 x i8> %13, ptr %arrayidx6.i.i10, align 1
+  %11 = load i8, ptr %arrayidx31.i.i17, align 1
+  %or34.i.i18 = call i8 @llvm.fshl.i8(i8 %10, i8 %11, i8 4)
+  %arrayidx36.i.i19 = getelementptr inbounds i8, ptr %key.i7, i64 4
+  store i8 %or34.i.i18, ptr %arrayidx36.i.i19, align 1
   %arrayidx41.i.i20 = getelementptr inbounds i8, ptr %keys, i64 12
-  %14 = load i8, ptr %arrayidx41.i.i20, align 1
-  %or44.i.i21 = call i8 @llvm.fshl.i8(i8 %8, i8 %14, i8 3)
+  %12 = load i8, ptr %arrayidx41.i.i20, align 1
+  %or44.i.i21 = call i8 @llvm.fshl.i8(i8 %11, i8 %12, i8 3)
   %arrayidx46.i.i22 = getelementptr inbounds i8, ptr %key.i7, i64 5
   store i8 %or44.i.i21, ptr %arrayidx46.i.i22, align 1
   %arrayidx51.i.i23 = getelementptr inbounds i8, ptr %keys, i64 13
-  %15 = load i8, ptr %arrayidx51.i.i23, align 1
-  %or54.i.i24 = call i8 @llvm.fshl.i8(i8 %14, i8 %15, i8 2)
+  %13 = load i8, ptr %arrayidx51.i.i23, align 1
+  %or54.i.i24 = call i8 @llvm.fshl.i8(i8 %12, i8 %13, i8 2)
   %arrayidx56.i.i25 = getelementptr inbounds i8, ptr %key.i7, i64 6
   store i8 %or54.i.i24, ptr %arrayidx56.i.i25, align 1
-  %shl59.i.i26 = shl i8 %15, 1
+  %shl59.i.i26 = shl i8 %13, 1
   %arrayidx62.i.i27 = getelementptr inbounds i8, ptr %key.i7, i64 7
   store i8 %shl59.i.i26, ptr %arrayidx62.i.i27, align 1
   call void @DES_set_odd_parity(ptr noundef nonnull %key.i7) #8
@@ -83,27 +107,39 @@ entry:
   call void @DES_ecb_encrypt(ptr noundef %plaintext, ptr noundef nonnull %add.ptr1, ptr noundef nonnull %ks, i32 noundef 1) #8
   %add.ptr2 = getelementptr inbounds i8, ptr %keys, i64 14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.i28)
+  %14 = load i8, ptr %add.ptr2, align 1
+  store i8 %14, ptr %key.i28, align 1
+  %arrayidx3.i.i29 = getelementptr inbounds i8, ptr %keys, i64 15
+  %15 = load i8, ptr %arrayidx3.i.i29, align 1
+  %or.i.i30 = call i8 @llvm.fshl.i8(i8 %14, i8 %15, i8 7)
   %arrayidx6.i.i31 = getelementptr inbounds i8, ptr %key.i28, i64 1
+  store i8 %or.i.i30, ptr %arrayidx6.i.i31, align 1
+  %arrayidx11.i.i32 = getelementptr inbounds i8, ptr %keys, i64 16
+  %16 = load i8, ptr %arrayidx11.i.i32, align 1
+  %or14.i.i33 = call i8 @llvm.fshl.i8(i8 %15, i8 %16, i8 6)
+  %arrayidx16.i.i34 = getelementptr inbounds i8, ptr %key.i28, i64 2
+  store i8 %or14.i.i33, ptr %arrayidx16.i.i34, align 1
+  %arrayidx21.i.i35 = getelementptr inbounds i8, ptr %keys, i64 17
+  %17 = load i8, ptr %arrayidx21.i.i35, align 1
+  %or24.i.i36 = call i8 @llvm.fshl.i8(i8 %16, i8 %17, i8 5)
+  %arrayidx26.i.i37 = getelementptr inbounds i8, ptr %key.i28, i64 3
+  store i8 %or24.i.i36, ptr %arrayidx26.i.i37, align 1
   %arrayidx31.i.i38 = getelementptr inbounds i8, ptr %keys, i64 18
-  %16 = load i8, ptr %arrayidx31.i.i38, align 1
-  %17 = load <4 x i8>, ptr %add.ptr2, align 1
-  %18 = load i8, ptr %add.ptr2, align 1
-  store i8 %18, ptr %key.i28, align 1
-  %19 = shufflevector <4 x i8> %17, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
-  %20 = insertelement <4 x i8> %19, i8 %16, i64 3
-  %21 = call <4 x i8> @llvm.fshl.v4i8(<4 x i8> %17, <4 x i8> %20, <4 x i8> <i8 7, i8 6, i8 5, i8 4>)
-  store <4 x i8> %21, ptr %arrayidx6.i.i31, align 1
+  %18 = load i8, ptr %arrayidx31.i.i38, align 1
+  %or34.i.i39 = call i8 @llvm.fshl.i8(i8 %17, i8 %18, i8 4)
+  %arrayidx36.i.i40 = getelementptr inbounds i8, ptr %key.i28, i64 4
+  store i8 %or34.i.i39, ptr %arrayidx36.i.i40, align 1
   %arrayidx41.i.i41 = getelementptr inbounds i8, ptr %keys, i64 19
-  %22 = load i8, ptr %arrayidx41.i.i41, align 1
-  %or44.i.i42 = call i8 @llvm.fshl.i8(i8 %16, i8 %22, i8 3)
+  %19 = load i8, ptr %arrayidx41.i.i41, align 1
+  %or44.i.i42 = call i8 @llvm.fshl.i8(i8 %18, i8 %19, i8 3)
   %arrayidx46.i.i43 = getelementptr inbounds i8, ptr %key.i28, i64 5
   store i8 %or44.i.i42, ptr %arrayidx46.i.i43, align 1
   %arrayidx51.i.i44 = getelementptr inbounds i8, ptr %keys, i64 20
-  %23 = load i8, ptr %arrayidx51.i.i44, align 1
-  %or54.i.i45 = call i8 @llvm.fshl.i8(i8 %22, i8 %23, i8 2)
+  %20 = load i8, ptr %arrayidx51.i.i44, align 1
+  %or54.i.i45 = call i8 @llvm.fshl.i8(i8 %19, i8 %20, i8 2)
   %arrayidx56.i.i46 = getelementptr inbounds i8, ptr %key.i28, i64 6
   store i8 %or54.i.i45, ptr %arrayidx56.i.i46, align 1
-  %shl59.i.i47 = shl i8 %23, 1
+  %shl59.i.i47 = shl i8 %20, 1
   %arrayidx62.i.i48 = getelementptr inbounds i8, ptr %key.i28, i64 7
   store i8 %shl59.i.i47, ptr %arrayidx62.i.i48, align 1
   call void @DES_set_odd_parity(ptr noundef nonnull %key.i28) #8
@@ -121,7 +157,7 @@ define hidden noundef i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef %password, ptr 
 entry:
   %key.i7 = alloca [8 x i8], align 1
   %key.i = alloca [8 x i8], align 1
-  %pw = alloca [14 x i8], align 4
+  %pw = alloca [14 x i8], align 1
   %ks = alloca %struct.DES_ks, align 4
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %password) #9
   %spec.select = tail call i64 @llvm.umin.i64(i64 %call, i64 14)
@@ -130,27 +166,39 @@ entry:
   %sub = sub nuw nsw i64 14, %spec.select
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx, i8 0, i64 %sub, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.i)
+  %0 = load i8, ptr %pw, align 1
+  store i8 %0, ptr %key.i, align 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %pw, i64 1
+  %1 = load i8, ptr %arrayidx3.i.i, align 1
+  %or.i.i = call i8 @llvm.fshl.i8(i8 %0, i8 %1, i8 7)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %key.i, i64 1
+  store i8 %or.i.i, ptr %arrayidx6.i.i, align 1
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %pw, i64 2
+  %2 = load i8, ptr %arrayidx11.i.i, align 1
+  %or14.i.i = call i8 @llvm.fshl.i8(i8 %1, i8 %2, i8 6)
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %key.i, i64 2
+  store i8 %or14.i.i, ptr %arrayidx16.i.i, align 1
+  %arrayidx21.i.i = getelementptr inbounds i8, ptr %pw, i64 3
+  %3 = load i8, ptr %arrayidx21.i.i, align 1
+  %or24.i.i = call i8 @llvm.fshl.i8(i8 %2, i8 %3, i8 5)
+  %arrayidx26.i.i = getelementptr inbounds i8, ptr %key.i, i64 3
+  store i8 %or24.i.i, ptr %arrayidx26.i.i, align 1
   %arrayidx31.i.i = getelementptr inbounds i8, ptr %pw, i64 4
-  %0 = load i8, ptr %arrayidx31.i.i, align 4
-  %1 = load <4 x i8>, ptr %pw, align 4
-  %2 = load i8, ptr %pw, align 4
-  store i8 %2, ptr %key.i, align 1
-  %3 = shufflevector <4 x i8> %1, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
-  %4 = insertelement <4 x i8> %3, i8 %0, i64 3
-  %5 = call <4 x i8> @llvm.fshl.v4i8(<4 x i8> %1, <4 x i8> %4, <4 x i8> <i8 7, i8 6, i8 5, i8 4>)
-  store <4 x i8> %5, ptr %arrayidx6.i.i, align 1
+  %4 = load i8, ptr %arrayidx31.i.i, align 1
+  %or34.i.i = call i8 @llvm.fshl.i8(i8 %3, i8 %4, i8 4)
+  %arrayidx36.i.i = getelementptr inbounds i8, ptr %key.i, i64 4
+  store i8 %or34.i.i, ptr %arrayidx36.i.i, align 1
   %arrayidx41.i.i = getelementptr inbounds i8, ptr %pw, i64 5
-  %6 = load i8, ptr %arrayidx41.i.i, align 1
-  %or44.i.i = call i8 @llvm.fshl.i8(i8 %0, i8 %6, i8 3)
+  %5 = load i8, ptr %arrayidx41.i.i, align 1
+  %or44.i.i = call i8 @llvm.fshl.i8(i8 %4, i8 %5, i8 3)
   %arrayidx46.i.i = getelementptr inbounds i8, ptr %key.i, i64 5
   store i8 %or44.i.i, ptr %arrayidx46.i.i, align 1
   %arrayidx51.i.i = getelementptr inbounds i8, ptr %pw, i64 6
-  %7 = load i8, ptr %arrayidx51.i.i, align 2
-  %or54.i.i = call i8 @llvm.fshl.i8(i8 %6, i8 %7, i8 2)
+  %6 = load i8, ptr %arrayidx51.i.i, align 1
+  %or54.i.i = call i8 @llvm.fshl.i8(i8 %5, i8 %6, i8 2)
   %arrayidx56.i.i = getelementptr inbounds i8, ptr %key.i, i64 6
   store i8 %or54.i.i, ptr %arrayidx56.i.i, align 1
-  %shl59.i.i = shl i8 %7, 1
+  %shl59.i.i = shl i8 %6, 1
   %arrayidx62.i.i = getelementptr inbounds i8, ptr %key.i, i64 7
   store i8 %shl59.i.i, ptr %arrayidx62.i.i, align 1
   call void @DES_set_odd_parity(ptr noundef nonnull %key.i) #8
@@ -159,27 +207,39 @@ entry:
   call void @DES_ecb_encrypt(ptr noundef nonnull @Curl_ntlm_core_mk_lm_hash.magic, ptr noundef %lmbuffer, ptr noundef nonnull %ks, i32 noundef 1) #8
   %add.ptr = getelementptr inbounds i8, ptr %pw, i64 7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.i7)
+  %7 = load i8, ptr %add.ptr, align 1
+  store i8 %7, ptr %key.i7, align 1
+  %arrayidx3.i.i8 = getelementptr inbounds i8, ptr %pw, i64 8
+  %8 = load i8, ptr %arrayidx3.i.i8, align 1
+  %or.i.i9 = call i8 @llvm.fshl.i8(i8 %7, i8 %8, i8 7)
   %arrayidx6.i.i10 = getelementptr inbounds i8, ptr %key.i7, i64 1
+  store i8 %or.i.i9, ptr %arrayidx6.i.i10, align 1
+  %arrayidx11.i.i11 = getelementptr inbounds i8, ptr %pw, i64 9
+  %9 = load i8, ptr %arrayidx11.i.i11, align 1
+  %or14.i.i12 = call i8 @llvm.fshl.i8(i8 %8, i8 %9, i8 6)
+  %arrayidx16.i.i13 = getelementptr inbounds i8, ptr %key.i7, i64 2
+  store i8 %or14.i.i12, ptr %arrayidx16.i.i13, align 1
+  %arrayidx21.i.i14 = getelementptr inbounds i8, ptr %pw, i64 10
+  %10 = load i8, ptr %arrayidx21.i.i14, align 1
+  %or24.i.i15 = call i8 @llvm.fshl.i8(i8 %9, i8 %10, i8 5)
+  %arrayidx26.i.i16 = getelementptr inbounds i8, ptr %key.i7, i64 3
+  store i8 %or24.i.i15, ptr %arrayidx26.i.i16, align 1
   %arrayidx31.i.i17 = getelementptr inbounds i8, ptr %pw, i64 11
-  %8 = load i8, ptr %arrayidx31.i.i17, align 1
-  %9 = load <4 x i8>, ptr %add.ptr, align 1
-  %10 = load i8, ptr %add.ptr, align 1
-  store i8 %10, ptr %key.i7, align 1
-  %11 = shufflevector <4 x i8> %9, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
-  %12 = insertelement <4 x i8> %11, i8 %8, i64 3
-  %13 = call <4 x i8> @llvm.fshl.v4i8(<4 x i8> %9, <4 x i8> %12, <4 x i8> <i8 7, i8 6, i8 5, i8 4>)
-  store <4 x i8> %13, ptr %arrayidx6.i.i10, align 1
+  %11 = load i8, ptr %arrayidx31.i.i17, align 1
+  %or34.i.i18 = call i8 @llvm.fshl.i8(i8 %10, i8 %11, i8 4)
+  %arrayidx36.i.i19 = getelementptr inbounds i8, ptr %key.i7, i64 4
+  store i8 %or34.i.i18, ptr %arrayidx36.i.i19, align 1
   %arrayidx41.i.i20 = getelementptr inbounds i8, ptr %pw, i64 12
-  %14 = load i8, ptr %arrayidx41.i.i20, align 4
-  %or44.i.i21 = call i8 @llvm.fshl.i8(i8 %8, i8 %14, i8 3)
+  %12 = load i8, ptr %arrayidx41.i.i20, align 1
+  %or44.i.i21 = call i8 @llvm.fshl.i8(i8 %11, i8 %12, i8 3)
   %arrayidx46.i.i22 = getelementptr inbounds i8, ptr %key.i7, i64 5
   store i8 %or44.i.i21, ptr %arrayidx46.i.i22, align 1
   %arrayidx51.i.i23 = getelementptr inbounds i8, ptr %pw, i64 13
-  %15 = load i8, ptr %arrayidx51.i.i23, align 1
-  %or54.i.i24 = call i8 @llvm.fshl.i8(i8 %14, i8 %15, i8 2)
+  %13 = load i8, ptr %arrayidx51.i.i23, align 1
+  %or54.i.i24 = call i8 @llvm.fshl.i8(i8 %12, i8 %13, i8 2)
   %arrayidx56.i.i25 = getelementptr inbounds i8, ptr %key.i7, i64 6
   store i8 %or54.i.i24, ptr %arrayidx56.i.i25, align 1
-  %shl59.i.i26 = shl i8 %15, 1
+  %shl59.i.i26 = shl i8 %13, 1
   %arrayidx62.i.i27 = getelementptr inbounds i8, ptr %key.i7, i64 7
   store i8 %shl59.i.i26, ptr %arrayidx62.i.i27, align 1
   call void @DES_set_odd_parity(ptr noundef nonnull %key.i7) #8
@@ -461,9 +521,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i8> @llvm.fshl.v4i8(<4 x i8>, <4 x i8>, <4 x i8>) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

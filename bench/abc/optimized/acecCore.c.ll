@@ -50,12 +50,18 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Acec_ManCecSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 0, ptr %2, align 4
   store i32 1000, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
-  store <4 x i32> zeroinitializer, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %4, align 4
+  store i32 -1, ptr %7, align 4
   ret void
 }
 

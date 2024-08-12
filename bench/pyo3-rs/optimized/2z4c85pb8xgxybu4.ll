@@ -3234,64 +3234,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.1, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.2, i64 21)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.2, i64 21)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3307,64 +3311,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.4, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.5, i64 20)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.5, i64 20)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3380,64 +3388,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.7, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.8, i64 24)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.8, i64 24)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3453,64 +3465,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.10, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.11, i64 22)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.11, i64 22)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3526,64 +3542,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.13, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.14, i64 15)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.14, i64 15)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3599,64 +3619,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_87_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.16, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.17, i64 13)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.17, i64 13)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3672,64 +3696,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.19, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.20, i64 17)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.20, i64 17)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3745,64 +3773,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.22, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.23, i64 18)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.23, i64 18)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3818,64 +3850,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.25, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.26, i64 19)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.26, i64 19)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3891,64 +3927,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.28, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.29, i64 23)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.29, i64 23)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3964,64 +4004,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.31, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.32, i64 17)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.32, i64 17)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4037,64 +4081,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.34, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.35, i64 14)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.35, i64 14)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4110,64 +4158,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.37, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.38, i64 18)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.38, i64 18)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4183,64 +4235,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.40, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.41, i64 15)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.41, i64 15)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4256,64 +4312,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.43, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.44, i64 15)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.44, i64 15)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4329,64 +4389,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.46, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.47, i64 24)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.47, i64 24)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4402,64 +4466,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.49, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.50, i64 18)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.50, i64 18)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4475,64 +4543,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.52, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.53, i64 17)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.53, i64 17)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4548,64 +4620,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.55, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.56, i64 15)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.56, i64 15)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4621,64 +4697,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.58, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.59, i64 14)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.59, i64 14)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4694,64 +4774,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.61, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.62, i64 22)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.62, i64 22)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4767,64 +4851,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.64, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.65, i64 21)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.65, i64 21)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4840,64 +4928,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.67, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.68, i64 19)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.68, i64 19)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4913,64 +5005,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.70, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.71, i64 14)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.71, i64 14)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4986,64 +5082,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.73, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.74, i64 18)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.74, i64 18)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5059,64 +5159,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.76, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.77, i64 20)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.77, i64 20)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5132,64 +5236,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.79, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.80, i64 19)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.80, i64 19)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5205,64 +5313,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.82, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.83, i64 25)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.83, i64 25)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5278,64 +5390,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.85, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.86, i64 22)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.86, i64 22)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5351,64 +5467,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.88, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.89, i64 21)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.89, i64 21)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5424,64 +5544,68 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
-  br i1 %.not, label %27, label %12
+  br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = load <2 x ptr>, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.91, ptr %4, align 8
-  %15 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-          to label %18 unwind label %16
-
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
-          to label %34 unwind label %32
+  %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
+          to label %20 unwind label %18
 
 18:                                               ; preds = %12
-  br i1 %15, label %20, label %19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5) #5
+          to label %36 unwind label %34
 
-19:                                               ; preds = %18
+20:                                               ; preds = %12
+  br i1 %17, label %22, label %21
+
+21:                                               ; preds = %20
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %27
+  br label %29
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  %25 = load i32, ptr %24, align 4
-  %.sroa.05.0 = select i1 %23, i32 %25, i32 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.05.0, ptr %26, align 8
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 2
+  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = load i32, ptr %26, align 4
+  %.sroa.05.0 = select i1 %25, i32 %27, i32 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.05.0, ptr %28, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store <2 x ptr> %14, ptr %.sroa.21.0..sroa_idx, align 8
+  store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
-  br label %31
+  br label %33
 
-27:                                               ; preds = %2, %19
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load i32, ptr %28, align 8
-  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %29, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.92, i64 18)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+29:                                               ; preds = %2, %21
+  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = load i32, ptr %30, align 8
+  call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.92, i64 18)
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %20, %27
+33:                                               ; preds = %22, %29
   ret void
 
-32:                                               ; preds = %16
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
   unreachable
 
-34:                                               ; preds = %16
-  resume { ptr, i32 } %17
+36:                                               ; preds = %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: nonlazybind uwtable

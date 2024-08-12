@@ -8,11 +8,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @resetPCanonPermArray_6Vars(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
-  store <4 x i8> <i8 97, i8 98, i8 99, i8 100>, ptr %0, align 1
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
-  store i8 101, ptr %2, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 5
-  store i8 102, ptr %3, align 1
+  store i8 97, ptr %0, align 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 98, ptr %2, align 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 2
+  store i8 99, ptr %3, align 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 3
+  store i8 100, ptr %4, align 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  store i8 101, ptr %5, align 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 5
+  store i8 102, ptr %6, align 1
   ret void
 }
 

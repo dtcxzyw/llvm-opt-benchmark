@@ -3378,7 +3378,9 @@ _ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit
   %.146 = phi ptr [ %169, %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.022, %.lr.ph47.preheader ]
-  %112 = load <2 x i64>, ptr %.146, align 8
+  %.sroa.0.0.copyload.i27 = load i64, ptr %.146, align 8
+  %112 = getelementptr inbounds i8, ptr %.146, i64 8
+  %.sroa.2.8.copyload.i = load i64, ptr %112, align 8
   %113 = load i32, ptr %53, align 8
   %114 = load i32, ptr %54, align 4
   %115 = icmp eq i32 %113, %114
@@ -3498,7 +3500,9 @@ _ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pu
   store i32 %164, ptr %53, align 8
   %165 = sext i32 %163 to i64
   %166 = getelementptr inbounds %"struct.ArgumentShuffle::Move", ptr %162, i64 %165
-  store <2 x i64> %112, ptr %166, align 4
+  store i64 %.sroa.0.0.copyload.i27, ptr %166, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %166, i64 8
+  store i64 %.sroa.2.8.copyload.i, ptr %.sroa.2.0..sroa_idx, align 4
   %167 = getelementptr inbounds i8, ptr %.146, i64 16
   store i8 1, ptr %167, align 8
   %168 = getelementptr inbounds i8, ptr %.146, i64 24

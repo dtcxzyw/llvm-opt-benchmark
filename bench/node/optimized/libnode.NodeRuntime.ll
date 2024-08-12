@@ -227,32 +227,36 @@ define dso_local void @_ZN4node9inspector8protocol11NodeRuntime8Frontend23sendRa
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %0 = load ptr, ptr %this, align 8
+  %1 = load ptr, ptr %notification, align 8
+  %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %notification, i64 8
+  %2 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
   %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %notification, i64 16
-  %1 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
-  %2 = load <2 x ptr>, ptr %notification, align 8
+  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %notification, i8 0, i64 24, i1 false)
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #11, !noalias !8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol23InternalRawNotificationE, i64 16), ptr %call.i, align 8, !noalias !8
   %m_jsonNotification.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_jsonNotification.i.i) #10, !noalias !8
   %m_binaryNotification.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  store <2 x ptr> %2, ptr %m_binaryNotification.i.i, align 8, !noalias !8
+  store ptr %1, ptr %m_binaryNotification.i.i, align 8, !noalias !8
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  store ptr %2, ptr %_M_finish.i.i.i.i.i.i, align 8, !noalias !8
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
-  store ptr %1, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !noalias !8
+  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !noalias !8
   store ptr %call.i, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp) #10
-  %4 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %4, null
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %agg.tmp) #10
+  %5 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i: ; preds = %entry
-  %vtable.i.i = load ptr, ptr %4, align 8
+  %vtable.i.i = load ptr, ptr %5, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
-  %5 = load ptr, ptr %vfn.i.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
+  %6 = load ptr, ptr %vfn.i.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
@@ -665,12 +669,16 @@ entry:
 define linkonce_odr dso_local void @_ZN4node9inspector8protocol23InternalRawNotification17serializeToBinaryEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %m_binaryNotification = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load <2 x ptr>, ptr %m_binaryNotification, align 8
-  store <2 x ptr> %0, ptr %agg.result, align 8
+  %0 = load ptr, ptr %m_binaryNotification, align 8
+  store ptr %0, ptr %agg.result, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %1 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
+  store ptr %1, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %1 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
-  store ptr %1, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
+  store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_binaryNotification, i8 0, i64 24, i1 false)
   ret void
 }

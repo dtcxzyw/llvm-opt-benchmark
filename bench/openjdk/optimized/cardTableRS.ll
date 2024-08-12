@@ -1568,68 +1568,71 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 define internal void @_ZZN11CardTableRS6verifyEvEN23CheckForUnmarkedObjects9do_objectEP7oopDesc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.SerialCheckForUnmarkedOops, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr null, ptr %6, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr null, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV26SerialCheckForUnmarkedOops, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %9, align 8
-  %10 = load i8, ptr @UseCompressedClassPointers, align 1
-  %11 = trunc i8 %10 to i1
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %11, label %13, label %23
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %5, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %7, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %11, align 8
+  %12 = load i8, ptr @UseCompressedClassPointers, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  br i1 %13, label %15, label %25
 
-13:                                               ; preds = %2
-  %14 = load i32, ptr %12, align 8
-  %15 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %16 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %17 = ptrtoint ptr %15 to i64
-  %18 = zext i32 %14 to i64
-  %19 = zext nneg i32 %16 to i64
-  %20 = shl i64 %18, %19
-  %21 = add i64 %20, %17
-  %22 = inttoptr i64 %21 to ptr
+15:                                               ; preds = %2
+  %16 = load i32, ptr %14, align 8
+  %17 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %18 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %19 = ptrtoint ptr %17 to i64
+  %20 = zext i32 %16 to i64
+  %21 = zext nneg i32 %18 to i64
+  %22 = shl i64 %20, %21
+  %23 = add i64 %22, %19
+  %24 = inttoptr i64 %23 to ptr
   br label %_ZN7oopDesc11oop_iterateI26SerialCheckForUnmarkedOopsEEvPT_.exit
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %12, align 8
+25:                                               ; preds = %2
+  %26 = load ptr, ptr %14, align 8
   br label %_ZN7oopDesc11oop_iterateI26SerialCheckForUnmarkedOopsEEvPT_.exit
 
-_ZN7oopDesc11oop_iterateI26SerialCheckForUnmarkedOopsEEvPT_.exit: ; preds = %13, %23
-  %.0.i.i = phi ptr [ %22, %13 ], [ %24, %23 ]
-  %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
-  %26 = load i32, ptr %25, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26SerialCheckForUnmarkedOopsE6_tableE, i64 0, i64 %27
-  %29 = load ptr, ptr %28, align 8
-  call void %29(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef %.0.i.i) #11
-  %30 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %43, label %31
+_ZN7oopDesc11oop_iterateI26SerialCheckForUnmarkedOopsEEvPT_.exit: ; preds = %15, %25
+  %.0.i.i = phi ptr [ %24, %15 ], [ %26, %25 ]
+  %27 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %28 = load i32, ptr %27, align 4
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26SerialCheckForUnmarkedOopsE6_tableE, i64 0, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  call void %31(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef %.0.i.i) #11
+  %32 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %45, label %33
 
-31:                                               ; preds = %_ZN7oopDesc11oop_iterateI26SerialCheckForUnmarkedOopsEEvPT_.exit
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %1 to i64
-  %36 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
-  %37 = zext nneg i32 %36 to i64
-  %38 = lshr i64 %35, %37
-  %39 = getelementptr inbounds i8, ptr %34, i64 %38
-  %40 = load i8, ptr %39, align 1
-  %.not3 = icmp eq i8 %40, -1
-  br i1 %.not3, label %41, label %43
+33:                                               ; preds = %_ZN7oopDesc11oop_iterateI26SerialCheckForUnmarkedOopsEEvPT_.exit
+  %34 = load ptr, ptr %6, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 48
+  %36 = load ptr, ptr %35, align 8
+  %37 = ptrtoint ptr %1 to i64
+  %38 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
+  %39 = zext nneg i32 %38 to i64
+  %40 = lshr i64 %37, %39
+  %41 = getelementptr inbounds i8, ptr %36, i64 %40
+  %42 = load i8, ptr %41, align 1
+  %.not3 = icmp eq i8 %42, -1
+  br i1 %.not3, label %43, label %45
 
-41:                                               ; preds = %31
-  %42 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %42, align 1
+43:                                               ; preds = %33
+  %44 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %44, align 1
   call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.10, i32 noundef 113, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #12
   unreachable
 
-43:                                               ; preds = %31, %_ZN7oopDesc11oop_iterateI26SerialCheckForUnmarkedOopsEEvPT_.exit
+45:                                               ; preds = %33, %_ZN7oopDesc11oop_iterateI26SerialCheckForUnmarkedOopsEEvPT_.exit
   ret void
 }
 

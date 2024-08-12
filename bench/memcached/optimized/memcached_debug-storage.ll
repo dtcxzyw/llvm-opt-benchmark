@@ -2531,18 +2531,32 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define dso_local noalias noundef ptr @storage_init_config(ptr nocapture noundef writeonly %s) local_unnamed_addr #13 {
 entry:
   %call = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #23
+  %ext_item_size = getelementptr inbounds i8, ptr %s, i64 264
+  store i32 512, ptr %ext_item_size, align 8
+  %ext_item_age = getelementptr inbounds i8, ptr %s, i64 268
+  store i32 -1, ptr %ext_item_age, align 4
   %ext_low_ttl = getelementptr inbounds i8, ptr %s, i64 272
+  store i32 0, ptr %ext_low_ttl, align 8
+  %ext_recache_rate = getelementptr inbounds i8, ptr %s, i64 276
+  store i32 2000, ptr %ext_recache_rate, align 4
   %ext_max_frag = getelementptr inbounds i8, ptr %s, i64 296
+  store double 8.000000e-01, ptr %ext_max_frag, align 8
   %ext_drop_unread = getelementptr inbounds i8, ptr %s, i64 312
   store i8 0, ptr %ext_drop_unread, align 8
-  store <4 x i32> <i32 0, i32 2000, i32 4194304, i32 0>, ptr %ext_low_ttl, align 8
+  %ext_wbuf_size = getelementptr inbounds i8, ptr %s, i64 280
+  store i32 4194304, ptr %ext_wbuf_size, align 8
+  %ext_compact_under = getelementptr inbounds i8, ptr %s, i64 284
+  store i32 0, ptr %ext_compact_under, align 4
   %ext_drop_under = getelementptr inbounds i8, ptr %s, i64 288
   store i32 0, ptr %ext_drop_under, align 8
   %ext_max_sleep = getelementptr inbounds i8, ptr %s, i64 292
   store i32 1000000, ptr %ext_max_sleep, align 4
-  store <2 x double> <double 8.000000e-01, double 1.000000e-02>, ptr %ext_max_frag, align 8
+  %slab_automove_freeratio = getelementptr inbounds i8, ptr %s, i64 304
+  store double 1.000000e-02, ptr %slab_automove_freeratio, align 8
+  %ext_page_size = getelementptr inbounds i8, ptr %s, i64 260
+  store i32 67108864, ptr %ext_page_size, align 4
   %ext_io_threadcount = getelementptr inbounds i8, ptr %s, i64 256
-  store <4 x i32> <i32 1, i32 67108864, i32 512, i32 -1>, ptr %ext_io_threadcount, align 8
+  store i32 1, ptr %ext_io_threadcount, align 8
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 260), align 4
   %ext_cf = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %0, ptr %ext_cf, align 8

@@ -183,24 +183,27 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %arrayidx, i64 %indvars.iv.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %1 = shl nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx3.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %1
-  %2 = lshr i8 %0, 2
-  %3 = insertelement <2 x i8> poison, i8 %0, i64 0
-  %4 = insertelement <2 x i8> %3, i8 %2, i64 1
-  %5 = and <2 x i8> %4, <i8 3, i8 3>
-  %6 = zext nneg <2 x i8> %5 to <2 x i16>
-  store <2 x i16> %6, ptr %arrayidx3.i, align 8
-  %7 = lshr i8 %0, 4
-  %8 = and i8 %7, 3
-  %conv19.i = zext nneg i8 %8 to i16
-  %9 = or disjoint i64 %1, 2
-  %arrayidx24.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %9
+  %1 = and i8 %0, 3
+  %conv1.i = zext nneg i8 %1 to i16
+  %2 = shl nuw nsw i64 %indvars.iv.i, 2
+  %arrayidx3.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %2
+  store i16 %conv1.i, ptr %arrayidx3.i, align 8
+  %3 = lshr i8 %0, 2
+  %4 = and i8 %3, 3
+  %conv8.i = zext nneg i8 %4 to i16
+  %5 = or disjoint i64 %2, 1
+  %arrayidx13.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %5
+  store i16 %conv8.i, ptr %arrayidx13.i, align 2
+  %6 = lshr i8 %0, 4
+  %7 = and i8 %6, 3
+  %conv19.i = zext nneg i8 %7 to i16
+  %8 = or disjoint i64 %2, 2
+  %arrayidx24.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %8
   store i16 %conv19.i, ptr %arrayidx24.i, align 4
-  %10 = lshr i8 %0, 6
-  %conv29.i = zext nneg i8 %10 to i16
-  %11 = or disjoint i64 %1, 3
-  %arrayidx34.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %11
+  %9 = lshr i8 %0, 6
+  %conv29.i = zext nneg i8 %9 to i16
+  %10 = or disjoint i64 %2, 3
+  %arrayidx34.i = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %10
   store i16 %conv29.i, ptr %arrayidx34.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256

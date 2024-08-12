@@ -196,7 +196,9 @@ invoke.cont9:                                     ; preds = %invoke.cont5
   %conv = uitofp nneg i32 %add17.i.i to double
   store double %conv, ptr %normal_dist, align 8
   %_M_stddev.i.i = getelementptr inbounds i8, ptr %normal_dist, i64 8
-  store <2 x double> <double 2.000000e+00, double 0.000000e+00>, ptr %_M_stddev.i.i, align 8
+  store double 2.000000e+00, ptr %_M_stddev.i.i, align 8
+  %_M_saved.i = getelementptr inbounds i8, ptr %normal_dist, i64 16
+  store double 0.000000e+00, ptr %_M_saved.i, align 8
   %_M_saved_available.i = getelementptr inbounds i8, ptr %normal_dist, i64 24
   store i8 0, ptr %_M_saved_available.i, align 8
   %rng_checkpoint.sroa.0.0.copyload = load i64, ptr %rng, align 8

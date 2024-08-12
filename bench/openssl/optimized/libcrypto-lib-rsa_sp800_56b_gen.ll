@@ -450,9 +450,10 @@ land.lhs.true:                                    ; preds = %for.cond
   br i1 %cmp25, label %if.then26, label %if.end31
 
 if.then26:                                        ; preds = %land.lhs.true
-  %4 = load <2 x ptr>, ptr %p, align 8
-  %5 = shufflevector <2 x ptr> %4, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %5, ptr %p, align 8
+  %4 = load ptr, ptr %p, align 8
+  %5 = load ptr, ptr %q, align 8
+  store ptr %5, ptr %p, align 8
+  store ptr %4, ptr %q, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then26, %land.lhs.true

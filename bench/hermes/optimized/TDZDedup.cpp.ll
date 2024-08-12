@@ -1584,9 +1584,12 @@ if.end13.i.i.i.i89.i.i.i:                         ; preds = %if.end9.i.i.i.i85.i
 if.end.i.i.i.i25.i:                               ; preds = %if.end13.i.i.i.i89.i.i.i, %if.end.i.i.i.i75.i.i.i
   %cond.sink.i.i.ph.i.i.i.i.i = phi ptr [ %add.ptr21.i.i.i.i83.i.i.i, %if.end.i.i.i.i75.i.i.i ], [ %add.ptr.i.i.i.i94.i.i.i, %if.end13.i.i.i.i89.i.i.i ]
   store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.i.i.i.i.i, align 8
-  %183 = load <2 x i32>, ptr %NumEntries.i.i.i115.i.i.i, align 8
-  %184 = add <2 x i32> %183, <i32 -1, i32 1>
-  store <2 x i32> %184, ptr %NumEntries.i.i.i115.i.i.i, align 8
+  %183 = load i32, ptr %NumEntries.i.i.i115.i.i.i, align 8
+  %sub.i.i.i.i.i.i = add i32 %183, -1
+  store i32 %sub.i.i.i.i.i.i, ptr %NumEntries.i.i.i115.i.i.i, align 8
+  %184 = load i32, ptr %NumTombstones.i.i.i162.i.i.i, align 4
+  %add.i.i.i95.i.i.i = add i32 %184, 1
+  store i32 %add.i.i.i95.i.i.i, ptr %NumTombstones.i.i.i162.i.i.i, align 4
   br label %_ZN6hermes15ScopedHashTableIPNS_5ValueEbE3popERKS2_.exit.i.i.i
 
 _ZN6hermes15ScopedHashTableIPNS_5ValueEbE3popERKS2_.exit.thread.i.i.i: ; preds = %if.else.i73.i.i.i, %if.then.i72.i.i.i

@@ -1466,175 +1466,19 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z24_gmx_sel_evaluate_methodP18gmx_sel_evaluate_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_t(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) #2 {
-  %4 = alloca %"struct.gmx::SelMethodEvalContext", align 16
+  %4 = alloca %"struct.gmx::SelMethodEvalContext", align 8
   tail call void @_Z31_gmx_sel_evaluate_method_paramsP18gmx_sel_evaluate_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_t(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %9, ptr %4, align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %8, ptr %10, align 16
-  %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
-  %13 = load i32, ptr %12, align 8
-  %14 = and i32 %13, 1024
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %24, label %15
-
-15:                                               ; preds = %3
-  %16 = and i32 %13, -1025
-  store i32 %16, ptr %12, align 8
-  %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 72
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 56
-  %23 = load ptr, ptr %22, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %23)
-  %.pre = load ptr, ptr %1, align 8
-  br label %24
-
-24:                                               ; preds = %15, %3
-  %25 = phi ptr [ %.pre, %15 ], [ %11, %3 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 72
-  %27 = load ptr, ptr %26, align 8
-  %.not31 = icmp eq ptr %27, null
-  br i1 %.not31, label %87, label %28
-
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %25, i64 64
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %7, align 8
-  call void @_Z22gmx_ana_poscalc_updateP17gmx_ana_poscalc_tP13gmx_ana_pos_tP15gmx_ana_index_tP10t_trxframePK5t_pbc(ptr noundef nonnull %27, ptr noundef %30, ptr noundef %2, ptr noundef %31, ptr noundef %32)
-  %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 48
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 88
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %33, i64 64
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %33, i64 8
-  %41 = getelementptr inbounds i8, ptr %33, i64 56
-  %42 = load ptr, ptr %41, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %39, ptr noundef nonnull %40, ptr noundef %42)
-  %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 40
-  %45 = load i32, ptr %44, align 8
-  %46 = and i32 %45, 4
-  %.not32 = icmp eq i32 %46, 0
-  br i1 %.not32, label %_ZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_t.exit, label %47
-
-47:                                               ; preds = %28
-  %48 = getelementptr inbounds i8, ptr %43, i64 12
-  %49 = load i32, ptr %48, align 4
-  %50 = load i32, ptr %2, align 8
-  %51 = icmp slt i32 %49, %50
-  br i1 %51, label %52, label %_ZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_t.exit
-
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %43, i64 8
-  %54 = load i32, ptr %53, align 8
-  %cond = icmp eq i32 %54, 2
-  br i1 %cond, label %55, label %86
-
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %43, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %43, i64 64
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 48
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %49, %61
-  br i1 %62, label %64, label %63
-
-63:                                               ; preds = %55
-  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_tENKUlvE_clEv, ptr noundef nonnull @.str.16, i32 noundef 262) #20
-  unreachable
-
-64:                                               ; preds = %55
-  %65 = getelementptr inbounds i8, ptr %59, i64 64
-  %66 = load i32, ptr %65, align 8
-  store i32 %66, ptr %48, align 4
-  %67 = load i32, ptr %60, align 8
-  %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.lr.ph.i, label %_ZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_t.exit
-
-.lr.ph.i:                                         ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %59, i64 56
-  %70 = zext nneg i32 %67 to i64
-  br label %71
-
-71:                                               ; preds = %_ZSt4fillIPffEvT_S1_RKT0_.exit.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %70, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZSt4fillIPffEvT_S1_RKT0_.exit.i ]
-  %.022.i = phi i32 [ %66, %.lr.ph.i ], [ %77, %_ZSt4fillIPffEvT_S1_RKT0_.exit.i ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %72 = load ptr, ptr %69, align 8
-  %73 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv.i
-  %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv.next.i
-  %76 = load i32, ptr %75, align 4
-  %.neg.i = sub i32 %76, %74
-  %77 = add i32 %.neg.i, %.022.i
-  %78 = sext i32 %.022.i to i64
-  %79 = getelementptr inbounds float, ptr %57, i64 %78
-  %80 = getelementptr inbounds float, ptr %57, i64 %indvars.iv.next.i
-  %81 = load float, ptr %80, align 4
-  %.not6.i.i.i.i = icmp eq i32 %76, %74
-  br i1 %.not6.i.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit.i, label %.lr.ph.i.i.i.preheader.i
-
-.lr.ph.i.i.i.preheader.i:                         ; preds = %71
-  %82 = sext i32 %77 to i64
-  %83 = getelementptr inbounds float, ptr %57, i64 %82
-  br label %.lr.ph.i.i.i.i
-
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.preheader.i
-  %.07.i.i.i.i = phi ptr [ %84, %.lr.ph.i.i.i.i ], [ %83, %.lr.ph.i.i.i.preheader.i ]
-  store float %81, ptr %.07.i.i.i.i, align 4
-  %84 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 4
-  %.not.i.i.i.i = icmp eq ptr %84, %79
-  br i1 %.not.i.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
-
-_ZSt4fillIPffEvT_S1_RKT0_.exit.i:                 ; preds = %.lr.ph.i.i.i.i, %71
-  %85 = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %85, label %71, label %_ZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_t.exit, !llvm.loop !16
-
-86:                                               ; preds = %52
-  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ24_gmx_sel_evaluate_methodP18gmx_sel_evaluate_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_tENK3$_0clEv", ptr noundef nonnull @.str.16, i32 noundef 954) #20
-  unreachable
-
-87:                                               ; preds = %24
-  %88 = getelementptr inbounds i8, ptr %25, i64 48
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 80
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %25, i64 8
-  %93 = getelementptr inbounds i8, ptr %25, i64 56
-  %94 = load ptr, ptr %93, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %2, ptr noundef nonnull %92, ptr noundef %94)
-  br label %_ZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_t.exit
-
-_ZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_t.exit: ; preds = %_ZSt4fillIPffEvT_S1_RKT0_.exit.i, %64, %28, %47, %87
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_Z26_gmx_sel_evaluate_modifierP18gmx_sel_evaluate_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_t(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"struct.gmx::SelMethodEvalContext", align 16
-  %5 = alloca %"class.gmx::NotImplementedError", align 8
-  %6 = alloca %"class.gmx::ExceptionInitializer", align 8
-  %7 = alloca %"class.gmx::ExceptionInfo", align 8
-  tail call void @_Z31_gmx_sel_evaluate_method_paramsP18gmx_sel_evaluate_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_t(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2)
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = load <2 x ptr>, ptr %8, align 8
-  store <2 x ptr> %11, ptr %4, align 16
+  store ptr %6, ptr %4, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %8, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %10, ptr %12, align 16
+  store ptr %10, ptr %12, align 8
   %13 = load ptr, ptr %1, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
@@ -1658,83 +1502,246 @@ define void @_Z26_gmx_sel_evaluate_modifierP18gmx_sel_evaluate_tRKSt10shared_ptr
 
 26:                                               ; preds = %17, %3
   %27 = phi ptr [ %.pre, %17 ], [ %13, %3 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds i8, ptr %27, i64 72
   %29 = load ptr, ptr %28, align 8
   %.not31 = icmp eq ptr %29, null
-  br i1 %.not31, label %44, label %30
+  br i1 %.not31, label %89, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
-  %32 = load i32, ptr %31, align 8
-  %.not21 = icmp eq i32 %32, 4
-  br i1 %.not21, label %44, label %33
+  %31 = getelementptr inbounds i8, ptr %27, i64 64
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %9, align 8
+  call void @_Z22gmx_ana_poscalc_updateP17gmx_ana_poscalc_tP13gmx_ana_pos_tP15gmx_ana_index_tP10t_trxframePK5t_pbc(ptr noundef nonnull %29, ptr noundef %32, ptr noundef %2, ptr noundef %33, ptr noundef %34)
+  %35 = load ptr, ptr %1, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 48
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 88
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %35, i64 64
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %35, i64 8
+  %43 = getelementptr inbounds i8, ptr %35, i64 56
+  %44 = load ptr, ptr %43, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %41, ptr noundef nonnull %42, ptr noundef %44)
+  %45 = load ptr, ptr %1, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 40
+  %47 = load i32, ptr %46, align 8
+  %48 = and i32 %47, 4
+  %.not32 = icmp eq i32 %48, 0
+  br i1 %.not32, label %_ZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_t.exit, label %49
 
-33:                                               ; preds = %30
-  %34 = call ptr @__cxa_allocate_exception(i64 24) #18
+49:                                               ; preds = %30
+  %50 = getelementptr inbounds i8, ptr %45, i64 12
+  %51 = load i32, ptr %50, align 4
+  %52 = load i32, ptr %2, align 8
+  %53 = icmp slt i32 %51, %52
+  br i1 %53, label %54, label %_ZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_t.exit
+
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds i8, ptr %45, i64 8
+  %56 = load i32, ptr %55, align 8
+  %cond = icmp eq i32 %56, 2
+  br i1 %cond, label %57, label %88
+
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds i8, ptr %45, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %45, i64 64
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 48
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %51, %63
+  br i1 %64, label %66, label %65
+
+65:                                               ; preds = %57
+  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_tENKUlvE_clEv, ptr noundef nonnull @.str.16, i32 noundef 262) #20
+  unreachable
+
+66:                                               ; preds = %57
+  %67 = getelementptr inbounds i8, ptr %61, i64 64
+  %68 = load i32, ptr %67, align 8
+  store i32 %68, ptr %50, align 4
+  %69 = load i32, ptr %62, align 8
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %.lr.ph.i, label %_ZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_t.exit
+
+.lr.ph.i:                                         ; preds = %66
+  %71 = getelementptr inbounds i8, ptr %61, i64 56
+  %72 = zext nneg i32 %69 to i64
+  br label %73
+
+73:                                               ; preds = %_ZSt4fillIPffEvT_S1_RKT0_.exit.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %72, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZSt4fillIPffEvT_S1_RKT0_.exit.i ]
+  %.022.i = phi i32 [ %68, %.lr.ph.i ], [ %79, %_ZSt4fillIPffEvT_S1_RKT0_.exit.i ]
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
+  %74 = load ptr, ptr %71, align 8
+  %75 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv.i
+  %76 = load i32, ptr %75, align 4
+  %77 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv.next.i
+  %78 = load i32, ptr %77, align 4
+  %.neg.i = sub i32 %78, %76
+  %79 = add i32 %.neg.i, %.022.i
+  %80 = sext i32 %.022.i to i64
+  %81 = getelementptr inbounds float, ptr %59, i64 %80
+  %82 = getelementptr inbounds float, ptr %59, i64 %indvars.iv.next.i
+  %83 = load float, ptr %82, align 4
+  %.not6.i.i.i.i = icmp eq i32 %78, %76
+  br i1 %.not6.i.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit.i, label %.lr.ph.i.i.i.preheader.i
+
+.lr.ph.i.i.i.preheader.i:                         ; preds = %73
+  %84 = sext i32 %79 to i64
+  %85 = getelementptr inbounds float, ptr %59, i64 %84
+  br label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.preheader.i
+  %.07.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i ], [ %85, %.lr.ph.i.i.i.preheader.i ]
+  store float %83, ptr %.07.i.i.i.i, align 4
+  %86 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 4
+  %.not.i.i.i.i = icmp eq ptr %86, %81
+  br i1 %.not.i.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
+
+_ZSt4fillIPffEvT_S1_RKT0_.exit.i:                 ; preds = %.lr.ph.i.i.i.i, %73
+  %87 = icmp sgt i64 %indvars.iv.i, 1
+  br i1 %87, label %73, label %_ZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_t.exit, !llvm.loop !16
+
+88:                                               ; preds = %54
+  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ24_gmx_sel_evaluate_methodP18gmx_sel_evaluate_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_tENK3$_0clEv", ptr noundef nonnull @.str.16, i32 noundef 954) #20
+  unreachable
+
+89:                                               ; preds = %26
+  %90 = getelementptr inbounds i8, ptr %27, i64 48
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 80
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %27, i64 8
+  %95 = getelementptr inbounds i8, ptr %27, i64 56
+  %96 = load ptr, ptr %95, align 8
+  call void %93(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %2, ptr noundef nonnull %94, ptr noundef %96)
+  br label %_ZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_t.exit
+
+_ZN12_GLOBAL__N_123expandValueForPositionsIfEEvPT_PiP13gmx_ana_pos_t.exit: ; preds = %_ZSt4fillIPffEvT_S1_RKT0_.exit.i, %66, %30, %49, %89
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_Z26_gmx_sel_evaluate_modifierP18gmx_sel_evaluate_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_t(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"struct.gmx::SelMethodEvalContext", align 8
+  %5 = alloca %"class.gmx::NotImplementedError", align 8
+  %6 = alloca %"class.gmx::ExceptionInitializer", align 8
+  %7 = alloca %"class.gmx::ExceptionInfo", align 8
+  tail call void @_Z31_gmx_sel_evaluate_method_paramsP18gmx_sel_evaluate_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_t(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2)
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = load ptr, ptr %12, align 8
+  store ptr %9, ptr %4, align 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %11, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %13, ptr %15, align 8
+  %16 = load ptr, ptr %1, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, 1024
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %29, label %20
+
+20:                                               ; preds = %3
+  %21 = and i32 %18, -1025
+  store i32 %21, ptr %17, align 8
+  %22 = load ptr, ptr %1, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 72
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %22, i64 56
+  %28 = load ptr, ptr %27, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %28)
+  %.pre = load ptr, ptr %1, align 8
+  br label %29
+
+29:                                               ; preds = %20, %3
+  %30 = phi ptr [ %.pre, %20 ], [ %16, %3 ]
+  %31 = getelementptr inbounds i8, ptr %30, i64 96
+  %32 = load ptr, ptr %31, align 8
+  %.not31 = icmp eq ptr %32, null
+  br i1 %.not31, label %47, label %33
+
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %35 = load i32, ptr %34, align 8
+  %.not21 = icmp eq i32 %35, 4
+  br i1 %.not21, label %47, label %36
+
+36:                                               ; preds = %33
+  %37 = call ptr @__cxa_allocate_exception(i64 24) #18
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull @.str.30)
-          to label %35 unwind label %.thread
+          to label %38 unwind label %.thread
 
-35:                                               ; preds = %33
+38:                                               ; preds = %36
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-          to label %36 unwind label %.thread28
+          to label %39 unwind label %.thread28
 
-36:                                               ; preds = %35
+39:                                               ; preds = %38
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19NotImplementedErrorE, i64 16), ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr @__PRETTY_FUNCTION__._Z26_gmx_sel_evaluate_modifierP18gmx_sel_evaluate_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_t, ptr %37, align 8
+  %40 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr @__PRETTY_FUNCTION__._Z26_gmx_sel_evaluate_modifierP18gmx_sel_evaluate_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_t, ptr %40, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   store ptr @.str.16, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
   store i32 992, ptr %.sroa.3.0..sroa_idx, align 8
-  invoke void @_ZN3gmxlsINS_19NotImplementedErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::NotImplementedError") align 8 %34, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %38 unwind label %41
+  invoke void @_ZN3gmxlsINS_19NotImplementedErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::NotImplementedError") align 8 %37, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %41 unwind label %44
 
-38:                                               ; preds = %36
-  invoke void @__cxa_throw(ptr %34, ptr nonnull @_ZTIN3gmx19NotImplementedErrorE, ptr nonnull @_ZN3gmx19NotImplementedErrorD2Ev) #20
-          to label %53 unwind label %41
+41:                                               ; preds = %39
+  invoke void @__cxa_throw(ptr %37, ptr nonnull @_ZTIN3gmx19NotImplementedErrorE, ptr nonnull @_ZN3gmx19NotImplementedErrorD2Ev) #20
+          to label %56 unwind label %44
 
-.thread:                                          ; preds = %33
-  %39 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %36
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %43
+  br label %46
 
-.thread28:                                        ; preds = %35
-  %40 = landingpad { ptr, i32 }
+.thread28:                                        ; preds = %38
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #18
-  br label %43
+  br label %46
 
-41:                                               ; preds = %36, %38
-  %.0 = phi i1 [ false, %38 ], [ true, %36 ]
-  %42 = landingpad { ptr, i32 }
+44:                                               ; preds = %39, %41
+  %.0 = phi i1 [ false, %41 ], [ true, %39 ]
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
   call void @_ZN3gmx19NotImplementedErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #18
-  br i1 %.0, label %43, label %52
+  br i1 %.0, label %46, label %55
 
-43:                                               ; preds = %.thread28, %.thread, %41
-  %.pn.pn27 = phi { ptr, i32 } [ %39, %.thread ], [ %42, %41 ], [ %40, %.thread28 ]
-  call void @__cxa_free_exception(ptr %34) #18
-  br label %52
+46:                                               ; preds = %.thread28, %.thread, %44
+  %.pn.pn27 = phi { ptr, i32 } [ %42, %.thread ], [ %45, %44 ], [ %43, %.thread28 ]
+  call void @__cxa_free_exception(ptr %37) #18
+  br label %55
 
-44:                                               ; preds = %30, %26
-  %45 = getelementptr inbounds i8, ptr %27, i64 48
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 88
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %27, i64 8
-  %50 = getelementptr inbounds i8, ptr %27, i64 56
+47:                                               ; preds = %33, %29
+  %48 = getelementptr inbounds i8, ptr %30, i64 48
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 88
   %51 = load ptr, ptr %50, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef null, ptr noundef nonnull %49, ptr noundef %51)
+  %52 = getelementptr inbounds i8, ptr %30, i64 8
+  %53 = getelementptr inbounds i8, ptr %30, i64 56
+  %54 = load ptr, ptr %53, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef null, ptr noundef nonnull %52, ptr noundef %54)
   ret void
 
-52:                                               ; preds = %41, %43
-  %.pn.pn26 = phi { ptr, i32 } [ %42, %41 ], [ %.pn.pn27, %43 ]
+55:                                               ; preds = %44, %46
+  %.pn.pn26 = phi { ptr, i32 } [ %45, %44 ], [ %.pn.pn27, %46 ]
   resume { ptr, i32 } %.pn.pn26
 
-53:                                               ; preds = %38
+56:                                               ; preds = %41
   unreachable
 }
 
@@ -3705,7 +3712,7 @@ define void @_ZN3gmx18SelectionEvaluatorC2Ev(ptr nocapture nonnull readnone alig
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18SelectionEvaluator8evaluateEPNS_19SelectionCollectionEP10t_trxframeP5t_pbc(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.gmx_sel_evaluate_t, align 8
-  %6 = alloca %"class.std::shared_ptr", align 16
+  %6 = alloca %"class.std::shared_ptr", align 8
   %7 = alloca %"class.std::shared_ptr", align 8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 96
@@ -3723,16 +3730,17 @@ define void @_ZN3gmx18SelectionEvaluator8evaluateEPNS_19SelectionCollectionEP10t
   %17 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %3, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %8, i64 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = load <2 x ptr>, ptr %18, align 8
-  store <2 x ptr> %22, ptr %6, align 16
-  %.not.i.i.i = icmp eq ptr %21, null
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %6, align 8
+  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds i8, ptr %8, i64 16
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %23
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %25, 0
   br i1 %.not.i.i.i.i, label %29, label %26
@@ -3752,7 +3760,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %4, %26,
           to label %31 unwind label %97
 
 31:                                               ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
-  %32 = load ptr, ptr %19, align 8
+  %32 = load ptr, ptr %20, align 8
   %.not.i.i.i17 = icmp eq ptr %32, null
   br i1 %.not.i.i.i17, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, label %33
 
@@ -3828,7 +3836,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit: ; preds = %31, %49, %6
   %67 = load ptr, ptr %18, align 8
   store ptr %67, ptr %7, align 8
   %68 = getelementptr inbounds i8, ptr %7, i64 8
-  %69 = load ptr, ptr %20, align 8
+  %69 = load ptr, ptr %21, align 8
   store ptr %69, ptr %68, align 8
   %.not.i.i.i19 = icmp eq ptr %69, null
   br i1 %.not.i.i.i19, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit21, label %70
@@ -4982,10 +4990,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19NotImplementedErrorE, i64 16), ptr %0, align 8
   ret void
@@ -5225,10 +5236,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %0, align 8
   ret void

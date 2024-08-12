@@ -180,7 +180,17 @@ if.end2.i:                                        ; preds = %sw.bb5
   br i1 %cmp7.not.i, label %if.end10.i, label %sw.epilog.thread
 
 if.end10.i:                                       ; preds = %if.end2.i
-  store <8 x i8> <i8 30, i8 0, i8 6, i8 2, i8 31, i8 0, i8 0, i8 2>, ptr %outbuf, align 16
+  store i8 30, ptr %outbuf, align 16
+  %arrayidx12.i = getelementptr inbounds i8, ptr %outbuf, i64 1
+  store i8 0, ptr %arrayidx12.i, align 1
+  %arrayidx13.i = getelementptr inbounds i8, ptr %outbuf, i64 2
+  store i8 6, ptr %arrayidx13.i, align 2
+  %arrayidx14.i = getelementptr inbounds i8, ptr %outbuf, i64 3
+  store i8 2, ptr %arrayidx14.i, align 1
+  store i8 31, ptr %.sink2.i.i.sroa.gep29, align 4
+  store i8 0, ptr %.sink1.i.i.sroa.gep30, align 1
+  store i8 0, ptr %.sink2.i.i.sroa.gep, align 2
+  store i8 2, ptr %.sink1.i.i.sroa.gep, align 1
   %arrayidx19.i = getelementptr inbounds i8, ptr %outbuf, i64 8
   call void @strpadcpy(ptr noundef nonnull %arrayidx19.i, i32 noundef 8, ptr noundef nonnull @.str, i8 noundef signext 32) #9
   %arrayidx20.i = getelementptr inbounds i8, ptr %outbuf, i64 16

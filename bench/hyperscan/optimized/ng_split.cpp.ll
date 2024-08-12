@@ -2299,12 +2299,14 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i15.i
   %22 = load i32, ptr %1, align 8
   store i32 %22, ptr %0, align 8
   store ptr %20, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %23 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i7.i, align 8
-  store <2 x ptr> %23, ptr %_M_left.i.i.i.i.i.i, align 8
+  %23 = load ptr, ptr %_M_left.i.i.i.i.i7.i, align 8
+  store ptr %23, ptr %_M_left.i.i.i.i.i.i, align 8
+  %24 = load ptr, ptr %_M_right.i.i.i.i.i8.i, align 8
+  store ptr %24, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_parent16.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %0, ptr %_M_parent16.i.i.i.i, align 8
-  %24 = load i64, ptr %_M_node_count.i.i.i.i.i9.i, align 8
-  store i64 %24, ptr %_M_node_count.i.i.i.i.i.i, align 8
+  %25 = load i64, ptr %_M_node_count.i.i.i.i.i9.i, align 8
+  store i64 %25, ptr %_M_node_count.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i6.i, align 8
   store ptr %1, ptr %_M_left.i.i.i.i.i7.i, align 8
   store ptr %1, ptr %_M_right.i.i.i.i.i8.i, align 8
@@ -2315,15 +2317,17 @@ if.else.i.i.i:                                    ; preds = %for.end.i
   br i1 %cmp3.not.i.i.i, label %if.then9.i.i.i, label %if.else15.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.else.i.i.i
-  %25 = load i32, ptr %0, align 8
-  store i32 %25, ptr %1, align 8
+  %26 = load i32, ptr %0, align 8
+  store i32 %26, ptr %1, align 8
   store ptr %21, ptr %_M_parent.i.i.i.i.i6.i, align 8
-  %26 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i, align 8
-  store <2 x ptr> %26, ptr %_M_left.i.i.i.i.i7.i, align 8
+  %27 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
+  store ptr %27, ptr %_M_left.i.i.i.i.i7.i, align 8
+  %28 = load ptr, ptr %_M_right.i.i.i.i.i.i, align 8
+  store ptr %28, ptr %_M_right.i.i.i.i.i8.i, align 8
   %_M_parent16.i21.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %1, ptr %_M_parent16.i21.i.i.i, align 8
-  %27 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  store i64 %27, ptr %_M_node_count.i.i.i.i.i9.i, align 8
+  %29 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
+  store i64 %29, ptr %_M_node_count.i.i.i.i.i9.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
   store ptr %0, ptr %_M_left.i.i.i.i.i.i, align 8
   store ptr %0, ptr %_M_right.i.i.i.i.i.i, align 8
@@ -2333,19 +2337,23 @@ if.then9.i.i.i:                                   ; preds = %if.else.i.i.i
 if.else15.i.i.i:                                  ; preds = %if.else.i.i.i
   store ptr %20, ptr %_M_parent.i.i.i.i.i.i, align 8
   store ptr %21, ptr %_M_parent.i.i.i.i.i6.i, align 8
-  %28 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i7.i, align 8
-  %29 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i, align 8
-  store <2 x ptr> %28, ptr %_M_left.i.i.i.i.i.i, align 8
-  store <2 x ptr> %29, ptr %_M_left.i.i.i.i.i7.i, align 8
+  %30 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
+  %31 = load ptr, ptr %_M_left.i.i.i.i.i7.i, align 8
+  store ptr %31, ptr %_M_left.i.i.i.i.i.i, align 8
+  store ptr %30, ptr %_M_left.i.i.i.i.i7.i, align 8
+  %32 = load ptr, ptr %_M_right.i.i.i.i.i.i, align 8
+  %33 = load ptr, ptr %_M_right.i.i.i.i.i8.i, align 8
+  store ptr %33, ptr %_M_right.i.i.i.i.i.i, align 8
+  store ptr %32, ptr %_M_right.i.i.i.i.i8.i, align 8
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %0, ptr %_M_parent.i.i.i, align 8
-  %30 = load ptr, ptr %_M_parent.i.i.i.i.i6.i, align 8
-  %_M_parent26.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = load ptr, ptr %_M_parent.i.i.i.i.i6.i, align 8
+  %_M_parent26.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %1, ptr %_M_parent26.i.i.i, align 8
-  %31 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %32 = load i64, ptr %_M_node_count.i.i.i.i.i9.i, align 8
-  store i64 %32, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  store i64 %31, ptr %_M_node_count.i.i.i.i.i9.i, align 8
+  %35 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
+  %36 = load i64, ptr %_M_node_count.i.i.i.i.i9.i, align 8
+  store i64 %36, ptr %_M_node_count.i.i.i.i.i.i, align 8
+  store i64 %35, ptr %_M_node_count.i.i.i.i.i9.i, align 8
   br label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE4swapERSC_.exit.i
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE4swapERSC_.exit.i: ; preds = %if.else15.i.i.i, %if.then9.i.i.i, %if.then4.i.i.i, %if.then.i.i15.i, %invoke.cont19.lr.ph.i
@@ -2357,41 +2365,41 @@ for.end29.i.loopexit:                             ; preds = %_ZNSt3setIN3ue212gr
   %_M_finish.i20.i.phi.trans.insert = getelementptr inbounds i8, ptr %rhs_pivots, i64 8
   %.pre12 = load ptr, ptr %_M_finish.i20.i.phi.trans.insert, align 8
   %.pre13 = load ptr, ptr %rhs_pivots, align 8
-  %33 = ptrtoint ptr %.pre12 to i64
+  %37 = ptrtoint ptr %.pre12 to i64
   br label %for.end29.i
 
 for.end29.i:                                      ; preds = %for.end29.i.loopexit, %invoke.cont2.i
-  %34 = phi ptr [ %.pre13, %for.end29.i.loopexit ], [ null, %invoke.cont2.i ]
-  %sub.ptr.lhs.cast.i.i.i = phi i64 [ %33, %for.end29.i.loopexit ], [ 0, %invoke.cont2.i ]
-  %35 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %34 to i64
+  %38 = phi ptr [ %.pre13, %for.end29.i.loopexit ], [ null, %invoke.cont2.i ]
+  %sub.ptr.lhs.cast.i.i.i = phi i64 [ %37, %for.end29.i.loopexit ], [ 0, %invoke.cont2.i ]
+  %39 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %add.ptr.i.i22.i = getelementptr inbounds i8, ptr %34, i64 %sub.ptr.sub.i.i.i
-  invoke void @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE15_M_range_insertISt23_Rb_tree_const_iteratorIS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EET_SI_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %rhs_pivots, ptr %add.ptr.i.i22.i, ptr %35, ptr nonnull %0)
+  %add.ptr.i.i22.i = getelementptr inbounds i8, ptr %38, i64 %sub.ptr.sub.i.i.i
+  invoke void @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE15_M_range_insertISt23_Rb_tree_const_iteratorIS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EET_SI_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %rhs_pivots, ptr %add.ptr.i.i22.i, ptr %39, ptr nonnull %0)
           to label %invoke.cont43.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont43.i:                                  ; preds = %for.end29.i
-  %36 = load ptr, ptr %_M_parent.i.i.i.i.i6.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %adj_temp.i, ptr noundef %36)
+  %40 = load ptr, ptr %_M_parent.i.i.i.i.i6.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %adj_temp.i, ptr noundef %40)
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit.i unwind label %terminate.lpad.i.i25.i
 
 terminate.lpad.i.i25.i:                           ; preds = %invoke.cont43.i
-  %37 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #20
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #20
   unreachable
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit.i: ; preds = %invoke.cont43.i
-  %39 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %adj.i, ptr noundef %39)
+  %43 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %adj.i, ptr noundef %43)
           to label %invoke.cont unwind label %terminate.lpad.i.i27.i
 
 terminate.lpad.i.i27.i:                           ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit.i
-  %40 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #20
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #20
   unreachable
 
 invoke.cont:                                      ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit.i
@@ -2405,30 +2413,30 @@ invoke.cont1:                                     ; preds = %invoke.cont
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont1
-  %42 = load ptr, ptr %rhs_pivots, align 8
-  %tobool.not.i.i.i = icmp eq ptr %42, null
+  %46 = load ptr, ptr %rhs_pivots, align 8
+  %tobool.not.i.i.i = icmp eq ptr %46, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %invoke.cont2
-  call void @_ZdlPv(ptr noundef nonnull %42) #18
+  call void @_ZdlPv(ptr noundef nonnull %46) #18
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit: ; preds = %invoke.cont2, %if.then.i.i.i4
   ret void
 
 lpad:                                             ; preds = %invoke.cont1, %invoke.cont
-  %43 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %43, %lpad ], [ %lpad.phi.i, %lpad.i ]
-  %44 = load ptr, ptr %rhs_pivots, align 8
-  %tobool.not.i.i.i5 = icmp eq ptr %44, null
+  %eh.lpad-body = phi { ptr, i32 } [ %47, %lpad ], [ %lpad.phi.i, %lpad.i ]
+  %48 = load ptr, ptr %rhs_pivots, align 8
+  %tobool.not.i.i.i5 = icmp eq ptr %48, null
   br i1 %tobool.not.i.i.i5, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit7, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %lpad.body
-  call void @_ZdlPv(ptr noundef nonnull %44) #18
+  call void @_ZdlPv(ptr noundef nonnull %48) #18
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit7
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit7: ; preds = %lpad.body, %if.then.i.i.i6

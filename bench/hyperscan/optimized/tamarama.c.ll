@@ -480,25 +480,29 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   %hlength7.i.i = getelementptr inbounds i8, ptr %q1, i64 64
   store i64 %14, ptr %hlength7.i.i, align 8
   %cb.i.i = getelementptr inbounds i8, ptr %q, i64 88
+  %15 = load ptr, ptr %cb.i.i, align 8
   %cb8.i.i = getelementptr inbounds i8, ptr %q1, i64 88
-  %15 = load <2 x ptr>, ptr %cb.i.i, align 8
-  store <2 x ptr> %15, ptr %cb8.i.i, align 8
+  store ptr %15, ptr %cb8.i.i, align 8
+  %context.i.i = getelementptr inbounds i8, ptr %q, i64 96
+  %16 = load ptr, ptr %context.i.i, align 8
+  %context9.i.i = getelementptr inbounds i8, ptr %q1, i64 96
+  store ptr %16, ptr %context9.i.i, align 8
   %scratch.i.i = getelementptr inbounds i8, ptr %q, i64 72
-  %16 = load ptr, ptr %scratch.i.i, align 8
+  %17 = load ptr, ptr %scratch.i.i, align 8
   %scratch10.i.i = getelementptr inbounds i8, ptr %q1, i64 72
-  store ptr %16, ptr %scratch10.i.i, align 8
+  store ptr %17, ptr %scratch10.i.i, align 8
   %report_current.i.i = getelementptr inbounds i8, ptr %q, i64 80
-  %17 = load i8, ptr %report_current.i.i, align 8
+  %18 = load i8, ptr %report_current.i.i, align 8
   %report_current11.i.i = getelementptr inbounds i8, ptr %q1, i64 80
-  store i8 %17, ptr %report_current11.i.i, align 8
+  store i8 %18, ptr %report_current11.i.i, align 8
   %cur1.i = getelementptr inbounds i8, ptr %q, i64 8
-  %18 = load i32, ptr %cur1.i, align 8
-  %inc.i = add i32 %18, 1
+  %19 = load i32, ptr %cur1.i, align 8
+  %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %cur1.i, align 8
   %cur2.i = getelementptr inbounds i8, ptr %q1, i64 8
-  store i32 %18, ptr %cur2.i, align 8
+  store i32 %19, ptr %cur2.i, align 8
   %items.i = getelementptr inbounds i8, ptr %q1, i64 104
-  %idxprom.i = zext i32 %18 to i64
+  %idxprom.i = zext i32 %19 to i64
   %arrayidx.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i
   %items3.i = getelementptr inbounds i8, ptr %q, i64 104
   %arrayidx5.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items3.i, i64 0, i64 %idxprom.i
@@ -506,7 +510,7 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   %end.i = getelementptr inbounds i8, ptr %q1, i64 12
   store i32 %inc.i, ptr %end.i, align 4
   call fastcc void @copyQueueItems(ptr noundef nonnull readonly %add.ptr, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull %q, ptr noundef nonnull %q1, i32 noundef %retval.i.0.i)
-  store i32 %18, ptr %cur1.i, align 8
+  store i32 %19, ptr %cur1.i, align 8
   %call3 = call signext i8 @nfaReportCurrentMatches(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %q1) #6
   br label %return
 
@@ -602,25 +606,29 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   %hlength7.i.i = getelementptr inbounds i8, ptr %q1, i64 64
   store i64 %14, ptr %hlength7.i.i, align 8
   %cb.i.i = getelementptr inbounds i8, ptr %q, i64 88
+  %15 = load ptr, ptr %cb.i.i, align 8
   %cb8.i.i = getelementptr inbounds i8, ptr %q1, i64 88
-  %15 = load <2 x ptr>, ptr %cb.i.i, align 8
-  store <2 x ptr> %15, ptr %cb8.i.i, align 8
+  store ptr %15, ptr %cb8.i.i, align 8
+  %context.i.i = getelementptr inbounds i8, ptr %q, i64 96
+  %16 = load ptr, ptr %context.i.i, align 8
+  %context9.i.i = getelementptr inbounds i8, ptr %q1, i64 96
+  store ptr %16, ptr %context9.i.i, align 8
   %scratch.i.i = getelementptr inbounds i8, ptr %q, i64 72
-  %16 = load ptr, ptr %scratch.i.i, align 8
+  %17 = load ptr, ptr %scratch.i.i, align 8
   %scratch10.i.i = getelementptr inbounds i8, ptr %q1, i64 72
-  store ptr %16, ptr %scratch10.i.i, align 8
+  store ptr %17, ptr %scratch10.i.i, align 8
   %report_current.i.i = getelementptr inbounds i8, ptr %q, i64 80
-  %17 = load i8, ptr %report_current.i.i, align 8
+  %18 = load i8, ptr %report_current.i.i, align 8
   %report_current11.i.i = getelementptr inbounds i8, ptr %q1, i64 80
-  store i8 %17, ptr %report_current11.i.i, align 8
+  store i8 %18, ptr %report_current11.i.i, align 8
   %cur1.i = getelementptr inbounds i8, ptr %q, i64 8
-  %18 = load i32, ptr %cur1.i, align 8
-  %inc.i = add i32 %18, 1
+  %19 = load i32, ptr %cur1.i, align 8
+  %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %cur1.i, align 8
   %cur2.i = getelementptr inbounds i8, ptr %q1, i64 8
-  store i32 %18, ptr %cur2.i, align 8
+  store i32 %19, ptr %cur2.i, align 8
   %items.i = getelementptr inbounds i8, ptr %q1, i64 104
-  %idxprom.i = zext i32 %18 to i64
+  %idxprom.i = zext i32 %19 to i64
   %arrayidx.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i
   %items3.i = getelementptr inbounds i8, ptr %q, i64 104
   %arrayidx5.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items3.i, i64 0, i64 %idxprom.i
@@ -628,7 +636,7 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   %end.i = getelementptr inbounds i8, ptr %q1, i64 12
   store i32 %inc.i, ptr %end.i, align 4
   call fastcc void @copyQueueItems(ptr noundef nonnull readonly %add.ptr, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull %q, ptr noundef nonnull %q1, i32 noundef %retval.i.0.i)
-  store i32 %18, ptr %cur1.i, align 8
+  store i32 %19, ptr %cur1.i, align 8
   %call3 = call signext i8 @nfaInAcceptState(ptr noundef nonnull %add.ptr.i, i32 noundef %report, ptr noundef nonnull %q1) #6
   br label %return
 
@@ -724,25 +732,29 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   %hlength7.i.i = getelementptr inbounds i8, ptr %q1, i64 64
   store i64 %14, ptr %hlength7.i.i, align 8
   %cb.i.i = getelementptr inbounds i8, ptr %q, i64 88
+  %15 = load ptr, ptr %cb.i.i, align 8
   %cb8.i.i = getelementptr inbounds i8, ptr %q1, i64 88
-  %15 = load <2 x ptr>, ptr %cb.i.i, align 8
-  store <2 x ptr> %15, ptr %cb8.i.i, align 8
+  store ptr %15, ptr %cb8.i.i, align 8
+  %context.i.i = getelementptr inbounds i8, ptr %q, i64 96
+  %16 = load ptr, ptr %context.i.i, align 8
+  %context9.i.i = getelementptr inbounds i8, ptr %q1, i64 96
+  store ptr %16, ptr %context9.i.i, align 8
   %scratch.i.i = getelementptr inbounds i8, ptr %q, i64 72
-  %16 = load ptr, ptr %scratch.i.i, align 8
+  %17 = load ptr, ptr %scratch.i.i, align 8
   %scratch10.i.i = getelementptr inbounds i8, ptr %q1, i64 72
-  store ptr %16, ptr %scratch10.i.i, align 8
+  store ptr %17, ptr %scratch10.i.i, align 8
   %report_current.i.i = getelementptr inbounds i8, ptr %q, i64 80
-  %17 = load i8, ptr %report_current.i.i, align 8
+  %18 = load i8, ptr %report_current.i.i, align 8
   %report_current11.i.i = getelementptr inbounds i8, ptr %q1, i64 80
-  store i8 %17, ptr %report_current11.i.i, align 8
+  store i8 %18, ptr %report_current11.i.i, align 8
   %cur1.i = getelementptr inbounds i8, ptr %q, i64 8
-  %18 = load i32, ptr %cur1.i, align 8
-  %inc.i = add i32 %18, 1
+  %19 = load i32, ptr %cur1.i, align 8
+  %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %cur1.i, align 8
   %cur2.i = getelementptr inbounds i8, ptr %q1, i64 8
-  store i32 %18, ptr %cur2.i, align 8
+  store i32 %19, ptr %cur2.i, align 8
   %items.i = getelementptr inbounds i8, ptr %q1, i64 104
-  %idxprom.i = zext i32 %18 to i64
+  %idxprom.i = zext i32 %19 to i64
   %arrayidx.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i
   %items3.i = getelementptr inbounds i8, ptr %q, i64 104
   %arrayidx5.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items3.i, i64 0, i64 %idxprom.i
@@ -750,7 +762,7 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   %end.i = getelementptr inbounds i8, ptr %q1, i64 12
   store i32 %inc.i, ptr %end.i, align 4
   call fastcc void @copyQueueItems(ptr noundef nonnull readonly %add.ptr, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull %q, ptr noundef nonnull %q1, i32 noundef %retval.i.0.i)
-  store i32 %18, ptr %cur1.i, align 8
+  store i32 %19, ptr %cur1.i, align 8
   %call3 = call signext i8 @nfaInAnyAcceptState(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %q1) #6
   br label %return
 
@@ -889,17 +901,21 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   %hlength7.i = getelementptr inbounds i8, ptr %q1, i64 64
   store i64 %14, ptr %hlength7.i, align 8
   %cb.i = getelementptr inbounds i8, ptr %q, i64 88
+  %15 = load ptr, ptr %cb.i, align 8
   %cb8.i = getelementptr inbounds i8, ptr %q1, i64 88
-  %15 = load <2 x ptr>, ptr %cb.i, align 8
-  store <2 x ptr> %15, ptr %cb8.i, align 8
+  store ptr %15, ptr %cb8.i, align 8
+  %context.i = getelementptr inbounds i8, ptr %q, i64 96
+  %16 = load ptr, ptr %context.i, align 8
+  %context9.i = getelementptr inbounds i8, ptr %q1, i64 96
+  store ptr %16, ptr %context9.i, align 8
   %scratch.i = getelementptr inbounds i8, ptr %q, i64 72
-  %16 = load ptr, ptr %scratch.i, align 8
+  %17 = load ptr, ptr %scratch.i, align 8
   %scratch10.i = getelementptr inbounds i8, ptr %q1, i64 72
-  store ptr %16, ptr %scratch10.i, align 8
+  store ptr %17, ptr %scratch10.i, align 8
   %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
-  %17 = load i8, ptr %report_current.i, align 8
+  %18 = load i8, ptr %report_current.i, align 8
   %report_current11.i = getelementptr inbounds i8, ptr %q1, i64 80
-  store i8 %17, ptr %report_current11.i, align 8
+  store i8 %18, ptr %report_current11.i, align 8
   %call5 = call signext i8 @nfaQueueCompressState(ptr noundef nonnull %add.ptr.i29, ptr noundef nonnull %q1, i64 noundef %loc) #6
   br label %return
 
@@ -1060,25 +1076,29 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   %hlength7.i.i = getelementptr inbounds i8, ptr %q1, i64 64
   store i64 %14, ptr %hlength7.i.i, align 8
   %cb.i.i = getelementptr inbounds i8, ptr %q, i64 88
+  %15 = load ptr, ptr %cb.i.i, align 8
   %cb8.i.i = getelementptr inbounds i8, ptr %q1, i64 88
-  %15 = load <2 x ptr>, ptr %cb.i.i, align 8
-  store <2 x ptr> %15, ptr %cb8.i.i, align 8
+  store ptr %15, ptr %cb8.i.i, align 8
+  %context.i.i = getelementptr inbounds i8, ptr %q, i64 96
+  %16 = load ptr, ptr %context.i.i, align 8
+  %context9.i.i = getelementptr inbounds i8, ptr %q1, i64 96
+  store ptr %16, ptr %context9.i.i, align 8
   %scratch.i.i = getelementptr inbounds i8, ptr %q, i64 72
-  %16 = load ptr, ptr %scratch.i.i, align 8
+  %17 = load ptr, ptr %scratch.i.i, align 8
   %scratch10.i.i = getelementptr inbounds i8, ptr %q1, i64 72
-  store ptr %16, ptr %scratch10.i.i, align 8
+  store ptr %17, ptr %scratch10.i.i, align 8
   %report_current.i.i = getelementptr inbounds i8, ptr %q, i64 80
-  %17 = load i8, ptr %report_current.i.i, align 8
+  %18 = load i8, ptr %report_current.i.i, align 8
   %report_current11.i.i = getelementptr inbounds i8, ptr %q1, i64 80
-  store i8 %17, ptr %report_current11.i.i, align 8
+  store i8 %18, ptr %report_current11.i.i, align 8
   %cur1.i = getelementptr inbounds i8, ptr %q, i64 8
-  %18 = load i32, ptr %cur1.i, align 8
-  %inc.i = add i32 %18, 1
+  %19 = load i32, ptr %cur1.i, align 8
+  %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %cur1.i, align 8
   %cur2.i = getelementptr inbounds i8, ptr %q1, i64 8
-  store i32 %18, ptr %cur2.i, align 8
+  store i32 %19, ptr %cur2.i, align 8
   %items.i = getelementptr inbounds i8, ptr %q1, i64 104
-  %idxprom.i = zext i32 %18 to i64
+  %idxprom.i = zext i32 %19 to i64
   %arrayidx.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i
   %items3.i = getelementptr inbounds i8, ptr %q, i64 104
   %arrayidx5.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items3.i, i64 0, i64 %idxprom.i
@@ -1086,7 +1106,7 @@ if.end:                                           ; preds = %loadActiveIdx.exit
   %end.i = getelementptr inbounds i8, ptr %q1, i64 12
   store i32 %inc.i, ptr %end.i, align 4
   call fastcc void @copyQueueItems(ptr noundef nonnull readonly %add.ptr, ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull %q, ptr noundef nonnull %q1, i32 noundef %retval.i.0.i)
-  store i32 %18, ptr %cur1.i, align 8
+  store i32 %19, ptr %cur1.i, align 8
   %call3 = call i32 @nfaGetZombieStatus(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %q1, i64 noundef %loc) #6
   br label %return
 

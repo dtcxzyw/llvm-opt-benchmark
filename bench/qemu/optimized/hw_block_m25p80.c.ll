@@ -3407,18 +3407,21 @@ sw.bb:                                            ; preds = %entry
   %volatile_cfg = getelementptr inbounds i8, ptr %s, i64 240
   %nonvolatile_cfg = getelementptr inbounds i8, ptr %s, i64 236
   %2 = load i32, ptr %nonvolatile_cfg, align 4
+  %and = and i32 %2, 3584
+  %cmp = icmp eq i32 %and, 3584
+  %spec.store.select = select i1 %cmp, i32 11, i32 3
   %3 = lshr i32 %2, 8
+  %shl5.i = and i32 %3, 240
+  %or.i = or disjoint i32 %spec.store.select, %shl5.i
+  store i32 %or.i, ptr %volatile_cfg, align 8
+  %enh_volatile_cfg = getelementptr inbounds i8, ptr %s, i64 244
+  %and19 = and i32 %2, 4
+  %tobool.not = icmp eq i32 %and19, 0
+  %spec.store.select49 = select i1 %tobool.not, i32 31, i32 95
   %and25 = shl i32 %2, 4
-  %4 = insertelement <2 x i32> poison, i32 %2, i64 0
-  %5 = shufflevector <2 x i32> %4, <2 x i32> poison, <2 x i32> zeroinitializer
-  %6 = and <2 x i32> %5, <i32 3584, i32 4>
-  %7 = icmp eq <2 x i32> %6, <i32 3584, i32 0>
-  %8 = select <2 x i1> %7, <2 x i32> <i32 11, i32 31>, <2 x i32> <i32 3, i32 95>
-  %9 = insertelement <2 x i32> poison, i32 %3, i64 0
-  %10 = insertelement <2 x i32> %9, i32 %and25, i64 1
-  %11 = and <2 x i32> %10, <i32 240, i32 128>
-  %12 = or disjoint <2 x i32> %8, %11
-  store <2 x i32> %12, ptr %volatile_cfg, align 8
+  %4 = and i32 %and25, 128
+  %spec.select = or disjoint i32 %spec.store.select49, %4
+  store i32 %spec.select, ptr %enh_volatile_cfg, align 4
   %and32 = and i32 %2, 1
   %tobool33.not = icmp eq i32 %and32, 0
   br i1 %tobool33.not, label %if.then34, label %if.end36
@@ -3434,10 +3437,10 @@ if.end36:                                         ; preds = %if.then34, %sw.bb
 
 if.then40:                                        ; preds = %if.end36
   %size = getelementptr inbounds i8, ptr %s, i64 192
-  %13 = load i32, ptr %size, align 8
-  %div48 = lshr i32 %13, 24
-  %14 = trunc nuw i32 %div48 to i8
-  %conv = add i8 %14, -1
+  %5 = load i32, ptr %size, align 8
+  %div48 = lshr i32 %5, 24
+  %6 = trunc nuw i32 %div48 to i8
+  %conv = add i8 %6, -1
   store i8 %conv, ptr %ear, align 4
   br label %sw.epilog
 
@@ -3449,44 +3452,54 @@ sw.bb43:                                          ; preds = %entry
 sw.bb45:                                          ; preds = %entry
   %quad_enable = getelementptr inbounds i8, ptr %s, i64 260
   %spansion_cr1nv = getelementptr inbounds i8, ptr %s, i64 248
+  %7 = load i8, ptr %spansion_cr1nv, align 8
   %spansion_cr1v = getelementptr inbounds i8, ptr %s, i64 252
-  %15 = load <4 x i8>, ptr %spansion_cr1nv, align 8
-  store <4 x i8> %15, ptr %spansion_cr1v, align 4
-  %16 = extractelement <4 x i8> %15, i64 0
-  %17 = and i8 %16, 1
-  store i8 %17, ptr %quad_enable, align 4
-  %18 = extractelement <4 x i8> %15, i64 1
-  %.lobit = lshr i8 %18, 7
+  store i8 %7, ptr %spansion_cr1v, align 4
+  %spansion_cr2nv = getelementptr inbounds i8, ptr %s, i64 249
+  %8 = load i8, ptr %spansion_cr2nv, align 1
+  %spansion_cr2v = getelementptr inbounds i8, ptr %s, i64 253
+  store i8 %8, ptr %spansion_cr2v, align 1
+  %spansion_cr3nv = getelementptr inbounds i8, ptr %s, i64 250
+  %9 = load i8, ptr %spansion_cr3nv, align 2
+  %spansion_cr3v = getelementptr inbounds i8, ptr %s, i64 254
+  store i8 %9, ptr %spansion_cr3v, align 2
+  %spansion_cr4nv = getelementptr inbounds i8, ptr %s, i64 251
+  %10 = load i8, ptr %spansion_cr4nv, align 1
+  %spansion_cr4v = getelementptr inbounds i8, ptr %s, i64 255
+  store i8 %10, ptr %spansion_cr4v, align 1
+  %11 = and i8 %7, 1
+  store i8 %11, ptr %quad_enable, align 4
+  %.lobit = lshr i8 %8, 7
   store i8 %.lobit, ptr %four_bytes_address_mode, align 2
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %if.end36, %if.then40, %sw.bb45, %sw.bb43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %19 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %19, 0
-  %20 = load i16, ptr @_TRACE_M25P80_RESET_DONE_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %20, 0
+  %12 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %12, 0
+  %13 = load i16, ptr @_TRACE_M25P80_RESET_DONE_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %13, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_m25p80_reset_done.exit
 
 land.lhs.true5.i.i:                               ; preds = %sw.epilog
-  %21 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %21, 32768
+  %14 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %14, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_m25p80_reset_done.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %22 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %22 to i1
+  %15 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %15 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
-  %23 = load i64, ptr %_now.i.i, align 8
+  %16 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %24 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.190, i32 noundef %call10.i.i, i64 noundef %23, i64 noundef %24, ptr noundef nonnull %s) #13
+  %17 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.190, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef nonnull %s) #13
   br label %trace_m25p80_reset_done.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i

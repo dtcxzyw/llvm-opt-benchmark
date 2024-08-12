@@ -816,44 +816,70 @@ define hidden { i64, i8 } @_ZN5uu_wc4utf810Incomplete20try_complete_offsets17h99
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN70_$LT$uu_wc..word_count..WordCount$u20$as$u20$core..ops..arith..Add$GT$3add17h2230c0a7f906b241E"(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, i64, i64 }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
-  %7 = load i64, ptr %6, align 8, !noundef !16
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
-  %9 = load i64, ptr %8, align 8, !noundef !16
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 %9)
-  %10 = load <2 x i64>, ptr %1, align 8
-  %11 = load <2 x i64>, ptr %2, align 8
-  %12 = add <2 x i64> %11, %10
-  store <2 x i64> %12, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = load <2 x i64>, ptr %4, align 8
-  %15 = load <2 x i64>, ptr %5, align 8
-  %16 = add <2 x i64> %15, %14
-  store <2 x i64> %16, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.0.sroa.speculated.i, ptr %17, align 8
+  %4 = load i64, ptr %1, align 8, !noundef !16
+  %5 = load i64, ptr %2, align 8, !noundef !16
+  %6 = add i64 %5, %4
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load i64, ptr %7, align 8, !noundef !16
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = load i64, ptr %9, align 8, !noundef !16
+  %11 = add i64 %10, %8
+  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = load i64, ptr %12, align 8, !noundef !16
+  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !16
+  %16 = add i64 %15, %13
+  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = load i64, ptr %17, align 8, !noundef !16
+  %19 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = load i64, ptr %19, align 8, !noundef !16
+  %21 = add i64 %20, %18
+  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = load i64, ptr %22, align 8, !noundef !16
+  %24 = getelementptr inbounds i8, ptr %2, i64 32
+  %25 = load i64, ptr %24, align 8, !noundef !16
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %23, i64 %25)
+  store i64 %6, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %11, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %16, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %21, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %.0.sroa.speculated.i, ptr %29, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN76_$LT$uu_wc..word_count..WordCount$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hac5b7df25e0263e5E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+  %.sroa.01.0.copyload = load i64, ptr %0, align 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.42.0.copyload = load i64, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.53.0.copyload = load i64, ptr %.sroa.53.0..sroa_idx, align 8
+  %.sroa.64.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.64.0.copyload = load i64, ptr %.sroa.64.0..sroa_idx, align 8
   %.sroa.75.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.75.0.copyload = load i64, ptr %.sroa.75.0..sroa_idx, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
-  %5 = load i64, ptr %4, align 8, !alias.scope !108, !noalias !111, !noundef !16
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.75.0.copyload, i64 %5)
-  %6 = load <2 x i64>, ptr %0, align 8
-  %7 = load <2 x i64>, ptr %1, align 8, !alias.scope !108, !noalias !111
-  %8 = add <2 x i64> %7, %6
-  store <2 x i64> %8, ptr %0, align 8
-  %9 = load <2 x i64>, ptr %.sroa.53.0..sroa_idx, align 8
-  %10 = load <2 x i64>, ptr %3, align 8, !alias.scope !108, !noalias !111
-  %11 = add <2 x i64> %10, %9
-  store <2 x i64> %11, ptr %.sroa.53.0..sroa_idx, align 8
+  %3 = load i64, ptr %1, align 8, !alias.scope !108, !noalias !111, !noundef !16
+  %4 = add i64 %3, %.sroa.01.0.copyload
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = load i64, ptr %5, align 8, !alias.scope !108, !noalias !111, !noundef !16
+  %7 = add i64 %6, %.sroa.42.0.copyload
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load i64, ptr %8, align 8, !alias.scope !108, !noalias !111, !noundef !16
+  %10 = add i64 %9, %.sroa.53.0.copyload
+  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = load i64, ptr %11, align 8, !alias.scope !108, !noalias !111, !noundef !16
+  %13 = add i64 %12, %.sroa.64.0.copyload
+  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = load i64, ptr %14, align 8, !alias.scope !108, !noalias !111, !noundef !16
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.75.0.copyload, i64 %15)
+  store i64 %4, ptr %0, align 8
+  store i64 %7, ptr %.sroa.42.0..sroa_idx, align 8
+  store i64 %10, ptr %.sroa.53.0..sroa_idx, align 8
+  store i64 %13, ptr %.sroa.64.0..sroa_idx, align 8
   store i64 %.0.sroa.speculated.i.i, ptr %.sroa.75.0..sroa_idx, align 8
   ret void
 }

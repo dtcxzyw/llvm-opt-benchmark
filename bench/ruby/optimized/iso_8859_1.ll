@@ -91,16 +91,16 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
   store i32 %12, ptr %13, align 4
   %14 = load i8, ptr %1, align 1
   %15 = icmp eq i8 %14, 83
-  br i1 %15, label %16, label %74
+  br i1 %15, label %16, label %83
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds i8, ptr %1, i64 1
   %18 = icmp ult ptr %17, %2
-  br i1 %18, label %19, label %74
+  br i1 %18, label %19, label %83
 
 19:                                               ; preds = %16
   %20 = load i8, ptr %17, align 1
-  switch i8 %20, label %74 [
+  switch i8 %20, label %83 [
     i8 83, label %21
     i8 115, label %21
   ]
@@ -128,16 +128,16 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
   store i32 %30, ptr %31, align 4
   %32 = load i8, ptr %1, align 1
   %33 = icmp eq i8 %32, 115
-  br i1 %33, label %34, label %74
+  br i1 %33, label %34, label %83
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds i8, ptr %1, i64 1
   %36 = icmp ult ptr %35, %2
-  br i1 %36, label %37, label %74
+  br i1 %36, label %37, label %83
 
 37:                                               ; preds = %34
   %38 = load i8, ptr %35, align 1
-  switch i8 %38, label %74 [
+  switch i8 %38, label %83 [
     i8 115, label %39
     i8 83, label %39
   ]
@@ -151,10 +151,10 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
 
 42:                                               ; preds = %24
   %43 = and i8 %.fr, -16
-  switch i8 %43, label %66 [
+  switch i8 %43, label %75 [
     i8 -64, label %44
     i8 -48, label %49
-    i8 -32, label %61
+    i8 -32, label %70
   ]
 
 44:                                               ; preds = %42
@@ -167,72 +167,90 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
   br label %.sink.split
 
 49:                                               ; preds = %42
-  switch i8 %.fr, label %56 [
+  switch i8 %.fr, label %65 [
     i8 -33, label %50
-    i8 -41, label %74
+    i8 -41, label %83
   ]
 
 50:                                               ; preds = %49
-  store <4 x i32> <i32 1, i32 2, i32 115, i32 115>, ptr %3, align 4
-  %51 = getelementptr inbounds i8, ptr %3, i64 20
-  store <4 x i32> <i32 1, i32 2, i32 83, i32 83>, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %3, i64 40
-  store <4 x i32> <i32 1, i32 2, i32 115, i32 83>, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %3, i64 60
-  store i32 1, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %3, i64 64
-  store i32 2, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %3, i64 68
-  store i32 83, ptr %55, align 4
-  br label %.sink.split
-
-56:                                               ; preds = %49
   store i32 1, ptr %3, align 4
-  %57 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 1, ptr %57, align 4
-  %58 = load i8, ptr %1, align 1
-  %59 = zext i8 %58 to i32
-  %60 = add nuw nsw i32 %59, 32
-  br label %.sink.split
-
-61:                                               ; preds = %42
-  store i32 1, ptr %3, align 4
-  %62 = getelementptr inbounds i8, ptr %3, i64 4
+  %51 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 2, ptr %51, align 4
+  %52 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 115, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 115, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 1, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 2, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %3, i64 28
+  store i32 83, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %3, i64 32
+  store i32 83, ptr %57, align 4
+  %58 = getelementptr inbounds i8, ptr %3, i64 40
+  store i32 1, ptr %58, align 4
+  %59 = getelementptr inbounds i8, ptr %3, i64 44
+  store i32 2, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 115, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %3, i64 52
+  store i32 83, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %3, i64 60
   store i32 1, ptr %62, align 4
-  %63 = load i8, ptr %1, align 1
-  %64 = zext i8 %63 to i32
-  %65 = add nsw i32 %64, -32
+  %63 = getelementptr inbounds i8, ptr %3, i64 64
+  store i32 2, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %3, i64 68
+  store i32 83, ptr %64, align 4
   br label %.sink.split
 
-66:                                               ; preds = %42
-  %67 = icmp ult i8 %.fr, -16
-  br i1 %67, label %74, label %switch.early.test
+65:                                               ; preds = %49
+  store i32 1, ptr %3, align 4
+  %66 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 1, ptr %66, align 4
+  %67 = load i8, ptr %1, align 1
+  %68 = zext i8 %67 to i32
+  %69 = add nuw nsw i32 %68, 32
+  br label %.sink.split
 
-switch.early.test:                                ; preds = %66
-  switch i8 %.fr, label %68 [
-    i8 -1, label %74
-    i8 -9, label %74
+70:                                               ; preds = %42
+  store i32 1, ptr %3, align 4
+  %71 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 1, ptr %71, align 4
+  %72 = load i8, ptr %1, align 1
+  %73 = zext i8 %72 to i32
+  %74 = add nsw i32 %73, -32
+  br label %.sink.split
+
+75:                                               ; preds = %42
+  %76 = icmp ult i8 %.fr, -16
+  br i1 %76, label %83, label %switch.early.test
+
+switch.early.test:                                ; preds = %75
+  switch i8 %.fr, label %77 [
+    i8 -1, label %83
+    i8 -9, label %83
   ]
 
-68:                                               ; preds = %switch.early.test
+77:                                               ; preds = %switch.early.test
   store i32 1, ptr %3, align 4
-  %69 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 1, ptr %69, align 4
-  %70 = load i8, ptr %1, align 1
-  %71 = zext i8 %70 to i32
-  %72 = add nsw i32 %71, -32
+  %78 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 1, ptr %78, align 4
+  %79 = load i8, ptr %1, align 1
+  %80 = zext i8 %79 to i32
+  %81 = add nsw i32 %80, -32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %21, %39, %44, %50, %56, %61, %68
-  %.sink90 = phi i64 [ 8, %68 ], [ 8, %61 ], [ 8, %56 ], [ 72, %50 ], [ 8, %44 ], [ 28, %39 ], [ 28, %21 ]
-  %.sink = phi i32 [ %72, %68 ], [ %65, %61 ], [ %60, %56 ], [ 115, %50 ], [ %48, %44 ], [ 223, %39 ], [ 223, %21 ]
-  %.0.ph = phi i32 [ 1, %68 ], [ 1, %61 ], [ 1, %56 ], [ 4, %50 ], [ 1, %44 ], [ 2, %39 ], [ 2, %21 ]
-  %73 = getelementptr inbounds i8, ptr %3, i64 %.sink90
-  store i32 %.sink, ptr %73, align 4
-  br label %74
+.sink.split:                                      ; preds = %21, %39, %44, %50, %65, %70, %77
+  %.sink90 = phi i64 [ 8, %77 ], [ 8, %70 ], [ 8, %65 ], [ 72, %50 ], [ 8, %44 ], [ 28, %39 ], [ 28, %21 ]
+  %.sink = phi i32 [ %81, %77 ], [ %74, %70 ], [ %69, %65 ], [ 115, %50 ], [ %48, %44 ], [ 223, %39 ], [ 223, %21 ]
+  %.0.ph = phi i32 [ 1, %77 ], [ 1, %70 ], [ 1, %65 ], [ 4, %50 ], [ 1, %44 ], [ 2, %39 ], [ 2, %21 ]
+  %82 = getelementptr inbounds i8, ptr %3, i64 %.sink90
+  store i32 %.sink, ptr %82, align 4
+  br label %83
 
-74:                                               ; preds = %.sink.split, %switch.early.test, %switch.early.test, %66, %49, %26, %34, %37, %8, %16, %19
-  %.0 = phi i32 [ 1, %19 ], [ 1, %16 ], [ 1, %8 ], [ 1, %37 ], [ 1, %34 ], [ 1, %26 ], [ 0, %49 ], [ 0, %switch.early.test ], [ 0, %66 ], [ 0, %switch.early.test ], [ %.0.ph, %.sink.split ]
+83:                                               ; preds = %.sink.split, %switch.early.test, %switch.early.test, %75, %49, %26, %34, %37, %8, %16, %19
+  %.0 = phi i32 [ 1, %19 ], [ 1, %16 ], [ 1, %8 ], [ 1, %37 ], [ 1, %34 ], [ 1, %26 ], [ 0, %49 ], [ 0, %switch.early.test ], [ 0, %75 ], [ 0, %switch.early.test ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

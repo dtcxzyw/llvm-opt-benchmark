@@ -48,9 +48,9 @@ declare void @register_archiver(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @write_zip_archive(ptr nocapture readnone %ar, ptr noundef %args) #0 {
 entry:
-  %trailer64.i.i = alloca %struct.zip64_dir_trailer, align 4
-  %locator64.i.i = alloca %struct.zip64_dir_trailer_locator, align 4
-  %trailer.i = alloca %struct.zip_dir_trailer, align 4
+  %trailer64.i.i = alloca %struct.zip64_dir_trailer, align 1
+  %locator64.i.i = alloca %struct.zip64_dir_trailer_locator, align 1
+  %trailer.i = alloca %struct.zip_dir_trailer, align 1
   %git_time.i = alloca i64, align 8
   %tm.i = alloca %struct.tm, align 8
   tail call void @git_config(ptr noundef nonnull @archive_zip_config, ptr noundef null) #8
@@ -108,10 +108,16 @@ if.then:                                          ; preds = %dos_time.exit
   %commit_oid = getelementptr inbounds i8, ptr %args, i64 48
   %10 = load ptr, ptr %commit_oid, align 8
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %trailer.i)
-  store <4 x i8> <i8 80, i8 75, i8 5, i8 6>, ptr %trailer.i, align 4
+  store i8 80, ptr %trailer.i, align 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %trailer.i, i64 1
+  store i8 75, ptr %arrayidx3.i.i, align 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %trailer.i, i64 2
+  store i8 5, ptr %arrayidx7.i.i, align 1
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %trailer.i, i64 3
+  store i8 6, ptr %arrayidx11.i.i, align 1
   %disk.i = getelementptr inbounds i8, ptr %trailer.i, i64 4
   %entries_on_this_disk.i = getelementptr inbounds i8, ptr %trailer.i, i64 8
-  store i32 0, ptr %disk.i, align 4
+  store i32 0, ptr %disk.i, align 1
   %11 = load i64, ptr @zip_dir_entries, align 8
   %cmp.not.i.i.i = icmp ult i64 %11, 65536
   %conv.i.i.i = trunc i64 %11 to i8
@@ -121,11 +127,11 @@ if.then:                                          ; preds = %dos_time.exit
   %.sink.i = select i1 %cmp.not.i.i.i, i8 %conv2.i.i.i, i8 -1
   %retval.0.i.i6.i = select i1 %cmp.not.i.i.i, i64 %11, i64 65535
   %entries.i = getelementptr inbounds i8, ptr %trailer.i, i64 10
-  store i8 %.sink48.i, ptr %entries_on_this_disk.i, align 4
+  store i8 %.sink48.i, ptr %entries_on_this_disk.i, align 1
   %12 = getelementptr inbounds i8, ptr %trailer.i, i64 9
   store i8 %.sink.i, ptr %12, align 1
   %conv.i.i7.i = trunc i64 %retval.0.i.i6.i to i8
-  store i8 %conv.i.i7.i, ptr %entries.i, align 2
+  store i8 %conv.i.i7.i, ptr %entries.i, align 1
   %shr.i1.i8.i = lshr i64 %retval.0.i.i6.i, 8
   %conv2.i.i9.i = trunc nuw i64 %shr.i1.i8.i to i8
   %arrayidx3.i.i10.i = getelementptr inbounds i8, ptr %trailer.i, i64 11
@@ -133,7 +139,7 @@ if.then:                                          ; preds = %dos_time.exit
   %size.i = getelementptr inbounds i8, ptr %trailer.i, i64 12
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
   %conv.i.i = trunc i64 %13 to i8
-  store i8 %conv.i.i, ptr %size.i, align 4
+  store i8 %conv.i.i, ptr %size.i, align 1
   %shr.i44.i = lshr i64 %13, 8
   %conv2.i.i = trunc i64 %shr.i44.i to i8
   %arrayidx3.i13.i = getelementptr inbounds i8, ptr %trailer.i, i64 13
@@ -141,7 +147,7 @@ if.then:                                          ; preds = %dos_time.exit
   %shr4.i45.i = lshr i64 %13, 16
   %conv6.i.i = trunc i64 %shr4.i45.i to i8
   %arrayidx7.i14.i = getelementptr inbounds i8, ptr %trailer.i, i64 14
-  store i8 %conv6.i.i, ptr %arrayidx7.i14.i, align 2
+  store i8 %conv6.i.i, ptr %arrayidx7.i14.i, align 1
   %shr8.i46.i = lshr i64 %13, 24
   %conv10.i.i = trunc i64 %shr8.i46.i to i8
   %arrayidx11.i15.i = getelementptr inbounds i8, ptr %trailer.i, i64 15
@@ -151,7 +157,7 @@ if.then:                                          ; preds = %dos_time.exit
   %cmp.not.i.i16.i = icmp ult i64 %14, 4294967296
   %spec.select43.i = call i64 @llvm.umin.i64(i64 %14, i64 4294967295)
   %conv.i.i18.i = trunc i64 %spec.select43.i to i8
-  store i8 %conv.i.i18.i, ptr %offset.i, align 4
+  store i8 %conv.i.i18.i, ptr %offset.i, align 1
   %shr.i1.i19.i = lshr i64 %spec.select43.i, 8
   %conv2.i.i20.i = trunc i64 %shr.i1.i19.i to i8
   %arrayidx3.i.i21.i = getelementptr inbounds i8, ptr %trailer.i, i64 17
@@ -159,7 +165,7 @@ if.then:                                          ; preds = %dos_time.exit
   %shr4.i2.i.i = lshr i64 %spec.select43.i, 16
   %conv6.i.i.i = trunc i64 %shr4.i2.i.i to i8
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %trailer.i, i64 18
-  store i8 %conv6.i.i.i, ptr %arrayidx7.i.i.i, align 2
+  store i8 %conv6.i.i.i, ptr %arrayidx7.i.i.i, align 1
   %shr8.i3.i.i = lshr i64 %spec.select43.i, 24
   %conv10.i.i.i = trunc nuw i64 %shr8.i3.i.i to i8
   %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %trailer.i, i64 19
@@ -180,7 +186,7 @@ cond.true.i:                                      ; preds = %if.then
 cond.end.i:                                       ; preds = %cond.true.i, %if.then
   %cond.i = phi i32 [ %18, %cond.true.i ], [ 0, %if.then ]
   %conv.i23.i = trunc i32 %cond.i to i8
-  store i8 %conv.i23.i, ptr %comment_length.i, align 4
+  store i8 %conv.i23.i, ptr %comment_length.i, align 1
   %shr.i24.i = lshr i32 %cond.i, 8
   %conv2.i25.i = trunc i32 %shr.i24.i to i8
   %arrayidx3.i26.i = getelementptr inbounds i8, ptr %trailer.i, i64 21
@@ -193,27 +199,33 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.th
 if.then.i5:                                       ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 57, ptr nonnull %trailer64.i.i)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %locator64.i.i)
-  store <4 x i8> <i8 80, i8 75, i8 6, i8 6>, ptr %trailer64.i.i, align 4
+  store i8 80, ptr %trailer64.i.i, align 1
+  %arrayidx3.i.i27.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 1
+  store i8 75, ptr %arrayidx3.i.i27.i, align 1
+  %arrayidx7.i.i28.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 2
+  store i8 6, ptr %arrayidx7.i.i28.i, align 1
+  %arrayidx11.i.i29.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 3
+  store i8 6, ptr %arrayidx11.i.i29.i, align 1
   %record_size.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 4
-  store i8 44, ptr %record_size.i.i, align 4
+  store i8 44, ptr %record_size.i.i, align 1
   %arrayidx3.i1.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 5
   %creator_version.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx3.i1.i.i, i8 0, i64 7, i1 false)
   %20 = load i32, ptr @max_creator_version, align 4
   %conv.i.i30.i = trunc i32 %20 to i8
-  store i8 %conv.i.i30.i, ptr %creator_version.i.i, align 4
+  store i8 %conv.i.i30.i, ptr %creator_version.i.i, align 1
   %shr.i.i.i = lshr i32 %20, 8
   %conv2.i.i31.i = trunc i32 %shr.i.i.i to i8
   %arrayidx3.i4.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 13
   store i8 %conv2.i.i31.i, ptr %arrayidx3.i4.i.i, align 1
   %version.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 14
-  store i8 45, ptr %version.i.i, align 2
+  store i8 45, ptr %version.i.i, align 1
   %arrayidx3.i5.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 15
   %entries_on_this_disk.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %arrayidx3.i5.i.i, i8 0, i64 9, i1 false)
   %21 = load i64, ptr @zip_dir_entries, align 8
   %conv.i12.i.i = trunc i64 %21 to i8
-  store i8 %conv.i12.i.i, ptr %entries_on_this_disk.i.i, align 4
+  store i8 %conv.i12.i.i, ptr %entries_on_this_disk.i.i, align 1
   %shr.i13.i.i = lshr i64 %21, 8
   %conv2.i14.i.i = trunc i64 %shr.i13.i.i to i8
   %arrayidx3.i15.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 25
@@ -221,7 +233,7 @@ if.then.i5:                                       ; preds = %cond.end.i
   %shr4.i.i.i = lshr i64 %21, 16
   %conv6.i.i32.i = trunc i64 %shr4.i.i.i to i8
   %arrayidx7.i16.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 26
-  store i8 %conv6.i.i32.i, ptr %arrayidx7.i16.i.i, align 2
+  store i8 %conv6.i.i32.i, ptr %arrayidx7.i16.i.i, align 1
   %shr8.i.i.i = lshr i64 %21, 24
   %conv10.i.i33.i = trunc i64 %shr8.i.i.i to i8
   %arrayidx11.i17.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 27
@@ -229,7 +241,7 @@ if.then.i5:                                       ; preds = %cond.end.i
   %shr12.i.i.i = lshr i64 %21, 32
   %conv14.i.i.i = trunc i64 %shr12.i.i.i to i8
   %arrayidx15.i18.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 28
-  store i8 %conv14.i.i.i, ptr %arrayidx15.i18.i.i, align 4
+  store i8 %conv14.i.i.i, ptr %arrayidx15.i18.i.i, align 1
   %shr16.i.i.i = lshr i64 %21, 40
   %conv18.i.i.i = trunc i64 %shr16.i.i.i to i8
   %arrayidx19.i19.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 29
@@ -237,31 +249,31 @@ if.then.i5:                                       ; preds = %cond.end.i
   %shr20.i.i.i = lshr i64 %21, 48
   %conv22.i.i.i = trunc i64 %shr20.i.i.i to i8
   %arrayidx23.i20.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 30
-  store i8 %conv22.i.i.i, ptr %arrayidx23.i20.i.i, align 2
+  store i8 %conv22.i.i.i, ptr %arrayidx23.i20.i.i, align 1
   %shr24.i.i.i = lshr i64 %21, 56
   %conv26.i.i.i = trunc nuw i64 %shr24.i.i.i to i8
   %arrayidx27.i21.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 31
   store i8 %conv26.i.i.i, ptr %arrayidx27.i21.i.i, align 1
   %entries.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 32
-  store i8 %conv.i12.i.i, ptr %entries.i.i, align 4
+  store i8 %conv.i12.i.i, ptr %entries.i.i, align 1
   %arrayidx3.i25.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 33
   store i8 %conv2.i14.i.i, ptr %arrayidx3.i25.i.i, align 1
   %arrayidx7.i28.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 34
-  store i8 %conv6.i.i32.i, ptr %arrayidx7.i28.i.i, align 2
+  store i8 %conv6.i.i32.i, ptr %arrayidx7.i28.i.i, align 1
   %arrayidx11.i31.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 35
   store i8 %conv10.i.i33.i, ptr %arrayidx11.i31.i.i, align 1
   %arrayidx15.i34.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 36
-  store i8 %conv14.i.i.i, ptr %arrayidx15.i34.i.i, align 4
+  store i8 %conv14.i.i.i, ptr %arrayidx15.i34.i.i, align 1
   %arrayidx19.i37.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 37
   store i8 %conv18.i.i.i, ptr %arrayidx19.i37.i.i, align 1
   %arrayidx23.i40.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 38
-  store i8 %conv22.i.i.i, ptr %arrayidx23.i40.i.i, align 2
+  store i8 %conv22.i.i.i, ptr %arrayidx23.i40.i.i, align 1
   %arrayidx27.i43.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 39
   store i8 %conv26.i.i.i, ptr %arrayidx27.i43.i.i, align 1
   %size.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 40
   %22 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
   %conv.i44.i.i = trunc i64 %22 to i8
-  store i8 %conv.i44.i.i, ptr %size.i.i, align 4
+  store i8 %conv.i44.i.i, ptr %size.i.i, align 1
   %shr.i45.i.i = lshr i64 %22, 8
   %conv2.i46.i.i = trunc i64 %shr.i45.i.i to i8
   %arrayidx3.i47.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 41
@@ -269,7 +281,7 @@ if.then.i5:                                       ; preds = %cond.end.i
   %shr4.i48.i.i = lshr i64 %22, 16
   %conv6.i49.i.i = trunc i64 %shr4.i48.i.i to i8
   %arrayidx7.i50.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 42
-  store i8 %conv6.i49.i.i, ptr %arrayidx7.i50.i.i, align 2
+  store i8 %conv6.i49.i.i, ptr %arrayidx7.i50.i.i, align 1
   %shr8.i51.i.i = lshr i64 %22, 24
   %conv10.i52.i.i = trunc i64 %shr8.i51.i.i to i8
   %arrayidx11.i53.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 43
@@ -277,7 +289,7 @@ if.then.i5:                                       ; preds = %cond.end.i
   %shr12.i54.i.i = lshr i64 %22, 32
   %conv14.i55.i.i = trunc i64 %shr12.i54.i.i to i8
   %arrayidx15.i56.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 44
-  store i8 %conv14.i55.i.i, ptr %arrayidx15.i56.i.i, align 4
+  store i8 %conv14.i55.i.i, ptr %arrayidx15.i56.i.i, align 1
   %shr16.i57.i.i = lshr i64 %22, 40
   %conv18.i58.i.i = trunc i64 %shr16.i57.i.i to i8
   %arrayidx19.i59.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 45
@@ -285,7 +297,7 @@ if.then.i5:                                       ; preds = %cond.end.i
   %shr20.i60.i.i = lshr i64 %22, 48
   %conv22.i61.i.i = trunc i64 %shr20.i60.i.i to i8
   %arrayidx23.i62.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 46
-  store i8 %conv22.i61.i.i, ptr %arrayidx23.i62.i.i, align 2
+  store i8 %conv22.i61.i.i, ptr %arrayidx23.i62.i.i, align 1
   %shr24.i63.i.i = lshr i64 %22, 56
   %conv26.i64.i.i = trunc nuw i64 %shr24.i63.i.i to i8
   %arrayidx27.i65.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 47
@@ -293,7 +305,7 @@ if.then.i5:                                       ; preds = %cond.end.i
   %offset.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 48
   %23 = load i64, ptr @zip_offset, align 8
   %conv.i66.i.i = trunc i64 %23 to i8
-  store i8 %conv.i66.i.i, ptr %offset.i.i, align 4
+  store i8 %conv.i66.i.i, ptr %offset.i.i, align 1
   %shr.i67.i.i = lshr i64 %23, 8
   %conv2.i68.i.i = trunc i64 %shr.i67.i.i to i8
   %arrayidx3.i69.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 49
@@ -301,7 +313,7 @@ if.then.i5:                                       ; preds = %cond.end.i
   %shr4.i70.i.i = lshr i64 %23, 16
   %conv6.i71.i.i = trunc i64 %shr4.i70.i.i to i8
   %arrayidx7.i72.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 50
-  store i8 %conv6.i71.i.i, ptr %arrayidx7.i72.i.i, align 2
+  store i8 %conv6.i71.i.i, ptr %arrayidx7.i72.i.i, align 1
   %shr8.i73.i.i = lshr i64 %23, 24
   %conv10.i74.i.i = trunc i64 %shr8.i73.i.i to i8
   %arrayidx11.i75.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 51
@@ -309,7 +321,7 @@ if.then.i5:                                       ; preds = %cond.end.i
   %shr12.i76.i.i = lshr i64 %23, 32
   %conv14.i77.i.i = trunc i64 %shr12.i76.i.i to i8
   %arrayidx15.i78.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 52
-  store i8 %conv14.i77.i.i, ptr %arrayidx15.i78.i.i, align 4
+  store i8 %conv14.i77.i.i, ptr %arrayidx15.i78.i.i, align 1
   %shr16.i79.i.i = lshr i64 %23, 40
   %conv18.i80.i.i = trunc i64 %shr16.i79.i.i to i8
   %arrayidx19.i81.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 53
@@ -317,18 +329,24 @@ if.then.i5:                                       ; preds = %cond.end.i
   %shr20.i82.i.i = lshr i64 %23, 48
   %conv22.i83.i.i = trunc i64 %shr20.i82.i.i to i8
   %arrayidx23.i84.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 54
-  store i8 %conv22.i83.i.i, ptr %arrayidx23.i84.i.i, align 2
+  store i8 %conv22.i83.i.i, ptr %arrayidx23.i84.i.i, align 1
   %shr24.i85.i.i = lshr i64 %23, 56
   %conv26.i86.i.i = trunc nuw i64 %shr24.i85.i.i to i8
   %arrayidx27.i87.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 55
   store i8 %conv26.i86.i.i, ptr %arrayidx27.i87.i.i, align 1
-  store <4 x i8> <i8 80, i8 75, i8 6, i8 7>, ptr %locator64.i.i, align 4
+  store i8 80, ptr %locator64.i.i, align 1
+  %arrayidx3.i88.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 1
+  store i8 75, ptr %arrayidx3.i88.i.i, align 1
+  %arrayidx7.i89.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 2
+  store i8 6, ptr %arrayidx7.i89.i.i, align 1
+  %arrayidx11.i90.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 3
+  store i8 7, ptr %arrayidx11.i90.i.i, align 1
   %disk12.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 4
   %offset14.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 8
   %add.i.i = add i64 %23, %22
   %conv.i94.i.i = trunc i64 %add.i.i to i8
-  store i32 0, ptr %disk12.i.i, align 4
-  store i8 %conv.i94.i.i, ptr %offset14.i.i, align 4
+  store i32 0, ptr %disk12.i.i, align 1
+  store i8 %conv.i94.i.i, ptr %offset14.i.i, align 1
   %shr.i95.i.i = lshr i64 %add.i.i, 8
   %conv2.i96.i.i = trunc i64 %shr.i95.i.i to i8
   %arrayidx3.i97.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 9
@@ -336,7 +354,7 @@ if.then.i5:                                       ; preds = %cond.end.i
   %shr4.i98.i.i = lshr i64 %add.i.i, 16
   %conv6.i99.i.i = trunc i64 %shr4.i98.i.i to i8
   %arrayidx7.i100.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 10
-  store i8 %conv6.i99.i.i, ptr %arrayidx7.i100.i.i, align 2
+  store i8 %conv6.i99.i.i, ptr %arrayidx7.i100.i.i, align 1
   %shr8.i101.i.i = lshr i64 %add.i.i, 24
   %conv10.i102.i.i = trunc i64 %shr8.i101.i.i to i8
   %arrayidx11.i103.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 11
@@ -344,7 +362,7 @@ if.then.i5:                                       ; preds = %cond.end.i
   %shr12.i104.i.i = lshr i64 %add.i.i, 32
   %conv14.i105.i.i = trunc i64 %shr12.i104.i.i to i8
   %arrayidx15.i106.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 12
-  store i8 %conv14.i105.i.i, ptr %arrayidx15.i106.i.i, align 4
+  store i8 %conv14.i105.i.i, ptr %arrayidx15.i106.i.i, align 1
   %shr16.i107.i.i = lshr i64 %add.i.i, 40
   %conv18.i108.i.i = trunc i64 %shr16.i107.i.i to i8
   %arrayidx19.i109.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 13
@@ -352,13 +370,19 @@ if.then.i5:                                       ; preds = %cond.end.i
   %shr20.i110.i.i = lshr i64 %add.i.i, 48
   %conv22.i111.i.i = trunc i64 %shr20.i110.i.i to i8
   %arrayidx23.i112.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 14
-  store i8 %conv22.i111.i.i, ptr %arrayidx23.i112.i.i, align 2
+  store i8 %conv22.i111.i.i, ptr %arrayidx23.i112.i.i, align 1
   %shr24.i113.i.i = lshr i64 %add.i.i, 56
   %conv26.i114.i.i = trunc nuw i64 %shr24.i113.i.i to i8
   %arrayidx27.i115.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 15
   store i8 %conv26.i114.i.i, ptr %arrayidx27.i115.i.i, align 1
   %number_of_disks.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 16
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %number_of_disks.i.i, align 4
+  store i8 1, ptr %number_of_disks.i.i, align 1
+  %arrayidx3.i116.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 17
+  store i8 0, ptr %arrayidx3.i116.i.i, align 1
+  %arrayidx7.i117.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 18
+  store i8 0, ptr %arrayidx7.i117.i.i, align 1
+  %arrayidx11.i118.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 19
+  store i8 0, ptr %arrayidx11.i118.i.i, align 1
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %trailer64.i.i, i64 noundef 56) #8
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %locator64.i.i, i64 noundef 20) #8
   call void @llvm.lifetime.end.p0(i64 57, ptr nonnull %trailer64.i.i)
@@ -406,9 +430,9 @@ define internal i32 @write_zip_entry(ptr nocapture noundef readonly %args, ptr n
 entry:
   %stream.i = alloca %struct.git_zstream, align 8
   %size.addr = alloca i64, align 8
-  %header = alloca %struct.zip_local_header, align 4
-  %extra = alloca %struct.zip_extra_mtime, align 4
-  %extra64 = alloca %struct.zip64_extra, align 4
+  %header = alloca %struct.zip_local_header, align 1
+  %extra = alloca %struct.zip_extra_mtime, align 1
+  %extra64 = alloca %struct.zip64_extra, align 1
   %type = alloca i32, align 4
   %buf = alloca [16384 x i8], align 16
   %buf194 = alloca [16384 x i8], align 16
@@ -667,9 +691,15 @@ if.end105:                                        ; preds = %zlib_deflate_raw.ex
   %method.2 = phi i32 [ 8, %lor.lhs.false100 ], [ %method.1, %if.end91 ], [ 0, %if.end12 ], [ 0, %if.end12 ], [ 0, %zlib_deflate_raw.exit.thread ], [ 0, %zlib_deflate_raw.exit ], [ 0, %if.then103 ]
   %out.2 = phi ptr [ %call1.i140, %lor.lhs.false100 ], [ %buffer, %if.end91 ], [ null, %if.end12 ], [ null, %if.end12 ], [ %buffer, %zlib_deflate_raw.exit.thread ], [ %buffer, %zlib_deflate_raw.exit ], [ %buffer, %if.then103 ]
   %deflated.0 = phi ptr [ %call1.i140, %lor.lhs.false100 ], [ null, %if.end91 ], [ null, %if.end12 ], [ null, %if.end12 ], [ null, %zlib_deflate_raw.exit.thread ], [ null, %zlib_deflate_raw.exit ], [ %call1.i140, %if.then103 ]
-  store <4 x i8> <i8 85, i8 84, i8 5, i8 0>, ptr %extra, align 4
+  store i8 85, ptr %extra, align 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %extra, i64 1
+  store i8 84, ptr %arrayidx3.i, align 1
+  %extra_size = getelementptr inbounds i8, ptr %extra, i64 2
+  store i8 5, ptr %extra_size, align 1
+  %arrayidx3.i144 = getelementptr inbounds i8, ptr %extra, i64 3
+  store i8 0, ptr %arrayidx3.i144, align 1
   %flags107 = getelementptr inbounds i8, ptr %extra, i64 4
-  store i8 1, ptr %flags107, align 4
+  store i8 1, ptr %flags107, align 1
   %mtime = getelementptr inbounds i8, ptr %extra, i64 5
   %git_time = getelementptr inbounds i8, ptr %args, i64 72
   %17 = load i64, ptr %git_time, align 8
@@ -678,7 +708,7 @@ if.end105:                                        ; preds = %zlib_deflate_raw.ex
   %shr.i745 = lshr i64 %17, 8
   %conv2.i = trunc i64 %shr.i745 to i8
   %arrayidx3.i145 = getelementptr inbounds i8, ptr %extra, i64 6
-  store i8 %conv2.i, ptr %arrayidx3.i145, align 2
+  store i8 %conv2.i, ptr %arrayidx3.i145, align 1
   %shr4.i746 = lshr i64 %17, 16
   %conv6.i = trunc i64 %shr4.i746 to i8
   %arrayidx7.i = getelementptr inbounds i8, ptr %extra, i64 7
@@ -686,7 +716,7 @@ if.end105:                                        ; preds = %zlib_deflate_raw.ex
   %shr8.i747 = lshr i64 %17, 24
   %conv10.i = trunc i64 %shr8.i747 to i8
   %arrayidx11.i = getelementptr inbounds i8, ptr %extra, i64 8
-  store i8 %conv10.i, ptr %arrayidx11.i, align 4
+  store i8 %conv10.i, ptr %arrayidx11.i, align 1
   %cmp110 = icmp ult i64 %16, 4294967296
   %cmp113 = icmp ult i64 %compressed_size.0, 4294967296
   %tobool117 = icmp ne ptr %stream.0718737, null
@@ -695,28 +725,34 @@ if.end105:                                        ; preds = %zlib_deflate_raw.ex
   %or.cond3 = select i1 %not.tobool117, i1 true, i1 %cmp119
   %18 = select i1 %or.cond3, i1 %cmp110, i1 false
   %narrow = select i1 %18, i1 %cmp113, i1 false
-  store <4 x i8> <i8 80, i8 75, i8 3, i8 4>, ptr %header, align 4
+  store i8 80, ptr %header, align 1
+  %arrayidx3.i146 = getelementptr inbounds i8, ptr %header, i64 1
+  store i8 75, ptr %arrayidx3.i146, align 1
+  %arrayidx7.i147 = getelementptr inbounds i8, ptr %header, i64 2
+  store i8 3, ptr %arrayidx7.i147, align 1
+  %arrayidx11.i148 = getelementptr inbounds i8, ptr %header, i64 3
+  store i8 4, ptr %arrayidx11.i148, align 1
   %version = getelementptr inbounds i8, ptr %header, i64 4
   %conv.i149 = select i1 %narrow, i8 10, i8 45
-  store i8 %conv.i149, ptr %version, align 4
+  store i8 %conv.i149, ptr %version, align 1
   %arrayidx3.i152 = getelementptr inbounds i8, ptr %header, i64 5
   store i8 0, ptr %arrayidx3.i152, align 1
   %flags129 = getelementptr inbounds i8, ptr %header, i64 6
   %conv.i153 = trunc i64 %flags.1719736 to i8
-  store i8 %conv.i153, ptr %flags129, align 2
+  store i8 %conv.i153, ptr %flags129, align 1
   %shr.i154748 = lshr i64 %flags.1719736, 8
   %conv2.i155 = trunc i64 %shr.i154748 to i8
   %arrayidx3.i156 = getelementptr inbounds i8, ptr %header, i64 7
   store i8 %conv2.i155, ptr %arrayidx3.i156, align 1
   %compression_method = getelementptr inbounds i8, ptr %header, i64 8
   %conv.i157 = trunc nuw nsw i32 %method.2 to i8
-  store i8 %conv.i157, ptr %compression_method, align 4
+  store i8 %conv.i157, ptr %compression_method, align 1
   %arrayidx3.i160 = getelementptr inbounds i8, ptr %header, i64 9
   store i8 0, ptr %arrayidx3.i160, align 1
   %mtime133 = getelementptr inbounds i8, ptr %header, i64 10
   %19 = load i32, ptr @zip_time, align 4
   %conv.i161 = trunc i32 %19 to i8
-  store i8 %conv.i161, ptr %mtime133, align 2
+  store i8 %conv.i161, ptr %mtime133, align 1
   %shr.i162 = lshr i32 %19, 8
   %conv2.i163 = trunc i32 %shr.i162 to i8
   %arrayidx3.i164 = getelementptr inbounds i8, ptr %header, i64 11
@@ -724,14 +760,14 @@ if.end105:                                        ; preds = %zlib_deflate_raw.ex
   %mdate = getelementptr inbounds i8, ptr %header, i64 12
   %20 = load i32, ptr @zip_date, align 4
   %conv.i165 = trunc i32 %20 to i8
-  store i8 %conv.i165, ptr %mdate, align 4
+  store i8 %conv.i165, ptr %mdate, align 1
   %shr.i166 = lshr i32 %20, 8
   %conv2.i167 = trunc i32 %shr.i166 to i8
   %arrayidx3.i168 = getelementptr inbounds i8, ptr %header, i64 13
   store i8 %conv2.i167, ptr %arrayidx3.i168, align 1
   %crc32.i169 = getelementptr inbounds i8, ptr %header, i64 14
   %conv.i.i170 = trunc i64 %crc.0715738 to i8
-  store i8 %conv.i.i170, ptr %crc32.i169, align 2
+  store i8 %conv.i.i170, ptr %crc32.i169, align 1
   %shr.i23.i171 = lshr i64 %crc.0715738, 8
   %conv2.i.i172 = trunc i64 %shr.i23.i171 to i8
   %arrayidx3.i.i173 = getelementptr inbounds i8, ptr %header, i64 15
@@ -739,7 +775,7 @@ if.end105:                                        ; preds = %zlib_deflate_raw.ex
   %shr4.i24.i174 = lshr i64 %crc.0715738, 16
   %conv6.i.i175 = trunc i64 %shr4.i24.i174 to i8
   %arrayidx7.i.i176 = getelementptr inbounds i8, ptr %header, i64 16
-  store i8 %conv6.i.i175, ptr %arrayidx7.i.i176, align 4
+  store i8 %conv6.i.i175, ptr %arrayidx7.i.i176, align 1
   %shr8.i25.i177 = lshr i64 %crc.0715738, 24
   %conv10.i.i178 = trunc i64 %shr8.i25.i177 to i8
   %arrayidx11.i.i179 = getelementptr inbounds i8, ptr %header, i64 17
@@ -748,12 +784,12 @@ if.end105:                                        ; preds = %zlib_deflate_raw.ex
   br i1 %narrow, label %if.else138, label %if.then137
 
 if.then137:                                       ; preds = %if.end105
-  store i8 -1, ptr %compressed_size1.i180, align 2
+  store i8 -1, ptr %compressed_size1.i180, align 1
   br label %if.end139
 
 if.else138:                                       ; preds = %if.end105
   %conv.i3.i = trunc i64 %compressed_size.0 to i8
-  store i8 %conv.i3.i, ptr %compressed_size1.i180, align 2
+  store i8 %conv.i3.i, ptr %compressed_size1.i180, align 1
   %shr.i426.i = lshr i64 %compressed_size.0, 8
   %conv2.i5.i = trunc i64 %shr.i426.i to i8
   %shr4.i727.i = lshr i64 %compressed_size.0, 16
@@ -781,26 +817,26 @@ if.end139:                                        ; preds = %if.else138, %if.the
   %21 = getelementptr inbounds i8, ptr %header, i64 19
   store i8 %.sink781, ptr %21, align 1
   %22 = getelementptr inbounds i8, ptr %header, i64 20
-  store i8 %.sink780, ptr %22, align 4
+  store i8 %.sink780, ptr %22, align 1
   %23 = getelementptr inbounds i8, ptr %header, i64 21
   store i8 %.sink779, ptr %23, align 1
   %24 = getelementptr inbounds i8, ptr %header, i64 22
-  store i8 %.sink778, ptr %24, align 2
+  store i8 %.sink778, ptr %24, align 1
   %25 = getelementptr inbounds i8, ptr %header, i64 23
   store i8 %.sink777, ptr %25, align 1
   %26 = getelementptr inbounds i8, ptr %header, i64 24
-  store i8 %.sink776, ptr %26, align 4
+  store i8 %.sink776, ptr %26, align 1
   %27 = getelementptr inbounds i8, ptr %header, i64 25
   store i8 %.sink, ptr %27, align 1
   %filename_length = getelementptr inbounds i8, ptr %header, i64 26
   %conv.i188 = trunc i64 %pathlen to i8
-  store i8 %conv.i188, ptr %filename_length, align 2
+  store i8 %conv.i188, ptr %filename_length, align 1
   %shr.i189749 = lshr i64 %pathlen, 8
   %conv2.i190 = trunc nuw i64 %shr.i189749 to i8
   %arrayidx3.i191 = getelementptr inbounds i8, ptr %header, i64 27
   store i8 %conv2.i190, ptr %arrayidx3.i191, align 1
   %extra_length = getelementptr inbounds i8, ptr %header, i64 28
-  store i8 %header_extra_size.0, ptr %extra_length, align 4
+  store i8 %header_extra_size.0, ptr %extra_length, align 1
   %arrayidx3.i195 = getelementptr inbounds i8, ptr %header, i64 29
   store i8 0, ptr %arrayidx3.i195, align 1
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %header, i64 noundef 30) #8
@@ -818,11 +854,17 @@ if.end139:                                        ; preds = %if.else138, %if.the
   br i1 %narrow, label %if.end158, label %if.then148
 
 if.then148:                                       ; preds = %if.end139
-  store <4 x i8> <i8 1, i8 0, i8 16, i8 0>, ptr %extra64, align 4
+  store i8 1, ptr %extra64, align 1
+  %arrayidx3.i196 = getelementptr inbounds i8, ptr %extra64, i64 1
+  store i8 0, ptr %arrayidx3.i196, align 1
+  %extra_size151 = getelementptr inbounds i8, ptr %extra64, i64 2
+  store i8 16, ptr %extra_size151, align 1
+  %arrayidx3.i197 = getelementptr inbounds i8, ptr %extra64, i64 3
+  store i8 0, ptr %arrayidx3.i197, align 1
   %size153 = getelementptr inbounds i8, ptr %extra64, i64 4
   %31 = load i64, ptr %size.addr, align 8
   %conv.i198 = trunc i64 %31 to i8
-  store i8 %conv.i198, ptr %size153, align 4
+  store i8 %conv.i198, ptr %size153, align 1
   %shr.i199 = lshr i64 %31, 8
   %conv2.i200 = trunc i64 %shr.i199 to i8
   %arrayidx3.i201 = getelementptr inbounds i8, ptr %extra64, i64 5
@@ -830,7 +872,7 @@ if.then148:                                       ; preds = %if.end139
   %shr4.i202 = lshr i64 %31, 16
   %conv6.i203 = trunc i64 %shr4.i202 to i8
   %arrayidx7.i204 = getelementptr inbounds i8, ptr %extra64, i64 6
-  store i8 %conv6.i203, ptr %arrayidx7.i204, align 2
+  store i8 %conv6.i203, ptr %arrayidx7.i204, align 1
   %shr8.i205 = lshr i64 %31, 24
   %conv10.i206 = trunc i64 %shr8.i205 to i8
   %arrayidx11.i207 = getelementptr inbounds i8, ptr %extra64, i64 7
@@ -838,7 +880,7 @@ if.then148:                                       ; preds = %if.end139
   %shr12.i = lshr i64 %31, 32
   %conv14.i = trunc i64 %shr12.i to i8
   %arrayidx15.i = getelementptr inbounds i8, ptr %extra64, i64 8
-  store i8 %conv14.i, ptr %arrayidx15.i, align 4
+  store i8 %conv14.i, ptr %arrayidx15.i, align 1
   %shr16.i = lshr i64 %31, 40
   %conv18.i = trunc i64 %shr16.i to i8
   %arrayidx19.i = getelementptr inbounds i8, ptr %extra64, i64 9
@@ -846,14 +888,14 @@ if.then148:                                       ; preds = %if.end139
   %shr20.i = lshr i64 %31, 48
   %conv22.i = trunc i64 %shr20.i to i8
   %arrayidx23.i = getelementptr inbounds i8, ptr %extra64, i64 10
-  store i8 %conv22.i, ptr %arrayidx23.i, align 2
+  store i8 %conv22.i, ptr %arrayidx23.i, align 1
   %shr24.i = lshr i64 %31, 56
   %conv26.i = trunc nuw i64 %shr24.i to i8
   %arrayidx27.i = getelementptr inbounds i8, ptr %extra64, i64 11
   store i8 %conv26.i, ptr %arrayidx27.i, align 1
   %compressed_size155 = getelementptr inbounds i8, ptr %extra64, i64 12
   %conv.i208 = trunc i64 %compressed_size.0 to i8
-  store i8 %conv.i208, ptr %compressed_size155, align 4
+  store i8 %conv.i208, ptr %compressed_size155, align 1
   %shr.i209 = lshr i64 %compressed_size.0, 8
   %conv2.i210 = trunc i64 %shr.i209 to i8
   %arrayidx3.i211 = getelementptr inbounds i8, ptr %extra64, i64 13
@@ -861,7 +903,7 @@ if.then148:                                       ; preds = %if.end139
   %shr4.i212 = lshr i64 %compressed_size.0, 16
   %conv6.i213 = trunc i64 %shr4.i212 to i8
   %arrayidx7.i214 = getelementptr inbounds i8, ptr %extra64, i64 14
-  store i8 %conv6.i213, ptr %arrayidx7.i214, align 2
+  store i8 %conv6.i213, ptr %arrayidx7.i214, align 1
   %shr8.i215 = lshr i64 %compressed_size.0, 24
   %conv10.i216 = trunc i64 %shr8.i215 to i8
   %arrayidx11.i217 = getelementptr inbounds i8, ptr %extra64, i64 15
@@ -869,7 +911,7 @@ if.then148:                                       ; preds = %if.end139
   %shr12.i218 = lshr i64 %compressed_size.0, 32
   %conv14.i219 = trunc i64 %shr12.i218 to i8
   %arrayidx15.i220 = getelementptr inbounds i8, ptr %extra64, i64 16
-  store i8 %conv14.i219, ptr %arrayidx15.i220, align 4
+  store i8 %conv14.i219, ptr %arrayidx15.i220, align 1
   %shr16.i221 = lshr i64 %compressed_size.0, 40
   %conv18.i222 = trunc i64 %shr16.i221 to i8
   %arrayidx19.i223 = getelementptr inbounds i8, ptr %extra64, i64 17
@@ -877,7 +919,7 @@ if.then148:                                       ; preds = %if.end139
   %shr20.i224 = lshr i64 %compressed_size.0, 48
   %conv22.i225 = trunc i64 %shr20.i224 to i8
   %arrayidx23.i226 = getelementptr inbounds i8, ptr %extra64, i64 18
-  store i8 %conv22.i225, ptr %arrayidx23.i226, align 2
+  store i8 %conv22.i225, ptr %arrayidx23.i226, align 1
   %shr24.i227 = lshr i64 %compressed_size.0, 56
   %conv26.i228 = trunc nuw i64 %shr24.i227 to i8
   %arrayidx27.i229 = getelementptr inbounds i8, ptr %extra64, i64 19
@@ -1980,8 +2022,8 @@ declare i32 @close_istream(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @write_zip_data_desc(i64 noundef %size, i64 noundef %compressed_size, i64 noundef %crc) unnamed_addr #0 {
 entry:
-  %trailer = alloca %struct.zip64_data_desc, align 4
-  %trailer7 = alloca %struct.zip_data_desc, align 4
+  %trailer = alloca %struct.zip64_data_desc, align 1
+  %trailer7 = alloca %struct.zip_data_desc, align 1
   %cmp = icmp ugt i64 %size, 4294967294
   %cmp1 = icmp ugt i64 %compressed_size, 4294967294
   %or.cond = or i1 %cmp, %cmp1
@@ -2000,21 +2042,27 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  store <4 x i8> <i8 80, i8 75, i8 7, i8 8>, ptr %trailer, align 4
+  store i8 80, ptr %trailer, align 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %trailer, i64 1
+  store i8 75, ptr %arrayidx3.i, align 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %trailer, i64 2
+  store i8 7, ptr %arrayidx7.i, align 1
+  %arrayidx11.i = getelementptr inbounds i8, ptr %trailer, i64 3
+  store i8 8, ptr %arrayidx11.i, align 1
   %crc32 = getelementptr inbounds i8, ptr %trailer, i64 4
-  store i8 %conv.i, ptr %crc32, align 4
+  store i8 %conv.i, ptr %crc32, align 1
   %arrayidx3.i6 = getelementptr inbounds i8, ptr %trailer, i64 5
   store i8 %conv2.i, ptr %arrayidx3.i6, align 1
   %arrayidx7.i7 = getelementptr inbounds i8, ptr %trailer, i64 6
-  store i8 %conv6.i, ptr %arrayidx7.i7, align 2
+  store i8 %conv6.i, ptr %arrayidx7.i7, align 1
   %arrayidx11.i8 = getelementptr inbounds i8, ptr %trailer, i64 7
   store i8 %conv10.i, ptr %arrayidx11.i8, align 1
   %compressed_size3 = getelementptr inbounds i8, ptr %trailer, i64 8
-  store i8 %conv.i9, ptr %compressed_size3, align 4
+  store i8 %conv.i9, ptr %compressed_size3, align 1
   %arrayidx3.i12 = getelementptr inbounds i8, ptr %trailer, i64 9
   store i8 %conv2.i11, ptr %arrayidx3.i12, align 1
   %arrayidx7.i15 = getelementptr inbounds i8, ptr %trailer, i64 10
-  store i8 %conv6.i14, ptr %arrayidx7.i15, align 2
+  store i8 %conv6.i14, ptr %arrayidx7.i15, align 1
   %shr8.i16 = lshr i64 %compressed_size, 24
   %conv10.i17 = trunc i64 %shr8.i16 to i8
   %arrayidx11.i18 = getelementptr inbounds i8, ptr %trailer, i64 11
@@ -2022,7 +2070,7 @@ if.then:                                          ; preds = %entry
   %shr12.i = lshr i64 %compressed_size, 32
   %conv14.i = trunc i64 %shr12.i to i8
   %arrayidx15.i = getelementptr inbounds i8, ptr %trailer, i64 12
-  store i8 %conv14.i, ptr %arrayidx15.i, align 4
+  store i8 %conv14.i, ptr %arrayidx15.i, align 1
   %shr16.i = lshr i64 %compressed_size, 40
   %conv18.i = trunc i64 %shr16.i to i8
   %arrayidx19.i = getelementptr inbounds i8, ptr %trailer, i64 13
@@ -2030,14 +2078,14 @@ if.then:                                          ; preds = %entry
   %shr20.i = lshr i64 %compressed_size, 48
   %conv22.i = trunc i64 %shr20.i to i8
   %arrayidx23.i = getelementptr inbounds i8, ptr %trailer, i64 14
-  store i8 %conv22.i, ptr %arrayidx23.i, align 2
+  store i8 %conv22.i, ptr %arrayidx23.i, align 1
   %shr24.i = lshr i64 %compressed_size, 56
   %conv26.i = trunc nuw i64 %shr24.i to i8
   %arrayidx27.i = getelementptr inbounds i8, ptr %trailer, i64 15
   store i8 %conv26.i, ptr %arrayidx27.i, align 1
   %size5 = getelementptr inbounds i8, ptr %trailer, i64 16
   %conv.i19 = trunc i64 %size to i8
-  store i8 %conv.i19, ptr %size5, align 4
+  store i8 %conv.i19, ptr %size5, align 1
   %shr.i20 = lshr i64 %size, 8
   %conv2.i21 = trunc i64 %shr.i20 to i8
   %arrayidx3.i22 = getelementptr inbounds i8, ptr %trailer, i64 17
@@ -2045,7 +2093,7 @@ if.then:                                          ; preds = %entry
   %shr4.i23 = lshr i64 %size, 16
   %conv6.i24 = trunc i64 %shr4.i23 to i8
   %arrayidx7.i25 = getelementptr inbounds i8, ptr %trailer, i64 18
-  store i8 %conv6.i24, ptr %arrayidx7.i25, align 2
+  store i8 %conv6.i24, ptr %arrayidx7.i25, align 1
   %shr8.i26 = lshr i64 %size, 24
   %conv10.i27 = trunc i64 %shr8.i26 to i8
   %arrayidx11.i28 = getelementptr inbounds i8, ptr %trailer, i64 19
@@ -2053,7 +2101,7 @@ if.then:                                          ; preds = %entry
   %shr12.i29 = lshr i64 %size, 32
   %conv14.i30 = trunc i64 %shr12.i29 to i8
   %arrayidx15.i31 = getelementptr inbounds i8, ptr %trailer, i64 20
-  store i8 %conv14.i30, ptr %arrayidx15.i31, align 4
+  store i8 %conv14.i30, ptr %arrayidx15.i31, align 1
   %shr16.i32 = lshr i64 %size, 40
   %conv18.i33 = trunc i64 %shr16.i32 to i8
   %arrayidx19.i34 = getelementptr inbounds i8, ptr %trailer, i64 21
@@ -2061,7 +2109,7 @@ if.then:                                          ; preds = %entry
   %shr20.i35 = lshr i64 %size, 48
   %conv22.i36 = trunc i64 %shr20.i35 to i8
   %arrayidx23.i37 = getelementptr inbounds i8, ptr %trailer, i64 22
-  store i8 %conv22.i36, ptr %arrayidx23.i37, align 2
+  store i8 %conv22.i36, ptr %arrayidx23.i37, align 1
   %shr24.i38 = lshr i64 %size, 56
   %conv26.i39 = trunc nuw i64 %shr24.i38 to i8
   %arrayidx27.i40 = getelementptr inbounds i8, ptr %trailer, i64 23
@@ -2070,28 +2118,34 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store <4 x i8> <i8 80, i8 75, i8 7, i8 8>, ptr %trailer7, align 4
+  store i8 80, ptr %trailer7, align 1
+  %arrayidx3.i41 = getelementptr inbounds i8, ptr %trailer7, i64 1
+  store i8 75, ptr %arrayidx3.i41, align 1
+  %arrayidx7.i42 = getelementptr inbounds i8, ptr %trailer7, i64 2
+  store i8 7, ptr %arrayidx7.i42, align 1
+  %arrayidx11.i43 = getelementptr inbounds i8, ptr %trailer7, i64 3
+  store i8 8, ptr %arrayidx11.i43, align 1
   %crc3210 = getelementptr inbounds i8, ptr %trailer7, i64 4
-  store i8 %conv.i, ptr %crc3210, align 4
+  store i8 %conv.i, ptr %crc3210, align 1
   %arrayidx3.i47 = getelementptr inbounds i8, ptr %trailer7, i64 5
   store i8 %conv2.i, ptr %arrayidx3.i47, align 1
   %arrayidx7.i50 = getelementptr inbounds i8, ptr %trailer7, i64 6
-  store i8 %conv6.i, ptr %arrayidx7.i50, align 2
+  store i8 %conv6.i, ptr %arrayidx7.i50, align 1
   %arrayidx11.i53 = getelementptr inbounds i8, ptr %trailer7, i64 7
   store i8 %conv10.i, ptr %arrayidx11.i53, align 1
   %compressed_size13 = getelementptr inbounds i8, ptr %trailer7, i64 8
-  store i8 %conv.i9, ptr %compressed_size13, align 4
+  store i8 %conv.i9, ptr %compressed_size13, align 1
   %arrayidx3.i57 = getelementptr inbounds i8, ptr %trailer7, i64 9
   store i8 %conv2.i11, ptr %arrayidx3.i57, align 1
   %arrayidx7.i60 = getelementptr inbounds i8, ptr %trailer7, i64 10
-  store i8 %conv6.i14, ptr %arrayidx7.i60, align 2
+  store i8 %conv6.i14, ptr %arrayidx7.i60, align 1
   %shr8.i6179 = lshr i64 %compressed_size, 24
   %conv10.i62 = trunc nuw i64 %shr8.i6179 to i8
   %arrayidx11.i63 = getelementptr inbounds i8, ptr %trailer7, i64 11
   store i8 %conv10.i62, ptr %arrayidx11.i63, align 1
   %size16 = getelementptr inbounds i8, ptr %trailer7, i64 12
   %conv.i64 = trunc i64 %size to i8
-  store i8 %conv.i64, ptr %size16, align 4
+  store i8 %conv.i64, ptr %size16, align 1
   %shr.i6580 = lshr i64 %size, 8
   %conv2.i66 = trunc i64 %shr.i6580 to i8
   %arrayidx3.i67 = getelementptr inbounds i8, ptr %trailer7, i64 13
@@ -2099,7 +2153,7 @@ if.else:                                          ; preds = %entry
   %shr4.i6881 = lshr i64 %size, 16
   %conv6.i69 = trunc i64 %shr4.i6881 to i8
   %arrayidx7.i70 = getelementptr inbounds i8, ptr %trailer7, i64 14
-  store i8 %conv6.i69, ptr %arrayidx7.i70, align 2
+  store i8 %conv6.i69, ptr %arrayidx7.i70, align 1
   %shr8.i7182 = lshr i64 %size, 24
   %conv10.i72 = trunc nuw i64 %shr8.i7182 to i8
   %arrayidx11.i73 = getelementptr inbounds i8, ptr %trailer7, i64 15

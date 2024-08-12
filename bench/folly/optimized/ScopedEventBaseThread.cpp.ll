@@ -189,18 +189,19 @@ entry:
   store ptr null, ptr %agg.tmp, align 16, !tbaa !10
   %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
   %call_2.i = getelementptr inbounds i8, ptr %func, i64 48
+  %1 = load ptr, ptr %call_2.i, align 16, !tbaa !12
+  store ptr %1, ptr %call_.i, align 16, !tbaa !12
   %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
   %exec_3.i = getelementptr inbounds i8, ptr %func, i64 56
-  %1 = load ptr, ptr %exec_3.i, align 8, !tbaa !12
-  %2 = load <2 x ptr>, ptr %call_2.i, align 16, !tbaa !15
-  store <2 x ptr> %2, ptr %call_.i, align 16, !tbaa !15
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !16
-  store ptr null, ptr %exec_3.i, align 8, !tbaa !12
-  %tobool.not.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %exec_3.i, align 8, !tbaa !15
+  store ptr %2, ptr %exec_.i, align 8, !tbaa !15
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !12
+  store ptr null, ptr %exec_3.i, align 8, !tbaa !15
+  %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %call.i.i = call noundef i64 %1(i32 noundef 0, ptr noundef nonnull %func, ptr noundef nonnull %agg.tmp) #16
+  %call.i.i = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %func, ptr noundef nonnull %agg.tmp) #16
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %entry
@@ -211,7 +212,7 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
-  %4 = load ptr, ptr %exec_.i, align 8, !tbaa !12
+  %4 = load ptr, ptr %exec_.i, align 8, !tbaa !15
   %tobool.not.i.i5 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i5, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i6
 
@@ -225,7 +226,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %if.end.i.i6, %invok
 lpad:                                             ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %exec_.i, align 8, !tbaa !12
+  %6 = load ptr, ptr %exec_.i, align 8, !tbaa !15
   %tobool.not.i.i9 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i9, label %_ZN5folly8FunctionIFvvEED2Ev.exit12, label %if.end.i.i10
 
@@ -314,21 +315,21 @@ define void @_ZN5folly21ScopedEventBaseThreadC2Ev(ptr noundef nonnull align 16 d
 entry:
   %agg.tmp.i = alloca %"struct.folly::EventBase::Options", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
-  store i8 0, ptr %agg.tmp.i, align 8, !tbaa !17
+  store i8 0, ptr %agg.tmp.i, align 8, !tbaa !16
   %backendFactory.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i.i, i8 0, i64 32, i1 false)
   %timerTickInterval.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 40
-  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !24
+  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !23
   %conv.i.i.i = sext i32 %0 to i64
-  store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !26
+  store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !25
   %strictLoopThread.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
-  store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !27
+  store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !26
   invoke void @_ZN5folly21ScopedEventBaseThreadC2ENS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 16 dereferenceable(636) %this, ptr noundef %vtt, ptr noundef nonnull %agg.tmp.i, ptr noundef null, ptr nonnull @.str, ptr nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !28
+  %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !27
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly21ScopedEventBaseThreadC2EPNS_16EventBaseManagerENS_5RangeIPKcEE.exit, label %if.then.i.i.i
 
@@ -347,7 +348,7 @@ lpad.i:                                           ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
   %_M_manager.i.i6.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %5 = load ptr, ptr %_M_manager.i.i6.i, align 8, !tbaa !28
+  %5 = load ptr, ptr %_M_manager.i.i6.i, align 8, !tbaa !27
   %tobool.not.i.i7.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i7.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit12.i, label %if.then.i.i8.i
 
@@ -374,21 +375,21 @@ _ZN5folly21ScopedEventBaseThreadC2EPNS_16EventBaseManagerENS_5RangeIPKcEE.exit: 
 define void @_ZN5folly21ScopedEventBaseThreadC2EPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 16 dereferenceable(636) %this, ptr nocapture noundef readonly %vtt, ptr noundef %ebm, ptr %name.coerce0, ptr %name.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.folly::EventBase::Options", align 8
-  store i8 0, ptr %agg.tmp, align 8, !tbaa !17
+  store i8 0, ptr %agg.tmp, align 8, !tbaa !16
   %backendFactory.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i, i8 0, i64 32, i1 false)
   %timerTickInterval.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
-  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !24
+  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !23
   %conv.i.i = sext i32 %0 to i64
-  store i64 %conv.i.i, ptr %timerTickInterval.i, align 8, !tbaa !26
+  store i64 %conv.i.i, ptr %timerTickInterval.i, align 8, !tbaa !25
   %strictLoopThread.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
-  store i8 0, ptr %strictLoopThread.i, align 8, !tbaa !27
+  store i8 0, ptr %strictLoopThread.i, align 8, !tbaa !26
   invoke void @_ZN5folly21ScopedEventBaseThreadC2ENS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 16 dereferenceable(636) %this, ptr noundef %vtt, ptr noundef nonnull %agg.tmp, ptr noundef %ebm, ptr %name.coerce0, ptr %name.coerce1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %1 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !28
+  %1 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !27
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit, label %if.then.i.i
 
@@ -410,7 +411,7 @@ lpad:                                             ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
   %_M_manager.i.i6 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %5 = load ptr, ptr %_M_manager.i.i6, align 8, !tbaa !28
+  %5 = load ptr, ptr %_M_manager.i.i6, align 8, !tbaa !27
   %tobool.not.i.i7 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i7, label %_ZN5folly9EventBase7OptionsD2Ev.exit12, label %if.then.i.i8
 
@@ -434,21 +435,21 @@ define void @_ZN5folly21ScopedEventBaseThreadC1Ev(ptr noundef nonnull align 16 d
 entry:
   %agg.tmp.i = alloca %"struct.folly::EventBase::Options", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
-  store i8 0, ptr %agg.tmp.i, align 8, !tbaa !17
+  store i8 0, ptr %agg.tmp.i, align 8, !tbaa !16
   %backendFactory.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i.i, i8 0, i64 32, i1 false)
   %timerTickInterval.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 40
-  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !24
+  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !23
   %conv.i.i.i = sext i32 %0 to i64
-  store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !26
+  store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !25
   %strictLoopThread.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
-  store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !27
+  store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !26
   invoke void @_ZN5folly21ScopedEventBaseThreadC1ENS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 16 dereferenceable(636) %this, ptr noundef nonnull %agg.tmp.i, ptr noundef null, ptr nonnull @.str, ptr nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !28
+  %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !27
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly21ScopedEventBaseThreadC1EPNS_16EventBaseManagerENS_5RangeIPKcEE.exit, label %if.then.i.i.i
 
@@ -467,7 +468,7 @@ lpad.i:                                           ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
   %_M_manager.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %5 = load ptr, ptr %_M_manager.i.i5.i, align 8, !tbaa !28
+  %5 = load ptr, ptr %_M_manager.i.i5.i, align 8, !tbaa !27
   %tobool.not.i.i6.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i6.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit11.i, label %if.then.i.i7.i
 
@@ -494,21 +495,21 @@ _ZN5folly21ScopedEventBaseThreadC1EPNS_16EventBaseManagerENS_5RangeIPKcEE.exit: 
 define void @_ZN5folly21ScopedEventBaseThreadC1EPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 16 dereferenceable(636) %this, ptr noundef %ebm, ptr %name.coerce0, ptr %name.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.folly::EventBase::Options", align 8
-  store i8 0, ptr %agg.tmp, align 8, !tbaa !17
+  store i8 0, ptr %agg.tmp, align 8, !tbaa !16
   %backendFactory.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i, i8 0, i64 32, i1 false)
   %timerTickInterval.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
-  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !24
+  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !23
   %conv.i.i = sext i32 %0 to i64
-  store i64 %conv.i.i, ptr %timerTickInterval.i, align 8, !tbaa !26
+  store i64 %conv.i.i, ptr %timerTickInterval.i, align 8, !tbaa !25
   %strictLoopThread.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
-  store i8 0, ptr %strictLoopThread.i, align 8, !tbaa !27
+  store i8 0, ptr %strictLoopThread.i, align 8, !tbaa !26
   invoke void @_ZN5folly21ScopedEventBaseThreadC1ENS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 16 dereferenceable(636) %this, ptr noundef nonnull %agg.tmp, ptr noundef %ebm, ptr %name.coerce0, ptr %name.coerce1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %1 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !28
+  %1 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !27
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit, label %if.then.i.i
 
@@ -530,7 +531,7 @@ lpad:                                             ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
   %_M_manager.i.i5 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %5 = load ptr, ptr %_M_manager.i.i5, align 8, !tbaa !28
+  %5 = load ptr, ptr %_M_manager.i.i5, align 8, !tbaa !27
   %tobool.not.i.i6 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i6, label %_ZN5folly9EventBase7OptionsD2Ev.exit11, label %if.then.i.i7
 
@@ -554,21 +555,21 @@ define void @_ZN5folly21ScopedEventBaseThreadC2ENS_5RangeIPKcEE(ptr noundef nonn
 entry:
   %agg.tmp.i = alloca %"struct.folly::EventBase::Options", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
-  store i8 0, ptr %agg.tmp.i, align 8, !tbaa !17
+  store i8 0, ptr %agg.tmp.i, align 8, !tbaa !16
   %backendFactory.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i.i, i8 0, i64 32, i1 false)
   %timerTickInterval.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 40
-  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !24
+  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !23
   %conv.i.i.i = sext i32 %0 to i64
-  store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !26
+  store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !25
   %strictLoopThread.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
-  store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !27
+  store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !26
   invoke void @_ZN5folly21ScopedEventBaseThreadC2ENS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 16 dereferenceable(636) %this, ptr noundef %vtt, ptr noundef nonnull %agg.tmp.i, ptr noundef null, ptr %name.coerce0, ptr %name.coerce1)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !28
+  %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !27
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly21ScopedEventBaseThreadC2EPNS_16EventBaseManagerENS_5RangeIPKcEE.exit, label %if.then.i.i.i
 
@@ -587,7 +588,7 @@ lpad.i:                                           ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
   %_M_manager.i.i6.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %5 = load ptr, ptr %_M_manager.i.i6.i, align 8, !tbaa !28
+  %5 = load ptr, ptr %_M_manager.i.i6.i, align 8, !tbaa !27
   %tobool.not.i.i7.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i7.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit12.i, label %if.then.i.i8.i
 
@@ -618,21 +619,21 @@ define void @_ZN5folly21ScopedEventBaseThreadC1ENS_5RangeIPKcEE(ptr noundef nonn
 entry:
   %agg.tmp.i = alloca %"struct.folly::EventBase::Options", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
-  store i8 0, ptr %agg.tmp.i, align 8, !tbaa !17
+  store i8 0, ptr %agg.tmp.i, align 8, !tbaa !16
   %backendFactory.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i.i, i8 0, i64 32, i1 false)
   %timerTickInterval.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 40
-  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !24
+  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !23
   %conv.i.i.i = sext i32 %0 to i64
-  store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !26
+  store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !25
   %strictLoopThread.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
-  store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !27
+  store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !26
   invoke void @_ZN5folly21ScopedEventBaseThreadC1ENS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 16 dereferenceable(636) %this, ptr noundef nonnull %agg.tmp.i, ptr noundef null, ptr %name.coerce0, ptr %name.coerce1)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !28
+  %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !27
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly21ScopedEventBaseThreadC1EPNS_16EventBaseManagerENS_5RangeIPKcEE.exit, label %if.then.i.i.i
 
@@ -651,7 +652,7 @@ lpad.i:                                           ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
   %_M_manager.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %5 = load ptr, ptr %_M_manager.i.i5.i, align 8, !tbaa !28
+  %5 = load ptr, ptr %_M_manager.i.i5.i, align 8, !tbaa !27
   %tobool.not.i.i6.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i6.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit11.i, label %if.then.i.i7.i
 
@@ -679,21 +680,21 @@ define void @_ZN5folly21ScopedEventBaseThreadC2EPNS_16EventBaseManagerE(ptr noun
 entry:
   %agg.tmp.i = alloca %"struct.folly::EventBase::Options", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
-  store i8 0, ptr %agg.tmp.i, align 8, !tbaa !17
+  store i8 0, ptr %agg.tmp.i, align 8, !tbaa !16
   %backendFactory.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i.i, i8 0, i64 32, i1 false)
   %timerTickInterval.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 40
-  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !24
+  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !23
   %conv.i.i.i = sext i32 %0 to i64
-  store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !26
+  store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !25
   %strictLoopThread.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
-  store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !27
+  store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !26
   invoke void @_ZN5folly21ScopedEventBaseThreadC2ENS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 16 dereferenceable(636) %this, ptr noundef %vtt, ptr noundef nonnull %agg.tmp.i, ptr noundef %ebm, ptr nonnull @.str, ptr nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !28
+  %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !27
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly21ScopedEventBaseThreadC2EPNS_16EventBaseManagerENS_5RangeIPKcEE.exit, label %if.then.i.i.i
 
@@ -712,7 +713,7 @@ lpad.i:                                           ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
   %_M_manager.i.i6.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %5 = load ptr, ptr %_M_manager.i.i6.i, align 8, !tbaa !28
+  %5 = load ptr, ptr %_M_manager.i.i6.i, align 8, !tbaa !27
   %tobool.not.i.i7.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i7.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit12.i, label %if.then.i.i8.i
 
@@ -740,21 +741,21 @@ define void @_ZN5folly21ScopedEventBaseThreadC1EPNS_16EventBaseManagerE(ptr noun
 entry:
   %agg.tmp.i = alloca %"struct.folly::EventBase::Options", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
-  store i8 0, ptr %agg.tmp.i, align 8, !tbaa !17
+  store i8 0, ptr %agg.tmp.i, align 8, !tbaa !16
   %backendFactory.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %backendFactory.i.i, i8 0, i64 32, i1 false)
   %timerTickInterval.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 40
-  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !24
+  %0 = load i32, ptr @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE21DEFAULT_TICK_INTERVALE, align 4, !tbaa !23
   %conv.i.i.i = sext i32 %0 to i64
-  store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !26
+  store i64 %conv.i.i.i, ptr %timerTickInterval.i.i, align 8, !tbaa !25
   %strictLoopThread.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
-  store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !27
+  store i8 0, ptr %strictLoopThread.i.i, align 8, !tbaa !26
   invoke void @_ZN5folly21ScopedEventBaseThreadC1ENS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 16 dereferenceable(636) %this, ptr noundef nonnull %agg.tmp.i, ptr noundef %ebm, ptr nonnull @.str, ptr nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !28
+  %1 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !27
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly21ScopedEventBaseThreadC1EPNS_16EventBaseManagerENS_5RangeIPKcEE.exit, label %if.then.i.i.i
 
@@ -773,7 +774,7 @@ lpad.i:                                           ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
   %_M_manager.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  %5 = load ptr, ptr %_M_manager.i.i5.i, align 8, !tbaa !28
+  %5 = load ptr, ptr %_M_manager.i.i5.i, align 8, !tbaa !27
   %tobool.not.i.i6.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i6.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit11.i, label %if.then.i.i7.i
 
@@ -842,30 +843,30 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %cond.false, %entry
   %cond = phi ptr [ %call, %cond.false ], [ %ebm, %entry ]
-  store ptr %cond, ptr %ebm_, align 16, !tbaa !29
+  store ptr %cond, ptr %ebm_, align 16, !tbaa !28
   %th_ = getelementptr inbounds i8, ptr %this, i64 624
-  store i64 0, ptr %th_, align 16, !tbaa !38
+  store i64 0, ptr %th_, align 16, !tbaa !37
   %stop_ = getelementptr inbounds i8, ptr %this, i64 632
-  store i32 0, ptr %stop_, align 8, !tbaa !39
+  store i32 0, ptr %stop_, align 8, !tbaa !38
   %14 = getelementptr inbounds i8, ptr %this, i64 32
-  %15 = load i8, ptr %eventBaseOptions, align 8, !tbaa !17, !range !40, !noundef !41
-  store i8 %15, ptr %agg.tmp, align 8, !tbaa !17
+  %15 = load i8, ptr %eventBaseOptions, align 8, !tbaa !16, !range !39, !noundef !40
+  store i8 %15, ptr %agg.tmp, align 8, !tbaa !16
   %backendFactory.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   %_M_invoker2.i.i = getelementptr inbounds i8, ptr %eventBaseOptions, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %backendFactory.i, i8 0, i64 24, i1 false)
-  %16 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !42
-  store ptr %16, ptr %_M_invoker.i.i, align 8, !tbaa !42
+  %16 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !41
+  store ptr %16, ptr %_M_invoker.i.i, align 8, !tbaa !41
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %eventBaseOptions, i64 24
-  %17 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !28
+  %17 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !27
   %tobool.not.i.i.not.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZN5folly9EventBase7OptionsC2EOS1_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cond.end
   %backendFactory3.i = getelementptr inbounds i8, ptr %eventBaseOptions, i64 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory3.i, i64 16, i1 false), !tbaa.struct !43
-  store ptr %17, ptr %_M_manager.i.i.i, align 8, !tbaa !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory3.i, i64 16, i1 false), !tbaa.struct !42
+  store ptr %17, ptr %_M_manager.i.i.i, align 8, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZN5folly9EventBase7OptionsC2EOS1_.exit
 
@@ -878,7 +879,7 @@ _ZN5folly9EventBase7OptionsC2EOS1_.exit:          ; preds = %if.then.i.i, %cond.
 
 invoke.cont5:                                     ; preds = %_ZN5folly9EventBase7OptionsC2EOS1_.exit
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %18 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !28
+  %18 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !27
   %tobool.not.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit, label %if.then.i.i26
 
@@ -896,31 +897,31 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i26
 _ZN5folly9EventBase7OptionsD2Ev.exit:             ; preds = %if.then.i.i26, %invoke.cont5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  store i64 0, ptr %ref.tmp, align 8, !tbaa !38
+  store i64 0, ptr %ref.tmp, align 8, !tbaa !37
   %call.i28 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
           to label %call.i.noexc unwind label %lpad10
 
 call.i.noexc:                                     ; preds = %_ZN5folly9EventBase7OptionsD2Ev.exit
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN5folly16EventBaseManagerEPNS3_9EventBaseEPNS3_5BatonILb1ESt6atomicEERKNS3_5RangeIPKcEEES5_S7_SB_SF_EEEEEE, i64 16), ptr %call.i28, align 8, !tbaa !7
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i28, i64 8
-  store ptr %name.coerce0, ptr %_M_func.i.i, align 8, !tbaa !15
+  store ptr %name.coerce0, ptr %_M_func.i.i, align 8, !tbaa !43
   %name.sroa.2.0._M_func.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i28, i64 16
-  store ptr %name.coerce1, ptr %name.sroa.2.0._M_func.i.i.sroa_idx, align 8, !tbaa !15
+  store ptr %name.coerce1, ptr %name.sroa.2.0._M_func.i.i.sroa_idx, align 8, !tbaa !43
   %21 = getelementptr inbounds i8, ptr %call.i28, i64 24
   store ptr %stop_, ptr %21, align 8, !tbaa !44
   %22 = getelementptr inbounds i8, ptr %call.i28, i64 32
   store ptr %14, ptr %22, align 8, !tbaa !46
   %23 = getelementptr inbounds i8, ptr %call.i28, i64 40
-  %24 = load ptr, ptr %ebm_, align 16, !tbaa !15
+  %24 = load ptr, ptr %ebm_, align 16, !tbaa !43
   store ptr %24, ptr %23, align 8, !tbaa !48
   %25 = getelementptr inbounds i8, ptr %call.i28, i64 48
   store ptr @_ZN5follyL3runEPNS_16EventBaseManagerEPNS_9EventBaseEPNS_5BatonILb1ESt6atomicEERKNS_5RangeIPKcEE, ptr %25, align 8, !tbaa !50
-  store ptr %call.i28, ptr %agg.tmp.i, align 8, !tbaa !15
+  store ptr %call.i28, ptr %agg.tmp.i, align 8, !tbaa !43
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
           to label %invoke.cont9.i unwind label %lpad8.i
 
 invoke.cont9.i:                                   ; preds = %call.i.noexc
-  %26 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !15
+  %26 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !43
   %cmp.not.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i, label %invoke.cont11, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
 
@@ -934,7 +935,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.co
 lpad8.i:                                          ; preds = %call.i.noexc
   %28 = landingpad { ptr, i32 }
           cleanup
-  %29 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !15
+  %29 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !43
   %cmp.not.i12.i = icmp eq ptr %29, null
   br i1 %cmp.not.i12.i, label %lpad10.body, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i13.i
 
@@ -969,7 +970,7 @@ lpad4:                                            ; preds = %_ZN5folly9EventBase
   %32 = landingpad { ptr, i32 }
           cleanup
   %_M_manager.i.i32 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %33 = load ptr, ptr %_M_manager.i.i32, align 8, !tbaa !28
+  %33 = load ptr, ptr %_M_manager.i.i32, align 8, !tbaa !27
   %tobool.not.i.i33 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i33, label %ehcleanup, label %if.then.i.i34
 
@@ -1048,30 +1049,30 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %cond.false, %entry
   %cond = phi ptr [ %call, %cond.false ], [ %ebm, %entry ]
-  store ptr %cond, ptr %ebm_, align 16, !tbaa !29
+  store ptr %cond, ptr %ebm_, align 16, !tbaa !28
   %th_ = getelementptr inbounds i8, ptr %this, i64 624
-  store i64 0, ptr %th_, align 16, !tbaa !38
+  store i64 0, ptr %th_, align 16, !tbaa !37
   %stop_ = getelementptr inbounds i8, ptr %this, i64 632
-  store i32 0, ptr %stop_, align 8, !tbaa !39
+  store i32 0, ptr %stop_, align 8, !tbaa !38
   %1 = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load i8, ptr %eventBaseOptions, align 8, !tbaa !17, !range !40, !noundef !41
-  store i8 %2, ptr %agg.tmp, align 8, !tbaa !17
+  %2 = load i8, ptr %eventBaseOptions, align 8, !tbaa !16, !range !39, !noundef !40
+  store i8 %2, ptr %agg.tmp, align 8, !tbaa !16
   %backendFactory.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   %_M_invoker2.i.i = getelementptr inbounds i8, ptr %eventBaseOptions, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %backendFactory.i, i8 0, i64 24, i1 false)
-  %3 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !42
-  store ptr %3, ptr %_M_invoker.i.i, align 8, !tbaa !42
+  %3 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !41
+  store ptr %3, ptr %_M_invoker.i.i, align 8, !tbaa !41
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %eventBaseOptions, i64 24
-  %4 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !28
+  %4 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !27
   %tobool.not.i.i.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZN5folly9EventBase7OptionsC2EOS1_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cond.end
   %backendFactory3.i = getelementptr inbounds i8, ptr %eventBaseOptions, i64 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory3.i, i64 16, i1 false), !tbaa.struct !43
-  store ptr %4, ptr %_M_manager.i.i.i, align 8, !tbaa !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory3.i, i64 16, i1 false), !tbaa.struct !42
+  store ptr %4, ptr %_M_manager.i.i.i, align 8, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZN5folly9EventBase7OptionsC2EOS1_.exit
 
@@ -1084,7 +1085,7 @@ _ZN5folly9EventBase7OptionsC2EOS1_.exit:          ; preds = %if.then.i.i, %cond.
 
 invoke.cont3:                                     ; preds = %_ZN5folly9EventBase7OptionsC2EOS1_.exit
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %5 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !28
+  %5 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !27
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZN5folly9EventBase7OptionsD2Ev.exit, label %if.then.i.i22
 
@@ -1102,31 +1103,31 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i22
 _ZN5folly9EventBase7OptionsD2Ev.exit:             ; preds = %if.then.i.i22, %invoke.cont3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  store i64 0, ptr %ref.tmp, align 8, !tbaa !38
+  store i64 0, ptr %ref.tmp, align 8, !tbaa !37
   %call.i24 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
           to label %call.i.noexc unwind label %lpad8
 
 call.i.noexc:                                     ; preds = %_ZN5folly9EventBase7OptionsD2Ev.exit
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN5folly16EventBaseManagerEPNS3_9EventBaseEPNS3_5BatonILb1ESt6atomicEERKNS3_5RangeIPKcEEES5_S7_SB_SF_EEEEEE, i64 16), ptr %call.i24, align 8, !tbaa !7
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i24, i64 8
-  store ptr %name.coerce0, ptr %_M_func.i.i, align 8, !tbaa !15
+  store ptr %name.coerce0, ptr %_M_func.i.i, align 8, !tbaa !43
   %name.sroa.2.0._M_func.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i24, i64 16
-  store ptr %name.coerce1, ptr %name.sroa.2.0._M_func.i.i.sroa_idx, align 8, !tbaa !15
+  store ptr %name.coerce1, ptr %name.sroa.2.0._M_func.i.i.sroa_idx, align 8, !tbaa !43
   %8 = getelementptr inbounds i8, ptr %call.i24, i64 24
   store ptr %stop_, ptr %8, align 8, !tbaa !44
   %9 = getelementptr inbounds i8, ptr %call.i24, i64 32
   store ptr %1, ptr %9, align 8, !tbaa !46
   %10 = getelementptr inbounds i8, ptr %call.i24, i64 40
-  %11 = load ptr, ptr %ebm_, align 16, !tbaa !15
+  %11 = load ptr, ptr %ebm_, align 16, !tbaa !43
   store ptr %11, ptr %10, align 8, !tbaa !48
   %12 = getelementptr inbounds i8, ptr %call.i24, i64 48
   store ptr @_ZN5follyL3runEPNS_16EventBaseManagerEPNS_9EventBaseEPNS_5BatonILb1ESt6atomicEERKNS_5RangeIPKcEE, ptr %12, align 8, !tbaa !50
-  store ptr %call.i24, ptr %agg.tmp.i, align 8, !tbaa !15
+  store ptr %call.i24, ptr %agg.tmp.i, align 8, !tbaa !43
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
           to label %invoke.cont9.i unwind label %lpad8.i
 
 invoke.cont9.i:                                   ; preds = %call.i.noexc
-  %13 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !15
+  %13 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !43
   %cmp.not.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i, label %invoke.cont9, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
 
@@ -1140,7 +1141,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.co
 lpad8.i:                                          ; preds = %call.i.noexc
   %15 = landingpad { ptr, i32 }
           cleanup
-  %16 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !15
+  %16 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !43
   %cmp.not.i12.i = icmp eq ptr %16, null
   br i1 %cmp.not.i12.i, label %lpad8.body, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i13.i
 
@@ -1175,7 +1176,7 @@ lpad2:                                            ; preds = %_ZN5folly9EventBase
   %19 = landingpad { ptr, i32 }
           cleanup
   %_M_manager.i.i28 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %20 = load ptr, ptr %_M_manager.i.i28, align 8, !tbaa !28
+  %20 = load ptr, ptr %_M_manager.i.i28, align 8, !tbaa !27
   %tobool.not.i.i29 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i29, label %ehcleanup, label %if.then.i.i30
 
@@ -1232,9 +1233,9 @@ entry:
   %deadline.i = alloca %"class.std::chrono::time_point", align 8
   %agg.tmp2 = alloca %"class.folly::Function", align 16
   %ref.tmp = alloca %"class.folly::WaitOptions", align 8
-  %0 = load ptr, ptr %name, align 8, !tbaa !15
+  %0 = load ptr, ptr %name, align 8, !tbaa !43
   %e_.i = getelementptr inbounds i8, ptr %name, i64 8
-  %1 = load ptr, ptr %e_.i, align 8, !tbaa !15
+  %1 = load ptr, ptr %e_.i, align 8, !tbaa !43
   %cmp.i13 = icmp eq ptr %0, %1
   br i1 %cmp.i13, label %if.end, label %if.then
 
@@ -1247,14 +1248,14 @@ if.end:                                           ; preds = %if.then, %entry
   tail call void @_ZN5folly9EventBase11loopForeverEv(ptr noundef nonnull align 16 dereferenceable(584) %eb)
   %call_.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 48
   %exec_.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 56
-  store ptr %ebm, ptr %agg.tmp2, align 16, !tbaa !15
-  store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_L3runEPNS_16EventBaseManagerEPNS_9EventBaseEPNS_5BatonILb1ESt6atomicEERKNS_5RangeIPKcEEE3$_0EEvRNS1_4DataE", ptr %call_.i, align 16, !tbaa !16
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i, align 8, !tbaa !12
+  store ptr %ebm, ptr %agg.tmp2, align 16, !tbaa !43
+  store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_L3runEPNS_16EventBaseManagerEPNS_9EventBaseEPNS_5BatonILb1ESt6atomicEERKNS_5RangeIPKcEEE3$_0EEvRNS1_4DataE", ptr %call_.i, align 16, !tbaa !12
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i, align 8, !tbaa !15
   invoke void @_ZN5folly9EventBase16runOnDestructionENS_8FunctionIFvvEEE(ptr noundef nonnull align 16 dereferenceable(584) %eb, ptr noundef nonnull %agg.tmp2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %2 = load ptr, ptr %exec_.i, align 8, !tbaa !12
+  %2 = load ptr, ptr %exec_.i, align 8, !tbaa !15
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i
 
@@ -1288,7 +1289,7 @@ _ZN5folly5BatonILb1ESt6atomicE4waitERKNS_11WaitOptionsE.exit: ; preds = %if.end.
 lpad:                                             ; preds = %if.end
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %exec_.i, align 8, !tbaa !12
+  %7 = load ptr, ptr %exec_.i, align 8, !tbaa !15
   %tobool.not.i.i16 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i16, label %_ZN5folly8FunctionIFvvEED2Ev.exit19, label %if.end.i.i17
 
@@ -1386,7 +1387,7 @@ entry:
   %converted.i.i = alloca %"class.std::chrono::time_point", align 8
   %pre.i = alloca i32, align 4
   %logging_enabled_.i = getelementptr inbounds i8, ptr %opt, i64 8
-  %0 = load i8, ptr %logging_enabled_.i, align 8, !tbaa !53, !range !40, !noundef !41
+  %0 = load i8, ptr %logging_enabled_.i, align 8, !tbaa !53, !range !39, !noundef !40
   %tobool.i.not = icmp eq i8 %0, 0
   br i1 %tobool.i.not, label %if.end, label %invoke.cont8
 
@@ -1630,10 +1631,10 @@ entry:
   %add.ptr.i.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %add.ptr.i.i.i11.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %add.ptr.i.i.i12.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !15
-  %1 = load ptr, ptr %add.ptr.i.i.i10.i.i, align 8, !tbaa !15
-  %2 = load ptr, ptr %add.ptr.i.i.i11.i.i, align 8, !tbaa !15
-  %3 = load ptr, ptr %add.ptr.i.i.i12.i.i, align 8, !tbaa !15
+  %0 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !43
+  %1 = load ptr, ptr %add.ptr.i.i.i10.i.i, align 8, !tbaa !43
+  %2 = load ptr, ptr %add.ptr.i.i.i11.i.i, align 8, !tbaa !43
+  %3 = load ptr, ptr %add.ptr.i.i.i12.i.i, align 8, !tbaa !43
   tail call void %0(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %_M_func)
   ret void
 }
@@ -1781,38 +1782,38 @@ attributes #20 = { noreturn }
 !9 = !{!"Simple C++ TBAA"}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"omnipotent char", !9, i64 0}
-!12 = !{!13, !14, i64 56}
+!12 = !{!13, !14, i64 48}
 !13 = !{!"_ZTSN5folly8FunctionIFvvEEE", !11, i64 0, !14, i64 48, !14, i64 56}
 !14 = !{!"any pointer", !11, i64 0}
-!15 = !{!14, !14, i64 0}
-!16 = !{!13, !14, i64 48}
-!17 = !{!18, !19, i64 0}
-!18 = !{!"_ZTSN5folly9EventBase7OptionsE", !19, i64 0, !20, i64 8, !22, i64 40, !19, i64 48}
-!19 = !{!"bool", !11, i64 0}
-!20 = !{!"_ZTSSt8functionIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEE", !21, i64 0, !14, i64 24}
-!21 = !{!"_ZTSSt14_Function_base", !11, i64 0, !14, i64 16}
-!22 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE", !23, i64 0}
-!23 = !{!"long", !11, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"int", !11, i64 0}
-!26 = !{!22, !23, i64 0}
-!27 = !{!18, !19, i64 48}
-!28 = !{!21, !14, i64 16}
-!29 = !{!30, !14, i64 16}
-!30 = !{!"_ZTSN5folly21ScopedEventBaseThreadE", !31, i64 0, !32, i64 8, !14, i64 16, !11, i64 32, !33, i64 624, !35, i64 632}
-!31 = !{!"_ZTSN5folly10IOExecutorE"}
-!32 = !{!"_ZTSN5folly17SequencedExecutorE"}
-!33 = !{!"_ZTSSt6thread", !34, i64 0}
-!34 = !{!"_ZTSNSt6thread2idE", !23, i64 0}
-!35 = !{!"_ZTSN5folly5BatonILb1ESt6atomicEE", !36, i64 0}
-!36 = !{!"_ZTSSt6atomicIjE", !37, i64 0}
-!37 = !{!"_ZTSSt13__atomic_baseIjE", !25, i64 0}
-!38 = !{!34, !23, i64 0}
-!39 = !{!37, !25, i64 0}
-!40 = !{i8 0, i8 2}
-!41 = !{}
-!42 = !{!20, !14, i64 24}
-!43 = !{i64 0, i64 16, !10}
+!15 = !{!13, !14, i64 56}
+!16 = !{!17, !18, i64 0}
+!17 = !{!"_ZTSN5folly9EventBase7OptionsE", !18, i64 0, !19, i64 8, !21, i64 40, !18, i64 48}
+!18 = !{!"bool", !11, i64 0}
+!19 = !{!"_ZTSSt8functionIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEE", !20, i64 0, !14, i64 24}
+!20 = !{!"_ZTSSt14_Function_base", !11, i64 0, !14, i64 16}
+!21 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE", !22, i64 0}
+!22 = !{!"long", !11, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"int", !11, i64 0}
+!25 = !{!21, !22, i64 0}
+!26 = !{!17, !18, i64 48}
+!27 = !{!20, !14, i64 16}
+!28 = !{!29, !14, i64 16}
+!29 = !{!"_ZTSN5folly21ScopedEventBaseThreadE", !30, i64 0, !31, i64 8, !14, i64 16, !11, i64 32, !32, i64 624, !34, i64 632}
+!30 = !{!"_ZTSN5folly10IOExecutorE"}
+!31 = !{!"_ZTSN5folly17SequencedExecutorE"}
+!32 = !{!"_ZTSSt6thread", !33, i64 0}
+!33 = !{!"_ZTSNSt6thread2idE", !22, i64 0}
+!34 = !{!"_ZTSN5folly5BatonILb1ESt6atomicEE", !35, i64 0}
+!35 = !{!"_ZTSSt6atomicIjE", !36, i64 0}
+!36 = !{!"_ZTSSt13__atomic_baseIjE", !24, i64 0}
+!37 = !{!33, !22, i64 0}
+!38 = !{!36, !24, i64 0}
+!39 = !{i8 0, i8 2}
+!40 = !{}
+!41 = !{!19, !14, i64 24}
+!42 = !{i64 0, i64 16, !10}
+!43 = !{!14, !14, i64 0}
 !44 = !{!45, !14, i64 0}
 !45 = !{!"_ZTSSt10_Head_baseILm3EPN5folly5BatonILb1ESt6atomicEELb0EE", !14, i64 0}
 !46 = !{!47, !14, i64 0}
@@ -1821,10 +1822,10 @@ attributes #20 = { noreturn }
 !49 = !{!"_ZTSSt10_Head_baseILm1EPN5folly16EventBaseManagerELb0EE", !14, i64 0}
 !50 = !{!51, !14, i64 0}
 !51 = !{!"_ZTSSt10_Head_baseILm0EPFvPN5folly16EventBaseManagerEPNS0_9EventBaseEPNS0_5BatonILb1ESt6atomicEERKNS0_5RangeIPKcEEELb0EE", !14, i64 0}
-!52 = !{!23, !23, i64 0}
-!53 = !{!54, !19, i64 8}
-!54 = !{!"_ZTSN5folly11WaitOptionsE", !55, i64 0, !19, i64 8}
-!55 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !23, i64 0}
+!52 = !{!22, !22, i64 0}
+!53 = !{!54, !18, i64 8}
+!54 = !{!"_ZTSN5folly11WaitOptionsE", !55, i64 0, !18, i64 8}
+!55 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !22, i64 0}
 !56 = !{!57, !14, i64 0}
 !57 = !{!"_ZTSZN5follyL3runEPNS_16EventBaseManagerEPNS_9EventBaseEPNS_5BatonILb1ESt6atomicEERKNS_5RangeIPKcEEE3$_0", !14, i64 0}
 !58 = !{i64 8323611}

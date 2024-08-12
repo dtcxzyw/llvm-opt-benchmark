@@ -598,10 +598,13 @@ if.end69:                                         ; preds = %if.then68, %if.end6
 
 if.then71:                                        ; preds = %if.end69
   %stats = getelementptr inbounds i8, ptr %s, i64 304
-  %41 = load <2 x i64>, ptr %stats, align 8
-  %42 = insertelement <2 x i64> <i64 5, i64 poison>, i64 %or53, i64 1
-  %43 = add <2 x i64> %41, %42
-  store <2 x i64> %43, ptr %stats, align 8
+  %41 = load i64, ptr %stats, align 8
+  %add72 = add i64 %41, 5
+  store i64 %add72, ptr %stats, align 8
+  %data_bytes = getelementptr inbounds i8, ptr %s, i64 312
+  %42 = load i64, ptr %data_bytes, align 8
+  %add75 = add i64 %42, %or53
+  store i64 %add75, ptr %data_bytes, align 8
   invoke void @grpc_slice_buffer_move_first_into_buffer(ptr noundef nonnull %frame_storage, i64 noundef 5, ptr noundef nonnull %header)
           to label %invoke.cont77 unwind label %lpad
 
@@ -611,8 +614,8 @@ invoke.cont77:                                    ; preds = %if.then71
 
 _ZN4absl12lts_202308026StatusD2Ev.exit58:         ; preds = %if.end69, %invoke.cont77
   store i8 1, ptr %agg.result, align 8
-  %44 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 0, ptr %44, align 8
+  %43 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 0, ptr %43, align 8
   br label %_ZN4absl12lts_202308026StatusD2Ev.exit64
 
 _ZN4absl12lts_202308026StatusD2Ev.exit64:         ; preds = %if.end, %if.end63, %_ZN4absl12lts_202308026StatusD2Ev.exit58, %_ZN4absl12lts_202308026StatusD2Ev.exit52

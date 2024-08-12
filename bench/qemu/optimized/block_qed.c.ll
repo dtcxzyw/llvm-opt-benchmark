@@ -163,30 +163,54 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qed_write_header_sync(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %le = alloca %struct.QEDHeader, align 16
+  %le = alloca %struct.QEDHeader, align 4
   %header = getelementptr inbounds i8, ptr %s, i64 8
-  %0 = load <4 x i32>, ptr %header, align 1
-  store <4 x i32> %0, ptr %le, align 16
+  %0 = load i32, ptr %header, align 1
+  store i32 %0, ptr %le, align 4
+  %cluster_size.i = getelementptr inbounds i8, ptr %s, i64 12
+  %1 = load i32, ptr %cluster_size.i, align 1
+  %cluster_size3.i = getelementptr inbounds i8, ptr %le, i64 4
+  store i32 %1, ptr %cluster_size3.i, align 4
+  %table_size.i = getelementptr inbounds i8, ptr %s, i64 16
+  %2 = load i32, ptr %table_size.i, align 1
+  %table_size5.i = getelementptr inbounds i8, ptr %le, i64 8
+  store i32 %2, ptr %table_size5.i, align 4
+  %header_size.i = getelementptr inbounds i8, ptr %s, i64 20
+  %3 = load i32, ptr %header_size.i, align 1
+  %header_size7.i = getelementptr inbounds i8, ptr %le, i64 12
+  store i32 %3, ptr %header_size7.i, align 4
   %features.i = getelementptr inbounds i8, ptr %s, i64 24
+  %4 = load i64, ptr %features.i, align 1
   %features9.i = getelementptr inbounds i8, ptr %le, i64 16
-  %1 = load <2 x i64>, ptr %features.i, align 1
-  store <2 x i64> %1, ptr %features9.i, align 16
+  store i64 %4, ptr %features9.i, align 4
+  %compat_features.i = getelementptr inbounds i8, ptr %s, i64 32
+  %5 = load i64, ptr %compat_features.i, align 1
+  %compat_features11.i = getelementptr inbounds i8, ptr %le, i64 24
+  store i64 %5, ptr %compat_features11.i, align 4
   %autoclear_features.i = getelementptr inbounds i8, ptr %s, i64 40
+  %6 = load i64, ptr %autoclear_features.i, align 1
   %autoclear_features13.i = getelementptr inbounds i8, ptr %le, i64 32
-  %2 = load <2 x i64>, ptr %autoclear_features.i, align 1
-  store <2 x i64> %2, ptr %autoclear_features13.i, align 16
+  store i64 %6, ptr %autoclear_features13.i, align 4
+  %l1_table_offset.i = getelementptr inbounds i8, ptr %s, i64 48
+  %7 = load i64, ptr %l1_table_offset.i, align 1
+  %l1_table_offset15.i = getelementptr inbounds i8, ptr %le, i64 40
+  store i64 %7, ptr %l1_table_offset15.i, align 4
   %image_size.i = getelementptr inbounds i8, ptr %s, i64 56
-  %3 = load i64, ptr %image_size.i, align 1
+  %8 = load i64, ptr %image_size.i, align 1
   %image_size17.i = getelementptr inbounds i8, ptr %le, i64 48
-  store i64 %3, ptr %image_size17.i, align 16
+  store i64 %8, ptr %image_size17.i, align 4
   %backing_filename_offset.i = getelementptr inbounds i8, ptr %s, i64 64
+  %9 = load i32, ptr %backing_filename_offset.i, align 1
   %backing_filename_offset19.i = getelementptr inbounds i8, ptr %le, i64 56
-  %4 = load <2 x i32>, ptr %backing_filename_offset.i, align 1
-  store <2 x i32> %4, ptr %backing_filename_offset19.i, align 8
-  %5 = load ptr, ptr %s, align 8
-  %file = getelementptr inbounds i8, ptr %5, i64 16840
-  %6 = load ptr, ptr %file, align 8
-  %call = call i32 @bdrv_pwrite(ptr noundef %6, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le, i32 noundef 0) #18
+  store i32 %9, ptr %backing_filename_offset19.i, align 4
+  %backing_filename_size.i = getelementptr inbounds i8, ptr %s, i64 68
+  %10 = load i32, ptr %backing_filename_size.i, align 1
+  %backing_filename_size21.i = getelementptr inbounds i8, ptr %le, i64 60
+  store i32 %10, ptr %backing_filename_size21.i, align 4
+  %11 = load ptr, ptr %s, align 8
+  %file = getelementptr inbounds i8, ptr %11, i64 16840
+  %12 = load ptr, ptr %file, align 8
+  %call = call i32 @bdrv_pwrite(ptr noundef %12, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le, i32 noundef 0) #18
   ret i32 %call
 }
 
@@ -1155,23 +1179,35 @@ if.end8:                                          ; preds = %if.end4
   %header_size7.i.i = getelementptr inbounds i8, ptr %le.i, i64 12
   store i32 %6, ptr %header_size7.i.i, align 4
   %features.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = load i64, ptr %features.i.i, align 1
   %features9.i.i = getelementptr inbounds i8, ptr %le.i, i64 16
-  %7 = load <2 x i64>, ptr %features.i.i, align 1
-  store <2 x i64> %7, ptr %features9.i.i, align 4
+  store i64 %7, ptr %features9.i.i, align 4
+  %compat_features.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = load i64, ptr %compat_features.i.i, align 1
+  %compat_features11.i.i = getelementptr inbounds i8, ptr %le.i, i64 24
+  store i64 %8, ptr %compat_features11.i.i, align 4
   %autoclear_features.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = load i64, ptr %autoclear_features.i.i, align 1
   %autoclear_features13.i.i = getelementptr inbounds i8, ptr %le.i, i64 32
-  %8 = load <2 x i64>, ptr %autoclear_features.i.i, align 1
-  store <2 x i64> %8, ptr %autoclear_features13.i.i, align 4
+  store i64 %9, ptr %autoclear_features13.i.i, align 4
+  %l1_table_offset.i.i = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = load i64, ptr %l1_table_offset.i.i, align 1
+  %l1_table_offset15.i.i = getelementptr inbounds i8, ptr %le.i, i64 40
+  store i64 %10, ptr %l1_table_offset15.i.i, align 4
   %image_size17.i.i = getelementptr inbounds i8, ptr %le.i, i64 48
   store i64 %offset, ptr %image_size17.i.i, align 4
   %backing_filename_offset.i.i = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = load i32, ptr %backing_filename_offset.i.i, align 1
   %backing_filename_offset19.i.i = getelementptr inbounds i8, ptr %le.i, i64 56
-  %9 = load <2 x i32>, ptr %backing_filename_offset.i.i, align 1
-  store <2 x i32> %9, ptr %backing_filename_offset19.i.i, align 4
-  %10 = load ptr, ptr %0, align 8
-  %file.i = getelementptr inbounds i8, ptr %10, i64 16840
-  %11 = load ptr, ptr %file.i, align 8
-  %call.i = call i32 @bdrv_pwrite(ptr noundef %11, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le.i, i32 noundef 0) #18
+  store i32 %11, ptr %backing_filename_offset19.i.i, align 4
+  %backing_filename_size.i.i = getelementptr inbounds i8, ptr %0, i64 68
+  %12 = load i32, ptr %backing_filename_size.i.i, align 1
+  %backing_filename_size21.i.i = getelementptr inbounds i8, ptr %le.i, i64 60
+  store i32 %12, ptr %backing_filename_size21.i.i, align 4
+  %13 = load ptr, ptr %0, align 8
+  %file.i = getelementptr inbounds i8, ptr %13, i64 16840
+  %14 = load ptr, ptr %file.i, align 8
+  %call.i = call i32 @bdrv_pwrite(ptr noundef %14, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le.i, i32 noundef 0) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %le.i)
   %cmp14 = icmp slt i32 %call.i, 0
   br i1 %cmp14, label %if.then15, label %return
@@ -1325,11 +1361,13 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %le_header, align 4
   store i32 %3, ptr %header, align 1
   %cluster_size.i = getelementptr inbounds i8, ptr %le_header, i64 4
+  %4 = load i32, ptr %cluster_size.i, align 4
   %cluster_size3.i = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %4, ptr %cluster_size3.i, align 1
+  %table_size.i = getelementptr inbounds i8, ptr %le_header, i64 8
+  %5 = load i32, ptr %table_size.i, align 4
   %table_size5.i = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = load <2 x i32>, ptr %cluster_size.i, align 4
-  %5 = load i32, ptr %cluster_size.i, align 4
-  store <2 x i32> %4, ptr %cluster_size3.i, align 1
+  store i32 %5, ptr %table_size5.i, align 1
   %header_size.i = getelementptr inbounds i8, ptr %le_header, i64 12
   %6 = load i32, ptr %header_size.i, align 4
   %header_size7.i = getelementptr inbounds i8, ptr %0, i64 20
@@ -1355,10 +1393,13 @@ if.end:                                           ; preds = %entry
   %image_size17.i = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %11, ptr %image_size17.i, align 1
   %backing_filename_offset.i = getelementptr inbounds i8, ptr %le_header, i64 56
+  %12 = load i32, ptr %backing_filename_offset.i, align 4
   %backing_filename_offset19.i = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %12, ptr %backing_filename_offset19.i, align 1
+  %backing_filename_size.i = getelementptr inbounds i8, ptr %le_header, i64 60
+  %13 = load i32, ptr %backing_filename_size.i, align 4
   %backing_filename_size21.i = getelementptr inbounds i8, ptr %0, i64 68
-  %12 = load <2 x i32>, ptr %backing_filename_offset.i, align 4
-  store <2 x i32> %12, ptr %backing_filename_offset19.i, align 1
+  store i32 %13, ptr %backing_filename_size21.i, align 1
   %cmp2.not = icmp eq i32 %3, 4474193
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
@@ -1376,10 +1417,10 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end10:                                         ; preds = %if.end4
-  %13 = add i32 %5, -4096
-  %or.cond.i = icmp ult i32 %13, 67104769
-  %sub.i = add nuw nsw i32 %5, 134217727
-  %and.i = and i32 %sub.i, %5
+  %14 = add i32 %4, -4096
+  %or.cond.i = icmp ult i32 %14, 67104769
+  %sub.i = add nuw nsw i32 %4, 134217727
+  %and.i = and i32 %sub.i, %4
   %tobool.not.i = icmp eq i32 %and.i, 0
   %retval.0.i = select i1 %or.cond.i, i1 %tobool.not.i, i1 false
   br i1 %retval.0.i, label %if.end14, label %if.then13
@@ -1389,9 +1430,9 @@ if.then13:                                        ; preds = %if.end10
   br label %return
 
 if.end14:                                         ; preds = %if.end10
-  %14 = load ptr, ptr %file, align 8
-  %15 = load ptr, ptr %14, align 8
-  %call17 = call i64 @bdrv_co_getlength(ptr noundef %15) #18
+  %15 = load ptr, ptr %file, align 8
+  %16 = load ptr, ptr %15, align 8
+  %call17 = call i64 @bdrv_co_getlength(ptr noundef %16) #18
   %cmp18 = icmp slt i64 %call17, 0
   br i1 %cmp18, label %if.then19, label %if.end20
 
@@ -1408,11 +1449,11 @@ if.end20:                                         ; preds = %if.end14
   %and.i85 = and i64 %call17, %not.i
   %file_size22 = getelementptr inbounds i8, ptr %0, i64 168
   store i64 %and.i85, ptr %file_size22, align 8
-  %16 = load i32, ptr %table_size5.i, align 8
-  %17 = add i32 %16, -1
-  %or.cond.i86 = icmp ult i32 %17, 16
-  %sub.i87 = add nuw nsw i32 %16, 31
-  %and.i88 = and i32 %sub.i87, %16
+  %17 = load i32, ptr %table_size5.i, align 8
+  %18 = add i32 %17, -1
+  %or.cond.i86 = icmp ult i32 %18, 16
+  %sub.i87 = add nuw nsw i32 %17, 31
+  %and.i88 = and i32 %sub.i87, %17
   %tobool.not.i89 = icmp eq i32 %and.i88, 0
   %retval.0.i90 = select i1 %or.cond.i86, i1 %tobool.not.i89, i1 false
   br i1 %retval.0.i90, label %if.end26, label %if.then25
@@ -1422,19 +1463,19 @@ if.then25:                                        ; preds = %if.end20
   br label %return
 
 if.end26:                                         ; preds = %if.end20
-  %18 = load i64, ptr %image_size17.i, align 8
-  %rem.i = and i64 %18, 511
+  %19 = load i64, ptr %image_size17.i, align 8
+  %rem.i = and i64 %19, 511
   %cmp.not.i = icmp eq i64 %rem.i, 0
   br i1 %cmp.not.i, label %qed_is_image_size_valid.exit, label %if.then33
 
 qed_is_image_size_valid.exit:                     ; preds = %if.end26
-  %mul.i.i = mul i32 %16, %.val
-  %19 = lshr i32 %mul.i.i, 3
-  %div.i.i = zext nneg i32 %19 to i64
+  %mul.i.i = mul i32 %17, %.val
+  %20 = lshr i32 %mul.i.i, 3
+  %div.i.i = zext nneg i32 %20 to i64
   %conv1.i.i = zext i32 %.val to i64
   %mul2.i.i = mul nuw nsw i64 %div.i.i, %conv1.i.i
   %mul3.i.i = mul i64 %mul2.i.i, %div.i.i
-  %cmp1.i.not = icmp ult i64 %mul3.i.i, %18
+  %cmp1.i.not = icmp ult i64 %mul3.i.i, %19
   br i1 %cmp1.i.not, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.end26, %qed_is_image_size_valid.exit
@@ -1442,8 +1483,8 @@ if.then33:                                        ; preds = %if.end26, %qed_is_i
   br label %return
 
 if.end34:                                         ; preds = %qed_is_image_size_valid.exit
-  %20 = load i64, ptr %l1_table_offset15.i, align 8
-  %call36 = call fastcc zeroext i1 @qed_check_table_offset(ptr noundef nonnull %0, i64 noundef %20)
+  %21 = load i64, ptr %l1_table_offset15.i, align 8
+  %call36 = call fastcc zeroext i1 @qed_check_table_offset(ptr noundef nonnull %0, i64 noundef %21)
   br i1 %call36, label %if.end38, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
@@ -1452,19 +1493,19 @@ if.then37:                                        ; preds = %if.end34
 
 if.end38:                                         ; preds = %if.end34
   %table_nelems = getelementptr inbounds i8, ptr %0, i64 152
-  store i32 %19, ptr %table_nelems, align 8
-  %21 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.val, i1 false)
+  store i32 %20, ptr %table_nelems, align 8
+  %22 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.val, i1 false)
   %l2_shift = getelementptr inbounds i8, ptr %0, i64 160
-  store i32 %21, ptr %l2_shift, align 8
-  %sub = add nsw i32 %19, -1
+  store i32 %22, ptr %l2_shift, align 8
+  %sub = add nsw i32 %20, -1
   %l2_mask = getelementptr inbounds i8, ptr %0, i64 164
   store i32 %sub, ptr %l2_mask, align 4
-  %22 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %19, i1 false)
-  %add = add nuw nsw i32 %22, %21
+  %23 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %20, i1 false)
+  %add = add nuw nsw i32 %23, %22
   %l1_shift = getelementptr inbounds i8, ptr %0, i64 156
   store i32 %add, ptr %l1_shift, align 4
-  %23 = load i32, ptr %header_size7.i, align 4
-  %mul82 = call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.val, i32 %23)
+  %24 = load i32, ptr %header_size7.i, align 4
+  %mul82 = call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.val, i32 %24)
   %mul.ov = extractvalue { i32, i1 } %mul82, 1
   br i1 %mul.ov, label %if.then58, label %if.end59
 
@@ -1473,18 +1514,18 @@ if.then58:                                        ; preds = %if.end38
   br label %return
 
 if.end59:                                         ; preds = %if.end38
-  %24 = load i64, ptr %features9.i, align 8
-  %and62 = and i64 %24, 1
+  %25 = load i64, ptr %features9.i, align 8
+  %and62 = and i64 %25, 1
   %tobool63.not = icmp eq i64 %and62, 0
   br i1 %tobool63.not, label %if.end107, label %if.then64
 
 if.then64:                                        ; preds = %if.end59
-  %25 = load i32, ptr %backing_filename_offset19.i, align 8
-  %conv66 = zext i32 %25 to i64
-  %26 = load i32, ptr %backing_filename_size21.i, align 4
-  %conv68 = zext i32 %26 to i64
+  %26 = load i32, ptr %backing_filename_offset19.i, align 8
+  %conv66 = zext i32 %26 to i64
+  %27 = load i32, ptr %backing_filename_size21.i, align 4
+  %conv68 = zext i32 %27 to i64
   %add69 = add nuw nsw i64 %conv68, %conv66
-  %mul74 = mul i32 %23, %.val
+  %mul74 = mul i32 %24, %.val
   %conv75 = zext i32 %mul74 to i64
   %cmp76 = icmp ugt i64 %add69, %conv75
   br i1 %cmp76, label %if.then78, label %if.end79
@@ -1495,12 +1536,12 @@ if.then78:                                        ; preds = %if.then64
 
 if.end79:                                         ; preds = %if.then64
   %call80 = call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #21
-  %27 = load ptr, ptr %file, align 8
-  %28 = load i32, ptr %backing_filename_offset19.i, align 8
-  %conv84 = zext i32 %28 to i64
-  %29 = load i32, ptr %backing_filename_size21.i, align 4
-  %conv87 = zext i32 %29 to i64
-  %call88 = call i32 @qed_read_string(ptr noundef %27, i64 noundef %conv84, i64 noundef %conv87, ptr noundef %call80, i64 noundef 4096)
+  %28 = load ptr, ptr %file, align 8
+  %29 = load i32, ptr %backing_filename_offset19.i, align 8
+  %conv84 = zext i32 %29 to i64
+  %30 = load i32, ptr %backing_filename_size21.i, align 4
+  %conv87 = zext i32 %30 to i64
+  %call88 = call i32 @qed_read_string(ptr noundef %28, i64 noundef %conv84, i64 noundef %conv87, ptr noundef %call80, i64 noundef 4096)
   %cmp89 = icmp slt i32 %call88, 0
   br i1 %cmp89, label %if.then91, label %if.end92
 
@@ -1521,8 +1562,8 @@ if.then95:                                        ; preds = %if.end92
   br label %if.end99
 
 if.end99:                                         ; preds = %if.then95, %if.end92
-  %30 = load i64, ptr %features9.i, align 8
-  %and102 = and i64 %30, 4
+  %31 = load i64, ptr %features9.i, align 8
+  %and102 = and i64 %31, 4
   %tobool103.not = icmp eq i64 %and102, 0
   br i1 %tobool103.not, label %cleanup.thread, label %if.then104
 
@@ -1542,14 +1583,14 @@ cleanup:                                          ; preds = %if.then91, %if.then
   br label %return
 
 if.end107:                                        ; preds = %cleanup.thread, %if.end59
-  %31 = load i64, ptr %autoclear_features13.i, align 8
-  %cmp110.not = icmp eq i64 %31, 0
+  %32 = load i64, ptr %autoclear_features13.i, align 8
+  %cmp110.not = icmp eq i64 %32, 0
   br i1 %cmp110.not, label %if.end129, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end107
-  %32 = load ptr, ptr %file, align 8
-  %33 = load ptr, ptr %32, align 8
-  %call114 = call zeroext i1 @bdrv_is_read_only(ptr noundef %33) #18
+  %33 = load ptr, ptr %file, align 8
+  %34 = load ptr, ptr %33, align 8
+  %call114 = call zeroext i1 @bdrv_is_read_only(ptr noundef %34) #18
   %and116 = and i32 %flags, 2048
   %tobool117.not = icmp ne i32 %and116, 0
   %or.cond.not = or i1 %tobool117.not, %call114
@@ -1566,18 +1607,18 @@ if.then124:                                       ; preds = %if.then118
   br label %return
 
 if.end125:                                        ; preds = %if.then118
-  %34 = load ptr, ptr %file, align 8
-  %35 = load ptr, ptr %34, align 8
-  %call128 = call i32 @bdrv_co_flush(ptr noundef %35) #18
+  %35 = load ptr, ptr %file, align 8
+  %36 = load ptr, ptr %35, align 8
+  %call128 = call i32 @bdrv_co_flush(ptr noundef %36) #18
   br label %if.end129
 
 if.end129:                                        ; preds = %if.end125, %land.lhs.true, %if.end107
-  %36 = load ptr, ptr %0, align 8
-  %37 = load i32, ptr %cluster_size3.i, align 4
-  %38 = load i32, ptr %table_size5.i, align 8
-  %mul.i = mul i32 %38, %37
+  %37 = load ptr, ptr %0, align 8
+  %38 = load i32, ptr %cluster_size3.i, align 4
+  %39 = load i32, ptr %table_size5.i, align 8
+  %mul.i = mul i32 %39, %38
   %conv.i94 = zext i32 %mul.i to i64
-  %call.i95 = call ptr @qemu_blockalign(ptr noundef %36, i64 noundef %conv.i94) #18
+  %call.i95 = call ptr @qemu_blockalign(ptr noundef %37, i64 noundef %conv.i94) #18
   %l1_table = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %call.i95, ptr %l1_table, align 8
   %l2_cache = getelementptr inbounds i8, ptr %0, i64 128
@@ -1596,15 +1637,15 @@ if.end134:                                        ; preds = %if.end129
   br i1 %tobool136.not, label %land.lhs.true137, label %out
 
 land.lhs.true137:                                 ; preds = %if.end134
-  %39 = load i64, ptr %features9.i, align 8
-  %and140 = and i64 %39, 2
+  %40 = load i64, ptr %features9.i, align 8
+  %and140 = and i64 %40, 2
   %tobool141.not = icmp eq i64 %and140, 0
   br i1 %tobool141.not, label %out, label %if.then142
 
 if.then142:                                       ; preds = %land.lhs.true137
-  %40 = load ptr, ptr %file, align 8
-  %41 = load ptr, ptr %40, align 8
-  %call145 = call zeroext i1 @bdrv_is_read_only(ptr noundef %41) #18
+  %41 = load ptr, ptr %file, align 8
+  %42 = load ptr, ptr %41, align 8
+  %call145 = call zeroext i1 @bdrv_is_read_only(ptr noundef %42) #18
   %and147 = and i32 %flags, 2048
   %tobool148.not = icmp ne i32 %and147, 0
   %or.cond83.not = or i1 %tobool148.not, %call145
@@ -1628,8 +1669,8 @@ out:                                              ; preds = %if.end134, %land.lh
 if.then158:                                       ; preds = %if.then133, %if.then152
   %ret.0.ph = phi i32 [ %call150, %if.then152 ], [ %call131, %if.then133 ]
   call void @qed_free_l2_cache(ptr noundef nonnull %l2_cache) #18
-  %42 = load ptr, ptr %l1_table, align 8
-  call void @qemu_vfree(ptr noundef %42) #18
+  %43 = load ptr, ptr %l1_table, align 8
+  call void @qemu_vfree(ptr noundef %43) #18
   br label %return
 
 return:                                           ; preds = %out, %cleanup, %if.then158, %if.then124, %if.then58, %if.then37, %if.then33, %if.then25, %if.then19, %if.then13, %if.then6, %if.then3, %if.then
@@ -1791,7 +1832,7 @@ declare zeroext i1 @qemu_in_main_thread() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @bdrv_qed_do_close(ptr nocapture noundef readonly %bs) unnamed_addr #0 {
 entry:
-  %le.i = alloca %struct.QEDHeader, align 16
+  %le.i = alloca %struct.QEDHeader, align 4
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @bdrv_qed_detach_aio_context(ptr noundef %bs)
@@ -1810,26 +1851,50 @@ if.then:                                          ; preds = %entry
   store i64 %and4, ptr %features, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %le.i)
   %header.i = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load <4 x i32>, ptr %header.i, align 1
-  store <4 x i32> %4, ptr %le.i, align 16
+  %4 = load i32, ptr %header.i, align 1
+  store i32 %4, ptr %le.i, align 4
+  %cluster_size.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = load i32, ptr %cluster_size.i.i, align 1
+  %cluster_size3.i.i = getelementptr inbounds i8, ptr %le.i, i64 4
+  store i32 %5, ptr %cluster_size3.i.i, align 4
+  %table_size.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load i32, ptr %table_size.i.i, align 1
+  %table_size5.i.i = getelementptr inbounds i8, ptr %le.i, i64 8
+  store i32 %6, ptr %table_size5.i.i, align 4
+  %header_size.i.i = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = load i32, ptr %header_size.i.i, align 1
+  %header_size7.i.i = getelementptr inbounds i8, ptr %le.i, i64 12
+  store i32 %7, ptr %header_size7.i.i, align 4
   %features9.i.i = getelementptr inbounds i8, ptr %le.i, i64 16
-  store i64 %and4, ptr %features9.i.i, align 16
+  store i64 %and4, ptr %features9.i.i, align 4
   %compat_features.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = load i64, ptr %compat_features.i.i, align 1
   %compat_features11.i.i = getelementptr inbounds i8, ptr %le.i, i64 24
-  %5 = load <2 x i64>, ptr %compat_features.i.i, align 1
-  store <2 x i64> %5, ptr %compat_features11.i.i, align 8
+  store i64 %8, ptr %compat_features11.i.i, align 4
+  %autoclear_features.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = load i64, ptr %autoclear_features.i.i, align 1
+  %autoclear_features13.i.i = getelementptr inbounds i8, ptr %le.i, i64 32
+  store i64 %9, ptr %autoclear_features13.i.i, align 4
   %l1_table_offset.i.i = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = load i64, ptr %l1_table_offset.i.i, align 1
   %l1_table_offset15.i.i = getelementptr inbounds i8, ptr %le.i, i64 40
-  %6 = load <2 x i64>, ptr %l1_table_offset.i.i, align 1
-  store <2 x i64> %6, ptr %l1_table_offset15.i.i, align 8
+  store i64 %10, ptr %l1_table_offset15.i.i, align 4
+  %image_size.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = load i64, ptr %image_size.i.i, align 1
+  %image_size17.i.i = getelementptr inbounds i8, ptr %le.i, i64 48
+  store i64 %11, ptr %image_size17.i.i, align 4
   %backing_filename_offset.i.i = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = load i32, ptr %backing_filename_offset.i.i, align 1
   %backing_filename_offset19.i.i = getelementptr inbounds i8, ptr %le.i, i64 56
-  %7 = load <2 x i32>, ptr %backing_filename_offset.i.i, align 1
-  store <2 x i32> %7, ptr %backing_filename_offset19.i.i, align 8
-  %8 = load ptr, ptr %0, align 8
-  %file.i = getelementptr inbounds i8, ptr %8, i64 16840
-  %9 = load ptr, ptr %file.i, align 8
-  %call.i = call i32 @bdrv_pwrite(ptr noundef %9, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le.i, i32 noundef 0) #18
+  store i32 %12, ptr %backing_filename_offset19.i.i, align 4
+  %backing_filename_size.i.i = getelementptr inbounds i8, ptr %0, i64 68
+  %13 = load i32, ptr %backing_filename_size.i.i, align 1
+  %backing_filename_size21.i.i = getelementptr inbounds i8, ptr %le.i, i64 60
+  store i32 %13, ptr %backing_filename_size21.i.i, align 4
+  %14 = load ptr, ptr %0, align 8
+  %file.i = getelementptr inbounds i8, ptr %14, i64 16840
+  %15 = load ptr, ptr %file.i, align 8
+  %call.i = call i32 @bdrv_pwrite(ptr noundef %15, i64 noundef 0, i64 noundef 64, ptr noundef nonnull %le.i, i32 noundef 0) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %le.i)
   br label %if.end
 
@@ -1837,8 +1902,8 @@ if.end:                                           ; preds = %if.then, %entry
   %l2_cache = getelementptr inbounds i8, ptr %0, i64 128
   call void @qed_free_l2_cache(ptr noundef nonnull %l2_cache) #18
   %l1_table = getelementptr inbounds i8, ptr %0, i64 120
-  %10 = load ptr, ptr %l1_table, align 8
-  call void @qemu_vfree(ptr noundef %10) #18
+  %16 = load ptr, ptr %l1_table, align 8
+  call void @qemu_vfree(ptr noundef %16) #18
   ret void
 }
 

@@ -167,13 +167,16 @@ declare void @_ZN6icu_756number4impl15DecimalQuantity15applyMaxIntegerEi(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_756number12IntegerWidtheqERKS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %other) local_unnamed_addr #4 align 2 {
 entry:
-  %0 = load <2 x i16>, ptr %this, align 4
-  %1 = load <2 x i16>, ptr %other, align 4
-  %2 = icmp eq <2 x i16> %0, %1
-  %3 = extractelement <2 x i1> %2, i64 0
-  %4 = extractelement <2 x i1> %2, i64 1
-  %5 = select i1 %3, i1 %4, i1 false
-  ret i1 %5
+  %0 = load i16, ptr %this, align 4
+  %1 = load i16, ptr %other, align 4
+  %cmp = icmp eq i16 %0, %1
+  %fMaxInt = getelementptr inbounds i8, ptr %this, i64 2
+  %2 = load i16, ptr %fMaxInt, align 2
+  %fMaxInt8 = getelementptr inbounds i8, ptr %other, i64 2
+  %3 = load i16, ptr %fMaxInt8, align 2
+  %cmp10 = icmp eq i16 %2, %3
+  %4 = select i1 %cmp, i1 %cmp10, i1 false
+  ret i1 %4
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

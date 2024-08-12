@@ -446,7 +446,7 @@ entry:
   %gtest_ar173 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp179 = alloca %"class.testing::Message", align 8
   %ref.tmp181 = alloca %"class.testing::internal::AssertHelper", align 8
-  %ref.tmp196 = alloca [4 x i32], align 16
+  %ref.tmp196 = alloca [4 x i32], align 4
   %big_shifted205 = alloca %"class.absl::strings_internal::BigUnsigned.10", align 4
   %gtest_ar206 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp212 = alloca %"class.testing::Message", align 8
@@ -1501,7 +1501,13 @@ ehcleanup191:                                     ; preds = %_ZN7testing7Message
   br label %eh.resume
 
 for.end194:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit236
-  store <4 x i32> <i32 0, i32 -1, i32 -2688, i32 -2147483648>, ptr %ref.tmp196, align 16
+  store i32 0, ptr %ref.tmp196, align 4
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp196, i64 4
+  store i32 -1, ptr %arrayinit.element, align 4
+  %arrayinit.element197 = getelementptr inbounds i8, ptr %ref.tmp196, i64 8
+  store i32 -2688, ptr %arrayinit.element197, align 4
+  %arrayinit.element198 = getelementptr inbounds i8, ptr %ref.tmp196, i64 12
+  store i32 -2147483648, ptr %arrayinit.element198, align 4
   %message_.i.i239 = getelementptr inbounds i8, ptr %gtest_ar206, i64 8
   %message_.i.i260 = getelementptr inbounds i8, ptr %gtest_ar226, i64 8
   br label %for.body204

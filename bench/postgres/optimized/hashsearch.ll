@@ -103,26 +103,32 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
 .thread:                                          ; preds = %36, %20, %23, %49
   tail call void @_hash_dropscanbuf(ptr noundef %4, ptr noundef nonnull %6) #5
   %51 = getelementptr inbounds i8, ptr %6, i64 28
-  store <4 x i32> <i32 0, i32 -1, i32 -1, i32 -1>, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %6, i64 44
-  store i32 0, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %6, i64 48
-  store i32 0, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %6, i64 52
-  store i32 0, ptr %54, align 4
-  br label %61
+  store i32 0, ptr %51, align 4
+  %52 = getelementptr inbounds i8, ptr %6, i64 32
+  store i32 -1, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %6, i64 36
+  store i32 -1, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 -1, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %6, i64 44
+  store i32 0, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %6, i64 48
+  store i32 0, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %6, i64 52
+  store i32 0, ptr %57, align 4
+  br label %64
 
 .thread51:                                        ; preds = %26, %10, %23, %49
-  %55 = getelementptr inbounds i8, ptr %6, i64 56
-  %56 = getelementptr inbounds i8, ptr %6, i64 52
-  %57 = load i32, ptr %56, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr [408 x %struct.HashScanPosItem], ptr %55, i64 0, i64 %58
-  %60 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %60, ptr noundef nonnull align 2 dereferenceable(6) %59, i64 6, i1 false)
-  br label %61
+  %58 = getelementptr inbounds i8, ptr %6, i64 56
+  %59 = getelementptr inbounds i8, ptr %6, i64 52
+  %60 = load i32, ptr %59, align 4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr [408 x %struct.HashScanPosItem], ptr %58, i64 0, i64 %61
+  %63 = getelementptr inbounds i8, ptr %0, i64 96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %63, ptr noundef nonnull align 2 dereferenceable(6) %62, i64 6, i1 false)
+  br label %64
 
-61:                                               ; preds = %.thread51, %.thread
+64:                                               ; preds = %.thread51, %.thread
   %.040 = phi i1 [ true, %.thread51 ], [ false, %.thread ]
   ret i1 %.040
 }

@@ -63,16 +63,18 @@ define void @_Z17dd_clear_f_vsitesRK12gmx_domdec_tN3gmx8ArrayRefINS2_11BasicVect
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %12, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = getelementptr inbounds %"class.gmx::BasicVector.74", ptr %1, i64 %indvars.iv
-  store <2 x float> zeroinitializer, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  store float 0.000000e+00, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %13, i64 4
   store float 0.000000e+00, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  store float 0.000000e+00, ptr %15, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 356
-  %17 = load i32, ptr %16, align 4
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 356
+  %18 = load i32, ptr %17, align 4
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %3
   ret void

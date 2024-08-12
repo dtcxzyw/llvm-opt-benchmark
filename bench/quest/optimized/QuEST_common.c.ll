@@ -122,21 +122,22 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @getUnitVector(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Vector) align 8 %0, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = load double, ptr %3, align 8
-  %5 = load <2 x double>, ptr %1, align 8
-  %6 = fmul <2 x double> %5, %5
-  %7 = extractelement <2 x double> %6, i64 1
-  %8 = extractelement <2 x double> %5, i64 0
-  %9 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %7)
-  %10 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %9)
+  %3 = load double, ptr %1, align 8
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = load double, ptr %4, align 8
+  %6 = fmul double %5, %5
+  %7 = tail call double @llvm.fmuladd.f64(double %3, double %3, double %6)
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load double, ptr %8, align 8
+  %10 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %7)
   %sqrt.i = tail call double @llvm.sqrt.f64(double %10)
-  %11 = insertelement <2 x double> poison, double %sqrt.i, i64 0
-  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %13 = fdiv <2 x double> %5, %12
-  store <2 x double> %13, ptr %0, align 8
+  %11 = fdiv double %3, %sqrt.i
+  store double %11, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = fdiv double %5, %sqrt.i
+  store double %13, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = fdiv double %4, %sqrt.i
+  %15 = fdiv double %9, %sqrt.i
   store double %15, ptr %14, align 8
   ret void
 }
@@ -151,27 +152,34 @@ define { double, double } @getConjugateScalar(double %0, double %1) local_unname
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @getConjugateMatrix2(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ComplexMatrix2) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %1) local_unnamed_addr #6 {
-.preheader:
-  %2 = getelementptr inbounds i8, ptr %1, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds [2 x [2 x double]], ptr %1, i64 0, i64 0, i64 0
-  %5 = getelementptr inbounds [2 x [2 x double]], ptr %0, i64 0, i64 0, i64 0
-  %6 = getelementptr inbounds [2 x [2 x double]], ptr %2, i64 0, i64 0, i64 0
-  %7 = getelementptr inbounds [2 x [2 x double]], ptr %3, i64 0, i64 0, i64 0
-  %8 = load <2 x double>, ptr %4, align 8
-  store <2 x double> %8, ptr %5, align 8
-  %9 = load <2 x double>, ptr %6, align 8
-  %10 = fneg <2 x double> %9
-  store <2 x double> %10, ptr %7, align 8
-  %11 = getelementptr inbounds [2 x [2 x double]], ptr %1, i64 0, i64 1, i64 0
-  %12 = getelementptr inbounds [2 x [2 x double]], ptr %0, i64 0, i64 1, i64 0
-  %13 = getelementptr inbounds [2 x [2 x double]], ptr %2, i64 0, i64 1, i64 0
-  %14 = getelementptr inbounds [2 x [2 x double]], ptr %3, i64 0, i64 1, i64 0
-  %15 = load <2 x double>, ptr %11, align 8
-  store <2 x double> %15, ptr %12, align 8
-  %16 = load <2 x double>, ptr %13, align 8
-  %17 = fneg <2 x double> %16
-  store <2 x double> %17, ptr %14, align 8
+  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %.preheader
+
+.preheader:                                       ; preds = %2, %.preheader
+  %5 = phi i1 [ true, %2 ], [ false, %.preheader ]
+  %indvars.iv16 = phi i64 [ 0, %2 ], [ 1, %.preheader ]
+  %6 = getelementptr inbounds [2 x [2 x double]], ptr %1, i64 0, i64 %indvars.iv16, i64 0
+  %7 = load double, ptr %6, align 8
+  %8 = getelementptr inbounds [2 x [2 x double]], ptr %0, i64 0, i64 %indvars.iv16, i64 0
+  store double %7, ptr %8, align 8
+  %9 = getelementptr inbounds [2 x [2 x double]], ptr %3, i64 0, i64 %indvars.iv16, i64 0
+  %10 = load double, ptr %9, align 8
+  %11 = fneg double %10
+  %12 = getelementptr inbounds [2 x [2 x double]], ptr %4, i64 0, i64 %indvars.iv16, i64 0
+  store double %11, ptr %12, align 8
+  %13 = getelementptr inbounds [2 x [2 x double]], ptr %1, i64 0, i64 %indvars.iv16, i64 1
+  %14 = load double, ptr %13, align 8
+  %15 = getelementptr inbounds [2 x [2 x double]], ptr %0, i64 0, i64 %indvars.iv16, i64 1
+  store double %14, ptr %15, align 8
+  %16 = getelementptr inbounds [2 x [2 x double]], ptr %3, i64 0, i64 %indvars.iv16, i64 1
+  %17 = load double, ptr %16, align 8
+  %18 = fneg double %17
+  %19 = getelementptr inbounds [2 x [2 x double]], ptr %4, i64 0, i64 %indvars.iv16, i64 1
+  store double %18, ptr %19, align 8
+  br i1 %5, label %.preheader, label %20
+
+20:                                               ; preds = %.preheader
   ret void
 }
 
@@ -329,28 +337,24 @@ define void @getComplexPairAndPhaseFromUnitary(ptr nocapture noundef readonly by
   %18 = tail call double @cos(double noundef %17) #22
   %19 = load double, ptr %3, align 8
   %20 = tail call double @sin(double noundef %19) #22
-  %21 = fneg double %7
-  %22 = insertelement <2 x double> poison, double %6, i64 0
-  %23 = insertelement <2 x double> %22, double %21, i64 1
-  %24 = insertelement <2 x double> poison, double %20, i64 0
-  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
-  %26 = fmul <2 x double> %23, %25
-  %27 = insertelement <2 x double> poison, double %7, i64 0
-  %28 = insertelement <2 x double> %27, double %6, i64 1
-  %29 = insertelement <2 x double> poison, double %18, i64 0
-  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
-  %31 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %30, <2 x double> %26)
-  store <2 x double> %31, ptr %1, align 8
-  %32 = load double, ptr %12, align 8
-  %33 = load double, ptr %9, align 8
-  %34 = fneg double %32
-  %35 = insertelement <2 x double> poison, double %33, i64 0
-  %36 = insertelement <2 x double> %35, double %34, i64 1
-  %37 = fmul <2 x double> %25, %36
-  %38 = insertelement <2 x double> poison, double %32, i64 0
-  %39 = insertelement <2 x double> %38, double %33, i64 1
-  %40 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %39, <2 x double> %30, <2 x double> %37)
-  store <2 x double> %40, ptr %2, align 8
+  %21 = fmul double %6, %20
+  %22 = tail call double @llvm.fmuladd.f64(double %7, double %18, double %21)
+  store double %22, ptr %1, align 8
+  %23 = fneg double %7
+  %24 = fmul double %20, %23
+  %25 = tail call double @llvm.fmuladd.f64(double %6, double %18, double %24)
+  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  store double %25, ptr %26, align 8
+  %27 = load double, ptr %12, align 8
+  %28 = load double, ptr %9, align 8
+  %29 = fmul double %20, %28
+  %30 = tail call double @llvm.fmuladd.f64(double %27, double %18, double %29)
+  store double %30, ptr %2, align 8
+  %31 = fneg double %27
+  %32 = fmul double %20, %31
+  %33 = tail call double @llvm.fmuladd.f64(double %28, double %18, double %32)
+  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  store double %33, ptr %34, align 8
   ret void
 }
 
@@ -935,15 +939,23 @@ define void @statevec_sqrtSwapGate(ptr nocapture noundef readonly byval(%struct.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.12.0..sroa_idx, i8 0, i64 40, i1 false)
   store double 1.000000e+00, ptr %4, align 8
   %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store <2 x double> <double 5.000000e-01, double 5.000000e-01>, ptr %.sroa.32.0..sroa_idx, align 8
+  store double 5.000000e-01, ptr %.sroa.32.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store double 5.000000e-01, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 72
-  store <2 x double> <double 5.000000e-01, double 5.000000e-01>, ptr %.sroa.53.0..sroa_idx, align 8
+  store double 5.000000e-01, ptr %.sroa.53.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 80
+  store double 5.000000e-01, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.74.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 120
   store double 1.000000e+00, ptr %.sroa.74.0..sroa_idx, align 8
   %.sroa.85.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 168
-  store <2 x double> <double 5.000000e-01, double -5.000000e-01>, ptr %.sroa.85.0..sroa_idx, align 8
+  store double 5.000000e-01, ptr %.sroa.85.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 176
+  store double -5.000000e-01, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.106.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 200
-  store <2 x double> <double -5.000000e-01, double 5.000000e-01>, ptr %.sroa.106.0..sroa_idx, align 8
+  store double -5.000000e-01, ptr %.sroa.106.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 208
+  store double 5.000000e-01, ptr %.sroa.11.0..sroa_idx, align 8
   tail call void @statevec_multiControlledTwoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %4) #22
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   ret void
@@ -976,15 +988,23 @@ define void @statevec_sqrtSwapGateConj(ptr nocapture noundef readonly byval(%str
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.12.0..sroa_idx, i8 0, i64 40, i1 false)
   store double 1.000000e+00, ptr %4, align 8
   %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store <2 x double> <double 5.000000e-01, double 5.000000e-01>, ptr %.sroa.32.0..sroa_idx, align 8
+  store double 5.000000e-01, ptr %.sroa.32.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store double 5.000000e-01, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 72
-  store <2 x double> <double 5.000000e-01, double 5.000000e-01>, ptr %.sroa.53.0..sroa_idx, align 8
+  store double 5.000000e-01, ptr %.sroa.53.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 80
+  store double 5.000000e-01, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.74.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 120
   store double 1.000000e+00, ptr %.sroa.74.0..sroa_idx, align 8
   %.sroa.85.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 168
-  store <2 x double> <double -5.000000e-01, double 5.000000e-01>, ptr %.sroa.85.0..sroa_idx, align 8
+  store double -5.000000e-01, ptr %.sroa.85.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 176
+  store double 5.000000e-01, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.106.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 200
-  store <2 x double> <double 5.000000e-01, double -5.000000e-01>, ptr %.sroa.106.0..sroa_idx, align 8
+  store double 5.000000e-01, ptr %.sroa.106.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 208
+  store double -5.000000e-01, ptr %.sroa.11.0..sroa_idx, align 8
   tail call void @statevec_multiControlledTwoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %4) #22
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   ret void
@@ -1128,20 +1148,27 @@ define void @statevec_multiControlledMultiRotatePauli(ptr noundef byval(%struct.
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   %13 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  store <2 x double> <double 0x3FE6A09E667F3BCC, double 0.000000e+00>, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 40
-  %15 = fmul double %11, 0x3FE6A09E667F3BCC
-  store double %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 48
-  store double %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 56
-  store double 0.000000e+00, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
-  store <4 x double> <double 0x3FE6A09E667F3BCC, double 0x3FE6A09E667F3BCC, double 0xBFE6A09E667F3BCC, double 0x3FE6A09E667F3BCC>, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 32
-  %20 = icmp sgt i32 %4, 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
-  br i1 %20, label %.lr.ph.preheader.i, label %._crit_edge65.critedge
+  store double 0x3FE6A09E667F3BCC, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %8, i64 32
+  store double 0.000000e+00, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 40
+  %16 = fmul double %11, 0x3FE6A09E667F3BCC
+  store double %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %8, i64 48
+  store double %16, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %8, i64 56
+  store double 0.000000e+00, ptr %18, align 8
+  store double 0x3FE6A09E667F3BCC, ptr %9, align 8
+  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  store double 0x3FE6A09E667F3BCC, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %9, i64 16
+  store double 0xBFE6A09E667F3BCC, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %9, i64 24
+  store double 0x3FE6A09E667F3BCC, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %9, i64 32
+  %23 = icmp sgt i32 %4, 0
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
+  br i1 %23, label %.lr.ph.preheader.i, label %._crit_edge.thread
 
 .lr.ph.preheader.i:                               ; preds = %7
   %wide.trip.count.i = zext nneg i32 %4 to i64
@@ -1149,129 +1176,126 @@ define void @statevec_multiControlledMultiRotatePauli(ptr noundef byval(%struct.
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.067.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %25, %.lr.ph.i ]
-  %21 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
-  %22 = load i32, ptr %21, align 4
-  %23 = zext nneg i32 %22 to i64
-  %24 = shl nuw i64 1, %23
-  %25 = or i64 %24, %.067.i
+  %.067.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %28, %.lr.ph.i ]
+  %24 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %25 = load i32, ptr %24, align 4
+  %26 = zext nneg i32 %25 to i64
+  %27 = shl nuw i64 1, %26
+  %28 = or i64 %27, %.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %getQubitBitMask.exit, label %.lr.ph.i
 
 getQubitBitMask.exit:                             ; preds = %.lr.ph.i
-  br i1 %20, label %.lr.ph.preheader, label %._crit_edge.thread78
+  br i1 %23, label %.lr.ph.preheader, label %._crit_edge.thread78
 
 .lr.ph.preheader:                                 ; preds = %getQubitBitMask.exit
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %40 ]
-  %.05460 = phi i64 [ %25, %.lr.ph.preheader ], [ %.15875, %40 ]
-  %26 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
-  %27 = load i32, ptr %26, align 4
-  switch i32 %27, label %thread-pre-split [
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
+  %.05460 = phi i64 [ %28, %.lr.ph.preheader ], [ %.15875, %43 ]
+  %29 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %30 = load i32, ptr %29, align 4
+  switch i32 %30, label %thread-pre-split [
     i32 0, label %thread-pre-split.thread
-    i32 1, label %32
+    i32 1, label %35
   ]
 
 thread-pre-split.thread:                          ; preds = %.lr.ph
-  %28 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
-  %29 = load i32, ptr %28, align 4
-  %30 = zext nneg i32 %29 to i64
-  %.neg = shl nsw i64 -1, %30
-  %31 = add i64 %.neg, %.05460
-  br label %40
+  %31 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %32 = load i32, ptr %31, align 4
+  %33 = zext nneg i32 %32 to i64
+  %.neg = shl nsw i64 -1, %33
+  %34 = add i64 %.neg, %.05460
+  br label %43
 
-32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
-  %34 = load i32, ptr %33, align 4
-  tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef 0, i32 noundef %34, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %9) #22
-  %.pr.pre = load i32, ptr %26, align 4
+35:                                               ; preds = %.lr.ph
+  %36 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %37 = load i32, ptr %36, align 4
+  tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef 0, i32 noundef %37, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %9) #22
+  %.pr.pre = load i32, ptr %29, align 4
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %32, %.lr.ph
-  %35 = phi i32 [ %27, %.lr.ph ], [ %.pr.pre, %32 ]
-  %36 = icmp eq i32 %35, 2
-  br i1 %36, label %37, label %40
+thread-pre-split:                                 ; preds = %35, %.lr.ph
+  %38 = phi i32 [ %30, %.lr.ph ], [ %.pr.pre, %35 ]
+  %39 = icmp eq i32 %38, 2
+  br i1 %39, label %40, label %43
 
-37:                                               ; preds = %thread-pre-split
-  %38 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
-  %39 = load i32, ptr %38, align 4
-  tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef 0, i32 noundef %39, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %8) #22
-  br label %40
+40:                                               ; preds = %thread-pre-split
+  %41 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %42 = load i32, ptr %41, align 4
+  tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef 0, i32 noundef %42, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %8) #22
+  br label %43
 
-40:                                               ; preds = %thread-pre-split.thread, %thread-pre-split, %37
-  %.15875 = phi i64 [ %31, %thread-pre-split.thread ], [ %.05460, %thread-pre-split ], [ %.05460, %37 ]
+43:                                               ; preds = %thread-pre-split.thread, %thread-pre-split, %40
+  %.15875 = phi i64 [ %34, %thread-pre-split.thread ], [ %.05460, %thread-pre-split ], [ %.05460, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %40
+._crit_edge:                                      ; preds = %43
   %.not56 = icmp eq i64 %.15875, 0
   br i1 %.not56, label %._crit_edge.thread, label %._crit_edge.thread78
 
 ._crit_edge.thread78:                             ; preds = %getQubitBitMask.exit, %._crit_edge
-  %.054.lcssa81 = phi i64 [ %.15875, %._crit_edge ], [ %25, %getQubitBitMask.exit ]
-  %41 = fneg double %5
-  %42 = select i1 %.not, double %5, double %41
-  tail call void @statevec_multiControlledMultiRotateZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef %.054.lcssa81, double noundef %42) #22
+  %.054.lcssa81 = phi i64 [ %.15875, %._crit_edge ], [ %28, %getQubitBitMask.exit ]
+  %44 = fneg double %5
+  %45 = select i1 %.not, double %5, double %44
+  tail call void @statevec_multiControlledMultiRotateZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef %.054.lcssa81, double noundef %45) #22
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %._crit_edge.thread78, %._crit_edge
-  %43 = load <2 x double>, ptr %14, align 8
-  %44 = fneg <2 x double> %43
-  store <2 x double> %44, ptr %14, align 8
-  %45 = load <2 x double>, ptr %18, align 8
-  %46 = fneg <2 x double> %45
-  store <2 x double> %46, ptr %18, align 8
-  br i1 %20, label %.lr.ph64.preheader, label %._crit_edge65
+._crit_edge.thread:                               ; preds = %7, %._crit_edge.thread78, %._crit_edge
+  %46 = load double, ptr %15, align 8
+  %47 = fneg double %46
+  store double %47, ptr %15, align 8
+  %48 = load double, ptr %17, align 8
+  %49 = fneg double %48
+  store double %49, ptr %17, align 8
+  %50 = load double, ptr %19, align 8
+  %51 = fneg double %50
+  store double %51, ptr %19, align 8
+  %52 = load double, ptr %20, align 8
+  %53 = fneg double %52
+  store double %53, ptr %20, align 8
+  br i1 %23, label %.lr.ph64.preheader, label %._crit_edge65
 
 .lr.ph64.preheader:                               ; preds = %._crit_edge.thread
   %wide.trip.count70 = zext nneg i32 %4 to i64
   br label %.lr.ph64
 
-.lr.ph64:                                         ; preds = %.lr.ph64.preheader, %59
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next68, %59 ]
-  %47 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv67
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp eq i32 %48, 1
-  br i1 %49, label %50, label %53
+.lr.ph64:                                         ; preds = %.lr.ph64.preheader, %66
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next68, %66 ]
+  %54 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv67
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp eq i32 %55, 1
+  br i1 %56, label %57, label %60
 
-50:                                               ; preds = %.lr.ph64
-  %51 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv67
-  %52 = load i32, ptr %51, align 4
-  tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef 0, i32 noundef %52, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %9) #22
-  %.pr59 = load i32, ptr %47, align 4
-  br label %53
+57:                                               ; preds = %.lr.ph64
+  %58 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv67
+  %59 = load i32, ptr %58, align 4
+  tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef 0, i32 noundef %59, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %9) #22
+  %.pr59 = load i32, ptr %54, align 4
+  br label %60
 
-53:                                               ; preds = %50, %.lr.ph64
-  %54 = phi i32 [ %.pr59, %50 ], [ %48, %.lr.ph64 ]
-  %55 = icmp eq i32 %54, 2
-  br i1 %55, label %56, label %59
+60:                                               ; preds = %57, %.lr.ph64
+  %61 = phi i32 [ %.pr59, %57 ], [ %55, %.lr.ph64 ]
+  %62 = icmp eq i32 %61, 2
+  br i1 %62, label %63, label %66
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv67
-  %58 = load i32, ptr %57, align 4
-  tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef 0, i32 noundef %58, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %8) #22
-  br label %59
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv67
+  %65 = load i32, ptr %64, align 4
+  tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef 0, i32 noundef %65, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %8) #22
+  br label %66
 
-59:                                               ; preds = %53, %56
+66:                                               ; preds = %60, %63
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
   br i1 %exitcond71.not, label %._crit_edge65, label %.lr.ph64
 
-._crit_edge65.critedge:                           ; preds = %7
-  %60 = load <2 x double>, ptr %14, align 8
-  %61 = fneg <2 x double> %60
-  store <2 x double> %61, ptr %14, align 8
-  %62 = load <2 x double>, ptr %18, align 8
-  %63 = fneg <2 x double> %62
-  store <2 x double> %63, ptr %18, align 8
-  br label %._crit_edge65
-
-._crit_edge65:                                    ; preds = %59, %._crit_edge65.critedge, %._crit_edge.thread
+._crit_edge65:                                    ; preds = %66, %._crit_edge.thread
   ret void
 }
 
@@ -3210,9 +3234,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #20
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

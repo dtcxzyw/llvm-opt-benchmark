@@ -2754,70 +2754,78 @@ declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @SerializeSnapshot(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
-  %9 = load i8, ptr %8, align 4
-  %10 = trunc i8 %9 to i1
-  %11 = and i8 %9, 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 45
-  %13 = load i8, ptr %12, align 1
-  %14 = and i8 %13, 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
-  %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = trunc i8 %13 to i1
-  %spec.select = select i1 %18, i32 %7, i32 0
-  %.sroa.4.0 = select i1 %10, i32 %spec.select, i32 %7
-  %19 = load <2 x i32>, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load i32, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = load i32, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %12 = load i8, ptr %11, align 4
+  %13 = trunc i8 %12 to i1
+  %14 = and i8 %12, 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 45
+  %16 = load i8, ptr %15, align 1
+  %17 = and i8 %16, 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = load i32, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 96
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %23 = load i64, ptr %22, align 8
+  %24 = trunc i8 %16 to i1
+  %spec.select = select i1 %24, i32 %10, i32 0
+  %.sroa.4.0 = select i1 %13, i32 %spec.select, i32 %10
+  store i32 %4, ptr %1, align 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 %6, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %8, ptr %.sroa.3.0..sroa_idx, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 17
-  %.sroa.101.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
-  %20 = load <2 x i64>, ptr %17, align 8
-  store <2 x i32> %19, ptr %1, align 1
-  store i32 %5, ptr %.sroa.3.0..sroa_idx, align 1
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
-  store i8 %11, ptr %.sroa.7.0..sroa_idx, align 1
-  store i8 %14, ptr %.sroa.9.0..sroa_idx, align 1
-  store i32 %16, ptr %.sroa.101.0..sroa_idx, align 1
-  store <2 x i64> %20, ptr %.sroa.11.0..sroa_idx, align 1
-  %21 = load i32, ptr %4, align 8
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %28, label %22
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  store i8 %14, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 17
+  store i8 %17, ptr %.sroa.9.0..sroa_idx, align 1
+  %.sroa.101.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
+  store i32 %19, ptr %.sroa.101.0..sroa_idx, align 1
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  store i64 %21, ptr %.sroa.11.0..sroa_idx, align 1
+  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 %23, ptr %.sroa.12.0..sroa_idx, align 1
+  %25 = load i32, ptr %7, align 8
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %32, label %26
 
-22:                                               ; preds = %2
-  %23 = getelementptr i8, ptr %1, i64 40
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = zext i32 %21 to i64
-  %27 = shl nuw nsw i64 %26, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr align 4 %25, i64 %27, i1 false)
-  br label %28
+26:                                               ; preds = %2
+  %27 = getelementptr i8, ptr %1, i64 40
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = zext i32 %25 to i64
+  %31 = shl nuw nsw i64 %30, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %27, ptr align 4 %29, i64 %31, i1 false)
+  br label %32
 
-28:                                               ; preds = %22, %2
-  %29 = icmp sgt i32 %.sroa.4.0, 0
-  br i1 %29, label %30, label %41
+32:                                               ; preds = %26, %2
+  %33 = icmp sgt i32 %.sroa.4.0, 0
+  br i1 %33, label %34, label %45
 
-30:                                               ; preds = %28
-  %31 = load i32, ptr %4, align 8
-  %32 = zext i32 %31 to i64
-  %33 = shl nuw nsw i64 %32, 2
-  %34 = getelementptr i8, ptr %1, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 40
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %6, align 8
-  %39 = sext i32 %38 to i64
-  %40 = shl nsw i64 %39, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %35, ptr align 4 %37, i64 %40, i1 false)
-  br label %41
+34:                                               ; preds = %32
+  %35 = load i32, ptr %7, align 8
+  %36 = zext i32 %35 to i64
+  %37 = shl nuw nsw i64 %36, 2
+  %38 = getelementptr i8, ptr %1, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 40
+  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i32, ptr %9, align 8
+  %43 = sext i32 %42 to i64
+  %44 = shl nsw i64 %43, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %39, ptr align 4 %41, i64 %44, i1 false)
+  br label %45
 
-41:                                               ; preds = %30, %28
+45:                                               ; preds = %34, %32
   ret void
 }
 
@@ -2826,6 +2834,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @RestoreSnapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %.sroa.0.0.copyload = load i32, ptr %0, align 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 1
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
@@ -2837,6 +2848,9 @@ define dso_local noundef ptr @RestoreSnapshot(ptr nocapture noundef readonly %0)
   %.sroa.1533.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   %.sroa.1533.0.copyload = load i32, ptr %.sroa.1533.0..sroa_idx, align 1
   %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.16.0.copyload = load i64, ptr %.sroa.16.0..sroa_idx, align 1
+  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.17.0.copyload = load i64, ptr %.sroa.17.0..sroa_idx, align 1
   %2 = getelementptr i8, ptr %0, i64 40
   %3 = zext i32 %.sroa.3.0.copyload to i64
   %4 = shl nuw nsw i64 %3, 2
@@ -2845,38 +2859,40 @@ define dso_local noundef ptr @RestoreSnapshot(ptr nocapture noundef readonly %0)
   %7 = shl nsw i64 %6, 2
   %8 = add nsw i64 %5, %7
   %9 = load ptr, ptr @TopTransactionContext, align 8
-  %10 = load <2 x i32>, ptr %0, align 1
-  %11 = and i8 %.sroa.13.0.copyload, 1
-  %12 = and i8 %.sroa.14.0.copyload, 1
-  %13 = load <2 x i64>, ptr %.sroa.16.0..sroa_idx, align 1
-  %14 = tail call ptr @MemoryContextAlloc(ptr noundef %9, i64 noundef %8) #16
-  store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
-  store <2 x i32> %10, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
-  store i32 %.sroa.3.0.copyload, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
-  store i32 %.sroa.9.0.copyload, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 44
-  store i8 %11, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %14, i64 45
-  store i8 %12, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %14, i64 48
-  store i32 %.sroa.1533.0.copyload, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %14, i64 96
-  store <2 x i64> %13, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %14, i64 112
+  %10 = tail call ptr @MemoryContextAlloc(ptr noundef %9, i64 noundef %8) #16
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 %.sroa.0.0.copyload, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  store i32 %.sroa.2.0.copyload, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr null, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %10, i64 24
+  store i32 %.sroa.3.0.copyload, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %10, i64 40
+  store i32 %.sroa.9.0.copyload, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %10, i64 44
+  %18 = and i8 %.sroa.13.0.copyload, 1
+  store i8 %18, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %10, i64 45
+  %20 = and i8 %.sroa.14.0.copyload, 1
+  store i8 %20, ptr %19, align 1
+  %21 = getelementptr inbounds i8, ptr %10, i64 48
+  store i32 %.sroa.1533.0.copyload, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %10, i64 96
+  store i64 %.sroa.16.0.copyload, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %10, i64 104
+  store i64 %.sroa.17.0.copyload, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %10, i64 112
   store i64 0, ptr %24, align 8
   %.not = icmp eq i32 %.sroa.3.0.copyload, 0
   br i1 %.not, label %27, label %25
 
 25:                                               ; preds = %1
-  %26 = getelementptr i8, ptr %14, i64 120
-  store ptr %26, ptr %16, align 8
+  %26 = getelementptr i8, ptr %10, i64 120
+  store ptr %26, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr align 4 %2, i64 %4, i1 false)
   br label %27
 
@@ -2885,21 +2901,21 @@ define dso_local noundef ptr @RestoreSnapshot(ptr nocapture noundef readonly %0)
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27
-  %30 = getelementptr i8, ptr %14, i64 120
+  %30 = getelementptr i8, ptr %10, i64 120
   %31 = getelementptr i32, ptr %30, i64 %3
-  store ptr %31, ptr %18, align 8
+  store ptr %31, ptr %15, align 8
   %32 = getelementptr i32, ptr %2, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %31, ptr align 4 %32, i64 %7, i1 false)
   br label %33
 
 33:                                               ; preds = %29, %27
-  %34 = getelementptr inbounds i8, ptr %14, i64 68
+  %34 = getelementptr inbounds i8, ptr %10, i64 68
   store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %14, i64 64
+  %35 = getelementptr inbounds i8, ptr %10, i64 64
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %14, i64 46
+  %36 = getelementptr inbounds i8, ptr %10, i64 46
   store i8 1, ptr %36, align 2
-  ret ptr %14
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable

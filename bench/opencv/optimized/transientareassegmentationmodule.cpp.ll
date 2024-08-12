@@ -256,158 +256,165 @@ define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImplC2E
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilterC2Ejjjb(ptr noundef nonnull align 8 dereferenceable(168) %3, i32 noundef %.sroa.5.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef 3, i1 noundef zeroext false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv11bioinspired36TransientAreasSegmentationModuleImplE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 176
-  %5 = getelementptr inbounds i8, ptr %0, i64 184
-  %6 = getelementptr inbounds i8, ptr %0, i64 188
-  store <4 x float> <float 1.000000e+02, float 1.000000e+02, float 5.000000e-01, float 5.000000e+00>, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
-  %8 = getelementptr inbounds i8, ptr %0, i64 196
-  %9 = getelementptr inbounds i8, ptr %0, i64 200
-  %10 = getelementptr inbounds i8, ptr %0, i64 204
-  store <4 x float> <float 1.000000e+00, float 1.500000e+01, float 1.000000e+00, float 7.500000e+01>, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 208
-  %12 = shl i64 %1, 32
-  %sext = mul i64 %12, %.sroa.5.0.extract.shift
-  %13 = ashr exact i64 %sext, 32
-  store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 216
-  %15 = ashr exact i64 %sext, 30
-  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #23
-          to label %17 unwind label %46
+  store float 1.000000e+02, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 180
+  store float 1.000000e+02, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  store float 5.000000e-01, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 188
+  store float 5.000000e+00, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 192
+  store float 1.000000e+00, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 196
+  store float 1.500000e+01, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 200
+  store float 1.000000e+00, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 204
+  store float 7.500000e+01, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 208
+  %13 = shl i64 %1, 32
+  %sext = mul i64 %13, %.sroa.5.0.extract.shift
+  %14 = ashr exact i64 %sext, 32
+  store i64 %14, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 216
+  %16 = ashr exact i64 %sext, 30
+  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #23
+          to label %18 unwind label %47
 
-17:                                               ; preds = %2
-  store ptr %16, ptr %14, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 0, i64 %15, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 224
-  store i64 %13, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 232
-  %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #23
-          to label %21 unwind label %48
+18:                                               ; preds = %2
+  store ptr %17, ptr %15, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %17, i8 0, i64 %16, i1 false)
+  %19 = getelementptr inbounds i8, ptr %0, i64 224
+  store i64 %14, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 232
+  %21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #23
+          to label %22 unwind label %49
 
-21:                                               ; preds = %17
-  store ptr %20, ptr %19, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %20, i8 0, i64 %15, i1 false)
-  %22 = getelementptr inbounds i8, ptr %0, i64 240
-  store i64 %13, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 248
-  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #23
-          to label %25 unwind label %50
+22:                                               ; preds = %18
+  store ptr %21, ptr %20, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %21, i8 0, i64 %16, i1 false)
+  %23 = getelementptr inbounds i8, ptr %0, i64 240
+  store i64 %14, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 248
+  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #23
+          to label %26 unwind label %51
 
-25:                                               ; preds = %21
-  store ptr %24, ptr %23, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %24, i8 0, i64 %13, i1 false)
-  %26 = getelementptr inbounds i8, ptr %0, i64 256
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 264
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #21
-  %31 = getelementptr inbounds i8, ptr %0, i64 376
+26:                                               ; preds = %22
+  store ptr %25, ptr %24, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %25, i8 0, i64 %14, i1 false)
+  %27 = getelementptr inbounds i8, ptr %0, i64 256
+  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 264
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #21
-  %.sroa.2.0.copyload = load float, ptr %5, align 8
-  %.sroa.3.0.copyload = load float, ptr %6, align 4
-  %.sroa.430.0.copyload = load float, ptr %7, align 8
-  %.sroa.531.0.copyload = load float, ptr %8, align 4
-  %.sroa.632.0.copyload = load float, ptr %9, align 8
-  %.sroa.733.0.copyload = load float, ptr %10, align 4
+  %32 = getelementptr inbounds i8, ptr %0, i64 376
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #21
+  %.sroa.2.0.copyload = load float, ptr %6, align 8
+  %.sroa.3.0.copyload = load float, ptr %7, align 4
+  %.sroa.430.0.copyload = load float, ptr %8, align 8
+  %.sroa.531.0.copyload = load float, ptr %9, align 4
+  %.sroa.632.0.copyload = load float, ptr %10, align 8
+  %.sroa.733.0.copyload = load float, ptr %11, align 4
   invoke void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %3, float noundef 0.000000e+00, float noundef %.sroa.2.0.copyload, float noundef %.sroa.3.0.copyload, i32 noundef 0)
-          to label %.noexc unwind label %52
+          to label %.noexc unwind label %53
 
-.noexc:                                           ; preds = %25
+.noexc:                                           ; preds = %26
   invoke void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %3, float noundef 0.000000e+00, float noundef %.sroa.430.0.copyload, float noundef %.sroa.531.0.copyload, i32 noundef 1)
-          to label %.noexc15 unwind label %52
+          to label %.noexc15 unwind label %53
 
 .noexc15:                                         ; preds = %.noexc
   invoke void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %3, float noundef 0.000000e+00, float noundef %.sroa.632.0.copyload, float noundef %.sroa.733.0.copyload, i32 noundef 2)
-          to label %32 unwind label %52
+          to label %33 unwind label %53
 
-32:                                               ; preds = %.noexc15
-  %33 = load i64, ptr %29, align 8
-  %.not3.i.i.i.i.i.i = icmp eq i64 %33, 0
+33:                                               ; preds = %.noexc15
+  %34 = load i64, ptr %30, align 8
+  %.not3.i.i.i.i.i.i = icmp eq i64 %34, 0
   br i1 %.not3.i.i.i.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i, label %.lr.ph.i.i.i.preheader.i.i.i
 
-.lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8
-  %36 = shl nuw i64 %33, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %36, i1 false), !alias.scope !9
+.lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %33
+  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = load ptr, ptr %35, align 8
+  %37 = shl nuw i64 %34, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %36, i8 0, i64 %37, i1 false), !alias.scope !9
   br label %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
 
-_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i: ; preds = %.lr.ph.i.i.i.preheader.i.i.i, %32
-  %37 = load i64, ptr %27, align 8
-  %.not3.i.i.i.i.i = icmp eq i64 %37, 0
+_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i: ; preds = %.lr.ph.i.i.i.preheader.i.i.i, %33
+  %38 = load i64, ptr %28, align 8
+  %.not3.i.i.i.i.i = icmp eq i64 %38, 0
   br i1 %.not3.i.i.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
-  %39 = load ptr, ptr %38, align 8
-  %40 = shl nuw i64 %37, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %39, i8 0, i64 %40, i1 false), !alias.scope !12
+  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = load ptr, ptr %39, align 8
+  %41 = shl nuw i64 %38, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %40, i8 0, i64 %41, i1 false), !alias.scope !12
   br label %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i
 
 _ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i: ; preds = %.lr.ph.i.i.preheader.i.i.i, %_ZN2cv11bioinspired17BasicRetinaFilter17clearOutputBufferEv.exit.i.i
-  %41 = load i64, ptr %18, align 8
-  %.not3.i.i.i = icmp eq i64 %41, 0
+  %42 = load i64, ptr %19, align 8
+  %.not3.i.i.i = icmp eq i64 %42, 0
   br i1 %.not3.i.i.i, label %_ZNSt8valarrayIfEaSERKf.exit.i, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i
-  %42 = load ptr, ptr %19, align 8
-  %43 = shl nuw i64 %41, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %42, i8 0, i64 %43, i1 false), !alias.scope !15
+  %43 = load ptr, ptr %20, align 8
+  %44 = shl nuw i64 %42, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %43, i8 0, i64 %44, i1 false), !alias.scope !15
   br label %_ZNSt8valarrayIfEaSERKf.exit.i
 
 _ZNSt8valarrayIfEaSERKf.exit.i:                   ; preds = %.lr.ph.i.i.preheader.i, %_ZN2cv11bioinspired17BasicRetinaFilter15clearAllBuffersEv.exit.i
-  %44 = load i64, ptr %22, align 8
-  %.not3.i.i1.i = icmp eq i64 %44, 0
+  %45 = load i64, ptr %23, align 8
+  %.not3.i.i1.i = icmp eq i64 %45, 0
   br i1 %.not3.i.i1.i, label %_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl15clearAllBuffersEv.exit, label %.lr.ph.i.i2.i
 
 .lr.ph.i.i2.i:                                    ; preds = %_ZNSt8valarrayIfEaSERKf.exit.i
-  %45 = load ptr, ptr %23, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %45, i8 0, i64 %44, i1 false), !alias.scope !18
+  %46 = load ptr, ptr %24, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %46, i8 0, i64 %45, i1 false), !alias.scope !18
   br label %_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl15clearAllBuffersEv.exit
 
 _ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl15clearAllBuffersEv.exit: ; preds = %.lr.ph.i.i2.i, %_ZNSt8valarrayIfEaSERKf.exit.i
   ret void
 
-46:                                               ; preds = %2
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %2
+  %48 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %60
 
-48:                                               ; preds = %17
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %18
+  %50 = landingpad { ptr, i32 }
           cleanup
-  br label %57
+  br label %58
 
-50:                                               ; preds = %21
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %22
+  %52 = landingpad { ptr, i32 }
           cleanup
-  br label %55
+  br label %56
 
-52:                                               ; preds = %.noexc15, %.noexc, %25
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %.noexc15, %.noexc, %26
+  %54 = landingpad { ptr, i32 }
           cleanup
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #21
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #21
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #21
-  %54 = load ptr, ptr %23, align 8
-  tail call void @_ZdlPv(ptr noundef %54) #21
-  br label %55
+  %55 = load ptr, ptr %24, align 8
+  tail call void @_ZdlPv(ptr noundef %55) #21
+  br label %56
 
-55:                                               ; preds = %52, %50
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ]
-  %56 = load ptr, ptr %19, align 8
-  tail call void @_ZdlPv(ptr noundef %56) #21
-  br label %57
+56:                                               ; preds = %53, %51
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
+  %57 = load ptr, ptr %20, align 8
+  tail call void @_ZdlPv(ptr noundef %57) #21
+  br label %58
 
-57:                                               ; preds = %55, %48
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %55 ], [ %49, %48 ]
-  %58 = load ptr, ptr %14, align 8
-  tail call void @_ZdlPv(ptr noundef %58) #21
-  br label %59
+58:                                               ; preds = %56, %49
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %56 ], [ %50, %49 ]
+  %59 = load ptr, ptr %15, align 8
+  tail call void @_ZdlPv(ptr noundef %59) #21
+  br label %60
 
-59:                                               ; preds = %57, %46
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %57 ], [ %47, %46 ]
+60:                                               ; preds = %58, %47
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %58 ], [ %48, %47 ]
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %3) #21
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -564,7 +571,7 @@ define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl13g
 define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl5setupENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::FileStorage", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %6 = alloca %"struct.cv::bioinspired::SegmentationParameters", align 16
+  %6 = alloca %"struct.cv::bioinspired::SegmentationParameters", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   invoke void @_ZN2cv11FileStorageC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %7 unwind label %9
@@ -611,9 +618,21 @@ define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl5se
 
 23:                                               ; preds = %16
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  store <4 x float> <float 1.000000e+02, float 1.000000e+02, float 5.000000e-01, float 5.000000e+00>, ptr %6, align 16
+  store float 1.000000e+02, ptr %6, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 4
+  store float 1.000000e+02, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  store float 5.000000e-01, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 12
+  store float 5.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  store <4 x float> <float 1.000000e+00, float 1.500000e+01, float 1.000000e+00, float 7.500000e+01>, ptr %.sroa.5.0..sroa_idx, align 16
+  store float 1.000000e+00, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 20
+  store float 1.500000e+01, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  store float 1.000000e+00, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 28
+  store float 7.500000e+01, ptr %.sroa.8.0..sroa_idx, align 4
   invoke void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl5setupENS0_22SegmentationParametersE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull byval(%"struct.cv::bioinspired::SegmentationParameters") align 8 %6)
           to label %28 unwind label %24
 
@@ -666,7 +685,7 @@ define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl5se
   %11 = alloca %"class.cv::FileNode", align 8
   %12 = alloca %"class.cv::FileNode", align 8
   %13 = alloca %"class.cv::FileNode", align 8
-  %14 = alloca %"struct.cv::bioinspired::SegmentationParameters", align 16
+  %14 = alloca %"struct.cv::bioinspired::SegmentationParameters", align 8
   %15 = load ptr, ptr %1, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
@@ -706,9 +725,21 @@ define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl5se
   br i1 %2, label %36, label %59
 
 36:                                               ; preds = %35
-  store <4 x float> <float 1.000000e+02, float 1.000000e+02, float 5.000000e-01, float 5.000000e+00>, ptr %14, align 16
+  store float 1.000000e+02, ptr %14, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 4
+  store float 1.000000e+02, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  store float 5.000000e-01, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 12
+  store float 5.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
-  store <4 x float> <float 1.000000e+00, float 1.500000e+01, float 1.000000e+00, float 7.500000e+01>, ptr %.sroa.5.0..sroa_idx, align 16
+  store float 1.000000e+00, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 20
+  store float 1.500000e+01, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
+  store float 1.000000e+00, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 28
+  store float 7.500000e+01, ptr %.sroa.8.0..sroa_idx, align 4
   invoke void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl5setupENS0_22SegmentationParametersE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull byval(%"struct.cv::bioinspired::SegmentationParameters") align 8 %14)
           to label %59 unwind label %57
 
@@ -2792,25 +2823,35 @@ define linkonce_odr hidden void @_ZN2cv11bioinspired37TransientAreasSegmentation
 define linkonce_odr hidden void @_ZN2cv11bioinspired37TransientAreasSegmentationModuleImpl_5setupENS0_22SegmentationParametersE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef byval(%"struct.cv::bioinspired::SegmentationParameters") align 8 %1) unnamed_addr #3 comdat align 2 {
   %3 = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
+  %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.414.0.copyload = load float, ptr %.sroa.414.0..sroa_idx, align 8
+  %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
+  %.sroa.515.0.copyload = load float, ptr %.sroa.515.0..sroa_idx, align 4
   %.sroa.616.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.616.0.copyload = load float, ptr %.sroa.616.0..sroa_idx, align 8
+  %.sroa.717.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 28
+  %.sroa.717.0.copyload = load float, ptr %.sroa.717.0..sroa_idx, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   store i64 %3, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 192
-  %5 = load <4 x float>, ptr %.sroa.2.0..sroa_idx, align 8
-  store <4 x float> %5, ptr %.sroa.4.0..sroa_idx, align 8
+  store float %.sroa.2.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 196
+  store float %.sroa.3.0.copyload, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 200
+  store float %.sroa.414.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 204
+  store float %.sroa.515.0.copyload, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 208
-  %6 = load <2 x float>, ptr %.sroa.616.0..sroa_idx, align 8
-  store <2 x float> %6, ptr %.sroa.8.0..sroa_idx, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = extractelement <4 x float> %5, i64 0
-  %9 = extractelement <4 x float> %5, i64 1
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %7, float noundef 0.000000e+00, float noundef %8, float noundef %9, i32 noundef 0)
-  %10 = extractelement <4 x float> %5, i64 2
-  %11 = extractelement <4 x float> %5, i64 3
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %7, float noundef 0.000000e+00, float noundef %10, float noundef %11, i32 noundef 1)
-  %12 = extractelement <2 x float> %6, i64 0
-  %13 = extractelement <2 x float> %6, i64 1
-  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %7, float noundef 0.000000e+00, float noundef %12, float noundef %13, i32 noundef 2)
+  store float %.sroa.616.0.copyload, ptr %.sroa.8.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 212
+  store float %.sroa.717.0.copyload, ptr %.sroa.9.0..sroa_idx, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %5, float noundef 0.000000e+00, float noundef %.sroa.2.0.copyload, float noundef %.sroa.3.0.copyload, i32 noundef 0)
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %5, float noundef 0.000000e+00, float noundef %.sroa.414.0.copyload, float noundef %.sroa.515.0.copyload, i32 noundef 1)
+  tail call void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168) %5, float noundef 0.000000e+00, float noundef %.sroa.616.0.copyload, float noundef %.sroa.717.0.copyload, i32 noundef 2)
   ret void
 }
 

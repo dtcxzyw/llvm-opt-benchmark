@@ -996,12 +996,12 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
   br label %10
 
 10:                                               ; preds = %.lr.ph, %._crit_edge86
-  %11 = phi i32 [ %5, %.lr.ph ], [ %81, %._crit_edge86 ]
-  %.085 = phi i32 [ 0, %.lr.ph ], [ %80, %._crit_edge86 ]
+  %11 = phi i32 [ %5, %.lr.ph ], [ %86, %._crit_edge86 ]
+  %.085 = phi i32 [ 0, %.lr.ph ], [ %85, %._crit_edge86 ]
   %.06084 = phi i32 [ 0, %.lr.ph ], [ %.1, %._crit_edge86 ]
   %.06183 = phi i32 [ 0, %.lr.ph ], [ %.162, %._crit_edge86 ]
   %.06482 = phi ptr [ %0, %.lr.ph ], [ %.165, %._crit_edge86 ]
-  %.06781 = phi ptr [ %1, %.lr.ph ], [ %79, %._crit_edge86 ]
+  %.06781 = phi ptr [ %1, %.lr.ph ], [ %84, %._crit_edge86 ]
   %12 = and i32 %11, -1024
   %or.cond73 = icmp eq i32 %12, 55296
   br i1 %or.cond73, label %13, label %16
@@ -1098,33 +1098,41 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
 
 64:                                               ; preds = %61
   %65 = lshr i32 %.263, 18
-  %66 = lshr i32 %.263, 12
-  %67 = lshr i32 %.263, 6
-  %68 = getelementptr inbounds i8, ptr %.06482, i64 4
-  %69 = trunc i32 %65 to i8
-  %70 = insertelement <4 x i8> poison, i8 %69, i64 0
-  %71 = trunc i32 %66 to i8
-  %72 = insertelement <4 x i8> %70, i8 %71, i64 1
-  %73 = trunc i32 %67 to i8
-  %74 = insertelement <4 x i8> %72, i8 %73, i64 2
-  %75 = trunc i32 %.263 to i8
-  %76 = insertelement <4 x i8> %74, i8 %75, i64 3
-  %77 = and <4 x i8> %76, <i8 7, i8 63, i8 63, i8 63>
-  %78 = or disjoint <4 x i8> %77, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %78, ptr %.06482, align 1
+  %66 = trunc i32 %65 to i8
+  %67 = and i8 %66, 7
+  %68 = or disjoint i8 %67, -16
+  %69 = getelementptr inbounds i8, ptr %.06482, i64 1
+  store i8 %68, ptr %.06482, align 1
+  %70 = lshr i32 %.263, 12
+  %71 = trunc i32 %70 to i8
+  %72 = and i8 %71, 63
+  %73 = or disjoint i8 %72, -128
+  %74 = getelementptr inbounds i8, ptr %.06482, i64 2
+  store i8 %73, ptr %69, align 1
+  %75 = lshr i32 %.263, 6
+  %76 = trunc i32 %75 to i8
+  %77 = and i8 %76, 63
+  %78 = or disjoint i8 %77, -128
+  %79 = getelementptr inbounds i8, ptr %.06482, i64 3
+  store i8 %78, ptr %74, align 1
+  %80 = trunc i32 %.263 to i8
+  %81 = and i8 %80, 63
+  %82 = or disjoint i8 %81, -128
+  %83 = getelementptr inbounds i8, ptr %.06482, i64 4
+  store i8 %82, ptr %79, align 1
   br label %._crit_edge86
 
 ._crit_edge86:                                    ; preds = %20, %21, %23, %61, %64, %44, %47, %28, %32, %13
-  %.165 = phi ptr [ %.06482, %13 ], [ %40, %32 ], [ %.06482, %28 ], [ %60, %47 ], [ %.06482, %44 ], [ %68, %64 ], [ %.06482, %61 ], [ %25, %23 ], [ %.06482, %21 ], [ null, %20 ]
+  %.165 = phi ptr [ %.06482, %13 ], [ %40, %32 ], [ %.06482, %28 ], [ %60, %47 ], [ %.06482, %44 ], [ %83, %64 ], [ %.06482, %61 ], [ %25, %23 ], [ %.06482, %21 ], [ null, %20 ]
   %.162 = phi i32 [ %15, %13 ], [ 0, %32 ], [ 0, %28 ], [ 0, %47 ], [ 0, %44 ], [ 0, %64 ], [ 0, %61 ], [ 0, %23 ], [ 0, %21 ], [ 0, %20 ]
   %.1 = phi i32 [ %.06084, %13 ], [ %30, %32 ], [ %30, %28 ], [ %45, %47 ], [ %45, %44 ], [ %62, %64 ], [ %62, %61 ], [ %.pre, %23 ], [ %.pre, %21 ], [ %.pre, %20 ]
-  %79 = getelementptr inbounds i8, ptr %.06781, i64 4
-  %80 = add nuw nsw i32 %.085, 1
-  %81 = load i32, ptr %79, align 4
-  %82 = icmp ne i32 %81, 0
-  %83 = icmp ult i32 %80, %2
-  %84 = select i1 %82, i1 %83, i1 false
-  br i1 %84, label %10, label %._crit_edge, !llvm.loop !14
+  %84 = getelementptr inbounds i8, ptr %.06781, i64 4
+  %85 = add nuw nsw i32 %.085, 1
+  %86 = load i32, ptr %84, align 4
+  %87 = icmp ne i32 %86, 0
+  %88 = icmp ult i32 %85, %2
+  %89 = select i1 %87, i1 %88, i1 false
+  br i1 %89, label %10, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %._crit_edge86, %4
   %.060.lcssa = phi i32 [ 0, %4 ], [ %.1, %._crit_edge86 ]
@@ -2001,45 +2009,47 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
   %19 = zext i16 %.0.i to i32
   %20 = load i32, ptr %5, align 8
   %.not = icmp ugt i32 %20, %19
-  br i1 %.not, label %24, label %21
+  br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %_cmsQuickSaturateWord.exit
   %22 = getelementptr inbounds i8, ptr %5, i64 88
   %23 = load ptr, ptr %22, align 8
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %23, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %19) #13
-  store <2 x float> zeroinitializer, ptr %1, align 4
-  br label %46
+  %24 = getelementptr inbounds i8, ptr %1, i64 4
+  store float 0.000000e+00, ptr %24, align 4
+  store float 0.000000e+00, ptr %1, align 4
+  br label %47
 
-24:                                               ; preds = %_cmsQuickSaturateWord.exit
-  %25 = getelementptr inbounds i8, ptr %5, i64 80
-  %26 = load ptr, ptr %25, align 8
-  %27 = zext i16 %.0.i to i64
-  %28 = getelementptr inbounds %struct._cmsNAMEDCOLOR, ptr %26, i64 %27, i32 1
-  %29 = load i16, ptr %28, align 2
-  %30 = uitofp i16 %29 to double
-  %31 = fdiv double %30, 6.553500e+04
-  %32 = fptrunc double %31 to float
-  store float %32, ptr %1, align 4
-  %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr inbounds %struct._cmsNAMEDCOLOR, ptr %33, i64 %27, i32 1, i64 1
-  %35 = load i16, ptr %34, align 2
-  %36 = uitofp i16 %35 to double
-  %37 = fdiv double %36, 6.553500e+04
-  %38 = fptrunc double %37 to float
-  %39 = getelementptr inbounds i8, ptr %1, i64 4
-  store float %38, ptr %39, align 4
-  %40 = load ptr, ptr %25, align 8
-  %41 = getelementptr inbounds %struct._cmsNAMEDCOLOR, ptr %40, i64 %27, i32 1, i64 2
-  %42 = load i16, ptr %41, align 2
-  %43 = uitofp i16 %42 to double
-  %44 = fdiv double %43, 6.553500e+04
-  %45 = fptrunc double %44 to float
-  br label %46
+25:                                               ; preds = %_cmsQuickSaturateWord.exit
+  %26 = getelementptr inbounds i8, ptr %5, i64 80
+  %27 = load ptr, ptr %26, align 8
+  %28 = zext i16 %.0.i to i64
+  %29 = getelementptr inbounds %struct._cmsNAMEDCOLOR, ptr %27, i64 %28, i32 1
+  %30 = load i16, ptr %29, align 2
+  %31 = uitofp i16 %30 to double
+  %32 = fdiv double %31, 6.553500e+04
+  %33 = fptrunc double %32 to float
+  store float %33, ptr %1, align 4
+  %34 = load ptr, ptr %26, align 8
+  %35 = getelementptr inbounds %struct._cmsNAMEDCOLOR, ptr %34, i64 %28, i32 1, i64 1
+  %36 = load i16, ptr %35, align 2
+  %37 = uitofp i16 %36 to double
+  %38 = fdiv double %37, 6.553500e+04
+  %39 = fptrunc double %38 to float
+  %40 = getelementptr inbounds i8, ptr %1, i64 4
+  store float %39, ptr %40, align 4
+  %41 = load ptr, ptr %26, align 8
+  %42 = getelementptr inbounds %struct._cmsNAMEDCOLOR, ptr %41, i64 %28, i32 1, i64 2
+  %43 = load i16, ptr %42, align 2
+  %44 = uitofp i16 %43 to double
+  %45 = fdiv double %44, 6.553500e+04
+  %46 = fptrunc double %45 to float
+  br label %47
 
-46:                                               ; preds = %24, %21
-  %.sink = phi float [ %45, %24 ], [ 0.000000e+00, %21 ]
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
-  store float %.sink, ptr %47, align 4
+47:                                               ; preds = %25, %21
+  %.sink = phi float [ %46, %25 ], [ 0.000000e+00, %21 ]
+  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  store float %.sink, ptr %48, align 4
   ret void
 }
 

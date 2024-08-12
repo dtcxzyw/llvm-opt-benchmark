@@ -993,168 +993,189 @@ define dso_local void @InsertPgClassTuple(ptr noundef %0, ptr nocapture noundef 
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %9, i64 68
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
-  %17 = load <2 x i32>, ptr %15, align 4
-  %18 = zext <2 x i32> %17 to <2 x i64>
-  store <2 x i64> %18, ptr %16, align 16
-  %19 = getelementptr inbounds i8, ptr %9, i64 76
-  %20 = getelementptr inbounds i8, ptr %6, i64 32
-  %21 = load <2 x i32>, ptr %19, align 4
-  %22 = zext <2 x i32> %21 to <2 x i64>
-  store <2 x i64> %22, ptr %20, align 16
-  %23 = getelementptr inbounds i8, ptr %9, i64 84
-  %24 = getelementptr inbounds i8, ptr %6, i64 48
-  %25 = load <2 x i32>, ptr %23, align 4
-  %26 = zext <2 x i32> %25 to <2 x i64>
-  store <2 x i64> %26, ptr %24, align 16
-  %27 = getelementptr inbounds i8, ptr %9, i64 92
+  %16 = load i32, ptr %15, align 4
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 %17, ptr %18, align 16
+  %19 = getelementptr inbounds i8, ptr %9, i64 72
+  %20 = load i32, ptr %19, align 4
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds i8, ptr %6, i64 24
+  store i64 %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %9, i64 76
+  %24 = load i32, ptr %23, align 4
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds i8, ptr %6, i64 32
+  store i64 %25, ptr %26, align 16
+  %27 = getelementptr inbounds i8, ptr %9, i64 80
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %6, i64 64
-  store i64 %29, ptr %30, align 16
-  %31 = getelementptr inbounds i8, ptr %9, i64 96
+  %30 = getelementptr inbounds i8, ptr %6, i64 40
+  store i64 %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %9, i64 84
   %32 = load i32, ptr %31, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %6, i64 72
-  store i64 %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %9, i64 100
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds i8, ptr %6, i64 48
+  store i64 %33, ptr %34, align 16
+  %35 = getelementptr inbounds i8, ptr %9, i64 88
   %36 = load i32, ptr %35, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %6, i64 80
-  store i64 %37, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %9, i64 104
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds i8, ptr %6, i64 56
+  store i64 %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %9, i64 92
   %40 = load i32, ptr %39, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %6, i64 88
-  store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %9, i64 108
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds i8, ptr %6, i64 64
+  store i64 %41, ptr %42, align 16
+  %43 = getelementptr inbounds i8, ptr %9, i64 96
   %44 = load i32, ptr %43, align 4
-  %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %6, i64 96
-  store i64 %45, ptr %46, align 16
-  %47 = getelementptr inbounds i8, ptr %9, i64 112
-  %48 = getelementptr inbounds i8, ptr %6, i64 104
-  %49 = load <2 x i8>, ptr %47, align 4
-  %.mask = and <2 x i8> %49, <i8 1, i8 1>
-  %50 = zext nneg <2 x i8> %.mask to <2 x i64>
-  store <2 x i64> %50, ptr %48, align 8
-  %51 = getelementptr inbounds i8, ptr %9, i64 114
-  %52 = load i8, ptr %51, align 2
-  %53 = sext i8 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %6, i64 120
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i8, ptr %6, i64 72
+  store i64 %45, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %9, i64 100
+  %48 = load i32, ptr %47, align 4
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i8, ptr %6, i64 80
+  store i64 %49, ptr %50, align 16
+  %51 = getelementptr inbounds i8, ptr %9, i64 104
+  %52 = load i32, ptr %51, align 4
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %6, i64 88
   store i64 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %9, i64 115
-  %56 = load i8, ptr %55, align 1
-  %57 = sext i8 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %6, i64 128
+  %55 = getelementptr inbounds i8, ptr %9, i64 108
+  %56 = load i32, ptr %55, align 4
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds i8, ptr %6, i64 96
   store i64 %57, ptr %58, align 16
-  %59 = getelementptr inbounds i8, ptr %9, i64 116
-  %60 = load i16, ptr %59, align 4
-  %61 = sext i16 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %6, i64 136
-  store i64 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %9, i64 118
-  %64 = load i16, ptr %63, align 2
-  %65 = sext i16 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %6, i64 144
-  store i64 %65, ptr %66, align 16
-  %67 = getelementptr inbounds i8, ptr %9, i64 120
-  %68 = load i8, ptr %67, align 4
-  %69 = and i8 %68, 1
-  %70 = zext nneg i8 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %6, i64 152
-  store i64 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %9, i64 121
-  %73 = load i8, ptr %72, align 1
-  %74 = and i8 %73, 1
-  %75 = zext nneg i8 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %6, i64 160
+  %59 = getelementptr inbounds i8, ptr %9, i64 112
+  %60 = load i8, ptr %59, align 4
+  %61 = and i8 %60, 1
+  %62 = zext nneg i8 %61 to i64
+  %63 = getelementptr inbounds i8, ptr %6, i64 104
+  store i64 %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %9, i64 113
+  %65 = load i8, ptr %64, align 1
+  %66 = and i8 %65, 1
+  %67 = zext nneg i8 %66 to i64
+  %68 = getelementptr inbounds i8, ptr %6, i64 112
+  store i64 %67, ptr %68, align 16
+  %69 = getelementptr inbounds i8, ptr %9, i64 114
+  %70 = load i8, ptr %69, align 2
+  %71 = sext i8 %70 to i64
+  %72 = getelementptr inbounds i8, ptr %6, i64 120
+  store i64 %71, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %9, i64 115
+  %74 = load i8, ptr %73, align 1
+  %75 = sext i8 %74 to i64
+  %76 = getelementptr inbounds i8, ptr %6, i64 128
   store i64 %75, ptr %76, align 16
-  %77 = getelementptr inbounds i8, ptr %9, i64 123
-  %78 = load i8, ptr %77, align 1
-  %79 = and i8 %78, 1
-  %80 = zext nneg i8 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %6, i64 176
-  store i64 %80, ptr %81, align 16
-  %82 = getelementptr inbounds i8, ptr %9, i64 124
-  %83 = load i8, ptr %82, align 4
-  %84 = and i8 %83, 1
-  %85 = zext nneg i8 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %6, i64 184
-  store i64 %85, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %9, i64 122
-  %88 = load i8, ptr %87, align 2
-  %89 = and i8 %88, 1
-  %90 = zext nneg i8 %89 to i64
-  %91 = getelementptr inbounds i8, ptr %6, i64 168
-  store i64 %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %9, i64 125
-  %93 = load i8, ptr %92, align 1
-  %94 = and i8 %93, 1
-  %95 = zext nneg i8 %94 to i64
-  %96 = getelementptr inbounds i8, ptr %6, i64 192
-  store i64 %95, ptr %96, align 16
-  %97 = getelementptr inbounds i8, ptr %9, i64 126
-  %98 = load i8, ptr %97, align 2
-  %99 = sext i8 %98 to i64
-  %100 = getelementptr inbounds i8, ptr %6, i64 200
-  store i64 %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %9, i64 127
-  %102 = load i8, ptr %101, align 1
-  %103 = and i8 %102, 1
-  %104 = zext nneg i8 %103 to i64
-  %105 = getelementptr inbounds i8, ptr %6, i64 208
-  store i64 %104, ptr %105, align 16
-  %106 = getelementptr inbounds i8, ptr %9, i64 128
-  %107 = load i32, ptr %106, align 4
-  %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %6, i64 216
+  %77 = getelementptr inbounds i8, ptr %9, i64 116
+  %78 = load i16, ptr %77, align 4
+  %79 = sext i16 %78 to i64
+  %80 = getelementptr inbounds i8, ptr %6, i64 136
+  store i64 %79, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %9, i64 118
+  %82 = load i16, ptr %81, align 2
+  %83 = sext i16 %82 to i64
+  %84 = getelementptr inbounds i8, ptr %6, i64 144
+  store i64 %83, ptr %84, align 16
+  %85 = getelementptr inbounds i8, ptr %9, i64 120
+  %86 = load i8, ptr %85, align 4
+  %87 = and i8 %86, 1
+  %88 = zext nneg i8 %87 to i64
+  %89 = getelementptr inbounds i8, ptr %6, i64 152
+  store i64 %88, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %9, i64 121
+  %91 = load i8, ptr %90, align 1
+  %92 = and i8 %91, 1
+  %93 = zext nneg i8 %92 to i64
+  %94 = getelementptr inbounds i8, ptr %6, i64 160
+  store i64 %93, ptr %94, align 16
+  %95 = getelementptr inbounds i8, ptr %9, i64 123
+  %96 = load i8, ptr %95, align 1
+  %97 = and i8 %96, 1
+  %98 = zext nneg i8 %97 to i64
+  %99 = getelementptr inbounds i8, ptr %6, i64 176
+  store i64 %98, ptr %99, align 16
+  %100 = getelementptr inbounds i8, ptr %9, i64 124
+  %101 = load i8, ptr %100, align 4
+  %102 = and i8 %101, 1
+  %103 = zext nneg i8 %102 to i64
+  %104 = getelementptr inbounds i8, ptr %6, i64 184
+  store i64 %103, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %9, i64 122
+  %106 = load i8, ptr %105, align 2
+  %107 = and i8 %106, 1
+  %108 = zext nneg i8 %107 to i64
+  %109 = getelementptr inbounds i8, ptr %6, i64 168
   store i64 %108, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %9, i64 132
-  %111 = load i32, ptr %110, align 4
-  %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds i8, ptr %6, i64 224
-  store i64 %112, ptr %113, align 16
-  %114 = getelementptr inbounds i8, ptr %9, i64 136
-  %115 = load i32, ptr %114, align 4
-  %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds i8, ptr %6, i64 232
-  store i64 %116, ptr %117, align 8
+  %110 = getelementptr inbounds i8, ptr %9, i64 125
+  %111 = load i8, ptr %110, align 1
+  %112 = and i8 %111, 1
+  %113 = zext nneg i8 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %6, i64 192
+  store i64 %113, ptr %114, align 16
+  %115 = getelementptr inbounds i8, ptr %9, i64 126
+  %116 = load i8, ptr %115, align 2
+  %117 = sext i8 %116 to i64
+  %118 = getelementptr inbounds i8, ptr %6, i64 200
+  store i64 %117, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %9, i64 127
+  %120 = load i8, ptr %119, align 1
+  %121 = and i8 %120, 1
+  %122 = zext nneg i8 %121 to i64
+  %123 = getelementptr inbounds i8, ptr %6, i64 208
+  store i64 %122, ptr %123, align 16
+  %124 = getelementptr inbounds i8, ptr %9, i64 128
+  %125 = load i32, ptr %124, align 4
+  %126 = zext i32 %125 to i64
+  %127 = getelementptr inbounds i8, ptr %6, i64 216
+  store i64 %126, ptr %127, align 8
+  %128 = getelementptr inbounds i8, ptr %9, i64 132
+  %129 = load i32, ptr %128, align 4
+  %130 = zext i32 %129 to i64
+  %131 = getelementptr inbounds i8, ptr %6, i64 224
+  store i64 %130, ptr %131, align 16
+  %132 = getelementptr inbounds i8, ptr %9, i64 136
+  %133 = load i32, ptr %132, align 4
+  %134 = zext i32 %133 to i64
+  %135 = getelementptr inbounds i8, ptr %6, i64 232
+  store i64 %134, ptr %135, align 8
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %120, label %118
+  br i1 %.not, label %138, label %136
 
-118:                                              ; preds = %5
-  %119 = getelementptr inbounds i8, ptr %6, i64 240
-  store i64 %3, ptr %119, align 16
-  br label %122
+136:                                              ; preds = %5
+  %137 = getelementptr inbounds i8, ptr %6, i64 240
+  store i64 %3, ptr %137, align 16
+  br label %140
 
-120:                                              ; preds = %5
-  %121 = getelementptr inbounds i8, ptr %7, i64 30
-  store i8 1, ptr %121, align 2
-  br label %122
+138:                                              ; preds = %5
+  %139 = getelementptr inbounds i8, ptr %7, i64 30
+  store i8 1, ptr %139, align 2
+  br label %140
 
-122:                                              ; preds = %120, %118
+140:                                              ; preds = %138, %136
   %.not39 = icmp eq i64 %4, 0
-  br i1 %.not39, label %125, label %123
+  br i1 %.not39, label %143, label %141
 
-123:                                              ; preds = %122
-  %124 = getelementptr inbounds i8, ptr %6, i64 248
-  store i64 %4, ptr %124, align 8
-  br label %127
+141:                                              ; preds = %140
+  %142 = getelementptr inbounds i8, ptr %6, i64 248
+  store i64 %4, ptr %142, align 8
+  br label %145
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %7, i64 31
-  store i8 1, ptr %126, align 1
-  br label %127
+143:                                              ; preds = %140
+  %144 = getelementptr inbounds i8, ptr %7, i64 31
+  store i8 1, ptr %144, align 1
+  br label %145
 
-127:                                              ; preds = %125, %123
-  %128 = getelementptr inbounds i8, ptr %7, i64 32
-  store i8 1, ptr %128, align 16
-  %129 = getelementptr inbounds i8, ptr %0, i64 64
-  %130 = load ptr, ptr %129, align 8
-  %131 = call ptr @heap_form_tuple(ptr noundef %130, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
-  call void @CatalogTupleInsert(ptr noundef %0, ptr noundef %131) #11
-  call void @heap_freetuple(ptr noundef %131) #11
+145:                                              ; preds = %143, %141
+  %146 = getelementptr inbounds i8, ptr %7, i64 32
+  store i8 1, ptr %146, align 16
+  %147 = getelementptr inbounds i8, ptr %0, i64 64
+  %148 = load ptr, ptr %147, align 8
+  %149 = call ptr @heap_form_tuple(ptr noundef %148, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
+  call void @CatalogTupleInsert(ptr noundef %0, ptr noundef %149) #11
+  call void @heap_freetuple(ptr noundef %149) #11
   ret void
 }
 
@@ -1848,14 +1869,26 @@ define dso_local void @RemoveAttributeById(i32 noundef %0, i16 noundef signext %
   %32 = getelementptr inbounds i8, ptr %6, i64 25
   store i8 1, ptr %32, align 1
   %33 = getelementptr inbounds i8, ptr %5, i64 21
+  store i8 1, ptr %33, align 1
   %34 = getelementptr inbounds i8, ptr %6, i64 21
-  store <4 x i8> <i8 1, i8 1, i8 1, i8 1>, ptr %33, align 1
-  store <4 x i8> <i8 1, i8 1, i8 1, i8 1>, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %8, i64 64
-  %36 = load ptr, ptr %35, align 8
-  %37 = call ptr @heap_modify_tuple(ptr noundef nonnull %11, ptr noundef %36, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %8, ptr noundef nonnull %38, ptr noundef %37) #11
+  store i8 1, ptr %34, align 1
+  %35 = getelementptr inbounds i8, ptr %5, i64 22
+  store i8 1, ptr %35, align 2
+  %36 = getelementptr inbounds i8, ptr %6, i64 22
+  store i8 1, ptr %36, align 2
+  %37 = getelementptr inbounds i8, ptr %5, i64 23
+  store i8 1, ptr %37, align 1
+  %38 = getelementptr inbounds i8, ptr %6, i64 23
+  store i8 1, ptr %38, align 1
+  %39 = getelementptr inbounds i8, ptr %5, i64 24
+  store i8 1, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  store i8 1, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %8, i64 64
+  %42 = load ptr, ptr %41, align 8
+  %43 = call ptr @heap_modify_tuple(ptr noundef nonnull %11, ptr noundef %42, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  call void @CatalogTupleUpdate(ptr noundef %8, ptr noundef nonnull %44, ptr noundef %43) #11
   call void @table_close(ptr noundef %8, i32 noundef 3) #11
   call void @RemoveStatistics(i32 noundef %0, i16 noundef signext %1)
   call void @relation_close(ptr noundef %7, i32 noundef 0) #11

@@ -294,7 +294,7 @@ define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitOGLWindow(ptr nocapture nound
 
 5:                                                ; preds = %2
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.9) #5
-  br label %27
+  br label %30
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 56
@@ -304,7 +304,7 @@ define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitOGLWindow(ptr nocapture nound
 
 10:                                               ; preds = %6
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.10) #5
-  br label %27
+  br label %30
 
 11:                                               ; preds = %6
   %12 = load i64, ptr %8, align 8
@@ -313,30 +313,34 @@ define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitOGLWindow(ptr nocapture nound
 
 14:                                               ; preds = %11
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.11) #5
-  br label %27
+  br label %30
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr @awt_display, align 8
   %17 = call i32 @XGetWindowAttributes(ptr noundef %16, i64 noundef %12, ptr noundef nonnull %3) #5
   %18 = getelementptr inbounds i8, ptr %3, i64 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 92
-  %20 = load <2 x i32>, ptr %18, align 8
-  store <2 x i32> %20, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 72
-  store i32 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 80
-  store i8 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 84
-  store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 88
-  store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 16
-  store i64 %12, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %12, ptr %26, align 8
-  br label %27
+  %19 = load i32, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 92
+  store i32 %19, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %3, i64 12
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 96
+  store i32 %22, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %1, i64 72
+  store i32 1, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 80
+  store i8 1, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 84
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %1, i64 88
+  store i32 0, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %8, i64 16
+  store i64 %12, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %12, ptr %29, align 8
+  br label %30
 
-27:                                               ; preds = %15, %14, %10, %5
+30:                                               ; preds = %15, %14, %10, %5
   %.0 = phi i8 [ 0, %5 ], [ 0, %10 ], [ 0, %14 ], [ 1, %15 ]
   ret i8 %.0
 }

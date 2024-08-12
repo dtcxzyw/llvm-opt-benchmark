@@ -6641,9 +6641,12 @@ land.lhs.true:                                    ; preds = %if.then25, %if.then
 if.then34:                                        ; preds = %land.lhs.true
   %add.ptr35 = getelementptr inbounds i8, ptr %call27119, i64 2
   %incdec.ptr = getelementptr inbounds i8, ptr %buf_start.0118, i64 1
-  %20 = load <2 x i64>, ptr %buflen, align 8
-  %21 = add <2 x i64> %20, <i64 -1, i64 1>
-  store <2 x i64> %21, ptr %buflen, align 8
+  %20 = load i64, ptr %bufoff, align 8
+  %inc = add i64 %20, 1
+  store i64 %inc, ptr %bufoff, align 8
+  %21 = load i64, ptr %buflen, align 8
+  %dec = add i64 %21, -1
+  store i64 %dec, ptr %buflen, align 8
   %dec38 = add i64 %outlen.1117, -1
   %call27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr35, i32 noundef 123) #17
   %cmp28 = icmp eq ptr %call27, %incdec.ptr

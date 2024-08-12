@@ -9177,14 +9177,14 @@ if.end83:                                         ; preds = %if.end.i.i37, %if.t
   %70 = load ptr, ptr %values_.i461, align 8
   %add.ptr.i462 = getelementptr inbounds i8, ptr %70, i64 -8
   %call91 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4node6crypto15KeyObjectHandle4DataEv(ptr noundef nonnull align 8 dereferenceable(48) %retval.i12.0.i) #19
+  %71 = load ptr, ptr %call91, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call91, i64 8
-  %71 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %72 = load <2 x ptr>, ptr %call91, align 8
-  %cmp.not.i.i.i = icmp eq ptr %71, null
+  %72 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %72, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end83
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %71, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 8
   %73 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %73, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -9239,11 +9239,13 @@ _ZN4node6crypto9CryptoJobINS0_18RSAKeyExportTraitsEEC2EPNS_11EnvironmentEN2v85Lo
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto12KeyExportJobINS0_18RSAKeyExportTraitsEEE, i64 16), ptr %call84, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto12KeyExportJobINS0_18RSAKeyExportTraitsEEE, i64 200), ptr %76, align 8
   %key_.i = getelementptr inbounds i8, ptr %call84, i64 264
-  store <2 x ptr> %72, ptr %key_.i, align 8
+  store ptr %71, ptr %key_.i, align 8
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call84, i64 272
+  store ptr %72, ptr %_M_refcount.i.i.i, align 8
   br i1 %cmp.not.i.i.i, label %_ZN4node6crypto12KeyExportJobINS0_18RSAKeyExportTraitsEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS0_13CryptoJobModeESt10shared_ptrINS0_13KeyObjectDataEENS0_18WebCryptoKeyFormatEONS0_18RSAKeyExportConfigE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4node6crypto9CryptoJobINS0_18RSAKeyExportTraitsEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS_9AsyncWrap12ProviderTypeENS0_13CryptoJobModeEONS0_18RSAKeyExportConfigE.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %71, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 8
   %77 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %77, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -9277,12 +9279,12 @@ if.then.i.i.i43:                                  ; preds = %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i49:                                ; preds = %if.then.i.i.i43
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %71, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %71, align 8
+  %vtable.i.i.i.i = load ptr, ptr %72, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %82 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %82(ptr noundef nonnull align 8 dereferenceable(16) %71) #19
+  tail call void %82(ptr noundef nonnull align 8 dereferenceable(16) %72) #19
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i43
@@ -9305,11 +9307,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %cleanup.cont
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %71, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %72, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %85 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(16) %71) #19
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %71, i64 12
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(16) %72) #19
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 12
   %86 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %86, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -9330,10 +9332,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %cleanup.cont
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i49
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %71, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %72, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %89 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %89(ptr noundef nonnull align 8 dereferenceable(16) %71) #19
+  tail call void %89(ptr noundef nonnull align 8 dereferenceable(16) %72) #19
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %_ZN4node6crypto12KeyExportJobINS0_18RSAKeyExportTraitsEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS0_13CryptoJobModeESt10shared_ptrINS0_13KeyObjectDataEENS0_18WebCryptoKeyFormatEONS0_18RSAKeyExportConfigE.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
@@ -10001,14 +10003,15 @@ define linkonce_odr dso_local void @_ZN4node6crypto12KeyExportJobINS0_18RSAKeyEx
 entry:
   %ref.tmp.i13 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.283", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.283", align 8
   %key_ = getelementptr inbounds i8, ptr %this, i64 264
+  %0 = load ptr, ptr %key_, align 8
+  store ptr %0, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 272
-  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %1 = load <2 x ptr>, ptr %key_, align 8
-  store <2 x ptr> %1, ptr %agg.tmp, align 16
-  %cmp.not.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.thread, label %if.then.i.i.i
 
 _ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.thread: ; preds = %entry
@@ -10019,7 +10022,7 @@ _ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.thread: ; preds = 
   br label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.thread29
@@ -10046,7 +10049,7 @@ _ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit: ; preds = %if.the
 
 if.then.i.i.i7:                                   ; preds = %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.thread29, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit
   %call237 = phi i32 [ %call234, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.thread29 ], [ %call2, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit ]
-  %.pr36 = phi ptr [ %0, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.thread29 ], [ %.pr.pre, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit ]
+  %.pr36 = phi ptr [ %1, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.thread29 ], [ %.pr.pre, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit ]
   %_M_use_count.i.i.i.i8 = getelementptr inbounds i8, ptr %.pr36, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i.i.i.i8 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, 4294967297
@@ -11706,15 +11709,16 @@ define linkonce_odr dso_local void @_ZN4node6crypto9CipherJobINS0_15RSACipherTra
 entry:
   %ref.tmp.i7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.283", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.283", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %key_.i = getelementptr inbounds i8, ptr %this, i64 304
+  %0 = load ptr, ptr %key_.i, align 8, !noalias !134
+  store ptr %0, ptr %agg.tmp, align 8, !alias.scope !134
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 312
-  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !134
-  %1 = load <2 x ptr>, ptr %key_.i, align 8, !noalias !134
-  store <2 x ptr> %1, ptr %agg.tmp, align 16, !alias.scope !134
-  %cmp.not.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !134
+  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !alias.scope !134
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit.thread, label %if.then.i.i.i.i
 
 _ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit.thread: ; preds = %entry
@@ -11727,7 +11731,7 @@ _ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit.thread: ; preds = 
   br label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1, !noalias !134
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit, label %_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit.thread24
@@ -11758,7 +11762,7 @@ _ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit: ; preds = %if.the
 
 if.then.i.i.i:                                    ; preds = %_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit.thread24, %_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit
   %call333 = phi i32 [ %call330, %_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit.thread24 ], [ %call3, %_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit ]
-  %.pr32 = phi ptr [ %0, %_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit.thread24 ], [ %.pr.pre, %_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit ]
+  %.pr32 = phi ptr [ %1, %_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit.thread24 ], [ %.pr.pre, %_ZNK4node6crypto9CipherJobINS0_15RSACipherTraitsEE3keyEv.exit ]
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %.pr32, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, 4294967297

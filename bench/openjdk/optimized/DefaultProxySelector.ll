@@ -67,7 +67,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_net_spi_DefaultProxySelector_init(ptr
 4:                                                ; preds = %2
   %5 = tail call ptr @dlopen(ptr noundef nonnull @.str.1, i32 noundef 1) #10
   %.not28.i = icmp eq ptr %5, null
-  br i1 %.not28.i, label %35, label %6
+  br i1 %.not28.i, label %32, label %6
 
 6:                                                ; preds = %4, %2
   %.0.i = phi ptr [ %3, %2 ], [ %5, %4 ]
@@ -88,101 +88,104 @@ define zeroext range(i8 0, 2) i8 @Java_sun_net_spi_DefaultProxySelector_init(ptr
   %14 = tail call ptr @dlsym(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.9) #10
   store ptr %14, ptr @g_clear_error, align 8
   %15 = load ptr, ptr @my_g_type_init_func, align 8
-  %16 = load ptr, ptr @g_proxy_resolver_get_default, align 8
-  %17 = load ptr, ptr @g_proxy_resolver_lookup, align 8
-  %18 = load ptr, ptr @g_network_address_parse_uri, align 8
-  %19 = load ptr, ptr @g_network_address_get_hostname, align 8
-  %20 = load ptr, ptr @g_network_address_get_port, align 8
-  %21 = load ptr, ptr @g_strfreev, align 8
-  %22 = insertelement <8 x ptr> poison, ptr %15, i64 0
-  %23 = insertelement <8 x ptr> %22, ptr %16, i64 1
-  %24 = insertelement <8 x ptr> %23, ptr %17, i64 2
-  %25 = insertelement <8 x ptr> %24, ptr %18, i64 3
-  %26 = insertelement <8 x ptr> %25, ptr %19, i64 4
-  %27 = insertelement <8 x ptr> %26, ptr %20, i64 5
-  %28 = insertelement <8 x ptr> %27, ptr %21, i64 6
-  %29 = insertelement <8 x ptr> %28, ptr %14, i64 7
-  %.fr = freeze <8 x ptr> %29
-  %30 = icmp eq <8 x ptr> %.fr, zeroinitializer
-  %31 = bitcast <8 x i1> %30 to i8
-  %32 = icmp eq i8 %31, 0
-  br i1 %32, label %.thread, label %33
+  %16 = icmp ne ptr %15, null
+  %17 = load ptr, ptr @g_proxy_resolver_get_default, align 8
+  %18 = icmp ne ptr %17, null
+  %or.cond.i = select i1 %16, i1 %18, i1 false
+  %19 = load ptr, ptr @g_proxy_resolver_lookup, align 8
+  %20 = icmp ne ptr %19, null
+  %or.cond3.i = select i1 %or.cond.i, i1 %20, i1 false
+  %21 = load ptr, ptr @g_network_address_parse_uri, align 8
+  %22 = icmp ne ptr %21, null
+  %or.cond5.i = select i1 %or.cond3.i, i1 %22, i1 false
+  %23 = load ptr, ptr @g_network_address_get_hostname, align 8
+  %24 = icmp ne ptr %23, null
+  %or.cond7.i = select i1 %or.cond5.i, i1 %24, i1 false
+  %25 = load ptr, ptr @g_network_address_get_port, align 8
+  %26 = icmp ne ptr %25, null
+  %or.cond9.i = select i1 %or.cond7.i, i1 %26, i1 false
+  %27 = load ptr, ptr @g_strfreev, align 8
+  %28 = icmp ne ptr %27, null
+  %or.cond11.i = select i1 %or.cond9.i, i1 %28, i1 false
+  %29 = icmp ne ptr %14, null
+  %or.cond13.i = select i1 %or.cond11.i, i1 %29, i1 false
+  br i1 %or.cond13.i, label %.thread, label %30
 
-33:                                               ; preds = %6
-  %34 = tail call i32 @dlclose(ptr noundef nonnull %.0.i) #10
-  br label %35
+30:                                               ; preds = %6
+  %31 = tail call i32 @dlclose(ptr noundef nonnull %.0.i) #10
+  br label %32
 
 .thread:                                          ; preds = %6
   tail call void (...) %15() #10
   br label %.sink.split
 
-35:                                               ; preds = %33, %4
+32:                                               ; preds = %30, %4
   store i32 0, ptr @use_gproxyResolver, align 4
-  %36 = tail call ptr @dlopen(ptr noundef nonnull @.str.10, i32 noundef 257) #10
-  %.not.i3 = icmp eq ptr %36, null
-  br i1 %.not.i3, label %37, label %39
+  %33 = tail call ptr @dlopen(ptr noundef nonnull @.str.10, i32 noundef 257) #10
+  %.not.i3 = icmp eq ptr %33, null
+  br i1 %.not.i3, label %34, label %36
 
-37:                                               ; preds = %35
-  %38 = tail call ptr @dlopen(ptr noundef nonnull @.str.11, i32 noundef 257) #10
-  %.not7.i = icmp eq ptr %38, null
-  br i1 %.not7.i, label %57, label %39
+34:                                               ; preds = %32
+  %35 = tail call ptr @dlopen(ptr noundef nonnull @.str.11, i32 noundef 257) #10
+  %.not7.i = icmp eq ptr %35, null
+  br i1 %.not7.i, label %54, label %36
 
-39:                                               ; preds = %37, %35
-  %40 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.2) #10
-  store ptr %40, ptr @my_g_type_init_func, align 8
-  %41 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.12) #10
-  store ptr %41, ptr @my_get_default_func, align 8
-  %42 = load ptr, ptr @my_g_type_init_func, align 8
-  %43 = icmp ne ptr %42, null
-  %44 = icmp ne ptr %41, null
-  %or.cond.i4 = select i1 %43, i1 %44, i1 false
-  br i1 %or.cond.i4, label %45, label %57
+36:                                               ; preds = %34, %32
+  %37 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.2) #10
+  store ptr %37, ptr @my_g_type_init_func, align 8
+  %38 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.12) #10
+  store ptr %38, ptr @my_get_default_func, align 8
+  %39 = load ptr, ptr @my_g_type_init_func, align 8
+  %40 = icmp ne ptr %39, null
+  %41 = icmp ne ptr %38, null
+  %or.cond.i4 = select i1 %40, i1 %41, i1 false
+  br i1 %or.cond.i4, label %42, label %54
 
-45:                                               ; preds = %39
-  tail call void (...) %42() #10
-  %46 = load ptr, ptr @my_get_default_func, align 8
-  %47 = tail call ptr (...) %46() #10
-  store ptr %47, ptr @gconf_client, align 8
-  %.not8.i = icmp eq ptr %47, null
-  br i1 %.not8.i, label %57, label %48
+42:                                               ; preds = %36
+  tail call void (...) %39() #10
+  %43 = load ptr, ptr @my_get_default_func, align 8
+  %44 = tail call ptr (...) %43() #10
+  store ptr %44, ptr @gconf_client, align 8
+  %.not8.i = icmp eq ptr %44, null
+  br i1 %.not8.i, label %54, label %45
 
-48:                                               ; preds = %45
-  %49 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.13) #10
-  store ptr %49, ptr @my_get_string_func, align 8
-  %50 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.14) #10
-  store ptr %50, ptr @my_get_int_func, align 8
-  %51 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.15) #10
-  store ptr %51, ptr @my_get_bool_func, align 8
-  %52 = load ptr, ptr @my_get_int_func, align 8
-  %53 = icmp ne ptr %52, null
-  %54 = load ptr, ptr @my_get_string_func, align 8
-  %55 = icmp ne ptr %54, null
-  %or.cond3.i6 = select i1 %53, i1 %55, i1 false
-  %56 = icmp ne ptr %51, null
-  %or.cond5.i7 = select i1 %or.cond3.i6, i1 %56, i1 false
-  br i1 %or.cond5.i7, label %.sink.split, label %57
+45:                                               ; preds = %42
+  %46 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.13) #10
+  store ptr %46, ptr @my_get_string_func, align 8
+  %47 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.14) #10
+  store ptr %47, ptr @my_get_int_func, align 8
+  %48 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.15) #10
+  store ptr %48, ptr @my_get_bool_func, align 8
+  %49 = load ptr, ptr @my_get_int_func, align 8
+  %50 = icmp ne ptr %49, null
+  %51 = load ptr, ptr @my_get_string_func, align 8
+  %52 = icmp ne ptr %51, null
+  %or.cond3.i6 = select i1 %50, i1 %52, i1 false
+  %53 = icmp ne ptr %48, null
+  %or.cond5.i7 = select i1 %or.cond3.i6, i1 %53, i1 false
+  br i1 %or.cond5.i7, label %.sink.split, label %54
 
-57:                                               ; preds = %37, %39, %45, %48
+54:                                               ; preds = %34, %36, %42, %45
   store i32 0, ptr @use_gconf, align 4
   %.pre = load i32, ptr @use_gproxyResolver, align 4
   %.not = icmp eq i32 %.pre, 0
-  br i1 %.not, label %60, label %58
+  br i1 %.not, label %57, label %55
 
-.sink.split:                                      ; preds = %48, %.thread
-  %use_gconf.sink = phi ptr [ @use_gproxyResolver, %.thread ], [ @use_gconf, %48 ]
+.sink.split:                                      ; preds = %45, %.thread
+  %use_gconf.sink = phi ptr [ @use_gproxyResolver, %.thread ], [ @use_gconf, %45 ]
   store i32 1, ptr %use_gconf.sink, align 4
+  br label %55
+
+55:                                               ; preds = %.sink.split, %54
+  %56 = tail call i32 @initJavaClass(ptr noundef %0) #10
+  %.not2 = icmp eq i32 %56, 0
+  br i1 %.not2, label %57, label %58
+
+57:                                               ; preds = %55, %54
   br label %58
 
-58:                                               ; preds = %.sink.split, %57
-  %59 = tail call i32 @initJavaClass(ptr noundef %0) #10
-  %.not2 = icmp eq i32 %59, 0
-  br i1 %.not2, label %60, label %61
-
-60:                                               ; preds = %58, %57
-  br label %61
-
-61:                                               ; preds = %58, %60
-  %.0 = phi i8 [ 0, %60 ], [ 1, %58 ]
+58:                                               ; preds = %55, %57
+  %.0 = phi i8 [ 0, %57 ], [ 1, %55 ]
   ret i8 %.0
 }
 

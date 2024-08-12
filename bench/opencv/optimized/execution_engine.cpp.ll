@@ -1154,14 +1154,14 @@ define linkonce_odr hidden void @_ZN3ade11PassManagerINS_6passes11PassContextEE8
   %5 = alloca %"struct.std::pair.183", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %6 unwind label %33
+          to label %6 unwind label %35
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !19
   %8 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
-          to label %9 unwind label %35
+          to label %9 unwind label %37
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %3, i64 48
@@ -1169,39 +1169,42 @@ define linkonce_odr hidden void @_ZN3ade11PassManagerINS_6passes11PassContextEE8
   %12 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %13 = getelementptr inbounds i8, ptr %8, i64 48
-  %14 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %14, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 64
-  %16 = load ptr, ptr %10, align 8
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 56
+  %16 = load ptr, ptr %11, align 8
   store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %8, i64 64
+  %18 = load ptr, ptr %10, align 8
+  store ptr %18, ptr %17, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %0) #21
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load i64, ptr %17, align 8
-  %19 = add i64 %18, 1
-  store i64 %19, ptr %17, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = load ptr, ptr %11, align 8
-  %.not4.i.i.i.i.i.i = icmp eq ptr %20, %21
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = load i64, ptr %19, align 8
+  %21 = add i64 %20, 1
+  store i64 %21, ptr %19, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = load ptr, ptr %11, align 8
+  %.not4.i.i.i.i.i.i = icmp eq ptr %22, %23
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9, %_ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %26, %_ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i ], [ %20, %9 ]
-  %22 = load ptr, ptr %.05.i.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
+  %.05.i.i.i.i.i.i = phi ptr [ %28, %_ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i ], [ %22, %9 ]
+  %24 = load ptr, ptr %.05.i.i.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3ade6detail15PassConceptBaseINS0_6passes11PassContextEEEEclEPS5_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3ade6detail15PassConceptBaseINS0_6passes11PassContextEEEEclEPS5_.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %22) #21
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %24) #21
   br label %_ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3ade6detail15PassConceptBaseINS0_6passes11PassContextEEEEclEPS5_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i.i.i, align 8
-  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %26, %21
+  %28 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %28, %23
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
 _ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i
@@ -1209,54 +1212,54 @@ _ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassCon
   br label %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i.i.i, %9
-  %27 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %20, %9 ]
-  %.not.i.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i.i, label %_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit, label %28
+  %29 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %22, %9 ]
+  %.not.i.i.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i.i.i, label %_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit, label %30
 
-28:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %27) #22
+30:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %29) #22
   br label %_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit
 
-_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit: ; preds = %28, %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i
+_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit: ; preds = %30, %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds i8, ptr %0, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %30 = getelementptr inbounds i8, ptr %5, i64 32
-  %31 = ptrtoint ptr %.pre to i64
-  store i64 %31, ptr %30, align 8, !alias.scope !22
-  %32 = invoke { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St14_List_iteratorIS6_IS5_N3ade8PassListINS9_6passes11PassContextEEEEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJS6_IS5_SF_EEEES6_INSI_14_Node_iteratorISG_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(40) %5)
-          to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_List_iteratorISt4pairIS5_N3ade8PassListINS8_6passes11PassContextEEEEESt4hashIS5_ESt8equal_toIS5_ESaIS7_IKS5_SE_EEE6insertIS7_IS5_SE_EEENSt9enable_ifIXsr16is_constructibleISK_OT_EE5valueES7_INSt8__detail14_Node_iteratorISK_Lb0ELb1EEEbEE4typeESR_.exit unwind label %38
+  %32 = getelementptr inbounds i8, ptr %5, i64 32
+  %33 = ptrtoint ptr %.pre to i64
+  store i64 %33, ptr %32, align 8, !alias.scope !22
+  %34 = invoke { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St14_List_iteratorIS6_IS5_N3ade8PassListINS9_6passes11PassContextEEEEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJS6_IS5_SF_EEEES6_INSI_14_Node_iteratorISG_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull align 8 dereferenceable(40) %5)
+          to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_List_iteratorISt4pairIS5_N3ade8PassListINS8_6passes11PassContextEEEEESt4hashIS5_ESt8equal_toIS5_ESaIS7_IKS5_SE_EEE6insertIS7_IS5_SE_EEENSt9enable_ifIXsr16is_constructibleISK_OT_EE5valueES7_INSt8__detail14_Node_iteratorISK_Lb0ELb1EEEbEE4typeESR_.exit unwind label %40
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_List_iteratorISt4pairIS5_N3ade8PassListINS8_6passes11PassContextEEEEESt4hashIS5_ESt8equal_toIS5_ESaIS7_IKS5_SE_EEE6insertIS7_IS5_SE_EEENSt9enable_ifIXsr16is_constructibleISK_OT_EE5valueES7_INSt8__detail14_Node_iteratorISK_Lb0ELb1EEEbEE4typeESR_.exit: ; preds = %_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   ret void
 
-33:                                               ; preds = %2
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  br label %37
-
-35:                                               ; preds = %6
+35:                                               ; preds = %2
   %36 = landingpad { ptr, i32 }
           cleanup
+  br label %39
+
+37:                                               ; preds = %6
+  %38 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3ade8PassListINS6_6passes11PassContextEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #21
-  br label %37
+  br label %39
 
-37:                                               ; preds = %35, %33
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
+39:                                               ; preds = %37, %35
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
   call void @_ZN3ade8PassListINS_6passes11PassContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
-  br label %40
+  br label %42
 
-38:                                               ; preds = %_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit
-  %39 = landingpad { ptr, i32 }
+40:                                               ; preds = %_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  br label %40
+  br label %42
 
-40:                                               ; preds = %38, %37
-  %.pn7 = phi { ptr, i32 } [ %39, %38 ], [ %.pn, %37 ]
+42:                                               ; preds = %40, %39
+  %.pn7 = phi { ptr, i32 } [ %41, %40 ], [ %.pn, %39 ]
   resume { ptr, i32 } %.pn7
 }
 
@@ -1280,14 +1283,14 @@ define linkonce_odr hidden void @_ZN3ade11PassManagerINS_6passes11PassContextEE8
   %12 = load ptr, ptr %11, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %13 unwind label %39
+          to label %13 unwind label %41
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !25
   %15 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
-          to label %16 unwind label %41
+          to label %16 unwind label %43
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %4, i64 48
@@ -1295,39 +1298,42 @@ define linkonce_odr hidden void @_ZN3ade11PassManagerINS_6passes11PassContextEE8
   %19 = getelementptr inbounds i8, ptr %15, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %20 = getelementptr inbounds i8, ptr %15, i64 48
-  %21 = load <2 x ptr>, ptr %14, align 8
-  store <2 x ptr> %21, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 64
-  %23 = load ptr, ptr %17, align 8
+  %21 = load ptr, ptr %14, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %15, i64 56
+  %23 = load ptr, ptr %18, align 8
   store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %15, i64 64
+  %25 = load ptr, ptr %17, align 8
+  store ptr %25, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %12) #21
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %24, align 8
-  %27 = load ptr, ptr %14, align 8
-  %28 = load ptr, ptr %18, align 8
-  %.not4.i.i.i.i.i.i = icmp eq ptr %27, %28
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %26, align 8
+  %29 = load ptr, ptr %14, align 8
+  %30 = load ptr, ptr %18, align 8
+  %.not4.i.i.i.i.i.i = icmp eq ptr %29, %30
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %16, %_ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %33, %_ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i ], [ %27, %16 ]
-  %29 = load ptr, ptr %.05.i.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %29, null
+  %.05.i.i.i.i.i.i = phi ptr [ %35, %_ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i ], [ %29, %16 ]
+  %31 = load ptr, ptr %.05.i.i.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3ade6detail15PassConceptBaseINS0_6passes11PassContextEEEEclEPS5_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3ade6detail15PassConceptBaseINS0_6passes11PassContextEEEEclEPS5_.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %29) #21
+  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8
+  call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31) #21
   br label %_ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3ade6detail15PassConceptBaseINS0_6passes11PassContextEEEEclEPS5_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i.i.i, align 8
-  %33 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %33, %28
+  %35 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %35, %30
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
 _ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EEEvPT_.exit.i.i.i.i.i.i
@@ -1335,53 +1341,53 @@ _ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassCon
   br label %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i.i.i, %16
-  %34 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %27, %16 ]
-  %.not.i.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i.i, label %_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit, label %35
+  %36 = phi ptr [ %.pr.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i.i.i ], [ %29, %16 ]
+  %.not.i.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i.i, label %_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit, label %37
 
-35:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %34) #22
+37:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %36) #22
   br label %_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit
 
-_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit: ; preds = %35, %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i
+_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit: ; preds = %37, %_ZSt8_DestroyIPSt10unique_ptrIN3ade6detail15PassConceptBaseINS1_6passes11PassContextEEESt14default_deleteIS6_EES9_EvT_SB_RSaIT0_E.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %36 = getelementptr inbounds i8, ptr %6, i64 32
-  %37 = ptrtoint ptr %.pre to i64
-  store i64 %37, ptr %36, align 8, !alias.scope !28
-  %38 = invoke { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St14_List_iteratorIS6_IS5_N3ade8PassListINS9_6passes11PassContextEEEEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJS6_IS5_SF_EEEES6_INSI_14_Node_iteratorISG_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(40) %6)
-          to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_List_iteratorISt4pairIS5_N3ade8PassListINS8_6passes11PassContextEEEEESt4hashIS5_ESt8equal_toIS5_ESaIS7_IKS5_SE_EEE6insertIS7_IS5_SE_EEENSt9enable_ifIXsr16is_constructibleISK_OT_EE5valueES7_INSt8__detail14_Node_iteratorISK_Lb0ELb1EEEbEE4typeESR_.exit unwind label %44
+  %38 = getelementptr inbounds i8, ptr %6, i64 32
+  %39 = ptrtoint ptr %.pre to i64
+  store i64 %39, ptr %38, align 8, !alias.scope !28
+  %40 = invoke { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St14_List_iteratorIS6_IS5_N3ade8PassListINS9_6passes11PassContextEEEEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJS6_IS5_SF_EEEES6_INSI_14_Node_iteratorISG_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(40) %6)
+          to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_List_iteratorISt4pairIS5_N3ade8PassListINS8_6passes11PassContextEEEEESt4hashIS5_ESt8equal_toIS5_ESaIS7_IKS5_SE_EEE6insertIS7_IS5_SE_EEENSt9enable_ifIXsr16is_constructibleISK_OT_EE5valueES7_INSt8__detail14_Node_iteratorISK_Lb0ELb1EEEbEE4typeESR_.exit unwind label %46
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_List_iteratorISt4pairIS5_N3ade8PassListINS8_6passes11PassContextEEEEESt4hashIS5_ESt8equal_toIS5_ESaIS7_IKS5_SE_EEE6insertIS7_IS5_SE_EEENSt9enable_ifIXsr16is_constructibleISK_OT_EE5valueES7_INSt8__detail14_Node_iteratorISK_Lb0ELb1EEEbEE4typeESR_.exit: ; preds = %_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   ret void
 
-39:                                               ; preds = %3
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  br label %43
-
-41:                                               ; preds = %13
+41:                                               ; preds = %3
   %42 = landingpad { ptr, i32 }
           cleanup
+  br label %45
+
+43:                                               ; preds = %13
+  %44 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3ade8PassListINS6_6passes11PassContextEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
-  br label %43
+  br label %45
 
-43:                                               ; preds = %41, %39
-  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %40, %39 ]
+45:                                               ; preds = %43, %41
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
   call void @_ZN3ade8PassListINS_6passes11PassContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
-  br label %46
+  br label %48
 
-44:                                               ; preds = %_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit
-  %45 = landingpad { ptr, i32 }
+46:                                               ; preds = %_ZN3ade8PassListINS_6passes11PassContextEED2Ev.exit
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
-  br label %46
+  br label %48
 
-46:                                               ; preds = %44, %43
-  %.pn9 = phi { ptr, i32 } [ %45, %44 ], [ %.pn, %43 ]
+48:                                               ; preds = %46, %45
+  %.pn9 = phi { ptr, i32 } [ %47, %46 ], [ %.pn, %45 ]
   resume { ptr, i32 } %.pn9
 }
 

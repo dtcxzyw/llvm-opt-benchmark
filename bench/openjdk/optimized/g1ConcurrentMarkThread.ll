@@ -780,78 +780,80 @@ define hidden void @_ZN22G1ConcurrentMarkThread24concurrent_mark_cycle_doEv(ptr 
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = load <2 x ptr>, ptr %11, align 8
-  %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread23phase_scan_root_regionsEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
-  br i1 %16, label %40, label %17
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread23phase_scan_root_regionsEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
+  br i1 %17, label %41, label %18
 
-17:                                               ; preds = %1
-  %18 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread15phase_mark_loopEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
-  br i1 %18, label %40, label %19
+18:                                               ; preds = %1
+  %19 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread15phase_mark_loopEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
+  br i1 %19, label %41, label %20
 
-19:                                               ; preds = %17
-  %20 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread23phase_rebuild_and_scrubEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
-  br i1 %20, label %40, label %21
+20:                                               ; preds = %18
+  %21 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread23phase_rebuild_and_scrubEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
+  br i1 %21, label %41, label %22
 
-21:                                               ; preds = %19
+22:                                               ; preds = %20
   call void @_ZN22G1ConcurrentMarkThread17delay_to_keep_mmuEb(ptr noundef nonnull align 8 dereferenceable(948) %0, i1 noundef zeroext false)
-  %22 = getelementptr inbounds i8, ptr %0, i64 936
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1494
-  %25 = load volatile i8, ptr %24, align 2
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %40, label %27
+  %23 = getelementptr inbounds i8, ptr %0, i64 936
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 1494
+  %26 = load volatile i8, ptr %25, align 2
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %41, label %28
 
-27:                                               ; preds = %21
+28:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @_ZN23ConcurrentGCBreakpoints2atEPKc(ptr noundef nonnull @.str.18) #11
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
-  %30 = call noundef i32 @_ZN4GCId7currentEv() #11
-  store i32 %30, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr @.str.31, ptr %31, align 8
+  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr null, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = call noundef i32 @_ZN4GCId7currentEv() #11
+  store i32 %31, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 24
+  store ptr @.str.31, ptr %32, align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV17VM_G1PauseCleanup, i64 16), ptr %2, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %2) #11
-  %32 = load ptr, ptr %22, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1494
-  %34 = load volatile i8, ptr %33, align 2
-  %35 = trunc i8 %34 to i1
+  %33 = load ptr, ptr %23, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 1494
+  %35 = load volatile i8, ptr %34, align 2
+  %36 = trunc i8 %35 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  br i1 %35, label %40, label %36
+  br i1 %36, label %41, label %37
 
-36:                                               ; preds = %27
-  %37 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread29phase_clear_cld_claimed_marksEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
-  br i1 %37, label %40, label %38
+37:                                               ; preds = %28
+  %38 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread29phase_clear_cld_claimed_marksEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
+  br i1 %38, label %41, label %39
 
-38:                                               ; preds = %36
-  %39 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread32phase_clear_bitmap_for_next_markEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
-  br label %40
+39:                                               ; preds = %37
+  %40 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread32phase_clear_bitmap_for_next_markEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
+  br label %41
 
-40:                                               ; preds = %36, %27, %21, %19, %17, %1, %38
-  %41 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i.i, label %43, label %42
+41:                                               ; preds = %37, %28, %22, %20, %18, %1, %39
+  %42 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i.i, label %44, label %43
 
-42:                                               ; preds = %40
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %15) #11
+43:                                               ; preds = %41
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #11
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #11
-  br label %43
+  br label %44
 
-43:                                               ; preds = %42, %40
-  %44 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %44, %13
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %45
+44:                                               ; preds = %43, %41
+  %45 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %45, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %46
 
-45:                                               ; preds = %43
+46:                                               ; preds = %44
   store ptr %10, ptr %9, align 8
-  store <2 x ptr> %12, ptr %11, align 8
+  store ptr %12, ptr %11, align 8
+  store ptr %14, ptr %13, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %43, %45
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %46
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #11
   ret void
 }
@@ -868,47 +870,49 @@ define hidden void @_ZN22G1ConcurrentMarkThread24concurrent_undo_cycle_doEv(ptr 
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load <2 x ptr>, ptr %10, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 936
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1494
-  %18 = load volatile i8, ptr %17, align 2
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %24, label %20
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 936
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 1494
+  %19 = load volatile i8, ptr %18, align 2
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %25, label %21
 
-20:                                               ; preds = %1
-  call void @_ZN16G1ConcurrentMark21flush_all_task_cachesEv(ptr noundef nonnull align 8 dereferenceable(1849) %16) #11
-  %21 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread29phase_clear_cld_claimed_marksEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
-  br i1 %21, label %24, label %22
+21:                                               ; preds = %1
+  call void @_ZN16G1ConcurrentMark21flush_all_task_cachesEv(ptr noundef nonnull align 8 dereferenceable(1849) %17) #11
+  %22 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread29phase_clear_cld_claimed_marksEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
+  br i1 %22, label %25, label %23
 
-22:                                               ; preds = %20
-  %23 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread32phase_clear_bitmap_for_next_markEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
-  br label %24
+23:                                               ; preds = %21
+  %24 = call noundef zeroext i1 @_ZN22G1ConcurrentMarkThread32phase_clear_bitmap_for_next_markEv(ptr noundef nonnull align 8 dereferenceable(948) %0)
+  br label %25
 
-24:                                               ; preds = %20, %1, %22
-  %25 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.i, label %27, label %26
+25:                                               ; preds = %21, %1, %23
+  %26 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i, label %28, label %27
 
-26:                                               ; preds = %24
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %14) #11
+27:                                               ; preds = %25
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #11
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #11
-  br label %27
+  br label %28
 
-27:                                               ; preds = %26, %24
-  %28 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %28, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %29
+28:                                               ; preds = %27, %25
+  %29 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %29, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %30
 
-29:                                               ; preds = %27
+30:                                               ; preds = %28
   store ptr %9, ptr %8, align 8
-  store <2 x ptr> %11, ptr %10, align 8
+  store ptr %11, ptr %10, align 8
+  store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %27, %29
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %28, %30
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #11
   ret void
 }

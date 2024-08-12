@@ -201,7 +201,7 @@ define dso_local noundef zeroext i1 @pgstat_slru_flush(i1 noundef zeroext %0) lo
   %3 = getelementptr inbounds i8, ptr %2, i64 17232
   %4 = load i8, ptr @have_slrustats, align 1
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %34
+  br i1 %5, label %6, label %49
 
 6:                                                ; preds = %1
   br i1 %0, label %9, label %7
@@ -212,7 +212,7 @@ define dso_local noundef zeroext i1 @pgstat_slru_flush(i1 noundef zeroext %0) lo
 
 9:                                                ; preds = %6
   %10 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %3, i32 noundef 0) #8
-  br i1 %10, label %11, label %34
+  br i1 %10, label %11, label %49
 
 11:                                               ; preds = %9, %7
   %12 = getelementptr inbounds i8, ptr %2, i64 17248
@@ -222,28 +222,46 @@ define dso_local noundef zeroext i1 @pgstat_slru_flush(i1 noundef zeroext %0) lo
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr [8 x %struct.PgStat_SLRUStats], ptr %12, i64 0, i64 %indvars.iv
   %15 = getelementptr [8 x %struct.PgStat_SLRUStats], ptr @pending_SLRUStats, i64 0, i64 %indvars.iv
-  %16 = load <2 x i64>, ptr %15, align 16
-  %17 = load <2 x i64>, ptr %14, align 8
-  %18 = add <2 x i64> %17, %16
-  store <2 x i64> %18, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
-  %21 = load <2 x i64>, ptr %19, align 16
-  %22 = load <2 x i64>, ptr %20, align 8
-  %23 = add <2 x i64> %22, %21
-  store <2 x i64> %23, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 32
-  %25 = getelementptr inbounds i8, ptr %14, i64 32
-  %26 = load <2 x i64>, ptr %24, align 16
-  %27 = load <2 x i64>, ptr %25, align 8
-  %28 = add <2 x i64> %27, %26
-  store <2 x i64> %28, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %15, i64 48
-  %30 = load i64, ptr %29, align 16
-  %31 = getelementptr inbounds i8, ptr %14, i64 48
+  %16 = load i64, ptr %15, align 16
+  %17 = load i64, ptr %14, align 8
+  %18 = add i64 %17, %16
+  store i64 %18, ptr %14, align 8
+  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = add i64 %22, %20
+  store i64 %23, ptr %21, align 8
+  %24 = getelementptr inbounds i8, ptr %15, i64 16
+  %25 = load i64, ptr %24, align 16
+  %26 = getelementptr inbounds i8, ptr %14, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %27, %25
+  store i64 %28, ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %15, i64 24
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %14, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %30
   store i64 %33, ptr %31, align 8
+  %34 = getelementptr inbounds i8, ptr %15, i64 32
+  %35 = load i64, ptr %34, align 16
+  %36 = getelementptr inbounds i8, ptr %14, i64 32
+  %37 = load i64, ptr %36, align 8
+  %38 = add i64 %37, %35
+  store i64 %38, ptr %36, align 8
+  %39 = getelementptr inbounds i8, ptr %15, i64 40
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %14, i64 40
+  %42 = load i64, ptr %41, align 8
+  %43 = add i64 %42, %40
+  store i64 %43, ptr %41, align 8
+  %44 = getelementptr inbounds i8, ptr %15, i64 48
+  %45 = load i64, ptr %44, align 16
+  %46 = getelementptr inbounds i8, ptr %14, i64 48
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %47, %45
+  store i64 %48, ptr %46, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.preheader.preheader, label %13, !llvm.loop !7
@@ -252,9 +270,9 @@ define dso_local noundef zeroext i1 @pgstat_slru_flush(i1 noundef zeroext %0) lo
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) @pending_SLRUStats, i8 0, i64 512, i1 false)
   tail call void @LWLockRelease(ptr noundef nonnull %3) #8
   store i8 0, ptr @have_slrustats, align 1
-  br label %34
+  br label %49
 
-34:                                               ; preds = %9, %1, %.preheader.preheader
+49:                                               ; preds = %9, %1, %.preheader.preheader
   %.0 = phi i1 [ false, %.preheader.preheader ], [ false, %1 ], [ true, %9 ]
   ret i1 %.0
 }

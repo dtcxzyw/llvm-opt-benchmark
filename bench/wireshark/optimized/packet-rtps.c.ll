@@ -5948,18 +5948,22 @@ define internal range(i32 0, 2) i32 @compare_by_coherent_set_key(ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @hash_by_participant_guid(ptr nocapture noundef readonly %0) #0 {
-  %2 = alloca [3 x i32], align 8
+  %2 = alloca [3 x i32], align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
-  %4 = load <2 x i32>, ptr %3, align 4
-  store <2 x i32> %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = load i32, ptr %3, align 4
+  store i32 %4, ptr %2, align 4
+  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
-  store i32 %7, ptr %5, align 8
-  %8 = call ptr @g_bytes_new(ptr noundef nonnull %2, i64 noundef 12) #13
-  %9 = call i32 @g_bytes_hash(ptr noundef %8) #13
-  call void @g_bytes_unref(ptr noundef %8) #13
-  ret i32 %9
+  store i32 %7, ptr %5, align 4
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = load i32, ptr %9, align 4
+  store i32 %10, ptr %8, align 4
+  %11 = call ptr @g_bytes_new(ptr noundef nonnull %2, i64 noundef 12) #13
+  %12 = call i32 @g_bytes_hash(ptr noundef %11) #13
+  call void @g_bytes_unref(ptr noundef %11) #13
+  ret i32 %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

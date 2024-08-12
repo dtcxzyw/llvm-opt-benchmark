@@ -334,15 +334,17 @@ invoke.cont:                                      ; preds = %_ZN4absl12lts_20230
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %3, align 8
   %event_engine_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %event_engine_2.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %4 = load ptr, ptr %event_engine_2.i.i.i.i.i, align 8
+  store ptr %4, ptr %event_engine_.i.i.i.i.i, align 8
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8
-  %5 = load <2 x ptr>, ptr %event_engine_2.i.i.i.i.i, align 8
-  store <2 x ptr> %5, ptr %event_engine_.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont3, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -361,37 +363,40 @@ invoke.cont3:                                     ; preds = %if.else.i.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16LameClientFilterE, i64 16), ptr %3, align 8
   %error_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %error_2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %state_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %9 = load <2 x i64>, ptr %error_2.i.i.i.i, align 8
+  %9 = load i64, ptr %error_2.i.i.i.i, align 8
+  store i64 %9, ptr %error_.i.i.i.i, align 8
   store i64 54, ptr %error_2.i.i.i.i, align 8
-  store <2 x i64> %9, ptr %error_.i.i.i.i, align 8
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %state_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %10 = load i64, ptr %state_3.i.i.i.i, align 8
+  store i64 %10, ptr %state_.i.i.i.i, align 8
   store ptr null, ptr %state_3.i.i.i.i, align 8
   store i64 0, ptr %agg.result, align 8
   call void @_ZN9grpc_core16LameClientFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #22
-  %10 = load i64, ptr %agg.tmp, align 8
-  %and.i.i.i2 = and i64 %10, 1
+  %11 = load i64, ptr %agg.tmp, align 8
+  %and.i.i.i2 = and i64 %11, 1
   %cmp.i.i.i3 = icmp eq i64 %and.i.i.i2, 0
   br i1 %cmp.i.i.i3, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %invoke.cont3
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %10)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %11)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i4
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #23
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #23
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont3, %if.then.i.i4
   ret void
 
 lpad:                                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #22
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %14
 }
 
 declare i32 @__gxx_personality_v0(...)

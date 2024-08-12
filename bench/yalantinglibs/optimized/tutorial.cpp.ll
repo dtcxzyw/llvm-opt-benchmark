@@ -1680,12 +1680,16 @@ _ZNSt16allocator_traitsISaIN8tutorial6PersonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT
   store i8 0, ptr %9, align 1
   %phones.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 72
   %phones5.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 72
-  %13 = load <2 x ptr>, ptr %phones5.i.i.i, align 8
-  store <2 x ptr> %13, ptr %phones.i.i.i, align 8
+  %13 = load ptr, ptr %phones5.i.i.i, align 8
+  store ptr %13, ptr %phones.i.i.i, align 8
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 80
+  %_M_finish3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 80
+  %14 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i, align 8
+  store ptr %14, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__dest, i64 88
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__orig, i64 88
-  %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
-  store ptr %14, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+  %15 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %phones5.i.i.i, i8 0, i64 24, i1 false)
   tail call void @_ZN8tutorial6PersonD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %__orig) #18
   ret void

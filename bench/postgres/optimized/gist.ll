@@ -50,63 +50,75 @@ define dso_local noundef i64 @gisthandler(ptr nocapture noundef readnone %0) loc
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   store i16 10, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 10
-  store <4 x i8> <i8 0, i8 1, i8 0, i8 0>, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %2, i64 14
-  store i8 1, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %2, i64 15
-  store i8 1, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
-  store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 17
-  %11 = getelementptr inbounds i8, ptr %2, i64 21
-  store i32 16843009, ptr %10, align 1
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %2, i64 25
-  store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %2, i64 26
-  store i8 3, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %2, i64 28
-  store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr @gistbuild, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr @gistbuildempty, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr @gistinsert, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 56
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 64
-  store ptr @gistbulkdelete, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 72
-  store ptr @gistvacuumcleanup, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 80
-  store ptr @gistcanreturn, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 88
-  store ptr @gistcostestimate, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 96
-  store ptr @gistoptions, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 104
-  store ptr @gistproperty, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 112
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 120
-  store ptr @gistvalidate, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 128
-  store ptr @gistadjustmembers, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 136
-  store ptr @gistbeginscan, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 144
-  store ptr @gistrescan, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 152
-  store ptr @gistgettuple, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 160
-  store ptr @gistgetbitmap, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 168
-  store ptr @gistendscan, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 176
-  %34 = ptrtoint ptr %2 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, i8 0, i64 40, i1 false)
-  ret i64 %34
+  store i8 0, ptr %6, align 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 11
+  store i8 1, ptr %7, align 1
+  %8 = getelementptr inbounds i8, ptr %2, i64 12
+  store i8 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %2, i64 13
+  store i8 0, ptr %9, align 1
+  %10 = getelementptr inbounds i8, ptr %2, i64 14
+  store i8 1, ptr %10, align 2
+  %11 = getelementptr inbounds i8, ptr %2, i64 15
+  store i8 1, ptr %11, align 1
+  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  store i8 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 17
+  %14 = getelementptr inbounds i8, ptr %2, i64 21
+  store i32 16843009, ptr %13, align 1
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 22
+  store i8 0, ptr %15, align 2
+  %16 = getelementptr inbounds i8, ptr %2, i64 23
+  store i8 1, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  store i8 0, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 25
+  store i8 0, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %2, i64 26
+  store i8 3, ptr %19, align 2
+  %20 = getelementptr inbounds i8, ptr %2, i64 28
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr @gistbuild, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr @gistbuildempty, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr @gistinsert, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %2, i64 56
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 64
+  store ptr @gistbulkdelete, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr @gistvacuumcleanup, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 80
+  store ptr @gistcanreturn, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %2, i64 88
+  store ptr @gistcostestimate, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %2, i64 96
+  store ptr @gistoptions, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %2, i64 104
+  store ptr @gistproperty, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 112
+  store ptr null, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 120
+  store ptr @gistvalidate, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 128
+  store ptr @gistadjustmembers, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 136
+  store ptr @gistbeginscan, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 144
+  store ptr @gistrescan, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %2, i64 152
+  store ptr @gistgettuple, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %2, i64 160
+  store ptr @gistgetbitmap, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %2, i64 168
+  store ptr @gistendscan, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %2, i64 176
+  %40 = ptrtoint ptr %2 to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %39, i8 0, i64 40, i1 false)
+  ret i64 %40
 }
 
 declare ptr @gistbuild(ptr noundef, ptr noundef, ptr noundef) #1

@@ -2652,15 +2652,42 @@ define hidden noundef i32 @zm_startup_pack(i32 noundef %0, i32 noundef %1) local
   store i32 0, ptr getelementptr inbounds (i8, ptr @big_endian_short_map, i64 4), align 4
   store i32 0, ptr @little_endian_short_map, align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @little_endian_short_map, i64 4), align 4
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr @machine_endian_long_map, align 16
-  store <4 x i32> <i32 3, i32 2, i32 1, i32 0>, ptr @big_endian_long_map, align 16
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr @little_endian_long_map, align 16
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr @machine_endian_longlong_map, align 16
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 16), align 16
-  store <4 x i32> <i32 7, i32 6, i32 5, i32 4>, ptr @big_endian_longlong_map, align 16
-  store <4 x i32> <i32 3, i32 2, i32 1, i32 0>, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 16), align 16
-  store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr @little_endian_longlong_map, align 16
-  store <4 x i32> <i32 4, i32 5, i32 6, i32 7>, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 16), align 16
+  store i32 0, ptr @machine_endian_long_map, align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @machine_endian_long_map, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @machine_endian_long_map, i64 8), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @machine_endian_long_map, i64 12), align 4
+  store i32 3, ptr @big_endian_long_map, align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @big_endian_long_map, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @big_endian_long_map, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @big_endian_long_map, i64 12), align 4
+  store i32 0, ptr @little_endian_long_map, align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @little_endian_long_map, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @little_endian_long_map, i64 8), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @little_endian_long_map, i64 12), align 4
+  store i32 0, ptr @machine_endian_longlong_map, align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 8), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 12), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 16), align 16
+  store i32 5, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 20), align 4
+  store i32 6, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 24), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @machine_endian_longlong_map, i64 28), align 4
+  store i32 7, ptr @big_endian_longlong_map, align 16
+  store i32 6, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 4), align 4
+  store i32 5, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 8), align 8
+  store i32 4, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 12), align 4
+  store i32 3, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 16), align 16
+  store i32 2, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 20), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @big_endian_longlong_map, i64 28), align 4
+  store i32 0, ptr @little_endian_longlong_map, align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 8), align 8
+  store i32 3, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 12), align 4
+  store i32 4, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 16), align 16
+  store i32 5, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 20), align 4
+  store i32 6, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 24), align 8
+  store i32 7, ptr getelementptr inbounds (i8, ptr @little_endian_longlong_map, i64 28), align 4
   ret i32 0
 }
 

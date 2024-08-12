@@ -291,9 +291,11 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %.unpack.i.i.i.i.i = load i64, ptr %__first.addr.010.i.i.i, align 8
   %.elt5.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 8
   %.unpack6.i.i.i.i.i = load i64, ptr %.elt5.i.i.i.i.i, align 8
+  %.unpack7.i.i.i.i.i = load i64, ptr %__last.addr.012.i.i.i, align 8
   %.elt8.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.pn11.i.i.i, i64 -8
-  %24 = load <2 x i64>, ptr %__last.addr.012.i.i.i, align 8
-  store <2 x i64> %24, ptr %__first.addr.010.i.i.i, align 8
+  %.unpack9.i.i.i.i.i = load i64, ptr %.elt8.i.i.i.i.i, align 8
+  store i64 %.unpack7.i.i.i.i.i, ptr %__first.addr.010.i.i.i, align 8
+  store i64 %.unpack9.i.i.i.i.i, ptr %.elt5.i.i.i.i.i, align 8
   store i64 %.unpack.i.i.i.i.i, ptr %__last.addr.012.i.i.i, align 8
   store i64 %.unpack6.i.i.i.i.i, ptr %.elt8.i.i.i.i.i, align 8
   %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 16
@@ -307,16 +309,16 @@ for.body.i33:                                     ; preds = %while.body.i.i.i, %
   %.fca.0.load.i36 = load i64, ptr %__begin0.0.ptr.i35, align 16
   %.fca.1.gep.i37 = getelementptr inbounds i8, ptr %__begin0.0.ptr.i35, i64 8
   %.fca.1.load.i38 = load i64, ptr %.fca.1.gep.i37, align 8
-  %25 = getelementptr inbounds i8, ptr %conv4, i64 %.fca.1.load.i38
-  %26 = and i64 %.fca.0.load.i36, 1
-  %memptr.isvirtual.not.i39 = icmp eq i64 %26, 0
+  %24 = getelementptr inbounds i8, ptr %conv4, i64 %.fca.1.load.i38
+  %25 = and i64 %.fca.0.load.i36, 1
+  %memptr.isvirtual.not.i39 = icmp eq i64 %25, 0
   br i1 %memptr.isvirtual.not.i39, label %memptr.nonvirtual.i49, label %memptr.virtual.i40
 
 memptr.virtual.i40:                               ; preds = %for.body.i33
-  %vtable.i41 = load ptr, ptr %25, align 8
-  %27 = getelementptr i8, ptr %vtable.i41, i64 %.fca.0.load.i36
-  %28 = getelementptr i8, ptr %27, i64 -1
-  %memptr.virtualfn.i42 = load ptr, ptr %28, align 8, !nosanitize !7
+  %vtable.i41 = load ptr, ptr %24, align 8
+  %26 = getelementptr i8, ptr %vtable.i41, i64 %.fca.0.load.i36
+  %27 = getelementptr i8, ptr %26, i64 -1
+  %memptr.virtualfn.i42 = load ptr, ptr %27, align 8, !nosanitize !7
   br label %memptr.end.i43
 
 memptr.nonvirtual.i49:                            ; preds = %for.body.i33
@@ -324,8 +326,8 @@ memptr.nonvirtual.i49:                            ; preds = %for.body.i33
   br label %memptr.end.i43
 
 memptr.end.i43:                                   ; preds = %memptr.nonvirtual.i49, %memptr.virtual.i40
-  %29 = phi ptr [ %memptr.virtualfn.i42, %memptr.virtual.i40 ], [ %memptr.nonvirtualfn.i50, %memptr.nonvirtual.i49 ]
-  call void %29(ptr noundef nonnull align 8 dereferenceable(288) %25) #14
+  %28 = phi ptr [ %memptr.virtualfn.i42, %memptr.virtual.i40 ], [ %memptr.nonvirtualfn.i50, %memptr.nonvirtual.i49 ]
+  call void %28(ptr noundef nonnull align 8 dereferenceable(288) %24) #14
   %__begin0.0.add.i44 = add nuw nsw i64 %__begin0.0.idx8.i34, 16
   %cmp.not.i45 = icmp eq i64 %__begin0.0.add.i44, 96
   br i1 %cmp.not.i45, label %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7performEv.exit, label %for.body.i33
@@ -335,12 +337,12 @@ _ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7perform
   %agg.tmp.sroa.2.0.copyload.i48 = load i64, ptr %bytes.sroa.3.0.this.sroa_idx.i10, align 8
   call void @_ZN6hermes3hbc20BCProviderFromBuffer18updateBytecodeHashEN4llvh15MutableArrayRefIhEE(ptr %agg.tmp.sroa.0.0.copyload.i46, i64 %agg.tmp.sroa.2.0.copyload.i48) #14
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %steps.i32)
-  %30 = load ptr, ptr %bcProvider_.i12, align 8
-  %cmp.not.i.i52 = icmp eq ptr %30, null
+  %29 = load ptr, ptr %bcProvider_.i12, align 8
+  %cmp.not.i.i52 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i52, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7performEv.exit, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE7performEv.exit
-  %.sink54 = phi ptr [ %14, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE7performEv.exit ], [ %30, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7performEv.exit ]
+  %.sink54 = phi ptr [ %14, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE7performEv.exit ], [ %29, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE7performEv.exit ]
   call void @_ZN6hermes3hbc20BCProviderFromBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %.sink54) #14
   call void @_ZdlPv(ptr noundef nonnull %.sink54) #17
   br label %return

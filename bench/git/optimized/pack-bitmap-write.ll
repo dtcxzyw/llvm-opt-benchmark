@@ -830,9 +830,12 @@ if.then81.i.i:                                    ; preds = %if.end71.i.i
   %and92.i.i = and i32 %102, %not.i.i
   store i32 %and92.i.i, ptr %arrayidx91.i.i, align 4
   %size94.i.i = getelementptr inbounds i8, ptr %41, i64 4
-  %103 = load <2 x i32>, ptr %size94.i.i, align 4
-  %104 = add <2 x i32> %103, <i32 1, i32 1>
-  store <2 x i32> %104, ptr %size94.i.i, align 4
+  %103 = load i32, ptr %size94.i.i, align 4
+  %inc95.i.i = add i32 %103, 1
+  store i32 %inc95.i.i, ptr %size94.i.i, align 4
+  %104 = load i32, ptr %n_occupied.i.i, align 8
+  %inc97.i.i = add i32 %104, 1
+  store i32 %inc97.i.i, ptr %n_occupied.i.i, align 8
   br label %store_selected.exit
 
 if.else98.i.i:                                    ; preds = %if.end71.i.i

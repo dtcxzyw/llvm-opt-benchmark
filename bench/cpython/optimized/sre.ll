@@ -9054,7 +9054,7 @@ do.body2314:                                      ; preds = %if.end2288, %do.bod
   %lastindex2317 = getelementptr inbounds i8, ptr %add.ptr3443, i64 20
   %389 = load i32, ptr %lastindex2317, align 4
   store i32 %389, ptr %lastindex3402, align 8
-  store ptr %558, ptr %state, align 8
+  store ptr %559, ptr %state, align 8
   %390 = load i64, ptr %add.ptr3443, align 8
   %391 = load ptr, ptr %u2255, align 8
   %pattern2323 = getelementptr inbounds i8, ptr %391, i64 8
@@ -9070,7 +9070,7 @@ do.body2314:                                      ; preds = %if.end2288, %do.bod
 lor.lhs.false2334:                                ; preds = %do.body2314
   %last_ptr2337 = getelementptr inbounds i8, ptr %391, i64 16
   %394 = load ptr, ptr %last_ptr2337, align 8
-  %cmp2338 = icmp eq ptr %558, %394
+  %cmp2338 = icmp eq ptr %559, %394
   br i1 %cmp2338, label %exit, label %if.end2343
 
 if.end2343:                                       ; preds = %lor.lhs.false2334
@@ -9118,7 +9118,9 @@ if.end2370:                                       ; preds = %if.end2343.if.end23
   %last_ptr2382 = getelementptr inbounds i8, ptr %404, i64 16
   store ptr %403, ptr %last_ptr2382, align 8
   %pattern2383 = getelementptr inbounds i8, ptr %ctx.31, i64 24
-  store <2 x ptr> %559, ptr %pattern2383, align 8
+  store ptr %558, ptr %pattern2383, align 8
+  %ptr2384 = getelementptr inbounds i8, ptr %ctx.31, i64 32
+  store ptr %559, ptr %ptr2384, align 8
   %405 = load i64, ptr %data_stack_base, align 8
   %406 = load i64, ptr %data_stack_size, align 8
   %sub2388 = sub i64 %406, %405
@@ -10291,9 +10293,9 @@ sw.bb3445:                                        ; preds = %do.body3441
 
 sw.bb3446:                                        ; preds = %do.body3441
   %pattern2252 = getelementptr inbounds i8, ptr %add.ptr3443, i64 24
+  %558 = load ptr, ptr %pattern2252, align 8
   %ptr2253 = getelementptr inbounds i8, ptr %add.ptr3443, i64 32
-  %558 = load ptr, ptr %ptr2253, align 8
-  %559 = load <2 x ptr>, ptr %pattern2252, align 8
+  %559 = load ptr, ptr %ptr2253, align 8
   %560 = load ptr, ptr %repeat3372, align 8
   %u2255 = getelementptr inbounds i8, ptr %add.ptr3443, i64 8
   %561 = load ptr, ptr %u2255, align 8
@@ -13470,7 +13472,7 @@ do.body2316:                                      ; preds = %if.end2290, %do.bod
   %lastindex2319 = getelementptr inbounds i8, ptr %add.ptr3447, i64 20
   %389 = load i32, ptr %lastindex2319, align 4
   store i32 %389, ptr %lastindex, align 8
-  store ptr %546, ptr %state, align 8
+  store ptr %547, ptr %state, align 8
   %390 = load i64, ptr %add.ptr3447, align 8
   %391 = load ptr, ptr %u2257, align 8
   %pattern2325 = getelementptr inbounds i8, ptr %391, i64 8
@@ -13486,7 +13488,7 @@ do.body2316:                                      ; preds = %if.end2290, %do.bod
 lor.lhs.false2336:                                ; preds = %do.body2316
   %last_ptr2339 = getelementptr inbounds i8, ptr %391, i64 16
   %394 = load ptr, ptr %last_ptr2339, align 8
-  %cmp2340 = icmp eq ptr %546, %394
+  %cmp2340 = icmp eq ptr %547, %394
   br i1 %cmp2340, label %exit, label %if.end2345
 
 if.end2345:                                       ; preds = %lor.lhs.false2336
@@ -13534,7 +13536,9 @@ if.end2372:                                       ; preds = %if.end2345.if.end23
   %last_ptr2384 = getelementptr inbounds i8, ptr %404, i64 16
   store ptr %403, ptr %last_ptr2384, align 8
   %pattern2385 = getelementptr inbounds i8, ptr %ctx.31, i64 24
-  store <2 x ptr> %547, ptr %pattern2385, align 8
+  store ptr %546, ptr %pattern2385, align 8
+  %ptr2386 = getelementptr inbounds i8, ptr %ctx.31, i64 32
+  store ptr %547, ptr %ptr2386, align 8
   %405 = load i64, ptr %data_stack_base, align 8
   %406 = load i64, ptr %data_stack_size, align 8
   %sub2390 = sub i64 %406, %405
@@ -14634,9 +14638,9 @@ sw.bb3449:                                        ; preds = %do.body3445
 
 sw.bb3450:                                        ; preds = %do.body3445
   %pattern2254 = getelementptr inbounds i8, ptr %add.ptr3447, i64 24
+  %546 = load ptr, ptr %pattern2254, align 8
   %ptr2255 = getelementptr inbounds i8, ptr %add.ptr3447, i64 32
-  %546 = load ptr, ptr %ptr2255, align 8
-  %547 = load <2 x ptr>, ptr %pattern2254, align 8
+  %547 = load ptr, ptr %ptr2255, align 8
   %548 = load ptr, ptr %repeat1329, align 8
   %u2257 = getelementptr inbounds i8, ptr %add.ptr3447, i64 8
   %549 = load ptr, ptr %u2257, align 8
@@ -17797,7 +17801,7 @@ do.body2299:                                      ; preds = %if.end2273, %do.bod
   %lastindex2302 = getelementptr inbounds i8, ptr %add.ptr3422, i64 20
   %393 = load i32, ptr %lastindex2302, align 4
   store i32 %393, ptr %lastindex, align 8
-  store ptr %550, ptr %state, align 8
+  store ptr %551, ptr %state, align 8
   %394 = load i64, ptr %add.ptr3422, align 8
   %395 = load ptr, ptr %u2240, align 8
   %pattern2308 = getelementptr inbounds i8, ptr %395, i64 8
@@ -17813,7 +17817,7 @@ do.body2299:                                      ; preds = %if.end2273, %do.bod
 lor.lhs.false2319:                                ; preds = %do.body2299
   %last_ptr2322 = getelementptr inbounds i8, ptr %395, i64 16
   %398 = load ptr, ptr %last_ptr2322, align 8
-  %cmp2323 = icmp eq ptr %550, %398
+  %cmp2323 = icmp eq ptr %551, %398
   br i1 %cmp2323, label %exit, label %if.end2328
 
 if.end2328:                                       ; preds = %lor.lhs.false2319
@@ -17861,7 +17865,9 @@ if.end2355:                                       ; preds = %if.end2328.if.end23
   %last_ptr2367 = getelementptr inbounds i8, ptr %408, i64 16
   store ptr %407, ptr %last_ptr2367, align 8
   %pattern2368 = getelementptr inbounds i8, ptr %ctx.31, i64 24
-  store <2 x ptr> %551, ptr %pattern2368, align 8
+  store ptr %550, ptr %pattern2368, align 8
+  %ptr2369 = getelementptr inbounds i8, ptr %ctx.31, i64 32
+  store ptr %551, ptr %ptr2369, align 8
   %409 = load i64, ptr %data_stack_base, align 8
   %410 = load i64, ptr %data_stack_size, align 8
   %sub2373 = sub i64 %410, %409
@@ -18955,9 +18961,9 @@ sw.bb3424:                                        ; preds = %do.body3420
 
 sw.bb3425:                                        ; preds = %do.body3420
   %pattern2237 = getelementptr inbounds i8, ptr %add.ptr3422, i64 24
+  %550 = load ptr, ptr %pattern2237, align 8
   %ptr2238 = getelementptr inbounds i8, ptr %add.ptr3422, i64 32
-  %550 = load ptr, ptr %ptr2238, align 8
-  %551 = load <2 x ptr>, ptr %pattern2237, align 8
+  %551 = load ptr, ptr %ptr2238, align 8
   %552 = load ptr, ptr %repeat1312, align 8
   %u2240 = getelementptr inbounds i8, ptr %add.ptr3422, i64 8
   %553 = load ptr, ptr %u2240, align 8

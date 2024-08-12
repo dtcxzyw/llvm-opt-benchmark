@@ -2298,22 +2298,26 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %4 = load <2 x double>, ptr %sp, align 8
+  %4 = load double, ptr %sp, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %sp, i64 8
+  %5 = load double, ptr %arrayidx, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %5 = load <2 x float>, ptr %sp, align 4
-  %6 = fpext <2 x float> %5 to <2 x double>
+  %6 = load float, ptr %sp, align 4
+  %conv2 = fpext float %6 to double
+  %arrayidx3 = getelementptr inbounds i8, ptr %sp, i64 4
+  %7 = load float, ptr %arrayidx3, align 4
+  %conv4 = fpext float %7 to double
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %7 = phi <2 x double> [ %4, %if.then ], [ %6, %if.else ]
-  %8 = extractelement <2 x double> %7, i64 0
-  %call5 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %8) #14
-  %9 = extractelement <2 x double> %7, i64 1
-  %10 = bitcast double %9 to i64
-  %tobool.not = icmp sgt i64 %10, -1
-  %cmp6 = fcmp uno double %9, 0.000000e+00
+  %re.sroa.0.0 = phi double [ %4, %if.then ], [ %conv2, %if.else ]
+  %im.sroa.0.0 = phi double [ %5, %if.then ], [ %conv4, %if.else ]
+  %call5 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %re.sroa.0.0) #14
+  %8 = bitcast double %im.sroa.0.0 to i64
+  %tobool.not = icmp sgt i64 %8, -1
+  %cmp6 = fcmp uno double %im.sroa.0.0, 0.000000e+00
   %or.cond = or i1 %cmp6, %tobool.not
   br i1 %or.cond, label %if.then8, label %if.end10
 
@@ -2322,20 +2326,20 @@ if.then8:                                         ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %if.then8
-  %call11 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %9) #14
-  %11 = load ptr, ptr %tmpbuf.i, align 8
-  %arrayidx12 = getelementptr inbounds i8, ptr %11, i64 -1
-  %12 = load i8, ptr %arrayidx12, align 1
-  %cmp14 = icmp sgt i8 %12, 96
+  %call11 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %im.sroa.0.0) #14
+  %9 = load ptr, ptr %tmpbuf.i, align 8
+  %arrayidx12 = getelementptr inbounds i8, ptr %9, i64 -1
+  %10 = load i8, ptr %arrayidx12, align 1
+  %cmp14 = icmp sgt i8 %10, 96
   %cond = select i1 %cmp14, i32 73, i32 105
   %call16 = tail call ptr @lj_buf_putchar(ptr noundef nonnull %tmpbuf.i, i32 noundef %cond) #14
-  %13 = load ptr, ptr %b.i20, align 8
-  %14 = load ptr, ptr %tmpbuf.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %13 to i64
+  %11 = load ptr, ptr %b.i20, align 8
+  %12 = load ptr, ptr %tmpbuf.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %call.i = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %13, i64 noundef %conv2.i) #14
+  %call.i = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %11, i64 noundef %conv2.i) #14
   ret ptr %call.i
 }
 

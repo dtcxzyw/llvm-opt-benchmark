@@ -162,26 +162,42 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes3hbc21UniquingFilenameTable9toStorageES1_(ptr noalias nonnull sret(%"class.hermes::hbc::ConsecutiveStringStorage") align 8 %agg.result, ptr nocapture noundef readonly %table) local_unnamed_addr #0 align 2 {
 entry:
-  %agg.tmp = alloca %"struct.std::_Deque_iterator", align 16
-  %agg.tmp1 = alloca %"struct.std::_Deque_iterator", align 16
+  %agg.tmp = alloca %"struct.std::_Deque_iterator", align 8
+  %agg.tmp1 = alloca %"struct.std::_Deque_iterator", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %_M_start.i.i = getelementptr inbounds i8, ptr %table, i64 16
-  %0 = load <2 x ptr>, ptr %_M_start.i.i, align 8, !noalias !18
-  store <2 x ptr> %0, ptr %agg.tmp, align 16, !alias.scope !18
+  %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !18
+  store ptr %0, ptr %agg.tmp, align 8, !alias.scope !18
+  %_M_first.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %table, i64 24
+  %1 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !18
+  store ptr %1, ptr %_M_first.i.i.i, align 8, !alias.scope !18
   %_M_last.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %table, i64 32
-  %1 = load <2 x ptr>, ptr %_M_last4.i.i.i, align 8, !noalias !18
-  store <2 x ptr> %1, ptr %_M_last.i.i.i, align 16, !alias.scope !18
+  %2 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !18
+  store ptr %2, ptr %_M_last.i.i.i, align 8, !alias.scope !18
+  %_M_node.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %table, i64 40
+  %3 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !18
+  store ptr %3, ptr %_M_node.i.i.i, align 8, !alias.scope !18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %_M_finish.i.i = getelementptr inbounds i8, ptr %table, i64 48
-  %2 = load <2 x ptr>, ptr %_M_finish.i.i, align 8, !noalias !25
-  store <2 x ptr> %2, ptr %agg.tmp1, align 16, !alias.scope !25
+  %4 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !25
+  store ptr %4, ptr %agg.tmp1, align 8, !alias.scope !25
+  %_M_first.i.i.i2 = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
+  %_M_first3.i.i.i3 = getelementptr inbounds i8, ptr %table, i64 56
+  %5 = load ptr, ptr %_M_first3.i.i.i3, align 8, !noalias !25
+  store ptr %5, ptr %_M_first.i.i.i2, align 8, !alias.scope !25
   %_M_last.i.i.i4 = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
   %_M_last4.i.i.i5 = getelementptr inbounds i8, ptr %table, i64 64
-  %3 = load <2 x ptr>, ptr %_M_last4.i.i.i5, align 8, !noalias !25
-  store <2 x ptr> %3, ptr %_M_last.i.i.i4, align 16, !alias.scope !25
+  %6 = load ptr, ptr %_M_last4.i.i.i5, align 8, !noalias !25
+  store ptr %6, ptr %_M_last.i.i.i4, align 8, !alias.scope !25
+  %_M_node.i.i.i6 = getelementptr inbounds i8, ptr %agg.tmp1, i64 24
+  %_M_node5.i.i.i7 = getelementptr inbounds i8, ptr %table, i64 72
+  %7 = load ptr, ptr %_M_node5.i.i.i7, align 8, !noalias !25
+  store ptr %7, ptr %_M_node.i.i.i6, align 8, !alias.scope !25
   call void @_ZN6hermes3hbc24ConsecutiveStringStorageC1ISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PS9_ESt17integral_constantIbLb0EEEET_SF_T0_b(ptr noundef nonnull align 8 dereferenceable(50) %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, i1 noundef zeroext false) #11
   ret void
 }

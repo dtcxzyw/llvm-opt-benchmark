@@ -1776,7 +1776,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_getrusage(ptr nocapture noundef writeonly %rusage) local_unnamed_addr #0 {
 entry:
-  %usage = alloca %struct.rusage, align 16
+  %usage = alloca %struct.rusage, align 8
   %call = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %usage) #23
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1788,40 +1788,76 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load <2 x i64>, ptr %usage, align 16
-  store <2 x i64> %1, ptr %rusage, align 8
+  %1 = load i64, ptr %usage, align 8
+  store i64 %1, ptr %rusage, align 8
+  %tv_usec = getelementptr inbounds i8, ptr %usage, i64 8
+  %2 = load i64, ptr %tv_usec, align 8
+  %tv_usec6 = getelementptr inbounds i8, ptr %rusage, i64 8
+  store i64 %2, ptr %tv_usec6, align 8
   %ru_stime = getelementptr inbounds i8, ptr %usage, i64 16
+  %3 = load i64, ptr %ru_stime, align 8
   %ru_stime8 = getelementptr inbounds i8, ptr %rusage, i64 16
-  %2 = load <2 x i64>, ptr %ru_stime, align 16
-  store <2 x i64> %2, ptr %ru_stime8, align 8
-  %3 = getelementptr inbounds i8, ptr %usage, i64 32
+  store i64 %3, ptr %ru_stime8, align 8
+  %tv_usec11 = getelementptr inbounds i8, ptr %usage, i64 24
+  %4 = load i64, ptr %tv_usec11, align 8
+  %tv_usec13 = getelementptr inbounds i8, ptr %rusage, i64 24
+  store i64 %4, ptr %tv_usec13, align 8
+  %5 = getelementptr inbounds i8, ptr %usage, i64 32
+  %6 = load i64, ptr %5, align 8
   %ru_maxrss = getelementptr inbounds i8, ptr %rusage, i64 32
-  %4 = load <2 x i64>, ptr %3, align 16
-  store <2 x i64> %4, ptr %ru_maxrss, align 8
-  %5 = getelementptr inbounds i8, ptr %usage, i64 48
+  store i64 %6, ptr %ru_maxrss, align 8
+  %7 = getelementptr inbounds i8, ptr %usage, i64 40
+  %8 = load i64, ptr %7, align 8
+  %ru_ixrss = getelementptr inbounds i8, ptr %rusage, i64 40
+  store i64 %8, ptr %ru_ixrss, align 8
+  %9 = getelementptr inbounds i8, ptr %usage, i64 48
+  %10 = load i64, ptr %9, align 8
   %ru_idrss = getelementptr inbounds i8, ptr %rusage, i64 48
-  %6 = load <2 x i64>, ptr %5, align 16
-  store <2 x i64> %6, ptr %ru_idrss, align 8
-  %7 = getelementptr inbounds i8, ptr %usage, i64 64
+  store i64 %10, ptr %ru_idrss, align 8
+  %11 = getelementptr inbounds i8, ptr %usage, i64 56
+  %12 = load i64, ptr %11, align 8
+  %ru_isrss = getelementptr inbounds i8, ptr %rusage, i64 56
+  store i64 %12, ptr %ru_isrss, align 8
+  %13 = getelementptr inbounds i8, ptr %usage, i64 64
+  %14 = load i64, ptr %13, align 8
   %ru_minflt = getelementptr inbounds i8, ptr %rusage, i64 64
-  %8 = load <2 x i64>, ptr %7, align 16
-  store <2 x i64> %8, ptr %ru_minflt, align 8
-  %9 = getelementptr inbounds i8, ptr %usage, i64 80
+  store i64 %14, ptr %ru_minflt, align 8
+  %15 = getelementptr inbounds i8, ptr %usage, i64 72
+  %16 = load i64, ptr %15, align 8
+  %ru_majflt = getelementptr inbounds i8, ptr %rusage, i64 72
+  store i64 %16, ptr %ru_majflt, align 8
+  %17 = getelementptr inbounds i8, ptr %usage, i64 80
+  %18 = load i64, ptr %17, align 8
   %ru_nswap = getelementptr inbounds i8, ptr %rusage, i64 80
-  %10 = load <2 x i64>, ptr %9, align 16
-  store <2 x i64> %10, ptr %ru_nswap, align 8
-  %11 = getelementptr inbounds i8, ptr %usage, i64 96
+  store i64 %18, ptr %ru_nswap, align 8
+  %19 = getelementptr inbounds i8, ptr %usage, i64 88
+  %20 = load i64, ptr %19, align 8
+  %ru_inblock = getelementptr inbounds i8, ptr %rusage, i64 88
+  store i64 %20, ptr %ru_inblock, align 8
+  %21 = getelementptr inbounds i8, ptr %usage, i64 96
+  %22 = load i64, ptr %21, align 8
   %ru_oublock = getelementptr inbounds i8, ptr %rusage, i64 96
-  %12 = load <2 x i64>, ptr %11, align 16
-  store <2 x i64> %12, ptr %ru_oublock, align 8
-  %13 = getelementptr inbounds i8, ptr %usage, i64 112
+  store i64 %22, ptr %ru_oublock, align 8
+  %23 = getelementptr inbounds i8, ptr %usage, i64 104
+  %24 = load i64, ptr %23, align 8
+  %ru_msgsnd = getelementptr inbounds i8, ptr %rusage, i64 104
+  store i64 %24, ptr %ru_msgsnd, align 8
+  %25 = getelementptr inbounds i8, ptr %usage, i64 112
+  %26 = load i64, ptr %25, align 8
   %ru_msgrcv = getelementptr inbounds i8, ptr %rusage, i64 112
-  %14 = load <2 x i64>, ptr %13, align 16
-  store <2 x i64> %14, ptr %ru_msgrcv, align 8
-  %15 = getelementptr inbounds i8, ptr %usage, i64 128
+  store i64 %26, ptr %ru_msgrcv, align 8
+  %27 = getelementptr inbounds i8, ptr %usage, i64 120
+  %28 = load i64, ptr %27, align 8
+  %ru_nsignals = getelementptr inbounds i8, ptr %rusage, i64 120
+  store i64 %28, ptr %ru_nsignals, align 8
+  %29 = getelementptr inbounds i8, ptr %usage, i64 128
+  %30 = load i64, ptr %29, align 8
   %ru_nvcsw = getelementptr inbounds i8, ptr %rusage, i64 128
-  %16 = load <2 x i64>, ptr %15, align 16
-  store <2 x i64> %16, ptr %ru_nvcsw, align 8
+  store i64 %30, ptr %ru_nvcsw, align 8
+  %31 = getelementptr inbounds i8, ptr %usage, i64 136
+  %32 = load i64, ptr %31, align 8
+  %ru_nivcsw = getelementptr inbounds i8, ptr %rusage, i64 136
+  store i64 %32, ptr %ru_nivcsw, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -2372,10 +2408,15 @@ if.end30:                                         ; preds = %if.end18
   %8 = load ptr, ptr %pw_shell, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr37, ptr align 1 %8, i64 %add23, i1 false)
   %pw_uid = getelementptr inbounds i8, ptr %pw, i64 16
+  %9 = load i32, ptr %pw_uid, align 8
+  %conv = zext i32 %9 to i64
   %uid40 = getelementptr inbounds i8, ptr %pwd, i64 8
-  %9 = load <2 x i32>, ptr %pw_uid, align 8
-  %10 = zext <2 x i32> %9 to <2 x i64>
-  store <2 x i64> %10, ptr %uid40, align 8
+  store i64 %conv, ptr %uid40, align 8
+  %pw_gid = getelementptr inbounds i8, ptr %pw, i64 20
+  %10 = load i32, ptr %pw_gid, align 4
+  %conv41 = zext i32 %10 to i64
+  %gid = getelementptr inbounds i8, ptr %pwd, i64 16
+  store i64 %conv41, ptr %gid, align 8
   call void @uv__free(ptr noundef nonnull %call37) #23
   br label %return
 

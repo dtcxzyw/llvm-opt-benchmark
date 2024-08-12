@@ -162,7 +162,13 @@ entry:
   %literal_ = getelementptr inbounds i8, ptr %this, i64 15
   %case_sensitive_ = getelementptr inbounds i8, ptr %this, i64 19
   store i32 0, ptr %literal_, align 1
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %case_sensitive_, align 1
+  store i8 1, ptr %case_sensitive_, align 1
+  %perl_classes_ = getelementptr inbounds i8, ptr %this, i64 20
+  store i8 0, ptr %perl_classes_, align 4
+  %word_boundary_ = getelementptr inbounds i8, ptr %this, i64 21
+  store i8 0, ptr %word_boundary_, align 1
+  %one_line_ = getelementptr inbounds i8, ptr %this, i64 22
+  store i8 0, ptr %one_line_, align 2
   ret void
 }
 
@@ -183,7 +189,13 @@ entry:
   %literal_.i = getelementptr inbounds i8, ptr %this, i64 23
   %case_sensitive_.i = getelementptr inbounds i8, ptr %this, i64 27
   store i32 0, ptr %literal_.i, align 1
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %case_sensitive_.i, align 1
+  store i8 1, ptr %case_sensitive_.i, align 1
+  %perl_classes_.i = getelementptr inbounds i8, ptr %this, i64 28
+  store i8 0, ptr %perl_classes_.i, align 4
+  %word_boundary_.i = getelementptr inbounds i8, ptr %this, i64 29
+  store i8 0, ptr %word_boundary_.i, align 1
+  %one_line_.i = getelementptr inbounds i8, ptr %this, i64 30
+  store i8 0, ptr %one_line_.i, align 2
   %prefix_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prefix_) #29
   %rprog_once_ = getelementptr inbounds i8, ptr %this, i64 136
@@ -743,7 +755,13 @@ entry:
   %literal_.i = getelementptr inbounds i8, ptr %this, i64 23
   %case_sensitive_.i = getelementptr inbounds i8, ptr %this, i64 27
   store i32 0, ptr %literal_.i, align 1
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %case_sensitive_.i, align 1
+  store i8 1, ptr %case_sensitive_.i, align 1
+  %perl_classes_.i = getelementptr inbounds i8, ptr %this, i64 28
+  store i8 0, ptr %perl_classes_.i, align 4
+  %word_boundary_.i = getelementptr inbounds i8, ptr %this, i64 29
+  store i8 0, ptr %word_boundary_.i, align 1
+  %one_line_.i = getelementptr inbounds i8, ptr %this, i64 30
+  store i8 0, ptr %one_line_.i, align 2
   %prefix_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prefix_) #29
   %rprog_once_ = getelementptr inbounds i8, ptr %this, i64 136
@@ -796,7 +814,13 @@ entry:
   %literal_.i = getelementptr inbounds i8, ptr %this, i64 23
   %case_sensitive_.i = getelementptr inbounds i8, ptr %this, i64 27
   store i32 0, ptr %literal_.i, align 1
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %case_sensitive_.i, align 1
+  store i8 1, ptr %case_sensitive_.i, align 1
+  %perl_classes_.i = getelementptr inbounds i8, ptr %this, i64 28
+  store i8 0, ptr %perl_classes_.i, align 4
+  %word_boundary_.i = getelementptr inbounds i8, ptr %this, i64 29
+  store i8 0, ptr %word_boundary_.i, align 1
+  %one_line_.i = getelementptr inbounds i8, ptr %this, i64 30
+  store i8 0, ptr %one_line_.i, align 2
   %prefix_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prefix_) #29
   %rprog_once_ = getelementptr inbounds i8, ptr %this, i64 136
@@ -841,7 +865,13 @@ entry:
   %literal_.i = getelementptr inbounds i8, ptr %this, i64 23
   %case_sensitive_.i = getelementptr inbounds i8, ptr %this, i64 27
   store i32 0, ptr %literal_.i, align 1
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %case_sensitive_.i, align 1
+  store i8 1, ptr %case_sensitive_.i, align 1
+  %perl_classes_.i = getelementptr inbounds i8, ptr %this, i64 28
+  store i8 0, ptr %perl_classes_.i, align 4
+  %word_boundary_.i = getelementptr inbounds i8, ptr %this, i64 29
+  store i8 0, ptr %word_boundary_.i, align 1
+  %one_line_.i = getelementptr inbounds i8, ptr %this, i64 30
+  store i8 0, ptr %one_line_.i, align 2
   %prefix_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prefix_) #29
   %rprog_once_ = getelementptr inbounds i8, ptr %this, i64 136

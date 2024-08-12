@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind ssp uwtable
 define internal noundef i32 @stream_avx2(ptr noundef %c, i64 noundef %clen, ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %k) #0 {
 entry:
-  %ctx = alloca %struct.salsa_ctx, align 16
+  %ctx = alloca %struct.salsa_ctx, align 4
   %tobool.not = icmp eq i64 %clen, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -22,7 +22,7 @@ if.end:                                           ; preds = %entry
   %add.ptr1.i = getelementptr i8, ptr %k, i64 4
   %add.ptr1.val.i = load i32, ptr %add.ptr1.i, align 1
   %arrayidx5.i = getelementptr inbounds i8, ptr %ctx, i64 40
-  store i32 %add.ptr1.val.i, ptr %arrayidx5.i, align 8
+  store i32 %add.ptr1.val.i, ptr %arrayidx5.i, align 4
   %add.ptr6.i = getelementptr i8, ptr %k, i64 8
   %add.ptr6.val.i = load i32, ptr %add.ptr6.i, align 1
   %arrayidx10.i = getelementptr inbounds i8, ptr %ctx, i64 60
@@ -30,7 +30,7 @@ if.end:                                           ; preds = %entry
   %add.ptr11.i = getelementptr i8, ptr %k, i64 12
   %add.ptr11.val.i = load i32, ptr %add.ptr11.i, align 1
   %arrayidx15.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  store i32 %add.ptr11.val.i, ptr %arrayidx15.i, align 16
+  store i32 %add.ptr11.val.i, ptr %arrayidx15.i, align 4
   %add.ptr16.i = getelementptr i8, ptr %k, i64 16
   %add.ptr16.val.i = load i32, ptr %add.ptr16.i, align 1
   %arrayidx20.i = getelementptr inbounds i8, ptr %ctx, i64 28
@@ -38,7 +38,7 @@ if.end:                                           ; preds = %entry
   %add.ptr21.i = getelementptr i8, ptr %k, i64 20
   %add.ptr21.val.i = load i32, ptr %add.ptr21.i, align 1
   %arrayidx25.i = getelementptr inbounds i8, ptr %ctx, i64 16
-  store i32 %add.ptr21.val.i, ptr %arrayidx25.i, align 16
+  store i32 %add.ptr21.val.i, ptr %arrayidx25.i, align 4
   %add.ptr26.i = getelementptr i8, ptr %k, i64 24
   %add.ptr26.val.i = load i32, ptr %add.ptr26.i, align 1
   %arrayidx30.i = getelementptr inbounds i8, ptr %ctx, i64 36
@@ -46,17 +46,23 @@ if.end:                                           ; preds = %entry
   %add.ptr31.i = getelementptr i8, ptr %k, i64 28
   %add.ptr31.val.i = load i32, ptr %add.ptr31.i, align 1
   %arrayidx35.i = getelementptr inbounds i8, ptr %ctx, i64 56
-  store i32 %add.ptr31.val.i, ptr %arrayidx35.i, align 8
-  store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %ctx, align 16
+  store i32 %add.ptr31.val.i, ptr %arrayidx35.i, align 4
+  store i32 1634760805, ptr %ctx, align 4
+  %arrayidx41.i = getelementptr inbounds i8, ptr %ctx, i64 4
+  store i32 857760878, ptr %arrayidx41.i, align 4
+  %arrayidx44.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  store i32 2036477234, ptr %arrayidx44.i, align 4
+  %arrayidx47.i = getelementptr inbounds i8, ptr %ctx, i64 12
+  store i32 1797285236, ptr %arrayidx47.i, align 4
   %iv.val.i = load i32, ptr %n, align 1
   %arrayidx.i5 = getelementptr inbounds i8, ptr %ctx, i64 24
-  store i32 %iv.val.i, ptr %arrayidx.i5, align 8
+  store i32 %iv.val.i, ptr %arrayidx.i5, align 4
   %add.ptr1.i6 = getelementptr i8, ptr %n, i64 4
   %add.ptr1.val.i7 = load i32, ptr %add.ptr1.i6, align 1
   %arrayidx5.i8 = getelementptr inbounds i8, ptr %ctx, i64 44
   store i32 %add.ptr1.val.i7, ptr %arrayidx5.i8, align 4
   %arrayidx10.c.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  store i32 0, ptr %arrayidx10.c.i, align 16
+  store i32 0, ptr %arrayidx10.c.i, align 4
   %arrayidx20.i9 = getelementptr inbounds i8, ptr %ctx, i64 52
   store i32 0, ptr %arrayidx20.i9, align 4
   tail call void @llvm.memset.p0.i64(ptr align 1 %c, i8 0, i64 %clen, i1 false)
@@ -71,7 +77,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind ssp uwtable
 define internal noundef i32 @stream_avx2_xor_ic(ptr noundef %c, ptr noundef %m, i64 noundef %mlen, ptr nocapture noundef readonly %n, i64 noundef %ic, ptr nocapture noundef readonly %k) #0 {
 entry:
-  %ctx = alloca %struct.salsa_ctx, align 16
+  %ctx = alloca %struct.salsa_ctx, align 4
   %tobool.not = icmp eq i64 %mlen, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -85,7 +91,7 @@ if.end:                                           ; preds = %entry
   %add.ptr1.i = getelementptr i8, ptr %k, i64 4
   %add.ptr1.val.i = load i32, ptr %add.ptr1.i, align 1
   %arrayidx5.i = getelementptr inbounds i8, ptr %ctx, i64 40
-  store i32 %add.ptr1.val.i, ptr %arrayidx5.i, align 8
+  store i32 %add.ptr1.val.i, ptr %arrayidx5.i, align 4
   %add.ptr6.i = getelementptr i8, ptr %k, i64 8
   %add.ptr6.val.i = load i32, ptr %add.ptr6.i, align 1
   %arrayidx10.i = getelementptr inbounds i8, ptr %ctx, i64 60
@@ -93,7 +99,7 @@ if.end:                                           ; preds = %entry
   %add.ptr11.i = getelementptr i8, ptr %k, i64 12
   %add.ptr11.val.i = load i32, ptr %add.ptr11.i, align 1
   %arrayidx15.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  store i32 %add.ptr11.val.i, ptr %arrayidx15.i, align 16
+  store i32 %add.ptr11.val.i, ptr %arrayidx15.i, align 4
   %add.ptr16.i = getelementptr i8, ptr %k, i64 16
   %add.ptr16.val.i = load i32, ptr %add.ptr16.i, align 1
   %arrayidx20.i = getelementptr inbounds i8, ptr %ctx, i64 28
@@ -101,7 +107,7 @@ if.end:                                           ; preds = %entry
   %add.ptr21.i = getelementptr i8, ptr %k, i64 20
   %add.ptr21.val.i = load i32, ptr %add.ptr21.i, align 1
   %arrayidx25.i = getelementptr inbounds i8, ptr %ctx, i64 16
-  store i32 %add.ptr21.val.i, ptr %arrayidx25.i, align 16
+  store i32 %add.ptr21.val.i, ptr %arrayidx25.i, align 4
   %add.ptr26.i = getelementptr i8, ptr %k, i64 24
   %add.ptr26.val.i = load i32, ptr %add.ptr26.i, align 1
   %arrayidx30.i = getelementptr inbounds i8, ptr %ctx, i64 36
@@ -109,17 +115,23 @@ if.end:                                           ; preds = %entry
   %add.ptr31.i = getelementptr i8, ptr %k, i64 28
   %add.ptr31.val.i = load i32, ptr %add.ptr31.i, align 1
   %arrayidx35.i = getelementptr inbounds i8, ptr %ctx, i64 56
-  store i32 %add.ptr31.val.i, ptr %arrayidx35.i, align 8
-  store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %ctx, align 16
+  store i32 %add.ptr31.val.i, ptr %arrayidx35.i, align 4
+  store i32 1634760805, ptr %ctx, align 4
+  %arrayidx41.i = getelementptr inbounds i8, ptr %ctx, i64 4
+  store i32 857760878, ptr %arrayidx41.i, align 4
+  %arrayidx44.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  store i32 2036477234, ptr %arrayidx44.i, align 4
+  %arrayidx47.i = getelementptr inbounds i8, ptr %ctx, i64 12
+  store i32 1797285236, ptr %arrayidx47.i, align 4
   %iv.val.i = load i32, ptr %n, align 1
   %arrayidx.i3 = getelementptr inbounds i8, ptr %ctx, i64 24
-  store i32 %iv.val.i, ptr %arrayidx.i3, align 8
+  store i32 %iv.val.i, ptr %arrayidx.i3, align 4
   %add.ptr1.i4 = getelementptr i8, ptr %n, i64 4
   %add.ptr1.val.i5 = load i32, ptr %add.ptr1.i4, align 1
   %arrayidx5.i6 = getelementptr inbounds i8, ptr %ctx, i64 44
   store i32 %add.ptr1.val.i5, ptr %arrayidx5.i6, align 4
   %arrayidx10.i7 = getelementptr inbounds i8, ptr %ctx, i64 32
-  store i32 %conv1, ptr %arrayidx10.i7, align 16
+  store i32 %conv1, ptr %arrayidx10.i7, align 4
   %arrayidx20.i8 = getelementptr inbounds i8, ptr %ctx, i64 52
   store i32 %conv, ptr %arrayidx20.i8, align 4
   call fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %m, ptr noundef %c, i64 noundef %mlen)
@@ -1356,36 +1368,66 @@ for.body1024:                                     ; preds = %if.then991, %for.bo
 for.end1119:                                      ; preds = %for.body1024
   %449 = bitcast <2 x i64> %xor.i2704 to <4 x i32>
   %add.i2321 = add <4 x i32> %412, %449
-  %450 = shufflevector <4 x i32> %add.i2321, <4 x i32> poison, <8 x i32> <i32 poison, i32 poison, i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %451 = shufflevector <4 x i32> %add.i2321, <4 x i32> poison, <8 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %add.i2318 = add <4 x i32> %permil1103, %409
-  %452 = shufflevector <4 x i32> %add.i2318, <4 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %add.i2315 = add <4 x i32> %permil1109, %410
-  %453 = shufflevector <4 x i32> %add.i2315, <4 x i32> poison, <8 x i32> <i32 poison, i32 poison, i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %454 = shufflevector <4 x i32> %add.i2315, <4 x i32> poison, <8 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %add.i2312 = add <4 x i32> %permil1115, %411
-  %455 = shufflevector <4 x i32> %add.i2312, <4 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
+  %vecext.i3387 = extractelement <4 x i32> %add.i2321, i64 0
+  %vecext.i3384 = extractelement <4 x i32> %add.i2318, i64 0
+  %vecext.i3381 = extractelement <4 x i32> %add.i2315, i64 0
+  %vecext.i3378 = extractelement <4 x i32> %add.i2312, i64 0
+  store i32 %vecext.i3387, ptr %partialblock, align 16
+  %add.ptr1147 = getelementptr inbounds i8, ptr %partialblock, i64 48
+  store i32 %vecext.i3384, ptr %add.ptr1147, align 16
   %add.ptr1149 = getelementptr inbounds i8, ptr %partialblock, i64 32
-  %456 = shufflevector <4 x i32> %add.i2315, <4 x i32> %add.i2312, <8 x i32> <i32 0, i32 5, i32 poison, i32 poison, i32 poison, i32 1, i32 6, i32 poison>
-  %457 = shufflevector <8 x i32> %456, <8 x i32> %450, <8 x i32> <i32 0, i32 1, i32 10, i32 poison, i32 poison, i32 5, i32 6, i32 poison>
-  %458 = shufflevector <8 x i32> %457, <8 x i32> %452, <8 x i32> <i32 0, i32 1, i32 2, i32 11, i32 8, i32 5, i32 6, i32 poison>
-  %459 = shufflevector <8 x i32> %458, <8 x i32> %451, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 11>
-  store <8 x i32> %459, ptr %add.ptr1149, align 16
-  %460 = shufflevector <4 x i32> %add.i2321, <4 x i32> %add.i2318, <8 x i32> <i32 0, i32 5, i32 poison, i32 poison, i32 poison, i32 1, i32 6, i32 poison>
-  %461 = shufflevector <8 x i32> %460, <8 x i32> %453, <8 x i32> <i32 0, i32 1, i32 10, i32 poison, i32 poison, i32 5, i32 6, i32 poison>
-  %462 = shufflevector <8 x i32> %461, <8 x i32> %455, <8 x i32> <i32 0, i32 1, i32 2, i32 11, i32 8, i32 5, i32 6, i32 poison>
-  %463 = shufflevector <8 x i32> %462, <8 x i32> %454, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 11>
-  store <8 x i32> %463, ptr %partialblock, align 16
+  store i32 %vecext.i3381, ptr %add.ptr1149, align 16
+  %add.ptr1151 = getelementptr inbounds i8, ptr %partialblock, i64 16
+  store i32 %vecext.i3378, ptr %add.ptr1151, align 16
+  %vecext.i3375 = extractelement <4 x i32> %add.i2321, i64 1
+  %vecext.i3372 = extractelement <4 x i32> %add.i2318, i64 1
+  %vecext.i3369 = extractelement <4 x i32> %add.i2315, i64 1
+  %vecext.i3366 = extractelement <4 x i32> %add.i2312, i64 1
+  %add.ptr1167 = getelementptr inbounds i8, ptr %partialblock, i64 20
+  store i32 %vecext.i3375, ptr %add.ptr1167, align 4
+  %add.ptr1169 = getelementptr inbounds i8, ptr %partialblock, i64 4
+  store i32 %vecext.i3372, ptr %add.ptr1169, align 4
+  %add.ptr1171 = getelementptr inbounds i8, ptr %partialblock, i64 52
+  store i32 %vecext.i3369, ptr %add.ptr1171, align 4
+  %add.ptr1173 = getelementptr inbounds i8, ptr %partialblock, i64 36
+  store i32 %vecext.i3366, ptr %add.ptr1173, align 4
+  %vecext.i3363 = extractelement <4 x i32> %add.i2321, i64 2
+  %vecext.i3360 = extractelement <4 x i32> %add.i2318, i64 2
+  %vecext.i3357 = extractelement <4 x i32> %add.i2315, i64 2
+  %vecext.i3354 = extractelement <4 x i32> %add.i2312, i64 2
+  %add.ptr1189 = getelementptr inbounds i8, ptr %partialblock, i64 40
+  store i32 %vecext.i3363, ptr %add.ptr1189, align 8
+  %add.ptr1191 = getelementptr inbounds i8, ptr %partialblock, i64 24
+  store i32 %vecext.i3360, ptr %add.ptr1191, align 8
+  %add.ptr1193 = getelementptr inbounds i8, ptr %partialblock, i64 8
+  store i32 %vecext.i3357, ptr %add.ptr1193, align 8
+  %add.ptr1195 = getelementptr inbounds i8, ptr %partialblock, i64 56
+  store i32 %vecext.i3354, ptr %add.ptr1195, align 8
+  %vecext.i3351 = extractelement <4 x i32> %add.i2321, i64 3
+  %vecext.i3348 = extractelement <4 x i32> %add.i2318, i64 3
+  %vecext.i3345 = extractelement <4 x i32> %add.i2315, i64 3
+  %vecext.i = extractelement <4 x i32> %add.i2312, i64 3
+  %add.ptr1211 = getelementptr inbounds i8, ptr %partialblock, i64 60
+  store i32 %vecext.i3351, ptr %add.ptr1211, align 4
+  %add.ptr1213 = getelementptr inbounds i8, ptr %partialblock, i64 44
+  store i32 %vecext.i3348, ptr %add.ptr1213, align 4
+  %add.ptr1215 = getelementptr inbounds i8, ptr %partialblock, i64 28
+  store i32 %vecext.i3345, ptr %add.ptr1215, align 4
+  %add.ptr1217 = getelementptr inbounds i8, ptr %partialblock, i64 12
+  store i32 %vecext.i, ptr %add.ptr1217, align 4
   br label %for.body1223
 
 for.body1223:                                     ; preds = %for.end1119, %for.body1223
   %conv12201674 = phi i64 [ 0, %for.end1119 ], [ %conv1220, %for.body1223 ]
   %i1020.11673 = phi i32 [ 0, %for.end1119 ], [ %inc1234, %for.body1223 ]
   %arrayidx1224 = getelementptr i8, ptr %m.addr.4.lcssa, i64 %conv12201674
-  %464 = load i8, ptr %arrayidx1224, align 1
+  %450 = load i8, ptr %arrayidx1224, align 1
   %arrayidx1227 = getelementptr [64 x i8], ptr %partialblock, i64 0, i64 %conv12201674
-  %465 = load i8, ptr %arrayidx1227, align 1
-  %xor12291581 = xor i8 %465, %464
+  %451 = load i8, ptr %arrayidx1227, align 1
+  %xor12291581 = xor i8 %451, %450
   %arrayidx1232 = getelementptr i8, ptr %c.addr.4.lcssa, i64 %conv12201674
   store i8 %xor12291581, ptr %arrayidx1232, align 1
   %inc1234 = add i32 %i1020.11673, 1

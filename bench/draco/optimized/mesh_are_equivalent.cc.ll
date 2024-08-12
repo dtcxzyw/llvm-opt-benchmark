@@ -156,9 +156,13 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %30, align 1
   %.sroa.2.0..sroa_idx2.i = getelementptr inbounds i8, ptr %30, i64 8
   %.sroa.2.0.copyload3.i = load float, ptr %.sroa.2.0..sroa_idx2.i, align 1
-  store <2 x float> %.sroa.01.0.copyload.i, ptr %0, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  store float %.sroa.2.0.copyload3.i, ptr %31, align 4
+  %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 0
+  store float %.sroa.0.0.vec.extract, ptr %0, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 1
+  store float %.sroa.0.4.vec.extract, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  store float %.sroa.2.0.copyload3.i, ptr %32, align 4
   ret void
 }
 
@@ -276,8 +280,12 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %.sroa.01.0.copyload.i.i.i = load <2 x float>, ptr %61, align 1, !noalias !4
   %.sroa.2.0..sroa_idx2.i.i.i = getelementptr inbounds i8, ptr %61, i64 8
   %.sroa.2.0.copyload3.i.i.i = load float, ptr %.sroa.2.0..sroa_idx2.i.i.i, align 1, !noalias !4
+  %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i.i, i64 0
+  %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i.i, i64 1
   %62 = getelementptr inbounds [3 x %"class.draco::VectorD"], ptr %2, i64 0, i64 %indvars.iv.i
-  store <2 x float> %.sroa.01.0.copyload.i.i.i, ptr %62, align 4
+  store float %.sroa.0.0.vec.extract.i.i, ptr %62, align 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %62, i64 4
+  store float %.sroa.0.4.vec.extract.i.i, ptr %.sroa.2.0..sroa_idx.i, align 4
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %62, i64 8
   store float %.sroa.2.0.copyload3.i.i.i, ptr %.sroa.3.0..sroa_idx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -461,8 +469,12 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %.sroa.01.0.copyload.i.i = load <2 x float>, ptr %28, align 1, !noalias !13
   %.sroa.2.0..sroa_idx2.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %.sroa.2.0.copyload3.i.i = load float, ptr %.sroa.2.0..sroa_idx2.i.i, align 1, !noalias !13
+  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i, i64 0
+  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload.i.i, i64 1
   %29 = getelementptr inbounds [3 x %"class.draco::VectorD"], ptr %2, i64 0, i64 %indvars.iv
-  store <2 x float> %.sroa.01.0.copyload.i.i, ptr %29, align 4
+  store float %.sroa.0.0.vec.extract.i, ptr %29, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
+  store float %.sroa.0.4.vec.extract.i, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   store float %.sroa.2.0.copyload3.i.i, ptr %.sroa.3.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2767,101 +2779,134 @@ _ZNKSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE12_M_check_lenEmPKc.ex
 _ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.draco::MeshAreEquivalent::MeshInfo", ptr %23, i64 %19
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
-  %26 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
-  %29 = load <2 x ptr>, ptr %28, align 8
-  store <2 x ptr> %29, ptr %27, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  %30 = getelementptr inbounds i8, ptr %24, i64 32
-  %31 = getelementptr inbounds i8, ptr %2, i64 32
-  %32 = load <2 x ptr>, ptr %31, align 8
-  store <2 x ptr> %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %24, i64 48
-  %34 = getelementptr inbounds i8, ptr %2, i64 48
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %33, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
+  %25 = load ptr, ptr %2, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %24, i64 24
+  %33 = getelementptr inbounds i8, ptr %2, i64 24
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %32, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  %35 = getelementptr inbounds i8, ptr %24, i64 32
+  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %35, align 8
+  %38 = getelementptr inbounds i8, ptr %24, i64 40
+  %39 = getelementptr inbounds i8, ptr %2, i64 40
+  %40 = load ptr, ptr %39, align 8
+  store ptr %40, ptr %38, align 8
+  %41 = getelementptr inbounds i8, ptr %24, i64 48
+  %42 = getelementptr inbounds i8, ptr %2, i64 48
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %41, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_M_allocateEm.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_M_allocateEm.exit ]
-  %.0911.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_M_allocateEm.exit ]
+  %.012.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_M_allocateEm.exit ]
+  %.0911.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
-  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %37 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !91, !noalias !88
-  store <2 x ptr> %37, ptr %.012.i.i.i, align 8, !alias.scope !88, !noalias !91
-  %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %40 = load <2 x ptr>, ptr %39, align 8, !alias.scope !91, !noalias !88
-  store <2 x ptr> %40, ptr %38, align 8, !alias.scope !88, !noalias !91
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false), !alias.scope !91, !noalias !88
-  %41 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %43 = load <2 x ptr>, ptr %42, align 8, !alias.scope !91, !noalias !88
-  store <2 x ptr> %43, ptr %41, align 8, !alias.scope !88, !noalias !91
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
-  %46 = load ptr, ptr %45, align 8, !alias.scope !91, !noalias !88
-  store ptr %46, ptr %44, align 8, !alias.scope !88, !noalias !91
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false), !alias.scope !91, !noalias !88
-  %47 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
-  %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
-  %.not.i.i.i = icmp eq ptr %47, %1
+  %44 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !91, !noalias !88
+  store ptr %44, ptr %.012.i.i.i, align 8, !alias.scope !88, !noalias !91
+  %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
+  %46 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
+  %47 = load ptr, ptr %46, align 8, !alias.scope !91, !noalias !88
+  store ptr %47, ptr %45, align 8, !alias.scope !88, !noalias !91
+  %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %49 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %50 = load ptr, ptr %49, align 8, !alias.scope !91, !noalias !88
+  store ptr %50, ptr %48, align 8, !alias.scope !88, !noalias !91
+  %51 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %52 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %53 = load ptr, ptr %52, align 8, !alias.scope !91, !noalias !88
+  store ptr %53, ptr %51, align 8, !alias.scope !88, !noalias !91
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !91, !noalias !88
+  %54 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  %55 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
+  %56 = load ptr, ptr %55, align 8, !alias.scope !91, !noalias !88
+  store ptr %56, ptr %54, align 8, !alias.scope !88, !noalias !91
+  %57 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
+  %58 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
+  %59 = load ptr, ptr %58, align 8, !alias.scope !91, !noalias !88
+  store ptr %59, ptr %57, align 8, !alias.scope !88, !noalias !91
+  %60 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
+  %61 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
+  %62 = load ptr, ptr %61, align 8, !alias.scope !91, !noalias !88
+  store ptr %62, ptr %60, align 8, !alias.scope !88, !noalias !91
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false), !alias.scope !91, !noalias !88
+  %63 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
+  %64 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
+  %.not.i.i.i = icmp eq ptr %63, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !93
 
 _ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_M_allocateEm.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_M_allocateEm.exit ], [ %48, %.lr.ph.i.i.i ]
-  %49 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 56
+  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_M_allocateEm.exit ], [ %64, %.lr.ph.i.i.i ]
+  %65 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 56
   %.not10.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i17
-  %.012.i.i.i18 = phi ptr [ %62, %.lr.ph.i.i.i17 ], [ %49, %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  %.0911.i.i.i19 = phi ptr [ %61, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.012.i.i.i18 = phi ptr [ %86, %.lr.ph.i.i.i17 ], [ %65, %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.0911.i.i.i19 = phi ptr [ %85, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  %50 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
-  %51 = load <2 x ptr>, ptr %.0911.i.i.i19, align 8, !alias.scope !97, !noalias !94
-  store <2 x ptr> %51, ptr %.012.i.i.i18, align 8, !alias.scope !94, !noalias !97
-  %52 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
-  %53 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
-  %54 = load <2 x ptr>, ptr %53, align 8, !alias.scope !97, !noalias !94
-  store <2 x ptr> %54, ptr %52, align 8, !alias.scope !94, !noalias !97
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false), !alias.scope !97, !noalias !94
-  %55 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  %56 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
-  %57 = load <2 x ptr>, ptr %56, align 8, !alias.scope !97, !noalias !94
-  store <2 x ptr> %57, ptr %55, align 8, !alias.scope !94, !noalias !97
-  %58 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 48
-  %59 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 48
-  %60 = load ptr, ptr %59, align 8, !alias.scope !97, !noalias !94
-  store ptr %60, ptr %58, align 8, !alias.scope !94, !noalias !97
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false), !alias.scope !97, !noalias !94
-  %61 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 56
-  %62 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 56
-  %.not.i.i.i20 = icmp eq ptr %61, %5
+  %66 = load ptr, ptr %.0911.i.i.i19, align 8, !alias.scope !97, !noalias !94
+  store ptr %66, ptr %.012.i.i.i18, align 8, !alias.scope !94, !noalias !97
+  %67 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 8
+  %68 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
+  %69 = load ptr, ptr %68, align 8, !alias.scope !97, !noalias !94
+  store ptr %69, ptr %67, align 8, !alias.scope !94, !noalias !97
+  %70 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
+  %71 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
+  %72 = load ptr, ptr %71, align 8, !alias.scope !97, !noalias !94
+  store ptr %72, ptr %70, align 8, !alias.scope !94, !noalias !97
+  %73 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 24
+  %74 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 24
+  %75 = load ptr, ptr %74, align 8, !alias.scope !97, !noalias !94
+  store ptr %75, ptr %73, align 8, !alias.scope !94, !noalias !97
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false), !alias.scope !97, !noalias !94
+  %76 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
+  %77 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
+  %78 = load ptr, ptr %77, align 8, !alias.scope !97, !noalias !94
+  store ptr %78, ptr %76, align 8, !alias.scope !94, !noalias !97
+  %79 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
+  %80 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
+  %81 = load ptr, ptr %80, align 8, !alias.scope !97, !noalias !94
+  store ptr %81, ptr %79, align 8, !alias.scope !94, !noalias !97
+  %82 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 48
+  %83 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 48
+  %84 = load ptr, ptr %83, align 8, !alias.scope !97, !noalias !94
+  store ptr %84, ptr %82, align 8, !alias.scope !94, !noalias !97
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false), !alias.scope !97, !noalias !94
+  %85 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 56
+  %86 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 56
+  %.not.i.i.i20 = icmp eq ptr %85, %5
   br i1 %.not.i.i.i20, label %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !93
 
 _ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  %.0.lcssa.i.i.i21 = phi ptr [ %49, %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %62, %.lr.ph.i.i.i17 ]
+  %.0.lcssa.i.i.i21 = phi ptr [ %65, %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %86, %.lr.ph.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE13_M_deallocateEPS2_m.exit, label %63
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE13_M_deallocateEPS2_m.exit, label %87
 
-63:                                               ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
+87:                                               ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #21
   br label %_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %63
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5draco17MeshAreEquivalent8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %87
+  %88 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %65 = getelementptr inbounds %"struct.draco::MeshAreEquivalent::MeshInfo", ptr %23, i64 %16
-  store ptr %65, ptr %64, align 8
+  %89 = getelementptr inbounds %"struct.draco::MeshAreEquivalent::MeshInfo", ptr %23, i64 %16
+  store ptr %89, ptr %88, align 8
   ret void
 }
 

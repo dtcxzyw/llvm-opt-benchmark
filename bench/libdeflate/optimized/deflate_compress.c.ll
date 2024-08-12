@@ -170,7 +170,13 @@ sw.bb63:                                          ; preds = %if.end20
   %nice_match_length66 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 75, ptr %nice_match_length66, align 4
   %max_optim_passes = getelementptr inbounds i8, ptr %call, i64 9011684
-  store <4 x i32> <i32 2, i32 32, i32 32, i32 0>, ptr %max_optim_passes, align 4
+  store i32 2, ptr %max_optim_passes, align 4
+  %min_improvement_to_continue = getelementptr inbounds i8, ptr %call, i64 9011688
+  store i32 32, ptr %min_improvement_to_continue, align 8
+  %min_bits_to_use_nonfinal_path = getelementptr inbounds i8, ptr %call, i64 9011692
+  store i32 32, ptr %min_bits_to_use_nonfinal_path, align 4
+  %max_len_to_optimize_static_block = getelementptr inbounds i8, ptr %call, i64 9011696
+  store i32 0, ptr %max_len_to_optimize_static_block, align 16
   %offset_slot_full.i = getelementptr inbounds i8, ptr %call, i64 8976796
   br label %for.body.i
 
@@ -207,7 +213,13 @@ sw.bb70:                                          ; preds = %if.end20
   %nice_match_length73 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 150, ptr %nice_match_length73, align 4
   %max_optim_passes75 = getelementptr inbounds i8, ptr %call, i64 9011684
-  store <4 x i32> <i32 4, i32 16, i32 16, i32 1000>, ptr %max_optim_passes75, align 4
+  store i32 4, ptr %max_optim_passes75, align 4
+  %min_improvement_to_continue77 = getelementptr inbounds i8, ptr %call, i64 9011688
+  store i32 16, ptr %min_improvement_to_continue77, align 8
+  %min_bits_to_use_nonfinal_path79 = getelementptr inbounds i8, ptr %call, i64 9011692
+  store i32 16, ptr %min_bits_to_use_nonfinal_path79, align 4
+  %max_len_to_optimize_static_block81 = getelementptr inbounds i8, ptr %call, i64 9011696
+  store i32 1000, ptr %max_len_to_optimize_static_block81, align 16
   %offset_slot_full.i74 = getelementptr inbounds i8, ptr %call, i64 8976796
   br label %for.body.i75
 
@@ -244,7 +256,13 @@ sw.default:                                       ; preds = %if.end20
   %nice_match_length85 = getelementptr inbounds i8, ptr %call, i64 36
   store i32 258, ptr %nice_match_length85, align 4
   %max_optim_passes87 = getelementptr inbounds i8, ptr %call, i64 9011684
-  store <4 x i32> <i32 10, i32 1, i32 1, i32 10000>, ptr %max_optim_passes87, align 4
+  store i32 10, ptr %max_optim_passes87, align 4
+  %min_improvement_to_continue89 = getelementptr inbounds i8, ptr %call, i64 9011688
+  store i32 1, ptr %min_improvement_to_continue89, align 8
+  %min_bits_to_use_nonfinal_path91 = getelementptr inbounds i8, ptr %call, i64 9011692
+  store i32 1, ptr %min_bits_to_use_nonfinal_path91, align 4
+  %max_len_to_optimize_static_block93 = getelementptr inbounds i8, ptr %call, i64 9011696
+  store i32 10000, ptr %max_len_to_optimize_static_block93, align 16
   %offset_slot_full.i93 = getelementptr inbounds i8, ptr %call, i64 8976796
   br label %for.body.i94
 

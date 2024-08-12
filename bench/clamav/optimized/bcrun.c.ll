@@ -888,7 +888,7 @@ define internal void @tracehook(ptr noundef %0, i32 noundef %1) #0 {
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 63
-  br i1 %8, label %51, label %9
+  br i1 %8, label %53, label %9
 
 9:                                                ; preds = %2
   switch i32 %1, label %47 [
@@ -918,7 +918,7 @@ define internal void @tracehook(ptr noundef %0, i32 noundef %1) #0 {
 23:                                               ; preds = %9
   %24 = load ptr, ptr @stderr, align 8
   %25 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 28, i64 1, ptr %24) #17
-  br label %51
+  br label %53
 
 26:                                               ; preds = %9
   %27 = load ptr, ptr @stderr, align 8
@@ -956,11 +956,14 @@ define internal void @tracehook(ptr noundef %0, i32 noundef %1) #0 {
   %48 = load ptr, ptr %5, align 8
   store ptr %48, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 8), align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 1184
-  %50 = load <2 x i32>, ptr %49, align 8
-  store <2 x i32> %50, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 28), align 4
-  br label %51
+  %50 = load i32, ptr %49, align 8
+  store i32 %50, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 28), align 4
+  %51 = getelementptr inbounds i8, ptr %0, i64 1188
+  %52 = load i32, ptr %51, align 4
+  store i32 %52, ptr getelementptr inbounds (i8, ptr @dbg_state, i64 32), align 8
+  br label %53
 
-51:                                               ; preds = %2, %47, %23
+53:                                               ; preds = %2, %47, %23
   ret void
 }
 

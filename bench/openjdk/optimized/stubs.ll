@@ -316,20 +316,23 @@ define hidden noundef ptr @_ZN9StubQueue17request_committedEi(ptr nocapture noun
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %10, i32 noundef %32) #6
-  %36 = load <2 x i32>, ptr %5, align 4
-  %37 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %32, i64 0
-  %38 = add nsw <2 x i32> %36, %37
-  store <2 x i32> %38, ptr %5, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
-  %40 = load ptr, ptr %39, align 8
-  %.not.i = icmp eq ptr %40, null
-  br i1 %.not.i, label %_ZN9StubQueue6commitEi.exit, label %41
+  %36 = load i32, ptr %5, align 4
+  %37 = add nsw i32 %36, %32
+  store i32 %37, ptr %5, align 4
+  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = load i32, ptr %38, align 8
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %38, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %.not.i = icmp eq ptr %42, null
+  br i1 %.not.i, label %_ZN9StubQueue6commitEi.exit, label %43
 
-41:                                               ; preds = %4
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %40) #6
+43:                                               ; preds = %4
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %42) #6
   br label %_ZN9StubQueue6commitEi.exit
 
-_ZN9StubQueue6commitEi.exit:                      ; preds = %41, %4, %2
+_ZN9StubQueue6commitEi.exit:                      ; preds = %43, %4, %2
   ret ptr %3
 }
 
@@ -474,20 +477,23 @@ define hidden void @_ZN9StubQueue6commitEi(ptr nocapture noundef nonnull align 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %8, i32 noundef %30) #6
-  %34 = load <2 x i32>, ptr %3, align 4
-  %35 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %30, i64 0
-  %36 = add nsw <2 x i32> %34, %35
-  store <2 x i32> %36, ptr %3, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
-  %38 = load ptr, ptr %37, align 8
-  %.not = icmp eq ptr %38, null
-  br i1 %.not, label %40, label %39
+  %34 = load i32, ptr %3, align 4
+  %35 = add nsw i32 %34, %30
+  store i32 %35, ptr %3, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = load i32, ptr %36, align 8
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %36, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = load ptr, ptr %39, align 8
+  %.not = icmp eq ptr %40, null
+  br i1 %.not, label %42, label %41
 
-39:                                               ; preds = %2
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %38) #6
-  br label %40
+41:                                               ; preds = %2
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %40) #6
+  br label %42
 
-40:                                               ; preds = %39, %2
+42:                                               ; preds = %41, %2
   ret void
 }
 

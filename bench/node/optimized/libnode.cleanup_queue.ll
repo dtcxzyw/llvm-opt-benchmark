@@ -364,13 +364,16 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %b) local_unnamed_addr #1 align 2 {
 entry:
-  %0 = load <2 x ptr>, ptr %a, align 8
-  %1 = load <2 x ptr>, ptr %b, align 8
-  %2 = icmp eq <2 x ptr> %0, %1
-  %3 = extractelement <2 x i1> %2, i64 0
-  %4 = extractelement <2 x i1> %2, i64 1
-  %5 = select i1 %3, i1 %4, i1 false
-  ret i1 %5
+  %0 = load ptr, ptr %a, align 8
+  %1 = load ptr, ptr %b, align 8
+  %cmp = icmp eq ptr %0, %1
+  %arg_ = getelementptr inbounds i8, ptr %a, i64 8
+  %2 = load ptr, ptr %arg_, align 8
+  %arg_3 = getelementptr inbounds i8, ptr %b, i64 8
+  %3 = load ptr, ptr %arg_3, align 8
+  %cmp4 = icmp eq ptr %2, %3
+  %4 = select i1 %cmp, i1 %cmp4, i1 false
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -223,7 +223,7 @@ define internal ptr @H5O__stab_copy_file(ptr noundef %0, ptr nocapture noundef r
   %22 = load i64, ptr @H5E_SYM_g, align 8
   %23 = load i64, ptr @H5E_CANTGETSIZE_g, align 8
   %24 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__stab_copy_file, i32 noundef 290, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.6) #5
-  br label %38
+  br label %41
 
 25:                                               ; preds = %16
   store i64 -1, ptr %9, align 8
@@ -239,22 +239,26 @@ define internal ptr @H5O__stab_copy_file(ptr noundef %0, ptr nocapture noundef r
   %31 = load i64, ptr @H5E_SYM_g, align 8
   %32 = load i64, ptr @H5E_CANTINIT_g, align 8
   %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__stab_copy_file, i32 noundef 297, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.7) #5
-  br label %38
+  br label %41
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 1, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 16
-  %37 = load <2 x i64>, ptr %10, align 8
-  store <2 x i64> %37, ptr %36, align 8
+  %36 = load i64, ptr %10, align 8
+  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %10, i64 8
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  store i64 %39, ptr %40, align 8
   br label %.thread
 
-38:                                               ; preds = %21, %30
-  %39 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_stab_t_reg_free_list, ptr noundef nonnull %10) #5
+41:                                               ; preds = %21, %30
+  %42 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_stab_t_reg_free_list, ptr noundef nonnull %10) #5
   br label %.thread
 
-.thread:                                          ; preds = %12, %34, %38
-  %.022 = phi ptr [ null, %38 ], [ %10, %34 ], [ null, %12 ]
+.thread:                                          ; preds = %12, %34, %41
+  %.022 = phi ptr [ null, %41 ], [ %10, %34 ], [ null, %12 ]
   ret ptr %.022
 }
 

@@ -154,10 +154,24 @@ _ZNSt5queueIhSt5dequeIhSaIhEEEC2IS2_vEEv.exit:
   tail call void @_ZNSt11_Deque_baseIhSaIhEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %9, i64 noundef 0)
   %10 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 114
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
-  store i8 12, ptr %12, align 8
-  store <8 x i8> <i8 1, i8 0, i8 0, i8 0, i8 8, i8 96, i8 -80, i8 0>, ptr %11, align 2
+  %11 = getelementptr inbounds i8, ptr %0, i64 115
+  store i8 0, ptr %11, align 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 114
+  store i8 1, ptr %12, align 2
+  %13 = getelementptr inbounds i8, ptr %0, i64 116
+  store i8 0, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 117
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 119
+  store i8 96, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  store i8 -80, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 112
+  store i8 12, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 118
+  store i8 8, ptr %18, align 2
+  %19 = getelementptr inbounds i8, ptr %0, i64 121
+  store i8 0, ptr %19, align 1
   ret void
 }
 

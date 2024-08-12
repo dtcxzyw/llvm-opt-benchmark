@@ -1604,7 +1604,13 @@ Py_DECREF.exit:                                   ; preds = %Py_XDECREF.exit, %i
 define internal i32 @heapctypewithbuffer_getbuffer(ptr noundef %self, ptr noundef %view, i32 noundef %flags) #0 {
 entry:
   %buffer = getelementptr inbounds i8, ptr %self, i64 24
-  store <4 x i8> <i8 49, i8 50, i8 51, i8 52>, ptr %buffer, align 8
+  store i8 49, ptr %buffer, align 8
+  %arrayidx2 = getelementptr i8, ptr %self, i64 25
+  store i8 50, ptr %arrayidx2, align 1
+  %arrayidx4 = getelementptr i8, ptr %self, i64 26
+  store i8 51, ptr %arrayidx4, align 2
+  %arrayidx6 = getelementptr i8, ptr %self, i64 27
+  store i8 52, ptr %arrayidx6, align 1
   %call = tail call i32 @PyBuffer_FillInfo(ptr noundef %view, ptr noundef %self, ptr noundef nonnull %buffer, i64 noundef 4, i32 noundef 1, i32 noundef %flags) #7
   ret i32 %call
 }

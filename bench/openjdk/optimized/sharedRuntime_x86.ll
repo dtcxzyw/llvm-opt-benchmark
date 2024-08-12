@@ -78,20 +78,26 @@ define hidden void @_ZN13SharedRuntime40inline_check_hashcode_from_object_header
 19:                                               ; preds = %15, %4
   store i32 %2, ptr %7, align 8
   %20 = getelementptr inbounds i8, ptr %7, i64 4
-  store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 0>, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 20
-  store i8 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 40
-  store i32 0, ptr %24, align 8
+  store i32 -1, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 -1, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 -1, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 0, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 20
+  store i8 0, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr null, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 40
+  store i32 0, ptr %27, align 8
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, ptr noundef nonnull %7) #3
-  %25 = load i32, ptr @LockingMode, align 4
-  %26 = icmp eq i32 %25, 2
-  %. = select i1 %26, i32 2, i32 1
-  %.34 = select i1 %26, i32 5, i32 4
+  %28 = load i32, ptr @LockingMode, align 4
+  %29 = icmp eq i32 %28, 2
+  %. = select i1 %29, i32 2, i32 1
+  %.34 = select i1 %29, i32 5, i32 4
   call void @_ZN14MacroAssembler5testqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef %.) #3
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.34, ptr noundef nonnull align 8 dereferenceable(33) %5, i1 noundef zeroext true) #3
   call void @_ZN14MacroAssembler6shrptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 8) #3

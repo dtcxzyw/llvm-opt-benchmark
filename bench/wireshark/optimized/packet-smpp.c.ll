@@ -4557,83 +4557,87 @@ get_smpp_data.exit:                               ; preds = %5, %10
   %23 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not40 = icmp eq ptr %24, null
-  br i1 %.not40, label %47, label %25
+  br i1 %.not40, label %49, label %25
 
 25:                                               ; preds = %.thread, %19
   %.049 = phi i32 [ %.051, %.thread ], [ %22, %19 ]
   %26 = getelementptr inbounds i8, ptr %2, i64 208
-  %27 = getelementptr inbounds i8, ptr %2, i64 212
-  %28 = getelementptr inbounds i8, ptr %2, i64 216
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 232
-  %31 = getelementptr inbounds i8, ptr %2, i64 236
-  %32 = getelementptr inbounds i8, ptr %2, i64 240
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #11
-  %35 = trunc i64 %34 to i32
-  %36 = add i32 %35, 1
-  store ptr %3, ptr %28, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 224
-  store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 248
-  %39 = load ptr, ptr @gsm_sms_handle, align 8
-  %40 = load <2 x i32>, ptr %26, align 8
+  %27 = load i32, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %2, i64 212
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %2, i64 216
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 232
+  %33 = load i32, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 236
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %2, i64 240
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #11
+  %39 = trunc i64 %38 to i32
+  %40 = add i32 %39, 1
   store i32 7, ptr %26, align 8
-  store i32 %36, ptr %27, align 4
-  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
-  %42 = trunc i64 %41 to i32
-  %43 = add i32 %42, 1
-  store ptr %4, ptr %32, align 8
-  store ptr null, ptr %38, align 8
-  %44 = load <2 x i32>, ptr %30, align 8
-  store i32 7, ptr %30, align 8
-  store i32 %43, ptr %31, align 4
-  %45 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %0) #9
-  %46 = tail call i32 @call_dissector_with_data(ptr noundef %39, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %45, ptr noundef nonnull %.0.i) #9
-  store <2 x i32> %40, ptr %26, align 8
-  store ptr %29, ptr %28, align 8
-  store ptr null, ptr %37, align 8
-  store <2 x i32> %44, ptr %30, align 8
-  store ptr %33, ptr %32, align 8
-  store ptr null, ptr %38, align 8
-  br label %47
+  store i32 %40, ptr %28, align 4
+  store ptr %3, ptr %30, align 8
+  %41 = getelementptr inbounds i8, ptr %2, i64 224
+  store ptr null, ptr %41, align 8
+  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
+  %43 = trunc i64 %42 to i32
+  %44 = add i32 %43, 1
+  store i32 7, ptr %32, align 8
+  store i32 %44, ptr %34, align 4
+  store ptr %4, ptr %36, align 8
+  %45 = getelementptr inbounds i8, ptr %2, i64 248
+  store ptr null, ptr %45, align 8
+  %46 = load ptr, ptr @gsm_sms_handle, align 8
+  %47 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %0) #9
+  %48 = tail call i32 @call_dissector_with_data(ptr noundef %46, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %47, ptr noundef nonnull %.0.i) #9
+  store i32 %27, ptr %26, align 8
+  store i32 %29, ptr %28, align 4
+  store ptr %31, ptr %30, align 8
+  store ptr null, ptr %41, align 8
+  store i32 %33, ptr %32, align 8
+  store i32 %35, ptr %34, align 4
+  store ptr %37, ptr %36, align 8
+  store ptr null, ptr %45, align 8
+  br label %49
 
-47:                                               ; preds = %25, %.thread
+49:                                               ; preds = %25, %.thread
   %.050 = phi i32 [ %.049, %25 ], [ %.051, %.thread ]
-  %48 = load i32, ptr %15, align 4
-  switch i32 %48, label %63 [
-    i32 -1, label %67
-    i32 44, label %49
+  %50 = load i32, ptr %15, align 4
+  switch i32 %50, label %65 [
+    i32 -1, label %69
+    i32 44, label %51
   ]
 
-49:                                               ; preds = %47
-  %50 = load i32, ptr %.0.i, align 8
-  %.not42 = icmp eq i32 %50, 0
-  br i1 %.not42, label %63, label %51
-
 51:                                               ; preds = %49
-  %52 = shl nuw nsw i32 %.050, 3
-  %53 = trunc nuw nsw i32 %52 to i16
-  %.lhs.trunc = add nsw i16 %53, -8
-  %54 = srem i16 %.lhs.trunc, 7
-  %narrow = sub nsw i16 6, %54
-  %55 = zext nneg i16 %narrow to i32
-  %56 = sub i32 %17, %.050
-  %57 = shl i32 %56, 3
-  %58 = sub i32 %57, %55
-  %59 = sdiv i32 %58, 7
-  %60 = load i32, ptr @hf_smpp_short_message, align 4
-  %61 = add nuw nsw i32 %52, %55
-  %62 = tail call ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i32 noundef %60, ptr noundef %1, i32 noundef %61, i32 noundef %59) #9
-  br label %67
+  %52 = load i32, ptr %.0.i, align 8
+  %.not42 = icmp eq i32 %52, 0
+  br i1 %.not42, label %65, label %53
 
-63:                                               ; preds = %47, %49
-  %64 = load i32, ptr @hf_smpp_short_message, align 4
-  %65 = sub i32 %17, %.050
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %64, ptr noundef %1, i32 noundef %.050, i32 noundef %65, i32 noundef %16) #9
-  br label %67
+53:                                               ; preds = %51
+  %54 = shl nuw nsw i32 %.050, 3
+  %55 = trunc nuw nsw i32 %54 to i16
+  %.lhs.trunc = add nsw i16 %55, -8
+  %56 = srem i16 %.lhs.trunc, 7
+  %narrow = sub nsw i16 6, %56
+  %57 = zext nneg i16 %narrow to i32
+  %58 = sub i32 %17, %.050
+  %59 = shl i32 %58, 3
+  %60 = sub i32 %59, %57
+  %61 = sdiv i32 %60, 7
+  %62 = load i32, ptr @hf_smpp_short_message, align 4
+  %63 = add nuw nsw i32 %54, %57
+  %64 = tail call ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i32 noundef %62, ptr noundef %1, i32 noundef %63, i32 noundef %61) #9
+  br label %69
 
-67:                                               ; preds = %47, %51, %63
+65:                                               ; preds = %49, %51
+  %66 = load i32, ptr @hf_smpp_short_message, align 4
+  %67 = sub i32 %17, %.050
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %66, ptr noundef %1, i32 noundef %.050, i32 noundef %67, i32 noundef %16) #9
+  br label %69
+
+69:                                               ; preds = %49, %53, %65
   ret void
 }
 

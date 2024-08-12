@@ -2867,17 +2867,16 @@ invoke.cont12:                                    ; preds = %invoke.cont9
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont12
-  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
-  %.fr = freeze <4 x ptr> %3
+  %cmp.i15 = icmp ne ptr %call1, null
+  %cmp.i16 = icmp ne ptr %call4, null
+  %or.cond = select i1 %cmp.i15, i1 %cmp.i16, i1 false
+  %cmp.i17 = icmp ne ptr %call7, null
+  %or.cond53 = select i1 %or.cond, i1 %cmp.i17, i1 false
+  %cmp.i18 = icmp ne ptr %call10, null
+  %or.cond54 = select i1 %or.cond53, i1 %cmp.i18, i1 false
   %cmp.i19 = icmp ne ptr %call13, null
-  %4 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp eq i4 %5, 0
-  %op.rdx = select i1 %6, i1 %cmp.i19, i1 false
-  br i1 %op.rdx, label %for.cond.preheader, label %cleanup
+  %or.cond55 = select i1 %or.cond54, i1 %cmp.i19, i1 false
+  br i1 %or.cond55, label %for.cond.preheader, label %cleanup
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
   %cmp58.not = icmp eq ptr %fp, null
@@ -2886,27 +2885,27 @@ for.cond.preheader:                               ; preds = %lor.lhs.false
   br label %for.body
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup143
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup141
 
 lpad5:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup139
 
 lpad8:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup137
 
 lpad11:                                           ; preds = %invoke.cont9
-  %11 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -2961,20 +2960,20 @@ invoke.cont38:                                    ; preds = %if.else
   br i1 %tobool40.not, label %cleanup, label %if.end43
 
 if.end43:                                         ; preds = %invoke.cont38, %invoke.cont32
-  %12 = load i32, ptr @_ZZL8rand_negvE3neg, align 4
-  %inc.i = add i32 %12, 1
-  %rem.i = and i32 %12, 7
+  %5 = load i32, ptr @_ZZL8rand_negvE3neg, align 4
+  %inc.i = add i32 %5, 1
+  %rem.i = and i32 %5, 7
   %idxprom.i = zext nneg i32 %rem.i to i64
   %arrayidx.i = getelementptr inbounds [8 x i32], ptr @_ZZL8rand_negvE4sign, i64 0, i64 %idxprom.i
-  %13 = load i32, ptr %arrayidx.i, align 4
-  store i32 %13, ptr %neg, align 8
-  %inc.i20 = add i32 %12, 2
+  %6 = load i32, ptr %arrayidx.i, align 4
+  store i32 %6, ptr %neg, align 8
+  %inc.i20 = add i32 %5, 2
   store i32 %inc.i20, ptr @_ZZL8rand_negvE3neg, align 4
   %rem.i21 = and i32 %inc.i, 7
   %idxprom.i22 = zext nneg i32 %rem.i21 to i64
   %arrayidx.i23 = getelementptr inbounds [8 x i32], ptr @_ZZL8rand_negvE4sign, i64 0, i64 %idxprom.i22
-  %14 = load i32, ptr %arrayidx.i23, align 4
-  store i32 %14, ptr %neg48, align 8
+  %7 = load i32, ptr %arrayidx.i23, align 4
+  store i32 %7, ptr %neg48, align 8
   %call54 = invoke i32 @BN_mul(ptr noundef nonnull %call7, ptr noundef nonnull %call1, ptr noundef nonnull %call4, ptr noundef nonnull %call)
           to label %invoke.cont53 unwind label %lpad27.loopexit
 
@@ -2990,12 +2989,12 @@ if.then59:                                        ; preds = %if.end57
           to label %invoke.cont63 unwind label %lpad27.loopexit
 
 invoke.cont63:                                    ; preds = %if.then59
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 3, i64 1, ptr nonnull %fp)
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 3, i64 1, ptr nonnull %fp)
   %call66 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call4)
           to label %invoke.cont67 unwind label %lpad27.loopexit
 
 invoke.cont67:                                    ; preds = %invoke.cont63
-  %16 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
+  %9 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
   %call70 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call7)
           to label %_ZL7puts_fpP8_IO_FILEPKc.exit31 unwind label %lpad27.loopexit
 
@@ -3076,8 +3075,8 @@ invoke.cont128:                                   ; preds = %lor.lhs.false126
   br i1 %tobool130.not, label %cleanup, label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %invoke.cont91, %invoke.cont96, %invoke.cont123, %invoke.cont128
-  %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 28, i64 1, ptr %17) #16
+  %10 = load ptr, ptr @stderr, align 8
+  %11 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 28, i64 1, ptr %10) #16
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont78, %invoke.cont85, %invoke.cont53, %invoke.cont38, %invoke.cont28, %invoke.cont32, %cleanup.sink.split, %invoke.cont128, %invoke.cont117, %invoke.cont104, %lor.lhs.false, %invoke.cont12
@@ -3090,10 +3089,10 @@ if.then.i33:                                      ; preds = %cleanup
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i33
-  %19 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #19
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i33
@@ -3105,10 +3104,10 @@ if.then.i35:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit37 unwind label %terminate.lpad.i36
 
 terminate.lpad.i36:                               ; preds = %if.then.i35
-  %21 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #19
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit37: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then.i35
@@ -3120,10 +3119,10 @@ if.then.i39:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41 unwind label %terminate.lpad.i40
 
 terminate.lpad.i40:                               ; preds = %if.then.i39
-  %23 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #19
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit37, %if.then.i39
@@ -3135,10 +3134,10 @@ if.then.i43:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45 unwind label %terminate.lpad.i44
 
 terminate.lpad.i44:                               ; preds = %if.then.i43
-  %25 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #19
+  %19 = extractvalue { ptr, i32 } %18, 0
+  tail call void @__clang_call_terminate(ptr %19) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41, %if.then.i43
@@ -3150,10 +3149,10 @@ if.then.i47:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49 unwind label %terminate.lpad.i48
 
 terminate.lpad.i48:                               ; preds = %if.then.i47
-  %27 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #19
+  %21 = extractvalue { ptr, i32 } %20, 0
+  tail call void @__clang_call_terminate(ptr %21) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45, %if.then.i47
@@ -3164,37 +3163,37 @@ if.then.i51:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit unwind label %terminate.lpad.i52
 
 terminate.lpad.i52:                               ; preds = %if.then.i51
-  %29 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #19
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #19
   unreachable
 
 _ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49, %if.then.i51
   ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad27, %lpad11
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad27 ], [ %11, %lpad11 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad27 ], [ %4, %lpad11 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d) #18
   br label %ehcleanup137
 
 ehcleanup137:                                     ; preds = %ehcleanup, %lpad8
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad8 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad8 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %c) #18
   br label %ehcleanup139
 
 ehcleanup139:                                     ; preds = %ehcleanup137, %lpad5
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup137 ], [ %9, %lpad5 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup137 ], [ %2, %lpad5 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %b) #18
   br label %ehcleanup141
 
 ehcleanup141:                                     ; preds = %ehcleanup139, %lpad2
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup139 ], [ %8, %lpad2 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup139 ], [ %1, %lpad2 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %a) #18
   br label %ehcleanup143
 
 ehcleanup143:                                     ; preds = %ehcleanup141, %lpad
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup141 ], [ %7, %lpad ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup141 ], [ %0, %lpad ]
   call void @_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ctx) #18
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
@@ -3233,33 +3232,32 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont9
-  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
-  %.fr = freeze <4 x ptr> %3
-  %4 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp eq i4 %5, 0
-  br i1 %6, label %if.end, label %cleanup
+  %cmp.i26 = icmp ne ptr %call1, null
+  %cmp.i27 = icmp ne ptr %call4, null
+  %or.cond = select i1 %cmp.i26, i1 %cmp.i27, i1 false
+  %cmp.i28 = icmp ne ptr %call7, null
+  %or.cond72 = select i1 %or.cond, i1 %cmp.i28, i1 false
+  %cmp.i29 = icmp ne ptr %call10, null
+  %or.cond73 = select i1 %or.cond72, i1 %cmp.i29, i1 false
+  br i1 %or.cond73, label %if.end, label %cleanup
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup211
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup209
 
 lpad5:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup207
 
 lpad8:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -3299,8 +3297,8 @@ invoke.cont31:                                    ; preds = %invoke.cont26
   br i1 %tobool33.not, label %if.end37, label %if.then34
 
 if.then34:                                        ; preds = %invoke.cont31
-  %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 28, i64 1, ptr %11) #16
+  %4 = load ptr, ptr @stderr, align 8
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 28, i64 1, ptr %4) #16
   br label %if.then.i55
 
 if.end37:                                         ; preds = %invoke.cont31
@@ -3340,8 +3338,8 @@ invoke.cont48:                                    ; preds = %lor.lhs.false45
   br i1 %tobool50.not, label %cleanup, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %invoke.cont48
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
-  %call55 = invoke i32 @BN_lshift(ptr noundef nonnull %call, ptr noundef nonnull %call, i32 noundef %13)
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
+  %call55 = invoke i32 @BN_lshift(ptr noundef nonnull %call, ptr noundef nonnull %call, i32 noundef %6)
           to label %invoke.cont54 unwind label %lpad20.loopexit
 
 invoke.cont54:                                    ; preds = %lor.lhs.false51
@@ -3357,10 +3355,10 @@ invoke.cont59:                                    ; preds = %lor.lhs.false57
   br i1 %tobool61.not, label %cleanup, label %if.end70
 
 if.else:                                          ; preds = %for.body
-  %14 = trunc i64 %indvars.iv to i32
-  %15 = mul i32 %14, 3
-  %16 = add i32 %15, -100
-  %call66 = invoke i32 @BN_rand(ptr noundef nonnull %call1, i32 noundef %16, i32 noundef 0, i32 noundef 0)
+  %7 = trunc i64 %indvars.iv to i32
+  %8 = mul i32 %7, 3
+  %9 = add i32 %8, -100
+  %call66 = invoke i32 @BN_rand(ptr noundef nonnull %call1, i32 noundef %9, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont65 unwind label %lpad20.loopexit
 
 invoke.cont65:                                    ; preds = %if.else
@@ -3368,20 +3366,20 @@ invoke.cont65:                                    ; preds = %if.else
   br i1 %tobool67.not, label %cleanup, label %if.end70
 
 if.end70:                                         ; preds = %invoke.cont65, %invoke.cont59
-  %17 = load i32, ptr @_ZZL8rand_negvE3neg, align 4
-  %inc.i = add i32 %17, 1
-  %rem.i = and i32 %17, 7
+  %10 = load i32, ptr @_ZZL8rand_negvE3neg, align 4
+  %inc.i = add i32 %10, 1
+  %rem.i = and i32 %10, 7
   %idxprom.i = zext nneg i32 %rem.i to i64
   %arrayidx.i = getelementptr inbounds [8 x i32], ptr @_ZZL8rand_negvE4sign, i64 0, i64 %idxprom.i
-  %18 = load i32, ptr %arrayidx.i, align 4
-  store i32 %18, ptr %neg, align 8
-  %inc.i30 = add i32 %17, 2
+  %11 = load i32, ptr %arrayidx.i, align 4
+  store i32 %11, ptr %neg, align 8
+  %inc.i30 = add i32 %10, 2
   store i32 %inc.i30, ptr @_ZZL8rand_negvE3neg, align 4
   %rem.i31 = and i32 %inc.i, 7
   %idxprom.i32 = zext nneg i32 %rem.i31 to i64
   %arrayidx.i33 = getelementptr inbounds [8 x i32], ptr @_ZZL8rand_negvE4sign, i64 0, i64 %idxprom.i32
-  %19 = load i32, ptr %arrayidx.i33, align 4
-  store i32 %19, ptr %neg75, align 8
+  %12 = load i32, ptr %arrayidx.i33, align 4
+  store i32 %12, ptr %neg75, align 8
   %call81 = invoke i32 @BN_div(ptr noundef nonnull %call7, ptr noundef nonnull %call4, ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef %ctx)
           to label %invoke.cont80 unwind label %lpad20.loopexit
 
@@ -3397,12 +3395,12 @@ if.then86:                                        ; preds = %if.end84
           to label %invoke.cont90 unwind label %lpad20.loopexit
 
 invoke.cont90:                                    ; preds = %if.then86
-  %20 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr nonnull %fp)
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr nonnull %fp)
   %call93 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call1)
           to label %invoke.cont94 unwind label %lpad20.loopexit
 
 invoke.cont94:                                    ; preds = %invoke.cont90
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
   %call97 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call7)
           to label %invoke.cont98 unwind label %lpad20.loopexit
 
@@ -3412,12 +3410,12 @@ invoke.cont98:                                    ; preds = %invoke.cont94
           to label %invoke.cont102 unwind label %lpad20.loopexit
 
 invoke.cont102:                                   ; preds = %invoke.cont98
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
   %call105 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call1)
           to label %invoke.cont106 unwind label %lpad20.loopexit
 
 invoke.cont106:                                   ; preds = %invoke.cont102
-  %23 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
+  %16 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
   %call109 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call4)
           to label %_ZL7puts_fpP8_IO_FILEPKc.exit53 unwind label %lpad20.loopexit
 
@@ -3534,8 +3532,8 @@ invoke.cont198:                                   ; preds = %lor.lhs.false196
   br i1 %tobool200.not, label %cleanup, label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %invoke.cont135, %invoke.cont193, %invoke.cont198, %invoke.cont165, %invoke.cont170
-  %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 22, i64 1, ptr %24) #16
+  %17 = load ptr, ptr @stderr, align 8
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 22, i64 1, ptr %17) #16
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont115, %invoke.cont122, %invoke.cont129, %invoke.cont80, %invoke.cont65, %invoke.cont42, %invoke.cont48, %invoke.cont54, %invoke.cont59, %cleanup.sink.split, %invoke.cont198, %invoke.cont187, %invoke.cont178, %invoke.cont159, %invoke.cont143, %invoke.cont148, %lor.lhs.false, %invoke.cont9
@@ -3549,10 +3547,10 @@ if.then.i55:                                      ; preds = %if.then34, %invoke.
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i55
-  %26 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #19
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i55
@@ -3565,10 +3563,10 @@ if.then.i57:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59 unwind label %terminate.lpad.i58
 
 terminate.lpad.i58:                               ; preds = %if.then.i57
-  %28 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #19
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then.i57
@@ -3580,10 +3578,10 @@ if.then.i61:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63 unwind label %terminate.lpad.i62
 
 terminate.lpad.i62:                               ; preds = %if.then.i61
-  %30 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #19
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, %if.then.i61
@@ -3595,10 +3593,10 @@ if.then.i65:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67 unwind label %terminate.lpad.i66
 
 terminate.lpad.i66:                               ; preds = %if.then.i65
-  %32 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #19
+  %26 = extractvalue { ptr, i32 } %25, 0
+  tail call void @__clang_call_terminate(ptr %26) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63, %if.then.i65
@@ -3609,32 +3607,32 @@ if.then.i69:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71 unwind label %terminate.lpad.i70
 
 terminate.lpad.i70:                               ; preds = %if.then.i69
-  %34 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #19
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67, %if.then.i69
   ret i1 %retval.081
 
 ehcleanup:                                        ; preds = %lpad20, %lpad8
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad20 ], [ %10, %lpad8 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad20 ], [ %3, %lpad8 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d) #18
   br label %ehcleanup207
 
 ehcleanup207:                                     ; preds = %ehcleanup, %lpad5
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %9, %lpad5 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad5 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %c) #18
   br label %ehcleanup209
 
 ehcleanup209:                                     ; preds = %ehcleanup207, %lpad2
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup207 ], [ %8, %lpad2 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup207 ], [ %1, %lpad2 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %b) #18
   br label %ehcleanup211
 
 ehcleanup211:                                     ; preds = %ehcleanup209, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup209 ], [ %7, %lpad ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup209 ], [ %0, %lpad ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %a) #18
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
@@ -3893,15 +3891,14 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont9
-  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
-  %.fr = freeze <4 x ptr> %3
-  %4 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp eq i4 %5, 0
-  br i1 %6, label %lor.lhs.false19, label %cleanup
+  %cmp.i14 = icmp ne ptr %call1, null
+  %cmp.i15 = icmp ne ptr %call4, null
+  %or.cond = select i1 %cmp.i14, i1 %cmp.i15, i1 false
+  %cmp.i16 = icmp ne ptr %call7, null
+  %or.cond48 = select i1 %or.cond, i1 %cmp.i16, i1 false
+  %cmp.i17 = icmp ne ptr %call10, null
+  %or.cond49 = select i1 %or.cond48, i1 %cmp.i17, i1 false
+  br i1 %or.cond49, label %lor.lhs.false19, label %cleanup
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false
   %call23 = invoke i32 @BN_rand(ptr noundef nonnull %call, i32 noundef 1024, i32 noundef 0, i32 noundef 0)
@@ -3918,22 +3915,22 @@ for.cond.preheader:                               ; preds = %invoke.cont22
   br label %for.body
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup88
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup86
 
 lpad5:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup84
 
 lpad8:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -3969,20 +3966,20 @@ invoke.cont25:                                    ; preds = %for.body
   br i1 %tobool27.not, label %cleanup, label %if.end29
 
 if.end29:                                         ; preds = %invoke.cont25
-  %11 = load i32, ptr @_ZZL8rand_negvE3neg, align 4
-  %inc.i = add i32 %11, 1
-  %rem.i = and i32 %11, 7
+  %4 = load i32, ptr @_ZZL8rand_negvE3neg, align 4
+  %inc.i = add i32 %4, 1
+  %rem.i = and i32 %4, 7
   %idxprom.i = zext nneg i32 %rem.i to i64
   %arrayidx.i = getelementptr inbounds [8 x i32], ptr @_ZZL8rand_negvE4sign, i64 0, i64 %idxprom.i
-  %12 = load i32, ptr %arrayidx.i, align 4
-  store i32 %12, ptr %neg, align 8
-  %inc.i18 = add i32 %11, 2
+  %5 = load i32, ptr %arrayidx.i, align 4
+  store i32 %5, ptr %neg, align 8
+  %inc.i18 = add i32 %4, 2
   store i32 %inc.i18, ptr @_ZZL8rand_negvE3neg, align 4
   %rem.i19 = and i32 %inc.i, 7
   %idxprom.i20 = zext nneg i32 %rem.i19 to i64
   %arrayidx.i21 = getelementptr inbounds [8 x i32], ptr @_ZZL8rand_negvE4sign, i64 0, i64 %idxprom.i20
-  %13 = load i32, ptr %arrayidx.i21, align 4
-  store i32 %13, ptr %neg34, align 8
+  %6 = load i32, ptr %arrayidx.i21, align 4
+  store i32 %6, ptr %neg34, align 8
   %call39 = invoke i32 @BN_div(ptr noundef null, ptr noundef nonnull %call4, ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef %ctx)
           to label %invoke.cont38 unwind label %lpad21.loopexit
 
@@ -3998,12 +3995,12 @@ if.then44:                                        ; preds = %if.end42
           to label %invoke.cont48 unwind label %lpad21.loopexit
 
 invoke.cont48:                                    ; preds = %if.then44
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
   %call51 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call1)
           to label %invoke.cont52 unwind label %lpad21.loopexit
 
 invoke.cont52:                                    ; preds = %invoke.cont48
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
   %call55 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call4)
           to label %_ZL7puts_fpP8_IO_FILEPKc.exit29 unwind label %lpad21.loopexit
 
@@ -4036,8 +4033,8 @@ invoke.cont75:                                    ; preds = %if.end73
   br i1 %tobool77.not, label %if.then78, label %for.cond
 
 if.then78:                                        ; preds = %invoke.cont75
-  %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i64 @fwrite(ptr nonnull @.str.61, i64 20, i64 1, ptr %16) #16
+  %9 = load ptr, ptr @stderr, align 8
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.61, i64 20, i64 1, ptr %9) #16
   br label %cleanup
 
 cleanup:                                          ; preds = %for.cond, %invoke.cont62, %invoke.cont69, %invoke.cont38, %invoke.cont25, %lor.lhs.false, %if.then78, %invoke.cont9
@@ -4051,10 +4048,10 @@ if.then.i31:                                      ; preds = %invoke.cont22, %cle
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i31
-  %18 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #19
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i31
@@ -4067,10 +4064,10 @@ if.then.i33:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit35 unwind label %terminate.lpad.i34
 
 terminate.lpad.i34:                               ; preds = %if.then.i33
-  %20 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #19
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit35: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then.i33
@@ -4082,10 +4079,10 @@ if.then.i37:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39 unwind label %terminate.lpad.i38
 
 terminate.lpad.i38:                               ; preds = %if.then.i37
-  %22 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #19
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit35, %if.then.i37
@@ -4097,10 +4094,10 @@ if.then.i41:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43 unwind label %terminate.lpad.i42
 
 terminate.lpad.i42:                               ; preds = %if.then.i41
-  %24 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #19
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39, %if.then.i41
@@ -4111,32 +4108,32 @@ if.then.i45:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit47 unwind label %terminate.lpad.i46
 
 terminate.lpad.i46:                               ; preds = %if.then.i45
-  %26 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #19
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit47: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43, %if.then.i45
   ret i1 %retval.054
 
 ehcleanup:                                        ; preds = %lpad21, %lpad8
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad21 ], [ %10, %lpad8 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad21 ], [ %3, %lpad8 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d) #18
   br label %ehcleanup84
 
 ehcleanup84:                                      ; preds = %ehcleanup, %lpad5
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %9, %lpad5 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad5 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %c) #18
   br label %ehcleanup86
 
 ehcleanup86:                                      ; preds = %ehcleanup84, %lpad2
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup84 ], [ %8, %lpad2 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup84 ], [ %1, %lpad2 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %b) #18
   br label %ehcleanup88
 
 ehcleanup88:                                      ; preds = %ehcleanup86, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup86 ], [ %7, %lpad ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup86 ], [ %0, %lpad ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %a) #18
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
@@ -4175,33 +4172,32 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont9
-  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
-  %.fr = freeze <4 x ptr> %3
-  %4 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp eq i4 %5, 0
-  br i1 %6, label %if.end, label %cleanup
+  %cmp.i22 = icmp ne ptr %call1, null
+  %cmp.i23 = icmp ne ptr %call4, null
+  %or.cond = select i1 %cmp.i22, i1 %cmp.i23, i1 false
+  %cmp.i24 = icmp ne ptr %call7, null
+  %or.cond64 = select i1 %or.cond, i1 %cmp.i24, i1 false
+  %cmp.i25 = icmp ne ptr %call10, null
+  %or.cond65 = select i1 %or.cond64, i1 %cmp.i25, i1 false
+  br i1 %or.cond65, label %if.end, label %cleanup
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup156
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup154
 
 lpad5:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup152
 
 lpad8:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -4254,8 +4250,8 @@ invoke.cont36:                                    ; preds = %invoke.cont31
   br i1 %tobool38.not, label %if.end42, label %if.then39
 
 if.then39:                                        ; preds = %invoke.cont36
-  %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 40, i64 1, ptr %11) #16
+  %4 = load ptr, ptr @stderr, align 8
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 40, i64 1, ptr %4) #16
   br label %if.then.i47
 
 if.end42:                                         ; preds = %invoke.cont36
@@ -4268,10 +4264,10 @@ for.cond.preheader:                               ; preds = %if.end42
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc147
   %.pr76 = phi ptr [ %call10, %for.cond.preheader ], [ %.pr.pre.pre77, %for.inc147 ]
-  %13 = phi ptr [ %call, %for.cond.preheader ], [ %19, %for.inc147 ]
-  %14 = phi ptr [ %call4, %for.cond.preheader ], [ %21, %for.inc147 ]
+  %6 = phi ptr [ %call, %for.cond.preheader ], [ %12, %for.inc147 ]
+  %7 = phi ptr [ %call4, %for.cond.preheader ], [ %14, %for.inc147 ]
   %j.071 = phi i32 [ 0, %for.cond.preheader ], [ %inc148, %for.inc147 ]
-  %call46 = invoke i32 @BN_rand(ptr noundef %14, i32 noundef 1024, i32 noundef 0, i32 noundef 0)
+  %call46 = invoke i32 @BN_rand(ptr noundef %7, i32 noundef 1024, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont45 unwind label %lpad20.loopexit.split-lp.loopexit
 
 invoke.cont45:                                    ; preds = %for.body
@@ -4284,11 +4280,11 @@ for.cond50:                                       ; preds = %invoke.cont139
   br i1 %exitcond.not, label %for.inc147, label %for.body52, !llvm.loop !21
 
 for.body52:                                       ; preds = %invoke.cont45, %for.cond50
-  %15 = phi ptr [ %19, %for.cond50 ], [ %13, %invoke.cont45 ]
+  %8 = phi ptr [ %12, %for.cond50 ], [ %6, %invoke.cont45 ]
   %i.070 = phi i32 [ %inc, %for.cond50 ], [ 0, %invoke.cont45 ]
   %mul = mul nuw nsw i32 %i.070, 10
   %add = add nuw nsw i32 %mul, 475
-  %call55 = invoke i32 @BN_rand(ptr noundef nonnull %15, i32 noundef %add, i32 noundef 0, i32 noundef 0)
+  %call55 = invoke i32 @BN_rand(ptr noundef nonnull %8, i32 noundef %add, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont54 unwind label %lpad20.loopexit
 
 invoke.cont54:                                    ; preds = %for.body52
@@ -4300,10 +4296,10 @@ invoke.cont54.cleanupthread-pre-split.loopexit_crit_edge: ; preds = %invoke.cont
   br label %cleanup
 
 lor.lhs.false57:                                  ; preds = %invoke.cont54
-  %16 = load ptr, ptr %b, align 8
+  %9 = load ptr, ptr %b, align 8
   %mul59 = mul nuw nsw i32 %i.070, 11
   %add60 = add nuw nsw i32 %mul59, 425
-  %call62 = invoke i32 @BN_rand(ptr noundef %16, i32 noundef %add60, i32 noundef 0, i32 noundef 0)
+  %call62 = invoke i32 @BN_rand(ptr noundef %9, i32 noundef %add60, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont61 unwind label %lpad20.loopexit
 
 invoke.cont61:                                    ; preds = %lor.lhs.false57
@@ -4312,25 +4308,25 @@ invoke.cont61:                                    ; preds = %lor.lhs.false57
   br i1 %tobool63.not, label %cleanup, label %if.end65
 
 if.end65:                                         ; preds = %invoke.cont61
-  %17 = load i32, ptr @_ZZL8rand_negvE3neg, align 4
-  %inc.i = add i32 %17, 1
-  %rem.i = and i32 %17, 7
+  %10 = load i32, ptr @_ZZL8rand_negvE3neg, align 4
+  %inc.i = add i32 %10, 1
+  %rem.i = and i32 %10, 7
   %idxprom.i = zext nneg i32 %rem.i to i64
   %arrayidx.i = getelementptr inbounds [8 x i32], ptr @_ZZL8rand_negvE4sign, i64 0, i64 %idxprom.i
-  %18 = load i32, ptr %arrayidx.i, align 4
-  %19 = load ptr, ptr %a, align 8
-  %neg = getelementptr inbounds i8, ptr %19, i64 16
-  store i32 %18, ptr %neg, align 8
-  %inc.i26 = add i32 %17, 2
+  %11 = load i32, ptr %arrayidx.i, align 4
+  %12 = load ptr, ptr %a, align 8
+  %neg = getelementptr inbounds i8, ptr %12, i64 16
+  store i32 %11, ptr %neg, align 8
+  %inc.i26 = add i32 %10, 2
   store i32 %inc.i26, ptr @_ZZL8rand_negvE3neg, align 4
   %rem.i27 = and i32 %inc.i, 7
   %idxprom.i28 = zext nneg i32 %rem.i27 to i64
   %arrayidx.i29 = getelementptr inbounds [8 x i32], ptr @_ZZL8rand_negvE4sign, i64 0, i64 %idxprom.i28
-  %20 = load i32, ptr %arrayidx.i29, align 4
-  %neg70 = getelementptr inbounds i8, ptr %16, i64 16
-  store i32 %20, ptr %neg70, align 8
-  %21 = load ptr, ptr %c, align 8
-  %call76 = invoke i32 @BN_mod_mul(ptr noundef %.pr.pre.pre77, ptr noundef nonnull %19, ptr noundef nonnull %16, ptr noundef %21, ptr noundef %ctx)
+  %13 = load i32, ptr %arrayidx.i29, align 4
+  %neg70 = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 %13, ptr %neg70, align 8
+  %14 = load ptr, ptr %c, align 8
+  %call76 = invoke i32 @BN_mod_mul(ptr noundef %.pr.pre.pre77, ptr noundef nonnull %12, ptr noundef nonnull %9, ptr noundef %14, ptr noundef %ctx)
           to label %invoke.cont75 unwind label %lpad20.loopexit
 
 invoke.cont75:                                    ; preds = %if.end65
@@ -4341,23 +4337,23 @@ if.end80:                                         ; preds = %invoke.cont75
   br i1 %cmp81.not, label %if.end114, label %if.then82
 
 if.then82:                                        ; preds = %if.end80
-  %call85 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %19)
+  %call85 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %12)
           to label %invoke.cont86 unwind label %lpad20.loopexit
 
 invoke.cont86:                                    ; preds = %if.then82
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 3, i64 1, ptr nonnull %fp)
-  %call89 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %16)
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 3, i64 1, ptr nonnull %fp)
+  %call89 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %9)
           to label %invoke.cont90 unwind label %lpad20.loopexit
 
 invoke.cont90:                                    ; preds = %invoke.cont86
-  %23 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
-  %call93 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %21)
+  %16 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
+  %call93 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %14)
           to label %invoke.cont92 unwind label %lpad20.loopexit
 
 invoke.cont92:                                    ; preds = %invoke.cont90
-  %24 = load i32, ptr %neg, align 8
-  %25 = load i32, ptr %neg70, align 8
-  %cmp98.not = icmp eq i32 %24, %25
+  %17 = load i32, ptr %neg, align 8
+  %18 = load i32, ptr %neg70, align 8
+  %cmp98.not = icmp eq i32 %17, %18
   br i1 %cmp98.not, label %invoke.cont109, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont92
@@ -4369,12 +4365,12 @@ invoke.cont100:                                   ; preds = %land.lhs.true
   br i1 %tobool102.not, label %invoke.cont104, label %invoke.cont109
 
 invoke.cont104:                                   ; preds = %invoke.cont100
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 3, i64 1, ptr nonnull %fp)
-  %call107 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %21)
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 3, i64 1, ptr nonnull %fp)
+  %call107 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %14)
           to label %invoke.cont109 unwind label %lpad20.loopexit
 
 invoke.cont109:                                   ; preds = %invoke.cont92, %invoke.cont100, %invoke.cont104
-  %27 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
   %call112 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %.pr.pre.pre77)
           to label %_ZL7puts_fpP8_IO_FILEPKc.exit45 unwind label %lpad20.loopexit
 
@@ -4383,8 +4379,8 @@ _ZL7puts_fpP8_IO_FILEPKc.exit45:                  ; preds = %invoke.cont109
   br label %if.end114
 
 if.end114:                                        ; preds = %_ZL7puts_fpP8_IO_FILEPKc.exit45, %if.end80
-  %28 = load ptr, ptr %d, align 8
-  %call119 = invoke i32 @BN_mul(ptr noundef %28, ptr noundef nonnull %19, ptr noundef nonnull %16, ptr noundef %ctx)
+  %21 = load ptr, ptr %d, align 8
+  %call119 = invoke i32 @BN_mul(ptr noundef %21, ptr noundef nonnull %12, ptr noundef nonnull %9, ptr noundef %ctx)
           to label %invoke.cont118 unwind label %lpad20.loopexit
 
 invoke.cont118:                                   ; preds = %if.end114
@@ -4392,7 +4388,7 @@ invoke.cont118:                                   ; preds = %if.end114
   br i1 %tobool120.not, label %cleanup, label %lor.lhs.false121
 
 lor.lhs.false121:                                 ; preds = %invoke.cont118
-  %call126 = invoke i32 @BN_sub(ptr noundef %28, ptr noundef %28, ptr noundef %.pr.pre.pre77)
+  %call126 = invoke i32 @BN_sub(ptr noundef %21, ptr noundef %21, ptr noundef %.pr.pre.pre77)
           to label %invoke.cont125 unwind label %lpad20.loopexit
 
 invoke.cont125:                                   ; preds = %lor.lhs.false121
@@ -4400,7 +4396,7 @@ invoke.cont125:                                   ; preds = %lor.lhs.false121
   br i1 %tobool127.not, label %cleanup, label %lor.lhs.false128
 
 lor.lhs.false128:                                 ; preds = %invoke.cont125
-  %call134 = invoke i32 @BN_div(ptr noundef nonnull %19, ptr noundef nonnull %16, ptr noundef %28, ptr noundef %21, ptr noundef %ctx)
+  %call134 = invoke i32 @BN_div(ptr noundef nonnull %12, ptr noundef nonnull %9, ptr noundef %21, ptr noundef %14, ptr noundef %ctx)
           to label %invoke.cont133 unwind label %lpad20.loopexit
 
 invoke.cont133:                                   ; preds = %lor.lhs.false128
@@ -4408,7 +4404,7 @@ invoke.cont133:                                   ; preds = %lor.lhs.false128
   br i1 %tobool135.not, label %cleanup, label %if.end137
 
 if.end137:                                        ; preds = %invoke.cont133
-  %call140 = invoke i32 @BN_is_zero(ptr noundef nonnull %16)
+  %call140 = invoke i32 @BN_is_zero(ptr noundef nonnull %9)
           to label %invoke.cont139 unwind label %lpad20.loopexit
 
 invoke.cont139:                                   ; preds = %if.end137
@@ -4416,13 +4412,13 @@ invoke.cont139:                                   ; preds = %if.end137
   br i1 %tobool141.not, label %if.then142, label %for.cond50
 
 if.then142:                                       ; preds = %invoke.cont139
-  %29 = load ptr, ptr @stderr, align 8
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 29, i64 1, ptr %29) #16
+  %22 = load ptr, ptr @stderr, align 8
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 29, i64 1, ptr %22) #16
   br label %if.then142.invoke
 
 if.then142.invoke:                                ; preds = %invoke.cont75, %if.then142
-  %31 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %31)
+  %24 = load ptr, ptr @stderr, align 8
+  invoke void @ERR_print_errors_fp(ptr noundef %24)
           to label %cleanup unwind label %lpad20.loopexit.split-lp.loopexit.split-lp
 
 for.inc147:                                       ; preds = %for.cond50
@@ -4431,109 +4427,109 @@ for.inc147:                                       ; preds = %for.cond50
   br i1 %exitcond73.not, label %cleanup, label %for.body, !llvm.loop !22
 
 cleanup:                                          ; preds = %for.inc147, %invoke.cont45, %invoke.cont118, %invoke.cont125, %invoke.cont133, %invoke.cont61, %if.then142.invoke, %lor.lhs.false, %invoke.cont54.cleanupthread-pre-split.loopexit_crit_edge, %invoke.cont9
-  %32 = phi ptr [ %call10, %invoke.cont9 ], [ %call10, %lor.lhs.false ], [ %.pr.pre.pre, %invoke.cont54.cleanupthread-pre-split.loopexit_crit_edge ], [ %.pr.pre.pre77, %if.then142.invoke ], [ %.pr.pre.pre77, %invoke.cont61 ], [ %.pr.pre.pre77, %invoke.cont133 ], [ %.pr.pre.pre77, %invoke.cont125 ], [ %.pr.pre.pre77, %invoke.cont118 ], [ %.pr76, %invoke.cont45 ], [ %.pr.pre.pre77, %for.inc147 ]
+  %25 = phi ptr [ %call10, %invoke.cont9 ], [ %call10, %lor.lhs.false ], [ %.pr.pre.pre, %invoke.cont54.cleanupthread-pre-split.loopexit_crit_edge ], [ %.pr.pre.pre77, %if.then142.invoke ], [ %.pr.pre.pre77, %invoke.cont61 ], [ %.pr.pre.pre77, %invoke.cont133 ], [ %.pr.pre.pre77, %invoke.cont125 ], [ %.pr.pre.pre77, %invoke.cont118 ], [ %.pr76, %invoke.cont45 ], [ %.pr.pre.pre77, %for.inc147 ]
   %retval.0 = phi i1 [ false, %invoke.cont9 ], [ false, %lor.lhs.false ], [ false, %invoke.cont54.cleanupthread-pre-split.loopexit_crit_edge ], [ false, %if.then142.invoke ], [ false, %invoke.cont61 ], [ false, %invoke.cont133 ], [ false, %invoke.cont125 ], [ false, %invoke.cont118 ], [ false, %invoke.cont45 ], [ %tobool47.not, %for.inc147 ]
-  %cmp.not.i46 = icmp eq ptr %32, null
+  %cmp.not.i46 = icmp eq ptr %25, null
   br i1 %cmp.not.i46, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i47
 
 if.then.i47:                                      ; preds = %if.then39, %invoke.cont25, %invoke.cont21, %cleanup
   %retval.081 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont21 ], [ false, %invoke.cont25 ], [ false, %if.then39 ]
-  %33 = phi ptr [ %32, %cleanup ], [ %call10, %invoke.cont21 ], [ %call10, %invoke.cont25 ], [ %call10, %if.then39 ]
-  invoke void @BN_free(ptr noundef nonnull %33)
+  %26 = phi ptr [ %25, %cleanup ], [ %call10, %invoke.cont21 ], [ %call10, %invoke.cont25 ], [ %call10, %if.then39 ]
+  invoke void @BN_free(ptr noundef nonnull %26)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i47
-  %34 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #19
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i47
   %retval.082 = phi i1 [ %retval.0, %cleanup ], [ %retval.081, %if.then.i47 ]
-  %36 = load ptr, ptr %d, align 8
-  %cmp.not.i48 = icmp eq ptr %36, null
+  %29 = load ptr, ptr %d, align 8
+  %cmp.not.i48 = icmp eq ptr %29, null
   br i1 %cmp.not.i48, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit51, label %if.then.i49
 
 if.then.i49:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit
-  invoke void @BN_free(ptr noundef nonnull %36)
+  invoke void @BN_free(ptr noundef nonnull %29)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit51 unwind label %terminate.lpad.i50
 
 terminate.lpad.i50:                               ; preds = %if.then.i49
-  %37 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #19
+  %31 = extractvalue { ptr, i32 } %30, 0
+  tail call void @__clang_call_terminate(ptr %31) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit51: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then.i49
-  %39 = load ptr, ptr %c, align 8
-  %cmp.not.i52 = icmp eq ptr %39, null
+  %32 = load ptr, ptr %c, align 8
+  %cmp.not.i52 = icmp eq ptr %32, null
   br i1 %cmp.not.i52, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55, label %if.then.i53
 
 if.then.i53:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit51
-  invoke void @BN_free(ptr noundef nonnull %39)
+  invoke void @BN_free(ptr noundef nonnull %32)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55 unwind label %terminate.lpad.i54
 
 terminate.lpad.i54:                               ; preds = %if.then.i53
-  %40 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #19
+  %34 = extractvalue { ptr, i32 } %33, 0
+  tail call void @__clang_call_terminate(ptr %34) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit51, %if.then.i53
-  %42 = load ptr, ptr %b, align 8
-  %cmp.not.i56 = icmp eq ptr %42, null
+  %35 = load ptr, ptr %b, align 8
+  %cmp.not.i56 = icmp eq ptr %35, null
   br i1 %cmp.not.i56, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, label %if.then.i57
 
 if.then.i57:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55
-  invoke void @BN_free(ptr noundef nonnull %42)
+  invoke void @BN_free(ptr noundef nonnull %35)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59 unwind label %terminate.lpad.i58
 
 terminate.lpad.i58:                               ; preds = %if.then.i57
-  %43 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #19
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55, %if.then.i57
-  %45 = load ptr, ptr %a, align 8
-  %cmp.not.i60 = icmp eq ptr %45, null
+  %38 = load ptr, ptr %a, align 8
+  %cmp.not.i60 = icmp eq ptr %38, null
   br i1 %cmp.not.i60, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63, label %if.then.i61
 
 if.then.i61:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59
-  invoke void @BN_free(ptr noundef nonnull %45)
+  invoke void @BN_free(ptr noundef nonnull %38)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63 unwind label %terminate.lpad.i62
 
 terminate.lpad.i62:                               ; preds = %if.then.i61
-  %46 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #19
+  %40 = extractvalue { ptr, i32 } %39, 0
+  tail call void @__clang_call_terminate(ptr %40) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, %if.then.i61
   ret i1 %retval.082
 
 ehcleanup:                                        ; preds = %lpad20, %lpad8
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad20 ], [ %10, %lpad8 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad20 ], [ %3, %lpad8 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d) #18
   br label %ehcleanup152
 
 ehcleanup152:                                     ; preds = %ehcleanup, %lpad5
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %9, %lpad5 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad5 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %c) #18
   br label %ehcleanup154
 
 ehcleanup154:                                     ; preds = %ehcleanup152, %lpad2
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup152 ], [ %8, %lpad2 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup152 ], [ %1, %lpad2 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %b) #18
   br label %ehcleanup156
 
 ehcleanup156:                                     ; preds = %ehcleanup154, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup154 ], [ %7, %lpad ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup154 ], [ %0, %lpad ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %a) #18
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
@@ -4590,17 +4586,16 @@ invoke.cont18:                                    ; preds = %invoke.cont15
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont18
-  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
-  %.fr = freeze <4 x ptr> %3
+  %cmp.i28 = icmp ne ptr %call1, null
+  %cmp.i29 = icmp ne ptr %call4, null
+  %or.cond = select i1 %cmp.i28, i1 %cmp.i29, i1 false
+  %cmp.i30 = icmp ne ptr %call7, null
+  %or.cond76 = select i1 %or.cond, i1 %cmp.i30, i1 false
+  %cmp.i31 = icmp ne ptr %call10, null
+  %or.cond77 = select i1 %or.cond76, i1 %cmp.i31, i1 false
   %cmp.i32 = icmp ne ptr %call13, null
-  %4 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp eq i4 %5, 0
-  %op.rdx = select i1 %6, i1 %cmp.i32, i1 false
-  br i1 %op.rdx, label %lor.lhs.false30, label %cleanup
+  %or.cond78 = select i1 %or.cond77, i1 %cmp.i32, i1 false
+  br i1 %or.cond78, label %lor.lhs.false30, label %cleanup
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false
   %cmp.i33 = icmp ne ptr %call16, null
@@ -4609,37 +4604,37 @@ lor.lhs.false30:                                  ; preds = %lor.lhs.false
   br i1 %or.cond79, label %if.end, label %cleanup
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup186
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup184
 
 lpad5:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup182
 
 lpad8:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup180
 
 lpad11:                                           ; preds = %invoke.cont9
-  %11 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup178
 
 lpad14:                                           ; preds = %invoke.cont12
-  %12 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup176
 
 lpad17:                                           ; preds = %invoke.cont15
-  %13 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -4716,7 +4711,7 @@ for.cond.preheader:                               ; preds = %invoke.cont68
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %invoke.cont167
-  %14 = phi ptr [ %16, %invoke.cont167 ], [ %call16, %for.cond.preheader ]
+  %7 = phi ptr [ %9, %invoke.cont167 ], [ %call16, %for.cond.preheader ]
   %i.0 = phi i32 [ %add, %invoke.cont167 ], [ 0, %for.cond.preheader ]
   %exitcond.not = icmp eq i32 %i.0, 5
   br i1 %exitcond.not, label %cleanup, label %for.body
@@ -4724,7 +4719,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
 for.body:                                         ; preds = %for.cond
   %add = add nuw nsw i32 %i.0, 1
   %div = mul nuw nsw i32 %add, 40
-  %call78 = invoke i32 @BN_rand(ptr noundef %14, i32 noundef %div, i32 noundef 0, i32 noundef 1)
+  %call78 = invoke i32 @BN_rand(ptr noundef %7, i32 noundef %div, i32 noundef 0, i32 noundef 1)
           to label %invoke.cont77 unwind label %lpad35.loopexit
 
 invoke.cont77:                                    ; preds = %for.body
@@ -4732,7 +4727,7 @@ invoke.cont77:                                    ; preds = %for.body
   br i1 %tobool79.not, label %cleanup, label %lor.lhs.false80
 
 lor.lhs.false80:                                  ; preds = %invoke.cont77
-  %call84 = invoke i32 @BN_MONT_CTX_set(ptr noundef nonnull %call19, ptr noundef %14, ptr noundef %ctx)
+  %call84 = invoke i32 @BN_MONT_CTX_set(ptr noundef nonnull %call19, ptr noundef %7, ptr noundef %ctx)
           to label %invoke.cont83 unwind label %lpad35.loopexit
 
 invoke.cont83:                                    ; preds = %lor.lhs.false80
@@ -4740,9 +4735,9 @@ invoke.cont83:                                    ; preds = %lor.lhs.false80
   br i1 %tobool85.not, label %cleanup, label %lor.lhs.false86
 
 lor.lhs.false86:                                  ; preds = %invoke.cont83
-  %15 = load ptr, ptr %a, align 8
-  %16 = load ptr, ptr %n, align 8
-  %call91 = invoke i32 @BN_nnmod(ptr noundef %15, ptr noundef %15, ptr noundef %16, ptr noundef %ctx)
+  %8 = load ptr, ptr %a, align 8
+  %9 = load ptr, ptr %n, align 8
+  %call91 = invoke i32 @BN_nnmod(ptr noundef %8, ptr noundef %8, ptr noundef %9, ptr noundef %ctx)
           to label %invoke.cont90 unwind label %lpad35.loopexit
 
 invoke.cont90:                                    ; preds = %lor.lhs.false86
@@ -4750,8 +4745,8 @@ invoke.cont90:                                    ; preds = %lor.lhs.false86
   br i1 %tobool92.not, label %cleanup, label %lor.lhs.false93
 
 lor.lhs.false93:                                  ; preds = %invoke.cont90
-  %17 = load ptr, ptr %b, align 8
-  %call98 = invoke i32 @BN_nnmod(ptr noundef %17, ptr noundef %17, ptr noundef %16, ptr noundef %ctx)
+  %10 = load ptr, ptr %b, align 8
+  %call98 = invoke i32 @BN_nnmod(ptr noundef %10, ptr noundef %10, ptr noundef %9, ptr noundef %ctx)
           to label %invoke.cont97 unwind label %lpad35.loopexit
 
 invoke.cont97:                                    ; preds = %lor.lhs.false93
@@ -4759,8 +4754,8 @@ invoke.cont97:                                    ; preds = %lor.lhs.false93
   br i1 %tobool99.not, label %cleanup, label %lor.lhs.false100
 
 lor.lhs.false100:                                 ; preds = %invoke.cont97
-  %18 = load ptr, ptr %A, align 8
-  %call105 = invoke i32 @BN_to_montgomery(ptr noundef %18, ptr noundef %15, ptr noundef nonnull %call19, ptr noundef %ctx)
+  %11 = load ptr, ptr %A, align 8
+  %call105 = invoke i32 @BN_to_montgomery(ptr noundef %11, ptr noundef %8, ptr noundef nonnull %call19, ptr noundef %ctx)
           to label %invoke.cont104 unwind label %lpad35.loopexit
 
 invoke.cont104:                                   ; preds = %lor.lhs.false100
@@ -4768,8 +4763,8 @@ invoke.cont104:                                   ; preds = %lor.lhs.false100
   br i1 %tobool106.not, label %cleanup, label %lor.lhs.false107
 
 lor.lhs.false107:                                 ; preds = %invoke.cont104
-  %19 = load ptr, ptr %B, align 8
-  %call112 = invoke i32 @BN_to_montgomery(ptr noundef %19, ptr noundef %17, ptr noundef nonnull %call19, ptr noundef %ctx)
+  %12 = load ptr, ptr %B, align 8
+  %call112 = invoke i32 @BN_to_montgomery(ptr noundef %12, ptr noundef %10, ptr noundef nonnull %call19, ptr noundef %ctx)
           to label %invoke.cont111 unwind label %lpad35.loopexit
 
 invoke.cont111:                                   ; preds = %lor.lhs.false107
@@ -4777,8 +4772,8 @@ invoke.cont111:                                   ; preds = %lor.lhs.false107
   br i1 %tobool113.not, label %cleanup, label %lor.lhs.false114
 
 lor.lhs.false114:                                 ; preds = %invoke.cont111
-  %20 = load ptr, ptr %c, align 8
-  %call120 = invoke i32 @BN_mod_mul_montgomery(ptr noundef %20, ptr noundef %18, ptr noundef %19, ptr noundef nonnull %call19, ptr noundef %ctx)
+  %13 = load ptr, ptr %c, align 8
+  %call120 = invoke i32 @BN_mod_mul_montgomery(ptr noundef %13, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %call19, ptr noundef %ctx)
           to label %invoke.cont119 unwind label %lpad35.loopexit
 
 invoke.cont119:                                   ; preds = %lor.lhs.false114
@@ -4786,7 +4781,7 @@ invoke.cont119:                                   ; preds = %lor.lhs.false114
   br i1 %tobool121.not, label %cleanup, label %lor.lhs.false122
 
 lor.lhs.false122:                                 ; preds = %invoke.cont119
-  %call127 = invoke i32 @BN_from_montgomery(ptr noundef %18, ptr noundef %20, ptr noundef nonnull %call19, ptr noundef %ctx)
+  %call127 = invoke i32 @BN_from_montgomery(ptr noundef %11, ptr noundef %13, ptr noundef nonnull %call19, ptr noundef %ctx)
           to label %invoke.cont126 unwind label %lpad35.loopexit
 
 invoke.cont126:                                   ; preds = %lor.lhs.false122
@@ -4797,22 +4792,22 @@ if.end130:                                        ; preds = %invoke.cont126
   br i1 %cmp131.not, label %if.end149, label %if.then132
 
 if.then132:                                       ; preds = %if.end130
-  %call135 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %15)
+  %call135 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %8)
           to label %invoke.cont136 unwind label %lpad35.loopexit
 
 invoke.cont136:                                   ; preds = %if.then132
-  %21 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 3, i64 1, ptr nonnull %fp)
-  %call139 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %17)
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 3, i64 1, ptr nonnull %fp)
+  %call139 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %10)
           to label %invoke.cont140 unwind label %lpad35.loopexit
 
 invoke.cont140:                                   ; preds = %invoke.cont136
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
   %call143 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %N)
           to label %invoke.cont144 unwind label %lpad35.loopexit
 
 invoke.cont144:                                   ; preds = %invoke.cont140
-  %23 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
-  %call147 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %18)
+  %16 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
+  %call147 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef %11)
           to label %_ZL7puts_fpP8_IO_FILEPKc.exit46 unwind label %lpad35.loopexit
 
 _ZL7puts_fpP8_IO_FILEPKc.exit46:                  ; preds = %invoke.cont144
@@ -4820,7 +4815,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit46:                  ; preds = %invoke.cont144
   br label %if.end149
 
 if.end149:                                        ; preds = %_ZL7puts_fpP8_IO_FILEPKc.exit46, %if.end130
-  %call155 = invoke i32 @BN_mod_mul(ptr noundef nonnull %call7, ptr noundef %15, ptr noundef %17, ptr noundef %16, ptr noundef %ctx)
+  %call155 = invoke i32 @BN_mod_mul(ptr noundef nonnull %call7, ptr noundef %8, ptr noundef %10, ptr noundef %9, ptr noundef %ctx)
           to label %invoke.cont154 unwind label %lpad35.loopexit
 
 invoke.cont154:                                   ; preds = %if.end149
@@ -4828,7 +4823,7 @@ invoke.cont154:                                   ; preds = %if.end149
   br i1 %tobool156.not, label %cleanup, label %lor.lhs.false157
 
 lor.lhs.false157:                                 ; preds = %invoke.cont154
-  %call162 = invoke i32 @BN_sub(ptr noundef nonnull %call7, ptr noundef nonnull %call7, ptr noundef %18)
+  %call162 = invoke i32 @BN_sub(ptr noundef nonnull %call7, ptr noundef nonnull %call7, ptr noundef %11)
           to label %invoke.cont161 unwind label %lpad35.loopexit
 
 invoke.cont161:                                   ; preds = %lor.lhs.false157
@@ -4844,8 +4839,8 @@ invoke.cont167:                                   ; preds = %if.end165
   br i1 %tobool169.not, label %if.then170, label %for.cond, !llvm.loop !23
 
 if.then170:                                       ; preds = %invoke.cont167
-  %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 39, i64 1, ptr %24) #16
+  %17 = load ptr, ptr @stderr, align 8
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 39, i64 1, ptr %17) #16
   br label %cleanup
 
 cleanup:                                          ; preds = %for.cond, %invoke.cont154, %invoke.cont161, %invoke.cont77, %invoke.cont83, %invoke.cont90, %invoke.cont97, %invoke.cont104, %invoke.cont111, %invoke.cont119, %invoke.cont126, %lor.lhs.false, %lor.lhs.false30, %if.then170, %invoke.cont18
@@ -4855,8 +4850,8 @@ cleanup:                                          ; preds = %for.cond, %invoke.c
 
 if.then.i48.sink.split:                           ; preds = %invoke.cont54, %invoke.cont39
   %.str.58.sink = phi ptr [ @.str.58, %invoke.cont39 ], [ @.str.59, %invoke.cont54 ]
-  %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i64 @fwrite(ptr nonnull %.str.58.sink, i64 44, i64 1, ptr %26) #16
+  %19 = load ptr, ptr @stderr, align 8
+  %20 = tail call i64 @fwrite(ptr nonnull %.str.58.sink, i64 44, i64 1, ptr %19) #16
   br label %if.then.i48
 
 if.then.i48:                                      ; preds = %if.then.i48.sink.split, %invoke.cont47, %invoke.cont68, %invoke.cont63, %cleanup
@@ -4865,160 +4860,160 @@ if.then.i48:                                      ; preds = %if.then.i48.sink.sp
           to label %_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i48
-  %28 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #19
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #19
   unreachable
 
 _ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i48
   %retval.084 = phi i1 [ %retval.0, %cleanup ], [ %retval.083, %if.then.i48 ]
-  %30 = load ptr, ptr %n, align 8
-  %cmp.not.i49 = icmp eq ptr %30, null
+  %23 = load ptr, ptr %n, align 8
+  %cmp.not.i49 = icmp eq ptr %23, null
   br i1 %cmp.not.i49, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %if.then.i50
 
 if.then.i50:                                      ; preds = %_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit
-  invoke void @BN_free(ptr noundef nonnull %30)
+  invoke void @BN_free(ptr noundef nonnull %23)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i51
 
 terminate.lpad.i51:                               ; preds = %if.then.i50
-  %31 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #19
+  %25 = extractvalue { ptr, i32 } %24, 0
+  tail call void @__clang_call_terminate(ptr %25) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit, %if.then.i50
-  %33 = load ptr, ptr %B, align 8
-  %cmp.not.i52 = icmp eq ptr %33, null
+  %26 = load ptr, ptr %B, align 8
+  %cmp.not.i52 = icmp eq ptr %26, null
   br i1 %cmp.not.i52, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55, label %if.then.i53
 
 if.then.i53:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit
-  invoke void @BN_free(ptr noundef nonnull %33)
+  invoke void @BN_free(ptr noundef nonnull %26)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55 unwind label %terminate.lpad.i54
 
 terminate.lpad.i54:                               ; preds = %if.then.i53
-  %34 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #19
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then.i53
-  %36 = load ptr, ptr %A, align 8
-  %cmp.not.i56 = icmp eq ptr %36, null
+  %29 = load ptr, ptr %A, align 8
+  %cmp.not.i56 = icmp eq ptr %29, null
   br i1 %cmp.not.i56, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, label %if.then.i57
 
 if.then.i57:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55
-  invoke void @BN_free(ptr noundef nonnull %36)
+  invoke void @BN_free(ptr noundef nonnull %29)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59 unwind label %terminate.lpad.i58
 
 terminate.lpad.i58:                               ; preds = %if.then.i57
-  %37 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #19
+  %31 = extractvalue { ptr, i32 } %30, 0
+  tail call void @__clang_call_terminate(ptr %31) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55, %if.then.i57
-  %39 = load ptr, ptr %d, align 8
-  %cmp.not.i60 = icmp eq ptr %39, null
+  %32 = load ptr, ptr %d, align 8
+  %cmp.not.i60 = icmp eq ptr %32, null
   br i1 %cmp.not.i60, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63, label %if.then.i61
 
 if.then.i61:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59
-  invoke void @BN_free(ptr noundef nonnull %39)
+  invoke void @BN_free(ptr noundef nonnull %32)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63 unwind label %terminate.lpad.i62
 
 terminate.lpad.i62:                               ; preds = %if.then.i61
-  %40 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #19
+  %34 = extractvalue { ptr, i32 } %33, 0
+  tail call void @__clang_call_terminate(ptr %34) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, %if.then.i61
-  %42 = load ptr, ptr %c, align 8
-  %cmp.not.i64 = icmp eq ptr %42, null
+  %35 = load ptr, ptr %c, align 8
+  %cmp.not.i64 = icmp eq ptr %35, null
   br i1 %cmp.not.i64, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67, label %if.then.i65
 
 if.then.i65:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63
-  invoke void @BN_free(ptr noundef nonnull %42)
+  invoke void @BN_free(ptr noundef nonnull %35)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67 unwind label %terminate.lpad.i66
 
 terminate.lpad.i66:                               ; preds = %if.then.i65
-  %43 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #19
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63, %if.then.i65
-  %45 = load ptr, ptr %b, align 8
-  %cmp.not.i68 = icmp eq ptr %45, null
+  %38 = load ptr, ptr %b, align 8
+  %cmp.not.i68 = icmp eq ptr %38, null
   br i1 %cmp.not.i68, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71, label %if.then.i69
 
 if.then.i69:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67
-  invoke void @BN_free(ptr noundef nonnull %45)
+  invoke void @BN_free(ptr noundef nonnull %38)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71 unwind label %terminate.lpad.i70
 
 terminate.lpad.i70:                               ; preds = %if.then.i69
-  %46 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #19
+  %40 = extractvalue { ptr, i32 } %39, 0
+  tail call void @__clang_call_terminate(ptr %40) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit67, %if.then.i69
-  %48 = load ptr, ptr %a, align 8
-  %cmp.not.i72 = icmp eq ptr %48, null
+  %41 = load ptr, ptr %a, align 8
+  %cmp.not.i72 = icmp eq ptr %41, null
   br i1 %cmp.not.i72, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit75, label %if.then.i73
 
 if.then.i73:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71
-  invoke void @BN_free(ptr noundef nonnull %48)
+  invoke void @BN_free(ptr noundef nonnull %41)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit75 unwind label %terminate.lpad.i74
 
 terminate.lpad.i74:                               ; preds = %if.then.i73
-  %49 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  tail call void @__clang_call_terminate(ptr %50) #19
+  %43 = extractvalue { ptr, i32 } %42, 0
+  tail call void @__clang_call_terminate(ptr %43) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit75: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit71, %if.then.i73
   ret i1 %retval.084
 
 ehcleanup:                                        ; preds = %lpad35, %lpad17
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad35 ], [ %13, %lpad17 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad35 ], [ %6, %lpad17 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %n) #18
   br label %ehcleanup176
 
 ehcleanup176:                                     ; preds = %ehcleanup, %lpad14
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %12, %lpad14 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %5, %lpad14 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %B) #18
   br label %ehcleanup178
 
 ehcleanup178:                                     ; preds = %ehcleanup176, %lpad11
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup176 ], [ %11, %lpad11 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup176 ], [ %4, %lpad11 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %A) #18
   br label %ehcleanup180
 
 ehcleanup180:                                     ; preds = %ehcleanup178, %lpad8
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup178 ], [ %10, %lpad8 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup178 ], [ %3, %lpad8 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d) #18
   br label %ehcleanup182
 
 ehcleanup182:                                     ; preds = %ehcleanup180, %lpad5
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup180 ], [ %9, %lpad5 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup180 ], [ %2, %lpad5 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %c) #18
   br label %ehcleanup184
 
 ehcleanup184:                                     ; preds = %ehcleanup182, %lpad2
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup182 ], [ %8, %lpad2 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup182 ], [ %1, %lpad2 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %b) #18
   br label %ehcleanup186
 
 ehcleanup186:                                     ; preds = %ehcleanup184, %lpad
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup184 ], [ %7, %lpad ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup184 ], [ %0, %lpad ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %a) #18
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }
@@ -5057,33 +5052,32 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont9
-  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
-  %.fr = freeze <4 x ptr> %3
-  %4 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp eq i4 %5, 0
-  br i1 %6, label %if.end, label %cleanup
+  %cmp.i21 = icmp ne ptr %call1, null
+  %cmp.i22 = icmp ne ptr %call4, null
+  %or.cond = select i1 %cmp.i21, i1 %cmp.i22, i1 false
+  %cmp.i23 = icmp ne ptr %call7, null
+  %or.cond55 = select i1 %or.cond, i1 %cmp.i23, i1 false
+  %cmp.i24 = icmp ne ptr %call10, null
+  %or.cond56 = select i1 %or.cond55, i1 %cmp.i24, i1 false
+  br i1 %or.cond56, label %if.end, label %cleanup
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup163
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup161
 
 lpad5:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup159
 
 lpad8:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -5131,8 +5125,8 @@ invoke.cont36:                                    ; preds = %invoke.cont31
   br i1 %tobool38.not, label %if.end42, label %if.then39
 
 if.then39:                                        ; preds = %invoke.cont36
-  %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 40, i64 1, ptr %11) #16
+  %4 = load ptr, ptr @stderr, align 8
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 40, i64 1, ptr %4) #16
   br label %if.then.i38
 
 if.end42:                                         ; preds = %invoke.cont36
@@ -5192,17 +5186,17 @@ if.then71:                                        ; preds = %if.end69
           to label %invoke.cont75 unwind label %lpad20.loopexit
 
 invoke.cont75:                                    ; preds = %if.then71
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 3, i64 1, ptr nonnull %fp)
+  %6 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 3, i64 1, ptr nonnull %fp)
   %call78 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call1)
           to label %invoke.cont79 unwind label %lpad20.loopexit
 
 invoke.cont79:                                    ; preds = %invoke.cont75
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
   %call82 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call4)
           to label %invoke.cont83 unwind label %lpad20.loopexit
 
 invoke.cont83:                                    ; preds = %invoke.cont79
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
   %call86 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call7)
           to label %_ZL7puts_fpP8_IO_FILEPKc.exit36 unwind label %lpad20.loopexit
 
@@ -5243,8 +5237,8 @@ invoke.cont113:                                   ; preds = %if.end111
   br i1 %tobool115.not, label %if.then116, label %for.cond
 
 if.then116:                                       ; preds = %invoke.cont113
-  %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 35, i64 1, ptr %16) #16
+  %9 = load ptr, ptr @stderr, align 8
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 35, i64 1, ptr %9) #16
   br label %cleanup
 
 for.end:                                          ; preds = %for.cond
@@ -5272,10 +5266,10 @@ invoke.cont128:                                   ; preds = %lor.lhs.false127
   br i1 %tobool130.not, label %cleanup, label %lor.lhs.false131
 
 lor.lhs.false131:                                 ; preds = %invoke.cont128
-  %18 = load ptr, ptr %a, align 8
-  %19 = load ptr, ptr %b, align 8
-  %20 = load ptr, ptr %c, align 8
-  %call137 = invoke i32 @BN_mod_exp(ptr noundef nonnull %call7, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %ctx)
+  %11 = load ptr, ptr %a, align 8
+  %12 = load ptr, ptr %b, align 8
+  %13 = load ptr, ptr %c, align 8
+  %call137 = invoke i32 @BN_mod_exp(ptr noundef nonnull %call7, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %ctx)
           to label %invoke.cont136 unwind label %lpad20.loopexit.split-lp
 
 invoke.cont136:                                   ; preds = %lor.lhs.false131
@@ -5283,7 +5277,7 @@ invoke.cont136:                                   ; preds = %lor.lhs.false131
   br i1 %tobool138.not, label %cleanup, label %lor.lhs.false139
 
 lor.lhs.false139:                                 ; preds = %invoke.cont136
-  %call144 = invoke i32 @BN_mul(ptr noundef nonnull %call10, ptr noundef %18, ptr noundef %18, ptr noundef %ctx)
+  %call144 = invoke i32 @BN_mul(ptr noundef nonnull %call10, ptr noundef %11, ptr noundef %11, ptr noundef %ctx)
           to label %invoke.cont143 unwind label %lpad20.loopexit.split-lp
 
 invoke.cont143:                                   ; preds = %lor.lhs.false139
@@ -5299,8 +5293,8 @@ invoke.cont150:                                   ; preds = %if.end147
   br i1 %cmp152.not, label %cleanup, label %if.then153
 
 if.then153:                                       ; preds = %invoke.cont150
-  %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 49, i64 1, ptr %21) #16
+  %14 = load ptr, ptr @stderr, align 8
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 49, i64 1, ptr %14) #16
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont92, %invoke.cont99, %invoke.cont107, %invoke.cont51, %invoke.cont57, %invoke.cont65, %invoke.cont150, %invoke.cont120, %invoke.cont124, %invoke.cont128, %invoke.cont136, %invoke.cont143, %lor.lhs.false, %if.then153, %if.then116, %invoke.cont9
@@ -5314,10 +5308,10 @@ if.then.i38:                                      ; preds = %if.then39, %invoke.
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i38
-  %23 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #19
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i38
@@ -5330,80 +5324,80 @@ if.then.i40:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42 unwind label %terminate.lpad.i41
 
 terminate.lpad.i41:                               ; preds = %if.then.i40
-  %25 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #19
+  %19 = extractvalue { ptr, i32 } %18, 0
+  tail call void @__clang_call_terminate(ptr %19) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then.i40
-  %27 = load ptr, ptr %c, align 8
-  %cmp.not.i43 = icmp eq ptr %27, null
+  %20 = load ptr, ptr %c, align 8
+  %cmp.not.i43 = icmp eq ptr %20, null
   br i1 %cmp.not.i43, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46, label %if.then.i44
 
 if.then.i44:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42
-  invoke void @BN_free(ptr noundef nonnull %27)
+  invoke void @BN_free(ptr noundef nonnull %20)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46 unwind label %terminate.lpad.i45
 
 terminate.lpad.i45:                               ; preds = %if.then.i44
-  %28 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #19
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42, %if.then.i44
-  %30 = load ptr, ptr %b, align 8
-  %cmp.not.i47 = icmp eq ptr %30, null
+  %23 = load ptr, ptr %b, align 8
+  %cmp.not.i47 = icmp eq ptr %23, null
   br i1 %cmp.not.i47, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50, label %if.then.i48
 
 if.then.i48:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46
-  invoke void @BN_free(ptr noundef nonnull %30)
+  invoke void @BN_free(ptr noundef nonnull %23)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50 unwind label %terminate.lpad.i49
 
 terminate.lpad.i49:                               ; preds = %if.then.i48
-  %31 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #19
+  %25 = extractvalue { ptr, i32 } %24, 0
+  tail call void @__clang_call_terminate(ptr %25) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46, %if.then.i48
-  %33 = load ptr, ptr %a, align 8
-  %cmp.not.i51 = icmp eq ptr %33, null
+  %26 = load ptr, ptr %a, align 8
+  %cmp.not.i51 = icmp eq ptr %26, null
   br i1 %cmp.not.i51, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit54, label %if.then.i52
 
 if.then.i52:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50
-  invoke void @BN_free(ptr noundef nonnull %33)
+  invoke void @BN_free(ptr noundef nonnull %26)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit54 unwind label %terminate.lpad.i53
 
 terminate.lpad.i53:                               ; preds = %if.then.i52
-  %34 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #19
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit54: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50, %if.then.i52
   ret i1 %retval.061
 
 ehcleanup:                                        ; preds = %lpad20, %lpad8
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad20 ], [ %10, %lpad8 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad20 ], [ %3, %lpad8 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d) #18
   br label %ehcleanup159
 
 ehcleanup159:                                     ; preds = %ehcleanup, %lpad5
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %9, %lpad5 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad5 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %c) #18
   br label %ehcleanup161
 
 ehcleanup161:                                     ; preds = %ehcleanup159, %lpad2
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup159 ], [ %8, %lpad2 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup159 ], [ %1, %lpad2 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %b) #18
   br label %ehcleanup163
 
 ehcleanup163:                                     ; preds = %ehcleanup161, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup161 ], [ %7, %lpad ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup161 ], [ %0, %lpad ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %a) #18
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
@@ -5442,33 +5436,32 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   br i1 %cmp.i.not, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont9
-  %0 = insertelement <4 x ptr> poison, ptr %call1, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call4, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %call7, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %call10, i64 3
-  %.fr = freeze <4 x ptr> %3
-  %4 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp eq i4 %5, 0
-  br i1 %6, label %if.end, label %cleanup
+  %cmp.i20 = icmp ne ptr %call1, null
+  %cmp.i21 = icmp ne ptr %call4, null
+  %or.cond = select i1 %cmp.i20, i1 %cmp.i21, i1 false
+  %cmp.i22 = icmp ne ptr %call7, null
+  %or.cond54 = select i1 %or.cond, i1 %cmp.i22, i1 false
+  %cmp.i23 = icmp ne ptr %call10, null
+  %or.cond55 = select i1 %or.cond54, i1 %cmp.i23, i1 false
+  br i1 %or.cond55, label %if.end, label %cleanup
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup144
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup142
 
 lpad5:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup140
 
 lpad8:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -5592,17 +5585,17 @@ if.then89:                                        ; preds = %if.end87
           to label %invoke.cont93 unwind label %lpad20.loopexit
 
 invoke.cont93:                                    ; preds = %if.then89
-  %11 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 3, i64 1, ptr nonnull %fp)
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 3, i64 1, ptr nonnull %fp)
   %call96 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call1)
           to label %invoke.cont97 unwind label %lpad20.loopexit
 
 invoke.cont97:                                    ; preds = %invoke.cont93
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 3, i64 1, ptr nonnull %fp)
   %call100 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call4)
           to label %invoke.cont101 unwind label %lpad20.loopexit
 
 invoke.cont101:                                   ; preds = %invoke.cont97
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
+  %6 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 3, i64 1, ptr nonnull %fp)
   %call104 = invoke i32 @BN_print_fp(ptr noundef nonnull %fp, ptr noundef nonnull %call7)
           to label %_ZL7puts_fpP8_IO_FILEPKc.exit35 unwind label %lpad20.loopexit
 
@@ -5643,8 +5636,8 @@ invoke.cont131:                                   ; preds = %if.end129
   br i1 %tobool133.not, label %if.then134, label %for.cond
 
 if.then134:                                       ; preds = %invoke.cont131
-  %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 35, i64 1, ptr %14) #16
+  %7 = load ptr, ptr @stderr, align 8
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 35, i64 1, ptr %7) #16
   br label %cleanup
 
 cleanup:                                          ; preds = %for.cond, %invoke.cont110, %invoke.cont117, %invoke.cont125, %invoke.cont69, %invoke.cont75, %invoke.cont83, %lor.lhs.false, %if.then134, %invoke.cont9
@@ -5654,8 +5647,8 @@ cleanup:                                          ; preds = %for.cond, %invoke.c
 
 if.then.i37.sink.split:                           ; preds = %invoke.cont54, %invoke.cont36
   %.str.71.sink = phi ptr [ @.str.71, %invoke.cont36 ], [ @.str.72, %invoke.cont54 ]
-  %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i64 @fwrite(ptr nonnull %.str.71.sink, i64 55, i64 1, ptr %16) #16
+  %9 = load ptr, ptr @stderr, align 8
+  %10 = tail call i64 @fwrite(ptr nonnull %.str.71.sink, i64 55, i64 1, ptr %9) #16
   br label %if.then.i37
 
 if.then.i37:                                      ; preds = %if.then.i37.sink.split, %invoke.cont25, %invoke.cont21, %invoke.cont45, %invoke.cont63, %cleanup
@@ -5664,10 +5657,10 @@ if.then.i37:                                      ; preds = %if.then.i37.sink.sp
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i37
-  %18 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #19
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i37
@@ -5680,10 +5673,10 @@ if.then.i39:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41 unwind label %terminate.lpad.i40
 
 terminate.lpad.i40:                               ; preds = %if.then.i39
-  %20 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #19
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then.i39
@@ -5695,10 +5688,10 @@ if.then.i43:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45 unwind label %terminate.lpad.i44
 
 terminate.lpad.i44:                               ; preds = %if.then.i43
-  %22 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #19
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41, %if.then.i43
@@ -5710,10 +5703,10 @@ if.then.i47:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49 unwind label %terminate.lpad.i48
 
 terminate.lpad.i48:                               ; preds = %if.then.i47
-  %24 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #19
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45, %if.then.i47
@@ -5724,32 +5717,32 @@ if.then.i51:                                      ; preds = %_ZNSt10unique_ptrI9
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit53 unwind label %terminate.lpad.i52
 
 terminate.lpad.i52:                               ; preds = %if.then.i51
-  %26 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #19
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #19
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit53: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49, %if.then.i51
   ret i1 %retval.060
 
 ehcleanup:                                        ; preds = %lpad20, %lpad8
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad20 ], [ %10, %lpad8 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad20 ], [ %3, %lpad8 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d) #18
   br label %ehcleanup140
 
 ehcleanup140:                                     ; preds = %ehcleanup, %lpad5
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %9, %lpad5 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad5 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %c) #18
   br label %ehcleanup142
 
 ehcleanup142:                                     ; preds = %ehcleanup140, %lpad2
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup140 ], [ %8, %lpad2 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup140 ], [ %1, %lpad2 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %b) #18
   br label %ehcleanup144
 
 ehcleanup144:                                     ; preds = %ehcleanup142, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup142 ], [ %7, %lpad ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup142 ], [ %0, %lpad ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %a) #18
   resume { ptr, i32 } %.pn.pn.pn.pn
 }

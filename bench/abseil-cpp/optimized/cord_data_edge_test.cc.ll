@@ -1025,7 +1025,13 @@ entry:
   store i32 2, ptr %refcount.i.i.i, align 4
   store i64 43, ptr %call.i, align 8
   %tag.i7.i = getelementptr inbounds i8, ptr %call.i, i64 12
-  store <4 x i8> <i8 3, i8 0, i8 0, i8 1>, ptr %tag.i7.i, align 4
+  store i8 3, ptr %tag.i7.i, align 4
+  %storage.i9.i = getelementptr inbounds i8, ptr %call.i, i64 13
+  store i8 0, ptr %storage.i9.i, align 1
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %call.i, i64 14
+  store i8 0, ptr %arrayidx4.i.i, align 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %call.i, i64 15
+  store i8 1, ptr %arrayidx7.i.i, align 1
   %edges_.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call4.i.i.i, ptr %edges_.i, align 8
   %1 = atomicrmw sub ptr %refcount.i.i.i, i32 2 acq_rel, align 4

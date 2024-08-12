@@ -829,23 +829,27 @@ declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6casadi10PolynomialmLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.casadi::Polynomial", align 16
+  %3 = alloca %"class.casadi::Polynomial", align 8
   call void @_ZNK6casadi10PolynomialmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Polynomial") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load <2 x ptr>, ptr %3, align 16
-  store <2 x ptr> %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load ptr, ptr %7, align 16
-  store ptr %8, ptr %5, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load ptr, ptr %3, align 8
+  store ptr %7, ptr %0, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN6casadi10PolynomialD2Ev.exit, label %9
+  br i1 %.not.i.i.i.i.i.i, label %_ZN6casadi10PolynomialD2Ev.exit, label %12
 
-9:                                                ; preds = %2
+12:                                               ; preds = %2
   tail call void @_ZdlPv(ptr noundef nonnull %4) #20
   br label %_ZN6casadi10PolynomialD2Ev.exit
 
-_ZN6casadi10PolynomialD2Ev.exit:                  ; preds = %9, %2
+_ZN6casadi10PolynomialD2Ev.exit:                  ; preds = %12, %2
   ret ptr %0
 }
 

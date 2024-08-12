@@ -1179,7 +1179,13 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes11JSONEmitter5StateELb1EE9push_backERK
   %8 = load ptr, ptr %this, align 8
   %conv.i3.i = zext i32 %7 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hermes::JSONEmitter::State", ptr %8, i64 %conv.i3.i
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %add.ptr.i.i, align 1
+  store i8 0, ptr %add.ptr.i.i, align 1
+  %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
+  store i8 0, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
+  %ref.tmp.sroa.3.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 2
+  store i8 1, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.sroa_idx, align 1
+  %ref.tmp.sroa.4.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 3
+  store i8 0, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.sroa_idx, align 1
   %ref.tmp.sroa.5.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   store i8 1, ptr %ref.tmp.sroa.5.0.add.ptr.i.i.sroa_idx, align 1
   %9 = load i32, ptr %Size.i.i, align 8
@@ -1389,7 +1395,13 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes11JSONEmitter5StateELb1EE9push_backERK
   %8 = load ptr, ptr %this, align 8
   %conv.i3.i = zext i32 %7 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hermes::JSONEmitter::State", ptr %8, i64 %conv.i3.i
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %add.ptr.i.i, align 1
+  store i8 1, ptr %add.ptr.i.i, align 1
+  %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
+  store i8 0, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
+  %ref.tmp.sroa.3.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 2
+  store i8 0, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.sroa_idx, align 1
+  %ref.tmp.sroa.4.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 3
+  store i8 0, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.sroa_idx, align 1
   %ref.tmp.sroa.5.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   store i8 1, ptr %ref.tmp.sroa.5.0.add.ptr.i.i.sroa_idx, align 1
   %9 = load i32, ptr %Size.i.i, align 8

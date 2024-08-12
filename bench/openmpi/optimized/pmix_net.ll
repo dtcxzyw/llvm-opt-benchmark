@@ -271,10 +271,10 @@ define zeroext i1 @pmix_net_samenetwork(ptr nocapture noundef readonly %0, ptr n
   %.sroa.08.0.copyload = load i16, ptr %1, align 8
   %4 = zext i16 %.sroa.010.0.copyload to i32
   %.not = icmp eq i16 %.sroa.010.0.copyload, %.sroa.08.0.copyload
-  br i1 %.not, label %5, label %23
+  br i1 %.not, label %5, label %20
 
 5:                                                ; preds = %3
-  switch i16 %.sroa.010.0.copyload, label %22 [
+  switch i16 %.sroa.010.0.copyload, label %19 [
     i16 2, label %6
     i16 10, label %15
   ]
@@ -294,28 +294,31 @@ define zeroext i1 @pmix_net_samenetwork(ptr nocapture noundef readonly %0, ptr n
   %12 = xor i32 %.sroa.1.0.copyload, %.sroa.16.0.copyload
   %13 = and i32 %12, %11
   %14 = icmp eq i32 %13, 0
-  br label %23
+  br label %20
 
 15:                                               ; preds = %5
   %.sroa.1.0..sroa_idx28 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.1.0.copyload29 = load i32, ptr %.sroa.1.0..sroa_idx28, align 8
+  %.sroa.2.0..sroa_idx30 = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.2.0.copyload31 = load i32, ptr %.sroa.2.0..sroa_idx30, align 4
   %.sroa.133.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.133.0.copyload = load i32, ptr %.sroa.133.0..sroa_idx, align 8
+  %.sroa.234.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.234.0.copyload = load i32, ptr %.sroa.234.0..sroa_idx, align 4
   %16 = and i32 %2, -65
   %.1 = icmp eq i32 %16, 0
-  %17 = load <2 x i32>, ptr %.sroa.1.0..sroa_idx28, align 8
-  %18 = load <2 x i32>, ptr %.sroa.133.0..sroa_idx, align 8
-  %19 = icmp eq <2 x i32> %17, %18
-  %20 = extractelement <2 x i1> %19, i64 0
-  %or.cond = select i1 %.1, i1 %20, i1 false
-  %21 = extractelement <2 x i1> %19, i64 1
-  %or.cond39 = select i1 %or.cond, i1 %21, i1 false
-  br label %23
+  %17 = icmp eq i32 %.sroa.1.0.copyload29, %.sroa.133.0.copyload
+  %or.cond = select i1 %.1, i1 %17, i1 false
+  %18 = icmp eq i32 %.sroa.2.0.copyload31, %.sroa.234.0.copyload
+  %or.cond39 = select i1 %or.cond, i1 %18, i1 false
+  br label %20
 
-22:                                               ; preds = %5
+19:                                               ; preds = %5
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.5, i32 noundef %4) #13
-  br label %23
+  br label %20
 
-23:                                               ; preds = %15, %6, %3, %22
-  %.0 = phi i1 [ false, %22 ], [ false, %3 ], [ %14, %6 ], [ %or.cond39, %15 ]
+20:                                               ; preds = %15, %6, %3, %19
+  %.0 = phi i1 [ false, %19 ], [ false, %3 ], [ %14, %6 ], [ %or.cond39, %15 ]
   ret i1 %.0
 }
 

@@ -13,16 +13,20 @@ define void @hexwave_change(ptr nocapture noundef writeonly %hex, i32 noundef %r
 entry:
   %pending = getelementptr inbounds i8, ptr %hex, i64 24
   store i32 %reflect, ptr %pending, align 4
-  %0 = insertelement <2 x float> poison, float %peak_time, i64 0
-  %1 = insertelement <2 x float> %0, float %zero_wait, i64 1
-  %2 = fcmp olt <2 x float> %1, zeroinitializer
-  %3 = fcmp ogt <2 x float> %1, <float 1.000000e+00, float 1.000000e+00>
+  %cmp = fcmp olt float %peak_time, 0.000000e+00
+  %cmp2 = fcmp ogt float %peak_time, 1.000000e+00
+  %cond = select i1 %cmp2, float 1.000000e+00, float %peak_time
+  %cond6 = select i1 %cmp, float 0.000000e+00, float %cond
   %peak_time8 = getelementptr inbounds i8, ptr %hex, i64 28
+  store float %cond6, ptr %peak_time8, align 4
   %half_height10 = getelementptr inbounds i8, ptr %hex, i64 36
   store float %half_height, ptr %half_height10, align 4
-  %4 = select <2 x i1> %3, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %1
-  %5 = select <2 x i1> %2, <2 x float> zeroinitializer, <2 x float> %4
-  store <2 x float> %5, ptr %peak_time8, align 4
+  %cmp11 = fcmp olt float %zero_wait, 0.000000e+00
+  %cmp14 = fcmp ogt float %zero_wait, 1.000000e+00
+  %cond18 = select i1 %cmp14, float 1.000000e+00, float %zero_wait
+  %cond20 = select i1 %cmp11, float 0.000000e+00, float %cond18
+  %zero_wait22 = getelementptr inbounds i8, ptr %hex, i64 32
+  store float %cond20, ptr %zero_wait22, align 4
   %have_pending = getelementptr inbounds i8, ptr %hex, i64 40
   store i32 1, ptr %have_pending, align 4
   ret void
@@ -34,16 +38,20 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(300) %hex, i8 0, i64 300, i1 false)
   %pending.i = getelementptr inbounds i8, ptr %hex, i64 24
   store i32 %reflect, ptr %pending.i, align 4
-  %0 = insertelement <2 x float> poison, float %peak_time, i64 0
-  %1 = insertelement <2 x float> %0, float %zero_wait, i64 1
-  %2 = fcmp olt <2 x float> %1, zeroinitializer
-  %3 = fcmp ogt <2 x float> %1, <float 1.000000e+00, float 1.000000e+00>
+  %cmp.i = fcmp olt float %peak_time, 0.000000e+00
+  %cmp2.i = fcmp ogt float %peak_time, 1.000000e+00
+  %cond.i = select i1 %cmp2.i, float 1.000000e+00, float %peak_time
+  %cond6.i = select i1 %cmp.i, float 0.000000e+00, float %cond.i
   %peak_time8.i = getelementptr inbounds i8, ptr %hex, i64 28
+  store float %cond6.i, ptr %peak_time8.i, align 4
   %half_height10.i = getelementptr inbounds i8, ptr %hex, i64 36
   store float %half_height, ptr %half_height10.i, align 4
-  %4 = select <2 x i1> %3, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %1
-  %5 = select <2 x i1> %2, <2 x float> zeroinitializer, <2 x float> %4
-  store <2 x float> %5, ptr %peak_time8.i, align 4
+  %cmp11.i = fcmp olt float %zero_wait, 0.000000e+00
+  %cmp14.i = fcmp ogt float %zero_wait, 1.000000e+00
+  %cond18.i = select i1 %cmp14.i, float 1.000000e+00, float %zero_wait
+  %cond20.i = select i1 %cmp11.i, float 0.000000e+00, float %cond18.i
+  %zero_wait22.i = getelementptr inbounds i8, ptr %hex, i64 32
+  store float %cond20.i, ptr %zero_wait22.i, align 4
   %have_pending.i = getelementptr inbounds i8, ptr %hex, i64 40
   %current = getelementptr inbounds i8, ptr %hex, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %current, ptr noundef nonnull align 4 dereferenceable(16) %pending.i, i64 16, i1 false)
@@ -212,7 +220,9 @@ hex_add_oversampled_bleplike.exit:                ; preds = %for.body.i, %entry
 define void @hexwave_generate_linesegs(ptr nocapture noundef %vert, ptr nocapture noundef readonly %hex, float noundef %dt) local_unnamed_addr #6 {
 entry:
   %div = fmul float %dt, 3.906250e-03
-  store <2 x float> zeroinitializer, ptr %vert, align 4
+  store float 0.000000e+00, ptr %vert, align 4
+  %v = getelementptr inbounds i8, ptr %vert, i64 4
+  store float 0.000000e+00, ptr %v, align 4
   %current = getelementptr inbounds i8, ptr %hex, i64 8
   %zero_wait = getelementptr inbounds i8, ptr %hex, i64 16
   %0 = load float, ptr %zero_wait, align 4
@@ -280,7 +290,9 @@ if.end.loopexit:                                  ; preds = %for.body39
 if.end:                                           ; preds = %for.body, %if.end.loopexit
   %.pre = phi float [ %.pre.pre, %if.end.loopexit ], [ 0.000000e+00, %for.body ]
   %arrayidx58 = getelementptr inbounds i8, ptr %vert, i64 96
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %arrayidx58, align 4
+  store float 1.000000e+00, ptr %arrayidx58, align 4
+  %v61 = getelementptr inbounds i8, ptr %vert, i64 100
+  store float 0.000000e+00, ptr %v61, align 4
   br label %for.body64
 
 for.body64:                                       ; preds = %if.end, %for.inc83
@@ -355,7 +367,8 @@ for.inc145:                                       ; preds = %for.body111, %if.el
   br i1 %exitcond101.not, label %for.end147, label %for.body111, !llvm.loop !10
 
 for.end147:                                       ; preds = %for.inc145
-  store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %arrayidx58, align 4
+  store float 1.000000e+00, ptr %arrayidx58, align 4
+  store float 0.000000e+00, ptr %v61, align 4
   %s155 = getelementptr inbounds i8, ptr %vert, i64 8
   %21 = load float, ptr %s155, align 4
   %s157 = getelementptr inbounds i8, ptr %vert, i64 104

@@ -12,11 +12,17 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @pmix_pointer_array_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 2147483647>, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
-  store i32 8, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  store i32 0, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 124
+  store i32 0, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  store i32 0, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 132
+  store i32 2147483647, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  store i32 8, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   ret void
 }
 

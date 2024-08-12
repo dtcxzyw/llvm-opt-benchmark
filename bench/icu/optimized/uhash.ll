@@ -47,9 +47,11 @@ if.end.i.i:                                       ; preds = %if.end3
   %keyDeleter.i = getelementptr inbounds i8, ptr %call1, i64 32
   %allocated.i = getelementptr inbounds i8, ptr %call1, i64 73
   store i8 0, ptr %allocated.i, align 1
+  %lowWaterRatio.i.i = getelementptr inbounds i8, ptr %call1, i64 68
+  store float 0.000000e+00, ptr %lowWaterRatio.i.i, align 4
   %highWaterRatio.i.i = getelementptr inbounds i8, ptr %call1, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %keyDeleter.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 5.000000e-01, float 0.000000e+00>, ptr %highWaterRatio.i.i, align 8
+  store float 5.000000e-01, ptr %highWaterRatio.i.i, align 8
   %conv.i11.i = trunc i32 %primeIndex to i8
   %primeIndex1.i.i = getelementptr inbounds i8, ptr %call1, i64 72
   store i8 %conv.i11.i, ptr %primeIndex1.i.i, align 8
@@ -156,9 +158,11 @@ if.end.i:                                         ; preds = %entry
   %keyDeleter.i = getelementptr inbounds i8, ptr %fillinResult, i64 32
   %allocated.i = getelementptr inbounds i8, ptr %fillinResult, i64 73
   store i8 0, ptr %allocated.i, align 1
+  %lowWaterRatio.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 68
+  store float 0.000000e+00, ptr %lowWaterRatio.i.i, align 4
   %highWaterRatio.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %keyDeleter.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 5.000000e-01, float 0.000000e+00>, ptr %highWaterRatio.i.i, align 8
+  store float 5.000000e-01, ptr %highWaterRatio.i.i, align 8
   %1 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %1, 1
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit
@@ -197,20 +201,23 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %if
   %count.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 48
   store i32 0, ptr %count.i.i, align 8
   %conv11.i.i = sitofp i32 %2 to float
+  %3 = load float, ptr %lowWaterRatio.i.i, align 4
+  %mul12.i.i = fmul float %3, %conv11.i.i
+  %conv13.i.i = fptosi float %mul12.i.i to i32
+  %lowWaterMark.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 60
+  store i32 %conv13.i.i, ptr %lowWaterMark.i.i, align 4
+  %4 = load float, ptr %highWaterRatio.i.i, align 8
+  %mul16.i.i = fmul float %4, %conv11.i.i
+  %conv17.i.i = fptosi float %mul16.i.i to i32
   %highWaterMark.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 56
-  %3 = load <2 x float>, ptr %highWaterRatio.i.i, align 8
-  %4 = insertelement <2 x float> poison, float %conv11.i.i, i64 0
-  %5 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> zeroinitializer
-  %6 = fmul <2 x float> %3, %5
-  %7 = fptosi <2 x float> %6 to <2 x i32>
-  store <2 x i32> %7, ptr %highWaterMark.i.i, align 8
+  store i32 %conv17.i.i, ptr %highWaterMark.i.i, align 8
   %.pre.i = load i32, ptr %status, align 4
-  %8 = icmp slt i32 %.pre.i, 1
-  %9 = select i1 %8, ptr %fillinResult, ptr null
+  %5 = icmp slt i32 %.pre.i, 1
+  %6 = select i1 %5, ptr %fillinResult, ptr null
   br label %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit
 
 _ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit: ; preds = %entry, %if.end.i, %if.then6.i.i, %while.end.i.i
-  %retval.0.i = phi ptr [ null, %entry ], [ null, %if.end.i ], [ null, %if.then6.i.i ], [ %9, %while.end.i.i ]
+  %retval.0.i = phi ptr [ null, %entry ], [ null, %if.end.i ], [ null, %if.then6.i.i ], [ %6, %while.end.i.i ]
   ret ptr %retval.0.i
 }
 
@@ -251,9 +258,11 @@ if.end.i:                                         ; preds = %while.end
   %keyDeleter.i = getelementptr inbounds i8, ptr %fillinResult, i64 32
   %allocated.i = getelementptr inbounds i8, ptr %fillinResult, i64 73
   store i8 0, ptr %allocated.i, align 1
+  %lowWaterRatio.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 68
+  store float 0.000000e+00, ptr %lowWaterRatio.i.i, align 4
   %highWaterRatio.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %keyDeleter.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 5.000000e-01, float 0.000000e+00>, ptr %highWaterRatio.i.i, align 8
+  store float 5.000000e-01, ptr %highWaterRatio.i.i, align 8
   %3 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %3, 1
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit
@@ -298,20 +307,23 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %if
   %count.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 48
   store i32 0, ptr %count.i.i, align 8
   %conv11.i.i = sitofp i32 %5 to float
+  %6 = load float, ptr %lowWaterRatio.i.i, align 4
+  %mul12.i.i = fmul float %6, %conv11.i.i
+  %conv13.i.i = fptosi float %mul12.i.i to i32
+  %lowWaterMark.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 60
+  store i32 %conv13.i.i, ptr %lowWaterMark.i.i, align 4
+  %7 = load float, ptr %highWaterRatio.i.i, align 8
+  %mul16.i.i = fmul float %7, %conv11.i.i
+  %conv17.i.i = fptosi float %mul16.i.i to i32
   %highWaterMark.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 56
-  %6 = load <2 x float>, ptr %highWaterRatio.i.i, align 8
-  %7 = insertelement <2 x float> poison, float %conv11.i.i, i64 0
-  %8 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> zeroinitializer
-  %9 = fmul <2 x float> %6, %8
-  %10 = fptosi <2 x float> %9 to <2 x i32>
-  store <2 x i32> %10, ptr %highWaterMark.i.i, align 8
+  store i32 %conv17.i.i, ptr %highWaterMark.i.i, align 8
   %.pre.i = load i32, ptr %status, align 4
-  %11 = icmp slt i32 %.pre.i, 1
-  %12 = select i1 %11, ptr %fillinResult, ptr null
+  %8 = icmp slt i32 %.pre.i, 1
+  %9 = select i1 %8, ptr %fillinResult, ptr null
   br label %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit
 
 _ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit: ; preds = %while.end, %if.end.i, %if.then6.i.i, %while.end.i.i
-  %retval.0.i = phi ptr [ null, %while.end ], [ null, %if.end.i ], [ null, %if.then6.i.i ], [ %12, %while.end.i.i ]
+  %retval.0.i = phi ptr [ null, %while.end ], [ null, %if.end.i ], [ null, %if.then6.i.i ], [ %9, %while.end.i.i ]
   ret ptr %retval.0.i
 }
 
@@ -507,20 +519,26 @@ entry:
   %mul.i = shl nsw i32 %policy, 1
   %idxprom.i = sext i32 %mul.i to i64
   %arrayidx.i = getelementptr inbounds [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %idxprom.i
+  %0 = load float, ptr %arrayidx.i, align 8
+  %lowWaterRatio.i = getelementptr inbounds i8, ptr %hash, i64 68
+  store float %0, ptr %lowWaterRatio.i, align 4
+  %add.i = or disjoint i32 %mul.i, 1
+  %idxprom2.i = sext i32 %add.i to i64
+  %arrayidx3.i = getelementptr inbounds [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %idxprom2.i
+  %1 = load float, ptr %arrayidx3.i, align 4
   %highWaterRatio.i = getelementptr inbounds i8, ptr %hash, i64 64
+  store float %1, ptr %highWaterRatio.i, align 8
   %length = getelementptr inbounds i8, ptr %hash, i64 52
-  %0 = load i32, ptr %length, align 4
-  %conv = sitofp i32 %0 to float
+  %2 = load i32, ptr %length, align 4
+  %conv = sitofp i32 %2 to float
+  %mul = fmul float %0, %conv
+  %conv1 = fptosi float %mul to i32
+  %lowWaterMark = getelementptr inbounds i8, ptr %hash, i64 60
+  store i32 %conv1, ptr %lowWaterMark, align 4
+  %mul4 = fmul float %1, %conv
+  %conv5 = fptosi float %mul4 to i32
   %highWaterMark = getelementptr inbounds i8, ptr %hash, i64 56
-  %1 = load <2 x float>, ptr %arrayidx.i, align 8
-  %2 = shufflevector <2 x float> %1, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %2, ptr %highWaterRatio.i, align 8
-  %3 = insertelement <2 x float> poison, float %conv, i64 0
-  %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> zeroinitializer
-  %5 = fmul <2 x float> %1, %4
-  %6 = fptosi <2 x float> %5 to <2 x i32>
-  %7 = shufflevector <2 x i32> %6, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %7, ptr %highWaterMark, align 8
+  store i32 %conv5, ptr %highWaterMark, align 8
   call fastcc void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef %hash, ptr noundef nonnull %status)
   ret void
 }
@@ -598,16 +616,20 @@ while.body.i:                                     ; preds = %if.end7.i, %while.b
 _ZL15_uhash_allocateP10UHashtableiP10UErrorCode.exit: ; preds = %while.body.i, %if.end7.i
   store i32 0, ptr %count, align 8
   %conv11.i = sitofp i32 %8 to float
+  %lowWaterRatio.i = getelementptr inbounds i8, ptr %hash, i64 68
+  %9 = load float, ptr %lowWaterRatio.i, align 4
+  %mul12.i = fmul float %9, %conv11.i
+  %conv13.i = fptosi float %mul12.i to i32
+  %lowWaterMark.i = getelementptr inbounds i8, ptr %hash, i64 60
+  store i32 %conv13.i, ptr %lowWaterMark.i, align 4
   %highWaterRatio.i = getelementptr inbounds i8, ptr %hash, i64 64
-  %9 = load <2 x float>, ptr %highWaterRatio.i, align 8
-  %10 = insertelement <2 x float> poison, float %conv11.i, i64 0
-  %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
-  %12 = fmul <2 x float> %9, %11
-  %13 = fptosi <2 x float> %12 to <2 x i32>
-  store <2 x i32> %13, ptr %highWaterMark, align 8
+  %10 = load float, ptr %highWaterRatio.i, align 8
+  %mul16.i = fmul float %10, %conv11.i
+  %conv17.i = fptosi float %mul16.i to i32
+  store i32 %conv17.i, ptr %highWaterMark, align 8
   %.pre = load i32, ptr %status, align 4
-  %14 = icmp slt i32 %.pre, 1
-  br i1 %14, label %for.cond.preheader, label %if.then12
+  %11 = icmp slt i32 %.pre, 1
+  br i1 %11, label %for.cond.preheader, label %if.then12
 
 for.cond.preheader:                               ; preds = %_ZL15_uhash_allocateP10UHashtableiP10UErrorCode.exit
   %cmp1648 = icmp sgt i32 %1, 0
@@ -615,7 +637,7 @@ for.cond.preheader:                               ; preds = %_ZL15_uhash_allocat
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
-  %15 = zext nneg i32 %1 to i64
+  %12 = zext nneg i32 %1 to i64
   br label %for.body
 
 if.then12:                                        ; preds = %if.then6.i, %if.end11, %_ZL15_uhash_allocateP10UHashtableiP10UErrorCode.exit
@@ -624,38 +646,38 @@ if.then12:                                        ; preds = %if.then6.i, %if.end
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv = phi i64 [ %15, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx = getelementptr inbounds %struct.UHashElement, ptr %0, i64 %indvars.iv.next
-  %16 = load i32, ptr %arrayidx, align 8
-  %cmp17 = icmp slt i32 %16, 0
+  %13 = load i32, ptr %arrayidx, align 8
+  %cmp17 = icmp slt i32 %13, 0
   br i1 %cmp17, label %for.inc, label %if.then18
 
 if.then18:                                        ; preds = %for.body
   %key = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %key, align 8
-  %17 = load ptr, ptr %hash, align 8
-  %xor.i = xor i32 %16, 67108864
-  %18 = load i32, ptr %length, align 4
-  %rem.i = srem i32 %xor.i, %18
+  %14 = load ptr, ptr %hash, align 8
+  %xor.i = xor i32 %13, 67108864
+  %15 = load i32, ptr %length, align 4
+  %rem.i = srem i32 %xor.i, %15
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %if.then18
-  %.pre47.i = phi i32 [ %18, %if.then18 ], [ %.pre.i, %if.end28.i ]
+  %.pre47.i = phi i32 [ %15, %if.then18 ], [ %.pre.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %if.then18 ], [ %jump.1.i, %if.end28.i ]
   %theIndex.0.i = phi i32 [ %rem.i, %if.then18 ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %if.then18 ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i36 = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i37 = getelementptr inbounds %struct.UHashElement, ptr %17, i64 %idxprom.i36
-  %19 = load i32, ptr %arrayidx.i37, align 8
-  %cmp.i38 = icmp eq i32 %19, %16
+  %arrayidx.i37 = getelementptr inbounds %struct.UHashElement, ptr %14, i64 %idxprom.i36
+  %16 = load i32, ptr %arrayidx.i37, align 8
+  %cmp.i38 = icmp eq i32 %16, %13
   br i1 %cmp.i38, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
-  %20 = load ptr, ptr %keyComparator.i, align 8
+  %17 = load ptr, ptr %keyComparator.i, align 8
   %key6.i = getelementptr inbounds i8, ptr %arrayidx.i37, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
-  %call.i = tail call noundef signext i8 %20(ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp3.sroa.0.0.copyload.i)
+  %call.i = tail call noundef signext i8 %17(ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %if.then.if.end23_crit_edge.i, label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
@@ -664,11 +686,11 @@ if.then.if.end23_crit_edge.i:                     ; preds = %if.then.i
   br label %if.end23.i
 
 if.else.i:                                        ; preds = %do.body.i
-  %cmp12.i = icmp slt i32 %19, 0
+  %cmp12.i = icmp slt i32 %16, 0
   br i1 %cmp12.i, label %if.else14.i, label %if.end23.i
 
 if.else14.i:                                      ; preds = %if.else.i
-  %cmp15.i = icmp eq i32 %19, -2147483647
+  %cmp15.i = icmp eq i32 %16, -2147483647
   %cmp332530.i = icmp slt i32 %firstDeleted.0.i, 0
   %spec.select29.i = select i1 %cmp332530.i, i32 %theIndex.0.i, i32 %firstDeleted.0.i
   br i1 %cmp15.i, label %if.end39.i, label %if.end23.i
@@ -681,7 +703,7 @@ if.end23.i:                                       ; preds = %if.else14.i, %if.el
 
 if.then25.i:                                      ; preds = %if.end23.i
   %sub.i = add nsw i32 %.pre.i, -1
-  %rem27.i = srem i32 %16, %sub.i
+  %rem27.i = srem i32 %13, %sub.i
   %add.i = add nuw nsw i32 %rem27.i, 1
   br label %if.end28.i
 
@@ -697,7 +719,7 @@ do.end.i:                                         ; preds = %if.end28.i
   br i1 %cmp33.i, label %if.end39.i, label %if.else35.i
 
 if.else35.i:                                      ; preds = %do.end.i
-  %cmp36.not.i = icmp eq i32 %19, -2147483647
+  %cmp36.not.i = icmp eq i32 %16, -2147483647
   br i1 %cmp36.not.i, label %if.end39.i, label %if.then37.i
 
 if.then37.i:                                      ; preds = %if.else35.i
@@ -707,22 +729,22 @@ if.then37.i:                                      ; preds = %if.else35.i
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
   %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
-  %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %17, i64 %idxprom40.i
+  %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %14, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
   %retval.0.i = phi ptr [ %arrayidx41.i, %if.end39.i ], [ %arrayidx.i37, %if.then.i ]
   %key28 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  %21 = load i64, ptr %key, align 8
-  store i64 %21, ptr %key28, align 8
+  %18 = load i64, ptr %key, align 8
+  store i64 %18, ptr %key28, align 8
   %value = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %value31 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
-  %22 = load i64, ptr %value, align 8
-  store i64 %22, ptr %value31, align 8
-  %23 = load i32, ptr %arrayidx, align 8
-  store i32 %23, ptr %retval.0.i, align 8
-  %24 = load i32, ptr %count, align 8
-  %inc37 = add nsw i32 %24, 1
+  %19 = load i64, ptr %value, align 8
+  store i64 %19, ptr %value31, align 8
+  %20 = load i32, ptr %arrayidx, align 8
+  store i32 %20, ptr %retval.0.i, align 8
+  %21 = load i32, ptr %count, align 8
+  %inc37 = add nsw i32 %21, 1
   store i32 %inc37, ptr %count, align 8
   br label %for.inc
 

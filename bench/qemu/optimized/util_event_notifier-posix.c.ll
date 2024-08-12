@@ -19,7 +19,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @event_notifier_init(ptr nocapture noundef %e, i32 noundef %active) local_unnamed_addr #1 {
 entry:
-  %fds = alloca [2 x i32], align 8
+  %fds = alloca [2 x i32], align 4
   %call = tail call i32 @eventfd(i32 noundef 0, i32 noundef 526336) #8
   %cmp = icmp sgt i32 %call, -1
   br i1 %cmp, label %if.then, label %if.else
@@ -51,7 +51,7 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %2 = load i32, ptr %fds, align 8
+  %2 = load i32, ptr %fds, align 4
   %call10 = call i32 @g_unix_set_fd_nonblocking(i32 noundef %2, i32 noundef 1, ptr noundef null) #8
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %fail, label %if.end15
@@ -64,8 +64,11 @@ if.end15:                                         ; preds = %if.end9
   br i1 %tobool18.not, label %fail, label %if.end22
 
 if.end22:                                         ; preds = %if.end15
-  %4 = load <2 x i32>, ptr %fds, align 8
-  store <2 x i32> %4, ptr %e, align 4
+  %4 = load i32, ptr %fds, align 4
+  store i32 %4, ptr %e, align 4
+  %5 = load i32, ptr %arrayidx16, align 4
+  %wfd26 = getelementptr inbounds i8, ptr %e, i64 4
+  store i32 %5, ptr %wfd26, align 4
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end22, %if.then
@@ -79,25 +82,25 @@ do.body.preheader.i:                              ; preds = %if.end27
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %do.body.preheader.i
-  %5 = load i32, ptr %wfd.i, align 4
-  %call.i = call i64 @write(i32 noundef %5, ptr noundef nonnull @event_notifier_set.value, i64 noundef 8) #8
+  %6 = load i32, ptr %wfd.i, align 4
+  %call.i = call i64 @write(i32 noundef %6, ptr noundef nonnull @event_notifier_set.value, i64 noundef 8) #8
   %cmp.i = icmp slt i64 %call.i, 0
   br i1 %cmp.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %do.body.i
   %call1.i = tail call ptr @__errno_location() #9
-  %6 = load i32, ptr %call1.i, align 4
-  %cmp2.i = icmp eq i32 %6, 4
+  %7 = load i32, ptr %call1.i, align 4
+  %cmp2.i = icmp eq i32 %7, 4
   br i1 %cmp2.i, label %do.body.i, label %return, !llvm.loop !5
 
 fail:                                             ; preds = %if.end15, %if.end9
   %.pn = load i32, ptr %call1, align 4
   %ret.0 = sub i32 0, %.pn
-  %7 = load i32, ptr %fds, align 8
-  %call33 = call i32 @close(i32 noundef %7) #8
+  %8 = load i32, ptr %fds, align 4
+  %call33 = call i32 @close(i32 noundef %8) #8
   %arrayidx34 = getelementptr inbounds i8, ptr %fds, i64 4
-  %8 = load i32, ptr %arrayidx34, align 4
-  %call35 = call i32 @close(i32 noundef %8) #8
+  %9 = load i32, ptr %arrayidx34, align 4
+  %call35 = call i32 @close(i32 noundef %9) #8
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %do.body.i, %if.end27, %fail, %if.then6, %if.then3

@@ -2237,9 +2237,11 @@ entry:
 
 if.then:                                          ; preds = %entry, %entry
   %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %1 = load <2 x i16>, ptr %fold, align 8
-  %2 = shufflevector <2 x i16> %1, <2 x i16> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i16> %2, ptr %fold, align 8
+  %1 = load i16, ptr %fold, align 8
+  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %2 = load i16, ptr %op2, align 2
+  store i16 %2, ptr %fold, align 8
+  store i16 %1, ptr %op2, align 2
   br label %return
 
 return:                                           ; preds = %entry, %if.then

@@ -500,13 +500,17 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %ret.0 = phi i32 [ %call, %if.then ], [ %call13, %if.else ]
   %arrayidx = getelementptr inbounds i8, ptr %bctx, i64 420
+  %1 = load i32, ptr %arrayidx, align 4
   %nonce = getelementptr inbounds i8, ptr %bctx, i64 752
-  %1 = load <2 x i32>, ptr %arrayidx, align 4
-  store <2 x i32> %1, ptr %nonce, align 8
+  store i32 %1, ptr %nonce, align 8
+  %arrayidx18 = getelementptr inbounds i8, ptr %bctx, i64 424
+  %2 = load i32, ptr %arrayidx18, align 8
+  %arrayidx20 = getelementptr inbounds i8, ptr %bctx, i64 756
+  store i32 %2, ptr %arrayidx20, align 4
   %arrayidx23 = getelementptr inbounds i8, ptr %bctx, i64 428
-  %2 = load i32, ptr %arrayidx23, align 4
+  %3 = load i32, ptr %arrayidx23, align 4
   %arrayidx25 = getelementptr inbounds i8, ptr %bctx, i64 760
-  store i32 %2, ptr %arrayidx25, align 8
+  store i32 %3, ptr %arrayidx25, align 8
   %bf.load26 = load i8, ptr %enc, align 4
   %bf.set28 = or i8 %bf.load26, 4
   store i8 %bf.set28, ptr %enc, align 4
@@ -561,11 +565,18 @@ if.end14:                                         ; preds = %if.end9, %if.end
   %arrayidx17 = getelementptr inbounds i8, ptr %bctx, i64 420
   store i32 %3, ptr %arrayidx17, align 4
   %arrayidx19 = getelementptr inbounds i8, ptr %bctx, i64 756
+  %4 = load i32, ptr %arrayidx19, align 4
+  %5 = load i32, ptr %tls_aad, align 1
+  %xor = xor i32 %5, %4
   %arrayidx36 = getelementptr inbounds i8, ptr %bctx, i64 424
-  %4 = load <2 x i32>, ptr %arrayidx19, align 4
-  %5 = load <2 x i32>, ptr %tls_aad, align 1
-  %6 = xor <2 x i32> %5, %4
-  store <2 x i32> %6, ptr %arrayidx36, align 8
+  store i32 %xor, ptr %arrayidx36, align 8
+  %arrayidx38 = getelementptr inbounds i8, ptr %bctx, i64 760
+  %6 = load i32, ptr %arrayidx38, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %bctx, i64 784
+  %7 = load i32, ptr %add.ptr, align 1
+  %xor56 = xor i32 %7, %6
+  %arrayidx59 = getelementptr inbounds i8, ptr %bctx, i64 428
+  store i32 %xor56, ptr %arrayidx59, align 4
   %mac_inited = getelementptr inbounds i8, ptr %bctx, i64 816
   %bf.load60 = load i8, ptr %mac_inited, align 8
   %bf.clear61 = and i8 %bf.load60, -3

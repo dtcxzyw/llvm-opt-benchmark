@@ -46,22 +46,24 @@ define ptr @agmemread(ptr noundef %0) local_unnamed_addr #1 {
   %3 = alloca %struct.Agdisc_s, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %4 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @AgIoDisc, i64 8), align 8
-  store <2 x ptr> %4, ptr getelementptr inbounds (i8, ptr @memIoDisc, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @AgIoDisc, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @memIoDisc, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @AgIoDisc, i64 16), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @memIoDisc, i64 16), align 8
   store ptr %0, ptr %2, align 8
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
-  store i64 0, ptr %7, align 8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %6, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  store i64 0, ptr %8, align 8
   store ptr @AgIdDisc, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @memIoDisc, ptr %8, align 8
-  %9 = call ptr @agread(ptr noundef nonnull %2, ptr noundef nonnull %3) #8
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @memIoDisc, ptr %9, align 8
+  %10 = call ptr @agread(ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   call void @agsetfile(ptr noundef null) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  ret ptr %9
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -70,30 +72,32 @@ define ptr @agmemconcat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %4 = alloca %struct.Agdisc_s, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %5 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @AgIoDisc, i64 8), align 8
-  store <2 x ptr> %5, ptr getelementptr inbounds (i8, ptr @memIoDisc, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @AgIoDisc, i64 8), align 8
+  store ptr %5, ptr getelementptr inbounds (i8, ptr @memIoDisc, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @AgIoDisc, i64 16), align 8
+  store ptr %6, ptr getelementptr inbounds (i8, ptr @memIoDisc, i64 16), align 8
   store ptr %1, ptr %3, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 0, ptr %8, align 8
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %7, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 0, ptr %9, align 8
   store ptr @AgIdDisc, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @memIoDisc, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @memIoDisc, ptr %10, align 8
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %12, label %10
+  br i1 %.not.i, label %13, label %11
 
-10:                                               ; preds = %2
-  %11 = call ptr @agconcat(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
+11:                                               ; preds = %2
+  %12 = call ptr @agconcat(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   br label %agmemread0.exit
 
-12:                                               ; preds = %2
-  %13 = call ptr @agread(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
+13:                                               ; preds = %2
+  %14 = call ptr @agread(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   br label %agmemread0.exit
 
-agmemread0.exit:                                  ; preds = %10, %12
-  %.0.i = phi ptr [ %11, %10 ], [ %13, %12 ]
+agmemread0.exit:                                  ; preds = %11, %13
+  %.0.i = phi ptr [ %12, %11 ], [ %14, %13 ]
   call void @agsetfile(ptr noundef null) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)

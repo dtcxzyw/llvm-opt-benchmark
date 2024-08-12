@@ -1450,7 +1450,7 @@ if.then:                                          ; preds = %invoke.cont2
   br label %_ZN7rocksdb6StatusD2Ev.exit72
 
 lpad.loopexit:                                    ; preds = %while.body, %sw.bb, %if.then33, %sw.bb36, %if.then40, %sw.bb43, %if.then47, %sw.bb50, %if.then54, %sw.bb58, %if.then62
-  %0 = phi ptr [ %2, %while.body ], [ %7, %sw.bb ], [ %7, %if.then33 ], [ %7, %sw.bb36 ], [ %7, %if.then40 ], [ %7, %sw.bb43 ], [ %7, %if.then47 ], [ %7, %sw.bb50 ], [ %7, %if.then54 ], [ %7, %sw.bb58 ], [ %7, %if.then62 ]
+  %0 = phi ptr [ %2, %while.body ], [ %10, %sw.bb ], [ %10, %if.then33 ], [ %10, %sw.bb36 ], [ %10, %if.then40 ], [ %10, %sw.bb43 ], [ %10, %if.then47 ], [ %10, %sw.bb50 ], [ %10, %if.then54 ], [ %10, %sw.bb58 ], [ %10, %if.then62 ]
   %lpad.loopexit83 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -1481,6 +1481,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end
   %last_entry_offset = getelementptr inbounds i8, ptr %this, i64 2496
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
+  %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 3
   %data_loss_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %scope_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 5
   %state_.i15 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -1489,7 +1490,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end
   br i1 %cmp.i9272, label %land.lhs.true, label %while.body
 
 while.body:                                       ; preds = %land.rhs.lr.ph, %sw.epilog
-  %2 = phi ptr [ %7, %sw.epilog ], [ null, %land.rhs.lr.ph ]
+  %2 = phi ptr [ %10, %sw.epilog ], [ null, %land.rhs.lr.ph ]
   %found.093273 = phi i32 [ %found.1, %sw.epilog ], [ 0, %land.rhs.lr.ph ]
   store ptr @.str.5, ptr %key, align 8
   store i64 0, ptr %size_.i10, align 8
@@ -1512,12 +1513,18 @@ while.body:                                       ; preds = %land.rhs.lr.ph, %sw
 
 invoke.cont25:                                    ; preds = %while.body
   %4 = load i8, ptr %ref.tmp, align 8
+  store i8 0, ptr %ref.tmp, align 8
   %5 = load i8, ptr %subcode_.i, align 1
-  %6 = load <4 x i8>, ptr %sev_.i, align 2
-  store <4 x i8> zeroinitializer, ptr %ref.tmp, align 8
+  store i8 0, ptr %subcode_.i, align 1
+  %6 = load i8, ptr %sev_.i, align 2
+  store i8 0, ptr %sev_.i, align 2
+  %7 = load i8, ptr %retryable_.i, align 1
+  store i8 0, ptr %retryable_.i, align 1
+  %8 = load i8, ptr %data_loss_.i, align 4
   store i8 0, ptr %data_loss_.i, align 4
+  %9 = load i8, ptr %scope_.i, align 1
   store i8 0, ptr %scope_.i, align 1
-  %7 = load ptr, ptr %state_.i15, align 8
+  %10 = load ptr, ptr %state_.i15, align 8
   store ptr null, ptr %state_.i15, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont27, label %_ZN7rocksdb6StatusaSEOS0_.exit
@@ -1538,8 +1545,8 @@ invoke.cont27:                                    ; preds = %invoke.cont25, %_ZN
   br i1 %cmp.i18, label %if.end30, label %if.end87
 
 if.end30:                                         ; preds = %invoke.cont27
-  %8 = load i8, ptr %tag, align 1
-  switch i8 %8, label %sw.default [
+  %11 = load i8, ptr %tag, align 1
+  switch i8 %11, label %sw.default [
     i8 5, label %sw.bb
     i8 1, label %sw.bb
     i8 4, label %sw.bb36
@@ -1563,79 +1570,79 @@ if.end30:                                         ; preds = %invoke.cont27
 
 sw.bb:                                            ; preds = %if.end30, %if.end30
   %inc = add i32 %found.093273, 1
-  %9 = load i32, ptr %column_family_id, align 4
-  %call32 = invoke noundef zeroext i1 @_ZN7rocksdb19WriteBatchWithIndex3Rep27UpdateExistingEntryWithCfIdEjRKNS_5SliceENS_9WriteTypeE(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(16) %key, i32 noundef 0)
+  %12 = load i32, ptr %column_family_id, align 4
+  %call32 = invoke noundef zeroext i1 @_ZN7rocksdb19WriteBatchWithIndex3Rep27UpdateExistingEntryWithCfIdEjRKNS_5SliceENS_9WriteTypeE(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %key, i32 noundef 0)
           to label %invoke.cont31 unwind label %lpad.loopexit
 
 invoke.cont31:                                    ; preds = %sw.bb
   br i1 %call32, label %sw.epilog, label %if.then33
 
 if.then33:                                        ; preds = %invoke.cont31
-  %10 = load i32, ptr %column_family_id, align 4
-  invoke void @_ZN7rocksdb19WriteBatchWithIndex3Rep11AddNewEntryEj(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %10)
+  %13 = load i32, ptr %column_family_id, align 4
+  invoke void @_ZN7rocksdb19WriteBatchWithIndex3Rep11AddNewEntryEj(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %13)
           to label %sw.epilog unwind label %lpad.loopexit
 
 sw.bb36:                                          ; preds = %if.end30, %if.end30
   %inc37 = add i32 %found.093273, 1
-  %11 = load i32, ptr %column_family_id, align 4
-  %call39 = invoke noundef zeroext i1 @_ZN7rocksdb19WriteBatchWithIndex3Rep27UpdateExistingEntryWithCfIdEjRKNS_5SliceENS_9WriteTypeE(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(16) %key, i32 noundef 2)
+  %14 = load i32, ptr %column_family_id, align 4
+  %call39 = invoke noundef zeroext i1 @_ZN7rocksdb19WriteBatchWithIndex3Rep27UpdateExistingEntryWithCfIdEjRKNS_5SliceENS_9WriteTypeE(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %key, i32 noundef 2)
           to label %invoke.cont38 unwind label %lpad.loopexit
 
 invoke.cont38:                                    ; preds = %sw.bb36
   br i1 %call39, label %sw.epilog, label %if.then40
 
 if.then40:                                        ; preds = %invoke.cont38
-  %12 = load i32, ptr %column_family_id, align 4
-  invoke void @_ZN7rocksdb19WriteBatchWithIndex3Rep11AddNewEntryEj(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %12)
+  %15 = load i32, ptr %column_family_id, align 4
+  invoke void @_ZN7rocksdb19WriteBatchWithIndex3Rep11AddNewEntryEj(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %15)
           to label %sw.epilog unwind label %lpad.loopexit
 
 sw.bb43:                                          ; preds = %if.end30, %if.end30
   %inc44 = add i32 %found.093273, 1
-  %13 = load i32, ptr %column_family_id, align 4
-  %call46 = invoke noundef zeroext i1 @_ZN7rocksdb19WriteBatchWithIndex3Rep27UpdateExistingEntryWithCfIdEjRKNS_5SliceENS_9WriteTypeE(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(16) %key, i32 noundef 3)
+  %16 = load i32, ptr %column_family_id, align 4
+  %call46 = invoke noundef zeroext i1 @_ZN7rocksdb19WriteBatchWithIndex3Rep27UpdateExistingEntryWithCfIdEjRKNS_5SliceENS_9WriteTypeE(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(16) %key, i32 noundef 3)
           to label %invoke.cont45 unwind label %lpad.loopexit
 
 invoke.cont45:                                    ; preds = %sw.bb43
   br i1 %call46, label %sw.epilog, label %if.then47
 
 if.then47:                                        ; preds = %invoke.cont45
-  %14 = load i32, ptr %column_family_id, align 4
-  invoke void @_ZN7rocksdb19WriteBatchWithIndex3Rep11AddNewEntryEj(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %14)
+  %17 = load i32, ptr %column_family_id, align 4
+  invoke void @_ZN7rocksdb19WriteBatchWithIndex3Rep11AddNewEntryEj(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %17)
           to label %sw.epilog unwind label %lpad.loopexit
 
 sw.bb50:                                          ; preds = %if.end30, %if.end30
   %inc51 = add i32 %found.093273, 1
-  %15 = load i32, ptr %column_family_id, align 4
-  %call53 = invoke noundef zeroext i1 @_ZN7rocksdb19WriteBatchWithIndex3Rep27UpdateExistingEntryWithCfIdEjRKNS_5SliceENS_9WriteTypeE(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %key, i32 noundef 1)
+  %18 = load i32, ptr %column_family_id, align 4
+  %call53 = invoke noundef zeroext i1 @_ZN7rocksdb19WriteBatchWithIndex3Rep27UpdateExistingEntryWithCfIdEjRKNS_5SliceENS_9WriteTypeE(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %key, i32 noundef 1)
           to label %invoke.cont52 unwind label %lpad.loopexit
 
 invoke.cont52:                                    ; preds = %sw.bb50
   br i1 %call53, label %sw.epilog, label %if.then54
 
 if.then54:                                        ; preds = %invoke.cont52
-  %16 = load i32, ptr %column_family_id, align 4
-  invoke void @_ZN7rocksdb19WriteBatchWithIndex3Rep11AddNewEntryEj(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %16)
+  %19 = load i32, ptr %column_family_id, align 4
+  invoke void @_ZN7rocksdb19WriteBatchWithIndex3Rep11AddNewEntryEj(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %19)
           to label %sw.epilog unwind label %lpad.loopexit
 
 sw.bb58:                                          ; preds = %if.end30, %if.end30
   %inc59 = add i32 %found.093273, 1
-  %17 = load i32, ptr %column_family_id, align 4
-  %call61 = invoke noundef zeroext i1 @_ZN7rocksdb19WriteBatchWithIndex3Rep27UpdateExistingEntryWithCfIdEjRKNS_5SliceENS_9WriteTypeE(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %17, ptr noundef nonnull align 8 dereferenceable(16) %key, i32 noundef 7)
+  %20 = load i32, ptr %column_family_id, align 4
+  %call61 = invoke noundef zeroext i1 @_ZN7rocksdb19WriteBatchWithIndex3Rep27UpdateExistingEntryWithCfIdEjRKNS_5SliceENS_9WriteTypeE(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(16) %key, i32 noundef 7)
           to label %invoke.cont60 unwind label %lpad.loopexit
 
 invoke.cont60:                                    ; preds = %sw.bb58
   br i1 %call61, label %sw.epilog, label %if.then62
 
 if.then62:                                        ; preds = %invoke.cont60
-  %18 = load i32, ptr %column_family_id, align 4
-  invoke void @_ZN7rocksdb19WriteBatchWithIndex3Rep11AddNewEntryEj(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %18)
+  %21 = load i32, ptr %column_family_id, align 4
+  invoke void @_ZN7rocksdb19WriteBatchWithIndex3Rep11AddNewEntryEj(ptr noundef nonnull align 16 dereferenceable(2520) %this, i32 noundef %21)
           to label %sw.epilog unwind label %lpad.loopexit
 
 sw.default:                                       ; preds = %if.end30
   store ptr @.str, ptr %ref.tmp65, align 8
   %size_.i20 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
   store i64 38, ptr %size_.i20, align 8
-  %conv69 = sext i8 %8 to i32
+  %conv69 = sext i8 %11 to i32
   call void @_ZNSt7__cxx119to_stringEj(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp68, i32 noundef %conv69) #21
   %call.i21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68) #21
   store ptr %call.i21, ptr %ref.tmp67, align 8
@@ -1647,26 +1654,29 @@ sw.default:                                       ; preds = %if.end30
 
 invoke.cont72:                                    ; preds = %sw.default
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68) #21
-  %cmp.not.i.i70 = icmp eq ptr %7, null
+  %cmp.not.i.i70 = icmp eq ptr %10, null
   br i1 %cmp.not.i.i70, label %_ZN7rocksdb6StatusD2Ev.exit72, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i71
 
 lpad70:                                           ; preds = %sw.default
-  %19 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68) #21
   br label %ehcleanup
 
 sw.epilog:                                        ; preds = %invoke.cont60, %if.then62, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %if.end30, %invoke.cont52, %if.then54, %invoke.cont45, %if.then47, %invoke.cont38, %if.then40, %invoke.cont31, %if.then33
   %found.1 = phi i32 [ %inc59, %invoke.cont60 ], [ %inc59, %if.then62 ], [ %found.093273, %if.end30 ], [ %found.093273, %if.end30 ], [ %found.093273, %if.end30 ], [ %found.093273, %if.end30 ], [ %found.093273, %if.end30 ], [ %found.093273, %if.end30 ], [ %found.093273, %if.end30 ], [ %found.093273, %if.end30 ], [ %found.093273, %if.end30 ], [ %inc51, %invoke.cont52 ], [ %inc51, %if.then54 ], [ %inc44, %invoke.cont45 ], [ %inc44, %if.then47 ], [ %inc37, %invoke.cont38 ], [ %inc37, %if.then40 ], [ %inc, %invoke.cont31 ], [ %inc, %if.then33 ]
-  %20 = load i64, ptr %size_.i, align 8
-  %cmp.i9 = icmp eq i64 %20, 0
+  %23 = load i64, ptr %size_.i, align 8
+  %cmp.i9 = icmp eq i64 %23, 0
   br i1 %cmp.i9, label %land.lhs.true, label %while.body
 
 land.lhs.true:                                    ; preds = %sw.epilog, %land.rhs.lr.ph
+  %.lcssa268 = phi i8 [ 0, %land.rhs.lr.ph ], [ %9, %sw.epilog ]
+  %frombool12.i109.lcssa = phi i8 [ 0, %land.rhs.lr.ph ], [ %8, %sw.epilog ]
+  %frombool.i105.lcssa = phi i8 [ 0, %land.rhs.lr.ph ], [ %7, %sw.epilog ]
+  %.lcssa258 = phi i8 [ 0, %land.rhs.lr.ph ], [ %6, %sw.epilog ]
   %.lcssa254 = phi i8 [ 0, %land.rhs.lr.ph ], [ %5, %sw.epilog ]
   %found.093.lcssa = phi i32 [ 0, %land.rhs.lr.ph ], [ %found.1, %sw.epilog ]
-  %.lcssa247 = phi ptr [ null, %land.rhs.lr.ph ], [ %7, %sw.epilog ]
-  %21 = phi <4 x i8> [ zeroinitializer, %land.rhs.lr.ph ], [ %6, %sw.epilog ]
+  %.lcssa247 = phi ptr [ null, %land.rhs.lr.ph ], [ %10, %sw.epilog ]
   %call77 = invoke noundef i32 @_ZNK7rocksdb10WriteBatch5CountEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont76 unwind label %lpad.loopexit.split-lp
 
@@ -1685,18 +1695,25 @@ if.then79:                                        ; preds = %invoke.cont76
           to label %invoke.cont85 unwind label %lpad.loopexit.split-lp
 
 invoke.cont85:                                    ; preds = %if.then79
-  %22 = load i8, ptr %ref.tmp80, align 8
+  %24 = load i8, ptr %ref.tmp80, align 8
+  store i8 0, ptr %ref.tmp80, align 8
   %subcode_.i29 = getelementptr inbounds i8, ptr %ref.tmp80, i64 1
-  %23 = load i8, ptr %subcode_.i29, align 1
+  %25 = load i8, ptr %subcode_.i29, align 1
+  store i8 0, ptr %subcode_.i29, align 1
   %sev_.i31 = getelementptr inbounds i8, ptr %ref.tmp80, i64 2
+  %26 = load i8, ptr %sev_.i31, align 2
+  store i8 0, ptr %sev_.i31, align 2
+  %retryable_.i33 = getelementptr inbounds i8, ptr %ref.tmp80, i64 3
+  %27 = load i8, ptr %retryable_.i33, align 1
+  store i8 0, ptr %retryable_.i33, align 1
   %data_loss_.i36 = getelementptr inbounds i8, ptr %ref.tmp80, i64 4
-  %scope_.i39 = getelementptr inbounds i8, ptr %ref.tmp80, i64 5
-  %24 = load <4 x i8>, ptr %sev_.i31, align 2
-  store <4 x i8> zeroinitializer, ptr %ref.tmp80, align 8
+  %28 = load i8, ptr %data_loss_.i36, align 4
   store i8 0, ptr %data_loss_.i36, align 4
+  %scope_.i39 = getelementptr inbounds i8, ptr %ref.tmp80, i64 5
+  %29 = load i8, ptr %scope_.i39, align 1
   store i8 0, ptr %scope_.i39, align 1
   %state_.i41 = getelementptr inbounds i8, ptr %ref.tmp80, i64 8
-  %25 = load ptr, ptr %state_.i41, align 8
+  %30 = load ptr, ptr %state_.i41, align 8
   store ptr null, ptr %state_.i41, align 8
   %tobool.not.i.i.i.i.i43 = icmp eq ptr %.lcssa247, null
   br i1 %tobool.not.i.i.i.i.i43, label %if.end87, label %_ZN7rocksdb6StatusaSEOS0_.exit45
@@ -1712,41 +1729,40 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %if.end87
 
 if.end87:                                         ; preds = %invoke.cont27, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48, %_ZN7rocksdb6StatusaSEOS0_.exit45, %invoke.cont85, %invoke.cont76
-  %s.sroa.0.0 = phi i8 [ 0, %invoke.cont76 ], [ %22, %invoke.cont85 ], [ %22, %_ZN7rocksdb6StatusaSEOS0_.exit45 ], [ %22, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48 ], [ %4, %invoke.cont27 ]
-  %s.sroa.11.0 = phi i8 [ %.lcssa254, %invoke.cont76 ], [ %23, %invoke.cont85 ], [ %23, %_ZN7rocksdb6StatusaSEOS0_.exit45 ], [ %23, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48 ], [ %5, %invoke.cont27 ]
-  %s.sroa.61.1 = phi ptr [ %.lcssa247, %invoke.cont76 ], [ %25, %invoke.cont85 ], [ %25, %_ZN7rocksdb6StatusaSEOS0_.exit45 ], [ %25, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48 ], [ %7, %invoke.cont27 ]
-  %26 = phi <4 x i8> [ %21, %invoke.cont76 ], [ %24, %invoke.cont85 ], [ %24, %_ZN7rocksdb6StatusaSEOS0_.exit45 ], [ %24, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48 ], [ %6, %invoke.cont27 ]
+  %s.sroa.0.0 = phi i8 [ 0, %invoke.cont76 ], [ %24, %invoke.cont85 ], [ %24, %_ZN7rocksdb6StatusaSEOS0_.exit45 ], [ %24, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48 ], [ %4, %invoke.cont27 ]
+  %s.sroa.11.0 = phi i8 [ %.lcssa254, %invoke.cont76 ], [ %25, %invoke.cont85 ], [ %25, %_ZN7rocksdb6StatusaSEOS0_.exit45 ], [ %25, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48 ], [ %5, %invoke.cont27 ]
+  %s.sroa.21.0 = phi i8 [ %.lcssa258, %invoke.cont76 ], [ %26, %invoke.cont85 ], [ %26, %_ZN7rocksdb6StatusaSEOS0_.exit45 ], [ %26, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48 ], [ %6, %invoke.cont27 ]
+  %s.sroa.31.0 = phi i8 [ %frombool.i105.lcssa, %invoke.cont76 ], [ %27, %invoke.cont85 ], [ %27, %_ZN7rocksdb6StatusaSEOS0_.exit45 ], [ %27, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48 ], [ %7, %invoke.cont27 ]
+  %s.sroa.41.0 = phi i8 [ %frombool12.i109.lcssa, %invoke.cont76 ], [ %28, %invoke.cont85 ], [ %28, %_ZN7rocksdb6StatusaSEOS0_.exit45 ], [ %28, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48 ], [ %8, %invoke.cont27 ]
+  %s.sroa.61.1 = phi ptr [ %.lcssa247, %invoke.cont76 ], [ %30, %invoke.cont85 ], [ %30, %_ZN7rocksdb6StatusaSEOS0_.exit45 ], [ %30, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48 ], [ %10, %invoke.cont27 ]
+  %s.sroa.51.0 = phi i8 [ %.lcssa268, %invoke.cont76 ], [ %29, %invoke.cont85 ], [ %29, %_ZN7rocksdb6StatusaSEOS0_.exit45 ], [ %29, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48 ], [ %9, %invoke.cont27 ]
   %state_.i.i50 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %s.sroa.0.0, ptr %agg.result, align 8
   %subcode_4.i.i54 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %s.sroa.11.0, ptr %subcode_4.i.i54, align 1
   %sev_6.i.i56 = getelementptr inbounds i8, ptr %agg.result, i64 2
-  %27 = extractelement <4 x i8> %26, i64 0
-  store i8 %27, ptr %sev_6.i.i56, align 2
+  store i8 %s.sroa.21.0, ptr %sev_6.i.i56, align 2
   %retryable_8.i.i58 = getelementptr inbounds i8, ptr %agg.result, i64 3
-  %28 = extractelement <4 x i8> %26, i64 1
-  %frombool.i.i59 = and i8 %28, 1
+  %frombool.i.i59 = and i8 %s.sroa.31.0, 1
   store i8 %frombool.i.i59, ptr %retryable_8.i.i58, align 1
   %data_loss_11.i.i61 = getelementptr inbounds i8, ptr %agg.result, i64 4
-  %29 = extractelement <4 x i8> %26, i64 2
-  %frombool12.i.i62 = and i8 %29, 1
+  %frombool12.i.i62 = and i8 %s.sroa.41.0, 1
   store i8 %frombool12.i.i62, ptr %data_loss_11.i.i61, align 4
   %scope_14.i.i64 = getelementptr inbounds i8, ptr %agg.result, i64 5
-  %30 = extractelement <4 x i8> %26, i64 3
-  store i8 %30, ptr %scope_14.i.i64, align 1
+  store i8 %s.sroa.51.0, ptr %scope_14.i.i64, align 1
   store ptr %s.sroa.61.1, ptr %state_.i.i50, align 8
   br label %_ZN7rocksdb6StatusD2Ev.exit72
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i71: ; preds = %invoke.cont72
-  call void @_ZdaPv(ptr noundef nonnull %7) #20
+  call void @_ZdaPv(ptr noundef nonnull %10) #20
   br label %_ZN7rocksdb6StatusD2Ev.exit72
 
 _ZN7rocksdb6StatusD2Ev.exit72:                    ; preds = %if.then, %if.end87, %invoke.cont72, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i71
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad70
-  %s.sroa.61.0 = phi ptr [ %s.sroa.61.2, %lpad.loopexit.split-lp ], [ %7, %lpad70 ], [ %0, %lpad.loopexit ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp84, %lpad.loopexit.split-lp ], [ %19, %lpad70 ], [ %lpad.loopexit83, %lpad.loopexit ]
+  %s.sroa.61.0 = phi ptr [ %s.sroa.61.2, %lpad.loopexit.split-lp ], [ %10, %lpad70 ], [ %0, %lpad.loopexit ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp84, %lpad.loopexit.split-lp ], [ %22, %lpad70 ], [ %lpad.loopexit83, %lpad.loopexit ]
   %cmp.not.i.i74 = icmp eq ptr %s.sroa.61.0, null
   br i1 %cmp.not.i.i74, label %_ZN7rocksdb6StatusD2Ev.exit76, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i75
 
@@ -2232,6 +2248,9 @@ invoke.cont:                                      ; preds = %if.then
   %skip_list = getelementptr inbounds i8, ptr %0, i64 2432
   %comparator = getelementptr inbounds i8, ptr %0, i64 96
   %iterate_lower_bound = getelementptr inbounds i8, ptr %read_options, i64 96
+  %1 = load ptr, ptr %iterate_lower_bound, align 8
+  %iterate_upper_bound = getelementptr inbounds i8, ptr %read_options, i64 104
+  %2 = load ptr, ptr %iterate_upper_bound, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %call9, align 8
   %column_family_id_.i = getelementptr inbounds i8, ptr %call9, i64 8
   store i32 %call2, ptr %column_family_id_.i, align 8
@@ -2244,14 +2263,15 @@ invoke.cont:                                      ; preds = %if.then
   %comparator_.i = getelementptr inbounds i8, ptr %call9, i64 40
   store ptr %comparator, ptr %comparator_.i, align 8
   %iterate_lower_bound_.i = getelementptr inbounds i8, ptr %call9, i64 48
-  %1 = load <2 x ptr>, ptr %iterate_lower_bound, align 8
-  store <2 x ptr> %1, ptr %iterate_lower_bound_.i, align 8
+  store ptr %1, ptr %iterate_lower_bound_.i, align 8
+  %iterate_upper_bound_.i = getelementptr inbounds i8, ptr %call9, i64 56
+  store ptr %2, ptr %iterate_upper_bound_.i, align 8
   %out_of_bound_.i = getelementptr inbounds i8, ptr %call9, i64 64
   store i8 0, ptr %out_of_bound_.i, align 8
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -2261,9 +2281,9 @@ if.else:                                          ; preds = %entry
 
 invoke.cont11:                                    ; preds = %if.else
   %rep13 = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %rep13, align 8
-  %skip_list15 = getelementptr inbounds i8, ptr %3, i64 2432
-  %comparator21 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = load ptr, ptr %rep13, align 8
+  %skip_list15 = getelementptr inbounds i8, ptr %4, i64 2432
+  %comparator21 = getelementptr inbounds i8, ptr %4, i64 96
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %call9, align 8
   %column_family_id_.i7 = getelementptr inbounds i8, ptr %call9, i64 8
   store i32 %call12, ptr %column_family_id_.i7, align 8
@@ -2272,7 +2292,7 @@ invoke.cont11:                                    ; preds = %if.else
   %node_.i.i.i9 = getelementptr inbounds i8, ptr %call9, i64 24
   store ptr null, ptr %node_.i.i.i9, align 8
   %write_batch_.i10 = getelementptr inbounds i8, ptr %call9, i64 32
-  store ptr %3, ptr %write_batch_.i10, align 8
+  store ptr %4, ptr %write_batch_.i10, align 8
   %comparator_.i11 = getelementptr inbounds i8, ptr %call9, i64 40
   store ptr %comparator21, ptr %comparator_.i11, align 8
   %iterate_lower_bound_.i12 = getelementptr inbounds i8, ptr %call9, i64 48
@@ -2280,7 +2300,7 @@ invoke.cont11:                                    ; preds = %if.else
   br label %if.end
 
 lpad10:                                           ; preds = %if.else
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -2297,13 +2317,13 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   ret ptr %call23
 
 lpad24:                                           ; preds = %invoke.cont25, %if.end
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad24, %lpad10, %lpad
   %call23.sink = phi ptr [ %call23, %lpad24 ], [ %call9, %lpad10 ], [ %call9, %lpad ]
-  %.pn = phi { ptr, i32 } [ %5, %lpad24 ], [ %4, %lpad10 ], [ %2, %lpad ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad24 ], [ %5, %lpad10 ], [ %3, %lpad ]
   tail call void @_ZdlPv(ptr noundef nonnull %call23.sink) #20
   resume { ptr, i32 } %.pn
 }
@@ -3295,20 +3315,23 @@ if.then16:                                        ; preds = %invoke.cont13
 if.then.i.i:                                      ; preds = %if.then16
   %8 = load i8, ptr %s, align 8
   store i8 %8, ptr %agg.result, align 8
+  store i8 0, ptr %s, align 8
   %subcode_.i.i = getelementptr inbounds i8, ptr %s, i64 1
   %9 = load i8, ptr %subcode_.i.i, align 1
   %subcode_4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %9, ptr %subcode_4.i.i, align 1
+  store i8 0, ptr %subcode_.i.i, align 1
   %sev_.i.i = getelementptr inbounds i8, ptr %s, i64 2
   %10 = load i8, ptr %sev_.i.i, align 2
   %sev_6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %10, ptr %sev_6.i.i, align 2
+  store i8 0, ptr %sev_.i.i, align 2
   %retryable_.i.i = getelementptr inbounds i8, ptr %s, i64 3
   %11 = load i8, ptr %retryable_.i.i, align 1
   %retryable_8.i.i = getelementptr inbounds i8, ptr %agg.result, i64 3
   %frombool.i.i = and i8 %11, 1
   store i8 %frombool.i.i, ptr %retryable_8.i.i, align 1
-  store <4 x i8> zeroinitializer, ptr %s, align 8
+  store i8 0, ptr %retryable_.i.i, align 1
   %data_loss_.i.i = getelementptr inbounds i8, ptr %s, i64 4
   %12 = load i8, ptr %data_loss_.i.i, align 4
   %data_loss_11.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -3345,20 +3368,23 @@ if.then23:                                        ; preds = %invoke.cont19
 
 if.then.i.i24:                                    ; preds = %if.then23
   store i8 %16, ptr %agg.result, align 8
+  store i8 0, ptr %s, align 8
   %subcode_.i.i25 = getelementptr inbounds i8, ptr %s, i64 1
   %17 = load i8, ptr %subcode_.i.i25, align 1
   %subcode_4.i.i26 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %17, ptr %subcode_4.i.i26, align 1
+  store i8 0, ptr %subcode_.i.i25, align 1
   %sev_.i.i27 = getelementptr inbounds i8, ptr %s, i64 2
   %18 = load i8, ptr %sev_.i.i27, align 2
   %sev_6.i.i28 = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %18, ptr %sev_6.i.i28, align 2
+  store i8 0, ptr %sev_.i.i27, align 2
   %retryable_.i.i29 = getelementptr inbounds i8, ptr %s, i64 3
   %19 = load i8, ptr %retryable_.i.i29, align 1
   %retryable_8.i.i30 = getelementptr inbounds i8, ptr %agg.result, i64 3
   %frombool.i.i31 = and i8 %19, 1
   store i8 %frombool.i.i31, ptr %retryable_8.i.i30, align 1
-  store <4 x i8> zeroinitializer, ptr %s, align 8
+  store i8 0, ptr %retryable_.i.i29, align 1
   %data_loss_.i.i32 = getelementptr inbounds i8, ptr %s, i64 4
   %20 = load i8, ptr %data_loss_.i.i32, align 4
   %data_loss_11.i.i33 = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -3435,20 +3461,23 @@ invoke.cont41:                                    ; preds = %invoke.cont31
 invoke.cont47:                                    ; preds = %invoke.cont41
   %27 = load i8, ptr %ref.tmp37, align 8
   store i8 %27, ptr %s, align 8
+  store i8 0, ptr %ref.tmp37, align 8
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp37, i64 1
   %28 = load i8, ptr %subcode_.i, align 1
   %subcode_4.i = getelementptr inbounds i8, ptr %s, i64 1
   store i8 %28, ptr %subcode_4.i, align 1
+  store i8 0, ptr %subcode_.i, align 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp37, i64 2
   %29 = load i8, ptr %sev_.i, align 2
   %sev_6.i = getelementptr inbounds i8, ptr %s, i64 2
   store i8 %29, ptr %sev_6.i, align 2
+  store i8 0, ptr %sev_.i, align 2
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp37, i64 3
   %30 = load i8, ptr %retryable_.i, align 1
   %retryable_8.i = getelementptr inbounds i8, ptr %s, i64 3
   %frombool.i = and i8 %30, 1
   store i8 %frombool.i, ptr %retryable_8.i, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp37, align 8
+  store i8 0, ptr %retryable_.i, align 1
   %data_loss_.i = getelementptr inbounds i8, ptr %ref.tmp37, i64 4
   %31 = load i8, ptr %data_loss_.i, align 4
   %data_loss_11.i = getelementptr inbounds i8, ptr %s, i64 4
@@ -3505,17 +3534,20 @@ if.end60:                                         ; preds = %if.then57, %_ZN7roc
 if.then.i.i51:                                    ; preds = %if.end60
   %37 = load i8, ptr %s, align 8
   store i8 %37, ptr %agg.result, align 8
+  store i8 0, ptr %s, align 8
   %38 = load i8, ptr %subcode_4.i, align 1
   %subcode_4.i.i53 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %38, ptr %subcode_4.i.i53, align 1
+  store i8 0, ptr %subcode_4.i, align 1
   %39 = load i8, ptr %sev_6.i, align 2
   %sev_6.i.i55 = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %39, ptr %sev_6.i.i55, align 2
+  store i8 0, ptr %sev_6.i, align 2
   %40 = load i8, ptr %retryable_8.i, align 1
   %retryable_8.i.i57 = getelementptr inbounds i8, ptr %agg.result, i64 3
   %frombool.i.i58 = and i8 %40, 1
   store i8 %frombool.i.i58, ptr %retryable_8.i.i57, align 1
-  store <4 x i8> zeroinitializer, ptr %s, align 8
+  store i8 0, ptr %retryable_8.i, align 1
   %41 = load i8, ptr %data_loss_11.i, align 4
   %data_loss_11.i.i60 = getelementptr inbounds i8, ptr %agg.result, i64 4
   %frombool12.i.i61 = and i8 %41, 1
@@ -3626,20 +3658,23 @@ invoke.cont11:                                    ; preds = %invoke.cont9
 if.then.i:                                        ; preds = %invoke.cont11
   %7 = load i8, ptr %ref.tmp, align 8
   store i8 %7, ptr %status, align 8
+  store i8 0, ptr %ref.tmp, align 8
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %8 = load i8, ptr %subcode_.i, align 1
   %subcode_4.i = getelementptr inbounds i8, ptr %status, i64 1
   store i8 %8, ptr %subcode_4.i, align 1
+  store i8 0, ptr %subcode_.i, align 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
   %9 = load i8, ptr %sev_.i, align 2
   %sev_6.i = getelementptr inbounds i8, ptr %status, i64 2
   store i8 %9, ptr %sev_6.i, align 2
+  store i8 0, ptr %sev_.i, align 2
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 3
   %10 = load i8, ptr %retryable_.i, align 1
   %retryable_8.i = getelementptr inbounds i8, ptr %status, i64 3
   %frombool.i = and i8 %10, 1
   store i8 %frombool.i, ptr %retryable_8.i, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp, align 8
+  store i8 0, ptr %retryable_.i, align 1
   %data_loss_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %11 = load i8, ptr %data_loss_.i, align 4
   %data_loss_11.i = getelementptr inbounds i8, ptr %status, i64 4
@@ -3696,20 +3731,23 @@ invoke.cont16:                                    ; preds = %if.else
 if.then.i20:                                      ; preds = %invoke.cont16
   %16 = load i8, ptr %ref.tmp13, align 8
   store i8 %16, ptr %status, align 8
+  store i8 0, ptr %ref.tmp13, align 8
   %subcode_.i21 = getelementptr inbounds i8, ptr %ref.tmp13, i64 1
   %17 = load i8, ptr %subcode_.i21, align 1
   %subcode_4.i22 = getelementptr inbounds i8, ptr %status, i64 1
   store i8 %17, ptr %subcode_4.i22, align 1
+  store i8 0, ptr %subcode_.i21, align 1
   %sev_.i23 = getelementptr inbounds i8, ptr %ref.tmp13, i64 2
   %18 = load i8, ptr %sev_.i23, align 2
   %sev_6.i24 = getelementptr inbounds i8, ptr %status, i64 2
   store i8 %18, ptr %sev_6.i24, align 2
+  store i8 0, ptr %sev_.i23, align 2
   %retryable_.i25 = getelementptr inbounds i8, ptr %ref.tmp13, i64 3
   %19 = load i8, ptr %retryable_.i25, align 1
   %retryable_8.i26 = getelementptr inbounds i8, ptr %status, i64 3
   %frombool.i27 = and i8 %19, 1
   store i8 %frombool.i27, ptr %retryable_8.i26, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp13, align 8
+  store i8 0, ptr %retryable_.i25, align 1
   %data_loss_.i28 = getelementptr inbounds i8, ptr %ref.tmp13, i64 4
   %20 = load i8, ptr %data_loss_.i28, align 4
   %data_loss_11.i29 = getelementptr inbounds i8, ptr %status, i64 4
@@ -3751,20 +3789,23 @@ invoke.cont20:                                    ; preds = %if.else18
 if.then.i43:                                      ; preds = %invoke.cont20
   %25 = load i8, ptr %ref.tmp19, align 8
   store i8 %25, ptr %status, align 8
+  store i8 0, ptr %ref.tmp19, align 8
   %subcode_.i44 = getelementptr inbounds i8, ptr %ref.tmp19, i64 1
   %26 = load i8, ptr %subcode_.i44, align 1
   %subcode_4.i45 = getelementptr inbounds i8, ptr %status, i64 1
   store i8 %26, ptr %subcode_4.i45, align 1
+  store i8 0, ptr %subcode_.i44, align 1
   %sev_.i46 = getelementptr inbounds i8, ptr %ref.tmp19, i64 2
   %27 = load i8, ptr %sev_.i46, align 2
   %sev_6.i47 = getelementptr inbounds i8, ptr %status, i64 2
   store i8 %27, ptr %sev_6.i47, align 2
+  store i8 0, ptr %sev_.i46, align 2
   %retryable_.i48 = getelementptr inbounds i8, ptr %ref.tmp19, i64 3
   %28 = load i8, ptr %retryable_.i48, align 1
   %retryable_8.i49 = getelementptr inbounds i8, ptr %status, i64 3
   %frombool.i50 = and i8 %28, 1
   store i8 %frombool.i50, ptr %retryable_8.i49, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp19, align 8
+  store i8 0, ptr %retryable_.i48, align 1
   %data_loss_.i51 = getelementptr inbounds i8, ptr %ref.tmp19, i64 4
   %29 = load i8, ptr %data_loss_.i51, align 4
   %data_loss_11.i52 = getelementptr inbounds i8, ptr %status, i64 4
@@ -4441,7 +4482,7 @@ entry:
   %ref.tmp10 = alloca %"class.rocksdb::Slice", align 8
   %merges = alloca %"class.rocksdb::autovector.390", align 8
   %key_contexts = alloca %"class.rocksdb::autovector.396", align 8
-  %merge_context = alloca %"class.rocksdb::MergeContext", align 16
+  %merge_context = alloca %"class.rocksdb::MergeContext", align 8
   %batch_value = alloca %"class.std::__cxx11::basic_string", align 8
   %s = alloca ptr, align 8
   %pinnable_val = alloca ptr, align 8
@@ -4512,17 +4553,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 if.then.i:                                        ; preds = %for.body
   %5 = load i8, ptr %ref.tmp, align 8
   store i8 %5, ptr %arrayidx, align 8
+  store i8 0, ptr %ref.tmp, align 8
   %6 = load i8, ptr %subcode_.i, align 1
   %subcode_4.i = getelementptr inbounds i8, ptr %arrayidx, i64 1
   store i8 %6, ptr %subcode_4.i, align 1
+  store i8 0, ptr %subcode_.i, align 1
   %7 = load i8, ptr %sev_.i, align 2
   %sev_6.i = getelementptr inbounds i8, ptr %arrayidx, i64 2
   store i8 %7, ptr %sev_6.i, align 2
+  store i8 0, ptr %sev_.i, align 2
   %8 = load i8, ptr %retryable_.i, align 1
   %retryable_8.i = getelementptr inbounds i8, ptr %arrayidx, i64 3
   %frombool.i = and i8 %8, 1
   store i8 %frombool.i, ptr %retryable_8.i, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp, align 8
+  store i8 0, ptr %retryable_.i, align 1
   %9 = load i8, ptr %data_loss_.i, align 4
   %data_loss_11.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %frombool12.i = and i8 %9, 1
@@ -4585,8 +4629,8 @@ for.body16.lr.ph:                                 ; preds = %if.end12
 for.body16:                                       ; preds = %for.body16.lr.ph, %cleanup
   %i13.0223 = phi i64 [ 0, %for.body16.lr.ph ], [ %inc56, %cleanup ]
   %arrayidx17 = getelementptr inbounds %"class.rocksdb::Slice", ptr %keys, i64 %i13.0223
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %merge_context, i8 0, i64 16, i1 false)
-  store i8 1, ptr %operands_reversed_.i, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %merge_context, i8 0, i64 16, i1 false)
+  store i8 1, ptr %operands_reversed_.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %batch_value) #21
   %arrayidx18 = getelementptr inbounds %"class.rocksdb::Status", ptr %statuses, i64 %i13.0223
   store ptr %arrayidx18, ptr %s, align 8
@@ -4679,7 +4723,7 @@ lpad19.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i.i.i.i
   br label %lpad19.body
 
 lpad19.body:                                      ; preds = %lpad19.loopexit, %lpad19.loopexit.split-lp.loopexit.split-lp, %lpad19.loopexit.split-lp.loopexit, %lpad25.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %66, %lpad25.i.i.i ], [ %lpad.loopexit210, %lpad19.loopexit ], [ %lpad.loopexit213, %lpad19.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp214, %lpad19.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %68, %lpad25.i.i.i ], [ %lpad.loopexit210, %lpad19.loopexit ], [ %lpad.loopexit213, %lpad19.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp214, %lpad19.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %batch_value) #21
   call void @_ZN7rocksdb12MergeContextD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %merge_context) #21
   br label %ehcleanup142
@@ -4732,15 +4776,15 @@ if.then.i76:                                      ; preds = %if.then44
   %columns_.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %columns_.i.i.i, i8 0, i64 24, i1 false)
   %merge_context.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 144
-  %34 = load i64, ptr %merge_context, align 16
+  %34 = load i64, ptr %merge_context, align 8
   store i64 %34, ptr %merge_context.i.i, align 8
-  store ptr null, ptr %merge_context, align 16
+  store ptr null, ptr %merge_context, align 8
   %copied_operands_.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 152
   %35 = load i64, ptr %copied_operands_3.i.i.i.i.i.i, align 8
   store i64 %35, ptr %copied_operands_.i.i.i, align 8
   store ptr null, ptr %copied_operands_3.i.i.i.i.i.i, align 8
   %operands_reversed_.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 160
-  %36 = load i8, ptr %operands_reversed_.i, align 16
+  %36 = load i8, ptr %operands_reversed_.i, align 8
   %frombool.i.i.i = and i8 %36, 1
   store i8 %frombool.i.i.i, ptr %operands_reversed_.i.i.i, align 8
   %value.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 168
@@ -4777,18 +4821,21 @@ if.then.i.i:                                      ; preds = %if.else.i
   %columns_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %columns_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %merge_context.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 144
-  %40 = load <2 x i64>, ptr %merge_context, align 16
-  store ptr null, ptr %merge_context, align 16
-  store <2 x i64> %40, ptr %merge_context.i.i.i.i.i, align 8
+  %40 = load i64, ptr %merge_context, align 8
+  store i64 %40, ptr %merge_context.i.i.i.i.i, align 8
+  store ptr null, ptr %merge_context, align 8
+  %copied_operands_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 152
+  %41 = load i64, ptr %copied_operands_3.i.i.i.i.i.i, align 8
+  store i64 %41, ptr %copied_operands_.i.i.i.i.i.i, align 8
   store ptr null, ptr %copied_operands_3.i.i.i.i.i.i, align 8
   %operands_reversed_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 160
-  %41 = load i8, ptr %operands_reversed_.i, align 16
-  %frombool.i.i.i.i.i.i = and i8 %41, 1
+  %42 = load i8, ptr %operands_reversed_.i, align 8
+  %frombool.i.i.i.i.i.i = and i8 %42, 1
   store i8 %frombool.i.i.i.i.i.i, ptr %operands_reversed_.i.i.i.i.i.i, align 8
   %value.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 168
   store ptr %args5.val.i, ptr %value.i.i.i.i.i, align 8
-  %42 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %42, i64 176
+  %43 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %43, i64 176
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont45
 
@@ -4813,8 +4860,8 @@ _ZNKSt6vectorIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBER
   %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
   %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
-  %43 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 52405522936674862)
-  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 52405522936674862, i64 %43
+  %44 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 52405522936674862)
+  %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 52405522936674862, i64 %44
   %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleSaISI_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
 
@@ -4833,8 +4880,8 @@ _ZNSt12_Vector_baseIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0
   store ptr @.str.5, ptr %existing.i.i.i.i.i.i, align 8
   %size_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 32
   store i64 0, ptr %size_.i.i.i.i.i.i.i.i.i, align 8
-  %44 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 40
-  invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %44)
+  %45 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 40
+  invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %45)
           to label %invoke.cont.i.i.i unwind label %if.else.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleSaISI_EE11_M_allocateEm.exit.i.i.i
@@ -4847,13 +4894,16 @@ invoke.cont.i.i.i:                                ; preds = %_ZNSt12_Vector_base
   %columns_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %columns_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %merge_context.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 144
-  %45 = load <2 x i64>, ptr %merge_context, align 16
-  store ptr null, ptr %merge_context, align 16
-  store <2 x i64> %45, ptr %merge_context.i.i.i.i.i.i, align 8
+  %46 = load i64, ptr %merge_context, align 8
+  store i64 %46, ptr %merge_context.i.i.i.i.i.i, align 8
+  store ptr null, ptr %merge_context, align 8
+  %copied_operands_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 152
+  %47 = load i64, ptr %copied_operands_3.i.i.i.i.i.i, align 8
+  store i64 %47, ptr %copied_operands_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %copied_operands_3.i.i.i.i.i.i, align 8
   %operands_reversed_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 160
-  %46 = load i8, ptr %operands_reversed_.i, align 16
-  %frombool.i.i.i.i.i.i.i = and i8 %46, 1
+  %48 = load i8, ptr %operands_reversed_.i, align 8
+  %frombool.i.i.i.i.i.i.i = and i8 %48, 1
   store i8 %frombool.i.i.i.i.i.i.i, ptr %operands_reversed_.i.i.i.i.i.i.i, align 8
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 168
   store ptr %args5.val.i, ptr %value.i.i.i.i.i.i, align 8
@@ -4875,61 +4925,61 @@ for.body.i.i.i.i.i9.i:                            ; preds = %invoke.cont.i.i.i, 
 for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i9.i
   %columns_.i.i.i.i.i.i.i.i10.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 120
   %columns_3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 120
-  %47 = load ptr, ptr %columns_3.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %47, ptr %columns_.i.i.i.i.i.i.i.i10.i, align 8
+  %49 = load ptr, ptr %columns_3.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %49, ptr %columns_.i.i.i.i.i.i.i.i10.i, align 8
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 128
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 128
-  %48 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %48, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %50 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %50, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 136
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 136
-  %49 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %49, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %51 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %51, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %columns_3.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %merge_context.i.i.i.i.i.i.i11.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 144
   %merge_context4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 144
-  %50 = load i64, ptr %merge_context4.i.i.i.i.i.i.i.i, align 8
-  store i64 %50, ptr %merge_context.i.i.i.i.i.i.i11.i, align 8
+  %52 = load i64, ptr %merge_context4.i.i.i.i.i.i.i.i, align 8
+  store i64 %52, ptr %merge_context.i.i.i.i.i.i.i11.i, align 8
   store ptr null, ptr %merge_context4.i.i.i.i.i.i.i.i, align 8
   %copied_operands_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 152
   %copied_operands_3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 152
-  %51 = load i64, ptr %copied_operands_3.i.i.i.i.i.i.i.i.i, align 8
-  store i64 %51, ptr %copied_operands_.i.i.i.i.i.i.i.i.i, align 8
+  %53 = load i64, ptr %copied_operands_3.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %53, ptr %copied_operands_.i.i.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %copied_operands_3.i.i.i.i.i.i.i.i.i, align 8
   %operands_reversed_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 160
   %operands_reversed_4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 160
-  %52 = load i8, ptr %operands_reversed_4.i.i.i.i.i.i.i.i.i, align 8
-  %frombool.i.i.i.i.i.i.i.i.i = and i8 %52, 1
+  %54 = load i8, ptr %operands_reversed_4.i.i.i.i.i.i.i.i.i, align 8
+  %frombool.i.i.i.i.i.i.i.i.i = and i8 %54, 1
   store i8 %frombool.i.i.i.i.i.i.i.i.i, ptr %operands_reversed_.i.i.i.i.i.i.i.i.i, align 8
   %value.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 168
   %value5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 168
-  %53 = load ptr, ptr %value5.i.i.i.i.i.i.i.i, align 8
-  store ptr %53, ptr %value.i.i.i.i.i.i.i.i, align 8
+  %55 = load ptr, ptr %value5.i.i.i.i.i.i.i.i, align 8
+  store ptr %55, ptr %value.i.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 176
   %incdec.ptr.i.i.i.i.i12.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 176
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %37
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.body.i.i.i.i.i9.i, !llvm.loop !49
 
 lpad.i.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i9.i
-  %54 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  %56 = call ptr @__cxa_begin_catch(ptr %55) #21
+  %57 = extractvalue { ptr, i32 } %56, 0
+  %58 = call ptr @__cxa_begin_catch(ptr %57) #21
   call fastcc void @_ZSt8_DestroyIPZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleEvT_SK_(ptr noundef %cond.i21.i.i.i, ptr noundef nonnull %__cur.09.i.i.i.i.i.i)
   invoke void @__cxa_rethrow() #24
           to label %unreachable.i.i.i.i.i.i unwind label %lpad7.i.i.i.i.i.i
 
 lpad7.i.i.i.i.i.i:                                ; preds = %lpad.i.i.i.i.i.i
-  %57 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
           to label %if.then.i.i.body.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %lpad7.i.i.i.i.i.i
-  %58 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #22
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #22
   unreachable
 
 unreachable.i.i.i.i.i.i:                          ; preds = %lpad.i.i.i.i.i.i
@@ -4940,19 +4990,19 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i
   %merge_context.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 144
   call void @_ZN7rocksdb12MergeContextD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %merge_context.i.i.i.i.i.i.i.i) #21
   %columns_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 120
-  %60 = load ptr, ptr %columns_.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %60, null
+  %62 = load ptr, ptr %columns_.i.i.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %62, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleEvPT_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %60) #20
+  call void @_ZdlPv(ptr noundef nonnull %62) #20
   br label %_ZSt8_DestroyIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleEvPT_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %self_space_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i.i.i.i.i.i.i.i) #21
-  %61 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 40
-  call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #21
+  %63 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 40
+  call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #21
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 176
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %37
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleSI_EvT_SK_RSaIT0_E.exit.i.i.i.loopexit, label %for.body.i.i.i.i.i.i, !llvm.loop !50
@@ -4971,20 +5021,20 @@ if.then.i22.i.i.i:                                ; preds = %_ZSt8_DestroyIPZN7r
   br label %_ZNSt6vectorIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleSaISI_EE17_M_realloc_insertIJRSA_RKSF_NS0_12MergeContextERKSD_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i
 
 if.then.i.i.body.i:                               ; preds = %lpad7.i.i.i.i.i.i
-  %62 = extractvalue { ptr, i32 } %57, 0
-  %63 = call ptr @__cxa_begin_catch(ptr %62) #21
+  %64 = extractvalue { ptr, i32 } %59, 0
+  %65 = call ptr @__cxa_begin_catch(ptr %64) #21
   call fastcc void @_ZNSt16allocator_traitsISaIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleEE7destroyISI_EEvRSJ_PT_(ptr noundef nonnull %add.ptr.i.i.i) #21
   br label %invoke.cont27.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNSt12_Vector_baseIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleSaISI_EE11_M_allocateEm.exit.i.i.i
   %lpad.thr_comm2.i.i.i = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %lpad.thr_comm2.i.i.i, 0
-  %65 = call ptr @__cxa_begin_catch(ptr %64) #21
+  %66 = extractvalue { ptr, i32 } %lpad.thr_comm2.i.i.i, 0
+  %67 = call ptr @__cxa_begin_catch(ptr %66) #21
   br label %invoke.cont27.i.i.i
 
 lpad25.i.i.i:                                     ; preds = %invoke.cont27.i.i.i
-  %66 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %lpad19.body unwind label %terminate.lpad.i.i.i
@@ -4995,10 +5045,10 @@ invoke.cont27.i.i.i:                              ; preds = %if.else.i.i.i, %if.
           to label %unreachable.i.i.i unwind label %lpad25.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %lpad25.i.i.i
-  %67 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #22
+  %70 = extractvalue { ptr, i32 } %69, 0
+  call void @__clang_call_terminate(ptr %70) #22
   unreachable
 
 unreachable.i.i.i:                                ; preds = %invoke.cont27.i.i.i
@@ -5039,9 +5089,9 @@ for.end57.loopexit:                               ; preds = %cleanup
   br label %for.end57
 
 for.end57:                                        ; preds = %for.end57.loopexit, %if.end12
-  %69 = phi ptr [ %.pre237, %for.end57.loopexit ], [ null, %if.end12 ]
-  %70 = phi ptr [ %.pre236, %for.end57.loopexit ], [ null, %if.end12 ]
-  %71 = phi i64 [ %.pre235, %for.end57.loopexit ], [ 0, %if.end12 ]
+  %71 = phi ptr [ %.pre237, %for.end57.loopexit ], [ null, %if.end12 ]
+  %72 = phi ptr [ %.pre236, %for.end57.loopexit ], [ null, %if.end12 ]
+  %73 = phi i64 [ %.pre235, %for.end57.loopexit ], [ 0, %if.end12 ]
   store i64 0, ptr %sorted_keys, align 8
   %values_.i82 = getelementptr inbounds i8, ptr %sorted_keys, i64 264
   %buf_.i83 = getelementptr inbounds i8, ptr %sorted_keys, i64 8
@@ -5049,11 +5099,11 @@ for.end57:                                        ; preds = %for.end57.loopexit,
   %vect_.i84 = getelementptr inbounds i8, ptr %sorted_keys, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vect_.i84, i8 0, i64 24, i1 false)
   %_M_finish.i.i86 = getelementptr inbounds i8, ptr %key_contexts, i64 5144
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %70 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %69 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %72 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %71 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 160
-  %add.i = add i64 %sub.ptr.div.i.i, %71
+  %add.i = add i64 %sub.ptr.div.i.i, %73
   %cmp.i87 = icmp ugt i64 %add.i, 32
   br i1 %cmp.i87, label %if.then.i88, label %invoke.cont64
 
@@ -5084,11 +5134,11 @@ _ZNSt12_Vector_baseIPN7rocksdb10KeyContextESaIS2_EE13_M_deallocateEPS2_m.exit.i.
   br label %invoke.cont64
 
 invoke.cont64:                                    ; preds = %for.end57, %_ZNSt12_Vector_baseIPN7rocksdb10KeyContextESaIS2_EE13_M_deallocateEPS2_m.exit.i.i
-  %72 = load ptr, ptr %_M_finish.i.i86, align 8, !noalias !52
-  %sub.ptr.lhs.cast.i.i.i95 = ptrtoint ptr %72 to i64
+  %74 = load ptr, ptr %_M_finish.i.i86, align 8, !noalias !52
+  %sub.ptr.lhs.cast.i.i.i95 = ptrtoint ptr %74 to i64
   %sub.ptr.sub.i.i.i97 = sub i64 %sub.ptr.lhs.cast.i.i.i95, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i.i98 = sdiv exact i64 %sub.ptr.sub.i.i.i97, 160
-  %add.i.i = add i64 %sub.ptr.div.i.i.i98, %71
+  %add.i.i = add i64 %sub.ptr.div.i.i.i98, %73
   %cmp.i.i101.not224 = icmp eq i64 %add.i.i, 0
   br i1 %cmp.i.i101.not224, label %for.cond.cleanup, label %invoke.cont72.lr.ph
 
@@ -5100,12 +5150,12 @@ invoke.cont72.lr.ph:                              ; preds = %invoke.cont64
 for.cond.cleanup:                                 ; preds = %for.inc82, %invoke.cont64
   %vtable88 = load ptr, ptr %db, align 8
   %vfn89 = getelementptr inbounds i8, ptr %vtable88, i64 1176
-  %73 = load ptr, ptr %vfn89, align 8
-  %call91 = invoke noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(8) %db)
+  %75 = load ptr, ptr %vfn89, align 8
+  %call91 = invoke noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(8) %db)
           to label %invoke.cont90 unwind label %lpad60
 
 lpad60:                                           ; preds = %_ZNSt12_Vector_baseIPN7rocksdb10KeyContextESaIS2_EE11_M_allocateEm.exit.i.i, %if.then.i.i91, %invoke.cont100, %invoke.cont97, %invoke.cont90, %for.cond.cleanup
-  %74 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup141
 
@@ -5123,15 +5173,15 @@ invoke.cont72:                                    ; preds = %invoke.cont72.lr.ph
   %merges_idx.0226 = phi i64 [ 0, %invoke.cont72.lr.ph ], [ %merges_idx.1, %for.inc82 ]
   %__begin1.sroa.2.0225 = phi i64 [ 0, %invoke.cont72.lr.ph ], [ %inc.i141, %for.inc82 ]
   %cmp.i.i102 = icmp ult i64 %__begin1.sroa.2.0225, 32
-  %75 = load ptr, ptr %values_.i42, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::KeyContext", ptr %75, i64 %__begin1.sroa.2.0225
-  %76 = load ptr, ptr %vect_.i44, align 8
-  %77 = getelementptr %"struct.rocksdb::KeyContext", ptr %76, i64 %__begin1.sroa.2.0225
-  %add.ptr.i.i.i104 = getelementptr i8, ptr %77, i64 -5120
+  %77 = load ptr, ptr %values_.i42, align 8
+  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::KeyContext", ptr %77, i64 %__begin1.sroa.2.0225
+  %78 = load ptr, ptr %vect_.i44, align 8
+  %79 = getelementptr %"struct.rocksdb::KeyContext", ptr %78, i64 %__begin1.sroa.2.0225
+  %add.ptr.i.i.i104 = getelementptr i8, ptr %79, i64 -5120
   %retval.0.i.i = select i1 %cmp.i.i102, ptr %arrayidx.i.i, ptr %add.ptr.i.i.i104
   %value = getelementptr inbounds i8, ptr %retval.0.i.i, i64 128
-  %78 = load ptr, ptr %value, align 8
-  %tobool74.not = icmp eq ptr %78, null
+  %80 = load ptr, ptr %value, align 8
+  %tobool74.not = icmp eq ptr %80, null
   br i1 %tobool74.not, label %if.then75, label %if.end79
 
 if.then75:                                        ; preds = %invoke.cont72
@@ -5139,8 +5189,8 @@ if.then75:                                        ; preds = %invoke.cont72
   %merges.val36 = load ptr, ptr %vect_.i, align 8
   %cmp.i105 = icmp ult i64 %merges_idx.0226, 32
   %arrayidx.i106 = getelementptr inbounds %struct.MergeTuple, ptr %merges.val, i64 %merges_idx.0226
-  %79 = getelementptr %struct.MergeTuple, ptr %merges.val36, i64 %merges_idx.0226
-  %add.ptr.i.i107 = getelementptr i8, ptr %79, i64 -5632
+  %81 = getelementptr %struct.MergeTuple, ptr %merges.val36, i64 %merges_idx.0226
+  %add.ptr.i.i107 = getelementptr i8, ptr %81, i64 -5632
   %retval.0.i = select i1 %cmp.i105, ptr %arrayidx.i106, ptr %add.ptr.i.i107
   %existing = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %columns = getelementptr inbounds i8, ptr %retval.0.i.i, i64 136
@@ -5150,35 +5200,35 @@ if.then75:                                        ; preds = %invoke.cont72
 
 if.end79:                                         ; preds = %if.then75, %invoke.cont72
   %merges_idx.1 = phi i64 [ %merges_idx.0226, %invoke.cont72 ], [ %inc78, %if.then75 ]
-  %80 = load i64, ptr %sorted_keys, align 8
-  %cmp.i108 = icmp ult i64 %80, 32
+  %82 = load i64, ptr %sorted_keys, align 8
+  %cmp.i108 = icmp ult i64 %82, 32
   br i1 %cmp.i108, label %if.then.i133, label %if.else.i109
 
 if.then.i133:                                     ; preds = %if.end79
-  %81 = load ptr, ptr %values_.i82, align 8
-  %inc.i135 = add nuw nsw i64 %80, 1
+  %83 = load ptr, ptr %values_.i82, align 8
+  %inc.i135 = add nuw nsw i64 %82, 1
   store i64 %inc.i135, ptr %sorted_keys, align 8
-  %arrayidx.i136 = getelementptr inbounds ptr, ptr %81, i64 %80
+  %arrayidx.i136 = getelementptr inbounds ptr, ptr %83, i64 %82
   store ptr %retval.0.i.i, ptr %arrayidx.i136, align 8
   br label %for.inc82
 
 if.else.i109:                                     ; preds = %if.end79
-  %82 = load ptr, ptr %_M_finish.i.i111, align 8
-  %83 = load ptr, ptr %_M_end_of_storage.i.i112, align 8
-  %cmp.not.i.i113 = icmp eq ptr %82, %83
+  %84 = load ptr, ptr %_M_finish.i.i111, align 8
+  %85 = load ptr, ptr %_M_end_of_storage.i.i112, align 8
+  %cmp.not.i.i113 = icmp eq ptr %84, %85
   br i1 %cmp.not.i.i113, label %if.else.i.i116, label %if.then.i.i114
 
 if.then.i.i114:                                   ; preds = %if.else.i109
-  store ptr %retval.0.i.i, ptr %82, align 8
-  %84 = load ptr, ptr %_M_finish.i.i111, align 8
-  %incdec.ptr.i.i115 = getelementptr inbounds i8, ptr %84, i64 8
+  store ptr %retval.0.i.i, ptr %84, align 8
+  %86 = load ptr, ptr %_M_finish.i.i111, align 8
+  %incdec.ptr.i.i115 = getelementptr inbounds i8, ptr %86, i64 8
   store ptr %incdec.ptr.i.i115, ptr %_M_finish.i.i111, align 8
   br label %for.inc82
 
 if.else.i.i116:                                   ; preds = %if.else.i109
-  %85 = load ptr, ptr %vect_.i84, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i117 = ptrtoint ptr %82 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i118 = ptrtoint ptr %85 to i64
+  %87 = load ptr, ptr %vect_.i84, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i117 = ptrtoint ptr %84 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i118 = ptrtoint ptr %87 to i64
   %sub.ptr.sub.i.i.i.i.i119 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i117, %sub.ptr.rhs.cast.i.i.i.i.i118
   %cmp.i.i.i.i120 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i119, 9223372036854775800
   br i1 %cmp.i.i.i.i120, label %if.then.i.i.i.i132, label %_ZNKSt6vectorIPN7rocksdb10KeyContextESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -5195,8 +5245,8 @@ _ZNKSt6vectorIPN7rocksdb10KeyContextESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; p
   %.sroa.speculated.i.i.i.i122 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i121, i64 1)
   %add.i.i.i.i123 = add nsw i64 %.sroa.speculated.i.i.i.i122, %sub.ptr.div.i.i.i.i.i121
   %cmp7.i.i.i.i124 = icmp ult i64 %add.i.i.i.i123, %sub.ptr.div.i.i.i.i.i121
-  %86 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i123, i64 1152921504606846975)
-  %cond.i.i.i.i125 = select i1 %cmp7.i.i.i.i124, i64 1152921504606846975, i64 %86
+  %88 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i123, i64 1152921504606846975)
+  %cond.i.i.i.i125 = select i1 %cmp7.i.i.i.i124, i64 1152921504606846975, i64 %88
   %cmp.not.i.i.i.i126 = icmp eq i64 %cond.i.i.i.i125, 0
   br i1 %cmp.not.i.i.i.i126, label %_ZNSt12_Vector_baseIPN7rocksdb10KeyContextESaIS2_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i127
 
@@ -5213,17 +5263,17 @@ _ZNSt12_Vector_baseIPN7rocksdb10KeyContextESaIS2_EE11_M_allocateEm.exit.i.i.i: ;
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN7rocksdb10KeyContextESaIS2_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %85, i64 %sub.ptr.sub.i.i.i.i.i119, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %87, i64 %sub.ptr.sub.i.i.i.i.i119, i1 false)
   br label %_ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
 
 _ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN7rocksdb10KeyContextESaIS2_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i119
   %incdec.ptr.i.i.i130 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i.i131 = icmp eq ptr %85, null
+  %tobool.not.i.i.i.i131 = icmp eq ptr %87, null
   br i1 %tobool.not.i.i.i.i131, label %_ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %85) #20
+  call void @_ZdlPv(ptr noundef nonnull %87) #20
   br label %_ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
@@ -5239,40 +5289,40 @@ for.inc82:                                        ; preds = %_ZNSt6vectorIPN7roc
   br i1 %cmp.i.i101.not, label %for.cond.cleanup, label %invoke.cont72
 
 invoke.cont90:                                    ; preds = %for.cond.cleanup
-  %87 = load i64, ptr %sorted_keys, align 8
+  %89 = load i64, ptr %sorted_keys, align 8
   %_M_finish.i.i143 = getelementptr inbounds i8, ptr %sorted_keys, i64 280
-  %88 = load ptr, ptr %_M_finish.i.i143, align 8
-  %89 = load ptr, ptr %vect_.i84, align 8
-  %sub.ptr.lhs.cast.i.i144 = ptrtoint ptr %88 to i64
-  %sub.ptr.rhs.cast.i.i145 = ptrtoint ptr %89 to i64
+  %90 = load ptr, ptr %_M_finish.i.i143, align 8
+  %91 = load ptr, ptr %vect_.i84, align 8
+  %sub.ptr.lhs.cast.i.i144 = ptrtoint ptr %90 to i64
+  %sub.ptr.rhs.cast.i.i145 = ptrtoint ptr %91 to i64
   %sub.ptr.sub.i.i146 = sub i64 %sub.ptr.lhs.cast.i.i144, %sub.ptr.rhs.cast.i.i145
   %sub.ptr.div.i.i147 = ashr exact i64 %sub.ptr.sub.i.i146, 3
-  %add.i148 = add i64 %sub.ptr.div.i.i147, %87
+  %add.i148 = add i64 %sub.ptr.div.i.i147, %89
   invoke void @_ZN7rocksdb6DBImpl19PrepareMultiGetKeysEmbPNS_10autovectorIPNS_10KeyContextELm32EEE(ptr noundef nonnull align 64 dereferenceable(6660) %call91, i64 noundef %add.i148, i1 noundef zeroext %sorted_input, ptr noundef nonnull %sorted_keys)
           to label %invoke.cont97 unwind label %lpad60
 
 invoke.cont97:                                    ; preds = %invoke.cont90
   %vtable98 = load ptr, ptr %db, align 8
   %vfn99 = getelementptr inbounds i8, ptr %vtable98, i64 1176
-  %90 = load ptr, ptr %vfn99, align 8
-  %call101 = invoke noundef ptr %90(ptr noundef nonnull align 8 dereferenceable(8) %db)
+  %92 = load ptr, ptr %vfn99, align 8
+  %call101 = invoke noundef ptr %92(ptr noundef nonnull align 8 dereferenceable(8) %db)
           to label %invoke.cont100 unwind label %lpad60
 
 invoke.cont100:                                   ; preds = %invoke.cont97
-  %91 = load ptr, ptr %column_family.addr, align 8
-  invoke void @_ZN7rocksdb6DBImpl20MultiGetWithCallbackERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEPNS_12ReadCallbackEPNS_10autovectorIPNS_10KeyContextELm32EEE(ptr noundef nonnull align 64 dereferenceable(6660) %call101, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef %91, ptr noundef %callback, ptr noundef nonnull %sorted_keys)
+  %93 = load ptr, ptr %column_family.addr, align 8
+  invoke void @_ZN7rocksdb6DBImpl20MultiGetWithCallbackERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEPNS_12ReadCallbackEPNS_10autovectorIPNS_10KeyContextELm32EEE(ptr noundef nonnull align 64 dereferenceable(6660) %call101, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef %93, ptr noundef %callback, ptr noundef nonnull %sorted_keys)
           to label %invoke.cont107 unwind label %lpad60
 
 invoke.cont107:                                   ; preds = %invoke.cont100
-  %92 = load i64, ptr %merges, align 8, !noalias !55
+  %94 = load i64, ptr %merges, align 8, !noalias !55
   %vect_.val.i.i = load ptr, ptr %vect_.i, align 8, !noalias !55
-  %93 = getelementptr inbounds i8, ptr %merges, i64 5656
-  %vect_.val1.i.i = load ptr, ptr %93, align 8, !noalias !55
+  %95 = getelementptr inbounds i8, ptr %merges, i64 5656
+  %vect_.val1.i.i = load ptr, ptr %95, align 8, !noalias !55
   %sub.ptr.lhs.cast.i.i.i151 = ptrtoint ptr %vect_.val1.i.i to i64
   %sub.ptr.rhs.cast.i.i.i152 = ptrtoint ptr %vect_.val.i.i to i64
   %sub.ptr.sub.i.i.i153 = sub i64 %sub.ptr.lhs.cast.i.i.i151, %sub.ptr.rhs.cast.i.i.i152
   %sub.ptr.div.i.i.i154 = sdiv exact i64 %sub.ptr.sub.i.i.i153, 176
-  %add.i.i155 = add i64 %sub.ptr.div.i.i.i154, %92
+  %add.i.i155 = add i64 %sub.ptr.div.i.i.i154, %94
   %cmp.i.i157.not227 = icmp eq i64 %add.i.i155, 0
   br i1 %cmp.i.i157.not227, label %for.cond.cleanup115, label %invoke.cont120
 
@@ -5286,57 +5336,57 @@ while.body.preheader.i.i:                         ; preds = %for.cond.cleanup115
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %while.body.preheader.i.i, %for.cond.cleanup115
-  %94 = load ptr, ptr %vect_.i84, align 8
-  %95 = load ptr, ptr %_M_finish.i.i143, align 8
-  %tobool.not.i.i.i.i159 = icmp eq ptr %95, %94
+  %96 = load ptr, ptr %vect_.i84, align 8
+  %97 = load ptr, ptr %_M_finish.i.i143, align 8
+  %tobool.not.i.i.i.i159 = icmp eq ptr %97, %96
   br i1 %tobool.not.i.i.i.i159, label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE5clearEv.exit.i, label %invoke.cont.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %while.end.i.i
-  store ptr %94, ptr %_M_finish.i.i143, align 8
+  store ptr %96, ptr %_M_finish.i.i143, align 8
   br label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE5clearEv.exit.i
 
 _ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE5clearEv.exit.i: ; preds = %invoke.cont.i.i.i.i, %while.end.i.i
-  %tobool.not.i.i.i1.i = icmp eq ptr %94, null
+  %tobool.not.i.i.i1.i = icmp eq ptr %96, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EED2Ev.exit, label %if.then.i.i.i.i160
 
 if.then.i.i.i.i160:                               ; preds = %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE5clearEv.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %94) #20
+  call void @_ZdlPv(ptr noundef nonnull %96) #20
   br label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EED2Ev.exit
 
 _ZN7rocksdb10autovectorIPNS_10KeyContextELm32EED2Ev.exit: ; preds = %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE5clearEv.exit.i, %if.then.i.i.i.i160
-  %96 = load i64, ptr %key_contexts, align 8
-  %cmp.not1.i.i161 = icmp eq i64 %96, 0
+  %98 = load i64, ptr %key_contexts, align 8
+  %cmp.not1.i.i161 = icmp eq i64 %98, 0
   br i1 %cmp.not1.i.i161, label %while.end.i.i164, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EED2Ev.exit, %while.body.i.i
-  %97 = phi i64 [ %99, %while.body.i.i ], [ %96, %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EED2Ev.exit ]
-  %98 = load ptr, ptr %values_.i42, align 8
-  %dec.i.i = add i64 %97, -1
+  %99 = phi i64 [ %101, %while.body.i.i ], [ %98, %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EED2Ev.exit ]
+  %100 = load ptr, ptr %values_.i42, align 8
+  %dec.i.i = add i64 %99, -1
   store i64 %dec.i.i, ptr %key_contexts, align 8
-  %merge_context.i.i.i = getelementptr inbounds %"struct.rocksdb::KeyContext", ptr %98, i64 %dec.i.i, i32 7
+  %merge_context.i.i.i = getelementptr inbounds %"struct.rocksdb::KeyContext", ptr %100, i64 %dec.i.i, i32 7
   call void @_ZN7rocksdb12MergeContextD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %merge_context.i.i.i) #21
-  %99 = load i64, ptr %key_contexts, align 8
-  %cmp.not.i.i163 = icmp eq i64 %99, 0
+  %101 = load i64, ptr %key_contexts, align 8
+  %cmp.not.i.i163 = icmp eq i64 %101, 0
   br i1 %cmp.not.i.i163, label %while.end.i.i164, label %while.body.i.i, !llvm.loop !58
 
 while.end.i.i164:                                 ; preds = %while.body.i.i, %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EED2Ev.exit
-  %100 = load ptr, ptr %vect_.i44, align 8
-  %101 = load ptr, ptr %_M_finish.i.i86, align 8
-  %tobool.not.i.i.i.i167 = icmp eq ptr %101, %100
+  %102 = load ptr, ptr %vect_.i44, align 8
+  %103 = load ptr, ptr %_M_finish.i.i86, align 8
+  %tobool.not.i.i.i.i167 = icmp eq ptr %103, %102
   br i1 %tobool.not.i.i.i.i167, label %invoke.cont.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %while.end.i.i164, %for.body.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i168, %for.body.i.i.i.i.i.i.i ], [ %100, %while.end.i.i164 ]
+  %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i168, %for.body.i.i.i.i.i.i.i ], [ %102, %while.end.i.i164 ]
   %merge_context.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 80
   call void @_ZN7rocksdb12MergeContextD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %merge_context.i.i.i.i.i.i.i.i.i) #21
   %incdec.ptr.i.i.i.i.i.i.i168 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 160
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i168, %101
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i168, %103
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN7rocksdb10autovectorINS_10KeyContextELm32EE5clearEv.exit.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !59
 
 _ZN7rocksdb10autovectorINS_10KeyContextELm32EE5clearEv.exit.i: ; preds = %for.body.i.i.i.i.i.i.i
-  store ptr %100, ptr %_M_finish.i.i86, align 8
+  store ptr %102, ptr %_M_finish.i.i86, align 8
   %.pre.i = load ptr, ptr %vect_.i44, align 8
-  %cmp.not3.i.i.i.i.i = icmp eq ptr %.pre.i, %100
+  %cmp.not3.i.i.i.i.i = icmp eq ptr %.pre.i, %102
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZN7rocksdb10autovectorINS_10KeyContextELm32EE5clearEv.exit.i, %for.body.i.i.i.i.i
@@ -5344,7 +5394,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN7rocksdb10autove
   %merge_context.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 80
   call void @_ZN7rocksdb12MergeContextD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %merge_context.i.i.i.i.i.i.i) #21
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 160
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %100
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %102
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !59
 
 invoke.contthread-pre-split.i.i:                  ; preds = %for.body.i.i.i.i.i
@@ -5352,12 +5402,12 @@ invoke.contthread-pre-split.i.i:                  ; preds = %for.body.i.i.i.i.i
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %_ZN7rocksdb10autovectorINS_10KeyContextELm32EE5clearEv.exit.i, %while.end.i.i164
-  %102 = phi ptr [ %.pr.i.i169, %invoke.contthread-pre-split.i.i ], [ %.pre.i, %_ZN7rocksdb10autovectorINS_10KeyContextELm32EE5clearEv.exit.i ], [ %100, %while.end.i.i164 ]
-  %tobool.not.i.i.i1.i170 = icmp eq ptr %102, null
+  %104 = phi ptr [ %.pr.i.i169, %invoke.contthread-pre-split.i.i ], [ %.pre.i, %_ZN7rocksdb10autovectorINS_10KeyContextELm32EE5clearEv.exit.i ], [ %102, %while.end.i.i164 ]
+  %tobool.not.i.i.i1.i170 = icmp eq ptr %104, null
   br i1 %tobool.not.i.i.i1.i170, label %_ZN7rocksdb10autovectorINS_10KeyContextELm32EED2Ev.exit, label %if.then.i.i.i.i171
 
 if.then.i.i.i.i171:                               ; preds = %invoke.cont.i.i
-  call void @_ZdlPv(ptr noundef nonnull %102) #20
+  call void @_ZdlPv(ptr noundef nonnull %104) #20
   br label %_ZN7rocksdb10autovectorINS_10KeyContextELm32EED2Ev.exit
 
 _ZN7rocksdb10autovectorINS_10KeyContextELm32EED2Ev.exit: ; preds = %invoke.cont.i.i, %if.then.i.i.i.i171
@@ -5365,7 +5415,7 @@ _ZN7rocksdb10autovectorINS_10KeyContextELm32EED2Ev.exit: ; preds = %invoke.cont.
   br label %return
 
 lpad112:                                          ; preds = %if.then125
-  %103 = landingpad { ptr, i32 }
+  %105 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup141
 
@@ -5375,22 +5425,22 @@ invoke.cont120:                                   ; preds = %invoke.cont107, %fo
   %__begin1106.val37.val39 = load ptr, ptr %vect_.i, align 8
   %cmp.i.i172 = icmp ult i64 %__begin1106.sroa.2.0228, 32
   %arrayidx.i.i173 = getelementptr inbounds %struct.MergeTuple, ptr %__begin1106.val37.val, i64 %__begin1106.sroa.2.0228
-  %104 = getelementptr %struct.MergeTuple, ptr %__begin1106.val37.val39, i64 %__begin1106.sroa.2.0228
-  %add.ptr.i.i.i174 = getelementptr i8, ptr %104, i64 -5632
+  %106 = getelementptr %struct.MergeTuple, ptr %__begin1106.val37.val39, i64 %__begin1106.sroa.2.0228
+  %add.ptr.i.i.i174 = getelementptr i8, ptr %106, i64 -5632
   %retval.0.i.i175 = select i1 %cmp.i.i172, ptr %arrayidx.i.i173, ptr %add.ptr.i.i.i174
   %s119 = getelementptr inbounds i8, ptr %retval.0.i.i175, i64 16
-  %105 = load ptr, ptr %s119, align 8
-  %106 = load i8, ptr %105, align 8
-  %switch = icmp ult i8 %106, 2
+  %107 = load ptr, ptr %s119, align 8
+  %108 = load i8, ptr %107, align 8
+  %switch = icmp ult i8 %108, 2
   br i1 %switch, label %if.then125, label %for.inc133
 
 if.then125:                                       ; preds = %invoke.cont120
-  %107 = load ptr, ptr %column_family.addr, align 8
+  %109 = load ptr, ptr %column_family.addr, align 8
   %existing127 = getelementptr inbounds i8, ptr %retval.0.i.i175, i64 24
   %merge_context128 = getelementptr inbounds i8, ptr %retval.0.i.i175, i64 144
   %value129 = getelementptr inbounds i8, ptr %retval.0.i.i175, i64 168
-  %108 = load ptr, ptr %value129, align 8
-  invoke void @_ZN7rocksdb19WriteBatchWithIndex21MergeAcrossBatchAndDBEPNS_18ColumnFamilyHandleERKNS_5SliceERKNS_19PinnableWideColumnsERKNS_12MergeContextEPNS_13PinnableSliceEPNS_6StatusE(ptr nonnull align 8 poison, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i175, ptr noundef nonnull align 8 dereferenceable(120) %existing127, ptr noundef nonnull align 8 dereferenceable(17) %merge_context128, ptr noundef %108, ptr noundef nonnull %105)
+  %110 = load ptr, ptr %value129, align 8
+  invoke void @_ZN7rocksdb19WriteBatchWithIndex21MergeAcrossBatchAndDBEPNS_18ColumnFamilyHandleERKNS_5SliceERKNS_19PinnableWideColumnsERKNS_12MergeContextEPNS_13PinnableSliceEPNS_6StatusE(ptr nonnull align 8 poison, ptr noundef %109, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i175, ptr noundef nonnull align 8 dereferenceable(120) %existing127, ptr noundef nonnull align 8 dereferenceable(17) %merge_context128, ptr noundef %110, ptr noundef nonnull %107)
           to label %for.inc133 unwind label %lpad112
 
 for.inc133:                                       ; preds = %invoke.cont120, %if.then125
@@ -5402,7 +5452,7 @@ return:                                           ; preds = %_ZN7rocksdb6StatusD
   ret void
 
 ehcleanup141:                                     ; preds = %lpad68.loopexit, %lpad68.loopexit.split-lp, %lpad112, %lpad60
-  %.pn31.pn = phi { ptr, i32 } [ %74, %lpad60 ], [ %103, %lpad112 ], [ %lpad.loopexit, %lpad68.loopexit ], [ %lpad.loopexit.split-lp, %lpad68.loopexit.split-lp ]
+  %.pn31.pn = phi { ptr, i32 } [ %76, %lpad60 ], [ %105, %lpad112 ], [ %lpad.loopexit, %lpad68.loopexit ], [ %lpad.loopexit.split-lp, %lpad68.loopexit.split-lp ]
   %.pr.i.i180 = load i64, ptr %sorted_keys, align 8
   %cmp.not1.i.i181 = icmp eq i64 %.pr.i.i180, 0
   br i1 %cmp.not1.i.i181, label %while.end.i.i183, label %while.body.preheader.i.i182
@@ -5412,22 +5462,22 @@ while.body.preheader.i.i182:                      ; preds = %ehcleanup141
   br label %while.end.i.i183
 
 while.end.i.i183:                                 ; preds = %while.body.preheader.i.i182, %ehcleanup141
-  %109 = load ptr, ptr %vect_.i84, align 8
+  %111 = load ptr, ptr %vect_.i84, align 8
   %_M_finish.i.i.i.i185 = getelementptr inbounds i8, ptr %sorted_keys, i64 280
-  %110 = load ptr, ptr %_M_finish.i.i.i.i185, align 8
-  %tobool.not.i.i.i.i186 = icmp eq ptr %110, %109
+  %112 = load ptr, ptr %_M_finish.i.i.i.i185, align 8
+  %tobool.not.i.i.i.i186 = icmp eq ptr %112, %111
   br i1 %tobool.not.i.i.i.i186, label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE5clearEv.exit.i188, label %invoke.cont.i.i.i.i187
 
 invoke.cont.i.i.i.i187:                           ; preds = %while.end.i.i183
-  store ptr %109, ptr %_M_finish.i.i.i.i185, align 8
+  store ptr %111, ptr %_M_finish.i.i.i.i185, align 8
   br label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE5clearEv.exit.i188
 
 _ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE5clearEv.exit.i188: ; preds = %invoke.cont.i.i.i.i187, %while.end.i.i183
-  %tobool.not.i.i.i1.i189 = icmp eq ptr %109, null
+  %tobool.not.i.i.i1.i189 = icmp eq ptr %111, null
   br i1 %tobool.not.i.i.i1.i189, label %ehcleanup142, label %if.then.i.i.i.i190
 
 if.then.i.i.i.i190:                               ; preds = %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE5clearEv.exit.i188
-  call void @_ZdlPv(ptr noundef nonnull %109) #20
+  call void @_ZdlPv(ptr noundef nonnull %111) #20
   br label %ehcleanup142
 
 ehcleanup142:                                     ; preds = %if.then.i.i.i.i190, %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE5clearEv.exit.i188, %lpad19.body
@@ -5880,20 +5930,23 @@ invoke.cont9:                                     ; preds = %if.then
 if.then.i:                                        ; preds = %invoke.cont9
   %5 = load i8, ptr %ref.tmp, align 8
   store i8 %5, ptr %agg.result, align 8
+  store i8 0, ptr %ref.tmp, align 8
   %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
   %6 = load i8, ptr %subcode_.i, align 1
   %subcode_4.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %6, ptr %subcode_4.i, align 1
+  store i8 0, ptr %subcode_.i, align 1
   %sev_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 2
   %7 = load i8, ptr %sev_.i, align 2
   %sev_6.i = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %7, ptr %sev_6.i, align 2
+  store i8 0, ptr %sev_.i, align 2
   %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 3
   %8 = load i8, ptr %retryable_.i, align 1
   %retryable_8.i = getelementptr inbounds i8, ptr %agg.result, i64 3
   %frombool.i = and i8 %8, 1
   store i8 %frombool.i, ptr %retryable_8.i, align 1
-  store <4 x i8> zeroinitializer, ptr %ref.tmp, align 8
+  store i8 0, ptr %retryable_.i, align 1
   %data_loss_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %9 = load i8, ptr %data_loss_.i, align 4
   %data_loss_11.i = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -6738,15 +6791,18 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.06.i.i.i, i64 80, i1 false), !alias.scope !68
   %merge_context.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 80
   %merge_context3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 80
-  %copied_operands_3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 88
-  %5 = load <2 x i64>, ptr %merge_context3.i.i.i.i.i.i.i, align 8, !alias.scope !66, !noalias !63
+  %5 = load i64, ptr %merge_context3.i.i.i.i.i.i.i, align 8, !alias.scope !66, !noalias !63
+  store i64 %5, ptr %merge_context.i.i.i.i.i.i.i, align 8, !alias.scope !63, !noalias !66
   store ptr null, ptr %merge_context3.i.i.i.i.i.i.i, align 8, !alias.scope !66, !noalias !63
-  store <2 x i64> %5, ptr %merge_context.i.i.i.i.i.i.i, align 8, !alias.scope !63, !noalias !66
+  %copied_operands_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 88
+  %copied_operands_3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 88
+  %6 = load i64, ptr %copied_operands_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !66, !noalias !63
+  store i64 %6, ptr %copied_operands_.i.i.i.i.i.i.i.i, align 8, !alias.scope !63, !noalias !66
   store ptr null, ptr %copied_operands_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !66, !noalias !63
   %operands_reversed_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 96
   %operands_reversed_4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 96
-  %6 = load i8, ptr %operands_reversed_4.i.i.i.i.i.i.i.i, align 8, !alias.scope !66, !noalias !63
-  %frombool.i.i.i.i.i.i.i.i = and i8 %6, 1
+  %7 = load i8, ptr %operands_reversed_4.i.i.i.i.i.i.i.i, align 8, !alias.scope !66, !noalias !63
+  %frombool.i.i.i.i.i.i.i.i = and i8 %7, 1
   store i8 %frombool.i.i.i.i.i.i.i.i, ptr %operands_reversed_.i.i.i.i.i.i.i.i, align 8, !alias.scope !63, !noalias !66
   %max_covering_tombstone_seq.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 104
   %max_covering_tombstone_seq4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 104
@@ -6771,15 +6827,18 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN7rock
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.06.i.i.i21, i64 80, i1 false), !alias.scope !75
   %merge_context.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 80
   %merge_context3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 80
-  %copied_operands_3.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 88
-  %7 = load <2 x i64>, ptr %merge_context3.i.i.i.i.i.i.i23, align 8, !alias.scope !73, !noalias !70
+  %8 = load i64, ptr %merge_context3.i.i.i.i.i.i.i23, align 8, !alias.scope !73, !noalias !70
+  store i64 %8, ptr %merge_context.i.i.i.i.i.i.i22, align 8, !alias.scope !70, !noalias !73
   store ptr null, ptr %merge_context3.i.i.i.i.i.i.i23, align 8, !alias.scope !73, !noalias !70
-  store <2 x i64> %7, ptr %merge_context.i.i.i.i.i.i.i22, align 8, !alias.scope !70, !noalias !73
+  %copied_operands_.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 88
+  %copied_operands_3.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 88
+  %9 = load i64, ptr %copied_operands_3.i.i.i.i.i.i.i.i25, align 8, !alias.scope !73, !noalias !70
+  store i64 %9, ptr %copied_operands_.i.i.i.i.i.i.i.i24, align 8, !alias.scope !70, !noalias !73
   store ptr null, ptr %copied_operands_3.i.i.i.i.i.i.i.i25, align 8, !alias.scope !73, !noalias !70
   %operands_reversed_.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 96
   %operands_reversed_4.i.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 96
-  %8 = load i8, ptr %operands_reversed_4.i.i.i.i.i.i.i.i27, align 8, !alias.scope !73, !noalias !70
-  %frombool.i.i.i.i.i.i.i.i28 = and i8 %8, 1
+  %10 = load i8, ptr %operands_reversed_4.i.i.i.i.i.i.i.i27, align 8, !alias.scope !73, !noalias !70
+  %frombool.i.i.i.i.i.i.i.i28 = and i8 %10, 1
   store i8 %frombool.i.i.i.i.i.i.i.i28, ptr %operands_reversed_.i.i.i.i.i.i.i.i26, align 8, !alias.scope !70, !noalias !73
   %max_covering_tombstone_seq.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 104
   %max_covering_tombstone_seq4.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 104
@@ -6894,15 +6953,18 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.06.i.i.i, i64 80, i1 false), !alias.scope !81
   %merge_context.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 80
   %merge_context3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 80
-  %copied_operands_3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 88
-  %6 = load <2 x i64>, ptr %merge_context3.i.i.i.i.i.i.i, align 8, !alias.scope !79, !noalias !76
+  %6 = load i64, ptr %merge_context3.i.i.i.i.i.i.i, align 8, !alias.scope !79, !noalias !76
+  store i64 %6, ptr %merge_context.i.i.i.i.i.i.i, align 8, !alias.scope !76, !noalias !79
   store ptr null, ptr %merge_context3.i.i.i.i.i.i.i, align 8, !alias.scope !79, !noalias !76
-  store <2 x i64> %6, ptr %merge_context.i.i.i.i.i.i.i, align 8, !alias.scope !76, !noalias !79
+  %copied_operands_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 88
+  %copied_operands_3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 88
+  %7 = load i64, ptr %copied_operands_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !79, !noalias !76
+  store i64 %7, ptr %copied_operands_.i.i.i.i.i.i.i.i, align 8, !alias.scope !76, !noalias !79
   store ptr null, ptr %copied_operands_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !79, !noalias !76
   %operands_reversed_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 96
   %operands_reversed_4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 96
-  %7 = load i8, ptr %operands_reversed_4.i.i.i.i.i.i.i.i, align 8, !alias.scope !79, !noalias !76
-  %frombool.i.i.i.i.i.i.i.i = and i8 %7, 1
+  %8 = load i8, ptr %operands_reversed_4.i.i.i.i.i.i.i.i, align 8, !alias.scope !79, !noalias !76
+  %frombool.i.i.i.i.i.i.i.i = and i8 %8, 1
   store i8 %frombool.i.i.i.i.i.i.i.i, ptr %operands_reversed_.i.i.i.i.i.i.i.i, align 8, !alias.scope !76, !noalias !79
   %max_covering_tombstone_seq.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 104
   %max_covering_tombstone_seq4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 104
@@ -6927,15 +6989,18 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN7rock
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.06.i.i.i21, i64 80, i1 false), !alias.scope !87
   %merge_context.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 80
   %merge_context3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 80
-  %copied_operands_3.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 88
-  %8 = load <2 x i64>, ptr %merge_context3.i.i.i.i.i.i.i23, align 8, !alias.scope !85, !noalias !82
+  %9 = load i64, ptr %merge_context3.i.i.i.i.i.i.i23, align 8, !alias.scope !85, !noalias !82
+  store i64 %9, ptr %merge_context.i.i.i.i.i.i.i22, align 8, !alias.scope !82, !noalias !85
   store ptr null, ptr %merge_context3.i.i.i.i.i.i.i23, align 8, !alias.scope !85, !noalias !82
-  store <2 x i64> %8, ptr %merge_context.i.i.i.i.i.i.i22, align 8, !alias.scope !82, !noalias !85
+  %copied_operands_.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 88
+  %copied_operands_3.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 88
+  %10 = load i64, ptr %copied_operands_3.i.i.i.i.i.i.i.i25, align 8, !alias.scope !85, !noalias !82
+  store i64 %10, ptr %copied_operands_.i.i.i.i.i.i.i.i24, align 8, !alias.scope !82, !noalias !85
   store ptr null, ptr %copied_operands_3.i.i.i.i.i.i.i.i25, align 8, !alias.scope !85, !noalias !82
   %operands_reversed_.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 96
   %operands_reversed_4.i.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 96
-  %9 = load i8, ptr %operands_reversed_4.i.i.i.i.i.i.i.i27, align 8, !alias.scope !85, !noalias !82
-  %frombool.i.i.i.i.i.i.i.i28 = and i8 %9, 1
+  %11 = load i8, ptr %operands_reversed_4.i.i.i.i.i.i.i.i27, align 8, !alias.scope !85, !noalias !82
+  %frombool.i.i.i.i.i.i.i.i28 = and i8 %11, 1
   store i8 %frombool.i.i.i.i.i.i.i.i28, ptr %operands_reversed_.i.i.i.i.i.i.i.i26, align 8, !alias.scope !82, !noalias !85
   %max_covering_tombstone_seq.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 104
   %max_covering_tombstone_seq4.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 104

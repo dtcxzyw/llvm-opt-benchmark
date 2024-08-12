@@ -11591,7 +11591,13 @@ cond.end.i:                                       ; preds = %cond.false.i, %land
   %call.i = tail call zeroext i16 @htons(i16 noundef zeroext 1) #36
   %ver.i = getelementptr inbounds i8, ptr %call, i64 24
   store i16 %call.i, ptr %ver.i, align 8
-  store <4 x i8> <i8 82, i8 67, i8 109, i8 98>, ptr %msg, align 8
+  store i8 82, ptr %msg, align 8
+  %arrayidx4.i = getelementptr inbounds i8, ptr %call, i64 17
+  store i8 67, ptr %arrayidx4.i, align 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %call, i64 18
+  store i8 109, ptr %arrayidx6.i, align 2
+  %arrayidx8.i = getelementptr inbounds i8, ptr %call, i64 19
+  store i8 98, ptr %arrayidx8.i, align 1
   %conv.i = trunc i32 %type to i16
   %call9.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv.i) #36
   %type10.i = getelementptr inbounds i8, ptr %call, i64 28

@@ -4098,13 +4098,13 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem28try_find_file_recursively
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem19get_files_recursiveERKNS_4PathENS_8LineInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %3, ptr %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
-  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 16
+  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 8
   store i32 %3, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %8, align 8
   call void @_ZNK5vcpkg18ReadOnlyFilesystem23try_get_files_recursiveERKNS_4PathE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %9 = getelementptr inbounds i8, ptr %7, i64 32
-  %10 = load i8, ptr %9, align 16
+  %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %_ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit
 
@@ -4124,12 +4124,16 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem19get_files_recursiveERKNS_
   unreachable
 
 _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: ; preds = %5
-  %18 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %18, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = load ptr, ptr %20, align 16
+  %18 = load ptr, ptr %7, align 8
+  store ptr %18, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %22, align 8
   ret void
 }
 
@@ -4137,7 +4141,7 @@ _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: 
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem23try_get_files_recursiveERKNS_4PathE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::error_code", align 8
-  %6 = alloca %"class.std::vector", align 16
+  %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
   %8 = alloca [1 x %"struct.vcpkg::StringView"], align 8
   store i32 0, ptr %5, align 8
@@ -4163,7 +4167,7 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem23try_get_files_recursiveER
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.fca.1.load.i, ptr %16, align 8
   invoke void @_ZN5vcpkg28format_filesystem_call_errorERKSt10error_codeNS_10StringViewESt16initializer_listIS3_E(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @__func__._ZNK5vcpkg18ReadOnlyFilesystem23try_get_files_recursiveERKNS_4PathE, i64 23, ptr nonnull %8, i64 1)
-          to label %24 unwind label %17
+          to label %27 unwind label %17
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -4172,48 +4176,52 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem23try_get_files_recursiveER
   resume { ptr, i32 } %18
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread: ; preds = %3
-  %19 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %19, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
-  %22 = load ptr, ptr %21, align 16
+  %19 = load ptr, ptr %6, align 8
+  store ptr %19, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 0, ptr %23, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 0, ptr %26, align 8
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-24:                                               ; preds = %15
+27:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 1, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 1, ptr %28, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %.pre = load ptr, ptr %6, align 16
+  %.pre = load ptr, ptr %6, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
   %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre4
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %24, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.pre, %24 ]
+.lr.ph.i.i.i.i:                                   ; preds = %27, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %.pre, %27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #26
-  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %26, %.pre4
+  %29 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %29, %.pre4
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !62
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %6, align 16
+  %.pr.i = load ptr, ptr %6, align 8
   br label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %24
-  %27 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %24 ]
-  %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %28
+_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %27
+  %30 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %27 ]
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %31
 
-28:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %27) #29
+31:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %30) #29
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %28
+_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %31
   ret void
 }
 
@@ -4252,13 +4260,13 @@ _ZNSt12_Vector_baseIN5vcpkg4PathESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem23get_files_non_recursiveERKNS_4PathENS_8LineInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %3, ptr %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
-  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 16
+  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 8
   store i32 %3, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %8, align 8
   call void @_ZNK5vcpkg18ReadOnlyFilesystem27try_get_files_non_recursiveERKNS_4PathE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %9 = getelementptr inbounds i8, ptr %7, i64 32
-  %10 = load i8, ptr %9, align 16
+  %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %_ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit
 
@@ -4278,12 +4286,16 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem23get_files_non_recursiveER
   unreachable
 
 _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: ; preds = %5
-  %18 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %18, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = load ptr, ptr %20, align 16
+  %18 = load ptr, ptr %7, align 8
+  store ptr %18, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %22, align 8
   ret void
 }
 
@@ -4291,7 +4303,7 @@ _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: 
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem27try_get_files_non_recursiveERKNS_4PathE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::error_code", align 8
-  %6 = alloca %"class.std::vector", align 16
+  %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
   %8 = alloca [1 x %"struct.vcpkg::StringView"], align 8
   store i32 0, ptr %5, align 8
@@ -4317,7 +4329,7 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem27try_get_files_non_recursi
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.fca.1.load.i, ptr %16, align 8
   invoke void @_ZN5vcpkg28format_filesystem_call_errorERKSt10error_codeNS_10StringViewESt16initializer_listIS3_E(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @__func__._ZNK5vcpkg18ReadOnlyFilesystem27try_get_files_non_recursiveERKNS_4PathE, i64 27, ptr nonnull %8, i64 1)
-          to label %24 unwind label %17
+          to label %27 unwind label %17
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -4326,61 +4338,65 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem27try_get_files_non_recursi
   resume { ptr, i32 } %18
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread: ; preds = %3
-  %19 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %19, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
-  %22 = load ptr, ptr %21, align 16
+  %19 = load ptr, ptr %6, align 8
+  store ptr %19, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 0, ptr %23, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 0, ptr %26, align 8
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-24:                                               ; preds = %15
+27:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 1, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 1, ptr %28, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %.pre = load ptr, ptr %6, align 16
+  %.pre = load ptr, ptr %6, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
   %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre4
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %24, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.pre, %24 ]
+.lr.ph.i.i.i.i:                                   ; preds = %27, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %.pre, %27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #26
-  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %26, %.pre4
+  %29 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %29, %.pre4
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !62
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %6, align 16
+  %.pr.i = load ptr, ptr %6, align 8
   br label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %24
-  %27 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %24 ]
-  %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %28
+_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %27
+  %30 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %27 ]
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %31
 
-28:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %27) #29
+31:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %30) #29
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %28
+_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %31
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem25get_directories_recursiveERKNS_4PathENS_8LineInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %3, ptr %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
-  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 16
+  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 8
   store i32 %3, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %8, align 8
   call void @_ZNK5vcpkg18ReadOnlyFilesystem29try_get_directories_recursiveERKNS_4PathE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %9 = getelementptr inbounds i8, ptr %7, i64 32
-  %10 = load i8, ptr %9, align 16
+  %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %_ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit
 
@@ -4400,12 +4416,16 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem25get_directories_recursive
   unreachable
 
 _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: ; preds = %5
-  %18 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %18, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = load ptr, ptr %20, align 16
+  %18 = load ptr, ptr %7, align 8
+  store ptr %18, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %22, align 8
   ret void
 }
 
@@ -4413,7 +4433,7 @@ _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: 
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem29try_get_directories_recursiveERKNS_4PathE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::error_code", align 8
-  %6 = alloca %"class.std::vector", align 16
+  %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
   %8 = alloca [1 x %"struct.vcpkg::StringView"], align 8
   store i32 0, ptr %5, align 8
@@ -4439,7 +4459,7 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem29try_get_directories_recur
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.fca.1.load.i, ptr %16, align 8
   invoke void @_ZN5vcpkg28format_filesystem_call_errorERKSt10error_codeNS_10StringViewESt16initializer_listIS3_E(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @__func__._ZNK5vcpkg18ReadOnlyFilesystem29try_get_directories_recursiveERKNS_4PathE, i64 29, ptr nonnull %8, i64 1)
-          to label %24 unwind label %17
+          to label %27 unwind label %17
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -4448,61 +4468,65 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem29try_get_directories_recur
   resume { ptr, i32 } %18
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread: ; preds = %3
-  %19 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %19, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
-  %22 = load ptr, ptr %21, align 16
+  %19 = load ptr, ptr %6, align 8
+  store ptr %19, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 0, ptr %23, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 0, ptr %26, align 8
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-24:                                               ; preds = %15
+27:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 1, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 1, ptr %28, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %.pre = load ptr, ptr %6, align 16
+  %.pre = load ptr, ptr %6, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
   %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre4
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %24, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.pre, %24 ]
+.lr.ph.i.i.i.i:                                   ; preds = %27, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %.pre, %27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #26
-  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %26, %.pre4
+  %29 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %29, %.pre4
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !62
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %6, align 16
+  %.pr.i = load ptr, ptr %6, align 8
   br label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %24
-  %27 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %24 ]
-  %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %28
+_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %27
+  %30 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %27 ]
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %31
 
-28:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %27) #29
+31:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %30) #29
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %28
+_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %31
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem29get_directories_non_recursiveERKNS_4PathENS_8LineInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %3, ptr %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
-  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 16
+  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 8
   store i32 %3, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %8, align 8
   call void @_ZNK5vcpkg18ReadOnlyFilesystem33try_get_directories_non_recursiveERKNS_4PathE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %9 = getelementptr inbounds i8, ptr %7, i64 32
-  %10 = load i8, ptr %9, align 16
+  %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %_ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit
 
@@ -4522,12 +4546,16 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem29get_directories_non_recur
   unreachable
 
 _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: ; preds = %5
-  %18 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %18, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = load ptr, ptr %20, align 16
+  %18 = load ptr, ptr %7, align 8
+  store ptr %18, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %22, align 8
   ret void
 }
 
@@ -4535,7 +4563,7 @@ _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: 
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem33try_get_directories_non_recursiveERKNS_4PathE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::error_code", align 8
-  %6 = alloca %"class.std::vector", align 16
+  %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
   %8 = alloca [1 x %"struct.vcpkg::StringView"], align 8
   store i32 0, ptr %5, align 8
@@ -4561,7 +4589,7 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem33try_get_directories_non_r
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.fca.1.load.i, ptr %16, align 8
   invoke void @_ZN5vcpkg28format_filesystem_call_errorERKSt10error_codeNS_10StringViewESt16initializer_listIS3_E(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @__func__._ZNK5vcpkg18ReadOnlyFilesystem33try_get_directories_non_recursiveERKNS_4PathE, i64 33, ptr nonnull %8, i64 1)
-          to label %24 unwind label %17
+          to label %27 unwind label %17
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -4570,61 +4598,65 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem33try_get_directories_non_r
   resume { ptr, i32 } %18
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread: ; preds = %3
-  %19 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %19, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
-  %22 = load ptr, ptr %21, align 16
+  %19 = load ptr, ptr %6, align 8
+  store ptr %19, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 0, ptr %23, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 0, ptr %26, align 8
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-24:                                               ; preds = %15
+27:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 1, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 1, ptr %28, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %.pre = load ptr, ptr %6, align 16
+  %.pre = load ptr, ptr %6, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
   %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre4
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %24, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.pre, %24 ]
+.lr.ph.i.i.i.i:                                   ; preds = %27, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %.pre, %27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #26
-  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %26, %.pre4
+  %29 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %29, %.pre4
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !62
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %6, align 16
+  %.pr.i = load ptr, ptr %6, align 8
   br label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %24
-  %27 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %24 ]
-  %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %28
+_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %27
+  %30 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %27 ]
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %31
 
-28:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %27) #29
+31:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %30) #29
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %28
+_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %31
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem27get_regular_files_recursiveERKNS_4PathENS_8LineInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %3, ptr %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
-  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 16
+  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 8
   store i32 %3, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %8, align 8
   call void @_ZNK5vcpkg18ReadOnlyFilesystem31try_get_regular_files_recursiveERKNS_4PathE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %9 = getelementptr inbounds i8, ptr %7, i64 32
-  %10 = load i8, ptr %9, align 16
+  %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %_ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit
 
@@ -4644,12 +4676,16 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem27get_regular_files_recursi
   unreachable
 
 _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: ; preds = %5
-  %18 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %18, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = load ptr, ptr %20, align 16
+  %18 = load ptr, ptr %7, align 8
+  store ptr %18, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %22, align 8
   ret void
 }
 
@@ -4657,7 +4693,7 @@ _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: 
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem31try_get_regular_files_recursiveERKNS_4PathE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::error_code", align 8
-  %6 = alloca %"class.std::vector", align 16
+  %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
   %8 = alloca [1 x %"struct.vcpkg::StringView"], align 8
   store i32 0, ptr %5, align 8
@@ -4683,7 +4719,7 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem31try_get_regular_files_rec
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.fca.1.load.i, ptr %16, align 8
   invoke void @_ZN5vcpkg28format_filesystem_call_errorERKSt10error_codeNS_10StringViewESt16initializer_listIS3_E(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @__func__._ZNK5vcpkg18ReadOnlyFilesystem31try_get_regular_files_recursiveERKNS_4PathE, i64 31, ptr nonnull %8, i64 1)
-          to label %24 unwind label %17
+          to label %27 unwind label %17
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -4692,61 +4728,65 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem31try_get_regular_files_rec
   resume { ptr, i32 } %18
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread: ; preds = %3
-  %19 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %19, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
-  %22 = load ptr, ptr %21, align 16
+  %19 = load ptr, ptr %6, align 8
+  store ptr %19, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 0, ptr %23, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 0, ptr %26, align 8
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-24:                                               ; preds = %15
+27:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 1, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 1, ptr %28, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %.pre = load ptr, ptr %6, align 16
+  %.pre = load ptr, ptr %6, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
   %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre4
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %24, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.pre, %24 ]
+.lr.ph.i.i.i.i:                                   ; preds = %27, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %.pre, %27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #26
-  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %26, %.pre4
+  %29 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %29, %.pre4
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !62
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %6, align 16
+  %.pr.i = load ptr, ptr %6, align 8
   br label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %24
-  %27 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %24 ]
-  %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %28
+_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %27
+  %30 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %27 ]
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %31
 
-28:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %27) #29
+31:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %30) #29
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %28
+_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %31
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem47get_regular_files_recursive_lexically_proximateERKNS_4PathENS_8LineInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %3, ptr %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
-  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 16
+  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 8
   store i32 %3, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %8, align 8
   call void @_ZNK5vcpkg18ReadOnlyFilesystem51try_get_regular_files_recursive_lexically_proximateERKNS_4PathE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %9 = getelementptr inbounds i8, ptr %7, i64 32
-  %10 = load i8, ptr %9, align 16
+  %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %_ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit
 
@@ -4766,12 +4806,16 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem47get_regular_files_recursi
   unreachable
 
 _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: ; preds = %5
-  %18 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %18, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = load ptr, ptr %20, align 16
+  %18 = load ptr, ptr %7, align 8
+  store ptr %18, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %22, align 8
   ret void
 }
 
@@ -4779,7 +4823,7 @@ _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: 
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem51try_get_regular_files_recursive_lexically_proximateERKNS_4PathE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::error_code", align 8
-  %6 = alloca %"class.std::vector", align 16
+  %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
   %8 = alloca [1 x %"struct.vcpkg::StringView"], align 8
   store i32 0, ptr %5, align 8
@@ -4805,7 +4849,7 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem51try_get_regular_files_rec
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.fca.1.load.i, ptr %16, align 8
   invoke void @_ZN5vcpkg28format_filesystem_call_errorERKSt10error_codeNS_10StringViewESt16initializer_listIS3_E(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @__func__._ZNK5vcpkg18ReadOnlyFilesystem51try_get_regular_files_recursive_lexically_proximateERKNS_4PathE, i64 51, ptr nonnull %8, i64 1)
-          to label %24 unwind label %17
+          to label %27 unwind label %17
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -4814,61 +4858,65 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem51try_get_regular_files_rec
   resume { ptr, i32 } %18
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread: ; preds = %3
-  %19 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %19, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
-  %22 = load ptr, ptr %21, align 16
+  %19 = load ptr, ptr %6, align 8
+  store ptr %19, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 0, ptr %23, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 0, ptr %26, align 8
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-24:                                               ; preds = %15
+27:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 1, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 1, ptr %28, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %.pre = load ptr, ptr %6, align 16
+  %.pre = load ptr, ptr %6, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
   %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre4
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %24, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.pre, %24 ]
+.lr.ph.i.i.i.i:                                   ; preds = %27, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %.pre, %27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #26
-  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %26, %.pre4
+  %29 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %29, %.pre4
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !62
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %6, align 16
+  %.pr.i = load ptr, ptr %6, align 8
   br label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %24
-  %27 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %24 ]
-  %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %28
+_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %27
+  %30 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %27 ]
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %31
 
-28:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %27) #29
+31:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %30) #29
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %28
+_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %31
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem31get_regular_files_non_recursiveERKNS_4PathENS_8LineInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %3, ptr %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
-  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 16
+  %7 = alloca %"struct.vcpkg::ExpectedT.24", align 8
   store i32 %3, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %8, align 8
   call void @_ZNK5vcpkg18ReadOnlyFilesystem35try_get_regular_files_non_recursiveERKNS_4PathE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %9 = getelementptr inbounds i8, ptr %7, i64 32
-  %10 = load i8, ptr %9, align 16
+  %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %_ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit
 
@@ -4888,12 +4936,16 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem31get_regular_files_non_rec
   unreachable
 
 _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: ; preds = %5
-  %18 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %18, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = load ptr, ptr %20, align 16
+  %18 = load ptr, ptr %7, align 8
+  store ptr %18, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %22, align 8
   ret void
 }
 
@@ -4901,7 +4953,7 @@ _ZN5vcpkg9ExpectedTISt6vectorINS_4PathESaIS2_EENS_15LocalizedStringEED2Ev.exit: 
 define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem35try_get_regular_files_non_recursiveERKNS_4PathE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ExpectedT.24") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::error_code", align 8
-  %6 = alloca %"class.std::vector", align 16
+  %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
   %8 = alloca [1 x %"struct.vcpkg::StringView"], align 8
   store i32 0, ptr %5, align 8
@@ -4927,7 +4979,7 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem35try_get_regular_files_non
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.fca.1.load.i, ptr %16, align 8
   invoke void @_ZN5vcpkg28format_filesystem_call_errorERKSt10error_codeNS_10StringViewESt16initializer_listIS3_E(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @__func__._ZNK5vcpkg18ReadOnlyFilesystem35try_get_regular_files_non_recursiveERKNS_4PathE, i64 35, ptr nonnull %8, i64 1)
-          to label %24 unwind label %17
+          to label %27 unwind label %17
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -4936,48 +4988,52 @@ define dso_local void @_ZNK5vcpkg18ReadOnlyFilesystem35try_get_regular_files_non
   resume { ptr, i32 } %18
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread: ; preds = %3
-  %19 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %19, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
-  %22 = load ptr, ptr %21, align 16
+  %19 = load ptr, ptr %6, align 8
+  store ptr %19, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 0, ptr %23, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 0, ptr %26, align 8
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-24:                                               ; preds = %15
+27:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 1, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 1, ptr %28, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  %.pre = load ptr, ptr %6, align 16
+  %.pre = load ptr, ptr %6, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
   %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre4
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %24, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.pre, %24 ]
+.lr.ph.i.i.i.i:                                   ; preds = %27, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %.pre, %27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #26
-  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %26, %.pre4
+  %29 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %29, %.pre4
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !62
 
 _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %6, align 16
+  %.pr.i = load ptr, ptr %6, align 8
   br label %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %24
-  %27 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %24 ]
-  %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %28
+_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %27
+  %30 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %27 ]
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit, label %31
 
-28:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %27) #29
+31:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %30) #29
   br label %_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %28
+_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i, %31
   ret void
 }
 
@@ -7813,12 +7869,12 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem10read_linesB5cxx1
 33:                                               ; preds = %3
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %101
 
 35:                                               ; preds = %29, %28
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %100
 
 .thread:                                          ; preds = %.noexc, %24
   %.promoted43 = phi ptr [ %27, %24 ], [ %20, %.noexc ]
@@ -7849,12 +7905,12 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem10read_linesB5cxx1
           cleanup
   store i32 0, ptr %8, align 8
   store ptr %40, ptr %19, align 8
-  br label %81
+  br label %84
 
 .loopexit.split-lp:                               ; preds = %48, %56
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %84
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr %9, align 8
@@ -7929,31 +7985,35 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem10read_linesB5cxx1
   %70 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #26
-  br label %81
+  br label %84
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %57, %66, %._crit_edge58
   %71 = phi ptr [ %.pre59, %._crit_edge58 ], [ %.pre60, %66 ], [ %60, %57 ]
   store ptr %71, ptr %0, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 8
-  %73 = load <2 x ptr>, ptr %58, align 8
-  store <2 x ptr> %73, ptr %72, align 8
+  %73 = load ptr, ptr %58, align 8
+  store ptr %73, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds i8, ptr %16, i64 16
+  %76 = load ptr, ptr %75, align 8
+  store ptr %76, ptr %74, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  %74 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 0, ptr %74, align 8
+  %77 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 0, ptr %77, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %50
-  %75 = load ptr, ptr %38, align 8
-  %76 = getelementptr inbounds i8, ptr %12, i64 48
-  %77 = load ptr, ptr %76, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %75, %77
+  %78 = load ptr, ptr %38, align 8
+  %79 = getelementptr inbounds i8, ptr %12, i64 48
+  %80 = load ptr, ptr %79, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %78, %80
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %78, %.lr.ph.i.i.i.i.i ], [ %75, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %.05.i.i.i.i.i = phi ptr [ %81, %.lr.ph.i.i.i.i.i ], [ %78, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #26
-  %78 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i = icmp eq ptr %78, %77
+  %81 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i = icmp eq ptr %81, %80
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !81
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
@@ -7961,71 +8021,71 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %79 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %75, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  %.not.i.i.i.i29 = icmp eq ptr %79, null
-  br i1 %.not.i.i.i.i29, label %_ZN5vcpkg7Strings14LinesCollectorD2Ev.exit, label %80
+  %82 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %78, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %.not.i.i.i.i29 = icmp eq ptr %82, null
+  br i1 %.not.i.i.i.i29, label %_ZN5vcpkg7Strings14LinesCollectorD2Ev.exit, label %83
 
-80:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %79) #29
+83:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %82) #29
   br label %_ZN5vcpkg7Strings14LinesCollectorD2Ev.exit
 
-81:                                               ; preds = %.loopexit, %.loopexit.split-lp, %69
+84:                                               ; preds = %.loopexit, %.loopexit.split-lp, %69
   %.pn = phi { ptr, i32 } [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN5vcpkg7Strings14LinesCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #26
-  br label %97
+  br label %100
 
-_ZN5vcpkg7Strings14LinesCollectorD2Ev.exit:       ; preds = %80, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %31
-  %.sink = phi ptr [ %10, %31 ], [ %37, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ %37, %80 ]
+_ZN5vcpkg7Strings14LinesCollectorD2Ev.exit:       ; preds = %83, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %31
+  %.sink = phi ptr [ %10, %31 ], [ %37, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ %37, %83 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %82 = load ptr, ptr %9, align 8
-  %.not.i.i.i30 = icmp eq ptr %82, null
-  br i1 %.not.i.i.i30, label %_ZN5vcpkg15ReadFilePointerD2Ev.exit, label %83
+  %85 = load ptr, ptr %9, align 8
+  %.not.i.i.i30 = icmp eq ptr %85, null
+  br i1 %.not.i.i.i30, label %_ZN5vcpkg15ReadFilePointerD2Ev.exit, label %86
 
-83:                                               ; preds = %_ZN5vcpkg7Strings14LinesCollectorD2Ev.exit
+86:                                               ; preds = %_ZN5vcpkg7Strings14LinesCollectorD2Ev.exit
   store i32 1386, ptr %4, align 8
-  %84 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @.str.5, ptr %84, align 8
-  %85 = call i32 @fclose(ptr noundef nonnull %82)
-  %86 = icmp eq i32 %85, 0
-  invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext %86)
-          to label %87 unwind label %88
+  %87 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @.str.5, ptr %87, align 8
+  %88 = call i32 @fclose(ptr noundef nonnull %85)
+  %89 = icmp eq i32 %88, 0
+  invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext %89)
+          to label %90 unwind label %91
 
-87:                                               ; preds = %83
+90:                                               ; preds = %86
   store ptr null, ptr %9, align 8
   br label %_ZN5vcpkg15ReadFilePointerD2Ev.exit
 
-88:                                               ; preds = %83
-  %89 = landingpad { ptr, i32 }
+91:                                               ; preds = %86
+  %92 = landingpad { ptr, i32 }
           catch ptr null
-  %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #30
+  %93 = extractvalue { ptr, i32 } %92, 0
+  call void @__clang_call_terminate(ptr %93) #30
   unreachable
 
-_ZN5vcpkg15ReadFilePointerD2Ev.exit:              ; preds = %_ZN5vcpkg7Strings14LinesCollectorD2Ev.exit, %87
+_ZN5vcpkg15ReadFilePointerD2Ev.exit:              ; preds = %_ZN5vcpkg7Strings14LinesCollectorD2Ev.exit, %90
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
-  %91 = load ptr, ptr %7, align 8
-  %92 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #26
-  %93 = load atomic i64, ptr %18 seq_cst, align 8
-  %94 = sub nsw i64 %92, %93
-  %95 = udiv i64 %94, 1000
-  %96 = atomicrmw add ptr %91, i64 %95 seq_cst, align 8
+  %94 = load ptr, ptr %7, align 8
+  %95 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #26
+  %96 = load atomic i64, ptr %18 seq_cst, align 8
+  %97 = sub nsw i64 %95, %96
+  %98 = udiv i64 %97, 1000
+  %99 = atomicrmw add ptr %94, i64 %98 seq_cst, align 8
   ret void
 
-97:                                               ; preds = %81, %35
-  %.pn19 = phi { ptr, i32 } [ %36, %35 ], [ %.pn, %81 ]
+100:                                              ; preds = %84, %35
+  %.pn19 = phi { ptr, i32 } [ %36, %35 ], [ %.pn, %84 ]
   call void @_ZN5vcpkg15ReadFilePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #26
-  br label %98
+  br label %101
 
-98:                                               ; preds = %97, %33
-  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %97 ], [ %34, %33 ]
-  %99 = load ptr, ptr %7, align 8
-  %100 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #26
-  %101 = load atomic i64, ptr %18 seq_cst, align 8
-  %102 = sub nsw i64 %100, %101
-  %103 = udiv i64 %102, 1000
-  %104 = atomicrmw add ptr %99, i64 %103 seq_cst, align 8
+101:                                              ; preds = %100, %33
+  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %100 ], [ %34, %33 ]
+  %102 = load ptr, ptr %7, align 8
+  %103 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #26
+  %104 = load atomic i64, ptr %18 seq_cst, align 8
+  %105 = sub nsw i64 %103, %104
+  %106 = udiv i64 %105, 1000
+  %107 = atomicrmw add ptr %102, i64 %106 seq_cst, align 8
   resume { ptr, i32 } %.pn19.pn
 }
 
@@ -15990,35 +16050,51 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt3v106detail18for_each_codepoi
   %or.cond5.i = icmp ult i32 %65, 30288
   %66 = icmp ne i32 %58, 12351
   %or.cond7.i = and i1 %66, %or.cond5.i
-  %67 = and i32 %58, -65538
-  %68 = insertelement <8 x i32> poison, i32 %58, i64 0
-  %69 = insertelement <8 x i32> %68, i32 %67, i64 1
-  %70 = shufflevector <8 x i32> %69, <8 x i32> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0>
-  %71 = add <8 x i32> %70, <i32 -44032, i32 -63744, i32 -65040, i32 -65072, i32 -65280, i32 -65504, i32 -131072, i32 -127744>
-  %72 = icmp ult <8 x i32> %71, <i32 11172, i32 512, i32 10, i32 64, i32 97, i32 7, i32 65534, i32 848>
-  %73 = bitcast <8 x i1> %72 to i8
-  %74 = icmp ne i8 %73, 0
-  %op.rdx = or i1 %74, %or.cond7.i
-  br i1 %op.rdx, label %_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %75
+  %67 = add nsw i32 %58, -44032
+  %or.cond9.i = icmp ult i32 %67, 11172
+  %or.cond.i = or i1 %or.cond9.i, %or.cond7.i
+  %68 = add nsw i32 %58, -63744
+  %or.cond11.i = icmp ult i32 %68, 512
+  %or.cond52.i = or i1 %or.cond11.i, %or.cond.i
+  %69 = add nsw i32 %58, -65040
+  %or.cond13.i = icmp ult i32 %69, 10
+  %or.cond53.i = or i1 %or.cond13.i, %or.cond52.i
+  %70 = add nsw i32 %58, -65072
+  %or.cond15.i = icmp ult i32 %70, 64
+  %or.cond54.i = or i1 %or.cond15.i, %or.cond53.i
+  %71 = add nsw i32 %58, -65280
+  %or.cond17.i = icmp ult i32 %71, 97
+  %or.cond55.i = or i1 %or.cond17.i, %or.cond54.i
+  %72 = add nsw i32 %58, -65504
+  %or.cond19.i = icmp ult i32 %72, 7
+  %or.cond56.i = or i1 %or.cond19.i, %or.cond55.i
+  %73 = and i32 %58, -65538
+  %74 = add i32 %73, -131072
+  %75 = icmp ult i32 %74, 65534
+  %or.cond58.i = or i1 %75, %or.cond56.i
+  %76 = add nsw i32 %58, -127744
+  %or.cond25.i = icmp ult i32 %76, 848
+  %or.cond59.i = or i1 %or.cond25.i, %or.cond58.i
+  br i1 %or.cond59.i, label %_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit, label %77
 
-75:                                               ; preds = %64
-  %76 = and i32 %58, -256
-  %77 = icmp eq i32 %76, 129280
-  %78 = select i1 %77, i64 2, i64 1
+77:                                               ; preds = %64
+  %78 = and i32 %58, -256
+  %79 = icmp eq i32 %78, 129280
+  %80 = select i1 %79, i64 2, i64 1
   br label %_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit
 
-_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit: ; preds = %3, %60, %64, %75
-  %79 = phi i64 [ 1, %3 ], [ 2, %60 ], [ %78, %75 ], [ 2, %64 ]
-  %80 = getelementptr inbounds i8, ptr %1, i64 %10
-  %81 = lshr i64 2164195328, %7
-  %82 = and i64 %81, 1
-  %83 = getelementptr inbounds i8, ptr %80, i64 %82
-  %84 = load ptr, ptr %0, align 8
-  %85 = load i64, ptr %84, align 8
-  %86 = add i64 %85, %79
-  store i64 %86, ptr %84, align 8
-  %87 = select i1 %.not, ptr %83, ptr %15
-  ret ptr %87
+_ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_pointsclEjS3_.exit: ; preds = %3, %60, %64, %77
+  %81 = phi i64 [ 1, %3 ], [ 2, %60 ], [ %80, %77 ], [ 2, %64 ]
+  %82 = getelementptr inbounds i8, ptr %1, i64 %10
+  %83 = lshr i64 2164195328, %7
+  %84 = and i64 %83, 1
+  %85 = getelementptr inbounds i8, ptr %82, i64 %84
+  %86 = load ptr, ptr %0, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = add i64 %87, %81
+  store i64 %88, ptr %86, align 8
+  %89 = select i1 %.not, ptr %85, ptr %15
+  ret ptr %89
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -47,13 +47,13 @@ define hidden void @geod_for() local_unnamed_addr #0 {
   %7 = select i1 %6, double -1.800000e+02, double 1.800000e+02
   %8 = fadd double %5, %7
   %9 = load double, ptr %1, align 8
-  %10 = load double, ptr %2, align 8
-  %11 = insertelement <2 x double> poison, double %10, i64 0
-  %12 = insertelement <2 x double> %11, double %9, i64 1
-  %13 = fmul <2 x double> %12, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
-  store <2 x double> %13, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
-  %14 = fmul double %8, 0x3F91DF46A2529D39
-  store double %14, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %10 = fmul double %9, 0x3F91DF46A2529D39
+  store double %10, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
+  %11 = load double, ptr %2, align 8
+  %12 = fmul double %11, 0x3F91DF46A2529D39
+  store double %12, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
+  %13 = fmul double %8, 0x3F91DF46A2529D39
+  store double %13, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
   ret void
 }
 

@@ -4791,8 +4791,8 @@ declare void @_ZN6hermes6parser8JSParserD1Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @hermes_parser_free(ptr noundef %parserCtx) local_unnamed_addr #2 {
 entry:
-  %agg.tmp.i.i.i = alloca %"struct.std::_Deque_iterator", align 16
-  %agg.tmp2.i.i.i = alloca %"struct.std::_Deque_iterator", align 16
+  %agg.tmp.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
+  %agg.tmp2.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %isnull = icmp eq ptr %parserCtx, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
@@ -4811,43 +4811,57 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull
 _ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %delete.notnull
   %ourMessages_.i = getelementptr inbounds i8, ptr %parserCtx, i64 664
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 680
+  %0 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !7
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 688
+  %1 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !7
   %_M_last4.i.i.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 696
+  %2 = load ptr, ptr %_M_last4.i.i.i.i, align 8, !noalias !7
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 704
+  %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !7
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 712
+  %4 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !10
+  %_M_first3.i.i2.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 720
+  %5 = load ptr, ptr %_M_first3.i.i2.i.i, align 8, !noalias !10
   %_M_last4.i.i4.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 728
+  %6 = load ptr, ptr %_M_last4.i.i4.i.i, align 8, !noalias !10
+  %_M_node5.i.i6.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 736
+  %7 = load ptr, ptr %_M_node5.i.i6.i.i, align 8, !noalias !10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i)
-  %0 = load <2 x ptr>, ptr %_M_start.i.i.i, align 8, !noalias !7
-  store <2 x ptr> %0, ptr %agg.tmp.i.i.i, align 16
+  store ptr %0, ptr %agg.tmp.i.i.i, align 8
+  %_M_first.i.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  store ptr %1, ptr %_M_first.i.i7.i.i, align 8
   %_M_last.i.i9.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
-  %1 = load <2 x ptr>, ptr %_M_last4.i.i.i.i, align 8, !noalias !7
-  store <2 x ptr> %1, ptr %_M_last.i.i9.i.i, align 16
-  %2 = load <2 x ptr>, ptr %_M_finish.i.i.i, align 8, !noalias !10
-  store <2 x ptr> %2, ptr %agg.tmp2.i.i.i, align 16
+  store ptr %2, ptr %_M_last.i.i9.i.i, align 8
+  %_M_node.i.i11.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
+  store ptr %3, ptr %_M_node.i.i11.i.i, align 8
+  store ptr %4, ptr %agg.tmp2.i.i.i, align 8
+  %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
+  store ptr %5, ptr %_M_first.i1.i.i.i, align 8
   %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
-  %3 = load <2 x ptr>, ptr %_M_last4.i.i4.i.i, align 8, !noalias !10
-  store <2 x ptr> %3, ptr %_M_last.i3.i.i.i, align 16
+  store ptr %6, ptr %_M_last.i3.i.i.i, align 8
+  %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
+  store ptr %7, ptr %_M_node.i5.i.i.i, align 8
   call void @_ZNSt5dequeIN4llvh12SMDiagnosticESaIS1_EE19_M_destroy_data_auxESt15_Deque_iteratorIS1_RS1_PS1_ES7_(ptr noundef nonnull align 8 dereferenceable(80) %ourMessages_.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i)
-  %4 = load ptr, ptr %ourMessages_.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %4, null
+  %8 = load ptr, ptr %ourMessages_.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZN12_GLOBAL__N_113ParserContextD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EED2Ev.exit.i
-  %_M_node5.i.i6.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 736
-  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %parserCtx, i64 704
-  %5 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %6 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %cmp3.i.i.i.i = icmp ult ptr %5, %add.ptr.i.i.i
+  %9 = load ptr, ptr %_M_node5.i.i.i.i, align 8
+  %10 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %cmp3.i.i.i.i = icmp ult ptr %9, %add.ptr.i.i.i
   br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for.body.i.i.i.i
-  %__n.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %5, %if.then.i.i.i ]
-  %7 = load ptr, ptr %__n.04.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %7) #16
+  %__n.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %9, %if.then.i.i.i ]
+  %11 = load ptr, ptr %__n.04.i.i.i.i, align 8
+  call void @_ZdlPv(ptr noundef %11) #16
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i, i64 8
-  %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %6
+  %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %10
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, !llvm.loop !13
 
 _ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i: ; preds = %for.body.i.i.i.i
@@ -4855,8 +4869,8 @@ _ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit
   br label %_ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
 
 _ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, %if.then.i.i.i
-  %8 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i ], [ %4, %if.then.i.i.i ]
-  call void @_ZdlPv(ptr noundef %8) #16
+  %12 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i ], [ %8, %if.then.i.i.i ]
+  call void @_ZdlPv(ptr noundef %12) #16
   br label %_ZN12_GLOBAL__N_113ParserContextD2Ev.exit
 
 _ZN12_GLOBAL__N_113ParserContextD2Ev.exit:        ; preds = %_ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EED2Ev.exit.i, %_ZNSt11_Deque_baseIN4llvh12SMDiagnosticESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
@@ -5245,7 +5259,13 @@ entry:
   %preemptiveFunctionCompilationThreshold_ = getelementptr inbounds i8, ptr %this, i64 172
   %generatorEnabled_ = getelementptr inbounds i8, ptr %this, i64 181
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %preemptiveFunctionCompilationThreshold_, i8 0, i64 9, i1 false)
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %generatorEnabled_, align 1
+  store i8 1, ptr %generatorEnabled_, align 1
+  %useCJSModules_ = getelementptr inbounds i8, ptr %this, i64 182
+  store i8 0, ptr %useCJSModules_, align 2
+  %parseJSX_ = getelementptr inbounds i8, ptr %this, i64 183
+  store i8 0, ptr %parseJSX_, align 1
+  %parseFlowComponentSyntax_ = getelementptr inbounds i8, ptr %this, i64 184
+  store i8 0, ptr %parseFlowComponentSyntax_, align 8
   %parseFlow_ = getelementptr inbounds i8, ptr %this, i64 188
   store i32 0, ptr %parseFlow_, align 4
   %parseTS_ = getelementptr inbounds i8, ptr %this, i64 192

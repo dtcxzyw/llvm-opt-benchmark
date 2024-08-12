@@ -162,34 +162,34 @@ define dso_local ptr @curl_multi_init() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @curl_multi_add_handle(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %114, label %3
+  br i1 %.not, label %117, label %3
 
 3:                                                ; preds = %2
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 764702
-  br i1 %5, label %6, label %114
+  br i1 %5, label %6, label %117
 
 6:                                                ; preds = %3
   %.not55 = icmp eq ptr %1, null
-  br i1 %.not55, label %114, label %7
+  br i1 %.not55, label %117, label %7
 
 7:                                                ; preds = %6
   %8 = load i32, ptr %1, align 8
   %9 = icmp eq i32 %8, -1059136595
-  br i1 %9, label %10, label %114
+  br i1 %9, label %10, label %117
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %1, i64 192
   %12 = load ptr, ptr %11, align 8
   %.not56 = icmp eq ptr %12, null
-  br i1 %.not56, label %13, label %114
+  br i1 %.not56, label %13, label %117
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 433
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 4
   %.not57 = icmp eq i8 %16, 0
-  br i1 %.not57, label %17, label %114
+  br i1 %.not57, label %17, label %117
 
 17:                                               ; preds = %13
   %18 = and i8 %15, 16
@@ -200,7 +200,7 @@ define dso_local i32 @curl_multi_add_handle(ptr noundef %0, ptr noundef %1) loca
   %20 = getelementptr inbounds i8, ptr %0, i64 28
   %21 = load i32, ptr %20, align 4
   %.not59 = icmp eq i32 %21, 0
-  br i1 %.not59, label %22, label %114
+  br i1 %.not59, label %22, label %117
 
 22:                                               ; preds = %19
   %23 = and i8 %15, -21
@@ -227,7 +227,7 @@ define dso_local i32 @curl_multi_add_handle(ptr noundef %0, ptr noundef %1) loca
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %32 = tail call i32 @Curl_update_timer(ptr noundef nonnull %0)
   %.not61 = icmp eq i32 %32, 0
-  br i1 %.not61, label %33, label %114
+  br i1 %.not61, label %33, label %117
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %1, i64 88
@@ -311,71 +311,75 @@ link_easy.exit:                                   ; preds = %63, %68
   %.sink.i = phi ptr [ %70, %68 ], [ %64, %63 ]
   store ptr %1, ptr %.sink.i, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 24
-  %72 = load <2 x i32>, ptr %71, align 8
-  %73 = add <2 x i32> %72, <i32 1, i32 1>
-  store <2 x i32> %73, ptr %71, align 8
-  %74 = load ptr, ptr %48, align 8
-  %.not65 = icmp eq ptr %74, null
-  br i1 %.not65, label %77, label %75
+  %72 = load i32, ptr %71, align 8
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %71, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 28
+  %75 = load i32, ptr %74, align 4
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %74, align 4
+  %77 = load ptr, ptr %48, align 8
+  %.not65 = icmp eq ptr %77, null
+  br i1 %.not65, label %80, label %78
 
-75:                                               ; preds = %link_easy.exit
-  %76 = tail call i32 @Curl_share_lock(ptr noundef nonnull %1, i32 noundef 5, i32 noundef 2) #19
-  br label %77
+78:                                               ; preds = %link_easy.exit
+  %79 = tail call i32 @Curl_share_lock(ptr noundef nonnull %1, i32 noundef 5, i32 noundef 2) #19
+  br label %80
 
-77:                                               ; preds = %75, %link_easy.exit
-  %78 = getelementptr inbounds i8, ptr %1, i64 704
-  %79 = load i32, ptr %78, align 8
-  %80 = load ptr, ptr %25, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 88
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 704
-  store i32 %79, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 716
-  %85 = load i32, ptr %84, align 4
-  %86 = load ptr, ptr %25, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 88
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 716
-  store i32 %85, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %1, i64 2642
-  %91 = load i64, ptr %90, align 2
-  %92 = and i64 %91, 4294967296
-  %93 = load ptr, ptr %25, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 88
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 2642
-  %97 = load i64, ptr %96, align 2
-  %98 = and i64 %97, -4294967297
-  %99 = or disjoint i64 %98, %92
-  store i64 %99, ptr %96, align 2
-  %100 = load ptr, ptr %25, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 64
-  %102 = load i64, ptr %101, align 8
-  %103 = add nsw i64 %102, 1
-  store i64 %103, ptr %101, align 8
-  %104 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 %102, ptr %104, align 8
-  %105 = load ptr, ptr %25, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 64
-  %107 = load i64, ptr %106, align 8
-  %108 = icmp slt i64 %107, 1
-  br i1 %108, label %109, label %110
+80:                                               ; preds = %78, %link_easy.exit
+  %81 = getelementptr inbounds i8, ptr %1, i64 704
+  %82 = load i32, ptr %81, align 8
+  %83 = load ptr, ptr %25, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 88
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 704
+  store i32 %82, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %1, i64 716
+  %88 = load i32, ptr %87, align 4
+  %89 = load ptr, ptr %25, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 88
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 716
+  store i32 %88, ptr %92, align 4
+  %93 = getelementptr inbounds i8, ptr %1, i64 2642
+  %94 = load i64, ptr %93, align 2
+  %95 = and i64 %94, 4294967296
+  %96 = load ptr, ptr %25, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 88
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 2642
+  %100 = load i64, ptr %99, align 2
+  %101 = and i64 %100, -4294967297
+  %102 = or disjoint i64 %101, %95
+  store i64 %102, ptr %99, align 2
+  %103 = load ptr, ptr %25, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 64
+  %105 = load i64, ptr %104, align 8
+  %106 = add nsw i64 %105, 1
+  store i64 %106, ptr %104, align 8
+  %107 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %105, ptr %107, align 8
+  %108 = load ptr, ptr %25, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 64
+  %110 = load i64, ptr %109, align 8
+  %111 = icmp slt i64 %110, 1
+  br i1 %111, label %112, label %113
 
-109:                                              ; preds = %77
-  store i64 0, ptr %106, align 8
-  br label %110
+112:                                              ; preds = %80
+  store i64 0, ptr %109, align 8
+  br label %113
 
-110:                                              ; preds = %109, %77
-  %111 = load ptr, ptr %48, align 8
-  %.not66 = icmp eq ptr %111, null
-  br i1 %.not66, label %114, label %112
+113:                                              ; preds = %112, %80
+  %114 = load ptr, ptr %48, align 8
+  %.not66 = icmp eq ptr %114, null
+  br i1 %.not66, label %117, label %115
 
-112:                                              ; preds = %110
-  %113 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %1, i32 noundef 5) #19
-  br label %114
+115:                                              ; preds = %113
+  %116 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %1, i32 noundef 5) #19
+  br label %117
 
-114:                                              ; preds = %110, %112, %30, %19, %13, %10, %6, %7, %2, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %2 ], [ 2, %7 ], [ 2, %6 ], [ 7, %10 ], [ 8, %13 ], [ 11, %19 ], [ %32, %30 ], [ 0, %112 ], [ 0, %110 ]
+117:                                              ; preds = %113, %115, %30, %19, %13, %10, %6, %7, %2, %3
+  %.0 = phi i32 [ 1, %3 ], [ 1, %2 ], [ 2, %7 ], [ 2, %6 ], [ 7, %10 ], [ 8, %13 ], [ 11, %19 ], [ %32, %30 ], [ 0, %115 ], [ 0, %113 ]
   ret i32 %.0
 }
 

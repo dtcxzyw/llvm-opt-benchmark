@@ -17803,7 +17803,7 @@ define internal fastcc void @get_tablefunc(ptr nocapture noundef readonly %0, pt
   br label %71
 
 71:                                               ; preds = %.backedge, %49
-  %.sroa.20.0 = phi i32 [ 0, %49 ], [ %140, %.backedge ]
+  %.sroa.20.0 = phi i32 [ 0, %49 ], [ %137, %.backedge ]
   br i1 %.not134, label %79, label %72
 
 72:                                               ; preds = %71
@@ -17879,76 +17879,75 @@ define internal fastcc void @get_tablefunc(ptr nocapture noundef readonly %0, pt
 
 115:                                              ; preds = %106, %108, %111
   %116 = phi ptr [ %114, %111 ], [ null, %108 ], [ null, %106 ]
-  %117 = insertelement <4 x ptr> poison, ptr %80, i64 0
-  %118 = insertelement <4 x ptr> %117, ptr %89, i64 1
-  %119 = insertelement <4 x ptr> %118, ptr %98, i64 2
-  %120 = insertelement <4 x ptr> %119, ptr %107, i64 3
-  %.fr = freeze <4 x ptr> %120
+  %117 = icmp ne ptr %80, null
+  %118 = icmp ne ptr %89, null
+  %or.cond = select i1 %117, i1 %118, i1 false
+  %119 = icmp ne ptr %98, null
+  %or.cond3 = select i1 %or.cond, i1 %119, i1 false
+  %120 = icmp ne ptr %107, null
+  %or.cond5 = select i1 %or.cond3, i1 %120, i1 false
   %121 = icmp ne ptr %116, null
-  %122 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %123 = bitcast <4 x i1> %122 to i4
-  %124 = icmp eq i4 %123, 0
-  %op.rdx = select i1 %124, i1 %121, i1 false
-  br i1 %op.rdx, label %125, label %.critedge
+  %or.cond7 = select i1 %or.cond5, i1 %121, i1 false
+  br i1 %or.cond7, label %122, label %.critedge
 
-125:                                              ; preds = %115
-  %126 = load ptr, ptr %80, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = load i32, ptr %89, align 8
-  %130 = load i32, ptr %98, align 8
-  %131 = load ptr, ptr %107, align 8
-  %132 = load ptr, ptr %116, align 8
-  %133 = load i32, ptr %69, align 8
-  %134 = icmp eq i32 %133, %.sroa.20.0
-  %135 = load ptr, ptr %70, align 8
-  %136 = tail call zeroext i1 @bms_is_member(i32 noundef %.sroa.20.0, ptr noundef %135) #11
-  %137 = icmp sgt i32 %.sroa.20.0, 0
-  br i1 %137, label %138, label %139
+122:                                              ; preds = %115
+  %123 = load ptr, ptr %80, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = load i32, ptr %89, align 8
+  %127 = load i32, ptr %98, align 8
+  %128 = load ptr, ptr %107, align 8
+  %129 = load ptr, ptr %116, align 8
+  %130 = load i32, ptr %69, align 8
+  %131 = icmp eq i32 %130, %.sroa.20.0
+  %132 = load ptr, ptr %70, align 8
+  %133 = tail call zeroext i1 @bms_is_member(i32 noundef %.sroa.20.0, ptr noundef %132) #11
+  %134 = icmp sgt i32 %.sroa.20.0, 0
+  br i1 %134, label %135, label %136
 
-138:                                              ; preds = %125
+135:                                              ; preds = %122
   tail call void @appendStringInfoString(ptr noundef %4, ptr noundef nonnull @.str.23) #11
-  br label %139
+  br label %136
 
-139:                                              ; preds = %138, %125
-  %140 = add i32 %.sroa.20.0, 1
-  %141 = tail call ptr @quote_identifier(ptr noundef %128)
-  br i1 %134, label %.critedge143, label %142
+136:                                              ; preds = %135, %122
+  %137 = add i32 %.sroa.20.0, 1
+  %138 = tail call ptr @quote_identifier(ptr noundef %125)
+  br i1 %131, label %.critedge143, label %139
 
-142:                                              ; preds = %139
-  %143 = tail call ptr @format_type_with_typemod(i32 noundef %129, i32 noundef %130) #11
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %4, ptr noundef nonnull @.str.278, ptr noundef %141, ptr noundef %143) #11
-  %.not139 = icmp eq ptr %132, null
-  br i1 %.not139, label %145, label %144
+139:                                              ; preds = %136
+  %140 = tail call ptr @format_type_with_typemod(i32 noundef %126, i32 noundef %127) #11
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %4, ptr noundef nonnull @.str.278, ptr noundef %138, ptr noundef %140) #11
+  %.not139 = icmp eq ptr %129, null
+  br i1 %.not139, label %142, label %141
 
-144:                                              ; preds = %142
+141:                                              ; preds = %139
   tail call void @appendStringInfoString(ptr noundef %4, ptr noundef nonnull @.str.280) #11
-  tail call fastcc void @get_rule_expr(ptr noundef nonnull %132, ptr noundef nonnull %1, i1 noundef zeroext %2)
+  tail call fastcc void @get_rule_expr(ptr noundef nonnull %129, ptr noundef nonnull %1, i1 noundef zeroext %2)
   tail call void @appendStringInfoChar(ptr noundef %4, i8 noundef signext 41) #11
-  br label %145
+  br label %142
 
-145:                                              ; preds = %144, %142
-  %.not140 = icmp eq ptr %131, null
-  br i1 %.not140, label %147, label %146
+142:                                              ; preds = %141, %139
+  %.not140 = icmp eq ptr %128, null
+  br i1 %.not140, label %144, label %143
 
-146:                                              ; preds = %145
+143:                                              ; preds = %142
   tail call void @appendStringInfoString(ptr noundef %4, ptr noundef nonnull @.str.281) #11
-  tail call fastcc void @get_rule_expr(ptr noundef nonnull %131, ptr noundef nonnull %1, i1 noundef zeroext %2)
+  tail call fastcc void @get_rule_expr(ptr noundef nonnull %128, ptr noundef nonnull %1, i1 noundef zeroext %2)
   tail call void @appendStringInfoChar(ptr noundef %4, i8 noundef signext 41) #11
-  br label %147
+  br label %144
 
-147:                                              ; preds = %146, %145
-  br i1 %136, label %148, label %.backedge
+144:                                              ; preds = %143, %142
+  br i1 %133, label %145, label %.backedge
 
-148:                                              ; preds = %147
+145:                                              ; preds = %144
   tail call void @appendStringInfoString(ptr noundef %4, ptr noundef nonnull @.str.282) #11
   br label %.backedge
 
-.critedge143:                                     ; preds = %139
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %4, ptr noundef nonnull @.str.278, ptr noundef %141, ptr noundef nonnull @.str.279) #11
+.critedge143:                                     ; preds = %136
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %4, ptr noundef nonnull @.str.278, ptr noundef %138, ptr noundef nonnull @.str.279) #11
   br label %.backedge
 
-.backedge:                                        ; preds = %.critedge143, %147, %148
+.backedge:                                        ; preds = %.critedge143, %144, %145
   br label %71, !llvm.loop !57
 
 .critedge:                                        ; preds = %115, %42
@@ -22222,8 +22221,8 @@ define internal fastcc void @get_from_clause_coldeflist(ptr nocapture noundef re
   %19 = getelementptr inbounds i8, ptr %1, i64 8
   br label %20
 
-20:                                               ; preds = %85, %2
-  %.sroa.16.0 = phi i32 [ 0, %2 ], [ %86, %85 ]
+20:                                               ; preds = %82, %2
+  %.sroa.16.0 = phi i32 [ 0, %2 ], [ %83, %82 ]
   br i1 %.not, label %28, label %21
 
 21:                                               ; preds = %20
@@ -22284,62 +22283,61 @@ define internal fastcc void @get_from_clause_coldeflist(ptr nocapture noundef re
 
 55:                                               ; preds = %46, %48, %51
   %56 = phi ptr [ %54, %51 ], [ null, %48 ], [ null, %46 ]
-  %57 = insertelement <4 x ptr> poison, ptr %29, i64 0
-  %58 = insertelement <4 x ptr> %57, ptr %38, i64 1
-  %59 = insertelement <4 x ptr> %58, ptr %47, i64 2
-  %60 = insertelement <4 x ptr> %59, ptr %56, i64 3
-  %.fr = freeze <4 x ptr> %60
-  %61 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %62 = bitcast <4 x i1> %61 to i4
-  %63 = icmp eq i4 %62, 0
-  br i1 %63, label %64, label %.critedge
+  %57 = icmp ne ptr %29, null
+  %58 = icmp ne ptr %38, null
+  %or.cond = select i1 %57, i1 %58, i1 false
+  %59 = icmp ne ptr %47, null
+  %or.cond3 = select i1 %or.cond, i1 %59, i1 false
+  %60 = icmp ne ptr %56, null
+  %or.cond5 = select i1 %or.cond3, i1 %60, i1 false
+  br i1 %or.cond5, label %61, label %.critedge
 
-64:                                               ; preds = %55
-  %65 = load i32, ptr %29, align 8
-  %66 = load i32, ptr %38, align 8
-  %67 = load i32, ptr %47, align 8
-  br i1 %.not64, label %72, label %68
+61:                                               ; preds = %55
+  %62 = load i32, ptr %29, align 8
+  %63 = load i32, ptr %38, align 8
+  %64 = load i32, ptr %47, align 8
+  br i1 %.not64, label %69, label %65
 
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %19, align 8
-  %70 = sext i32 %.sroa.16.0 to i64
-  %71 = getelementptr ptr, ptr %69, i64 %70
-  br label %75
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %19, align 8
+  %67 = sext i32 %.sroa.16.0 to i64
+  %68 = getelementptr ptr, ptr %66, i64 %67
+  br label %72
 
-72:                                               ; preds = %64
-  %73 = load ptr, ptr %56, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
-  br label %75
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %56, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  br label %72
 
-75:                                               ; preds = %72, %68
-  %.0.in = phi ptr [ %71, %68 ], [ %74, %72 ]
+72:                                               ; preds = %69, %65
+  %.0.in = phi ptr [ %68, %65 ], [ %71, %69 ]
   %.0 = load ptr, ptr %.0.in, align 8
-  %76 = icmp sgt i32 %.sroa.16.0, 0
-  br i1 %76, label %77, label %78
+  %73 = icmp sgt i32 %.sroa.16.0, 0
+  br i1 %73, label %74, label %75
 
-77:                                               ; preds = %75
+74:                                               ; preds = %72
   tail call void @appendStringInfoString(ptr noundef %.0.val, ptr noundef nonnull @.str.23) #11
-  br label %78
+  br label %75
 
-78:                                               ; preds = %77, %75
-  %79 = tail call ptr @quote_identifier(ptr noundef %.0)
-  %80 = tail call ptr @format_type_with_typemod(i32 noundef %65, i32 noundef %66) #11
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %.0.val, ptr noundef nonnull @.str.278, ptr noundef %79, ptr noundef %80) #11
-  %.not65 = icmp eq i32 %67, 0
-  br i1 %.not65, label %85, label %81
+75:                                               ; preds = %74, %72
+  %76 = tail call ptr @quote_identifier(ptr noundef %.0)
+  %77 = tail call ptr @format_type_with_typemod(i32 noundef %62, i32 noundef %63) #11
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %.0.val, ptr noundef nonnull @.str.278, ptr noundef %76, ptr noundef %77) #11
+  %.not65 = icmp eq i32 %64, 0
+  br i1 %.not65, label %82, label %78
 
-81:                                               ; preds = %78
-  %82 = tail call i32 @get_typcollation(i32 noundef %65) #11
-  %.not66 = icmp eq i32 %67, %82
-  br i1 %.not66, label %85, label %83
+78:                                               ; preds = %75
+  %79 = tail call i32 @get_typcollation(i32 noundef %62) #11
+  %.not66 = icmp eq i32 %64, %79
+  br i1 %.not66, label %82, label %80
 
-83:                                               ; preds = %81
-  %84 = tail call ptr @generate_collation_name(i32 noundef %67)
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %.0.val, ptr noundef nonnull @.str.88, ptr noundef %84) #11
-  br label %85
+80:                                               ; preds = %78
+  %81 = tail call ptr @generate_collation_name(i32 noundef %64)
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %.0.val, ptr noundef nonnull @.str.88, ptr noundef %81) #11
+  br label %82
 
-85:                                               ; preds = %83, %81, %78
-  %86 = add i32 %.sroa.16.0, 1
+82:                                               ; preds = %80, %78, %75
+  %83 = add i32 %.sroa.16.0, 1
   br label %20, !llvm.loop !66
 
 .critedge:                                        ; preds = %55

@@ -1194,10 +1194,14 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: write) uwtable
 define dso_local void @_ZN2EA4StdC8int128_tC2Ex(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %value) unnamed_addr #3 align 2 {
 entry:
-  %ref.tmp = alloca %"class.EA::StdC::int128_t", align 16
+  %ref.tmp = alloca %"class.EA::StdC::int128_t", align 8
   call void @_ZN2EA4StdC8int128_tC2El(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 noundef %value)
-  %0 = load <2 x i64>, ptr %ref.tmp, align 16
-  store <2 x i64> %0, ptr %this, align 8
+  %mPart1.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %0 = load i64, ptr %mPart1.i.i, align 8
+  %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i64 %0, ptr %mPart12.i.i, align 8
+  %1 = load i64, ptr %ref.tmp, align 8
+  store i64 %1, ptr %this, align 8
   ret void
 }
 
@@ -1338,19 +1342,23 @@ if.end:                                           ; preds = %_ZN2EA4StdC8int128_
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
 define dso_local void @_ZN2EA4StdC8int128_tC2EPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %pValue, i32 noundef %nBase) unnamed_addr #4 align 2 {
 entry:
-  %value = alloca %"class.EA::StdC::int128_t", align 16
+  %value = alloca %"class.EA::StdC::int128_t", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   call void @_ZN2EA4StdC8int128_t11StrToInt128EPKcPPci(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %value, ptr noundef %pValue, ptr noundef null, i32 noundef %nBase)
-  %0 = load <2 x i64>, ptr %value, align 16
-  store <2 x i64> %0, ptr %this, align 8
+  %mPart1.i.i = getelementptr inbounds i8, ptr %value, i64 8
+  %0 = load i64, ptr %mPart1.i.i, align 8
+  %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i64 %0, ptr %mPart12.i.i, align 8
+  %1 = load i64, ptr %value, align 8
+  store i64 %1, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
 define dso_local void @_ZN2EA4StdC8int128_t11StrToInt128EPKcPPci(ptr noalias nocapture writeonly sret(%"class.EA::StdC::int128_t") align 8 %agg.result, ptr noundef %pValue, ptr noundef writeonly %ppEnd, i32 noundef %nBase) local_unnamed_addr #5 align 2 {
 entry:
-  %ref.tmp.i = alloca %"class.EA::StdC::int128_t", align 16
-  %multiplier = alloca %"class.EA::StdC::int128_t", align 16
+  %ref.tmp.i = alloca %"class.EA::StdC::int128_t", align 8
+  %multiplier = alloca %"class.EA::StdC::int128_t", align 8
   %ref.tmp = alloca %"class.EA::StdC::int128_t", align 8
   %ref.tmp117 = alloca %"class.EA::StdC::int128_t", align 8
   %ref.tmp120 = alloca %"class.EA::StdC::int128_t", align 8
@@ -1529,7 +1537,7 @@ while.end103:                                     ; preds = %while.cond97
   %spec.select81 = getelementptr inbounds i8, ptr %p.1, i64 %spec.select81.v
   %mPart1.i.i83 = getelementptr inbounds i8, ptr %multiplier, i64 8
   store i64 0, ptr %mPart1.i.i83, align 8
-  store i64 1, ptr %multiplier, align 16
+  store i64 1, ptr %multiplier, align 8
   %cmp111139.not = icmp eq i64 %p.6.idx, 0
   br i1 %cmp111139.not, label %if.end181, label %for.body112.lr.ph
 
@@ -1537,6 +1545,7 @@ for.body112.lr.ph:                                ; preds = %while.end103
   %mPart1.i.i84 = getelementptr inbounds i8, ptr %ref.tmp117, i64 8
   %mPart16.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %mPart1.i.i87 = getelementptr inbounds i8, ptr %ref.tmp120, i64 8
+  %mPart1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   br label %for.body112
 
 for.body112:                                      ; preds = %for.body112.lr.ph, %if.end119
@@ -1573,8 +1582,10 @@ if.end119:                                        ; preds = %if.then116, %for.bo
   store i64 10, ptr %ref.tmp120, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @_ZN2EA4StdCmlERKNS0_8int128_tES3_(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %multiplier, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp120)
-  %18 = load <2 x i64>, ptr %ref.tmp.i, align 16
-  store <2 x i64> %18, ptr %multiplier, align 16
+  %18 = load i64, ptr %mPart1.i.i.i, align 8
+  store i64 %18, ptr %mPart1.i.i83, align 8
+  %19 = load i64, ptr %ref.tmp.i, align 8
+  store i64 %19, ptr %multiplier, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %cmp111 = icmp ugt ptr %incdec.ptr113, %p.1
   br i1 %cmp111, label %for.body112, label %if.end181, !llvm.loop !10
@@ -1586,8 +1597,8 @@ if.else125:                                       ; preds = %if.then53, %if.then
 while.cond128:                                    ; preds = %while.cond128, %if.else125
   %p.9.idx = phi i64 [ 0, %if.else125 ], [ %p.9.add, %while.cond128 ]
   %p.9.ptr = getelementptr inbounds i8, ptr %p.2.ph, i64 %p.9.idx
-  %19 = load i8, ptr %p.9.ptr, align 1
-  %conv129 = zext i8 %19 to i32
+  %20 = load i8, ptr %p.9.ptr, align 1
+  %conv129 = zext i8 %20 to i32
   %call130 = tail call i32 @isxdigit(i32 noundef %conv129) #18
   %tobool131.not = icmp eq i32 %call130, 0
   %p.9.add = add nuw nsw i64 %p.9.idx, 1
@@ -1607,14 +1618,14 @@ for.body143:                                      ; preds = %for.body143.lr.ph, 
   %i140.0133 = phi i32 [ 0, %for.body143.lr.ph ], [ %inc176, %for.inc175 ]
   %p.11132 = phi ptr [ %spec.select82, %for.body143.lr.ph ], [ %incdec.ptr146, %for.inc175 ]
   %or171129131 = phi i64 [ 0, %for.body143.lr.ph ], [ %or171128, %for.inc175 ]
-  %20 = phi i64 [ 0, %for.body143.lr.ph ], [ %24, %for.inc175 ]
+  %21 = phi i64 [ 0, %for.body143.lr.ph ], [ %25, %for.inc175 ]
   %incdec.ptr146 = getelementptr inbounds i8, ptr %p.11132, i64 -1
-  %21 = load i8, ptr %incdec.ptr146, align 1
-  %conv147 = sext i8 %21 to i64
-  %22 = add i8 %21, -48
-  %or.cond2 = icmp ult i8 %22, 10
-  %23 = add i8 %21, -97
-  %or.cond3 = icmp ult i8 %23, 6
+  %22 = load i8, ptr %incdec.ptr146, align 1
+  %conv147 = sext i8 %22 to i64
+  %23 = add i8 %22, -48
+  %or.cond2 = icmp ult i8 %23, 10
+  %24 = add i8 %22, -97
+  %or.cond3 = icmp ult i8 %24, 6
   %. = select i1 %or.cond3, i64 -87, i64 -55
   %.sink = select i1 %or.cond2, i64 -48, i64 %.
   %add = add nsw i64 %.sink, %conv147
@@ -1636,7 +1647,7 @@ if.then165:                                       ; preds = %for.body143
   ]
 
 if.then167:                                       ; preds = %if.then165
-  %or = or i64 %20, %shl
+  %or = or i64 %21, %shl
   store i64 %or, ptr %agg.result, align 8
   br label %for.inc175
 
@@ -1646,37 +1657,37 @@ if.then170:                                       ; preds = %if.then165
   br label %for.inc175
 
 for.inc175:                                       ; preds = %if.then165, %for.body143, %if.then170, %if.then167
-  %24 = phi i64 [ %20, %if.then165 ], [ %20, %for.body143 ], [ %20, %if.then170 ], [ %or, %if.then167 ]
+  %25 = phi i64 [ %21, %if.then165 ], [ %21, %for.body143 ], [ %21, %if.then170 ], [ %or, %if.then167 ]
   %or171128 = phi i64 [ %or171129131, %if.then165 ], [ %or171129131, %for.body143 ], [ %or171, %if.then170 ], [ %or171129131, %if.then167 ]
   %inc176 = add nuw nsw i32 %i140.0133, 1
   %cmp142 = icmp ugt ptr %incdec.ptr146, %p.2.ph
   br i1 %cmp142, label %for.body143, label %if.end181, !llvm.loop !12
 
 if.end181:                                        ; preds = %if.end119, %for.inc, %for.inc175, %if.else, %while.end134, %while.end103, %while.end82, %if.else19
-  %25 = phi i64 [ 0, %if.else19 ], [ 0, %while.end82 ], [ 0, %while.end103 ], [ 0, %while.end134 ], [ 0, %if.else ], [ %24, %for.inc175 ], [ %or.i145, %for.inc ], [ %add.i.i136, %if.end119 ]
-  %26 = phi i64 [ 0, %if.else19 ], [ 0, %while.end82 ], [ 0, %while.end103 ], [ 0, %while.end134 ], [ 0, %if.else ], [ %or171128, %for.inc175 ], [ %11, %for.inc ], [ %17, %if.end119 ]
+  %26 = phi i64 [ 0, %if.else19 ], [ 0, %while.end82 ], [ 0, %while.end103 ], [ 0, %while.end134 ], [ 0, %if.else ], [ %25, %for.inc175 ], [ %or.i145, %for.inc ], [ %add.i.i136, %if.end119 ]
+  %27 = phi i64 [ 0, %if.else19 ], [ 0, %while.end82 ], [ 0, %while.end103 ], [ 0, %while.end134 ], [ 0, %if.else ], [ %or171128, %for.inc175 ], [ %11, %for.inc ], [ %17, %if.end119 ]
   %pEnd.1 = phi ptr [ null, %if.else19 ], [ %spec.select, %while.end82 ], [ %spec.select81, %while.end103 ], [ %spec.select82, %while.end134 ], [ null, %if.else ], [ %spec.select82, %for.inc175 ], [ %spec.select, %for.inc ], [ %spec.select81, %if.end119 ]
   %cmp183 = icmp eq i8 %chSign.0, 45
   br i1 %cmp183, label %if.then184, label %if.end185
 
 if.then184:                                       ; preds = %if.end181
-  %cmp.i.i89 = icmp sgt i64 %26, -1
+  %cmp.i.i89 = icmp sgt i64 %27, -1
   br i1 %cmp.i.i89, label %if.then.i90, label %if.else.i
 
 if.then.i90:                                      ; preds = %if.then184
-  %not.i.i = xor i64 %26, -1
-  %not3.i.i = xor i64 %25, -1
-  %add.i.i.i = sub i64 0, %25
+  %not.i.i = xor i64 %27, -1
+  %not3.i.i = xor i64 %26, -1
+  %add.i.i.i = sub i64 0, %26
   %cmp.i.i.i = icmp ult i64 %add.i.i.i, %not3.i.i
   %conv.i.i.i = zext i1 %cmp.i.i.i to i64
   %add8.i.i.i = add nsw i64 %conv.i.i.i, %not.i.i
   br label %_ZN2EA4StdC8int128_t6NegateEv.exit
 
 if.else.i:                                        ; preds = %if.then184
-  %27 = icmp ne i64 %25, 0
-  %28 = sext i1 %27 to i64
-  %not.i2.i = sub i64 %28, %26
-  %not3.i3.i = sub i64 0, %25
+  %28 = icmp ne i64 %26, 0
+  %29 = sext i1 %28 to i64
+  %not.i2.i = sub i64 %29, %27
+  %not3.i3.i = sub i64 0, %26
   br label %_ZN2EA4StdC8int128_t6NegateEv.exit
 
 _ZN2EA4StdC8int128_t6NegateEv.exit:               ; preds = %if.then.i90, %if.else.i
@@ -1703,11 +1714,15 @@ return:                                           ; preds = %return.sink.split, 
 define dso_local void @_ZN2EA4StdC8int128_tC2EPKwi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %pValue, i32 noundef %nBase) unnamed_addr #5 align 2 {
 entry:
   %pTextEnd = alloca ptr, align 8
-  %value = alloca %"class.EA::StdC::int128_t", align 16
+  %value = alloca %"class.EA::StdC::int128_t", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   call void @_ZN2EA4StdC8int128_t11StrToInt128EPKwPPwi(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %value, ptr noundef %pValue, ptr noundef nonnull %pTextEnd, i32 noundef %nBase)
-  %0 = load <2 x i64>, ptr %value, align 16
-  store <2 x i64> %0, ptr %this, align 8
+  %mPart1.i.i = getelementptr inbounds i8, ptr %value, i64 8
+  %0 = load i64, ptr %mPart1.i.i, align 8
+  %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i64 %0, ptr %mPart12.i.i, align 8
+  %1 = load i64, ptr %value, align 8
+  store i64 %1, ptr %this, align 8
   ret void
 }
 
@@ -2228,17 +2243,26 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK2EA4StdC8int128_tpsEv(ptr noalias nocapture writeonly sret(%"class.EA::StdC::int128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %0 = load <2 x i64>, ptr %this, align 8
-  store <2 x i64> %0, ptr %agg.result, align 8
+  %mPart1.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load i64, ptr %mPart1.i.i, align 8
+  %mPart12.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 %0, ptr %mPart12.i.i, align 8
+  %1 = load i64, ptr %this, align 8
+  store i64 %1, ptr %agg.result, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK2EA4StdC8int128_tcoEv(ptr noalias nocapture writeonly sret(%"class.EA::StdC::int128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %0 = load <2 x i64>, ptr %this, align 8
-  %1 = xor <2 x i64> %0, <i64 -1, i64 -1>
-  store <2 x i64> %1, ptr %agg.result, align 8
+  %0 = load i64, ptr %this, align 8
+  %not = xor i64 %0, -1
+  %mPart1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %mPart1, align 8
+  %not2 = xor i64 %1, -1
+  %mPart1.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 %not2, ptr %mPart1.i.i, align 8
+  store i64 %not, ptr %agg.result, align 8
   ret void
 }
 
@@ -2651,10 +2675,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN2EA4StdC8int128_tmLERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #1 align 2 {
 entry:
-  %ref.tmp = alloca %"class.EA::StdC::int128_t", align 16
+  %ref.tmp = alloca %"class.EA::StdC::int128_t", align 8
   call void @_ZN2EA4StdCmlERKNS0_8int128_tES3_(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %value)
-  %0 = load <2 x i64>, ptr %ref.tmp, align 16
-  store <2 x i64> %0, ptr %this, align 8
+  %mPart1.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %0 = load i64, ptr %mPart1.i.i, align 8
+  %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i64 %0, ptr %mPart12.i.i, align 8
+  %1 = load i64, ptr %ref.tmp, align 8
+  store i64 %1, ptr %this, align 8
   ret ptr %this
 }
 
@@ -2662,15 +2690,19 @@ entry:
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN2EA4StdC8int128_tdVERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #7 align 2 {
 entry:
   %remainder.i = alloca %"class.EA::StdC::int128_t", align 8
-  %ref.tmp = alloca %"class.EA::StdC::int128_t", align 16
+  %ref.tmp = alloca %"class.EA::StdC::int128_t", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %remainder.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder.i, i8 0, i64 16, i1 false), !noalias !20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false), !alias.scope !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false), !alias.scope !20
   call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %remainder.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %remainder.i)
-  %0 = load <2 x i64>, ptr %ref.tmp, align 16
-  store <2 x i64> %0, ptr %this, align 8
+  %mPart1.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %0 = load i64, ptr %mPart1.i.i, align 8
+  %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i64 %0, ptr %mPart12.i.i, align 8
+  %1 = load i64, ptr %ref.tmp, align 8
+  store i64 %1, ptr %this, align 8
   ret ptr %this
 }
 
@@ -2678,15 +2710,19 @@ entry:
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN2EA4StdC8int128_trMERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #7 align 2 {
 entry:
   %quotient.i = alloca %"class.EA::StdC::int128_t", align 8
-  %ref.tmp = alloca %"class.EA::StdC::int128_t", align 16
+  %ref.tmp = alloca %"class.EA::StdC::int128_t", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %quotient.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false), !alias.scope !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false), !alias.scope !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %quotient.i, i8 0, i64 16, i1 false), !noalias !23
   call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %quotient.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %quotient.i)
-  %0 = load <2 x i64>, ptr %ref.tmp, align 16
-  store <2 x i64> %0, ptr %this, align 8
+  %mPart1.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %0 = load i64, ptr %mPart1.i.i, align 8
+  %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i64 %0, ptr %mPart12.i.i, align 8
+  %1 = load i64, ptr %ref.tmp, align 8
+  store i64 %1, ptr %this, align 8
   ret ptr %this
 }
 
@@ -2906,30 +2942,51 @@ _ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_.exit: ; preds = %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN2EA4StdCeoERKNS0_8int128_tES3_(ptr noalias nocapture writeonly sret(%"class.EA::StdC::int128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value2) local_unnamed_addr #1 {
 entry:
-  %0 = load <2 x i64>, ptr %value1, align 8
-  %1 = load <2 x i64>, ptr %value2, align 8
-  %2 = xor <2 x i64> %1, %0
-  store <2 x i64> %2, ptr %agg.result, align 8
+  %0 = load i64, ptr %value1, align 8
+  %1 = load i64, ptr %value2, align 8
+  %xor.i = xor i64 %1, %0
+  store i64 %xor.i, ptr %agg.result, align 8
+  %mPart1.i = getelementptr inbounds i8, ptr %value1, i64 8
+  %2 = load i64, ptr %mPart1.i, align 8
+  %mPart13.i = getelementptr inbounds i8, ptr %value2, i64 8
+  %3 = load i64, ptr %mPart13.i, align 8
+  %xor4.i = xor i64 %3, %2
+  %mPart15.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 %xor4.i, ptr %mPart15.i, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN2EA4StdCorERKNS0_8int128_tES3_(ptr noalias nocapture writeonly sret(%"class.EA::StdC::int128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value2) local_unnamed_addr #1 {
 entry:
-  %0 = load <2 x i64>, ptr %value1, align 8
-  %1 = load <2 x i64>, ptr %value2, align 8
-  %2 = or <2 x i64> %1, %0
-  store <2 x i64> %2, ptr %agg.result, align 8
+  %0 = load i64, ptr %value1, align 8
+  %1 = load i64, ptr %value2, align 8
+  %or.i = or i64 %1, %0
+  store i64 %or.i, ptr %agg.result, align 8
+  %mPart1.i = getelementptr inbounds i8, ptr %value1, i64 8
+  %2 = load i64, ptr %mPart1.i, align 8
+  %mPart13.i = getelementptr inbounds i8, ptr %value2, i64 8
+  %3 = load i64, ptr %mPart13.i, align 8
+  %or4.i = or i64 %3, %2
+  %mPart15.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 %or4.i, ptr %mPart15.i, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN2EA4StdCanERKNS0_8int128_tES3_(ptr noalias nocapture writeonly sret(%"class.EA::StdC::int128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value2) local_unnamed_addr #1 {
 entry:
-  %0 = load <2 x i64>, ptr %value1, align 8
-  %1 = load <2 x i64>, ptr %value2, align 8
-  %2 = and <2 x i64> %1, %0
-  store <2 x i64> %2, ptr %agg.result, align 8
+  %0 = load i64, ptr %value1, align 8
+  %1 = load i64, ptr %value2, align 8
+  %and.i = and i64 %1, %0
+  store i64 %and.i, ptr %agg.result, align 8
+  %mPart1.i = getelementptr inbounds i8, ptr %value1, i64 8
+  %2 = load i64, ptr %mPart1.i, align 8
+  %mPart13.i = getelementptr inbounds i8, ptr %value2, i64 8
+  %3 = load i64, ptr %mPart13.i, align 8
+  %and4.i = and i64 %3, %2
+  %mPart15.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 %and4.i, ptr %mPart15.i, align 8
   ret void
 }
 
@@ -4045,11 +4102,15 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
 define dso_local void @_ZN2EA4StdC9uint128_tC2EPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %pValue, i32 noundef %nBase) unnamed_addr #4 align 2 {
 entry:
-  %value = alloca %"class.EA::StdC::uint128_t", align 16
+  %value = alloca %"class.EA::StdC::uint128_t", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   call void @_ZN2EA4StdC9uint128_t11StrToInt128EPKcPPci(ptr nonnull sret(%"class.EA::StdC::uint128_t") align 8 %value, ptr noundef %pValue, ptr noundef null, i32 noundef %nBase)
-  %0 = load <2 x i64>, ptr %value, align 16
-  store <2 x i64> %0, ptr %this, align 8
+  %mPart1.i.i = getelementptr inbounds i8, ptr %value, i64 8
+  %0 = load i64, ptr %mPart1.i.i, align 8
+  %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i64 %0, ptr %mPart12.i.i, align 8
+  %1 = load i64, ptr %value, align 8
+  store i64 %1, ptr %this, align 8
   ret void
 }
 
@@ -4403,11 +4464,15 @@ return:                                           ; preds = %return.sink.split, 
 define dso_local void @_ZN2EA4StdC9uint128_tC2EPKwi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %pValue, i32 noundef %nBase) unnamed_addr #5 align 2 {
 entry:
   %pTextEnd = alloca ptr, align 8
-  %value = alloca %"class.EA::StdC::uint128_t", align 16
+  %value = alloca %"class.EA::StdC::uint128_t", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   call void @_ZN2EA4StdC9uint128_t11StrToInt128EPKwPPwi(ptr nonnull sret(%"class.EA::StdC::uint128_t") align 8 %value, ptr noundef %pValue, ptr noundef nonnull %pTextEnd, i32 noundef %nBase)
-  %0 = load <2 x i64>, ptr %value, align 16
-  store <2 x i64> %0, ptr %this, align 8
+  %mPart1.i.i = getelementptr inbounds i8, ptr %value, i64 8
+  %0 = load i64, ptr %mPart1.i.i, align 8
+  %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i64 %0, ptr %mPart12.i.i, align 8
+  %1 = load i64, ptr %value, align 8
+  store i64 %1, ptr %this, align 8
   ret void
 }
 
@@ -4918,17 +4983,26 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK2EA4StdC9uint128_tpsEv(ptr noalias nocapture writeonly sret(%"class.EA::StdC::uint128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %0 = load <2 x i64>, ptr %this, align 8
-  store <2 x i64> %0, ptr %agg.result, align 8
+  %mPart1.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load i64, ptr %mPart1.i.i, align 8
+  %mPart12.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 %0, ptr %mPart12.i.i, align 8
+  %1 = load i64, ptr %this, align 8
+  store i64 %1, ptr %agg.result, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK2EA4StdC9uint128_tcoEv(ptr noalias nocapture writeonly sret(%"class.EA::StdC::uint128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %0 = load <2 x i64>, ptr %this, align 8
-  %1 = xor <2 x i64> %0, <i64 -1, i64 -1>
-  store <2 x i64> %1, ptr %agg.result, align 8
+  %0 = load i64, ptr %this, align 8
+  %not = xor i64 %0, -1
+  %mPart1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %mPart1, align 8
+  %not2 = xor i64 %1, -1
+  %mPart1.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 %not2, ptr %mPart1.i.i, align 8
+  store i64 %not, ptr %agg.result, align 8
   ret void
 }
 
@@ -5846,30 +5920,51 @@ _ZN2EA4StdC13int128_t_base17operatorShiftLeftERKS1_iRS1_.exit: ; preds = %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN2EA4StdCeoERKNS0_9uint128_tES3_(ptr noalias nocapture writeonly sret(%"class.EA::StdC::uint128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value2) local_unnamed_addr #1 {
 entry:
-  %0 = load <2 x i64>, ptr %value1, align 8
-  %1 = load <2 x i64>, ptr %value2, align 8
-  %2 = xor <2 x i64> %1, %0
-  store <2 x i64> %2, ptr %agg.result, align 8
+  %0 = load i64, ptr %value1, align 8
+  %1 = load i64, ptr %value2, align 8
+  %xor.i = xor i64 %1, %0
+  store i64 %xor.i, ptr %agg.result, align 8
+  %mPart1.i = getelementptr inbounds i8, ptr %value1, i64 8
+  %2 = load i64, ptr %mPart1.i, align 8
+  %mPart13.i = getelementptr inbounds i8, ptr %value2, i64 8
+  %3 = load i64, ptr %mPart13.i, align 8
+  %xor4.i = xor i64 %3, %2
+  %mPart15.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 %xor4.i, ptr %mPart15.i, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN2EA4StdCorERKNS0_9uint128_tES3_(ptr noalias nocapture writeonly sret(%"class.EA::StdC::uint128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value2) local_unnamed_addr #1 {
 entry:
-  %0 = load <2 x i64>, ptr %value1, align 8
-  %1 = load <2 x i64>, ptr %value2, align 8
-  %2 = or <2 x i64> %1, %0
-  store <2 x i64> %2, ptr %agg.result, align 8
+  %0 = load i64, ptr %value1, align 8
+  %1 = load i64, ptr %value2, align 8
+  %or.i = or i64 %1, %0
+  store i64 %or.i, ptr %agg.result, align 8
+  %mPart1.i = getelementptr inbounds i8, ptr %value1, i64 8
+  %2 = load i64, ptr %mPart1.i, align 8
+  %mPart13.i = getelementptr inbounds i8, ptr %value2, i64 8
+  %3 = load i64, ptr %mPart13.i, align 8
+  %or4.i = or i64 %3, %2
+  %mPart15.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 %or4.i, ptr %mPart15.i, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN2EA4StdCanERKNS0_9uint128_tES3_(ptr noalias nocapture writeonly sret(%"class.EA::StdC::uint128_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value2) local_unnamed_addr #1 {
 entry:
-  %0 = load <2 x i64>, ptr %value1, align 8
-  %1 = load <2 x i64>, ptr %value2, align 8
-  %2 = and <2 x i64> %1, %0
-  store <2 x i64> %2, ptr %agg.result, align 8
+  %0 = load i64, ptr %value1, align 8
+  %1 = load i64, ptr %value2, align 8
+  %and.i = and i64 %1, %0
+  store i64 %and.i, ptr %agg.result, align 8
+  %mPart1.i = getelementptr inbounds i8, ptr %value1, i64 8
+  %2 = load i64, ptr %mPart1.i, align 8
+  %mPart13.i = getelementptr inbounds i8, ptr %value2, i64 8
+  %3 = load i64, ptr %mPart13.i, align 8
+  %and4.i = and i64 %3, %2
+  %mPart15.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 %and4.i, ptr %mPart15.i, align 8
   ret void
 }
 

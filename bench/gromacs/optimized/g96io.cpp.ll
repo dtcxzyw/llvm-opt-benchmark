@@ -540,8 +540,8 @@ sub_2.i:                                          ; preds = %sub_1.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef %225, i64 noundef %226, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %_ZNKSt10filesystem7__cxx114path6stringEv.exit.i unwind label %227
 
-common.resume:                                    ; preds = %150, %160, %191, %227, %332, %298, %294
-  %common.resume.op = phi { ptr, i32 } [ %295, %294 ], [ %.pn54.pn.i, %298 ], [ %.pn, %332 ], [ %228, %227 ], [ %.pn109.i, %150 ], [ %.pn107.i, %160 ], [ %.pn.i, %191 ]
+common.resume:                                    ; preds = %150, %160, %191, %227, %334, %298, %294
+  %common.resume.op = phi { ptr, i32 } [ %295, %294 ], [ %.pn54.pn.i, %298 ], [ %.pn, %334 ], [ %228, %227 ], [ %.pn109.i, %150 ], [ %.pn107.i, %160 ], [ %.pn.i, %191 ]
   resume { ptr, i32 } %common.resume.op
 
 227:                                              ; preds = %223
@@ -791,110 +791,112 @@ _ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit: 
 sub_0.lr.ph:                                      ; preds = %.critedge118
   %303 = getelementptr inbounds i8, ptr %3, i64 132
   %304 = getelementptr inbounds i8, ptr %3, i64 148
-  %305 = getelementptr inbounds i8, ptr %3, i64 128
-  %306 = getelementptr inbounds i8, ptr %3, i64 120
-  %307 = getelementptr inbounds i8, ptr %3, i64 136
-  %308 = getelementptr inbounds i8, ptr %3, i64 144
+  %305 = getelementptr inbounds i8, ptr %3, i64 140
+  %306 = getelementptr inbounds i8, ptr %3, i64 128
+  %307 = getelementptr inbounds i8, ptr %3, i64 120
+  %308 = getelementptr inbounds i8, ptr %3, i64 124
+  %309 = getelementptr inbounds i8, ptr %3, i64 136
+  %310 = getelementptr inbounds i8, ptr %3, i64 144
   br label %sub_0
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %356
-  %309 = load i8, ptr %5, align 1
-  %310 = zext i8 %309 to i32
-  %311 = add nsw i32 %310, -69
-  %.not172 = icmp eq i32 %311, 0
+  %311 = load i8, ptr %5, align 1
+  %312 = zext i8 %311 to i32
+  %313 = add nsw i32 %312, -69
+  %.not172 = icmp eq i32 %313, 0
   br i1 %.not172, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %312 = load i8, ptr %68, align 1
-  %313 = zext i8 %312 to i32
-  %314 = add nsw i32 %313, -78
-  %.not173 = icmp eq i32 %314, 0
+  %314 = load i8, ptr %68, align 1
+  %315 = zext i8 %314 to i32
+  %316 = add nsw i32 %315, -78
+  %.not173 = icmp eq i32 %316, 0
   br i1 %.not173, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %315 = load i8, ptr %69, align 1
-  %316 = zext i8 %315 to i32
-  %317 = add nsw i32 %316, -68
+  %317 = load i8, ptr %69, align 1
+  %318 = zext i8 %317 to i32
+  %319 = add nsw i32 %318, -68
   br label %.tail
 
 .tail:                                            ; preds = %sub_0, %sub_1, %sub_2
-  %318 = phi i32 [ %311, %sub_0 ], [ %314, %sub_1 ], [ %317, %sub_2 ]
-  %319 = icmp eq i32 %318, 0
-  br i1 %319, label %.critedge8, label %320
+  %320 = phi i32 [ %313, %sub_0 ], [ %316, %sub_1 ], [ %319, %sub_2 ]
+  %321 = icmp eq i32 %320, 0
+  br i1 %321, label %.critedge8, label %322
 
-320:                                              ; preds = %.tail
-  %.not109 = icmp eq i8 %309, 35
-  br i1 %.not109, label %356, label %321
+322:                                              ; preds = %.tail
+  %.not109 = icmp eq i8 %311, 35
+  br i1 %.not109, label %356, label %323
 
-321:                                              ; preds = %320
-  %322 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41) #13
-  %323 = icmp slt i32 %322, 3
-  br i1 %323, label %324, label %333
+323:                                              ; preds = %322
+  %324 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41) #13
+  %325 = icmp slt i32 %324, 3
+  br i1 %325, label %326, label %335
 
-324:                                              ; preds = %321
+326:                                              ; preds = %323
   call void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 1 dereferenceable(122) @.str.9, i8 noundef zeroext 2)
   invoke void @_ZNKSt10filesystem7__cxx114path6stringEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %43, ptr noundef nonnull align 8 dereferenceable(40) %1)
-          to label %325 unwind label %328
-
-325:                                              ; preds = %324
-  %326 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %43) #13
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %42, i32 noundef 344, ptr noundef nonnull @.str.10, ptr noundef %326) #14
           to label %327 unwind label %330
 
-327:                                              ; preds = %325
+327:                                              ; preds = %326
+  %328 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %43) #13
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %42, i32 noundef 344, ptr noundef nonnull @.str.10, ptr noundef %328) #14
+          to label %329 unwind label %332
+
+329:                                              ; preds = %327
   unreachable
 
-328:                                              ; preds = %324
-  %329 = landingpad { ptr, i32 }
-          cleanup
-  br label %332
-
-330:                                              ; preds = %325
+330:                                              ; preds = %326
   %331 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #13
-  br label %332
+  br label %334
 
-332:                                              ; preds = %330, %328
-  %.pn = phi { ptr, i32 } [ %331, %330 ], [ %329, %328 ]
+332:                                              ; preds = %327
+  %333 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #13
+  br label %334
+
+334:                                              ; preds = %332, %330
+  %.pn = phi { ptr, i32 } [ %333, %332 ], [ %331, %330 ]
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %42) #13
   br label %common.resume
 
-333:                                              ; preds = %321
-  %334 = load double, ptr %33, align 8
-  %335 = fptrunc double %334 to float
-  store float %335, ptr %301, align 4
-  %336 = load double, ptr %34, align 8
+335:                                              ; preds = %323
+  %336 = load double, ptr %33, align 8
   %337 = fptrunc double %336 to float
-  store float %337, ptr %303, align 4
-  %338 = load double, ptr %35, align 8
+  store float %337, ptr %301, align 4
+  %338 = load double, ptr %34, align 8
   %339 = fptrunc double %338 to float
-  store float %339, ptr %304, align 4
-  %340 = icmp eq i32 %322, 9
-  br i1 %340, label %341, label %356
+  store float %339, ptr %303, align 4
+  %340 = load double, ptr %35, align 8
+  %341 = fptrunc double %340 to float
+  store float %341, ptr %304, align 4
+  %342 = icmp eq i32 %324, 9
+  br i1 %342, label %343, label %356
 
-341:                                              ; preds = %333
-  %342 = load double, ptr %36, align 8
-  %343 = load double, ptr %37, align 8
-  %344 = insertelement <2 x double> poison, double %342, i64 0
-  %345 = insertelement <2 x double> %344, double %343, i64 1
-  %346 = fptrunc <2 x double> %345 to <2 x float>
-  store <2 x float> %346, ptr %306, align 4
-  %347 = load double, ptr %38, align 8
-  %348 = fptrunc double %347 to float
-  store float %348, ptr %305, align 4
-  %349 = load double, ptr %39, align 8
-  %350 = load double, ptr %40, align 8
-  %351 = insertelement <2 x double> poison, double %349, i64 0
-  %352 = insertelement <2 x double> %351, double %350, i64 1
-  %353 = fptrunc <2 x double> %352 to <2 x float>
-  store <2 x float> %353, ptr %307, align 4
+343:                                              ; preds = %335
+  %344 = load double, ptr %36, align 8
+  %345 = fptrunc double %344 to float
+  store float %345, ptr %307, align 4
+  %346 = load double, ptr %37, align 8
+  %347 = fptrunc double %346 to float
+  store float %347, ptr %308, align 4
+  %348 = load double, ptr %38, align 8
+  %349 = fptrunc double %348 to float
+  store float %349, ptr %306, align 4
+  %350 = load double, ptr %39, align 8
+  %351 = fptrunc double %350 to float
+  store float %351, ptr %309, align 4
+  %352 = load double, ptr %40, align 8
+  %353 = fptrunc double %352 to float
+  store float %353, ptr %305, align 4
   %354 = load double, ptr %41, align 8
   %355 = fptrunc double %354 to float
-  store float %355, ptr %308, align 4
+  store float %355, ptr %310, align 4
   br label %356
 
-356:                                              ; preds = %333, %341, %320
+356:                                              ; preds = %335, %343, %322
   %357 = call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef %0)
   %.not108 = icmp eq ptr %357, null
   br i1 %.not108, label %.critedge8, label %sub_0

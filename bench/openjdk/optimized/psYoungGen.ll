@@ -1395,9 +1395,11 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN10PSYoungGen11swap_spacesEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
-  %3 = load <2 x ptr>, ptr %2, align 8
-  %4 = shufflevector <2 x ptr> %3, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %4, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = load ptr, ptr %4, align 8
+  store ptr %5, ptr %2, align 8
+  store ptr %3, ptr %4, align 8
   ret void
 }
 

@@ -925,13 +925,16 @@ define internal noundef i32 @mca_btl_tcp_component_register() #0 {
   %21 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_tcp_component, ptr noundef nonnull @.str.23, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 1840)) #15
   store i8 0, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 2172), align 4
   %22 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_tcp_component, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 2172)) #15
+  store i32 100, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 56), align 8
   store i64 65536, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 8), align 8
   store i64 65536, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 16), align 8
   store i64 131072, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 24), align 8
   store i64 131072, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 32), align 8
   store i64 2147482624, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 40), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 48), align 8
-  store <4 x i32> <i32 100, i32 0, i32 0, i32 315>, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 56), align 8
+  store i32 315, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 68), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 64), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 60), align 4
   %23 = call i32 @mca_btl_base_param_register(ptr noundef nonnull @mca_btl_tcp_component, ptr noundef nonnull @mca_btl_tcp_module) #15
   %24 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 40), align 8
   %25 = icmp ugt i64 %24, 2147482624

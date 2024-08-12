@@ -977,10 +977,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   %bf.shl = shl nuw i32 %and, 2
   %bf.set.i34 = or disjoint i32 %bf.shl, 3
   store i32 %bf.set.i34, ptr %is_used_.i21, align 4
+  %17 = load i32, ptr %occupancy, align 8
+  %inc39 = add i32 %17, 1
+  store i32 %inc39, ptr %occupancy, align 8
   %population40 = getelementptr inbounds i8, ptr %this, i64 20
-  %17 = load <2 x i32>, ptr %population40, align 4
-  %18 = add <2 x i32> %17, <i32 1, i32 1>
-  store <2 x i32> %18, ptr %population40, align 4
+  %18 = load i32, ptr %population40, align 4
+  %inc41 = add i32 %18, 1
+  store i32 %inc41, ptr %population40, align 4
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %19 = load i16, ptr %max_chain_length, align 2
   %conv42 = zext i16 %19 to i32
@@ -988,14 +991,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   br i1 %cmp43, label %land.lhs.true44, label %return
 
 land.lhs.true44:                                  ; preds = %if.end34
-  %20 = extractelement <2 x i32> %18, i64 1
-  %mul = shl i32 %20, 3
-  %21 = load i32, ptr %mask, align 4
-  %cmp47 = icmp ugt i32 %mul, %21
+  %mul = shl i32 %inc39, 3
+  %20 = load i32, ptr %mask, align 4
+  %cmp47 = icmp ugt i32 %mul, %20
   br i1 %cmp47, label %if.then48, label %return
 
 if.then48:                                        ; preds = %land.lhs.true44
-  %sub50 = add i32 %21, -8
+  %sub50 = add i32 %20, -8
   %call51 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE5allocEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %sub50)
   br label %return
 
@@ -1239,10 +1241,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   %bf.shl = shl nuw i32 %and, 2
   %bf.set.i34 = or disjoint i32 %bf.shl, 3
   store i32 %bf.set.i34, ptr %is_used_.i21, align 4
+  %17 = load i32, ptr %occupancy, align 8
+  %inc39 = add i32 %17, 1
+  store i32 %inc39, ptr %occupancy, align 8
   %population40 = getelementptr inbounds i8, ptr %this, i64 20
-  %17 = load <2 x i32>, ptr %population40, align 4
-  %18 = add <2 x i32> %17, <i32 1, i32 1>
-  store <2 x i32> %18, ptr %population40, align 4
+  %18 = load i32, ptr %population40, align 4
+  %inc41 = add i32 %18, 1
+  store i32 %inc41, ptr %population40, align 4
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %19 = load i16, ptr %max_chain_length, align 2
   %conv42 = zext i16 %19 to i32
@@ -1250,14 +1255,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   br i1 %cmp43, label %land.lhs.true44, label %return
 
 land.lhs.true44:                                  ; preds = %if.end34
-  %20 = extractelement <2 x i32> %18, i64 1
-  %mul = shl i32 %20, 3
-  %21 = load i32, ptr %mask, align 4
-  %cmp47 = icmp ugt i32 %mul, %21
+  %mul = shl i32 %inc39, 3
+  %20 = load i32, ptr %mask, align 4
+  %cmp47 = icmp ugt i32 %mul, %20
   br i1 %cmp47, label %if.then48, label %return
 
 if.then48:                                        ; preds = %land.lhs.true44
-  %sub50 = add i32 %21, -8
+  %sub50 = add i32 %20, -8
   %call51 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6LookupELb0EE5allocEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %sub50)
   br label %return
 
@@ -1666,66 +1670,91 @@ lor.lhs.false.i.i.i.i:                            ; preds = %lor.lhs.false.i.i.i
   %arrayidx6 = getelementptr inbounds %"struct.graph::graph_t::vertex_t", ptr %2, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6, i64 16, i1 false)
   %real_links3.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 16
-  %length2.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 20
-  %3 = load <2 x i32>, ptr %real_links3.i.i, align 4
+  %3 = load i32, ptr %real_links3.i.i, align 4
+  store i32 %3, ptr %real_links.i.i, align 4
   store i32 0, ptr %real_links3.i.i, align 4
-  store <2 x i32> %3, ptr %real_links.i.i, align 4
+  %length.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %length2.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 20
+  %4 = load i32, ptr %length2.i.i.i.i.i, align 4
+  store i32 %4, ptr %length.i.i.i.i.i, align 4
   store i32 0, ptr %length2.i.i.i.i.i, align 4
   %arrayZ.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %arrayZ3.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 24
-  %4 = load ptr, ptr %arrayZ3.i.i.i.i.i, align 8
-  store ptr %4, ptr %arrayZ.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %arrayZ3.i.i.i.i.i, align 8
+  store ptr %5, ptr %arrayZ.i.i.i.i.i, align 8
   store ptr null, ptr %arrayZ3.i.i.i.i.i, align 8
   %virtual_links.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %virtual_links4.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 32
-  %length2.i.i.i5.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 36
-  %5 = load <2 x i32>, ptr %virtual_links4.i.i, align 4
+  %6 = load i32, ptr %virtual_links4.i.i, align 4
+  store i32 %6, ptr %virtual_links.i.i, align 4
   store i32 0, ptr %virtual_links4.i.i, align 4
-  store <2 x i32> %5, ptr %virtual_links.i.i, align 4
+  %length.i.i.i4.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 36
+  %length2.i.i.i5.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 36
+  %7 = load i32, ptr %length2.i.i.i5.i.i, align 4
+  store i32 %7, ptr %length.i.i.i4.i.i, align 4
   store i32 0, ptr %length2.i.i.i5.i.i, align 4
   %arrayZ.i.i.i6.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %arrayZ3.i.i.i7.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 40
-  %6 = load <2 x ptr>, ptr %arrayZ3.i.i.i7.i.i, align 8
+  %8 = load ptr, ptr %arrayZ3.i.i.i7.i.i, align 8
+  store ptr %8, ptr %arrayZ.i.i.i6.i.i, align 8
   store ptr null, ptr %arrayZ3.i.i.i7.i.i, align 8
-  store <2 x ptr> %6, ptr %arrayZ.i.i.i6.i.i, align 8
+  %next.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 48
+  %9 = load ptr, ptr %next.i.i, align 8
+  %next6.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  store ptr %9, ptr %next6.i.i, align 8
   %distance3.i = getelementptr inbounds i8, ptr %arrayidx6, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %distance.i, ptr noundef nonnull align 8 dereferenceable(32) %distance3.i, i64 32, i1 false)
   %successful1.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 104
-  %7 = load i8, ptr %successful1.i.i.i.i, align 8
-  %tobool2.i.i.i.i = trunc i8 %7 to i1
+  %10 = load i8, ptr %successful1.i.i.i.i, align 8
+  %tobool2.i.i.i.i = trunc i8 %10 to i1
   br i1 %tobool2.i.i.i.i, label %if.end.i.i.i.i, label %_ZN5graph7graph_t8vertex_taSEOS1_.exit
 
 if.end.i.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i.i
   %max_chain_length3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 106
-  %8 = load i16, ptr %max_chain_length3.i.i.i.i, align 2
-  store i16 %8, ptr %max_chain_length.i.i.i, align 2
+  %11 = load i16, ptr %max_chain_length3.i.i.i.i, align 2
+  store i16 %11, ptr %max_chain_length.i.i.i, align 2
   store i16 0, ptr %max_chain_length3.i.i.i.i, align 2
   %population.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 108
   %population4.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 108
-  %9 = load <4 x i32>, ptr %population4.i.i.i.i, align 4
-  store <4 x i32> %9, ptr %population.i.i.i.i, align 4
-  store <4 x i32> zeroinitializer, ptr %population4.i.i.i.i, align 4
+  %12 = load i32, ptr %population4.i.i.i.i, align 4
+  store i32 %12, ptr %population.i.i.i.i, align 4
+  store i32 0, ptr %population4.i.i.i.i, align 4
+  %occupancy.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 112
+  %occupancy5.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 112
+  %13 = load i32, ptr %occupancy5.i.i.i.i, align 4
+  store i32 %13, ptr %occupancy.i.i.i.i, align 4
+  store i32 0, ptr %occupancy5.i.i.i.i, align 4
+  %mask.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 116
+  %mask6.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 116
+  %14 = load i32, ptr %mask6.i.i.i.i, align 4
+  store i32 %14, ptr %mask.i.i.i.i, align 4
+  store i32 0, ptr %mask6.i.i.i.i, align 4
+  %prime.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 120
+  %prime7.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 120
+  %15 = load i32, ptr %prime7.i.i.i.i, align 4
+  store i32 %15, ptr %prime.i.i.i.i, align 4
+  store i32 0, ptr %prime7.i.i.i.i, align 4
   %items8.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx6, i64 128
-  %10 = load ptr, ptr %items8.i.i.i.i, align 8
-  store ptr %10, ptr %items.i.i.i, align 8
+  %16 = load ptr, ptr %items8.i.i.i.i, align 8
+  store ptr %16, ptr %items.i.i.i, align 8
   store ptr null, ptr %items8.i.i.i.i, align 8
   br label %_ZN5graph7graph_t8vertex_taSEOS1_.exit
 
 _ZN5graph7graph_t8vertex_taSEOS1_.exit:           ; preds = %lor.lhs.false.i.i.i.i, %if.end.i.i.i.i
-  %11 = load ptr, ptr %arrayZ4, align 8
-  %arrayidx12 = getelementptr inbounds %"struct.graph::graph_t::vertex_t", ptr %11, i64 %indvars.iv
+  %17 = load ptr, ptr %arrayZ4, align 8
+  %arrayidx12 = getelementptr inbounds %"struct.graph::graph_t::vertex_t", ptr %17, i64 %indvars.iv
   tail call void @_ZN5graph7graph_t8vertex_tD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %arrayidx12) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = load i32, ptr %length, align 4
-  %13 = zext i32 %12 to i64
-  %cmp = icmp ult i64 %indvars.iv.next, %13
+  %18 = load i32, ptr %length, align 4
+  %19 = zext i32 %18 to i64
+  %cmp = icmp ult i64 %indvars.iv.next, %19
   br i1 %cmp, label %lor.lhs.false.i.i.i.i, label %return.sink.split, !llvm.loop !45
 
 return.sink.split:                                ; preds = %_ZN5graph7graph_t8vertex_taSEOS1_.exit, %for.cond.preheader, %entry
   %retval.0.ph = phi ptr [ null, %entry ], [ %call, %for.cond.preheader ], [ %call, %_ZN5graph7graph_t8vertex_taSEOS1_.exit ]
   %arrayZ13 = getelementptr inbounds i8, ptr %this, i64 8
-  %14 = load ptr, ptr %arrayZ13, align 8
-  tail call void @free(ptr noundef %14) #11
+  %20 = load ptr, ptr %arrayZ13, align 8
+  tail call void @free(ptr noundef %20) #11
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end
@@ -2154,10 +2183,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   %bf.shl = shl nuw i32 %and, 2
   %bf.set.i34 = or disjoint i32 %bf.shl, 3
   store i32 %bf.set.i34, ptr %is_used_.i21, align 4
+  %17 = load i32, ptr %occupancy, align 8
+  %inc39 = add i32 %17, 1
+  store i32 %inc39, ptr %occupancy, align 8
   %population40 = getelementptr inbounds i8, ptr %this, i64 20
-  %17 = load <2 x i32>, ptr %population40, align 4
-  %18 = add <2 x i32> %17, <i32 1, i32 1>
-  store <2 x i32> %18, ptr %population40, align 4
+  %18 = load i32, ptr %population40, align 4
+  %inc41 = add i32 %18, 1
+  store i32 %inc41, ptr %population40, align 4
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %19 = load i16, ptr %max_chain_length, align 2
   %conv42 = zext i16 %19 to i32
@@ -2165,14 +2197,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   br i1 %cmp43, label %land.lhs.true44, label %return
 
 land.lhs.true44:                                  ; preds = %if.end34
-  %20 = extractelement <2 x i32> %18, i64 1
-  %mul = shl i32 %20, 3
-  %21 = load i32, ptr %mask, align 4
-  %cmp47 = icmp ugt i32 %mul, %21
+  %mul = shl i32 %inc39, 3
+  %20 = load i32, ptr %mask, align 4
+  %cmp47 = icmp ugt i32 %mul, %20
   br i1 %cmp47, label %if.then48, label %return
 
 if.then48:                                        ; preds = %land.lhs.true44
-  %sub50 = add i32 %21, -8
+  %sub50 = add i32 %20, -8
   %call51 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE5allocEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %sub50)
   br label %return
 
@@ -2411,10 +2442,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   %bf.shl = shl nuw i32 %and, 2
   %bf.set.i34 = or disjoint i32 %bf.shl, 3
   store i32 %bf.set.i34, ptr %is_used_.i21, align 4
+  %17 = load i32, ptr %occupancy, align 8
+  %inc39 = add i32 %17, 1
+  store i32 %inc39, ptr %occupancy, align 8
   %population40 = getelementptr inbounds i8, ptr %this, i64 20
-  %17 = load <2 x i32>, ptr %population40, align 4
-  %18 = add <2 x i32> %17, <i32 1, i32 1>
-  store <2 x i32> %18, ptr %population40, align 4
+  %18 = load i32, ptr %population40, align 4
+  %inc41 = add i32 %18, 1
+  store i32 %inc41, ptr %population40, align 4
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %19 = load i16, ptr %max_chain_length, align 2
   %conv42 = zext i16 %19 to i32
@@ -2422,14 +2456,13 @@ if.end34:                                         ; preds = %if.then31, %while.e
   br i1 %cmp43, label %land.lhs.true44, label %return
 
 land.lhs.true44:                                  ; preds = %if.end34
-  %20 = extractelement <2 x i32> %18, i64 1
-  %mul = shl i32 %20, 3
-  %21 = load i32, ptr %mask, align 4
-  %cmp47 = icmp ugt i32 %mul, %21
+  %mul = shl i32 %inc39, 3
+  %20 = load i32, ptr %mask, align 4
+  %cmp47 = icmp ugt i32 %mul, %20
   br i1 %cmp47, label %if.then48, label %return
 
 if.then48:                                        ; preds = %land.lhs.true44
-  %sub50 = add i32 %21, -8
+  %sub50 = add i32 %20, -8
   %call51 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE5allocEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %sub50)
   br label %return
 

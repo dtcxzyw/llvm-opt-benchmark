@@ -1670,8 +1670,14 @@ if.then63:                                        ; preds = %for.body35
   br label %for.inc102
 
 if.then70:                                        ; preds = %for.body35
+  %incdec.ptr71 = getelementptr i8, ptr %p.279, i64 1
+  store i8 92, ptr %p.279, align 1
+  %incdec.ptr72 = getelementptr i8, ptr %p.279, i64 2
+  store i8 120, ptr %incdec.ptr71, align 1
+  %incdec.ptr73 = getelementptr i8, ptr %p.279, i64 3
+  store i8 48, ptr %incdec.ptr72, align 1
   %incdec.ptr74 = getelementptr i8, ptr %p.279, i64 4
-  store <4 x i8> <i8 92, i8 120, i8 48, i8 48>, ptr %p.279, align 1
+  store i8 48, ptr %incdec.ptr73, align 1
   br label %for.inc102
 
 if.else75:                                        ; preds = %for.body35

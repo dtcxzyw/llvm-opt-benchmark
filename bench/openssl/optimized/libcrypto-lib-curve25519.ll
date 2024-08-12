@@ -4262,16 +4262,26 @@ fe51_cswap.exit31.i:                              ; preds = %for.body.i20.i
   %sub21.i126.i = sub i64 %add19.i124.i, %93
   store i64 %sub21.i126.i, ptr %arrayidx20.i57.i, align 16
   call void @x25519_fe51_mul(ptr noundef nonnull %x2.i, ptr noundef nonnull %tmp1.i, ptr noundef nonnull %tmp0.i) #9
-  %94 = load <2 x i64>, ptr %tmp1.i, align 16
-  %95 = add <2 x i64> %94, <i64 4503599627370458, i64 4503599627370494>
-  %96 = load <2 x i64>, ptr %tmp0.i, align 16
-  %97 = sub <2 x i64> %95, %96
-  store <2 x i64> %97, ptr %tmp1.i, align 16
-  %98 = load <2 x i64>, ptr %arrayidx12.i49.i, align 16
-  %99 = add <2 x i64> %98, <i64 4503599627370494, i64 4503599627370494>
-  %100 = load <2 x i64>, ptr %arrayidx12.i.i, align 16
-  %101 = sub <2 x i64> %99, %100
-  store <2 x i64> %101, ptr %arrayidx12.i49.i, align 16
+  %94 = load i64, ptr %tmp1.i, align 16
+  %add.i128.i = add i64 %94, 4503599627370458
+  %95 = load i64, ptr %tmp0.i, align 16
+  %sub.i129.i = sub i64 %add.i128.i, %95
+  store i64 %sub.i129.i, ptr %tmp1.i, align 16
+  %96 = load i64, ptr %arrayidx7.i44.i, align 8
+  %add4.i131.i = add i64 %96, 4503599627370494
+  %97 = load i64, ptr %arrayidx7.i35.i, align 8
+  %sub6.i133.i = sub i64 %add4.i131.i, %97
+  store i64 %sub6.i133.i, ptr %arrayidx7.i44.i, align 8
+  %98 = load i64, ptr %arrayidx12.i49.i, align 16
+  %add9.i136.i = add i64 %98, 4503599627370494
+  %99 = load i64, ptr %arrayidx12.i.i, align 16
+  %sub11.i138.i = sub i64 %add9.i136.i, %99
+  store i64 %sub11.i138.i, ptr %arrayidx12.i49.i, align 16
+  %100 = load i64, ptr %arrayidx17.i54.i, align 8
+  %add14.i141.i = add i64 %100, 4503599627370494
+  %101 = load i64, ptr %arrayidx17.i.i, align 8
+  %sub16.i143.i = sub i64 %add14.i141.i, %101
+  store i64 %sub16.i143.i, ptr %arrayidx17.i54.i, align 8
   %102 = load i64, ptr %arrayidx22.i59.i, align 16
   %add19.i146.i = add i64 %102, 4503599627370494
   %103 = load i64, ptr %arrayidx22.i37.i, align 16
@@ -4280,17 +4290,25 @@ fe51_cswap.exit31.i:                              ; preds = %for.body.i20.i
   call void @x25519_fe51_sqr(ptr noundef nonnull %z2.i, ptr noundef nonnull %z2.i) #9
   call void @x25519_fe51_mul121666(ptr noundef nonnull %z3.i, ptr noundef nonnull %tmp1.i) #9
   call void @x25519_fe51_sqr(ptr noundef nonnull %x3.i, ptr noundef nonnull %x3.i) #9
-  %104 = load <2 x i64>, ptr %tmp0.i, align 16
-  %105 = load <2 x i64>, ptr %z3.i, align 16
-  %106 = add <2 x i64> %105, %104
-  store <2 x i64> %106, ptr %tmp0.i, align 16
-  %107 = load <2 x i64>, ptr %arrayidx12.i.i, align 16
-  %108 = load <2 x i64>, ptr %arrayidx10.i.i, align 16
-  %109 = add <2 x i64> %108, %107
-  store <2 x i64> %109, ptr %arrayidx12.i.i, align 16
-  %110 = load i64, ptr %arrayidx22.i37.i, align 16
-  %111 = load i64, ptr %arrayidx20.i.i, align 16
-  %add17.i165.i = add i64 %111, %110
+  %104 = load i64, ptr %tmp0.i, align 16
+  %105 = load i64, ptr %z3.i, align 16
+  %add.i150.i = add i64 %105, %104
+  store i64 %add.i150.i, ptr %tmp0.i, align 16
+  %106 = load i64, ptr %arrayidx7.i35.i, align 8
+  %107 = load i64, ptr %arrayidx1.i13.i, align 8
+  %add5.i153.i = add i64 %107, %106
+  store i64 %add5.i153.i, ptr %arrayidx7.i35.i, align 8
+  %108 = load i64, ptr %arrayidx12.i.i, align 16
+  %109 = load i64, ptr %arrayidx10.i.i, align 16
+  %add9.i157.i = add i64 %109, %108
+  store i64 %add9.i157.i, ptr %arrayidx12.i.i, align 16
+  %110 = load i64, ptr %arrayidx17.i.i, align 8
+  %111 = load i64, ptr %arrayidx15.i.i, align 8
+  %add13.i161.i = add i64 %111, %110
+  store i64 %add13.i161.i, ptr %arrayidx17.i.i, align 8
+  %112 = load i64, ptr %arrayidx22.i37.i, align 16
+  %113 = load i64, ptr %arrayidx20.i.i, align 16
+  %add17.i165.i = add i64 %113, %112
   store i64 %add17.i165.i, ptr %arrayidx22.i37.i, align 16
   call void @x25519_fe51_mul(ptr noundef nonnull %z3.i, ptr noundef nonnull %x1.i, ptr noundef nonnull %z2.i) #9
   call void @x25519_fe51_mul(ptr noundef nonnull %z2.i, ptr noundef nonnull %tmp1.i, ptr noundef nonnull %tmp0.i) #9
@@ -4408,31 +4426,31 @@ fe51_invert.exit.i:                               ; preds = %for.body98.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %t2.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %t3.i.i)
   call void @x25519_fe51_mul(ptr noundef nonnull %x2.i, ptr noundef nonnull %x2.i, ptr noundef nonnull %z2.i) #9
-  %112 = load i64, ptr %x2.i, align 16
-  %113 = load i64, ptr %arrayidx1.i.i, align 8
-  %114 = load i64, ptr %arrayidx8.i45.i, align 16
-  %115 = load i64, ptr %arrayidx13.i50.i, align 8
-  %116 = load i64, ptr %arrayidx18.i55.i, align 16
-  %add.i174.i = add i64 %112, 19
+  %114 = load i64, ptr %x2.i, align 16
+  %115 = load i64, ptr %arrayidx1.i.i, align 8
+  %116 = load i64, ptr %arrayidx8.i45.i, align 16
+  %117 = load i64, ptr %arrayidx13.i50.i, align 8
+  %118 = load i64, ptr %arrayidx18.i55.i, align 16
+  %add.i174.i = add i64 %114, 19
   %shr.i175.i = lshr i64 %add.i174.i, 51
-  %add5.i176.i = add i64 %shr.i175.i, %113
+  %add5.i176.i = add i64 %shr.i175.i, %115
   %shr6.i.i = lshr i64 %add5.i176.i, 51
-  %add7.i.i = add i64 %shr6.i.i, %114
+  %add7.i.i = add i64 %shr6.i.i, %116
   %shr8.i.i = lshr i64 %add7.i.i, 51
-  %add9.i177.i = add i64 %shr8.i.i, %115
+  %add9.i177.i = add i64 %shr8.i.i, %117
   %shr10.i.i = lshr i64 %add9.i177.i, 51
-  %add11.i.i = add i64 %shr10.i.i, %116
+  %add11.i.i = add i64 %shr10.i.i, %118
   %shr12.i178.i = lshr i64 %add11.i.i, 51
   %mul.i.i = mul nuw nsw i64 %shr12.i178.i, 19
-  %add13.i179.i = add i64 %mul.i.i, %112
+  %add13.i179.i = add i64 %mul.i.i, %114
   %shr14.i.i = lshr i64 %add13.i179.i, 51
-  %add15.i.i = add i64 %shr14.i.i, %113
+  %add15.i.i = add i64 %shr14.i.i, %115
   %shr16.i.i = lshr i64 %add15.i.i, 51
-  %add17.i180.i = add i64 %shr16.i.i, %114
+  %add17.i180.i = add i64 %shr16.i.i, %116
   %shr19.i.i = lshr i64 %add17.i180.i, 51
-  %add20.i.i = add i64 %shr19.i.i, %115
+  %add20.i.i = add i64 %shr19.i.i, %117
   %shr22.i.i = lshr i64 %add20.i.i, 51
-  %add23.i.i = add i64 %shr22.i.i, %116
+  %add23.i.i = add i64 %shr22.i.i, %118
   %conv.i181.i = trunc i64 %add13.i179.i to i8
   store i8 %conv.i181.i, ptr %out_shared_key, align 1
   %shr28.i.i = lshr i64 %add13.i179.i, 8
@@ -4568,8 +4586,8 @@ fe51_invert.exit.i:                               ; preds = %for.body98.i.i
   %arrayidx131.i.i = getelementptr inbounds i8, ptr %out_shared_key, i64 30
   store i8 %conv130.i.i, ptr %arrayidx131.i.i, align 1
   %and25.i.i = lshr i64 %add23.i.i, 44
-  %117 = trunc i64 %and25.i.i to i8
-  %conv133.i.i = and i8 %117, 127
+  %119 = trunc i64 %and25.i.i to i8
+  %conv133.i.i = and i8 %119, 127
   %arrayidx134.i.i = getelementptr inbounds i8, ptr %out_shared_key, i64 31
   store i8 %conv133.i.i, ptr %arrayidx134.i.i, align 1
   call void @OPENSSL_cleanse(ptr noundef nonnull %e.i, i64 noundef 32) #9

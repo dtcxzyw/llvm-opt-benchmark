@@ -1344,78 +1344,87 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEENS2_IKjEE.ex
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN3ozz9animation12_GLOBAL__N_116DecompressFloat3ERKNS0_8internal9Float3KeyES5_S5_S5_PNS_4math9SoaFloat3E(ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %1, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %2, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %3, ptr nocapture noundef writeonly %4) #5 {
   %6 = load i16, ptr %0, align 2
-  %7 = load i16, ptr %1, align 2
-  %8 = load i16, ptr %2, align 2
-  %9 = load i16, ptr %3, align 2
-  %10 = insertelement <4 x i16> poison, i16 %6, i64 0
-  %11 = insertelement <4 x i16> %10, i16 %7, i64 1
-  %12 = insertelement <4 x i16> %11, i16 %8, i64 2
-  %13 = insertelement <4 x i16> %12, i16 %9, i64 3
-  %14 = zext <4 x i16> %13 to <4 x i32>
-  %15 = and <4 x i32> %14, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %16 = shl nuw nsw <4 x i32> %15, <i32 13, i32 13, i32 13, i32 13>
-  %17 = bitcast <4 x i32> %16 to <4 x float>
-  %18 = fmul <4 x float> %17, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %19 = icmp ugt <4 x i32> %15, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %20 = and <4 x i32> %14, <i32 -32768, i32 32768, i32 -32768, i32 32768>
-  %21 = shl nuw <4 x i32> %20, <i32 16, i32 16, i32 16, i32 16>
-  %22 = select <4 x i1> %19, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
-  %23 = or disjoint <4 x i32> %22, %21
-  %24 = bitcast <4 x float> %18 to <4 x i32>
-  %25 = or <4 x i32> %23, %24
-  store <4 x i32> %25, ptr %4, align 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 2
-  %27 = load i16, ptr %26, align 2
-  %28 = getelementptr inbounds i8, ptr %1, i64 2
-  %29 = load i16, ptr %28, align 2
-  %30 = getelementptr inbounds i8, ptr %2, i64 2
-  %31 = load i16, ptr %30, align 2
-  %32 = getelementptr inbounds i8, ptr %3, i64 2
+  %7 = zext i16 %6 to i32
+  %8 = load i16, ptr %1, align 2
+  %9 = zext i16 %8 to i32
+  %10 = load i16, ptr %2, align 2
+  %11 = zext i16 %10 to i32
+  %12 = load i16, ptr %3, align 2
+  %13 = zext i16 %12 to i32
+  %14 = insertelement <4 x i32> poison, i32 %7, i64 0
+  %15 = insertelement <4 x i32> %14, i32 %9, i64 1
+  %16 = insertelement <4 x i32> %15, i32 %11, i64 2
+  %17 = insertelement <4 x i32> %16, i32 %13, i64 3
+  %18 = and <4 x i32> %17, <i32 32767, i32 32767, i32 32767, i32 32767>
+  %19 = shl nuw nsw <4 x i32> %18, <i32 13, i32 13, i32 13, i32 13>
+  %20 = bitcast <4 x i32> %19 to <4 x float>
+  %21 = fmul <4 x float> %20, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
+  %22 = icmp ugt <4 x i32> %18, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %23 = and <4 x i32> %17, <i32 -32768, i32 32768, i32 -32768, i32 32768>
+  %24 = shl nuw <4 x i32> %23, <i32 16, i32 16, i32 16, i32 16>
+  %25 = select <4 x i1> %22, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
+  %26 = or disjoint <4 x i32> %25, %24
+  %27 = bitcast <4 x float> %21 to <4 x i32>
+  %28 = or <4 x i32> %26, %27
+  store <4 x i32> %28, ptr %4, align 16
+  %29 = getelementptr inbounds i8, ptr %0, i64 2
+  %30 = load i16, ptr %29, align 2
+  %31 = zext i16 %30 to i32
+  %32 = getelementptr inbounds i8, ptr %1, i64 2
   %33 = load i16, ptr %32, align 2
-  %34 = insertelement <4 x i16> poison, i16 %27, i64 0
-  %35 = insertelement <4 x i16> %34, i16 %29, i64 1
-  %36 = insertelement <4 x i16> %35, i16 %31, i64 2
-  %37 = insertelement <4 x i16> %36, i16 %33, i64 3
-  %38 = zext <4 x i16> %37 to <4 x i32>
-  %39 = and <4 x i32> %38, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %40 = shl nuw nsw <4 x i32> %39, <i32 13, i32 13, i32 13, i32 13>
-  %41 = bitcast <4 x i32> %40 to <4 x float>
-  %42 = fmul <4 x float> %41, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %43 = icmp ugt <4 x i32> %39, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %44 = and <4 x i32> %38, <i32 -32768, i32 32768, i32 -32768, i32 32768>
-  %45 = shl nuw <4 x i32> %44, <i32 16, i32 16, i32 16, i32 16>
-  %46 = select <4 x i1> %43, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
-  %47 = or disjoint <4 x i32> %46, %45
-  %48 = bitcast <4 x float> %42 to <4 x i32>
-  %49 = or <4 x i32> %47, %48
-  %50 = getelementptr inbounds i8, ptr %4, i64 16
-  store <4 x i32> %49, ptr %50, align 16
-  %51 = getelementptr inbounds i8, ptr %0, i64 4
-  %52 = load i16, ptr %51, align 2
-  %53 = getelementptr inbounds i8, ptr %1, i64 4
-  %54 = load i16, ptr %53, align 2
-  %55 = getelementptr inbounds i8, ptr %2, i64 4
-  %56 = load i16, ptr %55, align 2
-  %57 = getelementptr inbounds i8, ptr %3, i64 4
+  %34 = zext i16 %33 to i32
+  %35 = getelementptr inbounds i8, ptr %2, i64 2
+  %36 = load i16, ptr %35, align 2
+  %37 = zext i16 %36 to i32
+  %38 = getelementptr inbounds i8, ptr %3, i64 2
+  %39 = load i16, ptr %38, align 2
+  %40 = zext i16 %39 to i32
+  %41 = insertelement <4 x i32> poison, i32 %31, i64 0
+  %42 = insertelement <4 x i32> %41, i32 %34, i64 1
+  %43 = insertelement <4 x i32> %42, i32 %37, i64 2
+  %44 = insertelement <4 x i32> %43, i32 %40, i64 3
+  %45 = and <4 x i32> %44, <i32 32767, i32 32767, i32 32767, i32 32767>
+  %46 = shl nuw nsw <4 x i32> %45, <i32 13, i32 13, i32 13, i32 13>
+  %47 = bitcast <4 x i32> %46 to <4 x float>
+  %48 = fmul <4 x float> %47, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
+  %49 = icmp ugt <4 x i32> %45, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %50 = and <4 x i32> %44, <i32 -32768, i32 32768, i32 -32768, i32 32768>
+  %51 = shl nuw <4 x i32> %50, <i32 16, i32 16, i32 16, i32 16>
+  %52 = select <4 x i1> %49, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
+  %53 = or disjoint <4 x i32> %52, %51
+  %54 = bitcast <4 x float> %48 to <4 x i32>
+  %55 = or <4 x i32> %53, %54
+  %56 = getelementptr inbounds i8, ptr %4, i64 16
+  store <4 x i32> %55, ptr %56, align 16
+  %57 = getelementptr inbounds i8, ptr %0, i64 4
   %58 = load i16, ptr %57, align 2
-  %59 = insertelement <4 x i16> poison, i16 %52, i64 0
-  %60 = insertelement <4 x i16> %59, i16 %54, i64 1
-  %61 = insertelement <4 x i16> %60, i16 %56, i64 2
-  %62 = insertelement <4 x i16> %61, i16 %58, i64 3
-  %63 = zext <4 x i16> %62 to <4 x i32>
-  %64 = and <4 x i32> %63, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %65 = shl nuw nsw <4 x i32> %64, <i32 13, i32 13, i32 13, i32 13>
-  %66 = bitcast <4 x i32> %65 to <4 x float>
-  %67 = fmul <4 x float> %66, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %68 = icmp ugt <4 x i32> %64, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %69 = and <4 x i32> %63, <i32 -32768, i32 32768, i32 -32768, i32 32768>
-  %70 = shl nuw <4 x i32> %69, <i32 16, i32 16, i32 16, i32 16>
-  %71 = select <4 x i1> %68, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
-  %72 = or disjoint <4 x i32> %71, %70
-  %73 = bitcast <4 x float> %67 to <4 x i32>
-  %74 = or <4 x i32> %72, %73
-  %75 = getelementptr inbounds i8, ptr %4, i64 32
-  store <4 x i32> %74, ptr %75, align 16
+  %59 = zext i16 %58 to i32
+  %60 = getelementptr inbounds i8, ptr %1, i64 4
+  %61 = load i16, ptr %60, align 2
+  %62 = zext i16 %61 to i32
+  %63 = getelementptr inbounds i8, ptr %2, i64 4
+  %64 = load i16, ptr %63, align 2
+  %65 = zext i16 %64 to i32
+  %66 = getelementptr inbounds i8, ptr %3, i64 4
+  %67 = load i16, ptr %66, align 2
+  %68 = zext i16 %67 to i32
+  %69 = insertelement <4 x i32> poison, i32 %59, i64 0
+  %70 = insertelement <4 x i32> %69, i32 %62, i64 1
+  %71 = insertelement <4 x i32> %70, i32 %65, i64 2
+  %72 = insertelement <4 x i32> %71, i32 %68, i64 3
+  %73 = and <4 x i32> %72, <i32 32767, i32 32767, i32 32767, i32 32767>
+  %74 = shl nuw nsw <4 x i32> %73, <i32 13, i32 13, i32 13, i32 13>
+  %75 = bitcast <4 x i32> %74 to <4 x float>
+  %76 = fmul <4 x float> %75, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
+  %77 = icmp ugt <4 x i32> %73, <i32 31743, i32 31743, i32 31743, i32 31743>
+  %78 = and <4 x i32> %72, <i32 -32768, i32 32768, i32 -32768, i32 32768>
+  %79 = shl nuw <4 x i32> %78, <i32 16, i32 16, i32 16, i32 16>
+  %80 = select <4 x i1> %77, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
+  %81 = or disjoint <4 x i32> %80, %79
+  %82 = bitcast <4 x float> %76 to <4 x i32>
+  %83 = or <4 x i32> %81, %82
+  %84 = getelementptr inbounds i8, ptr %4, i64 32
+  store <4 x i32> %83, ptr %84, align 16
   ret void
 }
 
@@ -1436,256 +1445,265 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_120DecompressQuaterni
   %18 = shl i32 %17, 29
   %19 = or disjoint i32 %18, %14
   %20 = and i32 %9, 3
+  %21 = lshr i16 %8, 2
+  %22 = and i16 %21, 1
+  %23 = zext nneg i16 %22 to i32
   %.masked.i = and i32 %14, 24576
-  %21 = or disjoint i32 %.masked.i, %10
-  store i32 %21, ptr %6, align 16
-  %22 = lshr i32 %19, 15
-  %23 = and i32 %22, 32767
-  %24 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %23, ptr %24, align 4
-  %25 = lshr i16 %16, 1
-  %26 = zext nneg i16 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 12
-  %29 = load i16, ptr %1, align 2
-  %30 = zext i16 %29 to i32
-  %31 = lshr i32 %30, 3
-  %32 = getelementptr inbounds i8, ptr %1, i64 2
-  %33 = load i16, ptr %32, align 2
-  %34 = zext i16 %33 to i32
-  %35 = shl nuw nsw i32 %34, 13
-  %36 = getelementptr inbounds i8, ptr %1, i64 4
-  %37 = load i16, ptr %36, align 2
-  %38 = zext i16 %37 to i32
-  %39 = shl i32 %38, 29
-  %40 = or disjoint i32 %39, %35
-  %41 = and i32 %30, 3
-  %.masked.i188 = and i32 %35, 24576
-  %42 = or disjoint i32 %.masked.i188, %31
-  store i32 %42, ptr %28, align 4
-  %43 = lshr i32 %40, 15
-  %44 = and i32 %43, 32767
-  %45 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 %44, ptr %45, align 16
-  %46 = lshr i16 %37, 1
+  %24 = or disjoint i32 %.masked.i, %10
+  store i32 %24, ptr %6, align 16
+  %25 = lshr i32 %19, 15
+  %26 = and i32 %25, 32767
+  %27 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %26, ptr %27, align 4
+  %28 = lshr i16 %16, 1
+  %29 = zext nneg i16 %28 to i32
+  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %6, i64 12
+  %32 = load i16, ptr %1, align 2
+  %33 = zext i16 %32 to i32
+  %34 = lshr i32 %33, 3
+  %35 = getelementptr inbounds i8, ptr %1, i64 2
+  %36 = load i16, ptr %35, align 2
+  %37 = zext i16 %36 to i32
+  %38 = shl nuw nsw i32 %37, 13
+  %39 = getelementptr inbounds i8, ptr %1, i64 4
+  %40 = load i16, ptr %39, align 2
+  %41 = zext i16 %40 to i32
+  %42 = shl i32 %41, 29
+  %43 = or disjoint i32 %42, %38
+  %44 = and i32 %33, 3
+  %45 = lshr i16 %32, 2
+  %46 = and i16 %45, 1
   %47 = zext nneg i16 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %6, i64 20
-  store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %6, i64 24
-  %50 = load i16, ptr %2, align 2
-  %51 = zext i16 %50 to i32
-  %52 = lshr i32 %51, 3
-  %53 = getelementptr inbounds i8, ptr %2, i64 2
-  %54 = load i16, ptr %53, align 2
-  %55 = zext i16 %54 to i32
-  %56 = shl nuw nsw i32 %55, 13
-  %57 = getelementptr inbounds i8, ptr %2, i64 4
-  %58 = load i16, ptr %57, align 2
-  %59 = zext i16 %58 to i32
-  %60 = shl i32 %59, 29
-  %61 = or disjoint i32 %60, %56
-  %62 = and i32 %51, 3
-  %.masked.i189 = and i32 %56, 24576
-  %63 = or disjoint i32 %.masked.i189, %52
-  store i32 %63, ptr %49, align 8
-  %64 = lshr i32 %61, 15
-  %65 = and i32 %64, 32767
-  %66 = getelementptr inbounds i8, ptr %6, i64 28
-  store i32 %65, ptr %66, align 4
-  %67 = lshr i16 %58, 1
-  %68 = zext nneg i16 %67 to i32
-  %69 = getelementptr inbounds i8, ptr %6, i64 32
-  store i32 %68, ptr %69, align 16
-  %70 = getelementptr inbounds i8, ptr %6, i64 36
-  %71 = load i16, ptr %3, align 2
-  %72 = zext i16 %71 to i32
-  %73 = lshr i32 %72, 3
-  %74 = getelementptr inbounds i8, ptr %3, i64 2
-  %75 = load i16, ptr %74, align 2
-  %76 = zext i16 %75 to i32
-  %77 = shl nuw nsw i32 %76, 13
-  %78 = getelementptr inbounds i8, ptr %3, i64 4
-  %79 = load i16, ptr %78, align 2
-  %80 = zext i16 %79 to i32
-  %81 = shl i32 %80, 29
-  %82 = or disjoint i32 %81, %77
-  %83 = and i32 %72, 3
-  %84 = insertelement <4 x i16> poison, i16 %8, i64 0
-  %85 = insertelement <4 x i16> %84, i16 %29, i64 1
-  %86 = insertelement <4 x i16> %85, i16 %50, i64 2
-  %87 = insertelement <4 x i16> %86, i16 %71, i64 3
-  %.masked.i190 = and i32 %77, 24576
-  %88 = or disjoint i32 %.masked.i190, %73
-  store i32 %88, ptr %70, align 4
-  %89 = lshr i32 %82, 15
-  %90 = and i32 %89, 32767
-  %91 = getelementptr inbounds i8, ptr %6, i64 40
-  store i32 %90, ptr %91, align 8
-  %92 = lshr i16 %79, 1
-  %93 = zext nneg i16 %92 to i32
-  %94 = getelementptr inbounds i8, ptr %6, i64 44
-  store i32 %93, ptr %94, align 4
-  %95 = zext nneg i32 %20 to i64
-  %96 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN3ozz9animation12_GLOBAL__N_112kCpntMappingE, i64 0, i64 %95
-  %97 = zext nneg i32 %41 to i64
-  %98 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN3ozz9animation12_GLOBAL__N_112kCpntMappingE, i64 0, i64 %97
-  %99 = zext nneg i32 %62 to i64
-  %100 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN3ozz9animation12_GLOBAL__N_112kCpntMappingE, i64 0, i64 %99
-  %101 = zext nneg i32 %83 to i64
-  %102 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN3ozz9animation12_GLOBAL__N_112kCpntMappingE, i64 0, i64 %101
-  %103 = load <4 x i32>, ptr %6, align 16
-  %104 = extractelement <4 x i32> %103, i64 3
-  %.sroa.0.4.vec.insert = insertelement <4 x i32> %103, i32 %104, i64 1
-  %.sroa.0.8.vec.insert = insertelement <4 x i32> %.sroa.0.4.vec.insert, i32 %63, i64 2
-  %.sroa.0.12.vec.insert = insertelement <4 x i32> %.sroa.0.8.vec.insert, i32 %88, i64 3
-  %105 = getelementptr inbounds i8, ptr %96, i64 1
-  %106 = load i8, ptr %105, align 1
-  %107 = zext i8 %106 to i64
-  %108 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %107
-  %109 = load i32, ptr %108, align 4
-  %.sroa.5.16.vec.insert = insertelement <4 x i32> poison, i32 %109, i64 0
-  %110 = getelementptr inbounds i8, ptr %98, i64 1
-  %111 = load i8, ptr %110, align 1
-  %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds [3 x i32], ptr %28, i64 0, i64 %112
-  %114 = load i32, ptr %113, align 4
-  %.sroa.5.20.vec.insert = insertelement <4 x i32> %.sroa.5.16.vec.insert, i32 %114, i64 1
-  %115 = getelementptr inbounds i8, ptr %100, i64 1
-  %116 = load i8, ptr %115, align 1
-  %117 = zext i8 %116 to i64
-  %118 = getelementptr inbounds [3 x i32], ptr %49, i64 0, i64 %117
-  %119 = load i32, ptr %118, align 4
-  %.sroa.5.24.vec.insert = insertelement <4 x i32> %.sroa.5.20.vec.insert, i32 %119, i64 2
-  %120 = getelementptr inbounds i8, ptr %102, i64 1
-  %121 = load i8, ptr %120, align 1
-  %122 = zext i8 %121 to i64
-  %123 = getelementptr inbounds [3 x i32], ptr %70, i64 0, i64 %122
-  %124 = load i32, ptr %123, align 4
-  %.sroa.5.28.vec.insert = insertelement <4 x i32> %.sroa.5.24.vec.insert, i32 %124, i64 3
-  %125 = getelementptr inbounds i8, ptr %96, i64 2
-  %126 = load i8, ptr %125, align 2
-  %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %127
-  %129 = load i32, ptr %128, align 4
-  %.sroa.10.32.vec.insert = insertelement <4 x i32> poison, i32 %129, i64 0
-  %130 = getelementptr inbounds i8, ptr %98, i64 2
-  %131 = load i8, ptr %130, align 2
-  %132 = zext i8 %131 to i64
-  %133 = getelementptr inbounds [3 x i32], ptr %28, i64 0, i64 %132
-  %134 = load i32, ptr %133, align 4
-  %.sroa.10.36.vec.insert = insertelement <4 x i32> %.sroa.10.32.vec.insert, i32 %134, i64 1
-  %135 = getelementptr inbounds i8, ptr %100, i64 2
-  %136 = load i8, ptr %135, align 2
-  %137 = zext i8 %136 to i64
-  %138 = getelementptr inbounds [3 x i32], ptr %49, i64 0, i64 %137
-  %139 = load i32, ptr %138, align 4
-  %.sroa.10.40.vec.insert = insertelement <4 x i32> %.sroa.10.36.vec.insert, i32 %139, i64 2
-  %140 = getelementptr inbounds i8, ptr %102, i64 2
-  %141 = load i8, ptr %140, align 2
-  %142 = zext i8 %141 to i64
-  %143 = getelementptr inbounds [3 x i32], ptr %70, i64 0, i64 %142
-  %144 = load i32, ptr %143, align 4
-  %.sroa.10.44.vec.insert = insertelement <4 x i32> %.sroa.10.40.vec.insert, i32 %144, i64 3
-  %145 = getelementptr inbounds i8, ptr %96, i64 3
-  %146 = load i8, ptr %145, align 1
-  %147 = zext i8 %146 to i64
-  %148 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %147
-  %149 = load i32, ptr %148, align 4
-  %.sroa.15.48.vec.insert = insertelement <4 x i32> poison, i32 %149, i64 0
-  %150 = getelementptr inbounds i8, ptr %98, i64 3
-  %151 = load i8, ptr %150, align 1
-  %152 = zext i8 %151 to i64
-  %153 = getelementptr inbounds [3 x i32], ptr %28, i64 0, i64 %152
-  %154 = load i32, ptr %153, align 4
-  %.sroa.15.52.vec.insert = insertelement <4 x i32> %.sroa.15.48.vec.insert, i32 %154, i64 1
-  %155 = getelementptr inbounds i8, ptr %100, i64 3
-  %156 = load i8, ptr %155, align 1
-  %157 = zext i8 %156 to i64
-  %158 = getelementptr inbounds [3 x i32], ptr %49, i64 0, i64 %157
-  %159 = load i32, ptr %158, align 4
-  %.sroa.15.56.vec.insert = insertelement <4 x i32> %.sroa.15.52.vec.insert, i32 %159, i64 2
-  %160 = getelementptr inbounds i8, ptr %102, i64 3
-  %161 = load i8, ptr %160, align 1
-  %162 = zext i8 %161 to i64
-  %163 = getelementptr inbounds [3 x i32], ptr %70, i64 0, i64 %162
-  %164 = load i32, ptr %163, align 4
-  %.sroa.15.60.vec.insert = insertelement <4 x i32> %.sroa.15.56.vec.insert, i32 %164, i64 3
-  %165 = sitofp <4 x i32> %.sroa.0.12.vec.insert to <4 x float>
-  %166 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %165, <4 x float> <float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000>, <4 x float> <float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000>)
-  store <4 x float> %166, ptr %7, align 16
-  %167 = getelementptr inbounds i8, ptr %7, i64 16
-  %168 = sitofp <4 x i32> %.sroa.5.28.vec.insert to <4 x float>
-  %169 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %168, <4 x float> <float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000>, <4 x float> <float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000>)
-  store <4 x float> %169, ptr %167, align 16
-  %170 = getelementptr inbounds i8, ptr %7, i64 32
-  %171 = sitofp <4 x i32> %.sroa.10.44.vec.insert to <4 x float>
-  %172 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %171, <4 x float> <float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000>, <4 x float> <float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000>)
-  store <4 x float> %172, ptr %170, align 16
-  %173 = getelementptr inbounds i8, ptr %7, i64 48
-  %174 = sitofp <4 x i32> %.sroa.15.60.vec.insert to <4 x float>
-  %175 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %174, <4 x float> <float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000>, <4 x float> <float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000>)
-  store <4 x float> %175, ptr %173, align 16
-  %176 = getelementptr inbounds [4 x <4 x float>], ptr %7, i64 0, i64 %95
-  %177 = load <4 x i32>, ptr %176, align 16
-  %178 = and <4 x i32> %177, <i32 0, i32 -1, i32 -1, i32 -1>
-  store <4 x i32> %178, ptr %176, align 16
-  %179 = getelementptr inbounds [4 x <4 x float>], ptr %7, i64 0, i64 %97
-  %180 = load <4 x i32>, ptr %179, align 16
-  %181 = and <4 x i32> %180, <i32 -1, i32 0, i32 -1, i32 -1>
-  store <4 x i32> %181, ptr %179, align 16
-  %182 = getelementptr inbounds [4 x <4 x float>], ptr %7, i64 0, i64 %99
-  %183 = load <4 x i32>, ptr %182, align 16
-  %184 = and <4 x i32> %183, <i32 -1, i32 -1, i32 0, i32 -1>
-  store <4 x i32> %184, ptr %182, align 16
-  %185 = getelementptr inbounds [4 x <4 x float>], ptr %7, i64 0, i64 %101
-  %186 = load <4 x i32>, ptr %185, align 16
-  %187 = and <4 x i32> %186, <i32 -1, i32 -1, i32 -1, i32 0>
-  store <4 x i32> %187, ptr %185, align 16
-  %188 = load <4 x float>, ptr %7, align 16
-  %189 = load <4 x float>, ptr %167, align 16
-  %190 = fmul <4 x float> %189, %189
-  %191 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %188, <4 x float> %188, <4 x float> %190)
-  %192 = load <4 x float>, ptr %170, align 16
-  %193 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %192, <4 x float> %192, <4 x float> %191)
-  %194 = load <4 x float>, ptr %173, align 16
-  %195 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %194, <4 x float> %194, <4 x float> %193)
-  %196 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %195
-  %197 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %196)
-  %198 = fmul <4 x float> %197, %196
-  %199 = lshr <4 x i16> %87, <i16 2, i16 2, i16 2, i16 2>
-  %.lobit = and <4 x i16> %199, <i16 1, i16 1, i16 1, i16 1>
-  %200 = zext nneg <4 x i16> %.lobit to <4 x i32>
-  %201 = shl nuw <4 x i32> %200, <i32 31, i32 31, i32 31, i32 31>
-  %202 = bitcast <4 x float> %198 to <4 x i32>
-  %203 = or <4 x i32> %201, %202
-  %204 = load <4 x i32>, ptr %176, align 16
-  %205 = and <4 x i32> %203, <i32 -1, i32 0, i32 0, i32 0>
-  %206 = or <4 x i32> %205, %204
-  store <4 x i32> %206, ptr %176, align 16
-  %207 = load <4 x i32>, ptr %179, align 16
-  %208 = and <4 x i32> %203, <i32 0, i32 -1, i32 0, i32 0>
-  %209 = or <4 x i32> %208, %207
-  store <4 x i32> %209, ptr %179, align 16
-  %210 = load <4 x i32>, ptr %182, align 16
-  %211 = and <4 x i32> %203, <i32 0, i32 0, i32 -1, i32 0>
-  %212 = or <4 x i32> %211, %210
-  store <4 x i32> %212, ptr %182, align 16
-  %213 = load <4 x i32>, ptr %185, align 16
-  %214 = and <4 x i32> %203, <i32 0, i32 0, i32 0, i32 -1>
-  %215 = or <4 x i32> %213, %214
-  store <4 x i32> %215, ptr %185, align 16
-  %216 = load <4 x float>, ptr %7, align 16
-  store <4 x float> %216, ptr %4, align 16
-  %217 = load <4 x float>, ptr %167, align 16
-  %218 = getelementptr inbounds i8, ptr %4, i64 16
-  store <4 x float> %217, ptr %218, align 16
-  %219 = load <4 x float>, ptr %170, align 16
-  %220 = getelementptr inbounds i8, ptr %4, i64 32
-  store <4 x float> %219, ptr %220, align 16
-  %221 = load <4 x float>, ptr %173, align 16
-  %222 = getelementptr inbounds i8, ptr %4, i64 48
-  store <4 x float> %221, ptr %222, align 16
+  %.masked.i188 = and i32 %38, 24576
+  %48 = or disjoint i32 %.masked.i188, %34
+  store i32 %48, ptr %31, align 4
+  %49 = lshr i32 %43, 15
+  %50 = and i32 %49, 32767
+  %51 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 %50, ptr %51, align 16
+  %52 = lshr i16 %40, 1
+  %53 = zext nneg i16 %52 to i32
+  %54 = getelementptr inbounds i8, ptr %6, i64 20
+  store i32 %53, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %6, i64 24
+  %56 = load i16, ptr %2, align 2
+  %57 = zext i16 %56 to i32
+  %58 = lshr i32 %57, 3
+  %59 = getelementptr inbounds i8, ptr %2, i64 2
+  %60 = load i16, ptr %59, align 2
+  %61 = zext i16 %60 to i32
+  %62 = shl nuw nsw i32 %61, 13
+  %63 = getelementptr inbounds i8, ptr %2, i64 4
+  %64 = load i16, ptr %63, align 2
+  %65 = zext i16 %64 to i32
+  %66 = shl i32 %65, 29
+  %67 = or disjoint i32 %66, %62
+  %68 = and i32 %57, 3
+  %69 = lshr i16 %56, 2
+  %70 = and i16 %69, 1
+  %71 = zext nneg i16 %70 to i32
+  %.masked.i189 = and i32 %62, 24576
+  %72 = or disjoint i32 %.masked.i189, %58
+  store i32 %72, ptr %55, align 8
+  %73 = lshr i32 %67, 15
+  %74 = and i32 %73, 32767
+  %75 = getelementptr inbounds i8, ptr %6, i64 28
+  store i32 %74, ptr %75, align 4
+  %76 = lshr i16 %64, 1
+  %77 = zext nneg i16 %76 to i32
+  %78 = getelementptr inbounds i8, ptr %6, i64 32
+  store i32 %77, ptr %78, align 16
+  %79 = getelementptr inbounds i8, ptr %6, i64 36
+  %80 = load i16, ptr %3, align 2
+  %81 = zext i16 %80 to i32
+  %82 = lshr i32 %81, 3
+  %83 = getelementptr inbounds i8, ptr %3, i64 2
+  %84 = load i16, ptr %83, align 2
+  %85 = zext i16 %84 to i32
+  %86 = shl nuw nsw i32 %85, 13
+  %87 = getelementptr inbounds i8, ptr %3, i64 4
+  %88 = load i16, ptr %87, align 2
+  %89 = zext i16 %88 to i32
+  %90 = shl i32 %89, 29
+  %91 = or disjoint i32 %90, %86
+  %92 = and i32 %81, 3
+  %93 = lshr i16 %80, 2
+  %94 = and i16 %93, 1
+  %95 = zext nneg i16 %94 to i32
+  %.masked.i190 = and i32 %86, 24576
+  %96 = or disjoint i32 %.masked.i190, %82
+  store i32 %96, ptr %79, align 4
+  %97 = lshr i32 %91, 15
+  %98 = and i32 %97, 32767
+  %99 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 %98, ptr %99, align 8
+  %100 = lshr i16 %88, 1
+  %101 = zext nneg i16 %100 to i32
+  %102 = getelementptr inbounds i8, ptr %6, i64 44
+  store i32 %101, ptr %102, align 4
+  %103 = zext nneg i32 %20 to i64
+  %104 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN3ozz9animation12_GLOBAL__N_112kCpntMappingE, i64 0, i64 %103
+  %105 = zext nneg i32 %44 to i64
+  %106 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN3ozz9animation12_GLOBAL__N_112kCpntMappingE, i64 0, i64 %105
+  %107 = zext nneg i32 %68 to i64
+  %108 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN3ozz9animation12_GLOBAL__N_112kCpntMappingE, i64 0, i64 %107
+  %109 = zext nneg i32 %92 to i64
+  %110 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZN3ozz9animation12_GLOBAL__N_112kCpntMappingE, i64 0, i64 %109
+  %111 = load <4 x i32>, ptr %6, align 16
+  %112 = extractelement <4 x i32> %111, i64 3
+  %.sroa.0.4.vec.insert = insertelement <4 x i32> %111, i32 %112, i64 1
+  %.sroa.0.8.vec.insert = insertelement <4 x i32> %.sroa.0.4.vec.insert, i32 %72, i64 2
+  %.sroa.0.12.vec.insert = insertelement <4 x i32> %.sroa.0.8.vec.insert, i32 %96, i64 3
+  %113 = getelementptr inbounds i8, ptr %104, i64 1
+  %114 = load i8, ptr %113, align 1
+  %115 = zext i8 %114 to i64
+  %116 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %115
+  %117 = load i32, ptr %116, align 4
+  %.sroa.5.16.vec.insert = insertelement <4 x i32> poison, i32 %117, i64 0
+  %118 = getelementptr inbounds i8, ptr %106, i64 1
+  %119 = load i8, ptr %118, align 1
+  %120 = zext i8 %119 to i64
+  %121 = getelementptr inbounds [3 x i32], ptr %31, i64 0, i64 %120
+  %122 = load i32, ptr %121, align 4
+  %.sroa.5.20.vec.insert = insertelement <4 x i32> %.sroa.5.16.vec.insert, i32 %122, i64 1
+  %123 = getelementptr inbounds i8, ptr %108, i64 1
+  %124 = load i8, ptr %123, align 1
+  %125 = zext i8 %124 to i64
+  %126 = getelementptr inbounds [3 x i32], ptr %55, i64 0, i64 %125
+  %127 = load i32, ptr %126, align 4
+  %.sroa.5.24.vec.insert = insertelement <4 x i32> %.sroa.5.20.vec.insert, i32 %127, i64 2
+  %128 = getelementptr inbounds i8, ptr %110, i64 1
+  %129 = load i8, ptr %128, align 1
+  %130 = zext i8 %129 to i64
+  %131 = getelementptr inbounds [3 x i32], ptr %79, i64 0, i64 %130
+  %132 = load i32, ptr %131, align 4
+  %.sroa.5.28.vec.insert = insertelement <4 x i32> %.sroa.5.24.vec.insert, i32 %132, i64 3
+  %133 = getelementptr inbounds i8, ptr %104, i64 2
+  %134 = load i8, ptr %133, align 2
+  %135 = zext i8 %134 to i64
+  %136 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %135
+  %137 = load i32, ptr %136, align 4
+  %.sroa.10.32.vec.insert = insertelement <4 x i32> poison, i32 %137, i64 0
+  %138 = getelementptr inbounds i8, ptr %106, i64 2
+  %139 = load i8, ptr %138, align 2
+  %140 = zext i8 %139 to i64
+  %141 = getelementptr inbounds [3 x i32], ptr %31, i64 0, i64 %140
+  %142 = load i32, ptr %141, align 4
+  %.sroa.10.36.vec.insert = insertelement <4 x i32> %.sroa.10.32.vec.insert, i32 %142, i64 1
+  %143 = getelementptr inbounds i8, ptr %108, i64 2
+  %144 = load i8, ptr %143, align 2
+  %145 = zext i8 %144 to i64
+  %146 = getelementptr inbounds [3 x i32], ptr %55, i64 0, i64 %145
+  %147 = load i32, ptr %146, align 4
+  %.sroa.10.40.vec.insert = insertelement <4 x i32> %.sroa.10.36.vec.insert, i32 %147, i64 2
+  %148 = getelementptr inbounds i8, ptr %110, i64 2
+  %149 = load i8, ptr %148, align 2
+  %150 = zext i8 %149 to i64
+  %151 = getelementptr inbounds [3 x i32], ptr %79, i64 0, i64 %150
+  %152 = load i32, ptr %151, align 4
+  %.sroa.10.44.vec.insert = insertelement <4 x i32> %.sroa.10.40.vec.insert, i32 %152, i64 3
+  %153 = getelementptr inbounds i8, ptr %104, i64 3
+  %154 = load i8, ptr %153, align 1
+  %155 = zext i8 %154 to i64
+  %156 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %155
+  %157 = load i32, ptr %156, align 4
+  %.sroa.15.48.vec.insert = insertelement <4 x i32> poison, i32 %157, i64 0
+  %158 = getelementptr inbounds i8, ptr %106, i64 3
+  %159 = load i8, ptr %158, align 1
+  %160 = zext i8 %159 to i64
+  %161 = getelementptr inbounds [3 x i32], ptr %31, i64 0, i64 %160
+  %162 = load i32, ptr %161, align 4
+  %.sroa.15.52.vec.insert = insertelement <4 x i32> %.sroa.15.48.vec.insert, i32 %162, i64 1
+  %163 = getelementptr inbounds i8, ptr %108, i64 3
+  %164 = load i8, ptr %163, align 1
+  %165 = zext i8 %164 to i64
+  %166 = getelementptr inbounds [3 x i32], ptr %55, i64 0, i64 %165
+  %167 = load i32, ptr %166, align 4
+  %.sroa.15.56.vec.insert = insertelement <4 x i32> %.sroa.15.52.vec.insert, i32 %167, i64 2
+  %168 = getelementptr inbounds i8, ptr %110, i64 3
+  %169 = load i8, ptr %168, align 1
+  %170 = zext i8 %169 to i64
+  %171 = getelementptr inbounds [3 x i32], ptr %79, i64 0, i64 %170
+  %172 = load i32, ptr %171, align 4
+  %.sroa.15.60.vec.insert = insertelement <4 x i32> %.sroa.15.56.vec.insert, i32 %172, i64 3
+  %173 = sitofp <4 x i32> %.sroa.0.12.vec.insert to <4 x float>
+  %174 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %173, <4 x float> <float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000>, <4 x float> <float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000>)
+  store <4 x float> %174, ptr %7, align 16
+  %175 = getelementptr inbounds i8, ptr %7, i64 16
+  %176 = sitofp <4 x i32> %.sroa.5.28.vec.insert to <4 x float>
+  %177 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %176, <4 x float> <float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000>, <4 x float> <float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000>)
+  store <4 x float> %177, ptr %175, align 16
+  %178 = getelementptr inbounds i8, ptr %7, i64 32
+  %179 = sitofp <4 x i32> %.sroa.10.44.vec.insert to <4 x float>
+  %180 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %179, <4 x float> <float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000>, <4 x float> <float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000>)
+  store <4 x float> %180, ptr %178, align 16
+  %181 = getelementptr inbounds i8, ptr %7, i64 48
+  %182 = sitofp <4 x i32> %.sroa.15.60.vec.insert to <4 x float>
+  %183 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %182, <4 x float> <float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000, float 0x3F06A0CBA0000000>, <4 x float> <float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000>)
+  store <4 x float> %183, ptr %181, align 16
+  %184 = getelementptr inbounds [4 x <4 x float>], ptr %7, i64 0, i64 %103
+  %185 = load <4 x i32>, ptr %184, align 16
+  %186 = and <4 x i32> %185, <i32 0, i32 -1, i32 -1, i32 -1>
+  store <4 x i32> %186, ptr %184, align 16
+  %187 = getelementptr inbounds [4 x <4 x float>], ptr %7, i64 0, i64 %105
+  %188 = load <4 x i32>, ptr %187, align 16
+  %189 = and <4 x i32> %188, <i32 -1, i32 0, i32 -1, i32 -1>
+  store <4 x i32> %189, ptr %187, align 16
+  %190 = getelementptr inbounds [4 x <4 x float>], ptr %7, i64 0, i64 %107
+  %191 = load <4 x i32>, ptr %190, align 16
+  %192 = and <4 x i32> %191, <i32 -1, i32 -1, i32 0, i32 -1>
+  store <4 x i32> %192, ptr %190, align 16
+  %193 = getelementptr inbounds [4 x <4 x float>], ptr %7, i64 0, i64 %109
+  %194 = load <4 x i32>, ptr %193, align 16
+  %195 = and <4 x i32> %194, <i32 -1, i32 -1, i32 -1, i32 0>
+  store <4 x i32> %195, ptr %193, align 16
+  %196 = load <4 x float>, ptr %7, align 16
+  %197 = load <4 x float>, ptr %175, align 16
+  %198 = fmul <4 x float> %197, %197
+  %199 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %196, <4 x float> %196, <4 x float> %198)
+  %200 = load <4 x float>, ptr %178, align 16
+  %201 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %200, <4 x float> %200, <4 x float> %199)
+  %202 = load <4 x float>, ptr %181, align 16
+  %203 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %202, <4 x float> %202, <4 x float> %201)
+  %204 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %203
+  %205 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %204)
+  %206 = fmul <4 x float> %205, %204
+  %207 = insertelement <4 x i32> poison, i32 %23, i64 0
+  %208 = insertelement <4 x i32> %207, i32 %47, i64 1
+  %209 = insertelement <4 x i32> %208, i32 %71, i64 2
+  %210 = insertelement <4 x i32> %209, i32 %95, i64 3
+  %211 = shl nuw <4 x i32> %210, <i32 31, i32 31, i32 31, i32 31>
+  %212 = bitcast <4 x float> %206 to <4 x i32>
+  %213 = or <4 x i32> %211, %212
+  %214 = load <4 x i32>, ptr %184, align 16
+  %215 = and <4 x i32> %213, <i32 -1, i32 0, i32 0, i32 0>
+  %216 = or <4 x i32> %215, %214
+  store <4 x i32> %216, ptr %184, align 16
+  %217 = load <4 x i32>, ptr %187, align 16
+  %218 = and <4 x i32> %213, <i32 0, i32 -1, i32 0, i32 0>
+  %219 = or <4 x i32> %218, %217
+  store <4 x i32> %219, ptr %187, align 16
+  %220 = load <4 x i32>, ptr %190, align 16
+  %221 = and <4 x i32> %213, <i32 0, i32 0, i32 -1, i32 0>
+  %222 = or <4 x i32> %221, %220
+  store <4 x i32> %222, ptr %190, align 16
+  %223 = load <4 x i32>, ptr %193, align 16
+  %224 = and <4 x i32> %213, <i32 0, i32 0, i32 0, i32 -1>
+  %225 = or <4 x i32> %223, %224
+  store <4 x i32> %225, ptr %193, align 16
+  %226 = load <4 x float>, ptr %7, align 16
+  store <4 x float> %226, ptr %4, align 16
+  %227 = load <4 x float>, ptr %175, align 16
+  %228 = getelementptr inbounds i8, ptr %4, i64 16
+  store <4 x float> %227, ptr %228, align 16
+  %229 = load <4 x float>, ptr %178, align 16
+  %230 = getelementptr inbounds i8, ptr %4, i64 32
+  store <4 x float> %229, ptr %230, align 16
+  %231 = load <4 x float>, ptr %181, align 16
+  %232 = getelementptr inbounds i8, ptr %4, i64 48
+  store <4 x float> %231, ptr %232, align 16
   ret void
 }
 

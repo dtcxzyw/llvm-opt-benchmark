@@ -40,7 +40,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 5:                                                ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 44, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
-  br label %287
+  br label %292
 
 6:                                                ; preds = %3
   %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
@@ -55,7 +55,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 11:                                               ; preds = %8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 55, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %287
+  br label %292
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 272
@@ -67,13 +67,13 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 17:                                               ; preds = %12
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 62, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %287
+  br label %292
 
 18:                                               ; preds = %12, %6
   %19 = getelementptr inbounds i8, ptr %0, i64 632
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %38
+  br i1 %21, label %22, label %41
 
 22:                                               ; preds = %18
   %23 = tail call noalias dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #9
@@ -83,7 +83,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 25:                                               ; preds = %22
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 74, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %287
+  br label %292
 
 .thread:                                          ; preds = %22
   %26 = getelementptr inbounds i8, ptr %23, i64 56
@@ -104,381 +104,387 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   %34 = getelementptr inbounds i8, ptr %23, i64 128
   store ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 544
-  %36 = load <2 x i64>, ptr %35, align 8
-  %37 = add nsw <2 x i64> %36, <i64 5, i64 12>
-  store <2 x i64> %37, ptr %35, align 8
-  br label %84
+  %36 = load i64, ptr %35, align 8
+  %37 = add nsw i64 %36, 5
+  store i64 %37, ptr %35, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 552
+  %39 = load i64, ptr %38, align 8
+  %40 = add nsw i64 %39, 12
+  store i64 %40, ptr %38, align 8
+  br label %87
 
-38:                                               ; preds = %18
+41:                                               ; preds = %18
   %.phi.trans.insert = getelementptr inbounds i8, ptr %20, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %.not164 = icmp ne i32 %7, %.pre
-  %39 = icmp sgt i32 %.pre, 0
-  %or.cond = and i1 %.not164, %39
-  br i1 %or.cond, label %40, label %84
+  %42 = icmp sgt i32 %.pre, 0
+  %or.cond = and i1 %.not164, %42
+  br i1 %or.cond, label %43, label %87
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %20, i64 56
-  %42 = load ptr, ptr %41, align 8
-  tail call void @free(ptr noundef %42) #8
-  %43 = load ptr, ptr %19, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 56
-  store ptr null, ptr %44, align 8
-  %45 = load ptr, ptr %19, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 64
-  %47 = load ptr, ptr %46, align 8
-  tail call void @free(ptr noundef %47) #8
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds i8, ptr %20, i64 56
+  %45 = load ptr, ptr %44, align 8
+  tail call void @free(ptr noundef %45) #8
+  %46 = load ptr, ptr %19, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 56
+  store ptr null, ptr %47, align 8
   %48 = load ptr, ptr %19, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 64
-  store ptr null, ptr %49, align 8
-  %50 = load ptr, ptr %19, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 72
-  %52 = load ptr, ptr %51, align 8
-  tail call void @free(ptr noundef %52) #8
+  %50 = load ptr, ptr %49, align 8
+  tail call void @free(ptr noundef %50) #8
+  %51 = load ptr, ptr %19, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 64
+  store ptr null, ptr %52, align 8
   %53 = load ptr, ptr %19, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 72
-  store ptr null, ptr %54, align 8
-  %55 = load ptr, ptr %19, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8
-  tail call void @free(ptr noundef %57) #8
+  %55 = load ptr, ptr %54, align 8
+  tail call void @free(ptr noundef %55) #8
+  %56 = load ptr, ptr %19, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 72
+  store ptr null, ptr %57, align 8
   %58 = load ptr, ptr %19, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 16
-  store ptr null, ptr %59, align 8
-  %60 = load ptr, ptr %19, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
-  %62 = load ptr, ptr %61, align 8
-  tail call void @free(ptr noundef %62) #8
+  %60 = load ptr, ptr %59, align 8
+  tail call void @free(ptr noundef %60) #8
+  %61 = load ptr, ptr %19, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  store ptr null, ptr %62, align 8
   %63 = load ptr, ptr %19, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 24
-  store ptr null, ptr %64, align 8
-  %65 = load ptr, ptr %19, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 112
-  %67 = load ptr, ptr %66, align 8
-  tail call void @free(ptr noundef %67) #8
+  %65 = load ptr, ptr %64, align 8
+  tail call void @free(ptr noundef %65) #8
+  %66 = load ptr, ptr %19, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  store ptr null, ptr %67, align 8
   %68 = load ptr, ptr %19, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 112
-  store ptr null, ptr %69, align 8
-  %70 = load ptr, ptr %19, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
-  %72 = load i32, ptr %71, align 8
-  %73 = mul nsw i32 %72, 3
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %0, i64 544
-  %76 = load i64, ptr %75, align 8
-  %77 = sub nsw i64 %76, %74
-  store i64 %77, ptr %75, align 8
-  %78 = load i32, ptr %71, align 8
-  %79 = mul nsw i32 %78, 3
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %0, i64 552
-  %82 = load i64, ptr %81, align 8
-  %83 = sub nsw i64 %82, %80
-  store i64 %83, ptr %81, align 8
-  br label %84
+  %70 = load ptr, ptr %69, align 8
+  tail call void @free(ptr noundef %70) #8
+  %71 = load ptr, ptr %19, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 112
+  store ptr null, ptr %72, align 8
+  %73 = load ptr, ptr %19, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %75 = load i32, ptr %74, align 8
+  %76 = mul nsw i32 %75, 3
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i8, ptr %0, i64 544
+  %79 = load i64, ptr %78, align 8
+  %80 = sub nsw i64 %79, %77
+  store i64 %80, ptr %78, align 8
+  %81 = load i32, ptr %74, align 8
+  %82 = mul nsw i32 %81, 3
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i8, ptr %0, i64 552
+  %85 = load i64, ptr %84, align 8
+  %86 = sub nsw i64 %85, %83
+  store i64 %86, ptr %84, align 8
+  br label %87
 
-84:                                               ; preds = %.thread, %40, %38
-  %85 = phi ptr [ %70, %40 ], [ %20, %38 ], [ %23, %.thread ]
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
-  br i1 %.not, label %87, label %89
+87:                                               ; preds = %.thread, %43, %41
+  %88 = phi ptr [ %73, %43 ], [ %20, %41 ], [ %23, %.thread ]
+  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  br i1 %.not, label %90, label %92
 
-87:                                               ; preds = %84
-  store i32 0, ptr %86, align 8
-  %88 = load ptr, ptr %19, align 8
-  store ptr null, ptr %88, align 8
-  br label %287
+90:                                               ; preds = %87
+  store i32 0, ptr %89, align 8
+  %91 = load ptr, ptr %19, align 8
+  store ptr null, ptr %91, align 8
+  br label %292
 
-89:                                               ; preds = %84
-  %90 = load i32, ptr %86, align 8
-  %91 = icmp eq i32 %7, %90
-  br i1 %91, label %92, label %134
+92:                                               ; preds = %87
+  %93 = load i32, ptr %89, align 8
+  %94 = icmp eq i32 %7, %93
+  br i1 %94, label %95, label %138
 
-92:                                               ; preds = %89
-  %93 = load ptr, ptr %85, align 8
-  %.not165 = icmp eq ptr %93, %2
-  br i1 %.not165, label %287, label %94
+95:                                               ; preds = %92
+  %96 = load ptr, ptr %88, align 8
+  %.not165 = icmp eq ptr %96, %2
+  br i1 %.not165, label %292, label %97
 
-94:                                               ; preds = %92
-  %95 = icmp eq ptr %2, null
-  br i1 %95, label %96, label %133
+97:                                               ; preds = %95
+  %98 = icmp eq ptr %2, null
+  br i1 %98, label %99, label %137
 
-96:                                               ; preds = %94
-  %97 = getelementptr inbounds i8, ptr %85, i64 56
-  %98 = load ptr, ptr %97, align 8
-  tail call void @free(ptr noundef %98) #8
-  %99 = load ptr, ptr %19, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 56
-  store ptr null, ptr %100, align 8
-  %101 = load ptr, ptr %19, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 64
-  %103 = load ptr, ptr %102, align 8
-  tail call void @free(ptr noundef %103) #8
+99:                                               ; preds = %97
+  %100 = getelementptr inbounds i8, ptr %88, i64 56
+  %101 = load ptr, ptr %100, align 8
+  tail call void @free(ptr noundef %101) #8
+  %102 = load ptr, ptr %19, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 56
+  store ptr null, ptr %103, align 8
   %104 = load ptr, ptr %19, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 64
-  store ptr null, ptr %105, align 8
-  %106 = load ptr, ptr %19, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 72
-  %108 = load ptr, ptr %107, align 8
-  tail call void @free(ptr noundef %108) #8
+  %106 = load ptr, ptr %105, align 8
+  tail call void @free(ptr noundef %106) #8
+  %107 = load ptr, ptr %19, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 64
+  store ptr null, ptr %108, align 8
   %109 = load ptr, ptr %19, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 72
-  store ptr null, ptr %110, align 8
-  %111 = load ptr, ptr %19, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 16
-  %113 = load ptr, ptr %112, align 8
-  tail call void @free(ptr noundef %113) #8
+  %111 = load ptr, ptr %110, align 8
+  tail call void @free(ptr noundef %111) #8
+  %112 = load ptr, ptr %19, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 72
+  store ptr null, ptr %113, align 8
   %114 = load ptr, ptr %19, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 16
-  store ptr null, ptr %115, align 8
-  %116 = load ptr, ptr %19, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 24
-  %118 = load ptr, ptr %117, align 8
-  tail call void @free(ptr noundef %118) #8
+  %116 = load ptr, ptr %115, align 8
+  tail call void @free(ptr noundef %116) #8
+  %117 = load ptr, ptr %19, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  store ptr null, ptr %118, align 8
   %119 = load ptr, ptr %19, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 24
-  store ptr null, ptr %120, align 8
-  %121 = load ptr, ptr %19, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 112
-  %123 = load ptr, ptr %122, align 8
-  tail call void @free(ptr noundef %123) #8
+  %121 = load ptr, ptr %120, align 8
+  tail call void @free(ptr noundef %121) #8
+  %122 = load ptr, ptr %19, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 24
+  store ptr null, ptr %123, align 8
   %124 = load ptr, ptr %19, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 112
-  store ptr null, ptr %125, align 8
-  %126 = mul nuw nsw i32 %7, 3
-  %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds i8, ptr %0, i64 544
-  %129 = load <2 x i64>, ptr %128, align 8
-  %130 = insertelement <2 x i64> poison, i64 %127, i64 0
-  %131 = shufflevector <2 x i64> %130, <2 x i64> poison, <2 x i32> zeroinitializer
-  %132 = sub nsw <2 x i64> %129, %131
-  store <2 x i64> %132, ptr %128, align 8
+  %126 = load ptr, ptr %125, align 8
+  tail call void @free(ptr noundef %126) #8
+  %127 = load ptr, ptr %19, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 112
+  store ptr null, ptr %128, align 8
+  %129 = mul nuw nsw i32 %7, 3
+  %130 = zext nneg i32 %129 to i64
+  %131 = getelementptr inbounds i8, ptr %0, i64 544
+  %132 = load i64, ptr %131, align 8
+  %133 = sub nsw i64 %132, %130
+  store i64 %133, ptr %131, align 8
+  %134 = getelementptr inbounds i8, ptr %0, i64 552
+  %135 = load i64, ptr %134, align 8
+  %136 = sub nsw i64 %135, %130
+  store i64 %136, ptr %134, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 152, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #8
-  br label %287
+  br label %292
 
-133:                                              ; preds = %94
-  store ptr %2, ptr %85, align 8
-  br label %287
+137:                                              ; preds = %97
+  store ptr %2, ptr %88, align 8
+  br label %292
 
-134:                                              ; preds = %89
-  store i32 %7, ptr %86, align 8
-  %135 = icmp eq ptr %2, null
-  br i1 %135, label %136, label %137
+138:                                              ; preds = %92
+  store i32 %7, ptr %89, align 8
+  %139 = icmp eq ptr %2, null
+  br i1 %139, label %140, label %141
 
-136:                                              ; preds = %134
+140:                                              ; preds = %138
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 169, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #8
-  br label %287
+  br label %292
 
-137:                                              ; preds = %134
-  %138 = load ptr, ptr %19, align 8
-  store ptr %2, ptr %138, align 8
-  %139 = load ptr, ptr %19, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 56
-  store ptr null, ptr %140, align 8
-  %141 = zext nneg i32 %7 to i64
-  %142 = shl nuw nsw i64 %141, 3
-  %143 = tail call noalias ptr @malloc(i64 noundef %142) #9
-  %144 = load ptr, ptr %19, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 56
-  store ptr %143, ptr %145, align 8
-  %146 = load ptr, ptr %19, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 56
-  %148 = load ptr, ptr %147, align 8
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %150, label %151
+141:                                              ; preds = %138
+  %142 = load ptr, ptr %19, align 8
+  store ptr %2, ptr %142, align 8
+  %143 = load ptr, ptr %19, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 56
+  store ptr null, ptr %144, align 8
+  %145 = zext nneg i32 %7 to i64
+  %146 = shl nuw nsw i64 %145, 3
+  %147 = tail call noalias ptr @malloc(i64 noundef %146) #9
+  %148 = load ptr, ptr %19, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 56
+  store ptr %147, ptr %149, align 8
+  %150 = load ptr, ptr %19, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 56
+  %152 = load ptr, ptr %151, align 8
+  %153 = icmp eq ptr %152, null
+  br i1 %153, label %154, label %155
 
-150:                                              ; preds = %137
+154:                                              ; preds = %141
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 180, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %287
+  br label %292
 
-151:                                              ; preds = %137
-  %152 = getelementptr inbounds i8, ptr %146, i64 64
-  store ptr null, ptr %152, align 8
-  %153 = tail call noalias ptr @malloc(i64 noundef %142) #9
-  %154 = load ptr, ptr %19, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 64
-  store ptr %153, ptr %155, align 8
-  %156 = load ptr, ptr %19, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 64
-  %158 = load ptr, ptr %157, align 8
-  %159 = icmp eq ptr %158, null
-  br i1 %159, label %160, label %165
-
-160:                                              ; preds = %151
-  %161 = getelementptr inbounds i8, ptr %156, i64 56
+155:                                              ; preds = %141
+  %156 = getelementptr inbounds i8, ptr %150, i64 64
+  store ptr null, ptr %156, align 8
+  %157 = tail call noalias ptr @malloc(i64 noundef %146) #9
+  %158 = load ptr, ptr %19, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 64
+  store ptr %157, ptr %159, align 8
+  %160 = load ptr, ptr %19, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 64
   %162 = load ptr, ptr %161, align 8
-  tail call void @free(ptr noundef %162) #8
-  %163 = load ptr, ptr %19, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 56
-  store ptr null, ptr %164, align 8
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %164, label %169
+
+164:                                              ; preds = %155
+  %165 = getelementptr inbounds i8, ptr %160, i64 56
+  %166 = load ptr, ptr %165, align 8
+  tail call void @free(ptr noundef %166) #8
+  %167 = load ptr, ptr %19, align 8
+  %168 = getelementptr inbounds i8, ptr %167, i64 56
+  store ptr null, ptr %168, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 190, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %287
+  br label %292
 
-165:                                              ; preds = %151
-  %166 = getelementptr inbounds i8, ptr %156, i64 72
-  store ptr null, ptr %166, align 8
-  %167 = tail call noalias ptr @malloc(i64 noundef %142) #9
-  %168 = load ptr, ptr %19, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 72
-  store ptr %167, ptr %169, align 8
-  %170 = load ptr, ptr %19, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 72
-  %172 = load ptr, ptr %171, align 8
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %174, label %184
-
-174:                                              ; preds = %165
-  %175 = getelementptr inbounds i8, ptr %170, i64 56
+169:                                              ; preds = %155
+  %170 = getelementptr inbounds i8, ptr %160, i64 72
+  store ptr null, ptr %170, align 8
+  %171 = tail call noalias ptr @malloc(i64 noundef %146) #9
+  %172 = load ptr, ptr %19, align 8
+  %173 = getelementptr inbounds i8, ptr %172, i64 72
+  store ptr %171, ptr %173, align 8
+  %174 = load ptr, ptr %19, align 8
+  %175 = getelementptr inbounds i8, ptr %174, i64 72
   %176 = load ptr, ptr %175, align 8
-  tail call void @free(ptr noundef %176) #8
-  %177 = load ptr, ptr %19, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 56
-  store ptr null, ptr %178, align 8
-  %179 = load ptr, ptr %19, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 64
-  %181 = load ptr, ptr %180, align 8
-  tail call void @free(ptr noundef %181) #8
-  %182 = load ptr, ptr %19, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 64
-  store ptr null, ptr %183, align 8
+  %177 = icmp eq ptr %176, null
+  br i1 %177, label %178, label %188
+
+178:                                              ; preds = %169
+  %179 = getelementptr inbounds i8, ptr %174, i64 56
+  %180 = load ptr, ptr %179, align 8
+  tail call void @free(ptr noundef %180) #8
+  %181 = load ptr, ptr %19, align 8
+  %182 = getelementptr inbounds i8, ptr %181, i64 56
+  store ptr null, ptr %182, align 8
+  %183 = load ptr, ptr %19, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 64
+  %185 = load ptr, ptr %184, align 8
+  tail call void @free(ptr noundef %185) #8
+  %186 = load ptr, ptr %19, align 8
+  %187 = getelementptr inbounds i8, ptr %186, i64 64
+  store ptr null, ptr %187, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 202, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %287
+  br label %292
 
-184:                                              ; preds = %165
-  %185 = getelementptr inbounds i8, ptr %170, i64 16
-  store ptr null, ptr %185, align 8
-  %186 = shl nuw nsw i64 %141, 2
-  %187 = tail call noalias ptr @malloc(i64 noundef %186) #9
-  %188 = load ptr, ptr %19, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 16
-  store ptr %187, ptr %189, align 8
-  %190 = load ptr, ptr %19, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 16
-  %192 = load ptr, ptr %191, align 8
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %194, label %209
-
-194:                                              ; preds = %184
-  %195 = getelementptr inbounds i8, ptr %190, i64 56
+188:                                              ; preds = %169
+  %189 = getelementptr inbounds i8, ptr %174, i64 16
+  store ptr null, ptr %189, align 8
+  %190 = shl nuw nsw i64 %145, 2
+  %191 = tail call noalias ptr @malloc(i64 noundef %190) #9
+  %192 = load ptr, ptr %19, align 8
+  %193 = getelementptr inbounds i8, ptr %192, i64 16
+  store ptr %191, ptr %193, align 8
+  %194 = load ptr, ptr %19, align 8
+  %195 = getelementptr inbounds i8, ptr %194, i64 16
   %196 = load ptr, ptr %195, align 8
-  tail call void @free(ptr noundef %196) #8
-  %197 = load ptr, ptr %19, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 56
-  store ptr null, ptr %198, align 8
-  %199 = load ptr, ptr %19, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 64
-  %201 = load ptr, ptr %200, align 8
-  tail call void @free(ptr noundef %201) #8
-  %202 = load ptr, ptr %19, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 64
-  store ptr null, ptr %203, align 8
-  %204 = load ptr, ptr %19, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 72
-  %206 = load ptr, ptr %205, align 8
-  tail call void @free(ptr noundef %206) #8
-  %207 = load ptr, ptr %19, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 72
-  store ptr null, ptr %208, align 8
+  %197 = icmp eq ptr %196, null
+  br i1 %197, label %198, label %213
+
+198:                                              ; preds = %188
+  %199 = getelementptr inbounds i8, ptr %194, i64 56
+  %200 = load ptr, ptr %199, align 8
+  tail call void @free(ptr noundef %200) #8
+  %201 = load ptr, ptr %19, align 8
+  %202 = getelementptr inbounds i8, ptr %201, i64 56
+  store ptr null, ptr %202, align 8
+  %203 = load ptr, ptr %19, align 8
+  %204 = getelementptr inbounds i8, ptr %203, i64 64
+  %205 = load ptr, ptr %204, align 8
+  tail call void @free(ptr noundef %205) #8
+  %206 = load ptr, ptr %19, align 8
+  %207 = getelementptr inbounds i8, ptr %206, i64 64
+  store ptr null, ptr %207, align 8
+  %208 = load ptr, ptr %19, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 72
+  %210 = load ptr, ptr %209, align 8
+  tail call void @free(ptr noundef %210) #8
+  %211 = load ptr, ptr %19, align 8
+  %212 = getelementptr inbounds i8, ptr %211, i64 72
+  store ptr null, ptr %212, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 216, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %287
+  br label %292
 
-209:                                              ; preds = %184
-  %210 = getelementptr inbounds i8, ptr %190, i64 24
-  store ptr null, ptr %210, align 8
-  %211 = tail call noalias ptr @malloc(i64 noundef %186) #9
-  %212 = load ptr, ptr %19, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 24
-  store ptr %211, ptr %213, align 8
-  %214 = load ptr, ptr %19, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 24
-  %216 = load ptr, ptr %215, align 8
-  %217 = icmp eq ptr %216, null
-  br i1 %217, label %218, label %238
-
-218:                                              ; preds = %209
-  %219 = getelementptr inbounds i8, ptr %214, i64 56
+213:                                              ; preds = %188
+  %214 = getelementptr inbounds i8, ptr %194, i64 24
+  store ptr null, ptr %214, align 8
+  %215 = tail call noalias ptr @malloc(i64 noundef %190) #9
+  %216 = load ptr, ptr %19, align 8
+  %217 = getelementptr inbounds i8, ptr %216, i64 24
+  store ptr %215, ptr %217, align 8
+  %218 = load ptr, ptr %19, align 8
+  %219 = getelementptr inbounds i8, ptr %218, i64 24
   %220 = load ptr, ptr %219, align 8
-  tail call void @free(ptr noundef %220) #8
-  %221 = load ptr, ptr %19, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 56
-  store ptr null, ptr %222, align 8
-  %223 = load ptr, ptr %19, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 64
-  %225 = load ptr, ptr %224, align 8
-  tail call void @free(ptr noundef %225) #8
-  %226 = load ptr, ptr %19, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 64
-  store ptr null, ptr %227, align 8
-  %228 = load ptr, ptr %19, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 72
-  %230 = load ptr, ptr %229, align 8
-  tail call void @free(ptr noundef %230) #8
-  %231 = load ptr, ptr %19, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 72
-  store ptr null, ptr %232, align 8
-  %233 = load ptr, ptr %19, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 16
-  %235 = load ptr, ptr %234, align 8
-  tail call void @free(ptr noundef %235) #8
-  %236 = load ptr, ptr %19, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 16
-  store ptr null, ptr %237, align 8
+  %221 = icmp eq ptr %220, null
+  br i1 %221, label %222, label %242
+
+222:                                              ; preds = %213
+  %223 = getelementptr inbounds i8, ptr %218, i64 56
+  %224 = load ptr, ptr %223, align 8
+  tail call void @free(ptr noundef %224) #8
+  %225 = load ptr, ptr %19, align 8
+  %226 = getelementptr inbounds i8, ptr %225, i64 56
+  store ptr null, ptr %226, align 8
+  %227 = load ptr, ptr %19, align 8
+  %228 = getelementptr inbounds i8, ptr %227, i64 64
+  %229 = load ptr, ptr %228, align 8
+  tail call void @free(ptr noundef %229) #8
+  %230 = load ptr, ptr %19, align 8
+  %231 = getelementptr inbounds i8, ptr %230, i64 64
+  store ptr null, ptr %231, align 8
+  %232 = load ptr, ptr %19, align 8
+  %233 = getelementptr inbounds i8, ptr %232, i64 72
+  %234 = load ptr, ptr %233, align 8
+  tail call void @free(ptr noundef %234) #8
+  %235 = load ptr, ptr %19, align 8
+  %236 = getelementptr inbounds i8, ptr %235, i64 72
+  store ptr null, ptr %236, align 8
+  %237 = load ptr, ptr %19, align 8
+  %238 = getelementptr inbounds i8, ptr %237, i64 16
+  %239 = load ptr, ptr %238, align 8
+  tail call void @free(ptr noundef %239) #8
+  %240 = load ptr, ptr %19, align 8
+  %241 = getelementptr inbounds i8, ptr %240, i64 16
+  store ptr null, ptr %241, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 232, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %287
+  br label %292
 
-238:                                              ; preds = %209
-  %239 = getelementptr inbounds i8, ptr %214, i64 112
-  store ptr null, ptr %239, align 8
-  %240 = tail call noalias ptr @malloc(i64 noundef %186) #9
-  %241 = load ptr, ptr %19, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 112
-  store ptr %240, ptr %242, align 8
-  %243 = load ptr, ptr %19, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 112
-  %245 = load ptr, ptr %244, align 8
-  %246 = icmp eq ptr %245, null
-  br i1 %246, label %247, label %.lr.ph.preheader
+242:                                              ; preds = %213
+  %243 = getelementptr inbounds i8, ptr %218, i64 112
+  store ptr null, ptr %243, align 8
+  %244 = tail call noalias ptr @malloc(i64 noundef %190) #9
+  %245 = load ptr, ptr %19, align 8
+  %246 = getelementptr inbounds i8, ptr %245, i64 112
+  store ptr %244, ptr %246, align 8
+  %247 = load ptr, ptr %19, align 8
+  %248 = getelementptr inbounds i8, ptr %247, i64 112
+  %249 = load ptr, ptr %248, align 8
+  %250 = icmp eq ptr %249, null
+  br i1 %250, label %251, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %238
+.lr.ph.preheader:                                 ; preds = %242
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-247:                                              ; preds = %238
-  %248 = getelementptr inbounds i8, ptr %243, i64 56
-  %249 = load ptr, ptr %248, align 8
-  tail call void @free(ptr noundef %249) #8
-  %250 = load ptr, ptr %19, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 56
-  store ptr null, ptr %251, align 8
-  %252 = load ptr, ptr %19, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 64
-  %254 = load ptr, ptr %253, align 8
-  tail call void @free(ptr noundef %254) #8
-  %255 = load ptr, ptr %19, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 64
-  store ptr null, ptr %256, align 8
-  %257 = load ptr, ptr %19, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 72
-  %259 = load ptr, ptr %258, align 8
-  tail call void @free(ptr noundef %259) #8
-  %260 = load ptr, ptr %19, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 72
-  store ptr null, ptr %261, align 8
-  %262 = load ptr, ptr %19, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 16
-  %264 = load ptr, ptr %263, align 8
-  tail call void @free(ptr noundef %264) #8
-  %265 = load ptr, ptr %19, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 16
-  store ptr null, ptr %266, align 8
-  %267 = load ptr, ptr %19, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 24
-  %269 = load ptr, ptr %268, align 8
-  tail call void @free(ptr noundef %269) #8
-  %270 = load ptr, ptr %19, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 24
-  store ptr null, ptr %271, align 8
+251:                                              ; preds = %242
+  %252 = getelementptr inbounds i8, ptr %247, i64 56
+  %253 = load ptr, ptr %252, align 8
+  tail call void @free(ptr noundef %253) #8
+  %254 = load ptr, ptr %19, align 8
+  %255 = getelementptr inbounds i8, ptr %254, i64 56
+  store ptr null, ptr %255, align 8
+  %256 = load ptr, ptr %19, align 8
+  %257 = getelementptr inbounds i8, ptr %256, i64 64
+  %258 = load ptr, ptr %257, align 8
+  tail call void @free(ptr noundef %258) #8
+  %259 = load ptr, ptr %19, align 8
+  %260 = getelementptr inbounds i8, ptr %259, i64 64
+  store ptr null, ptr %260, align 8
+  %261 = load ptr, ptr %19, align 8
+  %262 = getelementptr inbounds i8, ptr %261, i64 72
+  %263 = load ptr, ptr %262, align 8
+  tail call void @free(ptr noundef %263) #8
+  %264 = load ptr, ptr %19, align 8
+  %265 = getelementptr inbounds i8, ptr %264, i64 72
+  store ptr null, ptr %265, align 8
+  %266 = load ptr, ptr %19, align 8
+  %267 = getelementptr inbounds i8, ptr %266, i64 16
+  %268 = load ptr, ptr %267, align 8
+  tail call void @free(ptr noundef %268) #8
+  %269 = load ptr, ptr %19, align 8
+  %270 = getelementptr inbounds i8, ptr %269, i64 16
+  store ptr null, ptr %270, align 8
+  %271 = load ptr, ptr %19, align 8
+  %272 = getelementptr inbounds i8, ptr %271, i64 24
+  %273 = load ptr, ptr %272, align 8
+  tail call void @free(ptr noundef %273) #8
+  %274 = load ptr, ptr %19, align 8
+  %275 = getelementptr inbounds i8, ptr %274, i64 24
+  store ptr null, ptr %275, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 251, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %287
+  br label %292
 
 .lr.ph169.preheader:                              ; preds = %.lr.ph
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
@@ -487,39 +493,41 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %272 = load ptr, ptr %19, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 24
-  %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds i32, ptr %274, i64 %indvars.iv
-  store i32 0, ptr %275, align 4
+  %276 = load ptr, ptr %19, align 8
+  %277 = getelementptr inbounds i8, ptr %276, i64 24
+  %278 = load ptr, ptr %277, align 8
+  %279 = getelementptr inbounds i32, ptr %278, i64 %indvars.iv
+  store i32 0, ptr %279, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph169.preheader, label %.lr.ph
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %.lr.ph169
   %indvars.iv171 = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next172, %.lr.ph169 ]
-  %276 = load ptr, ptr %19, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 112
-  %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds i32, ptr %278, i64 %indvars.iv171
-  store i32 1, ptr %279, align 4
+  %280 = load ptr, ptr %19, align 8
+  %281 = getelementptr inbounds i8, ptr %280, i64 112
+  %282 = load ptr, ptr %281, align 8
+  %283 = getelementptr inbounds i32, ptr %282, i64 %indvars.iv171
+  store i32 1, ptr %283, align 4
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
   br i1 %exitcond175.not, label %._crit_edge, label %.lr.ph169
 
 ._crit_edge:                                      ; preds = %.lr.ph169
-  %280 = mul nuw nsw i32 %7, 3
-  %281 = zext nneg i32 %280 to i64
-  %282 = getelementptr inbounds i8, ptr %0, i64 544
-  %283 = load <2 x i64>, ptr %282, align 8
-  %284 = insertelement <2 x i64> poison, i64 %281, i64 0
-  %285 = shufflevector <2 x i64> %284, <2 x i64> poison, <2 x i32> zeroinitializer
-  %286 = add nsw <2 x i64> %283, %285
-  store <2 x i64> %286, ptr %282, align 8
-  br label %287
+  %284 = mul nuw nsw i32 %7, 3
+  %285 = zext nneg i32 %284 to i64
+  %286 = getelementptr inbounds i8, ptr %0, i64 544
+  %287 = load i64, ptr %286, align 8
+  %288 = add nsw i64 %287, %285
+  store i64 %288, ptr %286, align 8
+  %289 = getelementptr inbounds i8, ptr %0, i64 552
+  %290 = load i64, ptr %289, align 8
+  %291 = add nsw i64 %290, %285
+  store i64 %291, ptr %289, align 8
+  br label %292
 
-287:                                              ; preds = %92, %._crit_edge, %247, %218, %194, %174, %160, %150, %136, %133, %96, %87, %25, %17, %11, %5
-  %.0 = phi i32 [ -21, %5 ], [ -20, %25 ], [ 0, %87 ], [ -22, %96 ], [ 0, %133 ], [ -22, %136 ], [ -20, %150 ], [ -20, %160 ], [ -20, %174 ], [ -20, %194 ], [ -20, %218 ], [ -20, %247 ], [ 0, %._crit_edge ], [ -20, %17 ], [ -22, %11 ], [ 0, %92 ]
+292:                                              ; preds = %95, %._crit_edge, %251, %222, %198, %178, %164, %154, %140, %137, %99, %90, %25, %17, %11, %5
+  %.0 = phi i32 [ -21, %5 ], [ -20, %25 ], [ 0, %90 ], [ -22, %99 ], [ 0, %137 ], [ -22, %140 ], [ -20, %154 ], [ -20, %164 ], [ -20, %178 ], [ -20, %198 ], [ -20, %222 ], [ -20, %251 ], [ 0, %._crit_edge ], [ -20, %17 ], [ -22, %11 ], [ 0, %95 ]
   ret i32 %.0
 }
 
@@ -540,13 +548,13 @@ define range(i32 -21, 1) i32 @arkRootFree(ptr noundef %0) local_unnamed_addr #0 
 
 3:                                                ; preds = %1
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 279, ptr noundef nonnull @__func__.arkRootFree, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
-  br label %60
+  br label %63
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 632
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %60, label %7
+  br i1 %.not, label %63, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %6, i64 8
@@ -618,12 +626,16 @@ define range(i32 -21, 1) i32 @arkRootFree(ptr noundef %0) local_unnamed_addr #0 
   %56 = phi ptr [ %41, %11 ], [ %6, %7 ]
   tail call void @free(ptr noundef nonnull %56) #8
   %57 = getelementptr inbounds i8, ptr %0, i64 544
-  %58 = load <2 x i64>, ptr %57, align 8
-  %59 = add nsw <2 x i64> %58, <i64 -5, i64 -12>
-  store <2 x i64> %59, ptr %57, align 8
-  br label %60
+  %58 = load i64, ptr %57, align 8
+  %59 = add nsw i64 %58, -5
+  store i64 %59, ptr %57, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 552
+  %61 = load i64, ptr %60, align 8
+  %62 = add nsw i64 %61, -12
+  store i64 %62, ptr %60, align 8
+  br label %63
 
-60:                                               ; preds = %4, %55, %3
+63:                                               ; preds = %4, %55, %3
   %.0 = phi i32 [ -21, %3 ], [ 0, %55 ], [ 0, %4 ]
   ret i32 %.0
 }

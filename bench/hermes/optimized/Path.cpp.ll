@@ -3856,7 +3856,7 @@ _ZN4llvh11SmallStringILj256EED2Ev.exit:           ; preds = %cleanup, %if.then.i
 define hidden { i32, ptr } @_ZN4llvh3sys2fs11getUniqueIDENS_5TwineERNS1_8UniqueIDE(ptr noundef nonnull byval(%"class.llvh::Twine") align 8 %Path, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %Result) local_unnamed_addr #0 {
 entry:
   %PathStorage.i = alloca %"class.llvh::SmallString.11", align 8
-  %Status.i = alloca %struct.stat, align 16
+  %Status.i = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %PathStorage.i)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 16
@@ -3878,14 +3878,17 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 _ZN4llvh3sys2fsL11typeForModeEj.exit.i:           ; preds = %entry
-  %2 = load <2 x i64>, ptr %Status.i, align 16
+  %2 = load i64, ptr %Status.i, align 8
+  %st_ino.i = getelementptr inbounds i8, ptr %Status.i, i64 8
+  %3 = load i64, ptr %st_ino.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #29
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 _ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit: ; preds = %if.then.i, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i
+  %Status.sroa.14.0 = phi i64 [ %2, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 0, %if.then.i ]
+  %Status.sroa.20.0 = phi i64 [ %3, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 0, %if.then.i ]
   %retval.sroa.0.0.i = phi i32 [ 0, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ %1, %if.then.i ]
   %retval.sroa.4.0.i = phi ptr [ %call.i.i, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ %call1.i, %if.then.i ]
-  %3 = phi <2 x i64> [ %2, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ zeroinitializer, %if.then.i ]
   %4 = load ptr, ptr %PathStorage.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit, label %if.then.i.i.i.i
@@ -3901,7 +3904,9 @@ _ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit: ; preds = %_ZN4llv
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit
-  store <2 x i64> %3, ptr %Result, align 8
+  store i64 %Status.sroa.14.0, ptr %Result, align 8
+  %ref.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %Result, i64 8
+  store i64 %Status.sroa.20.0, ptr %ref.tmp.sroa.2.0..sroa_idx, align 8
   %call.i2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #29
   br label %return
 
@@ -7282,32 +7287,39 @@ switch.lookup:                                    ; preds = %if.end6
 _ZN4llvh3sys2fsL11typeForModeEj.exit:             ; preds = %if.end6, %switch.lookup
   %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 9, %if.end6 ]
   %6 = load i64, ptr %Status, align 8
+  %st_nlink = getelementptr inbounds i8, ptr %Status, i64 16
+  %7 = load i64, ptr %st_nlink, align 8
   %st_ino = getelementptr inbounds i8, ptr %Status, i64 8
+  %8 = load i64, ptr %st_ino, align 8
   %st_atim = getelementptr inbounds i8, ptr %Status, i64 72
-  %7 = load i64, ptr %st_atim, align 8
+  %9 = load i64, ptr %st_atim, align 8
   %st_mtim = getelementptr inbounds i8, ptr %Status, i64 88
-  %8 = load i64, ptr %st_mtim, align 8
+  %10 = load i64, ptr %st_mtim, align 8
   %st_uid = getelementptr inbounds i8, ptr %Status, i64 28
+  %11 = load i32, ptr %st_uid, align 4
+  %st_gid = getelementptr inbounds i8, ptr %Status, i64 32
+  %12 = load i32, ptr %st_gid, align 8
   %st_size = getelementptr inbounds i8, ptr %Status, i64 48
-  %9 = load i64, ptr %st_size, align 8
+  %13 = load i64, ptr %st_size, align 8
+  store i64 %9, ptr %Result, align 8
   %ref.tmp8.sroa.2.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 8
+  store i64 %10, ptr %ref.tmp8.sroa.2.0.Result.sroa_idx, align 8
   %ref.tmp8.sroa.3.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 16
-  %10 = load <2 x i32>, ptr %st_uid, align 4
+  store i32 %11, ptr %ref.tmp8.sroa.3.0.Result.sroa_idx, align 8
+  %ref.tmp8.sroa.4.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 20
+  store i32 %12, ptr %ref.tmp8.sroa.4.0.Result.sroa_idx, align 4
   %ref.tmp8.sroa.5.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 24
+  store i64 %13, ptr %ref.tmp8.sroa.5.0.Result.sroa_idx, align 8
   %ref.tmp8.sroa.6.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 32
-  %ref.tmp8.sroa.7.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 36
-  %ref.tmp8.sroa.8.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 40
-  %ref.tmp8.sroa.9.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 48
-  %11 = load <2 x i64>, ptr %st_ino, align 8
-  store i64 %7, ptr %Result, align 8
-  store i64 %8, ptr %ref.tmp8.sroa.2.0.Result.sroa_idx, align 8
-  store <2 x i32> %10, ptr %ref.tmp8.sroa.3.0.Result.sroa_idx, align 8
-  store i64 %9, ptr %ref.tmp8.sroa.5.0.Result.sroa_idx, align 8
   store i32 %retval.0.i, ptr %ref.tmp8.sroa.6.0.Result.sroa_idx, align 8
+  %ref.tmp8.sroa.7.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 36
   store i32 %and.i, ptr %ref.tmp8.sroa.7.0.Result.sroa_idx, align 4
+  %ref.tmp8.sroa.8.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 40
   store i64 %6, ptr %ref.tmp8.sroa.8.0.Result.sroa_idx, align 8
-  %12 = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %12, ptr %ref.tmp8.sroa.9.0.Result.sroa_idx, align 8
+  %ref.tmp8.sroa.9.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 48
+  store i64 %7, ptr %ref.tmp8.sroa.9.0.Result.sroa_idx, align 8
+  %ref.tmp8.sroa.10.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 56
+  store i64 %8, ptr %ref.tmp8.sroa.10.0.Result.sroa_idx, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #29
   br label %return
 
@@ -7906,22 +7918,25 @@ _ZN4llvh3sys2fsL11typeForModeEj.exit.i:           ; preds = %if.end6.i, %switch.
   %st_mtim.i = getelementptr inbounds i8, ptr %Status.i, i64 88
   %9 = load i64, ptr %st_mtim.i, align 8
   %st_uid.i = getelementptr inbounds i8, ptr %Status.i, i64 28
-  %10 = load <2 x i32>, ptr %st_uid.i, align 4
+  %10 = load i32, ptr %st_uid.i, align 4
+  %st_gid.i = getelementptr inbounds i8, ptr %Status.i, i64 32
+  %11 = load i32, ptr %st_gid.i, align 8
   %st_size.i = getelementptr inbounds i8, ptr %Status.i, i64 48
-  %11 = load i64, ptr %st_size.i, align 8
+  %12 = load i64, ptr %st_size.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #29
-  %12 = inttoptr i64 %9 to ptr
+  %13 = inttoptr i64 %9 to ptr
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 _ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit: ; preds = %if.then.i, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i
-  %s.sroa.8.0 = phi i64 [ %11, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 0, %if.then.i ]
+  %s.sroa.6.0 = phi i32 [ %10, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 0, %if.then.i ]
+  %s.sroa.7.0 = phi i32 [ %11, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 0, %if.then.i ]
+  %s.sroa.8.0 = phi i64 [ %12, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 0, %if.then.i ]
   %s.sroa.9.0 = phi i32 [ %retval.0.i.i, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ %spec.select, %if.then.i ]
   %s.sroa.11.0 = phi i32 [ %and.i.i, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 65535, %if.then.i ]
-  %s.sroa.5.0 = phi ptr [ %12, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ null, %if.then.i ]
+  %s.sroa.5.0 = phi ptr [ %13, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ null, %if.then.i ]
   %s.sroa.0.0 = phi i64 [ %8, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 0, %if.then.i ]
   %retval.sroa.0.0.i = phi i32 [ 0, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ %2, %if.then.i ]
   %retval.sroa.4.0.i = phi ptr [ %call.i.i, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ %call1.i, %if.then.i ]
-  %13 = phi <2 x i32> [ %10, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ zeroinitializer, %if.then.i ]
   %14 = load ptr, ptr %PathStorage.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %14, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit, label %if.then.i.i.i.i
@@ -7949,7 +7964,9 @@ if.end:                                           ; preds = %_ZN4llvh3sys2fs6sta
   store i8 %bf.clear.i, ptr %HasError.i2, align 8
   store i64 %s.sroa.0.0, ptr %agg.result, align 8
   %s.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store <2 x i32> %13, ptr %s.sroa.6.0.agg.result.sroa_idx, align 8
+  store i32 %s.sroa.6.0, ptr %s.sroa.6.0.agg.result.sroa_idx, align 8
+  %s.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 20
+  store i32 %s.sroa.7.0, ptr %s.sroa.7.0.agg.result.sroa_idx, align 4
   %s.sroa.8.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %s.sroa.8.0, ptr %s.sroa.8.0.agg.result.sroa_idx, align 8
   %s.sroa.9.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 32

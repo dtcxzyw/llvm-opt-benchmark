@@ -347,44 +347,46 @@ define internal fastcc range(i32 0, 2) i32 @color_filters_get(ptr nocapture noun
   %17 = mul nuw i16 %16, 257
   %18 = trunc i64 %13 to i16
   %19 = lshr i16 %18, 8
-  %20 = and i16 %18, 255
-  %21 = getelementptr ptr, ptr %6, i64 %10
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i64 @strtoul(ptr nocapture noundef %22, ptr noundef null, i32 noundef 16) #15
-  %24 = lshr i64 %23, 16
-  %25 = trunc i64 %24 to i16
-  %26 = and i16 %25, 255
-  %27 = mul nuw i16 %26, 257
-  %28 = trunc i64 %23 to i16
-  %29 = lshr i16 %28, 8
-  %30 = and i16 %28, 255
-  %31 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #14
-  %32 = tail call noalias ptr @g_strdup(ptr noundef %9) #15
-  store ptr %32, ptr %31, align 8
-  %33 = tail call noalias ptr @g_strdup(ptr noundef null) #15
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 16
-  store i16 %27, ptr %35, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 18
-  %36 = insertelement <2 x i16> poison, i16 %29, i64 0
-  %37 = insertelement <2 x i16> %36, i16 %30, i64 1
-  %38 = mul nuw <2 x i16> %37, <i16 257, i16 257>
-  store <2 x i16> %38, ptr %.sroa.22.0..sroa_idx.i, align 2
-  %39 = getelementptr inbounds i8, ptr %31, i64 22
-  store i16 %17, ptr %39, align 2
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 24
-  %40 = insertelement <2 x i16> poison, i16 %19, i64 0
-  %41 = insertelement <2 x i16> %40, i16 %20, i64 1
-  %42 = mul nuw <2 x i16> %41, <i16 257, i16 257>
-  store <2 x i16> %42, ptr %.sroa.2.0..sroa_idx.i, align 2
-  %43 = getelementptr inbounds i8, ptr %31, i64 28
-  store i32 1, ptr %43, align 4
-  %44 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #15
-  store ptr %44, ptr %34, align 8
-  %45 = load ptr, ptr @color_filter_list, align 8
-  %46 = tail call ptr @g_slist_append(ptr noundef %45, ptr noundef nonnull %31) #15
-  store ptr %46, ptr @color_filter_list, align 8
+  %20 = mul nuw i16 %19, 257
+  %21 = and i16 %18, 255
+  %22 = mul nuw i16 %21, 257
+  %23 = getelementptr ptr, ptr %6, i64 %10
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 16) #15
+  %26 = lshr i64 %25, 16
+  %27 = trunc i64 %26 to i16
+  %28 = and i16 %27, 255
+  %29 = mul nuw i16 %28, 257
+  %30 = trunc i64 %25 to i16
+  %31 = lshr i16 %30, 8
+  %32 = mul nuw i16 %31, 257
+  %33 = and i16 %30, 255
+  %34 = mul nuw i16 %33, 257
+  %35 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #14
+  %36 = tail call noalias ptr @g_strdup(ptr noundef %9) #15
+  store ptr %36, ptr %35, align 8
+  %37 = tail call noalias ptr @g_strdup(ptr noundef null) #15
+  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %35, i64 16
+  store i16 %29, ptr %39, align 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 18
+  store i16 %32, ptr %.sroa.22.0..sroa_idx.i, align 2
+  %.sroa.33.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 20
+  store i16 %34, ptr %.sroa.33.0..sroa_idx.i, align 4
+  %40 = getelementptr inbounds i8, ptr %35, i64 22
+  store i16 %17, ptr %40, align 2
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 24
+  store i16 %20, ptr %.sroa.2.0..sroa_idx.i, align 2
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 26
+  store i16 %22, ptr %.sroa.3.0..sroa_idx.i, align 2
+  %41 = getelementptr inbounds i8, ptr %35, i64 28
+  store i32 1, ptr %41, align 4
+  %42 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #15
+  store ptr %42, ptr %38, align 8
+  %43 = load ptr, ptr @color_filter_list, align 8
+  %44 = tail call ptr @g_slist_append(ptr noundef %43, ptr noundef nonnull %35) #15
+  store ptr %44, ptr @color_filter_list, align 8
   tail call void @g_free(ptr noundef %9) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 11
@@ -393,51 +395,51 @@ define internal fastcc range(i32 0, 2) i32 @color_filters_get(ptr nocapture noun
 color_filters_add_tmp.exit:                       ; preds = %7
   tail call void @g_strfreev(ptr noundef nonnull %4) #15
   tail call void @g_strfreev(ptr noundef nonnull %6) #15
-  %47 = tail call ptr @get_persconffile_path(ptr noundef nonnull @.str.4, i1 noundef zeroext true) #15
-  %48 = tail call noalias ptr @fopen(ptr noundef %47, ptr noundef nonnull @.str.5)
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %58
+  %45 = tail call ptr @get_persconffile_path(ptr noundef nonnull @.str.4, i1 noundef zeroext true) #15
+  %46 = tail call noalias ptr @fopen(ptr noundef %45, ptr noundef nonnull @.str.5)
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %56
 
-50:                                               ; preds = %color_filters_add_tmp.exit
-  %51 = tail call ptr @__errno_location() #17
-  %52 = load i32, ptr %51, align 4
-  %.not19 = icmp eq i32 %52, 2
-  br i1 %.not19, label %56, label %53
+48:                                               ; preds = %color_filters_add_tmp.exit
+  %49 = tail call ptr @__errno_location() #17
+  %50 = load i32, ptr %49, align 4
+  %.not19 = icmp eq i32 %50, 2
+  br i1 %.not19, label %54, label %51
 
-53:                                               ; preds = %50
-  %54 = tail call ptr @g_strerror(i32 noundef %52) #17
-  %55 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef %47, ptr noundef %54) #15
-  store ptr %55, ptr %0, align 8
-  tail call void @g_free(ptr noundef %47) #15
-  br label %68
+51:                                               ; preds = %48
+  %52 = tail call ptr @g_strerror(i32 noundef %50) #17
+  %53 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef %45, ptr noundef %52) #15
+  store ptr %53, ptr %0, align 8
+  tail call void @g_free(ptr noundef %45) #15
+  br label %66
 
-56:                                               ; preds = %50
-  tail call void @g_free(ptr noundef %47) #15
-  %57 = tail call i32 @color_filters_read_globals(ptr noundef nonnull @color_filter_list, ptr noundef %0, ptr noundef %1)
-  br label %68
+54:                                               ; preds = %48
+  tail call void @g_free(ptr noundef %45) #15
+  %55 = tail call i32 @color_filters_read_globals(ptr noundef nonnull @color_filter_list, ptr noundef %0, ptr noundef %1)
+  br label %66
 
-58:                                               ; preds = %color_filters_add_tmp.exit
-  %59 = tail call fastcc i32 @read_filters_file(ptr noundef %47, ptr noundef nonnull %48, ptr noundef nonnull @color_filter_list, ptr noundef %1)
-  %.not = icmp eq i32 %59, 0
-  br i1 %.not, label %66, label %60
+56:                                               ; preds = %color_filters_add_tmp.exit
+  %57 = tail call fastcc i32 @read_filters_file(ptr noundef %45, ptr noundef nonnull %46, ptr noundef nonnull @color_filter_list, ptr noundef %1)
+  %.not = icmp eq i32 %57, 0
+  br i1 %.not, label %64, label %58
 
-60:                                               ; preds = %58
-  %61 = tail call ptr @__errno_location() #17
-  %62 = load i32, ptr %61, align 4
-  %63 = tail call ptr @g_strerror(i32 noundef %62) #17
-  %64 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef %47, ptr noundef %63) #15
-  store ptr %64, ptr %0, align 8
-  %65 = tail call i32 @fclose(ptr noundef nonnull %48)
-  tail call void @g_free(ptr noundef %47) #15
-  br label %68
+58:                                               ; preds = %56
+  %59 = tail call ptr @__errno_location() #17
+  %60 = load i32, ptr %59, align 4
+  %61 = tail call ptr @g_strerror(i32 noundef %60) #17
+  %62 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef %45, ptr noundef %61) #15
+  store ptr %62, ptr %0, align 8
+  %63 = tail call i32 @fclose(ptr noundef nonnull %46)
+  tail call void @g_free(ptr noundef %45) #15
+  br label %66
 
-66:                                               ; preds = %58
-  %67 = tail call i32 @fclose(ptr noundef nonnull %48)
-  tail call void @g_free(ptr noundef %47) #15
-  br label %68
+64:                                               ; preds = %56
+  %65 = tail call i32 @fclose(ptr noundef nonnull %46)
+  tail call void @g_free(ptr noundef %45) #15
+  br label %66
 
-68:                                               ; preds = %66, %60, %56, %53
-  %.0 = phi i32 [ 0, %53 ], [ %57, %56 ], [ 0, %60 ], [ 1, %66 ]
+66:                                               ; preds = %64, %58, %54, %51
+  %.0 = phi i32 [ 0, %51 ], [ %55, %54 ], [ 0, %58 ], [ 1, %64 ]
   ret i32 %.0
 }
 

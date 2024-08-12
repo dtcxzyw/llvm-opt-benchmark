@@ -7597,10 +7597,14 @@ define void @"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIte
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8, !alias.scope !647, !noalias !648, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = load i64, ptr %10, align 8, !alias.scope !647, !noalias !648, !noundef !4
+  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = load i64, ptr %12, align 8, !alias.scope !647, !noalias !648, !noundef !4
   store ptr %9, ptr %0, align 8, !alias.scope !648, !noalias !647
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load <2 x i64>, ptr %10, align 8, !alias.scope !647, !noalias !648
-  store <2 x i64> %12, ptr %11, align 8, !alias.scope !648, !noalias !647
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %11, ptr %14, align 8, !alias.scope !648, !noalias !647
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %13, ptr %15, align 8, !alias.scope !648, !noalias !647
   ret void
 }
 

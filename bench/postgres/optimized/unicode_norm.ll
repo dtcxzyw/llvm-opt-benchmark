@@ -115,9 +115,10 @@ get_canonical_class.exit90:                       ; preds = %get_canonical_class
   br i1 %or.cond87, label %46, label %get_canonical_class.exit90.thread
 
 46:                                               ; preds = %get_canonical_class.exit90
-  %47 = load <2 x i32>, ptr %gep, align 4
-  %48 = shufflevector <2 x i32> %47, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %48, ptr %gep, align 4
+  %47 = load i32, ptr %gep, align 4
+  %48 = load i32, ptr %35, align 4
+  store i32 %48, ptr %gep, align 4
+  store i32 %47, ptr %35, align 4
   %49 = icmp sgt i32 %.067117, 1
   %50 = add nsw i32 %.067117, -2
   %spec.select = select i1 %49, i32 %50, i32 %.067117

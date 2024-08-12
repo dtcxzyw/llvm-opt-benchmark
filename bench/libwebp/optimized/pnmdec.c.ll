@@ -53,14 +53,17 @@ define hidden i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds i8, ptr %9, i64 20
+  store i32 0, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %9, i64 36
   store i32 -1, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %9, i64 40
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %9, i64 24
+  store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %9, i64 28
-  store <4 x i32> zeroinitializer, ptr %15, align 8
+  store i32 0, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %9, i64 32
   store i32 0, ptr %20, align 8
   br label %.lr.ph.i.i

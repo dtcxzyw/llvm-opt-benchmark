@@ -23,9 +23,12 @@ define dso_local range(i32 0, 16) i32 @mm_read_banner(ptr nocapture noundef %0, 
   %7 = alloca [64 x i8], align 16
   %8 = alloca [64 x i8], align 16
   %9 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 32, ptr %9, align 1
   %10 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 32, ptr %10, align 1
+  store i8 32, ptr %1, align 1
   %11 = getelementptr inbounds i8, ptr %1, i64 3
-  store <4 x i8> <i8 32, i8 32, i8 32, i8 71>, ptr %1, align 1
+  store i8 71, ptr %11, align 1
   %12 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 100025, ptr noundef %0)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %62, label %14

@@ -104,7 +104,7 @@ entry:
   %bits.i41 = alloca %struct.virtio_input_config, align 4
   %bits.i = alloca %struct.virtio_input_config, align 4
   %id = alloca %struct.virtio_input_config, align 4
-  %ids = alloca %struct.input_id, align 8
+  %ids = alloca %struct.input_id, align 2
   %ver = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 38, ptr noundef nonnull @__func__.VIRTIO_INPUT_HOST) #9
   %call.i39 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #9
@@ -186,17 +186,29 @@ if.then37:                                        ; preds = %if.end27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %id, i8 0, i64 136, i1 false)
   store i8 3, ptr %id, align 4
   store i8 8, ptr %size, align 2
-  %11 = load <4 x i16>, ptr %ids, align 8
-  store <4 x i16> %11, ptr %u, align 4
+  %11 = load i16, ptr %ids, align 2
+  store i16 %11, ptr %u, align 4
+  %vendor = getelementptr inbounds i8, ptr %ids, i64 2
+  %12 = load i16, ptr %vendor, align 2
+  %vendor45 = getelementptr inbounds i8, ptr %id, i64 10
+  store i16 %12, ptr %vendor45, align 2
+  %product = getelementptr inbounds i8, ptr %ids, i64 4
+  %13 = load i16, ptr %product, align 2
+  %product48 = getelementptr inbounds i8, ptr %id, i64 12
+  store i16 %13, ptr %product48, align 4
+  %version = getelementptr inbounds i8, ptr %ids, i64 6
+  %14 = load i16, ptr %version, align 2
+  %version51 = getelementptr inbounds i8, ptr %id, i64 14
+  store i16 %14, ptr %version51, align 2
   call void @virtio_input_add_config(ptr noundef %call.i39, ptr noundef nonnull %id) #9
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then37, %if.end27
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %bits.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %bits.i, i8 0, i64 136, i1 false)
-  %12 = load i32, ptr %fd, align 8
+  %15 = load i32, ptr %fd, align 8
   %u.i = getelementptr inbounds i8, ptr %bits.i, i64 8
-  %call.i40 = call i32 (i32, i64, ...) @ioctl(i32 noundef %12, i64 noundef 2153792801, ptr noundef nonnull %u.i) #9
+  %call.i40 = call i32 (i32, i64, ...) @ioctl(i32 noundef %15, i64 noundef 2153792801, ptr noundef nonnull %u.i) #9
   %cmp.i = icmp slt i32 %call.i40, 0
   br i1 %cmp.i, label %virtio_input_bits_config.exit, label %for.body.i
 
@@ -204,11 +216,11 @@ for.body.i:                                       ; preds = %if.end52, %for.body
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end52 ]
   %size.011.i = phi i32 [ %spec.select.i, %for.body.i ], [ 0, %if.end52 ]
   %arrayidx.i = getelementptr [128 x i8], ptr %u.i, i64 0, i64 %indvars.iv.i
-  %13 = load i8, ptr %arrayidx.i, align 1
-  %tobool.not.i = icmp eq i8 %13, 0
+  %16 = load i8, ptr %arrayidx.i, align 1
+  %tobool.not.i = icmp eq i8 %16, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %14 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %spec.select.i = select i1 %tobool.not.i, i32 %size.011.i, i32 %14
+  %17 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %spec.select.i = select i1 %tobool.not.i, i32 %size.011.i, i32 %17
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 96
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
@@ -231,9 +243,9 @@ virtio_input_bits_config.exit:                    ; preds = %if.end52, %for.end.
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %bits.i)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %bits.i41)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %bits.i41, i8 0, i64 136, i1 false)
-  %15 = load i32, ptr %fd, align 8
+  %18 = load i32, ptr %fd, align 8
   %u.i43 = getelementptr inbounds i8, ptr %bits.i41, i64 8
-  %call.i44 = call i32 (i32, i64, ...) @ioctl(i32 noundef %15, i64 noundef 2147632418, ptr noundef nonnull %u.i43) #9
+  %call.i44 = call i32 (i32, i64, ...) @ioctl(i32 noundef %18, i64 noundef 2147632418, ptr noundef nonnull %u.i43) #9
   %cmp.i45 = icmp slt i32 %call.i44, 0
   br i1 %cmp.i45, label %virtio_input_bits_config.exit62, label %for.body.i47
 
@@ -241,11 +253,11 @@ for.body.i47:                                     ; preds = %virtio_input_bits_c
   %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i52, %for.body.i47 ], [ 0, %virtio_input_bits_config.exit ]
   %size.011.i49 = phi i32 [ %spec.select.i53, %for.body.i47 ], [ 0, %virtio_input_bits_config.exit ]
   %arrayidx.i50 = getelementptr [128 x i8], ptr %u.i43, i64 0, i64 %indvars.iv.i48
-  %16 = load i8, ptr %arrayidx.i50, align 1
-  %tobool.not.i51 = icmp eq i8 %16, 0
+  %19 = load i8, ptr %arrayidx.i50, align 1
+  %tobool.not.i51 = icmp eq i8 %19, 0
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i48, 1
-  %17 = trunc nuw nsw i64 %indvars.iv.next.i52 to i32
-  %spec.select.i53 = select i1 %tobool.not.i51, i32 %size.011.i49, i32 %17
+  %20 = trunc nuw nsw i64 %indvars.iv.next.i52 to i32
+  %spec.select.i53 = select i1 %tobool.not.i51, i32 %size.011.i49, i32 %20
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i52, 2
   br i1 %exitcond.not.i54, label %for.end.i55, label %for.body.i47, !llvm.loop !5
 
@@ -268,9 +280,9 @@ virtio_input_bits_config.exit62:                  ; preds = %virtio_input_bits_c
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %bits.i41)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %bits.i63)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %bits.i63, i8 0, i64 136, i1 false)
-  %18 = load i32, ptr %fd, align 8
+  %21 = load i32, ptr %fd, align 8
   %u.i65 = getelementptr inbounds i8, ptr %bits.i63, i64 8
-  %call.i66 = call i32 (i32, i64, ...) @ioctl(i32 noundef %18, i64 noundef 2148025635, ptr noundef nonnull %u.i65) #9
+  %call.i66 = call i32 (i32, i64, ...) @ioctl(i32 noundef %21, i64 noundef 2148025635, ptr noundef nonnull %u.i65) #9
   %cmp.i67 = icmp slt i32 %call.i66, 0
   br i1 %cmp.i67, label %virtio_input_bits_config.exit84, label %for.body.i69
 
@@ -278,11 +290,11 @@ for.body.i69:                                     ; preds = %virtio_input_bits_c
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i74, %for.body.i69 ], [ 0, %virtio_input_bits_config.exit62 ]
   %size.011.i71 = phi i32 [ %spec.select.i75, %for.body.i69 ], [ 0, %virtio_input_bits_config.exit62 ]
   %arrayidx.i72 = getelementptr [128 x i8], ptr %u.i65, i64 0, i64 %indvars.iv.i70
-  %19 = load i8, ptr %arrayidx.i72, align 1
-  %tobool.not.i73 = icmp eq i8 %19, 0
+  %22 = load i8, ptr %arrayidx.i72, align 1
+  %tobool.not.i73 = icmp eq i8 %22, 0
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i70, 1
-  %20 = trunc nuw nsw i64 %indvars.iv.next.i74 to i32
-  %spec.select.i75 = select i1 %tobool.not.i73, i32 %size.011.i71, i32 %20
+  %23 = trunc nuw nsw i64 %indvars.iv.next.i74 to i32
+  %spec.select.i75 = select i1 %tobool.not.i73, i32 %size.011.i71, i32 %23
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i74, 8
   br i1 %exitcond.not.i76, label %for.end.i77, label %for.body.i69, !llvm.loop !5
 
@@ -305,12 +317,12 @@ virtio_input_bits_config.exit84:                  ; preds = %virtio_input_bits_c
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %bits.i63)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %bits.i85)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %bits.i85, i8 0, i64 136, i1 false)
-  %21 = load i32, ptr %fd, align 8
+  %24 = load i32, ptr %fd, align 8
   %u.i87 = getelementptr inbounds i8, ptr %bits.i85, i64 8
-  %call.i88 = call i32 (i32, i64, ...) @ioctl(i32 noundef %21, i64 noundef 2147566884, ptr noundef nonnull %u.i87) #9
+  %call.i88 = call i32 (i32, i64, ...) @ioctl(i32 noundef %24, i64 noundef 2147566884, ptr noundef nonnull %u.i87) #9
   %cmp.i89 = icmp slt i32 %call.i88, 0
-  %22 = load i8, ptr %u.i87, align 4
-  %tobool.not.i95 = icmp eq i8 %22, 0
+  %25 = load i8, ptr %u.i87, align 4
+  %tobool.not.i95 = icmp eq i8 %25, 0
   %or.cond = select i1 %cmp.i89, i1 true, i1 %tobool.not.i95
   br i1 %or.cond, label %virtio_input_bits_config.exit106, label %if.end14.i101
 
@@ -328,9 +340,9 @@ virtio_input_bits_config.exit106:                 ; preds = %virtio_input_bits_c
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %bits.i85)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %bits.i107)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %bits.i107, i8 0, i64 136, i1 false)
-  %23 = load i32, ptr %fd, align 8
+  %26 = load i32, ptr %fd, align 8
   %u.i109 = getelementptr inbounds i8, ptr %bits.i107, i64 8
-  %call.i110 = call i32 (i32, i64, ...) @ioctl(i32 noundef %23, i64 noundef 2147632421, ptr noundef nonnull %u.i109) #9
+  %call.i110 = call i32 (i32, i64, ...) @ioctl(i32 noundef %26, i64 noundef 2147632421, ptr noundef nonnull %u.i109) #9
   %cmp.i111 = icmp slt i32 %call.i110, 0
   br i1 %cmp.i111, label %virtio_input_bits_config.exit128, label %for.body.i113
 
@@ -338,11 +350,11 @@ for.body.i113:                                    ; preds = %virtio_input_bits_c
   %indvars.iv.i114 = phi i64 [ %indvars.iv.next.i118, %for.body.i113 ], [ 0, %virtio_input_bits_config.exit106 ]
   %size.011.i115 = phi i32 [ %spec.select.i119, %for.body.i113 ], [ 0, %virtio_input_bits_config.exit106 ]
   %arrayidx.i116 = getelementptr [128 x i8], ptr %u.i109, i64 0, i64 %indvars.iv.i114
-  %24 = load i8, ptr %arrayidx.i116, align 1
-  %tobool.not.i117 = icmp eq i8 %24, 0
+  %27 = load i8, ptr %arrayidx.i116, align 1
+  %tobool.not.i117 = icmp eq i8 %27, 0
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i114, 1
-  %25 = trunc nuw nsw i64 %indvars.iv.next.i118 to i32
-  %spec.select.i119 = select i1 %tobool.not.i117, i32 %size.011.i115, i32 %25
+  %28 = trunc nuw nsw i64 %indvars.iv.next.i118 to i32
+  %spec.select.i119 = select i1 %tobool.not.i117, i32 %size.011.i115, i32 %28
   %exitcond.not.i120 = icmp eq i64 %indvars.iv.next.i118, 2
   br i1 %exitcond.not.i120, label %for.end.i121, label %for.body.i113, !llvm.loop !5
 
@@ -365,9 +377,9 @@ virtio_input_bits_config.exit128:                 ; preds = %virtio_input_bits_c
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %bits.i107)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %bits.i129)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %bits.i129, i8 0, i64 136, i1 false)
-  %26 = load i32, ptr %fd, align 8
+  %29 = load i32, ptr %fd, align 8
   %u.i131 = getelementptr inbounds i8, ptr %bits.i129, i64 8
-  %call.i132 = call i32 (i32, i64, ...) @ioctl(i32 noundef %26, i64 noundef 2147632433, ptr noundef nonnull %u.i131) #9
+  %call.i132 = call i32 (i32, i64, ...) @ioctl(i32 noundef %29, i64 noundef 2147632433, ptr noundef nonnull %u.i131) #9
   %cmp.i133 = icmp slt i32 %call.i132, 0
   br i1 %cmp.i133, label %virtio_input_bits_config.exit150, label %for.body.i135
 
@@ -375,11 +387,11 @@ for.body.i135:                                    ; preds = %virtio_input_bits_c
   %indvars.iv.i136 = phi i64 [ %indvars.iv.next.i140, %for.body.i135 ], [ 0, %virtio_input_bits_config.exit128 ]
   %size.011.i137 = phi i32 [ %spec.select.i141, %for.body.i135 ], [ 0, %virtio_input_bits_config.exit128 ]
   %arrayidx.i138 = getelementptr [128 x i8], ptr %u.i131, i64 0, i64 %indvars.iv.i136
-  %27 = load i8, ptr %arrayidx.i138, align 1
-  %tobool.not.i139 = icmp eq i8 %27, 0
+  %30 = load i8, ptr %arrayidx.i138, align 1
+  %tobool.not.i139 = icmp eq i8 %30, 0
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i136, 1
-  %28 = trunc nuw nsw i64 %indvars.iv.next.i140 to i32
-  %spec.select.i141 = select i1 %tobool.not.i139, i32 %size.011.i137, i32 %28
+  %31 = trunc nuw nsw i64 %indvars.iv.next.i140 to i32
+  %spec.select.i141 = select i1 %tobool.not.i139, i32 %size.011.i137, i32 %31
   %exitcond.not.i142 = icmp eq i64 %indvars.iv.next.i140, 2
   br i1 %exitcond.not.i142, label %for.end.i143, label %for.body.i135, !llvm.loop !5
 
@@ -407,8 +419,8 @@ virtio_input_bits_config.exit150:                 ; preds = %virtio_input_bits_c
 
 for.cond.preheader:                               ; preds = %virtio_input_bits_config.exit150
   %size57 = getelementptr inbounds i8, ptr %call54, i64 2
-  %29 = load i8, ptr %size57, align 2
-  %cmp59163.not = icmp eq i8 %29, 0
+  %32 = load i8, ptr %size57, align 2
+  %cmp59163.not = icmp eq i8 %32, 0
   br i1 %cmp59163.not, label %if.end70, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -417,38 +429,44 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %size.i = getelementptr inbounds i8, ptr %config.i, i64 2
   %minimum.i = getelementptr inbounds i8, ptr %absinfo.i, i64 4
   %u.i156 = getelementptr inbounds i8, ptr %config.i, i64 8
+  %maximum.i = getelementptr inbounds i8, ptr %absinfo.i, i64 8
+  %max.i = getelementptr inbounds i8, ptr %config.i, i64 12
+  %fuzz.i = getelementptr inbounds i8, ptr %absinfo.i, i64 12
+  %fuzz9.i = getelementptr inbounds i8, ptr %config.i, i64 16
+  %flat.i = getelementptr inbounds i8, ptr %absinfo.i, i64 16
+  %flat12.i = getelementptr inbounds i8, ptr %config.i, i64 20
   %resolution.i = getelementptr inbounds i8, ptr %absinfo.i, i64 20
   %res.i = getelementptr inbounds i8, ptr %config.i, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %30 = phi i8 [ %29, %for.body.lr.ph ], [ %38, %for.inc ]
+  %33 = phi i8 [ %32, %for.body.lr.ph ], [ %44, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr [128 x i8], ptr %u61, i64 0, i64 %indvars.iv
-  %31 = load i8, ptr %arrayidx, align 1
-  %tobool62.not158 = icmp eq i8 %31, 0
+  %34 = load i8, ptr %arrayidx, align 1
+  %tobool62.not158 = icmp eq i8 %34, 0
   br i1 %tobool62.not158, label %for.inc, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %for.body
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %32 = shl nuw nsw i32 %indvars.iv.tr, 3
+  %35 = shl nuw nsw i32 %indvars.iv.tr, 3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end66
-  %byte.0161 = phi i8 [ %shr, %if.end66 ], [ %31, %while.body.preheader ]
-  %axis.0159 = phi i32 [ %inc, %if.end66 ], [ %32, %while.body.preheader ]
-  %33 = and i8 %byte.0161, 1
-  %tobool64.not = icmp eq i8 %33, 0
+  %byte.0161 = phi i8 [ %shr, %if.end66 ], [ %34, %while.body.preheader ]
+  %axis.0159 = phi i32 [ %inc, %if.end66 ], [ %35, %while.body.preheader ]
+  %36 = and i8 %byte.0161, 1
+  %tobool64.not = icmp eq i8 %36, 0
   br i1 %tobool64.not, label %if.end66, label %if.then65
 
 if.then65:                                        ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %config.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %absinfo.i)
-  %34 = load i32, ptr %fd, align 8
+  %37 = load i32, ptr %fd, align 8
   %add.i = add nuw nsw i32 %axis.0159, 64
-  %35 = or i32 %add.i, -2145893120
-  %or1.i = zext i32 %35 to i64
-  %call.i153 = call i32 (i32, i64, ...) @ioctl(i32 noundef %34, i64 noundef %or1.i, ptr noundef nonnull %absinfo.i) #9
+  %38 = or i32 %add.i, -2145893120
+  %or1.i = zext i32 %38 to i64
+  %call.i153 = call i32 (i32, i64, ...) @ioctl(i32 noundef %37, i64 noundef %or1.i, ptr noundef nonnull %absinfo.i) #9
   %cmp.i154 = icmp slt i32 %call.i153, 0
   br i1 %cmp.i154, label %virtio_input_abs_config.exit, label %if.end.i
 
@@ -458,10 +476,16 @@ if.end.i:                                         ; preds = %if.then65
   %conv3.i = trunc i32 %axis.0159 to i8
   store i8 %conv3.i, ptr %subsel.i155, align 1
   store i8 20, ptr %size.i, align 2
-  %36 = load <4 x i32>, ptr %minimum.i, align 4
-  store <4 x i32> %36, ptr %u.i156, align 4
-  %37 = load i32, ptr %resolution.i, align 4
-  store i32 %37, ptr %res.i, align 4
+  %39 = load i32, ptr %minimum.i, align 4
+  store i32 %39, ptr %u.i156, align 4
+  %40 = load i32, ptr %maximum.i, align 4
+  store i32 %40, ptr %max.i, align 4
+  %41 = load i32, ptr %fuzz.i, align 4
+  store i32 %41, ptr %fuzz9.i, align 4
+  %42 = load i32, ptr %flat.i, align 4
+  store i32 %42, ptr %flat12.i, align 4
+  %43 = load i32, ptr %resolution.i, align 4
+  store i32 %43, ptr %res.i, align 4
   %call.i.i157 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #9
   call void @virtio_input_add_config(ptr noundef %call.i.i157, ptr noundef nonnull %config.i) #9
   br label %virtio_input_abs_config.exit
@@ -482,20 +506,20 @@ for.inc.loopexit:                                 ; preds = %if.end66
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.loopexit, %for.body
-  %38 = phi i8 [ %.pre, %for.inc.loopexit ], [ %30, %for.body ]
+  %44 = phi i8 [ %.pre, %for.inc.loopexit ], [ %33, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = zext i8 %38 to i64
-  %cmp59 = icmp ult i64 %indvars.iv.next, %39
+  %45 = zext i8 %44 to i64
+  %cmp59 = icmp ult i64 %indvars.iv.next, %45
   br i1 %cmp59, label %for.body, label %if.end70, !llvm.loop !8
 
 if.end70:                                         ; preds = %for.inc, %for.cond.preheader, %virtio_input_bits_config.exit150
-  %40 = load i32, ptr %fd, align 8
-  call void @qemu_set_fd_handler(i32 noundef %40, ptr noundef nonnull @virtio_input_host_event, ptr noundef null, ptr noundef %call.i) #9
+  %46 = load i32, ptr %fd, align 8
+  call void @qemu_set_fd_handler(i32 noundef %46, ptr noundef nonnull @virtio_input_host_event, ptr noundef null, ptr noundef %call.i) #9
   br label %return
 
 err_close:                                        ; preds = %if.then24, %if.then18, %if.then12
-  %41 = load i32, ptr %fd, align 8
-  %call73 = call i32 @close(i32 noundef %41) #9
+  %47 = load i32, ptr %fd, align 8
+  %call73 = call i32 @close(i32 noundef %47) #9
   store i32 -1, ptr %fd, align 8
   br label %return
 
@@ -525,28 +549,36 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_input_host_handle_status(ptr noundef %vinput, ptr nocapture noundef readonly %event) #0 {
 entry:
-  %evdev = alloca %struct.input_event, align 16
-  %tval = alloca %struct.timeval, align 16
+  %evdev = alloca %struct.input_event, align 8
+  %tval = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vinput, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 38, ptr noundef nonnull @__func__.VIRTIO_INPUT_HOST) #9
   %call1 = call i32 @gettimeofday(ptr noundef nonnull %tval, ptr noundef null) #9
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %if.end14.sink.split
 
 if.end:                                           ; preds = %entry
-  %0 = load <2 x i64>, ptr %tval, align 16
-  store <2 x i64> %0, ptr %evdev, align 16
+  %0 = load i64, ptr %tval, align 8
+  store i64 %0, ptr %evdev, align 8
+  %tv_usec = getelementptr inbounds i8, ptr %tval, i64 8
+  %1 = load i64, ptr %tv_usec, align 8
+  %tv_usec4 = getelementptr inbounds i8, ptr %evdev, i64 8
+  store i64 %1, ptr %tv_usec4, align 8
+  %2 = load i16, ptr %event, align 4
   %type6 = getelementptr inbounds i8, ptr %evdev, i64 16
-  %1 = load <2 x i16>, ptr %event, align 4
-  store <2 x i16> %1, ptr %type6, align 16
+  store i16 %2, ptr %type6, align 8
+  %code = getelementptr inbounds i8, ptr %event, i64 2
+  %3 = load i16, ptr %code, align 2
+  %code8 = getelementptr inbounds i8, ptr %evdev, i64 18
+  store i16 %3, ptr %code8, align 2
   %value = getelementptr inbounds i8, ptr %event, i64 4
-  %2 = load i32, ptr %value, align 4
+  %4 = load i32, ptr %value, align 4
   %value10 = getelementptr inbounds i8, ptr %evdev, i64 20
-  store i32 %2, ptr %value10, align 4
+  store i32 %4, ptr %value10, align 4
   %fd = getelementptr inbounds i8, ptr %call.i, i64 600
-  %3 = load i32, ptr %fd, align 8
-  %call11 = call i64 @write(i32 noundef %3, ptr noundef nonnull %evdev, i64 noundef 24) #9
-  %4 = and i64 %call11, 4294967295
-  %cmp = icmp eq i64 %4, 4294967295
+  %5 = load i32, ptr %fd, align 8
+  %call11 = call i64 @write(i32 noundef %5, ptr noundef nonnull %evdev, i64 noundef 24) #9
+  %6 = and i64 %call11, 4294967295
+  %cmp = icmp eq i64 %6, 4294967295
   br i1 %cmp, label %if.end14.sink.split, label %if.end14
 
 if.end14.sink.split:                              ; preds = %if.end, %entry
@@ -604,18 +636,22 @@ entry:
 
 if.end.lr.ph:                                     ; preds = %entry
   %type = getelementptr inbounds i8, ptr %evdev, i64 16
+  %code = getelementptr inbounds i8, ptr %evdev, i64 18
+  %code7 = getelementptr inbounds i8, ptr %virtio, i64 2
   %value = getelementptr inbounds i8, ptr %evdev, i64 20
   %value9 = getelementptr inbounds i8, ptr %virtio, i64 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end
-  %1 = load <2 x i16>, ptr %type, align 8
-  store <2 x i16> %1, ptr %virtio, align 4
-  %2 = load i32, ptr %value, align 4
-  store i32 %2, ptr %value9, align 4
+  %1 = load i16, ptr %type, align 8
+  store i16 %1, ptr %virtio, align 4
+  %2 = load i16, ptr %code, align 2
+  store i16 %2, ptr %code7, align 2
+  %3 = load i32, ptr %value, align 4
+  store i32 %3, ptr %value9, align 4
   call void @virtio_input_send(ptr noundef %call.i, ptr noundef nonnull %virtio) #9
-  %3 = load i32, ptr %fd, align 8
-  %call1 = call i64 @read(i32 noundef %3, ptr noundef nonnull %evdev, i64 noundef 24) #9
+  %4 = load i32, ptr %fd, align 8
+  %call1 = call i64 @read(i32 noundef %4, ptr noundef nonnull %evdev, i64 noundef 24) #9
   %sext.mask = and i64 %call1, 4294967295
   %cmp.not = icmp eq i64 %sext.mask, 24
   br i1 %cmp.not, label %if.end, label %for.end

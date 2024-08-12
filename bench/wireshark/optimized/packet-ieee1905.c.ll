@@ -3065,13 +3065,13 @@ define internal noalias noundef ptr @ieee1905_fragment_temporary_key(ptr nocaptu
   %5 = getelementptr inbounds i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %29, label %8
+  br i1 %7, label %35, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 240
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %29, label %12
+  br i1 %11, label %35, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 232
@@ -3079,28 +3079,36 @@ define internal noalias noundef ptr @ieee1905_fragment_temporary_key(ptr nocaptu
   %15 = trunc i32 %1 to i8
   %16 = getelementptr inbounds i8, ptr %14, i64 52
   store i8 %15, ptr %16, align 4
-  %17 = load ptr, ptr %5, align 8
-  %18 = load <2 x i32>, ptr %4, align 8
-  store <2 x i32> %18, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %17, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 24
-  %22 = load ptr, ptr %9, align 8
-  %23 = load <2 x i32>, ptr %13, align 8
-  store <2 x i32> %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %14, i64 32
-  store ptr %22, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %14, i64 40
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 256
-  %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 48
-  store i32 %27, ptr %28, align 8
-  br label %29
+  %17 = load i32, ptr %4, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 212
+  %19 = load i32, ptr %18, align 4
+  %20 = load ptr, ptr %5, align 8
+  store i32 %17, ptr %14, align 8
+  %21 = getelementptr inbounds i8, ptr %14, i64 4
+  store i32 %19, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %14, i64 16
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %14, i64 24
+  %25 = load i32, ptr %13, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 236
+  %27 = load i32, ptr %26, align 4
+  %28 = load ptr, ptr %9, align 8
+  store i32 %25, ptr %24, align 8
+  %29 = getelementptr inbounds i8, ptr %14, i64 28
+  store i32 %27, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %14, i64 32
+  store ptr %28, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %14, i64 40
+  store ptr null, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 256
+  %33 = load i32, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %14, i64 48
+  store i32 %33, ptr %34, align 8
+  br label %35
 
-29:                                               ; preds = %3, %8, %12
+35:                                               ; preds = %3, %8, %12
   %.0 = phi ptr [ %14, %12 ], [ null, %8 ], [ null, %3 ]
   ret ptr %.0
 }

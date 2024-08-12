@@ -1052,43 +1052,43 @@ declare void @_ZN6casadi16FunctionInternalD2Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6casadi8External16any_symbol_foundEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1456) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1312
-  %3 = load <2 x ptr>, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1360
+  %3 = load ptr, ptr %2, align 8
+  %.not = icmp eq ptr %3, null
+  %4 = getelementptr inbounds i8, ptr %0, i64 1320
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1328
+  %.not1 = icmp eq ptr %5, null
+  %or.cond = select i1 %.not, i1 %.not1, i1 false
+  %6 = getelementptr inbounds i8, ptr %0, i64 1360
   %7 = load ptr, ptr %6, align 8
-  %8 = shufflevector <2 x ptr> %3, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %9 = insertelement <4 x ptr> %8, ptr %5, i64 2
-  %10 = insertelement <4 x ptr> %9, ptr %7, i64 3
-  %.fr = freeze <4 x ptr> %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 1336
-  %12 = load ptr, ptr %11, align 8
-  %.fr21 = freeze ptr %12
-  %.not4 = icmp eq ptr %.fr21, null
-  %13 = getelementptr inbounds i8, ptr %0, i64 1344
-  %14 = load ptr, ptr %13, align 8
-  %.fr20 = freeze ptr %14
-  %.not5 = icmp eq ptr %.fr20, null
-  %15 = getelementptr inbounds i8, ptr %0, i64 1352
-  %16 = load ptr, ptr %15, align 8
-  %.not6 = icmp eq ptr %16, null
-  %17 = icmp ne <4 x ptr> %.fr, zeroinitializer
-  %18 = bitcast <4 x i1> %17 to i4
-  %19 = icmp eq i4 %18, 0
-  %op.rdx = and i1 %19, %.not4
-  %20 = and i1 %op.rdx, %.not5
-  %op.rdx19 = select i1 %20, i1 %.not6, i1 false
-  br i1 %op.rdx19, label %21, label %25
+  %.not2 = icmp eq ptr %7, null
+  %or.cond9 = select i1 %or.cond, i1 %.not2, i1 false
+  %8 = getelementptr inbounds i8, ptr %0, i64 1328
+  %9 = load ptr, ptr %8, align 8
+  %.not3 = icmp eq ptr %9, null
+  %or.cond11 = select i1 %or.cond9, i1 %.not3, i1 false
+  %10 = getelementptr inbounds i8, ptr %0, i64 1336
+  %11 = load ptr, ptr %10, align 8
+  %.not4 = icmp eq ptr %11, null
+  %or.cond13 = select i1 %or.cond11, i1 %.not4, i1 false
+  %12 = getelementptr inbounds i8, ptr %0, i64 1344
+  %13 = load ptr, ptr %12, align 8
+  %.not5 = icmp eq ptr %13, null
+  %or.cond15 = select i1 %or.cond13, i1 %.not5, i1 false
+  %14 = getelementptr inbounds i8, ptr %0, i64 1352
+  %15 = load ptr, ptr %14, align 8
+  %.not6 = icmp eq ptr %15, null
+  %or.cond17 = select i1 %or.cond15, i1 %.not6, i1 false
+  br i1 %or.cond17, label %16, label %20
 
-21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 1368
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp ne ptr %23, null
-  br label %25
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds i8, ptr %0, i64 1368
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %18, null
+  br label %20
 
-25:                                               ; preds = %21, %1
-  %26 = phi i1 [ true, %1 ], [ %24, %21 ]
-  ret i1 %26
+20:                                               ; preds = %16, %1
+  %21 = phi i1 [ true, %1 ], [ %19, %16 ]
+  ret i1 %21
 }
 
 declare noundef ptr @_ZN6casadi8Importer12get_functionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
@@ -1677,72 +1677,77 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6casadi15GenericExternal16any_symbol_foundEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1496) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1312
-  %3 = load <2 x ptr>, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1360
+  %3 = load ptr, ptr %2, align 8
+  %.not.i = icmp eq ptr %3, null
+  %4 = getelementptr inbounds i8, ptr %0, i64 1320
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1328
+  %.not1.i = icmp eq ptr %5, null
+  %or.cond.i = select i1 %.not.i, i1 %.not1.i, i1 false
+  %6 = getelementptr inbounds i8, ptr %0, i64 1360
   %7 = load ptr, ptr %6, align 8
-  %8 = shufflevector <2 x ptr> %3, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %9 = insertelement <4 x ptr> %8, ptr %5, i64 2
-  %10 = insertelement <4 x ptr> %9, ptr %7, i64 3
-  %.fr = freeze <4 x ptr> %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 1336
-  %12 = load ptr, ptr %11, align 8
-  %.fr24 = freeze ptr %12
-  %.not4.i = icmp eq ptr %.fr24, null
-  %13 = getelementptr inbounds i8, ptr %0, i64 1344
-  %14 = load ptr, ptr %13, align 8
-  %.fr23 = freeze ptr %14
-  %.not5.i = icmp eq ptr %.fr23, null
-  %15 = getelementptr inbounds i8, ptr %0, i64 1352
-  %16 = load ptr, ptr %15, align 8
-  %.not6.i = icmp eq ptr %16, null
-  %17 = icmp ne <4 x ptr> %.fr, zeroinitializer
-  %18 = bitcast <4 x i1> %17 to i4
-  %19 = icmp eq i4 %18, 0
-  %op.rdx20 = and i1 %19, %.not4.i
-  %20 = and i1 %op.rdx20, %.not5.i
-  %op.rdx22 = select i1 %20, i1 %.not6.i, i1 false
-  br i1 %op.rdx22, label %21, label %_ZNK6casadi8External16any_symbol_foundEv.exit
+  %.not2.i = icmp eq ptr %7, null
+  %or.cond9.i = select i1 %or.cond.i, i1 %.not2.i, i1 false
+  %8 = getelementptr inbounds i8, ptr %0, i64 1328
+  %9 = load ptr, ptr %8, align 8
+  %.not3.i = icmp eq ptr %9, null
+  %or.cond11.i = select i1 %or.cond9.i, i1 %.not3.i, i1 false
+  %10 = getelementptr inbounds i8, ptr %0, i64 1336
+  %11 = load ptr, ptr %10, align 8
+  %.not4.i = icmp eq ptr %11, null
+  %or.cond13.i = select i1 %or.cond11.i, i1 %.not4.i, i1 false
+  %12 = getelementptr inbounds i8, ptr %0, i64 1344
+  %13 = load ptr, ptr %12, align 8
+  %.not5.i = icmp eq ptr %13, null
+  %or.cond15.i = select i1 %or.cond13.i, i1 %.not5.i, i1 false
+  %14 = getelementptr inbounds i8, ptr %0, i64 1352
+  %15 = load ptr, ptr %14, align 8
+  %.not6.i = icmp eq ptr %15, null
+  %or.cond17.i = select i1 %or.cond15.i, i1 %.not6.i, i1 false
+  br i1 %or.cond17.i, label %16, label %_ZNK6casadi8External16any_symbol_foundEv.exit
 
-21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 1368
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds i8, ptr %0, i64 1368
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
   br label %_ZNK6casadi8External16any_symbol_foundEv.exit
 
-_ZNK6casadi8External16any_symbol_foundEv.exit:    ; preds = %1, %21
-  %.not6 = phi i1 [ false, %1 ], [ %24, %21 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 1456
-  %26 = load <2 x ptr>, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 1480
-  %28 = load <2 x ptr>, ptr %27, align 8
-  %29 = shufflevector <2 x ptr> %26, <2 x ptr> %28, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %.fr25 = freeze <4 x ptr> %29
-  %30 = getelementptr inbounds i8, ptr %0, i64 488
+_ZNK6casadi8External16any_symbol_foundEv.exit:    ; preds = %1, %16
+  %.not6 = phi i1 [ false, %1 ], [ %19, %16 ]
+  %20 = getelementptr inbounds i8, ptr %0, i64 1456
+  %21 = load ptr, ptr %20, align 8
+  %.not = icmp eq ptr %21, null
+  %or.cond = select i1 %.not6, i1 %.not, i1 false
+  %22 = getelementptr inbounds i8, ptr %0, i64 1464
+  %23 = load ptr, ptr %22, align 8
+  %.not1 = icmp eq ptr %23, null
+  %or.cond9 = select i1 %or.cond, i1 %.not1, i1 false
+  %24 = getelementptr inbounds i8, ptr %0, i64 1480
+  %25 = load ptr, ptr %24, align 8
+  %.not2 = icmp eq ptr %25, null
+  %or.cond11 = select i1 %or.cond9, i1 %.not2, i1 false
+  %26 = getelementptr inbounds i8, ptr %0, i64 1488
+  %27 = load ptr, ptr %26, align 8
+  %.not3 = icmp eq ptr %27, null
+  %or.cond13 = select i1 %or.cond11, i1 %.not3, i1 false
+  %28 = getelementptr inbounds i8, ptr %0, i64 488
+  %29 = load ptr, ptr %28, align 8
+  %.not4 = icmp eq ptr %29, null
+  %or.cond15 = select i1 %or.cond13, i1 %.not4, i1 false
+  %30 = getelementptr inbounds i8, ptr %0, i64 496
   %31 = load ptr, ptr %30, align 8
-  %.fr26 = freeze ptr %31
-  %.not4 = icmp eq ptr %.fr26, null
-  %32 = getelementptr inbounds i8, ptr %0, i64 496
-  %33 = load ptr, ptr %32, align 8
-  %.not5 = icmp eq ptr %33, null
-  %34 = icmp ne <4 x ptr> %.fr25, zeroinitializer
-  %35 = bitcast <4 x i1> %34 to i4
-  %36 = icmp eq i4 %35, 0
-  %op.rdx = and i1 %36, %.not4
-  %37 = select i1 %op.rdx, i1 %.not6, i1 false
-  %op.rdx19 = select i1 %37, i1 %.not5, i1 false
-  br i1 %op.rdx19, label %38, label %42
+  %.not5 = icmp eq ptr %31, null
+  %or.cond17 = select i1 %or.cond15, i1 %.not5, i1 false
+  br i1 %or.cond17, label %32, label %36
 
-38:                                               ; preds = %_ZNK6casadi8External16any_symbol_foundEv.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 480
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp ne ptr %40, null
-  br label %42
+32:                                               ; preds = %_ZNK6casadi8External16any_symbol_foundEv.exit
+  %33 = getelementptr inbounds i8, ptr %0, i64 480
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp ne ptr %34, null
+  br label %36
 
-42:                                               ; preds = %38, %_ZNK6casadi8External16any_symbol_foundEv.exit
-  %43 = phi i1 [ true, %_ZNK6casadi8External16any_symbol_foundEv.exit ], [ %41, %38 ]
-  ret i1 %43
+36:                                               ; preds = %32, %_ZNK6casadi8External16any_symbol_foundEv.exit
+  %37 = phi i1 [ true, %_ZNK6casadi8External16any_symbol_foundEv.exit ], [ %35, %32 ]
+  ret i1 %37
 }
 
 ; Function Attrs: noreturn nounwind uwtable

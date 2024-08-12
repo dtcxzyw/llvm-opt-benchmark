@@ -179,67 +179,67 @@ declare void @lzma_end(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lzma_index_buffer_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.lzma_index_coder, align 8
-  %8 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %1, i64 1
-  %10 = insertelement <4 x ptr> %9, ptr %3, i64 2
-  %11 = insertelement <4 x ptr> %10, ptr %4, i64 3
-  %12 = icmp eq <4 x ptr> %11, zeroinitializer
-  %13 = bitcast <4 x i1> %12 to i4
-  %.not = icmp eq i4 %13, 0
-  br i1 %.not, label %14, label %index_decoder_reset.exit
+  %8 = icmp eq ptr %0, null
+  %9 = icmp eq ptr %1, null
+  %or.cond = or i1 %8, %9
+  %10 = icmp eq ptr %3, null
+  %or.cond3 = or i1 %or.cond, %10
+  %11 = icmp eq ptr %4, null
+  %or.cond5 = or i1 %or.cond3, %11
+  br i1 %or.cond5, label %index_decoder_reset.exit, label %12
 
-14:                                               ; preds = %6
-  %15 = load i64, ptr %4, align 8
-  %16 = icmp ugt i64 %15, %5
-  br i1 %16, label %index_decoder_reset.exit, label %17
+12:                                               ; preds = %6
+  %13 = load i64, ptr %4, align 8
+  %14 = icmp ugt i64 %13, %5
+  br i1 %14, label %index_decoder_reset.exit, label %15
 
-17:                                               ; preds = %14
-  %18 = load i64, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr %0, ptr %19, align 8
+15:                                               ; preds = %12
+  %16 = load i64, ptr %1, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr %0, ptr %17, align 8
   store ptr null, ptr %0, align 8
-  %20 = tail call ptr @lzma_index_init(ptr noundef %2) #5
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %20, ptr %21, align 8
-  %22 = icmp eq ptr %20, null
-  br i1 %22, label %index_decoder_reset.exit, label %23
+  %18 = tail call ptr @lzma_index_init(ptr noundef %2) #5
+  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %18, ptr %19, align 8
+  %20 = icmp eq ptr %18, null
+  br i1 %20, label %index_decoder_reset.exit, label %21
 
-23:                                               ; preds = %17
+21:                                               ; preds = %15
   store i32 0, ptr %7, align 8
-  %24 = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 32
-  store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 56
-  store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 64
-  store i32 0, ptr %28, align 8
-  %29 = load i64, ptr %4, align 8
-  %30 = call i32 @index_decode(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %5, ptr poison, ptr poison, i64 poison, i32 poison)
-  %31 = icmp eq i32 %30, 1
-  br i1 %31, label %index_decoder_reset.exit, label %32
+  %22 = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
+  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %22, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  store i64 0, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %7, i64 56
+  store i64 0, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 64
+  store i32 0, ptr %26, align 8
+  %27 = load i64, ptr %4, align 8
+  %28 = call i32 @index_decode(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %5, ptr poison, ptr poison, i64 poison, i32 poison)
+  %29 = icmp eq i32 %28, 1
+  br i1 %29, label %index_decoder_reset.exit, label %30
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %21, align 8
-  call void @lzma_index_end(ptr noundef %33, ptr noundef %2) #5
-  store i64 %29, ptr %4, align 8
-  switch i32 %30, label %.fold.split [
+30:                                               ; preds = %21
+  %31 = load ptr, ptr %19, align 8
+  call void @lzma_index_end(ptr noundef %31, ptr noundef %2) #5
+  store i64 %27, ptr %4, align 8
+  switch i32 %28, label %.fold.split [
     i32 0, label %index_decoder_reset.exit
-    i32 6, label %34
+    i32 6, label %32
   ]
 
-34:                                               ; preds = %32
-  %35 = load i64, ptr %26, align 8
-  %36 = call i64 @lzma_index_memusage(i64 noundef 1, i64 noundef %35) #5
-  store i64 %36, ptr %1, align 8
+32:                                               ; preds = %30
+  %33 = load i64, ptr %24, align 8
+  %34 = call i64 @lzma_index_memusage(i64 noundef 1, i64 noundef %33) #5
+  store i64 %34, ptr %1, align 8
   br label %index_decoder_reset.exit
 
-.fold.split:                                      ; preds = %32
+.fold.split:                                      ; preds = %30
   br label %index_decoder_reset.exit
 
-index_decoder_reset.exit:                         ; preds = %17, %34, %23, %.fold.split, %32, %6, %14
-  %.029 = phi i32 [ 11, %14 ], [ 11, %6 ], [ 6, %34 ], [ 0, %23 ], [ 9, %32 ], [ %30, %.fold.split ], [ 5, %17 ]
+index_decoder_reset.exit:                         ; preds = %15, %32, %21, %.fold.split, %30, %6, %12
+  %.029 = phi i32 [ 11, %12 ], [ 11, %6 ], [ 6, %32 ], [ 0, %21 ], [ 9, %30 ], [ %28, %.fold.split ], [ 5, %15 ]
   ret i32 %.029
 }
 

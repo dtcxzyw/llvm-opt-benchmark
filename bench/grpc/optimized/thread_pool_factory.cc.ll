@@ -73,7 +73,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental14MakeThreadPoolEm(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, i64 noundef %reserve_threads) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %thread_pool = alloca %"class.std::shared_ptr.0", align 16
+  %thread_pool = alloca %"class.std::shared_ptr.0", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.3", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11, !noalias !4
@@ -87,7 +87,7 @@ entry:
           to label %if.then.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental22WorkStealingThreadPoolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !4
 
 common.resume:                                    ; preds = %lpad1, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental22WorkStealingThreadPoolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %0, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental22WorkStealingThreadPoolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %16, %lpad1 ]
+  %common.resume.op = phi { ptr, i32 } [ %0, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental22WorkStealingThreadPoolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %17, %lpad1 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12experimental22WorkStealingThreadPoolESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %entry
@@ -99,7 +99,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN17grpc_event_engine12expe
 if.then.i.i.i:                                    ; preds = %entry
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %thread_pool, i64 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !4
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %thread_pool, align 16, !alias.scope !4
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %thread_pool, align 8, !alias.scope !4
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i, align 8
@@ -195,12 +195,15 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPoolEED2Ev.exit
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPoolEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %invoke.cont2
-  %15 = load <2 x ptr>, ptr %thread_pool, align 16
-  store <2 x ptr> %15, ptr %agg.result, align 8
+  %15 = load ptr, ptr %thread_pool, align 8
+  store ptr %15, ptr %agg.result, align 8
+  %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %16 = load ptr, ptr %_M_refcount.i.i.i, align 8
+  store ptr %16, ptr %_M_refcount.i.i10, align 8
   ret void
 
 lpad1:                                            ; preds = %_ZNSt10shared_ptrIN17grpc_event_engine12experimental8ForkableEEC2INS1_22WorkStealingThreadPoolEvEERKS_IT_E.exit
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN17grpc_event_engine12experimental8ForkableEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #13
   call void @_ZNSt10shared_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPoolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %thread_pool) #13

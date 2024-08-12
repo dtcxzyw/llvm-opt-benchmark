@@ -28013,7 +28013,7 @@ declare i32 @dissect_per_open_type_pdu_new(ptr noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca %struct.f1ap_ctx_t, align 16
+  %5 = alloca %struct.f1ap_ctx_t, align 4
   %6 = tail call ptr @wmem_file_scope() #5
   %7 = load i32, ptr @proto_f1ap, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #5
@@ -28034,22 +28034,32 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
 
 f1ap_get_private_data.exit:                       ; preds = %4, %9
   %.0.i = phi ptr [ %8, %4 ], [ %11, %9 ]
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %17 = load <4 x i32>, ptr %.0.i, align 8
-  %18 = load i32, ptr %16, align 8
-  store <4 x i32> %17, ptr %5, align 16
-  %19 = load ptr, ptr @f1ap_ies_dissector_table, align 8
-  %20 = call i32 @dissector_try_uint_new(ptr noundef %19, i32 noundef %18, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %16 = load i32, ptr %.0.i, align 8
+  store i32 %16, ptr %5, align 4
+  %17 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %18, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %21, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %24, ptr %25, align 4
+  %26 = load ptr, ptr @f1ap_ies_dissector_table, align 8
+  %27 = call i32 @dissector_try_uint_new(ptr noundef %26, i32 noundef %21, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %30, label %28
 
-21:                                               ; preds = %f1ap_get_private_data.exit
-  %22 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %23
+28:                                               ; preds = %f1ap_get_private_data.exit
+  %29 = call i32 @tvb_captured_length(ptr noundef %0) #5
+  br label %30
 
-23:                                               ; preds = %f1ap_get_private_data.exit, %21
-  %24 = phi i32 [ %22, %21 ], [ 0, %f1ap_get_private_data.exit ]
-  ret i32 %24
+30:                                               ; preds = %f1ap_get_private_data.exit, %28
+  %31 = phi i32 [ %29, %28 ], [ 0, %f1ap_get_private_data.exit ]
+  ret i32 %31
 }
 
 declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -28100,7 +28110,7 @@ define internal i32 @dissect_f1ap_T_extensionValue(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = alloca %struct.f1ap_ctx_t, align 16
+  %5 = alloca %struct.f1ap_ctx_t, align 4
   %6 = tail call ptr @wmem_file_scope() #5
   %7 = load i32, ptr @proto_f1ap, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #5
@@ -28121,22 +28131,32 @@ define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0
 
 f1ap_get_private_data.exit:                       ; preds = %4, %9
   %.0.i = phi ptr [ %8, %4 ], [ %11, %9 ]
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 12
-  %17 = load i32, ptr %16, align 4
-  %18 = load <4 x i32>, ptr %.0.i, align 8
-  store <4 x i32> %18, ptr %5, align 16
-  %19 = load ptr, ptr @f1ap_extension_dissector_table, align 8
-  %20 = call i32 @dissector_try_uint_new(ptr noundef %19, i32 noundef %17, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %16 = load i32, ptr %.0.i, align 8
+  store i32 %16, ptr %5, align 4
+  %17 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %18, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %21, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %24, ptr %25, align 4
+  %26 = load ptr, ptr @f1ap_extension_dissector_table, align 8
+  %27 = call i32 @dissector_try_uint_new(ptr noundef %26, i32 noundef %24, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %30, label %28
 
-21:                                               ; preds = %f1ap_get_private_data.exit
-  %22 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %23
+28:                                               ; preds = %f1ap_get_private_data.exit
+  %29 = call i32 @tvb_captured_length(ptr noundef %0) #5
+  br label %30
 
-23:                                               ; preds = %f1ap_get_private_data.exit, %21
-  %24 = phi i32 [ %22, %21 ], [ 0, %f1ap_get_private_data.exit ]
-  ret i32 %24
+30:                                               ; preds = %f1ap_get_private_data.exit, %28
+  %31 = phi i32 [ %29, %28 ], [ 0, %f1ap_get_private_data.exit ]
+  ret i32 %31
 }
 
 ; Function Attrs: nofree nounwind

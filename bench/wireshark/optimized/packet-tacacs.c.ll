@@ -622,13 +622,16 @@ define internal void @tacplus_pref_cb() #0 {
   br label %mkipv4_address.exit.i.i
 
 mkipv4_address.exit.i.i:                          ; preds = %24, %19
+  %.sink11.i.i.i = phi i32 [ 7, %24 ], [ 2, %19 ]
+  %.sink.i.i.i = phi i32 [ 8, %24 ], [ 4, %19 ]
   %.str.256.sink.i.i.i = phi ptr [ @.str.256, %24 ], [ %22, %19 ]
-  %25 = phi <2 x i32> [ <i32 7, i32 8>, %24 ], [ <i32 2, i32 4>, %19 ]
-  %26 = load ptr, ptr %12, align 8
-  store <2 x i32> %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %25 = load ptr, ptr %12, align 8
+  store i32 %.sink11.i.i.i, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  store i32 %.sink.i.i.i, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %.str.256.sink.i.i.i, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = getelementptr inbounds i8, ptr %25, i64 16
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %12, i64 8
   %30 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #11
@@ -643,13 +646,16 @@ mkipv4_address.exit.i.i:                          ; preds = %24, %19
   br label %mkipv4_address.exit21.i.i
 
 mkipv4_address.exit21.i.i:                        ; preds = %33, %mkipv4_address.exit.i.i
+  %.sink11.i18.i.i = phi i32 [ 7, %33 ], [ 2, %mkipv4_address.exit.i.i ]
+  %.sink.i19.i.i = phi i32 [ 8, %33 ], [ 4, %mkipv4_address.exit.i.i ]
   %.str.256.sink.i20.i.i = phi ptr [ @.str.256, %33 ], [ %31, %mkipv4_address.exit.i.i ]
-  %34 = phi <2 x i32> [ <i32 7, i32 8>, %33 ], [ <i32 2, i32 4>, %mkipv4_address.exit.i.i ]
-  %35 = load ptr, ptr %29, align 8
-  store <2 x i32> %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %34 = load ptr, ptr %29, align 8
+  store i32 %.sink11.i18.i.i, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  store i32 %.sink.i19.i.i, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %.str.256.sink.i20.i.i, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = getelementptr inbounds i8, ptr %34, i64 16
   store ptr null, ptr %37, align 8
   %38 = tail call noalias ptr @g_strdup(ptr noundef %20) #9
   %39 = getelementptr inbounds i8, ptr %12, i64 16

@@ -496,14 +496,14 @@ define void @_ZN3gmx16compileSelectionEPNS_19SelectionCollectionE(ptr noundef %0
   %9 = alloca %"class.std::shared_ptr", align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = alloca %"class.std::shared_ptr", align 16
-  %13 = alloca %"class.std::shared_ptr", align 16
-  %14 = alloca %"class.std::shared_ptr", align 16
+  %12 = alloca %"class.std::shared_ptr", align 8
+  %13 = alloca %"class.std::shared_ptr", align 8
+  %14 = alloca %"class.std::shared_ptr", align 8
   %15 = alloca %"class.std::shared_ptr", align 8
-  %16 = alloca %"class.std::shared_ptr", align 16
-  %17 = alloca %"class.std::shared_ptr", align 16
-  %18 = alloca %"class.std::shared_ptr", align 16
-  %19 = alloca %"class.std::shared_ptr", align 16
+  %16 = alloca %"class.std::shared_ptr", align 8
+  %17 = alloca %"class.std::shared_ptr", align 8
+  %18 = alloca %"class.std::shared_ptr", align 8
+  %19 = alloca %"class.std::shared_ptr", align 8
   %20 = load ptr, ptr %0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %21 = getelementptr inbounds i8, ptr %20, i64 208
@@ -570,7 +570,7 @@ define void @_ZN3gmx16compileSelectionEPNS_19SelectionCollectionE(ptr noundef %0
           cleanup
   br label %.body259
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.invoke, %2440, %2441, %2444, %2197, %2438
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.invoke, %2444, %2445, %2448, %2201, %2442
   %lpad.loopexit520 = landingpad { ptr, i32 }
           cleanup
   br label %.body259
@@ -580,7 +580,7 @@ define void @_ZN3gmx16compileSelectionEPNS_19SelectionCollectionE(ptr noundef %0
           cleanup
   br label %.body259
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %1785, %1792, %1787
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %1788, %1795, %1790
   %lpad.loopexit525 = landingpad { ptr, i32 }
           cleanup
   br label %.body259
@@ -590,7 +590,7 @@ define void @_ZN3gmx16compileSelectionEPNS_19SelectionCollectionE(ptr noundef %0
           cleanup
   br label %.body259
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %1442, %1444, %1443
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %1444, %1446, %1445
   %lpad.loopexit530 = landingpad { ptr, i32 }
           cleanup
   br label %.body259
@@ -600,7 +600,7 @@ define void @_ZN3gmx16compileSelectionEPNS_19SelectionCollectionE(ptr noundef %0
           cleanup
   br label %.body259
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.lr.ph566, %1096, %1098
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.lr.ph566, %1098, %1100
   %lpad.loopexit535 = landingpad { ptr, i32 }
           cleanup
   br label %.body259
@@ -610,12 +610,12 @@ define void @_ZN3gmx16compileSelectionEPNS_19SelectionCollectionE(ptr noundef %0
           cleanup
   br label %.body259
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.lr.ph560, %891
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.lr.ph560, %893
   %lpad.loopexit540 = landingpad { ptr, i32 }
           cleanup
   br label %.body259
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %786, %785, %784, %.lr.ph557
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %788, %787, %786, %.lr.ph557
   %lpad.loopexit542 = landingpad { ptr, i32 }
           cleanup
   br label %.body259
@@ -625,23 +625,24 @@ define void @_ZN3gmx16compileSelectionEPNS_19SelectionCollectionE(ptr noundef %0
           cleanup
   br label %.body259
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %1, %24, %29, %1381, %1724, %2090, %2094, %._crit_edge585, %2499, %2503, %._crit_edge588, %2611
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %1, %24, %29, %1383, %1727, %2094, %2098, %._crit_edge585, %2503, %2507, %._crit_edge588, %2615
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body259
 
 ._crit_edge:                                      ; preds = %46, %.preheader545
   %55 = getelementptr inbounds i8, ptr %20, i64 8
-  %56 = getelementptr inbounds i8, ptr %13, i64 8
-  %57 = getelementptr inbounds i8, ptr %20, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = load <2 x ptr>, ptr %55, align 8
-  store <2 x ptr> %59, ptr %13, align 16
-  %.not.i.i.i = icmp eq ptr %58, null
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %13, align 8
+  %57 = getelementptr inbounds i8, ptr %13, i64 8
+  %58 = getelementptr inbounds i8, ptr %20, i64 16
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %57, align 8
+  %.not.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %60
 
 60:                                               ; preds = %._crit_edge
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = getelementptr inbounds i8, ptr %59, i64 8
   %62 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %62, 0
   br i1 %.not.i.i.i.i, label %66, label %63
@@ -658,5861 +659,5871 @@ define void @_ZN3gmx16compileSelectionEPNS_19SelectionCollectionE(ptr noundef %0
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %._crit_edge, %63, %66
   invoke fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %13)
-          to label %68 unwind label %840
+          to label %68 unwind label %842
 
 68:                                               ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
-  %69 = getelementptr inbounds i8, ptr %12, i64 8
-  %70 = load <2 x ptr>, ptr %12, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %71 = load ptr, ptr %57, align 8
-  store <2 x ptr> %70, ptr %55, align 8
-  %.not.i.i.i.i68 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i68, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit, label %72
+  %69 = load ptr, ptr %12, align 8
+  %70 = getelementptr inbounds i8, ptr %12, i64 8
+  %71 = load ptr, ptr %70, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  store ptr %69, ptr %55, align 8
+  %72 = load ptr, ptr %58, align 8
+  store ptr %71, ptr %58, align 8
+  %.not.i.i.i.i68 = icmp eq ptr %72, null
+  br i1 %.not.i.i.i.i68, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit, label %73
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %71, i64 8
-  %74 = load atomic i64, ptr %73 acquire, align 8
-  %75 = icmp eq i64 %74, 4294967297
-  %76 = trunc i64 %74 to i32
-  br i1 %75, label %77, label %82
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds i8, ptr %72, i64 8
+  %75 = load atomic i64, ptr %74 acquire, align 8
+  %76 = icmp eq i64 %75, 4294967297
+  %77 = trunc i64 %75 to i32
+  br i1 %76, label %78, label %83
 
-77:                                               ; preds = %72
-  store i32 0, ptr %73, align 8
-  %78 = getelementptr inbounds i8, ptr %71, i64 12
-  store i32 0, ptr %78, align 4
-  %79 = load ptr, ptr %71, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
-  %81 = load ptr, ptr %80, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(16) %71) #17
+78:                                               ; preds = %73
+  store i32 0, ptr %74, align 8
+  %79 = getelementptr inbounds i8, ptr %72, i64 12
+  store i32 0, ptr %79, align 4
+  %80 = load ptr, ptr %72, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %82 = load ptr, ptr %81, align 8
+  call void %82(ptr noundef nonnull align 8 dereferenceable(16) %72) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
 
-82:                                               ; preds = %72
-  %83 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %83, 0
-  br i1 %.not.i.i.i.i.i, label %86, label %84
+83:                                               ; preds = %73
+  %84 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %84, 0
+  br i1 %.not.i.i.i.i.i, label %87, label %85
 
-84:                                               ; preds = %82
-  %85 = add nsw i32 %76, -1
-  store i32 %85, ptr %73, align 4
-  br label %88
+85:                                               ; preds = %83
+  %86 = add nsw i32 %77, -1
+  store i32 %86, ptr %74, align 4
+  br label %89
 
-86:                                               ; preds = %82
-  %87 = atomicrmw volatile add ptr %73, i32 -1 acq_rel, align 4
-  br label %88
+87:                                               ; preds = %83
+  %88 = atomicrmw volatile add ptr %74, i32 -1 acq_rel, align 4
+  br label %89
 
-88:                                               ; preds = %86, %84
-  %.0.i.i.i.i.i = phi i32 [ %76, %84 ], [ %87, %86 ]
-  %89 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %89, label %90, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
+89:                                               ; preds = %87, %85
+  %.0.i.i.i.i.i = phi i32 [ %77, %85 ], [ %88, %87 ]
+  %90 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %90, label %91, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
 
-90:                                               ; preds = %88
-  %91 = load ptr, ptr %71, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  call void %93(ptr noundef nonnull align 8 dereferenceable(16) %71) #17
-  %94 = getelementptr inbounds i8, ptr %71, i64 12
-  %95 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %95, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %99, label %96
+91:                                               ; preds = %89
+  %92 = load ptr, ptr %72, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %94 = load ptr, ptr %93, align 8
+  call void %94(ptr noundef nonnull align 8 dereferenceable(16) %72) #17
+  %95 = getelementptr inbounds i8, ptr %72, i64 12
+  %96 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %96, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %100, label %97
 
-96:                                               ; preds = %90
-  %97 = load i32, ptr %94, align 4
-  %98 = add nsw i32 %97, -1
-  store i32 %98, ptr %94, align 4
-  br label %101
+97:                                               ; preds = %91
+  %98 = load i32, ptr %95, align 4
+  %99 = add nsw i32 %98, -1
+  store i32 %99, ptr %95, align 4
+  br label %102
 
-99:                                               ; preds = %90
-  %100 = atomicrmw volatile add ptr %94, i32 -1 acq_rel, align 4
-  br label %101
+100:                                              ; preds = %91
+  %101 = atomicrmw volatile add ptr %95, i32 -1 acq_rel, align 4
+  br label %102
 
-101:                                              ; preds = %99, %96
-  %.0.i.i.i.i.i.i.i = phi i32 [ %97, %96 ], [ %100, %99 ]
-  %102 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %102, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
+102:                                              ; preds = %100, %97
+  %.0.i.i.i.i.i.i.i = phi i32 [ %98, %97 ], [ %101, %100 ]
+  %103 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
+  br i1 %103, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %101, %77
-  %103 = load ptr, ptr %71, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 24
-  %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(16) %71) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %102, %78
+  %104 = load ptr, ptr %72, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 24
+  %106 = load ptr, ptr %105, align 8
+  call void %106(ptr noundef nonnull align 8 dereferenceable(16) %72) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit: ; preds = %68, %88, %101, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %106 = load ptr, ptr %69, align 8
-  %.not.i.i.i69 = icmp eq ptr %106, null
-  br i1 %.not.i.i.i69, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, label %107
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit: ; preds = %68, %89, %102, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+  %107 = load ptr, ptr %70, align 8
+  %.not.i.i.i69 = icmp eq ptr %107, null
+  br i1 %.not.i.i.i69, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, label %108
 
-107:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
-  %108 = getelementptr inbounds i8, ptr %106, i64 8
-  %109 = load atomic i64, ptr %108 acquire, align 8
-  %110 = icmp eq i64 %109, 4294967297
-  %111 = trunc i64 %109 to i32
-  br i1 %110, label %112, label %117
+108:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
+  %109 = getelementptr inbounds i8, ptr %107, i64 8
+  %110 = load atomic i64, ptr %109 acquire, align 8
+  %111 = icmp eq i64 %110, 4294967297
+  %112 = trunc i64 %110 to i32
+  br i1 %111, label %113, label %118
 
-112:                                              ; preds = %107
-  store i32 0, ptr %108, align 8
-  %113 = getelementptr inbounds i8, ptr %106, i64 12
-  store i32 0, ptr %113, align 4
-  %114 = load ptr, ptr %106, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 16
-  %116 = load ptr, ptr %115, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(16) %106) #17
+113:                                              ; preds = %108
+  store i32 0, ptr %109, align 8
+  %114 = getelementptr inbounds i8, ptr %107, i64 12
+  store i32 0, ptr %114, align 4
+  %115 = load ptr, ptr %107, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 16
+  %117 = load ptr, ptr %116, align 8
+  call void %117(ptr noundef nonnull align 8 dereferenceable(16) %107) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
-117:                                              ; preds = %107
-  %118 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i70 = icmp eq i8 %118, 0
-  br i1 %.not.i.i.i.i70, label %121, label %119
+118:                                              ; preds = %108
+  %119 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i70 = icmp eq i8 %119, 0
+  br i1 %.not.i.i.i.i70, label %122, label %120
 
-119:                                              ; preds = %117
-  %120 = add nsw i32 %111, -1
-  store i32 %120, ptr %108, align 4
-  br label %123
+120:                                              ; preds = %118
+  %121 = add nsw i32 %112, -1
+  store i32 %121, ptr %109, align 4
+  br label %124
 
-121:                                              ; preds = %117
-  %122 = atomicrmw volatile add ptr %108, i32 -1 acq_rel, align 4
-  br label %123
+122:                                              ; preds = %118
+  %123 = atomicrmw volatile add ptr %109, i32 -1 acq_rel, align 4
+  br label %124
 
-123:                                              ; preds = %121, %119
-  %.0.i.i.i.i = phi i32 [ %111, %119 ], [ %122, %121 ]
-  %124 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %124, label %125, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
+124:                                              ; preds = %122, %120
+  %.0.i.i.i.i = phi i32 [ %112, %120 ], [ %123, %122 ]
+  %125 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %125, label %126, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
-125:                                              ; preds = %123
-  %126 = load ptr, ptr %106, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 16
-  %128 = load ptr, ptr %127, align 8
-  call void %128(ptr noundef nonnull align 8 dereferenceable(16) %106) #17
-  %129 = getelementptr inbounds i8, ptr %106, i64 12
-  %130 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %130, 0
-  br i1 %.not.i.i.i.i.i.i, label %134, label %131
+126:                                              ; preds = %124
+  %127 = load ptr, ptr %107, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 16
+  %129 = load ptr, ptr %128, align 8
+  call void %129(ptr noundef nonnull align 8 dereferenceable(16) %107) #17
+  %130 = getelementptr inbounds i8, ptr %107, i64 12
+  %131 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %131, 0
+  br i1 %.not.i.i.i.i.i.i, label %135, label %132
 
-131:                                              ; preds = %125
-  %132 = load i32, ptr %129, align 4
-  %133 = add nsw i32 %132, -1
-  store i32 %133, ptr %129, align 4
-  br label %136
+132:                                              ; preds = %126
+  %133 = load i32, ptr %130, align 4
+  %134 = add nsw i32 %133, -1
+  store i32 %134, ptr %130, align 4
+  br label %137
 
-134:                                              ; preds = %125
-  %135 = atomicrmw volatile add ptr %129, i32 -1 acq_rel, align 4
-  br label %136
+135:                                              ; preds = %126
+  %136 = atomicrmw volatile add ptr %130, i32 -1 acq_rel, align 4
+  br label %137
 
-136:                                              ; preds = %134, %131
-  %.0.i.i.i.i.i.i = phi i32 [ %132, %131 ], [ %135, %134 ]
-  %137 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %137, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
+137:                                              ; preds = %135, %132
+  %.0.i.i.i.i.i.i = phi i32 [ %133, %132 ], [ %136, %135 ]
+  %138 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %138, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %136, %112
-  %138 = load ptr, ptr %106, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 24
-  %140 = load ptr, ptr %139, align 8
-  call void %140(ptr noundef nonnull align 8 dereferenceable(16) %106) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %137, %113
+  %139 = load ptr, ptr %107, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 24
+  %141 = load ptr, ptr %140, align 8
+  call void %141(ptr noundef nonnull align 8 dereferenceable(16) %107) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit, %123, %136, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %141 = load ptr, ptr %56, align 8
-  %.not.i.i.i71 = icmp eq ptr %141, null
-  br i1 %.not.i.i.i71, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit77, label %142
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit, %124, %137, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+  %142 = load ptr, ptr %57, align 8
+  %.not.i.i.i71 = icmp eq ptr %142, null
+  br i1 %.not.i.i.i71, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit77, label %143
 
-142:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
-  %143 = getelementptr inbounds i8, ptr %141, i64 8
-  %144 = load atomic i64, ptr %143 acquire, align 8
-  %145 = icmp eq i64 %144, 4294967297
-  %146 = trunc i64 %144 to i32
-  br i1 %145, label %147, label %152
+143:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
+  %144 = getelementptr inbounds i8, ptr %142, i64 8
+  %145 = load atomic i64, ptr %144 acquire, align 8
+  %146 = icmp eq i64 %145, 4294967297
+  %147 = trunc i64 %145 to i32
+  br i1 %146, label %148, label %153
 
-147:                                              ; preds = %142
-  store i32 0, ptr %143, align 8
-  %148 = getelementptr inbounds i8, ptr %141, i64 12
-  store i32 0, ptr %148, align 4
-  %149 = load ptr, ptr %141, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 16
-  %151 = load ptr, ptr %150, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(16) %141) #17
+148:                                              ; preds = %143
+  store i32 0, ptr %144, align 8
+  %149 = getelementptr inbounds i8, ptr %142, i64 12
+  store i32 0, ptr %149, align 4
+  %150 = load ptr, ptr %142, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 16
+  %152 = load ptr, ptr %151, align 8
+  call void %152(ptr noundef nonnull align 8 dereferenceable(16) %142) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76
 
-152:                                              ; preds = %142
-  %153 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i72 = icmp eq i8 %153, 0
-  br i1 %.not.i.i.i.i72, label %156, label %154
+153:                                              ; preds = %143
+  %154 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i72 = icmp eq i8 %154, 0
+  br i1 %.not.i.i.i.i72, label %157, label %155
 
-154:                                              ; preds = %152
-  %155 = add nsw i32 %146, -1
-  store i32 %155, ptr %143, align 4
-  br label %158
+155:                                              ; preds = %153
+  %156 = add nsw i32 %147, -1
+  store i32 %156, ptr %144, align 4
+  br label %159
 
-156:                                              ; preds = %152
-  %157 = atomicrmw volatile add ptr %143, i32 -1 acq_rel, align 4
-  br label %158
+157:                                              ; preds = %153
+  %158 = atomicrmw volatile add ptr %144, i32 -1 acq_rel, align 4
+  br label %159
 
-158:                                              ; preds = %156, %154
-  %.0.i.i.i.i73 = phi i32 [ %146, %154 ], [ %157, %156 ]
-  %159 = icmp eq i32 %.0.i.i.i.i73, 1
-  br i1 %159, label %160, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit77
+159:                                              ; preds = %157, %155
+  %.0.i.i.i.i73 = phi i32 [ %147, %155 ], [ %158, %157 ]
+  %160 = icmp eq i32 %.0.i.i.i.i73, 1
+  br i1 %160, label %161, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit77
 
-160:                                              ; preds = %158
-  %161 = load ptr, ptr %141, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 16
-  %163 = load ptr, ptr %162, align 8
-  call void %163(ptr noundef nonnull align 8 dereferenceable(16) %141) #17
-  %164 = getelementptr inbounds i8, ptr %141, i64 12
-  %165 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i74 = icmp eq i8 %165, 0
-  br i1 %.not.i.i.i.i.i.i74, label %169, label %166
+161:                                              ; preds = %159
+  %162 = load ptr, ptr %142, align 8
+  %163 = getelementptr inbounds i8, ptr %162, i64 16
+  %164 = load ptr, ptr %163, align 8
+  call void %164(ptr noundef nonnull align 8 dereferenceable(16) %142) #17
+  %165 = getelementptr inbounds i8, ptr %142, i64 12
+  %166 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i74 = icmp eq i8 %166, 0
+  br i1 %.not.i.i.i.i.i.i74, label %170, label %167
 
-166:                                              ; preds = %160
-  %167 = load i32, ptr %164, align 4
-  %168 = add nsw i32 %167, -1
-  store i32 %168, ptr %164, align 4
-  br label %171
+167:                                              ; preds = %161
+  %168 = load i32, ptr %165, align 4
+  %169 = add nsw i32 %168, -1
+  store i32 %169, ptr %165, align 4
+  br label %172
 
-169:                                              ; preds = %160
-  %170 = atomicrmw volatile add ptr %164, i32 -1 acq_rel, align 4
-  br label %171
+170:                                              ; preds = %161
+  %171 = atomicrmw volatile add ptr %165, i32 -1 acq_rel, align 4
+  br label %172
 
-171:                                              ; preds = %169, %166
-  %.0.i.i.i.i.i.i75 = phi i32 [ %167, %166 ], [ %170, %169 ]
-  %172 = icmp eq i32 %.0.i.i.i.i.i.i75, 1
-  br i1 %172, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit77
+172:                                              ; preds = %170, %167
+  %.0.i.i.i.i.i.i75 = phi i32 [ %168, %167 ], [ %171, %170 ]
+  %173 = icmp eq i32 %.0.i.i.i.i.i.i75, 1
+  br i1 %173, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit77
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76: ; preds = %171, %147
-  %173 = load ptr, ptr %141, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 24
-  %175 = load ptr, ptr %174, align 8
-  call void %175(ptr noundef nonnull align 8 dereferenceable(16) %141) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76: ; preds = %172, %148
+  %174 = load ptr, ptr %142, align 8
+  %175 = getelementptr inbounds i8, ptr %174, i64 24
+  %176 = load ptr, ptr %175, align 8
+  call void %176(ptr noundef nonnull align 8 dereferenceable(16) %142) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit77
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit77: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, %158, %171, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76
-  %176 = load ptr, ptr %55, align 8
-  store ptr %176, ptr %15, align 8
-  %177 = getelementptr inbounds i8, ptr %15, i64 8
-  %178 = load ptr, ptr %57, align 8
-  store ptr %178, ptr %177, align 8
-  %.not.i.i.i78 = icmp eq ptr %178, null
-  br i1 %.not.i.i.i78, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread, label %180
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit77: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, %159, %172, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76
+  %177 = load ptr, ptr %55, align 8
+  store ptr %177, ptr %15, align 8
+  %178 = getelementptr inbounds i8, ptr %15, i64 8
+  %179 = load ptr, ptr %58, align 8
+  store ptr %179, ptr %178, align 8
+  %.not.i.i.i78 = icmp eq ptr %179, null
+  br i1 %.not.i.i.i78, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread, label %181
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit77
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !7
-  store ptr %176, ptr %5, align 8, !noalias !7
-  %179 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr null, ptr %179, align 8, !noalias !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !7
+  store ptr %177, ptr %5, align 8, !noalias !7
+  %180 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr null, ptr %180, align 8, !noalias !7
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i
 
-180:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit77
-  %181 = getelementptr inbounds i8, ptr %178, i64 8
-  %182 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i79 = icmp eq i8 %182, 0
-  %183 = getelementptr inbounds i8, ptr %5, i64 8
+181:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit77
+  %182 = getelementptr inbounds i8, ptr %179, i64 8
+  %183 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i79 = icmp eq i8 %183, 0
+  %184 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %.not.i.i.i.i79, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread626
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread626: ; preds = %180
-  %184 = load i32, ptr %181, align 4
-  %185 = add nsw i32 %184, 1
-  store i32 %185, ptr %181, align 4
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread626: ; preds = %181
+  %185 = load i32, ptr %182, align 4
+  %186 = add nsw i32 %185, 1
+  store i32 %186, ptr %182, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !10
-  store ptr %176, ptr %5, align 8, !noalias !10
-  store ptr %178, ptr %183, align 8, !noalias !10
-  br label %187
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !10
+  store ptr %177, ptr %5, align 8, !noalias !10
+  store ptr %179, ptr %184, align 8, !noalias !10
+  br label %188
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80: ; preds = %180
-  %186 = atomicrmw volatile add ptr %181, i32 1 acq_rel, align 4
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80: ; preds = %181
+  %187 = atomicrmw volatile add ptr %182, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %15, align 8, !noalias !12
-  %.pre597 = load ptr, ptr %177, align 8, !noalias !12
+  %.pre597 = load ptr, ptr %178, align 8, !noalias !12
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !alias.scope !12
   store ptr %.pre, ptr %5, align 8, !noalias !12
-  store ptr %.pre597, ptr %183, align 8, !noalias !12
+  store ptr %.pre597, ptr %184, align 8, !noalias !12
   %.not.i.i.i.i81 = icmp eq ptr %.pre597, null
-  br i1 %.not.i.i.i.i81, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i, label %187
+  br i1 %.not.i.i.i.i81, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i, label %188
 
-187:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread626, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80
-  %188 = phi ptr [ %176, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread626 ], [ %.pre, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80 ]
-  %189 = phi ptr [ %178, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread626 ], [ %.pre597, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80 ]
-  %190 = getelementptr inbounds i8, ptr %189, i64 8
-  %191 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i.i82 = icmp eq i8 %191, 0
-  br i1 %.not.i.i.i.i.i82, label %195, label %192
+188:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread626, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80
+  %189 = phi ptr [ %177, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread626 ], [ %.pre, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80 ]
+  %190 = phi ptr [ %179, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread626 ], [ %.pre597, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80 ]
+  %191 = getelementptr inbounds i8, ptr %190, i64 8
+  %192 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i.i82 = icmp eq i8 %192, 0
+  br i1 %.not.i.i.i.i.i82, label %196, label %193
 
-192:                                              ; preds = %187
-  %193 = load i32, ptr %190, align 4, !noalias !12
-  %194 = add nsw i32 %193, 1
-  store i32 %194, ptr %190, align 4, !noalias !12
+193:                                              ; preds = %188
+  %194 = load i32, ptr %191, align 4, !noalias !12
+  %195 = add nsw i32 %194, 1
+  store i32 %195, ptr %191, align 4, !noalias !12
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i
 
-195:                                              ; preds = %187
-  %196 = atomicrmw volatile add ptr %190, i32 1 acq_rel, align 4, !noalias !12
+196:                                              ; preds = %188
+  %197 = atomicrmw volatile add ptr %191, i32 1 acq_rel, align 4, !noalias !12
   %.pre.i = load ptr, ptr %5, align 8, !noalias !12
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread, %195, %192, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80
-  %197 = phi ptr [ %183, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80 ], [ %183, %192 ], [ %183, %195 ], [ %179, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread ]
-  %198 = phi ptr [ %.pre, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80 ], [ %188, %192 ], [ %.pre.i, %195 ], [ %176, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread ]
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread, %196, %193, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80
+  %198 = phi ptr [ %184, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80 ], [ %184, %193 ], [ %184, %196 ], [ %180, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread ]
+  %199 = phi ptr [ %.pre, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80 ], [ %189, %193 ], [ %.pre.i, %196 ], [ %177, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit80.thread ]
   store i32 0, ptr %6, align 4, !noalias !12
-  %.not109.i = icmp eq ptr %198, null
+  %.not109.i = icmp eq ptr %199, null
   br i1 %.not109.i, label %._crit_edge111.i, label %.lr.ph110.i
 
 .lr.ph110.i:                                      ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i
-  %199 = getelementptr inbounds i8, ptr %7, i64 8
-  %200 = getelementptr inbounds i8, ptr %14, i64 8
-  br label %201
+  %200 = getelementptr inbounds i8, ptr %7, i64 8
+  %201 = getelementptr inbounds i8, ptr %14, i64 8
+  br label %202
 
-201:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i, %.lr.ph110.i
-  %202 = phi ptr [ %198, %.lr.ph110.i ], [ %590, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i ]
+202:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i, %.lr.ph110.i
+  %203 = phi ptr [ %199, %.lr.ph110.i ], [ %591, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i ]
   invoke fastcc void @_ZL26extract_item_subselectionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPi(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6)
-          to label %203 unwind label %.body, !noalias !12
+          to label %204 unwind label %.body, !noalias !12
 
-203:                                              ; preds = %201
-  %204 = load ptr, ptr %7, align 8, !noalias !12
-  %.not101.i = icmp eq ptr %204, null
-  %205 = load ptr, ptr %14, align 16, !alias.scope !12
-  %.not102.i = icmp eq ptr %205, null
-  br i1 %.not101.i, label %410, label %206
+204:                                              ; preds = %202
+  %205 = load ptr, ptr %7, align 8, !noalias !12
+  %.not101.i = icmp eq ptr %205, null
+  %206 = load ptr, ptr %14, align 8, !alias.scope !12
+  %.not102.i = icmp eq ptr %206, null
+  br i1 %.not101.i, label %411, label %207
 
-206:                                              ; preds = %203
-  br i1 %.not102.i, label %207, label %255
+207:                                              ; preds = %204
+  br i1 %.not102.i, label %208, label %256
 
-207:                                              ; preds = %206
-  store ptr %204, ptr %14, align 16, !alias.scope !12
-  %208 = load ptr, ptr %199, align 8, !noalias !12
-  %209 = load ptr, ptr %200, align 8, !alias.scope !12
-  %.not.i.i.i2.i = icmp eq ptr %208, %209
-  br i1 %.not.i.i.i2.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i, label %210
+208:                                              ; preds = %207
+  store ptr %205, ptr %14, align 8, !alias.scope !12
+  %209 = load ptr, ptr %200, align 8, !noalias !12
+  %210 = load ptr, ptr %201, align 8, !alias.scope !12
+  %.not.i.i.i2.i = icmp eq ptr %209, %210
+  br i1 %.not.i.i.i2.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i, label %211
 
-210:                                              ; preds = %207
-  %.not7.i.i.i.i = icmp eq ptr %208, null
-  br i1 %.not7.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i, label %211
+211:                                              ; preds = %208
+  %.not7.i.i.i.i = icmp eq ptr %209, null
+  br i1 %.not7.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i, label %212
 
-211:                                              ; preds = %210
-  %212 = getelementptr inbounds i8, ptr %208, i64 8
-  %213 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i3.i = icmp eq i8 %213, 0
-  br i1 %.not.i.i.i.i3.i, label %217, label %214
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %209, i64 8
+  %214 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i3.i = icmp eq i8 %214, 0
+  br i1 %.not.i.i.i.i3.i, label %218, label %215
 
-214:                                              ; preds = %211
-  %215 = load i32, ptr %212, align 4, !noalias !12
-  %216 = add nsw i32 %215, 1
-  store i32 %216, ptr %212, align 4, !noalias !12
+215:                                              ; preds = %212
+  %216 = load i32, ptr %213, align 4, !noalias !12
+  %217 = add nsw i32 %216, 1
+  store i32 %217, ptr %213, align 4, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
-217:                                              ; preds = %211
-  %218 = atomicrmw volatile add ptr %212, i32 1 acq_rel, align 4, !noalias !12
-  %.pr.i.i.i.pre.i = load ptr, ptr %200, align 8, !alias.scope !12
+218:                                              ; preds = %212
+  %219 = atomicrmw volatile add ptr %213, i32 1 acq_rel, align 4, !noalias !12
+  %.pr.i.i.i.pre.i = load ptr, ptr %201, align 8, !alias.scope !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %217, %214, %210
-  %219 = phi ptr [ %209, %210 ], [ %.pr.i.i.i.pre.i, %217 ], [ %209, %214 ]
-  %.not8.i.i.i.i = icmp eq ptr %219, null
-  br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %220
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %218, %215, %211
+  %220 = phi ptr [ %210, %211 ], [ %.pr.i.i.i.pre.i, %218 ], [ %210, %215 ]
+  %.not8.i.i.i.i = icmp eq ptr %220, null
+  br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %221
 
-220:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
-  %221 = getelementptr inbounds i8, ptr %219, i64 8
-  %222 = load atomic i64, ptr %221 acquire, align 8, !noalias !12
-  %223 = icmp eq i64 %222, 4294967297
-  %224 = trunc i64 %222 to i32
-  br i1 %223, label %225, label %230
+221:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
+  %222 = getelementptr inbounds i8, ptr %220, i64 8
+  %223 = load atomic i64, ptr %222 acquire, align 8, !noalias !12
+  %224 = icmp eq i64 %223, 4294967297
+  %225 = trunc i64 %223 to i32
+  br i1 %224, label %226, label %231
 
-225:                                              ; preds = %220
-  store i32 0, ptr %221, align 8, !noalias !12
-  %226 = getelementptr inbounds i8, ptr %219, i64 12
-  store i32 0, ptr %226, align 4, !noalias !12
-  %227 = load ptr, ptr %219, align 8, !noalias !12
-  %228 = getelementptr inbounds i8, ptr %227, i64 16
-  %229 = load ptr, ptr %228, align 8, !noalias !12
-  call void %229(ptr noundef nonnull align 8 dereferenceable(16) %219) #17, !noalias !12
+226:                                              ; preds = %221
+  store i32 0, ptr %222, align 8, !noalias !12
+  %227 = getelementptr inbounds i8, ptr %220, i64 12
+  store i32 0, ptr %227, align 4, !noalias !12
+  %228 = load ptr, ptr %220, align 8, !noalias !12
+  %229 = getelementptr inbounds i8, ptr %228, i64 16
+  %230 = load ptr, ptr %229, align 8, !noalias !12
+  call void %230(ptr noundef nonnull align 8 dereferenceable(16) %220) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i86
 
-230:                                              ; preds = %220
-  %231 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i9.i.i.i.i = icmp eq i8 %231, 0
-  br i1 %.not.i9.i.i.i.i, label %234, label %232
+231:                                              ; preds = %221
+  %232 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i9.i.i.i.i = icmp eq i8 %232, 0
+  br i1 %.not.i9.i.i.i.i, label %235, label %233
 
-232:                                              ; preds = %230
-  %233 = add nsw i32 %224, -1
-  store i32 %233, ptr %221, align 4, !noalias !12
-  br label %236
+233:                                              ; preds = %231
+  %234 = add nsw i32 %225, -1
+  store i32 %234, ptr %222, align 4, !noalias !12
+  br label %237
 
-234:                                              ; preds = %230
-  %235 = atomicrmw volatile add ptr %221, i32 -1 acq_rel, align 4, !noalias !12
-  br label %236
+235:                                              ; preds = %231
+  %236 = atomicrmw volatile add ptr %222, i32 -1 acq_rel, align 4, !noalias !12
+  br label %237
 
-236:                                              ; preds = %234, %232
-  %.0.i.i.i.i.i83 = phi i32 [ %224, %232 ], [ %235, %234 ]
-  %237 = icmp eq i32 %.0.i.i.i.i.i83, 1
-  br i1 %237, label %238, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i
+237:                                              ; preds = %235, %233
+  %.0.i.i.i.i.i83 = phi i32 [ %225, %233 ], [ %236, %235 ]
+  %238 = icmp eq i32 %.0.i.i.i.i.i83, 1
+  br i1 %238, label %239, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i
 
-238:                                              ; preds = %236
-  %239 = load ptr, ptr %219, align 8, !noalias !12
-  %240 = getelementptr inbounds i8, ptr %239, i64 16
-  %241 = load ptr, ptr %240, align 8, !noalias !12
-  call void %241(ptr noundef nonnull align 8 dereferenceable(16) %219) #17, !noalias !12
-  %242 = getelementptr inbounds i8, ptr %219, i64 12
-  %243 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i.i.i.i84 = icmp eq i8 %243, 0
-  br i1 %.not.i.i.i.i.i.i.i84, label %247, label %244
+239:                                              ; preds = %237
+  %240 = load ptr, ptr %220, align 8, !noalias !12
+  %241 = getelementptr inbounds i8, ptr %240, i64 16
+  %242 = load ptr, ptr %241, align 8, !noalias !12
+  call void %242(ptr noundef nonnull align 8 dereferenceable(16) %220) #17, !noalias !12
+  %243 = getelementptr inbounds i8, ptr %220, i64 12
+  %244 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i.i.i.i84 = icmp eq i8 %244, 0
+  br i1 %.not.i.i.i.i.i.i.i84, label %248, label %245
 
-244:                                              ; preds = %238
-  %245 = load i32, ptr %242, align 4, !noalias !12
-  %246 = add nsw i32 %245, -1
-  store i32 %246, ptr %242, align 4, !noalias !12
-  br label %249
+245:                                              ; preds = %239
+  %246 = load i32, ptr %243, align 4, !noalias !12
+  %247 = add nsw i32 %246, -1
+  store i32 %247, ptr %243, align 4, !noalias !12
+  br label %250
 
-247:                                              ; preds = %238
-  %248 = atomicrmw volatile add ptr %242, i32 -1 acq_rel, align 4, !noalias !12
-  br label %249
+248:                                              ; preds = %239
+  %249 = atomicrmw volatile add ptr %243, i32 -1 acq_rel, align 4, !noalias !12
+  br label %250
 
-249:                                              ; preds = %247, %244
-  %.0.i.i.i.i.i.i.i85 = phi i32 [ %245, %244 ], [ %248, %247 ]
-  %250 = icmp eq i32 %.0.i.i.i.i.i.i.i85, 1
-  br i1 %250, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i86, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i
+250:                                              ; preds = %248, %245
+  %.0.i.i.i.i.i.i.i85 = phi i32 [ %246, %245 ], [ %249, %248 ]
+  %251 = icmp eq i32 %.0.i.i.i.i.i.i.i85, 1
+  br i1 %251, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i86, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i86: ; preds = %249, %225
-  %251 = load ptr, ptr %219, align 8, !noalias !12
-  %252 = getelementptr inbounds i8, ptr %251, i64 24
-  %253 = load ptr, ptr %252, align 8, !noalias !12
-  call void %253(ptr noundef nonnull align 8 dereferenceable(16) %219) #17, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i86: ; preds = %250, %226
+  %252 = load ptr, ptr %220, align 8, !noalias !12
+  %253 = getelementptr inbounds i8, ptr %252, i64 24
+  %254 = load ptr, ptr %253, align 8, !noalias !12
+  call void %254(ptr noundef nonnull align 8 dereferenceable(16) %220) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i86, %249, %236, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
-  store ptr %208, ptr %200, align 8, !alias.scope !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i86, %250, %237, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
+  store ptr %209, ptr %201, align 8, !alias.scope !12
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i
 
-.body:                                            ; preds = %201
-  %254 = landingpad { ptr, i32 }
+.body:                                            ; preds = %202
+  %255 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17, !noalias !12
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #17
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #17
   br label %.body259
 
-255:                                              ; preds = %206
-  %256 = load ptr, ptr %15, align 8, !noalias !12
-  %257 = getelementptr inbounds i8, ptr %256, i64 112
-  store ptr %204, ptr %257, align 8, !noalias !12
-  %258 = getelementptr inbounds i8, ptr %256, i64 120
-  %259 = load ptr, ptr %199, align 8, !noalias !12
-  %260 = load ptr, ptr %258, align 8, !noalias !12
-  %.not.i.i.i4.i = icmp eq ptr %259, %260
-  br i1 %.not.i.i.i4.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i, label %261
+256:                                              ; preds = %207
+  %257 = load ptr, ptr %15, align 8, !noalias !12
+  %258 = getelementptr inbounds i8, ptr %257, i64 112
+  store ptr %205, ptr %258, align 8, !noalias !12
+  %259 = getelementptr inbounds i8, ptr %257, i64 120
+  %260 = load ptr, ptr %200, align 8, !noalias !12
+  %261 = load ptr, ptr %259, align 8, !noalias !12
+  %.not.i.i.i4.i = icmp eq ptr %260, %261
+  br i1 %.not.i.i.i4.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i, label %262
 
-261:                                              ; preds = %255
-  %.not7.i.i.i5.i = icmp eq ptr %259, null
-  br i1 %.not7.i.i.i5.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i9.i, label %262
+262:                                              ; preds = %256
+  %.not7.i.i.i5.i = icmp eq ptr %260, null
+  br i1 %.not7.i.i.i5.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i9.i, label %263
 
-262:                                              ; preds = %261
-  %263 = getelementptr inbounds i8, ptr %259, i64 8
-  %264 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i6.i = icmp eq i8 %264, 0
-  br i1 %.not.i.i.i.i6.i, label %268, label %265
+263:                                              ; preds = %262
+  %264 = getelementptr inbounds i8, ptr %260, i64 8
+  %265 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i6.i = icmp eq i8 %265, 0
+  br i1 %.not.i.i.i.i6.i, label %269, label %266
 
-265:                                              ; preds = %262
-  %266 = load i32, ptr %263, align 4, !noalias !12
-  %267 = add nsw i32 %266, 1
-  store i32 %267, ptr %263, align 4, !noalias !12
+266:                                              ; preds = %263
+  %267 = load i32, ptr %264, align 4, !noalias !12
+  %268 = add nsw i32 %267, 1
+  store i32 %268, ptr %264, align 4, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i7.i
 
-268:                                              ; preds = %262
-  %269 = atomicrmw volatile add ptr %263, i32 1 acq_rel, align 4, !noalias !12
+269:                                              ; preds = %263
+  %270 = atomicrmw volatile add ptr %264, i32 1 acq_rel, align 4, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i7.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i7.i: ; preds = %268, %265
-  %.pr.i.i.i8.i = load ptr, ptr %258, align 8, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i7.i: ; preds = %269, %266
+  %.pr.i.i.i8.i = load ptr, ptr %259, align 8, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i9.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i9.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i7.i, %261
-  %270 = phi ptr [ %.pr.i.i.i8.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i7.i ], [ %260, %261 ]
-  %.not8.i.i.i10.i = icmp eq ptr %270, null
-  br i1 %.not8.i.i.i10.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i13.i, label %271
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i9.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i7.i, %262
+  %271 = phi ptr [ %.pr.i.i.i8.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i7.i ], [ %261, %262 ]
+  %.not8.i.i.i10.i = icmp eq ptr %271, null
+  br i1 %.not8.i.i.i10.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i13.i, label %272
 
-271:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i9.i
-  %272 = getelementptr inbounds i8, ptr %270, i64 8
-  %273 = load atomic i64, ptr %272 acquire, align 8, !noalias !12
-  %274 = icmp eq i64 %273, 4294967297
-  %275 = trunc i64 %273 to i32
-  br i1 %274, label %276, label %281
+272:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i9.i
+  %273 = getelementptr inbounds i8, ptr %271, i64 8
+  %274 = load atomic i64, ptr %273 acquire, align 8, !noalias !12
+  %275 = icmp eq i64 %274, 4294967297
+  %276 = trunc i64 %274 to i32
+  br i1 %275, label %277, label %282
 
-276:                                              ; preds = %271
-  store i32 0, ptr %272, align 8, !noalias !12
-  %277 = getelementptr inbounds i8, ptr %270, i64 12
-  store i32 0, ptr %277, align 4, !noalias !12
-  %278 = load ptr, ptr %270, align 8, !noalias !12
-  %279 = getelementptr inbounds i8, ptr %278, i64 16
-  %280 = load ptr, ptr %279, align 8, !noalias !12
-  call void %280(ptr noundef nonnull align 8 dereferenceable(16) %270) #17, !noalias !12
+277:                                              ; preds = %272
+  store i32 0, ptr %273, align 8, !noalias !12
+  %278 = getelementptr inbounds i8, ptr %271, i64 12
+  store i32 0, ptr %278, align 4, !noalias !12
+  %279 = load ptr, ptr %271, align 8, !noalias !12
+  %280 = getelementptr inbounds i8, ptr %279, i64 16
+  %281 = load ptr, ptr %280, align 8, !noalias !12
+  call void %281(ptr noundef nonnull align 8 dereferenceable(16) %271) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i
 
-281:                                              ; preds = %271
-  %282 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i9.i.i.i11.i = icmp eq i8 %282, 0
-  br i1 %.not.i9.i.i.i11.i, label %285, label %283
+282:                                              ; preds = %272
+  %283 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i9.i.i.i11.i = icmp eq i8 %283, 0
+  br i1 %.not.i9.i.i.i11.i, label %286, label %284
 
-283:                                              ; preds = %281
-  %284 = add nsw i32 %275, -1
-  store i32 %284, ptr %272, align 4, !noalias !12
-  br label %287
+284:                                              ; preds = %282
+  %285 = add nsw i32 %276, -1
+  store i32 %285, ptr %273, align 4, !noalias !12
+  br label %288
 
-285:                                              ; preds = %281
-  %286 = atomicrmw volatile add ptr %272, i32 -1 acq_rel, align 4, !noalias !12
-  br label %287
+286:                                              ; preds = %282
+  %287 = atomicrmw volatile add ptr %273, i32 -1 acq_rel, align 4, !noalias !12
+  br label %288
 
-287:                                              ; preds = %285, %283
-  %.0.i.i.i.i12.i = phi i32 [ %275, %283 ], [ %286, %285 ]
-  %288 = icmp eq i32 %.0.i.i.i.i12.i, 1
-  br i1 %288, label %289, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i13.i
+288:                                              ; preds = %286, %284
+  %.0.i.i.i.i12.i = phi i32 [ %276, %284 ], [ %287, %286 ]
+  %289 = icmp eq i32 %.0.i.i.i.i12.i, 1
+  br i1 %289, label %290, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i13.i
 
-289:                                              ; preds = %287
-  %290 = load ptr, ptr %270, align 8, !noalias !12
-  %291 = getelementptr inbounds i8, ptr %290, i64 16
-  %292 = load ptr, ptr %291, align 8, !noalias !12
-  call void %292(ptr noundef nonnull align 8 dereferenceable(16) %270) #17, !noalias !12
-  %293 = getelementptr inbounds i8, ptr %270, i64 12
-  %294 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i.i.i14.i = icmp eq i8 %294, 0
-  br i1 %.not.i.i.i.i.i.i14.i, label %298, label %295
+290:                                              ; preds = %288
+  %291 = load ptr, ptr %271, align 8, !noalias !12
+  %292 = getelementptr inbounds i8, ptr %291, i64 16
+  %293 = load ptr, ptr %292, align 8, !noalias !12
+  call void %293(ptr noundef nonnull align 8 dereferenceable(16) %271) #17, !noalias !12
+  %294 = getelementptr inbounds i8, ptr %271, i64 12
+  %295 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i.i.i14.i = icmp eq i8 %295, 0
+  br i1 %.not.i.i.i.i.i.i14.i, label %299, label %296
 
-295:                                              ; preds = %289
-  %296 = load i32, ptr %293, align 4, !noalias !12
-  %297 = add nsw i32 %296, -1
-  store i32 %297, ptr %293, align 4, !noalias !12
-  br label %300
+296:                                              ; preds = %290
+  %297 = load i32, ptr %294, align 4, !noalias !12
+  %298 = add nsw i32 %297, -1
+  store i32 %298, ptr %294, align 4, !noalias !12
+  br label %301
 
-298:                                              ; preds = %289
-  %299 = atomicrmw volatile add ptr %293, i32 -1 acq_rel, align 4, !noalias !12
-  br label %300
+299:                                              ; preds = %290
+  %300 = atomicrmw volatile add ptr %294, i32 -1 acq_rel, align 4, !noalias !12
+  br label %301
 
-300:                                              ; preds = %298, %295
-  %.0.i.i.i.i.i.i15.i = phi i32 [ %296, %295 ], [ %299, %298 ]
-  %301 = icmp eq i32 %.0.i.i.i.i.i.i15.i, 1
-  br i1 %301, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i13.i
+301:                                              ; preds = %299, %296
+  %.0.i.i.i.i.i.i15.i = phi i32 [ %297, %296 ], [ %300, %299 ]
+  %302 = icmp eq i32 %.0.i.i.i.i.i.i15.i, 1
+  br i1 %302, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i13.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i: ; preds = %300, %276
-  %302 = load ptr, ptr %270, align 8, !noalias !12
-  %303 = getelementptr inbounds i8, ptr %302, i64 24
-  %304 = load ptr, ptr %303, align 8, !noalias !12
-  call void %304(ptr noundef nonnull align 8 dereferenceable(16) %270) #17, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i: ; preds = %301, %277
+  %303 = load ptr, ptr %271, align 8, !noalias !12
+  %304 = getelementptr inbounds i8, ptr %303, i64 24
+  %305 = load ptr, ptr %304, align 8, !noalias !12
+  call void %305(ptr noundef nonnull align 8 dereferenceable(16) %271) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i13.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i13.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i, %300, %287, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i9.i
-  store ptr %259, ptr %258, align 8, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i13.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16.i, %301, %288, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i9.i
+  store ptr %260, ptr %259, align 8, !noalias !12
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i13.i, %255, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %207
-  %305 = load ptr, ptr %7, align 8, !noalias !12
-  %306 = getelementptr inbounds i8, ptr %305, i64 112
-  %307 = load ptr, ptr %306, align 8, !noalias !12
-  %.not104107.i = icmp eq ptr %307, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i13.i, %256, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %208
+  %306 = load ptr, ptr %7, align 8, !noalias !12
+  %307 = getelementptr inbounds i8, ptr %306, i64 112
+  %308 = load ptr, ptr %307, align 8, !noalias !12
+  %.not104107.i = icmp eq ptr %308, null
   br i1 %.not104107.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i
-  %.pre113.i = load ptr, ptr %199, align 8, !noalias !12
+  %.pre113.i = load ptr, ptr %200, align 8, !noalias !12
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i, %.lr.ph.preheader.i
-  %308 = phi ptr [ %358, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i ], [ %.pre113.i, %.lr.ph.preheader.i ]
-  %309 = phi ptr [ %360, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i ], [ %307, %.lr.ph.preheader.i ]
-  %310 = phi ptr [ %357, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i ], [ %305, %.lr.ph.preheader.i ]
-  store ptr %309, ptr %7, align 8, !noalias !12
-  %311 = getelementptr inbounds i8, ptr %310, i64 120
-  %312 = load ptr, ptr %311, align 8, !noalias !12
-  %.not.i.i.i18.i = icmp eq ptr %312, %308
-  br i1 %.not.i.i.i18.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i, label %313
+  %309 = phi ptr [ %359, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i ], [ %.pre113.i, %.lr.ph.preheader.i ]
+  %310 = phi ptr [ %361, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i ], [ %308, %.lr.ph.preheader.i ]
+  %311 = phi ptr [ %358, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i ], [ %306, %.lr.ph.preheader.i ]
+  store ptr %310, ptr %7, align 8, !noalias !12
+  %312 = getelementptr inbounds i8, ptr %311, i64 120
+  %313 = load ptr, ptr %312, align 8, !noalias !12
+  %.not.i.i.i18.i = icmp eq ptr %313, %309
+  br i1 %.not.i.i.i18.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i, label %314
 
-313:                                              ; preds = %.lr.ph.i
-  %.not7.i.i.i19.i = icmp eq ptr %312, null
-  br i1 %.not7.i.i.i19.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i23.i, label %314
+314:                                              ; preds = %.lr.ph.i
+  %.not7.i.i.i19.i = icmp eq ptr %313, null
+  br i1 %.not7.i.i.i19.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i23.i, label %315
 
-314:                                              ; preds = %313
-  %315 = getelementptr inbounds i8, ptr %312, i64 8
-  %316 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i20.i = icmp eq i8 %316, 0
-  br i1 %.not.i.i.i.i20.i, label %320, label %317
+315:                                              ; preds = %314
+  %316 = getelementptr inbounds i8, ptr %313, i64 8
+  %317 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i20.i = icmp eq i8 %317, 0
+  br i1 %.not.i.i.i.i20.i, label %321, label %318
 
-317:                                              ; preds = %314
-  %318 = load i32, ptr %315, align 4, !noalias !12
-  %319 = add nsw i32 %318, 1
-  store i32 %319, ptr %315, align 4, !noalias !12
+318:                                              ; preds = %315
+  %319 = load i32, ptr %316, align 4, !noalias !12
+  %320 = add nsw i32 %319, 1
+  store i32 %320, ptr %316, align 4, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i21.i
 
-320:                                              ; preds = %314
-  %321 = atomicrmw volatile add ptr %315, i32 1 acq_rel, align 4, !noalias !12
+321:                                              ; preds = %315
+  %322 = atomicrmw volatile add ptr %316, i32 1 acq_rel, align 4, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i21.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i21.i: ; preds = %320, %317
-  %.pr.i.i.i22.i = load ptr, ptr %199, align 8, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i21.i: ; preds = %321, %318
+  %.pr.i.i.i22.i = load ptr, ptr %200, align 8, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i23.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i23.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i21.i, %313
-  %322 = phi ptr [ %.pr.i.i.i22.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i21.i ], [ %308, %313 ]
-  %.not8.i.i.i24.i = icmp eq ptr %322, null
-  br i1 %.not8.i.i.i24.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i, label %323
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i23.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i21.i, %314
+  %323 = phi ptr [ %.pr.i.i.i22.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i21.i ], [ %309, %314 ]
+  %.not8.i.i.i24.i = icmp eq ptr %323, null
+  br i1 %.not8.i.i.i24.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i, label %324
 
-323:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i23.i
-  %324 = getelementptr inbounds i8, ptr %322, i64 8
-  %325 = load atomic i64, ptr %324 acquire, align 8, !noalias !12
-  %326 = icmp eq i64 %325, 4294967297
-  %327 = trunc i64 %325 to i32
-  br i1 %326, label %328, label %333
+324:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i23.i
+  %325 = getelementptr inbounds i8, ptr %323, i64 8
+  %326 = load atomic i64, ptr %325 acquire, align 8, !noalias !12
+  %327 = icmp eq i64 %326, 4294967297
+  %328 = trunc i64 %326 to i32
+  br i1 %327, label %329, label %334
 
-328:                                              ; preds = %323
-  store i32 0, ptr %324, align 8, !noalias !12
-  %329 = getelementptr inbounds i8, ptr %322, i64 12
-  store i32 0, ptr %329, align 4, !noalias !12
-  %330 = load ptr, ptr %322, align 8, !noalias !12
-  %331 = getelementptr inbounds i8, ptr %330, i64 16
-  %332 = load ptr, ptr %331, align 8, !noalias !12
-  call void %332(ptr noundef nonnull align 8 dereferenceable(16) %322) #17, !noalias !12
+329:                                              ; preds = %324
+  store i32 0, ptr %325, align 8, !noalias !12
+  %330 = getelementptr inbounds i8, ptr %323, i64 12
+  store i32 0, ptr %330, align 4, !noalias !12
+  %331 = load ptr, ptr %323, align 8, !noalias !12
+  %332 = getelementptr inbounds i8, ptr %331, i64 16
+  %333 = load ptr, ptr %332, align 8, !noalias !12
+  call void %333(ptr noundef nonnull align 8 dereferenceable(16) %323) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i30.i
 
-333:                                              ; preds = %323
-  %334 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i9.i.i.i25.i = icmp eq i8 %334, 0
-  br i1 %.not.i9.i.i.i25.i, label %337, label %335
+334:                                              ; preds = %324
+  %335 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i9.i.i.i25.i = icmp eq i8 %335, 0
+  br i1 %.not.i9.i.i.i25.i, label %338, label %336
 
-335:                                              ; preds = %333
-  %336 = add nsw i32 %327, -1
-  store i32 %336, ptr %324, align 4, !noalias !12
-  br label %339
+336:                                              ; preds = %334
+  %337 = add nsw i32 %328, -1
+  store i32 %337, ptr %325, align 4, !noalias !12
+  br label %340
 
-337:                                              ; preds = %333
-  %338 = atomicrmw volatile add ptr %324, i32 -1 acq_rel, align 4, !noalias !12
-  br label %339
+338:                                              ; preds = %334
+  %339 = atomicrmw volatile add ptr %325, i32 -1 acq_rel, align 4, !noalias !12
+  br label %340
 
-339:                                              ; preds = %337, %335
-  %.0.i.i.i.i26.i = phi i32 [ %327, %335 ], [ %338, %337 ]
-  %340 = icmp eq i32 %.0.i.i.i.i26.i, 1
-  br i1 %340, label %341, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i
+340:                                              ; preds = %338, %336
+  %.0.i.i.i.i26.i = phi i32 [ %328, %336 ], [ %339, %338 ]
+  %341 = icmp eq i32 %.0.i.i.i.i26.i, 1
+  br i1 %341, label %342, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i
 
-341:                                              ; preds = %339
-  %342 = load ptr, ptr %322, align 8, !noalias !12
-  %343 = getelementptr inbounds i8, ptr %342, i64 16
-  %344 = load ptr, ptr %343, align 8, !noalias !12
-  call void %344(ptr noundef nonnull align 8 dereferenceable(16) %322) #17, !noalias !12
-  %345 = getelementptr inbounds i8, ptr %322, i64 12
-  %346 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i.i.i28.i = icmp eq i8 %346, 0
-  br i1 %.not.i.i.i.i.i.i28.i, label %350, label %347
+342:                                              ; preds = %340
+  %343 = load ptr, ptr %323, align 8, !noalias !12
+  %344 = getelementptr inbounds i8, ptr %343, i64 16
+  %345 = load ptr, ptr %344, align 8, !noalias !12
+  call void %345(ptr noundef nonnull align 8 dereferenceable(16) %323) #17, !noalias !12
+  %346 = getelementptr inbounds i8, ptr %323, i64 12
+  %347 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i.i.i28.i = icmp eq i8 %347, 0
+  br i1 %.not.i.i.i.i.i.i28.i, label %351, label %348
 
-347:                                              ; preds = %341
-  %348 = load i32, ptr %345, align 4, !noalias !12
-  %349 = add nsw i32 %348, -1
-  store i32 %349, ptr %345, align 4, !noalias !12
-  br label %352
+348:                                              ; preds = %342
+  %349 = load i32, ptr %346, align 4, !noalias !12
+  %350 = add nsw i32 %349, -1
+  store i32 %350, ptr %346, align 4, !noalias !12
+  br label %353
 
-350:                                              ; preds = %341
-  %351 = atomicrmw volatile add ptr %345, i32 -1 acq_rel, align 4, !noalias !12
-  br label %352
+351:                                              ; preds = %342
+  %352 = atomicrmw volatile add ptr %346, i32 -1 acq_rel, align 4, !noalias !12
+  br label %353
 
-352:                                              ; preds = %350, %347
-  %.0.i.i.i.i.i.i29.i = phi i32 [ %348, %347 ], [ %351, %350 ]
-  %353 = icmp eq i32 %.0.i.i.i.i.i.i29.i, 1
-  br i1 %353, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i30.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i
+353:                                              ; preds = %351, %348
+  %.0.i.i.i.i.i.i29.i = phi i32 [ %349, %348 ], [ %352, %351 ]
+  %354 = icmp eq i32 %.0.i.i.i.i.i.i29.i, 1
+  br i1 %354, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i30.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i30.i: ; preds = %352, %328
-  %354 = load ptr, ptr %322, align 8, !noalias !12
-  %355 = getelementptr inbounds i8, ptr %354, i64 24
-  %356 = load ptr, ptr %355, align 8, !noalias !12
-  call void %356(ptr noundef nonnull align 8 dereferenceable(16) %322) #17, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i30.i: ; preds = %353, %329
+  %355 = load ptr, ptr %323, align 8, !noalias !12
+  %356 = getelementptr inbounds i8, ptr %355, i64 24
+  %357 = load ptr, ptr %356, align 8, !noalias !12
+  call void %357(ptr noundef nonnull align 8 dereferenceable(16) %323) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i30.i, %352, %339, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i23.i
-  store ptr %312, ptr %199, align 8, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i30.i, %353, %340, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i23.i
+  store ptr %313, ptr %200, align 8, !noalias !12
   %.pre114.i = load ptr, ptr %7, align 8, !noalias !12
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i, %.lr.ph.i
-  %357 = phi ptr [ %309, %.lr.ph.i ], [ %.pre114.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i ]
-  %358 = phi ptr [ %308, %.lr.ph.i ], [ %312, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i ]
-  %359 = getelementptr inbounds i8, ptr %357, i64 112
-  %360 = load ptr, ptr %359, align 8, !noalias !12
-  %.not104.i = icmp eq ptr %360, null
+  %358 = phi ptr [ %310, %.lr.ph.i ], [ %.pre114.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i ]
+  %359 = phi ptr [ %309, %.lr.ph.i ], [ %313, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i27.i ]
+  %360 = getelementptr inbounds i8, ptr %358, i64 112
+  %361 = load ptr, ptr %360, align 8, !noalias !12
+  %.not104.i = icmp eq ptr %361, null
   br i1 %.not104.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i
-  %.lcssa106.i = phi ptr [ %305, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i ], [ %357, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i ]
-  %361 = getelementptr inbounds i8, ptr %.lcssa106.i, i64 112
-  %362 = load ptr, ptr %5, align 8, !noalias !12
-  store ptr %362, ptr %361, align 8, !noalias !12
-  %363 = getelementptr inbounds i8, ptr %.lcssa106.i, i64 120
-  %364 = load ptr, ptr %197, align 8, !noalias !12
-  %365 = load ptr, ptr %363, align 8, !noalias !12
-  %.not.i.i.i32.i = icmp eq ptr %364, %365
-  br i1 %.not.i.i.i32.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i, label %366
+  %.lcssa106.i = phi ptr [ %306, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i ], [ %358, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit31.i ]
+  %362 = getelementptr inbounds i8, ptr %.lcssa106.i, i64 112
+  %363 = load ptr, ptr %5, align 8, !noalias !12
+  store ptr %363, ptr %362, align 8, !noalias !12
+  %364 = getelementptr inbounds i8, ptr %.lcssa106.i, i64 120
+  %365 = load ptr, ptr %198, align 8, !noalias !12
+  %366 = load ptr, ptr %364, align 8, !noalias !12
+  %.not.i.i.i32.i = icmp eq ptr %365, %366
+  br i1 %.not.i.i.i32.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i, label %367
 
-366:                                              ; preds = %._crit_edge.i
-  %.not7.i.i.i33.i = icmp eq ptr %364, null
-  br i1 %.not7.i.i.i33.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i37.i, label %367
+367:                                              ; preds = %._crit_edge.i
+  %.not7.i.i.i33.i = icmp eq ptr %365, null
+  br i1 %.not7.i.i.i33.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i37.i, label %368
 
-367:                                              ; preds = %366
-  %368 = getelementptr inbounds i8, ptr %364, i64 8
-  %369 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i34.i = icmp eq i8 %369, 0
-  br i1 %.not.i.i.i.i34.i, label %373, label %370
+368:                                              ; preds = %367
+  %369 = getelementptr inbounds i8, ptr %365, i64 8
+  %370 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i34.i = icmp eq i8 %370, 0
+  br i1 %.not.i.i.i.i34.i, label %374, label %371
 
-370:                                              ; preds = %367
-  %371 = load i32, ptr %368, align 4, !noalias !12
-  %372 = add nsw i32 %371, 1
-  store i32 %372, ptr %368, align 4, !noalias !12
+371:                                              ; preds = %368
+  %372 = load i32, ptr %369, align 4, !noalias !12
+  %373 = add nsw i32 %372, 1
+  store i32 %373, ptr %369, align 4, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i35.i
 
-373:                                              ; preds = %367
-  %374 = atomicrmw volatile add ptr %368, i32 1 acq_rel, align 4, !noalias !12
+374:                                              ; preds = %368
+  %375 = atomicrmw volatile add ptr %369, i32 1 acq_rel, align 4, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i35.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i35.i: ; preds = %373, %370
-  %.pr.i.i.i36.i = load ptr, ptr %363, align 8, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i35.i: ; preds = %374, %371
+  %.pr.i.i.i36.i = load ptr, ptr %364, align 8, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i37.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i37.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i35.i, %366
-  %375 = phi ptr [ %.pr.i.i.i36.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i35.i ], [ %365, %366 ]
-  %.not8.i.i.i38.i = icmp eq ptr %375, null
-  br i1 %.not8.i.i.i38.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i41.i, label %376
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i37.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i35.i, %367
+  %376 = phi ptr [ %.pr.i.i.i36.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i35.i ], [ %366, %367 ]
+  %.not8.i.i.i38.i = icmp eq ptr %376, null
+  br i1 %.not8.i.i.i38.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i41.i, label %377
 
-376:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i37.i
-  %377 = getelementptr inbounds i8, ptr %375, i64 8
-  %378 = load atomic i64, ptr %377 acquire, align 8, !noalias !12
-  %379 = icmp eq i64 %378, 4294967297
-  %380 = trunc i64 %378 to i32
-  br i1 %379, label %381, label %386
+377:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i37.i
+  %378 = getelementptr inbounds i8, ptr %376, i64 8
+  %379 = load atomic i64, ptr %378 acquire, align 8, !noalias !12
+  %380 = icmp eq i64 %379, 4294967297
+  %381 = trunc i64 %379 to i32
+  br i1 %380, label %382, label %387
 
-381:                                              ; preds = %376
-  store i32 0, ptr %377, align 8, !noalias !12
-  %382 = getelementptr inbounds i8, ptr %375, i64 12
-  store i32 0, ptr %382, align 4, !noalias !12
-  %383 = load ptr, ptr %375, align 8, !noalias !12
-  %384 = getelementptr inbounds i8, ptr %383, i64 16
-  %385 = load ptr, ptr %384, align 8, !noalias !12
-  call void %385(ptr noundef nonnull align 8 dereferenceable(16) %375) #17, !noalias !12
+382:                                              ; preds = %377
+  store i32 0, ptr %378, align 8, !noalias !12
+  %383 = getelementptr inbounds i8, ptr %376, i64 12
+  store i32 0, ptr %383, align 4, !noalias !12
+  %384 = load ptr, ptr %376, align 8, !noalias !12
+  %385 = getelementptr inbounds i8, ptr %384, i64 16
+  %386 = load ptr, ptr %385, align 8, !noalias !12
+  call void %386(ptr noundef nonnull align 8 dereferenceable(16) %376) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i44.i
 
-386:                                              ; preds = %376
-  %387 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i9.i.i.i39.i = icmp eq i8 %387, 0
-  br i1 %.not.i9.i.i.i39.i, label %390, label %388
+387:                                              ; preds = %377
+  %388 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i9.i.i.i39.i = icmp eq i8 %388, 0
+  br i1 %.not.i9.i.i.i39.i, label %391, label %389
 
-388:                                              ; preds = %386
-  %389 = add nsw i32 %380, -1
-  store i32 %389, ptr %377, align 4, !noalias !12
-  br label %392
+389:                                              ; preds = %387
+  %390 = add nsw i32 %381, -1
+  store i32 %390, ptr %378, align 4, !noalias !12
+  br label %393
 
-390:                                              ; preds = %386
-  %391 = atomicrmw volatile add ptr %377, i32 -1 acq_rel, align 4, !noalias !12
-  br label %392
+391:                                              ; preds = %387
+  %392 = atomicrmw volatile add ptr %378, i32 -1 acq_rel, align 4, !noalias !12
+  br label %393
 
-392:                                              ; preds = %390, %388
-  %.0.i.i.i.i40.i = phi i32 [ %380, %388 ], [ %391, %390 ]
-  %393 = icmp eq i32 %.0.i.i.i.i40.i, 1
-  br i1 %393, label %394, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i41.i
+393:                                              ; preds = %391, %389
+  %.0.i.i.i.i40.i = phi i32 [ %381, %389 ], [ %392, %391 ]
+  %394 = icmp eq i32 %.0.i.i.i.i40.i, 1
+  br i1 %394, label %395, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i41.i
 
-394:                                              ; preds = %392
-  %395 = load ptr, ptr %375, align 8, !noalias !12
-  %396 = getelementptr inbounds i8, ptr %395, i64 16
-  %397 = load ptr, ptr %396, align 8, !noalias !12
-  call void %397(ptr noundef nonnull align 8 dereferenceable(16) %375) #17, !noalias !12
-  %398 = getelementptr inbounds i8, ptr %375, i64 12
-  %399 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i.i.i42.i = icmp eq i8 %399, 0
-  br i1 %.not.i.i.i.i.i.i42.i, label %403, label %400
+395:                                              ; preds = %393
+  %396 = load ptr, ptr %376, align 8, !noalias !12
+  %397 = getelementptr inbounds i8, ptr %396, i64 16
+  %398 = load ptr, ptr %397, align 8, !noalias !12
+  call void %398(ptr noundef nonnull align 8 dereferenceable(16) %376) #17, !noalias !12
+  %399 = getelementptr inbounds i8, ptr %376, i64 12
+  %400 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i.i.i42.i = icmp eq i8 %400, 0
+  br i1 %.not.i.i.i.i.i.i42.i, label %404, label %401
 
-400:                                              ; preds = %394
-  %401 = load i32, ptr %398, align 4, !noalias !12
-  %402 = add nsw i32 %401, -1
-  store i32 %402, ptr %398, align 4, !noalias !12
-  br label %405
+401:                                              ; preds = %395
+  %402 = load i32, ptr %399, align 4, !noalias !12
+  %403 = add nsw i32 %402, -1
+  store i32 %403, ptr %399, align 4, !noalias !12
+  br label %406
 
-403:                                              ; preds = %394
-  %404 = atomicrmw volatile add ptr %398, i32 -1 acq_rel, align 4, !noalias !12
-  br label %405
+404:                                              ; preds = %395
+  %405 = atomicrmw volatile add ptr %399, i32 -1 acq_rel, align 4, !noalias !12
+  br label %406
 
-405:                                              ; preds = %403, %400
-  %.0.i.i.i.i.i.i43.i = phi i32 [ %401, %400 ], [ %404, %403 ]
-  %406 = icmp eq i32 %.0.i.i.i.i.i.i43.i, 1
-  br i1 %406, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i44.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i41.i
+406:                                              ; preds = %404, %401
+  %.0.i.i.i.i.i.i43.i = phi i32 [ %402, %401 ], [ %405, %404 ]
+  %407 = icmp eq i32 %.0.i.i.i.i.i.i43.i, 1
+  br i1 %407, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i44.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i41.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i44.i: ; preds = %405, %381
-  %407 = load ptr, ptr %375, align 8, !noalias !12
-  %408 = getelementptr inbounds i8, ptr %407, i64 24
-  %409 = load ptr, ptr %408, align 8, !noalias !12
-  call void %409(ptr noundef nonnull align 8 dereferenceable(16) %375) #17, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i44.i: ; preds = %406, %382
+  %408 = load ptr, ptr %376, align 8, !noalias !12
+  %409 = getelementptr inbounds i8, ptr %408, i64 24
+  %410 = load ptr, ptr %409, align 8, !noalias !12
+  call void %410(ptr noundef nonnull align 8 dereferenceable(16) %376) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i41.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i41.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i44.i, %405, %392, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i37.i
-  store ptr %364, ptr %363, align 8, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i41.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i44.i, %406, %393, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i37.i
+  store ptr %365, ptr %364, align 8, !noalias !12
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45thread-pre-split.i
 
-410:                                              ; preds = %203
-  br i1 %.not102.i, label %411, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45thread-pre-split.i
+411:                                              ; preds = %204
+  br i1 %.not102.i, label %412, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45thread-pre-split.i
 
-411:                                              ; preds = %410
-  store ptr %202, ptr %14, align 16, !alias.scope !12
-  %412 = load ptr, ptr %197, align 8, !noalias !12
-  %413 = load ptr, ptr %200, align 8, !alias.scope !12
-  %.not.i.i.i46.i = icmp eq ptr %412, %413
-  br i1 %.not.i.i.i46.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i, label %414
+412:                                              ; preds = %411
+  store ptr %203, ptr %14, align 8, !alias.scope !12
+  %413 = load ptr, ptr %198, align 8, !noalias !12
+  %414 = load ptr, ptr %201, align 8, !alias.scope !12
+  %.not.i.i.i46.i = icmp eq ptr %413, %414
+  br i1 %.not.i.i.i46.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i, label %415
 
-414:                                              ; preds = %411
-  %.not7.i.i.i47.i = icmp eq ptr %412, null
-  br i1 %.not7.i.i.i47.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i51.i, label %415
+415:                                              ; preds = %412
+  %.not7.i.i.i47.i = icmp eq ptr %413, null
+  br i1 %.not7.i.i.i47.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i51.i, label %416
 
-415:                                              ; preds = %414
-  %416 = getelementptr inbounds i8, ptr %412, i64 8
-  %417 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i48.i = icmp eq i8 %417, 0
-  br i1 %.not.i.i.i.i48.i, label %421, label %418
+416:                                              ; preds = %415
+  %417 = getelementptr inbounds i8, ptr %413, i64 8
+  %418 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i48.i = icmp eq i8 %418, 0
+  br i1 %.not.i.i.i.i48.i, label %422, label %419
 
-418:                                              ; preds = %415
-  %419 = load i32, ptr %416, align 4, !noalias !12
-  %420 = add nsw i32 %419, 1
-  store i32 %420, ptr %416, align 4, !noalias !12
+419:                                              ; preds = %416
+  %420 = load i32, ptr %417, align 4, !noalias !12
+  %421 = add nsw i32 %420, 1
+  store i32 %421, ptr %417, align 4, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i51.i
 
-421:                                              ; preds = %415
-  %422 = atomicrmw volatile add ptr %416, i32 1 acq_rel, align 4, !noalias !12
-  %.pr.i.i.i50.pre.i = load ptr, ptr %200, align 8, !alias.scope !12
+422:                                              ; preds = %416
+  %423 = atomicrmw volatile add ptr %417, i32 1 acq_rel, align 4, !noalias !12
+  %.pr.i.i.i50.pre.i = load ptr, ptr %201, align 8, !alias.scope !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i51.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i51.i: ; preds = %421, %418, %414
-  %423 = phi ptr [ %413, %414 ], [ %.pr.i.i.i50.pre.i, %421 ], [ %413, %418 ]
-  %.not8.i.i.i52.i = icmp eq ptr %423, null
-  br i1 %.not8.i.i.i52.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i55.i, label %424
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i51.i: ; preds = %422, %419, %415
+  %424 = phi ptr [ %414, %415 ], [ %.pr.i.i.i50.pre.i, %422 ], [ %414, %419 ]
+  %.not8.i.i.i52.i = icmp eq ptr %424, null
+  br i1 %.not8.i.i.i52.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i55.i, label %425
 
-424:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i51.i
-  %425 = getelementptr inbounds i8, ptr %423, i64 8
-  %426 = load atomic i64, ptr %425 acquire, align 8, !noalias !12
-  %427 = icmp eq i64 %426, 4294967297
-  %428 = trunc i64 %426 to i32
-  br i1 %427, label %429, label %434
+425:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i51.i
+  %426 = getelementptr inbounds i8, ptr %424, i64 8
+  %427 = load atomic i64, ptr %426 acquire, align 8, !noalias !12
+  %428 = icmp eq i64 %427, 4294967297
+  %429 = trunc i64 %427 to i32
+  br i1 %428, label %430, label %435
 
-429:                                              ; preds = %424
-  store i32 0, ptr %425, align 8, !noalias !12
-  %430 = getelementptr inbounds i8, ptr %423, i64 12
-  store i32 0, ptr %430, align 4, !noalias !12
-  %431 = load ptr, ptr %423, align 8, !noalias !12
-  %432 = getelementptr inbounds i8, ptr %431, i64 16
-  %433 = load ptr, ptr %432, align 8, !noalias !12
-  call void %433(ptr noundef nonnull align 8 dereferenceable(16) %423) #17, !noalias !12
+430:                                              ; preds = %425
+  store i32 0, ptr %426, align 8, !noalias !12
+  %431 = getelementptr inbounds i8, ptr %424, i64 12
+  store i32 0, ptr %431, align 4, !noalias !12
+  %432 = load ptr, ptr %424, align 8, !noalias !12
+  %433 = getelementptr inbounds i8, ptr %432, i64 16
+  %434 = load ptr, ptr %433, align 8, !noalias !12
+  call void %434(ptr noundef nonnull align 8 dereferenceable(16) %424) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i58.i
 
-434:                                              ; preds = %424
-  %435 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i9.i.i.i53.i = icmp eq i8 %435, 0
-  br i1 %.not.i9.i.i.i53.i, label %438, label %436
+435:                                              ; preds = %425
+  %436 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i9.i.i.i53.i = icmp eq i8 %436, 0
+  br i1 %.not.i9.i.i.i53.i, label %439, label %437
 
-436:                                              ; preds = %434
-  %437 = add nsw i32 %428, -1
-  store i32 %437, ptr %425, align 4, !noalias !12
-  br label %440
+437:                                              ; preds = %435
+  %438 = add nsw i32 %429, -1
+  store i32 %438, ptr %426, align 4, !noalias !12
+  br label %441
 
-438:                                              ; preds = %434
-  %439 = atomicrmw volatile add ptr %425, i32 -1 acq_rel, align 4, !noalias !12
-  br label %440
+439:                                              ; preds = %435
+  %440 = atomicrmw volatile add ptr %426, i32 -1 acq_rel, align 4, !noalias !12
+  br label %441
 
-440:                                              ; preds = %438, %436
-  %.0.i.i.i.i54.i = phi i32 [ %428, %436 ], [ %439, %438 ]
-  %441 = icmp eq i32 %.0.i.i.i.i54.i, 1
-  br i1 %441, label %442, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i55.i
+441:                                              ; preds = %439, %437
+  %.0.i.i.i.i54.i = phi i32 [ %429, %437 ], [ %440, %439 ]
+  %442 = icmp eq i32 %.0.i.i.i.i54.i, 1
+  br i1 %442, label %443, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i55.i
 
-442:                                              ; preds = %440
-  %443 = load ptr, ptr %423, align 8, !noalias !12
-  %444 = getelementptr inbounds i8, ptr %443, i64 16
-  %445 = load ptr, ptr %444, align 8, !noalias !12
-  call void %445(ptr noundef nonnull align 8 dereferenceable(16) %423) #17, !noalias !12
-  %446 = getelementptr inbounds i8, ptr %423, i64 12
-  %447 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i.i.i56.i = icmp eq i8 %447, 0
-  br i1 %.not.i.i.i.i.i.i56.i, label %451, label %448
+443:                                              ; preds = %441
+  %444 = load ptr, ptr %424, align 8, !noalias !12
+  %445 = getelementptr inbounds i8, ptr %444, i64 16
+  %446 = load ptr, ptr %445, align 8, !noalias !12
+  call void %446(ptr noundef nonnull align 8 dereferenceable(16) %424) #17, !noalias !12
+  %447 = getelementptr inbounds i8, ptr %424, i64 12
+  %448 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i.i.i56.i = icmp eq i8 %448, 0
+  br i1 %.not.i.i.i.i.i.i56.i, label %452, label %449
 
-448:                                              ; preds = %442
-  %449 = load i32, ptr %446, align 4, !noalias !12
-  %450 = add nsw i32 %449, -1
-  store i32 %450, ptr %446, align 4, !noalias !12
-  br label %453
+449:                                              ; preds = %443
+  %450 = load i32, ptr %447, align 4, !noalias !12
+  %451 = add nsw i32 %450, -1
+  store i32 %451, ptr %447, align 4, !noalias !12
+  br label %454
 
-451:                                              ; preds = %442
-  %452 = atomicrmw volatile add ptr %446, i32 -1 acq_rel, align 4, !noalias !12
-  br label %453
+452:                                              ; preds = %443
+  %453 = atomicrmw volatile add ptr %447, i32 -1 acq_rel, align 4, !noalias !12
+  br label %454
 
-453:                                              ; preds = %451, %448
-  %.0.i.i.i.i.i.i57.i = phi i32 [ %449, %448 ], [ %452, %451 ]
-  %454 = icmp eq i32 %.0.i.i.i.i.i.i57.i, 1
-  br i1 %454, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i58.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i55.i
+454:                                              ; preds = %452, %449
+  %.0.i.i.i.i.i.i57.i = phi i32 [ %450, %449 ], [ %453, %452 ]
+  %455 = icmp eq i32 %.0.i.i.i.i.i.i57.i, 1
+  br i1 %455, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i58.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i55.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i58.i: ; preds = %453, %429
-  %455 = load ptr, ptr %423, align 8, !noalias !12
-  %456 = getelementptr inbounds i8, ptr %455, i64 24
-  %457 = load ptr, ptr %456, align 8, !noalias !12
-  call void %457(ptr noundef nonnull align 8 dereferenceable(16) %423) #17, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i58.i: ; preds = %454, %430
+  %456 = load ptr, ptr %424, align 8, !noalias !12
+  %457 = getelementptr inbounds i8, ptr %456, i64 24
+  %458 = load ptr, ptr %457, align 8, !noalias !12
+  call void %458(ptr noundef nonnull align 8 dereferenceable(16) %424) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i55.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i55.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i58.i, %453, %440, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i51.i
-  store ptr %412, ptr %200, align 8, !alias.scope !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i55.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i58.i, %454, %441, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i51.i
+  store ptr %413, ptr %201, align 8, !alias.scope !12
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45thread-pre-split.i
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45thread-pre-split.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i55.i, %410, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i41.i
-  %.pr.i = load ptr, ptr %197, align 8, !noalias !12
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45thread-pre-split.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i55.i, %411, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i41.i
+  %.pr.i = load ptr, ptr %198, align 8, !noalias !12
   %.pre116.i = load ptr, ptr %5, align 8, !noalias !12
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45thread-pre-split.i, %411, %._crit_edge.i
-  %458 = phi ptr [ %.pre116.i, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45thread-pre-split.i ], [ %202, %411 ], [ %362, %._crit_edge.i ]
-  %459 = phi ptr [ %.pr.i, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45thread-pre-split.i ], [ %412, %411 ], [ %364, %._crit_edge.i ]
-  store ptr %458, ptr %15, align 8, !noalias !12
-  %460 = load ptr, ptr %177, align 8, !noalias !12
-  %.not.i.i.i60.i = icmp eq ptr %459, %460
-  br i1 %.not.i.i.i60.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit73.i, label %461
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45thread-pre-split.i, %412, %._crit_edge.i
+  %459 = phi ptr [ %.pre116.i, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45thread-pre-split.i ], [ %203, %412 ], [ %363, %._crit_edge.i ]
+  %460 = phi ptr [ %.pr.i, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45thread-pre-split.i ], [ %413, %412 ], [ %365, %._crit_edge.i ]
+  store ptr %459, ptr %15, align 8, !noalias !12
+  %461 = load ptr, ptr %178, align 8, !noalias !12
+  %.not.i.i.i60.i = icmp eq ptr %460, %461
+  br i1 %.not.i.i.i60.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit73.i, label %462
 
-461:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i
-  %.not7.i.i.i61.i = icmp eq ptr %459, null
-  br i1 %.not7.i.i.i61.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i65.i, label %462
+462:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i
+  %.not7.i.i.i61.i = icmp eq ptr %460, null
+  br i1 %.not7.i.i.i61.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i65.i, label %463
 
-462:                                              ; preds = %461
-  %463 = getelementptr inbounds i8, ptr %459, i64 8
-  %464 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i62.i = icmp eq i8 %464, 0
-  br i1 %.not.i.i.i.i62.i, label %468, label %465
+463:                                              ; preds = %462
+  %464 = getelementptr inbounds i8, ptr %460, i64 8
+  %465 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i62.i = icmp eq i8 %465, 0
+  br i1 %.not.i.i.i.i62.i, label %469, label %466
 
-465:                                              ; preds = %462
-  %466 = load i32, ptr %463, align 4, !noalias !12
-  %467 = add nsw i32 %466, 1
-  store i32 %467, ptr %463, align 4, !noalias !12
+466:                                              ; preds = %463
+  %467 = load i32, ptr %464, align 4, !noalias !12
+  %468 = add nsw i32 %467, 1
+  store i32 %468, ptr %464, align 4, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i65.i
 
-468:                                              ; preds = %462
-  %469 = atomicrmw volatile add ptr %463, i32 1 acq_rel, align 4, !noalias !12
-  %.pr.i.i.i64.i.pre = load ptr, ptr %177, align 8, !noalias !12
+469:                                              ; preds = %463
+  %470 = atomicrmw volatile add ptr %464, i32 1 acq_rel, align 4, !noalias !12
+  %.pr.i.i.i64.i.pre = load ptr, ptr %178, align 8, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i65.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i65.i: ; preds = %465, %468, %461
-  %470 = phi ptr [ %460, %461 ], [ %.pr.i.i.i64.i.pre, %468 ], [ %460, %465 ]
-  %.not8.i.i.i66.i = icmp eq ptr %470, null
-  br i1 %.not8.i.i.i66.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i, label %471
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i65.i: ; preds = %466, %469, %462
+  %471 = phi ptr [ %461, %462 ], [ %.pr.i.i.i64.i.pre, %469 ], [ %461, %466 ]
+  %.not8.i.i.i66.i = icmp eq ptr %471, null
+  br i1 %.not8.i.i.i66.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i, label %472
 
-471:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i65.i
-  %472 = getelementptr inbounds i8, ptr %470, i64 8
-  %473 = load atomic i64, ptr %472 acquire, align 8, !noalias !12
-  %474 = icmp eq i64 %473, 4294967297
-  %475 = trunc i64 %473 to i32
-  br i1 %474, label %476, label %481
+472:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i65.i
+  %473 = getelementptr inbounds i8, ptr %471, i64 8
+  %474 = load atomic i64, ptr %473 acquire, align 8, !noalias !12
+  %475 = icmp eq i64 %474, 4294967297
+  %476 = trunc i64 %474 to i32
+  br i1 %475, label %477, label %482
 
-476:                                              ; preds = %471
-  store i32 0, ptr %472, align 8, !noalias !12
-  %477 = getelementptr inbounds i8, ptr %470, i64 12
-  store i32 0, ptr %477, align 4, !noalias !12
-  %478 = load ptr, ptr %470, align 8, !noalias !12
-  %479 = getelementptr inbounds i8, ptr %478, i64 16
-  %480 = load ptr, ptr %479, align 8, !noalias !12
-  call void %480(ptr noundef nonnull align 8 dereferenceable(16) %470) #17, !noalias !12
+477:                                              ; preds = %472
+  store i32 0, ptr %473, align 8, !noalias !12
+  %478 = getelementptr inbounds i8, ptr %471, i64 12
+  store i32 0, ptr %478, align 4, !noalias !12
+  %479 = load ptr, ptr %471, align 8, !noalias !12
+  %480 = getelementptr inbounds i8, ptr %479, i64 16
+  %481 = load ptr, ptr %480, align 8, !noalias !12
+  call void %481(ptr noundef nonnull align 8 dereferenceable(16) %471) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i72.i
 
-481:                                              ; preds = %471
-  %482 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i9.i.i.i67.i = icmp eq i8 %482, 0
-  br i1 %.not.i9.i.i.i67.i, label %485, label %483
+482:                                              ; preds = %472
+  %483 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i9.i.i.i67.i = icmp eq i8 %483, 0
+  br i1 %.not.i9.i.i.i67.i, label %486, label %484
 
-483:                                              ; preds = %481
-  %484 = add nsw i32 %475, -1
-  store i32 %484, ptr %472, align 4, !noalias !12
-  br label %487
+484:                                              ; preds = %482
+  %485 = add nsw i32 %476, -1
+  store i32 %485, ptr %473, align 4, !noalias !12
+  br label %488
 
-485:                                              ; preds = %481
-  %486 = atomicrmw volatile add ptr %472, i32 -1 acq_rel, align 4, !noalias !12
-  br label %487
+486:                                              ; preds = %482
+  %487 = atomicrmw volatile add ptr %473, i32 -1 acq_rel, align 4, !noalias !12
+  br label %488
 
-487:                                              ; preds = %485, %483
-  %.0.i.i.i.i68.i = phi i32 [ %475, %483 ], [ %486, %485 ]
-  %488 = icmp eq i32 %.0.i.i.i.i68.i, 1
-  br i1 %488, label %489, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i
+488:                                              ; preds = %486, %484
+  %.0.i.i.i.i68.i = phi i32 [ %476, %484 ], [ %487, %486 ]
+  %489 = icmp eq i32 %.0.i.i.i.i68.i, 1
+  br i1 %489, label %490, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i
 
-489:                                              ; preds = %487
-  %490 = load ptr, ptr %470, align 8, !noalias !12
-  %491 = getelementptr inbounds i8, ptr %490, i64 16
-  %492 = load ptr, ptr %491, align 8, !noalias !12
-  call void %492(ptr noundef nonnull align 8 dereferenceable(16) %470) #17, !noalias !12
-  %493 = getelementptr inbounds i8, ptr %470, i64 12
-  %494 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i.i.i70.i = icmp eq i8 %494, 0
-  br i1 %.not.i.i.i.i.i.i70.i, label %498, label %495
+490:                                              ; preds = %488
+  %491 = load ptr, ptr %471, align 8, !noalias !12
+  %492 = getelementptr inbounds i8, ptr %491, i64 16
+  %493 = load ptr, ptr %492, align 8, !noalias !12
+  call void %493(ptr noundef nonnull align 8 dereferenceable(16) %471) #17, !noalias !12
+  %494 = getelementptr inbounds i8, ptr %471, i64 12
+  %495 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i.i.i70.i = icmp eq i8 %495, 0
+  br i1 %.not.i.i.i.i.i.i70.i, label %499, label %496
 
-495:                                              ; preds = %489
-  %496 = load i32, ptr %493, align 4, !noalias !12
-  %497 = add nsw i32 %496, -1
-  store i32 %497, ptr %493, align 4, !noalias !12
-  br label %500
+496:                                              ; preds = %490
+  %497 = load i32, ptr %494, align 4, !noalias !12
+  %498 = add nsw i32 %497, -1
+  store i32 %498, ptr %494, align 4, !noalias !12
+  br label %501
 
-498:                                              ; preds = %489
-  %499 = atomicrmw volatile add ptr %493, i32 -1 acq_rel, align 4, !noalias !12
-  br label %500
+499:                                              ; preds = %490
+  %500 = atomicrmw volatile add ptr %494, i32 -1 acq_rel, align 4, !noalias !12
+  br label %501
 
-500:                                              ; preds = %498, %495
-  %.0.i.i.i.i.i.i71.i = phi i32 [ %496, %495 ], [ %499, %498 ]
-  %501 = icmp eq i32 %.0.i.i.i.i.i.i71.i, 1
-  br i1 %501, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i72.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i
+501:                                              ; preds = %499, %496
+  %.0.i.i.i.i.i.i71.i = phi i32 [ %497, %496 ], [ %500, %499 ]
+  %502 = icmp eq i32 %.0.i.i.i.i.i.i71.i, 1
+  br i1 %502, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i72.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i72.i: ; preds = %500, %476
-  %502 = load ptr, ptr %470, align 8, !noalias !12
-  %503 = getelementptr inbounds i8, ptr %502, i64 24
-  %504 = load ptr, ptr %503, align 8, !noalias !12
-  call void %504(ptr noundef nonnull align 8 dereferenceable(16) %470) #17, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i72.i: ; preds = %501, %477
+  %503 = load ptr, ptr %471, align 8, !noalias !12
+  %504 = getelementptr inbounds i8, ptr %503, i64 24
+  %505 = load ptr, ptr %504, align 8, !noalias !12
+  call void %505(ptr noundef nonnull align 8 dereferenceable(16) %471) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i72.i, %500, %487, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i65.i
-  store ptr %459, ptr %177, align 8, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i72.i, %501, %488, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i65.i
+  store ptr %460, ptr %178, align 8, !noalias !12
   %.pre117.i = load ptr, ptr %5, align 8, !noalias !12
-  %.pre118.i = load ptr, ptr %197, align 8, !noalias !12
+  %.pre118.i = load ptr, ptr %198, align 8, !noalias !12
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit73.i
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit73.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i
-  %505 = phi ptr [ %459, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i ], [ %.pre118.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i ]
-  %506 = phi ptr [ %458, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i ], [ %.pre117.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i ]
-  %507 = getelementptr inbounds i8, ptr %506, i64 112
-  %508 = load ptr, ptr %507, align 8, !noalias !12
-  store ptr %508, ptr %5, align 8, !noalias !12
-  %509 = getelementptr inbounds i8, ptr %506, i64 120
-  %510 = load ptr, ptr %509, align 8, !noalias !12
-  %.not.i.i.i74.i = icmp eq ptr %510, %505
-  br i1 %.not.i.i.i74.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit87.i, label %511
+  %506 = phi ptr [ %460, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i ], [ %.pre118.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i ]
+  %507 = phi ptr [ %459, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit45.i ], [ %.pre117.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i69.i ]
+  %508 = getelementptr inbounds i8, ptr %507, i64 112
+  %509 = load ptr, ptr %508, align 8, !noalias !12
+  store ptr %509, ptr %5, align 8, !noalias !12
+  %510 = getelementptr inbounds i8, ptr %507, i64 120
+  %511 = load ptr, ptr %510, align 8, !noalias !12
+  %.not.i.i.i74.i = icmp eq ptr %511, %506
+  br i1 %.not.i.i.i74.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit87.i, label %512
 
-511:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit73.i
-  %.not7.i.i.i75.i = icmp eq ptr %510, null
-  br i1 %.not7.i.i.i75.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i79.i, label %512
+512:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit73.i
+  %.not7.i.i.i75.i = icmp eq ptr %511, null
+  br i1 %.not7.i.i.i75.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i79.i, label %513
 
-512:                                              ; preds = %511
-  %513 = getelementptr inbounds i8, ptr %510, i64 8
-  %514 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i76.i = icmp eq i8 %514, 0
-  br i1 %.not.i.i.i.i76.i, label %518, label %515
+513:                                              ; preds = %512
+  %514 = getelementptr inbounds i8, ptr %511, i64 8
+  %515 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i76.i = icmp eq i8 %515, 0
+  br i1 %.not.i.i.i.i76.i, label %519, label %516
 
-515:                                              ; preds = %512
-  %516 = load i32, ptr %513, align 4, !noalias !12
-  %517 = add nsw i32 %516, 1
-  store i32 %517, ptr %513, align 4, !noalias !12
+516:                                              ; preds = %513
+  %517 = load i32, ptr %514, align 4, !noalias !12
+  %518 = add nsw i32 %517, 1
+  store i32 %518, ptr %514, align 4, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i79.i
 
-518:                                              ; preds = %512
-  %519 = atomicrmw volatile add ptr %513, i32 1 acq_rel, align 4, !noalias !12
-  %.pr.i.i.i78.pre.i = load ptr, ptr %197, align 8, !noalias !12
+519:                                              ; preds = %513
+  %520 = atomicrmw volatile add ptr %514, i32 1 acq_rel, align 4, !noalias !12
+  %.pr.i.i.i78.pre.i = load ptr, ptr %198, align 8, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i79.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i79.i: ; preds = %518, %515, %511
-  %520 = phi ptr [ %505, %511 ], [ %.pr.i.i.i78.pre.i, %518 ], [ %505, %515 ]
-  %.not8.i.i.i80.i = icmp eq ptr %520, null
-  br i1 %.not8.i.i.i80.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i83.i, label %521
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i79.i: ; preds = %519, %516, %512
+  %521 = phi ptr [ %506, %512 ], [ %.pr.i.i.i78.pre.i, %519 ], [ %506, %516 ]
+  %.not8.i.i.i80.i = icmp eq ptr %521, null
+  br i1 %.not8.i.i.i80.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i83.i, label %522
 
-521:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i79.i
-  %522 = getelementptr inbounds i8, ptr %520, i64 8
-  %523 = load atomic i64, ptr %522 acquire, align 8, !noalias !12
-  %524 = icmp eq i64 %523, 4294967297
-  %525 = trunc i64 %523 to i32
-  br i1 %524, label %526, label %531
+522:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i79.i
+  %523 = getelementptr inbounds i8, ptr %521, i64 8
+  %524 = load atomic i64, ptr %523 acquire, align 8, !noalias !12
+  %525 = icmp eq i64 %524, 4294967297
+  %526 = trunc i64 %524 to i32
+  br i1 %525, label %527, label %532
 
-526:                                              ; preds = %521
-  store i32 0, ptr %522, align 8, !noalias !12
-  %527 = getelementptr inbounds i8, ptr %520, i64 12
-  store i32 0, ptr %527, align 4, !noalias !12
-  %528 = load ptr, ptr %520, align 8, !noalias !12
-  %529 = getelementptr inbounds i8, ptr %528, i64 16
-  %530 = load ptr, ptr %529, align 8, !noalias !12
-  call void %530(ptr noundef nonnull align 8 dereferenceable(16) %520) #17, !noalias !12
+527:                                              ; preds = %522
+  store i32 0, ptr %523, align 8, !noalias !12
+  %528 = getelementptr inbounds i8, ptr %521, i64 12
+  store i32 0, ptr %528, align 4, !noalias !12
+  %529 = load ptr, ptr %521, align 8, !noalias !12
+  %530 = getelementptr inbounds i8, ptr %529, i64 16
+  %531 = load ptr, ptr %530, align 8, !noalias !12
+  call void %531(ptr noundef nonnull align 8 dereferenceable(16) %521) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i86.i
 
-531:                                              ; preds = %521
-  %532 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i9.i.i.i81.i = icmp eq i8 %532, 0
-  br i1 %.not.i9.i.i.i81.i, label %535, label %533
+532:                                              ; preds = %522
+  %533 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i9.i.i.i81.i = icmp eq i8 %533, 0
+  br i1 %.not.i9.i.i.i81.i, label %536, label %534
 
-533:                                              ; preds = %531
-  %534 = add nsw i32 %525, -1
-  store i32 %534, ptr %522, align 4, !noalias !12
-  br label %537
+534:                                              ; preds = %532
+  %535 = add nsw i32 %526, -1
+  store i32 %535, ptr %523, align 4, !noalias !12
+  br label %538
 
-535:                                              ; preds = %531
-  %536 = atomicrmw volatile add ptr %522, i32 -1 acq_rel, align 4, !noalias !12
-  br label %537
+536:                                              ; preds = %532
+  %537 = atomicrmw volatile add ptr %523, i32 -1 acq_rel, align 4, !noalias !12
+  br label %538
 
-537:                                              ; preds = %535, %533
-  %.0.i.i.i.i82.i = phi i32 [ %525, %533 ], [ %536, %535 ]
-  %538 = icmp eq i32 %.0.i.i.i.i82.i, 1
-  br i1 %538, label %539, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i83.i
+538:                                              ; preds = %536, %534
+  %.0.i.i.i.i82.i = phi i32 [ %526, %534 ], [ %537, %536 ]
+  %539 = icmp eq i32 %.0.i.i.i.i82.i, 1
+  br i1 %539, label %540, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i83.i
 
-539:                                              ; preds = %537
-  %540 = load ptr, ptr %520, align 8, !noalias !12
-  %541 = getelementptr inbounds i8, ptr %540, i64 16
-  %542 = load ptr, ptr %541, align 8, !noalias !12
-  call void %542(ptr noundef nonnull align 8 dereferenceable(16) %520) #17, !noalias !12
-  %543 = getelementptr inbounds i8, ptr %520, i64 12
-  %544 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i.i.i84.i = icmp eq i8 %544, 0
-  br i1 %.not.i.i.i.i.i.i84.i, label %548, label %545
+540:                                              ; preds = %538
+  %541 = load ptr, ptr %521, align 8, !noalias !12
+  %542 = getelementptr inbounds i8, ptr %541, i64 16
+  %543 = load ptr, ptr %542, align 8, !noalias !12
+  call void %543(ptr noundef nonnull align 8 dereferenceable(16) %521) #17, !noalias !12
+  %544 = getelementptr inbounds i8, ptr %521, i64 12
+  %545 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i.i.i84.i = icmp eq i8 %545, 0
+  br i1 %.not.i.i.i.i.i.i84.i, label %549, label %546
 
-545:                                              ; preds = %539
-  %546 = load i32, ptr %543, align 4, !noalias !12
-  %547 = add nsw i32 %546, -1
-  store i32 %547, ptr %543, align 4, !noalias !12
-  br label %550
+546:                                              ; preds = %540
+  %547 = load i32, ptr %544, align 4, !noalias !12
+  %548 = add nsw i32 %547, -1
+  store i32 %548, ptr %544, align 4, !noalias !12
+  br label %551
 
-548:                                              ; preds = %539
-  %549 = atomicrmw volatile add ptr %543, i32 -1 acq_rel, align 4, !noalias !12
-  br label %550
+549:                                              ; preds = %540
+  %550 = atomicrmw volatile add ptr %544, i32 -1 acq_rel, align 4, !noalias !12
+  br label %551
 
-550:                                              ; preds = %548, %545
-  %.0.i.i.i.i.i.i85.i = phi i32 [ %546, %545 ], [ %549, %548 ]
-  %551 = icmp eq i32 %.0.i.i.i.i.i.i85.i, 1
-  br i1 %551, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i86.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i83.i
+551:                                              ; preds = %549, %546
+  %.0.i.i.i.i.i.i85.i = phi i32 [ %547, %546 ], [ %550, %549 ]
+  %552 = icmp eq i32 %.0.i.i.i.i.i.i85.i, 1
+  br i1 %552, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i86.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i83.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i86.i: ; preds = %550, %526
-  %552 = load ptr, ptr %520, align 8, !noalias !12
-  %553 = getelementptr inbounds i8, ptr %552, i64 24
-  %554 = load ptr, ptr %553, align 8, !noalias !12
-  call void %554(ptr noundef nonnull align 8 dereferenceable(16) %520) #17, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i86.i: ; preds = %551, %527
+  %553 = load ptr, ptr %521, align 8, !noalias !12
+  %554 = getelementptr inbounds i8, ptr %553, i64 24
+  %555 = load ptr, ptr %554, align 8, !noalias !12
+  call void %555(ptr noundef nonnull align 8 dereferenceable(16) %521) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i83.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i83.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i86.i, %550, %537, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i79.i
-  store ptr %510, ptr %197, align 8, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i83.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i86.i, %551, %538, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i79.i
+  store ptr %511, ptr %198, align 8, !noalias !12
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit87.i
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit87.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i83.i, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit73.i
-  %555 = load ptr, ptr %199, align 8, !noalias !12
-  %.not.i.i.i88.i = icmp eq ptr %555, null
-  br i1 %.not.i.i.i88.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i, label %556
+  %556 = load ptr, ptr %200, align 8, !noalias !12
+  %.not.i.i.i88.i = icmp eq ptr %556, null
+  br i1 %.not.i.i.i88.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i, label %557
 
-556:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit87.i
-  %557 = getelementptr inbounds i8, ptr %555, i64 8
-  %558 = load atomic i64, ptr %557 acquire, align 8, !noalias !12
-  %559 = icmp eq i64 %558, 4294967297
-  %560 = trunc i64 %558 to i32
-  br i1 %559, label %561, label %566
+557:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit87.i
+  %558 = getelementptr inbounds i8, ptr %556, i64 8
+  %559 = load atomic i64, ptr %558 acquire, align 8, !noalias !12
+  %560 = icmp eq i64 %559, 4294967297
+  %561 = trunc i64 %559 to i32
+  br i1 %560, label %562, label %567
 
-561:                                              ; preds = %556
-  store i32 0, ptr %557, align 8, !noalias !12
-  %562 = getelementptr inbounds i8, ptr %555, i64 12
-  store i32 0, ptr %562, align 4, !noalias !12
-  %563 = load ptr, ptr %555, align 8, !noalias !12
-  %564 = getelementptr inbounds i8, ptr %563, i64 16
-  %565 = load ptr, ptr %564, align 8, !noalias !12
-  call void %565(ptr noundef nonnull align 8 dereferenceable(16) %555) #17, !noalias !12
+562:                                              ; preds = %557
+  store i32 0, ptr %558, align 8, !noalias !12
+  %563 = getelementptr inbounds i8, ptr %556, i64 12
+  store i32 0, ptr %563, align 4, !noalias !12
+  %564 = load ptr, ptr %556, align 8, !noalias !12
+  %565 = getelementptr inbounds i8, ptr %564, i64 16
+  %566 = load ptr, ptr %565, align 8, !noalias !12
+  call void %566(ptr noundef nonnull align 8 dereferenceable(16) %556) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i93.i
 
-566:                                              ; preds = %556
-  %567 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i89.i = icmp eq i8 %567, 0
-  br i1 %.not.i.i.i.i89.i, label %570, label %568
+567:                                              ; preds = %557
+  %568 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i89.i = icmp eq i8 %568, 0
+  br i1 %.not.i.i.i.i89.i, label %571, label %569
 
-568:                                              ; preds = %566
-  %569 = add nsw i32 %560, -1
-  store i32 %569, ptr %557, align 4, !noalias !12
-  br label %572
+569:                                              ; preds = %567
+  %570 = add nsw i32 %561, -1
+  store i32 %570, ptr %558, align 4, !noalias !12
+  br label %573
 
-570:                                              ; preds = %566
-  %571 = atomicrmw volatile add ptr %557, i32 -1 acq_rel, align 4, !noalias !12
-  br label %572
+571:                                              ; preds = %567
+  %572 = atomicrmw volatile add ptr %558, i32 -1 acq_rel, align 4, !noalias !12
+  br label %573
 
-572:                                              ; preds = %570, %568
-  %.0.i.i.i.i90.i = phi i32 [ %560, %568 ], [ %571, %570 ]
-  %573 = icmp eq i32 %.0.i.i.i.i90.i, 1
-  br i1 %573, label %574, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i
+573:                                              ; preds = %571, %569
+  %.0.i.i.i.i90.i = phi i32 [ %561, %569 ], [ %572, %571 ]
+  %574 = icmp eq i32 %.0.i.i.i.i90.i, 1
+  br i1 %574, label %575, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i
 
-574:                                              ; preds = %572
-  %575 = load ptr, ptr %555, align 8, !noalias !12
-  %576 = getelementptr inbounds i8, ptr %575, i64 16
-  %577 = load ptr, ptr %576, align 8, !noalias !12
-  call void %577(ptr noundef nonnull align 8 dereferenceable(16) %555) #17, !noalias !12
-  %578 = getelementptr inbounds i8, ptr %555, i64 12
-  %579 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i.i.i91.i = icmp eq i8 %579, 0
-  br i1 %.not.i.i.i.i.i.i91.i, label %583, label %580
+575:                                              ; preds = %573
+  %576 = load ptr, ptr %556, align 8, !noalias !12
+  %577 = getelementptr inbounds i8, ptr %576, i64 16
+  %578 = load ptr, ptr %577, align 8, !noalias !12
+  call void %578(ptr noundef nonnull align 8 dereferenceable(16) %556) #17, !noalias !12
+  %579 = getelementptr inbounds i8, ptr %556, i64 12
+  %580 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i.i.i91.i = icmp eq i8 %580, 0
+  br i1 %.not.i.i.i.i.i.i91.i, label %584, label %581
 
-580:                                              ; preds = %574
-  %581 = load i32, ptr %578, align 4, !noalias !12
-  %582 = add nsw i32 %581, -1
-  store i32 %582, ptr %578, align 4, !noalias !12
-  br label %585
+581:                                              ; preds = %575
+  %582 = load i32, ptr %579, align 4, !noalias !12
+  %583 = add nsw i32 %582, -1
+  store i32 %583, ptr %579, align 4, !noalias !12
+  br label %586
 
-583:                                              ; preds = %574
-  %584 = atomicrmw volatile add ptr %578, i32 -1 acq_rel, align 4, !noalias !12
-  br label %585
+584:                                              ; preds = %575
+  %585 = atomicrmw volatile add ptr %579, i32 -1 acq_rel, align 4, !noalias !12
+  br label %586
 
-585:                                              ; preds = %583, %580
-  %.0.i.i.i.i.i.i92.i = phi i32 [ %581, %580 ], [ %584, %583 ]
-  %586 = icmp eq i32 %.0.i.i.i.i.i.i92.i, 1
-  br i1 %586, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i93.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i
+586:                                              ; preds = %584, %581
+  %.0.i.i.i.i.i.i92.i = phi i32 [ %582, %581 ], [ %585, %584 ]
+  %587 = icmp eq i32 %.0.i.i.i.i.i.i92.i, 1
+  br i1 %587, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i93.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i93.i: ; preds = %585, %561
-  %587 = load ptr, ptr %555, align 8, !noalias !12
-  %588 = getelementptr inbounds i8, ptr %587, i64 24
-  %589 = load ptr, ptr %588, align 8, !noalias !12
-  call void %589(ptr noundef nonnull align 8 dereferenceable(16) %555) #17, !noalias !12
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i93.i: ; preds = %586, %562
+  %588 = load ptr, ptr %556, align 8, !noalias !12
+  %589 = getelementptr inbounds i8, ptr %588, i64 24
+  %590 = load ptr, ptr %589, align 8, !noalias !12
+  call void %590(ptr noundef nonnull align 8 dereferenceable(16) %556) #17, !noalias !12
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i93.i, %585, %572, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit87.i
-  %590 = load ptr, ptr %5, align 8, !noalias !12
-  %.not.i = icmp eq ptr %590, null
-  br i1 %.not.i, label %._crit_edge111.i, label %201, !llvm.loop !15
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i93.i, %586, %573, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit87.i
+  %591 = load ptr, ptr %5, align 8, !noalias !12
+  %.not.i = icmp eq ptr %591, null
+  br i1 %.not.i, label %._crit_edge111.i, label %202, !llvm.loop !15
 
 ._crit_edge111.i:                                 ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.i, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i
-  %591 = load ptr, ptr %197, align 8, !noalias !12
-  %.not.i.i.i94.i = icmp eq ptr %591, null
-  br i1 %.not.i.i.i94.i, label %626, label %592
+  %592 = load ptr, ptr %198, align 8, !noalias !12
+  %.not.i.i.i94.i = icmp eq ptr %592, null
+  br i1 %.not.i.i.i94.i, label %627, label %593
 
-592:                                              ; preds = %._crit_edge111.i
-  %593 = getelementptr inbounds i8, ptr %591, i64 8
-  %594 = load atomic i64, ptr %593 acquire, align 8, !noalias !12
-  %595 = icmp eq i64 %594, 4294967297
-  %596 = trunc i64 %594 to i32
-  br i1 %595, label %597, label %602
+593:                                              ; preds = %._crit_edge111.i
+  %594 = getelementptr inbounds i8, ptr %592, i64 8
+  %595 = load atomic i64, ptr %594 acquire, align 8, !noalias !12
+  %596 = icmp eq i64 %595, 4294967297
+  %597 = trunc i64 %595 to i32
+  br i1 %596, label %598, label %603
 
-597:                                              ; preds = %592
-  store i32 0, ptr %593, align 8, !noalias !12
-  %598 = getelementptr inbounds i8, ptr %591, i64 12
-  store i32 0, ptr %598, align 4, !noalias !12
-  %599 = load ptr, ptr %591, align 8, !noalias !12
-  %600 = getelementptr inbounds i8, ptr %599, i64 16
-  %601 = load ptr, ptr %600, align 8, !noalias !12
-  call void %601(ptr noundef nonnull align 8 dereferenceable(16) %591) #17, !noalias !12
+598:                                              ; preds = %593
+  store i32 0, ptr %594, align 8, !noalias !12
+  %599 = getelementptr inbounds i8, ptr %592, i64 12
+  store i32 0, ptr %599, align 4, !noalias !12
+  %600 = load ptr, ptr %592, align 8, !noalias !12
+  %601 = getelementptr inbounds i8, ptr %600, i64 16
+  %602 = load ptr, ptr %601, align 8, !noalias !12
+  call void %602(ptr noundef nonnull align 8 dereferenceable(16) %592) #17, !noalias !12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99.i
 
-602:                                              ; preds = %592
-  %603 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i95.i = icmp eq i8 %603, 0
-  br i1 %.not.i.i.i.i95.i, label %606, label %604
+603:                                              ; preds = %593
+  %604 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i95.i = icmp eq i8 %604, 0
+  br i1 %.not.i.i.i.i95.i, label %607, label %605
 
-604:                                              ; preds = %602
-  %605 = add nsw i32 %596, -1
-  store i32 %605, ptr %593, align 4, !noalias !12
-  br label %608
+605:                                              ; preds = %603
+  %606 = add nsw i32 %597, -1
+  store i32 %606, ptr %594, align 4, !noalias !12
+  br label %609
 
-606:                                              ; preds = %602
-  %607 = atomicrmw volatile add ptr %593, i32 -1 acq_rel, align 4, !noalias !12
-  br label %608
+607:                                              ; preds = %603
+  %608 = atomicrmw volatile add ptr %594, i32 -1 acq_rel, align 4, !noalias !12
+  br label %609
 
-608:                                              ; preds = %606, %604
-  %.0.i.i.i.i96.i = phi i32 [ %596, %604 ], [ %607, %606 ]
-  %609 = icmp eq i32 %.0.i.i.i.i96.i, 1
-  br i1 %609, label %610, label %626
+609:                                              ; preds = %607, %605
+  %.0.i.i.i.i96.i = phi i32 [ %597, %605 ], [ %608, %607 ]
+  %610 = icmp eq i32 %.0.i.i.i.i96.i, 1
+  br i1 %610, label %611, label %627
 
-610:                                              ; preds = %608
-  %611 = load ptr, ptr %591, align 8, !noalias !12
-  %612 = getelementptr inbounds i8, ptr %611, i64 16
-  %613 = load ptr, ptr %612, align 8, !noalias !12
-  call void %613(ptr noundef nonnull align 8 dereferenceable(16) %591) #17, !noalias !12
-  %614 = getelementptr inbounds i8, ptr %591, i64 12
-  %615 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i.i.i97.i = icmp eq i8 %615, 0
-  br i1 %.not.i.i.i.i.i.i97.i, label %619, label %616
+611:                                              ; preds = %609
+  %612 = load ptr, ptr %592, align 8, !noalias !12
+  %613 = getelementptr inbounds i8, ptr %612, i64 16
+  %614 = load ptr, ptr %613, align 8, !noalias !12
+  call void %614(ptr noundef nonnull align 8 dereferenceable(16) %592) #17, !noalias !12
+  %615 = getelementptr inbounds i8, ptr %592, i64 12
+  %616 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i.i.i97.i = icmp eq i8 %616, 0
+  br i1 %.not.i.i.i.i.i.i97.i, label %620, label %617
 
-616:                                              ; preds = %610
-  %617 = load i32, ptr %614, align 4, !noalias !12
-  %618 = add nsw i32 %617, -1
-  store i32 %618, ptr %614, align 4, !noalias !12
-  br label %621
+617:                                              ; preds = %611
+  %618 = load i32, ptr %615, align 4, !noalias !12
+  %619 = add nsw i32 %618, -1
+  store i32 %619, ptr %615, align 4, !noalias !12
+  br label %622
 
-619:                                              ; preds = %610
-  %620 = atomicrmw volatile add ptr %614, i32 -1 acq_rel, align 4, !noalias !12
-  br label %621
+620:                                              ; preds = %611
+  %621 = atomicrmw volatile add ptr %615, i32 -1 acq_rel, align 4, !noalias !12
+  br label %622
 
-621:                                              ; preds = %619, %616
-  %.0.i.i.i.i.i.i98.i = phi i32 [ %617, %616 ], [ %620, %619 ]
-  %622 = icmp eq i32 %.0.i.i.i.i.i.i98.i, 1
-  br i1 %622, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99.i, label %626
+622:                                              ; preds = %620, %617
+  %.0.i.i.i.i.i.i98.i = phi i32 [ %618, %617 ], [ %621, %620 ]
+  %623 = icmp eq i32 %.0.i.i.i.i.i.i98.i, 1
+  br i1 %623, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99.i, label %627
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99.i: ; preds = %621, %597
-  %623 = load ptr, ptr %591, align 8, !noalias !12
-  %624 = getelementptr inbounds i8, ptr %623, i64 24
-  %625 = load ptr, ptr %624, align 8, !noalias !12
-  call void %625(ptr noundef nonnull align 8 dereferenceable(16) %591) #17, !noalias !12
-  br label %626
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99.i: ; preds = %622, %598
+  %624 = load ptr, ptr %592, align 8, !noalias !12
+  %625 = getelementptr inbounds i8, ptr %624, i64 24
+  %626 = load ptr, ptr %625, align 8, !noalias !12
+  call void %626(ptr noundef nonnull align 8 dereferenceable(16) %592) #17, !noalias !12
+  br label %627
 
-626:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99.i, %621, %608, %._crit_edge111.i
+627:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99.i, %622, %609, %._crit_edge111.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %627 = getelementptr inbounds i8, ptr %14, i64 8
-  %628 = load <2 x ptr>, ptr %14, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %629 = load ptr, ptr %57, align 8
-  store <2 x ptr> %628, ptr %55, align 8
-  %.not.i.i.i.i87 = icmp eq ptr %629, null
-  br i1 %.not.i.i.i.i87, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93, label %630
+  %628 = load ptr, ptr %14, align 8
+  %629 = getelementptr inbounds i8, ptr %14, i64 8
+  %630 = load ptr, ptr %629, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  store ptr %628, ptr %55, align 8
+  %631 = load ptr, ptr %58, align 8
+  store ptr %630, ptr %58, align 8
+  %.not.i.i.i.i87 = icmp eq ptr %631, null
+  br i1 %.not.i.i.i.i87, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93, label %632
 
-630:                                              ; preds = %626
-  %631 = getelementptr inbounds i8, ptr %629, i64 8
-  %632 = load atomic i64, ptr %631 acquire, align 8
-  %633 = icmp eq i64 %632, 4294967297
-  %634 = trunc i64 %632 to i32
-  br i1 %633, label %635, label %640
+632:                                              ; preds = %627
+  %633 = getelementptr inbounds i8, ptr %631, i64 8
+  %634 = load atomic i64, ptr %633 acquire, align 8
+  %635 = icmp eq i64 %634, 4294967297
+  %636 = trunc i64 %634 to i32
+  br i1 %635, label %637, label %642
 
-635:                                              ; preds = %630
-  store i32 0, ptr %631, align 8
-  %636 = getelementptr inbounds i8, ptr %629, i64 12
-  store i32 0, ptr %636, align 4
-  %637 = load ptr, ptr %629, align 8
-  %638 = getelementptr inbounds i8, ptr %637, i64 16
-  %639 = load ptr, ptr %638, align 8
-  call void %639(ptr noundef nonnull align 8 dereferenceable(16) %629) #17
+637:                                              ; preds = %632
+  store i32 0, ptr %633, align 8
+  %638 = getelementptr inbounds i8, ptr %631, i64 12
+  store i32 0, ptr %638, align 4
+  %639 = load ptr, ptr %631, align 8
+  %640 = getelementptr inbounds i8, ptr %639, i64 16
+  %641 = load ptr, ptr %640, align 8
+  call void %641(ptr noundef nonnull align 8 dereferenceable(16) %631) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92
 
-640:                                              ; preds = %630
-  %641 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i88 = icmp eq i8 %641, 0
-  br i1 %.not.i.i.i.i.i88, label %644, label %642
+642:                                              ; preds = %632
+  %643 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i88 = icmp eq i8 %643, 0
+  br i1 %.not.i.i.i.i.i88, label %646, label %644
 
-642:                                              ; preds = %640
-  %643 = add nsw i32 %634, -1
-  store i32 %643, ptr %631, align 4
-  br label %646
+644:                                              ; preds = %642
+  %645 = add nsw i32 %636, -1
+  store i32 %645, ptr %633, align 4
+  br label %648
 
-644:                                              ; preds = %640
-  %645 = atomicrmw volatile add ptr %631, i32 -1 acq_rel, align 4
-  br label %646
+646:                                              ; preds = %642
+  %647 = atomicrmw volatile add ptr %633, i32 -1 acq_rel, align 4
+  br label %648
 
-646:                                              ; preds = %644, %642
-  %.0.i.i.i.i.i89 = phi i32 [ %634, %642 ], [ %645, %644 ]
-  %647 = icmp eq i32 %.0.i.i.i.i.i89, 1
-  br i1 %647, label %648, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93
+648:                                              ; preds = %646, %644
+  %.0.i.i.i.i.i89 = phi i32 [ %636, %644 ], [ %647, %646 ]
+  %649 = icmp eq i32 %.0.i.i.i.i.i89, 1
+  br i1 %649, label %650, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93
 
-648:                                              ; preds = %646
-  %649 = load ptr, ptr %629, align 8
-  %650 = getelementptr inbounds i8, ptr %649, i64 16
-  %651 = load ptr, ptr %650, align 8
-  call void %651(ptr noundef nonnull align 8 dereferenceable(16) %629) #17
-  %652 = getelementptr inbounds i8, ptr %629, i64 12
-  %653 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i90 = icmp eq i8 %653, 0
-  br i1 %.not.i.i.i.i.i.i.i90, label %657, label %654
+650:                                              ; preds = %648
+  %651 = load ptr, ptr %631, align 8
+  %652 = getelementptr inbounds i8, ptr %651, i64 16
+  %653 = load ptr, ptr %652, align 8
+  call void %653(ptr noundef nonnull align 8 dereferenceable(16) %631) #17
+  %654 = getelementptr inbounds i8, ptr %631, i64 12
+  %655 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i90 = icmp eq i8 %655, 0
+  br i1 %.not.i.i.i.i.i.i.i90, label %659, label %656
 
-654:                                              ; preds = %648
-  %655 = load i32, ptr %652, align 4
-  %656 = add nsw i32 %655, -1
-  store i32 %656, ptr %652, align 4
-  br label %659
+656:                                              ; preds = %650
+  %657 = load i32, ptr %654, align 4
+  %658 = add nsw i32 %657, -1
+  store i32 %658, ptr %654, align 4
+  br label %661
 
-657:                                              ; preds = %648
-  %658 = atomicrmw volatile add ptr %652, i32 -1 acq_rel, align 4
-  br label %659
+659:                                              ; preds = %650
+  %660 = atomicrmw volatile add ptr %654, i32 -1 acq_rel, align 4
+  br label %661
 
-659:                                              ; preds = %657, %654
-  %.0.i.i.i.i.i.i.i91 = phi i32 [ %655, %654 ], [ %658, %657 ]
-  %660 = icmp eq i32 %.0.i.i.i.i.i.i.i91, 1
-  br i1 %660, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93
+661:                                              ; preds = %659, %656
+  %.0.i.i.i.i.i.i.i91 = phi i32 [ %657, %656 ], [ %660, %659 ]
+  %662 = icmp eq i32 %.0.i.i.i.i.i.i.i91, 1
+  br i1 %662, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92: ; preds = %659, %635
-  %661 = load ptr, ptr %629, align 8
-  %662 = getelementptr inbounds i8, ptr %661, i64 24
-  %663 = load ptr, ptr %662, align 8
-  call void %663(ptr noundef nonnull align 8 dereferenceable(16) %629) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92: ; preds = %661, %637
+  %663 = load ptr, ptr %631, align 8
+  %664 = getelementptr inbounds i8, ptr %663, i64 24
+  %665 = load ptr, ptr %664, align 8
+  call void %665(ptr noundef nonnull align 8 dereferenceable(16) %631) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93: ; preds = %626, %646, %659, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92
-  %664 = load ptr, ptr %627, align 8
-  %.not.i.i.i94 = icmp eq ptr %664, null
-  br i1 %.not.i.i.i94, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100, label %665
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93: ; preds = %627, %648, %661, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92
+  %666 = load ptr, ptr %629, align 8
+  %.not.i.i.i94 = icmp eq ptr %666, null
+  br i1 %.not.i.i.i94, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100, label %667
 
-665:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93
-  %666 = getelementptr inbounds i8, ptr %664, i64 8
-  %667 = load atomic i64, ptr %666 acquire, align 8
-  %668 = icmp eq i64 %667, 4294967297
-  %669 = trunc i64 %667 to i32
-  br i1 %668, label %670, label %675
+667:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93
+  %668 = getelementptr inbounds i8, ptr %666, i64 8
+  %669 = load atomic i64, ptr %668 acquire, align 8
+  %670 = icmp eq i64 %669, 4294967297
+  %671 = trunc i64 %669 to i32
+  br i1 %670, label %672, label %677
 
-670:                                              ; preds = %665
-  store i32 0, ptr %666, align 8
-  %671 = getelementptr inbounds i8, ptr %664, i64 12
-  store i32 0, ptr %671, align 4
-  %672 = load ptr, ptr %664, align 8
-  %673 = getelementptr inbounds i8, ptr %672, i64 16
-  %674 = load ptr, ptr %673, align 8
-  call void %674(ptr noundef nonnull align 8 dereferenceable(16) %664) #17
+672:                                              ; preds = %667
+  store i32 0, ptr %668, align 8
+  %673 = getelementptr inbounds i8, ptr %666, i64 12
+  store i32 0, ptr %673, align 4
+  %674 = load ptr, ptr %666, align 8
+  %675 = getelementptr inbounds i8, ptr %674, i64 16
+  %676 = load ptr, ptr %675, align 8
+  call void %676(ptr noundef nonnull align 8 dereferenceable(16) %666) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99
 
-675:                                              ; preds = %665
-  %676 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i95 = icmp eq i8 %676, 0
-  br i1 %.not.i.i.i.i95, label %679, label %677
+677:                                              ; preds = %667
+  %678 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i95 = icmp eq i8 %678, 0
+  br i1 %.not.i.i.i.i95, label %681, label %679
 
-677:                                              ; preds = %675
-  %678 = add nsw i32 %669, -1
-  store i32 %678, ptr %666, align 4
-  br label %681
+679:                                              ; preds = %677
+  %680 = add nsw i32 %671, -1
+  store i32 %680, ptr %668, align 4
+  br label %683
 
-679:                                              ; preds = %675
-  %680 = atomicrmw volatile add ptr %666, i32 -1 acq_rel, align 4
-  br label %681
+681:                                              ; preds = %677
+  %682 = atomicrmw volatile add ptr %668, i32 -1 acq_rel, align 4
+  br label %683
 
-681:                                              ; preds = %679, %677
-  %.0.i.i.i.i96 = phi i32 [ %669, %677 ], [ %680, %679 ]
-  %682 = icmp eq i32 %.0.i.i.i.i96, 1
-  br i1 %682, label %683, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100
+683:                                              ; preds = %681, %679
+  %.0.i.i.i.i96 = phi i32 [ %671, %679 ], [ %682, %681 ]
+  %684 = icmp eq i32 %.0.i.i.i.i96, 1
+  br i1 %684, label %685, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100
 
-683:                                              ; preds = %681
-  %684 = load ptr, ptr %664, align 8
-  %685 = getelementptr inbounds i8, ptr %684, i64 16
-  %686 = load ptr, ptr %685, align 8
-  call void %686(ptr noundef nonnull align 8 dereferenceable(16) %664) #17
-  %687 = getelementptr inbounds i8, ptr %664, i64 12
-  %688 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i97 = icmp eq i8 %688, 0
-  br i1 %.not.i.i.i.i.i.i97, label %692, label %689
+685:                                              ; preds = %683
+  %686 = load ptr, ptr %666, align 8
+  %687 = getelementptr inbounds i8, ptr %686, i64 16
+  %688 = load ptr, ptr %687, align 8
+  call void %688(ptr noundef nonnull align 8 dereferenceable(16) %666) #17
+  %689 = getelementptr inbounds i8, ptr %666, i64 12
+  %690 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i97 = icmp eq i8 %690, 0
+  br i1 %.not.i.i.i.i.i.i97, label %694, label %691
 
-689:                                              ; preds = %683
-  %690 = load i32, ptr %687, align 4
-  %691 = add nsw i32 %690, -1
-  store i32 %691, ptr %687, align 4
-  br label %694
+691:                                              ; preds = %685
+  %692 = load i32, ptr %689, align 4
+  %693 = add nsw i32 %692, -1
+  store i32 %693, ptr %689, align 4
+  br label %696
 
-692:                                              ; preds = %683
-  %693 = atomicrmw volatile add ptr %687, i32 -1 acq_rel, align 4
-  br label %694
+694:                                              ; preds = %685
+  %695 = atomicrmw volatile add ptr %689, i32 -1 acq_rel, align 4
+  br label %696
 
-694:                                              ; preds = %692, %689
-  %.0.i.i.i.i.i.i98 = phi i32 [ %690, %689 ], [ %693, %692 ]
-  %695 = icmp eq i32 %.0.i.i.i.i.i.i98, 1
-  br i1 %695, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100
+696:                                              ; preds = %694, %691
+  %.0.i.i.i.i.i.i98 = phi i32 [ %692, %691 ], [ %695, %694 ]
+  %697 = icmp eq i32 %.0.i.i.i.i.i.i98, 1
+  br i1 %697, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99: ; preds = %694, %670
-  %696 = load ptr, ptr %664, align 8
-  %697 = getelementptr inbounds i8, ptr %696, i64 24
-  %698 = load ptr, ptr %697, align 8
-  call void %698(ptr noundef nonnull align 8 dereferenceable(16) %664) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99: ; preds = %696, %672
+  %698 = load ptr, ptr %666, align 8
+  %699 = getelementptr inbounds i8, ptr %698, i64 24
+  %700 = load ptr, ptr %699, align 8
+  call void %700(ptr noundef nonnull align 8 dereferenceable(16) %666) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93, %681, %694, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99
-  %699 = load ptr, ptr %177, align 8
-  %.not.i.i.i101 = icmp eq ptr %699, null
-  br i1 %.not.i.i.i101, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107, label %700
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit93, %683, %696, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i99
+  %701 = load ptr, ptr %178, align 8
+  %.not.i.i.i101 = icmp eq ptr %701, null
+  br i1 %.not.i.i.i101, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107, label %702
 
-700:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100
-  %701 = getelementptr inbounds i8, ptr %699, i64 8
-  %702 = load atomic i64, ptr %701 acquire, align 8
-  %703 = icmp eq i64 %702, 4294967297
-  %704 = trunc i64 %702 to i32
-  br i1 %703, label %705, label %710
+702:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100
+  %703 = getelementptr inbounds i8, ptr %701, i64 8
+  %704 = load atomic i64, ptr %703 acquire, align 8
+  %705 = icmp eq i64 %704, 4294967297
+  %706 = trunc i64 %704 to i32
+  br i1 %705, label %707, label %712
 
-705:                                              ; preds = %700
-  store i32 0, ptr %701, align 8
-  %706 = getelementptr inbounds i8, ptr %699, i64 12
-  store i32 0, ptr %706, align 4
-  %707 = load ptr, ptr %699, align 8
-  %708 = getelementptr inbounds i8, ptr %707, i64 16
-  %709 = load ptr, ptr %708, align 8
-  call void %709(ptr noundef nonnull align 8 dereferenceable(16) %699) #17
+707:                                              ; preds = %702
+  store i32 0, ptr %703, align 8
+  %708 = getelementptr inbounds i8, ptr %701, i64 12
+  store i32 0, ptr %708, align 4
+  %709 = load ptr, ptr %701, align 8
+  %710 = getelementptr inbounds i8, ptr %709, i64 16
+  %711 = load ptr, ptr %710, align 8
+  call void %711(ptr noundef nonnull align 8 dereferenceable(16) %701) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i106
 
-710:                                              ; preds = %700
-  %711 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i102 = icmp eq i8 %711, 0
-  br i1 %.not.i.i.i.i102, label %714, label %712
+712:                                              ; preds = %702
+  %713 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i102 = icmp eq i8 %713, 0
+  br i1 %.not.i.i.i.i102, label %716, label %714
 
-712:                                              ; preds = %710
-  %713 = add nsw i32 %704, -1
-  store i32 %713, ptr %701, align 4
-  br label %716
+714:                                              ; preds = %712
+  %715 = add nsw i32 %706, -1
+  store i32 %715, ptr %703, align 4
+  br label %718
 
-714:                                              ; preds = %710
-  %715 = atomicrmw volatile add ptr %701, i32 -1 acq_rel, align 4
-  br label %716
+716:                                              ; preds = %712
+  %717 = atomicrmw volatile add ptr %703, i32 -1 acq_rel, align 4
+  br label %718
 
-716:                                              ; preds = %714, %712
-  %.0.i.i.i.i103 = phi i32 [ %704, %712 ], [ %715, %714 ]
-  %717 = icmp eq i32 %.0.i.i.i.i103, 1
-  br i1 %717, label %718, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107
+718:                                              ; preds = %716, %714
+  %.0.i.i.i.i103 = phi i32 [ %706, %714 ], [ %717, %716 ]
+  %719 = icmp eq i32 %.0.i.i.i.i103, 1
+  br i1 %719, label %720, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107
 
-718:                                              ; preds = %716
-  %719 = load ptr, ptr %699, align 8
-  %720 = getelementptr inbounds i8, ptr %719, i64 16
-  %721 = load ptr, ptr %720, align 8
-  call void %721(ptr noundef nonnull align 8 dereferenceable(16) %699) #17
-  %722 = getelementptr inbounds i8, ptr %699, i64 12
-  %723 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i104 = icmp eq i8 %723, 0
-  br i1 %.not.i.i.i.i.i.i104, label %727, label %724
+720:                                              ; preds = %718
+  %721 = load ptr, ptr %701, align 8
+  %722 = getelementptr inbounds i8, ptr %721, i64 16
+  %723 = load ptr, ptr %722, align 8
+  call void %723(ptr noundef nonnull align 8 dereferenceable(16) %701) #17
+  %724 = getelementptr inbounds i8, ptr %701, i64 12
+  %725 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i104 = icmp eq i8 %725, 0
+  br i1 %.not.i.i.i.i.i.i104, label %729, label %726
 
-724:                                              ; preds = %718
-  %725 = load i32, ptr %722, align 4
-  %726 = add nsw i32 %725, -1
-  store i32 %726, ptr %722, align 4
-  br label %729
+726:                                              ; preds = %720
+  %727 = load i32, ptr %724, align 4
+  %728 = add nsw i32 %727, -1
+  store i32 %728, ptr %724, align 4
+  br label %731
 
-727:                                              ; preds = %718
-  %728 = atomicrmw volatile add ptr %722, i32 -1 acq_rel, align 4
-  br label %729
+729:                                              ; preds = %720
+  %730 = atomicrmw volatile add ptr %724, i32 -1 acq_rel, align 4
+  br label %731
 
-729:                                              ; preds = %727, %724
-  %.0.i.i.i.i.i.i105 = phi i32 [ %725, %724 ], [ %728, %727 ]
-  %730 = icmp eq i32 %.0.i.i.i.i.i.i105, 1
-  br i1 %730, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i106, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107
+731:                                              ; preds = %729, %726
+  %.0.i.i.i.i.i.i105 = phi i32 [ %727, %726 ], [ %730, %729 ]
+  %732 = icmp eq i32 %.0.i.i.i.i.i.i105, 1
+  br i1 %732, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i106, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i106: ; preds = %729, %705
-  %731 = load ptr, ptr %699, align 8
-  %732 = getelementptr inbounds i8, ptr %731, i64 24
-  %733 = load ptr, ptr %732, align 8
-  call void %733(ptr noundef nonnull align 8 dereferenceable(16) %699) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i106: ; preds = %731, %707
+  %733 = load ptr, ptr %701, align 8
+  %734 = getelementptr inbounds i8, ptr %733, i64 24
+  %735 = load ptr, ptr %734, align 8
+  call void %735(ptr noundef nonnull align 8 dereferenceable(16) %701) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100, %716, %729, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i106
-  %734 = load ptr, ptr %55, align 8
-  store ptr %734, ptr %9, align 8
-  %735 = getelementptr inbounds i8, ptr %9, i64 8
-  %736 = load ptr, ptr %57, align 8
-  %737 = load ptr, ptr %735, align 8
-  %.not.i.i.i108 = icmp eq ptr %736, %737
-  br i1 %.not.i.i.i108, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit, label %738
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit100, %718, %731, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i106
+  %736 = load ptr, ptr %55, align 8
+  store ptr %736, ptr %9, align 8
+  %737 = getelementptr inbounds i8, ptr %9, i64 8
+  %738 = load ptr, ptr %58, align 8
+  %739 = load ptr, ptr %737, align 8
+  %.not.i.i.i108 = icmp eq ptr %738, %739
+  br i1 %.not.i.i.i108, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit, label %740
 
-738:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107
-  %.not7.i.i.i = icmp eq ptr %736, null
-  br i1 %.not7.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i, label %739
+740:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107
+  %.not7.i.i.i = icmp eq ptr %738, null
+  br i1 %.not7.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i, label %741
 
-739:                                              ; preds = %738
-  %740 = getelementptr inbounds i8, ptr %736, i64 8
-  %741 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i109 = icmp eq i8 %741, 0
-  br i1 %.not.i.i.i.i109, label %745, label %742
+741:                                              ; preds = %740
+  %742 = getelementptr inbounds i8, ptr %738, i64 8
+  %743 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i109 = icmp eq i8 %743, 0
+  br i1 %.not.i.i.i.i109, label %747, label %744
 
-742:                                              ; preds = %739
-  %743 = load i32, ptr %740, align 4
-  %744 = add nsw i32 %743, 1
-  store i32 %744, ptr %740, align 4
+744:                                              ; preds = %741
+  %745 = load i32, ptr %742, align 4
+  %746 = add nsw i32 %745, 1
+  store i32 %746, ptr %742, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i
 
-745:                                              ; preds = %739
-  %746 = atomicrmw volatile add ptr %740, i32 1 acq_rel, align 4
+747:                                              ; preds = %741
+  %748 = atomicrmw volatile add ptr %742, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i: ; preds = %745, %742
-  %.pr.i.i.i = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i: ; preds = %747, %744
+  %.pr.i.i.i = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i, %738
-  %747 = phi ptr [ %.pr.i.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i ], [ %737, %738 ]
-  %.not8.i.i.i = icmp eq ptr %747, null
-  br i1 %.not8.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, label %748
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i, %740
+  %749 = phi ptr [ %.pr.i.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i ], [ %739, %740 ]
+  %.not8.i.i.i = icmp eq ptr %749, null
+  br i1 %.not8.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, label %750
 
-748:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
-  %749 = getelementptr inbounds i8, ptr %747, i64 8
-  %750 = load atomic i64, ptr %749 acquire, align 8
-  %751 = icmp eq i64 %750, 4294967297
-  %752 = trunc i64 %750 to i32
-  br i1 %751, label %753, label %758
+750:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
+  %751 = getelementptr inbounds i8, ptr %749, i64 8
+  %752 = load atomic i64, ptr %751 acquire, align 8
+  %753 = icmp eq i64 %752, 4294967297
+  %754 = trunc i64 %752 to i32
+  br i1 %753, label %755, label %760
 
-753:                                              ; preds = %748
-  store i32 0, ptr %749, align 8
-  %754 = getelementptr inbounds i8, ptr %747, i64 12
-  store i32 0, ptr %754, align 4
-  %755 = load ptr, ptr %747, align 8
-  %756 = getelementptr inbounds i8, ptr %755, i64 16
-  %757 = load ptr, ptr %756, align 8
-  call void %757(ptr noundef nonnull align 8 dereferenceable(16) %747) #17
+755:                                              ; preds = %750
+  store i32 0, ptr %751, align 8
+  %756 = getelementptr inbounds i8, ptr %749, i64 12
+  store i32 0, ptr %756, align 4
+  %757 = load ptr, ptr %749, align 8
+  %758 = getelementptr inbounds i8, ptr %757, i64 16
+  %759 = load ptr, ptr %758, align 8
+  call void %759(ptr noundef nonnull align 8 dereferenceable(16) %749) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i113
 
-758:                                              ; preds = %748
-  %759 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i = icmp eq i8 %759, 0
-  br i1 %.not.i9.i.i.i, label %762, label %760
+760:                                              ; preds = %750
+  %761 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i = icmp eq i8 %761, 0
+  br i1 %.not.i9.i.i.i, label %764, label %762
 
-760:                                              ; preds = %758
-  %761 = add nsw i32 %752, -1
-  store i32 %761, ptr %749, align 4
-  br label %764
+762:                                              ; preds = %760
+  %763 = add nsw i32 %754, -1
+  store i32 %763, ptr %751, align 4
+  br label %766
 
-762:                                              ; preds = %758
-  %763 = atomicrmw volatile add ptr %749, i32 -1 acq_rel, align 4
-  br label %764
+764:                                              ; preds = %760
+  %765 = atomicrmw volatile add ptr %751, i32 -1 acq_rel, align 4
+  br label %766
 
-764:                                              ; preds = %762, %760
-  %.0.i.i.i.i110 = phi i32 [ %752, %760 ], [ %763, %762 ]
-  %765 = icmp eq i32 %.0.i.i.i.i110, 1
-  br i1 %765, label %766, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
+766:                                              ; preds = %764, %762
+  %.0.i.i.i.i110 = phi i32 [ %754, %762 ], [ %765, %764 ]
+  %767 = icmp eq i32 %.0.i.i.i.i110, 1
+  br i1 %767, label %768, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
 
-766:                                              ; preds = %764
-  %767 = load ptr, ptr %747, align 8
-  %768 = getelementptr inbounds i8, ptr %767, i64 16
-  %769 = load ptr, ptr %768, align 8
-  call void %769(ptr noundef nonnull align 8 dereferenceable(16) %747) #17
-  %770 = getelementptr inbounds i8, ptr %747, i64 12
-  %771 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i111 = icmp eq i8 %771, 0
-  br i1 %.not.i.i.i.i.i.i111, label %775, label %772
+768:                                              ; preds = %766
+  %769 = load ptr, ptr %749, align 8
+  %770 = getelementptr inbounds i8, ptr %769, i64 16
+  %771 = load ptr, ptr %770, align 8
+  call void %771(ptr noundef nonnull align 8 dereferenceable(16) %749) #17
+  %772 = getelementptr inbounds i8, ptr %749, i64 12
+  %773 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i111 = icmp eq i8 %773, 0
+  br i1 %.not.i.i.i.i.i.i111, label %777, label %774
 
-772:                                              ; preds = %766
-  %773 = load i32, ptr %770, align 4
-  %774 = add nsw i32 %773, -1
-  store i32 %774, ptr %770, align 4
-  br label %777
+774:                                              ; preds = %768
+  %775 = load i32, ptr %772, align 4
+  %776 = add nsw i32 %775, -1
+  store i32 %776, ptr %772, align 4
+  br label %779
 
-775:                                              ; preds = %766
-  %776 = atomicrmw volatile add ptr %770, i32 -1 acq_rel, align 4
-  br label %777
+777:                                              ; preds = %768
+  %778 = atomicrmw volatile add ptr %772, i32 -1 acq_rel, align 4
+  br label %779
 
-777:                                              ; preds = %775, %772
-  %.0.i.i.i.i.i.i112 = phi i32 [ %773, %772 ], [ %776, %775 ]
-  %778 = icmp eq i32 %.0.i.i.i.i.i.i112, 1
-  br i1 %778, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i113, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
+779:                                              ; preds = %777, %774
+  %.0.i.i.i.i.i.i112 = phi i32 [ %775, %774 ], [ %778, %777 ]
+  %780 = icmp eq i32 %.0.i.i.i.i.i.i112, 1
+  br i1 %780, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i113, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i113: ; preds = %777, %753
-  %779 = load ptr, ptr %747, align 8
-  %780 = getelementptr inbounds i8, ptr %779, i64 24
-  %781 = load ptr, ptr %780, align 8
-  call void %781(ptr noundef nonnull align 8 dereferenceable(16) %747) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i113: ; preds = %779, %755
+  %781 = load ptr, ptr %749, align 8
+  %782 = getelementptr inbounds i8, ptr %781, i64 24
+  %783 = load ptr, ptr %782, align 8
+  call void %783(ptr noundef nonnull align 8 dereferenceable(16) %749) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i113, %777, %764, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
-  store ptr %736, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i113, %779, %766, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
+  store ptr %738, ptr %737, align 8
   %.pre599 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
-  %782 = phi ptr [ %737, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107 ], [ %736, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
-  %783 = phi ptr [ %734, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107 ], [ %.pre599, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
-  %.not506556 = icmp eq ptr %783, null
+  %784 = phi ptr [ %739, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107 ], [ %738, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
+  %785 = phi ptr [ %736, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit107 ], [ %.pre599, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
+  %.not506556 = icmp eq ptr %785, null
   br i1 %.not506556, label %._crit_edge558, label %.lr.ph557
 
 .lr.ph557:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit127
   invoke fastcc void @_ZL28optimize_boolean_expressionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %784 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-784:                                              ; preds = %.lr.ph557
-  invoke fastcc void @_ZL31reorder_boolean_static_childrenRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %785 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-785:                                              ; preds = %784
-  invoke fastcc void @_ZL31optimize_arithmetic_expressionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %786 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-786:                                              ; preds = %785
-  invoke fastcc void @_ZL22init_item_compilerdataRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
+786:                                              ; preds = %.lr.ph557
+  invoke fastcc void @_ZL31reorder_boolean_static_childrenRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %787 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 787:                                              ; preds = %786
-  %788 = load ptr, ptr %9, align 8
-  %789 = getelementptr inbounds i8, ptr %788, i64 112
-  %790 = load ptr, ptr %789, align 8
-  store ptr %790, ptr %9, align 8
-  %791 = getelementptr inbounds i8, ptr %788, i64 120
+  invoke fastcc void @_ZL31optimize_arithmetic_expressionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %788 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+788:                                              ; preds = %787
+  invoke fastcc void @_ZL22init_item_compilerdataRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %789 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+789:                                              ; preds = %788
+  %790 = load ptr, ptr %9, align 8
+  %791 = getelementptr inbounds i8, ptr %790, i64 112
   %792 = load ptr, ptr %791, align 8
-  %793 = load ptr, ptr %735, align 8
-  %.not.i.i.i114 = icmp eq ptr %792, %793
-  br i1 %.not.i.i.i114, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit127, label %794
+  store ptr %792, ptr %9, align 8
+  %793 = getelementptr inbounds i8, ptr %790, i64 120
+  %794 = load ptr, ptr %793, align 8
+  %795 = load ptr, ptr %737, align 8
+  %.not.i.i.i114 = icmp eq ptr %794, %795
+  br i1 %.not.i.i.i114, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit127, label %796
 
-794:                                              ; preds = %787
-  %.not7.i.i.i115 = icmp eq ptr %792, null
-  br i1 %.not7.i.i.i115, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i119, label %795
+796:                                              ; preds = %789
+  %.not7.i.i.i115 = icmp eq ptr %794, null
+  br i1 %.not7.i.i.i115, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i119, label %797
 
-795:                                              ; preds = %794
-  %796 = getelementptr inbounds i8, ptr %792, i64 8
-  %797 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i116 = icmp eq i8 %797, 0
-  br i1 %.not.i.i.i.i116, label %801, label %798
+797:                                              ; preds = %796
+  %798 = getelementptr inbounds i8, ptr %794, i64 8
+  %799 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i116 = icmp eq i8 %799, 0
+  br i1 %.not.i.i.i.i116, label %803, label %800
 
-798:                                              ; preds = %795
-  %799 = load i32, ptr %796, align 4
-  %800 = add nsw i32 %799, 1
-  store i32 %800, ptr %796, align 4
+800:                                              ; preds = %797
+  %801 = load i32, ptr %798, align 4
+  %802 = add nsw i32 %801, 1
+  store i32 %802, ptr %798, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i117
 
-801:                                              ; preds = %795
-  %802 = atomicrmw volatile add ptr %796, i32 1 acq_rel, align 4
+803:                                              ; preds = %797
+  %804 = atomicrmw volatile add ptr %798, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i117
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i117: ; preds = %801, %798
-  %.pr.i.i.i118 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i117: ; preds = %803, %800
+  %.pr.i.i.i118 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i119
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i119: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i117, %794
-  %803 = phi ptr [ %.pr.i.i.i118, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i117 ], [ %793, %794 ]
-  %.not8.i.i.i120 = icmp eq ptr %803, null
-  br i1 %.not8.i.i.i120, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123, label %804
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i119: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i117, %796
+  %805 = phi ptr [ %.pr.i.i.i118, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i117 ], [ %795, %796 ]
+  %.not8.i.i.i120 = icmp eq ptr %805, null
+  br i1 %.not8.i.i.i120, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123, label %806
 
-804:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i119
-  %805 = getelementptr inbounds i8, ptr %803, i64 8
-  %806 = load atomic i64, ptr %805 acquire, align 8
-  %807 = icmp eq i64 %806, 4294967297
-  %808 = trunc i64 %806 to i32
-  br i1 %807, label %809, label %814
+806:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i119
+  %807 = getelementptr inbounds i8, ptr %805, i64 8
+  %808 = load atomic i64, ptr %807 acquire, align 8
+  %809 = icmp eq i64 %808, 4294967297
+  %810 = trunc i64 %808 to i32
+  br i1 %809, label %811, label %816
 
-809:                                              ; preds = %804
-  store i32 0, ptr %805, align 8
-  %810 = getelementptr inbounds i8, ptr %803, i64 12
-  store i32 0, ptr %810, align 4
-  %811 = load ptr, ptr %803, align 8
-  %812 = getelementptr inbounds i8, ptr %811, i64 16
-  %813 = load ptr, ptr %812, align 8
-  call void %813(ptr noundef nonnull align 8 dereferenceable(16) %803) #17
+811:                                              ; preds = %806
+  store i32 0, ptr %807, align 8
+  %812 = getelementptr inbounds i8, ptr %805, i64 12
+  store i32 0, ptr %812, align 4
+  %813 = load ptr, ptr %805, align 8
+  %814 = getelementptr inbounds i8, ptr %813, i64 16
+  %815 = load ptr, ptr %814, align 8
+  call void %815(ptr noundef nonnull align 8 dereferenceable(16) %805) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i126
 
-814:                                              ; preds = %804
-  %815 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i121 = icmp eq i8 %815, 0
-  br i1 %.not.i9.i.i.i121, label %818, label %816
+816:                                              ; preds = %806
+  %817 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i121 = icmp eq i8 %817, 0
+  br i1 %.not.i9.i.i.i121, label %820, label %818
 
-816:                                              ; preds = %814
-  %817 = add nsw i32 %808, -1
-  store i32 %817, ptr %805, align 4
-  br label %820
+818:                                              ; preds = %816
+  %819 = add nsw i32 %810, -1
+  store i32 %819, ptr %807, align 4
+  br label %822
 
-818:                                              ; preds = %814
-  %819 = atomicrmw volatile add ptr %805, i32 -1 acq_rel, align 4
-  br label %820
+820:                                              ; preds = %816
+  %821 = atomicrmw volatile add ptr %807, i32 -1 acq_rel, align 4
+  br label %822
 
-820:                                              ; preds = %818, %816
-  %.0.i.i.i.i122 = phi i32 [ %808, %816 ], [ %819, %818 ]
-  %821 = icmp eq i32 %.0.i.i.i.i122, 1
-  br i1 %821, label %822, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123
+822:                                              ; preds = %820, %818
+  %.0.i.i.i.i122 = phi i32 [ %810, %818 ], [ %821, %820 ]
+  %823 = icmp eq i32 %.0.i.i.i.i122, 1
+  br i1 %823, label %824, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123
 
-822:                                              ; preds = %820
-  %823 = load ptr, ptr %803, align 8
-  %824 = getelementptr inbounds i8, ptr %823, i64 16
-  %825 = load ptr, ptr %824, align 8
-  call void %825(ptr noundef nonnull align 8 dereferenceable(16) %803) #17
-  %826 = getelementptr inbounds i8, ptr %803, i64 12
-  %827 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i124 = icmp eq i8 %827, 0
-  br i1 %.not.i.i.i.i.i.i124, label %831, label %828
+824:                                              ; preds = %822
+  %825 = load ptr, ptr %805, align 8
+  %826 = getelementptr inbounds i8, ptr %825, i64 16
+  %827 = load ptr, ptr %826, align 8
+  call void %827(ptr noundef nonnull align 8 dereferenceable(16) %805) #17
+  %828 = getelementptr inbounds i8, ptr %805, i64 12
+  %829 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i124 = icmp eq i8 %829, 0
+  br i1 %.not.i.i.i.i.i.i124, label %833, label %830
 
-828:                                              ; preds = %822
-  %829 = load i32, ptr %826, align 4
-  %830 = add nsw i32 %829, -1
-  store i32 %830, ptr %826, align 4
-  br label %833
+830:                                              ; preds = %824
+  %831 = load i32, ptr %828, align 4
+  %832 = add nsw i32 %831, -1
+  store i32 %832, ptr %828, align 4
+  br label %835
 
-831:                                              ; preds = %822
-  %832 = atomicrmw volatile add ptr %826, i32 -1 acq_rel, align 4
-  br label %833
+833:                                              ; preds = %824
+  %834 = atomicrmw volatile add ptr %828, i32 -1 acq_rel, align 4
+  br label %835
 
-833:                                              ; preds = %831, %828
-  %.0.i.i.i.i.i.i125 = phi i32 [ %829, %828 ], [ %832, %831 ]
-  %834 = icmp eq i32 %.0.i.i.i.i.i.i125, 1
-  br i1 %834, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i126, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123
+835:                                              ; preds = %833, %830
+  %.0.i.i.i.i.i.i125 = phi i32 [ %831, %830 ], [ %834, %833 ]
+  %836 = icmp eq i32 %.0.i.i.i.i.i.i125, 1
+  br i1 %836, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i126, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i126: ; preds = %833, %809
-  %835 = load ptr, ptr %803, align 8
-  %836 = getelementptr inbounds i8, ptr %835, i64 24
-  %837 = load ptr, ptr %836, align 8
-  call void %837(ptr noundef nonnull align 8 dereferenceable(16) %803) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i126: ; preds = %835, %811
+  %837 = load ptr, ptr %805, align 8
+  %838 = getelementptr inbounds i8, ptr %837, i64 24
+  %839 = load ptr, ptr %838, align 8
+  call void %839(ptr noundef nonnull align 8 dereferenceable(16) %805) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i126, %833, %820, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i119
-  store ptr %792, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i126, %835, %822, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i119
+  store ptr %794, ptr %737, align 8
   %.pre600 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit127
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit127: ; preds = %787, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123
-  %838 = phi ptr [ %793, %787 ], [ %792, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123 ]
-  %839 = phi ptr [ %790, %787 ], [ %.pre600, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123 ]
-  %.not506 = icmp eq ptr %839, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit127: ; preds = %789, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123
+  %840 = phi ptr [ %795, %789 ], [ %794, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123 ]
+  %841 = phi ptr [ %792, %789 ], [ %.pre600, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i123 ]
+  %.not506 = icmp eq ptr %841, null
   br i1 %.not506, label %._crit_edge558, label %.lr.ph557, !llvm.loop !16
 
-840:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
-  %841 = landingpad { ptr, i32 }
+842:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
+  %843 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #17
   br label %.body259
 
 ._crit_edge558:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit127, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit
-  %842 = phi ptr [ %782, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %838, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit127 ]
-  %843 = load ptr, ptr %55, align 8
-  store ptr %843, ptr %9, align 8
-  %844 = load ptr, ptr %57, align 8
-  %.not.i.i.i128 = icmp eq ptr %844, %842
-  br i1 %.not.i.i.i128, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit141, label %845
+  %844 = phi ptr [ %784, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %840, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit127 ]
+  %845 = load ptr, ptr %55, align 8
+  store ptr %845, ptr %9, align 8
+  %846 = load ptr, ptr %58, align 8
+  %.not.i.i.i128 = icmp eq ptr %846, %844
+  br i1 %.not.i.i.i128, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit141, label %847
 
-845:                                              ; preds = %._crit_edge558
-  %.not7.i.i.i129 = icmp eq ptr %844, null
-  br i1 %.not7.i.i.i129, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i133, label %846
+847:                                              ; preds = %._crit_edge558
+  %.not7.i.i.i129 = icmp eq ptr %846, null
+  br i1 %.not7.i.i.i129, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i133, label %848
 
-846:                                              ; preds = %845
-  %847 = getelementptr inbounds i8, ptr %844, i64 8
-  %848 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i130 = icmp eq i8 %848, 0
-  br i1 %.not.i.i.i.i130, label %852, label %849
+848:                                              ; preds = %847
+  %849 = getelementptr inbounds i8, ptr %846, i64 8
+  %850 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i130 = icmp eq i8 %850, 0
+  br i1 %.not.i.i.i.i130, label %854, label %851
 
-849:                                              ; preds = %846
-  %850 = load i32, ptr %847, align 4
-  %851 = add nsw i32 %850, 1
-  store i32 %851, ptr %847, align 4
+851:                                              ; preds = %848
+  %852 = load i32, ptr %849, align 4
+  %853 = add nsw i32 %852, 1
+  store i32 %853, ptr %849, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i131
 
-852:                                              ; preds = %846
-  %853 = atomicrmw volatile add ptr %847, i32 1 acq_rel, align 4
+854:                                              ; preds = %848
+  %855 = atomicrmw volatile add ptr %849, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i131
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i131: ; preds = %852, %849
-  %.pr.i.i.i132 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i131: ; preds = %854, %851
+  %.pr.i.i.i132 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i133
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i133: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i131, %845
-  %854 = phi ptr [ %.pr.i.i.i132, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i131 ], [ %842, %845 ]
-  %.not8.i.i.i134 = icmp eq ptr %854, null
-  br i1 %.not8.i.i.i134, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137, label %855
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i133: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i131, %847
+  %856 = phi ptr [ %.pr.i.i.i132, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i131 ], [ %844, %847 ]
+  %.not8.i.i.i134 = icmp eq ptr %856, null
+  br i1 %.not8.i.i.i134, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137, label %857
 
-855:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i133
-  %856 = getelementptr inbounds i8, ptr %854, i64 8
-  %857 = load atomic i64, ptr %856 acquire, align 8
-  %858 = icmp eq i64 %857, 4294967297
-  %859 = trunc i64 %857 to i32
-  br i1 %858, label %860, label %865
+857:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i133
+  %858 = getelementptr inbounds i8, ptr %856, i64 8
+  %859 = load atomic i64, ptr %858 acquire, align 8
+  %860 = icmp eq i64 %859, 4294967297
+  %861 = trunc i64 %859 to i32
+  br i1 %860, label %862, label %867
 
-860:                                              ; preds = %855
-  store i32 0, ptr %856, align 8
-  %861 = getelementptr inbounds i8, ptr %854, i64 12
-  store i32 0, ptr %861, align 4
-  %862 = load ptr, ptr %854, align 8
-  %863 = getelementptr inbounds i8, ptr %862, i64 16
-  %864 = load ptr, ptr %863, align 8
-  call void %864(ptr noundef nonnull align 8 dereferenceable(16) %854) #17
+862:                                              ; preds = %857
+  store i32 0, ptr %858, align 8
+  %863 = getelementptr inbounds i8, ptr %856, i64 12
+  store i32 0, ptr %863, align 4
+  %864 = load ptr, ptr %856, align 8
+  %865 = getelementptr inbounds i8, ptr %864, i64 16
+  %866 = load ptr, ptr %865, align 8
+  call void %866(ptr noundef nonnull align 8 dereferenceable(16) %856) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i140
 
-865:                                              ; preds = %855
-  %866 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i135 = icmp eq i8 %866, 0
-  br i1 %.not.i9.i.i.i135, label %869, label %867
+867:                                              ; preds = %857
+  %868 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i135 = icmp eq i8 %868, 0
+  br i1 %.not.i9.i.i.i135, label %871, label %869
 
-867:                                              ; preds = %865
-  %868 = add nsw i32 %859, -1
-  store i32 %868, ptr %856, align 4
-  br label %871
+869:                                              ; preds = %867
+  %870 = add nsw i32 %861, -1
+  store i32 %870, ptr %858, align 4
+  br label %873
 
-869:                                              ; preds = %865
-  %870 = atomicrmw volatile add ptr %856, i32 -1 acq_rel, align 4
-  br label %871
+871:                                              ; preds = %867
+  %872 = atomicrmw volatile add ptr %858, i32 -1 acq_rel, align 4
+  br label %873
 
-871:                                              ; preds = %869, %867
-  %.0.i.i.i.i136 = phi i32 [ %859, %867 ], [ %870, %869 ]
-  %872 = icmp eq i32 %.0.i.i.i.i136, 1
-  br i1 %872, label %873, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137
+873:                                              ; preds = %871, %869
+  %.0.i.i.i.i136 = phi i32 [ %861, %869 ], [ %872, %871 ]
+  %874 = icmp eq i32 %.0.i.i.i.i136, 1
+  br i1 %874, label %875, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137
 
-873:                                              ; preds = %871
-  %874 = load ptr, ptr %854, align 8
-  %875 = getelementptr inbounds i8, ptr %874, i64 16
-  %876 = load ptr, ptr %875, align 8
-  call void %876(ptr noundef nonnull align 8 dereferenceable(16) %854) #17
-  %877 = getelementptr inbounds i8, ptr %854, i64 12
-  %878 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i138 = icmp eq i8 %878, 0
-  br i1 %.not.i.i.i.i.i.i138, label %882, label %879
+875:                                              ; preds = %873
+  %876 = load ptr, ptr %856, align 8
+  %877 = getelementptr inbounds i8, ptr %876, i64 16
+  %878 = load ptr, ptr %877, align 8
+  call void %878(ptr noundef nonnull align 8 dereferenceable(16) %856) #17
+  %879 = getelementptr inbounds i8, ptr %856, i64 12
+  %880 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i138 = icmp eq i8 %880, 0
+  br i1 %.not.i.i.i.i.i.i138, label %884, label %881
 
-879:                                              ; preds = %873
-  %880 = load i32, ptr %877, align 4
-  %881 = add nsw i32 %880, -1
-  store i32 %881, ptr %877, align 4
-  br label %884
+881:                                              ; preds = %875
+  %882 = load i32, ptr %879, align 4
+  %883 = add nsw i32 %882, -1
+  store i32 %883, ptr %879, align 4
+  br label %886
 
-882:                                              ; preds = %873
-  %883 = atomicrmw volatile add ptr %877, i32 -1 acq_rel, align 4
-  br label %884
+884:                                              ; preds = %875
+  %885 = atomicrmw volatile add ptr %879, i32 -1 acq_rel, align 4
+  br label %886
 
-884:                                              ; preds = %882, %879
-  %.0.i.i.i.i.i.i139 = phi i32 [ %880, %879 ], [ %883, %882 ]
-  %885 = icmp eq i32 %.0.i.i.i.i.i.i139, 1
-  br i1 %885, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i140, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137
+886:                                              ; preds = %884, %881
+  %.0.i.i.i.i.i.i139 = phi i32 [ %882, %881 ], [ %885, %884 ]
+  %887 = icmp eq i32 %.0.i.i.i.i.i.i139, 1
+  br i1 %887, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i140, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i140: ; preds = %884, %860
-  %886 = load ptr, ptr %854, align 8
-  %887 = getelementptr inbounds i8, ptr %886, i64 24
-  %888 = load ptr, ptr %887, align 8
-  call void %888(ptr noundef nonnull align 8 dereferenceable(16) %854) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i140: ; preds = %886, %862
+  %888 = load ptr, ptr %856, align 8
+  %889 = getelementptr inbounds i8, ptr %888, i64 24
+  %890 = load ptr, ptr %889, align 8
+  call void %890(ptr noundef nonnull align 8 dereferenceable(16) %856) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i140, %884, %871, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i133
-  store ptr %844, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i140, %886, %873, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i133
+  store ptr %846, ptr %737, align 8
   %.pre601 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit141
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit141: ; preds = %._crit_edge558, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137
-  %889 = phi ptr [ %842, %._crit_edge558 ], [ %844, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137 ]
-  %890 = phi ptr [ %843, %._crit_edge558 ], [ %.pre601, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137 ]
-  %.not507559 = icmp eq ptr %890, null
+  %891 = phi ptr [ %844, %._crit_edge558 ], [ %846, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137 ]
+  %892 = phi ptr [ %845, %._crit_edge558 ], [ %.pre601, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i137 ]
+  %.not507559 = icmp eq ptr %892, null
   br i1 %.not507559, label %._crit_edge561, label %.lr.ph560
 
 .lr.ph560:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit141, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit155
   invoke fastcc void @_ZL20init_item_staticevalRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %891 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %893 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-891:                                              ; preds = %.lr.ph560
+893:                                              ; preds = %.lr.ph560
   invoke fastcc void @_ZL26init_item_subexpr_refcountRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %892 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %894 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-892:                                              ; preds = %891
-  %893 = load ptr, ptr %9, align 8
-  %894 = getelementptr inbounds i8, ptr %893, i64 112
-  %895 = load ptr, ptr %894, align 8
-  store ptr %895, ptr %9, align 8
-  %896 = getelementptr inbounds i8, ptr %893, i64 120
+894:                                              ; preds = %893
+  %895 = load ptr, ptr %9, align 8
+  %896 = getelementptr inbounds i8, ptr %895, i64 112
   %897 = load ptr, ptr %896, align 8
-  %898 = load ptr, ptr %735, align 8
-  %.not.i.i.i142 = icmp eq ptr %897, %898
-  br i1 %.not.i.i.i142, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit155, label %899
+  store ptr %897, ptr %9, align 8
+  %898 = getelementptr inbounds i8, ptr %895, i64 120
+  %899 = load ptr, ptr %898, align 8
+  %900 = load ptr, ptr %737, align 8
+  %.not.i.i.i142 = icmp eq ptr %899, %900
+  br i1 %.not.i.i.i142, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit155, label %901
 
-899:                                              ; preds = %892
-  %.not7.i.i.i143 = icmp eq ptr %897, null
-  br i1 %.not7.i.i.i143, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i147, label %900
+901:                                              ; preds = %894
+  %.not7.i.i.i143 = icmp eq ptr %899, null
+  br i1 %.not7.i.i.i143, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i147, label %902
 
-900:                                              ; preds = %899
-  %901 = getelementptr inbounds i8, ptr %897, i64 8
-  %902 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i144 = icmp eq i8 %902, 0
-  br i1 %.not.i.i.i.i144, label %906, label %903
+902:                                              ; preds = %901
+  %903 = getelementptr inbounds i8, ptr %899, i64 8
+  %904 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i144 = icmp eq i8 %904, 0
+  br i1 %.not.i.i.i.i144, label %908, label %905
 
-903:                                              ; preds = %900
-  %904 = load i32, ptr %901, align 4
-  %905 = add nsw i32 %904, 1
-  store i32 %905, ptr %901, align 4
+905:                                              ; preds = %902
+  %906 = load i32, ptr %903, align 4
+  %907 = add nsw i32 %906, 1
+  store i32 %907, ptr %903, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i145
 
-906:                                              ; preds = %900
-  %907 = atomicrmw volatile add ptr %901, i32 1 acq_rel, align 4
+908:                                              ; preds = %902
+  %909 = atomicrmw volatile add ptr %903, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i145
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i145: ; preds = %906, %903
-  %.pr.i.i.i146 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i145: ; preds = %908, %905
+  %.pr.i.i.i146 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i147
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i147: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i145, %899
-  %908 = phi ptr [ %.pr.i.i.i146, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i145 ], [ %898, %899 ]
-  %.not8.i.i.i148 = icmp eq ptr %908, null
-  br i1 %.not8.i.i.i148, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151, label %909
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i147: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i145, %901
+  %910 = phi ptr [ %.pr.i.i.i146, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i145 ], [ %900, %901 ]
+  %.not8.i.i.i148 = icmp eq ptr %910, null
+  br i1 %.not8.i.i.i148, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151, label %911
 
-909:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i147
-  %910 = getelementptr inbounds i8, ptr %908, i64 8
-  %911 = load atomic i64, ptr %910 acquire, align 8
-  %912 = icmp eq i64 %911, 4294967297
-  %913 = trunc i64 %911 to i32
-  br i1 %912, label %914, label %919
+911:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i147
+  %912 = getelementptr inbounds i8, ptr %910, i64 8
+  %913 = load atomic i64, ptr %912 acquire, align 8
+  %914 = icmp eq i64 %913, 4294967297
+  %915 = trunc i64 %913 to i32
+  br i1 %914, label %916, label %921
 
-914:                                              ; preds = %909
-  store i32 0, ptr %910, align 8
-  %915 = getelementptr inbounds i8, ptr %908, i64 12
-  store i32 0, ptr %915, align 4
-  %916 = load ptr, ptr %908, align 8
-  %917 = getelementptr inbounds i8, ptr %916, i64 16
-  %918 = load ptr, ptr %917, align 8
-  call void %918(ptr noundef nonnull align 8 dereferenceable(16) %908) #17
+916:                                              ; preds = %911
+  store i32 0, ptr %912, align 8
+  %917 = getelementptr inbounds i8, ptr %910, i64 12
+  store i32 0, ptr %917, align 4
+  %918 = load ptr, ptr %910, align 8
+  %919 = getelementptr inbounds i8, ptr %918, i64 16
+  %920 = load ptr, ptr %919, align 8
+  call void %920(ptr noundef nonnull align 8 dereferenceable(16) %910) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i154
 
-919:                                              ; preds = %909
-  %920 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i149 = icmp eq i8 %920, 0
-  br i1 %.not.i9.i.i.i149, label %923, label %921
+921:                                              ; preds = %911
+  %922 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i149 = icmp eq i8 %922, 0
+  br i1 %.not.i9.i.i.i149, label %925, label %923
 
-921:                                              ; preds = %919
-  %922 = add nsw i32 %913, -1
-  store i32 %922, ptr %910, align 4
-  br label %925
+923:                                              ; preds = %921
+  %924 = add nsw i32 %915, -1
+  store i32 %924, ptr %912, align 4
+  br label %927
 
-923:                                              ; preds = %919
-  %924 = atomicrmw volatile add ptr %910, i32 -1 acq_rel, align 4
-  br label %925
+925:                                              ; preds = %921
+  %926 = atomicrmw volatile add ptr %912, i32 -1 acq_rel, align 4
+  br label %927
 
-925:                                              ; preds = %923, %921
-  %.0.i.i.i.i150 = phi i32 [ %913, %921 ], [ %924, %923 ]
-  %926 = icmp eq i32 %.0.i.i.i.i150, 1
-  br i1 %926, label %927, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151
+927:                                              ; preds = %925, %923
+  %.0.i.i.i.i150 = phi i32 [ %915, %923 ], [ %926, %925 ]
+  %928 = icmp eq i32 %.0.i.i.i.i150, 1
+  br i1 %928, label %929, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151
 
-927:                                              ; preds = %925
-  %928 = load ptr, ptr %908, align 8
-  %929 = getelementptr inbounds i8, ptr %928, i64 16
-  %930 = load ptr, ptr %929, align 8
-  call void %930(ptr noundef nonnull align 8 dereferenceable(16) %908) #17
-  %931 = getelementptr inbounds i8, ptr %908, i64 12
-  %932 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i152 = icmp eq i8 %932, 0
-  br i1 %.not.i.i.i.i.i.i152, label %936, label %933
+929:                                              ; preds = %927
+  %930 = load ptr, ptr %910, align 8
+  %931 = getelementptr inbounds i8, ptr %930, i64 16
+  %932 = load ptr, ptr %931, align 8
+  call void %932(ptr noundef nonnull align 8 dereferenceable(16) %910) #17
+  %933 = getelementptr inbounds i8, ptr %910, i64 12
+  %934 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i152 = icmp eq i8 %934, 0
+  br i1 %.not.i.i.i.i.i.i152, label %938, label %935
 
-933:                                              ; preds = %927
-  %934 = load i32, ptr %931, align 4
-  %935 = add nsw i32 %934, -1
-  store i32 %935, ptr %931, align 4
-  br label %938
+935:                                              ; preds = %929
+  %936 = load i32, ptr %933, align 4
+  %937 = add nsw i32 %936, -1
+  store i32 %937, ptr %933, align 4
+  br label %940
 
-936:                                              ; preds = %927
-  %937 = atomicrmw volatile add ptr %931, i32 -1 acq_rel, align 4
-  br label %938
+938:                                              ; preds = %929
+  %939 = atomicrmw volatile add ptr %933, i32 -1 acq_rel, align 4
+  br label %940
 
-938:                                              ; preds = %936, %933
-  %.0.i.i.i.i.i.i153 = phi i32 [ %934, %933 ], [ %937, %936 ]
-  %939 = icmp eq i32 %.0.i.i.i.i.i.i153, 1
-  br i1 %939, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i154, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151
+940:                                              ; preds = %938, %935
+  %.0.i.i.i.i.i.i153 = phi i32 [ %936, %935 ], [ %939, %938 ]
+  %941 = icmp eq i32 %.0.i.i.i.i.i.i153, 1
+  br i1 %941, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i154, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i154: ; preds = %938, %914
-  %940 = load ptr, ptr %908, align 8
-  %941 = getelementptr inbounds i8, ptr %940, i64 24
-  %942 = load ptr, ptr %941, align 8
-  call void %942(ptr noundef nonnull align 8 dereferenceable(16) %908) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i154: ; preds = %940, %916
+  %942 = load ptr, ptr %910, align 8
+  %943 = getelementptr inbounds i8, ptr %942, i64 24
+  %944 = load ptr, ptr %943, align 8
+  call void %944(ptr noundef nonnull align 8 dereferenceable(16) %910) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i154, %938, %925, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i147
-  store ptr %897, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i154, %940, %927, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i147
+  store ptr %899, ptr %737, align 8
   %.pre602 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit155
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit155: ; preds = %892, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151
-  %943 = phi ptr [ %898, %892 ], [ %897, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151 ]
-  %944 = phi ptr [ %895, %892 ], [ %.pre602, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151 ]
-  %.not507 = icmp eq ptr %944, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit155: ; preds = %894, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151
+  %945 = phi ptr [ %900, %894 ], [ %899, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151 ]
+  %946 = phi ptr [ %897, %894 ], [ %.pre602, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i151 ]
+  %.not507 = icmp eq ptr %946, null
   br i1 %.not507, label %._crit_edge561, label %.lr.ph560, !llvm.loop !17
 
 ._crit_edge561:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit155, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit141
-  %945 = phi ptr [ %889, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit141 ], [ %943, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit155 ]
-  %946 = load ptr, ptr %55, align 8
-  store ptr %946, ptr %9, align 8
-  %947 = load ptr, ptr %57, align 8
-  %.not.i.i.i156 = icmp eq ptr %947, %945
-  br i1 %.not.i.i.i156, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit169, label %948
+  %947 = phi ptr [ %891, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit141 ], [ %945, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit155 ]
+  %948 = load ptr, ptr %55, align 8
+  store ptr %948, ptr %9, align 8
+  %949 = load ptr, ptr %58, align 8
+  %.not.i.i.i156 = icmp eq ptr %949, %947
+  br i1 %.not.i.i.i156, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit169, label %950
 
-948:                                              ; preds = %._crit_edge561
-  %.not7.i.i.i157 = icmp eq ptr %947, null
-  br i1 %.not7.i.i.i157, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i161, label %949
+950:                                              ; preds = %._crit_edge561
+  %.not7.i.i.i157 = icmp eq ptr %949, null
+  br i1 %.not7.i.i.i157, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i161, label %951
 
-949:                                              ; preds = %948
-  %950 = getelementptr inbounds i8, ptr %947, i64 8
-  %951 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i158 = icmp eq i8 %951, 0
-  br i1 %.not.i.i.i.i158, label %955, label %952
+951:                                              ; preds = %950
+  %952 = getelementptr inbounds i8, ptr %949, i64 8
+  %953 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i158 = icmp eq i8 %953, 0
+  br i1 %.not.i.i.i.i158, label %957, label %954
 
-952:                                              ; preds = %949
-  %953 = load i32, ptr %950, align 4
-  %954 = add nsw i32 %953, 1
-  store i32 %954, ptr %950, align 4
+954:                                              ; preds = %951
+  %955 = load i32, ptr %952, align 4
+  %956 = add nsw i32 %955, 1
+  store i32 %956, ptr %952, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i159
 
-955:                                              ; preds = %949
-  %956 = atomicrmw volatile add ptr %950, i32 1 acq_rel, align 4
+957:                                              ; preds = %951
+  %958 = atomicrmw volatile add ptr %952, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i159
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i159: ; preds = %955, %952
-  %.pr.i.i.i160 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i159: ; preds = %957, %954
+  %.pr.i.i.i160 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i161
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i161: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i159, %948
-  %957 = phi ptr [ %.pr.i.i.i160, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i159 ], [ %945, %948 ]
-  %.not8.i.i.i162 = icmp eq ptr %957, null
-  br i1 %.not8.i.i.i162, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165, label %958
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i161: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i159, %950
+  %959 = phi ptr [ %.pr.i.i.i160, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i159 ], [ %947, %950 ]
+  %.not8.i.i.i162 = icmp eq ptr %959, null
+  br i1 %.not8.i.i.i162, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165, label %960
 
-958:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i161
-  %959 = getelementptr inbounds i8, ptr %957, i64 8
-  %960 = load atomic i64, ptr %959 acquire, align 8
-  %961 = icmp eq i64 %960, 4294967297
-  %962 = trunc i64 %960 to i32
-  br i1 %961, label %963, label %968
+960:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i161
+  %961 = getelementptr inbounds i8, ptr %959, i64 8
+  %962 = load atomic i64, ptr %961 acquire, align 8
+  %963 = icmp eq i64 %962, 4294967297
+  %964 = trunc i64 %962 to i32
+  br i1 %963, label %965, label %970
 
-963:                                              ; preds = %958
-  store i32 0, ptr %959, align 8
-  %964 = getelementptr inbounds i8, ptr %957, i64 12
-  store i32 0, ptr %964, align 4
-  %965 = load ptr, ptr %957, align 8
-  %966 = getelementptr inbounds i8, ptr %965, i64 16
-  %967 = load ptr, ptr %966, align 8
-  call void %967(ptr noundef nonnull align 8 dereferenceable(16) %957) #17
+965:                                              ; preds = %960
+  store i32 0, ptr %961, align 8
+  %966 = getelementptr inbounds i8, ptr %959, i64 12
+  store i32 0, ptr %966, align 4
+  %967 = load ptr, ptr %959, align 8
+  %968 = getelementptr inbounds i8, ptr %967, i64 16
+  %969 = load ptr, ptr %968, align 8
+  call void %969(ptr noundef nonnull align 8 dereferenceable(16) %959) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i168
 
-968:                                              ; preds = %958
-  %969 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i163 = icmp eq i8 %969, 0
-  br i1 %.not.i9.i.i.i163, label %972, label %970
+970:                                              ; preds = %960
+  %971 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i163 = icmp eq i8 %971, 0
+  br i1 %.not.i9.i.i.i163, label %974, label %972
 
-970:                                              ; preds = %968
-  %971 = add nsw i32 %962, -1
-  store i32 %971, ptr %959, align 4
-  br label %974
+972:                                              ; preds = %970
+  %973 = add nsw i32 %964, -1
+  store i32 %973, ptr %961, align 4
+  br label %976
 
-972:                                              ; preds = %968
-  %973 = atomicrmw volatile add ptr %959, i32 -1 acq_rel, align 4
-  br label %974
+974:                                              ; preds = %970
+  %975 = atomicrmw volatile add ptr %961, i32 -1 acq_rel, align 4
+  br label %976
 
-974:                                              ; preds = %972, %970
-  %.0.i.i.i.i164 = phi i32 [ %962, %970 ], [ %973, %972 ]
-  %975 = icmp eq i32 %.0.i.i.i.i164, 1
-  br i1 %975, label %976, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165
+976:                                              ; preds = %974, %972
+  %.0.i.i.i.i164 = phi i32 [ %964, %972 ], [ %975, %974 ]
+  %977 = icmp eq i32 %.0.i.i.i.i164, 1
+  br i1 %977, label %978, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165
 
-976:                                              ; preds = %974
-  %977 = load ptr, ptr %957, align 8
-  %978 = getelementptr inbounds i8, ptr %977, i64 16
-  %979 = load ptr, ptr %978, align 8
-  call void %979(ptr noundef nonnull align 8 dereferenceable(16) %957) #17
-  %980 = getelementptr inbounds i8, ptr %957, i64 12
-  %981 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i166 = icmp eq i8 %981, 0
-  br i1 %.not.i.i.i.i.i.i166, label %985, label %982
+978:                                              ; preds = %976
+  %979 = load ptr, ptr %959, align 8
+  %980 = getelementptr inbounds i8, ptr %979, i64 16
+  %981 = load ptr, ptr %980, align 8
+  call void %981(ptr noundef nonnull align 8 dereferenceable(16) %959) #17
+  %982 = getelementptr inbounds i8, ptr %959, i64 12
+  %983 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i166 = icmp eq i8 %983, 0
+  br i1 %.not.i.i.i.i.i.i166, label %987, label %984
 
-982:                                              ; preds = %976
-  %983 = load i32, ptr %980, align 4
-  %984 = add nsw i32 %983, -1
-  store i32 %984, ptr %980, align 4
-  br label %987
+984:                                              ; preds = %978
+  %985 = load i32, ptr %982, align 4
+  %986 = add nsw i32 %985, -1
+  store i32 %986, ptr %982, align 4
+  br label %989
 
-985:                                              ; preds = %976
-  %986 = atomicrmw volatile add ptr %980, i32 -1 acq_rel, align 4
-  br label %987
+987:                                              ; preds = %978
+  %988 = atomicrmw volatile add ptr %982, i32 -1 acq_rel, align 4
+  br label %989
 
-987:                                              ; preds = %985, %982
-  %.0.i.i.i.i.i.i167 = phi i32 [ %983, %982 ], [ %986, %985 ]
-  %988 = icmp eq i32 %.0.i.i.i.i.i.i167, 1
-  br i1 %988, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i168, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165
+989:                                              ; preds = %987, %984
+  %.0.i.i.i.i.i.i167 = phi i32 [ %985, %984 ], [ %988, %987 ]
+  %990 = icmp eq i32 %.0.i.i.i.i.i.i167, 1
+  br i1 %990, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i168, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i168: ; preds = %987, %963
-  %989 = load ptr, ptr %957, align 8
-  %990 = getelementptr inbounds i8, ptr %989, i64 24
-  %991 = load ptr, ptr %990, align 8
-  call void %991(ptr noundef nonnull align 8 dereferenceable(16) %957) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i168: ; preds = %989, %965
+  %991 = load ptr, ptr %959, align 8
+  %992 = getelementptr inbounds i8, ptr %991, i64 24
+  %993 = load ptr, ptr %992, align 8
+  call void %993(ptr noundef nonnull align 8 dereferenceable(16) %959) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i168, %987, %974, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i161
-  store ptr %947, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i168, %989, %976, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i161
+  store ptr %949, ptr %737, align 8
   %.pre603 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit169
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit169: ; preds = %._crit_edge561, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165
-  %992 = phi ptr [ %945, %._crit_edge561 ], [ %947, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165 ]
-  %993 = phi ptr [ %946, %._crit_edge561 ], [ %.pre603, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165 ]
-  %.not508562 = icmp eq ptr %993, null
+  %994 = phi ptr [ %947, %._crit_edge561 ], [ %949, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165 ]
+  %995 = phi ptr [ %948, %._crit_edge561 ], [ %.pre603, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i165 ]
+  %.not508562 = icmp eq ptr %995, null
   br i1 %.not508562, label %._crit_edge564, label %.lr.ph563
 
 .lr.ph563:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit169, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit183
   invoke fastcc void @_ZL23init_item_subexpr_flagsRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %994 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %996 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-994:                                              ; preds = %.lr.ph563
-  %995 = load ptr, ptr %9, align 8
-  %996 = getelementptr inbounds i8, ptr %995, i64 112
-  %997 = load ptr, ptr %996, align 8
-  store ptr %997, ptr %9, align 8
-  %998 = getelementptr inbounds i8, ptr %995, i64 120
+996:                                              ; preds = %.lr.ph563
+  %997 = load ptr, ptr %9, align 8
+  %998 = getelementptr inbounds i8, ptr %997, i64 112
   %999 = load ptr, ptr %998, align 8
-  %1000 = load ptr, ptr %735, align 8
-  %.not.i.i.i170 = icmp eq ptr %999, %1000
-  br i1 %.not.i.i.i170, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit183, label %1001
+  store ptr %999, ptr %9, align 8
+  %1000 = getelementptr inbounds i8, ptr %997, i64 120
+  %1001 = load ptr, ptr %1000, align 8
+  %1002 = load ptr, ptr %737, align 8
+  %.not.i.i.i170 = icmp eq ptr %1001, %1002
+  br i1 %.not.i.i.i170, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit183, label %1003
 
-1001:                                             ; preds = %994
-  %.not7.i.i.i171 = icmp eq ptr %999, null
-  br i1 %.not7.i.i.i171, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i175, label %1002
+1003:                                             ; preds = %996
+  %.not7.i.i.i171 = icmp eq ptr %1001, null
+  br i1 %.not7.i.i.i171, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i175, label %1004
 
-1002:                                             ; preds = %1001
-  %1003 = getelementptr inbounds i8, ptr %999, i64 8
-  %1004 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i172 = icmp eq i8 %1004, 0
-  br i1 %.not.i.i.i.i172, label %1008, label %1005
+1004:                                             ; preds = %1003
+  %1005 = getelementptr inbounds i8, ptr %1001, i64 8
+  %1006 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i172 = icmp eq i8 %1006, 0
+  br i1 %.not.i.i.i.i172, label %1010, label %1007
 
-1005:                                             ; preds = %1002
-  %1006 = load i32, ptr %1003, align 4
-  %1007 = add nsw i32 %1006, 1
-  store i32 %1007, ptr %1003, align 4
+1007:                                             ; preds = %1004
+  %1008 = load i32, ptr %1005, align 4
+  %1009 = add nsw i32 %1008, 1
+  store i32 %1009, ptr %1005, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i173
 
-1008:                                             ; preds = %1002
-  %1009 = atomicrmw volatile add ptr %1003, i32 1 acq_rel, align 4
+1010:                                             ; preds = %1004
+  %1011 = atomicrmw volatile add ptr %1005, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i173
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i173: ; preds = %1008, %1005
-  %.pr.i.i.i174 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i173: ; preds = %1010, %1007
+  %.pr.i.i.i174 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i175
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i175: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i173, %1001
-  %1010 = phi ptr [ %.pr.i.i.i174, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i173 ], [ %1000, %1001 ]
-  %.not8.i.i.i176 = icmp eq ptr %1010, null
-  br i1 %.not8.i.i.i176, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179, label %1011
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i175: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i173, %1003
+  %1012 = phi ptr [ %.pr.i.i.i174, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i173 ], [ %1002, %1003 ]
+  %.not8.i.i.i176 = icmp eq ptr %1012, null
+  br i1 %.not8.i.i.i176, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179, label %1013
 
-1011:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i175
-  %1012 = getelementptr inbounds i8, ptr %1010, i64 8
-  %1013 = load atomic i64, ptr %1012 acquire, align 8
-  %1014 = icmp eq i64 %1013, 4294967297
-  %1015 = trunc i64 %1013 to i32
-  br i1 %1014, label %1016, label %1021
+1013:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i175
+  %1014 = getelementptr inbounds i8, ptr %1012, i64 8
+  %1015 = load atomic i64, ptr %1014 acquire, align 8
+  %1016 = icmp eq i64 %1015, 4294967297
+  %1017 = trunc i64 %1015 to i32
+  br i1 %1016, label %1018, label %1023
 
-1016:                                             ; preds = %1011
-  store i32 0, ptr %1012, align 8
-  %1017 = getelementptr inbounds i8, ptr %1010, i64 12
-  store i32 0, ptr %1017, align 4
-  %1018 = load ptr, ptr %1010, align 8
-  %1019 = getelementptr inbounds i8, ptr %1018, i64 16
-  %1020 = load ptr, ptr %1019, align 8
-  call void %1020(ptr noundef nonnull align 8 dereferenceable(16) %1010) #17
+1018:                                             ; preds = %1013
+  store i32 0, ptr %1014, align 8
+  %1019 = getelementptr inbounds i8, ptr %1012, i64 12
+  store i32 0, ptr %1019, align 4
+  %1020 = load ptr, ptr %1012, align 8
+  %1021 = getelementptr inbounds i8, ptr %1020, i64 16
+  %1022 = load ptr, ptr %1021, align 8
+  call void %1022(ptr noundef nonnull align 8 dereferenceable(16) %1012) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i182
 
-1021:                                             ; preds = %1011
-  %1022 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i177 = icmp eq i8 %1022, 0
-  br i1 %.not.i9.i.i.i177, label %1025, label %1023
+1023:                                             ; preds = %1013
+  %1024 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i177 = icmp eq i8 %1024, 0
+  br i1 %.not.i9.i.i.i177, label %1027, label %1025
 
-1023:                                             ; preds = %1021
-  %1024 = add nsw i32 %1015, -1
-  store i32 %1024, ptr %1012, align 4
-  br label %1027
+1025:                                             ; preds = %1023
+  %1026 = add nsw i32 %1017, -1
+  store i32 %1026, ptr %1014, align 4
+  br label %1029
 
-1025:                                             ; preds = %1021
-  %1026 = atomicrmw volatile add ptr %1012, i32 -1 acq_rel, align 4
-  br label %1027
+1027:                                             ; preds = %1023
+  %1028 = atomicrmw volatile add ptr %1014, i32 -1 acq_rel, align 4
+  br label %1029
 
-1027:                                             ; preds = %1025, %1023
-  %.0.i.i.i.i178 = phi i32 [ %1015, %1023 ], [ %1026, %1025 ]
-  %1028 = icmp eq i32 %.0.i.i.i.i178, 1
-  br i1 %1028, label %1029, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179
+1029:                                             ; preds = %1027, %1025
+  %.0.i.i.i.i178 = phi i32 [ %1017, %1025 ], [ %1028, %1027 ]
+  %1030 = icmp eq i32 %.0.i.i.i.i178, 1
+  br i1 %1030, label %1031, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179
 
-1029:                                             ; preds = %1027
-  %1030 = load ptr, ptr %1010, align 8
-  %1031 = getelementptr inbounds i8, ptr %1030, i64 16
-  %1032 = load ptr, ptr %1031, align 8
-  call void %1032(ptr noundef nonnull align 8 dereferenceable(16) %1010) #17
-  %1033 = getelementptr inbounds i8, ptr %1010, i64 12
-  %1034 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i180 = icmp eq i8 %1034, 0
-  br i1 %.not.i.i.i.i.i.i180, label %1038, label %1035
+1031:                                             ; preds = %1029
+  %1032 = load ptr, ptr %1012, align 8
+  %1033 = getelementptr inbounds i8, ptr %1032, i64 16
+  %1034 = load ptr, ptr %1033, align 8
+  call void %1034(ptr noundef nonnull align 8 dereferenceable(16) %1012) #17
+  %1035 = getelementptr inbounds i8, ptr %1012, i64 12
+  %1036 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i180 = icmp eq i8 %1036, 0
+  br i1 %.not.i.i.i.i.i.i180, label %1040, label %1037
 
-1035:                                             ; preds = %1029
-  %1036 = load i32, ptr %1033, align 4
-  %1037 = add nsw i32 %1036, -1
-  store i32 %1037, ptr %1033, align 4
-  br label %1040
+1037:                                             ; preds = %1031
+  %1038 = load i32, ptr %1035, align 4
+  %1039 = add nsw i32 %1038, -1
+  store i32 %1039, ptr %1035, align 4
+  br label %1042
 
-1038:                                             ; preds = %1029
-  %1039 = atomicrmw volatile add ptr %1033, i32 -1 acq_rel, align 4
-  br label %1040
+1040:                                             ; preds = %1031
+  %1041 = atomicrmw volatile add ptr %1035, i32 -1 acq_rel, align 4
+  br label %1042
 
-1040:                                             ; preds = %1038, %1035
-  %.0.i.i.i.i.i.i181 = phi i32 [ %1036, %1035 ], [ %1039, %1038 ]
-  %1041 = icmp eq i32 %.0.i.i.i.i.i.i181, 1
-  br i1 %1041, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i182, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179
+1042:                                             ; preds = %1040, %1037
+  %.0.i.i.i.i.i.i181 = phi i32 [ %1038, %1037 ], [ %1041, %1040 ]
+  %1043 = icmp eq i32 %.0.i.i.i.i.i.i181, 1
+  br i1 %1043, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i182, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i182: ; preds = %1040, %1016
-  %1042 = load ptr, ptr %1010, align 8
-  %1043 = getelementptr inbounds i8, ptr %1042, i64 24
-  %1044 = load ptr, ptr %1043, align 8
-  call void %1044(ptr noundef nonnull align 8 dereferenceable(16) %1010) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i182: ; preds = %1042, %1018
+  %1044 = load ptr, ptr %1012, align 8
+  %1045 = getelementptr inbounds i8, ptr %1044, i64 24
+  %1046 = load ptr, ptr %1045, align 8
+  call void %1046(ptr noundef nonnull align 8 dereferenceable(16) %1012) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i182, %1040, %1027, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i175
-  store ptr %999, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i182, %1042, %1029, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i175
+  store ptr %1001, ptr %737, align 8
   %.pre604 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit183
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit183: ; preds = %994, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179
-  %1045 = phi ptr [ %1000, %994 ], [ %999, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179 ]
-  %1046 = phi ptr [ %997, %994 ], [ %.pre604, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179 ]
-  %.not508 = icmp eq ptr %1046, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit183: ; preds = %996, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179
+  %1047 = phi ptr [ %1002, %996 ], [ %1001, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179 ]
+  %1048 = phi ptr [ %999, %996 ], [ %.pre604, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i179 ]
+  %.not508 = icmp eq ptr %1048, null
   br i1 %.not508, label %._crit_edge564, label %.lr.ph563, !llvm.loop !18
 
 ._crit_edge564:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit183, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit169
-  %1047 = phi ptr [ %992, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit169 ], [ %1045, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit183 ]
-  %1048 = load ptr, ptr %55, align 8
-  store ptr %1048, ptr %9, align 8
-  %1049 = load ptr, ptr %57, align 8
-  %.not.i.i.i184 = icmp eq ptr %1049, %1047
-  br i1 %.not.i.i.i184, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit197, label %1050
+  %1049 = phi ptr [ %994, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit169 ], [ %1047, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit183 ]
+  %1050 = load ptr, ptr %55, align 8
+  store ptr %1050, ptr %9, align 8
+  %1051 = load ptr, ptr %58, align 8
+  %.not.i.i.i184 = icmp eq ptr %1051, %1049
+  br i1 %.not.i.i.i184, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit197, label %1052
 
-1050:                                             ; preds = %._crit_edge564
-  %.not7.i.i.i185 = icmp eq ptr %1049, null
-  br i1 %.not7.i.i.i185, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i189, label %1051
+1052:                                             ; preds = %._crit_edge564
+  %.not7.i.i.i185 = icmp eq ptr %1051, null
+  br i1 %.not7.i.i.i185, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i189, label %1053
 
-1051:                                             ; preds = %1050
-  %1052 = getelementptr inbounds i8, ptr %1049, i64 8
-  %1053 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i186 = icmp eq i8 %1053, 0
-  br i1 %.not.i.i.i.i186, label %1057, label %1054
+1053:                                             ; preds = %1052
+  %1054 = getelementptr inbounds i8, ptr %1051, i64 8
+  %1055 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i186 = icmp eq i8 %1055, 0
+  br i1 %.not.i.i.i.i186, label %1059, label %1056
 
-1054:                                             ; preds = %1051
-  %1055 = load i32, ptr %1052, align 4
-  %1056 = add nsw i32 %1055, 1
-  store i32 %1056, ptr %1052, align 4
+1056:                                             ; preds = %1053
+  %1057 = load i32, ptr %1054, align 4
+  %1058 = add nsw i32 %1057, 1
+  store i32 %1058, ptr %1054, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i187
 
-1057:                                             ; preds = %1051
-  %1058 = atomicrmw volatile add ptr %1052, i32 1 acq_rel, align 4
+1059:                                             ; preds = %1053
+  %1060 = atomicrmw volatile add ptr %1054, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i187
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i187: ; preds = %1057, %1054
-  %.pr.i.i.i188 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i187: ; preds = %1059, %1056
+  %.pr.i.i.i188 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i189
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i189: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i187, %1050
-  %1059 = phi ptr [ %.pr.i.i.i188, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i187 ], [ %1047, %1050 ]
-  %.not8.i.i.i190 = icmp eq ptr %1059, null
-  br i1 %.not8.i.i.i190, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193, label %1060
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i189: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i187, %1052
+  %1061 = phi ptr [ %.pr.i.i.i188, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i187 ], [ %1049, %1052 ]
+  %.not8.i.i.i190 = icmp eq ptr %1061, null
+  br i1 %.not8.i.i.i190, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193, label %1062
 
-1060:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i189
-  %1061 = getelementptr inbounds i8, ptr %1059, i64 8
-  %1062 = load atomic i64, ptr %1061 acquire, align 8
-  %1063 = icmp eq i64 %1062, 4294967297
-  %1064 = trunc i64 %1062 to i32
-  br i1 %1063, label %1065, label %1070
+1062:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i189
+  %1063 = getelementptr inbounds i8, ptr %1061, i64 8
+  %1064 = load atomic i64, ptr %1063 acquire, align 8
+  %1065 = icmp eq i64 %1064, 4294967297
+  %1066 = trunc i64 %1064 to i32
+  br i1 %1065, label %1067, label %1072
 
-1065:                                             ; preds = %1060
-  store i32 0, ptr %1061, align 8
-  %1066 = getelementptr inbounds i8, ptr %1059, i64 12
-  store i32 0, ptr %1066, align 4
-  %1067 = load ptr, ptr %1059, align 8
-  %1068 = getelementptr inbounds i8, ptr %1067, i64 16
-  %1069 = load ptr, ptr %1068, align 8
-  call void %1069(ptr noundef nonnull align 8 dereferenceable(16) %1059) #17
+1067:                                             ; preds = %1062
+  store i32 0, ptr %1063, align 8
+  %1068 = getelementptr inbounds i8, ptr %1061, i64 12
+  store i32 0, ptr %1068, align 4
+  %1069 = load ptr, ptr %1061, align 8
+  %1070 = getelementptr inbounds i8, ptr %1069, i64 16
+  %1071 = load ptr, ptr %1070, align 8
+  call void %1071(ptr noundef nonnull align 8 dereferenceable(16) %1061) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i196
 
-1070:                                             ; preds = %1060
-  %1071 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i191 = icmp eq i8 %1071, 0
-  br i1 %.not.i9.i.i.i191, label %1074, label %1072
+1072:                                             ; preds = %1062
+  %1073 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i191 = icmp eq i8 %1073, 0
+  br i1 %.not.i9.i.i.i191, label %1076, label %1074
 
-1072:                                             ; preds = %1070
-  %1073 = add nsw i32 %1064, -1
-  store i32 %1073, ptr %1061, align 4
-  br label %1076
+1074:                                             ; preds = %1072
+  %1075 = add nsw i32 %1066, -1
+  store i32 %1075, ptr %1063, align 4
+  br label %1078
 
-1074:                                             ; preds = %1070
-  %1075 = atomicrmw volatile add ptr %1061, i32 -1 acq_rel, align 4
-  br label %1076
+1076:                                             ; preds = %1072
+  %1077 = atomicrmw volatile add ptr %1063, i32 -1 acq_rel, align 4
+  br label %1078
 
-1076:                                             ; preds = %1074, %1072
-  %.0.i.i.i.i192 = phi i32 [ %1064, %1072 ], [ %1075, %1074 ]
-  %1077 = icmp eq i32 %.0.i.i.i.i192, 1
-  br i1 %1077, label %1078, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193
+1078:                                             ; preds = %1076, %1074
+  %.0.i.i.i.i192 = phi i32 [ %1066, %1074 ], [ %1077, %1076 ]
+  %1079 = icmp eq i32 %.0.i.i.i.i192, 1
+  br i1 %1079, label %1080, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193
 
-1078:                                             ; preds = %1076
-  %1079 = load ptr, ptr %1059, align 8
-  %1080 = getelementptr inbounds i8, ptr %1079, i64 16
-  %1081 = load ptr, ptr %1080, align 8
-  call void %1081(ptr noundef nonnull align 8 dereferenceable(16) %1059) #17
-  %1082 = getelementptr inbounds i8, ptr %1059, i64 12
-  %1083 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i194 = icmp eq i8 %1083, 0
-  br i1 %.not.i.i.i.i.i.i194, label %1087, label %1084
+1080:                                             ; preds = %1078
+  %1081 = load ptr, ptr %1061, align 8
+  %1082 = getelementptr inbounds i8, ptr %1081, i64 16
+  %1083 = load ptr, ptr %1082, align 8
+  call void %1083(ptr noundef nonnull align 8 dereferenceable(16) %1061) #17
+  %1084 = getelementptr inbounds i8, ptr %1061, i64 12
+  %1085 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i194 = icmp eq i8 %1085, 0
+  br i1 %.not.i.i.i.i.i.i194, label %1089, label %1086
 
-1084:                                             ; preds = %1078
-  %1085 = load i32, ptr %1082, align 4
-  %1086 = add nsw i32 %1085, -1
-  store i32 %1086, ptr %1082, align 4
-  br label %1089
+1086:                                             ; preds = %1080
+  %1087 = load i32, ptr %1084, align 4
+  %1088 = add nsw i32 %1087, -1
+  store i32 %1088, ptr %1084, align 4
+  br label %1091
 
-1087:                                             ; preds = %1078
-  %1088 = atomicrmw volatile add ptr %1082, i32 -1 acq_rel, align 4
-  br label %1089
+1089:                                             ; preds = %1080
+  %1090 = atomicrmw volatile add ptr %1084, i32 -1 acq_rel, align 4
+  br label %1091
 
-1089:                                             ; preds = %1087, %1084
-  %.0.i.i.i.i.i.i195 = phi i32 [ %1085, %1084 ], [ %1088, %1087 ]
-  %1090 = icmp eq i32 %.0.i.i.i.i.i.i195, 1
-  br i1 %1090, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i196, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193
+1091:                                             ; preds = %1089, %1086
+  %.0.i.i.i.i.i.i195 = phi i32 [ %1087, %1086 ], [ %1090, %1089 ]
+  %1092 = icmp eq i32 %.0.i.i.i.i.i.i195, 1
+  br i1 %1092, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i196, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i196: ; preds = %1089, %1065
-  %1091 = load ptr, ptr %1059, align 8
-  %1092 = getelementptr inbounds i8, ptr %1091, i64 24
-  %1093 = load ptr, ptr %1092, align 8
-  call void %1093(ptr noundef nonnull align 8 dereferenceable(16) %1059) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i196: ; preds = %1091, %1067
+  %1093 = load ptr, ptr %1061, align 8
+  %1094 = getelementptr inbounds i8, ptr %1093, i64 24
+  %1095 = load ptr, ptr %1094, align 8
+  call void %1095(ptr noundef nonnull align 8 dereferenceable(16) %1061) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i196, %1089, %1076, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i189
-  store ptr %1049, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i196, %1091, %1078, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i189
+  store ptr %1051, ptr %737, align 8
   %.pre605 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit197
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit197: ; preds = %._crit_edge564, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193
-  %1094 = phi ptr [ %1047, %._crit_edge564 ], [ %1049, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193 ]
-  %1095 = phi ptr [ %1048, %._crit_edge564 ], [ %.pre605, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193 ]
-  %.not509565 = icmp eq ptr %1095, null
+  %1096 = phi ptr [ %1049, %._crit_edge564 ], [ %1051, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193 ]
+  %1097 = phi ptr [ %1050, %._crit_edge564 ], [ %.pre605, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i193 ]
+  %.not509565 = icmp eq ptr %1097, null
   br i1 %.not509565, label %._crit_edge567, label %.lr.ph566
 
 .lr.ph566:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit197, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit211
   invoke fastcc void @_ZL18init_item_evalfuncRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %1096 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-1096:                                             ; preds = %.lr.ph566
-  %1097 = load ptr, ptr %25, align 8
-  invoke fastcc void @_ZL20setup_memory_poolingRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP17gmx_sel_mempool_t(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1097)
           to label %1098 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-1098:                                             ; preds = %1096
+1098:                                             ; preds = %.lr.ph566
+  %1099 = load ptr, ptr %25, align 8
+  invoke fastcc void @_ZL20setup_memory_poolingRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP17gmx_sel_mempool_t(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1099)
+          to label %1100 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+1100:                                             ; preds = %1098
   invoke fastcc void @_ZL20init_item_evaloutputRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %1099 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %1101 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-1099:                                             ; preds = %1098
-  %1100 = load ptr, ptr %9, align 8
-  %1101 = getelementptr inbounds i8, ptr %1100, i64 112
-  %1102 = load ptr, ptr %1101, align 8
-  store ptr %1102, ptr %9, align 8
-  %1103 = getelementptr inbounds i8, ptr %1100, i64 120
+1101:                                             ; preds = %1100
+  %1102 = load ptr, ptr %9, align 8
+  %1103 = getelementptr inbounds i8, ptr %1102, i64 112
   %1104 = load ptr, ptr %1103, align 8
-  %1105 = load ptr, ptr %735, align 8
-  %.not.i.i.i198 = icmp eq ptr %1104, %1105
-  br i1 %.not.i.i.i198, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit211, label %1106
+  store ptr %1104, ptr %9, align 8
+  %1105 = getelementptr inbounds i8, ptr %1102, i64 120
+  %1106 = load ptr, ptr %1105, align 8
+  %1107 = load ptr, ptr %737, align 8
+  %.not.i.i.i198 = icmp eq ptr %1106, %1107
+  br i1 %.not.i.i.i198, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit211, label %1108
 
-1106:                                             ; preds = %1099
-  %.not7.i.i.i199 = icmp eq ptr %1104, null
-  br i1 %.not7.i.i.i199, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i203, label %1107
+1108:                                             ; preds = %1101
+  %.not7.i.i.i199 = icmp eq ptr %1106, null
+  br i1 %.not7.i.i.i199, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i203, label %1109
 
-1107:                                             ; preds = %1106
-  %1108 = getelementptr inbounds i8, ptr %1104, i64 8
-  %1109 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i200 = icmp eq i8 %1109, 0
-  br i1 %.not.i.i.i.i200, label %1113, label %1110
+1109:                                             ; preds = %1108
+  %1110 = getelementptr inbounds i8, ptr %1106, i64 8
+  %1111 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i200 = icmp eq i8 %1111, 0
+  br i1 %.not.i.i.i.i200, label %1115, label %1112
 
-1110:                                             ; preds = %1107
-  %1111 = load i32, ptr %1108, align 4
-  %1112 = add nsw i32 %1111, 1
-  store i32 %1112, ptr %1108, align 4
+1112:                                             ; preds = %1109
+  %1113 = load i32, ptr %1110, align 4
+  %1114 = add nsw i32 %1113, 1
+  store i32 %1114, ptr %1110, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i201
 
-1113:                                             ; preds = %1107
-  %1114 = atomicrmw volatile add ptr %1108, i32 1 acq_rel, align 4
+1115:                                             ; preds = %1109
+  %1116 = atomicrmw volatile add ptr %1110, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i201
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i201: ; preds = %1113, %1110
-  %.pr.i.i.i202 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i201: ; preds = %1115, %1112
+  %.pr.i.i.i202 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i203
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i203: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i201, %1106
-  %1115 = phi ptr [ %.pr.i.i.i202, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i201 ], [ %1105, %1106 ]
-  %.not8.i.i.i204 = icmp eq ptr %1115, null
-  br i1 %.not8.i.i.i204, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207, label %1116
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i203: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i201, %1108
+  %1117 = phi ptr [ %.pr.i.i.i202, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i201 ], [ %1107, %1108 ]
+  %.not8.i.i.i204 = icmp eq ptr %1117, null
+  br i1 %.not8.i.i.i204, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207, label %1118
 
-1116:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i203
-  %1117 = getelementptr inbounds i8, ptr %1115, i64 8
-  %1118 = load atomic i64, ptr %1117 acquire, align 8
-  %1119 = icmp eq i64 %1118, 4294967297
-  %1120 = trunc i64 %1118 to i32
-  br i1 %1119, label %1121, label %1126
+1118:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i203
+  %1119 = getelementptr inbounds i8, ptr %1117, i64 8
+  %1120 = load atomic i64, ptr %1119 acquire, align 8
+  %1121 = icmp eq i64 %1120, 4294967297
+  %1122 = trunc i64 %1120 to i32
+  br i1 %1121, label %1123, label %1128
 
-1121:                                             ; preds = %1116
-  store i32 0, ptr %1117, align 8
-  %1122 = getelementptr inbounds i8, ptr %1115, i64 12
-  store i32 0, ptr %1122, align 4
-  %1123 = load ptr, ptr %1115, align 8
-  %1124 = getelementptr inbounds i8, ptr %1123, i64 16
-  %1125 = load ptr, ptr %1124, align 8
-  call void %1125(ptr noundef nonnull align 8 dereferenceable(16) %1115) #17
+1123:                                             ; preds = %1118
+  store i32 0, ptr %1119, align 8
+  %1124 = getelementptr inbounds i8, ptr %1117, i64 12
+  store i32 0, ptr %1124, align 4
+  %1125 = load ptr, ptr %1117, align 8
+  %1126 = getelementptr inbounds i8, ptr %1125, i64 16
+  %1127 = load ptr, ptr %1126, align 8
+  call void %1127(ptr noundef nonnull align 8 dereferenceable(16) %1117) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i210
 
-1126:                                             ; preds = %1116
-  %1127 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i205 = icmp eq i8 %1127, 0
-  br i1 %.not.i9.i.i.i205, label %1130, label %1128
+1128:                                             ; preds = %1118
+  %1129 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i205 = icmp eq i8 %1129, 0
+  br i1 %.not.i9.i.i.i205, label %1132, label %1130
 
-1128:                                             ; preds = %1126
-  %1129 = add nsw i32 %1120, -1
-  store i32 %1129, ptr %1117, align 4
-  br label %1132
+1130:                                             ; preds = %1128
+  %1131 = add nsw i32 %1122, -1
+  store i32 %1131, ptr %1119, align 4
+  br label %1134
 
-1130:                                             ; preds = %1126
-  %1131 = atomicrmw volatile add ptr %1117, i32 -1 acq_rel, align 4
-  br label %1132
+1132:                                             ; preds = %1128
+  %1133 = atomicrmw volatile add ptr %1119, i32 -1 acq_rel, align 4
+  br label %1134
 
-1132:                                             ; preds = %1130, %1128
-  %.0.i.i.i.i206 = phi i32 [ %1120, %1128 ], [ %1131, %1130 ]
-  %1133 = icmp eq i32 %.0.i.i.i.i206, 1
-  br i1 %1133, label %1134, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207
+1134:                                             ; preds = %1132, %1130
+  %.0.i.i.i.i206 = phi i32 [ %1122, %1130 ], [ %1133, %1132 ]
+  %1135 = icmp eq i32 %.0.i.i.i.i206, 1
+  br i1 %1135, label %1136, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207
 
-1134:                                             ; preds = %1132
-  %1135 = load ptr, ptr %1115, align 8
-  %1136 = getelementptr inbounds i8, ptr %1135, i64 16
-  %1137 = load ptr, ptr %1136, align 8
-  call void %1137(ptr noundef nonnull align 8 dereferenceable(16) %1115) #17
-  %1138 = getelementptr inbounds i8, ptr %1115, i64 12
-  %1139 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i208 = icmp eq i8 %1139, 0
-  br i1 %.not.i.i.i.i.i.i208, label %1143, label %1140
+1136:                                             ; preds = %1134
+  %1137 = load ptr, ptr %1117, align 8
+  %1138 = getelementptr inbounds i8, ptr %1137, i64 16
+  %1139 = load ptr, ptr %1138, align 8
+  call void %1139(ptr noundef nonnull align 8 dereferenceable(16) %1117) #17
+  %1140 = getelementptr inbounds i8, ptr %1117, i64 12
+  %1141 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i208 = icmp eq i8 %1141, 0
+  br i1 %.not.i.i.i.i.i.i208, label %1145, label %1142
 
-1140:                                             ; preds = %1134
-  %1141 = load i32, ptr %1138, align 4
-  %1142 = add nsw i32 %1141, -1
-  store i32 %1142, ptr %1138, align 4
-  br label %1145
+1142:                                             ; preds = %1136
+  %1143 = load i32, ptr %1140, align 4
+  %1144 = add nsw i32 %1143, -1
+  store i32 %1144, ptr %1140, align 4
+  br label %1147
 
-1143:                                             ; preds = %1134
-  %1144 = atomicrmw volatile add ptr %1138, i32 -1 acq_rel, align 4
-  br label %1145
+1145:                                             ; preds = %1136
+  %1146 = atomicrmw volatile add ptr %1140, i32 -1 acq_rel, align 4
+  br label %1147
 
-1145:                                             ; preds = %1143, %1140
-  %.0.i.i.i.i.i.i209 = phi i32 [ %1141, %1140 ], [ %1144, %1143 ]
-  %1146 = icmp eq i32 %.0.i.i.i.i.i.i209, 1
-  br i1 %1146, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i210, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207
+1147:                                             ; preds = %1145, %1142
+  %.0.i.i.i.i.i.i209 = phi i32 [ %1143, %1142 ], [ %1146, %1145 ]
+  %1148 = icmp eq i32 %.0.i.i.i.i.i.i209, 1
+  br i1 %1148, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i210, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i210: ; preds = %1145, %1121
-  %1147 = load ptr, ptr %1115, align 8
-  %1148 = getelementptr inbounds i8, ptr %1147, i64 24
-  %1149 = load ptr, ptr %1148, align 8
-  call void %1149(ptr noundef nonnull align 8 dereferenceable(16) %1115) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i210: ; preds = %1147, %1123
+  %1149 = load ptr, ptr %1117, align 8
+  %1150 = getelementptr inbounds i8, ptr %1149, i64 24
+  %1151 = load ptr, ptr %1150, align 8
+  call void %1151(ptr noundef nonnull align 8 dereferenceable(16) %1117) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i210, %1145, %1132, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i203
-  store ptr %1104, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i210, %1147, %1134, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i203
+  store ptr %1106, ptr %737, align 8
   %.pre606 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit211
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit211: ; preds = %1099, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207
-  %1150 = phi ptr [ %1105, %1099 ], [ %1104, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207 ]
-  %1151 = phi ptr [ %1102, %1099 ], [ %.pre606, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207 ]
-  %.not509 = icmp eq ptr %1151, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit211: ; preds = %1101, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207
+  %1152 = phi ptr [ %1107, %1101 ], [ %1106, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207 ]
+  %1153 = phi ptr [ %1104, %1101 ], [ %.pre606, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i207 ]
+  %.not509 = icmp eq ptr %1153, null
   br i1 %.not509, label %._crit_edge567, label %.lr.ph566, !llvm.loop !19
 
 ._crit_edge567:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit211, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit197
-  %1152 = phi ptr [ %1094, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit197 ], [ %1150, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit211 ]
-  %1153 = load ptr, ptr %55, align 8
-  store ptr %1153, ptr %9, align 8
-  %1154 = load ptr, ptr %57, align 8
-  %.not.i.i.i212 = icmp eq ptr %1154, %1152
-  br i1 %.not.i.i.i212, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit225, label %1155
+  %1154 = phi ptr [ %1096, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit197 ], [ %1152, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit211 ]
+  %1155 = load ptr, ptr %55, align 8
+  store ptr %1155, ptr %9, align 8
+  %1156 = load ptr, ptr %58, align 8
+  %.not.i.i.i212 = icmp eq ptr %1156, %1154
+  br i1 %.not.i.i.i212, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit225, label %1157
 
-1155:                                             ; preds = %._crit_edge567
-  %.not7.i.i.i213 = icmp eq ptr %1154, null
-  br i1 %.not7.i.i.i213, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i217, label %1156
+1157:                                             ; preds = %._crit_edge567
+  %.not7.i.i.i213 = icmp eq ptr %1156, null
+  br i1 %.not7.i.i.i213, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i217, label %1158
 
-1156:                                             ; preds = %1155
-  %1157 = getelementptr inbounds i8, ptr %1154, i64 8
-  %1158 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i214 = icmp eq i8 %1158, 0
-  br i1 %.not.i.i.i.i214, label %1162, label %1159
+1158:                                             ; preds = %1157
+  %1159 = getelementptr inbounds i8, ptr %1156, i64 8
+  %1160 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i214 = icmp eq i8 %1160, 0
+  br i1 %.not.i.i.i.i214, label %1164, label %1161
 
-1159:                                             ; preds = %1156
-  %1160 = load i32, ptr %1157, align 4
-  %1161 = add nsw i32 %1160, 1
-  store i32 %1161, ptr %1157, align 4
+1161:                                             ; preds = %1158
+  %1162 = load i32, ptr %1159, align 4
+  %1163 = add nsw i32 %1162, 1
+  store i32 %1163, ptr %1159, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i215
 
-1162:                                             ; preds = %1156
-  %1163 = atomicrmw volatile add ptr %1157, i32 1 acq_rel, align 4
+1164:                                             ; preds = %1158
+  %1165 = atomicrmw volatile add ptr %1159, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i215
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i215: ; preds = %1162, %1159
-  %.pr.i.i.i216 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i215: ; preds = %1164, %1161
+  %.pr.i.i.i216 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i217
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i217: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i215, %1155
-  %1164 = phi ptr [ %.pr.i.i.i216, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i215 ], [ %1152, %1155 ]
-  %.not8.i.i.i218 = icmp eq ptr %1164, null
-  br i1 %.not8.i.i.i218, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i221, label %1165
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i217: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i215, %1157
+  %1166 = phi ptr [ %.pr.i.i.i216, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i215 ], [ %1154, %1157 ]
+  %.not8.i.i.i218 = icmp eq ptr %1166, null
+  br i1 %.not8.i.i.i218, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i221, label %1167
 
-1165:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i217
-  %1166 = getelementptr inbounds i8, ptr %1164, i64 8
-  %1167 = load atomic i64, ptr %1166 acquire, align 8
-  %1168 = icmp eq i64 %1167, 4294967297
-  %1169 = trunc i64 %1167 to i32
-  br i1 %1168, label %1170, label %1175
+1167:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i217
+  %1168 = getelementptr inbounds i8, ptr %1166, i64 8
+  %1169 = load atomic i64, ptr %1168 acquire, align 8
+  %1170 = icmp eq i64 %1169, 4294967297
+  %1171 = trunc i64 %1169 to i32
+  br i1 %1170, label %1172, label %1177
 
-1170:                                             ; preds = %1165
-  store i32 0, ptr %1166, align 8
-  %1171 = getelementptr inbounds i8, ptr %1164, i64 12
-  store i32 0, ptr %1171, align 4
-  %1172 = load ptr, ptr %1164, align 8
-  %1173 = getelementptr inbounds i8, ptr %1172, i64 16
-  %1174 = load ptr, ptr %1173, align 8
-  call void %1174(ptr noundef nonnull align 8 dereferenceable(16) %1164) #17
+1172:                                             ; preds = %1167
+  store i32 0, ptr %1168, align 8
+  %1173 = getelementptr inbounds i8, ptr %1166, i64 12
+  store i32 0, ptr %1173, align 4
+  %1174 = load ptr, ptr %1166, align 8
+  %1175 = getelementptr inbounds i8, ptr %1174, i64 16
+  %1176 = load ptr, ptr %1175, align 8
+  call void %1176(ptr noundef nonnull align 8 dereferenceable(16) %1166) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i224
 
-1175:                                             ; preds = %1165
-  %1176 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i219 = icmp eq i8 %1176, 0
-  br i1 %.not.i9.i.i.i219, label %1179, label %1177
+1177:                                             ; preds = %1167
+  %1178 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i219 = icmp eq i8 %1178, 0
+  br i1 %.not.i9.i.i.i219, label %1181, label %1179
 
-1177:                                             ; preds = %1175
-  %1178 = add nsw i32 %1169, -1
-  store i32 %1178, ptr %1166, align 4
-  br label %1181
+1179:                                             ; preds = %1177
+  %1180 = add nsw i32 %1171, -1
+  store i32 %1180, ptr %1168, align 4
+  br label %1183
 
-1179:                                             ; preds = %1175
-  %1180 = atomicrmw volatile add ptr %1166, i32 -1 acq_rel, align 4
-  br label %1181
+1181:                                             ; preds = %1177
+  %1182 = atomicrmw volatile add ptr %1168, i32 -1 acq_rel, align 4
+  br label %1183
 
-1181:                                             ; preds = %1179, %1177
-  %.0.i.i.i.i220 = phi i32 [ %1169, %1177 ], [ %1180, %1179 ]
-  %1182 = icmp eq i32 %.0.i.i.i.i220, 1
-  br i1 %1182, label %1183, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i221
+1183:                                             ; preds = %1181, %1179
+  %.0.i.i.i.i220 = phi i32 [ %1171, %1179 ], [ %1182, %1181 ]
+  %1184 = icmp eq i32 %.0.i.i.i.i220, 1
+  br i1 %1184, label %1185, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i221
 
-1183:                                             ; preds = %1181
-  %1184 = load ptr, ptr %1164, align 8
-  %1185 = getelementptr inbounds i8, ptr %1184, i64 16
-  %1186 = load ptr, ptr %1185, align 8
-  call void %1186(ptr noundef nonnull align 8 dereferenceable(16) %1164) #17
-  %1187 = getelementptr inbounds i8, ptr %1164, i64 12
-  %1188 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i222 = icmp eq i8 %1188, 0
-  br i1 %.not.i.i.i.i.i.i222, label %1192, label %1189
+1185:                                             ; preds = %1183
+  %1186 = load ptr, ptr %1166, align 8
+  %1187 = getelementptr inbounds i8, ptr %1186, i64 16
+  %1188 = load ptr, ptr %1187, align 8
+  call void %1188(ptr noundef nonnull align 8 dereferenceable(16) %1166) #17
+  %1189 = getelementptr inbounds i8, ptr %1166, i64 12
+  %1190 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i222 = icmp eq i8 %1190, 0
+  br i1 %.not.i.i.i.i.i.i222, label %1194, label %1191
 
-1189:                                             ; preds = %1183
-  %1190 = load i32, ptr %1187, align 4
-  %1191 = add nsw i32 %1190, -1
-  store i32 %1191, ptr %1187, align 4
-  br label %1194
+1191:                                             ; preds = %1185
+  %1192 = load i32, ptr %1189, align 4
+  %1193 = add nsw i32 %1192, -1
+  store i32 %1193, ptr %1189, align 4
+  br label %1196
 
-1192:                                             ; preds = %1183
-  %1193 = atomicrmw volatile add ptr %1187, i32 -1 acq_rel, align 4
-  br label %1194
+1194:                                             ; preds = %1185
+  %1195 = atomicrmw volatile add ptr %1189, i32 -1 acq_rel, align 4
+  br label %1196
 
-1194:                                             ; preds = %1192, %1189
-  %.0.i.i.i.i.i.i223 = phi i32 [ %1190, %1189 ], [ %1193, %1192 ]
-  %1195 = icmp eq i32 %.0.i.i.i.i.i.i223, 1
-  br i1 %1195, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i224, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i221
+1196:                                             ; preds = %1194, %1191
+  %.0.i.i.i.i.i.i223 = phi i32 [ %1192, %1191 ], [ %1195, %1194 ]
+  %1197 = icmp eq i32 %.0.i.i.i.i.i.i223, 1
+  br i1 %1197, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i224, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i221
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i224: ; preds = %1194, %1170
-  %1196 = load ptr, ptr %1164, align 8
-  %1197 = getelementptr inbounds i8, ptr %1196, i64 24
-  %1198 = load ptr, ptr %1197, align 8
-  call void %1198(ptr noundef nonnull align 8 dereferenceable(16) %1164) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i224: ; preds = %1196, %1172
+  %1198 = load ptr, ptr %1166, align 8
+  %1199 = getelementptr inbounds i8, ptr %1198, i64 24
+  %1200 = load ptr, ptr %1199, align 8
+  call void %1200(ptr noundef nonnull align 8 dereferenceable(16) %1166) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i221
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i221: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i224, %1194, %1181, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i217
-  store ptr %1154, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i221: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i224, %1196, %1183, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i217
+  store ptr %1156, ptr %737, align 8
   %.pre607 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit225
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit225: ; preds = %._crit_edge567, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i221
-  %1199 = phi ptr [ %1153, %._crit_edge567 ], [ %.pre607, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i221 ]
-  %.not510568 = icmp eq ptr %1199, null
+  %1201 = phi ptr [ %1155, %._crit_edge567 ], [ %.pre607, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i221 ]
+  %.not510568 = icmp eq ptr %1201, null
   br i1 %.not510568, label %._crit_edge570, label %.lr.ph569
 
 .lr.ph569:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit225, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit239
   invoke fastcc void @_ZL23init_item_minmax_groupsRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %1200 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %1202 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-1200:                                             ; preds = %.lr.ph569
-  %1201 = load ptr, ptr %9, align 8
-  %1202 = getelementptr inbounds i8, ptr %1201, i64 112
-  %1203 = load ptr, ptr %1202, align 8
-  store ptr %1203, ptr %9, align 8
-  %1204 = getelementptr inbounds i8, ptr %1201, i64 120
+1202:                                             ; preds = %.lr.ph569
+  %1203 = load ptr, ptr %9, align 8
+  %1204 = getelementptr inbounds i8, ptr %1203, i64 112
   %1205 = load ptr, ptr %1204, align 8
-  %1206 = load ptr, ptr %735, align 8
-  %.not.i.i.i226 = icmp eq ptr %1205, %1206
-  br i1 %.not.i.i.i226, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit239, label %1207
+  store ptr %1205, ptr %9, align 8
+  %1206 = getelementptr inbounds i8, ptr %1203, i64 120
+  %1207 = load ptr, ptr %1206, align 8
+  %1208 = load ptr, ptr %737, align 8
+  %.not.i.i.i226 = icmp eq ptr %1207, %1208
+  br i1 %.not.i.i.i226, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit239, label %1209
 
-1207:                                             ; preds = %1200
-  %.not7.i.i.i227 = icmp eq ptr %1205, null
-  br i1 %.not7.i.i.i227, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i231, label %1208
+1209:                                             ; preds = %1202
+  %.not7.i.i.i227 = icmp eq ptr %1207, null
+  br i1 %.not7.i.i.i227, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i231, label %1210
 
-1208:                                             ; preds = %1207
-  %1209 = getelementptr inbounds i8, ptr %1205, i64 8
-  %1210 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i228 = icmp eq i8 %1210, 0
-  br i1 %.not.i.i.i.i228, label %1214, label %1211
+1210:                                             ; preds = %1209
+  %1211 = getelementptr inbounds i8, ptr %1207, i64 8
+  %1212 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i228 = icmp eq i8 %1212, 0
+  br i1 %.not.i.i.i.i228, label %1216, label %1213
 
-1211:                                             ; preds = %1208
-  %1212 = load i32, ptr %1209, align 4
-  %1213 = add nsw i32 %1212, 1
-  store i32 %1213, ptr %1209, align 4
+1213:                                             ; preds = %1210
+  %1214 = load i32, ptr %1211, align 4
+  %1215 = add nsw i32 %1214, 1
+  store i32 %1215, ptr %1211, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i229
 
-1214:                                             ; preds = %1208
-  %1215 = atomicrmw volatile add ptr %1209, i32 1 acq_rel, align 4
+1216:                                             ; preds = %1210
+  %1217 = atomicrmw volatile add ptr %1211, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i229
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i229: ; preds = %1214, %1211
-  %.pr.i.i.i230 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i229: ; preds = %1216, %1213
+  %.pr.i.i.i230 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i231
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i231: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i229, %1207
-  %1216 = phi ptr [ %.pr.i.i.i230, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i229 ], [ %1206, %1207 ]
-  %.not8.i.i.i232 = icmp eq ptr %1216, null
-  br i1 %.not8.i.i.i232, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235, label %1217
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i231: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i229, %1209
+  %1218 = phi ptr [ %.pr.i.i.i230, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i229 ], [ %1208, %1209 ]
+  %.not8.i.i.i232 = icmp eq ptr %1218, null
+  br i1 %.not8.i.i.i232, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235, label %1219
 
-1217:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i231
-  %1218 = getelementptr inbounds i8, ptr %1216, i64 8
-  %1219 = load atomic i64, ptr %1218 acquire, align 8
-  %1220 = icmp eq i64 %1219, 4294967297
-  %1221 = trunc i64 %1219 to i32
-  br i1 %1220, label %1222, label %1227
+1219:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i231
+  %1220 = getelementptr inbounds i8, ptr %1218, i64 8
+  %1221 = load atomic i64, ptr %1220 acquire, align 8
+  %1222 = icmp eq i64 %1221, 4294967297
+  %1223 = trunc i64 %1221 to i32
+  br i1 %1222, label %1224, label %1229
 
-1222:                                             ; preds = %1217
-  store i32 0, ptr %1218, align 8
-  %1223 = getelementptr inbounds i8, ptr %1216, i64 12
-  store i32 0, ptr %1223, align 4
-  %1224 = load ptr, ptr %1216, align 8
-  %1225 = getelementptr inbounds i8, ptr %1224, i64 16
-  %1226 = load ptr, ptr %1225, align 8
-  call void %1226(ptr noundef nonnull align 8 dereferenceable(16) %1216) #17
+1224:                                             ; preds = %1219
+  store i32 0, ptr %1220, align 8
+  %1225 = getelementptr inbounds i8, ptr %1218, i64 12
+  store i32 0, ptr %1225, align 4
+  %1226 = load ptr, ptr %1218, align 8
+  %1227 = getelementptr inbounds i8, ptr %1226, i64 16
+  %1228 = load ptr, ptr %1227, align 8
+  call void %1228(ptr noundef nonnull align 8 dereferenceable(16) %1218) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i238
 
-1227:                                             ; preds = %1217
-  %1228 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i233 = icmp eq i8 %1228, 0
-  br i1 %.not.i9.i.i.i233, label %1231, label %1229
+1229:                                             ; preds = %1219
+  %1230 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i233 = icmp eq i8 %1230, 0
+  br i1 %.not.i9.i.i.i233, label %1233, label %1231
 
-1229:                                             ; preds = %1227
-  %1230 = add nsw i32 %1221, -1
-  store i32 %1230, ptr %1218, align 4
-  br label %1233
+1231:                                             ; preds = %1229
+  %1232 = add nsw i32 %1223, -1
+  store i32 %1232, ptr %1220, align 4
+  br label %1235
 
-1231:                                             ; preds = %1227
-  %1232 = atomicrmw volatile add ptr %1218, i32 -1 acq_rel, align 4
-  br label %1233
+1233:                                             ; preds = %1229
+  %1234 = atomicrmw volatile add ptr %1220, i32 -1 acq_rel, align 4
+  br label %1235
 
-1233:                                             ; preds = %1231, %1229
-  %.0.i.i.i.i234 = phi i32 [ %1221, %1229 ], [ %1232, %1231 ]
-  %1234 = icmp eq i32 %.0.i.i.i.i234, 1
-  br i1 %1234, label %1235, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235
+1235:                                             ; preds = %1233, %1231
+  %.0.i.i.i.i234 = phi i32 [ %1223, %1231 ], [ %1234, %1233 ]
+  %1236 = icmp eq i32 %.0.i.i.i.i234, 1
+  br i1 %1236, label %1237, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235
 
-1235:                                             ; preds = %1233
-  %1236 = load ptr, ptr %1216, align 8
-  %1237 = getelementptr inbounds i8, ptr %1236, i64 16
-  %1238 = load ptr, ptr %1237, align 8
-  call void %1238(ptr noundef nonnull align 8 dereferenceable(16) %1216) #17
-  %1239 = getelementptr inbounds i8, ptr %1216, i64 12
-  %1240 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i236 = icmp eq i8 %1240, 0
-  br i1 %.not.i.i.i.i.i.i236, label %1244, label %1241
+1237:                                             ; preds = %1235
+  %1238 = load ptr, ptr %1218, align 8
+  %1239 = getelementptr inbounds i8, ptr %1238, i64 16
+  %1240 = load ptr, ptr %1239, align 8
+  call void %1240(ptr noundef nonnull align 8 dereferenceable(16) %1218) #17
+  %1241 = getelementptr inbounds i8, ptr %1218, i64 12
+  %1242 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i236 = icmp eq i8 %1242, 0
+  br i1 %.not.i.i.i.i.i.i236, label %1246, label %1243
 
-1241:                                             ; preds = %1235
-  %1242 = load i32, ptr %1239, align 4
-  %1243 = add nsw i32 %1242, -1
-  store i32 %1243, ptr %1239, align 4
-  br label %1246
+1243:                                             ; preds = %1237
+  %1244 = load i32, ptr %1241, align 4
+  %1245 = add nsw i32 %1244, -1
+  store i32 %1245, ptr %1241, align 4
+  br label %1248
 
-1244:                                             ; preds = %1235
-  %1245 = atomicrmw volatile add ptr %1239, i32 -1 acq_rel, align 4
-  br label %1246
+1246:                                             ; preds = %1237
+  %1247 = atomicrmw volatile add ptr %1241, i32 -1 acq_rel, align 4
+  br label %1248
 
-1246:                                             ; preds = %1244, %1241
-  %.0.i.i.i.i.i.i237 = phi i32 [ %1242, %1241 ], [ %1245, %1244 ]
-  %1247 = icmp eq i32 %.0.i.i.i.i.i.i237, 1
-  br i1 %1247, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i238, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235
+1248:                                             ; preds = %1246, %1243
+  %.0.i.i.i.i.i.i237 = phi i32 [ %1244, %1243 ], [ %1247, %1246 ]
+  %1249 = icmp eq i32 %.0.i.i.i.i.i.i237, 1
+  br i1 %1249, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i238, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i238: ; preds = %1246, %1222
-  %1248 = load ptr, ptr %1216, align 8
-  %1249 = getelementptr inbounds i8, ptr %1248, i64 24
-  %1250 = load ptr, ptr %1249, align 8
-  call void %1250(ptr noundef nonnull align 8 dereferenceable(16) %1216) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i238: ; preds = %1248, %1224
+  %1250 = load ptr, ptr %1218, align 8
+  %1251 = getelementptr inbounds i8, ptr %1250, i64 24
+  %1252 = load ptr, ptr %1251, align 8
+  call void %1252(ptr noundef nonnull align 8 dereferenceable(16) %1218) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i238, %1246, %1233, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i231
-  store ptr %1205, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i238, %1248, %1235, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i231
+  store ptr %1207, ptr %737, align 8
   %.pre608 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit239
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit239: ; preds = %1200, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235
-  %1251 = phi ptr [ %1203, %1200 ], [ %.pre608, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235 ]
-  %.not510 = icmp eq ptr %1251, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit239: ; preds = %1202, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235
+  %1253 = phi ptr [ %1205, %1202 ], [ %.pre608, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i235 ]
+  %.not510 = icmp eq ptr %1253, null
   br i1 %.not510, label %._crit_edge570, label %.lr.ph569, !llvm.loop !20
 
 ._crit_edge570:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit239, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit225
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %1252 = load ptr, ptr %55, align 8
-  store ptr %1252, ptr %4, align 8
-  %1253 = getelementptr inbounds i8, ptr %4, i64 8
-  %1254 = load ptr, ptr %57, align 8
-  store ptr %1254, ptr %1253, align 8
-  %.not.i.i.i.i240 = icmp eq ptr %1254, null
-  br i1 %.not.i.i.i.i240, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i242, label %1255
+  %1254 = load ptr, ptr %55, align 8
+  store ptr %1254, ptr %4, align 8
+  %1255 = getelementptr inbounds i8, ptr %4, i64 8
+  %1256 = load ptr, ptr %58, align 8
+  store ptr %1256, ptr %1255, align 8
+  %.not.i.i.i.i240 = icmp eq ptr %1256, null
+  br i1 %.not.i.i.i.i240, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i242, label %1257
 
-1255:                                             ; preds = %._crit_edge570
-  %1256 = getelementptr inbounds i8, ptr %1254, i64 8
-  %1257 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i241 = icmp eq i8 %1257, 0
-  br i1 %.not.i.i.i.i.i241, label %1261, label %1258
+1257:                                             ; preds = %._crit_edge570
+  %1258 = getelementptr inbounds i8, ptr %1256, i64 8
+  %1259 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i241 = icmp eq i8 %1259, 0
+  br i1 %.not.i.i.i.i.i241, label %1263, label %1260
 
-1258:                                             ; preds = %1255
-  %1259 = load i32, ptr %1256, align 4
-  %1260 = add nsw i32 %1259, 1
-  store i32 %1260, ptr %1256, align 4
+1260:                                             ; preds = %1257
+  %1261 = load i32, ptr %1258, align 4
+  %1262 = add nsw i32 %1261, 1
+  store i32 %1262, ptr %1258, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i242
 
-1261:                                             ; preds = %1255
-  %1262 = atomicrmw volatile add ptr %1256, i32 1 acq_rel, align 4
+1263:                                             ; preds = %1257
+  %1264 = atomicrmw volatile add ptr %1258, i32 1 acq_rel, align 4
   %.pre.i258 = load ptr, ptr %4, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i242
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i242: ; preds = %1261, %1258, %._crit_edge570
-  %1263 = phi ptr [ %1252, %._crit_edge570 ], [ %1252, %1258 ], [ %.pre.i258, %1261 ]
-  %.not1517.i = icmp eq ptr %1263, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i242: ; preds = %1263, %1260, %._crit_edge570
+  %1265 = phi ptr [ %1254, %._crit_edge570 ], [ %1254, %1260 ], [ %.pre.i258, %1263 ]
+  %.not1517.i = icmp eq ptr %1265, null
   br i1 %.not1517.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.._crit_edge_crit_edge.i, label %.lr.ph.i243
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.._crit_edge_crit_edge.i: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i242
-  %.pre20.i = load ptr, ptr %1253, align 8
+  %.pre20.i = load ptr, ptr %1255, align 8
   br label %._crit_edge.i252
 
 .lr.ph.i243:                                      ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i242
-  %1264 = getelementptr inbounds i8, ptr %20, i64 80
-  br label %1265
+  %1266 = getelementptr inbounds i8, ptr %20, i64 80
+  br label %1267
 
-1265:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i251, %.lr.ph.i243
-  %1266 = phi ptr [ %1263, %.lr.ph.i243 ], [ %1344, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i251 ]
-  %1267 = getelementptr inbounds i8, ptr %1266, i64 96
-  %1268 = load ptr, ptr %1267, align 8
-  %.not16.i = icmp eq ptr %1268, null
-  br i1 %.not16.i, label %1269, label %1270
+1267:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i251, %.lr.ph.i243
+  %1268 = phi ptr [ %1265, %.lr.ph.i243 ], [ %1346, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i251 ]
+  %1269 = getelementptr inbounds i8, ptr %1268, i64 96
+  %1270 = load ptr, ptr %1269, align 8
+  %.not16.i = icmp eq ptr %1270, null
+  br i1 %.not16.i, label %1271, label %1272
 
-1269:                                             ; preds = %1265
+1271:                                             ; preds = %1267
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL19initialize_evalgrpsP23gmx_ana_selcollection_tENK3$_0clEv", ptr noundef nonnull @.str.21, i32 noundef 1562) #18
           to label %.noexc.i unwind label %.loopexit.split-lp.i
 
-.noexc.i:                                         ; preds = %1269
+.noexc.i:                                         ; preds = %1271
   unreachable
 
-1270:                                             ; preds = %1265
-  %1271 = load i32, ptr %1268, align 8
-  %.not.i244 = icmp eq i32 %1271, 5
-  br i1 %.not.i244, label %1272, label %.invoke.i
+1272:                                             ; preds = %1267
+  %1273 = load i32, ptr %1270, align 8
+  %.not.i244 = icmp eq i32 %1273, 5
+  br i1 %.not.i244, label %1274, label %.invoke.i
 
-1272:                                             ; preds = %1270
-  %1273 = getelementptr inbounds i8, ptr %1268, i64 8
-  %1274 = load i32, ptr %1273, align 8
-  %.not4.i = icmp eq i32 %1274, 5
-  br i1 %.not4.i, label %1283, label %1275
+1274:                                             ; preds = %1272
+  %1275 = getelementptr inbounds i8, ptr %1270, i64 8
+  %1276 = load i32, ptr %1275, align 8
+  %.not4.i = icmp eq i32 %1276, 5
+  br i1 %.not4.i, label %1285, label %1277
 
-1275:                                             ; preds = %1272
-  %1276 = getelementptr inbounds i8, ptr %1266, i64 40
-  %1277 = load i32, ptr %1276, align 8
-  %1278 = and i32 %1277, 4
-  %.not5.i = icmp eq i32 %1278, 0
-  br i1 %.not5.i, label %.invoke.i, label %1283
+1277:                                             ; preds = %1274
+  %1278 = getelementptr inbounds i8, ptr %1268, i64 40
+  %1279 = load i32, ptr %1278, align 8
+  %1280 = and i32 %1279, 4
+  %.not5.i = icmp eq i32 %1280, 0
+  br i1 %.not5.i, label %.invoke.i, label %1285
 
-.invoke.i:                                        ; preds = %1270, %1275, %1289
-  %1279 = phi i32 [ %1290, %1289 ], [ -1, %1275 ], [ -1, %1270 ]
-  %1280 = phi ptr [ %1291, %1289 ], [ null, %1275 ], [ null, %1270 ]
-  %1281 = getelementptr inbounds i8, ptr %1266, i64 48
-  invoke void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %1281, i32 noundef %1279, ptr noundef %1280, i32 noundef 0)
+.invoke.i:                                        ; preds = %1272, %1277, %1291
+  %1281 = phi i32 [ %1292, %1291 ], [ -1, %1277 ], [ -1, %1272 ]
+  %1282 = phi ptr [ %1293, %1291 ], [ null, %1277 ], [ null, %1272 ]
+  %1283 = getelementptr inbounds i8, ptr %1268, i64 48
+  invoke void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %1283, i32 noundef %1281, ptr noundef %1282, i32 noundef 0)
           to label %.invoke.i._crit_edge unwind label %.loopexit.i
 
 .invoke.i._crit_edge:                             ; preds = %.invoke.i
   %.pre609 = load ptr, ptr %4, align 8
-  br label %1292
+  br label %1294
 
 .loopexit.i:                                      ; preds = %.invoke.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %1282
+  br label %1284
 
-.loopexit.split-lp.i:                             ; preds = %1269
+.loopexit.split-lp.i:                             ; preds = %1271
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %1282
+  br label %1284
 
-1282:                                             ; preds = %.loopexit.split-lp.i, %.loopexit.i
+1284:                                             ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   br label %.body259
 
-1283:                                             ; preds = %1275, %1272
-  %1284 = getelementptr inbounds i8, ptr %1268, i64 88
-  %1285 = load ptr, ptr %1284, align 8
-  %1286 = getelementptr inbounds i8, ptr %1285, i64 12
-  %1287 = load i32, ptr %1286, align 4
-  %1288 = and i32 %1287, 1
-  %.not6.i = icmp eq i32 %1288, 0
-  br i1 %.not6.i, label %1292, label %1289
+1285:                                             ; preds = %1277, %1274
+  %1286 = getelementptr inbounds i8, ptr %1270, i64 88
+  %1287 = load ptr, ptr %1286, align 8
+  %1288 = getelementptr inbounds i8, ptr %1287, i64 12
+  %1289 = load i32, ptr %1288, align 4
+  %1290 = and i32 %1289, 1
+  %.not6.i = icmp eq i32 %1290, 0
+  br i1 %.not6.i, label %1294, label %1291
 
-1289:                                             ; preds = %1283
-  %1290 = load i32, ptr %26, align 8
-  %1291 = load ptr, ptr %1264, align 8
+1291:                                             ; preds = %1285
+  %1292 = load i32, ptr %26, align 8
+  %1293 = load ptr, ptr %1266, align 8
   br label %.invoke.i
 
-1292:                                             ; preds = %.invoke.i._crit_edge, %1283
-  %1293 = phi ptr [ %.pre609, %.invoke.i._crit_edge ], [ %1266, %1283 ]
-  %1294 = getelementptr inbounds i8, ptr %1293, i64 112
-  %1295 = load ptr, ptr %1294, align 8
-  store ptr %1295, ptr %4, align 8
-  %1296 = getelementptr inbounds i8, ptr %1293, i64 120
+1294:                                             ; preds = %.invoke.i._crit_edge, %1285
+  %1295 = phi ptr [ %.pre609, %.invoke.i._crit_edge ], [ %1268, %1285 ]
+  %1296 = getelementptr inbounds i8, ptr %1295, i64 112
   %1297 = load ptr, ptr %1296, align 8
-  %1298 = load ptr, ptr %1253, align 8
-  %.not.i.i.i7.i = icmp eq ptr %1297, %1298
-  br i1 %.not.i.i.i7.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i251, label %1299
+  store ptr %1297, ptr %4, align 8
+  %1298 = getelementptr inbounds i8, ptr %1295, i64 120
+  %1299 = load ptr, ptr %1298, align 8
+  %1300 = load ptr, ptr %1255, align 8
+  %.not.i.i.i7.i = icmp eq ptr %1299, %1300
+  br i1 %.not.i.i.i7.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i251, label %1301
 
-1299:                                             ; preds = %1292
-  %.not7.i.i.i.i245 = icmp eq ptr %1297, null
-  br i1 %.not7.i.i.i.i245, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i246, label %1300
+1301:                                             ; preds = %1294
+  %.not7.i.i.i.i245 = icmp eq ptr %1299, null
+  br i1 %.not7.i.i.i.i245, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i246, label %1302
 
-1300:                                             ; preds = %1299
-  %1301 = getelementptr inbounds i8, ptr %1297, i64 8
-  %1302 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i8.i = icmp eq i8 %1302, 0
-  br i1 %.not.i.i.i.i8.i, label %1306, label %1303
+1302:                                             ; preds = %1301
+  %1303 = getelementptr inbounds i8, ptr %1299, i64 8
+  %1304 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i8.i = icmp eq i8 %1304, 0
+  br i1 %.not.i.i.i.i8.i, label %1308, label %1305
 
-1303:                                             ; preds = %1300
-  %1304 = load i32, ptr %1301, align 4
-  %1305 = add nsw i32 %1304, 1
-  store i32 %1305, ptr %1301, align 4
+1305:                                             ; preds = %1302
+  %1306 = load i32, ptr %1303, align 4
+  %1307 = add nsw i32 %1306, 1
+  store i32 %1307, ptr %1303, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i246
 
-1306:                                             ; preds = %1300
-  %1307 = atomicrmw volatile add ptr %1301, i32 1 acq_rel, align 4
-  %.pr.i.i.i.pre.i257 = load ptr, ptr %1253, align 8
+1308:                                             ; preds = %1302
+  %1309 = atomicrmw volatile add ptr %1303, i32 1 acq_rel, align 4
+  %.pr.i.i.i.pre.i257 = load ptr, ptr %1255, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i246
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i246: ; preds = %1306, %1303, %1299
-  %1308 = phi ptr [ %1298, %1299 ], [ %.pr.i.i.i.pre.i257, %1306 ], [ %1298, %1303 ]
-  %.not8.i.i.i.i247 = icmp eq ptr %1308, null
-  br i1 %.not8.i.i.i.i247, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250, label %1309
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i246: ; preds = %1308, %1305, %1301
+  %1310 = phi ptr [ %1300, %1301 ], [ %.pr.i.i.i.pre.i257, %1308 ], [ %1300, %1305 ]
+  %.not8.i.i.i.i247 = icmp eq ptr %1310, null
+  br i1 %.not8.i.i.i.i247, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250, label %1311
 
-1309:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i246
-  %1310 = getelementptr inbounds i8, ptr %1308, i64 8
-  %1311 = load atomic i64, ptr %1310 acquire, align 8
-  %1312 = icmp eq i64 %1311, 4294967297
-  %1313 = trunc i64 %1311 to i32
-  br i1 %1312, label %1314, label %1319
+1311:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i246
+  %1312 = getelementptr inbounds i8, ptr %1310, i64 8
+  %1313 = load atomic i64, ptr %1312 acquire, align 8
+  %1314 = icmp eq i64 %1313, 4294967297
+  %1315 = trunc i64 %1313 to i32
+  br i1 %1314, label %1316, label %1321
 
-1314:                                             ; preds = %1309
-  store i32 0, ptr %1310, align 8
-  %1315 = getelementptr inbounds i8, ptr %1308, i64 12
-  store i32 0, ptr %1315, align 4
-  %1316 = load ptr, ptr %1308, align 8
-  %1317 = getelementptr inbounds i8, ptr %1316, i64 16
-  %1318 = load ptr, ptr %1317, align 8
-  call void %1318(ptr noundef nonnull align 8 dereferenceable(16) %1308) #17
+1316:                                             ; preds = %1311
+  store i32 0, ptr %1312, align 8
+  %1317 = getelementptr inbounds i8, ptr %1310, i64 12
+  store i32 0, ptr %1317, align 4
+  %1318 = load ptr, ptr %1310, align 8
+  %1319 = getelementptr inbounds i8, ptr %1318, i64 16
+  %1320 = load ptr, ptr %1319, align 8
+  call void %1320(ptr noundef nonnull align 8 dereferenceable(16) %1310) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i256
 
-1319:                                             ; preds = %1309
-  %1320 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i.i248 = icmp eq i8 %1320, 0
-  br i1 %.not.i9.i.i.i.i248, label %1323, label %1321
+1321:                                             ; preds = %1311
+  %1322 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i.i248 = icmp eq i8 %1322, 0
+  br i1 %.not.i9.i.i.i.i248, label %1325, label %1323
 
-1321:                                             ; preds = %1319
-  %1322 = add nsw i32 %1313, -1
-  store i32 %1322, ptr %1310, align 4
-  br label %1325
+1323:                                             ; preds = %1321
+  %1324 = add nsw i32 %1315, -1
+  store i32 %1324, ptr %1312, align 4
+  br label %1327
 
-1323:                                             ; preds = %1319
-  %1324 = atomicrmw volatile add ptr %1310, i32 -1 acq_rel, align 4
-  br label %1325
+1325:                                             ; preds = %1321
+  %1326 = atomicrmw volatile add ptr %1312, i32 -1 acq_rel, align 4
+  br label %1327
 
-1325:                                             ; preds = %1323, %1321
-  %.0.i.i.i.i.i249 = phi i32 [ %1313, %1321 ], [ %1324, %1323 ]
-  %1326 = icmp eq i32 %.0.i.i.i.i.i249, 1
-  br i1 %1326, label %1327, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250
+1327:                                             ; preds = %1325, %1323
+  %.0.i.i.i.i.i249 = phi i32 [ %1315, %1323 ], [ %1326, %1325 ]
+  %1328 = icmp eq i32 %.0.i.i.i.i.i249, 1
+  br i1 %1328, label %1329, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250
 
-1327:                                             ; preds = %1325
-  %1328 = load ptr, ptr %1308, align 8
-  %1329 = getelementptr inbounds i8, ptr %1328, i64 16
-  %1330 = load ptr, ptr %1329, align 8
-  call void %1330(ptr noundef nonnull align 8 dereferenceable(16) %1308) #17
-  %1331 = getelementptr inbounds i8, ptr %1308, i64 12
-  %1332 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i254 = icmp eq i8 %1332, 0
-  br i1 %.not.i.i.i.i.i.i.i254, label %1336, label %1333
+1329:                                             ; preds = %1327
+  %1330 = load ptr, ptr %1310, align 8
+  %1331 = getelementptr inbounds i8, ptr %1330, i64 16
+  %1332 = load ptr, ptr %1331, align 8
+  call void %1332(ptr noundef nonnull align 8 dereferenceable(16) %1310) #17
+  %1333 = getelementptr inbounds i8, ptr %1310, i64 12
+  %1334 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i254 = icmp eq i8 %1334, 0
+  br i1 %.not.i.i.i.i.i.i.i254, label %1338, label %1335
 
-1333:                                             ; preds = %1327
-  %1334 = load i32, ptr %1331, align 4
-  %1335 = add nsw i32 %1334, -1
-  store i32 %1335, ptr %1331, align 4
-  br label %1338
+1335:                                             ; preds = %1329
+  %1336 = load i32, ptr %1333, align 4
+  %1337 = add nsw i32 %1336, -1
+  store i32 %1337, ptr %1333, align 4
+  br label %1340
 
-1336:                                             ; preds = %1327
-  %1337 = atomicrmw volatile add ptr %1331, i32 -1 acq_rel, align 4
-  br label %1338
+1338:                                             ; preds = %1329
+  %1339 = atomicrmw volatile add ptr %1333, i32 -1 acq_rel, align 4
+  br label %1340
 
-1338:                                             ; preds = %1336, %1333
-  %.0.i.i.i.i.i.i.i255 = phi i32 [ %1334, %1333 ], [ %1337, %1336 ]
-  %1339 = icmp eq i32 %.0.i.i.i.i.i.i.i255, 1
-  br i1 %1339, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i256, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250
+1340:                                             ; preds = %1338, %1335
+  %.0.i.i.i.i.i.i.i255 = phi i32 [ %1336, %1335 ], [ %1339, %1338 ]
+  %1341 = icmp eq i32 %.0.i.i.i.i.i.i.i255, 1
+  br i1 %1341, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i256, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i256: ; preds = %1338, %1314
-  %1340 = load ptr, ptr %1308, align 8
-  %1341 = getelementptr inbounds i8, ptr %1340, i64 24
-  %1342 = load ptr, ptr %1341, align 8
-  call void %1342(ptr noundef nonnull align 8 dereferenceable(16) %1308) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i256: ; preds = %1340, %1316
+  %1342 = load ptr, ptr %1310, align 8
+  %1343 = getelementptr inbounds i8, ptr %1342, i64 24
+  %1344 = load ptr, ptr %1343, align 8
+  call void %1344(ptr noundef nonnull align 8 dereferenceable(16) %1310) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i256, %1338, %1325, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i246
-  store ptr %1297, ptr %1253, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i256, %1340, %1327, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i246
+  store ptr %1299, ptr %1255, align 8
   %.pre19.i = load ptr, ptr %4, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i251
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i251: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250, %1292
-  %1343 = phi ptr [ %1298, %1292 ], [ %1297, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250 ]
-  %1344 = phi ptr [ %1295, %1292 ], [ %.pre19.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250 ]
-  %.not15.i = icmp eq ptr %1344, null
-  br i1 %.not15.i, label %._crit_edge.i252, label %1265, !llvm.loop !21
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i251: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250, %1294
+  %1345 = phi ptr [ %1300, %1294 ], [ %1299, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250 ]
+  %1346 = phi ptr [ %1297, %1294 ], [ %.pre19.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i250 ]
+  %.not15.i = icmp eq ptr %1346, null
+  br i1 %.not15.i, label %._crit_edge.i252, label %1267, !llvm.loop !21
 
 ._crit_edge.i252:                                 ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i251, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.._crit_edge_crit_edge.i
-  %1345 = phi ptr [ %.pre20.i, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.._crit_edge_crit_edge.i ], [ %1343, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i251 ]
-  %.not.i.i.i9.i = icmp eq ptr %1345, null
-  br i1 %.not.i.i.i9.i, label %1380, label %1346
+  %1347 = phi ptr [ %.pre20.i, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.._crit_edge_crit_edge.i ], [ %1345, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i251 ]
+  %.not.i.i.i9.i = icmp eq ptr %1347, null
+  br i1 %.not.i.i.i9.i, label %1382, label %1348
 
-1346:                                             ; preds = %._crit_edge.i252
-  %1347 = getelementptr inbounds i8, ptr %1345, i64 8
-  %1348 = load atomic i64, ptr %1347 acquire, align 8
-  %1349 = icmp eq i64 %1348, 4294967297
-  %1350 = trunc i64 %1348 to i32
-  br i1 %1349, label %1351, label %1356
+1348:                                             ; preds = %._crit_edge.i252
+  %1349 = getelementptr inbounds i8, ptr %1347, i64 8
+  %1350 = load atomic i64, ptr %1349 acquire, align 8
+  %1351 = icmp eq i64 %1350, 4294967297
+  %1352 = trunc i64 %1350 to i32
+  br i1 %1351, label %1353, label %1358
 
-1351:                                             ; preds = %1346
-  store i32 0, ptr %1347, align 8
-  %1352 = getelementptr inbounds i8, ptr %1345, i64 12
-  store i32 0, ptr %1352, align 4
-  %1353 = load ptr, ptr %1345, align 8
-  %1354 = getelementptr inbounds i8, ptr %1353, i64 16
-  %1355 = load ptr, ptr %1354, align 8
-  call void %1355(ptr noundef nonnull align 8 dereferenceable(16) %1345) #17
+1353:                                             ; preds = %1348
+  store i32 0, ptr %1349, align 8
+  %1354 = getelementptr inbounds i8, ptr %1347, i64 12
+  store i32 0, ptr %1354, align 4
+  %1355 = load ptr, ptr %1347, align 8
+  %1356 = getelementptr inbounds i8, ptr %1355, i64 16
+  %1357 = load ptr, ptr %1356, align 8
+  call void %1357(ptr noundef nonnull align 8 dereferenceable(16) %1347) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14.i
 
-1356:                                             ; preds = %1346
-  %1357 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i10.i = icmp eq i8 %1357, 0
-  br i1 %.not.i.i.i.i10.i, label %1360, label %1358
+1358:                                             ; preds = %1348
+  %1359 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i10.i = icmp eq i8 %1359, 0
+  br i1 %.not.i.i.i.i10.i, label %1362, label %1360
 
-1358:                                             ; preds = %1356
-  %1359 = add nsw i32 %1350, -1
-  store i32 %1359, ptr %1347, align 4
-  br label %1362
+1360:                                             ; preds = %1358
+  %1361 = add nsw i32 %1352, -1
+  store i32 %1361, ptr %1349, align 4
+  br label %1364
 
-1360:                                             ; preds = %1356
-  %1361 = atomicrmw volatile add ptr %1347, i32 -1 acq_rel, align 4
-  br label %1362
+1362:                                             ; preds = %1358
+  %1363 = atomicrmw volatile add ptr %1349, i32 -1 acq_rel, align 4
+  br label %1364
 
-1362:                                             ; preds = %1360, %1358
-  %.0.i.i.i.i11.i = phi i32 [ %1350, %1358 ], [ %1361, %1360 ]
-  %1363 = icmp eq i32 %.0.i.i.i.i11.i, 1
-  br i1 %1363, label %1364, label %1380
+1364:                                             ; preds = %1362, %1360
+  %.0.i.i.i.i11.i = phi i32 [ %1352, %1360 ], [ %1363, %1362 ]
+  %1365 = icmp eq i32 %.0.i.i.i.i11.i, 1
+  br i1 %1365, label %1366, label %1382
 
-1364:                                             ; preds = %1362
-  %1365 = load ptr, ptr %1345, align 8
-  %1366 = getelementptr inbounds i8, ptr %1365, i64 16
-  %1367 = load ptr, ptr %1366, align 8
-  call void %1367(ptr noundef nonnull align 8 dereferenceable(16) %1345) #17
-  %1368 = getelementptr inbounds i8, ptr %1345, i64 12
-  %1369 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i12.i = icmp eq i8 %1369, 0
-  br i1 %.not.i.i.i.i.i.i12.i, label %1373, label %1370
+1366:                                             ; preds = %1364
+  %1367 = load ptr, ptr %1347, align 8
+  %1368 = getelementptr inbounds i8, ptr %1367, i64 16
+  %1369 = load ptr, ptr %1368, align 8
+  call void %1369(ptr noundef nonnull align 8 dereferenceable(16) %1347) #17
+  %1370 = getelementptr inbounds i8, ptr %1347, i64 12
+  %1371 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i12.i = icmp eq i8 %1371, 0
+  br i1 %.not.i.i.i.i.i.i12.i, label %1375, label %1372
 
-1370:                                             ; preds = %1364
-  %1371 = load i32, ptr %1368, align 4
-  %1372 = add nsw i32 %1371, -1
-  store i32 %1372, ptr %1368, align 4
-  br label %1375
+1372:                                             ; preds = %1366
+  %1373 = load i32, ptr %1370, align 4
+  %1374 = add nsw i32 %1373, -1
+  store i32 %1374, ptr %1370, align 4
+  br label %1377
 
-1373:                                             ; preds = %1364
-  %1374 = atomicrmw volatile add ptr %1368, i32 -1 acq_rel, align 4
-  br label %1375
+1375:                                             ; preds = %1366
+  %1376 = atomicrmw volatile add ptr %1370, i32 -1 acq_rel, align 4
+  br label %1377
 
-1375:                                             ; preds = %1373, %1370
-  %.0.i.i.i.i.i.i13.i = phi i32 [ %1371, %1370 ], [ %1374, %1373 ]
-  %1376 = icmp eq i32 %.0.i.i.i.i.i.i13.i, 1
-  br i1 %1376, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14.i, label %1380
+1377:                                             ; preds = %1375, %1372
+  %.0.i.i.i.i.i.i13.i = phi i32 [ %1373, %1372 ], [ %1376, %1375 ]
+  %1378 = icmp eq i32 %.0.i.i.i.i.i.i13.i, 1
+  br i1 %1378, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14.i, label %1382
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14.i: ; preds = %1375, %1351
-  %1377 = load ptr, ptr %1345, align 8
-  %1378 = getelementptr inbounds i8, ptr %1377, i64 24
-  %1379 = load ptr, ptr %1378, align 8
-  call void %1379(ptr noundef nonnull align 8 dereferenceable(16) %1345) #17
-  br label %1380
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14.i: ; preds = %1377, %1353
+  %1379 = load ptr, ptr %1347, align 8
+  %1380 = getelementptr inbounds i8, ptr %1379, i64 24
+  %1381 = load ptr, ptr %1380, align 8
+  call void %1381(ptr noundef nonnull align 8 dereferenceable(16) %1347) #17
+  br label %1382
 
-1380:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14.i, %1375, %1362, %._crit_edge.i252
+1382:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14.i, %1377, %1364, %._crit_edge.i252
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  switch i32 %22, label %1385 [
-    i32 4, label %1381
-    i32 2, label %1381
+  switch i32 %22, label %1387 [
+    i32 4, label %1383
+    i32 2, label %1383
   ]
 
-1381:                                             ; preds = %1380, %1380
-  %1382 = load ptr, ptr @stderr, align 8
-  %1383 = call i64 @fwrite(ptr nonnull @.str.24, i64 41, i64 1, ptr %1382) #19
+1383:                                             ; preds = %1382, %1382
   %1384 = load ptr, ptr @stderr, align 8
-  invoke void @_ZNK3gmx19SelectionCollection9printTreeEP8_IO_FILEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1384, i1 noundef zeroext false)
-          to label %1385 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  %1385 = call i64 @fwrite(ptr nonnull @.str.24, i64 41, i64 1, ptr %1384) #19
+  %1386 = load ptr, ptr @stderr, align 8
+  invoke void @_ZNK3gmx19SelectionCollection9printTreeEP8_IO_FILEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1386, i1 noundef zeroext false)
+          to label %1387 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-1385:                                             ; preds = %1380, %1381
-  %1386 = load ptr, ptr %55, align 8
-  store ptr %1386, ptr %9, align 8
-  %1387 = load ptr, ptr %57, align 8
-  %1388 = load ptr, ptr %735, align 8
-  %.not.i.i.i261 = icmp eq ptr %1387, %1388
-  br i1 %.not.i.i.i261, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit274, label %1389
+1387:                                             ; preds = %1382, %1383
+  %1388 = load ptr, ptr %55, align 8
+  store ptr %1388, ptr %9, align 8
+  %1389 = load ptr, ptr %58, align 8
+  %1390 = load ptr, ptr %737, align 8
+  %.not.i.i.i261 = icmp eq ptr %1389, %1390
+  br i1 %.not.i.i.i261, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit274, label %1391
 
-1389:                                             ; preds = %1385
-  %.not7.i.i.i262 = icmp eq ptr %1387, null
-  br i1 %.not7.i.i.i262, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i266, label %1390
+1391:                                             ; preds = %1387
+  %.not7.i.i.i262 = icmp eq ptr %1389, null
+  br i1 %.not7.i.i.i262, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i266, label %1392
 
-1390:                                             ; preds = %1389
-  %1391 = getelementptr inbounds i8, ptr %1387, i64 8
-  %1392 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i263 = icmp eq i8 %1392, 0
-  br i1 %.not.i.i.i.i263, label %1396, label %1393
+1392:                                             ; preds = %1391
+  %1393 = getelementptr inbounds i8, ptr %1389, i64 8
+  %1394 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i263 = icmp eq i8 %1394, 0
+  br i1 %.not.i.i.i.i263, label %1398, label %1395
 
-1393:                                             ; preds = %1390
-  %1394 = load i32, ptr %1391, align 4
-  %1395 = add nsw i32 %1394, 1
-  store i32 %1395, ptr %1391, align 4
+1395:                                             ; preds = %1392
+  %1396 = load i32, ptr %1393, align 4
+  %1397 = add nsw i32 %1396, 1
+  store i32 %1397, ptr %1393, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i264
 
-1396:                                             ; preds = %1390
-  %1397 = atomicrmw volatile add ptr %1391, i32 1 acq_rel, align 4
+1398:                                             ; preds = %1392
+  %1399 = atomicrmw volatile add ptr %1393, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i264
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i264: ; preds = %1396, %1393
-  %.pr.i.i.i265 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i264: ; preds = %1398, %1395
+  %.pr.i.i.i265 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i266
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i266: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i264, %1389
-  %1398 = phi ptr [ %.pr.i.i.i265, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i264 ], [ %1388, %1389 ]
-  %.not8.i.i.i267 = icmp eq ptr %1398, null
-  br i1 %.not8.i.i.i267, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270, label %1399
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i266: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i264, %1391
+  %1400 = phi ptr [ %.pr.i.i.i265, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i264 ], [ %1390, %1391 ]
+  %.not8.i.i.i267 = icmp eq ptr %1400, null
+  br i1 %.not8.i.i.i267, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270, label %1401
 
-1399:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i266
-  %1400 = getelementptr inbounds i8, ptr %1398, i64 8
-  %1401 = load atomic i64, ptr %1400 acquire, align 8
-  %1402 = icmp eq i64 %1401, 4294967297
-  %1403 = trunc i64 %1401 to i32
-  br i1 %1402, label %1404, label %1409
+1401:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i266
+  %1402 = getelementptr inbounds i8, ptr %1400, i64 8
+  %1403 = load atomic i64, ptr %1402 acquire, align 8
+  %1404 = icmp eq i64 %1403, 4294967297
+  %1405 = trunc i64 %1403 to i32
+  br i1 %1404, label %1406, label %1411
 
-1404:                                             ; preds = %1399
-  store i32 0, ptr %1400, align 8
-  %1405 = getelementptr inbounds i8, ptr %1398, i64 12
-  store i32 0, ptr %1405, align 4
-  %1406 = load ptr, ptr %1398, align 8
-  %1407 = getelementptr inbounds i8, ptr %1406, i64 16
-  %1408 = load ptr, ptr %1407, align 8
-  call void %1408(ptr noundef nonnull align 8 dereferenceable(16) %1398) #17
+1406:                                             ; preds = %1401
+  store i32 0, ptr %1402, align 8
+  %1407 = getelementptr inbounds i8, ptr %1400, i64 12
+  store i32 0, ptr %1407, align 4
+  %1408 = load ptr, ptr %1400, align 8
+  %1409 = getelementptr inbounds i8, ptr %1408, i64 16
+  %1410 = load ptr, ptr %1409, align 8
+  call void %1410(ptr noundef nonnull align 8 dereferenceable(16) %1400) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i273
 
-1409:                                             ; preds = %1399
-  %1410 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i268 = icmp eq i8 %1410, 0
-  br i1 %.not.i9.i.i.i268, label %1413, label %1411
+1411:                                             ; preds = %1401
+  %1412 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i268 = icmp eq i8 %1412, 0
+  br i1 %.not.i9.i.i.i268, label %1415, label %1413
 
-1411:                                             ; preds = %1409
-  %1412 = add nsw i32 %1403, -1
-  store i32 %1412, ptr %1400, align 4
-  br label %1415
+1413:                                             ; preds = %1411
+  %1414 = add nsw i32 %1405, -1
+  store i32 %1414, ptr %1402, align 4
+  br label %1417
 
-1413:                                             ; preds = %1409
-  %1414 = atomicrmw volatile add ptr %1400, i32 -1 acq_rel, align 4
-  br label %1415
+1415:                                             ; preds = %1411
+  %1416 = atomicrmw volatile add ptr %1402, i32 -1 acq_rel, align 4
+  br label %1417
 
-1415:                                             ; preds = %1413, %1411
-  %.0.i.i.i.i269 = phi i32 [ %1403, %1411 ], [ %1414, %1413 ]
-  %1416 = icmp eq i32 %.0.i.i.i.i269, 1
-  br i1 %1416, label %1417, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270
+1417:                                             ; preds = %1415, %1413
+  %.0.i.i.i.i269 = phi i32 [ %1405, %1413 ], [ %1416, %1415 ]
+  %1418 = icmp eq i32 %.0.i.i.i.i269, 1
+  br i1 %1418, label %1419, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270
 
-1417:                                             ; preds = %1415
-  %1418 = load ptr, ptr %1398, align 8
-  %1419 = getelementptr inbounds i8, ptr %1418, i64 16
-  %1420 = load ptr, ptr %1419, align 8
-  call void %1420(ptr noundef nonnull align 8 dereferenceable(16) %1398) #17
-  %1421 = getelementptr inbounds i8, ptr %1398, i64 12
-  %1422 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i271 = icmp eq i8 %1422, 0
-  br i1 %.not.i.i.i.i.i.i271, label %1426, label %1423
+1419:                                             ; preds = %1417
+  %1420 = load ptr, ptr %1400, align 8
+  %1421 = getelementptr inbounds i8, ptr %1420, i64 16
+  %1422 = load ptr, ptr %1421, align 8
+  call void %1422(ptr noundef nonnull align 8 dereferenceable(16) %1400) #17
+  %1423 = getelementptr inbounds i8, ptr %1400, i64 12
+  %1424 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i271 = icmp eq i8 %1424, 0
+  br i1 %.not.i.i.i.i.i.i271, label %1428, label %1425
 
-1423:                                             ; preds = %1417
-  %1424 = load i32, ptr %1421, align 4
-  %1425 = add nsw i32 %1424, -1
-  store i32 %1425, ptr %1421, align 4
-  br label %1428
+1425:                                             ; preds = %1419
+  %1426 = load i32, ptr %1423, align 4
+  %1427 = add nsw i32 %1426, -1
+  store i32 %1427, ptr %1423, align 4
+  br label %1430
 
-1426:                                             ; preds = %1417
-  %1427 = atomicrmw volatile add ptr %1421, i32 -1 acq_rel, align 4
-  br label %1428
+1428:                                             ; preds = %1419
+  %1429 = atomicrmw volatile add ptr %1423, i32 -1 acq_rel, align 4
+  br label %1430
 
-1428:                                             ; preds = %1426, %1423
-  %.0.i.i.i.i.i.i272 = phi i32 [ %1424, %1423 ], [ %1427, %1426 ]
-  %1429 = icmp eq i32 %.0.i.i.i.i.i.i272, 1
-  br i1 %1429, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i273, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270
+1430:                                             ; preds = %1428, %1425
+  %.0.i.i.i.i.i.i272 = phi i32 [ %1426, %1425 ], [ %1429, %1428 ]
+  %1431 = icmp eq i32 %.0.i.i.i.i.i.i272, 1
+  br i1 %1431, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i273, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i273: ; preds = %1428, %1404
-  %1430 = load ptr, ptr %1398, align 8
-  %1431 = getelementptr inbounds i8, ptr %1430, i64 24
-  %1432 = load ptr, ptr %1431, align 8
-  call void %1432(ptr noundef nonnull align 8 dereferenceable(16) %1398) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i273: ; preds = %1430, %1406
+  %1432 = load ptr, ptr %1400, align 8
+  %1433 = getelementptr inbounds i8, ptr %1432, i64 24
+  %1434 = load ptr, ptr %1433, align 8
+  call void %1434(ptr noundef nonnull align 8 dereferenceable(16) %1400) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i273, %1428, %1415, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i266
-  store ptr %1387, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i273, %1430, %1417, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i266
+  store ptr %1389, ptr %737, align 8
   %.pre610 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit274
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit274: ; preds = %1385, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270
-  %1433 = phi ptr [ %1386, %1385 ], [ %.pre610, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270 ]
-  %.not511571 = icmp eq ptr %1433, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit274: ; preds = %1387, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270
+  %1435 = phi ptr [ %1388, %1387 ], [ %.pre610, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i270 ]
+  %.not511571 = icmp eq ptr %1435, null
   br i1 %.not511571, label %._crit_edge573, label %.lr.ph572
 
 .lr.ph572:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit274, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit288
-  %1434 = phi ptr [ %1499, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit288 ], [ %1433, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit274 ]
-  %1435 = getelementptr inbounds i8, ptr %1434, i64 96
-  %1436 = load ptr, ptr %1435, align 8
-  %1437 = getelementptr inbounds i8, ptr %1436, i64 88
+  %1436 = phi ptr [ %1501, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit288 ], [ %1435, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit274 ]
+  %1437 = getelementptr inbounds i8, ptr %1436, i64 96
   %1438 = load ptr, ptr %1437, align 8
-  %1439 = getelementptr inbounds i8, ptr %1438, i64 12
-  %1440 = load i32, ptr %1439, align 4
-  %1441 = and i32 %1440, 128
-  %.not66 = icmp eq i32 %1441, 0
-  br i1 %.not66, label %1443, label %1442
+  %1439 = getelementptr inbounds i8, ptr %1438, i64 88
+  %1440 = load ptr, ptr %1439, align 8
+  %1441 = getelementptr inbounds i8, ptr %1440, i64 12
+  %1442 = load i32, ptr %1441, align 4
+  %1443 = and i32 %1442, 128
+  %.not66 = icmp eq i32 %1443, 0
+  br i1 %.not66, label %1445, label %1444
 
-1442:                                             ; preds = %.lr.ph572
-  invoke fastcc void @_ZL20mark_subexpr_dynamicRKSt10shared_ptrIN3gmx20SelectionTreeElementEEb(ptr noundef nonnull align 8 dereferenceable(16) %1435, i1 noundef zeroext true)
-          to label %1443 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+1444:                                             ; preds = %.lr.ph572
+  invoke fastcc void @_ZL20mark_subexpr_dynamicRKSt10shared_ptrIN3gmx20SelectionTreeElementEEb(ptr noundef nonnull align 8 dereferenceable(16) %1437, i1 noundef zeroext true)
+          to label %1445 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-1443:                                             ; preds = %1442, %.lr.ph572
+1445:                                             ; preds = %1444, %.lr.ph572
   invoke fastcc void @_ZL23set_evaluation_functionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPFvP18gmx_sel_evaluate_tS4_P15gmx_ana_index_tE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %1444 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %1446 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-1444:                                             ; preds = %1443
-  %1445 = load ptr, ptr %9, align 8
-  %1446 = getelementptr inbounds i8, ptr %1445, i64 32
-  %1447 = load ptr, ptr %1446, align 8
-  invoke void %1447(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null)
-          to label %1448 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+1446:                                             ; preds = %1445
+  %1447 = load ptr, ptr %9, align 8
+  %1448 = getelementptr inbounds i8, ptr %1447, i64 32
+  %1449 = load ptr, ptr %1448, align 8
+  invoke void %1449(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null)
+          to label %1450 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-1448:                                             ; preds = %1444
-  %1449 = load ptr, ptr %9, align 8
-  %1450 = getelementptr inbounds i8, ptr %1449, i64 112
-  %1451 = load ptr, ptr %1450, align 8
-  store ptr %1451, ptr %9, align 8
-  %1452 = getelementptr inbounds i8, ptr %1449, i64 120
+1450:                                             ; preds = %1446
+  %1451 = load ptr, ptr %9, align 8
+  %1452 = getelementptr inbounds i8, ptr %1451, i64 112
   %1453 = load ptr, ptr %1452, align 8
-  %1454 = load ptr, ptr %735, align 8
-  %.not.i.i.i275 = icmp eq ptr %1453, %1454
-  br i1 %.not.i.i.i275, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit288, label %1455
+  store ptr %1453, ptr %9, align 8
+  %1454 = getelementptr inbounds i8, ptr %1451, i64 120
+  %1455 = load ptr, ptr %1454, align 8
+  %1456 = load ptr, ptr %737, align 8
+  %.not.i.i.i275 = icmp eq ptr %1455, %1456
+  br i1 %.not.i.i.i275, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit288, label %1457
 
-1455:                                             ; preds = %1448
-  %.not7.i.i.i276 = icmp eq ptr %1453, null
-  br i1 %.not7.i.i.i276, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i280, label %1456
+1457:                                             ; preds = %1450
+  %.not7.i.i.i276 = icmp eq ptr %1455, null
+  br i1 %.not7.i.i.i276, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i280, label %1458
 
-1456:                                             ; preds = %1455
-  %1457 = getelementptr inbounds i8, ptr %1453, i64 8
-  %1458 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i277 = icmp eq i8 %1458, 0
-  br i1 %.not.i.i.i.i277, label %1462, label %1459
+1458:                                             ; preds = %1457
+  %1459 = getelementptr inbounds i8, ptr %1455, i64 8
+  %1460 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i277 = icmp eq i8 %1460, 0
+  br i1 %.not.i.i.i.i277, label %1464, label %1461
 
-1459:                                             ; preds = %1456
-  %1460 = load i32, ptr %1457, align 4
-  %1461 = add nsw i32 %1460, 1
-  store i32 %1461, ptr %1457, align 4
+1461:                                             ; preds = %1458
+  %1462 = load i32, ptr %1459, align 4
+  %1463 = add nsw i32 %1462, 1
+  store i32 %1463, ptr %1459, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i278
 
-1462:                                             ; preds = %1456
-  %1463 = atomicrmw volatile add ptr %1457, i32 1 acq_rel, align 4
+1464:                                             ; preds = %1458
+  %1465 = atomicrmw volatile add ptr %1459, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i278
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i278: ; preds = %1462, %1459
-  %.pr.i.i.i279 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i278: ; preds = %1464, %1461
+  %.pr.i.i.i279 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i280
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i280: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i278, %1455
-  %1464 = phi ptr [ %.pr.i.i.i279, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i278 ], [ %1454, %1455 ]
-  %.not8.i.i.i281 = icmp eq ptr %1464, null
-  br i1 %.not8.i.i.i281, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284, label %1465
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i280: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i278, %1457
+  %1466 = phi ptr [ %.pr.i.i.i279, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i278 ], [ %1456, %1457 ]
+  %.not8.i.i.i281 = icmp eq ptr %1466, null
+  br i1 %.not8.i.i.i281, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284, label %1467
 
-1465:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i280
-  %1466 = getelementptr inbounds i8, ptr %1464, i64 8
-  %1467 = load atomic i64, ptr %1466 acquire, align 8
-  %1468 = icmp eq i64 %1467, 4294967297
-  %1469 = trunc i64 %1467 to i32
-  br i1 %1468, label %1470, label %1475
+1467:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i280
+  %1468 = getelementptr inbounds i8, ptr %1466, i64 8
+  %1469 = load atomic i64, ptr %1468 acquire, align 8
+  %1470 = icmp eq i64 %1469, 4294967297
+  %1471 = trunc i64 %1469 to i32
+  br i1 %1470, label %1472, label %1477
 
-1470:                                             ; preds = %1465
-  store i32 0, ptr %1466, align 8
-  %1471 = getelementptr inbounds i8, ptr %1464, i64 12
-  store i32 0, ptr %1471, align 4
-  %1472 = load ptr, ptr %1464, align 8
-  %1473 = getelementptr inbounds i8, ptr %1472, i64 16
-  %1474 = load ptr, ptr %1473, align 8
-  call void %1474(ptr noundef nonnull align 8 dereferenceable(16) %1464) #17
+1472:                                             ; preds = %1467
+  store i32 0, ptr %1468, align 8
+  %1473 = getelementptr inbounds i8, ptr %1466, i64 12
+  store i32 0, ptr %1473, align 4
+  %1474 = load ptr, ptr %1466, align 8
+  %1475 = getelementptr inbounds i8, ptr %1474, i64 16
+  %1476 = load ptr, ptr %1475, align 8
+  call void %1476(ptr noundef nonnull align 8 dereferenceable(16) %1466) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i287
 
-1475:                                             ; preds = %1465
-  %1476 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i282 = icmp eq i8 %1476, 0
-  br i1 %.not.i9.i.i.i282, label %1479, label %1477
+1477:                                             ; preds = %1467
+  %1478 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i282 = icmp eq i8 %1478, 0
+  br i1 %.not.i9.i.i.i282, label %1481, label %1479
 
-1477:                                             ; preds = %1475
-  %1478 = add nsw i32 %1469, -1
-  store i32 %1478, ptr %1466, align 4
-  br label %1481
+1479:                                             ; preds = %1477
+  %1480 = add nsw i32 %1471, -1
+  store i32 %1480, ptr %1468, align 4
+  br label %1483
 
-1479:                                             ; preds = %1475
-  %1480 = atomicrmw volatile add ptr %1466, i32 -1 acq_rel, align 4
-  br label %1481
+1481:                                             ; preds = %1477
+  %1482 = atomicrmw volatile add ptr %1468, i32 -1 acq_rel, align 4
+  br label %1483
 
-1481:                                             ; preds = %1479, %1477
-  %.0.i.i.i.i283 = phi i32 [ %1469, %1477 ], [ %1480, %1479 ]
-  %1482 = icmp eq i32 %.0.i.i.i.i283, 1
-  br i1 %1482, label %1483, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284
+1483:                                             ; preds = %1481, %1479
+  %.0.i.i.i.i283 = phi i32 [ %1471, %1479 ], [ %1482, %1481 ]
+  %1484 = icmp eq i32 %.0.i.i.i.i283, 1
+  br i1 %1484, label %1485, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284
 
-1483:                                             ; preds = %1481
-  %1484 = load ptr, ptr %1464, align 8
-  %1485 = getelementptr inbounds i8, ptr %1484, i64 16
-  %1486 = load ptr, ptr %1485, align 8
-  call void %1486(ptr noundef nonnull align 8 dereferenceable(16) %1464) #17
-  %1487 = getelementptr inbounds i8, ptr %1464, i64 12
-  %1488 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i285 = icmp eq i8 %1488, 0
-  br i1 %.not.i.i.i.i.i.i285, label %1492, label %1489
+1485:                                             ; preds = %1483
+  %1486 = load ptr, ptr %1466, align 8
+  %1487 = getelementptr inbounds i8, ptr %1486, i64 16
+  %1488 = load ptr, ptr %1487, align 8
+  call void %1488(ptr noundef nonnull align 8 dereferenceable(16) %1466) #17
+  %1489 = getelementptr inbounds i8, ptr %1466, i64 12
+  %1490 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i285 = icmp eq i8 %1490, 0
+  br i1 %.not.i.i.i.i.i.i285, label %1494, label %1491
 
-1489:                                             ; preds = %1483
-  %1490 = load i32, ptr %1487, align 4
-  %1491 = add nsw i32 %1490, -1
-  store i32 %1491, ptr %1487, align 4
-  br label %1494
+1491:                                             ; preds = %1485
+  %1492 = load i32, ptr %1489, align 4
+  %1493 = add nsw i32 %1492, -1
+  store i32 %1493, ptr %1489, align 4
+  br label %1496
 
-1492:                                             ; preds = %1483
-  %1493 = atomicrmw volatile add ptr %1487, i32 -1 acq_rel, align 4
-  br label %1494
+1494:                                             ; preds = %1485
+  %1495 = atomicrmw volatile add ptr %1489, i32 -1 acq_rel, align 4
+  br label %1496
 
-1494:                                             ; preds = %1492, %1489
-  %.0.i.i.i.i.i.i286 = phi i32 [ %1490, %1489 ], [ %1493, %1492 ]
-  %1495 = icmp eq i32 %.0.i.i.i.i.i.i286, 1
-  br i1 %1495, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i287, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284
+1496:                                             ; preds = %1494, %1491
+  %.0.i.i.i.i.i.i286 = phi i32 [ %1492, %1491 ], [ %1495, %1494 ]
+  %1497 = icmp eq i32 %.0.i.i.i.i.i.i286, 1
+  br i1 %1497, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i287, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i287: ; preds = %1494, %1470
-  %1496 = load ptr, ptr %1464, align 8
-  %1497 = getelementptr inbounds i8, ptr %1496, i64 24
-  %1498 = load ptr, ptr %1497, align 8
-  call void %1498(ptr noundef nonnull align 8 dereferenceable(16) %1464) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i287: ; preds = %1496, %1472
+  %1498 = load ptr, ptr %1466, align 8
+  %1499 = getelementptr inbounds i8, ptr %1498, i64 24
+  %1500 = load ptr, ptr %1499, align 8
+  call void %1500(ptr noundef nonnull align 8 dereferenceable(16) %1466) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i287, %1494, %1481, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i280
-  store ptr %1453, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i287, %1496, %1483, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i280
+  store ptr %1455, ptr %737, align 8
   %.pre611 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit288
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit288: ; preds = %1448, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284
-  %1499 = phi ptr [ %1451, %1448 ], [ %.pre611, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284 ]
-  %.not511 = icmp eq ptr %1499, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit288: ; preds = %1450, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284
+  %1501 = phi ptr [ %1453, %1450 ], [ %.pre611, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i284 ]
+  %.not511 = icmp eq ptr %1501, null
   br i1 %.not511, label %._crit_edge573, label %.lr.ph572, !llvm.loop !22
 
 ._crit_edge573:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit288, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit274
-  %1500 = getelementptr inbounds i8, ptr %17, i64 8
-  %1501 = load ptr, ptr %57, align 8
-  %1502 = load <2 x ptr>, ptr %55, align 8
-  store <2 x ptr> %1502, ptr %17, align 16
-  %.not.i.i.i289 = icmp eq ptr %1501, null
-  br i1 %.not.i.i.i289, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291, label %1503
+  %1502 = load ptr, ptr %55, align 8
+  store ptr %1502, ptr %17, align 8
+  %1503 = getelementptr inbounds i8, ptr %17, i64 8
+  %1504 = load ptr, ptr %58, align 8
+  store ptr %1504, ptr %1503, align 8
+  %.not.i.i.i289 = icmp eq ptr %1504, null
+  br i1 %.not.i.i.i289, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291, label %1505
 
-1503:                                             ; preds = %._crit_edge573
-  %1504 = getelementptr inbounds i8, ptr %1501, i64 8
-  %1505 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i290 = icmp eq i8 %1505, 0
-  br i1 %.not.i.i.i.i290, label %1509, label %1506
+1505:                                             ; preds = %._crit_edge573
+  %1506 = getelementptr inbounds i8, ptr %1504, i64 8
+  %1507 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i290 = icmp eq i8 %1507, 0
+  br i1 %.not.i.i.i.i290, label %1511, label %1508
 
-1506:                                             ; preds = %1503
-  %1507 = load i32, ptr %1504, align 4
-  %1508 = add nsw i32 %1507, 1
-  store i32 %1508, ptr %1504, align 4
+1508:                                             ; preds = %1505
+  %1509 = load i32, ptr %1506, align 4
+  %1510 = add nsw i32 %1509, 1
+  store i32 %1510, ptr %1506, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291
 
-1509:                                             ; preds = %1503
-  %1510 = atomicrmw volatile add ptr %1504, i32 1 acq_rel, align 4
+1511:                                             ; preds = %1505
+  %1512 = atomicrmw volatile add ptr %1506, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291: ; preds = %._crit_edge573, %1506, %1509
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291: ; preds = %._crit_edge573, %1508, %1511
   invoke fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull %17)
-          to label %1511 unwind label %1721
+          to label %1513 unwind label %1724
 
-1511:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291
-  %1512 = getelementptr inbounds i8, ptr %16, i64 8
-  %1513 = load <2 x ptr>, ptr %16, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %1514 = load ptr, ptr %57, align 8
-  store <2 x ptr> %1513, ptr %55, align 8
-  %.not.i.i.i.i292 = icmp eq ptr %1514, null
-  br i1 %.not.i.i.i.i292, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298, label %1515
+1513:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291
+  %1514 = load ptr, ptr %16, align 8
+  %1515 = getelementptr inbounds i8, ptr %16, i64 8
+  %1516 = load ptr, ptr %1515, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  store ptr %1514, ptr %55, align 8
+  %1517 = load ptr, ptr %58, align 8
+  store ptr %1516, ptr %58, align 8
+  %.not.i.i.i.i292 = icmp eq ptr %1517, null
+  br i1 %.not.i.i.i.i292, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298, label %1518
 
-1515:                                             ; preds = %1511
-  %1516 = getelementptr inbounds i8, ptr %1514, i64 8
-  %1517 = load atomic i64, ptr %1516 acquire, align 8
-  %1518 = icmp eq i64 %1517, 4294967297
-  %1519 = trunc i64 %1517 to i32
-  br i1 %1518, label %1520, label %1525
+1518:                                             ; preds = %1513
+  %1519 = getelementptr inbounds i8, ptr %1517, i64 8
+  %1520 = load atomic i64, ptr %1519 acquire, align 8
+  %1521 = icmp eq i64 %1520, 4294967297
+  %1522 = trunc i64 %1520 to i32
+  br i1 %1521, label %1523, label %1528
 
-1520:                                             ; preds = %1515
-  store i32 0, ptr %1516, align 8
-  %1521 = getelementptr inbounds i8, ptr %1514, i64 12
-  store i32 0, ptr %1521, align 4
-  %1522 = load ptr, ptr %1514, align 8
-  %1523 = getelementptr inbounds i8, ptr %1522, i64 16
-  %1524 = load ptr, ptr %1523, align 8
-  call void %1524(ptr noundef nonnull align 8 dereferenceable(16) %1514) #17
+1523:                                             ; preds = %1518
+  store i32 0, ptr %1519, align 8
+  %1524 = getelementptr inbounds i8, ptr %1517, i64 12
+  store i32 0, ptr %1524, align 4
+  %1525 = load ptr, ptr %1517, align 8
+  %1526 = getelementptr inbounds i8, ptr %1525, i64 16
+  %1527 = load ptr, ptr %1526, align 8
+  call void %1527(ptr noundef nonnull align 8 dereferenceable(16) %1517) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i297
 
-1525:                                             ; preds = %1515
-  %1526 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i293 = icmp eq i8 %1526, 0
-  br i1 %.not.i.i.i.i.i293, label %1529, label %1527
+1528:                                             ; preds = %1518
+  %1529 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i293 = icmp eq i8 %1529, 0
+  br i1 %.not.i.i.i.i.i293, label %1532, label %1530
 
-1527:                                             ; preds = %1525
-  %1528 = add nsw i32 %1519, -1
-  store i32 %1528, ptr %1516, align 4
-  br label %1531
+1530:                                             ; preds = %1528
+  %1531 = add nsw i32 %1522, -1
+  store i32 %1531, ptr %1519, align 4
+  br label %1534
 
-1529:                                             ; preds = %1525
-  %1530 = atomicrmw volatile add ptr %1516, i32 -1 acq_rel, align 4
-  br label %1531
+1532:                                             ; preds = %1528
+  %1533 = atomicrmw volatile add ptr %1519, i32 -1 acq_rel, align 4
+  br label %1534
 
-1531:                                             ; preds = %1529, %1527
-  %.0.i.i.i.i.i294 = phi i32 [ %1519, %1527 ], [ %1530, %1529 ]
-  %1532 = icmp eq i32 %.0.i.i.i.i.i294, 1
-  br i1 %1532, label %1533, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298
+1534:                                             ; preds = %1532, %1530
+  %.0.i.i.i.i.i294 = phi i32 [ %1522, %1530 ], [ %1533, %1532 ]
+  %1535 = icmp eq i32 %.0.i.i.i.i.i294, 1
+  br i1 %1535, label %1536, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298
 
-1533:                                             ; preds = %1531
-  %1534 = load ptr, ptr %1514, align 8
-  %1535 = getelementptr inbounds i8, ptr %1534, i64 16
-  %1536 = load ptr, ptr %1535, align 8
-  call void %1536(ptr noundef nonnull align 8 dereferenceable(16) %1514) #17
-  %1537 = getelementptr inbounds i8, ptr %1514, i64 12
-  %1538 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i295 = icmp eq i8 %1538, 0
-  br i1 %.not.i.i.i.i.i.i.i295, label %1542, label %1539
+1536:                                             ; preds = %1534
+  %1537 = load ptr, ptr %1517, align 8
+  %1538 = getelementptr inbounds i8, ptr %1537, i64 16
+  %1539 = load ptr, ptr %1538, align 8
+  call void %1539(ptr noundef nonnull align 8 dereferenceable(16) %1517) #17
+  %1540 = getelementptr inbounds i8, ptr %1517, i64 12
+  %1541 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i295 = icmp eq i8 %1541, 0
+  br i1 %.not.i.i.i.i.i.i.i295, label %1545, label %1542
 
-1539:                                             ; preds = %1533
-  %1540 = load i32, ptr %1537, align 4
-  %1541 = add nsw i32 %1540, -1
-  store i32 %1541, ptr %1537, align 4
-  br label %1544
+1542:                                             ; preds = %1536
+  %1543 = load i32, ptr %1540, align 4
+  %1544 = add nsw i32 %1543, -1
+  store i32 %1544, ptr %1540, align 4
+  br label %1547
 
-1542:                                             ; preds = %1533
-  %1543 = atomicrmw volatile add ptr %1537, i32 -1 acq_rel, align 4
-  br label %1544
+1545:                                             ; preds = %1536
+  %1546 = atomicrmw volatile add ptr %1540, i32 -1 acq_rel, align 4
+  br label %1547
 
-1544:                                             ; preds = %1542, %1539
-  %.0.i.i.i.i.i.i.i296 = phi i32 [ %1540, %1539 ], [ %1543, %1542 ]
-  %1545 = icmp eq i32 %.0.i.i.i.i.i.i.i296, 1
-  br i1 %1545, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i297, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298
+1547:                                             ; preds = %1545, %1542
+  %.0.i.i.i.i.i.i.i296 = phi i32 [ %1543, %1542 ], [ %1546, %1545 ]
+  %1548 = icmp eq i32 %.0.i.i.i.i.i.i.i296, 1
+  br i1 %1548, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i297, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i297: ; preds = %1544, %1520
-  %1546 = load ptr, ptr %1514, align 8
-  %1547 = getelementptr inbounds i8, ptr %1546, i64 24
-  %1548 = load ptr, ptr %1547, align 8
-  call void %1548(ptr noundef nonnull align 8 dereferenceable(16) %1514) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i297: ; preds = %1547, %1523
+  %1549 = load ptr, ptr %1517, align 8
+  %1550 = getelementptr inbounds i8, ptr %1549, i64 24
+  %1551 = load ptr, ptr %1550, align 8
+  call void %1551(ptr noundef nonnull align 8 dereferenceable(16) %1517) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298: ; preds = %1511, %1531, %1544, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i297
-  %1549 = load ptr, ptr %1512, align 8
-  %.not.i.i.i299 = icmp eq ptr %1549, null
-  br i1 %.not.i.i.i299, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305, label %1550
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298: ; preds = %1513, %1534, %1547, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i297
+  %1552 = load ptr, ptr %1515, align 8
+  %.not.i.i.i299 = icmp eq ptr %1552, null
+  br i1 %.not.i.i.i299, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305, label %1553
 
-1550:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298
-  %1551 = getelementptr inbounds i8, ptr %1549, i64 8
-  %1552 = load atomic i64, ptr %1551 acquire, align 8
-  %1553 = icmp eq i64 %1552, 4294967297
-  %1554 = trunc i64 %1552 to i32
-  br i1 %1553, label %1555, label %1560
+1553:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298
+  %1554 = getelementptr inbounds i8, ptr %1552, i64 8
+  %1555 = load atomic i64, ptr %1554 acquire, align 8
+  %1556 = icmp eq i64 %1555, 4294967297
+  %1557 = trunc i64 %1555 to i32
+  br i1 %1556, label %1558, label %1563
 
-1555:                                             ; preds = %1550
-  store i32 0, ptr %1551, align 8
-  %1556 = getelementptr inbounds i8, ptr %1549, i64 12
-  store i32 0, ptr %1556, align 4
-  %1557 = load ptr, ptr %1549, align 8
-  %1558 = getelementptr inbounds i8, ptr %1557, i64 16
-  %1559 = load ptr, ptr %1558, align 8
-  call void %1559(ptr noundef nonnull align 8 dereferenceable(16) %1549) #17
+1558:                                             ; preds = %1553
+  store i32 0, ptr %1554, align 8
+  %1559 = getelementptr inbounds i8, ptr %1552, i64 12
+  store i32 0, ptr %1559, align 4
+  %1560 = load ptr, ptr %1552, align 8
+  %1561 = getelementptr inbounds i8, ptr %1560, i64 16
+  %1562 = load ptr, ptr %1561, align 8
+  call void %1562(ptr noundef nonnull align 8 dereferenceable(16) %1552) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i304
 
-1560:                                             ; preds = %1550
-  %1561 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i300 = icmp eq i8 %1561, 0
-  br i1 %.not.i.i.i.i300, label %1564, label %1562
+1563:                                             ; preds = %1553
+  %1564 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i300 = icmp eq i8 %1564, 0
+  br i1 %.not.i.i.i.i300, label %1567, label %1565
 
-1562:                                             ; preds = %1560
-  %1563 = add nsw i32 %1554, -1
-  store i32 %1563, ptr %1551, align 4
-  br label %1566
+1565:                                             ; preds = %1563
+  %1566 = add nsw i32 %1557, -1
+  store i32 %1566, ptr %1554, align 4
+  br label %1569
 
-1564:                                             ; preds = %1560
-  %1565 = atomicrmw volatile add ptr %1551, i32 -1 acq_rel, align 4
-  br label %1566
+1567:                                             ; preds = %1563
+  %1568 = atomicrmw volatile add ptr %1554, i32 -1 acq_rel, align 4
+  br label %1569
 
-1566:                                             ; preds = %1564, %1562
-  %.0.i.i.i.i301 = phi i32 [ %1554, %1562 ], [ %1565, %1564 ]
-  %1567 = icmp eq i32 %.0.i.i.i.i301, 1
-  br i1 %1567, label %1568, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305
+1569:                                             ; preds = %1567, %1565
+  %.0.i.i.i.i301 = phi i32 [ %1557, %1565 ], [ %1568, %1567 ]
+  %1570 = icmp eq i32 %.0.i.i.i.i301, 1
+  br i1 %1570, label %1571, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305
 
-1568:                                             ; preds = %1566
-  %1569 = load ptr, ptr %1549, align 8
-  %1570 = getelementptr inbounds i8, ptr %1569, i64 16
-  %1571 = load ptr, ptr %1570, align 8
-  call void %1571(ptr noundef nonnull align 8 dereferenceable(16) %1549) #17
-  %1572 = getelementptr inbounds i8, ptr %1549, i64 12
-  %1573 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i302 = icmp eq i8 %1573, 0
-  br i1 %.not.i.i.i.i.i.i302, label %1577, label %1574
+1571:                                             ; preds = %1569
+  %1572 = load ptr, ptr %1552, align 8
+  %1573 = getelementptr inbounds i8, ptr %1572, i64 16
+  %1574 = load ptr, ptr %1573, align 8
+  call void %1574(ptr noundef nonnull align 8 dereferenceable(16) %1552) #17
+  %1575 = getelementptr inbounds i8, ptr %1552, i64 12
+  %1576 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i302 = icmp eq i8 %1576, 0
+  br i1 %.not.i.i.i.i.i.i302, label %1580, label %1577
 
-1574:                                             ; preds = %1568
-  %1575 = load i32, ptr %1572, align 4
-  %1576 = add nsw i32 %1575, -1
-  store i32 %1576, ptr %1572, align 4
-  br label %1579
+1577:                                             ; preds = %1571
+  %1578 = load i32, ptr %1575, align 4
+  %1579 = add nsw i32 %1578, -1
+  store i32 %1579, ptr %1575, align 4
+  br label %1582
 
-1577:                                             ; preds = %1568
-  %1578 = atomicrmw volatile add ptr %1572, i32 -1 acq_rel, align 4
-  br label %1579
+1580:                                             ; preds = %1571
+  %1581 = atomicrmw volatile add ptr %1575, i32 -1 acq_rel, align 4
+  br label %1582
 
-1579:                                             ; preds = %1577, %1574
-  %.0.i.i.i.i.i.i303 = phi i32 [ %1575, %1574 ], [ %1578, %1577 ]
-  %1580 = icmp eq i32 %.0.i.i.i.i.i.i303, 1
-  br i1 %1580, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i304, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305
+1582:                                             ; preds = %1580, %1577
+  %.0.i.i.i.i.i.i303 = phi i32 [ %1578, %1577 ], [ %1581, %1580 ]
+  %1583 = icmp eq i32 %.0.i.i.i.i.i.i303, 1
+  br i1 %1583, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i304, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i304: ; preds = %1579, %1555
-  %1581 = load ptr, ptr %1549, align 8
-  %1582 = getelementptr inbounds i8, ptr %1581, i64 24
-  %1583 = load ptr, ptr %1582, align 8
-  call void %1583(ptr noundef nonnull align 8 dereferenceable(16) %1549) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i304: ; preds = %1582, %1558
+  %1584 = load ptr, ptr %1552, align 8
+  %1585 = getelementptr inbounds i8, ptr %1584, i64 24
+  %1586 = load ptr, ptr %1585, align 8
+  call void %1586(ptr noundef nonnull align 8 dereferenceable(16) %1552) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298, %1566, %1579, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i304
-  %1584 = load ptr, ptr %1500, align 8
-  %.not.i.i.i306 = icmp eq ptr %1584, null
-  br i1 %.not.i.i.i306, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312, label %1585
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit298, %1569, %1582, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i304
+  %1587 = load ptr, ptr %1503, align 8
+  %.not.i.i.i306 = icmp eq ptr %1587, null
+  br i1 %.not.i.i.i306, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312, label %1588
 
-1585:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305
-  %1586 = getelementptr inbounds i8, ptr %1584, i64 8
-  %1587 = load atomic i64, ptr %1586 acquire, align 8
-  %1588 = icmp eq i64 %1587, 4294967297
-  %1589 = trunc i64 %1587 to i32
-  br i1 %1588, label %1590, label %1595
+1588:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305
+  %1589 = getelementptr inbounds i8, ptr %1587, i64 8
+  %1590 = load atomic i64, ptr %1589 acquire, align 8
+  %1591 = icmp eq i64 %1590, 4294967297
+  %1592 = trunc i64 %1590 to i32
+  br i1 %1591, label %1593, label %1598
 
-1590:                                             ; preds = %1585
-  store i32 0, ptr %1586, align 8
-  %1591 = getelementptr inbounds i8, ptr %1584, i64 12
-  store i32 0, ptr %1591, align 4
-  %1592 = load ptr, ptr %1584, align 8
-  %1593 = getelementptr inbounds i8, ptr %1592, i64 16
-  %1594 = load ptr, ptr %1593, align 8
-  call void %1594(ptr noundef nonnull align 8 dereferenceable(16) %1584) #17
+1593:                                             ; preds = %1588
+  store i32 0, ptr %1589, align 8
+  %1594 = getelementptr inbounds i8, ptr %1587, i64 12
+  store i32 0, ptr %1594, align 4
+  %1595 = load ptr, ptr %1587, align 8
+  %1596 = getelementptr inbounds i8, ptr %1595, i64 16
+  %1597 = load ptr, ptr %1596, align 8
+  call void %1597(ptr noundef nonnull align 8 dereferenceable(16) %1587) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i311
 
-1595:                                             ; preds = %1585
-  %1596 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i307 = icmp eq i8 %1596, 0
-  br i1 %.not.i.i.i.i307, label %1599, label %1597
+1598:                                             ; preds = %1588
+  %1599 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i307 = icmp eq i8 %1599, 0
+  br i1 %.not.i.i.i.i307, label %1602, label %1600
 
-1597:                                             ; preds = %1595
-  %1598 = add nsw i32 %1589, -1
-  store i32 %1598, ptr %1586, align 4
-  br label %1601
+1600:                                             ; preds = %1598
+  %1601 = add nsw i32 %1592, -1
+  store i32 %1601, ptr %1589, align 4
+  br label %1604
 
-1599:                                             ; preds = %1595
-  %1600 = atomicrmw volatile add ptr %1586, i32 -1 acq_rel, align 4
-  br label %1601
+1602:                                             ; preds = %1598
+  %1603 = atomicrmw volatile add ptr %1589, i32 -1 acq_rel, align 4
+  br label %1604
 
-1601:                                             ; preds = %1599, %1597
-  %.0.i.i.i.i308 = phi i32 [ %1589, %1597 ], [ %1600, %1599 ]
-  %1602 = icmp eq i32 %.0.i.i.i.i308, 1
-  br i1 %1602, label %1603, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312
+1604:                                             ; preds = %1602, %1600
+  %.0.i.i.i.i308 = phi i32 [ %1592, %1600 ], [ %1603, %1602 ]
+  %1605 = icmp eq i32 %.0.i.i.i.i308, 1
+  br i1 %1605, label %1606, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312
 
-1603:                                             ; preds = %1601
-  %1604 = load ptr, ptr %1584, align 8
-  %1605 = getelementptr inbounds i8, ptr %1604, i64 16
-  %1606 = load ptr, ptr %1605, align 8
-  call void %1606(ptr noundef nonnull align 8 dereferenceable(16) %1584) #17
-  %1607 = getelementptr inbounds i8, ptr %1584, i64 12
-  %1608 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i309 = icmp eq i8 %1608, 0
-  br i1 %.not.i.i.i.i.i.i309, label %1612, label %1609
+1606:                                             ; preds = %1604
+  %1607 = load ptr, ptr %1587, align 8
+  %1608 = getelementptr inbounds i8, ptr %1607, i64 16
+  %1609 = load ptr, ptr %1608, align 8
+  call void %1609(ptr noundef nonnull align 8 dereferenceable(16) %1587) #17
+  %1610 = getelementptr inbounds i8, ptr %1587, i64 12
+  %1611 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i309 = icmp eq i8 %1611, 0
+  br i1 %.not.i.i.i.i.i.i309, label %1615, label %1612
 
-1609:                                             ; preds = %1603
-  %1610 = load i32, ptr %1607, align 4
-  %1611 = add nsw i32 %1610, -1
-  store i32 %1611, ptr %1607, align 4
-  br label %1614
+1612:                                             ; preds = %1606
+  %1613 = load i32, ptr %1610, align 4
+  %1614 = add nsw i32 %1613, -1
+  store i32 %1614, ptr %1610, align 4
+  br label %1617
 
-1612:                                             ; preds = %1603
-  %1613 = atomicrmw volatile add ptr %1607, i32 -1 acq_rel, align 4
-  br label %1614
+1615:                                             ; preds = %1606
+  %1616 = atomicrmw volatile add ptr %1610, i32 -1 acq_rel, align 4
+  br label %1617
 
-1614:                                             ; preds = %1612, %1609
-  %.0.i.i.i.i.i.i310 = phi i32 [ %1610, %1609 ], [ %1613, %1612 ]
-  %1615 = icmp eq i32 %.0.i.i.i.i.i.i310, 1
-  br i1 %1615, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i311, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312
+1617:                                             ; preds = %1615, %1612
+  %.0.i.i.i.i.i.i310 = phi i32 [ %1613, %1612 ], [ %1616, %1615 ]
+  %1618 = icmp eq i32 %.0.i.i.i.i.i.i310, 1
+  br i1 %1618, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i311, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i311: ; preds = %1614, %1590
-  %1616 = load ptr, ptr %1584, align 8
-  %1617 = getelementptr inbounds i8, ptr %1616, i64 24
-  %1618 = load ptr, ptr %1617, align 8
-  call void %1618(ptr noundef nonnull align 8 dereferenceable(16) %1584) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i311: ; preds = %1617, %1593
+  %1619 = load ptr, ptr %1587, align 8
+  %1620 = getelementptr inbounds i8, ptr %1619, i64 24
+  %1621 = load ptr, ptr %1620, align 8
+  call void %1621(ptr noundef nonnull align 8 dereferenceable(16) %1587) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305, %1601, %1614, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i311
-  %1619 = load ptr, ptr %55, align 8
-  store ptr %1619, ptr %9, align 8
-  %1620 = load ptr, ptr %57, align 8
-  %1621 = load ptr, ptr %735, align 8
-  %.not.i.i.i313 = icmp eq ptr %1620, %1621
-  br i1 %.not.i.i.i313, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit326, label %1622
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit305, %1604, %1617, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i311
+  %1622 = load ptr, ptr %55, align 8
+  store ptr %1622, ptr %9, align 8
+  %1623 = load ptr, ptr %58, align 8
+  %1624 = load ptr, ptr %737, align 8
+  %.not.i.i.i313 = icmp eq ptr %1623, %1624
+  br i1 %.not.i.i.i313, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit326, label %1625
 
-1622:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312
-  %.not7.i.i.i314 = icmp eq ptr %1620, null
-  br i1 %.not7.i.i.i314, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i318, label %1623
+1625:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312
+  %.not7.i.i.i314 = icmp eq ptr %1623, null
+  br i1 %.not7.i.i.i314, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i318, label %1626
 
-1623:                                             ; preds = %1622
-  %1624 = getelementptr inbounds i8, ptr %1620, i64 8
-  %1625 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i315 = icmp eq i8 %1625, 0
-  br i1 %.not.i.i.i.i315, label %1629, label %1626
+1626:                                             ; preds = %1625
+  %1627 = getelementptr inbounds i8, ptr %1623, i64 8
+  %1628 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i315 = icmp eq i8 %1628, 0
+  br i1 %.not.i.i.i.i315, label %1632, label %1629
 
-1626:                                             ; preds = %1623
-  %1627 = load i32, ptr %1624, align 4
-  %1628 = add nsw i32 %1627, 1
-  store i32 %1628, ptr %1624, align 4
+1629:                                             ; preds = %1626
+  %1630 = load i32, ptr %1627, align 4
+  %1631 = add nsw i32 %1630, 1
+  store i32 %1631, ptr %1627, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i316
 
-1629:                                             ; preds = %1623
-  %1630 = atomicrmw volatile add ptr %1624, i32 1 acq_rel, align 4
+1632:                                             ; preds = %1626
+  %1633 = atomicrmw volatile add ptr %1627, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i316
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i316: ; preds = %1629, %1626
-  %.pr.i.i.i317 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i316: ; preds = %1632, %1629
+  %.pr.i.i.i317 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i318
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i318: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i316, %1622
-  %1631 = phi ptr [ %.pr.i.i.i317, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i316 ], [ %1621, %1622 ]
-  %.not8.i.i.i319 = icmp eq ptr %1631, null
-  br i1 %.not8.i.i.i319, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322, label %1632
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i318: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i316, %1625
+  %1634 = phi ptr [ %.pr.i.i.i317, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i316 ], [ %1624, %1625 ]
+  %.not8.i.i.i319 = icmp eq ptr %1634, null
+  br i1 %.not8.i.i.i319, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322, label %1635
 
-1632:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i318
-  %1633 = getelementptr inbounds i8, ptr %1631, i64 8
-  %1634 = load atomic i64, ptr %1633 acquire, align 8
-  %1635 = icmp eq i64 %1634, 4294967297
-  %1636 = trunc i64 %1634 to i32
-  br i1 %1635, label %1637, label %1642
+1635:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i318
+  %1636 = getelementptr inbounds i8, ptr %1634, i64 8
+  %1637 = load atomic i64, ptr %1636 acquire, align 8
+  %1638 = icmp eq i64 %1637, 4294967297
+  %1639 = trunc i64 %1637 to i32
+  br i1 %1638, label %1640, label %1645
 
-1637:                                             ; preds = %1632
-  store i32 0, ptr %1633, align 8
-  %1638 = getelementptr inbounds i8, ptr %1631, i64 12
-  store i32 0, ptr %1638, align 4
-  %1639 = load ptr, ptr %1631, align 8
-  %1640 = getelementptr inbounds i8, ptr %1639, i64 16
-  %1641 = load ptr, ptr %1640, align 8
-  call void %1641(ptr noundef nonnull align 8 dereferenceable(16) %1631) #17
+1640:                                             ; preds = %1635
+  store i32 0, ptr %1636, align 8
+  %1641 = getelementptr inbounds i8, ptr %1634, i64 12
+  store i32 0, ptr %1641, align 4
+  %1642 = load ptr, ptr %1634, align 8
+  %1643 = getelementptr inbounds i8, ptr %1642, i64 16
+  %1644 = load ptr, ptr %1643, align 8
+  call void %1644(ptr noundef nonnull align 8 dereferenceable(16) %1634) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i325
 
-1642:                                             ; preds = %1632
-  %1643 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i320 = icmp eq i8 %1643, 0
-  br i1 %.not.i9.i.i.i320, label %1646, label %1644
+1645:                                             ; preds = %1635
+  %1646 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i320 = icmp eq i8 %1646, 0
+  br i1 %.not.i9.i.i.i320, label %1649, label %1647
 
-1644:                                             ; preds = %1642
-  %1645 = add nsw i32 %1636, -1
-  store i32 %1645, ptr %1633, align 4
-  br label %1648
+1647:                                             ; preds = %1645
+  %1648 = add nsw i32 %1639, -1
+  store i32 %1648, ptr %1636, align 4
+  br label %1651
 
-1646:                                             ; preds = %1642
-  %1647 = atomicrmw volatile add ptr %1633, i32 -1 acq_rel, align 4
-  br label %1648
+1649:                                             ; preds = %1645
+  %1650 = atomicrmw volatile add ptr %1636, i32 -1 acq_rel, align 4
+  br label %1651
 
-1648:                                             ; preds = %1646, %1644
-  %.0.i.i.i.i321 = phi i32 [ %1636, %1644 ], [ %1647, %1646 ]
-  %1649 = icmp eq i32 %.0.i.i.i.i321, 1
-  br i1 %1649, label %1650, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322
+1651:                                             ; preds = %1649, %1647
+  %.0.i.i.i.i321 = phi i32 [ %1639, %1647 ], [ %1650, %1649 ]
+  %1652 = icmp eq i32 %.0.i.i.i.i321, 1
+  br i1 %1652, label %1653, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322
 
-1650:                                             ; preds = %1648
-  %1651 = load ptr, ptr %1631, align 8
-  %1652 = getelementptr inbounds i8, ptr %1651, i64 16
-  %1653 = load ptr, ptr %1652, align 8
-  call void %1653(ptr noundef nonnull align 8 dereferenceable(16) %1631) #17
-  %1654 = getelementptr inbounds i8, ptr %1631, i64 12
-  %1655 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i323 = icmp eq i8 %1655, 0
-  br i1 %.not.i.i.i.i.i.i323, label %1659, label %1656
+1653:                                             ; preds = %1651
+  %1654 = load ptr, ptr %1634, align 8
+  %1655 = getelementptr inbounds i8, ptr %1654, i64 16
+  %1656 = load ptr, ptr %1655, align 8
+  call void %1656(ptr noundef nonnull align 8 dereferenceable(16) %1634) #17
+  %1657 = getelementptr inbounds i8, ptr %1634, i64 12
+  %1658 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i323 = icmp eq i8 %1658, 0
+  br i1 %.not.i.i.i.i.i.i323, label %1662, label %1659
 
-1656:                                             ; preds = %1650
-  %1657 = load i32, ptr %1654, align 4
-  %1658 = add nsw i32 %1657, -1
-  store i32 %1658, ptr %1654, align 4
-  br label %1661
+1659:                                             ; preds = %1653
+  %1660 = load i32, ptr %1657, align 4
+  %1661 = add nsw i32 %1660, -1
+  store i32 %1661, ptr %1657, align 4
+  br label %1664
 
-1659:                                             ; preds = %1650
-  %1660 = atomicrmw volatile add ptr %1654, i32 -1 acq_rel, align 4
-  br label %1661
+1662:                                             ; preds = %1653
+  %1663 = atomicrmw volatile add ptr %1657, i32 -1 acq_rel, align 4
+  br label %1664
 
-1661:                                             ; preds = %1659, %1656
-  %.0.i.i.i.i.i.i324 = phi i32 [ %1657, %1656 ], [ %1660, %1659 ]
-  %1662 = icmp eq i32 %.0.i.i.i.i.i.i324, 1
-  br i1 %1662, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i325, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322
+1664:                                             ; preds = %1662, %1659
+  %.0.i.i.i.i.i.i324 = phi i32 [ %1660, %1659 ], [ %1663, %1662 ]
+  %1665 = icmp eq i32 %.0.i.i.i.i.i.i324, 1
+  br i1 %1665, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i325, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i325: ; preds = %1661, %1637
-  %1663 = load ptr, ptr %1631, align 8
-  %1664 = getelementptr inbounds i8, ptr %1663, i64 24
-  %1665 = load ptr, ptr %1664, align 8
-  call void %1665(ptr noundef nonnull align 8 dereferenceable(16) %1631) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i325: ; preds = %1664, %1640
+  %1666 = load ptr, ptr %1634, align 8
+  %1667 = getelementptr inbounds i8, ptr %1666, i64 24
+  %1668 = load ptr, ptr %1667, align 8
+  call void %1668(ptr noundef nonnull align 8 dereferenceable(16) %1634) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i325, %1661, %1648, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i318
-  store ptr %1620, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i325, %1664, %1651, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i318
+  store ptr %1623, ptr %737, align 8
   %.pre612 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit326
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit326: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322
-  %1666 = phi ptr [ %1621, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312 ], [ %1620, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322 ]
-  %1667 = phi ptr [ %1619, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312 ], [ %.pre612, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322 ]
-  %.not512574 = icmp eq ptr %1667, null
+  %1669 = phi ptr [ %1624, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312 ], [ %1623, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322 ]
+  %1670 = phi ptr [ %1622, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit312 ], [ %.pre612, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i322 ]
+  %.not512574 = icmp eq ptr %1670, null
   br i1 %.not512574, label %._crit_edge576, label %.lr.ph575
 
 .lr.ph575:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit326, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit340
   invoke fastcc void @_ZL26init_item_subexpr_refcountRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %1668 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %1671 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-1668:                                             ; preds = %.lr.ph575
-  %1669 = load ptr, ptr %9, align 8
-  %1670 = getelementptr inbounds i8, ptr %1669, i64 112
-  %1671 = load ptr, ptr %1670, align 8
-  store ptr %1671, ptr %9, align 8
-  %1672 = getelementptr inbounds i8, ptr %1669, i64 120
-  %1673 = load ptr, ptr %1672, align 8
-  %1674 = load ptr, ptr %735, align 8
-  %.not.i.i.i327 = icmp eq ptr %1673, %1674
-  br i1 %.not.i.i.i327, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit340, label %1675
+1671:                                             ; preds = %.lr.ph575
+  %1672 = load ptr, ptr %9, align 8
+  %1673 = getelementptr inbounds i8, ptr %1672, i64 112
+  %1674 = load ptr, ptr %1673, align 8
+  store ptr %1674, ptr %9, align 8
+  %1675 = getelementptr inbounds i8, ptr %1672, i64 120
+  %1676 = load ptr, ptr %1675, align 8
+  %1677 = load ptr, ptr %737, align 8
+  %.not.i.i.i327 = icmp eq ptr %1676, %1677
+  br i1 %.not.i.i.i327, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit340, label %1678
 
-1675:                                             ; preds = %1668
-  %.not7.i.i.i328 = icmp eq ptr %1673, null
-  br i1 %.not7.i.i.i328, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i332, label %1676
+1678:                                             ; preds = %1671
+  %.not7.i.i.i328 = icmp eq ptr %1676, null
+  br i1 %.not7.i.i.i328, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i332, label %1679
 
-1676:                                             ; preds = %1675
-  %1677 = getelementptr inbounds i8, ptr %1673, i64 8
-  %1678 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i329 = icmp eq i8 %1678, 0
-  br i1 %.not.i.i.i.i329, label %1682, label %1679
+1679:                                             ; preds = %1678
+  %1680 = getelementptr inbounds i8, ptr %1676, i64 8
+  %1681 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i329 = icmp eq i8 %1681, 0
+  br i1 %.not.i.i.i.i329, label %1685, label %1682
 
-1679:                                             ; preds = %1676
-  %1680 = load i32, ptr %1677, align 4
-  %1681 = add nsw i32 %1680, 1
-  store i32 %1681, ptr %1677, align 4
+1682:                                             ; preds = %1679
+  %1683 = load i32, ptr %1680, align 4
+  %1684 = add nsw i32 %1683, 1
+  store i32 %1684, ptr %1680, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i330
 
-1682:                                             ; preds = %1676
-  %1683 = atomicrmw volatile add ptr %1677, i32 1 acq_rel, align 4
+1685:                                             ; preds = %1679
+  %1686 = atomicrmw volatile add ptr %1680, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i330
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i330: ; preds = %1682, %1679
-  %.pr.i.i.i331 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i330: ; preds = %1685, %1682
+  %.pr.i.i.i331 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i332
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i332: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i330, %1675
-  %1684 = phi ptr [ %.pr.i.i.i331, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i330 ], [ %1674, %1675 ]
-  %.not8.i.i.i333 = icmp eq ptr %1684, null
-  br i1 %.not8.i.i.i333, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336, label %1685
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i332: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i330, %1678
+  %1687 = phi ptr [ %.pr.i.i.i331, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i330 ], [ %1677, %1678 ]
+  %.not8.i.i.i333 = icmp eq ptr %1687, null
+  br i1 %.not8.i.i.i333, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336, label %1688
 
-1685:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i332
-  %1686 = getelementptr inbounds i8, ptr %1684, i64 8
-  %1687 = load atomic i64, ptr %1686 acquire, align 8
-  %1688 = icmp eq i64 %1687, 4294967297
-  %1689 = trunc i64 %1687 to i32
-  br i1 %1688, label %1690, label %1695
+1688:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i332
+  %1689 = getelementptr inbounds i8, ptr %1687, i64 8
+  %1690 = load atomic i64, ptr %1689 acquire, align 8
+  %1691 = icmp eq i64 %1690, 4294967297
+  %1692 = trunc i64 %1690 to i32
+  br i1 %1691, label %1693, label %1698
 
-1690:                                             ; preds = %1685
-  store i32 0, ptr %1686, align 8
-  %1691 = getelementptr inbounds i8, ptr %1684, i64 12
-  store i32 0, ptr %1691, align 4
-  %1692 = load ptr, ptr %1684, align 8
-  %1693 = getelementptr inbounds i8, ptr %1692, i64 16
-  %1694 = load ptr, ptr %1693, align 8
-  call void %1694(ptr noundef nonnull align 8 dereferenceable(16) %1684) #17
+1693:                                             ; preds = %1688
+  store i32 0, ptr %1689, align 8
+  %1694 = getelementptr inbounds i8, ptr %1687, i64 12
+  store i32 0, ptr %1694, align 4
+  %1695 = load ptr, ptr %1687, align 8
+  %1696 = getelementptr inbounds i8, ptr %1695, i64 16
+  %1697 = load ptr, ptr %1696, align 8
+  call void %1697(ptr noundef nonnull align 8 dereferenceable(16) %1687) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i339
 
-1695:                                             ; preds = %1685
-  %1696 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i334 = icmp eq i8 %1696, 0
-  br i1 %.not.i9.i.i.i334, label %1699, label %1697
+1698:                                             ; preds = %1688
+  %1699 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i334 = icmp eq i8 %1699, 0
+  br i1 %.not.i9.i.i.i334, label %1702, label %1700
 
-1697:                                             ; preds = %1695
-  %1698 = add nsw i32 %1689, -1
-  store i32 %1698, ptr %1686, align 4
-  br label %1701
+1700:                                             ; preds = %1698
+  %1701 = add nsw i32 %1692, -1
+  store i32 %1701, ptr %1689, align 4
+  br label %1704
 
-1699:                                             ; preds = %1695
-  %1700 = atomicrmw volatile add ptr %1686, i32 -1 acq_rel, align 4
-  br label %1701
+1702:                                             ; preds = %1698
+  %1703 = atomicrmw volatile add ptr %1689, i32 -1 acq_rel, align 4
+  br label %1704
 
-1701:                                             ; preds = %1699, %1697
-  %.0.i.i.i.i335 = phi i32 [ %1689, %1697 ], [ %1700, %1699 ]
-  %1702 = icmp eq i32 %.0.i.i.i.i335, 1
-  br i1 %1702, label %1703, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336
+1704:                                             ; preds = %1702, %1700
+  %.0.i.i.i.i335 = phi i32 [ %1692, %1700 ], [ %1703, %1702 ]
+  %1705 = icmp eq i32 %.0.i.i.i.i335, 1
+  br i1 %1705, label %1706, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336
 
-1703:                                             ; preds = %1701
-  %1704 = load ptr, ptr %1684, align 8
-  %1705 = getelementptr inbounds i8, ptr %1704, i64 16
-  %1706 = load ptr, ptr %1705, align 8
-  call void %1706(ptr noundef nonnull align 8 dereferenceable(16) %1684) #17
-  %1707 = getelementptr inbounds i8, ptr %1684, i64 12
-  %1708 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i337 = icmp eq i8 %1708, 0
-  br i1 %.not.i.i.i.i.i.i337, label %1712, label %1709
+1706:                                             ; preds = %1704
+  %1707 = load ptr, ptr %1687, align 8
+  %1708 = getelementptr inbounds i8, ptr %1707, i64 16
+  %1709 = load ptr, ptr %1708, align 8
+  call void %1709(ptr noundef nonnull align 8 dereferenceable(16) %1687) #17
+  %1710 = getelementptr inbounds i8, ptr %1687, i64 12
+  %1711 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i337 = icmp eq i8 %1711, 0
+  br i1 %.not.i.i.i.i.i.i337, label %1715, label %1712
 
-1709:                                             ; preds = %1703
-  %1710 = load i32, ptr %1707, align 4
-  %1711 = add nsw i32 %1710, -1
-  store i32 %1711, ptr %1707, align 4
-  br label %1714
+1712:                                             ; preds = %1706
+  %1713 = load i32, ptr %1710, align 4
+  %1714 = add nsw i32 %1713, -1
+  store i32 %1714, ptr %1710, align 4
+  br label %1717
 
-1712:                                             ; preds = %1703
-  %1713 = atomicrmw volatile add ptr %1707, i32 -1 acq_rel, align 4
-  br label %1714
+1715:                                             ; preds = %1706
+  %1716 = atomicrmw volatile add ptr %1710, i32 -1 acq_rel, align 4
+  br label %1717
 
-1714:                                             ; preds = %1712, %1709
-  %.0.i.i.i.i.i.i338 = phi i32 [ %1710, %1709 ], [ %1713, %1712 ]
-  %1715 = icmp eq i32 %.0.i.i.i.i.i.i338, 1
-  br i1 %1715, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i339, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336
+1717:                                             ; preds = %1715, %1712
+  %.0.i.i.i.i.i.i338 = phi i32 [ %1713, %1712 ], [ %1716, %1715 ]
+  %1718 = icmp eq i32 %.0.i.i.i.i.i.i338, 1
+  br i1 %1718, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i339, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i339: ; preds = %1714, %1690
-  %1716 = load ptr, ptr %1684, align 8
-  %1717 = getelementptr inbounds i8, ptr %1716, i64 24
-  %1718 = load ptr, ptr %1717, align 8
-  call void %1718(ptr noundef nonnull align 8 dereferenceable(16) %1684) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i339: ; preds = %1717, %1693
+  %1719 = load ptr, ptr %1687, align 8
+  %1720 = getelementptr inbounds i8, ptr %1719, i64 24
+  %1721 = load ptr, ptr %1720, align 8
+  call void %1721(ptr noundef nonnull align 8 dereferenceable(16) %1687) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i339, %1714, %1701, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i332
-  store ptr %1673, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i339, %1717, %1704, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i332
+  store ptr %1676, ptr %737, align 8
   %.pre613 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit340
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit340: ; preds = %1668, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336
-  %1719 = phi ptr [ %1674, %1668 ], [ %1673, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336 ]
-  %1720 = phi ptr [ %1671, %1668 ], [ %.pre613, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336 ]
-  %.not512 = icmp eq ptr %1720, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit340: ; preds = %1671, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336
+  %1722 = phi ptr [ %1677, %1671 ], [ %1676, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336 ]
+  %1723 = phi ptr [ %1674, %1671 ], [ %.pre613, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i336 ]
+  %.not512 = icmp eq ptr %1723, null
   br i1 %.not512, label %._crit_edge576, label %.lr.ph575, !llvm.loop !23
 
-1721:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291
-  %1722 = landingpad { ptr, i32 }
+1724:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291
+  %1725 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #17
   br label %.body259
 
 ._crit_edge576:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit340, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit326
-  %1723 = phi ptr [ %1666, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit326 ], [ %1719, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit340 ]
-  switch i32 %22, label %1728 [
-    i32 4, label %1724
-    i32 2, label %1724
+  %1726 = phi ptr [ %1669, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit326 ], [ %1722, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit340 ]
+  switch i32 %22, label %1731 [
+    i32 4, label %1727
+    i32 2, label %1727
   ]
 
-1724:                                             ; preds = %._crit_edge576, %._crit_edge576
-  %1725 = load ptr, ptr @stderr, align 8
-  %1726 = call i64 @fwrite(ptr nonnull @.str.25, i64 33, i64 1, ptr %1725) #19
-  %1727 = load ptr, ptr @stderr, align 8
-  invoke void @_ZNK3gmx19SelectionCollection9printTreeEP8_IO_FILEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1727, i1 noundef zeroext false)
+1727:                                             ; preds = %._crit_edge576, %._crit_edge576
+  %1728 = load ptr, ptr @stderr, align 8
+  %1729 = call i64 @fwrite(ptr nonnull @.str.25, i64 33, i64 1, ptr %1728) #19
+  %1730 = load ptr, ptr @stderr, align 8
+  invoke void @_ZNK3gmx19SelectionCollection9printTreeEP8_IO_FILEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1730, i1 noundef zeroext false)
           to label %._crit_edge614 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-._crit_edge614:                                   ; preds = %1724
-  %.pre615 = load ptr, ptr %735, align 8
-  br label %1728
+._crit_edge614:                                   ; preds = %1727
+  %.pre615 = load ptr, ptr %737, align 8
+  br label %1731
 
-1728:                                             ; preds = %._crit_edge614, %._crit_edge576
-  %1729 = phi ptr [ %.pre615, %._crit_edge614 ], [ %1723, %._crit_edge576 ]
-  %1730 = load ptr, ptr %55, align 8
-  store ptr %1730, ptr %9, align 8
-  %1731 = load ptr, ptr %57, align 8
-  %.not.i.i.i341 = icmp eq ptr %1731, %1729
-  br i1 %.not.i.i.i341, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit354, label %1732
+1731:                                             ; preds = %._crit_edge614, %._crit_edge576
+  %1732 = phi ptr [ %.pre615, %._crit_edge614 ], [ %1726, %._crit_edge576 ]
+  %1733 = load ptr, ptr %55, align 8
+  store ptr %1733, ptr %9, align 8
+  %1734 = load ptr, ptr %58, align 8
+  %.not.i.i.i341 = icmp eq ptr %1734, %1732
+  br i1 %.not.i.i.i341, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit354, label %1735
 
-1732:                                             ; preds = %1728
-  %.not7.i.i.i342 = icmp eq ptr %1731, null
-  br i1 %.not7.i.i.i342, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i346, label %1733
+1735:                                             ; preds = %1731
+  %.not7.i.i.i342 = icmp eq ptr %1734, null
+  br i1 %.not7.i.i.i342, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i346, label %1736
 
-1733:                                             ; preds = %1732
-  %1734 = getelementptr inbounds i8, ptr %1731, i64 8
-  %1735 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i343 = icmp eq i8 %1735, 0
-  br i1 %.not.i.i.i.i343, label %1739, label %1736
+1736:                                             ; preds = %1735
+  %1737 = getelementptr inbounds i8, ptr %1734, i64 8
+  %1738 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i343 = icmp eq i8 %1738, 0
+  br i1 %.not.i.i.i.i343, label %1742, label %1739
 
-1736:                                             ; preds = %1733
-  %1737 = load i32, ptr %1734, align 4
-  %1738 = add nsw i32 %1737, 1
-  store i32 %1738, ptr %1734, align 4
+1739:                                             ; preds = %1736
+  %1740 = load i32, ptr %1737, align 4
+  %1741 = add nsw i32 %1740, 1
+  store i32 %1741, ptr %1737, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i344
 
-1739:                                             ; preds = %1733
-  %1740 = atomicrmw volatile add ptr %1734, i32 1 acq_rel, align 4
+1742:                                             ; preds = %1736
+  %1743 = atomicrmw volatile add ptr %1737, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i344
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i344: ; preds = %1739, %1736
-  %.pr.i.i.i345 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i344: ; preds = %1742, %1739
+  %.pr.i.i.i345 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i346
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i346: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i344, %1732
-  %1741 = phi ptr [ %.pr.i.i.i345, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i344 ], [ %1729, %1732 ]
-  %.not8.i.i.i347 = icmp eq ptr %1741, null
-  br i1 %.not8.i.i.i347, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350, label %1742
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i346: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i344, %1735
+  %1744 = phi ptr [ %.pr.i.i.i345, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i344 ], [ %1732, %1735 ]
+  %.not8.i.i.i347 = icmp eq ptr %1744, null
+  br i1 %.not8.i.i.i347, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350, label %1745
 
-1742:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i346
-  %1743 = getelementptr inbounds i8, ptr %1741, i64 8
-  %1744 = load atomic i64, ptr %1743 acquire, align 8
-  %1745 = icmp eq i64 %1744, 4294967297
-  %1746 = trunc i64 %1744 to i32
-  br i1 %1745, label %1747, label %1752
+1745:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i346
+  %1746 = getelementptr inbounds i8, ptr %1744, i64 8
+  %1747 = load atomic i64, ptr %1746 acquire, align 8
+  %1748 = icmp eq i64 %1747, 4294967297
+  %1749 = trunc i64 %1747 to i32
+  br i1 %1748, label %1750, label %1755
 
-1747:                                             ; preds = %1742
-  store i32 0, ptr %1743, align 8
-  %1748 = getelementptr inbounds i8, ptr %1741, i64 12
-  store i32 0, ptr %1748, align 4
-  %1749 = load ptr, ptr %1741, align 8
-  %1750 = getelementptr inbounds i8, ptr %1749, i64 16
-  %1751 = load ptr, ptr %1750, align 8
-  call void %1751(ptr noundef nonnull align 8 dereferenceable(16) %1741) #17
+1750:                                             ; preds = %1745
+  store i32 0, ptr %1746, align 8
+  %1751 = getelementptr inbounds i8, ptr %1744, i64 12
+  store i32 0, ptr %1751, align 4
+  %1752 = load ptr, ptr %1744, align 8
+  %1753 = getelementptr inbounds i8, ptr %1752, i64 16
+  %1754 = load ptr, ptr %1753, align 8
+  call void %1754(ptr noundef nonnull align 8 dereferenceable(16) %1744) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i353
 
-1752:                                             ; preds = %1742
-  %1753 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i348 = icmp eq i8 %1753, 0
-  br i1 %.not.i9.i.i.i348, label %1756, label %1754
+1755:                                             ; preds = %1745
+  %1756 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i348 = icmp eq i8 %1756, 0
+  br i1 %.not.i9.i.i.i348, label %1759, label %1757
 
-1754:                                             ; preds = %1752
-  %1755 = add nsw i32 %1746, -1
-  store i32 %1755, ptr %1743, align 4
-  br label %1758
+1757:                                             ; preds = %1755
+  %1758 = add nsw i32 %1749, -1
+  store i32 %1758, ptr %1746, align 4
+  br label %1761
 
-1756:                                             ; preds = %1752
-  %1757 = atomicrmw volatile add ptr %1743, i32 -1 acq_rel, align 4
-  br label %1758
+1759:                                             ; preds = %1755
+  %1760 = atomicrmw volatile add ptr %1746, i32 -1 acq_rel, align 4
+  br label %1761
 
-1758:                                             ; preds = %1756, %1754
-  %.0.i.i.i.i349 = phi i32 [ %1746, %1754 ], [ %1757, %1756 ]
-  %1759 = icmp eq i32 %.0.i.i.i.i349, 1
-  br i1 %1759, label %1760, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350
+1761:                                             ; preds = %1759, %1757
+  %.0.i.i.i.i349 = phi i32 [ %1749, %1757 ], [ %1760, %1759 ]
+  %1762 = icmp eq i32 %.0.i.i.i.i349, 1
+  br i1 %1762, label %1763, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350
 
-1760:                                             ; preds = %1758
-  %1761 = load ptr, ptr %1741, align 8
-  %1762 = getelementptr inbounds i8, ptr %1761, i64 16
-  %1763 = load ptr, ptr %1762, align 8
-  call void %1763(ptr noundef nonnull align 8 dereferenceable(16) %1741) #17
-  %1764 = getelementptr inbounds i8, ptr %1741, i64 12
-  %1765 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i351 = icmp eq i8 %1765, 0
-  br i1 %.not.i.i.i.i.i.i351, label %1769, label %1766
+1763:                                             ; preds = %1761
+  %1764 = load ptr, ptr %1744, align 8
+  %1765 = getelementptr inbounds i8, ptr %1764, i64 16
+  %1766 = load ptr, ptr %1765, align 8
+  call void %1766(ptr noundef nonnull align 8 dereferenceable(16) %1744) #17
+  %1767 = getelementptr inbounds i8, ptr %1744, i64 12
+  %1768 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i351 = icmp eq i8 %1768, 0
+  br i1 %.not.i.i.i.i.i.i351, label %1772, label %1769
 
-1766:                                             ; preds = %1760
-  %1767 = load i32, ptr %1764, align 4
-  %1768 = add nsw i32 %1767, -1
-  store i32 %1768, ptr %1764, align 4
-  br label %1771
+1769:                                             ; preds = %1763
+  %1770 = load i32, ptr %1767, align 4
+  %1771 = add nsw i32 %1770, -1
+  store i32 %1771, ptr %1767, align 4
+  br label %1774
 
-1769:                                             ; preds = %1760
-  %1770 = atomicrmw volatile add ptr %1764, i32 -1 acq_rel, align 4
-  br label %1771
+1772:                                             ; preds = %1763
+  %1773 = atomicrmw volatile add ptr %1767, i32 -1 acq_rel, align 4
+  br label %1774
 
-1771:                                             ; preds = %1769, %1766
-  %.0.i.i.i.i.i.i352 = phi i32 [ %1767, %1766 ], [ %1770, %1769 ]
-  %1772 = icmp eq i32 %.0.i.i.i.i.i.i352, 1
-  br i1 %1772, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i353, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350
+1774:                                             ; preds = %1772, %1769
+  %.0.i.i.i.i.i.i352 = phi i32 [ %1770, %1769 ], [ %1773, %1772 ]
+  %1775 = icmp eq i32 %.0.i.i.i.i.i.i352, 1
+  br i1 %1775, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i353, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i353: ; preds = %1771, %1747
-  %1773 = load ptr, ptr %1741, align 8
-  %1774 = getelementptr inbounds i8, ptr %1773, i64 24
-  %1775 = load ptr, ptr %1774, align 8
-  call void %1775(ptr noundef nonnull align 8 dereferenceable(16) %1741) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i353: ; preds = %1774, %1750
+  %1776 = load ptr, ptr %1744, align 8
+  %1777 = getelementptr inbounds i8, ptr %1776, i64 24
+  %1778 = load ptr, ptr %1777, align 8
+  call void %1778(ptr noundef nonnull align 8 dereferenceable(16) %1744) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i353, %1771, %1758, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i346
-  store ptr %1731, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i353, %1774, %1761, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i346
+  store ptr %1734, ptr %737, align 8
   %.pre616 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit354
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit354: ; preds = %1728, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350
-  %1776 = phi ptr [ %1730, %1728 ], [ %.pre616, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350 ]
-  %.not513577 = icmp eq ptr %1776, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit354: ; preds = %1731, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350
+  %1779 = phi ptr [ %1733, %1731 ], [ %.pre616, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i350 ]
+  %.not513577 = icmp eq ptr %1779, null
   br i1 %.not513577, label %._crit_edge579, label %.lr.ph578
 
 .lr.ph578:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit354, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit368
-  %1777 = phi ptr [ %1868, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit368 ], [ %1776, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit354 ]
-  %1778 = getelementptr inbounds i8, ptr %1777, i64 96
-  %1779 = load ptr, ptr %1778, align 8
-  %1780 = getelementptr inbounds i8, ptr %1779, i64 88
-  %1781 = load ptr, ptr %1780, align 8
-  %1782 = getelementptr inbounds i8, ptr %1781, i64 12
-  %1783 = load i32, ptr %1782, align 4
-  %1784 = and i32 %1783, 128
-  %.not = icmp eq i32 %1784, 0
-  br i1 %.not, label %1817, label %1785
+  %1780 = phi ptr [ %1871, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit368 ], [ %1779, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit354 ]
+  %1781 = getelementptr inbounds i8, ptr %1780, i64 96
+  %1782 = load ptr, ptr %1781, align 8
+  %1783 = getelementptr inbounds i8, ptr %1782, i64 88
+  %1784 = load ptr, ptr %1783, align 8
+  %1785 = getelementptr inbounds i8, ptr %1784, i64 12
+  %1786 = load i32, ptr %1785, align 4
+  %1787 = and i32 %1786, 128
+  %.not = icmp eq i32 %1787, 0
+  br i1 %.not, label %1820, label %1788
 
-1785:                                             ; preds = %.lr.ph578
-  %1786 = and i32 %1783, 256
-  %.not65 = icmp eq i32 %1786, 0
-  invoke fastcc void @_ZL20mark_subexpr_dynamicRKSt10shared_ptrIN3gmx20SelectionTreeElementEEb(ptr noundef nonnull align 8 dereferenceable(16) %1778, i1 noundef zeroext false)
-          to label %1787 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+1788:                                             ; preds = %.lr.ph578
+  %1789 = and i32 %1786, 256
+  %.not65 = icmp eq i32 %1789, 0
+  invoke fastcc void @_ZL20mark_subexpr_dynamicRKSt10shared_ptrIN3gmx20SelectionTreeElementEEb(ptr noundef nonnull align 8 dereferenceable(16) %1781, i1 noundef zeroext false)
+          to label %1790 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-1787:                                             ; preds = %1785
-  %1788 = load ptr, ptr %9, align 8
-  %1789 = getelementptr inbounds i8, ptr %1788, i64 96
-  %1790 = load ptr, ptr %1789, align 8
-  %1791 = getelementptr inbounds i8, ptr %1790, i64 48
-  store i32 0, ptr %1791, align 8
+1790:                                             ; preds = %1788
+  %1791 = load ptr, ptr %9, align 8
+  %1792 = getelementptr inbounds i8, ptr %1791, i64 96
+  %1793 = load ptr, ptr %1792, align 8
+  %1794 = getelementptr inbounds i8, ptr %1793, i64 48
+  store i32 0, ptr %1794, align 8
   invoke fastcc void @_ZL23set_evaluation_functionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPFvP18gmx_sel_evaluate_tS4_P15gmx_ana_index_tE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %1792 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %1795 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-1792:                                             ; preds = %1787
-  %1793 = load ptr, ptr %9, align 8
-  %1794 = getelementptr inbounds i8, ptr %1793, i64 96
-  %1795 = load ptr, ptr %1794, align 8
-  %1796 = getelementptr inbounds i8, ptr %1795, i64 88
-  %1797 = load ptr, ptr %1796, align 8
-  %1798 = getelementptr inbounds i8, ptr %1797, i64 12
-  %1799 = load i32, ptr %1798, align 4
-  %1800 = and i32 %1799, -257
-  store i32 %1800, ptr %1798, align 4
-  %1801 = getelementptr inbounds i8, ptr %1793, i64 32
-  %1802 = load ptr, ptr %1801, align 8
-  %1803 = load ptr, ptr %1794, align 8
-  %1804 = getelementptr inbounds i8, ptr %1803, i64 88
+1795:                                             ; preds = %1790
+  %1796 = load ptr, ptr %9, align 8
+  %1797 = getelementptr inbounds i8, ptr %1796, i64 96
+  %1798 = load ptr, ptr %1797, align 8
+  %1799 = getelementptr inbounds i8, ptr %1798, i64 88
+  %1800 = load ptr, ptr %1799, align 8
+  %1801 = getelementptr inbounds i8, ptr %1800, i64 12
+  %1802 = load i32, ptr %1801, align 4
+  %1803 = and i32 %1802, -257
+  store i32 %1803, ptr %1801, align 4
+  %1804 = getelementptr inbounds i8, ptr %1796, i64 32
   %1805 = load ptr, ptr %1804, align 8
-  %1806 = getelementptr inbounds i8, ptr %1805, i64 24
-  %1807 = load ptr, ptr %1806, align 8
-  invoke void %1802(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %1794, ptr noundef %1807)
-          to label %1808 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+  %1806 = load ptr, ptr %1797, align 8
+  %1807 = getelementptr inbounds i8, ptr %1806, i64 88
+  %1808 = load ptr, ptr %1807, align 8
+  %1809 = getelementptr inbounds i8, ptr %1808, i64 24
+  %1810 = load ptr, ptr %1809, align 8
+  invoke void %1805(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %1797, ptr noundef %1810)
+          to label %1811 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-1808:                                             ; preds = %1792
+1811:                                             ; preds = %1795
   %.pre617 = load ptr, ptr %9, align 8
-  br i1 %.not65, label %1817, label %1809
+  br i1 %.not65, label %1820, label %1812
 
-1809:                                             ; preds = %1808
-  %1810 = getelementptr inbounds i8, ptr %.pre617, i64 96
-  %1811 = load ptr, ptr %1810, align 8
-  %1812 = getelementptr inbounds i8, ptr %1811, i64 88
-  %1813 = load ptr, ptr %1812, align 8
-  %1814 = getelementptr inbounds i8, ptr %1813, i64 12
-  %1815 = load i32, ptr %1814, align 4
-  %1816 = or i32 %1815, 256
-  store i32 %1816, ptr %1814, align 4
-  br label %1817
+1812:                                             ; preds = %1811
+  %1813 = getelementptr inbounds i8, ptr %.pre617, i64 96
+  %1814 = load ptr, ptr %1813, align 8
+  %1815 = getelementptr inbounds i8, ptr %1814, i64 88
+  %1816 = load ptr, ptr %1815, align 8
+  %1817 = getelementptr inbounds i8, ptr %1816, i64 12
+  %1818 = load i32, ptr %1817, align 4
+  %1819 = or i32 %1818, 256
+  store i32 %1819, ptr %1817, align 4
+  br label %1820
 
-1817:                                             ; preds = %1808, %1809, %.lr.ph578
-  %1818 = phi ptr [ %.pre617, %1808 ], [ %.pre617, %1809 ], [ %1777, %.lr.ph578 ]
-  %1819 = getelementptr inbounds i8, ptr %1818, i64 112
-  %1820 = load ptr, ptr %1819, align 8
-  store ptr %1820, ptr %9, align 8
-  %1821 = getelementptr inbounds i8, ptr %1818, i64 120
-  %1822 = load ptr, ptr %1821, align 8
-  %1823 = load ptr, ptr %735, align 8
-  %.not.i.i.i355 = icmp eq ptr %1822, %1823
-  br i1 %.not.i.i.i355, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit368, label %1824
+1820:                                             ; preds = %1811, %1812, %.lr.ph578
+  %1821 = phi ptr [ %.pre617, %1811 ], [ %.pre617, %1812 ], [ %1780, %.lr.ph578 ]
+  %1822 = getelementptr inbounds i8, ptr %1821, i64 112
+  %1823 = load ptr, ptr %1822, align 8
+  store ptr %1823, ptr %9, align 8
+  %1824 = getelementptr inbounds i8, ptr %1821, i64 120
+  %1825 = load ptr, ptr %1824, align 8
+  %1826 = load ptr, ptr %737, align 8
+  %.not.i.i.i355 = icmp eq ptr %1825, %1826
+  br i1 %.not.i.i.i355, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit368, label %1827
 
-1824:                                             ; preds = %1817
-  %.not7.i.i.i356 = icmp eq ptr %1822, null
-  br i1 %.not7.i.i.i356, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i360, label %1825
+1827:                                             ; preds = %1820
+  %.not7.i.i.i356 = icmp eq ptr %1825, null
+  br i1 %.not7.i.i.i356, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i360, label %1828
 
-1825:                                             ; preds = %1824
-  %1826 = getelementptr inbounds i8, ptr %1822, i64 8
-  %1827 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i357 = icmp eq i8 %1827, 0
-  br i1 %.not.i.i.i.i357, label %1831, label %1828
+1828:                                             ; preds = %1827
+  %1829 = getelementptr inbounds i8, ptr %1825, i64 8
+  %1830 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i357 = icmp eq i8 %1830, 0
+  br i1 %.not.i.i.i.i357, label %1834, label %1831
 
-1828:                                             ; preds = %1825
-  %1829 = load i32, ptr %1826, align 4
-  %1830 = add nsw i32 %1829, 1
-  store i32 %1830, ptr %1826, align 4
+1831:                                             ; preds = %1828
+  %1832 = load i32, ptr %1829, align 4
+  %1833 = add nsw i32 %1832, 1
+  store i32 %1833, ptr %1829, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i358
 
-1831:                                             ; preds = %1825
-  %1832 = atomicrmw volatile add ptr %1826, i32 1 acq_rel, align 4
+1834:                                             ; preds = %1828
+  %1835 = atomicrmw volatile add ptr %1829, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i358
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i358: ; preds = %1831, %1828
-  %.pr.i.i.i359 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i358: ; preds = %1834, %1831
+  %.pr.i.i.i359 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i360
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i360: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i358, %1824
-  %1833 = phi ptr [ %.pr.i.i.i359, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i358 ], [ %1823, %1824 ]
-  %.not8.i.i.i361 = icmp eq ptr %1833, null
-  br i1 %.not8.i.i.i361, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364, label %1834
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i360: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i358, %1827
+  %1836 = phi ptr [ %.pr.i.i.i359, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i358 ], [ %1826, %1827 ]
+  %.not8.i.i.i361 = icmp eq ptr %1836, null
+  br i1 %.not8.i.i.i361, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364, label %1837
 
-1834:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i360
-  %1835 = getelementptr inbounds i8, ptr %1833, i64 8
-  %1836 = load atomic i64, ptr %1835 acquire, align 8
-  %1837 = icmp eq i64 %1836, 4294967297
-  %1838 = trunc i64 %1836 to i32
-  br i1 %1837, label %1839, label %1844
+1837:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i360
+  %1838 = getelementptr inbounds i8, ptr %1836, i64 8
+  %1839 = load atomic i64, ptr %1838 acquire, align 8
+  %1840 = icmp eq i64 %1839, 4294967297
+  %1841 = trunc i64 %1839 to i32
+  br i1 %1840, label %1842, label %1847
 
-1839:                                             ; preds = %1834
-  store i32 0, ptr %1835, align 8
-  %1840 = getelementptr inbounds i8, ptr %1833, i64 12
-  store i32 0, ptr %1840, align 4
-  %1841 = load ptr, ptr %1833, align 8
-  %1842 = getelementptr inbounds i8, ptr %1841, i64 16
-  %1843 = load ptr, ptr %1842, align 8
-  call void %1843(ptr noundef nonnull align 8 dereferenceable(16) %1833) #17
+1842:                                             ; preds = %1837
+  store i32 0, ptr %1838, align 8
+  %1843 = getelementptr inbounds i8, ptr %1836, i64 12
+  store i32 0, ptr %1843, align 4
+  %1844 = load ptr, ptr %1836, align 8
+  %1845 = getelementptr inbounds i8, ptr %1844, i64 16
+  %1846 = load ptr, ptr %1845, align 8
+  call void %1846(ptr noundef nonnull align 8 dereferenceable(16) %1836) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i367
 
-1844:                                             ; preds = %1834
-  %1845 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i362 = icmp eq i8 %1845, 0
-  br i1 %.not.i9.i.i.i362, label %1848, label %1846
+1847:                                             ; preds = %1837
+  %1848 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i362 = icmp eq i8 %1848, 0
+  br i1 %.not.i9.i.i.i362, label %1851, label %1849
 
-1846:                                             ; preds = %1844
-  %1847 = add nsw i32 %1838, -1
-  store i32 %1847, ptr %1835, align 4
-  br label %1850
+1849:                                             ; preds = %1847
+  %1850 = add nsw i32 %1841, -1
+  store i32 %1850, ptr %1838, align 4
+  br label %1853
 
-1848:                                             ; preds = %1844
-  %1849 = atomicrmw volatile add ptr %1835, i32 -1 acq_rel, align 4
-  br label %1850
+1851:                                             ; preds = %1847
+  %1852 = atomicrmw volatile add ptr %1838, i32 -1 acq_rel, align 4
+  br label %1853
 
-1850:                                             ; preds = %1848, %1846
-  %.0.i.i.i.i363 = phi i32 [ %1838, %1846 ], [ %1849, %1848 ]
-  %1851 = icmp eq i32 %.0.i.i.i.i363, 1
-  br i1 %1851, label %1852, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364
+1853:                                             ; preds = %1851, %1849
+  %.0.i.i.i.i363 = phi i32 [ %1841, %1849 ], [ %1852, %1851 ]
+  %1854 = icmp eq i32 %.0.i.i.i.i363, 1
+  br i1 %1854, label %1855, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364
 
-1852:                                             ; preds = %1850
-  %1853 = load ptr, ptr %1833, align 8
-  %1854 = getelementptr inbounds i8, ptr %1853, i64 16
-  %1855 = load ptr, ptr %1854, align 8
-  call void %1855(ptr noundef nonnull align 8 dereferenceable(16) %1833) #17
-  %1856 = getelementptr inbounds i8, ptr %1833, i64 12
-  %1857 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i365 = icmp eq i8 %1857, 0
-  br i1 %.not.i.i.i.i.i.i365, label %1861, label %1858
+1855:                                             ; preds = %1853
+  %1856 = load ptr, ptr %1836, align 8
+  %1857 = getelementptr inbounds i8, ptr %1856, i64 16
+  %1858 = load ptr, ptr %1857, align 8
+  call void %1858(ptr noundef nonnull align 8 dereferenceable(16) %1836) #17
+  %1859 = getelementptr inbounds i8, ptr %1836, i64 12
+  %1860 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i365 = icmp eq i8 %1860, 0
+  br i1 %.not.i.i.i.i.i.i365, label %1864, label %1861
 
-1858:                                             ; preds = %1852
-  %1859 = load i32, ptr %1856, align 4
-  %1860 = add nsw i32 %1859, -1
-  store i32 %1860, ptr %1856, align 4
-  br label %1863
+1861:                                             ; preds = %1855
+  %1862 = load i32, ptr %1859, align 4
+  %1863 = add nsw i32 %1862, -1
+  store i32 %1863, ptr %1859, align 4
+  br label %1866
 
-1861:                                             ; preds = %1852
-  %1862 = atomicrmw volatile add ptr %1856, i32 -1 acq_rel, align 4
-  br label %1863
+1864:                                             ; preds = %1855
+  %1865 = atomicrmw volatile add ptr %1859, i32 -1 acq_rel, align 4
+  br label %1866
 
-1863:                                             ; preds = %1861, %1858
-  %.0.i.i.i.i.i.i366 = phi i32 [ %1859, %1858 ], [ %1862, %1861 ]
-  %1864 = icmp eq i32 %.0.i.i.i.i.i.i366, 1
-  br i1 %1864, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i367, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364
+1866:                                             ; preds = %1864, %1861
+  %.0.i.i.i.i.i.i366 = phi i32 [ %1862, %1861 ], [ %1865, %1864 ]
+  %1867 = icmp eq i32 %.0.i.i.i.i.i.i366, 1
+  br i1 %1867, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i367, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i367: ; preds = %1863, %1839
-  %1865 = load ptr, ptr %1833, align 8
-  %1866 = getelementptr inbounds i8, ptr %1865, i64 24
-  %1867 = load ptr, ptr %1866, align 8
-  call void %1867(ptr noundef nonnull align 8 dereferenceable(16) %1833) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i367: ; preds = %1866, %1842
+  %1868 = load ptr, ptr %1836, align 8
+  %1869 = getelementptr inbounds i8, ptr %1868, i64 24
+  %1870 = load ptr, ptr %1869, align 8
+  call void %1870(ptr noundef nonnull align 8 dereferenceable(16) %1836) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i367, %1863, %1850, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i360
-  store ptr %1822, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i367, %1866, %1853, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i360
+  store ptr %1825, ptr %737, align 8
   %.pre618 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit368
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit368: ; preds = %1817, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364
-  %1868 = phi ptr [ %1820, %1817 ], [ %.pre618, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364 ]
-  %.not513 = icmp eq ptr %1868, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit368: ; preds = %1820, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364
+  %1871 = phi ptr [ %1823, %1820 ], [ %.pre618, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i364 ]
+  %.not513 = icmp eq ptr %1871, null
   br i1 %.not513, label %._crit_edge579, label %.lr.ph578, !llvm.loop !24
 
 ._crit_edge579:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit368, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit354
-  %1869 = getelementptr inbounds i8, ptr %19, i64 8
-  %1870 = load ptr, ptr %57, align 8
-  %1871 = load <2 x ptr>, ptr %55, align 8
-  store <2 x ptr> %1871, ptr %19, align 16
-  %.not.i.i.i369 = icmp eq ptr %1870, null
-  br i1 %.not.i.i.i369, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371, label %1872
+  %1872 = load ptr, ptr %55, align 8
+  store ptr %1872, ptr %19, align 8
+  %1873 = getelementptr inbounds i8, ptr %19, i64 8
+  %1874 = load ptr, ptr %58, align 8
+  store ptr %1874, ptr %1873, align 8
+  %.not.i.i.i369 = icmp eq ptr %1874, null
+  br i1 %.not.i.i.i369, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371, label %1875
 
-1872:                                             ; preds = %._crit_edge579
-  %1873 = getelementptr inbounds i8, ptr %1870, i64 8
-  %1874 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i370 = icmp eq i8 %1874, 0
-  br i1 %.not.i.i.i.i370, label %1878, label %1875
+1875:                                             ; preds = %._crit_edge579
+  %1876 = getelementptr inbounds i8, ptr %1874, i64 8
+  %1877 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i370 = icmp eq i8 %1877, 0
+  br i1 %.not.i.i.i.i370, label %1881, label %1878
 
-1875:                                             ; preds = %1872
-  %1876 = load i32, ptr %1873, align 4
-  %1877 = add nsw i32 %1876, 1
-  store i32 %1877, ptr %1873, align 4
+1878:                                             ; preds = %1875
+  %1879 = load i32, ptr %1876, align 4
+  %1880 = add nsw i32 %1879, 1
+  store i32 %1880, ptr %1876, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371
 
-1878:                                             ; preds = %1872
-  %1879 = atomicrmw volatile add ptr %1873, i32 1 acq_rel, align 4
+1881:                                             ; preds = %1875
+  %1882 = atomicrmw volatile add ptr %1876, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371: ; preds = %._crit_edge579, %1875, %1878
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371: ; preds = %._crit_edge579, %1878, %1881
   invoke fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull %19)
-          to label %1880 unwind label %2088
+          to label %1883 unwind label %2092
 
-1880:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371
-  %1881 = getelementptr inbounds i8, ptr %18, i64 8
-  %1882 = load <2 x ptr>, ptr %18, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  %1883 = load ptr, ptr %57, align 8
-  store <2 x ptr> %1882, ptr %55, align 8
-  %.not.i.i.i.i372 = icmp eq ptr %1883, null
-  br i1 %.not.i.i.i.i372, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378, label %1884
+1883:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371
+  %1884 = load ptr, ptr %18, align 8
+  %1885 = getelementptr inbounds i8, ptr %18, i64 8
+  %1886 = load ptr, ptr %1885, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  store ptr %1884, ptr %55, align 8
+  %1887 = load ptr, ptr %58, align 8
+  store ptr %1886, ptr %58, align 8
+  %.not.i.i.i.i372 = icmp eq ptr %1887, null
+  br i1 %.not.i.i.i.i372, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378, label %1888
 
-1884:                                             ; preds = %1880
-  %1885 = getelementptr inbounds i8, ptr %1883, i64 8
-  %1886 = load atomic i64, ptr %1885 acquire, align 8
-  %1887 = icmp eq i64 %1886, 4294967297
-  %1888 = trunc i64 %1886 to i32
-  br i1 %1887, label %1889, label %1894
+1888:                                             ; preds = %1883
+  %1889 = getelementptr inbounds i8, ptr %1887, i64 8
+  %1890 = load atomic i64, ptr %1889 acquire, align 8
+  %1891 = icmp eq i64 %1890, 4294967297
+  %1892 = trunc i64 %1890 to i32
+  br i1 %1891, label %1893, label %1898
 
-1889:                                             ; preds = %1884
-  store i32 0, ptr %1885, align 8
-  %1890 = getelementptr inbounds i8, ptr %1883, i64 12
-  store i32 0, ptr %1890, align 4
-  %1891 = load ptr, ptr %1883, align 8
-  %1892 = getelementptr inbounds i8, ptr %1891, i64 16
-  %1893 = load ptr, ptr %1892, align 8
-  call void %1893(ptr noundef nonnull align 8 dereferenceable(16) %1883) #17
+1893:                                             ; preds = %1888
+  store i32 0, ptr %1889, align 8
+  %1894 = getelementptr inbounds i8, ptr %1887, i64 12
+  store i32 0, ptr %1894, align 4
+  %1895 = load ptr, ptr %1887, align 8
+  %1896 = getelementptr inbounds i8, ptr %1895, i64 16
+  %1897 = load ptr, ptr %1896, align 8
+  call void %1897(ptr noundef nonnull align 8 dereferenceable(16) %1887) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i377
 
-1894:                                             ; preds = %1884
-  %1895 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i373 = icmp eq i8 %1895, 0
-  br i1 %.not.i.i.i.i.i373, label %1898, label %1896
+1898:                                             ; preds = %1888
+  %1899 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i373 = icmp eq i8 %1899, 0
+  br i1 %.not.i.i.i.i.i373, label %1902, label %1900
 
-1896:                                             ; preds = %1894
-  %1897 = add nsw i32 %1888, -1
-  store i32 %1897, ptr %1885, align 4
-  br label %1900
+1900:                                             ; preds = %1898
+  %1901 = add nsw i32 %1892, -1
+  store i32 %1901, ptr %1889, align 4
+  br label %1904
 
-1898:                                             ; preds = %1894
-  %1899 = atomicrmw volatile add ptr %1885, i32 -1 acq_rel, align 4
-  br label %1900
+1902:                                             ; preds = %1898
+  %1903 = atomicrmw volatile add ptr %1889, i32 -1 acq_rel, align 4
+  br label %1904
 
-1900:                                             ; preds = %1898, %1896
-  %.0.i.i.i.i.i374 = phi i32 [ %1888, %1896 ], [ %1899, %1898 ]
-  %1901 = icmp eq i32 %.0.i.i.i.i.i374, 1
-  br i1 %1901, label %1902, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378
+1904:                                             ; preds = %1902, %1900
+  %.0.i.i.i.i.i374 = phi i32 [ %1892, %1900 ], [ %1903, %1902 ]
+  %1905 = icmp eq i32 %.0.i.i.i.i.i374, 1
+  br i1 %1905, label %1906, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378
 
-1902:                                             ; preds = %1900
-  %1903 = load ptr, ptr %1883, align 8
-  %1904 = getelementptr inbounds i8, ptr %1903, i64 16
-  %1905 = load ptr, ptr %1904, align 8
-  call void %1905(ptr noundef nonnull align 8 dereferenceable(16) %1883) #17
-  %1906 = getelementptr inbounds i8, ptr %1883, i64 12
-  %1907 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i375 = icmp eq i8 %1907, 0
-  br i1 %.not.i.i.i.i.i.i.i375, label %1911, label %1908
+1906:                                             ; preds = %1904
+  %1907 = load ptr, ptr %1887, align 8
+  %1908 = getelementptr inbounds i8, ptr %1907, i64 16
+  %1909 = load ptr, ptr %1908, align 8
+  call void %1909(ptr noundef nonnull align 8 dereferenceable(16) %1887) #17
+  %1910 = getelementptr inbounds i8, ptr %1887, i64 12
+  %1911 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i375 = icmp eq i8 %1911, 0
+  br i1 %.not.i.i.i.i.i.i.i375, label %1915, label %1912
 
-1908:                                             ; preds = %1902
-  %1909 = load i32, ptr %1906, align 4
-  %1910 = add nsw i32 %1909, -1
-  store i32 %1910, ptr %1906, align 4
-  br label %1913
+1912:                                             ; preds = %1906
+  %1913 = load i32, ptr %1910, align 4
+  %1914 = add nsw i32 %1913, -1
+  store i32 %1914, ptr %1910, align 4
+  br label %1917
 
-1911:                                             ; preds = %1902
-  %1912 = atomicrmw volatile add ptr %1906, i32 -1 acq_rel, align 4
-  br label %1913
+1915:                                             ; preds = %1906
+  %1916 = atomicrmw volatile add ptr %1910, i32 -1 acq_rel, align 4
+  br label %1917
 
-1913:                                             ; preds = %1911, %1908
-  %.0.i.i.i.i.i.i.i376 = phi i32 [ %1909, %1908 ], [ %1912, %1911 ]
-  %1914 = icmp eq i32 %.0.i.i.i.i.i.i.i376, 1
-  br i1 %1914, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i377, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378
+1917:                                             ; preds = %1915, %1912
+  %.0.i.i.i.i.i.i.i376 = phi i32 [ %1913, %1912 ], [ %1916, %1915 ]
+  %1918 = icmp eq i32 %.0.i.i.i.i.i.i.i376, 1
+  br i1 %1918, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i377, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i377: ; preds = %1913, %1889
-  %1915 = load ptr, ptr %1883, align 8
-  %1916 = getelementptr inbounds i8, ptr %1915, i64 24
-  %1917 = load ptr, ptr %1916, align 8
-  call void %1917(ptr noundef nonnull align 8 dereferenceable(16) %1883) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i377: ; preds = %1917, %1893
+  %1919 = load ptr, ptr %1887, align 8
+  %1920 = getelementptr inbounds i8, ptr %1919, i64 24
+  %1921 = load ptr, ptr %1920, align 8
+  call void %1921(ptr noundef nonnull align 8 dereferenceable(16) %1887) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378: ; preds = %1880, %1900, %1913, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i377
-  %1918 = load ptr, ptr %1881, align 8
-  %.not.i.i.i379 = icmp eq ptr %1918, null
-  br i1 %.not.i.i.i379, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385, label %1919
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378: ; preds = %1883, %1904, %1917, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i377
+  %1922 = load ptr, ptr %1885, align 8
+  %.not.i.i.i379 = icmp eq ptr %1922, null
+  br i1 %.not.i.i.i379, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385, label %1923
 
-1919:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378
-  %1920 = getelementptr inbounds i8, ptr %1918, i64 8
-  %1921 = load atomic i64, ptr %1920 acquire, align 8
-  %1922 = icmp eq i64 %1921, 4294967297
-  %1923 = trunc i64 %1921 to i32
-  br i1 %1922, label %1924, label %1929
+1923:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378
+  %1924 = getelementptr inbounds i8, ptr %1922, i64 8
+  %1925 = load atomic i64, ptr %1924 acquire, align 8
+  %1926 = icmp eq i64 %1925, 4294967297
+  %1927 = trunc i64 %1925 to i32
+  br i1 %1926, label %1928, label %1933
 
-1924:                                             ; preds = %1919
-  store i32 0, ptr %1920, align 8
-  %1925 = getelementptr inbounds i8, ptr %1918, i64 12
-  store i32 0, ptr %1925, align 4
-  %1926 = load ptr, ptr %1918, align 8
-  %1927 = getelementptr inbounds i8, ptr %1926, i64 16
-  %1928 = load ptr, ptr %1927, align 8
-  call void %1928(ptr noundef nonnull align 8 dereferenceable(16) %1918) #17
+1928:                                             ; preds = %1923
+  store i32 0, ptr %1924, align 8
+  %1929 = getelementptr inbounds i8, ptr %1922, i64 12
+  store i32 0, ptr %1929, align 4
+  %1930 = load ptr, ptr %1922, align 8
+  %1931 = getelementptr inbounds i8, ptr %1930, i64 16
+  %1932 = load ptr, ptr %1931, align 8
+  call void %1932(ptr noundef nonnull align 8 dereferenceable(16) %1922) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i384
 
-1929:                                             ; preds = %1919
-  %1930 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i380 = icmp eq i8 %1930, 0
-  br i1 %.not.i.i.i.i380, label %1933, label %1931
+1933:                                             ; preds = %1923
+  %1934 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i380 = icmp eq i8 %1934, 0
+  br i1 %.not.i.i.i.i380, label %1937, label %1935
 
-1931:                                             ; preds = %1929
-  %1932 = add nsw i32 %1923, -1
-  store i32 %1932, ptr %1920, align 4
-  br label %1935
+1935:                                             ; preds = %1933
+  %1936 = add nsw i32 %1927, -1
+  store i32 %1936, ptr %1924, align 4
+  br label %1939
 
-1933:                                             ; preds = %1929
-  %1934 = atomicrmw volatile add ptr %1920, i32 -1 acq_rel, align 4
-  br label %1935
+1937:                                             ; preds = %1933
+  %1938 = atomicrmw volatile add ptr %1924, i32 -1 acq_rel, align 4
+  br label %1939
 
-1935:                                             ; preds = %1933, %1931
-  %.0.i.i.i.i381 = phi i32 [ %1923, %1931 ], [ %1934, %1933 ]
-  %1936 = icmp eq i32 %.0.i.i.i.i381, 1
-  br i1 %1936, label %1937, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385
+1939:                                             ; preds = %1937, %1935
+  %.0.i.i.i.i381 = phi i32 [ %1927, %1935 ], [ %1938, %1937 ]
+  %1940 = icmp eq i32 %.0.i.i.i.i381, 1
+  br i1 %1940, label %1941, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385
 
-1937:                                             ; preds = %1935
-  %1938 = load ptr, ptr %1918, align 8
-  %1939 = getelementptr inbounds i8, ptr %1938, i64 16
-  %1940 = load ptr, ptr %1939, align 8
-  call void %1940(ptr noundef nonnull align 8 dereferenceable(16) %1918) #17
-  %1941 = getelementptr inbounds i8, ptr %1918, i64 12
-  %1942 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i382 = icmp eq i8 %1942, 0
-  br i1 %.not.i.i.i.i.i.i382, label %1946, label %1943
+1941:                                             ; preds = %1939
+  %1942 = load ptr, ptr %1922, align 8
+  %1943 = getelementptr inbounds i8, ptr %1942, i64 16
+  %1944 = load ptr, ptr %1943, align 8
+  call void %1944(ptr noundef nonnull align 8 dereferenceable(16) %1922) #17
+  %1945 = getelementptr inbounds i8, ptr %1922, i64 12
+  %1946 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i382 = icmp eq i8 %1946, 0
+  br i1 %.not.i.i.i.i.i.i382, label %1950, label %1947
 
-1943:                                             ; preds = %1937
-  %1944 = load i32, ptr %1941, align 4
-  %1945 = add nsw i32 %1944, -1
-  store i32 %1945, ptr %1941, align 4
-  br label %1948
+1947:                                             ; preds = %1941
+  %1948 = load i32, ptr %1945, align 4
+  %1949 = add nsw i32 %1948, -1
+  store i32 %1949, ptr %1945, align 4
+  br label %1952
 
-1946:                                             ; preds = %1937
-  %1947 = atomicrmw volatile add ptr %1941, i32 -1 acq_rel, align 4
-  br label %1948
+1950:                                             ; preds = %1941
+  %1951 = atomicrmw volatile add ptr %1945, i32 -1 acq_rel, align 4
+  br label %1952
 
-1948:                                             ; preds = %1946, %1943
-  %.0.i.i.i.i.i.i383 = phi i32 [ %1944, %1943 ], [ %1947, %1946 ]
-  %1949 = icmp eq i32 %.0.i.i.i.i.i.i383, 1
-  br i1 %1949, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i384, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385
+1952:                                             ; preds = %1950, %1947
+  %.0.i.i.i.i.i.i383 = phi i32 [ %1948, %1947 ], [ %1951, %1950 ]
+  %1953 = icmp eq i32 %.0.i.i.i.i.i.i383, 1
+  br i1 %1953, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i384, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i384: ; preds = %1948, %1924
-  %1950 = load ptr, ptr %1918, align 8
-  %1951 = getelementptr inbounds i8, ptr %1950, i64 24
-  %1952 = load ptr, ptr %1951, align 8
-  call void %1952(ptr noundef nonnull align 8 dereferenceable(16) %1918) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i384: ; preds = %1952, %1928
+  %1954 = load ptr, ptr %1922, align 8
+  %1955 = getelementptr inbounds i8, ptr %1954, i64 24
+  %1956 = load ptr, ptr %1955, align 8
+  call void %1956(ptr noundef nonnull align 8 dereferenceable(16) %1922) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378, %1935, %1948, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i384
-  %1953 = load ptr, ptr %1869, align 8
-  %.not.i.i.i386 = icmp eq ptr %1953, null
-  br i1 %.not.i.i.i386, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392, label %1954
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit378, %1939, %1952, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i384
+  %1957 = load ptr, ptr %1873, align 8
+  %.not.i.i.i386 = icmp eq ptr %1957, null
+  br i1 %.not.i.i.i386, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392, label %1958
 
-1954:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385
-  %1955 = getelementptr inbounds i8, ptr %1953, i64 8
-  %1956 = load atomic i64, ptr %1955 acquire, align 8
-  %1957 = icmp eq i64 %1956, 4294967297
-  %1958 = trunc i64 %1956 to i32
-  br i1 %1957, label %1959, label %1964
+1958:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385
+  %1959 = getelementptr inbounds i8, ptr %1957, i64 8
+  %1960 = load atomic i64, ptr %1959 acquire, align 8
+  %1961 = icmp eq i64 %1960, 4294967297
+  %1962 = trunc i64 %1960 to i32
+  br i1 %1961, label %1963, label %1968
 
-1959:                                             ; preds = %1954
-  store i32 0, ptr %1955, align 8
-  %1960 = getelementptr inbounds i8, ptr %1953, i64 12
-  store i32 0, ptr %1960, align 4
-  %1961 = load ptr, ptr %1953, align 8
-  %1962 = getelementptr inbounds i8, ptr %1961, i64 16
-  %1963 = load ptr, ptr %1962, align 8
-  call void %1963(ptr noundef nonnull align 8 dereferenceable(16) %1953) #17
+1963:                                             ; preds = %1958
+  store i32 0, ptr %1959, align 8
+  %1964 = getelementptr inbounds i8, ptr %1957, i64 12
+  store i32 0, ptr %1964, align 4
+  %1965 = load ptr, ptr %1957, align 8
+  %1966 = getelementptr inbounds i8, ptr %1965, i64 16
+  %1967 = load ptr, ptr %1966, align 8
+  call void %1967(ptr noundef nonnull align 8 dereferenceable(16) %1957) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i391
 
-1964:                                             ; preds = %1954
-  %1965 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i387 = icmp eq i8 %1965, 0
-  br i1 %.not.i.i.i.i387, label %1968, label %1966
+1968:                                             ; preds = %1958
+  %1969 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i387 = icmp eq i8 %1969, 0
+  br i1 %.not.i.i.i.i387, label %1972, label %1970
 
-1966:                                             ; preds = %1964
-  %1967 = add nsw i32 %1958, -1
-  store i32 %1967, ptr %1955, align 4
-  br label %1970
+1970:                                             ; preds = %1968
+  %1971 = add nsw i32 %1962, -1
+  store i32 %1971, ptr %1959, align 4
+  br label %1974
 
-1968:                                             ; preds = %1964
-  %1969 = atomicrmw volatile add ptr %1955, i32 -1 acq_rel, align 4
-  br label %1970
+1972:                                             ; preds = %1968
+  %1973 = atomicrmw volatile add ptr %1959, i32 -1 acq_rel, align 4
+  br label %1974
 
-1970:                                             ; preds = %1968, %1966
-  %.0.i.i.i.i388 = phi i32 [ %1958, %1966 ], [ %1969, %1968 ]
-  %1971 = icmp eq i32 %.0.i.i.i.i388, 1
-  br i1 %1971, label %1972, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392
+1974:                                             ; preds = %1972, %1970
+  %.0.i.i.i.i388 = phi i32 [ %1962, %1970 ], [ %1973, %1972 ]
+  %1975 = icmp eq i32 %.0.i.i.i.i388, 1
+  br i1 %1975, label %1976, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392
 
-1972:                                             ; preds = %1970
-  %1973 = load ptr, ptr %1953, align 8
-  %1974 = getelementptr inbounds i8, ptr %1973, i64 16
-  %1975 = load ptr, ptr %1974, align 8
-  call void %1975(ptr noundef nonnull align 8 dereferenceable(16) %1953) #17
-  %1976 = getelementptr inbounds i8, ptr %1953, i64 12
-  %1977 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i389 = icmp eq i8 %1977, 0
-  br i1 %.not.i.i.i.i.i.i389, label %1981, label %1978
+1976:                                             ; preds = %1974
+  %1977 = load ptr, ptr %1957, align 8
+  %1978 = getelementptr inbounds i8, ptr %1977, i64 16
+  %1979 = load ptr, ptr %1978, align 8
+  call void %1979(ptr noundef nonnull align 8 dereferenceable(16) %1957) #17
+  %1980 = getelementptr inbounds i8, ptr %1957, i64 12
+  %1981 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i389 = icmp eq i8 %1981, 0
+  br i1 %.not.i.i.i.i.i.i389, label %1985, label %1982
 
-1978:                                             ; preds = %1972
-  %1979 = load i32, ptr %1976, align 4
-  %1980 = add nsw i32 %1979, -1
-  store i32 %1980, ptr %1976, align 4
-  br label %1983
+1982:                                             ; preds = %1976
+  %1983 = load i32, ptr %1980, align 4
+  %1984 = add nsw i32 %1983, -1
+  store i32 %1984, ptr %1980, align 4
+  br label %1987
 
-1981:                                             ; preds = %1972
-  %1982 = atomicrmw volatile add ptr %1976, i32 -1 acq_rel, align 4
-  br label %1983
+1985:                                             ; preds = %1976
+  %1986 = atomicrmw volatile add ptr %1980, i32 -1 acq_rel, align 4
+  br label %1987
 
-1983:                                             ; preds = %1981, %1978
-  %.0.i.i.i.i.i.i390 = phi i32 [ %1979, %1978 ], [ %1982, %1981 ]
-  %1984 = icmp eq i32 %.0.i.i.i.i.i.i390, 1
-  br i1 %1984, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i391, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392
+1987:                                             ; preds = %1985, %1982
+  %.0.i.i.i.i.i.i390 = phi i32 [ %1983, %1982 ], [ %1986, %1985 ]
+  %1988 = icmp eq i32 %.0.i.i.i.i.i.i390, 1
+  br i1 %1988, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i391, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i391: ; preds = %1983, %1959
-  %1985 = load ptr, ptr %1953, align 8
-  %1986 = getelementptr inbounds i8, ptr %1985, i64 24
-  %1987 = load ptr, ptr %1986, align 8
-  call void %1987(ptr noundef nonnull align 8 dereferenceable(16) %1953) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i391: ; preds = %1987, %1963
+  %1989 = load ptr, ptr %1957, align 8
+  %1990 = getelementptr inbounds i8, ptr %1989, i64 24
+  %1991 = load ptr, ptr %1990, align 8
+  call void %1991(ptr noundef nonnull align 8 dereferenceable(16) %1957) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385, %1970, %1983, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i391
-  %1988 = load ptr, ptr %55, align 8
-  store ptr %1988, ptr %9, align 8
-  %1989 = load ptr, ptr %57, align 8
-  %1990 = load ptr, ptr %735, align 8
-  %.not.i.i.i393 = icmp eq ptr %1989, %1990
-  br i1 %.not.i.i.i393, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit406, label %1991
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit385, %1974, %1987, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i391
+  %1992 = load ptr, ptr %55, align 8
+  store ptr %1992, ptr %9, align 8
+  %1993 = load ptr, ptr %58, align 8
+  %1994 = load ptr, ptr %737, align 8
+  %.not.i.i.i393 = icmp eq ptr %1993, %1994
+  br i1 %.not.i.i.i393, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit406, label %1995
 
-1991:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392
-  %.not7.i.i.i394 = icmp eq ptr %1989, null
-  br i1 %.not7.i.i.i394, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i398, label %1992
+1995:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392
+  %.not7.i.i.i394 = icmp eq ptr %1993, null
+  br i1 %.not7.i.i.i394, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i398, label %1996
 
-1992:                                             ; preds = %1991
-  %1993 = getelementptr inbounds i8, ptr %1989, i64 8
-  %1994 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i395 = icmp eq i8 %1994, 0
-  br i1 %.not.i.i.i.i395, label %1998, label %1995
+1996:                                             ; preds = %1995
+  %1997 = getelementptr inbounds i8, ptr %1993, i64 8
+  %1998 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i395 = icmp eq i8 %1998, 0
+  br i1 %.not.i.i.i.i395, label %2002, label %1999
 
-1995:                                             ; preds = %1992
-  %1996 = load i32, ptr %1993, align 4
-  %1997 = add nsw i32 %1996, 1
-  store i32 %1997, ptr %1993, align 4
+1999:                                             ; preds = %1996
+  %2000 = load i32, ptr %1997, align 4
+  %2001 = add nsw i32 %2000, 1
+  store i32 %2001, ptr %1997, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i396
 
-1998:                                             ; preds = %1992
-  %1999 = atomicrmw volatile add ptr %1993, i32 1 acq_rel, align 4
+2002:                                             ; preds = %1996
+  %2003 = atomicrmw volatile add ptr %1997, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i396
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i396: ; preds = %1998, %1995
-  %.pr.i.i.i397 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i396: ; preds = %2002, %1999
+  %.pr.i.i.i397 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i398
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i398: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i396, %1991
-  %2000 = phi ptr [ %.pr.i.i.i397, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i396 ], [ %1990, %1991 ]
-  %.not8.i.i.i399 = icmp eq ptr %2000, null
-  br i1 %.not8.i.i.i399, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i402, label %2001
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i398: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i396, %1995
+  %2004 = phi ptr [ %.pr.i.i.i397, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i396 ], [ %1994, %1995 ]
+  %.not8.i.i.i399 = icmp eq ptr %2004, null
+  br i1 %.not8.i.i.i399, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i402, label %2005
 
-2001:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i398
-  %2002 = getelementptr inbounds i8, ptr %2000, i64 8
-  %2003 = load atomic i64, ptr %2002 acquire, align 8
-  %2004 = icmp eq i64 %2003, 4294967297
-  %2005 = trunc i64 %2003 to i32
-  br i1 %2004, label %2006, label %2011
+2005:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i398
+  %2006 = getelementptr inbounds i8, ptr %2004, i64 8
+  %2007 = load atomic i64, ptr %2006 acquire, align 8
+  %2008 = icmp eq i64 %2007, 4294967297
+  %2009 = trunc i64 %2007 to i32
+  br i1 %2008, label %2010, label %2015
 
-2006:                                             ; preds = %2001
-  store i32 0, ptr %2002, align 8
-  %2007 = getelementptr inbounds i8, ptr %2000, i64 12
-  store i32 0, ptr %2007, align 4
-  %2008 = load ptr, ptr %2000, align 8
-  %2009 = getelementptr inbounds i8, ptr %2008, i64 16
-  %2010 = load ptr, ptr %2009, align 8
-  call void %2010(ptr noundef nonnull align 8 dereferenceable(16) %2000) #17
+2010:                                             ; preds = %2005
+  store i32 0, ptr %2006, align 8
+  %2011 = getelementptr inbounds i8, ptr %2004, i64 12
+  store i32 0, ptr %2011, align 4
+  %2012 = load ptr, ptr %2004, align 8
+  %2013 = getelementptr inbounds i8, ptr %2012, i64 16
+  %2014 = load ptr, ptr %2013, align 8
+  call void %2014(ptr noundef nonnull align 8 dereferenceable(16) %2004) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i405
 
-2011:                                             ; preds = %2001
-  %2012 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i400 = icmp eq i8 %2012, 0
-  br i1 %.not.i9.i.i.i400, label %2015, label %2013
+2015:                                             ; preds = %2005
+  %2016 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i400 = icmp eq i8 %2016, 0
+  br i1 %.not.i9.i.i.i400, label %2019, label %2017
 
-2013:                                             ; preds = %2011
-  %2014 = add nsw i32 %2005, -1
-  store i32 %2014, ptr %2002, align 4
-  br label %2017
+2017:                                             ; preds = %2015
+  %2018 = add nsw i32 %2009, -1
+  store i32 %2018, ptr %2006, align 4
+  br label %2021
 
-2015:                                             ; preds = %2011
-  %2016 = atomicrmw volatile add ptr %2002, i32 -1 acq_rel, align 4
-  br label %2017
+2019:                                             ; preds = %2015
+  %2020 = atomicrmw volatile add ptr %2006, i32 -1 acq_rel, align 4
+  br label %2021
 
-2017:                                             ; preds = %2015, %2013
-  %.0.i.i.i.i401 = phi i32 [ %2005, %2013 ], [ %2016, %2015 ]
-  %2018 = icmp eq i32 %.0.i.i.i.i401, 1
-  br i1 %2018, label %2019, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i402
+2021:                                             ; preds = %2019, %2017
+  %.0.i.i.i.i401 = phi i32 [ %2009, %2017 ], [ %2020, %2019 ]
+  %2022 = icmp eq i32 %.0.i.i.i.i401, 1
+  br i1 %2022, label %2023, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i402
 
-2019:                                             ; preds = %2017
-  %2020 = load ptr, ptr %2000, align 8
-  %2021 = getelementptr inbounds i8, ptr %2020, i64 16
-  %2022 = load ptr, ptr %2021, align 8
-  call void %2022(ptr noundef nonnull align 8 dereferenceable(16) %2000) #17
-  %2023 = getelementptr inbounds i8, ptr %2000, i64 12
-  %2024 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i403 = icmp eq i8 %2024, 0
-  br i1 %.not.i.i.i.i.i.i403, label %2028, label %2025
+2023:                                             ; preds = %2021
+  %2024 = load ptr, ptr %2004, align 8
+  %2025 = getelementptr inbounds i8, ptr %2024, i64 16
+  %2026 = load ptr, ptr %2025, align 8
+  call void %2026(ptr noundef nonnull align 8 dereferenceable(16) %2004) #17
+  %2027 = getelementptr inbounds i8, ptr %2004, i64 12
+  %2028 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i403 = icmp eq i8 %2028, 0
+  br i1 %.not.i.i.i.i.i.i403, label %2032, label %2029
 
-2025:                                             ; preds = %2019
-  %2026 = load i32, ptr %2023, align 4
-  %2027 = add nsw i32 %2026, -1
-  store i32 %2027, ptr %2023, align 4
-  br label %2030
+2029:                                             ; preds = %2023
+  %2030 = load i32, ptr %2027, align 4
+  %2031 = add nsw i32 %2030, -1
+  store i32 %2031, ptr %2027, align 4
+  br label %2034
 
-2028:                                             ; preds = %2019
-  %2029 = atomicrmw volatile add ptr %2023, i32 -1 acq_rel, align 4
-  br label %2030
+2032:                                             ; preds = %2023
+  %2033 = atomicrmw volatile add ptr %2027, i32 -1 acq_rel, align 4
+  br label %2034
 
-2030:                                             ; preds = %2028, %2025
-  %.0.i.i.i.i.i.i404 = phi i32 [ %2026, %2025 ], [ %2029, %2028 ]
-  %2031 = icmp eq i32 %.0.i.i.i.i.i.i404, 1
-  br i1 %2031, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i405, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i402
+2034:                                             ; preds = %2032, %2029
+  %.0.i.i.i.i.i.i404 = phi i32 [ %2030, %2029 ], [ %2033, %2032 ]
+  %2035 = icmp eq i32 %.0.i.i.i.i.i.i404, 1
+  br i1 %2035, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i405, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i402
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i405: ; preds = %2030, %2006
-  %2032 = load ptr, ptr %2000, align 8
-  %2033 = getelementptr inbounds i8, ptr %2032, i64 24
-  %2034 = load ptr, ptr %2033, align 8
-  call void %2034(ptr noundef nonnull align 8 dereferenceable(16) %2000) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i405: ; preds = %2034, %2010
+  %2036 = load ptr, ptr %2004, align 8
+  %2037 = getelementptr inbounds i8, ptr %2036, i64 24
+  %2038 = load ptr, ptr %2037, align 8
+  call void %2038(ptr noundef nonnull align 8 dereferenceable(16) %2004) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i402
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i402: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i405, %2030, %2017, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i398
-  store ptr %1989, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i402: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i405, %2034, %2021, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i398
+  store ptr %1993, ptr %737, align 8
   %.pre619 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit406
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit406: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i402
-  %2035 = phi ptr [ %1988, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392 ], [ %.pre619, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i402 ]
-  %.not514580 = icmp eq ptr %2035, null
+  %2039 = phi ptr [ %1992, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit392 ], [ %.pre619, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i402 ]
+  %.not514580 = icmp eq ptr %2039, null
   br i1 %.not514580, label %._crit_edge582, label %.lr.ph581
 
 .lr.ph581:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit406, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit420
   invoke fastcc void @_ZL26init_item_subexpr_refcountRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %2036 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %2040 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-2036:                                             ; preds = %.lr.ph581
-  %2037 = load ptr, ptr %9, align 8
-  %2038 = getelementptr inbounds i8, ptr %2037, i64 112
-  %2039 = load ptr, ptr %2038, align 8
-  store ptr %2039, ptr %9, align 8
-  %2040 = getelementptr inbounds i8, ptr %2037, i64 120
-  %2041 = load ptr, ptr %2040, align 8
-  %2042 = load ptr, ptr %735, align 8
-  %.not.i.i.i407 = icmp eq ptr %2041, %2042
-  br i1 %.not.i.i.i407, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit420, label %2043
+2040:                                             ; preds = %.lr.ph581
+  %2041 = load ptr, ptr %9, align 8
+  %2042 = getelementptr inbounds i8, ptr %2041, i64 112
+  %2043 = load ptr, ptr %2042, align 8
+  store ptr %2043, ptr %9, align 8
+  %2044 = getelementptr inbounds i8, ptr %2041, i64 120
+  %2045 = load ptr, ptr %2044, align 8
+  %2046 = load ptr, ptr %737, align 8
+  %.not.i.i.i407 = icmp eq ptr %2045, %2046
+  br i1 %.not.i.i.i407, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit420, label %2047
 
-2043:                                             ; preds = %2036
-  %.not7.i.i.i408 = icmp eq ptr %2041, null
-  br i1 %.not7.i.i.i408, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i412, label %2044
+2047:                                             ; preds = %2040
+  %.not7.i.i.i408 = icmp eq ptr %2045, null
+  br i1 %.not7.i.i.i408, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i412, label %2048
 
-2044:                                             ; preds = %2043
-  %2045 = getelementptr inbounds i8, ptr %2041, i64 8
-  %2046 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i409 = icmp eq i8 %2046, 0
-  br i1 %.not.i.i.i.i409, label %2050, label %2047
+2048:                                             ; preds = %2047
+  %2049 = getelementptr inbounds i8, ptr %2045, i64 8
+  %2050 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i409 = icmp eq i8 %2050, 0
+  br i1 %.not.i.i.i.i409, label %2054, label %2051
 
-2047:                                             ; preds = %2044
-  %2048 = load i32, ptr %2045, align 4
-  %2049 = add nsw i32 %2048, 1
-  store i32 %2049, ptr %2045, align 4
+2051:                                             ; preds = %2048
+  %2052 = load i32, ptr %2049, align 4
+  %2053 = add nsw i32 %2052, 1
+  store i32 %2053, ptr %2049, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i410
 
-2050:                                             ; preds = %2044
-  %2051 = atomicrmw volatile add ptr %2045, i32 1 acq_rel, align 4
+2054:                                             ; preds = %2048
+  %2055 = atomicrmw volatile add ptr %2049, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i410
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i410: ; preds = %2050, %2047
-  %.pr.i.i.i411 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i410: ; preds = %2054, %2051
+  %.pr.i.i.i411 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i412
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i412: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i410, %2043
-  %2052 = phi ptr [ %.pr.i.i.i411, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i410 ], [ %2042, %2043 ]
-  %.not8.i.i.i413 = icmp eq ptr %2052, null
-  br i1 %.not8.i.i.i413, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416, label %2053
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i412: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i410, %2047
+  %2056 = phi ptr [ %.pr.i.i.i411, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i410 ], [ %2046, %2047 ]
+  %.not8.i.i.i413 = icmp eq ptr %2056, null
+  br i1 %.not8.i.i.i413, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416, label %2057
 
-2053:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i412
-  %2054 = getelementptr inbounds i8, ptr %2052, i64 8
-  %2055 = load atomic i64, ptr %2054 acquire, align 8
-  %2056 = icmp eq i64 %2055, 4294967297
-  %2057 = trunc i64 %2055 to i32
-  br i1 %2056, label %2058, label %2063
+2057:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i412
+  %2058 = getelementptr inbounds i8, ptr %2056, i64 8
+  %2059 = load atomic i64, ptr %2058 acquire, align 8
+  %2060 = icmp eq i64 %2059, 4294967297
+  %2061 = trunc i64 %2059 to i32
+  br i1 %2060, label %2062, label %2067
 
-2058:                                             ; preds = %2053
-  store i32 0, ptr %2054, align 8
-  %2059 = getelementptr inbounds i8, ptr %2052, i64 12
-  store i32 0, ptr %2059, align 4
-  %2060 = load ptr, ptr %2052, align 8
-  %2061 = getelementptr inbounds i8, ptr %2060, i64 16
-  %2062 = load ptr, ptr %2061, align 8
-  call void %2062(ptr noundef nonnull align 8 dereferenceable(16) %2052) #17
+2062:                                             ; preds = %2057
+  store i32 0, ptr %2058, align 8
+  %2063 = getelementptr inbounds i8, ptr %2056, i64 12
+  store i32 0, ptr %2063, align 4
+  %2064 = load ptr, ptr %2056, align 8
+  %2065 = getelementptr inbounds i8, ptr %2064, i64 16
+  %2066 = load ptr, ptr %2065, align 8
+  call void %2066(ptr noundef nonnull align 8 dereferenceable(16) %2056) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i419
 
-2063:                                             ; preds = %2053
-  %2064 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i414 = icmp eq i8 %2064, 0
-  br i1 %.not.i9.i.i.i414, label %2067, label %2065
+2067:                                             ; preds = %2057
+  %2068 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i414 = icmp eq i8 %2068, 0
+  br i1 %.not.i9.i.i.i414, label %2071, label %2069
 
-2065:                                             ; preds = %2063
-  %2066 = add nsw i32 %2057, -1
-  store i32 %2066, ptr %2054, align 4
-  br label %2069
+2069:                                             ; preds = %2067
+  %2070 = add nsw i32 %2061, -1
+  store i32 %2070, ptr %2058, align 4
+  br label %2073
 
-2067:                                             ; preds = %2063
-  %2068 = atomicrmw volatile add ptr %2054, i32 -1 acq_rel, align 4
-  br label %2069
+2071:                                             ; preds = %2067
+  %2072 = atomicrmw volatile add ptr %2058, i32 -1 acq_rel, align 4
+  br label %2073
 
-2069:                                             ; preds = %2067, %2065
-  %.0.i.i.i.i415 = phi i32 [ %2057, %2065 ], [ %2068, %2067 ]
-  %2070 = icmp eq i32 %.0.i.i.i.i415, 1
-  br i1 %2070, label %2071, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416
+2073:                                             ; preds = %2071, %2069
+  %.0.i.i.i.i415 = phi i32 [ %2061, %2069 ], [ %2072, %2071 ]
+  %2074 = icmp eq i32 %.0.i.i.i.i415, 1
+  br i1 %2074, label %2075, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416
 
-2071:                                             ; preds = %2069
-  %2072 = load ptr, ptr %2052, align 8
-  %2073 = getelementptr inbounds i8, ptr %2072, i64 16
-  %2074 = load ptr, ptr %2073, align 8
-  call void %2074(ptr noundef nonnull align 8 dereferenceable(16) %2052) #17
-  %2075 = getelementptr inbounds i8, ptr %2052, i64 12
-  %2076 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i417 = icmp eq i8 %2076, 0
-  br i1 %.not.i.i.i.i.i.i417, label %2080, label %2077
+2075:                                             ; preds = %2073
+  %2076 = load ptr, ptr %2056, align 8
+  %2077 = getelementptr inbounds i8, ptr %2076, i64 16
+  %2078 = load ptr, ptr %2077, align 8
+  call void %2078(ptr noundef nonnull align 8 dereferenceable(16) %2056) #17
+  %2079 = getelementptr inbounds i8, ptr %2056, i64 12
+  %2080 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i417 = icmp eq i8 %2080, 0
+  br i1 %.not.i.i.i.i.i.i417, label %2084, label %2081
 
-2077:                                             ; preds = %2071
-  %2078 = load i32, ptr %2075, align 4
-  %2079 = add nsw i32 %2078, -1
-  store i32 %2079, ptr %2075, align 4
-  br label %2082
+2081:                                             ; preds = %2075
+  %2082 = load i32, ptr %2079, align 4
+  %2083 = add nsw i32 %2082, -1
+  store i32 %2083, ptr %2079, align 4
+  br label %2086
 
-2080:                                             ; preds = %2071
-  %2081 = atomicrmw volatile add ptr %2075, i32 -1 acq_rel, align 4
-  br label %2082
+2084:                                             ; preds = %2075
+  %2085 = atomicrmw volatile add ptr %2079, i32 -1 acq_rel, align 4
+  br label %2086
 
-2082:                                             ; preds = %2080, %2077
-  %.0.i.i.i.i.i.i418 = phi i32 [ %2078, %2077 ], [ %2081, %2080 ]
-  %2083 = icmp eq i32 %.0.i.i.i.i.i.i418, 1
-  br i1 %2083, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i419, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416
+2086:                                             ; preds = %2084, %2081
+  %.0.i.i.i.i.i.i418 = phi i32 [ %2082, %2081 ], [ %2085, %2084 ]
+  %2087 = icmp eq i32 %.0.i.i.i.i.i.i418, 1
+  br i1 %2087, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i419, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i419: ; preds = %2082, %2058
-  %2084 = load ptr, ptr %2052, align 8
-  %2085 = getelementptr inbounds i8, ptr %2084, i64 24
-  %2086 = load ptr, ptr %2085, align 8
-  call void %2086(ptr noundef nonnull align 8 dereferenceable(16) %2052) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i419: ; preds = %2086, %2062
+  %2088 = load ptr, ptr %2056, align 8
+  %2089 = getelementptr inbounds i8, ptr %2088, i64 24
+  %2090 = load ptr, ptr %2089, align 8
+  call void %2090(ptr noundef nonnull align 8 dereferenceable(16) %2056) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i419, %2082, %2069, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i412
-  store ptr %2041, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i419, %2086, %2073, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i412
+  store ptr %2045, ptr %737, align 8
   %.pre620 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit420
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit420: ; preds = %2036, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416
-  %2087 = phi ptr [ %2039, %2036 ], [ %.pre620, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416 ]
-  %.not514 = icmp eq ptr %2087, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit420: ; preds = %2040, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416
+  %2091 = phi ptr [ %2043, %2040 ], [ %.pre620, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i416 ]
+  %.not514 = icmp eq ptr %2091, null
   br i1 %.not514, label %._crit_edge582, label %.lr.ph581, !llvm.loop !25
 
-2088:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371
-  %2089 = landingpad { ptr, i32 }
+2092:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371
+  %2093 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #17
   br label %.body259
 
 ._crit_edge582:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit420, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit406
-  switch i32 %22, label %2094 [
-    i32 4, label %2090
-    i32 2, label %2090
+  switch i32 %22, label %2098 [
+    i32 4, label %2094
+    i32 2, label %2094
   ]
 
-2090:                                             ; preds = %._crit_edge582, %._crit_edge582
-  %2091 = load ptr, ptr @stderr, align 8
-  %2092 = call i64 @fwrite(ptr nonnull @.str.26, i64 34, i64 1, ptr %2091) #19
-  %2093 = load ptr, ptr @stderr, align 8
-  invoke void @_ZNK3gmx19SelectionCollection9printTreeEP8_IO_FILEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2093, i1 noundef zeroext false)
-          to label %2094 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
-
-2094:                                             ; preds = %._crit_edge582, %2090
-  store i32 4, ptr %11, align 4
-  %2095 = load ptr, ptr %0, align 8
-  %2096 = getelementptr inbounds i8, ptr %2095, i64 120
-  %2097 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2096) #17
-  invoke void @_ZN3gmx29PositionCalculationCollection12typeFromEnumEPKcP11e_poscalc_tPi(ptr noundef %2097, ptr noundef nonnull %10, ptr noundef nonnull %11)
+2094:                                             ; preds = %._crit_edge582, %._crit_edge582
+  %2095 = load ptr, ptr @stderr, align 8
+  %2096 = call i64 @fwrite(ptr nonnull @.str.26, i64 34, i64 1, ptr %2095) #19
+  %2097 = load ptr, ptr @stderr, align 8
+  invoke void @_ZNK3gmx19SelectionCollection9printTreeEP8_IO_FILEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2097, i1 noundef zeroext false)
           to label %2098 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-2098:                                             ; preds = %2094
-  %2099 = load ptr, ptr %55, align 8
-  store ptr %2099, ptr %9, align 8
-  %2100 = load ptr, ptr %57, align 8
-  %2101 = load ptr, ptr %735, align 8
-  %.not.i.i.i421 = icmp eq ptr %2100, %2101
-  br i1 %.not.i.i.i421, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit434, label %2102
+2098:                                             ; preds = %._crit_edge582, %2094
+  store i32 4, ptr %11, align 4
+  %2099 = load ptr, ptr %0, align 8
+  %2100 = getelementptr inbounds i8, ptr %2099, i64 120
+  %2101 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2100) #17
+  invoke void @_ZN3gmx29PositionCalculationCollection12typeFromEnumEPKcP11e_poscalc_tPi(ptr noundef %2101, ptr noundef nonnull %10, ptr noundef nonnull %11)
+          to label %2102 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 2102:                                             ; preds = %2098
-  %.not7.i.i.i422 = icmp eq ptr %2100, null
-  br i1 %.not7.i.i.i422, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i426, label %2103
+  %2103 = load ptr, ptr %55, align 8
+  store ptr %2103, ptr %9, align 8
+  %2104 = load ptr, ptr %58, align 8
+  %2105 = load ptr, ptr %737, align 8
+  %.not.i.i.i421 = icmp eq ptr %2104, %2105
+  br i1 %.not.i.i.i421, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit434, label %2106
 
-2103:                                             ; preds = %2102
-  %2104 = getelementptr inbounds i8, ptr %2100, i64 8
-  %2105 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i423 = icmp eq i8 %2105, 0
-  br i1 %.not.i.i.i.i423, label %2109, label %2106
+2106:                                             ; preds = %2102
+  %.not7.i.i.i422 = icmp eq ptr %2104, null
+  br i1 %.not7.i.i.i422, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i426, label %2107
 
-2106:                                             ; preds = %2103
-  %2107 = load i32, ptr %2104, align 4
-  %2108 = add nsw i32 %2107, 1
-  store i32 %2108, ptr %2104, align 4
+2107:                                             ; preds = %2106
+  %2108 = getelementptr inbounds i8, ptr %2104, i64 8
+  %2109 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i423 = icmp eq i8 %2109, 0
+  br i1 %.not.i.i.i.i423, label %2113, label %2110
+
+2110:                                             ; preds = %2107
+  %2111 = load i32, ptr %2108, align 4
+  %2112 = add nsw i32 %2111, 1
+  store i32 %2112, ptr %2108, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i424
 
-2109:                                             ; preds = %2103
-  %2110 = atomicrmw volatile add ptr %2104, i32 1 acq_rel, align 4
+2113:                                             ; preds = %2107
+  %2114 = atomicrmw volatile add ptr %2108, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i424
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i424: ; preds = %2109, %2106
-  %.pr.i.i.i425 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i424: ; preds = %2113, %2110
+  %.pr.i.i.i425 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i426
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i426: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i424, %2102
-  %2111 = phi ptr [ %.pr.i.i.i425, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i424 ], [ %2101, %2102 ]
-  %.not8.i.i.i427 = icmp eq ptr %2111, null
-  br i1 %.not8.i.i.i427, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430, label %2112
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i426: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i424, %2106
+  %2115 = phi ptr [ %.pr.i.i.i425, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i424 ], [ %2105, %2106 ]
+  %.not8.i.i.i427 = icmp eq ptr %2115, null
+  br i1 %.not8.i.i.i427, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430, label %2116
 
-2112:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i426
-  %2113 = getelementptr inbounds i8, ptr %2111, i64 8
-  %2114 = load atomic i64, ptr %2113 acquire, align 8
-  %2115 = icmp eq i64 %2114, 4294967297
-  %2116 = trunc i64 %2114 to i32
-  br i1 %2115, label %2117, label %2122
+2116:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i426
+  %2117 = getelementptr inbounds i8, ptr %2115, i64 8
+  %2118 = load atomic i64, ptr %2117 acquire, align 8
+  %2119 = icmp eq i64 %2118, 4294967297
+  %2120 = trunc i64 %2118 to i32
+  br i1 %2119, label %2121, label %2126
 
-2117:                                             ; preds = %2112
-  store i32 0, ptr %2113, align 8
-  %2118 = getelementptr inbounds i8, ptr %2111, i64 12
-  store i32 0, ptr %2118, align 4
-  %2119 = load ptr, ptr %2111, align 8
-  %2120 = getelementptr inbounds i8, ptr %2119, i64 16
-  %2121 = load ptr, ptr %2120, align 8
-  call void %2121(ptr noundef nonnull align 8 dereferenceable(16) %2111) #17
+2121:                                             ; preds = %2116
+  store i32 0, ptr %2117, align 8
+  %2122 = getelementptr inbounds i8, ptr %2115, i64 12
+  store i32 0, ptr %2122, align 4
+  %2123 = load ptr, ptr %2115, align 8
+  %2124 = getelementptr inbounds i8, ptr %2123, i64 16
+  %2125 = load ptr, ptr %2124, align 8
+  call void %2125(ptr noundef nonnull align 8 dereferenceable(16) %2115) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i433
 
-2122:                                             ; preds = %2112
-  %2123 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i428 = icmp eq i8 %2123, 0
-  br i1 %.not.i9.i.i.i428, label %2126, label %2124
+2126:                                             ; preds = %2116
+  %2127 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i428 = icmp eq i8 %2127, 0
+  br i1 %.not.i9.i.i.i428, label %2130, label %2128
 
-2124:                                             ; preds = %2122
-  %2125 = add nsw i32 %2116, -1
-  store i32 %2125, ptr %2113, align 4
-  br label %2128
+2128:                                             ; preds = %2126
+  %2129 = add nsw i32 %2120, -1
+  store i32 %2129, ptr %2117, align 4
+  br label %2132
 
-2126:                                             ; preds = %2122
-  %2127 = atomicrmw volatile add ptr %2113, i32 -1 acq_rel, align 4
-  br label %2128
+2130:                                             ; preds = %2126
+  %2131 = atomicrmw volatile add ptr %2117, i32 -1 acq_rel, align 4
+  br label %2132
 
-2128:                                             ; preds = %2126, %2124
-  %.0.i.i.i.i429 = phi i32 [ %2116, %2124 ], [ %2127, %2126 ]
-  %2129 = icmp eq i32 %.0.i.i.i.i429, 1
-  br i1 %2129, label %2130, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430
+2132:                                             ; preds = %2130, %2128
+  %.0.i.i.i.i429 = phi i32 [ %2120, %2128 ], [ %2131, %2130 ]
+  %2133 = icmp eq i32 %.0.i.i.i.i429, 1
+  br i1 %2133, label %2134, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430
 
-2130:                                             ; preds = %2128
-  %2131 = load ptr, ptr %2111, align 8
-  %2132 = getelementptr inbounds i8, ptr %2131, i64 16
-  %2133 = load ptr, ptr %2132, align 8
-  call void %2133(ptr noundef nonnull align 8 dereferenceable(16) %2111) #17
-  %2134 = getelementptr inbounds i8, ptr %2111, i64 12
-  %2135 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i431 = icmp eq i8 %2135, 0
-  br i1 %.not.i.i.i.i.i.i431, label %2139, label %2136
+2134:                                             ; preds = %2132
+  %2135 = load ptr, ptr %2115, align 8
+  %2136 = getelementptr inbounds i8, ptr %2135, i64 16
+  %2137 = load ptr, ptr %2136, align 8
+  call void %2137(ptr noundef nonnull align 8 dereferenceable(16) %2115) #17
+  %2138 = getelementptr inbounds i8, ptr %2115, i64 12
+  %2139 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i431 = icmp eq i8 %2139, 0
+  br i1 %.not.i.i.i.i.i.i431, label %2143, label %2140
 
-2136:                                             ; preds = %2130
-  %2137 = load i32, ptr %2134, align 4
-  %2138 = add nsw i32 %2137, -1
-  store i32 %2138, ptr %2134, align 4
-  br label %2141
+2140:                                             ; preds = %2134
+  %2141 = load i32, ptr %2138, align 4
+  %2142 = add nsw i32 %2141, -1
+  store i32 %2142, ptr %2138, align 4
+  br label %2145
 
-2139:                                             ; preds = %2130
-  %2140 = atomicrmw volatile add ptr %2134, i32 -1 acq_rel, align 4
-  br label %2141
+2143:                                             ; preds = %2134
+  %2144 = atomicrmw volatile add ptr %2138, i32 -1 acq_rel, align 4
+  br label %2145
 
-2141:                                             ; preds = %2139, %2136
-  %.0.i.i.i.i.i.i432 = phi i32 [ %2137, %2136 ], [ %2140, %2139 ]
-  %2142 = icmp eq i32 %.0.i.i.i.i.i.i432, 1
-  br i1 %2142, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i433, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430
+2145:                                             ; preds = %2143, %2140
+  %.0.i.i.i.i.i.i432 = phi i32 [ %2141, %2140 ], [ %2144, %2143 ]
+  %2146 = icmp eq i32 %.0.i.i.i.i.i.i432, 1
+  br i1 %2146, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i433, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i433: ; preds = %2141, %2117
-  %2143 = load ptr, ptr %2111, align 8
-  %2144 = getelementptr inbounds i8, ptr %2143, i64 24
-  %2145 = load ptr, ptr %2144, align 8
-  call void %2145(ptr noundef nonnull align 8 dereferenceable(16) %2111) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i433: ; preds = %2145, %2121
+  %2147 = load ptr, ptr %2115, align 8
+  %2148 = getelementptr inbounds i8, ptr %2147, i64 24
+  %2149 = load ptr, ptr %2148, align 8
+  call void %2149(ptr noundef nonnull align 8 dereferenceable(16) %2115) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i433, %2141, %2128, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i426
-  store ptr %2100, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i433, %2145, %2132, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i426
+  store ptr %2104, ptr %737, align 8
   %.pre621 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit434
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit434: ; preds = %2098, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430
-  %2146 = phi ptr [ %2099, %2098 ], [ %.pre621, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430 ]
-  %.not515583 = icmp eq ptr %2146, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit434: ; preds = %2102, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430
+  %2150 = phi ptr [ %2103, %2102 ], [ %.pre621, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i430 ]
+  %.not515583 = icmp eq ptr %2150, null
   br i1 %.not515583, label %._crit_edge585, label %.lr.ph584
 
 .lr.ph584:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit434
-  %2147 = getelementptr inbounds i8, ptr %20, i64 80
-  %2148 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %2149
+  %2151 = getelementptr inbounds i8, ptr %20, i64 80
+  %2152 = getelementptr inbounds i8, ptr %2, i64 8
+  br label %2153
 
-2149:                                             ; preds = %.lr.ph584, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit470
-  %2150 = phi ptr [ %2146, %.lr.ph584 ], [ %2496, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit470 ]
+2153:                                             ; preds = %.lr.ph584, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit470
+  %2154 = phi ptr [ %2150, %.lr.ph584 ], [ %2500, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit470 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %2151 = getelementptr inbounds i8, ptr %2150, i64 96
-  %2152 = load ptr, ptr %2151, align 8
-  %2153 = load i32, ptr %2152, align 8
-  %2154 = icmp eq i32 %2153, 5
-  br i1 %2154, label %2155, label %2167
+  %2155 = getelementptr inbounds i8, ptr %2154, i64 96
+  %2156 = load ptr, ptr %2155, align 8
+  %2157 = load i32, ptr %2156, align 8
+  %2158 = icmp eq i32 %2157, 5
+  br i1 %2158, label %2159, label %2171
 
-2155:                                             ; preds = %2149
-  %2156 = getelementptr inbounds i8, ptr %2152, i64 88
-  %2157 = load ptr, ptr %2156, align 8
-  %2158 = getelementptr inbounds i8, ptr %2157, i64 12
-  %2159 = load i32, ptr %2158, align 4
-  %2160 = and i32 %2159, 4
-  %.not.i450 = icmp eq i32 %2160, 0
-  %2161 = and i32 %2159, 33
-  %or.cond.i = icmp eq i32 %2161, 32
+2159:                                             ; preds = %2153
+  %2160 = getelementptr inbounds i8, ptr %2156, i64 88
+  %2161 = load ptr, ptr %2160, align 8
+  %2162 = getelementptr inbounds i8, ptr %2161, i64 12
+  %2163 = load i32, ptr %2162, align 4
+  %2164 = and i32 %2163, 4
+  %.not.i450 = icmp eq i32 %2164, 0
+  %2165 = and i32 %2163, 33
+  %or.cond.i = icmp eq i32 %2165, 32
   %or.cond77.i = or i1 %.not.i450, %or.cond.i
-  br i1 %or.cond77.i, label %2162, label %2167
+  br i1 %or.cond77.i, label %2166, label %2171
 
-2162:                                             ; preds = %2155
-  %2163 = getelementptr inbounds i8, ptr %2150, i64 32
-  store ptr null, ptr %2163, align 8
-  %2164 = getelementptr inbounds i8, ptr %2150, i64 88
-  %2165 = load ptr, ptr %2164, align 8
-  %.not33.i = icmp eq ptr %2165, null
-  br i1 %.not33.i, label %2167, label %2166
+2166:                                             ; preds = %2159
+  %2167 = getelementptr inbounds i8, ptr %2154, i64 32
+  store ptr null, ptr %2167, align 8
+  %2168 = getelementptr inbounds i8, ptr %2154, i64 88
+  %2169 = load ptr, ptr %2168, align 8
+  %.not33.i = icmp eq ptr %2169, null
+  br i1 %.not33.i, label %2171, label %2170
 
-2166:                                             ; preds = %2162
-  store ptr null, ptr %2165, align 8
+2170:                                             ; preds = %2166
+  store ptr null, ptr %2169, align 8
   %.pre.i451 = load ptr, ptr %9, align 8
-  br label %2167
+  br label %2171
 
-2167:                                             ; preds = %2166, %2162, %2155, %2149
-  %2168 = phi ptr [ %2150, %2155 ], [ %2150, %2162 ], [ %.pre.i451, %2166 ], [ %2150, %2149 ]
-  %2169 = getelementptr inbounds i8, ptr %2168, i64 32
-  %2170 = load ptr, ptr %2169, align 8
-  %.not34.i = icmp eq ptr %2170, null
-  br i1 %.not34.i, label %2438, label %2171
+2171:                                             ; preds = %2170, %2166, %2159, %2153
+  %2172 = phi ptr [ %2154, %2159 ], [ %2154, %2166 ], [ %.pre.i451, %2170 ], [ %2154, %2153 ]
+  %2173 = getelementptr inbounds i8, ptr %2172, i64 32
+  %2174 = load ptr, ptr %2173, align 8
+  %.not34.i = icmp eq ptr %2174, null
+  br i1 %.not34.i, label %2442, label %2175
 
-2171:                                             ; preds = %2167
-  %2172 = load ptr, ptr %2151, align 8
-  %2173 = getelementptr inbounds i8, ptr %2172, i64 40
-  %2174 = load i32, ptr %2173, align 8
-  %2175 = and i32 %2174, 8
-  %.not35.i = icmp eq i32 %2175, 0
-  br i1 %.not35.i, label %2176, label %2181
+2175:                                             ; preds = %2171
+  %2176 = load ptr, ptr %2155, align 8
+  %2177 = getelementptr inbounds i8, ptr %2176, i64 40
+  %2178 = load i32, ptr %2177, align 8
+  %2179 = and i32 %2178, 8
+  %.not35.i = icmp eq i32 %2179, 0
+  br i1 %.not35.i, label %2180, label %2185
 
-2176:                                             ; preds = %2171
-  %2177 = and i32 %2174, 2
-  %.not36.i = icmp eq i32 %2177, 0
-  br i1 %.not36.i, label %2186, label %2178
+2180:                                             ; preds = %2175
+  %2181 = and i32 %2178, 2
+  %.not36.i = icmp eq i32 %2181, 0
+  br i1 %.not36.i, label %2190, label %2182
 
-2178:                                             ; preds = %2176
-  %2179 = getelementptr inbounds i8, ptr %2172, i64 8
-  %2180 = load i32, ptr %2179, align 8
-  %.not37.i = icmp eq i32 %2180, 5
-  br i1 %.not37.i, label %2186, label %2181
+2182:                                             ; preds = %2180
+  %2183 = getelementptr inbounds i8, ptr %2176, i64 8
+  %2184 = load i32, ptr %2183, align 8
+  %.not37.i = icmp eq i32 %2184, 5
+  br i1 %.not37.i, label %2190, label %2185
 
-2181:                                             ; preds = %2178, %2171
-  %2182 = getelementptr inbounds i8, ptr %2168, i64 48
+2185:                                             ; preds = %2182, %2175
+  %2186 = getelementptr inbounds i8, ptr %2172, i64 48
   br label %.invoke
 
-.invoke:                                          ; preds = %2195, %2181
-  %2183 = phi ptr [ %2182, %2181 ], [ %2194, %2195 ]
-  %2184 = phi i32 [ -1, %2181 ], [ %2191, %2195 ]
-  %2185 = phi ptr [ null, %2181 ], [ %2196, %2195 ]
-  invoke void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %2183, i32 noundef %2184, ptr noundef %2185, i32 noundef 0)
+.invoke:                                          ; preds = %2199, %2185
+  %2187 = phi ptr [ %2186, %2185 ], [ %2198, %2199 ]
+  %2188 = phi i32 [ -1, %2185 ], [ %2195, %2199 ]
+  %2189 = phi ptr [ null, %2185 ], [ %2200, %2199 ]
+  invoke void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %2187, i32 noundef %2188, ptr noundef %2189, i32 noundef 0)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-2186:                                             ; preds = %2178, %2176
-  %2187 = getelementptr inbounds i8, ptr %2172, i64 88
-  %2188 = load ptr, ptr %2187, align 8
-  %2189 = getelementptr inbounds i8, ptr %2188, i64 24
-  %2190 = load ptr, ptr %2189, align 8
-  %2191 = load i32, ptr %2190, align 8
-  %2192 = load i32, ptr %26, align 8
-  %2193 = icmp eq i32 %2191, %2192
-  %2194 = getelementptr inbounds i8, ptr %2168, i64 48
-  br i1 %2193, label %2195, label %2197
+2190:                                             ; preds = %2182, %2180
+  %2191 = getelementptr inbounds i8, ptr %2176, i64 88
+  %2192 = load ptr, ptr %2191, align 8
+  %2193 = getelementptr inbounds i8, ptr %2192, i64 24
+  %2194 = load ptr, ptr %2193, align 8
+  %2195 = load i32, ptr %2194, align 8
+  %2196 = load i32, ptr %26, align 8
+  %2197 = icmp eq i32 %2195, %2196
+  %2198 = getelementptr inbounds i8, ptr %2172, i64 48
+  br i1 %2197, label %2199, label %2201
 
-2195:                                             ; preds = %2186
-  %2196 = load ptr, ptr %2147, align 8
+2199:                                             ; preds = %2190
+  %2200 = load ptr, ptr %2151, align 8
   br label %.invoke
 
-2197:                                             ; preds = %2186
-  invoke void @_Z18gmx_ana_index_copyP15gmx_ana_index_tS0_b(ptr noundef nonnull %2194, ptr noundef nonnull %2190, i1 noundef zeroext true)
+2201:                                             ; preds = %2190
+  invoke void @_Z18gmx_ana_index_copyP15gmx_ana_index_tS0_b(ptr noundef nonnull %2198, ptr noundef nonnull %2194, i1 noundef zeroext true)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc:                                           ; preds = %.invoke, %2197
-  %2198 = load ptr, ptr %2151, align 8
-  %2199 = load i32, ptr %2198, align 8
-  %.not38.i = icmp eq i32 %2199, 5
-  br i1 %.not38.i, label %2440, label %2200
+.noexc:                                           ; preds = %.invoke, %2201
+  %2202 = load ptr, ptr %2155, align 8
+  %2203 = load i32, ptr %2202, align 8
+  %.not38.i = icmp eq i32 %2203, 5
+  br i1 %.not38.i, label %2444, label %2204
 
-2200:                                             ; preds = %.noexc
-  %2201 = getelementptr inbounds i8, ptr %2198, i64 16
-  %2202 = load ptr, ptr %2201, align 8
-  %2203 = getelementptr inbounds i8, ptr %2202, i64 72
-  %2204 = load ptr, ptr %2203, align 8
-  %.not39.i = icmp eq ptr %2204, null
-  br i1 %.not39.i, label %2440, label %2205
+2204:                                             ; preds = %.noexc
+  %2205 = getelementptr inbounds i8, ptr %2202, i64 16
+  %2206 = load ptr, ptr %2205, align 8
+  %2207 = getelementptr inbounds i8, ptr %2206, i64 72
+  %2208 = load ptr, ptr %2207, align 8
+  %.not39.i = icmp eq ptr %2208, null
+  br i1 %.not39.i, label %2444, label %2209
 
-2205:                                             ; preds = %2200
-  store ptr %2198, ptr %2, align 8
-  %2206 = getelementptr inbounds i8, ptr %2150, i64 104
-  %2207 = load ptr, ptr %2206, align 8
-  store ptr %2207, ptr %2148, align 8
-  %.not.i.i.i.i435 = icmp eq ptr %2207, null
-  br i1 %.not.i.i.i.i435, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.preheader, label %2208
+2209:                                             ; preds = %2204
+  store ptr %2202, ptr %2, align 8
+  %2210 = getelementptr inbounds i8, ptr %2154, i64 104
+  %2211 = load ptr, ptr %2210, align 8
+  store ptr %2211, ptr %2152, align 8
+  %.not.i.i.i.i435 = icmp eq ptr %2211, null
+  br i1 %.not.i.i.i.i435, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.preheader, label %2212
 
-2208:                                             ; preds = %2205
-  %2209 = getelementptr inbounds i8, ptr %2207, i64 8
-  %2210 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i436 = icmp eq i8 %2210, 0
-  br i1 %.not.i.i.i.i.i436, label %2214, label %2211
+2212:                                             ; preds = %2209
+  %2213 = getelementptr inbounds i8, ptr %2211, i64 8
+  %2214 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i436 = icmp eq i8 %2214, 0
+  br i1 %.not.i.i.i.i.i436, label %2218, label %2215
 
-2211:                                             ; preds = %2208
-  %2212 = load i32, ptr %2209, align 4
-  %2213 = add nsw i32 %2212, 1
-  store i32 %2213, ptr %2209, align 4
+2215:                                             ; preds = %2212
+  %2216 = load i32, ptr %2213, align 4
+  %2217 = add nsw i32 %2216, 1
+  store i32 %2217, ptr %2213, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.preheader
 
-2214:                                             ; preds = %2208
-  %2215 = atomicrmw volatile add ptr %2209, i32 1 acq_rel, align 4
+2218:                                             ; preds = %2212
+  %2219 = atomicrmw volatile add ptr %2213, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.preheader
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.preheader: ; preds = %2214, %2211, %2205
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.preheader: ; preds = %2218, %2215, %2209
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.backedge, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.preheader
-  %2216 = load ptr, ptr %2, align 8
-  %2217 = load i32, ptr %2216, align 8
-  switch i32 %2217, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.i [
-    i32 8, label %2218
-    i32 6, label %2323
+  %2220 = load ptr, ptr %2, align 8
+  %2221 = load i32, ptr %2220, align 8
+  switch i32 %2221, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.i [
+    i32 8, label %2222
+    i32 6, label %2327
   ]
 
-2218:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437
-  %2219 = getelementptr inbounds i8, ptr %2216, i64 96
-  %2220 = load ptr, ptr %2219, align 8
-  store ptr %2220, ptr %2, align 8
-  %2221 = getelementptr inbounds i8, ptr %2216, i64 104
-  %2222 = load ptr, ptr %2221, align 8
-  %2223 = load ptr, ptr %2148, align 8
-  %.not.i.i.i41.i = icmp eq ptr %2222, %2223
-  br i1 %.not.i.i.i41.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i445, label %2224
+2222:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437
+  %2223 = getelementptr inbounds i8, ptr %2220, i64 96
+  %2224 = load ptr, ptr %2223, align 8
+  store ptr %2224, ptr %2, align 8
+  %2225 = getelementptr inbounds i8, ptr %2220, i64 104
+  %2226 = load ptr, ptr %2225, align 8
+  %2227 = load ptr, ptr %2152, align 8
+  %.not.i.i.i41.i = icmp eq ptr %2226, %2227
+  br i1 %.not.i.i.i41.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i445, label %2228
 
-2224:                                             ; preds = %2218
-  %.not7.i.i.i.i439 = icmp eq ptr %2222, null
-  br i1 %.not7.i.i.i.i439, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i440, label %2225
+2228:                                             ; preds = %2222
+  %.not7.i.i.i.i439 = icmp eq ptr %2226, null
+  br i1 %.not7.i.i.i.i439, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i440, label %2229
 
-2225:                                             ; preds = %2224
-  %2226 = getelementptr inbounds i8, ptr %2222, i64 8
-  %2227 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i42.i = icmp eq i8 %2227, 0
-  br i1 %.not.i.i.i.i42.i, label %2231, label %2228
+2229:                                             ; preds = %2228
+  %2230 = getelementptr inbounds i8, ptr %2226, i64 8
+  %2231 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i42.i = icmp eq i8 %2231, 0
+  br i1 %.not.i.i.i.i42.i, label %2235, label %2232
 
-2228:                                             ; preds = %2225
-  %2229 = load i32, ptr %2226, align 4
-  %2230 = add nsw i32 %2229, 1
-  store i32 %2230, ptr %2226, align 4
+2232:                                             ; preds = %2229
+  %2233 = load i32, ptr %2230, align 4
+  %2234 = add nsw i32 %2233, 1
+  store i32 %2234, ptr %2230, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i440
 
-2231:                                             ; preds = %2225
-  %2232 = atomicrmw volatile add ptr %2226, i32 1 acq_rel, align 4
-  %.pr.i.i.i.pre.i449 = load ptr, ptr %2148, align 8
+2235:                                             ; preds = %2229
+  %2236 = atomicrmw volatile add ptr %2230, i32 1 acq_rel, align 4
+  %.pr.i.i.i.pre.i449 = load ptr, ptr %2152, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i440
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i440: ; preds = %2231, %2228, %2224
-  %2233 = phi ptr [ %2223, %2224 ], [ %.pr.i.i.i.pre.i449, %2231 ], [ %2223, %2228 ]
-  %.not8.i.i.i.i441 = icmp eq ptr %2233, null
-  br i1 %.not8.i.i.i.i441, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444, label %2234
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i440: ; preds = %2235, %2232, %2228
+  %2237 = phi ptr [ %2227, %2228 ], [ %.pr.i.i.i.pre.i449, %2235 ], [ %2227, %2232 ]
+  %.not8.i.i.i.i441 = icmp eq ptr %2237, null
+  br i1 %.not8.i.i.i.i441, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444, label %2238
 
-2234:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i440
-  %2235 = getelementptr inbounds i8, ptr %2233, i64 8
-  %2236 = load atomic i64, ptr %2235 acquire, align 8
-  %2237 = icmp eq i64 %2236, 4294967297
-  %2238 = trunc i64 %2236 to i32
-  br i1 %2237, label %2239, label %2244
+2238:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i440
+  %2239 = getelementptr inbounds i8, ptr %2237, i64 8
+  %2240 = load atomic i64, ptr %2239 acquire, align 8
+  %2241 = icmp eq i64 %2240, 4294967297
+  %2242 = trunc i64 %2240 to i32
+  br i1 %2241, label %2243, label %2248
 
-2239:                                             ; preds = %2234
-  store i32 0, ptr %2235, align 8
-  %2240 = getelementptr inbounds i8, ptr %2233, i64 12
-  store i32 0, ptr %2240, align 4
-  %2241 = load ptr, ptr %2233, align 8
-  %2242 = getelementptr inbounds i8, ptr %2241, i64 16
-  %2243 = load ptr, ptr %2242, align 8
-  call void %2243(ptr noundef nonnull align 8 dereferenceable(16) %2233) #17
+2243:                                             ; preds = %2238
+  store i32 0, ptr %2239, align 8
+  %2244 = getelementptr inbounds i8, ptr %2237, i64 12
+  store i32 0, ptr %2244, align 4
+  %2245 = load ptr, ptr %2237, align 8
+  %2246 = getelementptr inbounds i8, ptr %2245, i64 16
+  %2247 = load ptr, ptr %2246, align 8
+  call void %2247(ptr noundef nonnull align 8 dereferenceable(16) %2237) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i448
 
-2244:                                             ; preds = %2234
-  %2245 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i.i442 = icmp eq i8 %2245, 0
-  br i1 %.not.i9.i.i.i.i442, label %2248, label %2246
+2248:                                             ; preds = %2238
+  %2249 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i.i442 = icmp eq i8 %2249, 0
+  br i1 %.not.i9.i.i.i.i442, label %2252, label %2250
 
-2246:                                             ; preds = %2244
-  %2247 = add nsw i32 %2238, -1
-  store i32 %2247, ptr %2235, align 4
-  br label %2250
+2250:                                             ; preds = %2248
+  %2251 = add nsw i32 %2242, -1
+  store i32 %2251, ptr %2239, align 4
+  br label %2254
 
-2248:                                             ; preds = %2244
-  %2249 = atomicrmw volatile add ptr %2235, i32 -1 acq_rel, align 4
-  br label %2250
+2252:                                             ; preds = %2248
+  %2253 = atomicrmw volatile add ptr %2239, i32 -1 acq_rel, align 4
+  br label %2254
 
-2250:                                             ; preds = %2248, %2246
-  %.0.i.i.i.i.i443 = phi i32 [ %2238, %2246 ], [ %2249, %2248 ]
-  %2251 = icmp eq i32 %.0.i.i.i.i.i443, 1
-  br i1 %2251, label %2252, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444
+2254:                                             ; preds = %2252, %2250
+  %.0.i.i.i.i.i443 = phi i32 [ %2242, %2250 ], [ %2253, %2252 ]
+  %2255 = icmp eq i32 %.0.i.i.i.i.i443, 1
+  br i1 %2255, label %2256, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444
 
-2252:                                             ; preds = %2250
-  %2253 = load ptr, ptr %2233, align 8
-  %2254 = getelementptr inbounds i8, ptr %2253, i64 16
-  %2255 = load ptr, ptr %2254, align 8
-  call void %2255(ptr noundef nonnull align 8 dereferenceable(16) %2233) #17
-  %2256 = getelementptr inbounds i8, ptr %2233, i64 12
-  %2257 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i446 = icmp eq i8 %2257, 0
-  br i1 %.not.i.i.i.i.i.i.i446, label %2261, label %2258
+2256:                                             ; preds = %2254
+  %2257 = load ptr, ptr %2237, align 8
+  %2258 = getelementptr inbounds i8, ptr %2257, i64 16
+  %2259 = load ptr, ptr %2258, align 8
+  call void %2259(ptr noundef nonnull align 8 dereferenceable(16) %2237) #17
+  %2260 = getelementptr inbounds i8, ptr %2237, i64 12
+  %2261 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i446 = icmp eq i8 %2261, 0
+  br i1 %.not.i.i.i.i.i.i.i446, label %2265, label %2262
 
-2258:                                             ; preds = %2252
-  %2259 = load i32, ptr %2256, align 4
-  %2260 = add nsw i32 %2259, -1
-  store i32 %2260, ptr %2256, align 4
-  br label %2263
+2262:                                             ; preds = %2256
+  %2263 = load i32, ptr %2260, align 4
+  %2264 = add nsw i32 %2263, -1
+  store i32 %2264, ptr %2260, align 4
+  br label %2267
 
-2261:                                             ; preds = %2252
-  %2262 = atomicrmw volatile add ptr %2256, i32 -1 acq_rel, align 4
-  br label %2263
+2265:                                             ; preds = %2256
+  %2266 = atomicrmw volatile add ptr %2260, i32 -1 acq_rel, align 4
+  br label %2267
 
-2263:                                             ; preds = %2261, %2258
-  %.0.i.i.i.i.i.i.i447 = phi i32 [ %2259, %2258 ], [ %2262, %2261 ]
-  %2264 = icmp eq i32 %.0.i.i.i.i.i.i.i447, 1
-  br i1 %2264, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i448, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444
+2267:                                             ; preds = %2265, %2262
+  %.0.i.i.i.i.i.i.i447 = phi i32 [ %2263, %2262 ], [ %2266, %2265 ]
+  %2268 = icmp eq i32 %.0.i.i.i.i.i.i.i447, 1
+  br i1 %2268, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i448, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i448: ; preds = %2263, %2239
-  %2265 = load ptr, ptr %2233, align 8
-  %2266 = getelementptr inbounds i8, ptr %2265, i64 24
-  %2267 = load ptr, ptr %2266, align 8
-  call void %2267(ptr noundef nonnull align 8 dereferenceable(16) %2233) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i448: ; preds = %2267, %2243
+  %2269 = load ptr, ptr %2237, align 8
+  %2270 = getelementptr inbounds i8, ptr %2269, i64 24
+  %2271 = load ptr, ptr %2270, align 8
+  call void %2271(ptr noundef nonnull align 8 dereferenceable(16) %2237) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i448, %2263, %2250, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i440
-  store ptr %2222, ptr %2148, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i448, %2267, %2254, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i440
+  store ptr %2226, ptr %2152, align 8
   %.pre82.i = load ptr, ptr %2, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i445
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i445: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444, %2218
-  %2268 = phi ptr [ %2223, %2218 ], [ %2222, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444 ]
-  %2269 = phi ptr [ %2220, %2218 ], [ %.pre82.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444 ]
-  %2270 = load i32, ptr %2269, align 8
-  %2271 = icmp eq i32 %2270, 6
-  br i1 %2271, label %2272, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.backedge
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i445: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444, %2222
+  %2272 = phi ptr [ %2227, %2222 ], [ %2226, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444 ]
+  %2273 = phi ptr [ %2224, %2222 ], [ %.pre82.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i444 ]
+  %2274 = load i32, ptr %2273, align 8
+  %2275 = icmp eq i32 %2274, 6
+  br i1 %2275, label %2276, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.backedge
 
-2272:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i445
-  %2273 = getelementptr inbounds i8, ptr %2269, i64 96
-  %2274 = load ptr, ptr %2273, align 8
-  %2275 = getelementptr inbounds i8, ptr %2274, i64 96
-  %2276 = load ptr, ptr %2275, align 8
-  store ptr %2276, ptr %2, align 8
-  %2277 = getelementptr inbounds i8, ptr %2274, i64 104
+2276:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i445
+  %2277 = getelementptr inbounds i8, ptr %2273, i64 96
   %2278 = load ptr, ptr %2277, align 8
-  %.not.i.i.i43.i = icmp eq ptr %2278, %2268
-  br i1 %.not.i.i.i43.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.backedge, label %2279
+  %2279 = getelementptr inbounds i8, ptr %2278, i64 96
+  %2280 = load ptr, ptr %2279, align 8
+  store ptr %2280, ptr %2, align 8
+  %2281 = getelementptr inbounds i8, ptr %2278, i64 104
+  %2282 = load ptr, ptr %2281, align 8
+  %.not.i.i.i43.i = icmp eq ptr %2282, %2272
+  br i1 %.not.i.i.i43.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.backedge, label %2283
 
-2279:                                             ; preds = %2272
-  %.not7.i.i.i44.i = icmp eq ptr %2278, null
-  br i1 %.not7.i.i.i44.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i48.i, label %2280
+2283:                                             ; preds = %2276
+  %.not7.i.i.i44.i = icmp eq ptr %2282, null
+  br i1 %.not7.i.i.i44.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i48.i, label %2284
 
-2280:                                             ; preds = %2279
-  %2281 = getelementptr inbounds i8, ptr %2278, i64 8
-  %2282 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i45.i = icmp eq i8 %2282, 0
-  br i1 %.not.i.i.i.i45.i, label %2286, label %2283
+2284:                                             ; preds = %2283
+  %2285 = getelementptr inbounds i8, ptr %2282, i64 8
+  %2286 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i45.i = icmp eq i8 %2286, 0
+  br i1 %.not.i.i.i.i45.i, label %2290, label %2287
 
-2283:                                             ; preds = %2280
-  %2284 = load i32, ptr %2281, align 4
-  %2285 = add nsw i32 %2284, 1
-  store i32 %2285, ptr %2281, align 4
+2287:                                             ; preds = %2284
+  %2288 = load i32, ptr %2285, align 4
+  %2289 = add nsw i32 %2288, 1
+  store i32 %2289, ptr %2285, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i48.i
 
-2286:                                             ; preds = %2280
-  %2287 = atomicrmw volatile add ptr %2281, i32 1 acq_rel, align 4
-  %.pr.i.i.i47.pre.i = load ptr, ptr %2148, align 8
+2290:                                             ; preds = %2284
+  %2291 = atomicrmw volatile add ptr %2285, i32 1 acq_rel, align 4
+  %.pr.i.i.i47.pre.i = load ptr, ptr %2152, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i48.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i48.i: ; preds = %2286, %2283, %2279
-  %2288 = phi ptr [ %2268, %2279 ], [ %.pr.i.i.i47.pre.i, %2286 ], [ %2268, %2283 ]
-  %.not8.i.i.i49.i = icmp eq ptr %2288, null
-  br i1 %.not8.i.i.i49.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i52.i, label %2289
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i48.i: ; preds = %2290, %2287, %2283
+  %2292 = phi ptr [ %2272, %2283 ], [ %.pr.i.i.i47.pre.i, %2290 ], [ %2272, %2287 ]
+  %.not8.i.i.i49.i = icmp eq ptr %2292, null
+  br i1 %.not8.i.i.i49.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i52.i, label %2293
 
-2289:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i48.i
-  %2290 = getelementptr inbounds i8, ptr %2288, i64 8
-  %2291 = load atomic i64, ptr %2290 acquire, align 8
-  %2292 = icmp eq i64 %2291, 4294967297
-  %2293 = trunc i64 %2291 to i32
-  br i1 %2292, label %2294, label %2299
+2293:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i48.i
+  %2294 = getelementptr inbounds i8, ptr %2292, i64 8
+  %2295 = load atomic i64, ptr %2294 acquire, align 8
+  %2296 = icmp eq i64 %2295, 4294967297
+  %2297 = trunc i64 %2295 to i32
+  br i1 %2296, label %2298, label %2303
 
-2294:                                             ; preds = %2289
-  store i32 0, ptr %2290, align 8
-  %2295 = getelementptr inbounds i8, ptr %2288, i64 12
-  store i32 0, ptr %2295, align 4
-  %2296 = load ptr, ptr %2288, align 8
-  %2297 = getelementptr inbounds i8, ptr %2296, i64 16
-  %2298 = load ptr, ptr %2297, align 8
-  call void %2298(ptr noundef nonnull align 8 dereferenceable(16) %2288) #17
+2298:                                             ; preds = %2293
+  store i32 0, ptr %2294, align 8
+  %2299 = getelementptr inbounds i8, ptr %2292, i64 12
+  store i32 0, ptr %2299, align 4
+  %2300 = load ptr, ptr %2292, align 8
+  %2301 = getelementptr inbounds i8, ptr %2300, i64 16
+  %2302 = load ptr, ptr %2301, align 8
+  call void %2302(ptr noundef nonnull align 8 dereferenceable(16) %2292) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i55.i
 
-2299:                                             ; preds = %2289
-  %2300 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i50.i = icmp eq i8 %2300, 0
-  br i1 %.not.i9.i.i.i50.i, label %2303, label %2301
+2303:                                             ; preds = %2293
+  %2304 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i50.i = icmp eq i8 %2304, 0
+  br i1 %.not.i9.i.i.i50.i, label %2307, label %2305
 
-2301:                                             ; preds = %2299
-  %2302 = add nsw i32 %2293, -1
-  store i32 %2302, ptr %2290, align 4
-  br label %2305
+2305:                                             ; preds = %2303
+  %2306 = add nsw i32 %2297, -1
+  store i32 %2306, ptr %2294, align 4
+  br label %2309
 
-2303:                                             ; preds = %2299
-  %2304 = atomicrmw volatile add ptr %2290, i32 -1 acq_rel, align 4
-  br label %2305
+2307:                                             ; preds = %2303
+  %2308 = atomicrmw volatile add ptr %2294, i32 -1 acq_rel, align 4
+  br label %2309
 
-2305:                                             ; preds = %2303, %2301
-  %.0.i.i.i.i51.i = phi i32 [ %2293, %2301 ], [ %2304, %2303 ]
-  %2306 = icmp eq i32 %.0.i.i.i.i51.i, 1
-  br i1 %2306, label %2307, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i52.i
+2309:                                             ; preds = %2307, %2305
+  %.0.i.i.i.i51.i = phi i32 [ %2297, %2305 ], [ %2308, %2307 ]
+  %2310 = icmp eq i32 %.0.i.i.i.i51.i, 1
+  br i1 %2310, label %2311, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i52.i
 
-2307:                                             ; preds = %2305
-  %2308 = load ptr, ptr %2288, align 8
-  %2309 = getelementptr inbounds i8, ptr %2308, i64 16
-  %2310 = load ptr, ptr %2309, align 8
-  call void %2310(ptr noundef nonnull align 8 dereferenceable(16) %2288) #17
-  %2311 = getelementptr inbounds i8, ptr %2288, i64 12
-  %2312 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i53.i = icmp eq i8 %2312, 0
-  br i1 %.not.i.i.i.i.i.i53.i, label %2316, label %2313
+2311:                                             ; preds = %2309
+  %2312 = load ptr, ptr %2292, align 8
+  %2313 = getelementptr inbounds i8, ptr %2312, i64 16
+  %2314 = load ptr, ptr %2313, align 8
+  call void %2314(ptr noundef nonnull align 8 dereferenceable(16) %2292) #17
+  %2315 = getelementptr inbounds i8, ptr %2292, i64 12
+  %2316 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i53.i = icmp eq i8 %2316, 0
+  br i1 %.not.i.i.i.i.i.i53.i, label %2320, label %2317
 
-2313:                                             ; preds = %2307
-  %2314 = load i32, ptr %2311, align 4
-  %2315 = add nsw i32 %2314, -1
-  store i32 %2315, ptr %2311, align 4
-  br label %2318
+2317:                                             ; preds = %2311
+  %2318 = load i32, ptr %2315, align 4
+  %2319 = add nsw i32 %2318, -1
+  store i32 %2319, ptr %2315, align 4
+  br label %2322
 
-2316:                                             ; preds = %2307
-  %2317 = atomicrmw volatile add ptr %2311, i32 -1 acq_rel, align 4
-  br label %2318
+2320:                                             ; preds = %2311
+  %2321 = atomicrmw volatile add ptr %2315, i32 -1 acq_rel, align 4
+  br label %2322
 
-2318:                                             ; preds = %2316, %2313
-  %.0.i.i.i.i.i.i54.i = phi i32 [ %2314, %2313 ], [ %2317, %2316 ]
-  %2319 = icmp eq i32 %.0.i.i.i.i.i.i54.i, 1
-  br i1 %2319, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i55.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i52.i
+2322:                                             ; preds = %2320, %2317
+  %.0.i.i.i.i.i.i54.i = phi i32 [ %2318, %2317 ], [ %2321, %2320 ]
+  %2323 = icmp eq i32 %.0.i.i.i.i.i.i54.i, 1
+  br i1 %2323, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i55.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i52.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i55.i: ; preds = %2318, %2294
-  %2320 = load ptr, ptr %2288, align 8
-  %2321 = getelementptr inbounds i8, ptr %2320, i64 24
-  %2322 = load ptr, ptr %2321, align 8
-  call void %2322(ptr noundef nonnull align 8 dereferenceable(16) %2288) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i55.i: ; preds = %2322, %2298
+  %2324 = load ptr, ptr %2292, align 8
+  %2325 = getelementptr inbounds i8, ptr %2324, i64 24
+  %2326 = load ptr, ptr %2325, align 8
+  call void %2326(ptr noundef nonnull align 8 dereferenceable(16) %2292) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i52.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i52.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i55.i, %2318, %2305, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i48.i
-  store ptr %2278, ptr %2148, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i52.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i55.i, %2322, %2309, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i48.i
+  store ptr %2282, ptr %2152, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.backedge
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.backedge: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i52.i, %2272, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i445
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437.backedge: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i52.i, %2276, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i445
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437, !llvm.loop !26
 
-2323:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437
-  %2324 = getelementptr inbounds i8, ptr %2216, i64 96
-  %2325 = load ptr, ptr %2324, align 8
-  %2326 = getelementptr inbounds i8, ptr %2325, i64 96
-  %2327 = load ptr, ptr %2326, align 8
-  store ptr %2327, ptr %2, align 8
-  %2328 = getelementptr inbounds i8, ptr %2325, i64 104
+2327:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437
+  %2328 = getelementptr inbounds i8, ptr %2220, i64 96
   %2329 = load ptr, ptr %2328, align 8
-  %2330 = load ptr, ptr %2148, align 8
-  %.not.i.i.i57.i = icmp eq ptr %2329, %2330
-  br i1 %.not.i.i.i57.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.i, label %2331
+  %2330 = getelementptr inbounds i8, ptr %2329, i64 96
+  %2331 = load ptr, ptr %2330, align 8
+  store ptr %2331, ptr %2, align 8
+  %2332 = getelementptr inbounds i8, ptr %2329, i64 104
+  %2333 = load ptr, ptr %2332, align 8
+  %2334 = load ptr, ptr %2152, align 8
+  %.not.i.i.i57.i = icmp eq ptr %2333, %2334
+  br i1 %.not.i.i.i57.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.i, label %2335
 
-2331:                                             ; preds = %2323
-  %.not7.i.i.i58.i = icmp eq ptr %2329, null
-  br i1 %.not7.i.i.i58.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62.i, label %2332
+2335:                                             ; preds = %2327
+  %.not7.i.i.i58.i = icmp eq ptr %2333, null
+  br i1 %.not7.i.i.i58.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62.i, label %2336
 
-2332:                                             ; preds = %2331
-  %2333 = getelementptr inbounds i8, ptr %2329, i64 8
-  %2334 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i59.i = icmp eq i8 %2334, 0
-  br i1 %.not.i.i.i.i59.i, label %2338, label %2335
+2336:                                             ; preds = %2335
+  %2337 = getelementptr inbounds i8, ptr %2333, i64 8
+  %2338 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i59.i = icmp eq i8 %2338, 0
+  br i1 %.not.i.i.i.i59.i, label %2342, label %2339
 
-2335:                                             ; preds = %2332
-  %2336 = load i32, ptr %2333, align 4
-  %2337 = add nsw i32 %2336, 1
-  store i32 %2337, ptr %2333, align 4
+2339:                                             ; preds = %2336
+  %2340 = load i32, ptr %2337, align 4
+  %2341 = add nsw i32 %2340, 1
+  store i32 %2341, ptr %2337, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62.i
 
-2338:                                             ; preds = %2332
-  %2339 = atomicrmw volatile add ptr %2333, i32 1 acq_rel, align 4
-  %.pr.i.i.i61.pre.i = load ptr, ptr %2148, align 8
+2342:                                             ; preds = %2336
+  %2343 = atomicrmw volatile add ptr %2337, i32 1 acq_rel, align 4
+  %.pr.i.i.i61.pre.i = load ptr, ptr %2152, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62.i: ; preds = %2338, %2335, %2331
-  %2340 = phi ptr [ %2330, %2331 ], [ %.pr.i.i.i61.pre.i, %2338 ], [ %2330, %2335 ]
-  %.not8.i.i.i63.i = icmp eq ptr %2340, null
-  br i1 %.not8.i.i.i63.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i, label %2341
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62.i: ; preds = %2342, %2339, %2335
+  %2344 = phi ptr [ %2334, %2335 ], [ %.pr.i.i.i61.pre.i, %2342 ], [ %2334, %2339 ]
+  %.not8.i.i.i63.i = icmp eq ptr %2344, null
+  br i1 %.not8.i.i.i63.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i, label %2345
 
-2341:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62.i
-  %2342 = getelementptr inbounds i8, ptr %2340, i64 8
-  %2343 = load atomic i64, ptr %2342 acquire, align 8
-  %2344 = icmp eq i64 %2343, 4294967297
-  %2345 = trunc i64 %2343 to i32
-  br i1 %2344, label %2346, label %2351
+2345:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62.i
+  %2346 = getelementptr inbounds i8, ptr %2344, i64 8
+  %2347 = load atomic i64, ptr %2346 acquire, align 8
+  %2348 = icmp eq i64 %2347, 4294967297
+  %2349 = trunc i64 %2347 to i32
+  br i1 %2348, label %2350, label %2355
 
-2346:                                             ; preds = %2341
-  store i32 0, ptr %2342, align 8
-  %2347 = getelementptr inbounds i8, ptr %2340, i64 12
-  store i32 0, ptr %2347, align 4
-  %2348 = load ptr, ptr %2340, align 8
-  %2349 = getelementptr inbounds i8, ptr %2348, i64 16
-  %2350 = load ptr, ptr %2349, align 8
-  call void %2350(ptr noundef nonnull align 8 dereferenceable(16) %2340) #17
+2350:                                             ; preds = %2345
+  store i32 0, ptr %2346, align 8
+  %2351 = getelementptr inbounds i8, ptr %2344, i64 12
+  store i32 0, ptr %2351, align 4
+  %2352 = load ptr, ptr %2344, align 8
+  %2353 = getelementptr inbounds i8, ptr %2352, i64 16
+  %2354 = load ptr, ptr %2353, align 8
+  call void %2354(ptr noundef nonnull align 8 dereferenceable(16) %2344) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i69.i
 
-2351:                                             ; preds = %2341
-  %2352 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i64.i = icmp eq i8 %2352, 0
-  br i1 %.not.i9.i.i.i64.i, label %2355, label %2353
+2355:                                             ; preds = %2345
+  %2356 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i64.i = icmp eq i8 %2356, 0
+  br i1 %.not.i9.i.i.i64.i, label %2359, label %2357
 
-2353:                                             ; preds = %2351
-  %2354 = add nsw i32 %2345, -1
-  store i32 %2354, ptr %2342, align 4
-  br label %2357
+2357:                                             ; preds = %2355
+  %2358 = add nsw i32 %2349, -1
+  store i32 %2358, ptr %2346, align 4
+  br label %2361
 
-2355:                                             ; preds = %2351
-  %2356 = atomicrmw volatile add ptr %2342, i32 -1 acq_rel, align 4
-  br label %2357
+2359:                                             ; preds = %2355
+  %2360 = atomicrmw volatile add ptr %2346, i32 -1 acq_rel, align 4
+  br label %2361
 
-2357:                                             ; preds = %2355, %2353
-  %.0.i.i.i.i65.i = phi i32 [ %2345, %2353 ], [ %2356, %2355 ]
-  %2358 = icmp eq i32 %.0.i.i.i.i65.i, 1
-  br i1 %2358, label %2359, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i
+2361:                                             ; preds = %2359, %2357
+  %.0.i.i.i.i65.i = phi i32 [ %2349, %2357 ], [ %2360, %2359 ]
+  %2362 = icmp eq i32 %.0.i.i.i.i65.i, 1
+  br i1 %2362, label %2363, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i
 
-2359:                                             ; preds = %2357
-  %2360 = load ptr, ptr %2340, align 8
-  %2361 = getelementptr inbounds i8, ptr %2360, i64 16
-  %2362 = load ptr, ptr %2361, align 8
-  call void %2362(ptr noundef nonnull align 8 dereferenceable(16) %2340) #17
-  %2363 = getelementptr inbounds i8, ptr %2340, i64 12
-  %2364 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i67.i = icmp eq i8 %2364, 0
-  br i1 %.not.i.i.i.i.i.i67.i, label %2368, label %2365
+2363:                                             ; preds = %2361
+  %2364 = load ptr, ptr %2344, align 8
+  %2365 = getelementptr inbounds i8, ptr %2364, i64 16
+  %2366 = load ptr, ptr %2365, align 8
+  call void %2366(ptr noundef nonnull align 8 dereferenceable(16) %2344) #17
+  %2367 = getelementptr inbounds i8, ptr %2344, i64 12
+  %2368 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i67.i = icmp eq i8 %2368, 0
+  br i1 %.not.i.i.i.i.i.i67.i, label %2372, label %2369
 
-2365:                                             ; preds = %2359
-  %2366 = load i32, ptr %2363, align 4
-  %2367 = add nsw i32 %2366, -1
-  store i32 %2367, ptr %2363, align 4
-  br label %2370
+2369:                                             ; preds = %2363
+  %2370 = load i32, ptr %2367, align 4
+  %2371 = add nsw i32 %2370, -1
+  store i32 %2371, ptr %2367, align 4
+  br label %2374
 
-2368:                                             ; preds = %2359
-  %2369 = atomicrmw volatile add ptr %2363, i32 -1 acq_rel, align 4
-  br label %2370
+2372:                                             ; preds = %2363
+  %2373 = atomicrmw volatile add ptr %2367, i32 -1 acq_rel, align 4
+  br label %2374
 
-2370:                                             ; preds = %2368, %2365
-  %.0.i.i.i.i.i.i68.i = phi i32 [ %2366, %2365 ], [ %2369, %2368 ]
-  %2371 = icmp eq i32 %.0.i.i.i.i.i.i68.i, 1
-  br i1 %2371, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i69.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i
+2374:                                             ; preds = %2372, %2369
+  %.0.i.i.i.i.i.i68.i = phi i32 [ %2370, %2369 ], [ %2373, %2372 ]
+  %2375 = icmp eq i32 %.0.i.i.i.i.i.i68.i, 1
+  br i1 %2375, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i69.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i69.i: ; preds = %2370, %2346
-  %2372 = load ptr, ptr %2340, align 8
-  %2373 = getelementptr inbounds i8, ptr %2372, i64 24
-  %2374 = load ptr, ptr %2373, align 8
-  call void %2374(ptr noundef nonnull align 8 dereferenceable(16) %2340) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i69.i: ; preds = %2374, %2350
+  %2376 = load ptr, ptr %2344, align 8
+  %2377 = getelementptr inbounds i8, ptr %2376, i64 24
+  %2378 = load ptr, ptr %2377, align 8
+  call void %2378(ptr noundef nonnull align 8 dereferenceable(16) %2344) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i69.i, %2370, %2357, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62.i
-  store ptr %2329, ptr %2148, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i69.i, %2374, %2361, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62.i
+  store ptr %2333, ptr %2152, align 8
   %.pre84.i = load ptr, ptr %2, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.i
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.i: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i, %2323
-  %2375 = phi ptr [ %.pre84.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i ], [ %2327, %2323 ], [ %2216, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437 ]
-  %2376 = getelementptr inbounds i8, ptr %2375, i64 96
-  %2377 = load ptr, ptr %2376, align 8
-  %2378 = getelementptr inbounds i8, ptr %2377, i64 40
-  %2379 = load i32, ptr %2378, align 8
-  %2380 = and i32 %2379, 16
-  %.not40.i = icmp eq i32 %2380, 0
-  br i1 %.not40.i, label %2402, label %2381
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.i: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i, %2327
+  %2379 = phi ptr [ %.pre84.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i66.i ], [ %2331, %2327 ], [ %2220, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i437 ]
+  %2380 = getelementptr inbounds i8, ptr %2379, i64 96
+  %2381 = load ptr, ptr %2380, align 8
+  %2382 = getelementptr inbounds i8, ptr %2381, i64 40
+  %2383 = load i32, ptr %2382, align 8
+  %2384 = and i32 %2383, 16
+  %.not40.i = icmp eq i32 %2384, 0
+  br i1 %.not40.i, label %2406, label %2385
 
-2381:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.i
-  %2382 = load ptr, ptr %2151, align 8
-  %2383 = getelementptr inbounds i8, ptr %2382, i64 16
-  %2384 = load ptr, ptr %2383, align 8
-  %2385 = getelementptr inbounds i8, ptr %2384, i64 64
-  %2386 = load i32, ptr %2385, align 8
-  %2387 = getelementptr inbounds i8, ptr %2384, i64 72
+2385:                                             ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.i
+  %2386 = load ptr, ptr %2155, align 8
+  %2387 = getelementptr inbounds i8, ptr %2386, i64 16
   %2388 = load ptr, ptr %2387, align 8
-  invoke void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %3, i32 noundef %2386, ptr noundef %2388, i32 noundef 0)
-          to label %2389 unwind label %2400
+  %2389 = getelementptr inbounds i8, ptr %2388, i64 64
+  %2390 = load i32, ptr %2389, align 8
+  %2391 = getelementptr inbounds i8, ptr %2388, i64 72
+  %2392 = load ptr, ptr %2391, align 8
+  invoke void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %3, i32 noundef %2390, ptr noundef %2392, i32 noundef 0)
+          to label %2393 unwind label %2404
 
-2389:                                             ; preds = %2381
+2393:                                             ; preds = %2385
   invoke void @_Z22_gmx_selelem_set_vtypeRKSt10shared_ptrIN3gmx20SelectionTreeElementEE12e_selvalue_t(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 5)
-          to label %2390 unwind label %2400
+          to label %2394 unwind label %2404
 
-2390:                                             ; preds = %2389
-  %2391 = load ptr, ptr %9, align 8
-  %2392 = getelementptr inbounds i8, ptr %2391, i64 40
-  %2393 = load i32, ptr %2392, align 8
-  %2394 = or i32 %2393, 768
-  store i32 %2394, ptr %2392, align 8
-  %2395 = getelementptr inbounds i8, ptr %2391, i64 8
-  invoke void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef nonnull %2395, i32 noundef 1)
-          to label %2396 unwind label %2400
+2394:                                             ; preds = %2393
+  %2395 = load ptr, ptr %9, align 8
+  %2396 = getelementptr inbounds i8, ptr %2395, i64 40
+  %2397 = load i32, ptr %2396, align 8
+  %2398 = or i32 %2397, 768
+  store i32 %2398, ptr %2396, align 8
+  %2399 = getelementptr inbounds i8, ptr %2395, i64 8
+  invoke void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef nonnull %2399, i32 noundef 1)
+          to label %2400 unwind label %2404
 
-2396:                                             ; preds = %2390
-  %2397 = load ptr, ptr %9, align 8
-  %2398 = getelementptr inbounds i8, ptr %2397, i64 16
-  %2399 = load ptr, ptr %2398, align 8
-  invoke void @_Z18gmx_ana_index_copyP15gmx_ana_index_tS0_b(ptr noundef %2399, ptr noundef nonnull %3, i1 noundef zeroext true)
-          to label %2402 unwind label %2400
+2400:                                             ; preds = %2394
+  %2401 = load ptr, ptr %9, align 8
+  %2402 = getelementptr inbounds i8, ptr %2401, i64 16
+  %2403 = load ptr, ptr %2402, align 8
+  invoke void @_Z18gmx_ana_index_copyP15gmx_ana_index_tS0_b(ptr noundef %2403, ptr noundef nonnull %3, i1 noundef zeroext true)
+          to label %2406 unwind label %2404
 
-2400:                                             ; preds = %2396, %2390, %2389, %2381
-  %2401 = landingpad { ptr, i32 }
+2404:                                             ; preds = %2400, %2394, %2393, %2385
+  %2405 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
   br label %.body259
 
-2402:                                             ; preds = %2396, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.i
-  %2403 = load ptr, ptr %2148, align 8
-  %.not.i.i.i71.i = icmp eq ptr %2403, null
-  br i1 %.not.i.i.i71.i, label %2440, label %2404
+2406:                                             ; preds = %2400, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.i
+  %2407 = load ptr, ptr %2152, align 8
+  %.not.i.i.i71.i = icmp eq ptr %2407, null
+  br i1 %.not.i.i.i71.i, label %2444, label %2408
 
-2404:                                             ; preds = %2402
-  %2405 = getelementptr inbounds i8, ptr %2403, i64 8
-  %2406 = load atomic i64, ptr %2405 acquire, align 8
-  %2407 = icmp eq i64 %2406, 4294967297
-  %2408 = trunc i64 %2406 to i32
-  br i1 %2407, label %2409, label %2414
+2408:                                             ; preds = %2406
+  %2409 = getelementptr inbounds i8, ptr %2407, i64 8
+  %2410 = load atomic i64, ptr %2409 acquire, align 8
+  %2411 = icmp eq i64 %2410, 4294967297
+  %2412 = trunc i64 %2410 to i32
+  br i1 %2411, label %2413, label %2418
 
-2409:                                             ; preds = %2404
-  store i32 0, ptr %2405, align 8
-  %2410 = getelementptr inbounds i8, ptr %2403, i64 12
-  store i32 0, ptr %2410, align 4
-  %2411 = load ptr, ptr %2403, align 8
-  %2412 = getelementptr inbounds i8, ptr %2411, i64 16
-  %2413 = load ptr, ptr %2412, align 8
-  call void %2413(ptr noundef nonnull align 8 dereferenceable(16) %2403) #17
+2413:                                             ; preds = %2408
+  store i32 0, ptr %2409, align 8
+  %2414 = getelementptr inbounds i8, ptr %2407, i64 12
+  store i32 0, ptr %2414, align 4
+  %2415 = load ptr, ptr %2407, align 8
+  %2416 = getelementptr inbounds i8, ptr %2415, i64 16
+  %2417 = load ptr, ptr %2416, align 8
+  call void %2417(ptr noundef nonnull align 8 dereferenceable(16) %2407) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76.i
 
-2414:                                             ; preds = %2404
-  %2415 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i72.i = icmp eq i8 %2415, 0
-  br i1 %.not.i.i.i.i72.i, label %2418, label %2416
+2418:                                             ; preds = %2408
+  %2419 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i72.i = icmp eq i8 %2419, 0
+  br i1 %.not.i.i.i.i72.i, label %2422, label %2420
 
-2416:                                             ; preds = %2414
-  %2417 = add nsw i32 %2408, -1
-  store i32 %2417, ptr %2405, align 4
-  br label %2420
+2420:                                             ; preds = %2418
+  %2421 = add nsw i32 %2412, -1
+  store i32 %2421, ptr %2409, align 4
+  br label %2424
 
-2418:                                             ; preds = %2414
-  %2419 = atomicrmw volatile add ptr %2405, i32 -1 acq_rel, align 4
-  br label %2420
+2422:                                             ; preds = %2418
+  %2423 = atomicrmw volatile add ptr %2409, i32 -1 acq_rel, align 4
+  br label %2424
 
-2420:                                             ; preds = %2418, %2416
-  %.0.i.i.i.i73.i = phi i32 [ %2408, %2416 ], [ %2419, %2418 ]
-  %2421 = icmp eq i32 %.0.i.i.i.i73.i, 1
-  br i1 %2421, label %2422, label %2440
+2424:                                             ; preds = %2422, %2420
+  %.0.i.i.i.i73.i = phi i32 [ %2412, %2420 ], [ %2423, %2422 ]
+  %2425 = icmp eq i32 %.0.i.i.i.i73.i, 1
+  br i1 %2425, label %2426, label %2444
 
-2422:                                             ; preds = %2420
-  %2423 = load ptr, ptr %2403, align 8
-  %2424 = getelementptr inbounds i8, ptr %2423, i64 16
-  %2425 = load ptr, ptr %2424, align 8
-  call void %2425(ptr noundef nonnull align 8 dereferenceable(16) %2403) #17
-  %2426 = getelementptr inbounds i8, ptr %2403, i64 12
-  %2427 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i74.i = icmp eq i8 %2427, 0
-  br i1 %.not.i.i.i.i.i.i74.i, label %2431, label %2428
+2426:                                             ; preds = %2424
+  %2427 = load ptr, ptr %2407, align 8
+  %2428 = getelementptr inbounds i8, ptr %2427, i64 16
+  %2429 = load ptr, ptr %2428, align 8
+  call void %2429(ptr noundef nonnull align 8 dereferenceable(16) %2407) #17
+  %2430 = getelementptr inbounds i8, ptr %2407, i64 12
+  %2431 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i74.i = icmp eq i8 %2431, 0
+  br i1 %.not.i.i.i.i.i.i74.i, label %2435, label %2432
 
-2428:                                             ; preds = %2422
-  %2429 = load i32, ptr %2426, align 4
-  %2430 = add nsw i32 %2429, -1
-  store i32 %2430, ptr %2426, align 4
-  br label %2433
+2432:                                             ; preds = %2426
+  %2433 = load i32, ptr %2430, align 4
+  %2434 = add nsw i32 %2433, -1
+  store i32 %2434, ptr %2430, align 4
+  br label %2437
 
-2431:                                             ; preds = %2422
-  %2432 = atomicrmw volatile add ptr %2426, i32 -1 acq_rel, align 4
-  br label %2433
+2435:                                             ; preds = %2426
+  %2436 = atomicrmw volatile add ptr %2430, i32 -1 acq_rel, align 4
+  br label %2437
 
-2433:                                             ; preds = %2431, %2428
-  %.0.i.i.i.i.i.i75.i = phi i32 [ %2429, %2428 ], [ %2432, %2431 ]
-  %2434 = icmp eq i32 %.0.i.i.i.i.i.i75.i, 1
-  br i1 %2434, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76.i, label %2440
+2437:                                             ; preds = %2435, %2432
+  %.0.i.i.i.i.i.i75.i = phi i32 [ %2433, %2432 ], [ %2436, %2435 ]
+  %2438 = icmp eq i32 %.0.i.i.i.i.i.i75.i, 1
+  br i1 %2438, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76.i, label %2444
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76.i: ; preds = %2433, %2409
-  %2435 = load ptr, ptr %2403, align 8
-  %2436 = getelementptr inbounds i8, ptr %2435, i64 24
-  %2437 = load ptr, ptr %2436, align 8
-  call void %2437(ptr noundef nonnull align 8 dereferenceable(16) %2403) #17
-  br label %2440
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76.i: ; preds = %2437, %2413
+  %2439 = load ptr, ptr %2407, align 8
+  %2440 = getelementptr inbounds i8, ptr %2439, i64 24
+  %2441 = load ptr, ptr %2440, align 8
+  call void %2441(ptr noundef nonnull align 8 dereferenceable(16) %2407) #17
+  br label %2444
 
-2438:                                             ; preds = %2167
-  %2439 = getelementptr inbounds i8, ptr %2168, i64 48
-  invoke void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef nonnull %2439)
-          to label %2440 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+2442:                                             ; preds = %2171
+  %2443 = getelementptr inbounds i8, ptr %2172, i64 48
+  invoke void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef nonnull %2443)
+          to label %2444 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-2440:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76.i, %2433, %2420, %2402, %2200, %.noexc, %2438
+2444:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i76.i, %2437, %2424, %2406, %2204, %.noexc, %2442
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   invoke fastcc void @_ZL31postprocess_item_subexpressionsRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %2441 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
-
-2441:                                             ; preds = %2440
-  %2442 = load i32, ptr %10, align 4
-  %2443 = load i32, ptr %11, align 4
-  invoke fastcc void @_ZL14init_item_comgRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPNS0_29PositionCalculationCollectionE11e_poscalc_ti(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %20, i32 noundef %2442, i32 noundef %2443)
-          to label %2444 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
-
-2444:                                             ; preds = %2441
-  invoke fastcc void @_ZL22free_item_compilerdataRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %2445 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 2445:                                             ; preds = %2444
-  %2446 = load ptr, ptr %9, align 8
-  %2447 = getelementptr inbounds i8, ptr %2446, i64 112
-  %2448 = load ptr, ptr %2447, align 8
-  store ptr %2448, ptr %9, align 8
-  %2449 = getelementptr inbounds i8, ptr %2446, i64 120
-  %2450 = load ptr, ptr %2449, align 8
-  %2451 = load ptr, ptr %735, align 8
-  %.not.i.i.i457 = icmp eq ptr %2450, %2451
-  br i1 %.not.i.i.i457, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit470, label %2452
+  %2446 = load i32, ptr %10, align 4
+  %2447 = load i32, ptr %11, align 4
+  invoke fastcc void @_ZL14init_item_comgRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPNS0_29PositionCalculationCollectionE11e_poscalc_ti(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %20, i32 noundef %2446, i32 noundef %2447)
+          to label %2448 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-2452:                                             ; preds = %2445
-  %.not7.i.i.i458 = icmp eq ptr %2450, null
-  br i1 %.not7.i.i.i458, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i462, label %2453
+2448:                                             ; preds = %2445
+  invoke fastcc void @_ZL22free_item_compilerdataRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %2449 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-2453:                                             ; preds = %2452
-  %2454 = getelementptr inbounds i8, ptr %2450, i64 8
-  %2455 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i459 = icmp eq i8 %2455, 0
-  br i1 %.not.i.i.i.i459, label %2459, label %2456
+2449:                                             ; preds = %2448
+  %2450 = load ptr, ptr %9, align 8
+  %2451 = getelementptr inbounds i8, ptr %2450, i64 112
+  %2452 = load ptr, ptr %2451, align 8
+  store ptr %2452, ptr %9, align 8
+  %2453 = getelementptr inbounds i8, ptr %2450, i64 120
+  %2454 = load ptr, ptr %2453, align 8
+  %2455 = load ptr, ptr %737, align 8
+  %.not.i.i.i457 = icmp eq ptr %2454, %2455
+  br i1 %.not.i.i.i457, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit470, label %2456
 
-2456:                                             ; preds = %2453
-  %2457 = load i32, ptr %2454, align 4
-  %2458 = add nsw i32 %2457, 1
-  store i32 %2458, ptr %2454, align 4
+2456:                                             ; preds = %2449
+  %.not7.i.i.i458 = icmp eq ptr %2454, null
+  br i1 %.not7.i.i.i458, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i462, label %2457
+
+2457:                                             ; preds = %2456
+  %2458 = getelementptr inbounds i8, ptr %2454, i64 8
+  %2459 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i459 = icmp eq i8 %2459, 0
+  br i1 %.not.i.i.i.i459, label %2463, label %2460
+
+2460:                                             ; preds = %2457
+  %2461 = load i32, ptr %2458, align 4
+  %2462 = add nsw i32 %2461, 1
+  store i32 %2462, ptr %2458, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i460
 
-2459:                                             ; preds = %2453
-  %2460 = atomicrmw volatile add ptr %2454, i32 1 acq_rel, align 4
+2463:                                             ; preds = %2457
+  %2464 = atomicrmw volatile add ptr %2458, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i460
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i460: ; preds = %2459, %2456
-  %.pr.i.i.i461 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i460: ; preds = %2463, %2460
+  %.pr.i.i.i461 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i462
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i462: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i460, %2452
-  %2461 = phi ptr [ %.pr.i.i.i461, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i460 ], [ %2451, %2452 ]
-  %.not8.i.i.i463 = icmp eq ptr %2461, null
-  br i1 %.not8.i.i.i463, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466, label %2462
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i462: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i460, %2456
+  %2465 = phi ptr [ %.pr.i.i.i461, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i460 ], [ %2455, %2456 ]
+  %.not8.i.i.i463 = icmp eq ptr %2465, null
+  br i1 %.not8.i.i.i463, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466, label %2466
 
-2462:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i462
-  %2463 = getelementptr inbounds i8, ptr %2461, i64 8
-  %2464 = load atomic i64, ptr %2463 acquire, align 8
-  %2465 = icmp eq i64 %2464, 4294967297
-  %2466 = trunc i64 %2464 to i32
-  br i1 %2465, label %2467, label %2472
+2466:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i462
+  %2467 = getelementptr inbounds i8, ptr %2465, i64 8
+  %2468 = load atomic i64, ptr %2467 acquire, align 8
+  %2469 = icmp eq i64 %2468, 4294967297
+  %2470 = trunc i64 %2468 to i32
+  br i1 %2469, label %2471, label %2476
 
-2467:                                             ; preds = %2462
-  store i32 0, ptr %2463, align 8
-  %2468 = getelementptr inbounds i8, ptr %2461, i64 12
-  store i32 0, ptr %2468, align 4
-  %2469 = load ptr, ptr %2461, align 8
-  %2470 = getelementptr inbounds i8, ptr %2469, i64 16
-  %2471 = load ptr, ptr %2470, align 8
-  call void %2471(ptr noundef nonnull align 8 dereferenceable(16) %2461) #17
+2471:                                             ; preds = %2466
+  store i32 0, ptr %2467, align 8
+  %2472 = getelementptr inbounds i8, ptr %2465, i64 12
+  store i32 0, ptr %2472, align 4
+  %2473 = load ptr, ptr %2465, align 8
+  %2474 = getelementptr inbounds i8, ptr %2473, i64 16
+  %2475 = load ptr, ptr %2474, align 8
+  call void %2475(ptr noundef nonnull align 8 dereferenceable(16) %2465) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i469
 
-2472:                                             ; preds = %2462
-  %2473 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i464 = icmp eq i8 %2473, 0
-  br i1 %.not.i9.i.i.i464, label %2476, label %2474
+2476:                                             ; preds = %2466
+  %2477 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i464 = icmp eq i8 %2477, 0
+  br i1 %.not.i9.i.i.i464, label %2480, label %2478
 
-2474:                                             ; preds = %2472
-  %2475 = add nsw i32 %2466, -1
-  store i32 %2475, ptr %2463, align 4
-  br label %2478
+2478:                                             ; preds = %2476
+  %2479 = add nsw i32 %2470, -1
+  store i32 %2479, ptr %2467, align 4
+  br label %2482
 
-2476:                                             ; preds = %2472
-  %2477 = atomicrmw volatile add ptr %2463, i32 -1 acq_rel, align 4
-  br label %2478
+2480:                                             ; preds = %2476
+  %2481 = atomicrmw volatile add ptr %2467, i32 -1 acq_rel, align 4
+  br label %2482
 
-2478:                                             ; preds = %2476, %2474
-  %.0.i.i.i.i465 = phi i32 [ %2466, %2474 ], [ %2477, %2476 ]
-  %2479 = icmp eq i32 %.0.i.i.i.i465, 1
-  br i1 %2479, label %2480, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466
+2482:                                             ; preds = %2480, %2478
+  %.0.i.i.i.i465 = phi i32 [ %2470, %2478 ], [ %2481, %2480 ]
+  %2483 = icmp eq i32 %.0.i.i.i.i465, 1
+  br i1 %2483, label %2484, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466
 
-2480:                                             ; preds = %2478
-  %2481 = load ptr, ptr %2461, align 8
-  %2482 = getelementptr inbounds i8, ptr %2481, i64 16
-  %2483 = load ptr, ptr %2482, align 8
-  call void %2483(ptr noundef nonnull align 8 dereferenceable(16) %2461) #17
-  %2484 = getelementptr inbounds i8, ptr %2461, i64 12
-  %2485 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i467 = icmp eq i8 %2485, 0
-  br i1 %.not.i.i.i.i.i.i467, label %2489, label %2486
+2484:                                             ; preds = %2482
+  %2485 = load ptr, ptr %2465, align 8
+  %2486 = getelementptr inbounds i8, ptr %2485, i64 16
+  %2487 = load ptr, ptr %2486, align 8
+  call void %2487(ptr noundef nonnull align 8 dereferenceable(16) %2465) #17
+  %2488 = getelementptr inbounds i8, ptr %2465, i64 12
+  %2489 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i467 = icmp eq i8 %2489, 0
+  br i1 %.not.i.i.i.i.i.i467, label %2493, label %2490
 
-2486:                                             ; preds = %2480
-  %2487 = load i32, ptr %2484, align 4
-  %2488 = add nsw i32 %2487, -1
-  store i32 %2488, ptr %2484, align 4
-  br label %2491
+2490:                                             ; preds = %2484
+  %2491 = load i32, ptr %2488, align 4
+  %2492 = add nsw i32 %2491, -1
+  store i32 %2492, ptr %2488, align 4
+  br label %2495
 
-2489:                                             ; preds = %2480
-  %2490 = atomicrmw volatile add ptr %2484, i32 -1 acq_rel, align 4
-  br label %2491
+2493:                                             ; preds = %2484
+  %2494 = atomicrmw volatile add ptr %2488, i32 -1 acq_rel, align 4
+  br label %2495
 
-2491:                                             ; preds = %2489, %2486
-  %.0.i.i.i.i.i.i468 = phi i32 [ %2487, %2486 ], [ %2490, %2489 ]
-  %2492 = icmp eq i32 %.0.i.i.i.i.i.i468, 1
-  br i1 %2492, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i469, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466
+2495:                                             ; preds = %2493, %2490
+  %.0.i.i.i.i.i.i468 = phi i32 [ %2491, %2490 ], [ %2494, %2493 ]
+  %2496 = icmp eq i32 %.0.i.i.i.i.i.i468, 1
+  br i1 %2496, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i469, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i469: ; preds = %2491, %2467
-  %2493 = load ptr, ptr %2461, align 8
-  %2494 = getelementptr inbounds i8, ptr %2493, i64 24
-  %2495 = load ptr, ptr %2494, align 8
-  call void %2495(ptr noundef nonnull align 8 dereferenceable(16) %2461) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i469: ; preds = %2495, %2471
+  %2497 = load ptr, ptr %2465, align 8
+  %2498 = getelementptr inbounds i8, ptr %2497, i64 24
+  %2499 = load ptr, ptr %2498, align 8
+  call void %2499(ptr noundef nonnull align 8 dereferenceable(16) %2465) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i469, %2491, %2478, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i462
-  store ptr %2450, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i469, %2495, %2482, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i462
+  store ptr %2454, ptr %737, align 8
   %.pre622 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit470
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit470: ; preds = %2445, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466
-  %2496 = phi ptr [ %2448, %2445 ], [ %.pre622, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466 ]
-  %.not515 = icmp eq ptr %2496, null
-  br i1 %.not515, label %._crit_edge585, label %2149, !llvm.loop !27
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit470: ; preds = %2449, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466
+  %2500 = phi ptr [ %2452, %2449 ], [ %.pre622, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i466 ]
+  %.not515 = icmp eq ptr %2500, null
+  br i1 %.not515, label %._crit_edge585, label %2153, !llvm.loop !27
 
 ._crit_edge585:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit470, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit434
-  %2497 = load ptr, ptr %0, align 8
-  %2498 = getelementptr inbounds i8, ptr %2497, i64 184
-  invoke void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef nonnull %2498)
-          to label %2499 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
-
-2499:                                             ; preds = %._crit_edge585
-  %2500 = load ptr, ptr %0, align 8
-  %2501 = getelementptr inbounds i8, ptr %2500, i64 184
-  %2502 = load i32, ptr %26, align 8
-  invoke void @_Z21gmx_ana_index_reserveP15gmx_ana_index_ti(ptr noundef nonnull %2501, i32 noundef %2502)
+  %2501 = load ptr, ptr %0, align 8
+  %2502 = getelementptr inbounds i8, ptr %2501, i64 184
+  invoke void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef nonnull %2502)
           to label %2503 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-2503:                                             ; preds = %2499
+2503:                                             ; preds = %._crit_edge585
   %2504 = load ptr, ptr %0, align 8
   %2505 = getelementptr inbounds i8, ptr %2504, i64 184
-  invoke void @_ZNK3gmx29PositionCalculationCollection16getRequiredAtomsEP15gmx_ana_index_t(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %2505)
-          to label %2506 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  %2506 = load i32, ptr %26, align 8
+  invoke void @_Z21gmx_ana_index_reserveP15gmx_ana_index_ti(ptr noundef nonnull %2505, i32 noundef %2506)
+          to label %2507 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-2506:                                             ; preds = %2503
-  %2507 = load ptr, ptr %55, align 8
-  store ptr %2507, ptr %9, align 8
-  %2508 = load ptr, ptr %57, align 8
-  %2509 = load ptr, ptr %735, align 8
-  %.not.i.i.i471 = icmp eq ptr %2508, %2509
-  br i1 %.not.i.i.i471, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit484, label %2510
+2507:                                             ; preds = %2503
+  %2508 = load ptr, ptr %0, align 8
+  %2509 = getelementptr inbounds i8, ptr %2508, i64 184
+  invoke void @_ZNK3gmx29PositionCalculationCollection16getRequiredAtomsEP15gmx_ana_index_t(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %2509)
+          to label %2510 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-2510:                                             ; preds = %2506
-  %.not7.i.i.i472 = icmp eq ptr %2508, null
-  br i1 %.not7.i.i.i472, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i476, label %2511
+2510:                                             ; preds = %2507
+  %2511 = load ptr, ptr %55, align 8
+  store ptr %2511, ptr %9, align 8
+  %2512 = load ptr, ptr %58, align 8
+  %2513 = load ptr, ptr %737, align 8
+  %.not.i.i.i471 = icmp eq ptr %2512, %2513
+  br i1 %.not.i.i.i471, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit484, label %2514
 
-2511:                                             ; preds = %2510
-  %2512 = getelementptr inbounds i8, ptr %2508, i64 8
-  %2513 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i473 = icmp eq i8 %2513, 0
-  br i1 %.not.i.i.i.i473, label %2517, label %2514
+2514:                                             ; preds = %2510
+  %.not7.i.i.i472 = icmp eq ptr %2512, null
+  br i1 %.not7.i.i.i472, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i476, label %2515
 
-2514:                                             ; preds = %2511
-  %2515 = load i32, ptr %2512, align 4
-  %2516 = add nsw i32 %2515, 1
-  store i32 %2516, ptr %2512, align 4
+2515:                                             ; preds = %2514
+  %2516 = getelementptr inbounds i8, ptr %2512, i64 8
+  %2517 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i473 = icmp eq i8 %2517, 0
+  br i1 %.not.i.i.i.i473, label %2521, label %2518
+
+2518:                                             ; preds = %2515
+  %2519 = load i32, ptr %2516, align 4
+  %2520 = add nsw i32 %2519, 1
+  store i32 %2520, ptr %2516, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i474
 
-2517:                                             ; preds = %2511
-  %2518 = atomicrmw volatile add ptr %2512, i32 1 acq_rel, align 4
+2521:                                             ; preds = %2515
+  %2522 = atomicrmw volatile add ptr %2516, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i474
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i474: ; preds = %2517, %2514
-  %.pr.i.i.i475 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i474: ; preds = %2521, %2518
+  %.pr.i.i.i475 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i476
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i476: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i474, %2510
-  %2519 = phi ptr [ %.pr.i.i.i475, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i474 ], [ %2509, %2510 ]
-  %.not8.i.i.i477 = icmp eq ptr %2519, null
-  br i1 %.not8.i.i.i477, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480, label %2520
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i476: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i474, %2514
+  %2523 = phi ptr [ %.pr.i.i.i475, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i474 ], [ %2513, %2514 ]
+  %.not8.i.i.i477 = icmp eq ptr %2523, null
+  br i1 %.not8.i.i.i477, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480, label %2524
 
-2520:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i476
-  %2521 = getelementptr inbounds i8, ptr %2519, i64 8
-  %2522 = load atomic i64, ptr %2521 acquire, align 8
-  %2523 = icmp eq i64 %2522, 4294967297
-  %2524 = trunc i64 %2522 to i32
-  br i1 %2523, label %2525, label %2530
+2524:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i476
+  %2525 = getelementptr inbounds i8, ptr %2523, i64 8
+  %2526 = load atomic i64, ptr %2525 acquire, align 8
+  %2527 = icmp eq i64 %2526, 4294967297
+  %2528 = trunc i64 %2526 to i32
+  br i1 %2527, label %2529, label %2534
 
-2525:                                             ; preds = %2520
-  store i32 0, ptr %2521, align 8
-  %2526 = getelementptr inbounds i8, ptr %2519, i64 12
-  store i32 0, ptr %2526, align 4
-  %2527 = load ptr, ptr %2519, align 8
-  %2528 = getelementptr inbounds i8, ptr %2527, i64 16
-  %2529 = load ptr, ptr %2528, align 8
-  call void %2529(ptr noundef nonnull align 8 dereferenceable(16) %2519) #17
+2529:                                             ; preds = %2524
+  store i32 0, ptr %2525, align 8
+  %2530 = getelementptr inbounds i8, ptr %2523, i64 12
+  store i32 0, ptr %2530, align 4
+  %2531 = load ptr, ptr %2523, align 8
+  %2532 = getelementptr inbounds i8, ptr %2531, i64 16
+  %2533 = load ptr, ptr %2532, align 8
+  call void %2533(ptr noundef nonnull align 8 dereferenceable(16) %2523) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i483
 
-2530:                                             ; preds = %2520
-  %2531 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i478 = icmp eq i8 %2531, 0
-  br i1 %.not.i9.i.i.i478, label %2534, label %2532
+2534:                                             ; preds = %2524
+  %2535 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i478 = icmp eq i8 %2535, 0
+  br i1 %.not.i9.i.i.i478, label %2538, label %2536
 
-2532:                                             ; preds = %2530
-  %2533 = add nsw i32 %2524, -1
-  store i32 %2533, ptr %2521, align 4
-  br label %2536
+2536:                                             ; preds = %2534
+  %2537 = add nsw i32 %2528, -1
+  store i32 %2537, ptr %2525, align 4
+  br label %2540
 
-2534:                                             ; preds = %2530
-  %2535 = atomicrmw volatile add ptr %2521, i32 -1 acq_rel, align 4
-  br label %2536
+2538:                                             ; preds = %2534
+  %2539 = atomicrmw volatile add ptr %2525, i32 -1 acq_rel, align 4
+  br label %2540
 
-2536:                                             ; preds = %2534, %2532
-  %.0.i.i.i.i479 = phi i32 [ %2524, %2532 ], [ %2535, %2534 ]
-  %2537 = icmp eq i32 %.0.i.i.i.i479, 1
-  br i1 %2537, label %2538, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480
+2540:                                             ; preds = %2538, %2536
+  %.0.i.i.i.i479 = phi i32 [ %2528, %2536 ], [ %2539, %2538 ]
+  %2541 = icmp eq i32 %.0.i.i.i.i479, 1
+  br i1 %2541, label %2542, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480
 
-2538:                                             ; preds = %2536
-  %2539 = load ptr, ptr %2519, align 8
-  %2540 = getelementptr inbounds i8, ptr %2539, i64 16
-  %2541 = load ptr, ptr %2540, align 8
-  call void %2541(ptr noundef nonnull align 8 dereferenceable(16) %2519) #17
-  %2542 = getelementptr inbounds i8, ptr %2519, i64 12
-  %2543 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i481 = icmp eq i8 %2543, 0
-  br i1 %.not.i.i.i.i.i.i481, label %2547, label %2544
+2542:                                             ; preds = %2540
+  %2543 = load ptr, ptr %2523, align 8
+  %2544 = getelementptr inbounds i8, ptr %2543, i64 16
+  %2545 = load ptr, ptr %2544, align 8
+  call void %2545(ptr noundef nonnull align 8 dereferenceable(16) %2523) #17
+  %2546 = getelementptr inbounds i8, ptr %2523, i64 12
+  %2547 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i481 = icmp eq i8 %2547, 0
+  br i1 %.not.i.i.i.i.i.i481, label %2551, label %2548
 
-2544:                                             ; preds = %2538
-  %2545 = load i32, ptr %2542, align 4
-  %2546 = add nsw i32 %2545, -1
-  store i32 %2546, ptr %2542, align 4
-  br label %2549
+2548:                                             ; preds = %2542
+  %2549 = load i32, ptr %2546, align 4
+  %2550 = add nsw i32 %2549, -1
+  store i32 %2550, ptr %2546, align 4
+  br label %2553
 
-2547:                                             ; preds = %2538
-  %2548 = atomicrmw volatile add ptr %2542, i32 -1 acq_rel, align 4
-  br label %2549
+2551:                                             ; preds = %2542
+  %2552 = atomicrmw volatile add ptr %2546, i32 -1 acq_rel, align 4
+  br label %2553
 
-2549:                                             ; preds = %2547, %2544
-  %.0.i.i.i.i.i.i482 = phi i32 [ %2545, %2544 ], [ %2548, %2547 ]
-  %2550 = icmp eq i32 %.0.i.i.i.i.i.i482, 1
-  br i1 %2550, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i483, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480
+2553:                                             ; preds = %2551, %2548
+  %.0.i.i.i.i.i.i482 = phi i32 [ %2549, %2548 ], [ %2552, %2551 ]
+  %2554 = icmp eq i32 %.0.i.i.i.i.i.i482, 1
+  br i1 %2554, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i483, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i483: ; preds = %2549, %2525
-  %2551 = load ptr, ptr %2519, align 8
-  %2552 = getelementptr inbounds i8, ptr %2551, i64 24
-  %2553 = load ptr, ptr %2552, align 8
-  call void %2553(ptr noundef nonnull align 8 dereferenceable(16) %2519) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i483: ; preds = %2553, %2529
+  %2555 = load ptr, ptr %2523, align 8
+  %2556 = getelementptr inbounds i8, ptr %2555, i64 24
+  %2557 = load ptr, ptr %2556, align 8
+  call void %2557(ptr noundef nonnull align 8 dereferenceable(16) %2523) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i483, %2549, %2536, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i476
-  store ptr %2508, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i483, %2553, %2540, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i476
+  store ptr %2512, ptr %737, align 8
   %.pre623 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit484
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit484: ; preds = %2506, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480
-  %2554 = phi ptr [ %2507, %2506 ], [ %.pre623, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480 ]
-  %.not516586 = icmp eq ptr %2554, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit484: ; preds = %2510, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480
+  %2558 = phi ptr [ %2511, %2510 ], [ %.pre623, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i480 ]
+  %.not516586 = icmp eq ptr %2558, null
   br i1 %.not516586, label %._crit_edge588, label %.lr.ph587
 
 .lr.ph587:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit484, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit498
-  %2555 = load ptr, ptr %0, align 8
-  %2556 = getelementptr inbounds i8, ptr %2555, i64 184
-  invoke fastcc void @_ZL19init_required_atomsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_t(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %2556)
-          to label %2557 unwind label %.loopexit.split-lp.loopexit
+  %2559 = load ptr, ptr %0, align 8
+  %2560 = getelementptr inbounds i8, ptr %2559, i64 184
+  invoke fastcc void @_ZL19init_required_atomsRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP15gmx_ana_index_t(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %2560)
+          to label %2561 unwind label %.loopexit.split-lp.loopexit
 
-2557:                                             ; preds = %.lr.ph587
-  %2558 = load ptr, ptr %9, align 8
-  %2559 = getelementptr inbounds i8, ptr %2558, i64 112
-  %2560 = load ptr, ptr %2559, align 8
-  store ptr %2560, ptr %9, align 8
-  %2561 = getelementptr inbounds i8, ptr %2558, i64 120
-  %2562 = load ptr, ptr %2561, align 8
-  %2563 = load ptr, ptr %735, align 8
-  %.not.i.i.i485 = icmp eq ptr %2562, %2563
-  br i1 %.not.i.i.i485, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit498, label %2564
+2561:                                             ; preds = %.lr.ph587
+  %2562 = load ptr, ptr %9, align 8
+  %2563 = getelementptr inbounds i8, ptr %2562, i64 112
+  %2564 = load ptr, ptr %2563, align 8
+  store ptr %2564, ptr %9, align 8
+  %2565 = getelementptr inbounds i8, ptr %2562, i64 120
+  %2566 = load ptr, ptr %2565, align 8
+  %2567 = load ptr, ptr %737, align 8
+  %.not.i.i.i485 = icmp eq ptr %2566, %2567
+  br i1 %.not.i.i.i485, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit498, label %2568
 
-2564:                                             ; preds = %2557
-  %.not7.i.i.i486 = icmp eq ptr %2562, null
-  br i1 %.not7.i.i.i486, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i490, label %2565
+2568:                                             ; preds = %2561
+  %.not7.i.i.i486 = icmp eq ptr %2566, null
+  br i1 %.not7.i.i.i486, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i490, label %2569
 
-2565:                                             ; preds = %2564
-  %2566 = getelementptr inbounds i8, ptr %2562, i64 8
-  %2567 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i487 = icmp eq i8 %2567, 0
-  br i1 %.not.i.i.i.i487, label %2571, label %2568
+2569:                                             ; preds = %2568
+  %2570 = getelementptr inbounds i8, ptr %2566, i64 8
+  %2571 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i487 = icmp eq i8 %2571, 0
+  br i1 %.not.i.i.i.i487, label %2575, label %2572
 
-2568:                                             ; preds = %2565
-  %2569 = load i32, ptr %2566, align 4
-  %2570 = add nsw i32 %2569, 1
-  store i32 %2570, ptr %2566, align 4
+2572:                                             ; preds = %2569
+  %2573 = load i32, ptr %2570, align 4
+  %2574 = add nsw i32 %2573, 1
+  store i32 %2574, ptr %2570, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i488
 
-2571:                                             ; preds = %2565
-  %2572 = atomicrmw volatile add ptr %2566, i32 1 acq_rel, align 4
+2575:                                             ; preds = %2569
+  %2576 = atomicrmw volatile add ptr %2570, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i488
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i488: ; preds = %2571, %2568
-  %.pr.i.i.i489 = load ptr, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i488: ; preds = %2575, %2572
+  %.pr.i.i.i489 = load ptr, ptr %737, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i490
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i490: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i488, %2564
-  %2573 = phi ptr [ %.pr.i.i.i489, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i488 ], [ %2563, %2564 ]
-  %.not8.i.i.i491 = icmp eq ptr %2573, null
-  br i1 %.not8.i.i.i491, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494, label %2574
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i490: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i488, %2568
+  %2577 = phi ptr [ %.pr.i.i.i489, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i488 ], [ %2567, %2568 ]
+  %.not8.i.i.i491 = icmp eq ptr %2577, null
+  br i1 %.not8.i.i.i491, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494, label %2578
 
-2574:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i490
-  %2575 = getelementptr inbounds i8, ptr %2573, i64 8
-  %2576 = load atomic i64, ptr %2575 acquire, align 8
-  %2577 = icmp eq i64 %2576, 4294967297
-  %2578 = trunc i64 %2576 to i32
-  br i1 %2577, label %2579, label %2584
+2578:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i490
+  %2579 = getelementptr inbounds i8, ptr %2577, i64 8
+  %2580 = load atomic i64, ptr %2579 acquire, align 8
+  %2581 = icmp eq i64 %2580, 4294967297
+  %2582 = trunc i64 %2580 to i32
+  br i1 %2581, label %2583, label %2588
 
-2579:                                             ; preds = %2574
-  store i32 0, ptr %2575, align 8
-  %2580 = getelementptr inbounds i8, ptr %2573, i64 12
-  store i32 0, ptr %2580, align 4
-  %2581 = load ptr, ptr %2573, align 8
-  %2582 = getelementptr inbounds i8, ptr %2581, i64 16
-  %2583 = load ptr, ptr %2582, align 8
-  call void %2583(ptr noundef nonnull align 8 dereferenceable(16) %2573) #17
+2583:                                             ; preds = %2578
+  store i32 0, ptr %2579, align 8
+  %2584 = getelementptr inbounds i8, ptr %2577, i64 12
+  store i32 0, ptr %2584, align 4
+  %2585 = load ptr, ptr %2577, align 8
+  %2586 = getelementptr inbounds i8, ptr %2585, i64 16
+  %2587 = load ptr, ptr %2586, align 8
+  call void %2587(ptr noundef nonnull align 8 dereferenceable(16) %2577) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i497
 
-2584:                                             ; preds = %2574
-  %2585 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i492 = icmp eq i8 %2585, 0
-  br i1 %.not.i9.i.i.i492, label %2588, label %2586
+2588:                                             ; preds = %2578
+  %2589 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i492 = icmp eq i8 %2589, 0
+  br i1 %.not.i9.i.i.i492, label %2592, label %2590
 
-2586:                                             ; preds = %2584
-  %2587 = add nsw i32 %2578, -1
-  store i32 %2587, ptr %2575, align 4
-  br label %2590
+2590:                                             ; preds = %2588
+  %2591 = add nsw i32 %2582, -1
+  store i32 %2591, ptr %2579, align 4
+  br label %2594
 
-2588:                                             ; preds = %2584
-  %2589 = atomicrmw volatile add ptr %2575, i32 -1 acq_rel, align 4
-  br label %2590
+2592:                                             ; preds = %2588
+  %2593 = atomicrmw volatile add ptr %2579, i32 -1 acq_rel, align 4
+  br label %2594
 
-2590:                                             ; preds = %2588, %2586
-  %.0.i.i.i.i493 = phi i32 [ %2578, %2586 ], [ %2589, %2588 ]
-  %2591 = icmp eq i32 %.0.i.i.i.i493, 1
-  br i1 %2591, label %2592, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494
+2594:                                             ; preds = %2592, %2590
+  %.0.i.i.i.i493 = phi i32 [ %2582, %2590 ], [ %2593, %2592 ]
+  %2595 = icmp eq i32 %.0.i.i.i.i493, 1
+  br i1 %2595, label %2596, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494
 
-2592:                                             ; preds = %2590
-  %2593 = load ptr, ptr %2573, align 8
-  %2594 = getelementptr inbounds i8, ptr %2593, i64 16
-  %2595 = load ptr, ptr %2594, align 8
-  call void %2595(ptr noundef nonnull align 8 dereferenceable(16) %2573) #17
-  %2596 = getelementptr inbounds i8, ptr %2573, i64 12
-  %2597 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i495 = icmp eq i8 %2597, 0
-  br i1 %.not.i.i.i.i.i.i495, label %2601, label %2598
+2596:                                             ; preds = %2594
+  %2597 = load ptr, ptr %2577, align 8
+  %2598 = getelementptr inbounds i8, ptr %2597, i64 16
+  %2599 = load ptr, ptr %2598, align 8
+  call void %2599(ptr noundef nonnull align 8 dereferenceable(16) %2577) #17
+  %2600 = getelementptr inbounds i8, ptr %2577, i64 12
+  %2601 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i495 = icmp eq i8 %2601, 0
+  br i1 %.not.i.i.i.i.i.i495, label %2605, label %2602
 
-2598:                                             ; preds = %2592
-  %2599 = load i32, ptr %2596, align 4
-  %2600 = add nsw i32 %2599, -1
-  store i32 %2600, ptr %2596, align 4
-  br label %2603
+2602:                                             ; preds = %2596
+  %2603 = load i32, ptr %2600, align 4
+  %2604 = add nsw i32 %2603, -1
+  store i32 %2604, ptr %2600, align 4
+  br label %2607
 
-2601:                                             ; preds = %2592
-  %2602 = atomicrmw volatile add ptr %2596, i32 -1 acq_rel, align 4
-  br label %2603
+2605:                                             ; preds = %2596
+  %2606 = atomicrmw volatile add ptr %2600, i32 -1 acq_rel, align 4
+  br label %2607
 
-2603:                                             ; preds = %2601, %2598
-  %.0.i.i.i.i.i.i496 = phi i32 [ %2599, %2598 ], [ %2602, %2601 ]
-  %2604 = icmp eq i32 %.0.i.i.i.i.i.i496, 1
-  br i1 %2604, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i497, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494
+2607:                                             ; preds = %2605, %2602
+  %.0.i.i.i.i.i.i496 = phi i32 [ %2603, %2602 ], [ %2606, %2605 ]
+  %2608 = icmp eq i32 %.0.i.i.i.i.i.i496, 1
+  br i1 %2608, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i497, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i497: ; preds = %2603, %2579
-  %2605 = load ptr, ptr %2573, align 8
-  %2606 = getelementptr inbounds i8, ptr %2605, i64 24
-  %2607 = load ptr, ptr %2606, align 8
-  call void %2607(ptr noundef nonnull align 8 dereferenceable(16) %2573) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i497: ; preds = %2607, %2583
+  %2609 = load ptr, ptr %2577, align 8
+  %2610 = getelementptr inbounds i8, ptr %2609, i64 24
+  %2611 = load ptr, ptr %2610, align 8
+  call void %2611(ptr noundef nonnull align 8 dereferenceable(16) %2577) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i497, %2603, %2590, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i490
-  store ptr %2562, ptr %735, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i497, %2607, %2594, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i490
+  store ptr %2566, ptr %737, align 8
   %.pre624 = load ptr, ptr %9, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit498
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit498: ; preds = %2557, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494
-  %2608 = phi ptr [ %2560, %2557 ], [ %.pre624, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494 ]
-  %.not516 = icmp eq ptr %2608, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit498: ; preds = %2561, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494
+  %2612 = phi ptr [ %2564, %2561 ], [ %.pre624, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i494 ]
+  %.not516 = icmp eq ptr %2612, null
   br i1 %.not516, label %._crit_edge588, label %.lr.ph587, !llvm.loop !28
 
 ._crit_edge588:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit498, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit484
-  %2609 = load ptr, ptr %0, align 8
-  %2610 = getelementptr inbounds i8, ptr %2609, i64 184
-  invoke void @_Z21gmx_ana_index_squeezeP15gmx_ana_index_t(ptr noundef nonnull %2610)
-          to label %2611 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  %2613 = load ptr, ptr %0, align 8
+  %2614 = getelementptr inbounds i8, ptr %2613, i64 184
+  invoke void @_Z21gmx_ana_index_squeezeP15gmx_ana_index_t(ptr noundef nonnull %2614)
+          to label %2615 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-2611:                                             ; preds = %._crit_edge588
-  %2612 = load ptr, ptr %25, align 8
-  invoke void @_Z24_gmx_sel_mempool_reserveP17gmx_sel_mempool_tm(ptr noundef %2612, i64 noundef 0)
+2615:                                             ; preds = %._crit_edge588
+  %2616 = load ptr, ptr %25, align 8
+  invoke void @_Z24_gmx_sel_mempool_reserveP17gmx_sel_mempool_tm(ptr noundef %2616, i64 noundef 0)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.preheader:                                       ; preds = %2611
-  %2613 = load ptr, ptr %32, align 8
-  %2614 = load ptr, ptr %31, align 8
-  %.not593 = icmp eq ptr %2613, %2614
+.preheader:                                       ; preds = %2615
+  %2617 = load ptr, ptr %32, align 8
+  %2618 = load ptr, ptr %31, align 8
+  %.not593 = icmp eq ptr %2617, %2618
   br i1 %.not593, label %._crit_edge591, label %.lr.ph590
 
-.lr.ph590:                                        ; preds = %.preheader, %2619
-  %2615 = phi ptr [ %2622, %2619 ], [ %2614, %.preheader ]
-  %.1589 = phi i64 [ %2620, %2619 ], [ 0, %.preheader ]
-  %2616 = getelementptr inbounds %"class.std::unique_ptr.32", ptr %2615, i64 %.1589
-  %2617 = load ptr, ptr %2616, align 8
-  %2618 = load ptr, ptr %27, align 8
-  invoke void @_ZN3gmx8internal13SelectionData26initializeMassesAndChargesEPK10gmx_mtop_t(ptr noundef nonnull align 8 dereferenceable(294) %2617, ptr noundef %2618)
-          to label %2619 unwind label %.loopexit
+.lr.ph590:                                        ; preds = %.preheader, %2623
+  %2619 = phi ptr [ %2626, %2623 ], [ %2618, %.preheader ]
+  %.1589 = phi i64 [ %2624, %2623 ], [ 0, %.preheader ]
+  %2620 = getelementptr inbounds %"class.std::unique_ptr.32", ptr %2619, i64 %.1589
+  %2621 = load ptr, ptr %2620, align 8
+  %2622 = load ptr, ptr %27, align 8
+  invoke void @_ZN3gmx8internal13SelectionData26initializeMassesAndChargesEPK10gmx_mtop_t(ptr noundef nonnull align 8 dereferenceable(294) %2621, ptr noundef %2622)
+          to label %2623 unwind label %.loopexit
 
-2619:                                             ; preds = %.lr.ph590
-  %2620 = add nuw i64 %.1589, 1
-  %2621 = load ptr, ptr %32, align 8
-  %2622 = load ptr, ptr %31, align 8
-  %2623 = ptrtoint ptr %2621 to i64
-  %2624 = ptrtoint ptr %2622 to i64
-  %2625 = sub i64 %2623, %2624
-  %2626 = ashr exact i64 %2625, 3
-  %2627 = icmp ult i64 %2620, %2626
-  br i1 %2627, label %.lr.ph590, label %._crit_edge591, !llvm.loop !29
+2623:                                             ; preds = %.lr.ph590
+  %2624 = add nuw i64 %.1589, 1
+  %2625 = load ptr, ptr %32, align 8
+  %2626 = load ptr, ptr %31, align 8
+  %2627 = ptrtoint ptr %2625 to i64
+  %2628 = ptrtoint ptr %2626 to i64
+  %2629 = sub i64 %2627, %2628
+  %2630 = ashr exact i64 %2629, 3
+  %2631 = icmp ult i64 %2624, %2630
+  br i1 %2631, label %.lr.ph590, label %._crit_edge591, !llvm.loop !29
 
-._crit_edge591:                                   ; preds = %2619, %.preheader
-  %2628 = load ptr, ptr %735, align 8
-  %.not.i.i.i499 = icmp eq ptr %2628, null
-  br i1 %.not.i.i.i499, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit505, label %2629
+._crit_edge591:                                   ; preds = %2623, %.preheader
+  %2632 = load ptr, ptr %737, align 8
+  %.not.i.i.i499 = icmp eq ptr %2632, null
+  br i1 %.not.i.i.i499, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit505, label %2633
 
-2629:                                             ; preds = %._crit_edge591
-  %2630 = getelementptr inbounds i8, ptr %2628, i64 8
-  %2631 = load atomic i64, ptr %2630 acquire, align 8
-  %2632 = icmp eq i64 %2631, 4294967297
-  %2633 = trunc i64 %2631 to i32
-  br i1 %2632, label %2634, label %2639
+2633:                                             ; preds = %._crit_edge591
+  %2634 = getelementptr inbounds i8, ptr %2632, i64 8
+  %2635 = load atomic i64, ptr %2634 acquire, align 8
+  %2636 = icmp eq i64 %2635, 4294967297
+  %2637 = trunc i64 %2635 to i32
+  br i1 %2636, label %2638, label %2643
 
-2634:                                             ; preds = %2629
-  store i32 0, ptr %2630, align 8
-  %2635 = getelementptr inbounds i8, ptr %2628, i64 12
-  store i32 0, ptr %2635, align 4
-  %2636 = load ptr, ptr %2628, align 8
-  %2637 = getelementptr inbounds i8, ptr %2636, i64 16
-  %2638 = load ptr, ptr %2637, align 8
-  call void %2638(ptr noundef nonnull align 8 dereferenceable(16) %2628) #17
+2638:                                             ; preds = %2633
+  store i32 0, ptr %2634, align 8
+  %2639 = getelementptr inbounds i8, ptr %2632, i64 12
+  store i32 0, ptr %2639, align 4
+  %2640 = load ptr, ptr %2632, align 8
+  %2641 = getelementptr inbounds i8, ptr %2640, i64 16
+  %2642 = load ptr, ptr %2641, align 8
+  call void %2642(ptr noundef nonnull align 8 dereferenceable(16) %2632) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i504
 
-2639:                                             ; preds = %2629
-  %2640 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i500 = icmp eq i8 %2640, 0
-  br i1 %.not.i.i.i.i500, label %2643, label %2641
+2643:                                             ; preds = %2633
+  %2644 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i500 = icmp eq i8 %2644, 0
+  br i1 %.not.i.i.i.i500, label %2647, label %2645
 
-2641:                                             ; preds = %2639
-  %2642 = add nsw i32 %2633, -1
-  store i32 %2642, ptr %2630, align 4
-  br label %2645
+2645:                                             ; preds = %2643
+  %2646 = add nsw i32 %2637, -1
+  store i32 %2646, ptr %2634, align 4
+  br label %2649
 
-2643:                                             ; preds = %2639
-  %2644 = atomicrmw volatile add ptr %2630, i32 -1 acq_rel, align 4
-  br label %2645
+2647:                                             ; preds = %2643
+  %2648 = atomicrmw volatile add ptr %2634, i32 -1 acq_rel, align 4
+  br label %2649
 
-2645:                                             ; preds = %2643, %2641
-  %.0.i.i.i.i501 = phi i32 [ %2633, %2641 ], [ %2644, %2643 ]
-  %2646 = icmp eq i32 %.0.i.i.i.i501, 1
-  br i1 %2646, label %2647, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit505
+2649:                                             ; preds = %2647, %2645
+  %.0.i.i.i.i501 = phi i32 [ %2637, %2645 ], [ %2648, %2647 ]
+  %2650 = icmp eq i32 %.0.i.i.i.i501, 1
+  br i1 %2650, label %2651, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit505
 
-2647:                                             ; preds = %2645
-  %2648 = load ptr, ptr %2628, align 8
-  %2649 = getelementptr inbounds i8, ptr %2648, i64 16
-  %2650 = load ptr, ptr %2649, align 8
-  call void %2650(ptr noundef nonnull align 8 dereferenceable(16) %2628) #17
-  %2651 = getelementptr inbounds i8, ptr %2628, i64 12
-  %2652 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i502 = icmp eq i8 %2652, 0
-  br i1 %.not.i.i.i.i.i.i502, label %2656, label %2653
+2651:                                             ; preds = %2649
+  %2652 = load ptr, ptr %2632, align 8
+  %2653 = getelementptr inbounds i8, ptr %2652, i64 16
+  %2654 = load ptr, ptr %2653, align 8
+  call void %2654(ptr noundef nonnull align 8 dereferenceable(16) %2632) #17
+  %2655 = getelementptr inbounds i8, ptr %2632, i64 12
+  %2656 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i502 = icmp eq i8 %2656, 0
+  br i1 %.not.i.i.i.i.i.i502, label %2660, label %2657
 
-2653:                                             ; preds = %2647
-  %2654 = load i32, ptr %2651, align 4
-  %2655 = add nsw i32 %2654, -1
-  store i32 %2655, ptr %2651, align 4
-  br label %2658
+2657:                                             ; preds = %2651
+  %2658 = load i32, ptr %2655, align 4
+  %2659 = add nsw i32 %2658, -1
+  store i32 %2659, ptr %2655, align 4
+  br label %2662
 
-2656:                                             ; preds = %2647
-  %2657 = atomicrmw volatile add ptr %2651, i32 -1 acq_rel, align 4
-  br label %2658
+2660:                                             ; preds = %2651
+  %2661 = atomicrmw volatile add ptr %2655, i32 -1 acq_rel, align 4
+  br label %2662
 
-2658:                                             ; preds = %2656, %2653
-  %.0.i.i.i.i.i.i503 = phi i32 [ %2654, %2653 ], [ %2657, %2656 ]
-  %2659 = icmp eq i32 %.0.i.i.i.i.i.i503, 1
-  br i1 %2659, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i504, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit505
+2662:                                             ; preds = %2660, %2657
+  %.0.i.i.i.i.i.i503 = phi i32 [ %2658, %2657 ], [ %2661, %2660 ]
+  %2663 = icmp eq i32 %.0.i.i.i.i.i.i503, 1
+  br i1 %2663, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i504, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit505
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i504: ; preds = %2658, %2634
-  %2660 = load ptr, ptr %2628, align 8
-  %2661 = getelementptr inbounds i8, ptr %2660, i64 24
-  %2662 = load ptr, ptr %2661, align 8
-  call void %2662(ptr noundef nonnull align 8 dereferenceable(16) %2628) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i504: ; preds = %2662, %2638
+  %2664 = load ptr, ptr %2632, align 8
+  %2665 = getelementptr inbounds i8, ptr %2664, i64 24
+  %2666 = load ptr, ptr %2665, align 8
+  call void %2666(ptr noundef nonnull align 8 dereferenceable(16) %2632) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit505
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit505: ; preds = %._crit_edge591, %2645, %2658, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i504
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit505: ; preds = %._crit_edge591, %2649, %2662, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i504
   ret void
 
-.body259:                                         ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %1282, %2400, %2088, %1721, %.body, %840
-  %.pn = phi { ptr, i32 } [ %2089, %2088 ], [ %1722, %1721 ], [ %254, %.body ], [ %841, %840 ], [ %lpad.phi.i, %1282 ], [ %2401, %2400 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit517, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit520, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit522, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit525, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit527, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit530, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit532, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit535, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit537, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit540, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit542, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit546, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+.body259:                                         ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %1284, %2404, %2092, %1724, %.body, %842
+  %.pn = phi { ptr, i32 } [ %2093, %2092 ], [ %1725, %1724 ], [ %255, %.body ], [ %843, %842 ], [ %lpad.phi.i, %1284 ], [ %2405, %2404 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit517, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit520, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit522, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit525, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit527, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit530, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit532, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit535, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit537, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit540, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit542, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit546, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #17
   resume { ptr, i32 } %.pn
 }
@@ -6815,7 +6826,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::shared_ptr", align 16
+  %3 = alloca %"class.std::shared_ptr", align 8
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -6828,921 +6839,923 @@ define internal fastcc void @_ZL28remove_unused_subexpressionsSt10shared_ptrIN3g
   %7 = getelementptr i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %7, align 8
   call fastcc void @_ZL21reverse_selelem_chainRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr nonnull %4, ptr %.val3)
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x ptr>, ptr %3, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %10 = load ptr, ptr %7, align 8
-  store <2 x ptr> %9, ptr %1, align 8
-  %.not.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit, label %11
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  store ptr %8, ptr %1, align 8
+  %11 = load ptr, ptr %7, align 8
+  store ptr %10, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit, label %12
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load atomic i64, ptr %12 acquire, align 8
-  %14 = icmp eq i64 %13, 4294967297
-  %15 = trunc i64 %13 to i32
-  br i1 %14, label %16, label %21
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = load atomic i64, ptr %13 acquire, align 8
+  %15 = icmp eq i64 %14, 4294967297
+  %16 = trunc i64 %14 to i32
+  br i1 %15, label %17, label %22
 
-16:                                               ; preds = %11
-  store i32 0, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 12
-  store i32 0, ptr %17, align 4
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #17
+17:                                               ; preds = %12
+  store i32 0, ptr %13, align 8
+  %18 = getelementptr inbounds i8, ptr %11, i64 12
+  store i32 0, ptr %18, align 4
+  %19 = load ptr, ptr %11, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = load ptr, ptr %20, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
 
-21:                                               ; preds = %11
-  %22 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %22, 0
-  br i1 %.not.i.i.i.i.i, label %25, label %23
+22:                                               ; preds = %12
+  %23 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %23, 0
+  br i1 %.not.i.i.i.i.i, label %26, label %24
 
-23:                                               ; preds = %21
-  %24 = add nsw i32 %15, -1
-  store i32 %24, ptr %12, align 4
-  br label %27
+24:                                               ; preds = %22
+  %25 = add nsw i32 %16, -1
+  store i32 %25, ptr %13, align 4
+  br label %28
 
-25:                                               ; preds = %21
-  %26 = atomicrmw volatile add ptr %12, i32 -1 acq_rel, align 4
-  br label %27
+26:                                               ; preds = %22
+  %27 = atomicrmw volatile add ptr %13, i32 -1 acq_rel, align 4
+  br label %28
 
-27:                                               ; preds = %25, %23
-  %.0.i.i.i.i.i = phi i32 [ %15, %23 ], [ %26, %25 ]
-  %28 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %28, label %29, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
+28:                                               ; preds = %26, %24
+  %.0.i.i.i.i.i = phi i32 [ %16, %24 ], [ %27, %26 ]
+  %29 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %29, label %30, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %10) #17
-  %33 = getelementptr inbounds i8, ptr %10, i64 12
-  %34 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %34, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %38, label %35
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %11, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %11) #17
+  %34 = getelementptr inbounds i8, ptr %11, i64 12
+  %35 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %35, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %39, label %36
 
-35:                                               ; preds = %29
-  %36 = load i32, ptr %33, align 4
-  %37 = add nsw i32 %36, -1
-  store i32 %37, ptr %33, align 4
-  br label %40
+36:                                               ; preds = %30
+  %37 = load i32, ptr %34, align 4
+  %38 = add nsw i32 %37, -1
+  store i32 %38, ptr %34, align 4
+  br label %41
 
-38:                                               ; preds = %29
-  %39 = atomicrmw volatile add ptr %33, i32 -1 acq_rel, align 4
-  br label %40
+39:                                               ; preds = %30
+  %40 = atomicrmw volatile add ptr %34, i32 -1 acq_rel, align 4
+  br label %41
 
-40:                                               ; preds = %38, %35
-  %.0.i.i.i.i.i.i.i = phi i32 [ %36, %35 ], [ %39, %38 ]
-  %41 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %41, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
+41:                                               ; preds = %39, %36
+  %.0.i.i.i.i.i.i.i = phi i32 [ %37, %36 ], [ %40, %39 ]
+  %42 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
+  br i1 %42, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %40, %16
-  %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
-  %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(16) %10) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %41, %17
+  %43 = load ptr, ptr %11, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %45 = load ptr, ptr %44, align 8
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(16) %11) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit: ; preds = %6, %27, %40, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %45 = load ptr, ptr %8, align 8
-  %.not.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, label %46
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit: ; preds = %6, %28, %41, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+  %46 = load ptr, ptr %9, align 8
+  %.not.i.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, label %47
 
-46:                                               ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
-  %48 = load atomic i64, ptr %47 acquire, align 8
-  %49 = icmp eq i64 %48, 4294967297
-  %50 = trunc i64 %48 to i32
-  br i1 %49, label %51, label %56
+47:                                               ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit
+  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  %49 = load atomic i64, ptr %48 acquire, align 8
+  %50 = icmp eq i64 %49, 4294967297
+  %51 = trunc i64 %49 to i32
+  br i1 %50, label %52, label %57
 
-51:                                               ; preds = %46
-  store i32 0, ptr %47, align 8
-  %52 = getelementptr inbounds i8, ptr %45, i64 12
-  store i32 0, ptr %52, align 4
-  %53 = load ptr, ptr %45, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %45) #17
+52:                                               ; preds = %47
+  store i32 0, ptr %48, align 8
+  %53 = getelementptr inbounds i8, ptr %46, i64 12
+  store i32 0, ptr %53, align 4
+  %54 = load ptr, ptr %46, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %56 = load ptr, ptr %55, align 8
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(16) %46) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
-56:                                               ; preds = %46
-  %57 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i4 = icmp eq i8 %57, 0
-  br i1 %.not.i.i.i.i4, label %60, label %58
+57:                                               ; preds = %47
+  %58 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i4 = icmp eq i8 %58, 0
+  br i1 %.not.i.i.i.i4, label %61, label %59
 
-58:                                               ; preds = %56
-  %59 = add nsw i32 %50, -1
-  store i32 %59, ptr %47, align 4
-  br label %62
+59:                                               ; preds = %57
+  %60 = add nsw i32 %51, -1
+  store i32 %60, ptr %48, align 4
+  br label %63
 
-60:                                               ; preds = %56
-  %61 = atomicrmw volatile add ptr %47, i32 -1 acq_rel, align 4
-  br label %62
+61:                                               ; preds = %57
+  %62 = atomicrmw volatile add ptr %48, i32 -1 acq_rel, align 4
+  br label %63
 
-62:                                               ; preds = %60, %58
-  %.0.i.i.i.i = phi i32 [ %50, %58 ], [ %61, %60 ]
-  %63 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %63, label %64, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
+63:                                               ; preds = %61, %59
+  %.0.i.i.i.i = phi i32 [ %51, %59 ], [ %62, %61 ]
+  %64 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %64, label %65, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
-64:                                               ; preds = %62
-  %65 = load ptr, ptr %45, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
-  %67 = load ptr, ptr %66, align 8
-  tail call void %67(ptr noundef nonnull align 8 dereferenceable(16) %45) #17
-  %68 = getelementptr inbounds i8, ptr %45, i64 12
-  %69 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %69, 0
-  br i1 %.not.i.i.i.i.i.i, label %73, label %70
+65:                                               ; preds = %63
+  %66 = load ptr, ptr %46, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %68 = load ptr, ptr %67, align 8
+  tail call void %68(ptr noundef nonnull align 8 dereferenceable(16) %46) #17
+  %69 = getelementptr inbounds i8, ptr %46, i64 12
+  %70 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %70, 0
+  br i1 %.not.i.i.i.i.i.i, label %74, label %71
 
-70:                                               ; preds = %64
-  %71 = load i32, ptr %68, align 4
-  %72 = add nsw i32 %71, -1
-  store i32 %72, ptr %68, align 4
-  br label %75
+71:                                               ; preds = %65
+  %72 = load i32, ptr %69, align 4
+  %73 = add nsw i32 %72, -1
+  store i32 %73, ptr %69, align 4
+  br label %76
 
-73:                                               ; preds = %64
-  %74 = atomicrmw volatile add ptr %68, i32 -1 acq_rel, align 4
-  br label %75
+74:                                               ; preds = %65
+  %75 = atomicrmw volatile add ptr %69, i32 -1 acq_rel, align 4
+  br label %76
 
-75:                                               ; preds = %73, %70
-  %.0.i.i.i.i.i.i = phi i32 [ %71, %70 ], [ %74, %73 ]
-  %76 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %76, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
+76:                                               ; preds = %74, %71
+  %.0.i.i.i.i.i.i = phi i32 [ %72, %71 ], [ %75, %74 ]
+  %77 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %77, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %75, %51
-  %77 = load ptr, ptr %45, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 24
-  %79 = load ptr, ptr %78, align 8
-  tail call void %79(ptr noundef nonnull align 8 dereferenceable(16) %45) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %76, %52
+  %78 = load ptr, ptr %46, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 24
+  %80 = load ptr, ptr %79, align 8
+  tail call void %80(ptr noundef nonnull align 8 dereferenceable(16) %46) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit, %62, %75, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %80 = load ptr, ptr %1, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 96
-  %82 = load ptr, ptr %81, align 8
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp eq i32 %83, 5
-  br i1 %84, label %.lr.ph, label %.critedge
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit, %63, %76, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+  %81 = load ptr, ptr %1, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 96
+  %83 = load ptr, ptr %82, align 8
+  %84 = load i32, ptr %83, align 8
+  %85 = icmp eq i32 %84, 5
+  br i1 %85, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit
-  %85 = phi ptr [ %141, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %80, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit ]
-  %86 = getelementptr inbounds i8, ptr %85, i64 104
-  %87 = load ptr, ptr %86, align 8
-  %.not.i.i = icmp eq ptr %87, null
+  %86 = phi ptr [ %142, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %81, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit ]
+  %87 = getelementptr inbounds i8, ptr %86, i64 104
+  %88 = load ptr, ptr %87, align 8
+  %.not.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i, label %.critedge, label %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit
 
 _ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit: ; preds = %.lr.ph
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
-  %89 = load atomic i32, ptr %88 monotonic, align 8
-  %90 = icmp eq i32 %89, 1
-  br i1 %90, label %91, label %.critedge
+  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %90 = load atomic i32, ptr %89 monotonic, align 8
+  %91 = icmp eq i32 %90, 1
+  br i1 %91, label %92, label %.critedge
 
-91:                                               ; preds = %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit
-  %92 = getelementptr inbounds i8, ptr %85, i64 112
-  %93 = load ptr, ptr %92, align 8
-  store ptr %93, ptr %1, align 8
-  %94 = getelementptr inbounds i8, ptr %85, i64 120
-  %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %7, align 8
-  %.not.i.i.i5 = icmp eq ptr %95, %96
-  br i1 %.not.i.i.i5, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit, label %97
+92:                                               ; preds = %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit
+  %93 = getelementptr inbounds i8, ptr %86, i64 112
+  %94 = load ptr, ptr %93, align 8
+  store ptr %94, ptr %1, align 8
+  %95 = getelementptr inbounds i8, ptr %86, i64 120
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %7, align 8
+  %.not.i.i.i5 = icmp eq ptr %96, %97
+  br i1 %.not.i.i.i5, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit, label %98
 
-97:                                               ; preds = %91
-  %.not7.i.i.i = icmp eq ptr %95, null
-  br i1 %.not7.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i, label %98
+98:                                               ; preds = %92
+  %.not7.i.i.i = icmp eq ptr %96, null
+  br i1 %.not7.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i, label %99
 
-98:                                               ; preds = %97
-  %99 = getelementptr inbounds i8, ptr %95, i64 8
-  %100 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i6 = icmp eq i8 %100, 0
-  br i1 %.not.i.i.i.i6, label %104, label %101
+99:                                               ; preds = %98
+  %100 = getelementptr inbounds i8, ptr %96, i64 8
+  %101 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i6 = icmp eq i8 %101, 0
+  br i1 %.not.i.i.i.i6, label %105, label %102
 
-101:                                              ; preds = %98
-  %102 = load i32, ptr %99, align 4
-  %103 = add nsw i32 %102, 1
-  store i32 %103, ptr %99, align 4
+102:                                              ; preds = %99
+  %103 = load i32, ptr %100, align 4
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr %100, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i
 
-104:                                              ; preds = %98
-  %105 = atomicrmw volatile add ptr %99, i32 1 acq_rel, align 4
+105:                                              ; preds = %99
+  %106 = atomicrmw volatile add ptr %100, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i: ; preds = %104, %101
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i: ; preds = %105, %102
   %.pr.i.i.i = load ptr, ptr %7, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i, %97
-  %106 = phi ptr [ %.pr.i.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i ], [ %96, %97 ]
-  %.not8.i.i.i = icmp eq ptr %106, null
-  br i1 %.not8.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, label %107
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i, %98
+  %107 = phi ptr [ %.pr.i.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i ], [ %97, %98 ]
+  %.not8.i.i.i = icmp eq ptr %107, null
+  br i1 %.not8.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, label %108
 
-107:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
-  %108 = getelementptr inbounds i8, ptr %106, i64 8
-  %109 = load atomic i64, ptr %108 acquire, align 8
-  %110 = icmp eq i64 %109, 4294967297
-  %111 = trunc i64 %109 to i32
-  br i1 %110, label %112, label %117
+108:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
+  %109 = getelementptr inbounds i8, ptr %107, i64 8
+  %110 = load atomic i64, ptr %109 acquire, align 8
+  %111 = icmp eq i64 %110, 4294967297
+  %112 = trunc i64 %110 to i32
+  br i1 %111, label %113, label %118
 
-112:                                              ; preds = %107
-  store i32 0, ptr %108, align 8
-  %113 = getelementptr inbounds i8, ptr %106, i64 12
-  store i32 0, ptr %113, align 4
-  %114 = load ptr, ptr %106, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 16
-  %116 = load ptr, ptr %115, align 8
-  tail call void %116(ptr noundef nonnull align 8 dereferenceable(16) %106) #17
+113:                                              ; preds = %108
+  store i32 0, ptr %109, align 8
+  %114 = getelementptr inbounds i8, ptr %107, i64 12
+  store i32 0, ptr %114, align 4
+  %115 = load ptr, ptr %107, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 16
+  %117 = load ptr, ptr %116, align 8
+  tail call void %117(ptr noundef nonnull align 8 dereferenceable(16) %107) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i10
 
-117:                                              ; preds = %107
-  %118 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i = icmp eq i8 %118, 0
-  br i1 %.not.i9.i.i.i, label %121, label %119
+118:                                              ; preds = %108
+  %119 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i = icmp eq i8 %119, 0
+  br i1 %.not.i9.i.i.i, label %122, label %120
 
-119:                                              ; preds = %117
-  %120 = add nsw i32 %111, -1
-  store i32 %120, ptr %108, align 4
-  br label %123
+120:                                              ; preds = %118
+  %121 = add nsw i32 %112, -1
+  store i32 %121, ptr %109, align 4
+  br label %124
 
-121:                                              ; preds = %117
-  %122 = atomicrmw volatile add ptr %108, i32 -1 acq_rel, align 4
-  br label %123
+122:                                              ; preds = %118
+  %123 = atomicrmw volatile add ptr %109, i32 -1 acq_rel, align 4
+  br label %124
 
-123:                                              ; preds = %121, %119
-  %.0.i.i.i.i7 = phi i32 [ %111, %119 ], [ %122, %121 ]
-  %124 = icmp eq i32 %.0.i.i.i.i7, 1
-  br i1 %124, label %125, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
+124:                                              ; preds = %122, %120
+  %.0.i.i.i.i7 = phi i32 [ %112, %120 ], [ %123, %122 ]
+  %125 = icmp eq i32 %.0.i.i.i.i7, 1
+  br i1 %125, label %126, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
 
-125:                                              ; preds = %123
-  %126 = load ptr, ptr %106, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 16
-  %128 = load ptr, ptr %127, align 8
-  tail call void %128(ptr noundef nonnull align 8 dereferenceable(16) %106) #17
-  %129 = getelementptr inbounds i8, ptr %106, i64 12
-  %130 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i8 = icmp eq i8 %130, 0
-  br i1 %.not.i.i.i.i.i.i8, label %134, label %131
+126:                                              ; preds = %124
+  %127 = load ptr, ptr %107, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 16
+  %129 = load ptr, ptr %128, align 8
+  tail call void %129(ptr noundef nonnull align 8 dereferenceable(16) %107) #17
+  %130 = getelementptr inbounds i8, ptr %107, i64 12
+  %131 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i8 = icmp eq i8 %131, 0
+  br i1 %.not.i.i.i.i.i.i8, label %135, label %132
 
-131:                                              ; preds = %125
-  %132 = load i32, ptr %129, align 4
-  %133 = add nsw i32 %132, -1
-  store i32 %133, ptr %129, align 4
-  br label %136
+132:                                              ; preds = %126
+  %133 = load i32, ptr %130, align 4
+  %134 = add nsw i32 %133, -1
+  store i32 %134, ptr %130, align 4
+  br label %137
 
-134:                                              ; preds = %125
-  %135 = atomicrmw volatile add ptr %129, i32 -1 acq_rel, align 4
-  br label %136
+135:                                              ; preds = %126
+  %136 = atomicrmw volatile add ptr %130, i32 -1 acq_rel, align 4
+  br label %137
 
-136:                                              ; preds = %134, %131
-  %.0.i.i.i.i.i.i9 = phi i32 [ %132, %131 ], [ %135, %134 ]
-  %137 = icmp eq i32 %.0.i.i.i.i.i.i9, 1
-  br i1 %137, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i10, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
+137:                                              ; preds = %135, %132
+  %.0.i.i.i.i.i.i9 = phi i32 [ %133, %132 ], [ %136, %135 ]
+  %138 = icmp eq i32 %.0.i.i.i.i.i.i9, 1
+  br i1 %138, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i10, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i10: ; preds = %136, %112
-  %138 = load ptr, ptr %106, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 24
-  %140 = load ptr, ptr %139, align 8
-  tail call void %140(ptr noundef nonnull align 8 dereferenceable(16) %106) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i10: ; preds = %137, %113
+  %139 = load ptr, ptr %107, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 24
+  %141 = load ptr, ptr %140, align 8
+  tail call void %141(ptr noundef nonnull align 8 dereferenceable(16) %107) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i10, %136, %123, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
-  store ptr %95, ptr %7, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i10, %137, %124, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
+  store ptr %96, ptr %7, align 8
   %.pre = load ptr, ptr %1, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %91, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
-  %141 = phi ptr [ %93, %91 ], [ %.pre, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
-  %142 = getelementptr inbounds i8, ptr %141, i64 96
-  %143 = load ptr, ptr %142, align 8
-  %144 = load i32, ptr %143, align 8
-  %145 = icmp eq i32 %144, 5
-  br i1 %145, label %.lr.ph, label %.critedge, !llvm.loop !31
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %92, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
+  %142 = phi ptr [ %94, %92 ], [ %.pre, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
+  %143 = getelementptr inbounds i8, ptr %142, i64 96
+  %144 = load ptr, ptr %143, align 8
+  %145 = load i32, ptr %144, align 8
+  %146 = icmp eq i32 %145, 5
+  br i1 %146, label %.lr.ph, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit, %.lr.ph, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
-  %.lcssa = phi ptr [ %80, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit ], [ %85, %.lr.ph ], [ %141, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %85, %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit ]
-  %146 = load ptr, ptr %7, align 8
-  %.not.i.i.i11 = icmp eq ptr %146, null
-  br i1 %.not.i.i.i11, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %147
+  %.lcssa = phi ptr [ %81, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit ], [ %86, %.lr.ph ], [ %142, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %86, %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit ]
+  %147 = load ptr, ptr %7, align 8
+  %.not.i.i.i11 = icmp eq ptr %147, null
+  br i1 %.not.i.i.i11, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %148
 
-147:                                              ; preds = %.critedge
-  %148 = getelementptr inbounds i8, ptr %146, i64 8
-  %149 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i12 = icmp eq i8 %149, 0
-  br i1 %.not.i.i.i.i12, label %153, label %150
+148:                                              ; preds = %.critedge
+  %149 = getelementptr inbounds i8, ptr %147, i64 8
+  %150 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i12 = icmp eq i8 %150, 0
+  br i1 %.not.i.i.i.i12, label %154, label %151
 
-150:                                              ; preds = %147
-  %151 = load i32, ptr %148, align 4
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %148, align 4
+151:                                              ; preds = %148
+  %152 = load i32, ptr %149, align 4
+  %153 = add nsw i32 %152, 1
+  store i32 %153, ptr %149, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
 
-153:                                              ; preds = %147
-  %154 = atomicrmw volatile add ptr %148, i32 1 acq_rel, align 4
+154:                                              ; preds = %148
+  %155 = atomicrmw volatile add ptr %149, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %.critedge, %150, %153
-  %155 = load ptr, ptr %1, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 112
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %155, i64 120
-  %159 = load ptr, ptr %158, align 8
-  %.not.i.i.i13 = icmp eq ptr %159, null
-  br i1 %.not.i.i.i13, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15, label %160
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %.critedge, %151, %154
+  %156 = load ptr, ptr %1, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 112
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %156, i64 120
+  %160 = load ptr, ptr %159, align 8
+  %.not.i.i.i13 = icmp eq ptr %160, null
+  br i1 %.not.i.i.i13, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15, label %161
 
-160:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
-  %161 = getelementptr inbounds i8, ptr %159, i64 8
-  %162 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i14 = icmp eq i8 %162, 0
-  br i1 %.not.i.i.i.i14, label %166, label %163
+161:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
+  %162 = getelementptr inbounds i8, ptr %160, i64 8
+  %163 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i14 = icmp eq i8 %163, 0
+  br i1 %.not.i.i.i.i14, label %167, label %164
 
-163:                                              ; preds = %160
-  %164 = load i32, ptr %161, align 4
-  %165 = add nsw i32 %164, 1
-  store i32 %165, ptr %161, align 4
+164:                                              ; preds = %161
+  %165 = load i32, ptr %162, align 4
+  %166 = add nsw i32 %165, 1
+  store i32 %166, ptr %162, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15
 
-166:                                              ; preds = %160
-  %167 = atomicrmw volatile add ptr %161, i32 1 acq_rel, align 4
+167:                                              ; preds = %161
+  %168 = atomicrmw volatile add ptr %162, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, %163, %166
-  %.not97101 = icmp eq ptr %157, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, %164, %167
+  %.not97101 = icmp eq ptr %158, null
   br i1 %.not97101, label %._crit_edge, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69
-  %.sroa.395.0105 = phi ptr [ %.sroa.395.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69 ], [ %146, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15 ]
+  %.sroa.395.0105 = phi ptr [ %.sroa.395.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69 ], [ %147, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15 ]
   %.sroa.094.0104 = phi ptr [ %.sroa.094.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69 ], [ %.lcssa, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15 ]
-  %.sroa.087.0103 = phi ptr [ %169, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69 ], [ %157, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15 ]
-  %.sroa.7.0102 = phi ptr [ %.sroa.7.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69 ], [ %159, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15 ]
-  %168 = getelementptr inbounds i8, ptr %.sroa.087.0103, i64 112
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %.sroa.087.0103, i64 120
-  %171 = load ptr, ptr %170, align 8
-  %.not.i.i.i16 = icmp eq ptr %171, null
-  br i1 %.not.i.i.i16, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit18, label %172
+  %.sroa.087.0103 = phi ptr [ %170, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69 ], [ %158, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15 ]
+  %.sroa.7.0102 = phi ptr [ %.sroa.7.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69 ], [ %160, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15 ]
+  %169 = getelementptr inbounds i8, ptr %.sroa.087.0103, i64 112
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds i8, ptr %.sroa.087.0103, i64 120
+  %172 = load ptr, ptr %171, align 8
+  %.not.i.i.i16 = icmp eq ptr %172, null
+  br i1 %.not.i.i.i16, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit18, label %173
 
-172:                                              ; preds = %.lr.ph106
-  %173 = getelementptr inbounds i8, ptr %171, i64 8
-  %174 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i17 = icmp eq i8 %174, 0
-  br i1 %.not.i.i.i.i17, label %178, label %175
+173:                                              ; preds = %.lr.ph106
+  %174 = getelementptr inbounds i8, ptr %172, i64 8
+  %175 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i17 = icmp eq i8 %175, 0
+  br i1 %.not.i.i.i.i17, label %179, label %176
 
-175:                                              ; preds = %172
-  %176 = load i32, ptr %173, align 4
-  %177 = add nsw i32 %176, 1
-  store i32 %177, ptr %173, align 4
+176:                                              ; preds = %173
+  %177 = load i32, ptr %174, align 4
+  %178 = add nsw i32 %177, 1
+  store i32 %178, ptr %174, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit18
 
-178:                                              ; preds = %172
-  %179 = atomicrmw volatile add ptr %173, i32 1 acq_rel, align 4
+179:                                              ; preds = %173
+  %180 = atomicrmw volatile add ptr %174, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit18
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit18: ; preds = %.lr.ph106, %175, %178
-  %180 = getelementptr inbounds i8, ptr %.sroa.087.0103, i64 96
-  %181 = load ptr, ptr %180, align 8
-  %182 = load i32, ptr %181, align 8
-  %183 = icmp eq i32 %182, 5
-  br i1 %183, label %184, label %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit18: ; preds = %.lr.ph106, %176, %179
+  %181 = getelementptr inbounds i8, ptr %.sroa.087.0103, i64 96
+  %182 = load ptr, ptr %181, align 8
+  %183 = load i32, ptr %182, align 8
+  %184 = icmp eq i32 %183, 5
+  br i1 %184, label %185, label %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread
 
-184:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit18
-  %185 = getelementptr inbounds i8, ptr %.sroa.087.0103, i64 104
-  %186 = load ptr, ptr %185, align 8
-  %.not.i.i19 = icmp eq ptr %186, null
+185:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit18
+  %186 = getelementptr inbounds i8, ptr %.sroa.087.0103, i64 104
+  %187 = load ptr, ptr %186, align 8
+  %.not.i.i19 = icmp eq ptr %187, null
   br i1 %.not.i.i19, label %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread, label %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20
 
-_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20: ; preds = %184
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %188 = load atomic i32, ptr %187 monotonic, align 8
-  %189 = icmp eq i32 %188, 1
-  br i1 %189, label %190, label %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread
+_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20: ; preds = %185
+  %188 = getelementptr inbounds i8, ptr %187, i64 8
+  %189 = load atomic i32, ptr %188 monotonic, align 8
+  %190 = icmp eq i32 %189, 1
+  br i1 %190, label %191, label %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread
 
-190:                                              ; preds = %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20
-  %191 = getelementptr inbounds i8, ptr %.sroa.094.0104, i64 112
-  store ptr %169, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %.sroa.094.0104, i64 120
-  %193 = load ptr, ptr %192, align 8
-  %.not.i.i.i21 = icmp eq ptr %171, %193
-  br i1 %.not.i.i.i21, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34, label %194
+191:                                              ; preds = %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20
+  %192 = getelementptr inbounds i8, ptr %.sroa.094.0104, i64 112
+  store ptr %170, ptr %192, align 8
+  %193 = getelementptr inbounds i8, ptr %.sroa.094.0104, i64 120
+  %194 = load ptr, ptr %193, align 8
+  %.not.i.i.i21 = icmp eq ptr %172, %194
+  br i1 %.not.i.i.i21, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34, label %195
 
-194:                                              ; preds = %190
-  br i1 %.not.i.i.i16, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i26, label %195
+195:                                              ; preds = %191
+  br i1 %.not.i.i.i16, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i26, label %196
 
-195:                                              ; preds = %194
-  %196 = getelementptr inbounds i8, ptr %171, i64 8
-  %197 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i23 = icmp eq i8 %197, 0
-  br i1 %.not.i.i.i.i23, label %201, label %198
+196:                                              ; preds = %195
+  %197 = getelementptr inbounds i8, ptr %172, i64 8
+  %198 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i23 = icmp eq i8 %198, 0
+  br i1 %.not.i.i.i.i23, label %202, label %199
 
-198:                                              ; preds = %195
-  %199 = load i32, ptr %196, align 4
-  %200 = add nsw i32 %199, 1
-  store i32 %200, ptr %196, align 4
+199:                                              ; preds = %196
+  %200 = load i32, ptr %197, align 4
+  %201 = add nsw i32 %200, 1
+  store i32 %201, ptr %197, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i24
 
-201:                                              ; preds = %195
-  %202 = atomicrmw volatile add ptr %196, i32 1 acq_rel, align 4
+202:                                              ; preds = %196
+  %203 = atomicrmw volatile add ptr %197, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i24
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i24: ; preds = %201, %198
-  %.pr.i.i.i25 = load ptr, ptr %192, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i24: ; preds = %202, %199
+  %.pr.i.i.i25 = load ptr, ptr %193, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i26
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i26: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i24, %194
-  %203 = phi ptr [ %.pr.i.i.i25, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i24 ], [ %193, %194 ]
-  %.not8.i.i.i27 = icmp eq ptr %203, null
-  br i1 %.not8.i.i.i27, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30, label %204
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i26: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i24, %195
+  %204 = phi ptr [ %.pr.i.i.i25, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i24 ], [ %194, %195 ]
+  %.not8.i.i.i27 = icmp eq ptr %204, null
+  br i1 %.not8.i.i.i27, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30, label %205
 
-204:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i26
-  %205 = getelementptr inbounds i8, ptr %203, i64 8
-  %206 = load atomic i64, ptr %205 acquire, align 8
-  %207 = icmp eq i64 %206, 4294967297
-  %208 = trunc i64 %206 to i32
-  br i1 %207, label %209, label %214
+205:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i26
+  %206 = getelementptr inbounds i8, ptr %204, i64 8
+  %207 = load atomic i64, ptr %206 acquire, align 8
+  %208 = icmp eq i64 %207, 4294967297
+  %209 = trunc i64 %207 to i32
+  br i1 %208, label %210, label %215
 
-209:                                              ; preds = %204
-  store i32 0, ptr %205, align 8
-  %210 = getelementptr inbounds i8, ptr %203, i64 12
-  store i32 0, ptr %210, align 4
-  %211 = load ptr, ptr %203, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 16
-  %213 = load ptr, ptr %212, align 8
-  tail call void %213(ptr noundef nonnull align 8 dereferenceable(16) %203) #17
+210:                                              ; preds = %205
+  store i32 0, ptr %206, align 8
+  %211 = getelementptr inbounds i8, ptr %204, i64 12
+  store i32 0, ptr %211, align 4
+  %212 = load ptr, ptr %204, align 8
+  %213 = getelementptr inbounds i8, ptr %212, i64 16
+  %214 = load ptr, ptr %213, align 8
+  tail call void %214(ptr noundef nonnull align 8 dereferenceable(16) %204) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i33
 
-214:                                              ; preds = %204
-  %215 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i28 = icmp eq i8 %215, 0
-  br i1 %.not.i9.i.i.i28, label %218, label %216
+215:                                              ; preds = %205
+  %216 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i28 = icmp eq i8 %216, 0
+  br i1 %.not.i9.i.i.i28, label %219, label %217
 
-216:                                              ; preds = %214
-  %217 = add nsw i32 %208, -1
-  store i32 %217, ptr %205, align 4
-  br label %220
+217:                                              ; preds = %215
+  %218 = add nsw i32 %209, -1
+  store i32 %218, ptr %206, align 4
+  br label %221
 
-218:                                              ; preds = %214
-  %219 = atomicrmw volatile add ptr %205, i32 -1 acq_rel, align 4
-  br label %220
+219:                                              ; preds = %215
+  %220 = atomicrmw volatile add ptr %206, i32 -1 acq_rel, align 4
+  br label %221
 
-220:                                              ; preds = %218, %216
-  %.0.i.i.i.i29 = phi i32 [ %208, %216 ], [ %219, %218 ]
-  %221 = icmp eq i32 %.0.i.i.i.i29, 1
-  br i1 %221, label %222, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30
+221:                                              ; preds = %219, %217
+  %.0.i.i.i.i29 = phi i32 [ %209, %217 ], [ %220, %219 ]
+  %222 = icmp eq i32 %.0.i.i.i.i29, 1
+  br i1 %222, label %223, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30
 
-222:                                              ; preds = %220
-  %223 = load ptr, ptr %203, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 16
-  %225 = load ptr, ptr %224, align 8
-  tail call void %225(ptr noundef nonnull align 8 dereferenceable(16) %203) #17
-  %226 = getelementptr inbounds i8, ptr %203, i64 12
-  %227 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i31 = icmp eq i8 %227, 0
-  br i1 %.not.i.i.i.i.i.i31, label %231, label %228
+223:                                              ; preds = %221
+  %224 = load ptr, ptr %204, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 16
+  %226 = load ptr, ptr %225, align 8
+  tail call void %226(ptr noundef nonnull align 8 dereferenceable(16) %204) #17
+  %227 = getelementptr inbounds i8, ptr %204, i64 12
+  %228 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i31 = icmp eq i8 %228, 0
+  br i1 %.not.i.i.i.i.i.i31, label %232, label %229
 
-228:                                              ; preds = %222
-  %229 = load i32, ptr %226, align 4
-  %230 = add nsw i32 %229, -1
-  store i32 %230, ptr %226, align 4
-  br label %233
+229:                                              ; preds = %223
+  %230 = load i32, ptr %227, align 4
+  %231 = add nsw i32 %230, -1
+  store i32 %231, ptr %227, align 4
+  br label %234
 
-231:                                              ; preds = %222
-  %232 = atomicrmw volatile add ptr %226, i32 -1 acq_rel, align 4
-  br label %233
+232:                                              ; preds = %223
+  %233 = atomicrmw volatile add ptr %227, i32 -1 acq_rel, align 4
+  br label %234
 
-233:                                              ; preds = %231, %228
-  %.0.i.i.i.i.i.i32 = phi i32 [ %229, %228 ], [ %232, %231 ]
-  %234 = icmp eq i32 %.0.i.i.i.i.i.i32, 1
-  br i1 %234, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i33, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30
+234:                                              ; preds = %232, %229
+  %.0.i.i.i.i.i.i32 = phi i32 [ %230, %229 ], [ %233, %232 ]
+  %235 = icmp eq i32 %.0.i.i.i.i.i.i32, 1
+  br i1 %235, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i33, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i33: ; preds = %233, %209
-  %235 = load ptr, ptr %203, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 24
-  %237 = load ptr, ptr %236, align 8
-  tail call void %237(ptr noundef nonnull align 8 dereferenceable(16) %203) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i33: ; preds = %234, %210
+  %236 = load ptr, ptr %204, align 8
+  %237 = getelementptr inbounds i8, ptr %236, i64 24
+  %238 = load ptr, ptr %237, align 8
+  tail call void %238(ptr noundef nonnull align 8 dereferenceable(16) %204) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i33, %233, %220, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i26
-  store ptr %171, ptr %192, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i33, %234, %221, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i26
+  store ptr %172, ptr %193, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34
 
-_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread: ; preds = %184, %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit18
+_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread: ; preds = %185, %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit18
   %.not.i.i.i35 = icmp eq ptr %.sroa.7.0102, %.sroa.395.0105
-  br i1 %.not.i.i.i35, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34, label %238
+  br i1 %.not.i.i.i35, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34, label %239
 
-238:                                              ; preds = %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread
+239:                                              ; preds = %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread
   %.not7.i.i.i36 = icmp eq ptr %.sroa.7.0102, null
-  br i1 %.not7.i.i.i36, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40, label %239
+  br i1 %.not7.i.i.i36, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40, label %240
 
-239:                                              ; preds = %238
-  %240 = getelementptr inbounds i8, ptr %.sroa.7.0102, i64 8
-  %241 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i37 = icmp eq i8 %241, 0
-  br i1 %.not.i.i.i.i37, label %245, label %242
+240:                                              ; preds = %239
+  %241 = getelementptr inbounds i8, ptr %.sroa.7.0102, i64 8
+  %242 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i37 = icmp eq i8 %242, 0
+  br i1 %.not.i.i.i.i37, label %246, label %243
 
-242:                                              ; preds = %239
-  %243 = load i32, ptr %240, align 4
-  %244 = add nsw i32 %243, 1
-  store i32 %244, ptr %240, align 4
+243:                                              ; preds = %240
+  %244 = load i32, ptr %241, align 4
+  %245 = add nsw i32 %244, 1
+  store i32 %245, ptr %241, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40
 
-245:                                              ; preds = %239
-  %246 = atomicrmw volatile add ptr %240, i32 1 acq_rel, align 4
+246:                                              ; preds = %240
+  %247 = atomicrmw volatile add ptr %241, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40: ; preds = %242, %245, %238
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40: ; preds = %243, %246, %239
   %.not8.i.i.i41 = icmp eq ptr %.sroa.395.0105, null
-  br i1 %.not8.i.i.i41, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34, label %247
+  br i1 %.not8.i.i.i41, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34, label %248
 
-247:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40
-  %248 = getelementptr inbounds i8, ptr %.sroa.395.0105, i64 8
-  %249 = load atomic i64, ptr %248 acquire, align 8
-  %250 = icmp eq i64 %249, 4294967297
-  %251 = trunc i64 %249 to i32
-  br i1 %250, label %252, label %257
+248:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40
+  %249 = getelementptr inbounds i8, ptr %.sroa.395.0105, i64 8
+  %250 = load atomic i64, ptr %249 acquire, align 8
+  %251 = icmp eq i64 %250, 4294967297
+  %252 = trunc i64 %250 to i32
+  br i1 %251, label %253, label %258
 
-252:                                              ; preds = %247
-  store i32 0, ptr %248, align 8
-  %253 = getelementptr inbounds i8, ptr %.sroa.395.0105, i64 12
-  store i32 0, ptr %253, align 4
-  %254 = load ptr, ptr %.sroa.395.0105, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 16
-  %256 = load ptr, ptr %255, align 8
-  tail call void %256(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.395.0105) #17
+253:                                              ; preds = %248
+  store i32 0, ptr %249, align 8
+  %254 = getelementptr inbounds i8, ptr %.sroa.395.0105, i64 12
+  store i32 0, ptr %254, align 4
+  %255 = load ptr, ptr %.sroa.395.0105, align 8
+  %256 = getelementptr inbounds i8, ptr %255, i64 16
+  %257 = load ptr, ptr %256, align 8
+  tail call void %257(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.395.0105) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47
 
-257:                                              ; preds = %247
-  %258 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i42 = icmp eq i8 %258, 0
-  br i1 %.not.i9.i.i.i42, label %261, label %259
+258:                                              ; preds = %248
+  %259 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i42 = icmp eq i8 %259, 0
+  br i1 %.not.i9.i.i.i42, label %262, label %260
 
-259:                                              ; preds = %257
-  %260 = add nsw i32 %251, -1
-  store i32 %260, ptr %248, align 4
-  br label %263
+260:                                              ; preds = %258
+  %261 = add nsw i32 %252, -1
+  store i32 %261, ptr %249, align 4
+  br label %264
 
-261:                                              ; preds = %257
-  %262 = atomicrmw volatile add ptr %248, i32 -1 acq_rel, align 4
-  br label %263
+262:                                              ; preds = %258
+  %263 = atomicrmw volatile add ptr %249, i32 -1 acq_rel, align 4
+  br label %264
 
-263:                                              ; preds = %261, %259
-  %.0.i.i.i.i43 = phi i32 [ %251, %259 ], [ %262, %261 ]
-  %264 = icmp eq i32 %.0.i.i.i.i43, 1
-  br i1 %264, label %265, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34
+264:                                              ; preds = %262, %260
+  %.0.i.i.i.i43 = phi i32 [ %252, %260 ], [ %263, %262 ]
+  %265 = icmp eq i32 %.0.i.i.i.i43, 1
+  br i1 %265, label %266, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34
 
-265:                                              ; preds = %263
-  %266 = load ptr, ptr %.sroa.395.0105, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 16
-  %268 = load ptr, ptr %267, align 8
-  tail call void %268(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.395.0105) #17
-  %269 = getelementptr inbounds i8, ptr %.sroa.395.0105, i64 12
-  %270 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i45 = icmp eq i8 %270, 0
-  br i1 %.not.i.i.i.i.i.i45, label %274, label %271
+266:                                              ; preds = %264
+  %267 = load ptr, ptr %.sroa.395.0105, align 8
+  %268 = getelementptr inbounds i8, ptr %267, i64 16
+  %269 = load ptr, ptr %268, align 8
+  tail call void %269(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.395.0105) #17
+  %270 = getelementptr inbounds i8, ptr %.sroa.395.0105, i64 12
+  %271 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i45 = icmp eq i8 %271, 0
+  br i1 %.not.i.i.i.i.i.i45, label %275, label %272
 
-271:                                              ; preds = %265
-  %272 = load i32, ptr %269, align 4
-  %273 = add nsw i32 %272, -1
-  store i32 %273, ptr %269, align 4
-  br label %276
+272:                                              ; preds = %266
+  %273 = load i32, ptr %270, align 4
+  %274 = add nsw i32 %273, -1
+  store i32 %274, ptr %270, align 4
+  br label %277
 
-274:                                              ; preds = %265
-  %275 = atomicrmw volatile add ptr %269, i32 -1 acq_rel, align 4
-  br label %276
+275:                                              ; preds = %266
+  %276 = atomicrmw volatile add ptr %270, i32 -1 acq_rel, align 4
+  br label %277
 
-276:                                              ; preds = %274, %271
-  %.0.i.i.i.i.i.i46 = phi i32 [ %272, %271 ], [ %275, %274 ]
-  %277 = icmp eq i32 %.0.i.i.i.i.i.i46, 1
-  br i1 %277, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34
+277:                                              ; preds = %275, %272
+  %.0.i.i.i.i.i.i46 = phi i32 [ %273, %272 ], [ %276, %275 ]
+  %278 = icmp eq i32 %.0.i.i.i.i.i.i46, 1
+  br i1 %278, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47: ; preds = %276, %252
-  %278 = load ptr, ptr %.sroa.395.0105, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 24
-  %280 = load ptr, ptr %279, align 8
-  tail call void %280(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.395.0105) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47: ; preds = %277, %253
+  %279 = load ptr, ptr %.sroa.395.0105, align 8
+  %280 = getelementptr inbounds i8, ptr %279, i64 24
+  %281 = load ptr, ptr %280, align 8
+  tail call void %281(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.395.0105) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34: ; preds = %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47, %276, %263, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30, %190
-  %.sroa.094.1 = phi ptr [ %.sroa.094.0104, %190 ], [ %.sroa.094.0104, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30 ], [ %.sroa.087.0103, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40 ], [ %.sroa.087.0103, %263 ], [ %.sroa.087.0103, %276 ], [ %.sroa.087.0103, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47 ], [ %.sroa.087.0103, %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread ]
-  %.sroa.395.1 = phi ptr [ %.sroa.395.0105, %190 ], [ %.sroa.395.0105, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30 ], [ %.sroa.7.0102, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40 ], [ %.sroa.7.0102, %263 ], [ %.sroa.7.0102, %276 ], [ %.sroa.7.0102, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47 ], [ %.sroa.395.0105, %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread ]
-  %.not.i.i.i49 = icmp eq ptr %171, %.sroa.7.0102
-  br i1 %.not.i.i.i49, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62, label %281
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34: ; preds = %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47, %277, %264, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30, %191
+  %.sroa.094.1 = phi ptr [ %.sroa.094.0104, %191 ], [ %.sroa.094.0104, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30 ], [ %.sroa.087.0103, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40 ], [ %.sroa.087.0103, %264 ], [ %.sroa.087.0103, %277 ], [ %.sroa.087.0103, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47 ], [ %.sroa.087.0103, %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread ]
+  %.sroa.395.1 = phi ptr [ %.sroa.395.0105, %191 ], [ %.sroa.395.0105, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i30 ], [ %.sroa.7.0102, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i40 ], [ %.sroa.7.0102, %264 ], [ %.sroa.7.0102, %277 ], [ %.sroa.7.0102, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47 ], [ %.sroa.395.0105, %_ZNKSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit20.thread ]
+  %.not.i.i.i49 = icmp eq ptr %172, %.sroa.7.0102
+  br i1 %.not.i.i.i49, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62, label %282
 
-281:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34
-  br i1 %.not.i.i.i16, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i54, label %282
+282:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34
+  br i1 %.not.i.i.i16, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i54, label %283
 
-282:                                              ; preds = %281
-  %283 = getelementptr inbounds i8, ptr %171, i64 8
-  %284 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i51 = icmp eq i8 %284, 0
-  br i1 %.not.i.i.i.i51, label %288, label %285
+283:                                              ; preds = %282
+  %284 = getelementptr inbounds i8, ptr %172, i64 8
+  %285 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i51 = icmp eq i8 %285, 0
+  br i1 %.not.i.i.i.i51, label %289, label %286
 
-285:                                              ; preds = %282
-  %286 = load i32, ptr %283, align 4
-  %287 = add nsw i32 %286, 1
-  store i32 %287, ptr %283, align 4
+286:                                              ; preds = %283
+  %287 = load i32, ptr %284, align 4
+  %288 = add nsw i32 %287, 1
+  store i32 %288, ptr %284, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i54
 
-288:                                              ; preds = %282
-  %289 = atomicrmw volatile add ptr %283, i32 1 acq_rel, align 4
+289:                                              ; preds = %283
+  %290 = atomicrmw volatile add ptr %284, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i54
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i54: ; preds = %285, %288, %281
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i54: ; preds = %286, %289, %282
   %.not8.i.i.i55 = icmp eq ptr %.sroa.7.0102, null
-  br i1 %.not8.i.i.i55, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62, label %290
+  br i1 %.not8.i.i.i55, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62, label %291
 
-290:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i54
-  %291 = getelementptr inbounds i8, ptr %.sroa.7.0102, i64 8
-  %292 = load atomic i64, ptr %291 acquire, align 8
-  %293 = icmp eq i64 %292, 4294967297
-  %294 = trunc i64 %292 to i32
-  br i1 %293, label %295, label %300
+291:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i54
+  %292 = getelementptr inbounds i8, ptr %.sroa.7.0102, i64 8
+  %293 = load atomic i64, ptr %292 acquire, align 8
+  %294 = icmp eq i64 %293, 4294967297
+  %295 = trunc i64 %293 to i32
+  br i1 %294, label %296, label %301
 
-295:                                              ; preds = %290
-  store i32 0, ptr %291, align 8
-  %296 = getelementptr inbounds i8, ptr %.sroa.7.0102, i64 12
-  store i32 0, ptr %296, align 4
-  %297 = load ptr, ptr %.sroa.7.0102, align 8
-  %298 = getelementptr inbounds i8, ptr %297, i64 16
-  %299 = load ptr, ptr %298, align 8
-  tail call void %299(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0102) #17
+296:                                              ; preds = %291
+  store i32 0, ptr %292, align 8
+  %297 = getelementptr inbounds i8, ptr %.sroa.7.0102, i64 12
+  store i32 0, ptr %297, align 4
+  %298 = load ptr, ptr %.sroa.7.0102, align 8
+  %299 = getelementptr inbounds i8, ptr %298, i64 16
+  %300 = load ptr, ptr %299, align 8
+  tail call void %300(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0102) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i61
 
-300:                                              ; preds = %290
-  %301 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i56 = icmp eq i8 %301, 0
-  br i1 %.not.i9.i.i.i56, label %304, label %302
+301:                                              ; preds = %291
+  %302 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i56 = icmp eq i8 %302, 0
+  br i1 %.not.i9.i.i.i56, label %305, label %303
 
-302:                                              ; preds = %300
-  %303 = add nsw i32 %294, -1
-  store i32 %303, ptr %291, align 4
-  br label %306
+303:                                              ; preds = %301
+  %304 = add nsw i32 %295, -1
+  store i32 %304, ptr %292, align 4
+  br label %307
 
-304:                                              ; preds = %300
-  %305 = atomicrmw volatile add ptr %291, i32 -1 acq_rel, align 4
-  br label %306
+305:                                              ; preds = %301
+  %306 = atomicrmw volatile add ptr %292, i32 -1 acq_rel, align 4
+  br label %307
 
-306:                                              ; preds = %304, %302
-  %.0.i.i.i.i57 = phi i32 [ %294, %302 ], [ %305, %304 ]
-  %307 = icmp eq i32 %.0.i.i.i.i57, 1
-  br i1 %307, label %308, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62
+307:                                              ; preds = %305, %303
+  %.0.i.i.i.i57 = phi i32 [ %295, %303 ], [ %306, %305 ]
+  %308 = icmp eq i32 %.0.i.i.i.i57, 1
+  br i1 %308, label %309, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62
 
-308:                                              ; preds = %306
-  %309 = load ptr, ptr %.sroa.7.0102, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 16
-  %311 = load ptr, ptr %310, align 8
-  tail call void %311(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0102) #17
-  %312 = getelementptr inbounds i8, ptr %.sroa.7.0102, i64 12
-  %313 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i59 = icmp eq i8 %313, 0
-  br i1 %.not.i.i.i.i.i.i59, label %317, label %314
+309:                                              ; preds = %307
+  %310 = load ptr, ptr %.sroa.7.0102, align 8
+  %311 = getelementptr inbounds i8, ptr %310, i64 16
+  %312 = load ptr, ptr %311, align 8
+  tail call void %312(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0102) #17
+  %313 = getelementptr inbounds i8, ptr %.sroa.7.0102, i64 12
+  %314 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i59 = icmp eq i8 %314, 0
+  br i1 %.not.i.i.i.i.i.i59, label %318, label %315
 
-314:                                              ; preds = %308
-  %315 = load i32, ptr %312, align 4
-  %316 = add nsw i32 %315, -1
-  store i32 %316, ptr %312, align 4
-  br label %319
+315:                                              ; preds = %309
+  %316 = load i32, ptr %313, align 4
+  %317 = add nsw i32 %316, -1
+  store i32 %317, ptr %313, align 4
+  br label %320
 
-317:                                              ; preds = %308
-  %318 = atomicrmw volatile add ptr %312, i32 -1 acq_rel, align 4
-  br label %319
+318:                                              ; preds = %309
+  %319 = atomicrmw volatile add ptr %313, i32 -1 acq_rel, align 4
+  br label %320
 
-319:                                              ; preds = %317, %314
-  %.0.i.i.i.i.i.i60 = phi i32 [ %315, %314 ], [ %318, %317 ]
-  %320 = icmp eq i32 %.0.i.i.i.i.i.i60, 1
-  br i1 %320, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i61, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62
+320:                                              ; preds = %318, %315
+  %.0.i.i.i.i.i.i60 = phi i32 [ %316, %315 ], [ %319, %318 ]
+  %321 = icmp eq i32 %.0.i.i.i.i.i.i60, 1
+  br i1 %321, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i61, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i61: ; preds = %319, %295
-  %321 = load ptr, ptr %.sroa.7.0102, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 24
-  %323 = load ptr, ptr %322, align 8
-  tail call void %323(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0102) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i61: ; preds = %320, %296
+  %322 = load ptr, ptr %.sroa.7.0102, align 8
+  %323 = getelementptr inbounds i8, ptr %322, i64 24
+  %324 = load ptr, ptr %323, align 8
+  tail call void %324(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0102) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i54, %306, %319, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i61, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34
-  %.sroa.7.1 = phi ptr [ %.sroa.7.0102, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34 ], [ %171, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i61 ], [ %171, %319 ], [ %171, %306 ], [ %171, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i54 ]
-  br i1 %.not.i.i.i16, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69, label %324
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i54, %307, %320, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i61, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34
+  %.sroa.7.1 = phi ptr [ %.sroa.7.0102, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit34 ], [ %172, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i61 ], [ %172, %320 ], [ %172, %307 ], [ %172, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i54 ]
+  br i1 %.not.i.i.i16, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69, label %325
 
-324:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62
-  %325 = getelementptr inbounds i8, ptr %171, i64 8
-  %326 = load atomic i64, ptr %325 acquire, align 8
-  %327 = icmp eq i64 %326, 4294967297
-  %328 = trunc i64 %326 to i32
-  br i1 %327, label %329, label %334
+325:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62
+  %326 = getelementptr inbounds i8, ptr %172, i64 8
+  %327 = load atomic i64, ptr %326 acquire, align 8
+  %328 = icmp eq i64 %327, 4294967297
+  %329 = trunc i64 %327 to i32
+  br i1 %328, label %330, label %335
 
-329:                                              ; preds = %324
-  store i32 0, ptr %325, align 8
-  %330 = getelementptr inbounds i8, ptr %171, i64 12
-  store i32 0, ptr %330, align 4
-  %331 = load ptr, ptr %171, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 16
-  %333 = load ptr, ptr %332, align 8
-  tail call void %333(ptr noundef nonnull align 8 dereferenceable(16) %171) #17
+330:                                              ; preds = %325
+  store i32 0, ptr %326, align 8
+  %331 = getelementptr inbounds i8, ptr %172, i64 12
+  store i32 0, ptr %331, align 4
+  %332 = load ptr, ptr %172, align 8
+  %333 = getelementptr inbounds i8, ptr %332, i64 16
+  %334 = load ptr, ptr %333, align 8
+  tail call void %334(ptr noundef nonnull align 8 dereferenceable(16) %172) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i68
 
-334:                                              ; preds = %324
-  %335 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i64 = icmp eq i8 %335, 0
-  br i1 %.not.i.i.i.i64, label %338, label %336
+335:                                              ; preds = %325
+  %336 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i64 = icmp eq i8 %336, 0
+  br i1 %.not.i.i.i.i64, label %339, label %337
 
-336:                                              ; preds = %334
-  %337 = add nsw i32 %328, -1
-  store i32 %337, ptr %325, align 4
-  br label %340
+337:                                              ; preds = %335
+  %338 = add nsw i32 %329, -1
+  store i32 %338, ptr %326, align 4
+  br label %341
 
-338:                                              ; preds = %334
-  %339 = atomicrmw volatile add ptr %325, i32 -1 acq_rel, align 4
-  br label %340
+339:                                              ; preds = %335
+  %340 = atomicrmw volatile add ptr %326, i32 -1 acq_rel, align 4
+  br label %341
 
-340:                                              ; preds = %338, %336
-  %.0.i.i.i.i65 = phi i32 [ %328, %336 ], [ %339, %338 ]
-  %341 = icmp eq i32 %.0.i.i.i.i65, 1
-  br i1 %341, label %342, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69
+341:                                              ; preds = %339, %337
+  %.0.i.i.i.i65 = phi i32 [ %329, %337 ], [ %340, %339 ]
+  %342 = icmp eq i32 %.0.i.i.i.i65, 1
+  br i1 %342, label %343, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69
 
-342:                                              ; preds = %340
-  %343 = load ptr, ptr %171, align 8
-  %344 = getelementptr inbounds i8, ptr %343, i64 16
-  %345 = load ptr, ptr %344, align 8
-  tail call void %345(ptr noundef nonnull align 8 dereferenceable(16) %171) #17
-  %346 = getelementptr inbounds i8, ptr %171, i64 12
-  %347 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i66 = icmp eq i8 %347, 0
-  br i1 %.not.i.i.i.i.i.i66, label %351, label %348
+343:                                              ; preds = %341
+  %344 = load ptr, ptr %172, align 8
+  %345 = getelementptr inbounds i8, ptr %344, i64 16
+  %346 = load ptr, ptr %345, align 8
+  tail call void %346(ptr noundef nonnull align 8 dereferenceable(16) %172) #17
+  %347 = getelementptr inbounds i8, ptr %172, i64 12
+  %348 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i66 = icmp eq i8 %348, 0
+  br i1 %.not.i.i.i.i.i.i66, label %352, label %349
 
-348:                                              ; preds = %342
-  %349 = load i32, ptr %346, align 4
-  %350 = add nsw i32 %349, -1
-  store i32 %350, ptr %346, align 4
-  br label %353
+349:                                              ; preds = %343
+  %350 = load i32, ptr %347, align 4
+  %351 = add nsw i32 %350, -1
+  store i32 %351, ptr %347, align 4
+  br label %354
 
-351:                                              ; preds = %342
-  %352 = atomicrmw volatile add ptr %346, i32 -1 acq_rel, align 4
-  br label %353
+352:                                              ; preds = %343
+  %353 = atomicrmw volatile add ptr %347, i32 -1 acq_rel, align 4
+  br label %354
 
-353:                                              ; preds = %351, %348
-  %.0.i.i.i.i.i.i67 = phi i32 [ %349, %348 ], [ %352, %351 ]
-  %354 = icmp eq i32 %.0.i.i.i.i.i.i67, 1
-  br i1 %354, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i68, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69
+354:                                              ; preds = %352, %349
+  %.0.i.i.i.i.i.i67 = phi i32 [ %350, %349 ], [ %353, %352 ]
+  %355 = icmp eq i32 %.0.i.i.i.i.i.i67, 1
+  br i1 %355, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i68, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i68: ; preds = %353, %329
-  %355 = load ptr, ptr %171, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 24
-  %357 = load ptr, ptr %356, align 8
-  tail call void %357(ptr noundef nonnull align 8 dereferenceable(16) %171) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i68: ; preds = %354, %330
+  %356 = load ptr, ptr %172, align 8
+  %357 = getelementptr inbounds i8, ptr %356, i64 24
+  %358 = load ptr, ptr %357, align 8
+  tail call void %358(ptr noundef nonnull align 8 dereferenceable(16) %172) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62, %340, %353, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i68
-  %.not97 = icmp eq ptr %169, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit62, %341, %354, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i68
+  %.not97 = icmp eq ptr %170, null
   br i1 %.not97, label %._crit_edge, label %.lr.ph106, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15
-  %.sroa.7.0.lcssa = phi ptr [ %159, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15 ], [ %.sroa.7.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69 ]
-  %.sroa.395.0.lcssa = phi ptr [ %146, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15 ], [ %.sroa.395.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69 ]
+  %.sroa.7.0.lcssa = phi ptr [ %160, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15 ], [ %.sroa.7.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69 ]
+  %.sroa.395.0.lcssa = phi ptr [ %147, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit15 ], [ %.sroa.395.1, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit69 ]
   %.val = load ptr, ptr %1, align 8
   %.val1 = load ptr, ptr %7, align 8
   tail call fastcc void @_ZL21reverse_selelem_chainRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val, ptr %.val1)
   %.not.i.i.i70 = icmp eq ptr %.sroa.7.0.lcssa, null
-  br i1 %.not.i.i.i70, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76, label %358
+  br i1 %.not.i.i.i70, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76, label %359
 
-358:                                              ; preds = %._crit_edge
-  %359 = getelementptr inbounds i8, ptr %.sroa.7.0.lcssa, i64 8
-  %360 = load atomic i64, ptr %359 acquire, align 8
-  %361 = icmp eq i64 %360, 4294967297
-  %362 = trunc i64 %360 to i32
-  br i1 %361, label %363, label %368
+359:                                              ; preds = %._crit_edge
+  %360 = getelementptr inbounds i8, ptr %.sroa.7.0.lcssa, i64 8
+  %361 = load atomic i64, ptr %360 acquire, align 8
+  %362 = icmp eq i64 %361, 4294967297
+  %363 = trunc i64 %361 to i32
+  br i1 %362, label %364, label %369
 
-363:                                              ; preds = %358
-  store i32 0, ptr %359, align 8
-  %364 = getelementptr inbounds i8, ptr %.sroa.7.0.lcssa, i64 12
-  store i32 0, ptr %364, align 4
-  %365 = load ptr, ptr %.sroa.7.0.lcssa, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 16
-  %367 = load ptr, ptr %366, align 8
-  tail call void %367(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0.lcssa) #17
+364:                                              ; preds = %359
+  store i32 0, ptr %360, align 8
+  %365 = getelementptr inbounds i8, ptr %.sroa.7.0.lcssa, i64 12
+  store i32 0, ptr %365, align 4
+  %366 = load ptr, ptr %.sroa.7.0.lcssa, align 8
+  %367 = getelementptr inbounds i8, ptr %366, i64 16
+  %368 = load ptr, ptr %367, align 8
+  tail call void %368(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0.lcssa) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i75
 
-368:                                              ; preds = %358
-  %369 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i71 = icmp eq i8 %369, 0
-  br i1 %.not.i.i.i.i71, label %372, label %370
+369:                                              ; preds = %359
+  %370 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i71 = icmp eq i8 %370, 0
+  br i1 %.not.i.i.i.i71, label %373, label %371
 
-370:                                              ; preds = %368
-  %371 = add nsw i32 %362, -1
-  store i32 %371, ptr %359, align 4
-  br label %374
+371:                                              ; preds = %369
+  %372 = add nsw i32 %363, -1
+  store i32 %372, ptr %360, align 4
+  br label %375
 
-372:                                              ; preds = %368
-  %373 = atomicrmw volatile add ptr %359, i32 -1 acq_rel, align 4
-  br label %374
+373:                                              ; preds = %369
+  %374 = atomicrmw volatile add ptr %360, i32 -1 acq_rel, align 4
+  br label %375
 
-374:                                              ; preds = %372, %370
-  %.0.i.i.i.i72 = phi i32 [ %362, %370 ], [ %373, %372 ]
-  %375 = icmp eq i32 %.0.i.i.i.i72, 1
-  br i1 %375, label %376, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76
+375:                                              ; preds = %373, %371
+  %.0.i.i.i.i72 = phi i32 [ %363, %371 ], [ %374, %373 ]
+  %376 = icmp eq i32 %.0.i.i.i.i72, 1
+  br i1 %376, label %377, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76
 
-376:                                              ; preds = %374
-  %377 = load ptr, ptr %.sroa.7.0.lcssa, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 16
-  %379 = load ptr, ptr %378, align 8
-  tail call void %379(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0.lcssa) #17
-  %380 = getelementptr inbounds i8, ptr %.sroa.7.0.lcssa, i64 12
-  %381 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i73 = icmp eq i8 %381, 0
-  br i1 %.not.i.i.i.i.i.i73, label %385, label %382
+377:                                              ; preds = %375
+  %378 = load ptr, ptr %.sroa.7.0.lcssa, align 8
+  %379 = getelementptr inbounds i8, ptr %378, i64 16
+  %380 = load ptr, ptr %379, align 8
+  tail call void %380(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0.lcssa) #17
+  %381 = getelementptr inbounds i8, ptr %.sroa.7.0.lcssa, i64 12
+  %382 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i73 = icmp eq i8 %382, 0
+  br i1 %.not.i.i.i.i.i.i73, label %386, label %383
 
-382:                                              ; preds = %376
-  %383 = load i32, ptr %380, align 4
-  %384 = add nsw i32 %383, -1
-  store i32 %384, ptr %380, align 4
-  br label %387
+383:                                              ; preds = %377
+  %384 = load i32, ptr %381, align 4
+  %385 = add nsw i32 %384, -1
+  store i32 %385, ptr %381, align 4
+  br label %388
 
-385:                                              ; preds = %376
-  %386 = atomicrmw volatile add ptr %380, i32 -1 acq_rel, align 4
-  br label %387
+386:                                              ; preds = %377
+  %387 = atomicrmw volatile add ptr %381, i32 -1 acq_rel, align 4
+  br label %388
 
-387:                                              ; preds = %385, %382
-  %.0.i.i.i.i.i.i74 = phi i32 [ %383, %382 ], [ %386, %385 ]
-  %388 = icmp eq i32 %.0.i.i.i.i.i.i74, 1
-  br i1 %388, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i75, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76
+388:                                              ; preds = %386, %383
+  %.0.i.i.i.i.i.i74 = phi i32 [ %384, %383 ], [ %387, %386 ]
+  %389 = icmp eq i32 %.0.i.i.i.i.i.i74, 1
+  br i1 %389, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i75, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i75: ; preds = %387, %363
-  %389 = load ptr, ptr %.sroa.7.0.lcssa, align 8
-  %390 = getelementptr inbounds i8, ptr %389, i64 24
-  %391 = load ptr, ptr %390, align 8
-  tail call void %391(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0.lcssa) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i75: ; preds = %388, %364
+  %390 = load ptr, ptr %.sroa.7.0.lcssa, align 8
+  %391 = getelementptr inbounds i8, ptr %390, i64 24
+  %392 = load ptr, ptr %391, align 8
+  tail call void %392(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0.lcssa) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76: ; preds = %._crit_edge, %374, %387, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i75
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76: ; preds = %._crit_edge, %375, %388, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i75
   %.not.i.i.i77 = icmp eq ptr %.sroa.395.0.lcssa, null
-  br i1 %.not.i.i.i77, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83, label %392
+  br i1 %.not.i.i.i77, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83, label %393
 
-392:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76
-  %393 = getelementptr inbounds i8, ptr %.sroa.395.0.lcssa, i64 8
-  %394 = load atomic i64, ptr %393 acquire, align 8
-  %395 = icmp eq i64 %394, 4294967297
-  %396 = trunc i64 %394 to i32
-  br i1 %395, label %397, label %402
+393:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76
+  %394 = getelementptr inbounds i8, ptr %.sroa.395.0.lcssa, i64 8
+  %395 = load atomic i64, ptr %394 acquire, align 8
+  %396 = icmp eq i64 %395, 4294967297
+  %397 = trunc i64 %395 to i32
+  br i1 %396, label %398, label %403
 
-397:                                              ; preds = %392
-  store i32 0, ptr %393, align 8
-  %398 = getelementptr inbounds i8, ptr %.sroa.395.0.lcssa, i64 12
-  store i32 0, ptr %398, align 4
-  %399 = load ptr, ptr %.sroa.395.0.lcssa, align 8
-  %400 = getelementptr inbounds i8, ptr %399, i64 16
-  %401 = load ptr, ptr %400, align 8
-  tail call void %401(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.395.0.lcssa) #17
+398:                                              ; preds = %393
+  store i32 0, ptr %394, align 8
+  %399 = getelementptr inbounds i8, ptr %.sroa.395.0.lcssa, i64 12
+  store i32 0, ptr %399, align 4
+  %400 = load ptr, ptr %.sroa.395.0.lcssa, align 8
+  %401 = getelementptr inbounds i8, ptr %400, i64 16
+  %402 = load ptr, ptr %401, align 8
+  tail call void %402(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.395.0.lcssa) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82
 
-402:                                              ; preds = %392
-  %403 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i78 = icmp eq i8 %403, 0
-  br i1 %.not.i.i.i.i78, label %406, label %404
+403:                                              ; preds = %393
+  %404 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i78 = icmp eq i8 %404, 0
+  br i1 %.not.i.i.i.i78, label %407, label %405
 
-404:                                              ; preds = %402
-  %405 = add nsw i32 %396, -1
-  store i32 %405, ptr %393, align 4
-  br label %408
+405:                                              ; preds = %403
+  %406 = add nsw i32 %397, -1
+  store i32 %406, ptr %394, align 4
+  br label %409
 
-406:                                              ; preds = %402
-  %407 = atomicrmw volatile add ptr %393, i32 -1 acq_rel, align 4
-  br label %408
+407:                                              ; preds = %403
+  %408 = atomicrmw volatile add ptr %394, i32 -1 acq_rel, align 4
+  br label %409
 
-408:                                              ; preds = %406, %404
-  %.0.i.i.i.i79 = phi i32 [ %396, %404 ], [ %407, %406 ]
-  %409 = icmp eq i32 %.0.i.i.i.i79, 1
-  br i1 %409, label %410, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83
+409:                                              ; preds = %407, %405
+  %.0.i.i.i.i79 = phi i32 [ %397, %405 ], [ %408, %407 ]
+  %410 = icmp eq i32 %.0.i.i.i.i79, 1
+  br i1 %410, label %411, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83
 
-410:                                              ; preds = %408
-  %411 = load ptr, ptr %.sroa.395.0.lcssa, align 8
-  %412 = getelementptr inbounds i8, ptr %411, i64 16
-  %413 = load ptr, ptr %412, align 8
-  tail call void %413(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.395.0.lcssa) #17
-  %414 = getelementptr inbounds i8, ptr %.sroa.395.0.lcssa, i64 12
-  %415 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i80 = icmp eq i8 %415, 0
-  br i1 %.not.i.i.i.i.i.i80, label %419, label %416
+411:                                              ; preds = %409
+  %412 = load ptr, ptr %.sroa.395.0.lcssa, align 8
+  %413 = getelementptr inbounds i8, ptr %412, i64 16
+  %414 = load ptr, ptr %413, align 8
+  tail call void %414(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.395.0.lcssa) #17
+  %415 = getelementptr inbounds i8, ptr %.sroa.395.0.lcssa, i64 12
+  %416 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i80 = icmp eq i8 %416, 0
+  br i1 %.not.i.i.i.i.i.i80, label %420, label %417
 
-416:                                              ; preds = %410
-  %417 = load i32, ptr %414, align 4
-  %418 = add nsw i32 %417, -1
-  store i32 %418, ptr %414, align 4
-  br label %421
+417:                                              ; preds = %411
+  %418 = load i32, ptr %415, align 4
+  %419 = add nsw i32 %418, -1
+  store i32 %419, ptr %415, align 4
+  br label %422
 
-419:                                              ; preds = %410
-  %420 = atomicrmw volatile add ptr %414, i32 -1 acq_rel, align 4
-  br label %421
+420:                                              ; preds = %411
+  %421 = atomicrmw volatile add ptr %415, i32 -1 acq_rel, align 4
+  br label %422
 
-421:                                              ; preds = %419, %416
-  %.0.i.i.i.i.i.i81 = phi i32 [ %417, %416 ], [ %420, %419 ]
-  %422 = icmp eq i32 %.0.i.i.i.i.i.i81, 1
-  br i1 %422, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83
+422:                                              ; preds = %420, %417
+  %.0.i.i.i.i.i.i81 = phi i32 [ %418, %417 ], [ %421, %420 ]
+  %423 = icmp eq i32 %.0.i.i.i.i.i.i81, 1
+  br i1 %423, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82: ; preds = %421, %397
-  %423 = load ptr, ptr %.sroa.395.0.lcssa, align 8
-  %424 = getelementptr inbounds i8, ptr %423, i64 24
-  %425 = load ptr, ptr %424, align 8
-  tail call void %425(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.395.0.lcssa) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82: ; preds = %422, %398
+  %424 = load ptr, ptr %.sroa.395.0.lcssa, align 8
+  %425 = getelementptr inbounds i8, ptr %424, i64 24
+  %426 = load ptr, ptr %425, align 8
+  tail call void %426(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.395.0.lcssa) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82, %421, %408, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76, %5
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82, %422, %409, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit76, %5
   ret void
 }
 
@@ -22098,7 +22111,7 @@ define internal fastcc void @_ZL26extract_item_subselectionsRKSt10shared_ptrIN3g
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.std::shared_ptr", align 8
   %7 = alloca %"class.std::shared_ptr", align 8
-  %8 = alloca %"class.std::shared_ptr", align 16
+  %8 = alloca %"class.std::shared_ptr", align 8
   %9 = alloca %"struct.gmx::SelectionLocation", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -22400,13 +22413,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %_ZNSt10
   %143 = icmp eq i32 %.0.i.i.i.i.i.i13, 1
   br i1 %143, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
-144:                                              ; preds = %.thread, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit150, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70, %366, %286, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122, %146, %31
+144:                                              ; preds = %.thread, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit150, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70, %367, %287, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122, %146, %31
   %145 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i71, %144, %619, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i104, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %291, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ], [ %371, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i71 ], [ %462, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i104 ], [ %145, %144 ], [ %620, %619 ]
+.body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i71, %144, %620, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i104, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %292, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i ], [ %372, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i71 ], [ %463, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i104 ], [ %145, %144 ], [ %621, %620 ]
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
@@ -22419,1363 +22432,1365 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %_ZNSt10
 147:                                              ; preds = %146
   %148 = load ptr, ptr %5, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 112
-  %150 = getelementptr inbounds i8, ptr %148, i64 120
-  %151 = load <2 x ptr>, ptr %8, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %152 = load ptr, ptr %150, align 8
-  store <2 x ptr> %151, ptr %149, align 8
-  %.not.i.i.i.i15 = icmp eq ptr %152, null
-  br i1 %.not.i.i.i.i15, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21, label %153
+  %150 = load ptr, ptr %8, align 8
+  %151 = load ptr, ptr %25, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  store ptr %150, ptr %149, align 8
+  %152 = getelementptr inbounds i8, ptr %148, i64 120
+  %153 = load ptr, ptr %152, align 8
+  store ptr %151, ptr %152, align 8
+  %.not.i.i.i.i15 = icmp eq ptr %153, null
+  br i1 %.not.i.i.i.i15, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21, label %154
 
-153:                                              ; preds = %147
-  %154 = getelementptr inbounds i8, ptr %152, i64 8
-  %155 = load atomic i64, ptr %154 acquire, align 8
-  %156 = icmp eq i64 %155, 4294967297
-  %157 = trunc i64 %155 to i32
-  br i1 %156, label %158, label %163
+154:                                              ; preds = %147
+  %155 = getelementptr inbounds i8, ptr %153, i64 8
+  %156 = load atomic i64, ptr %155 acquire, align 8
+  %157 = icmp eq i64 %156, 4294967297
+  %158 = trunc i64 %156 to i32
+  br i1 %157, label %159, label %164
 
-158:                                              ; preds = %153
-  store i32 0, ptr %154, align 8
-  %159 = getelementptr inbounds i8, ptr %152, i64 12
-  store i32 0, ptr %159, align 4
-  %160 = load ptr, ptr %152, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 16
-  %162 = load ptr, ptr %161, align 8
-  call void %162(ptr noundef nonnull align 8 dereferenceable(16) %152) #17
+159:                                              ; preds = %154
+  store i32 0, ptr %155, align 8
+  %160 = getelementptr inbounds i8, ptr %153, i64 12
+  store i32 0, ptr %160, align 4
+  %161 = load ptr, ptr %153, align 8
+  %162 = getelementptr inbounds i8, ptr %161, i64 16
+  %163 = load ptr, ptr %162, align 8
+  call void %163(ptr noundef nonnull align 8 dereferenceable(16) %153) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i20
 
-163:                                              ; preds = %153
-  %164 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i16 = icmp eq i8 %164, 0
-  br i1 %.not.i.i.i.i.i16, label %167, label %165
+164:                                              ; preds = %154
+  %165 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i16 = icmp eq i8 %165, 0
+  br i1 %.not.i.i.i.i.i16, label %168, label %166
 
-165:                                              ; preds = %163
-  %166 = add nsw i32 %157, -1
-  store i32 %166, ptr %154, align 4
-  br label %169
+166:                                              ; preds = %164
+  %167 = add nsw i32 %158, -1
+  store i32 %167, ptr %155, align 4
+  br label %170
 
-167:                                              ; preds = %163
-  %168 = atomicrmw volatile add ptr %154, i32 -1 acq_rel, align 4
-  br label %169
+168:                                              ; preds = %164
+  %169 = atomicrmw volatile add ptr %155, i32 -1 acq_rel, align 4
+  br label %170
 
-169:                                              ; preds = %167, %165
-  %.0.i.i.i.i.i17 = phi i32 [ %157, %165 ], [ %168, %167 ]
-  %170 = icmp eq i32 %.0.i.i.i.i.i17, 1
-  br i1 %170, label %171, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21
+170:                                              ; preds = %168, %166
+  %.0.i.i.i.i.i17 = phi i32 [ %158, %166 ], [ %169, %168 ]
+  %171 = icmp eq i32 %.0.i.i.i.i.i17, 1
+  br i1 %171, label %172, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21
 
-171:                                              ; preds = %169
-  %172 = load ptr, ptr %152, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 16
-  %174 = load ptr, ptr %173, align 8
-  call void %174(ptr noundef nonnull align 8 dereferenceable(16) %152) #17
-  %175 = getelementptr inbounds i8, ptr %152, i64 12
-  %176 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i18 = icmp eq i8 %176, 0
-  br i1 %.not.i.i.i.i.i.i.i18, label %180, label %177
+172:                                              ; preds = %170
+  %173 = load ptr, ptr %153, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 16
+  %175 = load ptr, ptr %174, align 8
+  call void %175(ptr noundef nonnull align 8 dereferenceable(16) %153) #17
+  %176 = getelementptr inbounds i8, ptr %153, i64 12
+  %177 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i18 = icmp eq i8 %177, 0
+  br i1 %.not.i.i.i.i.i.i.i18, label %181, label %178
 
-177:                                              ; preds = %171
-  %178 = load i32, ptr %175, align 4
-  %179 = add nsw i32 %178, -1
-  store i32 %179, ptr %175, align 4
-  br label %182
+178:                                              ; preds = %172
+  %179 = load i32, ptr %176, align 4
+  %180 = add nsw i32 %179, -1
+  store i32 %180, ptr %176, align 4
+  br label %183
 
-180:                                              ; preds = %171
-  %181 = atomicrmw volatile add ptr %175, i32 -1 acq_rel, align 4
-  br label %182
+181:                                              ; preds = %172
+  %182 = atomicrmw volatile add ptr %176, i32 -1 acq_rel, align 4
+  br label %183
 
-182:                                              ; preds = %180, %177
-  %.0.i.i.i.i.i.i.i19 = phi i32 [ %178, %177 ], [ %181, %180 ]
-  %183 = icmp eq i32 %.0.i.i.i.i.i.i.i19, 1
-  br i1 %183, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i20, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21
+183:                                              ; preds = %181, %178
+  %.0.i.i.i.i.i.i.i19 = phi i32 [ %179, %178 ], [ %182, %181 ]
+  %184 = icmp eq i32 %.0.i.i.i.i.i.i.i19, 1
+  br i1 %184, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i20, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i20: ; preds = %182, %158
-  %184 = load ptr, ptr %152, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 24
-  %186 = load ptr, ptr %185, align 8
-  call void %186(ptr noundef nonnull align 8 dereferenceable(16) %152) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i20: ; preds = %183, %159
+  %185 = load ptr, ptr %153, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 24
+  %187 = load ptr, ptr %186, align 8
+  call void %187(ptr noundef nonnull align 8 dereferenceable(16) %153) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21: ; preds = %147, %169, %182, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i20
-  %187 = load ptr, ptr %25, align 8
-  %.not.i.i.i22 = icmp eq ptr %187, null
-  br i1 %.not.i.i.i22, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, label %188
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21: ; preds = %147, %170, %183, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i20
+  %188 = load ptr, ptr %25, align 8
+  %.not.i.i.i22 = icmp eq ptr %188, null
+  br i1 %.not.i.i.i22, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, label %189
 
-188:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21
-  %189 = getelementptr inbounds i8, ptr %187, i64 8
-  %190 = load atomic i64, ptr %189 acquire, align 8
-  %191 = icmp eq i64 %190, 4294967297
-  %192 = trunc i64 %190 to i32
-  br i1 %191, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split.sink.split, label %193
+189:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21
+  %190 = getelementptr inbounds i8, ptr %188, i64 8
+  %191 = load atomic i64, ptr %190 acquire, align 8
+  %192 = icmp eq i64 %191, 4294967297
+  %193 = trunc i64 %191 to i32
+  br i1 %192, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split.sink.split, label %194
 
-193:                                              ; preds = %188
-  %194 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i23 = icmp eq i8 %194, 0
-  br i1 %.not.i.i.i.i23, label %197, label %195
+194:                                              ; preds = %189
+  %195 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i23 = icmp eq i8 %195, 0
+  br i1 %.not.i.i.i.i23, label %198, label %196
 
-195:                                              ; preds = %193
-  %196 = add nsw i32 %192, -1
-  store i32 %196, ptr %189, align 4
-  br label %199
+196:                                              ; preds = %194
+  %197 = add nsw i32 %193, -1
+  store i32 %197, ptr %190, align 4
+  br label %200
 
-197:                                              ; preds = %193
-  %198 = atomicrmw volatile add ptr %189, i32 -1 acq_rel, align 4
-  br label %199
+198:                                              ; preds = %194
+  %199 = atomicrmw volatile add ptr %190, i32 -1 acq_rel, align 4
+  br label %200
 
-199:                                              ; preds = %197, %195
-  %.0.i.i.i.i24 = phi i32 [ %192, %195 ], [ %198, %197 ]
-  %200 = icmp eq i32 %.0.i.i.i.i24, 1
-  br i1 %200, label %201, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
+200:                                              ; preds = %198, %196
+  %.0.i.i.i.i24 = phi i32 [ %193, %196 ], [ %199, %198 ]
+  %201 = icmp eq i32 %.0.i.i.i.i24, 1
+  br i1 %201, label %202, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
-201:                                              ; preds = %199
-  %202 = load ptr, ptr %187, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 16
-  %204 = load ptr, ptr %203, align 8
-  call void %204(ptr noundef nonnull align 8 dereferenceable(16) %187) #17
-  %205 = getelementptr inbounds i8, ptr %187, i64 12
-  %206 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i25 = icmp eq i8 %206, 0
-  br i1 %.not.i.i.i.i.i.i25, label %210, label %207
+202:                                              ; preds = %200
+  %203 = load ptr, ptr %188, align 8
+  %204 = getelementptr inbounds i8, ptr %203, i64 16
+  %205 = load ptr, ptr %204, align 8
+  call void %205(ptr noundef nonnull align 8 dereferenceable(16) %188) #17
+  %206 = getelementptr inbounds i8, ptr %188, i64 12
+  %207 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i25 = icmp eq i8 %207, 0
+  br i1 %.not.i.i.i.i.i.i25, label %211, label %208
 
-207:                                              ; preds = %201
-  %208 = load i32, ptr %205, align 4
-  %209 = add nsw i32 %208, -1
-  store i32 %209, ptr %205, align 4
-  br label %212
+208:                                              ; preds = %202
+  %209 = load i32, ptr %206, align 4
+  %210 = add nsw i32 %209, -1
+  store i32 %210, ptr %206, align 4
+  br label %213
 
-210:                                              ; preds = %201
-  %211 = atomicrmw volatile add ptr %205, i32 -1 acq_rel, align 4
-  br label %212
+211:                                              ; preds = %202
+  %212 = atomicrmw volatile add ptr %206, i32 -1 acq_rel, align 4
+  br label %213
 
-212:                                              ; preds = %210, %207
-  %.0.i.i.i.i.i.i26 = phi i32 [ %208, %207 ], [ %211, %210 ]
-  %213 = icmp eq i32 %.0.i.i.i.i.i.i26, 1
-  br i1 %213, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
+213:                                              ; preds = %211, %208
+  %.0.i.i.i.i.i.i26 = phi i32 [ %209, %208 ], [ %212, %211 ]
+  %214 = icmp eq i32 %.0.i.i.i.i.i.i26, 1
+  br i1 %214, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split.sink.split: ; preds = %188, %118
-  %.sink240 = phi ptr [ %119, %118 ], [ %189, %188 ]
-  %.sink239 = phi ptr [ %117, %118 ], [ %187, %188 ]
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split.sink.split: ; preds = %189, %118
+  %.sink240 = phi ptr [ %119, %118 ], [ %190, %189 ]
+  %.sink239 = phi ptr [ %117, %118 ], [ %188, %189 ]
   store i32 0, ptr %.sink240, align 8
-  %214 = getelementptr inbounds i8, ptr %.sink239, i64 12
-  store i32 0, ptr %214, align 4
-  %215 = load ptr, ptr %.sink239, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 16
-  %217 = load ptr, ptr %216, align 8
-  call void %217(ptr noundef nonnull align 8 dereferenceable(16) %.sink239) #17
+  %215 = getelementptr inbounds i8, ptr %.sink239, i64 12
+  store i32 0, ptr %215, align 4
+  %216 = load ptr, ptr %.sink239, align 8
+  %217 = getelementptr inbounds i8, ptr %216, i64 16
+  %218 = load ptr, ptr %217, align 8
+  call void %218(ptr noundef nonnull align 8 dereferenceable(16) %.sink239) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split.sink.split, %212, %142
-  %.sink232 = phi ptr [ %117, %142 ], [ %187, %212 ], [ %.sink239, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split.sink.split ]
-  %218 = load ptr, ptr %.sink232, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 24
-  %220 = load ptr, ptr %219, align 8
-  call void %220(ptr noundef nonnull align 8 dereferenceable(16) %.sink232) #17
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split.sink.split, %213, %142
+  %.sink232 = phi ptr [ %117, %142 ], [ %188, %213 ], [ %.sink239, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split.sink.split ]
+  %219 = load ptr, ptr %.sink232, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 24
+  %221 = load ptr, ptr %220, align 8
+  call void %221(ptr noundef nonnull align 8 dereferenceable(16) %.sink232) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split, %212, %199, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21, %142, %129, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit
-  %221 = load ptr, ptr %5, align 8
-  %.not195201 = icmp eq ptr %221, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit.sink.split, %213, %200, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSEOS2_.exit21, %142, %129, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit
+  %222 = load ptr, ptr %5, align 8
+  %.not195201 = icmp eq ptr %222, null
   br i1 %.not195201, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit42
-  %222 = phi ptr [ %273, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit42 ], [ %221, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit ]
-  %223 = getelementptr inbounds i8, ptr %222, i64 112
-  %224 = load ptr, ptr %223, align 8
-  %.not196 = icmp eq ptr %224, null
-  br i1 %.not196, label %.critedge, label %225
+  %223 = phi ptr [ %274, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit42 ], [ %222, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit ]
+  %224 = getelementptr inbounds i8, ptr %223, i64 112
+  %225 = load ptr, ptr %224, align 8
+  %.not196 = icmp eq ptr %225, null
+  br i1 %.not196, label %.critedge, label %226
 
-225:                                              ; preds = %.lr.ph
-  store ptr %224, ptr %5, align 8
-  %226 = getelementptr inbounds i8, ptr %222, i64 120
-  %227 = load ptr, ptr %226, align 8
-  %228 = load ptr, ptr %27, align 8
-  %.not.i.i.i29 = icmp eq ptr %227, %228
-  br i1 %.not.i.i.i29, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit42, label %229
+226:                                              ; preds = %.lr.ph
+  store ptr %225, ptr %5, align 8
+  %227 = getelementptr inbounds i8, ptr %223, i64 120
+  %228 = load ptr, ptr %227, align 8
+  %229 = load ptr, ptr %27, align 8
+  %.not.i.i.i29 = icmp eq ptr %228, %229
+  br i1 %.not.i.i.i29, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit42, label %230
 
-229:                                              ; preds = %225
-  %.not7.i.i.i30 = icmp eq ptr %227, null
-  br i1 %.not7.i.i.i30, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i34, label %230
+230:                                              ; preds = %226
+  %.not7.i.i.i30 = icmp eq ptr %228, null
+  br i1 %.not7.i.i.i30, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i34, label %231
 
-230:                                              ; preds = %229
-  %231 = getelementptr inbounds i8, ptr %227, i64 8
-  %232 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i31 = icmp eq i8 %232, 0
-  br i1 %.not.i.i.i.i31, label %236, label %233
+231:                                              ; preds = %230
+  %232 = getelementptr inbounds i8, ptr %228, i64 8
+  %233 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i31 = icmp eq i8 %233, 0
+  br i1 %.not.i.i.i.i31, label %237, label %234
 
-233:                                              ; preds = %230
-  %234 = load i32, ptr %231, align 4
-  %235 = add nsw i32 %234, 1
-  store i32 %235, ptr %231, align 4
+234:                                              ; preds = %231
+  %235 = load i32, ptr %232, align 4
+  %236 = add nsw i32 %235, 1
+  store i32 %236, ptr %232, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i34
 
-236:                                              ; preds = %230
-  %237 = atomicrmw volatile add ptr %231, i32 1 acq_rel, align 4
+237:                                              ; preds = %231
+  %238 = atomicrmw volatile add ptr %232, i32 1 acq_rel, align 4
   %.pr.i.i.i33.pre = load ptr, ptr %27, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i34
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i34: ; preds = %233, %236, %229
-  %238 = phi ptr [ %228, %229 ], [ %.pr.i.i.i33.pre, %236 ], [ %228, %233 ]
-  %.not8.i.i.i35 = icmp eq ptr %238, null
-  br i1 %.not8.i.i.i35, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38, label %239
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i34: ; preds = %234, %237, %230
+  %239 = phi ptr [ %229, %230 ], [ %.pr.i.i.i33.pre, %237 ], [ %229, %234 ]
+  %.not8.i.i.i35 = icmp eq ptr %239, null
+  br i1 %.not8.i.i.i35, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38, label %240
 
-239:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i34
-  %240 = getelementptr inbounds i8, ptr %238, i64 8
-  %241 = load atomic i64, ptr %240 acquire, align 8
-  %242 = icmp eq i64 %241, 4294967297
-  %243 = trunc i64 %241 to i32
-  br i1 %242, label %244, label %249
+240:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i34
+  %241 = getelementptr inbounds i8, ptr %239, i64 8
+  %242 = load atomic i64, ptr %241 acquire, align 8
+  %243 = icmp eq i64 %242, 4294967297
+  %244 = trunc i64 %242 to i32
+  br i1 %243, label %245, label %250
 
-244:                                              ; preds = %239
-  store i32 0, ptr %240, align 8
-  %245 = getelementptr inbounds i8, ptr %238, i64 12
-  store i32 0, ptr %245, align 4
-  %246 = load ptr, ptr %238, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 16
-  %248 = load ptr, ptr %247, align 8
-  call void %248(ptr noundef nonnull align 8 dereferenceable(16) %238) #17
+245:                                              ; preds = %240
+  store i32 0, ptr %241, align 8
+  %246 = getelementptr inbounds i8, ptr %239, i64 12
+  store i32 0, ptr %246, align 4
+  %247 = load ptr, ptr %239, align 8
+  %248 = getelementptr inbounds i8, ptr %247, i64 16
+  %249 = load ptr, ptr %248, align 8
+  call void %249(ptr noundef nonnull align 8 dereferenceable(16) %239) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i41
 
-249:                                              ; preds = %239
-  %250 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i36 = icmp eq i8 %250, 0
-  br i1 %.not.i9.i.i.i36, label %253, label %251
+250:                                              ; preds = %240
+  %251 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i36 = icmp eq i8 %251, 0
+  br i1 %.not.i9.i.i.i36, label %254, label %252
 
-251:                                              ; preds = %249
-  %252 = add nsw i32 %243, -1
-  store i32 %252, ptr %240, align 4
-  br label %255
+252:                                              ; preds = %250
+  %253 = add nsw i32 %244, -1
+  store i32 %253, ptr %241, align 4
+  br label %256
 
-253:                                              ; preds = %249
-  %254 = atomicrmw volatile add ptr %240, i32 -1 acq_rel, align 4
-  br label %255
+254:                                              ; preds = %250
+  %255 = atomicrmw volatile add ptr %241, i32 -1 acq_rel, align 4
+  br label %256
 
-255:                                              ; preds = %253, %251
-  %.0.i.i.i.i37 = phi i32 [ %243, %251 ], [ %254, %253 ]
-  %256 = icmp eq i32 %.0.i.i.i.i37, 1
-  br i1 %256, label %257, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38
+256:                                              ; preds = %254, %252
+  %.0.i.i.i.i37 = phi i32 [ %244, %252 ], [ %255, %254 ]
+  %257 = icmp eq i32 %.0.i.i.i.i37, 1
+  br i1 %257, label %258, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38
 
-257:                                              ; preds = %255
-  %258 = load ptr, ptr %238, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 16
-  %260 = load ptr, ptr %259, align 8
-  call void %260(ptr noundef nonnull align 8 dereferenceable(16) %238) #17
-  %261 = getelementptr inbounds i8, ptr %238, i64 12
-  %262 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i39 = icmp eq i8 %262, 0
-  br i1 %.not.i.i.i.i.i.i39, label %266, label %263
+258:                                              ; preds = %256
+  %259 = load ptr, ptr %239, align 8
+  %260 = getelementptr inbounds i8, ptr %259, i64 16
+  %261 = load ptr, ptr %260, align 8
+  call void %261(ptr noundef nonnull align 8 dereferenceable(16) %239) #17
+  %262 = getelementptr inbounds i8, ptr %239, i64 12
+  %263 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i39 = icmp eq i8 %263, 0
+  br i1 %.not.i.i.i.i.i.i39, label %267, label %264
 
-263:                                              ; preds = %257
-  %264 = load i32, ptr %261, align 4
-  %265 = add nsw i32 %264, -1
-  store i32 %265, ptr %261, align 4
-  br label %268
+264:                                              ; preds = %258
+  %265 = load i32, ptr %262, align 4
+  %266 = add nsw i32 %265, -1
+  store i32 %266, ptr %262, align 4
+  br label %269
 
-266:                                              ; preds = %257
-  %267 = atomicrmw volatile add ptr %261, i32 -1 acq_rel, align 4
-  br label %268
+267:                                              ; preds = %258
+  %268 = atomicrmw volatile add ptr %262, i32 -1 acq_rel, align 4
+  br label %269
 
-268:                                              ; preds = %266, %263
-  %.0.i.i.i.i.i.i40 = phi i32 [ %264, %263 ], [ %267, %266 ]
-  %269 = icmp eq i32 %.0.i.i.i.i.i.i40, 1
-  br i1 %269, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i41, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38
+269:                                              ; preds = %267, %264
+  %.0.i.i.i.i.i.i40 = phi i32 [ %265, %264 ], [ %268, %267 ]
+  %270 = icmp eq i32 %.0.i.i.i.i.i.i40, 1
+  br i1 %270, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i41, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i41: ; preds = %268, %244
-  %270 = load ptr, ptr %238, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 24
-  %272 = load ptr, ptr %271, align 8
-  call void %272(ptr noundef nonnull align 8 dereferenceable(16) %238) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i41: ; preds = %269, %245
+  %271 = load ptr, ptr %239, align 8
+  %272 = getelementptr inbounds i8, ptr %271, i64 24
+  %273 = load ptr, ptr %272, align 8
+  call void %273(ptr noundef nonnull align 8 dereferenceable(16) %239) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i41, %268, %255, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i34
-  store ptr %227, ptr %27, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i41, %269, %256, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i34
+  store ptr %228, ptr %27, align 8
   %.pre211 = load ptr, ptr %5, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit42
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit42: ; preds = %225, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38
-  %273 = phi ptr [ %224, %225 ], [ %.pre211, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38 ]
-  %.not195 = icmp eq ptr %273, null
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit42: ; preds = %226, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38
+  %274 = phi ptr [ %225, %226 ], [ %.pre211, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i38 ]
+  %.not195 = icmp eq ptr %274, null
   br i1 %.not195, label %.critedge, label %.lr.ph, !llvm.loop !70
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit42, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
-  %274 = phi ptr [ null, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit ], [ %222, %.lr.ph ], [ null, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit42 ]
-  %275 = load ptr, ptr %6, align 8
-  %276 = load i32, ptr %275, align 8
-  %277 = icmp eq i32 %276, 6
-  br i1 %277, label %278, label %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %275 = phi ptr [ null, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit ], [ %223, %.lr.ph ], [ null, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit42 ]
+  %276 = load ptr, ptr %6, align 8
+  %277 = load i32, ptr %276, align 8
+  %278 = icmp eq i32 %277, 6
+  br i1 %278, label %279, label %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-278:                                              ; preds = %.critedge
-  %279 = getelementptr inbounds i8, ptr %275, i64 96
-  %280 = load ptr, ptr %279, align 8
-  %281 = load i32, ptr %280, align 8
-  %.not = icmp eq i32 %281, 5
-  br i1 %.not, label %.thread, label %282
+279:                                              ; preds = %.critedge
+  %280 = getelementptr inbounds i8, ptr %276, i64 96
+  %281 = load ptr, ptr %280, align 8
+  %282 = load i32, ptr %281, align 8
+  %.not = icmp eq i32 %282, 5
+  br i1 %.not, label %.thread, label %283
 
-282:                                              ; preds = %278
-  %283 = getelementptr inbounds i8, ptr %280, i64 160
-  %284 = load i64, ptr %283, align 4
-  store i64 %284, ptr %9, align 8
-  %285 = load ptr, ptr %0, align 8
-  %.not197 = icmp eq ptr %285, null
-  br i1 %.not197, label %286, label %366
+283:                                              ; preds = %279
+  %284 = getelementptr inbounds i8, ptr %281, i64 160
+  %285 = load i64, ptr %284, align 4
+  store i64 %285, ptr %9, align 8
+  %286 = load ptr, ptr %0, align 8
+  %.not197 = icmp eq ptr %286, null
+  br i1 %.not197, label %287, label %367
 
-286:                                              ; preds = %282
-  %287 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #20
+287:                                              ; preds = %283
+  %288 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #20
           to label %.noexc unwind label %144
 
-.noexc:                                           ; preds = %286
-  %288 = getelementptr inbounds i8, ptr %287, i64 8
-  store i32 1, ptr %288, align 8, !noalias !71
-  %289 = getelementptr inbounds i8, ptr %287, i64 12
-  store i32 1, ptr %289, align 4, !noalias !71
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %287, align 8, !noalias !71
-  %290 = getelementptr inbounds i8, ptr %287, i64 16
-  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %290, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %9)
+.noexc:                                           ; preds = %287
+  %289 = getelementptr inbounds i8, ptr %288, i64 8
+  store i32 1, ptr %289, align 8, !noalias !71
+  %290 = getelementptr inbounds i8, ptr %288, i64 12
+  store i32 1, ptr %290, align 4, !noalias !71
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %288, align 8, !noalias !71
+  %291 = getelementptr inbounds i8, ptr %288, i64 16
+  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %291, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %9)
           to label %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, !noalias !71
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i: ; preds = %.noexc
-  %291 = landingpad { ptr, i32 }
+  %292 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %287) #21, !noalias !71
+  call void @_ZdlPv(ptr noundef nonnull %288) #21, !noalias !71
   br label %.body
 
 _ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit: ; preds = %.noexc
-  store ptr %290, ptr %0, align 8
-  %292 = load ptr, ptr %28, align 8
-  store ptr %287, ptr %28, align 8
-  %.not.i.i.i.i43 = icmp eq ptr %292, null
-  br i1 %.not.i.i.i.i43, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56, label %293
+  store ptr %291, ptr %0, align 8
+  %293 = load ptr, ptr %28, align 8
+  store ptr %288, ptr %28, align 8
+  %.not.i.i.i.i43 = icmp eq ptr %293, null
+  br i1 %.not.i.i.i.i43, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56, label %294
 
-293:                                              ; preds = %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit
-  %294 = getelementptr inbounds i8, ptr %292, i64 8
-  %295 = load atomic i64, ptr %294 acquire, align 8
-  %296 = icmp eq i64 %295, 4294967297
-  %297 = trunc i64 %295 to i32
-  br i1 %296, label %298, label %303
+294:                                              ; preds = %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit
+  %295 = getelementptr inbounds i8, ptr %293, i64 8
+  %296 = load atomic i64, ptr %295 acquire, align 8
+  %297 = icmp eq i64 %296, 4294967297
+  %298 = trunc i64 %296 to i32
+  br i1 %297, label %299, label %304
 
-298:                                              ; preds = %293
-  store i32 0, ptr %294, align 8
-  %299 = getelementptr inbounds i8, ptr %292, i64 12
-  store i32 0, ptr %299, align 4
-  %300 = load ptr, ptr %292, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
-  %302 = load ptr, ptr %301, align 8
-  call void %302(ptr noundef nonnull align 8 dereferenceable(16) %292) #17
+299:                                              ; preds = %294
+  store i32 0, ptr %295, align 8
+  %300 = getelementptr inbounds i8, ptr %293, i64 12
+  store i32 0, ptr %300, align 4
+  %301 = load ptr, ptr %293, align 8
+  %302 = getelementptr inbounds i8, ptr %301, i64 16
+  %303 = load ptr, ptr %302, align 8
+  call void %303(ptr noundef nonnull align 8 dereferenceable(16) %293) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i48
 
-303:                                              ; preds = %293
-  %304 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i44 = icmp eq i8 %304, 0
-  br i1 %.not.i.i.i.i.i44, label %307, label %305
+304:                                              ; preds = %294
+  %305 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i44 = icmp eq i8 %305, 0
+  br i1 %.not.i.i.i.i.i44, label %308, label %306
 
-305:                                              ; preds = %303
-  %306 = add nsw i32 %297, -1
-  store i32 %306, ptr %294, align 4
-  br label %309
+306:                                              ; preds = %304
+  %307 = add nsw i32 %298, -1
+  store i32 %307, ptr %295, align 4
+  br label %310
 
-307:                                              ; preds = %303
-  %308 = atomicrmw volatile add ptr %294, i32 -1 acq_rel, align 4
-  br label %309
+308:                                              ; preds = %304
+  %309 = atomicrmw volatile add ptr %295, i32 -1 acq_rel, align 4
+  br label %310
 
-309:                                              ; preds = %307, %305
-  %.0.i.i.i.i.i45 = phi i32 [ %297, %305 ], [ %308, %307 ]
-  %310 = icmp eq i32 %.0.i.i.i.i.i45, 1
-  br i1 %310, label %311, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56thread-pre-split
+310:                                              ; preds = %308, %306
+  %.0.i.i.i.i.i45 = phi i32 [ %298, %306 ], [ %309, %308 ]
+  %311 = icmp eq i32 %.0.i.i.i.i.i45, 1
+  br i1 %311, label %312, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56thread-pre-split
 
-311:                                              ; preds = %309
-  %312 = load ptr, ptr %292, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 16
-  %314 = load ptr, ptr %313, align 8
-  call void %314(ptr noundef nonnull align 8 dereferenceable(16) %292) #17
-  %315 = getelementptr inbounds i8, ptr %292, i64 12
-  %316 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i46 = icmp eq i8 %316, 0
-  br i1 %.not.i.i.i.i.i.i.i46, label %320, label %317
+312:                                              ; preds = %310
+  %313 = load ptr, ptr %293, align 8
+  %314 = getelementptr inbounds i8, ptr %313, i64 16
+  %315 = load ptr, ptr %314, align 8
+  call void %315(ptr noundef nonnull align 8 dereferenceable(16) %293) #17
+  %316 = getelementptr inbounds i8, ptr %293, i64 12
+  %317 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i46 = icmp eq i8 %317, 0
+  br i1 %.not.i.i.i.i.i.i.i46, label %321, label %318
 
-317:                                              ; preds = %311
-  %318 = load i32, ptr %315, align 4
-  %319 = add nsw i32 %318, -1
-  store i32 %319, ptr %315, align 4
-  br label %322
+318:                                              ; preds = %312
+  %319 = load i32, ptr %316, align 4
+  %320 = add nsw i32 %319, -1
+  store i32 %320, ptr %316, align 4
+  br label %323
 
-320:                                              ; preds = %311
-  %321 = atomicrmw volatile add ptr %315, i32 -1 acq_rel, align 4
-  br label %322
+321:                                              ; preds = %312
+  %322 = atomicrmw volatile add ptr %316, i32 -1 acq_rel, align 4
+  br label %323
 
-322:                                              ; preds = %320, %317
-  %.0.i.i.i.i.i.i.i47 = phi i32 [ %318, %317 ], [ %321, %320 ]
-  %323 = icmp eq i32 %.0.i.i.i.i.i.i.i47, 1
-  br i1 %323, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i48, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56thread-pre-split
+323:                                              ; preds = %321, %318
+  %.0.i.i.i.i.i.i.i47 = phi i32 [ %319, %318 ], [ %322, %321 ]
+  %324 = icmp eq i32 %.0.i.i.i.i.i.i.i47, 1
+  br i1 %324, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i48, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56thread-pre-split
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i48: ; preds = %322, %298
-  %324 = load ptr, ptr %292, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 24
-  %326 = load ptr, ptr %325, align 8
-  call void %326(ptr noundef nonnull align 8 dereferenceable(16) %292) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i48: ; preds = %323, %299
+  %325 = load ptr, ptr %293, align 8
+  %326 = getelementptr inbounds i8, ptr %325, i64 24
+  %327 = load ptr, ptr %326, align 8
+  call void %327(ptr noundef nonnull align 8 dereferenceable(16) %293) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56thread-pre-split
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56thread-pre-split: ; preds = %309, %322, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i48
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56thread-pre-split: ; preds = %310, %323, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i48
   %.pr192 = load ptr, ptr %28, align 8
   %.pre213 = load ptr, ptr %0, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56thread-pre-split, %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit
-  %327 = phi ptr [ %.pre213, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56thread-pre-split ], [ %290, %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit ]
-  %328 = phi ptr [ %.pr192, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56thread-pre-split ], [ %287, %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit ]
-  store ptr %327, ptr %5, align 8
-  %329 = load ptr, ptr %27, align 8
-  %.not.i.i.i57 = icmp eq ptr %328, %329
-  br i1 %.not.i.i.i57, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70, label %330
+  %328 = phi ptr [ %.pre213, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56thread-pre-split ], [ %291, %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit ]
+  %329 = phi ptr [ %.pr192, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56thread-pre-split ], [ %288, %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit ]
+  store ptr %328, ptr %5, align 8
+  %330 = load ptr, ptr %27, align 8
+  %.not.i.i.i57 = icmp eq ptr %329, %330
+  br i1 %.not.i.i.i57, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70, label %331
 
-330:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56
-  %.not7.i.i.i58 = icmp eq ptr %328, null
-  br i1 %.not7.i.i.i58, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62, label %331
+331:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56
+  %.not7.i.i.i58 = icmp eq ptr %329, null
+  br i1 %.not7.i.i.i58, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62, label %332
 
-331:                                              ; preds = %330
-  %332 = getelementptr inbounds i8, ptr %328, i64 8
-  %333 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i59 = icmp eq i8 %333, 0
-  br i1 %.not.i.i.i.i59, label %337, label %334
+332:                                              ; preds = %331
+  %333 = getelementptr inbounds i8, ptr %329, i64 8
+  %334 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i59 = icmp eq i8 %334, 0
+  br i1 %.not.i.i.i.i59, label %338, label %335
 
-334:                                              ; preds = %331
-  %335 = load i32, ptr %332, align 4
-  %336 = add nsw i32 %335, 1
-  store i32 %336, ptr %332, align 4
+335:                                              ; preds = %332
+  %336 = load i32, ptr %333, align 4
+  %337 = add nsw i32 %336, 1
+  store i32 %337, ptr %333, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62
 
-337:                                              ; preds = %331
-  %338 = atomicrmw volatile add ptr %332, i32 1 acq_rel, align 4
+338:                                              ; preds = %332
+  %339 = atomicrmw volatile add ptr %333, i32 1 acq_rel, align 4
   %.pr.i.i.i61.pre = load ptr, ptr %27, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62: ; preds = %334, %337, %330
-  %339 = phi ptr [ %329, %330 ], [ %.pr.i.i.i61.pre, %337 ], [ %329, %334 ]
-  %.not8.i.i.i63 = icmp eq ptr %339, null
-  br i1 %.not8.i.i.i63, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split, label %340
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62: ; preds = %335, %338, %331
+  %340 = phi ptr [ %330, %331 ], [ %.pr.i.i.i61.pre, %338 ], [ %330, %335 ]
+  %.not8.i.i.i63 = icmp eq ptr %340, null
+  br i1 %.not8.i.i.i63, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split, label %341
 
-340:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62
-  %341 = getelementptr inbounds i8, ptr %339, i64 8
-  %342 = load atomic i64, ptr %341 acquire, align 8
-  %343 = icmp eq i64 %342, 4294967297
-  %344 = trunc i64 %342 to i32
-  br i1 %343, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split.sink.split, label %345
+341:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62
+  %342 = getelementptr inbounds i8, ptr %340, i64 8
+  %343 = load atomic i64, ptr %342 acquire, align 8
+  %344 = icmp eq i64 %343, 4294967297
+  %345 = trunc i64 %343 to i32
+  br i1 %344, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split.sink.split, label %346
 
-345:                                              ; preds = %340
-  %346 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i64 = icmp eq i8 %346, 0
-  br i1 %.not.i9.i.i.i64, label %349, label %347
+346:                                              ; preds = %341
+  %347 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i64 = icmp eq i8 %347, 0
+  br i1 %.not.i9.i.i.i64, label %350, label %348
 
-347:                                              ; preds = %345
-  %348 = add nsw i32 %344, -1
-  store i32 %348, ptr %341, align 4
-  br label %351
+348:                                              ; preds = %346
+  %349 = add nsw i32 %345, -1
+  store i32 %349, ptr %342, align 4
+  br label %352
 
-349:                                              ; preds = %345
-  %350 = atomicrmw volatile add ptr %341, i32 -1 acq_rel, align 4
-  br label %351
+350:                                              ; preds = %346
+  %351 = atomicrmw volatile add ptr %342, i32 -1 acq_rel, align 4
+  br label %352
 
-351:                                              ; preds = %349, %347
-  %.0.i.i.i.i65 = phi i32 [ %344, %347 ], [ %350, %349 ]
-  %352 = icmp eq i32 %.0.i.i.i.i65, 1
-  br i1 %352, label %353, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split
+352:                                              ; preds = %350, %348
+  %.0.i.i.i.i65 = phi i32 [ %345, %348 ], [ %351, %350 ]
+  %353 = icmp eq i32 %.0.i.i.i.i65, 1
+  br i1 %353, label %354, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split
 
-353:                                              ; preds = %351
-  %354 = load ptr, ptr %339, align 8
-  %355 = getelementptr inbounds i8, ptr %354, i64 16
-  %356 = load ptr, ptr %355, align 8
-  call void %356(ptr noundef nonnull align 8 dereferenceable(16) %339) #17
-  %357 = getelementptr inbounds i8, ptr %339, i64 12
-  %358 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i67 = icmp eq i8 %358, 0
-  br i1 %.not.i.i.i.i.i.i67, label %362, label %359
+354:                                              ; preds = %352
+  %355 = load ptr, ptr %340, align 8
+  %356 = getelementptr inbounds i8, ptr %355, i64 16
+  %357 = load ptr, ptr %356, align 8
+  call void %357(ptr noundef nonnull align 8 dereferenceable(16) %340) #17
+  %358 = getelementptr inbounds i8, ptr %340, i64 12
+  %359 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i67 = icmp eq i8 %359, 0
+  br i1 %.not.i.i.i.i.i.i67, label %363, label %360
 
-359:                                              ; preds = %353
-  %360 = load i32, ptr %357, align 4
-  %361 = add nsw i32 %360, -1
-  store i32 %361, ptr %357, align 4
-  br label %364
+360:                                              ; preds = %354
+  %361 = load i32, ptr %358, align 4
+  %362 = add nsw i32 %361, -1
+  store i32 %362, ptr %358, align 4
+  br label %365
 
-362:                                              ; preds = %353
-  %363 = atomicrmw volatile add ptr %357, i32 -1 acq_rel, align 4
-  br label %364
+363:                                              ; preds = %354
+  %364 = atomicrmw volatile add ptr %358, i32 -1 acq_rel, align 4
+  br label %365
 
-364:                                              ; preds = %362, %359
-  %.0.i.i.i.i.i.i68 = phi i32 [ %360, %359 ], [ %363, %362 ]
-  %365 = icmp eq i32 %.0.i.i.i.i.i.i68, 1
-  br i1 %365, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split
+365:                                              ; preds = %363, %360
+  %.0.i.i.i.i.i.i68 = phi i32 [ %361, %360 ], [ %364, %363 ]
+  %366 = icmp eq i32 %.0.i.i.i.i.i.i68, 1
+  br i1 %366, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split
 
-366:                                              ; preds = %282
-  %367 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #20
+367:                                              ; preds = %283
+  %368 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #20
           to label %.noexc72 unwind label %144
 
-.noexc72:                                         ; preds = %366
-  %368 = getelementptr inbounds i8, ptr %367, i64 8
-  store i32 1, ptr %368, align 8, !noalias !74
-  %369 = getelementptr inbounds i8, ptr %367, i64 12
-  store i32 1, ptr %369, align 4, !noalias !74
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %367, align 8, !noalias !74
-  %370 = getelementptr inbounds i8, ptr %367, i64 16
-  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %370, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %9)
+.noexc72:                                         ; preds = %367
+  %369 = getelementptr inbounds i8, ptr %368, i64 8
+  store i32 1, ptr %369, align 8, !noalias !74
+  %370 = getelementptr inbounds i8, ptr %368, i64 12
+  store i32 1, ptr %370, align 4, !noalias !74
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %368, align 8, !noalias !74
+  %371 = getelementptr inbounds i8, ptr %368, i64 16
+  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %371, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(8) %9)
           to label %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit75 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i71, !noalias !74
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i71: ; preds = %.noexc72
-  %371 = landingpad { ptr, i32 }
+  %372 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %367) #21, !noalias !74
+  call void @_ZdlPv(ptr noundef nonnull %368) #21, !noalias !74
   br label %.body
 
 _ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit75: ; preds = %.noexc72
-  %372 = getelementptr inbounds i8, ptr %274, i64 112
-  store ptr %370, ptr %372, align 8
-  %373 = getelementptr inbounds i8, ptr %274, i64 120
-  %374 = load ptr, ptr %373, align 8
-  store ptr %367, ptr %373, align 8
-  %.not.i.i.i.i76 = icmp eq ptr %374, null
-  br i1 %.not.i.i.i.i76, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit89, label %375
+  %373 = getelementptr inbounds i8, ptr %275, i64 112
+  store ptr %371, ptr %373, align 8
+  %374 = getelementptr inbounds i8, ptr %275, i64 120
+  %375 = load ptr, ptr %374, align 8
+  store ptr %368, ptr %374, align 8
+  %.not.i.i.i.i76 = icmp eq ptr %375, null
+  br i1 %.not.i.i.i.i76, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit89, label %376
 
-375:                                              ; preds = %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit75
-  %376 = getelementptr inbounds i8, ptr %374, i64 8
-  %377 = load atomic i64, ptr %376 acquire, align 8
-  %378 = icmp eq i64 %377, 4294967297
-  %379 = trunc i64 %377 to i32
-  br i1 %378, label %380, label %385
+376:                                              ; preds = %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit75
+  %377 = getelementptr inbounds i8, ptr %375, i64 8
+  %378 = load atomic i64, ptr %377 acquire, align 8
+  %379 = icmp eq i64 %378, 4294967297
+  %380 = trunc i64 %378 to i32
+  br i1 %379, label %381, label %386
 
-380:                                              ; preds = %375
-  store i32 0, ptr %376, align 8
-  %381 = getelementptr inbounds i8, ptr %374, i64 12
-  store i32 0, ptr %381, align 4
-  %382 = load ptr, ptr %374, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 16
-  %384 = load ptr, ptr %383, align 8
-  call void %384(ptr noundef nonnull align 8 dereferenceable(16) %374) #17
+381:                                              ; preds = %376
+  store i32 0, ptr %377, align 8
+  %382 = getelementptr inbounds i8, ptr %375, i64 12
+  store i32 0, ptr %382, align 4
+  %383 = load ptr, ptr %375, align 8
+  %384 = getelementptr inbounds i8, ptr %383, i64 16
+  %385 = load ptr, ptr %384, align 8
+  call void %385(ptr noundef nonnull align 8 dereferenceable(16) %375) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81
 
-385:                                              ; preds = %375
-  %386 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i77 = icmp eq i8 %386, 0
-  br i1 %.not.i.i.i.i.i77, label %389, label %387
+386:                                              ; preds = %376
+  %387 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i77 = icmp eq i8 %387, 0
+  br i1 %.not.i.i.i.i.i77, label %390, label %388
 
-387:                                              ; preds = %385
-  %388 = add nsw i32 %379, -1
-  store i32 %388, ptr %376, align 4
-  br label %391
+388:                                              ; preds = %386
+  %389 = add nsw i32 %380, -1
+  store i32 %389, ptr %377, align 4
+  br label %392
 
-389:                                              ; preds = %385
-  %390 = atomicrmw volatile add ptr %376, i32 -1 acq_rel, align 4
-  br label %391
+390:                                              ; preds = %386
+  %391 = atomicrmw volatile add ptr %377, i32 -1 acq_rel, align 4
+  br label %392
 
-391:                                              ; preds = %389, %387
-  %.0.i.i.i.i.i78 = phi i32 [ %379, %387 ], [ %390, %389 ]
-  %392 = icmp eq i32 %.0.i.i.i.i.i78, 1
-  br i1 %392, label %393, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit89
+392:                                              ; preds = %390, %388
+  %.0.i.i.i.i.i78 = phi i32 [ %380, %388 ], [ %391, %390 ]
+  %393 = icmp eq i32 %.0.i.i.i.i.i78, 1
+  br i1 %393, label %394, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit89
 
-393:                                              ; preds = %391
-  %394 = load ptr, ptr %374, align 8
-  %395 = getelementptr inbounds i8, ptr %394, i64 16
-  %396 = load ptr, ptr %395, align 8
-  call void %396(ptr noundef nonnull align 8 dereferenceable(16) %374) #17
-  %397 = getelementptr inbounds i8, ptr %374, i64 12
-  %398 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i79 = icmp eq i8 %398, 0
-  br i1 %.not.i.i.i.i.i.i.i79, label %402, label %399
+394:                                              ; preds = %392
+  %395 = load ptr, ptr %375, align 8
+  %396 = getelementptr inbounds i8, ptr %395, i64 16
+  %397 = load ptr, ptr %396, align 8
+  call void %397(ptr noundef nonnull align 8 dereferenceable(16) %375) #17
+  %398 = getelementptr inbounds i8, ptr %375, i64 12
+  %399 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i79 = icmp eq i8 %399, 0
+  br i1 %.not.i.i.i.i.i.i.i79, label %403, label %400
 
-399:                                              ; preds = %393
-  %400 = load i32, ptr %397, align 4
-  %401 = add nsw i32 %400, -1
-  store i32 %401, ptr %397, align 4
-  br label %404
+400:                                              ; preds = %394
+  %401 = load i32, ptr %398, align 4
+  %402 = add nsw i32 %401, -1
+  store i32 %402, ptr %398, align 4
+  br label %405
 
-402:                                              ; preds = %393
-  %403 = atomicrmw volatile add ptr %397, i32 -1 acq_rel, align 4
-  br label %404
+403:                                              ; preds = %394
+  %404 = atomicrmw volatile add ptr %398, i32 -1 acq_rel, align 4
+  br label %405
 
-404:                                              ; preds = %402, %399
-  %.0.i.i.i.i.i.i.i80 = phi i32 [ %400, %399 ], [ %403, %402 ]
-  %405 = icmp eq i32 %.0.i.i.i.i.i.i.i80, 1
-  br i1 %405, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit89
+405:                                              ; preds = %403, %400
+  %.0.i.i.i.i.i.i.i80 = phi i32 [ %401, %400 ], [ %404, %403 ]
+  %406 = icmp eq i32 %.0.i.i.i.i.i.i.i80, 1
+  br i1 %406, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit89
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81: ; preds = %404, %380
-  %406 = load ptr, ptr %374, align 8
-  %407 = getelementptr inbounds i8, ptr %406, i64 24
-  %408 = load ptr, ptr %407, align 8
-  call void %408(ptr noundef nonnull align 8 dereferenceable(16) %374) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81: ; preds = %405, %381
+  %407 = load ptr, ptr %375, align 8
+  %408 = getelementptr inbounds i8, ptr %407, i64 24
+  %409 = load ptr, ptr %408, align 8
+  call void %409(ptr noundef nonnull align 8 dereferenceable(16) %375) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit89
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit89: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81, %404, %391, %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit75
-  %409 = load ptr, ptr %5, align 8
-  %410 = getelementptr inbounds i8, ptr %409, i64 112
-  %411 = load ptr, ptr %410, align 8
-  store ptr %411, ptr %5, align 8
-  %412 = getelementptr inbounds i8, ptr %409, i64 120
-  %413 = load ptr, ptr %412, align 8
-  %414 = load ptr, ptr %27, align 8
-  %.not.i.i.i90 = icmp eq ptr %413, %414
-  br i1 %.not.i.i.i90, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70, label %415
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit89: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i81, %405, %392, %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit75
+  %410 = load ptr, ptr %5, align 8
+  %411 = getelementptr inbounds i8, ptr %410, i64 112
+  %412 = load ptr, ptr %411, align 8
+  store ptr %412, ptr %5, align 8
+  %413 = getelementptr inbounds i8, ptr %410, i64 120
+  %414 = load ptr, ptr %413, align 8
+  %415 = load ptr, ptr %27, align 8
+  %.not.i.i.i90 = icmp eq ptr %414, %415
+  br i1 %.not.i.i.i90, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70, label %416
 
-415:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit89
-  %.not7.i.i.i91 = icmp eq ptr %413, null
-  br i1 %.not7.i.i.i91, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i95, label %416
+416:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit89
+  %.not7.i.i.i91 = icmp eq ptr %414, null
+  br i1 %.not7.i.i.i91, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i95, label %417
 
-416:                                              ; preds = %415
-  %417 = getelementptr inbounds i8, ptr %413, i64 8
-  %418 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i92 = icmp eq i8 %418, 0
-  br i1 %.not.i.i.i.i92, label %422, label %419
+417:                                              ; preds = %416
+  %418 = getelementptr inbounds i8, ptr %414, i64 8
+  %419 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i92 = icmp eq i8 %419, 0
+  br i1 %.not.i.i.i.i92, label %423, label %420
 
-419:                                              ; preds = %416
-  %420 = load i32, ptr %417, align 4
-  %421 = add nsw i32 %420, 1
-  store i32 %421, ptr %417, align 4
+420:                                              ; preds = %417
+  %421 = load i32, ptr %418, align 4
+  %422 = add nsw i32 %421, 1
+  store i32 %422, ptr %418, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i95
 
-422:                                              ; preds = %416
-  %423 = atomicrmw volatile add ptr %417, i32 1 acq_rel, align 4
+423:                                              ; preds = %417
+  %424 = atomicrmw volatile add ptr %418, i32 1 acq_rel, align 4
   %.pr.i.i.i94.pre = load ptr, ptr %27, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i95
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i95: ; preds = %419, %422, %415
-  %424 = phi ptr [ %414, %415 ], [ %.pr.i.i.i94.pre, %422 ], [ %414, %419 ]
-  %.not8.i.i.i96 = icmp eq ptr %424, null
-  br i1 %.not8.i.i.i96, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split, label %425
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i95: ; preds = %420, %423, %416
+  %425 = phi ptr [ %415, %416 ], [ %.pr.i.i.i94.pre, %423 ], [ %415, %420 ]
+  %.not8.i.i.i96 = icmp eq ptr %425, null
+  br i1 %.not8.i.i.i96, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split, label %426
 
-425:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i95
-  %426 = getelementptr inbounds i8, ptr %424, i64 8
-  %427 = load atomic i64, ptr %426 acquire, align 8
-  %428 = icmp eq i64 %427, 4294967297
-  %429 = trunc i64 %427 to i32
-  br i1 %428, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split.sink.split, label %430
+426:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i95
+  %427 = getelementptr inbounds i8, ptr %425, i64 8
+  %428 = load atomic i64, ptr %427 acquire, align 8
+  %429 = icmp eq i64 %428, 4294967297
+  %430 = trunc i64 %428 to i32
+  br i1 %429, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split.sink.split, label %431
 
-430:                                              ; preds = %425
-  %431 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i97 = icmp eq i8 %431, 0
-  br i1 %.not.i9.i.i.i97, label %434, label %432
+431:                                              ; preds = %426
+  %432 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i97 = icmp eq i8 %432, 0
+  br i1 %.not.i9.i.i.i97, label %435, label %433
 
-432:                                              ; preds = %430
-  %433 = add nsw i32 %429, -1
-  store i32 %433, ptr %426, align 4
-  br label %436
+433:                                              ; preds = %431
+  %434 = add nsw i32 %430, -1
+  store i32 %434, ptr %427, align 4
+  br label %437
 
-434:                                              ; preds = %430
-  %435 = atomicrmw volatile add ptr %426, i32 -1 acq_rel, align 4
-  br label %436
+435:                                              ; preds = %431
+  %436 = atomicrmw volatile add ptr %427, i32 -1 acq_rel, align 4
+  br label %437
 
-436:                                              ; preds = %434, %432
-  %.0.i.i.i.i98 = phi i32 [ %429, %432 ], [ %435, %434 ]
-  %437 = icmp eq i32 %.0.i.i.i.i98, 1
-  br i1 %437, label %438, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split
+437:                                              ; preds = %435, %433
+  %.0.i.i.i.i98 = phi i32 [ %430, %433 ], [ %436, %435 ]
+  %438 = icmp eq i32 %.0.i.i.i.i98, 1
+  br i1 %438, label %439, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split
 
-438:                                              ; preds = %436
-  %439 = load ptr, ptr %424, align 8
-  %440 = getelementptr inbounds i8, ptr %439, i64 16
-  %441 = load ptr, ptr %440, align 8
-  call void %441(ptr noundef nonnull align 8 dereferenceable(16) %424) #17
-  %442 = getelementptr inbounds i8, ptr %424, i64 12
-  %443 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i100 = icmp eq i8 %443, 0
-  br i1 %.not.i.i.i.i.i.i100, label %447, label %444
+439:                                              ; preds = %437
+  %440 = load ptr, ptr %425, align 8
+  %441 = getelementptr inbounds i8, ptr %440, i64 16
+  %442 = load ptr, ptr %441, align 8
+  call void %442(ptr noundef nonnull align 8 dereferenceable(16) %425) #17
+  %443 = getelementptr inbounds i8, ptr %425, i64 12
+  %444 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i100 = icmp eq i8 %444, 0
+  br i1 %.not.i.i.i.i.i.i100, label %448, label %445
 
-444:                                              ; preds = %438
-  %445 = load i32, ptr %442, align 4
-  %446 = add nsw i32 %445, -1
-  store i32 %446, ptr %442, align 4
-  br label %449
+445:                                              ; preds = %439
+  %446 = load i32, ptr %443, align 4
+  %447 = add nsw i32 %446, -1
+  store i32 %447, ptr %443, align 4
+  br label %450
 
-447:                                              ; preds = %438
-  %448 = atomicrmw volatile add ptr %442, i32 -1 acq_rel, align 4
-  br label %449
+448:                                              ; preds = %439
+  %449 = atomicrmw volatile add ptr %443, i32 -1 acq_rel, align 4
+  br label %450
 
-449:                                              ; preds = %447, %444
-  %.0.i.i.i.i.i.i101 = phi i32 [ %445, %444 ], [ %448, %447 ]
-  %450 = icmp eq i32 %.0.i.i.i.i.i.i101, 1
-  br i1 %450, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split
+450:                                              ; preds = %448, %445
+  %.0.i.i.i.i.i.i101 = phi i32 [ %446, %445 ], [ %449, %448 ]
+  %451 = icmp eq i32 %.0.i.i.i.i.i.i101, 1
+  br i1 %451, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split.sink.split: ; preds = %425, %340
-  %.sink252 = phi ptr [ %341, %340 ], [ %426, %425 ]
-  %.sink251 = phi ptr [ %339, %340 ], [ %424, %425 ]
-  %.sink233.ph.ph = phi ptr [ %328, %340 ], [ %413, %425 ]
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split.sink.split: ; preds = %426, %341
+  %.sink252 = phi ptr [ %342, %341 ], [ %427, %426 ]
+  %.sink251 = phi ptr [ %340, %341 ], [ %425, %426 ]
+  %.sink233.ph.ph = phi ptr [ %329, %341 ], [ %414, %426 ]
   store i32 0, ptr %.sink252, align 8
-  %451 = getelementptr inbounds i8, ptr %.sink251, i64 12
-  store i32 0, ptr %451, align 4
-  %452 = load ptr, ptr %.sink251, align 8
-  %453 = getelementptr inbounds i8, ptr %452, i64 16
-  %454 = load ptr, ptr %453, align 8
-  call void %454(ptr noundef nonnull align 8 dereferenceable(16) %.sink251) #17
+  %452 = getelementptr inbounds i8, ptr %.sink251, i64 12
+  store i32 0, ptr %452, align 4
+  %453 = load ptr, ptr %.sink251, align 8
+  %454 = getelementptr inbounds i8, ptr %453, i64 16
+  %455 = load ptr, ptr %454, align 8
+  call void %455(ptr noundef nonnull align 8 dereferenceable(16) %.sink251) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split.sink.split, %449, %364
-  %.sink245 = phi ptr [ %339, %364 ], [ %424, %449 ], [ %.sink251, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split.sink.split ]
-  %.sink233.ph = phi ptr [ %328, %364 ], [ %413, %449 ], [ %.sink233.ph.ph, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split.sink.split ]
-  %455 = load ptr, ptr %.sink245, align 8
-  %456 = getelementptr inbounds i8, ptr %455, i64 24
-  %457 = load ptr, ptr %456, align 8
-  call void %457(ptr noundef nonnull align 8 dereferenceable(16) %.sink245) #17
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split.sink.split, %450, %365
+  %.sink245 = phi ptr [ %340, %365 ], [ %425, %450 ], [ %.sink251, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split.sink.split ]
+  %.sink233.ph = phi ptr [ %329, %365 ], [ %414, %450 ], [ %.sink233.ph.ph, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split.sink.split ]
+  %456 = load ptr, ptr %.sink245, align 8
+  %457 = getelementptr inbounds i8, ptr %456, i64 24
+  %458 = load ptr, ptr %457, align 8
+  call void %458(ptr noundef nonnull align 8 dereferenceable(16) %.sink245) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i95, %436, %449, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62, %351, %364
-  %.sink233 = phi ptr [ %328, %364 ], [ %328, %351 ], [ %328, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62 ], [ %413, %449 ], [ %413, %436 ], [ %413, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i95 ], [ %.sink233.ph, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split ]
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i95, %437, %450, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62, %352, %365
+  %.sink233 = phi ptr [ %329, %365 ], [ %329, %352 ], [ %329, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i62 ], [ %414, %450 ], [ %414, %437 ], [ %414, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i95 ], [ %.sink233.ph, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split.sink.split ]
   store ptr %.sink233, ptr %27, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70.sink.split, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit89, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit56
-  %458 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #20
+  %459 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #20
           to label %.noexc105 unwind label %144
 
 .noexc105:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit70
-  %459 = getelementptr inbounds i8, ptr %458, i64 8
-  store i32 1, ptr %459, align 8, !noalias !77
-  %460 = getelementptr inbounds i8, ptr %458, i64 12
-  store i32 1, ptr %460, align 4, !noalias !77
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %458, align 8, !noalias !77
-  %461 = getelementptr inbounds i8, ptr %458, i64 16
-  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %461, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  %460 = getelementptr inbounds i8, ptr %459, i64 8
+  store i32 1, ptr %460, align 8, !noalias !77
+  %461 = getelementptr inbounds i8, ptr %459, i64 12
+  store i32 1, ptr %461, align 4, !noalias !77
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %459, align 8, !noalias !77
+  %462 = getelementptr inbounds i8, ptr %459, i64 16
+  invoke void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %462, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(8) %9)
           to label %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit108 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i104, !noalias !77
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx20SelectionTreeElementESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i104: ; preds = %.noexc105
-  %462 = landingpad { ptr, i32 }
+  %463 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %458) #21, !noalias !77
+  call void @_ZdlPv(ptr noundef nonnull %459) #21, !noalias !77
   br label %.body
 
 _ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit108: ; preds = %.noexc105
-  %463 = load ptr, ptr %5, align 8
-  %464 = getelementptr inbounds i8, ptr %463, i64 96
-  store ptr %461, ptr %464, align 8
-  %465 = getelementptr inbounds i8, ptr %463, i64 104
-  %466 = load ptr, ptr %465, align 8
-  store ptr %458, ptr %465, align 8
-  %.not.i.i.i.i109 = icmp eq ptr %466, null
-  br i1 %.not.i.i.i.i109, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122, label %467
+  %464 = load ptr, ptr %5, align 8
+  %465 = getelementptr inbounds i8, ptr %464, i64 96
+  store ptr %462, ptr %465, align 8
+  %466 = getelementptr inbounds i8, ptr %464, i64 104
+  %467 = load ptr, ptr %466, align 8
+  store ptr %459, ptr %466, align 8
+  %.not.i.i.i.i109 = icmp eq ptr %467, null
+  br i1 %.not.i.i.i.i109, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122, label %468
 
-467:                                              ; preds = %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit108
-  %468 = getelementptr inbounds i8, ptr %466, i64 8
-  %469 = load atomic i64, ptr %468 acquire, align 8
-  %470 = icmp eq i64 %469, 4294967297
-  %471 = trunc i64 %469 to i32
-  br i1 %470, label %472, label %477
+468:                                              ; preds = %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit108
+  %469 = getelementptr inbounds i8, ptr %467, i64 8
+  %470 = load atomic i64, ptr %469 acquire, align 8
+  %471 = icmp eq i64 %470, 4294967297
+  %472 = trunc i64 %470 to i32
+  br i1 %471, label %473, label %478
 
-472:                                              ; preds = %467
-  store i32 0, ptr %468, align 8
-  %473 = getelementptr inbounds i8, ptr %466, i64 12
-  store i32 0, ptr %473, align 4
-  %474 = load ptr, ptr %466, align 8
-  %475 = getelementptr inbounds i8, ptr %474, i64 16
-  %476 = load ptr, ptr %475, align 8
-  call void %476(ptr noundef nonnull align 8 dereferenceable(16) %466) #17
+473:                                              ; preds = %468
+  store i32 0, ptr %469, align 8
+  %474 = getelementptr inbounds i8, ptr %467, i64 12
+  store i32 0, ptr %474, align 4
+  %475 = load ptr, ptr %467, align 8
+  %476 = getelementptr inbounds i8, ptr %475, i64 16
+  %477 = load ptr, ptr %476, align 8
+  call void %477(ptr noundef nonnull align 8 dereferenceable(16) %467) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114
 
-477:                                              ; preds = %467
-  %478 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i110 = icmp eq i8 %478, 0
-  br i1 %.not.i.i.i.i.i110, label %481, label %479
+478:                                              ; preds = %468
+  %479 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i110 = icmp eq i8 %479, 0
+  br i1 %.not.i.i.i.i.i110, label %482, label %480
 
-479:                                              ; preds = %477
-  %480 = add nsw i32 %471, -1
-  store i32 %480, ptr %468, align 4
-  br label %483
+480:                                              ; preds = %478
+  %481 = add nsw i32 %472, -1
+  store i32 %481, ptr %469, align 4
+  br label %484
 
-481:                                              ; preds = %477
-  %482 = atomicrmw volatile add ptr %468, i32 -1 acq_rel, align 4
-  br label %483
+482:                                              ; preds = %478
+  %483 = atomicrmw volatile add ptr %469, i32 -1 acq_rel, align 4
+  br label %484
 
-483:                                              ; preds = %481, %479
-  %.0.i.i.i.i.i111 = phi i32 [ %471, %479 ], [ %482, %481 ]
-  %484 = icmp eq i32 %.0.i.i.i.i.i111, 1
-  br i1 %484, label %485, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122
+484:                                              ; preds = %482, %480
+  %.0.i.i.i.i.i111 = phi i32 [ %472, %480 ], [ %483, %482 ]
+  %485 = icmp eq i32 %.0.i.i.i.i.i111, 1
+  br i1 %485, label %486, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122
 
-485:                                              ; preds = %483
-  %486 = load ptr, ptr %466, align 8
-  %487 = getelementptr inbounds i8, ptr %486, i64 16
-  %488 = load ptr, ptr %487, align 8
-  call void %488(ptr noundef nonnull align 8 dereferenceable(16) %466) #17
-  %489 = getelementptr inbounds i8, ptr %466, i64 12
-  %490 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i112 = icmp eq i8 %490, 0
-  br i1 %.not.i.i.i.i.i.i.i112, label %494, label %491
+486:                                              ; preds = %484
+  %487 = load ptr, ptr %467, align 8
+  %488 = getelementptr inbounds i8, ptr %487, i64 16
+  %489 = load ptr, ptr %488, align 8
+  call void %489(ptr noundef nonnull align 8 dereferenceable(16) %467) #17
+  %490 = getelementptr inbounds i8, ptr %467, i64 12
+  %491 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i112 = icmp eq i8 %491, 0
+  br i1 %.not.i.i.i.i.i.i.i112, label %495, label %492
 
-491:                                              ; preds = %485
-  %492 = load i32, ptr %489, align 4
-  %493 = add nsw i32 %492, -1
-  store i32 %493, ptr %489, align 4
-  br label %496
+492:                                              ; preds = %486
+  %493 = load i32, ptr %490, align 4
+  %494 = add nsw i32 %493, -1
+  store i32 %494, ptr %490, align 4
+  br label %497
 
-494:                                              ; preds = %485
-  %495 = atomicrmw volatile add ptr %489, i32 -1 acq_rel, align 4
-  br label %496
+495:                                              ; preds = %486
+  %496 = atomicrmw volatile add ptr %490, i32 -1 acq_rel, align 4
+  br label %497
 
-496:                                              ; preds = %494, %491
-  %.0.i.i.i.i.i.i.i113 = phi i32 [ %492, %491 ], [ %495, %494 ]
-  %497 = icmp eq i32 %.0.i.i.i.i.i.i.i113, 1
-  br i1 %497, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122
+497:                                              ; preds = %495, %492
+  %.0.i.i.i.i.i.i.i113 = phi i32 [ %493, %492 ], [ %496, %495 ]
+  %498 = icmp eq i32 %.0.i.i.i.i.i.i.i113, 1
+  br i1 %498, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114: ; preds = %496, %472
-  %498 = load ptr, ptr %466, align 8
-  %499 = getelementptr inbounds i8, ptr %498, i64 24
-  %500 = load ptr, ptr %499, align 8
-  call void %500(ptr noundef nonnull align 8 dereferenceable(16) %466) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114: ; preds = %497, %473
+  %499 = load ptr, ptr %467, align 8
+  %500 = getelementptr inbounds i8, ptr %499, i64 24
+  %501 = load ptr, ptr %500, align 8
+  call void %501(ptr noundef nonnull align 8 dereferenceable(16) %467) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114, %496, %483, %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit108
-  %501 = load ptr, ptr %5, align 8
-  %502 = getelementptr inbounds i8, ptr %501, i64 96
-  %503 = load ptr, ptr %6, align 8
-  %504 = getelementptr inbounds i8, ptr %503, i64 8
-  %505 = load i32, ptr %504, align 8
-  invoke void @_Z22_gmx_selelem_set_vtypeRKSt10shared_ptrIN3gmx20SelectionTreeElementEE12e_selvalue_t(ptr noundef nonnull align 8 dereferenceable(16) %502, i32 noundef %505)
-          to label %506 unwind label %144
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114, %497, %484, %_ZSt11make_sharedIN3gmx20SelectionTreeElementEJ11e_selelem_tRNS0_17SelectionLocationEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit108
+  %502 = load ptr, ptr %5, align 8
+  %503 = getelementptr inbounds i8, ptr %502, i64 96
+  %504 = load ptr, ptr %6, align 8
+  %505 = getelementptr inbounds i8, ptr %504, i64 8
+  %506 = load i32, ptr %505, align 8
+  invoke void @_Z22_gmx_selelem_set_vtypeRKSt10shared_ptrIN3gmx20SelectionTreeElementEE12e_selvalue_t(ptr noundef nonnull align 8 dereferenceable(16) %503, i32 noundef %506)
+          to label %507 unwind label %144
 
-506:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122
-  %507 = getelementptr inbounds i8, ptr %503, i64 96
-  %508 = load ptr, ptr %502, align 8
-  %509 = getelementptr inbounds i8, ptr %508, i64 96
-  %510 = load ptr, ptr %507, align 8
-  store ptr %510, ptr %509, align 8
-  %511 = getelementptr inbounds i8, ptr %508, i64 104
-  %512 = getelementptr inbounds i8, ptr %503, i64 104
-  %513 = load ptr, ptr %512, align 8
-  %514 = load ptr, ptr %511, align 8
-  %.not.i.i.i123 = icmp eq ptr %513, %514
-  br i1 %.not.i.i.i123, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit136, label %515
+507:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit122
+  %508 = getelementptr inbounds i8, ptr %504, i64 96
+  %509 = load ptr, ptr %503, align 8
+  %510 = getelementptr inbounds i8, ptr %509, i64 96
+  %511 = load ptr, ptr %508, align 8
+  store ptr %511, ptr %510, align 8
+  %512 = getelementptr inbounds i8, ptr %509, i64 104
+  %513 = getelementptr inbounds i8, ptr %504, i64 104
+  %514 = load ptr, ptr %513, align 8
+  %515 = load ptr, ptr %512, align 8
+  %.not.i.i.i123 = icmp eq ptr %514, %515
+  br i1 %.not.i.i.i123, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit136, label %516
 
-515:                                              ; preds = %506
-  %.not7.i.i.i124 = icmp eq ptr %513, null
-  br i1 %.not7.i.i.i124, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i128, label %516
+516:                                              ; preds = %507
+  %.not7.i.i.i124 = icmp eq ptr %514, null
+  br i1 %.not7.i.i.i124, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i128, label %517
 
-516:                                              ; preds = %515
-  %517 = getelementptr inbounds i8, ptr %513, i64 8
-  %518 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i125 = icmp eq i8 %518, 0
-  br i1 %.not.i.i.i.i125, label %522, label %519
+517:                                              ; preds = %516
+  %518 = getelementptr inbounds i8, ptr %514, i64 8
+  %519 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i125 = icmp eq i8 %519, 0
+  br i1 %.not.i.i.i.i125, label %523, label %520
 
-519:                                              ; preds = %516
-  %520 = load i32, ptr %517, align 4
-  %521 = add nsw i32 %520, 1
-  store i32 %521, ptr %517, align 4
+520:                                              ; preds = %517
+  %521 = load i32, ptr %518, align 4
+  %522 = add nsw i32 %521, 1
+  store i32 %522, ptr %518, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i126
 
-522:                                              ; preds = %516
-  %523 = atomicrmw volatile add ptr %517, i32 1 acq_rel, align 4
+523:                                              ; preds = %517
+  %524 = atomicrmw volatile add ptr %518, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i126
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i126: ; preds = %522, %519
-  %.pr.i.i.i127 = load ptr, ptr %511, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i126: ; preds = %523, %520
+  %.pr.i.i.i127 = load ptr, ptr %512, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i128
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i128: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i126, %515
-  %524 = phi ptr [ %.pr.i.i.i127, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i126 ], [ %514, %515 ]
-  %.not8.i.i.i129 = icmp eq ptr %524, null
-  br i1 %.not8.i.i.i129, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132, label %525
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i128: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i126, %516
+  %525 = phi ptr [ %.pr.i.i.i127, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i126 ], [ %515, %516 ]
+  %.not8.i.i.i129 = icmp eq ptr %525, null
+  br i1 %.not8.i.i.i129, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132, label %526
 
-525:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i128
-  %526 = getelementptr inbounds i8, ptr %524, i64 8
-  %527 = load atomic i64, ptr %526 acquire, align 8
-  %528 = icmp eq i64 %527, 4294967297
-  %529 = trunc i64 %527 to i32
-  br i1 %528, label %530, label %535
+526:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i128
+  %527 = getelementptr inbounds i8, ptr %525, i64 8
+  %528 = load atomic i64, ptr %527 acquire, align 8
+  %529 = icmp eq i64 %528, 4294967297
+  %530 = trunc i64 %528 to i32
+  br i1 %529, label %531, label %536
 
-530:                                              ; preds = %525
-  store i32 0, ptr %526, align 8
-  %531 = getelementptr inbounds i8, ptr %524, i64 12
-  store i32 0, ptr %531, align 4
-  %532 = load ptr, ptr %524, align 8
-  %533 = getelementptr inbounds i8, ptr %532, i64 16
-  %534 = load ptr, ptr %533, align 8
-  call void %534(ptr noundef nonnull align 8 dereferenceable(16) %524) #17
+531:                                              ; preds = %526
+  store i32 0, ptr %527, align 8
+  %532 = getelementptr inbounds i8, ptr %525, i64 12
+  store i32 0, ptr %532, align 4
+  %533 = load ptr, ptr %525, align 8
+  %534 = getelementptr inbounds i8, ptr %533, i64 16
+  %535 = load ptr, ptr %534, align 8
+  call void %535(ptr noundef nonnull align 8 dereferenceable(16) %525) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i135
 
-535:                                              ; preds = %525
-  %536 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i130 = icmp eq i8 %536, 0
-  br i1 %.not.i9.i.i.i130, label %539, label %537
+536:                                              ; preds = %526
+  %537 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i130 = icmp eq i8 %537, 0
+  br i1 %.not.i9.i.i.i130, label %540, label %538
 
-537:                                              ; preds = %535
-  %538 = add nsw i32 %529, -1
-  store i32 %538, ptr %526, align 4
-  br label %541
+538:                                              ; preds = %536
+  %539 = add nsw i32 %530, -1
+  store i32 %539, ptr %527, align 4
+  br label %542
 
-539:                                              ; preds = %535
-  %540 = atomicrmw volatile add ptr %526, i32 -1 acq_rel, align 4
-  br label %541
+540:                                              ; preds = %536
+  %541 = atomicrmw volatile add ptr %527, i32 -1 acq_rel, align 4
+  br label %542
 
-541:                                              ; preds = %539, %537
-  %.0.i.i.i.i131 = phi i32 [ %529, %537 ], [ %540, %539 ]
-  %542 = icmp eq i32 %.0.i.i.i.i131, 1
-  br i1 %542, label %543, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132
+542:                                              ; preds = %540, %538
+  %.0.i.i.i.i131 = phi i32 [ %530, %538 ], [ %541, %540 ]
+  %543 = icmp eq i32 %.0.i.i.i.i131, 1
+  br i1 %543, label %544, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132
 
-543:                                              ; preds = %541
-  %544 = load ptr, ptr %524, align 8
-  %545 = getelementptr inbounds i8, ptr %544, i64 16
-  %546 = load ptr, ptr %545, align 8
-  call void %546(ptr noundef nonnull align 8 dereferenceable(16) %524) #17
-  %547 = getelementptr inbounds i8, ptr %524, i64 12
-  %548 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i133 = icmp eq i8 %548, 0
-  br i1 %.not.i.i.i.i.i.i133, label %552, label %549
+544:                                              ; preds = %542
+  %545 = load ptr, ptr %525, align 8
+  %546 = getelementptr inbounds i8, ptr %545, i64 16
+  %547 = load ptr, ptr %546, align 8
+  call void %547(ptr noundef nonnull align 8 dereferenceable(16) %525) #17
+  %548 = getelementptr inbounds i8, ptr %525, i64 12
+  %549 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i133 = icmp eq i8 %549, 0
+  br i1 %.not.i.i.i.i.i.i133, label %553, label %550
 
-549:                                              ; preds = %543
-  %550 = load i32, ptr %547, align 4
-  %551 = add nsw i32 %550, -1
-  store i32 %551, ptr %547, align 4
-  br label %554
+550:                                              ; preds = %544
+  %551 = load i32, ptr %548, align 4
+  %552 = add nsw i32 %551, -1
+  store i32 %552, ptr %548, align 4
+  br label %555
 
-552:                                              ; preds = %543
-  %553 = atomicrmw volatile add ptr %547, i32 -1 acq_rel, align 4
-  br label %554
+553:                                              ; preds = %544
+  %554 = atomicrmw volatile add ptr %548, i32 -1 acq_rel, align 4
+  br label %555
 
-554:                                              ; preds = %552, %549
-  %.0.i.i.i.i.i.i134 = phi i32 [ %550, %549 ], [ %553, %552 ]
-  %555 = icmp eq i32 %.0.i.i.i.i.i.i134, 1
-  br i1 %555, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i135, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132
+555:                                              ; preds = %553, %550
+  %.0.i.i.i.i.i.i134 = phi i32 [ %551, %550 ], [ %554, %553 ]
+  %556 = icmp eq i32 %.0.i.i.i.i.i.i134, 1
+  br i1 %556, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i135, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i135: ; preds = %554, %530
-  %556 = load ptr, ptr %524, align 8
-  %557 = getelementptr inbounds i8, ptr %556, i64 24
-  %558 = load ptr, ptr %557, align 8
-  call void %558(ptr noundef nonnull align 8 dereferenceable(16) %524) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i135: ; preds = %555, %531
+  %557 = load ptr, ptr %525, align 8
+  %558 = getelementptr inbounds i8, ptr %557, i64 24
+  %559 = load ptr, ptr %558, align 8
+  call void %559(ptr noundef nonnull align 8 dereferenceable(16) %525) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i135, %554, %541, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i128
-  store ptr %513, ptr %511, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i135, %555, %542, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i128
+  store ptr %514, ptr %512, align 8
   %.pre215 = load ptr, ptr %5, align 8
   %.pre216 = load ptr, ptr %6, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre216, i64 104
   %.pre217 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit136
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit136: ; preds = %506, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132
-  %559 = phi ptr [ %513, %506 ], [ %.pre217, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132 ]
-  %560 = phi ptr [ %503, %506 ], [ %.pre216, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132 ]
-  %561 = phi ptr [ %501, %506 ], [ %.pre215, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132 ]
-  %562 = getelementptr inbounds i8, ptr %561, i64 96
-  %563 = getelementptr inbounds i8, ptr %560, i64 96
-  %564 = load ptr, ptr %562, align 8
-  store ptr %564, ptr %563, align 8
-  %565 = getelementptr inbounds i8, ptr %560, i64 104
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit136: ; preds = %507, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132
+  %560 = phi ptr [ %514, %507 ], [ %.pre217, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132 ]
+  %561 = phi ptr [ %504, %507 ], [ %.pre216, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132 ]
+  %562 = phi ptr [ %502, %507 ], [ %.pre215, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i132 ]
+  %563 = getelementptr inbounds i8, ptr %562, i64 96
+  %564 = getelementptr inbounds i8, ptr %561, i64 96
+  %565 = load ptr, ptr %563, align 8
+  store ptr %565, ptr %564, align 8
   %566 = getelementptr inbounds i8, ptr %561, i64 104
-  %567 = load ptr, ptr %566, align 8
-  %.not.i.i.i137 = icmp eq ptr %567, %559
-  br i1 %.not.i.i.i137, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit150, label %568
+  %567 = getelementptr inbounds i8, ptr %562, i64 104
+  %568 = load ptr, ptr %567, align 8
+  %.not.i.i.i137 = icmp eq ptr %568, %560
+  br i1 %.not.i.i.i137, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit150, label %569
 
-568:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit136
-  %.not7.i.i.i138 = icmp eq ptr %567, null
-  br i1 %.not7.i.i.i138, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i142, label %569
+569:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit136
+  %.not7.i.i.i138 = icmp eq ptr %568, null
+  br i1 %.not7.i.i.i138, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i142, label %570
 
-569:                                              ; preds = %568
-  %570 = getelementptr inbounds i8, ptr %567, i64 8
-  %571 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i139 = icmp eq i8 %571, 0
-  br i1 %.not.i.i.i.i139, label %575, label %572
+570:                                              ; preds = %569
+  %571 = getelementptr inbounds i8, ptr %568, i64 8
+  %572 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i139 = icmp eq i8 %572, 0
+  br i1 %.not.i.i.i.i139, label %576, label %573
 
-572:                                              ; preds = %569
-  %573 = load i32, ptr %570, align 4
-  %574 = add nsw i32 %573, 1
-  store i32 %574, ptr %570, align 4
+573:                                              ; preds = %570
+  %574 = load i32, ptr %571, align 4
+  %575 = add nsw i32 %574, 1
+  store i32 %575, ptr %571, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i140
 
-575:                                              ; preds = %569
-  %576 = atomicrmw volatile add ptr %570, i32 1 acq_rel, align 4
+576:                                              ; preds = %570
+  %577 = atomicrmw volatile add ptr %571, i32 1 acq_rel, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i140
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i140: ; preds = %575, %572
-  %.pr.i.i.i141 = load ptr, ptr %565, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i140: ; preds = %576, %573
+  %.pr.i.i.i141 = load ptr, ptr %566, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i142
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i142: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i140, %568
-  %577 = phi ptr [ %.pr.i.i.i141, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i140 ], [ %559, %568 ]
-  %.not8.i.i.i143 = icmp eq ptr %577, null
-  br i1 %.not8.i.i.i143, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i146, label %578
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i142: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i140, %569
+  %578 = phi ptr [ %.pr.i.i.i141, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i140 ], [ %560, %569 ]
+  %.not8.i.i.i143 = icmp eq ptr %578, null
+  br i1 %.not8.i.i.i143, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i146, label %579
 
-578:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i142
-  %579 = getelementptr inbounds i8, ptr %577, i64 8
-  %580 = load atomic i64, ptr %579 acquire, align 8
-  %581 = icmp eq i64 %580, 4294967297
-  %582 = trunc i64 %580 to i32
-  br i1 %581, label %583, label %588
+579:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i142
+  %580 = getelementptr inbounds i8, ptr %578, i64 8
+  %581 = load atomic i64, ptr %580 acquire, align 8
+  %582 = icmp eq i64 %581, 4294967297
+  %583 = trunc i64 %581 to i32
+  br i1 %582, label %584, label %589
 
-583:                                              ; preds = %578
-  store i32 0, ptr %579, align 8
-  %584 = getelementptr inbounds i8, ptr %577, i64 12
-  store i32 0, ptr %584, align 4
-  %585 = load ptr, ptr %577, align 8
-  %586 = getelementptr inbounds i8, ptr %585, i64 16
-  %587 = load ptr, ptr %586, align 8
-  call void %587(ptr noundef nonnull align 8 dereferenceable(16) %577) #17
+584:                                              ; preds = %579
+  store i32 0, ptr %580, align 8
+  %585 = getelementptr inbounds i8, ptr %578, i64 12
+  store i32 0, ptr %585, align 4
+  %586 = load ptr, ptr %578, align 8
+  %587 = getelementptr inbounds i8, ptr %586, i64 16
+  %588 = load ptr, ptr %587, align 8
+  call void %588(ptr noundef nonnull align 8 dereferenceable(16) %578) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i149
 
-588:                                              ; preds = %578
-  %589 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i144 = icmp eq i8 %589, 0
-  br i1 %.not.i9.i.i.i144, label %592, label %590
+589:                                              ; preds = %579
+  %590 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i144 = icmp eq i8 %590, 0
+  br i1 %.not.i9.i.i.i144, label %593, label %591
 
-590:                                              ; preds = %588
-  %591 = add nsw i32 %582, -1
-  store i32 %591, ptr %579, align 4
-  br label %594
+591:                                              ; preds = %589
+  %592 = add nsw i32 %583, -1
+  store i32 %592, ptr %580, align 4
+  br label %595
 
-592:                                              ; preds = %588
-  %593 = atomicrmw volatile add ptr %579, i32 -1 acq_rel, align 4
-  br label %594
+593:                                              ; preds = %589
+  %594 = atomicrmw volatile add ptr %580, i32 -1 acq_rel, align 4
+  br label %595
 
-594:                                              ; preds = %592, %590
-  %.0.i.i.i.i145 = phi i32 [ %582, %590 ], [ %593, %592 ]
-  %595 = icmp eq i32 %.0.i.i.i.i145, 1
-  br i1 %595, label %596, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i146
+595:                                              ; preds = %593, %591
+  %.0.i.i.i.i145 = phi i32 [ %583, %591 ], [ %594, %593 ]
+  %596 = icmp eq i32 %.0.i.i.i.i145, 1
+  br i1 %596, label %597, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i146
 
-596:                                              ; preds = %594
-  %597 = load ptr, ptr %577, align 8
-  %598 = getelementptr inbounds i8, ptr %597, i64 16
-  %599 = load ptr, ptr %598, align 8
-  call void %599(ptr noundef nonnull align 8 dereferenceable(16) %577) #17
-  %600 = getelementptr inbounds i8, ptr %577, i64 12
-  %601 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i147 = icmp eq i8 %601, 0
-  br i1 %.not.i.i.i.i.i.i147, label %605, label %602
+597:                                              ; preds = %595
+  %598 = load ptr, ptr %578, align 8
+  %599 = getelementptr inbounds i8, ptr %598, i64 16
+  %600 = load ptr, ptr %599, align 8
+  call void %600(ptr noundef nonnull align 8 dereferenceable(16) %578) #17
+  %601 = getelementptr inbounds i8, ptr %578, i64 12
+  %602 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i147 = icmp eq i8 %602, 0
+  br i1 %.not.i.i.i.i.i.i147, label %606, label %603
 
-602:                                              ; preds = %596
-  %603 = load i32, ptr %600, align 4
-  %604 = add nsw i32 %603, -1
-  store i32 %604, ptr %600, align 4
-  br label %607
+603:                                              ; preds = %597
+  %604 = load i32, ptr %601, align 4
+  %605 = add nsw i32 %604, -1
+  store i32 %605, ptr %601, align 4
+  br label %608
 
-605:                                              ; preds = %596
-  %606 = atomicrmw volatile add ptr %600, i32 -1 acq_rel, align 4
-  br label %607
+606:                                              ; preds = %597
+  %607 = atomicrmw volatile add ptr %601, i32 -1 acq_rel, align 4
+  br label %608
 
-607:                                              ; preds = %605, %602
-  %.0.i.i.i.i.i.i148 = phi i32 [ %603, %602 ], [ %606, %605 ]
-  %608 = icmp eq i32 %.0.i.i.i.i.i.i148, 1
-  br i1 %608, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i149, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i146
+608:                                              ; preds = %606, %603
+  %.0.i.i.i.i.i.i148 = phi i32 [ %604, %603 ], [ %607, %606 ]
+  %609 = icmp eq i32 %.0.i.i.i.i.i.i148, 1
+  br i1 %609, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i149, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i146
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i149: ; preds = %607, %583
-  %609 = load ptr, ptr %577, align 8
-  %610 = getelementptr inbounds i8, ptr %609, i64 24
-  %611 = load ptr, ptr %610, align 8
-  call void %611(ptr noundef nonnull align 8 dereferenceable(16) %577) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i149: ; preds = %608, %584
+  %610 = load ptr, ptr %578, align 8
+  %611 = getelementptr inbounds i8, ptr %610, i64 24
+  %612 = load ptr, ptr %611, align 8
+  call void %612(ptr noundef nonnull align 8 dereferenceable(16) %578) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i146
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i146: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i149, %607, %594, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i142
-  store ptr %567, ptr %565, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i146: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i149, %608, %595, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i142
+  store ptr %568, ptr %566, align 8
   %.pre218 = load ptr, ptr %5, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit150
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit150: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit136, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i146
-  %612 = phi ptr [ %561, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit136 ], [ %.pre218, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i146 ]
-  %613 = load i32, ptr %2, align 4
-  %614 = add nsw i32 %613, 1
-  store i32 %614, ptr %2, align 4
+  %613 = phi ptr [ %562, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit136 ], [ %.pre218, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i146 ]
+  %614 = load i32, ptr %2, align 4
+  %615 = add nsw i32 %614, 1
+  store i32 %615, ptr %2, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.27, i32 noundef %614)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.27, i32 noundef %615)
           to label %.noexc151 unwind label %144
 
 .noexc151:                                        ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit150
-  %615 = getelementptr inbounds i8, ptr %612, i64 96
-  %616 = load ptr, ptr %615, align 8
-  %617 = getelementptr inbounds i8, ptr %616, i64 128
-  %618 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %617, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %621 unwind label %619
+  %616 = getelementptr inbounds i8, ptr %613, i64 96
+  %617 = load ptr, ptr %616, align 8
+  %618 = getelementptr inbounds i8, ptr %617, i64 128
+  %619 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %618, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %622 unwind label %620
 
-619:                                              ; preds = %.noexc151
-  %620 = landingpad { ptr, i32 }
+620:                                              ; preds = %.noexc151
+  %621 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body
 
-621:                                              ; preds = %.noexc151
+622:                                              ; preds = %.noexc151
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %622 = load ptr, ptr %6, align 8
-  %623 = getelementptr inbounds i8, ptr %622, i64 40
-  %624 = load i32, ptr %623, align 8
-  %625 = and i32 %624, 31
-  %626 = getelementptr inbounds i8, ptr %612, i64 40
-  %627 = load i32, ptr %626, align 8
-  %628 = or i32 %627, %625
-  store i32 %628, ptr %626, align 8
-  %629 = load i32, ptr %623, align 8
-  %630 = and i32 %629, 31
-  %631 = load ptr, ptr %615, align 8
-  %632 = getelementptr inbounds i8, ptr %631, i64 40
-  %633 = load i32, ptr %632, align 8
-  %634 = or i32 %633, %630
-  store i32 %634, ptr %632, align 8
-  %.pre219 = load i32, ptr %622, align 8
-  %635 = icmp eq i32 %.pre219, 6
-  br i1 %635, label %.thread, label %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %623 = load ptr, ptr %6, align 8
+  %624 = getelementptr inbounds i8, ptr %623, i64 40
+  %625 = load i32, ptr %624, align 8
+  %626 = and i32 %625, 31
+  %627 = getelementptr inbounds i8, ptr %613, i64 40
+  %628 = load i32, ptr %627, align 8
+  %629 = or i32 %628, %626
+  store i32 %629, ptr %627, align 8
+  %630 = load i32, ptr %624, align 8
+  %631 = and i32 %630, 31
+  %632 = load ptr, ptr %616, align 8
+  %633 = getelementptr inbounds i8, ptr %632, i64 40
+  %634 = load i32, ptr %633, align 8
+  %635 = or i32 %634, %631
+  store i32 %635, ptr %633, align 8
+  %.pre219 = load i32, ptr %623, align 8
+  %636 = icmp eq i32 %.pre219, 6
+  br i1 %636, label %.thread, label %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-.thread:                                          ; preds = %278, %621
-  %636 = phi ptr [ %622, %621 ], [ %275, %278 ]
-  %637 = getelementptr inbounds i8, ptr %636, i64 96
-  %638 = load ptr, ptr %637, align 8
-  %639 = getelementptr inbounds i8, ptr %638, i64 128
-  %640 = getelementptr inbounds i8, ptr %636, i64 128
-  %641 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %640, ptr noundef nonnull align 8 dereferenceable(32) %639)
+.thread:                                          ; preds = %279, %622
+  %637 = phi ptr [ %623, %622 ], [ %276, %279 ]
+  %638 = getelementptr inbounds i8, ptr %637, i64 96
+  %639 = load ptr, ptr %638, align 8
+  %640 = getelementptr inbounds i8, ptr %639, i64 128
+  %641 = getelementptr inbounds i8, ptr %637, i64 128
+  %642 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %641, ptr noundef nonnull align 8 dereferenceable(32) %640)
           to label %._ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge unwind label %144
 
 ._ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge: ; preds = %.thread
   %.pre220 = load ptr, ptr %6, align 8
   br label %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.critedge, %._ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge, %621
-  %642 = phi ptr [ %.pre220, %._ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %622, %621 ], [ %275, %.critedge ]
-  %643 = getelementptr inbounds i8, ptr %642, i64 112
-  %644 = load ptr, ptr %643, align 8
-  store ptr %644, ptr %6, align 8
-  %645 = getelementptr inbounds i8, ptr %642, i64 120
-  %646 = load ptr, ptr %645, align 8
-  %647 = load ptr, ptr %13, align 8
-  %.not.i.i.i155 = icmp eq ptr %646, %647
-  br i1 %.not.i.i.i155, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit168, label %648
+_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.critedge, %._ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge, %622
+  %643 = phi ptr [ %.pre220, %._ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit_crit_edge ], [ %623, %622 ], [ %276, %.critedge ]
+  %644 = getelementptr inbounds i8, ptr %643, i64 112
+  %645 = load ptr, ptr %644, align 8
+  store ptr %645, ptr %6, align 8
+  %646 = getelementptr inbounds i8, ptr %643, i64 120
+  %647 = load ptr, ptr %646, align 8
+  %648 = load ptr, ptr %13, align 8
+  %.not.i.i.i155 = icmp eq ptr %647, %648
+  br i1 %.not.i.i.i155, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit168, label %649
 
-648:                                              ; preds = %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.not7.i.i.i156 = icmp eq ptr %646, null
-  br i1 %.not7.i.i.i156, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160, label %649
+649:                                              ; preds = %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %.not7.i.i.i156 = icmp eq ptr %647, null
+  br i1 %.not7.i.i.i156, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160, label %650
 
-649:                                              ; preds = %648
-  %650 = getelementptr inbounds i8, ptr %646, i64 8
-  %651 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i157 = icmp eq i8 %651, 0
-  br i1 %.not.i.i.i.i157, label %655, label %652
+650:                                              ; preds = %649
+  %651 = getelementptr inbounds i8, ptr %647, i64 8
+  %652 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i157 = icmp eq i8 %652, 0
+  br i1 %.not.i.i.i.i157, label %656, label %653
 
-652:                                              ; preds = %649
-  %653 = load i32, ptr %650, align 4
-  %654 = add nsw i32 %653, 1
-  store i32 %654, ptr %650, align 4
+653:                                              ; preds = %650
+  %654 = load i32, ptr %651, align 4
+  %655 = add nsw i32 %654, 1
+  store i32 %655, ptr %651, align 4
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160
 
-655:                                              ; preds = %649
-  %656 = atomicrmw volatile add ptr %650, i32 1 acq_rel, align 4
+656:                                              ; preds = %650
+  %657 = atomicrmw volatile add ptr %651, i32 1 acq_rel, align 4
   %.pr.i.i.i159.pre = load ptr, ptr %13, align 8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160: ; preds = %652, %655, %648
-  %657 = phi ptr [ %647, %648 ], [ %.pr.i.i.i159.pre, %655 ], [ %647, %652 ]
-  %.not8.i.i.i161 = icmp eq ptr %657, null
-  br i1 %.not8.i.i.i161, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164, label %658
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160: ; preds = %653, %656, %649
+  %658 = phi ptr [ %648, %649 ], [ %.pr.i.i.i159.pre, %656 ], [ %648, %653 ]
+  %.not8.i.i.i161 = icmp eq ptr %658, null
+  br i1 %.not8.i.i.i161, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164, label %659
 
-658:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160
-  %659 = getelementptr inbounds i8, ptr %657, i64 8
-  %660 = load atomic i64, ptr %659 acquire, align 8
-  %661 = icmp eq i64 %660, 4294967297
-  %662 = trunc i64 %660 to i32
-  br i1 %661, label %663, label %668
+659:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160
+  %660 = getelementptr inbounds i8, ptr %658, i64 8
+  %661 = load atomic i64, ptr %660 acquire, align 8
+  %662 = icmp eq i64 %661, 4294967297
+  %663 = trunc i64 %661 to i32
+  br i1 %662, label %664, label %669
 
-663:                                              ; preds = %658
-  store i32 0, ptr %659, align 8
-  %664 = getelementptr inbounds i8, ptr %657, i64 12
-  store i32 0, ptr %664, align 4
-  %665 = load ptr, ptr %657, align 8
-  %666 = getelementptr inbounds i8, ptr %665, i64 16
-  %667 = load ptr, ptr %666, align 8
-  call void %667(ptr noundef nonnull align 8 dereferenceable(16) %657) #17
+664:                                              ; preds = %659
+  store i32 0, ptr %660, align 8
+  %665 = getelementptr inbounds i8, ptr %658, i64 12
+  store i32 0, ptr %665, align 4
+  %666 = load ptr, ptr %658, align 8
+  %667 = getelementptr inbounds i8, ptr %666, i64 16
+  %668 = load ptr, ptr %667, align 8
+  call void %668(ptr noundef nonnull align 8 dereferenceable(16) %658) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i167
 
-668:                                              ; preds = %658
-  %669 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i9.i.i.i162 = icmp eq i8 %669, 0
-  br i1 %.not.i9.i.i.i162, label %672, label %670
+669:                                              ; preds = %659
+  %670 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i9.i.i.i162 = icmp eq i8 %670, 0
+  br i1 %.not.i9.i.i.i162, label %673, label %671
 
-670:                                              ; preds = %668
-  %671 = add nsw i32 %662, -1
-  store i32 %671, ptr %659, align 4
-  br label %674
+671:                                              ; preds = %669
+  %672 = add nsw i32 %663, -1
+  store i32 %672, ptr %660, align 4
+  br label %675
 
-672:                                              ; preds = %668
-  %673 = atomicrmw volatile add ptr %659, i32 -1 acq_rel, align 4
-  br label %674
+673:                                              ; preds = %669
+  %674 = atomicrmw volatile add ptr %660, i32 -1 acq_rel, align 4
+  br label %675
 
-674:                                              ; preds = %672, %670
-  %.0.i.i.i.i163 = phi i32 [ %662, %670 ], [ %673, %672 ]
-  %675 = icmp eq i32 %.0.i.i.i.i163, 1
-  br i1 %675, label %676, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164
+675:                                              ; preds = %673, %671
+  %.0.i.i.i.i163 = phi i32 [ %663, %671 ], [ %674, %673 ]
+  %676 = icmp eq i32 %.0.i.i.i.i163, 1
+  br i1 %676, label %677, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164
 
-676:                                              ; preds = %674
-  %677 = load ptr, ptr %657, align 8
-  %678 = getelementptr inbounds i8, ptr %677, i64 16
-  %679 = load ptr, ptr %678, align 8
-  call void %679(ptr noundef nonnull align 8 dereferenceable(16) %657) #17
-  %680 = getelementptr inbounds i8, ptr %657, i64 12
-  %681 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i165 = icmp eq i8 %681, 0
-  br i1 %.not.i.i.i.i.i.i165, label %685, label %682
+677:                                              ; preds = %675
+  %678 = load ptr, ptr %658, align 8
+  %679 = getelementptr inbounds i8, ptr %678, i64 16
+  %680 = load ptr, ptr %679, align 8
+  call void %680(ptr noundef nonnull align 8 dereferenceable(16) %658) #17
+  %681 = getelementptr inbounds i8, ptr %658, i64 12
+  %682 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i165 = icmp eq i8 %682, 0
+  br i1 %.not.i.i.i.i.i.i165, label %686, label %683
 
-682:                                              ; preds = %676
-  %683 = load i32, ptr %680, align 4
-  %684 = add nsw i32 %683, -1
-  store i32 %684, ptr %680, align 4
-  br label %687
+683:                                              ; preds = %677
+  %684 = load i32, ptr %681, align 4
+  %685 = add nsw i32 %684, -1
+  store i32 %685, ptr %681, align 4
+  br label %688
 
-685:                                              ; preds = %676
-  %686 = atomicrmw volatile add ptr %680, i32 -1 acq_rel, align 4
-  br label %687
+686:                                              ; preds = %677
+  %687 = atomicrmw volatile add ptr %681, i32 -1 acq_rel, align 4
+  br label %688
 
-687:                                              ; preds = %685, %682
-  %.0.i.i.i.i.i.i166 = phi i32 [ %683, %682 ], [ %686, %685 ]
-  %688 = icmp eq i32 %.0.i.i.i.i.i.i166, 1
-  br i1 %688, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i167, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164
+688:                                              ; preds = %686, %683
+  %.0.i.i.i.i.i.i166 = phi i32 [ %684, %683 ], [ %687, %686 ]
+  %689 = icmp eq i32 %.0.i.i.i.i.i.i166, 1
+  br i1 %689, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i167, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i167: ; preds = %687, %663
-  %689 = load ptr, ptr %657, align 8
-  %690 = getelementptr inbounds i8, ptr %689, i64 24
-  %691 = load ptr, ptr %690, align 8
-  call void %691(ptr noundef nonnull align 8 dereferenceable(16) %657) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i167: ; preds = %688, %664
+  %690 = load ptr, ptr %658, align 8
+  %691 = getelementptr inbounds i8, ptr %690, i64 24
+  %692 = load ptr, ptr %691, align 8
+  call void %692(ptr noundef nonnull align 8 dereferenceable(16) %658) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i167, %687, %674, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160
-  store ptr %646, ptr %13, align 8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i167, %688, %675, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i160
+  store ptr %647, ptr %13, align 8
   %.pre222 = load ptr, ptr %6, align 8
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit168
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit168: ; preds = %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164
-  %692 = phi ptr [ %647, %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %646, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164 ]
-  %693 = phi ptr [ %644, %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.pre222, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164 ]
-  %.not193 = icmp eq ptr %693, null
+  %693 = phi ptr [ %648, %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %647, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164 ]
+  %694 = phi ptr [ %645, %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.pre222, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i164 ]
+  %.not193 = icmp eq ptr %694, null
   br i1 %.not193, label %._crit_edge, label %29, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit168, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.._crit_edge_crit_edge
-  %694 = phi ptr [ %.pre223, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.._crit_edge_crit_edge ], [ %692, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit168 ]
-  %.not.i.i.i169 = icmp eq ptr %694, null
-  br i1 %.not.i.i.i169, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175, label %695
+  %695 = phi ptr [ %.pre223, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.._crit_edge_crit_edge ], [ %693, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit168 ]
+  %.not.i.i.i169 = icmp eq ptr %695, null
+  br i1 %.not.i.i.i169, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175, label %696
 
-695:                                              ; preds = %._crit_edge
-  %696 = getelementptr inbounds i8, ptr %694, i64 8
-  %697 = load atomic i64, ptr %696 acquire, align 8
-  %698 = icmp eq i64 %697, 4294967297
-  %699 = trunc i64 %697 to i32
-  br i1 %698, label %700, label %705
+696:                                              ; preds = %._crit_edge
+  %697 = getelementptr inbounds i8, ptr %695, i64 8
+  %698 = load atomic i64, ptr %697 acquire, align 8
+  %699 = icmp eq i64 %698, 4294967297
+  %700 = trunc i64 %698 to i32
+  br i1 %699, label %701, label %706
 
-700:                                              ; preds = %695
-  store i32 0, ptr %696, align 8
-  %701 = getelementptr inbounds i8, ptr %694, i64 12
-  store i32 0, ptr %701, align 4
-  %702 = load ptr, ptr %694, align 8
-  %703 = getelementptr inbounds i8, ptr %702, i64 16
-  %704 = load ptr, ptr %703, align 8
-  call void %704(ptr noundef nonnull align 8 dereferenceable(16) %694) #17
+701:                                              ; preds = %696
+  store i32 0, ptr %697, align 8
+  %702 = getelementptr inbounds i8, ptr %695, i64 12
+  store i32 0, ptr %702, align 4
+  %703 = load ptr, ptr %695, align 8
+  %704 = getelementptr inbounds i8, ptr %703, i64 16
+  %705 = load ptr, ptr %704, align 8
+  call void %705(ptr noundef nonnull align 8 dereferenceable(16) %695) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i174
 
-705:                                              ; preds = %695
-  %706 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i170 = icmp eq i8 %706, 0
-  br i1 %.not.i.i.i.i170, label %709, label %707
+706:                                              ; preds = %696
+  %707 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i170 = icmp eq i8 %707, 0
+  br i1 %.not.i.i.i.i170, label %710, label %708
 
-707:                                              ; preds = %705
-  %708 = add nsw i32 %699, -1
-  store i32 %708, ptr %696, align 4
-  br label %711
+708:                                              ; preds = %706
+  %709 = add nsw i32 %700, -1
+  store i32 %709, ptr %697, align 4
+  br label %712
 
-709:                                              ; preds = %705
-  %710 = atomicrmw volatile add ptr %696, i32 -1 acq_rel, align 4
-  br label %711
+710:                                              ; preds = %706
+  %711 = atomicrmw volatile add ptr %697, i32 -1 acq_rel, align 4
+  br label %712
 
-711:                                              ; preds = %709, %707
-  %.0.i.i.i.i171 = phi i32 [ %699, %707 ], [ %710, %709 ]
-  %712 = icmp eq i32 %.0.i.i.i.i171, 1
-  br i1 %712, label %713, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175
+712:                                              ; preds = %710, %708
+  %.0.i.i.i.i171 = phi i32 [ %700, %708 ], [ %711, %710 ]
+  %713 = icmp eq i32 %.0.i.i.i.i171, 1
+  br i1 %713, label %714, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175
 
-713:                                              ; preds = %711
-  %714 = load ptr, ptr %694, align 8
-  %715 = getelementptr inbounds i8, ptr %714, i64 16
-  %716 = load ptr, ptr %715, align 8
-  call void %716(ptr noundef nonnull align 8 dereferenceable(16) %694) #17
-  %717 = getelementptr inbounds i8, ptr %694, i64 12
-  %718 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i172 = icmp eq i8 %718, 0
-  br i1 %.not.i.i.i.i.i.i172, label %722, label %719
+714:                                              ; preds = %712
+  %715 = load ptr, ptr %695, align 8
+  %716 = getelementptr inbounds i8, ptr %715, i64 16
+  %717 = load ptr, ptr %716, align 8
+  call void %717(ptr noundef nonnull align 8 dereferenceable(16) %695) #17
+  %718 = getelementptr inbounds i8, ptr %695, i64 12
+  %719 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i172 = icmp eq i8 %719, 0
+  br i1 %.not.i.i.i.i.i.i172, label %723, label %720
 
-719:                                              ; preds = %713
-  %720 = load i32, ptr %717, align 4
-  %721 = add nsw i32 %720, -1
-  store i32 %721, ptr %717, align 4
-  br label %724
+720:                                              ; preds = %714
+  %721 = load i32, ptr %718, align 4
+  %722 = add nsw i32 %721, -1
+  store i32 %722, ptr %718, align 4
+  br label %725
 
-722:                                              ; preds = %713
-  %723 = atomicrmw volatile add ptr %717, i32 -1 acq_rel, align 4
-  br label %724
+723:                                              ; preds = %714
+  %724 = atomicrmw volatile add ptr %718, i32 -1 acq_rel, align 4
+  br label %725
 
-724:                                              ; preds = %722, %719
-  %.0.i.i.i.i.i.i173 = phi i32 [ %720, %719 ], [ %723, %722 ]
-  %725 = icmp eq i32 %.0.i.i.i.i.i.i173, 1
-  br i1 %725, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i174, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175
+725:                                              ; preds = %723, %720
+  %.0.i.i.i.i.i.i173 = phi i32 [ %721, %720 ], [ %724, %723 ]
+  %726 = icmp eq i32 %.0.i.i.i.i.i.i173, 1
+  br i1 %726, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i174, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i174: ; preds = %724, %700
-  %726 = load ptr, ptr %694, align 8
-  %727 = getelementptr inbounds i8, ptr %726, i64 24
-  %728 = load ptr, ptr %727, align 8
-  call void %728(ptr noundef nonnull align 8 dereferenceable(16) %694) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i174: ; preds = %725, %701
+  %727 = load ptr, ptr %695, align 8
+  %728 = getelementptr inbounds i8, ptr %727, i64 24
+  %729 = load ptr, ptr %728, align 8
+  call void %729(ptr noundef nonnull align 8 dereferenceable(16) %695) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175: ; preds = %._crit_edge, %711, %724, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i174
-  %729 = getelementptr inbounds i8, ptr %5, i64 8
-  %730 = load ptr, ptr %729, align 8
-  %.not.i.i.i176 = icmp eq ptr %730, null
-  br i1 %.not.i.i.i176, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit182, label %731
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175: ; preds = %._crit_edge, %712, %725, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i174
+  %730 = getelementptr inbounds i8, ptr %5, i64 8
+  %731 = load ptr, ptr %730, align 8
+  %.not.i.i.i176 = icmp eq ptr %731, null
+  br i1 %.not.i.i.i176, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit182, label %732
 
-731:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175
-  %732 = getelementptr inbounds i8, ptr %730, i64 8
-  %733 = load atomic i64, ptr %732 acquire, align 8
-  %734 = icmp eq i64 %733, 4294967297
-  %735 = trunc i64 %733 to i32
-  br i1 %734, label %736, label %741
+732:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175
+  %733 = getelementptr inbounds i8, ptr %731, i64 8
+  %734 = load atomic i64, ptr %733 acquire, align 8
+  %735 = icmp eq i64 %734, 4294967297
+  %736 = trunc i64 %734 to i32
+  br i1 %735, label %737, label %742
 
-736:                                              ; preds = %731
-  store i32 0, ptr %732, align 8
-  %737 = getelementptr inbounds i8, ptr %730, i64 12
-  store i32 0, ptr %737, align 4
-  %738 = load ptr, ptr %730, align 8
-  %739 = getelementptr inbounds i8, ptr %738, i64 16
-  %740 = load ptr, ptr %739, align 8
-  call void %740(ptr noundef nonnull align 8 dereferenceable(16) %730) #17
+737:                                              ; preds = %732
+  store i32 0, ptr %733, align 8
+  %738 = getelementptr inbounds i8, ptr %731, i64 12
+  store i32 0, ptr %738, align 4
+  %739 = load ptr, ptr %731, align 8
+  %740 = getelementptr inbounds i8, ptr %739, i64 16
+  %741 = load ptr, ptr %740, align 8
+  call void %741(ptr noundef nonnull align 8 dereferenceable(16) %731) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i181
 
-741:                                              ; preds = %731
-  %742 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i177 = icmp eq i8 %742, 0
-  br i1 %.not.i.i.i.i177, label %745, label %743
+742:                                              ; preds = %732
+  %743 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i177 = icmp eq i8 %743, 0
+  br i1 %.not.i.i.i.i177, label %746, label %744
 
-743:                                              ; preds = %741
-  %744 = add nsw i32 %735, -1
-  store i32 %744, ptr %732, align 4
-  br label %747
+744:                                              ; preds = %742
+  %745 = add nsw i32 %736, -1
+  store i32 %745, ptr %733, align 4
+  br label %748
 
-745:                                              ; preds = %741
-  %746 = atomicrmw volatile add ptr %732, i32 -1 acq_rel, align 4
-  br label %747
+746:                                              ; preds = %742
+  %747 = atomicrmw volatile add ptr %733, i32 -1 acq_rel, align 4
+  br label %748
 
-747:                                              ; preds = %745, %743
-  %.0.i.i.i.i178 = phi i32 [ %735, %743 ], [ %746, %745 ]
-  %748 = icmp eq i32 %.0.i.i.i.i178, 1
-  br i1 %748, label %749, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit182
+748:                                              ; preds = %746, %744
+  %.0.i.i.i.i178 = phi i32 [ %736, %744 ], [ %747, %746 ]
+  %749 = icmp eq i32 %.0.i.i.i.i178, 1
+  br i1 %749, label %750, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit182
 
-749:                                              ; preds = %747
-  %750 = load ptr, ptr %730, align 8
-  %751 = getelementptr inbounds i8, ptr %750, i64 16
-  %752 = load ptr, ptr %751, align 8
-  call void %752(ptr noundef nonnull align 8 dereferenceable(16) %730) #17
-  %753 = getelementptr inbounds i8, ptr %730, i64 12
-  %754 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i179 = icmp eq i8 %754, 0
-  br i1 %.not.i.i.i.i.i.i179, label %758, label %755
+750:                                              ; preds = %748
+  %751 = load ptr, ptr %731, align 8
+  %752 = getelementptr inbounds i8, ptr %751, i64 16
+  %753 = load ptr, ptr %752, align 8
+  call void %753(ptr noundef nonnull align 8 dereferenceable(16) %731) #17
+  %754 = getelementptr inbounds i8, ptr %731, i64 12
+  %755 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i179 = icmp eq i8 %755, 0
+  br i1 %.not.i.i.i.i.i.i179, label %759, label %756
 
-755:                                              ; preds = %749
-  %756 = load i32, ptr %753, align 4
-  %757 = add nsw i32 %756, -1
-  store i32 %757, ptr %753, align 4
-  br label %760
+756:                                              ; preds = %750
+  %757 = load i32, ptr %754, align 4
+  %758 = add nsw i32 %757, -1
+  store i32 %758, ptr %754, align 4
+  br label %761
 
-758:                                              ; preds = %749
-  %759 = atomicrmw volatile add ptr %753, i32 -1 acq_rel, align 4
-  br label %760
+759:                                              ; preds = %750
+  %760 = atomicrmw volatile add ptr %754, i32 -1 acq_rel, align 4
+  br label %761
 
-760:                                              ; preds = %758, %755
-  %.0.i.i.i.i.i.i180 = phi i32 [ %756, %755 ], [ %759, %758 ]
-  %761 = icmp eq i32 %.0.i.i.i.i.i.i180, 1
-  br i1 %761, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i181, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit182
+761:                                              ; preds = %759, %756
+  %.0.i.i.i.i.i.i180 = phi i32 [ %757, %756 ], [ %760, %759 ]
+  %762 = icmp eq i32 %.0.i.i.i.i.i.i180, 1
+  br i1 %762, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i181, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit182
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i181: ; preds = %760, %736
-  %762 = load ptr, ptr %730, align 8
-  %763 = getelementptr inbounds i8, ptr %762, i64 24
-  %764 = load ptr, ptr %763, align 8
-  call void %764(ptr noundef nonnull align 8 dereferenceable(16) %730) #17
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i181: ; preds = %761, %737
+  %763 = load ptr, ptr %731, align 8
+  %764 = getelementptr inbounds i8, ptr %763, i64 24
+  %765 = load ptr, ptr %764, align 8
+  call void %765(ptr noundef nonnull align 8 dereferenceable(16) %731) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit182
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit182: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175, %747, %760, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i181
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit182: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit175, %748, %761, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i181
   ret void
 }
 
@@ -23955,10 +23970,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %0, align 8
   ret void
@@ -24198,10 +24216,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %0, align 8
   ret void
@@ -24480,10 +24501,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19NotImplementedErrorE, i64 16), ptr %0, align 8
   ret void
@@ -24630,10 +24654,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %0, align 8
   ret void

@@ -5900,13 +5900,16 @@ define hidden void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clon
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5ahash82_$LT$impl$u20$core..default..Default$u20$for$u20$ahash..fallback_hash..AHasher$GT$7default17hc228d04ba0e53fc2E.llvm.14133294462695460135"(ptr noalias nocapture noundef writeonly sret({ [2 x i64], i64, i64 }) align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = tail call noundef align 8 dereferenceable(64) ptr @"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$15get_or_try_init17h2a6f0a5221f0c955E"(ptr noundef nonnull align 8 @_ZN5ahash12random_state15get_fixed_seeds5SEEDS17hbe17cdfd04f285f6E)
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
-  %4 = load <2 x i64>, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load <2 x i64>, ptr %2, align 8
-  %7 = shufflevector <2 x i64> %6, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %7, ptr %5, align 8
-  store <2 x i64> %4, ptr %0, align 8
+  %3 = load i64, ptr %2, align 8, !noundef !42
+  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = load i64, ptr %4, align 8, !noundef !42
+  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = load <2 x i64>, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %5, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %3, ptr %9, align 8
+  store <2 x i64> %7, ptr %0, align 8
   ret void
 }
 
@@ -13266,13 +13269,16 @@ define hidden void @"_ZN82_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u20$as$u2
 define hidden void @"_ZN83_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17hb893288671c3868dE"(ptr noalias nocapture noundef writeonly sret({ [2 x i64], i64, i64 }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1751)
   %3 = tail call noundef align 8 dereferenceable(64) ptr @"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$15get_or_try_init17h2a6f0a5221f0c955E"(ptr noundef nonnull align 8 @_ZN5ahash12random_state15get_fixed_seeds5SEEDS17hbe17cdfd04f285f6E), !noalias !1751
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  %5 = load <2 x i64>, ptr %4, align 8, !noalias !1751
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load <2 x i64>, ptr %3, align 8, !noalias !1751
-  %8 = shufflevector <2 x i64> %7, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %8, ptr %6, align 8, !alias.scope !1751
-  store <2 x i64> %5, ptr %0, align 8, !alias.scope !1751
+  %4 = load i64, ptr %3, align 8, !noalias !1751, !noundef !42
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load i64, ptr %5, align 8, !noalias !1751, !noundef !42
+  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = load <2 x i64>, ptr %7, align 8, !noalias !1751
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %6, ptr %9, align 8, !alias.scope !1751
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %4, ptr %10, align 8, !alias.scope !1751
+  store <2 x i64> %8, ptr %0, align 8, !alias.scope !1751
   ret void
 }
 

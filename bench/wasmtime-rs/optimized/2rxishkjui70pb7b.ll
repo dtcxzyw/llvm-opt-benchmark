@@ -1594,73 +1594,77 @@ define void @_ZN4core5slice4sort11insert_tail17h73187370c48906b8E(ptr align 8 %0
 define void @_ZN4core5slice4sort11insert_tail17hfc70d5a514b13f7eE(ptr align 8 %0, i64 %1, ptr align 1 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, i64 } }, align 8
   %5 = alloca { ptr, ptr }, align 8
-  %6 = alloca { { ptr, ptr } }, align 16
+  %6 = alloca { { ptr, ptr } }, align 8
   %7 = getelementptr { ptr, ptr }, ptr %0, i64 %1
   %8 = getelementptr i8, ptr %7, i64 -16
   %9 = getelementptr i8, ptr %7, i64 -32
   %10 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %10)
   %11 = tail call zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h4e87bdcfa1871ad7E(ptr align 1 %2, ptr nonnull align 8 %8, ptr nonnull align 8 %9)
-  br i1 %11, label %12, label %17
+  br i1 %11, label %12, label %20
 
 12:                                               ; preds = %3
-  %13 = load <2 x ptr>, ptr %8, align 8
-  store <2 x ptr> %13, ptr %6, align 16
+  %13 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
+  %14 = getelementptr i8, ptr %7, i64 -8
+  %15 = load ptr, ptr %14, align 8, !nonnull !3, !align !5, !noundef !3
+  store ptr %13, ptr %6, align 8
+  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %15, ptr %16, align 8
   store ptr %6, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %9, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %9, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  %15 = add i64 %1, -2
+  %18 = add i64 %1, -2
   store i64 0, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %15, ptr %16, align 8
-  br label %18
+  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %18, ptr %19, align 8
+  br label %21
 
-17:                                               ; preds = %3, %25
+20:                                               ; preds = %3, %28
   ret void
 
-18:                                               ; preds = %31, %12
-  %19 = invoke { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17hd2aee0a43ec01331E"(ptr nonnull align 8 %4)
-          to label %22 unwind label %20
+21:                                               ; preds = %34, %12
+  %22 = invoke { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17hd2aee0a43ec01331E"(ptr nonnull align 8 %4)
+          to label %25 unwind label %23
 
-20:                                               ; preds = %26, %18
-  %21 = landingpad { ptr, i32 }
+23:                                               ; preds = %29, %21
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr130drop_in_place$LT$core..slice..sort..InsertionHole$LT$$LP$$RF$alloc..string..String$C$$RF$mut$u20$alloc..string..String$RP$$GT$$GT$17hdb8169501452937bE"(ptr nonnull align 8 %5) #8
-          to label %35 unwind label %33
+          to label %38 unwind label %36
 
-22:                                               ; preds = %18
-  %23 = extractvalue { i64, i64 } %19, 0
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %26
+25:                                               ; preds = %21
+  %26 = extractvalue { i64, i64 } %22, 0
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %29
 
-25:                                               ; preds = %30, %22
+28:                                               ; preds = %33, %25
   call void @"_ZN4core3ptr130drop_in_place$LT$core..slice..sort..InsertionHole$LT$$LP$$RF$alloc..string..String$C$$RF$mut$u20$alloc..string..String$RP$$GT$$GT$17hdb8169501452937bE"(ptr nonnull align 8 %5)
-  br label %17
+  br label %20
 
-26:                                               ; preds = %22
-  %27 = extractvalue { i64, i64 } %19, 1
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %27
-  %29 = invoke zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h4e87bdcfa1871ad7E(ptr align 1 %2, ptr nonnull align 8 %6, ptr nonnull align 8 %28)
-          to label %30 unwind label %20
+29:                                               ; preds = %25
+  %30 = extractvalue { i64, i64 } %22, 1
+  %31 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %30
+  %32 = invoke zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h4e87bdcfa1871ad7E(ptr align 1 %2, ptr nonnull align 8 %6, ptr nonnull align 8 %31)
+          to label %33 unwind label %23
 
-30:                                               ; preds = %26
-  br i1 %29, label %31, label %25
+33:                                               ; preds = %29
+  br i1 %32, label %34, label %28
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %14, align 8, !noundef !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
-  store ptr %28, ptr %14, align 8
-  br label %18
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %17, align 8, !noundef !3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
+  store ptr %31, ptr %17, align 8
+  br label %21
 
-33:                                               ; preds = %20
-  %34 = landingpad { ptr, i32 }
+36:                                               ; preds = %23
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
   unreachable
 
-35:                                               ; preds = %20
-  resume { ptr, i32 } %21
+38:                                               ; preds = %23
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2237,3 +2241,4 @@ attributes #9 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 1}
+!5 = !{i64 8}

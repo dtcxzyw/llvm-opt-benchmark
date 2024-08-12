@@ -107,18 +107,19 @@ define weak_odr dso_local void @_ZN12cmConstStackI17cmFindPackageCall18cmFindPac
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK12cmConstStackI17cmFindPackageCall18cmFindPackageStackE4PushES0_(ptr dead_on_unwind noalias writable sret(%class.cmFindPackageStack) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::shared_ptr", align 16
+  %4 = alloca %"class.std::shared_ptr", align 8
   %5 = alloca %class.cmFindPackageCall, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %9, ptr %4, align 16
-  %.not.i.i.i = icmp eq ptr %8, null
+  %6 = load ptr, ptr %1, align 8
+  store ptr %6, ptr %4, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %7, align 8
+  %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEEC2ERKS6_.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds i8, ptr %9, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i.i, label %16, label %13
@@ -165,7 +166,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIKN12cmConstStackI17cmFindP
   store ptr %21, ptr %27, align 8, !alias.scope !5
   store ptr %24, ptr %0, align 8, !alias.scope !5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  %28 = load ptr, ptr %6, align 8
+  %28 = load ptr, ptr %7, align 8
   %.not.i.i.i2 = icmp eq ptr %28, null
   br i1 %.not.i.i.i2, label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit, label %29
 
@@ -337,14 +338,14 @@ _ZNSt12__shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5En
 define weak_odr dso_local void @_ZNK12cmConstStackI17cmFindPackageCall18cmFindPackageStackE3PopEv(ptr dead_on_unwind noalias writable sret(%class.cmFindPackageStack) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
-  %5 = getelementptr inbounds i8, ptr %3, i64 48
-  %6 = load ptr, ptr %5, align 8
-  %7 = load <2 x ptr>, ptr %4, align 8
-  %.not.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = load ptr, ptr %6, align 8
+  %.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %10, 0
   br i1 %.not.i.i.i.i, label %14, label %11
@@ -360,7 +361,9 @@ define weak_odr dso_local void @_ZNK12cmConstStackI17cmFindPackageCall18cmFindPa
   br label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit
 
 _ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit: ; preds = %14, %11, %2
-  store <2 x ptr> %7, ptr %0, align 8
+  store ptr %5, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %16, align 8
   ret void
 }
 
@@ -559,105 +562,107 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt10_ConstructIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEJSt10shared_ptrIS5_ES1_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::shared_ptr", align 16
+  %4 = alloca %"class.std::shared_ptr", align 8
   %5 = alloca %class.cmFindPackageCall, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store ptr null, ptr %6, align 8
-  store <2 x ptr> %7, ptr %4, align 16
+  %6 = load ptr, ptr %1, align 8
+  store ptr %6, ptr %4, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr null, ptr %8, align 8
+  store ptr %9, ptr %7, align 8
   store ptr null, ptr %1, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2) #8
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = load i32, ptr %11, align 8
+  store i32 %12, ptr %10, align 8
   invoke void @_ZN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryC1ESt10shared_ptrIKS3_ES0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
-          to label %11 unwind label %48
+          to label %13 unwind label %49
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+13:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  %13 = load ptr, ptr %12, align 8
-  %.not.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit, label %14
+  %14 = load ptr, ptr %7, align 8
+  %.not.i.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit, label %15
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
-  %16 = load atomic i64, ptr %15 acquire, align 8
-  %17 = icmp eq i64 %16, 4294967297
-  %18 = trunc i64 %16 to i32
-  br i1 %17, label %19, label %24
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = load atomic i64, ptr %16 acquire, align 8
+  %18 = icmp eq i64 %17, 4294967297
+  %19 = trunc i64 %17 to i32
+  br i1 %18, label %20, label %25
 
-19:                                               ; preds = %14
-  store i32 0, ptr %15, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 12
-  store i32 0, ptr %20, align 4
-  %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #8
+20:                                               ; preds = %15
+  store i32 0, ptr %16, align 8
+  %21 = getelementptr inbounds i8, ptr %14, i64 12
+  store i32 0, ptr %21, align 4
+  %22 = load ptr, ptr %14, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #8
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
-24:                                               ; preds = %14
-  %25 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i = icmp eq i8 %25, 0
-  br i1 %.not.i.i.i.i, label %28, label %26
+25:                                               ; preds = %15
+  %26 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i, label %29, label %27
 
-26:                                               ; preds = %24
-  %27 = add nsw i32 %18, -1
-  store i32 %27, ptr %15, align 4
-  br label %30
+27:                                               ; preds = %25
+  %28 = add nsw i32 %19, -1
+  store i32 %28, ptr %16, align 4
+  br label %31
 
-28:                                               ; preds = %24
-  %29 = atomicrmw volatile add ptr %15, i32 -1 acq_rel, align 4
-  br label %30
+29:                                               ; preds = %25
+  %30 = atomicrmw volatile add ptr %16, i32 -1 acq_rel, align 4
+  br label %31
 
-30:                                               ; preds = %28, %26
-  %.0.i.i.i.i = phi i32 [ %18, %26 ], [ %29, %28 ]
-  %31 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %31, label %32, label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit
+31:                                               ; preds = %29, %27
+  %.0.i.i.i.i = phi i32 [ %19, %27 ], [ %30, %29 ]
+  %32 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %32, label %33, label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr %13, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %13) #8
-  %36 = getelementptr inbounds i8, ptr %13, i64 12
-  %37 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %37, 0
-  br i1 %.not.i.i.i.i.i.i, label %41, label %38
+33:                                               ; preds = %31
+  %34 = load ptr, ptr %14, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %14) #8
+  %37 = getelementptr inbounds i8, ptr %14, i64 12
+  %38 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %38, 0
+  br i1 %.not.i.i.i.i.i.i, label %42, label %39
 
-38:                                               ; preds = %32
-  %39 = load i32, ptr %36, align 4
-  %40 = add nsw i32 %39, -1
-  store i32 %40, ptr %36, align 4
-  br label %43
+39:                                               ; preds = %33
+  %40 = load i32, ptr %37, align 4
+  %41 = add nsw i32 %40, -1
+  store i32 %41, ptr %37, align 4
+  br label %44
 
-41:                                               ; preds = %32
-  %42 = atomicrmw volatile add ptr %36, i32 -1 acq_rel, align 4
-  br label %43
+42:                                               ; preds = %33
+  %43 = atomicrmw volatile add ptr %37, i32 -1 acq_rel, align 4
+  br label %44
 
-43:                                               ; preds = %41, %38
-  %.0.i.i.i.i.i.i = phi i32 [ %39, %38 ], [ %42, %41 ]
-  %44 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %44, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit
+44:                                               ; preds = %42, %39
+  %.0.i.i.i.i.i.i = phi i32 [ %40, %39 ], [ %43, %42 ]
+  %45 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %45, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %43, %19
-  %45 = load ptr, ptr %13, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
-  %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %13) #8
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %44, %20
+  %46 = load ptr, ptr %14, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %48 = load ptr, ptr %47, align 8
+  call void %48(ptr noundef nonnull align 8 dereferenceable(16) %14) #8
   br label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit
 
-_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit: ; preds = %11, %30, %43, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit: ; preds = %13, %31, %44, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 
-48:                                               ; preds = %3
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %3
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   call void @_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
-  resume { ptr, i32 } %49
+  resume { ptr, i32 } %50
 }
 
 ; Function Attrs: nobuiltin nounwind

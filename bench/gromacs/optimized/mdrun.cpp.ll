@@ -838,442 +838,449 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3gmx18LegacyMdrunOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(2176) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [32 x %struct.t_filenm], align 8
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
-  store float 1.500000e+01, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 -2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  store float -1.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 -1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
-  store i8 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 37
-  store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 8888, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
-  store i8 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 45
+  store i8 0, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 0, ptr %3, align 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  store i8 0, ptr %4, align 2
+  %5 = getelementptr inbounds i8, ptr %0, i64 3
+  store i8 1, ptr %5, align 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 0, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  store float 1.500000e+01, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 -2, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  store float -1.000000e+00, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 -1, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  store i8 0, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 36
+  store i8 1, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 37
   store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 46
-  store i8 0, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  store i8 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 100, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
-  store i8 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 57
-  store i8 1, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 0, ptr %20, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 8888, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  store i8 0, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 45
+  store i8 0, ptr %17, align 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 46
+  store i8 0, ptr %18, align 2
+  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  store i8 0, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 100, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  store i8 1, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 57
+  store i8 1, ptr %22, align 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 0, ptr %23, align 4
   %scevgep.i = getelementptr inbounds i8, ptr %0, i64 64
   store i64 0, ptr %scevgep.i, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 -1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
-  store <2 x float> zeroinitializer, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 92
-  store float 0x3FE99999A0000000, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 96
-  %27 = getelementptr inbounds i8, ptr %0, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %26, i8 0, i64 52, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #11
-  %28 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #11
-  %29 = getelementptr inbounds i8, ptr %0, i64 224
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 240
+  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 -1, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 1, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  store float 0.000000e+00, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 84
+  store float 0.000000e+00, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 1, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 92
+  store float 0x3FE99999A0000000, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %31 = getelementptr inbounds i8, ptr %0, i64 152
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %30, i8 0, i64 52, i1 false)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #11
+  %32 = getelementptr inbounds i8, ptr %0, i64 184
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #11
+  %33 = getelementptr inbounds i8, ptr %0, i64 224
+  store i32 0, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 228
+  store i32 0, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 232
+  store i32 0, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 236
+  store i32 -1, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %0, i64 240
   store i32 26, ptr %2, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  store i64 2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 32
-  %34 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
-  store i32 3, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 64
-  store ptr @.str.120, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 72
-  store ptr null, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 80
-  store i64 4, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 88
-  %39 = getelementptr inbounds i8, ptr %2, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
-  store i32 5, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 120
-  store ptr @.str.121, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 128
-  store ptr null, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 136
-  store i64 12, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 144
-  %44 = getelementptr inbounds i8, ptr %2, i64 168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
-  store i32 18, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 176
-  store ptr @.str.122, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 184
-  store ptr null, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 192
-  store i64 74, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 200
-  %49 = getelementptr inbounds i8, ptr %2, i64 224
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
-  store i32 18, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 232
-  store ptr @.str.123, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 240
-  store ptr null, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 248
-  store i64 12, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 256
-  %54 = getelementptr inbounds i8, ptr %2, i64 280
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
-  store i32 10, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 288
-  store ptr @.str.124, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %2, i64 296
-  store ptr @.str.125, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 304
-  store i64 4, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %2, i64 312
-  %59 = getelementptr inbounds i8, ptr %2, i64 336
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
-  store i32 8, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 344
-  store ptr @.str.126, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 352
-  store ptr @.str.127, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %2, i64 360
-  store i64 4, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %2, i64 368
-  %64 = getelementptr inbounds i8, ptr %2, i64 392
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
-  store i32 19, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %2, i64 400
-  store ptr @.str.128, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %2, i64 408
-  store ptr @.str.129, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 416
-  store i64 4, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %2, i64 424
-  %69 = getelementptr inbounds i8, ptr %2, i64 448
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
-  store i32 20, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 456
-  store ptr @.str.130, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %2, i64 464
-  store ptr @.str.131, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %2, i64 472
-  store i64 12, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %2, i64 480
-  %74 = getelementptr inbounds i8, ptr %2, i64 504
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
-  store i32 20, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %2, i64 512
-  store ptr @.str.132, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %2, i64 520
-  store ptr @.str.133, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %2, i64 528
-  store i64 12, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %2, i64 536
-  %79 = getelementptr inbounds i8, ptr %2, i64 560
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
-  store i32 20, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %2, i64 568
-  store ptr @.str.134, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %2, i64 576
-  store ptr @.str.135, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %2, i64 584
-  store i64 10, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %2, i64 592
-  %84 = getelementptr inbounds i8, ptr %2, i64 616
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
-  store i32 20, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %2, i64 624
-  store ptr @.str.136, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 632
-  store ptr @.str.137, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %2, i64 640
-  store i64 10, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %2, i64 648
-  %89 = getelementptr inbounds i8, ptr %2, i64 672
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
-  store i32 20, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %2, i64 680
-  store ptr @.str.138, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %2, i64 688
-  store ptr @.str.135, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %2, i64 696
-  store i64 42, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %2, i64 704
-  %94 = getelementptr inbounds i8, ptr %2, i64 728
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, i8 0, i64 24, i1 false)
-  store i32 1, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %2, i64 736
-  store ptr @.str.139, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %2, i64 744
-  store ptr @.str.140, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %2, i64 752
-  store i64 10, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %2, i64 760
-  %99 = getelementptr inbounds i8, ptr %2, i64 784
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
-  store i32 20, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %2, i64 792
-  store ptr @.str.141, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %2, i64 800
-  store ptr @.str.142, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %2, i64 808
-  store i64 12, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %2, i64 816
-  %104 = getelementptr inbounds i8, ptr %2, i64 840
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, i8 0, i64 24, i1 false)
-  store i32 20, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %2, i64 848
-  store ptr @.str.143, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %2, i64 856
-  store ptr @.str.144, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %2, i64 864
-  store i64 12, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %2, i64 872
-  %109 = getelementptr inbounds i8, ptr %2, i64 896
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, i8 0, i64 24, i1 false)
-  store i32 38, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %2, i64 904
-  store ptr @.str.145, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %2, i64 912
-  store ptr @.str.146, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %2, i64 920
-  store i64 10, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %2, i64 928
-  %114 = getelementptr inbounds i8, ptr %2, i64 952
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
-  store i32 20, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %2, i64 960
-  store ptr @.str.147, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %2, i64 968
-  store ptr @.str.148, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %2, i64 976
-  store i64 12, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %2, i64 984
-  %119 = getelementptr inbounds i8, ptr %2, i64 1008
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, i8 0, i64 24, i1 false)
-  store i32 20, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %2, i64 1016
-  store ptr @.str.149, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %2, i64 1024
-  store ptr @.str.150, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %2, i64 1032
-  store i64 12, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %2, i64 1040
-  %124 = getelementptr inbounds i8, ptr %2, i64 1064
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, i8 0, i64 24, i1 false)
-  store i32 20, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %2, i64 1072
-  store ptr @.str.151, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %2, i64 1080
-  store ptr @.str.152, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %2, i64 1088
-  store i64 12, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %2, i64 1096
-  %129 = getelementptr inbounds i8, ptr %2, i64 1120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, i8 0, i64 24, i1 false)
-  store i32 20, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %2, i64 1128
-  store ptr @.str.153, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %2, i64 1136
-  store ptr @.str.154, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %2, i64 1144
-  store i64 12, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %2, i64 1152
-  %134 = getelementptr inbounds i8, ptr %2, i64 1176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %133, i8 0, i64 24, i1 false)
-  store i32 19, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %2, i64 1184
-  store ptr @.str.155, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %2, i64 1192
-  store ptr @.str.156, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %2, i64 1200
-  store i64 12, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %2, i64 1208
-  %139 = getelementptr inbounds i8, ptr %2, i64 1232
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, i8 0, i64 24, i1 false)
-  store i32 19, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %2, i64 1240
-  store ptr @.str.157, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %2, i64 1248
-  store ptr @.str.158, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %2, i64 1256
-  store i64 12, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %2, i64 1264
-  %144 = getelementptr inbounds i8, ptr %2, i64 1288
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %143, i8 0, i64 24, i1 false)
-  store i32 19, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %2, i64 1296
-  store ptr @.str.159, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %2, i64 1304
-  store ptr @.str.160, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %2, i64 1312
-  store i64 12, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %2, i64 1320
-  %149 = getelementptr inbounds i8, ptr %2, i64 1344
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %148, i8 0, i64 24, i1 false)
-  store i32 37, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %2, i64 1352
-  store ptr @.str.161, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %2, i64 1360
-  store ptr @.str.162, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %2, i64 1368
-  store i64 12, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %2, i64 1376
-  %154 = getelementptr inbounds i8, ptr %2, i64 1400
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, i8 0, i64 24, i1 false)
-  store i32 41, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %2, i64 1408
-  store ptr @.str.119, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %2, i64 1416
-  store ptr null, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %2, i64 1424
-  store i64 42, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %2, i64 1432
-  %159 = getelementptr inbounds i8, ptr %2, i64 1456
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %158, i8 0, i64 24, i1 false)
-  store i32 20, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %2, i64 1464
-  store ptr @.str.163, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %2, i64 1472
-  store ptr @.str.164, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %2, i64 1480
-  store i64 10, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %2, i64 1488
-  %164 = getelementptr inbounds i8, ptr %2, i64 1512
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %163, i8 0, i64 24, i1 false)
-  store i32 31, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %2, i64 1520
-  store ptr @.str.165, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %2, i64 1528
-  store ptr @.str.166, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %2, i64 1536
-  store i64 10, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %2, i64 1544
-  %169 = getelementptr inbounds i8, ptr %2, i64 1568
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, i8 0, i64 24, i1 false)
-  store i32 23, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %2, i64 1576
-  store ptr @.str.167, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %2, i64 1584
-  store ptr @.str.166, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %2, i64 1592
-  store i64 10, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %2, i64 1600
-  %174 = getelementptr inbounds i8, ptr %2, i64 1624
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %173, i8 0, i64 24, i1 false)
-  store i32 22, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %2, i64 1632
-  store ptr @.str.168, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %2, i64 1640
-  store ptr @.str.166, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %2, i64 1648
-  store i64 10, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %2, i64 1656
-  %179 = getelementptr inbounds i8, ptr %2, i64 1680
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, i8 0, i64 24, i1 false)
-  store i32 20, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %2, i64 1688
-  store ptr @.str.169, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %2, i64 1696
-  store ptr @.str.170, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %2, i64 1704
-  store i64 12, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %2, i64 1712
-  %184 = getelementptr inbounds i8, ptr %2, i64 1736
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %183, i8 0, i64 24, i1 false)
-  store i32 20, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %2, i64 1744
-  store ptr @.str.171, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %2, i64 1752
-  store ptr @.str.172, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %2, i64 1760
-  store i64 12, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %2, i64 1768
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %188, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  %189 = getelementptr inbounds i8, ptr %2, i64 1792
-  invoke void @_ZNSt6vectorI8t_filenmSaIS0_EE19_M_range_initializeIPKS0_EEvT_S6_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull %2, ptr noundef nonnull %189)
-          to label %_ZNSt6vectorI8t_filenmSaIS0_EEC2ESt16initializer_listIS0_ERKS1_.exit unwind label %190
+  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  store i64 2, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %2, i64 32
+  %41 = getelementptr inbounds i8, ptr %2, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
+  store i32 3, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %2, i64 64
+  store ptr @.str.120, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %2, i64 72
+  store ptr null, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %2, i64 80
+  store i64 4, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %2, i64 88
+  %46 = getelementptr inbounds i8, ptr %2, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
+  store i32 5, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %2, i64 120
+  store ptr @.str.121, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %2, i64 128
+  store ptr null, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %2, i64 136
+  store i64 12, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %2, i64 144
+  %51 = getelementptr inbounds i8, ptr %2, i64 168
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
+  store i32 18, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %2, i64 176
+  store ptr @.str.122, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %2, i64 184
+  store ptr null, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %2, i64 192
+  store i64 74, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %2, i64 200
+  %56 = getelementptr inbounds i8, ptr %2, i64 224
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
+  store i32 18, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %2, i64 232
+  store ptr @.str.123, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %2, i64 240
+  store ptr null, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %2, i64 248
+  store i64 12, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %2, i64 256
+  %61 = getelementptr inbounds i8, ptr %2, i64 280
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
+  store i32 10, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %2, i64 288
+  store ptr @.str.124, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %2, i64 296
+  store ptr @.str.125, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %2, i64 304
+  store i64 4, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %2, i64 312
+  %66 = getelementptr inbounds i8, ptr %2, i64 336
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
+  store i32 8, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %2, i64 344
+  store ptr @.str.126, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %2, i64 352
+  store ptr @.str.127, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %2, i64 360
+  store i64 4, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %2, i64 368
+  %71 = getelementptr inbounds i8, ptr %2, i64 392
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
+  store i32 19, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %2, i64 400
+  store ptr @.str.128, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %2, i64 408
+  store ptr @.str.129, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %2, i64 416
+  store i64 4, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %2, i64 424
+  %76 = getelementptr inbounds i8, ptr %2, i64 448
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
+  store i32 20, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %2, i64 456
+  store ptr @.str.130, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %2, i64 464
+  store ptr @.str.131, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %2, i64 472
+  store i64 12, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %2, i64 480
+  %81 = getelementptr inbounds i8, ptr %2, i64 504
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
+  store i32 20, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %2, i64 512
+  store ptr @.str.132, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %2, i64 520
+  store ptr @.str.133, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %2, i64 528
+  store i64 12, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %2, i64 536
+  %86 = getelementptr inbounds i8, ptr %2, i64 560
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
+  store i32 20, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %2, i64 568
+  store ptr @.str.134, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %2, i64 576
+  store ptr @.str.135, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %2, i64 584
+  store i64 10, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %2, i64 592
+  %91 = getelementptr inbounds i8, ptr %2, i64 616
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false)
+  store i32 20, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %2, i64 624
+  store ptr @.str.136, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %2, i64 632
+  store ptr @.str.137, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %2, i64 640
+  store i64 10, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %2, i64 648
+  %96 = getelementptr inbounds i8, ptr %2, i64 672
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, i8 0, i64 24, i1 false)
+  store i32 20, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %2, i64 680
+  store ptr @.str.138, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %2, i64 688
+  store ptr @.str.135, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %2, i64 696
+  store i64 42, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %2, i64 704
+  %101 = getelementptr inbounds i8, ptr %2, i64 728
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
+  store i32 1, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %2, i64 736
+  store ptr @.str.139, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %2, i64 744
+  store ptr @.str.140, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %2, i64 752
+  store i64 10, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %2, i64 760
+  %106 = getelementptr inbounds i8, ptr %2, i64 784
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, i8 0, i64 24, i1 false)
+  store i32 20, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %2, i64 792
+  store ptr @.str.141, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %2, i64 800
+  store ptr @.str.142, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %2, i64 808
+  store i64 12, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %2, i64 816
+  %111 = getelementptr inbounds i8, ptr %2, i64 840
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %110, i8 0, i64 24, i1 false)
+  store i32 20, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %2, i64 848
+  store ptr @.str.143, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %2, i64 856
+  store ptr @.str.144, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %2, i64 864
+  store i64 12, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %2, i64 872
+  %116 = getelementptr inbounds i8, ptr %2, i64 896
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, i8 0, i64 24, i1 false)
+  store i32 38, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %2, i64 904
+  store ptr @.str.145, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %2, i64 912
+  store ptr @.str.146, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %2, i64 920
+  store i64 10, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %2, i64 928
+  %121 = getelementptr inbounds i8, ptr %2, i64 952
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
+  store i32 20, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %2, i64 960
+  store ptr @.str.147, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %2, i64 968
+  store ptr @.str.148, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %2, i64 976
+  store i64 12, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %2, i64 984
+  %126 = getelementptr inbounds i8, ptr %2, i64 1008
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, i8 0, i64 24, i1 false)
+  store i32 20, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %2, i64 1016
+  store ptr @.str.149, ptr %127, align 8
+  %128 = getelementptr inbounds i8, ptr %2, i64 1024
+  store ptr @.str.150, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %2, i64 1032
+  store i64 12, ptr %129, align 8
+  %130 = getelementptr inbounds i8, ptr %2, i64 1040
+  %131 = getelementptr inbounds i8, ptr %2, i64 1064
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, i8 0, i64 24, i1 false)
+  store i32 20, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %2, i64 1072
+  store ptr @.str.151, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %2, i64 1080
+  store ptr @.str.152, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %2, i64 1088
+  store i64 12, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %2, i64 1096
+  %136 = getelementptr inbounds i8, ptr %2, i64 1120
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, i8 0, i64 24, i1 false)
+  store i32 20, ptr %136, align 8
+  %137 = getelementptr inbounds i8, ptr %2, i64 1128
+  store ptr @.str.153, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %2, i64 1136
+  store ptr @.str.154, ptr %138, align 8
+  %139 = getelementptr inbounds i8, ptr %2, i64 1144
+  store i64 12, ptr %139, align 8
+  %140 = getelementptr inbounds i8, ptr %2, i64 1152
+  %141 = getelementptr inbounds i8, ptr %2, i64 1176
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
+  store i32 19, ptr %141, align 8
+  %142 = getelementptr inbounds i8, ptr %2, i64 1184
+  store ptr @.str.155, ptr %142, align 8
+  %143 = getelementptr inbounds i8, ptr %2, i64 1192
+  store ptr @.str.156, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %2, i64 1200
+  store i64 12, ptr %144, align 8
+  %145 = getelementptr inbounds i8, ptr %2, i64 1208
+  %146 = getelementptr inbounds i8, ptr %2, i64 1232
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, i8 0, i64 24, i1 false)
+  store i32 19, ptr %146, align 8
+  %147 = getelementptr inbounds i8, ptr %2, i64 1240
+  store ptr @.str.157, ptr %147, align 8
+  %148 = getelementptr inbounds i8, ptr %2, i64 1248
+  store ptr @.str.158, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %2, i64 1256
+  store i64 12, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %2, i64 1264
+  %151 = getelementptr inbounds i8, ptr %2, i64 1288
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %150, i8 0, i64 24, i1 false)
+  store i32 19, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %2, i64 1296
+  store ptr @.str.159, ptr %152, align 8
+  %153 = getelementptr inbounds i8, ptr %2, i64 1304
+  store ptr @.str.160, ptr %153, align 8
+  %154 = getelementptr inbounds i8, ptr %2, i64 1312
+  store i64 12, ptr %154, align 8
+  %155 = getelementptr inbounds i8, ptr %2, i64 1320
+  %156 = getelementptr inbounds i8, ptr %2, i64 1344
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %155, i8 0, i64 24, i1 false)
+  store i32 37, ptr %156, align 8
+  %157 = getelementptr inbounds i8, ptr %2, i64 1352
+  store ptr @.str.161, ptr %157, align 8
+  %158 = getelementptr inbounds i8, ptr %2, i64 1360
+  store ptr @.str.162, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %2, i64 1368
+  store i64 12, ptr %159, align 8
+  %160 = getelementptr inbounds i8, ptr %2, i64 1376
+  %161 = getelementptr inbounds i8, ptr %2, i64 1400
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %160, i8 0, i64 24, i1 false)
+  store i32 41, ptr %161, align 8
+  %162 = getelementptr inbounds i8, ptr %2, i64 1408
+  store ptr @.str.119, ptr %162, align 8
+  %163 = getelementptr inbounds i8, ptr %2, i64 1416
+  store ptr null, ptr %163, align 8
+  %164 = getelementptr inbounds i8, ptr %2, i64 1424
+  store i64 42, ptr %164, align 8
+  %165 = getelementptr inbounds i8, ptr %2, i64 1432
+  %166 = getelementptr inbounds i8, ptr %2, i64 1456
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %165, i8 0, i64 24, i1 false)
+  store i32 20, ptr %166, align 8
+  %167 = getelementptr inbounds i8, ptr %2, i64 1464
+  store ptr @.str.163, ptr %167, align 8
+  %168 = getelementptr inbounds i8, ptr %2, i64 1472
+  store ptr @.str.164, ptr %168, align 8
+  %169 = getelementptr inbounds i8, ptr %2, i64 1480
+  store i64 10, ptr %169, align 8
+  %170 = getelementptr inbounds i8, ptr %2, i64 1488
+  %171 = getelementptr inbounds i8, ptr %2, i64 1512
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %170, i8 0, i64 24, i1 false)
+  store i32 31, ptr %171, align 8
+  %172 = getelementptr inbounds i8, ptr %2, i64 1520
+  store ptr @.str.165, ptr %172, align 8
+  %173 = getelementptr inbounds i8, ptr %2, i64 1528
+  store ptr @.str.166, ptr %173, align 8
+  %174 = getelementptr inbounds i8, ptr %2, i64 1536
+  store i64 10, ptr %174, align 8
+  %175 = getelementptr inbounds i8, ptr %2, i64 1544
+  %176 = getelementptr inbounds i8, ptr %2, i64 1568
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %175, i8 0, i64 24, i1 false)
+  store i32 23, ptr %176, align 8
+  %177 = getelementptr inbounds i8, ptr %2, i64 1576
+  store ptr @.str.167, ptr %177, align 8
+  %178 = getelementptr inbounds i8, ptr %2, i64 1584
+  store ptr @.str.166, ptr %178, align 8
+  %179 = getelementptr inbounds i8, ptr %2, i64 1592
+  store i64 10, ptr %179, align 8
+  %180 = getelementptr inbounds i8, ptr %2, i64 1600
+  %181 = getelementptr inbounds i8, ptr %2, i64 1624
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %180, i8 0, i64 24, i1 false)
+  store i32 22, ptr %181, align 8
+  %182 = getelementptr inbounds i8, ptr %2, i64 1632
+  store ptr @.str.168, ptr %182, align 8
+  %183 = getelementptr inbounds i8, ptr %2, i64 1640
+  store ptr @.str.166, ptr %183, align 8
+  %184 = getelementptr inbounds i8, ptr %2, i64 1648
+  store i64 10, ptr %184, align 8
+  %185 = getelementptr inbounds i8, ptr %2, i64 1656
+  %186 = getelementptr inbounds i8, ptr %2, i64 1680
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %185, i8 0, i64 24, i1 false)
+  store i32 20, ptr %186, align 8
+  %187 = getelementptr inbounds i8, ptr %2, i64 1688
+  store ptr @.str.169, ptr %187, align 8
+  %188 = getelementptr inbounds i8, ptr %2, i64 1696
+  store ptr @.str.170, ptr %188, align 8
+  %189 = getelementptr inbounds i8, ptr %2, i64 1704
+  store i64 12, ptr %189, align 8
+  %190 = getelementptr inbounds i8, ptr %2, i64 1712
+  %191 = getelementptr inbounds i8, ptr %2, i64 1736
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %190, i8 0, i64 24, i1 false)
+  store i32 20, ptr %191, align 8
+  %192 = getelementptr inbounds i8, ptr %2, i64 1744
+  store ptr @.str.171, ptr %192, align 8
+  %193 = getelementptr inbounds i8, ptr %2, i64 1752
+  store ptr @.str.172, ptr %193, align 8
+  %194 = getelementptr inbounds i8, ptr %2, i64 1760
+  store i64 12, ptr %194, align 8
+  %195 = getelementptr inbounds i8, ptr %2, i64 1768
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %195, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
+  %196 = getelementptr inbounds i8, ptr %2, i64 1792
+  invoke void @_ZNSt6vectorI8t_filenmSaIS0_EE19_M_range_initializeIPKS0_EEvT_S6_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull %2, ptr noundef nonnull %196)
+          to label %_ZNSt6vectorI8t_filenmSaIS0_EEC2ESt16initializer_listIS0_ERKS1_.exit unwind label %197
 
-190:                                              ; preds = %1
-  %191 = landingpad { ptr, i32 }
+197:                                              ; preds = %1
+  %198 = landingpad { ptr, i32 }
           cleanup
-  %192 = load ptr, ptr %30, align 8
-  %.not.i.i.i = icmp eq ptr %192, null
-  br i1 %.not.i.i.i, label %.body.preheader, label %193
+  %199 = load ptr, ptr %37, align 8
+  %.not.i.i.i = icmp eq ptr %199, null
+  br i1 %.not.i.i.i, label %.body.preheader, label %200
 
-193:                                              ; preds = %190
-  call void @_ZdlPv(ptr noundef nonnull %192) #12
+200:                                              ; preds = %197
+  call void @_ZdlPv(ptr noundef nonnull %199) #12
   br label %.body.preheader
 
-.body.preheader:                                  ; preds = %190, %193
+.body.preheader:                                  ; preds = %197, %200
   br label %.body
 
 _ZNSt6vectorI8t_filenmSaIS0_EEC2ESt16initializer_listIS0_ERKS1_.exit: ; preds = %1, %_ZN8t_filenmD2Ev.exit
-  %194 = phi ptr [ %195, %_ZN8t_filenmD2Ev.exit ], [ %189, %1 ]
-  %195 = getelementptr inbounds i8, ptr %194, i64 -56
-  %196 = getelementptr inbounds i8, ptr %194, i64 -24
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %194, i64 -16
-  %199 = load ptr, ptr %198, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %197, %199
+  %201 = phi ptr [ %202, %_ZN8t_filenmD2Ev.exit ], [ %196, %1 ]
+  %202 = getelementptr inbounds i8, ptr %201, i64 -56
+  %203 = getelementptr inbounds i8, ptr %201, i64 -24
+  %204 = load ptr, ptr %203, align 8
+  %205 = getelementptr inbounds i8, ptr %201, i64 -16
+  %206 = load ptr, ptr %205, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %204, %206
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorI8t_filenmSaIS0_EEC2ESt16initializer_listIS0_ERKS1_.exit, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %200, %.lr.ph.i.i.i.i.i ], [ %197, %_ZNSt6vectorI8t_filenmSaIS0_EEC2ESt16initializer_listIS0_ERKS1_.exit ]
+  %.05.i.i.i.i.i = phi ptr [ %207, %.lr.ph.i.i.i.i.i ], [ %204, %_ZNSt6vectorI8t_filenmSaIS0_EEC2ESt16initializer_listIS0_ERKS1_.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #11
-  %200 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i = icmp eq ptr %200, %199
+  %207 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i = icmp eq ptr %207, %206
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %196, align 8
+  %.pr.i.i = load ptr, ptr %203, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorI8t_filenmSaIS0_EEC2ESt16initializer_listIS0_ERKS1_.exit
-  %201 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %197, %_ZNSt6vectorI8t_filenmSaIS0_EEC2ESt16initializer_listIS0_ERKS1_.exit ]
-  %.not.i.i.i.i = icmp eq ptr %201, null
-  br i1 %.not.i.i.i.i, label %_ZN8t_filenmD2Ev.exit, label %202
+  %208 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %204, %_ZNSt6vectorI8t_filenmSaIS0_EEC2ESt16initializer_listIS0_ERKS1_.exit ]
+  %.not.i.i.i.i = icmp eq ptr %208, null
+  br i1 %.not.i.i.i.i, label %_ZN8t_filenmD2Ev.exit, label %209
 
-202:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %201) #12
+209:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %208) #12
   br label %_ZN8t_filenmD2Ev.exit
 
-_ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %202
-  %203 = icmp eq ptr %195, %2
-  br i1 %203, label %204, label %_ZNSt6vectorI8t_filenmSaIS0_EEC2ESt16initializer_listIS0_ERKS1_.exit
+_ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %209
+  %210 = icmp eq ptr %202, %2
+  br i1 %210, label %211, label %_ZNSt6vectorI8t_filenmSaIS0_EEC2ESt16initializer_listIS0_ERKS1_.exit
 
-204:                                              ; preds = %_ZN8t_filenmD2Ev.exit
-  %205 = getelementptr inbounds i8, ptr %0, i64 236
-  %206 = getelementptr inbounds i8, ptr %0, i64 232
-  %207 = getelementptr inbounds i8, ptr %0, i64 228
-  %208 = getelementptr inbounds i8, ptr %0, i64 84
-  %209 = getelementptr inbounds i8, ptr %0, i64 3
-  %210 = getelementptr inbounds i8, ptr %0, i64 2
-  %211 = getelementptr inbounds i8, ptr %0, i64 1
+211:                                              ; preds = %_ZN8t_filenmD2Ev.exit
   %212 = getelementptr inbounds i8, ptr %0, i64 120
   %213 = getelementptr inbounds i8, ptr %0, i64 264
   store float -1.000000e+00, ptr %213, align 8
@@ -1303,7 +1310,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %226 = getelementptr inbounds i8, ptr %0, i64 624
   store ptr @.str.191, ptr %226, align 8
   %227 = getelementptr inbounds i8, ptr %0, i64 632
-  store ptr %12, ptr %227, align 8
+  store ptr %15, ptr %227, align 8
   %228 = getelementptr inbounds i8, ptr %0, i64 640
   store ptr @.str.192, ptr %228, align 8
   %229 = getelementptr inbounds i8, ptr %0, i64 648
@@ -1331,7 +1338,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %240 = getelementptr inbounds i8, ptr %0, i64 716
   store i32 0, ptr %240, align 4
   %241 = getelementptr inbounds i8, ptr %0, i64 720
-  store ptr %21, ptr %241, align 8
+  store ptr %24, ptr %241, align 8
   %242 = getelementptr inbounds i8, ptr %0, i64 728
   store ptr @.str.197, ptr %242, align 8
   %243 = getelementptr inbounds i8, ptr %0, i64 736
@@ -1436,7 +1443,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %295 = getelementptr inbounds i8, ptr %0, i64 1036
   store i32 5, ptr %295, align 4
   %296 = getelementptr inbounds i8, ptr %0, i64 1040
-  store ptr %18, ptr %296, align 8
+  store ptr %21, ptr %296, align 8
   %297 = getelementptr inbounds i8, ptr %0, i64 1048
   store ptr @.str.217, ptr %297, align 8
   %298 = getelementptr inbounds i8, ptr %0, i64 1056
@@ -1446,7 +1453,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %300 = getelementptr inbounds i8, ptr %0, i64 1068
   store i32 5, ptr %300, align 4
   %301 = getelementptr inbounds i8, ptr %0, i64 1072
-  store ptr %19, ptr %301, align 8
+  store ptr %22, ptr %301, align 8
   %302 = getelementptr inbounds i8, ptr %0, i64 1080
   store ptr @.str.219, ptr %302, align 8
   %303 = getelementptr inbounds i8, ptr %0, i64 1088
@@ -1456,7 +1463,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %305 = getelementptr inbounds i8, ptr %0, i64 1100
   store i32 2, ptr %305, align 4
   %306 = getelementptr inbounds i8, ptr %0, i64 1104
-  store ptr %23, ptr %306, align 8
+  store ptr %26, ptr %306, align 8
   %307 = getelementptr inbounds i8, ptr %0, i64 1112
   store ptr @.str.221, ptr %307, align 8
   %308 = getelementptr inbounds i8, ptr %0, i64 1120
@@ -1466,7 +1473,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %310 = getelementptr inbounds i8, ptr %0, i64 1132
   store i32 2, ptr %310, align 4
   %311 = getelementptr inbounds i8, ptr %0, i64 1136
-  store ptr %208, ptr %311, align 8
+  store ptr %27, ptr %311, align 8
   %312 = getelementptr inbounds i8, ptr %0, i64 1144
   store ptr @.str.223, ptr %312, align 8
   %313 = getelementptr inbounds i8, ptr %0, i64 1152
@@ -1486,7 +1493,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %320 = getelementptr inbounds i8, ptr %0, i64 1196
   store i32 2, ptr %320, align 4
   %321 = getelementptr inbounds i8, ptr %0, i64 1200
-  store ptr %25, ptr %321, align 8
+  store ptr %29, ptr %321, align 8
   %322 = getelementptr inbounds i8, ptr %0, i64 1208
   store ptr @.str.227, ptr %322, align 8
   %323 = getelementptr inbounds i8, ptr %0, i64 1216
@@ -1496,7 +1503,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %325 = getelementptr inbounds i8, ptr %0, i64 1228
   store i32 4, ptr %325, align 4
   %326 = getelementptr inbounds i8, ptr %0, i64 1232
-  store ptr %26, ptr %326, align 8
+  store ptr %30, ptr %326, align 8
   %327 = getelementptr inbounds i8, ptr %0, i64 1240
   store ptr @.str.229, ptr %327, align 8
   %328 = getelementptr inbounds i8, ptr %0, i64 1248
@@ -1538,7 +1545,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %347 = getelementptr inbounds i8, ptr %0, i64 1356
   store i32 0, ptr %347, align 4
   %348 = getelementptr inbounds i8, ptr %0, i64 1360
-  store ptr %29, ptr %348, align 8
+  store ptr %33, ptr %348, align 8
   %349 = getelementptr inbounds i8, ptr %0, i64 1368
   store ptr @.str.237, ptr %349, align 8
   %350 = getelementptr inbounds i8, ptr %0, i64 1376
@@ -1548,7 +1555,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %352 = getelementptr inbounds i8, ptr %0, i64 1388
   store i32 5, ptr %352, align 4
   %353 = getelementptr inbounds i8, ptr %0, i64 1392
-  store ptr %10, ptr %353, align 8
+  store ptr %13, ptr %353, align 8
   %354 = getelementptr inbounds i8, ptr %0, i64 1400
   store ptr @.str.239, ptr %354, align 8
   %355 = getelementptr inbounds i8, ptr %0, i64 1408
@@ -1598,7 +1605,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %377 = getelementptr inbounds i8, ptr %0, i64 1548
   store i32 5, ptr %377, align 4
   %378 = getelementptr inbounds i8, ptr %0, i64 1552
-  store ptr %16, ptr %378, align 8
+  store ptr %19, ptr %378, align 8
   %379 = getelementptr inbounds i8, ptr %0, i64 1560
   store ptr @.str.249, ptr %379, align 8
   %380 = getelementptr inbounds i8, ptr %0, i64 1568
@@ -1618,7 +1625,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %387 = getelementptr inbounds i8, ptr %0, i64 1612
   store i32 5, ptr %387, align 4
   %388 = getelementptr inbounds i8, ptr %0, i64 1616
-  store ptr %210, ptr %388, align 8
+  store ptr %4, ptr %388, align 8
   %389 = getelementptr inbounds i8, ptr %0, i64 1624
   store ptr @.str.253, ptr %389, align 8
   %390 = getelementptr inbounds i8, ptr %0, i64 1632
@@ -1628,7 +1635,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %392 = getelementptr inbounds i8, ptr %0, i64 1644
   store i32 2, ptr %392, align 4
   %393 = getelementptr inbounds i8, ptr %0, i64 1648
-  store ptr %5, ptr %393, align 8
+  store ptr %8, ptr %393, align 8
   %394 = getelementptr inbounds i8, ptr %0, i64 1656
   store ptr @.str.255, ptr %394, align 8
   %395 = getelementptr inbounds i8, ptr %0, i64 1664
@@ -1638,7 +1645,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %397 = getelementptr inbounds i8, ptr %0, i64 1676
   store i32 5, ptr %397, align 4
   %398 = getelementptr inbounds i8, ptr %0, i64 1680
-  store ptr %4, ptr %398, align 8
+  store ptr %7, ptr %398, align 8
   %399 = getelementptr inbounds i8, ptr %0, i64 1688
   store ptr @.str.257, ptr %399, align 8
   %400 = getelementptr inbounds i8, ptr %0, i64 1696
@@ -1658,7 +1665,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %407 = getelementptr inbounds i8, ptr %0, i64 1740
   store i32 1, ptr %407, align 4
   %408 = getelementptr inbounds i8, ptr %0, i64 1744
-  store ptr %6, ptr %408, align 8
+  store ptr %9, ptr %408, align 8
   %409 = getelementptr inbounds i8, ptr %0, i64 1752
   store ptr @.str.261, ptr %409, align 8
   %410 = getelementptr inbounds i8, ptr %0, i64 1760
@@ -1668,7 +1675,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %412 = getelementptr inbounds i8, ptr %0, i64 1772
   store i32 2, ptr %412, align 4
   %413 = getelementptr inbounds i8, ptr %0, i64 1776
-  store ptr %7, ptr %413, align 8
+  store ptr %10, ptr %413, align 8
   %414 = getelementptr inbounds i8, ptr %0, i64 1784
   store ptr @.str.263, ptr %414, align 8
   %415 = getelementptr inbounds i8, ptr %0, i64 1792
@@ -1678,7 +1685,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %417 = getelementptr inbounds i8, ptr %0, i64 1804
   store i32 0, ptr %417, align 4
   %418 = getelementptr inbounds i8, ptr %0, i64 1808
-  store ptr %207, ptr %418, align 8
+  store ptr %34, ptr %418, align 8
   %419 = getelementptr inbounds i8, ptr %0, i64 1816
   store ptr @.str.265, ptr %419, align 8
   %420 = getelementptr inbounds i8, ptr %0, i64 1824
@@ -1688,7 +1695,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %422 = getelementptr inbounds i8, ptr %0, i64 1836
   store i32 0, ptr %422, align 4
   %423 = getelementptr inbounds i8, ptr %0, i64 1840
-  store ptr %206, ptr %423, align 8
+  store ptr %35, ptr %423, align 8
   %424 = getelementptr inbounds i8, ptr %0, i64 1848
   store ptr @.str.267, ptr %424, align 8
   %425 = getelementptr inbounds i8, ptr %0, i64 1856
@@ -1698,7 +1705,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %427 = getelementptr inbounds i8, ptr %0, i64 1868
   store i32 0, ptr %427, align 4
   %428 = getelementptr inbounds i8, ptr %0, i64 1872
-  store ptr %205, ptr %428, align 8
+  store ptr %36, ptr %428, align 8
   %429 = getelementptr inbounds i8, ptr %0, i64 1880
   store ptr @.str.269, ptr %429, align 8
   %430 = getelementptr inbounds i8, ptr %0, i64 1888
@@ -1752,7 +1759,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %456 = getelementptr inbounds i8, ptr %0, i64 2028
   store i32 5, ptr %456, align 4
   %457 = getelementptr inbounds i8, ptr %0, i64 2032
-  store ptr %211, ptr %457, align 8
+  store ptr %3, ptr %457, align 8
   %458 = getelementptr inbounds i8, ptr %0, i64 2040
   store ptr @.str.279, ptr %458, align 8
   %459 = getelementptr inbounds i8, ptr %0, i64 2048
@@ -1762,7 +1769,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %461 = getelementptr inbounds i8, ptr %0, i64 2060
   store i32 5, ptr %461, align 4
   %462 = getelementptr inbounds i8, ptr %0, i64 2064
-  store ptr %209, ptr %462, align 8
+  store ptr %5, ptr %462, align 8
   %463 = getelementptr inbounds i8, ptr %0, i64 2072
   store ptr @.str.281, ptr %463, align 8
   %464 = getelementptr inbounds i8, ptr %0, i64 2080
@@ -1772,7 +1779,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %466 = getelementptr inbounds i8, ptr %0, i64 2092
   store i32 0, ptr %466, align 4
   %467 = getelementptr inbounds i8, ptr %0, i64 2096
-  store ptr %17, ptr %467, align 8
+  store ptr %20, ptr %467, align 8
   %468 = getelementptr inbounds i8, ptr %0, i64 2104
   store ptr @.str.283, ptr %468, align 8
   %469 = getelementptr inbounds i8, ptr %0, i64 2112
@@ -1782,7 +1789,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %471 = getelementptr inbounds i8, ptr %0, i64 2124
   store i32 0, ptr %471, align 4
   %472 = getelementptr inbounds i8, ptr %0, i64 2128
-  store ptr %8, ptr %472, align 8
+  store ptr %11, ptr %472, align 8
   %473 = getelementptr inbounds i8, ptr %0, i64 2136
   store ptr @.str.285, ptr %473, align 8
   %474 = getelementptr inbounds i8, ptr %0, i64 2144
@@ -1792,22 +1799,22 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   %476 = getelementptr inbounds i8, ptr %0, i64 2156
   store i32 5, ptr %476, align 4
   %477 = getelementptr inbounds i8, ptr %0, i64 2160
-  store ptr %9, ptr %477, align 8
+  store ptr %12, ptr %477, align 8
   %478 = getelementptr inbounds i8, ptr %0, i64 2168
   store ptr @.str.287, ptr %478, align 8
   ret void
 
 .body:                                            ; preds = %.body.preheader, %.body
-  %479 = phi ptr [ %480, %.body ], [ %189, %.body.preheader ]
+  %479 = phi ptr [ %480, %.body ], [ %196, %.body.preheader ]
   %480 = getelementptr inbounds i8, ptr %479, i64 -56
   call void @_ZN8t_filenmD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %480) #11
   %481 = icmp eq ptr %480, %2
   br i1 %481, label %482, label %.body
 
 482:                                              ; preds = %.body
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #11
-  resume { ptr, i32 } %191
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #11
+  resume { ptr, i32 } %198
 }
 
 declare noundef i32 @_ZN3gmx18LegacyMdrunOptions21updateFromCommandLineEiPPcNS_8ArrayRefIPKcEE(ptr noundef nonnull align 8 dereferenceable(2176), i32 noundef, ptr noundef, ptr, ptr) local_unnamed_addr #1

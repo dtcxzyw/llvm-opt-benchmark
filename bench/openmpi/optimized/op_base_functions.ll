@@ -1741,18 +1741,24 @@ define internal void @ompi_op_base_2buff_sum_c_float_complex(ptr nocapture nound
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.010 = phi ptr [ %9, %.lr.ph ], [ %1, %5 ]
+  %.010 = phi ptr [ %12, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
-  %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
+  %.078 = phi i32 [ %18, %.lr.ph ], [ %6, %5 ]
   %8 = getelementptr inbounds i8, ptr %.069, i64 8
-  %9 = getelementptr inbounds i8, ptr %.010, i64 8
-  %10 = load <2 x float>, ptr %.069, align 4
-  %11 = load <2 x float>, ptr %.010, align 4
-  %12 = fadd <2 x float> %10, %11
-  store <2 x float> %12, ptr %.010, align 4
-  %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !76
+  %9 = load float, ptr %.069, align 4
+  %10 = getelementptr inbounds i8, ptr %.069, i64 4
+  %11 = load float, ptr %10, align 4
+  %12 = getelementptr inbounds i8, ptr %.010, i64 8
+  %13 = load float, ptr %.010, align 4
+  %14 = getelementptr inbounds i8, ptr %.010, i64 4
+  %15 = load float, ptr %14, align 4
+  %16 = fadd float %9, %13
+  %17 = fadd float %11, %15
+  store float %16, ptr %.010, align 4
+  store float %17, ptr %14, align 4
+  %18 = add nsw i32 %.078, -1
+  %19 = icmp ugt i32 %.078, 1
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -1765,18 +1771,24 @@ define internal void @ompi_op_base_2buff_sum_c_double_complex(ptr nocapture noun
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.010 = phi ptr [ %9, %.lr.ph ], [ %1, %5 ]
+  %.010 = phi ptr [ %12, %.lr.ph ], [ %1, %5 ]
   %.069 = phi ptr [ %8, %.lr.ph ], [ %0, %5 ]
-  %.078 = phi i32 [ %13, %.lr.ph ], [ %6, %5 ]
+  %.078 = phi i32 [ %18, %.lr.ph ], [ %6, %5 ]
   %8 = getelementptr inbounds i8, ptr %.069, i64 16
-  %9 = getelementptr inbounds i8, ptr %.010, i64 16
-  %10 = load <2 x double>, ptr %.069, align 8
-  %11 = load <2 x double>, ptr %.010, align 8
-  %12 = fadd <2 x double> %10, %11
-  store <2 x double> %12, ptr %.010, align 8
-  %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !77
+  %9 = load double, ptr %.069, align 8
+  %10 = getelementptr inbounds i8, ptr %.069, i64 8
+  %11 = load double, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %.010, i64 16
+  %13 = load double, ptr %.010, align 8
+  %14 = getelementptr inbounds i8, ptr %.010, i64 8
+  %15 = load double, ptr %14, align 8
+  %16 = fadd double %9, %13
+  %17 = fadd double %11, %15
+  store double %16, ptr %.010, align 8
+  store double %17, ptr %14, align 8
+  %18 = add nsw i32 %.078, -1
+  %19 = icmp ugt i32 %.078, 1
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -2433,51 +2445,47 @@ define internal void @ompi_op_base_2buff_prod_c_float_complex(ptr nocapture noun
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %29
-  %.010 = phi i32 [ %32, %29 ], [ %6, %5 ]
-  %.069 = phi ptr [ %9, %29 ], [ %1, %5 ]
-  %.078 = phi ptr [ %8, %29 ], [ %0, %5 ]
+.lr.ph:                                           ; preds = %5, %27
+  %.010 = phi i32 [ %30, %27 ], [ %6, %5 ]
+  %.069 = phi ptr [ %12, %27 ], [ %1, %5 ]
+  %.078 = phi ptr [ %8, %27 ], [ %0, %5 ]
   %8 = getelementptr inbounds i8, ptr %.078, i64 8
-  %9 = getelementptr inbounds i8, ptr %.069, i64 8
-  %10 = getelementptr inbounds i8, ptr %.069, i64 4
-  %11 = load <2 x float>, ptr %.078, align 4
-  %12 = load <2 x float>, ptr %.069, align 4
-  %13 = fmul <2 x float> %11, %12
-  %14 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %15 = fmul <2 x float> %14, %12
-  %shift = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %16 = fsub <2 x float> %13, %shift
-  %17 = extractelement <2 x float> %16, i64 0
-  %shift11 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %18 = fadd <2 x float> %15, %shift11
-  %19 = extractelement <2 x float> %18, i64 0
-  %20 = fcmp uno float %17, 0.000000e+00
-  br i1 %20, label %21, label %29, !prof !104
+  %9 = load float, ptr %.078, align 4
+  %10 = getelementptr inbounds i8, ptr %.078, i64 4
+  %11 = load float, ptr %10, align 4
+  %12 = getelementptr inbounds i8, ptr %.069, i64 8
+  %13 = load float, ptr %.069, align 4
+  %14 = getelementptr inbounds i8, ptr %.069, i64 4
+  %15 = load float, ptr %14, align 4
+  %16 = fmul float %9, %13
+  %17 = fmul float %11, %15
+  %18 = fmul float %11, %13
+  %19 = fmul float %9, %15
+  %20 = fsub float %16, %17
+  %21 = fadd float %18, %19
+  %22 = fcmp uno float %20, 0.000000e+00
+  br i1 %22, label %23, label %27, !prof !104
 
-21:                                               ; preds = %.lr.ph
-  %22 = fcmp uno float %19, 0.000000e+00
-  br i1 %22, label %23, label %29, !prof !104
+23:                                               ; preds = %.lr.ph
+  %24 = fcmp uno float %21, 0.000000e+00
+  br i1 %24, label %25, label %27, !prof !104
 
-23:                                               ; preds = %21
-  %24 = extractelement <2 x float> %11, i64 0
-  %25 = extractelement <2 x float> %11, i64 1
-  %26 = extractelement <2 x float> %12, i64 0
-  %27 = extractelement <2 x float> %12, i64 1
-  %28 = tail call <2 x float> @__mulsc3(float noundef %26, float noundef %27, float noundef %24, float noundef %25) #5
-  %.sroa.0.0.vec.extract = extractelement <2 x float> %28, i64 0
-  %.sroa.0.4.vec.extract = extractelement <2 x float> %28, i64 1
-  br label %29
+25:                                               ; preds = %23
+  %26 = tail call <2 x float> @__mulsc3(float noundef %13, float noundef %15, float noundef %9, float noundef %11) #5
+  %.sroa.0.0.vec.extract = extractelement <2 x float> %26, i64 0
+  %.sroa.0.4.vec.extract = extractelement <2 x float> %26, i64 1
+  br label %27
 
-29:                                               ; preds = %23, %21, %.lr.ph
-  %30 = phi float [ %17, %.lr.ph ], [ %17, %21 ], [ %.sroa.0.0.vec.extract, %23 ]
-  %31 = phi float [ %19, %.lr.ph ], [ %19, %21 ], [ %.sroa.0.4.vec.extract, %23 ]
-  store float %30, ptr %.069, align 4
-  store float %31, ptr %10, align 4
-  %32 = add nsw i32 %.010, -1
-  %33 = icmp sgt i32 %.010, 1
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !105
+27:                                               ; preds = %25, %23, %.lr.ph
+  %28 = phi float [ %20, %.lr.ph ], [ %20, %23 ], [ %.sroa.0.0.vec.extract, %25 ]
+  %29 = phi float [ %21, %.lr.ph ], [ %21, %23 ], [ %.sroa.0.4.vec.extract, %25 ]
+  store float %28, ptr %.069, align 4
+  store float %29, ptr %14, align 4
+  %30 = add nsw i32 %.010, -1
+  %31 = icmp sgt i32 %.010, 1
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !105
 
-._crit_edge:                                      ; preds = %29, %5
+._crit_edge:                                      ; preds = %27, %5
   ret void
 }
 
@@ -2487,51 +2495,47 @@ define internal void @ompi_op_base_2buff_prod_c_double_complex(ptr nocapture nou
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %31
-  %.010 = phi ptr [ %9, %31 ], [ %1, %5 ]
-  %.069 = phi ptr [ %8, %31 ], [ %0, %5 ]
-  %.078 = phi i32 [ %34, %31 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %29
+  %.010 = phi ptr [ %12, %29 ], [ %1, %5 ]
+  %.069 = phi ptr [ %8, %29 ], [ %0, %5 ]
+  %.078 = phi i32 [ %32, %29 ], [ %6, %5 ]
   %8 = getelementptr inbounds i8, ptr %.069, i64 16
-  %9 = getelementptr inbounds i8, ptr %.010, i64 16
-  %10 = getelementptr inbounds i8, ptr %.010, i64 8
-  %11 = load <2 x double>, ptr %.069, align 8
-  %12 = load <2 x double>, ptr %.010, align 8
-  %13 = fmul <2 x double> %11, %12
-  %14 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %15 = fmul <2 x double> %14, %12
-  %shift = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %16 = fsub <2 x double> %13, %shift
-  %17 = extractelement <2 x double> %16, i64 0
-  %shift11 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %18 = fadd <2 x double> %15, %shift11
-  %19 = extractelement <2 x double> %18, i64 0
-  %20 = fcmp uno double %17, 0.000000e+00
-  br i1 %20, label %21, label %31, !prof !104
+  %9 = load double, ptr %.069, align 8
+  %10 = getelementptr inbounds i8, ptr %.069, i64 8
+  %11 = load double, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %.010, i64 16
+  %13 = load double, ptr %.010, align 8
+  %14 = getelementptr inbounds i8, ptr %.010, i64 8
+  %15 = load double, ptr %14, align 8
+  %16 = fmul double %9, %13
+  %17 = fmul double %11, %15
+  %18 = fmul double %11, %13
+  %19 = fmul double %9, %15
+  %20 = fsub double %16, %17
+  %21 = fadd double %18, %19
+  %22 = fcmp uno double %20, 0.000000e+00
+  br i1 %22, label %23, label %29, !prof !104
 
-21:                                               ; preds = %.lr.ph
-  %22 = fcmp uno double %19, 0.000000e+00
-  br i1 %22, label %23, label %31, !prof !104
+23:                                               ; preds = %.lr.ph
+  %24 = fcmp uno double %21, 0.000000e+00
+  br i1 %24, label %25, label %29, !prof !104
 
-23:                                               ; preds = %21
-  %24 = extractelement <2 x double> %11, i64 0
-  %25 = extractelement <2 x double> %11, i64 1
-  %26 = extractelement <2 x double> %12, i64 0
-  %27 = extractelement <2 x double> %12, i64 1
-  %28 = tail call { double, double } @__muldc3(double noundef %26, double noundef %27, double noundef %24, double noundef %25) #5
-  %29 = extractvalue { double, double } %28, 0
-  %30 = extractvalue { double, double } %28, 1
-  br label %31
+25:                                               ; preds = %23
+  %26 = tail call { double, double } @__muldc3(double noundef %13, double noundef %15, double noundef %9, double noundef %11) #5
+  %27 = extractvalue { double, double } %26, 0
+  %28 = extractvalue { double, double } %26, 1
+  br label %29
 
-31:                                               ; preds = %23, %21, %.lr.ph
-  %32 = phi double [ %17, %.lr.ph ], [ %17, %21 ], [ %29, %23 ]
-  %33 = phi double [ %19, %.lr.ph ], [ %19, %21 ], [ %30, %23 ]
-  store double %32, ptr %.010, align 8
-  store double %33, ptr %10, align 8
-  %34 = add nsw i32 %.078, -1
-  %35 = icmp sgt i32 %.078, 1
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !106
+29:                                               ; preds = %25, %23, %.lr.ph
+  %30 = phi double [ %20, %.lr.ph ], [ %20, %23 ], [ %27, %25 ]
+  %31 = phi double [ %21, %.lr.ph ], [ %21, %23 ], [ %28, %25 ]
+  store double %30, ptr %.010, align 8
+  store double %31, ptr %14, align 8
+  %32 = add nsw i32 %.078, -1
+  %33 = icmp sgt i32 %.078, 1
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !106
 
-._crit_edge:                                      ; preds = %31, %5
+._crit_edge:                                      ; preds = %29, %5
   ret void
 }
 
@@ -7625,20 +7629,27 @@ define internal void @ompi_op_base_3buff_sum_c_float_complex(ptr noalias nocaptu
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.014 = phi ptr [ %11, %.lr.ph ], [ %2, %6 ]
-  %.0813 = phi ptr [ %10, %.lr.ph ], [ %1, %6 ]
+  %.014 = phi ptr [ %19, %.lr.ph ], [ %2, %6 ]
+  %.0813 = phi ptr [ %13, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
-  %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
+  %.01011 = phi i32 [ %21, %.lr.ph ], [ %7, %6 ]
   %9 = getelementptr inbounds i8, ptr %.0912, i64 8
-  %10 = getelementptr inbounds i8, ptr %.0813, i64 8
-  %11 = getelementptr inbounds i8, ptr %.014, i64 8
-  %12 = load <2 x float>, ptr %.0912, align 4
-  %13 = load <2 x float>, ptr %.0813, align 4
-  %14 = fadd <2 x float> %12, %13
-  store <2 x float> %14, ptr %.014, align 4
-  %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !283
+  %10 = load float, ptr %.0912, align 4
+  %11 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %12 = load float, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %14 = load float, ptr %.0813, align 4
+  %15 = getelementptr inbounds i8, ptr %.0813, i64 4
+  %16 = load float, ptr %15, align 4
+  %17 = fadd float %10, %14
+  %18 = fadd float %12, %16
+  %19 = getelementptr inbounds i8, ptr %.014, i64 8
+  %20 = getelementptr inbounds i8, ptr %.014, i64 4
+  store float %17, ptr %.014, align 4
+  store float %18, ptr %20, align 4
+  %21 = add nsw i32 %.01011, -1
+  %22 = icmp ugt i32 %.01011, 1
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !283
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -7651,20 +7662,27 @@ define internal void @ompi_op_base_3buff_sum_c_double_complex(ptr noalias nocapt
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.014 = phi ptr [ %11, %.lr.ph ], [ %2, %6 ]
-  %.0813 = phi ptr [ %10, %.lr.ph ], [ %1, %6 ]
+  %.014 = phi ptr [ %19, %.lr.ph ], [ %2, %6 ]
+  %.0813 = phi ptr [ %13, %.lr.ph ], [ %1, %6 ]
   %.0912 = phi ptr [ %9, %.lr.ph ], [ %0, %6 ]
-  %.01011 = phi i32 [ %15, %.lr.ph ], [ %7, %6 ]
+  %.01011 = phi i32 [ %21, %.lr.ph ], [ %7, %6 ]
   %9 = getelementptr inbounds i8, ptr %.0912, i64 16
-  %10 = getelementptr inbounds i8, ptr %.0813, i64 16
-  %11 = getelementptr inbounds i8, ptr %.014, i64 16
-  %12 = load <2 x double>, ptr %.0912, align 8
-  %13 = load <2 x double>, ptr %.0813, align 8
-  %14 = fadd <2 x double> %12, %13
-  store <2 x double> %14, ptr %.014, align 8
-  %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !284
+  %10 = load double, ptr %.0912, align 8
+  %11 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %12 = load double, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %.0813, i64 16
+  %14 = load double, ptr %.0813, align 8
+  %15 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %16 = load double, ptr %15, align 8
+  %17 = fadd double %10, %14
+  %18 = fadd double %12, %16
+  %19 = getelementptr inbounds i8, ptr %.014, i64 16
+  %20 = getelementptr inbounds i8, ptr %.014, i64 8
+  store double %17, ptr %.014, align 8
+  store double %18, ptr %20, align 8
+  %21 = add nsw i32 %.01011, -1
+  %22 = icmp ugt i32 %.01011, 1
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !284
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -8375,53 +8393,50 @@ define internal void @ompi_op_base_3buff_prod_c_float_complex(ptr noalias nocapt
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %29
-  %.014 = phi i32 [ %34, %29 ], [ %7, %6 ]
-  %.0813 = phi ptr [ %32, %29 ], [ %2, %6 ]
-  %.0912 = phi ptr [ %10, %29 ], [ %1, %6 ]
-  %.01011 = phi ptr [ %9, %29 ], [ %0, %6 ]
+.lr.ph:                                           ; preds = %6, %28
+  %.014 = phi i32 [ %33, %28 ], [ %7, %6 ]
+  %.0813 = phi ptr [ %31, %28 ], [ %2, %6 ]
+  %.0912 = phi ptr [ %13, %28 ], [ %1, %6 ]
+  %.01011 = phi ptr [ %9, %28 ], [ %0, %6 ]
   %9 = getelementptr inbounds i8, ptr %.01011, i64 8
-  %10 = getelementptr inbounds i8, ptr %.0912, i64 8
-  %11 = load <2 x float>, ptr %.01011, align 4
-  %12 = load <2 x float>, ptr %.0912, align 4
-  %13 = fmul <2 x float> %11, %12
-  %14 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %15 = fmul <2 x float> %14, %12
-  %shift = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %16 = fsub <2 x float> %13, %shift
-  %17 = extractelement <2 x float> %16, i64 0
-  %shift15 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %18 = fadd <2 x float> %15, %shift15
-  %19 = extractelement <2 x float> %18, i64 0
-  %20 = fcmp uno float %17, 0.000000e+00
-  br i1 %20, label %21, label %29, !prof !104
+  %10 = load float, ptr %.01011, align 4
+  %11 = getelementptr inbounds i8, ptr %.01011, i64 4
+  %12 = load float, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %14 = load float, ptr %.0912, align 4
+  %15 = getelementptr inbounds i8, ptr %.0912, i64 4
+  %16 = load float, ptr %15, align 4
+  %17 = fmul float %10, %14
+  %18 = fmul float %12, %16
+  %19 = fmul float %10, %16
+  %20 = fmul float %12, %14
+  %21 = fsub float %17, %18
+  %22 = fadd float %20, %19
+  %23 = fcmp uno float %21, 0.000000e+00
+  br i1 %23, label %24, label %28, !prof !104
 
-21:                                               ; preds = %.lr.ph
-  %22 = fcmp uno float %19, 0.000000e+00
-  br i1 %22, label %23, label %29, !prof !104
+24:                                               ; preds = %.lr.ph
+  %25 = fcmp uno float %22, 0.000000e+00
+  br i1 %25, label %26, label %28, !prof !104
 
-23:                                               ; preds = %21
-  %24 = extractelement <2 x float> %11, i64 0
-  %25 = extractelement <2 x float> %11, i64 1
-  %26 = extractelement <2 x float> %12, i64 0
-  %27 = extractelement <2 x float> %12, i64 1
-  %28 = tail call <2 x float> @__mulsc3(float noundef %24, float noundef %25, float noundef %26, float noundef %27) #5
-  %.sroa.0.0.vec.extract = extractelement <2 x float> %28, i64 0
-  %.sroa.0.4.vec.extract = extractelement <2 x float> %28, i64 1
-  br label %29
+26:                                               ; preds = %24
+  %27 = tail call <2 x float> @__mulsc3(float noundef %10, float noundef %12, float noundef %14, float noundef %16) #5
+  %.sroa.0.0.vec.extract = extractelement <2 x float> %27, i64 0
+  %.sroa.0.4.vec.extract = extractelement <2 x float> %27, i64 1
+  br label %28
 
-29:                                               ; preds = %23, %21, %.lr.ph
-  %30 = phi float [ %17, %.lr.ph ], [ %17, %21 ], [ %.sroa.0.0.vec.extract, %23 ]
-  %31 = phi float [ %19, %.lr.ph ], [ %19, %21 ], [ %.sroa.0.4.vec.extract, %23 ]
-  %32 = getelementptr inbounds i8, ptr %.0813, i64 8
-  %33 = getelementptr inbounds i8, ptr %.0813, i64 4
-  store float %30, ptr %.0813, align 4
-  store float %31, ptr %33, align 4
-  %34 = add nsw i32 %.014, -1
-  %35 = icmp sgt i32 %.014, 1
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !311
+28:                                               ; preds = %26, %24, %.lr.ph
+  %29 = phi float [ %21, %.lr.ph ], [ %21, %24 ], [ %.sroa.0.0.vec.extract, %26 ]
+  %30 = phi float [ %22, %.lr.ph ], [ %22, %24 ], [ %.sroa.0.4.vec.extract, %26 ]
+  %31 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %32 = getelementptr inbounds i8, ptr %.0813, i64 4
+  store float %29, ptr %.0813, align 4
+  store float %30, ptr %32, align 4
+  %33 = add nsw i32 %.014, -1
+  %34 = icmp sgt i32 %.014, 1
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !311
 
-._crit_edge:                                      ; preds = %29, %6
+._crit_edge:                                      ; preds = %28, %6
   ret void
 }
 
@@ -8431,53 +8446,50 @@ define internal void @ompi_op_base_3buff_prod_c_double_complex(ptr noalias nocap
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %31
-  %.014 = phi ptr [ %34, %31 ], [ %2, %6 ]
-  %.0813 = phi ptr [ %10, %31 ], [ %1, %6 ]
-  %.0912 = phi ptr [ %9, %31 ], [ %0, %6 ]
-  %.01011 = phi i32 [ %36, %31 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %30
+  %.014 = phi ptr [ %33, %30 ], [ %2, %6 ]
+  %.0813 = phi ptr [ %13, %30 ], [ %1, %6 ]
+  %.0912 = phi ptr [ %9, %30 ], [ %0, %6 ]
+  %.01011 = phi i32 [ %35, %30 ], [ %7, %6 ]
   %9 = getelementptr inbounds i8, ptr %.0912, i64 16
-  %10 = getelementptr inbounds i8, ptr %.0813, i64 16
-  %11 = load <2 x double>, ptr %.0912, align 8
-  %12 = load <2 x double>, ptr %.0813, align 8
-  %13 = fmul <2 x double> %11, %12
-  %14 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %15 = fmul <2 x double> %14, %12
-  %shift = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %16 = fsub <2 x double> %13, %shift
-  %17 = extractelement <2 x double> %16, i64 0
-  %shift15 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %18 = fadd <2 x double> %15, %shift15
-  %19 = extractelement <2 x double> %18, i64 0
-  %20 = fcmp uno double %17, 0.000000e+00
-  br i1 %20, label %21, label %31, !prof !104
+  %10 = load double, ptr %.0912, align 8
+  %11 = getelementptr inbounds i8, ptr %.0912, i64 8
+  %12 = load double, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %.0813, i64 16
+  %14 = load double, ptr %.0813, align 8
+  %15 = getelementptr inbounds i8, ptr %.0813, i64 8
+  %16 = load double, ptr %15, align 8
+  %17 = fmul double %10, %14
+  %18 = fmul double %12, %16
+  %19 = fmul double %10, %16
+  %20 = fmul double %12, %14
+  %21 = fsub double %17, %18
+  %22 = fadd double %20, %19
+  %23 = fcmp uno double %21, 0.000000e+00
+  br i1 %23, label %24, label %30, !prof !104
 
-21:                                               ; preds = %.lr.ph
-  %22 = fcmp uno double %19, 0.000000e+00
-  br i1 %22, label %23, label %31, !prof !104
+24:                                               ; preds = %.lr.ph
+  %25 = fcmp uno double %22, 0.000000e+00
+  br i1 %25, label %26, label %30, !prof !104
 
-23:                                               ; preds = %21
-  %24 = extractelement <2 x double> %11, i64 0
-  %25 = extractelement <2 x double> %11, i64 1
-  %26 = extractelement <2 x double> %12, i64 0
-  %27 = extractelement <2 x double> %12, i64 1
-  %28 = tail call { double, double } @__muldc3(double noundef %24, double noundef %25, double noundef %26, double noundef %27) #5
-  %29 = extractvalue { double, double } %28, 0
-  %30 = extractvalue { double, double } %28, 1
-  br label %31
+26:                                               ; preds = %24
+  %27 = tail call { double, double } @__muldc3(double noundef %10, double noundef %12, double noundef %14, double noundef %16) #5
+  %28 = extractvalue { double, double } %27, 0
+  %29 = extractvalue { double, double } %27, 1
+  br label %30
 
-31:                                               ; preds = %23, %21, %.lr.ph
-  %32 = phi double [ %17, %.lr.ph ], [ %17, %21 ], [ %29, %23 ]
-  %33 = phi double [ %19, %.lr.ph ], [ %19, %21 ], [ %30, %23 ]
-  %34 = getelementptr inbounds i8, ptr %.014, i64 16
-  %35 = getelementptr inbounds i8, ptr %.014, i64 8
-  store double %32, ptr %.014, align 8
-  store double %33, ptr %35, align 8
-  %36 = add nsw i32 %.01011, -1
-  %37 = icmp sgt i32 %.01011, 1
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !312
+30:                                               ; preds = %26, %24, %.lr.ph
+  %31 = phi double [ %21, %.lr.ph ], [ %21, %24 ], [ %28, %26 ]
+  %32 = phi double [ %22, %.lr.ph ], [ %22, %24 ], [ %29, %26 ]
+  %33 = getelementptr inbounds i8, ptr %.014, i64 16
+  %34 = getelementptr inbounds i8, ptr %.014, i64 8
+  store double %31, ptr %.014, align 8
+  store double %32, ptr %34, align 8
+  %35 = add nsw i32 %.01011, -1
+  %36 = icmp sgt i32 %.01011, 1
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !312
 
-._crit_edge:                                      ; preds = %31, %6
+._crit_edge:                                      ; preds = %30, %6
   ret void
 }
 

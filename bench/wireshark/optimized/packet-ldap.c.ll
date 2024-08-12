@@ -1712,7 +1712,7 @@ define internal void @attribute_types_post_update_cb() #0 {
 deregister_attribute_types.exit:                  ; preds = %15, %17
   %18 = load i32, ptr @num_attribute_types, align 4
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %53, label %19
+  br i1 %.not, label %56, label %19
 
 19:                                               ; preds = %deregister_attribute_types.exit
   %20 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #12
@@ -1755,29 +1755,35 @@ deregister_attribute_types.exit:                  ; preds = %15, %17
   %43 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 6
   store ptr %41, ptr %43, align 8
   %44 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 7
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %44, align 8
-  %45 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 11
-  store ptr null, ptr %45, align 8
-  %46 = load ptr, ptr @attribute_types_hash, align 8
-  %47 = tail call i32 @g_hash_table_insert(ptr noundef %46, ptr noundef %29, ptr noundef nonnull %25) #12
+  store i32 -1, ptr %44, align 8
+  %45 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 8
+  store i32 0, ptr %45, align 4
+  %46 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 9
+  store i32 0, ptr %46, align 8
+  %47 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 10
+  store i32 -1, ptr %47, align 4
+  %48 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 11
+  store ptr null, ptr %48, align 8
+  %49 = load ptr, ptr @attribute_types_hash, align 8
+  %50 = tail call i32 @g_hash_table_insert(ptr noundef %49, ptr noundef %29, ptr noundef nonnull %25) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = load i32, ptr @dynamic_hf_size, align 4
-  %49 = zext i32 %48 to i64
-  %50 = icmp ult i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
+  %51 = load i32, ptr @dynamic_hf_size, align 4
+  %52 = zext i32 %51 to i64
+  %53 = icmp ult i64 %indvars.iv.next, %52
+  br i1 %53, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr @dynamic_hf, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
-  %51 = phi ptr [ %23, %19 ], [ %.pre, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ 0, %19 ], [ %48, %._crit_edge.loopexit ]
-  %52 = load i32, ptr @proto_ldap, align 4
-  tail call void @proto_register_field_array(i32 noundef %52, ptr noundef %51, i32 noundef %.lcssa) #12
-  br label %53
+  %54 = phi ptr [ %23, %19 ], [ %.pre, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ 0, %19 ], [ %51, %._crit_edge.loopexit ]
+  %55 = load i32, ptr @proto_ldap, align 4
+  tail call void @proto_register_field_array(i32 noundef %55, ptr noundef %54, i32 noundef %.lcssa) #12
+  br label %56
 
-53:                                               ; preds = %._crit_edge, %deregister_attribute_types.exit
+56:                                               ; preds = %._crit_edge, %deregister_attribute_types.exit
   ret void
 }
 

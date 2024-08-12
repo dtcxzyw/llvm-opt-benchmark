@@ -848,64 +848,67 @@ define internal void @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZN14cmProces
   store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load <2 x ptr>, ptr %6, align 8
-  %8 = load ptr, ptr %6, align 8
-  store <2 x ptr> %7, ptr %5, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  %9 = load ptr, ptr %.val, align 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
-  %.not.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i, label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i", label %11
+  store ptr %10, ptr %8, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  %11 = load ptr, ptr %.val, align 8
+  %12 = load ptr, ptr %11, align 8
+  %.not.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i, label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i", label %13
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %.val, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %8 to i64
-  %15 = ptrtoint ptr %4 to i64
-  %16 = sub i64 %14, %15
-  %17 = getelementptr inbounds i8, ptr %.val, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = invoke noundef zeroext i1 @_ZN15cmProcessOutput10DecodeTextEPKcmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef %4, i64 noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef 1)
-          to label %.noexc.i.i unwind label %35
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %.val, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = ptrtoint ptr %7 to i64
+  %17 = ptrtoint ptr %4 to i64
+  %18 = sub i64 %16, %17
+  %19 = getelementptr inbounds i8, ptr %.val, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = invoke noundef zeroext i1 @_ZN15cmProcessOutput10DecodeTextEPKcmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %4, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 1)
+          to label %.noexc.i.i unwind label %37
 
-.noexc.i.i:                                       ; preds = %11
-  %20 = load ptr, ptr %.val, align 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %17, align 8
-  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #18
-  %24 = load ptr, ptr %17, align 8
-  %25 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
-  %26 = trunc i64 %25 to i32
-  %27 = load ptr, ptr %21, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %30 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %23, i32 noundef %26)
-          to label %.noexc4.i.i unwind label %35
+.noexc.i.i:                                       ; preds = %13
+  %22 = load ptr, ptr %.val, align 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %19, align 8
+  %25 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
+  %26 = load ptr, ptr %19, align 8
+  %27 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #18
+  %28 = trunc i64 %27 to i32
+  %29 = load ptr, ptr %23, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %25, i32 noundef %28)
+          to label %.noexc4.i.i unwind label %37
 
 .noexc4.i.i:                                      ; preds = %.noexc.i.i
-  br i1 %30, label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i", label %31
+  br i1 %32, label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i", label %33
 
-31:                                               ; preds = %.noexc4.i.i
-  %32 = load ptr, ptr %.val, align 8
-  store ptr null, ptr %32, align 8
+33:                                               ; preds = %.noexc4.i.i
+  %34 = load ptr, ptr %.val, align 8
+  store ptr null, ptr %34, align 8
   br label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i"
 
-"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i": ; preds = %31, %.noexc4.i.i, %2
-  %33 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0JSt6vectorIcSaIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %34
+"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i": ; preds = %33, %.noexc4.i.i, %2
+  %35 = load ptr, ptr %3, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0JSt6vectorIcSaIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %36
 
-34:                                               ; preds = %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i"
-  call void @_ZdlPv(ptr noundef nonnull %33) #21
+36:                                               ; preds = %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i"
+  call void @_ZdlPv(ptr noundef nonnull %35) #21
   br label %"_ZSt10__invoke_rIvRZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0JSt6vectorIcSaIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
-35:                                               ; preds = %.noexc.i.i, %11
-  %36 = landingpad { ptr, i32 }
+37:                                               ; preds = %.noexc.i.i, %13
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
-  resume { ptr, i32 } %36
+  resume { ptr, i32 } %38
 
-"_ZSt10__invoke_rIvRZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0JSt6vectorIcSaIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i", %34
+"_ZSt10__invoke_rIvRZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0JSt6vectorIcSaIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i", %36
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
@@ -1142,83 +1145,87 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0ZNS0_10RunProcessES2_S4_S4_S6_E3$_1ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENUlSF_lPK8uv_buf_tE_8__invokeESF_lSK_"(ptr noundef %0, i64 noundef %1, ptr nocapture readnone %2) #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::vector.31", align 16
+  %4 = alloca %"class.std::vector.31", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = icmp sgt i64 %1, 0
-  br i1 %6, label %7, label %23
+  br i1 %6, label %7, label %26
 
 7:                                                ; preds = %3
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %1)
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
-  %8 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %8, ptr %4, align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = load ptr, ptr %5, align 8
+  store ptr %8, ptr %4, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %9, align 16
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
-  %13 = load ptr, ptr %12, align 8
-  %.not.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i, label %14, label %15
+  %15 = getelementptr inbounds i8, ptr %5, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %.not.i.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i, label %17, label %18
 
-14:                                               ; preds = %7
+17:                                               ; preds = %7
   invoke void @_ZSt25__throw_bad_function_callv() #20
-          to label %.noexc.i unwind label %21
+          to label %.noexc.i unwind label %24
 
-.noexc.i:                                         ; preds = %14
+.noexc.i:                                         ; preds = %17
   unreachable
 
-15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
-  %17 = getelementptr inbounds i8, ptr %5, i64 48
-  %18 = load ptr, ptr %17, align 8
-  invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i unwind label %21
+18:                                               ; preds = %7
+  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %20 = getelementptr inbounds i8, ptr %5, i64 48
+  %21 = load ptr, ptr %20, align 8
+  invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i unwind label %24
 
-_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i: ; preds = %15
-  %19 = load ptr, ptr %4, align 16
-  %.not.i.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %20
+_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i: ; preds = %18
+  %22 = load ptr, ptr %4, align 8
+  %.not.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %23
 
-20:                                               ; preds = %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %19) #21
+23:                                               ; preds = %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %22) #21
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
-_ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %20, %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i
+_ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %23, %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   br label %"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0ZNS0_10RunProcessES2_S4_S4_S6_E3$_1ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit"
 
-21:                                               ; preds = %15, %14
-  %22 = landingpad { ptr, i32 }
+24:                                               ; preds = %18, %17
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %25
 
-23:                                               ; preds = %3
-  %24 = icmp slt i64 %1, 0
-  br i1 %24, label %25, label %"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0ZNS0_10RunProcessES2_S4_S4_S6_E3$_1ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit"
+26:                                               ; preds = %3
+  %27 = icmp slt i64 %1, 0
+  br i1 %27, label %28, label %"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0ZNS0_10RunProcessES2_S4_S4_S6_E3$_1ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit"
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %5, i64 72
-  %27 = load ptr, ptr %26, align 8
-  %.not.i.i11.i = icmp eq ptr %27, null
-  br i1 %.not.i.i11.i, label %28, label %_ZNKSt8functionIFvvEEclEv.exit.i
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds i8, ptr %5, i64 72
+  %30 = load ptr, ptr %29, align 8
+  %.not.i.i11.i = icmp eq ptr %30, null
+  br i1 %.not.i.i11.i, label %31, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
-28:                                               ; preds = %25
+31:                                               ; preds = %28
   tail call void @_ZSt25__throw_bad_function_callv() #20
   unreachable
 
-_ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %5, i64 56
-  %30 = getelementptr inbounds i8, ptr %5, i64 80
-  %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
-  %32 = tail call i32 @uv_read_stop(ptr noundef nonnull %0)
+_ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %5, i64 56
+  %33 = getelementptr inbounds i8, ptr %5, i64 80
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %32)
+  %35 = tail call i32 @uv_read_stop(ptr noundef nonnull %0)
   br label %"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0ZNS0_10RunProcessES2_S4_S4_S6_E3$_1ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit"
 
-"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0ZNS0_10RunProcessES2_S4_S4_S6_E3$_1ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit": ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit.i, %23, %_ZNKSt8functionIFvvEEclEv.exit.i
+"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0ZNS0_10RunProcessES2_S4_S4_S6_E3$_1ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit": ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit.i, %26, %_ZNKSt8functionIFvvEEclEv.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
@@ -1238,64 +1245,67 @@ define internal void @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZN14cmProces
   store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load <2 x ptr>, ptr %6, align 8
-  %8 = load ptr, ptr %6, align 8
-  store <2 x ptr> %7, ptr %5, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  %9 = load ptr, ptr %.val, align 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
-  %.not.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i, label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i", label %11
+  store ptr %10, ptr %8, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  %11 = load ptr, ptr %.val, align 8
+  %12 = load ptr, ptr %11, align 8
+  %.not.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i, label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i", label %13
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %.val, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %8 to i64
-  %15 = ptrtoint ptr %4 to i64
-  %16 = sub i64 %14, %15
-  %17 = getelementptr inbounds i8, ptr %.val, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = invoke noundef zeroext i1 @_ZN15cmProcessOutput10DecodeTextEPKcmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef %4, i64 noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef 2)
-          to label %.noexc.i.i unwind label %35
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %.val, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = ptrtoint ptr %7 to i64
+  %17 = ptrtoint ptr %4 to i64
+  %18 = sub i64 %16, %17
+  %19 = getelementptr inbounds i8, ptr %.val, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = invoke noundef zeroext i1 @_ZN15cmProcessOutput10DecodeTextEPKcmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %4, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 2)
+          to label %.noexc.i.i unwind label %37
 
-.noexc.i.i:                                       ; preds = %11
-  %20 = load ptr, ptr %.val, align 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %17, align 8
-  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #18
-  %24 = load ptr, ptr %17, align 8
-  %25 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
-  %26 = trunc i64 %25 to i32
-  %27 = load ptr, ptr %21, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %30 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %23, i32 noundef %26)
-          to label %.noexc4.i.i unwind label %35
+.noexc.i.i:                                       ; preds = %13
+  %22 = load ptr, ptr %.val, align 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %19, align 8
+  %25 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
+  %26 = load ptr, ptr %19, align 8
+  %27 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #18
+  %28 = trunc i64 %27 to i32
+  %29 = load ptr, ptr %23, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %25, i32 noundef %28)
+          to label %.noexc4.i.i unwind label %37
 
 .noexc4.i.i:                                      ; preds = %.noexc.i.i
-  br i1 %30, label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i", label %31
+  br i1 %32, label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i", label %33
 
-31:                                               ; preds = %.noexc4.i.i
-  %32 = load ptr, ptr %.val, align 8
-  store ptr null, ptr %32, align 8
+33:                                               ; preds = %.noexc4.i.i
+  %34 = load ptr, ptr %.val, align 8
+  store ptr null, ptr %34, align 8
   br label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i"
 
-"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i": ; preds = %31, %.noexc4.i.i, %2
-  %33 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2JSt6vectorIcSaIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %34
+"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i": ; preds = %33, %.noexc4.i.i, %2
+  %35 = load ptr, ptr %3, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2JSt6vectorIcSaIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %36
 
-34:                                               ; preds = %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i"
-  call void @_ZdlPv(ptr noundef nonnull %33) #21
+36:                                               ; preds = %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i"
+  call void @_ZdlPv(ptr noundef nonnull %35) #21
   br label %"_ZSt10__invoke_rIvRZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2JSt6vectorIcSaIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
-35:                                               ; preds = %.noexc.i.i, %11
-  %36 = landingpad { ptr, i32 }
+37:                                               ; preds = %.noexc.i.i, %13
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
-  resume { ptr, i32 } %36
+  resume { ptr, i32 } %38
 
-"_ZSt10__invoke_rIvRZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2JSt6vectorIcSaIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i", %34
+"_ZSt10__invoke_rIvRZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2JSt6vectorIcSaIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i", %36
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
@@ -1384,83 +1394,87 @@ define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmU
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2ZNS0_10RunProcessES2_S4_S4_S6_E3$_3ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENUlSF_lPK8uv_buf_tE_8__invokeESF_lSK_"(ptr noundef %0, i64 noundef %1, ptr nocapture readnone %2) #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::vector.31", align 16
+  %4 = alloca %"class.std::vector.31", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = icmp sgt i64 %1, 0
-  br i1 %6, label %7, label %23
+  br i1 %6, label %7, label %26
 
 7:                                                ; preds = %3
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %1)
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
-  %8 = load <2 x ptr>, ptr %5, align 8
-  store <2 x ptr> %8, ptr %4, align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = load ptr, ptr %5, align 8
+  store ptr %8, ptr %4, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %9, align 16
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
-  %13 = load ptr, ptr %12, align 8
-  %.not.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i, label %14, label %15
+  %15 = getelementptr inbounds i8, ptr %5, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %.not.i.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i, label %17, label %18
 
-14:                                               ; preds = %7
+17:                                               ; preds = %7
   invoke void @_ZSt25__throw_bad_function_callv() #20
-          to label %.noexc.i unwind label %21
+          to label %.noexc.i unwind label %24
 
-.noexc.i:                                         ; preds = %14
+.noexc.i:                                         ; preds = %17
   unreachable
 
-15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
-  %17 = getelementptr inbounds i8, ptr %5, i64 48
-  %18 = load ptr, ptr %17, align 8
-  invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i unwind label %21
+18:                                               ; preds = %7
+  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %20 = getelementptr inbounds i8, ptr %5, i64 48
+  %21 = load ptr, ptr %20, align 8
+  invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i unwind label %24
 
-_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i: ; preds = %15
-  %19 = load ptr, ptr %4, align 16
-  %.not.i.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %20
+_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i: ; preds = %18
+  %22 = load ptr, ptr %4, align 8
+  %.not.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %23
 
-20:                                               ; preds = %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %19) #21
+23:                                               ; preds = %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %22) #21
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
-_ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %20, %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i
+_ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %23, %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   br label %"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2ZNS0_10RunProcessES2_S4_S4_S6_E3$_3ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit"
 
-21:                                               ; preds = %15, %14
-  %22 = landingpad { ptr, i32 }
+24:                                               ; preds = %18, %17
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %25
 
-23:                                               ; preds = %3
-  %24 = icmp slt i64 %1, 0
-  br i1 %24, label %25, label %"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2ZNS0_10RunProcessES2_S4_S4_S6_E3$_3ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit"
+26:                                               ; preds = %3
+  %27 = icmp slt i64 %1, 0
+  br i1 %27, label %28, label %"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2ZNS0_10RunProcessES2_S4_S4_S6_E3$_3ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit"
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %5, i64 72
-  %27 = load ptr, ptr %26, align 8
-  %.not.i.i11.i = icmp eq ptr %27, null
-  br i1 %.not.i.i11.i, label %28, label %_ZNKSt8functionIFvvEEclEv.exit.i
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds i8, ptr %5, i64 72
+  %30 = load ptr, ptr %29, align 8
+  %.not.i.i11.i = icmp eq ptr %30, null
+  br i1 %.not.i.i11.i, label %31, label %_ZNKSt8functionIFvvEEclEv.exit.i
 
-28:                                               ; preds = %25
+31:                                               ; preds = %28
   tail call void @_ZSt25__throw_bad_function_callv() #20
   unreachable
 
-_ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %5, i64 56
-  %30 = getelementptr inbounds i8, ptr %5, i64 80
-  %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
-  %32 = tail call i32 @uv_read_stop(ptr noundef nonnull %0)
+_ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %5, i64 56
+  %33 = getelementptr inbounds i8, ptr %5, i64 80
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %32)
+  %35 = tail call i32 @uv_read_stop(ptr noundef nonnull %0)
   br label %"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2ZNS0_10RunProcessES2_S4_S4_S6_E3$_3ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit"
 
-"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2ZNS0_10RunProcessES2_S4_S4_S6_E3$_3ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit": ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit.i, %23, %_ZNKSt8functionIFvvEEclEv.exit.i
+"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2ZNS0_10RunProcessES2_S4_S4_S6_E3$_3ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit": ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit.i, %26, %_ZNKSt8functionIFvvEEclEv.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }

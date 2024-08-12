@@ -200,10 +200,13 @@ invoke.cont8:                                     ; preds = %for.cond.i.i.i.i, %
   %retval.0.i.pn.i.i = phi ptr [ %14, %if.end.i.i.i.i ], [ %call7.i.i, %call5.i.i.i.i.i.i.noexc ], [ %16, %for.cond.i.i.i.i ]
   %retval.0.i.i = getelementptr inbounds i8, ptr %retval.0.i.pn.i.i, i64 16
   %19 = load i64, ptr %bytes, align 8
-  %20 = load <2 x i64>, ptr %retval.0.i.i, align 8
-  %21 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %19, i64 1
-  %22 = add <2 x i64> %20, %21
-  store <2 x i64> %22, ptr %retval.0.i.i, align 8
+  %20 = load i64, ptr %retval.0.i.i, align 8
+  %inc.i.i = add i64 %20, 1
+  store i64 %inc.i.i, ptr %retval.0.i.i, align 8
+  %bytes_.i.i = getelementptr inbounds i8, ptr %retval.0.i.pn.i.i, i64 24
+  %21 = load i64, ptr %bytes_.i.i, align 8
+  %add.i.i = add i64 %21, %19
+  store i64 %add.i.i, ptr %bytes_.i.i, align 8
   %state_.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i7, align 8, !alias.scope !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !9
@@ -211,12 +214,12 @@ invoke.cont8:                                     ; preds = %for.cond.i.i.i.i, %
 
 cleanup:                                          ; preds = %invoke.cont8, %if.then3, %_ZN7rocksdb6StatusC2ERKS0_.exit
   %state_.i8 = getelementptr inbounds i8, ptr %s, i64 8
-  %23 = load ptr, ptr %state_.i8, align 8
-  %cmp.not.i.i9 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %state_.i8, align 8
+  %cmp.not.i.i9 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i9, label %_ZN7rocksdb6StatusD2Ev.exit11, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i10
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i10: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %23) #11
+  call void @_ZdaPv(ptr noundef nonnull %22) #11
   br label %_ZN7rocksdb6StatusD2Ev.exit11
 
 _ZN7rocksdb6StatusD2Ev.exit11:                    ; preds = %cleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i10
@@ -475,10 +478,13 @@ if.end16:                                         ; preds = %for.cond.i.i.i.i, %
   %retval.sroa.0.1.i.i = phi ptr [ %15, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %17, %for.cond.i.i.i.i ]
   %19 = load i64, ptr %bytes, align 8
   %out_flow_.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 32
-  %20 = load <2 x i64>, ptr %out_flow_.i, align 8
-  %21 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %19, i64 1
-  %22 = add <2 x i64> %20, %21
-  store <2 x i64> %22, ptr %out_flow_.i, align 8
+  %20 = load i64, ptr %out_flow_.i, align 8
+  %inc.i.i = add i64 %20, 1
+  store i64 %inc.i.i, ptr %out_flow_.i, align 8
+  %bytes_.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 40
+  %21 = load i64, ptr %bytes_.i.i, align 8
+  %add.i.i = add i64 %21, %19
+  store i64 %add.i.i, ptr %bytes_.i.i, align 8
   %state_.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i7, align 8, !alias.scope !25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !25
@@ -486,12 +492,12 @@ if.end16:                                         ; preds = %for.cond.i.i.i.i, %
 
 cleanup:                                          ; preds = %if.end16, %if.then14, %if.then3, %_ZN7rocksdb6StatusC2ERKS0_.exit
   %state_.i8 = getelementptr inbounds i8, ptr %s, i64 8
-  %23 = load ptr, ptr %state_.i8, align 8
-  %cmp.not.i.i9 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %state_.i8, align 8
+  %cmp.not.i.i9 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i9, label %_ZN7rocksdb6StatusD2Ev.exit11, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i10
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i10: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %23) #11
+  call void @_ZdaPv(ptr noundef nonnull %22) #11
   br label %_ZN7rocksdb6StatusD2Ev.exit11
 
 _ZN7rocksdb6StatusD2Ev.exit11:                    ; preds = %cleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i10

@@ -15,15 +15,14 @@ entry:
   %call1.i = tail call ptr @EC_POINT_new(ptr noundef %call.i) #3
   %call2.i = tail call ptr @EC_POINT_new(ptr noundef %call.i) #3
   %call3.i = tail call ptr @BN_new() #3
-  %0 = insertelement <4 x ptr> poison, ptr %call1.i, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %call2.i, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %call.i, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %call3.i, i64 3
-  %.fr = freeze <4 x ptr> %3
-  %4 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %lor.lhs.false9.i, label %if.then.critedge
+  %cmp.i = icmp eq ptr %call1.i, null
+  %cmp4.i = icmp eq ptr %call2.i, null
+  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp4.i
+  %cmp6.i = icmp eq ptr %call.i, null
+  %or.cond1.i = or i1 %cmp6.i, %or.cond.i
+  %cmp8.i = icmp eq ptr %call3.i, null
+  %or.cond2.i = select i1 %or.cond1.i, i1 true, i1 %cmp8.i
+  br i1 %or.cond2.i, label %if.then.critedge, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %entry
   %call10.i = tail call i32 @EC_POINT_set_to_infinity(ptr noundef nonnull %call.i, ptr noundef nonnull %call1.i) #3
@@ -69,8 +68,8 @@ if.then.critedge:                                 ; preds = %lor.lhs.false9.i, %
   br label %if.then
 
 if.then:                                          ; preds = %if.then.critedge, %lor.lhs.false25.i
-  %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str, i64 7, i64 1, ptr %6) #4
+  %0 = load ptr, ptr @stderr, align 8
+  %1 = tail call i64 @fwrite(ptr nonnull @.str, i64 7, i64 1, ptr %0) #4
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false25.i

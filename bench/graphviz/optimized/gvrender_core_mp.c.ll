@@ -474,151 +474,157 @@ mp_line_style.exit:
   %.068 = phi i32 [ 20, %15 ], [ -1, %mp_line_style.exit ]
   %.063 = phi i32 [ %17, %15 ], [ 0, %mp_line_style.exit ]
   %.062 = phi i32 [ 5, %15 ], [ 4, %mp_line_style.exit ]
-  %19 = getelementptr inbounds i8, ptr %4, i64 48
-  %20 = load <2 x double>, ptr %1, align 8
-  store <2 x double> %20, ptr %19, align 16
-  %21 = extractelement <2 x double> %20, i64 0
-  %22 = fcmp ult double %21, 0.000000e+00
-  %.in.v = select i1 %22, double -5.000000e-01, double 5.000000e-01
-  %.in = fadd double %21, %.in.v
-  %23 = fptosi double %.in to i32
-  %24 = extractelement <2 x double> %20, i64 1
-  %25 = fcmp ult double %24, 0.000000e+00
-  %.in78.v = select i1 %25, double -5.000000e-01, double 5.000000e-01
-  %.in78 = fadd double %24, %.in78.v
-  %26 = fptosi double %.in78 to i32
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef %23, i32 noundef %26)
-  %27 = icmp ugt i64 %2, 3
-  br i1 %27, label %.lr.ph, label %agxbsizeof.exit.i.i
+  %19 = load double, ptr %1, align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  store double %19, ptr %20, align 16
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = load double, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 56
+  store double %22, ptr %23, align 8
+  %24 = fcmp ult double %19, 0.000000e+00
+  %.in.v = select i1 %24, double -5.000000e-01, double 5.000000e-01
+  %.in = fadd double %19, %.in.v
+  %25 = fptosi double %.in to i32
+  %26 = fcmp ult double %22, 0.000000e+00
+  %.in78.v = select i1 %26, double -5.000000e-01, double 5.000000e-01
+  %.in78 = fadd double %22, %.in78.v
+  %27 = fptosi double %.in78 to i32
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef %25, i32 noundef %27)
+  %28 = icmp ugt i64 %2, 3
+  br i1 %28, label %.lr.ph, label %agxbsizeof.exit.i.i
 
 .loopexit:                                        ; preds = %.preheader
-  %28 = add i32 %.06687, 6
-  %29 = add i64 %31, 3
-  %30 = icmp ult i64 %29, %2
-  br i1 %30, label %.lr.ph, label %agxbsizeof.exit.i.i
+  %29 = add i32 %.06687, 6
+  %30 = add i64 %32, 3
+  %31 = icmp ult i64 %30, %2
+  br i1 %31, label %.lr.ph, label %agxbsizeof.exit.i.i
 
 .lr.ph:                                           ; preds = %18, %.loopexit
-  %31 = phi i64 [ %29, %.loopexit ], [ 3, %18 ]
-  %.06588 = phi i64 [ %31, %.loopexit ], [ 0, %18 ]
-  %.06687 = phi i32 [ %28, %.loopexit ], [ 1, %18 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %19, i64 16, i1 false)
-  %32 = getelementptr %struct.pointf_s, ptr %1, i64 %.06588
-  br label %33
+  %32 = phi i64 [ %30, %.loopexit ], [ 3, %18 ]
+  %.06588 = phi i64 [ %32, %.loopexit ], [ 0, %18 ]
+  %.06687 = phi i32 [ %29, %.loopexit ], [ 1, %18 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %20, i64 16, i1 false)
+  %33 = getelementptr %struct.pointf_s, ptr %1, i64 %.06588
+  br label %34
 
-33:                                               ; preds = %.lr.ph, %33
-  %.06484 = phi i64 [ 1, %.lr.ph ], [ %37, %33 ]
-  %34 = getelementptr %struct.pointf_s, ptr %32, i64 %.06484
-  %35 = getelementptr inbounds [4 x %struct.pointf_s], ptr %4, i64 0, i64 %.06484
-  %36 = load <2 x double>, ptr %34, align 8
-  store <2 x double> %36, ptr %35, align 16
-  %37 = add nuw nsw i64 %.06484, 1
-  %exitcond.not = icmp eq i64 %37, 4
-  br i1 %exitcond.not, label %.preheader, label %33
+34:                                               ; preds = %.lr.ph, %34
+  %.06484 = phi i64 [ 1, %.lr.ph ], [ %41, %34 ]
+  %35 = getelementptr %struct.pointf_s, ptr %33, i64 %.06484
+  %36 = load double, ptr %35, align 8
+  %37 = getelementptr inbounds [4 x %struct.pointf_s], ptr %4, i64 0, i64 %.06484
+  store double %36, ptr %37, align 16
+  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %39 = load double, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  store double %39, ptr %40, align 8
+  %41 = add nuw nsw i64 %.06484, 1
+  %exitcond.not = icmp eq i64 %41, 4
+  br i1 %exitcond.not, label %.preheader, label %34
 
-.preheader:                                       ; preds = %33, %.preheader
-  %.06785 = phi i32 [ %47, %.preheader ], [ 1, %33 ]
-  %38 = uitofp nneg i32 %.06785 to double
-  %39 = fdiv double %38, 6.000000e+00
-  %40 = call { double, double } @Bezier(ptr noundef nonnull %4, double noundef %39, ptr noundef null, ptr noundef null) #17
-  %41 = extractvalue { double, double } %40, 0
-  %42 = extractvalue { double, double } %40, 1
-  %43 = fcmp ult double %41, 0.000000e+00
-  %.in80.v = select i1 %43, double -5.000000e-01, double 5.000000e-01
-  %.in80 = fadd double %41, %.in80.v
-  %44 = fptosi double %.in80 to i32
-  %45 = fcmp ult double %42, 0.000000e+00
-  %.in81.v = select i1 %45, double -5.000000e-01, double 5.000000e-01
-  %.in81 = fadd double %42, %.in81.v
-  %46 = fptosi double %.in81 to i32
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef %44, i32 noundef %46)
-  %47 = add nuw nsw i32 %.06785, 1
-  %exitcond91.not = icmp eq i32 %47, 7
+.preheader:                                       ; preds = %34, %.preheader
+  %.06785 = phi i32 [ %51, %.preheader ], [ 1, %34 ]
+  %42 = uitofp nneg i32 %.06785 to double
+  %43 = fdiv double %42, 6.000000e+00
+  %44 = call { double, double } @Bezier(ptr noundef nonnull %4, double noundef %43, ptr noundef null, ptr noundef null) #17
+  %45 = extractvalue { double, double } %44, 0
+  %46 = extractvalue { double, double } %44, 1
+  %47 = fcmp ult double %45, 0.000000e+00
+  %.in80.v = select i1 %47, double -5.000000e-01, double 5.000000e-01
+  %.in80 = fadd double %45, %.in80.v
+  %48 = fptosi double %.in80 to i32
+  %49 = fcmp ult double %46, 0.000000e+00
+  %.in81.v = select i1 %49, double -5.000000e-01, double 5.000000e-01
+  %.in81 = fadd double %46, %.in81.v
+  %50 = fptosi double %.in81 to i32
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %5, ptr nonnull poison, i32 noundef %48, i32 noundef %50)
+  %51 = add nuw nsw i32 %.06785, 1
+  %exitcond91.not = icmp eq i32 %51, 7
   br i1 %exitcond91.not, label %.loopexit, label %.preheader
 
 agxbsizeof.exit.i.i:                              ; preds = %.loopexit, %18
-  %.066.lcssa = phi i32 [ 1, %18 ], [ %28, %.loopexit ]
+  %.066.lcssa = phi i32 [ 1, %18 ], [ %29, %.loopexit ]
   call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef 3, i32 noundef %.062, i32 noundef %.sink1.i, double noundef %10, i32 noundef %12, i32 noundef %.063, i32 noundef %13, i32 noundef 0, i32 noundef %.068, double noundef %.sink.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %.066.lcssa) #17
-  %48 = getelementptr inbounds i8, ptr %5, i64 31
-  %.val.i.i.i = load i8, ptr %48, align 1
+  %52 = getelementptr inbounds i8, ptr %5, i64 31
+  %.val.i.i.i = load i8, ptr %52, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 16
-  %52 = load i64, ptr %51, align 8
-  %53 = zext i8 %.val.i.i.i to i64
-  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %50, i64 %53
-  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %52, i64 31
+  %53 = getelementptr inbounds i8, ptr %5, i64 8
+  %54 = load i64, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %5, i64 16
+  %56 = load i64, ptr %55, align 8
+  %57 = zext i8 %.val.i.i.i to i64
+  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %54, i64 %57
+  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %56, i64 31
   %.not.i.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
-  br i1 %.not.i.i, label %55, label %54
+  br i1 %.not.i.i, label %59, label %58
 
-54:                                               ; preds = %agxbsizeof.exit.i.i
+58:                                               ; preds = %agxbsizeof.exit.i.i
   call fastcc void @agxbmore(ptr noundef nonnull %5, i64 noundef 1)
-  %.val.i15.pre.i.i = load i8, ptr %48, align 1
-  br label %55
+  %.val.i15.pre.i.i = load i8, ptr %52, align 1
+  br label %59
 
-55:                                               ; preds = %54, %agxbsizeof.exit.i.i
-  %.val.i.pr.i = phi i8 [ %.val.i15.pre.i.i, %54 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
+59:                                               ; preds = %58, %agxbsizeof.exit.i.i
+  %.val.i.pr.i = phi i8 [ %.val.i15.pre.i.i, %58 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
   %.not.i16.i.i = icmp eq i8 %.val.i.pr.i, -1
   br i1 %.not.i16.i.i, label %agxbputc.exit.i.thread, label %agxbputc.exit.i
 
-agxbputc.exit.i.thread:                           ; preds = %55
-  %56 = load i64, ptr %49, align 8
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 %56
-  store i8 0, ptr %58, align 1
-  br label %64
+agxbputc.exit.i.thread:                           ; preds = %59
+  %60 = load i64, ptr %53, align 8
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 %60
+  store i8 0, ptr %62, align 1
+  br label %68
 
-agxbputc.exit.i:                                  ; preds = %55
-  %59 = zext i8 %.val.i.pr.i to i64
-  %60 = getelementptr inbounds [31 x i8], ptr %5, i64 0, i64 %59
-  store i8 0, ptr %60, align 1
-  %61 = load i8, ptr %48, align 1
-  %62 = add i8 %61, 1
-  store i8 %62, ptr %48, align 1
-  %63 = icmp eq i8 %62, -1
-  br i1 %63, label %64, label %agxbclear.exit.thread.i
+agxbputc.exit.i:                                  ; preds = %59
+  %63 = zext i8 %.val.i.pr.i to i64
+  %64 = getelementptr inbounds [31 x i8], ptr %5, i64 0, i64 %63
+  store i8 0, ptr %64, align 1
+  %65 = load i8, ptr %52, align 1
+  %66 = add i8 %65, 1
+  store i8 %66, ptr %52, align 1
+  %67 = icmp eq i8 %66, -1
+  br i1 %67, label %68, label %agxbclear.exit.thread.i
 
 agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
-  store i8 0, ptr %48, align 1
+  store i8 0, ptr %52, align 1
   br label %agxbuse.exit
 
-64:                                               ; preds = %agxbputc.exit.i.thread, %agxbputc.exit.i
-  store i64 0, ptr %49, align 8
-  %65 = load ptr, ptr %5, align 8
+68:                                               ; preds = %agxbputc.exit.i.thread, %agxbputc.exit.i
+  store i64 0, ptr %53, align 8
+  %69 = load ptr, ptr %5, align 8
   br label %agxbuse.exit
 
-agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %64
-  %66 = phi ptr [ %65, %64 ], [ %5, %agxbclear.exit.thread.i ]
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef %66) #17
-  %.val83 = load i8, ptr %48, align 1
-  %67 = icmp eq i8 %.val83, -1
-  br i1 %67, label %68, label %agxbfree.exit
+agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %68
+  %70 = phi ptr [ %69, %68 ], [ %5, %agxbclear.exit.thread.i ]
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef %70) #17
+  %.val83 = load i8, ptr %52, align 1
+  %71 = icmp eq i8 %.val83, -1
+  br i1 %71, label %72, label %agxbfree.exit
 
-68:                                               ; preds = %agxbuse.exit
+72:                                               ; preds = %agxbuse.exit
   %.val82 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %.val82) #17
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %agxbuse.exit, %68
-  %69 = icmp sgt i32 %.066.lcssa, 0
-  br i1 %69, label %.lr.ph90, label %._crit_edge
+agxbfree.exit:                                    ; preds = %agxbuse.exit, %72
+  %73 = icmp sgt i32 %.066.lcssa, 0
+  br i1 %73, label %.lr.ph90, label %._crit_edge
 
 .lr.ph90:                                         ; preds = %agxbfree.exit
-  %70 = add nuw nsw i32 %.066.lcssa, 1
-  br label %71
+  %74 = add nuw nsw i32 %.066.lcssa, 1
+  br label %75
 
-71:                                               ; preds = %.lr.ph90, %71
-  %.089 = phi i32 [ 0, %.lr.ph90 ], [ %74, %71 ]
-  %72 = urem i32 %.089, %70
-  %.not79 = icmp ne i32 %72, 0
-  %73 = zext i1 %.not79 to i32
-  call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %73) #17
-  %74 = add nuw nsw i32 %.089, 1
-  %exitcond92.not = icmp eq i32 %74, %.066.lcssa
-  br i1 %exitcond92.not, label %._crit_edge, label %71
+75:                                               ; preds = %.lr.ph90, %75
+  %.089 = phi i32 [ 0, %.lr.ph90 ], [ %78, %75 ]
+  %76 = urem i32 %.089, %74
+  %.not79 = icmp ne i32 %76, 0
+  %77 = zext i1 %.not79 to i32
+  call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %77) #17
+  %78 = add nuw nsw i32 %.089, 1
+  %exitcond92.not = icmp eq i32 %78, %.066.lcssa
+  br i1 %exitcond92.not, label %._crit_edge, label %75
 
-._crit_edge:                                      ; preds = %71, %agxbfree.exit
-  %75 = call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.32) #17
+._crit_edge:                                      ; preds = %75, %agxbfree.exit
+  %79 = call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.32) #17
   ret void
 }
 

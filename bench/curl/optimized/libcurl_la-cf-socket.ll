@@ -91,19 +91,22 @@ sw.default:                                       ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.default, %sw.bb1
-  %1 = phi <2 x i32> [ <i32 2, i32 17>, %sw.default ], [ <i32 1, i32 0>, %sw.bb1 ], [ <i32 1, i32 6>, %entry ]
+  %.sink14 = phi i32 [ 2, %sw.default ], [ 1, %sw.bb1 ], [ 1, %entry ]
+  %.sink = phi i32 [ 17, %sw.default ], [ 0, %sw.bb1 ], [ 6, %entry ]
+  %protocol5 = getelementptr inbounds i8, ptr %dest, i64 8
   %socktype4 = getelementptr inbounds i8, ptr %dest, i64 4
-  store <2 x i32> %1, ptr %socktype4, align 4
+  store i32 %.sink14, ptr %socktype4, align 4
+  store i32 %.sink, ptr %protocol5, align 8
   %ai_addrlen = getelementptr inbounds i8, ptr %ai, i64 16
-  %2 = load i32, ptr %ai_addrlen, align 8
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %2, i32 128)
+  %1 = load i32, ptr %ai_addrlen, align 8
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 128)
   %addrlen = getelementptr inbounds i8, ptr %dest, i64 12
   store i32 %spec.select, ptr %addrlen, align 4
   %_sa_ex_u = getelementptr inbounds i8, ptr %dest, i64 16
   %ai_addr = getelementptr inbounds i8, ptr %ai, i64 32
-  %3 = load ptr, ptr %ai_addr, align 8
+  %2 = load ptr, ptr %ai_addr, align 8
   %conv10 = zext nneg i32 %spec.select to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u, ptr align 2 %3, i64 %conv10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u, ptr align 2 %2, i64 %conv10, i1 false)
   ret void
 }
 
@@ -1406,36 +1409,39 @@ sw.default.i.i:                                   ; preds = %if.end
   br label %out
 
 out:                                              ; preds = %sw.default.i.i, %sw.bb1.i.i, %if.end
-  %2 = phi <2 x i32> [ <i32 2, i32 17>, %sw.default.i.i ], [ <i32 1, i32 0>, %sw.bb1.i.i ], [ <i32 1, i32 6>, %if.end ]
+  %.sink14.i.i = phi i32 [ 2, %sw.default.i.i ], [ 1, %sw.bb1.i.i ], [ 1, %if.end ]
+  %.sink.i.i = phi i32 [ 17, %sw.default.i.i ], [ 0, %sw.bb1.i.i ], [ 6, %if.end ]
+  %protocol5.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %socktype4.i.i = getelementptr inbounds i8, ptr %call, i64 12
-  store <2 x i32> %2, ptr %socktype4.i.i, align 4
+  store i32 %.sink14.i.i, ptr %socktype4.i.i, align 4
+  store i32 %.sink.i.i, ptr %protocol5.i.i, align 8
   %ai_addrlen.i.i = getelementptr inbounds i8, ptr %ai, i64 16
-  %3 = load i32, ptr %ai_addrlen.i.i, align 8
-  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %3, i32 128)
+  %2 = load i32, ptr %ai_addrlen.i.i, align 8
+  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %2, i32 128)
   %addrlen.i.i = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %spec.select.i.i, ptr %addrlen.i.i, align 4
   %_sa_ex_u.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %ai_addr.i.i = getelementptr inbounds i8, ptr %ai, i64 32
-  %4 = load ptr, ptr %ai_addr.i.i, align 8
+  %3 = load ptr, ptr %ai_addr.i.i, align 8
   %conv10.i.i = zext nneg i32 %spec.select.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u.i.i, ptr align 2 %4, i64 %conv10.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u.i.i, ptr align 2 %3, i64 %conv10.i.i, i1 false)
   %recvbuf.i = getelementptr inbounds i8, ptr %call, i64 160
   tail call void @Curl_bufq_init(ptr noundef nonnull %recvbuf.i, i64 noundef 65536, i64 noundef 1) #13
   %call1 = call i32 @Curl_cf_create(ptr noundef nonnull %cf, ptr noundef nonnull @Curl_cft_tcp, ptr noundef nonnull %call) #13
   %tobool2.not = icmp eq i32 %call1, 0
-  %5 = load ptr, ptr %cf, align 8
-  %cond = select i1 %tobool2.not, ptr %5, ptr null
+  %4 = load ptr, ptr %cf, align 8
+  %cond = select i1 %tobool2.not, ptr %4, ptr null
   store ptr %cond, ptr %pcf, align 8
   br i1 %tobool2.not, label %if.end9, label %do.body5
 
 do.body5:                                         ; preds = %out.thread, %out
-  %6 = phi ptr [ null, %out.thread ], [ %5, %out ]
+  %5 = phi ptr [ null, %out.thread ], [ %4, %out ]
   %result.09 = phi i32 [ 27, %out.thread ], [ %call1, %out ]
-  %7 = load ptr, ptr @Curl_cfree, align 8
-  call void %7(ptr noundef %6) #13
+  %6 = load ptr, ptr @Curl_cfree, align 8
+  call void %6(ptr noundef %5) #13
   store ptr null, ptr %cf, align 8
-  %8 = load ptr, ptr @Curl_cfree, align 8
-  call void %8(ptr noundef %call) #13
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  call void %7(ptr noundef %call) #13
   br label %if.end9
 
 if.end9:                                          ; preds = %do.body5, %out
@@ -1716,36 +1722,39 @@ sw.default.i.i:                                   ; preds = %if.end
   br label %out
 
 out:                                              ; preds = %sw.default.i.i, %sw.bb1.i.i, %if.end
-  %2 = phi <2 x i32> [ <i32 2, i32 17>, %sw.default.i.i ], [ <i32 1, i32 0>, %sw.bb1.i.i ], [ <i32 1, i32 6>, %if.end ]
+  %.sink14.i.i = phi i32 [ 2, %sw.default.i.i ], [ 1, %sw.bb1.i.i ], [ 1, %if.end ]
+  %.sink.i.i = phi i32 [ 17, %sw.default.i.i ], [ 0, %sw.bb1.i.i ], [ 6, %if.end ]
+  %protocol5.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %socktype4.i.i = getelementptr inbounds i8, ptr %call, i64 12
-  store <2 x i32> %2, ptr %socktype4.i.i, align 4
+  store i32 %.sink14.i.i, ptr %socktype4.i.i, align 4
+  store i32 %.sink.i.i, ptr %protocol5.i.i, align 8
   %ai_addrlen.i.i = getelementptr inbounds i8, ptr %ai, i64 16
-  %3 = load i32, ptr %ai_addrlen.i.i, align 8
-  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %3, i32 128)
+  %2 = load i32, ptr %ai_addrlen.i.i, align 8
+  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %2, i32 128)
   %addrlen.i.i = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %spec.select.i.i, ptr %addrlen.i.i, align 4
   %_sa_ex_u.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %ai_addr.i.i = getelementptr inbounds i8, ptr %ai, i64 32
-  %4 = load ptr, ptr %ai_addr.i.i, align 8
+  %3 = load ptr, ptr %ai_addr.i.i, align 8
   %conv10.i.i = zext nneg i32 %spec.select.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u.i.i, ptr align 2 %4, i64 %conv10.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u.i.i, ptr align 2 %3, i64 %conv10.i.i, i1 false)
   %recvbuf.i = getelementptr inbounds i8, ptr %call, i64 160
   tail call void @Curl_bufq_init(ptr noundef nonnull %recvbuf.i, i64 noundef 65536, i64 noundef 1) #13
   %call1 = call i32 @Curl_cf_create(ptr noundef nonnull %cf, ptr noundef nonnull @Curl_cft_udp, ptr noundef nonnull %call) #13
   %tobool2.not = icmp eq i32 %call1, 0
-  %5 = load ptr, ptr %cf, align 8
-  %cond = select i1 %tobool2.not, ptr %5, ptr null
+  %4 = load ptr, ptr %cf, align 8
+  %cond = select i1 %tobool2.not, ptr %4, ptr null
   store ptr %cond, ptr %pcf, align 8
   br i1 %tobool2.not, label %if.end9, label %do.body5
 
 do.body5:                                         ; preds = %out.thread, %out
-  %6 = phi ptr [ null, %out.thread ], [ %5, %out ]
+  %5 = phi ptr [ null, %out.thread ], [ %4, %out ]
   %result.09 = phi i32 [ 27, %out.thread ], [ %call1, %out ]
-  %7 = load ptr, ptr @Curl_cfree, align 8
-  call void %7(ptr noundef %6) #13
+  %6 = load ptr, ptr @Curl_cfree, align 8
+  call void %6(ptr noundef %5) #13
   store ptr null, ptr %cf, align 8
-  %8 = load ptr, ptr @Curl_cfree, align 8
-  call void %8(ptr noundef %call) #13
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  call void %7(ptr noundef %call) #13
   br label %if.end9
 
 if.end9:                                          ; preds = %do.body5, %out
@@ -1788,36 +1797,39 @@ sw.default.i.i:                                   ; preds = %if.end
   br label %out
 
 out:                                              ; preds = %sw.default.i.i, %sw.bb1.i.i, %if.end
-  %2 = phi <2 x i32> [ <i32 2, i32 17>, %sw.default.i.i ], [ <i32 1, i32 0>, %sw.bb1.i.i ], [ <i32 1, i32 6>, %if.end ]
+  %.sink14.i.i = phi i32 [ 2, %sw.default.i.i ], [ 1, %sw.bb1.i.i ], [ 1, %if.end ]
+  %.sink.i.i = phi i32 [ 17, %sw.default.i.i ], [ 0, %sw.bb1.i.i ], [ 6, %if.end ]
+  %protocol5.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %socktype4.i.i = getelementptr inbounds i8, ptr %call, i64 12
-  store <2 x i32> %2, ptr %socktype4.i.i, align 4
+  store i32 %.sink14.i.i, ptr %socktype4.i.i, align 4
+  store i32 %.sink.i.i, ptr %protocol5.i.i, align 8
   %ai_addrlen.i.i = getelementptr inbounds i8, ptr %ai, i64 16
-  %3 = load i32, ptr %ai_addrlen.i.i, align 8
-  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %3, i32 128)
+  %2 = load i32, ptr %ai_addrlen.i.i, align 8
+  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %2, i32 128)
   %addrlen.i.i = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %spec.select.i.i, ptr %addrlen.i.i, align 4
   %_sa_ex_u.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %ai_addr.i.i = getelementptr inbounds i8, ptr %ai, i64 32
-  %4 = load ptr, ptr %ai_addr.i.i, align 8
+  %3 = load ptr, ptr %ai_addr.i.i, align 8
   %conv10.i.i = zext nneg i32 %spec.select.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u.i.i, ptr align 2 %4, i64 %conv10.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u.i.i, ptr align 2 %3, i64 %conv10.i.i, i1 false)
   %recvbuf.i = getelementptr inbounds i8, ptr %call, i64 160
   tail call void @Curl_bufq_init(ptr noundef nonnull %recvbuf.i, i64 noundef 65536, i64 noundef 1) #13
   %call1 = call i32 @Curl_cf_create(ptr noundef nonnull %cf, ptr noundef nonnull @Curl_cft_unix, ptr noundef nonnull %call) #13
   %tobool2.not = icmp eq i32 %call1, 0
-  %5 = load ptr, ptr %cf, align 8
-  %cond = select i1 %tobool2.not, ptr %5, ptr null
+  %4 = load ptr, ptr %cf, align 8
+  %cond = select i1 %tobool2.not, ptr %4, ptr null
   store ptr %cond, ptr %pcf, align 8
   br i1 %tobool2.not, label %if.end9, label %do.body5
 
 do.body5:                                         ; preds = %out.thread, %out
-  %6 = phi ptr [ null, %out.thread ], [ %5, %out ]
+  %5 = phi ptr [ null, %out.thread ], [ %4, %out ]
   %result.09 = phi i32 [ 27, %out.thread ], [ %call1, %out ]
-  %7 = load ptr, ptr @Curl_cfree, align 8
-  call void %7(ptr noundef %6) #13
+  %6 = load ptr, ptr @Curl_cfree, align 8
+  call void %6(ptr noundef %5) #13
   store ptr null, ptr %cf, align 8
-  %8 = load ptr, ptr @Curl_cfree, align 8
-  call void %8(ptr noundef %call) #13
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  call void %7(ptr noundef %call) #13
   br label %if.end9
 
 if.end9:                                          ; preds = %do.body5, %out

@@ -14,6 +14,7 @@ define dso_local void @nghttp2_stream_init(ptr noundef %0, i32 noundef %1, i8 no
   %13 = getelementptr inbounds i8, ptr %0, i64 204
   store i32 %3, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %0, i64 217
+  store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %7, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 152
@@ -28,29 +29,34 @@ define dso_local void @nghttp2_stream_init(ptr noundef %0, i32 noundef %1, i8 no
   store i32 0, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
-  %23 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, i8 0, i64 48, i1 false)
-  store i32 %4, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 200
-  store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 212
-  store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 -1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 208
-  store i16 -1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
-  %30 = getelementptr inbounds i8, ptr %0, i64 196
-  store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 160
-  store i64 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 221
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
-  store i8 3, ptr %32, align 1
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 3>, ptr %14, align 1
+  %22 = getelementptr inbounds i8, ptr %0, i64 219
+  store i8 0, ptr %22, align 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  %24 = getelementptr inbounds i8, ptr %0, i64 192
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, i8 0, i64 48, i1 false)
+  store i32 %4, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 200
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 212
+  store i32 0, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 -1, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 0, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 208
+  store i16 -1, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 218
+  store i8 0, ptr %30, align 2
+  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %32 = getelementptr inbounds i8, ptr %0, i64 196
+  store i32 0, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %0, i64 160
+  store i64 0, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 221
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
+  store i8 3, ptr %34, align 1
+  %35 = getelementptr inbounds i8, ptr %0, i64 220
+  store i8 3, ptr %35, align 4
   ret void
 }
 

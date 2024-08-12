@@ -776,15 +776,17 @@ define void @_ZN6casadi5Qrsqp4initERKSt3mapINSt7__cxx1112basic_stringIcSt11char_
   %79 = getelementptr inbounds i8, ptr %0, i64 2008
   store i64 3, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %0, i64 1992
+  store double 1.000000e-04, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %0, i64 2000
-  store <2 x double> <double 1.000000e-04, double 8.000000e-01>, ptr %80, align 8
+  store double 8.000000e-01, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 2016
   store i64 4, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 1960
   store i64 10, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 1968
+  store double 0x3EB0C6F7A0B5ED8D, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 1976
-  store <2 x double> <double 0x3EB0C6F7A0B5ED8D, double 0x3EB0C6F7A0B5ED8D>, ptr %84, align 8
+  store double 0x3EB0C6F7A0B5ED8D, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %0, i64 2048
   store i8 0, ptr %86, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19

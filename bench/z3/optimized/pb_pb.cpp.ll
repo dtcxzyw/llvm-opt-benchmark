@@ -1637,10 +1637,16 @@ entry:
   %arrayidx = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits, i64 0, i64 %idxprom
   %idxprom3 = zext i32 %j to i64
   %arrayidx4 = getelementptr inbounds [0 x %"struct.std::pair"], ptr %m_wlits, i64 0, i64 %idxprom3
-  %0 = load <2 x i32>, ptr %arrayidx, align 4
-  %1 = load <2 x i32>, ptr %arrayidx4, align 4
-  store <2 x i32> %1, ptr %arrayidx, align 4
-  store <2 x i32> %0, ptr %arrayidx4, align 4
+  %0 = load i32, ptr %arrayidx, align 4
+  %1 = load i32, ptr %arrayidx4, align 4
+  store i32 %1, ptr %arrayidx, align 4
+  store i32 %0, ptr %arrayidx4, align 4
+  %second.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %second3.i.i = getelementptr inbounds i8, ptr %arrayidx4, i64 4
+  %__tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %second.i.i, align 8
+  %2 = load i32, ptr %second3.i.i, align 8
+  store i32 %2, ptr %second.i.i, align 8
+  store i32 %__tmp.sroa.0.0.copyload.i.i.i, ptr %second3.i.i, align 8
   ret void
 }
 

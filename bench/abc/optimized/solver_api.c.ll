@@ -29,143 +29,148 @@ define noalias noundef ptr @satoko_create() local_unnamed_addr #0 {
 cdb_alloc.exit:
   %0 = tail call noalias dereferenceable_or_null(488) ptr @calloc(i64 noundef 1, i64 noundef 488) #25
   %1 = getelementptr inbounds i8, ptr %0, i64 400
-  store <2 x double> <double 8.000000e-01, double 1.400000e+00>, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 416
-  %3 = getelementptr inbounds i8, ptr %0, i64 420
-  %4 = getelementptr inbounds i8, ptr %0, i64 424
-  %5 = getelementptr inbounds i8, ptr %0, i64 428
-  store <4 x i32> <i32 10000, i32 50, i32 5000, i32 2000>, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 432
-  store i32 300, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 436
-  store i32 1000, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 440
-  store i32 30, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 444
-  store float 5.000000e-01, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 464
-  store i64 93610553442608667, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 460
-  store i32 200, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 448
-  store double 0x3FEE666666666666, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 472
-  store i32 30, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 476
-  store i32 6, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 480
-  store float 0x3FD3333340000000, ptr %15, align 8
+  store double 8.000000e-01, ptr %1, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  store double 1.400000e+00, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 416
+  store i32 10000, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 420
+  store i32 50, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 424
+  store i32 5000, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 428
+  store i32 2000, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 432
+  store i32 300, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 436
+  store i32 1000, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 440
+  store i32 30, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 444
+  store float 5.000000e-01, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 464
+  store i64 93610553442608667, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 460
+  store i32 200, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 448
+  store double 0x3FEE666666666666, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 472
+  store i32 30, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 476
+  store i32 6, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 480
+  store float 0x3FD3333340000000, ptr %16, align 8
   store i32 1, ptr %0, align 8
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %calloc, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %calloc, ptr %17, align 8
   %calloc39 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %calloc39, ptr %17, align 8
-  %18 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #25
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
-  store i32 1114192, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %calloc39, ptr %18, align 8
+  %19 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #25
+  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  store i32 1114192, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %19, i64 16
   %malloc.i = tail call dereferenceable_or_null(4456768) ptr @malloc(i64 4456768)
-  store ptr %malloc.i, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %18, ptr %21, align 8
+  store ptr %malloc.i, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %19, ptr %22, align 8
   %calloc40 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %calloc40, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %calloc40, ptr %23, align 8
   %calloc41 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %calloc41, ptr %23, align 8
-  %24 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
-  store i32 4, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
-  store i32 0, ptr %25, align 4
-  %26 = tail call noalias dereferenceable_or_null(2304) ptr @calloc(i64 noundef 96, i64 noundef 24) #25
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
-  store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %24, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 140737488355328, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 2048, ptr %30, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %calloc41, ptr %24, align 8
+  %25 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
+  store i32 4, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  store i32 0, ptr %26, align 4
+  %27 = tail call noalias dereferenceable_or_null(2304) ptr @calloc(i64 noundef 96, i64 noundef 24) #25
+  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %25, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 140737488355328, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 2048, ptr %31, align 8
   %calloc.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %calloc.i, ptr %31, align 8
-  %32 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #26
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  store ptr %calloc.i, ptr %33, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %calloc.i, ptr %32, align 8
+  %33 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #26
+  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  store ptr %calloc.i, ptr %34, align 8
   %calloc.i.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  store ptr %calloc.i.i, ptr %32, align 8
+  store ptr %calloc.i.i, ptr %33, align 8
   %calloc.i35 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %calloc.i35, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %32, ptr %35, align 8
+  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  store ptr %calloc.i35, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %33, ptr %36, align 8
   %calloc42 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %36 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %calloc42, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %calloc42, ptr %37, align 8
   %calloc43 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %37 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %calloc43, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %calloc43, ptr %38, align 8
   %calloc.i36 = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %38 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr %calloc.i36, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr %calloc.i36, ptr %39, align 8
   %calloc.i37 = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %39 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr %calloc.i37, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr %calloc.i37, ptr %40, align 8
   %calloc44 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %calloc44, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %calloc44, ptr %41, align 8
   %calloc45 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %41 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr %calloc45, ptr %41, align 8
-  %42 = load i32, ptr %4, align 8
-  %43 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #25
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
-  store i32 %42, ptr %44, align 4
-  %45 = zext i32 %42 to i64
-  %46 = tail call noalias ptr @calloc(i64 noundef %45, i64 noundef 4) #25
-  %47 = getelementptr inbounds i8, ptr %43, i64 24
-  store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 192
-  store ptr %43, ptr %48, align 8
-  %49 = load i32, ptr %3, align 4
-  %50 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #25
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
-  store i32 %49, ptr %51, align 4
-  %52 = zext i32 %49 to i64
-  %53 = tail call noalias ptr @calloc(i64 noundef %52, i64 noundef 4) #25
-  %54 = getelementptr inbounds i8, ptr %50, i64 24
-  store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 200
-  store ptr %50, ptr %55, align 8
-  %56 = load i32, ptr %5, align 4
-  %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %0, i64 224
-  store i64 %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 208
-  store i64 1, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 216
-  store i64 %57, ptr %60, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  store ptr %calloc45, ptr %42, align 8
+  %43 = load i32, ptr %5, align 8
+  %44 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #25
+  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  store i32 %43, ptr %45, align 4
+  %46 = zext i32 %43 to i64
+  %47 = tail call noalias ptr @calloc(i64 noundef %46, i64 noundef 4) #25
+  %48 = getelementptr inbounds i8, ptr %44, i64 24
+  store ptr %47, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 192
+  store ptr %44, ptr %49, align 8
+  %50 = load i32, ptr %4, align 4
+  %51 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #25
+  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  store i32 %50, ptr %52, align 4
+  %53 = zext i32 %50 to i64
+  %54 = tail call noalias ptr @calloc(i64 noundef %53, i64 noundef 4) #25
+  %55 = getelementptr inbounds i8, ptr %51, i64 24
+  store ptr %54, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 200
+  store ptr %51, ptr %56, align 8
+  %57 = load i32, ptr %6, align 4
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds i8, ptr %0, i64 224
+  store i64 %58, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 208
+  store i64 1, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 216
+  store i64 %58, ptr %61, align 8
   %calloc46 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %61 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr %calloc46, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr %calloc46, ptr %62, align 8
   %calloc.i38 = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %62 = getelementptr inbounds i8, ptr %0, i64 160
-  store ptr %calloc.i38, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 160
+  store ptr %calloc.i38, ptr %63, align 8
   %calloc47 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %63 = getelementptr inbounds i8, ptr %0, i64 168
-  store ptr %calloc47, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 168
+  store ptr %calloc47, ptr %64, align 8
   %calloc48 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %64 = getelementptr inbounds i8, ptr %0, i64 176
-  store ptr %calloc48, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 176
+  store ptr %calloc48, ptr %65, align 8
   %calloc49 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %65 = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr %calloc49, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 184
+  store ptr %calloc49, ptr %66, align 8
   %calloc50 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %66 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr %calloc50, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 240
+  store ptr %calloc50, ptr %67, align 8
   ret ptr %0
 }
 
@@ -176,29 +181,37 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 define void @satoko_default_opts(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
-  store <2 x double> <double 8.000000e-01, double 1.400000e+00>, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  store <4 x i32> <i32 10000, i32 50, i32 5000, i32 2000>, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 300, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 1000, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 30, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 60
-  store float 5.000000e-01, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  store i64 93610553442608667, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 200, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  store double 0x3FEE666666666666, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 30, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 92
-  store i32 6, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
-  store float 0x3FD3333340000000, ptr %13, align 8
+  store double 8.000000e-01, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  store double 1.400000e+00, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 10000, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 50, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 5000, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 2000, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 300, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 1000, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 30, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 60
+  store float 5.000000e-01, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  store i64 93610553442608667, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 200, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  store double 0x3FEE666666666666, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 30, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 92
+  store i32 6, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  store float 0x3FD3333340000000, ptr %17, align 8
   ret void
 }
 

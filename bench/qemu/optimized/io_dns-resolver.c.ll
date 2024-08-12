@@ -181,6 +181,9 @@ for.body36.lr.ph.i:                               ; preds = %for.end.i
   %has_to50.i = getelementptr inbounds i8, ptr %addr, i64 26
   %to52.i = getelementptr inbounds i8, ptr %addr, i64 28
   %has_ipv453.i = getelementptr inbounds i8, ptr %addr, i64 30
+  %ipv456.i = getelementptr inbounds i8, ptr %addr, i64 31
+  %has_ipv659.i = getelementptr inbounds i8, ptr %addr, i64 32
+  %ipv662.i = getelementptr inbounds i8, ptr %addr, i64 33
   %has_mptcp65.i = getelementptr inbounds i8, ptr %addr, i64 36
   %mptcp68.i = getelementptr inbounds i8, ptr %addr, i64 37
   br label %for.body36.i
@@ -201,10 +204,18 @@ for.body36.i:                                     ; preds = %for.body36.i, %for.
   %15 = load i8, ptr %has_to50.i, align 2
   %frombool.i = and i8 %15, 1
   %16 = load i16, ptr %to52.i, align 4
-  %17 = load i8, ptr %has_mptcp65.i, align 4
-  %frombool67.i = and i8 %17, 1
-  %18 = load i8, ptr %mptcp68.i, align 1
-  %frombool70.i = and i8 %18, 1
+  %17 = load i8, ptr %has_ipv453.i, align 2
+  %frombool55.i = and i8 %17, 1
+  %18 = load i8, ptr %ipv456.i, align 1
+  %frombool58.i = and i8 %18, 1
+  %19 = load i8, ptr %has_ipv659.i, align 8
+  %frombool61.i = and i8 %19, 1
+  %20 = load i8, ptr %ipv662.i, align 1
+  %frombool64.i = and i8 %20, 1
+  %21 = load i8, ptr %has_mptcp65.i, align 4
+  %frombool67.i = and i8 %21, 1
+  %22 = load i8, ptr %mptcp68.i, align 1
+  %frombool70.i = and i8 %22, 1
   store ptr %call44.i, ptr %u41.i, align 8
   %.compoundliteral.sroa.2.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 16
   store ptr %call47.i, ptr %.compoundliteral.sroa.2.0.u41.sroa_idx.i, align 8
@@ -217,9 +228,13 @@ for.body36.i:                                     ; preds = %for.body36.i, %for.
   %.compoundliteral.sroa.61.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 28
   store i16 %16, ptr %.compoundliteral.sroa.61.0.u41.sroa_idx.i, align 4
   %.compoundliteral.sroa.7.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 30
-  %19 = load <4 x i8>, ptr %has_ipv453.i, align 2
-  %20 = and <4 x i8> %19, <i8 1, i8 1, i8 1, i8 1>
-  store <4 x i8> %20, ptr %.compoundliteral.sroa.7.0.u41.sroa_idx.i, align 2
+  store i8 %frombool55.i, ptr %.compoundliteral.sroa.7.0.u41.sroa_idx.i, align 2
+  %.compoundliteral.sroa.8.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 31
+  store i8 %frombool58.i, ptr %.compoundliteral.sroa.8.0.u41.sroa_idx.i, align 1
+  %.compoundliteral.sroa.9.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 32
+  store i8 %frombool61.i, ptr %.compoundliteral.sroa.9.0.u41.sroa_idx.i, align 8
+  %.compoundliteral.sroa.10.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 33
+  store i8 %frombool64.i, ptr %.compoundliteral.sroa.10.0.u41.sroa_idx.i, align 1
   %.compoundliteral.sroa.11.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 34
   store i8 0, ptr %.compoundliteral.sroa.11.0.u41.sroa_idx.i, align 2
   %.compoundliteral.sroa.12.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 35
@@ -228,8 +243,8 @@ for.body36.i:                                     ; preds = %for.body36.i, %for.
   store i8 %frombool67.i, ptr %.compoundliteral.sroa.13.0.u41.sroa_idx.i, align 4
   %.compoundliteral.sroa.14.0.u41.sroa_idx.i = getelementptr inbounds i8, ptr %call37.i, i64 37
   store i8 %frombool70.i, ptr %.compoundliteral.sroa.14.0.u41.sroa_idx.i, align 1
-  %21 = load ptr, ptr %addrs, align 8
-  %arrayidx71.i = getelementptr ptr, ptr %21, i64 %i.06.i
+  %23 = load ptr, ptr %addrs, align 8
+  %arrayidx71.i = getelementptr ptr, ptr %23, i64 %i.06.i
   store ptr %call37.i, ptr %arrayidx71.i, align 8
   %inc73.i = add i64 %i.06.i, 1
   %ai_next74.i = getelementptr inbounds i8, ptr %e.17.i, i64 40
@@ -242,8 +257,8 @@ for.end75.loopexit.i:                             ; preds = %for.body36.i
   br label %for.end75.i
 
 for.end75.i:                                      ; preds = %for.end75.loopexit.i, %for.end.i
-  %22 = phi ptr [ %.pre10.i, %for.end75.loopexit.i ], [ null, %for.end.i ]
-  call void @freeaddrinfo(ptr noundef %22) #7
+  %24 = phi ptr [ %.pre10.i, %for.end75.loopexit.i ], [ null, %for.end.i ]
+  call void @freeaddrinfo(ptr noundef %24) #7
   br label %qio_dns_resolver_lookup_sync_inet.exit
 
 qio_dns_resolver_lookup_sync_inet.exit:           ; preds = %if.then4.i, %if.then6.i, %if.then27.i, %for.end75.i
@@ -261,8 +276,8 @@ sw.bb1:                                           ; preds = %entry, %entry, %ent
   %call.i7 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8) #8
   store ptr %call.i7, ptr %addrs, align 8
   %call1.i = tail call ptr @qapi_clone(ptr noundef nonnull %addr, ptr noundef nonnull @visit_type_SocketAddress) #7
-  %23 = load ptr, ptr %addrs, align 8
-  store ptr %call1.i, ptr %23, align 8
+  %25 = load ptr, ptr %addrs, align 8
+  store ptr %call1.i, ptr %25, align 8
   br label %return
 
 sw.default:                                       ; preds = %entry

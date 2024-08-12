@@ -546,12 +546,19 @@ if.end25:                                         ; preds = %if.end16
 
 while.body.lr.ph:                                 ; preds = %if.end25
   %nodeOffset = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx5.1.i = getelementptr inbounds i8, ptr %this, i64 72
   %arrayidx2.2.i = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx5.2.i = getelementptr inbounds i8, ptr %this, i64 80
+  %arrayidx2.3.i = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx5.3.i = getelementptr inbounds i8, ptr %this, i64 88
   %arrayidx2.4.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx5.4.i = getelementptr inbounds i8, ptr %this, i64 96
+  %arrayidx2.5.i = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx5.5.i = getelementptr inbounds i8, ptr %this, i64 104
   %arrayidx2.6.i = getelementptr inbounds i8, ptr %this, i64 48
   %arrayidx5.6.i = getelementptr inbounds i8, ptr %this, i64 112
+  %arrayidx2.7.i = getelementptr inbounds i8, ptr %this, i64 56
+  %arrayidx5.7.i = getelementptr inbounds i8, ptr %this, i64 120
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 128
   br label %while.body
 
@@ -564,18 +571,30 @@ while.body:                                       ; preds = %if.end60, %while.bo
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %storemerge91, i64 64)
   %conv38 = trunc nuw nsw i64 %.sroa.speculated to i8
   store i8 %conv38, ptr %this, align 64, !tbaa !17
-  %8 = load <2 x i64>, ptr %this, align 64, !tbaa !28
-  %9 = xor <2 x i64> %8, <i64 7640891576956012808, i64 -4942790177534073029>
-  store <2 x i64> %9, ptr %state_, align 64, !tbaa !28
-  %10 = load <2 x i64>, ptr %arrayidx2.2.i, align 16, !tbaa !28
-  %11 = xor <2 x i64> %10, <i64 4354685564936845355, i64 -6534734903238641935>
-  store <2 x i64> %11, ptr %arrayidx5.2.i, align 16, !tbaa !28
-  %12 = load <2 x i64>, ptr %arrayidx2.4.i, align 32, !tbaa !28
-  %13 = xor <2 x i64> %12, <i64 5840696475078001361, i64 -7276294671716946913>
-  store <2 x i64> %13, ptr %arrayidx5.4.i, align 32, !tbaa !28
-  %14 = load <2 x i64>, ptr %arrayidx2.6.i, align 16, !tbaa !28
-  %15 = xor <2 x i64> %14, <i64 2270897969802886507, i64 6620516959819538809>
-  store <2 x i64> %15, ptr %arrayidx5.6.i, align 16, !tbaa !28
+  %8 = load i64, ptr %this, align 64, !tbaa !28
+  %xor.i = xor i64 %8, 7640891576956012808
+  store i64 %xor.i, ptr %state_, align 64, !tbaa !28
+  %9 = load i64, ptr %nodeOffset, align 8, !tbaa !28
+  %xor.1.i = xor i64 %9, -4942790177534073029
+  store i64 %xor.1.i, ptr %arrayidx5.1.i, align 8, !tbaa !28
+  %10 = load i64, ptr %arrayidx2.2.i, align 16, !tbaa !28
+  %xor.2.i = xor i64 %10, 4354685564936845355
+  store i64 %xor.2.i, ptr %arrayidx5.2.i, align 16, !tbaa !28
+  %11 = load i64, ptr %arrayidx2.3.i, align 8, !tbaa !28
+  %xor.3.i = xor i64 %11, -6534734903238641935
+  store i64 %xor.3.i, ptr %arrayidx5.3.i, align 8, !tbaa !28
+  %12 = load i64, ptr %arrayidx2.4.i, align 32, !tbaa !28
+  %xor.4.i = xor i64 %12, 5840696475078001361
+  store i64 %xor.4.i, ptr %arrayidx5.4.i, align 32, !tbaa !28
+  %13 = load i64, ptr %arrayidx2.5.i, align 8, !tbaa !28
+  %xor.5.i = xor i64 %13, -7276294671716946913
+  store i64 %xor.5.i, ptr %arrayidx5.5.i, align 8, !tbaa !28
+  %14 = load i64, ptr %arrayidx2.6.i, align 16, !tbaa !28
+  %xor.6.i = xor i64 %14, 2270897969802886507
+  store i64 %xor.6.i, ptr %arrayidx5.6.i, align 16, !tbaa !28
+  %15 = load i64, ptr %arrayidx2.7.i, align 8, !tbaa !28
+  %xor.7.i = xor i64 %15, 6620516959819538809
+  store i64 %xor.7.i, ptr %arrayidx5.7.i, align 8, !tbaa !28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(304) %add.ptr.i, i8 0, i64 304, i1 false)
   %call45 = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %state_, ptr noundef nonnull %h0, i64 noundef 64)
   %cmp46.not = icmp eq i32 %call45, 0

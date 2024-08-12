@@ -831,15 +831,21 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   %35 = getelementptr inbounds i8, ptr %14, i64 16
   store i32 0, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %14, i64 32
+  store i32 0, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %14, i64 36
+  store i32 0, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %14, i64 40
+  store i32 1, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %14, i64 44
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 0>, ptr %36, align 8
+  store i32 0, ptr %39, align 4
   %40 = getelementptr inbounds i8, ptr %14, i64 48
+  store i32 0, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %14, i64 52
+  store i32 1, ptr %41, align 4
   %42 = getelementptr inbounds i8, ptr %14, i64 56
+  store i32 -1, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %14, i64 60
-  store <4 x i32> <i32 0, i32 1, i32 -1, i32 0>, ptr %40, align 8
+  store i32 0, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %14, i64 80
   store i32 0, ptr %44, align 8
   br label %45
@@ -924,10 +930,13 @@ lstopo_update_factorize_alltypes_bounds.exit:     ; preds = %lstopo_update_facto
   %77 = getelementptr inbounds i8, ptr %14, i64 1584
   %78 = getelementptr inbounds i8, ptr %14, i64 928
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
+  store i32 11, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %14, i64 936
+  store i32 10, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %14, i64 932
+  store i32 7, ptr %80, align 4
   %81 = getelementptr inbounds i8, ptr %14, i64 940
-  store <4 x i32> <i32 11, i32 7, i32 10, i32 4>, ptr %78, align 8
+  store i32 4, ptr %81, align 4
   %82 = getelementptr inbounds i8, ptr %14, i64 944
   store i32 1, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %14, i64 948
@@ -995,10 +1004,13 @@ lstopo_update_factorize_alltypes_bounds.exit:     ; preds = %lstopo_update_facto
   %110 = getelementptr inbounds i8, ptr %14, i64 1312
   store ptr @.str.126, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %14, i64 1292
+  store i32 1, ptr %111, align 4
   %112 = getelementptr inbounds i8, ptr %14, i64 1296
+  store i32 1, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %14, i64 1304
+  store i32 1, ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %14, i64 1300
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr %111, align 4
+  store i32 1, ptr %114, align 4
   call void @lstopo_palette_init(ptr noundef nonnull %14) #25
   %115 = call ptr @getenv(ptr noundef nonnull @.str.127) #25
   %.not622 = icmp eq ptr %115, null
@@ -1854,7 +1866,10 @@ sub_2896:                                         ; preds = %sub_1895
   br i1 %.not709, label %440, label %441
 
 440:                                              ; preds = %438
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr %137, align 16
+  store i32 1, ptr %137, align 16
+  store i32 1, ptr %138, align 4
+  store i32 1, ptr %139, align 8
+  store i32 1, ptr %140, align 4
   store i32 1, ptr %141, align 16
   store i32 1, ptr %142, align 4
   br label %lstopo_update_factorize_alltypes_bounds.exit794
@@ -1875,7 +1890,10 @@ sub_2896:                                         ; preds = %sub_1895
   br i1 %.not711, label %446, label %447
 
 446:                                              ; preds = %444
-  store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr %137, align 16
+  store i32 0, ptr %137, align 16
+  store i32 1, ptr %138, align 4
+  store i32 0, ptr %139, align 8
+  store i32 1, ptr %140, align 4
   store i32 0, ptr %141, align 16
   store i32 1, ptr %142, align 4
   br label %lstopo_update_factorize_alltypes_bounds.exit794

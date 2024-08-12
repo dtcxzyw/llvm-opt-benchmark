@@ -473,21 +473,29 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %err, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
+  %min_version = getelementptr inbounds i8, ptr %ctx, i64 66
+  %1 = load i16, ptr %min_version, align 2
+  %min_version7 = getelementptr inbounds i8, ptr %calloc, i64 6
+  store i16 %1, ptr %min_version7, align 2
   %max_version = getelementptr inbounds i8, ptr %ctx, i64 64
+  %2 = load i16, ptr %max_version, align 8
   %max_version8 = getelementptr inbounds i8, ptr %calloc, i64 4
-  %1 = load <2 x i16>, ptr %max_version, align 8
-  store <2 x i16> %1, ptr %max_version8, align 4
+  store i16 %2, ptr %max_version8, align 4
   %options = getelementptr inbounds i8, ptr %ctx, i64 280
+  %3 = load i32, ptr %options, align 8
   %options9 = getelementptr inbounds i8, ptr %calloc, i64 264
-  %2 = load <2 x i32>, ptr %options, align 8
-  store <2 x i32> %2, ptr %options9, align 8
+  store i32 %3, ptr %options9, align 8
+  %mode = getelementptr inbounds i8, ptr %ctx, i64 284
+  %4 = load i32, ptr %mode, align 4
+  %mode10 = getelementptr inbounds i8, ptr %calloc, i64 268
+  store i32 %4, ptr %mode10, align 4
   %max_cert_list = getelementptr inbounds i8, ptr %ctx, i64 288
-  %3 = load i32, ptr %max_cert_list, align 8
+  %5 = load i32, ptr %max_cert_list, align 8
   %max_cert_list11 = getelementptr inbounds i8, ptr %calloc, i64 272
-  store i32 %3, ptr %max_cert_list11, align 8
+  store i32 %5, ptr %max_cert_list11, align 8
   %cert = getelementptr inbounds i8, ptr %ctx, i64 296
-  %4 = load ptr, ptr %cert, align 8
-  %call12 = tail call ptr @ssl_cert_dup(ptr noundef %4) #21
+  %6 = load ptr, ptr %cert, align 8
+  %call12 = tail call ptr @ssl_cert_dup(ptr noundef %6) #21
   %cert13 = getelementptr inbounds i8, ptr %calloc, i64 136
   store ptr %call12, ptr %cert13, align 8
   %cmp15 = icmp eq ptr %call12, null
@@ -495,25 +503,29 @@ if.end6:                                          ; preds = %if.end3
 
 if.end17:                                         ; preds = %if.end6
   %msg_callback = getelementptr inbounds i8, ptr %ctx, i64 304
+  %7 = load ptr, ptr %msg_callback, align 8
   %msg_callback18 = getelementptr inbounds i8, ptr %calloc, i64 96
-  %5 = load <2 x ptr>, ptr %msg_callback, align 8
-  store <2 x ptr> %5, ptr %msg_callback18, align 8
+  store ptr %7, ptr %msg_callback18, align 8
+  %msg_callback_arg = getelementptr inbounds i8, ptr %ctx, i64 312
+  %8 = load ptr, ptr %msg_callback_arg, align 8
+  %msg_callback_arg19 = getelementptr inbounds i8, ptr %calloc, i64 104
+  store ptr %8, ptr %msg_callback_arg19, align 8
   %verify_mode = getelementptr inbounds i8, ptr %ctx, i64 320
-  %6 = load i32, ptr %verify_mode, align 8
-  %conv = trunc i32 %6 to i8
+  %9 = load i32, ptr %verify_mode, align 8
+  %conv = trunc i32 %9 to i8
   %verify_mode20 = getelementptr inbounds i8, ptr %calloc, i64 384
   store i8 %conv, ptr %verify_mode20, align 8
   %sid_ctx_length = getelementptr inbounds i8, ptr %ctx, i64 324
-  %7 = load i32, ptr %sid_ctx_length, align 4
+  %10 = load i32, ptr %sid_ctx_length, align 4
   %sid_ctx_length21 = getelementptr inbounds i8, ptr %calloc, i64 148
-  store i32 %7, ptr %sid_ctx_length21, align 4
+  store i32 %10, ptr %sid_ctx_length21, align 4
   %sid_ctx = getelementptr inbounds i8, ptr %calloc, i64 152
   %sid_ctx22 = getelementptr inbounds i8, ptr %ctx, i64 328
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %sid_ctx, ptr noundef nonnull align 8 dereferenceable(32) %sid_ctx22, i64 32, i1 false)
   %default_verify_callback = getelementptr inbounds i8, ptr %ctx, i64 360
-  %8 = load ptr, ptr %default_verify_callback, align 8
+  %11 = load ptr, ptr %default_verify_callback, align 8
   %verify_callback = getelementptr inbounds i8, ptr %calloc, i64 192
-  store ptr %8, ptr %verify_callback, align 8
+  store ptr %11, ptr %verify_callback, align 8
   %call23 = tail call ptr @X509_VERIFY_PARAM_new() #21
   %param = getelementptr inbounds i8, ptr %calloc, i64 112
   store ptr %call23, ptr %param, align 8
@@ -522,8 +534,8 @@ if.end17:                                         ; preds = %if.end6
 
 if.end26:                                         ; preds = %if.end17
   %param28 = getelementptr inbounds i8, ptr %ctx, i64 368
-  %9 = load ptr, ptr %param28, align 8
-  %call29 = tail call i32 @X509_VERIFY_PARAM_inherit(ptr noundef nonnull %call23, ptr noundef %9) #21
+  %12 = load ptr, ptr %param28, align 8
+  %call29 = tail call i32 @X509_VERIFY_PARAM_inherit(ptr noundef nonnull %call23, ptr noundef %12) #21
   %quiet_shutdown = getelementptr inbounds i8, ptr %ctx, i64 648
   %bf.load = load i8, ptr %quiet_shutdown, align 8
   %quiet_shutdown30 = getelementptr inbounds i8, ptr %calloc, i64 385
@@ -534,9 +546,9 @@ if.end26:                                         ; preds = %if.end17
   %bf.set = or disjoint i8 %bf.clear32, %bf.shl
   store i8 %bf.set, ptr %quiet_shutdown30, align 1
   %max_send_fragment = getelementptr inbounds i8, ptr %ctx, i64 392
-  %10 = load i16, ptr %max_send_fragment, align 8
+  %13 = load i16, ptr %max_send_fragment, align 8
   %max_send_fragment33 = getelementptr inbounds i8, ptr %calloc, i64 280
-  store i16 %10, ptr %max_send_fragment33, align 8
+  store i16 %13, ptr %max_send_fragment33, align 8
   %references = getelementptr inbounds i8, ptr %ctx, i64 184
   tail call void @CRYPTO_refcount_inc(ptr noundef nonnull %references) #21
   %ctx34 = getelementptr inbounds i8, ptr %calloc, i64 232
@@ -545,60 +557,60 @@ if.end26:                                         ; preds = %if.end17
   %initial_ctx = getelementptr inbounds i8, ptr %calloc, i64 320
   store ptr %ctx, ptr %initial_ctx, align 8
   %tlsext_ellipticcurvelist = getelementptr inbounds i8, ptr %ctx, i64 584
-  %11 = load ptr, ptr %tlsext_ellipticcurvelist, align 8
-  %tobool36.not = icmp eq ptr %11, null
+  %14 = load ptr, ptr %tlsext_ellipticcurvelist, align 8
+  %tobool36.not = icmp eq ptr %14, null
   br i1 %tobool36.not, label %if.end47, label %if.then37
 
 if.then37:                                        ; preds = %if.end26
   %tlsext_ellipticcurvelist_length = getelementptr inbounds i8, ptr %ctx, i64 576
-  %12 = load i64, ptr %tlsext_ellipticcurvelist_length, align 8
-  %mul = shl i64 %12, 1
-  %call39 = tail call ptr @BUF_memdup(ptr noundef nonnull %11, i64 noundef %mul) #21
+  %15 = load i64, ptr %tlsext_ellipticcurvelist_length, align 8
+  %mul = shl i64 %15, 1
+  %call39 = tail call ptr @BUF_memdup(ptr noundef nonnull %14, i64 noundef %mul) #21
   %tlsext_ellipticcurvelist40 = getelementptr inbounds i8, ptr %calloc, i64 312
   store ptr %call39, ptr %tlsext_ellipticcurvelist40, align 8
   %tobool42.not = icmp eq ptr %call39, null
   br i1 %tobool42.not, label %err, label %if.end44
 
 if.end44:                                         ; preds = %if.then37
-  %13 = load i64, ptr %tlsext_ellipticcurvelist_length, align 8
+  %16 = load i64, ptr %tlsext_ellipticcurvelist_length, align 8
   %tlsext_ellipticcurvelist_length46 = getelementptr inbounds i8, ptr %calloc, i64 304
-  store i64 %13, ptr %tlsext_ellipticcurvelist_length46, align 8
+  store i64 %16, ptr %tlsext_ellipticcurvelist_length46, align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end44, %if.end26
-  %14 = load ptr, ptr %ctx34, align 8
-  %alpn_client_proto_list = getelementptr inbounds i8, ptr %14, i64 552
-  %15 = load ptr, ptr %alpn_client_proto_list, align 8
-  %tobool49.not = icmp eq ptr %15, null
+  %17 = load ptr, ptr %ctx34, align 8
+  %alpn_client_proto_list = getelementptr inbounds i8, ptr %17, i64 552
+  %18 = load ptr, ptr %alpn_client_proto_list, align 8
+  %tobool49.not = icmp eq ptr %18, null
   br i1 %tobool49.not, label %if.end65, label %if.then50
 
 if.then50:                                        ; preds = %if.end47
-  %alpn_client_proto_list_len = getelementptr inbounds i8, ptr %14, i64 560
-  %16 = load i32, ptr %alpn_client_proto_list_len, align 8
-  %conv54 = zext i32 %16 to i64
-  %call55 = tail call ptr @BUF_memdup(ptr noundef nonnull %15, i64 noundef %conv54) #21
+  %alpn_client_proto_list_len = getelementptr inbounds i8, ptr %17, i64 560
+  %19 = load i32, ptr %alpn_client_proto_list_len, align 8
+  %conv54 = zext i32 %19 to i64
+  %call55 = tail call ptr @BUF_memdup(ptr noundef nonnull %18, i64 noundef %conv54) #21
   %alpn_client_proto_list56 = getelementptr inbounds i8, ptr %calloc, i64 352
   store ptr %call55, ptr %alpn_client_proto_list56, align 8
   %cmp58 = icmp eq ptr %call55, null
   br i1 %cmp58, label %err, label %if.end61
 
 if.end61:                                         ; preds = %if.then50
-  %17 = load ptr, ptr %ctx34, align 8
-  %alpn_client_proto_list_len63 = getelementptr inbounds i8, ptr %17, i64 560
-  %18 = load i32, ptr %alpn_client_proto_list_len63, align 8
+  %20 = load ptr, ptr %ctx34, align 8
+  %alpn_client_proto_list_len63 = getelementptr inbounds i8, ptr %20, i64 560
+  %21 = load i32, ptr %alpn_client_proto_list_len63, align 8
   %alpn_client_proto_list_len64 = getelementptr inbounds i8, ptr %calloc, i64 360
-  store i32 %18, ptr %alpn_client_proto_list_len64, align 8
+  store i32 %21, ptr %alpn_client_proto_list_len64, align 8
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end61, %if.end47
   %verify_result = getelementptr inbounds i8, ptr %calloc, i64 240
   store i64 0, ptr %verify_result, align 8
-  %19 = load ptr, ptr %ctx, align 8
+  %22 = load ptr, ptr %ctx, align 8
   %method67 = getelementptr inbounds i8, ptr %calloc, i64 8
-  store ptr %19, ptr %method67, align 8
-  %ssl_new = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load ptr, ptr %ssl_new, align 8
-  %call69 = tail call i32 %20(ptr noundef nonnull %calloc) #21
+  store ptr %22, ptr %method67, align 8
+  %ssl_new = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = load ptr, ptr %ssl_new, align 8
+  %call69 = tail call i32 %23(ptr noundef nonnull %calloc) #21
   %tobool70.not = icmp eq i32 %call69, 0
   br i1 %tobool70.not, label %err, label %if.end72
 
@@ -610,35 +622,39 @@ if.end72:                                         ; preds = %if.end65
   %psk_identity_hint = getelementptr inbounds i8, ptr %calloc, i64 208
   store ptr null, ptr %psk_identity_hint, align 8
   %psk_identity_hint73 = getelementptr inbounds i8, ptr %ctx, i64 472
-  %21 = load ptr, ptr %psk_identity_hint73, align 8
-  %tobool74.not = icmp eq ptr %21, null
+  %24 = load ptr, ptr %psk_identity_hint73, align 8
+  %tobool74.not = icmp eq ptr %24, null
   br i1 %tobool74.not, label %if.end84, label %if.then75
 
 if.then75:                                        ; preds = %if.end72
-  %call77 = tail call ptr @BUF_strdup(ptr noundef nonnull %21) #21
+  %call77 = tail call ptr @BUF_strdup(ptr noundef nonnull %24) #21
   store ptr %call77, ptr %psk_identity_hint, align 8
   %cmp80 = icmp eq ptr %call77, null
   br i1 %cmp80, label %err, label %if.end84
 
 if.end84:                                         ; preds = %if.then75, %if.end72
   %psk_client_callback = getelementptr inbounds i8, ptr %ctx, i64 480
+  %25 = load ptr, ptr %psk_client_callback, align 8
   %psk_client_callback85 = getelementptr inbounds i8, ptr %calloc, i64 216
-  %22 = load <2 x ptr>, ptr %psk_client_callback, align 8
-  store <2 x ptr> %22, ptr %psk_client_callback85, align 8
+  store ptr %25, ptr %psk_client_callback85, align 8
+  %psk_server_callback = getelementptr inbounds i8, ptr %ctx, i64 488
+  %26 = load ptr, ptr %psk_server_callback, align 8
+  %psk_server_callback86 = getelementptr inbounds i8, ptr %calloc, i64 224
+  store ptr %26, ptr %psk_server_callback86, align 8
   %bf.load87 = load i8, ptr %quiet_shutdown, align 8
   %bf.load91 = load i8, ptr %quiet_shutdown30, align 1
-  %23 = shl i8 %bf.load87, 2
-  %bf.shl93 = and i8 %23, 32
+  %27 = shl i8 %bf.load87, 2
+  %bf.shl93 = and i8 %27, 32
   %bf.clear94 = and i8 %bf.load91, -33
   %bf.set95 = or disjoint i8 %bf.clear94, %bf.shl93
   store i8 %bf.set95, ptr %quiet_shutdown30, align 1
   %tlsext_channel_id_private = getelementptr inbounds i8, ptr %ctx, i64 592
-  %24 = load ptr, ptr %tlsext_channel_id_private, align 8
-  %tobool97.not = icmp eq ptr %24, null
+  %28 = load ptr, ptr %tlsext_channel_id_private, align 8
+  %tobool97.not = icmp eq ptr %28, null
   br i1 %tobool97.not, label %if.end102, label %if.then98
 
 if.then98:                                        ; preds = %if.end84
-  %call100 = tail call ptr @EVP_PKEY_up_ref(ptr noundef nonnull %24) #21
+  %call100 = tail call ptr @EVP_PKEY_up_ref(ptr noundef nonnull %28) #21
   %tlsext_channel_id_private101 = getelementptr inbounds i8, ptr %calloc, i64 344
   store ptr %call100, ptr %tlsext_channel_id_private101, align 8
   %bf.load109.pre = load i8, ptr %quiet_shutdown30, align 1
@@ -646,17 +662,17 @@ if.then98:                                        ; preds = %if.end84
 
 if.end102:                                        ; preds = %if.then98, %if.end84
   %bf.load109 = phi i8 [ %bf.load109.pre, %if.then98 ], [ %bf.set95, %if.end84 ]
-  %25 = load ptr, ptr %ctx34, align 8
-  %signed_cert_timestamps_enabled = getelementptr inbounds i8, ptr %25, i64 648
+  %29 = load ptr, ptr %ctx34, align 8
+  %signed_cert_timestamps_enabled = getelementptr inbounds i8, ptr %29, i64 648
   %bf.load104 = load i8, ptr %signed_cert_timestamps_enabled, align 8
-  %26 = shl i8 %bf.load104, 1
-  %bf.shl111 = and i8 %26, 8
+  %30 = shl i8 %bf.load104, 1
+  %bf.shl111 = and i8 %30, 8
   %bf.clear112 = and i8 %bf.load109, -9
   %bf.set113 = or disjoint i8 %bf.clear112, %bf.shl111
   store i8 %bf.set113, ptr %quiet_shutdown30, align 1
   %bf.load116 = load i8, ptr %signed_cert_timestamps_enabled, align 8
-  %27 = shl i8 %bf.load116, 3
-  %bf.shl123 = and i8 %27, 16
+  %31 = shl i8 %bf.load116, 3
+  %bf.shl123 = and i8 %31, 16
   %bf.clear124 = and i8 %bf.set113, -17
   %bf.set125 = or disjoint i8 %bf.shl123, %bf.clear124
   store i8 %bf.set125, ptr %quiet_shutdown30, align 1

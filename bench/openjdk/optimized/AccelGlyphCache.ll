@@ -43,23 +43,23 @@ declare void @J2dTraceImpl(i32 noundef, i8 noundef zeroext, ptr noundef, ...) lo
 ; Function Attrs: nounwind uwtable
 define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = load <2 x i16>, ptr %3, align 8
-  %5 = extractelement <2 x i16> %4, i64 0
-  %6 = zext i16 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  %8 = load i32, ptr %7, align 4
-  %9 = icmp slt i32 %8, %6
-  br i1 %9, label %136, label %10
+  %4 = load i16, ptr %3, align 8
+  %5 = zext i16 %4 to i32
+  %6 = getelementptr inbounds i8, ptr %1, i64 10
+  %7 = load i16, ptr %6, align 2
+  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp slt i32 %9, %5
+  br i1 %10, label %142, label %11
 
-10:                                               ; preds = %2
-  %11 = extractelement <2 x i16> %4, i64 1
-  %12 = zext i16 %11 to i32
+11:                                               ; preds = %2
+  %12 = zext i16 %7 to i32
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp slt i32 %14, %12
-  br i1 %15, label %136, label %16
+  br i1 %15, label %142, label %16
 
-16:                                               ; preds = %10
+16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %0, i64 36
   %18 = load i8, ptr %17, align 4
   %.not = icmp eq i8 %18, 0
@@ -75,214 +75,222 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 36
   %26 = load i32, ptr %25, align 4
-  %27 = add nsw i32 %26, %8
+  %27 = add nsw i32 %26, %9
   %28 = getelementptr inbounds i8, ptr %24, i64 40
   %29 = load i32, ptr %28, align 8
-  %30 = add nsw i32 %27, %8
+  %30 = add nsw i32 %27, %9
   %31 = getelementptr inbounds i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %30, %32
-  %34 = insertelement <2 x i32> poison, i32 %27, i64 0
-  %35 = insertelement <2 x i32> %34, i32 %29, i64 1
-  br i1 %33, label %36, label %.thread
+  br i1 %33, label %34, label %.thread
 
-36:                                               ; preds = %22
-  %37 = add nsw i32 %29, %14
-  %38 = add nsw i32 %37, %14
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp sgt i32 %38, %40
-  %42 = insertelement <2 x i32> <i32 0, i32 poison>, i32 %37, i64 1
-  br i1 %41, label %.thread106, label %.thread
+34:                                               ; preds = %22
+  %35 = add nsw i32 %29, %14
+  %36 = add nsw i32 %35, %14
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp sgt i32 %36, %38
+  br i1 %39, label %.thread106, label %.thread
 
-.thread106:                                       ; preds = %36
+.thread106:                                       ; preds = %34
   store i8 1, ptr %17, align 4
   br label %.preheader
 
-.thread:                                          ; preds = %36, %22, %19
-  %.088105 = phi i32 [ 0, %19 ], [ %29, %22 ], [ %37, %36 ]
-  %.089104 = phi i32 [ 0, %19 ], [ %27, %22 ], [ 0, %36 ]
-  %43 = phi <2 x i32> [ zeroinitializer, %19 ], [ %35, %22 ], [ %42, %36 ]
-  %44 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %136, label %46
+.thread:                                          ; preds = %34, %22, %19
+  %.088105 = phi i32 [ 0, %19 ], [ %29, %22 ], [ %35, %34 ]
+  %.089104 = phi i32 [ 0, %19 ], [ %27, %22 ], [ 0, %34 ]
+  %40 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %142, label %42
 
-46:                                               ; preds = %.thread
-  store ptr %0, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 8
-  store ptr %1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 32
+42:                                               ; preds = %.thread
+  store ptr %0, ptr %40, align 8
+  %43 = getelementptr inbounds i8, ptr %40, i64 8
+  store ptr %1, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %40, i64 32
+  store i32 0, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %40, i64 36
+  store i32 %.089104, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %40, i64 40
+  store i32 %.088105, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %40, i64 44
+  store i32 0, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %40, i64 48
   store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %44, i64 36
-  store i32 %.089104, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %44, i64 40
-  store i32 %.088105, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %44, i64 44
-  store i32 0, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %44, i64 48
-  store i32 0, ptr %52, align 8
-  %53 = sitofp <2 x i32> %43 to <2 x float>
-  %54 = getelementptr inbounds i8, ptr %0, i64 20
-  %55 = getelementptr inbounds i8, ptr %44, i64 52
-  %56 = load <2 x i32>, ptr %54, align 4
-  %57 = sitofp <2 x i32> %56 to <2 x float>
-  %58 = fdiv <2 x float> %53, %57
-  store <2 x float> %58, ptr %55, align 4
-  %59 = uitofp <2 x i16> %4 to <2 x float>
-  %60 = getelementptr inbounds i8, ptr %44, i64 60
-  %61 = fdiv <2 x float> %59, %57
-  %62 = fadd <2 x float> %58, %61
-  store <2 x float> %62, ptr %60, align 4
-  br i1 %21, label %.thread121, label %65
+  %49 = sitofp i32 %.089104 to float
+  %50 = getelementptr inbounds i8, ptr %0, i64 20
+  %51 = load i32, ptr %50, align 4
+  %52 = sitofp i32 %51 to float
+  %53 = fdiv float %49, %52
+  %54 = getelementptr inbounds i8, ptr %40, i64 52
+  store float %53, ptr %54, align 4
+  %55 = sitofp i32 %.088105 to float
+  %56 = getelementptr inbounds i8, ptr %0, i64 24
+  %57 = load i32, ptr %56, align 8
+  %58 = sitofp i32 %57 to float
+  %59 = fdiv float %55, %58
+  %60 = getelementptr inbounds i8, ptr %40, i64 56
+  store float %59, ptr %60, align 8
+  %61 = uitofp i16 %4 to float
+  %62 = fdiv float %61, %52
+  %63 = fadd float %53, %62
+  %64 = getelementptr inbounds i8, ptr %40, i64 60
+  store float %63, ptr %64, align 4
+  %65 = uitofp i16 %7 to float
+  %66 = fdiv float %65, %58
+  %67 = fadd float %59, %66
+  %68 = getelementptr inbounds i8, ptr %40, i64 64
+  store float %67, ptr %68, align 8
+  br i1 %21, label %.thread121, label %71
 
-.thread121:                                       ; preds = %46
-  store ptr %44, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %44, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %44, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
-  br label %130
-
-65:                                               ; preds = %46
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
-  store ptr %44, ptr %68, align 8
-  %.pr110.pre = load i8, ptr %17, align 4
-  %69 = icmp eq i8 %.pr110.pre, 0
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %44, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %44, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
-  br i1 %69, label %130, label %.preheader
-
-.preheader:                                       ; preds = %16, %.thread106, %65
-  %.090120 = phi ptr [ %44, %65 ], [ null, %.thread106 ], [ null, %16 ]
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %73
-
-73:                                               ; preds = %.preheader, %83
-  %.2 = phi ptr [ null, %83 ], [ %.090120, %.preheader ]
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %82, label %78
-
-78:                                               ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %74, i64 32
-  %80 = load i32, ptr %79, align 8
-  %81 = icmp slt i32 %80, 5
-  br i1 %81, label %82, label %83
-
-82:                                               ; preds = %78, %73
-  br label %83
-
-83:                                               ; preds = %82, %78
-  %.3 = phi ptr [ %74, %82 ], [ %.2, %78 ]
-  %84 = getelementptr inbounds i8, ptr %74, i64 16
-  %85 = load ptr, ptr %84, align 8
-  store ptr %85, ptr %0, align 8
-  %86 = load ptr, ptr %72, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
-  store ptr %74, ptr %87, align 8
-  store ptr %74, ptr %72, align 8
-  store ptr null, ptr %84, align 8
-  %88 = getelementptr inbounds i8, ptr %74, i64 32
-  store i32 0, ptr %88, align 8
-  %89 = icmp eq ptr %.3, null
-  br i1 %89, label %73, label %90, !llvm.loop !6
-
-90:                                               ; preds = %83
-  %91 = getelementptr inbounds i8, ptr %.3, i64 8
-  %92 = load ptr, ptr %91, align 8
-  %.not99 = icmp eq ptr %92, null
-  br i1 %.not99, label %AccelGlyphCache_RemoveCellInfo.exit, label %93
-
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %0, i64 40
-  %95 = load ptr, ptr %94, align 8
-  %.not100 = icmp eq ptr %95, null
-  br i1 %.not100, label %97, label %96
-
-96:                                               ; preds = %93
-  tail call void (...) %95() #9
-  %.pre = load ptr, ptr %91, align 8
-  br label %97
-
-97:                                               ; preds = %96, %93
-  %98 = phi ptr [ %.pre, %96 ], [ %92, %93 ]
-  %99 = getelementptr inbounds i8, ptr %98, i64 24
-  %100 = load ptr, ptr %99, align 8
-  %101 = icmp eq ptr %100, %.3
-  br i1 %101, label %105, label %.lr.ph.i
-
-102:                                              ; preds = %.lr.ph.i
-  %103 = icmp eq ptr %111, %.3
-  br i1 %103, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
-
-._crit_edge.i:                                    ; preds = %102
-  %104 = getelementptr inbounds i8, ptr %.01317.i, i64 24
-  br label %105
-
-105:                                              ; preds = %97, %._crit_edge.i
-  %.lcssa123.sink = phi ptr [ %111, %._crit_edge.i ], [ %100, %97 ]
-  %.sink126 = phi ptr [ %104, %._crit_edge.i ], [ %99, %97 ]
-  %106 = getelementptr inbounds i8, ptr %.lcssa123.sink, i64 24
-  %107 = load ptr, ptr %106, align 8
-  store ptr %107, ptr %.sink126, align 8
-  %108 = getelementptr inbounds i8, ptr %.lcssa123.sink, i64 8
-  store ptr null, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %.lcssa123.sink, i64 24
-  store ptr null, ptr %109, align 8
-  br label %AccelGlyphCache_RemoveCellInfo.exit
-
-.lr.ph.i:                                         ; preds = %97, %102
-  %.01317.i = phi ptr [ %111, %102 ], [ %100, %97 ]
-  %110 = getelementptr inbounds i8, ptr %.01317.i, i64 24
-  %111 = load ptr, ptr %110, align 8
-  %.not.i = icmp eq ptr %111, null
-  br i1 %.not.i, label %AccelGlyphCache_RemoveCellInfo.exit, label %102, !llvm.loop !8
-
-AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %105, %90
-  store ptr %1, ptr %91, align 8
-  %112 = getelementptr inbounds i8, ptr %.3, i64 52
-  %113 = load float, ptr %112, align 4
-  %114 = uitofp i16 %5 to float
-  %115 = getelementptr inbounds i8, ptr %0, i64 20
-  %116 = load i32, ptr %115, align 4
-  %117 = sitofp i32 %116 to float
-  %118 = fdiv float %114, %117
-  %119 = fadd float %113, %118
-  %120 = getelementptr inbounds i8, ptr %.3, i64 60
-  store float %119, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %.3, i64 56
-  %122 = load float, ptr %121, align 8
-  %123 = uitofp i16 %11 to float
-  %124 = getelementptr inbounds i8, ptr %0, i64 24
-  %125 = load i32, ptr %124, align 8
-  %126 = sitofp i32 %125 to float
-  %127 = fdiv float %123, %126
-  %128 = fadd float %122, %127
-  %129 = getelementptr inbounds i8, ptr %.3, i64 64
-  store float %128, ptr %129, align 8
-  br label %130
-
-130:                                              ; preds = %.thread121, %AccelGlyphCache_RemoveCellInfo.exit, %65
-  %.1 = phi ptr [ %.3, %AccelGlyphCache_RemoveCellInfo.exit ], [ %44, %65 ], [ %44, %.thread121 ]
-  %131 = getelementptr inbounds i8, ptr %.1, i64 8
-  store ptr %1, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %1, i64 24
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %.1, i64 24
-  store ptr %133, ptr %134, align 8
-  store ptr %.1, ptr %132, align 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 14
-  store i8 1, ptr %135, align 2
+.thread121:                                       ; preds = %42
+  store ptr %40, ptr %0, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %40, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %40, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
   br label %136
 
-136:                                              ; preds = %.thread, %2, %10, %130
-  %.0 = phi ptr [ %.1, %130 ], [ null, %10 ], [ null, %2 ], [ null, %.thread ]
+71:                                               ; preds = %42
+  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  store ptr %40, ptr %74, align 8
+  %.pr110.pre = load i8, ptr %17, align 4
+  %75 = icmp eq i8 %.pr110.pre, 0
+  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %40, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %40, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
+  br i1 %75, label %136, label %.preheader
+
+.preheader:                                       ; preds = %16, %.thread106, %71
+  %.090120 = phi ptr [ %40, %71 ], [ null, %.thread106 ], [ null, %16 ]
+  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %79
+
+79:                                               ; preds = %.preheader, %89
+  %.2 = phi ptr [ null, %89 ], [ %.090120, %.preheader ]
+  %80 = load ptr, ptr %0, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %88, label %84
+
+84:                                               ; preds = %79
+  %85 = getelementptr inbounds i8, ptr %80, i64 32
+  %86 = load i32, ptr %85, align 8
+  %87 = icmp slt i32 %86, 5
+  br i1 %87, label %88, label %89
+
+88:                                               ; preds = %84, %79
+  br label %89
+
+89:                                               ; preds = %88, %84
+  %.3 = phi ptr [ %80, %88 ], [ %.2, %84 ]
+  %90 = getelementptr inbounds i8, ptr %80, i64 16
+  %91 = load ptr, ptr %90, align 8
+  store ptr %91, ptr %0, align 8
+  %92 = load ptr, ptr %78, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  store ptr %80, ptr %93, align 8
+  store ptr %80, ptr %78, align 8
+  store ptr null, ptr %90, align 8
+  %94 = getelementptr inbounds i8, ptr %80, i64 32
+  store i32 0, ptr %94, align 8
+  %95 = icmp eq ptr %.3, null
+  br i1 %95, label %79, label %96, !llvm.loop !6
+
+96:                                               ; preds = %89
+  %97 = getelementptr inbounds i8, ptr %.3, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %.not99 = icmp eq ptr %98, null
+  br i1 %.not99, label %AccelGlyphCache_RemoveCellInfo.exit, label %99
+
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds i8, ptr %0, i64 40
+  %101 = load ptr, ptr %100, align 8
+  %.not100 = icmp eq ptr %101, null
+  br i1 %.not100, label %103, label %102
+
+102:                                              ; preds = %99
+  tail call void (...) %101() #9
+  %.pre = load ptr, ptr %97, align 8
+  br label %103
+
+103:                                              ; preds = %102, %99
+  %104 = phi ptr [ %.pre, %102 ], [ %98, %99 ]
+  %105 = getelementptr inbounds i8, ptr %104, i64 24
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, %.3
+  br i1 %107, label %111, label %.lr.ph.i
+
+108:                                              ; preds = %.lr.ph.i
+  %109 = icmp eq ptr %117, %.3
+  br i1 %109, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+
+._crit_edge.i:                                    ; preds = %108
+  %110 = getelementptr inbounds i8, ptr %.01317.i, i64 24
+  br label %111
+
+111:                                              ; preds = %103, %._crit_edge.i
+  %.lcssa123.sink = phi ptr [ %117, %._crit_edge.i ], [ %106, %103 ]
+  %.sink126 = phi ptr [ %110, %._crit_edge.i ], [ %105, %103 ]
+  %112 = getelementptr inbounds i8, ptr %.lcssa123.sink, i64 24
+  %113 = load ptr, ptr %112, align 8
+  store ptr %113, ptr %.sink126, align 8
+  %114 = getelementptr inbounds i8, ptr %.lcssa123.sink, i64 8
+  store ptr null, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %.lcssa123.sink, i64 24
+  store ptr null, ptr %115, align 8
+  br label %AccelGlyphCache_RemoveCellInfo.exit
+
+.lr.ph.i:                                         ; preds = %103, %108
+  %.01317.i = phi ptr [ %117, %108 ], [ %106, %103 ]
+  %116 = getelementptr inbounds i8, ptr %.01317.i, i64 24
+  %117 = load ptr, ptr %116, align 8
+  %.not.i = icmp eq ptr %117, null
+  br i1 %.not.i, label %AccelGlyphCache_RemoveCellInfo.exit, label %108, !llvm.loop !8
+
+AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %111, %96
+  store ptr %1, ptr %97, align 8
+  %118 = getelementptr inbounds i8, ptr %.3, i64 52
+  %119 = load float, ptr %118, align 4
+  %120 = uitofp i16 %4 to float
+  %121 = getelementptr inbounds i8, ptr %0, i64 20
+  %122 = load i32, ptr %121, align 4
+  %123 = sitofp i32 %122 to float
+  %124 = fdiv float %120, %123
+  %125 = fadd float %119, %124
+  %126 = getelementptr inbounds i8, ptr %.3, i64 60
+  store float %125, ptr %126, align 4
+  %127 = getelementptr inbounds i8, ptr %.3, i64 56
+  %128 = load float, ptr %127, align 8
+  %129 = uitofp i16 %7 to float
+  %130 = getelementptr inbounds i8, ptr %0, i64 24
+  %131 = load i32, ptr %130, align 8
+  %132 = sitofp i32 %131 to float
+  %133 = fdiv float %129, %132
+  %134 = fadd float %128, %133
+  %135 = getelementptr inbounds i8, ptr %.3, i64 64
+  store float %134, ptr %135, align 8
+  br label %136
+
+136:                                              ; preds = %.thread121, %AccelGlyphCache_RemoveCellInfo.exit, %71
+  %.1 = phi ptr [ %.3, %AccelGlyphCache_RemoveCellInfo.exit ], [ %40, %71 ], [ %40, %.thread121 ]
+  %137 = getelementptr inbounds i8, ptr %.1, i64 8
+  store ptr %1, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %1, i64 24
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds i8, ptr %.1, i64 24
+  store ptr %139, ptr %140, align 8
+  store ptr %.1, ptr %138, align 8
+  %141 = getelementptr inbounds i8, ptr %1, i64 14
+  store i8 1, ptr %141, align 2
+  br label %142
+
+142:                                              ; preds = %.thread, %2, %11, %136
+  %.0 = phi ptr [ %.1, %136 ], [ null, %11 ], [ null, %2 ], [ null, %.thread ]
   ret ptr %.0
 }
 

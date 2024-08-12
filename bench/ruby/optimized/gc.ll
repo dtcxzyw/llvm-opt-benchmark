@@ -3451,7 +3451,7 @@ define internal fastcc void @finalize_deferred_heap_pages(ptr noundef %0) unname
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %finalize_list.exit
-  %13 = phi i64 [ %8, %.lr.ph.i.lr.ph ], [ %88, %finalize_list.exit ]
+  %13 = phi i64 [ %8, %.lr.ph.i.lr.ph ], [ %91, %finalize_list.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   br label %14
 
@@ -3572,56 +3572,60 @@ RB_FL_TEST.exit.thread.i:                         ; preds = %obj_free_object_id.
   %59 = load i64, ptr %12, align 8
   %60 = add i64 %59, -1
   store i64 %60, ptr %12, align 8
-  %61 = getelementptr inbounds i8, ptr %20, i64 4
-  %62 = load <2 x i16>, ptr %61, align 4
-  %63 = add <2 x i16> %62, <i16 1, i16 -1>
-  store <2 x i16> %63, ptr %61, align 4
+  %61 = getelementptr inbounds i8, ptr %20, i64 6
+  %62 = load i16, ptr %61, align 2
+  %63 = add i16 %62, -1
+  store i16 %63, ptr %61, align 2
+  %64 = getelementptr inbounds i8, ptr %20, i64 4
+  %65 = load i16, ptr %64, align 4
+  %66 = add i16 %65, 1
+  store i16 %66, ptr %64, align 4
   store i64 0, ptr %15, align 8
-  %64 = getelementptr inbounds i8, ptr %20, i64 40
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %65, ptr %66, align 8
-  store ptr %15, ptr %64, align 8
-  %67 = load ptr, ptr %19, align 65536
-  %68 = getelementptr inbounds i8, ptr %67, i64 1312
+  %67 = getelementptr inbounds i8, ptr %20, i64 40
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %68, ptr %69, align 8
+  store ptr %15, ptr %67, align 8
+  %70 = load ptr, ptr %19, align 65536
+  %71 = getelementptr inbounds i8, ptr %70, i64 1312
   %.lhs.trunc.i.i.i.i = trunc i64 %.027.i to i16
-  %69 = udiv i16 %.lhs.trunc.i.i.i.i, 40
-  %70 = shl nuw nsw i16 %69, 1
-  %71 = and i16 %70, 62
-  %72 = zext nneg i16 %71 to i64
-  %73 = shl nuw i64 3, %72
-  %74 = xor i64 %73, -1
-  %75 = udiv i16 %.lhs.trunc.i.i.i.i, 1280
-  %.zext11.i.i.i.i = zext nneg i16 %75 to i64
-  %76 = getelementptr i64, ptr %68, i64 %.zext11.i.i.i.i
-  %77 = load i64, ptr %76, align 8
-  %78 = and i64 %77, %74
-  store i64 %78, ptr %76, align 8
-  %79 = load i64, ptr %15, align 8
-  %80 = and i64 %79, -33
-  store i64 %80, ptr %15, align 8
-  %81 = getelementptr inbounds i8, ptr %20, i64 16
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 56
-  %84 = load i64, ptr %83, align 8
-  %85 = add i64 %84, 1
-  store i64 %85, ptr %83, align 8
-  %86 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.not.i.i20.i = icmp eq ptr %86, null
-  br i1 %.not.i.i20.i, label %87, label %rb_vm_lock_leave.exit.i
+  %72 = udiv i16 %.lhs.trunc.i.i.i.i, 40
+  %73 = shl nuw nsw i16 %72, 1
+  %74 = and i16 %73, 62
+  %75 = zext nneg i16 %74 to i64
+  %76 = shl nuw i64 3, %75
+  %77 = xor i64 %76, -1
+  %78 = udiv i16 %.lhs.trunc.i.i.i.i, 1280
+  %.zext11.i.i.i.i = zext nneg i16 %78 to i64
+  %79 = getelementptr i64, ptr %71, i64 %.zext11.i.i.i.i
+  %80 = load i64, ptr %79, align 8
+  %81 = and i64 %80, %77
+  store i64 %81, ptr %79, align 8
+  %82 = load i64, ptr %15, align 8
+  %83 = and i64 %82, -33
+  store i64 %83, ptr %15, align 8
+  %84 = getelementptr inbounds i8, ptr %20, i64 16
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 56
+  %87 = load i64, ptr %86, align 8
+  %88 = add i64 %87, 1
+  store i64 %88, ptr %86, align 8
+  %89 = load ptr, ptr @ruby_single_main_ractor, align 8
+  %.not.i.i20.i = icmp eq ptr %89, null
+  br i1 %.not.i.i20.i, label %90, label %rb_vm_lock_leave.exit.i
 
-87:                                               ; preds = %RB_FL_TEST.exit.thread.i
+90:                                               ; preds = %RB_FL_TEST.exit.thread.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %6) #38
   br label %rb_vm_lock_leave.exit.i
 
-rb_vm_lock_leave.exit.i:                          ; preds = %87, %RB_FL_TEST.exit.thread.i
+rb_vm_lock_leave.exit.i:                          ; preds = %90, %RB_FL_TEST.exit.thread.i
   %.not.i = icmp eq i64 %17, 0
   br i1 %.not.i, label %finalize_list.exit, label %14, !llvm.loop !30
 
 finalize_list.exit:                               ; preds = %rb_vm_lock_leave.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %88 = atomicrmw volatile xchg ptr %7, i64 0 seq_cst, align 8
-  %.not = icmp eq i64 %88, 0
+  %91 = atomicrmw volatile xchg ptr %7, i64 0 seq_cst, align 8
+  %.not = icmp eq i64 %91, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %finalize_list.exit, %1

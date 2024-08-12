@@ -1464,72 +1464,76 @@ define internal range(i32 0, 2) i32 @netxray_dump_finish_1_1(ptr noundef %0, ptr
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @wtap_dump_file_tell(ptr noundef %0, ptr noundef %1) #7
   %8 = icmp eq i64 %7, -1
-  br i1 %8, label %32, label %9
+  br i1 %8, label %34, label %9
 
 9:                                                ; preds = %3
   %10 = tail call i64 @wtap_dump_file_seek(ptr noundef nonnull %0, i64 noundef 0, i32 noundef 0, ptr noundef %1) #7
   %11 = icmp eq i64 %10, -1
-  br i1 %11, label %32, label %12
+  br i1 %11, label %34, label %12
 
 12:                                               ; preds = %9
   %13 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @netxray_magic, i64 noundef 4, ptr noundef %1) #7
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %32, label %14
+  br i1 %.not, label %34, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %6, i64 4
-  %16 = load <2 x i32>, ptr %15, align 4
-  %17 = trunc i64 %7 to i32
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load i32, ptr %18, align 8
-  br label %21
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = load i32, ptr %17, align 4
+  %19 = trunc i64 %7 to i32
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load i32, ptr %20, align 8
+  br label %23
 
-20:                                               ; preds = %21
+22:                                               ; preds = %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_1_1_encap.exit, label %21, !llvm.loop !4
+  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_1_1_encap.exit, label %23, !llvm.loop !4
 
-21:                                               ; preds = %20, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %20 ]
-  %22 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %indvars.iv.i
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp eq i32 %23, %19
-  br i1 %24, label %25, label %20
+23:                                               ; preds = %22, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %22 ]
+  %24 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %indvars.iv.i
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp eq i32 %25, %21
+  br i1 %26, label %27, label %22
 
-25:                                               ; preds = %21
-  %26 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %indvars.iv.i, i32 1
-  %27 = load i32, ptr %26, align 4
-  %28 = trunc i32 %27 to i8
+27:                                               ; preds = %23
+  %28 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %indvars.iv.i, i32 1
+  %29 = load i32, ptr %28, align 4
+  %30 = trunc i32 %29 to i8
   br label %wtap_encap_to_netxray_1_1_encap.exit
 
-wtap_encap_to_netxray_1_1_encap.exit:             ; preds = %20, %25
-  %.06.i = phi i8 [ %28, %25 ], [ -1, %20 ]
+wtap_encap_to_netxray_1_1_encap.exit:             ; preds = %22, %27
+  %.06.i = phi i8 [ %30, %27 ], [ -1, %22 ]
   store i64 13563786668617776, ptr %4, align 16
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store <2 x i32> %16, ptr %.sroa.3.0..sroa_idx, align 8
+  store i32 %16, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %18, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 16
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 20
   store i32 128, ptr %.sroa.52.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 %17, ptr %.sroa.6.0..sroa_idx, align 8
+  store i32 %19, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.7.0..sroa_idx, i8 0, i64 12, i1 false)
   %.sroa.73.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
   store i8 %.06.i, ptr %.sroa.73.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(83) %.sroa.8.0..sroa_idx, i8 0, i64 83, i1 false)
-  %29 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 124, ptr noundef %1) #7
-  %.not20 = icmp eq i32 %29, 0
-  br i1 %.not20, label %32, label %30
+  %31 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 124, ptr noundef %1) #7
+  %.not20 = icmp eq i32 %31, 0
+  br i1 %.not20, label %34, label %32
 
-30:                                               ; preds = %wtap_encap_to_netxray_1_1_encap.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %7, ptr %31, align 8
-  br label %32
+32:                                               ; preds = %wtap_encap_to_netxray_1_1_encap.exit
+  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %7, ptr %33, align 8
+  br label %34
 
-32:                                               ; preds = %wtap_encap_to_netxray_1_1_encap.exit, %12, %9, %3, %30
-  %.0 = phi i32 [ 1, %30 ], [ 0, %3 ], [ 0, %9 ], [ 0, %12 ], [ 0, %wtap_encap_to_netxray_1_1_encap.exit ]
+34:                                               ; preds = %wtap_encap_to_netxray_1_1_encap.exit, %12, %9, %3, %32
+  %.0 = phi i32 [ 1, %32 ], [ 0, %3 ], [ 0, %9 ], [ 0, %12 ], [ 0, %wtap_encap_to_netxray_1_1_encap.exit ]
   ret i32 %.0
 }
 
@@ -1803,76 +1807,80 @@ define internal range(i32 0, 2) i32 @netxray_dump_finish_2_0(ptr noundef %0, ptr
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @wtap_dump_file_tell(ptr noundef %0, ptr noundef %1) #7
   %8 = icmp eq i64 %7, -1
-  br i1 %8, label %37, label %9
+  br i1 %8, label %39, label %9
 
 9:                                                ; preds = %3
   %10 = tail call i64 @wtap_dump_file_seek(ptr noundef nonnull %0, i64 noundef 0, i32 noundef 0, ptr noundef %1) #7
   %11 = icmp eq i64 %10, -1
-  br i1 %11, label %37, label %12
+  br i1 %11, label %39, label %12
 
 12:                                               ; preds = %9
   %13 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @netxray_magic, i64 noundef 4, ptr noundef %1) #7
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %37, label %14
+  br i1 %.not, label %39, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %6, i64 4
-  %16 = load <2 x i32>, ptr %15, align 4
-  %17 = trunc i64 %7 to i32
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = load i32, ptr %18, align 8
-  br label %21
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = load i32, ptr %17, align 4
+  %19 = trunc i64 %7 to i32
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = load i32, ptr %20, align 8
+  br label %23
 
-20:                                               ; preds = %21
+22:                                               ; preds = %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_2_0_encap.exit, label %21, !llvm.loop !6
+  br i1 %exitcond.not.i, label %wtap_encap_to_netxray_2_0_encap.exit, label %23, !llvm.loop !6
 
-21:                                               ; preds = %20, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %20 ]
-  %22 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %indvars.iv.i
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp eq i32 %23, %19
-  br i1 %24, label %25, label %20
+23:                                               ; preds = %22, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %22 ]
+  %24 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %indvars.iv.i
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp eq i32 %25, %21
+  br i1 %26, label %27, label %22
 
-25:                                               ; preds = %21
-  %26 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %indvars.iv.i, i32 1
-  %27 = load i32, ptr %26, align 4
-  %28 = trunc i32 %27 to i8
+27:                                               ; preds = %23
+  %28 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %indvars.iv.i, i32 1
+  %29 = load i32, ptr %28, align 4
+  %30 = trunc i32 %29 to i8
   br label %wtap_encap_to_netxray_2_0_encap.exit
 
-wtap_encap_to_netxray_2_0_encap.exit:             ; preds = %20, %25
-  %.06.i = phi i8 [ %28, %25 ], [ -1, %20 ]
-  switch i32 %19, label %32 [
-    i32 19, label %33
-    i32 27, label %29
-    i32 12, label %30
-    i32 36, label %31
+wtap_encap_to_netxray_2_0_encap.exit:             ; preds = %22, %27
+  %.06.i = phi i8 [ %30, %27 ], [ -1, %22 ]
+  switch i32 %21, label %34 [
+    i32 19, label %35
+    i32 27, label %31
+    i32 12, label %32
+    i32 36, label %33
   ]
 
-29:                                               ; preds = %wtap_encap_to_netxray_2_0_encap.exit
-  br label %33
-
-30:                                               ; preds = %wtap_encap_to_netxray_2_0_encap.exit
-  br label %33
-
 31:                                               ; preds = %wtap_encap_to_netxray_2_0_encap.exit
-  br label %33
+  br label %35
 
 32:                                               ; preds = %wtap_encap_to_netxray_2_0_encap.exit
-  br label %33
+  br label %35
 
-33:                                               ; preds = %wtap_encap_to_netxray_2_0_encap.exit, %32, %31, %30, %29
-  %.sroa.105.0 = phi i8 [ 0, %32 ], [ 7, %31 ], [ 6, %30 ], [ 4, %29 ], [ 3, %wtap_encap_to_netxray_2_0_encap.exit ]
+33:                                               ; preds = %wtap_encap_to_netxray_2_0_encap.exit
+  br label %35
+
+34:                                               ; preds = %wtap_encap_to_netxray_2_0_encap.exit
+  br label %35
+
+35:                                               ; preds = %wtap_encap_to_netxray_2_0_encap.exit, %34, %33, %32, %31
+  %.sroa.105.0 = phi i8 [ 0, %34 ], [ 7, %33 ], [ 6, %32 ], [ 4, %31 ], [ 3, %wtap_encap_to_netxray_2_0_encap.exit ]
   store i64 13845257350426672, ptr %4, align 16
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store <2 x i32> %16, ptr %.sroa.3.0..sroa_idx, align 8
+  store i32 %16, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %18, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 16
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 20
   store i32 128, ptr %.sroa.52.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 %17, ptr %.sroa.6.0..sroa_idx, align 8
+  store i32 %19, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.7.0..sroa_idx, i8 0, i64 12, i1 false)
   %.sroa.73.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
@@ -1883,17 +1891,17 @@ wtap_encap_to_netxray_2_0_encap.exit:             ; preds = %20, %25
   store i8 %.sroa.105.0, ptr %.sroa.105.0..sroa_idx, align 16
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %.sroa.15.0..sroa_idx, i8 0, i64 43, i1 false)
-  %34 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 124, ptr noundef %1) #7
-  %.not23 = icmp eq i32 %34, 0
-  br i1 %.not23, label %37, label %35
+  %36 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 124, ptr noundef %1) #7
+  %.not23 = icmp eq i32 %36, 0
+  br i1 %.not23, label %39, label %37
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %7, ptr %36, align 8
-  br label %37
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %7, ptr %38, align 8
+  br label %39
 
-37:                                               ; preds = %33, %12, %9, %3, %35
-  %.0 = phi i32 [ 1, %35 ], [ 0, %3 ], [ 0, %9 ], [ 0, %12 ], [ 0, %33 ]
+39:                                               ; preds = %35, %12, %9, %3, %37
+  %.0 = phi i32 [ 1, %37 ], [ 0, %3 ], [ 0, %9 ], [ 0, %12 ], [ 0, %35 ]
   ret i32 %.0
 }
 

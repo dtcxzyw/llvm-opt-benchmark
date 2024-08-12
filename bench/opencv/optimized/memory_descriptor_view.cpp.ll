@@ -612,7 +612,7 @@ define hidden void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind noa
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %7 = getelementptr inbounds i8, ptr %1, i64 16
-  br i1 %.not, label %28, label %8
+  br i1 %.not, label %30, label %8
 
 8:                                                ; preds = %2
   call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %6)
@@ -646,25 +646,28 @@ _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit:      ; preds = %.lr.ph.i.i, %8
   br i1 %.not16.i, label %_ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit, %.lr.ph.i
-  %.sroa.012.017.i = phi i64 [ %27, %.lr.ph.i ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit ]
+  %.sroa.012.017.i = phi i64 [ %29, %.lr.ph.i ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit ]
   %19 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %7, i64 0, i64 %.sroa.012.017.i
-  %20 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %.sroa.012.017.i
-  %21 = load i32, ptr %20, align 4, !noalias !26
-  %22 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %0, i64 0, i64 %.sroa.012.017.i
-  %23 = load <2 x i32>, ptr %19, align 8, !noalias !26
-  %24 = insertelement <2 x i32> poison, i32 %21, i64 0
-  %25 = shufflevector <2 x i32> %24, <2 x i32> poison, <2 x i32> zeroinitializer
-  %26 = add nsw <2 x i32> %23, %25
-  store <2 x i32> %26, ptr %22, align 8, !alias.scope !26
-  %27 = add nuw i64 %.sroa.012.017.i, 1
-  %.not.i = icmp eq i64 %27, %17
+  %20 = load i32, ptr %19, align 8, !noalias !26
+  %21 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %.sroa.012.017.i
+  %22 = load i32, ptr %21, align 4, !noalias !26
+  %23 = add nsw i32 %22, %20
+  %24 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %0, i64 0, i64 %.sroa.012.017.i
+  store i32 %23, ptr %24, align 8, !alias.scope !26
+  %25 = getelementptr inbounds i8, ptr %19, i64 4
+  %26 = load i32, ptr %25, align 4, !noalias !26
+  %27 = add nsw i32 %26, %22
+  %28 = getelementptr inbounds i8, ptr %24, i64 4
+  store i32 %27, ptr %28, align 4, !alias.scope !26
+  %29 = add nuw i64 %.sroa.012.017.i, 1
+  %.not.i = icmp eq i64 %29, %17
   br i1 %.not.i, label %_ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit, label %.lr.ph.i
 
-28:                                               ; preds = %2
+30:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
   br label %_ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit
 
-_ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit: ; preds = %.lr.ph.i, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit, %28
+_ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit: ; preds = %.lr.ph.i, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit, %30
   ret void
 }
 
@@ -1106,23 +1109,26 @@ _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit:      ; preds = %.lr.ph.i.i, %_ZN3ad
   br i1 %.not16.i, label %_ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit, %.lr.ph.i
-  %.sroa.012.017.i = phi i64 [ %28, %.lr.ph.i ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit ]
+  %.sroa.012.017.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit ]
   %20 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %1, i64 0, i64 %.sroa.012.017.i
-  %21 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %.sroa.012.017.i
-  %22 = load i32, ptr %21, align 4, !noalias !39
-  %23 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %4, i64 0, i64 %.sroa.012.017.i
-  %24 = load <2 x i32>, ptr %20, align 8, !noalias !39
-  %25 = insertelement <2 x i32> poison, i32 %22, i64 0
-  %26 = shufflevector <2 x i32> %25, <2 x i32> poison, <2 x i32> zeroinitializer
-  %27 = add nsw <2 x i32> %24, %26
-  store <2 x i32> %27, ptr %23, align 8, !alias.scope !39
-  %28 = add nuw i64 %.sroa.012.017.i, 1
-  %.not.i2 = icmp eq i64 %28, %18
+  %21 = load i32, ptr %20, align 8, !noalias !39
+  %22 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %.sroa.012.017.i
+  %23 = load i32, ptr %22, align 4, !noalias !39
+  %24 = add nsw i32 %23, %21
+  %25 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %4, i64 0, i64 %.sroa.012.017.i
+  store i32 %24, ptr %25, align 8, !alias.scope !39
+  %26 = getelementptr inbounds i8, ptr %20, i64 4
+  %27 = load i32, ptr %26, align 4, !noalias !39
+  %28 = add nsw i32 %27, %23
+  %29 = getelementptr inbounds i8, ptr %25, i64 4
+  store i32 %28, ptr %29, align 4, !alias.scope !39
+  %30 = add nuw i64 %.sroa.012.017.i, 1
+  %.not.i2 = icmp eq i64 %30, %18
   br i1 %.not.i2, label %_ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit, label %.lr.ph.i
 
 _ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit: ; preds = %.lr.ph.i, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit
-  %29 = call ptr @_ZN3ade16MemoryDescriptor6accessERKNS_4util9DynMdSpanILm6EEENS_16MemoryAccessTypeE(ptr noundef nonnull align 8 dereferenceable(264) %9, ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %2)
-  ret ptr %29
+  %31 = call ptr @_ZN3ade16MemoryDescriptor6accessERKNS_4util9DynMdSpanILm6EEENS_16MemoryAccessTypeE(ptr noundef nonnull align 8 dereferenceable(264) %9, ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %2)
+  ret ptr %31
 }
 
 declare ptr @_ZN3ade16MemoryDescriptor6accessERKNS_4util9DynMdSpanILm6EEENS_16MemoryAccessTypeE(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) local_unnamed_addr #11
@@ -1761,74 +1767,95 @@ _ZNKSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE12_M_c
 _ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.ade::MemoryDescriptorView::Connector::ListenerDesc", ptr %23, i64 %19
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
-  %26 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
-  %29 = load <2 x ptr>, ptr %28, align 8
-  store <2 x ptr> %29, ptr %27, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  %25 = load ptr, ptr %2, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %24, i64 24
+  %33 = getelementptr inbounds i8, ptr %2, i64 24
+  %34 = load ptr, ptr %33, align 8
+  store ptr %34, ptr %32, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   %.not10.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_M_allocateEm.exit ]
-  %.0911.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_M_allocateEm.exit ]
+  %.012.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_M_allocateEm.exit ]
+  %.0911.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %30 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %31 = load <2 x ptr>, ptr %.0911.i.i.i.i, align 8, !alias.scope !64, !noalias !61
-  store <2 x ptr> %31, ptr %.012.i.i.i.i, align 8, !alias.scope !61, !noalias !64
-  %32 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
-  %34 = load <2 x ptr>, ptr %33, align 8, !alias.scope !64, !noalias !61
-  store <2 x ptr> %34, ptr %32, align 8, !alias.scope !61, !noalias !64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !alias.scope !64, !noalias !61
-  %35 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
-  %36 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %35, %1
+  %35 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !64, !noalias !61
+  store ptr %35, ptr %.012.i.i.i.i, align 8, !alias.scope !61, !noalias !64
+  %36 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %38 = load ptr, ptr %37, align 8, !alias.scope !64, !noalias !61
+  store ptr %38, ptr %36, align 8, !alias.scope !61, !noalias !64
+  %39 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %41 = load ptr, ptr %40, align 8, !alias.scope !64, !noalias !61
+  store ptr %41, ptr %39, align 8, !alias.scope !61, !noalias !64
+  %42 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
+  %44 = load ptr, ptr %43, align 8, !alias.scope !64, !noalias !61
+  store ptr %44, ptr %42, align 8, !alias.scope !61, !noalias !64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !alias.scope !64, !noalias !61
+  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
+  %46 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %45, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !66
 
 _ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_M_allocateEm.exit
-  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_M_allocateEm.exit ], [ %36, %.lr.ph.i.i.i.i ]
-  %37 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
+  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_M_allocateEm.exit ], [ %46, %.lr.ph.i.i.i.i ]
+  %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
   %.not10.i.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i.i17
-  %.012.i.i.i.i18 = phi ptr [ %44, %.lr.ph.i.i.i.i17 ], [ %37, %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  %.0911.i.i.i.i19 = phi ptr [ %43, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.012.i.i.i.i18 = phi ptr [ %59, %.lr.ph.i.i.i.i17 ], [ %47, %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.0911.i.i.i.i19 = phi ptr [ %58, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
-  %39 = load <2 x ptr>, ptr %.0911.i.i.i.i19, align 8, !alias.scope !70, !noalias !67
-  store <2 x ptr> %39, ptr %.012.i.i.i.i18, align 8, !alias.scope !67, !noalias !70
-  %40 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
-  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
-  %42 = load <2 x ptr>, ptr %41, align 8, !alias.scope !70, !noalias !67
-  store <2 x ptr> %42, ptr %40, align 8, !alias.scope !67, !noalias !70
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !alias.scope !70, !noalias !67
-  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 32
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 32
-  %.not.i.i.i.i20 = icmp eq ptr %43, %5
+  %48 = load ptr, ptr %.0911.i.i.i.i19, align 8, !alias.scope !70, !noalias !67
+  store ptr %48, ptr %.012.i.i.i.i18, align 8, !alias.scope !67, !noalias !70
+  %49 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 8
+  %50 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
+  %51 = load ptr, ptr %50, align 8, !alias.scope !70, !noalias !67
+  store ptr %51, ptr %49, align 8, !alias.scope !67, !noalias !70
+  %52 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
+  %53 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
+  %54 = load ptr, ptr %53, align 8, !alias.scope !70, !noalias !67
+  store ptr %54, ptr %52, align 8, !alias.scope !67, !noalias !70
+  %55 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 24
+  %56 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 24
+  %57 = load ptr, ptr %56, align 8, !alias.scope !70, !noalias !67
+  store ptr %57, ptr %55, align 8, !alias.scope !67, !noalias !70
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false), !alias.scope !70, !noalias !67
+  %58 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 32
+  %59 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 32
+  %.not.i.i.i.i20 = icmp eq ptr %58, %5
   br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !66
 
 _ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
-  %.0.lcssa.i.i.i.i21 = phi ptr [ %37, %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %44, %.lr.ph.i.i.i.i17 ]
+  %.0.lcssa.i.i.i.i21 = phi ptr [ %47, %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %59, %.lr.ph.i.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE13_M_deallocateEPS3_m.exit, label %45
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE13_M_deallocateEPS3_m.exit, label %60
 
-45:                                               ; preds = %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22
+60:                                               ; preds = %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #25
   br label %_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %45
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %60
+  %61 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %47 = getelementptr inbounds %"struct.ade::MemoryDescriptorView::Connector::ListenerDesc", ptr %23, i64 %16
-  store ptr %47, ptr %46, align 8
+  %62 = getelementptr inbounds %"struct.ade::MemoryDescriptorView::Connector::ListenerDesc", ptr %23, i64 %16
+  store ptr %62, ptr %61, align 8
   ret void
 }
 

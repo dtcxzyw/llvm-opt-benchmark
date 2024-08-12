@@ -253,31 +253,69 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorIN7mitsuba6VectorIfLm2EEENS_9a
   br label %_ZNSt3__16vectorIN7mitsuba6NormalIfLm3EEENS_9allocatorIS3_EEED2B8ne190000Ev.exit246
 
 15:                                               ; preds = %12
-  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %13, align 4
+  store float 0.000000e+00, ptr %13, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 4
+  store float 1.000000e+00, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  store float 1.000000e+00, ptr %.sroa.3.0..sroa_idx, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 12
+  store float 1.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5330.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
   store float 1.000000e+00, ptr %.sroa.5330.0..sroa_idx, align 4
   %.sroa.6331.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 20
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6331.0..sroa_idx, i8 0, i64 16, i1 false)
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %.sroa.10.0..sroa_idx, align 4
+  store float 1.000000e+00, ptr %.sroa.10.0..sroa_idx, align 4
+  %.sroa.11333.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 40
+  store float 1.000000e+00, ptr %.sroa.11333.0..sroa_idx, align 4
+  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 44
+  store float 1.000000e+00, ptr %.sroa.12.0..sroa_idx, align 4
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 48
+  store float 1.000000e+00, ptr %.sroa.13.0..sroa_idx, align 4
   %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 52
   %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.14.0..sroa_idx, i8 0, i64 16, i1 false)
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %.sroa.18.0..sroa_idx, align 4
+  store float 1.000000e+00, ptr %.sroa.18.0..sroa_idx, align 4
+  %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 72
+  store float 1.000000e+00, ptr %.sroa.19.0..sroa_idx, align 4
+  %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 76
+  store float 1.000000e+00, ptr %.sroa.20.0..sroa_idx, align 4
+  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 80
+  store float 1.000000e+00, ptr %.sroa.21.0..sroa_idx, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 84
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.22.0..sroa_idx, i8 0, i64 16, i1 false)
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %.sroa.26.0..sroa_idx, align 4
+  store float 1.000000e+00, ptr %.sroa.26.0..sroa_idx, align 4
+  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 104
+  store float 1.000000e+00, ptr %.sroa.27.0..sroa_idx, align 4
+  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 108
+  store float 1.000000e+00, ptr %.sroa.28.0..sroa_idx, align 4
+  %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 112
+  store float 1.000000e+00, ptr %.sroa.29.0..sroa_idx, align 4
   %.sroa.30.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 116
   %.sroa.34.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.30.0..sroa_idx, i8 0, i64 16, i1 false)
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %.sroa.34.0..sroa_idx, align 4
+  store float 1.000000e+00, ptr %.sroa.34.0..sroa_idx, align 4
+  %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 136
+  store float 1.000000e+00, ptr %.sroa.35.0..sroa_idx, align 4
+  %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 140
+  store float 1.000000e+00, ptr %.sroa.36.0..sroa_idx, align 4
+  %.sroa.37.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 144
+  store float 1.000000e+00, ptr %.sroa.37.0..sroa_idx, align 4
   %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 148
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.38.0..sroa_idx, i8 0, i64 16, i1 false)
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %.sroa.42.0..sroa_idx, align 4
+  store float 1.000000e+00, ptr %.sroa.42.0..sroa_idx, align 4
+  %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 168
+  store float 1.000000e+00, ptr %.sroa.43.0..sroa_idx, align 4
+  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 172
+  store float 1.000000e+00, ptr %.sroa.44.0..sroa_idx, align 4
+  %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 176
+  store float 1.000000e+00, ptr %.sroa.45.0..sroa_idx, align 4
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 180
-  store <2 x float> zeroinitializer, ptr %.sroa.46.0..sroa_idx, align 4
+  store float 0.000000e+00, ptr %.sroa.46.0..sroa_idx, align 4
+  %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 184
+  store float 0.000000e+00, ptr %.sroa.47.0..sroa_idx, align 4
   %.sroa.48.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 188
   store float 0.000000e+00, ptr %.sroa.48.0..sroa_idx, align 4
   %16 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #13

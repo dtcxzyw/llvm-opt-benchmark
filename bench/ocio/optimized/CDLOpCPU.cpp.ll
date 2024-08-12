@@ -355,11 +355,23 @@ entry:
   store i8 0, ptr %m_isReverse, align 4
   %m_isNoClamp = getelementptr inbounds i8, ptr %this, i64 53
   store i8 0, ptr %m_isNoClamp, align 1
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %this, align 4
+  store float 1.000000e+00, ptr %this, align 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
+  store float 1.000000e+00, ptr %arrayidx3.i, align 4
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 8
+  store float 1.000000e+00, ptr %arrayidx5.i, align 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 12
+  store float 1.000000e+00, ptr %arrayidx7.i, align 4
   %m_offset.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_power.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_offset.i, i8 0, i64 16, i1 false)
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i, align 4
+  store float 1.000000e+00, ptr %m_power.i, align 4
+  %arrayidx3.i4 = getelementptr inbounds i8, ptr %this, i64 36
+  store float 1.000000e+00, ptr %arrayidx3.i4, align 4
+  %arrayidx5.i5 = getelementptr inbounds i8, ptr %this, i64 40
+  store float 1.000000e+00, ptr %arrayidx5.i5, align 4
+  %arrayidx7.i6 = getelementptr inbounds i8, ptr %this, i64 44
+  store float 1.000000e+00, ptr %arrayidx7.i6, align 4
   %m_saturation.i = getelementptr inbounds i8, ptr %this, i64 48
   store float 1.000000e+00, ptr %m_saturation.i, align 4
   ret void
@@ -421,104 +433,127 @@ entry:
   %m_slopeParams.i = getelementptr inbounds i8, ptr %0, i64 176
   %1 = load double, ptr %m_slopeParams.i, align 8
   %arrayidx4.i = getelementptr inbounds i8, ptr %0, i64 184
-  %2 = load <2 x double>, ptr %arrayidx4.i, align 8
+  %2 = load double, ptr %arrayidx4.i, align 8
+  %arrayidx7.i = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = load double, ptr %arrayidx7.i, align 8
   %m_offsetParams.i = getelementptr inbounds i8, ptr %0, i64 200
-  %3 = load <2 x double>, ptr %m_offsetParams.i, align 8
+  %4 = load double, ptr %m_offsetParams.i, align 8
+  %arrayidx4.i9 = getelementptr inbounds i8, ptr %0, i64 208
+  %5 = load double, ptr %arrayidx4.i9, align 8
   %arrayidx7.i11 = getelementptr inbounds i8, ptr %0, i64 216
-  %4 = load double, ptr %arrayidx7.i11, align 8
+  %6 = load double, ptr %arrayidx7.i11, align 8
   %m_powerParams.i = getelementptr inbounds i8, ptr %0, i64 224
-  %5 = load <2 x double>, ptr %m_powerParams.i, align 8
+  %7 = load double, ptr %m_powerParams.i, align 8
+  %arrayidx4.i13 = getelementptr inbounds i8, ptr %0, i64 232
+  %8 = load double, ptr %arrayidx4.i13, align 8
   %arrayidx7.i15 = getelementptr inbounds i8, ptr %0, i64 240
-  %6 = load double, ptr %arrayidx7.i15, align 8
+  %9 = load double, ptr %arrayidx7.i15, align 8
   %m_saturation.i = getelementptr inbounds i8, ptr %0, i64 248
-  %7 = load double, ptr %m_saturation.i, align 8
-  %conv = fptrunc double %7 to float
+  %10 = load double, ptr %m_saturation.i, align 8
+  %conv = fptrunc double %10 to float
   %m_style.i = getelementptr inbounds i8, ptr %0, i64 168
-  %8 = load i32, ptr %m_style.i, align 8
-  %9 = and i32 %8, -3
-  %10 = icmp eq i32 %9, 1
+  %11 = load i32, ptr %m_style.i, align 8
+  %12 = and i32 %11, -3
+  %13 = icmp eq i32 %12, 1
   %m_isReverse = getelementptr inbounds i8, ptr %this, i64 52
-  %frombool = zext i1 %10 to i8
+  %frombool = zext i1 %13 to i8
   store i8 %frombool, ptr %m_isReverse, align 4
-  %11 = and i32 %8, -2
-  %12 = icmp eq i32 %11, 2
+  %14 = and i32 %11, -2
+  %15 = icmp eq i32 %14, 2
   %m_isNoClamp = getelementptr inbounds i8, ptr %this, i64 53
-  %frombool18 = zext i1 %12 to i8
+  %frombool18 = zext i1 %15 to i8
   store i8 %frombool18, ptr %m_isNoClamp, align 1
   %conv20 = fptrunc double %1 to float
-  br i1 %10, label %if.then, label %if.else
+  br i1 %13, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %13 = extractelement <2 x double> %2, i64 0
-  %conv23 = fptrunc double %13 to float
-  %14 = extractelement <2 x double> %2, i64 1
-  %conv26 = fptrunc double %14 to float
+  %cmp.i.i = fcmp olt float %conv20, 0x3F847AE140000000
+  %.sroa.speculated.i = select i1 %cmp.i.i, float 0x3F847AE140000000, float %conv20
+  %div.i = fdiv float 1.000000e+00, %.sroa.speculated.i
+  %conv23 = fptrunc double %2 to float
+  %cmp.i.i17 = fcmp olt float %conv23, 0x3F847AE140000000
+  %.sroa.speculated.i18 = select i1 %cmp.i.i17, float 0x3F847AE140000000, float %conv23
+  %div.i19 = fdiv float 1.000000e+00, %.sroa.speculated.i18
+  %conv26 = fptrunc double %3 to float
   %cmp.i.i20 = fcmp olt float %conv26, 0x3F847AE140000000
   %.sroa.speculated.i21 = select i1 %cmp.i.i20, float 0x3F847AE140000000, float %conv26
   %div.i22 = fdiv float 1.000000e+00, %.sroa.speculated.i21
-  %15 = insertelement <2 x float> poison, float %conv20, i64 0
-  %16 = insertelement <2 x float> %15, float %conv23, i64 1
-  %17 = fcmp olt <2 x float> %16, <float 0x3F847AE140000000, float 0x3F847AE140000000>
-  %18 = select <2 x i1> %17, <2 x float> <float 0x3F847AE140000000, float 0x3F847AE140000000>, <2 x float> %16
-  %19 = fdiv <2 x float> <float 1.000000e+00, float 1.000000e+00>, %18
-  store <2 x float> %19, ptr %this, align 4
+  store float %div.i, ptr %this, align 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
+  store float %div.i19, ptr %arrayidx3.i, align 4
   %arrayidx5.i23 = getelementptr inbounds i8, ptr %this, i64 8
   store float %div.i22, ptr %arrayidx5.i23, align 4
   %arrayidx7.i24 = getelementptr inbounds i8, ptr %this, i64 12
   store float 1.000000e+00, ptr %arrayidx7.i24, align 4
-  %20 = fptrunc <2 x double> %3 to <2 x float>
-  %21 = fptrunc double %4 to float
-  %conv35 = fneg float %21
+  %16 = fptrunc double %4 to float
+  %conv29 = fneg float %16
+  %17 = fptrunc double %5 to float
+  %conv32 = fneg float %17
+  %18 = fptrunc double %6 to float
+  %conv35 = fneg float %18
   %m_offset.i = getelementptr inbounds i8, ptr %this, i64 16
-  %22 = fneg <2 x float> %20
-  store <2 x float> %22, ptr %m_offset.i, align 4
-  %23 = fptrunc <2 x double> %5 to <2 x float>
-  %24 = fcmp olt <2 x float> %23, <float 0x3F847AE140000000, float 0x3F847AE140000000>
-  %25 = select <2 x i1> %24, <2 x float> <float 0x3F847AE140000000, float 0x3F847AE140000000>, <2 x float> %23
-  %26 = fdiv <2 x float> <float 1.000000e+00, float 1.000000e+00>, %25
-  %conv43 = fptrunc double %6 to float
-  %27 = insertelement <2 x float> poison, float %conv, i64 0
-  %28 = insertelement <2 x float> %27, float %conv43, i64 1
-  %29 = fcmp olt <2 x float> %28, <float 0x3F847AE140000000, float 0x3F847AE140000000>
-  %30 = select <2 x i1> %29, <2 x float> <float 0x3F847AE140000000, float 0x3F847AE140000000>, <2 x float> %28
-  %31 = fdiv <2 x float> <float 1.000000e+00, float 1.000000e+00>, %30
+  store float %conv29, ptr %m_offset.i, align 4
+  %arrayidx3.i25 = getelementptr inbounds i8, ptr %this, i64 20
+  store float %conv32, ptr %arrayidx3.i25, align 4
+  %conv37 = fptrunc double %7 to float
+  %cmp.i.i28 = fcmp olt float %conv37, 0x3F847AE140000000
+  %.sroa.speculated.i29 = select i1 %cmp.i.i28, float 0x3F847AE140000000, float %conv37
+  %div.i30 = fdiv float 1.000000e+00, %.sroa.speculated.i29
+  %conv40 = fptrunc double %8 to float
+  %cmp.i.i31 = fcmp olt float %conv40, 0x3F847AE140000000
+  %.sroa.speculated.i32 = select i1 %cmp.i.i31, float 0x3F847AE140000000, float %conv40
+  %div.i33 = fdiv float 1.000000e+00, %.sroa.speculated.i32
+  %conv43 = fptrunc double %9 to float
+  %cmp.i.i34 = fcmp olt float %conv43, 0x3F847AE140000000
+  %.sroa.speculated.i35 = select i1 %cmp.i.i34, float 0x3F847AE140000000, float %conv43
+  %div.i36 = fdiv float 1.000000e+00, %.sroa.speculated.i35
+  %cmp.i.i40 = fcmp olt float %conv, 0x3F847AE140000000
+  %.sroa.speculated.i41 = select i1 %cmp.i.i40, float 0x3F847AE140000000, float %conv
+  %div.i42 = fdiv float 1.000000e+00, %.sroa.speculated.i41
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %32 = fptrunc <2 x double> %2 to <2 x float>
+  %conv49 = fptrunc double %2 to float
+  %conv51 = fptrunc double %3 to float
   store float %conv20, ptr %this, align 4
   %arrayidx3.i44 = getelementptr inbounds i8, ptr %this, i64 4
-  store <2 x float> %32, ptr %arrayidx3.i44, align 4
+  store float %conv49, ptr %arrayidx3.i44, align 4
+  %arrayidx5.i45 = getelementptr inbounds i8, ptr %this, i64 8
+  store float %conv51, ptr %arrayidx5.i45, align 4
   %arrayidx7.i46 = getelementptr inbounds i8, ptr %this, i64 12
   store float 1.000000e+00, ptr %arrayidx7.i46, align 4
-  %conv57 = fptrunc double %4 to float
+  %conv53 = fptrunc double %4 to float
+  %conv55 = fptrunc double %5 to float
+  %conv57 = fptrunc double %6 to float
   %m_offset.i47 = getelementptr inbounds i8, ptr %this, i64 16
-  %33 = fptrunc <2 x double> %3 to <2 x float>
-  store <2 x float> %33, ptr %m_offset.i47, align 4
-  %34 = fptrunc <2 x double> %5 to <2 x float>
-  %conv63 = fptrunc double %6 to float
-  %35 = insertelement <2 x float> poison, float %conv, i64 0
-  %36 = insertelement <2 x float> %35, float %conv63, i64 1
+  store float %conv53, ptr %m_offset.i47, align 4
+  %arrayidx3.i48 = getelementptr inbounds i8, ptr %this, i64 20
+  store float %conv55, ptr %arrayidx3.i48, align 4
+  %conv59 = fptrunc double %7 to float
+  %conv61 = fptrunc double %8 to float
+  %conv63 = fptrunc double %9 to float
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %conv57.sink = phi float [ %conv35, %if.then ], [ %conv57, %if.else ]
-  %37 = phi <2 x float> [ %26, %if.then ], [ %34, %if.else ]
-  %38 = phi <2 x float> [ %31, %if.then ], [ %36, %if.else ]
-  %39 = getelementptr inbounds i8, ptr %this, i64 24
-  store float %conv57.sink, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %this, i64 28
-  store float 0.000000e+00, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %this, i64 32
-  store <2 x float> %37, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %this, i64 40
-  %43 = extractelement <2 x float> %38, i64 1
-  store float %43, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %this, i64 44
-  store float 1.000000e+00, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %this, i64 48
-  %46 = extractelement <2 x float> %38, i64 0
-  store float %46, ptr %45, align 4
+  %conv59.sink = phi float [ %div.i30, %if.then ], [ %conv59, %if.else ]
+  %conv61.sink = phi float [ %div.i33, %if.then ], [ %conv61, %if.else ]
+  %conv63.sink = phi float [ %div.i36, %if.then ], [ %conv63, %if.else ]
+  %conv.sink = phi float [ %div.i42, %if.then ], [ %conv, %if.else ]
+  %19 = getelementptr inbounds i8, ptr %this, i64 24
+  store float %conv57.sink, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %this, i64 28
+  store float 0.000000e+00, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %this, i64 32
+  store float %conv59.sink, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %this, i64 36
+  store float %conv61.sink, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %this, i64 40
+  store float %conv63.sink, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %this, i64 44
+  store float 1.000000e+00, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %this, i64 48
+  store float %conv.sink, ptr %25, align 4
   ret void
 }
 
@@ -531,11 +566,23 @@ invoke.cont:
   store i8 0, ptr %m_isReverse.i, align 4
   %m_isNoClamp.i = getelementptr inbounds i8, ptr %this, i64 61
   store i8 0, ptr %m_isNoClamp.i, align 1
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams, align 8
+  store float 1.000000e+00, ptr %m_renderParams, align 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  store float 1.000000e+00, ptr %arrayidx3.i.i, align 4
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  store float 1.000000e+00, ptr %arrayidx5.i.i, align 8
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 20
+  store float 1.000000e+00, ptr %arrayidx7.i.i, align 4
   %m_offset.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %m_power.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i, i8 0, i64 16, i1 false)
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i, align 8
+  store float 1.000000e+00, ptr %m_power.i.i, align 8
+  %arrayidx3.i4.i = getelementptr inbounds i8, ptr %this, i64 44
+  store float 1.000000e+00, ptr %arrayidx3.i4.i, align 4
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %this, i64 48
+  store float 1.000000e+00, ptr %arrayidx5.i5.i, align 8
+  %arrayidx7.i6.i = getelementptr inbounds i8, ptr %this, i64 52
+  store float 1.000000e+00, ptr %arrayidx7.i6.i, align 4
   %m_saturation.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store float 1.000000e+00, ptr %m_saturation.i.i, align 8
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams, ptr noundef nonnull align 8 dereferenceable(16) %cdl)
@@ -580,7 +627,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #20, !noalias !4
+  %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19, !noalias !4
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !4
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
@@ -589,8 +636,14 @@ sw.bb:                                            ; preds = %entry
   %m_renderParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %m_isReverse.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 76
   %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 77
+  %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 28
+  %arrayidx5.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
+  %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 36
   %m_offset.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 40
   %m_power.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
+  %arrayidx3.i4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 60
+  %arrayidx5.i5.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 64
+  %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 68
   %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 72
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEEED2Ev.exit
@@ -599,9 +652,15 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEEED2Ev.exit: ; 
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !5
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !5
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
+  store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
+  store float 1.000000e+00, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
+  store float 1.000000e+00, ptr %arrayidx5.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
+  store float 1.000000e+00, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !5
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
+  store float 1.000000e+00, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
+  store float 1.000000e+00, ptr %arrayidx3.i4.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
+  store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
+  store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !5
@@ -613,9 +672,15 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEEED2Ev.exit: ; pre
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !8
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !8
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
+  store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
+  store float 1.000000e+00, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
+  store float 1.000000e+00, ptr %arrayidx5.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
+  store float 1.000000e+00, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !8
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
+  store float 1.000000e+00, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
+  store float 1.000000e+00, ptr %arrayidx3.i4.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
+  store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
+  store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !8
@@ -624,7 +689,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEEED2Ev.exit: ; pre
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %call5.i.i.i3.i.i.i.i53 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #20, !noalias !4
+  %call5.i.i.i3.i.i.i.i53 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19, !noalias !4
   %_M_use_count.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i54, align 8, !noalias !4
   %_M_weak_count.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 12
@@ -633,8 +698,14 @@ sw.bb3:                                           ; preds = %entry
   %m_renderParams.i.i.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 24
   %m_isReverse.i.i.i.i.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 76
   %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 77
+  %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i60 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 28
+  %arrayidx5.i.i.i.i.i.i.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 32
+  %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 36
   %m_offset.i.i.i.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 40
   %m_power.i.i.i.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 56
+  %arrayidx3.i4.i.i.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 60
+  %arrayidx5.i5.i.i.i.i.i.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 64
+  %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 68
   %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i53, i64 72
   %_M_refcount.i.i69 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEEED2Ev.exit
@@ -643,9 +714,15 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEEED2Ev.exit: ; 
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i53, align 8, !noalias !11
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i58, align 4, !noalias !11
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i59, align 1, !noalias !11
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i57, align 4, !noalias !11
+  store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i57, align 4, !noalias !11
+  store float 1.000000e+00, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i60, align 4, !noalias !11
+  store float 1.000000e+00, ptr %arrayidx5.i.i.i.i.i.i.i.i.i.i.i.i61, align 4, !noalias !11
+  store float 1.000000e+00, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i62, align 4, !noalias !11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i63, i8 0, i64 16, i1 false), !noalias !11
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i64, align 4, !noalias !11
+  store float 1.000000e+00, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i64, align 4, !noalias !11
+  store float 1.000000e+00, ptr %arrayidx3.i4.i.i.i.i.i.i.i.i.i.i.i65, align 4, !noalias !11
+  store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i.i.i.i.i.i.i.i.i66, align 4, !noalias !11
+  store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i67, align 4, !noalias !11
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i68, align 4, !noalias !11
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i57, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i56, align 8, !noalias !11
@@ -657,9 +734,15 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEEED2Ev.exit: ; pre
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i53, align 8, !noalias !14
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i58, align 4, !noalias !14
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i59, align 1, !noalias !14
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i57, align 4, !noalias !14
+  store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i57, align 4, !noalias !14
+  store float 1.000000e+00, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i60, align 4, !noalias !14
+  store float 1.000000e+00, ptr %arrayidx5.i.i.i.i.i.i.i.i.i.i.i.i61, align 4, !noalias !14
+  store float 1.000000e+00, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i62, align 4, !noalias !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i63, i8 0, i64 16, i1 false), !noalias !14
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i64, align 4, !noalias !14
+  store float 1.000000e+00, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i64, align 4, !noalias !14
+  store float 1.000000e+00, ptr %arrayidx3.i4.i.i.i.i.i.i.i.i.i.i.i65, align 4, !noalias !14
+  store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i.i.i.i.i.i.i.i.i66, align 4, !noalias !14
+  store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i67, align 4, !noalias !14
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i68, align 4, !noalias !14
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i57, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i56, align 8, !noalias !14
@@ -668,7 +751,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEEED2Ev.exit: ; pre
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %call5.i.i.i3.i.i.i.i153 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #20, !noalias !4
+  %call5.i.i.i3.i.i.i.i153 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19, !noalias !4
   %_M_use_count.i.i.i.i.i.i154 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i154, align 8, !noalias !4
   %_M_weak_count.i.i.i.i.i.i155 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 12
@@ -677,8 +760,14 @@ sw.bb9:                                           ; preds = %entry
   %m_renderParams.i.i.i.i.i.i.i.i.i.i157 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 24
   %m_isReverse.i.i.i.i.i.i.i.i.i.i.i158 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 76
   %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i159 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 77
+  %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i160 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 28
+  %arrayidx5.i.i.i.i.i.i.i.i.i.i.i.i161 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 32
+  %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 36
   %m_offset.i.i.i.i.i.i.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 40
   %m_power.i.i.i.i.i.i.i.i.i.i.i.i164 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 56
+  %arrayidx3.i4.i.i.i.i.i.i.i.i.i.i.i165 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 60
+  %arrayidx5.i5.i.i.i.i.i.i.i.i.i.i.i166 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 64
+  %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i167 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 68
   %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i168 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i153, i64 72
   %_M_refcount.i.i169 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEEED2Ev.exit
@@ -687,9 +776,15 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEEED2Ev.exit: ; 
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i153, align 8, !noalias !17
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i158, align 4, !noalias !17
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i159, align 1, !noalias !17
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i157, align 4, !noalias !17
+  store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i157, align 4, !noalias !17
+  store float 1.000000e+00, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i160, align 4, !noalias !17
+  store float 1.000000e+00, ptr %arrayidx5.i.i.i.i.i.i.i.i.i.i.i.i161, align 4, !noalias !17
+  store float 1.000000e+00, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i162, align 4, !noalias !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i163, i8 0, i64 16, i1 false), !noalias !17
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i164, align 4, !noalias !17
+  store float 1.000000e+00, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i164, align 4, !noalias !17
+  store float 1.000000e+00, ptr %arrayidx3.i4.i.i.i.i.i.i.i.i.i.i.i165, align 4, !noalias !17
+  store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i.i.i.i.i.i.i.i.i166, align 4, !noalias !17
+  store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i167, align 4, !noalias !17
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i168, align 4, !noalias !17
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i157, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i156, align 8, !noalias !17
@@ -701,9 +796,15 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEEED2Ev.exit: ; pre
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i153, align 8, !noalias !20
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i158, align 4, !noalias !20
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i159, align 1, !noalias !20
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i157, align 4, !noalias !20
+  store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i157, align 4, !noalias !20
+  store float 1.000000e+00, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i160, align 4, !noalias !20
+  store float 1.000000e+00, ptr %arrayidx5.i.i.i.i.i.i.i.i.i.i.i.i161, align 4, !noalias !20
+  store float 1.000000e+00, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i162, align 4, !noalias !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i163, i8 0, i64 16, i1 false), !noalias !20
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i164, align 4, !noalias !20
+  store float 1.000000e+00, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i164, align 4, !noalias !20
+  store float 1.000000e+00, ptr %arrayidx3.i4.i.i.i.i.i.i.i.i.i.i.i165, align 4, !noalias !20
+  store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i.i.i.i.i.i.i.i.i166, align 4, !noalias !20
+  store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i167, align 4, !noalias !20
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i168, align 4, !noalias !20
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i157, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i156, align 8, !noalias !20
@@ -712,7 +813,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEEED2Ev.exit: ; pre
   br label %return
 
 sw.bb15:                                          ; preds = %entry
-  %call5.i.i.i3.i.i.i.i253 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #20, !noalias !4
+  %call5.i.i.i3.i.i.i.i253 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19, !noalias !4
   %_M_use_count.i.i.i.i.i.i254 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i254, align 8, !noalias !4
   %_M_weak_count.i.i.i.i.i.i255 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 12
@@ -721,8 +822,14 @@ sw.bb15:                                          ; preds = %entry
   %m_renderParams.i.i.i.i.i.i.i.i.i.i257 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 24
   %m_isReverse.i.i.i.i.i.i.i.i.i.i.i258 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 76
   %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i259 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 77
+  %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i260 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 28
+  %arrayidx5.i.i.i.i.i.i.i.i.i.i.i.i261 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 32
+  %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i262 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 36
   %m_offset.i.i.i.i.i.i.i.i.i.i.i.i263 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 40
   %m_power.i.i.i.i.i.i.i.i.i.i.i.i264 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 56
+  %arrayidx3.i4.i.i.i.i.i.i.i.i.i.i.i265 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 60
+  %arrayidx5.i5.i.i.i.i.i.i.i.i.i.i.i266 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 64
+  %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i267 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 68
   %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i268 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i253, i64 72
   %_M_refcount.i.i269 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEEED2Ev.exit
@@ -731,9 +838,15 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEEED2Ev.exit: ; 
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i253, align 8, !noalias !23
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i258, align 4, !noalias !23
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i259, align 1, !noalias !23
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i257, align 4, !noalias !23
+  store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i257, align 4, !noalias !23
+  store float 1.000000e+00, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i260, align 4, !noalias !23
+  store float 1.000000e+00, ptr %arrayidx5.i.i.i.i.i.i.i.i.i.i.i.i261, align 4, !noalias !23
+  store float 1.000000e+00, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i262, align 4, !noalias !23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i263, i8 0, i64 16, i1 false), !noalias !23
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i264, align 4, !noalias !23
+  store float 1.000000e+00, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i264, align 4, !noalias !23
+  store float 1.000000e+00, ptr %arrayidx3.i4.i.i.i.i.i.i.i.i.i.i.i265, align 4, !noalias !23
+  store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i.i.i.i.i.i.i.i.i266, align 4, !noalias !23
+  store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i267, align 4, !noalias !23
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i268, align 4, !noalias !23
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i257, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !23
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i256, align 8, !noalias !23
@@ -745,9 +858,15 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEEED2Ev.exit: ; pre
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i253, align 8, !noalias !26
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i258, align 4, !noalias !26
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i259, align 1, !noalias !26
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i257, align 4, !noalias !26
+  store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i257, align 4, !noalias !26
+  store float 1.000000e+00, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i.i260, align 4, !noalias !26
+  store float 1.000000e+00, ptr %arrayidx5.i.i.i.i.i.i.i.i.i.i.i.i261, align 4, !noalias !26
+  store float 1.000000e+00, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i.i.i262, align 4, !noalias !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i.i.i.i.i.i.i.i.i.i.i263, i8 0, i64 16, i1 false), !noalias !26
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i264, align 4, !noalias !26
+  store float 1.000000e+00, ptr %m_power.i.i.i.i.i.i.i.i.i.i.i.i264, align 4, !noalias !26
+  store float 1.000000e+00, ptr %arrayidx3.i4.i.i.i.i.i.i.i.i.i.i.i265, align 4, !noalias !26
+  store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i.i.i.i.i.i.i.i.i266, align 4, !noalias !26
+  store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i267, align 4, !noalias !26
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i268, align 4, !noalias !26
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i257, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !26
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i256, align 8, !noalias !26
@@ -756,18 +875,18 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEEED2Ev.exit: ; pre
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #21
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.epilog
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #21
   unreachable
 
 lpad:                                             ; preds = %sw.epilog
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr %exception) #20
   resume { ptr, i32 } %2
 
 return:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEEED2Ev.exit
@@ -794,7 +913,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev8CDLOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #23
+  tail call void @llvm.trap() #22
   unreachable
 }
 
@@ -821,7 +940,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -831,14 +950,14 @@ entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #21
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -861,7 +980,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp4.not.i, label %return, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #21
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
   br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
@@ -886,7 +1005,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1019,7 +1138,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1027,9 +1146,11 @@ entry:
 define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_4dev14CDLRendererFwdILb1EE5applyEPKvPvl(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #7 comdat align 2 {
 entry:
   %m_renderParams = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load <2 x float>, ptr %m_renderParams, align 8
+  %0 = load float, ptr %m_renderParams, align 8
+  %arrayidx2 = getelementptr inbounds i8, ptr %this, i64 12
+  %1 = load float, ptr %arrayidx2, align 4
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load float, ptr %arrayidx4, align 8
+  %2 = load float, ptr %arrayidx4, align 8
   %cmp21 = icmp sgt i64 %numPixels, 0
   br i1 %cmp21, label %for.body.lr.ph, label %for.end
 
@@ -1048,78 +1169,84 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %out.022 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
   %arrayidx5 = getelementptr inbounds i8, ptr %in.024, i64 12
-  %2 = load float, ptr %arrayidx5, align 4
+  %3 = load float, ptr %arrayidx5, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %out.022, ptr noundef nonnull align 4 dereferenceable(16) %in.024, i64 16, i1 false)
+  %4 = load float, ptr %out.022, align 4
+  %mul.i = fmul float %0, %4
+  store float %mul.i, ptr %out.022, align 4
   %arrayidx3.i = getelementptr inbounds i8, ptr %out.022, i64 4
-  %3 = load <2 x float>, ptr %out.022, align 4
-  %4 = fmul <2 x float> %0, %3
-  store <2 x float> %4, ptr %out.022, align 4
+  %5 = load float, ptr %arrayidx3.i, align 4
+  %mul5.i = fmul float %1, %5
+  store float %mul5.i, ptr %arrayidx3.i, align 4
   %arrayidx7.i = getelementptr inbounds i8, ptr %out.022, i64 8
-  %5 = load float, ptr %arrayidx7.i, align 4
-  %mul9.i = fmul float %1, %5
+  %6 = load float, ptr %arrayidx7.i, align 4
+  %mul9.i = fmul float %2, %6
   store float %mul9.i, ptr %arrayidx7.i, align 4
-  %6 = load float, ptr %m_offset.i, align 8
-  %7 = extractelement <2 x float> %4, i64 0
-  %8 = extractelement <2 x float> %4, i64 1
-  %add.i = fadd float %7, %6
+  %7 = load float, ptr %m_offset.i, align 8
+  %add.i = fadd float %mul.i, %7
   store float %add.i, ptr %out.022, align 4
-  %9 = load float, ptr %arrayidx4.i14, align 4
-  %add5.i = fadd float %8, %9
+  %8 = load float, ptr %arrayidx4.i14, align 4
+  %add5.i = fadd float %mul5.i, %8
   store float %add5.i, ptr %arrayidx3.i, align 4
-  %10 = load float, ptr %arrayidx8.i16, align 8
-  %add9.i = fadd float %mul9.i, %10
-  %11 = insertelement <2 x float> poison, float %add.i, i64 0
-  %12 = insertelement <2 x float> %11, float %add5.i, i64 1
-  %13 = fcmp ogt <2 x float> %12, zeroinitializer
-  %14 = select <2 x i1> %13, <2 x float> %12, <2 x float> zeroinitializer
-  %15 = fcmp ogt <2 x float> %14, <float 1.000000e+00, float 1.000000e+00>
-  %16 = select <2 x i1> %15, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %14
-  store <2 x float> %16, ptr %out.022, align 4
+  %9 = load float, ptr %arrayidx8.i16, align 8
+  %add9.i = fadd float %mul9.i, %9
+  %cmp.i.i.i.i = fcmp ogt float %add.i, 0.000000e+00
+  %.sroa.speculated3.i.i.i = select i1 %cmp.i.i.i.i, float %add.i, float 0.000000e+00
+  %cmp.i1.i.i.i = fcmp ogt float %.sroa.speculated3.i.i.i, 1.000000e+00
+  %.sroa.speculated.i.i.i = select i1 %cmp.i1.i.i.i, float 1.000000e+00, float %.sroa.speculated3.i.i.i
+  store float %.sroa.speculated.i.i.i, ptr %out.022, align 4
+  %cmp.i.i6.i.i = fcmp ogt float %add5.i, 0.000000e+00
+  %.sroa.speculated3.i7.i.i = select i1 %cmp.i.i6.i.i, float %add5.i, float 0.000000e+00
+  %cmp.i1.i8.i.i = fcmp ogt float %.sroa.speculated3.i7.i.i, 1.000000e+00
+  %.sroa.speculated.i9.i.i = select i1 %cmp.i1.i8.i.i, float 1.000000e+00, float %.sroa.speculated3.i7.i.i
+  store float %.sroa.speculated.i9.i.i, ptr %arrayidx3.i, align 4
   %cmp.i.i10.i.i = fcmp ogt float %add9.i, 0.000000e+00
   %.sroa.speculated3.i11.i.i = select i1 %cmp.i.i10.i.i, float %add9.i, float 0.000000e+00
   %cmp.i1.i12.i.i = fcmp ogt float %.sroa.speculated3.i11.i.i, 1.000000e+00
   %.sroa.speculated.i13.i.i = select i1 %cmp.i1.i12.i.i, float 1.000000e+00, float %.sroa.speculated3.i11.i.i
   store float %.sroa.speculated.i13.i.i, ptr %arrayidx7.i, align 4
-  %17 = load float, ptr %m_power.i, align 8
-  %18 = extractelement <2 x float> %16, i64 0
-  %call.i = tail call float @powf(float noundef %18, float noundef %17) #21
+  %10 = load float, ptr %m_power.i, align 8
+  %call.i = tail call float @powf(float noundef %.sroa.speculated.i.i.i, float noundef %10) #20
   store float %call.i, ptr %out.022, align 4
-  %19 = load float, ptr %arrayidx3.i, align 4
-  %20 = load float, ptr %arrayidx4.i17, align 4
-  %call5.i = tail call float @powf(float noundef %19, float noundef %20) #21
+  %11 = load float, ptr %arrayidx3.i, align 4
+  %12 = load float, ptr %arrayidx4.i17, align 4
+  %call5.i = tail call float @powf(float noundef %11, float noundef %12) #20
   store float %call5.i, ptr %arrayidx3.i, align 4
-  %21 = load float, ptr %arrayidx7.i, align 4
-  %22 = load float, ptr %arrayidx8.i18, align 8
-  %call9.i = tail call float @powf(float noundef %21, float noundef %22) #21
+  %13 = load float, ptr %arrayidx7.i, align 4
+  %14 = load float, ptr %arrayidx8.i18, align 8
+  %call9.i = tail call float @powf(float noundef %13, float noundef %14) #20
   store float %call9.i, ptr %arrayidx7.i, align 4
-  %23 = load float, ptr %m_saturation.i, align 8
+  %15 = load float, ptr %m_saturation.i, align 8
+  %16 = load float, ptr %out.022, align 4
+  %17 = load float, ptr %arrayidx3.i, align 4
+  %mul.i.i = fmul float %16, 0x3FCB367A00000000
+  %mul5.i.i = fmul float %17, 0x3FE6E2EB20000000
   %mul9.i.i = fmul float %call9.i, 0x3FB27BB300000000
-  %24 = load <2 x float>, ptr %out.022, align 4
-  %25 = fmul <2 x float> %24, <float 0x3FCB367A00000000, float 0x3FE6E2EB20000000>
-  %shift = shufflevector <2 x float> %25, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %26 = fadd <2 x float> %25, %shift
-  %add.i20 = extractelement <2 x float> %26, i64 0
+  %add.i20 = fadd float %mul.i.i, %mul5.i.i
   %add7.i = fadd float %mul9.i.i, %add.i20
-  %27 = insertelement <2 x float> poison, float %add7.i, i64 0
-  %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
-  %29 = fsub <2 x float> %24, %28
-  %30 = insertelement <2 x float> poison, float %23, i64 0
-  %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
-  %32 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %31, <2 x float> %29, <2 x float> %28)
+  %sub.i = fsub float %16, %add7.i
+  %18 = tail call float @llvm.fmuladd.f32(float %15, float %sub.i, float %add7.i)
+  %sub11.i = fsub float %17, %add7.i
+  %19 = tail call float @llvm.fmuladd.f32(float %15, float %sub11.i, float %add7.i)
   %sub14.i = fsub float %call9.i, %add7.i
-  %33 = tail call float @llvm.fmuladd.f32(float %23, float %sub14.i, float %add7.i)
-  %34 = fcmp ogt <2 x float> %32, zeroinitializer
-  %35 = select <2 x i1> %34, <2 x float> %32, <2 x float> zeroinitializer
-  %36 = fcmp ogt <2 x float> %35, <float 1.000000e+00, float 1.000000e+00>
-  %37 = select <2 x i1> %36, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %35
-  store <2 x float> %37, ptr %out.022, align 4
-  %cmp.i.i10.i = fcmp ogt float %33, 0.000000e+00
-  %.sroa.speculated3.i11.i = select i1 %cmp.i.i10.i, float %33, float 0.000000e+00
+  %20 = tail call float @llvm.fmuladd.f32(float %15, float %sub14.i, float %add7.i)
+  %cmp.i.i.i = fcmp ogt float %18, 0.000000e+00
+  %.sroa.speculated3.i.i = select i1 %cmp.i.i.i, float %18, float 0.000000e+00
+  %cmp.i1.i.i = fcmp ogt float %.sroa.speculated3.i.i, 1.000000e+00
+  %.sroa.speculated.i.i = select i1 %cmp.i1.i.i, float 1.000000e+00, float %.sroa.speculated3.i.i
+  store float %.sroa.speculated.i.i, ptr %out.022, align 4
+  %cmp.i.i6.i = fcmp ogt float %19, 0.000000e+00
+  %.sroa.speculated3.i7.i = select i1 %cmp.i.i6.i, float %19, float 0.000000e+00
+  %cmp.i1.i8.i = fcmp ogt float %.sroa.speculated3.i7.i, 1.000000e+00
+  %.sroa.speculated.i9.i = select i1 %cmp.i1.i8.i, float 1.000000e+00, float %.sroa.speculated3.i7.i
+  store float %.sroa.speculated.i9.i, ptr %arrayidx3.i, align 4
+  %cmp.i.i10.i = fcmp ogt float %20, 0.000000e+00
+  %.sroa.speculated3.i11.i = select i1 %cmp.i.i10.i, float %20, float 0.000000e+00
   %cmp.i1.i12.i = fcmp ogt float %.sroa.speculated3.i11.i, 1.000000e+00
   %.sroa.speculated.i13.i = select i1 %cmp.i1.i12.i, float 1.000000e+00, float %.sroa.speculated3.i11.i
   store float %.sroa.speculated.i13.i, ptr %arrayidx7.i, align 4
   %arrayidx12 = getelementptr inbounds i8, ptr %out.022, i64 12
-  store float %2, ptr %arrayidx12, align 4
+  store float %3, ptr %arrayidx12, align 4
   %add.ptr = getelementptr inbounds i8, ptr %in.024, i64 16
   %add.ptr13 = getelementptr inbounds i8, ptr %out.022, i64 16
   %inc = add nuw nsw i64 %idx.023, 1
@@ -1160,7 +1287,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1170,14 +1297,14 @@ entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #21
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1200,7 +1327,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp4.not.i, label %return, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #21
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
   br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
@@ -1222,7 +1349,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1232,14 +1359,14 @@ entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #21
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1262,7 +1389,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp4.not.i, label %return, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #21
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
   br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
@@ -1284,7 +1411,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1414,7 +1541,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1422,9 +1549,11 @@ entry:
 define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_4dev14CDLRendererFwdILb0EE5applyEPKvPvl(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #7 comdat align 2 {
 entry:
   %m_renderParams = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load <2 x float>, ptr %m_renderParams, align 8
+  %0 = load float, ptr %m_renderParams, align 8
+  %arrayidx2 = getelementptr inbounds i8, ptr %this, i64 12
+  %1 = load float, ptr %arrayidx2, align 4
   %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load float, ptr %arrayidx4, align 8
+  %2 = load float, ptr %arrayidx4, align 8
   %cmp19 = icmp sgt i64 %numPixels, 0
   br i1 %cmp19, label %for.body.lr.ph, label %for.end
 
@@ -1443,98 +1572,96 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %idx.021 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit ]
   %out.020 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit ]
   %arrayidx5 = getelementptr inbounds i8, ptr %in.022, i64 12
-  %2 = load float, ptr %arrayidx5, align 4
+  %3 = load float, ptr %arrayidx5, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %out.020, ptr noundef nonnull align 4 dereferenceable(16) %in.022, i64 16, i1 false)
+  %4 = load float, ptr %out.020, align 4
+  %mul.i = fmul float %0, %4
+  store float %mul.i, ptr %out.020, align 4
   %arrayidx3.i = getelementptr inbounds i8, ptr %out.020, i64 4
-  %3 = load <2 x float>, ptr %out.020, align 4
-  %4 = fmul <2 x float> %0, %3
-  store <2 x float> %4, ptr %out.020, align 4
+  %5 = load float, ptr %arrayidx3.i, align 4
+  %mul5.i = fmul float %1, %5
+  store float %mul5.i, ptr %arrayidx3.i, align 4
   %arrayidx7.i = getelementptr inbounds i8, ptr %out.020, i64 8
-  %5 = load float, ptr %arrayidx7.i, align 4
-  %mul9.i = fmul float %1, %5
+  %6 = load float, ptr %arrayidx7.i, align 4
+  %mul9.i = fmul float %2, %6
   store float %mul9.i, ptr %arrayidx7.i, align 4
-  %6 = load float, ptr %m_offset.i, align 8
-  %7 = extractelement <2 x float> %4, i64 0
-  %add.i = fadd float %7, %6
+  %7 = load float, ptr %m_offset.i, align 8
+  %add.i = fadd float %mul.i, %7
   store float %add.i, ptr %out.020, align 4
   %8 = load float, ptr %arrayidx4.i14, align 4
-  %9 = extractelement <2 x float> %4, i64 1
-  %add5.i = fadd float %9, %8
+  %add5.i = fadd float %mul5.i, %8
   store float %add5.i, ptr %arrayidx3.i, align 4
-  %10 = load float, ptr %arrayidx8.i16, align 8
-  %add9.i = fadd float %mul9.i, %10
+  %9 = load float, ptr %arrayidx8.i16, align 8
+  %add9.i = fadd float %mul9.i, %9
   store float %add9.i, ptr %arrayidx7.i, align 4
-  %11 = fcmp uno float %add.i, 0.000000e+00
-  br i1 %11, label %cond.end8.i, label %cond.false.i
+  %10 = fcmp uno float %add.i, 0.000000e+00
+  br i1 %10, label %cond.end8.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %for.body
   %cmp.i = fcmp olt float %add.i, 0.000000e+00
   br i1 %cmp.i, label %cond.end8.i, label %cond.false4.i
 
 cond.false4.i:                                    ; preds = %cond.false.i
-  %12 = load float, ptr %m_power.i, align 8
-  %call7.i = tail call float @powf(float noundef %add.i, float noundef %12) #21
+  %11 = load float, ptr %m_power.i, align 8
+  %call7.i = tail call float @powf(float noundef %add.i, float noundef %11) #20
   %.pre = load float, ptr %arrayidx3.i, align 4
   br label %cond.end8.i
 
 cond.end8.i:                                      ; preds = %cond.false4.i, %cond.false.i, %for.body
-  %13 = phi float [ %add5.i, %for.body ], [ %.pre, %cond.false4.i ], [ %add5.i, %cond.false.i ]
+  %12 = phi float [ %add5.i, %for.body ], [ %.pre, %cond.false4.i ], [ %add5.i, %cond.false.i ]
   %cond9.i = phi float [ 0.000000e+00, %for.body ], [ %call7.i, %cond.false4.i ], [ %add.i, %cond.false.i ]
   store float %cond9.i, ptr %out.020, align 4
-  %14 = fcmp uno float %13, 0.000000e+00
-  br i1 %14, label %cond.end25.i, label %cond.false14.i
+  %13 = fcmp uno float %12, 0.000000e+00
+  br i1 %13, label %cond.end25.i, label %cond.false14.i
 
 cond.false14.i:                                   ; preds = %cond.end8.i
-  %cmp16.i = fcmp olt float %13, 0.000000e+00
+  %cmp16.i = fcmp olt float %12, 0.000000e+00
   br i1 %cmp16.i, label %cond.end25.i, label %cond.false19.i
 
 cond.false19.i:                                   ; preds = %cond.false14.i
-  %15 = load float, ptr %arrayidx21.i, align 4
-  %call22.i = tail call float @powf(float noundef %13, float noundef %15) #21
+  %14 = load float, ptr %arrayidx21.i, align 4
+  %call22.i = tail call float @powf(float noundef %12, float noundef %14) #20
   br label %cond.end25.i
 
 cond.end25.i:                                     ; preds = %cond.false19.i, %cond.false14.i, %cond.end8.i
-  %cond26.i = phi float [ 0.000000e+00, %cond.end8.i ], [ %call22.i, %cond.false19.i ], [ %13, %cond.false14.i ]
+  %cond26.i = phi float [ 0.000000e+00, %cond.end8.i ], [ %call22.i, %cond.false19.i ], [ %12, %cond.false14.i ]
   store float %cond26.i, ptr %arrayidx3.i, align 4
-  %16 = load float, ptr %arrayidx7.i, align 4
-  %17 = fcmp uno float %16, 0.000000e+00
-  br i1 %17, label %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit, label %cond.false31.i
+  %15 = load float, ptr %arrayidx7.i, align 4
+  %16 = fcmp uno float %15, 0.000000e+00
+  br i1 %16, label %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit, label %cond.false31.i
 
 cond.false31.i:                                   ; preds = %cond.end25.i
-  %cmp33.i = fcmp olt float %16, 0.000000e+00
+  %cmp33.i = fcmp olt float %15, 0.000000e+00
   br i1 %cmp33.i, label %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit, label %cond.false36.i
 
 cond.false36.i:                                   ; preds = %cond.false31.i
-  %18 = load float, ptr %arrayidx38.i, align 8
-  %call39.i = tail call float @powf(float noundef %16, float noundef %18) #21
+  %17 = load float, ptr %arrayidx38.i, align 8
+  %call39.i = tail call float @powf(float noundef %15, float noundef %17) #20
   %.pre23 = load float, ptr %arrayidx3.i, align 4
   br label %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit
 
 _ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit: ; preds = %cond.end25.i, %cond.false31.i, %cond.false36.i
-  %19 = phi float [ %cond26.i, %cond.end25.i ], [ %.pre23, %cond.false36.i ], [ %cond26.i, %cond.false31.i ]
-  %cond43.i = phi float [ 0.000000e+00, %cond.end25.i ], [ %call39.i, %cond.false36.i ], [ %16, %cond.false31.i ]
+  %18 = phi float [ %cond26.i, %cond.end25.i ], [ %.pre23, %cond.false36.i ], [ %cond26.i, %cond.false31.i ]
+  %cond43.i = phi float [ 0.000000e+00, %cond.end25.i ], [ %call39.i, %cond.false36.i ], [ %15, %cond.false31.i ]
   store float %cond43.i, ptr %arrayidx7.i, align 4
-  %20 = load float, ptr %m_saturation.i, align 8
-  %21 = load float, ptr %out.020, align 4
-  %mul.i.i = fmul float %21, 0x3FCB367A00000000
-  %mul5.i.i = fmul float %19, 0x3FE6E2EB20000000
+  %19 = load float, ptr %m_saturation.i, align 8
+  %20 = load float, ptr %out.020, align 4
+  %mul.i.i = fmul float %20, 0x3FCB367A00000000
+  %mul5.i.i = fmul float %18, 0x3FE6E2EB20000000
   %mul9.i.i = fmul float %cond43.i, 0x3FB27BB300000000
   %add.i18 = fadd float %mul.i.i, %mul5.i.i
   %add7.i = fadd float %mul9.i.i, %add.i18
-  %22 = insertelement <2 x float> poison, float %21, i64 0
-  %23 = insertelement <2 x float> %22, float %19, i64 1
-  %24 = insertelement <2 x float> poison, float %add7.i, i64 0
-  %25 = shufflevector <2 x float> %24, <2 x float> poison, <2 x i32> zeroinitializer
-  %26 = fsub <2 x float> %23, %25
-  %27 = insertelement <2 x float> poison, float %20, i64 0
-  %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
-  %29 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %28, <2 x float> %26, <2 x float> %25)
-  store <2 x float> %29, ptr %out.020, align 4
+  %sub.i = fsub float %20, %add7.i
+  %21 = tail call float @llvm.fmuladd.f32(float %19, float %sub.i, float %add7.i)
+  store float %21, ptr %out.020, align 4
+  %sub11.i = fsub float %18, %add7.i
+  %22 = tail call float @llvm.fmuladd.f32(float %19, float %sub11.i, float %add7.i)
+  store float %22, ptr %arrayidx3.i, align 4
   %sub14.i = fsub float %cond43.i, %add7.i
-  %30 = tail call float @llvm.fmuladd.f32(float %20, float %sub14.i, float %add7.i)
-  store float %30, ptr %arrayidx7.i, align 4
+  %23 = tail call float @llvm.fmuladd.f32(float %19, float %sub14.i, float %add7.i)
+  store float %23, ptr %arrayidx7.i, align 4
   %arrayidx12 = getelementptr inbounds i8, ptr %out.020, i64 12
-  store float %2, ptr %arrayidx12, align 4
+  store float %3, ptr %arrayidx12, align 4
   %add.ptr = getelementptr inbounds i8, ptr %in.022, i64 16
   %add.ptr13 = getelementptr inbounds i8, ptr %out.020, i64 16
   %inc = add nuw nsw i64 %idx.021, 1
@@ -1554,7 +1681,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1564,14 +1691,14 @@ entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #21
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1594,7 +1721,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp4.not.i, label %return, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #21
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
   br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
@@ -1616,7 +1743,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1626,14 +1753,14 @@ entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #21
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1656,7 +1783,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp4.not.i, label %return, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #21
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
   br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
@@ -1678,7 +1805,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1813,7 +1940,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev14CDLRendererRevILb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1843,83 +1970,93 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds i8, ptr %in.037, i64 12
   %0 = load float, ptr %arrayidx, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %out.035, ptr noundef nonnull align 4 dereferenceable(16) %in.037, i64 16, i1 false)
+  %1 = load float, ptr %out.035, align 4
+  %cmp.i.i.i = fcmp ogt float %1, 0.000000e+00
+  %.sroa.speculated3.i.i = select i1 %cmp.i.i.i, float %1, float 0.000000e+00
+  %cmp.i1.i.i = fcmp ogt float %.sroa.speculated3.i.i, 1.000000e+00
+  %.sroa.speculated.i.i = select i1 %cmp.i1.i.i, float 1.000000e+00, float %.sroa.speculated3.i.i
+  store float %.sroa.speculated.i.i, ptr %out.035, align 4
   %arrayidx2.i = getelementptr inbounds i8, ptr %out.035, i64 4
+  %2 = load float, ptr %arrayidx2.i, align 4
+  %cmp.i.i6.i = fcmp ogt float %2, 0.000000e+00
+  %.sroa.speculated3.i7.i = select i1 %cmp.i.i6.i, float %2, float 0.000000e+00
+  %cmp.i1.i8.i = fcmp ogt float %.sroa.speculated3.i7.i, 1.000000e+00
+  %.sroa.speculated.i9.i = select i1 %cmp.i1.i8.i, float 1.000000e+00, float %.sroa.speculated3.i7.i
+  store float %.sroa.speculated.i9.i, ptr %arrayidx2.i, align 4
   %arrayidx5.i = getelementptr inbounds i8, ptr %out.035, i64 8
-  %1 = load float, ptr %arrayidx5.i, align 4
-  %cmp.i.i10.i = fcmp ogt float %1, 0.000000e+00
-  %.sroa.speculated3.i11.i = select i1 %cmp.i.i10.i, float %1, float 0.000000e+00
+  %3 = load float, ptr %arrayidx5.i, align 4
+  %cmp.i.i10.i = fcmp ogt float %3, 0.000000e+00
+  %.sroa.speculated3.i11.i = select i1 %cmp.i.i10.i, float %3, float 0.000000e+00
   %cmp.i1.i12.i = fcmp ogt float %.sroa.speculated3.i11.i, 1.000000e+00
   %.sroa.speculated.i13.i = select i1 %cmp.i1.i12.i, float 1.000000e+00, float %.sroa.speculated3.i11.i
   store float %.sroa.speculated.i13.i, ptr %arrayidx5.i, align 4
+  %4 = load float, ptr %m_saturation.i, align 8
+  %mul.i.i = fmul float %.sroa.speculated.i.i, 0x3FCB367A00000000
+  %mul5.i.i = fmul float %.sroa.speculated.i9.i, 0x3FE6E2EB20000000
   %mul9.i.i = fmul float %.sroa.speculated.i13.i, 0x3FB27BB300000000
-  %2 = load <2 x float>, ptr %out.035, align 4
-  %3 = fcmp ogt <2 x float> %2, zeroinitializer
-  %4 = select <2 x i1> %3, <2 x float> %2, <2 x float> zeroinitializer
-  %5 = fcmp ogt <2 x float> %4, <float 1.000000e+00, float 1.000000e+00>
-  %6 = select <2 x i1> %5, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %4
-  store <2 x float> %6, ptr %out.035, align 4
-  %7 = load float, ptr %m_saturation.i, align 8
-  %8 = fmul <2 x float> %6, <float 0x3FCB367A00000000, float 0x3FE6E2EB20000000>
-  %shift = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %9 = fadd <2 x float> %8, %shift
-  %add.i = extractelement <2 x float> %9, i64 0
+  %add.i = fadd float %mul.i.i, %mul5.i.i
   %add7.i = fadd float %add.i, %mul9.i.i
-  %10 = insertelement <2 x float> poison, float %add7.i, i64 0
-  %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
-  %12 = fsub <2 x float> %6, %11
-  %13 = insertelement <2 x float> poison, float %7, i64 0
-  %14 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> zeroinitializer
-  %15 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %14, <2 x float> %12, <2 x float> %11)
+  %sub.i = fsub float %.sroa.speculated.i.i, %add7.i
+  %5 = tail call float @llvm.fmuladd.f32(float %4, float %sub.i, float %add7.i)
+  %sub11.i = fsub float %.sroa.speculated.i9.i, %add7.i
+  %6 = tail call float @llvm.fmuladd.f32(float %4, float %sub11.i, float %add7.i)
   %sub14.i = fsub float %.sroa.speculated.i13.i, %add7.i
-  %16 = tail call float @llvm.fmuladd.f32(float %7, float %sub14.i, float %add7.i)
-  %17 = fcmp ogt <2 x float> %15, zeroinitializer
-  %18 = select <2 x i1> %17, <2 x float> %15, <2 x float> zeroinitializer
-  %19 = fcmp ogt <2 x float> %18, <float 1.000000e+00, float 1.000000e+00>
-  %20 = select <2 x i1> %19, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %18
-  store <2 x float> %20, ptr %out.035, align 4
-  %cmp.i.i10.i.i = fcmp ogt float %16, 0.000000e+00
-  %.sroa.speculated3.i11.i.i = select i1 %cmp.i.i10.i.i, float %16, float 0.000000e+00
+  %7 = tail call float @llvm.fmuladd.f32(float %4, float %sub14.i, float %add7.i)
+  %cmp.i.i.i.i = fcmp ogt float %5, 0.000000e+00
+  %.sroa.speculated3.i.i.i = select i1 %cmp.i.i.i.i, float %5, float 0.000000e+00
+  %cmp.i1.i.i.i = fcmp ogt float %.sroa.speculated3.i.i.i, 1.000000e+00
+  %.sroa.speculated.i.i.i = select i1 %cmp.i1.i.i.i, float 1.000000e+00, float %.sroa.speculated3.i.i.i
+  store float %.sroa.speculated.i.i.i, ptr %out.035, align 4
+  %cmp.i.i6.i.i = fcmp ogt float %6, 0.000000e+00
+  %.sroa.speculated3.i7.i.i = select i1 %cmp.i.i6.i.i, float %6, float 0.000000e+00
+  %cmp.i1.i8.i.i = fcmp ogt float %.sroa.speculated3.i7.i.i, 1.000000e+00
+  %.sroa.speculated.i9.i.i = select i1 %cmp.i1.i8.i.i, float 1.000000e+00, float %.sroa.speculated3.i7.i.i
+  store float %.sroa.speculated.i9.i.i, ptr %arrayidx2.i, align 4
+  %cmp.i.i10.i.i = fcmp ogt float %7, 0.000000e+00
+  %.sroa.speculated3.i11.i.i = select i1 %cmp.i.i10.i.i, float %7, float 0.000000e+00
   %cmp.i1.i12.i.i = fcmp ogt float %.sroa.speculated3.i11.i.i, 1.000000e+00
   %.sroa.speculated.i13.i.i = select i1 %cmp.i1.i12.i.i, float 1.000000e+00, float %.sroa.speculated3.i11.i.i
   store float %.sroa.speculated.i13.i.i, ptr %arrayidx5.i, align 4
-  %21 = load float, ptr %m_power.i, align 8
-  %22 = extractelement <2 x float> %20, i64 0
-  %call.i = tail call float @powf(float noundef %22, float noundef %21) #21
+  %8 = load float, ptr %m_power.i, align 8
+  %call.i = tail call float @powf(float noundef %.sroa.speculated.i.i.i, float noundef %8) #20
   store float %call.i, ptr %out.035, align 4
-  %23 = load float, ptr %arrayidx2.i, align 4
-  %24 = load float, ptr %arrayidx4.i, align 4
-  %call5.i = tail call float @powf(float noundef %23, float noundef %24) #21
+  %9 = load float, ptr %arrayidx2.i, align 4
+  %10 = load float, ptr %arrayidx4.i, align 4
+  %call5.i = tail call float @powf(float noundef %9, float noundef %10) #20
   store float %call5.i, ptr %arrayidx2.i, align 4
-  %25 = load float, ptr %arrayidx5.i, align 4
-  %26 = load float, ptr %arrayidx8.i, align 8
-  %call9.i = tail call float @powf(float noundef %25, float noundef %26) #21
+  %11 = load float, ptr %arrayidx5.i, align 4
+  %12 = load float, ptr %arrayidx8.i, align 8
+  %call9.i = tail call float @powf(float noundef %11, float noundef %12) #20
   store float %call9.i, ptr %arrayidx5.i, align 4
-  %27 = load float, ptr %out.035, align 4
-  %28 = load float, ptr %m_offset.i, align 8
-  %add.i12 = fadd float %27, %28
+  %13 = load float, ptr %out.035, align 4
+  %14 = load float, ptr %m_offset.i, align 8
+  %add.i12 = fadd float %13, %14
   store float %add.i12, ptr %out.035, align 4
-  %29 = load float, ptr %arrayidx2.i, align 4
-  %30 = load float, ptr %arrayidx4.i14, align 4
-  %add5.i = fadd float %29, %30
+  %15 = load float, ptr %arrayidx2.i, align 4
+  %16 = load float, ptr %arrayidx4.i14, align 4
+  %add5.i = fadd float %15, %16
   store float %add5.i, ptr %arrayidx2.i, align 4
-  %31 = load float, ptr %arrayidx8.i15, align 8
-  %add9.i = fadd float %call9.i, %31
+  %17 = load float, ptr %arrayidx8.i15, align 8
+  %add9.i = fadd float %call9.i, %17
   store float %add9.i, ptr %arrayidx5.i, align 4
-  %32 = load float, ptr %m_renderParams, align 8
-  %mul.i = fmul float %add.i12, %32
+  %18 = load float, ptr %m_renderParams, align 8
+  %mul.i = fmul float %add.i12, %18
   store float %mul.i, ptr %out.035, align 4
-  %33 = load float, ptr %arrayidx4.i17, align 4
-  %mul5.i = fmul float %add5.i, %33
+  %19 = load float, ptr %arrayidx4.i17, align 4
+  %mul5.i = fmul float %add5.i, %19
   store float %mul5.i, ptr %arrayidx2.i, align 4
-  %34 = load float, ptr %arrayidx8.i19, align 8
-  %mul9.i = fmul float %add9.i, %34
-  %35 = insertelement <2 x float> poison, float %mul.i, i64 0
-  %36 = insertelement <2 x float> %35, float %mul5.i, i64 1
-  %37 = fcmp ogt <2 x float> %36, zeroinitializer
-  %38 = select <2 x i1> %37, <2 x float> %36, <2 x float> zeroinitializer
-  %39 = fcmp ogt <2 x float> %38, <float 1.000000e+00, float 1.000000e+00>
-  %40 = select <2 x i1> %39, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %38
-  store <2 x float> %40, ptr %out.035, align 4
+  %20 = load float, ptr %arrayidx8.i19, align 8
+  %mul9.i = fmul float %add9.i, %20
+  %cmp.i.i.i20 = fcmp ogt float %mul.i, 0.000000e+00
+  %.sroa.speculated3.i.i21 = select i1 %cmp.i.i.i20, float %mul.i, float 0.000000e+00
+  %cmp.i1.i.i22 = fcmp ogt float %.sroa.speculated3.i.i21, 1.000000e+00
+  %.sroa.speculated.i.i23 = select i1 %cmp.i1.i.i22, float 1.000000e+00, float %.sroa.speculated3.i.i21
+  store float %.sroa.speculated.i.i23, ptr %out.035, align 4
+  %cmp.i.i6.i25 = fcmp ogt float %mul5.i, 0.000000e+00
+  %.sroa.speculated3.i7.i26 = select i1 %cmp.i.i6.i25, float %mul5.i, float 0.000000e+00
+  %cmp.i1.i8.i27 = fcmp ogt float %.sroa.speculated3.i7.i26, 1.000000e+00
+  %.sroa.speculated.i9.i28 = select i1 %cmp.i1.i8.i27, float 1.000000e+00, float %.sroa.speculated3.i7.i26
+  store float %.sroa.speculated.i9.i28, ptr %arrayidx2.i, align 4
   %cmp.i.i10.i30 = fcmp ogt float %mul9.i, 0.000000e+00
   %.sroa.speculated3.i11.i31 = select i1 %cmp.i.i10.i30, float %mul9.i, float 0.000000e+00
   %cmp.i1.i12.i32 = fcmp ogt float %.sroa.speculated3.i11.i31, 1.000000e+00
@@ -1946,7 +2083,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1956,14 +2093,14 @@ entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #21
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -1986,7 +2123,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp4.not.i, label %return, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #21
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
   br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
@@ -2008,7 +2145,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -2018,14 +2155,14 @@ entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #21
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -2048,7 +2185,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp4.not.i, label %return, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #21
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
   br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
@@ -2070,7 +2207,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -2200,7 +2337,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev14CDLRendererRevILb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -2233,97 +2370,91 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %1 = load float, ptr %m_saturation.i, align 8
   %2 = load float, ptr %out.019, align 4
   %arrayidx1.i = getelementptr inbounds i8, ptr %out.019, i64 4
+  %3 = load float, ptr %arrayidx1.i, align 4
   %arrayidx3.i = getelementptr inbounds i8, ptr %out.019, i64 8
+  %4 = load float, ptr %arrayidx3.i, align 4
   %mul.i.i = fmul float %2, 0x3FCB367A00000000
-  %3 = load <2 x float>, ptr %arrayidx1.i, align 4
-  %4 = fmul <2 x float> %3, <float 0x3FE6E2EB20000000, float 0x3FB27BB300000000>
-  %5 = extractelement <2 x float> %4, i64 0
-  %add.i = fadd float %mul.i.i, %5
-  %6 = extractelement <2 x float> %4, i64 1
-  %add7.i = fadd float %add.i, %6
-  %7 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
-  %8 = insertelement <2 x float> %7, float %2, i64 0
-  %9 = insertelement <2 x float> poison, float %add7.i, i64 0
-  %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> zeroinitializer
-  %11 = fsub <2 x float> %8, %10
-  %12 = insertelement <2 x float> poison, float %1, i64 0
-  %13 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> zeroinitializer
-  %14 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %13, <2 x float> %11, <2 x float> %10)
-  store <2 x float> %14, ptr %out.019, align 4
-  %15 = extractelement <2 x float> %3, i64 1
-  %sub14.i = fsub float %15, %add7.i
-  %16 = tail call float @llvm.fmuladd.f32(float %1, float %sub14.i, float %add7.i)
-  store float %16, ptr %arrayidx3.i, align 4
-  %17 = extractelement <2 x float> %14, i64 0
-  %18 = fcmp uno float %17, 0.000000e+00
-  %19 = extractelement <2 x float> %14, i64 1
-  br i1 %18, label %cond.end8.i, label %cond.false.i
+  %mul5.i.i = fmul float %3, 0x3FE6E2EB20000000
+  %mul9.i.i = fmul float %4, 0x3FB27BB300000000
+  %add.i = fadd float %mul.i.i, %mul5.i.i
+  %add7.i = fadd float %add.i, %mul9.i.i
+  %sub.i = fsub float %2, %add7.i
+  %5 = tail call float @llvm.fmuladd.f32(float %1, float %sub.i, float %add7.i)
+  store float %5, ptr %out.019, align 4
+  %sub11.i = fsub float %3, %add7.i
+  %6 = tail call float @llvm.fmuladd.f32(float %1, float %sub11.i, float %add7.i)
+  store float %6, ptr %arrayidx1.i, align 4
+  %sub14.i = fsub float %4, %add7.i
+  %7 = tail call float @llvm.fmuladd.f32(float %1, float %sub14.i, float %add7.i)
+  store float %7, ptr %arrayidx3.i, align 4
+  %8 = fcmp uno float %5, 0.000000e+00
+  br i1 %8, label %cond.end8.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %for.body
-  %cmp.i = fcmp olt float %17, 0.000000e+00
+  %cmp.i = fcmp olt float %5, 0.000000e+00
   br i1 %cmp.i, label %cond.end8.i, label %cond.false4.i
 
 cond.false4.i:                                    ; preds = %cond.false.i
-  %20 = load float, ptr %m_power.i, align 8
-  %call7.i = tail call float @powf(float noundef %17, float noundef %20) #21
+  %9 = load float, ptr %m_power.i, align 8
+  %call7.i = tail call float @powf(float noundef %5, float noundef %9) #20
   %.pre = load float, ptr %arrayidx1.i, align 4
   br label %cond.end8.i
 
 cond.end8.i:                                      ; preds = %cond.false4.i, %cond.false.i, %for.body
-  %21 = phi float [ %19, %for.body ], [ %.pre, %cond.false4.i ], [ %19, %cond.false.i ]
-  %cond9.i = phi float [ 0.000000e+00, %for.body ], [ %call7.i, %cond.false4.i ], [ %17, %cond.false.i ]
+  %10 = phi float [ %6, %for.body ], [ %.pre, %cond.false4.i ], [ %6, %cond.false.i ]
+  %cond9.i = phi float [ 0.000000e+00, %for.body ], [ %call7.i, %cond.false4.i ], [ %5, %cond.false.i ]
   store float %cond9.i, ptr %out.019, align 4
-  %22 = fcmp uno float %21, 0.000000e+00
-  br i1 %22, label %cond.end25.i, label %cond.false14.i
+  %11 = fcmp uno float %10, 0.000000e+00
+  br i1 %11, label %cond.end25.i, label %cond.false14.i
 
 cond.false14.i:                                   ; preds = %cond.end8.i
-  %cmp16.i = fcmp olt float %21, 0.000000e+00
+  %cmp16.i = fcmp olt float %10, 0.000000e+00
   br i1 %cmp16.i, label %cond.end25.i, label %cond.false19.i
 
 cond.false19.i:                                   ; preds = %cond.false14.i
-  %23 = load float, ptr %arrayidx21.i, align 4
-  %call22.i = tail call float @powf(float noundef %21, float noundef %23) #21
+  %12 = load float, ptr %arrayidx21.i, align 4
+  %call22.i = tail call float @powf(float noundef %10, float noundef %12) #20
   br label %cond.end25.i
 
 cond.end25.i:                                     ; preds = %cond.false19.i, %cond.false14.i, %cond.end8.i
-  %cond26.i = phi float [ 0.000000e+00, %cond.end8.i ], [ %call22.i, %cond.false19.i ], [ %21, %cond.false14.i ]
+  %cond26.i = phi float [ 0.000000e+00, %cond.end8.i ], [ %call22.i, %cond.false19.i ], [ %10, %cond.false14.i ]
   store float %cond26.i, ptr %arrayidx1.i, align 4
-  %24 = load float, ptr %arrayidx3.i, align 4
-  %25 = fcmp uno float %24, 0.000000e+00
-  br i1 %25, label %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit, label %cond.false31.i
+  %13 = load float, ptr %arrayidx3.i, align 4
+  %14 = fcmp uno float %13, 0.000000e+00
+  br i1 %14, label %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit, label %cond.false31.i
 
 cond.false31.i:                                   ; preds = %cond.end25.i
-  %cmp33.i = fcmp olt float %24, 0.000000e+00
+  %cmp33.i = fcmp olt float %13, 0.000000e+00
   br i1 %cmp33.i, label %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit, label %cond.false36.i
 
 cond.false36.i:                                   ; preds = %cond.false31.i
-  %26 = load float, ptr %arrayidx38.i, align 8
-  %call39.i = tail call float @powf(float noundef %24, float noundef %26) #21
+  %15 = load float, ptr %arrayidx38.i, align 8
+  %call39.i = tail call float @powf(float noundef %13, float noundef %15) #20
   %.pre22 = load float, ptr %arrayidx1.i, align 4
   br label %_ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit
 
 _ZN19OpenColorIO_v2_4dev10ApplyPowerILb0EEEvPfPKf.exit: ; preds = %cond.end25.i, %cond.false31.i, %cond.false36.i
-  %27 = phi float [ %cond26.i, %cond.end25.i ], [ %.pre22, %cond.false36.i ], [ %cond26.i, %cond.false31.i ]
-  %cond43.i = phi float [ 0.000000e+00, %cond.end25.i ], [ %call39.i, %cond.false36.i ], [ %24, %cond.false31.i ]
+  %16 = phi float [ %cond26.i, %cond.end25.i ], [ %.pre22, %cond.false36.i ], [ %cond26.i, %cond.false31.i ]
+  %cond43.i = phi float [ 0.000000e+00, %cond.end25.i ], [ %call39.i, %cond.false36.i ], [ %13, %cond.false31.i ]
   store float %cond43.i, ptr %arrayidx3.i, align 4
-  %28 = load float, ptr %out.019, align 4
-  %29 = load float, ptr %m_offset.i, align 8
-  %add.i12 = fadd float %28, %29
+  %17 = load float, ptr %out.019, align 4
+  %18 = load float, ptr %m_offset.i, align 8
+  %add.i12 = fadd float %17, %18
   store float %add.i12, ptr %out.019, align 4
-  %30 = load float, ptr %arrayidx4.i, align 4
-  %add5.i = fadd float %27, %30
+  %19 = load float, ptr %arrayidx4.i, align 4
+  %add5.i = fadd float %16, %19
   store float %add5.i, ptr %arrayidx1.i, align 4
-  %31 = load float, ptr %arrayidx8.i, align 8
-  %add9.i = fadd float %cond43.i, %31
+  %20 = load float, ptr %arrayidx8.i, align 8
+  %add9.i = fadd float %cond43.i, %20
   store float %add9.i, ptr %arrayidx3.i, align 4
-  %32 = load float, ptr %m_renderParams, align 8
-  %mul.i = fmul float %add.i12, %32
+  %21 = load float, ptr %m_renderParams, align 8
+  %mul.i = fmul float %add.i12, %21
   store float %mul.i, ptr %out.019, align 4
-  %33 = load float, ptr %arrayidx4.i15, align 4
-  %mul5.i = fmul float %add5.i, %33
+  %22 = load float, ptr %arrayidx4.i15, align 4
+  %mul5.i = fmul float %add5.i, %22
   store float %mul5.i, ptr %arrayidx1.i, align 4
-  %34 = load float, ptr %arrayidx8.i17, align 8
-  %mul9.i = fmul float %add9.i, %34
+  %23 = load float, ptr %arrayidx8.i17, align 8
+  %mul9.i = fmul float %add9.i, %23
   store float %mul9.i, ptr %arrayidx3.i, align 4
   %arrayidx8 = getelementptr inbounds i8, ptr %out.019, i64 12
   store float %0, ptr %arrayidx8, align 4
@@ -2346,7 +2477,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -2356,14 +2487,14 @@ entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #21
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -2386,7 +2517,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cmp4.not.i, label %return, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #21
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #20
   %call6.i.fr = freeze i32 %call6.i
   %cmp7.i = icmp eq i32 %call6.i.fr, 0
   br i1 %cmp7.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %return
@@ -2403,7 +2534,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define internal void @_GLOBAL__sub_I_CDLOpCPU.cpp() #18 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
   store <2 x i64> <i64 9187343241974906880, i64 9187343241974906880>, ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
   store <2 x i64> <i64 545460846719, i64 545460846719>, ptr @_ZN19OpenColorIO_v2_4devL5EBIASE, align 16
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
@@ -2425,9 +2556,6 @@ entry:
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #19
-
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
@@ -2447,12 +2575,11 @@ attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { builtin allocsize(0) }
-attributes #21 = { nounwind }
-attributes #22 = { noreturn }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { builtin nounwind }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

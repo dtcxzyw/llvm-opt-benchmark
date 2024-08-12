@@ -1398,43 +1398,45 @@ if.end13.i:                                       ; preds = %if.then12.i, %if.en
   %restart_len.i = getelementptr inbounds i8, ptr %9, i64 40
   %10 = load i32, ptr %restart_len.i, align 8
   %restarts.i = getelementptr inbounds i8, ptr %log_stats.i.i, i64 4
-  %11 = load <2 x i32>, ptr %restarts.i, align 4
-  %12 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %10, i64 0
-  %13 = add <2 x i32> %11, %12
-  store <2 x i32> %13, ptr %restarts.i, align 4
+  %11 = load i32, ptr %restarts.i, align 4
+  %add17.i = add i32 %11, %10
+  store i32 %add17.i, ptr %restarts.i, align 4
+  %12 = load i32, ptr %blocks.i, align 8
+  %inc.i = add nsw i32 %12, 1
+  store i32 %inc.i, ptr %blocks.i, align 8
   %stats.i = getelementptr inbounds i8, ptr %w, i64 232
-  %14 = load i32, ptr %stats.i, align 8
-  %inc20.i = add nsw i32 %14, 1
+  %13 = load i32, ptr %stats.i, align 8
+  %inc20.i = add nsw i32 %13, 1
   store i32 %inc20.i, ptr %stats.i, align 8
   %next21.i = getelementptr inbounds i8, ptr %w, i64 48
-  %15 = load i64, ptr %next21.i, align 8
-  %cmp22.i = icmp eq i64 %15, 0
+  %14 = load i64, ptr %next21.i, align 8
+  %cmp22.i = icmp eq i64 %14, 0
   br i1 %cmp22.i, label %if.then24.i, label %if.end26.i
 
 if.then24.i:                                      ; preds = %if.end13.i
   %block.i = getelementptr inbounds i8, ptr %w, i64 104
-  %16 = load ptr, ptr %block.i, align 8
-  %call25.i = tail call fastcc i32 @writer_write_header(ptr noundef nonnull %w, ptr noundef %16)
+  %15 = load ptr, ptr %block.i, align 8
+  %call25.i = tail call fastcc i32 @writer_write_header(ptr noundef nonnull %w, ptr noundef %15)
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.then24.i, %if.end13.i
   %block27.i = getelementptr inbounds i8, ptr %w, i64 104
-  %17 = load ptr, ptr %block27.i, align 8
+  %16 = load ptr, ptr %block27.i, align 8
   %conv28.i = zext nneg i32 %call3.i to i64
   %pending_padding.i.i = getelementptr inbounds i8, ptr %w, i64 16
-  %18 = load i32, ptr %pending_padding.i.i, align 8
-  %cmp.i.i = icmp sgt i32 %18, 0
+  %17 = load i32, ptr %pending_padding.i.i, align 8
+  %cmp.i.i = icmp sgt i32 %17, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %padded_write.exit.i
 
 if.then.i.i:                                      ; preds = %if.end26.i
-  %conv.i.i = zext nneg i32 %18 to i64
+  %conv.i.i = zext nneg i32 %17 to i64
   %call.i.i = tail call ptr @reftable_calloc(i64 noundef %conv.i.i) #13
-  %19 = load ptr, ptr %w, align 8
+  %18 = load ptr, ptr %w, align 8
   %write_arg.i.i = getelementptr inbounds i8, ptr %w, i64 8
-  %20 = load ptr, ptr %write_arg.i.i, align 8
-  %21 = load i32, ptr %pending_padding.i.i, align 8
-  %conv4.i.i = sext i32 %21 to i64
-  %call5.i.i = tail call i64 %19(ptr noundef %20, ptr noundef %call.i.i, i64 noundef %conv4.i.i) #13
+  %19 = load ptr, ptr %write_arg.i.i, align 8
+  %20 = load i32, ptr %pending_padding.i.i, align 8
+  %conv4.i.i = sext i32 %20 to i64
+  %call5.i.i = tail call i64 %18(ptr noundef %19, ptr noundef %call.i.i, i64 noundef %conv4.i.i) #13
   %conv6.i.i = trunc i64 %call5.i.i to i32
   %cmp7.i.i = icmp slt i32 %conv6.i.i, 0
   br i1 %cmp7.i.i, label %writer_flush_nonempty_block.exit, label %if.end.i.i
@@ -1446,54 +1448,54 @@ if.end.i.i:                                       ; preds = %if.then.i.i
 
 padded_write.exit.i:                              ; preds = %if.end.i.i, %if.end26.i
   store i32 %padding.0.i, ptr %pending_padding.i.i, align 8
-  %22 = load ptr, ptr %w, align 8
+  %21 = load ptr, ptr %w, align 8
   %write_arg14.i.i = getelementptr inbounds i8, ptr %w, i64 8
-  %23 = load ptr, ptr %write_arg14.i.i, align 8
-  %call15.i.i = tail call i64 %22(ptr noundef %23, ptr noundef %17, i64 noundef %conv28.i) #13
+  %22 = load ptr, ptr %write_arg14.i.i, align 8
+  %call15.i.i = tail call i64 %21(ptr noundef %22, ptr noundef %16, i64 noundef %conv28.i) #13
   %conv16.i.i = trunc i64 %call15.i.i to i32
   %cmp30.i = icmp slt i32 %conv16.i.i, 0
   br i1 %cmp30.i, label %writer_flush_nonempty_block.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %padded_write.exit.i
   %index_cap.i = getelementptr inbounds i8, ptr %w, i64 216
-  %24 = load i64, ptr %index_cap.i, align 8
+  %23 = load i64, ptr %index_cap.i, align 8
   %index_len.i = getelementptr inbounds i8, ptr %w, i64 208
-  %25 = load i64, ptr %index_len.i, align 8
-  %cmp34.i = icmp eq i64 %24, %25
+  %24 = load i64, ptr %index_len.i, align 8
+  %cmp34.i = icmp eq i64 %23, %24
   br i1 %cmp34.i, label %if.then36.i, label %strbuf_setlen.exit.i
 
 if.then36.i:                                      ; preds = %if.end33.i
-  %mul.i = shl i64 %24, 1
+  %mul.i = shl i64 %23, 1
   %add38.i = or disjoint i64 %mul.i, 1
   store i64 %add38.i, ptr %index_cap.i, align 8
   %index.i = getelementptr inbounds i8, ptr %w, i64 200
-  %26 = load ptr, ptr %index.i, align 8
+  %25 = load ptr, ptr %index.i, align 8
   %mul41.i = shl i64 %add38.i, 5
-  %call42.i = tail call ptr @reftable_realloc(ptr noundef %26, i64 noundef %mul41.i) #13
+  %call42.i = tail call ptr @reftable_realloc(ptr noundef %25, i64 noundef %mul41.i) #13
   store ptr %call42.i, ptr %index.i, align 8
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then36.i, %if.end33.i
-  %27 = load i64, ptr %next21.i, align 8
-  store i64 %27, ptr %ir.i, align 8
+  %26 = load i64, ptr %next21.i, align 8
+  store i64 %26, ptr %ir.i, align 8
   %len2.i.i = getelementptr inbounds i8, ptr %ir.i, i64 16
   store i64 0, ptr %len2.i.i, align 8
   %last_key.i = getelementptr inbounds i8, ptr %ir.i, i64 8
-  %28 = load ptr, ptr %block_writer, align 8
-  %last_key49.i = getelementptr inbounds i8, ptr %28, i64 48
+  %27 = load ptr, ptr %block_writer, align 8
+  %last_key49.i = getelementptr inbounds i8, ptr %27, i64 48
   call void @strbuf_addbuf(ptr noundef nonnull %last_key.i, ptr noundef nonnull %last_key49.i) #13
   %index50.i = getelementptr inbounds i8, ptr %w, i64 200
-  %29 = load ptr, ptr %index50.i, align 8
-  %30 = load i64, ptr %index_len.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.reftable_index_record, ptr %29, i64 %30
+  %28 = load ptr, ptr %index50.i, align 8
+  %29 = load i64, ptr %index_len.i, align 8
+  %arrayidx.i = getelementptr inbounds %struct.reftable_index_record, ptr %28, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(32) %ir.i, i64 32, i1 false)
-  %31 = load i64, ptr %index_len.i, align 8
-  %inc53.i = add i64 %31, 1
+  %30 = load i64, ptr %index_len.i, align 8
+  %inc53.i = add i64 %30, 1
   store i64 %inc53.i, ptr %index_len.i, align 8
   %add54.i = add nsw i32 %padding.0.i, %call3.i
   %conv55.i = sext i32 %add54.i to i64
-  %32 = load i64, ptr %next21.i, align 8
-  %add57.i = add i64 %32, %conv55.i
+  %31 = load i64, ptr %next21.i, align 8
+  %add57.i = add i64 %31, %conv55.i
   store i64 %add57.i, ptr %next21.i, align 8
   store ptr null, ptr %block_writer, align 8
   br label %writer_flush_nonempty_block.exit

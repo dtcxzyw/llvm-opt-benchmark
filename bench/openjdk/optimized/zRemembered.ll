@@ -1216,59 +1216,63 @@ define hidden void @_ZN11ZRemembered15scan_and_followEP5ZMark(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 64
-  %8 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 80
-  store volatile i64 0, ptr %9, align 8
+  %8 = load ptr, ptr %0, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 72
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %3, i64 80
+  store volatile i64 0, ptr %12, align 8
   call void @_ZN5ZMark12prepare_workEv(ptr noundef nonnull align 64 dereferenceable(2652) %1) #13
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8
-  call void @_ZNK14ZPageAllocator19enable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609) %12) #13
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void @_ZNK14ZPageAllocator19enable_safe_recycleEv(ptr noundef nonnull align 8 dereferenceable(609) %15) #13
-  %16 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %17 = call noundef ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull align 64 dereferenceable(6592) %16) #13
-  call void @_ZN8ZWorkers3runEP16ZRestartableTask(ptr noundef nonnull align 8 dereferenceable(184) %17, ptr noundef nonnull %3) #13
-  %18 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %select.unfold, label %20
+  call void @_ZNK14ZPageAllocator19enable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609) %15) #13
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8
+  call void @_ZNK14ZPageAllocator19enable_safe_recycleEv(ptr noundef nonnull align 8 dereferenceable(609) %18) #13
+  %19 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %20 = call noundef ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull align 64 dereferenceable(6592) %19) #13
+  call void @_ZN8ZWorkers3runEP16ZRestartableTask(ptr noundef nonnull align 8 dereferenceable(184) %20, ptr noundef nonnull %3) #13
+  %21 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %select.unfold, label %23
 
-20:                                               ; preds = %2
-  %21 = call noundef zeroext i1 @_ZN5ZMark19try_terminate_flushEv(ptr noundef nonnull align 64 dereferenceable(2652) %1) #13
+23:                                               ; preds = %2
+  %24 = call noundef zeroext i1 @_ZN5ZMark19try_terminate_flushEv(ptr noundef nonnull align 64 dereferenceable(2652) %1) #13
   br label %select.unfold
 
-select.unfold:                                    ; preds = %20, %2
-  %switch = phi i1 [ false, %2 ], [ %21, %20 ]
+select.unfold:                                    ; preds = %23, %2
+  %switch = phi i1 [ false, %2 ], [ %24, %23 ]
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV29ZRememberedScanMarkFollowTask, i64 16), ptr %3, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
-  %24 = load ptr, ptr %23, align 8
-  call void @_ZNK14ZPageAllocator20disable_safe_recycleEv(ptr noundef nonnull align 8 dereferenceable(609) %24) #13
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void @_ZNK14ZPageAllocator20disable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609) %27) #13
-  %28 = load ptr, ptr %5, align 8
-  call void @_ZN5ZMark11finish_workEv(ptr noundef nonnull align 64 dereferenceable(2652) %28) #13
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 72
-  %31 = getelementptr inbounds i8, ptr %29, i64 88
-  %32 = load i32, ptr %31, align 8
-  %33 = xor i32 %32, 1
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [2 x ptr], ptr %30, i64 0, i64 %34
-  %36 = load ptr, ptr %35, align 8
-  call void @_ZN6BitMap11clear_largeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
-  br i1 %switch, label %37, label %38
+  call void @_ZNK14ZPageAllocator20disable_safe_recycleEv(ptr noundef nonnull align 8 dereferenceable(609) %27) #13
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = load ptr, ptr %29, align 8
+  call void @_ZNK14ZPageAllocator20disable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609) %30) #13
+  %31 = load ptr, ptr %5, align 8
+  call void @_ZN5ZMark11finish_workEv(ptr noundef nonnull align 64 dereferenceable(2652) %31) #13
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %34 = getelementptr inbounds i8, ptr %32, i64 88
+  %35 = load i32, ptr %34, align 8
+  %36 = xor i32 %35, 1
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds [2 x ptr], ptr %33, i64 0, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  call void @_ZN6BitMap11clear_largeEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #13
+  br i1 %switch, label %40, label %41
 
-37:                                               ; preds = %select.unfold
+40:                                               ; preds = %select.unfold
   call void @_ZN5ZMark11mark_followEv(ptr noundef nonnull align 64 dereferenceable(2652) %1) #13
-  br label %38
+  br label %41
 
-38:                                               ; preds = %select.unfold, %37
+41:                                               ; preds = %select.unfold, %40
   ret void
 }
 

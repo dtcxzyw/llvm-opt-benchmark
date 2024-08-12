@@ -3006,18 +3006,22 @@ if.end:                                           ; preds = %if.then, %trace_ide
 if.then4:                                         ; preds = %if.end
   store i8 0, ptr %reset_reverts, align 1
   %drive_heads = getelementptr inbounds i8, ptr %s, i64 16
+  %8 = load i32, ptr %drive_heads, align 8
   %heads = getelementptr inbounds i8, ptr %s, i64 28
-  %8 = load <2 x i32>, ptr %drive_heads, align 8
-  store <2 x i32> %8, ptr %heads, align 4
+  store i32 %8, ptr %heads, align 4
+  %drive_sectors = getelementptr inbounds i8, ptr %s, i64 20
+  %9 = load i32, ptr %drive_sectors, align 4
+  %sectors = getelementptr inbounds i8, ptr %s, i64 32
+  store i32 %9, ptr %sectors, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %if.end
   %drive_kind = getelementptr inbounds i8, ptr %s, i64 12
-  %9 = load i32, ptr %drive_kind, align 4
-  %cmp = icmp eq i32 %9, 2
+  %10 = load i32, ptr %drive_kind, align 4
+  %cmp = icmp eq i32 %10, 2
   %spec.select = select i1 %cmp, i32 0, i32 16
-  %10 = getelementptr inbounds i8, ptr %s, i64 48
-  store i32 %spec.select, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %s, i64 48
+  store i32 %spec.select, ptr %11, align 8
   %feature = getelementptr inbounds i8, ptr %s, i64 648
   store i8 0, ptr %feature, align 8
   %error = getelementptr inbounds i8, ptr %s, i64 649
@@ -3026,8 +3030,8 @@ if.end6:                                          ; preds = %if.then4, %if.end
   %sector = getelementptr inbounds i8, ptr %s, i64 656
   %lcyl = getelementptr inbounds i8, ptr %s, i64 657
   %select = getelementptr inbounds i8, ptr %s, i64 664
-  %11 = getelementptr inbounds i8, ptr %s, i64 656
-  store i64 0, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %s, i64 656
+  store i64 0, ptr %12, align 4
   %status = getelementptr inbounds i8, ptr %s, i64 665
   store i8 80, ptr %status, align 1
   %lba48 = getelementptr inbounds i8, ptr %s, i64 668
@@ -3045,13 +3049,13 @@ if.end6:                                          ; preds = %if.then4, %if.end
   store i8 -96, ptr %select, align 8
   store i32 1, ptr %nsector, align 4
   store i8 1, ptr %sector, align 8
-  %cmp.i = icmp eq i32 %9, 1
+  %cmp.i = icmp eq i32 %10, 1
   br i1 %cmp.i, label %ide_set_signature.exit.sink.split, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end6
   %blk.i = getelementptr inbounds i8, ptr %s, i64 672
-  %12 = load ptr, ptr %blk.i, align 8
-  %tobool.not.i = icmp eq ptr %12, null
+  %13 = load ptr, ptr %blk.i, align 8
+  %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %ide_set_signature.exit.sink.split, label %ide_set_signature.exit
 
 ide_set_signature.exit.sink.split:                ; preds = %if.else.i, %if.end6
@@ -3067,20 +3071,20 @@ ide_set_signature.exit:                           ; preds = %ide_set_signature.e
   %end_transfer_func = getelementptr inbounds i8, ptr %s, i64 864
   store ptr @ide_dummy_transfer_stop, ptr %end_transfer_func, align 8
   %io_buffer.i = getelementptr inbounds i8, ptr %s, i64 888
-  %13 = load ptr, ptr %io_buffer.i, align 8
-  %data_ptr.i = getelementptr inbounds i8, ptr %s, i64 872
-  store ptr %13, ptr %data_ptr.i, align 8
-  %data_end.i = getelementptr inbounds i8, ptr %s, i64 880
-  store ptr %13, ptr %data_end.i, align 8
-  store i8 -1, ptr %13, align 1
   %14 = load ptr, ptr %io_buffer.i, align 8
-  %arrayidx4.i = getelementptr i8, ptr %14, i64 1
-  store i8 -1, ptr %arrayidx4.i, align 1
+  %data_ptr.i = getelementptr inbounds i8, ptr %s, i64 872
+  store ptr %14, ptr %data_ptr.i, align 8
+  %data_end.i = getelementptr inbounds i8, ptr %s, i64 880
+  store ptr %14, ptr %data_end.i, align 8
+  store i8 -1, ptr %14, align 1
   %15 = load ptr, ptr %io_buffer.i, align 8
-  %arrayidx6.i = getelementptr i8, ptr %15, i64 2
-  store i8 -1, ptr %arrayidx6.i, align 1
+  %arrayidx4.i = getelementptr i8, ptr %15, i64 1
+  store i8 -1, ptr %arrayidx4.i, align 1
   %16 = load ptr, ptr %io_buffer.i, align 8
-  %arrayidx8.i = getelementptr i8, ptr %16, i64 3
+  %arrayidx6.i = getelementptr i8, ptr %16, i64 2
+  store i8 -1, ptr %arrayidx6.i, align 1
+  %17 = load ptr, ptr %io_buffer.i, align 8
+  %arrayidx8.i = getelementptr i8, ptr %17, i64 3
   store i8 -1, ptr %arrayidx8.i, align 1
   %media_changed = getelementptr inbounds i8, ptr %s, i64 944
   store i32 0, ptr %media_changed, align 8
@@ -4843,7 +4847,13 @@ padstr.exit71.i:                                  ; preds = %for.body.i59.i
   %add.ptr12.i = getelementptr i8, ptr %s, i64 162
   store i16 7, ptr %add.ptr12.i, align 2
   %add.ptr13.i = getelementptr i8, ptr %s, i64 180
-  store <4 x i16> <i16 7, i16 7, i16 3, i16 180>, ptr %add.ptr13.i, align 2
+  store i16 7, ptr %add.ptr13.i, align 2
+  %add.ptr14.i = getelementptr i8, ptr %s, i64 182
+  store i16 7, ptr %add.ptr14.i, align 2
+  %add.ptr15.i = getelementptr i8, ptr %s, i64 184
+  store i16 3, ptr %add.ptr15.i, align 2
+  %add.ptr16.i = getelementptr i8, ptr %s, i64 186
+  store i16 180, ptr %add.ptr16.i, align 2
   %add.ptr17.i = getelementptr i8, ptr %s, i64 188
   store i16 180, ptr %add.ptr17.i, align 2
   %add.ptr18.i = getelementptr i8, ptr %s, i64 190
@@ -5969,7 +5979,13 @@ if.then38.i:                                      ; preds = %padstr.exit127.i
 
 if.end41.i:                                       ; preds = %if.then38.i, %padstr.exit127.i
   %add.ptr42.i = getelementptr i8, ptr %s, i64 180
-  store <4 x i16> <i16 7, i16 7, i16 3, i16 120>, ptr %add.ptr42.i, align 2
+  store i16 7, ptr %add.ptr42.i, align 2
+  %add.ptr43.i = getelementptr i8, ptr %s, i64 182
+  store i16 7, ptr %add.ptr43.i, align 2
+  %add.ptr44.i = getelementptr i8, ptr %s, i64 184
+  store i16 3, ptr %add.ptr44.i, align 2
+  %add.ptr45.i = getelementptr i8, ptr %s, i64 186
+  store i16 120, ptr %add.ptr45.i, align 2
   %add.ptr46.i = getelementptr i8, ptr %s, i64 188
   store i16 120, ptr %add.ptr46.i, align 2
   %add.ptr47.i = getelementptr i8, ptr %s, i64 190
@@ -6007,7 +6023,13 @@ if.then55.i:                                      ; preds = %if.end53.i
 
 if.end59.i:                                       ; preds = %if.then55.i, %if.end53.i
   %add.ptr60.i = getelementptr i8, ptr %s, i64 216
-  store <4 x i16> <i16 240, i16 22, i16 16417, i16 29696>, ptr %add.ptr60.i, align 2
+  store i16 240, ptr %add.ptr60.i, align 2
+  %add.ptr61.i = getelementptr i8, ptr %s, i64 218
+  store i16 22, ptr %add.ptr61.i, align 2
+  %add.ptr62.i = getelementptr i8, ptr %s, i64 220
+  store i16 16417, ptr %add.ptr62.i, align 2
+  %add.ptr63.i = getelementptr i8, ptr %s, i64 222
+  store i16 29696, ptr %add.ptr63.i, align 2
   %wwn.i = getelementptr inbounds i8, ptr %s, i64 640
   %16 = load i64, ptr %wwn.i, align 8
   %tobool64.not.i = icmp eq i64 %16, 0
@@ -6262,11 +6284,23 @@ if.then29.i:                                      ; preds = %padstr.exit85.i
 
 if.end32.i:                                       ; preds = %if.then29.i, %padstr.exit85.i
   %add.ptr33.i = getelementptr i8, ptr %s, i64 182
-  store <4 x i16> <i16 515, i16 1, i16 150, i16 150>, ptr %add.ptr33.i, align 2
+  store i16 515, ptr %add.ptr33.i, align 2
+  %add.ptr34.i = getelementptr i8, ptr %s, i64 184
+  store i16 1, ptr %add.ptr34.i, align 2
+  %add.ptr35.i50 = getelementptr i8, ptr %s, i64 186
+  store i16 150, ptr %add.ptr35.i50, align 2
+  %add.ptr36.i51 = getelementptr i8, ptr %s, i64 188
+  store i16 150, ptr %add.ptr36.i51, align 2
   %add.ptr37.i = getelementptr i8, ptr %s, i64 192
   store i16 180, ptr %add.ptr37.i, align 2
   %add.ptr38.i = getelementptr i8, ptr %s, i64 220
-  store <4 x i16> <i16 16396, i16 28776, i16 16384, i16 12>, ptr %add.ptr38.i, align 2
+  store i16 16396, ptr %add.ptr38.i, align 2
+  %add.ptr39.i52 = getelementptr i8, ptr %s, i64 222
+  store i16 28776, ptr %add.ptr39.i52, align 2
+  %add.ptr40.i = getelementptr i8, ptr %s, i64 224
+  store i16 16384, ptr %add.ptr40.i, align 2
+  %add.ptr41.i = getelementptr i8, ptr %s, i64 226
+  store i16 12, ptr %add.ptr41.i, align 2
   %add.ptr42.i53 = getelementptr i8, ptr %s, i64 228
   store i16 28740, ptr %add.ptr42.i53, align 2
   %add.ptr43.i54 = getelementptr i8, ptr %s, i64 230
@@ -6274,7 +6308,13 @@ if.end32.i:                                       ; preds = %if.then29.i, %padst
   %add.ptr44.i55 = getelementptr i8, ptr %s, i64 238
   store i16 16480, ptr %add.ptr44.i55, align 2
   %add.ptr45.i56 = getelementptr i8, ptr %s, i64 314
-  store <4 x i16> <i16 2, i16 5, i16 1, i16 0>, ptr %add.ptr45.i56, align 2
+  store i16 2, ptr %add.ptr45.i56, align 2
+  %add.ptr46.i57 = getelementptr i8, ptr %s, i64 316
+  store i16 5, ptr %add.ptr46.i57, align 2
+  %add.ptr47.i58 = getelementptr i8, ptr %s, i64 318
+  store i16 1, ptr %add.ptr47.i58, align 2
+  %add.ptr48.i59 = getelementptr i8, ptr %s, i64 320
+  store i16 0, ptr %add.ptr48.i59, align 2
   %add.ptr49.i = getelementptr i8, ptr %s, i64 376
   store i16 -32512, ptr %add.ptr49.i, align 2
   %add.ptr50.i = getelementptr i8, ptr %s, i64 378

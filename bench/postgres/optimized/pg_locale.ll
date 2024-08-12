@@ -329,7 +329,7 @@ define dso_local noundef nonnull ptr @PGLC_localeconv() local_unnamed_addr #0 {
   %1 = alloca %struct.lconv, align 8
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %.b46 = load i1, ptr @CurrentLocaleConvValid, align 1
-  br i1 %.b46, label %113, label %3
+  br i1 %.b46, label %131, label %3
 
 3:                                                ; preds = %0
   %.b4547 = load i1, ptr @PGLC_localeconv.CurrentLocaleConvAllocated, align 1
@@ -435,108 +435,138 @@ define dso_local noundef nonnull ptr @PGLC_localeconv() local_unnamed_addr #0 {
   %65 = getelementptr inbounds i8, ptr %44, i64 64
   %66 = load ptr, ptr %65, align 8
   %67 = call noalias ptr @strdup(ptr noundef %66) #22
-  %.fr74 = freeze ptr %67
   %68 = getelementptr inbounds i8, ptr %1, i64 64
-  store ptr %.fr74, ptr %68, align 8
+  store ptr %67, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %44, i64 72
   %70 = load ptr, ptr %69, align 8
   %71 = call noalias ptr @strdup(ptr noundef %70) #22
   %72 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %71, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %44, i64 80
-  %74 = getelementptr inbounds i8, ptr %1, i64 80
-  %75 = load <8 x i8>, ptr %73, align 8
-  store <8 x i8> %75, ptr %74, align 8
-  %76 = call ptr @setlocale(i32 noundef 4, ptr noundef %22) #22
-  %.not49 = icmp eq ptr %76, null
-  br i1 %.not49, label %77, label %80
+  %74 = load i8, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %1, i64 80
+  store i8 %74, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %44, i64 81
+  %77 = load i8, ptr %76, align 1
+  %78 = getelementptr inbounds i8, ptr %1, i64 81
+  store i8 %77, ptr %78, align 1
+  %79 = getelementptr inbounds i8, ptr %44, i64 82
+  %80 = load i8, ptr %79, align 2
+  %81 = getelementptr inbounds i8, ptr %1, i64 82
+  store i8 %80, ptr %81, align 2
+  %82 = getelementptr inbounds i8, ptr %44, i64 83
+  %83 = load i8, ptr %82, align 1
+  %84 = getelementptr inbounds i8, ptr %1, i64 83
+  store i8 %83, ptr %84, align 1
+  %85 = getelementptr inbounds i8, ptr %44, i64 84
+  %86 = load i8, ptr %85, align 4
+  %87 = getelementptr inbounds i8, ptr %1, i64 84
+  store i8 %86, ptr %87, align 4
+  %88 = getelementptr inbounds i8, ptr %44, i64 85
+  %89 = load i8, ptr %88, align 1
+  %90 = getelementptr inbounds i8, ptr %1, i64 85
+  store i8 %89, ptr %90, align 1
+  %91 = getelementptr inbounds i8, ptr %44, i64 86
+  %92 = load i8, ptr %91, align 2
+  %93 = getelementptr inbounds i8, ptr %1, i64 86
+  store i8 %92, ptr %93, align 2
+  %94 = getelementptr inbounds i8, ptr %44, i64 87
+  %95 = load i8, ptr %94, align 1
+  %96 = getelementptr inbounds i8, ptr %1, i64 87
+  store i8 %95, ptr %96, align 1
+  %97 = call ptr @setlocale(i32 noundef 4, ptr noundef %22) #22
+  %.not49 = icmp eq ptr %97, null
+  br i1 %.not49, label %98, label %101
 
-77:                                               ; preds = %27
-  %78 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
-  call void @llvm.assume(i1 %78)
-  %79 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef %22) #22
+98:                                               ; preds = %27
+  %99 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  call void @llvm.assume(i1 %99)
+  %100 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef %22) #22
   call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 650, ptr noundef nonnull @__func__.PGLC_localeconv) #22
   unreachable
 
-80:                                               ; preds = %27
-  %81 = call ptr @setlocale(i32 noundef 1, ptr noundef %28) #22
-  %.not50 = icmp eq ptr %81, null
-  br i1 %.not50, label %82, label %85
+101:                                              ; preds = %27
+  %102 = call ptr @setlocale(i32 noundef 1, ptr noundef %28) #22
+  %.not50 = icmp eq ptr %102, null
+  br i1 %.not50, label %103, label %106
 
-82:                                               ; preds = %80
-  %83 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
-  call void @llvm.assume(i1 %83)
-  %84 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %28) #22
+103:                                              ; preds = %101
+  %104 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  call void @llvm.assume(i1 %104)
+  %105 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %28) #22
   call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 652, ptr noundef nonnull @__func__.PGLC_localeconv) #22
   unreachable
 
-85:                                               ; preds = %80
-  %86 = load ptr, ptr @PG_exception_stack, align 8
-  %87 = load ptr, ptr @error_context_stack, align 8
-  %88 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #24
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %112
+106:                                              ; preds = %101
+  %107 = load ptr, ptr @PG_exception_stack, align 8
+  %108 = load ptr, ptr @error_context_stack, align 8
+  %109 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #24
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %130
 
-90:                                               ; preds = %85
+111:                                              ; preds = %106
   store ptr %2, ptr @PG_exception_stack, align 8
   call void @pfree(ptr noundef %22) #22
   call void @pfree(ptr noundef %28) #22
-  %91 = insertelement <8 x ptr> poison, ptr %33, i64 0
-  %92 = insertelement <8 x ptr> %91, ptr %36, i64 1
-  %93 = insertelement <8 x ptr> %92, ptr %40, i64 2
-  %94 = insertelement <8 x ptr> %93, ptr %47, i64 3
-  %95 = insertelement <8 x ptr> %94, ptr %51, i64 4
-  %96 = insertelement <8 x ptr> %95, ptr %55, i64 5
-  %97 = insertelement <8 x ptr> %96, ptr %59, i64 6
-  %98 = insertelement <8 x ptr> %97, ptr %63, i64 7
-  %.fr = freeze <8 x ptr> %98
-  %99 = icmp ne ptr %.fr74, null
-  %100 = icmp ne ptr %71, null
-  %101 = icmp eq <8 x ptr> %.fr, zeroinitializer
-  %102 = bitcast <8 x i1> %101 to i8
-  %103 = icmp eq i8 %102, 0
-  %op.rdx = and i1 %103, %99
-  %op.rdx72 = select i1 %op.rdx, i1 %100, i1 false
-  br i1 %op.rdx72, label %107, label %struct_lconv_is_valid.exit.thread
+  %112 = icmp ne ptr %33, null
+  %113 = icmp ne ptr %36, null
+  %or.cond.not71 = select i1 %112, i1 %113, i1 false
+  %114 = icmp ne ptr %40, null
+  %or.cond52.not68 = select i1 %or.cond.not71, i1 %114, i1 false
+  %115 = icmp ne ptr %47, null
+  %or.cond53.not66 = select i1 %or.cond52.not68, i1 %115, i1 false
+  %116 = icmp ne ptr %51, null
+  %or.cond54.not64 = select i1 %or.cond53.not66, i1 %116, i1 false
+  %117 = icmp ne ptr %55, null
+  %or.cond55.not62 = select i1 %or.cond54.not64, i1 %117, i1 false
+  %118 = icmp ne ptr %59, null
+  %or.cond56.not = select i1 %or.cond55.not62, i1 %118, i1 false
+  %119 = icmp ne ptr %63, null
+  %or.cond57 = select i1 %or.cond56.not, i1 %119, i1 false
+  %120 = icmp ne ptr %67, null
+  %or.cond58 = select i1 %or.cond57, i1 %120, i1 false
+  %121 = icmp ne ptr %71, null
+  %or.cond59 = select i1 %or.cond58, i1 %121, i1 false
+  br i1 %or.cond59, label %125, label %struct_lconv_is_valid.exit.thread
 
-struct_lconv_is_valid.exit.thread:                ; preds = %90
-  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
-  call void @llvm.assume(i1 %104)
-  %105 = call i32 @errcode(i32 noundef 8389) #22
-  %106 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #22
+struct_lconv_is_valid.exit.thread:                ; preds = %111
+  %122 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  call void @llvm.assume(i1 %122)
+  %123 = call i32 @errcode(i32 noundef 8389) #22
+  %124 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #22
   call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 674, ptr noundef nonnull @__func__.PGLC_localeconv) #22
   unreachable
 
-107:                                              ; preds = %90
-  %108 = load ptr, ptr @locale_numeric, align 8
-  %109 = call i32 @pg_get_encoding_from_locale(ptr noundef %108, i1 noundef zeroext true) #22
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %109, i32 0)
+125:                                              ; preds = %111
+  %126 = load ptr, ptr @locale_numeric, align 8
+  %127 = call i32 @pg_get_encoding_from_locale(ptr noundef %126, i1 noundef zeroext true) #22
+  %spec.store.select = call i32 @llvm.smax.i32(i32 %127, i32 0)
   call fastcc void @db_encoding_convert(i32 noundef %spec.store.select, ptr noundef nonnull %1)
   call fastcc void @db_encoding_convert(i32 noundef %spec.store.select, ptr noundef nonnull %37)
-  %110 = load ptr, ptr @locale_monetary, align 8
-  %111 = call i32 @pg_get_encoding_from_locale(ptr noundef %110, i1 noundef zeroext true) #22
-  %spec.store.select1 = call i32 @llvm.smax.i32(i32 %111, i32 0)
+  %128 = load ptr, ptr @locale_monetary, align 8
+  %129 = call i32 @pg_get_encoding_from_locale(ptr noundef %128, i1 noundef zeroext true) #22
+  %spec.store.select1 = call i32 @llvm.smax.i32(i32 %129, i32 0)
   call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef nonnull %48)
   call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef nonnull %52)
   call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef nonnull %56)
   call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef nonnull %60)
   call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef nonnull %68)
   call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef nonnull %72)
-  store ptr %86, ptr @PG_exception_stack, align 8
-  store ptr %87, ptr @error_context_stack, align 8
+  store ptr %107, ptr @PG_exception_stack, align 8
+  store ptr %108, ptr @error_context_stack, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @PGLC_localeconv.CurrentLocaleConv, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
   store i1 true, ptr @PGLC_localeconv.CurrentLocaleConvAllocated, align 1
   store i1 true, ptr @CurrentLocaleConvValid, align 1
-  br label %113
+  br label %131
 
-112:                                              ; preds = %85
-  store ptr %86, ptr @PG_exception_stack, align 8
-  store ptr %87, ptr @error_context_stack, align 8
+130:                                              ; preds = %106
+  store ptr %107, ptr @PG_exception_stack, align 8
+  store ptr %108, ptr @error_context_stack, align 8
   call fastcc void @free_struct_lconv(ptr noundef nonnull %1)
   call void @pg_re_throw() #25
   unreachable
 
-113:                                              ; preds = %0, %107
+131:                                              ; preds = %0, %125
   ret ptr @PGLC_localeconv.CurrentLocaleConv
 }
 

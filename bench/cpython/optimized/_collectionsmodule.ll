@@ -1907,6 +1907,7 @@ if.then3:                                         ; preds = %newblock.exit.threa
 if.end.i60.lr.ph:                                 ; preds = %if.then3
   %rightblock.i = getelementptr inbounds i8, ptr %deque, i64 32
   %rightindex.i = getelementptr inbounds i8, ptr %deque, i64 48
+  %state.i = getelementptr inbounds i8, ptr %deque, i64 56
   %freeblocks.i.i = getelementptr inbounds i8, ptr %deque, i64 80
   %leftindex.i = getelementptr inbounds i8, ptr %deque, i64 40
   br label %if.end.i60
@@ -2019,15 +2020,16 @@ if.end.i60:                                       ; preds = %if.end.i60.lr.ph, %
   %deque.val4176 = phi i64 [ %deque.val4174, %if.end.i60.lr.ph ], [ %deque.val41, %Py_DECREF.exit ]
   %14 = load ptr, ptr %rightblock.i, align 8
   %data.i = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load i64, ptr %rightindex.i, align 8
+  %arrayidx.i61 = getelementptr [64 x ptr], ptr %data.i, i64 0, i64 %15
+  %16 = load ptr, ptr %arrayidx.i61, align 8
+  %dec.i62 = add i64 %15, -1
+  store i64 %dec.i62, ptr %rightindex.i, align 8
   %sub.i = add i64 %deque.val4176, -1
-  %15 = load <2 x i64>, ptr %rightindex.i, align 8
-  %16 = load i64, ptr %rightindex.i, align 8
-  %arrayidx.i61 = getelementptr [64 x ptr], ptr %data.i, i64 0, i64 %16
-  %17 = load ptr, ptr %arrayidx.i61, align 8
   store i64 %sub.i, ptr %0, align 8
-  %18 = add <2 x i64> %15, <i64 -1, i64 1>
-  %dec.i62 = add i64 %16, -1
-  store <2 x i64> %18, ptr %rightindex.i, align 8
+  %17 = load i64, ptr %state.i, align 8
+  %inc.i63 = add i64 %17, 1
+  store i64 %inc.i63, ptr %state.i, align 8
   %cmp4.i = icmp slt i64 %dec.i62, 0
   br i1 %cmp4.i, label %if.then5.i, label %deque_pop.exit
 
@@ -2036,16 +2038,16 @@ if.then5.i:                                       ; preds = %if.end.i60
   br i1 %tobool.not.i65, label %if.else.i66, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then5.i
-  %19 = load ptr, ptr %14, align 8
-  %20 = load i64, ptr %numfreeblocks.i, align 8
-  %cmp.i.i = icmp slt i64 %20, 16
+  %18 = load ptr, ptr %14, align 8
+  %19 = load i64, ptr %numfreeblocks.i, align 8
+  %cmp.i.i = icmp slt i64 %19, 16
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then7.i
-  %arrayidx.i.i = getelementptr [16 x ptr], ptr %freeblocks.i.i, i64 0, i64 %20
+  %arrayidx.i.i = getelementptr [16 x ptr], ptr %freeblocks.i.i, i64 0, i64 %19
   store ptr %14, ptr %arrayidx.i.i, align 8
-  %21 = load i64, ptr %numfreeblocks.i, align 8
-  %inc.i.i = add i64 %21, 1
+  %20 = load i64, ptr %numfreeblocks.i, align 8
+  %inc.i.i = add i64 %20, 1
   store i64 %inc.i.i, ptr %numfreeblocks.i, align 8
   br label %freeblock.exit.i
 
@@ -2054,7 +2056,7 @@ if.else.i.i:                                      ; preds = %if.then7.i
   br label %freeblock.exit.i
 
 freeblock.exit.i:                                 ; preds = %if.else.i.i, %if.then.i.i
-  store ptr %19, ptr %rightblock.i, align 8
+  store ptr %18, ptr %rightblock.i, align 8
   br label %deque_pop.exit.sink.split
 
 if.else.i66:                                      ; preds = %if.then5.i
@@ -2067,19 +2069,19 @@ deque_pop.exit.sink.split:                        ; preds = %if.else.i66, %freeb
   br label %deque_pop.exit
 
 deque_pop.exit:                                   ; preds = %deque_pop.exit.sink.split, %if.end.i60
-  %22 = load i64, ptr %17, align 8
-  %23 = and i64 %22, 2147483648
-  %cmp.i44.not = icmp eq i64 %23, 0
+  %21 = load i64, ptr %16, align 8
+  %22 = and i64 %21, 2147483648
+  %cmp.i44.not = icmp eq i64 %22, 0
   br i1 %cmp.i44.not, label %if.end.i, label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %deque_pop.exit
-  %dec.i = add i64 %22, -1
-  store i64 %dec.i, ptr %17, align 8
+  %dec.i = add i64 %21, -1
+  store i64 %dec.i, ptr %16, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %17) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %16) #9
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %deque_pop.exit, %if.then1.i, %if.end.i
@@ -3359,15 +3361,17 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %rightblock, align 8
   %data = getelementptr inbounds i8, ptr %2, i64 8
   %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
+  %3 = load i64, ptr %rightindex, align 8
+  %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %3
+  %4 = load ptr, ptr %arrayidx, align 8
+  %dec = add i64 %3, -1
+  store i64 %dec, ptr %rightindex, align 8
   %sub = add i64 %deque.val17, -1
-  %3 = load <2 x i64>, ptr %rightindex, align 8
-  %4 = load i64, ptr %rightindex, align 8
-  %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %4
-  %5 = load ptr, ptr %arrayidx, align 8
   store i64 %sub, ptr %0, align 8
-  %6 = add <2 x i64> %3, <i64 -1, i64 1>
-  %dec = add i64 %4, -1
-  store <2 x i64> %6, ptr %rightindex, align 8
+  %state = getelementptr inbounds i8, ptr %deque, i64 56
+  %5 = load i64, ptr %state, align 8
+  %inc = add i64 %5, 1
+  store i64 %inc, ptr %state, align 8
   %cmp4 = icmp slt i64 %dec, 0
   br i1 %cmp4, label %if.then5, label %return
 
@@ -3376,18 +3380,18 @@ if.then5:                                         ; preds = %if.end
   br i1 %tobool.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
-  %7 = load ptr, ptr %2, align 8
+  %6 = load ptr, ptr %2, align 8
   %numfreeblocks.i = getelementptr inbounds i8, ptr %deque, i64 72
-  %8 = load i64, ptr %numfreeblocks.i, align 8
-  %cmp.i = icmp slt i64 %8, 16
+  %7 = load i64, ptr %numfreeblocks.i, align 8
+  %cmp.i = icmp slt i64 %7, 16
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then7
   %freeblocks.i = getelementptr inbounds i8, ptr %deque, i64 80
-  %arrayidx.i = getelementptr [16 x ptr], ptr %freeblocks.i, i64 0, i64 %8
+  %arrayidx.i = getelementptr [16 x ptr], ptr %freeblocks.i, i64 0, i64 %7
   store ptr %2, ptr %arrayidx.i, align 8
-  %9 = load i64, ptr %numfreeblocks.i, align 8
-  %inc.i = add i64 %9, 1
+  %8 = load i64, ptr %numfreeblocks.i, align 8
+  %inc.i = add i64 %8, 1
   store i64 %inc.i, ptr %numfreeblocks.i, align 8
   br label %freeblock.exit
 
@@ -3396,7 +3400,7 @@ if.else.i:                                        ; preds = %if.then7
   br label %freeblock.exit
 
 freeblock.exit:                                   ; preds = %if.then.i, %if.else.i
-  store ptr %7, ptr %rightblock, align 8
+  store ptr %6, ptr %rightblock, align 8
   store i64 63, ptr %rightindex, align 8
   br label %return
 
@@ -3407,7 +3411,7 @@ if.else:                                          ; preds = %if.then5
   br label %return
 
 return:                                           ; preds = %if.end, %if.else, %freeblock.exit, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %5, %freeblock.exit ], [ %5, %if.else ], [ %5, %if.end ]
+  %retval.0 = phi ptr [ null, %if.then ], [ %4, %freeblock.exit ], [ %4, %if.else ], [ %4, %if.end ]
   ret ptr %retval.0
 }
 
@@ -5132,15 +5136,17 @@ if.end.i24:                                       ; preds = %if.end6
   %8 = load ptr, ptr %rightblock.i, align 8
   %data.i = getelementptr inbounds i8, ptr %8, i64 8
   %rightindex.i = getelementptr inbounds i8, ptr %deque, i64 48
+  %9 = load i64, ptr %rightindex.i, align 8
+  %arrayidx.i25 = getelementptr [64 x ptr], ptr %data.i, i64 0, i64 %9
+  %10 = load ptr, ptr %arrayidx.i25, align 8
+  %dec.i26 = add i64 %9, -1
+  store i64 %dec.i26, ptr %rightindex.i, align 8
   %sub.i = add i64 %deque.val, -1
-  %9 = load <2 x i64>, ptr %rightindex.i, align 8
-  %10 = load i64, ptr %rightindex.i, align 8
-  %arrayidx.i25 = getelementptr [64 x ptr], ptr %data.i, i64 0, i64 %10
-  %11 = load ptr, ptr %arrayidx.i25, align 8
   store i64 %sub.i, ptr %6, align 8
-  %12 = add <2 x i64> %9, <i64 -1, i64 1>
-  %dec.i26 = add i64 %10, -1
-  store <2 x i64> %12, ptr %rightindex.i, align 8
+  %state.i = getelementptr inbounds i8, ptr %deque, i64 56
+  %11 = load i64, ptr %state.i, align 8
+  %inc.i = add i64 %11, 1
+  store i64 %inc.i, ptr %state.i, align 8
   %cmp4.i = icmp slt i64 %dec.i26, 0
   br i1 %cmp4.i, label %if.then5.i, label %deque_pop.exit
 
@@ -5149,18 +5155,18 @@ if.then5.i:                                       ; preds = %if.end.i24
   br i1 %tobool.not.i28, label %if.else.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then5.i
-  %13 = load ptr, ptr %8, align 8
+  %12 = load ptr, ptr %8, align 8
   %numfreeblocks.i.i = getelementptr inbounds i8, ptr %deque, i64 72
-  %14 = load i64, ptr %numfreeblocks.i.i, align 8
-  %cmp.i.i = icmp slt i64 %14, 16
+  %13 = load i64, ptr %numfreeblocks.i.i, align 8
+  %cmp.i.i = icmp slt i64 %13, 16
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then7.i
   %freeblocks.i.i = getelementptr inbounds i8, ptr %deque, i64 80
-  %arrayidx.i.i = getelementptr [16 x ptr], ptr %freeblocks.i.i, i64 0, i64 %14
+  %arrayidx.i.i = getelementptr [16 x ptr], ptr %freeblocks.i.i, i64 0, i64 %13
   store ptr %8, ptr %arrayidx.i.i, align 8
-  %15 = load i64, ptr %numfreeblocks.i.i, align 8
-  %inc.i.i = add i64 %15, 1
+  %14 = load i64, ptr %numfreeblocks.i.i, align 8
+  %inc.i.i = add i64 %14, 1
   store i64 %inc.i.i, ptr %numfreeblocks.i.i, align 8
   br label %freeblock.exit.i
 
@@ -5169,7 +5175,7 @@ if.else.i.i:                                      ; preds = %if.then7.i
   br label %freeblock.exit.i
 
 freeblock.exit.i:                                 ; preds = %if.else.i.i, %if.then.i.i
-  store ptr %13, ptr %rightblock.i, align 8
+  store ptr %12, ptr %rightblock.i, align 8
   br label %deque_pop.exit.sink.split
 
 if.else.i:                                        ; preds = %if.then5.i
@@ -5182,25 +5188,25 @@ deque_pop.exit.sink.split:                        ; preds = %if.else.i, %freeblo
   br label %deque_pop.exit
 
 deque_pop.exit:                                   ; preds = %deque_pop.exit.sink.split, %if.end.i24
-  %16 = load i64, ptr %11, align 8
-  %17 = and i64 %16, 2147483648
-  %cmp.i18.not = icmp eq i64 %17, 0
+  %15 = load i64, ptr %10, align 8
+  %16 = and i64 %15, 2147483648
+  %cmp.i18.not = icmp eq i64 %16, 0
   br i1 %cmp.i18.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %deque_pop.exit
-  %dec.i = add i64 %16, -1
-  store i64 %dec.i, ptr %11, align 8
+  %dec.i = add i64 %15, -1
+  store i64 %dec.i, ptr %10, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %10) #9
   br label %return
 
 if.else:                                          ; preds = %if.end6
   %state = getelementptr inbounds i8, ptr %deque, i64 56
-  %18 = load i64, ptr %state, align 8
-  %inc = add i64 %18, 1
+  %17 = load i64, ptr %state, align 8
+  %inc = add i64 %17, 1
   store i64 %inc, ptr %state, align 8
   br label %return
 

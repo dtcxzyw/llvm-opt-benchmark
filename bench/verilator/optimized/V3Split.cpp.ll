@@ -11080,23 +11080,26 @@ _ZN11AstNodeExpr9cloneTreeEb.exit:                ; preds = %40
 
 45:                                               ; preds = %.noexc43
   %46 = getelementptr inbounds i8, ptr %39, i64 153
+  store i8 0, ptr %46, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTV5AstIf, i64 16), ptr %39, align 8
-  store <4 x i8> zeroinitializer, ptr %46, align 1
-  %.sroa.0.0.copyload.i.i.i = load i16, ptr %16, align 8
-  %47 = icmp ne i16 %.sroa.0.0.copyload.i.i.i, 410
-  %.not = or i1 %.not147, %47
-  br i1 %.not, label %60, label %48
-
-48:                                               ; preds = %45
+  %47 = getelementptr inbounds i8, ptr %39, i64 154
+  store i8 0, ptr %47, align 2
+  %48 = getelementptr inbounds i8, ptr %39, i64 155
+  store i8 0, ptr %48, align 1
   %49 = getelementptr inbounds i8, ptr %39, i64 156
-  %50 = getelementptr inbounds i8, ptr %39, i64 155
-  %51 = getelementptr inbounds i8, ptr %39, i64 154
+  store i8 0, ptr %49, align 4
+  %.sroa.0.0.copyload.i.i.i = load i16, ptr %16, align 8
+  %50 = icmp ne i16 %.sroa.0.0.copyload.i.i.i, 410
+  %.not = or i1 %.not147, %50
+  br i1 %.not, label %60, label %51
+
+51:                                               ; preds = %45
   %52 = load i8, ptr %17, align 2
   %53 = and i8 %52, 1
-  store i8 %53, ptr %51, align 2
+  store i8 %53, ptr %47, align 2
   %54 = load i8, ptr %18, align 1
   %55 = and i8 %54, 1
-  store i8 %55, ptr %50, align 1
+  store i8 %55, ptr %48, align 1
   %56 = load i8, ptr %19, align 4
   %57 = and i8 %56, 1
   store i8 %57, ptr %49, align 4
@@ -11128,7 +11131,7 @@ _ZN11AstNodeExpr9cloneTreeEb.exit:                ; preds = %40
   call void @_ZdlPv(ptr noundef nonnull %39) #20
   br label %.body
 
-60:                                               ; preds = %48, %45
+60:                                               ; preds = %51, %45
   %61 = zext i32 %24 to i64
   %62 = load i64, ptr %8, align 8
   %63 = urem i64 %61, %62

@@ -8265,29 +8265,36 @@ define void @Vec_IntPermute2(ptr nocapture noundef readonly %0) local_unnamed_ad
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph._crit_edge
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next.pre-phi, %.lr.ph._crit_edge ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next.pre-phi, %19 ]
   %8 = tail call i32 @rand() #31
   %9 = srem i32 %8, 3
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %.lr.ph._crit_edge
 
+.lr.ph._crit_edge:                                ; preds = %.lr.ph
+  %.pre = add nuw nsw i64 %indvars.iv, 1
+  br label %19
+
 11:                                               ; preds = %.lr.ph
   %indvars17 = trunc i64 %indvars.iv to i32
-  %12 = add nuw nsw i32 %indvars17, 1
-  %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %indvars17, i32 noundef %12)
-  %14 = getelementptr inbounds i32, ptr %.val15, i64 %indvars.iv
-  %15 = load <2 x i32>, ptr %14, align 4
-  %16 = shufflevector <2 x i32> %15, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %16, ptr %14, align 4
-  br label %.lr.ph._crit_edge
+  %12 = add nuw nsw i64 %indvars.iv, 1
+  %13 = add nuw nsw i32 %indvars17, 1
+  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %indvars17, i32 noundef %13)
+  %15 = getelementptr inbounds i32, ptr %.val15, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr inbounds i32, ptr %.val15, i64 %12
+  %18 = load i32, ptr %17, align 4
+  store i32 %18, ptr %15, align 4
+  store i32 %16, ptr %17, align 4
+  br label %19
 
-.lr.ph._crit_edge:                                ; preds = %.lr.ph, %11
-  %indvars.iv.next.pre-phi = add nuw nsw i64 %indvars.iv, 1
+19:                                               ; preds = %.lr.ph._crit_edge, %11
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre, %.lr.ph._crit_edge ], [ %12, %11 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
-._crit_edge:                                      ; preds = %.lr.ph._crit_edge, %1
+._crit_edge:                                      ; preds = %19, %1
   ret void
 }
 

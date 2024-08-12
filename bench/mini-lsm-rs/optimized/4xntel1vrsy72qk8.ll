@@ -6601,10 +6601,14 @@ define hidden void @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeI
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !1199, !noalias !1200, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = load i64, ptr %10, align 8, !alias.scope !1199, !noalias !1200, !noundef !4
+  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = load i64, ptr %12, align 8, !alias.scope !1199, !noalias !1200, !noundef !4
   store ptr %9, ptr %0, align 8, !alias.scope !1200, !noalias !1199
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load <2 x i64>, ptr %10, align 8, !alias.scope !1199, !noalias !1200
-  store <2 x i64> %12, ptr %11, align 8, !alias.scope !1200, !noalias !1199
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %11, ptr %14, align 8, !alias.scope !1200, !noalias !1199
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %13, ptr %15, align 8, !alias.scope !1200, !noalias !1199
   ret void
 }
 
@@ -6641,10 +6645,14 @@ define hidden void @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeI
   %12 = getelementptr inbounds i8, ptr %4, i64 32
   %13 = load ptr, ptr %12, align 8, !alias.scope !1222, !noalias !1223, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds i8, ptr %4, i64 40
+  %15 = load i64, ptr %14, align 8, !alias.scope !1222, !noalias !1223, !noundef !4
+  %16 = getelementptr inbounds i8, ptr %4, i64 48
+  %17 = load i64, ptr %16, align 8, !alias.scope !1222, !noalias !1223, !noundef !4
   store ptr %13, ptr %0, align 8, !alias.scope !1223, !noalias !1222
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load <2 x i64>, ptr %14, align 8, !alias.scope !1222, !noalias !1223
-  store <2 x i64> %16, ptr %15, align 8, !alias.scope !1223, !noalias !1222
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %15, ptr %18, align 8, !alias.scope !1223, !noalias !1222
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %17, ptr %19, align 8, !alias.scope !1223, !noalias !1222
   ret void
 }
 

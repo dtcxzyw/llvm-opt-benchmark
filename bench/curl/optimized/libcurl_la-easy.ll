@@ -101,45 +101,45 @@ global_init.exit:                                 ; preds = %curl_simple_lock_lo
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @curl_global_init_mem(i64 noundef %flags, ptr noundef %m, ptr noundef %f, ptr noundef %r, ptr noundef %s, ptr noundef %c) local_unnamed_addr #5 {
 entry:
-  %0 = insertelement <4 x ptr> poison, ptr %m, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %f, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %r, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %s, i64 3
+  %tobool = icmp ne ptr %m, null
+  %tobool1 = icmp ne ptr %f, null
+  %or.cond = and i1 %tobool, %tobool1
+  %tobool3 = icmp ne ptr %r, null
+  %or.cond1 = and i1 %or.cond, %tobool3
+  %tobool5 = icmp ne ptr %s, null
+  %or.cond2 = and i1 %or.cond1, %tobool5
   %tobool7 = icmp ne ptr %c, null
-  %4 = icmp eq <4 x ptr> %3, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %6 = icmp eq i4 %5, 0
-  %op.rdx = and i1 %6, %tobool7
-  br i1 %op.rdx, label %if.end, label %return
+  %or.cond3 = and i1 %or.cond2, %tobool7
+  br i1 %or.cond3, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %7 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
-  %tobool.not2.i = icmp eq i32 %7, 0
+  %0 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
+  %tobool.not2.i = icmp eq i32 %0, 0
   br i1 %tobool.not2.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 for.cond.loopexit.i:                              ; preds = %while.body.i, %while.cond.preheader.i
-  %8 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
-  %tobool.not.i = icmp eq i32 %8, 0
+  %1 = atomicrmw xchg ptr @s_lock, i32 1 acquire, align 4
+  %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %curl_simple_lock_lock.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.end, %for.cond.loopexit.i
-  %9 = load atomic i32, ptr @s_lock monotonic, align 4
-  %tobool2.not1.i = icmp eq i32 %9, 0
+  %2 = load atomic i32, ptr @s_lock monotonic, align 4
+  %tobool2.not1.i = icmp eq i32 %2, 0
   br i1 %tobool2.not1.i, label %for.cond.loopexit.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
   tail call void @llvm.x86.sse2.pause()
-  %10 = load atomic i32, ptr @s_lock monotonic, align 4
-  %tobool2.not.i = icmp eq i32 %10, 0
+  %3 = load atomic i32, ptr @s_lock monotonic, align 4
+  %tobool2.not.i = icmp eq i32 %3, 0
   br i1 %tobool2.not.i, label %for.cond.loopexit.i, label %while.body.i, !llvm.loop !4
 
 curl_simple_lock_lock.exit:                       ; preds = %for.cond.loopexit.i, %if.end
-  %11 = load i32, ptr @initialized, align 4
-  %tobool8.not = icmp eq i32 %11, 0
+  %4 = load i32, ptr @initialized, align 4
+  %tobool8.not = icmp eq i32 %4, 0
   br i1 %tobool8.not, label %if.end.i, label %if.then9
 
 if.then9:                                         ; preds = %curl_simple_lock_lock.exit
-  %inc = add i32 %11, 1
+  %inc = add i32 %4, 1
   br label %return.sink.split.sink.split
 
 if.end.i:                                         ; preds = %curl_simple_lock_lock.exit
@@ -164,8 +164,8 @@ if.end12.i:                                       ; preds = %if.end6.i
   br i1 %tobool14.not.i, label %return.sink.split, label %fail.i
 
 fail.i:                                           ; preds = %if.end12.i, %if.end6.i, %if.end.i
-  %12 = load i32, ptr @initialized, align 4
-  %dec.i = add i32 %12, -1
+  %5 = load i32, ptr @initialized, align 4
+  %dec.i = add i32 %5, -1
   br label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %if.then9, %fail.i

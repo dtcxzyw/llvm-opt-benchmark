@@ -9010,16 +9010,21 @@ define hidden i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Al
   %5 = tail call { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %4, i64 noundef 16)
   %6 = extractvalue { i16, i16 } %5, 0
   %7 = extractvalue { i16, i16 } %5, 1
-  %.sroa.0.0.vec.insert = insertelement <4 x i16> poison, i16 %6, i64 0
-  %.sroa.0.2.vec.insert = insertelement <4 x i16> %.sroa.0.0.vec.insert, i16 %7, i64 1
   %8 = getelementptr inbounds [3 x [2 x [16 x float]]], ptr %3, i64 0, i64 %.0, i64 1
   %9 = tail call { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %8, i64 noundef 16)
   %10 = extractvalue { i16, i16 } %9, 0
   %11 = extractvalue { i16, i16 } %9, 1
-  %.sroa.0.4.vec.insert = insertelement <4 x i16> %.sroa.0.2.vec.insert, i16 %10, i64 2
-  %.sroa.0.6.vec.insert = insertelement <4 x i16> %.sroa.0.4.vec.insert, i16 %11, i64 3
-  %12 = bitcast <4 x i16> %.sroa.0.6.vec.insert to i64
-  ret i64 %12
+  %.sroa.7.0.insert.ext = zext i16 %11 to i64
+  %.sroa.7.0.insert.shift = shl nuw i64 %.sroa.7.0.insert.ext, 48
+  %.sroa.5.0.insert.ext = zext i16 %10 to i64
+  %.sroa.5.0.insert.shift = shl nuw nsw i64 %.sroa.5.0.insert.ext, 32
+  %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.5.0.insert.shift
+  %.sroa.3.0.insert.ext = zext i16 %7 to i64
+  %.sroa.3.0.insert.shift = shl nuw nsw i64 %.sroa.3.0.insert.ext, 16
+  %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.insert, %.sroa.3.0.insert.shift
+  %.sroa.0.0.insert.ext = zext i16 %6 to i64
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0.insert.ext
+  ret i64 %.sroa.0.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable

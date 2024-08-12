@@ -2078,7 +2078,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %.val = load i16, ptr %3, align 2
   %27 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
   %28 = icmp eq i32 %27, -1
-  br i1 %28, label %241, label %29
+  br i1 %28, label %243, label %29
 
 29:                                               ; preds = %get_serial_from_interface.exit
   %30 = tail call fastcc i32 @adb_send(i32 noundef %27, ptr noundef nonnull @.str.172)
@@ -2088,7 +2088,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 31:                                               ; preds = %29
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1362, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.172) #16
   %32 = tail call i32 @close(i32 noundef %27) #16
-  br label %241
+  br label %243
 
 33:                                               ; preds = %.outer236, %35
   %34 = load i32, ptr @endless_loop, align 4
@@ -2109,7 +2109,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %40 = tail call ptr @strerror(i32 noundef %38) #16
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1380, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.162, ptr noundef %40) #16
   %41 = tail call i32 @close(i32 noundef %27) #16
-  br label %241
+  br label %243
 
 42:                                               ; preds = %35
   %43 = icmp slt i64 %37, 1
@@ -2118,7 +2118,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 44:                                               ; preds = %42
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1386, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.175) #16
   %45 = tail call i32 @close(i32 noundef %27) #16
-  br label %241
+  br label %243
 
 46:                                               ; preds = %42
   %47 = add i64 %37, %.0169.ph
@@ -2137,7 +2137,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 52:                                               ; preds = %51
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1397, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.172) #16
   %53 = tail call i32 @close(i32 noundef %27) #16
-  br label %241
+  br label %243
 
 54:                                               ; preds = %51
   %55 = getelementptr i8, ptr %48, i64 1
@@ -2159,7 +2159,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %.val228 = load i16, ptr %3, align 2
   %60 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val228, ptr noundef %.08.i)
   %61 = icmp eq i32 %60, -1
-  br i1 %61, label %241, label %65
+  br i1 %61, label %243, label %65
 
 .outer236:                                        ; preds = %29, %.outer236.backedge
   %.0169.ph = phi i64 [ %47, %.outer236.backedge ], [ 0, %29 ]
@@ -2177,7 +2177,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 67:                                               ; preds = %65
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1426, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.180, ptr noundef nonnull @.str.173) #16
   %68 = tail call i32 @close(i32 noundef %60) #16
-  br label %241
+  br label %243
 
 69:                                               ; preds = %.outer233, %71
   %70 = load i32, ptr @endless_loop, align 4
@@ -2197,7 +2197,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %75 = tail call ptr @strerror(i32 noundef %73) #16
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1445, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.162, ptr noundef %75) #16
   %76 = tail call i32 @close(i32 noundef %60) #16
-  br label %241
+  br label %243
 
 77:                                               ; preds = %71
   %78 = icmp slt i64 %72, 1
@@ -2206,7 +2206,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 79:                                               ; preds = %77
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1451, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.175) #16
   %80 = tail call i32 @close(i32 noundef %60) #16
-  br label %241
+  br label %243
 
 81:                                               ; preds = %77
   %82 = add i64 %72, %.3.ph
@@ -2225,7 +2225,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 87:                                               ; preds = %86
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1460, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.182, ptr noundef nonnull @.str.173) #16
   %88 = tail call i32 @close(i32 noundef %60) #16
-  br label %241
+  br label %243
 
 89:                                               ; preds = %86
   %90 = getelementptr i8, ptr %83, i64 1
@@ -2278,7 +2278,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 107:                                              ; preds = %.outer, %109
   %108 = load i32, ptr @endless_loop, align 4
   %.not216 = icmp eq i32 %108, 0
-  br i1 %.not216, label %239, label %109
+  br i1 %.not216, label %241, label %109
 
 109:                                              ; preds = %107
   %110 = tail call ptr @__errno_location() #20
@@ -2294,7 +2294,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %114 = call ptr @strerror(i32 noundef %112) #16
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1487, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.162, ptr noundef %114) #16
   %115 = call i32 @close(i32 noundef %.1171) #16
-  br label %241
+  br label %243
 
 116:                                              ; preds = %109
   %117 = icmp slt i64 %111, 1
@@ -2303,7 +2303,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 118:                                              ; preds = %116
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1493, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.175) #16
   %119 = call i32 @close(i32 noundef %.1171) #16
-  br label %241
+  br label %243
 
 thread-pre-split:                                 ; preds = %116
   %.pr = load i32, ptr @endless_loop, align 4
@@ -2312,7 +2312,7 @@ thread-pre-split:                                 ; preds = %116
 
 .lr.ph285:                                        ; preds = %thread-pre-split, %._crit_edge
   %.0168284 = phi i64 [ 0, %._crit_edge ], [ %111, %thread-pre-split ]
-  %.5283 = phi i64 [ %238, %._crit_edge ], [ %.4.ph, %thread-pre-split ]
+  %.5283 = phi i64 [ %240, %._crit_edge ], [ %.4.ph, %thread-pre-split ]
   %.1173282 = phi i64 [ %.2174, %._crit_edge ], [ %.0172.ph, %thread-pre-split ]
   %120 = add i64 %.0168284, %.5283
   %121 = icmp sgt i64 %120, 0
@@ -2353,7 +2353,7 @@ thread-pre-split:                                 ; preds = %116
   %140 = call ptr @strerror(i32 noundef %139) #16
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1511, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %140) #16
   %141 = call i32 @close(i32 noundef %.1171) #16
-  br label %241
+  br label %243
 
 142:                                              ; preds = %135
   %143 = call i64 @g_ascii_strtoll(ptr noundef %136, ptr noundef nonnull %5, i32 noundef 16) #16
@@ -2370,7 +2370,7 @@ thread-pre-split:                                 ; preds = %116
   %149 = call ptr @strerror(i32 noundef %148) #16
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1519, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %149) #16
   %150 = call i32 @close(i32 noundef %.1171) #16
-  br label %241
+  br label %243
 
 151:                                              ; preds = %144
   %152 = call i64 @g_ascii_strtoll(ptr noundef %145, ptr noundef nonnull %5, i32 noundef 16) #16
@@ -2393,7 +2393,7 @@ thread-pre-split:                                 ; preds = %116
   %162 = call ptr @strerror(i32 noundef %161) #16
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1532, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %162) #16
   %163 = call i32 @close(i32 noundef %.1171) #16
-  br label %241
+  br label %243
 
 164:                                              ; preds = %157
   %165 = call i64 @g_ascii_strtoll(ptr noundef %158, ptr noundef nonnull %5, i32 noundef 16) #16
@@ -2416,7 +2416,7 @@ thread-pre-split:                                 ; preds = %116
   %175 = call ptr @strerror(i32 noundef %174) #16
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1545, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %175) #16
   %176 = call i32 @close(i32 noundef %.1171) #16
-  br label %241
+  br label %243
 
 177:                                              ; preds = %170
   %178 = call i64 @g_ascii_strtoll(ptr noundef %171, ptr noundef nonnull %5, i32 noundef 16) #16
@@ -2433,7 +2433,7 @@ thread-pre-split:                                 ; preds = %116
   %184 = call ptr @strerror(i32 noundef %183) #16
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1553, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.183, ptr noundef %184) #16
   %185 = call i32 @close(i32 noundef %.1171) #16
-  br label %241
+  br label %243
 
 186:                                              ; preds = %179
   %187 = call i64 @g_ascii_strtoll(ptr noundef %180, ptr noundef nonnull %5, i32 noundef 16) #16
@@ -2447,7 +2447,7 @@ thread-pre-split:                                 ; preds = %116
 193:                                              ; preds = %129
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1568, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.184) #16
   %194 = call i32 @close(i32 noundef %.1171) #16
-  br label %241
+  br label %243
 
 195:                                              ; preds = %164, %186, %151
   %.3178 = phi i64 [ %153, %151 ], [ %166, %164 ], [ %192, %186 ]
@@ -2470,70 +2470,73 @@ thread-pre-split:                                 ; preds = %116
 
 ._crit_edge335:                                   ; preds = %205
   %.pre = load ptr, ptr %5, align 8
-  br label %212
+  br label %214
 
 208:                                              ; preds = %205
-  %209 = load <2 x i32>, ptr %99, align 8
-  %210 = add <2 x i32> %209, <i32 -1, i32 -1900>
-  store <2 x i32> %210, ptr %99, align 8
+  %209 = load i32, ptr %99, align 8
+  %210 = add i32 %209, -1
+  store i32 %210, ptr %99, align 8
+  %211 = load i32, ptr %98, align 4
+  %212 = add i32 %211, -1900
+  store i32 %212, ptr %98, align 4
   store i32 -1, ptr %103, align 8
-  %211 = call i64 @mktime(ptr noundef nonnull %7) #16
+  %213 = call i64 @mktime(ptr noundef nonnull %7) #16
   store ptr getelementptr inbounds (i8, ptr @capture_android_bluetooth_hcidump.data, i64 29), ptr %5, align 8
-  br label %212
+  br label %214
 
-212:                                              ; preds = %._crit_edge335, %208
-  %213 = phi ptr [ getelementptr inbounds (i8, ptr @capture_android_bluetooth_hcidump.data, i64 29), %208 ], [ %.pre, %._crit_edge335 ]
-  %.2174 = phi i64 [ %211, %208 ], [ %.1173282, %._crit_edge335 ]
-  %214 = ptrtoint ptr %213 to i64
-  %215 = add i64 %214, add (i64 sub (i64 0, i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)), i64 4)
-  %216 = icmp slt i64 %215, %203
-  br i1 %216, label %.lr.ph, label %._crit_edge
+214:                                              ; preds = %._crit_edge335, %208
+  %215 = phi ptr [ getelementptr inbounds (i8, ptr @capture_android_bluetooth_hcidump.data, i64 29), %208 ], [ %.pre, %._crit_edge335 ]
+  %.2174 = phi i64 [ %213, %208 ], [ %.1173282, %._crit_edge335 ]
+  %216 = ptrtoint ptr %215 to i64
+  %217 = add i64 %216, add (i64 sub (i64 0, i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)), i64 4)
+  %218 = icmp slt i64 %217, %203
+  br i1 %218, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %212, %.lr.ph
-  %217 = phi ptr [ %224, %.lr.ph ], [ %213, %212 ]
-  %.0179279 = phi i32 [ %223, %.lr.ph ], [ 0, %212 ]
-  %218 = call i64 @g_ascii_strtoll(ptr noundef %217, ptr noundef nonnull %5, i32 noundef 16) #16
-  %219 = trunc i64 %218 to i8
-  %220 = zext i32 %.0179279 to i64
-  %221 = add nuw nsw i64 %220, 4
-  %222 = getelementptr [65535 x i8], ptr @capture_android_bluetooth_hcidump.packet, i64 0, i64 %221
-  store i8 %219, ptr %222, align 1
-  %223 = add i32 %.0179279, 1
-  %224 = load ptr, ptr %5, align 8
-  %225 = ptrtoint ptr %224 to i64
-  %226 = add i64 %225, add (i64 sub (i64 0, i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)), i64 4)
-  %227 = icmp slt i64 %226, %203
-  br i1 %227, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+.lr.ph:                                           ; preds = %214, %.lr.ph
+  %219 = phi ptr [ %226, %.lr.ph ], [ %215, %214 ]
+  %.0179279 = phi i32 [ %225, %.lr.ph ], [ 0, %214 ]
+  %220 = call i64 @g_ascii_strtoll(ptr noundef %219, ptr noundef nonnull %5, i32 noundef 16) #16
+  %221 = trunc i64 %220 to i8
+  %222 = zext i32 %.0179279 to i64
+  %223 = add nuw nsw i64 %222, 4
+  %224 = getelementptr [65535 x i8], ptr @capture_android_bluetooth_hcidump.packet, i64 0, i64 %223
+  store i8 %221, ptr %224, align 1
+  %225 = add i32 %.0179279, 1
+  %226 = load ptr, ptr %5, align 8
+  %227 = ptrtoint ptr %226 to i64
+  %228 = add i64 %227, add (i64 sub (i64 0, i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)), i64 4)
+  %229 = icmp slt i64 %228, %203
+  br i1 %229, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph, %212
-  %.0179.lcssa = phi i32 [ 0, %212 ], [ %223, %.lr.ph ]
-  %228 = load i8, ptr %8, align 1
-  %229 = icmp eq i8 %228, 62
-  %230 = select i1 %229, i32 16777216, i32 0
-  store i32 %230, ptr @capture_android_bluetooth_hcidump.packet, align 16
-  %231 = zext i32 %.0179.lcssa to i64
-  %232 = add nuw nsw i64 %231, 4
-  %233 = load i32, ptr %6, align 4
-  %234 = mul i32 %233, 1000
-  %235 = call fastcc zeroext i1 @extcap_dumper_dump(i32 %10, ptr %11, ptr noundef %1, ptr noundef nonnull @capture_android_bluetooth_hcidump.packet, i64 noundef %232, i64 noundef %232, i64 noundef %.2174, i32 noundef %234)
-  %236 = zext i1 %235 to i32
-  store i32 %236, ptr @endless_loop, align 4
-  %237 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %203
-  %238 = sub i64 %120, %203
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %237, i64 %238, i1 false)
-  br i1 %235, label %.lr.ph285, label %._crit_edge286, !llvm.loop !20
+._crit_edge:                                      ; preds = %.lr.ph, %214
+  %.0179.lcssa = phi i32 [ 0, %214 ], [ %225, %.lr.ph ]
+  %230 = load i8, ptr %8, align 1
+  %231 = icmp eq i8 %230, 62
+  %232 = select i1 %231, i32 16777216, i32 0
+  store i32 %232, ptr @capture_android_bluetooth_hcidump.packet, align 16
+  %233 = zext i32 %.0179.lcssa to i64
+  %234 = add nuw nsw i64 %233, 4
+  %235 = load i32, ptr %6, align 4
+  %236 = mul i32 %235, 1000
+  %237 = call fastcc zeroext i1 @extcap_dumper_dump(i32 %10, ptr %11, ptr noundef %1, ptr noundef nonnull @capture_android_bluetooth_hcidump.packet, i64 noundef %234, i64 noundef %234, i64 noundef %.2174, i32 noundef %236)
+  %238 = zext i1 %237 to i32
+  store i32 %238, ptr @endless_loop, align 4
+  %239 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %203
+  %240 = sub i64 %120, %203
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @capture_android_bluetooth_hcidump.data, ptr align 1 %239, i64 %240, i1 false)
+  br i1 %237, label %.lr.ph285, label %._crit_edge286, !llvm.loop !20
 
 ._crit_edge286:                                   ; preds = %._crit_edge, %.lr.ph285, %195, %thread-pre-split
   %.1173.lcssa = phi i64 [ %.0172.ph, %thread-pre-split ], [ %.1173282, %195 ], [ %.1173282, %.lr.ph285 ], [ %.2174, %._crit_edge ]
-  %.6 = phi i64 [ %.4.ph, %thread-pre-split ], [ %120, %195 ], [ %120, %.lr.ph285 ], [ %238, %._crit_edge ]
+  %.6 = phi i64 [ %.4.ph, %thread-pre-split ], [ %120, %195 ], [ %120, %.lr.ph285 ], [ %240, %._crit_edge ]
   br label %.outer, !llvm.loop !21
 
-239:                                              ; preds = %107
-  %240 = call i32 @close(i32 noundef %.1171) #16
-  br label %241
+241:                                              ; preds = %107
+  %242 = call i32 @close(i32 noundef %.1171) #16
+  br label %243
 
-241:                                              ; preds = %.thread, %get_serial_from_interface.exit, %239, %193, %182, %173, %160, %147, %138, %118, %113, %87, %79, %74, %67, %52, %44, %39, %31
-  %.0 = phi i32 [ -1, %31 ], [ -1, %39 ], [ -1, %44 ], [ -1, %67 ], [ -1, %74 ], [ -1, %79 ], [ -1, %113 ], [ -1, %118 ], [ -1, %138 ], [ -1, %147 ], [ -1, %160 ], [ -1, %173 ], [ -1, %182 ], [ -1, %193 ], [ 0, %239 ], [ -1, %87 ], [ -1, %52 ], [ 37, %get_serial_from_interface.exit ], [ 38, %.thread ]
+243:                                              ; preds = %.thread, %get_serial_from_interface.exit, %241, %193, %182, %173, %160, %147, %138, %118, %113, %87, %79, %74, %67, %52, %44, %39, %31
+  %.0 = phi i32 [ -1, %31 ], [ -1, %39 ], [ -1, %44 ], [ -1, %67 ], [ -1, %74 ], [ -1, %79 ], [ -1, %113 ], [ -1, %118 ], [ -1, %138 ], [ -1, %147 ], [ -1, %160 ], [ -1, %173 ], [ -1, %182 ], [ -1, %193 ], [ 0, %241 ], [ -1, %87 ], [ -1, %52 ], [ 37, %get_serial_from_interface.exit ], [ 38, %.thread ]
   ret i32 %.0
 }
 

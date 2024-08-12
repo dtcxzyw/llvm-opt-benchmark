@@ -7,7 +7,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @FLAC__MD5Init(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
 entry:
   %buf = getelementptr inbounds i8, ptr %ctx, i64 64
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %buf, align 8
+  store i32 1732584193, ptr %buf, align 8
+  %arrayidx2 = getelementptr inbounds i8, ptr %ctx, i64 68
+  store i32 -271733879, ptr %arrayidx2, align 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %ctx, i64 72
+  store i32 -1732584194, ptr %arrayidx4, align 8
+  %arrayidx6 = getelementptr inbounds i8, ptr %ctx, i64 76
+  store i32 271733878, ptr %arrayidx6, align 4
   %bytes = getelementptr inbounds i8, ptr %ctx, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bytes, i8 0, i64 24, i1 false)
   ret void

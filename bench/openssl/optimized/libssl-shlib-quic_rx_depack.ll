@@ -123,7 +123,7 @@ entry:
   %was_minimal.i = alloca i32, align 4
   %frame_type.i = alloca i64, align 8
   %pkt = alloca %struct.PACKET, align 8
-  %ackm_data = alloca %struct.ossl_ackm_rx_pkt_st, align 16
+  %ackm_data = alloca %struct.ossl_ackm_rx_pkt_st, align 8
   %cmp = icmp eq ptr %ch, null
   br i1 %cmp, label %if.end22, label %if.end
 
@@ -133,12 +133,14 @@ if.end:                                           ; preds = %entry
   %bf.clear = and i64 %bf.load, -134217729
   store i64 %bf.clear, ptr %did_crypto_frame, align 8
   %0 = getelementptr inbounds i8, ptr %ackm_data, i64 16
-  store i64 0, ptr %0, align 16
+  store i64 0, ptr %0, align 8
   %pn = getelementptr inbounds i8, ptr %qpacket, i64 32
+  %1 = load i64, ptr %pn, align 8
+  store i64 %1, ptr %ackm_data, align 8
+  %time = getelementptr inbounds i8, ptr %ackm_data, i64 8
   %time1 = getelementptr inbounds i8, ptr %qpacket, i64 40
-  %1 = load i64, ptr %time1, align 8
-  %2 = load <2 x i64>, ptr %pn, align 8
-  store <2 x i64> %2, ptr %ackm_data, align 16
+  %2 = load i64, ptr %time1, align 8
+  store i64 %2, ptr %time, align 8
   %3 = load ptr, ptr %qpacket, align 8
   %bf.load2 = load i32, ptr %3, align 8
   %trunc = trunc i32 %bf.load2 to i8
@@ -160,7 +162,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.downshift = lshr i40 8590000640, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
   %pkt_space = getelementptr inbounds i8, ptr %ackm_data, i64 16
-  store i8 %switch.masked, ptr %pkt_space, align 16
+  store i8 %switch.masked, ptr %pkt_space, align 8
   %len = getelementptr inbounds i8, ptr %3, i64 72
   %7 = load i64, ptr %len, align 8
   %cmp.i = icmp slt i64 %7, 0
@@ -254,9 +256,9 @@ if.end13.i:                                       ; preds = %if.end10.i
   ]
 
 sw.default.i19:                                   ; preds = %if.end13.i
-  %bf.load14.i = load i8, ptr %pkt_space, align 16
+  %bf.load14.i = load i8, ptr %pkt_space, align 8
   %bf.set.i = or i8 %bf.load14.i, 4
-  store i8 %bf.set.i, ptr %pkt_space, align 16
+  store i8 %bf.set.i, ptr %pkt_space, align 8
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.default.i19, %if.end13.i, %if.end13.i, %if.end13.i, %if.end13.i, %if.end13.i
@@ -393,7 +395,7 @@ if.then31.i.i:                                    ; preds = %land.lhs.true27.i.i
 
 if.end32.i.i:                                     ; preds = %land.lhs.true27.i.i, %lor.lhs.false23.i.i, %if.end17.i.i
   %28 = load ptr, ptr %ackm.i.i, align 8
-  %call34.i.i = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %28, ptr noundef nonnull %ack.i.i, i32 noundef %switch.load314, i64 %1) #3
+  %call34.i.i = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %28, ptr noundef nonnull %ack.i.i, i32 noundef %switch.load314, i64 %2) #3
   %tobool35.not.i.i = icmp eq i32 %call34.i.i, 0
   br i1 %tobool35.not.i.i, label %malformed.i.i, label %depack_do_frame_ack.exit.i
 
@@ -582,7 +584,7 @@ if.end.i172.i:                                    ; preds = %if.end57.i
   br i1 %cmp.i173.i, label %depack_do_frame_crypto.exit.i, label %if.end2.i.i
 
 if.end2.i.i:                                      ; preds = %if.end.i172.i
-  %bf.load.i174.i = load i8, ptr %pkt_space, align 16
+  %bf.load.i174.i = load i8, ptr %pkt_space, align 8
   %bf.clear.i175.i = and i8 %bf.load.i174.i, 3
   %idxprom.i.i = zext nneg i8 %bf.clear.i175.i to i64
   %arrayidx.i.i = getelementptr inbounds [3 x ptr], ptr %crypto_recv.i.i, i64 0, i64 %idxprom.i.i

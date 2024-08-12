@@ -116,12 +116,12 @@ define internal i32 @socks_proxy_cf_connect(ptr nocapture noundef %0, ptr nounde
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 %35(ptr noundef nonnull %32, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #7
   %.not55 = icmp eq i32 %36, 0
-  br i1 %.not55, label %37, label %827
+  br i1 %.not55, label %37, label %830
 
 37:                                               ; preds = %30
   %38 = load i8, ptr %3, align 1
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %827
+  br i1 %39, label %40, label %830
 
 40:                                               ; preds = %37
   %.not56 = icmp eq ptr %26, null
@@ -131,7 +131,7 @@ define internal i32 @socks_proxy_cf_connect(ptr nocapture noundef %0, ptr nounde
   %42 = load ptr, ptr @Curl_ccalloc, align 8
   %43 = tail call ptr %42(i64 noundef 1, i64 noundef 656) #7
   %.not57 = icmp eq ptr %43, null
-  br i1 %.not57, label %827, label %44
+  br i1 %.not57, label %830, label %44
 
 44:                                               ; preds = %41
   store ptr %43, ptr %25, align 8
@@ -1392,7 +1392,7 @@ do_SOCKS5.exit.i:                                 ; preds = %531, %socksstate.ex
   call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
-  br label %814
+  br label %817
 
 532:                                              ; preds = %91, %91
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -1677,353 +1677,359 @@ socksstate.exit203.i.i:                           ; preds = %.critedge200.i.i, %
 650:                                              ; preds = %648, %socksstate.exit203.i.i
   %651 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %641) #8
   %652 = add i64 %651, 9
-  br i1 %533, label %653, label %667
+  br i1 %533, label %653, label %670
 
 653:                                              ; preds = %650
   %654 = getelementptr inbounds i8, ptr %.0, i64 20
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %654, align 1
-  %655 = getelementptr inbounds i8, ptr %.0, i64 624
-  %656 = load ptr, ptr %655, align 8
-  %657 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %656) #8
-  %658 = add i64 %657, 1
-  %659 = icmp ult i64 %658, 256
-  br i1 %659, label %660, label %666
+  store i8 0, ptr %654, align 1
+  %655 = getelementptr inbounds i8, ptr %.0, i64 21
+  store i8 0, ptr %655, align 1
+  %656 = getelementptr inbounds i8, ptr %.0, i64 22
+  store i8 0, ptr %656, align 1
+  %657 = getelementptr inbounds i8, ptr %.0, i64 23
+  store i8 1, ptr %657, align 1
+  %658 = getelementptr inbounds i8, ptr %.0, i64 624
+  %659 = load ptr, ptr %658, align 8
+  %660 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %659) #8
+  %661 = add i64 %660, 1
+  %662 = icmp ult i64 %661, 256
+  br i1 %662, label %663, label %669
 
-660:                                              ; preds = %653
-  %661 = add i64 %658, %652
-  %662 = icmp ult i64 %661, 600
-  br i1 %662, label %663, label %666
+663:                                              ; preds = %653
+  %664 = add i64 %661, %652
+  %665 = icmp ult i64 %664, 600
+  br i1 %665, label %666, label %669
 
-663:                                              ; preds = %660
-  %664 = getelementptr inbounds i8, ptr %534, i64 %652
-  %665 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %664, ptr noundef nonnull dereferenceable(1) %656) #7
-  br label %667
+666:                                              ; preds = %663
+  %667 = getelementptr inbounds i8, ptr %534, i64 %652
+  %668 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %667, ptr noundef nonnull dereferenceable(1) %659) #7
+  br label %670
 
-666:                                              ; preds = %660, %653
+669:                                              ; preds = %663, %653
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.42) #7
   br label %do_SOCKS4.exit.i
 
-667:                                              ; preds = %663, %650
-  %.0.i19.i = phi i64 [ %661, %663 ], [ %652, %650 ]
-  %668 = getelementptr inbounds i8, ptr %.0, i64 616
-  store ptr %534, ptr %668, align 8
-  %669 = getelementptr inbounds i8, ptr %.0, i64 8
-  store i64 %.0.i19.i, ptr %669, align 8
-  %670 = load i32, ptr %.0, align 8
-  %671 = icmp eq i32 %670, 14
-  br i1 %671, label %socksstate.exit205.i.i, label %672
+670:                                              ; preds = %666, %650
+  %.0.i19.i = phi i64 [ %664, %666 ], [ %652, %650 ]
+  %671 = getelementptr inbounds i8, ptr %.0, i64 616
+  store ptr %534, ptr %671, align 8
+  %672 = getelementptr inbounds i8, ptr %.0, i64 8
+  store i64 %.0.i19.i, ptr %672, align 8
+  %673 = load i32, ptr %.0, align 8
+  %674 = icmp eq i32 %673, 14
+  br i1 %674, label %socksstate.exit205.i.i, label %675
 
-672:                                              ; preds = %667
+675:                                              ; preds = %670
   store i32 14, ptr %.0, align 8
   br label %socksstate.exit205.i.i
 
-socksstate.exit205.i.i:                           ; preds = %672, %667, %.socksstate.exit205_crit_edge.i.i
-  %673 = phi i64 [ %.pre223.i.i, %.socksstate.exit205_crit_edge.i.i ], [ %.0.i19.i, %672 ], [ %.0.i19.i, %667 ]
-  %674 = phi ptr [ %.pre.i14.i, %.socksstate.exit205_crit_edge.i.i ], [ %534, %672 ], [ %534, %667 ]
+socksstate.exit205.i.i:                           ; preds = %675, %670, %.socksstate.exit205_crit_edge.i.i
+  %676 = phi i64 [ %.pre223.i.i, %.socksstate.exit205_crit_edge.i.i ], [ %.0.i19.i, %675 ], [ %.0.i19.i, %670 ]
+  %677 = phi ptr [ %.pre.i14.i, %.socksstate.exit205_crit_edge.i.i ], [ %534, %675 ], [ %534, %670 ]
   %.val.i15.i = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %675 = getelementptr inbounds i8, ptr %.0, i64 616
-  %676 = getelementptr inbounds i8, ptr %.0, i64 8
-  %677 = call i64 @Curl_conn_cf_send(ptr noundef %.val.i15.i, ptr noundef %1, ptr noundef %674, i64 noundef %673, ptr noundef nonnull %6) #7
-  %678 = icmp slt i64 %677, 1
-  br i1 %678, label %679, label %684
+  %678 = getelementptr inbounds i8, ptr %.0, i64 616
+  %679 = getelementptr inbounds i8, ptr %.0, i64 8
+  %680 = call i64 @Curl_conn_cf_send(ptr noundef %.val.i15.i, ptr noundef %1, ptr noundef %677, i64 noundef %676, ptr noundef nonnull %6) #7
+  %681 = icmp slt i64 %680, 1
+  br i1 %681, label %682, label %687
 
-679:                                              ; preds = %socksstate.exit205.i.i
-  %680 = load i32, ptr %6, align 4
-  switch i32 %680, label %682 [
+682:                                              ; preds = %socksstate.exit205.i.i
+  %683 = load i32, ptr %6, align 4
+  switch i32 %683, label %685 [
     i32 81, label %thread-pre-split.i18.i
-    i32 0, label %681
+    i32 0, label %684
   ]
 
-681:                                              ; preds = %679
+684:                                              ; preds = %682
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.29) #7
   br label %socks_state_send.exit.i16.i
 
-682:                                              ; preds = %679
-  %683 = call ptr @curl_easy_strerror(i32 noundef %680) #7
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.43, ptr noundef %683) #7
+685:                                              ; preds = %682
+  %686 = call ptr @curl_easy_strerror(i32 noundef %683) #7
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.43, ptr noundef %686) #7
   br label %socks_state_send.exit.i16.i
 
-684:                                              ; preds = %socksstate.exit205.i.i
-  %685 = load i64, ptr %676, align 8
-  %686 = sub nsw i64 %685, %677
-  store i64 %686, ptr %676, align 8
-  %687 = load ptr, ptr %675, align 8
-  %688 = getelementptr inbounds i8, ptr %687, i64 %677
-  store ptr %688, ptr %675, align 8
-  br label %689
+687:                                              ; preds = %socksstate.exit205.i.i
+  %688 = load i64, ptr %679, align 8
+  %689 = sub nsw i64 %688, %680
+  store i64 %689, ptr %679, align 8
+  %690 = load ptr, ptr %678, align 8
+  %691 = getelementptr inbounds i8, ptr %690, i64 %680
+  store ptr %691, ptr %678, align 8
+  br label %692
 
-socks_state_send.exit.i16.i:                      ; preds = %682, %681
-  %.0.i.i17.i = phi i32 [ 3, %681 ], [ 29, %682 ]
+socks_state_send.exit.i16.i:                      ; preds = %685, %684
+  %.0.i.i17.i = phi i32 [ 3, %684 ], [ 29, %685 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %do_SOCKS4.exit.i
 
-thread-pre-split.i18.i:                           ; preds = %679
-  %.pr212.i.i = load i64, ptr %676, align 8
-  br label %689
+thread-pre-split.i18.i:                           ; preds = %682
+  %.pr212.i.i = load i64, ptr %679, align 8
+  br label %692
 
-689:                                              ; preds = %thread-pre-split.i18.i, %684
-  %690 = phi i64 [ %.pr212.i.i, %thread-pre-split.i18.i ], [ %686, %684 ]
+692:                                              ; preds = %thread-pre-split.i18.i, %687
+  %693 = phi i64 [ %.pr212.i.i, %thread-pre-split.i18.i ], [ %689, %687 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %.not192.i.i = icmp eq i64 %690, 0
-  br i1 %.not192.i.i, label %691, label %do_SOCKS4.exit.i
+  %.not192.i.i = icmp eq i64 %693, 0
+  br i1 %.not192.i.i, label %694, label %do_SOCKS4.exit.i
 
-691:                                              ; preds = %689
-  store i64 8, ptr %676, align 8
-  store ptr %534, ptr %675, align 8
-  %692 = load i32, ptr %.0, align 8
-  %693 = icmp eq i32 %692, 4
-  br i1 %693, label %socksstate.exit206.i.i, label %694
+694:                                              ; preds = %692
+  store i64 8, ptr %679, align 8
+  store ptr %534, ptr %678, align 8
+  %695 = load i32, ptr %.0, align 8
+  %696 = icmp eq i32 %695, 4
+  br i1 %696, label %socksstate.exit206.i.i, label %697
 
-694:                                              ; preds = %691
+697:                                              ; preds = %694
   store i32 4, ptr %.0, align 8
   br label %socksstate.exit206.i.i
 
-socksstate.exit206.i.i:                           ; preds = %694, %691, %.socksstate.exit206_crit_edge.i.i
-  %695 = phi i64 [ %.pre227.i.i, %.socksstate.exit206_crit_edge.i.i ], [ 8, %694 ], [ 8, %691 ]
-  %696 = phi ptr [ %.pre225.i.i, %.socksstate.exit206_crit_edge.i.i ], [ %534, %694 ], [ %534, %691 ]
+socksstate.exit206.i.i:                           ; preds = %697, %694, %.socksstate.exit206_crit_edge.i.i
+  %698 = phi i64 [ %.pre227.i.i, %.socksstate.exit206_crit_edge.i.i ], [ 8, %697 ], [ 8, %694 ]
+  %699 = phi ptr [ %.pre225.i.i, %.socksstate.exit206_crit_edge.i.i ], [ %534, %697 ], [ %534, %694 ]
   %.val201.i.i = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %697 = getelementptr inbounds i8, ptr %.0, i64 8
-  %698 = call i64 @Curl_conn_cf_recv(ptr noundef %.val201.i.i, ptr noundef %1, ptr noundef %696, i64 noundef %695, ptr noundef nonnull %5) #7
-  %699 = icmp slt i64 %698, 1
-  br i1 %699, label %700, label %705
+  %700 = getelementptr inbounds i8, ptr %.0, i64 8
+  %701 = call i64 @Curl_conn_cf_recv(ptr noundef %.val201.i.i, ptr noundef %1, ptr noundef %699, i64 noundef %698, ptr noundef nonnull %5) #7
+  %702 = icmp slt i64 %701, 1
+  br i1 %702, label %703, label %708
 
-700:                                              ; preds = %socksstate.exit206.i.i
-  %701 = load i32, ptr %5, align 4
-  switch i32 %701, label %703 [
+703:                                              ; preds = %socksstate.exit206.i.i
+  %704 = load i32, ptr %5, align 4
+  switch i32 %704, label %706 [
     i32 81, label %thread-pre-split215.i.i
-    i32 0, label %702
+    i32 0, label %705
   ]
 
-702:                                              ; preds = %700
+705:                                              ; preds = %703
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.29) #7
   br label %socks_state_recv.exit.i13.i
 
-703:                                              ; preds = %700
-  %704 = call ptr @curl_easy_strerror(i32 noundef %701) #7
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.44, ptr noundef %704) #7
+706:                                              ; preds = %703
+  %707 = call ptr @curl_easy_strerror(i32 noundef %704) #7
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.44, ptr noundef %707) #7
   br label %socks_state_recv.exit.i13.i
 
-705:                                              ; preds = %socksstate.exit206.i.i
-  %706 = getelementptr inbounds i8, ptr %.0, i64 616
-  %707 = load i64, ptr %697, align 8
-  %708 = sub nsw i64 %707, %698
-  store i64 %708, ptr %697, align 8
-  %709 = load ptr, ptr %706, align 8
-  %710 = getelementptr inbounds i8, ptr %709, i64 %698
-  store ptr %710, ptr %706, align 8
-  br label %711
+708:                                              ; preds = %socksstate.exit206.i.i
+  %709 = getelementptr inbounds i8, ptr %.0, i64 616
+  %710 = load i64, ptr %700, align 8
+  %711 = sub nsw i64 %710, %701
+  store i64 %711, ptr %700, align 8
+  %712 = load ptr, ptr %709, align 8
+  %713 = getelementptr inbounds i8, ptr %712, i64 %701
+  store ptr %713, ptr %709, align 8
+  br label %714
 
-socks_state_recv.exit.i13.i:                      ; preds = %703, %702
-  %.0.i207.i.i = phi i32 [ 3, %702 ], [ 15, %703 ]
+socks_state_recv.exit.i13.i:                      ; preds = %706, %705
+  %.0.i207.i.i = phi i32 [ 3, %705 ], [ 15, %706 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %do_SOCKS4.exit.i
 
-thread-pre-split215.i.i:                          ; preds = %700
-  %.pr216.i.i = load i64, ptr %697, align 8
-  br label %711
+thread-pre-split215.i.i:                          ; preds = %703
+  %.pr216.i.i = load i64, ptr %700, align 8
+  br label %714
 
-711:                                              ; preds = %thread-pre-split215.i.i, %705
-  %712 = phi i64 [ %.pr216.i.i, %thread-pre-split215.i.i ], [ %708, %705 ]
+714:                                              ; preds = %thread-pre-split215.i.i, %708
+  %715 = phi i64 [ %.pr216.i.i, %thread-pre-split215.i.i ], [ %711, %708 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %.not194.i.i = icmp eq i64 %712, 0
-  br i1 %.not194.i.i, label %713, label %do_SOCKS4.exit.i
+  %.not194.i.i = icmp eq i64 %715, 0
+  br i1 %.not194.i.i, label %716, label %do_SOCKS4.exit.i
 
-713:                                              ; preds = %711
-  %714 = load i32, ptr %.0, align 8
-  %715 = icmp eq i32 %714, 17
-  br i1 %715, label %socksstate.exit208.i.i, label %716
+716:                                              ; preds = %714
+  %717 = load i32, ptr %.0, align 8
+  %718 = icmp eq i32 %717, 17
+  br i1 %718, label %socksstate.exit208.i.i, label %719
 
-716:                                              ; preds = %713
+719:                                              ; preds = %716
   store i32 17, ptr %.0, align 8
   br label %socksstate.exit208.i.i
 
-socksstate.exit208.i.i:                           ; preds = %716, %713, %532
-  %717 = load i8, ptr %534, align 1
-  %.not195.i.i = icmp eq i8 %717, 0
-  br i1 %.not195.i.i, label %719, label %718
+socksstate.exit208.i.i:                           ; preds = %719, %716, %532
+  %720 = load i8, ptr %534, align 1
+  %.not195.i.i = icmp eq i8 %720, 0
+  br i1 %.not195.i.i, label %722, label %721
 
-718:                                              ; preds = %socksstate.exit208.i.i
+721:                                              ; preds = %socksstate.exit208.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.45) #7
   br label %do_SOCKS4.exit.i
 
-719:                                              ; preds = %socksstate.exit208.i.i
-  %720 = getelementptr inbounds i8, ptr %.0, i64 17
-  %721 = load i8, ptr %720, align 1
-  switch i8 %721, label %792 [
-    i8 90, label %722
-    i8 91, label %729
-    i8 92, label %750
-    i8 93, label %771
+722:                                              ; preds = %socksstate.exit208.i.i
+  %723 = getelementptr inbounds i8, ptr %.0, i64 17
+  %724 = load i8, ptr %723, align 1
+  switch i8 %724, label %795 [
+    i8 90, label %725
+    i8 91, label %732
+    i8 92, label %753
+    i8 93, label %774
   ]
 
-722:                                              ; preds = %719
+725:                                              ; preds = %722
   %.not196.i.i = icmp eq ptr %1, null
-  br i1 %.not196.i.i, label %do_SOCKS4.exit.i, label %723
+  br i1 %.not196.i.i, label %do_SOCKS4.exit.i, label %726
 
-723:                                              ; preds = %722
-  %724 = getelementptr inbounds i8, ptr %1, i64 2642
-  %725 = load i64, ptr %724, align 2
-  %726 = and i64 %725, 268435456
-  %.not197.i.i = icmp eq i64 %726, 0
-  br i1 %.not197.i.i, label %do_SOCKS4.exit.i, label %727
+726:                                              ; preds = %725
+  %727 = getelementptr inbounds i8, ptr %1, i64 2642
+  %728 = load i64, ptr %727, align 2
+  %729 = and i64 %728, 268435456
+  %.not197.i.i = icmp eq i64 %729, 0
+  br i1 %.not197.i.i, label %do_SOCKS4.exit.i, label %730
 
-727:                                              ; preds = %723
-  %728 = select i1 %533, ptr @.str.33, ptr @.str.34
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %728) #7
+730:                                              ; preds = %726
+  %731 = select i1 %533, ptr @.str.33, ptr @.str.34
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %731) #7
   br label %do_SOCKS4.exit.i
 
-729:                                              ; preds = %719
-  %730 = getelementptr inbounds i8, ptr %.0, i64 20
-  %731 = load i8, ptr %730, align 1
-  %732 = zext i8 %731 to i32
-  %733 = getelementptr inbounds i8, ptr %.0, i64 21
+732:                                              ; preds = %722
+  %733 = getelementptr inbounds i8, ptr %.0, i64 20
   %734 = load i8, ptr %733, align 1
   %735 = zext i8 %734 to i32
-  %736 = getelementptr inbounds i8, ptr %.0, i64 22
+  %736 = getelementptr inbounds i8, ptr %.0, i64 21
   %737 = load i8, ptr %736, align 1
   %738 = zext i8 %737 to i32
-  %739 = getelementptr inbounds i8, ptr %.0, i64 23
+  %739 = getelementptr inbounds i8, ptr %.0, i64 22
   %740 = load i8, ptr %739, align 1
   %741 = zext i8 %740 to i32
-  %742 = getelementptr inbounds i8, ptr %.0, i64 18
+  %742 = getelementptr inbounds i8, ptr %.0, i64 23
   %743 = load i8, ptr %742, align 1
   %744 = zext i8 %743 to i32
-  %745 = shl nuw nsw i32 %744, 8
-  %746 = getelementptr inbounds i8, ptr %.0, i64 19
-  %747 = load i8, ptr %746, align 1
-  %748 = zext i8 %747 to i32
-  %749 = or disjoint i32 %745, %748
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.47, i32 noundef %732, i32 noundef %735, i32 noundef %738, i32 noundef %741, i32 noundef %749, i32 noundef 91) #7
+  %745 = getelementptr inbounds i8, ptr %.0, i64 18
+  %746 = load i8, ptr %745, align 1
+  %747 = zext i8 %746 to i32
+  %748 = shl nuw nsw i32 %747, 8
+  %749 = getelementptr inbounds i8, ptr %.0, i64 19
+  %750 = load i8, ptr %749, align 1
+  %751 = zext i8 %750 to i32
+  %752 = or disjoint i32 %748, %751
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.47, i32 noundef %735, i32 noundef %738, i32 noundef %741, i32 noundef %744, i32 noundef %752, i32 noundef 91) #7
   br label %do_SOCKS4.exit.i
 
-750:                                              ; preds = %719
-  %751 = getelementptr inbounds i8, ptr %.0, i64 20
-  %752 = load i8, ptr %751, align 1
-  %753 = zext i8 %752 to i32
-  %754 = getelementptr inbounds i8, ptr %.0, i64 21
+753:                                              ; preds = %722
+  %754 = getelementptr inbounds i8, ptr %.0, i64 20
   %755 = load i8, ptr %754, align 1
   %756 = zext i8 %755 to i32
-  %757 = getelementptr inbounds i8, ptr %.0, i64 22
+  %757 = getelementptr inbounds i8, ptr %.0, i64 21
   %758 = load i8, ptr %757, align 1
   %759 = zext i8 %758 to i32
-  %760 = getelementptr inbounds i8, ptr %.0, i64 23
+  %760 = getelementptr inbounds i8, ptr %.0, i64 22
   %761 = load i8, ptr %760, align 1
   %762 = zext i8 %761 to i32
-  %763 = getelementptr inbounds i8, ptr %.0, i64 18
+  %763 = getelementptr inbounds i8, ptr %.0, i64 23
   %764 = load i8, ptr %763, align 1
   %765 = zext i8 %764 to i32
-  %766 = shl nuw nsw i32 %765, 8
-  %767 = getelementptr inbounds i8, ptr %.0, i64 19
-  %768 = load i8, ptr %767, align 1
-  %769 = zext i8 %768 to i32
-  %770 = or disjoint i32 %766, %769
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.48, i32 noundef %753, i32 noundef %756, i32 noundef %759, i32 noundef %762, i32 noundef %770, i32 noundef 92) #7
+  %766 = getelementptr inbounds i8, ptr %.0, i64 18
+  %767 = load i8, ptr %766, align 1
+  %768 = zext i8 %767 to i32
+  %769 = shl nuw nsw i32 %768, 8
+  %770 = getelementptr inbounds i8, ptr %.0, i64 19
+  %771 = load i8, ptr %770, align 1
+  %772 = zext i8 %771 to i32
+  %773 = or disjoint i32 %769, %772
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.48, i32 noundef %756, i32 noundef %759, i32 noundef %762, i32 noundef %765, i32 noundef %773, i32 noundef 92) #7
   br label %do_SOCKS4.exit.i
 
-771:                                              ; preds = %719
-  %772 = getelementptr inbounds i8, ptr %.0, i64 20
-  %773 = load i8, ptr %772, align 1
-  %774 = zext i8 %773 to i32
-  %775 = getelementptr inbounds i8, ptr %.0, i64 21
+774:                                              ; preds = %722
+  %775 = getelementptr inbounds i8, ptr %.0, i64 20
   %776 = load i8, ptr %775, align 1
   %777 = zext i8 %776 to i32
-  %778 = getelementptr inbounds i8, ptr %.0, i64 22
+  %778 = getelementptr inbounds i8, ptr %.0, i64 21
   %779 = load i8, ptr %778, align 1
   %780 = zext i8 %779 to i32
-  %781 = getelementptr inbounds i8, ptr %.0, i64 23
+  %781 = getelementptr inbounds i8, ptr %.0, i64 22
   %782 = load i8, ptr %781, align 1
   %783 = zext i8 %782 to i32
-  %784 = getelementptr inbounds i8, ptr %.0, i64 18
+  %784 = getelementptr inbounds i8, ptr %.0, i64 23
   %785 = load i8, ptr %784, align 1
   %786 = zext i8 %785 to i32
-  %787 = shl nuw nsw i32 %786, 8
-  %788 = getelementptr inbounds i8, ptr %.0, i64 19
-  %789 = load i8, ptr %788, align 1
-  %790 = zext i8 %789 to i32
-  %791 = or disjoint i32 %787, %790
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.49, i32 noundef %774, i32 noundef %777, i32 noundef %780, i32 noundef %783, i32 noundef %791, i32 noundef 93) #7
+  %787 = getelementptr inbounds i8, ptr %.0, i64 18
+  %788 = load i8, ptr %787, align 1
+  %789 = zext i8 %788 to i32
+  %790 = shl nuw nsw i32 %789, 8
+  %791 = getelementptr inbounds i8, ptr %.0, i64 19
+  %792 = load i8, ptr %791, align 1
+  %793 = zext i8 %792 to i32
+  %794 = or disjoint i32 %790, %793
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.49, i32 noundef %777, i32 noundef %780, i32 noundef %783, i32 noundef %786, i32 noundef %794, i32 noundef 93) #7
   br label %do_SOCKS4.exit.i
 
-792:                                              ; preds = %719
-  %793 = zext i8 %721 to i32
-  %794 = getelementptr inbounds i8, ptr %.0, i64 20
-  %795 = load i8, ptr %794, align 1
-  %796 = zext i8 %795 to i32
-  %797 = getelementptr inbounds i8, ptr %.0, i64 21
+795:                                              ; preds = %722
+  %796 = zext i8 %724 to i32
+  %797 = getelementptr inbounds i8, ptr %.0, i64 20
   %798 = load i8, ptr %797, align 1
   %799 = zext i8 %798 to i32
-  %800 = getelementptr inbounds i8, ptr %.0, i64 22
+  %800 = getelementptr inbounds i8, ptr %.0, i64 21
   %801 = load i8, ptr %800, align 1
   %802 = zext i8 %801 to i32
-  %803 = getelementptr inbounds i8, ptr %.0, i64 23
+  %803 = getelementptr inbounds i8, ptr %.0, i64 22
   %804 = load i8, ptr %803, align 1
   %805 = zext i8 %804 to i32
-  %806 = getelementptr inbounds i8, ptr %.0, i64 18
+  %806 = getelementptr inbounds i8, ptr %.0, i64 23
   %807 = load i8, ptr %806, align 1
   %808 = zext i8 %807 to i32
-  %809 = shl nuw nsw i32 %808, 8
-  %810 = getelementptr inbounds i8, ptr %.0, i64 19
-  %811 = load i8, ptr %810, align 1
-  %812 = zext i8 %811 to i32
-  %813 = or disjoint i32 %809, %812
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef %796, i32 noundef %799, i32 noundef %802, i32 noundef %805, i32 noundef %813, i32 noundef %793) #7
+  %809 = getelementptr inbounds i8, ptr %.0, i64 18
+  %810 = load i8, ptr %809, align 1
+  %811 = zext i8 %810 to i32
+  %812 = shl nuw nsw i32 %811, 8
+  %813 = getelementptr inbounds i8, ptr %.0, i64 19
+  %814 = load i8, ptr %813, align 1
+  %815 = zext i8 %814 to i32
+  %816 = or disjoint i32 %812, %815
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef %799, i32 noundef %802, i32 noundef %805, i32 noundef %808, i32 noundef %816, i32 noundef %796) #7
   br label %do_SOCKS4.exit.i
 
-do_SOCKS4.exit.i:                                 ; preds = %792, %771, %750, %729, %727, %723, %722, %718, %711, %socks_state_recv.exit.i13.i, %689, %socks_state_send.exit.i16.i, %666, %647, %socksstate.exit202.thread.i.i, %.critedge198.i.i, %611, %583, %579, %socksstate.exit.i26.i, %571
-  %.0162.i.i = phi i32 [ 2, %718 ], [ 31, %792 ], [ 8, %771 ], [ 7, %750 ], [ 26, %729 ], [ 11, %647 ], [ 9, %666 ], [ 27, %571 ], [ 0, %socksstate.exit.i26.i ], [ 0, %579 ], [ 0, %583 ], [ %..i24.i, %611 ], [ 27, %socksstate.exit202.thread.i.i ], [ 27, %.critedge198.i.i ], [ %.0.i.i17.i, %socks_state_send.exit.i16.i ], [ 0, %689 ], [ %.0.i207.i.i, %socks_state_recv.exit.i13.i ], [ 0, %711 ], [ 0, %727 ], [ 0, %723 ], [ 0, %722 ]
+do_SOCKS4.exit.i:                                 ; preds = %795, %774, %753, %732, %730, %726, %725, %721, %714, %socks_state_recv.exit.i13.i, %692, %socks_state_send.exit.i16.i, %669, %647, %socksstate.exit202.thread.i.i, %.critedge198.i.i, %611, %583, %579, %socksstate.exit.i26.i, %571
+  %.0162.i.i = phi i32 [ 2, %721 ], [ 31, %795 ], [ 8, %774 ], [ 7, %753 ], [ 26, %732 ], [ 11, %647 ], [ 9, %669 ], [ 27, %571 ], [ 0, %socksstate.exit.i26.i ], [ 0, %579 ], [ 0, %583 ], [ %..i24.i, %611 ], [ 27, %socksstate.exit202.thread.i.i ], [ 27, %.critedge198.i.i ], [ %.0.i.i17.i, %socks_state_send.exit.i16.i ], [ 0, %692 ], [ %.0.i207.i.i, %socks_state_recv.exit.i13.i ], [ 0, %714 ], [ 0, %730 ], [ 0, %726 ], [ 0, %725 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  br label %814
+  br label %817
 
 .thread.i:                                        ; preds = %91
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.1) #7
   br label %socks_proxy_cf_free.exit
 
-814:                                              ; preds = %do_SOCKS4.exit.i, %do_SOCKS5.exit.i
+817:                                              ; preds = %do_SOCKS4.exit.i, %do_SOCKS5.exit.i
   %.012.i = phi i32 [ %.0162.i.i, %do_SOCKS4.exit.i ], [ %.0.i.i, %do_SOCKS5.exit.i ]
   %.not.i = icmp eq i32 %.012.i, 0
-  br i1 %.not.i, label %connect_SOCKS.exit, label %815
+  br i1 %.not.i, label %connect_SOCKS.exit, label %818
 
-815:                                              ; preds = %814
-  %816 = getelementptr inbounds i8, ptr %1, i64 5176
-  store i32 %.012.i, ptr %816, align 8
+818:                                              ; preds = %817
+  %819 = getelementptr inbounds i8, ptr %1, i64 5176
+  store i32 %.012.i, ptr %819, align 8
   br label %socks_proxy_cf_free.exit
 
-connect_SOCKS.exit:                               ; preds = %814
-  %817 = load i32, ptr %.0, align 8
-  %818 = icmp eq i32 %817, 17
-  br i1 %818, label %819, label %socks_proxy_cf_free.exit
+connect_SOCKS.exit:                               ; preds = %817
+  %820 = load i32, ptr %.0, align 8
+  %821 = icmp eq i32 %820, 17
+  br i1 %821, label %822, label %socks_proxy_cf_free.exit
 
-819:                                              ; preds = %connect_SOCKS.exit
-  %820 = load i8, ptr %27, align 4
-  %821 = or i8 %820, 1
-  store i8 %821, ptr %27, align 4
+822:                                              ; preds = %connect_SOCKS.exit
+  %823 = load i8, ptr %27, align 4
+  %824 = or i8 %823, 1
+  store i8 %824, ptr %27, align 4
   call void @Curl_verboseconnect(ptr noundef %1, ptr noundef %22) #7
-  %822 = load ptr, ptr %25, align 8
-  %.not.i63 = icmp eq ptr %822, null
-  br i1 %.not.i63, label %socks_proxy_cf_free.exit, label %823
+  %825 = load ptr, ptr %25, align 8
+  %.not.i63 = icmp eq ptr %825, null
+  br i1 %.not.i63, label %socks_proxy_cf_free.exit, label %826
 
-823:                                              ; preds = %819
-  %824 = load ptr, ptr @Curl_cfree, align 8
-  call void %824(ptr noundef nonnull %822) #7
+826:                                              ; preds = %822
+  %827 = load ptr, ptr @Curl_cfree, align 8
+  call void %827(ptr noundef nonnull %825) #7
   store ptr null, ptr %25, align 8
   br label %socks_proxy_cf_free.exit
 
-socks_proxy_cf_free.exit:                         ; preds = %.thread.i, %815, %823, %819, %connect_SOCKS.exit
-  %.1.i69 = phi i32 [ 0, %connect_SOCKS.exit ], [ 0, %819 ], [ 0, %823 ], [ 7, %.thread.i ], [ 97, %815 ]
-  %825 = load i8, ptr %27, align 4
-  %826 = and i8 %825, 1
+socks_proxy_cf_free.exit:                         ; preds = %.thread.i, %818, %826, %822, %connect_SOCKS.exit
+  %.1.i69 = phi i32 [ 0, %connect_SOCKS.exit ], [ 0, %822 ], [ 0, %826 ], [ 7, %.thread.i ], [ 97, %818 ]
+  %828 = load i8, ptr %27, align 4
+  %829 = and i8 %828, 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %socks_proxy_cf_free.exit
-  %.sink76 = phi i8 [ %826, %socks_proxy_cf_free.exit ], [ 1, %4 ]
+  %.sink76 = phi i8 [ %829, %socks_proxy_cf_free.exit ], [ 1, %4 ]
   %.052.ph = phi i32 [ %.1.i69, %socks_proxy_cf_free.exit ], [ 0, %4 ]
   store i8 %.sink76, ptr %3, align 1
-  br label %827
+  br label %830
 
-827:                                              ; preds = %.sink.split, %41, %30, %37
+830:                                              ; preds = %.sink.split, %41, %30, %37
   %.052 = phi i32 [ 0, %37 ], [ %36, %30 ], [ 27, %41 ], [ %.052.ph, %.sink.split ]
   ret i32 %.052
 }

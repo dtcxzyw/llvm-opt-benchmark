@@ -13507,15 +13507,17 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, 
   %m_named_subs = getelementptr inbounds i8, ptr %this, i64 56
   %m_named_subs3 = getelementptr inbounds i8, ptr %m, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_base, i8 0, i64 25, i1 false)
+  %5 = load ptr, ptr %m_named_subs3, align 8, !tbaa !170
+  store ptr %5, ptr %m_named_subs, align 8, !tbaa !170
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %m, i64 64
-  %5 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !68
-  %6 = load <2 x ptr>, ptr %m_named_subs3, align 8, !tbaa !42
-  store <2 x ptr> %6, ptr %m_named_subs, align 8, !tbaa !42
-  %cmp.not.i.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !68
+  store ptr %6, ptr %_M_refcount.i.i, align 8, !tbaa !68
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5boost13re_detail_50020named_subexpressionsEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
   %tobool.i.not.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -19641,9 +19643,9 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE9do_assignEPKcS7_j(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %p1, ptr noundef %p2, i32 noundef %f) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parser.i = alloca %"class.boost::re_detail_500::basic_regex_parser", align 8
-  %temp = alloca %"class.std::shared_ptr", align 16
+  %temp = alloca %"class.std::shared_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp) #32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %temp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %this, align 8, !tbaa !102
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -19694,7 +19696,7 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5boost13re_detail_50026basic_regex_implementationIcNS0_12regex_traitsIcNS0_16cpp_regex_traitsIcEEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8, !tbaa !29
   %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call2, ptr %_M_ptr.i.i, align 8, !tbaa !400
-  store ptr %call2, ptr %temp, align 16, !tbaa !42
+  store ptr %call2, ptr %temp, align 8, !tbaa !42
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %temp, i64 8
   store ptr %call.i, ptr %_M_refcount3.i.i.i, align 8, !tbaa !68
   br label %if.end
@@ -19718,15 +19720,17 @@ invoke.cont9:                                     ; preds = %if.else
   %m_ptraits = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call10, i8 0, i64 24, i1 false)
   %m_ptraits.i.i = getelementptr inbounds i8, ptr %call10, i64 24
+  %9 = load ptr, ptr %m_ptraits, align 8, !tbaa !104
+  store ptr %9, ptr %m_ptraits.i.i, align 8, !tbaa !104
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call10, i64 32
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !68
-  %10 = load <2 x ptr>, ptr %m_ptraits, align 8, !tbaa !42
-  store <2 x ptr> %10, ptr %m_ptraits.i.i, align 8, !tbaa !42
-  %cmp.not.i.i.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !68
+  store ptr %10, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !68
+  %cmp.not.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont14, label %if.then.i.i.i.i.i32
 
 if.then.i.i.i.i.i32:                              ; preds = %invoke.cont9
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -19783,7 +19787,7 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5boost13re_detail_50026basic_regex_implementationIcNS0_12regex_traitsIcNS0_16cpp_regex_traitsIcEEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i107, align 8, !tbaa !29
   %_M_ptr.i.i116 = getelementptr inbounds i8, ptr %call.i107, i64 16
   store ptr %call10, ptr %_M_ptr.i.i116, align 8, !tbaa !400
-  store ptr %call10, ptr %temp, align 16, !tbaa !42
+  store ptr %call10, ptr %temp, align 8, !tbaa !42
   %_M_refcount3.i.i.i36 = getelementptr inbounds i8, ptr %temp, i64 8
   %20 = load ptr, ptr %_M_refcount3.i.i.i36, align 8, !tbaa !68
   store ptr %call.i107, ptr %_M_refcount3.i.i.i36, align 8, !tbaa !68
@@ -19840,7 +19844,7 @@ lpad8:                                            ; preds = %if.else
   br label %ehcleanup23
 
 if.end:                                           ; preds = %if.then7.i.i.i.i.i48, %invoke.cont.i.i.i.i.i45, %if.then.i.i.i.i.i50, %invoke.cont16, %invoke.cont5
-  %28 = load ptr, ptr %temp, align 16, !tbaa !42
+  %28 = load ptr, ptr %temp, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %parser.i) #32
   invoke void @_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC2EPNS0_10regex_dataIcS5_EE(ptr noundef nonnull align 8 dereferenceable(100) %parser.i, ptr noundef nonnull %28)
           to label %.noexc unwind label %lpad20
@@ -19891,14 +19895,15 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont21:                                    ; preds = %if.then.i.i.i.i.i.i79, %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %parser.i) #32
+  %32 = load ptr, ptr %this, align 8, !tbaa !42
+  store ptr %32, ptr %temp, align 8, !tbaa !42
+  store ptr %28, ptr %this, align 8, !tbaa !42
   %_M_refcount.i80 = getelementptr inbounds i8, ptr %temp, i64 8
   %_M_refcount3.i = getelementptr inbounds i8, ptr %this, i64 8
-  %32 = load ptr, ptr %_M_refcount.i80, align 8, !tbaa !68
   %33 = load ptr, ptr %_M_refcount3.i, align 8, !tbaa !68
-  %34 = load <2 x ptr>, ptr %this, align 8, !tbaa !42
-  store ptr %28, ptr %this, align 8, !tbaa !42
-  store ptr %32, ptr %_M_refcount3.i, align 8, !tbaa !68
-  store <2 x ptr> %34, ptr %temp, align 16, !tbaa !42
+  %34 = load ptr, ptr %_M_refcount.i80, align 8, !tbaa !68
+  store ptr %34, ptr %_M_refcount3.i, align 8, !tbaa !68
+  store ptr %33, ptr %_M_refcount.i80, align 8, !tbaa !68
   %cmp.not.i.i82 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i82, label %_ZNSt12__shared_ptrIN5boost13re_detail_50026basic_regex_implementationIcNS0_12regex_traitsIcNS0_16cpp_regex_traitsIcEEEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit101, label %if.then.i.i83
 
@@ -20404,15 +20409,17 @@ _ZNSt7__cxx1110_List_baseISt4pairISt10shared_ptrIKN5boost13re_detail_50031cpp_re
 if.end:                                           ; preds = %_ZNSt7__cxx1110_List_baseISt4pairISt10shared_ptrIKN5boost13re_detail_50031cpp_regex_traits_implementationIcEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EED2Ev.exit, %if.then
   %33 = phi ptr [ %.pre238, %_ZNSt7__cxx1110_List_baseISt4pairISt10shared_ptrIKN5boost13re_detail_50031cpp_regex_traits_implementationIcEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EED2Ev.exit ], [ %13, %if.then ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !235
+  store ptr %34, ptr %agg.result, align 8, !tbaa !235
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %33, i64 24
-  %34 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !68
-  %35 = load <2 x ptr>, ptr %_M_storage.i.i.i, align 8, !tbaa !42
-  store <2 x ptr> %35, ptr %agg.result, align 8, !tbaa !42
-  %cmp.not.i.i.i124 = icmp eq ptr %34, null
+  %35 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !68
+  store ptr %35, ptr %_M_refcount.i.i, align 8, !tbaa !68
+  %cmp.not.i.i.i124 = icmp eq ptr %35, null
   br i1 %cmp.not.i.i.i124, label %cleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
   %tobool.i.not.i.i.i.i = icmp eq i8 %36, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i125

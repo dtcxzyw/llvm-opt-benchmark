@@ -3929,25 +3929,29 @@ define void @_ZN5Ipopt16FilterLSAcceptor18InitThisLineSearchEb(ptr noundef nonnu
   store double %15, ptr %16, align 8
   %17 = load ptr, ptr %4, align 8
   %18 = tail call noundef double @_ZN5Ipopt25IpoptCalculatedQuantities19curr_gradBarrTDeltaEv(ptr noundef nonnull align 8 dereferenceable(2185) %17)
-  br label %25
+  br label %28
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %0, i64 224
-  %21 = getelementptr inbounds i8, ptr %0, i64 200
-  %22 = load <2 x double>, ptr %20, align 8
-  store <2 x double> %22, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 240
+  %21 = load double, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 200
+  store double %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 232
   %24 = load double, ptr %23, align 8
-  br label %25
+  %25 = getelementptr inbounds i8, ptr %0, i64 208
+  store double %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 240
+  %27 = load double, ptr %26, align 8
+  br label %28
 
-25:                                               ; preds = %19, %3
-  %.sink = phi double [ %24, %19 ], [ %18, %3 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 216
-  store double %.sink, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 248
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8
-  tail call void @_ZN5Ipopt6Filter5PrintERKNS_10JournalistE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(40) %29)
+28:                                               ; preds = %19, %3
+  %.sink = phi double [ %27, %19 ], [ %18, %3 ]
+  %29 = getelementptr inbounds i8, ptr %0, i64 216
+  store double %.sink, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 248
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8
+  tail call void @_ZN5Ipopt6Filter5PrintERKNS_10JournalistE(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(40) %32)
   ret void
 }
 
@@ -4742,13 +4746,17 @@ define void @_ZN5Ipopt16FilterLSAcceptor13StartWatchDogEv(ptr nocapture noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5Ipopt16FilterLSAcceptor12StopWatchDogEv(ptr nocapture noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 224
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
-  %4 = load <2 x double>, ptr %2, align 8
-  store <2 x double> %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = load double, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 200
+  store double %3, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 232
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 216
+  %7 = getelementptr inbounds i8, ptr %0, i64 208
   store double %6, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 240
+  %9 = load double, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 216
+  store double %9, ptr %10, align 8
   ret void
 }
 

@@ -432,20 +432,23 @@ if.end:                                           ; preds = %entry, %if.else
   store ptr null, ptr %iter, align 8
   %uchars_.i = getelementptr inbounds i8, ptr %iter, i64 8
   %uchars_2.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load ptr, ptr %uchars_2.i, align 8
+  store ptr %5, ptr %uchars_.i, align 8
   %pos_.i = getelementptr inbounds i8, ptr %iter, i64 16
-  %5 = load <2 x ptr>, ptr %uchars_2.i, align 8
-  store <2 x ptr> %5, ptr %uchars_.i, align 8
+  %pos_3.i = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = load ptr, ptr %pos_3.i, align 8
+  store ptr %6, ptr %pos_.i, align 8
   %remainingMatchLength_.i = getelementptr inbounds i8, ptr %iter, i64 24
   %remainingMatchLength_4.i = getelementptr inbounds i8, ptr %4, i64 24
-  %6 = load i32, ptr %remainingMatchLength_4.i, align 8
-  store i32 %6, ptr %remainingMatchLength_.i, align 8
+  %7 = load i32, ptr %remainingMatchLength_4.i, align 8
+  store i32 %7, ptr %remainingMatchLength_.i, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end25, %if.end
   %bestValue.0 = phi i32 [ -1, %if.end ], [ %bestValue.2, %if.end25 ]
   %bestPosn.0 = phi i64 [ -1, %if.end ], [ %bestPosn.2, %if.end25 ]
-  %7 = load ptr, ptr %fText, align 8
-  %call12 = invoke i32 @utext_previous32_75(ptr noundef %7)
+  %8 = load ptr, ptr %fText, align 8
+  %call12 = invoke i32 @utext_previous32_75(ptr noundef %8)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %while.cond
@@ -461,16 +464,16 @@ invoke.cont14:                                    ; preds = %while.body
   br i1 %cmp16, label %if.then17, label %if.end25
 
 if.then17:                                        ; preds = %invoke.cont14
-  %8 = load ptr, ptr %fText, align 8
-  %call22 = invoke i64 @utext_getNativeIndex_75(ptr noundef %8)
+  %9 = load ptr, ptr %fText, align 8
+  %call22 = invoke i64 @utext_getNativeIndex_75(ptr noundef %9)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.then17
-  %9 = load ptr, ptr %pos_.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 2
-  %10 = load i16, ptr %9, align 2
-  %conv.i = zext i16 %10 to i32
-  %tobool.not.i = icmp sgt i16 %10, -1
+  %10 = load ptr, ptr %pos_.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %10, i64 2
+  %11 = load i16, ptr %10, align 2
+  %conv.i = zext i16 %11 to i32
+  %tobool.not.i = icmp sgt i16 %11, -1
   br i1 %tobool.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %invoke.cont21
@@ -488,22 +491,22 @@ if.then2.i.i:                                     ; preds = %if.else.i.i
   br label %if.end9.sink.split.i.i
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
-  %11 = load i16, ptr %incdec.ptr.i, align 2
-  %conv4.i.i = zext i16 %11 to i32
+  %12 = load i16, ptr %incdec.ptr.i, align 2
+  %conv4.i.i = zext i16 %12 to i32
   %shl5.i.i = shl nuw i32 %conv4.i.i, 16
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %9, i64 4
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %10, i64 4
   br label %if.end9.sink.split.i.i
 
 if.end9.sink.split.i.i:                           ; preds = %if.else3.i.i, %if.then2.i.i
   %pos.sink.i.i = phi ptr [ %incdec.ptr.i, %if.then2.i.i ], [ %arrayidx6.i.i, %if.else3.i.i ]
   %shl.sink.i.i = phi i32 [ %shl.i.i, %if.then2.i.i ], [ %shl5.i.i, %if.else3.i.i ]
-  %12 = load i16, ptr %pos.sink.i.i, align 2
-  %conv.i.i = zext i16 %12 to i32
+  %13 = load i16, ptr %pos.sink.i.i, align 2
+  %conv.i.i = zext i16 %13 to i32
   %or.i.i = or disjoint i32 %shl.sink.i.i, %conv.i.i
   br label %if.end25
 
 cond.false.i:                                     ; preds = %invoke.cont21
-  %cmp.i5.i = icmp ult i16 %10, 16448
+  %cmp.i5.i = icmp ult i16 %11, 16448
   br i1 %cmp.i5.i, label %if.then.i.i, label %if.else.i6.i
 
 if.then.i.i:                                      ; preds = %cond.false.i
@@ -512,30 +515,30 @@ if.then.i.i:                                      ; preds = %cond.false.i
   br label %if.end25
 
 if.else.i6.i:                                     ; preds = %cond.false.i
-  %cmp1.i7.i = icmp ult i16 %10, 32704
+  %cmp1.i7.i = icmp ult i16 %11, 32704
   br i1 %cmp1.i7.i, label %if.then2.i9.i, label %if.else4.i.i
 
 if.then2.i9.i:                                    ; preds = %if.else.i6.i
   %and.i.i = shl nuw nsw i32 %conv.i, 10
   %sub3.i.i = and i32 %and.i.i, 33488896
   %shl.i10.i = add nsw i32 %sub3.i.i, -16842752
-  %13 = load i16, ptr %incdec.ptr.i, align 2
-  %conv.i11.i = zext i16 %13 to i32
+  %14 = load i16, ptr %incdec.ptr.i, align 2
+  %conv.i11.i = zext i16 %14 to i32
   %or.i12.i = or disjoint i32 %shl.i10.i, %conv.i11.i
   br label %if.end25
 
 if.else4.i.i:                                     ; preds = %if.else.i6.i
-  %14 = load i16, ptr %incdec.ptr.i, align 2
-  %conv5.i.i = zext i16 %14 to i32
+  %15 = load i16, ptr %incdec.ptr.i, align 2
+  %conv5.i.i = zext i16 %15 to i32
   %shl6.i.i = shl nuw i32 %conv5.i.i, 16
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %9, i64 4
-  %15 = load i16, ptr %arrayidx7.i.i, align 2
-  %conv8.i.i = zext i16 %15 to i32
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %10, i64 4
+  %16 = load i16, ptr %arrayidx7.i.i, align 2
+  %conv8.i.i = zext i16 %16 to i32
   %or9.i.i = or disjoint i32 %shl6.i.i, %conv8.i.i
   br label %if.end25
 
 lpad:                                             ; preds = %if.then17, %while.body, %while.cond
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -560,33 +563,37 @@ if.then29:                                        ; preds = %while.end
   ]
 
 land.lhs.true:                                    ; preds = %if.then29
-  %17 = load ptr, ptr %fData, align 8
-  %fForwardsPartialTrie.i = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load ptr, ptr %fForwardsPartialTrie.i, align 8
-  %cmp.i.i6.not = icmp eq ptr %18, null
+  %18 = load ptr, ptr %fData, align 8
+  %fForwardsPartialTrie.i = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load ptr, ptr %fForwardsPartialTrie.i, align 8
+  %cmp.i.i6.not = icmp eq ptr %19, null
   br i1 %cmp.i.i6.not, label %if.else60, label %if.then36
 
 if.then36:                                        ; preds = %land.lhs.true
-  %19 = load ptr, ptr %fText, align 8
-  call void @utext_setNativeIndex_75(ptr noundef %19, i64 noundef %bestPosn.1)
-  %20 = load ptr, ptr %fData, align 8
-  %fForwardsPartialTrie.i7 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load ptr, ptr %fForwardsPartialTrie.i7, align 8
+  %20 = load ptr, ptr %fText, align 8
+  call void @utext_setNativeIndex_75(ptr noundef %20, i64 noundef %bestPosn.1)
+  %21 = load ptr, ptr %fData, align 8
+  %fForwardsPartialTrie.i7 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = load ptr, ptr %fForwardsPartialTrie.i7, align 8
   store ptr null, ptr %iter39, align 8
   %uchars_.i8 = getelementptr inbounds i8, ptr %iter39, i64 8
-  %uchars_2.i9 = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load <2 x ptr>, ptr %uchars_2.i9, align 8
-  store <2 x ptr> %22, ptr %uchars_.i8, align 8
+  %uchars_2.i9 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = load ptr, ptr %uchars_2.i9, align 8
+  store ptr %23, ptr %uchars_.i8, align 8
+  %pos_.i10 = getelementptr inbounds i8, ptr %iter39, i64 16
+  %pos_3.i11 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = load ptr, ptr %pos_3.i11, align 8
+  store ptr %24, ptr %pos_.i10, align 8
   %remainingMatchLength_.i12 = getelementptr inbounds i8, ptr %iter39, i64 24
-  %remainingMatchLength_4.i13 = getelementptr inbounds i8, ptr %21, i64 24
-  %23 = load i32, ptr %remainingMatchLength_4.i13, align 8
-  store i32 %23, ptr %remainingMatchLength_.i12, align 8
+  %remainingMatchLength_4.i13 = getelementptr inbounds i8, ptr %22, i64 24
+  %25 = load i32, ptr %remainingMatchLength_4.i13, align 8
+  store i32 %25, ptr %remainingMatchLength_.i12, align 8
   br label %while.cond43
 
 while.cond43:                                     ; preds = %invoke.cont51, %if.then36
   %rfwd.0 = phi i32 [ 3, %if.then36 ], [ %call52, %invoke.cont51 ]
-  %24 = load ptr, ptr %fText, align 8
-  %call49 = invoke i32 @utext_next32_75(ptr noundef %24)
+  %26 = load ptr, ptr %fText, align 8
+  %call49 = invoke i32 @utext_next32_75(ptr noundef %26)
           to label %invoke.cont48 unwind label %lpad45
 
 invoke.cont48:                                    ; preds = %while.cond43
@@ -603,7 +610,7 @@ invoke.cont51:                                    ; preds = %land.rhs
   br i1 %tobool54.not, label %while.end56, label %while.cond43, !llvm.loop !6
 
 lpad45:                                           ; preds = %land.rhs, %while.cond43
-  %25 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -623,7 +630,7 @@ return:                                           ; preds = %while.end, %if.then
 
 eh.resume:                                        ; preds = %lpad45, %lpad
   %iter39.sink = phi ptr [ %iter39, %lpad45 ], [ %iter, %lpad ]
-  %.pn = phi { ptr, i32 } [ %25, %lpad45 ], [ %16, %lpad ]
+  %.pn = phi { ptr, i32 } [ %27, %lpad45 ], [ %17, %lpad ]
   call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %iter39.sink) #13
   resume { ptr, i32 } %.pn
 }

@@ -4596,7 +4596,7 @@ define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr nocapture noundef r
 4:                                                ; preds = %2
   %5 = load ptr, ptr @stderr, align 8
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8735) #26
-  br label %91
+  br label %115
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %3, i64 272
@@ -4615,7 +4615,7 @@ define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr nocapture noundef r
 14:                                               ; preds = %10
   %15 = load ptr, ptr @stderr, align 8
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8748) #26
-  br label %91
+  br label %115
 
 17:                                               ; preds = %10
   %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #23
@@ -4649,7 +4649,7 @@ define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr nocapture noundef r
 32:                                               ; preds = %27
   %33 = load ptr, ptr @stderr, align 8
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8764) #26
-  br label %91
+  br label %115
 
 35:                                               ; preds = %27
   %36 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %26) #23
@@ -4669,82 +4669,114 @@ define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr nocapture noundef r
   %43 = load i8, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %3, i64 168
   store i8 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 424
-  %46 = getelementptr inbounds i8, ptr %3, i64 424
-  %47 = getelementptr inbounds i8, ptr %0, i64 264
-  %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %3, i64 264
-  store i64 %48, ptr %49, align 8
-  %50 = load <2 x i64>, ptr %45, align 8
-  store <2 x i64> %50, ptr %46, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 176
-  %52 = getelementptr inbounds i8, ptr %3, i64 176
-  %53 = getelementptr inbounds i8, ptr %0, i64 440
-  %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %3, i64 440
-  store i64 %54, ptr %55, align 8
-  %56 = load <2 x i64>, ptr %51, align 8
-  store <2 x i64> %56, ptr %52, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 192
+  %45 = getelementptr inbounds i8, ptr %0, i64 240
+  %46 = load i64, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %3, i64 240
+  store i64 %46, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 256
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %3, i64 256
+  store i64 %49, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 424
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %3, i64 424
+  store i64 %52, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 248
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %3, i64 248
+  store i64 %55, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 264
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %3, i64 192
+  %59 = getelementptr inbounds i8, ptr %3, i64 264
   store i64 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 200
-  %61 = load double, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %3, i64 200
-  store double %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %3, i64 448
-  store i32 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %3, i64 464
-  store i32 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 456
-  store ptr null, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %3, i64 472
-  %67 = getelementptr inbounds i8, ptr %3, i64 160
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false)
-  store i64 -9, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %3, i64 496
-  store double 1.000000e+03, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %3, i64 392
-  store i32 0, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %3, i64 408
-  store i32 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %3, i64 400
-  store ptr null, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %3, i64 416
-  store ptr null, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %3, i64 304
-  %74 = getelementptr inbounds i8, ptr %3, i64 336
+  %60 = getelementptr inbounds i8, ptr %0, i64 432
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %3, i64 432
+  store i64 %61, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 176
+  %64 = load i64, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %3, i64 176
+  store i64 %64, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 440
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %3, i64 440
+  store i64 %67, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 184
+  %70 = load i64, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %3, i64 184
+  store i64 %70, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 192
+  %73 = load i64, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %3, i64 192
+  store i64 %73, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %0, i64 200
+  %76 = load double, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %3, i64 200
+  store double %76, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %3, i64 448
+  store i32 0, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %3, i64 464
+  store i32 0, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %3, i64 456
+  store ptr null, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %3, i64 472
+  %82 = getelementptr inbounds i8, ptr %3, i64 160
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
+  store i64 -9, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %3, i64 496
+  store double 1.000000e+03, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %3, i64 392
+  store i32 0, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %3, i64 408
+  store i32 0, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %3, i64 400
+  store ptr null, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %3, i64 416
+  store ptr null, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %3, i64 304
+  %89 = getelementptr inbounds i8, ptr %3, i64 336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
-  %75 = getelementptr inbounds i8, ptr %3, i64 288
-  store i64 -1, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %3, i64 208
-  %77 = getelementptr inbounds i8, ptr %3, i64 352
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 -1, i64 32, i1 false)
-  %78 = getelementptr inbounds i8, ptr %0, i64 232
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
-  %79 = getelementptr inbounds i8, ptr %3, i64 232
-  %80 = load <4 x i64>, ptr %78, align 8
-  store <4 x i64> %80, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 72
-  %82 = load i8, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %3, i64 72
-  store i8 %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 73
-  %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds i8, ptr %3, i64 73
-  store i8 %85, ptr %86, align 1
-  %87 = getelementptr inbounds i8, ptr %0, i64 40
-  %88 = getelementptr inbounds i8, ptr %3, i64 40
-  %89 = load <4 x ptr>, ptr %87, align 8
-  store <4 x ptr> %89, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %3, i64 296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 -1, i64 16, i1 false)
-  store i64 0, ptr %90, align 8
-  br label %91
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
+  %90 = getelementptr inbounds i8, ptr %3, i64 288
+  store i64 -1, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %3, i64 208
+  %92 = getelementptr inbounds i8, ptr %3, i64 352
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, i8 -1, i64 32, i1 false)
+  %93 = getelementptr inbounds i8, ptr %0, i64 232
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, i8 0, i64 24, i1 false)
+  %94 = load i64, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %3, i64 232
+  store i64 %94, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %0, i64 72
+  %97 = load i8, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %3, i64 72
+  store i8 %97, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %0, i64 73
+  %100 = load i8, ptr %99, align 1
+  %101 = getelementptr inbounds i8, ptr %3, i64 73
+  store i8 %100, ptr %101, align 1
+  %102 = getelementptr inbounds i8, ptr %0, i64 40
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr %103, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %0, i64 48
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %106, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 56
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr %109, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 64
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %3, i64 64
+  store ptr %112, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %3, i64 296
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 -1, i64 16, i1 false)
+  store i64 0, ptr %114, align 8
+  br label %115
 
-91:                                               ; preds = %39, %32, %14, %4
+115:                                              ; preds = %39, %32, %14, %4
   %.0 = phi i32 [ 0, %39 ], [ 2, %32 ], [ 2, %14 ], [ 2, %4 ]
   ret i32 %.0
 }
@@ -15835,7 +15867,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2008) #26
-  br label %115
+  br label %129
 
 10:                                               ; preds = %5
   store i8 0, ptr %6, align 1
@@ -15857,7 +15889,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 17:                                               ; preds = %15
   %18 = load ptr, ptr @stderr, align 8
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2018) #26
-  br label %115
+  br label %129
 
 20:                                               ; preds = %15
   store i8 0, ptr %16, align 1
@@ -15879,7 +15911,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 27:                                               ; preds = %25
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2028) #26
-  br label %115
+  br label %129
 
 30:                                               ; preds = %25
   store i8 0, ptr %26, align 1
@@ -15901,7 +15933,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 37:                                               ; preds = %35
   %38 = load ptr, ptr @stderr, align 8
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2038) #26
-  br label %115
+  br label %129
 
 40:                                               ; preds = %35
   store i8 0, ptr %36, align 1
@@ -15923,7 +15955,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 47:                                               ; preds = %45
   %48 = load ptr, ptr @stderr, align 8
   %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2048) #26
-  br label %115
+  br label %129
 
 50:                                               ; preds = %45
   store i8 0, ptr %46, align 1
@@ -15945,7 +15977,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 57:                                               ; preds = %55
   %58 = load ptr, ptr @stderr, align 8
   %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2058) #26
-  br label %115
+  br label %129
 
 60:                                               ; preds = %55
   store i8 0, ptr %56, align 1
@@ -15967,7 +15999,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 67:                                               ; preds = %65
   %68 = load ptr, ptr @stderr, align 8
   %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2068) #26
-  br label %115
+  br label %129
 
 70:                                               ; preds = %65
   store i8 0, ptr %66, align 1
@@ -15989,7 +16021,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 77:                                               ; preds = %75
   %78 = load ptr, ptr @stderr, align 8
   %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2078) #26
-  br label %115
+  br label %129
 
 80:                                               ; preds = %75
   store i8 0, ptr %76, align 1
@@ -16011,7 +16043,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 87:                                               ; preds = %85
   %88 = load ptr, ptr @stderr, align 8
   %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2088) #26
-  br label %115
+  br label %129
 
 90:                                               ; preds = %85
   store i8 0, ptr %86, align 1
@@ -16020,33 +16052,45 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 91:                                               ; preds = %90, %81
   %92 = phi ptr [ %86, %90 ], [ %84, %81 ]
   %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #24
-  %94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #24
-  %95 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #24
-  %96 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #24
-  %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #24
-  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #24
-  %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #24
-  %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #24
-  %101 = insertelement <8 x i64> poison, i64 %93, i64 0
-  %102 = insertelement <8 x i64> %101, i64 %94, i64 1
-  %103 = insertelement <8 x i64> %102, i64 %95, i64 2
-  %104 = insertelement <8 x i64> %103, i64 %96, i64 3
-  %105 = insertelement <8 x i64> %104, i64 %97, i64 4
-  %106 = insertelement <8 x i64> %105, i64 %98, i64 5
-  %107 = insertelement <8 x i64> %106, i64 %99, i64 6
-  %108 = insertelement <8 x i64> %107, i64 %100, i64 7
-  %109 = add <8 x i64> %108, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
-  %110 = tail call <8 x i64> @llvm.umin.v8i64(<8 x i64> %109, <8 x i64> <i64 1024, i64 1024, i64 1024, i64 1024, i64 1024, i64 1024, i64 1024, i64 1024>)
-  %111 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #24
+  %94 = add i64 %93, 1
+  %95 = tail call noundef i64 @llvm.umin.i64(i64 %94, i64 1024)
+  %96 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #24
+  %97 = add i64 %96, 1
+  %98 = tail call noundef i64 @llvm.umin.i64(i64 %97, i64 1024)
+  %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #24
+  %100 = add i64 %99, 1
+  %101 = tail call noundef i64 @llvm.umin.i64(i64 %100, i64 1024)
+  %102 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #24
+  %103 = add i64 %102, 1
+  %104 = tail call noundef i64 @llvm.umin.i64(i64 %103, i64 1024)
+  %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #24
+  %106 = add i64 %105, 1
+  %107 = tail call noundef i64 @llvm.umin.i64(i64 %106, i64 1024)
+  %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #24
+  %109 = add i64 %108, 1
+  %110 = tail call noundef i64 @llvm.umin.i64(i64 %109, i64 1024)
+  %111 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #24
   %112 = add i64 %111, 1
   %113 = tail call noundef i64 @llvm.umin.i64(i64 %112, i64 1024)
-  %114 = tail call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %110)
-  %op.rdx = add i64 %114, %113
-  %op.rdx81 = add i64 %op.rdx, 57
-  store i64 %op.rdx81, ptr %1, align 8
-  br label %115
+  %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #24
+  %115 = add i64 %114, 1
+  %116 = tail call noundef i64 @llvm.umin.i64(i64 %115, i64 1024)
+  %117 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #24
+  %118 = add i64 %117, 1
+  %119 = tail call noundef i64 @llvm.umin.i64(i64 %118, i64 1024)
+  %120 = add nuw nsw i64 %95, 57
+  %121 = add nuw nsw i64 %120, %98
+  %122 = add nuw nsw i64 %121, %101
+  %123 = add nuw nsw i64 %122, %104
+  %124 = add nuw nsw i64 %123, %107
+  %125 = add nuw nsw i64 %124, %110
+  %126 = add nuw nsw i64 %125, %113
+  %127 = add nuw nsw i64 %126, %116
+  %128 = add nuw nsw i64 %127, %119
+  store i64 %128, ptr %1, align 8
+  br label %129
 
-115:                                              ; preds = %91, %87, %77, %67, %57, %47, %37, %27, %17, %7
+129:                                              ; preds = %91, %87, %77, %67, %57, %47, %37, %27, %17, %7
   %.0 = phi i32 [ 0, %91 ], [ 2, %87 ], [ 2, %77 ], [ 2, %67 ], [ 2, %57 ], [ 2, %47 ], [ 2, %37 ], [ 2, %27 ], [ 2, %17 ], [ 2, %7 ]
   ret i32 %.0
 }
@@ -33171,7 +33215,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
 8:                                                ; preds = %6
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 4057) #26
-  br label %202
+  br label %205
 
 11:                                               ; preds = %6
   %12 = add i8 %3, -4
@@ -33181,7 +33225,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
 13:                                               ; preds = %11
   %14 = load ptr, ptr @stderr, align 8
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 4062) #26
-  br label %202
+  br label %205
 
 16:                                               ; preds = %11
   %17 = icmp slt i64 %1, 1
@@ -33192,7 +33236,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
 19:                                               ; preds = %16
   %20 = load ptr, ptr @stderr, align 8
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.1, i32 noundef 4071) #26
-  br label %202
+  br label %205
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds i8, ptr %0, i64 496
@@ -33267,7 +33311,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   %.0193 = phi ptr [ %60, %59 ], [ %62, %61 ]
   %64 = load ptr, ptr %39, align 8
   %.not212 = icmp eq ptr %64, null
-  br i1 %.not212, label %.sink.split, label %198
+  br i1 %.not212, label %.sink.split, label %201
 
 65:                                               ; preds = %30, %29
   %66 = getelementptr inbounds i8, ptr %0, i64 480
@@ -33409,7 +33453,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   %.2 = phi ptr [ %141, %140 ], [ %143, %142 ]
   %145 = load ptr, ptr %120, align 8
   %.not208 = icmp eq ptr %145, null
-  br i1 %.not208, label %.sink.split, label %198
+  br i1 %.not208, label %.sink.split, label %201
 
 146:                                              ; preds = %111, %110
   %147 = getelementptr inbounds i8, ptr %0, i64 488
@@ -33497,31 +33541,35 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   %193 = shl nsw i64 %192, 2
   %194 = call noalias ptr @malloc(i64 noundef %193) #25
   store ptr %194, ptr %.sink29, align 8
-  %195 = load <2 x i32>, ptr %.sink27, align 4
-  store <2 x i32> %195, ptr %194, align 4
-  %196 = getelementptr inbounds i8, ptr %194, i64 8
-  store i32 -1, ptr %196, align 4
-  %197 = getelementptr inbounds i8, ptr %194, i64 12
-  store i32 -1, ptr %197, align 4
-  br label %198
+  %195 = load i32, ptr %.sink27, align 4
+  store i32 %195, ptr %194, align 4
+  %196 = getelementptr inbounds i8, ptr %.sink27, i64 4
+  %197 = load i32, ptr %196, align 4
+  %198 = getelementptr inbounds i8, ptr %194, i64 4
+  store i32 %197, ptr %198, align 4
+  %199 = getelementptr inbounds i8, ptr %194, i64 8
+  store i32 -1, ptr %199, align 4
+  %200 = getelementptr inbounds i8, ptr %194, i64 12
+  store i32 -1, ptr %200, align 4
+  br label %201
 
-198:                                              ; preds = %.sink.split, %63, %144
+201:                                              ; preds = %.sink.split, %63, %144
   %.0195 = phi ptr [ %38, %63 ], [ %119, %144 ], [ %.sink27, %.sink.split ]
   %.1194 = phi ptr [ %.0193, %63 ], [ %.2, %144 ], [ %.1194.ph, %.sink.split ]
   call void @free(ptr noundef nonnull %.0195) #23
   br label %.thread9
 
-.thread9:                                         ; preds = %189, %187, %175, %177, %168, %170, %108, %106, %94, %96, %87, %89, %198
-  %.119413 = phi ptr [ %.1194, %198 ], [ %190, %189 ], [ %188, %187 ], [ %176, %175 ], [ %181, %177 ], [ %169, %168 ], [ %174, %170 ], [ %109, %108 ], [ %107, %106 ], [ %95, %94 ], [ %100, %96 ], [ %88, %87 ], [ %93, %89 ]
-  %199 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %199) #23
+.thread9:                                         ; preds = %189, %187, %175, %177, %168, %170, %108, %106, %94, %96, %87, %89, %201
+  %.119413 = phi ptr [ %.1194, %201 ], [ %190, %189 ], [ %188, %187 ], [ %176, %175 ], [ %181, %177 ], [ %169, %168 ], [ %174, %170 ], [ %109, %108 ], [ %107, %106 ], [ %95, %94 ], [ %100, %96 ], [ %88, %87 ], [ %93, %89 ]
+  %202 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %202) #23
   store ptr %.119413, ptr %4, align 8
-  %200 = load i32, ptr %7, align 4
-  %201 = sext i32 %200 to i64
-  store i64 %201, ptr %5, align 8
-  br label %202
+  %203 = load i32, ptr %7, align 4
+  %204 = sext i32 %203 to i64
+  store i64 %204, ptr %5, align 8
+  br label %205
 
-202:                                              ; preds = %.thread9, %19, %13, %8
+205:                                              ; preds = %.thread9, %19, %13, %8
   %.0 = phi i32 [ 1, %8 ], [ 1, %13 ], [ 1, %19 ], [ 0, %.thread9 ]
   ret i32 %.0
 }
@@ -34096,12 +34144,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i64> @llvm.umin.v8i64(<8 x i64>, <8 x i64>) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.vector.reduce.add.v8i64(<8 x i64>) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

@@ -1187,27 +1187,30 @@ define internal fastcc range(i32 0, 2) i32 @can_export_rsaprivatekey(i64 noundef
   call void @RSA_get0_factors(ptr noundef %18, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   call void @RSA_get0_crt_params(ptr noundef %18, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
   %19 = load ptr, ptr %2, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = load ptr, ptr %9, align 8
-  %27 = insertelement <8 x ptr> poison, ptr %19, i64 0
-  %28 = insertelement <8 x ptr> %27, ptr %20, i64 1
-  %29 = insertelement <8 x ptr> %28, ptr %21, i64 2
-  %30 = insertelement <8 x ptr> %29, ptr %22, i64 3
-  %31 = insertelement <8 x ptr> %30, ptr %23, i64 4
-  %32 = insertelement <8 x ptr> %31, ptr %24, i64 5
-  %33 = insertelement <8 x ptr> %32, ptr %25, i64 6
-  %34 = insertelement <8 x ptr> %33, ptr %26, i64 7
-  %.fr = freeze <8 x ptr> %34
-  %35 = icmp eq <8 x ptr> %.fr, zeroinitializer
-  %36 = bitcast <8 x i1> %35 to i8
-  %37 = icmp eq i8 %36, 0
-  %38 = zext i1 %37 to i32
-  ret i32 %38
+  %20 = icmp ne ptr %19, null
+  %21 = load ptr, ptr %3, align 8
+  %22 = icmp ne ptr %21, null
+  %or.cond = select i1 %20, i1 %22, i1 false
+  %23 = load ptr, ptr %4, align 8
+  %24 = icmp ne ptr %23, null
+  %or.cond3 = select i1 %or.cond, i1 %24, i1 false
+  %25 = load ptr, ptr %5, align 8
+  %26 = icmp ne ptr %25, null
+  %or.cond5 = select i1 %or.cond3, i1 %26, i1 false
+  %27 = load ptr, ptr %6, align 8
+  %28 = icmp ne ptr %27, null
+  %or.cond7 = select i1 %or.cond5, i1 %28, i1 false
+  %29 = load ptr, ptr %7, align 8
+  %30 = icmp ne ptr %29, null
+  %or.cond9 = select i1 %or.cond7, i1 %30, i1 false
+  %31 = load ptr, ptr %8, align 8
+  %32 = icmp ne ptr %31, null
+  %or.cond11 = select i1 %or.cond9, i1 %32, i1 false
+  %33 = load ptr, ptr %9, align 8
+  %34 = icmp ne ptr %33, null
+  %narrow = select i1 %or.cond11, i1 %34, i1 false
+  %35 = zext i1 %narrow to i32
+  ret i32 %35
 }
 
 declare i64 @ossl_pkey_export_traditional(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1

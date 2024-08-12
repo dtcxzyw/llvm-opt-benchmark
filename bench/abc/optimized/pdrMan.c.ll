@@ -2535,7 +2535,7 @@ define noundef ptr @Pdr_ManDeriveCexAbs(ptr nocapture noundef %0) local_unnamed_
 
 14:                                               ; preds = %8, %1
   %15 = tail call ptr @Pdr_ManDeriveCex(ptr noundef nonnull %0)
-  br label %246
+  br label %249
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
@@ -2709,7 +2709,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 101:                                              ; preds = %._crit_edge166
   %102 = tail call ptr @Pdr_ManDeriveCex(ptr noundef nonnull %0)
-  br label %246
+  br label %249
 
 103:                                              ; preds = %._crit_edge166
   %104 = load ptr, ptr %0, align 8
@@ -2959,16 +2959,20 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 241:                                              ; preds = %._crit_edge189.thread, %._crit_edge189
   %242 = tail call ptr @Pdr_ManDeriveCex(ptr noundef nonnull %0)
-  br label %246
+  br label %249
 
 .critedge2:                                       ; preds = %109, %.preheader154, %._crit_edge189
-  %243 = getelementptr inbounds i8, ptr %0, i64 176
-  %244 = load <2 x i32>, ptr %243, align 8
-  %245 = add nsw <2 x i32> %244, <i32 1, i32 1>
-  store <2 x i32> %245, ptr %243, align 8
-  br label %246
+  %243 = getelementptr inbounds i8, ptr %0, i64 180
+  %244 = load i32, ptr %243, align 4
+  %245 = add nsw i32 %244, 1
+  store i32 %245, ptr %243, align 4
+  %246 = getelementptr inbounds i8, ptr %0, i64 176
+  %247 = load i32, ptr %246, align 8
+  %248 = add nsw i32 %247, 1
+  store i32 %248, ptr %246, align 8
+  br label %249
 
-246:                                              ; preds = %.critedge2, %241, %101, %14
+249:                                              ; preds = %.critedge2, %241, %101, %14
   %.0 = phi ptr [ %102, %101 ], [ null, %.critedge2 ], [ %242, %241 ], [ %15, %14 ]
   ret ptr %.0
 }

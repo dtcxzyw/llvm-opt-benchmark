@@ -1861,7 +1861,7 @@ define dso_local range(i32 0, 5) i32 @clamfi_envfrom(ptr noundef %0, ptr nocaptu
 
 6:                                                ; preds = %4
   %7 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef nonnull %3) #17
-  br label %36
+  br label %39
 
 8:                                                ; preds = %4, %2
   %9 = load ptr, ptr %1, align 8
@@ -1872,7 +1872,7 @@ define dso_local range(i32 0, 5) i32 @clamfi_envfrom(ptr noundef %0, ptr nocaptu
 11:                                               ; preds = %8
   %12 = load ptr, ptr %1, align 8
   %13 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.54, ptr noundef %12) #17
-  br label %36
+  br label %39
 
 14:                                               ; preds = %8
   %15 = tail call noalias dereferenceable_or_null(1512) ptr @malloc(i64 noundef 1512) #21
@@ -1882,46 +1882,52 @@ define dso_local range(i32 0, 5) i32 @clamfi_envfrom(ptr noundef %0, ptr nocaptu
 16:                                               ; preds = %14
   %17 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.55) #17
   %18 = load i32, ptr @FailAction, align 4
-  br label %36
+  br label %39
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %15, i64 44
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 0>, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 60
-  store i32 1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %15, i64 64
-  store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  %24 = load i32, ptr @multircpt, align 4
-  %.not26 = icmp eq i32 %24, 0
-  br i1 %.not26, label %28, label %25
+  %20 = getelementptr inbounds i8, ptr %15, i64 52
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %15, i64 56
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %15, i64 48
+  store i32 -1, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %15, i64 44
+  store i32 -1, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %15, i64 60
+  store i32 1, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %15, i64 64
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %15, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  %27 = load i32, ptr @multircpt, align 4
+  %.not26 = icmp eq i32 %27, 0
+  br i1 %.not26, label %31, label %28
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %15, i64 32
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %15, i64 76
-  store i32 0, ptr %27, align 4
-  br label %28
+28:                                               ; preds = %19
+  %29 = getelementptr inbounds i8, ptr %15, i64 32
+  store ptr null, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %15, i64 76
+  store i32 0, ptr %30, align 4
+  br label %31
 
-28:                                               ; preds = %25, %19
-  %29 = load i32, ptr @addxvirus, align 4
-  %30 = icmp eq i32 %29, 1
-  br i1 %30, label %31, label %34
+31:                                               ; preds = %28, %19
+  %32 = load i32, ptr @addxvirus, align 4
+  %33 = icmp eq i32 %32, 1
+  br i1 %33, label %34, label %37
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %15, i64 68
-  store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %15, i64 72
-  store i32 0, ptr %33, align 8
-  br label %34
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %15, i64 68
+  store i32 0, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %15, i64 72
+  store i32 0, ptr %36, align 8
+  br label %37
 
-34:                                               ; preds = %31, %28
-  %35 = tail call i32 @smfi_setpriv(ptr noundef %0, ptr noundef nonnull %15) #17
-  br label %36
+37:                                               ; preds = %34, %31
+  %38 = tail call i32 @smfi_setpriv(ptr noundef %0, ptr noundef nonnull %15) #17
+  br label %39
 
-36:                                               ; preds = %34, %16, %11, %6
-  %.0 = phi i32 [ 3, %6 ], [ 3, %11 ], [ 0, %34 ], [ %18, %16 ]
+39:                                               ; preds = %37, %16, %11, %6
+  %.0 = phi i32 [ 3, %6 ], [ 3, %11 ], [ 0, %37 ], [ %18, %16 ]
   ret i32 %.0
 }
 

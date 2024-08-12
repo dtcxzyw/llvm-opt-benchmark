@@ -498,7 +498,7 @@ define range(i32 0, 21) i32 @cli_versig2(ptr nocapture noundef readonly %0, ptr 
   %8 = alloca [223 x i8], align 16
   %9 = alloca [223 x i8], align 16
   %10 = alloca [72 x i8], align 16
-  %11 = alloca [4 x i8], align 4
+  %11 = alloca [4 x i8], align 1
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = tail call ptr @BN_new() #14
@@ -508,30 +508,30 @@ define range(i32 0, 21) i32 @cli_versig2(ptr nocapture noundef readonly %0, ptr 
   %16 = icmp ne ptr %14, null
   %17 = icmp ne ptr %15, null
   %or.cond = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond, label %18, label %70
+  br i1 %or.cond, label %18, label %71
 
 18:                                               ; preds = %4
   %19 = call i32 @BN_dec2bn(ptr noundef nonnull %13, ptr noundef %3) #14
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %70, label %20
+  br i1 %.not, label %71, label %20
 
 20:                                               ; preds = %18
   %21 = call i32 @BN_dec2bn(ptr noundef nonnull %12, ptr noundef %2) #14
   %.not44 = icmp eq i32 %21, 0
-  br i1 %.not44, label %70, label %22
+  br i1 %.not44, label %71, label %22
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %13, align 8
   %24 = load ptr, ptr %12, align 8
   %25 = call fastcc ptr @cli_decodesig(ptr noundef %1, i32 noundef 256, ptr noundef %23, ptr noundef %24)
   %.not45 = icmp eq ptr %25, null
-  br i1 %.not45, label %70, label %26
+  br i1 %.not45, label %71, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %25, i64 255
   %28 = load i8, ptr %27, align 1
   %.not46 = icmp eq i8 %28, -68
-  br i1 %.not46, label %29, label %70
+  br i1 %.not46, label %29, label %71
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %12, align 8
@@ -544,98 +544,102 @@ define range(i32 0, 21) i32 @cli_versig2(ptr nocapture noundef readonly %0, ptr 
   %32 = getelementptr inbounds i8, ptr %25, i64 223
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 1 dereferenceable(32) %32, i64 32, i1 false)
   call void @free(ptr noundef nonnull %25) #14
-  %33 = getelementptr inbounds i8, ptr %11, i64 2
-  %34 = getelementptr inbounds i8, ptr %11, i64 3
-  store <4 x i8> zeroinitializer, ptr %11, align 4
-  %35 = call ptr @cl_hash_init(ptr noundef nonnull @.str.26) #14
-  %.not5162 = icmp eq ptr %35, null
+  %33 = getelementptr inbounds i8, ptr %11, i64 1
+  store i8 0, ptr %33, align 1
+  store i8 0, ptr %11, align 1
+  %34 = getelementptr inbounds i8, ptr %11, i64 2
+  %35 = getelementptr inbounds i8, ptr %11, i64 3
+  store i8 0, ptr %34, align 1
+  store i8 0, ptr %35, align 1
+  %36 = call ptr @cl_hash_init(ptr noundef nonnull @.str.26) #14
+  %.not5162 = icmp eq ptr %36, null
   br i1 %.not5162, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %29, %43
-  %36 = phi ptr [ %45, %43 ], [ %35, %29 ]
-  %indvars.iv63 = phi i64 [ %indvars.iv.next, %43 ], [ 0, %29 ]
-  %37 = call i32 @cl_update_hash(ptr noundef nonnull %36, ptr noundef nonnull %6, i64 noundef 32) #14
-  %38 = call i32 @cl_update_hash(ptr noundef nonnull %36, ptr noundef nonnull %11, i64 noundef 4) #14
-  %39 = call i32 @cl_finish_hash(ptr noundef nonnull %36, ptr noundef nonnull %7) #14
+.lr.ph:                                           ; preds = %29, %44
+  %37 = phi ptr [ %46, %44 ], [ %36, %29 ]
+  %indvars.iv63 = phi i64 [ %indvars.iv.next, %44 ], [ 0, %29 ]
+  %38 = call i32 @cl_update_hash(ptr noundef nonnull %37, ptr noundef nonnull %6, i64 noundef 32) #14
+  %39 = call i32 @cl_update_hash(ptr noundef nonnull %37, ptr noundef nonnull %11, i64 noundef 4) #14
+  %40 = call i32 @cl_finish_hash(ptr noundef nonnull %37, ptr noundef nonnull %7) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv63, 1
-  %40 = icmp eq i64 %indvars.iv.next, 7
-  %41 = shl nuw nsw i64 %indvars.iv63, 5
-  %42 = getelementptr inbounds [223 x i8], ptr %9, i64 0, i64 %41
-  br i1 %40, label %.preheader.preheader, label %43
+  %41 = icmp eq i64 %indvars.iv.next, 7
+  %42 = shl nuw nsw i64 %indvars.iv63, 5
+  %43 = getelementptr inbounds [223 x i8], ptr %9, i64 0, i64 %42
+  br i1 %41, label %.preheader.preheader, label %44
 
-43:                                               ; preds = %.lr.ph
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %42, ptr noundef nonnull align 16 dereferenceable(32) %7, i64 32, i1 false)
-  store i8 0, ptr %33, align 2
-  %44 = trunc i64 %indvars.iv.next to i8
-  store i8 %44, ptr %34, align 1
-  %45 = call ptr @cl_hash_init(ptr noundef nonnull @.str.26) #14
-  %.not51 = icmp eq ptr %45, null
+44:                                               ; preds = %.lr.ph
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %43, ptr noundef nonnull align 16 dereferenceable(32) %7, i64 32, i1 false)
+  store i8 0, ptr %34, align 1
+  %45 = trunc i64 %indvars.iv.next to i8
+  store i8 %45, ptr %35, align 1
+  %46 = call ptr @cl_hash_init(ptr noundef nonnull @.str.26) #14
+  %.not51 = icmp eq ptr %46, null
   br i1 %.not51, label %.loopexit, label %.lr.ph
 
 .preheader.preheader:                             ; preds = %.lr.ph
-  %46 = sub nuw nsw i64 223, %41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %42, ptr noundef nonnull align 16 dereferenceable(1) %7, i64 %46, i1 false)
+  %47 = sub nuw nsw i64 223, %42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %43, ptr noundef nonnull align 16 dereferenceable(1) %7, i64 %47, i1 false)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv55 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next56, %.preheader ]
-  %47 = getelementptr inbounds [223 x i8], ptr %8, i64 0, i64 %indvars.iv55
-  %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds [223 x i8], ptr %9, i64 0, i64 %indvars.iv55
-  %50 = load i8, ptr %49, align 1
-  %51 = xor i8 %50, %48
-  store i8 %51, ptr %49, align 1
+  %48 = getelementptr inbounds [223 x i8], ptr %8, i64 0, i64 %indvars.iv55
+  %49 = load i8, ptr %48, align 1
+  %50 = getelementptr inbounds [223 x i8], ptr %9, i64 0, i64 %indvars.iv55
+  %51 = load i8, ptr %50, align 1
+  %52 = xor i8 %51, %49
+  store i8 %52, ptr %50, align 1
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 223
-  br i1 %exitcond58.not, label %52, label %.preheader
+  br i1 %exitcond58.not, label %53, label %.preheader
 
-52:                                               ; preds = %.preheader
-  %53 = load i8, ptr %9, align 16
-  %54 = and i8 %53, 127
-  store i8 %54, ptr %9, align 16
-  %55 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 1, i64 noundef 223) #17
-  %.not47 = icmp eq ptr %55, null
-  br i1 %.not47, label %.loopexit, label %56
+53:                                               ; preds = %.preheader
+  %54 = load i8, ptr %9, align 16
+  %55 = and i8 %54, 127
+  store i8 %55, ptr %9, align 16
+  %56 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 1, i64 noundef 223) #17
+  %.not47 = icmp eq ptr %56, null
+  br i1 %.not47, label %.loopexit, label %57
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %55, i64 1
-  %58 = getelementptr inbounds i8, ptr %9, i64 223
-  %59 = ptrtoint ptr %58 to i64
-  %60 = ptrtoint ptr %57 to i64
-  %61 = sub i64 %59, %60
-  %.not48 = icmp eq i64 %61, 32
-  br i1 %.not48, label %62, label %.loopexit
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds i8, ptr %56, i64 1
+  %59 = getelementptr inbounds i8, ptr %9, i64 223
+  %60 = ptrtoint ptr %59 to i64
+  %61 = ptrtoint ptr %58 to i64
+  %62 = sub i64 %60, %61
+  %.not48 = icmp eq i64 %62, 32
+  br i1 %.not48, label %63, label %.loopexit
 
-62:                                               ; preds = %56
+63:                                               ; preds = %57
   store i64 0, ptr %10, align 16
-  %63 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 1 dereferenceable(32) %0, i64 32, i1 false)
-  %64 = getelementptr inbounds i8, ptr %10, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 1 dereferenceable(32) %57, i64 32, i1 false)
-  %65 = call ptr @cl_hash_init(ptr noundef nonnull @.str.26) #14
-  %.not49 = icmp eq ptr %65, null
-  br i1 %.not49, label %.loopexit, label %66
+  %64 = getelementptr inbounds i8, ptr %10, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 1 dereferenceable(32) %0, i64 32, i1 false)
+  %65 = getelementptr inbounds i8, ptr %10, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 1 dereferenceable(32) %58, i64 32, i1 false)
+  %66 = call ptr @cl_hash_init(ptr noundef nonnull @.str.26) #14
+  %.not49 = icmp eq ptr %66, null
+  br i1 %.not49, label %.loopexit, label %67
 
-66:                                               ; preds = %62
-  %67 = call i32 @cl_update_hash(ptr noundef nonnull %65, ptr noundef nonnull %10, i64 noundef 72) #14
-  %68 = call i32 @cl_finish_hash(ptr noundef nonnull %65, ptr noundef nonnull %5) #14
+67:                                               ; preds = %63
+  %68 = call i32 @cl_update_hash(ptr noundef nonnull %66, ptr noundef nonnull %10, i64 noundef 72) #14
+  %69 = call i32 @cl_finish_hash(ptr noundef nonnull %66, ptr noundef nonnull %5) #14
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %5, ptr noundef nonnull dereferenceable(32) %6, i64 32)
   %.not50 = icmp eq i32 %bcmp, 0
-  %69 = select i1 %.not50, i32 0, i32 6
+  %70 = select i1 %.not50, i32 0, i32 6
   br label %.loopexit
 
-70:                                               ; preds = %26, %22, %4, %20, %18
+71:                                               ; preds = %26, %22, %4, %20, %18
   %.038 = phi ptr [ null, %20 ], [ null, %18 ], [ null, %4 ], [ null, %22 ], [ %25, %26 ]
   %.0 = phi i32 [ 6, %20 ], [ 6, %18 ], [ 20, %4 ], [ 6, %22 ], [ 6, %26 ]
   call void @free(ptr noundef %.038) #14
-  %71 = load ptr, ptr %12, align 8
-  call void @BN_free(ptr noundef %71) #14
-  %72 = load ptr, ptr %13, align 8
+  %72 = load ptr, ptr %12, align 8
   call void @BN_free(ptr noundef %72) #14
+  %73 = load ptr, ptr %13, align 8
+  call void @BN_free(ptr noundef %73) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %43, %29, %62, %56, %52, %70, %66
-  %.036 = phi i32 [ %.0, %70 ], [ %69, %66 ], [ 6, %52 ], [ 6, %56 ], [ 20, %62 ], [ 20, %29 ], [ 20, %43 ]
+.loopexit:                                        ; preds = %44, %29, %63, %57, %53, %71, %67
+  %.036 = phi i32 [ %.0, %71 ], [ %70, %67 ], [ 6, %53 ], [ 6, %57 ], [ 20, %63 ], [ 20, %29 ], [ 20, %44 ]
   ret i32 %.036
 }
 

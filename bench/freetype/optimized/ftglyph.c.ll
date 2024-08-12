@@ -855,57 +855,72 @@ declare void @FT_Vector_Transform(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define void @FT_Glyph_Get_CBox(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %27, label %4
+  br i1 %.not, label %38, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
   %.not33 = icmp eq ptr %0, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  br i1 %.not33, label %27, label %6
+  br i1 %.not33, label %38, label %8
 
-6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %.not34 = icmp eq ptr %8, null
-  br i1 %.not34, label %27, label %9
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %.not34 = icmp eq ptr %10, null
+  br i1 %.not34, label %38, label %11
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 48
-  %11 = load ptr, ptr %10, align 8
-  %.not35 = icmp eq ptr %11, null
-  br i1 %.not35, label %27, label %12
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %10, i64 48
+  %13 = load ptr, ptr %12, align 8
+  %.not35 = icmp eq ptr %13, null
+  br i1 %.not35, label %38, label %14
 
-12:                                               ; preds = %9
-  tail call void %11(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
-  %13 = and i32 %1, -3
-  %or.cond = icmp eq i32 %13, 1
-  br i1 %or.cond, label %14, label %20
+14:                                               ; preds = %11
+  tail call void %13(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
+  %15 = and i32 %1, -3
+  %or.cond = icmp eq i32 %15, 1
+  br i1 %or.cond, label %16, label %27
 
-14:                                               ; preds = %12
-  %15 = load <2 x i64>, ptr %2, align 8
-  %16 = and <2 x i64> %15, <i64 -64, i64 -64>
-  store <2 x i64> %16, ptr %2, align 8
-  %17 = load <2 x i64>, ptr %5, align 8
-  %18 = add <2 x i64> %17, <i64 63, i64 63>
-  %19 = and <2 x i64> %18, <i64 -64, i64 -64>
-  store <2 x i64> %19, ptr %5, align 8
-  br label %20
-
-20:                                               ; preds = %12, %14
-  %21 = and i32 %1, -2
-  %or.cond3 = icmp eq i32 %21, 2
-  br i1 %or.cond3, label %22, label %27
-
-22:                                               ; preds = %20
-  %23 = load <2 x i64>, ptr %2, align 8
-  %24 = ashr <2 x i64> %23, <i64 6, i64 6>
-  store <2 x i64> %24, ptr %2, align 8
-  %25 = load <2 x i64>, ptr %5, align 8
-  %26 = ashr <2 x i64> %25, <i64 6, i64 6>
-  store <2 x i64> %26, ptr %5, align 8
+16:                                               ; preds = %14
+  %17 = load i64, ptr %2, align 8
+  %18 = and i64 %17, -64
+  store i64 %18, ptr %2, align 8
+  %19 = load i64, ptr %7, align 8
+  %20 = and i64 %19, -64
+  store i64 %20, ptr %7, align 8
+  %21 = load i64, ptr %6, align 8
+  %22 = add i64 %21, 63
+  %23 = and i64 %22, -64
+  store i64 %23, ptr %6, align 8
+  %24 = load i64, ptr %5, align 8
+  %25 = add i64 %24, 63
+  %26 = and i64 %25, -64
+  store i64 %26, ptr %5, align 8
   br label %27
 
-27:                                               ; preds = %20, %9, %4, %6, %3, %22
+27:                                               ; preds = %14, %16
+  %28 = and i32 %1, -2
+  %or.cond3 = icmp eq i32 %28, 2
+  br i1 %or.cond3, label %29, label %38
+
+29:                                               ; preds = %27
+  %30 = load i64, ptr %2, align 8
+  %31 = ashr i64 %30, 6
+  store i64 %31, ptr %2, align 8
+  %32 = load i64, ptr %7, align 8
+  %33 = ashr i64 %32, 6
+  store i64 %33, ptr %7, align 8
+  %34 = load i64, ptr %6, align 8
+  %35 = ashr i64 %34, 6
+  store i64 %35, ptr %6, align 8
+  %36 = load i64, ptr %5, align 8
+  %37 = ashr i64 %36, 6
+  store i64 %37, ptr %5, align 8
+  br label %38
+
+38:                                               ; preds = %27, %11, %4, %8, %3, %29
   ret void
 }
 
@@ -914,7 +929,7 @@ define i32 @FT_Glyph_To_Bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   %5 = alloca i32, align 4
   %6 = alloca %struct.FT_GlyphSlotRec_, align 8
   %7 = alloca %struct.FT_Slot_InternalRec_, align 8
-  %8 = alloca %struct.FT_Vector_, align 16
+  %8 = alloca %struct.FT_Vector_, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %9
 
@@ -1019,66 +1034,71 @@ FT_Glyph_Transform.exit:                          ; preds = %40, %37, %35, %31
   br i1 %or.cond3, label %54, label %FT_Glyph_Transform.exit69
 
 54:                                               ; preds = %52
-  %55 = load <2 x i64>, ptr %2, align 8
-  %56 = sub nsw <2 x i64> zeroinitializer, %55
-  store <2 x i64> %56, ptr %8, align 16
-  %57 = load ptr, ptr %12, align 8
-  %.not15.i66 = icmp eq ptr %57, null
-  br i1 %.not15.i66, label %FT_Glyph_Transform.exit69, label %58
+  %55 = load i64, ptr %2, align 8
+  %56 = sub nsw i64 0, %55
+  store i64 %56, ptr %8, align 8
+  %57 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = sub nsw i64 0, %58
+  %60 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %59, ptr %60, align 8
+  %61 = load ptr, ptr %12, align 8
+  %.not15.i66 = icmp eq ptr %61, null
+  br i1 %.not15.i66, label %FT_Glyph_Transform.exit69, label %62
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %57, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %.not16.i67 = icmp eq ptr %60, null
-  br i1 %.not16.i67, label %FT_Glyph_Transform.exit69, label %61
+62:                                               ; preds = %54
+  %63 = getelementptr inbounds i8, ptr %61, i64 40
+  %64 = load ptr, ptr %63, align 8
+  %.not16.i67 = icmp eq ptr %64, null
+  br i1 %.not16.i67, label %FT_Glyph_Transform.exit69, label %65
 
-61:                                               ; preds = %58
-  call void %60(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %8) #6
+65:                                               ; preds = %62
+  call void %64(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %8) #6
   br label %FT_Glyph_Transform.exit69
 
-FT_Glyph_Transform.exit69:                        ; preds = %61, %58, %54, %52
+FT_Glyph_Transform.exit69:                        ; preds = %65, %62, %54, %52
   %.not61 = icmp eq i32 %.1, 0
-  br i1 %.not61, label %62, label %69
+  br i1 %.not61, label %66, label %73
 
-62:                                               ; preds = %FT_Glyph_Transform.exit69
-  %63 = call i32 @ft_bitmap_glyph_init(ptr noundef nonnull %29, ptr noundef nonnull %6)
-  %.not62 = icmp eq i32 %63, 0
-  br i1 %.not62, label %64, label %69
+66:                                               ; preds = %FT_Glyph_Transform.exit69
+  %67 = call i32 @ft_bitmap_glyph_init(ptr noundef nonnull %29, ptr noundef nonnull %6)
+  %.not62 = icmp eq i32 %67, 0
+  br i1 %.not62, label %68, label %73
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %29, i64 24
-  %66 = getelementptr inbounds i8, ptr %10, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false)
-  br i1 %53, label %68, label %67
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds i8, ptr %29, i64 24
+  %70 = getelementptr inbounds i8, ptr %10, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false)
+  br i1 %53, label %72, label %71
 
-67:                                               ; preds = %64
+71:                                               ; preds = %68
   call void @FT_Done_Glyph(ptr noundef nonnull %10)
-  br label %68
+  br label %72
 
-68:                                               ; preds = %67, %64
+72:                                               ; preds = %71, %68
   store ptr %29, ptr %0, align 8
   br label %.thread
 
-69:                                               ; preds = %FT_Glyph_Transform.exit69, %62
-  %.0 = phi i32 [ %.1, %FT_Glyph_Transform.exit69 ], [ %63, %62 ]
-  %70 = load ptr, ptr %29, align 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %32, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 24
-  %74 = load ptr, ptr %73, align 8
-  %.not9.i = icmp eq ptr %74, null
-  br i1 %.not9.i, label %FT_Done_Glyph.exit, label %75
+73:                                               ; preds = %FT_Glyph_Transform.exit69, %66
+  %.0 = phi i32 [ %.1, %FT_Glyph_Transform.exit69 ], [ %67, %66 ]
+  %74 = load ptr, ptr %29, align 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = load ptr, ptr %32, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %.not9.i = icmp eq ptr %78, null
+  br i1 %.not9.i, label %FT_Done_Glyph.exit, label %79
 
-75:                                               ; preds = %69
-  call void %74(ptr noundef nonnull %29) #6
+79:                                               ; preds = %73
+  call void %78(ptr noundef nonnull %29) #6
   br label %FT_Done_Glyph.exit
 
-FT_Done_Glyph.exit:                               ; preds = %69, %75
-  call void @ft_mem_free(ptr noundef %71, ptr noundef nonnull %29) #6
+FT_Done_Glyph.exit:                               ; preds = %73, %79
+  call void @ft_mem_free(ptr noundef %75, ptr noundef nonnull %29) #6
   br label %.thread
 
-.thread:                                          ; preds = %4, %9, %11, %19, %ft_new_glyph.exit, %68, %17, %FT_Done_Glyph.exit
-  %.077 = phi i32 [ %.0, %FT_Done_Glyph.exit ], [ 6, %4 ], [ 6, %9 ], [ 6, %11 ], [ 6, %19 ], [ 0, %68 ], [ %30, %ft_new_glyph.exit ], [ 0, %17 ]
+.thread:                                          ; preds = %4, %9, %11, %19, %ft_new_glyph.exit, %72, %17, %FT_Done_Glyph.exit
+  %.077 = phi i32 [ %.0, %FT_Done_Glyph.exit ], [ 6, %4 ], [ 6, %9 ], [ 6, %11 ], [ 6, %19 ], [ 0, %72 ], [ %30, %ft_new_glyph.exit ], [ 0, %17 ]
   ret i32 %.077
 }
 

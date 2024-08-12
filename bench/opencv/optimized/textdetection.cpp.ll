@@ -1493,7 +1493,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z11groups_drawRN2cv3MatERSt6vectorINS_5Rect_IiEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::_InputOutputArray", align 8
-  %4 = alloca %"class.cv::Scalar_", align 16
+  %4 = alloca %"class.cv::Scalar_", align 8
   %5 = alloca %"class.cv::_InputOutputArray", align 8
   %6 = alloca %"class.cv::Scalar_", align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1513,99 +1513,103 @@ define hidden void @_Z11groups_drawRN2cv3MatERSt6vectorINS_5Rect_IiEESaIS4_EE(pt
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = getelementptr inbounds i8, ptr %3, i64 8
   %20 = getelementptr inbounds i8, ptr %3, i64 16
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
-  %22 = and i64 %13, 2147483647
-  br label %23
+  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  %24 = and i64 %13, 2147483647
+  br label %25
 
-23:                                               ; preds = %.lr.ph, %65
-  %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %65 ]
+25:                                               ; preds = %.lr.ph, %67
+  %indvars.iv = phi i64 [ %24, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %24 = load i32, ptr %0, align 8
-  %25 = and i32 %24, 4095
-  %26 = icmp eq i32 %25, 16
-  br i1 %26, label %27, label %46
+  %26 = load i32, ptr %0, align 8
+  %27 = and i32 %26, 4095
+  %28 = icmp eq i32 %27, 16
+  br i1 %28, label %29, label %48
 
-27:                                               ; preds = %23
+29:                                               ; preds = %25
   store i64 0, ptr %20, align 8
   store i32 50397184, ptr %3, align 8
   store ptr %0, ptr %19, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = load ptr, ptr %1, align 8
-  %30 = ptrtoint ptr %28 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %33 = ashr exact i64 %32, 4
-  %.not.i.i = icmp ugt i64 %33, %indvars.iv.next
-  br i1 %.not.i.i, label %34, label %.noexc
+  %30 = load ptr, ptr %7, align 8
+  %31 = load ptr, ptr %1, align 8
+  %32 = ptrtoint ptr %30 to i64
+  %33 = ptrtoint ptr %31 to i64
+  %34 = sub i64 %32, %33
+  %35 = ashr exact i64 %34, 4
+  %.not.i.i = icmp ugt i64 %35, %indvars.iv.next
+  br i1 %.not.i.i, label %36, label %.noexc
 
-.noexc:                                           ; preds = %27
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.17, i64 noundef %indvars.iv.next, i64 noundef %33) #18
+.noexc:                                           ; preds = %29
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.17, i64 noundef %indvars.iv.next, i64 noundef %35) #18
   unreachable
 
-34:                                               ; preds = %27
-  %35 = getelementptr inbounds %"class.cv::Rect_", ptr %29, i64 %indvars.iv.next
-  %36 = load i64, ptr %35, align 4
-  %37 = trunc i64 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
-  %39 = load i32, ptr %38, align 4
-  %40 = add nsw i32 %39, %37
-  %41 = lshr i64 %36, 32
-  %42 = trunc nuw i64 %41 to i32
-  %43 = getelementptr inbounds i8, ptr %35, i64 12
-  %44 = load i32, ptr %43, align 4
-  %45 = add nsw i32 %44, %42
-  %.sroa.2.0.insert.ext.i = zext i32 %45 to i64
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds %"class.cv::Rect_", ptr %31, i64 %indvars.iv.next
+  %38 = load i64, ptr %37, align 4
+  %39 = trunc i64 %38 to i32
+  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %41 = load i32, ptr %40, align 4
+  %42 = add nsw i32 %41, %39
+  %43 = lshr i64 %38, 32
+  %44 = trunc nuw i64 %43 to i32
+  %45 = getelementptr inbounds i8, ptr %37, i64 12
+  %46 = load i32, ptr %45, align 4
+  %47 = add nsw i32 %46, %44
+  %.sroa.2.0.insert.ext.i = zext i32 %47 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %40 to i64
+  %.sroa.0.0.insert.ext.i = zext i32 %42 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  store <2 x double> <double 0.000000e+00, double 2.550000e+02>, ptr %4, align 16
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr %21, align 16
-  call void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %36, i64 %.sroa.0.0.insert.insert.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3, i32 noundef 8, i32 noundef 0)
-  br label %65
+  store double 0.000000e+00, ptr %4, align 8
+  store double 2.550000e+02, ptr %21, align 8
+  store double 2.550000e+02, ptr %22, align 8
+  store double 0.000000e+00, ptr %23, align 8
+  call void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %38, i64 %.sroa.0.0.insert.insert.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3, i32 noundef 8, i32 noundef 0)
+  br label %67
 
-46:                                               ; preds = %23
+48:                                               ; preds = %25
   store i64 0, ptr %17, align 8
   store i32 50397184, ptr %5, align 8
   store ptr %0, ptr %16, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = load ptr, ptr %1, align 8
-  %49 = ptrtoint ptr %47 to i64
-  %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %49, %50
-  %52 = ashr exact i64 %51, 4
-  %.not.i.i24 = icmp ugt i64 %52, %indvars.iv.next
-  br i1 %.not.i.i24, label %53, label %.noexc25
+  %49 = load ptr, ptr %7, align 8
+  %50 = load ptr, ptr %1, align 8
+  %51 = ptrtoint ptr %49 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = ashr exact i64 %53, 4
+  %.not.i.i24 = icmp ugt i64 %54, %indvars.iv.next
+  br i1 %.not.i.i24, label %55, label %.noexc25
 
-.noexc25:                                         ; preds = %46
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.17, i64 noundef %indvars.iv.next, i64 noundef %52) #18
+.noexc25:                                         ; preds = %48
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.17, i64 noundef %indvars.iv.next, i64 noundef %54) #18
   unreachable
 
-53:                                               ; preds = %46
-  %54 = getelementptr inbounds %"class.cv::Rect_", ptr %48, i64 %indvars.iv.next
-  %55 = load i64, ptr %54, align 4
-  %56 = trunc i64 %55 to i32
-  %57 = getelementptr inbounds i8, ptr %54, i64 8
-  %58 = load i32, ptr %57, align 4
-  %59 = add nsw i32 %58, %56
-  %60 = lshr i64 %55, 32
-  %61 = trunc nuw i64 %60 to i32
-  %62 = getelementptr inbounds i8, ptr %54, i64 12
-  %63 = load i32, ptr %62, align 4
-  %64 = add nsw i32 %63, %61
-  %.sroa.2.0.insert.ext.i30 = zext i32 %64 to i64
+55:                                               ; preds = %48
+  %56 = getelementptr inbounds %"class.cv::Rect_", ptr %50, i64 %indvars.iv.next
+  %57 = load i64, ptr %56, align 4
+  %58 = trunc i64 %57 to i32
+  %59 = getelementptr inbounds i8, ptr %56, i64 8
+  %60 = load i32, ptr %59, align 4
+  %61 = add nsw i32 %60, %58
+  %62 = lshr i64 %57, 32
+  %63 = trunc nuw i64 %62 to i32
+  %64 = getelementptr inbounds i8, ptr %56, i64 12
+  %65 = load i32, ptr %64, align 4
+  %66 = add nsw i32 %65, %63
+  %.sroa.2.0.insert.ext.i30 = zext i32 %66 to i64
   %.sroa.2.0.insert.shift.i31 = shl nuw i64 %.sroa.2.0.insert.ext.i30, 32
-  %.sroa.0.0.insert.ext.i32 = zext i32 %59 to i64
+  %.sroa.0.0.insert.ext.i32 = zext i32 %61 to i64
   %.sroa.0.0.insert.insert.i33 = or disjoint i64 %.sroa.2.0.insert.shift.i31, %.sroa.0.0.insert.ext.i32
   store double 2.550000e+02, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  call void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 %55, i64 %.sroa.0.0.insert.insert.i33, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3, i32 noundef 8, i32 noundef 0)
-  br label %65
+  call void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 %57, i64 %.sroa.0.0.insert.insert.i33, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3, i32 noundef 8, i32 noundef 0)
+  br label %67
 
-65:                                               ; preds = %53, %34
-  %66 = icmp ugt i64 %indvars.iv, 1
-  br i1 %66, label %23, label %._crit_edge, !llvm.loop !15
+67:                                               ; preds = %55, %36
+  %68 = icmp ugt i64 %indvars.iv, 1
+  br i1 %68, label %25, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %65, %2
+._crit_edge:                                      ; preds = %67, %2
   ret void
 }
 

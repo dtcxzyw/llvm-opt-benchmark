@@ -809,7 +809,13 @@ entry:
   %t.i = alloca double, align 8
   store double 0.000000e+00, ptr %agg.result, align 8
   %mValue.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %mValue.i, align 8
+  store float 1.000000e+00, ptr %mValue.i, align 8
+  %x.i.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  store float 0.000000e+00, ptr %x.i.i, align 4
+  %y.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store float 0.000000e+00, ptr %y.i.i, align 8
+  %z.i.i = getelementptr inbounds i8, ptr %agg.result, i64 20
+  store float 0.000000e+00, ptr %z.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.i)
   %vtable.i = load ptr, ptr %stream, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
@@ -834,7 +840,6 @@ lpad.i:                                           ; preds = %if.then.i
   resume { ptr, i32 } %1
 
 _Z4ReadIdET_PN6Assimp8IOStreamE.exit:             ; preds = %entry
-  %y.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %2 = load double, ptr %t.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i)
   store double %2, ptr %agg.result, align 8
@@ -3198,7 +3203,13 @@ for.body:                                         ; preds = %if.end9, %for.body
   %data.i.i = getelementptr inbounds i8, ptr %call15, i64 4
   store i8 0, ptr %data.i.i, align 4
   %mSemantic.i = getelementptr inbounds i8, ptr %call15, i64 1028
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 1>, ptr %mSemantic.i, align 4
+  store i32 0, ptr %mSemantic.i, align 4
+  %mIndex.i = getelementptr inbounds i8, ptr %call15, i64 1032
+  store i32 0, ptr %mIndex.i, align 8
+  %mDataLength.i = getelementptr inbounds i8, ptr %call15, i64 1036
+  store i32 0, ptr %mDataLength.i, align 4
+  %mType.i = getelementptr inbounds i8, ptr %call15, i64 1040
+  store i32 1, ptr %mType.i, align 8
   %mData.i = getelementptr inbounds i8, ptr %call15, i64 1048
   store ptr null, ptr %mData.i, align 8
   %12 = load ptr, ptr %mat, align 8
@@ -3547,7 +3558,13 @@ arrayctor.loop35:                                 ; preds = %arrayctor.loop35, %
   %arrayctor.cur36 = phi ptr [ %call31, %if.else28 ], [ %arrayctor.next37, %arrayctor.loop35 ]
   store double 0.000000e+00, ptr %arrayctor.cur36, align 8
   %mValue.i = getelementptr inbounds i8, ptr %arrayctor.cur36, i64 8
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %mValue.i, align 4
+  store float 1.000000e+00, ptr %mValue.i, align 4
+  %x.i.i = getelementptr inbounds i8, ptr %arrayctor.cur36, i64 12
+  store float 0.000000e+00, ptr %x.i.i, align 4
+  %y.i.i = getelementptr inbounds i8, ptr %arrayctor.cur36, i64 16
+  store float 0.000000e+00, ptr %y.i.i, align 4
+  %z.i.i = getelementptr inbounds i8, ptr %arrayctor.cur36, i64 20
+  store float 0.000000e+00, ptr %z.i.i, align 4
   %arrayctor.next37 = getelementptr inbounds i8, ptr %arrayctor.cur36, i64 24
   %arrayctor.done38 = icmp eq ptr %arrayctor.next37, %arrayctor.end34
   br i1 %arrayctor.done38, label %arrayctor.cont39, label %arrayctor.loop35
@@ -4150,9 +4167,9 @@ entry:
   %t.i29 = alloca i32, align 4
   %t.i = alloca i32, align 4
   %ref.tmp = alloca %struct.aiString, align 4
-  %ref.tmp20 = alloca %struct.aiColor3D, align 8
-  %ref.tmp22 = alloca %struct.aiColor3D, align 8
-  %ref.tmp24 = alloca %struct.aiColor3D, align 8
+  %ref.tmp20 = alloca %struct.aiColor3D, align 4
+  %ref.tmp22 = alloca %struct.aiColor3D, align 4
+  %ref.tmp24 = alloca %struct.aiColor3D, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i)
   %vtable.i = load ptr, ptr %stream, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
@@ -4172,7 +4189,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 
 common.resume:                                    ; preds = %lpad.i146, %lpad.i135, %lpad.i120, %lpad.i104, %lpad.i93, %lpad.i83, %lpad.i72, %lpad.i62, %lpad.i51, %lpad.i36, %lpad, %lpad.i
   %exception.i145.sink = phi ptr [ %exception.i145, %lpad.i146 ], [ %exception.i134, %lpad.i135 ], [ %exception.i119, %lpad.i120 ], [ %exception.i103, %lpad.i104 ], [ %exception.i92, %lpad.i93 ], [ %exception.i82, %lpad.i83 ], [ %exception.i71, %lpad.i72 ], [ %exception.i61, %lpad.i62 ], [ %exception.i50, %lpad.i51 ], [ %exception.i35, %lpad.i36 ], [ %exception, %lpad ], [ %exception.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %41, %lpad.i146 ], [ %38, %lpad.i135 ], [ %33, %lpad.i120 ], [ %29, %lpad.i104 ], [ %25, %lpad.i93 ], [ %22, %lpad.i83 ], [ %19, %lpad.i72 ], [ %16, %lpad.i62 ], [ %12, %lpad.i51 ], [ %5, %lpad.i36 ], [ %3, %lpad ], [ %1, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %44, %lpad.i146 ], [ %41, %lpad.i135 ], [ %35, %lpad.i120 ], [ %30, %lpad.i104 ], [ %25, %lpad.i93 ], [ %22, %lpad.i83 ], [ %19, %lpad.i72 ], [ %16, %lpad.i62 ], [ %12, %lpad.i51 ], [ %5, %lpad.i36 ], [ %3, %lpad ], [ %1, %lpad.i ]
   call void @__cxa_free_exception(ptr %exception.i145.sink) #15
   resume { ptr, i32 } %common.resume.op
 
@@ -4405,9 +4422,11 @@ _Z4ReadIfET_PN6Assimp8IOStreamE.exit86:           ; preds = %_Z4ReadIfET_PN6Assi
 
 if.end19:                                         ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit86, %_Z4ReadIjET_PN6Assimp8IOStreamE.exit54
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  store <2 x float> zeroinitializer, ptr %ref.tmp20, align 8, !alias.scope !52
+  store float 0.000000e+00, ptr %ref.tmp20, align 4, !alias.scope !52
+  %g.i.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 4
+  store float 0.000000e+00, ptr %g.i.i, align 4, !alias.scope !52
   %b.i.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
-  store float 0.000000e+00, ptr %b.i.i, align 8, !alias.scope !52
+  store float 0.000000e+00, ptr %b.i.i, align 4, !alias.scope !52
   %vtable.i87 = load ptr, ptr %stream, align 8, !noalias !52
   %vfn.i88 = getelementptr inbounds i8, ptr %vtable.i87, i64 16
   %24 = load ptr, ptr %vfn.i88, align 8, !noalias !52
@@ -4431,19 +4450,24 @@ lpad.i93:                                         ; preds = %if.then.i91
 
 _Z4ReadI9aiColor3DET_PN6Assimp8IOStreamE.exit:    ; preds = %if.end19
   %mColorDiffuse = getelementptr inbounds i8, ptr %l, i64 1080
-  %26 = load <2 x float>, ptr %ref.tmp20, align 8
-  store <2 x float> %26, ptr %mColorDiffuse, align 4
-  %27 = load float, ptr %b.i.i, align 8
+  %26 = load float, ptr %ref.tmp20, align 4
+  store float %26, ptr %mColorDiffuse, align 4
+  %27 = load float, ptr %g.i.i, align 4
+  %g3.i = getelementptr inbounds i8, ptr %l, i64 1084
+  store float %27, ptr %g3.i, align 4
+  %28 = load float, ptr %b.i.i, align 4
   %b4.i = getelementptr inbounds i8, ptr %l, i64 1088
-  store float %27, ptr %b4.i, align 4
+  store float %28, ptr %b4.i, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  store <2 x float> zeroinitializer, ptr %ref.tmp22, align 8, !alias.scope !55
+  store float 0.000000e+00, ptr %ref.tmp22, align 4, !alias.scope !55
+  %g.i.i96 = getelementptr inbounds i8, ptr %ref.tmp22, i64 4
+  store float 0.000000e+00, ptr %g.i.i96, align 4, !alias.scope !55
   %b.i.i97 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
-  store float 0.000000e+00, ptr %b.i.i97, align 8, !alias.scope !55
+  store float 0.000000e+00, ptr %b.i.i97, align 4, !alias.scope !55
   %vtable.i98 = load ptr, ptr %stream, align 8, !noalias !55
   %vfn.i99 = getelementptr inbounds i8, ptr %vtable.i98, i64 16
-  %28 = load ptr, ptr %vfn.i99, align 8, !noalias !55
-  %call.i100 = call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp22, i64 noundef 12, i64 noundef 1)
+  %29 = load ptr, ptr %vfn.i99, align 8, !noalias !55
+  %call.i100 = call noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp22, i64 noundef 12, i64 noundef 1)
   %cmp.not.i101 = icmp eq i64 %call.i100, 1
   br i1 %cmp.not.i101, label %_Z4ReadI9aiColor3DET_PN6Assimp8IOStreamE.exit107, label %if.then.i102
 
@@ -4457,25 +4481,30 @@ invoke.cont.i105:                                 ; preds = %if.then.i102
   unreachable
 
 lpad.i104:                                        ; preds = %if.then.i102
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _Z4ReadI9aiColor3DET_PN6Assimp8IOStreamE.exit107: ; preds = %_Z4ReadI9aiColor3DET_PN6Assimp8IOStreamE.exit
   %mColorSpecular = getelementptr inbounds i8, ptr %l, i64 1092
-  %30 = load <2 x float>, ptr %ref.tmp22, align 8
-  store <2 x float> %30, ptr %mColorSpecular, align 4
-  %31 = load float, ptr %b.i.i97, align 8
+  %31 = load float, ptr %ref.tmp22, align 4
+  store float %31, ptr %mColorSpecular, align 4
+  %32 = load float, ptr %g.i.i96, align 4
+  %g3.i109 = getelementptr inbounds i8, ptr %l, i64 1096
+  store float %32, ptr %g3.i109, align 4
+  %33 = load float, ptr %b.i.i97, align 4
   %b4.i111 = getelementptr inbounds i8, ptr %l, i64 1100
-  store float %31, ptr %b4.i111, align 4
+  store float %33, ptr %b4.i111, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  store <2 x float> zeroinitializer, ptr %ref.tmp24, align 8, !alias.scope !58
+  store float 0.000000e+00, ptr %ref.tmp24, align 4, !alias.scope !58
+  %g.i.i112 = getelementptr inbounds i8, ptr %ref.tmp24, i64 4
+  store float 0.000000e+00, ptr %g.i.i112, align 4, !alias.scope !58
   %b.i.i113 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
-  store float 0.000000e+00, ptr %b.i.i113, align 8, !alias.scope !58
+  store float 0.000000e+00, ptr %b.i.i113, align 4, !alias.scope !58
   %vtable.i114 = load ptr, ptr %stream, align 8, !noalias !58
   %vfn.i115 = getelementptr inbounds i8, ptr %vtable.i114, i64 16
-  %32 = load ptr, ptr %vfn.i115, align 8, !noalias !58
-  %call.i116 = call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp24, i64 noundef 12, i64 noundef 1)
+  %34 = load ptr, ptr %vfn.i115, align 8, !noalias !58
+  %call.i116 = call noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp24, i64 noundef 12, i64 noundef 1)
   %cmp.not.i117 = icmp eq i64 %call.i116, 1
   br i1 %cmp.not.i117, label %_Z4ReadI9aiColor3DET_PN6Assimp8IOStreamE.exit123, label %if.then.i118
 
@@ -4489,27 +4518,30 @@ invoke.cont.i121:                                 ; preds = %if.then.i118
   unreachable
 
 lpad.i120:                                        ; preds = %if.then.i118
-  %33 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _Z4ReadI9aiColor3DET_PN6Assimp8IOStreamE.exit123: ; preds = %_Z4ReadI9aiColor3DET_PN6Assimp8IOStreamE.exit107
   %mColorAmbient = getelementptr inbounds i8, ptr %l, i64 1104
-  %34 = load <2 x float>, ptr %ref.tmp24, align 8
-  store <2 x float> %34, ptr %mColorAmbient, align 4
-  %35 = load float, ptr %b.i.i113, align 8
+  %36 = load float, ptr %ref.tmp24, align 4
+  store float %36, ptr %mColorAmbient, align 4
+  %37 = load float, ptr %g.i.i112, align 4
+  %g3.i125 = getelementptr inbounds i8, ptr %l, i64 1108
+  store float %37, ptr %g3.i125, align 4
+  %38 = load float, ptr %b.i.i113, align 4
   %b4.i127 = getelementptr inbounds i8, ptr %l, i64 1112
-  store float %35, ptr %b4.i127, align 4
-  %36 = load i32, ptr %mType, align 4
-  %cmp27 = icmp eq i32 %36, 3
+  store float %38, ptr %b4.i127, align 4
+  %39 = load i32, ptr %mType, align 4
+  %cmp27 = icmp eq i32 %39, 3
   br i1 %cmp27, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %_Z4ReadI9aiColor3DET_PN6Assimp8IOStreamE.exit123
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i128)
   %vtable.i129 = load ptr, ptr %stream, align 8
   %vfn.i130 = getelementptr inbounds i8, ptr %vtable.i129, i64 16
-  %37 = load ptr, ptr %vfn.i130, align 8
-  %call.i131 = call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %t.i128, i64 noundef 4, i64 noundef 1)
+  %40 = load ptr, ptr %vfn.i130, align 8
+  %call.i131 = call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %t.i128, i64 noundef 4, i64 noundef 1)
   %cmp.not.i132 = icmp eq i64 %call.i131, 1
   br i1 %cmp.not.i132, label %_Z4ReadIfET_PN6Assimp8IOStreamE.exit138, label %if.then.i133
 
@@ -4523,20 +4555,20 @@ invoke.cont.i136:                                 ; preds = %if.then.i133
   unreachable
 
 lpad.i135:                                        ; preds = %if.then.i133
-  %38 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _Z4ReadIfET_PN6Assimp8IOStreamE.exit138:          ; preds = %if.then28
-  %39 = load float, ptr %t.i128, align 4
+  %42 = load float, ptr %t.i128, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i128)
   %mAngleInnerCone = getelementptr inbounds i8, ptr %l, i64 1116
-  store float %39, ptr %mAngleInnerCone, align 4
+  store float %42, ptr %mAngleInnerCone, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i139)
   %vtable.i140 = load ptr, ptr %stream, align 8
   %vfn.i141 = getelementptr inbounds i8, ptr %vtable.i140, i64 16
-  %40 = load ptr, ptr %vfn.i141, align 8
-  %call.i142 = call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %t.i139, i64 noundef 4, i64 noundef 1)
+  %43 = load ptr, ptr %vfn.i141, align 8
+  %call.i142 = call noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %t.i139, i64 noundef 4, i64 noundef 1)
   %cmp.not.i143 = icmp eq i64 %call.i142, 1
   br i1 %cmp.not.i143, label %_Z4ReadIfET_PN6Assimp8IOStreamE.exit149, label %if.then.i144
 
@@ -4550,15 +4582,15 @@ invoke.cont.i147:                                 ; preds = %if.then.i144
   unreachable
 
 lpad.i146:                                        ; preds = %if.then.i144
-  %41 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _Z4ReadIfET_PN6Assimp8IOStreamE.exit149:          ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit138
-  %42 = load float, ptr %t.i139, align 4
+  %45 = load float, ptr %t.i139, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i139)
   %mAngleOuterCone = getelementptr inbounds i8, ptr %l, i64 1120
-  store float %42, ptr %mAngleOuterCone, align 4
+  store float %45, ptr %mAngleOuterCone, align 4
   br label %if.end31
 
 if.end31:                                         ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit149, %_Z4ReadI9aiColor3DET_PN6Assimp8IOStreamE.exit123
@@ -5209,7 +5241,9 @@ for.body67:                                       ; preds = %for.body67.preheade
   %data.i.i = getelementptr inbounds i8, ptr %call68, i64 4
   store i8 0, ptr %data.i.i, align 4
   %mDuration.i = getelementptr inbounds i8, ptr %call68, i64 1032
-  store <2 x double> <double -1.000000e+00, double 0.000000e+00>, ptr %mDuration.i, align 8
+  store double -1.000000e+00, ptr %mDuration.i, align 8
+  %mTicksPerSecond.i = getelementptr inbounds i8, ptr %call68, i64 1040
+  store double 0.000000e+00, ptr %mTicksPerSecond.i, align 8
   %mNumChannels.i = getelementptr inbounds i8, ptr %call68, i64 1048
   store i32 0, ptr %mNumChannels.i, align 8
   %mChannels.i = getelementptr inbounds i8, ptr %call68, i64 1056
@@ -5299,7 +5333,13 @@ for.body119:                                      ; preds = %for.body119.prehead
   %mAttenuationQuadratic.i = getelementptr inbounds i8, ptr %call120, i64 1076
   %mAngleInnerCone.i = getelementptr inbounds i8, ptr %call120, i64 1116
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %mAttenuationQuadratic.i, i8 0, i64 40, i1 false)
-  store <4 x float> <float 0x401921FB60000000, float 0x401921FB60000000, float 0.000000e+00, float 0.000000e+00>, ptr %mAngleInnerCone.i, align 4
+  store float 0x401921FB60000000, ptr %mAngleInnerCone.i, align 4
+  %mAngleOuterCone.i = getelementptr inbounds i8, ptr %call120, i64 1120
+  store float 0x401921FB60000000, ptr %mAngleOuterCone.i, align 4
+  %mSize.i = getelementptr inbounds i8, ptr %call120, i64 1124
+  store float 0.000000e+00, ptr %mSize.i, align 4
+  %y.i9.i = getelementptr inbounds i8, ptr %call120, i64 1128
+  store float 0.000000e+00, ptr %y.i9.i, align 4
   %58 = load ptr, ptr %mLights, align 8
   %arrayidx123 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv201
   store ptr %call120, ptr %arrayidx123, align 8
@@ -5336,11 +5376,25 @@ for.body145:                                      ; preds = %for.body145.prehead
   %mPosition.i = getelementptr inbounds i8, ptr %call146, i64 1028
   %y.i1.i = getelementptr inbounds i8, ptr %call146, i64 1044
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mPosition.i, i8 0, i64 16, i1 false)
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %y.i1.i, align 4
+  store float 1.000000e+00, ptr %y.i1.i, align 4
+  %z.i2.i = getelementptr inbounds i8, ptr %call146, i64 1048
+  store float 0.000000e+00, ptr %z.i2.i, align 4
+  %mLookAt.i = getelementptr inbounds i8, ptr %call146, i64 1052
+  store float 0.000000e+00, ptr %mLookAt.i, align 4
+  %y.i3.i = getelementptr inbounds i8, ptr %call146, i64 1056
+  store float 0.000000e+00, ptr %y.i3.i, align 4
   %z.i4.i = getelementptr inbounds i8, ptr %call146, i64 1060
-  store <4 x float> <float 1.000000e+00, float 0x3FE921FB60000000, float 0x3FB99999A0000000, float 1.000000e+03>, ptr %z.i4.i, align 4
+  store float 1.000000e+00, ptr %z.i4.i, align 4
+  %mHorizontalFOV.i = getelementptr inbounds i8, ptr %call146, i64 1064
+  store float 0x3FE921FB60000000, ptr %mHorizontalFOV.i, align 4
+  %mClipPlaneNear.i = getelementptr inbounds i8, ptr %call146, i64 1068
+  store float 0x3FB99999A0000000, ptr %mClipPlaneNear.i, align 4
+  %mClipPlaneFar.i = getelementptr inbounds i8, ptr %call146, i64 1072
+  store float 1.000000e+03, ptr %mClipPlaneFar.i, align 4
   %mAspect.i = getelementptr inbounds i8, ptr %call146, i64 1076
-  store <2 x float> zeroinitializer, ptr %mAspect.i, align 4
+  store float 0.000000e+00, ptr %mAspect.i, align 4
+  %mOrthographicWidth.i = getelementptr inbounds i8, ptr %call146, i64 1080
+  store float 0.000000e+00, ptr %mOrthographicWidth.i, align 4
   %65 = load ptr, ptr %mCameras, align 8
   %arrayidx149 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv204
   store ptr %call146, ptr %arrayidx149, align 8

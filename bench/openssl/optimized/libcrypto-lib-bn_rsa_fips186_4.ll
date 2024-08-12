@@ -56,15 +56,14 @@ cond.false17:                                     ; preds = %cond.end13
 
 cond.end19:                                       ; preds = %cond.end13, %cond.false17
   %cond20 = phi ptr [ %call18, %cond.false17 ], [ %Xp2, %cond.end13 ]
-  %0 = insertelement <4 x ptr> poison, ptr %cond, i64 0
-  %1 = insertelement <4 x ptr> %0, ptr %cond8, i64 1
-  %2 = insertelement <4 x ptr> %1, ptr %cond14, i64 2
-  %3 = insertelement <4 x ptr> %2, ptr %cond20, i64 3
-  %.fr = freeze <4 x ptr> %3
-  %4 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %5 = bitcast <4 x i1> %4 to i4
-  %.not = icmp eq i4 %5, 0
-  br i1 %.not, label %if.end29, label %err
+  %cmp21 = icmp eq ptr %cond, null
+  %cmp23 = icmp eq ptr %cond8, null
+  %or.cond1 = select i1 %cmp21, i1 true, i1 %cmp23
+  %cmp25 = icmp eq ptr %cond14, null
+  %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp25
+  %cmp27 = icmp eq ptr %cond20, null
+  %or.cond3 = select i1 %or.cond2, i1 true, i1 %cmp27
+  br i1 %or.cond3, label %err, label %if.end29
 
 if.end29:                                         ; preds = %cond.end19
   %cmp.i = icmp sgt i32 %nlen, 4095

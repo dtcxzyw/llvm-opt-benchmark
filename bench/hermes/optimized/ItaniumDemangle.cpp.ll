@@ -3106,7 +3106,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11Spe
   %add.ptr12.i.i.i126 = getelementptr inbounds i8, ptr %add.ptr.i.i.i124, i64 %17
   %add.ptr13.i.i.i127 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i126, i64 -48
   %K.i.i.i.i128 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i126, i64 -40
-  store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i128, align 8
+  store i8 20, ptr %K.i.i.i.i128, align 8
+  %RHSComponentCache.i.i.i.i129 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i126, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i129, align 1
+  %ArrayCache.i.i.i.i130 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i126, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i130, align 2
+  %FunctionCache.i.i.i.i131 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i126, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i131, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 16), ptr %add.ptr13.i.i.i127, align 8
   %Special.i.i.i132 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i126, i64 -32
   store ptr @.str.20, ptr %Special.i.i.i132, align 8
@@ -3217,7 +3223,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11Spe
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %30
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
-  store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 20, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Special.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr @.str.21, ptr %Special.i.i.i, align 8
@@ -3710,7 +3722,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 20, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 16), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %args, ptr %Special.i.i, align 8
@@ -3918,7 +3936,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %17
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr @.str.243, ptr %Name.i.i.i, align 8
@@ -3966,7 +3990,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i141 = getelementptr inbounds i8, ptr %add.ptr.i.i.i139, i64 %24
   %add.ptr13.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i141, i64 -32
   %K.i.i.i.i143 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i141, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i143, align 8
+  store i8 7, ptr %K.i.i.i.i143, align 8
+  %RHSComponentCache.i.i.i.i144 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i141, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i144, align 1
+  %ArrayCache.i.i.i.i145 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i141, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i145, align 2
+  %FunctionCache.i.i.i.i146 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i141, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i146, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i142, align 8
   %Name.i.i.i147 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i141, i64 -16
   store ptr @.str.77, ptr %Name.i.i.i147, align 8
@@ -4014,7 +4044,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i162 = getelementptr inbounds i8, ptr %add.ptr.i.i.i160, i64 %31
   %add.ptr13.i.i.i163 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i162, i64 -32
   %K.i.i.i.i166 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i162, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i166, align 8
+  store i8 7, ptr %K.i.i.i.i166, align 8
+  %RHSComponentCache.i.i.i.i167 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i162, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i167, align 1
+  %ArrayCache.i.i.i.i168 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i162, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i168, align 2
+  %FunctionCache.i.i.i.i169 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i162, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i169, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i163, align 8
   %Name.i.i.i170 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i162, i64 -16
   store ptr @.str.244, ptr %Name.i.i.i170, align 8
@@ -4062,7 +4098,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i186 = getelementptr inbounds i8, ptr %add.ptr.i.i.i184, i64 %38
   %add.ptr13.i.i.i187 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i186, i64 -32
   %K.i.i.i.i190 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i186, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i190, align 8
+  store i8 7, ptr %K.i.i.i.i190, align 8
+  %RHSComponentCache.i.i.i.i191 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i186, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i191, align 1
+  %ArrayCache.i.i.i.i192 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i186, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i192, align 2
+  %FunctionCache.i.i.i.i193 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i186, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i193, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i187, align 8
   %Name.i.i.i194 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i186, i64 -16
   store ptr @.str.80, ptr %Name.i.i.i194, align 8
@@ -4110,7 +4152,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i210 = getelementptr inbounds i8, ptr %add.ptr.i.i.i208, i64 %45
   %add.ptr13.i.i.i211 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i210, i64 -32
   %K.i.i.i.i214 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i210, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i214, align 8
+  store i8 7, ptr %K.i.i.i.i214, align 8
+  %RHSComponentCache.i.i.i.i215 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i210, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i215, align 1
+  %ArrayCache.i.i.i.i216 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i210, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i216, align 2
+  %FunctionCache.i.i.i.i217 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i210, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i217, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i211, align 8
   %Name.i.i.i218 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i210, i64 -16
   store ptr @.str.81, ptr %Name.i.i.i218, align 8
@@ -4158,7 +4206,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i233 = getelementptr inbounds i8, ptr %add.ptr.i.i.i231, i64 %52
   %add.ptr13.i.i.i234 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i233, i64 -32
   %K.i.i.i.i237 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i233, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i237, align 8
+  store i8 7, ptr %K.i.i.i.i237, align 8
+  %RHSComponentCache.i.i.i.i238 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i233, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i238, align 1
+  %ArrayCache.i.i.i.i239 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i233, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i239, align 2
+  %FunctionCache.i.i.i.i240 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i233, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i240, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i234, align 8
   %Name.i.i.i241 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i233, i64 -16
   store ptr @.str.82, ptr %Name.i.i.i241, align 8
@@ -4206,7 +4260,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i256 = getelementptr inbounds i8, ptr %add.ptr.i.i.i254, i64 %59
   %add.ptr13.i.i.i257 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i256, i64 -32
   %K.i.i.i.i260 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i256, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i260, align 8
+  store i8 7, ptr %K.i.i.i.i260, align 8
+  %RHSComponentCache.i.i.i.i261 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i256, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i261, align 1
+  %ArrayCache.i.i.i.i262 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i256, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i262, align 2
+  %FunctionCache.i.i.i.i263 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i256, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i263, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i257, align 8
   %Name.i.i.i264 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i256, i64 -16
   store ptr @.str.83, ptr %Name.i.i.i264, align 8
@@ -4254,7 +4314,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i279 = getelementptr inbounds i8, ptr %add.ptr.i.i.i277, i64 %66
   %add.ptr13.i.i.i280 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -32
   %K.i.i.i.i283 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i283, align 8
+  store i8 7, ptr %K.i.i.i.i283, align 8
+  %RHSComponentCache.i.i.i.i284 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i284, align 1
+  %ArrayCache.i.i.i.i285 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i285, align 2
+  %FunctionCache.i.i.i.i286 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i286, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i280, align 8
   %Name.i.i.i287 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -16
   store ptr @.str.84, ptr %Name.i.i.i287, align 8
@@ -4302,7 +4368,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i302 = getelementptr inbounds i8, ptr %add.ptr.i.i.i300, i64 %73
   %add.ptr13.i.i.i303 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i302, i64 -32
   %K.i.i.i.i306 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i302, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i306, align 8
+  store i8 7, ptr %K.i.i.i.i306, align 8
+  %RHSComponentCache.i.i.i.i307 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i302, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i307, align 1
+  %ArrayCache.i.i.i.i308 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i302, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i308, align 2
+  %FunctionCache.i.i.i.i309 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i302, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i309, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i303, align 8
   %Name.i.i.i310 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i302, i64 -16
   store ptr @.str.245, ptr %Name.i.i.i310, align 8
@@ -4350,7 +4422,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i325 = getelementptr inbounds i8, ptr %add.ptr.i.i.i323, i64 %80
   %add.ptr13.i.i.i326 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i325, i64 -32
   %K.i.i.i.i329 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i325, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i329, align 8
+  store i8 7, ptr %K.i.i.i.i329, align 8
+  %RHSComponentCache.i.i.i.i330 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i325, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i330, align 1
+  %ArrayCache.i.i.i.i331 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i325, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i331, align 2
+  %FunctionCache.i.i.i.i332 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i325, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i332, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i326, align 8
   %Name.i.i.i333 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i325, i64 -16
   store ptr @.str.246, ptr %Name.i.i.i333, align 8
@@ -4398,7 +4476,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i348 = getelementptr inbounds i8, ptr %add.ptr.i.i.i346, i64 %87
   %add.ptr13.i.i.i349 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i348, i64 -32
   %K.i.i.i.i352 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i348, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i352, align 8
+  store i8 7, ptr %K.i.i.i.i352, align 8
+  %RHSComponentCache.i.i.i.i353 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i348, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i353, align 1
+  %ArrayCache.i.i.i.i354 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i348, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i354, align 2
+  %FunctionCache.i.i.i.i355 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i348, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i355, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i349, align 8
   %Name.i.i.i356 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i348, i64 -16
   store ptr @.str.247, ptr %Name.i.i.i356, align 8
@@ -4446,7 +4530,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i372 = getelementptr inbounds i8, ptr %add.ptr.i.i.i370, i64 %94
   %add.ptr13.i.i.i373 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i372, i64 -32
   %K.i.i.i.i376 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i372, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i376, align 8
+  store i8 7, ptr %K.i.i.i.i376, align 8
+  %RHSComponentCache.i.i.i.i377 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i372, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i377, align 1
+  %ArrayCache.i.i.i.i378 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i372, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i378, align 2
+  %FunctionCache.i.i.i.i379 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i372, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i379, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i373, align 8
   %Name.i.i.i380 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i372, i64 -16
   store ptr @.str.248, ptr %Name.i.i.i380, align 8
@@ -4494,7 +4584,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i396 = getelementptr inbounds i8, ptr %add.ptr.i.i.i394, i64 %101
   %add.ptr13.i.i.i397 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i396, i64 -32
   %K.i.i.i.i400 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i396, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i400, align 8
+  store i8 7, ptr %K.i.i.i.i400, align 8
+  %RHSComponentCache.i.i.i.i401 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i396, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i401, align 1
+  %ArrayCache.i.i.i.i402 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i396, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i402, align 2
+  %FunctionCache.i.i.i.i403 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i396, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i403, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i397, align 8
   %Name.i.i.i404 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i396, i64 -16
   store ptr @.str.249, ptr %Name.i.i.i404, align 8
@@ -4542,7 +4638,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i419 = getelementptr inbounds i8, ptr %add.ptr.i.i.i417, i64 %108
   %add.ptr13.i.i.i420 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i419, i64 -32
   %K.i.i.i.i421 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i419, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i421, align 8
+  store i8 7, ptr %K.i.i.i.i421, align 8
+  %RHSComponentCache.i.i.i.i422 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i419, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i422, align 1
+  %ArrayCache.i.i.i.i423 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i419, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i423, align 2
+  %FunctionCache.i.i.i.i424 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i419, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i424, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i420, align 8
   %Name.i.i.i425 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i419, i64 -16
   store ptr @.str.250, ptr %Name.i.i.i425, align 8
@@ -4590,7 +4692,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i440 = getelementptr inbounds i8, ptr %add.ptr.i.i.i438, i64 %115
   %add.ptr13.i.i.i441 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i440, i64 -32
   %K.i.i.i.i444 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i440, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i444, align 8
+  store i8 7, ptr %K.i.i.i.i444, align 8
+  %RHSComponentCache.i.i.i.i445 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i440, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i445, align 1
+  %ArrayCache.i.i.i.i446 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i440, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i446, align 2
+  %FunctionCache.i.i.i.i447 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i440, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i447, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i441, align 8
   %Name.i.i.i448 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i440, i64 -16
   store ptr @.str.91, ptr %Name.i.i.i448, align 8
@@ -4638,7 +4746,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i463 = getelementptr inbounds i8, ptr %add.ptr.i.i.i461, i64 %122
   %add.ptr13.i.i.i464 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i463, i64 -32
   %K.i.i.i.i467 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i463, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i467, align 8
+  store i8 7, ptr %K.i.i.i.i467, align 8
+  %RHSComponentCache.i.i.i.i468 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i463, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i468, align 1
+  %ArrayCache.i.i.i.i469 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i463, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i469, align 2
+  %FunctionCache.i.i.i.i470 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i463, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i470, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i464, align 8
   %Name.i.i.i471 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i463, i64 -16
   store ptr @.str.92, ptr %Name.i.i.i471, align 8
@@ -4686,7 +4800,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i486 = getelementptr inbounds i8, ptr %add.ptr.i.i.i484, i64 %129
   %add.ptr13.i.i.i487 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i486, i64 -32
   %K.i.i.i.i490 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i486, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i490, align 8
+  store i8 7, ptr %K.i.i.i.i490, align 8
+  %RHSComponentCache.i.i.i.i491 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i486, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i491, align 1
+  %ArrayCache.i.i.i.i492 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i486, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i492, align 2
+  %FunctionCache.i.i.i.i493 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i486, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i493, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i487, align 8
   %Name.i.i.i494 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i486, i64 -16
   store ptr @.str.251, ptr %Name.i.i.i494, align 8
@@ -4734,7 +4854,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i510 = getelementptr inbounds i8, ptr %add.ptr.i.i.i508, i64 %136
   %add.ptr13.i.i.i511 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i510, i64 -32
   %K.i.i.i.i512 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i510, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i512, align 8
+  store i8 7, ptr %K.i.i.i.i512, align 8
+  %RHSComponentCache.i.i.i.i513 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i510, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i513, align 1
+  %ArrayCache.i.i.i.i514 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i510, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i514, align 2
+  %FunctionCache.i.i.i.i515 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i510, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i515, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i511, align 8
   %Name.i.i.i516 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i510, i64 -16
   store ptr @.str.252, ptr %Name.i.i.i516, align 8
@@ -4782,7 +4908,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i531 = getelementptr inbounds i8, ptr %add.ptr.i.i.i529, i64 %143
   %add.ptr13.i.i.i532 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i531, i64 -32
   %K.i.i.i.i535 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i531, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i535, align 8
+  store i8 7, ptr %K.i.i.i.i535, align 8
+  %RHSComponentCache.i.i.i.i536 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i531, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i536, align 1
+  %ArrayCache.i.i.i.i537 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i531, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i537, align 2
+  %FunctionCache.i.i.i.i538 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i531, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i538, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i532, align 8
   %Name.i.i.i539 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i531, i64 -16
   store ptr @.str.253, ptr %Name.i.i.i539, align 8
@@ -4830,7 +4962,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i555 = getelementptr inbounds i8, ptr %add.ptr.i.i.i553, i64 %150
   %add.ptr13.i.i.i556 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i555, i64 -32
   %K.i.i.i.i559 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i555, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i559, align 8
+  store i8 7, ptr %K.i.i.i.i559, align 8
+  %RHSComponentCache.i.i.i.i560 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i555, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i560, align 1
+  %ArrayCache.i.i.i.i561 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i555, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i561, align 2
+  %FunctionCache.i.i.i.i562 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i555, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i562, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i556, align 8
   %Name.i.i.i563 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i555, i64 -16
   store ptr @.str.254, ptr %Name.i.i.i563, align 8
@@ -4878,7 +5016,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i578 = getelementptr inbounds i8, ptr %add.ptr.i.i.i576, i64 %157
   %add.ptr13.i.i.i579 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i578, i64 -32
   %K.i.i.i.i582 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i578, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i582, align 8
+  store i8 7, ptr %K.i.i.i.i582, align 8
+  %RHSComponentCache.i.i.i.i583 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i578, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i583, align 1
+  %ArrayCache.i.i.i.i584 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i578, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i584, align 2
+  %FunctionCache.i.i.i.i585 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i578, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i585, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i579, align 8
   %Name.i.i.i586 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i578, i64 -16
   store ptr @.str.131, ptr %Name.i.i.i586, align 8
@@ -5589,7 +5733,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i601 = getelementptr inbounds i8, ptr %add.ptr.i.i.i599, i64 %22
   %add.ptr13.i.i.i602 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i601, i64 -32
   %K.i.i.i.i603 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i601, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i603, align 8
+  store i8 7, ptr %K.i.i.i.i603, align 8
+  %RHSComponentCache.i.i.i.i604 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i601, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i604, align 1
+  %ArrayCache.i.i.i.i605 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i601, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i605, align 2
+  %FunctionCache.i.i.i.i606 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i601, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i606, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i602, align 8
   %Name.i.i.i607 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i601, i64 -16
   store ptr @.str, ptr %Name.i.i.i607, align 8
@@ -5746,7 +5896,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Nes
   %add.ptr12.i.i.i.i539 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i537, i64 %38
   %add.ptr13.i.i.i.i540 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i539, i64 -32
   %K.i.i.i.i.i541 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i539, i64 -24
-  store <4 x i8> <i8 23, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i541, align 8
+  store i8 23, ptr %K.i.i.i.i.i541, align 8
+  %RHSComponentCache.i.i.i.i.i542 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i539, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i.i542, align 1
+  %ArrayCache.i.i.i.i.i543 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i539, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i.i543, align 2
+  %FunctionCache.i.i.i.i.i544 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i539, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i.i544, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 16), ptr %add.ptr13.i.i.i.i540, align 8
   %Qual.i.i.i.i545 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i539, i64 -16
   store ptr %SoFar.i.1.ph, ptr %Qual.i.i.i.i545, align 8
@@ -5866,7 +6022,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr12.i.i.i475 = getelementptr inbounds i8, ptr %add.ptr.i.i.i473, i64 %50
   %add.ptr13.i.i.i476 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i475, i64 -32
   %K.i.i.i.i477 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i475, i64 -24
-  store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i477, align 8
+  store i8 32, ptr %K.i.i.i.i477, align 8
+  %RHSComponentCache.i.i.i.i478 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i475, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i478, align 1
+  %ArrayCache.i.i.i.i479 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i475, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i479, align 2
+  %FunctionCache.i.i.i.i480 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i475, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i480, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %add.ptr13.i.i.i476, align 8
   %Name.i.i.i481 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i475, i64 -16
   store ptr %SoFar.i.1.ph, ptr %Name.i.i.i481, align 8
@@ -5997,7 +6159,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Nes
   %add.ptr12.i.i.i.i392 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i390, i64 %63
   %add.ptr13.i.i.i.i393 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i392, i64 -32
   %K.i.i.i.i.i394 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i392, i64 -24
-  store <4 x i8> <i8 23, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i394, align 8
+  store i8 23, ptr %K.i.i.i.i.i394, align 8
+  %RHSComponentCache.i.i.i.i.i395 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i392, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i.i395, align 1
+  %ArrayCache.i.i.i.i.i396 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i392, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i.i396, align 2
+  %FunctionCache.i.i.i.i.i397 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i392, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i.i397, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 16), ptr %add.ptr13.i.i.i.i393, align 8
   %Qual.i.i.i.i398 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i392, i64 -16
   store ptr %SoFar.i.1.ph, ptr %Qual.i.i.i.i398, align 8
@@ -6129,7 +6297,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Nes
   %add.ptr12.i.i.i.i312 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i310, i64 %76
   %add.ptr13.i.i.i.i313 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i312, i64 -32
   %K.i.i.i.i.i314 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i312, i64 -24
-  store <4 x i8> <i8 23, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i314, align 8
+  store i8 23, ptr %K.i.i.i.i.i314, align 8
+  %RHSComponentCache.i.i.i.i.i315 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i312, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i.i315, align 1
+  %ArrayCache.i.i.i.i.i316 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i312, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i.i316, align 2
+  %FunctionCache.i.i.i.i.i317 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i312, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i.i317, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 16), ptr %add.ptr13.i.i.i.i313, align 8
   %Qual.i.i.i.i318 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i312, i64 -16
   store ptr %SoFar.i.1.ph, ptr %Qual.i.i.i.i318, align 8
@@ -6267,7 +6441,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_27Exp
   %add.ptr12.i.i.i.i234 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i232, i64 %90
   %add.ptr13.i.i.i.i235 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i234, i64 -16
   %K.i.i.i.i.i236 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i234, i64 -8
-  store <4 x i8> <i8 35, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i236, align 8
+  store i8 35, ptr %K.i.i.i.i.i236, align 8
+  %RHSComponentCache.i.i.i.i.i237 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i234, i64 -7
+  store i8 1, ptr %RHSComponentCache.i.i.i.i.i237, align 1
+  %ArrayCache.i.i.i.i.i238 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i234, i64 -6
+  store i8 1, ptr %ArrayCache.i.i.i.i.i238, align 2
+  %FunctionCache.i.i.i.i.i239 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i234, i64 -5
+  store i8 1, ptr %FunctionCache.i.i.i.i.i239, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle27ExpandedSpecialSubstitutionE, i64 16), ptr %add.ptr13.i.i.i.i235, align 8
   %SSK.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i234, i64 -4
   store i32 %83, ptr %SSK.i.i.i.i, align 4
@@ -6433,7 +6613,13 @@ if.then3.i162:                                    ; preds = %if.then3.i162.sink.
   %add.ptr12.i.i.i76.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i74.i, i64 %103
   %add.ptr13.i.i.i77.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i76.i, i64 -32
   %K.i.i.i.i78.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i76.i, i64 -24
-  store <4 x i8> <i8 37, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i78.i, align 8
+  store i8 37, ptr %K.i.i.i.i78.i, align 8
+  %RHSComponentCache.i.i.i.i79.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i76.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i79.i, align 1
+  %ArrayCache.i.i.i.i80.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i76.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i80.i, align 2
+  %FunctionCache.i.i.i.i81.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i76.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i81.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle12CtorDtorNameE, i64 16), ptr %add.ptr13.i.i.i77.i, align 8
   %Basename.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i76.i, i64 -16
   store ptr %SoFar.i.6, ptr %Basename.i.i.i.i, align 8
@@ -6477,7 +6663,13 @@ if.end4.i179:                                     ; preds = %if.then3.i162, %_ZN
   %add.ptr12.i.i.i.i171 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i169, i64 %110
   %add.ptr13.i.i.i.i172 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i171, i64 -32
   %K.i.i.i.i.i173 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i171, i64 -24
-  store <4 x i8> <i8 23, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i173, align 8
+  store i8 23, ptr %K.i.i.i.i.i173, align 8
+  %RHSComponentCache.i.i.i.i.i174 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i171, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i.i174, align 1
+  %ArrayCache.i.i.i.i.i175 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i171, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i.i175, align 2
+  %FunctionCache.i.i.i.i.i176 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i171, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i.i176, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 16), ptr %add.ptr13.i.i.i.i172, align 8
   %Qual.i.i.i.i177 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i171, i64 -16
   store ptr %SoFar.i.6, ptr %Qual.i.i.i.i177, align 8
@@ -6600,7 +6792,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Nes
   %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %122
   %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -32
   %K.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -24
-  store <4 x i8> <i8 23, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i, align 8
+  store i8 23, ptr %K.i.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 16), ptr %add.ptr13.i.i.i.i, align 8
   %Qual.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -16
   store ptr %SoFar.i.1.ph, ptr %Qual.i.i.i.i, align 8
@@ -6801,7 +6999,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9Loca
   %add.ptr12.i.i.i1085 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1083, i64 %146
   %add.ptr13.i.i.i1086 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1085, i64 -32
   %K.i.i.i.i1087 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1085, i64 -24
-  store <4 x i8> <i8 24, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i1087, align 8
+  store i8 24, ptr %K.i.i.i.i1087, align 8
+  %RHSComponentCache.i.i.i.i1088 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1085, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i1088, align 1
+  %ArrayCache.i.i.i.i1089 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1085, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i1089, align 2
+  %FunctionCache.i.i.i.i1090 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1085, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i1090, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle9LocalNameE, i64 16), ptr %add.ptr13.i.i.i1086, align 8
   %Encoding.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1085, i64 -16
   store ptr %call2.i35, ptr %Encoding.i.i.i, align 8
@@ -6919,7 +7123,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseUnscoped
   %add.ptr12.i.i.i701 = getelementptr inbounds i8, ptr %add.ptr.i.i.i699, i64 %155
   %add.ptr13.i.i.i702 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i701, i64 -32
   %K.i.i.i.i703 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i701, i64 -24
-  store <4 x i8> <i8 34, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i703, align 8
+  store i8 34, ptr %K.i.i.i.i703, align 8
+  %RHSComponentCache.i.i.i.i704 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i701, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i704, align 1
+  %ArrayCache.i.i.i.i705 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i701, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i705, align 2
+  %FunctionCache.i.i.i.i706 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i701, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i706, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle16StdQualifiedNameE, i64 16), ptr %add.ptr13.i.i.i702, align 8
   %Child.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i701, i64 -16
   store ptr %call4.i, ptr %Child.i.i.i, align 8
@@ -7056,7 +7266,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %168
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
-  store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 32, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %retval.0.i68906, ptr %Name.i.i.i, align 8
@@ -7254,7 +7470,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Tem
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %27
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
-  store <4 x i8> <i8 28, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 28, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20TemplateArgumentPackE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Elements.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %19, ptr %Elements.i.i.i, align 8
@@ -7351,7 +7573,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12EnableIfA
   %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %args, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 9, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 9, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle12EnableIfAttrE, i64 16), ptr %add.ptr13.i.i, align 8
   %Conditions.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %Conditions.i.i, align 8
@@ -7408,7 +7636,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle16FunctionE
   %10 = load i32, ptr %args7, align 4
   %11 = load i8, ptr %args9, align 1
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
-  store <4 x i8> <i8 18, i8 0, i8 1, i8 0>, ptr %K.i.i.i, align 8
+  store i8 18, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -55
+  store i8 0, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -54
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -53
+  store i8 0, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle16FunctionEncodingE, i64 16), ptr %add.ptr13.i.i, align 8
   %Ret.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   store ptr %7, ptr %Ret.i.i, align 8
@@ -7468,7 +7702,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 20, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 16), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.11, ptr %Special.i.i, align 8
@@ -7520,7 +7760,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 20, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 16), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.12, ptr %Special.i.i, align 8
@@ -7572,7 +7818,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 20, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 16), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.13, ptr %Special.i.i, align 8
@@ -7624,7 +7876,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 20, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 16), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.14, ptr %Special.i.i, align 8
@@ -7916,7 +8174,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 20, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 16), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.15, ptr %Special.i.i, align 8
@@ -7969,7 +8233,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle21CtorVtabl
   %7 = load ptr, ptr %args, align 8
   %8 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 21, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 21, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle21CtorVtableSpecialNameE, i64 16), ptr %add.ptr13.i.i, align 8
   %FirstType.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %FirstType.i.i, align 8
@@ -8019,7 +8289,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 20, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 16), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.17, ptr %Special.i.i, align 8
@@ -8071,7 +8347,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 20, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 16), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.18, ptr %Special.i.i, align 8
@@ -8123,7 +8405,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 20, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 16), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.19, ptr %Special.i.i, align 8
@@ -8593,7 +8881,13 @@ if.end35:                                         ; preds = %_ZN12_GLOBAL__N_120
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %23
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
-  store <4 x i8> <i8 36, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 36, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -7
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -6
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -5
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle19SpecialSubstitutionE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %SSK.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -4
   store i32 %.sink, ptr %SSK.i.i.i, align 4
@@ -8841,20 +9135,22 @@ while.body.us:                                    ; preds = %land.lhs.true.i6.us
 
 if.end.i.us:                                      ; preds = %while.body.us
   store ptr %11, ptr %OldParams, align 8
-  %12 = load <2 x ptr>, ptr %Last9.i167, align 8
-  store <2 x ptr> %12, ptr %Last.i.i163, align 8
+  %12 = load ptr, ptr %Last9.i167, align 8
+  store ptr %12, ptr %Last.i.i163, align 8
+  %13 = load ptr, ptr %Cap.i168, align 16
+  store ptr %13, ptr %Cap.i.i164, align 8
   store ptr %Inline.i9.i166, ptr %TemplateParams8161, align 16
   store ptr %Inline.i9.i166, ptr %Last9.i167, align 8
   store ptr %add.ptr.i15.i169, ptr %Cap.i168, align 16
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEC2EOS4_.exit.us
 
 if.then.i12.us:                                   ; preds = %while.body.us
-  %13 = load ptr, ptr %Last9.i167, align 8
-  %tobool.not.i.i.i.i.i.i.us = icmp eq ptr %13, %Inline.i9.i166
+  %14 = load ptr, ptr %Last9.i167, align 8
+  %tobool.not.i.i.i.i.i.i.us = icmp eq ptr %14, %Inline.i9.i166
   br i1 %tobool.not.i.i.i.i.i.i.us, label %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.us, label %if.then.i.i.i.i.i.i.us
 
 if.then.i.i.i.i.i.i.us:                           ; preds = %if.then.i12.us
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.us = ptrtoint ptr %13 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.us = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i.i.i.i.us = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.us, %sub.ptr.rhs.cast.i.i.i.i.i.i.us
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %Inline.i.i162, ptr align 8 %11, i64 %sub.ptr.sub.i.i.i.i.i.i.us, i1 false)
   br label %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.us
@@ -8868,28 +9164,32 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.us: ; preds = %
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEC2EOS4_.exit.us: ; preds = %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.us, %if.end.i.us
   %call9.us = call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE16parseTemplateArgEv(ptr noundef nonnull align 16 dereferenceable(4864) %this)
-  %14 = load ptr, ptr %OldParams, align 8
-  %cmp.i.i14.us = icmp eq ptr %14, %Inline.i.i162
-  %15 = load ptr, ptr %TemplateParams8161, align 16
-  %cmp.i14.i.us = icmp eq ptr %15, %Inline.i9.i166
+  %15 = load ptr, ptr %OldParams, align 8
+  %cmp.i.i14.us = icmp eq ptr %15, %Inline.i.i162
+  %16 = load ptr, ptr %TemplateParams8161, align 16
+  %cmp.i14.i.us = icmp eq ptr %16, %Inline.i9.i166
   br i1 %cmp.i.i14.us, label %if.then.i16.us, label %if.end10.i.us
 
 if.end10.i.us:                                    ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEC2EOS4_.exit.us
-  store ptr %14, ptr %TemplateParams8161, align 16
+  store ptr %15, ptr %TemplateParams8161, align 16
   br i1 %cmp.i14.i.us, label %if.then12.i.us, label %if.end18.i.us
 
 if.end18.i.us:                                    ; preds = %if.end10.i.us
-  store ptr %15, ptr %OldParams, align 8
-  %16 = load ptr, ptr %Cap.i168, align 16
-  %17 = load <2 x ptr>, ptr %Last.i.i163, align 8
-  store <2 x ptr> %17, ptr %Last9.i167, align 8
-  store ptr %16, ptr %Cap.i.i164, align 8
-  store ptr %15, ptr %Last.i.i163, align 8
+  store ptr %16, ptr %OldParams, align 8
+  %17 = load ptr, ptr %Last.i.i163, align 8
+  store ptr %17, ptr %Last9.i167, align 8
+  %18 = load ptr, ptr %Cap.i168, align 16
+  %19 = load ptr, ptr %Cap.i.i164, align 8
+  store ptr %19, ptr %Cap.i168, align 16
+  store ptr %18, ptr %Cap.i.i164, align 8
+  store ptr %16, ptr %Last.i.i163, align 8
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.us
 
 if.then12.i.us:                                   ; preds = %if.end10.i.us
-  %18 = load <2 x ptr>, ptr %Last.i.i163, align 8
-  store <2 x ptr> %18, ptr %Last9.i167, align 8
+  %20 = load ptr, ptr %Last.i.i163, align 8
+  store ptr %20, ptr %Last9.i167, align 8
+  %21 = load ptr, ptr %Cap.i.i164, align 8
+  store ptr %21, ptr %Cap.i168, align 16
   store ptr %Inline.i.i162, ptr %OldParams, align 8
   store ptr %Inline.i.i162, ptr %Last.i.i163, align 8
   store ptr %add.ptr.i.i165, ptr %Cap.i.i164, align 8
@@ -8899,7 +9199,7 @@ if.then.i16.us:                                   ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i14.i.us, label %if.end.i21.us, label %if.then3.i.us
 
 if.then3.i.us:                                    ; preds = %if.then.i16.us
-  call void @free(ptr noundef %15) #21
+  call void @free(ptr noundef %16) #21
   store ptr %Inline.i9.i166, ptr %TemplateParams8161, align 16
   store ptr %Inline.i9.i166, ptr %Last9.i167, align 8
   store ptr %add.ptr.i15.i169, ptr %Cap.i168, align 16
@@ -8907,57 +9207,57 @@ if.then3.i.us:                                    ; preds = %if.then.i16.us
   br label %if.end.i21.us
 
 if.end.i21.us:                                    ; preds = %if.then3.i.us, %if.then.i16.us
-  %19 = phi ptr [ %Inline.i9.i166, %if.then3.i.us ], [ %15, %if.then.i16.us ]
-  %20 = phi ptr [ %.pre.i20.us, %if.then3.i.us ], [ %14, %if.then.i16.us ]
-  %21 = load ptr, ptr %Last.i.i163, align 8
-  %tobool.not.i.i.i.i.i.i22.us = icmp eq ptr %21, %20
+  %22 = phi ptr [ %Inline.i9.i166, %if.then3.i.us ], [ %16, %if.then.i16.us ]
+  %23 = phi ptr [ %.pre.i20.us, %if.then3.i.us ], [ %15, %if.then.i16.us ]
+  %24 = load ptr, ptr %Last.i.i163, align 8
+  %tobool.not.i.i.i.i.i.i22.us = icmp eq ptr %24, %23
   br i1 %tobool.not.i.i.i.i.i.i22.us, label %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i27.us, label %if.then.i.i.i.i.i.i23.us
 
 if.then.i.i.i.i.i.i23.us:                         ; preds = %if.end.i21.us
-  %sub.ptr.lhs.cast.i.i.i.i.i.i24.us = ptrtoint ptr %21 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i25.us = ptrtoint ptr %20 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i24.us = ptrtoint ptr %24 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i25.us = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i.i.i.i.i.i26.us = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i24.us, %sub.ptr.rhs.cast.i.i.i.i.i.i25.us
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %19, ptr align 8 %20, i64 %sub.ptr.sub.i.i.i.i.i.i26.us, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %22, ptr align 8 %23, i64 %sub.ptr.sub.i.i.i.i.i.i26.us, i1 false)
   %.pre26.i.us = load ptr, ptr %TemplateParams8161, align 16
   %.pre27.i.us = load ptr, ptr %Last.i.i163, align 8
   %.pre28.i.us = load ptr, ptr %OldParams, align 8
   br label %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i27.us
 
 _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i27.us: ; preds = %if.then.i.i.i.i.i.i23.us, %if.end.i21.us
-  %22 = phi ptr [ %20, %if.end.i21.us ], [ %.pre28.i.us, %if.then.i.i.i.i.i.i23.us ]
-  %23 = phi ptr [ %20, %if.end.i21.us ], [ %.pre27.i.us, %if.then.i.i.i.i.i.i23.us ]
-  %24 = phi ptr [ %19, %if.end.i21.us ], [ %.pre26.i.us, %if.then.i.i.i.i.i.i23.us ]
-  %sub.ptr.lhs.cast.i.i28.us = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i.i29.us = ptrtoint ptr %22 to i64
+  %25 = phi ptr [ %23, %if.end.i21.us ], [ %.pre28.i.us, %if.then.i.i.i.i.i.i23.us ]
+  %26 = phi ptr [ %23, %if.end.i21.us ], [ %.pre27.i.us, %if.then.i.i.i.i.i.i23.us ]
+  %27 = phi ptr [ %22, %if.end.i21.us ], [ %.pre26.i.us, %if.then.i.i.i.i.i.i23.us ]
+  %sub.ptr.lhs.cast.i.i28.us = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i.i29.us = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i30.us = sub i64 %sub.ptr.lhs.cast.i.i28.us, %sub.ptr.rhs.cast.i.i29.us
-  %add.ptr.i31.us = getelementptr inbounds i8, ptr %24, i64 %sub.ptr.sub.i.i30.us
+  %add.ptr.i31.us = getelementptr inbounds i8, ptr %27, i64 %sub.ptr.sub.i.i30.us
   store ptr %add.ptr.i31.us, ptr %Last9.i167, align 8
-  store ptr %22, ptr %Last.i.i163, align 8
+  store ptr %25, ptr %Last.i.i163, align 8
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.us
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.us: ; preds = %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i27.us, %if.then12.i.us, %if.end18.i.us
-  %25 = phi ptr [ %22, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i27.us ], [ %Inline.i.i162, %if.then12.i.us ], [ %15, %if.end18.i.us ]
+  %28 = phi ptr [ %25, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i27.us ], [ %Inline.i.i162, %if.then12.i.us ], [ %16, %if.end18.i.us ]
   %cmp.not.us = icmp eq ptr %call9.us, null
   br i1 %cmp.not.us, label %cleanup.us, label %if.end13.us
 
 if.end13.us:                                      ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.us
-  %26 = load ptr, ptr %Last.i3155, align 8
-  %27 = load ptr, ptr %Cap.i76159, align 16
-  %cmp.i.us = icmp eq ptr %26, %27
+  %29 = load ptr, ptr %Last.i3155, align 8
+  %30 = load ptr, ptr %Cap.i76159, align 16
+  %cmp.i.us = icmp eq ptr %29, %30
   br i1 %cmp.i.us, label %if.then.i37.us, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit.us
 
 if.then.i37.us:                                   ; preds = %if.end13.us
-  %28 = load ptr, ptr %Names154, align 16
-  %sub.ptr.lhs.cast.i.i38.us = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast.i.i39.us = ptrtoint ptr %28 to i64
+  %31 = load ptr, ptr %Names154, align 16
+  %sub.ptr.lhs.cast.i.i38.us = ptrtoint ptr %29 to i64
+  %sub.ptr.rhs.cast.i.i39.us = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i40.us = sub i64 %sub.ptr.lhs.cast.i.i38.us, %sub.ptr.rhs.cast.i.i39.us
   %mul.i.us = ashr exact i64 %sub.ptr.sub.i.i40.us, 2
-  %cmp.i.i.i.us = icmp eq ptr %28, %Inline.i.i.i85160
+  %cmp.i.i.i.us = icmp eq ptr %31, %Inline.i.i.i85160
   %mul.i.i.us = shl i64 %sub.ptr.sub.i.i40.us, 1
   br i1 %cmp.i.i.i.us, label %if.then.i.i.us, label %if.else.i.i.us
 
 if.else.i.i.us:                                   ; preds = %if.then.i37.us
-  %call9.i.i.us = call ptr @realloc(ptr noundef %28, i64 noundef %mul.i.i.us) #22
+  %call9.i.i.us = call ptr @realloc(ptr noundef %31, i64 noundef %mul.i.i.us) #22
   store ptr %call9.i.i.us, ptr %Names154, align 16
   %cmp12.i.i.us = icmp eq ptr %call9.i.i.us, null
   br i1 %cmp12.i.i.us, label %if.then13.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i.us
@@ -8968,11 +9268,11 @@ if.then.i.i.us:                                   ; preds = %if.then.i37.us
   br i1 %cmp.i.i42.us, label %if.then4.i.i, label %if.end.i.i.us
 
 if.end.i.i.us:                                    ; preds = %if.then.i.i.us
-  %tobool.not.i.i.i.i.i.i.i.us = icmp eq ptr %26, %Inline.i.i.i85160
+  %tobool.not.i.i.i.i.i.i.i.us = icmp eq ptr %29, %Inline.i.i.i85160
   br i1 %tobool.not.i.i.i.i.i.i.i.us, label %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i.us, label %if.then.i.i.i.i.i.i.i.us
 
 if.then.i.i.i.i.i.i.i.us:                         ; preds = %if.end.i.i.us
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call3.i.i.us, ptr align 8 %28, i64 %sub.ptr.sub.i.i40.us, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call3.i.i.us, ptr align 8 %31, i64 %sub.ptr.sub.i.i40.us, i1 false)
   br label %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i.us
 
 _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i.us: ; preds = %if.then.i.i.i.i.i.i.i.us, %if.end.i.i.us
@@ -8980,20 +9280,20 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i.us: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i.us
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i.us: ; preds = %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i.us, %if.else.i.i.us
-  %29 = phi ptr [ %call9.i.i.us, %if.else.i.i.us ], [ %call3.i.i.us, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i.us ]
-  %add.ptr.i.i41.us = getelementptr inbounds i8, ptr %29, i64 %sub.ptr.sub.i.i40.us
-  %add.ptr19.i.i.us = getelementptr inbounds ptr, ptr %29, i64 %mul.i.us
+  %32 = phi ptr [ %call9.i.i.us, %if.else.i.i.us ], [ %call3.i.i.us, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i.us ]
+  %add.ptr.i.i41.us = getelementptr inbounds i8, ptr %32, i64 %sub.ptr.sub.i.i40.us
+  %add.ptr19.i.i.us = getelementptr inbounds ptr, ptr %32, i64 %mul.i.us
   store ptr %add.ptr19.i.i.us, ptr %Cap.i76159, align 16
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit.us
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit.us: ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i.us, %if.end13.us
-  %30 = phi ptr [ %add.ptr.i.i41.us, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i.us ], [ %26, %if.end13.us ]
-  %incdec.ptr.i36.us = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = phi ptr [ %add.ptr.i.i41.us, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i.us ], [ %29, %if.end13.us ]
+  %incdec.ptr.i36.us = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %incdec.ptr.i36.us, ptr %Last.i3155, align 8
-  store ptr %call9.us, ptr %30, align 8
+  store ptr %call9.us, ptr %33, align 8
   %K.i.us = getelementptr inbounds i8, ptr %call9.us, i64 8
-  %31 = load i8, ptr %K.i.us, align 8
-  %cmp16.us = icmp eq i8 %31, 28
+  %34 = load i8, ptr %K.i.us, align 8
+  %cmp16.us = icmp eq i8 %34, 28
   br i1 %cmp16.us, label %if.then17.us, label %if.end23.us
 
 if.then17.us:                                     ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit.us
@@ -9001,11 +9301,11 @@ if.then17.us:                                     ; preds = %_ZN4llvh16itanium_d
   %retval.sroa.0.0.copyload.i.us = load ptr, ptr %Elements.i.us, align 8
   %retval.sroa.2.0.Elements.sroa_idx.i.us = getelementptr inbounds i8, ptr %call9.us, i64 24
   %retval.sroa.2.0.copyload.i.us = load i64, ptr %retval.sroa.2.0.Elements.sroa_idx.i.us, align 8
-  %32 = load ptr, ptr %BlockList.i.i.i170, align 16
-  %Current.i.i.i.us = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load i64, ptr %Current.i.i.i.us, align 8
-  %34 = add i64 %33, -4048
-  %cmp.i.i.i43.us = icmp ult i64 %34, -4080
+  %35 = load ptr, ptr %BlockList.i.i.i170, align 16
+  %Current.i.i.i.us = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = load i64, ptr %Current.i.i.i.us, align 8
+  %37 = add i64 %36, -4048
+  %cmp.i.i.i43.us = icmp ult i64 %37, -4080
   br i1 %cmp.i.i.i43.us, label %if.then.i.i.i.us, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ParameterPackEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit.us
 
 if.then.i.i.i.us:                                 ; preds = %if.then17.us
@@ -9014,46 +9314,46 @@ if.then.i.i.i.us:                                 ; preds = %if.then17.us
   br i1 %cmp.i7.i.i.i.us, label %if.then.i9.i.i.i, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us: ; preds = %if.then.i.i.i.us
-  store ptr %32, ptr %call.i6.i.i.i.us, align 8
+  store ptr %35, ptr %call.i6.i.i.i.us, align 8
   %Current.i8.i.i.i.us = getelementptr inbounds i8, ptr %call.i6.i.i.i.us, i64 8
   store i64 0, ptr %Current.i8.i.i.i.us, align 8
   store ptr %call.i6.i.i.i.us, ptr %BlockList.i.i.i170, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ParameterPackEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit.us
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ParameterPackEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit.us: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us, %if.then17.us
-  %35 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us ], [ %33, %if.then17.us ]
-  %36 = phi ptr [ %call.i6.i.i.i.us, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us ], [ %32, %if.then17.us ]
-  %Current7.i.i.i.us = getelementptr inbounds i8, ptr %36, i64 8
-  %add8.i.i.i.us = add nsw i64 %35, 32
+  %38 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us ], [ %36, %if.then17.us ]
+  %39 = phi ptr [ %call.i6.i.i.i.us, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us ], [ %35, %if.then17.us ]
+  %Current7.i.i.i.us = getelementptr inbounds i8, ptr %39, i64 8
+  %add8.i.i.i.us = add nsw i64 %38, 32
   store i64 %add8.i.i.i.us, ptr %Current7.i.i.i.us, align 8
-  %37 = load ptr, ptr %BlockList.i.i.i170, align 16
-  %add.ptr.i.i.i.us = getelementptr inbounds i8, ptr %37, i64 16
-  %Current11.i.i.i.us = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load i64, ptr %Current11.i.i.i.us, align 8
-  %add.ptr12.i.i.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.i.us, i64 %38
+  %40 = load ptr, ptr %BlockList.i.i.i170, align 16
+  %add.ptr.i.i.i.us = getelementptr inbounds i8, ptr %40, i64 16
+  %Current11.i.i.i.us = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = load i64, ptr %Current11.i.i.i.us, align 8
+  %add.ptr12.i.i.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.i.us, i64 %41
   %add.ptr13.i.i.i.us = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.us, i64 -32
   call void @_ZN4llvh16itanium_demangle13ParameterPackC2ENS0_9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr13.i.i.i.us, ptr %retval.sroa.0.0.copyload.i.us, i64 %retval.sroa.2.0.copyload.i.us)
   br label %if.end23.us
 
 if.end23.us:                                      ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ParameterPackEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit.us, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit.us
   %TableEntry.0.us = phi ptr [ %add.ptr13.i.i.i.us, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ParameterPackEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit.us ], [ %call9.us, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit.us ]
-  %39 = load ptr, ptr %Last9.i167, align 8
-  %40 = load ptr, ptr %Cap.i168, align 16
-  %cmp.i46.us = icmp eq ptr %39, %40
+  %42 = load ptr, ptr %Last9.i167, align 8
+  %43 = load ptr, ptr %Cap.i168, align 16
+  %cmp.i46.us = icmp eq ptr %42, %43
   br i1 %cmp.i46.us, label %if.then.i49.us, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backERKS3_.exit.us
 
 if.then.i49.us:                                   ; preds = %if.end23.us
-  %41 = load ptr, ptr %TemplateParams8161, align 16
-  %sub.ptr.lhs.cast.i.i50.us = ptrtoint ptr %39 to i64
-  %sub.ptr.rhs.cast.i.i51.us = ptrtoint ptr %41 to i64
+  %44 = load ptr, ptr %TemplateParams8161, align 16
+  %sub.ptr.lhs.cast.i.i50.us = ptrtoint ptr %42 to i64
+  %sub.ptr.rhs.cast.i.i51.us = ptrtoint ptr %44 to i64
   %sub.ptr.sub.i.i52.us = sub i64 %sub.ptr.lhs.cast.i.i50.us, %sub.ptr.rhs.cast.i.i51.us
   %mul.i53.us = ashr exact i64 %sub.ptr.sub.i.i52.us, 2
-  %cmp.i.i.i55.us = icmp eq ptr %41, %Inline.i9.i166
+  %cmp.i.i.i55.us = icmp eq ptr %44, %Inline.i9.i166
   %mul.i.i56.us = shl i64 %sub.ptr.sub.i.i52.us, 1
   br i1 %cmp.i.i.i55.us, label %if.then.i.i63.us, label %if.else.i.i57.us
 
 if.else.i.i57.us:                                 ; preds = %if.then.i49.us
-  %call9.i.i58.us = call ptr @realloc(ptr noundef %41, i64 noundef %mul.i.i56.us) #22
+  %call9.i.i58.us = call ptr @realloc(ptr noundef %44, i64 noundef %mul.i.i56.us) #22
   store ptr %call9.i.i58.us, ptr %TemplateParams8161, align 16
   %cmp12.i.i59.us = icmp eq ptr %call9.i.i58.us, null
   br i1 %cmp12.i.i59.us, label %if.then13.i.i62, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i.us
@@ -9064,11 +9364,11 @@ if.then.i.i63.us:                                 ; preds = %if.then.i49.us
   br i1 %cmp.i.i65.us, label %if.then4.i.i70, label %if.end.i.i66.us
 
 if.end.i.i66.us:                                  ; preds = %if.then.i.i63.us
-  %tobool.not.i.i.i.i.i.i.i67.us = icmp eq ptr %39, %Inline.i9.i166
+  %tobool.not.i.i.i.i.i.i.i67.us = icmp eq ptr %42, %Inline.i9.i166
   br i1 %tobool.not.i.i.i.i.i.i.i67.us, label %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i69.us, label %if.then.i.i.i.i.i.i.i68.us
 
 if.then.i.i.i.i.i.i.i68.us:                       ; preds = %if.end.i.i66.us
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call3.i.i64.us, ptr align 8 %41, i64 %sub.ptr.sub.i.i52.us, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call3.i.i64.us, ptr align 8 %44, i64 %sub.ptr.sub.i.i52.us, i1 false)
   br label %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i69.us
 
 _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i69.us: ; preds = %if.then.i.i.i.i.i.i.i68.us, %if.end.i.i66.us
@@ -9076,41 +9376,41 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i69.us: ; preds
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i.us
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i.us: ; preds = %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i69.us, %if.else.i.i57.us
-  %42 = phi ptr [ %call9.i.i58.us, %if.else.i.i57.us ], [ %call3.i.i64.us, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i69.us ]
-  %add.ptr.i.i60.us = getelementptr inbounds i8, ptr %42, i64 %sub.ptr.sub.i.i52.us
-  %add.ptr19.i.i61.us = getelementptr inbounds ptr, ptr %42, i64 %mul.i53.us
+  %45 = phi ptr [ %call9.i.i58.us, %if.else.i.i57.us ], [ %call3.i.i64.us, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i69.us ]
+  %add.ptr.i.i60.us = getelementptr inbounds i8, ptr %45, i64 %sub.ptr.sub.i.i52.us
+  %add.ptr19.i.i61.us = getelementptr inbounds ptr, ptr %45, i64 %mul.i53.us
   store ptr %add.ptr19.i.i61.us, ptr %Cap.i168, align 16
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backERKS3_.exit.us
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backERKS3_.exit.us: ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i.us, %if.end23.us
-  %43 = phi ptr [ %add.ptr.i.i60.us, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i.us ], [ %39, %if.end23.us ]
-  %incdec.ptr.i48.us = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = phi ptr [ %add.ptr.i.i60.us, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i.us ], [ %42, %if.end23.us ]
+  %incdec.ptr.i48.us = getelementptr inbounds i8, ptr %46, i64 8
   store ptr %incdec.ptr.i48.us, ptr %Last9.i167, align 8
-  store ptr %TableEntry.0.us, ptr %43, align 8
+  store ptr %TableEntry.0.us, ptr %46, align 8
   %.pre151 = load ptr, ptr %OldParams, align 8
   br label %cleanup.us
 
 cleanup.us:                                       ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backERKS3_.exit.us, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.us
-  %44 = phi ptr [ %.pre151, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backERKS3_.exit.us ], [ %25, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.us ]
-  %cmp.i.i72.us = icmp eq ptr %44, %Inline.i.i162
+  %47 = phi ptr [ %.pre151, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backERKS3_.exit.us ], [ %28, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.us ]
+  %cmp.i.i72.us = icmp eq ptr %47, %Inline.i.i162
   br i1 %cmp.i.i72.us, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.us, label %if.then.i73.us
 
 if.then.i73.us:                                   ; preds = %cleanup.us
-  call void @free(ptr noundef %44) #21
+  call void @free(ptr noundef %47) #21
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.us
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.us: ; preds = %if.then.i73.us, %cleanup.us
   br i1 %cmp.not.us, label %return, label %while.cond.us, !llvm.loop !20
 
 while.cond:                                       ; preds = %while.cond.preheader, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit103
-  %45 = phi ptr [ %1, %while.cond.preheader ], [ %.pre150, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit103 ]
-  %46 = phi ptr [ %incdec.ptr.i, %while.cond.preheader ], [ %.pre, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit103 ]
-  %cmp.not.i5 = icmp eq ptr %46, %45
+  %48 = phi ptr [ %1, %while.cond.preheader ], [ %.pre150, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit103 ]
+  %49 = phi ptr [ %incdec.ptr.i, %while.cond.preheader ], [ %.pre, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit103 ]
+  %cmp.not.i5 = icmp eq ptr %49, %48
   br i1 %cmp.not.i5, label %while.body, label %land.lhs.true.i6
 
 land.lhs.true.i6:                                 ; preds = %while.cond
-  %47 = load i8, ptr %46, align 1
-  %cmp4.i7 = icmp eq i8 %47, 69
+  %50 = load i8, ptr %49, align 1
+  %cmp4.i7 = icmp eq i8 %50, 69
   br i1 %cmp4.i7, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.lhs.true.i6, %while.cond
@@ -9139,18 +9439,18 @@ if.then13.i.i62:                                  ; preds = %if.else.i.i57.us
   unreachable
 
 if.end29:                                         ; preds = %while.body
-  %48 = load ptr, ptr %Last.i3, align 8
-  %49 = load ptr, ptr %Cap.i76, align 16
-  %cmp.i77 = icmp eq ptr %48, %49
+  %51 = load ptr, ptr %Last.i3, align 8
+  %52 = load ptr, ptr %Cap.i76, align 16
+  %cmp.i77 = icmp eq ptr %51, %52
   br i1 %cmp.i77, label %if.then.i80, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit103
 
 if.then.i80:                                      ; preds = %if.end29
-  %50 = load ptr, ptr %Names, align 16
-  %sub.ptr.lhs.cast.i.i81 = ptrtoint ptr %48 to i64
-  %sub.ptr.rhs.cast.i.i82 = ptrtoint ptr %50 to i64
+  %53 = load ptr, ptr %Names, align 16
+  %sub.ptr.lhs.cast.i.i81 = ptrtoint ptr %51 to i64
+  %sub.ptr.rhs.cast.i.i82 = ptrtoint ptr %53 to i64
   %sub.ptr.sub.i.i83 = sub i64 %sub.ptr.lhs.cast.i.i81, %sub.ptr.rhs.cast.i.i82
   %mul.i84 = ashr exact i64 %sub.ptr.sub.i.i83, 2
-  %cmp.i.i.i86 = icmp eq ptr %50, %Inline.i.i.i85
+  %cmp.i.i.i86 = icmp eq ptr %53, %Inline.i.i.i85
   %mul.i.i87 = shl i64 %sub.ptr.sub.i.i83, 1
   br i1 %cmp.i.i.i86, label %if.then.i.i95, label %if.else.i.i88
 
@@ -9164,11 +9464,11 @@ if.then4.i.i102:                                  ; preds = %if.then.i.i95
   unreachable
 
 if.end.i.i98:                                     ; preds = %if.then.i.i95
-  %tobool.not.i.i.i.i.i.i.i99 = icmp eq ptr %48, %Inline.i.i.i85
+  %tobool.not.i.i.i.i.i.i.i99 = icmp eq ptr %51, %Inline.i.i.i85
   br i1 %tobool.not.i.i.i.i.i.i.i99, label %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i101, label %if.then.i.i.i.i.i.i.i100
 
 if.then.i.i.i.i.i.i.i100:                         ; preds = %if.end.i.i98
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call3.i.i96, ptr align 8 %50, i64 %sub.ptr.sub.i.i83, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call3.i.i96, ptr align 8 %53, i64 %sub.ptr.sub.i.i83, i1 false)
   br label %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i101
 
 _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i101: ; preds = %if.then.i.i.i.i.i.i.i100, %if.end.i.i98
@@ -9176,7 +9476,7 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i101: ; preds =
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i91
 
 if.else.i.i88:                                    ; preds = %if.then.i80
-  %call9.i.i89 = tail call ptr @realloc(ptr noundef %50, i64 noundef %mul.i.i87) #22
+  %call9.i.i89 = tail call ptr @realloc(ptr noundef %53, i64 noundef %mul.i.i87) #22
   store ptr %call9.i.i89, ptr %Names, align 16
   %cmp12.i.i90 = icmp eq ptr %call9.i.i89, null
   br i1 %cmp12.i.i90, label %if.then13.i.i94, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i91
@@ -9186,17 +9486,17 @@ if.then13.i.i94:                                  ; preds = %if.else.i.i88
   unreachable
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i91: ; preds = %if.else.i.i88, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i101
-  %51 = phi ptr [ %call9.i.i89, %if.else.i.i88 ], [ %call3.i.i96, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i101 ]
-  %add.ptr.i.i92 = getelementptr inbounds i8, ptr %51, i64 %sub.ptr.sub.i.i83
-  %add.ptr19.i.i93 = getelementptr inbounds ptr, ptr %51, i64 %mul.i84
+  %54 = phi ptr [ %call9.i.i89, %if.else.i.i88 ], [ %call3.i.i96, %_ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i101 ]
+  %add.ptr.i.i92 = getelementptr inbounds i8, ptr %54, i64 %sub.ptr.sub.i.i83
+  %add.ptr19.i.i93 = getelementptr inbounds ptr, ptr %54, i64 %mul.i84
   store ptr %add.ptr19.i.i93, ptr %Cap.i76, align 16
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit103
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit103: ; preds = %if.end29, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i91
-  %52 = phi ptr [ %add.ptr.i.i92, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i91 ], [ %48, %if.end29 ]
-  %incdec.ptr.i79 = getelementptr inbounds i8, ptr %52, i64 8
+  %55 = phi ptr [ %add.ptr.i.i92, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i91 ], [ %51, %if.end29 ]
+  %incdec.ptr.i79 = getelementptr inbounds i8, ptr %55, i64 8
   store ptr %incdec.ptr.i79, ptr %Last.i3, align 8
-  store ptr %call26, ptr %52, align 8
+  store ptr %call26, ptr %55, align 8
   %.pre = load ptr, ptr %this, align 16
   %.pre150 = load ptr, ptr %Last.i, align 8
   br label %while.cond, !llvm.loop !20
@@ -9206,23 +9506,23 @@ while.end:                                        ; preds = %land.lhs.true.i6, %
   %sub.ptr.sub.i175 = phi i64 [ %sub.ptr.sub.i158, %land.lhs.true.i6.us ], [ %sub.ptr.sub.i, %land.lhs.true.i6 ]
   %Last.i3174 = phi ptr [ %Last.i3155, %land.lhs.true.i6.us ], [ %Last.i3, %land.lhs.true.i6 ]
   %Names171 = phi ptr [ %Names154, %land.lhs.true.i6.us ], [ %Names, %land.lhs.true.i6 ]
-  %.us-phi = phi ptr [ %8, %land.lhs.true.i6.us ], [ %46, %land.lhs.true.i6 ]
+  %.us-phi = phi ptr [ %8, %land.lhs.true.i6.us ], [ %49, %land.lhs.true.i6 ]
   %incdec.ptr.i10 = getelementptr inbounds i8, ptr %.us-phi, i64 1
   store ptr %incdec.ptr.i10, ptr %this, align 16
-  %53 = load ptr, ptr %Names171, align 8
-  %add.ptr.i104 = getelementptr inbounds i8, ptr %53, i64 %sub.ptr.sub.i175
-  %54 = load ptr, ptr %Last.i3174, align 8
-  %call4.i = call fastcc { ptr, i64 } @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_(ptr noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef %add.ptr.i104, ptr noundef %54)
-  %55 = load ptr, ptr %Names171, align 8
-  %add.ptr.i.i106 = getelementptr inbounds i8, ptr %55, i64 %sub.ptr.sub.i175
+  %56 = load ptr, ptr %Names171, align 8
+  %add.ptr.i104 = getelementptr inbounds i8, ptr %56, i64 %sub.ptr.sub.i175
+  %57 = load ptr, ptr %Last.i3174, align 8
+  %call4.i = call fastcc { ptr, i64 } @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_(ptr noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef %add.ptr.i104, ptr noundef %57)
+  %58 = load ptr, ptr %Names171, align 8
+  %add.ptr.i.i106 = getelementptr inbounds i8, ptr %58, i64 %sub.ptr.sub.i175
   store ptr %add.ptr.i.i106, ptr %Last.i3174, align 8
-  %56 = extractvalue { ptr, i64 } %call4.i, 0
-  %57 = extractvalue { ptr, i64 } %call4.i, 1
-  %58 = load ptr, ptr %BlockList.i.i.i189, align 16
-  %Current.i.i.i108 = getelementptr inbounds i8, ptr %58, i64 8
-  %59 = load i64, ptr %Current.i.i.i108, align 8
-  %60 = add i64 %59, -4048
-  %cmp.i.i.i109 = icmp ult i64 %60, -4080
+  %59 = extractvalue { ptr, i64 } %call4.i, 0
+  %60 = extractvalue { ptr, i64 } %call4.i, 1
+  %61 = load ptr, ptr %BlockList.i.i.i189, align 16
+  %Current.i.i.i108 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = load i64, ptr %Current.i.i.i108, align 8
+  %63 = add i64 %62, -4048
+  %cmp.i.i.i109 = icmp ult i64 %63, -4080
   br i1 %cmp.i.i.i109, label %if.then.i.i.i119, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12TemplateArgsEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
 if.then.i.i.i119:                                 ; preds = %while.end
@@ -9235,31 +9535,37 @@ if.then.i9.i.i.i124:                              ; preds = %if.then.i.i.i119
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122: ; preds = %if.then.i.i.i119
-  store ptr %58, ptr %call.i6.i.i.i120, align 8
+  store ptr %61, ptr %call.i6.i.i.i120, align 8
   %Current.i8.i.i.i123 = getelementptr inbounds i8, ptr %call.i6.i.i.i120, i64 8
   store i64 0, ptr %Current.i8.i.i.i123, align 8
   store ptr %call.i6.i.i.i120, ptr %BlockList.i.i.i189, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12TemplateArgsEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12TemplateArgsEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit: ; preds = %while.end, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122
-  %61 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122 ], [ %59, %while.end ]
-  %62 = phi ptr [ %call.i6.i.i.i120, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122 ], [ %58, %while.end ]
-  %Current7.i.i.i110 = getelementptr inbounds i8, ptr %62, i64 8
-  %add8.i.i.i111 = add nsw i64 %61, 32
+  %64 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122 ], [ %62, %while.end ]
+  %65 = phi ptr [ %call.i6.i.i.i120, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122 ], [ %61, %while.end ]
+  %Current7.i.i.i110 = getelementptr inbounds i8, ptr %65, i64 8
+  %add8.i.i.i111 = add nsw i64 %64, 32
   store i64 %add8.i.i.i111, ptr %Current7.i.i.i110, align 8
-  %63 = load ptr, ptr %BlockList.i.i.i189, align 16
-  %add.ptr.i.i.i112 = getelementptr inbounds i8, ptr %63, i64 16
-  %Current11.i.i.i113 = getelementptr inbounds i8, ptr %63, i64 8
-  %64 = load i64, ptr %Current11.i.i.i113, align 8
-  %add.ptr12.i.i.i114 = getelementptr inbounds i8, ptr %add.ptr.i.i.i112, i64 %64
+  %66 = load ptr, ptr %BlockList.i.i.i189, align 16
+  %add.ptr.i.i.i112 = getelementptr inbounds i8, ptr %66, i64 16
+  %Current11.i.i.i113 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = load i64, ptr %Current11.i.i.i113, align 8
+  %add.ptr12.i.i.i114 = getelementptr inbounds i8, ptr %add.ptr.i.i.i112, i64 %67
   %add.ptr13.i.i.i115 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i114, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i114, i64 -24
-  store <4 x i8> <i8 30, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 30, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i114, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i114, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i114, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle12TemplateArgsE, i64 16), ptr %add.ptr13.i.i.i115, align 8
   %Params.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i114, i64 -16
-  store ptr %56, ptr %Params.i.i.i, align 8
+  store ptr %59, ptr %Params.i.i.i, align 8
   %Params_.sroa.2.0.Params.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i114, i64 -8
-  store i64 %57, ptr %Params_.sroa.2.0.Params.sroa_idx.i.i.i, align 8
+  store i64 %60, ptr %Params_.sroa.2.0.Params.sroa_idx.i.i.i, align 8
   br label %return
 
 return:                                           ; preds = %while.body, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.us, %entry, %land.lhs.true.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12TemplateArgsEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
@@ -9309,7 +9615,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20NameWithT
   %7 = load ptr, ptr %args, align 8
   %8 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 32, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Name.i.i, align 8
@@ -9442,7 +9754,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %17
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr @.str.25, ptr %Name.i.i.i, align 8
@@ -9494,7 +9812,13 @@ if.end19:                                         ; preds = %_ZN12_GLOBAL__N_120
   %add.ptr12.i.i.i27 = getelementptr inbounds i8, ptr %add.ptr.i.i.i25, i64 %25
   %add.ptr13.i.i.i28 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i27, i64 -48
   %K.i.i.i.i29 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i27, i64 -40
-  store <4 x i8> <i8 31, i8 2, i8 2, i8 2>, ptr %K.i.i.i.i29, align 8
+  store i8 31, ptr %K.i.i.i.i29, align 8
+  %RHSComponentCache.i.i.i.i30 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i27, i64 -39
+  store i8 2, ptr %RHSComponentCache.i.i.i.i30, align 1
+  %ArrayCache.i.i.i.i31 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i27, i64 -38
+  store i8 2, ptr %ArrayCache.i.i.i.i31, align 2
+  %FunctionCache.i.i.i.i32 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i27, i64 -37
+  store i8 2, ptr %FunctionCache.i.i.i.i32, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle24ForwardTemplateReferenceE, i64 16), ptr %add.ptr13.i.i.i28, align 8
   %Index.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i27, i64 -32
   store i64 %Index.0, ptr %Index.i.i.i, align 8
@@ -9676,7 +10000,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Enc
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %14
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -64
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -56
-  store <4 x i8> <i8 47, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 47, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -55
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -54
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -53
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Prefix.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   store ptr @.str.26, ptr %Prefix.i.i.i, align 8
@@ -9933,7 +10263,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15Unn
   %add.ptr12.i.i.i183 = getelementptr inbounds i8, ptr %add.ptr.i.i.i181, i64 %12
   %add.ptr13.i.i.i184 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i183, i64 -32
   %K.i.i.i.i188 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i183, i64 -24
-  store <4 x i8> <i8 39, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i188, align 8
+  store i8 39, ptr %K.i.i.i.i188, align 8
+  %RHSComponentCache.i.i.i.i189 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i183, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i189, align 1
+  %ArrayCache.i.i.i.i190 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i183, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i190, align 2
+  %FunctionCache.i.i.i.i191 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i183, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i191, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle15UnnamedTypeNameE, i64 16), ptr %add.ptr13.i.i.i184, align 8
   %Count.i.i.i192 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i183, i64 -16
   store ptr %retval.sroa.0.0.i216, ptr %Count.i.i.i192, align 8
@@ -10157,7 +10493,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15Clo
   %add.ptr12.i.i.i59 = getelementptr inbounds i8, ptr %add.ptr.i.i.i57, i64 %41
   %add.ptr13.i.i.i60 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i59, i64 -48
   %K.i.i.i.i64 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i59, i64 -40
-  store <4 x i8> <i8 40, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i64, align 8
+  store i8 40, ptr %K.i.i.i.i64, align 8
+  %RHSComponentCache.i.i.i.i65 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i59, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i65, align 1
+  %ArrayCache.i.i.i.i66 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i59, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i66, align 2
+  %FunctionCache.i.i.i.i67 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i59, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i67, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle15ClosureTypeNameE, i64 16), ptr %add.ptr13.i.i.i60, align 8
   %Params.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i59, i64 -32
   store ptr %Params.i.sroa.0.0, ptr %Params.i.i.i, align 8
@@ -10335,7 +10677,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_21Str
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %64
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
-  store <4 x i8> <i8 41, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 41, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle21StructuredBindingNameE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Bindings.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %56, ptr %Bindings.i.i.i, align 8
@@ -10586,7 +10934,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
@@ -12244,7 +12598,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
-  store <4 x i8> <i8 47, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 47, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -55
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -54
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -53
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Prefix.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   store ptr %args, ptr %Prefix.i.i, align 8
@@ -12499,7 +12859,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16Flo
   %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %12
   %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -32
   %K.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -24
-  store <4 x i8> <i8 62, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i, align 8
+  store i8 62, ptr %K.i.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIfEE, i64 16), ptr %add.ptr13.i.i.i.i, align 8
   %Contents.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -16
   store ptr %incdec.ptr83, ptr %Contents.i.i.i.i, align 8
@@ -12583,7 +12949,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16Flo
   %add.ptr12.i.i.i.i88 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i86, i64 %21
   %add.ptr13.i.i.i.i89 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i88, i64 -32
   %K.i.i.i.i.i90 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i88, i64 -24
-  store <4 x i8> <i8 63, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i90, align 8
+  store i8 63, ptr %K.i.i.i.i.i90, align 8
+  %RHSComponentCache.i.i.i.i.i91 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i88, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i.i91, align 1
+  %ArrayCache.i.i.i.i.i92 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i88, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i.i92, align 2
+  %FunctionCache.i.i.i.i.i93 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i88, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i.i93, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIdEE, i64 16), ptr %add.ptr13.i.i.i.i89, align 8
   %Contents.i.i.i.i94 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i88, i64 -16
   store ptr %incdec.ptr87, ptr %Contents.i.i.i.i94, align 8
@@ -12667,7 +13039,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16Flo
   %add.ptr12.i.i.i.i133 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i131, i64 %30
   %add.ptr13.i.i.i.i134 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i133, i64 -32
   %K.i.i.i.i.i135 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i133, i64 -24
-  store <4 x i8> <i8 64, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i135, align 8
+  store i8 64, ptr %K.i.i.i.i.i135, align 8
+  %RHSComponentCache.i.i.i.i.i136 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i133, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i.i136, align 1
+  %ArrayCache.i.i.i.i.i137 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i133, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i.i137, align 2
+  %FunctionCache.i.i.i.i.i138 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i133, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i.i138, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIeEE, i64 16), ptr %add.ptr13.i.i.i.i134, align 8
   %Contents.i.i.i.i139 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i133, i64 -16
   store ptr %incdec.ptr91, ptr %Contents.i.i.i.i139, align 8
@@ -13107,7 +13485,13 @@ return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120
   %add.ptr12.i.i.i130 = getelementptr inbounds i8, ptr %add.ptr.i.i.i128, i64 %35
   %add.ptr13.i.i.i131 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i130, i64 -32
   %K.i.i.i.i135 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i130, i64 -24
-  store <4 x i8> <i8 54, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i135, align 8
+  store i8 54, ptr %K.i.i.i.i135, align 8
+  %RHSComponentCache.i.i.i.i136 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i130, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i136, align 1
+  %ArrayCache.i.i.i.i137 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i130, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i137, align 2
+  %FunctionCache.i.i.i.i138 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i130, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i138, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13FunctionParamE, i64 16), ptr %add.ptr13.i.i.i131, align 8
   %Number.i.i.i139 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i130, i64 -16
   store ptr %retval.sroa.0.0.i99.sink, ptr %Number.i.i.i139, align 8
@@ -13383,7 +13767,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Fold
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %10
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -64
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -56
-  store <4 x i8> <i8 57, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 57, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -55
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -54
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -53
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8FoldExprE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Pack.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   store ptr %Pack.0, ptr %Pack.i.i.i, align 8
@@ -13452,7 +13842,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Bin
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %6
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
-  store <4 x i8> <i8 42, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 42, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10BinaryExprE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %LHS.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %call, ptr %LHS.i.i.i, align 8
@@ -13514,7 +13910,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Pre
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %6
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
-  store <4 x i8> <i8 53, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 53, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10PrefixExprE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Prefix.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %Kind.coerce0, ptr %Prefix.i.i.i, align 8
@@ -13571,7 +13973,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
   %7 = load ptr, ptr %args1, align 8
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 48, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 48, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %CastKind.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.34, ptr %CastKind.i.i, align 8
@@ -13628,7 +14036,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CallExprEJ
   %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %args1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 50, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 50, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8CallExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Callee.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Callee.i.i, align 8
@@ -13891,7 +14305,13 @@ return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120
   %add.ptr12.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i50, i64 %36
   %add.ptr13.i.i.i53 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i52, i64 -48
   %K.i.i.i.i57 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i52, i64 -40
-  store <4 x i8> <i8 55, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i57, align 8
+  store i8 55, ptr %K.i.i.i.i57, align 8
+  %RHSComponentCache.i.i.i.i58 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i52, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i58, align 1
+  %ArrayCache.i.i.i.i59 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i52, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i59, align 2
+  %FunctionCache.i.i.i.i60 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i52, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i60, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle14ConversionExprE, i64 16), ptr %add.ptr13.i.i.i53, align 8
   %Type.i.i.i61 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i52, i64 -32
   store ptr %call2, ptr %Type.i.i.i61, align 8
@@ -13951,7 +14371,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10DeleteExp
   %frombool.i.i = and i8 %8, 1
   %frombool1.i.i = and i8 %9, 1
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 52, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 52, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10DeleteExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Op.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Op.i.i, align 8
@@ -14004,7 +14430,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
   %7 = load ptr, ptr %args1, align 8
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 48, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 48, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %CastKind.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.37, ptr %CastKind.i.i, align 8
@@ -14095,7 +14527,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %9
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
-  store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 32, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %call2, ptr %Name.i.i.i, align 8
@@ -14178,7 +14616,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr12.i.i.i250 = getelementptr inbounds i8, ptr %add.ptr.i.i.i248, i64 %20
   %add.ptr13.i.i.i251 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i250, i64 -32
   %K.i.i.i.i252 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i250, i64 -24
-  store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i252, align 8
+  store i8 32, ptr %K.i.i.i.i252, align 8
+  %RHSComponentCache.i.i.i.i253 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i250, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i253, align 1
+  %ArrayCache.i.i.i.i254 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i250, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i254, align 2
+  %FunctionCache.i.i.i.i255 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i250, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i255, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %add.ptr13.i.i.i251, align 8
   %Name.i.i.i256 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i250, i64 -16
   store ptr %call.i13, ptr %Name.i.i.i256, align 8
@@ -14224,7 +14668,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Qua
   %add.ptr12.i.i.i23 = getelementptr inbounds i8, ptr %add.ptr.i.i.i21, i64 %27
   %add.ptr13.i.i.i24 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i23, i64 -32
   %K.i.i.i.i25 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i23, i64 -24
-  store <4 x i8> <i8 22, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i25, align 8
+  store i8 22, ptr %K.i.i.i.i25, align 8
+  %RHSComponentCache.i.i.i.i26 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i23, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i26, align 1
+  %ArrayCache.i.i.i.i27 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i23, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i27, align 2
+  %FunctionCache.i.i.i.i28 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i23, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i28, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i64 16), ptr %add.ptr13.i.i.i24, align 8
   %Qualifier.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i23, i64 -16
   store ptr %SoFar.1, ptr %Qualifier.i.i.i, align 8
@@ -14276,7 +14726,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Qua
   %add.ptr12.i.i.i43 = getelementptr inbounds i8, ptr %add.ptr.i.i.i41, i64 %34
   %add.ptr13.i.i.i44 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i43, i64 -32
   %K.i.i.i.i45 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i43, i64 -24
-  store <4 x i8> <i8 22, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i45, align 8
+  store i8 22, ptr %K.i.i.i.i45, align 8
+  %RHSComponentCache.i.i.i.i46 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i43, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i46, align 1
+  %ArrayCache.i.i.i.i47 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i43, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i47, align 2
+  %FunctionCache.i.i.i.i48 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i43, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i48, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i64 16), ptr %add.ptr13.i.i.i44, align 8
   %Qualifier.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i43, i64 -16
   store ptr %SoFar.1, ptr %Qualifier.i.i.i49, align 8
@@ -14356,7 +14812,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19Glo
   %add.ptr12.i.i.i105 = getelementptr inbounds i8, ptr %add.ptr.i.i.i103, i64 %42
   %add.ptr13.i.i.i106 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i105, i64 -32
   %K.i.i.i.i107 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i105, i64 -24
-  store <4 x i8> <i8 33, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i107, align 8
+  store i8 33, ptr %K.i.i.i.i107, align 8
+  %RHSComponentCache.i.i.i.i108 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i105, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i108, align 1
+  %ArrayCache.i.i.i.i109 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i105, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i109, align 2
+  %FunctionCache.i.i.i.i110 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i105, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i110, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle19GlobalQualifiedNameE, i64 16), ptr %add.ptr13.i.i.i106, align 8
   %Child.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i105, i64 -16
   store ptr %call35, ptr %Child.i.i.i, align 8
@@ -14439,7 +14901,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr12.i.i.i279 = getelementptr inbounds i8, ptr %add.ptr.i.i.i277, i64 %51
   %add.ptr13.i.i.i280 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -32
   %K.i.i.i.i281 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -24
-  store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i281, align 8
+  store i8 32, ptr %K.i.i.i.i281, align 8
+  %RHSComponentCache.i.i.i.i282 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i282, align 1
+  %ArrayCache.i.i.i.i283 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i283, align 2
+  %FunctionCache.i.i.i.i284 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i284, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %add.ptr13.i.i.i280, align 8
   %Name.i.i.i285 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -16
   store ptr %call.i126346, ptr %Name.i.i.i285, align 8
@@ -14489,7 +14957,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Qua
   %add.ptr12.i.i.i148 = getelementptr inbounds i8, ptr %add.ptr.i.i.i146, i64 %58
   %add.ptr13.i.i.i149 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -32
   %K.i.i.i.i150 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -24
-  store <4 x i8> <i8 22, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i150, align 8
+  store i8 22, ptr %K.i.i.i.i150, align 8
+  %RHSComponentCache.i.i.i.i151 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i151, align 1
+  %ArrayCache.i.i.i.i152 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i152, align 2
+  %FunctionCache.i.i.i.i153 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i153, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i64 16), ptr %add.ptr13.i.i.i149, align 8
   %Qualifier.i.i.i154 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -16
   store ptr %SoFar.3345, ptr %Qualifier.i.i.i154, align 8
@@ -14536,7 +15010,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19Glo
   %add.ptr12.i.i.i170 = getelementptr inbounds i8, ptr %add.ptr.i.i.i168, i64 %65
   %add.ptr13.i.i.i171 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i170, i64 -32
   %K.i.i.i.i172 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i170, i64 -24
-  store <4 x i8> <i8 33, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i172, align 8
+  store i8 33, ptr %K.i.i.i.i172, align 8
+  %RHSComponentCache.i.i.i.i173 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i170, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i173, align 1
+  %ArrayCache.i.i.i.i174 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i170, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i174, align 2
+  %FunctionCache.i.i.i.i175 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i170, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i175, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle19GlobalQualifiedNameE, i64 16), ptr %add.ptr13.i.i.i171, align 8
   %Child.i.i.i176 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i170, i64 -16
   br label %do.cond.sink.split
@@ -14628,7 +15108,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr12.i.i.i206 = getelementptr inbounds i8, ptr %add.ptr.i.i.i204, i64 %76
   %add.ptr13.i.i.i207 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i206, i64 -32
   %K.i.i.i.i208 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i206, i64 -24
-  store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i208, align 8
+  store i8 32, ptr %K.i.i.i.i208, align 8
+  %RHSComponentCache.i.i.i.i209 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i206, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i209, align 1
+  %ArrayCache.i.i.i.i210 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i206, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i210, align 2
+  %FunctionCache.i.i.i.i211 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i206, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i211, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %add.ptr13.i.i.i207, align 8
   %Name.i.i.i212 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i206, i64 -16
   store ptr %call69, ptr %Name.i.i.i212, align 8
@@ -14680,7 +15166,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Qua
   %add.ptr12.i.i.i228 = getelementptr inbounds i8, ptr %add.ptr.i.i.i226, i64 %83
   %add.ptr13.i.i.i229 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i228, i64 -32
   %K.i.i.i.i230 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i228, i64 -24
-  store <4 x i8> <i8 22, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i230, align 8
+  store i8 22, ptr %K.i.i.i.i230, align 8
+  %RHSComponentCache.i.i.i.i231 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i228, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i231, align 1
+  %ArrayCache.i.i.i.i232 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i228, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i232, align 2
+  %FunctionCache.i.i.i.i233 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i228, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i233, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i64 16), ptr %add.ptr13.i.i.i229, align 8
   %Qualifier.i.i.i234 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i228, i64 -16
   store ptr %SoFar.5, ptr %Qualifier.i.i.i234, align 8
@@ -14737,7 +15229,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExp
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args1, i64 %call.i.i
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 46, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 46, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10MemberExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %LHS.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %LHS.i.i, align 8
@@ -14792,7 +15290,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExp
   %7 = load ptr, ptr %args, align 8
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 46, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 46, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10MemberExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %LHS.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %LHS.i.i, align 8
@@ -14847,7 +15351,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle18ArraySubs
   %7 = load ptr, ptr %args, align 8
   %8 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 43, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 43, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle18ArraySubscriptExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Op1.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Op1.i.i, align 8
@@ -14934,7 +15444,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Bra
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %9
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
-  store <4 x i8> <i8 65, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 65, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10BracedExprE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Elem.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %call4, ptr %Elem.i.i.i, align 8
@@ -14994,7 +15510,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Bra
   %add.ptr12.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr.i.i.i16, i64 %16
   %add.ptr13.i.i.i19 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i18, i64 -48
   %K.i.i.i.i21 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i18, i64 -40
-  store <4 x i8> <i8 65, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i21, align 8
+  store i8 65, ptr %K.i.i.i.i21, align 8
+  %RHSComponentCache.i.i.i.i22 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i18, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i22, align 1
+  %ArrayCache.i.i.i.i23 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i18, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i23, align 2
+  %FunctionCache.i.i.i.i24 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i18, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i24, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10BracedExprE, i64 16), ptr %add.ptr13.i.i.i19, align 8
   %Elem.i.i.i25 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i18, i64 -32
   store ptr %call15, ptr %Elem.i.i.i25, align 8
@@ -15059,7 +15581,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15Bra
   %add.ptr12.i.i.i42 = getelementptr inbounds i8, ptr %add.ptr.i.i.i40, i64 %23
   %add.ptr13.i.i.i43 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i42, i64 -48
   %K.i.i.i.i44 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i42, i64 -40
-  store <4 x i8> <i8 66, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i44, align 8
+  store i8 66, ptr %K.i.i.i.i44, align 8
+  %RHSComponentCache.i.i.i.i45 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i42, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i45, align 1
+  %ArrayCache.i.i.i.i46 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i42, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i46, align 2
+  %FunctionCache.i.i.i.i47 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i42, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i47, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle15BracedRangeExprE, i64 16), ptr %add.ptr13.i.i.i43, align 8
   %First.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i42, i64 -32
   store ptr %call29, ptr %First.i.i.i, align 8
@@ -15121,7 +15649,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListE
   %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %args1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 56, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 56, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle12InitListExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Ty.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr null, ptr %Ty.i.i, align 8
@@ -15175,7 +15709,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PostfixEx
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args1) #19
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args1, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 44, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 44, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle11PostfixExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Child.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Child.i.i, align 8
@@ -15488,7 +16028,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_7NewE
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %42
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -64
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -56
-  store <4 x i8> <i8 51, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 51, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -55
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -54
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -53
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle7NewExprE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %ExprList.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   store ptr %17, ptr %ExprList.i.i.i, align 8
@@ -15551,7 +16097,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_7NewE
   %add.ptr12.i.i.i143 = getelementptr inbounds i8, ptr %add.ptr.i.i.i141, i64 %50
   %add.ptr13.i.i.i144 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i143, i64 -64
   %K.i.i.i.i153 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i143, i64 -56
-  store <4 x i8> <i8 51, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i153, align 8
+  store i8 51, ptr %K.i.i.i.i153, align 8
+  %RHSComponentCache.i.i.i.i154 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i143, i64 -55
+  store i8 1, ptr %RHSComponentCache.i.i.i.i154, align 1
+  %ArrayCache.i.i.i.i155 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i143, i64 -54
+  store i8 1, ptr %ArrayCache.i.i.i.i155, align 2
+  %FunctionCache.i.i.i.i156 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i143, i64 -53
+  store i8 1, ptr %FunctionCache.i.i.i.i156, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle7NewExprE, i64 16), ptr %add.ptr13.i.i.i144, align 8
   %ExprList.i.i.i157 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i143, i64 -48
   store ptr %17, ptr %ExprList.i.i.i157, align 8
@@ -15618,7 +16170,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -64
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
-  store <4 x i8> <i8 47, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 47, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -55
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -54
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -53
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Prefix.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   store ptr @.str.58, ptr %Prefix.i.i, align 8
@@ -15676,7 +16234,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15Condition
   %8 = load ptr, ptr %args1, align 8
   %9 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 45, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 45, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle15ConditionalExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Cond.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Cond.i.i, align 8
@@ -15729,7 +16293,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
   %7 = load ptr, ptr %args1, align 8
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 48, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 48, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %CastKind.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.67, ptr %CastKind.i.i, align 8
@@ -15784,7 +16354,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
   %7 = load ptr, ptr %args1, align 8
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 48, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 48, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %CastKind.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.72, ptr %CastKind.i.i, align 8
@@ -15838,7 +16414,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22Parameter
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 29, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 29, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %add.ptr13.i.i, align 8
   %Child.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Child.i.i, align 8
@@ -15888,7 +16470,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
-  store <4 x i8> <i8 47, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 47, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -55
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -54
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -53
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Prefix.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   store ptr %args, ptr %Prefix.i.i, align 8
@@ -15944,7 +16532,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle19SizeofPar
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 49, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 49, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle19SizeofParamPackExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Pack.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Pack.i.i, align 8
@@ -15992,7 +16586,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -64
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
-  store <4 x i8> <i8 47, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 47, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -55
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -54
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -53
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Prefix.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   store ptr @.str.74, ptr %Prefix.i.i, align 8
@@ -16050,7 +16650,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13NodeArray
   %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %args, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 0, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 0, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13NodeArrayNodeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Array.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %Array.i.i, align 8
@@ -16103,7 +16709,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListE
   %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %args1, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 56, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 56, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle12InitListExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Ty.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Ty.i.i, align 8
@@ -16156,7 +16768,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
@@ -16206,7 +16824,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle9ThrowExprE
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 58, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 58, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle9ThrowExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Op.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Op.i.i, align 8
@@ -16310,7 +16934,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_14Int
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %13
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
-  store <4 x i8> <i8 61, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 61, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle14IntegerLiteralE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Type.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %Lit.coerce0, ptr %Type.i.i.i, align 8
@@ -16370,7 +17000,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8BoolExprEJ
   %tobool.i = icmp ne i32 %7, 0
   %frombool.i.i = zext i1 %tobool.i to i8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
-  store <4 x i8> <i8 59, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 59, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -7
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -6
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -5
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8BoolExprE, i64 16), ptr %add.ptr13.i.i, align 8
   %Value.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -4
   store i8 %frombool.i.i, ptr %Value.i.i, align 4
@@ -16417,14 +17053,24 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15IntegerCa
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %args1, align 8
+  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %args1, i64 8
+  %agg.tmp.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  %Ty.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %Integer.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  %8 = load <2 x ptr>, ptr %args1, align 8
-  store <4 x i8> <i8 60, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 60, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle15IntegerCastExprE, i64 16), ptr %add.ptr13.i.i, align 8
+  %Ty.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Ty.i.i, align 8
-  store <2 x ptr> %8, ptr %Integer.i.i, align 8
+  %Integer.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %Integer.i.i, align 8
+  %Integer_.sroa.2.0.Integer.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
+  store ptr %agg.tmp.sroa.2.0.copyload.i, ptr %Integer_.sroa.2.0.Integer.sroa_idx.i.i, align 8
   ret ptr %add.ptr13.i.i
 }
 
@@ -18072,8 +18718,13 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._
   %Pack = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %Pack, align 8
   %K.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i8 29, ptr %K.i.i, align 8
   %RHSComponentCache.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 9
-  store <4 x i8> <i8 29, i8 1, i8 1, i8 1>, ptr %K.i.i, align 8
+  store i8 1, ptr %RHSComponentCache.i.i, align 1
+  %ArrayCache.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 10
+  store i8 1, ptr %ArrayCache.i.i, align 2
+  %FunctionCache.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 11
+  store i8 1, ptr %FunctionCache.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %ref.tmp, align 8
   %Child.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %7, ptr %Child.i, align 8
@@ -18139,39 +18790,40 @@ entry:
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle22ParameterPackExpansion9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
   %CurrentPackIndex = getelementptr inbounds i8, ptr %S, i64 24
-  %CurrentPackMax = getelementptr inbounds i8, ptr %S, i64 28
-  %0 = load <2 x i32>, ptr %CurrentPackIndex, align 8
+  %0 = load i32, ptr %CurrentPackIndex, align 8
   store i32 -1, ptr %CurrentPackIndex, align 8
+  %CurrentPackMax = getelementptr inbounds i8, ptr %S, i64 28
+  %1 = load i32, ptr %CurrentPackMax, align 4
   store i32 -1, ptr %CurrentPackMax, align 4
   %CurrentPosition.i = getelementptr inbounds i8, ptr %S, i64 8
-  %1 = load i64, ptr %CurrentPosition.i, align 8
+  %2 = load i64, ptr %CurrentPosition.i, align 8
   %Child = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %Child, align 8
-  %vtable.i = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %Child, align 8
+  %vtable.i = load ptr, ptr %3, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
-  %3 = load ptr, ptr %vfn.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
-  %RHSComponentCache.i = getelementptr inbounds i8, ptr %2, i64 9
-  %4 = load i8, ptr %RHSComponentCache.i, align 1
-  %cmp.not.i = icmp eq i8 %4, 1
+  %4 = load ptr, ptr %vfn.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %3, i64 9
+  %5 = load i8, ptr %RHSComponentCache.i, align 1
+  %cmp.not.i = icmp eq i8 %5, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %vtable2.i = load ptr, ptr %2, align 8
+  %vtable2.i = load ptr, ptr %3, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
-  %5 = load ptr, ptr %vfn3.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %6 = load ptr, ptr %vfn3.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %entry, %if.then.i
-  %6 = load i32, ptr %CurrentPackMax, align 4
-  switch i32 %6, label %for.cond.preheader [
+  %7 = load i32, ptr %CurrentPackMax, align 4
+  switch i32 %7, label %for.cond.preheader [
     i32 -1, label %if.end.i
     i32 0, label %_ZN14SwapAndRestoreIjED2Ev.exit61.sink.split
   ]
 
 for.cond.preheader:                               ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
-  %cmp962 = icmp ugt i32 %6, 1
+  %cmp962 = icmp ugt i32 %7, 1
   br i1 %cmp962, label %if.end.i25.lr.ph, label %_ZN14SwapAndRestoreIjED2Ev.exit61
 
 if.end.i25.lr.ph:                                 ; preds = %for.cond.preheader
@@ -18179,16 +18831,16 @@ if.end.i25.lr.ph:                                 ; preds = %for.cond.preheader
   br label %if.end.i25
 
 if.end.i:                                         ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
-  %7 = load i64, ptr %CurrentPosition.i, align 8
-  %add.i.i = add i64 %7, 3
+  %8 = load i64, ptr %CurrentPosition.i, align 8
+  %add.i.i = add i64 %8, 3
   %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
-  %8 = load i64, ptr %BufferCapacity.i.i, align 8
-  %cmp.not.i.i = icmp ult i64 %add.i.i, %8
+  %9 = load i64, ptr %BufferCapacity.i.i, align 8
+  %cmp.not.i.i = icmp ult i64 %add.i.i, %9
   %.pre.i = load ptr, ptr %S, align 8
   br i1 %cmp.not.i.i, label %_ZN12OutputStream4growEm.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %mul.i.i = shl i64 %8, 1
+  %mul.i.i = shl i64 %9, 1
   %spec.store.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i, i64 %add.i.i)
   store i64 %spec.store.select.i.i, ptr %BufferCapacity.i.i, align 8
   %call.i.i = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.store.select.i.i) #22
@@ -18205,25 +18857,25 @@ if.then15.i.i:                                    ; preds = %if.then.i.i
   unreachable
 
 _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i, %if.end.i
-  %9 = phi i64 [ %7, %if.end.i ], [ %.pre5.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i ]
-  %10 = phi ptr [ %.pre.i, %if.end.i ], [ %call.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i ]
-  %add.ptr.i16 = getelementptr inbounds i8, ptr %10, i64 %9
+  %10 = phi i64 [ %8, %if.end.i ], [ %.pre5.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i ]
+  %11 = phi ptr [ %.pre.i, %if.end.i ], [ %call.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i ]
+  %add.ptr.i16 = getelementptr inbounds i8, ptr %11, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr.i16, ptr noundef nonnull align 1 dereferenceable(3) @.str.131, i64 3, i1 false)
-  %11 = load i64, ptr %CurrentPosition.i, align 8
-  %add.i = add i64 %11, 3
+  %12 = load i64, ptr %CurrentPosition.i, align 8
+  %add.i = add i64 %12, 3
   br label %_ZN14SwapAndRestoreIjED2Ev.exit61.sink.split
 
 if.end.i25:                                       ; preds = %if.end.i25.lr.ph, %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit51
   %I.063 = phi i32 [ 1, %if.end.i25.lr.ph ], [ %inc, %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit51 ]
-  %12 = load i64, ptr %CurrentPosition.i, align 8
-  %add.i.i27 = add i64 %12, 2
-  %13 = load i64, ptr %BufferCapacity.i.i28, align 8
-  %cmp.not.i.i29 = icmp ult i64 %add.i.i27, %13
+  %13 = load i64, ptr %CurrentPosition.i, align 8
+  %add.i.i27 = add i64 %13, 2
+  %14 = load i64, ptr %BufferCapacity.i.i28, align 8
+  %cmp.not.i.i29 = icmp ult i64 %add.i.i27, %14
   %.pre.i30 = load ptr, ptr %S, align 8
   br i1 %cmp.not.i.i29, label %_ZN12OutputStream4growEm.exit.i38, label %if.then.i.i31
 
 if.then.i.i31:                                    ; preds = %if.end.i25
-  %mul.i.i32 = shl i64 %13, 1
+  %mul.i.i32 = shl i64 %14, 1
   %spec.store.select.i.i33 = tail call i64 @llvm.umax.i64(i64 %mul.i.i32, i64 %add.i.i27)
   store i64 %spec.store.select.i.i33, ptr %BufferCapacity.i.i28, align 8
   %call.i.i34 = tail call ptr @realloc(ptr noundef %.pre.i30, i64 noundef %spec.store.select.i.i33) #22
@@ -18240,43 +18892,44 @@ if.then15.i.i41:                                  ; preds = %if.then.i.i31
   unreachable
 
 _ZN12OutputStream4growEm.exit.i38:                ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i36, %if.end.i25
-  %14 = phi i64 [ %12, %if.end.i25 ], [ %.pre5.i37, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i36 ]
-  %15 = phi ptr [ %.pre.i30, %if.end.i25 ], [ %call.i.i34, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i36 ]
-  %add.ptr.i39 = getelementptr inbounds i8, ptr %15, i64 %14
+  %15 = phi i64 [ %13, %if.end.i25 ], [ %.pre5.i37, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i36 ]
+  %16 = phi ptr [ %.pre.i30, %if.end.i25 ], [ %call.i.i34, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i36 ]
+  %add.ptr.i39 = getelementptr inbounds i8, ptr %16, i64 %15
   store i16 8236, ptr %add.ptr.i39, align 1
-  %16 = load i64, ptr %CurrentPosition.i, align 8
-  %add.i40 = add i64 %16, 2
+  %17 = load i64, ptr %CurrentPosition.i, align 8
+  %add.i40 = add i64 %17, 2
   store i64 %add.i40, ptr %CurrentPosition.i, align 8
   store i32 %I.063, ptr %CurrentPackIndex, align 8
-  %17 = load ptr, ptr %Child, align 8
-  %vtable.i43 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %Child, align 8
+  %vtable.i43 = load ptr, ptr %18, align 8
   %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 32
-  %18 = load ptr, ptr %vfn.i44, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
-  %RHSComponentCache.i45 = getelementptr inbounds i8, ptr %17, i64 9
-  %19 = load i8, ptr %RHSComponentCache.i45, align 1
-  %cmp.not.i46 = icmp eq i8 %19, 1
+  %19 = load ptr, ptr %vfn.i44, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %RHSComponentCache.i45 = getelementptr inbounds i8, ptr %18, i64 9
+  %20 = load i8, ptr %RHSComponentCache.i45, align 1
+  %cmp.not.i46 = icmp eq i8 %20, 1
   br i1 %cmp.not.i46, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit51, label %if.then.i47
 
 if.then.i47:                                      ; preds = %_ZN12OutputStream4growEm.exit.i38
-  %vtable2.i48 = load ptr, ptr %17, align 8
+  %vtable2.i48 = load ptr, ptr %18, align 8
   %vfn3.i49 = getelementptr inbounds i8, ptr %vtable2.i48, i64 40
-  %20 = load ptr, ptr %vfn3.i49, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
+  %21 = load ptr, ptr %vfn3.i49, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(32) %S) #21
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit51
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit51: ; preds = %_ZN12OutputStream4growEm.exit.i38, %if.then.i47
   %inc = add nuw i32 %I.063, 1
-  %exitcond.not = icmp eq i32 %inc, %6
+  %exitcond.not = icmp eq i32 %inc, %7
   br i1 %exitcond.not, label %_ZN14SwapAndRestoreIjED2Ev.exit61, label %if.end.i25, !llvm.loop !37
 
 _ZN14SwapAndRestoreIjED2Ev.exit61.sink.split:     ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, %_ZN12OutputStream4growEm.exit.i
-  %add.i.sink = phi i64 [ %add.i, %_ZN12OutputStream4growEm.exit.i ], [ %1, %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit ]
+  %add.i.sink = phi i64 [ %add.i, %_ZN12OutputStream4growEm.exit.i ], [ %2, %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit ]
   store i64 %add.i.sink, ptr %CurrentPosition.i, align 8
   br label %_ZN14SwapAndRestoreIjED2Ev.exit61
 
 _ZN14SwapAndRestoreIjED2Ev.exit61:                ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit51, %_ZN14SwapAndRestoreIjED2Ev.exit61.sink.split, %for.cond.preheader
-  store <2 x i32> %0, ptr %CurrentPackIndex, align 8
+  store i32 %1, ptr %CurrentPackMax, align 4
+  store i32 %0, ptr %CurrentPackIndex, align 8
   ret void
 }
 
@@ -19600,7 +20253,13 @@ if.end13:                                         ; preds = %if.end11.i, %_ZN12_
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %18
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -64
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -56
-  store <4 x i8> <i8 47, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 47, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -55
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -54
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -53
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Prefix.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   store ptr @.str.26, ptr %Prefix.i.i.i, align 8
@@ -19763,7 +20422,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr12.i.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i.i48, i64 %9
   %add.ptr13.i.i.i51 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -32
   %K.i.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -24
-  store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i52, align 8
+  store i8 32, ptr %K.i.i.i.i52, align 8
+  %RHSComponentCache.i.i.i.i53 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i53, align 1
+  %ArrayCache.i.i.i.i54 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i54, align 2
+  %FunctionCache.i.i.i.i55 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i55, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %add.ptr13.i.i.i51, align 8
   %Name.i.i.i56 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -16
   store ptr %call.i, ptr %Name.i.i.i56, align 8
@@ -19852,7 +20517,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %18
   %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -32
   %K.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -24
-  store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i, align 8
+  store i8 32, ptr %K.i.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %add.ptr13.i.i.i.i, align 8
   %Name.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -16
   store ptr %call.i93, ptr %Name.i.i.i.i, align 8
@@ -19904,7 +20575,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Dtor
   %add.ptr12.i.i.i79 = getelementptr inbounds i8, ptr %add.ptr.i.i.i77, i64 %25
   %add.ptr13.i.i.i80 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i79, i64 -32
   %K.i.i.i.i81 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i79, i64 -24
-  store <4 x i8> <i8 38, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i81, align 8
+  store i8 38, ptr %K.i.i.i.i81, align 8
+  %RHSComponentCache.i.i.i.i82 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i79, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i82, align 1
+  %ArrayCache.i.i.i.i83 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i79, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i83, align 2
+  %FunctionCache.i.i.i.i84 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i79, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i84, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8DtorNameE, i64 16), ptr %add.ptr13.i.i.i80, align 8
   %Base.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i79, i64 -16
   store ptr %storemerge.i132, ptr %Base.i.i.i, align 8
@@ -19979,7 +20656,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %33
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
-  store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 32, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %call10, ptr %Name.i.i.i, align 8
@@ -20111,7 +20794,13 @@ return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120
   %add.ptr12.i.i.i11 = getelementptr inbounds i8, ptr %add.ptr.i.i.i9, i64 %14
   %add.ptr13.i.i.i12 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i11, i64 -32
   %K.i.i.i.i13 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i11, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i13, align 8
+  store i8 7, ptr %K.i.i.i.i13, align 8
+  %RHSComponentCache.i.i.i.i14 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i11, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i14, align 1
+  %ArrayCache.i.i.i.i15 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i11, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i15, align 2
+  %FunctionCache.i.i.i.i16 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i11, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i16, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i12, align 8
   %Name.i.i.i17 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i11, i64 -16
   store ptr %.lcssa.sink, ptr %Name.i.i.i17, align 8
@@ -20163,12 +20852,22 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %args, align 8
+  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %args, i64 8
+  %agg.tmp.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
-  %7 = load <2 x ptr>, ptr %args, align 8
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i, align 8
-  store <2 x ptr> %7, ptr %Name.i.i, align 8
+  %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %Name.i.i, align 8
+  %Name_.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
+  store ptr %agg.tmp.sroa.2.0.copyload.i, ptr %Name_.sroa.2.0.Name.sroa_idx.i.i, align 8
   ret ptr %add.ptr13.i.i
 }
 
@@ -20371,7 +21070,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %9
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr @.str.146, ptr %Name.i.i.i, align 8
@@ -20588,7 +21293,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i96 = getelementptr inbounds i8, ptr %add.ptr.i.i.i94, i64 %23
   %add.ptr13.i.i.i97 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i96, i64 -32
   %K.i.i.i.i100 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i96, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i100, align 8
+  store i8 7, ptr %K.i.i.i.i100, align 8
+  %RHSComponentCache.i.i.i.i101 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i96, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i101, align 1
+  %ArrayCache.i.i.i.i102 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i96, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i102, align 2
+  %FunctionCache.i.i.i.i103 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i96, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i103, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i97, align 8
   %Name.i.i.i104 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i96, i64 -16
   store ptr @.str.160, ptr %Name.i.i.i104, align 8
@@ -20636,7 +21347,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i119 = getelementptr inbounds i8, ptr %add.ptr.i.i.i117, i64 %30
   %add.ptr13.i.i.i120 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i119, i64 -32
   %K.i.i.i.i123 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i119, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i123, align 8
+  store i8 7, ptr %K.i.i.i.i123, align 8
+  %RHSComponentCache.i.i.i.i124 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i119, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i124, align 1
+  %ArrayCache.i.i.i.i125 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i119, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i125, align 2
+  %FunctionCache.i.i.i.i126 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i119, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i126, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i120, align 8
   %Name.i.i.i127 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i119, i64 -16
   store ptr @.str.161, ptr %Name.i.i.i127, align 8
@@ -20694,7 +21411,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i151 = getelementptr inbounds i8, ptr %add.ptr.i.i.i149, i64 %38
   %add.ptr13.i.i.i152 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i151, i64 -32
   %K.i.i.i.i155 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i151, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i155, align 8
+  store i8 7, ptr %K.i.i.i.i155, align 8
+  %RHSComponentCache.i.i.i.i156 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i151, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i156, align 1
+  %ArrayCache.i.i.i.i157 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i151, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i157, align 2
+  %FunctionCache.i.i.i.i158 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i151, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i158, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i152, align 8
   %Name.i.i.i159 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i151, i64 -16
   store ptr @.str.162, ptr %Name.i.i.i159, align 8
@@ -20976,7 +21699,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i223 = getelementptr inbounds i8, ptr %add.ptr.i.i.i221, i64 %51
   %add.ptr13.i.i.i224 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i223, i64 -32
   %K.i.i.i.i227 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i223, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i227, align 8
+  store i8 7, ptr %K.i.i.i.i227, align 8
+  %RHSComponentCache.i.i.i.i228 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i223, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i228, align 1
+  %ArrayCache.i.i.i.i229 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i223, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i229, align 2
+  %FunctionCache.i.i.i.i230 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i223, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i230, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i224, align 8
   %Name.i.i.i231 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i223, i64 -16
   store ptr @.str.183, ptr %Name.i.i.i231, align 8
@@ -21072,7 +21801,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i263 = getelementptr inbounds i8, ptr %add.ptr.i.i.i261, i64 %60
   %add.ptr13.i.i.i264 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i263, i64 -32
   %K.i.i.i.i267 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i263, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i267, align 8
+  store i8 7, ptr %K.i.i.i.i267, align 8
+  %RHSComponentCache.i.i.i.i268 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i263, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i268, align 1
+  %ArrayCache.i.i.i.i269 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i263, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i269, align 2
+  %FunctionCache.i.i.i.i270 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i263, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i270, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i264, align 8
   %Name.i.i.i271 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i263, i64 -16
   store ptr @.str.188, ptr %Name.i.i.i271, align 8
@@ -21210,7 +21945,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
@@ -21261,7 +22002,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
@@ -21311,7 +22058,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22Conversio
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 4, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 4, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle22ConversionOperatorTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Ty.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Ty.i.i, align 8
@@ -21360,7 +22113,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
@@ -21409,7 +22168,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr @.str.154, ptr %Name.i.i, align 8
@@ -21459,7 +22224,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15LiteralOp
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 19, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 19, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle15LiteralOperatorE, i64 16), ptr %add.ptr13.i.i, align 8
   %OpName.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %OpName.i.i, align 8
@@ -21508,7 +22279,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
@@ -21559,7 +22336,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
@@ -21610,7 +22393,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
@@ -23526,7 +24315,13 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %Pack = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Pack, align 8
   %K.i.i = getelementptr inbounds i8, ptr %PPE, i64 8
-  store <4 x i8> <i8 29, i8 1, i8 1, i8 1>, ptr %K.i.i, align 8
+  store i8 29, ptr %K.i.i, align 8
+  %RHSComponentCache.i.i = getelementptr inbounds i8, ptr %PPE, i64 9
+  store i8 1, ptr %RHSComponentCache.i.i, align 1
+  %ArrayCache.i.i = getelementptr inbounds i8, ptr %PPE, i64 10
+  store i8 1, ptr %ArrayCache.i.i, align 2
+  %FunctionCache.i.i = getelementptr inbounds i8, ptr %PPE, i64 11
+  store i8 1, ptr %FunctionCache.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %PPE, align 8
   %Child.i = getelementptr inbounds i8, ptr %PPE, i64 16
   store ptr %5, ptr %Child.i, align 8
@@ -24919,6 +25714,7 @@ entry:
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle13ParameterPackC2ENS0_9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %Data_.coerce0, i64 %Data_.coerce1) unnamed_addr #1 comdat align 2 {
 entry:
   %K.i = getelementptr inbounds i8, ptr %this, i64 8
+  store i8 27, ptr %K.i, align 8
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %this, i64 9
   %ArrayCache.i = getelementptr inbounds i8, ptr %this, i64 10
   %FunctionCache.i = getelementptr inbounds i8, ptr %this, i64 11
@@ -24927,7 +25723,9 @@ entry:
   store ptr %Data_.coerce0, ptr %Data, align 8
   %Data_.sroa.2.0.Data.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %Data_.coerce1, ptr %Data_.sroa.2.0.Data.sroa_idx, align 8
-  store <4 x i8> <i8 27, i8 2, i8 2, i8 2>, ptr %K.i, align 8
+  store i8 2, ptr %RHSComponentCache.i, align 1
+  store i8 2, ptr %FunctionCache.i, align 1
+  store i8 2, ptr %ArrayCache.i, align 2
   %add.ptr.i.idx109 = shl nsw i64 %Data_.coerce1, 3
   %add.ptr.i = getelementptr inbounds i8, ptr %Data_.coerce0, i64 %add.ptr.i.idx109
   %shr.i.i.i.i = ashr i64 %Data_.coerce1, 2
@@ -26666,7 +27464,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %14
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr @.str.266, ptr %Name.i.i.i, align 8
@@ -26737,7 +27541,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12Noe
   %add.ptr12.i.i.i33 = getelementptr inbounds i8, ptr %add.ptr.i.i.i31, i64 %24
   %add.ptr13.i.i.i34 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i33, i64 -32
   %K.i.i.i.i35 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i33, i64 -24
-  store <4 x i8> <i8 16, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i35, align 8
+  store i8 16, ptr %K.i.i.i.i35, align 8
+  %RHSComponentCache.i.i.i.i36 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i33, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i36, align 1
+  %ArrayCache.i.i.i.i37 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i33, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i37, align 2
+  %FunctionCache.i.i.i.i38 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i33, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i38, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle12NoexceptSpecE, i64 16), ptr %add.ptr13.i.i.i34, align 8
   %E.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i33, i64 -16
   store ptr %call8, ptr %E.i.i.i, align 8
@@ -26890,7 +27700,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Dyn
   %add.ptr12.i.i.i91 = getelementptr inbounds i8, ptr %add.ptr.i.i.i89, i64 %46
   %add.ptr13.i.i.i92 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i91, i64 -32
   %K.i.i.i.i93 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i91, i64 -24
-  store <4 x i8> <i8 17, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i93, align 8
+  store i8 17, ptr %K.i.i.i.i93, align 8
+  %RHSComponentCache.i.i.i.i94 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i91, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i94, align 1
+  %ArrayCache.i.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i91, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i95, align 2
+  %FunctionCache.i.i.i.i96 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i91, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i96, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20DynamicExceptionSpecE, i64 16), ptr %add.ptr13.i.i.i92, align 8
   %Types.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i91, i64 -16
   store ptr %38, ptr %Types.i.i.i, align 8
@@ -27119,7 +27935,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12Fun
   %add.ptr12.i.i.i241 = getelementptr inbounds i8, ptr %add.ptr.i.i.i239, i64 %74
   %add.ptr13.i.i.i242 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i241, i64 -64
   %K.i.i.i.i246 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i241, i64 -56
-  store <4 x i8> <i8 15, i8 0, i8 1, i8 0>, ptr %K.i.i.i.i246, align 8
+  store i8 15, ptr %K.i.i.i.i246, align 8
+  %RHSComponentCache.i.i.i.i247 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i241, i64 -55
+  store i8 0, ptr %RHSComponentCache.i.i.i.i247, align 1
+  %ArrayCache.i.i.i.i248 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i241, i64 -54
+  store i8 1, ptr %ArrayCache.i.i.i.i248, align 2
+  %FunctionCache.i.i.i.i249 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i241, i64 -53
+  store i8 0, ptr %FunctionCache.i.i.i.i249, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle12FunctionTypeE, i64 16), ptr %add.ptr13.i.i.i242, align 8
   %Ret.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i241, i64 -48
   store ptr %call41, ptr %Ret.i.i.i, align 8
@@ -27308,7 +28130,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Obj
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %17
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
-  store <4 x i8> <i8 10, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 10, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13ObjCProtoNameE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Ty.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %call14, ptr %Ty.i.i.i, align 8
@@ -27361,7 +28189,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_17Ven
   %add.ptr12.i.i.i68 = getelementptr inbounds i8, ptr %add.ptr.i.i.i66, i64 %24
   %add.ptr13.i.i.i69 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i68, i64 -48
   %K.i.i.i.i73 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i68, i64 -40
-  store <4 x i8> <i8 2, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i73, align 8
+  store i8 2, ptr %K.i.i.i.i73, align 8
+  %RHSComponentCache.i.i.i.i74 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i68, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i74, align 1
+  %ArrayCache.i.i.i.i75 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i68, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i75, align 2
+  %FunctionCache.i.i.i.i76 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i68, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i76, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle17VendorExtQualTypeE, i64 16), ptr %add.ptr13.i.i.i69, align 8
   %Ty.i.i.i77 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i68, i64 -32
   store ptr %call20, ptr %Ty.i.i.i77, align 8
@@ -27530,7 +28364,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #19
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 7, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
@@ -27651,7 +28491,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15Pix
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %13
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
-  store <4 x i8> <i8 26, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 26, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -23
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -22
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -21
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle15PixelVectorTypeE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Dimension.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %add.ptr.i5, ptr %Dimension.i.i.i, align 8
@@ -27734,7 +28580,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Vec
   %add.ptr12.i.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i.i48, i64 %23
   %add.ptr13.i.i.i51 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -48
   %K.i.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -40
-  store <4 x i8> <i8 25, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i52, align 8
+  store i8 25, ptr %K.i.i.i.i52, align 8
+  %RHSComponentCache.i.i.i.i53 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i53, align 1
+  %ArrayCache.i.i.i.i54 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i54, align 2
+  %FunctionCache.i.i.i.i55 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i55, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10VectorTypeE, i64 16), ptr %add.ptr13.i.i.i51, align 8
   %BaseType.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -32
   store ptr %call30, ptr %BaseType.i.i.i, align 8
@@ -27789,7 +28641,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Vec
   %add.ptr12.i.i.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i.i69, i64 %30
   %add.ptr13.i.i.i72 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -48
   %K.i.i.i.i77 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -40
-  store <4 x i8> <i8 25, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i77, align 8
+  store i8 25, ptr %K.i.i.i.i77, align 8
+  %RHSComponentCache.i.i.i.i78 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i78, align 1
+  %ArrayCache.i.i.i.i79 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i79, align 2
+  %FunctionCache.i.i.i.i80 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i80, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10VectorTypeE, i64 16), ptr %add.ptr13.i.i.i72, align 8
   %BaseType.i.i.i81 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -32
   store ptr %call37, ptr %BaseType.i.i.i81, align 8
@@ -27886,7 +28744,13 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_22Ela
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %8
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
-  store <4 x i8> <i8 6, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
+  store i8 6, ptr %K.i.i.i.i, align 8
+  %RHSComponentCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i.i, align 1
+  %ArrayCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i.i, align 2
+  %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle22ElaboratedTypeSpefTypeE, i64 16), ptr %add.ptr13.i.i.i, align 8
   %Kind.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %ElabSpef.sroa.0.0, ptr %Kind.i.i.i, align 8
@@ -28059,7 +28923,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQu
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 5, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 5, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Ty.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Ty.i.i, align 8
@@ -28111,7 +28981,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQu
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 5, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 5, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %Ty.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Ty.i.i, align 8
@@ -29292,7 +30168,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10VectorTyp
   %FirstChar.0.i.i = getelementptr inbounds i8, ptr %agg.tmp4.sroa.0.0.copyload.i, i64 %FirstChar.0.idx.i.i
   %SecondChar.0.i.i = select i1 %cmp.i1.i, ptr inttoptr (i64 1 to ptr), ptr %agg.tmp4.sroa.2.0.copyload.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  store <4 x i8> <i8 25, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
+  store i8 25, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 1, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 1, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle10VectorTypeE, i64 16), ptr %add.ptr13.i.i, align 8
   %BaseType.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %BaseType.i.i, align 8
@@ -29650,14 +30532,24 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle9ArrayTypeE
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   %7 = load ptr, ptr %args, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %args1, align 8
+  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %args1, i64 8
+  %agg.tmp.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
-  %Base.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %Dimension.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
-  %8 = load <2 x ptr>, ptr %args1, align 8
-  store <4 x i8> <i8 14, i8 0, i8 0, i8 1>, ptr %K.i.i.i, align 8
+  store i8 14, ptr %K.i.i.i, align 8
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -39
+  store i8 0, ptr %RHSComponentCache.i.i.i, align 1
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -38
+  store i8 0, ptr %ArrayCache.i.i.i, align 2
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -37
+  store i8 1, ptr %FunctionCache.i.i.i, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle9ArrayTypeE, i64 16), ptr %add.ptr13.i.i, align 8
+  %Base.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Base.i.i, align 8
-  store <2 x ptr> %8, ptr %Dimension.i.i, align 8
+  %Dimension.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %Dimension.i.i, align 8
+  %Dimension_.sroa.2.0.Dimension.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
+  store ptr %agg.tmp.sroa.2.0.copyload.i, ptr %Dimension_.sroa.2.0.Dimension.sroa_idx.i.i, align 8
   ret ptr %add.ptr13.i.i
 }
 

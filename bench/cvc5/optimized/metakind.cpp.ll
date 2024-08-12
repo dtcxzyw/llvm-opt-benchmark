@@ -1934,13 +1934,16 @@ return.sink.split:                                ; preds = %_ZNK4cvc58internal4
 return:                                           ; preds = %return.sink.split, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit15
   %cond-lvalue.i14.sink31 = phi ptr [ %cond-lvalue.i14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit15 ], [ %cond-lvalue.i14.sink31.ph, %return.sink.split ]
   %cond-lvalue.i22.sink30 = phi ptr [ %d_children.i20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit15 ], [ %2, %return.sink.split ]
-  %3 = load <2 x i32>, ptr %cond-lvalue.i14.sink31, align 4
-  %4 = load <2 x i32>, ptr %cond-lvalue.i22.sink30, align 4
-  %5 = icmp eq <2 x i32> %3, %4
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  %8 = select i1 %6, i1 %7, i1 false
-  ret i1 %8
+  %3 = load i32, ptr %cond-lvalue.i14.sink31, align 4
+  %4 = load i32, ptr %cond-lvalue.i22.sink30, align 4
+  %cmp.i24 = icmp eq i32 %3, %4
+  %d_low.i25 = getelementptr inbounds i8, ptr %cond-lvalue.i14.sink31, i64 4
+  %5 = load i32, ptr %d_low.i25, align 4
+  %d_low3.i26 = getelementptr inbounds i8, ptr %cond-lvalue.i22.sink30, i64 4
+  %6 = load i32, ptr %d_low3.i26, align 4
+  %cmp4.i27 = icmp eq i32 %5, %6
+  %7 = select i1 %cmp.i24, i1 %cmp4.i27, i1 false
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2576,13 +2579,16 @@ return.sink.split:                                ; preds = %_ZNK4cvc58internal4
 return:                                           ; preds = %return.sink.split, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit15
   %cond-lvalue.i14.sink31 = phi ptr [ %cond-lvalue.i14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit15 ], [ %cond-lvalue.i14.sink31.ph, %return.sink.split ]
   %cond-lvalue.i22.sink30 = phi ptr [ %d_children.i20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit15 ], [ %2, %return.sink.split ]
-  %3 = load <2 x i32>, ptr %cond-lvalue.i14.sink31, align 4
-  %4 = load <2 x i32>, ptr %cond-lvalue.i22.sink30, align 4
-  %5 = icmp eq <2 x i32> %3, %4
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  %8 = select i1 %6, i1 %7, i1 false
-  ret i1 %8
+  %3 = load i32, ptr %cond-lvalue.i14.sink31, align 4
+  %4 = load i32, ptr %cond-lvalue.i22.sink30, align 4
+  %cmp.i24 = icmp eq i32 %3, %4
+  %d_sig_size.i25 = getelementptr inbounds i8, ptr %cond-lvalue.i14.sink31, i64 4
+  %5 = load i32, ptr %d_sig_size.i25, align 4
+  %d_sig_size3.i26 = getelementptr inbounds i8, ptr %cond-lvalue.i22.sink30, i64 4
+  %6 = load i32, ptr %d_sig_size3.i26, align 4
+  %cmp4.i27 = icmp eq i32 %5, %6
+  %7 = select i1 %cmp.i24, i1 %cmp4.i27, i1 false
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2642,13 +2648,16 @@ return.sink.split:                                ; preds = %_ZNK4cvc58internal4
 return:                                           ; preds = %return.sink.split, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit14
   %cond-lvalue.i13.sink30 = phi ptr [ %cond-lvalue.i13, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit14 ], [ %cond-lvalue.i13.sink30.ph, %return.sink.split ]
   %cond-lvalue.i21.sink29 = phi ptr [ %d_children.i19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit14 ], [ %2, %return.sink.split ]
-  %3 = load <2 x i32>, ptr %cond-lvalue.i13.sink30, align 4
-  %4 = load <2 x i32>, ptr %cond-lvalue.i21.sink29, align 4
-  %5 = icmp eq <2 x i32> %3, %4
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  %8 = select i1 %6, i1 %7, i1 false
-  ret i1 %8
+  %3 = load i32, ptr %cond-lvalue.i13.sink30, align 4
+  %4 = load i32, ptr %cond-lvalue.i21.sink29, align 4
+  %cmp.i.i23 = icmp eq i32 %3, %4
+  %d_sig_size.i.i24 = getelementptr inbounds i8, ptr %cond-lvalue.i13.sink30, i64 4
+  %5 = load i32, ptr %d_sig_size.i.i24, align 4
+  %d_sig_size3.i.i25 = getelementptr inbounds i8, ptr %cond-lvalue.i21.sink29, i64 4
+  %6 = load i32, ptr %d_sig_size3.i.i25, align 4
+  %cmp4.i.i26 = icmp eq i32 %5, %6
+  %7 = select i1 %cmp.i.i23, i1 %cmp4.i.i26, i1 false
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2708,13 +2717,16 @@ return.sink.split:                                ; preds = %_ZNK4cvc58internal4
 return:                                           ; preds = %return.sink.split, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit14
   %cond-lvalue.i13.sink30 = phi ptr [ %cond-lvalue.i13, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit14 ], [ %cond-lvalue.i13.sink30.ph, %return.sink.split ]
   %cond-lvalue.i21.sink29 = phi ptr [ %d_children.i19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit14 ], [ %2, %return.sink.split ]
-  %3 = load <2 x i32>, ptr %cond-lvalue.i13.sink30, align 4
-  %4 = load <2 x i32>, ptr %cond-lvalue.i21.sink29, align 4
-  %5 = icmp eq <2 x i32> %3, %4
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  %8 = select i1 %6, i1 %7, i1 false
-  ret i1 %8
+  %3 = load i32, ptr %cond-lvalue.i13.sink30, align 4
+  %4 = load i32, ptr %cond-lvalue.i21.sink29, align 4
+  %cmp.i.i23 = icmp eq i32 %3, %4
+  %d_sig_size.i.i24 = getelementptr inbounds i8, ptr %cond-lvalue.i13.sink30, i64 4
+  %5 = load i32, ptr %d_sig_size.i.i24, align 4
+  %d_sig_size3.i.i25 = getelementptr inbounds i8, ptr %cond-lvalue.i21.sink29, i64 4
+  %6 = load i32, ptr %d_sig_size3.i.i25, align 4
+  %cmp4.i.i26 = icmp eq i32 %5, %6
+  %7 = select i1 %cmp.i.i23, i1 %cmp4.i.i26, i1 false
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2774,13 +2786,16 @@ return.sink.split:                                ; preds = %_ZNK4cvc58internal4
 return:                                           ; preds = %return.sink.split, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit14
   %cond-lvalue.i13.sink30 = phi ptr [ %cond-lvalue.i13, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit14 ], [ %cond-lvalue.i13.sink30.ph, %return.sink.split ]
   %cond-lvalue.i21.sink29 = phi ptr [ %d_children.i19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit14 ], [ %2, %return.sink.split ]
-  %3 = load <2 x i32>, ptr %cond-lvalue.i13.sink30, align 4
-  %4 = load <2 x i32>, ptr %cond-lvalue.i21.sink29, align 4
-  %5 = icmp eq <2 x i32> %3, %4
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  %8 = select i1 %6, i1 %7, i1 false
-  ret i1 %8
+  %3 = load i32, ptr %cond-lvalue.i13.sink30, align 4
+  %4 = load i32, ptr %cond-lvalue.i21.sink29, align 4
+  %cmp.i.i23 = icmp eq i32 %3, %4
+  %d_sig_size.i.i24 = getelementptr inbounds i8, ptr %cond-lvalue.i13.sink30, i64 4
+  %5 = load i32, ptr %d_sig_size.i.i24, align 4
+  %d_sig_size3.i.i25 = getelementptr inbounds i8, ptr %cond-lvalue.i21.sink29, i64 4
+  %6 = load i32, ptr %d_sig_size3.i.i25, align 4
+  %cmp4.i.i26 = icmp eq i32 %5, %6
+  %7 = select i1 %cmp.i.i23, i1 %cmp4.i.i26, i1 false
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2840,13 +2855,16 @@ return.sink.split:                                ; preds = %_ZNK4cvc58internal4
 return:                                           ; preds = %return.sink.split, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit14
   %cond-lvalue.i13.sink30 = phi ptr [ %cond-lvalue.i13, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit14 ], [ %cond-lvalue.i13.sink30.ph, %return.sink.split ]
   %cond-lvalue.i21.sink29 = phi ptr [ %d_children.i19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit14 ], [ %2, %return.sink.split ]
-  %3 = load <2 x i32>, ptr %cond-lvalue.i13.sink30, align 4
-  %4 = load <2 x i32>, ptr %cond-lvalue.i21.sink29, align 4
-  %5 = icmp eq <2 x i32> %3, %4
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  %8 = select i1 %6, i1 %7, i1 false
-  ret i1 %8
+  %3 = load i32, ptr %cond-lvalue.i13.sink30, align 4
+  %4 = load i32, ptr %cond-lvalue.i21.sink29, align 4
+  %cmp.i.i23 = icmp eq i32 %3, %4
+  %d_sig_size.i.i24 = getelementptr inbounds i8, ptr %cond-lvalue.i13.sink30, i64 4
+  %5 = load i32, ptr %d_sig_size.i.i24, align 4
+  %d_sig_size3.i.i25 = getelementptr inbounds i8, ptr %cond-lvalue.i21.sink29, i64 4
+  %6 = load i32, ptr %d_sig_size3.i.i25, align 4
+  %cmp4.i.i26 = icmp eq i32 %5, %6
+  %7 = select i1 %cmp.i.i23, i1 %cmp4.i.i26, i1 false
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2906,13 +2924,16 @@ return.sink.split:                                ; preds = %_ZNK4cvc58internal4
 return:                                           ; preds = %return.sink.split, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit14
   %cond-lvalue.i13.sink30 = phi ptr [ %cond-lvalue.i13, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit14 ], [ %cond-lvalue.i13.sink30.ph, %return.sink.split ]
   %cond-lvalue.i21.sink29 = phi ptr [ %d_children.i19, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit14 ], [ %2, %return.sink.split ]
-  %3 = load <2 x i32>, ptr %cond-lvalue.i13.sink30, align 4
-  %4 = load <2 x i32>, ptr %cond-lvalue.i21.sink29, align 4
-  %5 = icmp eq <2 x i32> %3, %4
-  %6 = extractelement <2 x i1> %5, i64 0
-  %7 = extractelement <2 x i1> %5, i64 1
-  %8 = select i1 %6, i1 %7, i1 false
-  ret i1 %8
+  %3 = load i32, ptr %cond-lvalue.i13.sink30, align 4
+  %4 = load i32, ptr %cond-lvalue.i21.sink29, align 4
+  %cmp.i.i23 = icmp eq i32 %3, %4
+  %d_sig_size.i.i24 = getelementptr inbounds i8, ptr %cond-lvalue.i13.sink30, i64 4
+  %5 = load i32, ptr %d_sig_size.i.i24, align 4
+  %d_sig_size3.i.i25 = getelementptr inbounds i8, ptr %cond-lvalue.i21.sink29, i64 4
+  %6 = load i32, ptr %d_sig_size3.i.i25, align 4
+  %cmp4.i.i26 = icmp eq i32 %5, %6
+  %7 = select i1 %cmp.i.i23, i1 %cmp4.i.i26, i1 false
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5551,13 +5572,16 @@ cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit8: ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit, %cond.false.i6
   %cond-lvalue.i7 = phi ptr [ %1, %cond.false.i6 ], [ %d_children.i5, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit ]
-  %2 = load <2 x i32>, ptr %cond-lvalue.i, align 4
-  %3 = load <2 x i32>, ptr %cond-lvalue.i7, align 4
-  %4 = icmp eq <2 x i32> %2, %3
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %5, i1 %6, i1 false
-  ret i1 %7
+  %2 = load i32, ptr %cond-lvalue.i, align 4
+  %3 = load i32, ptr %cond-lvalue.i7, align 4
+  %cmp.i9 = icmp eq i32 %2, %3
+  %d_low.i = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 4
+  %4 = load i32, ptr %d_low.i, align 4
+  %d_low3.i = getelementptr inbounds i8, ptr %cond-lvalue.i7, i64 4
+  %5 = load i32, ptr %d_low3.i, align 4
+  %cmp4.i = icmp eq i32 %4, %5
+  %6 = select i1 %cmp.i9, i1 %cmp4.i, i1 false
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5688,13 +5712,16 @@ cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit8: ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit, %cond.false.i6
   %cond-lvalue.i7 = phi ptr [ %1, %cond.false.i6 ], [ %d_children.i5, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit ]
-  %2 = load <2 x i32>, ptr %cond-lvalue.i, align 4
-  %3 = load <2 x i32>, ptr %cond-lvalue.i7, align 4
-  %4 = icmp eq <2 x i32> %2, %3
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %5, i1 %6, i1 false
-  ret i1 %7
+  %2 = load i32, ptr %cond-lvalue.i, align 4
+  %3 = load i32, ptr %cond-lvalue.i7, align 4
+  %cmp.i9 = icmp eq i32 %2, %3
+  %d_sig_size.i = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 4
+  %4 = load i32, ptr %d_sig_size.i, align 4
+  %d_sig_size3.i = getelementptr inbounds i8, ptr %cond-lvalue.i7, i64 4
+  %5 = load i32, ptr %d_sig_size3.i, align 4
+  %cmp4.i = icmp eq i32 %4, %5
+  %6 = select i1 %cmp.i9, i1 %cmp4.i, i1 false
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5726,13 +5753,16 @@ cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit8: ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit, %cond.false.i6
   %cond-lvalue.i7 = phi ptr [ %1, %cond.false.i6 ], [ %d_children.i5, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit ]
-  %2 = load <2 x i32>, ptr %cond-lvalue.i, align 4
-  %3 = load <2 x i32>, ptr %cond-lvalue.i7, align 4
-  %4 = icmp eq <2 x i32> %2, %3
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %5, i1 %6, i1 false
-  ret i1 %7
+  %2 = load i32, ptr %cond-lvalue.i, align 4
+  %3 = load i32, ptr %cond-lvalue.i7, align 4
+  %cmp.i.i = icmp eq i32 %2, %3
+  %d_sig_size.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 4
+  %4 = load i32, ptr %d_sig_size.i.i, align 4
+  %d_sig_size3.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i7, i64 4
+  %5 = load i32, ptr %d_sig_size3.i.i, align 4
+  %cmp4.i.i = icmp eq i32 %4, %5
+  %6 = select i1 %cmp.i.i, i1 %cmp4.i.i, i1 false
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5764,13 +5794,16 @@ cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit8: ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit, %cond.false.i6
   %cond-lvalue.i7 = phi ptr [ %1, %cond.false.i6 ], [ %d_children.i5, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit ]
-  %2 = load <2 x i32>, ptr %cond-lvalue.i, align 4
-  %3 = load <2 x i32>, ptr %cond-lvalue.i7, align 4
-  %4 = icmp eq <2 x i32> %2, %3
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %5, i1 %6, i1 false
-  ret i1 %7
+  %2 = load i32, ptr %cond-lvalue.i, align 4
+  %3 = load i32, ptr %cond-lvalue.i7, align 4
+  %cmp.i.i = icmp eq i32 %2, %3
+  %d_sig_size.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 4
+  %4 = load i32, ptr %d_sig_size.i.i, align 4
+  %d_sig_size3.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i7, i64 4
+  %5 = load i32, ptr %d_sig_size3.i.i, align 4
+  %cmp4.i.i = icmp eq i32 %4, %5
+  %6 = select i1 %cmp.i.i, i1 %cmp4.i.i, i1 false
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5802,13 +5835,16 @@ cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit8: ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit, %cond.false.i6
   %cond-lvalue.i7 = phi ptr [ %1, %cond.false.i6 ], [ %d_children.i5, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit ]
-  %2 = load <2 x i32>, ptr %cond-lvalue.i, align 4
-  %3 = load <2 x i32>, ptr %cond-lvalue.i7, align 4
-  %4 = icmp eq <2 x i32> %2, %3
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %5, i1 %6, i1 false
-  ret i1 %7
+  %2 = load i32, ptr %cond-lvalue.i, align 4
+  %3 = load i32, ptr %cond-lvalue.i7, align 4
+  %cmp.i.i = icmp eq i32 %2, %3
+  %d_sig_size.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 4
+  %4 = load i32, ptr %d_sig_size.i.i, align 4
+  %d_sig_size3.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i7, i64 4
+  %5 = load i32, ptr %d_sig_size3.i.i, align 4
+  %cmp4.i.i = icmp eq i32 %4, %5
+  %6 = select i1 %cmp.i.i, i1 %cmp4.i.i, i1 false
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5840,13 +5876,16 @@ cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit8: ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit, %cond.false.i6
   %cond-lvalue.i7 = phi ptr [ %1, %cond.false.i6 ], [ %d_children.i5, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit ]
-  %2 = load <2 x i32>, ptr %cond-lvalue.i, align 4
-  %3 = load <2 x i32>, ptr %cond-lvalue.i7, align 4
-  %4 = icmp eq <2 x i32> %2, %3
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %5, i1 %6, i1 false
-  ret i1 %7
+  %2 = load i32, ptr %cond-lvalue.i, align 4
+  %3 = load i32, ptr %cond-lvalue.i7, align 4
+  %cmp.i.i = icmp eq i32 %2, %3
+  %d_sig_size.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 4
+  %4 = load i32, ptr %d_sig_size.i.i, align 4
+  %d_sig_size3.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i7, i64 4
+  %5 = load i32, ptr %d_sig_size3.i.i, align 4
+  %cmp4.i.i = icmp eq i32 %4, %5
+  %6 = select i1 %cmp.i.i, i1 %cmp4.i.i, i1 false
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5878,13 +5917,16 @@ cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit8: ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit, %cond.false.i6
   %cond-lvalue.i7 = phi ptr [ %1, %cond.false.i6 ], [ %d_children.i5, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit ]
-  %2 = load <2 x i32>, ptr %cond-lvalue.i, align 4
-  %3 = load <2 x i32>, ptr %cond-lvalue.i7, align 4
-  %4 = icmp eq <2 x i32> %2, %3
-  %5 = extractelement <2 x i1> %4, i64 0
-  %6 = extractelement <2 x i1> %4, i64 1
-  %7 = select i1 %5, i1 %6, i1 false
-  ret i1 %7
+  %2 = load i32, ptr %cond-lvalue.i, align 4
+  %3 = load i32, ptr %cond-lvalue.i7, align 4
+  %cmp.i.i = icmp eq i32 %2, %3
+  %d_sig_size.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 4
+  %4 = load i32, ptr %d_sig_size.i.i, align 4
+  %d_sig_size3.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i7, i64 4
+  %5 = load i32, ptr %d_sig_size3.i.i, align 4
+  %cmp4.i.i = icmp eq i32 %4, %5
+  %6 = select i1 %cmp.i.i, i1 %cmp4.i.i, i1 false
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress uwtable

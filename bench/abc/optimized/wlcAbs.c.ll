@@ -7007,11 +7007,17 @@ Vec_BitStart.exit:                                ; preds = %2, %13
   %40 = getelementptr inbounds i8, ptr %3, i64 64
   store ptr %21, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %3, i64 80
-  store <4 x i32> <i32 0, i32 0, i32 1, i32 0>, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 96
-  store i32 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 100
-  store i32 0, ptr %43, align 4
+  store i32 0, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %3, i64 84
+  store i32 0, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %3, i64 88
+  store i32 1, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %3, i64 92
+  store i32 0, ptr %44, align 4
+  %45 = getelementptr inbounds i8, ptr %3, i64 96
+  store i32 0, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %3, i64 100
+  store i32 0, ptr %46, align 4
   ret ptr %3
 }
 

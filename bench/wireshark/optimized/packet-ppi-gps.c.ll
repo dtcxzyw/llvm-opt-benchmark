@@ -255,7 +255,7 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
 
 30:                                               ; preds = %28
   %31 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %24, ptr noundef nonnull @ei_ppi_gps_length, ptr noundef nonnull @.str.118) #2
-  br label %250
+  br label %231
 
 32:                                               ; preds = %28
   %33 = icmp ugt i16 %11, 144
@@ -263,7 +263,7 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
 
 34:                                               ; preds = %32
   %35 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %24, ptr noundef nonnull @ei_ppi_gps_length, ptr noundef nonnull @.str.119, i32 noundef %12, i32 noundef 144) #2
-  br label %250
+  br label %231
 
 36:                                               ; preds = %32
   %37 = load i32, ptr @hf_ppi_gps_present, align 4
@@ -276,420 +276,405 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   %40 = add nsw i32 %12, -8
   %.not317 = icmp eq ptr %2, null
   %41 = getelementptr inbounds i8, ptr %1, i64 408
-  %42 = insertelement <2 x i32> <i32 poison, i32 8>, i32 %40, i64 0
-  br label %43
+  br label %42
 
-43:                                               ; preds = %.lr.ph, %247
-  %.0259323 = phi i32 [ %13, %.lr.ph ], [ %46, %247 ]
-  %.0262322 = phi i32 [ 0, %.lr.ph ], [ %.2, %247 ]
-  %44 = phi <2 x i32> [ %42, %.lr.ph ], [ %248, %247 ]
-  %45 = add i32 %.0259323, -1
-  %46 = and i32 %45, %.0259323
-  %47 = xor i32 %46, %.0259323
-  %.not281 = icmp ult i32 %47, 65536
-  br i1 %.not281, label %77, label %48
+42:                                               ; preds = %.lr.ph, %229
+  %.0256325 = phi i32 [ %40, %.lr.ph ], [ %.1, %229 ]
+  %.0257324 = phi i32 [ 8, %.lr.ph ], [ %.1258, %229 ]
+  %.0259323 = phi i32 [ %13, %.lr.ph ], [ %44, %229 ]
+  %.0262322 = phi i32 [ 0, %.lr.ph ], [ %.2, %229 ]
+  %43 = add i32 %.0259323, -1
+  %44 = and i32 %43, %.0259323
+  %45 = xor i32 %44, %.0259323
+  %.not281 = icmp ult i32 %45, 65536
+  br i1 %.not281, label %75, label %46
 
-48:                                               ; preds = %43
-  %.not297 = icmp ult i32 %47, 16777216
-  br i1 %.not297, label %63, label %49
+46:                                               ; preds = %42
+  %.not297 = icmp ult i32 %45, 16777216
+  br i1 %.not297, label %61, label %47
 
-49:                                               ; preds = %48
-  %.not305 = icmp ult i32 %47, 268435456
-  br i1 %.not305, label %55, label %50
+47:                                               ; preds = %46
+  %.not305 = icmp ult i32 %45, 268435456
+  br i1 %.not305, label %53, label %48
 
-50:                                               ; preds = %49
-  %.not309 = icmp ult i32 %47, 1073741824
-  %.lobit = lshr i32 %47, 31
-  %51 = or disjoint i32 %.lobit, 2
-  %.not310 = icmp ugt i32 %47, 536870911
-  %52 = zext i1 %.not310 to i32
-  %53 = select i1 %.not309, i32 %52, i32 %51
-  %54 = or disjoint i32 %53, 4
-  br label %60
+48:                                               ; preds = %47
+  %.not309 = icmp ult i32 %45, 1073741824
+  %.lobit = lshr i32 %45, 31
+  %49 = or disjoint i32 %.lobit, 2
+  %.not310 = icmp ugt i32 %45, 536870911
+  %50 = zext i1 %.not310 to i32
+  %51 = select i1 %.not309, i32 %50, i32 %49
+  %52 = or disjoint i32 %51, 4
+  br label %58
 
-55:                                               ; preds = %49
-  %.not306 = icmp ult i32 %47, 67108864
-  br i1 %.not306, label %58, label %56
+53:                                               ; preds = %47
+  %.not306 = icmp ult i32 %45, 67108864
+  br i1 %.not306, label %56, label %54
 
-56:                                               ; preds = %55
-  %.not308 = icmp ugt i32 %47, 134217727
-  %57 = select i1 %.not308, i32 3, i32 2
-  br label %60
+54:                                               ; preds = %53
+  %.not308 = icmp ugt i32 %45, 134217727
+  %55 = select i1 %.not308, i32 3, i32 2
+  br label %58
 
-58:                                               ; preds = %55
-  %.not307 = icmp ugt i32 %47, 33554431
-  %59 = zext i1 %.not307 to i32
-  br label %60
+56:                                               ; preds = %53
+  %.not307 = icmp ugt i32 %45, 33554431
+  %57 = zext i1 %.not307 to i32
+  br label %58
 
-60:                                               ; preds = %56, %58, %50
-  %61 = phi i32 [ %54, %50 ], [ %57, %56 ], [ %59, %58 ]
-  %62 = add nuw nsw i32 %61, 8
-  br label %74
+58:                                               ; preds = %54, %56, %48
+  %59 = phi i32 [ %52, %48 ], [ %55, %54 ], [ %57, %56 ]
+  %60 = add nuw nsw i32 %59, 8
+  br label %72
 
-63:                                               ; preds = %48
-  %.not298 = icmp ult i32 %47, 1048576
-  br i1 %.not298, label %69, label %64
+61:                                               ; preds = %46
+  %.not298 = icmp ult i32 %45, 1048576
+  br i1 %.not298, label %67, label %62
 
-64:                                               ; preds = %63
-  %.not302 = icmp ult i32 %47, 4194304
-  %.not304 = icmp ugt i32 %47, 8388607
-  %65 = select i1 %.not304, i32 3, i32 2
-  %.not303 = icmp ugt i32 %47, 2097151
-  %66 = zext i1 %.not303 to i32
-  %67 = select i1 %.not302, i32 %66, i32 %65
-  %68 = or disjoint i32 %67, 4
-  br label %74
+62:                                               ; preds = %61
+  %.not302 = icmp ult i32 %45, 4194304
+  %.not304 = icmp ugt i32 %45, 8388607
+  %63 = select i1 %.not304, i32 3, i32 2
+  %.not303 = icmp ugt i32 %45, 2097151
+  %64 = zext i1 %.not303 to i32
+  %65 = select i1 %.not302, i32 %64, i32 %63
+  %66 = or disjoint i32 %65, 4
+  br label %72
 
-69:                                               ; preds = %63
-  %.not299 = icmp ult i32 %47, 262144
-  br i1 %.not299, label %72, label %70
+67:                                               ; preds = %61
+  %.not299 = icmp ult i32 %45, 262144
+  br i1 %.not299, label %70, label %68
 
-70:                                               ; preds = %69
-  %.not301 = icmp ugt i32 %47, 524287
-  %71 = select i1 %.not301, i32 3, i32 2
-  br label %74
+68:                                               ; preds = %67
+  %.not301 = icmp ugt i32 %45, 524287
+  %69 = select i1 %.not301, i32 3, i32 2
+  br label %72
 
-72:                                               ; preds = %69
-  %.not300 = icmp ugt i32 %47, 131071
-  %73 = zext i1 %.not300 to i32
-  br label %74
+70:                                               ; preds = %67
+  %.not300 = icmp ugt i32 %45, 131071
+  %71 = zext i1 %.not300 to i32
+  br label %72
 
-74:                                               ; preds = %64, %72, %70, %60
-  %75 = phi i32 [ %62, %60 ], [ %68, %64 ], [ %71, %70 ], [ %73, %72 ]
-  %76 = add nuw nsw i32 %75, 16
-  br label %104
+72:                                               ; preds = %62, %70, %68, %58
+  %73 = phi i32 [ %60, %58 ], [ %66, %62 ], [ %69, %68 ], [ %71, %70 ]
+  %74 = add nuw nsw i32 %73, 16
+  br label %101
 
-77:                                               ; preds = %43
-  %.not282 = icmp ult i32 %47, 256
-  br i1 %.not282, label %92, label %78
+75:                                               ; preds = %42
+  %.not282 = icmp ult i32 %45, 256
+  br i1 %.not282, label %90, label %76
 
-78:                                               ; preds = %77
-  %.not290 = icmp ult i32 %47, 4096
-  br i1 %.not290, label %84, label %79
+76:                                               ; preds = %75
+  %.not290 = icmp ult i32 %45, 4096
+  br i1 %.not290, label %82, label %77
 
-79:                                               ; preds = %78
-  %.not294 = icmp ult i32 %47, 16384
-  %.not296 = icmp ugt i32 %47, 32767
-  %80 = select i1 %.not296, i32 3, i32 2
-  %.not295 = icmp ugt i32 %47, 8191
-  %81 = zext i1 %.not295 to i32
-  %82 = select i1 %.not294, i32 %81, i32 %80
-  %83 = or disjoint i32 %82, 4
-  br label %89
+77:                                               ; preds = %76
+  %.not294 = icmp ult i32 %45, 16384
+  %.not296 = icmp ugt i32 %45, 32767
+  %78 = select i1 %.not296, i32 3, i32 2
+  %.not295 = icmp ugt i32 %45, 8191
+  %79 = zext i1 %.not295 to i32
+  %80 = select i1 %.not294, i32 %79, i32 %78
+  %81 = or disjoint i32 %80, 4
+  br label %87
 
-84:                                               ; preds = %78
-  %.not291 = icmp ult i32 %47, 1024
-  br i1 %.not291, label %87, label %85
+82:                                               ; preds = %76
+  %.not291 = icmp ult i32 %45, 1024
+  br i1 %.not291, label %85, label %83
 
-85:                                               ; preds = %84
-  %.not293 = icmp ugt i32 %47, 2047
-  %86 = select i1 %.not293, i32 3, i32 2
-  br label %89
+83:                                               ; preds = %82
+  %.not293 = icmp ugt i32 %45, 2047
+  %84 = select i1 %.not293, i32 3, i32 2
+  br label %87
 
-87:                                               ; preds = %84
-  %.not292 = icmp ugt i32 %47, 511
-  %88 = zext i1 %.not292 to i32
-  br label %89
+85:                                               ; preds = %82
+  %.not292 = icmp ugt i32 %45, 511
+  %86 = zext i1 %.not292 to i32
+  br label %87
 
-89:                                               ; preds = %85, %87, %79
-  %90 = phi i32 [ %83, %79 ], [ %86, %85 ], [ %88, %87 ]
-  %91 = add nuw nsw i32 %90, 8
-  br label %104
+87:                                               ; preds = %83, %85, %77
+  %88 = phi i32 [ %81, %77 ], [ %84, %83 ], [ %86, %85 ]
+  %89 = add nuw nsw i32 %88, 8
+  br label %101
 
-92:                                               ; preds = %77
-  %.not283 = icmp ult i32 %47, 16
-  br i1 %.not283, label %98, label %93
+90:                                               ; preds = %75
+  %.not283 = icmp ult i32 %45, 16
+  br i1 %.not283, label %96, label %91
 
-93:                                               ; preds = %92
-  %.not287 = icmp ult i32 %47, 64
-  %.not289 = icmp ugt i32 %47, 127
-  %94 = select i1 %.not289, i32 3, i32 2
-  %.not288 = icmp ugt i32 %47, 31
-  %95 = zext i1 %.not288 to i32
-  %96 = select i1 %.not287, i32 %95, i32 %94
-  %97 = or disjoint i32 %96, 4
-  br label %104
+91:                                               ; preds = %90
+  %.not287 = icmp ult i32 %45, 64
+  %.not289 = icmp ugt i32 %45, 127
+  %92 = select i1 %.not289, i32 3, i32 2
+  %.not288 = icmp ugt i32 %45, 31
+  %93 = zext i1 %.not288 to i32
+  %94 = select i1 %.not287, i32 %93, i32 %92
+  %95 = or disjoint i32 %94, 4
+  br label %101
 
-98:                                               ; preds = %92
-  %.not284 = icmp ult i32 %47, 4
-  br i1 %.not284, label %102, label %99
+96:                                               ; preds = %90
+  %.not284 = icmp ult i32 %45, 4
+  br i1 %.not284, label %99, label %97
 
-99:                                               ; preds = %98
-  %.not286 = icmp ugt i32 %47, 7
-  %100 = extractelement <2 x i32> %44, i64 0
-  %101 = icmp slt i32 %100, 4
+97:                                               ; preds = %96
+  %.not286 = icmp ugt i32 %45, 7
+  %98 = icmp slt i32 %.0256325, 4
   br i1 %.not286, label %.thread320, label %.thread
 
-102:                                              ; preds = %98
-  %.not285 = icmp ugt i32 %47, 1
-  %103 = zext i1 %.not285 to i32
-  br label %104
+99:                                               ; preds = %96
+  %.not285 = icmp ugt i32 %45, 1
+  %100 = zext i1 %.not285 to i32
+  br label %101
 
-104:                                              ; preds = %89, %102, %93, %74
-  %105 = phi i32 [ %76, %74 ], [ %91, %89 ], [ %97, %93 ], [ %103, %102 ]
-  switch i32 %105, label %.thread326 [
-    i32 0, label %106
-    i32 1, label %115
-    i32 30, label %238
-    i32 29, label %229
-    i32 4, label %145
-    i32 5, label %157
-    i32 6, label %178
-    i32 7, label %187
-    i32 8, label %197
-    i32 9, label %207
-    i32 28, label %217
+101:                                              ; preds = %87, %99, %91, %72
+  %102 = phi i32 [ %74, %72 ], [ %89, %87 ], [ %95, %91 ], [ %100, %99 ]
+  switch i32 %102, label %.thread326 [
+    i32 0, label %103
+    i32 1, label %111
+    i32 30, label %221
+    i32 29, label %213
+    i32 4, label %140
+    i32 5, label %151
+    i32 6, label %167
+    i32 7, label %175
+    i32 8, label %184
+    i32 9, label %193
+    i32 28, label %202
   ]
 
-106:                                              ; preds = %104
-  %107 = extractelement <2 x i32> %44, i64 0
-  %108 = icmp slt i32 %107, 4
-  br i1 %108, label %247, label %109
+103:                                              ; preds = %101
+  %104 = icmp slt i32 %.0256325, 4
+  br i1 %104, label %229, label %105
 
-109:                                              ; preds = %106
-  %110 = load i32, ptr @hf_ppi_gps_gpsflags_flags, align 4
-  %111 = load i32, ptr @ett_ppi_gps_gpsflags_flags, align 4
-  %112 = extractelement <2 x i32> %44, i64 1
-  %113 = call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef %112, i32 noundef %110, i32 noundef %111, ptr noundef nonnull @dissect_ppi_gps.ppi_antenna_gps_flags, i32 noundef -2147483648) #2
-  %114 = add <2 x i32> %44, <i32 -4, i32 4>
-  br label %247
+105:                                              ; preds = %103
+  %106 = load i32, ptr @hf_ppi_gps_gpsflags_flags, align 4
+  %107 = load i32, ptr @ett_ppi_gps_gpsflags_flags, align 4
+  %108 = call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef %.0257324, i32 noundef %106, i32 noundef %107, ptr noundef nonnull @dissect_ppi_gps.ppi_antenna_gps_flags, i32 noundef -2147483648) #2
+  %109 = add i32 %.0257324, 4
+  %110 = add nsw i32 %.0256325, -4
+  br label %229
 
-115:                                              ; preds = %104
-  %116 = extractelement <2 x i32> %44, i64 0
-  %117 = icmp slt i32 %116, 4
-  br i1 %117, label %247, label %118
+111:                                              ; preds = %101
+  %112 = icmp slt i32 %.0256325, 4
+  br i1 %112, label %229, label %113
 
-118:                                              ; preds = %115
-  %119 = extractelement <2 x i32> %44, i64 1
-  %120 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %119) #2
-  %121 = call double @ppi_fixed3_7_to_gdouble(i32 noundef %120) #2
-  br i1 %.not317, label %125, label %122
+113:                                              ; preds = %111
+  %114 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
+  %115 = call double @ppi_fixed3_7_to_gdouble(i32 noundef %114) #2
+  br i1 %.not317, label %119, label %116
 
-122:                                              ; preds = %118
-  %123 = load i32, ptr @hf_ppi_gps_lat, align 4
-  %124 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %123, ptr noundef %0, i32 noundef %119, i32 noundef 4, double noundef %121) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.120, double noundef %121) #2
-  br label %125
+116:                                              ; preds = %113
+  %117 = load i32, ptr @hf_ppi_gps_lat, align 4
+  %118 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %117, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %115) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.120, double noundef %115) #2
+  br label %119
 
-125:                                              ; preds = %122, %118
-  %126 = add <2 x i32> %44, <i32 -4, i32 4>
-  br label %247
+119:                                              ; preds = %116, %113
+  %120 = add i32 %.0257324, 4
+  %121 = add nsw i32 %.0256325, -4
+  br label %229
 
-.thread:                                          ; preds = %99
-  br i1 %101, label %247, label %127
+.thread:                                          ; preds = %97
+  br i1 %98, label %229, label %122
 
-127:                                              ; preds = %.thread
-  %128 = extractelement <2 x i32> %44, i64 1
-  %129 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %128) #2
-  %130 = call double @ppi_fixed3_7_to_gdouble(i32 noundef %129) #2
-  br i1 %.not317, label %134, label %131
+122:                                              ; preds = %.thread
+  %123 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
+  %124 = call double @ppi_fixed3_7_to_gdouble(i32 noundef %123) #2
+  br i1 %.not317, label %128, label %125
 
-131:                                              ; preds = %127
-  %132 = load i32, ptr @hf_ppi_gps_lon, align 4
-  %133 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %132, ptr noundef %0, i32 noundef %128, i32 noundef 4, double noundef %130) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.121, double noundef %130) #2
-  br label %134
+125:                                              ; preds = %122
+  %126 = load i32, ptr @hf_ppi_gps_lon, align 4
+  %127 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %126, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %124) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.121, double noundef %124) #2
+  br label %128
 
-134:                                              ; preds = %131, %127
-  %135 = add <2 x i32> %44, <i32 -4, i32 4>
-  br label %247
+128:                                              ; preds = %125, %122
+  %129 = add i32 %.0257324, 4
+  %130 = add nsw i32 %.0256325, -4
+  br label %229
 
-.thread320:                                       ; preds = %99
-  br i1 %101, label %247, label %136
+.thread320:                                       ; preds = %97
+  br i1 %98, label %229, label %131
 
-136:                                              ; preds = %.thread320
-  %137 = extractelement <2 x i32> %44, i64 1
-  %138 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %137) #2
-  %139 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %138) #2
-  br i1 %.not317, label %143, label %140
+131:                                              ; preds = %.thread320
+  %132 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
+  %133 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %132) #2
+  br i1 %.not317, label %137, label %134
 
-140:                                              ; preds = %136
-  %141 = load i32, ptr @hf_ppi_gps_alt, align 4
-  %142 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %141, ptr noundef %0, i32 noundef %137, i32 noundef 4, double noundef %139) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.122, double noundef %139) #2
-  br label %143
+134:                                              ; preds = %131
+  %135 = load i32, ptr @hf_ppi_gps_alt, align 4
+  %136 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %135, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %133) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.122, double noundef %133) #2
+  br label %137
 
-143:                                              ; preds = %140, %136
-  %144 = add <2 x i32> %44, <i32 -4, i32 4>
-  br label %247
+137:                                              ; preds = %134, %131
+  %138 = add i32 %.0257324, 4
+  %139 = add nsw i32 %.0256325, -4
+  br label %229
 
-145:                                              ; preds = %104
-  %146 = extractelement <2 x i32> %44, i64 0
-  %147 = icmp slt i32 %146, 4
-  br i1 %147, label %247, label %148
+140:                                              ; preds = %101
+  %141 = icmp slt i32 %.0256325, 4
+  br i1 %141, label %229, label %142
 
-148:                                              ; preds = %145
-  %149 = extractelement <2 x i32> %44, i64 1
-  %150 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %149) #2
-  %151 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %150) #2
-  br i1 %.not317, label %155, label %152
+142:                                              ; preds = %140
+  %143 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
+  %144 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %143) #2
+  br i1 %.not317, label %148, label %145
 
-152:                                              ; preds = %148
-  %153 = load i32, ptr @hf_ppi_gps_alt_gnd, align 4
-  %154 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %153, ptr noundef %0, i32 noundef %149, i32 noundef 4, double noundef %151) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.123, double noundef %151) #2
-  br label %155
+145:                                              ; preds = %142
+  %146 = load i32, ptr @hf_ppi_gps_alt_gnd, align 4
+  %147 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %146, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %144) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.123, double noundef %144) #2
+  br label %148
 
-155:                                              ; preds = %152, %148
-  %156 = add <2 x i32> %44, <i32 -4, i32 4>
-  br label %247
+148:                                              ; preds = %145, %142
+  %149 = add i32 %.0257324, 4
+  %150 = add nsw i32 %.0256325, -4
+  br label %229
 
-157:                                              ; preds = %104
-  %158 = extractelement <2 x i32> %44, i64 0
-  %159 = icmp slt i32 %158, 4
-  br i1 %159, label %247, label %160
+151:                                              ; preds = %101
+  %152 = icmp slt i32 %.0256325, 4
+  br i1 %152, label %229, label %153
 
-160:                                              ; preds = %157
-  %161 = extractelement <2 x i32> %44, i64 1
-  %162 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %161) #2
-  %163 = zext i32 %162 to i64
-  store i64 %163, ptr %5, align 8
+153:                                              ; preds = %151
+  %154 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
+  %155 = zext i32 %154 to i64
+  store i64 %155, ptr %5, align 8
   store i32 0, ptr %6, align 8
-  %164 = icmp ugt i32 %158, 7
-  %165 = and i32 %.0259323, 64
-  %.not313 = icmp eq i32 %165, 0
-  %or.cond319 = or i1 %.not313, %164
-  br i1 %or.cond319, label %166, label %247
+  %156 = icmp ugt i32 %.0256325, 7
+  %157 = and i32 %.0259323, 64
+  %.not313 = icmp eq i32 %157, 0
+  %or.cond319 = or i1 %.not313, %156
+  br i1 %or.cond319, label %158, label %229
 
-166:                                              ; preds = %160
-  br i1 %.not313, label %170, label %167
+158:                                              ; preds = %153
+  br i1 %.not313, label %162, label %159
 
-167:                                              ; preds = %166
-  %168 = add i32 %161, 4
-  %169 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %168) #2
-  store i32 %169, ptr %6, align 8
-  br label %170
+159:                                              ; preds = %158
+  %160 = add i32 %.0257324, 4
+  %161 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %160) #2
+  store i32 %161, ptr %6, align 8
+  br label %162
 
-170:                                              ; preds = %166, %167
-  %.1263 = phi i32 [ 1, %167 ], [ %.0262322, %166 ]
-  %.0261 = phi i32 [ 8, %167 ], [ 4, %166 ]
-  %171 = load i32, ptr @hf_ppi_gps_gpstime, align 4
-  %172 = call ptr @proto_tree_add_time(ptr noundef %18, i32 noundef %171, ptr noundef %0, i32 noundef %161, i32 noundef %.0261, ptr noundef nonnull %5) #2
-  %173 = insertelement <2 x i32> poison, i32 %.0261, i64 0
-  %174 = shufflevector <2 x i32> %173, <2 x i32> poison, <2 x i32> zeroinitializer
-  %175 = add <2 x i32> %44, %174
-  %176 = sub nsw <2 x i32> %44, %174
-  %177 = shufflevector <2 x i32> %176, <2 x i32> %175, <2 x i32> <i32 0, i32 3>
-  br label %247
+162:                                              ; preds = %158, %159
+  %.1263 = phi i32 [ 1, %159 ], [ %.0262322, %158 ]
+  %.0261 = phi i32 [ 8, %159 ], [ 4, %158 ]
+  %163 = load i32, ptr @hf_ppi_gps_gpstime, align 4
+  %164 = call ptr @proto_tree_add_time(ptr noundef %18, i32 noundef %163, ptr noundef %0, i32 noundef %.0257324, i32 noundef %.0261, ptr noundef nonnull %5) #2
+  %165 = add i32 %.0261, %.0257324
+  %166 = sub nsw i32 %.0256325, %.0261
+  br label %229
 
-178:                                              ; preds = %104
-  %179 = extractelement <2 x i32> %44, i64 0
-  %180 = icmp slt i32 %179, 4
-  %181 = icmp ne i32 %.0262322, 0
-  %or.cond3 = select i1 %180, i1 true, i1 %181
-  br i1 %or.cond3, label %247, label %182
+167:                                              ; preds = %101
+  %168 = icmp slt i32 %.0256325, 4
+  %169 = icmp ne i32 %.0262322, 0
+  %or.cond3 = select i1 %168, i1 true, i1 %169
+  br i1 %or.cond3, label %229, label %170
 
-182:                                              ; preds = %178
-  %183 = load i32, ptr @hf_ppi_gps_fractime, align 4
-  %184 = extractelement <2 x i32> %44, i64 1
-  %185 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %183, ptr noundef %0, i32 noundef %184, i32 noundef 4, i32 noundef -2147483648) #2
-  %186 = add <2 x i32> %44, <i32 -4, i32 4>
-  br label %247
+170:                                              ; preds = %167
+  %171 = load i32, ptr @hf_ppi_gps_fractime, align 4
+  %172 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %171, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, i32 noundef -2147483648) #2
+  %173 = add i32 %.0257324, 4
+  %174 = add nsw i32 %.0256325, -4
+  br label %229
 
-187:                                              ; preds = %104
-  %188 = extractelement <2 x i32> %44, i64 0
-  %189 = icmp slt i32 %188, 4
-  br i1 %189, label %247, label %190
+175:                                              ; preds = %101
+  %176 = icmp slt i32 %.0256325, 4
+  br i1 %176, label %229, label %177
 
-190:                                              ; preds = %187
-  %191 = extractelement <2 x i32> %44, i64 1
-  %192 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %191) #2
-  %193 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %192) #2
-  %194 = load i32, ptr @hf_ppi_gps_eph, align 4
-  %195 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %194, ptr noundef %0, i32 noundef %191, i32 noundef 4, double noundef %193) #2
-  %196 = add <2 x i32> %44, <i32 -4, i32 4>
-  br label %247
+177:                                              ; preds = %175
+  %178 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
+  %179 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %178) #2
+  %180 = load i32, ptr @hf_ppi_gps_eph, align 4
+  %181 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %180, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %179) #2
+  %182 = add i32 %.0257324, 4
+  %183 = add nsw i32 %.0256325, -4
+  br label %229
 
-197:                                              ; preds = %104
-  %198 = extractelement <2 x i32> %44, i64 0
-  %199 = icmp slt i32 %198, 4
-  br i1 %199, label %247, label %200
+184:                                              ; preds = %101
+  %185 = icmp slt i32 %.0256325, 4
+  br i1 %185, label %229, label %186
 
-200:                                              ; preds = %197
-  %201 = extractelement <2 x i32> %44, i64 1
-  %202 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %201) #2
-  %203 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %202) #2
-  %204 = load i32, ptr @hf_ppi_gps_epv, align 4
-  %205 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %204, ptr noundef %0, i32 noundef %201, i32 noundef 4, double noundef %203) #2
-  %206 = add <2 x i32> %44, <i32 -4, i32 4>
-  br label %247
+186:                                              ; preds = %184
+  %187 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
+  %188 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %187) #2
+  %189 = load i32, ptr @hf_ppi_gps_epv, align 4
+  %190 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %189, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %188) #2
+  %191 = add i32 %.0257324, 4
+  %192 = add nsw i32 %.0256325, -4
+  br label %229
 
-207:                                              ; preds = %104
-  %208 = extractelement <2 x i32> %44, i64 0
-  %209 = icmp slt i32 %208, 4
-  br i1 %209, label %247, label %210
+193:                                              ; preds = %101
+  %194 = icmp slt i32 %.0256325, 4
+  br i1 %194, label %229, label %195
 
-210:                                              ; preds = %207
-  %211 = extractelement <2 x i32> %44, i64 1
-  %212 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %211) #2
-  %213 = call double @ppi_ns_counter_to_gdouble(i32 noundef %212) #2
-  %214 = load i32, ptr @hf_ppi_gps_ept, align 4
-  %215 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %214, ptr noundef %0, i32 noundef %211, i32 noundef 4, double noundef %213) #2
-  %216 = add <2 x i32> %44, <i32 -4, i32 4>
-  br label %247
+195:                                              ; preds = %193
+  %196 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
+  %197 = call double @ppi_ns_counter_to_gdouble(i32 noundef %196) #2
+  %198 = load i32, ptr @hf_ppi_gps_ept, align 4
+  %199 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %198, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %197) #2
+  %200 = add i32 %.0257324, 4
+  %201 = add nsw i32 %.0256325, -4
+  br label %229
 
-217:                                              ; preds = %104
-  %218 = extractelement <2 x i32> %44, i64 0
-  %219 = icmp slt i32 %218, 32
-  br i1 %219, label %247, label %220
+202:                                              ; preds = %101
+  %203 = icmp slt i32 %.0256325, 32
+  br i1 %203, label %229, label %204
 
-220:                                              ; preds = %217
-  br i1 %.not317, label %227, label %221
+204:                                              ; preds = %202
+  br i1 %.not317, label %210, label %205
 
-221:                                              ; preds = %220
-  %222 = load ptr, ptr %41, align 8
-  %223 = extractelement <2 x i32> %44, i64 1
-  %224 = call ptr @tvb_format_stringzpad(ptr noundef %222, ptr noundef %0, i32 noundef %223, i32 noundef 32) #2
-  %225 = load i32, ptr @hf_ppi_gps_descstr, align 4
-  %226 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %225, ptr noundef %0, i32 noundef %223, i32 noundef 32, ptr noundef %224) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.124, ptr noundef %224) #2
-  br label %227
+205:                                              ; preds = %204
+  %206 = load ptr, ptr %41, align 8
+  %207 = call ptr @tvb_format_stringzpad(ptr noundef %206, ptr noundef %0, i32 noundef %.0257324, i32 noundef 32) #2
+  %208 = load i32, ptr @hf_ppi_gps_descstr, align 4
+  %209 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %208, ptr noundef %0, i32 noundef %.0257324, i32 noundef 32, ptr noundef %207) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.124, ptr noundef %207) #2
+  br label %210
 
-227:                                              ; preds = %221, %220
-  %228 = add <2 x i32> %44, <i32 -32, i32 32>
-  br label %247
+210:                                              ; preds = %205, %204
+  %211 = add i32 %.0257324, 32
+  %212 = add nsw i32 %.0256325, -32
+  br label %229
 
-229:                                              ; preds = %104
-  %230 = extractelement <2 x i32> %44, i64 0
-  %231 = icmp slt i32 %230, 4
-  br i1 %231, label %247, label %232
+213:                                              ; preds = %101
+  %214 = icmp slt i32 %.0256325, 4
+  br i1 %214, label %229, label %215
 
-232:                                              ; preds = %229
-  %233 = extractelement <2 x i32> %44, i64 1
-  %234 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %233) #2
-  %235 = load i32, ptr @hf_ppi_gps_appspecific_num, align 4
-  %236 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %235, ptr noundef %0, i32 noundef %233, i32 noundef 4, i32 noundef %234) #2
-  %237 = add <2 x i32> %44, <i32 -4, i32 4>
-  br label %247
+215:                                              ; preds = %213
+  %216 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
+  %217 = load i32, ptr @hf_ppi_gps_appspecific_num, align 4
+  %218 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %217, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, i32 noundef %216) #2
+  %219 = add i32 %.0257324, 4
+  %220 = add nsw i32 %.0256325, -4
+  br label %229
 
-238:                                              ; preds = %104
-  %239 = extractelement <2 x i32> %44, i64 0
-  %240 = icmp slt i32 %239, 60
-  br i1 %240, label %247, label %241
+221:                                              ; preds = %101
+  %222 = icmp slt i32 %.0256325, 60
+  br i1 %222, label %229, label %223
 
-241:                                              ; preds = %238
-  %242 = load i32, ptr @hf_ppi_gps_appspecific_data, align 4
-  %243 = extractelement <2 x i32> %44, i64 1
-  %244 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %242, ptr noundef %0, i32 noundef %243, i32 noundef 60, i32 noundef 0) #2
-  %245 = add <2 x i32> %44, <i32 -60, i32 60>
-  br label %247
+223:                                              ; preds = %221
+  %224 = load i32, ptr @hf_ppi_gps_appspecific_data, align 4
+  %225 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %224, ptr noundef %0, i32 noundef %.0257324, i32 noundef 60, i32 noundef 0) #2
+  %226 = add i32 %.0257324, 60
+  %227 = add nsw i32 %.0256325, -60
+  br label %229
 
-.thread326:                                       ; preds = %104
-  %246 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %39, ptr noundef nonnull @ei_ppi_gps_present_bit, ptr noundef nonnull @.str.125, i32 noundef %105) #2
+.thread326:                                       ; preds = %101
+  %228 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %39, ptr noundef nonnull @ei_ppi_gps_present_bit, ptr noundef nonnull @.str.125, i32 noundef %102) #2
   br label %._crit_edge
 
-247:                                              ; preds = %160, %109, %125, %134, %143, %155, %170, %182, %190, %200, %210, %227, %232, %241, %106, %115, %.thread, %.thread320, %145, %157, %178, %187, %197, %207, %217, %229, %238
-  %.2 = phi i32 [ %.0262322, %238 ], [ %.0262322, %241 ], [ %.0262322, %229 ], [ %.0262322, %232 ], [ %.0262322, %217 ], [ %.0262322, %227 ], [ %.0262322, %207 ], [ %.0262322, %210 ], [ %.0262322, %197 ], [ %.0262322, %200 ], [ %.0262322, %187 ], [ %.0262322, %190 ], [ %.0262322, %178 ], [ 0, %182 ], [ %.0262322, %157 ], [ %.1263, %170 ], [ %.0262322, %145 ], [ %.0262322, %155 ], [ %.0262322, %.thread320 ], [ %.0262322, %143 ], [ %.0262322, %.thread ], [ %.0262322, %134 ], [ %.0262322, %115 ], [ %.0262322, %125 ], [ %.0262322, %106 ], [ %.0262322, %109 ], [ %.0262322, %160 ]
-  %248 = phi <2 x i32> [ %44, %238 ], [ %245, %241 ], [ %44, %229 ], [ %237, %232 ], [ %44, %217 ], [ %228, %227 ], [ %44, %207 ], [ %216, %210 ], [ %44, %197 ], [ %206, %200 ], [ %44, %187 ], [ %196, %190 ], [ %44, %178 ], [ %186, %182 ], [ %44, %157 ], [ %177, %170 ], [ %44, %145 ], [ %156, %155 ], [ %44, %.thread320 ], [ %144, %143 ], [ %44, %.thread ], [ %135, %134 ], [ %44, %115 ], [ %126, %125 ], [ %44, %106 ], [ %114, %109 ], [ %44, %160 ]
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %._crit_edge, label %43, !llvm.loop !4
+229:                                              ; preds = %153, %105, %119, %128, %137, %148, %162, %170, %177, %186, %195, %210, %215, %223, %103, %111, %.thread, %.thread320, %140, %151, %167, %175, %184, %193, %202, %213, %221
+  %.2 = phi i32 [ %.0262322, %221 ], [ %.0262322, %223 ], [ %.0262322, %213 ], [ %.0262322, %215 ], [ %.0262322, %202 ], [ %.0262322, %210 ], [ %.0262322, %193 ], [ %.0262322, %195 ], [ %.0262322, %184 ], [ %.0262322, %186 ], [ %.0262322, %175 ], [ %.0262322, %177 ], [ %.0262322, %167 ], [ 0, %170 ], [ %.0262322, %151 ], [ %.1263, %162 ], [ %.0262322, %140 ], [ %.0262322, %148 ], [ %.0262322, %.thread320 ], [ %.0262322, %137 ], [ %.0262322, %.thread ], [ %.0262322, %128 ], [ %.0262322, %111 ], [ %.0262322, %119 ], [ %.0262322, %103 ], [ %.0262322, %105 ], [ %.0262322, %153 ]
+  %.1258 = phi i32 [ %.0257324, %221 ], [ %226, %223 ], [ %.0257324, %213 ], [ %219, %215 ], [ %.0257324, %202 ], [ %211, %210 ], [ %.0257324, %193 ], [ %200, %195 ], [ %.0257324, %184 ], [ %191, %186 ], [ %.0257324, %175 ], [ %182, %177 ], [ %.0257324, %167 ], [ %173, %170 ], [ %.0257324, %151 ], [ %165, %162 ], [ %.0257324, %140 ], [ %149, %148 ], [ %.0257324, %.thread320 ], [ %138, %137 ], [ %.0257324, %.thread ], [ %129, %128 ], [ %.0257324, %111 ], [ %120, %119 ], [ %.0257324, %103 ], [ %109, %105 ], [ %.0257324, %153 ]
+  %.1 = phi i32 [ %.0256325, %221 ], [ %227, %223 ], [ %.0256325, %213 ], [ %220, %215 ], [ %.0256325, %202 ], [ %212, %210 ], [ %.0256325, %193 ], [ %201, %195 ], [ %.0256325, %184 ], [ %192, %186 ], [ %.0256325, %175 ], [ %183, %177 ], [ %.0256325, %167 ], [ %174, %170 ], [ %.0256325, %151 ], [ %166, %162 ], [ %.0256325, %140 ], [ %150, %148 ], [ %.0256325, %.thread320 ], [ %139, %137 ], [ %.0256325, %.thread ], [ %130, %128 ], [ %.0256325, %111 ], [ %121, %119 ], [ %.0256325, %103 ], [ %110, %105 ], [ %.0256325, %153 ]
+  %.not = icmp eq i32 %44, 0
+  br i1 %.not, label %._crit_edge, label %42, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %247, %.thread326, %36
-  %249 = call i32 @tvb_captured_length(ptr noundef %0) #2
-  br label %250
+._crit_edge:                                      ; preds = %229, %.thread326, %36
+  %230 = call i32 @tvb_captured_length(ptr noundef %0) #2
+  br label %231
 
-250:                                              ; preds = %._crit_edge, %34, %30
-  %.0 = phi i32 [ 2, %30 ], [ 2, %34 ], [ %249, %._crit_edge ]
+231:                                              ; preds = %._crit_edge, %34, %30
+  %.0 = phi i32 [ 2, %30 ], [ 2, %34 ], [ %230, %._crit_edge ]
   ret i32 %.0
 }
 

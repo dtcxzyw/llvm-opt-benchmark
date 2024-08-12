@@ -4073,60 +4073,64 @@ declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_ad
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL12getDBcontextP6pj_ctx(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.dropbox::oxygen::nn", align 16
+  %3 = alloca %"class.dropbox::oxygen::nn", align 8
   %4 = invoke noundef ptr @_ZN6pj_ctx15get_cpp_contextEv(ptr noundef nonnull align 8 dereferenceable(516) %1)
-          to label %5 unwind label %7
+          to label %5 unwind label %10
 
 5:                                                ; preds = %2
   invoke void @_ZN14projCppContext18getDatabaseContextEv(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn") align 8 %3, ptr noundef nonnull align 8 dereferenceable(272) %4)
-          to label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exit unwind label %7
+          to label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exit unwind label %10
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exit: ; preds = %5
-  %6 = load <2 x ptr>, ptr %3, align 16
-  store <2 x ptr> %6, ptr %0, align 8
-  br label %22
+  %6 = load ptr, ptr %3, align 8
+  store ptr %6, ptr %0, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %7, align 8
+  br label %25
 
-7:                                                ; preds = %5, %2
-  %8 = landingpad { ptr, i32 }
+10:                                               ; preds = %5, %2
+  %11 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
-  %9 = extractvalue { ptr, i32 } %8, 1
-  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
-  %11 = icmp eq i32 %9, %10
-  br i1 %11, label %12, label %23
+  %12 = extractvalue { ptr, i32 } %11, 1
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
+  %14 = icmp eq i32 %12, %13
+  br i1 %14, label %15, label %26
 
-12:                                               ; preds = %7
-  %13 = extractvalue { ptr, i32 } %8, 0
-  %14 = call ptr @__cxa_begin_catch(ptr %13) #23
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %14) #23
-  invoke void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull @.str.21, ptr noundef %18)
-          to label %19 unwind label %20
+15:                                               ; preds = %10
+  %16 = extractvalue { ptr, i32 } %11, 0
+  %17 = call ptr @__cxa_begin_catch(ptr %16) #23
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %17) #23
+  invoke void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull @.str.21, ptr noundef %21)
+          to label %22 unwind label %23
 
-19:                                               ; preds = %12
+22:                                               ; preds = %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   call void @__cxa_end_catch()
-  br label %22
+  br label %25
 
-20:                                               ; preds = %12
-  %21 = landingpad { ptr, i32 }
+23:                                               ; preds = %15
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %23 unwind label %24
+          to label %26 unwind label %27
 
-22:                                               ; preds = %19, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exit
+25:                                               ; preds = %22, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exit
   ret void
 
-23:                                               ; preds = %20, %7
-  %.merged = phi { ptr, i32 } [ %21, %20 ], [ %8, %7 ]
+26:                                               ; preds = %23, %10
+  %.merged = phi { ptr, i32 } [ %24, %23 ], [ %11, %10 ]
   resume { ptr, i32 } %.merged
 
-24:                                               ; preds = %20
-  %25 = landingpad { ptr, i32 }
+27:                                               ; preds = %23
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #24
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #24
   unreachable
 }
 

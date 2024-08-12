@@ -136,95 +136,99 @@ define void @_ZN7mitsuba6Spiral10next_blockEv(ptr dead_on_unwind noalias nocaptu
   %8 = icmp eq i32 %5, %7
   %9 = getelementptr inbounds i8, ptr %1, i64 100
   %10 = load i32, ptr %9, align 4
-  br i1 %8, label %12, label %..critedge_crit_edge
+  br i1 %8, label %11, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %2
   %.phi.trans.insert215 = getelementptr inbounds i8, ptr %1, i64 80
-  %11 = load <2 x i32>, ptr %.phi.trans.insert215, align 8
+  %.pre216 = load i32, ptr %.phi.trans.insert215, align 8
+  %.phi.trans.insert217 = getelementptr inbounds i8, ptr %1, i64 84
+  %.pre218 = load i32, ptr %.phi.trans.insert217, align 4
   br label %.critedge
 
-12:                                               ; preds = %2
-  %13 = icmp ugt i32 %10, 1
-  br i1 %13, label %14, label %25
+11:                                               ; preds = %2
+  %12 = icmp ugt i32 %10, 1
+  br i1 %12, label %13, label %25
 
-14:                                               ; preds = %12
-  %15 = add i32 %10, -1
-  store i32 %15, ptr %9, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 88
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 72
-  %18 = load <2 x i32>, ptr %17, align 8
-  %19 = lshr <2 x i32> %18, <i32 1, i32 1>
-  %20 = getelementptr inbounds i8, ptr %1, i64 80
-  %21 = extractelement <2 x i32> %19, i64 1
+13:                                               ; preds = %11
+  %14 = add i32 %10, -1
+  store i32 %14, ptr %9, align 4
+  %15 = getelementptr inbounds i8, ptr %1, i64 88
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 72
+  %17 = load i32, ptr %16, align 8
+  %18 = lshr i32 %17, 1
+  %19 = getelementptr inbounds i8, ptr %1, i64 76
+  %20 = load i32, ptr %19, align 4
+  %21 = lshr i32 %20, 1
+  %22 = getelementptr inbounds i8, ptr %1, i64 80
   %.sroa.29.0.insert.ext.i = zext nneg i32 %21 to i64
   %.sroa.29.0.insert.shift.i = shl nuw nsw i64 %.sroa.29.0.insert.ext.i, 32
-  %22 = extractelement <2 x i32> %19, i64 0
-  %.sroa.08.0.insert.ext.i = zext nneg i32 %22 to i64
+  %.sroa.08.0.insert.ext.i = zext nneg i32 %18 to i64
   %.sroa.08.0.insert.insert.i = or disjoint i64 %.sroa.29.0.insert.shift.i, %.sroa.08.0.insert.ext.i
-  store i64 %.sroa.08.0.insert.insert.i, ptr %20, align 8
+  store i64 %.sroa.08.0.insert.insert.i, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 108
   store i32 1, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %1, i64 112
   store i32 1, ptr %24, align 8
   br label %.critedge
 
-25:                                               ; preds = %12
+25:                                               ; preds = %11
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 -1, ptr %26, align 4
-  br label %94
+  br label %97
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %14
-  %27 = phi i32 [ %15, %14 ], [ %10, %..critedge_crit_edge ]
-  %28 = phi i32 [ 0, %14 ], [ %5, %..critedge_crit_edge ]
-  %29 = phi <2 x i32> [ %19, %14 ], [ %11, %..critedge_crit_edge ]
-  %30 = add i32 %27, -1
+.critedge:                                        ; preds = %..critedge_crit_edge, %13
+  %.promoted213 = phi i32 [ %21, %13 ], [ %.pre218, %..critedge_crit_edge ]
+  %27 = phi i32 [ %18, %13 ], [ %.pre216, %..critedge_crit_edge ]
+  %28 = phi i32 [ %14, %13 ], [ %10, %..critedge_crit_edge ]
+  %29 = phi i32 [ 0, %13 ], [ %5, %..critedge_crit_edge ]
+  %30 = add i32 %28, -1
   %31 = mul i32 %30, %7
-  %32 = add i32 %31, %28
+  %32 = add i32 %31, %29
   %33 = getelementptr inbounds i8, ptr %1, i64 80
   %34 = getelementptr inbounds i8, ptr %1, i64 104
   %35 = getelementptr inbounds i8, ptr %1, i64 84
   %36 = load i32, ptr %34, align 8
-  %37 = insertelement <2 x i32> poison, i32 %36, i64 0
-  %38 = shufflevector <2 x i32> %37, <2 x i32> poison, <2 x i32> zeroinitializer
-  %39 = mul <2 x i32> %38, %29
-  %40 = getelementptr inbounds i8, ptr %1, i64 56
-  %41 = load i32, ptr %40, align 8
-  %42 = extractelement <2 x i32> %39, i64 0
-  %43 = sub i32 %41, %42
-  %44 = getelementptr inbounds i8, ptr %1, i64 60
-  %45 = load i32, ptr %44, align 4
-  %46 = extractelement <2 x i32> %39, i64 1
-  %47 = sub i32 %45, %46
-  %..i.i = tail call noundef i32 @llvm.umin.i32(i32 %43, i32 %36)
-  %..i.i.c = tail call noundef i32 @llvm.umin.i32(i32 %47, i32 %36)
-  %48 = add i32 %28, 1
-  store i32 %48, ptr %4, align 4
-  %.not = icmp eq i32 %48, %7
+  %37 = mul i32 %36, %27
+  %38 = mul i32 %36, %.promoted213
+  %39 = getelementptr inbounds i8, ptr %1, i64 56
+  %40 = load i32, ptr %39, align 8
+  %41 = sub i32 %40, %37
+  %42 = getelementptr inbounds i8, ptr %1, i64 60
+  %43 = load i32, ptr %42, align 4
+  %44 = sub i32 %43, %38
+  %..i.i = tail call noundef i32 @llvm.umin.i32(i32 %41, i32 %36)
+  %..i.i.c = tail call noundef i32 @llvm.umin.i32(i32 %44, i32 %36)
+  %45 = add i32 %29, 1
+  store i32 %45, ptr %4, align 4
+  %.not = icmp eq i32 %45, %7
   br i1 %.not, label %.critedge208, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader: ; preds = %.critedge
-  %49 = getelementptr inbounds i8, ptr %1, i64 88
-  %50 = getelementptr inbounds i8, ptr %1, i64 108
-  %51 = getelementptr inbounds i8, ptr %1, i64 72
-  %52 = load <2 x i32>, ptr %51, align 8
-  %.promoted = load i32, ptr %49, align 8
+  %46 = getelementptr inbounds i8, ptr %1, i64 88
+  %47 = getelementptr inbounds i8, ptr %1, i64 108
+  %48 = getelementptr inbounds i8, ptr %1, i64 72
+  %49 = load i32, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 76
+  %51 = load i32, ptr %50, align 4
+  %.promoted = load i32, ptr %46, align 8
   %.promoted211 = load i32, ptr %33, align 8
-  %.promoted212 = load i32, ptr %50, align 4
-  %53 = getelementptr inbounds i8, ptr %1, i64 112
-  %.promoted214 = load i32, ptr %53, align 8
-  %54 = extractelement <2 x i32> %29, i64 1
-  %.sroa.0224.0.vec.extract = extractelement <2 x i32> %52, i64 0
-  %.sroa.0224.4.vec.extract = extractelement <2 x i32> %52, i64 1
+  %.promoted212 = load i32, ptr %47, align 4
+  %52 = getelementptr inbounds i8, ptr %1, i64 112
+  %.promoted214 = load i32, ptr %52, align 8
+  %.promoted232 = load i32, ptr %35, align 4
+  %.promoted233 = load i32, ptr %33, align 8
   br label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit
 
-_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit: ; preds = %.critedge221, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader
-  %55 = phi i32 [ %.promoted214, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %78, %.critedge221 ]
-  %56 = phi i32 [ %54, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %69, %.critedge221 ]
-  %57 = phi i32 [ %.promoted212, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %79, %.critedge221 ]
-  %58 = phi i32 [ %.promoted211, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %70, %.critedge221 ]
-  %59 = phi i32 [ %.promoted, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %80, %.critedge221 ]
+_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit: ; preds = %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.backedge, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader
+  %53 = phi i32 [ %.promoted233, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %69, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.backedge ]
+  %54 = phi i32 [ %.promoted232, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %70, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.backedge ]
+  %55 = phi i32 [ %.promoted214, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %80, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.backedge ]
+  %56 = phi i32 [ %.promoted213, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %71, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.backedge ]
+  %57 = phi i32 [ %.promoted212, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %81, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.backedge ]
+  %58 = phi i32 [ %.promoted211, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %72, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.backedge ]
+  %59 = phi i32 [ %.promoted, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.preheader ], [ %82, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.backedge ]
   switch i32 %59, label %68 [
     i32 0, label %60
     i32 1, label %62
@@ -253,61 +257,71 @@ _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit: ; preds = %.critedge221
   br label %68
 
 68:                                               ; preds = %66, %64, %62, %60, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit
-  %69 = phi i32 [ %67, %66 ], [ %56, %64 ], [ %63, %62 ], [ %56, %60 ], [ %56, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
-  %70 = phi i32 [ %58, %66 ], [ %65, %64 ], [ %58, %62 ], [ %61, %60 ], [ %58, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
-  %71 = add i32 %57, -1
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %.critedge221
+  %69 = phi i32 [ %53, %66 ], [ %65, %64 ], [ %53, %62 ], [ %61, %60 ], [ %53, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
+  %70 = phi i32 [ %67, %66 ], [ %54, %64 ], [ %63, %62 ], [ %54, %60 ], [ %54, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
+  %71 = phi i32 [ %67, %66 ], [ %56, %64 ], [ %63, %62 ], [ %56, %60 ], [ %56, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
+  %72 = phi i32 [ %58, %66 ], [ %65, %64 ], [ %58, %62 ], [ %61, %60 ], [ %58, %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit ]
+  %73 = add i32 %57, -1
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %.critedge221
 
-73:                                               ; preds = %68
-  %74 = add nsw i32 %59, 1
-  %75 = srem i32 %74, 4
-  store i32 %75, ptr %49, align 8
-  switch i32 %75, label %.critedge221 [
-    i32 2, label %76
-    i32 0, label %76
+75:                                               ; preds = %68
+  %76 = add nsw i32 %59, 1
+  %77 = srem i32 %76, 4
+  store i32 %77, ptr %46, align 8
+  switch i32 %77, label %.critedge221 [
+    i32 2, label %78
+    i32 0, label %78
   ]
 
-76:                                               ; preds = %73, %73
-  %77 = add i32 %55, 1
-  store i32 %77, ptr %53, align 8
+78:                                               ; preds = %75, %75
+  %79 = add i32 %55, 1
+  store i32 %79, ptr %52, align 8
   br label %.critedge221
 
-.critedge221:                                     ; preds = %76, %73, %68
-  %78 = phi i32 [ %55, %68 ], [ %55, %73 ], [ %77, %76 ]
-  %79 = phi i32 [ %71, %68 ], [ %55, %73 ], [ %77, %76 ]
-  %80 = phi i32 [ %59, %68 ], [ %75, %73 ], [ %75, %76 ]
-  %81 = load <2 x i32>, ptr %33, align 8
-  %82 = icmp slt <2 x i32> %81, zeroinitializer
-  %83 = extractelement <2 x i1> %82, i64 0
-  %84 = icmp uge i32 %70, %.sroa.0224.0.vec.extract
-  %85 = or i1 %84, %83
-  %86 = extractelement <2 x i1> %82, i64 1
-  %87 = icmp uge i32 %69, %.sroa.0224.4.vec.extract
-  %88 = or i1 %87, %86
-  %or.cond = select i1 %85, i1 true, i1 %88
-  br i1 %or.cond, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit, label %.critedge208.loopexit, !llvm.loop !4
+.critedge221:                                     ; preds = %78, %75, %68
+  %80 = phi i32 [ %55, %68 ], [ %55, %75 ], [ %79, %78 ]
+  %81 = phi i32 [ %73, %68 ], [ %55, %75 ], [ %79, %78 ]
+  %82 = phi i32 [ %59, %68 ], [ %77, %75 ], [ %77, %78 ]
+  %83 = icmp uge i32 %72, %49
+  %.sroa.0142.0.extract.trunc = icmp slt i32 %69, 0
+  %84 = or i1 %83, %.sroa.0142.0.extract.trunc
+  br i1 %84, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.backedge, label %85
 
-.critedge208.loopexit:                            ; preds = %.critedge221
-  store i32 %79, ptr %50, align 4
+85:                                               ; preds = %.critedge221
+  %86 = icmp uge i32 %71, %51
+  %.sroa.2143.0.extract.trunc = icmp slt i32 %70, 0
+  %87 = or i1 %86, %.sroa.2143.0.extract.trunc
+  br i1 %87, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.backedge, label %.critedge208.loopexit
+
+_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.backedge: ; preds = %85, %.critedge221
+  br label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit, !llvm.loop !4
+
+.critedge208.loopexit:                            ; preds = %85
+  store i32 %81, ptr %47, align 4
   br label %.critedge208
 
 .critedge208:                                     ; preds = %.critedge208.loopexit, %.critedge
-  %89 = getelementptr inbounds i8, ptr %1, i64 64
-  %90 = load <2 x i32>, ptr %89, align 8
-  %91 = add <2 x i32> %90, %39
-  store <2 x i32> %91, ptr %0, align 4
-  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  %88 = getelementptr inbounds i8, ptr %1, i64 64
+  %89 = load i32, ptr %88, align 8
+  %90 = add i32 %89, %37
+  %91 = getelementptr inbounds i8, ptr %1, i64 68
+  %92 = load i32, ptr %91, align 4
+  %93 = add i32 %92, %38
+  store i32 %90, ptr %0, align 4
+  %94 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %93, ptr %94, align 4
+  %95 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.0152.sroa.2.0.insert.ext = zext i32 %..i.i.c to i64
   %.sroa.0152.sroa.2.0.insert.shift = shl nuw i64 %.sroa.0152.sroa.2.0.insert.ext, 32
   %.sroa.0152.sroa.0.0.insert.ext = zext i32 %..i.i to i64
   %.sroa.0152.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0152.sroa.2.0.insert.shift, %.sroa.0152.sroa.0.0.insert.ext
-  store i64 %.sroa.0152.sroa.0.0.insert.insert, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %32, ptr %93, align 4
-  br label %94
+  store i64 %.sroa.0152.sroa.0.0.insert.insert, ptr %95, align 4
+  %96 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %32, ptr %96, align 4
+  br label %97
 
-94:                                               ; preds = %.critedge208, %25
+97:                                               ; preds = %.critedge208, %25
   tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   ret void
 }

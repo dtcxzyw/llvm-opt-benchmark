@@ -584,75 +584,83 @@ define hidden void @_ZN22CompactHashtableWriter4dumpEP22SimpleCompactHashtablePK
   %11 = load i32, ptr %10, align 4
   %12 = load i64, ptr @SharedBaseAddress, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load <2 x i32>, ptr %0, align 8
-  %17 = shufflevector <2 x i32> %16, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
-  %19 = load <2 x ptr>, ptr %14, align 8
-  %20 = getelementptr i8, <2 x ptr> %19, <2 x i64> <i64 4, i64 4>
-  store <2 x i32> %17, ptr %15, align 8
+  %14 = load i32, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %16, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 %14, ptr %24, align 4
   store ptr %13, ptr %1, align 8
-  store <2 x ptr> %20, ptr %18, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr %19, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  store ptr %22, ptr %26, align 8
   call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #14
-  %21 = getelementptr inbounds i8, ptr %5, i64 72
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 80
-  store i8 0, ptr %22, align 8
+  %27 = getelementptr inbounds i8, ptr %5, i64 72
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %5, i64 80
+  store i8 0, ptr %28, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %5, align 8
-  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %23, null
-  br i1 %.not, label %.thread, label %24
+  %29 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not = icmp eq ptr %29, null
+  br i1 %.not, label %.thread, label %30
 
 .thread:                                          ; preds = %3
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %5, align 8
   br label %_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
 
-24:                                               ; preds = %3
-  %25 = add nsw i32 %11, %9
-  %26 = load i32, ptr %0, align 8
-  %27 = icmp sgt i32 %26, 0
-  %28 = sitofp i32 %25 to double
-  %29 = uitofp nneg i32 %26 to double
-  %30 = fdiv double %28, %29
-  %.0 = select i1 %27, double %30, double 0.000000e+00
-  %31 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.4, ptr noundef %2, i64 noundef %12) #14
+30:                                               ; preds = %3
+  %31 = add nsw i32 %11, %9
   %32 = load i32, ptr %0, align 8
-  %33 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.5, i32 noundef %32) #14
-  %34 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.6, i32 noundef %25) #14
-  %35 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.7, double noundef %.0) #14
-  %36 = call noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
-  %37 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.8, double noundef %36) #14
-  %38 = call noundef double @_ZNK6AbsSeq8varianceEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
-  %39 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.9, double noundef %38) #14
-  %40 = call noundef double @_ZNK6AbsSeq2sdEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
-  %41 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.10, double noundef %40) #14
-  %42 = getelementptr inbounds i8, ptr %4, i64 64
-  %43 = load double, ptr %42, align 8
-  %44 = fptosi double %43 to i32
-  %45 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.11, i32 noundef %44) #14
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
-  %47 = load i32, ptr %46, align 8
-  %48 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.12, i32 noundef %47) #14
-  %49 = getelementptr inbounds i8, ptr %0, i64 12
-  %50 = load i32, ptr %49, align 4
-  %51 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.13, i32 noundef %50) #14
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = icmp sgt i32 %32, 0
+  %34 = sitofp i32 %31 to double
+  %35 = uitofp nneg i32 %32 to double
+  %36 = fdiv double %34, %35
+  %.0 = select i1 %33, double %36, double 0.000000e+00
+  %37 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.4, ptr noundef %2, i64 noundef %12) #14
+  %38 = load i32, ptr %0, align 8
+  %39 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.5, i32 noundef %38) #14
+  %40 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.6, i32 noundef %31) #14
+  %41 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.7, double noundef %.0) #14
+  %42 = call noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
+  %43 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.8, double noundef %42) #14
+  %44 = call noundef double @_ZNK6AbsSeq8varianceEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
+  %45 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.9, double noundef %44) #14
+  %46 = call noundef double @_ZNK6AbsSeq2sdEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
+  %47 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.10, double noundef %46) #14
+  %48 = getelementptr inbounds i8, ptr %4, i64 64
+  %49 = load double, ptr %48, align 8
+  %50 = fptosi double %49 to i32
+  %51 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.11, i32 noundef %50) #14
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
   %53 = load i32, ptr %52, align 8
-  %54 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.14, i32 noundef %53) #14
-  %.pre = load i8, ptr %22, align 8
-  %55 = trunc i8 %.pre to i1
+  %54 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.12, i32 noundef %53) #14
+  %55 = getelementptr inbounds i8, ptr %0, i64 12
+  %56 = load i32, ptr %55, align 4
+  %57 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.13, i32 noundef %56) #14
+  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = load i32, ptr %58, align 8
+  %60 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.14, i32 noundef %59) #14
+  %.pre = load i8, ptr %28, align 8
+  %61 = trunc i8 %.pre to i1
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %5, align 8
-  br i1 %55, label %56, label %_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
+  br i1 %61, label %62, label %_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
 
-56:                                               ; preds = %24
-  %57 = load ptr, ptr %21, align 8
-  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %57, ptr noundef nonnull align 8 dereferenceable(72) %5) #14
-  store i8 0, ptr %22, align 8
+62:                                               ; preds = %30
+  %63 = load ptr, ptr %27, align 8
+  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %63, ptr noundef nonnull align 8 dereferenceable(72) %5) #14
+  store i8 0, ptr %28, align 8
   call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(72) %5) #14
   br label %_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
 
-_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit: ; preds = %.thread, %24, %56
+_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit: ; preds = %.thread, %30, %62
   call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #14
   ret void
 }

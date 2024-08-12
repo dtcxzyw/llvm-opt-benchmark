@@ -433,6 +433,7 @@ _ZNSt6vectorIPN6hermes2vm14NativeFunctionESaIS3_EE7reserveEm.exit.if.end19_crit_
 if.end19:                                         ; preds = %_ZNSt6vectorIPN6hermes2vm14NativeFunctionESaIS3_EE7reserveEm.exit.if.end19_crit_edge, %if.then3, %if.else
   %9 = phi i32 [ %.pre, %_ZNSt6vectorIPN6hermes2vm14NativeFunctionESaIS3_EE7reserveEm.exit.if.end19_crit_edge ], [ %2, %if.then3 ], [ 0, %if.else ]
   %sampleStorage_20 = getelementptr inbounds i8, ptr %this, i64 112
+  %timeStamp = getelementptr inbounds i8, ptr %this, i64 120
   %stack = getelementptr inbounds i8, ptr %this, i64 128
   %10 = load ptr, ptr %stack, align 8
   store ptr %10, ptr %ref.tmp, align 8
@@ -447,8 +448,11 @@ if.end19:                                         ; preds = %_ZNSt6vectorIPN6her
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i49
 
 if.then.i49:                                      ; preds = %if.end19
-  %13 = load <2 x i64>, ptr %sampleStorage_20, align 8
-  store <2 x i64> %13, ptr %11, align 8
+  %13 = load i64, ptr %sampleStorage_20, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %timeStamp, align 8
+  store i64 %13, ptr %11, align 8
+  %timeStamp.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %timeStamp.i.i.i.i, align 8
   %stack.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack.i.i.i.i, i8 0, i64 24, i1 false)
   %add.ptr.i46.idx = mul nuw nsw i64 %conv, 24
@@ -481,7 +485,6 @@ _ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9construc
   br label %return
 
 if.else.i:                                        ; preds = %if.end19
-  %timeStamp = getelementptr inbounds i8, ptr %this, i64 120
   %sampledStacks_ = getelementptr inbounds i8, ptr %localProfiler, i64 48
   call void @_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE17_M_realloc_insertIJRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameES_ISK_SaISK_EEEESO_EEEvNSJ_IPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %sampledStacks_, ptr %11, ptr noundef nonnull align 8 dereferenceable(8) %sampleStorage_20, ptr noundef nonnull align 8 dereferenceable(8) %timeStamp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24)
   br label %return
@@ -515,7 +518,7 @@ entry:
   %ref.tmp2.i = alloca %"class.std::allocator.52", align 1
   %rd = alloca %"class.std::random_device", align 8
   %gen = alloca %"class.std::mersenne_twister_engine", align 8
-  %distribution = alloca %"class.std::normal_distribution", align 16
+  %distribution = alloca %"class.std::normal_distribution", align 8
   tail call void @_ZN6hermes8oscompat15set_thread_nameEPKc(ptr noundef nonnull @.str) #14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i)
@@ -553,9 +556,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit: ; preds = %for.body.i.i
   %_M_p.i.i = getelementptr inbounds i8, ptr %gen, i64 4992
   store i64 624, ptr %_M_p.i.i, align 8
-  store <2 x double> <double 1.000000e+01, double 5.000000e+00>, ptr %distribution, align 16
+  store double 1.000000e+01, ptr %distribution, align 8
+  %_M_stddev.i.i = getelementptr inbounds i8, ptr %distribution, i64 8
+  store double 5.000000e+00, ptr %_M_stddev.i.i, align 8
   %_M_saved.i = getelementptr inbounds i8, ptr %distribution, i64 16
-  store double 0.000000e+00, ptr %_M_saved.i, align 16
+  store double 0.000000e+00, ptr %_M_saved.i, align 8
   %_M_saved_available.i = getelementptr inbounds i8, ptr %distribution, i64 24
   store i8 0, ptr %_M_saved_available.i, align 8
   %profilerLock_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1494,12 +1499,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !19
   %stack.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %stack3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
-  %4 = load <2 x ptr>, ptr %stack3.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
-  store <2 x ptr> %4, ptr %stack.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
+  %4 = load ptr, ptr %stack3.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
+  store ptr %4, ptr %stack.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
+  %5 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
+  store ptr %5, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
-  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
+  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
+  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !17, !noalias !14
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
@@ -1520,12 +1529,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6herm
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i14, i64 16, i1 false), !alias.scope !26
   %stack.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   %stack3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
-  %6 = load <2 x ptr>, ptr %stack3.i.i.i.i.i.i.i16, align 8, !alias.scope !24, !noalias !21
-  store <2 x ptr> %6, ptr %stack.i.i.i.i.i.i.i15, align 8, !alias.scope !21, !noalias !24
+  %7 = load ptr, ptr %stack3.i.i.i.i.i.i.i16, align 8, !alias.scope !24, !noalias !21
+  store ptr %7, ptr %stack.i.i.i.i.i.i.i15, align 8, !alias.scope !21, !noalias !24
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
+  %8 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !24, !noalias !21
+  store ptr %8, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !21, !noalias !24
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !24, !noalias !21
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !21, !noalias !24
+  %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !24, !noalias !21
+  store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !21, !noalias !24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack3.i.i.i.i.i.i.i16, i8 0, i64 24, i1 false), !alias.scope !24, !noalias !21
   %incdec.ptr.i.i.i21 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
   %incdec.ptr1.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40

@@ -3861,12 +3861,16 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %9
 
 for.end:                                          ; preds = %_ZNSt3setIN3re29RuneRangeENS0_13RuneRangeLessESaIS1_EE6insertEOS1_.exit, %invoke.cont
-  %10 = load <2 x i32>, ptr %this, align 8
-  store <2 x i32> %10, ptr %call, align 8
+  %10 = load i32, ptr %this, align 8
+  store i32 %10, ptr %call, align 8
+  %lower_ = getelementptr inbounds i8, ptr %this, i64 4
+  %11 = load i32, ptr %lower_, align 4
+  %lower_12 = getelementptr inbounds i8, ptr %call, i64 4
+  store i32 %11, ptr %lower_12, align 4
   %nrunes_ = getelementptr inbounds i8, ptr %this, i64 8
-  %11 = load i32, ptr %nrunes_, align 8
+  %12 = load i32, ptr %nrunes_, align 8
   %nrunes_13 = getelementptr inbounds i8, ptr %call, i64 8
-  store i32 %11, ptr %nrunes_13, align 8
+  store i32 %12, ptr %nrunes_13, align 8
   ret ptr %call
 }
 
@@ -4444,13 +4448,18 @@ invoke.cont44:                                    ; preds = %call5.i.i.i.i.i.i.i
   br i1 %exitcond.not, label %for.end47, label %for.body41, !llvm.loop !45
 
 for.end47:                                        ; preds = %invoke.cont44, %_ZNSt3setIN3re29RuneRangeENS0_13RuneRangeLessESaIS1_EE5clearEv.exit
-  %25 = load <2 x i32>, ptr %this, align 8
-  %26 = and <2 x i32> %25, <i32 67108863, i32 67108863>
-  %27 = xor <2 x i32> %26, <i32 67108863, i32 67108863>
-  store <2 x i32> %27, ptr %this, align 8
+  %25 = load i32, ptr %this, align 8
+  %not = and i32 %25, 67108863
+  %and = xor i32 %not, 67108863
+  store i32 %and, ptr %this, align 8
+  %lower_ = getelementptr inbounds i8, ptr %this, i64 4
+  %26 = load i32, ptr %lower_, align 4
+  %not49 = and i32 %26, 67108863
+  %and50 = xor i32 %not49, 67108863
+  store i32 %and50, ptr %lower_, align 4
   %nrunes_ = getelementptr inbounds i8, ptr %this, i64 8
-  %28 = load i32, ptr %nrunes_, align 8
-  %sub52 = sub nsw i32 1114112, %28
+  %27 = load i32, ptr %nrunes_, align 8
+  %sub52 = sub nsw i32 1114112, %27
   store i32 %sub52, ptr %nrunes_, align 8
   %tobool.not.i.i.i111 = icmp eq ptr %v.sroa.0.1, null
   br i1 %tobool.not.i.i.i111, label %_ZNSt6vectorIN3re29RuneRangeESaIS1_EED2Ev.exit113, label %if.then.i.i.i112

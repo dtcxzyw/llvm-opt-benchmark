@@ -2152,19 +2152,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h44c2535747365d04E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2175,19 +2180,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h486cfe9277fc0e12E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2198,19 +2208,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he93597c2d55a562cE"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2221,19 +2236,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3f380057970a6e82E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2244,19 +2264,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf8fbbf3a059f2819E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2267,19 +2292,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h15d8eb5abb2cf698E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2290,19 +2320,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd385cce9b121d2e1E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2313,19 +2348,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h440e862993ad068fE"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2336,19 +2376,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h40cb866a2ef1ad9cE"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2359,19 +2404,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5f8a828bd49cfdcaE"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2382,19 +2432,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf73eb43865d26367E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2405,19 +2460,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h42525401da3a549bE"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2428,19 +2488,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hab8e5ce258a24fd4E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2451,19 +2516,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h06c9c99405af5230E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2474,19 +2544,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6fd8dede8d68709aE"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2497,19 +2572,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1f8c54088093de11E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 
@@ -2520,19 +2600,24 @@ define void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -9223372036854775808
-  br i1 %.not, label %7, label %10
+  br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfa53e7cf01717a5aE"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load <2 x i64>, ptr %8, align 8
-  br label %10
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = load i64, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %2, %7
-  %11 = phi <2 x i64> [ %9, %7 ], [ <i64 1, i64 0>, %2 ]
+12:                                               ; preds = %2, %7
+  %.sink1 = phi i64 [ %9, %7 ], [ 1, %2 ]
+  %.sink = phi i64 [ %11, %7 ], [ 0, %2 ]
   store i64 0, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store <2 x i64> %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink, ptr %14, align 8
   ret void
 }
 

@@ -344,12 +344,15 @@ if.then.i.i:                                      ; preds = %_ZNK9stopwatch19get
   %sub.i.i = sub i64 %conv.i.i, %6
   %conv2.i.i = trunc i64 %sub.i.i to i32
   %m_current_cost.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = load <2 x i32>, ptr %m_current_cost.i.i.i, align 4
-  %8 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %conv2.i.i, i64 0
-  %9 = add <2 x i32> %7, %8
-  store <2 x i32> %9, ptr %m_current_cost.i.i.i, align 4
-  %10 = load ptr, ptr %this, align 8
-  %m_being_recorded.i.i = getelementptr inbounds i8, ptr %10, i64 32
+  %instructions.i.i = getelementptr inbounds i8, ptr %4, i64 20
+  %7 = load i32, ptr %instructions.i.i, align 4
+  %inc.i.i = add i32 %7, 1
+  store i32 %inc.i.i, ptr %instructions.i.i, align 4
+  %8 = load i32, ptr %m_current_cost.i.i.i, align 4
+  %add.i.i = add i32 %8, %conv2.i.i
+  store i32 %add.i.i, ptr %m_current_cost.i.i.i, align 4
+  %9 = load ptr, ptr %this, align 8
+  %m_being_recorded.i.i = getelementptr inbounds i8, ptr %9, i64 32
   store i8 0, ptr %m_being_recorded.i.i, align 8
   br label %_ZN7datalog13cost_recorder6finishEv.exit
 
@@ -363,22 +366,22 @@ _ZN7datalog13cost_recorder6finishEv.exit:         ; preds = %_ZNK9stopwatch19get
 
 if.end:                                           ; preds = %_ZN7datalog13cost_recorder6finishEv.exit, %entry
   %m_stopwatch = getelementptr inbounds i8, ptr %this, i64 8
-  %11 = load ptr, ptr %m_stopwatch, align 8
-  %cmp.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %m_stopwatch, align 8
+  %cmp.i = icmp eq ptr %10, null
   br i1 %cmp.i, label %invoke.cont2, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %11)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %10)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %if.end, %if.end.i
   ret void
 
 terminate.lpad:                                   ; preds = %if.end.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #12
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #12
   unreachable
 }
 
@@ -424,12 +427,15 @@ if.then:                                          ; preds = %_ZNK9stopwatch19get
   %sub = sub i64 %conv, %5
   %conv2 = trunc i64 %sub to i32
   %m_current_cost.i = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = load <2 x i32>, ptr %m_current_cost.i, align 4
-  %7 = insertelement <2 x i32> <i32 poison, i32 1>, i32 %conv2, i64 0
-  %8 = add <2 x i32> %6, %7
-  store <2 x i32> %8, ptr %m_current_cost.i, align 4
-  %9 = load ptr, ptr %this, align 8
-  %m_being_recorded = getelementptr inbounds i8, ptr %9, i64 32
+  %instructions = getelementptr inbounds i8, ptr %4, i64 20
+  %6 = load i32, ptr %instructions, align 4
+  %inc = add i32 %6, 1
+  store i32 %inc, ptr %instructions, align 4
+  %7 = load i32, ptr %m_current_cost.i, align 4
+  %add = add i32 %7, %conv2
+  store i32 %add, ptr %m_current_cost.i, align 4
+  %8 = load ptr, ptr %this, align 8
+  %m_being_recorded = getelementptr inbounds i8, ptr %8, i64 32
   store i8 0, ptr %m_being_recorded, align 8
   br label %if.end
 

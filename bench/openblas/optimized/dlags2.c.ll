@@ -27,28 +27,28 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %33 = alloca double, align 8
   %34 = alloca double, align 8
   %35 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #4
   %36 = load i32, ptr %0, align 4, !tbaa !3
   %37 = icmp eq i32 %36, 0
   %38 = load double, ptr %1, align 8, !tbaa !7
@@ -61,14 +61,14 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %43, ptr %20, align 8, !tbaa !7
   %44 = load double, ptr %2, align 8, !tbaa !7
   %45 = load double, ptr %5, align 8, !tbaa !7
-  br i1 %37, label %195, label %46
+  br i1 %37, label %191, label %46
 
 46:                                               ; preds = %13
   %47 = fneg double %38
   %48 = fmul double %45, %47
   %49 = tail call double @llvm.fmuladd.f64(double %44, double %42, double %48)
   store double %49, ptr %18, align 8, !tbaa !7
-  call void @dlasv2_(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %32) #5
+  call void @dlasv2_(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %32) #4
   %50 = load double, ptr %32, align 8
   %51 = fcmp oge double %50, 0.000000e+00
   %52 = fneg double %50
@@ -90,7 +90,7 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %64 = fneg double %.pre12
   %65 = select i1 %63, double %.pre12, double %64
   %66 = fcmp ult double %62, %65
-  br i1 %66, label %135, label %67
+  br i1 %66, label %133, label %67
 
 67:                                               ; preds = %59, %46
   %68 = load double, ptr %1, align 8, !tbaa !7
@@ -107,395 +107,379 @@ define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %78 = fmul double %.pre12, %77
   %79 = call double @llvm.fmuladd.f64(double %.pre, double %76, double %78)
   store double %79, ptr %29, align 8, !tbaa !7
-  %80 = insertelement <2 x double> poison, double %69, i64 0
-  %81 = insertelement <2 x double> %80, double %73, i64 1
-  %82 = fcmp oge <2 x double> %81, zeroinitializer
-  %83 = fneg <2 x double> %81
-  %84 = select <2 x i1> %82, <2 x double> %81, <2 x double> %83
-  %shift = shufflevector <2 x double> %84, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %85 = fadd <2 x double> %84, %shift
-  %86 = extractelement <2 x double> %85, i64 0
+  %80 = fcmp oge double %69, 0.000000e+00
+  %81 = fneg double %69
+  %82 = select i1 %80, double %69, double %81
+  %83 = fcmp oge double %73, 0.000000e+00
+  %84 = fneg double %73
+  %85 = select i1 %83, double %73, double %84
+  %86 = fadd double %82, %85
   %87 = fcmp une double %86, 0.000000e+00
-  br i1 %87, label %88, label %125
+  br i1 %87, label %88, label %123
 
 88:                                               ; preds = %67
-  %89 = insertelement <2 x double> poison, double %71, i64 0
-  %90 = insertelement <2 x double> %89, double %77, i64 1
-  %91 = fcmp ult <2 x double> %90, zeroinitializer
-  %92 = fneg <2 x double> %90
-  %93 = fcmp oge double %.pre12, 0.000000e+00
-  %94 = fneg double %.pre12
-  %95 = select i1 %93, double %.pre12, double %94
-  %96 = insertelement <2 x double> poison, double %70, i64 0
-  %97 = insertelement <2 x double> %96, double %76, i64 1
-  %98 = fcmp ult <2 x double> %97, zeroinitializer
-  %99 = fneg <2 x double> %97
-  %100 = fcmp oge double %.pre, 0.000000e+00
-  %101 = fneg double %.pre
-  %102 = select i1 %100, double %.pre, double %101
-  %103 = insertelement <2 x double> poison, double %75, i64 0
-  %104 = insertelement <2 x double> %103, double %79, i64 1
-  %105 = fcmp oge <2 x double> %104, zeroinitializer
-  %106 = fneg <2 x double> %104
-  %107 = select <2 x i1> %105, <2 x double> %104, <2 x double> %106
-  %shift16 = shufflevector <2 x double> %107, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %108 = fadd <2 x double> %107, %shift16
-  %109 = select <2 x i1> %98, <2 x double> %99, <2 x double> %97
-  %110 = select <2 x i1> %91, <2 x double> %92, <2 x double> %90
-  %111 = insertelement <2 x double> poison, double %57, i64 0
-  %112 = insertelement <2 x double> %111, double %95, i64 1
-  %113 = fmul <2 x double> %112, %110
-  %114 = insertelement <2 x double> poison, double %53, i64 0
-  %115 = insertelement <2 x double> %114, double %102, i64 1
-  %116 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %115, <2 x double> %109, <2 x double> %113)
-  %117 = shufflevector <2 x double> %85, <2 x double> %108, <2 x i32> <i32 0, i32 2>
-  %118 = fdiv <2 x double> %116, %117
-  %shift17 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %119 = fcmp ugt <2 x double> %118, %shift17
-  %120 = extractelement <2 x i1> %119, i64 0
-  br i1 %120, label %123, label %121
+  %89 = fcmp ult double %77, 0.000000e+00
+  %90 = fneg double %77
+  %91 = select i1 %89, double %90, double %77
+  %92 = fcmp oge double %.pre12, 0.000000e+00
+  %93 = fneg double %.pre12
+  %94 = select i1 %92, double %.pre12, double %93
+  %95 = fcmp ult double %76, 0.000000e+00
+  %96 = fneg double %76
+  %97 = select i1 %95, double %96, double %76
+  %98 = fcmp oge double %.pre, 0.000000e+00
+  %99 = fneg double %.pre
+  %100 = select i1 %98, double %.pre, double %99
+  %101 = fcmp ult double %70, 0.000000e+00
+  %102 = fneg double %70
+  %103 = select i1 %101, double %102, double %70
+  %104 = fcmp ult double %71, 0.000000e+00
+  %105 = fneg double %71
+  %106 = select i1 %104, double %105, double %71
+  %107 = fmul double %57, %106
+  %108 = call double @llvm.fmuladd.f64(double %53, double %103, double %107)
+  %109 = fmul double %94, %91
+  %110 = call double @llvm.fmuladd.f64(double %100, double %97, double %109)
+  %111 = fdiv double %108, %86
+  %112 = fcmp oge double %75, 0.000000e+00
+  %113 = fneg double %75
+  %114 = select i1 %112, double %75, double %113
+  %115 = fcmp oge double %79, 0.000000e+00
+  %116 = fneg double %79
+  %117 = select i1 %115, double %79, double %116
+  %118 = fadd double %114, %117
+  %119 = fdiv double %110, %118
+  %120 = fcmp ugt double %111, %119
+  br i1 %120, label %122, label %121
 
 121:                                              ; preds = %88
-  %122 = extractelement <2 x double> %83, i64 0
-  store double %122, ptr %14, align 8, !tbaa !7
-  br label %127
+  store double %81, ptr %14, align 8, !tbaa !7
+  br label %125
 
-123:                                              ; preds = %88
-  %124 = extractelement <2 x double> %106, i64 0
+122:                                              ; preds = %88
+  store double %113, ptr %14, align 8, !tbaa !7
+  br label %125
+
+123:                                              ; preds = %67
+  %124 = fneg double %75
   store double %124, ptr %14, align 8, !tbaa !7
-  br label %127
+  br label %125
 
-125:                                              ; preds = %67
-  %126 = fneg double %75
-  store double %126, ptr %14, align 8, !tbaa !7
-  br label %127
+125:                                              ; preds = %123, %122, %121
+  %126 = phi ptr [ %25, %121 ], [ %29, %122 ], [ %29, %123 ]
+  call void @dlartg_(ptr noundef nonnull %14, ptr noundef nonnull %126, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #4
+  %127 = load double, ptr %32, align 8, !tbaa !7
+  store double %127, ptr %7, align 8, !tbaa !7
+  %128 = load double, ptr %34, align 8, !tbaa !7
+  %129 = fneg double %128
+  store double %129, ptr %8, align 8, !tbaa !7
+  %130 = load double, ptr %33, align 8, !tbaa !7
+  store double %130, ptr %9, align 8, !tbaa !7
+  %131 = load double, ptr %35, align 8, !tbaa !7
+  %132 = fneg double %131
+  br label %331
 
-127:                                              ; preds = %125, %123, %121
-  %128 = phi ptr [ %25, %121 ], [ %29, %123 ], [ %29, %125 ]
-  call void @dlartg_(ptr noundef nonnull %14, ptr noundef nonnull %128, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
-  %129 = load double, ptr %32, align 8, !tbaa !7
-  store double %129, ptr %7, align 8, !tbaa !7
-  %130 = load double, ptr %34, align 8, !tbaa !7
-  %131 = fneg double %130
-  store double %131, ptr %8, align 8, !tbaa !7
-  %132 = load double, ptr %33, align 8, !tbaa !7
-  store double %132, ptr %9, align 8, !tbaa !7
-  %133 = load double, ptr %35, align 8, !tbaa !7
-  %134 = fneg double %133
-  br label %335
+133:                                              ; preds = %59
+  %134 = load double, ptr %1, align 8, !tbaa !7
+  %135 = fmul double %134, %56
+  %136 = load double, ptr %2, align 8, !tbaa !7
+  %137 = load double, ptr %3, align 8, !tbaa !7
+  %138 = fmul double %50, %137
+  %139 = call double @llvm.fmuladd.f64(double %56, double %136, double %138)
+  store double %139, ptr %27, align 8, !tbaa !7
+  %140 = load double, ptr %4, align 8, !tbaa !7
+  %141 = fmul double %140, %64
+  %142 = load double, ptr %5, align 8, !tbaa !7
+  %143 = load double, ptr %6, align 8, !tbaa !7
+  %144 = fmul double %.pre, %143
+  %145 = call double @llvm.fmuladd.f64(double %64, double %142, double %144)
+  store double %145, ptr %31, align 8, !tbaa !7
+  %146 = fcmp oge double %135, 0.000000e+00
+  %147 = fneg double %135
+  %148 = select i1 %146, double %135, double %147
+  %149 = fcmp oge double %139, 0.000000e+00
+  %150 = fneg double %139
+  %151 = select i1 %149, double %139, double %150
+  %152 = fadd double %148, %151
+  %153 = fcmp une double %152, 0.000000e+00
+  br i1 %153, label %154, label %183
 
-135:                                              ; preds = %59
-  %136 = load double, ptr %1, align 8, !tbaa !7
-  %137 = fmul double %136, %56
-  %138 = load double, ptr %2, align 8, !tbaa !7
-  %139 = load double, ptr %3, align 8, !tbaa !7
-  %140 = fmul double %50, %139
-  %141 = call double @llvm.fmuladd.f64(double %56, double %138, double %140)
-  store double %141, ptr %27, align 8, !tbaa !7
-  %142 = load double, ptr %4, align 8, !tbaa !7
-  %143 = fmul double %142, %64
-  %144 = load double, ptr %5, align 8, !tbaa !7
-  %145 = load double, ptr %6, align 8, !tbaa !7
-  %146 = fmul double %.pre, %145
-  %147 = call double @llvm.fmuladd.f64(double %64, double %144, double %146)
-  store double %147, ptr %31, align 8, !tbaa !7
-  %148 = insertelement <2 x double> poison, double %137, i64 0
-  %149 = insertelement <2 x double> %148, double %141, i64 1
-  %150 = fcmp oge <2 x double> %149, zeroinitializer
-  %151 = fneg <2 x double> %149
-  %152 = select <2 x i1> %150, <2 x double> %149, <2 x double> %151
-  %shift18 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %153 = fadd <2 x double> %152, %shift18
-  %154 = extractelement <2 x double> %153, i64 0
-  %155 = fcmp une double %154, 0.000000e+00
-  br i1 %155, label %156, label %187
+154:                                              ; preds = %133
+  %155 = fcmp ult double %143, 0.000000e+00
+  %156 = fneg double %143
+  %157 = select i1 %155, double %156, double %143
+  %158 = fcmp ult double %142, 0.000000e+00
+  %159 = fneg double %142
+  %160 = select i1 %158, double %159, double %142
+  %161 = fcmp ult double %136, 0.000000e+00
+  %162 = fneg double %136
+  %163 = select i1 %161, double %162, double %136
+  %164 = fcmp ult double %137, 0.000000e+00
+  %165 = fneg double %137
+  %166 = select i1 %164, double %165, double %137
+  %167 = fmul double %53, %166
+  %168 = call double @llvm.fmuladd.f64(double %57, double %163, double %167)
+  %169 = fmul double %62, %157
+  %170 = call double @llvm.fmuladd.f64(double %65, double %160, double %169)
+  %171 = fdiv double %168, %152
+  %172 = fcmp oge double %141, 0.000000e+00
+  %173 = fneg double %141
+  %174 = select i1 %172, double %141, double %173
+  %175 = fcmp oge double %145, 0.000000e+00
+  %176 = fneg double %145
+  %177 = select i1 %175, double %145, double %176
+  %178 = fadd double %174, %177
+  %179 = fdiv double %170, %178
+  %180 = fcmp ugt double %171, %179
+  br i1 %180, label %182, label %181
 
-156:                                              ; preds = %135
-  %157 = insertelement <2 x double> poison, double %139, i64 0
-  %158 = insertelement <2 x double> %157, double %145, i64 1
-  %159 = fcmp ult <2 x double> %158, zeroinitializer
-  %160 = fneg <2 x double> %158
-  %161 = insertelement <2 x double> poison, double %138, i64 0
-  %162 = insertelement <2 x double> %161, double %144, i64 1
-  %163 = fcmp ult <2 x double> %162, zeroinitializer
-  %164 = fneg <2 x double> %162
-  %165 = insertelement <2 x double> poison, double %143, i64 0
-  %166 = insertelement <2 x double> %165, double %147, i64 1
-  %167 = fcmp oge <2 x double> %166, zeroinitializer
-  %168 = fneg <2 x double> %166
-  %169 = select <2 x i1> %167, <2 x double> %166, <2 x double> %168
-  %shift19 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %170 = fadd <2 x double> %169, %shift19
-  %171 = select <2 x i1> %163, <2 x double> %164, <2 x double> %162
-  %172 = select <2 x i1> %159, <2 x double> %160, <2 x double> %158
-  %173 = insertelement <2 x double> poison, double %53, i64 0
-  %174 = insertelement <2 x double> %173, double %62, i64 1
-  %175 = fmul <2 x double> %174, %172
-  %176 = insertelement <2 x double> poison, double %57, i64 0
-  %177 = insertelement <2 x double> %176, double %65, i64 1
-  %178 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %177, <2 x double> %171, <2 x double> %175)
-  %179 = shufflevector <2 x double> %153, <2 x double> %170, <2 x i32> <i32 0, i32 2>
-  %180 = fdiv <2 x double> %178, %179
-  %shift20 = shufflevector <2 x double> %180, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %181 = fcmp ugt <2 x double> %180, %shift20
-  %182 = extractelement <2 x i1> %181, i64 0
-  br i1 %182, label %185, label %183
+181:                                              ; preds = %154
+  store double %147, ptr %14, align 8, !tbaa !7
+  br label %185
 
-183:                                              ; preds = %156
-  %184 = extractelement <2 x double> %151, i64 0
+182:                                              ; preds = %154
+  store double %173, ptr %14, align 8, !tbaa !7
+  br label %185
+
+183:                                              ; preds = %133
+  %184 = fneg double %141
   store double %184, ptr %14, align 8, !tbaa !7
-  br label %189
+  br label %185
 
-185:                                              ; preds = %156
-  %186 = extractelement <2 x double> %168, i64 0
-  store double %186, ptr %14, align 8, !tbaa !7
-  br label %189
+185:                                              ; preds = %183, %182, %181
+  %186 = phi ptr [ %27, %181 ], [ %31, %182 ], [ %31, %183 ]
+  call void @dlartg_(ptr noundef nonnull %14, ptr noundef nonnull %186, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #4
+  %187 = load double, ptr %34, align 8, !tbaa !7
+  store double %187, ptr %7, align 8, !tbaa !7
+  %188 = load double, ptr %32, align 8, !tbaa !7
+  store double %188, ptr %8, align 8, !tbaa !7
+  %189 = load double, ptr %35, align 8, !tbaa !7
+  store double %189, ptr %9, align 8, !tbaa !7
+  %190 = load double, ptr %33, align 8, !tbaa !7
+  br label %331
 
-187:                                              ; preds = %135
-  %188 = fneg double %143
-  store double %188, ptr %14, align 8, !tbaa !7
-  br label %189
-
-189:                                              ; preds = %187, %185, %183
-  %190 = phi ptr [ %27, %183 ], [ %31, %185 ], [ %31, %187 ]
-  call void @dlartg_(ptr noundef nonnull %14, ptr noundef nonnull %190, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
-  %191 = load double, ptr %34, align 8, !tbaa !7
-  store double %191, ptr %7, align 8, !tbaa !7
-  %192 = load double, ptr %32, align 8, !tbaa !7
-  store double %192, ptr %8, align 8, !tbaa !7
-  %193 = load double, ptr %35, align 8, !tbaa !7
-  store double %193, ptr %9, align 8, !tbaa !7
-  %194 = load double, ptr %33, align 8, !tbaa !7
-  br label %335
-
-195:                                              ; preds = %13
-  %196 = fneg double %41
-  %197 = fmul double %45, %196
-  %198 = tail call double @llvm.fmuladd.f64(double %44, double %39, double %197)
-  store double %198, ptr %19, align 8, !tbaa !7
-  call void @dlasv2_(ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %32) #5
-  %199 = load double, ptr %33, align 8
+191:                                              ; preds = %13
+  %192 = fneg double %41
+  %193 = fmul double %45, %192
+  %194 = tail call double @llvm.fmuladd.f64(double %44, double %39, double %193)
+  store double %194, ptr %19, align 8, !tbaa !7
+  call void @dlasv2_(ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %35, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %32) #4
+  %195 = load double, ptr %33, align 8
+  %196 = fcmp oge double %195, 0.000000e+00
+  %197 = fneg double %195
+  %198 = select i1 %196, double %195, double %197
+  %199 = load double, ptr %35, align 8
   %200 = fcmp oge double %199, 0.000000e+00
   %201 = fneg double %199
   %202 = select i1 %200, double %199, double %201
-  %203 = load double, ptr %35, align 8
-  %204 = fcmp oge double %203, 0.000000e+00
-  %205 = fneg double %203
-  %206 = select i1 %204, double %203, double %205
-  %207 = fcmp ult double %202, %206
+  %203 = fcmp ult double %198, %202
   %.pre13 = load double, ptr %34, align 8
   %.pre14 = load double, ptr %32, align 8
-  br i1 %207, label %208, label %._crit_edge
+  br i1 %203, label %204, label %._crit_edge
 
-._crit_edge:                                      ; preds = %195
+._crit_edge:                                      ; preds = %191
   %.pre15 = fneg double %.pre13
-  br label %216
+  br label %212
 
-208:                                              ; preds = %195
-  %209 = fcmp oge double %.pre14, 0.000000e+00
-  %210 = fneg double %.pre14
-  %211 = select i1 %209, double %.pre14, double %210
-  %212 = fcmp oge double %.pre13, 0.000000e+00
-  %213 = fneg double %.pre13
-  %214 = select i1 %212, double %.pre13, double %213
-  %215 = fcmp ult double %211, %214
-  br i1 %215, label %279, label %216
+204:                                              ; preds = %191
+  %205 = fcmp oge double %.pre14, 0.000000e+00
+  %206 = fneg double %.pre14
+  %207 = select i1 %205, double %.pre14, double %206
+  %208 = fcmp oge double %.pre13, 0.000000e+00
+  %209 = fneg double %.pre13
+  %210 = select i1 %208, double %.pre13, double %209
+  %211 = fcmp ult double %207, %210
+  br i1 %211, label %275, label %212
 
-216:                                              ; preds = %._crit_edge, %208
-  %.pre-phi = phi double [ %.pre15, %._crit_edge ], [ %213, %208 ]
-  %217 = load double, ptr %1, align 8, !tbaa !7
-  %218 = load double, ptr %2, align 8, !tbaa !7
-  %219 = fmul double %199, %218
-  %220 = call double @llvm.fmuladd.f64(double %205, double %217, double %219)
-  store double %220, ptr %26, align 8, !tbaa !7
-  %221 = load double, ptr %3, align 8, !tbaa !7
-  %222 = fmul double %199, %221
-  store double %222, ptr %15, align 8, !tbaa !7
-  %223 = load double, ptr %4, align 8, !tbaa !7
-  %224 = load double, ptr %5, align 8, !tbaa !7
-  %225 = fmul double %.pre14, %224
-  %226 = call double @llvm.fmuladd.f64(double %.pre-phi, double %223, double %225)
-  store double %226, ptr %30, align 8, !tbaa !7
-  %227 = load double, ptr %6, align 8, !tbaa !7
-  %228 = fmul double %.pre14, %227
-  store double %228, ptr %16, align 8, !tbaa !7
-  %229 = insertelement <2 x double> poison, double %220, i64 0
-  %230 = insertelement <2 x double> %229, double %222, i64 1
-  %231 = fcmp oge <2 x double> %230, zeroinitializer
-  %232 = fneg <2 x double> %230
-  %233 = select <2 x i1> %231, <2 x double> %230, <2 x double> %232
-  %shift21 = shufflevector <2 x double> %233, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %234 = fadd <2 x double> %233, %shift21
-  %235 = extractelement <2 x double> %234, i64 0
-  %236 = fcmp une double %235, 0.000000e+00
-  br i1 %236, label %237, label %271
+212:                                              ; preds = %._crit_edge, %204
+  %.pre-phi = phi double [ %.pre15, %._crit_edge ], [ %209, %204 ]
+  %213 = load double, ptr %1, align 8, !tbaa !7
+  %214 = load double, ptr %2, align 8, !tbaa !7
+  %215 = fmul double %195, %214
+  %216 = call double @llvm.fmuladd.f64(double %201, double %213, double %215)
+  store double %216, ptr %26, align 8, !tbaa !7
+  %217 = load double, ptr %3, align 8, !tbaa !7
+  %218 = fmul double %195, %217
+  store double %218, ptr %15, align 8, !tbaa !7
+  %219 = load double, ptr %4, align 8, !tbaa !7
+  %220 = load double, ptr %5, align 8, !tbaa !7
+  %221 = fmul double %.pre14, %220
+  %222 = call double @llvm.fmuladd.f64(double %.pre-phi, double %219, double %221)
+  store double %222, ptr %30, align 8, !tbaa !7
+  %223 = load double, ptr %6, align 8, !tbaa !7
+  %224 = fmul double %.pre14, %223
+  store double %224, ptr %16, align 8, !tbaa !7
+  %225 = fcmp oge double %216, 0.000000e+00
+  %226 = fneg double %216
+  %227 = select i1 %225, double %216, double %226
+  %228 = fcmp oge double %218, 0.000000e+00
+  %229 = fneg double %218
+  %230 = select i1 %228, double %218, double %229
+  %231 = fadd double %227, %230
+  %232 = fcmp une double %231, 0.000000e+00
+  br i1 %232, label %233, label %267
 
-237:                                              ; preds = %216
-  %238 = insertelement <2 x double> poison, double %218, i64 0
-  %239 = insertelement <2 x double> %238, double %224, i64 1
-  %240 = fcmp ult <2 x double> %239, zeroinitializer
-  %241 = fneg <2 x double> %239
-  %242 = fcmp oge double %.pre14, 0.000000e+00
-  %243 = fneg double %.pre14
-  %244 = select i1 %242, double %.pre14, double %243
-  %245 = insertelement <2 x double> poison, double %217, i64 0
-  %246 = insertelement <2 x double> %245, double %223, i64 1
-  %247 = fcmp ult <2 x double> %246, zeroinitializer
-  %248 = fneg <2 x double> %246
-  %249 = fcmp oge double %.pre13, 0.000000e+00
-  %250 = select i1 %249, double %.pre13, double %.pre-phi
-  %251 = insertelement <2 x double> poison, double %226, i64 0
-  %252 = insertelement <2 x double> %251, double %228, i64 1
-  %253 = fcmp oge <2 x double> %252, zeroinitializer
-  %254 = fneg <2 x double> %252
-  %255 = select <2 x i1> %253, <2 x double> %252, <2 x double> %254
-  %shift22 = shufflevector <2 x double> %255, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %256 = fadd <2 x double> %255, %shift22
-  %257 = select <2 x i1> %247, <2 x double> %248, <2 x double> %246
-  %258 = select <2 x i1> %240, <2 x double> %241, <2 x double> %239
-  %259 = insertelement <2 x double> poison, double %202, i64 0
-  %260 = insertelement <2 x double> %259, double %244, i64 1
-  %261 = fmul <2 x double> %260, %258
-  %262 = insertelement <2 x double> poison, double %206, i64 0
-  %263 = insertelement <2 x double> %262, double %250, i64 1
-  %264 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %263, <2 x double> %257, <2 x double> %261)
-  %265 = shufflevector <2 x double> %234, <2 x double> %256, <2 x i32> <i32 0, i32 2>
-  %266 = fdiv <2 x double> %264, %265
-  %shift23 = shufflevector <2 x double> %266, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %267 = fcmp ugt <2 x double> %266, %shift23
-  %268 = extractelement <2 x i1> %267, i64 0
-  br i1 %268, label %270, label %269
+233:                                              ; preds = %212
+  %234 = fcmp ult double %220, 0.000000e+00
+  %235 = fneg double %220
+  %236 = select i1 %234, double %235, double %220
+  %237 = fcmp oge double %.pre14, 0.000000e+00
+  %238 = fneg double %.pre14
+  %239 = select i1 %237, double %.pre14, double %238
+  %240 = fcmp ult double %219, 0.000000e+00
+  %241 = fneg double %219
+  %242 = select i1 %240, double %241, double %219
+  %243 = fcmp oge double %.pre13, 0.000000e+00
+  %244 = select i1 %243, double %.pre13, double %.pre-phi
+  %245 = fcmp ult double %213, 0.000000e+00
+  %246 = fneg double %213
+  %247 = select i1 %245, double %246, double %213
+  %248 = fcmp ult double %214, 0.000000e+00
+  %249 = fneg double %214
+  %250 = select i1 %248, double %249, double %214
+  %251 = fmul double %198, %250
+  %252 = call double @llvm.fmuladd.f64(double %202, double %247, double %251)
+  %253 = fmul double %239, %236
+  %254 = call double @llvm.fmuladd.f64(double %244, double %242, double %253)
+  %255 = fdiv double %252, %231
+  %256 = fcmp oge double %222, 0.000000e+00
+  %257 = fneg double %222
+  %258 = select i1 %256, double %222, double %257
+  %259 = fcmp oge double %224, 0.000000e+00
+  %260 = fneg double %224
+  %261 = select i1 %259, double %224, double %260
+  %262 = fadd double %258, %261
+  %263 = fdiv double %254, %262
+  %264 = fcmp ugt double %255, %263
+  br i1 %264, label %266, label %265
 
-269:                                              ; preds = %237
-  call void @dlartg_(ptr noundef nonnull %15, ptr noundef nonnull %26, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
-  br label %272
+265:                                              ; preds = %233
+  call void @dlartg_(ptr noundef nonnull %15, ptr noundef nonnull %26, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #4
+  br label %268
 
-270:                                              ; preds = %237
-  call void @dlartg_(ptr noundef nonnull %16, ptr noundef nonnull %30, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
-  br label %272
+266:                                              ; preds = %233
+  call void @dlartg_(ptr noundef nonnull %16, ptr noundef nonnull %30, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #4
+  br label %268
 
-271:                                              ; preds = %216
-  call void @dlartg_(ptr noundef nonnull %16, ptr noundef nonnull %30, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
-  br label %272
+267:                                              ; preds = %212
+  call void @dlartg_(ptr noundef nonnull %16, ptr noundef nonnull %30, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #4
+  br label %268
 
-272:                                              ; preds = %271, %270, %269
-  %273 = load double, ptr %33, align 8, !tbaa !7
-  store double %273, ptr %7, align 8, !tbaa !7
-  %274 = load double, ptr %35, align 8, !tbaa !7
-  %275 = fneg double %274
-  store double %275, ptr %8, align 8, !tbaa !7
-  %276 = load double, ptr %32, align 8, !tbaa !7
-  store double %276, ptr %9, align 8, !tbaa !7
-  %277 = load double, ptr %34, align 8, !tbaa !7
-  %278 = fneg double %277
-  br label %335
+268:                                              ; preds = %267, %266, %265
+  %269 = load double, ptr %33, align 8, !tbaa !7
+  store double %269, ptr %7, align 8, !tbaa !7
+  %270 = load double, ptr %35, align 8, !tbaa !7
+  %271 = fneg double %270
+  store double %271, ptr %8, align 8, !tbaa !7
+  %272 = load double, ptr %32, align 8, !tbaa !7
+  store double %272, ptr %9, align 8, !tbaa !7
+  %273 = load double, ptr %34, align 8, !tbaa !7
+  %274 = fneg double %273
+  br label %331
 
-279:                                              ; preds = %208
-  %280 = load double, ptr %1, align 8, !tbaa !7
-  %281 = load double, ptr %2, align 8, !tbaa !7
-  %282 = fmul double %203, %281
-  %283 = call double @llvm.fmuladd.f64(double %199, double %280, double %282)
-  store double %283, ptr %24, align 8, !tbaa !7
-  %284 = load double, ptr %3, align 8, !tbaa !7
-  %285 = fmul double %203, %284
-  store double %285, ptr %25, align 8, !tbaa !7
-  %286 = load double, ptr %4, align 8, !tbaa !7
-  %287 = load double, ptr %5, align 8, !tbaa !7
-  %288 = fmul double %.pre13, %287
-  %289 = call double @llvm.fmuladd.f64(double %.pre14, double %286, double %288)
-  store double %289, ptr %28, align 8, !tbaa !7
-  %290 = load double, ptr %6, align 8, !tbaa !7
-  %291 = fmul double %.pre13, %290
-  store double %291, ptr %29, align 8, !tbaa !7
-  %292 = insertelement <2 x double> poison, double %283, i64 0
-  %293 = insertelement <2 x double> %292, double %285, i64 1
-  %294 = fcmp oge <2 x double> %293, zeroinitializer
-  %295 = fneg <2 x double> %293
-  %296 = select <2 x i1> %294, <2 x double> %293, <2 x double> %295
-  %shift24 = shufflevector <2 x double> %296, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %297 = fadd <2 x double> %296, %shift24
-  %298 = extractelement <2 x double> %297, i64 0
-  %299 = fcmp une double %298, 0.000000e+00
-  br i1 %299, label %300, label %329
+275:                                              ; preds = %204
+  %276 = load double, ptr %1, align 8, !tbaa !7
+  %277 = load double, ptr %2, align 8, !tbaa !7
+  %278 = fmul double %199, %277
+  %279 = call double @llvm.fmuladd.f64(double %195, double %276, double %278)
+  store double %279, ptr %24, align 8, !tbaa !7
+  %280 = load double, ptr %3, align 8, !tbaa !7
+  %281 = fmul double %199, %280
+  store double %281, ptr %25, align 8, !tbaa !7
+  %282 = load double, ptr %4, align 8, !tbaa !7
+  %283 = load double, ptr %5, align 8, !tbaa !7
+  %284 = fmul double %.pre13, %283
+  %285 = call double @llvm.fmuladd.f64(double %.pre14, double %282, double %284)
+  store double %285, ptr %28, align 8, !tbaa !7
+  %286 = load double, ptr %6, align 8, !tbaa !7
+  %287 = fmul double %.pre13, %286
+  store double %287, ptr %29, align 8, !tbaa !7
+  %288 = fcmp oge double %279, 0.000000e+00
+  %289 = fneg double %279
+  %290 = select i1 %288, double %279, double %289
+  %291 = fcmp oge double %281, 0.000000e+00
+  %292 = fneg double %281
+  %293 = select i1 %291, double %281, double %292
+  %294 = fadd double %290, %293
+  %295 = fcmp une double %294, 0.000000e+00
+  br i1 %295, label %296, label %325
 
-300:                                              ; preds = %279
-  %301 = insertelement <2 x double> poison, double %281, i64 0
-  %302 = insertelement <2 x double> %301, double %287, i64 1
-  %303 = fcmp ult <2 x double> %302, zeroinitializer
-  %304 = fneg <2 x double> %302
-  %305 = insertelement <2 x double> poison, double %280, i64 0
-  %306 = insertelement <2 x double> %305, double %286, i64 1
-  %307 = fcmp ult <2 x double> %306, zeroinitializer
-  %308 = fneg <2 x double> %306
-  %309 = insertelement <2 x double> poison, double %289, i64 0
-  %310 = insertelement <2 x double> %309, double %291, i64 1
-  %311 = fcmp oge <2 x double> %310, zeroinitializer
-  %312 = fneg <2 x double> %310
-  %313 = select <2 x i1> %311, <2 x double> %310, <2 x double> %312
-  %shift25 = shufflevector <2 x double> %313, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %314 = fadd <2 x double> %313, %shift25
-  %315 = select <2 x i1> %307, <2 x double> %308, <2 x double> %306
-  %316 = select <2 x i1> %303, <2 x double> %304, <2 x double> %302
-  %317 = insertelement <2 x double> poison, double %206, i64 0
-  %318 = insertelement <2 x double> %317, double %214, i64 1
-  %319 = fmul <2 x double> %318, %316
-  %320 = insertelement <2 x double> poison, double %202, i64 0
-  %321 = insertelement <2 x double> %320, double %211, i64 1
-  %322 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %321, <2 x double> %315, <2 x double> %319)
-  %323 = shufflevector <2 x double> %297, <2 x double> %314, <2 x i32> <i32 0, i32 2>
-  %324 = fdiv <2 x double> %322, %323
-  %shift26 = shufflevector <2 x double> %324, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %325 = fcmp ugt <2 x double> %324, %shift26
-  %326 = extractelement <2 x i1> %325, i64 0
-  br i1 %326, label %328, label %327
+296:                                              ; preds = %275
+  %297 = fcmp ult double %283, 0.000000e+00
+  %298 = fneg double %283
+  %299 = select i1 %297, double %298, double %283
+  %300 = fcmp ult double %282, 0.000000e+00
+  %301 = fneg double %282
+  %302 = select i1 %300, double %301, double %282
+  %303 = fcmp ult double %276, 0.000000e+00
+  %304 = fneg double %276
+  %305 = select i1 %303, double %304, double %276
+  %306 = fcmp ult double %277, 0.000000e+00
+  %307 = fneg double %277
+  %308 = select i1 %306, double %307, double %277
+  %309 = fmul double %202, %308
+  %310 = call double @llvm.fmuladd.f64(double %198, double %305, double %309)
+  %311 = fmul double %210, %299
+  %312 = call double @llvm.fmuladd.f64(double %207, double %302, double %311)
+  %313 = fdiv double %310, %294
+  %314 = fcmp oge double %285, 0.000000e+00
+  %315 = fneg double %285
+  %316 = select i1 %314, double %285, double %315
+  %317 = fcmp oge double %287, 0.000000e+00
+  %318 = fneg double %287
+  %319 = select i1 %317, double %287, double %318
+  %320 = fadd double %316, %319
+  %321 = fdiv double %312, %320
+  %322 = fcmp ugt double %313, %321
+  br i1 %322, label %324, label %323
 
-327:                                              ; preds = %300
-  call void @dlartg_(ptr noundef nonnull %25, ptr noundef nonnull %24, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
-  br label %330
+323:                                              ; preds = %296
+  call void @dlartg_(ptr noundef nonnull %25, ptr noundef nonnull %24, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #4
+  br label %326
 
-328:                                              ; preds = %300
-  call void @dlartg_(ptr noundef nonnull %29, ptr noundef nonnull %28, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
-  br label %330
+324:                                              ; preds = %296
+  call void @dlartg_(ptr noundef nonnull %29, ptr noundef nonnull %28, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #4
+  br label %326
 
-329:                                              ; preds = %279
-  call void @dlartg_(ptr noundef nonnull %29, ptr noundef nonnull %28, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #5
-  br label %330
+325:                                              ; preds = %275
+  call void @dlartg_(ptr noundef nonnull %29, ptr noundef nonnull %28, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %21) #4
+  br label %326
 
-330:                                              ; preds = %329, %328, %327
-  %331 = load double, ptr %35, align 8, !tbaa !7
-  store double %331, ptr %7, align 8, !tbaa !7
-  %332 = load double, ptr %33, align 8, !tbaa !7
-  store double %332, ptr %8, align 8, !tbaa !7
-  %333 = load double, ptr %34, align 8, !tbaa !7
-  store double %333, ptr %9, align 8, !tbaa !7
-  %334 = load double, ptr %32, align 8, !tbaa !7
-  br label %335
+326:                                              ; preds = %325, %324, %323
+  %327 = load double, ptr %35, align 8, !tbaa !7
+  store double %327, ptr %7, align 8, !tbaa !7
+  %328 = load double, ptr %33, align 8, !tbaa !7
+  store double %328, ptr %8, align 8, !tbaa !7
+  %329 = load double, ptr %34, align 8, !tbaa !7
+  store double %329, ptr %9, align 8, !tbaa !7
+  %330 = load double, ptr %32, align 8, !tbaa !7
+  br label %331
 
-335:                                              ; preds = %330, %272, %189, %127
-  %336 = phi double [ %278, %272 ], [ %334, %330 ], [ %134, %127 ], [ %194, %189 ]
-  store double %336, ptr %10, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
+331:                                              ; preds = %326, %268, %185, %125
+  %332 = phi double [ %274, %268 ], [ %330, %326 ], [ %132, %125 ], [ %190, %185 ]
+  store double %332, ptr %10, align 8, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
   ret void
 }
 
@@ -512,15 +496,11 @@ declare void @dlartg_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

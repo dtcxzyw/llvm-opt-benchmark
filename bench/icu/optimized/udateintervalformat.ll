@@ -910,9 +910,12 @@ if.end23:                                         ; preds = %invoke.cont17
   br i1 %cmp10.not, label %if.end30, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
+  %6 = load i32, ptr %fBeginIndex.i, align 4
   %beginIndex = getelementptr inbounds i8, ptr %position, i64 4
-  %6 = load <2 x i32>, ptr %fBeginIndex.i, align 4
-  store <2 x i32> %6, ptr %beginIndex, align 4
+  store i32 %6, ptr %beginIndex, align 4
+  %7 = load i32, ptr %fEndIndex.i, align 8
+  %endIndex = getelementptr inbounds i8, ptr %position, i64 8
+  store i32 %7, ptr %endIndex, align 4
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then25, %if.end23
@@ -921,15 +924,15 @@ if.end30:                                         ; preds = %if.then25, %if.end2
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %if.end30
-  %7 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #10, !srcloc !5
+  %8 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #10, !srcloc !5
   br label %cleanup
 
 lpad32:                                           ; preds = %if.end30
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #10, !srcloc !5
+  %10 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #10, !srcloc !5
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont17, %invoke.cont33
@@ -940,7 +943,7 @@ cleanup:                                          ; preds = %invoke.cont17, %inv
   br label %return
 
 ehcleanup:                                        ; preds = %lpad32, %lpad16
-  %.pn = phi { ptr, i32 } [ %8, %lpad32 ], [ %5, %lpad16 ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad32 ], [ %5, %lpad16 ]
   call void @_ZN6icu_7512DateIntervalD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %interval) #10
   br label %ehcleanup36
 

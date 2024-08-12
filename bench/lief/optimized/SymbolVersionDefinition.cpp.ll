@@ -421,20 +421,22 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF3ELF23SymbolVers
   store i32 %17, ptr %16, align 4
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = getelementptr inbounds i8, ptr %1, i64 24
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = load ptr, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %20, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
-  %26 = getelementptr inbounds i8, ptr %1, i64 40
-  %27 = load <2 x ptr>, ptr %19, align 8
-  store ptr %24, ptr %19, align 8
-  %28 = load ptr, ptr %25, align 8
-  store ptr %28, ptr %21, align 8
-  %29 = load ptr, ptr %26, align 8
-  store ptr %29, ptr %22, align 8
-  store <2 x ptr> %27, ptr %20, align 8
-  store ptr %23, ptr %26, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %20, align 8
+  store ptr %26, ptr %19, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %22, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %24, align 8
+  store ptr %21, ptr %20, align 8
+  store ptr %23, ptr %27, align 8
+  store ptr %25, ptr %29, align 8
   ret ptr %0
 }
 
@@ -466,20 +468,22 @@ define void @_ZN4LIEF3ELF23SymbolVersionDefinition4swapERS1_(ptr nocapture nound
   store i32 %17, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = getelementptr inbounds i8, ptr %1, i64 24
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = load ptr, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %20, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
-  %26 = getelementptr inbounds i8, ptr %1, i64 40
-  %27 = load <2 x ptr>, ptr %19, align 8
-  store ptr %24, ptr %19, align 8
-  %28 = load ptr, ptr %25, align 8
-  store ptr %28, ptr %21, align 8
-  %29 = load ptr, ptr %26, align 8
-  store ptr %29, ptr %22, align 8
-  store <2 x ptr> %27, ptr %20, align 8
-  store ptr %23, ptr %26, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %20, align 8
+  store ptr %26, ptr %19, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %22, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %24, align 8
+  store ptr %21, ptr %20, align 8
+  store ptr %23, ptr %27, align 8
+  store ptr %25, ptr %29, align 8
   ret void
 }
 

@@ -3008,92 +3008,110 @@ Dot11DecryptRsnaPwd2PskStep.exit.thread:          ; preds = %2
 18:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull readonly align 1 %14, i64 %16, i1 false)
   %19 = getelementptr [36 x i8], ptr %4, i64 0, i64 %16
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %19, align 1
-  %20 = add nuw nsw i64 %16, 4
-  %21 = zext i32 %13 to i64
-  %22 = call i32 @ws_hmac_buffer(i32 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %4, i64 noundef %20, ptr noundef %11, i64 noundef %21) #14
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %23, label %Dot11DecryptRsnaPwd2PskStep.exit
+  store i8 0, ptr %19, align 1
+  %20 = add nuw nsw i64 %16, 1
+  %21 = getelementptr [36 x i8], ptr %4, i64 0, i64 %20
+  store i8 0, ptr %21, align 1
+  %22 = add nuw nsw i64 %16, 2
+  %23 = getelementptr [36 x i8], ptr %4, i64 0, i64 %22
+  store i8 0, ptr %23, align 1
+  %24 = add nuw nsw i64 %16, 3
+  %25 = getelementptr [36 x i8], ptr %4, i64 0, i64 %24
+  store i8 1, ptr %25, align 1
+  %26 = add nuw nsw i64 %16, 4
+  %27 = zext i32 %13 to i64
+  %28 = call i32 @ws_hmac_buffer(i32 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %4, i64 noundef %26, ptr noundef %11, i64 noundef %27) #14
+  %.not.i = icmp eq i32 %28, 0
+  br i1 %.not.i, label %29, label %Dot11DecryptRsnaPwd2PskStep.exit
 
-23:                                               ; preds = %18
+29:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, ptr noundef nonnull align 16 dereferenceable(20) %4, i64 20, i1 false)
-  br label %24
+  br label %30
 
-24:                                               ; preds = %31, %23
-  %.02530.i = phi i32 [ 1, %23 ], [ %32, %31 ]
-  %25 = call i32 @ws_hmac_buffer(i32 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %4, i64 noundef 20, ptr noundef %11, i64 noundef %21) #14
-  %.not28.i = icmp eq i32 %25, 0
+30:                                               ; preds = %37, %29
+  %.02530.i = phi i32 [ 1, %29 ], [ %38, %37 ]
+  %31 = call i32 @ws_hmac_buffer(i32 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %4, i64 noundef 20, ptr noundef %11, i64 noundef %27) #14
+  %.not28.i = icmp eq i32 %31, 0
   br i1 %.not28.i, label %.preheader.i, label %Dot11DecryptRsnaPwd2PskStep.exit
 
-.preheader.i:                                     ; preds = %24, %.preheader.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %24 ]
-  %26 = getelementptr [36 x i8], ptr %4, i64 0, i64 %indvars.iv.i
-  %27 = load i8, ptr %26, align 1
-  %28 = getelementptr i8, ptr %5, i64 %indvars.iv.i
-  %29 = load i8, ptr %28, align 1
-  %30 = xor i8 %29, %27
-  store i8 %30, ptr %28, align 1
+.preheader.i:                                     ; preds = %30, %.preheader.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %30 ]
+  %32 = getelementptr [36 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %33 = load i8, ptr %32, align 1
+  %34 = getelementptr i8, ptr %5, i64 %indvars.iv.i
+  %35 = load i8, ptr %34, align 1
+  %36 = xor i8 %35, %33
+  store i8 %36, ptr %34, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.not.i, label %31, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %37, label %.preheader.i, !llvm.loop !14
 
-31:                                               ; preds = %.preheader.i
-  %32 = add nuw nsw i32 %.02530.i, 1
-  %exitcond32.not.i = icmp eq i32 %32, 4096
-  br i1 %exitcond32.not.i, label %Dot11DecryptRsnaPwd2PskStep.exit, label %24, !llvm.loop !15
+37:                                               ; preds = %.preheader.i
+  %38 = add nuw nsw i32 %.02530.i, 1
+  %exitcond32.not.i = icmp eq i32 %38, 4096
+  br i1 %exitcond32.not.i, label %Dot11DecryptRsnaPwd2PskStep.exit, label %30, !llvm.loop !15
 
-Dot11DecryptRsnaPwd2PskStep.exit:                 ; preds = %24, %31, %18
+Dot11DecryptRsnaPwd2PskStep.exit:                 ; preds = %30, %37, %18
   %.pr = load i64, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
-  %33 = load ptr, ptr %6, align 8
-  %34 = load i32, ptr %12, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 20
+  %39 = load ptr, ptr %6, align 8
+  %40 = load i32, ptr %12, align 8
+  %41 = getelementptr inbounds i8, ptr %5, i64 20
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %3, i8 0, i64 36, i1 false)
-  %36 = icmp ugt i64 %.pr, 32
-  br i1 %36, label %Dot11DecryptRsnaPwd2PskStep.exit22, label %37
+  %42 = icmp ugt i64 %.pr, 32
+  br i1 %42, label %Dot11DecryptRsnaPwd2PskStep.exit22, label %43
 
-37:                                               ; preds = %Dot11DecryptRsnaPwd2PskStep.exit
+43:                                               ; preds = %Dot11DecryptRsnaPwd2PskStep.exit
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull readonly align 1 %14, i64 %.pr, i1 false)
-  %38 = getelementptr [36 x i8], ptr %3, i64 0, i64 %.pr
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 2>, ptr %38, align 1
-  %39 = add nuw nsw i64 %.pr, 4
-  %40 = zext i32 %34 to i64
-  %41 = call i32 @ws_hmac_buffer(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %3, i64 noundef %39, ptr noundef %33, i64 noundef %40) #14
-  %.not.i13 = icmp eq i32 %41, 0
-  br i1 %.not.i13, label %42, label %Dot11DecryptRsnaPwd2PskStep.exit22
+  %44 = getelementptr [36 x i8], ptr %3, i64 0, i64 %.pr
+  store i8 0, ptr %44, align 1
+  %45 = add nuw nsw i64 %.pr, 1
+  %46 = getelementptr [36 x i8], ptr %3, i64 0, i64 %45
+  store i8 0, ptr %46, align 1
+  %47 = add nuw nsw i64 %.pr, 2
+  %48 = getelementptr [36 x i8], ptr %3, i64 0, i64 %47
+  store i8 0, ptr %48, align 1
+  %49 = add nuw nsw i64 %.pr, 3
+  %50 = getelementptr [36 x i8], ptr %3, i64 0, i64 %49
+  store i8 2, ptr %50, align 1
+  %51 = add nuw nsw i64 %.pr, 4
+  %52 = zext i32 %40 to i64
+  %53 = call i32 @ws_hmac_buffer(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %3, i64 noundef %51, ptr noundef %39, i64 noundef %52) #14
+  %.not.i13 = icmp eq i32 %53, 0
+  br i1 %.not.i13, label %54, label %Dot11DecryptRsnaPwd2PskStep.exit22
 
-42:                                               ; preds = %37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %35, ptr noundef nonnull align 16 dereferenceable(20) %3, i64 20, i1 false)
-  br label %43
+54:                                               ; preds = %43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %41, ptr noundef nonnull align 16 dereferenceable(20) %3, i64 20, i1 false)
+  br label %55
 
-43:                                               ; preds = %50, %42
-  %.02530.i15 = phi i32 [ 1, %42 ], [ %51, %50 ]
-  %44 = call i32 @ws_hmac_buffer(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %3, i64 noundef 20, ptr noundef %33, i64 noundef %40) #14
-  %.not28.i16 = icmp eq i32 %44, 0
+55:                                               ; preds = %62, %54
+  %.02530.i15 = phi i32 [ 1, %54 ], [ %63, %62 ]
+  %56 = call i32 @ws_hmac_buffer(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %3, i64 noundef 20, ptr noundef %39, i64 noundef %52) #14
+  %.not28.i16 = icmp eq i32 %56, 0
   br i1 %.not28.i16, label %.preheader.i17, label %Dot11DecryptRsnaPwd2PskStep.exit22
 
-.preheader.i17:                                   ; preds = %43, %.preheader.i17
-  %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i19, %.preheader.i17 ], [ 0, %43 ]
-  %45 = getelementptr [36 x i8], ptr %3, i64 0, i64 %indvars.iv.i18
-  %46 = load i8, ptr %45, align 1
-  %47 = getelementptr i8, ptr %35, i64 %indvars.iv.i18
-  %48 = load i8, ptr %47, align 1
-  %49 = xor i8 %48, %46
-  store i8 %49, ptr %47, align 1
+.preheader.i17:                                   ; preds = %55, %.preheader.i17
+  %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i19, %.preheader.i17 ], [ 0, %55 ]
+  %57 = getelementptr [36 x i8], ptr %3, i64 0, i64 %indvars.iv.i18
+  %58 = load i8, ptr %57, align 1
+  %59 = getelementptr i8, ptr %41, i64 %indvars.iv.i18
+  %60 = load i8, ptr %59, align 1
+  %61 = xor i8 %60, %58
+  store i8 %61, ptr %59, align 1
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, 20
-  br i1 %exitcond.not.i20, label %50, label %.preheader.i17, !llvm.loop !14
+  br i1 %exitcond.not.i20, label %62, label %.preheader.i17, !llvm.loop !14
 
-50:                                               ; preds = %.preheader.i17
-  %51 = add nuw nsw i32 %.02530.i15, 1
-  %exitcond32.not.i21 = icmp eq i32 %51, 4096
-  br i1 %exitcond32.not.i21, label %Dot11DecryptRsnaPwd2PskStep.exit22, label %43, !llvm.loop !15
+62:                                               ; preds = %.preheader.i17
+  %63 = add nuw nsw i32 %.02530.i15, 1
+  %exitcond32.not.i21 = icmp eq i32 %63, 4096
+  br i1 %exitcond32.not.i21, label %Dot11DecryptRsnaPwd2PskStep.exit22, label %55, !llvm.loop !15
 
-Dot11DecryptRsnaPwd2PskStep.exit22:               ; preds = %43, %50, %Dot11DecryptRsnaPwd2PskStep.exit.thread, %Dot11DecryptRsnaPwd2PskStep.exit, %37
+Dot11DecryptRsnaPwd2PskStep.exit22:               ; preds = %55, %62, %Dot11DecryptRsnaPwd2PskStep.exit.thread, %Dot11DecryptRsnaPwd2PskStep.exit, %43
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
-  %52 = call ptr @g_byte_array_free(ptr noundef nonnull %6, i32 noundef 1) #14
+  %64 = call ptr @g_byte_array_free(ptr noundef nonnull %6, i32 noundef 1) #14
   ret void
 }
 
@@ -3712,92 +3730,92 @@ switch.lookup:                                    ; preds = %12
 
 Dot11DecryptGetHashAlgoFromAkm.exit:              ; preds = %switch.lookup, %12
   %.0.i = phi i32 [ -1, %12 ], [ %switch.load, %switch.lookup ]
-  %22 = insertelement <4 x ptr> poison, ptr %2, i64 0
-  %23 = insertelement <4 x ptr> %22, ptr %3, i64 1
-  %24 = insertelement <4 x ptr> %23, ptr %4, i64 2
-  %25 = insertelement <4 x ptr> %24, ptr %5, i64 3
+  %22 = icmp ne ptr %2, null
+  %23 = icmp ne ptr %3, null
+  %or.cond3 = and i1 %22, %23
+  %24 = icmp ne ptr %4, null
+  %or.cond5 = and i1 %or.cond3, %24
+  %25 = icmp ne ptr %5, null
+  %or.cond7 = and i1 %or.cond5, %25
   %26 = icmp ne ptr %7, null
+  %or.cond9 = and i1 %or.cond7, %26
   %27 = icmp ne ptr %10, null
+  %or.cond11 = and i1 %or.cond9, %27
   %28 = icmp ne ptr %11, null
-  %29 = icmp eq <4 x ptr> %25, zeroinitializer
-  %30 = bitcast <4 x i1> %29 to i4
-  %31 = icmp eq i4 %30, 0
-  %op.rdx = and i1 %31, %26
-  %op.rdx1 = and i1 %27, %28
-  %op.rdx2 = and i1 %op.rdx, %op.rdx1
-  br i1 %op.rdx2, label %33, label %32
+  %or.cond13 = and i1 %or.cond11, %28
+  br i1 %or.cond13, label %30, label %29
 
-32:                                               ; preds = %Dot11DecryptGetHashAlgoFromAkm.exit
+29:                                               ; preds = %Dot11DecryptGetHashAlgoFromAkm.exit
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2600, ptr noundef nonnull @__func__.Dot11DecryptFtDerivePtk, ptr noundef nonnull @.str.50) #14
-  br label %68
+  br label %65
 
-33:                                               ; preds = %Dot11DecryptGetHashAlgoFromAkm.exit
-  %34 = tail call fastcc i32 @Dot11DecryptGetPtkLen(i32 noundef %8, i32 noundef %9)
-  %35 = icmp eq i32 %34, -1
-  br i1 %35, label %36, label %37
+30:                                               ; preds = %Dot11DecryptGetHashAlgoFromAkm.exit
+  %31 = tail call fastcc i32 @Dot11DecryptGetPtkLen(i32 noundef %8, i32 noundef %9)
+  %32 = icmp eq i32 %31, -1
+  br i1 %32, label %33, label %34
 
-36:                                               ; preds = %33
+33:                                               ; preds = %30
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2605, ptr noundef nonnull @__func__.Dot11DecryptFtDerivePtk, ptr noundef nonnull @.str.51) #14
-  br label %68
+  br label %65
 
-37:                                               ; preds = %33
-  %38 = lshr i32 %34, 3
-  %39 = zext nneg i32 %38 to i64
-  store i64 %39, ptr %11, align 8
-  %40 = load i8, ptr %2, align 8
-  %41 = icmp eq i8 %40, 7
-  br i1 %41, label %42, label %Dot11DecryptGetXXKeyFromMSK.exit.thread
+34:                                               ; preds = %30
+  %35 = lshr i32 %31, 3
+  %36 = zext nneg i32 %35 to i64
+  store i64 %36, ptr %11, align 8
+  %37 = load i8, ptr %2, align 8
+  %38 = icmp eq i8 %37, 7
+  br i1 %38, label %39, label %Dot11DecryptGetXXKeyFromMSK.exit.thread
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %2, i64 313
-  %44 = load i8, ptr %43, align 1
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds i8, ptr %2, i64 313
+  %41 = load i8, ptr %40, align 1
   switch i32 %8, label %Dot11DecryptGetXXKeyFromMSK.exit.thread [
-    i32 3, label %45
-    i32 13, label %48
+    i32 3, label %42
+    i32 13, label %45
   ]
 
-45:                                               ; preds = %42
-  %46 = icmp ult i8 %44, 64
-  %47 = getelementptr i8, ptr %2, i64 217
-  %.not = icmp eq ptr %47, null
-  %or.cond = or i1 %.not, %46
+42:                                               ; preds = %39
+  %43 = icmp ult i8 %41, 64
+  %44 = getelementptr i8, ptr %2, i64 217
+  %.not = icmp eq ptr %44, null
+  %or.cond = or i1 %.not, %43
   br i1 %or.cond, label %Dot11DecryptGetXXKeyFromMSK.exit.thread, label %Dot11DecryptGetXXKeyFromMSK.exit.thread66
 
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %2, i64 185
-  %50 = icmp ult i8 %44, 48
-  br i1 %50, label %Dot11DecryptGetXXKeyFromMSK.exit.thread, label %Dot11DecryptGetXXKeyFromMSK.exit.thread66
+45:                                               ; preds = %39
+  %46 = getelementptr inbounds i8, ptr %2, i64 185
+  %47 = icmp ult i8 %41, 48
+  br i1 %47, label %Dot11DecryptGetXXKeyFromMSK.exit.thread, label %Dot11DecryptGetXXKeyFromMSK.exit.thread66
 
-Dot11DecryptGetXXKeyFromMSK.exit.thread:          ; preds = %42, %48, %45, %37
-  %51 = getelementptr inbounds i8, ptr %2, i64 144
-  %52 = load i8, ptr %51, align 8
-  %.not57 = icmp eq i8 %52, 0
-  br i1 %.not57, label %68, label %53
+Dot11DecryptGetXXKeyFromMSK.exit.thread:          ; preds = %39, %45, %42, %34
+  %48 = getelementptr inbounds i8, ptr %2, i64 144
+  %49 = load i8, ptr %48, align 8
+  %.not57 = icmp eq i8 %49, 0
+  br i1 %.not57, label %65, label %50
 
-53:                                               ; preds = %Dot11DecryptGetXXKeyFromMSK.exit.thread
-  %54 = getelementptr inbounds i8, ptr %2, i64 8
-  %55 = zext i8 %52 to i64
+50:                                               ; preds = %Dot11DecryptGetXXKeyFromMSK.exit.thread
+  %51 = getelementptr inbounds i8, ptr %2, i64 8
+  %52 = zext i8 %49 to i64
   br label %Dot11DecryptGetXXKeyFromMSK.exit.thread66
 
-Dot11DecryptGetXXKeyFromMSK.exit.thread66:        ; preds = %45, %48, %53
-  %.161.ph = phi i64 [ %55, %53 ], [ 48, %48 ], [ 32, %45 ]
-  %.1.ph = phi ptr [ %54, %53 ], [ %49, %48 ], [ %47, %45 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 27664
-  %57 = getelementptr inbounds i8, ptr %0, i64 27696
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 14
-  %61 = call zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef nonnull %.1.ph, i64 noundef %.161.ph, ptr noundef nonnull %56, i64 noundef %58, ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef %6, ptr noundef nonnull %60, i32 noundef %.0.i, ptr noundef nonnull %13, ptr noundef nonnull %18, ptr noundef nonnull %15) #14
-  %62 = load i64, ptr %18, align 8
-  %63 = call zeroext i1 @dot11decrypt_derive_pmk_r1(ptr noundef nonnull %13, i64 noundef %62, ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull %60, i32 noundef %.0.i, ptr noundef nonnull %14, ptr noundef nonnull %19, ptr noundef nonnull %16) #14
-  %64 = load i64, ptr %19, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 37
-  %66 = load i64, ptr %11, align 8
-  %67 = call zeroext i1 @dot11decrypt_derive_ft_ptk(ptr noundef nonnull %14, i64 noundef %64, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %65, ptr noundef nonnull %59, ptr noundef nonnull %60, i32 noundef %.0.i, ptr noundef nonnull %10, i64 noundef %66, ptr noundef nonnull %17) #14
-  br label %68
+Dot11DecryptGetXXKeyFromMSK.exit.thread66:        ; preds = %42, %45, %50
+  %.161.ph = phi i64 [ %52, %50 ], [ 48, %45 ], [ 32, %42 ]
+  %.1.ph = phi ptr [ %51, %50 ], [ %46, %45 ], [ %44, %42 ]
+  %53 = getelementptr inbounds i8, ptr %0, i64 27664
+  %54 = getelementptr inbounds i8, ptr %0, i64 27696
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 14
+  %58 = call zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef nonnull %.1.ph, i64 noundef %.161.ph, ptr noundef nonnull %53, i64 noundef %55, ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef %6, ptr noundef nonnull %57, i32 noundef %.0.i, ptr noundef nonnull %13, ptr noundef nonnull %18, ptr noundef nonnull %15) #14
+  %59 = load i64, ptr %18, align 8
+  %60 = call zeroext i1 @dot11decrypt_derive_pmk_r1(ptr noundef nonnull %13, i64 noundef %59, ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull %57, i32 noundef %.0.i, ptr noundef nonnull %14, ptr noundef nonnull %19, ptr noundef nonnull %16) #14
+  %61 = load i64, ptr %19, align 8
+  %62 = getelementptr inbounds i8, ptr %1, i64 37
+  %63 = load i64, ptr %11, align 8
+  %64 = call zeroext i1 @dot11decrypt_derive_ft_ptk(ptr noundef nonnull %14, i64 noundef %61, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %62, ptr noundef nonnull %56, ptr noundef nonnull %57, i32 noundef %.0.i, ptr noundef nonnull %10, i64 noundef %63, ptr noundef nonnull %17) #14
+  br label %65
 
-68:                                               ; preds = %Dot11DecryptGetXXKeyFromMSK.exit.thread, %Dot11DecryptGetXXKeyFromMSK.exit.thread66, %36, %32
-  %.0 = phi i8 [ 4, %36 ], [ 0, %Dot11DecryptGetXXKeyFromMSK.exit.thread66 ], [ 4, %32 ], [ 4, %Dot11DecryptGetXXKeyFromMSK.exit.thread ]
+65:                                               ; preds = %Dot11DecryptGetXXKeyFromMSK.exit.thread, %Dot11DecryptGetXXKeyFromMSK.exit.thread66, %33, %29
+  %.0 = phi i8 [ 4, %33 ], [ 0, %Dot11DecryptGetXXKeyFromMSK.exit.thread66 ], [ 4, %29 ], [ 4, %Dot11DecryptGetXXKeyFromMSK.exit.thread ]
   ret i8 %.0
 }
 

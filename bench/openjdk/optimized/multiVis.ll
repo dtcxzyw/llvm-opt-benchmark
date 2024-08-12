@@ -261,7 +261,7 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) unnamed_addr #1 {
-  %8 = alloca %struct.XRectangle, align 8
+  %8 = alloca %struct.XRectangle, align 2
   %9 = alloca %struct.XRectangle, align 2
   %10 = alloca %struct.XWindowAttributes, align 8
   %11 = alloca %struct._list_item, align 8
@@ -275,320 +275,340 @@ define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr
   %16 = getelementptr inbounds i8, ptr %12, i64 2
   store i16 0, ptr %16, align 2
   %17 = getelementptr inbounds i8, ptr %10, i64 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 4
-  %19 = load <2 x i32>, ptr %17, align 8
-  %20 = trunc <2 x i32> %19 to <2 x i16>
-  store <2 x i16> %20, ptr %18, align 2
+  %18 = load i32, ptr %17, align 8
+  %19 = trunc i32 %18 to i16
+  %20 = getelementptr inbounds i8, ptr %12, i64 4
+  store i16 %19, ptr %20, align 2
+  %21 = getelementptr inbounds i8, ptr %10, i64 12
+  %22 = load i32, ptr %21, align 4
+  %23 = trunc i32 %22 to i16
+  %24 = getelementptr inbounds i8, ptr %12, i64 6
+  store i16 %23, ptr %24, align 2
   call fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %2, i64 noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10, ptr noundef nonnull %12)
-  %21 = call ptr @new_list() #9
-  %22 = load i32, ptr %6, align 4
-  %.not = icmp eq i32 %22, 0
-  %23 = call ptr @first_in_list(ptr noundef nonnull %11) #9
-  %.not94125 = icmp eq ptr %23, null
+  %25 = call ptr @new_list() #9
+  %26 = load i32, ptr %6, align 4
+  %.not = icmp eq i32 %26, 0
+  %27 = call ptr @first_in_list(ptr noundef nonnull %11) #9
+  %.not94125 = icmp eq ptr %27, null
   br i1 %.not94125, label %._crit_edge130, label %.lr.ph129
 
 .lr.ph129:                                        ; preds = %7
-  %24 = icmp sgt i32 %4, 0
+  %28 = icmp sgt i32 %4, 0
   %wide.trip.count.i = zext nneg i32 %4 to i64
-  %25 = getelementptr inbounds i8, ptr %9, i64 2
-  %26 = getelementptr inbounds i8, ptr %9, i64 4
-  %27 = getelementptr inbounds i8, ptr %9, i64 6
-  %28 = getelementptr inbounds i8, ptr %10, i64 128
-  br label %29
+  %29 = getelementptr inbounds i8, ptr %9, i64 2
+  %30 = getelementptr inbounds i8, ptr %9, i64 4
+  %31 = getelementptr inbounds i8, ptr %9, i64 6
+  %32 = getelementptr inbounds i8, ptr %8, i64 2
+  %33 = getelementptr inbounds i8, ptr %8, i64 4
+  %34 = getelementptr inbounds i8, ptr %8, i64 6
+  %35 = getelementptr inbounds i8, ptr %10, i64 128
+  br label %36
 
-29:                                               ; preds = %.lr.ph129, %src_in_region_list.exit
-  %.087126 = phi ptr [ %23, %.lr.ph129 ], [ %181, %src_in_region_list.exit ]
-  br i1 %.not, label %src_in_image.exit, label %30
+36:                                               ; preds = %.lr.ph129, %src_in_region_list.exit
+  %.087126 = phi ptr [ %27, %.lr.ph129 ], [ %197, %src_in_region_list.exit ]
+  br i1 %.not, label %src_in_image.exit, label %37
 
-30:                                               ; preds = %29
-  br i1 %24, label %.lr.ph.i, label %.loopexit121
+37:                                               ; preds = %36
+  br i1 %28, label %.lr.ph.i, label %.loopexit121
 
-.lr.ph.i:                                         ; preds = %30
-  %31 = getelementptr inbounds i8, ptr %.087126, i64 8
-  %32 = load ptr, ptr %31, align 8
-  br label %34
+.lr.ph.i:                                         ; preds = %37
+  %38 = getelementptr inbounds i8, ptr %.087126, i64 8
+  %39 = load ptr, ptr %38, align 8
+  br label %41
 
-33:                                               ; preds = %34
+40:                                               ; preds = %41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit121, label %34, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.loopexit121, label %41, !llvm.loop !10
 
-34:                                               ; preds = %33, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %32
-  br i1 %38, label %src_in_image.exit, label %33
+41:                                               ; preds = %40, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
+  %42 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, %39
+  br i1 %45, label %src_in_image.exit, label %40
 
-src_in_image.exit:                                ; preds = %34, %29
-  %39 = call ptr @first_in_list(ptr noundef %21) #9
-  %.not28.i = icmp eq ptr %39, null
+src_in_image.exit:                                ; preds = %41, %36
+  %46 = call ptr @first_in_list(ptr noundef %25) #9
+  %.not28.i = icmp eq ptr %46, null
   br i1 %.not28.i, label %.loopexit, label %.lr.ph.i107
 
 .lr.ph.i107:                                      ; preds = %src_in_image.exit
-  %40 = getelementptr inbounds i8, ptr %.087126, i64 8
-  %41 = getelementptr inbounds i8, ptr %.087126, i64 16
-  %42 = getelementptr inbounds i8, ptr %.087126, i64 32
-  %43 = getelementptr inbounds i8, ptr %.087126, i64 36
-  %44 = getelementptr inbounds i8, ptr %.087126, i64 40
-  %45 = getelementptr inbounds i8, ptr %.087126, i64 44
-  br label %46
+  %47 = getelementptr inbounds i8, ptr %.087126, i64 8
+  %48 = getelementptr inbounds i8, ptr %.087126, i64 16
+  %49 = getelementptr inbounds i8, ptr %.087126, i64 32
+  %50 = getelementptr inbounds i8, ptr %.087126, i64 36
+  %51 = getelementptr inbounds i8, ptr %.087126, i64 40
+  %52 = getelementptr inbounds i8, ptr %.087126, i64 44
+  br label %53
 
-46:                                               ; preds = %76, %.lr.ph.i107
-  %.029.i = phi ptr [ %39, %.lr.ph.i107 ], [ %77, %76 ]
-  %47 = getelementptr inbounds i8, ptr %.029.i, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %40, align 8
-  %50 = icmp eq ptr %48, %49
-  br i1 %50, label %51, label %76
+53:                                               ; preds = %83, %.lr.ph.i107
+  %.029.i = phi ptr [ %46, %.lr.ph.i107 ], [ %84, %83 ]
+  %54 = getelementptr inbounds i8, ptr %.029.i, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %47, align 8
+  %57 = icmp eq ptr %55, %56
+  br i1 %57, label %58, label %83
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %.029.i, i64 16
-  %53 = load i64, ptr %52, align 8
-  %54 = load i64, ptr %41, align 8
-  %55 = icmp eq i64 %53, %54
-  br i1 %55, label %56, label %76
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds i8, ptr %.029.i, i64 16
+  %60 = load i64, ptr %59, align 8
+  %61 = load i64, ptr %48, align 8
+  %62 = icmp eq i64 %60, %61
+  br i1 %62, label %63, label %83
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %.029.i, i64 32
-  %58 = load i32, ptr %57, align 8
-  %59 = load i32, ptr %42, align 8
-  %.not24.i = icmp sgt i32 %58, %59
-  br i1 %.not24.i, label %76, label %60
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds i8, ptr %.029.i, i64 32
+  %65 = load i32, ptr %64, align 8
+  %66 = load i32, ptr %49, align 8
+  %.not24.i = icmp sgt i32 %65, %66
+  br i1 %.not24.i, label %83, label %67
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %.029.i, i64 36
-  %62 = load i32, ptr %61, align 4
-  %63 = load i32, ptr %43, align 4
-  %.not25.i = icmp sgt i32 %62, %63
-  br i1 %.not25.i, label %76, label %64
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds i8, ptr %.029.i, i64 36
+  %69 = load i32, ptr %68, align 4
+  %70 = load i32, ptr %50, align 4
+  %.not25.i = icmp sgt i32 %69, %70
+  br i1 %.not25.i, label %83, label %71
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %.029.i, i64 40
-  %66 = load i32, ptr %65, align 8
-  %67 = add nsw i32 %66, %58
-  %68 = load i32, ptr %44, align 8
-  %69 = add nsw i32 %68, %59
-  %.not26.i = icmp slt i32 %67, %69
-  br i1 %.not26.i, label %76, label %70
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds i8, ptr %.029.i, i64 40
+  %73 = load i32, ptr %72, align 8
+  %74 = add nsw i32 %73, %65
+  %75 = load i32, ptr %51, align 8
+  %76 = add nsw i32 %75, %66
+  %.not26.i = icmp slt i32 %74, %76
+  br i1 %.not26.i, label %83, label %77
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %.029.i, i64 44
-  %72 = load i32, ptr %71, align 4
-  %73 = add nsw i32 %72, %62
-  %74 = load i32, ptr %45, align 4
-  %75 = add nsw i32 %74, %63
-  %.not27.i = icmp slt i32 %73, %75
-  br i1 %.not27.i, label %76, label %src_in_region_list.exit
+77:                                               ; preds = %71
+  %78 = getelementptr inbounds i8, ptr %.029.i, i64 44
+  %79 = load i32, ptr %78, align 4
+  %80 = add nsw i32 %79, %69
+  %81 = load i32, ptr %52, align 4
+  %82 = add nsw i32 %81, %70
+  %.not27.i = icmp slt i32 %80, %82
+  br i1 %.not27.i, label %83, label %src_in_region_list.exit
 
-76:                                               ; preds = %70, %64, %60, %56, %51, %46
-  %77 = call ptr @next_in_list(ptr noundef %21) #9
-  %.not.i = icmp eq ptr %77, null
-  br i1 %.not.i, label %.loopexit, label %46, !llvm.loop !11
+83:                                               ; preds = %77, %71, %67, %63, %58, %53
+  %84 = call ptr @next_in_list(ptr noundef %25) #9
+  %.not.i = icmp eq ptr %84, null
+  br i1 %.not.i, label %.loopexit, label %53, !llvm.loop !11
 
-.loopexit:                                        ; preds = %76, %src_in_image.exit
-  %78 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #10
-  %.not97 = icmp eq ptr %78, null
-  br i1 %.not97, label %.loopexit122, label %79
+.loopexit:                                        ; preds = %83, %src_in_image.exit
+  %85 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #10
+  %.not97 = icmp eq ptr %85, null
+  br i1 %.not97, label %.loopexit122, label %86
 
-79:                                               ; preds = %.loopexit
-  %80 = call ptr @XCreateRegion() #9
-  %81 = getelementptr inbounds i8, ptr %78, i64 56
-  store ptr %80, ptr %81, align 8
-  %82 = load i64, ptr %.087126, align 8
-  store i64 %82, ptr %78, align 8
-  %83 = getelementptr inbounds i8, ptr %.087126, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %78, i64 8
-  store ptr %84, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %.087126, i64 16
-  %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %78, i64 16
-  store i64 %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %.087126, i64 24
-  %90 = load i32, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %78, i64 24
-  store i32 %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %.087126, i64 28
-  %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %78, i64 28
-  store i32 %93, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %.087126, i64 32
-  %96 = load i32, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %78, i64 32
-  store i32 %96, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %.087126, i64 36
-  %99 = load i32, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %78, i64 36
-  store i32 %99, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %.087126, i64 40
-  %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %78, i64 40
-  store i32 %102, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %.087126, i64 44
-  %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %78, i64 44
-  store i32 %105, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %.087126, i64 48
-  %108 = load i32, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %78, i64 48
-  store i32 %108, ptr %109, align 8
-  %110 = call ptr @dup_list_head(ptr noundef nonnull %11, i32 noundef 1) #9
-  %111 = call ptr @first_in_list(ptr noundef %110) #9
-  %.not98123 = icmp eq ptr %111, null
+86:                                               ; preds = %.loopexit
+  %87 = call ptr @XCreateRegion() #9
+  %88 = getelementptr inbounds i8, ptr %85, i64 56
+  store ptr %87, ptr %88, align 8
+  %89 = load i64, ptr %.087126, align 8
+  store i64 %89, ptr %85, align 8
+  %90 = getelementptr inbounds i8, ptr %.087126, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %85, i64 8
+  store ptr %91, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %.087126, i64 16
+  %94 = load i64, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %85, i64 16
+  store i64 %94, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %.087126, i64 24
+  %97 = load i32, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %85, i64 24
+  store i32 %97, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %.087126, i64 28
+  %100 = load i32, ptr %99, align 4
+  %101 = getelementptr inbounds i8, ptr %85, i64 28
+  store i32 %100, ptr %101, align 4
+  %102 = getelementptr inbounds i8, ptr %.087126, i64 32
+  %103 = load i32, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %85, i64 32
+  store i32 %103, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %.087126, i64 36
+  %106 = load i32, ptr %105, align 4
+  %107 = getelementptr inbounds i8, ptr %85, i64 36
+  store i32 %106, ptr %107, align 4
+  %108 = getelementptr inbounds i8, ptr %.087126, i64 40
+  %109 = load i32, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %85, i64 40
+  store i32 %109, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %.087126, i64 44
+  %112 = load i32, ptr %111, align 4
+  %113 = getelementptr inbounds i8, ptr %85, i64 44
+  store i32 %112, ptr %113, align 4
+  %114 = getelementptr inbounds i8, ptr %.087126, i64 48
+  %115 = load i32, ptr %114, align 8
+  %116 = getelementptr inbounds i8, ptr %85, i64 48
+  store i32 %115, ptr %116, align 8
+  %117 = call ptr @dup_list_head(ptr noundef nonnull %11, i32 noundef 1) #9
+  %118 = call ptr @first_in_list(ptr noundef %117) #9
+  %.not98123 = icmp eq ptr %118, null
   br i1 %.not98123, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %79, %src_in_image.exit114.thread
-  %.088124 = phi ptr [ %162, %src_in_image.exit114.thread ], [ %111, %79 ]
-  %112 = load ptr, ptr %83, align 8
-  %113 = getelementptr inbounds i8, ptr %.088124, i64 8
-  %114 = load ptr, ptr %113, align 8
-  %115 = icmp eq ptr %112, %114
-  br i1 %115, label %116, label %147
+.lr.ph:                                           ; preds = %86, %src_in_image.exit114.thread
+  %.088124 = phi ptr [ %178, %src_in_image.exit114.thread ], [ %118, %86 ]
+  %119 = load ptr, ptr %90, align 8
+  %120 = getelementptr inbounds i8, ptr %.088124, i64 8
+  %121 = load ptr, ptr %120, align 8
+  %122 = icmp eq ptr %119, %121
+  br i1 %122, label %123, label %154
 
-116:                                              ; preds = %.lr.ph
-  %117 = load i64, ptr %86, align 8
-  %118 = getelementptr inbounds i8, ptr %.088124, i64 16
-  %119 = load i64, ptr %118, align 8
-  %120 = icmp eq i64 %117, %119
-  br i1 %120, label %121, label %147
+123:                                              ; preds = %.lr.ph
+  %124 = load i64, ptr %93, align 8
+  %125 = getelementptr inbounds i8, ptr %.088124, i64 16
+  %126 = load i64, ptr %125, align 8
+  %127 = icmp eq i64 %124, %126
+  br i1 %127, label %128, label %154
 
-121:                                              ; preds = %116
-  %122 = load i32, ptr %95, align 8
-  %123 = getelementptr inbounds i8, ptr %.088124, i64 32
-  %124 = load i32, ptr %123, align 8
-  %.not102 = icmp sgt i32 %122, %124
-  br i1 %.not102, label %147, label %125
+128:                                              ; preds = %123
+  %129 = load i32, ptr %102, align 8
+  %130 = getelementptr inbounds i8, ptr %.088124, i64 32
+  %131 = load i32, ptr %130, align 8
+  %.not102 = icmp sgt i32 %129, %131
+  br i1 %.not102, label %154, label %132
 
-125:                                              ; preds = %121
-  %126 = load i32, ptr %98, align 4
-  %127 = getelementptr inbounds i8, ptr %.088124, i64 36
-  %128 = load i32, ptr %127, align 4
-  %.not103 = icmp sgt i32 %126, %128
-  br i1 %.not103, label %147, label %129
+132:                                              ; preds = %128
+  %133 = load i32, ptr %105, align 4
+  %134 = getelementptr inbounds i8, ptr %.088124, i64 36
+  %135 = load i32, ptr %134, align 4
+  %.not103 = icmp sgt i32 %133, %135
+  br i1 %.not103, label %154, label %136
 
-129:                                              ; preds = %125
-  %130 = load i32, ptr %101, align 8
-  %131 = add nsw i32 %130, %122
-  %132 = getelementptr inbounds i8, ptr %.088124, i64 40
-  %133 = load i32, ptr %132, align 8
-  %134 = add nsw i32 %133, %124
-  %.not104 = icmp slt i32 %131, %134
-  br i1 %.not104, label %147, label %135
+136:                                              ; preds = %132
+  %137 = load i32, ptr %108, align 8
+  %138 = add nsw i32 %137, %129
+  %139 = getelementptr inbounds i8, ptr %.088124, i64 40
+  %140 = load i32, ptr %139, align 8
+  %141 = add nsw i32 %140, %131
+  %.not104 = icmp slt i32 %138, %141
+  br i1 %.not104, label %154, label %142
 
-135:                                              ; preds = %129
-  %136 = load i32, ptr %104, align 4
-  %137 = add nsw i32 %136, %126
-  %138 = getelementptr inbounds i8, ptr %.088124, i64 44
-  %139 = load i32, ptr %138, align 4
-  %140 = add nsw i32 %139, %128
-  %.not105 = icmp slt i32 %137, %140
-  br i1 %.not105, label %147, label %141
+142:                                              ; preds = %136
+  %143 = load i32, ptr %111, align 4
+  %144 = add nsw i32 %143, %133
+  %145 = getelementptr inbounds i8, ptr %.088124, i64 44
+  %146 = load i32, ptr %145, align 4
+  %147 = add nsw i32 %146, %135
+  %.not105 = icmp slt i32 %144, %147
+  br i1 %.not105, label %154, label %148
 
-141:                                              ; preds = %135
-  %.val = load ptr, ptr %81, align 8
+148:                                              ; preds = %142
+  %.val = load ptr, ptr %88, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %142 = trunc i32 %124 to i16
-  store i16 %142, ptr %9, align 2
-  %143 = trunc i32 %128 to i16
-  store i16 %143, ptr %25, align 2
-  %144 = trunc i32 %133 to i16
-  store i16 %144, ptr %26, align 2
-  %145 = trunc i32 %139 to i16
-  store i16 %145, ptr %27, align 2
-  %146 = call i32 @XUnionRectWithRegion(ptr noundef nonnull %9, ptr noundef %.val, ptr noundef %.val) #9
+  %149 = trunc i32 %131 to i16
+  store i16 %149, ptr %9, align 2
+  %150 = trunc i32 %135 to i16
+  store i16 %150, ptr %29, align 2
+  %151 = trunc i32 %140 to i16
+  store i16 %151, ptr %30, align 2
+  %152 = trunc i32 %146 to i16
+  store i16 %152, ptr %31, align 2
+  %153 = call i32 @XUnionRectWithRegion(ptr noundef nonnull %9, ptr noundef %.val, ptr noundef %.val) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %src_in_image.exit114.thread
 
-147:                                              ; preds = %135, %129, %125, %121, %116, %.lr.ph
-  br i1 %.not, label %src_in_image.exit114, label %148
+154:                                              ; preds = %142, %136, %132, %128, %123, %.lr.ph
+  br i1 %.not, label %src_in_image.exit114, label %155
 
-148:                                              ; preds = %147
-  br i1 %24, label %.lr.ph.i109, label %src_in_image.exit114.thread
+155:                                              ; preds = %154
+  br i1 %28, label %.lr.ph.i109, label %src_in_image.exit114.thread
 
-149:                                              ; preds = %.lr.ph.i109
+156:                                              ; preds = %.lr.ph.i109
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, %wide.trip.count.i
   br i1 %exitcond.not.i113, label %src_in_image.exit114.thread, label %.lr.ph.i109, !llvm.loop !10
 
-.lr.ph.i109:                                      ; preds = %148, %149
-  %indvars.iv.i111 = phi i64 [ %indvars.iv.next.i112, %149 ], [ 0, %148 ]
-  %150 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i111
-  %151 = load ptr, ptr %150, align 8
-  %152 = load ptr, ptr %151, align 8
-  %153 = icmp eq ptr %152, %114
-  br i1 %153, label %src_in_image.exit114, label %149
+.lr.ph.i109:                                      ; preds = %155, %156
+  %indvars.iv.i111 = phi i64 [ %indvars.iv.next.i112, %156 ], [ 0, %155 ]
+  %157 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i111
+  %158 = load ptr, ptr %157, align 8
+  %159 = load ptr, ptr %158, align 8
+  %160 = icmp eq ptr %159, %121
+  br i1 %160, label %src_in_image.exit114, label %156
 
-src_in_image.exit114:                             ; preds = %.lr.ph.i109, %147
-  %154 = getelementptr inbounds i8, ptr %.088124, i64 32
+src_in_image.exit114:                             ; preds = %.lr.ph.i109, %154
+  %161 = getelementptr inbounds i8, ptr %.088124, i64 32
+  %162 = load i32, ptr %161, align 8
+  %163 = getelementptr inbounds i8, ptr %.088124, i64 36
+  %164 = load i32, ptr %163, align 4
+  %165 = getelementptr inbounds i8, ptr %.088124, i64 40
+  %166 = load i32, ptr %165, align 8
+  %167 = getelementptr inbounds i8, ptr %.088124, i64 44
+  %168 = load i32, ptr %167, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %155 = load <4 x i32>, ptr %154, align 8
-  %156 = call ptr @XCreateRegion() #9
-  %157 = trunc <4 x i32> %155 to <4 x i16>
-  store <4 x i16> %157, ptr %8, align 8
-  %158 = call i32 @XUnionRectWithRegion(ptr noundef nonnull %8, ptr noundef %156, ptr noundef %156) #9
-  %159 = load ptr, ptr %81, align 8
-  %160 = call i32 @XSubtractRegion(ptr noundef %159, ptr noundef %156, ptr noundef %159) #9
-  %161 = call i32 @XDestroyRegion(ptr noundef %156) #9
+  %169 = call ptr @XCreateRegion() #9
+  %170 = trunc i32 %162 to i16
+  store i16 %170, ptr %8, align 2
+  %171 = trunc i32 %164 to i16
+  store i16 %171, ptr %32, align 2
+  %172 = trunc i32 %166 to i16
+  store i16 %172, ptr %33, align 2
+  %173 = trunc i32 %168 to i16
+  store i16 %173, ptr %34, align 2
+  %174 = call i32 @XUnionRectWithRegion(ptr noundef nonnull %8, ptr noundef %169, ptr noundef %169) #9
+  %175 = load ptr, ptr %88, align 8
+  %176 = call i32 @XSubtractRegion(ptr noundef %175, ptr noundef %169, ptr noundef %175) #9
+  %177 = call i32 @XDestroyRegion(ptr noundef %169) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %src_in_image.exit114.thread
 
-src_in_image.exit114.thread:                      ; preds = %149, %148, %141, %src_in_image.exit114
-  %162 = call ptr @next_in_list(ptr noundef %110) #9
-  %.not98 = icmp eq ptr %162, null
+src_in_image.exit114.thread:                      ; preds = %156, %155, %148, %src_in_image.exit114
+  %178 = call ptr @next_in_list(ptr noundef %117) #9
+  %.not98 = icmp eq ptr %178, null
   br i1 %.not98, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %src_in_image.exit114.thread, %79
-  %163 = load ptr, ptr %81, align 8
-  %164 = call i32 @XIntersectRegion(ptr noundef %13, ptr noundef %163, ptr noundef %163) #9
-  %165 = load ptr, ptr %81, align 8
-  %166 = call i32 @XEmptyRegion(ptr noundef %165) #9
-  %.not99 = icmp eq i32 %166, 0
-  br i1 %.not99, label %167, label %178
+._crit_edge:                                      ; preds = %src_in_image.exit114.thread, %86
+  %179 = load ptr, ptr %88, align 8
+  %180 = call i32 @XIntersectRegion(ptr noundef %13, ptr noundef %179, ptr noundef %179) #9
+  %181 = load ptr, ptr %88, align 8
+  %182 = call i32 @XEmptyRegion(ptr noundef %181) #9
+  %.not99 = icmp eq i32 %182, 0
+  br i1 %.not99, label %183, label %194
 
-167:                                              ; preds = %._crit_edge
-  %168 = call i32 @add_to_list(ptr noundef %21, ptr noundef nonnull %78) #9
-  %169 = load ptr, ptr %85, align 8
-  %170 = load ptr, ptr %28, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 64
-  %172 = load ptr, ptr %171, align 8
-  %.not100 = icmp eq ptr %169, %172
-  br i1 %.not100, label %173, label %177
+183:                                              ; preds = %._crit_edge
+  %184 = call i32 @add_to_list(ptr noundef %25, ptr noundef nonnull %85) #9
+  %185 = load ptr, ptr %92, align 8
+  %186 = load ptr, ptr %35, align 8
+  %187 = getelementptr inbounds i8, ptr %186, i64 64
+  %188 = load ptr, ptr %187, align 8
+  %.not100 = icmp eq ptr %185, %188
+  br i1 %.not100, label %189, label %193
 
-173:                                              ; preds = %167
-  %174 = load i64, ptr %88, align 8
-  %175 = getelementptr inbounds i8, ptr %170, i64 80
-  %176 = load i64, ptr %175, align 8
-  %.not101 = icmp eq i64 %174, %176
-  br i1 %.not101, label %src_in_region_list.exit, label %177
+189:                                              ; preds = %183
+  %190 = load i64, ptr %95, align 8
+  %191 = getelementptr inbounds i8, ptr %186, i64 80
+  %192 = load i64, ptr %191, align 8
+  %.not101 = icmp eq i64 %190, %192
+  br i1 %.not101, label %src_in_region_list.exit, label %193
 
-177:                                              ; preds = %173, %167
+193:                                              ; preds = %189, %183
   store i32 1, ptr %3, align 4
   br label %src_in_region_list.exit
 
-178:                                              ; preds = %._crit_edge
-  %179 = load ptr, ptr %81, align 8
-  %180 = call i32 @XDestroyRegion(ptr noundef %179) #9
-  call void @free(ptr noundef nonnull %78) #9
+194:                                              ; preds = %._crit_edge
+  %195 = load ptr, ptr %88, align 8
+  %196 = call i32 @XDestroyRegion(ptr noundef %195) #9
+  call void @free(ptr noundef nonnull %85) #9
   br label %src_in_region_list.exit
 
-.loopexit121:                                     ; preds = %33, %30
+.loopexit121:                                     ; preds = %40, %37
   store i32 0, ptr %6, align 4
   br label %src_in_region_list.exit
 
-src_in_region_list.exit:                          ; preds = %70, %.loopexit121, %178, %177, %173
-  %181 = call ptr @next_in_list(ptr noundef nonnull %11) #9
-  %.not94 = icmp eq ptr %181, null
-  br i1 %.not94, label %._crit_edge130, label %29, !llvm.loop !13
+src_in_region_list.exit:                          ; preds = %77, %.loopexit121, %194, %193, %189
+  %197 = call ptr @next_in_list(ptr noundef nonnull %11) #9
+  %.not94 = icmp eq ptr %197, null
+  br i1 %.not94, label %._crit_edge130, label %36, !llvm.loop !13
 
 ._crit_edge130:                                   ; preds = %src_in_region_list.exit, %7
   call void @delete_list(ptr noundef nonnull %11, i32 noundef 1) #9
-  %182 = call i32 @XDestroyRegion(ptr noundef %13) #9
+  %198 = call i32 @XDestroyRegion(ptr noundef %13) #9
   br label %.loopexit122
 
 .loopexit122:                                     ; preds = %.loopexit, %._crit_edge130
-  %.086 = phi ptr [ %21, %._crit_edge130 ], [ null, %.loopexit ]
+  %.086 = phi ptr [ %25, %._crit_edge130 ], [ null, %.loopexit ]
   ret ptr %.086
 }
 

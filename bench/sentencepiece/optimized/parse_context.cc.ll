@@ -5598,45 +5598,48 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %21, align 4
   %24 = tail call noundef ptr @_ZN6google8protobuf8internal16WireFormatParserINS1_28UnknownFieldLiteParserHelperEEEPKcRT_S5_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef nonnull %3)
-  %25 = load <2 x i32>, ptr %15, align 8
-  %26 = add nsw <2 x i32> %25, <i32 1, i32 -1>
-  store <2 x i32> %26, ptr %15, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 80
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp ne i32 %28, %20
-  store i32 0, ptr %27, align 8
+  %25 = load i32, ptr %21, align 4
+  %26 = add nsw i32 %25, -1
+  store i32 %26, ptr %21, align 4
+  %27 = load i32, ptr %15, align 8
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %15, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 80
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp ne i32 %30, %20
+  store i32 0, ptr %29, align 8
   %.not17 = icmp eq ptr %24, null
-  %or.cond = or i1 %.not17, %29
-  br i1 %or.cond, label %.thread, label %30
+  %or.cond = or i1 %.not17, %31
+  br i1 %or.cond, label %.thread, label %32
 
-30:                                               ; preds = %19
-  %31 = load ptr, ptr %0, align 8
-  %.not18 = icmp eq ptr %31, null
-  br i1 %.not18, label %.thread, label %32
+32:                                               ; preds = %19
+  %33 = load ptr, ptr %0, align 8
+  %.not18 = icmp eq ptr %33, null
+  br i1 %.not18, label %.thread, label %34
 
-32:                                               ; preds = %30
-  %33 = or disjoint i32 %.pre, 4
-  %34 = zext i32 %33 to i64
-  %35 = icmp ugt i32 %.pre, 127
-  br i1 %35, label %.lr.ph.i20, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22
+34:                                               ; preds = %32
+  %35 = or disjoint i32 %.pre, 4
+  %36 = zext i32 %35 to i64
+  %37 = icmp ugt i32 %.pre, 127
+  br i1 %37, label %.lr.ph.i20, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22
 
-.lr.ph.i20:                                       ; preds = %32, %.lr.ph.i20
-  %.06.i21 = phi i64 [ %38, %.lr.ph.i20 ], [ %34, %32 ]
-  %36 = trunc i64 %.06.i21 to i8
-  %37 = or i8 %36, -128
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 noundef signext %37)
-  %38 = lshr i64 %.06.i21, 7
-  %39 = icmp ugt i64 %.06.i21, 16383
-  br i1 %39, label %.lr.ph.i20, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22, !llvm.loop !14
+.lr.ph.i20:                                       ; preds = %34, %.lr.ph.i20
+  %.06.i21 = phi i64 [ %40, %.lr.ph.i20 ], [ %36, %34 ]
+  %38 = trunc i64 %.06.i21 to i8
+  %39 = or i8 %38, -128
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 noundef signext %39)
+  %40 = lshr i64 %.06.i21, 7
+  %41 = icmp ugt i64 %.06.i21, 16383
+  br i1 %41, label %.lr.ph.i20, label %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22, !llvm.loop !14
 
-_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22: ; preds = %.lr.ph.i20, %32
-  %.0.lcssa.i19 = phi i64 [ %34, %32 ], [ %38, %.lr.ph.i20 ]
-  %40 = trunc nuw nsw i64 %.0.lcssa.i19 to i8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 noundef signext %40)
+_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22: ; preds = %.lr.ph.i20, %34
+  %.0.lcssa.i19 = phi i64 [ %36, %34 ], [ %40, %.lr.ph.i20 ]
+  %42 = trunc nuw nsw i64 %.0.lcssa.i19 to i8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 noundef signext %42)
   br label %.thread
 
-.thread:                                          ; preds = %19, %._crit_edge, %30, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22
-  %.014 = phi ptr [ %24, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22 ], [ %24, %30 ], [ null, %._crit_edge ], [ null, %19 ]
+.thread:                                          ; preds = %19, %._crit_edge, %32, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22
+  %.014 = phi ptr [ %24, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22 ], [ %24, %32 ], [ null, %._crit_edge ], [ null, %19 ]
   ret ptr %.014
 }
 

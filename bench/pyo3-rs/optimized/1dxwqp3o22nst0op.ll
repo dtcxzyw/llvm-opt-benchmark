@@ -2749,10 +2749,10 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   %.sroa.044.1 = phi i8 [ %.sroa.044.4, %.body ], [ %.sroa.044.0, %102 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %103, %102 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$17h154378133945f6bdE"(ptr nonnull align 8 %92) #10
-          to label %469 unwind label %483
+          to label %475 unwind label %489
 
-102:                                              ; preds = %485, %99
-  %.sroa.044.0 = phi i8 [ %.sroa.044.5, %485 ], [ 1, %99 ]
+102:                                              ; preds = %491, %99
+  %.sroa.044.0 = phi i8 [ %.sroa.044.5, %491 ], [ 1, %99 ]
   %103 = landingpad { ptr, i32 }
           cleanup
   br label %101
@@ -3940,7 +3940,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   %.sroa.044.4 = phi i8 [ %.sroa.044.7, %434 ], [ %.sroa.044.3, %398 ], [ 1, %198 ], [ 1, %190 ], [ 1, %186 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %434 ], [ %399, %398 ], [ %.pn142.pn.i, %198 ], [ %.pn14.pn58.i.i, %190 ], [ %.pn14.i.i, %186 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..deprecations..Deprecations$GT$17h7dec5167d385dabdE"(ptr nonnull align 8 %91) #10
-          to label %101 unwind label %483
+          to label %101 unwind label %489
 
 398:                                              ; preds = %.noexc105, %.noexc104, %420, %.noexc102, %.noexc101, %418, %.noexc99, %.noexc98, %416, %.noexc96, %.noexc95, %413, %.noexc93, %.noexc92, %411, %.noexc90, %.noexc89, %409, %207, %206, %196, %452, %425
   %.sroa.044.3 = phi i8 [ %.sroa.044.8, %452 ], [ 1, %425 ], [ 1, %196 ], [ 1, %206 ], [ 1, %207 ], [ 1, %409 ], [ 1, %.noexc89 ], [ 1, %.noexc90 ], [ 1, %411 ], [ 1, %.noexc92 ], [ 1, %.noexc93 ], [ 1, %413 ], [ 1, %.noexc95 ], [ 1, %.noexc96 ], [ 1, %416 ], [ 1, %.noexc98 ], [ 1, %.noexc99 ], [ 1, %418 ], [ 1, %.noexc101 ], [ 1, %.noexc102 ], [ 1, %420 ], [ 1, %.noexc104 ], [ 1, %.noexc105 ]
@@ -4183,11 +4183,11 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   %433 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hba04cb88943cc784E"(ptr nonnull align 8 %432)
           to label %switch.lookup unwind label %435
 
-434:                                              ; preds = %467, %435
-  %.sroa.044.7 = phi i8 [ %.sroa.044.9, %467 ], [ %.sroa.044.6, %435 ]
-  %.pn = phi { ptr, i32 } [ %468, %467 ], [ %436, %435 ]
+434:                                              ; preds = %473, %435
+  %.sroa.044.7 = phi i8 [ %.sroa.044.9, %473 ], [ %.sroa.044.6, %435 ]
+  %.pn = phi { ptr, i32 } [ %474, %473 ], [ %436, %435 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %90) #10
-          to label %.body unwind label %483
+          to label %.body unwind label %489
 
 435:                                              ; preds = %447, %446, %switch.lookup, %431
   %.sroa.044.6 = phi i8 [ 0, %446 ], [ 1, %447 ], [ 1, %switch.lookup ], [ 1, %431 ]
@@ -4257,7 +4257,7 @@ switch.lookup:                                    ; preds = %431
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %453, ptr noundef nonnull align 8 dereferenceable(24) %.sink215, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %90)
-          to label %485 unwind label %398
+          to label %491 unwind label %398
 
 454:                                              ; preds = %447
   %455 = load i64, ptr %83, align 8
@@ -4268,7 +4268,7 @@ switch.lookup:                                    ; preds = %431
 457:                                              ; preds = %451
   %458 = getelementptr inbounds i8, ptr %86, i64 24
   %459 = invoke zeroext i1 @_ZN19pyo3_macros_backend10pyfunction9signature15PythonSignature11has_no_args17h1252f9db49da6d69E(ptr nonnull align 8 %458)
-          to label %.noexc109 unwind label %467
+          to label %.noexc109 unwind label %473
 
 .noexc109:                                        ; preds = %457
   br i1 %459, label %_ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9f4f51E.exit, label %460
@@ -4281,7 +4281,7 @@ switch.lookup:                                    ; preds = %431
 
 463:                                              ; preds = %460
   %464 = invoke zeroext i1 @_ZN19pyo3_macros_backend5utils7is_abi317h9919d2eeb5bc6d69E()
-          to label %.noexc110 unwind label %467
+          to label %.noexc110 unwind label %473
 
 .noexc110:                                        ; preds = %463
   %..i = select i1 %464, i8 1, i8 2
@@ -4291,12 +4291,24 @@ _ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9
   %.sroa.043.0 = phi i8 [ 3, %451 ], [ 0, %.noexc109 ], [ 1, %460 ], [ %..i, %.noexc110 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.040, ptr noundef nonnull align 8 dereferenceable(192) %86, i64 192, i1 false)
   %465 = getelementptr inbounds i8, ptr %1, i64 216
+  %466 = load i32, ptr %465, align 8
+  %467 = getelementptr inbounds i8, ptr %1, i64 220
+  %468 = load i32, ptr %467, align 4
+  %469 = getelementptr inbounds i8, ptr %1, i64 224
+  %470 = load i32, ptr %469, align 8
+  %471 = getelementptr inbounds i8, ptr %1, i64 228
+  %472 = load i32, ptr %471, align 4
   %.sroa.040.192..sroa_idx = getelementptr inbounds i8, ptr %.sroa.040, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.040.192..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %91, i64 32, i1 false)
-  %.sroa.341.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 224
-  %466 = load <4 x i32>, ptr %465, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.040, i64 224, i1 false)
-  store <4 x i32> %466, ptr %.sroa.341.0..sroa_idx, align 8
+  %.sroa.341.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 224
+  store i32 %466, ptr %.sroa.341.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 228
+  store i32 %468, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.542.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 232
+  store i32 %470, ptr %.sroa.542.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 236
+  store i32 %472, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %90, i64 24, i1 false)
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 264
@@ -4310,121 +4322,121 @@ _ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 316
   store i8 %.sroa.043.0, ptr %.sroa.11.0..sroa_idx, align 4
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$17h154378133945f6bdE"(ptr nonnull align 8 %92)
-          to label %473 unwind label %471
+          to label %479 unwind label %477
 
-467:                                              ; preds = %463, %457
-  %468 = landingpad { ptr, i32 }
+473:                                              ; preds = %463, %457
+  %474 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$pyo3_macros_backend..pyfunction..signature..FunctionSignature$GT$17h9281387b7aed982aE"(ptr nonnull align 8 %86) #10
-          to label %434 unwind label %483
+          to label %434 unwind label %489
 
-469:                                              ; preds = %471, %101
-  %.sroa.044.2 = phi i8 [ %.sroa.044.10, %471 ], [ %.sroa.044.1, %101 ]
-  %.sroa.047.0 = phi i1 [ %.sroa.047.1, %471 ], [ true, %101 ]
-  %.pn78 = phi { ptr, i32 } [ %472, %471 ], [ %.pn.pn.pn, %101 ]
-  %470 = load i64, ptr %93, align 8
-  %.not80 = icmp eq i64 %470, -9223372036854775808
-  br i1 %.not80, label %478, label %498
+475:                                              ; preds = %477, %101
+  %.sroa.044.2 = phi i8 [ %.sroa.044.10, %477 ], [ %.sroa.044.1, %101 ]
+  %.sroa.047.0 = phi i1 [ %.sroa.047.1, %477 ], [ true, %101 ]
+  %.pn78 = phi { ptr, i32 } [ %478, %477 ], [ %.pn.pn.pn, %101 ]
+  %476 = load i64, ptr %93, align 8
+  %.not80 = icmp eq i64 %476, -9223372036854775808
+  br i1 %.not80, label %484, label %504
 
-471:                                              ; preds = %486, %_ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9f4f51E.exit
-  %.sroa.044.10 = phi i8 [ %.sroa.044.9, %_ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9f4f51E.exit ], [ %.sroa.044.5, %486 ]
-  %.sroa.047.1 = phi i1 [ false, %_ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9f4f51E.exit ], [ true, %486 ]
-  %472 = landingpad { ptr, i32 }
+477:                                              ; preds = %492, %_ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9f4f51E.exit
+  %.sroa.044.10 = phi i8 [ %.sroa.044.9, %_ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9f4f51E.exit ], [ %.sroa.044.5, %492 ]
+  %.sroa.047.1 = phi i1 [ false, %_ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9f4f51E.exit ], [ true, %492 ]
+  %478 = landingpad { ptr, i32 }
           cleanup
-  br label %469
+  br label %475
 
-473:                                              ; preds = %_ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9f4f51E.exit
-  %474 = load i64, ptr %93, align 8
-  %.not81 = icmp eq i64 %474, -9223372036854775808
-  br i1 %.not81, label %481, label %475
+479:                                              ; preds = %_ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9f4f51E.exit
+  %480 = load i64, ptr %93, align 8
+  %.not81 = icmp eq i64 %480, -9223372036854775808
+  br i1 %.not81, label %487, label %481
 
-475:                                              ; preds = %473
-  %476 = trunc nuw i8 %.sroa.044.9 to i1
-  br i1 %476, label %477, label %481
+481:                                              ; preds = %479
+  %482 = trunc nuw i8 %.sroa.044.9 to i1
+  br i1 %482, label %483, label %487
 
-477:                                              ; preds = %475
+483:                                              ; preds = %481
   invoke void @"_ZN4core3ptr180drop_in_place$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..signature$C$pyo3_macros_backend..pyfunction..signature..Signature$GT$$GT$17h991f0e2e1b31c6f4E"(ptr nonnull align 8 %93)
-          to label %481 unwind label %479
+          to label %487 unwind label %485
 
-478:                                              ; preds = %500, %498, %469
-  br i1 %.sroa.047.0, label %501, label %494
+484:                                              ; preds = %506, %504, %475
+  br i1 %.sroa.047.0, label %507, label %500
 
-479:                                              ; preds = %477
-  %480 = landingpad { ptr, i32 }
+485:                                              ; preds = %483
+  %486 = landingpad { ptr, i32 }
           cleanup
-  br label %494
+  br label %500
 
-481:                                              ; preds = %473, %475, %477, %491
-  %482 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$syn..token..Crate$C$pyo3_macros_backend..attributes..LitStrValue$LT$syn..path..Path$GT$$GT$$GT$$GT$17h63c9f30e5cfbae17E"(ptr nonnull align 8 %482)
+487:                                              ; preds = %479, %481, %483, %497
+  %488 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$syn..token..Crate$C$pyo3_macros_backend..attributes..LitStrValue$LT$syn..path..Path$GT$$GT$$GT$$GT$17h63c9f30e5cfbae17E"(ptr nonnull align 8 %488)
   ret void
 
-483:                                              ; preds = %501, %500, %494, %467, %434, %.body, %101
-  %484 = landingpad { ptr, i32 }
+489:                                              ; preds = %507, %506, %500, %473, %434, %.body, %101
+  %490 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #11
   unreachable
 
 .sink.split:                                      ; preds = %422, %429
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %485
+  br label %491
 
-485:                                              ; preds = %.sink.split, %452
+491:                                              ; preds = %.sink.split, %452
   %.sroa.044.5 = phi i8 [ %.sroa.044.8, %452 ], [ 1, %.sink.split ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..deprecations..Deprecations$GT$17h7dec5167d385dabdE"(ptr nonnull align 8 %91)
-          to label %486 unwind label %102
+          to label %492 unwind label %102
 
-486:                                              ; preds = %485
+492:                                              ; preds = %491
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$17h154378133945f6bdE"(ptr nonnull align 8 %92)
-          to label %487 unwind label %471
+          to label %493 unwind label %477
 
-487:                                              ; preds = %486
-  %488 = load i64, ptr %93, align 8
-  %.not74 = icmp eq i64 %488, -9223372036854775808
-  br i1 %.not74, label %491, label %489
+493:                                              ; preds = %492
+  %494 = load i64, ptr %93, align 8
+  %.not74 = icmp eq i64 %494, -9223372036854775808
+  br i1 %.not74, label %497, label %495
 
-489:                                              ; preds = %487
-  %490 = trunc nuw i8 %.sroa.044.5 to i1
-  br i1 %490, label %492, label %491
+495:                                              ; preds = %493
+  %496 = trunc nuw i8 %.sroa.044.5 to i1
+  br i1 %496, label %498, label %497
 
-491:                                              ; preds = %492, %489, %487
+497:                                              ; preds = %498, %495, %493
   invoke void @"_ZN4core3ptr220drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..text_signature$C$pyo3_macros_backend..attributes..TextSignatureAttributeValue$GT$$GT$$GT$17h00dba8eaf4ad99a3E"(ptr nonnull align 8 %94)
-          to label %481 unwind label %496
+          to label %487 unwind label %502
 
-492:                                              ; preds = %489
+498:                                              ; preds = %495
   invoke void @"_ZN4core3ptr180drop_in_place$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..signature$C$pyo3_macros_backend..pyfunction..signature..Signature$GT$$GT$17h991f0e2e1b31c6f4E"(ptr nonnull align 8 %93)
-          to label %491 unwind label %.thread212
+          to label %497 unwind label %.thread212
 
-.thread212:                                       ; preds = %492
-  %493 = landingpad { ptr, i32 }
+.thread212:                                       ; preds = %498
+  %499 = landingpad { ptr, i32 }
           cleanup
-  br label %501
+  br label %507
 
-494:                                              ; preds = %479, %501, %496, %478
-  %.pn82.pn = phi { ptr, i32 } [ %.pn82211, %501 ], [ %.pn78, %478 ], [ %497, %496 ], [ %480, %479 ]
-  %495 = getelementptr inbounds i8, ptr %3, i64 56
-  invoke void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$syn..token..Crate$C$pyo3_macros_backend..attributes..LitStrValue$LT$syn..path..Path$GT$$GT$$GT$$GT$17h63c9f30e5cfbae17E"(ptr nonnull align 8 %495) #10
-          to label %502 unwind label %483
+500:                                              ; preds = %485, %507, %502, %484
+  %.pn82.pn = phi { ptr, i32 } [ %.pn82211, %507 ], [ %.pn78, %484 ], [ %503, %502 ], [ %486, %485 ]
+  %501 = getelementptr inbounds i8, ptr %3, i64 56
+  invoke void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$syn..token..Crate$C$pyo3_macros_backend..attributes..LitStrValue$LT$syn..path..Path$GT$$GT$$GT$$GT$17h63c9f30e5cfbae17E"(ptr nonnull align 8 %501) #10
+          to label %508 unwind label %489
 
-496:                                              ; preds = %491
-  %497 = landingpad { ptr, i32 }
+502:                                              ; preds = %497
+  %503 = landingpad { ptr, i32 }
           cleanup
-  br label %494
+  br label %500
 
-498:                                              ; preds = %469
-  %499 = trunc nuw i8 %.sroa.044.2 to i1
-  br i1 %499, label %500, label %478
+504:                                              ; preds = %475
+  %505 = trunc nuw i8 %.sroa.044.2 to i1
+  br i1 %505, label %506, label %484
 
-500:                                              ; preds = %498
+506:                                              ; preds = %504
   invoke void @"_ZN4core3ptr180drop_in_place$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..signature$C$pyo3_macros_backend..pyfunction..signature..Signature$GT$$GT$17h991f0e2e1b31c6f4E"(ptr nonnull align 8 %93) #10
-          to label %478 unwind label %483
+          to label %484 unwind label %489
 
-501:                                              ; preds = %.thread212, %478
-  %.pn82211 = phi { ptr, i32 } [ %.pn78, %478 ], [ %493, %.thread212 ]
+507:                                              ; preds = %.thread212, %484
+  %.pn82211 = phi { ptr, i32 } [ %.pn78, %484 ], [ %499, %.thread212 ]
   invoke void @"_ZN4core3ptr220drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..text_signature$C$pyo3_macros_backend..attributes..TextSignatureAttributeValue$GT$$GT$$GT$17h00dba8eaf4ad99a3E"(ptr nonnull align 8 %94) #10
-          to label %494 unwind label %483
+          to label %500 unwind label %489
 
-502:                                              ; preds = %494
+508:                                              ; preds = %500
   resume { ptr, i32 } %.pn82.pn
 }
 

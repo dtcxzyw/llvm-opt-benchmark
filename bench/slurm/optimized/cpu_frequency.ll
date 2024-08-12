@@ -3679,239 +3679,239 @@ define range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef
   %7 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
-  %8 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %9 = insertelement <4 x ptr> %8, ptr %1, i64 1
-  %10 = insertelement <4 x ptr> %9, ptr %2, i64 2
-  %11 = insertelement <4 x ptr> %10, ptr %3, i64 3
-  %12 = icmp eq <4 x ptr> %11, zeroinitializer
-  %13 = bitcast <4 x i1> %12 to i4
-  %.not125 = icmp eq i4 %13, 0
-  br i1 %.not125, label %14, label %103
+  %8 = icmp eq ptr %0, null
+  %9 = icmp eq ptr %1, null
+  %or.cond = or i1 %8, %9
+  %10 = icmp eq ptr %2, null
+  %or.cond3 = or i1 %or.cond, %10
+  %11 = icmp eq ptr %3, null
+  %or.cond5 = or i1 %or.cond3, %11
+  br i1 %or.cond5, label %101, label %12
 
-14:                                               ; preds = %4
+12:                                               ; preds = %4
   store i32 -2, ptr %1, align 4
   store i32 -2, ptr %2, align 4
   store i32 -2, ptr %3, align 4
-  %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 58) #12
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %16, label %.thread
+  %13 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 58) #12
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %14, label %.thread
 
-16:                                               ; preds = %14
-  %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 45) #12
-  %.not80 = icmp eq ptr %17, null
-  br i1 %.not80, label %42, label %31
+14:                                               ; preds = %12
+  %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 45) #12
+  %.not80 = icmp eq ptr %15, null
+  br i1 %.not80, label %40, label %29
 
-.thread:                                          ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 1
-  %19 = tail call ptr @xstrdup(ptr noundef nonnull %18) #11
-  store ptr %19, ptr %7, align 8
-  %20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 45) #12
-  %.not8094 = icmp eq ptr %20, null
-  %21 = ptrtoint ptr %0 to i64
-  br i1 %.not8094, label %38, label %22
+.thread:                                          ; preds = %12
+  %16 = getelementptr inbounds i8, ptr %13, i64 1
+  %17 = tail call ptr @xstrdup(ptr noundef nonnull %16) #11
+  store ptr %17, ptr %7, align 8
+  %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 45) #12
+  %.not8094 = icmp eq ptr %18, null
+  %19 = ptrtoint ptr %0 to i64
+  br i1 %.not8094, label %36, label %20
 
-22:                                               ; preds = %.thread
-  %23 = ptrtoint ptr %20 to i64
-  %24 = sub i64 %23, %21
-  %25 = tail call ptr @xstrndup(ptr noundef nonnull %0, i64 noundef %24) #11
-  store ptr %25, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %20, i64 1
-  %27 = ptrtoint ptr %15 to i64
-  %28 = xor i64 %23, -1
-  %29 = add i64 %28, %27
-  %30 = tail call ptr @xstrndup(ptr noundef nonnull %26, i64 noundef %29) #11
-  store ptr %30, ptr %6, align 8
-  br label %44
+20:                                               ; preds = %.thread
+  %21 = ptrtoint ptr %18 to i64
+  %22 = sub i64 %21, %19
+  %23 = tail call ptr @xstrndup(ptr noundef nonnull %0, i64 noundef %22) #11
+  store ptr %23, ptr %5, align 8
+  %24 = getelementptr inbounds i8, ptr %18, i64 1
+  %25 = ptrtoint ptr %13 to i64
+  %26 = xor i64 %21, -1
+  %27 = add i64 %26, %25
+  %28 = tail call ptr @xstrndup(ptr noundef nonnull %24, i64 noundef %27) #11
+  store ptr %28, ptr %6, align 8
+  br label %42
 
-31:                                               ; preds = %16
-  %32 = ptrtoint ptr %17 to i64
-  %33 = ptrtoint ptr %0 to i64
-  %34 = sub i64 %32, %33
-  %35 = tail call ptr @xstrndup(ptr noundef nonnull %0, i64 noundef %34) #11
-  store ptr %35, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %17, i64 1
-  %37 = tail call ptr @xstrdup(ptr noundef nonnull %36) #11
-  store ptr %37, ptr %6, align 8
-  br label %44
+29:                                               ; preds = %14
+  %30 = ptrtoint ptr %15 to i64
+  %31 = ptrtoint ptr %0 to i64
+  %32 = sub i64 %30, %31
+  %33 = tail call ptr @xstrndup(ptr noundef nonnull %0, i64 noundef %32) #11
+  store ptr %33, ptr %5, align 8
+  %34 = getelementptr inbounds i8, ptr %15, i64 1
+  %35 = tail call ptr @xstrdup(ptr noundef nonnull %34) #11
+  store ptr %35, ptr %6, align 8
+  br label %42
 
-38:                                               ; preds = %.thread
-  %39 = ptrtoint ptr %15 to i64
-  %40 = sub i64 %39, %21
-  %41 = tail call ptr @xstrndup(ptr noundef nonnull %0, i64 noundef %40) #11
+36:                                               ; preds = %.thread
+  %37 = ptrtoint ptr %13 to i64
+  %38 = sub i64 %37, %19
+  %39 = tail call ptr @xstrndup(ptr noundef nonnull %0, i64 noundef %38) #11
+  store ptr %39, ptr %5, align 8
+  br label %42
+
+40:                                               ; preds = %14
+  %41 = tail call ptr @xstrdup(ptr noundef nonnull %0) #11
   store ptr %41, ptr %5, align 8
-  br label %44
+  br label %42
 
-42:                                               ; preds = %16
-  %43 = tail call ptr @xstrdup(ptr noundef nonnull %0) #11
-  store ptr %43, ptr %5, align 8
-  br label %44
+42:                                               ; preds = %36, %40, %20, %29
+  %43 = phi ptr [ null, %36 ], [ null, %40 ], [ %28, %20 ], [ %35, %29 ]
+  %44 = phi ptr [ %17, %36 ], [ null, %40 ], [ %17, %20 ], [ null, %29 ]
+  %45 = phi ptr [ %39, %36 ], [ %41, %40 ], [ %23, %20 ], [ %33, %29 ]
+  %46 = tail call fastcc i32 @_cpu_freq_check_gov(ptr noundef %45, i32 noundef 0)
+  %.not81 = icmp eq i32 %46, 0
+  br i1 %.not81, label %50, label %47
 
-44:                                               ; preds = %38, %42, %22, %31
-  %45 = phi ptr [ null, %38 ], [ null, %42 ], [ %30, %22 ], [ %37, %31 ]
-  %46 = phi ptr [ %19, %38 ], [ null, %42 ], [ %19, %22 ], [ null, %31 ]
-  %47 = phi ptr [ %41, %38 ], [ %43, %42 ], [ %25, %22 ], [ %35, %31 ]
-  %48 = tail call fastcc i32 @_cpu_freq_check_gov(ptr noundef %47, i32 noundef 0)
-  %.not81 = icmp eq i32 %48, 0
-  br i1 %.not81, label %52, label %49
+47:                                               ; preds = %42
+  %.not82 = icmp eq ptr %44, null
+  br i1 %.not82, label %.thread109, label %48
 
-49:                                               ; preds = %44
-  %.not82 = icmp eq ptr %46, null
-  br i1 %.not82, label %.thread109, label %50
-
-50:                                               ; preds = %49
-  %51 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.76, ptr noundef %47, ptr noundef nonnull %46) #11
+48:                                               ; preds = %47
+  %49 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.76, ptr noundef %45, ptr noundef nonnull %44) #11
   br label %.thread106thread-pre-split
 
-52:                                               ; preds = %44
-  %53 = tail call fastcc i32 @_cpu_freq_check_freq(ptr noundef %47)
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %.thread106thread-pre-split, label %55
+50:                                               ; preds = %42
+  %51 = tail call fastcc i32 @_cpu_freq_check_freq(ptr noundef %45)
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %.thread106thread-pre-split, label %53
 
-55:                                               ; preds = %52
-  store i32 %53, ptr %2, align 4
-  %.not83 = icmp eq ptr %45, null
-  br i1 %.not83, label %70, label %56
+53:                                               ; preds = %50
+  store i32 %51, ptr %2, align 4
+  %.not83 = icmp eq ptr %43, null
+  br i1 %.not83, label %68, label %54
 
-.thread109:                                       ; preds = %49
-  store i32 %48, ptr %3, align 4
-  %.not83110 = icmp eq ptr %45, null
-  br i1 %.not83110, label %.thread114, label %56
+.thread109:                                       ; preds = %47
+  store i32 %46, ptr %3, align 4
+  %.not83110 = icmp eq ptr %43, null
+  br i1 %.not83110, label %.thread114, label %54
 
-56:                                               ; preds = %.thread109, %55
-  %.not84 = icmp eq ptr %46, null
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 272), align 8
-  %58 = icmp eq i32 %57, -2
-  %or.cond93 = select i1 %.not84, i1 %58, i1 false
-  br i1 %or.cond93, label %59, label %61
+54:                                               ; preds = %.thread109, %53
+  %.not84 = icmp eq ptr %44, null
+  %55 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 272), align 8
+  %56 = icmp eq i32 %55, -2
+  %or.cond93 = select i1 %.not84, i1 %56, i1 false
+  br i1 %or.cond93, label %57, label %59
 
-59:                                               ; preds = %56
-  %60 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.77) #11
+57:                                               ; preds = %54
+  %58 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.77) #11
   br label %.thread106thread-pre-split
 
-61:                                               ; preds = %56
-  %62 = tail call fastcc i32 @_cpu_freq_check_freq(ptr noundef nonnull %45)
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.thread106thread-pre-split, label %64
+59:                                               ; preds = %54
+  %60 = tail call fastcc i32 @_cpu_freq_check_freq(ptr noundef nonnull %43)
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %.thread106thread-pre-split, label %62
 
-64:                                               ; preds = %61
-  %65 = load i32, ptr %2, align 4
-  store i32 %65, ptr %1, align 4
-  store i32 %62, ptr %2, align 4
-  %66 = load i32, ptr %1, align 4
-  %67 = icmp ult i32 %62, %66
-  br i1 %67, label %68, label %.thread101
+62:                                               ; preds = %59
+  %63 = load i32, ptr %2, align 4
+  store i32 %63, ptr %1, align 4
+  store i32 %60, ptr %2, align 4
+  %64 = load i32, ptr %1, align 4
+  %65 = icmp ult i32 %60, %64
+  br i1 %65, label %66, label %.thread101
 
-68:                                               ; preds = %64
-  %69 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.78, ptr noundef %47, ptr noundef nonnull %45) #11
+66:                                               ; preds = %62
+  %67 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.78, ptr noundef %45, ptr noundef nonnull %43) #11
   br label %.thread106thread-pre-split
 
-70:                                               ; preds = %55
-  %.not85 = icmp eq ptr %46, null
-  br i1 %.not85, label %.thread114, label %71
+68:                                               ; preds = %53
+  %.not85 = icmp eq ptr %44, null
+  br i1 %.not85, label %.thread114, label %69
 
-.thread101:                                       ; preds = %64
-  %.not85102 = icmp eq ptr %46, null
-  br i1 %.not85102, label %84, label %71
+.thread101:                                       ; preds = %62
+  %.not85102 = icmp eq ptr %44, null
+  br i1 %.not85102, label %82, label %69
 
-71:                                               ; preds = %.thread101, %70
-  %.not83111 = phi i1 [ false, %.thread101 ], [ true, %70 ]
-  %72 = tail call fastcc i32 @_cpu_freq_check_gov(ptr noundef nonnull %46, i32 noundef 0)
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %76
+69:                                               ; preds = %.thread101, %68
+  %.not83111 = phi i1 [ false, %.thread101 ], [ true, %68 ]
+  %70 = tail call fastcc i32 @_cpu_freq_check_gov(ptr noundef nonnull %44, i32 noundef 0)
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %74
 
-74:                                               ; preds = %71
-  %75 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.79, ptr noundef nonnull %46) #11
+72:                                               ; preds = %69
+  %73 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.79, ptr noundef nonnull %44) #11
   br label %.thread106thread-pre-split
 
-76:                                               ; preds = %71
-  %.not89 = icmp eq i32 %72, -2139095040
-  br i1 %.not83111, label %77, label %80
+74:                                               ; preds = %69
+  %.not89 = icmp eq i32 %70, -2139095040
+  br i1 %.not83111, label %75, label %78
 
-77:                                               ; preds = %76
-  br i1 %.not89, label %83, label %78
+75:                                               ; preds = %74
+  br i1 %.not89, label %81, label %76
 
-78:                                               ; preds = %77
-  %79 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.80, ptr noundef nonnull %46) #11
+76:                                               ; preds = %75
+  %77 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.80, ptr noundef nonnull %44) #11
   br label %.thread106thread-pre-split
 
-80:                                               ; preds = %76
-  br i1 %.not89, label %81, label %83
+78:                                               ; preds = %74
+  br i1 %.not89, label %79, label %81
 
-81:                                               ; preds = %80
-  %82 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.81, ptr noundef nonnull %46) #11
+79:                                               ; preds = %78
+  %80 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.81, ptr noundef nonnull %44) #11
   br label %.thread106thread-pre-split
 
-83:                                               ; preds = %80, %77
-  store i32 %72, ptr %3, align 4
+81:                                               ; preds = %78, %75
+  store i32 %70, ptr %3, align 4
   br label %.thread106
 
-84:                                               ; preds = %.thread101
+82:                                               ; preds = %.thread101
   %.pre104 = load i32, ptr %3, align 4
-  %85 = icmp eq i32 %.pre104, -2
-  br i1 %85, label %86, label %.thread106.thread
+  %83 = icmp eq i32 %.pre104, -2
+  br i1 %83, label %84, label %.thread106.thread
 
-86:                                               ; preds = %84
-  %87 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 272), align 8
-  %.not87 = icmp eq i32 %87, -2
+84:                                               ; preds = %82
+  %85 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 272), align 8
+  %.not87 = icmp eq i32 %85, -2
   br i1 %.not87, label %.thread106.thread120, label %.thread106.thread.sink.split
 
-.thread114:                                       ; preds = %.thread109, %70
+.thread114:                                       ; preds = %.thread109, %68
   %.pre = load i32, ptr %3, align 4
   %.not124 = icmp eq i32 %.pre, -2
   br i1 %.not124, label %.thread106.thread.sink.split, label %.thread106thread-pre-split
 
-.thread106thread-pre-split:                       ; preds = %50, %59, %68, %74, %78, %81, %.thread114, %52, %61
-  %.0.ph.ph = phi i32 [ -1, %50 ], [ -1, %68 ], [ -1, %74 ], [ -1, %81 ], [ 0, %.thread114 ], [ -1, %78 ], [ -1, %59 ], [ -1, %52 ], [ -1, %61 ]
+.thread106thread-pre-split:                       ; preds = %48, %57, %66, %72, %76, %79, %.thread114, %50, %59
+  %.0.ph.ph = phi i32 [ -1, %48 ], [ -1, %66 ], [ -1, %72 ], [ -1, %79 ], [ 0, %.thread114 ], [ -1, %76 ], [ -1, %57 ], [ -1, %50 ], [ -1, %59 ]
   %.pr.pr = load i32, ptr %3, align 4
   br label %.thread106
 
-.thread106:                                       ; preds = %.thread106thread-pre-split, %83
-  %.pr = phi i32 [ %.pr.pr, %.thread106thread-pre-split ], [ %72, %83 ]
-  %.0.ph = phi i32 [ %.0.ph.ph, %.thread106thread-pre-split ], [ 0, %83 ]
+.thread106:                                       ; preds = %.thread106thread-pre-split, %81
+  %.pr = phi i32 [ %.pr.pr, %.thread106thread-pre-split ], [ %70, %81 ]
+  %.0.ph = phi i32 [ %.0.ph.ph, %.thread106thread-pre-split ], [ 0, %81 ]
   %.not90 = icmp eq i32 %.pr, -2
   br i1 %.not90, label %.thread106.thread120, label %.thread106.thread
 
-.thread106.thread.sink.split:                     ; preds = %.thread114, %86
-  %.sink = phi i32 [ %87, %86 ], [ -2139095040, %.thread114 ]
+.thread106.thread.sink.split:                     ; preds = %.thread114, %84
+  %.sink = phi i32 [ %85, %84 ], [ -2139095040, %.thread114 ]
   store i32 %.sink, ptr %3, align 4
   br label %.thread106.thread
 
-.thread106.thread:                                ; preds = %.thread106.thread.sink.split, %84, %.thread106
-  %.099 = phi i32 [ %.0.ph, %.thread106 ], [ 0, %84 ], [ 0, %.thread106.thread.sink.split ]
-  %88 = phi i32 [ %.pr, %.thread106 ], [ %.pre104, %84 ], [ %.sink, %.thread106.thread.sink.split ]
-  %89 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 276), align 4
-  %90 = and i32 %88, 2147483647
-  %91 = and i32 %90, %89
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %.thread106.thread120
+.thread106.thread:                                ; preds = %.thread106.thread.sink.split, %82, %.thread106
+  %.099 = phi i32 [ %.0.ph, %.thread106 ], [ 0, %82 ], [ 0, %.thread106.thread.sink.split ]
+  %86 = phi i32 [ %.pr, %.thread106 ], [ %.pre104, %82 ], [ %.sink, %.thread106.thread.sink.split ]
+  %87 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 276), align 4
+  %88 = and i32 %86, 2147483647
+  %89 = and i32 %88, %87
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %91, label %.thread106.thread120
 
-93:                                               ; preds = %.thread106.thread
-  %94 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.82, ptr noundef nonnull %0) #11
+91:                                               ; preds = %.thread106.thread
+  %92 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.82, ptr noundef nonnull %0) #11
   store i32 -2, ptr %3, align 4
   br label %.thread106.thread120
 
-.thread106.thread120:                             ; preds = %86, %.thread106.thread, %93, %.thread106
-  %95 = phi i32 [ -2, %93 ], [ %88, %.thread106.thread ], [ -2, %.thread106 ], [ -2, %86 ]
-  %.1 = phi i32 [ -1, %93 ], [ %.099, %.thread106.thread ], [ %.0.ph, %.thread106 ], [ 0, %86 ]
-  %96 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %97 = and i64 %96, 2199023255552
-  %.not91 = icmp eq i64 %97, 0
-  br i1 %.not91, label %102, label %98
+.thread106.thread120:                             ; preds = %84, %.thread106.thread, %91, %.thread106
+  %93 = phi i32 [ -2, %91 ], [ %86, %.thread106.thread ], [ -2, %.thread106 ], [ -2, %84 ]
+  %.1 = phi i32 [ -1, %91 ], [ %.099, %.thread106.thread ], [ %.0.ph, %.thread106 ], [ 0, %84 ]
+  %94 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %95 = and i64 %94, 2199023255552
+  %.not91 = icmp eq i64 %95, 0
+  br i1 %.not91, label %100, label %96
 
-98:                                               ; preds = %.thread106.thread120
-  %99 = load i32, ptr %1, align 4
-  %100 = load i32, ptr %2, align 4
-  %101 = tail call i32 @cpu_freq_debug(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef null, i32 noundef 0, i32 noundef %95, i32 noundef %99, i32 noundef %100, i32 noundef -2)
-  br label %102
+96:                                               ; preds = %.thread106.thread120
+  %97 = load i32, ptr %1, align 4
+  %98 = load i32, ptr %2, align 4
+  %99 = tail call i32 @cpu_freq_debug(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef null, i32 noundef 0, i32 noundef %93, i32 noundef %97, i32 noundef %98, i32 noundef -2)
+  br label %100
 
-102:                                              ; preds = %98, %.thread106.thread120
+100:                                              ; preds = %96, %.thread106.thread120
   call void @slurm_xfree(ptr noundef nonnull %5) #11
   call void @slurm_xfree(ptr noundef nonnull %6) #11
   call void @slurm_xfree(ptr noundef nonnull %7) #11
-  br label %103
+  br label %101
 
-103:                                              ; preds = %4, %102
-  %.064 = phi i32 [ %.1, %102 ], [ -1, %4 ]
+101:                                              ; preds = %4, %100
+  %.064 = phi i32 [ %.1, %100 ], [ -1, %4 ]
   ret i32 %.064
 }
 

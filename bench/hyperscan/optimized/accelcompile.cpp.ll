@@ -18,40 +18,60 @@ entry:
   br i1 %cmp.i.i.i.i.not30, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
+  %a1.035 = phi i8 [ %and26, %for.body ], [ -1, %entry ]
+  %a2.034 = phi i8 [ %and1127, %for.body ], [ -1, %entry ]
+  %b1.033 = phi i8 [ %and7, %for.body ], [ -1, %entry ]
+  %b2.032 = phi i8 [ %and17, %for.body ], [ -1, %entry ]
   %__begin1.sroa.0.031 = phi ptr [ %incdec.ptr.i.i.i.i, %for.body ], [ %0, %entry ]
-  %2 = phi <2 x i8> [ %6, %for.body ], [ <i8 -1, i8 -1>, %entry ]
-  %3 = phi <2 x i8> [ %7, %for.body ], [ <i8 -1, i8 -1>, %entry ]
-  %4 = load <2 x i8>, ptr %__begin1.sroa.0.031, align 1
-  %5 = xor <2 x i8> %4, <i8 -1, i8 -1>
-  %6 = and <2 x i8> %4, %2
-  %7 = and <2 x i8> %3, %5
+  %2 = load i8, ptr %__begin1.sroa.0.031, align 1
+  %and26 = and i8 %2, %a1.035
+  %not = xor i8 %2, -1
+  %and7 = and i8 %b1.033, %not
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.031, i64 1
+  %3 = load i8, ptr %second, align 1
+  %and1127 = and i8 %3, %a2.034
+  %not15 = xor i8 %3, -1
+  %and17 = and i8 %b2.032, %not15
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.031, i64 2
   %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.i.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.body
-  %8 = or <2 x i8> %6, %7
+  %4 = or i8 %and26, %and7
+  %5 = or i8 %and1127, %and17
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %9 = phi <2 x i8> [ <i8 -1, i8 -1>, %entry ], [ %8, %for.end.loopexit ]
-  %10 = zext <2 x i8> %9 to <2 x i32>
-  %11 = lshr <2 x i32> %10, <i32 1, i32 1>
-  %12 = and <2 x i32> %11, <i32 85, i32 85>
-  %13 = sub nsw <2 x i32> %10, %12
-  %14 = and <2 x i32> %13, <i32 858993459, i32 858993459>
-  %15 = lshr <2 x i32> %13, <i32 2, i32 2>
-  %16 = and <2 x i32> %15, <i32 858993459, i32 858993459>
-  %17 = add nuw nsw <2 x i32> %16, %14
-  %18 = lshr <2 x i32> %17, <i32 4, i32 4>
-  %19 = add nuw nsw <2 x i32> %18, %17
-  %20 = and <2 x i32> %19, <i32 252645135, i32 252645135>
-  %21 = mul <2 x i32> %20, <i32 16843009, i32 16843009>
-  %22 = lshr <2 x i32> %21, <i32 24, i32 24>
-  %shift = shufflevector <2 x i32> %22, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %23 = add nuw nsw <2 x i32> %shift, %22
-  %24 = extractelement <2 x i32> %23, i64 0
-  %add = sub nsw i32 16, %24
+  %or24 = phi i8 [ -1, %entry ], [ %4, %for.end.loopexit ]
+  %or2525 = phi i8 [ -1, %entry ], [ %5, %for.end.loopexit ]
+  %conv27 = zext i8 %or24 to i32
+  %shr.i46 = lshr i32 %conv27, 1
+  %and.i47 = and i32 %shr.i46, 85
+  %sub.i48 = sub nsw i32 %conv27, %and.i47
+  %and1.i49 = and i32 %sub.i48, 858993459
+  %shr2.i50 = lshr i32 %sub.i48, 2
+  %and3.i51 = and i32 %shr2.i50, 858993459
+  %add.i52 = add nuw nsw i32 %and3.i51, %and1.i49
+  %shr4.i53 = lshr i32 %add.i52, 4
+  %add5.i54 = add nuw nsw i32 %shr4.i53, %add.i52
+  %and6.i55 = and i32 %add5.i54, 252645135
+  %mul.i56 = mul i32 %and6.i55, 16843009
+  %shr7.i57 = lshr i32 %mul.i56, 24
+  %conv29 = zext i8 %or2525 to i32
+  %shr.i = lshr i32 %conv29, 1
+  %and.i = and i32 %shr.i, 85
+  %sub.i = sub nsw i32 %conv29, %and.i
+  %and1.i = and i32 %sub.i, 858993459
+  %shr2.i = lshr i32 %sub.i, 2
+  %and3.i = and i32 %shr2.i, 858993459
+  %add.i = add nuw nsw i32 %and3.i, %and1.i
+  %shr4.i = lshr i32 %add.i, 4
+  %add5.i = add nuw nsw i32 %shr4.i, %add.i
+  %and6.i = and i32 %add5.i, 252645135
+  %mul.i = mul i32 %and6.i, 16843009
+  %shr7.i = lshr i32 %mul.i, 24
+  %6 = add nuw nsw i32 %shr7.i, %shr7.i57
+  %add = sub nsw i32 16, %6
   %shl = shl nuw nsw i32 1, %add
   %conv39 = zext nneg i32 %shl to i64
   %cmp.not = icmp eq i64 %1, %conv39
@@ -62,8 +82,7 @@ if.end:                                           ; preds = %for.end
   br i1 %tobool.not, label %if.end41, label %if.then40
 
 if.then40:                                        ; preds = %if.end
-  %25 = extractelement <2 x i8> %9, i64 0
-  store i8 %25, ptr %m1_out, align 1
+  store i8 %or24, ptr %m1_out, align 1
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then40, %if.end
@@ -71,8 +90,7 @@ if.end41:                                         ; preds = %if.then40, %if.end
   br i1 %tobool42.not, label %return, label %if.then43
 
 if.then43:                                        ; preds = %if.end41
-  %26 = extractelement <2 x i8> %9, i64 1
-  store i8 %26, ptr %m2_out, align 1
+  store i8 %or2525, ptr %m2_out, align 1
   br label %return
 
 return:                                           ; preds = %if.end41, %if.then43, %for.end

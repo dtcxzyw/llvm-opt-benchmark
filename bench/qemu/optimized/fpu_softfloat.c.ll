@@ -8861,18 +8861,21 @@ if.end137.i:                                      ; preds = %if.then134.i, %if.e
   br i1 %cmp140.i.not, label %if.end159.i, label %if.then142.i
 
 if.then142.i:                                     ; preds = %if.end137.i
+  %64 = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i86, align 8
   %frac_hi1.i = getelementptr inbounds i8, ptr %c_widen.i, i64 8
-  %64 = load <2 x i64>, ptr %.compoundliteral.sroa.4.0..sroa_idx.i86, align 8
-  store <2 x i64> %64, ptr %frac_hi1.i, align 8
+  store i64 %64, ptr %frac_hi1.i, align 8
+  %65 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i87, align 8
+  %frac_hm.i97 = getelementptr inbounds i8, ptr %c_widen.i, i64 16
+  store i64 %65, ptr %frac_hm.i97, align 8
   %frac_lm.i98 = getelementptr inbounds i8, ptr %c_widen.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frac_lm.i98, i8 0, i64 16, i1 false)
-  %65 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i85, align 4
+  %66 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i85, align 4
   %exp144.i = getelementptr inbounds i8, ptr %c_widen.i, i64 4
-  store i32 %65, ptr %exp144.i, align 4
-  %66 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i84, align 1
-  %67 = xor i8 %66, %xor24.i65168
-  %68 = and i8 %67, 1
-  %cmp151.i = icmp eq i8 %68, 0
+  store i32 %66, ptr %exp144.i, align 4
+  %67 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i84, align 1
+  %68 = xor i8 %67, %xor24.i65168
+  %69 = and i8 %68, 1
+  %cmp151.i = icmp eq i8 %69, 0
   br i1 %cmp151.i, label %if.then153.i, label %if.else154.i
 
 if.then153.i:                                     ; preds = %if.then142.i
@@ -8884,21 +8887,21 @@ if.else154.i:                                     ; preds = %if.then142.i
   br i1 %call155.i, label %if.end159.i, label %return_sub_zero.i
 
 if.end159.i:                                      ; preds = %if.then153.i, %if.else154.i, %if.end137.i
-  %69 = load i64, ptr %frac_hi3.i, align 8
-  store i64 %69, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %70 = load i64, ptr %frac_hm.i, align 8
-  %71 = load i64, ptr %frac_lm.i, align 8
-  %72 = load i64, ptr %frac_lo4.i, align 8
-  %or.i104 = or i64 %72, %71
+  %70 = load i64, ptr %frac_hi3.i, align 8
+  store i64 %70, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
+  %71 = load i64, ptr %frac_hm.i, align 8
+  %72 = load i64, ptr %frac_lm.i, align 8
+  %73 = load i64, ptr %frac_lo4.i, align 8
+  %or.i104 = or i64 %73, %72
   %cmp.i105 = icmp ne i64 %or.i104, 0
   %conv2.i106 = zext i1 %cmp.i105 to i64
-  %or3.i = or i64 %70, %conv2.i106
+  %or3.i = or i64 %71, %conv2.i106
   store i64 %or3.i, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  %73 = load i8, ptr %sign127.i, align 1
-  %frombool163.i = and i8 %73, 1
+  %74 = load i8, ptr %sign127.i, align 1
+  %frombool163.i = and i8 %74, 1
   store i8 %frombool163.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %74 = load i32, ptr %exp131.i, align 4
-  store i32 %74, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
+  %75 = load i32, ptr %exp131.i, align 4
+  store i32 %75, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
   br label %return_normal.i
 
 return_normal.i:                                  ; preds = %if.end159.i, %if.then81.i
@@ -8907,8 +8910,8 @@ return_normal.i:                                  ; preds = %if.end159.i, %if.th
   br i1 %tobool167.i.not, label %finish_sign.i, label %if.then168.i
 
 if.then168.i:                                     ; preds = %return_normal.i
-  %75 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
-  %sub170.i = add i32 %75, -1
+  %76 = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
+  %sub170.i = add i32 %76, -1
   store i32 %sub170.i, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
   br label %finish_sign.i
 
@@ -8918,16 +8921,16 @@ finish_sign.i:                                    ; preds = %return_normal.i, %i
   br i1 %tobool173.i.not, label %parts128_muladd.exit, label %if.then174.i
 
 if.then174.i:                                     ; preds = %finish_sign.i
-  %76 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %77 = and i8 %76, 1
-  %frombool180.i = xor i8 %77, 1
+  %77 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
+  %78 = and i8 %77, 1
+  %frombool180.i = xor i8 %78, 1
   store i8 %frombool180.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   br label %parts128_muladd.exit
 
 return_sub_zero.i:                                ; preds = %if.else154.i, %if.then87.i
   %float_rounding_mode.i = getelementptr inbounds i8, ptr %status, i64 2
-  %78 = load i8, ptr %float_rounding_mode.i, align 2
-  %cmp183.i = icmp eq i8 %78, 1
+  %79 = load i8, ptr %float_rounding_mode.i, align 2
+  %cmp183.i = icmp eq i8 %79, 1
   %frombool186.i = zext i1 %cmp183.i to i8
   store i8 %frombool186.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   br label %return_zero.i
@@ -8955,9 +8958,9 @@ if.then.i112:                                     ; preds = %parts128_muladd.exi
   %.pre = load i32, ptr %.compoundliteral.sroa.33.0..sroa_idx.i, align 4
   %.pre169 = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   %.pre170 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  %79 = zext i32 %.pre to i64
-  %80 = shl i64 %79, 48
-  %81 = and i64 %80, 9223090561878065152
+  %80 = zext i32 %.pre to i64
+  %81 = shl i64 %80, 48
+  %82 = and i64 %81, 9223090561878065152
   br label %parts128_uncanon.exit
 
 do.end.i:                                         ; preds = %parts128_muladd.exit
@@ -8965,8 +8968,8 @@ do.end.i:                                         ; preds = %parts128_muladd.exi
 
 do.end18.i.sink.split.sink.split:                 ; preds = %if.end17.i, %land.lhs.true.i, %if.end.i90
   %.sink172 = phi i16 [ 257, %if.end.i90 ], [ 257, %if.end17.i ], [ 129, %land.lhs.true.i ]
-  %82 = load i16, ptr %status, align 2
-  %or1.i.i.i = or i16 %82, %.sink172
+  %83 = load i16, ptr %status, align 2
+  %or1.i.i.i = or i16 %83, %.sink172
   store i16 %or1.i.i.i, ptr %status, align 2
   br label %do.end18.i.sink.split
 
@@ -8977,10 +8980,10 @@ do.end18.i.sink.split:                            ; preds = %do.end18.i.sink.spl
   br label %do.end18.i
 
 do.end18.i:                                       ; preds = %do.end18.i.sink.split, %parts128_muladd.exit, %parts128_muladd.exit
-  %83 = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %84 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  %85 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %83, i32 15, i64 %84) #15, !srcloc !5
-  %shr.i.i = lshr i64 %83, 15
+  %84 = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
+  %85 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
+  %86 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %84, i32 15, i64 %85) #15, !srcloc !5
+  %shr.i.i = lshr i64 %84, 15
   br label %parts128_uncanon.exit
 
 do.body21.i:                                      ; preds = %parts128_muladd.exit
@@ -8988,17 +8991,17 @@ do.body21.i:                                      ; preds = %parts128_muladd.exi
   unreachable
 
 parts128_uncanon.exit:                            ; preds = %parts128_muladd.exit, %if.then.i112, %do.end.i, %do.end18.i
-  %86 = phi i64 [ %.pre170, %if.then.i112 ], [ 0, %do.end.i ], [ %85, %do.end18.i ], [ 0, %parts128_muladd.exit ]
-  %87 = phi i64 [ %.pre169, %if.then.i112 ], [ 0, %do.end.i ], [ %shr.i.i, %do.end18.i ], [ 0, %parts128_muladd.exit ]
-  %conv1.i = phi i64 [ %81, %if.then.i112 ], [ 9223090561878065152, %do.end.i ], [ 9223090561878065152, %do.end18.i ], [ 0, %parts128_muladd.exit ]
-  %88 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %89 = and i8 %88, 1
-  %conv.i116 = zext nneg i8 %89 to i64
+  %87 = phi i64 [ %.pre170, %if.then.i112 ], [ 0, %do.end.i ], [ %86, %do.end18.i ], [ 0, %parts128_muladd.exit ]
+  %88 = phi i64 [ %.pre169, %if.then.i112 ], [ 0, %do.end.i ], [ %shr.i.i, %do.end18.i ], [ 0, %parts128_muladd.exit ]
+  %conv1.i = phi i64 [ %82, %if.then.i112 ], [ 9223090561878065152, %do.end.i ], [ 9223090561878065152, %do.end18.i ], [ 0, %parts128_muladd.exit ]
+  %89 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
+  %90 = and i8 %89, 1
+  %conv.i116 = zext nneg i8 %90 to i64
   %shl.i117 = shl nuw i64 %conv.i116, 63
   %or.i25.i = or disjoint i64 %conv1.i, %shl.i117
-  %and8.i.i = and i64 %87, 281474976710655
+  %and8.i.i = and i64 %88, 281474976710655
   %or.i.i = or disjoint i64 %or.i25.i, %and8.i.i
-  %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %86, 0
+  %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %87, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %or.i.i, 1
   ret { i64, i64 } %.fca.1.insert.i
 }

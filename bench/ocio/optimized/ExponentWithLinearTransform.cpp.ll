@@ -205,7 +205,9 @@ invoke.cont5:                                     ; preds = %entry
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i, align 8
+  store double 1.000000e+00, ptr %call5.i.i.i.i2.i, align 8
+  %ref.tmp2.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  store double 0.000000e+00, ptr %ref.tmp2.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData12setRedParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
@@ -235,7 +237,9 @@ invoke.cont19:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %add.ptr.i1.i18 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i13, i64 16
   %_M_end_of_storage.i.i19 = getelementptr inbounds i8, ptr %ref.tmp9, i64 16
   store ptr %add.ptr.i1.i18, ptr %_M_end_of_storage.i.i19, align 8
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i13, align 8
+  store double 1.000000e+00, ptr %call5.i.i.i.i2.i13, align 8
+  %ref.tmp11.sroa.2.0.call5.i.i.i.i2.i13.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i13, i64 8
+  store double 0.000000e+00, ptr %ref.tmp11.sroa.2.0.call5.i.i.i.i2.i13.sroa_idx, align 8
   %_M_finish.i.i21 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store ptr %add.ptr.i1.i18, ptr %_M_finish.i.i21, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData14setGreenParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9)
@@ -265,7 +269,9 @@ invoke.cont35:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %add.ptr.i1.i34 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i29, i64 16
   %_M_end_of_storage.i.i35 = getelementptr inbounds i8, ptr %ref.tmp25, i64 16
   store ptr %add.ptr.i1.i34, ptr %_M_end_of_storage.i.i35, align 8
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i29, align 8
+  store double 1.000000e+00, ptr %call5.i.i.i.i2.i29, align 8
+  %ref.tmp27.sroa.2.0.call5.i.i.i.i2.i29.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i29, i64 8
+  store double 0.000000e+00, ptr %ref.tmp27.sroa.2.0.call5.i.i.i.i2.i29.sroa_idx, align 8
   %_M_finish.i.i37 = getelementptr inbounds i8, ptr %ref.tmp25, i64 8
   store ptr %add.ptr.i1.i34, ptr %_M_finish.i.i37, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData13setBlueParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp25)
@@ -295,7 +301,9 @@ invoke.cont51:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %add.ptr.i1.i50 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i45, i64 16
   %_M_end_of_storage.i.i51 = getelementptr inbounds i8, ptr %ref.tmp41, i64 16
   store ptr %add.ptr.i1.i50, ptr %_M_end_of_storage.i.i51, align 8
-  store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i45, align 8
+  store double 1.000000e+00, ptr %call5.i.i.i.i2.i45, align 8
+  %ref.tmp43.sroa.2.0.call5.i.i.i.i2.i45.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i45, i64 8
+  store double 0.000000e+00, ptr %ref.tmp43.sroa.2.0.call5.i.i.i.i2.i45.sroa_idx, align 8
   %_M_finish.i.i53 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
   store ptr %add.ptr.i1.i50, ptr %_M_finish.i.i53, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData14setAlphaParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp41)
@@ -384,13 +392,16 @@ declare void @_ZN19OpenColorIO_v2_4dev11GammaOpDataD1Ev(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27ExponentWithLinearTransformEED2Ev.exit:
-  %ref.tmp = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp = alloca %"class.std::shared_ptr", align 8
   call void @_ZN19OpenColorIO_v2_4dev27ExponentWithLinearTransform6CreateEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp)
-  %0 = load <2 x ptr>, ptr %ref.tmp, align 16
-  %1 = load ptr, ptr %ref.tmp, align 16
-  store <2 x ptr> %0, ptr %agg.result, align 8
+  %0 = load ptr, ptr %ref.tmp, align 8
+  store ptr %0, ptr %agg.result, align 8
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %1 = load ptr, ptr %_M_refcount4.i.i, align 8
+  store ptr %1, ptr %_M_refcount.i.i, align 8
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplE, i64 0) #19
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplE, i64 0) #19
   %m_data.i2 = getelementptr inbounds i8, ptr %2, i64 8
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i2, ptr noundef nonnull align 8 dereferenceable(168) %m_data.i)
           to label %call.i.noexc unwind label %lpad

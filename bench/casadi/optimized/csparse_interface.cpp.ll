@@ -552,51 +552,51 @@ _ZN6casadi11copy_vectorIxiEEvPKT_RSt6vectorIT0_SaIS5_EE.exit25: ; preds = %.lr.p
   %84 = phi ptr [ %69, %_ZN6casadi11copy_vectorIxiEEvPKT_RSt6vectorIT0_SaIS5_EE.exit ], [ %77, %.lr.ph.i23 ]
   %85 = load ptr, ptr %16, align 8
   %86 = load ptr, ptr %19, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 80
-  %88 = insertelement <2 x ptr> poison, ptr %85, i64 0
-  %89 = insertelement <2 x ptr> %88, ptr %84, i64 1
-  %90 = insertelement <2 x ptr> poison, ptr %86, i64 0
-  %91 = insertelement <2 x ptr> %90, ptr %83, i64 1
-  %92 = icmp eq <2 x ptr> %89, %91
-  %93 = select <2 x i1> %92, <2 x ptr> zeroinitializer, <2 x ptr> %89
-  store <2 x ptr> %93, ptr %87, align 8
-  %94 = getelementptr inbounds i8, ptr %1, i64 96
-  store ptr null, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %1, i64 104
-  store i32 -1, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 128
-  %97 = load i32, ptr %15, align 8
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %1, i64 136
-  %100 = load ptr, ptr %99, align 8
-  %101 = load ptr, ptr %96, align 8
-  %102 = ptrtoint ptr %100 to i64
-  %103 = ptrtoint ptr %101 to i64
-  %104 = sub i64 %102, %103
-  %105 = ashr exact i64 %104, 3
-  %106 = icmp ult i64 %105, %98
-  br i1 %106, label %107, label %109
+  %87 = icmp eq ptr %85, %86
+  %spec.select.i = select i1 %87, ptr null, ptr %85
+  %88 = getelementptr inbounds i8, ptr %1, i64 80
+  store ptr %spec.select.i, ptr %88, align 8
+  %89 = icmp eq ptr %84, %83
+  %spec.select.i26 = select i1 %89, ptr null, ptr %84
+  %90 = getelementptr inbounds i8, ptr %1, i64 88
+  store ptr %spec.select.i26, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %1, i64 96
+  store ptr null, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %1, i64 104
+  store i32 -1, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %1, i64 128
+  %94 = load i32, ptr %15, align 8
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds i8, ptr %1, i64 136
+  %97 = load ptr, ptr %96, align 8
+  %98 = load ptr, ptr %93, align 8
+  %99 = ptrtoint ptr %97 to i64
+  %100 = ptrtoint ptr %98 to i64
+  %101 = sub i64 %99, %100
+  %102 = ashr exact i64 %101, 3
+  %103 = icmp ult i64 %102, %95
+  br i1 %103, label %104, label %106
 
-107:                                              ; preds = %_ZN6casadi11copy_vectorIxiEEvPKT_RSt6vectorIT0_SaIS5_EE.exit25
-  %108 = sub nuw nsw i64 %98, %105
-  tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %96, i64 noundef %108)
+104:                                              ; preds = %_ZN6casadi11copy_vectorIxiEEvPKT_RSt6vectorIT0_SaIS5_EE.exit25
+  %105 = sub nuw nsw i64 %95, %102
+  tail call void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %93, i64 noundef %105)
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
-109:                                              ; preds = %_ZN6casadi11copy_vectorIxiEEvPKT_RSt6vectorIT0_SaIS5_EE.exit25
-  %110 = icmp ugt i64 %105, %98
-  br i1 %110, label %111, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
+106:                                              ; preds = %_ZN6casadi11copy_vectorIxiEEvPKT_RSt6vectorIT0_SaIS5_EE.exit25
+  %107 = icmp ugt i64 %102, %95
+  br i1 %107, label %108, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
-111:                                              ; preds = %109
-  %112 = getelementptr inbounds double, ptr %101, i64 %98
-  %.not.i.i27 = icmp eq ptr %100, %112
-  br i1 %.not.i.i27, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %113
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds double, ptr %98, i64 %95
+  %.not.i.i27 = icmp eq ptr %97, %109
+  br i1 %.not.i.i27, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %110
 
-113:                                              ; preds = %111
-  store ptr %112, ptr %99, align 8
+110:                                              ; preds = %108
+  store ptr %109, ptr %96, align 8
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
-_ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %113, %111, %109, %107, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %107 ], [ 0, %109 ], [ 0, %111 ], [ 0, %113 ]
+_ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %110, %108, %106, %104, %2
+  %.0 = phi i32 [ 1, %2 ], [ 0, %104 ], [ 0, %106 ], [ 0, %108 ], [ 0, %110 ]
   ret i32 %.0
 }
 

@@ -1034,21 +1034,30 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco42MeshPredictionSchemeGeometri
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = load <4 x ptr>, ptr %9, align 8
-  %.fr = freeze <4 x ptr> %10
-  %11 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %12 = bitcast <4 x i1> %11 to i4
-  %13 = icmp eq i4 %12, 0
-  br i1 %13, label %14, label %_ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread
+  %10 = load ptr, ptr %9, align 8
+  %.not.i = icmp ne ptr %10, null
+  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = load ptr, ptr %11, align 8
+  %.not1.i = icmp ne ptr %12, null
+  %or.cond.i.not5 = select i1 %.not.i, i1 %.not1.i, i1 false
+  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = load ptr, ptr %13, align 8
+  %.not2.i = icmp ne ptr %14, null
+  %or.cond5.i.not4 = select i1 %or.cond.i.not5, i1 %.not2.i, i1 false
+  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr %16, null
+  %or.cond = select i1 %or.cond5.i.not4, i1 %17, i1 false
+  br i1 %or.cond, label %18, label %_ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp ne i32 %16, -1
+18:                                               ; preds = %8
+  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp ne i32 %20, -1
   br label %_ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread
 
-_ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread: ; preds = %8, %14, %1
-  %.0 = phi i1 [ false, %1 ], [ %17, %14 ], [ false, %8 ]
+_ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread: ; preds = %8, %18, %1
+  %.0 = phi i1 [ false, %1 ], [ %21, %18 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -1190,8 +1199,8 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %21, %18, %16, %2, %
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE21ComputeOriginalValuesEPKiPiiiPKNS_9IndexTypeIjNS_20PointIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 comdat align 2 {
-  %7 = alloca %"class.draco::VectorD.111", align 8
-  %8 = alloca %"class.draco::VectorD.111", align 8
+  %7 = alloca %"class.draco::VectorD.111", align 4
+  %8 = alloca %"class.draco::VectorD.111", align 4
   %9 = alloca %"class.draco::VectorD.111", align 4
   %10 = alloca %"class.draco::VectorD.109", align 4
   %11 = alloca %"class.draco::VectorD.109", align 4
@@ -1244,241 +1253,249 @@ _ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_49PredictionSchemeNorm
   %41 = getelementptr inbounds i8, ptr %0, i64 152
   %42 = getelementptr inbounds i8, ptr %0, i64 160
   %43 = getelementptr inbounds i8, ptr %0, i64 144
+  %44 = getelementptr inbounds i8, ptr %7, i64 4
   %indvars.iv.i.sroa.gep7.i = getelementptr inbounds i8, ptr %9, i64 4
+  %45 = getelementptr inbounds i8, ptr %8, i64 4
   %wide.trip.count = and i64 %36, 2147483647
-  br label %44
+  br label %46
 
-44:                                               ; preds = %.lr.ph, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
+46:                                               ; preds = %.lr.ph, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit ]
-  %45 = load ptr, ptr %28, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %45, align 8
-  %49 = ptrtoint ptr %47 to i64
-  %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %49, %50
-  %52 = ashr exact i64 %51, 2
-  %.not.i.i = icmp ugt i64 %52, %indvars.iv
-  br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %53
+  %47 = load ptr, ptr %28, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %47, align 8
+  %51 = ptrtoint ptr %49 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = ashr exact i64 %53, 2
+  %.not.i.i = icmp ugt i64 %54, %indvars.iv
+  br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %55
 
-53:                                               ; preds = %44
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %indvars.iv, i64 noundef %52) #18
+55:                                               ; preds = %46
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %indvars.iv, i64 noundef %54) #18
   unreachable
 
-_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %44
-  %54 = getelementptr inbounds %"class.draco::IndexType", ptr %48, i64 %indvars.iv
-  %.sroa.02.0.copyload = load i32, ptr %54, align 4
+_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %46
+  %56 = getelementptr inbounds %"class.draco::IndexType", ptr %50, i64 %indvars.iv
+  %.sroa.02.0.copyload = load i32, ptr %56, align 4
   call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE21ComputePredictedValueENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPi(ptr noundef nonnull align 8 dereferenceable(60) %26, i32 %.sroa.02.0.copyload, ptr noundef nonnull %10)
-  %55 = load i32, ptr %10, align 4
-  %56 = call i32 @llvm.abs.i32(i32 %55, i1 true)
-  %57 = load i32, ptr %39, align 4
+  %57 = load i32, ptr %10, align 4
   %58 = call i32 @llvm.abs.i32(i32 %57, i1 true)
-  %narrow.i = add nuw i32 %58, %56
-  %59 = zext i32 %narrow.i to i64
-  %60 = load i32, ptr %40, align 4
-  %61 = call i32 @llvm.abs.i32(i32 %60, i1 true)
-  %62 = zext nneg i32 %61 to i64
-  %63 = add nuw nsw i64 %59, %62
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %67
-
-65:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
-  %66 = load i32, ptr %41, align 8
-  store i32 %66, ptr %10, align 4
-  br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
+  %59 = load i32, ptr %39, align 4
+  %60 = call i32 @llvm.abs.i32(i32 %59, i1 true)
+  %narrow.i = add nuw i32 %60, %58
+  %61 = zext i32 %narrow.i to i64
+  %62 = load i32, ptr %40, align 4
+  %63 = call i32 @llvm.abs.i32(i32 %62, i1 true)
+  %64 = zext nneg i32 %63 to i64
+  %65 = add nuw nsw i64 %61, %64
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %67, label %69
 
 67:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
-  %68 = sext i32 %55 to i64
-  %69 = load i32, ptr %41, align 8
-  %70 = sext i32 %69 to i64
-  %71 = mul nsw i64 %70, %68
-  %72 = sdiv i64 %71, %63
-  %73 = trunc i64 %72 to i32
-  store i32 %73, ptr %10, align 4
-  %74 = sext i32 %57 to i64
-  %75 = mul nsw i64 %70, %74
-  %76 = sdiv i64 %75, %63
-  %77 = trunc i64 %76 to i32
-  store i32 %77, ptr %39, align 4
-  %78 = icmp sgt i32 %60, -1
-  %79 = call i32 @llvm.abs.i32(i32 %73, i1 true)
-  %80 = call i32 @llvm.abs.i32(i32 %77, i1 true)
-  %81 = add nuw i32 %80, %79
-  br i1 %78, label %82, label %84
-
-82:                                               ; preds = %67
-  %83 = sub i32 %69, %81
-  store i32 %83, ptr %40, align 4
+  %68 = load i32, ptr %41, align 8
+  store i32 %68, ptr %10, align 4
   br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
 
-84:                                               ; preds = %67
-  %.neg.i = sub i32 %81, %69
+69:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
+  %70 = sext i32 %57 to i64
+  %71 = load i32, ptr %41, align 8
+  %72 = sext i32 %71 to i64
+  %73 = mul nsw i64 %72, %70
+  %74 = sdiv i64 %73, %65
+  %75 = trunc i64 %74 to i32
+  store i32 %75, ptr %10, align 4
+  %76 = sext i32 %59 to i64
+  %77 = mul nsw i64 %72, %76
+  %78 = sdiv i64 %77, %65
+  %79 = trunc i64 %78 to i32
+  store i32 %79, ptr %39, align 4
+  %80 = icmp sgt i32 %62, -1
+  %81 = call i32 @llvm.abs.i32(i32 %75, i1 true)
+  %82 = call i32 @llvm.abs.i32(i32 %79, i1 true)
+  %83 = add nuw i32 %82, %81
+  br i1 %80, label %84, label %86
+
+84:                                               ; preds = %69
+  %85 = sub i32 %71, %83
+  store i32 %85, ptr %40, align 4
+  br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
+
+86:                                               ; preds = %69
+  %.neg.i = sub i32 %83, %71
   store i32 %.neg.i, ptr %40, align 4
   br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
 
-_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds = %65, %82, %84
-  %85 = call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %42)
-  br i1 %85, label %86, label %92
+_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds = %67, %84, %86
+  %87 = call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %42)
+  br i1 %87, label %88, label %94
 
-86:                                               ; preds = %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
+88:                                               ; preds = %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false), !alias.scope !27
-  br label %87
+  br label %89
 
-87:                                               ; preds = %87, %86
-  %indvars.iv.i = phi i64 [ 0, %86 ], [ %indvars.iv.next.i, %87 ]
-  %88 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i
-  %89 = load i32, ptr %88, align 4, !noalias !27
-  %90 = sub nsw i32 0, %89
-  %91 = getelementptr inbounds [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
-  store i32 %90, ptr %91, align 4, !alias.scope !27
+89:                                               ; preds = %89, %88
+  %indvars.iv.i = phi i64 [ 0, %88 ], [ %indvars.iv.next.i, %89 ]
+  %90 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %91 = load i32, ptr %90, align 4, !noalias !27
+  %92 = sub nsw i32 0, %91
+  %93 = getelementptr inbounds [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
+  store i32 %92, ptr %93, align 4, !alias.scope !27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZNK5draco7VectorDIiLi3EEngEv.exit, label %87, !llvm.loop !30
+  br i1 %exitcond.not.i, label %_ZNK5draco7VectorDIiLi3EEngEv.exit, label %89, !llvm.loop !30
 
-_ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
+_ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false)
-  br label %92
+  br label %94
 
-92:                                               ; preds = %_ZNK5draco7VectorDIiLi3EEngEv.exit, %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
-  %93 = load i32, ptr %10, align 4
-  %94 = icmp sgt i32 %93, -1
-  %95 = load i32, ptr %39, align 4
-  br i1 %94, label %96, label %101
+94:                                               ; preds = %_ZNK5draco7VectorDIiLi3EEngEv.exit, %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
+  %95 = load i32, ptr %10, align 4
+  %96 = icmp sgt i32 %95, -1
+  %97 = load i32, ptr %39, align 4
+  br i1 %96, label %98, label %103
 
-96:                                               ; preds = %92
-  %97 = load i32, ptr %41, align 8
-  %98 = add nsw i32 %97, %95
-  %99 = load i32, ptr %40, align 4
+98:                                               ; preds = %94
+  %99 = load i32, ptr %41, align 8
   %100 = add nsw i32 %99, %97
-  br label %120
+  %101 = load i32, ptr %40, align 4
+  %102 = add nsw i32 %101, %99
+  br label %122
 
-101:                                              ; preds = %92
-  %102 = icmp slt i32 %95, 0
-  br i1 %102, label %103, label %106
+103:                                              ; preds = %94
+  %104 = icmp slt i32 %97, 0
+  br i1 %104, label %105, label %108
 
-103:                                              ; preds = %101
-  %104 = load i32, ptr %40, align 4
-  %105 = call i32 @llvm.abs.i32(i32 %104, i1 true)
-  br label %111
+105:                                              ; preds = %103
+  %106 = load i32, ptr %40, align 4
+  %107 = call i32 @llvm.abs.i32(i32 %106, i1 true)
+  br label %113
 
-106:                                              ; preds = %101
-  %107 = load i32, ptr %43, align 8
-  %108 = load i32, ptr %40, align 4
-  %109 = call i32 @llvm.abs.i32(i32 %108, i1 true)
-  %110 = sub nsw i32 %107, %109
-  br label %111
+108:                                              ; preds = %103
+  %109 = load i32, ptr %43, align 8
+  %110 = load i32, ptr %40, align 4
+  %111 = call i32 @llvm.abs.i32(i32 %110, i1 true)
+  %112 = sub nsw i32 %109, %111
+  br label %113
 
-111:                                              ; preds = %106, %103
-  %112 = phi i32 [ %104, %103 ], [ %108, %106 ]
-  %.1.i = phi i32 [ %105, %103 ], [ %110, %106 ]
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %114, label %116
+113:                                              ; preds = %108, %105
+  %114 = phi i32 [ %106, %105 ], [ %110, %108 ]
+  %.1.i = phi i32 [ %107, %105 ], [ %112, %108 ]
+  %115 = icmp slt i32 %114, 0
+  br i1 %115, label %116, label %118
 
-114:                                              ; preds = %111
-  %115 = call i32 @llvm.abs.i32(i32 %95, i1 true)
-  br label %120
+116:                                              ; preds = %113
+  %117 = call i32 @llvm.abs.i32(i32 %97, i1 true)
+  br label %122
 
-116:                                              ; preds = %111
-  %117 = load i32, ptr %43, align 8
-  %118 = call i32 @llvm.abs.i32(i32 %95, i1 true)
-  %119 = sub nsw i32 %117, %118
-  br label %120
+118:                                              ; preds = %113
+  %119 = load i32, ptr %43, align 8
+  %120 = call i32 @llvm.abs.i32(i32 %97, i1 true)
+  %121 = sub nsw i32 %119, %120
+  br label %122
 
-120:                                              ; preds = %116, %114, %96
-  %.013.i = phi i32 [ %98, %96 ], [ %.1.i, %114 ], [ %.1.i, %116 ]
-  %.0.i = phi i32 [ %100, %96 ], [ %115, %114 ], [ %119, %116 ]
-  %121 = icmp eq i32 %.013.i, 0
-  %122 = icmp eq i32 %.0.i, 0
-  %123 = or i32 %.0.i, %.013.i
-  %or.cond.i.i11 = icmp eq i32 %123, 0
+122:                                              ; preds = %118, %116, %98
+  %.013.i = phi i32 [ %100, %98 ], [ %.1.i, %116 ], [ %.1.i, %118 ]
+  %.0.i = phi i32 [ %102, %98 ], [ %117, %116 ], [ %121, %118 ]
+  %123 = icmp eq i32 %.013.i, 0
+  %124 = icmp eq i32 %.0.i, 0
+  %125 = or i32 %.0.i, %.013.i
+  %or.cond.i.i11 = icmp eq i32 %125, 0
   %.pre.i.i = load i32, ptr %43, align 8
-  br i1 %or.cond.i.i11, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %124
+  br i1 %or.cond.i.i11, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %126
 
-124:                                              ; preds = %120
-  %125 = icmp eq i32 %.pre.i.i, %.0.i
-  %or.cond39.i.i = select i1 %121, i1 %125, i1 false
-  br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %126
-
-126:                                              ; preds = %124
-  %127 = icmp eq i32 %.pre.i.i, %.013.i
-  %or.cond3.i.i = and i1 %122, %127
-  br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %128
+126:                                              ; preds = %122
+  %127 = icmp eq i32 %.pre.i.i, %.0.i
+  %or.cond39.i.i = select i1 %123, i1 %127, i1 false
+  br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %128
 
 128:                                              ; preds = %126
-  br i1 %121, label %129, label %134
+  %129 = icmp eq i32 %.pre.i.i, %.013.i
+  %or.cond3.i.i = and i1 %124, %129
+  br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %130
 
-129:                                              ; preds = %128
-  %130 = load i32, ptr %41, align 8
-  %131 = icmp slt i32 %130, %.0.i
-  br i1 %131, label %132, label %134
+130:                                              ; preds = %128
+  br i1 %123, label %131, label %136
 
-132:                                              ; preds = %129
-  %factor43.i.i = shl i32 %130, 1
-  %133 = sub i32 %factor43.i.i, %.0.i
+131:                                              ; preds = %130
+  %132 = load i32, ptr %41, align 8
+  %133 = icmp slt i32 %132, %.0.i
+  br i1 %133, label %134, label %136
+
+134:                                              ; preds = %131
+  %factor43.i.i = shl i32 %132, 1
+  %135 = sub i32 %factor43.i.i, %.0.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-134:                                              ; preds = %129, %128
-  br i1 %127, label %135, label %140
+136:                                              ; preds = %131, %130
+  br i1 %129, label %137, label %142
 
-135:                                              ; preds = %134
-  %136 = load i32, ptr %41, align 8
-  %137 = icmp sgt i32 %136, %.0.i
-  br i1 %137, label %138, label %140
+137:                                              ; preds = %136
+  %138 = load i32, ptr %41, align 8
+  %139 = icmp sgt i32 %138, %.0.i
+  br i1 %139, label %140, label %142
 
-138:                                              ; preds = %135
-  %factor42.i.i = shl i32 %136, 1
-  %139 = sub i32 %factor42.i.i, %.0.i
+140:                                              ; preds = %137
+  %factor42.i.i = shl i32 %138, 1
+  %141 = sub i32 %factor42.i.i, %.0.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-140:                                              ; preds = %135, %134
-  br i1 %125, label %141, label %146
+142:                                              ; preds = %137, %136
+  br i1 %127, label %143, label %148
 
-141:                                              ; preds = %140
-  %142 = load i32, ptr %41, align 8
-  %143 = icmp sgt i32 %142, %.013.i
-  br i1 %143, label %144, label %146
+143:                                              ; preds = %142
+  %144 = load i32, ptr %41, align 8
+  %145 = icmp sgt i32 %144, %.013.i
+  br i1 %145, label %146, label %148
 
-144:                                              ; preds = %141
-  %factor41.i.i = shl i32 %142, 1
-  %145 = sub i32 %factor41.i.i, %.013.i
+146:                                              ; preds = %143
+  %factor41.i.i = shl i32 %144, 1
+  %147 = sub i32 %factor41.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-146:                                              ; preds = %141, %140
-  br i1 %122, label %147, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
+148:                                              ; preds = %143, %142
+  br i1 %124, label %149, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-147:                                              ; preds = %146
-  %148 = load i32, ptr %41, align 8
-  %149 = icmp slt i32 %148, %.013.i
-  br i1 %149, label %150, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
+149:                                              ; preds = %148
+  %150 = load i32, ptr %41, align 8
+  %151 = icmp slt i32 %150, %.013.i
+  br i1 %151, label %152, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-150:                                              ; preds = %147
-  %factor.i.i = shl i32 %148, 1
-  %151 = sub i32 %factor.i.i, %.013.i
+152:                                              ; preds = %149
+  %factor.i.i = shl i32 %150, 1
+  %153 = sub i32 %factor.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %120, %124, %126, %132, %138, %144, %146, %147, %150
-  %.025.i.i = phi i32 [ %133, %132 ], [ %139, %138 ], [ %.0.i, %144 ], [ 0, %150 ], [ 0, %147 ], [ %.0.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
-  %.0.i.i = phi i32 [ 0, %132 ], [ %.013.i, %138 ], [ %145, %144 ], [ %151, %150 ], [ %.013.i, %147 ], [ %.013.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
-  %152 = shl nuw nsw i64 %indvars.iv, 1
-  %153 = getelementptr inbounds i32, ptr %1, i64 %152
-  %154 = getelementptr inbounds i32, ptr %2, i64 %152
+_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %122, %126, %128, %134, %140, %146, %148, %149, %152
+  %.025.i.i = phi i32 [ %135, %134 ], [ %141, %140 ], [ %.0.i, %146 ], [ 0, %152 ], [ 0, %149 ], [ %.0.i, %148 ], [ %.0.i, %126 ], [ %.013.i, %128 ], [ %.pre.i.i, %122 ]
+  %.0.i.i = phi i32 [ 0, %134 ], [ %.013.i, %140 ], [ %147, %146 ], [ %153, %152 ], [ %.013.i, %149 ], [ %.013.i, %148 ], [ %.0.i, %126 ], [ %.013.i, %128 ], [ %.pre.i.i, %122 ]
+  %154 = shl nuw nsw i64 %indvars.iv, 1
+  %155 = getelementptr inbounds i32, ptr %1, i64 %154
+  %156 = getelementptr inbounds i32, ptr %2, i64 %154
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %155 = load <2 x i32>, ptr %153, align 4
-  store <2 x i32> %155, ptr %7, align 8
+  %157 = getelementptr inbounds i8, ptr %155, i64 4
+  %158 = load i32, ptr %155, align 4
+  %159 = load i32, ptr %157, align 4
+  store i32 %158, ptr %7, align 4
+  store i32 %159, ptr %44, align 4
   store i32 %.0.i.i, ptr %9, align 4
   store i32 %.025.i.i, ptr %indvars.iv.i.sroa.gep7.i, align 4
   call void @_ZNK5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE20ComputeOriginalValueENS_7VectorDIiLi2EEERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.draco::VectorD.111") align 4 %8, ptr noundef nonnull align 4 dereferenceable(20) %12, ptr noundef nonnull %9, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  %156 = load <2 x i32>, ptr %8, align 8
-  store <2 x i32> %156, ptr %154, align 4
+  %160 = load i32, ptr %8, align 4
+  store i32 %160, ptr %156, align 4
+  %161 = load i32, ptr %45, align 4
+  %162 = getelementptr inbounds i8, ptr %156, i64 4
+  store i32 %161, ptr %162, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, %_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE19SetQuantizationBitsEi.exit
   ret i1 true
@@ -1601,7 +1618,7 @@ define linkonce_odr noundef i32 @_ZNK5draco48MeshPredictionSchemeGeometricNormal
 define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE21ComputePredictedValueENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPi(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.draco::VertexCornersIterator", align 8
   %5 = alloca %"class.draco::VectorD", align 8
-  %6 = alloca %"class.draco::VectorD", align 16
+  %6 = alloca %"class.draco::VectorD", align 8
   %7 = alloca %"class.draco::VectorD", align 8
   %8 = alloca %"class.draco::VectorD", align 8
   %9 = alloca %"class.draco::VectorD", align 8
@@ -1891,12 +1908,12 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit58:         ; preds = %157
 
 ._crit_edge:                                      ; preds = %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit58
   store i64 %180, ptr %66, align 8
-  store i64 %181, ptr %67, align 16
+  store i64 %181, ptr %67, align 8
   br label %184
 
 184:                                              ; preds = %._crit_edge, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %.lcssa98 = phi i64 [ %179, %._crit_edge ], [ 0, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
-  store i64 %.lcssa98, ptr %6, align 16
+  store i64 %.lcssa98, ptr %6, align 8
   %185 = getelementptr inbounds i8, ptr %0, i64 56
   %186 = load i32, ptr %185, align 8
   %187 = icmp eq i32 %186, 0
@@ -1981,18 +1998,23 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit70.thread: ; preds = %.preheader90, %_ZNK
 
 _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread.sink.split: ; preds = %213, %199
   %.sink = phi ptr [ %11, %199 ], [ %12, %213 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
   br label %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread
 
 _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread:   ; preds = %.preheader, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread.sink.split, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit70, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit
-  %218 = load <2 x i64>, ptr %6, align 16
-  %219 = trunc <2 x i64> %218 to <2 x i32>
-  store <2 x i32> %219, ptr %2, align 4
-  %220 = getelementptr inbounds i8, ptr %6, i64 16
-  %221 = load i64, ptr %220, align 16
+  %218 = load i64, ptr %6, align 8
+  %219 = trunc i64 %218 to i32
+  store i32 %219, ptr %2, align 4
+  %220 = getelementptr inbounds i8, ptr %6, i64 8
+  %221 = load i64, ptr %220, align 8
   %222 = trunc i64 %221 to i32
-  %223 = getelementptr inbounds i8, ptr %2, i64 8
+  %223 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %222, ptr %223, align 4
+  %224 = getelementptr inbounds i8, ptr %6, i64 16
+  %225 = load i64, ptr %224, align 8
+  %226 = trunc i64 %225 to i32
+  %227 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %226, ptr %227, align 4
   ret void
 }
 
@@ -3012,21 +3034,30 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco42MeshPredictionSchemeGeometri
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = load <4 x ptr>, ptr %9, align 8
-  %.fr = freeze <4 x ptr> %10
-  %11 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %12 = bitcast <4 x i1> %11 to i4
-  %13 = icmp eq i4 %12, 0
-  br i1 %13, label %14, label %_ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread
+  %10 = load ptr, ptr %9, align 8
+  %.not.i = icmp ne ptr %10, null
+  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = load ptr, ptr %11, align 8
+  %.not1.i = icmp ne ptr %12, null
+  %or.cond.i.not5 = select i1 %.not.i, i1 %.not1.i, i1 false
+  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = load ptr, ptr %13, align 8
+  %.not2.i = icmp ne ptr %14, null
+  %or.cond5.i.not4 = select i1 %or.cond.i.not5, i1 %.not2.i, i1 false
+  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr %16, null
+  %or.cond = select i1 %or.cond5.i.not4, i1 %17, i1 false
+  br i1 %or.cond, label %18, label %_ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp ne i32 %16, -1
+18:                                               ; preds = %8
+  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp ne i32 %20, -1
   br label %_ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread
 
-_ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread: ; preds = %8, %14, %1
-  %.0 = phi i1 [ false, %1 ], [ %17, %14 ], [ false, %8 ]
+_ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread: ; preds = %8, %18, %1
+  %.0 = phi i1 [ false, %1 ], [ %21, %18 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -3158,8 +3189,8 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %21, %18, %16, %2, %
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE21ComputeOriginalValuesEPKiPiiiPKNS_9IndexTypeIjNS_20PointIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 comdat align 2 {
-  %7 = alloca %"class.draco::VectorD.111", align 8
-  %8 = alloca %"class.draco::VectorD.111", align 8
+  %7 = alloca %"class.draco::VectorD.111", align 4
+  %8 = alloca %"class.draco::VectorD.111", align 4
   %9 = alloca %"class.draco::VectorD.111", align 4
   %10 = alloca %"class.draco::VectorD.109", align 4
   %11 = alloca %"class.draco::VectorD.109", align 4
@@ -3212,241 +3243,249 @@ _ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_49PredictionSchemeNorm
   %41 = getelementptr inbounds i8, ptr %0, i64 152
   %42 = getelementptr inbounds i8, ptr %0, i64 160
   %43 = getelementptr inbounds i8, ptr %0, i64 144
+  %44 = getelementptr inbounds i8, ptr %7, i64 4
   %indvars.iv.i.sroa.gep7.i = getelementptr inbounds i8, ptr %9, i64 4
+  %45 = getelementptr inbounds i8, ptr %8, i64 4
   %wide.trip.count = and i64 %36, 2147483647
-  br label %44
+  br label %46
 
-44:                                               ; preds = %.lr.ph, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
+46:                                               ; preds = %.lr.ph, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit ]
-  %45 = load ptr, ptr %28, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %45, align 8
-  %49 = ptrtoint ptr %47 to i64
-  %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %49, %50
-  %52 = ashr exact i64 %51, 2
-  %.not.i.i = icmp ugt i64 %52, %indvars.iv
-  br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %53
+  %47 = load ptr, ptr %28, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %47, align 8
+  %51 = ptrtoint ptr %49 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = ashr exact i64 %53, 2
+  %.not.i.i = icmp ugt i64 %54, %indvars.iv
+  br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %55
 
-53:                                               ; preds = %44
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %indvars.iv, i64 noundef %52) #18
+55:                                               ; preds = %46
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %indvars.iv, i64 noundef %54) #18
   unreachable
 
-_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %44
-  %54 = getelementptr inbounds %"class.draco::IndexType", ptr %48, i64 %indvars.iv
-  %.sroa.02.0.copyload = load i32, ptr %54, align 4
+_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %46
+  %56 = getelementptr inbounds %"class.draco::IndexType", ptr %50, i64 %indvars.iv
+  %.sroa.02.0.copyload = load i32, ptr %56, align 4
   call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE21ComputePredictedValueENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPi(ptr noundef nonnull align 8 dereferenceable(60) %26, i32 %.sroa.02.0.copyload, ptr noundef nonnull %10)
-  %55 = load i32, ptr %10, align 4
-  %56 = call i32 @llvm.abs.i32(i32 %55, i1 true)
-  %57 = load i32, ptr %39, align 4
+  %57 = load i32, ptr %10, align 4
   %58 = call i32 @llvm.abs.i32(i32 %57, i1 true)
-  %narrow.i = add nuw i32 %58, %56
-  %59 = zext i32 %narrow.i to i64
-  %60 = load i32, ptr %40, align 4
-  %61 = call i32 @llvm.abs.i32(i32 %60, i1 true)
-  %62 = zext nneg i32 %61 to i64
-  %63 = add nuw nsw i64 %59, %62
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %67
-
-65:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
-  %66 = load i32, ptr %41, align 8
-  store i32 %66, ptr %10, align 4
-  br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
+  %59 = load i32, ptr %39, align 4
+  %60 = call i32 @llvm.abs.i32(i32 %59, i1 true)
+  %narrow.i = add nuw i32 %60, %58
+  %61 = zext i32 %narrow.i to i64
+  %62 = load i32, ptr %40, align 4
+  %63 = call i32 @llvm.abs.i32(i32 %62, i1 true)
+  %64 = zext nneg i32 %63 to i64
+  %65 = add nuw nsw i64 %61, %64
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %67, label %69
 
 67:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
-  %68 = sext i32 %55 to i64
-  %69 = load i32, ptr %41, align 8
-  %70 = sext i32 %69 to i64
-  %71 = mul nsw i64 %70, %68
-  %72 = sdiv i64 %71, %63
-  %73 = trunc i64 %72 to i32
-  store i32 %73, ptr %10, align 4
-  %74 = sext i32 %57 to i64
-  %75 = mul nsw i64 %70, %74
-  %76 = sdiv i64 %75, %63
-  %77 = trunc i64 %76 to i32
-  store i32 %77, ptr %39, align 4
-  %78 = icmp sgt i32 %60, -1
-  %79 = call i32 @llvm.abs.i32(i32 %73, i1 true)
-  %80 = call i32 @llvm.abs.i32(i32 %77, i1 true)
-  %81 = add nuw i32 %80, %79
-  br i1 %78, label %82, label %84
-
-82:                                               ; preds = %67
-  %83 = sub i32 %69, %81
-  store i32 %83, ptr %40, align 4
+  %68 = load i32, ptr %41, align 8
+  store i32 %68, ptr %10, align 4
   br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
 
-84:                                               ; preds = %67
-  %.neg.i = sub i32 %81, %69
+69:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
+  %70 = sext i32 %57 to i64
+  %71 = load i32, ptr %41, align 8
+  %72 = sext i32 %71 to i64
+  %73 = mul nsw i64 %72, %70
+  %74 = sdiv i64 %73, %65
+  %75 = trunc i64 %74 to i32
+  store i32 %75, ptr %10, align 4
+  %76 = sext i32 %59 to i64
+  %77 = mul nsw i64 %72, %76
+  %78 = sdiv i64 %77, %65
+  %79 = trunc i64 %78 to i32
+  store i32 %79, ptr %39, align 4
+  %80 = icmp sgt i32 %62, -1
+  %81 = call i32 @llvm.abs.i32(i32 %75, i1 true)
+  %82 = call i32 @llvm.abs.i32(i32 %79, i1 true)
+  %83 = add nuw i32 %82, %81
+  br i1 %80, label %84, label %86
+
+84:                                               ; preds = %69
+  %85 = sub i32 %71, %83
+  store i32 %85, ptr %40, align 4
+  br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
+
+86:                                               ; preds = %69
+  %.neg.i = sub i32 %83, %71
   store i32 %.neg.i, ptr %40, align 4
   br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
 
-_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds = %65, %82, %84
-  %85 = call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %42)
-  br i1 %85, label %86, label %92
+_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds = %67, %84, %86
+  %87 = call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %42)
+  br i1 %87, label %88, label %94
 
-86:                                               ; preds = %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
+88:                                               ; preds = %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false), !alias.scope !84
-  br label %87
+  br label %89
 
-87:                                               ; preds = %87, %86
-  %indvars.iv.i = phi i64 [ 0, %86 ], [ %indvars.iv.next.i, %87 ]
-  %88 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i
-  %89 = load i32, ptr %88, align 4, !noalias !84
-  %90 = sub nsw i32 0, %89
-  %91 = getelementptr inbounds [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
-  store i32 %90, ptr %91, align 4, !alias.scope !84
+89:                                               ; preds = %89, %88
+  %indvars.iv.i = phi i64 [ 0, %88 ], [ %indvars.iv.next.i, %89 ]
+  %90 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %91 = load i32, ptr %90, align 4, !noalias !84
+  %92 = sub nsw i32 0, %91
+  %93 = getelementptr inbounds [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
+  store i32 %92, ptr %93, align 4, !alias.scope !84
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZNK5draco7VectorDIiLi3EEngEv.exit, label %87, !llvm.loop !30
+  br i1 %exitcond.not.i, label %_ZNK5draco7VectorDIiLi3EEngEv.exit, label %89, !llvm.loop !30
 
-_ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
+_ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false)
-  br label %92
+  br label %94
 
-92:                                               ; preds = %_ZNK5draco7VectorDIiLi3EEngEv.exit, %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
-  %93 = load i32, ptr %10, align 4
-  %94 = icmp sgt i32 %93, -1
-  %95 = load i32, ptr %39, align 4
-  br i1 %94, label %96, label %101
+94:                                               ; preds = %_ZNK5draco7VectorDIiLi3EEngEv.exit, %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
+  %95 = load i32, ptr %10, align 4
+  %96 = icmp sgt i32 %95, -1
+  %97 = load i32, ptr %39, align 4
+  br i1 %96, label %98, label %103
 
-96:                                               ; preds = %92
-  %97 = load i32, ptr %41, align 8
-  %98 = add nsw i32 %97, %95
-  %99 = load i32, ptr %40, align 4
+98:                                               ; preds = %94
+  %99 = load i32, ptr %41, align 8
   %100 = add nsw i32 %99, %97
-  br label %120
+  %101 = load i32, ptr %40, align 4
+  %102 = add nsw i32 %101, %99
+  br label %122
 
-101:                                              ; preds = %92
-  %102 = icmp slt i32 %95, 0
-  br i1 %102, label %103, label %106
+103:                                              ; preds = %94
+  %104 = icmp slt i32 %97, 0
+  br i1 %104, label %105, label %108
 
-103:                                              ; preds = %101
-  %104 = load i32, ptr %40, align 4
-  %105 = call i32 @llvm.abs.i32(i32 %104, i1 true)
-  br label %111
+105:                                              ; preds = %103
+  %106 = load i32, ptr %40, align 4
+  %107 = call i32 @llvm.abs.i32(i32 %106, i1 true)
+  br label %113
 
-106:                                              ; preds = %101
-  %107 = load i32, ptr %43, align 8
-  %108 = load i32, ptr %40, align 4
-  %109 = call i32 @llvm.abs.i32(i32 %108, i1 true)
-  %110 = sub nsw i32 %107, %109
-  br label %111
+108:                                              ; preds = %103
+  %109 = load i32, ptr %43, align 8
+  %110 = load i32, ptr %40, align 4
+  %111 = call i32 @llvm.abs.i32(i32 %110, i1 true)
+  %112 = sub nsw i32 %109, %111
+  br label %113
 
-111:                                              ; preds = %106, %103
-  %112 = phi i32 [ %104, %103 ], [ %108, %106 ]
-  %.1.i = phi i32 [ %105, %103 ], [ %110, %106 ]
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %114, label %116
+113:                                              ; preds = %108, %105
+  %114 = phi i32 [ %106, %105 ], [ %110, %108 ]
+  %.1.i = phi i32 [ %107, %105 ], [ %112, %108 ]
+  %115 = icmp slt i32 %114, 0
+  br i1 %115, label %116, label %118
 
-114:                                              ; preds = %111
-  %115 = call i32 @llvm.abs.i32(i32 %95, i1 true)
-  br label %120
+116:                                              ; preds = %113
+  %117 = call i32 @llvm.abs.i32(i32 %97, i1 true)
+  br label %122
 
-116:                                              ; preds = %111
-  %117 = load i32, ptr %43, align 8
-  %118 = call i32 @llvm.abs.i32(i32 %95, i1 true)
-  %119 = sub nsw i32 %117, %118
-  br label %120
+118:                                              ; preds = %113
+  %119 = load i32, ptr %43, align 8
+  %120 = call i32 @llvm.abs.i32(i32 %97, i1 true)
+  %121 = sub nsw i32 %119, %120
+  br label %122
 
-120:                                              ; preds = %116, %114, %96
-  %.013.i = phi i32 [ %98, %96 ], [ %.1.i, %114 ], [ %.1.i, %116 ]
-  %.0.i = phi i32 [ %100, %96 ], [ %115, %114 ], [ %119, %116 ]
-  %121 = icmp eq i32 %.013.i, 0
-  %122 = icmp eq i32 %.0.i, 0
-  %123 = or i32 %.0.i, %.013.i
-  %or.cond.i.i11 = icmp eq i32 %123, 0
+122:                                              ; preds = %118, %116, %98
+  %.013.i = phi i32 [ %100, %98 ], [ %.1.i, %116 ], [ %.1.i, %118 ]
+  %.0.i = phi i32 [ %102, %98 ], [ %117, %116 ], [ %121, %118 ]
+  %123 = icmp eq i32 %.013.i, 0
+  %124 = icmp eq i32 %.0.i, 0
+  %125 = or i32 %.0.i, %.013.i
+  %or.cond.i.i11 = icmp eq i32 %125, 0
   %.pre.i.i = load i32, ptr %43, align 8
-  br i1 %or.cond.i.i11, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %124
+  br i1 %or.cond.i.i11, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %126
 
-124:                                              ; preds = %120
-  %125 = icmp eq i32 %.pre.i.i, %.0.i
-  %or.cond39.i.i = select i1 %121, i1 %125, i1 false
-  br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %126
-
-126:                                              ; preds = %124
-  %127 = icmp eq i32 %.pre.i.i, %.013.i
-  %or.cond3.i.i = and i1 %122, %127
-  br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %128
+126:                                              ; preds = %122
+  %127 = icmp eq i32 %.pre.i.i, %.0.i
+  %or.cond39.i.i = select i1 %123, i1 %127, i1 false
+  br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %128
 
 128:                                              ; preds = %126
-  br i1 %121, label %129, label %134
+  %129 = icmp eq i32 %.pre.i.i, %.013.i
+  %or.cond3.i.i = and i1 %124, %129
+  br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %130
 
-129:                                              ; preds = %128
-  %130 = load i32, ptr %41, align 8
-  %131 = icmp slt i32 %130, %.0.i
-  br i1 %131, label %132, label %134
+130:                                              ; preds = %128
+  br i1 %123, label %131, label %136
 
-132:                                              ; preds = %129
-  %factor43.i.i = shl i32 %130, 1
-  %133 = sub i32 %factor43.i.i, %.0.i
+131:                                              ; preds = %130
+  %132 = load i32, ptr %41, align 8
+  %133 = icmp slt i32 %132, %.0.i
+  br i1 %133, label %134, label %136
+
+134:                                              ; preds = %131
+  %factor43.i.i = shl i32 %132, 1
+  %135 = sub i32 %factor43.i.i, %.0.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-134:                                              ; preds = %129, %128
-  br i1 %127, label %135, label %140
+136:                                              ; preds = %131, %130
+  br i1 %129, label %137, label %142
 
-135:                                              ; preds = %134
-  %136 = load i32, ptr %41, align 8
-  %137 = icmp sgt i32 %136, %.0.i
-  br i1 %137, label %138, label %140
+137:                                              ; preds = %136
+  %138 = load i32, ptr %41, align 8
+  %139 = icmp sgt i32 %138, %.0.i
+  br i1 %139, label %140, label %142
 
-138:                                              ; preds = %135
-  %factor42.i.i = shl i32 %136, 1
-  %139 = sub i32 %factor42.i.i, %.0.i
+140:                                              ; preds = %137
+  %factor42.i.i = shl i32 %138, 1
+  %141 = sub i32 %factor42.i.i, %.0.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-140:                                              ; preds = %135, %134
-  br i1 %125, label %141, label %146
+142:                                              ; preds = %137, %136
+  br i1 %127, label %143, label %148
 
-141:                                              ; preds = %140
-  %142 = load i32, ptr %41, align 8
-  %143 = icmp sgt i32 %142, %.013.i
-  br i1 %143, label %144, label %146
+143:                                              ; preds = %142
+  %144 = load i32, ptr %41, align 8
+  %145 = icmp sgt i32 %144, %.013.i
+  br i1 %145, label %146, label %148
 
-144:                                              ; preds = %141
-  %factor41.i.i = shl i32 %142, 1
-  %145 = sub i32 %factor41.i.i, %.013.i
+146:                                              ; preds = %143
+  %factor41.i.i = shl i32 %144, 1
+  %147 = sub i32 %factor41.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-146:                                              ; preds = %141, %140
-  br i1 %122, label %147, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
+148:                                              ; preds = %143, %142
+  br i1 %124, label %149, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-147:                                              ; preds = %146
-  %148 = load i32, ptr %41, align 8
-  %149 = icmp slt i32 %148, %.013.i
-  br i1 %149, label %150, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
+149:                                              ; preds = %148
+  %150 = load i32, ptr %41, align 8
+  %151 = icmp slt i32 %150, %.013.i
+  br i1 %151, label %152, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-150:                                              ; preds = %147
-  %factor.i.i = shl i32 %148, 1
-  %151 = sub i32 %factor.i.i, %.013.i
+152:                                              ; preds = %149
+  %factor.i.i = shl i32 %150, 1
+  %153 = sub i32 %factor.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %120, %124, %126, %132, %138, %144, %146, %147, %150
-  %.025.i.i = phi i32 [ %133, %132 ], [ %139, %138 ], [ %.0.i, %144 ], [ 0, %150 ], [ 0, %147 ], [ %.0.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
-  %.0.i.i = phi i32 [ 0, %132 ], [ %.013.i, %138 ], [ %145, %144 ], [ %151, %150 ], [ %.013.i, %147 ], [ %.013.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
-  %152 = shl nuw nsw i64 %indvars.iv, 1
-  %153 = getelementptr inbounds i32, ptr %1, i64 %152
-  %154 = getelementptr inbounds i32, ptr %2, i64 %152
+_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %122, %126, %128, %134, %140, %146, %148, %149, %152
+  %.025.i.i = phi i32 [ %135, %134 ], [ %141, %140 ], [ %.0.i, %146 ], [ 0, %152 ], [ 0, %149 ], [ %.0.i, %148 ], [ %.0.i, %126 ], [ %.013.i, %128 ], [ %.pre.i.i, %122 ]
+  %.0.i.i = phi i32 [ 0, %134 ], [ %.013.i, %140 ], [ %147, %146 ], [ %153, %152 ], [ %.013.i, %149 ], [ %.013.i, %148 ], [ %.0.i, %126 ], [ %.013.i, %128 ], [ %.pre.i.i, %122 ]
+  %154 = shl nuw nsw i64 %indvars.iv, 1
+  %155 = getelementptr inbounds i32, ptr %1, i64 %154
+  %156 = getelementptr inbounds i32, ptr %2, i64 %154
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %155 = load <2 x i32>, ptr %153, align 4
-  store <2 x i32> %155, ptr %7, align 8
+  %157 = getelementptr inbounds i8, ptr %155, i64 4
+  %158 = load i32, ptr %155, align 4
+  %159 = load i32, ptr %157, align 4
+  store i32 %158, ptr %7, align 4
+  store i32 %159, ptr %44, align 4
   store i32 %.0.i.i, ptr %9, align 4
   store i32 %.025.i.i, ptr %indvars.iv.i.sroa.gep7.i, align 4
   call void @_ZNK5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE20ComputeOriginalValueENS_7VectorDIiLi2EEERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.draco::VectorD.111") align 4 %8, ptr noundef nonnull align 4 dereferenceable(20) %12, ptr noundef nonnull %9, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  %156 = load <2 x i32>, ptr %8, align 8
-  store <2 x i32> %156, ptr %154, align 4
+  %160 = load i32, ptr %8, align 4
+  store i32 %160, ptr %156, align 4
+  %161 = load i32, ptr %45, align 4
+  %162 = getelementptr inbounds i8, ptr %156, i64 4
+  store i32 %161, ptr %162, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, %_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE19SetQuantizationBitsEi.exit
   ret i1 true
@@ -3483,7 +3522,7 @@ define linkonce_odr noundef i32 @_ZNK5draco48MeshPredictionSchemeGeometricNormal
 define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE21ComputePredictedValueENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPi(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.draco::VertexCornersIterator.122", align 8
   %5 = alloca %"class.draco::VectorD", align 8
-  %6 = alloca %"class.draco::VectorD", align 16
+  %6 = alloca %"class.draco::VectorD", align 8
   %7 = alloca %"class.draco::VectorD", align 8
   %8 = alloca %"class.draco::VectorD", align 8
   %9 = alloca %"class.draco::VectorD", align 8
@@ -3795,12 +3834,12 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit62:         ; preds = %160
 
 ._crit_edge:                                      ; preds = %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit62
   store i64 %183, ptr %66, align 8
-  store i64 %184, ptr %67, align 16
+  store i64 %184, ptr %67, align 8
   br label %187
 
 187:                                              ; preds = %._crit_edge, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %.lcssa103 = phi i64 [ %182, %._crit_edge ], [ 0, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
-  store i64 %.lcssa103, ptr %6, align 16
+  store i64 %.lcssa103, ptr %6, align 8
   %188 = getelementptr inbounds i8, ptr %0, i64 56
   %189 = load i32, ptr %188, align 8
   %190 = icmp eq i32 %189, 0
@@ -3885,18 +3924,23 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit74.thread: ; preds = %.preheader97, %_ZNK
 
 _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread.sink.split: ; preds = %216, %202
   %.sink = phi ptr [ %11, %202 ], [ %12, %216 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
   br label %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread
 
 _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread:   ; preds = %.preheader, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread.sink.split, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit74, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit
-  %221 = load <2 x i64>, ptr %6, align 16
-  %222 = trunc <2 x i64> %221 to <2 x i32>
-  store <2 x i32> %222, ptr %2, align 4
-  %223 = getelementptr inbounds i8, ptr %6, i64 16
-  %224 = load i64, ptr %223, align 16
+  %221 = load i64, ptr %6, align 8
+  %222 = trunc i64 %221 to i32
+  store i32 %222, ptr %2, align 4
+  %223 = getelementptr inbounds i8, ptr %6, i64 8
+  %224 = load i64, ptr %223, align 8
   %225 = trunc i64 %224 to i32
-  %226 = getelementptr inbounds i8, ptr %2, i64 8
+  %226 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %225, ptr %226, align 4
+  %227 = getelementptr inbounds i8, ptr %6, i64 16
+  %228 = load i64, ptr %227, align 8
+  %229 = trunc i64 %228 to i32
+  %230 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %229, ptr %230, align 4
   ret void
 }
 
@@ -4077,12 +4121,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco28PredictionSchemeDeltaDecoder
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco28PredictionSchemeDeltaDecoderIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEEE21ComputeOriginalValuesEPKiPiiiPKNS_9IndexTypeIjNS_20PointIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %7 = alloca %"class.draco::VectorD.111", align 8
-  %8 = alloca %"class.draco::VectorD.111", align 8
-  %9 = alloca %"class.draco::VectorD.111", align 8
-  %10 = alloca %"class.draco::VectorD.111", align 8
-  %11 = alloca %"class.draco::VectorD.111", align 8
-  %12 = alloca %"class.draco::VectorD.111", align 8
+  %7 = alloca %"class.draco::VectorD.111", align 4
+  %8 = alloca %"class.draco::VectorD.111", align 4
+  %9 = alloca %"class.draco::VectorD.111", align 4
+  %10 = alloca %"class.draco::VectorD.111", align 4
+  %11 = alloca %"class.draco::VectorD.111", align 4
+  %12 = alloca %"class.draco::VectorD.111", align 4
   %13 = sext i32 %4 to i64
   %14 = icmp slt i32 %4, 0
   %15 = shl nsw i64 %13, 2
@@ -4093,53 +4137,77 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco28PredictionSchemeDeltaDecoderI
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %19 = load <2 x i32>, ptr %1, align 4
-  store <2 x i32> %19, ptr %10, align 8
-  %20 = load <2 x i32>, ptr %17, align 4
-  store <2 x i32> %20, ptr %12, align 8
+  %19 = getelementptr inbounds i8, ptr %17, i64 4
+  %20 = load i32, ptr %17, align 4
+  %21 = load i32, ptr %19, align 4
+  %22 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = load i32, ptr %1, align 4
+  %24 = getelementptr inbounds i8, ptr %10, i64 4
+  %25 = load i32, ptr %22, align 4
+  store i32 %23, ptr %10, align 4
+  store i32 %25, ptr %24, align 4
+  %indvars.iv.i.sroa.gep7.i = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %20, ptr %12, align 4
+  store i32 %21, ptr %indvars.iv.i.sroa.gep7.i, align 4
   invoke void @_ZNK5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE20ComputeOriginalValueENS_7VectorDIiLi2EEERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.draco::VectorD.111") align 4 %11, ptr noundef nonnull align 4 dereferenceable(20) %18, ptr noundef nonnull %12, ptr noundef nonnull align 4 dereferenceable(8) %10)
           to label %_ZNK5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE20ComputeOriginalValueEPKiS3_Pi.exit unwind label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp
 
 _ZNK5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE20ComputeOriginalValueEPKiS3_Pi.exit: ; preds = %6
-  %21 = load <2 x i32>, ptr %11, align 8
-  store <2 x i32> %21, ptr %2, align 4
+  %26 = load i32, ptr %11, align 4
+  store i32 %26, ptr %2, align 4
+  %27 = getelementptr inbounds i8, ptr %11, i64 4
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 %28, ptr %29, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %22 = icmp slt i32 %4, %3
-  br i1 %22, label %.lr.ph, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit22
+  %30 = icmp slt i32 %4, %3
+  br i1 %30, label %.lr.ph, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit22
 
 .lr.ph:                                           ; preds = %_ZNK5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE20ComputeOriginalValueEPKiS3_Pi.exit
-  %23 = sub nsw i64 0, %13
-  %24 = sext i32 %3 to i64
-  br label %25
+  %31 = sub nsw i64 0, %13
+  %32 = getelementptr inbounds i8, ptr %7, i64 4
+  %indvars.iv.i.sroa.gep7.i18 = getelementptr inbounds i8, ptr %9, i64 4
+  %33 = getelementptr inbounds i8, ptr %8, i64 4
+  %34 = sext i32 %3 to i64
+  br label %35
 
-25:                                               ; preds = %.lr.ph, %31
-  %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %26 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
-  %27 = getelementptr inbounds i32, ptr %26, i64 %23
-  %28 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+35:                                               ; preds = %.lr.ph, %45
+  %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %45 ]
+  %36 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %37 = getelementptr inbounds i32, ptr %36, i64 %31
+  %38 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %29 = load <2 x i32>, ptr %28, align 4
-  store <2 x i32> %29, ptr %7, align 8
-  %30 = load <2 x i32>, ptr %27, align 4
-  store <2 x i32> %30, ptr %9, align 8
+  %39 = getelementptr inbounds i8, ptr %37, i64 4
+  %40 = load i32, ptr %37, align 4
+  %41 = load i32, ptr %39, align 4
+  %42 = getelementptr inbounds i8, ptr %38, i64 4
+  %43 = load i32, ptr %38, align 4
+  %44 = load i32, ptr %42, align 4
+  store i32 %43, ptr %7, align 4
+  store i32 %44, ptr %32, align 4
+  store i32 %40, ptr %9, align 4
+  store i32 %41, ptr %indvars.iv.i.sroa.gep7.i18, align 4
   invoke void @_ZNK5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE20ComputeOriginalValueENS_7VectorDIiLi2EEERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.draco::VectorD.111") align 4 %8, ptr noundef nonnull align 4 dereferenceable(20) %18, ptr noundef nonnull %9, ptr noundef nonnull align 4 dereferenceable(8) %7)
-          to label %31 unwind label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.loopexit
+          to label %45 unwind label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.loopexit
 
-31:                                               ; preds = %25
-  %32 = load <2 x i32>, ptr %8, align 8
-  store <2 x i32> %32, ptr %26, align 4
+45:                                               ; preds = %35
+  %46 = load i32, ptr %8, align 4
+  store i32 %46, ptr %36, align 4
+  %47 = load i32, ptr %33, align 4
+  %48 = getelementptr inbounds i8, ptr %36, i64 4
+  store i32 %47, ptr %48, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %indvars.iv.next = add nsw i64 %indvars.iv, %13
-  %33 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %33, label %25, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit22, !llvm.loop !125
+  %49 = icmp slt i64 %indvars.iv.next, %34
+  br i1 %49, label %35, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit22, !llvm.loop !125
 
-_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.loopexit: ; preds = %25
+_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.loopexit: ; preds = %35
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
@@ -4154,7 +4222,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique
   call void @_ZdaPv(ptr noundef nonnull %17) #16
   resume { ptr, i32 } %lpad.phi
 
-_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit22: ; preds = %31, %_ZNK5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE20ComputeOriginalValueEPKiS3_Pi.exit
+_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit22: ; preds = %45, %_ZNK5draco49PredictionSchemeNormalOctahedronDecodingTransformIiE20ComputeOriginalValueEPKiS3_Pi.exit
   call void @_ZdaPv(ptr noundef nonnull %17) #16
   ret i1 true
 }
@@ -4372,21 +4440,30 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco42MeshPredictionSchemeGeometri
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = load <4 x ptr>, ptr %9, align 8
-  %.fr = freeze <4 x ptr> %10
-  %11 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %12 = bitcast <4 x i1> %11 to i4
-  %13 = icmp eq i4 %12, 0
-  br i1 %13, label %14, label %_ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread
+  %10 = load ptr, ptr %9, align 8
+  %.not.i = icmp ne ptr %10, null
+  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = load ptr, ptr %11, align 8
+  %.not1.i = icmp ne ptr %12, null
+  %or.cond.i.not5 = select i1 %.not.i, i1 %.not1.i, i1 false
+  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = load ptr, ptr %13, align 8
+  %.not2.i = icmp ne ptr %14, null
+  %or.cond5.i.not4 = select i1 %or.cond.i.not5, i1 %.not2.i, i1 false
+  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr %16, null
+  %or.cond = select i1 %or.cond5.i.not4, i1 %17, i1 false
+  br i1 %or.cond, label %18, label %_ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp ne i32 %16, -1
+18:                                               ; preds = %8
+  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp ne i32 %20, -1
   br label %_ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread
 
-_ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread: ; preds = %8, %14, %1
-  %.0 = phi i1 [ false, %1 ], [ %17, %14 ], [ false, %8 ]
+_ZNK5draco24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEE13IsInitializedEv.exit.thread: ; preds = %8, %18, %1
+  %.0 = phi i1 [ false, %1 ], [ %21, %18 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -4520,9 +4597,9 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %17, %14, %9, %2, %3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE21ComputeOriginalValuesEPKiPiiiPKNS_9IndexTypeIjNS_20PointIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 comdat align 2 {
-  %7 = alloca %"class.draco::VectorD.111", align 8
+  %7 = alloca %"class.draco::VectorD.111", align 4
   %8 = alloca %"class.draco::VectorD.111", align 4
-  %9 = alloca %"class.draco::VectorD.111", align 8
+  %9 = alloca %"class.draco::VectorD.111", align 4
   %10 = alloca %"class.draco::VectorD.109", align 4
   %11 = alloca %"class.draco::VectorD.109", align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4574,241 +4651,249 @@ _ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_62PredictionSchemeNorm
   %41 = getelementptr inbounds i8, ptr %0, i64 152
   %42 = getelementptr inbounds i8, ptr %0, i64 160
   %43 = getelementptr inbounds i8, ptr %0, i64 144
+  %indvars.iv.i7.sroa.gep9.i = getelementptr inbounds i8, ptr %9, i64 4
   %indvars.iv.i.sroa.gep10.i = getelementptr inbounds i8, ptr %8, i64 4
+  %44 = getelementptr inbounds i8, ptr %7, i64 4
   %wide.trip.count = and i64 %36, 2147483647
-  br label %44
+  br label %45
 
-44:                                               ; preds = %.lr.ph, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
+45:                                               ; preds = %.lr.ph, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit ]
-  %45 = load ptr, ptr %28, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %45, align 8
-  %49 = ptrtoint ptr %47 to i64
+  %46 = load ptr, ptr %28, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %46, align 8
   %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %49, %50
-  %52 = ashr exact i64 %51, 2
-  %.not.i.i = icmp ugt i64 %52, %indvars.iv
-  br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %53
+  %51 = ptrtoint ptr %49 to i64
+  %52 = sub i64 %50, %51
+  %53 = ashr exact i64 %52, 2
+  %.not.i.i = icmp ugt i64 %53, %indvars.iv
+  br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %54
 
-53:                                               ; preds = %44
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %indvars.iv, i64 noundef %52) #18
+54:                                               ; preds = %45
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %indvars.iv, i64 noundef %53) #18
   unreachable
 
-_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %44
-  %54 = getelementptr inbounds %"class.draco::IndexType", ptr %48, i64 %indvars.iv
-  %.sroa.02.0.copyload = load i32, ptr %54, align 4
+_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %45
+  %55 = getelementptr inbounds %"class.draco::IndexType", ptr %49, i64 %indvars.iv
+  %.sroa.02.0.copyload = load i32, ptr %55, align 4
   call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE21ComputePredictedValueENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPi(ptr noundef nonnull align 8 dereferenceable(60) %26, i32 %.sroa.02.0.copyload, ptr noundef nonnull %10)
-  %55 = load i32, ptr %10, align 4
-  %56 = call i32 @llvm.abs.i32(i32 %55, i1 true)
-  %57 = load i32, ptr %39, align 4
-  %58 = call i32 @llvm.abs.i32(i32 %57, i1 true)
-  %narrow.i = add nuw i32 %58, %56
-  %59 = zext i32 %narrow.i to i64
-  %60 = load i32, ptr %40, align 4
-  %61 = call i32 @llvm.abs.i32(i32 %60, i1 true)
-  %62 = zext nneg i32 %61 to i64
-  %63 = add nuw nsw i64 %59, %62
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %67
+  %56 = load i32, ptr %10, align 4
+  %57 = call i32 @llvm.abs.i32(i32 %56, i1 true)
+  %58 = load i32, ptr %39, align 4
+  %59 = call i32 @llvm.abs.i32(i32 %58, i1 true)
+  %narrow.i = add nuw i32 %59, %57
+  %60 = zext i32 %narrow.i to i64
+  %61 = load i32, ptr %40, align 4
+  %62 = call i32 @llvm.abs.i32(i32 %61, i1 true)
+  %63 = zext nneg i32 %62 to i64
+  %64 = add nuw nsw i64 %60, %63
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %66, label %68
 
-65:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
-  %66 = load i32, ptr %41, align 8
-  store i32 %66, ptr %10, align 4
+66:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
+  %67 = load i32, ptr %41, align 8
+  store i32 %67, ptr %10, align 4
   br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
 
-67:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
-  %68 = sext i32 %55 to i64
-  %69 = load i32, ptr %41, align 8
-  %70 = sext i32 %69 to i64
-  %71 = mul nsw i64 %70, %68
-  %72 = sdiv i64 %71, %63
-  %73 = trunc i64 %72 to i32
-  store i32 %73, ptr %10, align 4
-  %74 = sext i32 %57 to i64
-  %75 = mul nsw i64 %70, %74
-  %76 = sdiv i64 %75, %63
-  %77 = trunc i64 %76 to i32
-  store i32 %77, ptr %39, align 4
-  %78 = icmp sgt i32 %60, -1
-  %79 = call i32 @llvm.abs.i32(i32 %73, i1 true)
-  %80 = call i32 @llvm.abs.i32(i32 %77, i1 true)
-  %81 = add nuw i32 %80, %79
-  br i1 %78, label %82, label %84
+68:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
+  %69 = sext i32 %56 to i64
+  %70 = load i32, ptr %41, align 8
+  %71 = sext i32 %70 to i64
+  %72 = mul nsw i64 %71, %69
+  %73 = sdiv i64 %72, %64
+  %74 = trunc i64 %73 to i32
+  store i32 %74, ptr %10, align 4
+  %75 = sext i32 %58 to i64
+  %76 = mul nsw i64 %71, %75
+  %77 = sdiv i64 %76, %64
+  %78 = trunc i64 %77 to i32
+  store i32 %78, ptr %39, align 4
+  %79 = icmp sgt i32 %61, -1
+  %80 = call i32 @llvm.abs.i32(i32 %74, i1 true)
+  %81 = call i32 @llvm.abs.i32(i32 %78, i1 true)
+  %82 = add nuw i32 %81, %80
+  br i1 %79, label %83, label %85
 
-82:                                               ; preds = %67
-  %83 = sub i32 %69, %81
-  store i32 %83, ptr %40, align 4
+83:                                               ; preds = %68
+  %84 = sub i32 %70, %82
+  store i32 %84, ptr %40, align 4
   br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
 
-84:                                               ; preds = %67
-  %.neg.i = sub i32 %81, %69
+85:                                               ; preds = %68
+  %.neg.i = sub i32 %82, %70
   store i32 %.neg.i, ptr %40, align 4
   br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
 
-_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds = %65, %82, %84
-  %85 = call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %42)
-  br i1 %85, label %86, label %92
+_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds = %66, %83, %85
+  %86 = call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %42)
+  br i1 %86, label %87, label %93
 
-86:                                               ; preds = %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
+87:                                               ; preds = %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !136)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false), !alias.scope !136
-  br label %87
+  br label %88
 
-87:                                               ; preds = %87, %86
-  %indvars.iv.i = phi i64 [ 0, %86 ], [ %indvars.iv.next.i, %87 ]
-  %88 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i
-  %89 = load i32, ptr %88, align 4, !noalias !136
-  %90 = sub nsw i32 0, %89
-  %91 = getelementptr inbounds [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
-  store i32 %90, ptr %91, align 4, !alias.scope !136
+88:                                               ; preds = %88, %87
+  %indvars.iv.i = phi i64 [ 0, %87 ], [ %indvars.iv.next.i, %88 ]
+  %89 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %90 = load i32, ptr %89, align 4, !noalias !136
+  %91 = sub nsw i32 0, %90
+  %92 = getelementptr inbounds [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
+  store i32 %91, ptr %92, align 4, !alias.scope !136
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZNK5draco7VectorDIiLi3EEngEv.exit, label %87, !llvm.loop !30
+  br i1 %exitcond.not.i, label %_ZNK5draco7VectorDIiLi3EEngEv.exit, label %88, !llvm.loop !30
 
-_ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
+_ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false)
-  br label %92
+  br label %93
 
-92:                                               ; preds = %_ZNK5draco7VectorDIiLi3EEngEv.exit, %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
-  %93 = load i32, ptr %10, align 4
-  %94 = icmp sgt i32 %93, -1
-  %95 = load i32, ptr %39, align 4
-  br i1 %94, label %96, label %101
+93:                                               ; preds = %_ZNK5draco7VectorDIiLi3EEngEv.exit, %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
+  %94 = load i32, ptr %10, align 4
+  %95 = icmp sgt i32 %94, -1
+  %96 = load i32, ptr %39, align 4
+  br i1 %95, label %97, label %102
 
-96:                                               ; preds = %92
-  %97 = load i32, ptr %41, align 8
-  %98 = add nsw i32 %97, %95
-  %99 = load i32, ptr %40, align 4
-  %100 = add nsw i32 %99, %97
-  br label %120
+97:                                               ; preds = %93
+  %98 = load i32, ptr %41, align 8
+  %99 = add nsw i32 %98, %96
+  %100 = load i32, ptr %40, align 4
+  %101 = add nsw i32 %100, %98
+  br label %121
 
-101:                                              ; preds = %92
-  %102 = icmp slt i32 %95, 0
-  br i1 %102, label %103, label %106
+102:                                              ; preds = %93
+  %103 = icmp slt i32 %96, 0
+  br i1 %103, label %104, label %107
 
-103:                                              ; preds = %101
-  %104 = load i32, ptr %40, align 4
-  %105 = call i32 @llvm.abs.i32(i32 %104, i1 true)
-  br label %111
+104:                                              ; preds = %102
+  %105 = load i32, ptr %40, align 4
+  %106 = call i32 @llvm.abs.i32(i32 %105, i1 true)
+  br label %112
 
-106:                                              ; preds = %101
-  %107 = load i32, ptr %43, align 8
-  %108 = load i32, ptr %40, align 4
-  %109 = call i32 @llvm.abs.i32(i32 %108, i1 true)
-  %110 = sub nsw i32 %107, %109
-  br label %111
+107:                                              ; preds = %102
+  %108 = load i32, ptr %43, align 8
+  %109 = load i32, ptr %40, align 4
+  %110 = call i32 @llvm.abs.i32(i32 %109, i1 true)
+  %111 = sub nsw i32 %108, %110
+  br label %112
 
-111:                                              ; preds = %106, %103
-  %112 = phi i32 [ %104, %103 ], [ %108, %106 ]
-  %.1.i = phi i32 [ %105, %103 ], [ %110, %106 ]
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %114, label %116
+112:                                              ; preds = %107, %104
+  %113 = phi i32 [ %105, %104 ], [ %109, %107 ]
+  %.1.i = phi i32 [ %106, %104 ], [ %111, %107 ]
+  %114 = icmp slt i32 %113, 0
+  br i1 %114, label %115, label %117
 
-114:                                              ; preds = %111
-  %115 = call i32 @llvm.abs.i32(i32 %95, i1 true)
-  br label %120
+115:                                              ; preds = %112
+  %116 = call i32 @llvm.abs.i32(i32 %96, i1 true)
+  br label %121
 
-116:                                              ; preds = %111
-  %117 = load i32, ptr %43, align 8
-  %118 = call i32 @llvm.abs.i32(i32 %95, i1 true)
-  %119 = sub nsw i32 %117, %118
-  br label %120
+117:                                              ; preds = %112
+  %118 = load i32, ptr %43, align 8
+  %119 = call i32 @llvm.abs.i32(i32 %96, i1 true)
+  %120 = sub nsw i32 %118, %119
+  br label %121
 
-120:                                              ; preds = %116, %114, %96
-  %.013.i = phi i32 [ %98, %96 ], [ %.1.i, %114 ], [ %.1.i, %116 ]
-  %.0.i = phi i32 [ %100, %96 ], [ %115, %114 ], [ %119, %116 ]
-  %121 = icmp eq i32 %.013.i, 0
-  %122 = icmp eq i32 %.0.i, 0
-  %123 = or i32 %.0.i, %.013.i
-  %or.cond.i.i11 = icmp eq i32 %123, 0
+121:                                              ; preds = %117, %115, %97
+  %.013.i = phi i32 [ %99, %97 ], [ %.1.i, %115 ], [ %.1.i, %117 ]
+  %.0.i = phi i32 [ %101, %97 ], [ %116, %115 ], [ %120, %117 ]
+  %122 = icmp eq i32 %.013.i, 0
+  %123 = icmp eq i32 %.0.i, 0
+  %124 = or i32 %.0.i, %.013.i
+  %or.cond.i.i11 = icmp eq i32 %124, 0
   %.pre.i.i = load i32, ptr %43, align 8
-  br i1 %or.cond.i.i11, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %124
+  br i1 %or.cond.i.i11, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %125
 
-124:                                              ; preds = %120
-  %125 = icmp eq i32 %.pre.i.i, %.0.i
-  %or.cond39.i.i = select i1 %121, i1 %125, i1 false
-  br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %126
+125:                                              ; preds = %121
+  %126 = icmp eq i32 %.pre.i.i, %.0.i
+  %or.cond39.i.i = select i1 %122, i1 %126, i1 false
+  br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %127
 
-126:                                              ; preds = %124
-  %127 = icmp eq i32 %.pre.i.i, %.013.i
-  %or.cond3.i.i = and i1 %122, %127
-  br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %128
+127:                                              ; preds = %125
+  %128 = icmp eq i32 %.pre.i.i, %.013.i
+  %or.cond3.i.i = and i1 %123, %128
+  br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %129
 
-128:                                              ; preds = %126
-  br i1 %121, label %129, label %134
+129:                                              ; preds = %127
+  br i1 %122, label %130, label %135
 
-129:                                              ; preds = %128
-  %130 = load i32, ptr %41, align 8
-  %131 = icmp slt i32 %130, %.0.i
-  br i1 %131, label %132, label %134
+130:                                              ; preds = %129
+  %131 = load i32, ptr %41, align 8
+  %132 = icmp slt i32 %131, %.0.i
+  br i1 %132, label %133, label %135
 
-132:                                              ; preds = %129
-  %factor43.i.i = shl i32 %130, 1
-  %133 = sub i32 %factor43.i.i, %.0.i
+133:                                              ; preds = %130
+  %factor43.i.i = shl i32 %131, 1
+  %134 = sub i32 %factor43.i.i, %.0.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-134:                                              ; preds = %129, %128
-  br i1 %127, label %135, label %140
+135:                                              ; preds = %130, %129
+  br i1 %128, label %136, label %141
 
-135:                                              ; preds = %134
-  %136 = load i32, ptr %41, align 8
-  %137 = icmp sgt i32 %136, %.0.i
-  br i1 %137, label %138, label %140
+136:                                              ; preds = %135
+  %137 = load i32, ptr %41, align 8
+  %138 = icmp sgt i32 %137, %.0.i
+  br i1 %138, label %139, label %141
 
-138:                                              ; preds = %135
-  %factor42.i.i = shl i32 %136, 1
-  %139 = sub i32 %factor42.i.i, %.0.i
+139:                                              ; preds = %136
+  %factor42.i.i = shl i32 %137, 1
+  %140 = sub i32 %factor42.i.i, %.0.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-140:                                              ; preds = %135, %134
-  br i1 %125, label %141, label %146
+141:                                              ; preds = %136, %135
+  br i1 %126, label %142, label %147
 
-141:                                              ; preds = %140
-  %142 = load i32, ptr %41, align 8
-  %143 = icmp sgt i32 %142, %.013.i
-  br i1 %143, label %144, label %146
+142:                                              ; preds = %141
+  %143 = load i32, ptr %41, align 8
+  %144 = icmp sgt i32 %143, %.013.i
+  br i1 %144, label %145, label %147
 
-144:                                              ; preds = %141
-  %factor41.i.i = shl i32 %142, 1
-  %145 = sub i32 %factor41.i.i, %.013.i
+145:                                              ; preds = %142
+  %factor41.i.i = shl i32 %143, 1
+  %146 = sub i32 %factor41.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-146:                                              ; preds = %141, %140
-  br i1 %122, label %147, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
+147:                                              ; preds = %142, %141
+  br i1 %123, label %148, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-147:                                              ; preds = %146
-  %148 = load i32, ptr %41, align 8
-  %149 = icmp slt i32 %148, %.013.i
-  br i1 %149, label %150, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
+148:                                              ; preds = %147
+  %149 = load i32, ptr %41, align 8
+  %150 = icmp slt i32 %149, %.013.i
+  br i1 %150, label %151, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-150:                                              ; preds = %147
-  %factor.i.i = shl i32 %148, 1
-  %151 = sub i32 %factor.i.i, %.013.i
+151:                                              ; preds = %148
+  %factor.i.i = shl i32 %149, 1
+  %152 = sub i32 %factor.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %120, %124, %126, %132, %138, %144, %146, %147, %150
-  %.025.i.i = phi i32 [ %133, %132 ], [ %139, %138 ], [ %.0.i, %144 ], [ 0, %150 ], [ 0, %147 ], [ %.0.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
-  %.0.i.i = phi i32 [ 0, %132 ], [ %.013.i, %138 ], [ %145, %144 ], [ %151, %150 ], [ %.013.i, %147 ], [ %.013.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
-  %152 = shl nuw nsw i64 %indvars.iv, 1
-  %153 = getelementptr inbounds i32, ptr %1, i64 %152
-  %154 = getelementptr inbounds i32, ptr %2, i64 %152
+_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %121, %125, %127, %133, %139, %145, %147, %148, %151
+  %.025.i.i = phi i32 [ %134, %133 ], [ %140, %139 ], [ %.0.i, %145 ], [ 0, %151 ], [ 0, %148 ], [ %.0.i, %147 ], [ %.0.i, %125 ], [ %.013.i, %127 ], [ %.pre.i.i, %121 ]
+  %.0.i.i = phi i32 [ 0, %133 ], [ %.013.i, %139 ], [ %146, %145 ], [ %152, %151 ], [ %.013.i, %148 ], [ %.013.i, %147 ], [ %.0.i, %125 ], [ %.013.i, %127 ], [ %.pre.i.i, %121 ]
+  %153 = shl nuw nsw i64 %indvars.iv, 1
+  %154 = getelementptr inbounds i32, ptr %1, i64 %153
+  %155 = getelementptr inbounds i32, ptr %2, i64 %153
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  %156 = getelementptr inbounds i8, ptr %154, i64 4
+  %157 = load i32, ptr %154, align 4
+  %158 = load i32, ptr %156, align 4
   store i32 %.0.i.i, ptr %8, align 4
   store i32 %.025.i.i, ptr %indvars.iv.i.sroa.gep10.i, align 4
-  %155 = load <2 x i32>, ptr %153, align 4
-  store <2 x i32> %155, ptr %9, align 8
+  store i32 %157, ptr %9, align 4
+  store i32 %158, ptr %indvars.iv.i7.sroa.gep9.i, align 4
   call void @_ZNK5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE20ComputeOriginalValueENS_7VectorDIiLi2EEES3_(ptr dead_on_unwind nonnull writable sret(%"class.draco::VectorD.111") align 4 %7, ptr noundef nonnull align 4 dereferenceable(20) %12, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %156 = load <2 x i32>, ptr %7, align 8
-  store <2 x i32> %156, ptr %154, align 4
+  %159 = load i32, ptr %7, align 4
+  store i32 %159, ptr %155, align 4
+  %160 = load i32, ptr %44, align 4
+  %161 = getelementptr inbounds i8, ptr %155, i64 4
+  store i32 %160, ptr %161, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !139
+  br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, %_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE19SetQuantizationBitsEi.exit
   ret i1 true
@@ -4916,7 +5001,7 @@ define linkonce_odr noundef i32 @_ZNK5draco48MeshPredictionSchemeGeometricNormal
 define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE21ComputePredictedValueENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPi(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.draco::VertexCornersIterator", align 8
   %5 = alloca %"class.draco::VectorD", align 8
-  %6 = alloca %"class.draco::VectorD", align 16
+  %6 = alloca %"class.draco::VectorD", align 8
   %7 = alloca %"class.draco::VectorD", align 8
   %8 = alloca %"class.draco::VectorD", align 8
   %9 = alloca %"class.draco::VectorD", align 8
@@ -5206,12 +5291,12 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit58:         ; preds = %157
 
 ._crit_edge:                                      ; preds = %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit58
   store i64 %180, ptr %66, align 8
-  store i64 %181, ptr %67, align 16
+  store i64 %181, ptr %67, align 8
   br label %184
 
 184:                                              ; preds = %._crit_edge, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %.lcssa98 = phi i64 [ %179, %._crit_edge ], [ 0, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
-  store i64 %.lcssa98, ptr %6, align 16
+  store i64 %.lcssa98, ptr %6, align 8
   %185 = getelementptr inbounds i8, ptr %0, i64 56
   %186 = load i32, ptr %185, align 8
   %187 = icmp eq i32 %186, 0
@@ -5296,18 +5381,23 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit70.thread: ; preds = %.preheader90, %_ZNK
 
 _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread.sink.split: ; preds = %213, %199
   %.sink = phi ptr [ %11, %199 ], [ %12, %213 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
   br label %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread
 
 _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread:   ; preds = %.preheader, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread.sink.split, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit70, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit
-  %218 = load <2 x i64>, ptr %6, align 16
-  %219 = trunc <2 x i64> %218 to <2 x i32>
-  store <2 x i32> %219, ptr %2, align 4
-  %220 = getelementptr inbounds i8, ptr %6, i64 16
-  %221 = load i64, ptr %220, align 16
+  %218 = load i64, ptr %6, align 8
+  %219 = trunc i64 %218 to i32
+  store i32 %219, ptr %2, align 4
+  %220 = getelementptr inbounds i8, ptr %6, i64 8
+  %221 = load i64, ptr %220, align 8
   %222 = trunc i64 %221 to i32
-  %223 = getelementptr inbounds i8, ptr %2, i64 8
+  %223 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %222, ptr %223, align 4
+  %224 = getelementptr inbounds i8, ptr %6, i64 16
+  %225 = load i64, ptr %224, align 8
+  %226 = trunc i64 %225 to i32
+  %227 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %226, ptr %227, align 4
   ret void
 }
 
@@ -5608,21 +5698,30 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco42MeshPredictionSchemeGeometri
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = load <4 x ptr>, ptr %9, align 8
-  %.fr = freeze <4 x ptr> %10
-  %11 = icmp eq <4 x ptr> %.fr, zeroinitializer
-  %12 = bitcast <4 x i1> %11 to i4
-  %13 = icmp eq i4 %12, 0
-  br i1 %13, label %14, label %_ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread
+  %10 = load ptr, ptr %9, align 8
+  %.not.i = icmp ne ptr %10, null
+  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = load ptr, ptr %11, align 8
+  %.not1.i = icmp ne ptr %12, null
+  %or.cond.i.not5 = select i1 %.not.i, i1 %.not1.i, i1 false
+  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = load ptr, ptr %13, align 8
+  %.not2.i = icmp ne ptr %14, null
+  %or.cond5.i.not4 = select i1 %or.cond.i.not5, i1 %.not2.i, i1 false
+  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr %16, null
+  %or.cond = select i1 %or.cond5.i.not4, i1 %17, i1 false
+  br i1 %or.cond, label %18, label %_ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp ne i32 %16, -1
+18:                                               ; preds = %8
+  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp ne i32 %20, -1
   br label %_ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread
 
-_ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread: ; preds = %8, %14, %1
-  %.0 = phi i1 [ false, %1 ], [ %17, %14 ], [ false, %8 ]
+_ZNK5draco24MeshPredictionSchemeDataINS_11CornerTableEE13IsInitializedEv.exit.thread: ; preds = %8, %18, %1
+  %.0 = phi i1 [ false, %1 ], [ %21, %18 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -5746,9 +5845,9 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %17, %14, %9, %2, %3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE21ComputeOriginalValuesEPKiPiiiPKNS_9IndexTypeIjNS_20PointIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 comdat align 2 {
-  %7 = alloca %"class.draco::VectorD.111", align 8
+  %7 = alloca %"class.draco::VectorD.111", align 4
   %8 = alloca %"class.draco::VectorD.111", align 4
-  %9 = alloca %"class.draco::VectorD.111", align 8
+  %9 = alloca %"class.draco::VectorD.111", align 4
   %10 = alloca %"class.draco::VectorD.109", align 4
   %11 = alloca %"class.draco::VectorD.109", align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5800,241 +5899,249 @@ _ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_62PredictionSchemeNorm
   %41 = getelementptr inbounds i8, ptr %0, i64 152
   %42 = getelementptr inbounds i8, ptr %0, i64 160
   %43 = getelementptr inbounds i8, ptr %0, i64 144
+  %indvars.iv.i7.sroa.gep9.i = getelementptr inbounds i8, ptr %9, i64 4
   %indvars.iv.i.sroa.gep10.i = getelementptr inbounds i8, ptr %8, i64 4
+  %44 = getelementptr inbounds i8, ptr %7, i64 4
   %wide.trip.count = and i64 %36, 2147483647
-  br label %44
+  br label %45
 
-44:                                               ; preds = %.lr.ph, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
+45:                                               ; preds = %.lr.ph, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit ]
-  %45 = load ptr, ptr %28, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %45, align 8
-  %49 = ptrtoint ptr %47 to i64
+  %46 = load ptr, ptr %28, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %46, align 8
   %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %49, %50
-  %52 = ashr exact i64 %51, 2
-  %.not.i.i = icmp ugt i64 %52, %indvars.iv
-  br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %53
+  %51 = ptrtoint ptr %49 to i64
+  %52 = sub i64 %50, %51
+  %53 = ashr exact i64 %52, 2
+  %.not.i.i = icmp ugt i64 %53, %indvars.iv
+  br i1 %.not.i.i, label %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit, label %54
 
-53:                                               ; preds = %44
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %indvars.iv, i64 noundef %52) #18
+54:                                               ; preds = %45
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %indvars.iv, i64 noundef %53) #18
   unreachable
 
-_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %44
-  %54 = getelementptr inbounds %"class.draco::IndexType", ptr %48, i64 %indvars.iv
-  %.sroa.02.0.copyload = load i32, ptr %54, align 4
+_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %45
+  %55 = getelementptr inbounds %"class.draco::IndexType", ptr %49, i64 %indvars.iv
+  %.sroa.02.0.copyload = load i32, ptr %55, align 4
   call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE21ComputePredictedValueENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPi(ptr noundef nonnull align 8 dereferenceable(60) %26, i32 %.sroa.02.0.copyload, ptr noundef nonnull %10)
-  %55 = load i32, ptr %10, align 4
-  %56 = call i32 @llvm.abs.i32(i32 %55, i1 true)
-  %57 = load i32, ptr %39, align 4
-  %58 = call i32 @llvm.abs.i32(i32 %57, i1 true)
-  %narrow.i = add nuw i32 %58, %56
-  %59 = zext i32 %narrow.i to i64
-  %60 = load i32, ptr %40, align 4
-  %61 = call i32 @llvm.abs.i32(i32 %60, i1 true)
-  %62 = zext nneg i32 %61 to i64
-  %63 = add nuw nsw i64 %59, %62
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %67
+  %56 = load i32, ptr %10, align 4
+  %57 = call i32 @llvm.abs.i32(i32 %56, i1 true)
+  %58 = load i32, ptr %39, align 4
+  %59 = call i32 @llvm.abs.i32(i32 %58, i1 true)
+  %narrow.i = add nuw i32 %59, %57
+  %60 = zext i32 %narrow.i to i64
+  %61 = load i32, ptr %40, align 4
+  %62 = call i32 @llvm.abs.i32(i32 %61, i1 true)
+  %63 = zext nneg i32 %62 to i64
+  %64 = add nuw nsw i64 %60, %63
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %66, label %68
 
-65:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
-  %66 = load i32, ptr %41, align 8
-  store i32 %66, ptr %10, align 4
+66:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
+  %67 = load i32, ptr %41, align 8
+  store i32 %67, ptr %10, align 4
   br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
 
-67:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
-  %68 = sext i32 %55 to i64
-  %69 = load i32, ptr %41, align 8
-  %70 = sext i32 %69 to i64
-  %71 = mul nsw i64 %70, %68
-  %72 = sdiv i64 %71, %63
-  %73 = trunc i64 %72 to i32
-  store i32 %73, ptr %10, align 4
-  %74 = sext i32 %57 to i64
-  %75 = mul nsw i64 %70, %74
-  %76 = sdiv i64 %75, %63
-  %77 = trunc i64 %76 to i32
-  store i32 %77, ptr %39, align 4
-  %78 = icmp sgt i32 %60, -1
-  %79 = call i32 @llvm.abs.i32(i32 %73, i1 true)
-  %80 = call i32 @llvm.abs.i32(i32 %77, i1 true)
-  %81 = add nuw i32 %80, %79
-  br i1 %78, label %82, label %84
+68:                                               ; preds = %_ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exit
+  %69 = sext i32 %56 to i64
+  %70 = load i32, ptr %41, align 8
+  %71 = sext i32 %70 to i64
+  %72 = mul nsw i64 %71, %69
+  %73 = sdiv i64 %72, %64
+  %74 = trunc i64 %73 to i32
+  store i32 %74, ptr %10, align 4
+  %75 = sext i32 %58 to i64
+  %76 = mul nsw i64 %71, %75
+  %77 = sdiv i64 %76, %64
+  %78 = trunc i64 %77 to i32
+  store i32 %78, ptr %39, align 4
+  %79 = icmp sgt i32 %61, -1
+  %80 = call i32 @llvm.abs.i32(i32 %74, i1 true)
+  %81 = call i32 @llvm.abs.i32(i32 %78, i1 true)
+  %82 = add nuw i32 %81, %80
+  br i1 %79, label %83, label %85
 
-82:                                               ; preds = %67
-  %83 = sub i32 %69, %81
-  store i32 %83, ptr %40, align 4
+83:                                               ; preds = %68
+  %84 = sub i32 %70, %82
+  store i32 %84, ptr %40, align 4
   br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
 
-84:                                               ; preds = %67
-  %.neg.i = sub i32 %81, %69
+85:                                               ; preds = %68
+  %.neg.i = sub i32 %82, %70
   store i32 %.neg.i, ptr %40, align 4
   br label %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
 
-_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds = %65, %82, %84
-  %85 = call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %42)
-  br i1 %85, label %86, label %92
+_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit: ; preds = %66, %83, %85
+  %86 = call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %42)
+  br i1 %86, label %87, label %93
 
-86:                                               ; preds = %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
+87:                                               ; preds = %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !180)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false), !alias.scope !180
-  br label %87
+  br label %88
 
-87:                                               ; preds = %87, %86
-  %indvars.iv.i = phi i64 [ 0, %86 ], [ %indvars.iv.next.i, %87 ]
-  %88 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i
-  %89 = load i32, ptr %88, align 4, !noalias !180
-  %90 = sub nsw i32 0, %89
-  %91 = getelementptr inbounds [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
-  store i32 %90, ptr %91, align 4, !alias.scope !180
+88:                                               ; preds = %88, %87
+  %indvars.iv.i = phi i64 [ 0, %87 ], [ %indvars.iv.next.i, %88 ]
+  %89 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %90 = load i32, ptr %89, align 4, !noalias !180
+  %91 = sub nsw i32 0, %90
+  %92 = getelementptr inbounds [3 x i32], ptr %11, i64 0, i64 %indvars.iv.i
+  store i32 %91, ptr %92, align 4, !alias.scope !180
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZNK5draco7VectorDIiLi3EEngEv.exit, label %87, !llvm.loop !30
+  br i1 %exitcond.not.i, label %_ZNK5draco7VectorDIiLi3EEngEv.exit, label %88, !llvm.loop !30
 
-_ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %87
+_ZNK5draco7VectorDIiLi3EEngEv.exit:               ; preds = %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false)
-  br label %92
+  br label %93
 
-92:                                               ; preds = %_ZNK5draco7VectorDIiLi3EEngEv.exit, %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
-  %93 = load i32, ptr %10, align 4
-  %94 = icmp sgt i32 %93, -1
-  %95 = load i32, ptr %39, align 4
-  br i1 %94, label %96, label %101
+93:                                               ; preds = %_ZNK5draco7VectorDIiLi3EEngEv.exit, %_ZNK5draco17OctahedronToolBox25CanonicalizeIntegerVectorIiEEvPT_.exit
+  %94 = load i32, ptr %10, align 4
+  %95 = icmp sgt i32 %94, -1
+  %96 = load i32, ptr %39, align 4
+  br i1 %95, label %97, label %102
 
-96:                                               ; preds = %92
-  %97 = load i32, ptr %41, align 8
-  %98 = add nsw i32 %97, %95
-  %99 = load i32, ptr %40, align 4
-  %100 = add nsw i32 %99, %97
-  br label %120
+97:                                               ; preds = %93
+  %98 = load i32, ptr %41, align 8
+  %99 = add nsw i32 %98, %96
+  %100 = load i32, ptr %40, align 4
+  %101 = add nsw i32 %100, %98
+  br label %121
 
-101:                                              ; preds = %92
-  %102 = icmp slt i32 %95, 0
-  br i1 %102, label %103, label %106
+102:                                              ; preds = %93
+  %103 = icmp slt i32 %96, 0
+  br i1 %103, label %104, label %107
 
-103:                                              ; preds = %101
-  %104 = load i32, ptr %40, align 4
-  %105 = call i32 @llvm.abs.i32(i32 %104, i1 true)
-  br label %111
+104:                                              ; preds = %102
+  %105 = load i32, ptr %40, align 4
+  %106 = call i32 @llvm.abs.i32(i32 %105, i1 true)
+  br label %112
 
-106:                                              ; preds = %101
-  %107 = load i32, ptr %43, align 8
-  %108 = load i32, ptr %40, align 4
-  %109 = call i32 @llvm.abs.i32(i32 %108, i1 true)
-  %110 = sub nsw i32 %107, %109
-  br label %111
+107:                                              ; preds = %102
+  %108 = load i32, ptr %43, align 8
+  %109 = load i32, ptr %40, align 4
+  %110 = call i32 @llvm.abs.i32(i32 %109, i1 true)
+  %111 = sub nsw i32 %108, %110
+  br label %112
 
-111:                                              ; preds = %106, %103
-  %112 = phi i32 [ %104, %103 ], [ %108, %106 ]
-  %.1.i = phi i32 [ %105, %103 ], [ %110, %106 ]
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %114, label %116
+112:                                              ; preds = %107, %104
+  %113 = phi i32 [ %105, %104 ], [ %109, %107 ]
+  %.1.i = phi i32 [ %106, %104 ], [ %111, %107 ]
+  %114 = icmp slt i32 %113, 0
+  br i1 %114, label %115, label %117
 
-114:                                              ; preds = %111
-  %115 = call i32 @llvm.abs.i32(i32 %95, i1 true)
-  br label %120
+115:                                              ; preds = %112
+  %116 = call i32 @llvm.abs.i32(i32 %96, i1 true)
+  br label %121
 
-116:                                              ; preds = %111
-  %117 = load i32, ptr %43, align 8
-  %118 = call i32 @llvm.abs.i32(i32 %95, i1 true)
-  %119 = sub nsw i32 %117, %118
-  br label %120
+117:                                              ; preds = %112
+  %118 = load i32, ptr %43, align 8
+  %119 = call i32 @llvm.abs.i32(i32 %96, i1 true)
+  %120 = sub nsw i32 %118, %119
+  br label %121
 
-120:                                              ; preds = %116, %114, %96
-  %.013.i = phi i32 [ %98, %96 ], [ %.1.i, %114 ], [ %.1.i, %116 ]
-  %.0.i = phi i32 [ %100, %96 ], [ %115, %114 ], [ %119, %116 ]
-  %121 = icmp eq i32 %.013.i, 0
-  %122 = icmp eq i32 %.0.i, 0
-  %123 = or i32 %.0.i, %.013.i
-  %or.cond.i.i11 = icmp eq i32 %123, 0
+121:                                              ; preds = %117, %115, %97
+  %.013.i = phi i32 [ %99, %97 ], [ %.1.i, %115 ], [ %.1.i, %117 ]
+  %.0.i = phi i32 [ %101, %97 ], [ %116, %115 ], [ %120, %117 ]
+  %122 = icmp eq i32 %.013.i, 0
+  %123 = icmp eq i32 %.0.i, 0
+  %124 = or i32 %.0.i, %.013.i
+  %or.cond.i.i11 = icmp eq i32 %124, 0
   %.pre.i.i = load i32, ptr %43, align 8
-  br i1 %or.cond.i.i11, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %124
+  br i1 %or.cond.i.i11, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %125
 
-124:                                              ; preds = %120
-  %125 = icmp eq i32 %.pre.i.i, %.0.i
-  %or.cond39.i.i = select i1 %121, i1 %125, i1 false
-  br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %126
+125:                                              ; preds = %121
+  %126 = icmp eq i32 %.pre.i.i, %.0.i
+  %or.cond39.i.i = select i1 %122, i1 %126, i1 false
+  br i1 %or.cond39.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %127
 
-126:                                              ; preds = %124
-  %127 = icmp eq i32 %.pre.i.i, %.013.i
-  %or.cond3.i.i = and i1 %122, %127
-  br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %128
+127:                                              ; preds = %125
+  %128 = icmp eq i32 %.pre.i.i, %.013.i
+  %or.cond3.i.i = and i1 %123, %128
+  br i1 %or.cond3.i.i, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, label %129
 
-128:                                              ; preds = %126
-  br i1 %121, label %129, label %134
+129:                                              ; preds = %127
+  br i1 %122, label %130, label %135
 
-129:                                              ; preds = %128
-  %130 = load i32, ptr %41, align 8
-  %131 = icmp slt i32 %130, %.0.i
-  br i1 %131, label %132, label %134
+130:                                              ; preds = %129
+  %131 = load i32, ptr %41, align 8
+  %132 = icmp slt i32 %131, %.0.i
+  br i1 %132, label %133, label %135
 
-132:                                              ; preds = %129
-  %factor43.i.i = shl i32 %130, 1
-  %133 = sub i32 %factor43.i.i, %.0.i
+133:                                              ; preds = %130
+  %factor43.i.i = shl i32 %131, 1
+  %134 = sub i32 %factor43.i.i, %.0.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-134:                                              ; preds = %129, %128
-  br i1 %127, label %135, label %140
+135:                                              ; preds = %130, %129
+  br i1 %128, label %136, label %141
 
-135:                                              ; preds = %134
-  %136 = load i32, ptr %41, align 8
-  %137 = icmp sgt i32 %136, %.0.i
-  br i1 %137, label %138, label %140
+136:                                              ; preds = %135
+  %137 = load i32, ptr %41, align 8
+  %138 = icmp sgt i32 %137, %.0.i
+  br i1 %138, label %139, label %141
 
-138:                                              ; preds = %135
-  %factor42.i.i = shl i32 %136, 1
-  %139 = sub i32 %factor42.i.i, %.0.i
+139:                                              ; preds = %136
+  %factor42.i.i = shl i32 %137, 1
+  %140 = sub i32 %factor42.i.i, %.0.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-140:                                              ; preds = %135, %134
-  br i1 %125, label %141, label %146
+141:                                              ; preds = %136, %135
+  br i1 %126, label %142, label %147
 
-141:                                              ; preds = %140
-  %142 = load i32, ptr %41, align 8
-  %143 = icmp sgt i32 %142, %.013.i
-  br i1 %143, label %144, label %146
+142:                                              ; preds = %141
+  %143 = load i32, ptr %41, align 8
+  %144 = icmp sgt i32 %143, %.013.i
+  br i1 %144, label %145, label %147
 
-144:                                              ; preds = %141
-  %factor41.i.i = shl i32 %142, 1
-  %145 = sub i32 %factor41.i.i, %.013.i
+145:                                              ; preds = %142
+  %factor41.i.i = shl i32 %143, 1
+  %146 = sub i32 %factor41.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-146:                                              ; preds = %141, %140
-  br i1 %122, label %147, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
+147:                                              ; preds = %142, %141
+  br i1 %123, label %148, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-147:                                              ; preds = %146
-  %148 = load i32, ptr %41, align 8
-  %149 = icmp slt i32 %148, %.013.i
-  br i1 %149, label %150, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
+148:                                              ; preds = %147
+  %149 = load i32, ptr %41, align 8
+  %150 = icmp slt i32 %149, %.013.i
+  br i1 %150, label %151, label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-150:                                              ; preds = %147
-  %factor.i.i = shl i32 %148, 1
-  %151 = sub i32 %factor.i.i, %.013.i
+151:                                              ; preds = %148
+  %factor.i.i = shl i32 %149, 1
+  %152 = sub i32 %factor.i.i, %.013.i
   br label %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit
 
-_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %120, %124, %126, %132, %138, %144, %146, %147, %150
-  %.025.i.i = phi i32 [ %133, %132 ], [ %139, %138 ], [ %.0.i, %144 ], [ 0, %150 ], [ 0, %147 ], [ %.0.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
-  %.0.i.i = phi i32 [ 0, %132 ], [ %.013.i, %138 ], [ %145, %144 ], [ %151, %150 ], [ %.013.i, %147 ], [ %.013.i, %146 ], [ %.0.i, %124 ], [ %.013.i, %126 ], [ %.pre.i.i, %120 ]
-  %152 = shl nuw nsw i64 %indvars.iv, 1
-  %153 = getelementptr inbounds i32, ptr %1, i64 %152
-  %154 = getelementptr inbounds i32, ptr %2, i64 %152
+_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit: ; preds = %121, %125, %127, %133, %139, %145, %147, %148, %151
+  %.025.i.i = phi i32 [ %134, %133 ], [ %140, %139 ], [ %.0.i, %145 ], [ 0, %151 ], [ 0, %148 ], [ %.0.i, %147 ], [ %.0.i, %125 ], [ %.013.i, %127 ], [ %.pre.i.i, %121 ]
+  %.0.i.i = phi i32 [ 0, %133 ], [ %.013.i, %139 ], [ %146, %145 ], [ %152, %151 ], [ %.013.i, %148 ], [ %.013.i, %147 ], [ %.0.i, %125 ], [ %.013.i, %127 ], [ %.pre.i.i, %121 ]
+  %153 = shl nuw nsw i64 %indvars.iv, 1
+  %154 = getelementptr inbounds i32, ptr %1, i64 %153
+  %155 = getelementptr inbounds i32, ptr %2, i64 %153
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  %156 = getelementptr inbounds i8, ptr %154, i64 4
+  %157 = load i32, ptr %154, align 4
+  %158 = load i32, ptr %156, align 4
   store i32 %.0.i.i, ptr %8, align 4
   store i32 %.025.i.i, ptr %indvars.iv.i.sroa.gep10.i, align 4
-  %155 = load <2 x i32>, ptr %153, align 4
-  store <2 x i32> %155, ptr %9, align 8
+  store i32 %157, ptr %9, align 4
+  store i32 %158, ptr %indvars.iv.i7.sroa.gep9.i, align 4
   call void @_ZNK5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE20ComputeOriginalValueENS_7VectorDIiLi2EEES3_(ptr dead_on_unwind nonnull writable sret(%"class.draco::VectorD.111") align 4 %7, ptr noundef nonnull align 4 dereferenceable(20) %12, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %156 = load <2 x i32>, ptr %7, align 8
-  store <2 x i32> %156, ptr %154, align 4
+  %159 = load i32, ptr %7, align 4
+  store i32 %159, ptr %155, align 4
+  %160 = load i32, ptr %44, align 4
+  %161 = getelementptr inbounds i8, ptr %155, i64 4
+  store i32 %160, ptr %161, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !183
+  br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !183
 
 ._crit_edge:                                      ; preds = %_ZNK5draco17OctahedronToolBox40IntegerVectorToQuantizedOctahedralCoordsEPKiPiS3_.exit, %_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE19SetQuantizationBitsEi.exit
   ret i1 true
@@ -6071,7 +6178,7 @@ define linkonce_odr noundef i32 @_ZNK5draco48MeshPredictionSchemeGeometricNormal
 define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE21ComputePredictedValueENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPi(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.draco::VertexCornersIterator.122", align 8
   %5 = alloca %"class.draco::VectorD", align 8
-  %6 = alloca %"class.draco::VectorD", align 16
+  %6 = alloca %"class.draco::VectorD", align 8
   %7 = alloca %"class.draco::VectorD", align 8
   %8 = alloca %"class.draco::VectorD", align 8
   %9 = alloca %"class.draco::VectorD", align 8
@@ -6383,12 +6490,12 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit62:         ; preds = %160
 
 ._crit_edge:                                      ; preds = %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit62
   store i64 %183, ptr %66, align 8
-  store i64 %184, ptr %67, align 16
+  store i64 %184, ptr %67, align 8
   br label %187
 
 187:                                              ; preds = %._crit_edge, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %.lcssa103 = phi i64 [ %182, %._crit_edge ], [ 0, %_ZNK5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE20GetPositionForCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
-  store i64 %.lcssa103, ptr %6, align 16
+  store i64 %.lcssa103, ptr %6, align 8
   %188 = getelementptr inbounds i8, ptr %0, i64 56
   %189 = load i32, ptr %188, align 8
   %190 = icmp eq i32 %189, 0
@@ -6473,18 +6580,23 @@ _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit74.thread: ; preds = %.preheader97, %_ZNK
 
 _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread.sink.split: ; preds = %216, %202
   %.sink = phi ptr [ %11, %202 ], [ %12, %216 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
   br label %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread
 
 _ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread:   ; preds = %.preheader, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit.thread.sink.split, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit74, %_ZNK5draco7VectorDIlLi3EE6AbsSumEv.exit
-  %221 = load <2 x i64>, ptr %6, align 16
-  %222 = trunc <2 x i64> %221 to <2 x i32>
-  store <2 x i32> %222, ptr %2, align 4
-  %223 = getelementptr inbounds i8, ptr %6, i64 16
-  %224 = load i64, ptr %223, align 16
+  %221 = load i64, ptr %6, align 8
+  %222 = trunc i64 %221 to i32
+  store i32 %222, ptr %2, align 4
+  %223 = getelementptr inbounds i8, ptr %6, i64 8
+  %224 = load i64, ptr %223, align 8
   %225 = trunc i64 %224 to i32
-  %226 = getelementptr inbounds i8, ptr %2, i64 8
+  %226 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %225, ptr %226, align 4
+  %227 = getelementptr inbounds i8, ptr %6, i64 16
+  %228 = load i64, ptr %227, align 8
+  %229 = trunc i64 %228 to i32
+  %230 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %229, ptr %230, align 4
   ret void
 }
 
@@ -6511,12 +6623,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco28PredictionSchemeDeltaDecoder
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5draco28PredictionSchemeDeltaDecoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEEE21ComputeOriginalValuesEPKiPiiiPKNS_9IndexTypeIjNS_20PointIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %7 = alloca %"class.draco::VectorD.111", align 8
-  %8 = alloca %"class.draco::VectorD.111", align 8
-  %9 = alloca %"class.draco::VectorD.111", align 8
-  %10 = alloca %"class.draco::VectorD.111", align 8
-  %11 = alloca %"class.draco::VectorD.111", align 8
-  %12 = alloca %"class.draco::VectorD.111", align 8
+  %7 = alloca %"class.draco::VectorD.111", align 4
+  %8 = alloca %"class.draco::VectorD.111", align 4
+  %9 = alloca %"class.draco::VectorD.111", align 4
+  %10 = alloca %"class.draco::VectorD.111", align 4
+  %11 = alloca %"class.draco::VectorD.111", align 4
+  %12 = alloca %"class.draco::VectorD.111", align 4
   %13 = sext i32 %4 to i64
   %14 = icmp slt i32 %4, 0
   %15 = shl nsw i64 %13, 2
@@ -6527,53 +6639,77 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco28PredictionSchemeDeltaDecoderI
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %19 = load <2 x i32>, ptr %17, align 4
-  store <2 x i32> %19, ptr %11, align 8
-  %20 = load <2 x i32>, ptr %1, align 4
-  store <2 x i32> %20, ptr %12, align 8
+  %19 = getelementptr inbounds i8, ptr %17, i64 4
+  %20 = load i32, ptr %17, align 4
+  %21 = load i32, ptr %19, align 4
+  %22 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = load i32, ptr %1, align 4
+  %24 = load i32, ptr %22, align 4
+  %indvars.iv.i7.sroa.gep9.i = getelementptr inbounds i8, ptr %12, i64 4
+  %indvars.iv.i.sroa.gep10.i = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 %20, ptr %11, align 4
+  store i32 %21, ptr %indvars.iv.i.sroa.gep10.i, align 4
+  store i32 %23, ptr %12, align 4
+  store i32 %24, ptr %indvars.iv.i7.sroa.gep9.i, align 4
   invoke void @_ZNK5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE20ComputeOriginalValueENS_7VectorDIiLi2EEES3_(ptr dead_on_unwind nonnull writable sret(%"class.draco::VectorD.111") align 4 %10, ptr noundef nonnull align 4 dereferenceable(20) %18, ptr noundef nonnull %11, ptr noundef nonnull %12)
           to label %_ZNK5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE20ComputeOriginalValueEPKiS3_Pi.exit unwind label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp
 
 _ZNK5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE20ComputeOriginalValueEPKiS3_Pi.exit: ; preds = %6
-  %21 = load <2 x i32>, ptr %10, align 8
-  store <2 x i32> %21, ptr %2, align 4
+  %25 = load i32, ptr %10, align 4
+  store i32 %25, ptr %2, align 4
+  %26 = getelementptr inbounds i8, ptr %10, i64 4
+  %27 = load i32, ptr %26, align 4
+  %28 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 %27, ptr %28, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %22 = icmp slt i32 %4, %3
-  br i1 %22, label %.lr.ph, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit23
+  %29 = icmp slt i32 %4, %3
+  br i1 %29, label %.lr.ph, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit23
 
 .lr.ph:                                           ; preds = %_ZNK5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE20ComputeOriginalValueEPKiS3_Pi.exit
-  %23 = sub nsw i64 0, %13
-  %24 = sext i32 %3 to i64
-  br label %25
+  %30 = sub nsw i64 0, %13
+  %indvars.iv.i7.sroa.gep9.i18 = getelementptr inbounds i8, ptr %9, i64 4
+  %indvars.iv.i.sroa.gep10.i19 = getelementptr inbounds i8, ptr %8, i64 4
+  %31 = getelementptr inbounds i8, ptr %7, i64 4
+  %32 = sext i32 %3 to i64
+  br label %33
 
-25:                                               ; preds = %.lr.ph, %31
-  %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %26 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
-  %27 = getelementptr inbounds i32, ptr %26, i64 %23
-  %28 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+33:                                               ; preds = %.lr.ph, %43
+  %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %43 ]
+  %34 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %35 = getelementptr inbounds i32, ptr %34, i64 %30
+  %36 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %29 = load <2 x i32>, ptr %27, align 4
-  store <2 x i32> %29, ptr %8, align 8
-  %30 = load <2 x i32>, ptr %28, align 4
-  store <2 x i32> %30, ptr %9, align 8
+  %37 = getelementptr inbounds i8, ptr %35, i64 4
+  %38 = load i32, ptr %35, align 4
+  %39 = load i32, ptr %37, align 4
+  %40 = getelementptr inbounds i8, ptr %36, i64 4
+  %41 = load i32, ptr %36, align 4
+  %42 = load i32, ptr %40, align 4
+  store i32 %38, ptr %8, align 4
+  store i32 %39, ptr %indvars.iv.i.sroa.gep10.i19, align 4
+  store i32 %41, ptr %9, align 4
+  store i32 %42, ptr %indvars.iv.i7.sroa.gep9.i18, align 4
   invoke void @_ZNK5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE20ComputeOriginalValueENS_7VectorDIiLi2EEES3_(ptr dead_on_unwind nonnull writable sret(%"class.draco::VectorD.111") align 4 %7, ptr noundef nonnull align 4 dereferenceable(20) %18, ptr noundef nonnull %8, ptr noundef nonnull %9)
-          to label %31 unwind label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.loopexit
+          to label %43 unwind label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.loopexit
 
-31:                                               ; preds = %25
-  %32 = load <2 x i32>, ptr %7, align 8
-  store <2 x i32> %32, ptr %26, align 4
+43:                                               ; preds = %33
+  %44 = load i32, ptr %7, align 4
+  store i32 %44, ptr %34, align 4
+  %45 = load i32, ptr %31, align 4
+  %46 = getelementptr inbounds i8, ptr %34, i64 4
+  store i32 %45, ptr %46, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %indvars.iv.next = add nsw i64 %indvars.iv, %13
-  %33 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %33, label %25, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit23, !llvm.loop !221
+  %47 = icmp slt i64 %indvars.iv.next, %32
+  br i1 %47, label %33, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit23, !llvm.loop !221
 
-_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.loopexit: ; preds = %25
+_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.loopexit: ; preds = %33
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
@@ -6588,7 +6724,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique
   call void @_ZdaPv(ptr noundef nonnull %17) #16
   resume { ptr, i32 } %lpad.phi
 
-_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit23: ; preds = %31, %_ZNK5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE20ComputeOriginalValueEPKiS3_Pi.exit
+_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit23: ; preds = %43, %_ZNK5draco62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiE20ComputeOriginalValueEPKiS3_Pi.exit
   call void @_ZdaPv(ptr noundef nonnull %17) #16
   ret i1 true
 }

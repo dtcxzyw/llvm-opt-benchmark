@@ -235,10 +235,13 @@ define noundef ptr @Raig_ManCreate(ptr noundef %0) local_unnamed_addr #1 {
   %calloc = tail call dereferenceable_or_null(120) ptr @calloc(i64 1, i64 120)
   store ptr %0, ptr %calloc, align 8
   %2 = getelementptr i8, ptr %0, i64 108
+  %.val79 = load i32, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %calloc, i64 12
+  store i32 %.val79, ptr %3, align 4
   %4 = getelementptr i8, ptr %0, i64 112
-  %5 = load <2 x i32>, ptr %2, align 4
-  store <2 x i32> %5, ptr %3, align 4
+  %.val73 = load i32, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %calloc, i64 16
+  store i32 %.val73, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 136
   %.val81 = load i32, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %calloc, i64 20

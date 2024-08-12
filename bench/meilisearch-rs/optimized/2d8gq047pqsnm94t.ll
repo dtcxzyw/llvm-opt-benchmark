@@ -3908,7 +3908,13 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h0e70bf5357d61956E.exit.thre
   %84 = phi i64 [ %64, %71 ], [ %.pre.i.i.i.i.i.i35.i.i, %83 ]
   %85 = load ptr, ptr %10, align 8, !alias.scope !1459, !noalias !1453, !nonnull !40, !noundef !40
   %86 = getelementptr inbounds i8, ptr %85, i64 %84
-  store <4 x i8> <i8 92, i8 117, i8 48, i8 48>, ptr %86, align 1
+  store i8 92, ptr %86, align 1
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %86, i64 1
+  store i8 117, ptr %.sroa.4.0..sroa_idx.i.i.i, align 1
+  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %86, i64 2
+  store i8 48, ptr %.sroa.5.0..sroa_idx.i.i.i, align 1
+  %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %86, i64 3
+  store i8 48, ptr %.sroa.6.0..sroa_idx.i.i.i, align 1
   %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %86, i64 4
   store i8 %77, ptr %.sroa.7.0..sroa_idx.i.i.i, align 1
   %.sroa.8.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %86, i64 5

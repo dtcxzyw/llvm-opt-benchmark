@@ -5002,7 +5002,9 @@ if.end34:                                         ; preds = %if.then31, %if.end2
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %qdev) #25
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #25
   %config_read1.i = getelementptr inbounds i8, ptr %call1.i.i, i64 192
-  %12 = load <2 x ptr>, ptr %config_read1.i, align 8
+  %12 = load ptr, ptr %config_read1.i, align 8
+  %config_write2.i = getelementptr inbounds i8, ptr %call1.i.i, i64 200
+  %13 = load ptr, ptr %config_write2.i, align 8
   store ptr null, ptr %local_err.i, align 8
   %call.i92.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
@@ -5010,21 +5012,21 @@ if.end34:                                         ; preds = %if.then31, %if.end2
   %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i93.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %call5.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.7) #25
   %tobool.not.i60 = icmp ne ptr %call5.i, null
-  %13 = getelementptr i8, ptr %call.i1.i.i, i64 120
-  %call4.val.i = load i32, ptr %13, align 8
+  %14 = getelementptr i8, ptr %call.i1.i.i, i64 120
+  %call4.val.i = load i32, ptr %14, align 8
   %and.i.i = and i32 %call4.val.i, 1
   %tobool.i.not.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.i.not.i, label %if.end.i63, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end34
   %parent_dev.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 2232
-  %14 = load ptr, ptr %parent_dev.i, align 8
-  %tobool7.not.i = icmp eq ptr %14, null
+  %15 = load ptr, ptr %parent_dev.i, align 8
+  %tobool7.not.i = icmp eq ptr %15, null
   %brmerge.i = select i1 %tobool7.not.i, i1 true, i1 %tobool.not.i60
   br i1 %brmerge.i, label %if.end.i63, label %if.then.i61
 
 if.then.i61:                                      ; preds = %land.lhs.true.i
-  %name11.i = getelementptr inbounds i8, ptr %14, i64 232
+  %name11.i = getelementptr inbounds i8, ptr %15, i64 232
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1152, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.194, ptr noundef nonnull %name11.i) #25
   br label %do_pci_register_device.exit.thread
 
@@ -5034,24 +5036,24 @@ if.end.i63:                                       ; preds = %land.lhs.true.i, %i
 
 if.then12.i:                                      ; preds = %if.end.i63
   %devfn_min.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 144
-  %15 = load i8, ptr %devfn_min.i, align 8
+  %16 = load i8, ptr %devfn_min.i, align 8
   %devices.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 184
-  %16 = getelementptr i8, ptr %call.i1.i.i, i64 148
-  %17 = zext i8 %15 to i64
+  %17 = getelementptr i8, ptr %call.i1.i.i, i64 148
+  %18 = zext i8 %16 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then12.i
-  %indvars.iv.i = phi i64 [ %17, %if.then12.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %indvars.iv.i = phi i64 [ %18, %if.then12.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i.i = getelementptr [256 x ptr], ptr %devices.i.i, i64 0, i64 %indvars.iv.i
-  %18 = load ptr, ptr %arrayidx.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %18, null
+  %19 = load ptr, ptr %arrayidx.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i, label %land.lhs.true18.i, label %for.inc.i
 
 land.lhs.true18.i:                                ; preds = %for.body.i
-  %call4.val89.i = load i32, ptr %16, align 4
+  %call4.val89.i = load i32, ptr %17, align 4
   %conv.i.i = zext i32 %call4.val89.i to i64
-  %19 = lshr i64 %indvars.iv.i, 3
-  %shl.i.i = shl nuw nsw i64 1, %19
+  %20 = lshr i64 %indvars.iv.i, 3
+  %shl.i.i = shl nuw nsw i64 1, %20
   %and1.i.i = and i64 %shl.i.i, %conv.i.i
   %tobool.i95.not.i = icmp eq i64 %and1.i.i, 0
   br i1 %tobool.i95.not.i, label %if.end55.loopexit.i, label %for.inc.i
@@ -5066,8 +5068,8 @@ for.end.i:                                        ; preds = %for.inc.i
   br label %do_pci_register_device.exit.thread
 
 if.else.i:                                        ; preds = %if.end.i63
-  %20 = getelementptr i8, ptr %call.i1.i.i, i64 148
-  %call4.val90.i = load i32, ptr %20, align 4
+  %21 = getelementptr i8, ptr %call.i1.i.i, i64 148
+  %call4.val90.i = load i32, ptr %21, align 4
   %conv.i96.i = zext i32 %call4.val90.i to i64
   %shr.i97.i = lshr i32 %11, 3
   %and.i98.i = and i32 %shr.i97.i, 31
@@ -5086,27 +5088,27 @@ if.else25.i:                                      ; preds = %if.else.i
   %devices.i103.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 184
   %idxprom.i104.i = zext nneg i32 %11 to i64
   %arrayidx.i105.i = getelementptr [256 x ptr], ptr %devices.i103.i, i64 0, i64 %idxprom.i104.i
-  %21 = load ptr, ptr %arrayidx.i105.i, align 8
-  %tobool.not.i106.i = icmp eq ptr %21, null
+  %22 = load ptr, ptr %arrayidx.i105.i, align 8
+  %tobool.not.i106.i = icmp eq ptr %22, null
   br i1 %tobool.not.i106.i, label %if.else36.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.else25.i
   %and30.i = and i32 %11, 7
-  %name31.i = getelementptr inbounds i8, ptr %21, i64 232
-  %id.i = getelementptr inbounds i8, ptr %21, i64 40
-  %22 = load ptr, ptr %id.i, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1177, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.197, i32 noundef %and.i98.i, i32 noundef %and30.i, ptr noundef %call35, ptr noundef nonnull %name31.i, ptr noundef %22) #25
+  %name31.i = getelementptr inbounds i8, ptr %22, i64 232
+  %id.i = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = load ptr, ptr %id.i, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1177, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.197, i32 noundef %and.i98.i, i32 noundef %and30.i, ptr noundef %call35, ptr noundef nonnull %name31.i, ptr noundef %23) #25
   br label %do_pci_register_device.exit.thread
 
 if.else36.i:                                      ; preds = %if.else25.i
   %hotplugged.i = getelementptr inbounds i8, ptr %call.i92.i, i64 80
-  %23 = load i32, ptr %hotplugged.i, align 8
-  %tobool37.not.i = icmp eq i32 %23, 0
+  %24 = load i32, ptr %hotplugged.i, align 8
+  %tobool37.not.i = icmp eq i32 %24, 0
   br i1 %tobool37.not.i, label %if.end55.i, label %land.lhs.true38.i
 
 land.lhs.true38.i:                                ; preds = %if.else36.i
-  %24 = getelementptr i8, ptr %qdev, i64 2232
-  %pci_dev.val.i = load ptr, ptr %24, align 8
+  %25 = getelementptr i8, ptr %qdev, i64 2232
+  %pci_dev.val.i = load ptr, ptr %25, align 8
   %cmp.i.not.i = icmp eq ptr %pci_dev.val.i, null
   br i1 %cmp.i.not.i, label %land.lhs.true41.i, label %if.end55.i
 
@@ -5119,8 +5121,8 @@ land.lhs.true41.i:                                ; preds = %land.lhs.true38.i
   br i1 %call1.i108.i, label %pci_get_function_0.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true41.i
-  %25 = load i32, ptr %devfn, align 16
-  %and.i110.i = and i32 %25, 248
+  %26 = load i32, ptr %devfn, align 16
+  %and.i110.i = and i32 %26, 248
   %idxprom.i111.i = zext nneg i32 %and.i110.i to i64
   %arrayidx4.i.i = getelementptr [256 x ptr], ptr %devices.i109.i, i64 0, i64 %idxprom.i111.i
   br label %pci_get_function_0.exit.i
@@ -5134,8 +5136,8 @@ pci_get_function_0.exit.i:                        ; preds = %if.else.i.i, %land.
 if.then44.i:                                      ; preds = %pci_get_function_0.exit.i
   %call45.i = tail call ptr @pci_get_function_0(ptr noundef nonnull %qdev)
   %devfn46.i = getelementptr inbounds i8, ptr %call45.i, i64 208
-  %26 = load i32, ptr %devfn46.i, align 16
-  %shr47.i = lshr i32 %26, 3
+  %27 = load i32, ptr %devfn46.i, align 16
+  %shr47.i = lshr i32 %27, 3
   %and48.i = and i32 %shr47.i, 31
   %call49.i = tail call ptr @pci_get_function_0(ptr noundef nonnull %qdev)
   %name50.i = getelementptr inbounds i8, ptr %call49.i, i64 232
@@ -5143,23 +5145,23 @@ if.then44.i:                                      ; preds = %pci_get_function_0.
   br label %do_pci_register_device.exit.thread
 
 if.end55.loopexit.i:                              ; preds = %land.lhs.true18.i
-  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.end55.loopexit.i, %pci_get_function_0.exit.i, %land.lhs.true38.i, %if.else36.i
-  %devfn.addr.1.i = phi i32 [ %11, %land.lhs.true38.i ], [ %11, %pci_get_function_0.exit.i ], [ %11, %if.else36.i ], [ %27, %if.end55.loopexit.i ]
+  %devfn.addr.1.i = phi i32 [ %11, %land.lhs.true38.i ], [ %11, %pci_get_function_0.exit.i ], [ %11, %if.else36.i ], [ %28, %if.end55.loopexit.i ]
   store i32 %devfn.addr.1.i, ptr %devfn, align 16
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.backedge, %if.end55.i
   %retval.sroa.0.0.i.i = phi ptr [ %qdev, %if.end55.i ], [ %retval.sroa.0.0.i.i.be, %while.cond.i.i.backedge ]
-  %dev.addr.0.i.i = phi ptr [ %qdev, %if.end55.i ], [ %29, %while.cond.i.i.backedge ]
+  %dev.addr.0.i.i = phi ptr [ %qdev, %if.end55.i ], [ %30, %while.cond.i.i.backedge ]
   %retval.sroa.4.0.i.i = phi i32 [ 1, %if.end55.i ], [ %retval.sroa.4.0.i.i.be, %while.cond.i.i.backedge ]
   %call.i.i.i112.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev.addr.0.i.i, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   %call1.i.i113.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i112.i) #25
   %call.i1.i.i114.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i113.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
-  %28 = getelementptr i8, ptr %call.i1.i.i114.i, i64 120
-  %call.val.i.i = load i32, ptr %28, align 8
+  %29 = getelementptr i8, ptr %call.i1.i.i114.i, i64 120
+  %call.val.i.i = load i32, ptr %29, align 8
   %and.i.i.i = and i32 %call.val.i.i, 1
   %tobool.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %tobool.i.not.i.i, label %while.body.i.i, label %pci_req_id_cache_get.exit.i
@@ -5169,22 +5171,22 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %call1.i9.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i8.i.i) #25
   %call.i1.i10.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i9.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %parent_dev.i.i = getelementptr inbounds i8, ptr %call.i1.i10.i.i, i64 2232
-  %29 = load ptr, ptr %parent_dev.i.i, align 8
-  %30 = getelementptr i8, ptr %29, i64 1260
-  %.val.i.i = load i32, ptr %30, align 4
+  %30 = load ptr, ptr %parent_dev.i.i, align 8
+  %31 = getelementptr i8, ptr %30, i64 1260
+  %.val.i.i = load i32, ptr %31, align 4
   %and.i11.i.i = and i32 %.val.i.i, 4
   %tobool.not.i115.i = icmp eq i32 %and.i11.i.i, 0
   br i1 %tobool.not.i115.i, label %while.cond.i.i.backedge, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
-  %call5.i.i = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %29) #25
+  %call5.i.i = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %30) #25
   %cmp.i116.i = icmp eq i8 %call5.i.i, 7
   %spec.select.i.i = select i1 %cmp.i116.i, ptr %dev.addr.0.i.i, ptr %retval.sroa.0.0.i.i
   %spec.select7.i.i = select i1 %cmp.i116.i, i32 2, i32 %retval.sroa.4.0.i.i
   br label %while.cond.i.i.backedge
 
 while.cond.i.i.backedge:                          ; preds = %if.then.i.i, %while.body.i.i
-  %retval.sroa.0.0.i.i.be = phi ptr [ %spec.select.i.i, %if.then.i.i ], [ %29, %while.body.i.i ]
+  %retval.sroa.0.0.i.i.be = phi ptr [ %spec.select.i.i, %if.then.i.i ], [ %30, %while.body.i.i ]
   %retval.sroa.4.0.i.i.be = phi i32 [ %spec.select7.i.i, %if.then.i.i ], [ 1, %while.body.i.i ]
   br label %while.cond.i.i, !llvm.loop !40
 
@@ -5206,9 +5208,9 @@ if.then64.i:                                      ; preds = %pci_req_id_cache_ge
   %call.i117.i = tail call ptr @pci_device_iommu_address_space(ptr noundef nonnull %qdev)
   %bus_master_enable_region.i.i = getelementptr inbounds i8, ptr %qdev, i64 944
   %root.i.i = getelementptr inbounds i8, ptr %call.i117.i, i64 24
-  %31 = load ptr, ptr %root.i.i, align 8
-  %call2.i.i = tail call i64 @memory_region_size(ptr noundef %31) #25
-  tail call void @memory_region_init_alias(ptr noundef nonnull %bus_master_enable_region.i.i, ptr noundef nonnull %qdev, ptr noundef nonnull @.str.176, ptr noundef %31, i64 noundef 0, i64 noundef %call2.i.i) #25
+  %32 = load ptr, ptr %root.i.i, align 8
+  %call2.i.i = tail call i64 @memory_region_size(ptr noundef %32) #25
+  tail call void @memory_region_init_alias(ptr noundef nonnull %bus_master_enable_region.i.i, ptr noundef nonnull %qdev, ptr noundef nonnull @.str.176, ptr noundef %32, i64 noundef 0, i64 noundef %call2.i.i) #25
   tail call void @memory_region_set_enabled(ptr noundef nonnull %bus_master_enable_region.i.i, i1 noundef zeroext false) #25
   tail call void @memory_region_add_subregion(ptr noundef nonnull %bus_master_container_region.i, i64 noundef 0, ptr noundef nonnull %bus_master_enable_region.i.i) #25
   br label %if.end65.i
@@ -5216,8 +5218,8 @@ if.then64.i:                                      ; preds = %pci_req_id_cache_ge
 if.end65.i:                                       ; preds = %if.then64.i, %pci_req_id_cache_get.exit.i
   %irq_state.i = getelementptr inbounds i8, ptr %qdev, i64 1257
   store i8 0, ptr %irq_state.i, align 1
-  %32 = getelementptr i8, ptr %qdev, i64 1260
-  %pci_dev.val.i.i = load i32, ptr %32, align 4
+  %33 = getelementptr i8, ptr %qdev, i64 1260
+  %pci_dev.val.i.i = load i32, ptr %33, align 4
   %and.i.i.i.i = and i32 %pci_dev.val.i.i, 4
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i64 256, i64 4096
@@ -5236,28 +5238,28 @@ if.end65.i:                                       ; preds = %if.then64.i, %pci_r
   %call9.i.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #26
   %used.i.i = getelementptr inbounds i8, ptr %qdev, i64 200
   store ptr %call9.i.i, ptr %used.i.i, align 8
-  %33 = load ptr, ptr %config.i.i, align 8
+  %34 = load ptr, ptr %config.i.i, align 8
   %vendor_id.i = getelementptr inbounds i8, ptr %call1.i.i, i64 208
-  %34 = load i16, ptr %vendor_id.i, align 8
-  store i16 %34, ptr %33, align 1
-  %35 = load ptr, ptr %config.i.i, align 8
+  %35 = load i16, ptr %vendor_id.i, align 8
+  store i16 %35, ptr %34, align 1
+  %36 = load ptr, ptr %config.i.i, align 8
   %device_id.i = getelementptr inbounds i8, ptr %call1.i.i, i64 210
-  %36 = load i16, ptr %device_id.i, align 2
-  %arrayidx.i120.i = getelementptr i8, ptr %35, i64 2
-  store i16 %36, ptr %arrayidx.i120.i, align 1
-  %37 = load ptr, ptr %config.i.i, align 8
+  %37 = load i16, ptr %device_id.i, align 2
+  %arrayidx.i120.i = getelementptr i8, ptr %36, i64 2
+  store i16 %37, ptr %arrayidx.i120.i, align 1
+  %38 = load ptr, ptr %config.i.i, align 8
   %revision.i = getelementptr inbounds i8, ptr %call1.i.i, i64 212
-  %38 = load i8, ptr %revision.i, align 4
-  %arrayidx.i121.i = getelementptr i8, ptr %37, i64 8
-  store i8 %38, ptr %arrayidx.i121.i, align 1
-  %39 = load ptr, ptr %config.i.i, align 8
+  %39 = load i8, ptr %revision.i, align 4
+  %arrayidx.i121.i = getelementptr i8, ptr %38, i64 8
+  store i8 %39, ptr %arrayidx.i121.i, align 1
+  %40 = load ptr, ptr %config.i.i, align 8
   %class_id.i = getelementptr inbounds i8, ptr %call1.i.i, i64 214
-  %40 = load i16, ptr %class_id.i, align 2
-  %arrayidx.i122.i = getelementptr i8, ptr %39, i64 10
-  store i16 %40, ptr %arrayidx.i122.i, align 1
+  %41 = load i16, ptr %class_id.i, align 2
+  %arrayidx.i122.i = getelementptr i8, ptr %40, i64 10
+  store i16 %41, ptr %arrayidx.i122.i, align 1
   %subsystem_vendor_id84.i = getelementptr inbounds i8, ptr %call1.i.i, i64 216
-  %41 = load i16, ptr %subsystem_vendor_id84.i, align 8
-  %tobool85.not.i = icmp eq i16 %41, 0
+  %42 = load i16, ptr %subsystem_vendor_id84.i, align 8
+  %tobool85.not.i = icmp eq i16 %42, 0
   br i1 %tobool.not.i60, label %if.else83.i, label %if.then70.i
 
 if.then70.i:                                      ; preds = %if.end65.i
@@ -5265,27 +5267,27 @@ if.then70.i:                                      ; preds = %if.end65.i
 
 lor.lhs.false.i:                                  ; preds = %if.then70.i
   %subsystem_id.i = getelementptr inbounds i8, ptr %call1.i.i, i64 218
-  %42 = load i16, ptr %subsystem_id.i, align 2
-  %tobool74.not.i = icmp eq i16 %42, 0
+  %43 = load i16, ptr %subsystem_id.i, align 2
+  %tobool74.not.i = icmp eq i16 %43, 0
   br i1 %tobool74.not.i, label %if.else81.i, label %if.then75.i
 
 if.then75.i:                                      ; preds = %lor.lhs.false.i, %if.then70.i
-  %43 = load ptr, ptr %config.i.i, align 8
-  %add.ptr.i = getelementptr i8, ptr %43, i64 44
-  store i16 %41, ptr %add.ptr.i, align 1
   %44 = load ptr, ptr %config.i.i, align 8
-  %add.ptr79.i = getelementptr i8, ptr %44, i64 46
+  %add.ptr.i = getelementptr i8, ptr %44, i64 44
+  store i16 %42, ptr %add.ptr.i, align 1
+  %45 = load ptr, ptr %config.i.i, align 8
+  %add.ptr79.i = getelementptr i8, ptr %45, i64 46
   %subsystem_id80.i = getelementptr inbounds i8, ptr %call1.i.i, i64 218
-  %45 = load i16, ptr %subsystem_id80.i, align 2
-  store i16 %45, ptr %add.ptr79.i, align 1
+  %46 = load i16, ptr %subsystem_id80.i, align 2
+  store i16 %46, ptr %add.ptr79.i, align 1
   br label %if.end94.i
 
 if.else81.i:                                      ; preds = %lor.lhs.false.i
-  %46 = load ptr, ptr %config.i.i, align 8
-  %add.ptr.i.i = getelementptr i8, ptr %46, i64 44
-  store i16 6900, ptr %add.ptr.i.i, align 1
   %47 = load ptr, ptr %config.i.i, align 8
-  %add.ptr2.i.i = getelementptr i8, ptr %47, i64 46
+  %add.ptr.i.i = getelementptr i8, ptr %47, i64 44
+  store i16 6900, ptr %add.ptr.i.i, align 1
+  %48 = load ptr, ptr %config.i.i, align 8
+  %add.ptr2.i.i = getelementptr i8, ptr %48, i64 46
   store i16 4352, ptr %add.ptr2.i.i, align 1
   br label %if.end94.i
 
@@ -5298,8 +5300,8 @@ if.else87.i:                                      ; preds = %if.else83.i
 
 if.end88.i:                                       ; preds = %if.else83.i
   %subsystem_id89.i = getelementptr inbounds i8, ptr %call1.i.i, i64 218
-  %48 = load i16, ptr %subsystem_id89.i, align 2
-  %tobool90.not.i = icmp eq i16 %48, 0
+  %49 = load i16, ptr %subsystem_id89.i, align 2
+  %tobool90.not.i = icmp eq i16 %49, 0
   br i1 %tobool90.not.i, label %if.end94.i, label %if.else92.i
 
 if.else92.i:                                      ; preds = %if.end88.i
@@ -5307,48 +5309,48 @@ if.else92.i:                                      ; preds = %if.end88.i
   unreachable
 
 if.end94.i:                                       ; preds = %if.end88.i, %if.else81.i, %if.then75.i
-  %49 = load ptr, ptr %cmask.i.i, align 16
-  store i16 -1, ptr %49, align 1
   %50 = load ptr, ptr %cmask.i.i, align 16
-  %add.ptr2.i125.i = getelementptr i8, ptr %50, i64 2
-  store i16 -1, ptr %add.ptr2.i125.i, align 1
+  store i16 -1, ptr %50, align 1
   %51 = load ptr, ptr %cmask.i.i, align 16
-  %arrayidx.i126.i = getelementptr i8, ptr %51, i64 6
-  store i8 16, ptr %arrayidx.i126.i, align 1
+  %add.ptr2.i125.i = getelementptr i8, ptr %51, i64 2
+  store i16 -1, ptr %add.ptr2.i125.i, align 1
   %52 = load ptr, ptr %cmask.i.i, align 16
-  %arrayidx5.i.i = getelementptr i8, ptr %52, i64 8
-  store i8 -1, ptr %arrayidx5.i.i, align 1
+  %arrayidx.i126.i = getelementptr i8, ptr %52, i64 6
+  store i8 16, ptr %arrayidx.i126.i, align 1
   %53 = load ptr, ptr %cmask.i.i, align 16
-  %arrayidx7.i.i = getelementptr i8, ptr %53, i64 9
-  store i8 -1, ptr %arrayidx7.i.i, align 1
+  %arrayidx5.i.i = getelementptr i8, ptr %53, i64 8
+  store i8 -1, ptr %arrayidx5.i.i, align 1
   %54 = load ptr, ptr %cmask.i.i, align 16
-  %add.ptr9.i.i = getelementptr i8, ptr %54, i64 10
-  store i16 -1, ptr %add.ptr9.i.i, align 1
+  %arrayidx7.i.i = getelementptr i8, ptr %54, i64 9
+  store i8 -1, ptr %arrayidx7.i.i, align 1
   %55 = load ptr, ptr %cmask.i.i, align 16
-  %arrayidx11.i.i = getelementptr i8, ptr %55, i64 14
-  store i8 -1, ptr %arrayidx11.i.i, align 1
+  %add.ptr9.i.i = getelementptr i8, ptr %55, i64 10
+  store i16 -1, ptr %add.ptr9.i.i, align 1
   %56 = load ptr, ptr %cmask.i.i, align 16
-  %arrayidx13.i.i = getelementptr i8, ptr %56, i64 52
+  %arrayidx11.i.i = getelementptr i8, ptr %56, i64 14
+  store i8 -1, ptr %arrayidx11.i.i, align 1
+  %57 = load ptr, ptr %cmask.i.i, align 16
+  %arrayidx13.i.i = getelementptr i8, ptr %57, i64 52
   store i8 -1, ptr %arrayidx13.i.i, align 1
-  %dev.val.i.i = load i32, ptr %32, align 4
+  %dev.val.i.i = load i32, ptr %33, align 4
   %and.i.i.i127.i = and i32 %dev.val.i.i, 4
   %tobool.not.i.i128.i = icmp eq i32 %and.i.i.i127.i, 0
-  %57 = load ptr, ptr %wmask.i.i, align 8
-  %arrayidx.i130.i = getelementptr i8, ptr %57, i64 12
-  store i8 -1, ptr %arrayidx.i130.i, align 1
   %58 = load ptr, ptr %wmask.i.i, align 8
-  %arrayidx2.i.i = getelementptr i8, ptr %58, i64 60
-  store i8 -1, ptr %arrayidx2.i.i, align 1
+  %arrayidx.i130.i = getelementptr i8, ptr %58, i64 12
+  store i8 -1, ptr %arrayidx.i130.i, align 1
   %59 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr.i131.i = getelementptr i8, ptr %59, i64 4
-  store i16 1031, ptr %add.ptr.i131.i, align 1
+  %arrayidx2.i.i = getelementptr i8, ptr %59, i64 60
+  store i8 -1, ptr %arrayidx2.i.i, align 1
   %60 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr5.i.i = getelementptr i8, ptr %60, i64 4
+  %add.ptr.i131.i = getelementptr i8, ptr %60, i64 4
+  store i16 1031, ptr %add.ptr.i131.i, align 1
+  %61 = load ptr, ptr %wmask.i.i, align 8
+  %add.ptr5.i.i = getelementptr i8, ptr %61, i64 4
   %config.val.i.i.i = load i16, ptr %add.ptr5.i.i, align 1
   %or.i.i.i = or i16 %config.val.i.i.i, 256
   store i16 %or.i.i.i, ptr %add.ptr5.i.i, align 1
-  %61 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr8.i.i = getelementptr i8, ptr %61, i64 64
+  %62 = load ptr, ptr %wmask.i.i, align 8
+  %add.ptr8.i.i = getelementptr i8, ptr %62, i64 64
   %sub.i.i = select i1 %tobool.not.i.i128.i, i64 192, i64 4032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(192) %add.ptr8.i.i, i8 -1, i64 %sub.i.i, i1 false)
   %pci_dev.val91.i = load ptr, ptr %w1cmask.i.i, align 16
@@ -5357,118 +5359,118 @@ if.end94.i:                                       ; preds = %if.end88.i, %if.els
   br i1 %tobool.not.i60, label %if.then96.i, label %if.end97.i
 
 if.then96.i:                                      ; preds = %if.end94.i
-  %62 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr.i134.i = getelementptr i8, ptr %62, i64 24
-  store i32 -1, ptr %add.ptr.i134.i, align 1
   %63 = load ptr, ptr %wmask.i.i, align 8
-  %arrayidx.i135.i = getelementptr i8, ptr %63, i64 28
-  store i8 -16, ptr %arrayidx.i135.i, align 1
+  %add.ptr.i134.i = getelementptr i8, ptr %63, i64 24
+  store i32 -1, ptr %add.ptr.i134.i, align 1
   %64 = load ptr, ptr %wmask.i.i, align 8
-  %arrayidx3.i.i = getelementptr i8, ptr %64, i64 29
-  store i8 -16, ptr %arrayidx3.i.i, align 1
+  %arrayidx.i135.i = getelementptr i8, ptr %64, i64 28
+  store i8 -16, ptr %arrayidx.i135.i, align 1
   %65 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr5.i136.i = getelementptr i8, ptr %65, i64 32
-  store i16 -16, ptr %add.ptr5.i136.i, align 1
+  %arrayidx3.i.i = getelementptr i8, ptr %65, i64 29
+  store i8 -16, ptr %arrayidx3.i.i, align 1
   %66 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr7.i.i = getelementptr i8, ptr %66, i64 34
-  store i16 -16, ptr %add.ptr7.i.i, align 1
+  %add.ptr5.i136.i = getelementptr i8, ptr %66, i64 32
+  store i16 -16, ptr %add.ptr5.i136.i, align 1
   %67 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr9.i137.i = getelementptr i8, ptr %67, i64 36
-  store i16 -16, ptr %add.ptr9.i137.i, align 1
+  %add.ptr7.i.i = getelementptr i8, ptr %67, i64 34
+  store i16 -16, ptr %add.ptr7.i.i, align 1
   %68 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr11.i.i = getelementptr i8, ptr %68, i64 38
-  store i16 -16, ptr %add.ptr11.i.i, align 1
+  %add.ptr9.i137.i = getelementptr i8, ptr %68, i64 36
+  store i16 -16, ptr %add.ptr9.i137.i, align 1
   %69 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr13.i.i = getelementptr i8, ptr %69, i64 40
+  %add.ptr11.i.i = getelementptr i8, ptr %69, i64 38
+  store i16 -16, ptr %add.ptr11.i.i, align 1
+  %70 = load ptr, ptr %wmask.i.i, align 8
+  %add.ptr13.i.i = getelementptr i8, ptr %70, i64 40
   store i64 -1, ptr %add.ptr13.i.i, align 1
-  %70 = load ptr, ptr %config.i.i, align 8
-  %add.ptr22.i.i = getelementptr i8, ptr %70, i64 36
+  %71 = load ptr, ptr %config.i.i, align 8
+  %add.ptr22.i.i = getelementptr i8, ptr %71, i64 36
   %config.val.i.i139.i = load i16, ptr %add.ptr22.i.i, align 1
   %or.i.i140.i = or i16 %config.val.i.i139.i, 1
   store i16 %or.i.i140.i, ptr %add.ptr22.i.i, align 1
-  %71 = load ptr, ptr %config.i.i, align 8
-  %add.ptr24.i.i = getelementptr i8, ptr %71, i64 38
+  %72 = load ptr, ptr %config.i.i, align 8
+  %add.ptr24.i.i = getelementptr i8, ptr %72, i64 38
   %config.val.i18.i.i = load i16, ptr %add.ptr24.i.i, align 1
   %or.i19.i.i = or i16 %config.val.i18.i.i, 1
   store i16 %or.i19.i.i, ptr %add.ptr24.i.i, align 1
-  %72 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr27.i.i = getelementptr i8, ptr %72, i64 62
+  %73 = load ptr, ptr %wmask.i.i, align 8
+  %add.ptr27.i.i = getelementptr i8, ptr %73, i64 62
   store i16 3071, ptr %add.ptr27.i.i, align 1
-  %73 = load ptr, ptr %w1cmask.i.i, align 16
-  %add.ptr28.i.i = getelementptr i8, ptr %73, i64 62
+  %74 = load ptr, ptr %w1cmask.i.i, align 16
+  %add.ptr28.i.i = getelementptr i8, ptr %74, i64 62
   store i16 1024, ptr %add.ptr28.i.i, align 1
-  %74 = load ptr, ptr %cmask.i.i, align 16
-  %arrayidx29.i.i = getelementptr i8, ptr %74, i64 28
-  %75 = load i8, ptr %arrayidx29.i.i, align 1
-  %76 = or i8 %75, 15
-  store i8 %76, ptr %arrayidx29.i.i, align 1
-  %77 = load ptr, ptr %cmask.i.i, align 16
-  %arrayidx34.i.i = getelementptr i8, ptr %77, i64 29
-  %78 = load i8, ptr %arrayidx34.i.i, align 1
-  %79 = or i8 %78, 15
-  store i8 %79, ptr %arrayidx34.i.i, align 1
-  %80 = load ptr, ptr %cmask.i.i, align 16
-  %add.ptr39.i.i = getelementptr i8, ptr %80, i64 36
+  %75 = load ptr, ptr %cmask.i.i, align 16
+  %arrayidx29.i.i = getelementptr i8, ptr %75, i64 28
+  %76 = load i8, ptr %arrayidx29.i.i, align 1
+  %77 = or i8 %76, 15
+  store i8 %77, ptr %arrayidx29.i.i, align 1
+  %78 = load ptr, ptr %cmask.i.i, align 16
+  %arrayidx34.i.i = getelementptr i8, ptr %78, i64 29
+  %79 = load i8, ptr %arrayidx34.i.i, align 1
+  %80 = or i8 %79, 15
+  store i8 %80, ptr %arrayidx34.i.i, align 1
+  %81 = load ptr, ptr %cmask.i.i, align 16
+  %add.ptr39.i.i = getelementptr i8, ptr %81, i64 36
   %config.val.i21.i.i = load i16, ptr %add.ptr39.i.i, align 1
   %or.i22.i.i = or i16 %config.val.i21.i.i, 15
   store i16 %or.i22.i.i, ptr %add.ptr39.i.i, align 1
-  %81 = load ptr, ptr %cmask.i.i, align 16
-  %add.ptr42.i.i = getelementptr i8, ptr %81, i64 38
+  %82 = load ptr, ptr %cmask.i.i, align 16
+  %add.ptr42.i.i = getelementptr i8, ptr %82, i64 38
   %config.val.i24.i.i = load i16, ptr %add.ptr42.i.i, align 1
   %or.i25.i.i = or i16 %config.val.i24.i.i, 15
   store i16 %or.i25.i.i, ptr %add.ptr42.i.i, align 1
   br label %if.end97.i
 
 if.end97.i:                                       ; preds = %if.then96.i, %if.end94.i
-  %82 = load i32, ptr %devfn, align 16
-  %83 = trunc i32 %82 to i8
-  %84 = lshr i8 %83, 3
-  %85 = load i32, ptr %32, align 4
-  %and1.i144.i = and i32 %85, 8
+  %83 = load i32, ptr %devfn, align 16
+  %84 = trunc i32 %83 to i8
+  %85 = lshr i8 %84, 3
+  %86 = load i32, ptr %33, align 4
+  %and1.i144.i = and i32 %86, 8
   %tobool.not.i145.i = icmp eq i32 %and1.i144.i, 0
   br i1 %tobool.not.i145.i, label %if.end.i.i, label %if.then.i146.i
 
 if.then.i146.i:                                   ; preds = %if.end97.i
-  %86 = load ptr, ptr %config.i.i, align 8
-  %arrayidx.i148.i = getelementptr i8, ptr %86, i64 14
-  %87 = load i8, ptr %arrayidx.i148.i, align 1
-  %88 = or i8 %87, -128
-  store i8 %88, ptr %arrayidx.i148.i, align 1
+  %87 = load ptr, ptr %config.i.i, align 8
+  %arrayidx.i148.i = getelementptr i8, ptr %87, i64 14
+  %88 = load i8, ptr %arrayidx.i148.i, align 1
+  %89 = or i8 %88, -128
+  store i8 %89, ptr %arrayidx.i148.i, align 1
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i146.i, %if.end97.i
-  %89 = getelementptr i8, ptr %qdev, i64 2232
-  %dev.val.i149.i = load ptr, ptr %89, align 8
+  %90 = getelementptr i8, ptr %qdev, i64 2232
+  %dev.val.i149.i = load ptr, ptr %90, align 8
   %cmp.i.not.i.i = icmp eq ptr %dev.val.i149.i, null
   br i1 %cmp.i.not.i.i, label %if.end9.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cap_present5.i.i = getelementptr inbounds i8, ptr %dev.val.i149.i, i64 1260
-  %90 = load i32, ptr %cap_present5.i.i, align 4
-  %and6.i.i = and i32 %90, 8
+  %91 = load i32, ptr %cap_present5.i.i, align 4
+  %and6.i.i = and i32 %91, 8
   %tobool7.not.i.i = icmp eq i32 %and6.i.i, 0
   br i1 %tobool7.not.i.i, label %if.end9.i.i, label %pci_init_multifunction.exit.i
 
 if.end9.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %91 = load i32, ptr %devfn, align 16
-  %and11.i.i = and i32 %91, 7
+  %92 = load i32, ptr %devfn, align 16
+  %and11.i.i = and i32 %92, 7
   %tobool12.not.i.i = icmp eq i32 %and11.i.i, 0
   br i1 %tobool12.not.i.i, label %if.end28.i.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %if.end9.i.i
   %devices.i150.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 184
-  %conv14.i.i = zext nneg i8 %84 to i32
+  %conv14.i.i = zext nneg i8 %85 to i32
   %shl.i151.i = shl nuw nsw i32 %conv14.i.i, 3
   %idxprom.i152.i = zext nneg i32 %shl.i151.i to i64
   %arrayidx17.i.i = getelementptr [256 x ptr], ptr %devices.i150.i, i64 0, i64 %idxprom.i152.i
-  %92 = load ptr, ptr %arrayidx17.i.i, align 8
-  %tobool18.not.i.i = icmp eq ptr %92, null
+  %93 = load ptr, ptr %arrayidx17.i.i, align 8
+  %tobool18.not.i.i = icmp eq ptr %93, null
   br i1 %tobool18.not.i.i, label %pci_init_multifunction.exit.i, label %land.lhs.true19.i.i
 
 land.lhs.true19.i.i:                              ; preds = %if.then13.i.i
-  %cap_present20.i.i = getelementptr inbounds i8, ptr %92, i64 1260
-  %93 = load i32, ptr %cap_present20.i.i, align 4
-  %and21.i.i = and i32 %93, 8
+  %cap_present20.i.i = getelementptr inbounds i8, ptr %93, i64 1260
+  %94 = load i32, ptr %cap_present20.i.i, align 4
+  %and21.i.i = and i32 %94, 8
   %tobool22.not.i.i = icmp eq i32 %and21.i.i, 0
   br i1 %tobool22.not.i.i, label %if.then23.i.i, label %pci_init_multifunction.exit.i
 
@@ -5477,16 +5479,16 @@ if.then23.i.i:                                    ; preds = %land.lhs.true19.i.i
   br label %pci_init_multifunction.exit.i
 
 if.end28.i.i:                                     ; preds = %if.end9.i.i
-  %94 = load i32, ptr %32, align 4
-  %and30.i.i = and i32 %94, 8
+  %95 = load i32, ptr %33, align 4
+  %and30.i.i = and i32 %95, 8
   %tobool31.not.i.i = icmp eq i32 %and30.i.i, 0
   br i1 %tobool31.not.i.i, label %for.cond.preheader.i.i, label %pci_init_multifunction.exit.i
 
 for.cond.preheader.i.i:                           ; preds = %if.end28.i.i
   %devices36.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 184
-  %conv37.i.i = zext nneg i8 %84 to i32
+  %conv37.i.i = zext nneg i8 %85 to i32
   %shl39.i.i = shl nuw nsw i32 %conv37.i.i, 3
-  %95 = zext nneg i32 %shl39.i.i to i64
+  %96 = zext nneg i32 %shl39.i.i to i64
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -5496,24 +5498,24 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.cond.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %for.cond.preheader.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
-  %96 = add nuw nsw i64 %indvars.iv.i.i, %95
-  %arrayidx44.i.i = getelementptr [256 x ptr], ptr %devices36.i.i, i64 0, i64 %96
-  %97 = load ptr, ptr %arrayidx44.i.i, align 8
-  %tobool45.not.i.i = icmp eq ptr %97, null
+  %97 = add nuw nsw i64 %indvars.iv.i.i, %96
+  %arrayidx44.i.i = getelementptr [256 x ptr], ptr %devices36.i.i, i64 0, i64 %97
+  %98 = load ptr, ptr %arrayidx44.i.i, align 8
+  %tobool45.not.i.i = icmp eq ptr %98, null
   br i1 %tobool45.not.i.i, label %for.cond.i.i, label %if.then46.i.i
 
 if.then46.i.i:                                    ; preds = %for.body.i.i
-  %98 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err.i, ptr noundef nonnull @.str.1, i32 noundef 994, ptr noundef nonnull @__func__.pci_init_multifunction, ptr noundef nonnull @.str.203, i32 noundef %conv37.i.i, i32 noundef %conv37.i.i, i32 noundef %98) #25
+  %99 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err.i, ptr noundef nonnull @.str.1, i32 noundef 994, ptr noundef nonnull @__func__.pci_init_multifunction, ptr noundef nonnull @.str.203, i32 noundef %conv37.i.i, i32 noundef %conv37.i.i, i32 noundef %99) #25
   br label %pci_init_multifunction.exit.i
 
 pci_init_multifunction.exit.i:                    ; preds = %for.cond.i.i, %if.then46.i.i, %if.end28.i.i, %if.then23.i.i, %land.lhs.true19.i.i, %if.then13.i.i, %land.lhs.true.i.i
-  %99 = load ptr, ptr %local_err.i, align 8
-  %tobool98.not.i = icmp eq ptr %99, null
+  %100 = load ptr, ptr %local_err.i, align 8
+  %tobool98.not.i = icmp eq ptr %100, null
   br i1 %tobool98.not.i, label %if.end40, label %if.then99.i
 
 if.then99.i:                                      ; preds = %pci_init_multifunction.exit.i
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %99) #25
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %100) #25
   call fastcc void @do_pci_unregister_device(ptr noundef %qdev)
   br label %do_pci_register_device.exit.thread
 
@@ -5522,10 +5524,14 @@ do_pci_register_device.exit.thread:               ; preds = %if.then99.i, %for.e
   br label %return
 
 if.end40:                                         ; preds = %pci_init_multifunction.exit.i
-  %100 = icmp eq <2 x ptr> %12, zeroinitializer
+  %tobool101.not.i = icmp eq ptr %12, null
+  %spec.store.select.i = select i1 %tobool101.not.i, ptr @pci_default_read_config, ptr %12
+  %tobool104.not.i = icmp eq ptr %13, null
+  %spec.store.select1.i = select i1 %tobool104.not.i, ptr @pci_default_write_config, ptr %13
   %config_read107.i = getelementptr inbounds i8, ptr %qdev, i64 1216
-  %101 = select <2 x i1> %100, <2 x ptr> <ptr @pci_default_read_config, ptr @pci_default_write_config>, <2 x ptr> %12
-  store <2 x ptr> %101, ptr %config_read107.i, align 16
+  store ptr %spec.store.select.i, ptr %config_read107.i, align 16
+  %config_write108.i = getelementptr inbounds i8, ptr %qdev, i64 1224
+  store ptr %spec.store.select1.i, ptr %config_write108.i, align 8
   %devices109.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 184
   %idxprom110.i = zext nneg i32 %devfn.addr.1.i to i64
   %arrayidx111.i = getelementptr [256 x ptr], ptr %devices109.i, i64 0, i64 %idxprom110.i
@@ -5534,23 +5540,23 @@ if.end40:                                         ; preds = %pci_init_multifunct
   store i32 2, ptr %version_id.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
   %realize = getelementptr inbounds i8, ptr %call1.i, i64 176
-  %102 = load ptr, ptr %realize, align 8
-  %tobool41.not = icmp eq ptr %102, null
+  %101 = load ptr, ptr %realize, align 8
+  %tobool41.not = icmp eq ptr %101, null
   br i1 %tobool41.not, label %if.end47, label %if.then42
 
 if.then42:                                        ; preds = %if.end40
-  call void %102(ptr noundef nonnull %qdev, ptr noundef nonnull %local_err) #25
-  %103 = load ptr, ptr %local_err, align 8
-  %tobool44.not = icmp eq ptr %103, null
+  call void %101(ptr noundef nonnull %qdev, ptr noundef nonnull %local_err) #25
+  %102 = load ptr, ptr %local_err, align 8
+  %tobool44.not = icmp eq ptr %102, null
   br i1 %tobool44.not, label %if.end47, label %if.then45
 
 if.then45:                                        ; preds = %if.then42
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %103) #25
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %102) #25
   call fastcc void @do_pci_unregister_device(ptr noundef nonnull %qdev)
   br label %return
 
 if.end47:                                         ; preds = %if.then42, %if.end40
-  %call36.val = load i32, ptr %32, align 4
+  %call36.val = load i32, ptr %33, align 4
   %and.i = and i32 %call36.val, 4
   %tobool49.not = icmp eq i32 %and.i, 0
   br i1 %tobool49.not, label %if.end63, label %land.lhs.true50
@@ -5565,8 +5571,8 @@ land.lhs.true53:                                  ; preds = %land.lhs.true50
   br i1 %call54, label %land.lhs.true56, label %if.end63
 
 land.lhs.true56:                                  ; preds = %land.lhs.true53
-  %104 = load i32, ptr %devfn, align 16
-  %shr = lshr i32 %104, 3
+  %103 = load i32, ptr %devfn, align 16
+  %shr = lshr i32 %103, 3
   %and = and i32 %shr, 31
   %tobool58.not = icmp eq i32 %and, 0
   br i1 %tobool58.not, label %if.end63, label %if.then59
@@ -5577,8 +5583,8 @@ if.then59:                                        ; preds = %land.lhs.true56
 
 if.end63:                                         ; preds = %if.then59, %land.lhs.true56, %land.lhs.true53, %land.lhs.true50, %if.end47
   %failover_pair_id = getelementptr inbounds i8, ptr %qdev, i64 2584
-  %105 = load ptr, ptr %failover_pair_id, align 8
-  %tobool64.not = icmp eq ptr %105, null
+  %104 = load ptr, ptr %failover_pair_id, align 8
+  %tobool64.not = icmp eq ptr %104, null
   br i1 %tobool64.not, label %if.end88, label %if.then65
 
 if.then65:                                        ; preds = %if.end63
@@ -5596,8 +5602,8 @@ if.then68:                                        ; preds = %if.then65
   br label %return
 
 if.end70:                                         ; preds = %if.then65
-  %106 = load ptr, ptr %config.i.i, align 8
-  %add.ptr = getelementptr i8, ptr %106, i64 10
+  %105 = load ptr, ptr %config.i.i, align 8
+  %add.ptr = getelementptr i8, ptr %105, i64 10
   %add.ptr.val = load i16, ptr %add.ptr, align 1
   %cmp73.not = icmp eq i16 %add.ptr.val, 512
   br i1 %cmp73.not, label %if.end77, label %if.then75
@@ -5609,14 +5615,14 @@ if.then75:                                        ; preds = %if.end70
   br label %return
 
 if.end77:                                         ; preds = %if.end70
-  %107 = load i32, ptr %32, align 4
-  %and79 = and i32 %107, 8
+  %106 = load i32, ptr %33, align 4
+  %and79 = and i32 %106, 8
   %tobool80.not = icmp eq i32 %and79, 0
   br i1 %tobool80.not, label %lor.lhs.false, label %if.then85
 
 lor.lhs.false:                                    ; preds = %if.end77
-  %108 = load i32, ptr %devfn, align 16
-  %and82 = and i32 %108, 7
+  %107 = load i32, ptr %devfn, align 16
+  %and82 = and i32 %107, 7
   %cmp83.not = icmp eq i32 %and82, 0
   br i1 %cmp83.not, label %if.end87, label %if.then85
 
@@ -5633,18 +5639,18 @@ if.end87:                                         ; preds = %lor.lhs.false
 
 if.end88:                                         ; preds = %if.end87, %if.end63
   %romfile = getelementptr inbounds i8, ptr %qdev, i64 2256
-  %109 = load ptr, ptr %romfile, align 16
-  %cmp89 = icmp eq ptr %109, null
+  %108 = load ptr, ptr %romfile, align 16
+  %cmp89 = icmp eq ptr %108, null
   br i1 %cmp89, label %land.lhs.true91, label %if.end99
 
 land.lhs.true91:                                  ; preds = %if.end88
   %romfile92 = getelementptr inbounds i8, ptr %call1.i, i64 224
-  %110 = load ptr, ptr %romfile92, align 8
-  %cmp93.not = icmp eq ptr %110, null
+  %109 = load ptr, ptr %romfile92, align 8
+  %cmp93.not = icmp eq ptr %109, null
   br i1 %cmp93.not, label %if.end99, label %if.then95
 
 if.then95:                                        ; preds = %land.lhs.true91
-  %call97 = call noalias ptr @g_strdup(ptr noundef nonnull %110) #25
+  %call97 = call noalias ptr @g_strdup(ptr noundef nonnull %109) #25
   store ptr %call97, ptr %romfile, align 16
   br label %if.end99
 
@@ -5652,29 +5658,29 @@ if.end99:                                         ; preds = %if.then95, %land.lh
   %is_default_rom.0 = phi i1 [ true, %if.then95 ], [ false, %land.lhs.true91 ], [ false, %if.end88 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name.i)
   %call.i70 = call zeroext i1 @runstate_check(i32 noundef 1) #25
-  %111 = load ptr, ptr %romfile, align 16
-  %tobool.not.i71 = icmp eq ptr %111, null
+  %110 = load ptr, ptr %romfile, align 16
+  %tobool.not.i71 = icmp eq ptr %110, null
   br i1 %tobool.not.i71, label %pci_add_option_rom.exit, label %lor.lhs.false.i72
 
 lor.lhs.false.i72:                                ; preds = %if.end99
-  %char0.i = load i8, ptr %111, align 1
+  %char0.i = load i8, ptr %110, align 1
   %tobool4.not.i = icmp eq i8 %char0.i, 0
   br i1 %tobool4.not.i, label %pci_add_option_rom.exit, label %if.end.i73
 
 if.end.i73:                                       ; preds = %lor.lhs.false.i72
   %rom_bar.i = getelementptr inbounds i8, ptr %qdev, i64 2544
-  %112 = load i32, ptr %rom_bar.i, align 16
-  %tobool5.not.i = icmp eq i32 %112, 0
+  %111 = load i32, ptr %rom_bar.i, align 16
+  %tobool5.not.i = icmp eq i32 %111, 0
   br i1 %tobool5.not.i, label %if.then6.i, label %if.end19.i
 
 if.then6.i:                                       ; preds = %if.end.i73
-  %113 = load ptr, ptr %config.i.i, align 8
-  %add.ptr.i76 = getelementptr i8, ptr %113, i64 10
+  %112 = load ptr, ptr %config.i.i, align 8
+  %add.ptr.i76 = getelementptr i8, ptr %112, i64 10
   %add.ptr.val.i = load i16, ptr %add.ptr.i76, align 1
   %call.i.i77 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   %hotplugged.i78 = getelementptr inbounds i8, ptr %call.i.i77, i64 80
-  %114 = load i32, ptr %hotplugged.i78, align 8
-  %tobool9.not.i = icmp eq i32 %114, 0
+  %113 = load i32, ptr %hotplugged.i78, align 8
+  %tobool9.not.i = icmp eq i32 %113, 0
   br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.then6.i
@@ -5683,33 +5689,33 @@ if.then10.i:                                      ; preds = %if.then6.i
 
 if.end11.i:                                       ; preds = %if.then6.i
   %cmp.i79 = icmp eq i16 %add.ptr.val.i, 768
-  %115 = load ptr, ptr %romfile, align 16
+  %114 = load ptr, ptr %romfile, align 16
   br i1 %cmp.i79, label %if.then13.i, label %if.else.i80
 
 if.then13.i:                                      ; preds = %if.end11.i
-  %call15.i = call i64 @rom_add_vga(ptr noundef %115) #25
+  %call15.i = call i64 @rom_add_vga(ptr noundef %114) #25
   br label %pci_add_option_rom.exit
 
 if.else.i80:                                      ; preds = %if.end11.i
-  %call17.i = call i64 @rom_add_option(ptr noundef %115, i32 noundef -1) #25
+  %call17.i = call i64 @rom_add_option(ptr noundef %114, i32 noundef -1) #25
   br label %pci_add_option_rom.exit
 
 if.end19.i:                                       ; preds = %if.end.i73
   br i1 %call.i70, label %lor.lhs.false22.i, label %if.then25.i
 
 lor.lhs.false22.i:                                ; preds = %if.end19.i
-  %116 = load i32, ptr %romsize, align 8
-  %cmp23.i = icmp eq i32 %116, -1
+  %115 = load i32, ptr %romsize, align 8
+  %cmp23.i = icmp eq i32 %115, -1
   br i1 %cmp23.i, label %if.then25.i, label %if.end70.i
 
 if.then25.i:                                      ; preds = %lor.lhs.false22.i, %if.end19.i
-  %call27.i = call ptr @qemu_find_file(i32 noundef 0, ptr noundef nonnull %111) #25
+  %call27.i = call ptr @qemu_find_file(i32 noundef 0, ptr noundef nonnull %110) #25
   %cmp28.i = icmp eq ptr %call27.i, null
   br i1 %cmp28.i, label %if.then30.i, label %if.end33.i
 
 if.then30.i:                                      ; preds = %if.then25.i
-  %117 = load ptr, ptr %romfile, align 16
-  %call32.i = call noalias ptr @g_strdup(ptr noundef %117) #25
+  %116 = load ptr, ptr %romfile, align 16
+  %call32.i = call noalias ptr @g_strdup(ptr noundef %116) #25
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then30.i, %if.then25.i
@@ -5719,8 +5725,8 @@ if.end33.i:                                       ; preds = %if.then30.i, %if.th
   br i1 %cmp35.i, label %if.then37.i, label %if.else39.i
 
 if.then37.i:                                      ; preds = %if.end33.i
-  %118 = load ptr, ptr %romfile, align 16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2387, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.205, ptr noundef %118) #25
+  %117 = load ptr, ptr %romfile, align 16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2387, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.205, ptr noundef %117) #25
   br label %pci_add_option_rom.exit
 
 if.else39.i:                                      ; preds = %if.end33.i
@@ -5728,8 +5734,8 @@ if.else39.i:                                      ; preds = %if.end33.i
   br i1 %cmp40.i, label %if.then42.i, label %if.else44.i
 
 if.then42.i:                                      ; preds = %if.else39.i
-  %119 = load ptr, ptr %romfile, align 16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2390, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.206, ptr noundef %119) #25
+  %118 = load ptr, ptr %romfile, align 16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2390, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.206, ptr noundef %118) #25
   br label %pci_add_option_rom.exit
 
 if.else44.i:                                      ; preds = %if.else39.i
@@ -5737,30 +5743,30 @@ if.else44.i:                                      ; preds = %if.else39.i
   br i1 %cmp45.i, label %if.then47.i, label %if.end51.i
 
 if.then47.i:                                      ; preds = %if.else44.i
-  %120 = load ptr, ptr %romfile, align 16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2395, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.207, ptr noundef %120) #25
+  %119 = load ptr, ptr %romfile, align 16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2395, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.207, ptr noundef %119) #25
   br label %pci_add_option_rom.exit
 
 if.end51.i:                                       ; preds = %if.else44.i
-  %121 = load i32, ptr %romsize, align 8
-  %cmp53.not.i = icmp eq i32 %121, -1
+  %120 = load i32, ptr %romsize, align 8
+  %cmp53.not.i = icmp eq i32 %120, -1
   br i1 %cmp53.not.i, label %if.else65.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %if.end51.i
-  %conv57.i = zext i32 %121 to i64
+  %conv57.i = zext i32 %120 to i64
   %cmp58.i = icmp ugt i64 %call34.i, %conv57.i
   br i1 %cmp58.i, label %if.then60.i, label %if.end70.i
 
 if.then60.i:                                      ; preds = %if.then55.i
-  %122 = load ptr, ptr %romfile, align 16
+  %121 = load ptr, ptr %romfile, align 16
   %conv62.i = trunc nuw i64 %call34.i to i32
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2402, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.208, ptr noundef %122, i32 noundef %conv62.i, i32 noundef %121) #25
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2402, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.208, ptr noundef %121, i32 noundef %conv62.i, i32 noundef %120) #25
   br label %pci_add_option_rom.exit
 
 if.else65.i:                                      ; preds = %if.end51.i
   %sub.i.i75 = add nsw i64 %call34.i, -1
-  %123 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i75, i1 false)
-  %sub2.i.i = add nuw nsw i64 %123, 4294967295
+  %122 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i75, i1 false)
+  %sub2.i.i = add nuw nsw i64 %122, 4294967295
   %sh_prom.i.i = and i64 %sub2.i.i, 4294967295
   %shr.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i
   %conv67.i = trunc i64 %shr.i.i to i32
@@ -5776,7 +5782,7 @@ if.end70.i:                                       ; preds = %if.else65.i, %if.th
   br i1 %tobool73.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end70.i
-  %124 = load ptr, ptr %call72.i, align 8
+  %123 = load ptr, ptr %call72.i, align 8
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end70.i
@@ -5784,13 +5790,13 @@ cond.false.i:                                     ; preds = %if.end70.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi ptr [ %124, %cond.true.i ], [ %call75.i, %cond.false.i ]
+  %cond.i = phi ptr [ %123, %cond.true.i ], [ %call75.i, %cond.false.i ]
   %call76.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 32, ptr noundef nonnull @.str.209, ptr noundef %cond.i) #25
   %has_rom.i = getelementptr inbounds i8, ptr %qdev, i64 2268
   store i8 1, ptr %has_rom.i, align 4
   %rom.i = getelementptr inbounds i8, ptr %qdev, i64 2272
-  %125 = load i32, ptr %romsize, align 8
-  %conv79.i = zext i32 %125 to i64
+  %124 = load i32, ptr %romsize, align 8
+  %conv79.i = zext i32 %124 to i64
   call void @memory_region_init_rom(ptr noundef nonnull %rom.i, ptr noundef nonnull %qdev, ptr noundef nonnull %name.i, i64 noundef %conv79.i, ptr noundef nonnull @error_fatal) #25
   br i1 %call.i70, label %if.end94.i74, label %if.then81.i
 
@@ -5801,8 +5807,8 @@ if.then81.i:                                      ; preds = %cond.end.i
   br i1 %cmp85.i, label %if.then87.i, label %if.end89.i
 
 if.then87.i:                                      ; preds = %if.then81.i
-  %126 = load ptr, ptr %romfile, align 16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2422, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.210, ptr noundef %126) #25
+  %125 = load ptr, ptr %romfile, align 16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2422, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.210, ptr noundef %125) #25
   br label %pci_add_option_rom.exit
 
 if.end89.i:                                       ; preds = %if.then81.i
@@ -5821,12 +5827,12 @@ pci_add_option_rom.exit:                          ; preds = %if.end99, %lor.lhs.
   %path.0.i = phi ptr [ null, %if.end99 ], [ null, %lor.lhs.false.i72 ], [ null, %if.then13.i ], [ null, %if.else.i80 ], [ null, %if.then10.i ], [ %path.2.i, %if.then37.i ], [ %path.2.i, %if.then42.i ], [ %path.2.i, %if.then47.i ], [ %path.1.i, %if.end94.i74 ], [ %path.1.i, %if.then87.i ], [ %path.2.i, %if.then60.i ]
   call void @g_free(ptr noundef %path.0.i) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name.i)
-  %127 = load ptr, ptr %local_err, align 8
-  %tobool101.not = icmp eq ptr %127, null
+  %126 = load ptr, ptr %local_err, align 8
+  %tobool101.not = icmp eq ptr %126, null
   br i1 %tobool101.not, label %if.end104, label %if.then102
 
 if.then102:                                       ; preds = %pci_add_option_rom.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %127) #25
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %126) #25
   %call.i81 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   call void @pci_qdev_unrealize(ptr noundef %call.i81)
   br label %return

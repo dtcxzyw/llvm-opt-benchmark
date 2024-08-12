@@ -14573,7 +14573,7 @@ define internal range(i32 0, 5) i32 @dissect_tep_dsp(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_2008_16_security_6_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
-  %5 = alloca %struct._dof_2008_16_security_4, align 16
+  %5 = alloca %struct._dof_2008_16_security_4, align 8
   %6 = load i32, ptr @hf_security_6_1_desired_duration, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #20
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #20
@@ -14620,16 +14620,20 @@ dissect_2008_16_security_13.exit:                 ; preds = %4, %15
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #20
   %34 = call i32 @dissect_2008_16_security_4(ptr noundef %29, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %5)
   call void @proto_item_set_len(ptr noundef %31, i32 noundef %34) #20
-  br i1 %.not, label %37, label %35
+  br i1 %.not, label %40, label %35
 
 35:                                               ; preds = %28
-  %36 = load <2 x ptr>, ptr %5, align 16
-  store <2 x ptr> %36, ptr %3, align 8
-  br label %37
+  %36 = load ptr, ptr %5, align 8
+  store ptr %36, ptr %3, align 8
+  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %38, ptr %39, align 8
+  br label %40
 
-37:                                               ; preds = %35, %28
-  %38 = add i32 %34, %18
-  ret i32 %38
+40:                                               ; preds = %35, %28
+  %41 = add i32 %34, %18
+  ret i32 %41
 }
 
 declare ptr @proto_tree_add_bytes_with_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -14727,7 +14731,7 @@ validate_c4.exit:                                 ; preds = %34, %31, %6
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_2008_16_security_6_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
-  %5 = alloca %struct._dof_2008_16_security_4, align 16
+  %5 = alloca %struct._dof_2008_16_security_4, align 8
   %6 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #20
   %7 = load i32, ptr @hf_security_6_2_responder_request, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
@@ -14736,14 +14740,18 @@ define internal noundef i32 @dissect_2008_16_security_6_2(ptr noundef %0, ptr no
   %11 = call i32 @dissect_2008_16_security_4(ptr noundef %6, ptr noundef %1, ptr noundef %10, ptr noundef nonnull %5)
   call void @proto_item_set_len(ptr noundef %8, i32 noundef %11) #20
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %14, label %12
+  br i1 %.not, label %17, label %12
 
 12:                                               ; preds = %4
-  %13 = load <2 x ptr>, ptr %5, align 16
-  store <2 x ptr> %13, ptr %3, align 8
-  br label %14
+  %13 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %3, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %15, ptr %16, align 8
+  br label %17
 
-14:                                               ; preds = %12, %4
+17:                                               ; preds = %12, %4
   ret i32 %11
 }
 

@@ -9543,7 +9543,7 @@ declare void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr void @_ZNSt6vectorIcSaIcEE14_M_fill_assignEmRKc(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr noundef nonnull align 1 dereferenceable(1) %__val) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
-  %__tmp = alloca %"class.std::vector.17", align 16
+  %__tmp = alloca %"class.std::vector.17", align 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
@@ -9567,7 +9567,7 @@ if.then.i.i:                                      ; preds = %if.then
 _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i: ; preds = %if.then
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__tmp, ptr noundef nonnull align 1 dereferenceable(1) %this) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %__tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %__n) #27
           to label %_ZNSt6vectorIcSaIcEEC2EmRKcRKS0_.exit unwind label %lpad.i.i
 
@@ -9578,24 +9578,26 @@ lpad.i.i:                                         ; preds = %_ZNSt16allocator_tr
   resume { ptr, i32 } %2
 
 _ZNSt6vectorIcSaIcEEC2EmRKcRKS0_.exit:            ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i.i
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i, i64 %__n
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %__tmp, i64 16
   %3 = load i8, ptr %__val, align 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i.i, i8 %3, i64 %__n, i1 false)
+  %4 = load ptr, ptr %this, align 8
+  store ptr %4, ptr %__tmp, align 8
   %_M_finish.i2.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = load <2 x ptr>, ptr %this, align 8
-  %5 = load ptr, ptr %this, align 8
-  store <2 x ptr> %4, ptr %__tmp, align 16
+  %5 = load ptr, ptr %_M_finish.i2.i, align 8
+  store ptr %5, ptr %_M_finish.i.i.i, align 8
   %6 = load ptr, ptr %_M_end_of_storage.i, align 8
-  store ptr %6, ptr %_M_end_of_storage.i.i.i, align 16
+  store ptr %6, ptr %_M_end_of_storage.i.i.i, align 8
   store ptr %call5.i.i.i.i1.i.i, ptr %this, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i2.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %5, null
+  %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIcSaIcEEC2EmRKcRKS0_.exit
-  call void @_ZdlPv(ptr noundef nonnull %5) #28
+  call void @_ZdlPv(ptr noundef nonnull %4) #28
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorIcSaIcEEC2EmRKcRKS0_.exit, %if.then.i.i.i

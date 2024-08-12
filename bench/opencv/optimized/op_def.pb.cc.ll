@@ -6539,87 +6539,105 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = getelementptr inbounds i8, ptr %1, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
-  %10 = load ptr, ptr %9, align 8, !noalias !16
-  %11 = load ptr, ptr %7, align 8, !noalias !16
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !noalias !19
-  %15 = load ptr, ptr %6, align 8, !noalias !19
-  %16 = load <2 x i32>, ptr %8, align 4, !noalias !16
-  %17 = load <2 x i32>, ptr %12, align 8, !noalias !19
-  store ptr %15, ptr %7, align 8
-  store ptr %14, ptr %9, align 8
-  store <2 x i32> %17, ptr %8, align 4
-  store ptr %11, ptr %6, align 8
-  store <2 x i32> %16, ptr %12, align 8
-  store ptr %10, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
-  %20 = getelementptr inbounds i8, ptr %1, i64 48
-  %21 = getelementptr inbounds i8, ptr %1, i64 56
-  %22 = load ptr, ptr %21, align 8, !noalias !22
-  %23 = load ptr, ptr %19, align 8, !noalias !22
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
-  %26 = load ptr, ptr %25, align 8, !noalias !25
-  %27 = load ptr, ptr %18, align 8, !noalias !25
-  %28 = load <2 x i32>, ptr %20, align 4, !noalias !22
-  %29 = load <2 x i32>, ptr %24, align 8, !noalias !25
-  store ptr %27, ptr %19, align 8
-  store ptr %26, ptr %21, align 8
-  store <2 x i32> %29, ptr %20, align 4
-  store ptr %23, ptr %18, align 8
-  store <2 x i32> %28, ptr %24, align 8
-  store ptr %22, ptr %25, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
-  %31 = getelementptr inbounds i8, ptr %1, i64 64
-  %32 = getelementptr inbounds i8, ptr %1, i64 72
-  %33 = getelementptr inbounds i8, ptr %1, i64 80
-  %34 = load ptr, ptr %33, align 8, !noalias !28
-  %35 = load ptr, ptr %31, align 8, !noalias !28
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
-  %38 = load ptr, ptr %37, align 8, !noalias !31
-  %39 = load ptr, ptr %30, align 8, !noalias !31
-  %40 = load <2 x i32>, ptr %32, align 4, !noalias !28
-  %41 = load <2 x i32>, ptr %36, align 8, !noalias !31
-  store ptr %39, ptr %31, align 8
-  store ptr %38, ptr %33, align 8
-  store <2 x i32> %41, ptr %32, align 4
-  store ptr %35, ptr %30, align 8
-  store <2 x i32> %40, ptr %36, align 8
-  store ptr %34, ptr %37, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 88
-  %43 = getelementptr inbounds i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i = load ptr, ptr %43, align 8
-  %44 = load i64, ptr %42, align 8
-  store i64 %44, ptr %43, align 8
-  store ptr %.sroa.0.0.copyload.i, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 96
-  %46 = getelementptr inbounds i8, ptr %1, i64 96
-  %.sroa.0.0.copyload.i27 = load ptr, ptr %46, align 8
-  %47 = load i64, ptr %45, align 8
-  store i64 %47, ptr %46, align 8
-  store ptr %.sroa.0.0.copyload.i27, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 104
-  %49 = getelementptr inbounds i8, ptr %1, i64 104
-  %.sroa.0.0.copyload.i28 = load ptr, ptr %49, align 8
-  %50 = load i64, ptr %48, align 8
-  store i64 %50, ptr %49, align 8
-  store ptr %.sroa.0.0.copyload.i28, ptr %48, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 112
-  %52 = getelementptr inbounds i8, ptr %1, i64 112
-  %.0.copyload.i.i = load i64, ptr %51, align 8
-  %53 = load i64, ptr %52, align 1
-  store i64 %53, ptr %51, align 8
-  store i64 %.0.copyload.i.i, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %0, i64 120
-  %55 = getelementptr inbounds i8, ptr %1, i64 120
-  %.0.copyload.i.i.i = load i32, ptr %54, align 8
-  %56 = load i32, ptr %55, align 1
-  store i32 %56, ptr %54, align 8
-  store i32 %.0.copyload.i.i.i, ptr %55, align 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 28
+  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = load ptr, ptr %10, align 8, !noalias !16
+  %12 = load i32, ptr %9, align 4, !noalias !16
+  %13 = load i32, ptr %8, align 4, !noalias !16
+  %14 = load ptr, ptr %7, align 8, !noalias !16
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = load ptr, ptr %17, align 8, !noalias !19
+  %19 = load i32, ptr %16, align 4, !noalias !19
+  %20 = load i32, ptr %15, align 8, !noalias !19
+  %21 = load ptr, ptr %6, align 8, !noalias !19
+  store ptr %21, ptr %7, align 8
+  store i32 %20, ptr %8, align 4
+  store i32 %19, ptr %9, align 4
+  store ptr %18, ptr %10, align 8
+  store ptr %14, ptr %6, align 8
+  store i32 %13, ptr %15, align 8
+  store i32 %12, ptr %16, align 4
+  store ptr %11, ptr %17, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds i8, ptr %1, i64 52
+  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = load ptr, ptr %26, align 8, !noalias !22
+  %28 = load i32, ptr %25, align 4, !noalias !22
+  %29 = load i32, ptr %24, align 4, !noalias !22
+  %30 = load ptr, ptr %23, align 8, !noalias !22
+  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds i8, ptr %0, i64 52
+  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = load ptr, ptr %33, align 8, !noalias !25
+  %35 = load i32, ptr %32, align 4, !noalias !25
+  %36 = load i32, ptr %31, align 8, !noalias !25
+  %37 = load ptr, ptr %22, align 8, !noalias !25
+  store ptr %37, ptr %23, align 8
+  store i32 %36, ptr %24, align 4
+  store i32 %35, ptr %25, align 4
+  store ptr %34, ptr %26, align 8
+  store ptr %30, ptr %22, align 8
+  store i32 %29, ptr %31, align 8
+  store i32 %28, ptr %32, align 4
+  store ptr %27, ptr %33, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 64
+  %39 = getelementptr inbounds i8, ptr %1, i64 64
+  %40 = getelementptr inbounds i8, ptr %1, i64 72
+  %41 = getelementptr inbounds i8, ptr %1, i64 76
+  %42 = getelementptr inbounds i8, ptr %1, i64 80
+  %43 = load ptr, ptr %42, align 8, !noalias !28
+  %44 = load i32, ptr %41, align 4, !noalias !28
+  %45 = load i32, ptr %40, align 4, !noalias !28
+  %46 = load ptr, ptr %39, align 8, !noalias !28
+  %47 = getelementptr inbounds i8, ptr %0, i64 72
+  %48 = getelementptr inbounds i8, ptr %0, i64 76
+  %49 = getelementptr inbounds i8, ptr %0, i64 80
+  %50 = load ptr, ptr %49, align 8, !noalias !31
+  %51 = load i32, ptr %48, align 4, !noalias !31
+  %52 = load i32, ptr %47, align 8, !noalias !31
+  %53 = load ptr, ptr %38, align 8, !noalias !31
+  store ptr %53, ptr %39, align 8
+  store i32 %52, ptr %40, align 4
+  store i32 %51, ptr %41, align 4
+  store ptr %50, ptr %42, align 8
+  store ptr %46, ptr %38, align 8
+  store i32 %45, ptr %47, align 8
+  store i32 %44, ptr %48, align 4
+  store ptr %43, ptr %49, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 88
+  %55 = getelementptr inbounds i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i = load ptr, ptr %55, align 8
+  %56 = load i64, ptr %54, align 8
+  store i64 %56, ptr %55, align 8
+  store ptr %.sroa.0.0.copyload.i, ptr %54, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 96
+  %58 = getelementptr inbounds i8, ptr %1, i64 96
+  %.sroa.0.0.copyload.i27 = load ptr, ptr %58, align 8
+  %59 = load i64, ptr %57, align 8
+  store i64 %59, ptr %58, align 8
+  store ptr %.sroa.0.0.copyload.i27, ptr %57, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 104
+  %61 = getelementptr inbounds i8, ptr %1, i64 104
+  %.sroa.0.0.copyload.i28 = load ptr, ptr %61, align 8
+  %62 = load i64, ptr %60, align 8
+  store i64 %62, ptr %61, align 8
+  store ptr %.sroa.0.0.copyload.i28, ptr %60, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 112
+  %64 = getelementptr inbounds i8, ptr %1, i64 112
+  %.0.copyload.i.i = load i64, ptr %63, align 8
+  %65 = load i64, ptr %64, align 1
+  store i64 %65, ptr %63, align 8
+  store i64 %.0.copyload.i.i, ptr %64, align 1
+  %66 = getelementptr inbounds i8, ptr %0, i64 120
+  %67 = getelementptr inbounds i8, ptr %1, i64 120
+  %.0.copyload.i.i.i = load i32, ptr %66, align 8
+  %68 = load i32, ptr %67, align 1
+  store i32 %68, ptr %66, align 8
+  store i32 %.0.copyload.i.i.i, ptr %67, align 1
   ret void
 }
 
@@ -8318,21 +8336,27 @@ define hidden void @_ZN17opencv_tensorflow6OpList12InternalSwapEPS0_(ptr nocaptu
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
-  %11 = load ptr, ptr %10, align 8, !noalias !39
-  %12 = load ptr, ptr %8, align 8, !noalias !39
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !noalias !42
-  %16 = load ptr, ptr %7, align 8, !noalias !42
-  %17 = load <2 x i32>, ptr %9, align 4, !noalias !39
-  %18 = load <2 x i32>, ptr %13, align 8, !noalias !42
-  store ptr %16, ptr %8, align 8
-  store ptr %15, ptr %10, align 8
-  store <2 x i32> %18, ptr %9, align 4
-  store ptr %12, ptr %7, align 8
-  store <2 x i32> %17, ptr %13, align 8
-  store ptr %11, ptr %14, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 28
+  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = load ptr, ptr %11, align 8, !noalias !39
+  %13 = load i32, ptr %10, align 4, !noalias !39
+  %14 = load i32, ptr %9, align 4, !noalias !39
+  %15 = load ptr, ptr %8, align 8, !noalias !39
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = load ptr, ptr %18, align 8, !noalias !42
+  %20 = load i32, ptr %17, align 4, !noalias !42
+  %21 = load i32, ptr %16, align 8, !noalias !42
+  %22 = load ptr, ptr %7, align 8, !noalias !42
+  store ptr %22, ptr %8, align 8
+  store i32 %21, ptr %9, align 4
+  store i32 %20, ptr %10, align 4
+  store ptr %19, ptr %11, align 8
+  store ptr %15, ptr %7, align 8
+  store i32 %14, ptr %16, align 8
+  store i32 %13, ptr %17, align 4
+  store ptr %12, ptr %18, align 8
   ret void
 }
 

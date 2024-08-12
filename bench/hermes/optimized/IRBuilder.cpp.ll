@@ -503,15 +503,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -650,15 +653,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %3, ptr %Parent.i.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -728,15 +734,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -805,15 +814,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -883,15 +895,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -974,15 +989,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load <2 x ptr>, ptr %Location.i, align 8
-  %10 = shufflevector <2 x ptr> %9, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %10, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %9 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %9, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %4, ptr %Parent.i.i.i, align 8
-  %11 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %11, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %10, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -1059,15 +1077,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %3, ptr %Parent.i.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -1136,15 +1157,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -1234,15 +1258,18 @@ _ZN6hermes9IRBuilder20createAllocStackInstENS_10IdentifierE.exit: ; preds = %ent
   %statementIndex_.i4.i.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store i32 %statement.0.i.i, ptr %statementIndex_.i4.i.i, align 8
   %Location.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %Location.i.i, align 8
+  %location_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %location_.i.i.i, align 8
+  %CurrentSourceLevelScope.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %3, ptr %Parent.i.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8
   %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %Next2.i.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call.i, align 8
-  %Next2.i7.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call.i, align 8
+  %Next2.i7.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call.i, ptr %Next2.i7.i.i.i.i.i.i.i, align 8
   store ptr %call.i, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8
   ret ptr %call.i
@@ -1327,15 +1354,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -1406,15 +1436,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -1485,15 +1518,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -1564,15 +1600,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -1643,15 +1682,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -1726,15 +1768,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load <2 x ptr>, ptr %Location.i, align 8
-  %10 = shufflevector <2 x ptr> %9, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %10, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %9 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %9, ptr %SourceLevelScope.i.i, align 8
   store ptr %4, ptr %Parent.i.i, align 8
-  %11 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %11, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %10, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -1804,15 +1849,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -1886,15 +1934,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -1969,15 +2020,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %3, ptr %Parent.i.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -2051,15 +2105,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i, align 8
   store ptr %2, ptr %Parent.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -2132,15 +2189,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -2215,15 +2275,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i, align 8
   store ptr %2, ptr %Parent.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -2295,15 +2358,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i, align 8
   store ptr %2, ptr %Parent.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -2392,15 +2458,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes8CallI
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call2, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i4 = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call2, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i4, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %3, ptr %Parent.i.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call2, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call2, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call2, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call2, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call2
@@ -2489,15 +2558,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes12HBCC
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call2, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i4 = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call2, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i4, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %3, ptr %Parent.i.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call2, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call2, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call2, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call2, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call2
@@ -2587,15 +2659,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes13Cons
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call2, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call2, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %3, ptr %Parent.i.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call2, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call2, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call2, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call2, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call2
@@ -2666,15 +2741,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -2747,15 +2825,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -2835,15 +2916,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -2913,15 +2997,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -2993,15 +3080,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -3084,15 +3174,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -3166,15 +3259,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -3249,15 +3345,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i, align 8
   store ptr %2, ptr %Parent.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -3342,15 +3441,18 @@ _ZN6hermes9IRBuilder24createDeletePropertyInstEPNS_5ValueES2_.exit: ; preds = %e
   %statementIndex_.i4.i.i = getelementptr inbounds i8, ptr %call.i1, i64 128
   store i32 %statement.0.i.i, ptr %statementIndex_.i4.i.i, align 8
   %Location.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %Location.i.i, align 8
+  %location_.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %location_.i.i.i, align 8
+  %CurrentSourceLevelScope.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8
   %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %Next2.i.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call.i1, align 8
-  %Next2.i7.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call.i1, align 8
+  %Next2.i7.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call.i1, ptr %Next2.i7.i.i.i.i.i.i.i, align 8
   store ptr %call.i1, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8
   ret ptr %call.i1
@@ -3435,15 +3537,18 @@ _ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_.exit: ; preds = %ent
   %statementIndex_.i4.i.i = getelementptr inbounds i8, ptr %call.i1, i64 128
   store i32 %statement.0.i.i, ptr %statementIndex_.i4.i.i, align 8
   %Location.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %Location.i.i, align 8
+  %location_.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %location_.i.i.i, align 8
+  %CurrentSourceLevelScope.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8
   %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %Next2.i.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call.i1, align 8
-  %Next2.i7.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call.i1, align 8
+  %Next2.i7.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call.i1, ptr %Next2.i7.i.i.i.i.i.i.i, align 8
   store ptr %call.i1, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8
   ret ptr %call.i1
@@ -3529,15 +3634,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -3633,15 +3741,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -3717,15 +3828,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i, align 8
   store ptr %3, ptr %Parent.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -3810,15 +3924,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes14Allo
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load <2 x ptr>, ptr %Location.i, align 8
-  %10 = shufflevector <2 x ptr> %9, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %10, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %9 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %9, ptr %SourceLevelScope.i.i, align 8
   store ptr %4, ptr %Parent.i.i, align 8
-  %11 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %11, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %10, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -3947,15 +4064,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4024,15 +4144,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4102,15 +4225,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4177,15 +4303,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4258,15 +4387,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i, align 8
   store ptr %3, ptr %Parent.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4338,15 +4470,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4419,15 +4554,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4472,17 +4610,20 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
   %SourceLevelScope.i.i = getelementptr inbounds i8, ptr %call, i64 112
-  %5 = load <2 x ptr>, ptr %Location.i, align 8
-  %6 = shufflevector <2 x ptr> %5, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %6, ptr %SourceLevelScope.i.i, align 8
+  store ptr %5, ptr %SourceLevelScope.i.i, align 8
   %Parent.i.i6.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %0, ptr %Parent.i.i6.i, align 8
-  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %6 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %7, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %6, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4543,34 +4684,37 @@ _ZN6hermes9IRBuilder13createPhiInstERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2
   %statementIndex_.i4.i.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store i32 %statement.0.i.i, ptr %statementIndex_.i4.i.i, align 8
   %Location.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %Location.i.i, align 8
+  %location_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %location_.i.i.i, align 8
+  %CurrentSourceLevelScope.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %CurrentSourceLevelScope.i.i, align 8
   %SourceLevelScope.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
-  %5 = load <2 x ptr>, ptr %Location.i.i, align 8
-  %6 = shufflevector <2 x ptr> %5, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %6, ptr %SourceLevelScope.i.i.i, align 8
+  store ptr %5, ptr %SourceLevelScope.i.i.i, align 8
   %Parent.i.i6.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr %0, ptr %Parent.i.i6.i.i, align 8
-  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8
+  %6 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8
   %Next2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %Next2.i.i.i.i.i.i.i.i, align 8
-  store ptr %7, ptr %call.i, align 8
-  %Next2.i7.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %6, ptr %call.i, align 8
+  %Next2.i7.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %call.i, ptr %Next2.i7.i.i.i.i.i.i.i, align 8
   store ptr %call.i, ptr %agg.tmp.sroa.0.0.copyload.i.i.i, align 8
-  %8 = load ptr, ptr %blocks, align 8
-  %cmp.i.i.i = icmp eq ptr %8, %add.ptr.i.i.i.i.i1
+  %7 = load ptr, ptr %blocks, align 8
+  %cmp.i.i.i = icmp eq ptr %7, %add.ptr.i.i.i.i.i1
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6hermes9IRBuilder13createPhiInstERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2_IPNS_10BasicBlockELj8EEE.exit
-  call void @free(ptr noundef %8) #15
+  call void @free(ptr noundef %7) #15
   br label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit: ; preds = %_ZN6hermes9IRBuilder13createPhiInstERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2_IPNS_10BasicBlockELj8EEE.exit, %if.then.i.i
-  %9 = load ptr, ptr %values, align 8
-  %cmp.i.i.i5 = icmp eq ptr %9, %add.ptr.i.i.i.i.i
+  %8 = load ptr, ptr %values, align 8
+  %cmp.i.i.i5 = icmp eq ptr %8, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i5, label %_ZN4llvh11SmallVectorIPN6hermes5ValueELj8EED2Ev.exit, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit
-  call void @free(ptr noundef %9) #15
+  call void @free(ptr noundef %8) #15
   br label %_ZN4llvh11SmallVectorIPN6hermes5ValueELj8EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPN6hermes5ValueELj8EED2Ev.exit: ; preds = %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit, %if.then.i.i6
@@ -4616,17 +4760,20 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
   %SourceLevelScope.i.i = getelementptr inbounds i8, ptr %call, i64 112
-  %5 = load <2 x ptr>, ptr %Location.i, align 8
-  %6 = shufflevector <2 x ptr> %5, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %6, ptr %SourceLevelScope.i.i, align 8
+  store ptr %5, ptr %SourceLevelScope.i.i, align 8
   %Parent.i.i6.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %0, ptr %Parent.i.i6.i, align 8
-  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %6 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %7, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %6, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4674,17 +4821,20 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
   %SourceLevelScope.i.i = getelementptr inbounds i8, ptr %call, i64 112
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   %Parent.i.i6.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %1, ptr %Parent.i.i6.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4732,17 +4882,20 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
   %SourceLevelScope.i.i = getelementptr inbounds i8, ptr %call, i64 112
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   %Parent.i.i6.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %1, ptr %Parent.i.i6.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4817,15 +4970,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4898,15 +5054,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -4979,15 +5138,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5054,15 +5216,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5136,15 +5301,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5220,15 +5388,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i.i.i, align 8
   store ptr %3, ptr %Parent.i.i.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5297,15 +5468,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5375,15 +5549,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5454,15 +5631,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5534,15 +5714,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5613,15 +5796,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5666,17 +5852,20 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %5 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
   %SourceLevelScope.i.i = getelementptr inbounds i8, ptr %call, i64 112
-  %5 = load <2 x ptr>, ptr %Location.i, align 8
-  %6 = shufflevector <2 x ptr> %5, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %6, ptr %SourceLevelScope.i.i, align 8
+  store ptr %5, ptr %SourceLevelScope.i.i, align 8
   %Parent.i.i6.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %0, ptr %Parent.i.i6.i, align 8
-  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %6 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %7, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %6, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5747,15 +5936,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5828,15 +6020,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5906,15 +6101,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -5984,15 +6182,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %1, ptr %Parent.i.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -6066,15 +6267,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -6143,15 +6347,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -6225,15 +6432,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i, align 8
   store ptr %2, ptr %Parent.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -6306,15 +6516,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -6388,15 +6601,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -6467,15 +6683,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -6562,15 +6781,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes16HBCC
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -6647,15 +6869,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i, align 8
   store ptr %3, ptr %Parent.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -6726,15 +6951,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -6825,15 +7053,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes15Call
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call2, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call2, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %3, ptr %Parent.i.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call2, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call2, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call2, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call2, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call2
@@ -6907,15 +7138,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i, align 8
   store ptr %2, ptr %Parent.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -7007,15 +7241,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes17HBCC
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call2, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %9 = load <2 x ptr>, ptr %Location.i, align 8
-  %10 = shufflevector <2 x ptr> %9, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %10, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i4 = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call2, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i4, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %9 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %9, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %4, ptr %Parent.i.i.i, align 8
-  %11 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %11, ptr %call2, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %10, ptr %call2, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %call2, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call2, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call2
@@ -7087,15 +7324,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -7168,15 +7408,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -7249,15 +7492,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i.i.i, align 8
   store ptr %2, ptr %Parent.i.i.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -7350,15 +7596,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes28HBCA
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %13 = load <2 x ptr>, ptr %Location.i, align 8
-  %14 = shufflevector <2 x ptr> %13, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %14, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %13 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %13, ptr %SourceLevelScope.i.i, align 8
   store ptr %8, ptr %Parent.i.i, align 8
-  %15 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %14 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %15, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %14, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -7439,15 +7688,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i.i, align 8
   store ptr %3, ptr %Parent.i.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -7520,15 +7772,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load <2 x ptr>, ptr %Location.i, align 8
-  %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %8, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %7, ptr %SourceLevelScope.i.i, align 8
   store ptr %2, ptr %Parent.i.i, align 8
-  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %8, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -7605,15 +7860,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i, align 8
   store ptr %3, ptr %Parent.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -7689,15 +7947,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load <2 x ptr>, ptr %Location.i, align 8
-  %9 = shufflevector <2 x ptr> %8, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %9, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %8 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %8, ptr %SourceLevelScope.i.i, align 8
   store ptr %3, ptr %Parent.i.i, align 8
-  %10 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %9 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %10, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %9, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call
@@ -7766,15 +8027,18 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
   %statementIndex_.i4.i = getelementptr inbounds i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds i8, ptr %this, i64 24
-  %6 = load <2 x ptr>, ptr %Location.i, align 8
-  %7 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %7, ptr %SourceLevelScope.i.i, align 8
+  %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Location.i, align 8
+  %location_.i.i = getelementptr inbounds i8, ptr %call, i64 120
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %location_.i.i, align 8
+  %CurrentSourceLevelScope.i = getelementptr inbounds i8, ptr %this, i64 32
+  %6 = load ptr, ptr %CurrentSourceLevelScope.i, align 8
+  store ptr %6, ptr %SourceLevelScope.i.i, align 8
   store ptr %1, ptr %Parent.i.i, align 8
-  %8 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
+  %7 = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   %Next2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %Next2.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %call, align 8
-  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %7, ptr %call, align 8
+  %Next2.i7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %Next2.i7.i.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8
   ret ptr %call

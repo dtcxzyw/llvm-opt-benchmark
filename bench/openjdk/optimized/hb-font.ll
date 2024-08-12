@@ -4603,44 +4603,44 @@ define internal void @_ZL26hb_font_draw_glyph_defaultP9hb_font_tPvjP15hb_draw_fu
   %27 = load i32, ptr %26, align 4
   %28 = sitofp i32 %27 to float
   %29 = sitofp i32 %24 to float
-  %30 = getelementptr inbounds i8, ptr %0, i64 68
-  %31 = load float, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %11, i64 68
-  %33 = load float, ptr %32, align 4
-  %34 = fsub float %31, %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
-  %36 = load i32, ptr %35, align 8
-  %37 = sitofp i32 %36 to float
-  %38 = fmul float %34, %37
-  %39 = insertelement <2 x float> poison, float %28, i64 0
-  %40 = insertelement <2 x float> %39, float %38, i64 1
-  %41 = insertelement <2 x float> poison, float %29, i64 0
-  %42 = shufflevector <2 x float> %41, <2 x float> poison, <2 x i32> zeroinitializer
-  %43 = fdiv <2 x float> %40, %42
+  %30 = fdiv float %28, %29
+  %31 = getelementptr inbounds i8, ptr %0, i64 68
+  %32 = load float, ptr %31, align 4
+  %33 = getelementptr inbounds i8, ptr %11, i64 68
+  %34 = load float, ptr %33, align 4
+  %35 = fsub float %32, %34
+  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = load i32, ptr %36, align 8
+  %38 = sitofp i32 %37 to float
+  %39 = fmul float %35, %38
+  %40 = fdiv float %39, %29
   br label %.thread
 
 .thread:                                          ; preds = %20, %25
-  %44 = phi <2 x float> [ %43, %25 ], [ zeroinitializer, %20 ]
-  store <2 x float> %44, ptr %22, align 4
-  %45 = getelementptr inbounds i8, ptr %11, i64 144
+  %.sink = phi float [ %30, %25 ], [ 0.000000e+00, %20 ]
+  %41 = phi float [ %40, %25 ], [ 0.000000e+00, %20 ]
+  store float %.sink, ptr %22, align 4
+  %42 = getelementptr inbounds i8, ptr %7, i64 24
+  store float %41, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %11, i64 144
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 168
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 168
+  %47 = getelementptr inbounds i8, ptr %11, i64 152
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %11, i64 152
+  %49 = getelementptr inbounds i8, ptr %44, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %46, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %.not.i = icmp eq ptr %52, null
-  br i1 %.not.i, label %_ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit, label %53
+  %.not.i = icmp eq ptr %50, null
+  br i1 %.not.i, label %_ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit, label %51
 
-53:                                               ; preds = %.thread
-  %54 = getelementptr inbounds i8, ptr %52, i64 136
-  %55 = load ptr, ptr %54, align 8
+51:                                               ; preds = %.thread
+  %52 = getelementptr inbounds i8, ptr %50, i64 136
+  %53 = load ptr, ptr %52, align 8
   br label %_ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit
 
-_ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit: ; preds = %.thread, %53
-  %56 = phi ptr [ %55, %53 ], [ null, %.thread ]
-  call void %48(ptr noundef nonnull %11, ptr noundef %50, i32 noundef %2, ptr noundef nonnull @_ZL22_hb_draw_funcs_default, ptr noundef nonnull %7, ptr noundef %56)
+_ZN9hb_font_t10draw_glyphEjP15hb_draw_funcs_tPv.exit: ; preds = %.thread, %51
+  %54 = phi ptr [ %53, %51 ], [ null, %.thread ]
+  call void %46(ptr noundef nonnull %11, ptr noundef %48, i32 noundef %2, ptr noundef nonnull @_ZL22_hb_draw_funcs_default, ptr noundef nonnull %7, ptr noundef %54)
   ret void
 }
 
@@ -4803,68 +4803,64 @@ define internal void @_ZL27hb_font_paint_glyph_defaultP9hb_font_tPvjP16hb_paint_
   %31 = sitofp i32 %30 to float
   %32 = fmul float %28, %31
   %33 = sitofp i32 %22 to float
-  %34 = getelementptr inbounds i8, ptr %0, i64 44
-  %35 = load i32, ptr %34, align 4
-  %36 = sitofp i32 %35 to float
-  %37 = insertelement <2 x float> poison, float %32, i64 0
-  %38 = insertelement <2 x float> %37, float %36, i64 1
-  %39 = insertelement <2 x float> poison, float %33, i64 0
-  %40 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
-  %41 = fdiv <2 x float> %38, %40
+  %34 = fdiv float %32, %33
+  %35 = getelementptr inbounds i8, ptr %0, i64 44
+  %36 = load i32, ptr %35, align 4
+  %37 = sitofp i32 %36 to float
+  %38 = fdiv float %37, %33
   br label %.thread
 
 .thread:                                          ; preds = %19, %23
-  %42 = phi <2 x float> [ %41, %23 ], [ zeroinitializer, %19 ]
-  %43 = getelementptr inbounds i8, ptr %3, i64 16
+  %39 = phi float [ %34, %23 ], [ 0.000000e+00, %19 ]
+  %40 = phi float [ %38, %23 ], [ 0.000000e+00, %19 ]
+  %41 = getelementptr inbounds i8, ptr %3, i64 16
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %3, i64 128
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %3, i64 128
-  %46 = load ptr, ptr %45, align 8
-  %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit, label %47
+  %.not.i = icmp eq ptr %44, null
+  br i1 %.not.i, label %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit, label %45
 
-47:                                               ; preds = %.thread
-  %48 = load ptr, ptr %46, align 8
+45:                                               ; preds = %.thread
+  %46 = load ptr, ptr %44, align 8
   br label %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit
 
-_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit: ; preds = %.thread, %47
-  %49 = phi ptr [ %48, %47 ], [ null, %.thread ]
-  %50 = extractelement <2 x float> %42, i64 0
-  %51 = extractelement <2 x float> %42, i64 1
-  tail call void %44(ptr noundef nonnull %3, ptr noundef %4, float noundef %20, float noundef %50, float noundef 0.000000e+00, float noundef %51, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %49)
-  %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 144
+_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit: ; preds = %.thread, %45
+  %47 = phi ptr [ %46, %45 ], [ null, %.thread ]
+  tail call void %42(ptr noundef nonnull %3, ptr noundef %4, float noundef %20, float noundef %39, float noundef 0.000000e+00, float noundef %40, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %47)
+  %48 = load ptr, ptr %9, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 144
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 176
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %48, i64 152
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 176
+  %55 = getelementptr inbounds i8, ptr %50, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %52, i64 152
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %54, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %.not.i24 = icmp eq ptr %60, null
-  br i1 %.not.i24, label %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit, label %61
+  %.not.i24 = icmp eq ptr %56, null
+  br i1 %.not.i24, label %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit, label %57
 
-61:                                               ; preds = %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit
-  %62 = getelementptr inbounds i8, ptr %60, i64 144
-  %63 = load ptr, ptr %62, align 8
+57:                                               ; preds = %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit
+  %58 = getelementptr inbounds i8, ptr %56, i64 144
+  %59 = load ptr, ptr %58, align 8
   br label %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit
 
-_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit: ; preds = %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit, %61
-  %64 = phi ptr [ %63, %61 ], [ null, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit ]
-  tail call void %56(ptr noundef nonnull %52, ptr noundef %58, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %64)
-  %65 = getelementptr inbounds i8, ptr %3, i64 24
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %45, align 8
-  %.not.i25 = icmp eq ptr %67, null
-  br i1 %.not.i25, label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, label %68
+_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit: ; preds = %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit, %57
+  %60 = phi ptr [ %59, %57 ], [ null, %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit ]
+  tail call void %52(ptr noundef nonnull %48, ptr noundef %54, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %60)
+  %61 = getelementptr inbounds i8, ptr %3, i64 24
+  %62 = load ptr, ptr %61, align 8
+  %63 = load ptr, ptr %43, align 8
+  %.not.i25 = icmp eq ptr %63, null
+  br i1 %.not.i25, label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, label %64
 
-68:                                               ; preds = %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit
-  %69 = getelementptr inbounds i8, ptr %67, i64 8
-  %70 = load ptr, ptr %69, align 8
+64:                                               ; preds = %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit
+  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  %66 = load ptr, ptr %65, align 8
   br label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit
 
-_ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit, %68
-  %71 = phi ptr [ %70, %68 ], [ null, %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit ]
-  tail call void %66(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %71)
+_ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit, %64
+  %67 = phi ptr [ %66, %64 ], [ null, %_ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit ]
+  tail call void %62(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %67)
   ret void
 }
 
@@ -6187,7 +6183,7 @@ define internal fastcc noundef ptr @_ZL15_hb_font_createP9hb_face_t(ptr noundef 
   %.019 = phi ptr [ %0, %1 ], [ %3, %2 ]
   %5 = tail call noalias dereferenceable_or_null(192) ptr @calloc(i64 noundef 1, i64 noundef 192) #23
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %26, label %6
+  br i1 %.not.i, label %27, label %6
 
 6:                                                ; preds = %4
   store atomic i32 1, ptr %5 monotonic, align 4
@@ -6223,17 +6219,19 @@ _ZNK9hb_face_t8get_upemEv.exit:                   ; preds = %6, %17
   store i32 %.0.i, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 56
   store i8 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 76
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %5, i64 96
-  store i64 65536, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 88
+  %22 = getelementptr inbounds i8, ptr %5, i64 80
+  store float 1.000000e+00, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 76
+  store float 1.000000e+00, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %5, i64 96
   store i64 65536, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 116
-  store i32 -1, ptr %25, align 4
-  br label %26
+  %25 = getelementptr inbounds i8, ptr %5, i64 88
+  store i64 65536, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %5, i64 116
+  store i32 -1, ptr %26, align 4
+  br label %27
 
-26:                                               ; preds = %4, %_ZNK9hb_face_t8get_upemEv.exit
+27:                                               ; preds = %4, %_ZNK9hb_face_t8get_upemEv.exit
   %.0 = phi ptr [ %5, %_ZNK9hb_face_t8get_upemEv.exit ], [ @_hb_Null_hb_font_t, %4 ]
   ret ptr %.0
 }
@@ -6422,69 +6420,91 @@ _ZNK9hb_face_t8get_upemEv.exit:                   ; preds = %1, %6
   %.0.i = phi i32 [ %7, %6 ], [ %5, %1 ]
   %8 = uitofp i32 %.0.i to float
   %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = getelementptr inbounds i8, ptr %0, i64 76
-  %11 = load <2 x i32>, ptr %9, align 8
-  %12 = sitofp <2 x i32> %11 to <2 x float>
-  %13 = insertelement <2 x float> poison, float %8, i64 0
-  %14 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> zeroinitializer
-  %15 = fdiv <2 x float> %12, %14
-  store <2 x float> %15, ptr %10, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
-  %17 = extractelement <2 x i32> %11, i64 1
-  %18 = icmp slt <2 x i32> %11, zeroinitializer
-  %19 = sub nsw <2 x i32> zeroinitializer, %11
-  %20 = zext <2 x i32> %19 to <2 x i64>
-  %21 = mul nsw <2 x i64> %20, <i64 -65536, i64 -65536>
-  %22 = zext <2 x i32> %11 to <2 x i64>
-  %23 = shl nuw nsw <2 x i64> %22, <i64 16, i64 16>
-  %24 = select <2 x i1> %18, <2 x i64> %21, <2 x i64> %23
-  %25 = sitofp <2 x i64> %24 to <2 x float>
-  %26 = fdiv <2 x float> %25, %14
-  %27 = fptosi <2 x float> %26 to <2 x i64>
-  store <2 x i64> %27, ptr %16, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
-  %29 = extractelement <2 x float> %12, i64 0
-  %30 = getelementptr inbounds i8, ptr %0, i64 60
-  %31 = extractelement <2 x float> %12, i64 1
-  %32 = load <2 x float>, ptr %28, align 8
-  %33 = fmul <2 x float> %32, %12
-  %34 = fadd <2 x float> %33, <float 5.000000e-01, float 5.000000e-01>
-  %35 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %34)
-  %36 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %35)
-  %37 = fptosi <2 x float> %36 to <2 x i32>
-  store <2 x i32> %37, ptr %30, align 4
-  %.not = icmp eq i32 %17, 0
-  %38 = getelementptr inbounds i8, ptr %0, i64 68
-  %39 = load float, ptr %38, align 4
-  %40 = fmul float %39, %29
-  %41 = fdiv float %40, %31
-  %42 = select i1 %.not, float 0.000000e+00, float %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
-  store float %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 176
-  %45 = load atomic i64, ptr %44 acquire, align 8
-  %.not.i.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i.i, label %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i, label %46
+  %10 = load i32, ptr %9, align 8
+  %11 = sitofp i32 %10 to float
+  %12 = fdiv float %11, %8
+  %13 = getelementptr inbounds i8, ptr %0, i64 76
+  store float %12, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 44
+  %15 = load i32, ptr %14, align 4
+  %16 = sitofp i32 %15 to float
+  %17 = fdiv float %16, %8
+  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  store float %17, ptr %18, align 8
+  %19 = icmp slt i32 %10, 0
+  %20 = sub nsw i32 0, %10
+  %21 = zext nneg i32 %20 to i64
+  %.neg = mul nsw i64 %21, -65536
+  %22 = zext nneg i32 %10 to i64
+  %23 = shl nuw nsw i64 %22, 16
+  %24 = select i1 %19, i64 %.neg, i64 %23
+  %25 = sitofp i64 %24 to float
+  %26 = fdiv float %25, %8
+  %27 = fptosi float %26 to i64
+  %28 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 %27, ptr %28, align 8
+  %29 = icmp slt i32 %15, 0
+  %30 = sub nsw i32 0, %15
+  %31 = zext nneg i32 %30 to i64
+  %.neg9 = mul nsw i64 %31, -65536
+  %32 = zext nneg i32 %15 to i64
+  %33 = shl nuw nsw i64 %32, 16
+  %34 = select i1 %29, i64 %.neg9, i64 %33
+  %35 = sitofp i64 %34 to float
+  %36 = fdiv float %35, %8
+  %37 = fptosi float %36 to i64
+  %38 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = load float, ptr %39, align 8
+  %41 = fmul float %40, %11
+  %42 = fadd float %41, 5.000000e-01
+  %43 = tail call noundef float @llvm.floor.f32(float %42)
+  %44 = tail call float @llvm.fabs.f32(float %43)
+  %45 = fptosi float %44 to i32
+  %46 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 %45, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %0, i64 52
+  %48 = load float, ptr %47, align 4
+  %49 = fmul float %48, %16
+  %50 = fadd float %49, 5.000000e-01
+  %51 = tail call noundef float @llvm.floor.f32(float %50)
+  %52 = tail call float @llvm.fabs.f32(float %51)
+  %53 = fptosi float %52 to i32
+  %54 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %53, ptr %54, align 8
+  %.not = icmp eq i32 %15, 0
+  %55 = getelementptr inbounds i8, ptr %0, i64 68
+  %56 = load float, ptr %55, align 4
+  %57 = fmul float %56, %11
+  %58 = fdiv float %57, %16
+  %59 = select i1 %.not, float 0.000000e+00, float %58
+  %60 = getelementptr inbounds i8, ptr %0, i64 72
+  store float %59, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 176
+  %62 = load atomic i64, ptr %61 acquire, align 8
+  %.not.i.i.i = icmp eq i64 %62, 0
+  br i1 %.not.i.i.i, label %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i, label %63
 
-46:                                               ; preds = %_ZNK9hb_face_t8get_upemEv.exit
-  %47 = inttoptr i64 %45 to ptr
-  tail call void @_hb_ot_shaper_font_data_destroy(ptr noundef nonnull %47)
+63:                                               ; preds = %_ZNK9hb_face_t8get_upemEv.exit
+  %64 = inttoptr i64 %62 to ptr
+  tail call void @_hb_ot_shaper_font_data_destroy(ptr noundef nonnull %64)
   br label %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i
 
-_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i: ; preds = %46, %_ZNK9hb_face_t8get_upemEv.exit
-  store atomic i64 0, ptr %44 monotonic, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 184
-  %49 = load atomic i64, ptr %48 acquire, align 8
-  %.not.i.i1.i = icmp eq i64 %49, 0
-  br i1 %.not.i.i1.i, label %_ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit, label %50
+_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i: ; preds = %63, %_ZNK9hb_face_t8get_upemEv.exit
+  store atomic i64 0, ptr %61 monotonic, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 184
+  %66 = load atomic i64, ptr %65 acquire, align 8
+  %.not.i.i1.i = icmp eq i64 %66, 0
+  br i1 %.not.i.i1.i, label %_ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit, label %67
 
-50:                                               ; preds = %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i
-  %51 = inttoptr i64 %49 to ptr
-  tail call void @_hb_fallback_shaper_font_data_destroy(ptr noundef nonnull %51)
+67:                                               ; preds = %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i
+  %68 = inttoptr i64 %66 to ptr
+  tail call void @_hb_fallback_shaper_font_data_destroy(ptr noundef nonnull %68)
   br label %_ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit
 
-_ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i, %50
-  store atomic i64 0, ptr %48 monotonic, align 8
+_ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E4finiEv.exit.i, %67
+  store atomic i64 0, ptr %65 monotonic, align 8
   ret void
 }
 
@@ -8745,6 +8765,9 @@ declare noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef, ptr nounde
 declare noundef i32 @_ZNK9hb_face_t9load_upemEv(ptr noundef nonnull align 8 dereferenceable(416)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #15
 
 ; Function Attrs: mustprogress uwtable
@@ -10634,12 +10657,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.floor.v2f32(<2 x float>) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

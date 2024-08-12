@@ -7,26 +7,32 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -18, 1) i32 @fdt_create_with_flags(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sext i32 %1 to i64
   %5 = icmp ult i32 %1, 48
-  br i1 %5, label %11, label %6
+  br i1 %5, label %14, label %6
 
 6:                                                ; preds = %3
   %.not = icmp ult i32 %2, 2
-  br i1 %.not, label %7, label %11
+  br i1 %.not, label %7, label %14
 
 7:                                                ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %4, i1 false)
   store i32 302117423, ptr %0, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 285212672, ptr %8, align 4
   %rev.i.i = shl nuw nsw i32 %2, 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %rev.i.i, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %rev.i.i, ptr %9, align 4
   %rev.i.i16 = tail call noundef i32 @llvm.bswap.i32(i32 %1)
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %rev.i.i16, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 805306368, i32 0, i32 805306368, i32 285212672>, ptr %10, align 4
-  br label %11
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %rev.i.i16, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 805306368, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 805306368, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 0, ptr %13, align 4
+  br label %14
 
-11:                                               ; preds = %6, %3, %7
+14:                                               ; preds = %6, %3, %7
   %.0 = phi i32 [ 0, %7 ], [ -3, %3 ], [ -18, %6 ]
   ret i32 %.0
 }
@@ -43,13 +49,19 @@ define range(i32 -18, 1) i32 @fdt_create(ptr nocapture noundef writeonly %0, i32
   %5 = sext i32 %1 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %5, i1 false)
   store i32 302117423, ptr %0, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %6, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 285212672, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %7, align 4
   %rev.i.i16.i = tail call noundef i32 @llvm.bswap.i32(i32 %1)
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %rev.i.i16.i, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i32> <i32 805306368, i32 0, i32 805306368, i32 285212672>, ptr %8, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %rev.i.i16.i, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 805306368, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 805306368, ptr %10, align 4
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 0, ptr %11, align 4
   br label %fdt_create_with_flags.exit
 
 fdt_create_with_flags.exit:                       ; preds = %2, %4

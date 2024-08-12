@@ -2009,14 +2009,15 @@ entry:
   store ptr null, ptr %func.i, align 16, !tbaa !15
   %call_.i.i = getelementptr inbounds i8, ptr %__value, i64 64
   %call_2.i.i = getelementptr inbounds i8, ptr %__result.coerce, i64 64
+  %0 = load ptr, ptr %call_2.i.i, align 16, !tbaa !17
+  store ptr %0, ptr %call_.i.i, align 16, !tbaa !17
   %exec_.i.i = getelementptr inbounds i8, ptr %__value, i64 72
   %exec_3.i.i = getelementptr inbounds i8, ptr %__result.coerce, i64 72
-  %0 = load ptr, ptr %exec_3.i.i, align 8, !tbaa !19
-  %1 = load <2 x ptr>, ptr %call_2.i.i, align 16, !tbaa !16
-  store <2 x ptr> %1, ptr %call_.i.i, align 16, !tbaa !16
+  %1 = load ptr, ptr %exec_3.i.i, align 8, !tbaa !19
+  store ptr %1, ptr %exec_.i.i, align 8, !tbaa !19
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i, align 16, !tbaa !17
   store ptr null, ptr %exec_3.i.i, align 8, !tbaa !19
-  %tobool.not.i.i.i = icmp eq ptr %0, null
+  %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly14ManualExecutor13ScheduledFuncC2EOS1_.exit.thread, label %_ZN5folly14ManualExecutor13ScheduledFuncC2EOS1_.exit
 
 _ZN5folly14ManualExecutor13ScheduledFuncC2EOS1_.exit.thread: ; preds = %entry
@@ -2026,7 +2027,7 @@ _ZN5folly14ManualExecutor13ScheduledFuncC2EOS1_.exit.thread: ; preds = %entry
 
 _ZN5folly14ManualExecutor13ScheduledFuncC2EOS1_.exit: ; preds = %entry
   %func3.i = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %call.i.i.i = call noundef i64 %0(i32 noundef 0, ptr noundef nonnull %func3.i, ptr noundef nonnull %func.i) #21
+  %call.i.i.i = call noundef i64 %1(i32 noundef 0, ptr noundef nonnull %func3.i, ptr noundef nonnull %func.i) #21
   %.pr = load ptr, ptr %exec_3.i.i, align 8, !tbaa !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 16 dereferenceable(16) %__first.coerce, i64 16, i1 false)
   %tobool.not.i.i.i13 = icmp eq ptr %.pr, null
@@ -2074,17 +2075,18 @@ _ZN5folly14ManualExecutor13ScheduledFuncaSEOS1_.exit: ; preds = %_ZNK5folly8Func
   %func.i17 = getelementptr inbounds i8, ptr %agg.tmp7, i64 16
   store ptr null, ptr %func.i17, align 16, !tbaa !15
   %call_.i.i18 = getelementptr inbounds i8, ptr %agg.tmp7, i64 64
+  %5 = load ptr, ptr %call_.i.i, align 16, !tbaa !17
+  store ptr %5, ptr %call_.i.i18, align 16, !tbaa !17
   %exec_.i.i20 = getelementptr inbounds i8, ptr %agg.tmp7, i64 72
-  %5 = load ptr, ptr %exec_.i.i, align 8, !tbaa !19
-  %6 = load <2 x ptr>, ptr %call_.i.i, align 16, !tbaa !16
-  store <2 x ptr> %6, ptr %call_.i.i18, align 16, !tbaa !16
+  %6 = load ptr, ptr %exec_.i.i, align 8, !tbaa !19
+  store ptr %6, ptr %exec_.i.i20, align 8, !tbaa !19
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_.i.i, align 16, !tbaa !17
   store ptr null, ptr %exec_.i.i, align 8, !tbaa !19
-  %tobool.not.i.i.i22 = icmp eq ptr %5, null
+  %tobool.not.i.i.i22 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i22, label %_ZN5folly14ManualExecutor13ScheduledFuncC2EOS1_.exit26, label %if.end.i.i.i23
 
 if.end.i.i.i23:                                   ; preds = %_ZN5folly14ManualExecutor13ScheduledFuncaSEOS1_.exit
-  %call.i.i.i25 = call noundef i64 %5(i32 noundef 0, ptr noundef nonnull %func.i, ptr noundef nonnull %func.i17) #21
+  %call.i.i.i25 = call noundef i64 %6(i32 noundef 0, ptr noundef nonnull %func.i, ptr noundef nonnull %func.i17) #21
   br label %_ZN5folly14ManualExecutor13ScheduledFuncC2EOS1_.exit26
 
 _ZN5folly14ManualExecutor13ScheduledFuncC2EOS1_.exit26: ; preds = %if.end.i.i.i23, %_ZN5folly14ManualExecutor13ScheduledFuncaSEOS1_.exit
@@ -2335,19 +2337,20 @@ if.end35:                                         ; preds = %_ZN5folly14ManualEx
   store ptr null, ptr %func.i81, align 16, !tbaa !15
   %call_.i.i82 = getelementptr inbounds i8, ptr %agg.tmp37, i64 64
   %call_2.i.i = getelementptr inbounds i8, ptr %__value, i64 64
+  %14 = load ptr, ptr %call_2.i.i, align 16, !tbaa !17
+  store ptr %14, ptr %call_.i.i82, align 16, !tbaa !17
   %exec_.i.i = getelementptr inbounds i8, ptr %agg.tmp37, i64 72
   %exec_3.i.i = getelementptr inbounds i8, ptr %__value, i64 72
-  %14 = load ptr, ptr %exec_3.i.i, align 8, !tbaa !19
-  %15 = load <2 x ptr>, ptr %call_2.i.i, align 16, !tbaa !16
-  store <2 x ptr> %15, ptr %call_.i.i82, align 16, !tbaa !16
+  %15 = load ptr, ptr %exec_3.i.i, align 8, !tbaa !19
+  store ptr %15, ptr %exec_.i.i, align 8, !tbaa !19
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i, align 16, !tbaa !17
   store ptr null, ptr %exec_3.i.i, align 8, !tbaa !19
-  %tobool.not.i.i.i83 = icmp eq ptr %14, null
+  %tobool.not.i.i.i83 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i83, label %_ZN5folly14ManualExecutor13ScheduledFuncC2EOS1_.exit, label %if.end.i.i.i84
 
 if.end.i.i.i84:                                   ; preds = %if.end35
   %func3.i85 = getelementptr inbounds i8, ptr %__value, i64 16
-  %call.i.i.i86 = call noundef i64 %14(i32 noundef 0, ptr noundef nonnull %func3.i85, ptr noundef nonnull %func.i81) #21
+  %call.i.i.i86 = call noundef i64 %15(i32 noundef 0, ptr noundef nonnull %func3.i85, ptr noundef nonnull %func.i81) #21
   br label %_ZN5folly14ManualExecutor13ScheduledFuncC2EOS1_.exit
 
 _ZN5folly14ManualExecutor13ScheduledFuncC2EOS1_.exit: ; preds = %if.end.i.i.i84, %if.end35
@@ -4040,17 +4043,19 @@ _ZNSt12_Vector_baseIN5folly14ManualExecutor13ScheduledFuncESaIS2_EE11_M_allocate
   store ptr null, ptr %func.i.i.i, align 16, !tbaa !15
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 64
   %call_2.i.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 48
+  %4 = load ptr, ptr %call_2.i.i.i.i, align 16, !tbaa !17
+  store ptr %4, ptr %call_.i.i.i.i, align 16, !tbaa !17
+  %exec_.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 72
   %exec_3.i.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 56
-  %4 = load ptr, ptr %exec_3.i.i.i.i, align 8, !tbaa !19
-  %5 = load <2 x ptr>, ptr %call_2.i.i.i.i, align 16, !tbaa !16
-  store <2 x ptr> %5, ptr %call_.i.i.i.i, align 16, !tbaa !16
+  %5 = load ptr, ptr %exec_3.i.i.i.i, align 8, !tbaa !19
+  store ptr %5, ptr %exec_.i.i.i.i, align 8, !tbaa !19
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i.i, align 16, !tbaa !17
   store ptr null, ptr %exec_3.i.i.i.i, align 8, !tbaa !19
-  %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN5folly14ManualExecutor13ScheduledFuncESaIS2_EE11_M_allocateEm.exit
-  %call.i.i.i.i.i = tail call noundef i64 %4(i32 noundef 0, ptr noundef nonnull %__args1, ptr noundef nonnull %func.i.i.i) #21
+  %call.i.i.i.i.i = tail call noundef i64 %5(i32 noundef 0, ptr noundef nonnull %__args1, ptr noundef nonnull %func.i.i.i) #21
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %_ZNSt12_Vector_baseIN5folly14ManualExecutor13ScheduledFuncESaIS2_EE11_M_allocateEm.exit
@@ -4072,18 +4077,20 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
   store ptr null, ptr %func.i.i.i.i.i.i.i, align 16, !tbaa !15, !alias.scope !104, !noalias !107
   %call_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 64
   %call_2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 64
+  %7 = load ptr, ptr %call_2.i.i.i.i.i.i.i.i, align 16, !tbaa !17, !alias.scope !107, !noalias !104
+  store ptr %7, ptr %call_.i.i.i.i.i.i.i.i, align 16, !tbaa !17, !alias.scope !104, !noalias !107
+  %exec_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 72
   %exec_3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 72
-  %7 = load ptr, ptr %exec_3.i.i.i.i.i.i.i.i, align 8, !tbaa !19, !alias.scope !107, !noalias !104
-  %8 = load <2 x ptr>, ptr %call_2.i.i.i.i.i.i.i.i, align 16, !tbaa !16, !alias.scope !107, !noalias !104
-  store <2 x ptr> %8, ptr %call_.i.i.i.i.i.i.i.i, align 16, !tbaa !16, !alias.scope !104, !noalias !107
+  %8 = load ptr, ptr %exec_3.i.i.i.i.i.i.i.i, align 8, !tbaa !19, !alias.scope !107, !noalias !104
+  store ptr %8, ptr %exec_.i.i.i.i.i.i.i.i, align 8, !tbaa !19, !alias.scope !104, !noalias !107
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i.i.i.i.i.i, align 16, !tbaa !17, !alias.scope !107, !noalias !104
   store ptr null, ptr %exec_3.i.i.i.i.i.i.i.i, align 8, !tbaa !19, !alias.scope !107, !noalias !104
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN5folly14ManualExecutor13ScheduledFuncES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, label %_ZNSt16allocator_traitsISaIN5folly14ManualExecutor13ScheduledFuncEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN5folly14ManualExecutor13ScheduledFuncEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i: ; preds = %for.body.i.i.i
   %func3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 16
-  %call.i.i.i.i.i.i.i.i.i = tail call noundef i64 %7(i32 noundef 0, ptr noundef nonnull %func3.i.i.i.i.i.i.i, ptr noundef nonnull %func.i.i.i.i.i.i.i) #21
+  %call.i.i.i.i.i.i.i.i.i = tail call noundef i64 %8(i32 noundef 0, ptr noundef nonnull %func3.i.i.i.i.i.i.i, ptr noundef nonnull %func.i.i.i.i.i.i.i) #21
   %.pr.i.i.i.i = load ptr, ptr %exec_3.i.i.i.i.i.i.i.i, align 8, !tbaa !19, !alias.scope !107, !noalias !104
   %tobool.not.i.i.i.i.i3.i.i.i.i = icmp eq ptr %.pr.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i3.i.i.i.i, label %_ZSt19__relocate_object_aIN5folly14ManualExecutor13ScheduledFuncES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, label %if.end.i.i.i.i.i4.i.i.i.i
@@ -4114,18 +4121,20 @@ for.body.i.i.i51:                                 ; preds = %_ZNSt6vectorIN5foll
   store ptr null, ptr %func.i.i.i.i.i.i.i54, align 16, !tbaa !15, !alias.scope !111, !noalias !114
   %call_.i.i.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__cur.08.i.i.i52, i64 64
   %call_2.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i53, i64 64
+  %9 = load ptr, ptr %call_2.i.i.i.i.i.i.i.i56, align 16, !tbaa !17, !alias.scope !114, !noalias !111
+  store ptr %9, ptr %call_.i.i.i.i.i.i.i.i55, align 16, !tbaa !17, !alias.scope !111, !noalias !114
+  %exec_.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__cur.08.i.i.i52, i64 72
   %exec_3.i.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i53, i64 72
-  %9 = load ptr, ptr %exec_3.i.i.i.i.i.i.i.i58, align 8, !tbaa !19, !alias.scope !114, !noalias !111
-  %10 = load <2 x ptr>, ptr %call_2.i.i.i.i.i.i.i.i56, align 16, !tbaa !16, !alias.scope !114, !noalias !111
-  store <2 x ptr> %10, ptr %call_.i.i.i.i.i.i.i.i55, align 16, !tbaa !16, !alias.scope !111, !noalias !114
+  %10 = load ptr, ptr %exec_3.i.i.i.i.i.i.i.i58, align 8, !tbaa !19, !alias.scope !114, !noalias !111
+  store ptr %10, ptr %exec_.i.i.i.i.i.i.i.i57, align 8, !tbaa !19, !alias.scope !111, !noalias !114
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i.i.i.i.i.i56, align 16, !tbaa !17, !alias.scope !114, !noalias !111
   store ptr null, ptr %exec_3.i.i.i.i.i.i.i.i58, align 8, !tbaa !19, !alias.scope !114, !noalias !111
-  %tobool.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %9, null
+  %tobool.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i59, label %_ZSt19__relocate_object_aIN5folly14ManualExecutor13ScheduledFuncES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i67, label %_ZNSt16allocator_traitsISaIN5folly14ManualExecutor13ScheduledFuncEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i60
 
 _ZNSt16allocator_traitsISaIN5folly14ManualExecutor13ScheduledFuncEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i60: ; preds = %for.body.i.i.i51
   %func3.i.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i53, i64 16
-  %call.i.i.i.i.i.i.i.i.i62 = tail call noundef i64 %9(i32 noundef 0, ptr noundef nonnull %func3.i.i.i.i.i.i.i61, ptr noundef nonnull %func.i.i.i.i.i.i.i54) #21
+  %call.i.i.i.i.i.i.i.i.i62 = tail call noundef i64 %10(i32 noundef 0, ptr noundef nonnull %func3.i.i.i.i.i.i.i61, ptr noundef nonnull %func.i.i.i.i.i.i.i54) #21
   %.pr.i.i.i.i63 = load ptr, ptr %exec_3.i.i.i.i.i.i.i.i58, align 8, !tbaa !19, !alias.scope !114, !noalias !111
   %tobool.not.i.i.i.i.i3.i.i.i.i64 = icmp eq ptr %.pr.i.i.i.i63, null
   br i1 %tobool.not.i.i.i.i.i3.i.i.i.i64, label %_ZSt19__relocate_object_aIN5folly14ManualExecutor13ScheduledFuncES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i67, label %if.end.i.i.i.i.i4.i.i.i.i65

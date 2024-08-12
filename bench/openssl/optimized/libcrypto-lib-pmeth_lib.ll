@@ -806,9 +806,12 @@ if.end3:                                          ; preds = %if.then2, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @EVP_PKEY_meth_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #3 {
 entry:
-  %0 = load <2 x i32>, ptr %dst, align 8
+  %0 = load i32, ptr %dst, align 8
+  %flags2 = getelementptr inbounds i8, ptr %dst, i64 4
+  %1 = load i32, ptr %flags2, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %dst, ptr noundef nonnull align 8 dereferenceable(256) %src, i64 256, i1 false)
-  store <2 x i32> %0, ptr %dst, align 8
+  store i32 %0, ptr %dst, align 8
+  store i32 %1, ptr %flags2, align 4
   ret void
 }
 
@@ -1148,10 +1151,12 @@ if.then292:                                       ; preds = %if.end287
 
 if.end312:                                        ; preds = %if.end26, %if.end115, %if.end253, %if.end184, %if.end43
   %pmeth = getelementptr inbounds i8, ptr %pctx, i64 120
+  %33 = load ptr, ptr %pmeth, align 8
   %pmeth313 = getelementptr inbounds i8, ptr %call3, i64 120
-  %33 = load <2 x ptr>, ptr %pmeth, align 8
-  %34 = load ptr, ptr %pmeth, align 8
-  store <2 x ptr> %33, ptr %pmeth313, align 8
+  store ptr %33, ptr %pmeth313, align 8
+  %34 = load ptr, ptr %engine, align 8
+  %engine315 = getelementptr inbounds i8, ptr %call3, i64 128
+  store ptr %34, ptr %engine315, align 8
   %peerkey = getelementptr inbounds i8, ptr %pctx, i64 144
   %35 = load ptr, ptr %peerkey, align 8
   %cmp316.not = icmp eq ptr %35, null
@@ -1164,7 +1169,7 @@ if.then318:                                       ; preds = %if.end312
   br label %if.end321
 
 if.end321:                                        ; preds = %if.then318, %if.end312
-  %36 = phi ptr [ %.pre137, %if.then318 ], [ %34, %if.end312 ]
+  %36 = phi ptr [ %.pre137, %if.then318 ], [ %33, %if.end312 ]
   %37 = phi ptr [ %.pre136, %if.then318 ], [ null, %if.end312 ]
   %peerkey323 = getelementptr inbounds i8, ptr %call3, i64 144
   store ptr %37, ptr %peerkey323, align 8

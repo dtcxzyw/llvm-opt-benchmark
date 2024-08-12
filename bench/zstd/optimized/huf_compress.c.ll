@@ -3220,8 +3220,9 @@ for.body.i.preheader:                             ; preds = %if.then
 for.body.i:                                       ; preds = %for.body.i.preheader, %while.end.i
   %indvars.iv = phi i64 [ 1, %for.body.i.preheader ], [ %indvars.iv.next, %while.end.i ]
   %arrayidx.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr.i, i64 %indvars.iv
-  %2 = load <2 x i32>, ptr %arrayidx.i, align 4
   %key.i.sroa.0.0.copyload = load i32, ptr %arrayidx.i, align 4
+  %key.i.sroa.3.0.arrayidx.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %2 = load i32, ptr %key.i.sroa.3.0.arrayidx.i.sroa_idx, align 4
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body.i, %while.body.i
@@ -3245,7 +3246,9 @@ while.end.i:                                      ; preds = %while.body.i, %land
   %sext = shl i64 %j.i.0.in.lcssa, 32
   %6 = ashr exact i64 %sext, 29
   %arrayidx14.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %6
-  store <2 x i32> %2, ptr %arrayidx14.i, align 4
+  store i32 %key.i.sroa.0.0.copyload, ptr %arrayidx14.i, align 4
+  %key.i.sroa.3.0.arrayidx14.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx14.i, i64 4
+  store i32 %2, ptr %key.i.sroa.3.0.arrayidx14.i.sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %while.end, label %for.body.i, !llvm.loop !44

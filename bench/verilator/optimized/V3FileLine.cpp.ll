@@ -4548,36 +4548,47 @@ _ZNK8FileLineeqERKS_.exit.i:                      ; preds = %27
 _ZNK8FileLineeqERKS_.exit.thread.i:               ; preds = %_ZNK8FileLineeqERKS_.exit.i, %27, %21, %15, %9, %3, %._ZNK8FileLineeqERKS_.exit.thread_crit_edge.i
   %36 = phi i32 [ %.pre.i, %._ZNK8FileLineeqERKS_.exit.thread_crit_edge.i ], [ %7, %3 ], [ %5, %9 ], [ %5, %15 ], [ %5, %21 ], [ %5, %27 ], [ %5, %_ZNK8FileLineeqERKS_.exit.i ]
   %37 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
-  %38 = load <2 x i16>, ptr %0, align 8
-  store <2 x i16> %38, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 4
-  %41 = load i32, ptr %40, align 4
-  store i32 %41, ptr %39, align 4
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
-  store i32 %36, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %37, i64 12
-  %44 = getelementptr inbounds i8, ptr %0, i64 12
-  %45 = load <2 x i32>, ptr %44, align 4
-  store <2 x i32> %45, ptr %43, align 4
-  %46 = getelementptr inbounds i8, ptr %37, i64 20
-  %47 = getelementptr inbounds i8, ptr %0, i64 20
+  %38 = load i16, ptr %0, align 8
+  store i16 %38, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %37, i64 2
+  %40 = getelementptr inbounds i8, ptr %0, i64 2
+  %41 = load i16, ptr %40, align 2
+  store i16 %41, ptr %39, align 2
+  %42 = getelementptr inbounds i8, ptr %37, i64 4
+  %43 = getelementptr inbounds i8, ptr %0, i64 4
+  %44 = load i32, ptr %43, align 4
+  store i32 %44, ptr %42, align 4
+  %45 = getelementptr inbounds i8, ptr %37, i64 8
+  store i32 %36, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %37, i64 12
+  %47 = getelementptr inbounds i8, ptr %0, i64 12
   %48 = load i32, ptr %47, align 4
   store i32 %48, ptr %46, align 4
-  %49 = getelementptr inbounds i8, ptr %37, i64 24
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
-  %51 = load <2 x ptr>, ptr %50, align 8
-  %52 = load ptr, ptr %50, align 8
-  store <2 x ptr> %51, ptr %49, align 8
-  %.not.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i, label %_ZN8FileLineC2EPS_.exit.i, label %53
+  %49 = getelementptr inbounds i8, ptr %37, i64 16
+  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = load i32, ptr %50, align 8
+  store i32 %51, ptr %49, align 8
+  %52 = getelementptr inbounds i8, ptr %37, i64 20
+  %53 = getelementptr inbounds i8, ptr %0, i64 20
+  %54 = load i32, ptr %53, align 4
+  store i32 %54, ptr %52, align 4
+  %55 = getelementptr inbounds i8, ptr %37, i64 24
+  %56 = getelementptr inbounds i8, ptr %0, i64 24
+  %57 = load ptr, ptr %56, align 8
+  store ptr %57, ptr %55, align 8
+  %58 = getelementptr inbounds i8, ptr %37, i64 32
+  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %58, align 8
+  %.not.i.i = icmp eq ptr %57, null
+  br i1 %.not.i.i, label %_ZN8FileLineC2EPS_.exit.i, label %61
 
-53:                                               ; preds = %_ZNK8FileLineeqERKS_.exit.thread.i
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
-  %55 = atomicrmw add ptr %54, i64 1 seq_cst, align 8
+61:                                               ; preds = %_ZNK8FileLineeqERKS_.exit.thread.i
+  %62 = getelementptr inbounds i8, ptr %57, i64 8
+  %63 = atomicrmw add ptr %62, i64 1 seq_cst, align 8
   br label %_ZN8FileLineC2EPS_.exit.i
 
-_ZN8FileLineC2EPS_.exit.i:                        ; preds = %53, %_ZNK8FileLineeqERKS_.exit.thread.i
+_ZN8FileLineC2EPS_.exit.i:                        ; preds = %61, %_ZNK8FileLineeqERKS_.exit.thread.i
   store ptr %37, ptr @_ZZN8FileLine18copyOrSameFileLineEvE8lastNewp, align 8
   br label %_ZN8FileLine18copyOrSameFileLineEv.exit
 
@@ -4641,45 +4652,56 @@ _ZNK8FileLineeqERKS_.exit:                        ; preds = %27
   %33 = load i16, ptr %2, align 8
   %34 = load i16, ptr %0, align 8
   %35 = icmp eq i16 %33, %34
-  br i1 %35, label %56, label %_ZNK8FileLineeqERKS_.exit.thread
+  br i1 %35, label %64, label %_ZNK8FileLineeqERKS_.exit.thread
 
 _ZNK8FileLineeqERKS_.exit.thread:                 ; preds = %._ZNK8FileLineeqERKS_.exit.thread_crit_edge, %3, %9, %15, %21, %27, %_ZNK8FileLineeqERKS_.exit
   %36 = phi i32 [ %.pre, %._ZNK8FileLineeqERKS_.exit.thread_crit_edge ], [ %7, %3 ], [ %5, %9 ], [ %5, %15 ], [ %5, %21 ], [ %5, %27 ], [ %5, %_ZNK8FileLineeqERKS_.exit ]
   %37 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
-  %38 = load <2 x i16>, ptr %0, align 8
-  store <2 x i16> %38, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 4
-  %41 = load i32, ptr %40, align 4
-  store i32 %41, ptr %39, align 4
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
-  store i32 %36, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %37, i64 12
-  %44 = getelementptr inbounds i8, ptr %0, i64 12
-  %45 = load <2 x i32>, ptr %44, align 4
-  store <2 x i32> %45, ptr %43, align 4
-  %46 = getelementptr inbounds i8, ptr %37, i64 20
-  %47 = getelementptr inbounds i8, ptr %0, i64 20
+  %38 = load i16, ptr %0, align 8
+  store i16 %38, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %37, i64 2
+  %40 = getelementptr inbounds i8, ptr %0, i64 2
+  %41 = load i16, ptr %40, align 2
+  store i16 %41, ptr %39, align 2
+  %42 = getelementptr inbounds i8, ptr %37, i64 4
+  %43 = getelementptr inbounds i8, ptr %0, i64 4
+  %44 = load i32, ptr %43, align 4
+  store i32 %44, ptr %42, align 4
+  %45 = getelementptr inbounds i8, ptr %37, i64 8
+  store i32 %36, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %37, i64 12
+  %47 = getelementptr inbounds i8, ptr %0, i64 12
   %48 = load i32, ptr %47, align 4
   store i32 %48, ptr %46, align 4
-  %49 = getelementptr inbounds i8, ptr %37, i64 24
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
-  %51 = load <2 x ptr>, ptr %50, align 8
-  %52 = load ptr, ptr %50, align 8
-  store <2 x ptr> %51, ptr %49, align 8
-  %.not.i = icmp eq ptr %52, null
-  br i1 %.not.i, label %_ZN8FileLineC2EPS_.exit, label %53
+  %49 = getelementptr inbounds i8, ptr %37, i64 16
+  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = load i32, ptr %50, align 8
+  store i32 %51, ptr %49, align 8
+  %52 = getelementptr inbounds i8, ptr %37, i64 20
+  %53 = getelementptr inbounds i8, ptr %0, i64 20
+  %54 = load i32, ptr %53, align 4
+  store i32 %54, ptr %52, align 4
+  %55 = getelementptr inbounds i8, ptr %37, i64 24
+  %56 = getelementptr inbounds i8, ptr %0, i64 24
+  %57 = load ptr, ptr %56, align 8
+  store ptr %57, ptr %55, align 8
+  %58 = getelementptr inbounds i8, ptr %37, i64 32
+  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %58, align 8
+  %.not.i = icmp eq ptr %57, null
+  br i1 %.not.i, label %_ZN8FileLineC2EPS_.exit, label %61
 
-53:                                               ; preds = %_ZNK8FileLineeqERKS_.exit.thread
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
-  %55 = atomicrmw add ptr %54, i64 1 seq_cst, align 8
+61:                                               ; preds = %_ZNK8FileLineeqERKS_.exit.thread
+  %62 = getelementptr inbounds i8, ptr %57, i64 8
+  %63 = atomicrmw add ptr %62, i64 1 seq_cst, align 8
   br label %_ZN8FileLineC2EPS_.exit
 
-_ZN8FileLineC2EPS_.exit:                          ; preds = %_ZNK8FileLineeqERKS_.exit.thread, %53
+_ZN8FileLineC2EPS_.exit:                          ; preds = %_ZNK8FileLineeqERKS_.exit.thread, %61
   store ptr %37, ptr @_ZZN8FileLine18copyOrSameFileLineEvE8lastNewp, align 8
-  br label %56
+  br label %64
 
-56:                                               ; preds = %_ZNK8FileLineeqERKS_.exit, %_ZN8FileLineC2EPS_.exit
+64:                                               ; preds = %_ZNK8FileLineeqERKS_.exit, %_ZN8FileLineC2EPS_.exit
   %.0 = phi ptr [ %37, %_ZN8FileLineC2EPS_.exit ], [ %2, %_ZNK8FileLineeqERKS_.exit ]
   ret ptr %.0
 }

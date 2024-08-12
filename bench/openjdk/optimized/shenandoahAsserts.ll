@@ -233,173 +233,175 @@ _ZNK14ShenandoahHeap22heap_region_containingEPKv.exit: ; preds = %2, %17
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 32
-  %29 = load <2 x ptr>, ptr %28, align 8
-  %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
-  %32 = load i64, ptr %31, align 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %25, i64 40
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %25, i64 8
+  %33 = load i64, ptr %32, align 8
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %3, i64 noundef 0) #10
   call void @_ZNK20ShenandoahHeapRegion8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i, ptr noundef nonnull %3) #10
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %4, i64 noundef 0) #10
-  %33 = load volatile i64, ptr %1, align 8
-  store i64 %33, ptr %5, align 8
+  %34 = load volatile i64, ptr %1, align 8
+  store i64 %34, ptr %5, align 8
   call void @_ZNK8markWord8print_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4, i1 noundef zeroext true) #10
-  %34 = getelementptr inbounds i8, ptr %6, i64 2248
-  %35 = load ptr, ptr %34, align 8
-  %36 = load i8, ptr @UseCompressedClassPointers, align 1
-  %37 = trunc i8 %36 to i1
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %37, label %39, label %49
+  %35 = getelementptr inbounds i8, ptr %6, i64 2248
+  %36 = load ptr, ptr %35, align 8
+  %37 = load i8, ptr @UseCompressedClassPointers, align 1
+  %38 = trunc i8 %37 to i1
+  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  br i1 %38, label %40, label %50
 
-39:                                               ; preds = %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit
-  %40 = load i32, ptr %38, align 8
-  %41 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %42 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %43 = ptrtoint ptr %41 to i64
-  %44 = zext i32 %40 to i64
-  %45 = zext nneg i32 %42 to i64
-  %46 = shl i64 %44, %45
-  %47 = add i64 %46, %43
-  %48 = inttoptr i64 %47 to ptr
+40:                                               ; preds = %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit
+  %41 = load i32, ptr %39, align 8
+  %42 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %43 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %44 = ptrtoint ptr %42 to i64
+  %45 = zext i32 %41 to i64
+  %46 = zext nneg i32 %43 to i64
+  %47 = shl i64 %45, %46
+  %48 = add i64 %47, %44
+  %49 = inttoptr i64 %48 to ptr
   br label %_ZNK7oopDesc5klassEv.exit27
 
-49:                                               ; preds = %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit
-  %50 = load ptr, ptr %38, align 8
-  %51 = ptrtoint ptr %50 to i64
+50:                                               ; preds = %_ZNK14ShenandoahHeap22heap_region_containingEPKv.exit
+  %51 = load ptr, ptr %39, align 8
+  %52 = ptrtoint ptr %51 to i64
   br label %_ZNK7oopDesc5klassEv.exit27
 
-_ZNK7oopDesc5klassEv.exit27:                      ; preds = %39, %49
-  %52 = phi i64 [ %47, %39 ], [ %51, %49 ]
-  %.0.i26 = phi ptr [ %48, %39 ], [ %50, %49 ]
-  %53 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %.0.i26) #10
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.5, i64 noundef %7, i64 noundef %52, ptr noundef %53)
-  %54 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %55 = lshr i64 %7, %54
-  %56 = getelementptr inbounds i8, ptr %35, i64 56
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %55
-  %59 = load ptr, ptr %58, align 8
-  %.not36 = icmp ugt ptr %59, %1
-  %60 = select i1 %.not36, ptr @.str.8, ptr @.str.7
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %60)
-  %61 = getelementptr inbounds i8, ptr %.0.i.i, i64 88
-  %62 = load volatile ptr, ptr %61, align 8
+_ZNK7oopDesc5klassEv.exit27:                      ; preds = %40, %50
+  %53 = phi i64 [ %48, %40 ], [ %52, %50 ]
+  %.0.i26 = phi ptr [ %49, %40 ], [ %51, %50 ]
+  %54 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %.0.i26) #10
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.5, i64 noundef %7, i64 noundef %53, ptr noundef %54)
+  %55 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %56 = lshr i64 %7, %55
+  %57 = getelementptr inbounds i8, ptr %36, i64 56
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds ptr, ptr %58, i64 %56
+  %60 = load ptr, ptr %59, align 8
+  %.not36 = icmp ugt ptr %60, %1
+  %61 = select i1 %.not36, ptr @.str.8, ptr @.str.7
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %61)
+  %62 = getelementptr inbounds i8, ptr %.0.i.i, i64 88
+  %63 = load volatile ptr, ptr %62, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %.not = icmp ugt ptr %62, %1
-  %63 = select i1 %.not, ptr @.str.8, ptr @.str.7
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %63)
-  %64 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %65 = lshr i64 %7, %64
-  %66 = load ptr, ptr %56, align 8
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %65
-  %68 = load ptr, ptr %67, align 8
-  %.not.i = icmp ugt ptr %68, %1
+  %.not = icmp ugt ptr %63, %1
+  %64 = select i1 %.not, ptr @.str.8, ptr @.str.7
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %64)
+  %65 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %66 = lshr i64 %7, %65
+  %67 = load ptr, ptr %57, align 8
+  %68 = getelementptr inbounds ptr, ptr %67, i64 %66
+  %69 = load ptr, ptr %68, align 8
+  %.not.i = icmp ugt ptr %69, %1
   br i1 %.not.i, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %_ZNK7oopDesc5klassEv.exit27
-  %69 = getelementptr inbounds i8, ptr %35, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = ptrtoint ptr %70 to i64
-  %72 = sub i64 %7, %71
-  %73 = lshr i64 %72, 2
-  %74 = and i64 %73, 4611686018427387902
-  %75 = load i32, ptr %35, align 8
-  %76 = zext nneg i32 %75 to i64
-  %77 = lshr i64 %74, %76
-  %78 = getelementptr inbounds i8, ptr %35, i64 24
-  %79 = load ptr, ptr %78, align 8
-  %80 = lshr i64 %77, 6
-  %81 = getelementptr inbounds i64, ptr %79, i64 %80
-  %82 = load i64, ptr %81, align 8
-  %83 = and i64 %77, 63
-  %84 = shl nuw i64 1, %83
-  %85 = and i64 %84, %82
-  %.fr = freeze i64 %85
+  %70 = getelementptr inbounds i8, ptr %36, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = ptrtoint ptr %71 to i64
+  %73 = sub i64 %7, %72
+  %74 = lshr i64 %73, 2
+  %75 = and i64 %74, 4611686018427387902
+  %76 = load i32, ptr %36, align 8
+  %77 = zext nneg i32 %76 to i64
+  %78 = lshr i64 %75, %77
+  %79 = getelementptr inbounds i8, ptr %36, i64 24
+  %80 = load ptr, ptr %79, align 8
+  %81 = lshr i64 %78, 6
+  %82 = getelementptr inbounds i64, ptr %80, i64 %81
+  %83 = load i64, ptr %82, align 8
+  %84 = and i64 %78, 63
+  %85 = shl nuw i64 1, %84
+  %86 = and i64 %85, %83
+  %.fr = freeze i64 %86
   %.not37 = icmp eq i64 %.fr, 0
-  br i1 %.not37, label %86, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
+  br i1 %.not37, label %87, label %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
 
 _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread: ; preds = %_ZNK7oopDesc5klassEv.exit27, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit
-  br label %86
+  br label %87
 
-86:                                               ; preds = %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
-  %87 = phi ptr [ @.str.7, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread ], [ @.str.8, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ]
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %87)
-  %88 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %89 = lshr i64 %7, %88
-  %90 = load ptr, ptr %56, align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %89
-  %92 = load ptr, ptr %91, align 8
-  %.not.i28 = icmp ugt ptr %92, %1
+87:                                               ; preds = %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread
+  %88 = phi ptr [ @.str.7, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit.thread ], [ @.str.8, %_ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit ]
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %88)
+  %89 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %90 = lshr i64 %7, %89
+  %91 = load ptr, ptr %57, align 8
+  %92 = getelementptr inbounds ptr, ptr %91, i64 %90
+  %93 = load ptr, ptr %92, align 8
+  %.not.i28 = icmp ugt ptr %93, %1
   br i1 %.not.i28, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread
 
-_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit: ; preds = %86
-  %93 = getelementptr inbounds i8, ptr %35, i64 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = ptrtoint ptr %94 to i64
-  %96 = sub i64 %7, %95
-  %97 = lshr i64 %96, 2
-  %98 = and i64 %97, 4611686018427387902
-  %99 = load i32, ptr %35, align 8
-  %100 = zext nneg i32 %99 to i64
-  %101 = lshr i64 %98, %100
-  %102 = add nuw nsw i64 %101, 1
-  %103 = getelementptr inbounds i8, ptr %35, i64 24
-  %104 = load ptr, ptr %103, align 8
-  %105 = lshr i64 %102, 6
-  %106 = getelementptr inbounds i64, ptr %104, i64 %105
-  %107 = load i64, ptr %106, align 8
-  %108 = and i64 %102, 63
-  %109 = shl nuw i64 1, %108
-  %110 = and i64 %109, %107
-  %.fr38 = freeze i64 %110
+_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit: ; preds = %87
+  %94 = getelementptr inbounds i8, ptr %36, i64 8
+  %95 = load ptr, ptr %94, align 8
+  %96 = ptrtoint ptr %95 to i64
+  %97 = sub i64 %7, %96
+  %98 = lshr i64 %97, 2
+  %99 = and i64 %98, 4611686018427387902
+  %100 = load i32, ptr %36, align 8
+  %101 = zext nneg i32 %100 to i64
+  %102 = lshr i64 %99, %101
+  %103 = add nuw nsw i64 %102, 1
+  %104 = getelementptr inbounds i8, ptr %36, i64 24
+  %105 = load ptr, ptr %104, align 8
+  %106 = lshr i64 %103, 6
+  %107 = getelementptr inbounds i64, ptr %105, i64 %106
+  %108 = load i64, ptr %107, align 8
+  %109 = and i64 %103, 63
+  %110 = shl nuw i64 1, %109
+  %111 = and i64 %110, %108
+  %.fr38 = freeze i64 %111
   %.not39 = icmp eq i64 %.fr38, 0
-  br i1 %.not39, label %111, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread
+  br i1 %.not39, label %112, label %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread
 
-_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread: ; preds = %86, %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit
-  br label %111
+_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread: ; preds = %87, %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit
+  br label %112
 
-111:                                              ; preds = %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread
-  %112 = phi ptr [ @.str.7, %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread ], [ @.str.8, %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit ]
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %112)
-  %113 = getelementptr inbounds i8, ptr %6, i64 2440
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 8
-  %116 = load i64, ptr %115, align 8
-  %117 = lshr i64 %7, %116
-  %118 = getelementptr inbounds i8, ptr %114, i64 80
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 %117
-  %121 = load i8, ptr %120, align 1
-  %122 = icmp eq i8 %121, 1
-  %123 = select i1 %122, ptr @.str.7, ptr @.str.8
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %123)
-  %124 = getelementptr inbounds i8, ptr %4, i64 56
-  %125 = load ptr, ptr %124, align 8
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.13, ptr noundef %125)
-  %126 = getelementptr inbounds i8, ptr %3, i64 56
-  %127 = load ptr, ptr %126, align 8
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.14, ptr noundef %127)
+112:                                              ; preds = %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit, %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread
+  %113 = phi ptr [ @.str.7, %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit.thread ], [ @.str.8, %_ZNK24ShenandoahMarkingContext14is_marked_weakEP7oopDesc.exit ]
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %113)
+  %114 = getelementptr inbounds i8, ptr %6, i64 2440
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %117 = load i64, ptr %116, align 8
+  %118 = lshr i64 %7, %117
+  %119 = getelementptr inbounds i8, ptr %115, i64 80
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 %118
+  %122 = load i8, ptr %121, align 1
+  %123 = icmp eq i8 %122, 1
+  %124 = select i1 %123, ptr @.str.7, ptr @.str.8
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %124)
+  %125 = getelementptr inbounds i8, ptr %4, i64 56
+  %126 = load ptr, ptr %125, align 8
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.13, ptr noundef %126)
+  %127 = getelementptr inbounds i8, ptr %3, i64 56
+  %128 = load ptr, ptr %127, align 8
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %0, ptr noundef nonnull @.str.14, ptr noundef %128)
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #10
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #10
-  %128 = load ptr, ptr %27, align 8
-  %.not.i.i.i.i = icmp eq ptr %128, null
-  br i1 %.not.i.i.i.i, label %130, label %129
+  %129 = load ptr, ptr %27, align 8
+  %.not.i.i.i.i = icmp eq ptr %129, null
+  br i1 %.not.i.i.i.i, label %131, label %130
 
-129:                                              ; preds = %111
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef %32) #10
+130:                                              ; preds = %112
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef %33) #10
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %27) #10
-  br label %130
+  br label %131
 
-130:                                              ; preds = %129, %111
-  %131 = load ptr, ptr %28, align 8
-  %.not8.i.i.i.i = icmp eq ptr %131, %30
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %132
+131:                                              ; preds = %130, %112
+  %132 = load ptr, ptr %28, align 8
+  %.not8.i.i.i.i = icmp eq ptr %132, %29
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %133
 
-132:                                              ; preds = %130
+133:                                              ; preds = %131
   store ptr %27, ptr %26, align 8
-  store <2 x ptr> %29, ptr %28, align 8
+  store ptr %29, ptr %28, align 8
+  store ptr %31, ptr %30, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %130, %132
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %131, %133
   ret void
 }
 

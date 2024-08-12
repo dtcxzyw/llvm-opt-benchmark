@@ -1010,7 +1010,7 @@ define linkonce_odr void @_ZSt10_ConstructIN3nix20MountedInputAccessorEJSt3mapIN
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i, label %19, label %7
+  br i1 %.not.i.i.i.i, label %21, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1019,105 +1019,111 @@ define linkonce_odr void @_ZSt10_ConstructIN3nix20MountedInputAccessorEJSt3mapIN
   %10 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %6, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 24
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
-  %14 = load <2 x ptr>, ptr %11, align 8
-  store <2 x ptr> %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %4, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 40
-  store i64 %17, ptr %18, align 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %12, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %4, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 %19, ptr %20, align 8
   store ptr null, ptr %5, align 8
   store ptr %8, ptr %11, align 8
-  store ptr %8, ptr %13, align 8
+  store ptr %8, ptr %14, align 8
   br label %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEEC2EOSB_.exit
 
-19:                                               ; preds = %2
+21:                                               ; preds = %2
   store i32 0, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %4, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %4, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 40
+  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %4, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %4, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %3, i64 40
   br label %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEEC2EOSB_.exit
 
-_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEEC2EOSB_.exit: ; preds = %7, %19
-  %.sink.i.i.i.i = phi ptr [ %16, %7 ], [ %23, %19 ]
+_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEEC2EOSB_.exit: ; preds = %7, %21
+  %.sink.i.i.i.i = phi ptr [ %18, %7 ], [ %25, %21 ]
   store i64 0, ptr %.sink.i.i.i.i, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
-  invoke void @_ZN3nix14SourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %24)
-          to label %.noexc unwind label %50
+  %26 = getelementptr inbounds i8, ptr %0, i64 112
+  invoke void @_ZN3nix14SourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %26)
+          to label %.noexc unwind label %54
 
 .noexc:                                           ; preds = %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEEC2EOSB_.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
-  store i8 0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  store i8 0, ptr %28, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20MountedInputAccessorE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20MountedInputAccessorE, i64 192), ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i.i.i, label %41, label %30
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20MountedInputAccessorE, i64 192), ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i.i.i.i, label %45, label %32
 
-30:                                               ; preds = %.noexc
-  %31 = load i32, ptr %4, align 8
-  store i32 %31, ptr %27, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %29, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 24
-  %34 = getelementptr inbounds i8, ptr %0, i64 88
-  %35 = getelementptr inbounds i8, ptr %3, i64 32
-  %36 = load <2 x ptr>, ptr %33, align 8
-  store <2 x ptr> %36, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr %27, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 40
-  %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 104
-  store i64 %39, ptr %40, align 8
-  store ptr null, ptr %28, align 8
-  store ptr %4, ptr %33, align 8
+32:                                               ; preds = %.noexc
+  %33 = load i32, ptr %4, align 8
+  store i32 %33, ptr %29, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %31, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %3, i64 24
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %3, i64 32
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %39, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %31, i64 8
+  store ptr %29, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %3, i64 40
+  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 104
+  store i64 %43, ptr %44, align 8
+  store ptr null, ptr %30, align 8
   store ptr %4, ptr %35, align 8
-  br label %46
+  store ptr %4, ptr %38, align 8
+  br label %50
 
-41:                                               ; preds = %.noexc
-  store i32 0, ptr %27, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %27, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %27, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 104
-  br label %46
+45:                                               ; preds = %.noexc
+  store i32 0, ptr %29, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr null, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %29, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %29, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 104
+  br label %50
 
-46:                                               ; preds = %41, %30
-  %.sink.i.i.i.i.i = phi ptr [ %38, %30 ], [ %45, %41 ]
+50:                                               ; preds = %45, %32
+  %.sink.i.i.i.i.i = phi ptr [ %42, %32 ], [ %49, %45 ]
   store i64 0, ptr %.sink.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN3nix9CanonPathESt4pairIKS1_NS0_3refINS0_13InputAccessorEEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null)
-          to label %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEED2Ev.exit unwind label %47
+          to label %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEED2Ev.exit unwind label %51
 
-47:                                               ; preds = %46
-  %48 = landingpad { ptr, i32 }
+51:                                               ; preds = %50
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #23
+  %53 = extractvalue { ptr, i32 } %52, 0
+  call void @__clang_call_terminate(ptr %53) #23
   unreachable
 
-_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEED2Ev.exit: ; preds = %46
+_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEED2Ev.exit: ; preds = %50
   ret void
 
-50:                                               ; preds = %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEEC2EOSB_.exit
-  %51 = landingpad { ptr, i32 }
+54:                                               ; preds = %_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEEC2EOSB_.exit
+  %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3mapIN3nix9CanonPathENS0_3refINS0_13InputAccessorEEESt4lessIS1_ESaISt4pairIKS1_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #19
-  resume { ptr, i32 } %51
+  resume { ptr, i32 } %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -139,11 +139,11 @@ define internal noundef ptr @mca_pml_monitoring_component_init(ptr nocapture nou
 define internal noundef i32 @mca_pml_monitoring_component_finish() #0 {
   %1 = load i32, ptr @mca_common_monitoring_enabled, align 4
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %48, label %2
+  br i1 %.not, label %49, label %2
 
 2:                                                ; preds = %0
   %.b = load i1, ptr @mca_pml_monitoring_active, align 4
-  br i1 %.b, label %43, label %.preheader
+  br i1 %.b, label %44, label %.preheader
 
 .preheader:                                       ; preds = %2
   %.013 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 112), align 8
@@ -227,26 +227,28 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) @mca_pml, ptr noundef nonnull align 8 dereferenceable(192) @mca_pml_monitoring_module, i64 192, i1 false)
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 24), align 8
   store ptr %39, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 24), align 8
-  %40 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 168), align 8
-  store <2 x i32> %40, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 168), align 8
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 176), align 8
-  %42 = or i32 %41, 1
-  store i32 %42, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 176), align 8
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 168), align 8
+  store i32 %40, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 168), align 8
+  %41 = load i32, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 172), align 4
+  store i32 %41, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 172), align 4
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 176), align 8
+  %43 = or i32 %42, 1
+  store i32 %43, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 176), align 8
   store i1 true, ptr @mca_pml_monitoring_active, align 4
-  br label %48
+  br label %49
 
-43:                                               ; preds = %2
+44:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) @mca_pml_base_selected_component, ptr noundef nonnull align 8 dereferenceable(280) @pml_selected_component, i64 280, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) @mca_pml, ptr noundef nonnull align 8 dereferenceable(192) @pml_selected_module, i64 192, i1 false)
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_component, i64 272), align 8
-  %45 = tail call i32 %44() #5
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_component, i64 272), align 8
+  %46 = tail call i32 %45() #5
   tail call void @mca_common_monitoring_finalize() #5
-  %46 = tail call i32 @mca_base_component_repository_retain_component(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_monitoring_component, i64 40), ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_monitoring_component, i64 84)) #5
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 76), align 4
-  tail call void @mca_base_component_close(ptr noundef nonnull @mca_pml_monitoring_component, i32 noundef %47) #5
-  br label %48
+  %47 = tail call i32 @mca_base_component_repository_retain_component(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_monitoring_component, i64 40), ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_monitoring_component, i64 84)) #5
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 76), align 4
+  tail call void @mca_base_component_close(ptr noundef nonnull @mca_pml_monitoring_component, i32 noundef %48) #5
+  br label %49
 
-48:                                               ; preds = %.loopexit, %43, %0
+49:                                               ; preds = %.loopexit, %44, %0
   ret i32 0
 }
 

@@ -67,43 +67,33 @@ entry:
   %2 = load float, ptr %m_sweep.i, align 4
   %y.i.i = getelementptr inbounds i8, ptr %bodyA, i64 32
   %3 = load float, ptr %y.i.i, align 4
+  %mul3.i.i = fmul float %3, %3
+  %4 = tail call noundef float @llvm.fmuladd.f32(float %2, float %2, float %mul3.i.i)
+  %5 = tail call noundef float @llvm.fmuladd.f32(float %1, float %4, float %0)
   %m_I.i11 = getelementptr inbounds i8, ptr %bodyB, i64 152
-  %4 = load float, ptr %m_I.i11, align 8
+  %6 = load float, ptr %m_I.i11, align 8
   %m_mass.i12 = getelementptr inbounds i8, ptr %bodyB, i64 144
-  %5 = load float, ptr %m_mass.i12, align 8
+  %7 = load float, ptr %m_mass.i12, align 8
   %m_sweep.i13 = getelementptr inbounds i8, ptr %bodyB, i64 28
-  %6 = load float, ptr %m_sweep.i13, align 4
+  %8 = load float, ptr %m_sweep.i13, align 4
   %y.i.i14 = getelementptr inbounds i8, ptr %bodyB, i64 32
-  %7 = load float, ptr %y.i.i14, align 4
-  %8 = insertelement <2 x float> poison, float %3, i64 0
-  %9 = insertelement <2 x float> %8, float %7, i64 1
-  %10 = fmul <2 x float> %9, %9
-  %11 = insertelement <2 x float> poison, float %2, i64 0
-  %12 = insertelement <2 x float> %11, float %6, i64 1
-  %13 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %12, <2 x float> %12, <2 x float> %10)
-  %14 = insertelement <2 x float> poison, float %1, i64 0
-  %15 = insertelement <2 x float> %14, float %5, i64 1
-  %16 = insertelement <2 x float> poison, float %0, i64 0
-  %17 = insertelement <2 x float> %16, float %4, i64 1
-  %18 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %15, <2 x float> %13, <2 x float> %17)
-  %19 = fcmp ogt <2 x float> %18, zeroinitializer
-  %20 = extractelement <2 x i1> %19, i64 0
-  %21 = extractelement <2 x i1> %19, i64 1
-  %or.cond = and i1 %20, %21
+  %9 = load float, ptr %y.i.i14, align 4
+  %mul3.i.i15 = fmul float %9, %9
+  %10 = tail call noundef float @llvm.fmuladd.f32(float %8, float %8, float %mul3.i.i15)
+  %11 = tail call noundef float @llvm.fmuladd.f32(float %7, float %10, float %6)
+  %cmp = fcmp ogt float %5, 0.000000e+00
+  %cmp2 = fcmp ogt float %11, 0.000000e+00
+  %or.cond = and i1 %cmp, %cmp2
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %22 = extractelement <2 x float> %18, i64 0
-  %23 = extractelement <2 x float> %18, i64 1
-  %mul = fmul float %22, %23
-  %add = fadd float %22, %23
+  %mul = fmul float %5, %11
+  %add = fadd float %5, %11
   %div = fdiv float %mul, %add
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %24 = extractelement <2 x float> %18, i64 0
-  %25 = extractelement <2 x float> %18, i64 1
-  %call.call1 = select i1 %20, float %24, float %25
+  %call.call1 = select i1 %cmp, float %5, float %11
   br label %if.end6
 
 if.end6:                                          ; preds = %if.else, %if.then
@@ -307,10 +297,10 @@ entry:
   %x2 = alloca %struct.b2Vec2, align 8
   %p1 = alloca %struct.b2Vec2, align 8
   %p2 = alloca %struct.b2Vec2, align 8
-  %color = alloca %struct.b2Color, align 16
+  %color = alloca %struct.b2Color, align 4
   %s1 = alloca %struct.b2Vec2, align 8
   %s2 = alloca %struct.b2Vec2, align 8
-  %c = alloca %struct.b2Color, align 16
+  %c = alloca %struct.b2Color, align 4
   %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
   %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
@@ -330,7 +320,13 @@ entry:
   %5 = load ptr, ptr %vfn6, align 8
   %call7 = tail call <2 x float> %5(ptr noundef nonnull align 8 dereferenceable(128) %this)
   store <2 x float> %call7, ptr %p2, align 8
-  store <4 x float> <float 5.000000e-01, float 0x3FE99999A0000000, float 0x3FE99999A0000000, float 1.000000e+00>, ptr %color, align 16
+  store float 5.000000e-01, ptr %color, align 4
+  %g.i = getelementptr inbounds i8, ptr %color, i64 4
+  store float 0x3FE99999A0000000, ptr %g.i, align 4
+  %b.i = getelementptr inbounds i8, ptr %color, i64 8
+  store float 0x3FE99999A0000000, ptr %b.i, align 4
+  %a.i = getelementptr inbounds i8, ptr %color, i64 12
+  store float 1.000000e+00, ptr %a.i, align 4
   %m_type = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i32, ptr %m_type, align 8
   switch i32 %6, label %sw.default [
@@ -366,7 +362,13 @@ sw.bb10:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
-  store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %c, align 16
+  store float 0.000000e+00, ptr %c, align 4
+  %g.i12 = getelementptr inbounds i8, ptr %c, i64 4
+  store float 1.000000e+00, ptr %g.i12, align 4
+  %b.i13 = getelementptr inbounds i8, ptr %c, i64 8
+  store float 0.000000e+00, ptr %b.i13, align 4
+  %a.i14 = getelementptr inbounds i8, ptr %c, i64 12
+  store float 1.000000e+00, ptr %a.i14, align 4
   %vtable20 = load ptr, ptr %draw, align 8
   %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 64
   %11 = load ptr, ptr %vfn21, align 8
@@ -375,7 +377,10 @@ sw.bb19:                                          ; preds = %entry
   %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 64
   %12 = load ptr, ptr %vfn23, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %p2, float noundef 4.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c)
-  store <4 x float> <float 0x3FE99999A0000000, float 0x3FE99999A0000000, float 0x3FE99999A0000000, float 1.000000e+00>, ptr %c, align 16
+  store float 0x3FE99999A0000000, ptr %c, align 4
+  store float 0x3FE99999A0000000, ptr %g.i12, align 4
+  store float 0x3FE99999A0000000, ptr %b.i13, align 4
+  store float 1.000000e+00, ptr %a.i14, align 4
   %vtable24 = load ptr, ptr %draw, align 8
   %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 48
   %13 = load ptr, ptr %vfn25, align 8
@@ -433,16 +438,16 @@ entry:
   unreachable
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fmuladd.f32(float, float, float) #6
+
 declare void @_Z6b2DumpPKcz(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #6
+declare void @llvm.trap() #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -450,9 +455,9 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }
 

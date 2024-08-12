@@ -1570,66 +1570,66 @@ entry:
   store ptr %localeID, ptr %position, align 8
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp sgt i32 %0, 0
-  %1 = insertelement <4 x ptr> poison, ptr %lang, i64 0
-  %2 = insertelement <4 x ptr> %1, ptr %langLength, i64 1
-  %3 = insertelement <4 x ptr> %2, ptr %script, i64 2
-  %4 = insertelement <4 x ptr> %3, ptr %scriptLength, i64 3
-  %5 = icmp eq <4 x ptr> %4, zeroinitializer
+  %cmp2 = icmp eq ptr %lang, null
+  %or.cond1 = or i1 %cmp2, %cmp.i
+  %cmp4 = icmp eq ptr %langLength, null
+  %or.cond2 = or i1 %cmp4, %or.cond1
+  %cmp6 = icmp eq ptr %script, null
+  %or.cond3 = or i1 %cmp6, %or.cond2
+  %cmp8 = icmp eq ptr %scriptLength, null
+  %or.cond4 = or i1 %cmp8, %or.cond3
   %cmp10 = icmp eq ptr %region, null
+  %or.cond5 = or i1 %cmp10, %or.cond4
   %cmp12 = icmp eq ptr %regionLength, null
-  %6 = bitcast <4 x i1> %5 to i4
-  %7 = icmp ne i4 %6, 0
-  %op.rdx = or i1 %7, %cmp10
-  %op.rdx43 = or i1 %cmp12, %cmp.i
-  %op.rdx44 = or i1 %op.rdx, %op.rdx43
-  br i1 %op.rdx44, label %error, label %if.end
+  %or.cond6 = or i1 %cmp12, %or.cond5
+  br i1 %or.cond6, label %error, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @_Z22ulocimp_getLanguage_75PKcPS0_R10UErrorCode(ptr nonnull sret(%"class.icu_75::CharString") align 8 %ref.tmp, ptr noundef %localeID, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %err)
-  %8 = load i32, ptr %langLength, align 4
-  %call13 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp, ptr noundef %lang, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %1 = load i32, ptr %langLength, align 4
+  %call13 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp, ptr noundef %lang, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp) #11
-  %9 = load i32, ptr %err, align 4
-  %cmp.i34 = icmp slt i32 %9, 1
+  %2 = load i32, ptr %err, align 4
+  %cmp.i34 = icmp slt i32 %2, 1
   br i1 %cmp.i34, label %if.end17, label %exit
 
 lpad:                                             ; preds = %if.end
-  %10 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end17:                                         ; preds = %invoke.cont
   store i32 %call13, ptr %langLength, align 4
-  %11 = load ptr, ptr %position, align 8
-  %12 = load i8, ptr %11, align 1
-  switch i8 %12, label %if.end23 [
+  %4 = load ptr, ptr %position, align 8
+  %5 = load i8, ptr %4, align 1
+  switch i8 %5, label %if.end23 [
     i8 95, label %if.then22
     i8 45, label %if.then22
   ]
 
 if.then22:                                        ; preds = %if.end17, %if.end17
-  %incdec.ptr = getelementptr inbounds i8, ptr %11, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %incdec.ptr, ptr %position, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end17, %if.then22
-  %13 = phi ptr [ %11, %if.end17 ], [ %incdec.ptr, %if.then22 ]
-  call void @_Z20ulocimp_getScript_75PKcPS0_R10UErrorCode(ptr nonnull sret(%"class.icu_75::CharString") align 8 %ref.tmp24, ptr noundef nonnull %13, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %err)
-  %14 = load i32, ptr %scriptLength, align 4
-  %call27 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp24, ptr noundef nonnull %script, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %6 = phi ptr [ %4, %if.end17 ], [ %incdec.ptr, %if.then22 ]
+  call void @_Z20ulocimp_getScript_75PKcPS0_R10UErrorCode(ptr nonnull sret(%"class.icu_75::CharString") align 8 %ref.tmp24, ptr noundef nonnull %6, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %7 = load i32, ptr %scriptLength, align 4
+  %call27 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp24, ptr noundef nonnull %script, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end23
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp24) #11
-  %15 = load i32, ptr %err, align 4
-  %cmp.i36 = icmp slt i32 %15, 1
+  %8 = load i32, ptr %err, align 4
+  %cmp.i36 = icmp slt i32 %8, 1
   br i1 %cmp.i36, label %if.end31, label %exit
 
 lpad25:                                           ; preds = %if.end23
-  %16 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1640,8 +1640,8 @@ if.end31:                                         ; preds = %invoke.cont26
   br i1 %cmp32, label %if.then33, label %if.end42
 
 if.then33:                                        ; preds = %if.end31
-  %17 = load i8, ptr %.pre, align 1
-  switch i8 %17, label %if.end42 [
+  %10 = load i8, ptr %.pre, align 1
+  switch i8 %10, label %if.end42 [
     i8 95, label %if.then39
     i8 45, label %if.then39
   ]
@@ -1652,20 +1652,20 @@ if.then39:                                        ; preds = %if.then33, %if.then
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then33, %if.then39, %if.end31
-  %18 = phi ptr [ %.pre, %if.then33 ], [ %incdec.ptr40, %if.then39 ], [ %.pre, %if.end31 ]
-  call void @_Z21ulocimp_getCountry_75PKcPS0_R10UErrorCode(ptr nonnull sret(%"class.icu_75::CharString") align 8 %ref.tmp43, ptr noundef %18, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %err)
-  %19 = load i32, ptr %regionLength, align 4
-  %call46 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp43, ptr noundef nonnull %region, i32 noundef %19, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %11 = phi ptr [ %.pre, %if.then33 ], [ %incdec.ptr40, %if.then39 ], [ %.pre, %if.end31 ]
+  call void @_Z21ulocimp_getCountry_75PKcPS0_R10UErrorCode(ptr nonnull sret(%"class.icu_75::CharString") align 8 %ref.tmp43, ptr noundef %11, ptr noundef nonnull %position, ptr noundef nonnull align 4 dereferenceable(4) %err)
+  %12 = load i32, ptr %regionLength, align 4
+  %call46 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp43, ptr noundef nonnull %region, i32 noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %err)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %if.end42
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp43) #11
-  %20 = load i32, ptr %err, align 4
-  %cmp.i38 = icmp slt i32 %20, 1
+  %13 = load i32, ptr %err, align 4
+  %cmp.i38 = icmp slt i32 %13, 1
   br i1 %cmp.i38, label %if.end50, label %exit
 
 lpad44:                                           ; preds = %if.end42
-  %21 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1675,21 +1675,21 @@ if.end50:                                         ; preds = %invoke.cont45
   br i1 %cmp51, label %land.lhs.true, label %exit
 
 land.lhs.true:                                    ; preds = %if.end50
-  %22 = load ptr, ptr %position, align 8
-  %23 = load i8, ptr %22, align 1
-  switch i8 %23, label %if.then57 [
+  %15 = load ptr, ptr %position, align 8
+  %16 = load i8, ptr %15, align 1
+  switch i8 %16, label %if.then57 [
     i8 0, label %exit
     i8 64, label %exit
   ]
 
 if.then57:                                        ; preds = %land.lhs.true
-  %incdec.ptr58 = getelementptr inbounds i8, ptr %22, i64 -1
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %15, i64 -1
   store ptr %incdec.ptr58, ptr %position, align 8
   br label %exit
 
 exit:                                             ; preds = %invoke.cont, %invoke.cont26, %invoke.cont45, %land.lhs.true, %land.lhs.true, %error, %if.then63, %if.end50, %if.then57
-  %24 = load ptr, ptr %position, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %24 to i64
+  %17 = load ptr, ptr %position, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %localeID to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv60 = trunc i64 %sub.ptr.sub to i32
@@ -1705,7 +1705,7 @@ if.then63:                                        ; preds = %error
 
 eh.resume:                                        ; preds = %lpad44, %lpad25, %lpad
   %ref.tmp43.sink = phi ptr [ %ref.tmp43, %lpad44 ], [ %ref.tmp24, %lpad25 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %21, %lpad44 ], [ %16, %lpad25 ], [ %10, %lpad ]
+  %.pn = phi { ptr, i32 } [ %14, %lpad44 ], [ %9, %lpad25 ], [ %3, %lpad ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %ref.tmp43.sink) #11
   resume { ptr, i32 } %.pn
 }

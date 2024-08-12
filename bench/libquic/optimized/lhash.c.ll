@@ -25,11 +25,13 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %comp10 = getelementptr inbounds i8, ptr %calloc17, i64 32
-  %0 = insertelement <2 x ptr> poison, ptr %comp, i64 0
-  %1 = insertelement <2 x ptr> %0, ptr %hash, i64 1
-  %2 = icmp eq <2 x ptr> %1, zeroinitializer
-  %3 = select <2 x i1> %2, <2 x ptr> <ptr @strcmp, ptr @lh_strhash>, <2 x ptr> %1
-  store <2 x ptr> %3, ptr %comp10, align 8
+  %cmp12 = icmp eq ptr %comp, null
+  %spec.select = select i1 %cmp12, ptr @strcmp, ptr %comp
+  store ptr %spec.select, ptr %comp10, align 8
+  %hash16 = getelementptr inbounds i8, ptr %calloc17, i64 40
+  %cmp18 = icmp eq ptr %hash, null
+  %storemerge16 = select i1 %cmp18, ptr @lh_strhash, ptr %hash
+  store ptr %storemerge16, ptr %hash16, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end6, %if.then5

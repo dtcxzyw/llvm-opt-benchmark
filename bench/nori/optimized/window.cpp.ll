@@ -597,35 +597,42 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Window16mouse_drag_eventERKNS_5Arr
   %9 = and i32 %3, 1
   %.not = icmp ne i32 %9, 0
   %or.cond.not = and i1 %.not, %8
-  br i1 %or.cond.not, label %_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge, label %30
+  br i1 %or.cond.not, label %_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge, label %35
 
 _ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge:   ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i32, ptr %2, align 4
   %12 = load i32, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 44
+  %13 = add nsw i32 %12, %11
+  store i32 %13, ptr %10, align 8
+  %14 = getelementptr inbounds i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
-  %20 = add nsw i32 %12, %11
-  store i32 %20, ptr %10, align 8
-  %21 = load i32, ptr %13, align 4
-  %22 = add nsw i32 %15, %21
-  %23 = insertelement <2 x i32> poison, i32 %20, i64 0
-  %24 = insertelement <2 x i32> %23, i32 %22, i64 1
-  %25 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %24, <2 x i32> zeroinitializer)
-  store <2 x i32> %25, ptr %10, align 8
-  %26 = load <2 x i32>, ptr %18, align 4
-  %27 = load <2 x i32>, ptr %19, align 8
-  %28 = sub nsw <2 x i32> %26, %27
-  %29 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %28, <2 x i32> %25)
-  store <2 x i32> %29, ptr %10, align 8
-  br label %30
+  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %17 = load i32, ptr %16, align 4
+  %18 = add nsw i32 %17, %15
+  %19 = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
+  %20 = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
+  store i32 %19, ptr %10, align 8
+  store i32 %20, ptr %16, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = load i32, ptr %23, align 4
+  %26 = load i32, ptr %24, align 8
+  %27 = sub nsw i32 %25, %26
+  %28 = getelementptr inbounds i8, ptr %22, i64 52
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 52
+  %31 = load i32, ptr %30, align 4
+  %32 = sub nsw i32 %29, %31
+  %33 = tail call i32 @llvm.smin.i32(i32 %27, i32 %19)
+  %34 = tail call i32 @llvm.smin.i32(i32 %32, i32 %20)
+  store i32 %33, ptr %10, align 8
+  store i32 %34, ptr %16, align 4
+  br label %35
 
-30:                                               ; preds = %5, %_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge
+35:                                               ; preds = %5, %_ZN7nanogui5ArrayIiLm2EEpLERKS1_.exit.critedge
   ret i1 %or.cond.not
 }
 
@@ -735,10 +742,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.smin.v2i32(<2 x i32>, <2 x i32>) #11
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

@@ -231,16 +231,46 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN123_$LT$$u5b$I$u3b$$u20$12$u5d$$u20$as$u20$ring..polyfill..array_split_map..ArraySplitMap$LT$I$C$O$C$4_usize$C$3_usize$GT$$GT$15array_split_map17h0127908307e192a1E.llvm.2657819220133375221"(ptr noalias nocapture noundef writeonly sret([3 x i32]) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = load <4 x i8>, ptr %1, align 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
-  %5 = load <4 x i8>, ptr %4, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load <4 x i8>, ptr %6, align 1
-  store <4 x i8> %3, ptr %0, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
-  store <4 x i8> %5, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i8> %7, ptr %9, align 4
+  %3 = load i8, ptr %1, align 1, !noundef !4
+  %4 = getelementptr inbounds i8, ptr %1, i64 1
+  %5 = load i8, ptr %4, align 1, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %7 = load i8, ptr %6, align 1, !noundef !4
+  %8 = getelementptr inbounds i8, ptr %1, i64 3
+  %9 = load i8, ptr %8, align 1, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = load i8, ptr %10, align 1, !noundef !4
+  %12 = getelementptr inbounds i8, ptr %1, i64 5
+  %13 = load i8, ptr %12, align 1, !noundef !4
+  %14 = getelementptr inbounds i8, ptr %1, i64 6
+  %15 = load i8, ptr %14, align 1, !noundef !4
+  %16 = getelementptr inbounds i8, ptr %1, i64 7
+  %17 = load i8, ptr %16, align 1, !noundef !4
+  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = load i8, ptr %18, align 1, !noundef !4
+  %20 = getelementptr inbounds i8, ptr %1, i64 9
+  %21 = load i8, ptr %20, align 1, !noundef !4
+  %22 = getelementptr inbounds i8, ptr %1, i64 10
+  %23 = load i8, ptr %22, align 1, !noundef !4
+  %24 = getelementptr inbounds i8, ptr %1, i64 11
+  %25 = load i8, ptr %24, align 1, !noundef !4
+  %.sroa.01.0.vec.insert = insertelement <4 x i8> poison, i8 %3, i64 0
+  %.sroa.01.1.vec.insert = insertelement <4 x i8> %.sroa.01.0.vec.insert, i8 %5, i64 1
+  %.sroa.01.2.vec.insert = insertelement <4 x i8> %.sroa.01.1.vec.insert, i8 %7, i64 2
+  %.sroa.01.3.vec.insert = insertelement <4 x i8> %.sroa.01.2.vec.insert, i8 %9, i64 3
+  %.sroa.04.0.vec.insert = insertelement <4 x i8> poison, i8 %11, i64 0
+  %.sroa.04.1.vec.insert = insertelement <4 x i8> %.sroa.04.0.vec.insert, i8 %13, i64 1
+  %.sroa.04.2.vec.insert = insertelement <4 x i8> %.sroa.04.1.vec.insert, i8 %15, i64 2
+  %.sroa.04.3.vec.insert = insertelement <4 x i8> %.sroa.04.2.vec.insert, i8 %17, i64 3
+  %.sroa.07.0.vec.insert = insertelement <4 x i8> poison, i8 %19, i64 0
+  %.sroa.07.1.vec.insert = insertelement <4 x i8> %.sroa.07.0.vec.insert, i8 %21, i64 1
+  %.sroa.07.2.vec.insert = insertelement <4 x i8> %.sroa.07.1.vec.insert, i8 %23, i64 2
+  %.sroa.07.3.vec.insert = insertelement <4 x i8> %.sroa.07.2.vec.insert, i8 %25, i64 3
+  store <4 x i8> %.sroa.01.3.vec.insert, ptr %0, align 4
+  %26 = getelementptr inbounds i8, ptr %0, i64 4
+  store <4 x i8> %.sroa.04.3.vec.insert, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  store <4 x i8> %.sroa.07.3.vec.insert, ptr %27, align 4
   ret void
 }
 
@@ -417,16 +447,46 @@ define hidden noundef nonnull align 4 dereferenceable(244) ptr @_ZN4ring4aead3ae
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4ring4aead3aes7Counter3one17h75a2e7e8bd24706bE(ptr noalias nocapture noundef writeonly sret({ [4 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(12) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %3 = load <4 x i8>, ptr %1, align 1
+  %.sroa.02.0.copyload = load i8, ptr %1, align 1
+  %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 1
+  %.sroa.43.0.copyload = load i8, ptr %.sroa.43.0..sroa_idx, align 1
+  %.sroa.5.0..sroa_idx4 = getelementptr inbounds i8, ptr %1, i64 2
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx4, align 1
+  %.sroa.65.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 3
+  %.sroa.65.0.copyload = load i8, ptr %.sroa.65.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
-  %4 = load <4 x i8>, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 5
+  %.sroa.8.0.copyload = load i8, ptr %.sroa.8.0..sroa_idx, align 1
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 6
+  %.sroa.9.0.copyload = load i8, ptr %.sroa.9.0..sroa_idx, align 1
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 7
+  %.sroa.10.0.copyload = load i8, ptr %.sroa.10.0..sroa_idx, align 1
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load <4 x i8>, ptr %.sroa.11.0..sroa_idx, align 1
-  store <4 x i8> %3, ptr %0, align 4
+  %.sroa.11.0.copyload = load i8, ptr %.sroa.11.0..sroa_idx, align 1
+  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 9
+  %.sroa.12.0.copyload = load i8, ptr %.sroa.12.0..sroa_idx, align 1
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 10
+  %.sroa.13.0.copyload = load i8, ptr %.sroa.13.0..sroa_idx, align 1
+  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 11
+  %.sroa.14.0.copyload = load i8, ptr %.sroa.14.0..sroa_idx, align 1
+  %.sroa.01.0.vec.insert.i = insertelement <4 x i8> poison, i8 %.sroa.02.0.copyload, i64 0
+  %.sroa.01.1.vec.insert.i = insertelement <4 x i8> %.sroa.01.0.vec.insert.i, i8 %.sroa.43.0.copyload, i64 1
+  %.sroa.01.2.vec.insert.i = insertelement <4 x i8> %.sroa.01.1.vec.insert.i, i8 %.sroa.5.0.copyload, i64 2
+  %.sroa.01.3.vec.insert.i = insertelement <4 x i8> %.sroa.01.2.vec.insert.i, i8 %.sroa.65.0.copyload, i64 3
+  %.sroa.04.0.vec.insert.i = insertelement <4 x i8> poison, i8 %.sroa.7.0.copyload, i64 0
+  %.sroa.04.1.vec.insert.i = insertelement <4 x i8> %.sroa.04.0.vec.insert.i, i8 %.sroa.8.0.copyload, i64 1
+  %.sroa.04.2.vec.insert.i = insertelement <4 x i8> %.sroa.04.1.vec.insert.i, i8 %.sroa.9.0.copyload, i64 2
+  %.sroa.04.3.vec.insert.i = insertelement <4 x i8> %.sroa.04.2.vec.insert.i, i8 %.sroa.10.0.copyload, i64 3
+  %.sroa.07.0.vec.insert.i = insertelement <4 x i8> poison, i8 %.sroa.11.0.copyload, i64 0
+  %.sroa.07.1.vec.insert.i = insertelement <4 x i8> %.sroa.07.0.vec.insert.i, i8 %.sroa.12.0.copyload, i64 1
+  %.sroa.07.2.vec.insert.i = insertelement <4 x i8> %.sroa.07.1.vec.insert.i, i8 %.sroa.13.0.copyload, i64 2
+  %.sroa.07.3.vec.insert.i = insertelement <4 x i8> %.sroa.07.2.vec.insert.i, i8 %.sroa.14.0.copyload, i64 3
+  store <4 x i8> %.sroa.01.3.vec.insert.i, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store <4 x i8> %4, ptr %.sroa.4.0..sroa_idx, align 4
+  store <4 x i8> %.sroa.04.3.vec.insert.i, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i8> %5, ptr %.sroa.5.0..sroa_idx, align 4
+  store <4 x i8> %.sroa.07.3.vec.insert.i, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   store i32 16777216, ptr %.sroa.6.0..sroa_idx, align 4
   ret void

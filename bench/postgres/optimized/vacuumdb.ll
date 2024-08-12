@@ -198,10 +198,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 20
   %11 = getelementptr inbounds i8, ptr %5, i64 21
+  store i8 0, ptr %11, align 1
   %12 = getelementptr inbounds i8, ptr %5, i64 22
+  store i8 1, ptr %12, align 2
   %13 = getelementptr inbounds i8, ptr %5, i64 23
+  store i8 1, ptr %13, align 1
   %14 = getelementptr inbounds i8, ptr %5, i64 24
-  store <4 x i8> <i8 0, i8 1, i8 1, i8 1>, ptr %11, align 1
+  store i8 1, ptr %14, align 8
   %15 = load ptr, ptr %1, align 8
   tail call void @pg_logging_init(ptr noundef %15) #9
   %16 = load ptr, ptr %1, align 8

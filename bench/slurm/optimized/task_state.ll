@@ -185,7 +185,7 @@ _task_state_type_str.exit:                        ; preds = %switch.lookup, %8
   br label %11
 
 11:                                               ; preds = %_task_state_type_str.exit, %3
-  switch i32 %2, label %59 [
+  switch i32 %2, label %62 [
     i32 0, label %12
     i32 1, label %19
     i32 2, label %23
@@ -201,14 +201,14 @@ _task_state_type_str.exit:                        ; preds = %switch.lookup, %8
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %16, align 4
-  br label %59
+  br label %62
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %1 to i64
   tail call void @bit_set(ptr noundef %21, i64 noundef %22) #6
-  br label %59
+  br label %62
 
 23:                                               ; preds = %11
   %24 = getelementptr inbounds i8, ptr %0, i64 48
@@ -230,7 +230,7 @@ _task_state_type_str.exit:                        ; preds = %switch.lookup, %8
 
 34:                                               ; preds = %30, %23
   %35 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, i32 noundef %1) #6
-  br label %59
+  br label %62
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %27, align 8
@@ -239,7 +239,7 @@ _task_state_type_str.exit:                        ; preds = %switch.lookup, %8
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4
-  br label %59
+  br label %62
 
 41:                                               ; preds = %11
   %42 = getelementptr inbounds i8, ptr %0, i64 48
@@ -261,18 +261,22 @@ _task_state_type_str.exit:                        ; preds = %switch.lookup, %8
 
 52:                                               ; preds = %48, %41
   %53 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, i32 noundef %1) #6
-  br label %59
+  br label %62
 
 54:                                               ; preds = %48
   %55 = load ptr, ptr %49, align 8
   tail call void @bit_set(ptr noundef %55, i64 noundef %44) #6
-  %56 = getelementptr inbounds i8, ptr %0, i64 24
-  %57 = load <2 x i32>, ptr %56, align 8
-  %58 = add nsw <2 x i32> %57, <i32 1, i32 1>
-  store <2 x i32> %58, ptr %56, align 8
-  br label %59
+  %56 = getelementptr inbounds i8, ptr %0, i64 28
+  %57 = load i32, ptr %56, align 4
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %56, align 4
+  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = load i32, ptr %59, align 8
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %59, align 8
+  br label %62
 
-59:                                               ; preds = %52, %54, %34, %36, %19, %12, %11
+62:                                               ; preds = %52, %54, %34, %36, %19, %12, %11
   ret void
 }
 

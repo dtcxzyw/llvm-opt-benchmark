@@ -35,7 +35,7 @@ $_ZN6google12Check_LTImplImhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 $_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh = comdat any
 
-@_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions = internal global %"class.folly::Indestructible" zeroinitializer, align 16
+@_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions = internal global %"class.folly::Indestructible" zeroinitializer, align 8
 @_ZGVZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions = internal global i64 0, align 8
 @.str = private unnamed_addr constant [6 x i8] c"Start\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"HeadersSent\00", align 1
@@ -69,7 +69,7 @@ $_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh
 ; Function Attrs: mustprogress uwtable
 define i16 @_ZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventE(i8 noundef zeroext %s, i8 noundef zeroext %e) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.proxygen::TransitionTable", align 16
+  %ref.tmp = alloca %"class.proxygen::TransitionTable", align 8
   %agg.tmp = alloca %"class.std::vector.0", align 8
   %ref.tmp2 = alloca [21 x %"struct.std::pair.5"], align 2
   %ref.tmp147 = alloca %"class.std::allocator.2", align 1
@@ -174,15 +174,21 @@ invoke.cont149:                                   ; preds = %init
           to label %_ZN8proxygen15TransitionTableINS_27HTTPTransactionEgressSMData5StateENS1_5EventEED2Ev.exit unwind label %lpad150
 
 _ZN8proxygen15TransitionTableINS_27HTTPTransactionEgressSMData5StateENS1_5EventEED2Ev.exit: ; preds = %invoke.cont149
-  %2 = load <2 x ptr>, ptr %ref.tmp, align 16
-  store <2 x ptr> %2, ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, align 16
+  %2 = load ptr, ptr %ref.tmp, align 8
+  store ptr %2, ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, align 8
+  %_M_finish3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i, align 8
+  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 8), align 8
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 16
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 16), align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
+  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 16), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %nStates_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %4 = load <2 x i64>, ptr %nStates_3.i.i.i, align 8
-  store <2 x i64> %4, ptr getelementptr inbounds (i8, ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 24), align 8
+  %5 = load i64, ptr %nStates_3.i.i.i, align 8
+  store i64 %5, ptr getelementptr inbounds (i8, ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 24), align 8
+  %nEvents_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %6 = load i64, ptr %nEvents_4.i.i.i, align 8
+  store i64 %6, ptr getelementptr inbounds (i8, ptr @_ZZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions, i64 32), align 8
   %.pre = load ptr, ptr %agg.tmp, align 8
   %tobool.not.i.i.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIS0_IN8proxygen27HTTPTransactionEgressSMData5StateENS2_5EventEES3_ESaIS6_EED2Ev.exit, label %if.then.i.i.i
@@ -200,23 +206,23 @@ init.end:                                         ; preds = %_ZNSt6vectorISt4pai
   ret i16 %call156
 
 lpad148:                                          ; preds = %init
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup154
 
 lpad150:                                          ; preds = %invoke.cont149
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %agg.tmp, align 8
-  %tobool.not.i.i.i47 = icmp eq ptr %7, null
+  %9 = load ptr, ptr %agg.tmp, align 8
+  %tobool.not.i.i.i47 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i47, label %ehcleanup154, label %if.then.i.i.i48
 
 if.then.i.i.i48:                                  ; preds = %lpad150
-  call void @_ZdlPv(ptr noundef nonnull %7) #13
+  call void @_ZdlPv(ptr noundef nonnull %9) #13
   br label %ehcleanup154
 
 ehcleanup154:                                     ; preds = %if.then.i.i.i48, %lpad150, %lpad148
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad148 ], [ %6, %lpad150 ], [ %6, %if.then.i.i.i48 ]
+  %.pn.pn = phi { ptr, i32 } [ %7, %lpad148 ], [ %8, %lpad150 ], [ %8, %if.then.i.i.i48 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8proxygen27HTTPTransactionEgressSMData4findENS0_5StateENS0_5EventEE11transitions) #12
   resume { ptr, i32 } %.pn.pn
 }

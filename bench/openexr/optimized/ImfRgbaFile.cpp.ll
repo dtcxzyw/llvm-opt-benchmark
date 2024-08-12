@@ -118,7 +118,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7Imf_3_214RgbaOutputFile5ToYcaC2ERNS_10OutputFileENS_12RgbaChannelsE(ptr nocapture noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(16) %outputFile, i32 noundef %rgbaChannels) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.Imath_3_2::Vec3", align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec3", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   %_outputFile = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %outputFile, ptr %_outputFile, align 8
@@ -138,42 +138,50 @@ entry:
   store i8 %frombool9, ptr %_writeA, align 2
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %outputFile)
   %call11 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
+  %4 = load i32, ptr %call11, align 4
+  %y3.i.i = getelementptr inbounds i8, ptr %call11, i64 4
+  %5 = load i32, ptr %y3.i.i, align 4
   %max3.i = getelementptr inbounds i8, ptr %call11, i64 8
+  %6 = load i32, ptr %max3.i, align 4
   %y3.i3.i = getelementptr inbounds i8, ptr %call11, i64 12
+  %7 = load i32, ptr %y3.i3.i, align 4
   %_xMin = getelementptr inbounds i8, ptr %this, i64 52
+  store i32 %4, ptr %_xMin, align 4
+  %reass.sub = sub i32 %6, %4
+  %add = add i32 %reass.sub, 1
   %_width = getelementptr inbounds i8, ptr %this, i64 56
-  %4 = load <2 x i32>, ptr %call11, align 4
-  %5 = load i32, ptr %y3.i3.i, align 4
-  %6 = load <2 x i32>, ptr %max3.i, align 4
-  %7 = extractelement <2 x i32> %4, i64 0
-  store i32 %7, ptr %_xMin, align 4
-  %8 = sub <2 x i32> %6, %4
-  %9 = add <2 x i32> %8, <i32 1, i32 1>
-  store <2 x i32> %9, ptr %_width, align 8
+  store i32 %add, ptr %_width, align 8
+  %reass.sub12 = sub i32 %7, %5
+  %add19 = add i32 %reass.sub12, 1
+  %_height = getelementptr inbounds i8, ptr %this, i64 60
+  store i32 %add19, ptr %_height, align 4
   %_linesConverted = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %_linesConverted, align 8
-  %10 = load ptr, ptr %_outputFile, align 8
-  %call21 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %8 = load ptr, ptr %_outputFile, align 8
+  %call21 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
   %call22 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49) %call21)
-  %11 = load i32, ptr %call22, align 4
+  %9 = load i32, ptr %call22, align 4
   %_lineOrder = getelementptr inbounds i8, ptr %this, i64 68
-  store i32 %11, ptr %_lineOrder, align 4
-  %cmp = icmp eq i32 %11, 0
-  %12 = extractelement <2 x i32> %4, i64 1
-  %spec.select = select i1 %cmp, i32 %12, i32 %5
-  %13 = getelementptr inbounds i8, ptr %this, i64 72
-  store i32 %spec.select, ptr %13, align 8
-  %14 = load ptr, ptr %_outputFile, align 8
-  %call30 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
+  store i32 %9, ptr %_lineOrder, align 4
+  %cmp = icmp eq i32 %9, 0
+  %spec.select = select i1 %cmp, i32 %5, i32 %7
+  %10 = getelementptr inbounds i8, ptr %this, i64 72
+  store i32 %spec.select, ptr %10, align 8
+  %11 = load ptr, ptr %_outputFile, align 8
+  %call30 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
   call fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias nonnull align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %call30)
-  %15 = load <2 x float>, ptr %ref.tmp, align 8
-  store <2 x float> %15, ptr %_yw, align 4
+  %12 = load float, ptr %ref.tmp, align 4
+  store float %12, ptr %_yw, align 4
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %13 = load float, ptr %y.i, align 4
+  %y3.i = getelementptr inbounds i8, ptr %this, i64 80
+  store float %13, ptr %y3.i, align 8
   %z.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %16 = load float, ptr %z.i, align 8
+  %14 = load float, ptr %z.i, align 4
   %z4.i = getelementptr inbounds i8, ptr %this, i64 84
-  store float %16, ptr %z4.i, align 4
-  %17 = load i32, ptr %_width, align 8
-  %conv = sext i32 %17 to i64
+  store float %14, ptr %z4.i, align 4
+  %15 = load i32, ptr %_width, align 8
+  %conv = sext i32 %15 to i64
   %mul = shl nsw i64 %conv, 3
   br label %while.cond.i
 
@@ -211,10 +219,10 @@ _ZN7Imf_3_212_GLOBAL__N_112cachePaddingEl.exit:   ; preds = %if.then.i, %if.end.
   %div7 = lshr i64 %retval.0.i, 3
   %add37 = add nsw i64 %div7, %conv
   %mul38 = mul nsw i64 %add37, 27
-  %18 = icmp ugt i64 %mul38, 2305843009213693951
-  %19 = mul i64 %add37, 216
-  %20 = select i1 %18, i64 -1, i64 %19
-  %call39 = call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
+  %16 = icmp ugt i64 %mul38, 2305843009213693951
+  %17 = mul i64 %add37, 216
+  %18 = select i1 %16, i64 -1, i64 %17
+  %call39 = call noalias noundef nonnull ptr @_Znam(i64 noundef %18) #23
   %_bufBase = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %call39, ptr %_bufBase, align 8
   %_buf = getelementptr inbounds i8, ptr %this, i64 96
@@ -231,12 +239,12 @@ for.body:                                         ; preds = %_ZN7Imf_3_212_GLOBA
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body
-  %sub49 = add nsw i32 %17, 26
+  %sub49 = add nsw i32 %15, 26
   %conv50 = sext i32 %sub49 to i64
-  %21 = icmp slt i32 %17, -26
-  %22 = shl nsw i64 %conv50, 3
-  %23 = select i1 %21, i64 -1, i64 %22
-  %call51 = call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #23
+  %19 = icmp slt i32 %15, -26
+  %20 = shl nsw i64 %conv50, 3
+  %21 = select i1 %19, i64 -1, i64 %20
+  %call51 = call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #23
   %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 312
   store ptr %call51, ptr %_tmpBuf, align 8
   %_fbBase = getelementptr inbounds i8, ptr %this, i64 320
@@ -257,27 +265,59 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header9line
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %header) unnamed_addr #3 {
 entry:
-  %cr = alloca %"struct.Imf_3_2::Chromaticities", align 16
-  %ref.tmp = alloca %"class.Imath_3_2::Vec2.8", align 8
-  %ref.tmp1 = alloca %"class.Imath_3_2::Vec2.8", align 8
-  %ref.tmp2 = alloca %"class.Imath_3_2::Vec2.8", align 8
-  %ref.tmp3 = alloca %"class.Imath_3_2::Vec2.8", align 8
-  store <2 x float> <float 0x3FE47AE140000000, float 0x3FD51EB860000000>, ptr %ref.tmp, align 8
-  store <2 x float> <float 0x3FD3333340000000, float 0x3FE3333340000000>, ptr %ref.tmp1, align 8
-  store <2 x float> <float 0x3FC3333340000000, float 0x3FAEB851E0000000>, ptr %ref.tmp2, align 8
-  store <2 x float> <float 0x3FD40346E0000000, float 0x3FD50E5600000000>, ptr %ref.tmp3, align 8
+  %cr = alloca %"struct.Imf_3_2::Chromaticities", align 4
+  %ref.tmp = alloca %"class.Imath_3_2::Vec2.8", align 4
+  %ref.tmp1 = alloca %"class.Imath_3_2::Vec2.8", align 4
+  %ref.tmp2 = alloca %"class.Imath_3_2::Vec2.8", align 4
+  %ref.tmp3 = alloca %"class.Imath_3_2::Vec2.8", align 4
+  store float 0x3FE47AE140000000, ptr %ref.tmp, align 4
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  store float 0x3FD51EB860000000, ptr %y.i, align 4
+  store float 0x3FD3333340000000, ptr %ref.tmp1, align 4
+  %y.i2 = getelementptr inbounds i8, ptr %ref.tmp1, i64 4
+  store float 0x3FE3333340000000, ptr %y.i2, align 4
+  store float 0x3FC3333340000000, ptr %ref.tmp2, align 4
+  %y.i3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
+  store float 0x3FAEB851E0000000, ptr %y.i3, align 4
+  store float 0x3FD40346E0000000, ptr %ref.tmp3, align 4
+  %y.i4 = getelementptr inbounds i8, ptr %ref.tmp3, i64 4
+  store float 0x3FD50E5600000000, ptr %y.i4, align 4
   call void @_ZN7Imf_3_214ChromaticitiesC1ERKN9Imath_3_24Vec2IfEES5_S5_S5_(ptr noundef nonnull align 4 dereferenceable(32) %cr, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp1, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp3)
   %call = call noundef zeroext i1 @_ZN7Imf_3_217hasChromaticitiesERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %header)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call4 = call noundef nonnull align 4 dereferenceable(32) ptr @_ZN7Imf_3_214chromaticitiesERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %header)
-  %0 = load <4 x float>, ptr %call4, align 4
-  store <4 x float> %0, ptr %cr, align 16
+  %0 = load float, ptr %call4, align 4
+  store float %0, ptr %cr, align 4
+  %y.i.i = getelementptr inbounds i8, ptr %call4, i64 4
+  %1 = load float, ptr %y.i.i, align 4
+  %y3.i.i = getelementptr inbounds i8, ptr %cr, i64 4
+  store float %1, ptr %y3.i.i, align 4
+  %green.i = getelementptr inbounds i8, ptr %cr, i64 8
+  %green3.i = getelementptr inbounds i8, ptr %call4, i64 8
+  %2 = load float, ptr %green3.i, align 4
+  store float %2, ptr %green.i, align 4
+  %y.i4.i = getelementptr inbounds i8, ptr %call4, i64 12
+  %3 = load float, ptr %y.i4.i, align 4
+  %y3.i5.i = getelementptr inbounds i8, ptr %cr, i64 12
+  store float %3, ptr %y3.i5.i, align 4
   %blue.i = getelementptr inbounds i8, ptr %cr, i64 16
   %blue5.i = getelementptr inbounds i8, ptr %call4, i64 16
-  %1 = load <4 x float>, ptr %blue5.i, align 4
-  store <4 x float> %1, ptr %blue.i, align 16
+  %4 = load float, ptr %blue5.i, align 4
+  store float %4, ptr %blue.i, align 4
+  %y.i6.i = getelementptr inbounds i8, ptr %call4, i64 20
+  %5 = load float, ptr %y.i6.i, align 4
+  %y3.i7.i = getelementptr inbounds i8, ptr %cr, i64 20
+  store float %5, ptr %y3.i7.i, align 4
+  %white.i = getelementptr inbounds i8, ptr %cr, i64 24
+  %white7.i = getelementptr inbounds i8, ptr %call4, i64 24
+  %6 = load float, ptr %white7.i, align 4
+  store float %6, ptr %white.i, align 4
+  %y.i8.i = getelementptr inbounds i8, ptr %call4, i64 28
+  %7 = load float, ptr %y.i8.i, align 4
+  %y3.i9.i = getelementptr inbounds i8, ptr %cr, i64 28
+  store float %7, ptr %y3.i9.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1440,12 +1480,15 @@ entry:
   %_toYca = getelementptr inbounds i8, ptr %this, i64 16
   %max.i = getelementptr inbounds i8, ptr %dataWindow, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_outputFile, i8 0, i64 16, i1 false)
-  %0 = load <2 x i32>, ptr %max.i, align 4
-  %1 = load <2 x i32>, ptr %dataWindow, align 4
-  %2 = icmp slt <2 x i32> %0, %1
-  %3 = extractelement <2 x i1> %2, i64 0
-  %4 = extractelement <2 x i1> %2, i64 1
-  %retval.0.i = select i1 %3, i1 true, i1 %4
+  %0 = load i32, ptr %max.i, align 4
+  %1 = load i32, ptr %dataWindow, align 4
+  %cmp.i = icmp slt i32 %0, %1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %2 = load i32, ptr %arrayidx.i.i, align 4
+  %arrayidx.i1.i = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %3 = load i32, ptr %arrayidx.i1.i, align 4
+  %cmp7.i = icmp slt i32 %2, %3
+  %retval.0.i = select i1 %cmp.i, i1 true, i1 %cmp7.i
   %cond-lvalue = select i1 %retval.0.i, ptr %displayWindow, ptr %dataWindow
   call void @_ZN7Imf_3_26HeaderC1ERKN9Imath_3_23BoxINS1_4Vec2IiEEEES7_fRKNS3_IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hd, ptr noundef nonnull align 4 dereferenceable(16) %displayWindow, ptr noundef nonnull align 4 dereferenceable(16) %cond-lvalue, float noundef %pixelAspectRatio, ptr noundef nonnull align 4 dereferenceable(8) %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression)
   invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114insertChannelsERNS_6HeaderENS_12RgbaChannelsE(ptr noundef nonnull align 8 dereferenceable(49) %hd, i32 noundef %rgbaChannels)
@@ -1478,18 +1521,18 @@ invoke.cont11:                                    ; preds = %invoke.cont7
   br label %if.end
 
 lpad:                                             ; preds = %if.then, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont2
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call3) #24
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont7
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call8) #24
   br label %ehcleanup
@@ -1499,7 +1542,7 @@ if.end:                                           ; preds = %invoke.cont11, %inv
   ret void
 
 ehcleanup:                                        ; preds = %lpad10, %lpad4, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad10 ], [ %5, %lpad ], [ %6, %lpad4 ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad10 ], [ %4, %lpad ], [ %5, %lpad4 ]
   call void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %hd) #25
   resume { ptr, i32 } %.pn
 }
@@ -1888,8 +1931,12 @@ entry:
   %0 = load ptr, ptr %_outputFile, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_26Header18screenWindowCenterEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
-  %1 = load <2 x float>, ptr %call2, align 4
-  store <2 x float> %1, ptr %agg.result, align 4
+  %1 = load float, ptr %call2, align 4
+  store float %1, ptr %agg.result, align 4
+  %y.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %y3.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %2 = load float, ptr %y3.i, align 4
+  store float %2, ptr %y.i, align 4
   ret void
 }
 
@@ -2245,7 +2292,7 @@ declare void @_ZN7Imf_3_210OutputFile13breakScanLineEiiic(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7Imf_3_213RgbaInputFile7FromYcaC2ERNS_9InputPartENS_12RgbaChannelsE(ptr nocapture noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(8) %inputFile, i32 noundef %rgbaChannels) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.Imath_3_2::Vec3", align 8
+  %ref.tmp = alloca %"class.Imath_3_2::Vec3", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   %_inputPart = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %inputFile, ptr %_inputPart, align 8
@@ -2257,40 +2304,51 @@ entry:
   store i8 %frombool, ptr %_readC, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %inputFile)
   %call3 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
+  %2 = load i32, ptr %call3, align 4
+  %y3.i.i = getelementptr inbounds i8, ptr %call3, i64 4
+  %3 = load i32, ptr %y3.i.i, align 4
   %max3.i = getelementptr inbounds i8, ptr %call3, i64 8
+  %4 = load i32, ptr %max3.i, align 4
   %y3.i3.i = getelementptr inbounds i8, ptr %call3, i64 12
+  %5 = load i32, ptr %y3.i3.i, align 4
   %_xMin = getelementptr inbounds i8, ptr %this, i64 52
+  store i32 %2, ptr %_xMin, align 4
+  %_yMin = getelementptr inbounds i8, ptr %this, i64 56
+  store i32 %3, ptr %_yMin, align 8
   %_yMax = getelementptr inbounds i8, ptr %this, i64 60
+  store i32 %5, ptr %_yMax, align 4
+  %reass.sub = sub i32 %4, %2
+  %add = add i32 %reass.sub, 1
   %_width = getelementptr inbounds i8, ptr %this, i64 64
-  %2 = load <2 x i32>, ptr %call3, align 4
-  %3 = load i32, ptr %y3.i3.i, align 4
-  %4 = load <2 x i32>, ptr %max3.i, align 4
-  %5 = extractelement <2 x i32> %2, i64 1
-  store <2 x i32> %2, ptr %_xMin, align 4
-  store i32 %3, ptr %_yMax, align 4
-  %6 = sub <2 x i32> %4, %2
-  %7 = add <2 x i32> %6, <i32 1, i32 1>
-  store <2 x i32> %7, ptr %_width, align 8
-  %sub19 = add nsw i32 %5, -29
+  store i32 %add, ptr %_width, align 8
+  %reass.sub16 = sub i32 %5, %3
+  %add15 = add i32 %reass.sub16, 1
+  %_height = getelementptr inbounds i8, ptr %this, i64 68
+  store i32 %add15, ptr %_height, align 4
+  %sub19 = add nsw i32 %3, -29
   %_currentScanLine = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %sub19, ptr %_currentScanLine, align 8
-  %8 = load ptr, ptr %_inputPart, align 8
-  %call21 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %6 = load ptr, ptr %_inputPart, align 8
+  %call21 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %call22 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49) %call21)
-  %9 = load i32, ptr %call22, align 4
+  %7 = load i32, ptr %call22, align 4
   %_lineOrder = getelementptr inbounds i8, ptr %this, i64 76
-  store i32 %9, ptr %_lineOrder, align 4
-  %10 = load ptr, ptr %_inputPart, align 8
-  %call24 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  store i32 %7, ptr %_lineOrder, align 4
+  %8 = load ptr, ptr %_inputPart, align 8
+  %call24 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
   call fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias nonnull align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %call24)
-  %11 = load <2 x float>, ptr %ref.tmp, align 8
-  store <2 x float> %11, ptr %_yw, align 8
+  %9 = load float, ptr %ref.tmp, align 4
+  store float %9, ptr %_yw, align 8
+  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %10 = load float, ptr %y.i, align 4
+  %y3.i = getelementptr inbounds i8, ptr %this, i64 84
+  store float %10, ptr %y3.i, align 4
   %z.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %12 = load float, ptr %z.i, align 8
+  %11 = load float, ptr %z.i, align 4
   %z4.i = getelementptr inbounds i8, ptr %this, i64 88
-  store float %12, ptr %z4.i, align 8
-  %13 = load i32, ptr %_width, align 8
-  %conv = sext i32 %13 to i64
+  store float %11, ptr %z4.i, align 8
+  %12 = load i32, ptr %_width, align 8
+  %conv = sext i32 %12 to i64
   %mul = shl nsw i64 %conv, 3
   br label %while.cond.i
 
@@ -2327,11 +2385,11 @@ _ZN7Imf_3_212_GLOBAL__N_112cachePaddingEl.exit:   ; preds = %if.then.i, %if.end.
   %retval.0.i = phi i64 [ %add6.i, %if.then.i ], [ %add13.i, %if.then10.i ], [ 0, %if.end.i ]
   %div9 = lshr i64 %retval.0.i, 3
   %add31 = add nsw i64 %div9, %conv
-  %14 = and i64 %add31, 504403158265495552
-  %.not = icmp eq i64 %14, 0
-  %15 = shl i64 %add31, 8
-  %16 = select i1 %.not, i64 %15, i64 -1
-  %call33 = call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #23
+  %13 = and i64 %add31, 504403158265495552
+  %.not = icmp eq i64 %13, 0
+  %14 = shl i64 %add31, 8
+  %15 = select i1 %.not, i64 %14, i64 -1
+  %call33 = call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #23
   %_bufBase = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %call33, ptr %_bufBase, align 8
   %_buf1 = getelementptr inbounds i8, ptr %this, i64 104
@@ -2353,8 +2411,8 @@ for.body:                                         ; preds = %_ZN7Imf_3_212_GLOBA
 
 for.body43:                                       ; preds = %for.cond41.preheader, %for.body43
   %indvars.iv20 = phi i64 [ 0, %for.cond41.preheader ], [ %indvars.iv.next21, %for.body43 ]
-  %17 = add nuw nsw i64 %indvars.iv20, 29
-  %mul51 = mul nsw i64 %add31, %17
+  %16 = add nuw nsw i64 %indvars.iv20, 29
+  %mul51 = mul nsw i64 %add31, %16
   %add.ptr52 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %call33, i64 %mul51
   %arrayidx54 = getelementptr inbounds [3 x ptr], ptr %_buf2, i64 0, i64 %indvars.iv20
   store ptr %add.ptr52, ptr %arrayidx54, align 8
@@ -2363,12 +2421,12 @@ for.body43:                                       ; preds = %for.cond41.preheade
   br i1 %exitcond24.not, label %for.end57, label %for.body43, !llvm.loop !16
 
 for.end57:                                        ; preds = %for.body43
-  %sub60 = add nsw i32 %13, 26
+  %sub60 = add nsw i32 %12, 26
   %conv61 = sext i32 %sub60 to i64
-  %18 = icmp slt i32 %13, -26
-  %19 = shl nsw i64 %conv61, 3
-  %20 = select i1 %18, i64 -1, i64 %19
-  %call62 = call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
+  %17 = icmp slt i32 %12, -26
+  %18 = shl nsw i64 %conv61, 3
+  %19 = select i1 %17, i64 -1, i64 %18
+  %call62 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #23
   %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 360
   store ptr %call62, ptr %_tmpBuf, align 8
   %_fbBase = getelementptr inbounds i8, ptr %this, i64 368
@@ -4910,8 +4968,12 @@ entry:
   %0 = load ptr, ptr %_inputPart, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call2 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_26Header18screenWindowCenterEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
-  %1 = load <2 x float>, ptr %call2, align 4
-  store <2 x float> %1, ptr %agg.result, align 4
+  %1 = load float, ptr %call2, align 4
+  store float %1, ptr %agg.result, align 4
+  %y.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %y3.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %2 = load float, ptr %y3.i, align 4
+  store float %2, ptr %y.i, align 4
   ret void
 }
 

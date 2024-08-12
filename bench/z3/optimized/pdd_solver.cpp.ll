@@ -147,7 +147,13 @@ entry:
   %m_enable_exlin.i = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %m_enable_exlin.i, align 8
   %m_eqs_growth.i = getelementptr inbounds i8, ptr %this, i64 84
-  store <4 x i32> <i32 10, i32 10, i32 5, i32 1>, ptr %m_eqs_growth.i, align 4
+  store i32 10, ptr %m_eqs_growth.i, align 4
+  %m_expr_size_growth.i = getelementptr inbounds i8, ptr %this, i64 88
+  store i32 10, ptr %m_expr_size_growth.i, align 8
+  %m_expr_degree_growth.i = getelementptr inbounds i8, ptr %this, i64 92
+  store i32 5, ptr %m_expr_degree_growth.i, align 4
+  %m_number_of_conflicts_to_report.i = getelementptr inbounds i8, ptr %this, i64 96
+  store i32 1, ptr %m_number_of_conflicts_to_report.i, align 8
   %m_print_dep = getelementptr inbounds i8, ptr %this, i64 104
   %m_level2var = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_print_dep, i8 0, i64 80, i1 false)

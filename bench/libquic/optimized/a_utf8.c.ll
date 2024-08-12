@@ -409,19 +409,27 @@ if.then85:                                        ; preds = %if.then79
   %incdec.ptr90 = getelementptr inbounds i8, ptr %str, i64 1
   store i8 %conv89, ptr %str, align 1
   %shr91 = lshr i64 %value, 18
+  %16 = trunc nuw i64 %shr91 to i8
+  %17 = and i8 %16, 63
+  %conv94 = or disjoint i8 %17, -128
+  %incdec.ptr95 = getelementptr inbounds i8, ptr %str, i64 2
+  store i8 %conv94, ptr %incdec.ptr90, align 1
   %shr96 = lshr i64 %value, 12
+  %18 = trunc i64 %shr96 to i8
+  %19 = and i8 %18, 63
+  %conv99 = or disjoint i8 %19, -128
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %str, i64 3
+  store i8 %conv99, ptr %incdec.ptr95, align 1
   %shr101 = lshr i64 %value, 6
-  %16 = trunc i64 %value to i8
-  %17 = trunc nuw i64 %shr91 to i8
-  %18 = insertelement <4 x i8> poison, i8 %17, i64 0
-  %19 = trunc i64 %shr96 to i8
-  %20 = insertelement <4 x i8> %18, i8 %19, i64 1
-  %21 = trunc i64 %shr101 to i8
-  %22 = insertelement <4 x i8> %20, i8 %21, i64 2
-  %23 = insertelement <4 x i8> %22, i8 %16, i64 3
-  %24 = and <4 x i8> %23, <i8 63, i8 63, i8 63, i8 63>
-  %25 = or disjoint <4 x i8> %24, <i8 -128, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %25, ptr %incdec.ptr90, align 1
+  %20 = trunc i64 %shr101 to i8
+  %21 = and i8 %20, 63
+  %conv104 = or disjoint i8 %21, -128
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %str, i64 4
+  store i8 %conv104, ptr %incdec.ptr100, align 1
+  %22 = trunc i64 %value to i8
+  %23 = and i8 %22, 63
+  %conv108 = or disjoint i8 %23, -128
+  store i8 %conv108, ptr %incdec.ptr105, align 1
   br label %return
 
 if.end110:                                        ; preds = %if.end76
@@ -432,31 +440,39 @@ if.end110:                                        ; preds = %if.end76
 
 if.then116:                                       ; preds = %if.end110
   %shr117 = lshr i64 %value, 30
-  %26 = trunc i64 %shr117 to i8
-  %27 = and i8 %26, 1
-  %conv120 = or disjoint i8 %27, -4
+  %24 = trunc i64 %shr117 to i8
+  %25 = and i8 %24, 1
+  %conv120 = or disjoint i8 %25, -4
   %incdec.ptr121 = getelementptr inbounds i8, ptr %str, i64 1
   store i8 %conv120, ptr %str, align 1
   %shr122 = lshr i64 %value, 24
-  %28 = trunc i64 %shr122 to i8
-  %29 = and i8 %28, 63
-  %conv125 = or disjoint i8 %29, -128
+  %26 = trunc i64 %shr122 to i8
+  %27 = and i8 %26, 63
+  %conv125 = or disjoint i8 %27, -128
   %incdec.ptr126 = getelementptr inbounds i8, ptr %str, i64 2
   store i8 %conv125, ptr %incdec.ptr121, align 1
   %shr127 = lshr i64 %value, 18
+  %28 = trunc i64 %shr127 to i8
+  %29 = and i8 %28, 63
+  %conv130 = or disjoint i8 %29, -128
+  %incdec.ptr131 = getelementptr inbounds i8, ptr %str, i64 3
+  store i8 %conv130, ptr %incdec.ptr126, align 1
   %shr132 = lshr i64 %value, 12
+  %30 = trunc i64 %shr132 to i8
+  %31 = and i8 %30, 63
+  %conv135 = or disjoint i8 %31, -128
+  %incdec.ptr136 = getelementptr inbounds i8, ptr %str, i64 4
+  store i8 %conv135, ptr %incdec.ptr131, align 1
   %shr137 = lshr i64 %value, 6
-  %30 = trunc i64 %value to i8
-  %31 = trunc i64 %shr127 to i8
-  %32 = insertelement <4 x i8> poison, i8 %31, i64 0
-  %33 = trunc i64 %shr132 to i8
-  %34 = insertelement <4 x i8> %32, i8 %33, i64 1
-  %35 = trunc i64 %shr137 to i8
-  %36 = insertelement <4 x i8> %34, i8 %35, i64 2
-  %37 = insertelement <4 x i8> %36, i8 %30, i64 3
-  %38 = and <4 x i8> %37, <i8 63, i8 63, i8 63, i8 63>
-  %39 = or disjoint <4 x i8> %38, <i8 -128, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %39, ptr %incdec.ptr126, align 1
+  %32 = trunc i64 %shr137 to i8
+  %33 = and i8 %32, 63
+  %conv140 = or disjoint i8 %33, -128
+  %incdec.ptr141 = getelementptr inbounds i8, ptr %str, i64 5
+  store i8 %conv140, ptr %incdec.ptr136, align 1
+  %34 = trunc i64 %value to i8
+  %35 = and i8 %34, 63
+  %conv144 = or disjoint i8 %35, -128
+  store i8 %conv144, ptr %incdec.ptr141, align 1
   br label %return
 
 return:                                           ; preds = %if.end2, %if.end110, %if.then79, %if.then50, %if.then26, %if.then11, %if.then116, %if.then85, %if.then56, %if.then32, %if.then17, %if.then6, %if.else

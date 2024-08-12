@@ -123,27 +123,27 @@ setSIGCHLDHandler.exit:                           ; preds = %29, %38
 ; Function Attrs: nounwind uwtable
 define i32 @Java_java_lang_ProcessImpl_forkAndExec(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, i8 noundef zeroext %11) local_unnamed_addr #0 {
   %13 = alloca i32, align 4
-  %14 = alloca [2 x i32], align 8
-  %15 = alloca [2 x i32], align 8
-  %16 = alloca [2 x i32], align 8
-  %17 = alloca [2 x i32], align 8
-  %18 = alloca [2 x i32], align 8
+  %14 = alloca [2 x i32], align 4
+  %15 = alloca [2 x i32], align 4
+  %16 = alloca [2 x i32], align 4
+  %17 = alloca [2 x i32], align 4
+  %18 = alloca [2 x i32], align 4
   %19 = alloca i32, align 4
   %20 = getelementptr inbounds i8, ptr %17, i64 4
   store i32 -1, ptr %20, align 4
-  store i32 -1, ptr %17, align 8
+  store i32 -1, ptr %17, align 4
   %21 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 -1, ptr %21, align 4
-  store i32 -1, ptr %16, align 8
+  store i32 -1, ptr %16, align 4
   %22 = getelementptr inbounds i8, ptr %15, i64 4
   store i32 -1, ptr %22, align 4
-  store i32 -1, ptr %15, align 8
+  store i32 -1, ptr %15, align 4
   %23 = getelementptr inbounds i8, ptr %14, i64 4
   store i32 -1, ptr %23, align 4
-  store i32 -1, ptr %14, align 8
+  store i32 -1, ptr %14, align 4
   %24 = getelementptr inbounds i8, ptr %18, i64 4
   store i32 -1, ptr %24, align 4
-  store i32 -1, ptr %18, align 8
+  store i32 -1, ptr %18, align 4
   %25 = tail call ptr @__errno_location() #16
   store i32 0, ptr %25, align 4
   %26 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #15
@@ -152,7 +152,7 @@ define i32 @Java_java_lang_ProcessImpl_forkAndExec(ptr noundef %0, ptr nocapture
 
 xmalloc.exit.thread:                              ; preds = %12
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #13
-  br label %226
+  br label %236
 
 xmalloc.exit:                                     ; preds = %12
   %28 = getelementptr inbounds i8, ptr %26, i64 56
@@ -324,234 +324,251 @@ getBytes.exit139:                                 ; preds = %73
   %118 = load i32, ptr %99, align 4
   %119 = getelementptr inbounds i8, ptr %26, i64 48
   store i32 %118, ptr %119, align 8
-  %120 = load <2 x i32>, ptr %14, align 8
-  %121 = load <2 x i32>, ptr %15, align 8
-  %122 = shufflevector <2 x i32> %120, <2 x i32> %121, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i32> %122, ptr %26, align 4
-  %123 = getelementptr inbounds i8, ptr %26, i64 16
-  %124 = load <2 x i32>, ptr %16, align 8
-  %125 = load <2 x i32>, ptr %17, align 8
-  %126 = shufflevector <2 x i32> %124, <2 x i32> %125, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i32> %126, ptr %123, align 4
-  %127 = getelementptr inbounds i8, ptr %26, i64 32
-  %128 = load <2 x i32>, ptr %18, align 8
-  store <2 x i32> %128, ptr %127, align 4
-  %129 = zext i8 %11 to i32
-  %130 = getelementptr inbounds i8, ptr %26, i64 88
-  store i32 %129, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %26, i64 52
-  store i32 %2, ptr %131, align 4
-  %132 = icmp eq i32 %2, 2
-  %133 = zext i1 %132 to i32
-  %134 = getelementptr inbounds i8, ptr %26, i64 92
+  %120 = load i32, ptr %14, align 4
+  store i32 %120, ptr %26, align 4
+  %121 = load i32, ptr %23, align 4
+  %122 = getelementptr inbounds i8, ptr %26, i64 4
+  store i32 %121, ptr %122, align 4
+  %123 = getelementptr inbounds i8, ptr %26, i64 8
+  %124 = load i32, ptr %15, align 4
+  store i32 %124, ptr %123, align 4
+  %125 = load i32, ptr %22, align 4
+  %126 = getelementptr inbounds i8, ptr %26, i64 12
+  store i32 %125, ptr %126, align 4
+  %127 = getelementptr inbounds i8, ptr %26, i64 16
+  %128 = load i32, ptr %16, align 4
+  store i32 %128, ptr %127, align 4
+  %129 = load i32, ptr %21, align 4
+  %130 = getelementptr inbounds i8, ptr %26, i64 20
+  store i32 %129, ptr %130, align 4
+  %131 = getelementptr inbounds i8, ptr %26, i64 24
+  %132 = load i32, ptr %17, align 4
+  store i32 %132, ptr %131, align 4
+  %133 = load i32, ptr %20, align 4
+  %134 = getelementptr inbounds i8, ptr %26, i64 28
   store i32 %133, ptr %134, align 4
-  %135 = call fastcc i32 @startChild(ptr noundef nonnull %0, ptr noundef nonnull %26, ptr noundef nonnull %35)
-  %136 = icmp slt i32 %135, 0
-  br i1 %136, label %137, label %145
+  %135 = getelementptr inbounds i8, ptr %26, i64 32
+  %136 = load i32, ptr %18, align 4
+  store i32 %136, ptr %135, align 4
+  %137 = load i32, ptr %24, align 4
+  %138 = getelementptr inbounds i8, ptr %26, i64 36
+  store i32 %137, ptr %138, align 4
+  %139 = zext i8 %11 to i32
+  %140 = getelementptr inbounds i8, ptr %26, i64 88
+  store i32 %139, ptr %140, align 8
+  %141 = getelementptr inbounds i8, ptr %26, i64 52
+  store i32 %2, ptr %141, align 4
+  %142 = icmp eq i32 %2, 2
+  %143 = zext i1 %142 to i32
+  %144 = getelementptr inbounds i8, ptr %26, i64 92
+  store i32 %143, ptr %144, align 4
+  %145 = call fastcc i32 @startChild(ptr noundef nonnull %0, ptr noundef nonnull %26, ptr noundef nonnull %35)
+  %146 = icmp slt i32 %145, 0
+  br i1 %146, label %147, label %155
 
-137:                                              ; preds = %113
-  %138 = load i32, ptr %131, align 4
-  switch i32 %138, label %getBytes.exit.thread [
-    i32 3, label %139
-    i32 1, label %141
-    i32 2, label %143
+147:                                              ; preds = %113
+  %148 = load i32, ptr %141, align 4
+  switch i32 %148, label %getBytes.exit.thread [
+    i32 3, label %149
+    i32 1, label %151
+    i32 2, label %153
   ]
 
-139:                                              ; preds = %137
-  %140 = load i32, ptr %25, align 4
-  call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef %140, ptr noundef nonnull @.str.1)
+149:                                              ; preds = %147
+  %150 = load i32, ptr %25, align 4
+  call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef %150, ptr noundef nonnull @.str.1)
   br label %getBytes.exit.thread
 
-141:                                              ; preds = %137
-  %142 = load i32, ptr %25, align 4
-  call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef %142, ptr noundef nonnull @.str.2)
+151:                                              ; preds = %147
+  %152 = load i32, ptr %25, align 4
+  call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef %152, ptr noundef nonnull @.str.2)
   br label %getBytes.exit.thread
 
-143:                                              ; preds = %137
-  %144 = load i32, ptr %25, align 4
-  call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef %144, ptr noundef nonnull @.str.3)
+153:                                              ; preds = %147
+  %154 = load i32, ptr %25, align 4
+  call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef %154, ptr noundef nonnull @.str.3)
   br label %getBytes.exit.thread
 
-145:                                              ; preds = %113
-  %146 = load i32, ptr %20, align 4
-  %147 = call i32 @close(i32 noundef %146) #13
+155:                                              ; preds = %113
+  %156 = load i32, ptr %20, align 4
+  %157 = call i32 @close(i32 noundef %156) #13
   store i32 -1, ptr %20, align 4
-  %148 = load i32, ptr %134, align 4
-  %.not131 = icmp eq i32 %148, 0
-  br i1 %.not131, label %160, label %149
+  %158 = load i32, ptr %144, align 4
+  %.not131 = icmp eq i32 %158, 0
+  br i1 %.not131, label %170, label %159
 
-149:                                              ; preds = %145
-  %150 = load i32, ptr %17, align 8
-  %151 = call i64 @readFully(i32 noundef %150, ptr noundef nonnull %13, i64 noundef 4) #13
-  switch i64 %151, label %158 [
-    i64 0, label %152
-    i64 4, label %155
+159:                                              ; preds = %155
+  %160 = load i32, ptr %17, align 4
+  %161 = call i64 @readFully(i32 noundef %160, ptr noundef nonnull %13, i64 noundef 4) #13
+  switch i64 %161, label %168 [
+    i64 0, label %162
+    i64 4, label %165
   ]
 
-152:                                              ; preds = %149
+162:                                              ; preds = %159
   store i32 0, ptr %19, align 4
-  %153 = call i32 @waitpid(i32 noundef %135, ptr noundef nonnull %19, i32 noundef 0) #13
-  %154 = load i32, ptr %19, align 4
-  call fastcc void @throwExitCause(ptr noundef nonnull %0, i32 noundef %153, i32 noundef %154)
+  %163 = call i32 @waitpid(i32 noundef %145, ptr noundef nonnull %19, i32 noundef 0) #13
+  %164 = load i32, ptr %19, align 4
+  call fastcc void @throwExitCause(ptr noundef nonnull %0, i32 noundef %163, i32 noundef %164)
   br label %getBytes.exit.thread
 
-155:                                              ; preds = %149
-  %156 = load i32, ptr %13, align 4
-  %.not132 = icmp eq i32 %156, 65535
-  br i1 %.not132, label %160, label %157
+165:                                              ; preds = %159
+  %166 = load i32, ptr %13, align 4
+  %.not132 = icmp eq i32 %166, 65535
+  br i1 %.not132, label %170, label %167
 
-157:                                              ; preds = %155
+167:                                              ; preds = %165
   call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.4)
   br label %getBytes.exit.thread
 
-158:                                              ; preds = %149
-  %159 = load i32, ptr %25, align 4
-  call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef %159, ptr noundef nonnull @.str.5)
+168:                                              ; preds = %159
+  %169 = load i32, ptr %25, align 4
+  call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef %169, ptr noundef nonnull @.str.5)
   br label %getBytes.exit.thread
 
-160:                                              ; preds = %155, %145
-  %161 = load i32, ptr %17, align 8
-  %162 = call i64 @readFully(i32 noundef %161, ptr noundef nonnull %13, i64 noundef 4) #13
-  switch i64 %162, label %166 [
-    i64 0, label %168
-    i64 4, label %163
+170:                                              ; preds = %165, %155
+  %171 = load i32, ptr %17, align 4
+  %172 = call i64 @readFully(i32 noundef %171, ptr noundef nonnull %13, i64 noundef 4) #13
+  switch i64 %172, label %176 [
+    i64 0, label %178
+    i64 4, label %173
   ]
 
-163:                                              ; preds = %160
-  %164 = call i32 @waitpid(i32 noundef %135, ptr noundef null, i32 noundef 0) #13
-  %165 = load i32, ptr %13, align 4
-  call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef %165, ptr noundef nonnull @.str.6)
+173:                                              ; preds = %170
+  %174 = call i32 @waitpid(i32 noundef %145, ptr noundef null, i32 noundef 0) #13
+  %175 = load i32, ptr %13, align 4
+  call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef %175, ptr noundef nonnull @.str.6)
   br label %getBytes.exit.thread
 
-166:                                              ; preds = %160
-  %167 = load i32, ptr %25, align 4
-  call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef %167, ptr noundef nonnull @.str.5)
+176:                                              ; preds = %170
+  %177 = load i32, ptr %25, align 4
+  call fastcc void @throwIOException(ptr noundef nonnull %0, i32 noundef %177, ptr noundef nonnull @.str.5)
   br label %getBytes.exit.thread
 
-168:                                              ; preds = %160
-  %169 = load i32, ptr %23, align 4
-  store i32 %169, ptr %83, align 4
-  %170 = load i32, ptr %15, align 8
-  store i32 %170, ptr %92, align 4
-  %171 = load i32, ptr %16, align 8
-  store i32 %171, ptr %99, align 4
-  br label %172
+178:                                              ; preds = %170
+  %179 = load i32, ptr %23, align 4
+  store i32 %179, ptr %83, align 4
+  %180 = load i32, ptr %15, align 4
+  store i32 %180, ptr %92, align 4
+  %181 = load i32, ptr %16, align 4
+  store i32 %181, ptr %99, align 4
+  br label %182
 
-172:                                              ; preds = %getBytes.exit.thread, %168
-  %173 = phi i1 [ %218, %getBytes.exit.thread ], [ false, %168 ]
-  %174 = phi ptr [ %219, %getBytes.exit.thread ], [ %35, %168 ]
-  %.1113 = phi ptr [ %.0112, %getBytes.exit.thread ], [ %83, %168 ]
-  %.1111 = phi ptr [ %.0110, %getBytes.exit.thread ], [ %42, %168 ]
-  %.1109 = phi ptr [ %.0108, %getBytes.exit.thread ], [ %49, %168 ]
-  %.2 = phi ptr [ %.0106, %getBytes.exit.thread ], [ %.1107, %168 ]
-  %.1 = phi i32 [ %.0105, %getBytes.exit.thread ], [ %135, %168 ]
-  %175 = load i32, ptr %14, align 8
-  %176 = call i32 @closeSafely(i32 noundef %175) #13
-  %177 = load i32, ptr %22, align 4
-  %178 = call i32 @closeSafely(i32 noundef %177) #13
-  %179 = load i32, ptr %21, align 4
-  %180 = call i32 @closeSafely(i32 noundef %179) #13
-  %181 = load i32, ptr %17, align 8
-  %182 = call i32 @closeSafely(i32 noundef %181) #13
-  %183 = load i32, ptr %20, align 4
-  %184 = call i32 @closeSafely(i32 noundef %183) #13
-  %185 = getelementptr inbounds i8, ptr %26, i64 32
-  %186 = load i32, ptr %185, align 8
-  %187 = call i32 @closeSafely(i32 noundef %186) #13
-  %188 = getelementptr inbounds i8, ptr %26, i64 36
-  %189 = load i32, ptr %188, align 4
+182:                                              ; preds = %getBytes.exit.thread, %178
+  %183 = phi i1 [ %228, %getBytes.exit.thread ], [ false, %178 ]
+  %184 = phi ptr [ %229, %getBytes.exit.thread ], [ %35, %178 ]
+  %.1113 = phi ptr [ %.0112, %getBytes.exit.thread ], [ %83, %178 ]
+  %.1111 = phi ptr [ %.0110, %getBytes.exit.thread ], [ %42, %178 ]
+  %.1109 = phi ptr [ %.0108, %getBytes.exit.thread ], [ %49, %178 ]
+  %.2 = phi ptr [ %.0106, %getBytes.exit.thread ], [ %.1107, %178 ]
+  %.1 = phi i32 [ %.0105, %getBytes.exit.thread ], [ %145, %178 ]
+  %185 = load i32, ptr %14, align 4
+  %186 = call i32 @closeSafely(i32 noundef %185) #13
+  %187 = load i32, ptr %22, align 4
+  %188 = call i32 @closeSafely(i32 noundef %187) #13
+  %189 = load i32, ptr %21, align 4
   %190 = call i32 @closeSafely(i32 noundef %189) #13
-  br i1 %173, label %releaseBytes.exit, label %191
+  %191 = load i32, ptr %17, align 4
+  %192 = call i32 @closeSafely(i32 noundef %191) #13
+  %193 = load i32, ptr %20, align 4
+  %194 = call i32 @closeSafely(i32 noundef %193) #13
+  %195 = getelementptr inbounds i8, ptr %26, i64 32
+  %196 = load i32, ptr %195, align 8
+  %197 = call i32 @closeSafely(i32 noundef %196) #13
+  %198 = getelementptr inbounds i8, ptr %26, i64 36
+  %199 = load i32, ptr %198, align 4
+  %200 = call i32 @closeSafely(i32 noundef %199) #13
+  br i1 %183, label %releaseBytes.exit, label %201
 
-191:                                              ; preds = %172
-  %192 = load ptr, ptr %0, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 1536
-  %194 = load ptr, ptr %193, align 8
-  call void %194(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %174, i32 noundef 2) #13
+201:                                              ; preds = %182
+  %202 = load ptr, ptr %0, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 1536
+  %204 = load ptr, ptr %203, align 8
+  call void %204(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %184, i32 noundef 2) #13
   br label %releaseBytes.exit
 
-releaseBytes.exit:                                ; preds = %172, %191
+releaseBytes.exit:                                ; preds = %182, %201
   %.not.i140 = icmp eq ptr %.1111, null
-  br i1 %.not.i140, label %releaseBytes.exit141, label %195
+  br i1 %.not.i140, label %releaseBytes.exit141, label %205
 
-195:                                              ; preds = %releaseBytes.exit
-  %196 = load ptr, ptr %0, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 1536
-  %198 = load ptr, ptr %197, align 8
-  call void %198(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %.1111, i32 noundef 2) #13
+205:                                              ; preds = %releaseBytes.exit
+  %206 = load ptr, ptr %0, align 8
+  %207 = getelementptr inbounds i8, ptr %206, i64 1536
+  %208 = load ptr, ptr %207, align 8
+  call void %208(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %.1111, i32 noundef 2) #13
   br label %releaseBytes.exit141
 
-releaseBytes.exit141:                             ; preds = %releaseBytes.exit, %195
+releaseBytes.exit141:                             ; preds = %releaseBytes.exit, %205
   %.not.i142 = icmp eq ptr %.1109, null
-  br i1 %.not.i142, label %releaseBytes.exit143, label %199
+  br i1 %.not.i142, label %releaseBytes.exit143, label %209
 
-199:                                              ; preds = %releaseBytes.exit141
-  %200 = load ptr, ptr %0, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 1536
-  %202 = load ptr, ptr %201, align 8
-  call void %202(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %.1109, i32 noundef 2) #13
+209:                                              ; preds = %releaseBytes.exit141
+  %210 = load ptr, ptr %0, align 8
+  %211 = getelementptr inbounds i8, ptr %210, i64 1536
+  %212 = load ptr, ptr %211, align 8
+  call void %212(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %.1109, i32 noundef 2) #13
   br label %releaseBytes.exit143
 
-releaseBytes.exit143:                             ; preds = %releaseBytes.exit141, %199
+releaseBytes.exit143:                             ; preds = %releaseBytes.exit141, %209
   %.not.i144 = icmp eq ptr %.2, null
-  br i1 %.not.i144, label %releaseBytes.exit145, label %203
+  br i1 %.not.i144, label %releaseBytes.exit145, label %213
 
-203:                                              ; preds = %releaseBytes.exit143
-  %204 = load ptr, ptr %0, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 1536
-  %206 = load ptr, ptr %205, align 8
-  call void %206(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %.2, i32 noundef 2) #13
+213:                                              ; preds = %releaseBytes.exit143
+  %214 = load ptr, ptr %0, align 8
+  %215 = getelementptr inbounds i8, ptr %214, i64 1536
+  %216 = load ptr, ptr %215, align 8
+  call void %216(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %.2, i32 noundef 2) #13
   br label %releaseBytes.exit145
 
-releaseBytes.exit145:                             ; preds = %releaseBytes.exit143, %203
-  %207 = load ptr, ptr %30, align 8
-  %.not.i146 = icmp eq ptr %207, null
-  br i1 %.not.i146, label %releaseBytes.exit147, label %208
+releaseBytes.exit145:                             ; preds = %releaseBytes.exit143, %213
+  %217 = load ptr, ptr %30, align 8
+  %.not.i146 = icmp eq ptr %217, null
+  br i1 %.not.i146, label %releaseBytes.exit147, label %218
 
-208:                                              ; preds = %releaseBytes.exit145
-  %209 = load ptr, ptr %0, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 1536
-  %211 = load ptr, ptr %210, align 8
-  call void %211(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %207, i32 noundef 2) #13
+218:                                              ; preds = %releaseBytes.exit145
+  %219 = load ptr, ptr %0, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 1536
+  %221 = load ptr, ptr %220, align 8
+  call void %221(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %217, i32 noundef 2) #13
   br label %releaseBytes.exit147
 
-releaseBytes.exit147:                             ; preds = %releaseBytes.exit145, %208
-  %212 = load ptr, ptr %28, align 8
-  call void @free(ptr noundef %212) #13
-  %213 = load ptr, ptr %29, align 8
-  call void @free(ptr noundef %213) #13
+releaseBytes.exit147:                             ; preds = %releaseBytes.exit145, %218
+  %222 = load ptr, ptr %28, align 8
+  call void @free(ptr noundef %222) #13
+  %223 = load ptr, ptr %29, align 8
+  call void @free(ptr noundef %223) #13
   call void @free(ptr noundef nonnull %26) #13
   %.not133 = icmp eq ptr %.1113, null
-  br i1 %.not133, label %226, label %214
+  br i1 %.not133, label %236, label %224
 
-214:                                              ; preds = %releaseBytes.exit147
-  %215 = load ptr, ptr %0, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 1560
-  %217 = load ptr, ptr %216, align 8
-  call void %217(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %.1113, i32 noundef 0) #13
-  br label %226
+224:                                              ; preds = %releaseBytes.exit147
+  %225 = load ptr, ptr %0, align 8
+  %226 = getelementptr inbounds i8, ptr %225, i64 1560
+  %227 = load ptr, ptr %226, align 8
+  call void %227(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %.1113, i32 noundef 0) #13
+  br label %236
 
-getBytes.exit.thread:                             ; preds = %44, %37, %xmalloc.exit, %xmalloc.exit138.thread, %xmalloc.exit136.thread, %137, %139, %141, %143, %79, %getBytes.exit139, %getBytes.exit137, %getBytes.exit135, %getBytes.exit134, %getBytes.exit, %166, %163, %158, %157, %152, %111
-  %218 = phi i1 [ true, %getBytes.exit ], [ false, %getBytes.exit134 ], [ false, %getBytes.exit135 ], [ false, %getBytes.exit137 ], [ false, %getBytes.exit139 ], [ false, %79 ], [ false, %111 ], [ false, %137 ], [ false, %143 ], [ false, %141 ], [ false, %139 ], [ false, %158 ], [ false, %157 ], [ false, %166 ], [ false, %163 ], [ false, %152 ], [ false, %xmalloc.exit136.thread ], [ false, %xmalloc.exit138.thread ], [ true, %xmalloc.exit ], [ false, %37 ], [ false, %44 ]
-  %219 = phi ptr [ null, %getBytes.exit ], [ %35, %getBytes.exit134 ], [ %35, %getBytes.exit135 ], [ %35, %getBytes.exit137 ], [ %35, %getBytes.exit139 ], [ %35, %79 ], [ %35, %111 ], [ %35, %137 ], [ %35, %143 ], [ %35, %141 ], [ %35, %139 ], [ %35, %158 ], [ %35, %157 ], [ %35, %166 ], [ %35, %163 ], [ %35, %152 ], [ %35, %xmalloc.exit136.thread ], [ %35, %xmalloc.exit138.thread ], [ null, %xmalloc.exit ], [ %35, %37 ], [ %35, %44 ]
-  %.0112 = phi ptr [ null, %getBytes.exit ], [ null, %getBytes.exit134 ], [ null, %getBytes.exit135 ], [ null, %getBytes.exit137 ], [ null, %getBytes.exit139 ], [ null, %79 ], [ %83, %111 ], [ %83, %137 ], [ %83, %143 ], [ %83, %141 ], [ %83, %139 ], [ %83, %158 ], [ %83, %157 ], [ %83, %166 ], [ %83, %163 ], [ %83, %152 ], [ null, %xmalloc.exit136.thread ], [ null, %xmalloc.exit138.thread ], [ null, %xmalloc.exit ], [ null, %37 ], [ null, %44 ]
-  %.0110 = phi ptr [ null, %getBytes.exit ], [ null, %getBytes.exit134 ], [ %42, %getBytes.exit135 ], [ %42, %getBytes.exit137 ], [ %42, %getBytes.exit139 ], [ %42, %79 ], [ %42, %111 ], [ %42, %137 ], [ %42, %143 ], [ %42, %141 ], [ %42, %139 ], [ %42, %158 ], [ %42, %157 ], [ %42, %166 ], [ %42, %163 ], [ %42, %152 ], [ %42, %xmalloc.exit136.thread ], [ %42, %xmalloc.exit138.thread ], [ null, %xmalloc.exit ], [ null, %37 ], [ %42, %44 ]
-  %.0108 = phi ptr [ null, %getBytes.exit ], [ null, %getBytes.exit134 ], [ null, %getBytes.exit135 ], [ %49, %getBytes.exit137 ], [ %49, %getBytes.exit139 ], [ %49, %79 ], [ %49, %111 ], [ %49, %137 ], [ %49, %143 ], [ %49, %141 ], [ %49, %139 ], [ %49, %158 ], [ %49, %157 ], [ %49, %166 ], [ %49, %163 ], [ %49, %152 ], [ %49, %xmalloc.exit136.thread ], [ %49, %xmalloc.exit138.thread ], [ null, %xmalloc.exit ], [ null, %37 ], [ null, %44 ]
-  %.0106 = phi ptr [ null, %getBytes.exit ], [ null, %getBytes.exit134 ], [ null, %getBytes.exit135 ], [ null, %getBytes.exit137 ], [ %.1107, %getBytes.exit139 ], [ %.1107, %79 ], [ %.1107, %111 ], [ %.1107, %137 ], [ %.1107, %143 ], [ %.1107, %141 ], [ %.1107, %139 ], [ %.1107, %158 ], [ %.1107, %157 ], [ %.1107, %166 ], [ %.1107, %163 ], [ %.1107, %152 ], [ null, %xmalloc.exit136.thread ], [ %64, %xmalloc.exit138.thread ], [ null, %xmalloc.exit ], [ null, %37 ], [ null, %44 ]
-  %.0105 = phi i32 [ -1, %getBytes.exit ], [ -1, %getBytes.exit134 ], [ -1, %getBytes.exit135 ], [ -1, %getBytes.exit137 ], [ -1, %getBytes.exit139 ], [ -1, %79 ], [ -1, %111 ], [ %135, %137 ], [ %135, %143 ], [ %135, %141 ], [ %135, %139 ], [ %135, %158 ], [ %135, %157 ], [ %135, %166 ], [ %135, %163 ], [ %135, %152 ], [ -1, %xmalloc.exit136.thread ], [ -1, %xmalloc.exit138.thread ], [ -1, %xmalloc.exit ], [ -1, %37 ], [ -1, %44 ]
-  %220 = load i32, ptr %23, align 4
-  %221 = call i32 @closeSafely(i32 noundef %220) #13
+getBytes.exit.thread:                             ; preds = %44, %37, %xmalloc.exit, %xmalloc.exit138.thread, %xmalloc.exit136.thread, %147, %149, %151, %153, %79, %getBytes.exit139, %getBytes.exit137, %getBytes.exit135, %getBytes.exit134, %getBytes.exit, %176, %173, %168, %167, %162, %111
+  %228 = phi i1 [ true, %getBytes.exit ], [ false, %getBytes.exit134 ], [ false, %getBytes.exit135 ], [ false, %getBytes.exit137 ], [ false, %getBytes.exit139 ], [ false, %79 ], [ false, %111 ], [ false, %147 ], [ false, %153 ], [ false, %151 ], [ false, %149 ], [ false, %168 ], [ false, %167 ], [ false, %176 ], [ false, %173 ], [ false, %162 ], [ false, %xmalloc.exit136.thread ], [ false, %xmalloc.exit138.thread ], [ true, %xmalloc.exit ], [ false, %37 ], [ false, %44 ]
+  %229 = phi ptr [ null, %getBytes.exit ], [ %35, %getBytes.exit134 ], [ %35, %getBytes.exit135 ], [ %35, %getBytes.exit137 ], [ %35, %getBytes.exit139 ], [ %35, %79 ], [ %35, %111 ], [ %35, %147 ], [ %35, %153 ], [ %35, %151 ], [ %35, %149 ], [ %35, %168 ], [ %35, %167 ], [ %35, %176 ], [ %35, %173 ], [ %35, %162 ], [ %35, %xmalloc.exit136.thread ], [ %35, %xmalloc.exit138.thread ], [ null, %xmalloc.exit ], [ %35, %37 ], [ %35, %44 ]
+  %.0112 = phi ptr [ null, %getBytes.exit ], [ null, %getBytes.exit134 ], [ null, %getBytes.exit135 ], [ null, %getBytes.exit137 ], [ null, %getBytes.exit139 ], [ null, %79 ], [ %83, %111 ], [ %83, %147 ], [ %83, %153 ], [ %83, %151 ], [ %83, %149 ], [ %83, %168 ], [ %83, %167 ], [ %83, %176 ], [ %83, %173 ], [ %83, %162 ], [ null, %xmalloc.exit136.thread ], [ null, %xmalloc.exit138.thread ], [ null, %xmalloc.exit ], [ null, %37 ], [ null, %44 ]
+  %.0110 = phi ptr [ null, %getBytes.exit ], [ null, %getBytes.exit134 ], [ %42, %getBytes.exit135 ], [ %42, %getBytes.exit137 ], [ %42, %getBytes.exit139 ], [ %42, %79 ], [ %42, %111 ], [ %42, %147 ], [ %42, %153 ], [ %42, %151 ], [ %42, %149 ], [ %42, %168 ], [ %42, %167 ], [ %42, %176 ], [ %42, %173 ], [ %42, %162 ], [ %42, %xmalloc.exit136.thread ], [ %42, %xmalloc.exit138.thread ], [ null, %xmalloc.exit ], [ null, %37 ], [ %42, %44 ]
+  %.0108 = phi ptr [ null, %getBytes.exit ], [ null, %getBytes.exit134 ], [ null, %getBytes.exit135 ], [ %49, %getBytes.exit137 ], [ %49, %getBytes.exit139 ], [ %49, %79 ], [ %49, %111 ], [ %49, %147 ], [ %49, %153 ], [ %49, %151 ], [ %49, %149 ], [ %49, %168 ], [ %49, %167 ], [ %49, %176 ], [ %49, %173 ], [ %49, %162 ], [ %49, %xmalloc.exit136.thread ], [ %49, %xmalloc.exit138.thread ], [ null, %xmalloc.exit ], [ null, %37 ], [ null, %44 ]
+  %.0106 = phi ptr [ null, %getBytes.exit ], [ null, %getBytes.exit134 ], [ null, %getBytes.exit135 ], [ null, %getBytes.exit137 ], [ %.1107, %getBytes.exit139 ], [ %.1107, %79 ], [ %.1107, %111 ], [ %.1107, %147 ], [ %.1107, %153 ], [ %.1107, %151 ], [ %.1107, %149 ], [ %.1107, %168 ], [ %.1107, %167 ], [ %.1107, %176 ], [ %.1107, %173 ], [ %.1107, %162 ], [ null, %xmalloc.exit136.thread ], [ %64, %xmalloc.exit138.thread ], [ null, %xmalloc.exit ], [ null, %37 ], [ null, %44 ]
+  %.0105 = phi i32 [ -1, %getBytes.exit ], [ -1, %getBytes.exit134 ], [ -1, %getBytes.exit135 ], [ -1, %getBytes.exit137 ], [ -1, %getBytes.exit139 ], [ -1, %79 ], [ -1, %111 ], [ %145, %147 ], [ %145, %153 ], [ %145, %151 ], [ %145, %149 ], [ %145, %168 ], [ %145, %167 ], [ %145, %176 ], [ %145, %173 ], [ %145, %162 ], [ -1, %xmalloc.exit136.thread ], [ -1, %xmalloc.exit138.thread ], [ -1, %xmalloc.exit ], [ -1, %37 ], [ -1, %44 ]
+  %230 = load i32, ptr %23, align 4
+  %231 = call i32 @closeSafely(i32 noundef %230) #13
   store i32 -1, ptr %23, align 4
-  %222 = load i32, ptr %15, align 8
-  %223 = call i32 @closeSafely(i32 noundef %222) #13
-  store i32 -1, ptr %15, align 8
-  %224 = load i32, ptr %16, align 8
-  %225 = call i32 @closeSafely(i32 noundef %224) #13
-  store i32 -1, ptr %16, align 8
-  br label %172
+  %232 = load i32, ptr %15, align 4
+  %233 = call i32 @closeSafely(i32 noundef %232) #13
+  store i32 -1, ptr %15, align 4
+  %234 = load i32, ptr %16, align 4
+  %235 = call i32 @closeSafely(i32 noundef %234) #13
+  store i32 -1, ptr %16, align 4
+  br label %182
 
-226:                                              ; preds = %xmalloc.exit.thread, %releaseBytes.exit147, %214
-  %.0 = phi i32 [ %.1, %214 ], [ %.1, %releaseBytes.exit147 ], [ -1, %xmalloc.exit.thread ]
+236:                                              ; preds = %xmalloc.exit.thread, %releaseBytes.exit147, %224
+  %.0 = phi i32 [ %.1, %224 ], [ %.1, %releaseBytes.exit147 ], [ -1, %xmalloc.exit.thread ]
   ret i32 %.0
 }
 

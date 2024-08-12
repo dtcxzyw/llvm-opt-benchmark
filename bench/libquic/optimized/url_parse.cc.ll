@@ -18,13 +18,37 @@ $_ZN3url6Parsed16set_inner_parsedERKS0_ = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3url6ParsedC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %this, align 8
+  store i32 0, ptr %this, align 8
+  %len.i = getelementptr inbounds i8, ptr %this, i64 4
+  store i32 -1, ptr %len.i, align 4
+  %username = getelementptr inbounds i8, ptr %this, i64 8
+  store i32 0, ptr %username, align 8
+  %len.i1 = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 -1, ptr %len.i1, align 4
   %password = getelementptr inbounds i8, ptr %this, i64 16
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %password, align 8
+  store i32 0, ptr %password, align 8
+  %len.i2 = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 -1, ptr %len.i2, align 4
+  %host = getelementptr inbounds i8, ptr %this, i64 24
+  store i32 0, ptr %host, align 8
+  %len.i3 = getelementptr inbounds i8, ptr %this, i64 28
+  store i32 -1, ptr %len.i3, align 4
   %port = getelementptr inbounds i8, ptr %this, i64 32
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %port, align 8
+  store i32 0, ptr %port, align 8
+  %len.i4 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 -1, ptr %len.i4, align 4
+  %path = getelementptr inbounds i8, ptr %this, i64 40
+  store i32 0, ptr %path, align 8
+  %len.i5 = getelementptr inbounds i8, ptr %this, i64 44
+  store i32 -1, ptr %len.i5, align 4
   %query = getelementptr inbounds i8, ptr %this, i64 48
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query, align 8
+  store i32 0, ptr %query, align 8
+  %len.i6 = getelementptr inbounds i8, ptr %this, i64 52
+  store i32 -1, ptr %len.i6, align 4
+  %ref = getelementptr inbounds i8, ptr %this, i64 56
+  store i32 0, ptr %ref, align 8
+  %len.i7 = getelementptr inbounds i8, ptr %this, i64 60
+  store i32 -1, ptr %len.i7, align 4
   %inner_parsed_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %inner_parsed_, align 8
   ret void
@@ -2496,14 +2520,29 @@ if.end:                                           ; preds = %if.else, %if.then
 define dso_local void @_ZN3url12ParsePathURLEPKcibPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, i1 noundef zeroext %trim_path_end, ptr nocapture noundef writeonly %parsed) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
+  store i32 0, ptr %username.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i = getelementptr inbounds i8, ptr %parsed, i64 16
+  store i32 0, ptr %password.i, align 4
+  %len.i20.i = getelementptr inbounds i8, ptr %parsed, i64 20
+  store i32 -1, ptr %len.i20.i, align 4
   %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i, align 4
+  store i32 0, ptr %host.i, align 4
+  %len.i21.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  store i32 -1, ptr %len.i21.i, align 4
+  %port.i = getelementptr inbounds i8, ptr %parsed, i64 32
+  store i32 0, ptr %port.i, align 4
+  %len.i22.i = getelementptr inbounds i8, ptr %parsed, i64 36
+  store i32 -1, ptr %len.i22.i, align 4
   %path.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  store i32 0, ptr %path.i, align 4
   %len.i23.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  store i32 -1, ptr %len.i23.i, align 4
   %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
+  store i32 0, ptr %query.i, align 4
   %len.i24.i = getelementptr inbounds i8, ptr %parsed, i64 52
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path.i, align 4
+  store i32 -1, ptr %len.i24.i, align 4
   %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
   store i32 0, ptr %ref.i, align 4
   %len.i25.i = getelementptr inbounds i8, ptr %parsed, i64 60
@@ -2665,7 +2704,10 @@ if.end18.i:                                       ; preds = %if.end9.i
   br i1 %cmp.i31.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end18.i
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path.i, align 4
+  store i32 0, ptr %path.i, align 4
+  store i32 -1, ptr %len.i23.i, align 4
+  store i32 0, ptr %query.i, align 4
+  store i32 -1, ptr %len.i24.i, align 4
   store i32 0, ptr %ref.i, align 4
   store i32 -1, ptr %len.i25.i, align 4
   br label %_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit
@@ -2779,14 +2821,29 @@ _ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit: ; preds = %if
 define dso_local void @_ZN3url12ParsePathURLEPKtibPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, i1 noundef zeroext %trim_path_end, ptr nocapture noundef writeonly %parsed) local_unnamed_addr #5 {
 entry:
   %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
+  store i32 0, ptr %username.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i = getelementptr inbounds i8, ptr %parsed, i64 16
+  store i32 0, ptr %password.i, align 4
+  %len.i20.i = getelementptr inbounds i8, ptr %parsed, i64 20
+  store i32 -1, ptr %len.i20.i, align 4
   %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i, align 4
+  store i32 0, ptr %host.i, align 4
+  %len.i21.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  store i32 -1, ptr %len.i21.i, align 4
+  %port.i = getelementptr inbounds i8, ptr %parsed, i64 32
+  store i32 0, ptr %port.i, align 4
+  %len.i22.i = getelementptr inbounds i8, ptr %parsed, i64 36
+  store i32 -1, ptr %len.i22.i, align 4
   %path.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  store i32 0, ptr %path.i, align 4
   %len.i23.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  store i32 -1, ptr %len.i23.i, align 4
   %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
+  store i32 0, ptr %query.i, align 4
   %len.i24.i = getelementptr inbounds i8, ptr %parsed, i64 52
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path.i, align 4
+  store i32 -1, ptr %len.i24.i, align 4
   %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
   store i32 0, ptr %ref.i, align 4
   %len.i25.i = getelementptr inbounds i8, ptr %parsed, i64 60
@@ -2948,7 +3005,10 @@ if.end18.i:                                       ; preds = %if.end9.i
   br i1 %cmp.i31.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end18.i
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path.i, align 4
+  store i32 0, ptr %path.i, align 4
+  store i32 -1, ptr %len.i23.i, align 4
+  store i32 0, ptr %query.i, align 4
+  store i32 -1, ptr %len.i24.i, align 4
   store i32 0, ptr %ref.i, align 4
   store i32 -1, ptr %len.i25.i, align 4
   br label %_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE.exit
@@ -3062,21 +3122,37 @@ _ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE.exit: ; preds = %if
 define dso_local void @_ZN3url18ParseFileSystemURLEPKciPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef %parsed) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %inner_scheme.i = alloca %"struct.url::Component", align 8
-  %inner_parsed.i = alloca %"struct.url::Parsed", align 16
+  %inner_parsed.i = alloca %"struct.url::Parsed", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %inner_scheme.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %inner_parsed.i)
   %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
+  store i32 0, ptr %username.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i = getelementptr inbounds i8, ptr %parsed, i64 16
+  store i32 0, ptr %password.i, align 4
+  %len.i47.i = getelementptr inbounds i8, ptr %parsed, i64 20
+  store i32 -1, ptr %len.i47.i, align 4
   %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i, align 4
+  store i32 0, ptr %host.i, align 4
+  %len.i48.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  store i32 -1, ptr %len.i48.i, align 4
+  %port.i = getelementptr inbounds i8, ptr %parsed, i64 32
+  store i32 0, ptr %port.i, align 4
+  %len.i49.i = getelementptr inbounds i8, ptr %parsed, i64 36
+  store i32 -1, ptr %len.i49.i, align 4
   %path.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  store i32 0, ptr %path.i, align 4
   %len.i50.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  store i32 -1, ptr %len.i50.i, align 4
   %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
   store i32 0, ptr %ref.i, align 4
   %len.i51.i = getelementptr inbounds i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i51.i, align 4
   %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path.i, align 4
+  store i32 0, ptr %query.i, align 4
+  %len.i52.i = getelementptr inbounds i8, ptr %parsed, i64 52
+  store i32 -1, ptr %len.i52.i, align 4
   %inner_parsed_.i.i = getelementptr inbounds i8, ptr %parsed, i64 64
   %0 = load ptr, ptr %inner_parsed_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -3296,21 +3372,39 @@ if.then20.i:                                      ; preds = %for.body.i73.i
   br i1 %cmp25.i, label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i
+  store i32 0, ptr %inner_parsed.i, align 8
   %len.i.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 4
+  store i32 -1, ptr %len.i.i.i, align 4
   %username.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %inner_parsed.i, align 16
+  store i32 0, ptr %username.i.i, align 8
+  %len.i1.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 12
+  store i32 -1, ptr %len.i1.i.i, align 4
   %password.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 16
+  store i32 0, ptr %password.i.i, align 8
+  %len.i2.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 20
+  store i32 -1, ptr %len.i2.i.i, align 4
   %host.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %password.i.i, align 16
+  store i32 0, ptr %host.i.i, align 8
+  %len.i3.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 28
+  store i32 -1, ptr %len.i3.i.i, align 4
   %port.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 32
+  store i32 0, ptr %port.i.i, align 8
+  %len.i4.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 36
+  store i32 -1, ptr %len.i4.i.i, align 4
   %path.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 40
+  store i32 0, ptr %path.i.i, align 8
   %len.i5.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 44
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %port.i.i, align 16
+  store i32 -1, ptr %len.i5.i.i, align 4
   %query.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 48
+  store i32 0, ptr %query.i.i, align 8
+  %len.i6.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 52
+  store i32 -1, ptr %len.i6.i.i, align 4
   %ref.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 56
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query.i.i, align 16
+  store i32 0, ptr %ref.i.i, align 8
+  %len.i7.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 60
+  store i32 -1, ptr %len.i7.i.i, align 4
   %inner_parsed_.i99.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 64
-  store ptr null, ptr %inner_parsed_.i99.i, align 16
+  store ptr null, ptr %inner_parsed_.i99.i, align 8
   %call30.i = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKcRKNS_9ComponentES1_(ptr noundef nonnull %url, ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme.i, ptr noundef nonnull @_ZN3url11kFileSchemeE)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -3346,89 +3440,94 @@ if.then40.i:                                      ; preds = %invoke.cont38.i
   br label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then40.i, %if.then31.i
-  %24 = load i32, ptr %inner_parsed.i, align 16
+  %24 = load i32, ptr %inner_parsed.i, align 8
   %add48.i = add nsw i32 %24, %add13.i
-  store i32 %add48.i, ptr %inner_parsed.i, align 16
+  store i32 %add48.i, ptr %inner_parsed.i, align 8
   %25 = load i32, ptr %username.i.i, align 8
   %add51.i = add nsw i32 %25, %add13.i
   store i32 %add51.i, ptr %username.i.i, align 8
-  %26 = load i32, ptr %password.i.i, align 16
+  %26 = load i32, ptr %password.i.i, align 8
   %add54.i = add nsw i32 %26, %add13.i
-  store i32 %add54.i, ptr %password.i.i, align 16
+  store i32 %add54.i, ptr %password.i.i, align 8
   %27 = load i32, ptr %host.i.i, align 8
   %add57.i = add nsw i32 %27, %add13.i
   store i32 %add57.i, ptr %host.i.i, align 8
-  %28 = load i32, ptr %port.i.i, align 16
+  %28 = load i32, ptr %port.i.i, align 8
   %add60.i = add nsw i32 %28, %add13.i
-  store i32 %add60.i, ptr %port.i.i, align 16
-  %29 = load i32, ptr %query.i.i, align 16
+  store i32 %add60.i, ptr %port.i.i, align 8
+  %29 = load i32, ptr %query.i.i, align 8
   %add63.i = add nsw i32 %29, %add13.i
-  store i32 %add63.i, ptr %query.i.i, align 16
+  store i32 %add63.i, ptr %query.i.i, align 8
   %30 = load i32, ptr %ref.i.i, align 8
   %add66.i = add nsw i32 %30, %add13.i
   store i32 %add66.i, ptr %ref.i.i, align 8
   %31 = load i32, ptr %path.i.i, align 8
   %add69.i = add nsw i32 %31, %add13.i
   store i32 %add69.i, ptr %path.i.i, align 8
-  %32 = load <2 x i64>, ptr %query.i.i, align 16
-  store <2 x i64> %32, ptr %query.i, align 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query.i.i, align 16
+  %32 = load i64, ptr %query.i.i, align 8
+  store i64 %32, ptr %query.i, align 8
+  store i32 0, ptr %query.i.i, align 8
+  store i32 -1, ptr %len.i6.i.i, align 4
+  %33 = load i64, ptr %ref.i.i, align 8
+  store i64 %33, ptr %ref.i, align 8
+  store i32 0, ptr %ref.i.i, align 8
+  store i32 -1, ptr %len.i7.i.i, align 4
   invoke void @_ZN3url6Parsed16set_inner_parsedERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed.i)
           to label %invoke.cont76.i unwind label %lpad.i
 
 invoke.cont76.i:                                  ; preds = %if.end45.i
-  %33 = load i32, ptr %len.i.i.i, align 4
-  %cmp.i103.i = icmp ne i32 %33, -1
-  %34 = load i32, ptr %len.i5.i.i, align 4
-  %cmp.i105.i = icmp ne i32 %34, -1
+  %34 = load i32, ptr %len.i.i.i, align 4
+  %cmp.i103.i = icmp ne i32 %34, -1
+  %35 = load i32, ptr %len.i5.i.i, align 4
+  %cmp.i105.i = icmp ne i32 %35, -1
   %or.cond.i = select i1 %cmp.i103.i, i1 %cmp.i105.i, i1 false
-  %35 = load ptr, ptr %inner_parsed_.i99.i, align 16
-  %tobool.not.i = icmp eq ptr %35, null
+  %36 = load ptr, ptr %inner_parsed_.i99.i, align 8
+  %tobool.not.i = icmp eq ptr %36, null
   %or.cond127.i = select i1 %or.cond.i, i1 %tobool.not.i, i1 false
   br i1 %or.cond127.i, label %if.end85.i, label %cleanup.i
 
 if.end85.i:                                       ; preds = %invoke.cont76.i
-  %36 = load i32, ptr %path.i.i, align 8
-  %idxprom88.i = sext i32 %36 to i64
+  %37 = load i32, ptr %path.i.i, align 8
+  %idxprom88.i = sext i32 %37 to i64
   %arrayidx89.i = getelementptr inbounds i8, ptr %url, i64 %idxprom88.i
-  %37 = load i8, ptr %arrayidx89.i, align 1
-  switch i8 %37, label %cleanup.i [
+  %38 = load i8, ptr %arrayidx89.i, align 1
+  switch i8 %38, label %cleanup.i [
     i8 92, label %if.end92.i
     i8 47, label %if.end92.i
   ]
 
 if.end92.i:                                       ; preds = %if.end85.i, %if.end85.i
-  %38 = sext i32 %spec_len.addr.1.i to i64
-  %39 = add i32 %36, 1
-  %smax.i = call i32 @llvm.smax.i32(i32 %spec_len.addr.1.i, i32 %39)
+  %39 = sext i32 %spec_len.addr.1.i to i64
+  %40 = add i32 %37, 1
+  %smax.i = call i32 @llvm.smax.i32(i32 %spec_len.addr.1.i, i32 %40)
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.rhs.i, %if.end92.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %land.rhs.i ], [ %idxprom88.i, %if.end92.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %cmp96.i = icmp slt i64 %indvars.iv.next.i, %38
+  %cmp96.i = icmp slt i64 %indvars.iv.next.i, %39
   br i1 %cmp96.i, label %land.rhs.i, label %while.end.i
 
 land.rhs.i:                                       ; preds = %while.cond.i
   %arrayidx98.i = getelementptr inbounds i8, ptr %url, i64 %indvars.iv.next.i
-  %40 = load i8, ptr %arrayidx98.i, align 1
-  switch i8 %40, label %while.cond.i [
+  %41 = load i8, ptr %arrayidx98.i, align 1
+  switch i8 %41, label %while.cond.i [
     i8 92, label %while.end.split.loop.exit.i
     i8 47, label %while.end.split.loop.exit.i
   ]
 
 while.end.split.loop.exit.i:                      ; preds = %land.rhs.i, %land.rhs.i
-  %41 = trunc nsw i64 %indvars.iv.next.i to i32
+  %42 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.cond.i, %while.end.split.loop.exit.i
-  %inner_path_end.0.lcssa.i = phi i32 [ %41, %while.end.split.loop.exit.i ], [ %smax.i, %while.cond.i ]
+  %inner_path_end.0.lcssa.i = phi i32 [ %42, %while.end.split.loop.exit.i ], [ %smax.i, %while.cond.i ]
   store i32 %inner_path_end.0.lcssa.i, ptr %path.i, align 8
-  %sub105.i = sub nsw i32 %inner_path_end.0.lcssa.i, %36
-  %sub107.i = sub nsw i32 %34, %sub105.i
+  %sub105.i = sub nsw i32 %inner_path_end.0.lcssa.i, %37
+  %sub107.i = sub nsw i32 %35, %sub105.i
   store i32 %sub107.i, ptr %len.i50.i, align 4
-  %42 = load ptr, ptr %inner_parsed_.i.i, align 8
-  %len113.i = getelementptr inbounds i8, ptr %42, i64 44
+  %43 = load ptr, ptr %inner_parsed_.i.i, align 8
+  %len113.i = getelementptr inbounds i8, ptr %43, i64 44
   store i32 %sub105.i, ptr %len113.i, align 4
   br label %cleanup.i
 
@@ -3446,21 +3545,37 @@ _ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds 
 define dso_local void @_ZN3url18ParseFileSystemURLEPKtiPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef %parsed) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %inner_scheme.i = alloca %"struct.url::Component", align 8
-  %inner_parsed.i = alloca %"struct.url::Parsed", align 16
+  %inner_parsed.i = alloca %"struct.url::Parsed", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %inner_scheme.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %inner_parsed.i)
   %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
+  store i32 0, ptr %username.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i = getelementptr inbounds i8, ptr %parsed, i64 16
+  store i32 0, ptr %password.i, align 4
+  %len.i47.i = getelementptr inbounds i8, ptr %parsed, i64 20
+  store i32 -1, ptr %len.i47.i, align 4
   %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i, align 4
+  store i32 0, ptr %host.i, align 4
+  %len.i48.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  store i32 -1, ptr %len.i48.i, align 4
+  %port.i = getelementptr inbounds i8, ptr %parsed, i64 32
+  store i32 0, ptr %port.i, align 4
+  %len.i49.i = getelementptr inbounds i8, ptr %parsed, i64 36
+  store i32 -1, ptr %len.i49.i, align 4
   %path.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  store i32 0, ptr %path.i, align 4
   %len.i50.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  store i32 -1, ptr %len.i50.i, align 4
   %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
   store i32 0, ptr %ref.i, align 4
   %len.i51.i = getelementptr inbounds i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i51.i, align 4
   %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path.i, align 4
+  store i32 0, ptr %query.i, align 4
+  %len.i52.i = getelementptr inbounds i8, ptr %parsed, i64 52
+  store i32 -1, ptr %len.i52.i, align 4
   %inner_parsed_.i.i = getelementptr inbounds i8, ptr %parsed, i64 64
   %0 = load ptr, ptr %inner_parsed_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -3680,21 +3795,39 @@ if.then20.i:                                      ; preds = %for.body.i73.i
   br i1 %cmp25.i, label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i
+  store i32 0, ptr %inner_parsed.i, align 8
   %len.i.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 4
+  store i32 -1, ptr %len.i.i.i, align 4
   %username.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %inner_parsed.i, align 16
+  store i32 0, ptr %username.i.i, align 8
+  %len.i1.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 12
+  store i32 -1, ptr %len.i1.i.i, align 4
   %password.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 16
+  store i32 0, ptr %password.i.i, align 8
+  %len.i2.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 20
+  store i32 -1, ptr %len.i2.i.i, align 4
   %host.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %password.i.i, align 16
+  store i32 0, ptr %host.i.i, align 8
+  %len.i3.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 28
+  store i32 -1, ptr %len.i3.i.i, align 4
   %port.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 32
+  store i32 0, ptr %port.i.i, align 8
+  %len.i4.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 36
+  store i32 -1, ptr %len.i4.i.i, align 4
   %path.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 40
+  store i32 0, ptr %path.i.i, align 8
   %len.i5.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 44
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %port.i.i, align 16
+  store i32 -1, ptr %len.i5.i.i, align 4
   %query.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 48
+  store i32 0, ptr %query.i.i, align 8
+  %len.i6.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 52
+  store i32 -1, ptr %len.i6.i.i, align 4
   %ref.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 56
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query.i.i, align 16
+  store i32 0, ptr %ref.i.i, align 8
+  %len.i7.i.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 60
+  store i32 -1, ptr %len.i7.i.i, align 4
   %inner_parsed_.i99.i = getelementptr inbounds i8, ptr %inner_parsed.i, i64 64
-  store ptr null, ptr %inner_parsed_.i99.i, align 16
+  store ptr null, ptr %inner_parsed_.i99.i, align 8
   %call30.i = invoke noundef zeroext i1 @_ZN3url22CompareSchemeComponentEPKtRKNS_9ComponentEPKc(ptr noundef nonnull %url, ptr noundef nonnull align 4 dereferenceable(8) %inner_scheme.i, ptr noundef nonnull @_ZN3url11kFileSchemeE)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -3730,89 +3863,94 @@ if.then40.i:                                      ; preds = %invoke.cont38.i
   br label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then40.i, %if.then31.i
-  %24 = load i32, ptr %inner_parsed.i, align 16
+  %24 = load i32, ptr %inner_parsed.i, align 8
   %add48.i = add nsw i32 %24, %add13.i
-  store i32 %add48.i, ptr %inner_parsed.i, align 16
+  store i32 %add48.i, ptr %inner_parsed.i, align 8
   %25 = load i32, ptr %username.i.i, align 8
   %add51.i = add nsw i32 %25, %add13.i
   store i32 %add51.i, ptr %username.i.i, align 8
-  %26 = load i32, ptr %password.i.i, align 16
+  %26 = load i32, ptr %password.i.i, align 8
   %add54.i = add nsw i32 %26, %add13.i
-  store i32 %add54.i, ptr %password.i.i, align 16
+  store i32 %add54.i, ptr %password.i.i, align 8
   %27 = load i32, ptr %host.i.i, align 8
   %add57.i = add nsw i32 %27, %add13.i
   store i32 %add57.i, ptr %host.i.i, align 8
-  %28 = load i32, ptr %port.i.i, align 16
+  %28 = load i32, ptr %port.i.i, align 8
   %add60.i = add nsw i32 %28, %add13.i
-  store i32 %add60.i, ptr %port.i.i, align 16
-  %29 = load i32, ptr %query.i.i, align 16
+  store i32 %add60.i, ptr %port.i.i, align 8
+  %29 = load i32, ptr %query.i.i, align 8
   %add63.i = add nsw i32 %29, %add13.i
-  store i32 %add63.i, ptr %query.i.i, align 16
+  store i32 %add63.i, ptr %query.i.i, align 8
   %30 = load i32, ptr %ref.i.i, align 8
   %add66.i = add nsw i32 %30, %add13.i
   store i32 %add66.i, ptr %ref.i.i, align 8
   %31 = load i32, ptr %path.i.i, align 8
   %add69.i = add nsw i32 %31, %add13.i
   store i32 %add69.i, ptr %path.i.i, align 8
-  %32 = load <2 x i64>, ptr %query.i.i, align 16
-  store <2 x i64> %32, ptr %query.i, align 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query.i.i, align 16
+  %32 = load i64, ptr %query.i.i, align 8
+  store i64 %32, ptr %query.i, align 8
+  store i32 0, ptr %query.i.i, align 8
+  store i32 -1, ptr %len.i6.i.i, align 4
+  %33 = load i64, ptr %ref.i.i, align 8
+  store i64 %33, ptr %ref.i, align 8
+  store i32 0, ptr %ref.i.i, align 8
+  store i32 -1, ptr %len.i7.i.i, align 4
   invoke void @_ZN3url6Parsed16set_inner_parsedERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(72) %inner_parsed.i)
           to label %invoke.cont76.i unwind label %lpad.i
 
 invoke.cont76.i:                                  ; preds = %if.end45.i
-  %33 = load i32, ptr %len.i.i.i, align 4
-  %cmp.i103.i = icmp ne i32 %33, -1
-  %34 = load i32, ptr %len.i5.i.i, align 4
-  %cmp.i105.i = icmp ne i32 %34, -1
+  %34 = load i32, ptr %len.i.i.i, align 4
+  %cmp.i103.i = icmp ne i32 %34, -1
+  %35 = load i32, ptr %len.i5.i.i, align 4
+  %cmp.i105.i = icmp ne i32 %35, -1
   %or.cond.i = select i1 %cmp.i103.i, i1 %cmp.i105.i, i1 false
-  %35 = load ptr, ptr %inner_parsed_.i99.i, align 16
-  %tobool.not.i = icmp eq ptr %35, null
+  %36 = load ptr, ptr %inner_parsed_.i99.i, align 8
+  %tobool.not.i = icmp eq ptr %36, null
   %or.cond127.i = select i1 %or.cond.i, i1 %tobool.not.i, i1 false
   br i1 %or.cond127.i, label %if.end84.i, label %cleanup.i
 
 if.end84.i:                                       ; preds = %invoke.cont76.i
-  %36 = load i32, ptr %path.i.i, align 8
-  %idxprom87.i = sext i32 %36 to i64
+  %37 = load i32, ptr %path.i.i, align 8
+  %idxprom87.i = sext i32 %37 to i64
   %arrayidx88.i = getelementptr inbounds i16, ptr %url, i64 %idxprom87.i
-  %37 = load i16, ptr %arrayidx88.i, align 2
-  switch i16 %37, label %cleanup.i [
+  %38 = load i16, ptr %arrayidx88.i, align 2
+  switch i16 %38, label %cleanup.i [
     i16 92, label %if.end91.i
     i16 47, label %if.end91.i
   ]
 
 if.end91.i:                                       ; preds = %if.end84.i, %if.end84.i
-  %38 = sext i32 %spec_len.addr.1.i to i64
-  %39 = add i32 %36, 1
-  %smax.i = call i32 @llvm.smax.i32(i32 %spec_len.addr.1.i, i32 %39)
+  %39 = sext i32 %spec_len.addr.1.i to i64
+  %40 = add i32 %37, 1
+  %smax.i = call i32 @llvm.smax.i32(i32 %spec_len.addr.1.i, i32 %40)
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.rhs.i, %if.end91.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %land.rhs.i ], [ %idxprom87.i, %if.end91.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %cmp95.i = icmp slt i64 %indvars.iv.next.i, %38
+  %cmp95.i = icmp slt i64 %indvars.iv.next.i, %39
   br i1 %cmp95.i, label %land.rhs.i, label %while.end.i
 
 land.rhs.i:                                       ; preds = %while.cond.i
   %arrayidx97.i = getelementptr inbounds i16, ptr %url, i64 %indvars.iv.next.i
-  %40 = load i16, ptr %arrayidx97.i, align 2
-  switch i16 %40, label %while.cond.i [
+  %41 = load i16, ptr %arrayidx97.i, align 2
+  switch i16 %41, label %while.cond.i [
     i16 92, label %while.end.split.loop.exit.i
     i16 47, label %while.end.split.loop.exit.i
   ]
 
 while.end.split.loop.exit.i:                      ; preds = %land.rhs.i, %land.rhs.i
-  %41 = trunc nsw i64 %indvars.iv.next.i to i32
+  %42 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.cond.i, %while.end.split.loop.exit.i
-  %inner_path_end.0.lcssa.i = phi i32 [ %41, %while.end.split.loop.exit.i ], [ %smax.i, %while.cond.i ]
+  %inner_path_end.0.lcssa.i = phi i32 [ %42, %while.end.split.loop.exit.i ], [ %smax.i, %while.cond.i ]
   store i32 %inner_path_end.0.lcssa.i, ptr %path.i, align 8
-  %sub103.i = sub nsw i32 %inner_path_end.0.lcssa.i, %36
-  %sub105.i = sub nsw i32 %34, %sub103.i
+  %sub103.i = sub nsw i32 %inner_path_end.0.lcssa.i, %37
+  %sub105.i = sub nsw i32 %35, %sub103.i
   store i32 %sub105.i, ptr %len.i50.i, align 4
-  %42 = load ptr, ptr %inner_parsed_.i.i, align 8
-  %len110.i = getelementptr inbounds i8, ptr %42, i64 44
+  %43 = load ptr, ptr %inner_parsed_.i.i, align 8
+  %len110.i = getelementptr inbounds i8, ptr %43, i64 44
   store i32 %sub103.i, ptr %len110.i, align 4
   br label %cleanup.i
 
@@ -3830,11 +3968,29 @@ _ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit: ; preds 
 define dso_local void @_ZN3url14ParseMailtoURLEPKciPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, ptr nocapture noundef writeonly %parsed) local_unnamed_addr #5 {
 entry:
   %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
+  store i32 0, ptr %username.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i = getelementptr inbounds i8, ptr %parsed, i64 16
+  store i32 0, ptr %password.i, align 4
+  %len.i28.i = getelementptr inbounds i8, ptr %parsed, i64 20
+  store i32 -1, ptr %len.i28.i, align 4
   %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i, align 4
+  store i32 0, ptr %host.i, align 4
+  %len.i29.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  store i32 -1, ptr %len.i29.i, align 4
+  %port.i = getelementptr inbounds i8, ptr %parsed, i64 32
+  store i32 0, ptr %port.i, align 4
+  %len.i30.i = getelementptr inbounds i8, ptr %parsed, i64 36
+  store i32 -1, ptr %len.i30.i, align 4
+  %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
+  store i32 0, ptr %ref.i, align 4
+  %len.i31.i = getelementptr inbounds i8, ptr %parsed, i64 60
+  store i32 -1, ptr %len.i31.i, align 4
   %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query.i, align 4
+  store i32 0, ptr %query.i, align 4
+  %len.i32.i = getelementptr inbounds i8, ptr %parsed, i64 52
+  store i32 -1, ptr %len.i32.i, align 4
   %cmp10.i.i = icmp sgt i32 %url_len, 0
   br i1 %cmp10.i.i, label %land.rhs.i.preheader.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
@@ -4049,11 +4205,29 @@ _ZN3url12_GLOBAL__N_116DoParseMailtoURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds = %i
 define dso_local void @_ZN3url14ParseMailtoURLEPKtiPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, ptr nocapture noundef writeonly %parsed) local_unnamed_addr #5 {
 entry:
   %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i, align 4
+  store i32 0, ptr %username.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i = getelementptr inbounds i8, ptr %parsed, i64 16
+  store i32 0, ptr %password.i, align 4
+  %len.i28.i = getelementptr inbounds i8, ptr %parsed, i64 20
+  store i32 -1, ptr %len.i28.i, align 4
   %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i, align 4
+  store i32 0, ptr %host.i, align 4
+  %len.i29.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  store i32 -1, ptr %len.i29.i, align 4
+  %port.i = getelementptr inbounds i8, ptr %parsed, i64 32
+  store i32 0, ptr %port.i, align 4
+  %len.i30.i = getelementptr inbounds i8, ptr %parsed, i64 36
+  store i32 -1, ptr %len.i30.i, align 4
+  %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
+  store i32 0, ptr %ref.i, align 4
+  %len.i31.i = getelementptr inbounds i8, ptr %parsed, i64 60
+  store i32 -1, ptr %len.i31.i, align 4
   %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %query.i, align 4
+  store i32 0, ptr %query.i, align 4
+  %len.i32.i = getelementptr inbounds i8, ptr %parsed, i64 52
+  store i32 -1, ptr %len.i32.i, align 4
   %cmp10.i.i = icmp sgt i32 %url_len, 0
   br i1 %cmp10.i.i, label %land.rhs.i.preheader.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
@@ -4645,7 +4819,12 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path, align 4
+  store i32 0, ptr %path, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  store i32 -1, ptr %len.i.i, align 4
+  store i32 0, ptr %query, align 4
+  %len.i28.i = getelementptr inbounds i8, ptr %parsed, i64 52
+  store i32 -1, ptr %len.i28.i, align 4
   store i32 0, ptr %ref, align 4
   %len.i29.i = getelementptr inbounds i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i29.i, align 4
@@ -4881,7 +5060,12 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %path, align 4
+  store i32 0, ptr %path, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  store i32 -1, ptr %len.i.i, align 4
+  store i32 0, ptr %query, align 4
+  %len.i28.i = getelementptr inbounds i8, ptr %parsed, i64 52
+  store i32 -1, ptr %len.i28.i, align 4
   store i32 0, ptr %ref, align 4
   %len.i29.i = getelementptr inbounds i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i29.i, align 4

@@ -2439,27 +2439,31 @@ define hidden range(i32 0, 2) i32 @get_frame(ptr nocapture noundef readonly byva
   %4 = alloca %struct.gtp_info_t, align 8
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load <2 x i32>, ptr %0, align 8
-  store <2 x i32> %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr null, ptr %10, align 8
-  %11 = load ptr, ptr @frame_map, align 8
-  %12 = call ptr @wmem_map_lookup(ptr noundef %11, ptr noundef nonnull %4) #13
-  %.not = icmp eq ptr %12, null
-  br i1 %.not, label %16, label %13
+  %6 = load i32, ptr %0, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = load i32, ptr %7, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  store i32 %6, ptr %5, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %8, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %10, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr null, ptr %13, align 8
+  %14 = load ptr, ptr @frame_map, align 8
+  %15 = call ptr @wmem_map_lookup(ptr noundef %14, ptr noundef nonnull %4) #13
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %19, label %16
 
-13:                                               ; preds = %3
-  %14 = ptrtoint ptr %12 to i64
-  %15 = trunc i64 %14 to i32
-  store i32 %15, ptr %2, align 4
-  br label %16
+16:                                               ; preds = %3
+  %17 = ptrtoint ptr %15 to i64
+  %18 = trunc i64 %17 to i32
+  store i32 %18, ptr %2, align 4
+  br label %19
 
-16:                                               ; preds = %3, %13
-  %.0 = phi i32 [ 1, %13 ], [ 0, %3 ]
+19:                                               ; preds = %3, %16
+  %.0 = phi i32 [ 1, %16 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -10969,115 +10973,119 @@ gtp_match_response.exit:                          ; preds = %420, %430, %440
   %534 = getelementptr inbounds i8, ptr %.0449, i64 16
   %535 = load i32, ptr %534, align 8
   %536 = getelementptr inbounds i8, ptr %.0449, i64 24
-  %537 = load <2 x i32>, ptr %536, align 1
+  %.sroa.0.0.copyload = load i32, ptr %536, align 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %.0449, i64 28
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %.0449, i64 32
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 1
   %.not.i511 = icmp eq ptr %.0447, null
-  br i1 %.not.i511, label %proto_item_set_generated.exit.i, label %538
+  br i1 %.not.i511, label %proto_item_set_generated.exit.i, label %537
 
-538:                                              ; preds = %.thread603
-  %539 = load ptr, ptr @session_table, align 8
-  %540 = getelementptr inbounds i8, ptr %1, i64 20
-  %541 = load i32, ptr %540, align 4
-  %542 = zext i32 %541 to i64
-  %543 = inttoptr i64 %542 to ptr
-  %544 = call ptr @wmem_map_lookup(ptr noundef %539, ptr noundef %543) #13
-  %545 = ptrtoint ptr %544 to i64
-  %546 = trunc i64 %545 to i32
-  %.not36.i = icmp eq i32 %546, 0
-  br i1 %.not36.i, label %proto_item_set_generated.exit.i, label %547
+537:                                              ; preds = %.thread603
+  %538 = load ptr, ptr @session_table, align 8
+  %539 = getelementptr inbounds i8, ptr %1, i64 20
+  %540 = load i32, ptr %539, align 4
+  %541 = zext i32 %540 to i64
+  %542 = inttoptr i64 %541 to ptr
+  %543 = call ptr @wmem_map_lookup(ptr noundef %538, ptr noundef %542) #13
+  %544 = ptrtoint ptr %543 to i64
+  %545 = trunc i64 %544 to i32
+  %.not36.i = icmp eq i32 %545, 0
+  br i1 %.not36.i, label %proto_item_set_generated.exit.i, label %546
 
-547:                                              ; preds = %538
-  %548 = load i32, ptr @hf_gtp_session, align 4
-  %549 = call ptr @proto_tree_add_uint(ptr noundef nonnull %.0447, i32 noundef %548, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %546) #13
-  %.not.i.i512 = icmp eq ptr %549, null
-  br i1 %.not.i.i512, label %proto_item_set_generated.exit.i, label %550
+546:                                              ; preds = %537
+  %547 = load i32, ptr @hf_gtp_session, align 4
+  %548 = call ptr @proto_tree_add_uint(ptr noundef nonnull %.0447, i32 noundef %547, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %545) #13
+  %.not.i.i512 = icmp eq ptr %548, null
+  br i1 %.not.i.i512, label %proto_item_set_generated.exit.i, label %549
 
-550:                                              ; preds = %547
-  %551 = getelementptr inbounds i8, ptr %549, i64 32
-  %552 = load ptr, ptr %551, align 8
-  %.not5.i.i513 = icmp eq ptr %552, null
-  br i1 %.not5.i.i513, label %proto_item_set_generated.exit.i, label %553
+549:                                              ; preds = %546
+  %550 = getelementptr inbounds i8, ptr %548, i64 32
+  %551 = load ptr, ptr %550, align 8
+  %.not5.i.i513 = icmp eq ptr %551, null
+  br i1 %.not5.i.i513, label %proto_item_set_generated.exit.i, label %552
 
-553:                                              ; preds = %550
-  %554 = getelementptr inbounds i8, ptr %552, i64 28
-  %555 = load i32, ptr %554, align 4
-  %556 = or i32 %555, 2
-  store i32 %556, ptr %554, align 4
+552:                                              ; preds = %549
+  %553 = getelementptr inbounds i8, ptr %551, i64 28
+  %554 = load i32, ptr %553, align 4
+  %555 = or i32 %554, 2
+  store i32 %555, ptr %553, align 4
   br label %proto_item_set_generated.exit.i
 
-proto_item_set_generated.exit.i:                  ; preds = %553, %550, %547, %538, %.thread603
-  %557 = getelementptr inbounds i8, ptr %1, i64 80
-  %558 = load ptr, ptr %557, align 8
-  %559 = getelementptr inbounds i8, ptr %558, i64 50
-  %560 = load i16, ptr %559, align 2
-  %561 = and i16 %560, 8
-  %562 = icmp eq i16 %561, 0
+proto_item_set_generated.exit.i:                  ; preds = %552, %549, %546, %537, %.thread603
+  %556 = getelementptr inbounds i8, ptr %1, i64 80
+  %557 = load ptr, ptr %556, align 8
+  %558 = getelementptr inbounds i8, ptr %557, i64 50
+  %559 = load i16, ptr %558, align 2
+  %560 = and i16 %559, 8
+  %561 = icmp eq i16 %560, 0
   %.b.i514 = load i1, ptr @gtp_version, align 1
-  %or.cond.i515 = select i1 %562, i1 %.b.i514, i1 false
-  br i1 %or.cond.i515, label %563, label %track_gtp_session.exit
+  %or.cond.i515 = select i1 %561, i1 %.b.i514, i1 false
+  br i1 %or.cond.i515, label %562, label %track_gtp_session.exit
 
-563:                                              ; preds = %proto_item_set_generated.exit.i
-  %564 = load ptr, ptr @session_table, align 8
-  %565 = getelementptr inbounds i8, ptr %1, i64 20
-  %566 = load i32, ptr %565, align 4
-  %567 = zext i32 %566 to i64
-  %568 = inttoptr i64 %567 to ptr
-  %569 = call ptr @wmem_map_lookup(ptr noundef %564, ptr noundef %568) #13
-  %570 = ptrtoint ptr %569 to i64
-  %571 = and i64 %570, 4294967295
-  %.not37.i = icmp eq i64 %571, 0
-  br i1 %.not37.i, label %572, label %track_gtp_session.exit
+562:                                              ; preds = %proto_item_set_generated.exit.i
+  %563 = load ptr, ptr @session_table, align 8
+  %564 = getelementptr inbounds i8, ptr %1, i64 20
+  %565 = load i32, ptr %564, align 4
+  %566 = zext i32 %565 to i64
+  %567 = inttoptr i64 %566 to ptr
+  %568 = call ptr @wmem_map_lookup(ptr noundef %563, ptr noundef %567) #13
+  %569 = ptrtoint ptr %568 to i64
+  %570 = and i64 %569, 4294967295
+  %.not37.i = icmp eq i64 %570, 0
+  br i1 %.not37.i, label %571, label %track_gtp_session.exit
 
-572:                                              ; preds = %563
-  %573 = load i8, ptr %88, align 1
-  %574 = and i8 %573, -4
-  %switch.i = icmp eq i8 %574, 16
-  br i1 %switch.i, label %thread-pre-split.i516, label %575
+571:                                              ; preds = %562
+  %572 = load i8, ptr %88, align 1
+  %573 = and i8 %572, -4
+  %switch.i = icmp eq i8 %573, 16
+  br i1 %switch.i, label %thread-pre-split.i516, label %574
 
-575:                                              ; preds = %572
-  %576 = call i32 @wmem_list_count(ptr noundef %531) #13
-  %.not42.i = icmp eq i32 %576, 0
-  br i1 %.not42.i, label %thread-pre-split.i516, label %577
+574:                                              ; preds = %571
+  %575 = call i32 @wmem_list_count(ptr noundef %531) #13
+  %.not42.i = icmp eq i32 %575, 0
+  br i1 %.not42.i, label %thread-pre-split.i516, label %576
 
-577:                                              ; preds = %575
-  %578 = call i32 @wmem_list_count(ptr noundef %533) #13
-  %.not43.i = icmp eq i32 %578, 0
-  br i1 %.not43.i, label %thread-pre-split.i516, label %579
+576:                                              ; preds = %574
+  %577 = call i32 @wmem_list_count(ptr noundef %533) #13
+  %.not43.i = icmp eq i32 %577, 0
+  br i1 %.not43.i, label %thread-pre-split.i516, label %578
 
-579:                                              ; preds = %577
-  %580 = load i32, ptr %565, align 4
-  %581 = load ptr, ptr @frame_map, align 8
-  %582 = zext i32 %580 to i64
-  %583 = inttoptr i64 %582 to ptr
-  %584 = call i32 @wmem_map_foreach_remove(ptr noundef %581, ptr noundef nonnull @frame_equal, ptr noundef %583) #13
+578:                                              ; preds = %576
+  %579 = load i32, ptr %564, align 4
+  %580 = load ptr, ptr @frame_map, align 8
+  %581 = zext i32 %579 to i64
+  %582 = inttoptr i64 %581 to ptr
+  %583 = call i32 @wmem_map_foreach_remove(ptr noundef %580, ptr noundef nonnull @frame_equal, ptr noundef %582) #13
   br label %thread-pre-split.i516
 
-thread-pre-split.i516:                            ; preds = %575, %577, %579, %572
-  switch i8 %573, label %616 [
-    i8 16, label %585
+thread-pre-split.i516:                            ; preds = %574, %576, %578, %571
+  switch i8 %572, label %616 [
+    i8 16, label %584
     i8 17, label %track_gtp_session.exit
-    i8 26, label %595
+    i8 26, label %594
   ]
 
-585:                                              ; preds = %thread-pre-split.i516
-  %586 = load i32, ptr %565, align 4
-  %587 = load i32, ptr @gtp_session_count, align 4
-  %588 = add i32 %587, 1
-  store i32 %588, ptr @gtp_session_count, align 4
-  %589 = load ptr, ptr @session_table, align 8
-  %590 = zext i32 %586 to i64
-  %591 = inttoptr i64 %590 to ptr
-  %592 = zext i32 %587 to i64
-  %593 = inttoptr i64 %592 to ptr
-  %594 = call ptr @wmem_map_insert(ptr noundef %589, ptr noundef %591, ptr noundef %593) #13
+584:                                              ; preds = %thread-pre-split.i516
+  %585 = load i32, ptr %564, align 4
+  %586 = load i32, ptr @gtp_session_count, align 4
+  %587 = add i32 %586, 1
+  store i32 %587, ptr @gtp_session_count, align 4
+  %588 = load ptr, ptr @session_table, align 8
+  %589 = zext i32 %585 to i64
+  %590 = inttoptr i64 %589 to ptr
+  %591 = zext i32 %586 to i64
+  %592 = inttoptr i64 %591 to ptr
+  %593 = call ptr @wmem_map_insert(ptr noundef %588, ptr noundef %590, ptr noundef %592) #13
   br label %track_gtp_session.exit
 
-595:                                              ; preds = %thread-pre-split.i516
+594:                                              ; preds = %thread-pre-split.i516
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i32 %535, ptr %5, align 8
-  %596 = getelementptr inbounds i8, ptr %5, i64 8
-  store <2 x i32> %537, ptr %596, align 8
+  %595 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %.sroa.0.0.copyload, ptr %595, align 8
+  %596 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %.sroa.4.0.copyload, ptr %596, align 4
   %597 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %.sroa.5.0.copyload, ptr %597, align 8
   %598 = getelementptr inbounds i8, ptr %5, i64 24
@@ -11087,11 +11095,11 @@ thread-pre-split.i516:                            ; preds = %575, %577, %579, %5
   %.not.i49.i = icmp eq ptr %600, null
   br i1 %.not.i49.i, label %get_frame.exit.thread.i, label %601
 
-get_frame.exit.thread.i:                          ; preds = %595
+get_frame.exit.thread.i:                          ; preds = %594
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %track_gtp_session.exit
 
-601:                                              ; preds = %595
+601:                                              ; preds = %594
   %602 = ptrtoint ptr %600 to i64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %603 = load ptr, ptr @session_table, align 8
@@ -11104,7 +11112,7 @@ get_frame.exit.thread.i:                          ; preds = %595
   br i1 %.not48.i, label %track_gtp_session.exit, label %609
 
 609:                                              ; preds = %601
-  %610 = load i32, ptr %565, align 4
+  %610 = load i32, ptr %564, align 4
   %611 = load ptr, ptr @session_table, align 8
   %612 = zext i32 %610 to i64
   %613 = inttoptr i64 %612 to ptr
@@ -11117,12 +11125,16 @@ get_frame.exit.thread.i:                          ; preds = %595
   %618 = load i64, ptr %29, align 8
   %619 = trunc i64 %618 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  %.sroa.054.0.copyload.i = load i32, ptr %617, align 1
+  %.sroa.455.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 236
+  %.sroa.455.0.copyload.i = load i32, ptr %.sroa.455.0..sroa_idx.i, align 1
   %.sroa.556.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 240
   %.sroa.556.0.copyload.i = load ptr, ptr %.sroa.556.0..sroa_idx.i, align 1
   store i32 %619, ptr %4, align 8
   %620 = getelementptr inbounds i8, ptr %4, i64 8
-  %621 = load <2 x i32>, ptr %617, align 1
-  store <2 x i32> %621, ptr %620, align 8
+  store i32 %.sroa.054.0.copyload.i, ptr %620, align 8
+  %621 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %.sroa.455.0.copyload.i, ptr %621, align 4
   %622 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %.sroa.556.0.copyload.i, ptr %622, align 8
   %623 = getelementptr inbounds i8, ptr %4, i64 24
@@ -11149,7 +11161,7 @@ get_frame.exit52.thread.i:                        ; preds = %616
   br i1 %.not46.i, label %track_gtp_session.exit, label %634
 
 634:                                              ; preds = %626
-  %635 = load i32, ptr %565, align 4
+  %635 = load i32, ptr %564, align 4
   %636 = load ptr, ptr @session_table, align 8
   %637 = zext i32 %635 to i64
   %638 = inttoptr i64 %637 to ptr
@@ -11157,8 +11169,8 @@ get_frame.exit52.thread.i:                        ; preds = %616
   %640 = call ptr @wmem_map_insert(ptr noundef %636, ptr noundef %638, ptr noundef nonnull %639) #13
   br label %track_gtp_session.exit
 
-track_gtp_session.exit:                           ; preds = %.thread, %634, %626, %get_frame.exit52.thread.i, %609, %601, %get_frame.exit.thread.i, %585, %thread-pre-split.i516, %563, %proto_item_set_generated.exit.i, %530
-  %.3456551 = phi i32 [ %.3456, %530 ], [ %.3456606, %proto_item_set_generated.exit.i ], [ %.3456606, %563 ], [ %.3456606, %thread-pre-split.i516 ], [ %.3456606, %585 ], [ %.3456606, %get_frame.exit.thread.i ], [ %.3456606, %601 ], [ %.3456606, %609 ], [ %.3456606, %get_frame.exit52.thread.i ], [ %.3456606, %626 ], [ %.3456606, %634 ], [ %.4457.lcssa, %.thread ]
+track_gtp_session.exit:                           ; preds = %.thread, %634, %626, %get_frame.exit52.thread.i, %609, %601, %get_frame.exit.thread.i, %584, %thread-pre-split.i516, %562, %proto_item_set_generated.exit.i, %530
+  %.3456551 = phi i32 [ %.3456, %530 ], [ %.3456606, %proto_item_set_generated.exit.i ], [ %.3456606, %562 ], [ %.3456606, %thread-pre-split.i516 ], [ %.3456606, %584 ], [ %.3456606, %get_frame.exit.thread.i ], [ %.3456606, %601 ], [ %.3456606, %609 ], [ %.3456606, %get_frame.exit52.thread.i ], [ %.3456606, %626 ], [ %.3456606, %634 ], [ %.4457.lcssa, %.thread ]
   call void @proto_item_set_end(ptr noundef %.0451, ptr noundef %0, i32 noundef %.3456551) #13
   %641 = load i8, ptr %88, align 1
   %642 = icmp eq i8 %641, -1

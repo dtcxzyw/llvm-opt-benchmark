@@ -191,10 +191,12 @@ if.end21.i:                                       ; preds = %if.then14.i, %if.en
 _ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_.exit: ; preds = %if.end29, %if.end21.i
   %smoothed_rtt_ = getelementptr inbounds i8, ptr %this, i64 32
   %previous_srtt_ = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp.sroa.0.0.copyload.i10 = load i64, ptr %smoothed_rtt_, align 8
+  store i64 %agg.tmp.sroa.0.0.copyload.i10, ptr %previous_srtt_, align 8
   %time_offset_.i11 = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i64, ptr %time_offset_.i11, align 8
-  %6 = load <2 x i64>, ptr %smoothed_rtt_, align 8
-  store <2 x i64> %6, ptr %previous_srtt_, align 8
+  %time_offset_3.i12 = getelementptr inbounds i8, ptr %this, i64 56
+  store i64 %5, ptr %time_offset_3.i12, align 8
   %cmp.i.i13 = icmp slt i64 %ack_delay.coerce1, %send_delta.coerce1
   %rtt_sample.sroa.0.0 = select i1 %cmp.i.i13, i64 0, i64 %send_delta.coerce0
   %sub.i = select i1 %cmp.i.i13, i64 %ack_delay.coerce1, i64 0
@@ -218,14 +220,14 @@ if.then47:                                        ; preds = %_ZN3net8RttStats20U
 if.else:                                          ; preds = %_ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_.exit
   %mean_deviation_55 = getelementptr inbounds i8, ptr %this, i64 64
   %time_offset_.i30 = getelementptr inbounds i8, ptr %this, i64 72
-  %7 = load i64, ptr %time_offset_.i30, align 8
-  %conv = sitofp i64 %7 to float
+  %6 = load i64, ptr %time_offset_.i30, align 8
+  %conv = sitofp i64 %6 to float
   %sub.i31 = sub nsw i64 %5, %rtt_sample.sroa.8.0
-  %8 = tail call noundef i64 @llvm.abs.i64(i64 %sub.i31, i1 true)
-  %conv64 = uitofp nneg i64 %8 to float
+  %7 = tail call noundef i64 @llvm.abs.i64(i64 %sub.i31, i1 true)
+  %conv64 = uitofp nneg i64 %7 to float
   %mul65 = fmul float %conv64, 2.500000e-01
-  %9 = tail call float @llvm.fmuladd.f32(float %conv, float 7.500000e-01, float %mul65)
-  %conv66 = fptosi float %9 to i64
+  %8 = tail call float @llvm.fmuladd.f32(float %conv, float 7.500000e-01, float %mul65)
+  %conv66 = fptosi float %8 to i64
   store i64 0, ptr %mean_deviation_55, align 8
   store i64 %conv66, ptr %time_offset_.i30, align 8
   %conv.i.i = sitofp i64 %5 to double

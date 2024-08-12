@@ -1383,9 +1383,9 @@ declare ptr @proto_tree_add_ipv6(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @display_socks_v4(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
-  %6 = alloca [4 x i8], align 4
+  %6 = alloca [4 x i8], align 1
   %7 = icmp eq ptr %4, null
-  br i1 %7, label %54, label %8
+  br i1 %7, label %58, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %3, i64 20
@@ -1393,13 +1393,13 @@ define internal fastcc void @display_socks_v4(ptr noundef %0, ptr nocapture noun
   %11 = getelementptr inbounds i8, ptr %1, i64 288
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %42
+  br i1 %13, label %14, label %46
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %4, i64 4
   %16 = load i32, ptr %15, align 4
   %cond1 = icmp eq i32 %16, 0
-  br i1 %cond1, label %17, label %54
+  br i1 %cond1, label %17, label %58
 
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_socks_ver, align 4
@@ -1414,40 +1414,47 @@ define internal fastcc void @display_socks_v4(ptr noundef %0, ptr nocapture noun
   %27 = call i32 @tvb_strsize(ptr noundef %0, i32 noundef 8) #6
   %28 = load i32, ptr @hf_socks_username, align 4
   %29 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 8, i32 noundef %27, i32 noundef 0) #6
-  %30 = load <4 x i8>, ptr %6, align 4
-  %31 = icmp eq <4 x i8> %30, zeroinitializer
-  %32 = icmp ne <4 x i8> %30, zeroinitializer
-  %33 = shufflevector <4 x i1> %31, <4 x i1> %32, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
-  %34 = freeze <4 x i1> %33
-  %35 = bitcast <4 x i1> %34 to i4
-  %36 = icmp eq i4 %35, -1
-  br i1 %36, label %37, label %54
+  %30 = load i8, ptr %6, align 1
+  %31 = icmp eq i8 %30, 0
+  %32 = getelementptr inbounds i8, ptr %6, i64 1
+  %33 = load i8, ptr %32, align 1
+  %34 = icmp eq i8 %33, 0
+  %or.cond = select i1 %31, i1 %34, i1 false
+  %35 = getelementptr inbounds i8, ptr %6, i64 2
+  %36 = load i8, ptr %35, align 1
+  %37 = icmp eq i8 %36, 0
+  %or.cond8 = select i1 %or.cond, i1 %37, i1 false
+  %38 = getelementptr inbounds i8, ptr %6, i64 3
+  %39 = load i8, ptr %38, align 1
+  %40 = icmp ne i8 %39, 0
+  %or.cond12 = select i1 %or.cond8, i1 %40, i1 false
+  br i1 %or.cond12, label %41, label %58
 
-37:                                               ; preds = %17
-  %38 = add i32 %27, 8
-  %39 = call i32 @tvb_strsize(ptr noundef %0, i32 noundef %38) #6
-  %40 = load i32, ptr @hf_v4a_dns_name, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %38, i32 noundef %39, i32 noundef 0) #6
-  br label %54
+41:                                               ; preds = %17
+  %42 = add i32 %27, 8
+  %43 = call i32 @tvb_strsize(ptr noundef %0, i32 noundef %42) #6
+  %44 = load i32, ptr @hf_v4a_dns_name, align 4
+  %45 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %42, i32 noundef %43, i32 noundef 0) #6
+  br label %58
 
-42:                                               ; preds = %8
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
-  %44 = load i32, ptr %43, align 4
-  %cond = icmp eq i32 %44, 0
-  br i1 %cond, label %45, label %54
+46:                                               ; preds = %8
+  %47 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = load i32, ptr %47, align 4
+  %cond = icmp eq i32 %48, 0
+  br i1 %cond, label %49, label %58
 
-45:                                               ; preds = %42
-  %46 = load i32, ptr @hf_socks_ver, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
-  %48 = load i32, ptr @hf_socks_results_4, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
-  %50 = load i32, ptr @hf_socks_dstport, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #6
-  %52 = load i32, ptr @hf_socks_ip_dst, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #6
-  br label %54
+49:                                               ; preds = %46
+  %50 = load i32, ptr @hf_socks_ver, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %52 = load i32, ptr @hf_socks_results_4, align 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
+  %54 = load i32, ptr @hf_socks_dstport, align 4
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #6
+  %56 = load i32, ptr @hf_socks_ip_dst, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #6
+  br label %58
 
-54:                                               ; preds = %45, %42, %37, %17, %14, %5
+58:                                               ; preds = %49, %46, %41, %17, %14, %5
   ret void
 }
 

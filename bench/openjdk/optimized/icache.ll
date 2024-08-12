@@ -39,45 +39,47 @@ define hidden void @_ZN14AbstractICache10initializeEv() local_unnamed_addr #0 al
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load <2 x ptr>, ptr %9, align 8
-  %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
-  %13 = load i64, ptr %12, align 8
-  %14 = tail call noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef nonnull @.str, i32 noundef 64) #5
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %17
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = tail call noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef nonnull @.str, i32 noundef 64) #5
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %0
+17:                                               ; preds = %0
   tail call void (ptr, i32, i64, i32, ptr, ...) @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef nonnull @.str.4, i32 noundef 40, i64 noundef 64, i32 noundef -536870911, ptr noundef nonnull @.str.5) #6
   unreachable
 
-17:                                               ; preds = %0
-  call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull %14) #5
+18:                                               ; preds = %0
+  call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull %15) #5
   call void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %1, i1 noundef zeroext false) #5
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV19ICacheStubGenerator, i64 16), ptr %2, align 8
   call void @_ZN19ICacheStubGenerator21generate_icache_flushEPPFiPhiiE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull @_ZN14AbstractICache18_flush_icache_stubE) #5
   call void @_ZN17StubCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #5
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %1) #5
-  %18 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i.i.i, label %20, label %19
+  %19 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i.i.i, label %21, label %20
 
-19:                                               ; preds = %17
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13) #5
+20:                                               ; preds = %18
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #5
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #5
-  br label %20
+  br label %21
 
-20:                                               ; preds = %19, %17
-  %21 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %21, %11
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %22
+21:                                               ; preds = %20, %18
+  %22 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %22, %10
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %23
 
-22:                                               ; preds = %20
+23:                                               ; preds = %21
   store ptr %8, ptr %7, align 8
-  store <2 x ptr> %10, ptr %9, align 8
+  store ptr %10, ptr %9, align 8
+  store ptr %12, ptr %11, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %20, %22
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %21, %23
   ret void
 }
 

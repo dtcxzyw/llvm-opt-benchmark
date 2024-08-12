@@ -212,7 +212,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv4gapi3wip3gst15GStreamerSourceC2ESt10shared_ptrINS2_23GStreamerPipelineFacadeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_10OutputTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.std::shared_ptr", align 16
+  %5 = alloca %"class.std::shared_ptr", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv4gapi3wip3gst15GStreamerSourceE, i64 16), ptr %0, align 8
@@ -220,16 +220,17 @@ define void @_ZN2cv4gapi3wip3gst15GStreamerSourceC2ESt10shared_ptrINS2_23GStream
           to label %8 unwind label %58
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %12, ptr %5, align 16
-  %.not.i.i.i = icmp eq ptr %11, null
+  %9 = load ptr, ptr %1, align 8
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %10, align 8
+  %.not.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv4gapi3wip3gst23GStreamerPipelineFacadeEEC2ERKS5_.exit, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %.not.i.i.i.i, label %19, label %16
@@ -251,7 +252,7 @@ _ZNSt10shared_ptrIN2cv4gapi3wip3gst23GStreamerPipelineFacadeEEC2ERKS5_.exit: ; p
 21:                                               ; preds = %_ZNSt10shared_ptrIN2cv4gapi3wip3gst23GStreamerPipelineFacadeEEC2ERKS5_.exit
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %7, ptr %22, align 8
-  %23 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %10, align 8
   %.not.i.i.i7 = icmp eq ptr %23, null
   br i1 %.not.i.i.i7, label %_ZNSt10shared_ptrIN2cv4gapi3wip3gst23GStreamerPipelineFacadeEED2Ev.exit, label %24
 

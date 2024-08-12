@@ -511,11 +511,15 @@ mp_buf_append.exit50:                             ; preds = %if.end.i43, %entry.
   br label %if.end
 
 if.end:                                           ; preds = %mp_buf_append.exit50, %mp_buf_append.exit
-  %15 = phi <2 x i64> [ <i64 9, i64 -9>, %mp_buf_append.exit50 ], [ <i64 5, i64 -5>, %mp_buf_append.exit ]
+  %.sink78 = phi i64 [ 9, %mp_buf_append.exit50 ], [ 5, %mp_buf_append.exit ]
+  %.sink76 = phi i64 [ -9, %mp_buf_append.exit50 ], [ -5, %mp_buf_append.exit ]
   %len14.i33.sink79 = getelementptr inbounds i8, ptr %buf, i64 8
-  %16 = load <2 x i64>, ptr %len14.i33.sink79, align 8, !tbaa !23
-  %17 = add <2 x i64> %16, %15
-  store <2 x i64> %17, ptr %len14.i33.sink79, align 8, !tbaa !23
+  %15 = load i64, ptr %len14.i33.sink79, align 8, !tbaa !17
+  %add16.i35 = add i64 %15, %.sink78
+  store i64 %add16.i35, ptr %len14.i33.sink79, align 8, !tbaa !17
+  %16 = load i64, ptr %free.i, align 8, !tbaa !13
+  %sub18.i36 = add i64 %16, %.sink76
+  store i64 %sub18.i36, ptr %free.i, align 8, !tbaa !13
   ret void
 }
 

@@ -111,8 +111,8 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %20 = alloca %"class.cv::_InputOutputArray", align 8
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
-  %23 = alloca %"class.cv::Point_", align 8
-  %24 = alloca %"class.cv::Point_", align 8
+  %23 = alloca %"class.cv::Point_", align 4
+  %24 = alloca %"class.cv::Point_", align 4
   %25 = alloca %"class.cv::_InputOutputArray", align 8
   %26 = alloca %"class.cv::Scalar_", align 8
   %27 = alloca %"class.cv::CommandLineParser", align 8
@@ -129,7 +129,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %38 = alloca %"class.cv::Scalar_", align 8
   %39 = alloca %"class.cv::_InputArray", align 8
   %40 = alloca %"class.cv::Scalar_", align 8
-  %41 = alloca %"class.cv::Scalar_", align 16
+  %41 = alloca %"class.cv::Scalar_", align 8
   %42 = alloca %"class.cv::_InputArray", align 8
   %43 = alloca %"class.cv::Scalar_", align 8
   %44 = alloca %"class.cv::_InputArray", align 8
@@ -258,7 +258,10 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %93 = getelementptr inbounds i8, ptr %42, i64 20
   %94 = getelementptr inbounds i8, ptr %42, i64 8
   %.sroa.377.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 16
+  %.sroa.478.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %41, i64 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %41, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %41, i64 24
   br label %_ZN2cv7Scalar_IdEC2ERKS1_.exit
 
 _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %200, %.preheader64
@@ -272,7 +275,8 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %200, %.preheader64
   %101 = add nsw i32 %100, 5
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %98, i64 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr %.sroa.377.0..sroa_idx, align 8
+  store double 2.550000e+02, ptr %.sroa.377.0..sroa_idx, align 8
+  store double 0.000000e+00, ptr %.sroa.478.0..sroa_idx, align 8
   %102 = sitofp i32 %101 to float
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %102, i64 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
@@ -293,8 +297,10 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %200, %.preheader64
 
 .preheader.i:                                     ; preds = %.noexc31, %.noexc35
   %.0.i = phi i32 [ %124, %.noexc35 ], [ %104, %.noexc31 ]
-  store <2 x float> zeroinitializer, ptr %23, align 8
-  store <2 x float> zeroinitializer, ptr %24, align 8
+  store float 0.000000e+00, ptr %23, align 4
+  store float 0.000000e+00, ptr %76, align 4
+  store float 0.000000e+00, ptr %24, align 4
+  store float 0.000000e+00, ptr %77, align 4
   %106 = invoke noundef i32 @_ZNK2cv8Subdiv2D7edgeOrgEiPNS_6Point_IfEE(ptr noundef nonnull align 8 dereferenceable(80) %32, i32 noundef %.0.i, ptr noundef nonnull %23)
           to label %.noexc32 unwind label %.loopexit
 
@@ -314,7 +320,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %200, %.preheader64
   store i64 0, ptr %79, align 8
   store i32 50397184, ptr %25, align 8
   store ptr %33, ptr %78, align 8
-  %112 = load float, ptr %23, align 8
+  %112 = load float, ptr %23, align 4
   %113 = insertelement <4 x float> poison, float %112, i64 0
   %114 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %113)
   %115 = load float, ptr %76, align 4
@@ -324,7 +330,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %200, %.preheader64
   %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
   %.sroa.0.0.insert.ext.i.i = zext i32 %114 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
-  %118 = load float, ptr %24, align 8
+  %118 = load float, ptr %24, align 4
   %119 = insertelement <4 x float> poison, float %118, i64 0
   %120 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %119)
   %121 = load float, ptr %77, align 4
@@ -437,8 +443,10 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %200, %.preheader64
           to label %.preheader.preheader unwind label %.loopexit.split-lp.loopexit
 
 .preheader.preheader:                             ; preds = %147
-  store <2 x double> <double 2.550000e+02, double 2.550000e+02>, ptr %41, align 16
-  store <2 x double> <double 2.550000e+02, double 0.000000e+00>, ptr %.sroa.3.0..sroa_idx, align 16
+  store double 2.550000e+02, ptr %41, align 8
+  store double 2.550000e+02, ptr %.sroa.2.0..sroa_idx, align 8
+  store double 2.550000e+02, ptr %.sroa.3.0..sroa_idx, align 8
+  store double 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)

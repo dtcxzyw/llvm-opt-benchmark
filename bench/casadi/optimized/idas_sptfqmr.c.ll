@@ -28,7 +28,7 @@ define range(i32 -4, 1) i32 @IDASptfqmr(ptr noundef %0, i32 noundef %1) local_un
 
 4:                                                ; preds = %2
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
-  br label %68
+  br label %69
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 672
@@ -42,7 +42,7 @@ define range(i32 -4, 1) i32 @IDASptfqmr(ptr noundef %0, i32 noundef %1) local_un
 
 13:                                               ; preds = %5
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #7
-  br label %68
+  br label %69
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %0, i64 1624
@@ -70,7 +70,7 @@ define range(i32 -4, 1) i32 @IDASptfqmr(ptr noundef %0, i32 noundef %1) local_un
 
 26:                                               ; preds = %19
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #7
-  br label %68
+  br label %69
 
 27:                                               ; preds = %19
   store i32 3, ptr %24, align 8
@@ -89,80 +89,82 @@ define range(i32 -4, 1) i32 @IDASptfqmr(ptr noundef %0, i32 noundef %1) local_un
   %36 = getelementptr inbounds i8, ptr %24, i64 232
   store ptr %35, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %24, i64 24
-  store <2 x double> <double 5.000000e-02, double 1.000000e+00>, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %24, i64 200
-  store i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 1648
-  store i32 0, ptr %39, align 8
-  %40 = load ptr, ptr %6, align 8
-  %41 = tail call ptr @N_VClone(ptr noundef %40) #7
-  %42 = getelementptr inbounds i8, ptr %24, i64 144
-  store ptr %41, ptr %42, align 8
-  %43 = icmp eq ptr %41, null
-  br i1 %43, label %44, label %45
-
-44:                                               ; preds = %27
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #7
-  tail call void @free(ptr noundef nonnull %24) #7
-  br label %68
+  store double 5.000000e-02, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %24, i64 32
+  store double 1.000000e+00, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %24, i64 200
+  store i64 0, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 1648
+  store i32 0, ptr %40, align 8
+  %41 = load ptr, ptr %6, align 8
+  %42 = tail call ptr @N_VClone(ptr noundef %41) #7
+  %43 = getelementptr inbounds i8, ptr %24, i64 144
+  store ptr %42, ptr %43, align 8
+  %44 = icmp eq ptr %42, null
+  br i1 %44, label %45, label %46
 
 45:                                               ; preds = %27
-  %46 = load ptr, ptr %6, align 8
-  %47 = tail call ptr @N_VClone(ptr noundef %46) #7
-  %48 = getelementptr inbounds i8, ptr %24, i64 152
-  store ptr %47, ptr %48, align 8
-  %49 = icmp eq ptr %47, null
-  br i1 %49, label %50, label %51
-
-50:                                               ; preds = %45
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #7
-  tail call void @N_VDestroy(ptr noundef nonnull %41) #7
   tail call void @free(ptr noundef nonnull %24) #7
-  br label %68
+  br label %69
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %6, align 8
-  %53 = tail call ptr @N_VClone(ptr noundef %52) #7
-  %54 = getelementptr inbounds i8, ptr %24, i64 160
-  store ptr %53, ptr %54, align 8
-  %55 = icmp eq ptr %53, null
-  br i1 %55, label %56, label %57
+46:                                               ; preds = %27
+  %47 = load ptr, ptr %6, align 8
+  %48 = tail call ptr @N_VClone(ptr noundef %47) #7
+  %49 = getelementptr inbounds i8, ptr %24, i64 152
+  store ptr %48, ptr %49, align 8
+  %50 = icmp eq ptr %48, null
+  br i1 %50, label %51, label %52
 
-56:                                               ; preds = %51
+51:                                               ; preds = %46
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #7
-  tail call void @N_VDestroy(ptr noundef nonnull %41) #7
-  tail call void @N_VDestroy(ptr noundef nonnull %47) #7
+  tail call void @N_VDestroy(ptr noundef nonnull %42) #7
   tail call void @free(ptr noundef nonnull %24) #7
-  br label %68
+  br label %69
 
-57:                                               ; preds = %51
-  tail call void @N_VConst(double noundef 1.000000e+00, ptr noundef nonnull %41) #7
-  %58 = tail call double @N_VDotProd(ptr noundef nonnull %41, ptr noundef nonnull %41) #7
-  %59 = tail call double @SUNRsqrt(double noundef %58) #7
-  %60 = getelementptr inbounds i8, ptr %24, i64 8
-  store double %59, ptr %60, align 8
-  %61 = load ptr, ptr %6, align 8
-  %62 = tail call ptr @SptfqmrMalloc(i32 noundef %29, ptr noundef %61) #7
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %65
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %6, align 8
+  %54 = tail call ptr @N_VClone(ptr noundef %53) #7
+  %55 = getelementptr inbounds i8, ptr %24, i64 160
+  store ptr %54, ptr %55, align 8
+  %56 = icmp eq ptr %54, null
+  br i1 %56, label %57, label %58
 
-64:                                               ; preds = %57
+57:                                               ; preds = %52
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #7
-  tail call void @N_VDestroy(ptr noundef nonnull %41) #7
-  tail call void @N_VDestroy(ptr noundef nonnull %47) #7
-  tail call void @N_VDestroy(ptr noundef nonnull %53) #7
+  tail call void @N_VDestroy(ptr noundef nonnull %42) #7
+  tail call void @N_VDestroy(ptr noundef nonnull %48) #7
   tail call void @free(ptr noundef nonnull %24) #7
-  br label %68
+  br label %69
 
-65:                                               ; preds = %57
-  %66 = getelementptr inbounds i8, ptr %24, i64 192
-  store ptr %62, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 1632
-  store ptr %24, ptr %67, align 8
-  br label %68
+58:                                               ; preds = %52
+  tail call void @N_VConst(double noundef 1.000000e+00, ptr noundef nonnull %42) #7
+  %59 = tail call double @N_VDotProd(ptr noundef nonnull %42, ptr noundef nonnull %42) #7
+  %60 = tail call double @SUNRsqrt(double noundef %59) #7
+  %61 = getelementptr inbounds i8, ptr %24, i64 8
+  store double %60, ptr %61, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = tail call ptr @SptfqmrMalloc(i32 noundef %29, ptr noundef %62) #7
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %66
 
-68:                                               ; preds = %65, %64, %56, %50, %44, %26, %13, %4
-  %.0 = phi i32 [ -1, %4 ], [ -3, %13 ], [ -4, %26 ], [ -4, %44 ], [ -4, %50 ], [ -4, %56 ], [ -4, %64 ], [ 0, %65 ]
+65:                                               ; preds = %58
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #7
+  tail call void @N_VDestroy(ptr noundef nonnull %42) #7
+  tail call void @N_VDestroy(ptr noundef nonnull %48) #7
+  tail call void @N_VDestroy(ptr noundef nonnull %54) #7
+  tail call void @free(ptr noundef nonnull %24) #7
+  br label %69
+
+66:                                               ; preds = %58
+  %67 = getelementptr inbounds i8, ptr %24, i64 192
+  store ptr %63, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 1632
+  store ptr %24, ptr %68, align 8
+  br label %69
+
+69:                                               ; preds = %66, %65, %57, %51, %45, %26, %13, %4
+  %.0 = phi i32 [ -1, %4 ], [ -3, %13 ], [ -4, %26 ], [ -4, %45 ], [ -4, %51 ], [ -4, %57 ], [ -4, %65 ], [ 0, %66 ]
   ret i32 %.0
 }
 

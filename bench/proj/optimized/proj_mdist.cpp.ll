@@ -69,20 +69,22 @@ define hidden noalias noundef ptr @_Z14proj_mdist_inid(double noundef %0) local_
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.lr.ph ], [ 1, %26 ]
-  %.280 = phi double [ %37, %.lr.ph ], [ %30, %26 ]
-  %33 = phi <2 x double> [ %44, %.lr.ph ], [ <double 2.000000e+00, double 3.000000e+00>, %26 ]
-  %34 = phi <2 x double> [ %38, %.lr.ph ], [ <double 1.000000e+00, double 1.000000e+00>, %26 ]
-  %35 = getelementptr inbounds [20 x double], ptr %2, i64 0, i64 %indvars.iv83
-  %36 = load double, ptr %35, align 8
-  %37 = fsub double %.280, %36
-  %38 = fmul <2 x double> %33, %34
-  %39 = extractelement <2 x double> %38, i64 0
-  %40 = fmul double %39, %37
-  %41 = extractelement <2 x double> %38, i64 1
-  %42 = fdiv double %40, %41
-  %43 = getelementptr inbounds [1 x double], ptr %31, i64 0, i64 %indvars.iv83
-  store double %42, ptr %43, align 8
-  %44 = fadd <2 x double> %33, <double 2.000000e+00, double 2.000000e+00>
+  %.280 = phi double [ %35, %.lr.ph ], [ %30, %26 ]
+  %.15679 = phi double [ %36, %.lr.ph ], [ 1.000000e+00, %26 ]
+  %.05878 = phi double [ %41, %.lr.ph ], [ 2.000000e+00, %26 ]
+  %.16177 = phi double [ %42, %.lr.ph ], [ 3.000000e+00, %26 ]
+  %.16376 = phi double [ %37, %.lr.ph ], [ 1.000000e+00, %26 ]
+  %33 = getelementptr inbounds [20 x double], ptr %2, i64 0, i64 %indvars.iv83
+  %34 = load double, ptr %33, align 8
+  %35 = fsub double %.280, %34
+  %36 = fmul double %.05878, %.15679
+  %37 = fmul double %.16376, %.16177
+  %38 = fmul double %36, %35
+  %39 = fdiv double %38, %37
+  %40 = getelementptr inbounds [1 x double], ptr %31, i64 0, i64 %indvars.iv83
+  store double %39, ptr %40, align 8
+  %41 = fadd double %.05878, 2.000000e+00
+  %42 = fadd double %.16177, 2.000000e+00
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, %21
   br i1 %exitcond86.not, label %.loopexit, label %.lr.ph, !llvm.loop !6

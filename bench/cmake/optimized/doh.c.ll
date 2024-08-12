@@ -161,119 +161,116 @@ define internal fastcc i32 @dohprobe(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %15, label %doh_encode.exit.thread, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
-  store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %9, align 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 17
+  %17 = getelementptr inbounds i8, ptr %1, i64 13
+  store i8 0, ptr %9, align 1
+  %18 = getelementptr inbounds i8, ptr %1, i64 14
   store i8 0, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %1, i64 18
+  %19 = getelementptr inbounds i8, ptr %1, i64 15
   store i8 1, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %19, i8 0, i64 6, i1 false)
-  %21 = load i8, ptr %3, align 1
-  %.not5862.i = icmp eq i8 %21, 0
+  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  store i8 0, ptr %19, align 1
+  %21 = getelementptr inbounds i8, ptr %1, i64 17
+  store i8 0, ptr %20, align 1
+  %22 = getelementptr inbounds i8, ptr %1, i64 18
+  store i8 1, ptr %21, align 1
+  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %22, i8 0, i64 6, i1 false)
+  %24 = load i8, ptr %3, align 1
+  %.not5862.i = icmp eq i8 %24, 0
   br i1 %.not5862.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %16, %31
-  %.05564.i = phi ptr [ %spec.select60.i, %31 ], [ %3, %16 ]
-  %.05663.i = phi ptr [ %34, %31 ], [ %20, %16 ]
-  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.05564.i, i32 noundef 46) #9
-  %.not59.i = icmp ne ptr %22, null
-  br i1 %.not59.i, label %23, label %27
+.lr.ph.i:                                         ; preds = %16, %34
+  %.05564.i = phi ptr [ %spec.select60.i, %34 ], [ %3, %16 ]
+  %.05663.i = phi ptr [ %37, %34 ], [ %23, %16 ]
+  %25 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.05564.i, i32 noundef 46) #9
+  %.not59.i = icmp ne ptr %25, null
+  br i1 %.not59.i, label %26, label %30
 
-23:                                               ; preds = %.lr.ph.i
-  %24 = ptrtoint ptr %22 to i64
-  %25 = ptrtoint ptr %.05564.i to i64
-  %26 = sub i64 %24, %25
-  br label %29
+26:                                               ; preds = %.lr.ph.i
+  %27 = ptrtoint ptr %25 to i64
+  %28 = ptrtoint ptr %.05564.i to i64
+  %29 = sub i64 %27, %28
+  br label %32
 
-27:                                               ; preds = %.lr.ph.i
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.05564.i) #9
-  br label %29
+30:                                               ; preds = %.lr.ph.i
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.05564.i) #9
+  br label %32
 
-29:                                               ; preds = %27, %23
-  %.053.i = phi i64 [ %26, %23 ], [ %28, %27 ]
-  %30 = add i64 %.053.i, -1
-  %or.cond.i = icmp ult i64 %30, 63
-  br i1 %or.cond.i, label %31, label %doh_encode.exit
+32:                                               ; preds = %30, %26
+  %.053.i = phi i64 [ %29, %26 ], [ %31, %30 ]
+  %33 = add i64 %.053.i, -1
+  %or.cond.i = icmp ult i64 %33, 63
+  br i1 %or.cond.i, label %34, label %doh_encode.exit
 
-31:                                               ; preds = %29
-  %32 = trunc nuw nsw i64 %.053.i to i8
-  %33 = getelementptr inbounds i8, ptr %.05663.i, i64 1
-  store i8 %32, ptr %.05663.i, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %.05564.i, i64 %.053.i, i1 false)
-  %34 = getelementptr inbounds i8, ptr %33, i64 %.053.i
-  %35 = getelementptr inbounds i8, ptr %.05564.i, i64 %.053.i
+34:                                               ; preds = %32
+  %35 = trunc nuw nsw i64 %.053.i to i8
+  %36 = getelementptr inbounds i8, ptr %.05663.i, i64 1
+  store i8 %35, ptr %.05663.i, align 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 1 %.05564.i, i64 %.053.i, i1 false)
+  %37 = getelementptr inbounds i8, ptr %36, i64 %.053.i
+  %38 = getelementptr inbounds i8, ptr %.05564.i, i64 %.053.i
   %spec.select60.idx.i = zext i1 %.not59.i to i64
-  %spec.select60.i = getelementptr inbounds i8, ptr %35, i64 %spec.select60.idx.i
-  %36 = load i8, ptr %spec.select60.i, align 1
-  %.not58.i = icmp eq i8 %36, 0
+  %spec.select60.i = getelementptr inbounds i8, ptr %38, i64 %spec.select60.idx.i
+  %39 = load i8, ptr %spec.select60.i, align 1
+  %.not58.i = icmp eq i8 %39, 0
   br i1 %.not58.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !5
 
-doh_encode.exit:                                  ; preds = %29
+doh_encode.exit:                                  ; preds = %32
   store i64 0, ptr %10, align 8
   br label %doh_encode.exit.thread
 
 doh_encode.exit.thread:                           ; preds = %7, %doh_encode.exit
   %.0.i335 = phi i32 [ 1, %doh_encode.exit ], [ 13, %7 ]
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %.0.i335) #8
-  br label %209
+  br label %212
 
-.loopexit:                                        ; preds = %31, %16
-  %.056.lcssa.i = phi ptr [ %20, %16 ], [ %34, %31 ]
-  %37 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 1
+.loopexit:                                        ; preds = %34, %16
+  %.056.lcssa.i = phi ptr [ %23, %16 ], [ %37, %34 ]
+  %40 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 1
   store i8 0, ptr %.056.lcssa.i, align 1
-  %38 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 2
-  store i8 0, ptr %37, align 1
-  %39 = trunc i32 %2 to i8
-  %40 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 3
-  store i8 %39, ptr %38, align 1
-  %41 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 4
+  %41 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 2
   store i8 0, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 5
-  store i8 1, ptr %41, align 1
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %9 to i64
-  %45 = sub i64 %43, %44
-  store i64 %45, ptr %10, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %2, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 536
-  tail call void @Curl_dyn_init(ptr noundef nonnull %47, i64 noundef 3000) #8
-  %48 = tail call i64 @Curl_timeleft(ptr noundef %0, ptr noundef null, i1 noundef zeroext true) #8
-  %49 = icmp slt i64 %48, 1
-  br i1 %49, label %207, label %50
+  %42 = trunc i32 %2 to i8
+  %43 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 3
+  store i8 %42, ptr %41, align 1
+  %44 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 4
+  store i8 0, ptr %43, align 1
+  %45 = getelementptr inbounds i8, ptr %.056.lcssa.i, i64 5
+  store i8 1, ptr %44, align 1
+  %46 = ptrtoint ptr %45 to i64
+  %47 = ptrtoint ptr %9 to i64
+  %48 = sub i64 %46, %47
+  store i64 %48, ptr %10, align 8
+  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %2, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 536
+  tail call void @Curl_dyn_init(ptr noundef nonnull %50, i64 noundef 3000) #8
+  %51 = tail call i64 @Curl_timeleft(ptr noundef %0, ptr noundef null, i1 noundef zeroext true) #8
+  %52 = icmp slt i64 %51, 1
+  br i1 %52, label %210, label %53
 
-50:                                               ; preds = %.loopexit
-  %51 = call i32 @Curl_open(ptr noundef nonnull %8) #8
-  %.not305 = icmp eq i32 %51, 0
-  br i1 %.not305, label %52, label %207
+53:                                               ; preds = %.loopexit
+  %54 = call i32 @Curl_open(ptr noundef nonnull %8) #8
+  %.not305 = icmp eq i32 %54, 0
+  br i1 %.not305, label %55, label %210
 
-52:                                               ; preds = %50
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4940
-  %55 = load i32, ptr %54, align 4
-  %56 = or i32 %55, 2097152
-  store i32 %56, ptr %54, align 4
-  %57 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %53, i32 noundef 10002, ptr noundef %4) #8
-  switch i32 %57, label %207 [
-    i32 48, label %58
-    i32 4, label %58
-    i32 0, label %58
-  ]
-
-58:                                               ; preds = %52, %52, %52
-  %59 = load ptr, ptr %8, align 8
-  %60 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %59, i32 noundef 10238, ptr noundef nonnull @.str.5) #8
-  switch i32 %60, label %207 [
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %8, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 4940
+  %58 = load i32, ptr %57, align 4
+  %59 = or i32 %58, 2097152
+  store i32 %59, ptr %57, align 4
+  %60 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %56, i32 noundef 10002, ptr noundef %4) #8
+  switch i32 %60, label %210 [
     i32 48, label %61
     i32 4, label %61
     i32 0, label %61
   ]
 
-61:                                               ; preds = %58, %58, %58
+61:                                               ; preds = %55, %55, %55
   %62 = load ptr, ptr %8, align 8
-  %63 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %62, i32 noundef 20011, ptr noundef nonnull @doh_write_cb) #8
-  switch i32 %63, label %207 [
+  %63 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %62, i32 noundef 10238, ptr noundef nonnull @.str.5) #8
+  switch i32 %63, label %210 [
     i32 48, label %64
     i32 4, label %64
     i32 0, label %64
@@ -281,8 +278,8 @@ doh_encode.exit.thread:                           ; preds = %7, %doh_encode.exit
 
 64:                                               ; preds = %61, %61, %61
   %65 = load ptr, ptr %8, align 8
-  %66 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %65, i32 noundef 10001, ptr noundef nonnull %47) #8
-  switch i32 %66, label %207 [
+  %66 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %65, i32 noundef 20011, ptr noundef nonnull @doh_write_cb) #8
+  switch i32 %66, label %210 [
     i32 48, label %67
     i32 4, label %67
     i32 0, label %67
@@ -290,8 +287,8 @@ doh_encode.exit.thread:                           ; preds = %7, %doh_encode.exit
 
 67:                                               ; preds = %64, %64, %64
   %68 = load ptr, ptr %8, align 8
-  %69 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %68, i32 noundef 10015, ptr noundef nonnull %9) #8
-  switch i32 %69, label %207 [
+  %69 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %68, i32 noundef 10001, ptr noundef nonnull %50) #8
+  switch i32 %69, label %210 [
     i32 48, label %70
     i32 4, label %70
     i32 0, label %70
@@ -299,27 +296,27 @@ doh_encode.exit.thread:                           ; preds = %7, %doh_encode.exit
 
 70:                                               ; preds = %67, %67, %67
   %71 = load ptr, ptr %8, align 8
-  %72 = load i64, ptr %10, align 8
-  %73 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %71, i32 noundef 60, i64 noundef %72) #8
-  switch i32 %73, label %207 [
-    i32 48, label %74
-    i32 4, label %74
-    i32 0, label %74
+  %72 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %71, i32 noundef 10015, ptr noundef nonnull %9) #8
+  switch i32 %72, label %210 [
+    i32 48, label %73
+    i32 4, label %73
+    i32 0, label %73
   ]
 
-74:                                               ; preds = %70, %70, %70
-  %75 = load ptr, ptr %8, align 8
-  %76 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %75, i32 noundef 10023, ptr noundef %6) #8
-  switch i32 %76, label %207 [
+73:                                               ; preds = %70, %70, %70
+  %74 = load ptr, ptr %8, align 8
+  %75 = load i64, ptr %10, align 8
+  %76 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %74, i32 noundef 60, i64 noundef %75) #8
+  switch i32 %76, label %210 [
     i32 48, label %77
     i32 4, label %77
     i32 0, label %77
   ]
 
-77:                                               ; preds = %74, %74, %74
+77:                                               ; preds = %73, %73, %73
   %78 = load ptr, ptr %8, align 8
-  %79 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %78, i32 noundef 84, i32 noundef 4) #8
-  switch i32 %79, label %207 [
+  %79 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %78, i32 noundef 10023, ptr noundef %6) #8
+  switch i32 %79, label %210 [
     i32 48, label %80
     i32 4, label %80
     i32 0, label %80
@@ -327,8 +324,8 @@ doh_encode.exit.thread:                           ; preds = %7, %doh_encode.exit
 
 80:                                               ; preds = %77, %77, %77
   %81 = load ptr, ptr %8, align 8
-  %82 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %81, i32 noundef 237, i64 noundef 1) #8
-  switch i32 %82, label %207 [
+  %82 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %81, i32 noundef 84, i32 noundef 4) #8
+  switch i32 %82, label %210 [
     i32 48, label %83
     i32 4, label %83
     i32 0, label %83
@@ -336,8 +333,8 @@ doh_encode.exit.thread:                           ; preds = %7, %doh_encode.exit
 
 83:                                               ; preds = %80, %80, %80
   %84 = load ptr, ptr %8, align 8
-  %85 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %84, i32 noundef 181, i32 noundef 2) #8
-  switch i32 %85, label %207 [
+  %85 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %84, i32 noundef 237, i64 noundef 1) #8
+  switch i32 %85, label %210 [
     i32 48, label %86
     i32 4, label %86
     i32 0, label %86
@@ -345,8 +342,8 @@ doh_encode.exit.thread:                           ; preds = %7, %doh_encode.exit
 
 86:                                               ; preds = %83, %83, %83
   %87 = load ptr, ptr %8, align 8
-  %88 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %87, i32 noundef 155, i64 noundef %48) #8
-  switch i32 %88, label %207 [
+  %88 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %87, i32 noundef 181, i32 noundef 2) #8
+  switch i32 %88, label %210 [
     i32 48, label %89
     i32 4, label %89
     i32 0, label %89
@@ -354,300 +351,309 @@ doh_encode.exit.thread:                           ; preds = %7, %doh_encode.exit
 
 89:                                               ; preds = %86, %86, %86
   %90 = load ptr, ptr %8, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 208
-  %92 = load ptr, ptr %91, align 8
-  %93 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %90, i32 noundef 10100, ptr noundef %92) #8
-  switch i32 %93, label %207 [
-    i32 48, label %94
-    i32 4, label %94
-    i32 0, label %94
+  %91 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %90, i32 noundef 155, i64 noundef %51) #8
+  switch i32 %91, label %210 [
+    i32 48, label %92
+    i32 4, label %92
+    i32 0, label %92
   ]
 
-94:                                               ; preds = %89, %89, %89
-  %95 = getelementptr inbounds i8, ptr %0, i64 408
-  %96 = load ptr, ptr %95, align 8
-  %.not306 = icmp eq ptr %96, null
-  %97 = load ptr, ptr @stderr, align 8
-  %.not307 = icmp eq ptr %96, %97
+92:                                               ; preds = %89, %89, %89
+  %93 = load ptr, ptr %8, align 8
+  %94 = getelementptr inbounds i8, ptr %0, i64 208
+  %95 = load ptr, ptr %94, align 8
+  %96 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %93, i32 noundef 10100, ptr noundef %95) #8
+  switch i32 %96, label %210 [
+    i32 48, label %97
+    i32 4, label %97
+    i32 0, label %97
+  ]
+
+97:                                               ; preds = %92, %92, %92
+  %98 = getelementptr inbounds i8, ptr %0, i64 408
+  %99 = load ptr, ptr %98, align 8
+  %.not306 = icmp eq ptr %99, null
+  %100 = load ptr, ptr @stderr, align 8
+  %.not307 = icmp eq ptr %99, %100
   %or.cond = select i1 %.not306, i1 true, i1 %.not307
-  br i1 %or.cond, label %101, label %98
+  br i1 %or.cond, label %104, label %101
 
-98:                                               ; preds = %94
-  %99 = load ptr, ptr %8, align 8
-  %100 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %99, i32 noundef 10037, ptr noundef nonnull %96) #8
-  switch i32 %100, label %207 [
-    i32 48, label %101
-    i32 4, label %101
-    i32 0, label %101
+101:                                              ; preds = %97
+  %102 = load ptr, ptr %8, align 8
+  %103 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %102, i32 noundef 10037, ptr noundef nonnull %99) #8
+  switch i32 %103, label %210 [
+    i32 48, label %104
+    i32 4, label %104
+    i32 0, label %104
   ]
 
-101:                                              ; preds = %98, %98, %98, %94
-  %102 = getelementptr inbounds i8, ptr %0, i64 2642
-  %103 = load i64, ptr %102, align 2
-  %104 = and i64 %103, 268435456
-  %.not308 = icmp eq i64 %104, 0
-  br i1 %.not308, label %108, label %105
+104:                                              ; preds = %101, %101, %101, %97
+  %105 = getelementptr inbounds i8, ptr %0, i64 2642
+  %106 = load i64, ptr %105, align 2
+  %107 = and i64 %106, 268435456
+  %.not308 = icmp eq i64 %107, 0
+  br i1 %.not308, label %111, label %108
 
-105:                                              ; preds = %101
-  %106 = load ptr, ptr %8, align 8
-  %107 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %106, i32 noundef 41, i64 noundef 1) #8
-  switch i32 %107, label %207 [
-    i32 48, label %108
-    i32 4, label %108
-    i32 0, label %108
+108:                                              ; preds = %104
+  %109 = load ptr, ptr %8, align 8
+  %110 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %109, i32 noundef 41, i64 noundef 1) #8
+  switch i32 %110, label %210 [
+    i32 48, label %111
+    i32 4, label %111
+    i32 0, label %111
   ]
 
-108:                                              ; preds = %105, %105, %105, %101
-  %109 = load i64, ptr %102, align 2
-  %110 = and i64 %109, 4294967296
-  %.not309 = icmp eq i64 %110, 0
-  br i1 %.not309, label %114, label %111
+111:                                              ; preds = %108, %108, %108, %104
+  %112 = load i64, ptr %105, align 2
+  %113 = and i64 %112, 4294967296
+  %.not309 = icmp eq i64 %113, 0
+  br i1 %.not309, label %117, label %114
 
-111:                                              ; preds = %108
-  %112 = load ptr, ptr %8, align 8
-  %113 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %112, i32 noundef 99, i64 noundef 1) #8
-  switch i32 %113, label %207 [
-    i32 48, label %114
-    i32 4, label %114
-    i32 0, label %114
-  ]
-
-114:                                              ; preds = %111, %111, %111, %108
+114:                                              ; preds = %111
   %115 = load ptr, ptr %8, align 8
-  %116 = load i64, ptr %102, align 2
-  %117 = lshr i64 %116, 50
-  %118 = and i64 %117, 2
-  %119 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %115, i32 noundef 81, i64 noundef %118) #8
-  switch i32 %119, label %207 [
-    i32 48, label %120
-    i32 4, label %120
-    i32 0, label %120
+  %116 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %115, i32 noundef 99, i64 noundef 1) #8
+  switch i32 %116, label %210 [
+    i32 48, label %117
+    i32 4, label %117
+    i32 0, label %117
   ]
 
-120:                                              ; preds = %114, %114, %114
-  %121 = load ptr, ptr %8, align 8
-  %122 = load i64, ptr %102, align 2
-  %123 = lshr i64 %122, 50
-  %.lobit = and i64 %123, 1
-  %124 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %121, i32 noundef 64, i64 noundef %.lobit) #8
-  switch i32 %124, label %207 [
-    i32 48, label %125
-    i32 4, label %125
-    i32 0, label %125
+117:                                              ; preds = %114, %114, %114, %111
+  %118 = load ptr, ptr %8, align 8
+  %119 = load i64, ptr %105, align 2
+  %120 = lshr i64 %119, 50
+  %121 = and i64 %120, 2
+  %122 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %118, i32 noundef 81, i64 noundef %121) #8
+  switch i32 %122, label %210 [
+    i32 48, label %123
+    i32 4, label %123
+    i32 0, label %123
   ]
 
-125:                                              ; preds = %120, %120, %120
-  %126 = load ptr, ptr %8, align 8
-  %127 = load i64, ptr %102, align 2
-  %128 = lshr i64 %127, 52
-  %.lobit313 = and i64 %128, 1
-  %129 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %126, i32 noundef 232, i64 noundef %.lobit313) #8
-  switch i32 %129, label %207 [
-    i32 48, label %130
-    i32 4, label %130
-    i32 0, label %130
+123:                                              ; preds = %117, %117, %117
+  %124 = load ptr, ptr %8, align 8
+  %125 = load i64, ptr %105, align 2
+  %126 = lshr i64 %125, 50
+  %.lobit = and i64 %126, 1
+  %127 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %124, i32 noundef 64, i64 noundef %.lobit) #8
+  switch i32 %127, label %210 [
+    i32 48, label %128
+    i32 4, label %128
+    i32 0, label %128
   ]
 
-130:                                              ; preds = %125, %125, %125
-  %131 = getelementptr inbounds i8, ptr %0, i64 1448
-  %132 = load i8, ptr %131, align 8
-  %133 = and i8 %132, 2
-  %.not314 = icmp eq i8 %133, 0
-  br i1 %.not314, label %137, label %134
-
-134:                                              ; preds = %130
-  %135 = load ptr, ptr %8, align 8
-  %136 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %135, i32 noundef 233, i64 noundef 1) #8
-  switch i32 %136, label %207 [
-    i32 48, label %137
-    i32 4, label %137
-    i32 0, label %137
+128:                                              ; preds = %123, %123, %123
+  %129 = load ptr, ptr %8, align 8
+  %130 = load i64, ptr %105, align 2
+  %131 = lshr i64 %130, 52
+  %.lobit313 = and i64 %131, 1
+  %132 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %129, i32 noundef 232, i64 noundef %.lobit313) #8
+  switch i32 %132, label %210 [
+    i32 48, label %133
+    i32 4, label %133
+    i32 0, label %133
   ]
 
-137:                                              ; preds = %134, %134, %134, %130
-  %.1 = phi i32 [ %136, %134 ], [ %129, %130 ], [ %136, %134 ], [ %136, %134 ]
-  %138 = getelementptr inbounds i8, ptr %0, i64 1984
-  %139 = load ptr, ptr %138, align 8
-  %.not315 = icmp eq ptr %139, null
-  br i1 %.not315, label %143, label %140
+133:                                              ; preds = %128, %128, %128
+  %134 = getelementptr inbounds i8, ptr %0, i64 1448
+  %135 = load i8, ptr %134, align 8
+  %136 = and i8 %135, 2
+  %.not314 = icmp eq i8 %136, 0
+  br i1 %.not314, label %140, label %137
 
-140:                                              ; preds = %137
-  %141 = load ptr, ptr %8, align 8
-  %142 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %141, i32 noundef 10065, ptr noundef nonnull %139) #8
-  switch i32 %142, label %207 [
-    i32 48, label %143
-    i32 4, label %143
-    i32 0, label %143
+137:                                              ; preds = %133
+  %138 = load ptr, ptr %8, align 8
+  %139 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %138, i32 noundef 233, i64 noundef 1) #8
+  switch i32 %139, label %210 [
+    i32 48, label %140
+    i32 4, label %140
+    i32 0, label %140
   ]
 
-143:                                              ; preds = %140, %140, %140, %137
-  %.2 = phi i32 [ %142, %140 ], [ %.1, %137 ], [ %142, %140 ], [ %142, %140 ]
-  %144 = getelementptr inbounds i8, ptr %0, i64 2448
-  %145 = load ptr, ptr %144, align 8
-  %.not316 = icmp eq ptr %145, null
-  br i1 %.not316, label %149, label %146
+140:                                              ; preds = %137, %137, %137, %133
+  %.1 = phi i32 [ %139, %137 ], [ %132, %133 ], [ %139, %137 ], [ %139, %137 ]
+  %141 = getelementptr inbounds i8, ptr %0, i64 1984
+  %142 = load ptr, ptr %141, align 8
+  %.not315 = icmp eq ptr %142, null
+  br i1 %.not315, label %146, label %143
 
-146:                                              ; preds = %143
-  %147 = load ptr, ptr %8, align 8
-  %148 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %147, i32 noundef 40309, ptr noundef nonnull %145) #8
-  switch i32 %148, label %207 [
-    i32 48, label %149
-    i32 4, label %149
-    i32 0, label %149
+143:                                              ; preds = %140
+  %144 = load ptr, ptr %8, align 8
+  %145 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %144, i32 noundef 10065, ptr noundef nonnull %142) #8
+  switch i32 %145, label %210 [
+    i32 48, label %146
+    i32 4, label %146
+    i32 0, label %146
   ]
 
-149:                                              ; preds = %146, %146, %146, %143
-  %.3 = phi i32 [ %148, %146 ], [ %.2, %143 ], [ %148, %146 ], [ %148, %146 ]
-  %150 = getelementptr inbounds i8, ptr %0, i64 1968
-  %151 = load ptr, ptr %150, align 8
-  %.not317 = icmp eq ptr %151, null
-  br i1 %.not317, label %155, label %152
+146:                                              ; preds = %143, %143, %143, %140
+  %.2 = phi i32 [ %145, %143 ], [ %.1, %140 ], [ %145, %143 ], [ %145, %143 ]
+  %147 = getelementptr inbounds i8, ptr %0, i64 2448
+  %148 = load ptr, ptr %147, align 8
+  %.not316 = icmp eq ptr %148, null
+  br i1 %.not316, label %152, label %149
 
-152:                                              ; preds = %149
-  %153 = load ptr, ptr %8, align 8
-  %154 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %153, i32 noundef 10097, ptr noundef nonnull %151) #8
-  switch i32 %154, label %207 [
-    i32 48, label %155
-    i32 4, label %155
-    i32 0, label %155
+149:                                              ; preds = %146
+  %150 = load ptr, ptr %8, align 8
+  %151 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %150, i32 noundef 40309, ptr noundef nonnull %148) #8
+  switch i32 %151, label %210 [
+    i32 48, label %152
+    i32 4, label %152
+    i32 0, label %152
   ]
 
-155:                                              ; preds = %152, %152, %152, %149
-  %.4 = phi i32 [ %154, %152 ], [ %.3, %149 ], [ %154, %152 ], [ %154, %152 ]
-  %156 = getelementptr inbounds i8, ptr %0, i64 2056
-  %157 = load ptr, ptr %156, align 8
-  %.not318 = icmp eq ptr %157, null
-  br i1 %.not318, label %161, label %158
+152:                                              ; preds = %149, %149, %149, %146
+  %.3 = phi i32 [ %151, %149 ], [ %.2, %146 ], [ %151, %149 ], [ %151, %149 ]
+  %153 = getelementptr inbounds i8, ptr %0, i64 1968
+  %154 = load ptr, ptr %153, align 8
+  %.not317 = icmp eq ptr %154, null
+  br i1 %.not317, label %158, label %155
 
-158:                                              ; preds = %155
-  %159 = load ptr, ptr %8, align 8
-  %160 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %159, i32 noundef 10169, ptr noundef nonnull %157) #8
-  switch i32 %160, label %207 [
-    i32 48, label %161
-    i32 4, label %161
-    i32 0, label %161
+155:                                              ; preds = %152
+  %156 = load ptr, ptr %8, align 8
+  %157 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %156, i32 noundef 10097, ptr noundef nonnull %154) #8
+  switch i32 %157, label %210 [
+    i32 48, label %158
+    i32 4, label %158
+    i32 0, label %158
   ]
 
-161:                                              ; preds = %158, %158, %158, %155
-  %.5 = phi i32 [ %160, %158 ], [ %.4, %155 ], [ %160, %158 ], [ %160, %158 ]
-  %162 = load i8, ptr %131, align 8
-  %163 = and i8 %162, 1
-  %.not319 = icmp eq i8 %163, 0
-  br i1 %.not319, label %167, label %164
+158:                                              ; preds = %155, %155, %155, %152
+  %.4 = phi i32 [ %157, %155 ], [ %.3, %152 ], [ %157, %155 ], [ %157, %155 ]
+  %159 = getelementptr inbounds i8, ptr %0, i64 2056
+  %160 = load ptr, ptr %159, align 8
+  %.not318 = icmp eq ptr %160, null
+  br i1 %.not318, label %164, label %161
 
-164:                                              ; preds = %161
-  %165 = load ptr, ptr %8, align 8
-  %166 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %165, i32 noundef 172, i64 noundef 1) #8
-  switch i32 %166, label %207 [
-    i32 48, label %167
-    i32 4, label %167
-    i32 0, label %167
+161:                                              ; preds = %158
+  %162 = load ptr, ptr %8, align 8
+  %163 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %162, i32 noundef 10169, ptr noundef nonnull %160) #8
+  switch i32 %163, label %210 [
+    i32 48, label %164
+    i32 4, label %164
+    i32 0, label %164
   ]
 
-167:                                              ; preds = %164, %164, %164, %161
-  %.6 = phi i32 [ %166, %164 ], [ %.5, %161 ], [ %166, %164 ], [ %166, %164 ]
-  %168 = getelementptr inbounds i8, ptr %0, i64 1392
-  %169 = load ptr, ptr %168, align 8
-  %.not320 = icmp eq ptr %169, null
-  br i1 %.not320, label %173, label %170
+164:                                              ; preds = %161, %161, %161, %158
+  %.5 = phi i32 [ %163, %161 ], [ %.4, %158 ], [ %163, %161 ], [ %163, %161 ]
+  %165 = load i8, ptr %134, align 8
+  %166 = and i8 %165, 1
+  %.not319 = icmp eq i8 %166, 0
+  br i1 %.not319, label %170, label %167
 
-170:                                              ; preds = %167
-  %171 = load ptr, ptr %8, align 8
-  %172 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %171, i32 noundef 20108, ptr noundef nonnull %169) #8
-  switch i32 %172, label %207 [
-    i32 48, label %173
-    i32 4, label %173
-    i32 0, label %173
+167:                                              ; preds = %164
+  %168 = load ptr, ptr %8, align 8
+  %169 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %168, i32 noundef 172, i64 noundef 1) #8
+  switch i32 %169, label %210 [
+    i32 48, label %170
+    i32 4, label %170
+    i32 0, label %170
   ]
 
-173:                                              ; preds = %170, %170, %170, %167
-  %.7 = phi i32 [ %172, %170 ], [ %.6, %167 ], [ %172, %170 ], [ %172, %170 ]
-  %174 = getelementptr inbounds i8, ptr %0, i64 1400
-  %175 = load ptr, ptr %174, align 8
-  %.not321 = icmp eq ptr %175, null
-  br i1 %.not321, label %179, label %176
+170:                                              ; preds = %167, %167, %167, %164
+  %.6 = phi i32 [ %169, %167 ], [ %.5, %164 ], [ %169, %167 ], [ %169, %167 ]
+  %171 = getelementptr inbounds i8, ptr %0, i64 1392
+  %172 = load ptr, ptr %171, align 8
+  %.not320 = icmp eq ptr %172, null
+  br i1 %.not320, label %176, label %173
 
-176:                                              ; preds = %173
-  %177 = load ptr, ptr %8, align 8
-  %178 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %177, i32 noundef 10109, ptr noundef nonnull %175) #8
-  switch i32 %178, label %207 [
-    i32 48, label %179
-    i32 4, label %179
-    i32 0, label %179
+173:                                              ; preds = %170
+  %174 = load ptr, ptr %8, align 8
+  %175 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %174, i32 noundef 20108, ptr noundef nonnull %172) #8
+  switch i32 %175, label %210 [
+    i32 48, label %176
+    i32 4, label %176
+    i32 0, label %176
   ]
 
-179:                                              ; preds = %176, %176, %176, %173
-  %.8 = phi i32 [ %178, %176 ], [ %.7, %173 ], [ %178, %176 ], [ %178, %176 ]
-  %180 = getelementptr inbounds i8, ptr %0, i64 568
-  %181 = load ptr, ptr %180, align 8
-  %.not322 = icmp eq ptr %181, null
-  br i1 %.not322, label %185, label %182
+176:                                              ; preds = %173, %173, %173, %170
+  %.7 = phi i32 [ %175, %173 ], [ %.6, %170 ], [ %175, %173 ], [ %175, %173 ]
+  %177 = getelementptr inbounds i8, ptr %0, i64 1400
+  %178 = load ptr, ptr %177, align 8
+  %.not321 = icmp eq ptr %178, null
+  br i1 %.not321, label %182, label %179
 
-182:                                              ; preds = %179
-  %183 = load ptr, ptr %8, align 8
-  %184 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %183, i32 noundef 20094, ptr noundef nonnull %181) #8
-  switch i32 %184, label %207 [
-    i32 48, label %185
-    i32 4, label %185
-    i32 0, label %185
+179:                                              ; preds = %176
+  %180 = load ptr, ptr %8, align 8
+  %181 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %180, i32 noundef 10109, ptr noundef nonnull %178) #8
+  switch i32 %181, label %210 [
+    i32 48, label %182
+    i32 4, label %182
+    i32 0, label %182
   ]
 
-185:                                              ; preds = %182, %182, %182, %179
-  %.9 = phi i32 [ %184, %182 ], [ %.8, %179 ], [ %184, %182 ], [ %184, %182 ]
-  %186 = getelementptr inbounds i8, ptr %0, i64 416
-  %187 = load ptr, ptr %186, align 8
-  %.not323 = icmp eq ptr %187, null
-  br i1 %.not323, label %191, label %188
+182:                                              ; preds = %179, %179, %179, %176
+  %.8 = phi i32 [ %181, %179 ], [ %.7, %176 ], [ %181, %179 ], [ %181, %179 ]
+  %183 = getelementptr inbounds i8, ptr %0, i64 568
+  %184 = load ptr, ptr %183, align 8
+  %.not322 = icmp eq ptr %184, null
+  br i1 %.not322, label %188, label %185
 
-188:                                              ; preds = %185
-  %189 = load ptr, ptr %8, align 8
-  %190 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %189, i32 noundef 10095, ptr noundef nonnull %187) #8
-  switch i32 %190, label %207 [
-    i32 48, label %191
-    i32 4, label %191
-    i32 0, label %191
+185:                                              ; preds = %182
+  %186 = load ptr, ptr %8, align 8
+  %187 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %186, i32 noundef 20094, ptr noundef nonnull %184) #8
+  switch i32 %187, label %210 [
+    i32 48, label %188
+    i32 4, label %188
+    i32 0, label %188
   ]
 
-191:                                              ; preds = %188, %188, %188, %185
-  %.10 = phi i32 [ %190, %188 ], [ %.9, %185 ], [ %190, %188 ], [ %190, %188 ]
-  %192 = getelementptr inbounds i8, ptr %0, i64 2360
-  %193 = load ptr, ptr %192, align 8
-  %.not324 = icmp eq ptr %193, null
-  br i1 %.not324, label %197, label %194
+188:                                              ; preds = %185, %185, %185, %182
+  %.9 = phi i32 [ %187, %185 ], [ %.8, %182 ], [ %187, %185 ], [ %187, %185 ]
+  %189 = getelementptr inbounds i8, ptr %0, i64 416
+  %190 = load ptr, ptr %189, align 8
+  %.not323 = icmp eq ptr %190, null
+  br i1 %.not323, label %194, label %191
 
-194:                                              ; preds = %191
-  %195 = load ptr, ptr %8, align 8
-  %196 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %195, i32 noundef 10298, ptr noundef nonnull %193) #8
-  switch i32 %196, label %207 [
-    i32 48, label %197
-    i32 4, label %197
-    i32 0, label %197
+191:                                              ; preds = %188
+  %192 = load ptr, ptr %8, align 8
+  %193 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %192, i32 noundef 10095, ptr noundef nonnull %190) #8
+  switch i32 %193, label %210 [
+    i32 48, label %194
+    i32 4, label %194
+    i32 0, label %194
   ]
 
-197:                                              ; preds = %194, %194, %194, %191
-  %.11 = phi i32 [ %196, %194 ], [ %.10, %191 ], [ %196, %194 ], [ %196, %194 ]
-  %198 = load i8, ptr %131, align 8
-  %199 = lshr i8 %198, 2
-  %200 = zext nneg i8 %199 to i64
-  %201 = load ptr, ptr %8, align 8
-  %202 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %201, i32 noundef 216, i64 noundef %200) #8
-  %203 = load ptr, ptr %8, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 2592
-  store ptr @doh_done, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %203, i64 2600
-  store ptr %0, ptr %205, align 8
-  store ptr %203, ptr %1, align 8
-  %206 = call i32 @curl_multi_add_handle(ptr noundef %5, ptr noundef %203) #8
-  %.not332 = icmp eq i32 %206, 0
-  br i1 %.not332, label %209, label %207
+194:                                              ; preds = %191, %191, %191, %188
+  %.10 = phi i32 [ %193, %191 ], [ %.9, %188 ], [ %193, %191 ], [ %193, %191 ]
+  %195 = getelementptr inbounds i8, ptr %0, i64 2360
+  %196 = load ptr, ptr %195, align 8
+  %.not324 = icmp eq ptr %196, null
+  br i1 %.not324, label %200, label %197
 
-207:                                              ; preds = %194, %188, %182, %176, %170, %164, %158, %152, %146, %140, %134, %125, %120, %114, %111, %105, %98, %89, %86, %83, %80, %77, %74, %70, %67, %64, %61, %58, %52, %.loopexit, %50, %197
-  %.0262 = phi i32 [ %51, %50 ], [ %57, %52 ], [ %60, %58 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %73, %70 ], [ %76, %74 ], [ %79, %77 ], [ %82, %80 ], [ %85, %83 ], [ %88, %86 ], [ %93, %89 ], [ %100, %98 ], [ %107, %105 ], [ %113, %111 ], [ %119, %114 ], [ %124, %120 ], [ %129, %125 ], [ %136, %134 ], [ %142, %140 ], [ %148, %146 ], [ %154, %152 ], [ %160, %158 ], [ %166, %164 ], [ %172, %170 ], [ %178, %176 ], [ %184, %182 ], [ %190, %188 ], [ %196, %194 ], [ %.11, %197 ], [ 28, %.loopexit ]
-  %208 = call i32 @Curl_close(ptr noundef nonnull %8) #8
-  br label %209
+197:                                              ; preds = %194
+  %198 = load ptr, ptr %8, align 8
+  %199 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %198, i32 noundef 10298, ptr noundef nonnull %196) #8
+  switch i32 %199, label %210 [
+    i32 48, label %200
+    i32 4, label %200
+    i32 0, label %200
+  ]
 
-209:                                              ; preds = %197, %207, %doh_encode.exit.thread
-  %.0 = phi i32 [ 27, %doh_encode.exit.thread ], [ %.0262, %207 ], [ 0, %197 ]
+200:                                              ; preds = %197, %197, %197, %194
+  %.11 = phi i32 [ %199, %197 ], [ %.10, %194 ], [ %199, %197 ], [ %199, %197 ]
+  %201 = load i8, ptr %134, align 8
+  %202 = lshr i8 %201, 2
+  %203 = zext nneg i8 %202 to i64
+  %204 = load ptr, ptr %8, align 8
+  %205 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %204, i32 noundef 216, i64 noundef %203) #8
+  %206 = load ptr, ptr %8, align 8
+  %207 = getelementptr inbounds i8, ptr %206, i64 2592
+  store ptr @doh_done, ptr %207, align 8
+  %208 = getelementptr inbounds i8, ptr %206, i64 2600
+  store ptr %0, ptr %208, align 8
+  store ptr %206, ptr %1, align 8
+  %209 = call i32 @curl_multi_add_handle(ptr noundef %5, ptr noundef %206) #8
+  %.not332 = icmp eq i32 %209, 0
+  br i1 %.not332, label %212, label %210
+
+210:                                              ; preds = %197, %191, %185, %179, %173, %167, %161, %155, %149, %143, %137, %128, %123, %117, %114, %108, %101, %92, %89, %86, %83, %80, %77, %73, %70, %67, %64, %61, %55, %.loopexit, %53, %200
+  %.0262 = phi i32 [ %54, %53 ], [ %60, %55 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %72, %70 ], [ %76, %73 ], [ %79, %77 ], [ %82, %80 ], [ %85, %83 ], [ %88, %86 ], [ %91, %89 ], [ %96, %92 ], [ %103, %101 ], [ %110, %108 ], [ %116, %114 ], [ %122, %117 ], [ %127, %123 ], [ %132, %128 ], [ %139, %137 ], [ %145, %143 ], [ %151, %149 ], [ %157, %155 ], [ %163, %161 ], [ %169, %167 ], [ %175, %173 ], [ %181, %179 ], [ %187, %185 ], [ %193, %191 ], [ %199, %197 ], [ %.11, %200 ], [ 28, %.loopexit ]
+  %211 = call i32 @Curl_close(ptr noundef nonnull %8) #8
+  br label %212
+
+212:                                              ; preds = %200, %210, %doh_encode.exit.thread
+  %.0 = phi i32 [ 27, %doh_encode.exit.thread ], [ %.0262, %210 ], [ 0, %200 ]
   ret i32 %.0
 }
 

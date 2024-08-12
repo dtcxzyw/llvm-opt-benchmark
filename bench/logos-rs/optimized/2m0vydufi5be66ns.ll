@@ -359,14 +359,18 @@ define void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$G
 define align 4 ptr @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$3get17hcec4bc6a1a6e2ea8E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load ptr, ptr %0, align 8
-  store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = load <2 x i64>, ptr %3, align 8
-  store <2 x i64> %6, ptr %5, align 8
-  %7 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$7into_kv17h97eb458aba9e7d50E"(ptr nonnull align 8 %2)
-  %8 = extractvalue { ptr, ptr } %7, 1
-  ret ptr %8
+  %4 = load i64, ptr %3, align 8
+  %5 = load ptr, ptr %0, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8
+  store ptr %5, ptr %2, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %4, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  store i64 %7, ptr %9, align 8
+  %10 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$7into_kv17h97eb458aba9e7d50E"(ptr nonnull align 8 %2)
+  %11 = extractvalue { ptr, ptr } %10, 1
+  ret ptr %11
 }
 
 ; Function Attrs: nonlazybind uwtable

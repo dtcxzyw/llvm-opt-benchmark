@@ -121,12 +121,16 @@ declare i32 @sem_trywait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14PosixSemaphore9timedwaitEl(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = alloca %struct.timespec, align 16
-  %4 = alloca %struct.timespec, align 16
+  %3 = alloca %struct.timespec, align 8
+  %4 = alloca %struct.timespec, align 8
   call void @_ZN2os5Posix14to_RTC_abstimeEP8timespecl(ptr noundef nonnull %4, i64 noundef %1) #6
+  %.sroa.0.0.copyload = load i64, ptr %4, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %5 = load <2 x i64>, ptr %4, align 16
-  store <2 x i64> %5, ptr %3, align 16
+  store i64 %.sroa.0.0.copyload, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %.sroa.2.0.copyload, ptr %5, align 8
   br label %6
 
 6:                                                ; preds = %9, %2

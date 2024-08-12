@@ -64,21 +64,47 @@ entry:
   %m_internalTickCallback.i = getelementptr inbounds i8, ptr %this, i64 128
   %m_solverInfo.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_internalTickCallback.i, i8 0, i64 24, i1 false)
-  store <4 x float> <float 0x3FE3333340000000, float 1.000000e+00, float 0x3FD3333340000000, float 0x3F91111120000000>, ptr %m_solverInfo.i, align 8
+  store float 0x3FE3333340000000, ptr %m_solverInfo.i, align 8
+  %m_damping.i.i = getelementptr inbounds i8, ptr %this, i64 156
+  store float 1.000000e+00, ptr %m_damping.i.i, align 4
+  %m_friction.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  store float 0x3FD3333340000000, ptr %m_friction.i.i, align 8
+  %m_timeStep.i.i = getelementptr inbounds i8, ptr %this, i64 164
+  store float 0x3F91111120000000, ptr %m_timeStep.i.i, align 4
   %m_restitution.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store float 0.000000e+00, ptr %m_restitution.i.i, align 8
   %m_maxErrorReduction.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  store float 2.000000e+01, ptr %m_maxErrorReduction.i.i, align 8
   %m_numIterations.i.i = getelementptr inbounds i8, ptr %this, i64 172
   store i32 10, ptr %m_numIterations.i.i, align 4
+  %m_erp.i.i = getelementptr inbounds i8, ptr %this, i64 184
+  store float 0x3FC99999A0000000, ptr %m_erp.i.i, align 8
+  %m_erp2.i.i = getelementptr inbounds i8, ptr %this, i64 188
+  store float 0x3FC99999A0000000, ptr %m_erp2.i.i, align 4
   %m_deformable_erp.i.i = getelementptr inbounds i8, ptr %this, i64 192
-  store <4 x float> <float 0x3FAEB851E0000000, float 0x3F847AE140000000, float 0x3FB99999A0000000, float 0.000000e+00>, ptr %m_deformable_erp.i.i, align 8
+  store float 0x3FAEB851E0000000, ptr %m_deformable_erp.i.i, align 8
+  %m_deformable_cfm.i.i = getelementptr inbounds i8, ptr %this, i64 196
+  store float 0x3F847AE140000000, ptr %m_deformable_cfm.i.i, align 4
+  %m_deformable_maxErrorReduction.i.i = getelementptr inbounds i8, ptr %this, i64 200
+  store float 0x3FB99999A0000000, ptr %m_deformable_maxErrorReduction.i.i, align 8
+  %m_globalCfm.i.i = getelementptr inbounds i8, ptr %this, i64 204
+  store float 0.000000e+00, ptr %m_globalCfm.i.i, align 4
   %m_frictionERP.i.i = getelementptr inbounds i8, ptr %this, i64 208
-  store <2 x float> <float 0x3FC99999A0000000, float 0.000000e+00>, ptr %m_frictionERP.i.i, align 8
-  store <4 x float> <float 2.000000e+01, float 1.000000e+00, float 0x3FC99999A0000000, float 0x3FC99999A0000000>, ptr %m_maxErrorReduction.i.i, align 8
+  store float 0x3FC99999A0000000, ptr %m_frictionERP.i.i, align 8
+  %m_frictionCFM.i.i = getelementptr inbounds i8, ptr %this, i64 212
+  store float 0.000000e+00, ptr %m_frictionCFM.i.i, align 4
+  %m_sor.i.i = getelementptr inbounds i8, ptr %this, i64 180
+  store float 1.000000e+00, ptr %m_sor.i.i, align 4
   %m_splitImpulse.i.i = getelementptr inbounds i8, ptr %this, i64 216
   store i32 1, ptr %m_splitImpulse.i.i, align 8
   %m_splitImpulsePenetrationThreshold.i.i = getelementptr inbounds i8, ptr %this, i64 220
-  store <4 x float> <float 0xBFA47AE140000000, float 0x3FB99999A0000000, float 0.000000e+00, float 0x3FEB333340000000>, ptr %m_splitImpulsePenetrationThreshold.i.i, align 4
+  store float 0xBFA47AE140000000, ptr %m_splitImpulsePenetrationThreshold.i.i, align 4
+  %m_splitImpulseTurnErp.i.i = getelementptr inbounds i8, ptr %this, i64 224
+  store float 0x3FB99999A0000000, ptr %m_splitImpulseTurnErp.i.i, align 8
+  %m_linearSlop.i.i = getelementptr inbounds i8, ptr %this, i64 228
+  store float 0.000000e+00, ptr %m_linearSlop.i.i, align 4
+  %m_warmstartingFactor.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  store float 0x3FEB333340000000, ptr %m_warmstartingFactor.i.i, align 8
   %m_articulatedWarmstartingFactor.i.i = getelementptr inbounds i8, ptr %this, i64 236
   store float 0x3FEB333340000000, ptr %m_articulatedWarmstartingFactor.i.i, align 4
   %m_solverMode.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -88,7 +114,13 @@ entry:
   %m_minimumSolverBatchSize.i.i = getelementptr inbounds i8, ptr %this, i64 248
   store i32 128, ptr %m_minimumSolverBatchSize.i.i, align 8
   %m_maxGyroscopicForce.i.i = getelementptr inbounds i8, ptr %this, i64 252
-  store <4 x float> <float 1.000000e+02, float 0x46293E5940000000, float 0.000000e+00, float 0x3FC99999A0000000>, ptr %m_maxGyroscopicForce.i.i, align 4
+  store float 1.000000e+02, ptr %m_maxGyroscopicForce.i.i, align 4
+  %m_singleAxisRollingFrictionThreshold.i.i = getelementptr inbounds i8, ptr %this, i64 256
+  store float 0x46293E5940000000, ptr %m_singleAxisRollingFrictionThreshold.i.i, align 8
+  %m_leastSquaresResidualThreshold.i.i = getelementptr inbounds i8, ptr %this, i64 260
+  store float 0.000000e+00, ptr %m_leastSquaresResidualThreshold.i.i, align 4
+  %m_restitutionVelocityThreshold.i.i = getelementptr inbounds i8, ptr %this, i64 264
+  store float 0x3FC99999A0000000, ptr %m_restitutionVelocityThreshold.i.i, align 8
   %m_jointFeedbackInWorldSpace.i.i = getelementptr inbounds i8, ptr %this, i64 268
   store i8 0, ptr %m_jointFeedbackInWorldSpace.i.i, align 4
   %m_jointFeedbackInJointFrame.i.i = getelementptr inbounds i8, ptr %this, i64 269
@@ -103,7 +135,13 @@ entry:
   %m_ownsConstraintSolver = getelementptr inbounds i8, ptr %this, i64 288
   store i8 0, ptr %m_ownsConstraintSolver, align 8
   %m_gravity = getelementptr inbounds i8, ptr %this, i64 292
-  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float -1.000000e+01, float 0.000000e+00>, ptr %m_gravity, align 4
+  store float 0.000000e+00, ptr %m_gravity, align 4
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 296
+  store float 0.000000e+00, ptr %arrayidx3.i, align 8
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 300
+  store float -1.000000e+01, ptr %arrayidx5.i, align 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 304
+  store float 0.000000e+00, ptr %arrayidx7.i, align 8
   ret void
 }
 
@@ -184,7 +222,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define dso_local noundef i32 @_ZN21btSimpleDynamicsWorld14stepSimulationEfif(ptr noundef nonnull align 8 dereferenceable(308) %this, float noundef %timeStep, i32 %maxSubSteps, float %fixedTimeStep) unnamed_addr #1 align 2 {
 entry:
   %predictedTrans.i = alloca %class.btTransform, align 4
-  %infoGlobal = alloca %struct.btContactSolverInfo, align 8
+  %infoGlobal = alloca %struct.btContactSolverInfo, align 4
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp14.i = icmp sgt i32 %0, 0
@@ -270,40 +308,68 @@ if.then:                                          ; preds = %_ZN21btSimpleDynami
   %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 88
   %14 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(20816) %13)
-  store <2 x float> <float 0x3FE3333340000000, float 1.000000e+00>, ptr %infoGlobal, align 8
+  store float 0x3FE3333340000000, ptr %infoGlobal, align 4
+  %m_damping.i = getelementptr inbounds i8, ptr %infoGlobal, i64 4
+  store float 1.000000e+00, ptr %m_damping.i, align 4
   %m_friction.i = getelementptr inbounds i8, ptr %infoGlobal, i64 8
-  store float 0x3FD3333340000000, ptr %m_friction.i, align 8
+  store float 0x3FD3333340000000, ptr %m_friction.i, align 4
   %m_timeStep.i = getelementptr inbounds i8, ptr %infoGlobal, i64 12
   %m_restitution.i = getelementptr inbounds i8, ptr %infoGlobal, i64 16
-  store float 0.000000e+00, ptr %m_restitution.i, align 8
+  store float 0.000000e+00, ptr %m_restitution.i, align 4
   %m_maxErrorReduction.i = getelementptr inbounds i8, ptr %infoGlobal, i64 24
+  store float 2.000000e+01, ptr %m_maxErrorReduction.i, align 4
   %m_numIterations.i = getelementptr inbounds i8, ptr %infoGlobal, i64 20
   store i32 10, ptr %m_numIterations.i, align 4
+  %m_erp.i = getelementptr inbounds i8, ptr %infoGlobal, i64 32
+  store float 0x3FC99999A0000000, ptr %m_erp.i, align 4
+  %m_erp2.i = getelementptr inbounds i8, ptr %infoGlobal, i64 36
+  store float 0x3FC99999A0000000, ptr %m_erp2.i, align 4
   %m_deformable_erp.i = getelementptr inbounds i8, ptr %infoGlobal, i64 40
-  store <4 x float> <float 0x3FAEB851E0000000, float 0x3F847AE140000000, float 0x3FB99999A0000000, float 0.000000e+00>, ptr %m_deformable_erp.i, align 8
+  store float 0x3FAEB851E0000000, ptr %m_deformable_erp.i, align 4
+  %m_deformable_cfm.i = getelementptr inbounds i8, ptr %infoGlobal, i64 44
+  store float 0x3F847AE140000000, ptr %m_deformable_cfm.i, align 4
+  %m_deformable_maxErrorReduction.i = getelementptr inbounds i8, ptr %infoGlobal, i64 48
+  store float 0x3FB99999A0000000, ptr %m_deformable_maxErrorReduction.i, align 4
+  %m_globalCfm.i = getelementptr inbounds i8, ptr %infoGlobal, i64 52
+  store float 0.000000e+00, ptr %m_globalCfm.i, align 4
   %m_frictionERP.i = getelementptr inbounds i8, ptr %infoGlobal, i64 56
-  store <2 x float> <float 0x3FC99999A0000000, float 0.000000e+00>, ptr %m_frictionERP.i, align 8
-  store <4 x float> <float 2.000000e+01, float 1.000000e+00, float 0x3FC99999A0000000, float 0x3FC99999A0000000>, ptr %m_maxErrorReduction.i, align 8
+  store float 0x3FC99999A0000000, ptr %m_frictionERP.i, align 4
+  %m_frictionCFM.i = getelementptr inbounds i8, ptr %infoGlobal, i64 60
+  store float 0.000000e+00, ptr %m_frictionCFM.i, align 4
+  %m_sor.i = getelementptr inbounds i8, ptr %infoGlobal, i64 28
+  store float 1.000000e+00, ptr %m_sor.i, align 4
   %m_splitImpulse.i = getelementptr inbounds i8, ptr %infoGlobal, i64 64
-  store i32 1, ptr %m_splitImpulse.i, align 8
+  store i32 1, ptr %m_splitImpulse.i, align 4
   %m_splitImpulsePenetrationThreshold.i = getelementptr inbounds i8, ptr %infoGlobal, i64 68
-  store <4 x float> <float 0xBFA47AE140000000, float 0x3FB99999A0000000, float 0.000000e+00, float 0x3FEB333340000000>, ptr %m_splitImpulsePenetrationThreshold.i, align 4
+  store float 0xBFA47AE140000000, ptr %m_splitImpulsePenetrationThreshold.i, align 4
+  %m_splitImpulseTurnErp.i = getelementptr inbounds i8, ptr %infoGlobal, i64 72
+  store float 0x3FB99999A0000000, ptr %m_splitImpulseTurnErp.i, align 4
+  %m_linearSlop.i = getelementptr inbounds i8, ptr %infoGlobal, i64 76
+  store float 0.000000e+00, ptr %m_linearSlop.i, align 4
+  %m_warmstartingFactor.i = getelementptr inbounds i8, ptr %infoGlobal, i64 80
+  store float 0x3FEB333340000000, ptr %m_warmstartingFactor.i, align 4
   %m_articulatedWarmstartingFactor.i = getelementptr inbounds i8, ptr %infoGlobal, i64 84
   store float 0x3FEB333340000000, ptr %m_articulatedWarmstartingFactor.i, align 4
   %m_solverMode.i = getelementptr inbounds i8, ptr %infoGlobal, i64 88
-  store i32 260, ptr %m_solverMode.i, align 8
+  store i32 260, ptr %m_solverMode.i, align 4
   %m_restingContactRestitutionThreshold.i = getelementptr inbounds i8, ptr %infoGlobal, i64 92
   store i32 2, ptr %m_restingContactRestitutionThreshold.i, align 4
   %m_minimumSolverBatchSize.i = getelementptr inbounds i8, ptr %infoGlobal, i64 96
-  store i32 128, ptr %m_minimumSolverBatchSize.i, align 8
+  store i32 128, ptr %m_minimumSolverBatchSize.i, align 4
   %m_maxGyroscopicForce.i = getelementptr inbounds i8, ptr %infoGlobal, i64 100
-  store <4 x float> <float 1.000000e+02, float 0x46293E5940000000, float 0.000000e+00, float 0x3FC99999A0000000>, ptr %m_maxGyroscopicForce.i, align 4
+  store float 1.000000e+02, ptr %m_maxGyroscopicForce.i, align 4
+  %m_singleAxisRollingFrictionThreshold.i = getelementptr inbounds i8, ptr %infoGlobal, i64 104
+  store float 0x46293E5940000000, ptr %m_singleAxisRollingFrictionThreshold.i, align 4
+  %m_leastSquaresResidualThreshold.i = getelementptr inbounds i8, ptr %infoGlobal, i64 108
+  store float 0.000000e+00, ptr %m_leastSquaresResidualThreshold.i, align 4
+  %m_restitutionVelocityThreshold.i = getelementptr inbounds i8, ptr %infoGlobal, i64 112
+  store float 0x3FC99999A0000000, ptr %m_restitutionVelocityThreshold.i, align 4
   %m_jointFeedbackInWorldSpace.i = getelementptr inbounds i8, ptr %infoGlobal, i64 116
   store i8 0, ptr %m_jointFeedbackInWorldSpace.i, align 4
   %m_jointFeedbackInJointFrame.i = getelementptr inbounds i8, ptr %infoGlobal, i64 117
   store i8 0, ptr %m_jointFeedbackInJointFrame.i, align 1
   %m_reportSolverAnalytics.i = getelementptr inbounds i8, ptr %infoGlobal, i64 120
-  store i32 0, ptr %m_reportSolverAnalytics.i, align 8
+  store i32 0, ptr %m_reportSolverAnalytics.i, align 4
   %m_numNonContactInnerIterations.i = getelementptr inbounds i8, ptr %infoGlobal, i64 124
   store i32 1, ptr %m_numNonContactInnerIterations.i, align 4
   store float %timeStep, ptr %m_timeStep.i, align 4

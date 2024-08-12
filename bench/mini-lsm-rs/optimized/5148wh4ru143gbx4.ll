@@ -673,49 +673,53 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8c7643497cb7c95dE(ptr noalia
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h8f6ca3c3441dc661E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %2 = alloca { { i64, ptr }, ptr }, align 16
+  %2 = alloca { { i64, ptr }, ptr }, align 8
+  %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8
+  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.01.sroa.4.0.copyload = load ptr, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.01.sroa.5.0.copyload = load i64, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !114
-  %3 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %3, ptr %2, align 16
+  store ptr %.sroa.01.sroa.0.0.copyload, ptr %2, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %.sroa.01.sroa.4.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
-  store i64 %.sroa.01.sroa.5.0.copyload, ptr %.sroa.8.0..sroa_idx, align 16
+  store i64 %.sroa.01.sroa.5.0.copyload, ptr %.sroa.8.0..sroa_idx, align 8
   invoke void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17hd7d5cc00e7c67d4bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2)
-          to label %15 unwind label %4
+          to label %14 unwind label %3
 
-4:                                                ; preds = %1
-  %5 = landingpad { ptr, i32 }
+3:                                                ; preds = %1
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %6)
-          to label %10 unwind label %8
+  %5 = extractvalue { ptr, i32 } %4, 0
+  %6 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %5)
+          to label %9 unwind label %7
 
-8:                                                ; preds = %4
-  %9 = landingpad { ptr, i32 }
+7:                                                ; preds = %3
+  %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking19panic_cannot_unwind17h728d9a0f3744453fE() #24
   unreachable
 
-10:                                               ; preds = %4
-  %11 = extractvalue { ptr, ptr } %7, 0
-  %12 = extractvalue { ptr, ptr } %7, 1
+9:                                                ; preds = %3
+  %10 = extractvalue { ptr, ptr } %6, 0
+  %11 = extractvalue { ptr, ptr } %6, 1
+  %12 = icmp ne ptr %10, null
+  tail call void @llvm.assume(i1 %12)
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ne ptr %12, null
-  tail call void @llvm.assume(i1 %14)
-  br label %16
+  br label %15
 
-15:                                               ; preds = %1
+14:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !114
-  br label %16
+  br label %15
 
-16:                                               ; preds = %10, %15
-  %17 = phi ptr [ undef, %15 ], [ %12, %10 ]
-  %18 = phi ptr [ null, %15 ], [ %11, %10 ]
-  %19 = insertvalue { ptr, ptr } poison, ptr %18, 0
-  %20 = insertvalue { ptr, ptr } %19, ptr %17, 1
-  ret { ptr, ptr } %20
+15:                                               ; preds = %9, %14
+  %16 = phi ptr [ undef, %14 ], [ %11, %9 ]
+  %17 = phi ptr [ null, %14 ], [ %10, %9 ]
+  %18 = insertvalue { ptr, ptr } poison, ptr %17, 0
+  %19 = insertvalue { ptr, ptr } %18, ptr %16, 1
+  ret { ptr, ptr } %19
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -783,49 +787,53 @@ __rust_try.llvm.3849484896252022153.exit:         ; preds = %14
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17hd72474424e89d8f2E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %2 = alloca { { i64, ptr }, ptr }, align 16
+  %2 = alloca { { i64, ptr }, ptr }, align 8
+  %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8
+  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.01.sroa.4.0.copyload = load ptr, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.01.sroa.5.0.copyload = load i64, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !140
-  %3 = load <2 x ptr>, ptr %0, align 8
-  store <2 x ptr> %3, ptr %2, align 16
+  store ptr %.sroa.01.sroa.0.0.copyload, ptr %2, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %.sroa.01.sroa.4.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
-  store i64 %.sroa.01.sroa.5.0.copyload, ptr %.sroa.8.0..sroa_idx, align 16
+  store i64 %.sroa.01.sroa.5.0.copyload, ptr %.sroa.8.0..sroa_idx, align 8
   invoke void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace17h6d959e63bd19f51bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2)
-          to label %15 unwind label %4
+          to label %14 unwind label %3
 
-4:                                                ; preds = %1
-  %5 = landingpad { ptr, i32 }
+3:                                                ; preds = %1
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %6)
-          to label %10 unwind label %8
+  %5 = extractvalue { ptr, i32 } %4, 0
+  %6 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h82b2c8e320bcb974E(ptr noundef %5)
+          to label %9 unwind label %7
 
-8:                                                ; preds = %4
-  %9 = landingpad { ptr, i32 }
+7:                                                ; preds = %3
+  %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking19panic_cannot_unwind17h728d9a0f3744453fE() #24
   unreachable
 
-10:                                               ; preds = %4
-  %11 = extractvalue { ptr, ptr } %7, 0
-  %12 = extractvalue { ptr, ptr } %7, 1
+9:                                                ; preds = %3
+  %10 = extractvalue { ptr, ptr } %6, 0
+  %11 = extractvalue { ptr, ptr } %6, 1
+  %12 = icmp ne ptr %10, null
+  tail call void @llvm.assume(i1 %12)
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
-  %14 = icmp ne ptr %12, null
-  tail call void @llvm.assume(i1 %14)
-  br label %16
+  br label %15
 
-15:                                               ; preds = %1
+14:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !140
-  br label %16
+  br label %15
 
-16:                                               ; preds = %10, %15
-  %17 = phi ptr [ undef, %15 ], [ %12, %10 ]
-  %18 = phi ptr [ null, %15 ], [ %11, %10 ]
-  %19 = insertvalue { ptr, ptr } poison, ptr %18, 0
-  %20 = insertvalue { ptr, ptr } %19, ptr %17, 1
-  ret { ptr, ptr } %20
+15:                                               ; preds = %9, %14
+  %16 = phi ptr [ undef, %14 ], [ %11, %9 ]
+  %17 = phi ptr [ null, %14 ], [ %10, %9 ]
+  %18 = insertvalue { ptr, ptr } poison, ptr %17, 0
+  %19 = insertvalue { ptr, ptr } %18, ptr %16, 1
+  ret { ptr, ptr } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

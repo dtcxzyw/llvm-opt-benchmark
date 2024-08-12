@@ -5717,9 +5717,10 @@ _ZNSt10unique_ptrIN3net13QuicDecrypterESt14default_deleteIS1_EE5resetEPS1_.exit:
   br label %if.end85
 
 if.else75:                                        ; preds = %if.then62
-  %35 = load <2 x ptr>, ptr %decrypter_, align 8
-  %36 = shufflevector <2 x ptr> %35, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %36, ptr %decrypter_, align 8
+  %35 = load ptr, ptr %decrypter_, align 8
+  %36 = load ptr, ptr %alternative_decrypter_, align 8
+  store ptr %36, ptr %decrypter_, align 8
+  store ptr %35, ptr %alternative_decrypter_, align 8
   %37 = load i8, ptr %alternative_decrypter_level_, align 1
   %decrypter_level_79 = getelementptr inbounds i8, ptr %this, i64 312
   %38 = load i8, ptr %decrypter_level_79, align 8

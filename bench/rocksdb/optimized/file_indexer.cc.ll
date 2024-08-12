@@ -398,7 +398,13 @@ if.end25:                                         ; preds = %for.body14
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %if.end25
   %arrayctor.cur = phi ptr [ %call33, %if.end25 ], [ %arrayctor.next, %arrayctor.loop ]
-  store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %arrayctor.cur, align 4
+  store i32 0, ptr %arrayctor.cur, align 4
+  %largest_lb.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 4
+  store i32 0, ptr %largest_lb.i, align 4
+  %smallest_rb.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
+  store i32 -1, ptr %smallest_rb.i, align 4
+  %largest_rb.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 12
+  store i32 -1, ptr %largest_rb.i, align 4
   %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 16
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop

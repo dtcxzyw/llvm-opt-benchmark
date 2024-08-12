@@ -115,7 +115,13 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %ctx, ptr noundef nonnull align 1 dereferenceable(12) %iv, i64 12, i1 false)
   %arrayidx5 = getelementptr inbounds i8, ptr %ctx, i64 12
-  store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %arrayidx5, align 4
+  store i8 0, ptr %arrayidx5, align 4
+  %arrayidx7 = getelementptr inbounds i8, ptr %ctx, i64 13
+  store i8 0, ptr %arrayidx7, align 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %ctx, i64 14
+  store i8 0, ptr %arrayidx9, align 2
+  %arrayidx11 = getelementptr inbounds i8, ptr %ctx, i64 15
+  store i8 1, ptr %arrayidx11, align 1
   br label %if.end67
 
 if.else:                                          ; preds = %entry
@@ -193,24 +199,27 @@ if.end:                                           ; preds = %for.end39, %while.e
   %arrayidx57 = getelementptr inbounds i8, ptr %ctx, i64 76
   %9 = load i32, ptr %arrayidx57, align 4
   %10 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %9) #7, !srcloc !11
-  %11 = load <2 x i64>, ptr %Xi, align 8
-  store <2 x i64> %11, ptr %ctx, align 8
-  %12 = add i32 %10, 1
+  %11 = load i64, ptr %Xi, align 8
+  store i64 %11, ptr %ctx, align 8
+  %12 = load i64, ptr %arrayidx14, align 8
+  %arrayidx66 = getelementptr inbounds i8, ptr %ctx, i64 8
+  store i64 %12, ptr %arrayidx66, align 8
+  %13 = add i32 %10, 1
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end, %if.then
-  %ctr.0 = phi i32 [ 2, %if.then ], [ %12, %if.end ]
+  %ctr.0 = phi i32 [ 2, %if.then ], [ %13, %if.end ]
   %Xi68 = getelementptr inbounds i8, ptr %ctx, i64 64
   %block = getelementptr inbounds i8, ptr %ctx, i64 384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Xi68, i8 0, i64 16, i1 false)
-  %13 = load ptr, ptr %block, align 8
+  %14 = load ptr, ptr %block, align 8
   %EK0 = getelementptr inbounds i8, ptr %ctx, i64 32
   %key = getelementptr inbounds i8, ptr %ctx, i64 392
-  %14 = load ptr, ptr %key, align 8
-  tail call void %13(ptr noundef nonnull %ctx, ptr noundef nonnull %EK0, ptr noundef %14) #6
-  %15 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %ctr.0) #7, !srcloc !12
+  %15 = load ptr, ptr %key, align 8
+  tail call void %14(ptr noundef nonnull %ctx, ptr noundef nonnull %EK0, ptr noundef %15) #6
+  %16 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %ctr.0) #7, !srcloc !12
   %arrayidx79 = getelementptr inbounds i8, ptr %ctx, i64 12
-  store i32 %15, ptr %arrayidx79, align 4
+  store i32 %16, ptr %arrayidx79, align 4
   ret void
 }
 
@@ -1378,10 +1387,16 @@ if.end22:                                         ; preds = %if.else, %if.then15
   %conv40 = zext i32 %add30 to i64
   tail call void %8(ptr noundef nonnull %Xi34, ptr noundef nonnull %Htable36, ptr noundef nonnull %Xn25, i64 noundef %conv40) #6
   %EK0 = getelementptr inbounds i8, ptr %ctx, i64 32
-  %9 = load <2 x i64>, ptr %EK0, align 8
-  %10 = load <2 x i64>, ptr %Xi34, align 8
-  %11 = xor <2 x i64> %10, %9
-  store <2 x i64> %11, ptr %Xi34, align 8
+  %9 = load i64, ptr %EK0, align 8
+  %10 = load i64, ptr %Xi34, align 8
+  %xor = xor i64 %10, %9
+  store i64 %xor, ptr %Xi34, align 8
+  %arrayidx45 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %11 = load i64, ptr %arrayidx45, align 8
+  %arrayidx47 = getelementptr inbounds i8, ptr %ctx, i64 72
+  %12 = load i64, ptr %arrayidx47, align 8
+  %xor48 = xor i64 %12, %11
+  store i64 %xor48, ptr %arrayidx47, align 8
   %tobool49 = icmp ne ptr %tag, null
   %cmp50 = icmp ult i64 %len, 17
   %or.cond = and i1 %tobool49, %cmp50
@@ -1464,10 +1479,16 @@ CRYPTO_gcm128_finish.exit:                        ; preds = %if.then.i, %if.then
   %conv40.i = zext i32 %add30.i to i64
   tail call void %8(ptr noundef nonnull %Xi34.i, ptr noundef nonnull %Htable36.i, ptr noundef nonnull %Xn25.i, i64 noundef %conv40.i) #6
   %EK0.i = getelementptr inbounds i8, ptr %ctx, i64 32
-  %9 = load <2 x i64>, ptr %EK0.i, align 8
-  %10 = load <2 x i64>, ptr %Xi34.i, align 8
-  %11 = xor <2 x i64> %10, %9
-  store <2 x i64> %11, ptr %Xi34.i, align 8
+  %9 = load i64, ptr %EK0.i, align 8
+  %10 = load i64, ptr %Xi34.i, align 8
+  %xor.i = xor i64 %10, %9
+  store i64 %xor.i, ptr %Xi34.i, align 8
+  %arrayidx45.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %11 = load i64, ptr %arrayidx45.i, align 8
+  %arrayidx47.i = getelementptr inbounds i8, ptr %ctx, i64 72
+  %12 = load i64, ptr %arrayidx47.i, align 8
+  %xor48.i = xor i64 %12, %11
+  store i64 %xor48.i, ptr %arrayidx47.i, align 8
   %cond = tail call i64 @llvm.umin.i64(i64 %len, i64 16)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tag, ptr nonnull align 8 %Xi34.i, i64 %cond, i1 false)
   ret void

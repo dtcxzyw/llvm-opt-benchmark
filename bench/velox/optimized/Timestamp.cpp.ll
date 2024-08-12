@@ -968,8 +968,14 @@ entry:
 define void @_ZSt9to_stringB5cxx11RKN8facebook5velox9TimestampE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts) local_unnamed_addr #2 {
 entry:
   %tm.i = alloca %struct.tm, align 8
-  %ref.tmp = alloca %"struct.facebook::velox::TimestampToStringOptions", align 4
-  store <4 x i8> <i8 9, i8 0, i8 84, i8 0>, ptr %ref.tmp, align 4
+  %ref.tmp = alloca %"struct.facebook::velox::TimestampToStringOptions", align 1
+  store i8 9, ptr %ref.tmp, align 1
+  %zeroPaddingYear = getelementptr inbounds i8, ptr %ref.tmp, i64 1
+  store i8 0, ptr %zeroPaddingYear, align 1
+  %dateTimeSeparator = getelementptr inbounds i8, ptr %ref.tmp, i64 2
+  store i8 84, ptr %dateTimeSeparator, align 1
+  %mode = getelementptr inbounds i8, ptr %ref.tmp, i64 3
+  store i8 0, ptr %mode, align 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
   %0 = load i64, ptr %ts, align 8, !noalias !12
   %call.i = call noundef zeroext i1 @_ZN8facebook5velox9Timestamp10epochToUtcElR2tm(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %tm.i), !noalias !12

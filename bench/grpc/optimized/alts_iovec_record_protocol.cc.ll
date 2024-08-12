@@ -215,7 +215,13 @@ if.end14:                                         ; preds = %if.end9, %_ZL16get_
   %conv18.i.i = trunc i32 %conv.i to i8
   store i8 %conv18.i.i, ptr %header.coerce0, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %header.coerce0, i64 4
-  store <4 x i8> <i8 6, i8 0, i8 0, i8 0>, ptr %add.ptr.i, align 1
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %header.coerce0, i64 7
+  store i8 0, ptr %arrayidx.i3.i, align 1
+  %arrayidx8.i4.i = getelementptr inbounds i8, ptr %header.coerce0, i64 6
+  store i8 0, ptr %arrayidx8.i4.i, align 1
+  %arrayidx14.i5.i = getelementptr inbounds i8, ptr %header.coerce0, i64 5
+  store i8 0, ptr %arrayidx14.i5.i, align 1
+  store i8 6, ptr %add.ptr.i, align 1
   store i64 0, ptr %bytes_written, align 8
   %crypter = getelementptr inbounds i8, ptr %rp, i64 8
   %5 = load ptr, ptr %crypter, align 8
@@ -707,7 +713,13 @@ if.end20:                                         ; preds = %if.end8
   %conv18.i.i = trunc i32 %conv.i to i8
   store i8 %conv18.i.i, ptr %protected_frame.coerce0, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 4
-  store <4 x i8> <i8 6, i8 0, i8 0, i8 0>, ptr %add.ptr.i, align 1
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 7
+  store i8 0, ptr %arrayidx.i3.i, align 1
+  %arrayidx8.i4.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 6
+  store i8 0, ptr %arrayidx8.i4.i, align 1
+  %arrayidx14.i5.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 5
+  store i8 0, ptr %arrayidx14.i5.i, align 1
+  store i8 6, ptr %add.ptr.i, align 1
   %add.ptr = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 8
   %5 = load i64, ptr %tag_length, align 8
   %add26 = add i64 %5, %total_length.0.lcssa.i

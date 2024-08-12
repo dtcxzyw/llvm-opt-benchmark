@@ -83,8 +83,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb23UncompressionDictReader6CreateEPKNS_15BlockBasedTableERKNS_11ReadOptionsEPNS_18FilePrefetchBufferEbbbPNS_23BlockCacheLookupContextEPSt10unique_ptrIS0_St14default_deleteIS0_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %table, ptr noundef nonnull align 8 dereferenceable(154) %ro, ptr noundef %prefetch_buffer, i1 noundef zeroext %use_cache, i1 noundef zeroext %prefetch, i1 noundef zeroext %pin, ptr noundef %lookup_context, ptr nocapture noundef %uncompression_dict_reader) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %uncompression_dict = alloca %"class.rocksdb::CachableEntry", align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %uncompression_dict, i8 0, i64 25, i1 false)
+  %uncompression_dict = alloca %"class.rocksdb::CachableEntry", align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %uncompression_dict, i8 0, i64 25, i1 false)
   %use_cache.not = xor i1 %use_cache, true
   %brmerge = or i1 %use_cache.not, %prefetch
   br i1 %brmerge, label %if.then, label %if.end13
@@ -110,7 +110,7 @@ if.end:                                           ; preds = %invoke.cont6
 
 if.then10:                                        ; preds = %if.end
   call void @_ZN7rocksdb13CachableEntryINS_17UncompressionDictEE15ReleaseResourceEv(ptr noundef nonnull align 8 dereferenceable(25) %uncompression_dict) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %uncompression_dict, i8 0, i64 25, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %uncompression_dict, i8 0, i64 25, i1 false)
   br label %nrvo.unused
 
 nrvo.unused:                                      ; preds = %if.end, %if.then10
@@ -134,27 +134,31 @@ if.end13:                                         ; preds = %_ZN7rocksdb6StatusD
 invoke.cont14:                                    ; preds = %if.end13
   store ptr %table, ptr %call15, align 8
   %uncompression_dict_.i = getelementptr inbounds i8, ptr %call15, i64 8
-  %3 = load <2 x ptr>, ptr %uncompression_dict, align 16
-  store <2 x ptr> %3, ptr %uncompression_dict_.i, align 8
+  %3 = load ptr, ptr %uncompression_dict, align 8
+  store ptr %3, ptr %uncompression_dict_.i, align 8
+  %cache_.i.i = getelementptr inbounds i8, ptr %call15, i64 16
+  %cache_3.i.i = getelementptr inbounds i8, ptr %uncompression_dict, i64 8
+  %4 = load ptr, ptr %cache_3.i.i, align 8
+  store ptr %4, ptr %cache_.i.i, align 8
   %cache_handle_.i.i = getelementptr inbounds i8, ptr %call15, i64 24
   %cache_handle_4.i.i = getelementptr inbounds i8, ptr %uncompression_dict, i64 16
-  %4 = load ptr, ptr %cache_handle_4.i.i, align 16
-  store ptr %4, ptr %cache_handle_.i.i, align 8
+  %5 = load ptr, ptr %cache_handle_4.i.i, align 8
+  store ptr %5, ptr %cache_handle_.i.i, align 8
   %own_value_.i.i = getelementptr inbounds i8, ptr %call15, i64 32
   %own_value_5.i.i = getelementptr inbounds i8, ptr %uncompression_dict, i64 24
-  %5 = load i8, ptr %own_value_5.i.i, align 8
-  %frombool.i.i = and i8 %5, 1
+  %6 = load i8, ptr %own_value_5.i.i, align 8
+  %frombool.i.i = and i8 %6, 1
   store i8 %frombool.i.i, ptr %own_value_.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %uncompression_dict, i8 0, i64 25, i1 false)
-  %6 = load ptr, ptr %uncompression_dict_reader, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %uncompression_dict, i8 0, i64 25, i1 false)
+  %7 = load ptr, ptr %uncompression_dict_reader, align 8
   store ptr %call15, ptr %uncompression_dict_reader, align 8
-  %tobool.not.i.i = icmp eq ptr %6, null
+  %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb23UncompressionDictReaderESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNKSt14default_deleteIN7rocksdb23UncompressionDictReaderEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb23UncompressionDictReaderEEclEPS1_.exit.i.i: ; preds = %invoke.cont14
-  %uncompression_dict_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %uncompression_dict_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   call void @_ZN7rocksdb13CachableEntryINS_17UncompressionDictEE15ReleaseResourceEv(ptr noundef nonnull align 8 dereferenceable(25) %uncompression_dict_.i.i.i.i) #12
-  call void @_ZdlPv(ptr noundef nonnull %6) #11
+  call void @_ZdlPv(ptr noundef nonnull %7) #11
   br label %_ZNSt10unique_ptrIN7rocksdb23UncompressionDictReaderESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN7rocksdb23UncompressionDictReaderESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %invoke.cont14, %_ZNKSt14default_deleteIN7rocksdb23UncompressionDictReaderEEclEPS1_.exit.i.i
@@ -329,7 +333,13 @@ if.end:                                           ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   %verify_checksums.i = getelementptr inbounds i8, ptr %read_options, i64 72
   %fill_cache.i = getelementptr inbounds i8, ptr %read_options, i64 73
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 1>, ptr %fill_cache.i, align 1
+  store i8 1, ptr %fill_cache.i, align 1
+  %ignore_range_deletions.i = getelementptr inbounds i8, ptr %read_options, i64 74
+  store i8 0, ptr %ignore_range_deletions.i, align 2
+  %async_io.i = getelementptr inbounds i8, ptr %read_options, i64 75
+  store i8 0, ptr %async_io.i, align 1
+  %optimize_multiget_for_io.i = getelementptr inbounds i8, ptr %read_options, i64 76
+  store i8 1, ptr %optimize_multiget_for_io.i, align 4
   %readahead_size.i = getelementptr inbounds i8, ptr %read_options, i64 80
   %auto_readahead_size.i = getelementptr inbounds i8, ptr %read_options, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %readahead_size.i, i8 0, i64 72, i1 false)

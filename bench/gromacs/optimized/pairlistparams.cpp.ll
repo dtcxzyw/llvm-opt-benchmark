@@ -20,9 +20,15 @@ define void @_ZN14PairlistParamsC2EN5Nbnxm10KernelTypeEbfb(ptr nocapture noundef
   %12 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 0, ptr %12, align 1
   %13 = getelementptr inbounds i8, ptr %0, i64 20
-  store <4 x i32> <i32 1, i32 -1, i32 1, i32 -1>, ptr %13, align 4
-  %14 = add i32 %1, -1
-  %spec.select.i = icmp ult i32 %14, 3
+  store i32 1, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 -1, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 1, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 -1, ptr %16, align 4
+  %17 = add i32 %1, -1
+  %spec.select.i = icmp ult i32 %17, 3
   %switch = icmp eq i32 %1, 2
   %. = select i1 %switch, i32 2, i32 1
   %.sink = select i1 %spec.select.i, i32 %., i32 3

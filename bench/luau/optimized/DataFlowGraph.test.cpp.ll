@@ -23030,7 +23030,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20DataFlowGraphFixture3dfgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::ParseResult", align 8
-  %4 = alloca %"class.std::vector.44", align 16
+  %4 = alloca %"class.std::vector.44", align 8
   %5 = alloca %"struct.Luau::DataFlowGraph", align 8
   %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   %7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
@@ -23042,79 +23042,82 @@ define linkonce_odr dso_local void @_ZN20DataFlowGraphFixture3dfgERKNSt7__cxx111
   %12 = getelementptr inbounds i8, ptr %3, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
-  br i1 %14, label %26, label %15
+  br i1 %14, label %28, label %15
 
 15:                                               ; preds = %2
   %16 = call ptr @__cxa_allocate_exception(i64 64) #15
-  %17 = load <2 x ptr>, ptr %10, align 8
-  store <2 x ptr> %17, ptr %4, align 16
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
-  %19 = getelementptr inbounds i8, ptr %3, i64 56
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %18, align 16
+  %17 = load ptr, ptr %10, align 8
+  store ptr %17, ptr %4, align 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = load ptr, ptr %12, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds i8, ptr %3, i64 56
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   invoke void @_ZN4Luau11ParseErrorsC1ESt6vectorINS_10ParseErrorESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull %4)
-          to label %21 unwind label %24
+          to label %23 unwind label %26
 
-21:                                               ; preds = %15
+23:                                               ; preds = %15
   invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN4Luau11ParseErrorsE, ptr nonnull @_ZN4Luau11ParseErrorsD2Ev) #17
-          to label %72 unwind label %22
+          to label %74 unwind label %24
 
-22:                                               ; preds = %21
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
-  br label %71
-
-24:                                               ; preds = %15
+24:                                               ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
+  br label %73
+
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
   call void @__cxa_free_exception(ptr %16) #15
-  br label %71
+  br label %73
 
-26:                                               ; preds = %2
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @_ZN4Luau20DataFlowGraphBuilder5buildEPNS_12AstStatBlockENS_7NotNullINS_21InternalErrorReporterEEE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::DataFlowGraph") align 8 %5, ptr noundef %27, ptr nonnull %29)
-          to label %30 unwind label %67
+28:                                               ; preds = %2
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  invoke void @_ZN4Luau20DataFlowGraphBuilder5buildEPNS_12AstStatBlockENS_7NotNullINS_21InternalErrorReporterEEE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::DataFlowGraph") align 8 %5, ptr noundef %29, ptr nonnull %31)
+          to label %32 unwind label %69
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 160
-  %32 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZNSt8optionalIN4Luau13DataFlowGraphEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(288) %31, ptr noundef nonnull align 8 dereferenceable(280) %5)
-          to label %33 unwind label %69
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds i8, ptr %0, i64 160
+  %34 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZNSt8optionalIN4Luau13DataFlowGraphEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(288) %33, ptr noundef nonnull align 8 dereferenceable(280) %5)
+          to label %35 unwind label %71
 
-33:                                               ; preds = %30
+35:                                               ; preds = %32
   call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %5) #15
-  %34 = getelementptr inbounds i8, ptr %3, i64 64
-  %35 = load ptr, ptr %34, align 8
-  %.not.i.i.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit.i, label %36
+  %36 = getelementptr inbounds i8, ptr %3, i64 64
+  %37 = load ptr, ptr %36, align 8
+  %.not.i.i.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit.i, label %38
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %3, i64 80
-  %38 = load ptr, ptr %37, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = ptrtoint ptr %35 to i64
-  %41 = sub i64 %39, %40
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #14
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %3, i64 80
+  %40 = load ptr, ptr %39, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = ptrtoint ptr %37 to i64
+  %43 = sub i64 %41, %42
+  call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef %43) #14
   br label %_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit.i
 
-_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit.i:  ; preds = %36, %33
-  %42 = load ptr, ptr %10, align 8
-  %43 = load ptr, ptr %12, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %42, %43
+_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit.i:  ; preds = %38, %35
+  %44 = load ptr, ptr %10, align 8
+  %45 = load ptr, ptr %12, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %44, %45
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit.i, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i.i ], [ %42, %_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit.i ]
-  %44 = load ptr, ptr %.05.i.i.i.i.i, align 8
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(56) %.05.i.i.i.i.i) #15
-  %46 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 56
-  %.not.i.i.i.i.i = icmp eq ptr %46, %43
+  %.05.i.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i.i ], [ %44, %_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit.i ]
+  %46 = load ptr, ptr %.05.i.i.i.i.i, align 8
+  %47 = load ptr, ptr %46, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(56) %.05.i.i.i.i.i) #15
+  %48 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 56
+  %.not.i.i.i.i.i = icmp eq ptr %48, %45
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !107
 
 _ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
@@ -23122,73 +23125,73 @@ _ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ;
   br label %_ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit.i
-  %47 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %42, %_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit.i ]
-  %.not.i.i.i1.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev.exit.i, label %48
+  %49 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %44, %_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit.i ]
+  %.not.i.i.i1.i = icmp eq ptr %49, null
+  br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev.exit.i, label %50
 
-48:                                               ; preds = %_ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exit.i.i
-  %49 = getelementptr inbounds i8, ptr %3, i64 56
-  %50 = load ptr, ptr %49, align 8
-  %51 = ptrtoint ptr %50 to i64
-  %52 = ptrtoint ptr %47 to i64
-  %53 = sub i64 %51, %52
-  call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef %53) #14
+50:                                               ; preds = %_ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exit.i.i
+  %51 = getelementptr inbounds i8, ptr %3, i64 56
+  %52 = load ptr, ptr %51, align 8
+  %53 = ptrtoint ptr %52 to i64
+  %54 = ptrtoint ptr %49 to i64
+  %55 = sub i64 %53, %54
+  call void @_ZdlPvm(ptr noundef nonnull %49, i64 noundef %55) #14
   br label %_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev.exit.i
 
-_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev.exit.i: ; preds = %48, %_ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exit.i.i
-  %54 = getelementptr inbounds i8, ptr %3, i64 16
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 24
+_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev.exit.i: ; preds = %50, %_ZSt8_DestroyIPN4Luau10ParseErrorES1_EvT_S3_RSaIT0_E.exit.i.i
+  %56 = getelementptr inbounds i8, ptr %3, i64 16
   %57 = load ptr, ptr %56, align 8
-  %.not4.i.i.i.i2.i = icmp eq ptr %55, %57
+  %58 = getelementptr inbounds i8, ptr %3, i64 24
+  %59 = load ptr, ptr %58, align 8
+  %.not4.i.i.i.i2.i = icmp eq ptr %57, %59
   br i1 %.not4.i.i.i.i2.i, label %_ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i3.i
 
 .lr.ph.i.i.i.i3.i:                                ; preds = %_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev.exit.i, %.lr.ph.i.i.i.i3.i
-  %.05.i.i.i.i4.i = phi ptr [ %59, %.lr.ph.i.i.i.i3.i ], [ %55, %_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev.exit.i ]
-  %58 = getelementptr inbounds i8, ptr %.05.i.i.i.i4.i, i64 24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #15
-  %59 = getelementptr inbounds i8, ptr %.05.i.i.i.i4.i, i64 56
-  %.not.i.i.i.i5.i = icmp eq ptr %59, %57
+  %.05.i.i.i.i4.i = phi ptr [ %61, %.lr.ph.i.i.i.i3.i ], [ %57, %_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev.exit.i ]
+  %60 = getelementptr inbounds i8, ptr %.05.i.i.i.i4.i, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #15
+  %61 = getelementptr inbounds i8, ptr %.05.i.i.i.i4.i, i64 56
+  %.not.i.i.i.i5.i = icmp eq ptr %61, %59
   br i1 %.not.i.i.i.i5.i, label %_ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i3.i, !llvm.loop !108
 
 _ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i3.i
-  %.pr.i6.i = load ptr, ptr %54, align 8
+  %.pr.i6.i = load ptr, ptr %56, align 8
   br label %_ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev.exit.i
-  %60 = phi ptr [ %.pr.i6.i, %_ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %55, %_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev.exit.i ]
-  %.not.i.i.i7.i = icmp eq ptr %60, null
-  br i1 %.not.i.i.i7.i, label %_ZN4Luau11ParseResultD2Ev.exit, label %61
+  %62 = phi ptr [ %.pr.i6.i, %_ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %57, %_ZNSt6vectorIN4Luau10ParseErrorESaIS1_EED2Ev.exit.i ]
+  %.not.i.i.i7.i = icmp eq ptr %62, null
+  br i1 %.not.i.i.i7.i, label %_ZN4Luau11ParseResultD2Ev.exit, label %63
 
-61:                                               ; preds = %_ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exit.i.i
-  %62 = getelementptr inbounds i8, ptr %3, i64 32
-  %63 = load ptr, ptr %62, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = ptrtoint ptr %60 to i64
-  %66 = sub i64 %64, %65
-  call void @_ZdlPvm(ptr noundef nonnull %60, i64 noundef %66) #14
+63:                                               ; preds = %_ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exit.i.i
+  %64 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = load ptr, ptr %64, align 8
+  %66 = ptrtoint ptr %65 to i64
+  %67 = ptrtoint ptr %62 to i64
+  %68 = sub i64 %66, %67
+  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #14
   br label %_ZN4Luau11ParseResultD2Ev.exit
 
-_ZN4Luau11ParseResultD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exit.i.i, %61
+_ZN4Luau11ParseResultD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exit.i.i, %63
   ret void
 
-67:                                               ; preds = %26
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  br label %71
-
-69:                                               ; preds = %30
+69:                                               ; preds = %28
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %5) #15
-  br label %71
+  br label %73
 
-71:                                               ; preds = %22, %24, %69, %67
-  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %68, %67 ], [ %25, %24 ], [ %23, %22 ]
+71:                                               ; preds = %32
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4Luau13DataFlowGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %5) #15
+  br label %73
+
+73:                                               ; preds = %24, %26, %71, %69
+  %.pn = phi { ptr, i32 } [ %72, %71 ], [ %70, %69 ], [ %27, %26 ], [ %25, %24 ]
   call void @_ZN4Luau11ParseResultD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #15
   resume { ptr, i32 } %.pn
 
-72:                                               ; preds = %21
+74:                                               ; preds = %23
   unreachable
 }
 

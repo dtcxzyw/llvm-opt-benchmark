@@ -87,14 +87,15 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_lagrngP8PJconsts(ptr
 
 23:                                               ; preds = %.thread, %14
   %24 = phi double [ 2.000000e+00, %.thread ], [ %19, %14 ]
-  %25 = fdiv double 1.000000e+00, %24
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
+  %25 = fmul double %24, 5.000000e-01
+  %26 = getelementptr inbounds i8, ptr %2, i64 24
   store double %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
-  %28 = insertelement <2 x double> poison, double %25, i64 0
-  %29 = insertelement <2 x double> %28, double %24, i64 1
-  %30 = fmul <2 x double> %29, <double 5.000000e-01, double 5.000000e-01>
-  store <2 x double> %30, ptr %27, align 8
+  %27 = fdiv double 1.000000e+00, %24
+  %28 = getelementptr inbounds i8, ptr %2, i64 32
+  store double %27, ptr %28, align 8
+  %29 = fmul double %27, 5.000000e-01
+  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  store double %29, ptr %30, align 8
   %31 = load ptr, ptr %0, align 8
   %32 = load ptr, ptr %9, align 8
   %33 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %31, ptr noundef %32, ptr noundef nonnull @.str.4)
@@ -115,7 +116,7 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_lagrngP8PJconsts(ptr
   %43 = fsub double 1.000000e+00, %35
   %44 = fadd double %35, 1.000000e+00
   %45 = fdiv double %43, %44
-  %46 = load double, ptr %27, align 8
+  %46 = load double, ptr %30, align 8
   %47 = tail call double @pow(double noundef %45, double noundef %46) #6
   store double %47, ptr %2, align 8
   %48 = fmul double %47, %47
@@ -219,54 +220,49 @@ define internal { double, double } @_ZL16lagrng_s_forward5PJ_LPP8PJconsts(double
   %8 = fadd double %7, -1.000000e+00
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp olt double %9, 1.000000e-10
-  br i1 %10, label %11, label %15
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
   %12 = fcmp olt double %1, 0.000000e+00
   %13 = select i1 %12, double -2.000000e+00, double 2.000000e+00
-  %14 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %13, i64 0
-  br label %43
+  br label %39
 
-15:                                               ; preds = %3
-  %16 = load double, ptr %5, align 8
-  %17 = fadd double %6, 1.000000e+00
-  %18 = fsub double 1.000000e+00, %6
-  %19 = fdiv double %17, %18
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
-  %21 = load double, ptr %20, align 8
-  %22 = tail call double @pow(double noundef %19, double noundef %21) #6
-  %23 = fmul double %16, %22
-  %24 = getelementptr inbounds i8, ptr %5, i64 32
-  %25 = load double, ptr %24, align 8
-  %26 = fmul double %25, %0
-  %27 = fdiv double 1.000000e+00, %23
-  %28 = fadd double %23, %27
-  %29 = tail call double @cos(double noundef %26) #6
-  %30 = tail call double @llvm.fmuladd.f64(double %28, double 5.000000e-01, double %29)
-  %31 = fcmp olt double %30, 1.000000e-10
-  br i1 %31, label %32, label %34
+14:                                               ; preds = %3
+  %15 = load double, ptr %5, align 8
+  %16 = fadd double %6, 1.000000e+00
+  %17 = fsub double 1.000000e+00, %6
+  %18 = fdiv double %16, %17
+  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = load double, ptr %19, align 8
+  %21 = tail call double @pow(double noundef %18, double noundef %20) #6
+  %22 = fmul double %15, %21
+  %23 = getelementptr inbounds i8, ptr %5, i64 32
+  %24 = load double, ptr %23, align 8
+  %25 = fmul double %24, %0
+  %26 = fdiv double 1.000000e+00, %22
+  %27 = fadd double %22, %26
+  %28 = tail call double @cos(double noundef %25) #6
+  %29 = tail call double @llvm.fmuladd.f64(double %27, double 5.000000e-01, double %28)
+  %30 = fcmp olt double %29, 1.000000e-10
+  br i1 %30, label %31, label %33
 
-32:                                               ; preds = %15
-  %33 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  br label %43
+31:                                               ; preds = %14
+  %32 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
+  br label %39
 
-34:                                               ; preds = %15
-  %35 = tail call double @sin(double noundef %26) #6
-  %36 = fmul double %35, 2.000000e+00
-  %37 = fsub double %23, %27
-  %38 = insertelement <2 x double> poison, double %37, i64 0
-  %39 = insertelement <2 x double> %38, double %36, i64 1
-  %40 = insertelement <2 x double> poison, double %30, i64 0
-  %41 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> zeroinitializer
-  %42 = fdiv <2 x double> %39, %41
-  br label %43
+33:                                               ; preds = %14
+  %34 = tail call double @sin(double noundef %25) #6
+  %35 = fmul double %34, 2.000000e+00
+  %36 = fdiv double %35, %29
+  %37 = fsub double %22, %26
+  %38 = fdiv double %37, %29
+  br label %39
 
-43:                                               ; preds = %11, %34, %32
-  %44 = phi <2 x double> [ %14, %11 ], [ zeroinitializer, %32 ], [ %42, %34 ]
-  %45 = extractelement <2 x double> %44, i64 1
-  %.fca.0.insert = insertvalue { double, double } poison, double %45, 0
-  %46 = extractelement <2 x double> %44, i64 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %46, 1
+39:                                               ; preds = %11, %33, %31
+  %.sroa.4.0 = phi double [ %13, %11 ], [ 0.000000e+00, %31 ], [ %38, %33 ]
+  %.sroa.018.0 = phi double [ 0.000000e+00, %11 ], [ 0.000000e+00, %31 ], [ %36, %33 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.018.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
 }
 

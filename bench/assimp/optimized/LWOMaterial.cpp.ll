@@ -224,7 +224,7 @@ entry:
   %temp = alloca i32, align 4
   %s = alloca %struct.aiString, align 4
   %v = alloca %class.aiVector3t, align 4
-  %trafo = alloca %struct.aiUVTransform, align 8
+  %trafo = alloca %struct.aiUVTransform, align 4
   %flags = alloca i32, align 4
   %ss = alloca %"class.std::__cxx11::basic_string", align 8
   %mapping_ = alloca i32, align 4
@@ -238,7 +238,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %y.i = getelementptr inbounds i8, ptr %v, i64 4
+  %z.i = getelementptr inbounds i8, ptr %v, i64 8
+  %y.i.i = getelementptr inbounds i8, ptr %trafo, i64 4
   %mScaling.i = getelementptr inbounds i8, ptr %trafo, i64 8
+  %y.i1.i = getelementptr inbounds i8, ptr %trafo, i64 12
   %mRotation.i = getelementptr inbounds i8, ptr %trafo, i64 16
   %mIsLWO2 = getelementptr inbounds i8, ptr %this, i64 72
   %mIsLWO3 = getelementptr inbounds i8, ptr %this, i64 74
@@ -327,19 +330,24 @@ sw.default22:                                     ; preds = %if.then18
   br label %sw.epilog24
 
 sw.epilog24:                                      ; preds = %sw.default22, %sw.bb20, %sw.bb19
-  %5 = phi <2 x float> [ <float 0.000000e+00, float 1.000000e+00>, %sw.default22 ], [ <float 1.000000e+00, float 0.000000e+00>, %sw.bb20 ], [ zeroinitializer, %sw.bb19 ]
-  store <2 x float> %5, ptr %y.i, align 4
+  %.sink117 = phi float [ 0.000000e+00, %sw.default22 ], [ 1.000000e+00, %sw.bb20 ], [ 0.000000e+00, %sw.bb19 ]
+  %.sink = phi float [ 1.000000e+00, %sw.default22 ], [ 0.000000e+00, %sw.bb20 ], [ 0.000000e+00, %sw.bb19 ]
+  store float %.sink117, ptr %y.i, align 4
+  store float %.sink, ptr %z.i, align 4
   %call3.i = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %v, i32 noundef 12, ptr noundef nonnull @.str.2, i32 noundef %type, i32 noundef %cur.0112, i32 noundef 1)
   %or.cond = or i1 %cmp26.ph, %cmp28.ph
   br i1 %or.cond, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %sw.epilog24
-  store <2 x float> zeroinitializer, ptr %trafo, align 8
-  store float 0.000000e+00, ptr %mRotation.i, align 8
+  store float 0.000000e+00, ptr %trafo, align 4
+  store float 0.000000e+00, ptr %y.i.i, align 4
+  store float 0.000000e+00, ptr %mRotation.i, align 4
+  %wrapAmountW = getelementptr inbounds i8, ptr %__begin1.sroa.0.0113, i64 124
+  %5 = load float, ptr %wrapAmountW, align 4
+  store float %5, ptr %mScaling.i, align 4
   %wrapAmountH = getelementptr inbounds i8, ptr %__begin1.sroa.0.0113, i64 120
-  %6 = load <2 x float>, ptr %wrapAmountH, align 8
-  %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %7, ptr %mScaling.i, align 8
+  %6 = load float, ptr %wrapAmountH, align 8
+  store float %6, ptr %y.i1.i, align 4
   %call3.i52 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %trafo, i32 noundef 20, ptr noundef nonnull @.str.3, i32 noundef %type, i32 noundef %cur.0112, i32 noundef 1)
   br label %if.end32
 
@@ -350,37 +358,37 @@ if.end32:                                         ; preds = %sw.epilog24, %if.th
 
 if.end34:                                         ; preds = %sw.epilog, %if.end32
   %mapping.0102 = phi i32 [ %mapping.0.ph, %if.end32 ], [ 0, %sw.epilog ]
-  %8 = load i8, ptr %mIsLWO2, align 8
-  %tobool35 = trunc i8 %8 to i1
+  %7 = load i8, ptr %mIsLWO2, align 8
+  %tobool35 = trunc i8 %7 to i1
   br i1 %tobool35, label %if.then38, label %lor.lhs.false36
 
 lor.lhs.false36:                                  ; preds = %if.end34
-  %9 = load i8, ptr %mIsLWO3, align 2
-  %tobool37 = trunc i8 %9 to i1
+  %8 = load i8, ptr %mIsLWO3, align 2
+  %tobool37 = trunc i8 %8 to i1
   br i1 %tobool37, label %if.then38, label %if.else70
 
 if.then38:                                        ; preds = %lor.lhs.false36, %if.end34
-  %10 = load ptr, ptr %_M_finish.i, align 8
+  %9 = load ptr, ptr %_M_finish.i, align 8
   %mClipIdx = getelementptr inbounds i8, ptr %__begin1.sroa.0.0113, i64 48
-  %11 = load i32, ptr %mClipIdx, align 8
-  store i32 %11, ptr %temp, align 4
-  %12 = load ptr, ptr %mClips, align 8
-  %cmp.i53.not106 = icmp eq ptr %12, %10
+  %10 = load i32, ptr %mClipIdx, align 8
+  store i32 %10, ptr %temp, align 4
+  %11 = load ptr, ptr %mClips, align 8
+  %cmp.i53.not106 = icmp eq ptr %11, %9
   br i1 %cmp.i53.not106, label %if.then53, label %for.body46
 
 for.body46:                                       ; preds = %if.then38, %for.body46
-  %clip.sroa.0.0108 = phi ptr [ %incdec.ptr.i, %for.body46 ], [ %12, %if.then38 ]
-  %candidate.sroa.0.0107 = phi ptr [ %spec.select, %for.body46 ], [ %10, %if.then38 ]
+  %clip.sroa.0.0108 = phi ptr [ %incdec.ptr.i, %for.body46 ], [ %11, %if.then38 ]
+  %candidate.sroa.0.0107 = phi ptr [ %spec.select, %for.body46 ], [ %9, %if.then38 ]
   %idx = getelementptr inbounds i8, ptr %clip.sroa.0.0108, i64 44
-  %13 = load i32, ptr %idx, align 4
-  %cmp48 = icmp eq i32 %13, %11
+  %12 = load i32, ptr %idx, align 4
+  %cmp48 = icmp eq i32 %12, %10
   %spec.select = select i1 %cmp48, ptr %clip.sroa.0.0108, ptr %candidate.sroa.0.0107
   %incdec.ptr.i = getelementptr inbounds i8, ptr %clip.sroa.0.0108, i64 56
-  %cmp.i53.not = icmp eq ptr %incdec.ptr.i, %10
+  %cmp.i53.not = icmp eq ptr %incdec.ptr.i, %9
   br i1 %cmp.i53.not, label %for.end, label %for.body46, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body46
-  %cmp.i54 = icmp eq ptr %spec.select, %10
+  %cmp.i54 = icmp eq ptr %spec.select, %9
   br i1 %cmp.i54, label %if.then53, label %if.else
 
 if.then53:                                        ; preds = %if.then38, %for.end
@@ -393,8 +401,8 @@ if.then53:                                        ; preds = %if.then38, %for.end
   br label %if.end79
 
 if.else:                                          ; preds = %for.end
-  %14 = load i32, ptr %spec.select, align 8
-  %cmp57 = icmp eq i32 %14, 3
+  %13 = load i32, ptr %spec.select, align 8
+  %cmp57 = icmp eq i32 %13, 3
   br i1 %cmp57, label %if.then58, label %if.end60
 
 if.then58:                                        ; preds = %if.else
@@ -414,8 +422,8 @@ if.end.i:                                         ; preds = %if.end60
   %conv.i59 = trunc i64 %call2.i to i32
   store i32 %conv.i59, ptr %s, align 4
   %call3.i61 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #15
-  %15 = load i32, ptr %s, align 4
-  %conv5.i = zext i32 %15 to i64
+  %14 = load i32, ptr %s, align 4
+  %conv5.i = zext i32 %14 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i61, i64 %conv5.i, i1 false)
   %arrayidx.i62 = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i
   store i8 0, ptr %arrayidx.i62, align 1
@@ -423,9 +431,9 @@ if.end.i:                                         ; preds = %if.end60
 
 _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end60, %if.end.i
   %negate = getelementptr inbounds i8, ptr %spec.select, i64 48
-  %16 = load i8, ptr %negate, align 8
-  %17 = and i8 %16, 1
-  %spec.store.select = zext nneg i8 %17 to i32
+  %15 = load i8, ptr %negate, align 8
+  %16 = and i8 %15, 1
+  %spec.store.select = zext nneg i8 %16 to i32
   store i32 %spec.store.select, ptr %flags, align 4
   %call.i63 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %flags, i32 noundef 4, ptr noundef nonnull @.str.8, i32 noundef %type, i32 noundef %cur.0112, i32 noundef 4)
   br label %if.end79
@@ -445,10 +453,10 @@ invoke.cont:                                      ; preds = %if.then73
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end76, %invoke.cont, %if.then73
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ss) #15
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %17
 
 if.end76:                                         ; preds = %if.else70
   invoke void @_ZN6Assimp11LWOImporter17AdjustTexturePathERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(32) %ss)
@@ -464,8 +472,8 @@ if.end.i66:                                       ; preds = %invoke.cont77
   %conv.i68 = trunc i64 %call2.i67 to i32
   store i32 %conv.i68, ptr %s, align 4
   %call3.i70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ss) #15
-  %19 = load i32, ptr %s, align 4
-  %conv5.i71 = zext i32 %19 to i64
+  %18 = load i32, ptr %s, align 4
+  %conv5.i71 = zext i32 %18 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i70, i64 %conv5.i71, i1 false)
   %arrayidx.i72 = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i71
   store i8 0, ptr %arrayidx.i72, align 1
@@ -484,8 +492,8 @@ if.end79:                                         ; preds = %cleanup.thread, %if
   %mStrength = getelementptr inbounds i8, ptr %__begin1.sroa.0.0113, i64 52
   %call.i74 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %mStrength, i32 noundef 4, ptr noundef nonnull @.str.11, i32 noundef %type, i32 noundef %cur.0112, i32 noundef 1)
   %blendType = getelementptr inbounds i8, ptr %__begin1.sroa.0.0113, i64 104
-  %20 = load i32, ptr %blendType, align 8
-  switch i32 %20, label %sw.default86 [
+  %19 = load i32, ptr %blendType, align 8
+  switch i32 %19, label %sw.default86 [
     i32 0, label %sw.bb82
     i32 3, label %sw.bb82
     i32 1, label %sw.bb83
@@ -521,8 +529,8 @@ sw.epilog88:                                      ; preds = %sw.default86, %sw.b
   store i32 %mapping.0102, ptr %mapping_, align 4
   %call.i76 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %mapping_, i32 noundef 4, ptr noundef nonnull @.str.14, i32 noundef %type, i32 noundef %cur.0112, i32 noundef 4)
   %wrapModeWidth = getelementptr inbounds i8, ptr %__begin1.sroa.0.0113, i64 128
-  %21 = load i32, ptr %wrapModeWidth, align 8
-  switch i32 %21, label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit [
+  %20 = load i32, ptr %wrapModeWidth, align 8
+  switch i32 %20, label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit [
     i32 3, label %sw.bb3.i
     i32 2, label %sw.bb1.i
     i32 0, label %sw.bb2.i
@@ -544,8 +552,8 @@ _Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit:    ; preds = %sw.epilog88, %sw.bb
   store i32 %retval.0.i, ptr %temp, align 4
   %call.i78 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %temp, i32 noundef 4, ptr noundef nonnull @.str.15, i32 noundef %type, i32 noundef %cur.0112, i32 noundef 4)
   %wrapModeHeight = getelementptr inbounds i8, ptr %__begin1.sroa.0.0113, i64 132
-  %22 = load i32, ptr %wrapModeHeight, align 4
-  switch i32 %22, label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit84 [
+  %21 = load i32, ptr %wrapModeHeight, align 4
+  switch i32 %21, label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit84 [
     i32 3, label %sw.bb3.i81
     i32 2, label %sw.bb1.i83
     i32 0, label %sw.bb2.i79
@@ -612,7 +620,7 @@ entry:
   %st = alloca %struct.aiString, align 4
   %i = alloca i32, align 4
   %fGloss = alloca float, align 4
-  %clr = alloca %struct.aiColor3D, align 8
+  %clr = alloca %struct.aiColor3D, align 4
   %add = alloca i32, align 4
   %def = alloca i32, align 4
   %f = alloca float, align 4
@@ -715,33 +723,37 @@ if.end32:                                         ; preds = %_ZN8aiString3SetERK
   %mColorHighlights = getelementptr inbounds i8, ptr %surf, i64 68
   %7 = load float, ptr %mColorHighlights, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  %8 = load float, ptr %mColor, align 8, !noalias !9
+  %sub.i.i = fadd float %8, -1.000000e+00
+  %g.i.i = getelementptr inbounds i8, ptr %surf, i64 36
+  %9 = load float, ptr %g.i.i, align 4, !noalias !9
+  %sub4.i.i = fadd float %9, -1.000000e+00
   %b.i.i = getelementptr inbounds i8, ptr %surf, i64 40
-  %8 = load float, ptr %b.i.i, align 8, !noalias !9
-  %sub6.i.i = fadd float %8, -1.000000e+00
+  %10 = load float, ptr %b.i.i, align 8, !noalias !9
+  %sub6.i.i = fadd float %10, -1.000000e+00
+  %mul.i.i = fmul float %7, %sub.i.i
+  %mul2.i.i = fmul float %7, %sub4.i.i
   %mul3.i.i = fmul float %7, %sub6.i.i
+  %add.i.i = fadd float %mul.i.i, 1.000000e+00
+  %add4.i.i = fadd float %mul2.i.i, 1.000000e+00
   %add6.i.i = fadd float %mul3.i.i, 1.000000e+00
+  store float %add.i.i, ptr %clr, align 4, !alias.scope !12
   %g.i.i10.i = getelementptr inbounds i8, ptr %clr, i64 4
-  %9 = load <2 x float>, ptr %mColor, align 8, !noalias !9
-  %10 = fadd <2 x float> %9, <float -1.000000e+00, float -1.000000e+00>
-  %11 = insertelement <2 x float> poison, float %7, i64 0
-  %12 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x float> %12, %10
-  %14 = fadd <2 x float> %13, <float 1.000000e+00, float 1.000000e+00>
-  store <2 x float> %14, ptr %clr, align 8, !alias.scope !12
+  store float %add4.i.i, ptr %g.i.i10.i, align 4, !alias.scope !12
   %b.i.i11.i = getelementptr inbounds i8, ptr %clr, i64 8
-  store float %add6.i.i, ptr %b.i.i11.i, align 8, !alias.scope !12
+  store float %add6.i.i, ptr %b.i.i11.i, align 4, !alias.scope !12
   %call3.i66 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %call.i67 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %mSpecularValue, i32 noundef 4, ptr noundef nonnull @.str.21, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %mLuminosity = getelementptr inbounds i8, ptr %surf, i64 64
-  %15 = load float, ptr %mLuminosity, align 8
-  %mul = fmul float %15, 0x3FE99999A0000000
-  store float %mul, ptr %clr, align 8
-  store float %mul, ptr %b.i.i11.i, align 8
+  %11 = load float, ptr %mLuminosity, align 8
+  %mul = fmul float %11, 0x3FE99999A0000000
+  store float %mul, ptr %clr, align 4
+  store float %mul, ptr %b.i.i11.i, align 4
   store float %mul, ptr %g.i.i10.i, align 4
   %call.i68 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.24, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %mAdditiveTransparency = getelementptr inbounds i8, ptr %surf, i64 324
-  %16 = load float, ptr %mAdditiveTransparency, align 4
-  %cmp38 = fcmp une float %16, 0.000000e+00
+  %12 = load float, ptr %mAdditiveTransparency, align 4
+  %cmp38 = fcmp une float %12, 0.000000e+00
   br i1 %cmp38, label %if.then39, label %if.else43
 
 if.then39:                                        ; preds = %if.end32
@@ -750,13 +762,13 @@ if.then39:                                        ; preds = %if.end32
 
 if.else43:                                        ; preds = %if.end32
   %mTransparency = getelementptr inbounds i8, ptr %surf, i64 56
-  %17 = load float, ptr %mTransparency, align 8
-  %cmp44 = fcmp une float %17, 0x42374876E0000000
+  %13 = load float, ptr %mTransparency, align 8
+  %cmp44 = fcmp une float %13, 0x42374876E0000000
   br i1 %cmp44, label %if.then45, label %if.end50
 
 if.then45:                                        ; preds = %if.else43
   store i32 0, ptr %def, align 4
-  %sub = fsub float 1.000000e+00, %17
+  %sub = fsub float 1.000000e+00, %13
   store float %sub, ptr %f, align 4
   br label %if.end50.sink.split
 
@@ -778,7 +790,7 @@ lor.rhs:                                          ; preds = %if.end50
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.end50
-  %18 = phi i1 [ true, %if.end50 ], [ %call54, %lor.rhs ]
+  %14 = phi i1 [ true, %if.end50 ], [ %call54, %lor.rhs ]
   %mSpecularTextures = getelementptr inbounds i8, ptr %surf, i64 192
   %call56 = call noundef zeroext i1 @_ZN6Assimp11LWOImporter14HandleTexturesEP10aiMaterialRKNSt7__cxx114listINS_3LWO7TextureESaIS6_EEE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull %pcMat, ptr noundef nonnull align 8 dereferenceable(24) %mSpecularTextures, i32 noundef 2)
   %mGlossinessTextures = getelementptr inbounds i8, ptr %surf, i64 264
@@ -833,25 +845,25 @@ for.end.sink.split:                               ; preds = %if.else72, %lor.lhs
 for.end:                                          ; preds = %if.else80, %for.end.sink.split, %lor.end
   %m.1 = phi i32 [ %m.0, %lor.end ], [ %m.1.ph, %for.end.sink.split ], [ %m.0, %if.else80 ]
   %mMaximumSmoothAngle = getelementptr inbounds i8, ptr %surf, i64 72
-  %19 = load float, ptr %mMaximumSmoothAngle, align 8
-  %cmp87 = fcmp ugt float %19, 0.000000e+00
+  %15 = load float, ptr %mMaximumSmoothAngle, align 8
+  %cmp87 = fcmp ugt float %15, 0.000000e+00
   %m.2 = select i1 %cmp87, i32 %m.1, i32 1
   store i32 %m.2, ptr %m_, align 4
   %call.i82 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %m_, i32 noundef 4, ptr noundef nonnull @.str.34, i32 noundef 0, i32 noundef 0, i32 noundef 4)
-  %20 = load float, ptr %b.i.i, align 8
-  %ref.tmp91.sroa.6.0 = select i1 %18, float 1.000000e+00, float %20
+  %16 = load float, ptr %mColor, align 8
+  %17 = load float, ptr %g.i.i, align 4
+  %18 = load float, ptr %b.i.i, align 8
+  %ref.tmp91.sroa.6.0 = select i1 %14, float 1.000000e+00, float %18
+  %ref.tmp91.sroa.3.0 = select i1 %14, float 1.000000e+00, float %17
+  %ref.tmp91.sroa.0.0 = select i1 %14, float 1.000000e+00, float %16
   %mDiffuseValue = getelementptr inbounds i8, ptr %surf, i64 48
-  %21 = load float, ptr %mDiffuseValue, align 8
-  %22 = load <2 x float>, ptr %mColor, align 8
-  %23 = insertelement <2 x i1> poison, i1 %18, i64 0
-  %24 = shufflevector <2 x i1> %23, <2 x i1> poison, <2 x i32> zeroinitializer
-  %25 = select <2 x i1> %24, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %22
-  %26 = insertelement <2 x float> poison, float %21, i64 0
-  %27 = shufflevector <2 x float> %26, <2 x float> poison, <2 x i32> zeroinitializer
-  %28 = fmul <2 x float> %25, %27
-  store <2 x float> %28, ptr %clr, align 8
-  %mul102 = fmul float %ref.tmp91.sroa.6.0, %21
-  store float %mul102, ptr %b.i.i11.i, align 8
+  %19 = load float, ptr %mDiffuseValue, align 8
+  %mul96 = fmul float %ref.tmp91.sroa.0.0, %19
+  store float %mul96, ptr %clr, align 4
+  %mul99 = fmul float %ref.tmp91.sroa.3.0, %19
+  store float %mul99, ptr %g.i.i10.i, align 4
+  %mul102 = fmul float %ref.tmp91.sroa.6.0, %19
+  store float %mul102, ptr %b.i.i11.i, align 4
   %call.i91 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %clr, i32 noundef 12, ptr noundef nonnull @.str.35, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   ret void
 }
@@ -2612,7 +2624,9 @@ invoke.cont:                                      ; preds = %.noexc
   %majorAxis = getelementptr inbounds i8, ptr %this, i64 100
   store i32 0, ptr %majorAxis, align 4
   %wrapAmountH = getelementptr inbounds i8, ptr %this, i64 104
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %wrapAmountH, align 8
+  store float 1.000000e+00, ptr %wrapAmountH, align 8
+  %wrapAmountW = getelementptr inbounds i8, ptr %this, i64 108
+  store float 1.000000e+00, ptr %wrapAmountW, align 4
   %wrapModeWidth = getelementptr inbounds i8, ptr %this, i64 112
   store i32 1, ptr %wrapModeWidth, align 8
   %wrapModeHeight = getelementptr inbounds i8, ptr %this, i64 116
@@ -3700,15 +3714,25 @@ entry:
   %1 = load ptr, ptr %mSurfaces, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %mColor.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  store <2 x float> <float 0x3FE9191140000000, float 0x3FE9191140000000>, ptr %mColor.i, align 8
+  store float 0x3FE9191140000000, ptr %mColor.i, align 8
+  %g.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  store float 0x3FE9191140000000, ptr %g.i.i, align 4
   %b.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store float 0x3FE9191140000000, ptr %b.i.i, align 8
   %bDoubleSided.i = getelementptr inbounds i8, ptr %ref.tmp, i64 44
   store i8 0, ptr %bDoubleSided.i, align 4
   %mDiffuseValue.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0x3FD99999A0000000>, ptr %mDiffuseValue.i, align 8
+  store float 1.000000e+00, ptr %mDiffuseValue.i, align 8
+  %mSpecularValue.i = getelementptr inbounds i8, ptr %ref.tmp, i64 52
+  store float 0.000000e+00, ptr %mSpecularValue.i, align 4
+  %mTransparency.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
+  store float 0.000000e+00, ptr %mTransparency.i, align 8
+  %mGlossiness.i = getelementptr inbounds i8, ptr %ref.tmp, i64 60
+  store float 0x3FD99999A0000000, ptr %mGlossiness.i, align 4
   %mLuminosity.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
-  store <2 x float> zeroinitializer, ptr %mLuminosity.i, align 8
+  store float 0.000000e+00, ptr %mLuminosity.i, align 8
+  %mColorHighlights.i = getelementptr inbounds i8, ptr %ref.tmp, i64 68
+  store float 0.000000e+00, ptr %mColorHighlights.i, align 4
   %mMaximumSmoothAngle.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   store float 0.000000e+00, ptr %mMaximumSmoothAngle.i, align 8
   %mVCMap.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
@@ -3764,7 +3788,9 @@ entry:
   %_M_size.i.i.i.i.i14.i = getelementptr inbounds i8, ptr %ref.tmp, i64 304
   store i64 0, ptr %_M_size.i.i.i.i.i14.i, align 8
   %mIOR.i = getelementptr inbounds i8, ptr %ref.tmp, i64 312
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %mIOR.i, align 8
+  store float 1.000000e+00, ptr %mIOR.i, align 8
+  %mBumpIntensity.i = getelementptr inbounds i8, ptr %ref.tmp, i64 316
+  store float 1.000000e+00, ptr %mBumpIntensity.i, align 4
   %mWireframe.i = getelementptr inbounds i8, ptr %ref.tmp, i64 320
   store i8 0, ptr %mWireframe.i, align 8
   %mAdditiveTransparency.i = getelementptr inbounds i8, ptr %ref.tmp, i64 324
@@ -4671,15 +4697,25 @@ entry:
   %1 = load ptr, ptr %mSurfaces, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %mColor.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  store <2 x float> <float 0x3FE9191140000000, float 0x3FE9191140000000>, ptr %mColor.i, align 8
+  store float 0x3FE9191140000000, ptr %mColor.i, align 8
+  %g.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  store float 0x3FE9191140000000, ptr %g.i.i, align 4
   %b.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store float 0x3FE9191140000000, ptr %b.i.i, align 8
   %bDoubleSided.i = getelementptr inbounds i8, ptr %ref.tmp, i64 44
   store i8 0, ptr %bDoubleSided.i, align 4
   %mDiffuseValue.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0x3FD99999A0000000>, ptr %mDiffuseValue.i, align 8
+  store float 1.000000e+00, ptr %mDiffuseValue.i, align 8
+  %mSpecularValue.i = getelementptr inbounds i8, ptr %ref.tmp, i64 52
+  store float 0.000000e+00, ptr %mSpecularValue.i, align 4
+  %mTransparency.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
+  store float 0.000000e+00, ptr %mTransparency.i, align 8
+  %mGlossiness.i = getelementptr inbounds i8, ptr %ref.tmp, i64 60
+  store float 0x3FD99999A0000000, ptr %mGlossiness.i, align 4
   %mLuminosity.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
-  store <2 x float> zeroinitializer, ptr %mLuminosity.i, align 8
+  store float 0.000000e+00, ptr %mLuminosity.i, align 8
+  %mColorHighlights.i = getelementptr inbounds i8, ptr %ref.tmp, i64 68
+  store float 0.000000e+00, ptr %mColorHighlights.i, align 4
   %mMaximumSmoothAngle.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   store float 0.000000e+00, ptr %mMaximumSmoothAngle.i, align 8
   %mVCMap.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
@@ -4735,7 +4771,9 @@ entry:
   %_M_size.i.i.i.i.i14.i = getelementptr inbounds i8, ptr %ref.tmp, i64 304
   store i64 0, ptr %_M_size.i.i.i.i.i14.i, align 8
   %mIOR.i = getelementptr inbounds i8, ptr %ref.tmp, i64 312
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %mIOR.i, align 8
+  store float 1.000000e+00, ptr %mIOR.i, align 8
+  %mBumpIntensity.i = getelementptr inbounds i8, ptr %ref.tmp, i64 316
+  store float 1.000000e+00, ptr %mBumpIntensity.i, align 4
   %mWireframe.i = getelementptr inbounds i8, ptr %ref.tmp, i64 320
   store i8 0, ptr %mWireframe.i, align 8
   %mAdditiveTransparency.i = getelementptr inbounds i8, ptr %ref.tmp, i64 324

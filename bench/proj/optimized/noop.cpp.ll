@@ -35,9 +35,12 @@ define hidden noundef ptr @pj_noop(ptr noundef writeonly %0) local_unnamed_addr 
 
 .sink.split:                                      ; preds = %2, %8
   %.sink16 = phi ptr [ %6, %8 ], [ %0, %2 ]
-  %12 = phi <2 x i32> [ <i32 4, i32 1>, %8 ], [ zeroinitializer, %2 ]
-  %13 = getelementptr inbounds i8, ptr %.sink16, i64 380
-  store <2 x i32> %12, ptr %13, align 4
+  %.sink14 = phi i32 [ 4, %8 ], [ 0, %2 ]
+  %.sink = phi i32 [ 1, %8 ], [ 0, %2 ]
+  %12 = getelementptr inbounds i8, ptr %.sink16, i64 380
+  store i32 %.sink14, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %.sink16, i64 384
+  store i32 %.sink, ptr %13, align 8
   br label %14
 
 14:                                               ; preds = %.sink.split, %5

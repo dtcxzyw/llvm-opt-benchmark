@@ -48,7 +48,7 @@ define i32 @mca_common_ompio_file_read(ptr noundef %0, ptr noundef %1, i32 nound
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 4
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %27, label %212
+  br i1 %.not, label %27, label %214
 
 27:                                               ; preds = %5
   %28 = icmp eq i32 %2, 0
@@ -62,12 +62,12 @@ define i32 @mca_common_ompio_file_read(ptr noundef %0, ptr noundef %1, i32 nound
 
 33:                                               ; preds = %29, %27
   %.not31 = icmp eq ptr %4, null
-  br i1 %.not31, label %212, label %34
+  br i1 %.not31, label %214, label %34
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %35, align 8
-  br label %212
+  br label %214
 
 36:                                               ; preds = %29
   call void @mca_common_ompio_check_gpu_buf(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %22, ptr noundef nonnull %23) #7
@@ -85,7 +85,7 @@ define i32 @mca_common_ompio_file_read(ptr noundef %0, ptr noundef %1, i32 nound
   %46 = icmp ne ptr %3, @ompi_mpi_char
   %or.cond5.not36 = and i1 %46, %or.cond3.not39
   %brmerge = select i1 %or.cond5.not36, i1 true, i1 %or.cond.not
-  br i1 %brmerge, label %.critedge, label %172
+  br i1 %brmerge, label %.critedge, label %174
 
 .critedge:                                        ; preds = %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
@@ -145,245 +145,248 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %58
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %2 to i64
   %68 = getelementptr inbounds i8, ptr %66, i64 16
-  %69 = getelementptr inbounds i8, ptr %19, i64 16
-  %70 = getelementptr inbounds i8, ptr %19, i64 20
-  %71 = load <2 x i32>, ptr %68, align 8
-  store <2 x i32> %71, ptr %69, align 8
-  %72 = getelementptr inbounds i8, ptr %66, i64 96
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %19, i64 96
-  store ptr %73, ptr %74, align 8
-  %75 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %19, ptr noundef %3, i64 noundef %67, ptr noundef %1) #7
-  %76 = getelementptr inbounds i8, ptr %19, i64 24
-  %77 = load i64, ptr %76, align 8
-  %78 = load i32, ptr %70, align 4
-  %79 = and i32 %78, 524288
-  %.not.i109.i = icmp ne i32 %79, 0
-  %80 = and i32 %78, 327680
-  %or.cond.i.i = icmp eq i32 %80, 262144
+  %69 = load i32, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %19, i64 16
+  store i32 %69, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %66, i64 20
+  %72 = load i32, ptr %71, align 4
+  %73 = getelementptr inbounds i8, ptr %19, i64 20
+  store i32 %72, ptr %73, align 4
+  %74 = getelementptr inbounds i8, ptr %66, i64 96
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %19, i64 96
+  store ptr %75, ptr %76, align 8
+  %77 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %19, ptr noundef %3, i64 noundef %67, ptr noundef %1) #7
+  %78 = getelementptr inbounds i8, ptr %19, i64 24
+  %79 = load i64, ptr %78, align 8
+  %80 = load i32, ptr %73, align 4
+  %81 = and i32 %80, 524288
+  %.not.i109.i = icmp ne i32 %81, 0
+  %82 = and i32 %80, 327680
+  %or.cond.i.i = icmp eq i32 %82, 262144
   %or.cond16.i.i = or i1 %.not.i109.i, %or.cond.i.i
-  %81 = and i32 %78, 196608
-  %or.cond15.not.i.i = icmp eq i32 %81, 196608
+  %83 = and i32 %80, 196608
+  %or.cond15.not.i.i = icmp eq i32 %83, 196608
   %or.cond17.i.i = or i1 %or.cond15.not.i.i, %or.cond16.i.i
-  br i1 %or.cond17.i.i, label %opal_convertor_get_packed_size.exit.i, label %82
+  br i1 %or.cond17.i.i, label %opal_convertor_get_packed_size.exit.i, label %84
 
-82:                                               ; preds = %opal_obj_run_constructors.exit.i
-  %83 = and i32 %78, 536870912
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %87
+84:                                               ; preds = %opal_obj_run_constructors.exit.i
+  %85 = and i32 %80, 536870912
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %89
 
-85:                                               ; preds = %82
-  %86 = call i64 @opal_convertor_compute_remote_size(ptr noundef nonnull %19) #7
-  br label %87
+87:                                               ; preds = %84
+  %88 = call i64 @opal_convertor_compute_remote_size(ptr noundef nonnull %19) #7
+  br label %89
 
-87:                                               ; preds = %85, %82
-  %88 = getelementptr inbounds i8, ptr %19, i64 32
-  %89 = load i64, ptr %88, align 8
+89:                                               ; preds = %87, %84
+  %90 = getelementptr inbounds i8, ptr %19, i64 32
+  %91 = load i64, ptr %90, align 8
   br label %opal_convertor_get_packed_size.exit.i
 
-opal_convertor_get_packed_size.exit.i:            ; preds = %87, %opal_obj_run_constructors.exit.i
-  %.0112.i = phi i64 [ %77, %opal_obj_run_constructors.exit.i ], [ %89, %87 ]
-  %90 = icmp eq i32 %53, 0
-  %91 = select i1 %90, i64 %.0112.i, i64 %54
-  %92 = call ptr @mca_common_ompio_alloc_buf(ptr noundef nonnull %0, i64 noundef %91) #7
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %94, label %95
+opal_convertor_get_packed_size.exit.i:            ; preds = %89, %opal_obj_run_constructors.exit.i
+  %.0112.i = phi i64 [ %79, %opal_obj_run_constructors.exit.i ], [ %91, %89 ]
+  %92 = icmp eq i32 %53, 0
+  %93 = select i1 %92, i64 %.0112.i, i64 %54
+  %94 = call ptr @mca_common_ompio_alloc_buf(ptr noundef nonnull %0, i64 noundef %93) #7
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %97
 
-94:                                               ; preds = %opal_convertor_get_packed_size.exit.i
+96:                                               ; preds = %opal_convertor_get_packed_size.exit.i
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.1) #7
   br label %mca_common_ompio_file_read_pipelined.exit
 
-95:                                               ; preds = %opal_convertor_get_packed_size.exit.i
-  store ptr %92, ptr %14, align 8
-  %96 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 %.0112.i, ptr %96, align 8
+97:                                               ; preds = %opal_convertor_get_packed_size.exit.i
+  store ptr %94, ptr %14, align 8
+  %98 = getelementptr inbounds i8, ptr %14, i64 8
+  store i64 %.0112.i, ptr %98, align 8
   store i32 1, ptr %13, align 4
-  %97 = uitofp i64 %.0112.i to double
-  %98 = uitofp i64 %54 to double
-  %99 = fdiv double %97, %98
-  %100 = call double @llvm.ceil.f64(double %99)
-  %101 = fptosi double %100 to i32
-  br i1 %.not128.i, label %107, label %102
+  %99 = uitofp i64 %.0112.i to double
+  %100 = uitofp i64 %54 to double
+  %101 = fdiv double %99, %100
+  %102 = call double @llvm.ceil.f64(double %101)
+  %103 = fptosi double %102 to i32
+  br i1 %.not128.i, label %109, label %104
 
-102:                                              ; preds = %95
-  %103 = call ptr @mca_common_ompio_alloc_buf(ptr noundef nonnull %0, i64 noundef %54) #7
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %105, label %106
+104:                                              ; preds = %97
+  %105 = call ptr @mca_common_ompio_alloc_buf(ptr noundef nonnull %0, i64 noundef %54) #7
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %107, label %108
 
-105:                                              ; preds = %102
+107:                                              ; preds = %104
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.1) #7
   br label %mca_common_ompio_file_read_pipelined.exit
 
-106:                                              ; preds = %102
+108:                                              ; preds = %104
   call void @mca_common_ompio_register_progress() #7
-  br label %107
+  br label %109
 
-107:                                              ; preds = %106, %95
-  %.079117.i = phi ptr [ %103, %106 ], [ %92, %95 ]
-  %.081115.i = phi ptr [ %103, %106 ], [ null, %95 ]
-  %.not102138.i = icmp slt i32 %101, 0
+109:                                              ; preds = %108, %97
+  %.079117.i = phi ptr [ %105, %108 ], [ %94, %97 ]
+  %.081115.i = phi ptr [ %105, %108 ], [ null, %97 ]
+  %.not102138.i = icmp slt i32 %103, 0
   br i1 %.not102138.i, label %.split.loop.exit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %107
-  %108 = add nsw i32 %101, -1
-  %109 = getelementptr inbounds i8, ptr %0, i64 176
-  %110 = getelementptr inbounds i8, ptr %0, i64 296
-  %111 = getelementptr inbounds i8, ptr %0, i64 304
-  %112 = getelementptr inbounds i8, ptr %20, i64 16
-  %113 = zext i32 %108 to i64
-  %114 = zext nneg i32 %101 to i64
-  %115 = add nuw i32 %101, 1
-  %wide.trip.count.i = zext i32 %115 to i64
-  br label %116
+.lr.ph.i:                                         ; preds = %109
+  %110 = add nsw i32 %103, -1
+  %111 = getelementptr inbounds i8, ptr %0, i64 176
+  %112 = getelementptr inbounds i8, ptr %0, i64 296
+  %113 = getelementptr inbounds i8, ptr %0, i64 304
+  %114 = getelementptr inbounds i8, ptr %20, i64 16
+  %115 = zext i32 %110 to i64
+  %116 = zext nneg i32 %103 to i64
+  %117 = add nuw i32 %103, 1
+  %wide.trip.count.i = zext i32 %117 to i64
+  br label %118
 
-116:                                              ; preds = %156, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %156 ]
-  %.078143.i = phi ptr [ %92, %.lr.ph.i ], [ %spec.select107.i, %156 ]
-  %.180142.i = phi ptr [ %.079117.i, %.lr.ph.i ], [ %spec.select.i, %156 ]
-  %.085141.i = phi i64 [ 0, %.lr.ph.i ], [ %.388.i, %156 ]
-  %.091139.i = phi i64 [ 0, %.lr.ph.i ], [ %.193122.i, %156 ]
-  %117 = icmp uge i64 %indvars.iv.i, %114
-  br i1 %117, label %141, label %118
+118:                                              ; preds = %158, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %158 ]
+  %.078143.i = phi ptr [ %94, %.lr.ph.i ], [ %spec.select107.i, %158 ]
+  %.180142.i = phi ptr [ %.079117.i, %.lr.ph.i ], [ %spec.select.i, %158 ]
+  %.085141.i = phi i64 [ 0, %.lr.ph.i ], [ %.388.i, %158 ]
+  %.091139.i = phi i64 [ 0, %.lr.ph.i ], [ %.193122.i, %158 ]
+  %119 = icmp uge i64 %indvars.iv.i, %116
+  br i1 %119, label %143, label %120
 
-118:                                              ; preds = %116
+120:                                              ; preds = %118
   store ptr %.078143.i, ptr %14, align 8
-  store i64 %54, ptr %96, align 8
-  %119 = icmp eq i64 %indvars.iv.i, %113
-  %120 = mul nsw i64 %indvars.iv.i, %54
-  %121 = sub i64 %.0112.i, %120
-  %122 = select i1 %119, i64 %121, i64 %54
+  store i64 %54, ptr %98, align 8
+  %121 = icmp eq i64 %indvars.iv.i, %115
+  %122 = mul nsw i64 %indvars.iv.i, %54
+  %123 = sub i64 %.0112.i, %122
+  %124 = select i1 %121, i64 %123, i64 %54
   store i32 0, ptr %16, align 4
   store i64 0, ptr %15, align 8
   store i64 0, ptr %12, align 8
-  %123 = load i32, ptr %13, align 4
-  %124 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %125 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %109, i32 noundef %124, i32 noundef %101, i64 noundef %54, i64 noundef %122, i32 noundef %123, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %110, ptr noundef nonnull %111) #7
-  %126 = load i32, ptr %111, align 8
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %.split.loop.exit.loopexit.i, label %128
+  %125 = load i32, ptr %13, align 4
+  %126 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %127 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %111, i32 noundef %126, i32 noundef %103, i64 noundef %54, i64 noundef %124, i32 noundef %125, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %112, ptr noundef nonnull %113) #7
+  %128 = load i32, ptr %113, align 8
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %.split.loop.exit.loopexit.i, label %130
 
-128:                                              ; preds = %118
-  br i1 %.not128.i, label %134, label %.thread119.i
+130:                                              ; preds = %120
+  br i1 %.not128.i, label %136, label %.thread119.i
 
-.thread119.i:                                     ; preds = %128
+.thread119.i:                                     ; preds = %130
   call void @mca_common_ompio_request_alloc(ptr noundef nonnull %17, i32 noundef 1) #7
-  %129 = load ptr, ptr %47, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 24
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr %17, align 8
-  %133 = call i64 %131(ptr noundef nonnull %0, ptr noundef %132) #7
-  br label %142
+  %131 = load ptr, ptr %47, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 24
+  %133 = load ptr, ptr %132, align 8
+  %134 = load ptr, ptr %17, align 8
+  %135 = call i64 %133(ptr noundef nonnull %0, ptr noundef %134) #7
+  br label %144
 
-134:                                              ; preds = %128
-  %135 = load ptr, ptr %47, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 16
-  %137 = load ptr, ptr %136, align 8
-  %138 = call i64 %137(ptr noundef nonnull %0) #7
-  %139 = icmp sgt i64 %138, -1
-  br i1 %139, label %.thread125.i, label %.split.loop.exit.loopexit.i
+136:                                              ; preds = %130
+  %137 = load ptr, ptr %47, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 16
+  %139 = load ptr, ptr %138, align 8
+  %140 = call i64 %139(ptr noundef nonnull %0) #7
+  %141 = icmp sgt i64 %140, -1
+  br i1 %141, label %.thread125.i, label %.split.loop.exit.loopexit.i
 
-.thread125.i:                                     ; preds = %134
-  %140 = add i64 %138, %.085141.i
-  br label %151
+.thread125.i:                                     ; preds = %136
+  %142 = add i64 %140, %.085141.i
+  br label %153
 
-141:                                              ; preds = %116
-  br i1 %.not128.i, label %151, label %142
+143:                                              ; preds = %118
+  br i1 %.not128.i, label %153, label %144
 
-142:                                              ; preds = %141, %.thread119.i
-  %.193123.i = phi i64 [ %122, %.thread119.i ], [ %.091139.i, %141 ]
+144:                                              ; preds = %143, %.thread119.i
+  %.193123.i = phi i64 [ %124, %.thread119.i ], [ %.091139.i, %143 ]
   %.not103.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not103.i, label %149, label %143
+  br i1 %.not103.i, label %151, label %145
 
-143:                                              ; preds = %142
-  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
-  %145 = call i32 %144(ptr noundef nonnull %18, ptr noundef nonnull %20) #7
-  %.not104.i = icmp eq i32 %145, 0
-  br i1 %.not104.i, label %146, label %.split.loop.exit.i
+145:                                              ; preds = %144
+  %146 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %147 = call i32 %146(ptr noundef nonnull %18, ptr noundef nonnull %20) #7
+  %.not104.i = icmp eq i32 %147, 0
+  br i1 %.not104.i, label %148, label %.split.loop.exit.i
 
-146:                                              ; preds = %143
-  %147 = load i64, ptr %112, align 8
-  %148 = add i64 %147, %.085141.i
-  br label %149
-
-149:                                              ; preds = %146, %142
-  %.489.i = phi i64 [ %148, %146 ], [ %.085141.i, %142 ]
-  %150 = load ptr, ptr %17, align 8
-  store ptr %150, ptr %18, align 8
+148:                                              ; preds = %145
+  %149 = load i64, ptr %114, align 8
+  %150 = add i64 %149, %.085141.i
   br label %151
 
-151:                                              ; preds = %149, %141, %.thread125.i
-  %.193122.i = phi i64 [ %.193123.i, %149 ], [ %.091139.i, %141 ], [ %122, %.thread125.i ]
-  %.388.i = phi i64 [ %.489.i, %149 ], [ %.085141.i, %141 ], [ %140, %.thread125.i ]
-  %152 = icmp eq i64 %indvars.iv.i, 0
-  %or.cond108.i = select i1 %.not128.i, i1 %117, i1 %152
-  br i1 %or.cond108.i, label %156, label %153
+151:                                              ; preds = %148, %144
+  %.489.i = phi i64 [ %150, %148 ], [ %.085141.i, %144 ]
+  %152 = load ptr, ptr %17, align 8
+  store ptr %152, ptr %18, align 8
+  br label %153
 
-153:                                              ; preds = %151
+153:                                              ; preds = %151, %143, %.thread125.i
+  %.193122.i = phi i64 [ %.193123.i, %151 ], [ %.091139.i, %143 ], [ %124, %.thread125.i ]
+  %.388.i = phi i64 [ %.489.i, %151 ], [ %.085141.i, %143 ], [ %142, %.thread125.i ]
+  %154 = icmp eq i64 %indvars.iv.i, 0
+  %or.cond108.i = select i1 %.not128.i, i1 %119, i1 %154
+  br i1 %or.cond108.i, label %158, label %155
+
+155:                                              ; preds = %153
   store i64 0, ptr %21, align 8
   store ptr %.180142.i, ptr %14, align 8
-  %154 = select i1 %.not128.i, i64 %.193122.i, i64 %.091139.i
-  store i64 %154, ptr %96, align 8
-  %155 = call i32 @opal_convertor_unpack(ptr noundef nonnull %19, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %21) #7
-  br label %156
+  %156 = select i1 %.not128.i, i64 %.193122.i, i64 %.091139.i
+  store i64 %156, ptr %98, align 8
+  %157 = call i32 @opal_convertor_unpack(ptr noundef nonnull %19, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %21) #7
+  br label %158
 
-156:                                              ; preds = %153, %151
-  store i32 0, ptr %111, align 8
-  %157 = load ptr, ptr %110, align 8
-  call void @free(ptr noundef %157) #7
-  store ptr null, ptr %110, align 8
+158:                                              ; preds = %155, %153
+  store i32 0, ptr %113, align 8
+  %159 = load ptr, ptr %112, align 8
+  call void @free(ptr noundef %159) #7
+  store ptr null, ptr %112, align 8
   %spec.select.i = select i1 %.not128.i, ptr %.180142.i, ptr %.078143.i
   %spec.select107.i = select i1 %.not128.i, ptr %.078143.i, ptr %.180142.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.split.loop.exit.loopexit.i, label %116, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.split.loop.exit.loopexit.i, label %118, !llvm.loop !6
 
-.split.loop.exit.loopexit.i:                      ; preds = %156, %134, %118
-  %.085.lcssa.ph.i = phi i64 [ %.085141.i, %134 ], [ %.388.i, %156 ], [ %.085141.i, %118 ]
-  %.284.ph.i = phi i64 [ %138, %134 ], [ 0, %156 ], [ 0, %118 ]
-  %158 = trunc i64 %.284.ph.i to i32
+.split.loop.exit.loopexit.i:                      ; preds = %158, %136, %120
+  %.085.lcssa.ph.i = phi i64 [ %.085141.i, %136 ], [ %.388.i, %158 ], [ %.085141.i, %120 ]
+  %.284.ph.i = phi i64 [ %140, %136 ], [ 0, %158 ], [ 0, %120 ]
+  %160 = trunc i64 %.284.ph.i to i32
   br label %.split.loop.exit.i
 
-.split.loop.exit.i:                               ; preds = %143, %.split.loop.exit.loopexit.i, %107
-  %.085.lcssa.i = phi i64 [ 0, %107 ], [ %.085.lcssa.ph.i, %.split.loop.exit.loopexit.i ], [ %.085141.i, %143 ]
-  %.284.i = phi i32 [ 0, %107 ], [ %158, %.split.loop.exit.loopexit.i ], [ %145, %143 ]
-  %159 = getelementptr inbounds i8, ptr %19, i64 64
-  %160 = load i32, ptr %159, align 8
-  %161 = icmp ugt i32 %160, 5
-  br i1 %161, label %162, label %opal_convertor_cleanup.exit.i
+.split.loop.exit.i:                               ; preds = %145, %.split.loop.exit.loopexit.i, %109
+  %.085.lcssa.i = phi i64 [ 0, %109 ], [ %.085.lcssa.ph.i, %.split.loop.exit.loopexit.i ], [ %.085141.i, %145 ]
+  %.284.i = phi i32 [ 0, %109 ], [ %160, %.split.loop.exit.loopexit.i ], [ %147, %145 ]
+  %161 = getelementptr inbounds i8, ptr %19, i64 64
+  %162 = load i32, ptr %161, align 8
+  %163 = icmp ugt i32 %162, 5
+  br i1 %163, label %164, label %opal_convertor_cleanup.exit.i
 
-162:                                              ; preds = %.split.loop.exit.i
-  %163 = getelementptr inbounds i8, ptr %19, i64 80
-  %164 = load ptr, ptr %163, align 8
-  call void @free(ptr noundef %164) #7
-  %165 = getelementptr inbounds i8, ptr %19, i64 144
-  store ptr %165, ptr %163, align 8
-  store i32 5, ptr %159, align 8
+164:                                              ; preds = %.split.loop.exit.i
+  %165 = getelementptr inbounds i8, ptr %19, i64 80
+  %166 = load ptr, ptr %165, align 8
+  call void @free(ptr noundef %166) #7
+  %167 = getelementptr inbounds i8, ptr %19, i64 144
+  store ptr %167, ptr %165, align 8
+  store i32 5, ptr %161, align 8
   br label %opal_convertor_cleanup.exit.i
 
-opal_convertor_cleanup.exit.i:                    ; preds = %162, %.split.loop.exit.i
-  %166 = getelementptr inbounds i8, ptr %19, i64 40
-  store ptr null, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %19, i64 104
-  store i32 0, ptr %167, align 8
-  store i32 134217760, ptr %70, align 4
-  call void @mca_common_ompio_release_buf(ptr noundef nonnull %0, ptr noundef nonnull %92) #7
-  br i1 %.not128.i, label %169, label %168
+opal_convertor_cleanup.exit.i:                    ; preds = %164, %.split.loop.exit.i
+  %168 = getelementptr inbounds i8, ptr %19, i64 40
+  store ptr null, ptr %168, align 8
+  %169 = getelementptr inbounds i8, ptr %19, i64 104
+  store i32 0, ptr %169, align 8
+  store i32 134217760, ptr %73, align 4
+  call void @mca_common_ompio_release_buf(ptr noundef nonnull %0, ptr noundef nonnull %94) #7
+  br i1 %.not128.i, label %171, label %170
 
-168:                                              ; preds = %opal_convertor_cleanup.exit.i
+170:                                              ; preds = %opal_convertor_cleanup.exit.i
   call void @mca_common_ompio_release_buf(ptr noundef nonnull %0, ptr noundef %.081115.i) #7
-  br label %169
+  br label %171
 
-169:                                              ; preds = %168, %opal_convertor_cleanup.exit.i
+171:                                              ; preds = %170, %opal_convertor_cleanup.exit.i
   %.not105.i = icmp eq ptr %4, null
-  br i1 %.not105.i, label %mca_common_ompio_file_read_pipelined.exit, label %170
+  br i1 %.not105.i, label %mca_common_ompio_file_read_pipelined.exit, label %172
 
-170:                                              ; preds = %169
-  %171 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %.085.lcssa.i, ptr %171, align 8
+172:                                              ; preds = %171
+  %173 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %.085.lcssa.i, ptr %173, align 8
   br label %mca_common_ompio_file_read_pipelined.exit
 
-mca_common_ompio_file_read_pipelined.exit:        ; preds = %94, %105, %169, %170
-  %.0.i = phi i32 [ -2, %94 ], [ -2, %105 ], [ %.284.i, %170 ], [ %.284.i, %169 ]
+mca_common_ompio_file_read_pipelined.exit:        ; preds = %96, %107, %171, %172
+  %.0.i = phi i32 [ -2, %96 ], [ -2, %107 ], [ %.284.i, %172 ], [ %.284.i, %171 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
@@ -394,9 +397,9 @@ mca_common_ompio_file_read_pipelined.exit:        ; preds = %94, %105, %169, %17
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  br label %212
+  br label %214
 
-172:                                              ; preds = %36
+174:                                              ; preds = %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -409,87 +412,87 @@ mca_common_ompio_file_read_pipelined.exit:        ; preds = %94, %105, %169, %17
   store i64 0, ptr %9, align 8
   store i64 0, ptr %10, align 8
   store i32 0, ptr %11, align 4
-  %173 = getelementptr inbounds i8, ptr %0, i64 72
-  %174 = load ptr, ptr %173, align 8
-  %175 = call i32 @mca_common_ompio_decode_datatype(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %2, ptr noundef %1, ptr noundef nonnull %9, ptr noundef %174, ptr noundef nonnull %8, ptr noundef nonnull %7) #7
-  %176 = getelementptr inbounds i8, ptr %0, i64 456
-  %177 = load ptr, ptr %176, align 8
-  %178 = call i32 %177(ptr noundef nonnull @.str.2, i32 noundef 18) #7
-  %179 = sext i32 %178 to i64
-  %180 = load i64, ptr %9, align 8
-  %181 = uitofp i64 %180 to double
-  %182 = uitofp i64 %179 to double
-  %183 = fdiv double %181, %182
-  %184 = call double @llvm.ceil.f64(double %183)
-  %185 = fptosi double %184 to i32
-  %186 = getelementptr inbounds i8, ptr %0, i64 176
-  %187 = getelementptr inbounds i8, ptr %0, i64 360
-  %188 = icmp sgt i32 %185, 0
-  br i1 %188, label %.lr.ph.i33, label %._crit_edge.i
+  %175 = getelementptr inbounds i8, ptr %0, i64 72
+  %176 = load ptr, ptr %175, align 8
+  %177 = call i32 @mca_common_ompio_decode_datatype(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %2, ptr noundef %1, ptr noundef nonnull %9, ptr noundef %176, ptr noundef nonnull %8, ptr noundef nonnull %7) #7
+  %178 = getelementptr inbounds i8, ptr %0, i64 456
+  %179 = load ptr, ptr %178, align 8
+  %180 = call i32 %179(ptr noundef nonnull @.str.2, i32 noundef 18) #7
+  %181 = sext i32 %180 to i64
+  %182 = load i64, ptr %9, align 8
+  %183 = uitofp i64 %182 to double
+  %184 = uitofp i64 %181 to double
+  %185 = fdiv double %183, %184
+  %186 = call double @llvm.ceil.f64(double %185)
+  %187 = fptosi double %186 to i32
+  %188 = getelementptr inbounds i8, ptr %0, i64 176
+  %189 = getelementptr inbounds i8, ptr %0, i64 360
+  %190 = icmp sgt i32 %187, 0
+  br i1 %190, label %.lr.ph.i33, label %._crit_edge.i
 
-.lr.ph.i33:                                       ; preds = %172
-  %189 = getelementptr inbounds i8, ptr %0, i64 296
-  %190 = getelementptr inbounds i8, ptr %0, i64 304
-  br label %191
+.lr.ph.i33:                                       ; preds = %174
+  %191 = getelementptr inbounds i8, ptr %0, i64 296
+  %192 = getelementptr inbounds i8, ptr %0, i64 304
+  br label %193
 
-191:                                              ; preds = %204, %.lr.ph.i33
-  %.02834.i = phi i64 [ 0, %.lr.ph.i33 ], [ %205, %204 ]
-  %.02933.i = phi i32 [ 0, %.lr.ph.i33 ], [ %207, %204 ]
-  %192 = load i64, ptr %9, align 8
-  %193 = load i32, ptr %7, align 4
-  %194 = load ptr, ptr %8, align 8
-  %195 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %186, i32 noundef %.02933.i, i32 noundef %185, i64 noundef %179, i64 noundef %192, i32 noundef %193, ptr noundef %194, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %189, ptr noundef nonnull %190) #7
-  %196 = load i32, ptr %190, align 8
-  %197 = icmp eq i32 %196, 0
-  br i1 %197, label %._crit_edge.loopexit.i, label %198
+193:                                              ; preds = %206, %.lr.ph.i33
+  %.02834.i = phi i64 [ 0, %.lr.ph.i33 ], [ %207, %206 ]
+  %.02933.i = phi i32 [ 0, %.lr.ph.i33 ], [ %209, %206 ]
+  %194 = load i64, ptr %9, align 8
+  %195 = load i32, ptr %7, align 4
+  %196 = load ptr, ptr %8, align 8
+  %197 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %188, i32 noundef %.02933.i, i32 noundef %187, i64 noundef %181, i64 noundef %194, i32 noundef %195, ptr noundef %196, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %191, ptr noundef nonnull %192) #7
+  %198 = load i32, ptr %192, align 8
+  %199 = icmp eq i32 %198, 0
+  br i1 %199, label %._crit_edge.loopexit.i, label %200
 
-198:                                              ; preds = %191
-  %199 = load ptr, ptr %187, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 16
-  %201 = load ptr, ptr %200, align 8
-  %202 = call i64 %201(ptr noundef nonnull %0) #7
-  %203 = icmp sgt i64 %202, -1
-  br i1 %203, label %204, label %._crit_edge.loopexit.i
+200:                                              ; preds = %193
+  %201 = load ptr, ptr %189, align 8
+  %202 = getelementptr inbounds i8, ptr %201, i64 16
+  %203 = load ptr, ptr %202, align 8
+  %204 = call i64 %203(ptr noundef nonnull %0) #7
+  %205 = icmp sgt i64 %204, -1
+  br i1 %205, label %206, label %._crit_edge.loopexit.i
 
-204:                                              ; preds = %198
-  %205 = add i64 %202, %.02834.i
-  store i32 0, ptr %190, align 8
-  %206 = load ptr, ptr %189, align 8
-  call void @free(ptr noundef %206) #7
-  store ptr null, ptr %189, align 8
-  %207 = add nuw nsw i32 %.02933.i, 1
-  %exitcond.not.i34 = icmp eq i32 %207, %185
-  br i1 %exitcond.not.i34, label %._crit_edge.loopexit.i, label %191, !llvm.loop !7
+206:                                              ; preds = %200
+  %207 = add i64 %204, %.02834.i
+  store i32 0, ptr %192, align 8
+  %208 = load ptr, ptr %191, align 8
+  call void @free(ptr noundef %208) #7
+  store ptr null, ptr %191, align 8
+  %209 = add nuw nsw i32 %.02933.i, 1
+  %exitcond.not.i34 = icmp eq i32 %209, %187
+  br i1 %exitcond.not.i34, label %._crit_edge.loopexit.i, label %193, !llvm.loop !7
 
-._crit_edge.loopexit.i:                           ; preds = %204, %198, %191
-  %.028.lcssa.ph.i = phi i64 [ %.02834.i, %198 ], [ %205, %204 ], [ %.02834.i, %191 ]
-  %.1.ph.i = phi i64 [ %202, %198 ], [ 0, %204 ], [ 0, %191 ]
-  %208 = trunc i64 %.1.ph.i to i32
+._crit_edge.loopexit.i:                           ; preds = %206, %200, %193
+  %.028.lcssa.ph.i = phi i64 [ %.02834.i, %200 ], [ %207, %206 ], [ %.02834.i, %193 ]
+  %.1.ph.i = phi i64 [ %204, %200 ], [ 0, %206 ], [ 0, %193 ]
+  %210 = trunc i64 %.1.ph.i to i32
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %172
-  %.028.lcssa.i = phi i64 [ 0, %172 ], [ %.028.lcssa.ph.i, %._crit_edge.loopexit.i ]
-  %.1.i = phi i32 [ 0, %172 ], [ %208, %._crit_edge.loopexit.i ]
-  %209 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %209) #7
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %174
+  %.028.lcssa.i = phi i64 [ 0, %174 ], [ %.028.lcssa.ph.i, %._crit_edge.loopexit.i ]
+  %.1.i = phi i32 [ 0, %174 ], [ %210, %._crit_edge.loopexit.i ]
+  %211 = load ptr, ptr %8, align 8
+  call void @free(ptr noundef %211) #7
   %.not.i32 = icmp eq ptr %4, null
-  br i1 %.not.i32, label %mca_common_ompio_file_read_default.exit, label %210
+  br i1 %.not.i32, label %mca_common_ompio_file_read_default.exit, label %212
 
-210:                                              ; preds = %._crit_edge.i
-  %211 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %.028.lcssa.i, ptr %211, align 8
+212:                                              ; preds = %._crit_edge.i
+  %213 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %.028.lcssa.i, ptr %213, align 8
   br label %mca_common_ompio_file_read_default.exit
 
-mca_common_ompio_file_read_default.exit:          ; preds = %._crit_edge.i, %210
+mca_common_ompio_file_read_default.exit:          ; preds = %._crit_edge.i, %212
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br label %212
+  br label %214
 
-212:                                              ; preds = %33, %34, %5, %mca_common_ompio_file_read_default.exit, %mca_common_ompio_file_read_pipelined.exit
+214:                                              ; preds = %33, %34, %5, %mca_common_ompio_file_read_default.exit, %mca_common_ompio_file_read_pipelined.exit
   %.026 = phi i32 [ %.0.i, %mca_common_ompio_file_read_pipelined.exit ], [ %.1.i, %mca_common_ompio_file_read_default.exit ], [ 20, %5 ], [ 0, %34 ], [ 0, %33 ]
   ret i32 %.026
 }
@@ -1201,7 +1204,7 @@ define i32 @mca_common_ompio_file_read_all(ptr noundef %0, ptr noundef %1, i32 n
   %or.cond = or i1 %14, %13
   %15 = icmp eq ptr %3, @ompi_mpi_char
   %or.cond3 = or i1 %15, %or.cond
-  br i1 %or.cond3, label %74, label %16
+  br i1 %or.cond3, label %76, label %16
 
 16:                                               ; preds = %5
   store i64 0, ptr %6, align 8
@@ -1238,98 +1241,101 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %20
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %2 to i64
   %30 = getelementptr inbounds i8, ptr %28, i64 16
-  %31 = getelementptr inbounds i8, ptr %7, i64 16
-  %32 = getelementptr inbounds i8, ptr %7, i64 20
-  %33 = load <2 x i32>, ptr %30, align 8
-  store <2 x i32> %33, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %28, i64 96
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %7, i64 96
-  store ptr %35, ptr %36, align 8
-  %37 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %7, ptr noundef %3, i64 noundef %29, ptr noundef %1) #7
-  %38 = getelementptr inbounds i8, ptr %7, i64 24
-  %39 = load i64, ptr %38, align 8
-  %40 = load i32, ptr %32, align 4
-  %41 = and i32 %40, 524288
-  %.not.i27 = icmp ne i32 %41, 0
-  %42 = and i32 %40, 327680
-  %or.cond.i = icmp eq i32 %42, 262144
+  %31 = load i32, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %28, i64 20
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds i8, ptr %7, i64 20
+  store i32 %34, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %28, i64 96
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %7, i64 96
+  store ptr %37, ptr %38, align 8
+  %39 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %7, ptr noundef %3, i64 noundef %29, ptr noundef %1) #7
+  %40 = getelementptr inbounds i8, ptr %7, i64 24
+  %41 = load i64, ptr %40, align 8
+  %42 = load i32, ptr %35, align 4
+  %43 = and i32 %42, 524288
+  %.not.i27 = icmp ne i32 %43, 0
+  %44 = and i32 %42, 327680
+  %or.cond.i = icmp eq i32 %44, 262144
   %or.cond16.i = or i1 %.not.i27, %or.cond.i
-  %43 = and i32 %40, 196608
-  %or.cond15.not.i = icmp eq i32 %43, 196608
+  %45 = and i32 %42, 196608
+  %or.cond15.not.i = icmp eq i32 %45, 196608
   %or.cond17.i = or i1 %or.cond15.not.i, %or.cond16.i
-  br i1 %or.cond17.i, label %opal_convertor_get_packed_size.exit, label %44
+  br i1 %or.cond17.i, label %opal_convertor_get_packed_size.exit, label %46
 
-44:                                               ; preds = %opal_obj_run_constructors.exit
-  %45 = and i32 %40, 536870912
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %49
+46:                                               ; preds = %opal_obj_run_constructors.exit
+  %47 = and i32 %42, 536870912
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %51
 
-47:                                               ; preds = %44
-  %48 = call i64 @opal_convertor_compute_remote_size(ptr noundef nonnull %7) #7
-  br label %49
+49:                                               ; preds = %46
+  %50 = call i64 @opal_convertor_compute_remote_size(ptr noundef nonnull %7) #7
+  br label %51
 
-49:                                               ; preds = %47, %44
-  %50 = getelementptr inbounds i8, ptr %7, i64 32
-  %51 = load i64, ptr %50, align 8
+51:                                               ; preds = %49, %46
+  %52 = getelementptr inbounds i8, ptr %7, i64 32
+  %53 = load i64, ptr %52, align 8
   br label %opal_convertor_get_packed_size.exit
 
-opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constructors.exit, %49
-  %.0 = phi i64 [ %39, %opal_obj_run_constructors.exit ], [ %51, %49 ]
-  %52 = call ptr @mca_common_ompio_alloc_buf(ptr noundef nonnull %0, i64 noundef %.0) #7
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %55
+opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constructors.exit, %51
+  %.0 = phi i64 [ %41, %opal_obj_run_constructors.exit ], [ %53, %51 ]
+  %54 = call ptr @mca_common_ompio_alloc_buf(ptr noundef nonnull %0, i64 noundef %.0) #7
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %57
 
-54:                                               ; preds = %opal_convertor_get_packed_size.exit
+56:                                               ; preds = %opal_convertor_get_packed_size.exit
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.1) #7
-  br label %80
+  br label %82
 
-55:                                               ; preds = %opal_convertor_get_packed_size.exit
-  store ptr %52, ptr %8, align 8
-  %56 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %.0, ptr %56, align 8
+57:                                               ; preds = %opal_convertor_get_packed_size.exit
+  store ptr %54, ptr %8, align 8
+  %58 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %.0, ptr %58, align 8
   store i32 1, ptr %9, align 4
-  %57 = getelementptr inbounds i8, ptr %0, i64 352
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds i8, ptr %0, i64 352
   %60 = load ptr, ptr %59, align 8
-  %61 = trunc i64 %.0 to i32
-  %62 = call i32 %60(ptr noundef nonnull %0, ptr noundef nonnull %52, i32 noundef %61, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %4) #7
-  %63 = call i32 @opal_convertor_unpack(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %6) #7
-  %64 = getelementptr inbounds i8, ptr %7, i64 64
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp ugt i32 %65, 5
-  br i1 %66, label %67, label %opal_convertor_cleanup.exit
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = trunc i64 %.0 to i32
+  %64 = call i32 %62(ptr noundef nonnull %0, ptr noundef nonnull %54, i32 noundef %63, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %4) #7
+  %65 = call i32 @opal_convertor_unpack(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %6) #7
+  %66 = getelementptr inbounds i8, ptr %7, i64 64
+  %67 = load i32, ptr %66, align 8
+  %68 = icmp ugt i32 %67, 5
+  br i1 %68, label %69, label %opal_convertor_cleanup.exit
 
-67:                                               ; preds = %55
-  %68 = getelementptr inbounds i8, ptr %7, i64 80
-  %69 = load ptr, ptr %68, align 8
-  call void @free(ptr noundef %69) #7
-  %70 = getelementptr inbounds i8, ptr %7, i64 144
-  store ptr %70, ptr %68, align 8
-  store i32 5, ptr %64, align 8
+69:                                               ; preds = %57
+  %70 = getelementptr inbounds i8, ptr %7, i64 80
+  %71 = load ptr, ptr %70, align 8
+  call void @free(ptr noundef %71) #7
+  %72 = getelementptr inbounds i8, ptr %7, i64 144
+  store ptr %72, ptr %70, align 8
+  store i32 5, ptr %66, align 8
   br label %opal_convertor_cleanup.exit
 
-opal_convertor_cleanup.exit:                      ; preds = %55, %67
-  %71 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr null, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %7, i64 104
-  store i32 0, ptr %72, align 8
-  store i32 134217760, ptr %32, align 4
-  %73 = load ptr, ptr %8, align 8
-  call void @mca_common_ompio_release_buf(ptr noundef nonnull %0, ptr noundef %73) #7
-  br label %80
+opal_convertor_cleanup.exit:                      ; preds = %57, %69
+  %73 = getelementptr inbounds i8, ptr %7, i64 40
+  store ptr null, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %7, i64 104
+  store i32 0, ptr %74, align 8
+  store i32 134217760, ptr %35, align 4
+  %75 = load ptr, ptr %8, align 8
+  call void @mca_common_ompio_release_buf(ptr noundef nonnull %0, ptr noundef %75) #7
+  br label %82
 
-74:                                               ; preds = %5
-  %75 = getelementptr inbounds i8, ptr %0, i64 352
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+76:                                               ; preds = %5
+  %77 = getelementptr inbounds i8, ptr %0, i64 352
   %78 = load ptr, ptr %77, align 8
-  %79 = tail call i32 %78(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #7
-  br label %80
+  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = tail call i32 %80(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #7
+  br label %82
 
-80:                                               ; preds = %opal_convertor_cleanup.exit, %74, %54
-  %.024 = phi i32 [ -2, %54 ], [ %79, %74 ], [ %62, %opal_convertor_cleanup.exit ]
+82:                                               ; preds = %opal_convertor_cleanup.exit, %76, %56
+  %.024 = phi i32 [ -2, %56 ], [ %81, %76 ], [ %64, %opal_convertor_cleanup.exit ]
   ret i32 %.024
 }
 

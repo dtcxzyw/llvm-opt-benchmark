@@ -463,11 +463,11 @@ define hidden void @_ZN11inputStream22prepare_to_fill_bufferERmS0_(ptr noundef n
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %2, align 8
-  br label %66
+  br label %68
 
 13:                                               ; preds = %3
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %33, label %14
+  br i1 %.not, label %35, label %14
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %0, i64 8
@@ -477,7 +477,7 @@ define hidden void @_ZN11inputStream22prepare_to_fill_bufferERmS0_(ptr noundef n
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %5, %18
   %or.cond = select i1 %.not22, i1 true, i1 %19
-  br i1 %or.cond, label %20, label %33
+  br i1 %or.cond, label %20, label %35
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds i8, ptr %0, i64 24
@@ -485,87 +485,91 @@ define hidden void @_ZN11inputStream22prepare_to_fill_bufferERmS0_(ptr noundef n
   %23 = getelementptr inbounds i8, ptr %22, i64 %7
   %24 = sub i64 %5, %7
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %23, i64 %24, i1 false)
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
-  %26 = load <2 x i64>, ptr %25, align 8
-  %27 = insertelement <2 x i64> poison, i64 %7, i64 0
-  %28 = shufflevector <2 x i64> %27, <2 x i64> poison, <2 x i32> zeroinitializer
-  %29 = sub <2 x i64> %26, %28
-  store <2 x i64> %29, ptr %25, align 8
-  %30 = load <2 x i64>, ptr %4, align 8
-  %31 = sub <2 x i64> %30, %28
-  store <2 x i64> %31, ptr %4, align 8
-  %32 = extractelement <2 x i64> %31, i64 0
-  br label %33
+  %25 = load i64, ptr %6, align 8
+  %26 = sub i64 %25, %7
+  store i64 %26, ptr %6, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = load i64, ptr %27, align 8
+  %29 = sub i64 %28, %7
+  store i64 %29, ptr %27, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = load i64, ptr %30, align 8
+  %32 = sub i64 %31, %7
+  store i64 %32, ptr %30, align 8
+  %33 = load i64, ptr %4, align 8
+  %34 = sub i64 %33, %7
+  store i64 %34, ptr %4, align 8
+  br label %35
 
-33:                                               ; preds = %14, %20, %13
-  %.0 = phi i64 [ %32, %20 ], [ %5, %13 ], [ %5, %14 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
-  %35 = load i64, ptr %34, align 8
-  %36 = icmp ult i64 %.0, %35
-  br i1 %36, label %37, label %40
+35:                                               ; preds = %14, %20, %13
+  %.0 = phi i64 [ %34, %20 ], [ %5, %13 ], [ %5, %14 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = load i64, ptr %36, align 8
+  %38 = icmp ult i64 %.0, %37
+  br i1 %38, label %39, label %42
 
-37:                                               ; preds = %33
+39:                                               ; preds = %35
   store i64 %.0, ptr %1, align 8
-  %38 = load i64, ptr %34, align 8
-  %39 = sub i64 %38, %.0
-  store i64 %39, ptr %2, align 8
-  br label %66
+  %40 = load i64, ptr %36, align 8
+  %41 = sub i64 %40, %.0
+  store i64 %41, ptr %2, align 8
+  br label %68
 
-40:                                               ; preds = %33
-  %41 = icmp ult i64 %35, 2048
-  %42 = lshr i64 %35, 1
-  %43 = add i64 %42, %35
-  %44 = select i1 %41, i64 2048, i64 %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
-  %48 = icmp eq ptr %46, %47
-  br i1 %48, label %49, label %54
+42:                                               ; preds = %35
+  %43 = icmp ult i64 %37, 2048
+  %44 = lshr i64 %37, 1
+  %45 = add i64 %44, %37
+  %46 = select i1 %43, i64 2048, i64 %45
+  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 80
+  %50 = icmp eq ptr %48, %49
+  br i1 %50, label %51, label %56
 
-49:                                               ; preds = %40
-  %50 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %44, i8 noundef zeroext 9, i32 noundef 0) #10
-  %51 = load i64, ptr %4, align 8
-  %.not.i = icmp eq i64 %51, 0
-  br i1 %.not.i, label %56, label %52
+51:                                               ; preds = %42
+  %52 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %46, i8 noundef zeroext 9, i32 noundef 0) #10
+  %53 = load i64, ptr %4, align 8
+  %.not.i = icmp eq i64 %53, 0
+  br i1 %.not.i, label %58, label %54
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %45, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %53, i64 %51, i1 false)
-  br label %56
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %47, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %55, i64 %53, i1 false)
+  br label %58
 
-54:                                               ; preds = %40
-  %55 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %46, i64 noundef %44, i8 noundef zeroext 9, i32 noundef 0) #10
-  br label %56
+56:                                               ; preds = %42
+  %57 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %48, i64 noundef %46, i8 noundef zeroext 9, i32 noundef 0) #10
+  br label %58
 
-56:                                               ; preds = %54, %52, %49
-  %.0.i = phi ptr [ %50, %52 ], [ %50, %49 ], [ %55, %54 ]
+58:                                               ; preds = %56, %54, %51
+  %.0.i = phi ptr [ %52, %54 ], [ %52, %51 ], [ %57, %56 ]
   %.not25 = icmp eq ptr %.0.i, null
-  br i1 %.not25, label %_ZN11inputStream13expand_bufferEm.exit, label %57
+  br i1 %.not25, label %_ZN11inputStream13expand_bufferEm.exit, label %59
 
-57:                                               ; preds = %56
-  store ptr %.0.i, ptr %45, align 8
-  store i64 %44, ptr %34, align 8
+59:                                               ; preds = %58
+  store ptr %.0.i, ptr %47, align 8
+  store i64 %46, ptr %36, align 8
   store i64 %.0, ptr %1, align 8
-  %58 = load i64, ptr %34, align 8
-  %59 = sub i64 %58, %.0
-  store i64 %59, ptr %2, align 8
-  br label %66
+  %60 = load i64, ptr %36, align 8
+  %61 = sub i64 %60, %.0
+  store i64 %61, ptr %2, align 8
+  br label %68
 
-_ZN11inputStream13expand_bufferEm.exit:           ; preds = %56
-  %60 = load i64, ptr %4, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %60, ptr %61, align 8
-  store i64 %60, ptr %6, align 8
-  %62 = add i64 %60, 1
-  %63 = getelementptr inbounds i8, ptr %0, i64 64
+_ZN11inputStream13expand_bufferEm.exit:           ; preds = %58
+  %62 = load i64, ptr %4, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 0, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 2, ptr %65, align 8
-  br label %66
+  store i64 %62, ptr %6, align 8
+  %64 = add i64 %62, 1
+  %65 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %64, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 20
+  store i8 0, ptr %66, align 4
+  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 2, ptr %67, align 8
+  br label %68
 
-66:                                               ; preds = %_ZN11inputStream13expand_bufferEm.exit, %57, %37, %9
+68:                                               ; preds = %_ZN11inputStream13expand_bufferEm.exit, %59, %39, %9
   ret void
 }
 

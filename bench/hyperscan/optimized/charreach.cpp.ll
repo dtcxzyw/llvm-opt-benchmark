@@ -707,14 +707,32 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN3ue28overlapsERKNS_9CharReachES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %b) local_unnamed_addr #2 {
 entry:
-  %0 = load <4 x i64>, ptr %a, align 8
-  %1 = load <4 x i64>, ptr %b, align 8, !noalias !10
-  %2 = and <4 x i64> %1, %0
-  %.fr = freeze <4 x i64> %2
-  %3 = icmp ne <4 x i64> %.fr, zeroinitializer
-  %4 = bitcast <4 x i1> %3 to i4
-  %5 = icmp ne i4 %4, 0
-  ret i1 %5
+  %ref.tmp.sroa.0.0.copyload = load i64, ptr %a, align 8
+  %ref.tmp.sroa.6.0.a.sroa_idx = getelementptr inbounds i8, ptr %a, i64 8
+  %ref.tmp.sroa.6.0.copyload = load i64, ptr %ref.tmp.sroa.6.0.a.sroa_idx, align 8
+  %ref.tmp.sroa.9.0.a.sroa_idx = getelementptr inbounds i8, ptr %a, i64 16
+  %ref.tmp.sroa.9.0.copyload = load i64, ptr %ref.tmp.sroa.9.0.a.sroa_idx, align 8
+  %ref.tmp.sroa.12.0.a.sroa_idx = getelementptr inbounds i8, ptr %a, i64 24
+  %ref.tmp.sroa.12.0.copyload = load i64, ptr %ref.tmp.sroa.12.0.a.sroa_idx, align 8
+  %0 = load i64, ptr %b, align 8, !noalias !10
+  %and.i.i = and i64 %0, %ref.tmp.sroa.0.0.copyload
+  %arrayidx.i.i54.i.i = getelementptr inbounds i8, ptr %b, i64 8
+  %1 = load i64, ptr %arrayidx.i.i54.i.i, align 8, !noalias !10
+  %and10.i.i = and i64 %1, %ref.tmp.sroa.6.0.copyload
+  %arrayidx.i.i56.i.i = getelementptr inbounds i8, ptr %b, i64 16
+  %2 = load i64, ptr %arrayidx.i.i56.i.i, align 8, !noalias !10
+  %and17.i.i = and i64 %2, %ref.tmp.sroa.9.0.copyload
+  %arrayidx.i.i58.i.i = getelementptr inbounds i8, ptr %b, i64 24
+  %3 = load i64, ptr %arrayidx.i.i58.i.i, align 8, !noalias !10
+  %and24.i.i = and i64 %3, %ref.tmp.sroa.12.0.copyload
+  %cmp3.not.i.i.i = icmp ne i64 %and.i.i, 0
+  %cmp3.not.1.i.i.i = icmp ne i64 %and10.i.i, 0
+  %or.cond.i.not.i.i = select i1 %cmp3.not.i.i.i, i1 true, i1 %cmp3.not.1.i.i.i
+  %cmp3.not.2.i.i.i = icmp ne i64 %and17.i.i, 0
+  %or.cond14.i.i.i = select i1 %or.cond.i.not.i.i, i1 true, i1 %cmp3.not.2.i.i.i
+  %cmp3.not.3.i.i.i = icmp ne i64 %and24.i.i, 0
+  %or.cond15.i.i.i = select i1 %or.cond14.i.i.i, i1 true, i1 %cmp3.not.3.i.i.i
+  ret i1 %or.cond15.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable

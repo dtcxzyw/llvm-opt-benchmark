@@ -83,7 +83,13 @@ if.end3:                                          ; preds = %if.end
   %outlen.i = getelementptr inbounds i8, ptr %call1, i64 8
   store i32 64, ptr %outlen.i, align 8
   %t_cost.i = getelementptr inbounds i8, ptr %call1, i64 76
-  store <4 x i32> <i32 3, i32 8, i32 1, i32 1>, ptr %t_cost.i, align 4
+  store i32 3, ptr %t_cost.i, align 4
+  %m_cost.i = getelementptr inbounds i8, ptr %call1, i64 80
+  store i32 8, ptr %m_cost.i, align 8
+  %lanes.i = getelementptr inbounds i8, ptr %call1, i64 84
+  store i32 1, ptr %lanes.i, align 4
+  %threads.i = getelementptr inbounds i8, ptr %call1, i64 88
+  store i32 1, ptr %threads.i, align 8
   %version.i = getelementptr inbounds i8, ptr %call1, i64 92
   store i32 19, ptr %version.i, align 4
   %type3.i = getelementptr inbounds i8, ptr %call1, i64 100
@@ -244,7 +250,13 @@ if.end21:                                         ; preds = %if.then18, %if.end1
   %outlen.i = getelementptr inbounds i8, ptr %vctx, i64 8
   store i32 64, ptr %outlen.i, align 8
   %t_cost.i = getelementptr inbounds i8, ptr %vctx, i64 76
-  store <4 x i32> <i32 3, i32 8, i32 1, i32 1>, ptr %t_cost.i, align 4
+  store i32 3, ptr %t_cost.i, align 4
+  %m_cost.i = getelementptr inbounds i8, ptr %vctx, i64 80
+  store i32 8, ptr %m_cost.i, align 8
+  %lanes.i = getelementptr inbounds i8, ptr %vctx, i64 84
+  store i32 1, ptr %lanes.i, align 4
+  %threads.i = getelementptr inbounds i8, ptr %vctx, i64 88
+  store i32 1, ptr %threads.i, align 8
   %version.i = getelementptr inbounds i8, ptr %vctx, i64 92
   store i32 19, ptr %version.i, align 4
   store i32 %0, ptr %type1, align 4
@@ -944,7 +956,13 @@ if.end3:                                          ; preds = %if.end
   %outlen.i = getelementptr inbounds i8, ptr %call1, i64 8
   store i32 64, ptr %outlen.i, align 8
   %t_cost.i = getelementptr inbounds i8, ptr %call1, i64 76
-  store <4 x i32> <i32 3, i32 8, i32 1, i32 1>, ptr %t_cost.i, align 4
+  store i32 3, ptr %t_cost.i, align 4
+  %m_cost.i = getelementptr inbounds i8, ptr %call1, i64 80
+  store i32 8, ptr %m_cost.i, align 8
+  %lanes.i = getelementptr inbounds i8, ptr %call1, i64 84
+  store i32 1, ptr %lanes.i, align 4
+  %threads.i = getelementptr inbounds i8, ptr %call1, i64 88
+  store i32 1, ptr %threads.i, align 8
   %version.i = getelementptr inbounds i8, ptr %call1, i64 92
   store i32 19, ptr %version.i, align 4
   br label %return
@@ -980,7 +998,13 @@ if.end3:                                          ; preds = %if.end
   %outlen.i = getelementptr inbounds i8, ptr %call1, i64 8
   store i32 64, ptr %outlen.i, align 8
   %t_cost.i = getelementptr inbounds i8, ptr %call1, i64 76
-  store <4 x i32> <i32 3, i32 8, i32 1, i32 1>, ptr %t_cost.i, align 4
+  store i32 3, ptr %t_cost.i, align 4
+  %m_cost.i = getelementptr inbounds i8, ptr %call1, i64 80
+  store i32 8, ptr %m_cost.i, align 8
+  %lanes.i = getelementptr inbounds i8, ptr %call1, i64 84
+  store i32 1, ptr %lanes.i, align 4
+  %threads.i = getelementptr inbounds i8, ptr %call1, i64 88
+  store i32 1, ptr %threads.i, align 8
   %version.i = getelementptr inbounds i8, ptr %call1, i64 92
   store i32 19, ptr %version.i, align 4
   %type3.i = getelementptr inbounds i8, ptr %call1, i64 100
@@ -1098,11 +1122,14 @@ if.end23:                                         ; preds = %if.end18
   %4 = load i32, ptr %outlen.i, align 8
   %arrayidx2.i = getelementptr inbounds i8, ptr %args.i, i64 4
   store i32 %4, ptr %arrayidx2.i, align 4
+  %m_cost.i = getelementptr inbounds i8, ptr %ctx, i64 80
+  %5 = load i32, ptr %m_cost.i, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %args.i, i64 8
+  store i32 %5, ptr %arrayidx3.i, align 8
   %t_cost.i = getelementptr inbounds i8, ptr %ctx, i64 76
-  %5 = load <2 x i32>, ptr %t_cost.i, align 4
-  %6 = shufflevector <2 x i32> %5, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %6, ptr %arrayidx3.i, align 8
+  %6 = load i32, ptr %t_cost.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %args.i, i64 12
+  store i32 %6, ptr %arrayidx4.i, align 4
   %version.i = getelementptr inbounds i8, ptr %ctx, i64 92
   %7 = load i32, ptr %version.i, align 4
   %arrayidx5.i = getelementptr inbounds i8, ptr %args.i, i64 16
@@ -1310,6 +1337,9 @@ initial_hash.exit:                                ; preds = %for.body.i, %if.end
   br i1 %cmp31.not.i, label %fill_first_blocks.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %initial_hash.exit
+  %arrayidx3.i.i12 = getelementptr inbounds i8, ptr %blockhash, i64 65
+  %arrayidx6.i.i13 = getelementptr inbounds i8, ptr %blockhash, i64 66
+  %arrayidx9.i.i14 = getelementptr inbounds i8, ptr %blockhash, i64 67
   %add.ptr2.i = getelementptr inbounds i8, ptr %blockhash, i64 68
   %arrayidx3.i17.i = getelementptr inbounds i8, ptr %blockhash, i64 69
   %arrayidx6.i18.i = getelementptr inbounds i8, ptr %blockhash, i64 70
@@ -1353,7 +1383,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %load_block.exit.i, label %for.body.i.i, !llvm.loop !6
 
 load_block.exit.i:                                ; preds = %for.body.i.i
-  store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %add.ptr, align 16
+  store i8 1, ptr %add.ptr, align 16
+  store i8 0, ptr %arrayidx3.i.i12, align 1
+  store i8 0, ptr %arrayidx6.i.i13, align 2
+  store i8 0, ptr %arrayidx9.i.i14, align 1
   %35 = load ptr, ptr %md.i15, align 8
   call fastcc void @blake2b_long(ptr noundef %35, ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef nonnull %blockhash, i64 noundef 72)
   %36 = load ptr, ptr %2, align 8

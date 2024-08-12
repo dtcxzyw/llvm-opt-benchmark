@@ -31,7 +31,13 @@ define void @Cbs0_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unn
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 100, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 1>, ptr %4, align 4
+  store i32 1, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 0, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 1, ptr %7, align 4
   ret void
 }
 

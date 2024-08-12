@@ -1826,40 +1826,53 @@ define noundef double @_ZN13MarchingCubes11InterpolateEdd(double noundef %0, dou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i8 @_ZN13MarchingCubes8GetIndexEPKff(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = load <8 x float>, ptr %0, align 4
-  %4 = insertelement <8 x float> poison, float %1, i64 0
-  %5 = shufflevector <8 x float> %4, <8 x float> poison, <8 x i32> zeroinitializer
-  %6 = fcmp olt <8 x float> %3, %5
-  %7 = extractelement <8 x i1> %6, i64 0
-  %.0 = zext i1 %7 to i8
+  %3 = load float, ptr %0, align 4
+  %4 = fcmp olt float %3, %1
+  %.0 = zext i1 %4 to i8
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = load float, ptr %5, align 4
+  %7 = fcmp olt float %6, %1
   %8 = or disjoint i8 %.0, 2
-  %9 = extractelement <8 x i1> %6, i64 1
-  %.1 = select i1 %9, i8 %8, i8 %.0
-  %10 = or disjoint i8 %.1, 4
-  %11 = extractelement <8 x i1> %6, i64 3
-  %.2 = select i1 %11, i8 %10, i8 %.1
-  %12 = or disjoint i8 %.2, 8
-  %13 = extractelement <8 x i1> %6, i64 2
-  %.3 = select i1 %13, i8 %12, i8 %.2
-  %14 = or i8 %.3, 16
-  %15 = extractelement <8 x i1> %6, i64 4
-  %.4 = select i1 %15, i8 %14, i8 %.3
-  %16 = or i8 %.4, 32
-  %17 = extractelement <8 x i1> %6, i64 5
-  %.5 = select i1 %17, i8 %16, i8 %.4
-  %18 = or i8 %.5, 64
-  %19 = extractelement <8 x i1> %6, i64 7
-  %.6 = select i1 %19, i8 %18, i8 %.5
-  %20 = or i8 %.6, -128
-  %21 = extractelement <8 x i1> %6, i64 6
-  %.7 = select i1 %21, i8 %20, i8 %.6
+  %.1 = select i1 %7, i8 %8, i8 %.0
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = load float, ptr %9, align 4
+  %11 = fcmp olt float %10, %1
+  %12 = or disjoint i8 %.1, 4
+  %.2 = select i1 %11, i8 %12, i8 %.1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load float, ptr %13, align 4
+  %15 = fcmp olt float %14, %1
+  %16 = or disjoint i8 %.2, 8
+  %.3 = select i1 %15, i8 %16, i8 %.2
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = load float, ptr %17, align 4
+  %19 = fcmp olt float %18, %1
+  %20 = or i8 %.3, 16
+  %.4 = select i1 %19, i8 %20, i8 %.3
+  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = load float, ptr %21, align 4
+  %23 = fcmp olt float %22, %1
+  %24 = or i8 %.4, 32
+  %.5 = select i1 %23, i8 %24, i8 %.4
+  %25 = getelementptr inbounds i8, ptr %0, i64 28
+  %26 = load float, ptr %25, align 4
+  %27 = fcmp olt float %26, %1
+  %28 = or i8 %.5, 64
+  %.6 = select i1 %27, i8 %28, i8 %.5
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = load float, ptr %29, align 4
+  %31 = fcmp olt float %30, %1
+  %32 = or i8 %.6, -128
+  %.7 = select i1 %31, i8 %32, i8 %.6
   ret i8 %.7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr nocapture noundef readonly %0, float noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  %.sroa.0 = alloca [2 x double], align 16
-  %.sroa.8 = alloca [2 x double], align 16
+  %.sroa.0 = alloca double, align 16
+  %.sroa.7 = alloca double, align 8
+  %.sroa.14 = alloca double, align 16
+  %.sroa.21 = alloca double, align 8
   switch i32 %2, label %.thread111 [
     i32 0, label %.preheader
     i32 1, label %.preheader114
@@ -1873,137 +1886,135 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
   %invariant.gep203 = getelementptr inbounds i8, ptr %0, i64 16
   %gep = getelementptr inbounds float, ptr %invariant.gep203, i64 0
   %4 = load float, ptr %gep, align 4
+  %5 = fpext float %4 to double
+  store double %5, ptr %.sroa.0, align 16
   %gep202.c = getelementptr inbounds i8, ptr %gep, i64 8
-  %5 = load float, ptr %gep202.c, align 4
-  %6 = insertelement <2 x float> poison, float %4, i64 0
-  %7 = insertelement <2 x float> %6, float %5, i64 1
-  %8 = fpext <2 x float> %7 to <2 x double>
-  store <2 x double> %8, ptr %.sroa.0, align 16
+  %6 = load float, ptr %gep202.c, align 4
+  %7 = fpext float %6 to double
+  store double %7, ptr %.sroa.7, align 8
   %gep.c = getelementptr inbounds float, ptr %invariant.gep203, i64 1
-  %9 = load float, ptr %gep.c, align 4
+  %8 = load float, ptr %gep.c, align 4
+  %9 = fpext float %8 to double
+  store double %9, ptr %.sroa.14, align 16
   %gep202.c.c = getelementptr inbounds i8, ptr %gep.c, i64 8
   %10 = load float, ptr %gep202.c.c, align 4
-  %11 = insertelement <2 x float> poison, float %9, i64 0
-  %12 = insertelement <2 x float> %11, float %10, i64 1
-  %13 = fpext <2 x float> %12 to <2 x double>
-  store <2 x double> %13, ptr %.sroa.8, align 16
+  %11 = fpext float %10 to double
+  store double %11, ptr %.sroa.21, align 8
   br label %.thread111
 
 .preheader120.preheader:                          ; preds = %3
   %invariant.gep209 = getelementptr inbounds i8, ptr %0, i64 8
   %gep210 = getelementptr inbounds float, ptr %invariant.gep209, i64 0
-  %14 = load float, ptr %gep210, align 4
+  %12 = load float, ptr %gep210, align 4
+  %13 = fpext float %12 to double
+  store double %13, ptr %.sroa.0, align 16
   %gep208.c = getelementptr inbounds i8, ptr %gep210, i64 16
-  %15 = load float, ptr %gep208.c, align 4
-  %16 = insertelement <2 x float> poison, float %14, i64 0
-  %17 = insertelement <2 x float> %16, float %15, i64 1
-  %18 = fpext <2 x float> %17 to <2 x double>
-  store <2 x double> %18, ptr %.sroa.0, align 16
+  %14 = load float, ptr %gep208.c, align 4
+  %15 = fpext float %14 to double
+  store double %15, ptr %.sroa.7, align 8
   %gep210.c = getelementptr inbounds float, ptr %invariant.gep209, i64 1
-  %19 = load float, ptr %gep210.c, align 4
+  %16 = load float, ptr %gep210.c, align 4
+  %17 = fpext float %16 to double
+  store double %17, ptr %.sroa.14, align 16
   %gep208.c.c = getelementptr inbounds i8, ptr %gep210.c, i64 16
-  %20 = load float, ptr %gep208.c.c, align 4
-  %21 = insertelement <2 x float> poison, float %19, i64 0
-  %22 = insertelement <2 x float> %21, float %20, i64 1
-  %23 = fpext <2 x float> %22 to <2 x double>
-  store <2 x double> %23, ptr %.sroa.8, align 16
+  %18 = load float, ptr %gep208.c.c, align 4
+  %19 = fpext float %18 to double
+  store double %19, ptr %.sroa.21, align 8
   br label %.thread111
 
 .preheader:                                       ; preds = %3
   %invariant.gep215 = getelementptr inbounds i8, ptr %0, i64 0
-  %24 = load float, ptr %invariant.gep215, align 4
+  %20 = load float, ptr %invariant.gep215, align 4
+  %21 = fpext float %20 to double
+  store double %21, ptr %.sroa.0, align 16
   %gep216.c = getelementptr inbounds i8, ptr %invariant.gep215, i64 16
-  %25 = load float, ptr %gep216.c, align 4
-  %26 = insertelement <2 x float> poison, float %24, i64 0
-  %27 = insertelement <2 x float> %26, float %25, i64 1
-  %28 = fpext <2 x float> %27 to <2 x double>
-  store <2 x double> %28, ptr %.sroa.0, align 16
+  %22 = load float, ptr %gep216.c, align 4
+  %23 = fpext float %22 to double
+  store double %23, ptr %.sroa.7, align 8
   %invariant.gep215.c = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load float, ptr %invariant.gep215.c, align 4
+  %24 = load float, ptr %invariant.gep215.c, align 4
+  %25 = fpext float %24 to double
+  store double %25, ptr %.sroa.14, align 16
   %gep216.c.c = getelementptr inbounds i8, ptr %invariant.gep215.c, i64 16
-  %30 = load float, ptr %gep216.c.c, align 4
-  %31 = insertelement <2 x float> poison, float %29, i64 0
-  %32 = insertelement <2 x float> %31, float %30, i64 1
-  %33 = fpext <2 x float> %32 to <2 x double>
-  store <2 x double> %33, ptr %.sroa.8, align 16
+  %26 = load float, ptr %gep216.c.c, align 4
+  %27 = fpext float %26 to double
+  store double %27, ptr %.sroa.21, align 8
   br label %.thread111
 
 .preheader114:                                    ; preds = %3
   %invariant.gep213 = getelementptr inbounds float, ptr %0, i64 1
-  %34 = load float, ptr %invariant.gep213, align 4
+  %28 = load float, ptr %invariant.gep213, align 4
+  %29 = fpext float %28 to double
+  store double %29, ptr %.sroa.0, align 16
   %gep214.c = getelementptr inbounds i8, ptr %invariant.gep213, i64 16
-  %35 = load float, ptr %gep214.c, align 4
-  %36 = insertelement <2 x float> poison, float %34, i64 0
-  %37 = insertelement <2 x float> %36, float %35, i64 1
-  %38 = fpext <2 x float> %37 to <2 x double>
-  store <2 x double> %38, ptr %.sroa.0, align 16
+  %30 = load float, ptr %gep214.c, align 4
+  %31 = fpext float %30 to double
+  store double %31, ptr %.sroa.7, align 8
   %invariant.gep213.c = getelementptr inbounds float, ptr %0, i64 3
-  %39 = load float, ptr %invariant.gep213.c, align 4
+  %32 = load float, ptr %invariant.gep213.c, align 4
+  %33 = fpext float %32 to double
+  store double %33, ptr %.sroa.14, align 16
   %gep214.c.c = getelementptr inbounds i8, ptr %invariant.gep213.c, i64 16
-  %40 = load float, ptr %gep214.c.c, align 4
-  %41 = insertelement <2 x float> poison, float %39, i64 0
-  %42 = insertelement <2 x float> %41, float %40, i64 1
-  %43 = fpext <2 x float> %42 to <2 x double>
-  store <2 x double> %43, ptr %.sroa.8, align 16
+  %34 = load float, ptr %gep214.c.c, align 4
+  %35 = fpext float %34 to double
+  store double %35, ptr %.sroa.21, align 8
   br label %.thread111
 
 .preheader117:                                    ; preds = %3
   %invariant.gep211 = getelementptr inbounds float, ptr %0, i64 0
-  %44 = load float, ptr %invariant.gep211, align 4
+  %36 = load float, ptr %invariant.gep211, align 4
+  %37 = fpext float %36 to double
+  store double %37, ptr %.sroa.0, align 16
   %gep212.c = getelementptr inbounds i8, ptr %invariant.gep211, i64 16
-  %45 = load float, ptr %gep212.c, align 4
-  %46 = insertelement <2 x float> poison, float %44, i64 0
-  %47 = insertelement <2 x float> %46, float %45, i64 1
-  %48 = fpext <2 x float> %47 to <2 x double>
-  store <2 x double> %48, ptr %.sroa.0, align 16
+  %38 = load float, ptr %gep212.c, align 4
+  %39 = fpext float %38 to double
+  store double %39, ptr %.sroa.7, align 8
   %invariant.gep211.c = getelementptr inbounds float, ptr %0, i64 1
-  %49 = load float, ptr %invariant.gep211.c, align 4
+  %40 = load float, ptr %invariant.gep211.c, align 4
+  %41 = fpext float %40 to double
+  store double %41, ptr %.sroa.14, align 16
   %gep212.c.c = getelementptr inbounds i8, ptr %invariant.gep211.c, i64 16
-  %50 = load float, ptr %gep212.c.c, align 4
-  %51 = insertelement <2 x float> poison, float %49, i64 0
-  %52 = insertelement <2 x float> %51, float %50, i64 1
-  %53 = fpext <2 x float> %52 to <2 x double>
-  store <2 x double> %53, ptr %.sroa.8, align 16
+  %42 = load float, ptr %gep212.c.c, align 4
+  %43 = fpext float %42 to double
+  store double %43, ptr %.sroa.21, align 8
   br label %.thread111
 
 .preheader123:                                    ; preds = %3
   %invariant.gep = getelementptr inbounds float, ptr %0, i64 0
-  %54 = load float, ptr %invariant.gep, align 4
+  %44 = load float, ptr %invariant.gep, align 4
+  %45 = fpext float %44 to double
+  store double %45, ptr %.sroa.0, align 16
   %gep204.c = getelementptr inbounds i8, ptr %invariant.gep, i64 8
-  %55 = load float, ptr %gep204.c, align 4
-  %56 = insertelement <2 x float> poison, float %54, i64 0
-  %57 = insertelement <2 x float> %56, float %55, i64 1
-  %58 = fpext <2 x float> %57 to <2 x double>
-  store <2 x double> %58, ptr %.sroa.0, align 16
+  %46 = load float, ptr %gep204.c, align 4
+  %47 = fpext float %46 to double
+  store double %47, ptr %.sroa.7, align 8
   %invariant.gep.c = getelementptr inbounds float, ptr %0, i64 1
-  %59 = load float, ptr %invariant.gep.c, align 4
+  %48 = load float, ptr %invariant.gep.c, align 4
+  %49 = fpext float %48 to double
+  store double %49, ptr %.sroa.14, align 16
   %gep204.c.c = getelementptr inbounds i8, ptr %invariant.gep.c, i64 8
-  %60 = load float, ptr %gep204.c.c, align 4
-  %61 = insertelement <2 x float> poison, float %59, i64 0
-  %62 = insertelement <2 x float> %61, float %60, i64 1
-  %63 = fpext <2 x float> %62 to <2 x double>
-  store <2 x double> %63, ptr %.sroa.8, align 16
+  %50 = load float, ptr %gep204.c.c, align 4
+  %51 = fpext float %50 to double
+  store double %51, ptr %.sroa.21, align 8
   br label %.thread111
 
 .thread111:                                       ; preds = %.preheader126.preheader, %.preheader123, %.preheader120.preheader, %.preheader117, %.preheader114, %.preheader, %3
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16
-  %64 = fpext float %1 to double
-  %65 = fcmp olt double %.sroa.0.0..sroa.0.0., %64
-  %.0 = zext i1 %65 to i8
-  %.sroa.8.0..sroa.8.16. = load double, ptr %.sroa.8, align 16
-  %66 = fcmp olt double %.sroa.8.0..sroa.8.16., %64
-  %67 = or disjoint i8 %.0, 2
-  %.1 = select i1 %66, i8 %67, i8 %.0
-  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.8, i64 8
-  %.sroa.8.8..sroa.8.24. = load double, ptr %.sroa.8.8..sroa_idx, align 8
-  %68 = fcmp olt double %.sroa.8.8..sroa.8.24., %64
-  %69 = or disjoint i8 %.1, 4
-  %.2 = select i1 %68, i8 %69, i8 %.1
-  %.sroa.0.8..sroa_idx241 = getelementptr inbounds i8, ptr %.sroa.0, i64 8
-  %.sroa.0.8..sroa.0.8. = load double, ptr %.sroa.0.8..sroa_idx241, align 8
-  %70 = fcmp olt double %.sroa.0.8..sroa.0.8., %64
-  %71 = or disjoint i8 %.2, 8
-  %.3 = select i1 %70, i8 %71, i8 %.2
+  %52 = fpext float %1 to double
+  %53 = fcmp olt double %.sroa.0.0..sroa.0.0., %52
+  %.0 = zext i1 %53 to i8
+  %.sroa.14.0..sroa.14.16. = load double, ptr %.sroa.14, align 16
+  %54 = fcmp olt double %.sroa.14.0..sroa.14.16., %52
+  %55 = or disjoint i8 %.0, 2
+  %.1 = select i1 %54, i8 %55, i8 %.0
+  %.sroa.21.0..sroa.21.24. = load double, ptr %.sroa.21, align 8
+  %56 = fcmp olt double %.sroa.21.0..sroa.21.24., %52
+  %57 = or disjoint i8 %.1, 4
+  %.2 = select i1 %56, i8 %57, i8 %.1
+  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8
+  %58 = fcmp olt double %.sroa.7.0..sroa.7.8., %52
+  %59 = or disjoint i8 %.2, 8
+  %.3 = select i1 %58, i8 %59, i8 %.2
   ret i8 %.3
 }
 
@@ -2197,36 +2208,47 @@ define noundef zeroext i1 @_ZN13MarchingCubes11IsAmbiguousEhi(i8 noundef zeroext
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKff(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = load <8 x float>, ptr %0, align 4
-  %4 = insertelement <8 x float> poison, float %1, i64 0
-  %5 = shufflevector <8 x float> %4, <8 x float> poison, <8 x i32> zeroinitializer
-  %6 = fcmp olt <8 x float> %3, %5
-  %7 = extractelement <8 x i1> %6, i64 0
-  %.0.i = zext i1 %7 to i8
+  %3 = load float, ptr %0, align 4
+  %4 = fcmp olt float %3, %1
+  %.0.i = zext i1 %4 to i8
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = load float, ptr %5, align 4
+  %7 = fcmp olt float %6, %1
   %8 = or disjoint i8 %.0.i, 2
-  %9 = extractelement <8 x i1> %6, i64 1
-  %.1.i = select i1 %9, i8 %8, i8 %.0.i
-  %10 = or disjoint i8 %.1.i, 4
-  %11 = extractelement <8 x i1> %6, i64 3
-  %.2.i = select i1 %11, i8 %10, i8 %.1.i
-  %12 = or disjoint i8 %.2.i, 8
-  %13 = extractelement <8 x i1> %6, i64 2
-  %.3.i = select i1 %13, i8 %12, i8 %.2.i
-  %14 = or i8 %.3.i, 16
-  %15 = extractelement <8 x i1> %6, i64 4
-  %.4.i = select i1 %15, i8 %14, i8 %.3.i
-  %16 = or i8 %.4.i, 32
-  %17 = extractelement <8 x i1> %6, i64 5
-  %.5.i = select i1 %17, i8 %16, i8 %.4.i
-  %18 = or i8 %.5.i, 64
-  %19 = extractelement <8 x i1> %6, i64 7
-  %.6.i = select i1 %19, i8 %18, i8 %.5.i
-  %20 = or i8 %.6.i, -128
-  %21 = extractelement <8 x i1> %6, i64 6
-  %.7.i = select i1 %21, i8 %20, i8 %.6.i
-  %22 = add i8 %.7.i, -1
-  %23 = icmp ult i8 %22, -2
-  ret i1 %23
+  %.1.i = select i1 %7, i8 %8, i8 %.0.i
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = load float, ptr %9, align 4
+  %11 = fcmp olt float %10, %1
+  %12 = or disjoint i8 %.1.i, 4
+  %.2.i = select i1 %11, i8 %12, i8 %.1.i
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load float, ptr %13, align 4
+  %15 = fcmp olt float %14, %1
+  %16 = or disjoint i8 %.2.i, 8
+  %.3.i = select i1 %15, i8 %16, i8 %.2.i
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = load float, ptr %17, align 4
+  %19 = fcmp olt float %18, %1
+  %20 = or i8 %.3.i, 16
+  %.4.i = select i1 %19, i8 %20, i8 %.3.i
+  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = load float, ptr %21, align 4
+  %23 = fcmp olt float %22, %1
+  %24 = or i8 %.4.i, 32
+  %.5.i = select i1 %23, i8 %24, i8 %.4.i
+  %25 = getelementptr inbounds i8, ptr %0, i64 28
+  %26 = load float, ptr %25, align 4
+  %27 = fcmp olt float %26, %1
+  %28 = or i8 %.5.i, 64
+  %.6.i = select i1 %27, i8 %28, i8 %.5.i
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = load float, ptr %29, align 4
+  %31 = fcmp olt float %30, %1
+  %32 = or i8 %.6.i, -128
+  %.7.i = select i1 %31, i8 %32, i8 %.6.i
+  %33 = add i8 %.7.i, -1
+  %34 = icmp ult i8 %33, -2
+  ret i1 %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -2300,104 +2322,115 @@ _ZN4Cube11EdgeCornersEiRiS0_.exit:                ; preds = %7, %12, %16, %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr nocapture noundef readonly %0, float noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 align 2 {
   %.sroa.0 = alloca [3 x [3 x double]], align 8
-  %4 = load <8 x float>, ptr %0, align 4
-  %5 = insertelement <8 x float> poison, float %1, i64 0
-  %6 = shufflevector <8 x float> %5, <8 x float> poison, <8 x i32> zeroinitializer
-  %7 = fcmp olt <8 x float> %4, %6
-  %8 = extractelement <8 x i1> %7, i64 0
-  %.0.i = zext i1 %8 to i8
+  %4 = load float, ptr %0, align 4
+  %5 = fcmp olt float %4, %1
+  %.0.i = zext i1 %5 to i8
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = load float, ptr %6, align 4
+  %8 = fcmp olt float %7, %1
   %9 = or disjoint i8 %.0.i, 2
-  %10 = extractelement <8 x i1> %7, i64 1
-  %.1.i = select i1 %10, i8 %9, i8 %.0.i
-  %11 = or disjoint i8 %.1.i, 4
-  %12 = extractelement <8 x i1> %7, i64 3
-  %.2.i = select i1 %12, i8 %11, i8 %.1.i
-  %13 = or disjoint i8 %.2.i, 8
-  %14 = extractelement <8 x i1> %7, i64 2
-  %.3.i = select i1 %14, i8 %13, i8 %.2.i
-  %15 = or i8 %.3.i, 16
-  %16 = extractelement <8 x i1> %7, i64 4
-  %.4.i = select i1 %16, i8 %15, i8 %.3.i
-  %17 = or i8 %.4.i, 32
-  %18 = extractelement <8 x i1> %7, i64 5
-  %.5.i = select i1 %18, i8 %17, i8 %.4.i
-  %19 = or i8 %.5.i, 64
-  %20 = extractelement <8 x i1> %7, i64 7
-  %.6.i = select i1 %20, i8 %19, i8 %.5.i
-  %21 = or i8 %.6.i, -128
-  %22 = extractelement <8 x i1> %7, i64 6
-  %.7.i = select i1 %22, i8 %21, i8 %.6.i
-  %23 = zext i8 %.7.i to i64
-  %24 = add i8 %.7.i, 1
-  %.not = icmp ult i8 %24, 2
+  %.1.i = select i1 %8, i8 %9, i8 %.0.i
+  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = load float, ptr %10, align 4
+  %12 = fcmp olt float %11, %1
+  %13 = or disjoint i8 %.1.i, 4
+  %.2.i = select i1 %12, i8 %13, i8 %.1.i
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load float, ptr %14, align 4
+  %16 = fcmp olt float %15, %1
+  %17 = or disjoint i8 %.2.i, 8
+  %.3.i = select i1 %16, i8 %17, i8 %.2.i
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = load float, ptr %18, align 4
+  %20 = fcmp olt float %19, %1
+  %21 = or i8 %.3.i, 16
+  %.4.i = select i1 %20, i8 %21, i8 %.3.i
+  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = load float, ptr %22, align 4
+  %24 = fcmp olt float %23, %1
+  %25 = or i8 %.4.i, 32
+  %.5.i = select i1 %24, i8 %25, i8 %.4.i
+  %26 = getelementptr inbounds i8, ptr %0, i64 28
+  %27 = load float, ptr %26, align 4
+  %28 = fcmp olt float %27, %1
+  %29 = or i8 %.5.i, 64
+  %.6.i = select i1 %28, i8 %29, i8 %.5.i
+  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = load float, ptr %30, align 4
+  %32 = fcmp olt float %31, %1
+  %33 = or i8 %.6.i, -128
+  %.7.i = select i1 %32, i8 %33, i8 %.6.i
+  %34 = zext i8 %.7.i to i64
+  %35 = add i8 %.7.i, 1
+  %.not = icmp ult i8 %35, 2
   br i1 %.not, label %.loopexit, label %.preheader38
 
 .preheader38:                                     ; preds = %3
-  %25 = getelementptr inbounds [256 x i32], ptr @_ZN13MarchingCubes8edgeMaskE, i64 0, i64 %23
-  %26 = load i32, ptr %25, align 4
-  br label %29
+  %36 = getelementptr inbounds [256 x i32], ptr @_ZN13MarchingCubes8edgeMaskE, i64 0, i64 %34
+  %37 = load i32, ptr %36, align 4
+  br label %40
 
-.preheader.lr.ph:                                 ; preds = %32
-  %27 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %23, i64 0
-  %28 = load i32, ptr %27, align 16
+.preheader.lr.ph:                                 ; preds = %43
+  %38 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 0
+  %39 = load i32, ptr %38, align 16
   %.sroa.0.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 24
   %.sroa.0.48..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 48
   br label %.preheader
 
-29:                                               ; preds = %.preheader38, %32
-  %.040 = phi i32 [ 1, %.preheader38 ], [ %33, %32 ]
-  %.03239 = phi i32 [ 0, %.preheader38 ], [ %34, %32 ]
-  %30 = and i32 %26, %.040
-  %.not36 = icmp eq i32 %30, 0
-  br i1 %.not36, label %32, label %31
+40:                                               ; preds = %.preheader38, %43
+  %.040 = phi i32 [ 1, %.preheader38 ], [ %44, %43 ]
+  %.03239 = phi i32 [ 0, %.preheader38 ], [ %45, %43 ]
+  %41 = and i32 %37, %.040
+  %.not36 = icmp eq i32 %41, 0
+  br i1 %.not36, label %43, label %42
 
-31:                                               ; preds = %29
+42:                                               ; preds = %40
   tail call void @_ZN13MarchingCubes9SetVertexEiPKff(i32 noundef %.03239, ptr noundef nonnull %0, float noundef %1)
-  br label %32
+  br label %43
 
-32:                                               ; preds = %31, %29
-  %33 = shl i32 %.040, 1
-  %34 = add nuw nsw i32 %.03239, 1
-  %exitcond.not = icmp eq i32 %34, 12
-  br i1 %exitcond.not, label %.preheader.lr.ph, label %29, !llvm.loop !19
+43:                                               ; preds = %42, %40
+  %44 = shl i32 %.040, 1
+  %45 = add nuw nsw i32 %.03239, 1
+  %exitcond.not = icmp eq i32 %45, 12
+  br i1 %exitcond.not, label %.preheader.lr.ph, label %40, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv48 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next49, %.preheader ]
   %indvars.iv = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next, %.preheader ]
-  %35 = phi i32 [ %28, %.preheader.lr.ph ], [ %50, %.preheader ]
-  %36 = sext i32 %35 to i64
-  %37 = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %23, i64 %37
-  %39 = load i32, ptr %38, align 4
-  %40 = sext i32 %39 to i64
-  %41 = add nuw nsw i64 %indvars.iv, 2
-  %42 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %23, i64 %41
-  %43 = load i32, ptr %42, align 4
-  %44 = sext i32 %43 to i64
-  %45 = mul nsw i64 %36, 24
-  %scevgep = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %45
+  %46 = phi i32 [ %39, %.preheader.lr.ph ], [ %61, %.preheader ]
+  %47 = sext i32 %46 to i64
+  %48 = add nuw nsw i64 %indvars.iv, 1
+  %49 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %48
+  %50 = load i32, ptr %49, align 4
+  %51 = sext i32 %50 to i64
+  %52 = add nuw nsw i64 %indvars.iv, 2
+  %53 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %52
+  %54 = load i32, ptr %53, align 4
+  %55 = sext i32 %54 to i64
+  %56 = mul nsw i64 %47, 24
+  %scevgep = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i64 24, i1 false)
-  %46 = mul nsw i64 %40, 24
-  %scevgep45 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %46
+  %57 = mul nsw i64 %51, 24
+  %scevgep45 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %scevgep45, i64 24, i1 false)
-  %47 = mul nsw i64 %44, 24
-  %scevgep46 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %47
+  %58 = mul nsw i64 %55, 24
+  %scevgep46 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %scevgep46, i64 24, i1 false)
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %48 = getelementptr inbounds %class.Triangle, ptr %2, i64 %indvars.iv48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %48, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
+  %59 = getelementptr inbounds %class.Triangle, ptr %2, i64 %indvars.iv48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %59, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %49 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %23, i64 %indvars.iv.next
-  %50 = load i32, ptr %49, align 4
-  %.not35 = icmp eq i32 %50, -1
+  %60 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %indvars.iv.next
+  %61 = load i32, ptr %60, align 4
+  %.not35 = icmp eq i32 %61, -1
   br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %51 = trunc nuw i64 %indvars.iv.next49 to i32
+  %62 = trunc nuw i64 %indvars.iv.next49 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  %.034 = phi i32 [ 0, %3 ], [ %51, %.loopexit.loopexit ]
+  %.034 = phi i32 [ 0, %3 ], [ %62, %.loopexit.loopexit ]
   ret i32 %.034
 }
 
@@ -2498,65 +2531,76 @@ define void @_ZN13MarchingCubes9SetVertexEiPKff(i32 noundef %0, ptr nocapture no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKffPi(ptr nocapture noundef readonly %0, float noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 align 2 {
-  %4 = load <8 x float>, ptr %0, align 4
-  %5 = insertelement <8 x float> poison, float %1, i64 0
-  %6 = shufflevector <8 x float> %5, <8 x float> poison, <8 x i32> zeroinitializer
-  %7 = fcmp olt <8 x float> %4, %6
-  %8 = extractelement <8 x i1> %7, i64 0
-  %.0.i = zext i1 %8 to i8
+  %4 = load float, ptr %0, align 4
+  %5 = fcmp olt float %4, %1
+  %.0.i = zext i1 %5 to i8
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = load float, ptr %6, align 4
+  %8 = fcmp olt float %7, %1
   %9 = or disjoint i8 %.0.i, 2
-  %10 = extractelement <8 x i1> %7, i64 1
-  %.1.i = select i1 %10, i8 %9, i8 %.0.i
-  %11 = or disjoint i8 %.1.i, 4
-  %12 = extractelement <8 x i1> %7, i64 3
-  %.2.i = select i1 %12, i8 %11, i8 %.1.i
-  %13 = or disjoint i8 %.2.i, 8
-  %14 = extractelement <8 x i1> %7, i64 2
-  %.3.i = select i1 %14, i8 %13, i8 %.2.i
-  %15 = or i8 %.3.i, 16
-  %16 = extractelement <8 x i1> %7, i64 4
-  %.4.i = select i1 %16, i8 %15, i8 %.3.i
-  %17 = or i8 %.4.i, 32
-  %18 = extractelement <8 x i1> %7, i64 5
-  %.5.i = select i1 %18, i8 %17, i8 %.4.i
-  %19 = or i8 %.5.i, 64
-  %20 = extractelement <8 x i1> %7, i64 7
-  %.6.i = select i1 %20, i8 %19, i8 %.5.i
-  %21 = or i8 %.6.i, -128
-  %22 = extractelement <8 x i1> %7, i64 6
-  %.7.i = select i1 %22, i8 %21, i8 %.6.i
-  %23 = zext i8 %.7.i to i64
+  %.1.i = select i1 %8, i8 %9, i8 %.0.i
+  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = load float, ptr %10, align 4
+  %12 = fcmp olt float %11, %1
+  %13 = or disjoint i8 %.1.i, 4
+  %.2.i = select i1 %12, i8 %13, i8 %.1.i
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load float, ptr %14, align 4
+  %16 = fcmp olt float %15, %1
+  %17 = or disjoint i8 %.2.i, 8
+  %.3.i = select i1 %16, i8 %17, i8 %.2.i
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = load float, ptr %18, align 4
+  %20 = fcmp olt float %19, %1
+  %21 = or i8 %.3.i, 16
+  %.4.i = select i1 %20, i8 %21, i8 %.3.i
+  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = load float, ptr %22, align 4
+  %24 = fcmp olt float %23, %1
+  %25 = or i8 %.4.i, 32
+  %.5.i = select i1 %24, i8 %25, i8 %.4.i
+  %26 = getelementptr inbounds i8, ptr %0, i64 28
+  %27 = load float, ptr %26, align 4
+  %28 = fcmp olt float %27, %1
+  %29 = or i8 %.5.i, 64
+  %.6.i = select i1 %28, i8 %29, i8 %.5.i
+  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = load float, ptr %30, align 4
+  %32 = fcmp olt float %31, %1
+  %33 = or i8 %.6.i, -128
+  %.7.i = select i1 %32, i8 %33, i8 %.6.i
+  %34 = zext i8 %.7.i to i64
   switch i8 %.7.i, label %.preheader.i [
     i8 -1, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit
     i8 0, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit
   ]
 
-.preheader.i:                                     ; preds = %3, %29
-  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %29 ], [ 0, %3 ]
-  %.01521.i = phi i32 [ %30, %29 ], [ 0, %3 ]
-  br label %24
+.preheader.i:                                     ; preds = %3, %40
+  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %40 ], [ 0, %3 ]
+  %.01521.i = phi i32 [ %41, %40 ], [ 0, %3 ]
+  br label %35
 
-24:                                               ; preds = %24, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %24 ]
-  %25 = add nuw nsw i64 %indvars.iv.i, %indvars.iv25.i
-  %26 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %23, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i32, ptr %2, i64 %25
-  store i32 %27, ptr %28, align 4
+35:                                               ; preds = %35, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %35 ]
+  %36 = add nuw nsw i64 %indvars.iv.i, %indvars.iv25.i
+  %37 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %36
+  %38 = load i32, ptr %37, align 4
+  %39 = getelementptr inbounds i32, ptr %2, i64 %36
+  store i32 %38, ptr %39, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %29, label %24, !llvm.loop !21
+  br i1 %exitcond.not.i, label %40, label %35, !llvm.loop !21
 
-29:                                               ; preds = %24
-  %30 = add nuw nsw i32 %.01521.i, 1
+40:                                               ; preds = %35
+  %41 = add nuw nsw i32 %.01521.i, 1
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 3
-  %31 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %23, i64 %indvars.iv.next26.i
-  %32 = load i32, ptr %31, align 4
-  %.not17.i = icmp eq i32 %32, -1
+  %42 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %indvars.iv.next26.i
+  %43 = load i32, ptr %42, align 4
+  %.not17.i = icmp eq i32 %43, -1
   br i1 %.not17.i, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit, label %.preheader.i, !llvm.loop !22
 
-_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit:  ; preds = %29, %3, %3
-  %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ %30, %29 ]
+_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit:  ; preds = %40, %3, %3
+  %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ %41, %40 ]
   ret i32 %.016.i
 }
 

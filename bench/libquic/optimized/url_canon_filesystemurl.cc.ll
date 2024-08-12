@@ -78,9 +78,21 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalize
 entry:
   %new_inner_parsed = alloca %"struct.url::Parsed", align 8
   %username = getelementptr inbounds i8, ptr %new_parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username, align 4
+  store i32 0, ptr %username, align 4
+  %len.i = getelementptr inbounds i8, ptr %new_parsed, i64 12
+  store i32 -1, ptr %len.i, align 4
+  %password = getelementptr inbounds i8, ptr %new_parsed, i64 16
+  store i32 0, ptr %password, align 4
+  %len.i40 = getelementptr inbounds i8, ptr %new_parsed, i64 20
+  store i32 -1, ptr %len.i40, align 4
   %host = getelementptr inbounds i8, ptr %new_parsed, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host, align 4
+  store i32 0, ptr %host, align 4
+  %len.i41 = getelementptr inbounds i8, ptr %new_parsed, i64 28
+  store i32 -1, ptr %len.i41, align 4
+  %port = getelementptr inbounds i8, ptr %new_parsed, i64 32
+  store i32 0, ptr %port, align 4
+  %len.i42 = getelementptr inbounds i8, ptr %new_parsed, i64 36
+  store i32 -1, ptr %len.i42, align 4
   %inner_parsed_.i = getelementptr inbounds i8, ptr %parsed, i64 64
   %0 = load ptr, ptr %inner_parsed_.i, align 8
   call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %new_inner_parsed)
@@ -324,9 +336,21 @@ entry:
   %new_inner_parsed.i = alloca %"struct.url::Parsed", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %new_inner_parsed.i)
   %username.i2 = getelementptr inbounds i8, ptr %new_parsed, i64 8
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %username.i2, align 4
+  store i32 0, ptr %username.i2, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %new_parsed, i64 12
+  store i32 -1, ptr %len.i.i, align 4
+  %password.i3 = getelementptr inbounds i8, ptr %new_parsed, i64 16
+  store i32 0, ptr %password.i3, align 4
+  %len.i40.i = getelementptr inbounds i8, ptr %new_parsed, i64 20
+  store i32 -1, ptr %len.i40.i, align 4
   %host.i4 = getelementptr inbounds i8, ptr %new_parsed, i64 24
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %host.i4, align 4
+  store i32 0, ptr %host.i4, align 4
+  %len.i41.i = getelementptr inbounds i8, ptr %new_parsed, i64 28
+  store i32 -1, ptr %len.i41.i, align 4
+  %port.i5 = getelementptr inbounds i8, ptr %new_parsed, i64 32
+  store i32 0, ptr %port.i5, align 4
+  %len.i42.i = getelementptr inbounds i8, ptr %new_parsed, i64 36
+  store i32 -1, ptr %len.i42.i, align 4
   %inner_parsed_.i.i = getelementptr inbounds i8, ptr %parsed, i64 64
   %0 = load ptr, ptr %inner_parsed_.i.i, align 8
   call void @_ZN3url6ParsedC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %new_inner_parsed.i)

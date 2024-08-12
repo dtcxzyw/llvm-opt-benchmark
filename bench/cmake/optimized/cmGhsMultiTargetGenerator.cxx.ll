@@ -9656,9 +9656,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN25cmGhsMultiTargetGenerator12WriteSourcesERSoE3$_0EclINS_17__normal_iteratorIPP12cmSourceFileSt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit28.i.i"
-  %78 = load <2 x ptr>, ptr %0, align 8
-  %79 = shufflevector <2 x ptr> %78, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %79, ptr %0, align 8
+  %78 = load ptr, ptr %0, align 8
+  %79 = load ptr, ptr %9, align 8
+  store ptr %79, ptr %0, align 8
+  store ptr %78, ptr %9, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP12cmSourceFileSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN25cmGhsMultiTargetGenerator12WriteSourcesERSoE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader"
 
 80:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN25cmGhsMultiTargetGenerator12WriteSourcesERSoE3$_0EclINS_17__normal_iteratorIPP12cmSourceFileSt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit28.i.i"

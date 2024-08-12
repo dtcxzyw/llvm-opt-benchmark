@@ -127,25 +127,29 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont7:                                     ; preds = %if.end.i
   %m_line.i = getelementptr inbounds i8, ptr %s, i64 8
-  %m_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_line.i4 = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load <2 x i32>, ptr %m_line.i, align 4
+  %1 = load i32, ptr %m_line.i, align 4
+  %m_pos.i = getelementptr inbounds i8, ptr %s, i64 12
+  %2 = load i32, ptr %m_pos.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
+  %m_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTV13cmd_exception, i64 16), ptr %this, align 8
-  store <2 x i32> %1, ptr %m_line.i4, align 8
+  %m_line.i4 = getelementptr inbounds i8, ptr %this, i64 40
+  store i32 %1, ptr %m_line.i4, align 8
+  %m_pos.i5 = getelementptr inbounds i8, ptr %this, i64 44
+  store i32 %2, ptr %m_pos.i5, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTV27sexpr2upolynomial_exception, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %0, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %0, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #11
   resume { ptr, i32 } %.pn
 }

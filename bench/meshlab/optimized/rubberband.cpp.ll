@@ -179,7 +179,7 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit.thread:           ; preds = %46, %51, %_ZNK3vcg6
   %65 = getelementptr inbounds i8, ptr %0, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %136, label %68
+  br i1 %67, label %135, label %68
 
 68:                                               ; preds = %64
   call void @glPushAttrib(i32 noundef 24903)
@@ -190,7 +190,7 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit.thread:           ; preds = %46, %51, %_ZNK3vcg6
   call void @glPointSize(float noundef 5.000000e+00)
   %69 = load i32, ptr %65, align 4
   %70 = icmp eq i32 %69, 1
-  br i1 %70, label %71, label %131
+  br i1 %70, label %71, label %130
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds i8, ptr %0, i64 24
@@ -213,124 +213,125 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit.thread:           ; preds = %46, %51, %_ZNK3vcg6
   %75 = fpext float %.sroa.22.0.copyload to double
   %76 = call i32 @gluProject(double noundef %73, double noundef %74, double noundef %75, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %77 = load double, ptr %6, align 8
-  %78 = getelementptr inbounds i8, ptr %3, i64 12
-  %79 = load i32, ptr %78, align 4
-  %80 = sitofp i32 %79 to double
-  %81 = load double, ptr %7, align 8
-  %82 = fsub double %80, %81
-  %83 = insertelement <2 x double> poison, double %77, i64 0
-  %84 = insertelement <2 x double> %83, double %82, i64 1
-  %85 = fptrunc <2 x double> %84 to <2 x float>
+  %78 = fptrunc double %77 to float
+  %79 = getelementptr inbounds i8, ptr %3, i64 12
+  %80 = load i32, ptr %79, align 4
+  %81 = sitofp i32 %80 to double
+  %82 = load double, ptr %7, align 8
+  %83 = fsub double %81, %82
+  %84 = fptrunc double %83 to float
+  %.sroa.01.0.vec.insert.i = insertelement <2 x float> poison, float %78, i64 0
+  %.sroa.01.4.vec.insert.i = insertelement <2 x float> %.sroa.01.0.vec.insert.i, float %84, i64 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store <2 x float> %85, ptr %12, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @glColor4ubv(ptr noundef nonnull %86)
+  store <2 x float> %.sroa.01.4.vec.insert.i, ptr %12, align 8
+  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @glColor4ubv(ptr noundef nonnull %85)
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPushMatrix()
   call void @glLoadIdentity()
-  %87 = getelementptr inbounds i8, ptr %1, i64 40
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 20
-  %90 = getelementptr inbounds i8, ptr %88, i64 28
-  %91 = load i32, ptr %90, align 4
-  %92 = load i32, ptr %89, align 4
-  %93 = add i32 %91, 1
-  %94 = sub i32 %93, %92
-  %95 = getelementptr inbounds i8, ptr %1, i64 16
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 32
-  %98 = load ptr, ptr %97, align 8
-  %99 = call noundef i32 %98(ptr noundef nonnull align 8 dereferenceable(24) %95, i32 noundef 11)
-  %100 = mul nsw i32 %99, %94
-  %101 = sitofp i32 %100 to double
-  %102 = load ptr, ptr %87, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 32
-  %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds i8, ptr %102, i64 24
-  %106 = load i32, ptr %105, align 4
-  %107 = add i32 %104, 1
-  %108 = sub i32 %107, %106
-  %109 = load ptr, ptr %95, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 32
-  %111 = load ptr, ptr %110, align 8
-  %112 = call noundef i32 %111(ptr noundef nonnull align 8 dereferenceable(24) %95, i32 noundef 11)
-  %113 = mul nsw i32 %112, %108
-  %114 = sitofp i32 %113 to double
-  call void @gluOrtho2D(double noundef 0.000000e+00, double noundef %101, double noundef %114, double noundef 0.000000e+00)
+  %86 = getelementptr inbounds i8, ptr %1, i64 40
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 20
+  %89 = getelementptr inbounds i8, ptr %87, i64 28
+  %90 = load i32, ptr %89, align 4
+  %91 = load i32, ptr %88, align 4
+  %92 = add i32 %90, 1
+  %93 = sub i32 %92, %91
+  %94 = getelementptr inbounds i8, ptr %1, i64 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 32
+  %97 = load ptr, ptr %96, align 8
+  %98 = call noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(24) %94, i32 noundef 11)
+  %99 = mul nsw i32 %98, %93
+  %100 = sitofp i32 %99 to double
+  %101 = load ptr, ptr %86, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 32
+  %103 = load i32, ptr %102, align 4
+  %104 = getelementptr inbounds i8, ptr %101, i64 24
+  %105 = load i32, ptr %104, align 4
+  %106 = add i32 %103, 1
+  %107 = sub i32 %106, %105
+  %108 = load ptr, ptr %94, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 32
+  %110 = load ptr, ptr %109, align 8
+  %111 = call noundef i32 %110(ptr noundef nonnull align 8 dereferenceable(24) %94, i32 noundef 11)
+  %112 = mul nsw i32 %111, %107
+  %113 = sitofp i32 %112 to double
+  call void @gluOrtho2D(double noundef 0.000000e+00, double noundef %100, double noundef %113, double noundef 0.000000e+00)
   call void @glMatrixMode(i32 noundef 5888)
   call void @glPushMatrix()
   call void @glLoadIdentity()
   call void @glDisable(i32 noundef 2929)
   call void @glBegin(i32 noundef 1)
   call void @glVertex2fv(ptr noundef nonnull %12)
-  %115 = getelementptr inbounds i8, ptr %0, i64 16
-  %116 = load i32, ptr %115, align 8
-  %117 = load ptr, ptr %95, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 32
-  %119 = load ptr, ptr %118, align 8
-  %120 = call noundef i32 %119(ptr noundef nonnull align 8 dereferenceable(24) %95, i32 noundef 11)
-  %121 = mul nsw i32 %120, %116
-  %122 = sitofp i32 %121 to float
-  %123 = getelementptr inbounds i8, ptr %0, i64 20
-  %124 = load i32, ptr %123, align 4
-  %125 = load ptr, ptr %95, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 32
-  %127 = load ptr, ptr %126, align 8
-  %128 = call noundef i32 %127(ptr noundef nonnull align 8 dereferenceable(24) %95, i32 noundef 11)
-  %129 = mul nsw i32 %128, %124
-  %130 = sitofp i32 %129 to float
-  call void @glVertex2f(float noundef %122, float noundef %130)
+  %114 = getelementptr inbounds i8, ptr %0, i64 16
+  %115 = load i32, ptr %114, align 8
+  %116 = load ptr, ptr %94, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 32
+  %118 = load ptr, ptr %117, align 8
+  %119 = call noundef i32 %118(ptr noundef nonnull align 8 dereferenceable(24) %94, i32 noundef 11)
+  %120 = mul nsw i32 %119, %115
+  %121 = sitofp i32 %120 to float
+  %122 = getelementptr inbounds i8, ptr %0, i64 20
+  %123 = load i32, ptr %122, align 4
+  %124 = load ptr, ptr %94, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 32
+  %126 = load ptr, ptr %125, align 8
+  %127 = call noundef i32 %126(ptr noundef nonnull align 8 dereferenceable(24) %94, i32 noundef 11)
+  %128 = mul nsw i32 %127, %123
+  %129 = sitofp i32 %128 to float
+  call void @glVertex2f(float noundef %121, float noundef %129)
   call void @glEnd()
   call void @glEnable(i32 noundef 2929)
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPopMatrix()
   call void @glMatrixMode(i32 noundef 5888)
   call void @glPopMatrix()
-  br label %135
+  br label %134
 
-131:                                              ; preds = %68
+130:                                              ; preds = %68
   call void @glEnable(i32 noundef 3042)
   call void @glBlendFunc(i32 noundef 775, i32 noundef 769)
   call void @glEnable(i32 noundef 2848)
   call void @glEnable(i32 noundef 2832)
-  %132 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @glColor4ubv(ptr noundef nonnull %132)
+  %131 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @glColor4ubv(ptr noundef nonnull %131)
   call void @glLineWidth(float noundef 2.000000e+00)
   call void @glPointSize(float noundef 4.000000e+00)
   call void @glBegin(i32 noundef 1)
-  %133 = getelementptr inbounds i8, ptr %0, i64 24
+  %132 = getelementptr inbounds i8, ptr %0, i64 24
+  call void @glVertex3fv(ptr noundef nonnull %132)
+  %133 = getelementptr inbounds i8, ptr %0, i64 36
   call void @glVertex3fv(ptr noundef nonnull %133)
-  %134 = getelementptr inbounds i8, ptr %0, i64 36
-  call void @glVertex3fv(ptr noundef nonnull %134)
   call void @glEnd()
   call void @glBegin(i32 noundef 0)
+  call void @glVertex3fv(ptr noundef nonnull %132)
   call void @glVertex3fv(ptr noundef nonnull %133)
-  call void @glVertex3fv(ptr noundef nonnull %134)
   call void @glEnd()
   call void @glDepthFunc(i32 noundef 516)
   call void @glLineWidth(float noundef 1.000000e+00)
   call void @glPointSize(float noundef 2.000000e+00)
   call void @glBegin(i32 noundef 1)
+  call void @glVertex3fv(ptr noundef nonnull %132)
   call void @glVertex3fv(ptr noundef nonnull %133)
-  call void @glVertex3fv(ptr noundef nonnull %134)
   call void @glEnd()
   call void @glBegin(i32 noundef 0)
+  call void @glVertex3fv(ptr noundef nonnull %132)
   call void @glVertex3fv(ptr noundef nonnull %133)
-  call void @glVertex3fv(ptr noundef nonnull %134)
   call void @glEnd()
   call void @glDepthFunc(i32 noundef 513)
+  br label %134
+
+134:                                              ; preds = %130, %71
+  call void @glPopAttrib()
   br label %135
 
-135:                                              ; preds = %131, %71
-  call void @glPopAttrib()
-  br label %136
-
-136:                                              ; preds = %64, %135
+135:                                              ; preds = %64, %134
   ret void
 }
 
@@ -354,7 +355,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg4PickINS_6Point3IfEEEEbRKiS4_RT_(
   %13 = getelementptr inbounds i8, ptr %9, i64 4
   %14 = load float, ptr %13, align 4
   %15 = fcmp une float %12, %14
-  br i1 %15, label %16, label %29
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %3
   %17 = load i32, ptr %0, align 4
@@ -365,16 +366,20 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg4PickINS_6Point3IfEEEEbRKiS4_RT_(
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   %23 = getelementptr inbounds i8, ptr %4, i64 16
   %24 = call i32 @gluUnProject(double noundef %18, double noundef %20, double noundef %21, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef nonnull %23)
-  %25 = load double, ptr %23, align 16
+  %25 = load double, ptr %4, align 16
   %26 = fptrunc double %25 to float
-  %27 = load <2 x double>, ptr %4, align 16
-  %28 = fptrunc <2 x double> %27 to <2 x float>
-  store <2 x float> %28, ptr %2, align 4
+  %27 = load double, ptr %22, align 8
+  %28 = fptrunc double %27 to float
+  %29 = load double, ptr %23, align 16
+  %30 = fptrunc double %29 to float
+  store float %26, ptr %2, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  store float %28, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
-  store float %26, ptr %.sroa.3.0..sroa_idx, align 4
-  br label %29
+  store float %30, ptr %.sroa.3.0..sroa_idx, align 4
+  br label %31
 
-29:                                               ; preds = %3, %16
+31:                                               ; preds = %3, %16
   ret i1 %15
 }
 
@@ -406,15 +411,16 @@ define <2 x float> @_ZN3vcg10Rubberband18DevicePixelConvertENS_6Point3IfEE(ptr n
   %12 = fpext float %2 to double
   %13 = call i32 @gluProject(double noundef %10, double noundef %11, double noundef %12, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %14 = load double, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 12
-  %16 = load i32, ptr %15, align 4
-  %17 = sitofp i32 %16 to double
-  %18 = load double, ptr %8, align 8
-  %19 = fsub double %17, %18
-  %20 = insertelement <2 x double> poison, double %14, i64 0
-  %21 = insertelement <2 x double> %20, double %19, i64 1
-  %22 = fptrunc <2 x double> %21 to <2 x float>
-  ret <2 x float> %22
+  %15 = fptrunc double %14 to float
+  %16 = getelementptr inbounds i8, ptr %4, i64 12
+  %17 = load i32, ptr %16, align 4
+  %18 = sitofp i32 %17 to double
+  %19 = load double, ptr %8, align 8
+  %20 = fsub double %18, %19
+  %21 = fptrunc double %20 to float
+  %.sroa.01.0.vec.insert = insertelement <2 x float> poison, float %15, i64 0
+  %.sroa.01.4.vec.insert = insertelement <2 x float> %.sroa.01.0.vec.insert, float %21, i64 1
+  ret <2 x float> %.sroa.01.4.vec.insert
 }
 
 declare void @glMatrixMode(i32 noundef) local_unnamed_addr #0

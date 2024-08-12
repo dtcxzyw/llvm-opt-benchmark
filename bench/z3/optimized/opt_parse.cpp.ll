@@ -13879,8 +13879,9 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %if.then.i.i8.i.i, %
   br i1 %tobool.not.i, label %invoke.cont, label %_ZNK6vectorISt4pairI8rational6symbolELb1EjE8capacityEv.exit.i.i
 
 _ZNK6vectorISt4pairI8rational6symbolELb1EjE8capacityEv.exit.i.i: ; preds = %_ZN8rationalC2ERKS_.exit
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 -4
+  %6 = load i32, ptr %arrayidx.i.i.i, align 4
   %arrayidx.i11.i.i = getelementptr inbounds i8, ptr %5, i64 -8
-  %6 = load <2 x i32>, ptr %arrayidx.i11.i.i, align 4
   %7 = load i32, ptr %arrayidx.i11.i.i, align 4
   %conv.i.i = zext i32 %7 to i64
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 40
@@ -13889,7 +13890,9 @@ _ZNK6vectorISt4pairI8rational6symbolELb1EjE8capacityEv.exit.i.i: ; preds = %_ZN8
           to label %call3.i.i.noexc unwind label %lpad
 
 call3.i.i.noexc:                                  ; preds = %_ZNK6vectorISt4pairI8rational6symbolELb1EjE8capacityEv.exit.i.i
-  store <2 x i32> %6, ptr %call3.i.i2, align 4
+  store i32 %7, ptr %call3.i.i2, align 4
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call3.i.i2, i64 4
+  store i32 %6, ptr %incdec.ptr.i.i, align 4
   %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %call3.i.i2, i64 8
   store ptr %incdec.ptr4.i.i, ptr %m_expr, align 8
   %8 = load ptr, ptr %terms, align 8

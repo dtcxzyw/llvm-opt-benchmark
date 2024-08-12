@@ -228,7 +228,10 @@ define hidden void @proto_register_transum() local_unnamed_addr #0 {
   %3 = tail call i32 @range_convert_str(ptr noundef %2, ptr noundef nonnull @tcp_svc_port_range_values, ptr noundef nonnull @.str.74, i32 noundef 65535) #6
   %4 = tail call ptr @wmem_epan_scope() #6
   %5 = tail call i32 @range_convert_str(ptr noundef %4, ptr noundef nonnull @udp_svc_port_range_values, ptr noundef nonnull @.str.75, i32 noundef 65535) #6
-  store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr getelementptr inbounds (i8, ptr @preferences, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @preferences, i64 24), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @preferences, i64 28), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @preferences, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @preferences, i64 36), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @preferences, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @preferences, i64 44), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @preferences, i64 60), align 4

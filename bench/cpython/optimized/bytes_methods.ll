@@ -2551,9 +2551,15 @@ entry:
   store ptr @_Py_NoneStruct, ptr %obj_start, align 8
   store ptr @_Py_NoneStruct, ptr %obj_end, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %format, i8 0, i64 50, i1 false)
-  store <4 x i8> <i8 79, i8 124, i8 79, i8 79>, ptr %format, align 16
-  %0 = getelementptr inbounds i8, ptr %format, i64 4
-  store i8 58, ptr %0, align 4
+  store i8 79, ptr %format, align 16
+  %0 = getelementptr inbounds i8, ptr %format, i64 1
+  store i8 124, ptr %0, align 1
+  %1 = getelementptr inbounds i8, ptr %format, i64 2
+  store i8 79, ptr %1, align 2
+  %2 = getelementptr inbounds i8, ptr %format, i64 3
+  store i8 79, ptr %2, align 1
+  %3 = getelementptr inbounds i8, ptr %format, i64 4
+  store i8 58, ptr %3, align 4
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %format) #14
   %add.ptr = getelementptr i8, ptr %format, i64 %call
   %sub2 = sub i64 49, %call
@@ -2565,22 +2571,22 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %obj_start, align 8
-  %cmp.not = icmp eq ptr %1, @_Py_NoneStruct
+  %4 = load ptr, ptr %obj_start, align 8
+  %cmp.not = icmp eq ptr %4, @_Py_NoneStruct
   br i1 %cmp.not, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %call7 = call i32 @_PyEval_SliceIndex(ptr noundef %1, ptr noundef nonnull %tmp_start) #13
+  %call7 = call i32 @_PyEval_SliceIndex(ptr noundef %4, ptr noundef nonnull %tmp_start) #13
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.then6, %if.end
-  %2 = load ptr, ptr %obj_end, align 8
-  %cmp12.not = icmp eq ptr %2, @_Py_NoneStruct
+  %5 = load ptr, ptr %obj_end, align 8
+  %cmp12.not = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp12.not, label %if.end18, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %call14 = call i32 @_PyEval_SliceIndex(ptr noundef %2, ptr noundef nonnull %tmp_end) #13
+  %call14 = call i32 @_PyEval_SliceIndex(ptr noundef %5, ptr noundef nonnull %tmp_end) #13
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %if.then13.if.end18_crit_edge
 
@@ -2589,12 +2595,12 @@ if.then13.if.end18_crit_edge:                     ; preds = %if.then13
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then13.if.end18_crit_edge, %if.end11
-  %3 = phi i64 [ %.pre, %if.then13.if.end18_crit_edge ], [ 9223372036854775807, %if.end11 ]
-  %4 = load i64, ptr %tmp_start, align 8
-  store i64 %4, ptr %start, align 8
-  store i64 %3, ptr %end, align 8
-  %5 = load ptr, ptr %tmp_subobj, align 8
-  store ptr %5, ptr %subobj, align 8
+  %6 = phi i64 [ %.pre, %if.then13.if.end18_crit_edge ], [ 9223372036854775807, %if.end11 ]
+  %7 = load i64, ptr %tmp_start, align 8
+  store i64 %7, ptr %start, align 8
+  store i64 %6, ptr %end, align 8
+  %8 = load ptr, ptr %tmp_subobj, align 8
+  store ptr %8, ptr %subobj, align 8
   br label %return
 
 return:                                           ; preds = %if.then13, %if.then6, %entry, %if.end18

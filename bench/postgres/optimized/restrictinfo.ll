@@ -272,19 +272,25 @@ is_opclause.exit.thread:                          ; preds = %36, %31, %list_leng
   %83 = getelementptr inbounds i8, ptr %16, i64 112
   store double -1.000000e+00, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %16, i64 128
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %16, i64 144
-  %86 = getelementptr inbounds i8, ptr %16, i64 196
-  store i32 0, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %16, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %85, i8 0, i64 49, i1 false)
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %16, i64 216
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %16, i64 232
-  store i32 0, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %16, i64 236
-  store i32 0, ptr %90, align 4
+  store double -1.000000e+00, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %16, i64 136
+  store double -1.000000e+00, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %16, i64 144
+  %87 = getelementptr inbounds i8, ptr %16, i64 196
+  store i32 0, ptr %87, align 4
+  %88 = getelementptr inbounds i8, ptr %16, i64 200
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %86, i8 0, i64 49, i1 false)
+  store double -1.000000e+00, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %16, i64 208
+  store double -1.000000e+00, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %16, i64 216
+  store double -1.000000e+00, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %16, i64 224
+  store double -1.000000e+00, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %16, i64 232
+  store i32 0, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %16, i64 236
+  store i32 0, ptr %93, align 4
   ret ptr %16
 }
 

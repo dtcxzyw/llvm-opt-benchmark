@@ -5760,12 +5760,24 @@ define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr nounde
   store i8 %63, ptr %68, align 1
   %69 = getelementptr inbounds i8, ptr %7, i64 14
   store i8 47, ptr %69, align 2
-  %70 = getelementptr inbounds i8, ptr %7, i64 15
-  %71 = load <4 x i8>, ptr %8, align 16
-  store <4 x i8> %71, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %7, i64 19
-  store i8 0, ptr %72, align 1
-  %73 = call ptr @proto_tree_add_string(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %7) #8
+  %70 = load i8, ptr %8, align 16
+  %71 = getelementptr inbounds i8, ptr %7, i64 15
+  store i8 %70, ptr %71, align 1
+  %72 = getelementptr inbounds i8, ptr %8, i64 1
+  %73 = load i8, ptr %72, align 1
+  %74 = getelementptr inbounds i8, ptr %7, i64 16
+  store i8 %73, ptr %74, align 16
+  %75 = getelementptr inbounds i8, ptr %8, i64 2
+  %76 = load i8, ptr %75, align 2
+  %77 = getelementptr inbounds i8, ptr %7, i64 17
+  store i8 %76, ptr %77, align 1
+  %78 = getelementptr inbounds i8, ptr %8, i64 3
+  %79 = load i8, ptr %78, align 1
+  %80 = getelementptr inbounds i8, ptr %7, i64 18
+  store i8 %79, ptr %80, align 2
+  %81 = getelementptr inbounds i8, ptr %7, i64 19
+  store i8 0, ptr %81, align 1
+  %82 = call ptr @proto_tree_add_string(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %7) #8
   ret i32 7
 }
 

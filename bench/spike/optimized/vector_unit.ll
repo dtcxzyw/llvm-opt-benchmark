@@ -4937,21 +4937,22 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10_ConstructI15composite_csr_tJRP11processor_tiRSt10shared_ptrI12vector_csr_tERS4_I5csr_tEiEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %7 = alloca %"class.std::shared_ptr", align 16
-  %8 = alloca %"class.std::shared_ptr", align 16
+  %7 = alloca %"class.std::shared_ptr", align 8
+  %8 = alloca %"class.std::shared_ptr", align 8
   %9 = load ptr, ptr %1, align 8
   %10 = load i32, ptr %2, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = load <2 x ptr>, ptr %3, align 8
-  store <2 x ptr> %15, ptr %7, align 16
-  %.not.i.i.i = icmp eq ptr %14, null
+  %12 = load ptr, ptr %3, align 8
+  store ptr %12, ptr %7, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %13, align 8
+  %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrI5csr_tEC2I12vector_csr_tvEERKS_IT_E.exit, label %16
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds i8, ptr %15, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i.i.i, label %22, label %19
@@ -4967,16 +4968,17 @@ define linkonce_odr void @_ZSt10_ConstructI15composite_csr_tJRP11processor_tiRSt
   br label %_ZNSt10shared_ptrI5csr_tEC2I12vector_csr_tvEERKS_IT_E.exit
 
 _ZNSt10shared_ptrI5csr_tEC2I12vector_csr_tvEERKS_IT_E.exit: ; preds = %6, %19, %22
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %27, ptr %8, align 16
-  %.not.i.i.i7 = icmp eq ptr %26, null
+  %24 = load ptr, ptr %4, align 8
+  store ptr %24, ptr %8, align 8
+  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %25, align 8
+  %.not.i.i.i7 = icmp eq ptr %27, null
   br i1 %.not.i.i.i7, label %_ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit, label %28
 
 28:                                               ; preds = %_ZNSt10shared_ptrI5csr_tEC2I12vector_csr_tvEERKS_IT_E.exit
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds i8, ptr %27, i64 8
   %30 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i8 = icmp eq i8 %30, 0
   br i1 %.not.i.i.i.i8, label %34, label %31
@@ -4997,7 +4999,7 @@ _ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit:           ; preds = %_ZNSt10shared_ptrI5
           to label %37 unwind label %108
 
 37:                                               ; preds = %_ZNSt10shared_ptrI5csr_tEC2ERKS1_.exit
-  %38 = load ptr, ptr %24, align 8
+  %38 = load ptr, ptr %25, align 8
   %.not.i.i.i9 = icmp eq ptr %38, null
   br i1 %.not.i.i.i9, label %_ZNSt10shared_ptrI5csr_tED2Ev.exit, label %39
 
@@ -5070,7 +5072,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI5csr_tED2Ev.exit
 
 _ZNSt10shared_ptrI5csr_tED2Ev.exit:               ; preds = %37, %55, %68, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %73 = load ptr, ptr %12, align 8
+  %73 = load ptr, ptr %13, align 8
   %.not.i.i.i11 = icmp eq ptr %73, null
   br i1 %.not.i.i.i11, label %_ZNSt10shared_ptrI5csr_tED2Ev.exit17, label %74
 

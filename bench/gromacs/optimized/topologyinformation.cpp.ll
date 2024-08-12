@@ -588,7 +588,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE13_M_assign
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = icmp ugt i64 %6, %12
-  br i1 %13, label %14, label %28
+  br i1 %13, label %14, label %31
 
 14:                                               ; preds = %3
   %15 = sdiv exact i64 %6, 12
@@ -605,139 +605,151 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i: ; pred
   br i1 %.not13.i.i.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyIPA3_fEEPS2_mT_S9_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.i
-  %.015.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i ], [ %18, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i ]
-  %.01214.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i ]
-  %19 = load <2 x float>, ptr %.01214.i.i.i.i.i, align 4
-  store <2 x float> %19, ptr %.015.i.i.i.i.i, align 4
-  %20 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 8
-  %21 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 8
+  %.015.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i ], [ %18, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i ]
+  %.01214.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i ]
+  %19 = load float, ptr %.01214.i.i.i.i.i, align 4
+  store float %19, ptr %.015.i.i.i.i.i, align 4
+  %20 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 4
+  %21 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 4
   %22 = load float, ptr %21, align 4
   store float %22, ptr %20, align 4
-  %23 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 12
-  %24 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 12
-  %.not.i.i.i.i.i = icmp eq ptr %23, %2
+  %23 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 8
+  %24 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 8
+  %25 = load float, ptr %24, align 4
+  store float %25, ptr %23, align 4
+  %26 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 12
+  %27 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 12
+  %.not.i.i.i.i.i = icmp eq ptr %26, %2
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyIPA3_fEEPS2_mT_S9_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyIPA3_fEEPS2_mT_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit, label %26
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit, label %29
 
-26:                                               ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyIPA3_fEEPS2_mT_S9_.exit
+29:                                               ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyIPA3_fEEPS2_mT_S9_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %9) #17
   br label %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyIPA3_fEEPS2_mT_S9_.exit, %26
+_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE20_M_allocate_and_copyIPA3_fEEPS2_mT_S9_.exit, %29
   store ptr %18, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %18, i64 %6
-  store ptr %27, ptr %25, align 8
-  store ptr %27, ptr %7, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 %6
+  store ptr %30, ptr %28, align 8
+  store ptr %30, ptr %7, align 8
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
-28:                                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %32 = sub i64 %31, %11
-  %.not = icmp ult i64 %32, %6
-  br i1 %.not, label %_ZSt7advanceIPA3_fmEvRT_T0_.exit, label %33
+31:                                               ; preds = %3
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %35 = sub i64 %34, %11
+  %.not = icmp ult i64 %35, %6
+  br i1 %.not, label %_ZSt7advanceIPA3_fmEvRT_T0_.exit, label %36
 
-33:                                               ; preds = %28
-  %34 = icmp sgt i64 %6, 0
-  br i1 %34, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit
+36:                                               ; preds = %31
+  %37 = icmp sgt i64 %6, 0
+  br i1 %37, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit
 
-.lr.ph.preheader.i.i.i.i.i:                       ; preds = %33
-  %35 = udiv exact i64 %6, 12
+.lr.ph.preheader.i.i.i.i.i:                       ; preds = %36
+  %38 = udiv exact i64 %6, 12
   br label %.lr.ph.i.i.i.i.i16
 
 .lr.ph.i.i.i.i.i16:                               ; preds = %.lr.ph.i.i.i.i.i16, %.lr.ph.preheader.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i.i.i16 ], [ %35, %.lr.ph.preheader.i.i.i.i.i ]
-  %.0811.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i16 ], [ %9, %.lr.ph.preheader.i.i.i.i.i ]
-  %.0910.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i16 ], [ %1, %.lr.ph.preheader.i.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
-  %37 = load float, ptr %36, align 4
-  %38 = load <2 x float>, ptr %.0910.i.i.i.i.i, align 4
-  store <2 x float> %38, ptr %.0811.i.i.i.i.i, align 4
+  %.012.i.i.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i.i.i16 ], [ %38, %.lr.ph.preheader.i.i.i.i.i ]
+  %.0811.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i16 ], [ %9, %.lr.ph.preheader.i.i.i.i.i ]
+  %.0910.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i16 ], [ %1, %.lr.ph.preheader.i.i.i.i.i ]
+  %39 = load float, ptr %.0910.i.i.i.i.i, align 4
+  %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 4
+  %41 = load float, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
+  %43 = load float, ptr %42, align 4
+  store float %39, ptr %.0811.i.i.i.i.i, align 4
+  %.sroa.2.0..08.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 4
+  store float %41, ptr %.sroa.2.0..08.sroa_idx.i.i.i.i.i, align 4
   %.sroa.3.0..08.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
-  store float %37, ptr %.sroa.3.0..08.sroa_idx.i.i.i.i.i, align 4
-  %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 12
-  %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 12
-  %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %42, label %.lr.ph.i.i.i.i.i16, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit.loopexit, !llvm.loop !11
+  store float %43, ptr %.sroa.3.0..08.sroa_idx.i.i.i.i.i, align 4
+  %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 12
+  %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 12
+  %46 = add nsw i64 %.012.i.i.i.i.i, -1
+  %47 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  br i1 %47, label %.lr.ph.i.i.i.i.i16, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit.loopexit, !llvm.loop !11
 
 _ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i16
-  %.pre = load ptr, ptr %29, align 8
+  %.pre = load ptr, ptr %32, align 8
   br label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit
 
-_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit: ; preds = %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit.loopexit, %33
-  %43 = phi ptr [ %30, %33 ], [ %.pre, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit.loopexit ]
-  %.08.lcssa.i.i.i.i.i = phi ptr [ %9, %33 ], [ %40, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit.loopexit ]
-  %.not.i17 = icmp eq ptr %43, %.08.lcssa.i.i.i.i.i
-  br i1 %.not.i17, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit, label %44
+_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit: ; preds = %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit.loopexit, %36
+  %48 = phi ptr [ %33, %36 ], [ %.pre, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit.loopexit ]
+  %.08.lcssa.i.i.i.i.i = phi ptr [ %9, %36 ], [ %45, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit.loopexit ]
+  %.not.i17 = icmp eq ptr %48, %.08.lcssa.i.i.i.i.i
+  br i1 %.not.i17, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit, label %49
 
-44:                                               ; preds = %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit
-  store ptr %.08.lcssa.i.i.i.i.i, ptr %29, align 8
+49:                                               ; preds = %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit
+  store ptr %.08.lcssa.i.i.i.i.i, ptr %32, align 8
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
-_ZSt7advanceIPA3_fmEvRT_T0_.exit:                 ; preds = %28
-  %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %32
-  %45 = icmp sgt i64 %32, 0
-  br i1 %45, label %.lr.ph.preheader.i.i.i.i.i19, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26
+_ZSt7advanceIPA3_fmEvRT_T0_.exit:                 ; preds = %31
+  %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %35
+  %50 = icmp sgt i64 %35, 0
+  br i1 %50, label %.lr.ph.preheader.i.i.i.i.i19, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26
 
 .lr.ph.preheader.i.i.i.i.i19:                     ; preds = %_ZSt7advanceIPA3_fmEvRT_T0_.exit
-  %46 = udiv exact i64 %32, 12
+  %51 = udiv exact i64 %35, 12
   br label %.lr.ph.i.i.i.i.i20
 
 .lr.ph.i.i.i.i.i20:                               ; preds = %.lr.ph.i.i.i.i.i20, %.lr.ph.preheader.i.i.i.i.i19
-  %.012.i.i.i.i.i21 = phi i64 [ %52, %.lr.ph.i.i.i.i.i20 ], [ %46, %.lr.ph.preheader.i.i.i.i.i19 ]
-  %.0811.i.i.i.i.i22 = phi ptr [ %51, %.lr.ph.i.i.i.i.i20 ], [ %9, %.lr.ph.preheader.i.i.i.i.i19 ]
-  %.0910.i.i.i.i.i23 = phi ptr [ %50, %.lr.ph.i.i.i.i.i20 ], [ %1, %.lr.ph.preheader.i.i.i.i.i19 ]
-  %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 8
-  %48 = load float, ptr %47, align 4
-  %49 = load <2 x float>, ptr %.0910.i.i.i.i.i23, align 4
-  store <2 x float> %49, ptr %.0811.i.i.i.i.i22, align 4
+  %.012.i.i.i.i.i21 = phi i64 [ %59, %.lr.ph.i.i.i.i.i20 ], [ %51, %.lr.ph.preheader.i.i.i.i.i19 ]
+  %.0811.i.i.i.i.i22 = phi ptr [ %58, %.lr.ph.i.i.i.i.i20 ], [ %9, %.lr.ph.preheader.i.i.i.i.i19 ]
+  %.0910.i.i.i.i.i23 = phi ptr [ %57, %.lr.ph.i.i.i.i.i20 ], [ %1, %.lr.ph.preheader.i.i.i.i.i19 ]
+  %52 = load float, ptr %.0910.i.i.i.i.i23, align 4
+  %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 4
+  %54 = load float, ptr %53, align 4
+  %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 8
+  %56 = load float, ptr %55, align 4
+  store float %52, ptr %.0811.i.i.i.i.i22, align 4
+  %.sroa.2.0..08.sroa_idx.i.i.i.i.i24 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 4
+  store float %54, ptr %.sroa.2.0..08.sroa_idx.i.i.i.i.i24, align 4
   %.sroa.3.0..08.sroa_idx.i.i.i.i.i25 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 8
-  store float %48, ptr %.sroa.3.0..08.sroa_idx.i.i.i.i.i25, align 4
-  %50 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 12
-  %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 12
-  %52 = add nsw i64 %.012.i.i.i.i.i21, -1
-  %53 = icmp ugt i64 %.012.i.i.i.i.i21, 1
-  br i1 %53, label %.lr.ph.i.i.i.i.i20, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26.loopexit, !llvm.loop !11
+  store float %56, ptr %.sroa.3.0..08.sroa_idx.i.i.i.i.i25, align 4
+  %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 12
+  %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 12
+  %59 = add nsw i64 %.012.i.i.i.i.i21, -1
+  %60 = icmp ugt i64 %.012.i.i.i.i.i21, 1
+  br i1 %60, label %.lr.ph.i.i.i.i.i20, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26.loopexit, !llvm.loop !11
 
 _ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26.loopexit: ; preds = %.lr.ph.i.i.i.i.i20
-  %.pre32 = load ptr, ptr %29, align 8
+  %.pre32 = load ptr, ptr %32, align 8
   br label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26
 
 _ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26: ; preds = %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26.loopexit, %_ZSt7advanceIPA3_fmEvRT_T0_.exit
-  %54 = phi ptr [ %.pre32, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26.loopexit ], [ %30, %_ZSt7advanceIPA3_fmEvRT_T0_.exit ]
+  %61 = phi ptr [ %.pre32, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26.loopexit ], [ %33, %_ZSt7advanceIPA3_fmEvRT_T0_.exit ]
   %.not13.i.i.i.i = icmp eq ptr %.sink.i.i, %2
   br i1 %.not13.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPA3_fPN3gmx11BasicVectorIfEES4_ET0_T_S7_S6_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26, %.lr.ph.i.i.i.i
-  %.015.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i ], [ %54, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26 ]
-  %.01214.i.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i ], [ %.sink.i.i, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26 ]
-  %55 = load float, ptr %.01214.i.i.i.i, align 4
-  store float %55, ptr %.015.i.i.i.i, align 4
-  %56 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 4
-  %57 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 4
-  %58 = load float, ptr %57, align 4
-  store float %58, ptr %56, align 4
-  %59 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 8
-  %60 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 8
-  %61 = load float, ptr %60, align 4
-  store float %61, ptr %59, align 4
-  %62 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 12
-  %63 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 12
-  %.not.i.i.i.i = icmp eq ptr %62, %2
+  %.015.i.i.i.i = phi ptr [ %70, %.lr.ph.i.i.i.i ], [ %61, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26 ]
+  %.01214.i.i.i.i = phi ptr [ %69, %.lr.ph.i.i.i.i ], [ %.sink.i.i, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26 ]
+  %62 = load float, ptr %.01214.i.i.i.i, align 4
+  store float %62, ptr %.015.i.i.i.i, align 4
+  %63 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 4
+  %64 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 4
+  %65 = load float, ptr %64, align 4
+  store float %65, ptr %63, align 4
+  %66 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 8
+  %67 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 8
+  %68 = load float, ptr %67, align 4
+  store float %68, ptr %66, align 4
+  %69 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 12
+  %70 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 12
+  %.not.i.i.i.i = icmp eq ptr %69, %2
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPA3_fPN3gmx11BasicVectorIfEES4_ET0_T_S7_S6_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
 _ZSt22__uninitialized_copy_aIPA3_fPN3gmx11BasicVectorIfEES4_ET0_T_S7_S6_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26
-  %.0.lcssa.i.i.i.i = phi ptr [ %54, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26 ], [ %63, %.lr.ph.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i, ptr %29, align 8
+  %.0.lcssa.i.i.i.i = phi ptr [ %61, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit26 ], [ %70, %.lr.ph.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i, ptr %32, align 8
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
-_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit: ; preds = %44, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit, %_ZSt22__uninitialized_copy_aIPA3_fPN3gmx11BasicVectorIfEES4_ET0_T_S7_S6_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit
+_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_erase_at_endEPS2_.exit: ; preds = %49, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit, %_ZSt22__uninitialized_copy_aIPA3_fPN3gmx11BasicVectorIfEES4_ET0_T_S7_S6_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit
   ret void
 }
 
@@ -1057,10 +1069,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  store <2 x ptr> %23, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %0, align 8
   ret void

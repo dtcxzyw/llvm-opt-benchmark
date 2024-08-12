@@ -873,25 +873,28 @@ if.then.i.i:                                      ; preds = %_ZN4llvh11SmallVect
   br label %_ZN4llvh11SmallVectorISt4pairIPN6hermes7LiteralES4_ELj4EED2Ev.exit
 
 _ZN4llvh11SmallVectorISt4pairIPN6hermes7LiteralES4_ELj4EED2Ev.exit: ; preds = %_ZN4llvh11SmallVectorISt4pairIPN6hermes7LiteralES4_ELj4EEC2ERKS6_.exit, %if.then.i.i
-  %35 = insertelement <2 x ptr> poison, ptr %call9, i64 0
-  %36 = insertelement <2 x ptr> %35, ptr %call34, i64 1
-  %37 = icmp eq <2 x ptr> %36, zeroinitializer
-  %38 = getelementptr i8, <2 x ptr> %36, <2 x i64> <i64 16, i64 16>
-  %39 = select <2 x i1> %37, <2 x ptr> zeroinitializer, <2 x ptr> %38
-  store <2 x ptr> %39, ptr %params, align 16
+  %35 = icmp eq ptr %call9, null
+  %add.ptr = getelementptr inbounds i8, ptr %call9, i64 16
+  %spec.select = select i1 %35, ptr null, ptr %add.ptr
+  store ptr %spec.select, ptr %params, align 16
+  %arrayinit.element = getelementptr inbounds i8, ptr %params, i64 8
+  %36 = icmp eq ptr %call34, null
+  %add.ptr36 = getelementptr inbounds i8, ptr %call34, i64 16
+  %cast.result38 = select i1 %36, ptr null, ptr %add.ptr36
+  store ptr %cast.result38, ptr %arrayinit.element, align 8
   %call41 = call noundef ptr @_ZN6hermes9IRBuilder21createCallBuiltinInstENS_13BuiltinMethod4EnumEN4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, i8 noundef zeroext 50, ptr nonnull %params, i64 2) #16
-  %40 = load ptr, ptr %propMap, align 8
-  %cmp.i.i.i38 = icmp eq ptr %40, %add.ptr.i.i.i.i.i
+  %37 = load ptr, ptr %propMap, align 8
+  %cmp.i.i.i38 = icmp eq ptr %37, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i38, label %if.end, label %if.then.i.i39
 
 if.then.i.i39:                                    ; preds = %_ZN4llvh11SmallVectorISt4pairIPN6hermes7LiteralES4_ELj4EED2Ev.exit
-  call void @free(ptr noundef %40) #16
+  call void @free(ptr noundef %37) #16
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6hermes7Context17getCompiledRegExpEPNS_12UniqueStringES2_.exit, %if.then.i.i39, %_ZN4llvh11SmallVectorISt4pairIPN6hermes7LiteralES4_ELj4EED2Ev.exit
-  %41 = icmp eq ptr %call9, null
+  %38 = icmp eq ptr %call9, null
   %add.ptr43 = getelementptr inbounds i8, ptr %call9, i64 16
-  %spec.select1 = select i1 %41, ptr null, ptr %add.ptr43
+  %spec.select1 = select i1 %38, ptr null, ptr %add.ptr43
   ret ptr %spec.select1
 }
 
@@ -1959,7 +1962,7 @@ entry:
   %ref.tmp36 = alloca %"class.llvh::Twine", align 8
   %key = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp61 = alloca %"class.llvh::Twine", align 8
-  %ref.tmp67 = alloca %"class.llvh::SMRange", align 16
+  %ref.tmp67 = alloca %"class.llvh::SMRange", align 8
   %ref.tmp78 = alloca %"class.llvh::Twine", align 8
   %ref.tmp79 = alloca %"class.llvh::Twine", align 8
   %ref.tmp90 = alloca %"class.llvh::Twine", align 8
@@ -1997,6 +2000,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
   %LHSKind5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp61, i64 16
   %RHSKind6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp61, i64 17
+  %1 = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
   %RHS4.i.i.i165 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
   %LHSKind5.i.i.i166 = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
   %RHSKind6.i.i.i167 = getelementptr inbounds i8, ptr %ref.tmp79, i64 17
@@ -2012,15 +2016,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %protoProperty.0379 = phi ptr [ null, %for.body.lr.ph ], [ %protoProperty.1, %for.inc ]
   %numComputed.0378 = phi i32 [ 0, %for.body.lr.ph ], [ %numComputed.1, %for.inc ]
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 16
-  %1 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq i32 %1, 42
+  %2 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = icmp eq i32 %2, 42
   br i1 %cmp.i.i.i.i.i.i, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
   store i32 0, ptr %Size.i.i.i.i.i, align 8
   %_computed = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 72
-  %2 = load i8, ptr %_computed, align 8
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %_computed, align 8
+  %tobool = trunc i8 %3 to i1
   br i1 %tobool, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
@@ -2029,40 +2033,40 @@ if.then8:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end
   %_key = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 48
-  %3 = load ptr, ptr %_key, align 8
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %4 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %4, 33
-  %tobool.not20.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %_key, align 8
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %5, 33
+  %tobool.not20.i = icmp eq ptr %4, null
   %tobool.not.i = or i1 %tobool.not20.i, %cmp.i.i.i.i.i.i.i.i
   br i1 %tobool.not.i, label %if.end.i96, label %do.end.i
 
 do.end.i:                                         ; preds = %if.end9
-  %_value.i = getelementptr inbounds i8, ptr %3, i64 48
-  %5 = load ptr, ptr %_value.i, align 8
-  %retval.sroa.4.0.call1.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_value.i = getelementptr inbounds i8, ptr %4, i64 48
+  %6 = load ptr, ptr %_value.i, align 8
+  %retval.sroa.4.0.call1.sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
   %retval.sroa.4.0.copyload.i = load i64, ptr %retval.sroa.4.0.call1.sroa_idx.i, align 8
   br label %_ZN6hermes5irgenL19propertyKeyAsStringERN4llvh15SmallVectorImplIcEEPNS_6ESTree4NodeE.exit
 
 if.end.i96:                                       ; preds = %if.end9
-  %cmp.i.i.i.i.i.i.i12.i = icmp ne i32 %4, 63
+  %cmp.i.i.i.i.i.i.i12.i = icmp ne i32 %5, 63
   %tobool3.not.i = or i1 %tobool.not20.i, %cmp.i.i.i.i.i.i.i12.i
   br i1 %tobool3.not.i, label %if.then6.i.i, label %do.end6.i
 
 do.end6.i:                                        ; preds = %if.end.i96
-  %_name.i = getelementptr inbounds i8, ptr %3, i64 48
-  %6 = load ptr, ptr %_name.i, align 8
-  %retval.sroa.4.0.call7.sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_name.i = getelementptr inbounds i8, ptr %4, i64 48
+  %7 = load ptr, ptr %_name.i, align 8
+  %retval.sroa.4.0.call7.sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
   %retval.sroa.4.0.copyload10.i = load i64, ptr %retval.sroa.4.0.call7.sroa_idx.i, align 8
   br label %_ZN6hermes5irgenL19propertyKeyAsStringERN4llvh15SmallVectorImplIcEEPNS_6ESTree4NodeE.exit
 
 if.then6.i.i:                                     ; preds = %if.end.i96
-  %cmp.i.i.i.i.i.i.i15.i = icmp eq i32 %4, 34
-  %spec.select.i16.i = select i1 %cmp.i.i.i.i.i.i.i15.i, ptr %3, ptr null
+  %cmp.i.i.i.i.i.i.i15.i = icmp eq i32 %5, 34
+  %spec.select.i16.i = select i1 %cmp.i.i.i.i.i.i.i15.i, ptr %4, ptr null
   %tobool11.i = icmp ne ptr %spec.select.i16.i, null
   call void @llvm.assume(i1 %tobool11.i)
-  %7 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp8.i.i = icmp ult i32 %7, 32
+  %8 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
+  %cmp8.i.i = icmp ult i32 %8, 32
   br i1 %cmp8.i.i, label %if.end.i.i, label %for.body.preheader.i.i
 
 if.end.i.i:                                       ; preds = %if.then6.i.i
@@ -2074,35 +2078,35 @@ if.end.i.i:                                       ; preds = %if.then6.i.i
 for.body.preheader.i.i:                           ; preds = %if.end.i.i, %if.then6.i.i
   %conv.i17.pre-phi.i19.in.i = phi i32 [ %.pre.i.i, %if.end.i.i ], [ 0, %if.then6.i.i ]
   %conv.i17.pre-phi.i19.i = zext i32 %conv.i17.pre-phi.i19.in.i to i64
-  %8 = load ptr, ptr %stringStorage, align 8
-  %add.ptr.i.i.i = getelementptr i8, ptr %8, i64 %conv.i17.pre-phi.i19.i
-  %9 = sub nsw i64 32, %conv.i17.pre-phi.i19.i
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i.i, i8 0, i64 %9, i1 false)
+  %9 = load ptr, ptr %stringStorage, align 8
+  %add.ptr.i.i.i = getelementptr i8, ptr %9, i64 %conv.i17.pre-phi.i19.i
+  %10 = sub nsw i64 32, %conv.i17.pre-phi.i19.i
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i.i, i8 0, i64 %10, i1 false)
   br label %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit.i
 
 _ZN4llvh15SmallVectorImplIcE6resizeEm.exit.i:     ; preds = %if.end.i.i, %for.body.preheader.i.i
   store i32 32, ptr %Size.i.i.i.i.i, align 8
   %_value15.i = getelementptr inbounds i8, ptr %spec.select.i16.i, i64 48
-  %10 = load double, ptr %_value15.i, align 8
-  %11 = load ptr, ptr %stringStorage, align 8
-  %call18.i = call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %10, ptr noundef %11, i64 noundef 32) #16
+  %11 = load double, ptr %_value15.i, align 8
+  %12 = load ptr, ptr %stringStorage, align 8
+  %call18.i = call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %11, ptr noundef %12, i64 noundef 32) #16
   br label %_ZN6hermes5irgenL19propertyKeyAsStringERN4llvh15SmallVectorImplIcEEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgenL19propertyKeyAsStringERN4llvh15SmallVectorImplIcEEPNS_6ESTree4NodeE.exit: ; preds = %do.end.i, %do.end6.i, %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit.i
   %retval.sroa.4.0.i = phi i64 [ %retval.sroa.4.0.copyload.i, %do.end.i ], [ %retval.sroa.4.0.copyload10.i, %do.end6.i ], [ %call18.i, %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit.i ]
-  %retval.sroa.0.0.in.i = phi ptr [ %5, %do.end.i ], [ %6, %do.end6.i ], [ %stringStorage, %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit.i ]
+  %retval.sroa.0.0.in.i = phi ptr [ %6, %do.end.i ], [ %7, %do.end6.i ], [ %stringStorage, %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit.i ]
   %retval.sroa.0.0.i = load ptr, ptr %retval.sroa.0.0.in.i, align 8
   store ptr %retval.sroa.0.0.i, ptr %propName, align 8
   store i64 %retval.sroa.4.0.i, ptr %0, align 8
   %_kind = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 64
-  %12 = load ptr, ptr %_kind, align 8
-  %agg.tmp.sroa.2.0.call11.sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load ptr, ptr %_kind, align 8
+  %agg.tmp.sroa.2.0.call11.sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call11.sroa_idx, align 8
   %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, 4
   br i1 %cmp.i, label %if.end.i585, label %if.end38
 
 if.end.i585:                                      ; preds = %_ZN6hermes5irgenL19propertyKeyAsStringERN4llvh15SmallVectorImplIcEEPNS_6ESTree4NodeE.exit
-  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %12, align 8
+  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %13, align 8
   %bcmp372 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
   %cmp5.i = icmp eq i32 %bcmp372, 0
   %cmp.i452 = icmp eq i64 %retval.sroa.4.0.i, 9
@@ -2116,14 +2120,14 @@ if.end.i576:                                      ; preds = %if.end.i585
 
 land.lhs.true17:                                  ; preds = %if.end.i576
   %_method = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 73
-  %13 = load i8, ptr %_method, align 1
-  %tobool18 = trunc i8 %13 to i1
+  %14 = load i8, ptr %_method, align 1
+  %tobool18 = trunc i8 %14 to i1
   br i1 %tobool18, label %if.end38, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %land.lhs.true17
   %_shorthand = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 74
-  %14 = load i8, ptr %_shorthand, align 2
-  %tobool20 = trunc i8 %14 to i1
+  %15 = load i8, ptr %_shorthand, align 2
+  %tobool20 = trunc i8 %15 to i1
   br i1 %tobool20, label %if.end38, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
@@ -2131,11 +2135,11 @@ if.then21:                                        ; preds = %land.lhs.true19
   br i1 %tobool22.not, label %for.inc, label %if.else
 
 if.else:                                          ; preds = %if.then21
-  %15 = load ptr, ptr %Builder, align 8
-  %Ctx.i = getelementptr inbounds i8, ptr %15, i64 40
-  %16 = load ptr, ptr %Ctx.i, align 8
-  %sm_.i = getelementptr inbounds i8, ptr %16, i64 160
-  %17 = load ptr, ptr %sm_.i, align 8
+  %16 = load ptr, ptr %Builder, align 8
+  %Ctx.i = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = load ptr, ptr %Ctx.i, align 8
+  %sm_.i = getelementptr inbounds i8, ptr %17, i64 160
+  %18 = load ptr, ptr %sm_.i, align 8
   %sourceRange_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 24
   %retval.sroa.0.0.copyload.i = load ptr, ptr %sourceRange_.i, align 8
   %retval.sroa.2.0.sourceRange_.sroa_idx.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 32
@@ -2143,12 +2147,12 @@ if.else:                                          ; preds = %if.then21
   store i8 1, ptr %RHSKind.i, align 1
   store ptr @.str.8, ptr %ref.tmp29, align 8
   store i8 3, ptr %LHSKind.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %17, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp29, i32 noundef 0) #16
-  %18 = load ptr, ptr %Builder, align 8
-  %Ctx.i101 = getelementptr inbounds i8, ptr %18, i64 40
-  %19 = load ptr, ptr %Ctx.i101, align 8
-  %sm_.i102 = getelementptr inbounds i8, ptr %19, i64 160
-  %20 = load ptr, ptr %sm_.i102, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %18, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp29, i32 noundef 0) #16
+  %19 = load ptr, ptr %Builder, align 8
+  %Ctx.i101 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = load ptr, ptr %Ctx.i101, align 8
+  %sm_.i102 = getelementptr inbounds i8, ptr %20, i64 160
+  %21 = load ptr, ptr %sm_.i102, align 8
   %sourceRange_.i103 = getelementptr inbounds i8, ptr %protoProperty.0379, i64 24
   %retval.sroa.0.0.copyload.i104 = load ptr, ptr %sourceRange_.i103, align 8
   %retval.sroa.2.0.sourceRange_.sroa_idx.i105 = getelementptr inbounds i8, ptr %protoProperty.0379, i64 32
@@ -2156,14 +2160,14 @@ if.else:                                          ; preds = %if.then21
   store i8 1, ptr %RHSKind.i110, align 1
   store ptr @.str.9, ptr %ref.tmp36, align 8
   store i8 3, ptr %LHSKind.i109, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %20, i32 noundef 3, ptr %retval.sroa.0.0.copyload.i104, ptr %retval.sroa.2.0.copyload.i106, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp36, i32 noundef 0) #16
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %21, i32 noundef 3, ptr %retval.sroa.0.0.copyload.i104, ptr %retval.sroa.2.0.copyload.i106, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp36, i32 noundef 0) #16
   br label %for.inc
 
 if.end38:                                         ; preds = %_ZN6hermes5irgenL19propertyKeyAsStringERN4llvh15SmallVectorImplIcEEPNS_6ESTree4NodeE.exit, %land.lhs.true19, %land.lhs.true17, %if.end.i576, %if.end.i585
   %call40 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvh9StringMapIZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS1_6ESTree20ObjectExpressionNodeEE13PropertyValueNS_15MallocAllocatorEEixENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(25) %propMap, ptr %retval.sroa.0.0.i, i64 %retval.sroa.4.0.i)
-  %21 = load ptr, ptr %_kind, align 8
-  %agg.tmp41.sroa.0.0.copyload = load ptr, ptr %21, align 8
-  %agg.tmp41.sroa.2.0.call43.sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = load ptr, ptr %_kind, align 8
+  %agg.tmp41.sroa.0.0.copyload = load ptr, ptr %22, align 8
+  %agg.tmp41.sroa.2.0.call43.sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
   %agg.tmp41.sroa.2.0.copyload = load i64, ptr %agg.tmp41.sroa.2.0.call43.sroa_idx, align 8
   %cmp.i463 = icmp eq i64 %agg.tmp41.sroa.2.0.copyload, 3
   br i1 %cmp.i463, label %if.end.i567, label %if.else57
@@ -2175,9 +2179,9 @@ if.end.i567:                                      ; preds = %if.end38
 
 if.then46:                                        ; preds = %if.end.i567
   %_value = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 56
-  %22 = load ptr, ptr %_value, align 8
-  %23 = load i8, ptr %call40, align 8
-  %tobool.i = trunc i8 %23 to i1
+  %23 = load ptr, ptr %_value, align 8
+  %24 = load i8, ptr %call40, align 8
+  %tobool.i = trunc i8 %24 to i1
   br i1 %tobool.i, label %_ZZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS_6ESTree20ObjectExpressionNodeEEN13PropertyValue9setGetterEPNS2_22FunctionExpressionNodeE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then46
@@ -2190,7 +2194,7 @@ if.then.i:                                        ; preds = %if.then46
 
 _ZZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS_6ESTree20ObjectExpressionNodeEEN13PropertyValue9setGetterEPNS2_22FunctionExpressionNodeE.exit: ; preds = %if.then46, %if.then.i
   %getterNode.i = getelementptr inbounds i8, ptr %call40, i64 16
-  store ptr %22, ptr %getterNode.i, align 8
+  store ptr %23, ptr %getterNode.i, align 8
   br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 if.end.i558:                                      ; preds = %if.end.i567
@@ -2200,9 +2204,9 @@ if.end.i558:                                      ; preds = %if.end.i567
 
 if.then54:                                        ; preds = %if.end.i558
   %_value55 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 56
-  %24 = load ptr, ptr %_value55, align 8
-  %25 = load i8, ptr %call40, align 8
-  %tobool.i113 = trunc i8 %25 to i1
+  %25 = load ptr, ptr %_value55, align 8
+  %26 = load i8, ptr %call40, align 8
+  %tobool.i113 = trunc i8 %26 to i1
   br i1 %tobool.i113, label %_ZZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS_6ESTree20ObjectExpressionNodeEEN13PropertyValue9setSetterEPNS2_22FunctionExpressionNodeE.exit, label %if.then.i114
 
 if.then.i114:                                     ; preds = %if.then54
@@ -2213,22 +2217,22 @@ if.then.i114:                                     ; preds = %if.then54
 
 _ZZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS_6ESTree20ObjectExpressionNodeEEN13PropertyValue9setSetterEPNS2_22FunctionExpressionNodeE.exit: ; preds = %if.then54, %if.then.i114
   %setterNode.i117 = getelementptr inbounds i8, ptr %call40, i64 24
-  store ptr %24, ptr %setterNode.i117, align 8
+  store ptr %25, ptr %setterNode.i117, align 8
   br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 if.else57:                                        ; preds = %if.end38, %if.end.i558
   %_value58 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 56
-  %26 = load ptr, ptr %_value58, align 8
+  %27 = load ptr, ptr %_value58, align 8
   store i8 0, ptr %call40, align 8
   %valueNode.i118 = getelementptr inbounds i8, ptr %call40, i64 8
-  store ptr %26, ptr %valueNode.i118, align 8
+  store ptr %27, ptr %valueNode.i118, align 8
   %getterNode.i119 = getelementptr inbounds i8, ptr %call40, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %getterNode.i119, i8 0, i64 16, i1 false)
   br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %_ZZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS_6ESTree20ObjectExpressionNodeEEN13PropertyValue9setGetterEPNS2_22FunctionExpressionNodeE.exit, %if.else57, %_ZZN6hermes5irgen11ESTreeIRGen13genObjectExprEPNS_6ESTree20ObjectExpressionNodeEEN13PropertyValue9setSetterEPNS2_22FunctionExpressionNodeE.exit
-  %27 = load ptr, ptr %_kind, align 8
-  store ptr %27, ptr %ref.tmp61, align 8, !alias.scope !21
+  %28 = load ptr, ptr %_kind, align 8
+  store ptr %28, ptr %ref.tmp61, align 8, !alias.scope !21
   store ptr %propName, ptr %RHS4.i.i.i, align 8, !alias.scope !21
   store i8 5, ptr %LHSKind5.i.i.i, align 8, !alias.scope !21
   store i8 5, ptr %RHSKind6.i.i.i, align 1, !alias.scope !21
@@ -2236,15 +2240,17 @@ _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %_ZZN6hermes5irgen11
   %call.i428 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #16
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #16
   %sourceRange_.i125 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 24
-  %28 = load <2 x ptr>, ptr %sourceRange_.i125, align 8
-  store <2 x ptr> %28, ptr %ref.tmp67, align 16
+  %retval.sroa.0.0.copyload.i126 = load ptr, ptr %sourceRange_.i125, align 8
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i127 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 32
+  %retval.sroa.2.0.copyload.i128 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i127, align 8
+  store ptr %retval.sroa.0.0.copyload.i126, ptr %ref.tmp67, align 8
+  store ptr %retval.sroa.2.0.copyload.i128, ptr %1, align 8
   %call69 = call { ptr, i8 } @_ZN4llvh9StringMapINS_7SMRangeENS_15MallocAllocatorEE11try_emplaceIJS1_EEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %firstLocMap, ptr %call.i428, i64 %call2.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp67)
   %29 = extractvalue { ptr, i8 } %call69, 1
   %tobool70 = trunc i8 %29 to i1
   br i1 %tobool70, label %if.end91, label %_ZN4llvhplERKNS_5TwineES2_.exit206
 
 _ZN4llvhplERKNS_5TwineES2_.exit206:               ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i127 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 32
   %30 = extractvalue { ptr, i8 } %call69, 0
   %31 = load ptr, ptr %Builder, align 8
   %Ctx.i131 = getelementptr inbounds i8, ptr %31, i64 40

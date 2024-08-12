@@ -2856,14 +2856,20 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %m_camera_position, align 8, !tbaa.struct !107
   %agg.tmp.sroa.2.0.m_camera_position.sroa_idx = getelementptr inbounds i8, ptr %this, i64 424
   %agg.tmp.sroa.2.0.copyload = load float, ptr %agg.tmp.sroa.2.0.m_camera_position.sroa_idx, align 8, !tbaa !22
+  %p.sroa.0.4.vec.extract.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 1
+  %cmp5.i = fcmp nsz ogt float %p.sroa.0.4.vec.extract.i, 0.000000e+00
+  %cond12.i = select nsz i1 %cmp5.i, float 5.000000e+00, float -5.000000e+00
+  %add13.i = fadd nsz float %p.sroa.0.4.vec.extract.i, %cond12.i
+  %div14.i = fdiv nsz float %add13.i, 1.000000e+01
+  %conv15.i = fptosi float %div14.i to i16
   %m_camera_offset = getelementptr inbounds i8, ptr %this, i64 444
   %0 = load i16, ptr %m_camera_offset, align 4, !tbaa !85
   %Y6.i = getelementptr inbounds i8, ptr %this, i64 446
-  %1 = load <8 x i16>, ptr %Y6.i, align 2
-  %2 = shufflevector <8 x i16> %1, <8 x i16> poison, <2 x i32> <i32 0, i32 poison>
+  %1 = load i16, ptr %Y6.i, align 2, !tbaa !86
+  %add8.i = add i16 %1, %conv15.i
   %Z11.i = getelementptr inbounds i8, ptr %this, i64 448
-  %3 = load <8 x i16>, ptr %Z11.i, align 8
-  %4 = shufflevector <8 x i16> %3, <8 x i16> poison, <2 x i32> <i32 0, i32 poison>
+  %2 = load <8 x i16>, ptr %Z11.i, align 8
+  %3 = shufflevector <8 x i16> %2, <8 x i16> poison, <2 x i32> <i32 0, i32 poison>
   store <2 x float> %pos.coerce0, ptr %m_camera_position, align 8, !tbaa.struct !107
   store float %pos.coerce1, ptr %agg.tmp.sroa.2.0.m_camera_position.sroa_idx, align 8, !tbaa !22
   %m_camera_direction = getelementptr inbounds i8, ptr %this, i64 428
@@ -2875,18 +2881,36 @@ entry:
   store i48 %offset.coerce, ptr %m_camera_offset, align 4, !tbaa.struct !127
   %m_camera_light_color = getelementptr inbounds i8, ptr %this, i64 452
   store i32 %light_color.coerce, ptr %m_camera_light_color, align 4, !tbaa !128
-  %5 = lshr i48 %offset.coerce, 16
-  %6 = trunc i48 %5 to i16
-  %7 = lshr i48 %offset.coerce, 32
-  %8 = shufflevector <2 x float> %agg.tmp.sroa.0.0.copyload, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
-  %9 = insertelement <2 x float> %8, float %agg.tmp.sroa.2.0.copyload, i64 0
-  %10 = fcmp nsz ogt <2 x float> %9, zeroinitializer
-  %11 = select <2 x i1> %10, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
-  %12 = fadd nsz <2 x float> %9, %11
-  %13 = fdiv nsz <2 x float> %12, <float 1.000000e+01, float 1.000000e+01>
-  %14 = fptosi <2 x float> %13 to <2 x i16>
-  %15 = insertelement <2 x i16> %4, i16 %0, i64 1
-  %16 = add <2 x i16> %15, %14
+  %p.sroa.0.4.vec.extract.i44 = extractelement <2 x float> %pos.coerce0, i64 1
+  %cmp5.i45 = fcmp nsz ogt float %p.sroa.0.4.vec.extract.i44, 0.000000e+00
+  %cond12.i46 = select nsz i1 %cmp5.i45, float 5.000000e+00, float -5.000000e+00
+  %add13.i49 = fadd nsz float %p.sroa.0.4.vec.extract.i44, %cond12.i46
+  %div14.i50 = fdiv nsz float %add13.i49, 1.000000e+01
+  %conv15.i51 = fptosi float %div14.i50 to i16
+  %4 = lshr i48 %offset.coerce, 16
+  %5 = trunc i48 %4 to i16
+  %add8.i68 = add i16 %5, %conv15.i51
+  %6 = lshr i48 %offset.coerce, 32
+  %7 = shufflevector <2 x float> %agg.tmp.sroa.0.0.copyload, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
+  %8 = insertelement <2 x float> %7, float %agg.tmp.sroa.2.0.copyload, i64 0
+  %9 = fcmp nsz ogt <2 x float> %8, zeroinitializer
+  %10 = select <2 x i1> %9, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
+  %11 = fadd nsz <2 x float> %8, %10
+  %12 = fdiv nsz <2 x float> %11, <float 1.000000e+01, float 1.000000e+01>
+  %13 = fptosi <2 x float> %12 to <2 x i16>
+  %14 = insertelement <2 x i16> %3, i16 %0, i64 1
+  %15 = add <2 x i16> %14, %13
+  %16 = extractelement <2 x i16> %15, i64 0
+  %conv.i5.i = sext i16 %add8.i to i32
+  %add.i8.i = add nsw i32 %conv.i5.i, -15
+  %cmp9.i9.i = icmp slt i16 %add8.i, 0
+  %cond.i10.i = select i1 %cmp9.i9.i, i32 %add.i8.i, i32 %conv.i5.i
+  %div.i11.i = sdiv i32 %cond.i10.i, 16
+  %conv.i13.i = sext i16 %16 to i32
+  %add.i16.i = add nsw i32 %conv.i13.i, -15
+  %cmp9.i17.i.not1 = icmp slt i16 %16, 0
+  %cond.i18.i = select i1 %cmp9.i17.i.not1, i32 %add.i16.i, i32 %conv.i13.i
+  %div.i19.i = sdiv i32 %cond.i18.i, 16
   %17 = shufflevector <2 x float> %pos.coerce0, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %18 = insertelement <2 x float> %17, float %pos.coerce1, i64 0
   %19 = fcmp nsz ogt <2 x float> %18, zeroinitializer
@@ -2894,46 +2918,34 @@ entry:
   %21 = fadd nsz <2 x float> %18, %20
   %22 = fdiv nsz <2 x float> %21, <float 1.000000e+01, float 1.000000e+01>
   %23 = fptosi <2 x float> %22 to <2 x i16>
-  %24 = insertelement <2 x i48> poison, i48 %7, i64 0
+  %24 = insertelement <2 x i48> poison, i48 %6, i64 0
   %25 = insertelement <2 x i48> %24, i48 %offset.coerce, i64 1
   %26 = trunc <2 x i48> %25 to <2 x i16>
   %27 = add <2 x i16> %26, %23
-  %28 = shufflevector <2 x float> %agg.tmp.sroa.0.0.copyload, <2 x float> %pos.coerce0, <2 x i32> <i32 1, i32 3>
-  %29 = fcmp nsz ogt <2 x float> %28, zeroinitializer
-  %30 = select <2 x i1> %29, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
-  %31 = fadd nsz <2 x float> %28, %30
-  %32 = fdiv nsz <2 x float> %31, <float 1.000000e+01, float 1.000000e+01>
-  %33 = fptosi <2 x float> %32 to <2 x i16>
-  %34 = insertelement <2 x i16> %2, i16 %6, i64 1
-  %35 = add <2 x i16> %34, %33
-  %36 = sext <2 x i16> %35 to <2 x i32>
-  %37 = add nsw <2 x i32> %36, <i32 -15, i32 -15>
-  %38 = icmp slt <2 x i16> %35, zeroinitializer
-  %39 = select <2 x i1> %38, <2 x i32> %37, <2 x i32> %36
-  %40 = sdiv <2 x i32> %39, <i32 16, i32 16>
-  %41 = shufflevector <2 x i16> %16, <2 x i16> %27, <2 x i32> <i32 0, i32 2>
-  %42 = sext <2 x i16> %41 to <2 x i32>
-  %43 = add nsw <2 x i32> %42, <i32 -15, i32 -15>
-  %44 = icmp slt <2 x i16> %41, zeroinitializer
-  %45 = select <2 x i1> %44, <2 x i32> %43, <2 x i32> %42
-  %46 = sdiv <2 x i32> %45, <i32 16, i32 16>
-  %47 = shufflevector <2 x i16> %16, <2 x i16> %27, <2 x i32> <i32 1, i32 3>
-  %48 = sext <2 x i16> %47 to <2 x i32>
-  %49 = add nsw <2 x i32> %48, <i32 -15, i32 -15>
-  %50 = icmp slt <2 x i16> %47, zeroinitializer
-  %51 = select <2 x i1> %50, <2 x i32> %49, <2 x i32> %48
-  %52 = sdiv <2 x i32> %51, <i32 16, i32 16>
-  %53 = trunc nsw <2 x i32> %52 to <2 x i16>
-  %54 = extractelement <2 x i16> %53, i64 0
-  %55 = extractelement <2 x i16> %53, i64 1
-  %cmp.i.i = icmp ne i16 %54, %55
-  %shift = shufflevector <2 x i32> %40, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %56 = icmp ne <2 x i32> %40, %shift
-  %cmp7.i.i = extractelement <2 x i1> %56, i64 0
+  %28 = extractelement <2 x i16> %27, i64 0
+  %conv.i5.i88 = sext i16 %add8.i68 to i32
+  %add.i8.i90 = add nsw i32 %conv.i5.i88, -15
+  %cmp9.i9.i91 = icmp slt i16 %add8.i68, 0
+  %cond.i10.i92 = select i1 %cmp9.i9.i91, i32 %add.i8.i90, i32 %conv.i5.i88
+  %div.i11.i93 = sdiv i32 %cond.i10.i92, 16
+  %conv.i13.i95 = sext i16 %28 to i32
+  %add.i16.i97 = add nsw i32 %conv.i13.i95, -15
+  %cmp9.i17.i98.not2 = icmp slt i16 %28, 0
+  %cond.i18.i99 = select i1 %cmp9.i17.i98.not2, i32 %add.i16.i97, i32 %conv.i13.i95
+  %div.i19.i100 = sdiv i32 %cond.i18.i99, 16
+  %29 = shufflevector <2 x i16> %15, <2 x i16> %27, <2 x i32> <i32 1, i32 3>
+  %30 = sext <2 x i16> %29 to <2 x i32>
+  %31 = add nsw <2 x i32> %30, <i32 -15, i32 -15>
+  %32 = icmp slt <2 x i16> %29, zeroinitializer
+  %33 = select <2 x i1> %32, <2 x i32> %31, <2 x i32> %30
+  %34 = sdiv <2 x i32> %33, <i32 16, i32 16>
+  %35 = trunc nsw <2 x i32> %34 to <2 x i16>
+  %36 = extractelement <2 x i16> %35, i64 0
+  %37 = extractelement <2 x i16> %35, i64 1
+  %cmp.i.i = icmp ne i16 %36, %37
+  %cmp7.i.i = icmp ne i32 %div.i11.i, %div.i11.i93
   %or.cond.not125 = select i1 %cmp.i.i, i1 true, i1 %cmp7.i.i
-  %shift3 = shufflevector <2 x i32> %46, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %57 = icmp ne <2 x i32> %46, %shift3
-  %cmp11.i.i = extractelement <2 x i1> %57, i64 0
+  %cmp11.i.i = icmp ne i32 %div.i19.i, %div.i19.i100
   %or.cond122 = select i1 %or.cond.not125, i1 true, i1 %cmp11.i.i
   br i1 %or.cond122, label %if.then, label %if.end
 
@@ -2943,14 +2955,12 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %58 = icmp ne <2 x i16> %16, %27
-  %59 = extractelement <2 x i16> %35, i64 0
-  %60 = extractelement <2 x i16> %35, i64 1
-  %cmp7.i.i114 = icmp ne i16 %59, %60
-  %61 = extractelement <2 x i1> %58, i64 1
-  %or.cond123.not126 = select i1 %61, i1 true, i1 %cmp7.i.i114
-  %62 = extractelement <2 x i1> %58, i64 0
-  %or.cond124 = select i1 %or.cond123.not126, i1 true, i1 %62
+  %38 = icmp ne <2 x i16> %15, %27
+  %cmp7.i.i114 = icmp ne i16 %add8.i, %add8.i68
+  %39 = extractelement <2 x i1> %38, i64 1
+  %or.cond123.not126 = select i1 %39, i1 true, i1 %cmp7.i.i114
+  %40 = extractelement <2 x i1> %38, i64 0
+  %or.cond124 = select i1 %or.cond123.not126, i1 true, i1 %40
   br i1 %or.cond124, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.end
@@ -17492,199 +17502,203 @@ if.else12:                                        ; preds = %entry
   %Y.i.i92 = getelementptr inbounds i8, ptr %__k, i64 2
   %34 = load i16, ptr %Y.i.i92, align 2, !tbaa !86
   %Y6.i.i93 = getelementptr inbounds i8, ptr %this, i64 2
+  %35 = load i16, ptr %Y6.i.i93, align 2, !tbaa !86
   %Z.i.i95 = getelementptr inbounds i8, ptr %__k, i64 4
-  %35 = load i16, ptr %Z.i.i95, align 2, !tbaa !87
-  %36 = load <2 x i16>, ptr %Y6.i.i93, align 2, !tbaa !90
-  %37 = load i16, ptr %_M_storage.i.i.i90, align 2, !tbaa !85
+  %36 = load i16, ptr %Z.i.i95, align 2, !tbaa !87
+  %Z11.i.i96 = getelementptr inbounds i8, ptr %this, i64 4
+  %37 = load i16, ptr %Z11.i.i96, align 4, !tbaa !87
+  %38 = load i16, ptr %_M_storage.i.i.i90, align 2, !tbaa !85
   %Y.i14.i104 = getelementptr inbounds i8, ptr %__position.coerce, i64 34
-  %38 = load i16, ptr %Y.i14.i104, align 2, !tbaa !86
+  %39 = load i16, ptr %Y.i14.i104, align 2, !tbaa !86
   %Z.i17.i106 = getelementptr inbounds i8, ptr %__position.coerce, i64 36
-  %39 = load i16, ptr %Z.i17.i106, align 2, !tbaa !87
-  %40 = insertelement <2 x i16> poison, i16 %32, i64 0
-  %41 = insertelement <2 x i16> %40, i16 %37, i64 1
-  %42 = insertelement <2 x i16> poison, i16 %33, i64 0
-  %43 = shufflevector <2 x i16> %42, <2 x i16> poison, <2 x i32> zeroinitializer
-  %44 = sub <2 x i16> %41, %43
-  %45 = insertelement <2 x i16> poison, i16 %34, i64 0
-  %46 = insertelement <2 x i16> %45, i16 %38, i64 1
-  %47 = shufflevector <2 x i16> %36, <2 x i16> poison, <2 x i32> zeroinitializer
-  %48 = sub <2 x i16> %46, %47
-  %49 = insertelement <2 x i16> poison, i16 %35, i64 0
-  %50 = insertelement <2 x i16> %49, i16 %39, i64 1
-  %51 = shufflevector <2 x i16> %36, <2 x i16> poison, <2 x i32> <i32 1, i32 1>
-  %52 = sub <2 x i16> %50, %51
-  %53 = mul <2 x i16> %44, %44
-  %54 = mul <2 x i16> %48, %48
-  %55 = add <2 x i16> %54, %53
-  %56 = mul <2 x i16> %52, %52
-  %57 = add <2 x i16> %55, %56
-  %58 = extractelement <2 x i16> %57, i64 0
-  %59 = extractelement <2 x i16> %57, i64 1
-  %cmp.i113 = icmp sgt i16 %58, %59
+  %40 = load i16, ptr %Z.i17.i106, align 2, !tbaa !87
+  %41 = insertelement <2 x i16> poison, i16 %32, i64 0
+  %42 = insertelement <2 x i16> %41, i16 %38, i64 1
+  %43 = insertelement <2 x i16> poison, i16 %33, i64 0
+  %44 = shufflevector <2 x i16> %43, <2 x i16> poison, <2 x i32> zeroinitializer
+  %45 = sub <2 x i16> %42, %44
+  %46 = insertelement <2 x i16> poison, i16 %34, i64 0
+  %47 = insertelement <2 x i16> %46, i16 %39, i64 1
+  %48 = insertelement <2 x i16> poison, i16 %35, i64 0
+  %49 = shufflevector <2 x i16> %48, <2 x i16> poison, <2 x i32> zeroinitializer
+  %50 = sub <2 x i16> %47, %49
+  %51 = insertelement <2 x i16> poison, i16 %36, i64 0
+  %52 = insertelement <2 x i16> %51, i16 %40, i64 1
+  %53 = insertelement <2 x i16> poison, i16 %37, i64 0
+  %54 = shufflevector <2 x i16> %53, <2 x i16> poison, <2 x i32> zeroinitializer
+  %55 = sub <2 x i16> %52, %54
+  %56 = mul <2 x i16> %45, %45
+  %57 = mul <2 x i16> %50, %50
+  %58 = add <2 x i16> %57, %56
+  %59 = mul <2 x i16> %55, %55
+  %60 = add <2 x i16> %58, %59
+  %61 = extractelement <2 x i16> %60, i64 0
+  %62 = extractelement <2 x i16> %60, i64 1
+  %cmp.i113 = icmp sgt i16 %61, %62
   br i1 %cmp.i113, label %if.then18, label %lor.rhs.i114
 
 lor.rhs.i114:                                     ; preds = %if.else12
-  %cmp7.i115 = icmp eq i16 %58, %59
+  %cmp7.i115 = icmp eq i16 %61, %62
   br i1 %cmp7.i115, label %land.rhs.i116, label %if.else44.thread
 
 land.rhs.i116:                                    ; preds = %lor.rhs.i114
-  %cmp.i.i117 = icmp sgt i16 %32, %37
+  %cmp.i.i117 = icmp sgt i16 %32, %38
   br i1 %cmp.i.i117, label %if.then18, label %lor.lhs.false.i.i118
 
 lor.lhs.false.i.i118:                             ; preds = %land.rhs.i116
-  %cmp8.i.i119 = icmp eq i16 %32, %37
+  %cmp8.i.i119 = icmp eq i16 %32, %38
   br i1 %cmp8.i.i119, label %land.lhs.true.i.i120, label %if.else44.thread20
 
 land.lhs.true.i.i120:                             ; preds = %lor.lhs.false.i.i118
-  %cmp12.i.i121 = icmp sgt i16 %34, %38
+  %cmp12.i.i121 = icmp sgt i16 %34, %39
   br i1 %cmp12.i.i121, label %if.then18, label %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit126
 
 _ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit126: ; preds = %land.lhs.true.i.i120
-  %cmp23.i.i123 = icmp eq i16 %34, %38
-  %cmp27.i.i124 = icmp sgt i16 %35, %39
+  %cmp23.i.i123 = icmp eq i16 %34, %39
+  %cmp27.i.i124 = icmp sgt i16 %36, %40
   %spec.select.i125 = and i1 %cmp23.i.i123, %cmp27.i.i124
   br i1 %spec.select.i125, label %if.then18, label %if.else44
 
 if.then18:                                        ; preds = %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit126, %land.lhs.true.i.i120, %land.rhs.i116, %if.else12
   %_M_left.i = getelementptr inbounds i8, ptr %this, i64 24
-  %60 = load ptr, ptr %_M_left.i, align 8, !tbaa !84
-  %cmp21 = icmp eq ptr %60, %__position.coerce
+  %63 = load ptr, ptr %_M_left.i, align 8, !tbaa !84
+  %cmp21 = icmp eq ptr %63, %__position.coerce
   br i1 %cmp21, label %cleanup80, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #32
   %_M_storage.i.i.i130 = getelementptr inbounds i8, ptr %call.i, i64 32
-  %61 = load i16, ptr %_M_storage.i.i.i130, align 2, !tbaa !85
-  %sub.i.i131 = sub i16 %61, %33
+  %64 = load i16, ptr %_M_storage.i.i.i130, align 2, !tbaa !85
+  %sub.i.i131 = sub i16 %64, %33
   %Y.i.i132 = getelementptr inbounds i8, ptr %call.i, i64 34
+  %65 = load i16, ptr %Y.i.i132, align 2, !tbaa !86
+  %sub8.i.i134 = sub i16 %65, %35
+  %Z.i.i135 = getelementptr inbounds i8, ptr %call.i, i64 36
+  %66 = load i16, ptr %Z.i.i135, align 2, !tbaa !87
+  %sub13.i.i137 = sub i16 %66, %37
   %mul.i.i.i138 = mul i16 %sub.i.i131, %sub.i.i131
-  %62 = load <2 x i16>, ptr %Y.i.i132, align 2, !tbaa !90
-  %63 = sub <2 x i16> %62, %36
-  %64 = mul <2 x i16> %63, %63
-  %65 = extractelement <2 x i16> %64, i64 0
-  %add.i.i.i140 = add i16 %65, %mul.i.i.i138
-  %66 = extractelement <2 x i16> %64, i64 1
-  %add12.i.i.i142 = add i16 %add.i.i.i140, %66
-  %cmp.i153 = icmp sgt i16 %add12.i.i.i142, %58
+  %mul7.i.i.i139 = mul i16 %sub8.i.i134, %sub8.i.i134
+  %add.i.i.i140 = add i16 %mul7.i.i.i139, %mul.i.i.i138
+  %mul11.i.i.i141 = mul i16 %sub13.i.i137, %sub13.i.i137
+  %add12.i.i.i142 = add i16 %add.i.i.i140, %mul11.i.i.i141
+  %cmp.i153 = icmp sgt i16 %add12.i.i.i142, %61
   br i1 %cmp.i153, label %if.then32, label %lor.rhs.i154
 
 lor.rhs.i154:                                     ; preds = %if.else25
-  %cmp7.i155 = icmp eq i16 %add12.i.i.i142, %58
+  %cmp7.i155 = icmp eq i16 %add12.i.i.i142, %61
   br i1 %cmp7.i155, label %land.rhs.i156, label %if.else42
 
 land.rhs.i156:                                    ; preds = %lor.rhs.i154
-  %cmp.i.i157 = icmp sgt i16 %61, %32
+  %cmp.i.i157 = icmp sgt i16 %64, %32
   br i1 %cmp.i.i157, label %if.then32, label %lor.lhs.false.i.i158
 
 lor.lhs.false.i.i158:                             ; preds = %land.rhs.i156
-  %cmp8.i.i159 = icmp eq i16 %61, %32
+  %cmp8.i.i159 = icmp eq i16 %64, %32
   br i1 %cmp8.i.i159, label %land.lhs.true.i.i160, label %if.else42
 
 land.lhs.true.i.i160:                             ; preds = %lor.lhs.false.i.i158
-  %67 = extractelement <2 x i16> %62, i64 0
-  %cmp12.i.i161 = icmp sgt i16 %67, %34
+  %cmp12.i.i161 = icmp sgt i16 %65, %34
   br i1 %cmp12.i.i161, label %if.then32, label %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit166
 
 _ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit166: ; preds = %land.lhs.true.i.i160
-  %cmp23.i.i163 = icmp eq i16 %67, %34
-  %68 = extractelement <2 x i16> %62, i64 1
-  %cmp27.i.i164 = icmp sgt i16 %68, %35
+  %cmp23.i.i163 = icmp eq i16 %65, %34
+  %cmp27.i.i164 = icmp sgt i16 %66, %36
   %spec.select.i165 = and i1 %cmp23.i.i163, %cmp27.i.i164
   br i1 %spec.select.i165, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit166, %land.lhs.true.i.i160, %land.rhs.i156, %if.else25
   %_M_right.i167 = getelementptr inbounds i8, ptr %call.i, i64 24
-  %69 = load ptr, ptr %_M_right.i167, align 8, !tbaa !583
-  %cmp35 = icmp eq ptr %69, null
+  %67 = load ptr, ptr %_M_right.i167, align 8, !tbaa !583
+  %cmp35 = icmp eq ptr %67, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
   %spec.select275 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %cleanup80
 
 if.else42:                                        ; preds = %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit166, %lor.lhs.false.i.i158, %lor.rhs.i154
   %call43 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_EN9ClientMap16MapBlockComparerESaIS8_EE24_M_get_insert_unique_posERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 2 dereferenceable(6) %__k)
-  %70 = extractvalue { ptr, ptr } %call43, 0
-  %71 = extractvalue { ptr, ptr } %call43, 1
+  %68 = extractvalue { ptr, ptr } %call43, 0
+  %69 = extractvalue { ptr, ptr } %call43, 1
   br label %cleanup80
 
 if.else44:                                        ; preds = %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit126
-  %cmp12.i.i201 = icmp sgt i16 %38, %34
-  %cmp27.i.i204 = icmp sgt i16 %39, %35
+  %cmp12.i.i201 = icmp sgt i16 %39, %34
+  %cmp27.i.i204 = icmp sgt i16 %40, %36
   %spec.select.i205 = and i1 %cmp23.i.i123, %cmp27.i.i204
   %or.cond = select i1 %cmp12.i.i201, i1 true, i1 %spec.select.i205
   br i1 %or.cond, label %if.then50, label %cleanup80
 
 if.else44.thread20:                               ; preds = %lor.lhs.false.i.i118
-  %cmp.i.i19722 = icmp sgt i16 %37, %32
+  %cmp.i.i19722 = icmp sgt i16 %38, %32
   br i1 %cmp.i.i19722, label %if.then50, label %cleanup80
 
 if.else44.thread:                                 ; preds = %lor.rhs.i114
-  %cmp.i193278 = icmp sgt i16 %59, %58
+  %cmp.i193278 = icmp sgt i16 %62, %61
   br i1 %cmp.i193278, label %if.then50, label %cleanup80
 
 if.then50:                                        ; preds = %if.else44.thread20, %if.else44.thread, %if.else44
   %_M_right.i207 = getelementptr inbounds i8, ptr %this, i64 32
-  %72 = load ptr, ptr %_M_right.i207, align 8, !tbaa !84
-  %cmp53 = icmp eq ptr %72, %__position.coerce
+  %70 = load ptr, ptr %_M_right.i207, align 8, !tbaa !84
+  %cmp53 = icmp eq ptr %70, %__position.coerce
   br i1 %cmp53, label %cleanup80, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
   %call.i210 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #32
   %_M_storage.i.i.i211 = getelementptr inbounds i8, ptr %call.i210, i64 32
-  %73 = load i16, ptr %_M_storage.i.i.i211, align 2, !tbaa !85
-  %sub.i13.i224 = sub i16 %73, %33
+  %71 = load i16, ptr %_M_storage.i.i.i211, align 2, !tbaa !85
+  %sub.i13.i224 = sub i16 %71, %33
   %Y.i14.i225 = getelementptr inbounds i8, ptr %call.i210, i64 34
+  %72 = load i16, ptr %Y.i14.i225, align 2, !tbaa !86
+  %sub8.i16.i226 = sub i16 %72, %35
+  %Z.i17.i227 = getelementptr inbounds i8, ptr %call.i210, i64 36
+  %73 = load i16, ptr %Z.i17.i227, align 2, !tbaa !87
+  %sub13.i19.i228 = sub i16 %73, %37
   %mul.i.i20.i229 = mul i16 %sub.i13.i224, %sub.i13.i224
-  %74 = load <2 x i16>, ptr %Y.i14.i225, align 2, !tbaa !90
-  %75 = sub <2 x i16> %74, %36
-  %76 = mul <2 x i16> %75, %75
-  %77 = extractelement <2 x i16> %76, i64 0
-  %add.i.i22.i231 = add i16 %77, %mul.i.i20.i229
-  %78 = extractelement <2 x i16> %76, i64 1
-  %add12.i.i24.i233 = add i16 %add.i.i22.i231, %78
-  %cmp.i234 = icmp sgt i16 %58, %add12.i.i24.i233
+  %mul7.i.i21.i230 = mul i16 %sub8.i16.i226, %sub8.i16.i226
+  %add.i.i22.i231 = add i16 %mul7.i.i21.i230, %mul.i.i20.i229
+  %mul11.i.i23.i232 = mul i16 %sub13.i19.i228, %sub13.i19.i228
+  %add12.i.i24.i233 = add i16 %add.i.i22.i231, %mul11.i.i23.i232
+  %cmp.i234 = icmp sgt i16 %61, %add12.i.i24.i233
   br i1 %cmp.i234, label %if.then64, label %lor.rhs.i235
 
 lor.rhs.i235:                                     ; preds = %if.else57
-  %cmp7.i236 = icmp eq i16 %58, %add12.i.i24.i233
+  %cmp7.i236 = icmp eq i16 %61, %add12.i.i24.i233
   br i1 %cmp7.i236, label %land.rhs.i237, label %if.else74
 
 land.rhs.i237:                                    ; preds = %lor.rhs.i235
-  %cmp.i.i238 = icmp sgt i16 %32, %73
+  %cmp.i.i238 = icmp sgt i16 %32, %71
   br i1 %cmp.i.i238, label %if.then64, label %lor.lhs.false.i.i239
 
 lor.lhs.false.i.i239:                             ; preds = %land.rhs.i237
-  %cmp8.i.i240 = icmp eq i16 %32, %73
+  %cmp8.i.i240 = icmp eq i16 %32, %71
   br i1 %cmp8.i.i240, label %land.lhs.true.i.i241, label %if.else74
 
 land.lhs.true.i.i241:                             ; preds = %lor.lhs.false.i.i239
-  %79 = extractelement <2 x i16> %74, i64 0
-  %cmp12.i.i242 = icmp sgt i16 %34, %79
+  %cmp12.i.i242 = icmp sgt i16 %34, %72
   br i1 %cmp12.i.i242, label %if.then64, label %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit247
 
 _ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit247: ; preds = %land.lhs.true.i.i241
-  %cmp23.i.i244 = icmp eq i16 %34, %79
-  %80 = extractelement <2 x i16> %74, i64 1
-  %cmp27.i.i245 = icmp sgt i16 %35, %80
+  %cmp23.i.i244 = icmp eq i16 %34, %72
+  %cmp27.i.i245 = icmp sgt i16 %36, %73
   %spec.select.i246 = and i1 %cmp23.i.i244, %cmp27.i.i245
   br i1 %spec.select.i246, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit247, %land.lhs.true.i.i241, %land.rhs.i237, %if.else57
   %_M_right.i248 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
-  %81 = load ptr, ptr %_M_right.i248, align 8, !tbaa !583
-  %cmp67 = icmp eq ptr %81, null
+  %74 = load ptr, ptr %_M_right.i248, align 8, !tbaa !583
+  %cmp67 = icmp eq ptr %74, null
   %spec.select276 = select i1 %cmp67, ptr null, ptr %call.i210
   %spec.select277 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i210
   br label %cleanup80
 
 if.else74:                                        ; preds = %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit247, %lor.lhs.false.i.i239, %lor.rhs.i235
   %call75 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_EN9ClientMap16MapBlockComparerESaIS8_EE24_M_get_insert_unique_posERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 2 dereferenceable(6) %__k)
-  %82 = extractvalue { ptr, ptr } %call75, 0
-  %83 = extractvalue { ptr, ptr } %call75, 1
+  %75 = extractvalue { ptr, ptr } %call75, 0
+  %76 = extractvalue { ptr, ptr } %call75, 1
   br label %cleanup80
 
 cleanup80:                                        ; preds = %if.else44, %if.else44.thread20, %if.else74, %if.then64, %if.then50, %if.else44.thread, %if.else42, %if.then32, %if.then18, %if.else, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit, %land.lhs.true.i.i, %land.rhs.i, %land.lhs.true
-  %retval.sroa.0.2 = phi ptr [ %30, %if.else ], [ null, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ %70, %if.else42 ], [ %__position.coerce, %if.then18 ], [ %82, %if.else74 ], [ null, %if.then50 ], [ null, %land.lhs.true ], [ null, %land.lhs.true.i.i ], [ null, %land.rhs.i ], [ %spec.select, %if.then32 ], [ %spec.select276, %if.then64 ], [ %__position.coerce, %if.else44.thread ], [ %__position.coerce, %if.else44.thread20 ], [ %__position.coerce, %if.else44 ]
-  %retval.sroa.12.2 = phi ptr [ %31, %if.else ], [ %1, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ %71, %if.else42 ], [ %__position.coerce, %if.then18 ], [ %83, %if.else74 ], [ %__position.coerce, %if.then50 ], [ %1, %land.lhs.true ], [ %1, %land.lhs.true.i.i ], [ %1, %land.rhs.i ], [ %spec.select275, %if.then32 ], [ %spec.select277, %if.then64 ], [ null, %if.else44.thread ], [ null, %if.else44.thread20 ], [ null, %if.else44 ]
+  %retval.sroa.0.2 = phi ptr [ %30, %if.else ], [ null, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ %68, %if.else42 ], [ %__position.coerce, %if.then18 ], [ %75, %if.else74 ], [ null, %if.then50 ], [ null, %land.lhs.true ], [ null, %land.lhs.true.i.i ], [ null, %land.rhs.i ], [ %spec.select, %if.then32 ], [ %spec.select276, %if.then64 ], [ %__position.coerce, %if.else44.thread ], [ %__position.coerce, %if.else44.thread20 ], [ %__position.coerce, %if.else44 ]
+  %retval.sroa.12.2 = phi ptr [ %31, %if.else ], [ %1, %_ZNK9ClientMap16MapBlockComparerclERKN3irr4core8vector3dIsEES6_.exit ], [ %69, %if.else42 ], [ %__position.coerce, %if.then18 ], [ %76, %if.else74 ], [ %__position.coerce, %if.then50 ], [ %1, %land.lhs.true ], [ %1, %land.lhs.true.i.i ], [ %1, %land.rhs.i ], [ %spec.select275, %if.then32 ], [ %spec.select277, %if.then64 ], [ null, %if.else44.thread ], [ null, %if.else44.thread20 ], [ null, %if.else44 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.2, 1
   ret { ptr, ptr } %.fca.1.insert

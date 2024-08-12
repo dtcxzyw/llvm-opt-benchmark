@@ -7750,8 +7750,11 @@ if.else49:                                        ; preds = %if.else44, %_ZNK16i
   br label %if.end57
 
 if.end57:                                         ; preds = %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101, %if.else39, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84, %if.then24, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit, %if.then8, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit38, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit, %if.else34, %if.else49, %if.else18
-  %32 = phi <2 x i16> [ <i16 13, i16 14>, %if.else34 ], [ <i16 5, i16 11>, %if.else49 ], [ <i16 11, i16 6>, %if.else18 ], [ <i16 3, i16 3>, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit ], [ <i16 12, i16 12>, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit38 ], [ <i16 10, i16 7>, %if.then8 ], [ <i16 11, i16 7>, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit ], [ <i16 14, i16 13>, %if.then24 ], [ <i16 15, i16 15>, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84 ], [ <i16 7, i16 9>, %if.else39 ], [ <i16 7, i16 11>, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101 ]
-  store <2 x i16> %32, ptr %r_deps, align 2
+  %.sink105 = phi i16 [ 13, %if.else34 ], [ 5, %if.else49 ], [ 11, %if.else18 ], [ 3, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit ], [ 12, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit38 ], [ 10, %if.then8 ], [ 11, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit ], [ 14, %if.then24 ], [ 15, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84 ], [ 7, %if.else39 ], [ 7, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101 ]
+  %.sink = phi i16 [ 14, %if.else34 ], [ 11, %if.else49 ], [ 6, %if.else18 ], [ 3, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit ], [ 12, %_ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit38 ], [ 7, %if.then8 ], [ 7, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit ], [ 13, %if.then24 ], [ 15, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit84 ], [ 9, %if.else39 ], [ 11, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit101 ]
+  store i16 %.sink105, ptr %r_deps, align 2
+  %m_upper_combine5 = getelementptr inbounds i8, ptr %r_deps, i64 2
+  store i16 %.sink, ptr %m_upper_combine5, align 2
   ret void
 }
 
@@ -9858,8 +9861,11 @@ if.else6.i:                                       ; preds = %lor.rhs.i8.i
   unreachable
 
 _ZN16interval_managerI17im_default_configE7inv_jstERKNS0_8intervalER26interval_deps_combine_rule.exit: ; preds = %entry, %lor.rhs.i.i, %if.else.i, %lor.rhs.i8.i
-  %10 = phi <2 x i16> [ <i16 3, i16 1>, %lor.rhs.i.i ], [ <i16 3, i16 1>, %entry ], [ <i16 2, i16 3>, %lor.rhs.i8.i ], [ <i16 2, i16 3>, %if.else.i ]
-  store <2 x i16> %10, ptr %b_deps, align 2
+  %.sink14.i = phi i16 [ 3, %lor.rhs.i.i ], [ 3, %entry ], [ 2, %lor.rhs.i8.i ], [ 2, %if.else.i ]
+  %.sink.i = phi i16 [ 1, %lor.rhs.i.i ], [ 1, %entry ], [ 3, %lor.rhs.i8.i ], [ 3, %if.else.i ]
+  store i16 %.sink14.i, ptr %b_deps, align 2
+  %m_upper_combine5.i = getelementptr inbounds i8, ptr %b_deps, i64 2
+  store i16 %.sink.i, ptr %m_upper_combine5.i, align 2
   tail call void @_ZN16interval_managerI17im_default_configE3invERKNS0_8intervalERS2_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(65) %a, ptr noundef nonnull align 8 dereferenceable(65) %b)
   ret void
 }
@@ -9905,8 +9911,11 @@ if.else6:                                         ; preds = %lor.rhs.i8
   unreachable
 
 if.end7:                                          ; preds = %if.else, %lor.rhs.i8, %entry, %lor.rhs.i
-  %10 = phi <2 x i16> [ <i16 3, i16 1>, %lor.rhs.i ], [ <i16 3, i16 1>, %entry ], [ <i16 2, i16 3>, %lor.rhs.i8 ], [ <i16 2, i16 3>, %if.else ]
-  store <2 x i16> %10, ptr %b_deps, align 2
+  %.sink14 = phi i16 [ 3, %lor.rhs.i ], [ 3, %entry ], [ 2, %lor.rhs.i8 ], [ 2, %if.else ]
+  %.sink = phi i16 [ 1, %lor.rhs.i ], [ 1, %entry ], [ 3, %lor.rhs.i8 ], [ 3, %if.else ]
+  store i16 %.sink14, ptr %b_deps, align 2
+  %m_upper_combine5 = getelementptr inbounds i8, ptr %b_deps, i64 2
+  store i16 %.sink, ptr %m_upper_combine5, align 2
   ret void
 }
 

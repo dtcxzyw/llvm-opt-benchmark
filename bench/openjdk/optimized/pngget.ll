@@ -1671,57 +1671,57 @@ define hidden range(i32 0, 1025) i32 @png_get_pCAL(ptr noalias noundef readnone 
   %10 = icmp ne ptr %0, null
   %11 = icmp ne ptr %1, null
   %or.cond = and i1 %10, %11
-  br i1 %or.cond, label %12, label %44
+  br i1 %or.cond, label %12, label %41
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1024
   %16 = icmp ne i32 %15, 0
-  %17 = insertelement <4 x ptr> poison, ptr %2, i64 0
-  %18 = insertelement <4 x ptr> %17, ptr %3, i64 1
-  %19 = insertelement <4 x ptr> %18, ptr %4, i64 2
-  %20 = insertelement <4 x ptr> %19, ptr %5, i64 3
+  %17 = icmp ne ptr %2, null
+  %or.cond3 = and i1 %17, %16
+  %18 = icmp ne ptr %3, null
+  %or.cond5 = and i1 %18, %or.cond3
+  %19 = icmp ne ptr %4, null
+  %or.cond7 = and i1 %19, %or.cond5
+  %20 = icmp ne ptr %5, null
+  %or.cond9 = and i1 %20, %or.cond7
   %21 = icmp ne ptr %6, null
+  %or.cond11 = and i1 %21, %or.cond9
   %22 = icmp ne ptr %7, null
+  %or.cond13 = and i1 %22, %or.cond11
   %23 = icmp ne ptr %8, null
-  %24 = icmp eq <4 x ptr> %20, zeroinitializer
-  %25 = bitcast <4 x i1> %24 to i4
-  %26 = icmp eq i4 %25, 0
-  %op.rdx = and i1 %26, %21
-  %op.rdx40 = and i1 %22, %23
-  %op.rdx41 = and i1 %op.rdx, %op.rdx40
-  %op.rdx42 = and i1 %op.rdx41, %16
-  br i1 %op.rdx42, label %27, label %44
+  %or.cond15 = and i1 %23, %or.cond13
+  br i1 %or.cond15, label %24, label %41
 
-27:                                               ; preds = %12
-  %28 = getelementptr inbounds i8, ptr %1, i64 248
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %2, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 256
-  %31 = load i32, ptr %30, align 8
-  store i32 %31, ptr %3, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 260
-  %33 = load i32, ptr %32, align 4
-  store i32 %33, ptr %4, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 280
-  %35 = load i8, ptr %34, align 8
+24:                                               ; preds = %12
+  %25 = getelementptr inbounds i8, ptr %1, i64 248
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %2, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 256
+  %28 = load i32, ptr %27, align 8
+  store i32 %28, ptr %3, align 4
+  %29 = getelementptr inbounds i8, ptr %1, i64 260
+  %30 = load i32, ptr %29, align 4
+  store i32 %30, ptr %4, align 4
+  %31 = getelementptr inbounds i8, ptr %1, i64 280
+  %32 = load i8, ptr %31, align 8
+  %33 = zext i8 %32 to i32
+  store i32 %33, ptr %5, align 4
+  %34 = getelementptr inbounds i8, ptr %1, i64 281
+  %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
-  store i32 %36, ptr %5, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 281
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  store i32 %39, ptr %6, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 264
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 272
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %8, align 8
-  br label %44
+  store i32 %36, ptr %6, align 4
+  %37 = getelementptr inbounds i8, ptr %1, i64 264
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr %7, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 272
+  %40 = load ptr, ptr %39, align 8
+  store ptr %40, ptr %8, align 8
+  br label %41
 
-44:                                               ; preds = %9, %12, %27
-  %.0 = phi i32 [ 1024, %27 ], [ 0, %12 ], [ 0, %9 ]
+41:                                               ; preds = %9, %12, %24
+  %.0 = phi i32 [ 1024, %24 ], [ 0, %12 ], [ 0, %9 ]
   ret i32 %.0
 }
 

@@ -3487,9 +3487,12 @@ entry:
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  %0 = load <2 x i64>, ptr %__args, align 8
-  %1 = load i64, ptr %__args, align 8
-  store <2 x i64> %0, ptr %add.ptr.i.i, align 8
+  %0 = load i64, ptr %__args, align 8
+  store i64 %0, ptr %add.ptr.i.i, align 8
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 16
+  %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %1 = load i64, ptr %second3.i.i.i.i.i, align 8
+  store i64 %1, ptr %second.i.i.i.i.i, align 8
   %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %2, 0
@@ -3498,7 +3501,7 @@ entry:
 invoke.cont21.thread:                             ; preds = %entry
   %_M_bucket_count.i22 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i22, align 8
-  %rem.i.i.i23 = urem i64 %1, %3
+  %rem.i.i.i23 = urem i64 %0, %3
   %4 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %rem.i.i.i23
   %5 = load ptr, ptr %arrayidx.i.i, align 8
@@ -3518,7 +3521,7 @@ for.cond:                                         ; preds = %invoke.cont, %if.th
 invoke.cont:                                      ; preds = %for.cond
   %add.ptr12 = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
   %6 = load i64, ptr %add.ptr12, align 8
-  %cmp.i.i = icmp eq i64 %1, %6
+  %cmp.i.i = icmp eq i64 %0, %6
   br i1 %cmp.i.i, label %if.then.i15, label %for.cond, !llvm.loop !26
 
 _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %if.end34
@@ -3530,18 +3533,18 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_S
 invoke.cont21:                                    ; preds = %for.cond
   %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %_M_bucket_count.i, align 8
-  %rem.i.i.i = urem i64 %1, %8
+  %rem.i.i.i = urem i64 %0, %8
   br label %if.end34
 
 if.end.i.i:                                       ; preds = %invoke.cont21.thread
   %9 = load ptr, ptr %5, align 8
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %add.ptr8.i.i, align 8
-  %cmp.i.i.i9.i.i = icmp eq i64 %1, %10
+  %cmp.i.i.i9.i.i = icmp eq i64 %0, %10
   br i1 %cmp.i.i.i9.i.i, label %if.then.i15, label %if.end3.i.i
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
-  %cmp.i.i.i.i.i = icmp eq i64 %1, %12
+  %cmp.i.i.i.i.i = icmp eq i64 %0, %12
   br i1 %cmp.i.i.i.i.i, label %if.then.i15, label %if.end3.i.i, !llvm.loop !12
 
 if.end3.i.i:                                      ; preds = %if.end.i.i, %for.cond.i.i
@@ -3559,7 +3562,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
 
 if.end34:                                         ; preds = %if.end3.i.i, %lor.lhs.false.i.i, %invoke.cont21, %invoke.cont21.thread
   %rem.i.i.i24 = phi i64 [ %rem.i.i.i, %invoke.cont21 ], [ %rem.i.i.i23, %invoke.cont21.thread ], [ %rem.i.i.i23, %lor.lhs.false.i.i ], [ %rem.i.i.i23, %if.end3.i.i ]
-  %call37 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i24, i64 noundef %1, ptr noundef nonnull %call5.i.i.i.i, i64 noundef 1)
+  %call37 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i24, i64 noundef %0, ptr noundef nonnull %call5.i.i.i.i, i64 noundef 1)
           to label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16 unwind label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImbEEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 if.then.i15:                                      ; preds = %for.cond.i.i, %invoke.cont, %if.end.i.i

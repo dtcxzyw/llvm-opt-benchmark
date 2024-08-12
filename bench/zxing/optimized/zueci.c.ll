@@ -2568,12 +2568,12 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
 4:                                                ; preds = %2
   %5 = trunc nuw nsw i32 %0 to i8
   store i8 %5, ptr %1, align 1
-  br label %126
+  br label %129
 
 6:                                                ; preds = %2
   %7 = tail call i32 @zueci_u_gbk(i32 noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %126
+  br i1 %.not, label %8, label %129
 
 8:                                                ; preds = %6
   %9 = icmp ugt i32 %0, 65535
@@ -2593,37 +2593,37 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   store i8 -2, ptr %1, align 1
   %12 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 81, ptr %12, align 1
-  br label %126
+  br label %129
 
 13:                                               ; preds = %10
   store i8 -2, ptr %1, align 1
   %14 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 82, ptr %14, align 1
-  br label %126
+  br label %129
 
 15:                                               ; preds = %10
   store i8 -2, ptr %1, align 1
   %16 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 83, ptr %16, align 1
-  br label %126
+  br label %129
 
 17:                                               ; preds = %10
   store i8 -2, ptr %1, align 1
   %18 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 108, ptr %18, align 1
-  br label %126
+  br label %129
 
 19:                                               ; preds = %10
   store i8 -2, ptr %1, align 1
   %20 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 118, ptr %20, align 1
-  br label %126
+  br label %129
 
 21:                                               ; preds = %10
   store i8 -2, ptr %1, align 1
   %22 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 -111, ptr %22, align 1
-  br label %126
+  br label %129
 
 23:                                               ; preds = %10
   %24 = add i32 %0, -65536
@@ -2651,7 +2651,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   %40 = add i8 %39, 48
   %41 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %40, ptr %41, align 1
-  br label %126
+  br label %129
 
 42:                                               ; preds = %8
   %43 = add nsw i32 %0, -57344
@@ -2677,7 +2677,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   %54 = add i8 %53, -95
   %55 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %54, ptr %55, align 1
-  br label %126
+  br label %129
 
 56:                                               ; preds = %44
   %57 = add nsw i32 %0, -58566
@@ -2696,7 +2696,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   %66 = trunc i32 %65 to i8
   %67 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %66, ptr %67, align 1
-  br label %126
+  br label %129
 
 68:                                               ; preds = %42
   %69 = add nsw i32 %0, -505
@@ -2736,7 +2736,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   %88 = trunc i16 %85 to i8
   %89 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %88, ptr %89, align 1
-  br label %126
+  br label %129
 
 90:                                               ; preds = %81, %77
   %.182 = phi i32 [ %78, %77 ], [ %.08199, %81 ]
@@ -2749,60 +2749,66 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   br i1 %91, label %92, label %.preheader
 
 92:                                               ; preds = %.loopexit
-  store <4 x i8> <i8 -127, i8 53, i8 -12, i8 55>, ptr %1, align 1
-  br label %126
+  store i8 -127, ptr %1, align 1
+  %93 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 53, ptr %93, align 1
+  %94 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 -12, ptr %94, align 1
+  %95 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 55, ptr %95, align 1
+  br label %129
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
   %.083102 = phi i32 [ %.184, %.preheader ], [ 0, %.loopexit ]
   %.085101 = phi i32 [ %.186, %.preheader ], [ 205, %.loopexit ]
-  %93 = add nsw i32 %.083102, %.085101
-  %94 = ashr i32 %93, 1
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_e, i64 0, i64 %95
-  %97 = load i16, ptr %96, align 2
-  %98 = zext i16 %97 to i32
-  %99 = icmp ult i32 %98, %0
-  %100 = add nsw i32 %94, 1
-  %.186 = select i1 %99, i32 %.085101, i32 %94
-  %.184 = select i1 %99, i32 %100, i32 %.083102
-  %101 = icmp slt i32 %.184, %.186
-  br i1 %101, label %.preheader, label %102, !llvm.loop !17
+  %96 = add nsw i32 %.083102, %.085101
+  %97 = ashr i32 %96, 1
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_e, i64 0, i64 %98
+  %100 = load i16, ptr %99, align 2
+  %101 = zext i16 %100 to i32
+  %102 = icmp ult i32 %101, %0
+  %103 = add nsw i32 %97, 1
+  %.186 = select i1 %102, i32 %.085101, i32 %97
+  %.184 = select i1 %102, i32 %103, i32 %.083102
+  %104 = icmp slt i32 %.184, %.186
+  br i1 %104, label %.preheader, label %105, !llvm.loop !17
 
-102:                                              ; preds = %.preheader
-  %103 = sext i32 %.184 to i64
-  %104 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_mb_o, i64 0, i64 %103
-  %105 = load i16, ptr %104, align 2
-  %106 = zext i16 %105 to i32
-  %107 = sub nsw i32 %0, %106
-  %108 = add nsw i32 %107, -128
-  %109 = udiv i32 %108, 10
-  %.neg.i93 = mul i32 %109, 246
-  %110 = add i32 %.neg.i93, %108
-  %111 = trunc i32 %110 to i8
-  %112 = add i8 %111, 48
-  %113 = getelementptr inbounds i8, ptr %1, i64 3
-  store i8 %112, ptr %113, align 1
-  %114 = udiv i32 %108, 1260
-  %.neg16.i94 = mul nuw nsw i32 %114, 130
-  %115 = add nuw nsw i32 %.neg16.i94, %109
-  %116 = trunc i32 %115 to i8
-  %117 = add i8 %116, -127
-  %118 = getelementptr inbounds i8, ptr %1, i64 2
-  store i8 %117, ptr %118, align 1
-  %119 = udiv i32 %108, 12600
-  %120 = trunc i32 %119 to i8
-  %121 = add i8 %120, -127
-  store i8 %121, ptr %1, align 1
-  %.neg17.i95 = mul nuw nsw i32 %119, 246
-  %122 = add nuw nsw i32 %.neg17.i95, %114
+105:                                              ; preds = %.preheader
+  %106 = sext i32 %.184 to i64
+  %107 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_mb_o, i64 0, i64 %106
+  %108 = load i16, ptr %107, align 2
+  %109 = zext i16 %108 to i32
+  %110 = sub nsw i32 %0, %109
+  %111 = add nsw i32 %110, -128
+  %112 = udiv i32 %111, 10
+  %.neg.i93 = mul i32 %112, 246
+  %113 = add i32 %.neg.i93, %111
+  %114 = trunc i32 %113 to i8
+  %115 = add i8 %114, 48
+  %116 = getelementptr inbounds i8, ptr %1, i64 3
+  store i8 %115, ptr %116, align 1
+  %117 = udiv i32 %111, 1260
+  %.neg16.i94 = mul nuw nsw i32 %117, 130
+  %118 = add nuw nsw i32 %.neg16.i94, %112
+  %119 = trunc i32 %118 to i8
+  %120 = add i8 %119, -127
+  %121 = getelementptr inbounds i8, ptr %1, i64 2
+  store i8 %120, ptr %121, align 1
+  %122 = udiv i32 %111, 12600
   %123 = trunc i32 %122 to i8
-  %124 = add i8 %123, 48
-  %125 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 %124, ptr %125, align 1
-  br label %126
+  %124 = add i8 %123, -127
+  store i8 %124, ptr %1, align 1
+  %.neg17.i95 = mul nuw nsw i32 %122, 246
+  %125 = add nuw nsw i32 %.neg17.i95, %117
+  %126 = trunc i32 %125 to i8
+  %127 = add i8 %126, 48
+  %128 = getelementptr inbounds i8, ptr %1, i64 1
+  store i8 %127, ptr %128, align 1
+  br label %129
 
-126:                                              ; preds = %46, %56, %6, %102, %92, %83, %23, %21, %19, %17, %15, %13, %11, %4
-  %.0 = phi i32 [ 1, %4 ], [ 2, %11 ], [ 2, %13 ], [ 2, %15 ], [ 2, %17 ], [ 2, %19 ], [ 2, %21 ], [ 4, %23 ], [ 2, %83 ], [ 4, %92 ], [ 4, %102 ], [ 2, %6 ], [ 2, %56 ], [ 2, %46 ]
+129:                                              ; preds = %46, %56, %6, %105, %92, %83, %23, %21, %19, %17, %15, %13, %11, %4
+  %.0 = phi i32 [ 1, %4 ], [ 2, %11 ], [ 2, %13 ], [ 2, %15 ], [ 2, %17 ], [ 2, %19 ], [ 2, %21 ], [ 4, %23 ], [ 2, %83 ], [ 4, %92 ], [ 4, %105 ], [ 2, %6 ], [ 2, %56 ], [ 2, %46 ]
   ret i32 %.0
 }
 

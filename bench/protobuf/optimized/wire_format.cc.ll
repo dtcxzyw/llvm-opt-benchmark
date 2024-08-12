@@ -4265,9 +4265,12 @@ if.end.i:                                         ; preds = %if.then8
   %inc.i = add nsw i32 %12, 1
   store i32 %inc.i, ptr %group_depth_.i10, align 4
   %call.i = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat16MessageSetParser14_InternalParseEPKcPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %retval.0.i35, ptr noundef nonnull %ctx)
-  %13 = load <2 x i32>, ptr %depth_.i, align 8
-  %14 = add nsw <2 x i32> %13, <i32 1, i32 -1>
-  store <2 x i32> %14, ptr %depth_.i, align 8
+  %13 = load i32, ptr %group_depth_.i10, align 4
+  %dec14.i = add nsw i32 %13, -1
+  store i32 %dec14.i, ptr %group_depth_.i10, align 4
+  %14 = load i32, ptr %depth_.i, align 8
+  %inc16.i = add nsw i32 %14, 1
+  store i32 %inc16.i, ptr %depth_.i, align 8
   %15 = load i32, ptr %last_tag_minus_1_.i15, align 8
   %cmp.i16 = icmp eq i32 %15, 11
   store i32 0, ptr %last_tag_minus_1_.i15, align 8
@@ -5248,9 +5251,12 @@ if.end.i:                                         ; preds = %if.end268
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %93 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %93(ptr noundef nonnull align 8 dereferenceable(16) %sub_message.0, ptr noundef %ptr, ptr noundef nonnull %ctx)
-  %94 = load <2 x i32>, ptr %depth_.i, align 8
-  %95 = add nsw <2 x i32> %94, <i32 1, i32 -1>
-  store <2 x i32> %95, ptr %depth_.i, align 8
+  %94 = load i32, ptr %group_depth_.i, align 4
+  %dec14.i = add nsw i32 %94, -1
+  store i32 %dec14.i, ptr %group_depth_.i, align 4
+  %95 = load i32, ptr %depth_.i, align 8
+  %inc16.i = add nsw i32 %95, 1
+  store i32 %inc16.i, ptr %depth_.i, align 8
   %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %96 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i416 = icmp eq i32 %96, %conv

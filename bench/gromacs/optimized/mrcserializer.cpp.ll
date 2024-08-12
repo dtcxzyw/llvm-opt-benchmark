@@ -698,42 +698,56 @@ define void @_ZN3gmx30deserializeMrcDensityMapHeaderEPNS_11ISerializerE(ptr dead
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 2, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  store <4 x i8> <i8 77, i8 65, i8 80, i8 32>, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
-  %6 = getelementptr inbounds i8, ptr %0, i64 876
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(864) %5, i8 0, i64 864, i1 false)
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 9.000000e+01>, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 892
-  store <2 x float> <float 9.000000e+01, float 9.000000e+01>, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 900
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 904
-  store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 908
-  store i32 2, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 912
-  %12 = getelementptr inbounds i8, ptr %0, i64 968
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(53) %11, i8 0, i64 53, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, i8 0, i64 72, i1 false)
+  store i8 77, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 9
+  store i8 65, ptr %5, align 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 10
+  store i8 80, ptr %6, align 2
+  %7 = getelementptr inbounds i8, ptr %0, i64 11
+  store i8 32, ptr %7, align 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds i8, ptr %0, i64 876
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(864) %8, i8 0, i64 864, i1 false)
+  store float 1.000000e+00, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 880
+  store float 1.000000e+00, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 884
+  store float 1.000000e+00, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 888
+  store float 9.000000e+01, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 892
+  store float 9.000000e+01, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 896
+  store float 9.000000e+01, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 900
+  store i32 0, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 904
+  store i32 1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 908
+  store i32 2, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 912
+  %19 = getelementptr inbounds i8, ptr %0, i64 968
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(53) %18, i8 0, i64 53, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %19, i8 0, i64 72, i1 false)
   invoke fastcc void @_ZN3gmx12_GLOBAL__N_121doMrcDensityMapHeaderEPNS_11ISerializerEPNS_19MrcDensityMapHeaderE(ptr noundef %1, ptr noundef nonnull %0)
-          to label %18 unwind label %13
+          to label %25 unwind label %20
 
-13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
+20:                                               ; preds = %2
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %0, i64 1016
-  %16 = load ptr, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i.i, label %_ZN3gmx19MrcDensityMapHeaderD2Ev.exit, label %17
+  %22 = getelementptr inbounds i8, ptr %0, i64 1016
+  %23 = load ptr, ptr %22, align 8
+  %.not.i.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i, label %_ZN3gmx19MrcDensityMapHeaderD2Ev.exit, label %24
 
-17:                                               ; preds = %13
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #11
+24:                                               ; preds = %20
+  tail call void @_ZdlPv(ptr noundef nonnull %23) #11
   br label %_ZN3gmx19MrcDensityMapHeaderD2Ev.exit
 
-_ZN3gmx19MrcDensityMapHeaderD2Ev.exit:            ; preds = %13, %17
-  resume { ptr, i32 } %14
+_ZN3gmx19MrcDensityMapHeaderD2Ev.exit:            ; preds = %20, %24
+  resume { ptr, i32 } %21
 
-18:                                               ; preds = %2
+25:                                               ; preds = %2
   ret void
 }
 

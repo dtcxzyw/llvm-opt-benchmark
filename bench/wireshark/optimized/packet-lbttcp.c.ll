@@ -1132,268 +1132,284 @@ lbttcp_packet_is_transport_client.exit:           ; preds = %lbttcp_packet_is_tr
 
 .critedge101:                                     ; preds = %lbttcp_packet_is_transport_source.exit, %lbttcp_packet_is_transport_source.exit.thread163
   %115 = getelementptr inbounds i8, ptr %1, i64 208
-  %116 = getelementptr inbounds i8, ptr %1, i64 216
-  %117 = load ptr, ptr %116, align 8
-  %118 = load <2 x i32>, ptr %115, align 8
-  store <2 x i32> %118, ptr %5, align 8
-  %119 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %117, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr null, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %1, i64 232
-  %122 = getelementptr inbounds i8, ptr %1, i64 240
-  %123 = load ptr, ptr %122, align 8
-  %124 = load <2 x i32>, ptr %121, align 8
-  store <2 x i32> %124, ptr %6, align 8
-  %125 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %123, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr null, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %1, i64 288
-  %.077.in.pre = load i32, ptr %127, align 4
-  br label %141
+  %116 = load i32, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %1, i64 212
+  %118 = load i32, ptr %117, align 4
+  %119 = getelementptr inbounds i8, ptr %1, i64 216
+  %120 = load ptr, ptr %119, align 8
+  store i32 %116, ptr %5, align 8
+  %121 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %118, ptr %121, align 4
+  %122 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %120, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr null, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %1, i64 232
+  %125 = load i32, ptr %124, align 8
+  %126 = getelementptr inbounds i8, ptr %1, i64 236
+  %127 = load i32, ptr %126, align 4
+  %128 = getelementptr inbounds i8, ptr %1, i64 240
+  %129 = load ptr, ptr %128, align 8
+  store i32 %125, ptr %6, align 8
+  %130 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %127, ptr %130, align 4
+  %131 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %129, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr null, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %1, i64 288
+  %.077.in.pre = load i32, ptr %133, align 4
+  br label %153
 
 .critedge:                                        ; preds = %110, %lbttcp_packet_is_transport_client.exit
-  %128 = phi i32 [ %109, %110 ], [ %114, %lbttcp_packet_is_transport_client.exit ]
-  %129 = getelementptr inbounds i8, ptr %1, i64 232
-  %130 = getelementptr inbounds i8, ptr %1, i64 240
-  %131 = load ptr, ptr %130, align 8
-  %132 = load <2 x i32>, ptr %129, align 8
-  store <2 x i32> %132, ptr %5, align 8
-  %133 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %131, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr null, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 208
-  %136 = getelementptr inbounds i8, ptr %1, i64 216
-  %137 = load ptr, ptr %136, align 8
-  %138 = load <2 x i32>, ptr %135, align 8
-  store <2 x i32> %138, ptr %6, align 8
-  %139 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %137, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr null, ptr %140, align 8
-  br label %141
+  %134 = phi i32 [ %109, %110 ], [ %114, %lbttcp_packet_is_transport_client.exit ]
+  %135 = getelementptr inbounds i8, ptr %1, i64 232
+  %136 = load i32, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %1, i64 236
+  %138 = load i32, ptr %137, align 4
+  %139 = getelementptr inbounds i8, ptr %1, i64 240
+  %140 = load ptr, ptr %139, align 8
+  store i32 %136, ptr %5, align 8
+  %141 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %138, ptr %141, align 4
+  %142 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %140, ptr %142, align 8
+  %143 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr null, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %1, i64 208
+  %145 = load i32, ptr %144, align 8
+  %146 = getelementptr inbounds i8, ptr %1, i64 212
+  %147 = load i32, ptr %146, align 4
+  %148 = getelementptr inbounds i8, ptr %1, i64 216
+  %149 = load ptr, ptr %148, align 8
+  store i32 %145, ptr %6, align 8
+  %150 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %147, ptr %150, align 4
+  %151 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %149, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr null, ptr %152, align 8
+  br label %153
 
-141:                                              ; preds = %.critedge, %.critedge101
+153:                                              ; preds = %.critedge, %.critedge101
   %.077.in = phi i32 [ %.077.in.pre, %.critedge101 ], [ %101, %.critedge ]
   %.not90156 = phi i1 [ false, %.critedge101 ], [ true, %.critedge ]
-  %.078.in = phi i32 [ %101, %.critedge101 ], [ %128, %.critedge ]
+  %.078.in = phi i32 [ %101, %.critedge101 ], [ %134, %.critedge ]
   %.077 = trunc i32 %.077.in to i16
   %.078 = trunc i32 %.078.in to i16
-  %142 = getelementptr inbounds i8, ptr %1, i64 20
-  %143 = load i32, ptr %142, align 4
-  %144 = and i32 %.078.in, 65535
-  %145 = call ptr @find_conversation(i32 noundef %143, ptr noundef nonnull %5, ptr noundef nonnull @lbttcp_null_address, i32 noundef 2, i32 noundef %144, i32 noundef 0, i32 noundef 0) #4
-  %.not.i114 = icmp eq ptr %145, null
-  br i1 %.not.i114, label %lbttcp_transport_find.exit.thread, label %146
+  %154 = getelementptr inbounds i8, ptr %1, i64 20
+  %155 = load i32, ptr %154, align 4
+  %156 = and i32 %.078.in, 65535
+  %157 = call ptr @find_conversation(i32 noundef %155, ptr noundef nonnull %5, ptr noundef nonnull @lbttcp_null_address, i32 noundef 2, i32 noundef %156, i32 noundef 0, i32 noundef 0) #4
+  %.not.i114 = icmp eq ptr %157, null
+  br i1 %.not.i114, label %lbttcp_transport_find.exit.thread, label %158
 
-146:                                              ; preds = %141
-  %147 = load i32, ptr @proto_lbttcp, align 4
-  %148 = call ptr @conversation_get_proto_data(ptr noundef nonnull %145, i32 noundef %147) #4
-  %.not10.i115 = icmp eq ptr %148, null
+158:                                              ; preds = %153
+  %159 = load i32, ptr @proto_lbttcp, align 4
+  %160 = call ptr @conversation_get_proto_data(ptr noundef nonnull %157, i32 noundef %159) #4
+  %.not10.i115 = icmp eq ptr %160, null
   br i1 %.not10.i115, label %lbttcp_transport_find.exit.thread, label %lbttcp_transport_find.exit
 
-lbttcp_transport_find.exit:                       ; preds = %146
-  %149 = getelementptr inbounds i8, ptr %148, i64 8
-  %150 = load ptr, ptr %149, align 8
-  %151 = call ptr @wmem_tree_lookup32(ptr noundef %150, i32 noundef 0) #4
-  %152 = icmp eq ptr %151, null
-  br i1 %152, label %lbttcp_transport_find.exit.thread, label %lbttcp_transport_find.exit121.thread180
+lbttcp_transport_find.exit:                       ; preds = %158
+  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %162 = load ptr, ptr %161, align 8
+  %163 = call ptr @wmem_tree_lookup32(ptr noundef %162, i32 noundef 0) #4
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %lbttcp_transport_find.exit.thread, label %lbttcp_transport_find.exit121.thread180
 
-lbttcp_transport_find.exit.thread:                ; preds = %141, %146, %lbttcp_transport_find.exit
-  %153 = load i32, ptr %142, align 4
-  %154 = call ptr @find_conversation(i32 noundef %153, ptr noundef nonnull %5, ptr noundef nonnull @lbttcp_null_address, i32 noundef 2, i32 noundef %144, i32 noundef 0, i32 noundef 0) #4
-  %155 = icmp eq ptr %154, null
-  br i1 %155, label %lbttcp_transport_find.exit121.thread, label %156
+lbttcp_transport_find.exit.thread:                ; preds = %153, %158, %lbttcp_transport_find.exit
+  %165 = load i32, ptr %154, align 4
+  %166 = call ptr @find_conversation(i32 noundef %165, ptr noundef nonnull %5, ptr noundef nonnull @lbttcp_null_address, i32 noundef 2, i32 noundef %156, i32 noundef 0, i32 noundef 0) #4
+  %167 = icmp eq ptr %166, null
+  br i1 %167, label %lbttcp_transport_find.exit121.thread, label %168
 
-156:                                              ; preds = %lbttcp_transport_find.exit.thread
-  %157 = load i32, ptr @proto_lbttcp, align 4
-  %158 = call ptr @conversation_get_proto_data(ptr noundef nonnull %154, i32 noundef %157) #4
-  %159 = icmp eq ptr %158, null
-  br i1 %159, label %lbttcp_transport_find.exit121.thread, label %160
+168:                                              ; preds = %lbttcp_transport_find.exit.thread
+  %169 = load i32, ptr @proto_lbttcp, align 4
+  %170 = call ptr @conversation_get_proto_data(ptr noundef nonnull %166, i32 noundef %169) #4
+  %171 = icmp eq ptr %170, null
+  br i1 %171, label %lbttcp_transport_find.exit121.thread, label %172
 
-160:                                              ; preds = %156
-  %161 = load ptr, ptr %158, align 8
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %lbttcp_transport_find.exit121.thread, label %163
+172:                                              ; preds = %168
+  %173 = load ptr, ptr %170, align 8
+  %174 = icmp eq ptr %173, null
+  br i1 %174, label %lbttcp_transport_find.exit121.thread, label %175
 
-163:                                              ; preds = %160
-  %164 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %161, i32 noundef %153) #4
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %lbttcp_transport_find.exit121.thread, label %166
+175:                                              ; preds = %172
+  %176 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %173, i32 noundef %165) #4
+  %177 = icmp eq ptr %176, null
+  br i1 %177, label %lbttcp_transport_find.exit121.thread, label %178
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds i8, ptr %164, i64 28
-  %168 = load i32, ptr %167, align 4
-  %169 = load i32, ptr %142, align 4
-  %170 = call ptr @find_conversation(i32 noundef %169, ptr noundef nonnull %5, ptr noundef nonnull @lbttcp_null_address, i32 noundef 2, i32 noundef %144, i32 noundef 0, i32 noundef 0) #4
-  %.not.i118 = icmp eq ptr %170, null
-  br i1 %.not.i118, label %lbttcp_transport_find.exit121.thread, label %171
+178:                                              ; preds = %175
+  %179 = getelementptr inbounds i8, ptr %176, i64 28
+  %180 = load i32, ptr %179, align 4
+  %181 = load i32, ptr %154, align 4
+  %182 = call ptr @find_conversation(i32 noundef %181, ptr noundef nonnull %5, ptr noundef nonnull @lbttcp_null_address, i32 noundef 2, i32 noundef %156, i32 noundef 0, i32 noundef 0) #4
+  %.not.i118 = icmp eq ptr %182, null
+  br i1 %.not.i118, label %lbttcp_transport_find.exit121.thread, label %183
 
-171:                                              ; preds = %166
-  %172 = load i32, ptr @proto_lbttcp, align 4
-  %173 = call ptr @conversation_get_proto_data(ptr noundef nonnull %170, i32 noundef %172) #4
-  %.not10.i119 = icmp eq ptr %173, null
+183:                                              ; preds = %178
+  %184 = load i32, ptr @proto_lbttcp, align 4
+  %185 = call ptr @conversation_get_proto_data(ptr noundef nonnull %182, i32 noundef %184) #4
+  %.not10.i119 = icmp eq ptr %185, null
   br i1 %.not10.i119, label %lbttcp_transport_find.exit121.thread, label %lbttcp_transport_find.exit121
 
-lbttcp_transport_find.exit121:                    ; preds = %171
-  %174 = getelementptr inbounds i8, ptr %173, i64 8
-  %175 = load ptr, ptr %174, align 8
-  %176 = call ptr @wmem_tree_lookup32(ptr noundef %175, i32 noundef %168) #4
-  %.not95 = icmp eq ptr %176, null
+lbttcp_transport_find.exit121:                    ; preds = %183
+  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %187 = load ptr, ptr %186, align 8
+  %188 = call ptr @wmem_tree_lookup32(ptr noundef %187, i32 noundef %180) #4
+  %.not95 = icmp eq ptr %188, null
   br i1 %.not95, label %lbttcp_transport_find.exit121.thread, label %lbttcp_transport_find.exit121.thread180
 
 lbttcp_transport_find.exit121.thread180:          ; preds = %lbttcp_transport_find.exit, %lbttcp_transport_find.exit121
-  %.076183 = phi ptr [ %176, %lbttcp_transport_find.exit121 ], [ %151, %lbttcp_transport_find.exit ]
-  %177 = getelementptr inbounds i8, ptr %.076183, i64 32
-  %178 = load i64, ptr %177, align 8
-  %179 = load i32, ptr %142, align 4
-  %180 = getelementptr inbounds i8, ptr %.076183, i64 24
-  %181 = load i16, ptr %180, align 8
-  %182 = zext i16 %181 to i32
-  %183 = and i32 %.077.in, 65535
-  %184 = call ptr @find_conversation(i32 noundef %179, ptr noundef nonnull %.076183, ptr noundef nonnull %6, i32 noundef 2, i32 noundef %182, i32 noundef %183, i32 noundef 0) #4
-  %.not.i122 = icmp eq ptr %184, null
-  br i1 %.not.i122, label %lbttcp_client_transport_find.exit.thread, label %185
+  %.076183 = phi ptr [ %188, %lbttcp_transport_find.exit121 ], [ %163, %lbttcp_transport_find.exit ]
+  %189 = getelementptr inbounds i8, ptr %.076183, i64 32
+  %190 = load i64, ptr %189, align 8
+  %191 = load i32, ptr %154, align 4
+  %192 = getelementptr inbounds i8, ptr %.076183, i64 24
+  %193 = load i16, ptr %192, align 8
+  %194 = zext i16 %193 to i32
+  %195 = and i32 %.077.in, 65535
+  %196 = call ptr @find_conversation(i32 noundef %191, ptr noundef nonnull %.076183, ptr noundef nonnull %6, i32 noundef 2, i32 noundef %194, i32 noundef %195, i32 noundef 0) #4
+  %.not.i122 = icmp eq ptr %196, null
+  br i1 %.not.i122, label %lbttcp_client_transport_find.exit.thread, label %197
 
-185:                                              ; preds = %lbttcp_transport_find.exit121.thread180
-  %186 = load i32, ptr @proto_lbttcp, align 4
-  %187 = call ptr @conversation_get_proto_data(ptr noundef nonnull %184, i32 noundef %186) #4
-  %.not16.i = icmp eq ptr %187, null
+197:                                              ; preds = %lbttcp_transport_find.exit121.thread180
+  %198 = load i32, ptr @proto_lbttcp, align 4
+  %199 = call ptr @conversation_get_proto_data(ptr noundef nonnull %196, i32 noundef %198) #4
+  %.not16.i = icmp eq ptr %199, null
   br i1 %.not16.i, label %lbttcp_client_transport_find.exit.thread, label %lbttcp_client_transport_find.exit
 
-lbttcp_client_transport_find.exit:                ; preds = %185
-  %188 = getelementptr inbounds i8, ptr %.076183, i64 28
-  %189 = load i32, ptr %188, align 4
-  %190 = call ptr @wmem_tree_lookup32(ptr noundef nonnull %187, i32 noundef %189) #4
-  %191 = icmp eq ptr %190, null
-  br i1 %191, label %lbttcp_client_transport_find.exit.thread, label %.thread185
+lbttcp_client_transport_find.exit:                ; preds = %197
+  %200 = getelementptr inbounds i8, ptr %.076183, i64 28
+  %201 = load i32, ptr %200, align 4
+  %202 = call ptr @wmem_tree_lookup32(ptr noundef nonnull %199, i32 noundef %201) #4
+  %203 = icmp eq ptr %202, null
+  br i1 %203, label %lbttcp_client_transport_find.exit.thread, label %.thread185
 
-lbttcp_client_transport_find.exit.thread:         ; preds = %lbttcp_transport_find.exit121.thread180, %185, %lbttcp_client_transport_find.exit
-  %192 = load i32, ptr %142, align 4
-  %193 = call fastcc ptr @lbttcp_client_transport_add(ptr noundef nonnull %.076183, ptr noundef nonnull %6, i16 noundef zeroext %.077, i32 noundef %192)
-  %.not99 = icmp eq ptr %193, null
-  br i1 %.not99, label %218, label %.thread185
+lbttcp_client_transport_find.exit.thread:         ; preds = %lbttcp_transport_find.exit121.thread180, %197, %lbttcp_client_transport_find.exit
+  %204 = load i32, ptr %154, align 4
+  %205 = call fastcc ptr @lbttcp_client_transport_add(ptr noundef nonnull %.076183, ptr noundef nonnull %6, i16 noundef zeroext %.077, i32 noundef %204)
+  %.not99 = icmp eq ptr %205, null
+  br i1 %.not99, label %230, label %.thread185
 
 .thread185:                                       ; preds = %lbttcp_client_transport_find.exit, %lbttcp_client_transport_find.exit.thread
-  %.075188 = phi ptr [ %193, %lbttcp_client_transport_find.exit.thread ], [ %190, %lbttcp_client_transport_find.exit ]
-  %194 = getelementptr inbounds i8, ptr %.075188, i64 28
-  %195 = load i32, ptr %194, align 4
-  br label %218
+  %.075188 = phi ptr [ %205, %lbttcp_client_transport_find.exit.thread ], [ %202, %lbttcp_client_transport_find.exit ]
+  %206 = getelementptr inbounds i8, ptr %.075188, i64 28
+  %207 = load i32, ptr %206, align 4
+  br label %230
 
-lbttcp_transport_find.exit121.thread:             ; preds = %163, %160, %156, %lbttcp_transport_find.exit.thread, %166, %171, %lbttcp_transport_find.exit121
-  %196 = getelementptr inbounds i8, ptr %1, i64 80
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 50
-  %199 = load i16, ptr %198, align 2
-  %200 = and i16 %199, 8
-  %.not96 = icmp eq i16 %200, 0
-  br i1 %.not96, label %212, label %201
+lbttcp_transport_find.exit121.thread:             ; preds = %175, %172, %168, %lbttcp_transport_find.exit.thread, %178, %183, %lbttcp_transport_find.exit121
+  %208 = getelementptr inbounds i8, ptr %1, i64 80
+  %209 = load ptr, ptr %208, align 8
+  %210 = getelementptr inbounds i8, ptr %209, i64 50
+  %211 = load i16, ptr %210, align 2
+  %212 = and i16 %211, 8
+  %.not96 = icmp eq i16 %212, 0
+  br i1 %.not96, label %224, label %213
 
-201:                                              ; preds = %lbttcp_transport_find.exit121.thread
-  %202 = load i32, ptr %142, align 4
-  %203 = call ptr @lbttcp_transport_add(ptr noundef nonnull %5, i16 noundef zeroext %.078, i32 noundef 0, i32 noundef %202)
-  %.not97 = icmp eq ptr %203, null
-  br i1 %.not97, label %218, label %204
+213:                                              ; preds = %lbttcp_transport_find.exit121.thread
+  %214 = load i32, ptr %154, align 4
+  %215 = call ptr @lbttcp_transport_add(ptr noundef nonnull %5, i16 noundef zeroext %.078, i32 noundef 0, i32 noundef %214)
+  %.not97 = icmp eq ptr %215, null
+  br i1 %.not97, label %230, label %216
 
-204:                                              ; preds = %201
-  %205 = getelementptr inbounds i8, ptr %203, i64 32
-  %206 = load i64, ptr %205, align 8
-  %207 = load i32, ptr %142, align 4
-  %208 = call fastcc ptr @lbttcp_client_transport_add(ptr noundef nonnull %203, ptr noundef nonnull %6, i16 noundef zeroext %.077, i32 noundef %207)
-  %.not98 = icmp eq ptr %208, null
-  br i1 %.not98, label %218, label %209
+216:                                              ; preds = %213
+  %217 = getelementptr inbounds i8, ptr %215, i64 32
+  %218 = load i64, ptr %217, align 8
+  %219 = load i32, ptr %154, align 4
+  %220 = call fastcc ptr @lbttcp_client_transport_add(ptr noundef nonnull %215, ptr noundef nonnull %6, i16 noundef zeroext %.077, i32 noundef %219)
+  %.not98 = icmp eq ptr %220, null
+  br i1 %.not98, label %230, label %221
 
-209:                                              ; preds = %204
-  %210 = getelementptr inbounds i8, ptr %208, i64 28
-  %211 = load i32, ptr %210, align 4
-  br label %218
+221:                                              ; preds = %216
+  %222 = getelementptr inbounds i8, ptr %220, i64 28
+  %223 = load i32, ptr %222, align 4
+  br label %230
 
-212:                                              ; preds = %lbttcp_transport_find.exit121.thread
-  br i1 %.not90156, label %215, label %213
+224:                                              ; preds = %lbttcp_transport_find.exit121.thread
+  br i1 %.not90156, label %227, label %225
 
-213:                                              ; preds = %212
-  %214 = call i64 @lbm_channel_assign_unknown_transport_source_lbttcp() #4
-  br label %218
+225:                                              ; preds = %224
+  %226 = call i64 @lbm_channel_assign_unknown_transport_source_lbttcp() #4
+  br label %230
 
-215:                                              ; preds = %212
-  %216 = call i64 @lbm_channel_assign_unknown_transport_client_lbttcp() #4
-  br label %218
+227:                                              ; preds = %224
+  %228 = call i64 @lbm_channel_assign_unknown_transport_client_lbttcp() #4
+  br label %230
 
 lbttcp_packet_is_transport_client.exit.thread:    ; preds = %110, %.thread159, %lbttcp_packet_is_transport_client.exit
-  %217 = tail call i64 @lbm_channel_assign_unknown_stream_tcp() #4
-  br label %218
+  %229 = tail call i64 @lbm_channel_assign_unknown_stream_tcp() #4
+  br label %230
 
-218:                                              ; preds = %.thread185, %lbttcp_client_transport_find.exit.thread, %213, %215, %201, %209, %204, %lbttcp_packet_is_transport_client.exit.thread
-  %.083 = phi i64 [ %178, %.thread185 ], [ %178, %lbttcp_client_transport_find.exit.thread ], [ %206, %209 ], [ %206, %204 ], [ -1, %201 ], [ %214, %213 ], [ %216, %215 ], [ %217, %lbttcp_packet_is_transport_client.exit.thread ]
-  %.082 = phi i32 [ %195, %.thread185 ], [ 0, %lbttcp_client_transport_find.exit.thread ], [ %211, %209 ], [ 0, %204 ], [ 0, %201 ], [ 0, %213 ], [ 0, %215 ], [ 0, %lbttcp_packet_is_transport_client.exit.thread ]
-  %219 = call i32 @lbm_channel_is_known(i64 noundef %.083) #4
-  %.not100 = icmp eq i32 %219, 0
-  br i1 %.not100, label %proto_item_set_generated.exit132, label %220
+230:                                              ; preds = %.thread185, %lbttcp_client_transport_find.exit.thread, %225, %227, %213, %221, %216, %lbttcp_packet_is_transport_client.exit.thread
+  %.083 = phi i64 [ %190, %.thread185 ], [ %190, %lbttcp_client_transport_find.exit.thread ], [ %218, %221 ], [ %218, %216 ], [ -1, %213 ], [ %226, %225 ], [ %228, %227 ], [ %229, %lbttcp_packet_is_transport_client.exit.thread ]
+  %.082 = phi i32 [ %207, %.thread185 ], [ 0, %lbttcp_client_transport_find.exit.thread ], [ %223, %221 ], [ 0, %216 ], [ 0, %213 ], [ 0, %225 ], [ 0, %227 ], [ 0, %lbttcp_packet_is_transport_client.exit.thread ]
+  %231 = call i32 @lbm_channel_is_known(i64 noundef %.083) #4
+  %.not100 = icmp eq i32 %231, 0
+  br i1 %.not100, label %proto_item_set_generated.exit132, label %232
 
-220:                                              ; preds = %218
-  %221 = load i32, ptr @hf_lbttcp_channel, align 4
-  %222 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %221, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
-  %.not.i124 = icmp eq ptr %222, null
-  br i1 %.not.i124, label %proto_item_set_generated.exit126, label %223
+232:                                              ; preds = %230
+  %233 = load i32, ptr @hf_lbttcp_channel, align 4
+  %234 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %233, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
+  %.not.i124 = icmp eq ptr %234, null
+  br i1 %.not.i124, label %proto_item_set_generated.exit126, label %235
 
-223:                                              ; preds = %220
-  %224 = getelementptr inbounds i8, ptr %222, i64 32
-  %225 = load ptr, ptr %224, align 8
-  %.not5.i125 = icmp eq ptr %225, null
-  br i1 %.not5.i125, label %proto_item_set_generated.exit126, label %226
+235:                                              ; preds = %232
+  %236 = getelementptr inbounds i8, ptr %234, i64 32
+  %237 = load ptr, ptr %236, align 8
+  %.not5.i125 = icmp eq ptr %237, null
+  br i1 %.not5.i125, label %proto_item_set_generated.exit126, label %238
 
-226:                                              ; preds = %223
-  %227 = getelementptr inbounds i8, ptr %225, i64 28
-  %228 = load i32, ptr %227, align 4
-  %229 = or i32 %228, 2
-  store i32 %229, ptr %227, align 4
+238:                                              ; preds = %235
+  %239 = getelementptr inbounds i8, ptr %237, i64 28
+  %240 = load i32, ptr %239, align 4
+  %241 = or i32 %240, 2
+  store i32 %241, ptr %239, align 4
   br label %proto_item_set_generated.exit126
 
-proto_item_set_generated.exit126:                 ; preds = %220, %223, %226
-  %230 = load i32, ptr @ett_lbttcp_channel, align 4
-  %231 = call ptr @proto_item_add_subtree(ptr noundef %222, i32 noundef %230) #4
-  %232 = load i32, ptr @hf_lbttcp_channel_id, align 4
-  %233 = call ptr @proto_tree_add_uint64(ptr noundef %231, i32 noundef %232, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %.083) #4
-  %.not.i127 = icmp eq ptr %233, null
-  br i1 %.not.i127, label %proto_item_set_generated.exit129, label %234
+proto_item_set_generated.exit126:                 ; preds = %232, %235, %238
+  %242 = load i32, ptr @ett_lbttcp_channel, align 4
+  %243 = call ptr @proto_item_add_subtree(ptr noundef %234, i32 noundef %242) #4
+  %244 = load i32, ptr @hf_lbttcp_channel_id, align 4
+  %245 = call ptr @proto_tree_add_uint64(ptr noundef %243, i32 noundef %244, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %.083) #4
+  %.not.i127 = icmp eq ptr %245, null
+  br i1 %.not.i127, label %proto_item_set_generated.exit129, label %246
 
-234:                                              ; preds = %proto_item_set_generated.exit126
-  %235 = getelementptr inbounds i8, ptr %233, i64 32
-  %236 = load ptr, ptr %235, align 8
-  %.not5.i128 = icmp eq ptr %236, null
-  br i1 %.not5.i128, label %proto_item_set_generated.exit129, label %237
+246:                                              ; preds = %proto_item_set_generated.exit126
+  %247 = getelementptr inbounds i8, ptr %245, i64 32
+  %248 = load ptr, ptr %247, align 8
+  %.not5.i128 = icmp eq ptr %248, null
+  br i1 %.not5.i128, label %proto_item_set_generated.exit129, label %249
 
-237:                                              ; preds = %234
-  %238 = getelementptr inbounds i8, ptr %236, i64 28
-  %239 = load i32, ptr %238, align 4
-  %240 = or i32 %239, 2
-  store i32 %240, ptr %238, align 4
+249:                                              ; preds = %246
+  %250 = getelementptr inbounds i8, ptr %248, i64 28
+  %251 = load i32, ptr %250, align 4
+  %252 = or i32 %251, 2
+  store i32 %252, ptr %250, align 4
   br label %proto_item_set_generated.exit129
 
-proto_item_set_generated.exit129:                 ; preds = %proto_item_set_generated.exit126, %234, %237
-  %241 = load i32, ptr @hf_lbttcp_channel_client, align 4
-  %242 = call ptr @proto_tree_add_uint(ptr noundef %231, i32 noundef %241, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.082) #4
-  %.not.i130 = icmp eq ptr %242, null
-  br i1 %.not.i130, label %proto_item_set_generated.exit132, label %243
+proto_item_set_generated.exit129:                 ; preds = %proto_item_set_generated.exit126, %246, %249
+  %253 = load i32, ptr @hf_lbttcp_channel_client, align 4
+  %254 = call ptr @proto_tree_add_uint(ptr noundef %243, i32 noundef %253, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.082) #4
+  %.not.i130 = icmp eq ptr %254, null
+  br i1 %.not.i130, label %proto_item_set_generated.exit132, label %255
 
-243:                                              ; preds = %proto_item_set_generated.exit129
-  %244 = getelementptr inbounds i8, ptr %242, i64 32
-  %245 = load ptr, ptr %244, align 8
-  %.not5.i131 = icmp eq ptr %245, null
-  br i1 %.not5.i131, label %proto_item_set_generated.exit132, label %246
+255:                                              ; preds = %proto_item_set_generated.exit129
+  %256 = getelementptr inbounds i8, ptr %254, i64 32
+  %257 = load ptr, ptr %256, align 8
+  %.not5.i131 = icmp eq ptr %257, null
+  br i1 %.not5.i131, label %proto_item_set_generated.exit132, label %258
 
-246:                                              ; preds = %243
-  %247 = getelementptr inbounds i8, ptr %245, i64 28
-  %248 = load i32, ptr %247, align 4
-  %249 = or i32 %248, 2
-  store i32 %249, ptr %247, align 4
+258:                                              ; preds = %255
+  %259 = getelementptr inbounds i8, ptr %257, i64 28
+  %260 = load i32, ptr %259, align 4
+  %261 = or i32 %260, 2
+  store i32 %261, ptr %259, align 4
   br label %proto_item_set_generated.exit132
 
-proto_item_set_generated.exit132:                 ; preds = %246, %243, %proto_item_set_generated.exit129, %218
-  %250 = call i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.079143151, i64 noundef %.083) #4
-  ret i32 %250
+proto_item_set_generated.exit132:                 ; preds = %258, %255, %proto_item_set_generated.exit129, %230
+  %262 = call i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.079143151, i64 noundef %.083) #4
+  ret i32 %262
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1

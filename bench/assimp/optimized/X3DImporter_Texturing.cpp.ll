@@ -1068,9 +1068,15 @@ entry:
   %ref.tmp29 = alloca %"class.std::allocator", align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %use) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %def) #17
-  store <2 x float> zeroinitializer, ptr %center, align 8
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %scale, align 8
-  store <2 x float> zeroinitializer, ptr %translation, align 8
+  store float 0.000000e+00, ptr %center, align 8
+  %y.i = getelementptr inbounds i8, ptr %center, i64 4
+  store float 0.000000e+00, ptr %y.i, align 4
+  store float 1.000000e+00, ptr %scale, align 8
+  %y.i12 = getelementptr inbounds i8, ptr %scale, i64 4
+  store float 1.000000e+00, ptr %y.i12, align 4
+  store float 0.000000e+00, ptr %translation, align 8
+  %y.i13 = getelementptr inbounds i8, ptr %translation, i64 4
+  store float 0.000000e+00, ptr %y.i13, align 4
   %0 = load ptr, ptr %node, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %do.end, label %if.end.i.i
@@ -1237,7 +1243,9 @@ invoke.cont21:                                    ; preds = %if.else
   store i32 40, ptr %Type.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV30X3DNodeElementTextureTransform, i64 16), ptr %call19, align 8
   %Center.i = getelementptr inbounds i8, ptr %call19, i64 76
-  store <2 x float> zeroinitializer, ptr %Center.i, align 4
+  store float 0.000000e+00, ptr %Center.i, align 4
+  %y.i.i = getelementptr inbounds i8, ptr %call19, i64 80
+  store float 0.000000e+00, ptr %y.i.i, align 4
   %Scale.i = getelementptr inbounds i8, ptr %call19, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Scale.i, i8 0, i64 16, i1 false)
   %call22 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %def) #17

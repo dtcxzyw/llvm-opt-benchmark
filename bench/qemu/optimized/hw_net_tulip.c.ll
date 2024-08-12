@@ -1219,11 +1219,23 @@ trace_tulip_reset.exit:                           ; preds = %entry, %land.lhs.tr
   %arrayidx4 = getelementptr i8, ptr %s, i64 11400
   store i32 -1, ptr %arrayidx4, align 8
   %arrayidx6 = getelementptr i8, ptr %s, i64 11412
-  store <4 x i32> <i32 -268435456, i32 838860864, i32 -201457664, i32 -536870912>, ptr %arrayidx6, align 4
+  store i32 -268435456, ptr %arrayidx6, align 4
+  %arrayidx8 = getelementptr i8, ptr %s, i64 11416
+  store i32 838860864, ptr %arrayidx8, align 8
+  %arrayidx10 = getelementptr i8, ptr %s, i64 11420
+  store i32 -201457664, ptr %arrayidx10, align 4
+  %arrayidx12 = getelementptr i8, ptr %s, i64 11424
+  store i32 -536870912, ptr %arrayidx12, align 16
   %arrayidx14 = getelementptr i8, ptr %s, i64 11428
   store i32 -752641, ptr %arrayidx14, align 4
   %arrayidx16 = getelementptr i8, ptr %s, i64 11436
-  store <4 x i32> <i32 -131072, i32 198, i32 -65536, i32 -1>, ptr %arrayidx16, align 4
+  store i32 -131072, ptr %arrayidx16, align 4
+  %arrayidx18 = getelementptr i8, ptr %s, i64 11440
+  store i32 198, ptr %arrayidx18, align 16
+  %arrayidx20 = getelementptr i8, ptr %s, i64 11444
+  store i32 -65536, ptr %arrayidx20, align 4
+  %arrayidx22 = getelementptr i8, ptr %s, i64 11448
+  store i32 -1, ptr %arrayidx22, align 8
   %arrayidx24 = getelementptr i8, ptr %s, i64 11452
   store i32 -1880096768, ptr %arrayidx24, align 4
   ret void

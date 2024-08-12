@@ -32,13 +32,19 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Bbr_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, i8 0, i64 36, i1 false)
-  store <4 x i32> <i32 50000, i32 1000, i32 1, i32 1>, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 -1, ptr %5, align 4
+  store i32 50000, ptr %2, align 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 1000, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 1, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 1, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 1, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  store i32 -1, ptr %8, align 4
   ret void
 }
 

@@ -5682,7 +5682,7 @@ define void @_ZN6Gluco26Solver11cancelUntilEi(ptr noundef nonnull align 8 derefe
   %.sink15.i.sroa.gep49 = getelementptr inbounds i8, ptr %3, i64 8
   %.sink15.i.sroa.gep51 = getelementptr inbounds i8, ptr %4, i64 12
   %.sink15.i.sroa.gep52 = getelementptr inbounds i8, ptr %3, i64 12
-  br i1 %7, label %8, label %234
+  br i1 %7, label %8, label %233
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 88
@@ -5697,7 +5697,7 @@ define void @_ZN6Gluco26Solver11cancelUntilEi(ptr noundef nonnull align 8 derefe
   %18 = getelementptr inbounds i32, ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4
   %.not.not4664 = icmp sgt i32 %14, %19
-  br i1 %11, label %20, label %174
+  br i1 %11, label %20, label %173
 
 20:                                               ; preds = %8
   br i1 %.not.not4664, label %.lr.ph66, label %._crit_edge
@@ -5798,8 +5798,8 @@ define void @_ZN6Gluco26Solver11cancelUntilEi(ptr noundef nonnull align 8 derefe
   %.not67 = icmp eq i32 %80, -1
   br i1 %.not67, label %._crit_edge71, label %.lr.ph70
 
-.lr.ph70:                                         ; preds = %77, %172
-  %.04168 = phi i32 [ %84, %172 ], [ %80, %77 ]
+.lr.ph70:                                         ; preds = %77, %171
+  %.04168 = phi i32 [ %84, %171 ], [ %80, %77 ]
   %81 = load ptr, ptr %66, align 8
   %82 = sext i32 %.04168 to i64
   %83 = getelementptr inbounds i32, ptr %81, i64 %82
@@ -5814,7 +5814,7 @@ define void @_ZN6Gluco26Solver11cancelUntilEi(ptr noundef nonnull align 8 derefe
   %90 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %88, i64 %89, i32 1
   %91 = load i32, ptr %90, align 4
   %.not47 = icmp sgt i32 %91, %1
-  br i1 %.not47, label %172, label %92
+  br i1 %.not47, label %171, label %92
 
 92:                                               ; preds = %.lr.ph70
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -5891,211 +5891,214 @@ _ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit.thread.i
   %133 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %131, i64 %132
   %.sroa.0.0.copyload.i.i = load double, ptr %133, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %133, i64 8
-  %134 = load <2 x i32>, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %.sroa.3.0.copyload.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %133, i64 12
+  %.sroa.5.0.copyload.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i, align 4
   %.not22.i.i = icmp eq i32 %130, 0
   %.pre29.i.i = sext i32 %.sroa.3.0.copyload.i.i to i64
   br i1 %.not22.i.i, label %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit.i, label %.lr.ph.i.i
 
-.split13.loopexit.i.i:                            ; preds = %158
+.split13.loopexit.i.i:                            ; preds = %157
   %.pre.i.i = load ptr, ptr %75, align 8
   br label %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit.i
 
-.lr.ph.i.i:                                       ; preds = %124, %158
-  %.01223.i.i = phi i32 [ %.024.i.i, %158 ], [ %130, %124 ]
+.lr.ph.i.i:                                       ; preds = %124, %157
+  %.01223.i.i = phi i32 [ %.024.i.i, %157 ], [ %130, %124 ]
   %.024.in.i.i = add nsw i32 %.01223.i.i, -1
   %.024.i.i = ashr i32 %.024.in.i.i, 1
-  %135 = load ptr, ptr %75, align 8
-  %136 = sext i32 %.024.i.i to i64
-  %137 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %135, i64 %136
-  %138 = load double, ptr %137, align 8
-  %139 = fcmp une double %.sroa.0.0.copyload.i.i, %138
-  br i1 %139, label %140, label %142
+  %134 = load ptr, ptr %75, align 8
+  %135 = sext i32 %.024.i.i to i64
+  %136 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %134, i64 %135
+  %137 = load double, ptr %136, align 8
+  %138 = fcmp une double %.sroa.0.0.copyload.i.i, %137
+  br i1 %138, label %139, label %141
 
-140:                                              ; preds = %.lr.ph.i.i
-  %141 = fcmp ogt double %.sroa.0.0.copyload.i.i, %138
-  br i1 %141, label %158, label %.split.i.i
+139:                                              ; preds = %.lr.ph.i.i
+  %140 = fcmp ogt double %.sroa.0.0.copyload.i.i, %137
+  br i1 %140, label %157, label %.split.i.i
 
-142:                                              ; preds = %.lr.ph.i.i
-  %143 = load ptr, ptr %72, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 728
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %145, i64 %.pre29.i.i, i32 1
-  %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %137, i64 8
-  %149 = load i32, ptr %148, align 8
-  %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %145, i64 %150, i32 1
-  %152 = load i32, ptr %151, align 4
-  %.not.i.i.i = icmp eq i32 %147, %152
-  br i1 %.not.i.i.i, label %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i.i, label %153
+141:                                              ; preds = %.lr.ph.i.i
+  %142 = load ptr, ptr %72, align 8
+  %143 = getelementptr inbounds i8, ptr %142, i64 728
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %144, i64 %.pre29.i.i, i32 1
+  %146 = load i32, ptr %145, align 4
+  %147 = getelementptr inbounds i8, ptr %136, i64 8
+  %148 = load i32, ptr %147, align 8
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %144, i64 %149, i32 1
+  %151 = load i32, ptr %150, align 4
+  %.not.i.i.i = icmp eq i32 %146, %151
+  br i1 %.not.i.i.i, label %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i.i, label %152
 
-153:                                              ; preds = %142
-  %154 = icmp slt i32 %147, %152
-  br i1 %154, label %158, label %.split.i.i
+152:                                              ; preds = %141
+  %153 = icmp slt i32 %146, %151
+  br i1 %153, label %157, label %.split.i.i
 
-_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i.i: ; preds = %142
-  %155 = icmp sgt i32 %.sroa.3.0.copyload.i.i, %149
-  br i1 %155, label %158, label %.split.i.i
+_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i.i: ; preds = %141
+  %154 = icmp sgt i32 %.sroa.3.0.copyload.i.i, %148
+  br i1 %154, label %157, label %.split.i.i
 
-.split.i.i:                                       ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i.i, %153, %140
-  %156 = sext i32 %.01223.i.i to i64
-  %157 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %135, i64 %156
+.split.i.i:                                       ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i.i, %152, %139
+  %155 = sext i32 %.01223.i.i to i64
+  %156 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %134, i64 %155
   br label %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit.i
 
-158:                                              ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i.i, %153, %140
-  %159 = sext i32 %.01223.i.i to i64
-  %160 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %135, i64 %159
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull align 8 dereferenceable(16) %137, i64 16, i1 false)
-  %161 = load ptr, ptr %75, align 8
-  %162 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %161, i64 %136, i32 1
-  %163 = load i32, ptr %162, align 8
-  %164 = load ptr, ptr %74, align 8
-  %165 = sext i32 %163 to i64
-  %166 = getelementptr inbounds i32, ptr %164, i64 %165
-  store i32 %.01223.i.i, ptr %166, align 4
+157:                                              ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i.i, %152, %139
+  %158 = sext i32 %.01223.i.i to i64
+  %159 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %134, i64 %158
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull align 8 dereferenceable(16) %136, i64 16, i1 false)
+  %160 = load ptr, ptr %75, align 8
+  %161 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %160, i64 %135, i32 1
+  %162 = load i32, ptr %161, align 8
+  %163 = load ptr, ptr %74, align 8
+  %164 = sext i32 %162 to i64
+  %165 = getelementptr inbounds i32, ptr %163, i64 %164
+  store i32 %.01223.i.i, ptr %165, align 4
   %.not.i.i = icmp ult i32 %.024.in.i.i, 2
   br i1 %.not.i.i, label %.split13.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !35
 
 _ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit.i: ; preds = %.split.i.i, %.split13.loopexit.i.i, %124
   %.01219.i.i = phi i32 [ %.01223.i.i, %.split.i.i ], [ %.024.i.i, %.split13.loopexit.i.i ], [ 0, %124 ]
-  %phi.call.i.i = phi ptr [ %157, %.split.i.i ], [ %.pre.i.i, %.split13.loopexit.i.i ], [ %131, %124 ]
+  %phi.call.i.i = phi ptr [ %156, %.split.i.i ], [ %.pre.i.i, %.split13.loopexit.i.i ], [ %131, %124 ]
   store double %.sroa.0.0.copyload.i.i, ptr %phi.call.i.i, align 8
   %.sroa.3.0.phi.call.sroa_idx.i.i = getelementptr inbounds i8, ptr %phi.call.i.i, i64 8
-  store <2 x i32> %134, ptr %.sroa.3.0.phi.call.sroa_idx.i.i, align 8
-  %167 = load ptr, ptr %74, align 8
-  %168 = getelementptr inbounds i32, ptr %167, i64 %.pre29.i.i
-  store i32 %.01219.i.i, ptr %168, align 4
-  %169 = load ptr, ptr %74, align 8
-  %170 = getelementptr inbounds i32, ptr %169, i64 %89
-  %171 = load i32, ptr %170, align 4
-  call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE13percolateDownEi(ptr noundef nonnull align 8 dereferenceable(40) %72, i32 noundef %171)
+  store i32 %.sroa.3.0.copyload.i.i, ptr %.sroa.3.0.phi.call.sroa_idx.i.i, align 8
+  %.sroa.5.0.phi.call.sroa_idx.i.i = getelementptr inbounds i8, ptr %phi.call.i.i, i64 12
+  store i32 %.sroa.5.0.copyload.i.i, ptr %.sroa.5.0.phi.call.sroa_idx.i.i, align 4
+  %166 = load ptr, ptr %74, align 8
+  %167 = getelementptr inbounds i32, ptr %166, i64 %.pre29.i.i
+  store i32 %.01219.i.i, ptr %167, align 4
+  %168 = load ptr, ptr %74, align 8
+  %169 = getelementptr inbounds i32, ptr %168, i64 %89
+  %170 = load i32, ptr %169, align 4
+  call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE13percolateDownEi(ptr noundef nonnull align 8 dereferenceable(40) %72, i32 noundef %170)
   br label %_ZN6Gluco26Solver13pushJustQueueEii.exit
 
 _ZN6Gluco26Solver13pushJustQueueEii.exit:         ; preds = %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit.i, %_ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit.thread.i, %92
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %172
+  br label %171
 
-172:                                              ; preds = %_ZN6Gluco26Solver13pushJustQueueEii.exit, %.lr.ph70
+171:                                              ; preds = %_ZN6Gluco26Solver13pushJustQueueEii.exit, %.lr.ph70
   %.not = icmp eq i32 %84, -1
   br i1 %.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !36
 
-._crit_edge71:                                    ; preds = %172, %77
+._crit_edge71:                                    ; preds = %171, %77
   %indvars.iv.next84 = add nsw i64 %indvars.iv83, -1
-  %173 = icmp sgt i64 %indvars.iv.next84, %16
-  br i1 %173, label %77, label %.loopexit.loopexit, !llvm.loop !37
+  %172 = icmp sgt i64 %indvars.iv.next84, %16
+  br i1 %172, label %77, label %.loopexit.loopexit, !llvm.loop !37
 
-174:                                              ; preds = %8
+173:                                              ; preds = %8
   br i1 %.not.not4664, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %174
-  %175 = getelementptr inbounds i8, ptr %0, i64 632
-  %176 = getelementptr inbounds i8, ptr %0, i64 236
-  %177 = getelementptr inbounds i8, ptr %0, i64 648
-  %178 = getelementptr inbounds i8, ptr %0, i64 776
-  %179 = getelementptr inbounds i8, ptr %0, i64 808
-  %180 = getelementptr inbounds i8, ptr %0, i64 800
-  %181 = getelementptr inbounds i8, ptr %0, i64 664
-  %182 = sext i32 %14 to i64
-  br label %183
+.lr.ph:                                           ; preds = %173
+  %174 = getelementptr inbounds i8, ptr %0, i64 632
+  %175 = getelementptr inbounds i8, ptr %0, i64 236
+  %176 = getelementptr inbounds i8, ptr %0, i64 648
+  %177 = getelementptr inbounds i8, ptr %0, i64 776
+  %178 = getelementptr inbounds i8, ptr %0, i64 808
+  %179 = getelementptr inbounds i8, ptr %0, i64 800
+  %180 = getelementptr inbounds i8, ptr %0, i64 664
+  %181 = sext i32 %14 to i64
+  br label %182
 
-183:                                              ; preds = %.lr.ph, %_ZN6Gluco26Solver14insertVarOrderEi.exit
-  %indvars.iv = phi i64 [ %182, %.lr.ph ], [ %indvars.iv.next, %_ZN6Gluco26Solver14insertVarOrderEi.exit ]
+182:                                              ; preds = %.lr.ph, %_ZN6Gluco26Solver14insertVarOrderEi.exit
+  %indvars.iv = phi i64 [ %181, %.lr.ph ], [ %indvars.iv.next, %_ZN6Gluco26Solver14insertVarOrderEi.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %184 = load ptr, ptr %12, align 8
-  %185 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %184, i64 %indvars.iv.next
-  %.sroa.01.0.copyload = load i32, ptr %185, align 4
-  %186 = ashr i32 %.sroa.01.0.copyload, 1
-  %187 = load ptr, ptr %175, align 8
-  %188 = sext i32 %186 to i64
-  %189 = getelementptr inbounds %"class.Gluco2::lbool", ptr %187, i64 %188
-  store i8 2, ptr %189, align 1
-  %190 = load i32, ptr %176, align 4
-  %191 = icmp sgt i32 %190, 1
-  br i1 %191, label %203, label %192
+  %183 = load ptr, ptr %12, align 8
+  %184 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %183, i64 %indvars.iv.next
+  %.sroa.01.0.copyload = load i32, ptr %184, align 4
+  %185 = ashr i32 %.sroa.01.0.copyload, 1
+  %186 = load ptr, ptr %174, align 8
+  %187 = sext i32 %185 to i64
+  %188 = getelementptr inbounds %"class.Gluco2::lbool", ptr %186, i64 %187
+  store i8 2, ptr %188, align 1
+  %189 = load i32, ptr %175, align 4
+  %190 = icmp sgt i32 %189, 1
+  br i1 %190, label %202, label %191
 
-192:                                              ; preds = %183
-  %193 = icmp eq i32 %190, 1
-  br i1 %193, label %194, label %210
+191:                                              ; preds = %182
+  %192 = icmp eq i32 %189, 1
+  br i1 %192, label %193, label %209
 
-194:                                              ; preds = %192
-  %195 = load ptr, ptr %15, align 8
-  %196 = load i32, ptr %5, align 8
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr i32, ptr %195, i64 %197
-  %199 = getelementptr i8, ptr %198, i64 -4
-  %200 = load i32, ptr %199, align 4
-  %201 = sext i32 %200 to i64
-  %202 = icmp sgt i64 %indvars.iv.next, %201
-  br i1 %202, label %203, label %210
+193:                                              ; preds = %191
+  %194 = load ptr, ptr %15, align 8
+  %195 = load i32, ptr %5, align 8
+  %196 = sext i32 %195 to i64
+  %197 = getelementptr i32, ptr %194, i64 %196
+  %198 = getelementptr i8, ptr %197, i64 -4
+  %199 = load i32, ptr %198, align 4
+  %200 = sext i32 %199 to i64
+  %201 = icmp sgt i64 %indvars.iv.next, %200
+  br i1 %201, label %202, label %209
 
-203:                                              ; preds = %194, %183
-  %204 = load ptr, ptr %12, align 8
-  %205 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %204, i64 %indvars.iv.next
-  %.sroa.0.0.copyload = load i32, ptr %205, align 4
-  %206 = trunc i32 %.sroa.0.0.copyload to i8
-  %207 = and i8 %206, 1
-  %208 = load ptr, ptr %177, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 %188
-  store i8 %207, ptr %209, align 1
-  br label %210
+202:                                              ; preds = %193, %182
+  %203 = load ptr, ptr %12, align 8
+  %204 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %203, i64 %indvars.iv.next
+  %.sroa.0.0.copyload = load i32, ptr %204, align 4
+  %205 = trunc i32 %.sroa.0.0.copyload to i8
+  %206 = and i8 %205, 1
+  %207 = load ptr, ptr %176, align 8
+  %208 = getelementptr inbounds i8, ptr %207, i64 %187
+  store i8 %206, ptr %208, align 1
+  br label %209
 
-210:                                              ; preds = %203, %194, %192
-  %211 = load i32, ptr %9, align 8
-  %.not.i = icmp eq i32 %211, 0
-  br i1 %.not.i, label %212, label %_ZN6Gluco26Solver14insertVarOrderEi.exit
+209:                                              ; preds = %202, %193, %191
+  %210 = load i32, ptr %9, align 8
+  %.not.i = icmp eq i32 %210, 0
+  br i1 %.not.i, label %211, label %_ZN6Gluco26Solver14insertVarOrderEi.exit
 
-212:                                              ; preds = %210
-  %213 = load i32, ptr %179, align 8
-  %214 = icmp sgt i32 %213, %186
-  br i1 %214, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i
+211:                                              ; preds = %209
+  %212 = load i32, ptr %178, align 8
+  %213 = icmp sgt i32 %212, %185
+  br i1 %213, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i
 
-_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i: ; preds = %212
-  %215 = load ptr, ptr %180, align 8
-  %216 = getelementptr inbounds i32, ptr %215, i64 %188
-  %217 = load i32, ptr %216, align 4
-  %218 = icmp sgt i32 %217, -1
-  br i1 %218, label %_ZN6Gluco26Solver14insertVarOrderEi.exit, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i
+_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i: ; preds = %211
+  %214 = load ptr, ptr %179, align 8
+  %215 = getelementptr inbounds i32, ptr %214, i64 %187
+  %216 = load i32, ptr %215, align 4
+  %217 = icmp sgt i32 %216, -1
+  br i1 %217, label %_ZN6Gluco26Solver14insertVarOrderEi.exit, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i
 
-_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i: ; preds = %212, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i
-  %219 = load ptr, ptr %181, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 %188
-  %221 = load i8, ptr %220, align 1
-  %.not3.i = icmp eq i8 %221, 0
-  br i1 %.not3.i, label %_ZN6Gluco26Solver14insertVarOrderEi.exit, label %222
+_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i: ; preds = %211, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i
+  %218 = load ptr, ptr %180, align 8
+  %219 = getelementptr inbounds i8, ptr %218, i64 %187
+  %220 = load i8, ptr %219, align 1
+  %.not3.i = icmp eq i8 %220, 0
+  br i1 %.not3.i, label %_ZN6Gluco26Solver14insertVarOrderEi.exit, label %221
 
-222:                                              ; preds = %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i
-  tail call void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %178, i32 noundef %186)
+221:                                              ; preds = %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i
+  tail call void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %177, i32 noundef %185)
   br label %_ZN6Gluco26Solver14insertVarOrderEi.exit
 
-_ZN6Gluco26Solver14insertVarOrderEi.exit:         ; preds = %210, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i, %222
-  %223 = load ptr, ptr %15, align 8
-  %224 = getelementptr inbounds i32, ptr %223, i64 %16
-  %225 = load i32, ptr %224, align 4
-  %226 = sext i32 %225 to i64
-  %.not.not = icmp sgt i64 %indvars.iv.next, %226
-  br i1 %.not.not, label %183, label %.loopexit, !llvm.loop !38
+_ZN6Gluco26Solver14insertVarOrderEi.exit:         ; preds = %209, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i, %221
+  %222 = load ptr, ptr %15, align 8
+  %223 = getelementptr inbounds i32, ptr %222, i64 %16
+  %224 = load i32, ptr %223, align 4
+  %225 = sext i32 %224 to i64
+  %.not.not = icmp sgt i64 %indvars.iv.next, %225
+  br i1 %.not.not, label %182, label %.loopexit, !llvm.loop !38
 
 .loopexit.loopexit:                               ; preds = %._crit_edge71
   %.pre86 = load ptr, ptr %15, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN6Gluco26Solver14insertVarOrderEi.exit, %.loopexit.loopexit, %174, %._crit_edge
-  %227 = phi ptr [ %.pre86, %.loopexit.loopexit ], [ %17, %174 ], [ %62, %._crit_edge ], [ %223, %_ZN6Gluco26Solver14insertVarOrderEi.exit ]
-  %228 = getelementptr inbounds i32, ptr %227, i64 %16
-  %229 = load i32, ptr %228, align 4
-  %230 = getelementptr inbounds i8, ptr %0, i64 744
-  store i32 %229, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %0, i64 1300
-  store i32 %229, ptr %231, align 4
-  %232 = getelementptr inbounds i8, ptr %0, i64 688
-  %233 = load i32, ptr %228, align 4
-  store i32 %233, ptr %232, align 8
+.loopexit:                                        ; preds = %_ZN6Gluco26Solver14insertVarOrderEi.exit, %.loopexit.loopexit, %173, %._crit_edge
+  %226 = phi ptr [ %.pre86, %.loopexit.loopexit ], [ %17, %173 ], [ %62, %._crit_edge ], [ %222, %_ZN6Gluco26Solver14insertVarOrderEi.exit ]
+  %227 = getelementptr inbounds i32, ptr %226, i64 %16
+  %228 = load i32, ptr %227, align 4
+  %229 = getelementptr inbounds i8, ptr %0, i64 744
+  store i32 %228, ptr %229, align 8
+  %230 = getelementptr inbounds i8, ptr %0, i64 1300
+  store i32 %228, ptr %230, align 4
+  %231 = getelementptr inbounds i8, ptr %0, i64 688
+  %232 = load i32, ptr %227, align 4
+  store i32 %232, ptr %231, align 8
   store i32 %1, ptr %5, align 8
-  br label %234
+  br label %233
 
-234:                                              ; preds = %.loopexit, %2
+233:                                              ; preds = %.loopexit, %2
   ret void
 }
 
@@ -8495,7 +8498,7 @@ _ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit: ; preds
 
 _ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit.thread: ; preds = %2, %_ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit
   tail call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %63
+  br label %62
 
 14:                                               ; preds = %_ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit
   %15 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8511,88 +8514,91 @@ _ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit.thread: 
   %24 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %22, i64 %23
   %.sroa.0.0.copyload.i = load double, ptr %24, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %24, i64 8
-  %25 = load <2 x i32>, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %24, i64 12
+  %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4
   %.not22.i = icmp eq i32 %21, 0
   %.pre29.i = sext i32 %.sroa.3.0.copyload.i to i64
   br i1 %.not22.i, label %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit, label %.lr.ph.i
 
-.split13.loopexit.i:                              ; preds = %49
+.split13.loopexit.i:                              ; preds = %48
   %.pre.i = load ptr, ptr %15, align 8
   br label %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit
 
-.lr.ph.i:                                         ; preds = %14, %49
-  %.01223.i = phi i32 [ %.024.i, %49 ], [ %21, %14 ]
+.lr.ph.i:                                         ; preds = %14, %48
+  %.01223.i = phi i32 [ %.024.i, %48 ], [ %21, %14 ]
   %.024.in.i = add nsw i32 %.01223.i, -1
   %.024.i = ashr i32 %.024.in.i, 1
-  %26 = load ptr, ptr %15, align 8
-  %27 = sext i32 %.024.i to i64
-  %28 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %26, i64 %27
-  %29 = load double, ptr %28, align 8
-  %30 = fcmp une double %.sroa.0.0.copyload.i, %29
-  br i1 %30, label %31, label %33
+  %25 = load ptr, ptr %15, align 8
+  %26 = sext i32 %.024.i to i64
+  %27 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %25, i64 %26
+  %28 = load double, ptr %27, align 8
+  %29 = fcmp une double %.sroa.0.0.copyload.i, %28
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %.lr.ph.i
-  %32 = fcmp ogt double %.sroa.0.0.copyload.i, %29
-  br i1 %32, label %49, label %.split.i
+30:                                               ; preds = %.lr.ph.i
+  %31 = fcmp ogt double %.sroa.0.0.copyload.i, %28
+  br i1 %31, label %48, label %.split.i
 
-33:                                               ; preds = %.lr.ph.i
-  %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 728
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %36, i64 %.pre29.i, i32 1
-  %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %28, i64 8
-  %40 = load i32, ptr %39, align 8
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %36, i64 %41, i32 1
-  %43 = load i32, ptr %42, align 4
-  %.not.i.i = icmp eq i32 %38, %43
-  br i1 %.not.i.i, label %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, label %44
+32:                                               ; preds = %.lr.ph.i
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 728
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %35, i64 %.pre29.i, i32 1
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds i8, ptr %27, i64 8
+  %39 = load i32, ptr %38, align 8
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %35, i64 %40, i32 1
+  %42 = load i32, ptr %41, align 4
+  %.not.i.i = icmp eq i32 %37, %42
+  br i1 %.not.i.i, label %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, label %43
 
-44:                                               ; preds = %33
-  %45 = icmp slt i32 %38, %43
-  br i1 %45, label %49, label %.split.i
+43:                                               ; preds = %32
+  %44 = icmp slt i32 %37, %42
+  br i1 %44, label %48, label %.split.i
 
-_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i: ; preds = %33
-  %46 = icmp sgt i32 %.sroa.3.0.copyload.i, %40
-  br i1 %46, label %49, label %.split.i
+_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i: ; preds = %32
+  %45 = icmp sgt i32 %.sroa.3.0.copyload.i, %39
+  br i1 %45, label %48, label %.split.i
 
-.split.i:                                         ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, %44, %31
-  %47 = sext i32 %.01223.i to i64
-  %48 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %26, i64 %47
+.split.i:                                         ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, %43, %30
+  %46 = sext i32 %.01223.i to i64
+  %47 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %25, i64 %46
   br label %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit
 
-49:                                               ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, %44, %31
-  %50 = sext i32 %.01223.i to i64
-  %51 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %26, i64 %50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
-  %52 = load ptr, ptr %15, align 8
-  %53 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %52, i64 %27, i32 1
-  %54 = load i32, ptr %53, align 8
-  %55 = load ptr, ptr %8, align 8
-  %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds i32, ptr %55, i64 %56
-  store i32 %.01223.i, ptr %57, align 4
+48:                                               ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, %43, %30
+  %49 = sext i32 %.01223.i to i64
+  %50 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %25, i64 %49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
+  %51 = load ptr, ptr %15, align 8
+  %52 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %51, i64 %26, i32 1
+  %53 = load i32, ptr %52, align 8
+  %54 = load ptr, ptr %8, align 8
+  %55 = sext i32 %53 to i64
+  %56 = getelementptr inbounds i32, ptr %54, i64 %55
+  store i32 %.01223.i, ptr %56, align 4
   %.not.i = icmp ult i32 %.024.in.i, 2
   br i1 %.not.i, label %.split13.loopexit.i, label %.lr.ph.i, !llvm.loop !35
 
 _ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit: ; preds = %14, %.split13.loopexit.i, %.split.i
   %.01219.i = phi i32 [ %.01223.i, %.split.i ], [ %.024.i, %.split13.loopexit.i ], [ 0, %14 ]
-  %phi.call.i = phi ptr [ %48, %.split.i ], [ %.pre.i, %.split13.loopexit.i ], [ %22, %14 ]
+  %phi.call.i = phi ptr [ %47, %.split.i ], [ %.pre.i, %.split13.loopexit.i ], [ %22, %14 ]
   store double %.sroa.0.0.copyload.i, ptr %phi.call.i, align 8
   %.sroa.3.0.phi.call.sroa_idx.i = getelementptr inbounds i8, ptr %phi.call.i, i64 8
-  store <2 x i32> %25, ptr %.sroa.3.0.phi.call.sroa_idx.i, align 8
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds i32, ptr %58, i64 %.pre29.i
-  store i32 %.01219.i, ptr %59, align 4
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds i32, ptr %60, i64 %10
-  %62 = load i32, ptr %61, align 4
-  tail call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE13percolateDownEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %62)
-  br label %63
+  store i32 %.sroa.3.0.copyload.i, ptr %.sroa.3.0.phi.call.sroa_idx.i, align 8
+  %.sroa.5.0.phi.call.sroa_idx.i = getelementptr inbounds i8, ptr %phi.call.i, i64 12
+  store i32 %.sroa.5.0.copyload.i, ptr %.sroa.5.0.phi.call.sroa_idx.i, align 4
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds i32, ptr %57, i64 %.pre29.i
+  store i32 %.01219.i, ptr %58, align 4
+  %59 = load ptr, ptr %8, align 8
+  %60 = getelementptr inbounds i32, ptr %59, i64 %10
+  %61 = load i32, ptr %60, align 4
+  tail call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE13percolateDownEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %61)
+  br label %62
 
-63:                                               ; preds = %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit, %_ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit.thread
+62:                                               ; preds = %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit, %_ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit.thread
   ret void
 }
 
@@ -14164,11 +14170,15 @@ _ZN6Gluco215ClauseAllocatorD2Ev.exit4:            ; preds = %25, %30
   %31 = load ptr, ptr %2, align 8
   store ptr %31, ptr %3, align 8
   %32 = getelementptr inbounds i8, ptr %2, i64 8
-  %33 = load <2 x i32>, ptr %32, align 8
-  store <2 x i32> %33, ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 16
-  %35 = load i32, ptr %34, align 8
-  store i32 %35, ptr %6, align 8
+  %33 = load i32, ptr %32, align 8
+  store i32 %33, ptr %4, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 12
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 876
+  store i32 %35, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %38 = load i32, ptr %37, align 8
+  store i32 %38, ptr %6, align 8
   ret void
 }
 
@@ -16652,153 +16662,156 @@ define linkonce_odr void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKey
   %6 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %4, i64 %5
   %.sroa.0.0.copyload = load double, ptr %6, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = load <2 x i32>, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = shl nsw i32 %1, 1
-  %10 = or disjoint i32 %9, 1
-  %11 = load i32, ptr %8, align 8
-  %12 = icmp slt i32 %10, %11
-  %13 = sext i32 %.sroa.3.0.copyload to i64
-  br i1 %12, label %.lr.ph, label %._crit_edge
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 12
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = shl nsw i32 %1, 1
+  %9 = or disjoint i32 %8, 1
+  %10 = load i32, ptr %7, align 8
+  %11 = icmp slt i32 %9, %10
+  %12 = sext i32 %.sroa.3.0.copyload to i64
+  br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %15
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  br label %14
 
-15:                                               ; preds = %.lr.ph, %70
-  %16 = phi i32 [ %11, %.lr.ph ], [ %81, %70 ]
-  %17 = phi i32 [ %10, %.lr.ph ], [ %80, %70 ]
-  %18 = phi i32 [ %9, %.lr.ph ], [ %79, %70 ]
-  %.024 = phi i32 [ %1, %.lr.ph ], [ %51, %70 ]
-  %19 = add nsw i32 %18, 2
-  %20 = icmp slt i32 %19, %16
+14:                                               ; preds = %.lr.ph, %69
+  %15 = phi i32 [ %10, %.lr.ph ], [ %80, %69 ]
+  %16 = phi i32 [ %9, %.lr.ph ], [ %79, %69 ]
+  %17 = phi i32 [ %8, %.lr.ph ], [ %78, %69 ]
+  %.024 = phi i32 [ %1, %.lr.ph ], [ %50, %69 ]
+  %18 = add nsw i32 %17, 2
+  %19 = icmp slt i32 %18, %15
   %.pre.pre = load ptr, ptr %3, align 8
-  br i1 %20, label %21, label %._crit_edge33
+  br i1 %19, label %20, label %._crit_edge33
 
-._crit_edge33:                                    ; preds = %15
-  %.pre30.phi.trans.insert = sext i32 %17 to i64
+._crit_edge33:                                    ; preds = %14
+  %.pre30.phi.trans.insert = sext i32 %16 to i64
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %.pre.pre, i64 %.pre30.phi.trans.insert
   %.pre31.pre = load double, ptr %.phi.trans.insert.phi.trans.insert, align 8
+  br label %47
+
+20:                                               ; preds = %14
+  %21 = sext i32 %18 to i64
+  %22 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %.pre.pre, i64 %21
+  %23 = sext i32 %16 to i64
+  %24 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %.pre.pre, i64 %23
+  %25 = load double, ptr %22, align 8
+  %26 = load double, ptr %24, align 8
+  %27 = fcmp une double %25, %26
+  br i1 %27, label %28, label %30
+
+28:                                               ; preds = %20
+  %29 = fcmp ogt double %25, %26
+  br i1 %29, label %48, label %47
+
+30:                                               ; preds = %20
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %22, i64 8
+  %33 = load i32, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %31, i64 728
+  %35 = load ptr, ptr %34, align 8
+  %36 = sext i32 %33 to i64
+  %37 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %35, i64 %36, i32 1
+  %38 = load i32, ptr %37, align 4
+  %39 = getelementptr inbounds i8, ptr %24, i64 8
+  %40 = load i32, ptr %39, align 8
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %35, i64 %41, i32 1
+  %43 = load i32, ptr %42, align 4
+  %.not.i = icmp eq i32 %38, %43
+  br i1 %.not.i, label %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit, label %44
+
+44:                                               ; preds = %30
+  %45 = icmp slt i32 %38, %43
+  br i1 %45, label %48, label %47
+
+_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit: ; preds = %30
+  %46 = icmp sgt i32 %33, %40
+  br i1 %46, label %48, label %47
+
+47:                                               ; preds = %._crit_edge33, %44, %28, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit
+  %.pre30.pre-phi = phi i64 [ %.pre30.phi.trans.insert, %._crit_edge33 ], [ %23, %44 ], [ %23, %28 ], [ %23, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ]
+  %.pre31 = phi double [ %.pre31.pre, %._crit_edge33 ], [ %26, %44 ], [ %26, %28 ], [ %26, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ]
   br label %48
 
-21:                                               ; preds = %15
-  %22 = sext i32 %19 to i64
-  %23 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %.pre.pre, i64 %22
-  %24 = sext i32 %17 to i64
-  %25 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %.pre.pre, i64 %24
-  %26 = load double, ptr %23, align 8
-  %27 = load double, ptr %25, align 8
-  %28 = fcmp une double %26, %27
-  br i1 %28, label %29, label %31
+48:                                               ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit, %28, %44, %47
+  %49 = phi double [ %25, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ], [ %25, %28 ], [ %25, %44 ], [ %.pre31, %47 ]
+  %.pre-phi = phi i64 [ %21, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ], [ %21, %28 ], [ %21, %44 ], [ %.pre30.pre-phi, %47 ]
+  %50 = phi i32 [ %18, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ], [ %18, %28 ], [ %18, %44 ], [ %16, %47 ]
+  %51 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %.pre.pre, i64 %.pre-phi
+  %52 = fcmp une double %49, %.sroa.0.0.copyload
+  br i1 %52, label %53, label %55
 
-29:                                               ; preds = %21
-  %30 = fcmp ogt double %26, %27
-  br i1 %30, label %49, label %48
+53:                                               ; preds = %48
+  %54 = fcmp ogt double %49, %.sroa.0.0.copyload
+  br i1 %54, label %69, label %._crit_edge.loopexit
 
-31:                                               ; preds = %21
-  %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %23, i64 8
-  %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 728
-  %36 = load ptr, ptr %35, align 8
-  %37 = sext i32 %34 to i64
-  %38 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %36, i64 %37, i32 1
-  %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %25, i64 8
-  %41 = load i32, ptr %40, align 8
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %36, i64 %42, i32 1
-  %44 = load i32, ptr %43, align 4
-  %.not.i = icmp eq i32 %39, %44
-  br i1 %.not.i, label %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit, label %45
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %0, align 8
+  %57 = getelementptr inbounds i8, ptr %51, i64 8
+  %58 = load i32, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %56, i64 728
+  %60 = load ptr, ptr %59, align 8
+  %61 = sext i32 %58 to i64
+  %62 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %60, i64 %61, i32 1
+  %63 = load i32, ptr %62, align 4
+  %64 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %60, i64 %12, i32 1
+  %65 = load i32, ptr %64, align 4
+  %.not.i15 = icmp eq i32 %63, %65
+  br i1 %.not.i15, label %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit17, label %66
 
-45:                                               ; preds = %31
-  %46 = icmp slt i32 %39, %44
-  br i1 %46, label %49, label %48
+66:                                               ; preds = %55
+  %67 = icmp slt i32 %63, %65
+  br i1 %67, label %69, label %._crit_edge.loopexit
 
-_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit: ; preds = %31
-  %47 = icmp sgt i32 %34, %41
-  br i1 %47, label %49, label %48
+_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit17: ; preds = %55
+  %68 = icmp sgt i32 %58, %.sroa.3.0.copyload
+  br i1 %68, label %69, label %._crit_edge.loopexit
 
-48:                                               ; preds = %._crit_edge33, %45, %29, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit
-  %.pre30.pre-phi = phi i64 [ %.pre30.phi.trans.insert, %._crit_edge33 ], [ %24, %45 ], [ %24, %29 ], [ %24, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ]
-  %.pre31 = phi double [ %.pre31.pre, %._crit_edge33 ], [ %27, %45 ], [ %27, %29 ], [ %27, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ]
-  br label %49
+69:                                               ; preds = %66, %53, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit17
+  %70 = sext i32 %.024 to i64
+  %71 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %.pre.pre, i64 %70
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
+  %72 = load ptr, ptr %3, align 8
+  %73 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %72, i64 %70, i32 1
+  %74 = load i32, ptr %73, align 8
+  %75 = load ptr, ptr %13, align 8
+  %76 = sext i32 %74 to i64
+  %77 = getelementptr inbounds i32, ptr %75, i64 %76
+  store i32 %.024, ptr %77, align 4
+  %78 = shl nsw i32 %50, 1
+  %79 = or disjoint i32 %78, 1
+  %80 = load i32, ptr %7, align 8
+  %81 = icmp slt i32 %79, %80
+  br i1 %81, label %14, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !112
 
-49:                                               ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit, %29, %45, %48
-  %50 = phi double [ %26, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ], [ %26, %29 ], [ %26, %45 ], [ %.pre31, %48 ]
-  %.pre-phi = phi i64 [ %22, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ], [ %22, %29 ], [ %22, %45 ], [ %.pre30.pre-phi, %48 ]
-  %51 = phi i32 [ %19, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ], [ %19, %29 ], [ %19, %45 ], [ %17, %48 ]
-  %52 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %.pre.pre, i64 %.pre-phi
-  %53 = fcmp une double %50, %.sroa.0.0.copyload
-  br i1 %53, label %54, label %56
-
-54:                                               ; preds = %49
-  %55 = fcmp ogt double %50, %.sroa.0.0.copyload
-  br i1 %55, label %70, label %._crit_edge.loopexit
-
-56:                                               ; preds = %49
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %52, i64 8
-  %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %57, i64 728
-  %61 = load ptr, ptr %60, align 8
-  %62 = sext i32 %59 to i64
-  %63 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %61, i64 %62, i32 1
-  %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %61, i64 %13, i32 1
-  %66 = load i32, ptr %65, align 4
-  %.not.i15 = icmp eq i32 %64, %66
-  br i1 %.not.i15, label %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit17, label %67
-
-67:                                               ; preds = %56
-  %68 = icmp slt i32 %64, %66
-  br i1 %68, label %70, label %._crit_edge.loopexit
-
-_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit17: ; preds = %56
-  %69 = icmp sgt i32 %59, %.sroa.3.0.copyload
-  br i1 %69, label %70, label %._crit_edge.loopexit
-
-70:                                               ; preds = %67, %54, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit17
-  %71 = sext i32 %.024 to i64
-  %72 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %.pre.pre, i64 %71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
-  %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %73, i64 %71, i32 1
-  %75 = load i32, ptr %74, align 8
-  %76 = load ptr, ptr %14, align 8
-  %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds i32, ptr %76, i64 %77
-  store i32 %.024, ptr %78, align 4
-  %79 = shl nsw i32 %51, 1
-  %80 = or disjoint i32 %79, 1
-  %81 = load i32, ptr %8, align 8
-  %82 = icmp slt i32 %80, %81
-  br i1 %82, label %15, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !112
-
-.._crit_edge.loopexit_crit_edge:                  ; preds = %70
+.._crit_edge.loopexit_crit_edge:                  ; preds = %69
   %.pre32.pre = load ptr, ptr %3, align 8
   br label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %67, %54, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit17, %.._crit_edge.loopexit_crit_edge
-  %.pre32 = phi ptr [ %.pre32.pre, %.._crit_edge.loopexit_crit_edge ], [ %.pre.pre, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit17 ], [ %.pre.pre, %54 ], [ %.pre.pre, %67 ]
-  %.0.lcssa.ph = phi i32 [ %51, %.._crit_edge.loopexit_crit_edge ], [ %.024, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit17 ], [ %.024, %54 ], [ %.024, %67 ]
+._crit_edge.loopexit:                             ; preds = %66, %53, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit17, %.._crit_edge.loopexit_crit_edge
+  %.pre32 = phi ptr [ %.pre32.pre, %.._crit_edge.loopexit_crit_edge ], [ %.pre.pre, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit17 ], [ %.pre.pre, %53 ], [ %.pre.pre, %66 ]
+  %.0.lcssa.ph = phi i32 [ %50, %.._crit_edge.loopexit_crit_edge ], [ %.024, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit17 ], [ %.024, %53 ], [ %.024, %66 ]
   %.pre = sext i32 %.0.lcssa.ph to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2, %._crit_edge.loopexit
   %.pre-phi36 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %5, %2 ]
-  %83 = phi ptr [ %.pre32, %._crit_edge.loopexit ], [ %4, %2 ]
+  %82 = phi ptr [ %.pre32, %._crit_edge.loopexit ], [ %4, %2 ]
   %.0.lcssa = phi i32 [ %.0.lcssa.ph, %._crit_edge.loopexit ], [ %1, %2 ]
-  %84 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %83, i64 %.pre-phi36
-  store double %.sroa.0.0.copyload, ptr %84, align 8
-  %.sroa.3.0..sroa_idx19 = getelementptr inbounds i8, ptr %84, i64 8
-  store <2 x i32> %7, ptr %.sroa.3.0..sroa_idx19, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 24
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i32, ptr %86, i64 %13
-  store i32 %.0.lcssa, ptr %87, align 4
+  %83 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %82, i64 %.pre-phi36
+  store double %.sroa.0.0.copyload, ptr %83, align 8
+  %.sroa.3.0..sroa_idx19 = getelementptr inbounds i8, ptr %83, i64 8
+  store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx19, align 8
+  %.sroa.5.0..sroa_idx22 = getelementptr inbounds i8, ptr %83, i64 12
+  store i32 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx22, align 4
+  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i32, ptr %85, i64 %12
+  store i32 %.0.lcssa, ptr %86, align 4
   ret void
 }
 
@@ -17194,81 +17207,84 @@ _ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit: ; preds = %._ZN6Gluco23vecI
   %47 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %45, i64 %46
   %.sroa.0.0.copyload.i = load double, ptr %47, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %47, i64 8
-  %48 = load <2 x i32>, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %47, i64 12
+  %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4
   %.not22.i = icmp eq i32 %44, 0
   %.pre29.i = sext i32 %.sroa.3.0.copyload.i to i64
   br i1 %.not22.i, label %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit, label %.lr.ph.i
 
-.split13.loopexit.i:                              ; preds = %72
+.split13.loopexit.i:                              ; preds = %71
   %.pre.i5 = load ptr, ptr %8, align 8
   br label %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit
 
-.lr.ph.i:                                         ; preds = %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit, %72
-  %.01223.i = phi i32 [ %.024.i, %72 ], [ %44, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ]
+.lr.ph.i:                                         ; preds = %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit, %71
+  %.01223.i = phi i32 [ %.024.i, %71 ], [ %44, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ]
   %.024.in.i = add nsw i32 %.01223.i, -1
   %.024.i = ashr i32 %.024.in.i, 1
-  %49 = load ptr, ptr %8, align 8
-  %50 = sext i32 %.024.i to i64
-  %51 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %49, i64 %50
-  %52 = load double, ptr %51, align 8
-  %53 = fcmp une double %.sroa.0.0.copyload.i, %52
-  br i1 %53, label %54, label %56
+  %48 = load ptr, ptr %8, align 8
+  %49 = sext i32 %.024.i to i64
+  %50 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %48, i64 %49
+  %51 = load double, ptr %50, align 8
+  %52 = fcmp une double %.sroa.0.0.copyload.i, %51
+  br i1 %52, label %53, label %55
 
-54:                                               ; preds = %.lr.ph.i
-  %55 = fcmp ogt double %.sroa.0.0.copyload.i, %52
-  br i1 %55, label %72, label %.split.i
+53:                                               ; preds = %.lr.ph.i
+  %54 = fcmp ogt double %.sroa.0.0.copyload.i, %51
+  br i1 %54, label %71, label %.split.i
 
-56:                                               ; preds = %.lr.ph.i
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 728
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %59, i64 %.pre29.i, i32 1
-  %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %51, i64 8
-  %63 = load i32, ptr %62, align 8
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %59, i64 %64, i32 1
-  %66 = load i32, ptr %65, align 4
-  %.not.i.i = icmp eq i32 %61, %66
-  br i1 %.not.i.i, label %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, label %67
+55:                                               ; preds = %.lr.ph.i
+  %56 = load ptr, ptr %0, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 728
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %58, i64 %.pre29.i, i32 1
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds i8, ptr %50, i64 8
+  %62 = load i32, ptr %61, align 8
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %58, i64 %63, i32 1
+  %65 = load i32, ptr %64, align 4
+  %.not.i.i = icmp eq i32 %60, %65
+  br i1 %.not.i.i, label %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, label %66
 
-67:                                               ; preds = %56
-  %68 = icmp slt i32 %61, %66
-  br i1 %68, label %72, label %.split.i
+66:                                               ; preds = %55
+  %67 = icmp slt i32 %60, %65
+  br i1 %67, label %71, label %.split.i
 
-_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i: ; preds = %56
-  %69 = icmp sgt i32 %.sroa.3.0.copyload.i, %63
-  br i1 %69, label %72, label %.split.i
+_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i: ; preds = %55
+  %68 = icmp sgt i32 %.sroa.3.0.copyload.i, %62
+  br i1 %68, label %71, label %.split.i
 
-.split.i:                                         ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, %67, %54
-  %70 = sext i32 %.01223.i to i64
-  %71 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %49, i64 %70
+.split.i:                                         ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, %66, %53
+  %69 = sext i32 %.01223.i to i64
+  %70 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %48, i64 %69
   br label %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit
 
-72:                                               ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, %67, %54
-  %73 = sext i32 %.01223.i to i64
-  %74 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %49, i64 %73
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
-  %75 = load ptr, ptr %8, align 8
-  %76 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %75, i64 %50, i32 1
-  %77 = load i32, ptr %76, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = sext i32 %77 to i64
-  %80 = getelementptr inbounds i32, ptr %78, i64 %79
-  store i32 %.01223.i, ptr %80, align 4
+71:                                               ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, %66, %53
+  %72 = sext i32 %.01223.i to i64
+  %73 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %48, i64 %72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
+  %74 = load ptr, ptr %8, align 8
+  %75 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %74, i64 %49, i32 1
+  %76 = load i32, ptr %75, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = sext i32 %76 to i64
+  %79 = getelementptr inbounds i32, ptr %77, i64 %78
+  store i32 %.01223.i, ptr %79, align 4
   %.not.i = icmp ult i32 %.024.in.i, 2
   br i1 %.not.i, label %.split13.loopexit.i, label %.lr.ph.i, !llvm.loop !35
 
 _ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit: ; preds = %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit, %.split13.loopexit.i, %.split.i
   %.01219.i = phi i32 [ %.01223.i, %.split.i ], [ %.024.i, %.split13.loopexit.i ], [ 0, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ]
-  %phi.call.i = phi ptr [ %71, %.split.i ], [ %.pre.i5, %.split13.loopexit.i ], [ %45, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ]
+  %phi.call.i = phi ptr [ %70, %.split.i ], [ %.pre.i5, %.split13.loopexit.i ], [ %45, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ]
   store double %.sroa.0.0.copyload.i, ptr %phi.call.i, align 8
   %.sroa.3.0.phi.call.sroa_idx.i = getelementptr inbounds i8, ptr %phi.call.i, i64 8
-  store <2 x i32> %48, ptr %.sroa.3.0.phi.call.sroa_idx.i, align 8
-  %81 = load ptr, ptr %6, align 8
-  %82 = getelementptr inbounds i32, ptr %81, i64 %.pre29.i
-  store i32 %.01219.i, ptr %82, align 4
+  store i32 %.sroa.3.0.copyload.i, ptr %.sroa.3.0.phi.call.sroa_idx.i, align 8
+  %.sroa.5.0.phi.call.sroa_idx.i = getelementptr inbounds i8, ptr %phi.call.i, i64 12
+  store i32 %.sroa.5.0.copyload.i, ptr %.sroa.5.0.phi.call.sroa_idx.i, align 4
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds i32, ptr %80, i64 %.pre29.i
+  store i32 %.01219.i, ptr %81, align 4
   ret void
 }
 
@@ -17911,13 +17927,15 @@ define internal void @_GLOBAL__sub_I_Glucose2.cpp() #24 section ".text.startup" 
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L15opt_incrementalE, i64 40), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6Gluco2L5opt_KE, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco212DoubleOptionE, i64 16), ptr @_ZN6Gluco2L5opt_KE, align 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L5opt_KE, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L5opt_KE, i64 40), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L5opt_KE, i64 48), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L5opt_KE, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L5opt_KE, i64 57), align 1
   store double 8.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L5opt_KE, i64 64), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6Gluco2L5opt_RE, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco212DoubleOptionE, i64 16), ptr @_ZN6Gluco2L5opt_RE, align 8
-  store <2 x double> <double 1.000000e+00, double 5.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L5opt_RE, i64 40), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L5opt_RE, i64 40), align 8
+  store double 5.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L5opt_RE, i64 48), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L5opt_RE, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L5opt_RE, i64 57), align 1
   store double 1.400000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L5opt_RE, i64 64), align 8
@@ -17955,25 +17973,29 @@ define internal void @_GLOBAL__sub_I_Glucose2.cpp() #24 section ".text.startup" 
   store i32 6, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L27opt_lb_lbd_minimzing_clauseE, i64 48), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6Gluco2L13opt_var_decayE, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco212DoubleOptionE, i64 16), ptr @_ZN6Gluco2L13opt_var_decayE, align 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L13opt_var_decayE, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L13opt_var_decayE, i64 40), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L13opt_var_decayE, i64 48), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L13opt_var_decayE, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L13opt_var_decayE, i64 57), align 1
   store double 8.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L13opt_var_decayE, i64 64), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6Gluco2L16opt_clause_decayE, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco212DoubleOptionE, i64 16), ptr @_ZN6Gluco2L16opt_clause_decayE, align 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_clause_decayE, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_clause_decayE, i64 40), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_clause_decayE, i64 48), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_clause_decayE, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_clause_decayE, i64 57), align 1
   store double 0x3FEFF7CED916872B, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_clause_decayE, i64 64), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6Gluco2L19opt_random_var_freqE, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco212DoubleOptionE, i64 16), ptr @_ZN6Gluco2L19opt_random_var_freqE, align 8
-  store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L19opt_random_var_freqE, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L19opt_random_var_freqE, i64 40), align 8
+  store double 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L19opt_random_var_freqE, i64 48), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L19opt_random_var_freqE, i64 56), align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L19opt_random_var_freqE, i64 57), align 1
   store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L19opt_random_var_freqE, i64 64), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6Gluco2L15opt_random_seedE, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco212DoubleOptionE, i64 16), ptr @_ZN6Gluco2L15opt_random_seedE, align 8
-  store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L15opt_random_seedE, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L15opt_random_seedE, i64 40), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L15opt_random_seedE, i64 48), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L15opt_random_seedE, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L15opt_random_seedE, i64 57), align 1
   store double 0x4195D9C3F4000000, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L15opt_random_seedE, i64 64), align 8
@@ -17990,7 +18012,8 @@ define internal void @_GLOBAL__sub_I_Glucose2.cpp() #24 section ".text.startup" 
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_rnd_init_actE, i64 40), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6Gluco2L16opt_garbage_fracE, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.118)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco212DoubleOptionE, i64 16), ptr @_ZN6Gluco2L16opt_garbage_fracE, align 8
-  store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_garbage_fracE, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_garbage_fracE, i64 40), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_garbage_fracE, i64 48), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_garbage_fracE, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_garbage_fracE, i64 57), align 1
   store double 2.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco2L16opt_garbage_fracE, i64 64), align 8

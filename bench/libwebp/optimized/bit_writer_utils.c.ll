@@ -451,45 +451,51 @@ VP8PutBits.exit:                                  ; preds = %VP8PutBitUniform.ex
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @VP8BitWriterInit(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  store <4 x i32> <i32 254, i32 0, i32 0, i32 -8>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 254, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 0, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 -8, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %.not = icmp eq i64 %1, 0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
-  br i1 %.not, label %BitWriterResize.exit, label %7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false)
+  br i1 %.not, label %BitWriterResize.exit, label %10
 
-7:                                                ; preds = %2
+10:                                               ; preds = %2
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %1, i64 1024)
-  %8 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %spec.store.select.i) #6
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
+  %11 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %spec.store.select.i) #6
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-10:                                               ; preds = %7
-  store i32 1, ptr %5, align 8
+13:                                               ; preds = %10
+  store i32 1, ptr %8, align 8
   br label %BitWriterResize.exit
 
-11:                                               ; preds = %7
-  %12 = load i64, ptr %3, align 8
-  %.not31.i = icmp eq i64 %12, 0
-  br i1 %.not31.i, label %15, label %13
+14:                                               ; preds = %10
+  %15 = load i64, ptr %6, align 8
+  %.not31.i = icmp eq i64 %15, 0
+  br i1 %.not31.i, label %18, label %16
 
-13:                                               ; preds = %11
-  %14 = load ptr, ptr %6, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %14, i64 %12, i1 false)
-  br label %15
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %9, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %17, i64 %15, i1 false)
+  br label %18
 
-15:                                               ; preds = %13, %11
-  %16 = load ptr, ptr %6, align 8
-  tail call void @WebPSafeFree(ptr noundef %16) #6
-  store ptr %8, ptr %6, align 8
-  store i64 %spec.store.select.i, ptr %4, align 8
+18:                                               ; preds = %16, %14
+  %19 = load ptr, ptr %9, align 8
+  tail call void @WebPSafeFree(ptr noundef %19) #6
+  store ptr %11, ptr %9, align 8
+  store i64 %spec.store.select.i, ptr %7, align 8
   br label %BitWriterResize.exit
 
-BitWriterResize.exit:                             ; preds = %15, %10, %2
-  %17 = phi i32 [ 1, %2 ], [ 0, %10 ], [ 1, %15 ]
-  ret i32 %17
+BitWriterResize.exit:                             ; preds = %18, %13, %2
+  %20 = phi i32 [ 1, %2 ], [ 0, %13 ], [ 1, %18 ]
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable

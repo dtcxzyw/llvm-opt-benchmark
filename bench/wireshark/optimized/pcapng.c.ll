@@ -493,7 +493,7 @@ declare i32 @wtap_block_add_bytes_option(ptr noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq i32 %3, 0
-  br i1 %9, label %141, label %10
+  br i1 %9, label %140, label %10
 
 10:                                               ; preds = %8
   %11 = zext i32 %3 to i64
@@ -503,7 +503,7 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
 
 14:                                               ; preds = %10
   store i32 12, ptr %6, align 4
-  br label %141
+  br label %140
 
 15:                                               ; preds = %10
   %16 = tail call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %3, ptr noundef %6, ptr noundef %7) #16
@@ -523,11 +523,11 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
 
 25:                                               ; preds = %15
   tail call void @g_free(ptr noundef nonnull %12) #16
-  br label %141
+  br label %140
 
-26:                                               ; preds = %.preheader, %136
-  %.077100 = phi i32 [ %3, %.preheader ], [ %139, %136 ]
-  %.07899 = phi ptr [ %12, %.preheader ], [ %138, %136 ]
+26:                                               ; preds = %.preheader, %135
+  %.077100 = phi i32 [ %3, %.preheader ], [ %138, %135 ]
+  %.07899 = phi ptr [ %12, %.preheader ], [ %137, %135 ]
   %27 = icmp ult i32 %.077100, 4
   br i1 %27, label %28, label %30
 
@@ -536,7 +536,7 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
   %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4) #16
   store ptr %29, ptr %7, align 8
   tail call void @g_free(ptr noundef nonnull %12) #16
-  br label %141
+  br label %140
 
 30:                                               ; preds = %26
   %31 = load i16, ptr %.07899, align 2
@@ -567,7 +567,7 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
   store i32 -21, ptr %6, align 4
   %39 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %5) #16
   store ptr %39, ptr %7, align 8
-  br label %141
+  br label %140
 
 40:                                               ; preds = %30, %34, %36, %37
   %.076 = phi i16 [ %rev, %37 ], [ %rev88, %36 ], [ %31, %34 ], [ %31, %30 ]
@@ -585,11 +585,11 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
   %48 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %43) #16
   store ptr %48, ptr %7, align 8
   tail call void @g_free(ptr noundef nonnull %12) #16
-  br label %141
+  br label %140
 
 49:                                               ; preds = %40
-  switch i16 %.076, label %132 [
-    i16 0, label %136
+  switch i16 %.076, label %131 [
+    i16 0, label %135
     i16 1, label %50
     i16 2988, label %55
     i16 2989, label %55
@@ -602,7 +602,7 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
   %52 = tail call ptr @ws_utf8_make_valid(ptr noundef null, ptr noundef %41, i64 noundef %51) #16
   %53 = load ptr, ptr %17, align 8
   %54 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %53, i32 noundef 1, ptr noundef %52) #16
-  br label %136
+  br label %135
 
 55:                                               ; preds = %49, %49, %49, %49
   %56 = icmp ult i16 %.075, 4
@@ -639,7 +639,7 @@ default.unreachable:                              ; preds = %59
 65:                                               ; preds = %63, %60, %59
   %.030.i = phi i32 [ %64, %63 ], [ %spec.select.i, %60 ], [ %.0.copyload.i, %59 ]
   %cond.i = icmp eq i32 %.030.i, 10949
-  br i1 %cond.i, label %66, label %125
+  br i1 %cond.i, label %66, label %124
 
 66:                                               ; preds = %65
   %67 = and i16 %.075, -4
@@ -651,7 +651,7 @@ default.unreachable:                              ; preds = %59
   %.0.copyload10.i.i = load i32, ptr %70, align 1
   %71 = getelementptr i8, ptr %.07899, i64 12
   %72 = add i16 %.075, -8
-  switch i32 %.0.copyload10.i.i, label %121 [
+  switch i32 %.0.copyload10.i.i, label %120 [
     i32 1, label %73
     i32 2, label %76
     i32 4, label %117
@@ -659,17 +659,17 @@ default.unreachable:                              ; preds = %59
 
 73:                                               ; preds = %69
   %74 = icmp eq i16 %72, 4
-  br i1 %74, label %75, label %121
+  br i1 %74, label %75, label %120
 
 75:                                               ; preds = %73
   %.0.copyload7.i.i = load i32, ptr %71, align 1
   store i32 %.0.copyload7.i.i, ptr %23, align 8
-  br label %121
+  br label %120
 
 76:                                               ; preds = %69
   %77 = load i32, ptr %1, align 8
   %78 = icmp eq i32 %77, 2989
-  br i1 %78, label %79, label %121
+  br i1 %78, label %79, label %120
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %20, align 8
@@ -725,68 +725,71 @@ default.unreachable:                              ; preds = %59
   %116 = getelementptr inbounds i8, ptr %115, i64 4
   store i32 1, ptr %116, align 4
   store i32 0, ptr %22, align 4
-  br label %121
+  br label %120
 
 117:                                              ; preds = %69
   %118 = icmp eq i16 %72, 208
-  br i1 %118, label %119, label %121
+  br i1 %118, label %119, label %120
 
 119:                                              ; preds = %117
   %.sroa.1.0..sroa_idx.i.i = getelementptr i8, ptr %.07899, i64 68
-  %120 = load <2 x i64>, ptr %.sroa.1.0..sroa_idx.i.i, align 1
-  store <2 x i64> %120, ptr %18, align 8
-  br label %121
+  %.sroa.1.0.copyload.i.i = load i64, ptr %.sroa.1.0..sroa_idx.i.i, align 1
+  %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %.07899, i64 76
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 1
+  store i64 %.sroa.1.0.copyload.i.i, ptr %18, align 8
+  store i64 %.sroa.2.0.copyload.i.i, ptr %19, align 8
+  br label %120
 
-121:                                              ; preds = %119, %117, %114, %76, %75, %73, %69
-  %122 = load ptr, ptr %17, align 8
-  %123 = zext i16 %72 to i64
-  %124 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef %122, i32 noundef %.0.copyload10.i.i, ptr noundef %71, i64 noundef %123) #16
+120:                                              ; preds = %119, %117, %114, %76, %75, %73, %69
+  %121 = load ptr, ptr %17, align 8
+  %122 = zext i16 %72 to i64
+  %123 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef %121, i32 noundef %.0.copyload10.i.i, ptr noundef %71, i64 noundef %122) #16
   br label %pcapng_process_custom_option.exit
 
-125:                                              ; preds = %65
-  %126 = load ptr, ptr %17, align 8
-  %127 = zext nneg i16 %.076 to i32
-  %128 = getelementptr i8, ptr %.07899, i64 8
-  %129 = add nsw i32 %43, -4
-  %130 = zext nneg i32 %129 to i64
-  %131 = tail call i32 @wtap_block_add_custom_option(ptr noundef %126, i32 noundef %127, i32 noundef %.030.i, ptr noundef %128, i64 noundef %130) #16
+124:                                              ; preds = %65
+  %125 = load ptr, ptr %17, align 8
+  %126 = zext nneg i16 %.076 to i32
+  %127 = getelementptr i8, ptr %.07899, i64 8
+  %128 = add nsw i32 %43, -4
+  %129 = zext nneg i32 %128 to i64
+  %130 = tail call i32 @wtap_block_add_custom_option(ptr noundef %125, i32 noundef %126, i32 noundef %.030.i, ptr noundef %127, i64 noundef %129) #16
   br label %pcapng_process_custom_option.exit
 
-pcapng_process_custom_option.exit:                ; preds = %121, %125
-  %.031.shrunk.i.in = phi i32 [ %131, %125 ], [ %124, %121 ]
+pcapng_process_custom_option.exit:                ; preds = %120, %124
+  %.031.shrunk.i.in = phi i32 [ %130, %124 ], [ %123, %120 ]
   %.031.shrunk.i.not = icmp eq i32 %.031.shrunk.i.in, 0
-  br i1 %.031.shrunk.i.not, label %136, label %pcapng_process_custom_option.exit.thread
+  br i1 %.031.shrunk.i.not, label %135, label %pcapng_process_custom_option.exit.thread
 
 pcapng_process_custom_option.exit.thread:         ; preds = %66, %pcapng_process_custom_option.exit, %57
   tail call void @g_free(ptr noundef nonnull %12) #16
-  br label %141
+  br label %140
 
-132:                                              ; preds = %49
-  br i1 %24, label %135, label %133
+131:                                              ; preds = %49
+  br i1 %24, label %134, label %132
 
-133:                                              ; preds = %132
-  %134 = tail call i32 %4(ptr noundef %1, ptr noundef %2, i16 noundef zeroext %.076, i16 noundef zeroext %.075, ptr noundef %41, ptr noundef %6, ptr noundef %7) #16
-  %.not91 = icmp eq i32 %134, 0
-  br i1 %.not91, label %135, label %136
+132:                                              ; preds = %131
+  %133 = tail call i32 %4(ptr noundef %1, ptr noundef %2, i16 noundef zeroext %.076, i16 noundef zeroext %.075, ptr noundef %41, ptr noundef %6, ptr noundef %7) #16
+  %.not91 = icmp eq i32 %133, 0
+  br i1 %.not91, label %134, label %135
 
-135:                                              ; preds = %133, %132
+134:                                              ; preds = %132, %131
   tail call void @g_free(ptr noundef nonnull %12) #16
-  br label %141
+  br label %140
 
-136:                                              ; preds = %49, %133, %pcapng_process_custom_option.exit, %50
-  %.1 = phi i32 [ %42, %133 ], [ %42, %pcapng_process_custom_option.exit ], [ %42, %50 ], [ %45, %49 ]
-  %137 = zext nneg i32 %45 to i64
-  %138 = getelementptr i8, ptr %41, i64 %137
-  %139 = sub i32 %.1, %45
-  %.not85 = icmp eq i32 %139, 0
-  br i1 %.not85, label %140, label %26, !llvm.loop !4
+135:                                              ; preds = %49, %132, %pcapng_process_custom_option.exit, %50
+  %.1 = phi i32 [ %42, %132 ], [ %42, %pcapng_process_custom_option.exit ], [ %42, %50 ], [ %45, %49 ]
+  %136 = zext nneg i32 %45 to i64
+  %137 = getelementptr i8, ptr %41, i64 %136
+  %138 = sub i32 %.1, %45
+  %.not85 = icmp eq i32 %138, 0
+  br i1 %.not85, label %139, label %26, !llvm.loop !4
 
-140:                                              ; preds = %136
+139:                                              ; preds = %135
   tail call void @g_free(ptr noundef nonnull %12) #16
-  br label %141
+  br label %140
 
-141:                                              ; preds = %8, %140, %135, %pcapng_process_custom_option.exit.thread, %47, %38, %28, %25, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %28 ], [ 0, %38 ], [ 0, %47 ], [ 0, %135 ], [ 0, %pcapng_process_custom_option.exit.thread ], [ 1, %140 ], [ 0, %25 ], [ 1, %8 ]
+140:                                              ; preds = %8, %139, %134, %pcapng_process_custom_option.exit.thread, %47, %38, %28, %25, %14
+  %.0 = phi i32 [ 0, %14 ], [ 0, %28 ], [ 0, %38 ], [ 0, %47 ], [ 0, %134 ], [ 0, %pcapng_process_custom_option.exit.thread ], [ 1, %139 ], [ 0, %25 ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -4666,17 +4669,17 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   %29 = alloca ptr, align 8
   %30 = tail call fastcc i32 @pcapng_write_internal_blocks(ptr noundef %0, ptr noundef %3)
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %333, label %31
+  br i1 %.not, label %335, label %31
 
 31:                                               ; preds = %5
   %32 = load i32, ptr %1, align 8
-  switch i32 %32, label %331 [
+  switch i32 %32, label %333 [
     i32 0, label %33
-    i32 1, label %184
-    i32 2, label %184
-    i32 3, label %197
-    i32 4, label %243
-    i32 5, label %264
+    i32 1, label %186
+    i32 2, label %186
+    i32 3, label %199
+    i32 4, label %245
+    i32 5, label %266
   ]
 
 33:                                               ; preds = %31
@@ -4906,90 +4909,93 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   %160 = trunc i64 %156 to i32
   %161 = getelementptr inbounds i8, ptr %27, i64 8
   store i32 %160, ptr %161, align 4
-  %162 = getelementptr inbounds i8, ptr %27, i64 12
-  %163 = load <2 x i32>, ptr %34, align 8
-  %164 = insertelement <2 x i32> poison, i32 %45, i64 0
-  %165 = shufflevector <2 x i32> %164, <2 x i32> poison, <2 x i32> zeroinitializer
-  %166 = add <2 x i32> %163, %165
-  store <2 x i32> %166, ptr %162, align 4
-  %167 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %27, i64 noundef 20, ptr noundef %3) #16
-  %.not94.i = icmp eq i32 %167, 0
-  br i1 %.not94.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %168
+  %162 = load i32, ptr %34, align 8
+  %163 = add i32 %162, %45
+  %164 = getelementptr inbounds i8, ptr %27, i64 12
+  store i32 %163, ptr %164, align 4
+  %165 = getelementptr inbounds i8, ptr %1, i64 68
+  %166 = load i32, ptr %165, align 4
+  %167 = add i32 %166, %45
+  %168 = getelementptr inbounds i8, ptr %27, i64 16
+  store i32 %167, ptr %168, align 4
+  %169 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %27, i64 noundef 20, ptr noundef %3) #16
+  %.not94.i = icmp eq i32 %169, 0
+  br i1 %.not94.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %170
 
-168:                                              ; preds = %145
-  %169 = load i32, ptr %43, align 8
-  %170 = call i32 @pcap_write_phdr(ptr noundef nonnull %0, i32 noundef %169, ptr noundef nonnull %35, ptr noundef %3) #16
-  %.not95.i = icmp eq i32 %170, 0
-  br i1 %.not95.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %171
+170:                                              ; preds = %145
+  %171 = load i32, ptr %43, align 8
+  %172 = call i32 @pcap_write_phdr(ptr noundef nonnull %0, i32 noundef %171, ptr noundef nonnull %35, ptr noundef %3) #16
+  %.not95.i = icmp eq i32 %172, 0
+  br i1 %.not95.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %173
 
-171:                                              ; preds = %168
-  %172 = load i32, ptr %34, align 8
-  %173 = zext i32 %172 to i64
-  %174 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %173, ptr noundef %3) #16
-  %.not96.i = icmp eq i32 %174, 0
-  br i1 %.not96.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %175
+173:                                              ; preds = %170
+  %174 = load i32, ptr %34, align 8
+  %175 = zext i32 %174 to i64
+  %176 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %175, ptr noundef %3) #16
+  %.not96.i = icmp eq i32 %176, 0
+  br i1 %.not96.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %177
 
-175:                                              ; preds = %171
-  br i1 %.not.i, label %179, label %176
+177:                                              ; preds = %173
+  br i1 %.not.i, label %181, label %178
 
-176:                                              ; preds = %175
-  %177 = zext nneg i32 %49 to i64
-  %178 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %28, i64 noundef %177, ptr noundef %3) #16
-  %.not98.i = icmp eq i32 %178, 0
-  br i1 %.not98.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %179
+178:                                              ; preds = %177
+  %179 = zext nneg i32 %49 to i64
+  %180 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %28, i64 noundef %179, ptr noundef %3) #16
+  %.not98.i = icmp eq i32 %180, 0
+  br i1 %.not98.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %181
 
-179:                                              ; preds = %176, %175
+181:                                              ; preds = %178, %177
   %.not99.i = icmp eq i32 %.078.i, 0
-  br i1 %.not99.i, label %pcapng_write_enhanced_packet_block.exit, label %180
+  br i1 %.not99.i, label %pcapng_write_enhanced_packet_block.exit, label %182
 
-180:                                              ; preds = %179
-  %181 = load ptr, ptr %50, align 8
-  %182 = call fastcc i32 @write_options(ptr noundef nonnull %0, ptr noundef %181, ptr noundef nonnull @write_wtap_epb_option, ptr noundef %3)
-  %.not100.i = icmp eq i32 %182, 0
+182:                                              ; preds = %181
+  %183 = load ptr, ptr %50, align 8
+  %184 = call fastcc i32 @write_options(ptr noundef nonnull %0, ptr noundef %183, ptr noundef nonnull @write_wtap_epb_option, ptr noundef %3)
+  %.not100.i = icmp eq i32 %184, 0
   br i1 %.not100.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %pcapng_write_enhanced_packet_block.exit
 
-pcapng_write_enhanced_packet_block.exit.thread:   ; preds = %41, %120, %133, %._crit_edge.thread.i, %137, %145, %168, %171, %176, %180
+pcapng_write_enhanced_packet_block.exit.thread:   ; preds = %41, %120, %133, %._crit_edge.thread.i, %137, %145, %170, %173, %178, %182
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
-  br label %333
+  br label %335
 
-pcapng_write_enhanced_packet_block.exit:          ; preds = %179, %180
-  %183 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %143, i64 noundef 4, ptr noundef %3) #16
-  %.not101.i.not = icmp eq i32 %183, 0
+pcapng_write_enhanced_packet_block.exit:          ; preds = %181, %182
+  %185 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %143, i64 noundef 4, ptr noundef %3) #16
+  %.not101.i.not = icmp eq i32 %185, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
-  br i1 %.not101.i.not, label %333, label %332
+  br i1 %.not101.i.not, label %335, label %334
 
-184:                                              ; preds = %31, %31
-  %185 = load ptr, ptr @block_handlers, align 8
-  %.not39 = icmp eq ptr %185, null
-  br i1 %.not39, label %196, label %186
+186:                                              ; preds = %31, %31
+  %187 = load ptr, ptr @block_handlers, align 8
+  %.not39 = icmp eq ptr %187, null
+  br i1 %.not39, label %198, label %188
 
-186:                                              ; preds = %184
-  %187 = getelementptr inbounds i8, ptr %1, i64 64
-  %188 = load i32, ptr %187, align 8
-  %189 = zext i32 %188 to i64
-  %190 = inttoptr i64 %189 to ptr
-  %191 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %185, ptr noundef %190) #16
-  %.not40 = icmp eq ptr %191, null
-  br i1 %.not40, label %196, label %192
+188:                                              ; preds = %186
+  %189 = getelementptr inbounds i8, ptr %1, i64 64
+  %190 = load i32, ptr %189, align 8
+  %191 = zext i32 %190 to i64
+  %192 = inttoptr i64 %191 to ptr
+  %193 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %187, ptr noundef %192) #16
+  %.not40 = icmp eq ptr %193, null
+  br i1 %.not40, label %198, label %194
 
-192:                                              ; preds = %186
-  %193 = getelementptr inbounds i8, ptr %191, i64 8
-  %194 = load ptr, ptr %193, align 8
-  %195 = tail call i32 %194(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #16
-  %.not41 = icmp eq i32 %195, 0
-  br i1 %.not41, label %333, label %332
+194:                                              ; preds = %188
+  %195 = getelementptr inbounds i8, ptr %193, i64 8
+  %196 = load ptr, ptr %195, align 8
+  %197 = tail call i32 %196(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #16
+  %.not41 = icmp eq i32 %197, 0
+  br i1 %.not41, label %335, label %334
 
-196:                                              ; preds = %186, %184
+198:                                              ; preds = %188, %186
   store i32 -24, ptr %3, align 4
-  br label %333
+  br label %335
 
-197:                                              ; preds = %31
+199:                                              ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20)
@@ -4998,91 +5004,91 @@ pcapng_write_enhanced_packet_block.exit:          ; preds = %179, %180
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %24)
   store i32 0, ptr %19, align 4
-  %198 = getelementptr inbounds i8, ptr %1, i64 100
-  %199 = load i32, ptr %198, align 4
-  %200 = icmp ugt i32 %199, 262144
-  br i1 %200, label %201, label %202
+  %200 = getelementptr inbounds i8, ptr %1, i64 100
+  %201 = load i32, ptr %200, align 4
+  %202 = icmp ugt i32 %201, 262144
+  br i1 %202, label %203, label %204
 
-201:                                              ; preds = %197
+203:                                              ; preds = %199
   store i32 -22, ptr %3, align 4
   br label %pcapng_write_sysdig_event_block.exit.thread
 
-202:                                              ; preds = %197
-  %203 = and i32 %199, 3
-  %.not.i43 = icmp eq i32 %203, 0
-  %204 = sub nuw nsw i32 4, %203
-  %.036.i = select i1 %.not.i43, i32 0, i32 %204
+204:                                              ; preds = %199
+  %205 = and i32 %201, 3
+  %.not.i43 = icmp eq i32 %205, 0
+  %206 = sub nuw nsw i32 4, %205
+  %.036.i = select i1 %.not.i43, i32 0, i32 %206
   store i32 516, ptr %18, align 4
-  %205 = add nuw nsw i32 %199, 36
-  %206 = add nuw nsw i32 %205, %.036.i
-  %207 = getelementptr inbounds i8, ptr %18, i64 4
-  store i32 %206, ptr %207, align 4
-  %208 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %18, i64 noundef 8, ptr noundef %3) #16
-  %.not39.i = icmp eq i32 %208, 0
-  br i1 %.not39.i, label %pcapng_write_sysdig_event_block.exit.thread, label %209
+  %207 = add nuw nsw i32 %201, 36
+  %208 = add nuw nsw i32 %207, %.036.i
+  %209 = getelementptr inbounds i8, ptr %18, i64 4
+  store i32 %208, ptr %209, align 4
+  %210 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %18, i64 noundef 8, ptr noundef %3) #16
+  %.not39.i = icmp eq i32 %210, 0
+  br i1 %.not39.i, label %pcapng_write_sysdig_event_block.exit.thread, label %211
 
-209:                                              ; preds = %202
-  %210 = getelementptr inbounds i8, ptr %1, i64 112
-  %211 = load i16, ptr %210, align 8
-  store i16 %211, ptr %20, align 2
-  %212 = getelementptr inbounds i8, ptr %1, i64 16
-  %213 = load i64, ptr %212, align 8
-  %214 = mul i64 %213, 1000000000
-  %215 = getelementptr inbounds i8, ptr %1, i64 24
-  %216 = load i32, ptr %215, align 8
-  %217 = sext i32 %216 to i64
-  %218 = add i64 %214, %217
-  store i64 %218, ptr %21, align 8
-  %219 = getelementptr inbounds i8, ptr %1, i64 88
-  %220 = load i64, ptr %219, align 8
-  store i64 %220, ptr %22, align 8
-  %221 = getelementptr inbounds i8, ptr %1, i64 96
-  %222 = load i32, ptr %221, align 8
-  store i32 %222, ptr %23, align 4
-  %223 = getelementptr inbounds i8, ptr %1, i64 104
-  %224 = load i16, ptr %223, align 8
-  store i16 %224, ptr %24, align 2
-  %225 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %20, i64 noundef 2, ptr noundef %3) #16
-  %.not40.i = icmp eq i32 %225, 0
-  br i1 %.not40.i, label %pcapng_write_sysdig_event_block.exit.thread, label %226
+211:                                              ; preds = %204
+  %212 = getelementptr inbounds i8, ptr %1, i64 112
+  %213 = load i16, ptr %212, align 8
+  store i16 %213, ptr %20, align 2
+  %214 = getelementptr inbounds i8, ptr %1, i64 16
+  %215 = load i64, ptr %214, align 8
+  %216 = mul i64 %215, 1000000000
+  %217 = getelementptr inbounds i8, ptr %1, i64 24
+  %218 = load i32, ptr %217, align 8
+  %219 = sext i32 %218 to i64
+  %220 = add i64 %216, %219
+  store i64 %220, ptr %21, align 8
+  %221 = getelementptr inbounds i8, ptr %1, i64 88
+  %222 = load i64, ptr %221, align 8
+  store i64 %222, ptr %22, align 8
+  %223 = getelementptr inbounds i8, ptr %1, i64 96
+  %224 = load i32, ptr %223, align 8
+  store i32 %224, ptr %23, align 4
+  %225 = getelementptr inbounds i8, ptr %1, i64 104
+  %226 = load i16, ptr %225, align 8
+  store i16 %226, ptr %24, align 2
+  %227 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %20, i64 noundef 2, ptr noundef %3) #16
+  %.not40.i = icmp eq i32 %227, 0
+  br i1 %.not40.i, label %pcapng_write_sysdig_event_block.exit.thread, label %228
 
-226:                                              ; preds = %209
-  %227 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %21, i64 noundef 8, ptr noundef %3) #16
-  %.not41.i = icmp eq i32 %227, 0
-  br i1 %.not41.i, label %pcapng_write_sysdig_event_block.exit.thread, label %228
-
-228:                                              ; preds = %226
-  %229 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %22, i64 noundef 8, ptr noundef %3) #16
-  %.not42.i = icmp eq i32 %229, 0
-  br i1 %.not42.i, label %pcapng_write_sysdig_event_block.exit.thread, label %230
+228:                                              ; preds = %211
+  %229 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %21, i64 noundef 8, ptr noundef %3) #16
+  %.not41.i = icmp eq i32 %229, 0
+  br i1 %.not41.i, label %pcapng_write_sysdig_event_block.exit.thread, label %230
 
 230:                                              ; preds = %228
-  %231 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %23, i64 noundef 4, ptr noundef %3) #16
-  %.not43.i = icmp eq i32 %231, 0
-  br i1 %.not43.i, label %pcapng_write_sysdig_event_block.exit.thread, label %232
+  %231 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %22, i64 noundef 8, ptr noundef %3) #16
+  %.not42.i = icmp eq i32 %231, 0
+  br i1 %.not42.i, label %pcapng_write_sysdig_event_block.exit.thread, label %232
 
 232:                                              ; preds = %230
-  %233 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %24, i64 noundef 2, ptr noundef %3) #16
-  %.not44.i = icmp eq i32 %233, 0
-  br i1 %.not44.i, label %pcapng_write_sysdig_event_block.exit.thread, label %234
+  %233 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %23, i64 noundef 4, ptr noundef %3) #16
+  %.not43.i = icmp eq i32 %233, 0
+  br i1 %.not43.i, label %pcapng_write_sysdig_event_block.exit.thread, label %234
 
 234:                                              ; preds = %232
-  %235 = load i32, ptr %198, align 4
-  %236 = zext i32 %235 to i64
-  %237 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %236, ptr noundef %3) #16
-  %.not45.i = icmp eq i32 %237, 0
-  br i1 %.not45.i, label %pcapng_write_sysdig_event_block.exit.thread, label %238
+  %235 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %24, i64 noundef 2, ptr noundef %3) #16
+  %.not44.i = icmp eq i32 %235, 0
+  br i1 %.not44.i, label %pcapng_write_sysdig_event_block.exit.thread, label %236
 
-238:                                              ; preds = %234
-  br i1 %.not.i43, label %pcapng_write_sysdig_event_block.exit, label %239
+236:                                              ; preds = %234
+  %237 = load i32, ptr %200, align 4
+  %238 = zext i32 %237 to i64
+  %239 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %238, ptr noundef %3) #16
+  %.not45.i = icmp eq i32 %239, 0
+  br i1 %.not45.i, label %pcapng_write_sysdig_event_block.exit.thread, label %240
 
-239:                                              ; preds = %238
-  %240 = zext nneg i32 %204 to i64
-  %241 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %19, i64 noundef %240, ptr noundef %3) #16
-  %.not47.i = icmp eq i32 %241, 0
+240:                                              ; preds = %236
+  br i1 %.not.i43, label %pcapng_write_sysdig_event_block.exit, label %241
+
+241:                                              ; preds = %240
+  %242 = zext nneg i32 %206 to i64
+  %243 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %19, i64 noundef %242, ptr noundef %3) #16
+  %.not47.i = icmp eq i32 %243, 0
   br i1 %.not47.i, label %pcapng_write_sysdig_event_block.exit.thread, label %pcapng_write_sysdig_event_block.exit
 
-pcapng_write_sysdig_event_block.exit.thread:      ; preds = %201, %202, %209, %226, %228, %230, %232, %234, %239
+pcapng_write_sysdig_event_block.exit.thread:      ; preds = %203, %204, %211, %228, %230, %232, %234, %236, %241
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20)
@@ -5090,11 +5096,11 @@ pcapng_write_sysdig_event_block.exit.thread:      ; preds = %201, %202, %209, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24)
-  br label %333
+  br label %335
 
-pcapng_write_sysdig_event_block.exit:             ; preds = %238, %239
-  %242 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %207, i64 noundef 4, ptr noundef %3) #16
-  %.not48.i.not = icmp eq i32 %242, 0
+pcapng_write_sysdig_event_block.exit:             ; preds = %240, %241
+  %244 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %209, i64 noundef 4, ptr noundef %3) #16
+  %.not48.i.not = icmp eq i32 %244, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20)
@@ -5102,264 +5108,264 @@ pcapng_write_sysdig_event_block.exit:             ; preds = %238, %239
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24)
-  br i1 %.not48.i.not, label %333, label %332
+  br i1 %.not48.i.not, label %335, label %334
 
-243:                                              ; preds = %31
+245:                                              ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   store i32 0, ptr %17, align 4
-  %244 = getelementptr inbounds i8, ptr %1, i64 64
-  %245 = load i32, ptr %244, align 8
-  %246 = icmp ugt i32 %245, 262144
-  br i1 %246, label %247, label %248
+  %246 = getelementptr inbounds i8, ptr %1, i64 64
+  %247 = load i32, ptr %246, align 8
+  %248 = icmp ugt i32 %247, 262144
+  br i1 %248, label %249, label %250
 
-247:                                              ; preds = %243
+249:                                              ; preds = %245
   store i32 -22, ptr %3, align 4
   br label %pcapng_write_systemd_journal_export_block.exit.thread
 
-248:                                              ; preds = %243
-  %249 = and i32 %245, 3
-  %.not.i46 = icmp eq i32 %249, 0
-  %250 = sub nuw nsw i32 4, %249
-  %.0.i47 = select i1 %.not.i46, i32 0, i32 %250
+250:                                              ; preds = %245
+  %251 = and i32 %247, 3
+  %.not.i46 = icmp eq i32 %251, 0
+  %252 = sub nuw nsw i32 4, %251
+  %.0.i47 = select i1 %.not.i46, i32 0, i32 %252
   store i32 9, ptr %16, align 4
-  %251 = add nuw nsw i32 %245, 12
-  %252 = add nuw nsw i32 %251, %.0.i47
-  %253 = getelementptr inbounds i8, ptr %16, i64 4
-  store i32 %252, ptr %253, align 4
-  %254 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 8, ptr noundef %3) #16
-  %.not21.i = icmp eq i32 %254, 0
-  br i1 %.not21.i, label %pcapng_write_systemd_journal_export_block.exit.thread, label %255
+  %253 = add nuw nsw i32 %247, 12
+  %254 = add nuw nsw i32 %253, %.0.i47
+  %255 = getelementptr inbounds i8, ptr %16, i64 4
+  store i32 %254, ptr %255, align 4
+  %256 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 8, ptr noundef %3) #16
+  %.not21.i = icmp eq i32 %256, 0
+  br i1 %.not21.i, label %pcapng_write_systemd_journal_export_block.exit.thread, label %257
 
-255:                                              ; preds = %248
-  %256 = load i32, ptr %244, align 8
-  %257 = zext i32 %256 to i64
-  %258 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %257, ptr noundef %3) #16
-  %.not22.i = icmp eq i32 %258, 0
-  br i1 %.not22.i, label %pcapng_write_systemd_journal_export_block.exit.thread, label %259
+257:                                              ; preds = %250
+  %258 = load i32, ptr %246, align 8
+  %259 = zext i32 %258 to i64
+  %260 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %259, ptr noundef %3) #16
+  %.not22.i = icmp eq i32 %260, 0
+  br i1 %.not22.i, label %pcapng_write_systemd_journal_export_block.exit.thread, label %261
 
-259:                                              ; preds = %255
-  br i1 %.not.i46, label %pcapng_write_systemd_journal_export_block.exit, label %260
+261:                                              ; preds = %257
+  br i1 %.not.i46, label %pcapng_write_systemd_journal_export_block.exit, label %262
 
-260:                                              ; preds = %259
-  %261 = zext nneg i32 %250 to i64
-  %262 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %17, i64 noundef %261, ptr noundef %3) #16
-  %.not24.i = icmp eq i32 %262, 0
+262:                                              ; preds = %261
+  %263 = zext nneg i32 %252 to i64
+  %264 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %17, i64 noundef %263, ptr noundef %3) #16
+  %.not24.i = icmp eq i32 %264, 0
   br i1 %.not24.i, label %pcapng_write_systemd_journal_export_block.exit.thread, label %pcapng_write_systemd_journal_export_block.exit
 
-pcapng_write_systemd_journal_export_block.exit.thread: ; preds = %247, %248, %255, %260
+pcapng_write_systemd_journal_export_block.exit.thread: ; preds = %249, %250, %257, %262
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  br label %333
+  br label %335
 
-pcapng_write_systemd_journal_export_block.exit:   ; preds = %259, %260
-  %263 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %253, i64 noundef 4, ptr noundef %3) #16
-  %.not25.i.not = icmp eq i32 %263, 0
+pcapng_write_systemd_journal_export_block.exit:   ; preds = %261, %262
+  %265 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %255, i64 noundef 4, ptr noundef %3) #16
+  %.not25.i.not = icmp eq i32 %265, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  br i1 %.not25.i.not, label %333, label %332
+  br i1 %.not25.i.not, label %335, label %334
 
-264:                                              ; preds = %31
-  %265 = getelementptr inbounds i8, ptr %1, i64 68
-  %266 = load i32, ptr %265, align 4
-  %cond = icmp eq i32 %266, 10949
-  br i1 %cond, label %267, label %304
+266:                                              ; preds = %31
+  %267 = getelementptr inbounds i8, ptr %1, i64 68
+  %268 = load i32, ptr %267, align 4
+  %cond = icmp eq i32 %268, 10949
+  br i1 %cond, label %269, label %306
 
-267:                                              ; preds = %264
+269:                                              ; preds = %266
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  %268 = getelementptr inbounds i8, ptr %1, i64 232
-  %269 = load ptr, ptr %268, align 8
+  %270 = getelementptr inbounds i8, ptr %1, i64 232
+  %271 = load ptr, ptr %270, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store i32 0, ptr %11, align 8
-  %270 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr @compute_epb_option_size, ptr %270, align 8
-  %271 = call i32 @wtap_block_foreach_option(ptr noundef %269, ptr noundef nonnull @compute_block_option_size, ptr noundef nonnull %11) #16
-  %272 = load i32, ptr %11, align 8
-  %.not.i.i49 = icmp eq i32 %272, 0
-  %273 = add i32 %272, 4
-  %spec.select.i.i50 = select i1 %.not.i.i49, i32 0, i32 %273
+  %272 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr @compute_epb_option_size, ptr %272, align 8
+  %273 = call i32 @wtap_block_foreach_option(ptr noundef %271, ptr noundef nonnull @compute_block_option_size, ptr noundef nonnull %11) #16
+  %274 = load i32, ptr %11, align 8
+  %.not.i.i49 = icmp eq i32 %274, 0
+  %275 = add i32 %274, 4
+  %spec.select.i.i50 = select i1 %.not.i.i49, i32 0, i32 %275
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   store i32 2989, ptr %12, align 4
-  %274 = add i32 %spec.select.i.i50, 20
-  %275 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %274, ptr %275, align 4
-  %276 = getelementptr inbounds i8, ptr %1, i64 76
-  %277 = load i32, ptr %276, align 4
-  %278 = icmp eq i32 %277, 2
-  br i1 %278, label %279, label %281
+  %276 = add i32 %spec.select.i.i50, 20
+  %277 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 %276, ptr %277, align 4
+  %278 = getelementptr inbounds i8, ptr %1, i64 76
+  %279 = load i32, ptr %278, align 4
+  %280 = icmp eq i32 %279, 2
+  br i1 %280, label %281, label %283
 
-279:                                              ; preds = %267
-  %280 = add i32 %spec.select.i.i50, 24
-  store i32 %280, ptr %275, align 4
-  br label %281
+281:                                              ; preds = %269
+  %282 = add i32 %spec.select.i.i50, 24
+  store i32 %282, ptr %277, align 4
+  br label %283
 
-281:                                              ; preds = %279, %267
-  %282 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 8, ptr noundef %3) #16
-  %.not.i51 = icmp eq i32 %282, 0
-  br i1 %.not.i51, label %pcapng_write_bblog_block.exit.thread, label %283
-
-283:                                              ; preds = %281
-  store i32 10949, ptr %13, align 4
-  %284 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 4, ptr noundef %3) #16
-  %.not20.i = icmp eq i32 %284, 0
-  br i1 %.not20.i, label %pcapng_write_bblog_block.exit.thread, label %285
+283:                                              ; preds = %281, %269
+  %284 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 8, ptr noundef %3) #16
+  %.not.i51 = icmp eq i32 %284, 0
+  br i1 %.not.i51, label %pcapng_write_bblog_block.exit.thread, label %285
 
 285:                                              ; preds = %283
-  %286 = load i32, ptr %276, align 4
-  store i32 %286, ptr %15, align 4
-  %287 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 4, ptr noundef %3) #16
-  %.not21.i52 = icmp eq i32 %287, 0
-  br i1 %.not21.i52, label %pcapng_write_bblog_block.exit.thread, label %288
+  store i32 10949, ptr %13, align 4
+  %286 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 4, ptr noundef %3) #16
+  %.not20.i = icmp eq i32 %286, 0
+  br i1 %.not20.i, label %pcapng_write_bblog_block.exit.thread, label %287
 
-288:                                              ; preds = %285
-  %289 = load i32, ptr %276, align 4
-  %290 = icmp eq i32 %289, 2
-  br i1 %290, label %291, label %295
+287:                                              ; preds = %285
+  %288 = load i32, ptr %278, align 4
+  store i32 %288, ptr %15, align 4
+  %289 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 4, ptr noundef %3) #16
+  %.not21.i52 = icmp eq i32 %289, 0
+  br i1 %.not21.i52, label %pcapng_write_bblog_block.exit.thread, label %290
 
-291:                                              ; preds = %288
-  %292 = getelementptr inbounds i8, ptr %1, i64 80
-  %293 = load i32, ptr %292, align 4
-  store i32 %293, ptr %14, align 4
-  %294 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 4, ptr noundef %3) #16
-  %.not22.i56 = icmp eq i32 %294, 0
-  br i1 %.not22.i56, label %pcapng_write_bblog_block.exit.thread, label %295
+290:                                              ; preds = %287
+  %291 = load i32, ptr %278, align 4
+  %292 = icmp eq i32 %291, 2
+  br i1 %292, label %293, label %297
 
-295:                                              ; preds = %291, %288
+293:                                              ; preds = %290
+  %294 = getelementptr inbounds i8, ptr %1, i64 80
+  %295 = load i32, ptr %294, align 4
+  store i32 %295, ptr %14, align 4
+  %296 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 4, ptr noundef %3) #16
+  %.not22.i56 = icmp eq i32 %296, 0
+  br i1 %.not22.i56, label %pcapng_write_bblog_block.exit.thread, label %297
+
+297:                                              ; preds = %293, %290
   %.not23.i = icmp eq i32 %spec.select.i.i50, 0
-  br i1 %.not23.i, label %pcapng_write_bblog_block.exit, label %296
+  br i1 %.not23.i, label %pcapng_write_bblog_block.exit, label %298
 
-296:                                              ; preds = %295
-  %297 = load ptr, ptr %268, align 8
+298:                                              ; preds = %297
+  %299 = load ptr, ptr %270, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store ptr %0, ptr %10, align 8
-  %298 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %3, ptr %298, align 8
-  %299 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr null, ptr %299, align 8
-  %300 = call i32 @wtap_block_foreach_option(ptr noundef %297, ptr noundef nonnull @write_block_option, ptr noundef nonnull %10) #16
-  %.not.i26.i = icmp eq i32 %300, 0
+  %300 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %3, ptr %300, align 8
+  %301 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr null, ptr %301, align 8
+  %302 = call i32 @wtap_block_foreach_option(ptr noundef %299, ptr noundef nonnull @write_block_option, ptr noundef nonnull %10) #16
+  %.not.i26.i = icmp eq i32 %302, 0
   br i1 %.not.i26.i, label %write_options.exit.thread.i, label %write_options.exit.i
 
-write_options.exit.thread.i:                      ; preds = %296
+write_options.exit.thread.i:                      ; preds = %298
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %pcapng_write_bblog_block.exit.thread
 
-write_options.exit.i:                             ; preds = %296
+write_options.exit.i:                             ; preds = %298
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i16 0, ptr %9, align 2
-  %301 = getelementptr inbounds i8, ptr %9, i64 2
-  store i16 0, ptr %301, align 2
-  %302 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, ptr noundef %3) #16
-  %.not.i.i.not.i = icmp eq i32 %302, 0
+  %303 = getelementptr inbounds i8, ptr %9, i64 2
+  store i16 0, ptr %303, align 2
+  %304 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, ptr noundef %3) #16
+  %.not.i.i.not.i = icmp eq i32 %304, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br i1 %.not.i.i.not.i, label %pcapng_write_bblog_block.exit.thread, label %pcapng_write_bblog_block.exit
 
-pcapng_write_bblog_block.exit.thread:             ; preds = %281, %283, %285, %291, %write_options.exit.i, %write_options.exit.thread.i
+pcapng_write_bblog_block.exit.thread:             ; preds = %283, %285, %287, %293, %write_options.exit.i, %write_options.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  br label %333
+  br label %335
 
-pcapng_write_bblog_block.exit:                    ; preds = %295, %write_options.exit.i
-  %303 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %275, i64 noundef 4, ptr noundef %3) #16
-  %.not25.i53.not = icmp eq i32 %303, 0
+pcapng_write_bblog_block.exit:                    ; preds = %297, %write_options.exit.i
+  %305 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %277, i64 noundef 4, ptr noundef %3) #16
+  %.not25.i53.not = icmp eq i32 %305, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  br i1 %.not25.i53.not, label %333, label %332
+  br i1 %.not25.i53.not, label %335, label %334
 
-304:                                              ; preds = %264
+306:                                              ; preds = %266
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  %305 = getelementptr inbounds i8, ptr %1, i64 64
-  %306 = getelementptr inbounds i8, ptr %1, i64 72
-  %307 = load i32, ptr %306, align 8
-  %.not.i57 = icmp eq i32 %307, 0
-  br i1 %.not.i57, label %pcapng_write_custom_block.exit.thread71, label %308
+  %307 = getelementptr inbounds i8, ptr %1, i64 64
+  %308 = getelementptr inbounds i8, ptr %1, i64 72
+  %309 = load i32, ptr %308, align 8
+  %.not.i57 = icmp eq i32 %309, 0
+  br i1 %.not.i57, label %pcapng_write_custom_block.exit.thread71, label %310
 
-pcapng_write_custom_block.exit.thread71:          ; preds = %304
+pcapng_write_custom_block.exit.thread71:          ; preds = %306
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %332
+  br label %334
 
-308:                                              ; preds = %304
-  %309 = load i32, ptr %305, align 8
-  %310 = icmp ugt i32 %309, 262144
-  br i1 %310, label %311, label %312
+310:                                              ; preds = %306
+  %311 = load i32, ptr %307, align 8
+  %312 = icmp ugt i32 %311, 262144
+  br i1 %312, label %313, label %314
 
-311:                                              ; preds = %308
+313:                                              ; preds = %310
   store i32 -22, ptr %3, align 4
   br label %pcapng_write_custom_block.exit.thread
 
-312:                                              ; preds = %308
-  %313 = and i32 %309, 3
-  %.not25.i58 = icmp eq i32 %313, 0
-  %314 = sub nuw nsw i32 4, %313
-  %.0.i59 = select i1 %.not25.i58, i32 0, i32 %314
+314:                                              ; preds = %310
+  %315 = and i32 %311, 3
+  %.not25.i58 = icmp eq i32 %315, 0
+  %316 = sub nuw nsw i32 4, %315
+  %.0.i59 = select i1 %.not25.i58, i32 0, i32 %316
   store i32 2989, ptr %6, align 4
-  %315 = add nuw nsw i32 %309, 16
-  %316 = add nuw nsw i32 %315, %.0.i59
-  %317 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %316, ptr %317, align 4
-  %318 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 8, ptr noundef %3) #16
-  %.not26.i = icmp eq i32 %318, 0
-  br i1 %.not26.i, label %pcapng_write_custom_block.exit.thread, label %319
+  %317 = add nuw nsw i32 %311, 16
+  %318 = add nuw nsw i32 %317, %.0.i59
+  %319 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %318, ptr %319, align 4
+  %320 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 8, ptr noundef %3) #16
+  %.not26.i = icmp eq i32 %320, 0
+  br i1 %.not26.i, label %pcapng_write_custom_block.exit.thread, label %321
 
-319:                                              ; preds = %312
-  %320 = load i32, ptr %265, align 4
-  store i32 %320, ptr %7, align 4
-  %321 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %3) #16
-  %.not27.i = icmp eq i32 %321, 0
-  br i1 %.not27.i, label %pcapng_write_custom_block.exit.thread, label %322
+321:                                              ; preds = %314
+  %322 = load i32, ptr %267, align 4
+  store i32 %322, ptr %7, align 4
+  %323 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %3) #16
+  %.not27.i = icmp eq i32 %323, 0
+  br i1 %.not27.i, label %pcapng_write_custom_block.exit.thread, label %324
 
-322:                                              ; preds = %319
-  %323 = load i32, ptr %305, align 8
-  %324 = zext i32 %323 to i64
-  %325 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %324, ptr noundef %3) #16
-  %.not28.i = icmp eq i32 %325, 0
-  br i1 %.not28.i, label %pcapng_write_custom_block.exit.thread, label %326
+324:                                              ; preds = %321
+  %325 = load i32, ptr %307, align 8
+  %326 = zext i32 %325 to i64
+  %327 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %326, ptr noundef %3) #16
+  %.not28.i = icmp eq i32 %327, 0
+  br i1 %.not28.i, label %pcapng_write_custom_block.exit.thread, label %328
 
-326:                                              ; preds = %322
-  br i1 %.not25.i58, label %pcapng_write_custom_block.exit, label %327
+328:                                              ; preds = %324
+  br i1 %.not25.i58, label %pcapng_write_custom_block.exit, label %329
 
-327:                                              ; preds = %326
-  %328 = zext nneg i32 %314 to i64
-  %329 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %328, ptr noundef %3) #16
-  %.not30.i = icmp eq i32 %329, 0
+329:                                              ; preds = %328
+  %330 = zext nneg i32 %316 to i64
+  %331 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %330, ptr noundef %3) #16
+  %.not30.i = icmp eq i32 %331, 0
   br i1 %.not30.i, label %pcapng_write_custom_block.exit.thread, label %pcapng_write_custom_block.exit
 
-pcapng_write_custom_block.exit.thread:            ; preds = %311, %312, %319, %322, %327
+pcapng_write_custom_block.exit.thread:            ; preds = %313, %314, %321, %324, %329
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %333
+  br label %335
 
-pcapng_write_custom_block.exit:                   ; preds = %326, %327
-  %330 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %317, i64 noundef 4, ptr noundef %3) #16
-  %.not31.i.not = icmp eq i32 %330, 0
+pcapng_write_custom_block.exit:                   ; preds = %328, %329
+  %332 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %319, i64 noundef 4, ptr noundef %3) #16
+  %.not31.i.not = icmp eq i32 %332, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br i1 %.not31.i.not, label %333, label %332
+  br i1 %.not31.i.not, label %335, label %334
 
-331:                                              ; preds = %31
+333:                                              ; preds = %31
   store i32 -24, ptr %3, align 4
-  br label %333
+  br label %335
 
-332:                                              ; preds = %pcapng_write_custom_block.exit.thread71, %pcapng_write_bblog_block.exit, %pcapng_write_custom_block.exit, %pcapng_write_systemd_journal_export_block.exit, %pcapng_write_sysdig_event_block.exit, %192, %pcapng_write_enhanced_packet_block.exit
-  br label %333
+334:                                              ; preds = %pcapng_write_custom_block.exit.thread71, %pcapng_write_bblog_block.exit, %pcapng_write_custom_block.exit, %pcapng_write_systemd_journal_export_block.exit, %pcapng_write_sysdig_event_block.exit, %194, %pcapng_write_enhanced_packet_block.exit
+  br label %335
 
-333:                                              ; preds = %pcapng_write_custom_block.exit.thread, %pcapng_write_bblog_block.exit.thread, %pcapng_write_systemd_journal_export_block.exit.thread, %pcapng_write_sysdig_event_block.exit.thread, %pcapng_write_enhanced_packet_block.exit.thread, %pcapng_write_custom_block.exit, %pcapng_write_bblog_block.exit, %pcapng_write_systemd_journal_export_block.exit, %pcapng_write_sysdig_event_block.exit, %192, %pcapng_write_enhanced_packet_block.exit, %5, %332, %331, %196
-  %.0 = phi i32 [ 0, %331 ], [ 1, %332 ], [ 0, %196 ], [ 0, %5 ], [ 0, %pcapng_write_enhanced_packet_block.exit ], [ 0, %192 ], [ 0, %pcapng_write_sysdig_event_block.exit ], [ 0, %pcapng_write_systemd_journal_export_block.exit ], [ 0, %pcapng_write_bblog_block.exit ], [ 0, %pcapng_write_custom_block.exit ], [ 0, %pcapng_write_enhanced_packet_block.exit.thread ], [ 0, %pcapng_write_sysdig_event_block.exit.thread ], [ 0, %pcapng_write_systemd_journal_export_block.exit.thread ], [ 0, %pcapng_write_bblog_block.exit.thread ], [ 0, %pcapng_write_custom_block.exit.thread ]
+335:                                              ; preds = %pcapng_write_custom_block.exit.thread, %pcapng_write_bblog_block.exit.thread, %pcapng_write_systemd_journal_export_block.exit.thread, %pcapng_write_sysdig_event_block.exit.thread, %pcapng_write_enhanced_packet_block.exit.thread, %pcapng_write_custom_block.exit, %pcapng_write_bblog_block.exit, %pcapng_write_systemd_journal_export_block.exit, %pcapng_write_sysdig_event_block.exit, %194, %pcapng_write_enhanced_packet_block.exit, %5, %334, %333, %198
+  %.0 = phi i32 [ 0, %333 ], [ 1, %334 ], [ 0, %198 ], [ 0, %5 ], [ 0, %pcapng_write_enhanced_packet_block.exit ], [ 0, %194 ], [ 0, %pcapng_write_sysdig_event_block.exit ], [ 0, %pcapng_write_systemd_journal_export_block.exit ], [ 0, %pcapng_write_bblog_block.exit ], [ 0, %pcapng_write_custom_block.exit ], [ 0, %pcapng_write_enhanced_packet_block.exit.thread ], [ 0, %pcapng_write_sysdig_event_block.exit.thread ], [ 0, %pcapng_write_systemd_journal_export_block.exit.thread ], [ 0, %pcapng_write_bblog_block.exit.thread ], [ 0, %pcapng_write_custom_block.exit.thread ]
   ret i32 %.0
 }
 
@@ -5369,7 +5375,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump_finish(ptr noundef %0, ptr noun
   %5 = alloca %struct.write_options_t, align 8
   %6 = alloca %struct.compute_options_size_t, align 8
   %7 = alloca %struct.pcapng_block_header_s, align 4
-  %8 = alloca %struct.pcapng_interface_statistics_block_s, align 8
+  %8 = alloca %struct.pcapng_interface_statistics_block_s, align 4
   %9 = tail call fastcc i32 @pcapng_write_internal_blocks(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.loopexit, label %.preheader
@@ -5385,117 +5391,121 @@ define internal range(i32 0, 2) i32 @pcapng_dump_finish(ptr noundef %0, ptr noun
 .lr.ph24:                                         ; preds = %.preheader
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   %15 = getelementptr inbounds i8, ptr %7, i64 4
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  %19 = getelementptr inbounds i8, ptr %4, i64 2
-  br label %20
+  %16 = getelementptr inbounds i8, ptr %8, i64 4
+  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds i8, ptr %4, i64 2
+  br label %21
 
-20:                                               ; preds = %.lr.ph24, %._crit_edge
+21:                                               ; preds = %.lr.ph24, %._crit_edge
   %indvars.iv29 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next30, %._crit_edge ]
-  %21 = phi ptr [ %11, %.lr.ph24 ], [ %54, %._crit_edge ]
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr ptr, ptr %22, i64 %indvars.iv29
-  %24 = load ptr, ptr %23, align 8
-  %25 = call ptr @wtap_block_get_mandatory_data(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
-  %27 = load i8, ptr %26, align 8
-  %.not26 = icmp eq i8 %27, 0
+  %22 = phi ptr [ %11, %.lr.ph24 ], [ %57, %._crit_edge ]
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr ptr, ptr %23, i64 %indvars.iv29
+  %25 = load ptr, ptr %24, align 8
+  %26 = call ptr @wtap_block_get_mandatory_data(ptr noundef %25) #16
+  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %28 = load i8, ptr %27, align 8
+  %.not26 = icmp eq i8 %28, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %25, i64 32
-  br label %33
+.lr.ph:                                           ; preds = %21
+  %29 = getelementptr inbounds i8, ptr %26, i64 32
+  br label %34
 
-29:                                               ; preds = %pcapng_write_interface_statistics_block.exit
+30:                                               ; preds = %pcapng_write_interface_statistics_block.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i8, ptr %26, align 8
-  %31 = zext i8 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
-  br i1 %32, label %33, label %._crit_edge, !llvm.loop !16
+  %31 = load i8, ptr %27, align 8
+  %32 = zext i8 %31 to i64
+  %33 = icmp ult i64 %indvars.iv.next, %32
+  br i1 %33, label %34, label %._crit_edge, !llvm.loop !16
 
-33:                                               ; preds = %.lr.ph, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %34 = load ptr, ptr %28, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr ptr, ptr %35, i64 %indvars.iv
-  %37 = load ptr, ptr %36, align 8
+34:                                               ; preds = %.lr.ph, %30
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
+  %35 = load ptr, ptr %29, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr ptr, ptr %36, i64 %indvars.iv
+  %38 = load ptr, ptr %37, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
-  %38 = call ptr @wtap_block_get_mandatory_data(ptr noundef %37) #16
+  %39 = call ptr @wtap_block_get_mandatory_data(ptr noundef %38) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i32 0, ptr %6, align 8
   store ptr @compute_isb_option_size, ptr %14, align 8
-  %39 = call i32 @wtap_block_foreach_option(ptr noundef %37, ptr noundef nonnull @compute_block_option_size, ptr noundef nonnull %6) #16
-  %40 = load i32, ptr %6, align 8
-  %.not.i.i = icmp eq i32 %40, 0
-  %41 = add i32 %40, 4
-  %spec.select.i.i = select i1 %.not.i.i, i32 0, i32 %41
+  %40 = call i32 @wtap_block_foreach_option(ptr noundef %38, ptr noundef nonnull @compute_block_option_size, ptr noundef nonnull %6) #16
+  %41 = load i32, ptr %6, align 8
+  %.not.i.i = icmp eq i32 %41, 0
+  %42 = add i32 %41, 4
+  %spec.select.i.i = select i1 %.not.i.i, i32 0, i32 %42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   store i32 5, ptr %7, align 4
-  %42 = add i32 %spec.select.i.i, 24
-  store i32 %42, ptr %15, align 4
-  %43 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 8, ptr noundef %1) #16
-  %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %pcapng_write_interface_statistics_block.exit.thread, label %44
+  %43 = add i32 %spec.select.i.i, 24
+  store i32 %43, ptr %15, align 4
+  %44 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 8, ptr noundef %1) #16
+  %.not.i = icmp eq i32 %44, 0
+  br i1 %.not.i, label %pcapng_write_interface_statistics_block.exit.thread, label %45
 
-44:                                               ; preds = %33
-  %45 = load <2 x i32>, ptr %38, align 4
-  store <2 x i32> %45, ptr %8, align 8
-  %46 = getelementptr inbounds i8, ptr %38, i64 8
-  %47 = load i32, ptr %46, align 4
-  store i32 %47, ptr %16, align 8
-  %48 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 12, ptr noundef %1) #16
-  %.not16.i = icmp eq i32 %48, 0
-  br i1 %.not16.i, label %pcapng_write_interface_statistics_block.exit.thread, label %49
+45:                                               ; preds = %34
+  %46 = load i32, ptr %39, align 4
+  store i32 %46, ptr %8, align 4
+  %47 = getelementptr inbounds i8, ptr %39, i64 4
+  %48 = load i32, ptr %47, align 4
+  store i32 %48, ptr %16, align 4
+  %49 = getelementptr inbounds i8, ptr %39, i64 8
+  %50 = load i32, ptr %49, align 4
+  store i32 %50, ptr %17, align 4
+  %51 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 12, ptr noundef %1) #16
+  %.not16.i = icmp eq i32 %51, 0
+  br i1 %.not16.i, label %pcapng_write_interface_statistics_block.exit.thread, label %52
 
-49:                                               ; preds = %44
+52:                                               ; preds = %45
   %.not17.i = icmp eq i32 %spec.select.i.i, 0
-  br i1 %.not17.i, label %pcapng_write_interface_statistics_block.exit, label %50
+  br i1 %.not17.i, label %pcapng_write_interface_statistics_block.exit, label %53
 
-50:                                               ; preds = %49
+53:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %17, align 8
-  store ptr @write_wtap_isb_option, ptr %18, align 8
-  %51 = call i32 @wtap_block_foreach_option(ptr noundef %37, ptr noundef nonnull @write_block_option, ptr noundef nonnull %5) #16
-  %.not.i20.i = icmp eq i32 %51, 0
+  store ptr %1, ptr %18, align 8
+  store ptr @write_wtap_isb_option, ptr %19, align 8
+  %54 = call i32 @wtap_block_foreach_option(ptr noundef %38, ptr noundef nonnull @write_block_option, ptr noundef nonnull %5) #16
+  %.not.i20.i = icmp eq i32 %54, 0
   br i1 %.not.i20.i, label %write_options.exit.thread.i, label %write_options.exit.i
 
-write_options.exit.thread.i:                      ; preds = %50
+write_options.exit.thread.i:                      ; preds = %53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %pcapng_write_interface_statistics_block.exit.thread
 
-write_options.exit.i:                             ; preds = %50
+write_options.exit.i:                             ; preds = %53
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i16 0, ptr %4, align 2
-  store i16 0, ptr %19, align 2
-  %52 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 4, ptr noundef %1) #16
-  %.not.i.i.not.i = icmp eq i32 %52, 0
+  store i16 0, ptr %20, align 2
+  %55 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 4, ptr noundef %1) #16
+  %.not.i.i.not.i = icmp eq i32 %55, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br i1 %.not.i.i.not.i, label %pcapng_write_interface_statistics_block.exit.thread, label %pcapng_write_interface_statistics_block.exit
 
-pcapng_write_interface_statistics_block.exit.thread: ; preds = %33, %44, %write_options.exit.i, %write_options.exit.thread.i
+pcapng_write_interface_statistics_block.exit.thread: ; preds = %34, %45, %write_options.exit.i, %write_options.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
   br label %.loopexit
 
-pcapng_write_interface_statistics_block.exit:     ; preds = %49, %write_options.exit.i
-  %53 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 4, ptr noundef %1) #16
-  %.not19.i.not = icmp eq i32 %53, 0
+pcapng_write_interface_statistics_block.exit:     ; preds = %52, %write_options.exit.i
+  %56 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 4, ptr noundef %1) #16
+  %.not19.i.not = icmp eq i32 %56, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
-  br i1 %.not19.i.not, label %.loopexit, label %29
+  br i1 %.not19.i.not, label %.loopexit, label %30
 
-._crit_edge:                                      ; preds = %29, %20
+._crit_edge:                                      ; preds = %30, %21
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %54 = load ptr, ptr %10, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
-  %56 = load i32, ptr %55, align 8
-  %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %indvars.iv.next30, %57
-  br i1 %58, label %20, label %.loopexit, !llvm.loop !17
+  %57 = load ptr, ptr %10, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = load i32, ptr %58, align 8
+  %60 = zext i32 %59 to i64
+  %61 = icmp ult i64 %indvars.iv.next30, %60
+  br i1 %61, label %21, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %._crit_edge, %pcapng_write_interface_statistics_block.exit, %.preheader, %pcapng_write_interface_statistics_block.exit.thread, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %pcapng_write_interface_statistics_block.exit.thread ], [ 1, %.preheader ], [ 0, %pcapng_write_interface_statistics_block.exit ], [ 1, %._crit_edge ]
@@ -5600,7 +5610,7 @@ write_options.exit:                               ; preds = %32
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @pcapng_write_decryption_secrets_block(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.pcapng_block_header_s, align 4
-  %5 = alloca %struct.pcapng_decryption_secrets_block_s, align 8
+  %5 = alloca %struct.pcapng_decryption_secrets_block_s, align 4
   %6 = alloca i32, align 4
   %7 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %1) #16
   %8 = getelementptr inbounds i8, ptr %7, i64 4
@@ -5614,43 +5624,46 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_decryption_secrets_bloc
   store i32 %13, ptr %14, align 4
   %15 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 8, ptr noundef %2) #16
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %31, label %16
+  br i1 %.not, label %33, label %16
 
 16:                                               ; preds = %3
-  %17 = load <2 x i32>, ptr %7, align 8
-  store <2 x i32> %17, ptr %5, align 8
-  %18 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 8, ptr noundef %2) #16
-  %.not21 = icmp eq i32 %18, 0
-  br i1 %.not21, label %31, label %19
+  %17 = load i32, ptr %7, align 8
+  store i32 %17, ptr %5, align 4
+  %18 = load i32, ptr %8, align 4
+  %19 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %18, ptr %19, align 4
+  %20 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 8, ptr noundef %2) #16
+  %.not21 = icmp eq i32 %20, 0
+  br i1 %.not21, label %33, label %21
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = load i32, ptr %8, align 4
-  %23 = zext i32 %22 to i64
-  %24 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %21, i64 noundef %23, ptr noundef %2) #16
-  %.not22 = icmp eq i32 %24, 0
-  br i1 %.not22, label %31, label %25
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = zext i32 %24 to i64
+  %26 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %23, i64 noundef %25, ptr noundef %2) #16
+  %.not22 = icmp eq i32 %26, 0
+  br i1 %.not22, label %33, label %27
 
-25:                                               ; preds = %19
+27:                                               ; preds = %21
   %.not23 = icmp eq i32 %11, 0
-  br i1 %.not23, label %29, label %26
+  br i1 %.not23, label %31, label %28
 
-26:                                               ; preds = %25
+28:                                               ; preds = %27
   store i32 0, ptr %6, align 4
-  %27 = zext nneg i32 %11 to i64
-  %28 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %27, ptr noundef %2) #16
-  %.not24 = icmp eq i32 %28, 0
-  br i1 %.not24, label %31, label %29
+  %29 = zext nneg i32 %11 to i64
+  %30 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %29, ptr noundef %2) #16
+  %.not24 = icmp eq i32 %30, 0
+  br i1 %.not24, label %33, label %31
 
-29:                                               ; preds = %26, %25
-  %30 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 4, ptr noundef %2) #16
-  %.not25 = icmp ne i32 %30, 0
+31:                                               ; preds = %28, %27
+  %32 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 4, ptr noundef %2) #16
+  %.not25 = icmp ne i32 %32, 0
   %. = zext i1 %.not25 to i32
-  br label %31
+  br label %33
 
-31:                                               ; preds = %29, %26, %19, %16, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %16 ], [ 0, %19 ], [ 0, %26 ], [ %., %29 ]
+33:                                               ; preds = %31, %28, %21, %16, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %16 ], [ 0, %21 ], [ 0, %28 ], [ %., %31 ]
   ret i32 %.0
 }
 

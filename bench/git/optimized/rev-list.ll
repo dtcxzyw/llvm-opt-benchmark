@@ -1553,18 +1553,20 @@ if.then124:                                       ; preds = %if.end118
   %40 = getelementptr inbounds i8, ptr %ctx, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %40, i8 0, i64 176, i1 false)
   %abbrev125 = getelementptr inbounds i8, ptr %0, i64 328
+  %41 = load i32, ptr %abbrev125, align 8
+  %abbrev126 = getelementptr inbounds i8, ptr %ctx, i64 4
+  store i32 %41, ptr %abbrev126, align 4
   %date_mode = getelementptr inbounds i8, ptr %ctx, i64 24
   %date_mode127 = getelementptr inbounds i8, ptr %0, i64 296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %date_mode, ptr noundef nonnull align 8 dereferenceable(24) %date_mode127, i64 24, i1 false)
   %bf.load128 = load i32, ptr %include_header, align 4
   %bf.lshr129 = lshr i32 %bf.load128, 12
   %date_mode_explicit131 = getelementptr inbounds i8, ptr %ctx, i64 48
-  %41 = trunc i32 %bf.lshr129 to i8
-  %42 = and i8 %41, 1
-  store i8 %42, ptr %date_mode_explicit131, align 8
-  %43 = load <2 x i32>, ptr %abbrev125, align 8
-  %44 = shufflevector <2 x i32> %43, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %44, ptr %ctx, align 8
+  %42 = trunc i32 %bf.lshr129 to i8
+  %43 = and i8 %42, 1
+  store i8 %43, ptr %date_mode_explicit131, align 8
+  %44 = load i32, ptr %commit_format, align 4
+  store i32 %44, ptr %ctx, align 8
   %call135 = call ptr @get_log_output_encoding() #11
   %output_encoding = getelementptr inbounds i8, ptr %ctx, i64 88
   store ptr %call135, ptr %output_encoding, align 8

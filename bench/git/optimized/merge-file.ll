@@ -455,10 +455,13 @@ if.end216:                                        ; preds = %lor.lhs.false
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end216
+  %arrayidx220 = getelementptr inbounds i8, ptr %names, i64 8
+  %21 = load ptr, ptr %arrayidx220, align 8
   %ancestor = getelementptr inbounds i8, ptr %xmp, i64 56
-  %21 = load <2 x ptr>, ptr %names, align 16
-  %22 = shufflevector <2 x ptr> %21, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %22, ptr %ancestor, align 8
+  store ptr %21, ptr %ancestor, align 8
+  %22 = load ptr, ptr %names, align 16
+  %file1 = getelementptr inbounds i8, ptr %xmp, i64 64
+  store ptr %22, ptr %file1, align 8
   %arrayidx222 = getelementptr inbounds i8, ptr %names, i64 16
   %23 = load ptr, ptr %arrayidx222, align 16
   %file2 = getelementptr inbounds i8, ptr %xmp, i64 72

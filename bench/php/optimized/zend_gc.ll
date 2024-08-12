@@ -114,9 +114,12 @@ define zeroext i1 @gc_enable(i1 noundef zeroext %0) local_unnamed_addr #2 {
   %10 = tail call noalias dereferenceable_or_null(131072) ptr @__zend_malloc(i64 noundef 131072) #16
   store ptr %10, ptr @gc_globals, align 8
   store ptr null, ptr %10, align 8
+  store i32 16384, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  store i32 10001, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds (i8, ptr @gc_globals, i64 9), i8 0, i64 7, i1 false)
-  store <4 x i32> <i32 1, i32 10001, i32 16384, i32 0>, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @gc_globals, i64 48), i8 0, i64 24, i1 false)
@@ -3809,39 +3812,49 @@ define void @zend_gc_get_status(ptr nocapture noundef writeonly %0) local_unname
   %9 = getelementptr inbounds i8, ptr %0, i64 2
   %10 = and i8 %8, 1
   store i8 %10, ptr %9, align 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
-  %12 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
-  %13 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
-  %14 = shufflevector <4 x i32> %12, <4 x i32> %13, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x i32> %14, ptr %11, align 4
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 32), align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %11, ptr %12, align 4
+  %13 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 36), align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %13, ptr %14, align 8
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 20), align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %15, ptr %16, align 4
+  %17 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 24), align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %17, ptr %18, align 8
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 28), align 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %19, ptr %20, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %17 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #15
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %25
+  %21 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #15
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %29
 
-19:                                               ; preds = %1
-  %20 = load i64, ptr %2, align 8
-  %21 = mul i64 %20, 1000000000
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
-  %23 = load i64, ptr %22, align 8
-  %24 = add i64 %21, %23
-  br label %25
+23:                                               ; preds = %1
+  %24 = load i64, ptr %2, align 8
+  %25 = mul i64 %24, 1000000000
+  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %25, %27
+  br label %29
 
-25:                                               ; preds = %1, %19
-  %.0 = phi i64 [ %24, %19 ], [ 0, %1 ]
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 40), align 8
-  %27 = sub i64 %.0, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %30 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 48), align 8
-  store <2 x i64> %30, ptr %29, align 8
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 64), align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+29:                                               ; preds = %1, %23
+  %.0 = phi i64 [ %28, %23 ], [ 0, %1 ]
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 40), align 8
+  %31 = sub i64 %.0, %30
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %31, ptr %32, align 8
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 48), align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %33, ptr %34, align 8
+  %35 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 56), align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %35, ptr %36, align 8
+  %37 = load i64, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 64), align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %37, ptr %38, align 8
   ret void
 }
 

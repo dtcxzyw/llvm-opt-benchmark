@@ -617,60 +617,64 @@ _ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.e
   %30 = getelementptr inbounds i8, ptr %9, i64 64
   %31 = getelementptr inbounds i8, ptr %9, i64 56
   %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.25.sroa.2.0..sroa.25.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  br label %34
+  %.sroa.25.sroa.3.0..sroa.25.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  br label %35
 
-._crit_edge:                                      ; preds = %47, %_ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.exit
+._crit_edge:                                      ; preds = %49, %_ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %33 = call noundef zeroext i1 @_ZN4core3fmt8builders8DebugMap6finish17hbc68483184d23f5aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+  %34 = call noundef zeroext i1 @_ZN4core3fmt8builders8DebugMap6finish17hbc68483184d23f5aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  ret i1 %33
+  ret i1 %34
 
-34:                                               ; preds = %.lr.ph, %47
-  %35 = phi i64 [ %27, %.lr.ph ], [ %50, %47 ]
-  %36 = phi ptr [ %25, %.lr.ph ], [ %49, %47 ]
-  %37 = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !72, !noalias !70, !noundef !5
-  %38 = add i64 %37, 1
-  store i64 %38, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !72, !noalias !70
+35:                                               ; preds = %.lr.ph, %49
+  %36 = phi i64 [ %27, %.lr.ph ], [ %52, %49 ]
+  %37 = phi ptr [ %25, %.lr.ph ], [ %51, %49 ]
+  %38 = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !72, !noalias !70, !noundef !5
+  %39 = add i64 %38, 1
+  store i64 %39, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !72, !noalias !70
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  store i64 %37, ptr %28, align 8
-  store ptr %36, ptr %6, align 8
-  store i64 %35, ptr %29, align 8
+  store i64 %38, ptr %28, align 8
+  store ptr %37, ptr %6, align 8
+  store i64 %36, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call fastcc void @_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10, i64 noundef %37)
-  %39 = load i64, ptr %4, align 8, !range !71, !noundef !5
-  %trunc8 = trunc nuw i64 %39 to i1
-  br i1 %trunc8, label %42, label %40
+  call fastcc void @_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10, i64 noundef %38)
+  %40 = load i64, ptr %4, align 8, !range !71, !noundef !5
+  %trunc8 = trunc nuw i64 %40 to i1
+  br i1 %trunc8, label %43, label %41
 
-40:                                               ; preds = %34
+41:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %41 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap5entry17h21a6ff5a03673b25E(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7000f000db41c851e2e547bad66aa703.22, ptr noundef nonnull align 1 @anon.7000f000db41c851e2e547bad66aa703.23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7000f000db41c851e2e547bad66aa703.24)
-  br label %47
+  %42 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap5entry17h21a6ff5a03673b25E(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7000f000db41c851e2e547bad66aa703.22, ptr noundef nonnull align 1 @anon.7000f000db41c851e2e547bad66aa703.23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7000f000db41c851e2e547bad66aa703.24)
+  br label %49
 
-42:                                               ; preds = %34
-  %43 = load i64, ptr %30, align 8, !noundef !5
-  %44 = load ptr, ptr %31, align 8, !nonnull !5, !align !45, !noundef !5
-  %45 = load <2 x i64>, ptr %32, align 8
+43:                                               ; preds = %35
+  %44 = load i64, ptr %30, align 8, !noundef !5
+  %45 = load ptr, ptr %31, align 8, !nonnull !5, !align !45, !noundef !5
+  %46 = load i64, ptr %32, align 8, !noundef !5
+  %47 = load i64, ptr %33, align 8, !noundef !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  store ptr %44, ptr %5, align 8
-  store i64 %43, ptr %.sroa.25.0..sroa_idx, align 8
-  store <2 x i64> %45, ptr %.sroa.25.sroa.2.0..sroa.25.0..sroa_idx.sroa_idx, align 8
-  %46 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap5entry17h21a6ff5a03673b25E(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7000f000db41c851e2e547bad66aa703.22, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7000f000db41c851e2e547bad66aa703.25)
+  store ptr %45, ptr %5, align 8
+  store i64 %44, ptr %.sroa.25.0..sroa_idx, align 8
+  store i64 %46, ptr %.sroa.25.sroa.2.0..sroa.25.0..sroa_idx.sroa_idx, align 8
+  store i64 %47, ptr %.sroa.25.sroa.3.0..sroa.25.0..sroa_idx.sroa_idx, align 8
+  %48 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap5entry17h21a6ff5a03673b25E(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7000f000db41c851e2e547bad66aa703.22, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7000f000db41c851e2e547bad66aa703.25)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br label %47
+  br label %49
 
-47:                                               ; preds = %42, %40
+49:                                               ; preds = %43, %41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !74
   call void @"_ZN112_$LT$regex_automata..util..captures..GroupInfoPatternNames$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h275f92c4cb50a20aE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !70
-  %48 = load i64, ptr %3, align 8, !range !71, !noalias !74, !noundef !5
-  %trunc.i = trunc nuw i64 %48 to i1
-  %49 = load ptr, ptr %24, align 8, !noalias !74, !align !45
-  %50 = load i64, ptr %26, align 8, !noalias !74
+  %50 = load i64, ptr %3, align 8, !range !71, !noalias !74, !noundef !5
+  %trunc.i = trunc nuw i64 %50 to i1
+  %51 = load ptr, ptr %24, align 8, !noalias !74, !align !45
+  %52 = load i64, ptr %26, align 8, !noalias !74
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !74
-  br i1 %trunc.i, label %34, label %._crit_edge
+  br i1 %trunc.i, label %35, label %._crit_edge
 }
 
 ; Function Attrs: nonlazybind uwtable

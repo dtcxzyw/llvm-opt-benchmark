@@ -34925,7 +34925,7 @@ ehcleanup22:                                      ; preds = %lpad, %lpad.i, %ehc
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN54CordAppendBufferTest_GetAppendBufferOnInlinedCord_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp2 = alloca [4 x i32], align 16
+  %ref.tmp2 = alloca [4 x i32], align 4
   %cord = alloca %"class.absl::Cord", align 8
   %buffer = alloca %"class.absl::CordBuffer", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -34946,7 +34946,13 @@ entry:
   %ref.tmp83 = alloca %"class.testing::Message", align 8
   %ref.tmp85 = alloca %"class.testing::internal::AssertHelper", align 8
   %ref.tmp86 = alloca %"class.std::__cxx11::basic_string", align 8
-  store <4 x i32> <i32 6, i32 12, i32 13, i32 1000>, ptr %ref.tmp2, align 16
+  store i32 6, ptr %ref.tmp2, align 4
+  %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 4
+  store i32 12, ptr %arrayinit.element, align 4
+  %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  store i32 13, ptr %arrayinit.element3, align 4
+  %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 12
+  store i32 1000, ptr %arrayinit.element4, align 4
   %message_.i.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %message_.i.i32 = getelementptr inbounds i8, ptr %gtest_ar25, i64 8
   %data.i.i = getelementptr inbounds i8, ptr %buffer, i64 1
@@ -69694,7 +69700,7 @@ declare noundef zeroext i1 @_ZN7testing8internal9DeathTest6CreateEPKcNS_7Matcher
 define linkonce_odr dso_local void @_ZN7testing8internal20MakeDeathTestMatcherB5cxx11EPKc(ptr noalias sret(%"class.testing::Matcher") align 8 %agg.result, ptr noundef %regex) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %regex.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.testing::PolymorphicMatcher", align 16
+  %ref.tmp = alloca %"class.testing::PolymorphicMatcher", align 8
   store ptr %regex, ptr %regex.addr, align 8
   call void @_ZN7testing13ContainsRegexIPKcEENS_18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEEERKT_(ptr nonnull sret(%"class.testing::PolymorphicMatcher") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %regex.addr)
   call void @llvm.experimental.noalias.scope.decl(metadata !948)
@@ -69704,15 +69710,17 @@ entry:
 call.i.noexc:                                     ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %call.i1, align 8, !noalias !948
   %impl_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
+  %0 = load ptr, ptr %ref.tmp, align 8, !noalias !948
+  store ptr %0, ptr %impl_.i.i, align 8, !noalias !948
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !948
-  %1 = load <2 x ptr>, ptr %ref.tmp, align 16, !noalias !948
-  store <2 x ptr> %1, ptr %impl_.i.i, align 8, !noalias !948
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !948
+  store ptr %1, ptr %_M_refcount.i.i.i.i.i, align 8, !noalias !948
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.noexc
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !948
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -69730,7 +69738,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
 _ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %call.i.noexc
   %full_match_.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 24
   %full_match_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %5 = load i8, ptr %full_match_3.i.i.i, align 16, !noalias !948
+  %5 = load i8, ptr %full_match_3.i.i.i, align 8, !noalias !948
   %frombool.i.i.i = and i8 %5, 1
   store i8 %frombool.i.i.i, ptr %full_match_.i.i.i, align 8, !noalias !948
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %agg.result, align 8, !alias.scope !948
@@ -71448,6 +71456,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit184:         ; preds = %if.end116, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i183
   store ptr null, ptr %message_.i181, align 8
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp123, i64 1
+  %arrayinit.element3.i.i = getelementptr inbounds i8, ptr %ref.tmp123, i64 2
+  %arrayinit.element6.i.i = getelementptr inbounds i8, ptr %ref.tmp123, i64 3
+  %arrayinit.element9.i.i = getelementptr inbounds i8, ptr %ref.tmp123, i64 4
+  %arrayinit.element12.i.i = getelementptr inbounds i8, ptr %ref.tmp123, i64 5
+  %arrayinit.element15.i.i = getelementptr inbounds i8, ptr %ref.tmp123, i64 6
+  %arrayinit.element18.i.i = getelementptr inbounds i8, ptr %ref.tmp123, i64 7
   %arrayinit.element21.i.i = getelementptr inbounds i8, ptr %ref.tmp123, i64 8
   %arrayinit.element24.i.i = getelementptr inbounds i8, ptr %ref.tmp123, i64 9
   %arrayinit.element27.i.i = getelementptr inbounds i8, ptr %ref.tmp123, i64 10
@@ -71457,7 +71472,14 @@ _ZN7testing15AssertionResultD2Ev.exit184:         ; preds = %if.end116, %_ZNKSt1
 
 _ZNK4absl4Cord4sizeEv.exit.i.i.i.i:               ; preds = %_ZN7testing15AssertionResultD2Ev.exit184, %_ZN7testing15AssertionResultD2Ev.exit217
   %i118.0219 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit184 ], [ %inc146, %_ZN7testing15AssertionResultD2Ev.exit217 ]
-  store <8 x i8> <i8 20, i8 83, i8 83, i8 79, i8 32, i8 115, i8 116, i8 114>, ptr %ref.tmp123, align 8
+  store i8 20, ptr %ref.tmp123, align 8
+  store i8 83, ptr %arrayinit.element.i.i, align 1
+  store i8 83, ptr %arrayinit.element3.i.i, align 2
+  store i8 79, ptr %arrayinit.element6.i.i, align 1
+  store i8 32, ptr %arrayinit.element9.i.i, align 4
+  store i8 115, ptr %arrayinit.element12.i.i, align 1
+  store i8 116, ptr %arrayinit.element15.i.i, align 2
+  store i8 114, ptr %arrayinit.element18.i.i, align 1
   store i8 105, ptr %arrayinit.element21.i.i, align 8
   store i8 110, ptr %arrayinit.element24.i.i, align 1
   store i8 103, ptr %arrayinit.element27.i.i, align 2
@@ -89801,10 +89823,13 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI8CordTestE8TestInfoEESaIS7_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI8CordTestE8TestInfoEESaIS7_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI8CordTestE8TestInfoEESaIS7_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.158", ptr %cond.i10, i64 %sub.ptr.div.i
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %3 = load <2 x ptr>, ptr %__args, align 8
+  %4 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i, align 8
-  store <2 x ptr> %3, ptr %add.ptr, align 8
+  store ptr %4, ptr %_M_refcount.i.i.i.i, align 8
   store ptr null, ptr %__args, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI8CordTestE8TestInfoEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %for.body.i.i.i
@@ -89814,10 +89839,13 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI8CordTestE8TestInfoEESaIS7_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1176)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1179)
+  %5 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !1179, !noalias !1176
+  store ptr %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !1176, !noalias !1179
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
-  %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !1179, !noalias !1176
+  %6 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !1179, !noalias !1176
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !1179, !noalias !1176
-  store <2 x ptr> %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !1176, !noalias !1179
+  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !alias.scope !1176, !noalias !1179
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !1179, !noalias !1176
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
@@ -89835,10 +89863,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10sh
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI8CordTestE8TestInfoEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1182)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1185)
+  %7 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !1185, !noalias !1182
+  store ptr %7, ptr %__cur.07.i.i.i13, align 8, !alias.scope !1182, !noalias !1185
+  %_M_refcount.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !1185, !noalias !1182
+  %8 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !1185, !noalias !1182
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !1185, !noalias !1182
-  store <2 x ptr> %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !1182, !noalias !1185
+  store ptr %8, ptr %_M_refcount.i.i.i.i.i.i.i.i15, align 8, !alias.scope !1182, !noalias !1185
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !1185, !noalias !1182
   %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
@@ -93079,10 +93110,13 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI20CordAppendBufferTestE8TestInfoEESaIS7_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI20CordAppendBufferTestE8TestInfoEESaIS7_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI20CordAppendBufferTestE8TestInfoEESaIS7_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.264", ptr %cond.i10, i64 %sub.ptr.div.i
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %3 = load <2 x ptr>, ptr %__args, align 8
+  %4 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i, align 8
-  store <2 x ptr> %3, ptr %add.ptr, align 8
+  store ptr %4, ptr %_M_refcount.i.i.i.i, align 8
   store ptr null, ptr %__args, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI20CordAppendBufferTestE8TestInfoEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %for.body.i.i.i
@@ -93092,10 +93126,13 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI20CordAppendBufferTestE8TestInfoEESaIS7_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1215)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1218)
+  %5 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !1218, !noalias !1215
+  store ptr %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !1215, !noalias !1218
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
-  %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !1218, !noalias !1215
+  %6 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !1218, !noalias !1215
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !1218, !noalias !1215
-  store <2 x ptr> %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !1215, !noalias !1218
+  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !alias.scope !1215, !noalias !1218
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !1218, !noalias !1215
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
@@ -93113,10 +93150,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10sh
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoI20CordAppendBufferTestE8TestInfoEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1221)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1224)
+  %7 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !1224, !noalias !1221
+  store ptr %7, ptr %__cur.07.i.i.i13, align 8, !alias.scope !1221, !noalias !1224
+  %_M_refcount.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
   %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !1224, !noalias !1221
+  %8 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !1224, !noalias !1221
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !1224, !noalias !1221
-  store <2 x ptr> %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !1221, !noalias !1224
+  store ptr %8, ptr %_M_refcount.i.i.i.i.i.i.i.i15, align 8, !alias.scope !1221, !noalias !1224
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !1224, !noalias !1221
   %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16

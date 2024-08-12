@@ -126,17 +126,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   %arg1 = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load <2 x ptr>, ptr %arg1, align 8
-  %2 = load ptr, ptr %other, align 8
-  %cmp.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %arg1, align 8
+  %arg2 = getelementptr inbounds i8, ptr %this, i64 16
+  %2 = load ptr, ptr %arg2, align 8
+  %3 = load ptr, ptr %other, align 8
+  %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   %next.i = getelementptr inbounds i8, ptr %other, i64 24
-  %3 = load ptr, ptr %next.i, align 8
+  %4 = load ptr, ptr %next.i, align 8
   %next4.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store ptr %3, ptr %next4.i, align 8
+  store ptr %4, ptr %next4.i, align 8
   store ptr %call.i, ptr %next.i, align 8
   br label %_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit
 
@@ -144,10 +146,12 @@ _ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit: ; preds = %if.end, 
   %c.0.i = phi ptr [ %call.i, %if.else.i ], [ %other, %if.end ]
   store ptr %0, ptr %c.0.i, align 8
   %arg18.i = getelementptr inbounds i8, ptr %c.0.i, i64 8
-  store <2 x ptr> %1, ptr %arg18.i, align 8
+  store ptr %1, ptr %arg18.i, align 8
+  %arg29.i = getelementptr inbounds i8, ptr %c.0.i, i64 16
+  store ptr %2, ptr %arg29.i, align 8
   %next = getelementptr inbounds i8, ptr %this, i64 24
-  %4 = load ptr, ptr %next, align 8
-  %cmp4.not11 = icmp eq ptr %4, null
+  %5 = load ptr, ptr %next, align 8
+  %cmp4.not11 = icmp eq ptr %5, null
   br i1 %cmp4.not11, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit
@@ -157,33 +161,33 @@ while.body.lr.ph:                                 ; preds = %_ZN7rocksdb9Cleanab
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit
-  %c.012 = phi ptr [ %4, %while.body.lr.ph ], [ %5, %_ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit ]
+  %c.012 = phi ptr [ %5, %while.body.lr.ph ], [ %6, %_ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit ]
   %next6 = getelementptr inbounds i8, ptr %c.012, i64 24
-  %5 = load ptr, ptr %next6, align 8
-  %6 = load ptr, ptr %other, align 8
-  %cmp.i8 = icmp eq ptr %6, null
+  %6 = load ptr, ptr %next6, align 8
+  %7 = load ptr, ptr %other, align 8
+  %cmp.i8 = icmp eq ptr %7, null
   br i1 %cmp.i8, label %if.then.i, label %if.else.i9
 
 if.then.i:                                        ; preds = %while.body
-  %7 = load ptr, ptr %c.012, align 8
-  store ptr %7, ptr %other, align 8
+  %8 = load ptr, ptr %c.012, align 8
+  store ptr %8, ptr %other, align 8
   %arg1.i = getelementptr inbounds i8, ptr %c.012, i64 8
-  %8 = load ptr, ptr %arg1.i, align 8
-  store ptr %8, ptr %arg16.i, align 8
+  %9 = load ptr, ptr %arg1.i, align 8
+  store ptr %9, ptr %arg16.i, align 8
   %arg2.i = getelementptr inbounds i8, ptr %c.012, i64 16
-  %9 = load ptr, ptr %arg2.i, align 8
-  store ptr %9, ptr %arg28.i, align 8
+  %10 = load ptr, ptr %arg2.i, align 8
+  store ptr %10, ptr %arg28.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %c.012) #11
   br label %_ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit
 
 if.else.i9:                                       ; preds = %while.body
-  %10 = load ptr, ptr %next.i10, align 8
-  store ptr %10, ptr %next6, align 8
+  %11 = load ptr, ptr %next.i10, align 8
+  store ptr %11, ptr %next6, align 8
   store ptr %c.012, ptr %next.i10, align 8
   br label %_ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit
 
 _ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit: ; preds = %if.then.i, %if.else.i9
-  %cmp4.not = icmp eq ptr %5, null
+  %cmp4.not = icmp eq ptr %6, null
   br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %_ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit, %_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit

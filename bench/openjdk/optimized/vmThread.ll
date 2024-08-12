@@ -642,197 +642,199 @@ define hidden void @_ZN8VMThread18evaluate_operationEP12VM_Operation(ptr noundef
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load <2 x ptr>, ptr %12, align 8
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = load ptr, ptr @_ZN8VMThread35_perf_accumulated_vm_operation_timeE, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
-  store i8 0, ptr %18, align 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = load ptr, ptr @_ZN8VMThread35_perf_accumulated_vm_operation_timeE, align 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  store i8 0, ptr %19, align 8
   store i64 0, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %17, ptr %19, align 8
-  %20 = load i8, ptr @UsePerfData, align 1
-  %21 = trunc i8 %20 to i1
-  %22 = icmp ne ptr %17, null
-  %or.cond.not.i = and i1 %22, %21
-  br i1 %or.cond.not.i, label %23, label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit
+  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %18, ptr %20, align 8
+  %21 = load i8, ptr @UsePerfData, align 1
+  %22 = trunc i8 %21 to i1
+  %23 = icmp ne ptr %18, null
+  %or.cond.not.i = and i1 %23, %22
+  br i1 %or.cond.not.i, label %24, label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit
 
-23:                                               ; preds = %2
+24:                                               ; preds = %2
   call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17) %3) #13
   br label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit
 
-_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit:     ; preds = %2, %23
-  %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
-  %26 = load ptr, ptr %25, align 8
-  %27 = call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 64
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #15
-  %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 48
-  %35 = load ptr, ptr %34, align 8
-  %36 = call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  %not. = xor i1 %36, true
-  %37 = zext i1 %not. to i32
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22vmops__begin\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %27, i32 -2049, i64 %32, i32 1025, i32 %37) #13, !srcloc !11
+_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit:     ; preds = %2, %24
+  %25 = load ptr, ptr %1, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 64
+  %27 = load ptr, ptr %26, align 8
+  %28 = call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  %29 = load ptr, ptr %1, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 64
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #15
+  %34 = load ptr, ptr %1, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 48
+  %36 = load ptr, ptr %35, align 8
+  %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  %not. = xor i1 %37, true
+  %38 = zext i1 %not. to i32
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22vmops__begin\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %28, i32 -2049, i64 %33, i32 1025, i32 %38) #13, !srcloc !11
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
-  %38 = getelementptr inbounds i8, ptr %4, i64 17
-  %39 = getelementptr inbounds i8, ptr %4, i64 18
+  %39 = getelementptr inbounds i8, ptr %4, i64 17
+  %40 = getelementptr inbounds i8, ptr %4, i64 18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %4, i8 0, i64 19, i1 false)
-  %40 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2105), align 1
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %_ZN23EventExecuteVMOperationC2E14EventStartTime.exit, label %42
+  %41 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2105), align 1
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %_ZN23EventExecuteVMOperationC2E14EventStartTime.exit, label %43
 
-42:                                               ; preds = %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit
-  %43 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #13
-  store i64 %43, ptr %4, align 8
+43:                                               ; preds = %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit
+  %44 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #13
+  store i64 %44, ptr %4, align 8
   br label %_ZN23EventExecuteVMOperationC2E14EventStartTime.exit
 
-_ZN23EventExecuteVMOperationC2E14EventStartTime.exit: ; preds = %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit, %42
-  %.pre3.i.i = phi i64 [ 0, %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit ], [ %43, %42 ]
+_ZN23EventExecuteVMOperationC2E14EventStartTime.exit: ; preds = %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit, %43
+  %.pre3.i.i = phi i64 [ 0, %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit ], [ %44, %43 ]
   call void @_ZN12VM_Operation8evaluateEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  %44 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2105), align 1
-  %.not.i = icmp eq i8 %44, 0
-  br i1 %.not.i, label %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread14, label %45
+  %45 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2105), align 1
+  %.not.i = icmp eq i8 %45, 0
+  br i1 %.not.i, label %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread14, label %46
 
-45:                                               ; preds = %_ZN23EventExecuteVMOperationC2E14EventStartTime.exit
-  %46 = icmp eq i64 %.pre3.i.i, 0
-  br i1 %46, label %47, label %49
+46:                                               ; preds = %_ZN23EventExecuteVMOperationC2E14EventStartTime.exit
+  %47 = icmp eq i64 %.pre3.i.i, 0
+  br i1 %47, label %48, label %50
 
-47:                                               ; preds = %45
-  %48 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #13
-  store i64 %48, ptr %4, align 8
+48:                                               ; preds = %46
+  %49 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #13
+  store i64 %49, ptr %4, align 8
   br label %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %4, i64 8
-  %51 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #13
-  store i64 %51, ptr %50, align 8
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds i8, ptr %4, i64 8
+  %52 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #13
+  store i64 %52, ptr %51, align 8
   br label %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit
 
-_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit: ; preds = %47, %49
-  %52 = phi i64 [ %.pre3.i.i, %49 ], [ %48, %47 ]
-  %53 = phi i64 [ %51, %49 ], [ 0, %47 ]
-  %54 = sub nsw i64 %53, %52
-  %55 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2088), align 8
-  %56 = icmp sge i64 %54, %55
-  %57 = zext i1 %56 to i8
-  store i8 %57, ptr %38, align 1
-  store i8 1, ptr %39, align 2
-  br i1 %56, label %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread, label %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread14
+_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit: ; preds = %48, %50
+  %53 = phi i64 [ %.pre3.i.i, %50 ], [ %49, %48 ]
+  %54 = phi i64 [ %52, %50 ], [ 0, %48 ]
+  %55 = sub nsw i64 %54, %53
+  %56 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2088), align 8
+  %57 = icmp sge i64 %55, %56
+  %58 = zext i1 %57 to i8
+  store i8 %58, ptr %39, align 1
+  store i8 1, ptr %40, align 2
+  br i1 %57, label %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread, label %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread14
 
 _ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread: ; preds = %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit
-  %58 = load ptr, ptr %1, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 48
-  %60 = load ptr, ptr %59, align 8
-  %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  %62 = load ptr, ptr %1, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
-  %64 = load ptr, ptr %63, align 8
-  %65 = call noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %66, ptr %67, align 8
-  %68 = zext i1 %61 to i8
-  %69 = getelementptr inbounds i8, ptr %4, i64 32
-  store i8 %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %4, i64 33
-  store i8 1, ptr %70, align 1
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = call noundef i64 @_ZN14JfrThreadLocal18external_thread_idEPK6Thread(ptr noundef %72) #13
-  %74 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 %73, ptr %74, align 8
-  %75 = load i64, ptr @_ZN20SafepointSynchronize13_safepoint_idE, align 8
-  %spec.select.i = select i1 %61, i64 %75, i64 0
-  %76 = getelementptr inbounds i8, ptr %4, i64 48
-  store i64 %spec.select.i, ptr %76, align 8
+  %59 = load ptr, ptr %1, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 48
+  %61 = load ptr, ptr %60, align 8
+  %62 = call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  %63 = load ptr, ptr %1, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %65 = load ptr, ptr %64, align 8
+  %66 = call noundef i32 %65(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 %67, ptr %68, align 8
+  %69 = zext i1 %62 to i8
+  %70 = getelementptr inbounds i8, ptr %4, i64 32
+  store i8 %69, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %4, i64 33
+  store i8 1, ptr %71, align 1
+  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = call noundef i64 @_ZN14JfrThreadLocal18external_thread_idEPK6Thread(ptr noundef %73) #13
+  %75 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 %74, ptr %75, align 8
+  %76 = load i64, ptr @_ZN20SafepointSynchronize13_safepoint_idE, align 8
+  %spec.select.i = select i1 %62, i64 %76, i64 0
+  %77 = getelementptr inbounds i8, ptr %4, i64 48
+  store i64 %spec.select.i, ptr %77, align 8
   call void @_ZN8JfrEventI23EventExecuteVMOperationE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %4)
   br label %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread14
 
 _ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread14: ; preds = %_ZN23EventExecuteVMOperationC2E14EventStartTime.exit, %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit, %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread
-  %77 = load ptr, ptr %1, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 64
-  %79 = load ptr, ptr %78, align 8
-  %80 = call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  %81 = load ptr, ptr %1, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 64
-  %83 = load ptr, ptr %82, align 8
-  %84 = call noundef ptr %83(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #15
-  %86 = load ptr, ptr %1, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 48
-  %88 = load ptr, ptr %87, align 8
-  %89 = call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  %not.9 = xor i1 %89, true
-  %90 = zext i1 %not.9 to i32
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22vmops__end\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %80, i32 -2049, i64 %85, i32 1025, i32 %90) #13, !srcloc !13
+  %78 = load ptr, ptr %1, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 64
+  %80 = load ptr, ptr %79, align 8
+  %81 = call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  %82 = load ptr, ptr %1, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 64
+  %84 = load ptr, ptr %83, align 8
+  %85 = call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #15
+  %87 = load ptr, ptr %1, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 48
+  %89 = load ptr, ptr %88, align 8
+  %90 = call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
+  %not.9 = xor i1 %90, true
+  %91 = zext i1 %not.9 to i32
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22vmops__end\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %81, i32 -2049, i64 %86, i32 1025, i32 %91) #13, !srcloc !13
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !14
-  %91 = load i8, ptr @UsePerfData, align 1
-  %92 = trunc i8 %91 to i1
-  br i1 %92, label %93, label %_ZN13PerfTraceTimeD2Ev.exit
+  %92 = load i8, ptr @UsePerfData, align 1
+  %93 = trunc i8 %92 to i1
+  br i1 %93, label %94, label %_ZN13PerfTraceTimeD2Ev.exit
 
-93:                                               ; preds = %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread14
-  %94 = load i8, ptr %18, align 8
-  %95 = trunc i8 %94 to i1
-  br i1 %95, label %96, label %_ZN13PerfTraceTimeD2Ev.exit
+94:                                               ; preds = %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread14
+  %95 = load i8, ptr %19, align 8
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %97, label %_ZN13PerfTraceTimeD2Ev.exit
 
-96:                                               ; preds = %93
+97:                                               ; preds = %94
   call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) %3) #13
-  %97 = load ptr, ptr %19, align 8
-  %98 = load i64, ptr %3, align 8
-  %99 = getelementptr inbounds i8, ptr %97, i64 40
-  %100 = load ptr, ptr %99, align 8
-  %101 = load i64, ptr %100, align 8
-  %102 = add nsw i64 %101, %98
-  store i64 %102, ptr %100, align 8
+  %98 = load ptr, ptr %20, align 8
+  %99 = load i64, ptr %3, align 8
+  %100 = getelementptr inbounds i8, ptr %98, i64 40
+  %101 = load ptr, ptr %100, align 8
+  %102 = load i64, ptr %101, align 8
+  %103 = add nsw i64 %102, %99
+  store i64 %103, ptr %101, align 8
   %.pre = load i8, ptr @UsePerfData, align 1
   br label %_ZN13PerfTraceTimeD2Ev.exit
 
-_ZN13PerfTraceTimeD2Ev.exit:                      ; preds = %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread14, %93, %96
-  %103 = phi i8 [ %91, %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread14 ], [ %91, %93 ], [ %.pre, %96 ]
-  %104 = trunc i8 %103 to i1
-  br i1 %104, label %105, label %110
+_ZN13PerfTraceTimeD2Ev.exit:                      ; preds = %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread14, %94, %97
+  %104 = phi i8 [ %92, %_ZN8JfrEventI23EventExecuteVMOperationE13should_commitEv.exit.thread14 ], [ %92, %94 ], [ %.pre, %97 ]
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %106, label %111
 
-105:                                              ; preds = %_ZN13PerfTraceTimeD2Ev.exit
-  %106 = call noundef zeroext i1 @_ZN2os28is_thread_cpu_time_supportedEv() #13
-  br i1 %106, label %107, label %110
+106:                                              ; preds = %_ZN13PerfTraceTimeD2Ev.exit
+  %107 = call noundef zeroext i1 @_ZN2os28is_thread_cpu_time_supportedEv() #13
+  br i1 %107, label %108, label %111
 
-107:                                              ; preds = %105
+108:                                              ; preds = %106
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %5, align 8
-  %108 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 5, ptr %109, align 8
+  %109 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 5, ptr %110, align 8
   call void @_ZN25ThreadTotalCPUTimeClosure9do_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull %0) #13
   call void @_ZN25ThreadTotalCPUTimeClosureD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %5) #13
-  br label %110
+  br label %111
 
-110:                                              ; preds = %107, %105, %_ZN13PerfTraceTimeD2Ev.exit
-  %111 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i = icmp eq ptr %111, null
-  br i1 %.not.i.i.i.i, label %113, label %112
+111:                                              ; preds = %108, %106, %_ZN13PerfTraceTimeD2Ev.exit
+  %112 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i = icmp eq ptr %112, null
+  br i1 %.not.i.i.i.i, label %114, label %113
 
-112:                                              ; preds = %110
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %16) #13
+113:                                              ; preds = %111
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %17) #13
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %11) #13
-  br label %113
+  br label %114
 
-113:                                              ; preds = %112, %110
-  %114 = load ptr, ptr %12, align 8
-  %.not8.i.i.i.i = icmp eq ptr %114, %14
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %115
+114:                                              ; preds = %113, %111
+  %115 = load ptr, ptr %12, align 8
+  %.not8.i.i.i.i = icmp eq ptr %115, %13
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %116
 
-115:                                              ; preds = %113
+116:                                              ; preds = %114
   store ptr %11, ptr %10, align 8
-  store <2 x ptr> %13, ptr %12, align 8
+  store ptr %13, ptr %12, align 8
+  store ptr %15, ptr %14, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %113, %115
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %114, %116
   ret void
 }
 

@@ -137,14 +137,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local noundef zeroext i1 @_ZN3net11CryptoUtils10IsValidSNIEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr %sni.coerce0, i64 %sni.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sni = alloca %"class.base::BasicStringPiece", align 8
-  %host_info = alloca %"struct.url::CanonHostInfo", align 16
+  %host_info = alloca %"struct.url::CanonHostInfo", align 4
   %canonicalized_host = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %sni.coerce0, ptr %sni, align 8
   %0 = getelementptr inbounds i8, ptr %sni, i64 8
   store i64 %sni.coerce1, ptr %0, align 8
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %host_info, align 16
+  store i32 0, ptr %host_info, align 4
+  %num_ipv4_components.i = getelementptr inbounds i8, ptr %host_info, i64 4
+  store i32 0, ptr %num_ipv4_components.i, align 4
+  %out_host.i = getelementptr inbounds i8, ptr %host_info, i64 8
+  store i32 0, ptr %out_host.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %host_info, i64 12
+  store i32 -1, ptr %len.i.i, align 4
   call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %sni)
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -158,7 +164,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont1:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
-  %4 = load i32, ptr %host_info, align 16
+  %4 = load i32, ptr %host_info, align 4
   %5 = and i32 %4, -2
   %spec.select.i = icmp eq i32 %5, 2
   br i1 %spec.select.i, label %land.end, label %land.lhs.true
@@ -218,9 +224,15 @@ declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net11CryptoUtils17NormalizeHostnameB5cxx11EPKc(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %hostname) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %host_info = alloca %"struct.url::CanonHostInfo", align 16
+  %host_info = alloca %"struct.url::CanonHostInfo", align 4
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %host_info, align 16
+  store i32 0, ptr %host_info, align 4
+  %num_ipv4_components.i = getelementptr inbounds i8, ptr %host_info, i64 4
+  store i32 0, ptr %num_ipv4_components.i, align 4
+  %out_host.i = getelementptr inbounds i8, ptr %host_info, i64 8
+  store i32 0, ptr %out_host.i, align 4
+  %len.i.i = getelementptr inbounds i8, ptr %host_info, i64 12
+  store i32 -1, ptr %len.i.i, align 4
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %hostname)
   %0 = load ptr, ptr %agg.tmp, align 8
   %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8

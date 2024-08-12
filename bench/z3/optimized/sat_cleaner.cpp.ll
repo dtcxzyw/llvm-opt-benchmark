@@ -682,8 +682,12 @@ if.end10:                                         ; preds = %if.end6
   store i64 0, ptr %7, align 8
   %m_elim_clauses.i = getelementptr inbounds i8, ptr %rpt, i64 32
   %m_elim_clauses2.i = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = load <2 x i32>, ptr %m_elim_clauses2.i, align 8
-  store <2 x i32> %8, ptr %m_elim_clauses.i, align 8
+  %8 = load i32, ptr %m_elim_clauses2.i, align 8
+  store i32 %8, ptr %m_elim_clauses.i, align 8
+  %m_elim_literals.i = getelementptr inbounds i8, ptr %rpt, i64 36
+  %m_elim_literals3.i = getelementptr inbounds i8, ptr %this, i64 20
+  %9 = load i32, ptr %m_elim_literals3.i, align 4
+  store i32 %9, ptr %m_elim_literals.i, align 4
   %m_running.i.i = getelementptr inbounds i8, ptr %rpt, i64 24
   %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
   store i64 %call.i.i.i, ptr %m_watch.i, align 8
@@ -696,58 +700,58 @@ if.end10:                                         ; preds = %if.end6
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end10
-  %9 = phi ptr [ %15, %land.rhs ], [ %.pre13, %if.end10 ]
-  %cmp.i3 = icmp eq ptr %9, null
+  %10 = phi ptr [ %16, %land.rhs ], [ %.pre13, %if.end10 ]
+  %cmp.i3 = icmp eq ptr %10, null
   br i1 %cmp.i3, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit7, label %if.end.i4
 
 if.end.i4:                                        ; preds = %do.body
-  %arrayidx.i5 = getelementptr inbounds i8, ptr %9, i64 -4
-  %10 = load i32, ptr %arrayidx.i5, align 4
+  %arrayidx.i5 = getelementptr inbounds i8, ptr %10, i64 -4
+  %11 = load i32, ptr %arrayidx.i5, align 4
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit7
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit7:    ; preds = %do.body, %if.end.i4
-  %retval.0.i6 = phi i32 [ %10, %if.end.i4 ], [ 0, %do.body ]
+  %retval.0.i6 = phi i32 [ %11, %if.end.i4 ], [ 0, %do.body ]
   invoke void @_ZN3sat7cleaner15cleanup_watchesEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit7
-  %11 = load ptr, ptr %this, align 8
-  %m_clauses = getelementptr inbounds i8, ptr %11, i64 3376
+  %12 = load ptr, ptr %this, align 8
+  %m_clauses = getelementptr inbounds i8, ptr %12, i64 3376
   invoke void @_ZN3sat7cleaner15cleanup_clausesER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %m_clauses)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  %12 = load ptr, ptr %this, align 8
-  %m_learned = getelementptr inbounds i8, ptr %12, i64 3384
+  %13 = load ptr, ptr %this, align 8
+  %m_learned = getelementptr inbounds i8, ptr %13, i64 3384
   invoke void @_ZN3sat7cleaner15cleanup_clausesER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %m_learned)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont18
-  %13 = load ptr, ptr %this, align 8
-  %call23 = invoke noundef zeroext i1 @_ZN3sat6solver9propagateEb(ptr noundef nonnull align 8 dereferenceable(4408) %13, i1 noundef zeroext false)
+  %14 = load ptr, ptr %this, align 8
+  %call23 = invoke noundef zeroext i1 @_ZN3sat6solver9propagateEb(ptr noundef nonnull align 8 dereferenceable(4408) %14, i1 noundef zeroext false)
           to label %do.cond unwind label %lpad
 
 do.cond:                                          ; preds = %invoke.cont20
-  %14 = load ptr, ptr %this, align 8
-  %m_trail25 = getelementptr inbounds i8, ptr %14, i64 3928
-  %15 = load ptr, ptr %m_trail25, align 8
-  %cmp.i8 = icmp eq ptr %15, null
+  %15 = load ptr, ptr %this, align 8
+  %m_trail25 = getelementptr inbounds i8, ptr %15, i64 3928
+  %16 = load ptr, ptr %m_trail25, align 8
+  %cmp.i8 = icmp eq ptr %16, null
   br i1 %cmp.i8, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit12, label %if.end.i9
 
 if.end.i9:                                        ; preds = %do.cond
-  %arrayidx.i10 = getelementptr inbounds i8, ptr %15, i64 -4
-  %16 = load i32, ptr %arrayidx.i10, align 4
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %16, i64 -4
+  %17 = load i32, ptr %arrayidx.i10, align 4
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit12
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit12:   ; preds = %do.cond, %if.end.i9
-  %retval.0.i11 = phi i32 [ %16, %if.end.i9 ], [ 0, %do.cond ]
+  %retval.0.i11 = phi i32 [ %17, %if.end.i9 ], [ 0, %do.cond ]
   %cmp28 = icmp ult i32 %retval.0.i6, %retval.0.i11
   br i1 %cmp28, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit12
-  %m_inconsistent.i = getelementptr inbounds i8, ptr %14, i64 3336
-  %17 = load i8, ptr %m_inconsistent.i, align 8
-  %tobool.i = trunc i8 %17 to i1
+  %m_inconsistent.i = getelementptr inbounds i8, ptr %15, i64 3336
+  %18 = load i8, ptr %m_inconsistent.i, align 8
+  %tobool.i = trunc i8 %18 to i1
   br i1 %tobool.i, label %do.end, label %do.body, !llvm.loop !9
 
 do.end:                                           ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit12, %land.rhs
@@ -755,10 +759,10 @@ do.end:                                           ; preds = %_ZNK6vectorIN3sat7l
   br label %return
 
 lpad:                                             ; preds = %invoke.cont20, %invoke.cont18, %invoke.cont16, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit7
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3sat7cleaner6reportD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %rpt) #14
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %19
 
 return:                                           ; preds = %if.end6, %if.end, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, %do.end
   %retval.0 = phi i1 [ true, %do.end ], [ false, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ false, %if.end ], [ false, %if.end6 ]

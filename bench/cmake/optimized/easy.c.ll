@@ -71,55 +71,55 @@ global_init.exit:                                 ; preds = %1, %6, %8
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 3) i32 @curl_global_init_mem(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
-  %7 = insertelement <4 x ptr> poison, ptr %1, i64 0
-  %8 = insertelement <4 x ptr> %7, ptr %2, i64 1
-  %9 = insertelement <4 x ptr> %8, ptr %3, i64 2
-  %10 = insertelement <4 x ptr> %9, ptr %4, i64 3
+  %7 = icmp ne ptr %1, null
+  %8 = icmp ne ptr %2, null
+  %or.cond = and i1 %7, %8
+  %9 = icmp ne ptr %3, null
+  %or.cond3 = and i1 %or.cond, %9
+  %10 = icmp ne ptr %4, null
+  %or.cond5 = and i1 %or.cond3, %10
   %11 = icmp ne ptr %5, null
-  %12 = icmp eq <4 x ptr> %10, zeroinitializer
-  %13 = bitcast <4 x i1> %12 to i4
-  %14 = icmp eq i4 %13, 0
-  %op.rdx = and i1 %14, %11
-  br i1 %op.rdx, label %15, label %global_init.exit
+  %or.cond7 = and i1 %or.cond5, %11
+  br i1 %or.cond7, label %12, label %global_init.exit
 
-15:                                               ; preds = %6
-  %16 = load i32, ptr @initialized, align 4
-  %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %19, label %17
+12:                                               ; preds = %6
+  %13 = load i32, ptr @initialized, align 4
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %16, label %14
 
-17:                                               ; preds = %15
-  %18 = add i32 %16, 1
+14:                                               ; preds = %12
+  %15 = add i32 %13, 1
   br label %global_init.exit.sink.split
 
-19:                                               ; preds = %15
+16:                                               ; preds = %12
   store ptr %1, ptr @Curl_cmalloc, align 8
   store ptr %2, ptr @Curl_cfree, align 8
   store ptr %4, ptr @Curl_cstrdup, align 8
   store ptr %3, ptr @Curl_crealloc, align 8
   store ptr %5, ptr @Curl_ccalloc, align 8
   store i32 1, ptr @initialized, align 4
-  %20 = tail call i32 @Curl_trc_init() #12
-  %.not3.i = icmp eq i32 %20, 0
-  br i1 %.not3.i, label %21, label %23
+  %17 = tail call i32 @Curl_trc_init() #12
+  %.not3.i = icmp eq i32 %17, 0
+  br i1 %.not3.i, label %18, label %20
 
-21:                                               ; preds = %19
-  %22 = tail call i32 @Curl_ssl_init() #12
-  %.not4.i = icmp eq i32 %22, 0
-  br i1 %.not4.i, label %23, label %global_init.exit
+18:                                               ; preds = %16
+  %19 = tail call i32 @Curl_ssl_init() #12
+  %.not4.i = icmp eq i32 %19, 0
+  br i1 %.not4.i, label %20, label %global_init.exit
 
-23:                                               ; preds = %21, %19
-  %24 = load i32, ptr @initialized, align 4
-  %25 = add i32 %24, -1
+20:                                               ; preds = %18, %16
+  %21 = load i32, ptr @initialized, align 4
+  %22 = add i32 %21, -1
   br label %global_init.exit.sink.split
 
-global_init.exit.sink.split:                      ; preds = %17, %23
-  %.sink = phi i32 [ %25, %23 ], [ %18, %17 ]
-  %.0.ph = phi i32 [ 2, %23 ], [ 0, %17 ]
+global_init.exit.sink.split:                      ; preds = %14, %20
+  %.sink = phi i32 [ %22, %20 ], [ %15, %14 ]
+  %.0.ph = phi i32 [ 2, %20 ], [ 0, %14 ]
   store i32 %.sink, ptr @initialized, align 4
   br label %global_init.exit
 
-global_init.exit:                                 ; preds = %global_init.exit.sink.split, %21, %6
-  %.0 = phi i32 [ 2, %6 ], [ 0, %21 ], [ %.0.ph, %global_init.exit.sink.split ]
+global_init.exit:                                 ; preds = %global_init.exit.sink.split, %18, %6
+  %.0 = phi i32 [ 2, %6 ], [ 0, %18 ], [ %.0.ph, %global_init.exit.sink.split ]
   ret i32 %.0
 }
 

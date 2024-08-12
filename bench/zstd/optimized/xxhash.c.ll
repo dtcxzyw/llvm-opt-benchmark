@@ -240,15 +240,42 @@ if.then20:                                        ; preds = %if.end18
   %conv27 = zext i32 %sub to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr nonnull readonly align 1 %input, i64 %conv27, i1 false)
   %v = getelementptr inbounds i8, ptr %state, i64 8
-  %4 = load <4 x i32>, ptr %v, align 4
-  %5 = load <4 x i32>, ptr %mem3221, align 1
-  %6 = mul <4 x i32> %5, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %7 = add <4 x i32> %6, %4
-  %8 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %7, <4 x i32> %7, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
-  %9 = mul <4 x i32> %8, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
-  store <4 x i32> %9, ptr %v, align 4
-  %10 = load i32, ptr %memsize, align 4
-  %sub56 = sub i32 16, %10
+  %4 = load i32, ptr %v, align 4
+  %mem3221.val = load i32, ptr %mem3221, align 1
+  %mul.i = mul i32 %mem3221.val, -2048144777
+  %add.i = add i32 %mul.i, %4
+  %5 = tail call i32 @llvm.fshl.i32(i32 %add.i, i32 %add.i, i32 13)
+  %mul1.i = mul i32 %5, -1640531535
+  store i32 %mul1.i, ptr %v, align 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %state, i64 28
+  %arrayidx36 = getelementptr inbounds i8, ptr %state, i64 12
+  %6 = load i32, ptr %arrayidx36, align 4
+  %incdec.ptr.val = load i32, ptr %incdec.ptr, align 1
+  %mul.i67 = mul i32 %incdec.ptr.val, -2048144777
+  %add.i68 = add i32 %mul.i67, %6
+  %7 = tail call i32 @llvm.fshl.i32(i32 %add.i68, i32 %add.i68, i32 13)
+  %mul1.i69 = mul i32 %7, -1640531535
+  store i32 %mul1.i69, ptr %arrayidx36, align 4
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %state, i64 32
+  %arrayidx43 = getelementptr inbounds i8, ptr %state, i64 16
+  %8 = load i32, ptr %arrayidx43, align 4
+  %incdec.ptr41.val = load i32, ptr %incdec.ptr41, align 1
+  %mul.i70 = mul i32 %incdec.ptr41.val, -2048144777
+  %add.i71 = add i32 %mul.i70, %8
+  %9 = tail call i32 @llvm.fshl.i32(i32 %add.i71, i32 %add.i71, i32 13)
+  %mul1.i72 = mul i32 %9, -1640531535
+  store i32 %mul1.i72, ptr %arrayidx43, align 4
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %state, i64 36
+  %arrayidx50 = getelementptr inbounds i8, ptr %state, i64 20
+  %10 = load i32, ptr %arrayidx50, align 4
+  %incdec.ptr48.val = load i32, ptr %incdec.ptr48, align 1
+  %mul.i73 = mul i32 %incdec.ptr48.val, -2048144777
+  %add.i74 = add i32 %mul.i73, %10
+  %11 = tail call i32 @llvm.fshl.i32(i32 %add.i74, i32 %add.i74, i32 13)
+  %mul1.i75 = mul i32 %11, -1640531535
+  store i32 %mul1.i75, ptr %arrayidx50, align 4
+  %12 = load i32, ptr %memsize, align 4
+  %sub56 = sub i32 16, %12
   %idx.ext57 = zext i32 %sub56 to i64
   %add.ptr58 = getelementptr inbounds i8, ptr %input, i64 %idx.ext57
   store i32 0, ptr %memsize, align 4
@@ -275,34 +302,34 @@ do.body:                                          ; preds = %do.body.preheader, 
   %mul1.i8790 = phi i32 [ %mul1.i87, %do.body ], [ %arrayidx88.promoted, %do.body.preheader ]
   %mul1.i8489 = phi i32 [ %mul1.i84, %do.body ], [ %arrayidx81.promoted, %do.body.preheader ]
   %mul1.i8188 = phi i32 [ %mul1.i81, %do.body ], [ %arrayidx74.promoted, %do.body.preheader ]
-  %11 = phi i32 [ %mul1.i78, %do.body ], [ %v66.promoted, %do.body.preheader ]
+  %13 = phi i32 [ %mul1.i78, %do.body ], [ %v66.promoted, %do.body.preheader ]
   %p.2 = phi ptr [ %add.ptr93, %do.body ], [ %p.0, %do.body.preheader ]
   %p.2.val = load i32, ptr %p.2, align 1
   %mul.i76 = mul i32 %p.2.val, -2048144777
-  %add.i77 = add i32 %mul.i76, %11
-  %12 = tail call i32 @llvm.fshl.i32(i32 %add.i77, i32 %add.i77, i32 13)
-  %mul1.i78 = mul i32 %12, -1640531535
+  %add.i77 = add i32 %mul.i76, %13
+  %14 = tail call i32 @llvm.fshl.i32(i32 %add.i77, i32 %add.i77, i32 13)
+  %mul1.i78 = mul i32 %14, -1640531535
   store i32 %mul1.i78, ptr %v66, align 4
   %add.ptr72 = getelementptr inbounds i8, ptr %p.2, i64 4
   %add.ptr72.val = load i32, ptr %add.ptr72, align 1
   %mul.i79 = mul i32 %add.ptr72.val, -2048144777
   %add.i80 = add i32 %mul.i79, %mul1.i8188
-  %13 = tail call i32 @llvm.fshl.i32(i32 %add.i80, i32 %add.i80, i32 13)
-  %mul1.i81 = mul i32 %13, -1640531535
+  %15 = tail call i32 @llvm.fshl.i32(i32 %add.i80, i32 %add.i80, i32 13)
+  %mul1.i81 = mul i32 %15, -1640531535
   store i32 %mul1.i81, ptr %arrayidx74, align 4
   %add.ptr79 = getelementptr inbounds i8, ptr %p.2, i64 8
   %add.ptr79.val = load i32, ptr %add.ptr79, align 1
   %mul.i82 = mul i32 %add.ptr79.val, -2048144777
   %add.i83 = add i32 %mul.i82, %mul1.i8489
-  %14 = tail call i32 @llvm.fshl.i32(i32 %add.i83, i32 %add.i83, i32 13)
-  %mul1.i84 = mul i32 %14, -1640531535
+  %16 = tail call i32 @llvm.fshl.i32(i32 %add.i83, i32 %add.i83, i32 13)
+  %mul1.i84 = mul i32 %16, -1640531535
   store i32 %mul1.i84, ptr %arrayidx81, align 4
   %add.ptr86 = getelementptr inbounds i8, ptr %p.2, i64 12
   %add.ptr86.val = load i32, ptr %add.ptr86, align 1
   %mul.i85 = mul i32 %add.ptr86.val, -2048144777
   %add.i86 = add i32 %mul.i85, %mul1.i8790
-  %15 = tail call i32 @llvm.fshl.i32(i32 %add.i86, i32 %add.i86, i32 13)
-  %mul1.i87 = mul i32 %15, -1640531535
+  %17 = tail call i32 @llvm.fshl.i32(i32 %add.i86, i32 %add.i86, i32 13)
+  %mul1.i87 = mul i32 %17, -1640531535
   store i32 %mul1.i87, ptr %arrayidx88, align 4
   %add.ptr93 = getelementptr inbounds i8, ptr %p.2, i64 16
   %cmp94.not = icmp ugt ptr %add.ptr93, %add.ptr61
@@ -337,27 +364,38 @@ entry:
 
 if.then:                                          ; preds = %entry
   %v = getelementptr inbounds i8, ptr %state, i64 8
-  %1 = load <4 x i32>, ptr %v, align 4
-  %2 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %1, <4 x i32> %1, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
-  %3 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %2)
+  %1 = load i32, ptr %v, align 4
+  %2 = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 1)
+  %arrayidx2 = getelementptr inbounds i8, ptr %state, i64 12
+  %3 = load i32, ptr %arrayidx2, align 4
+  %4 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 7)
+  %add = add i32 %4, %2
+  %arrayidx4 = getelementptr inbounds i8, ptr %state, i64 16
+  %5 = load i32, ptr %arrayidx4, align 4
+  %6 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 12)
+  %add5 = add i32 %add, %6
+  %arrayidx7 = getelementptr inbounds i8, ptr %state, i64 20
+  %7 = load i32, ptr %arrayidx7, align 4
+  %8 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 18)
+  %add8 = add i32 %add5, %8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %arrayidx10 = getelementptr inbounds i8, ptr %state, i64 16
-  %4 = load i32, ptr %arrayidx10, align 4
-  %add11 = add i32 %4, 374761393
+  %9 = load i32, ptr %arrayidx10, align 4
+  %add11 = add i32 %9, 374761393
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %h32.0 = phi i32 [ %3, %if.then ], [ %add11, %if.else ]
-  %5 = load i32, ptr %state, align 4
-  %add12 = add i32 %5, %h32.0
+  %h32.0 = phi i32 [ %add8, %if.then ], [ %add11, %if.else ]
+  %10 = load i32, ptr %state, align 4
+  %add12 = add i32 %10, %h32.0
   %mem32 = getelementptr inbounds i8, ptr %state, i64 24
   %memsize = getelementptr inbounds i8, ptr %state, i64 40
-  %6 = load i32, ptr %memsize, align 4
-  %7 = and i32 %6, 15
-  %and.i = zext nneg i32 %7 to i64
-  %cmp213.i = icmp ugt i32 %7, 3
+  %11 = load i32, ptr %memsize, align 4
+  %12 = and i32 %11, 15
+  %and.i = zext nneg i32 %12 to i64
+  %cmp213.i = icmp ugt i32 %12, 3
   br i1 %cmp213.i, label %do.body.i, label %while.cond4.preheader.i
 
 while.cond4.preheader.i:                          ; preds = %do.body.i, %if.end
@@ -375,8 +413,8 @@ do.body.i:                                        ; preds = %if.end, %do.body.i
   %mul.i = mul i32 %retval.0.i.i, -1028477379
   %add.i = add i32 %mul.i, %hash.addr.016.i
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.014.i, i64 4
-  %8 = tail call i32 @llvm.fshl.i32(i32 %add.i, i32 %add.i, i32 17)
-  %mul3.i = mul i32 %8, 668265263
+  %13 = tail call i32 @llvm.fshl.i32(i32 %add.i, i32 %add.i, i32 17)
+  %mul3.i = mul i32 %13, 668265263
   %sub.i = add nsw i64 %len.addr.015.i, -4
   %cmp2.i = icmp ugt i64 %sub.i, 3
   br i1 %cmp2.i, label %do.body.i, label %while.cond4.preheader.i, !llvm.loop !6
@@ -386,12 +424,12 @@ do.body7.i:                                       ; preds = %while.cond4.prehead
   %len.addr.121.i = phi i64 [ %dec.i, %do.body7.i ], [ %len.addr.0.lcssa.i, %while.cond4.preheader.i ]
   %ptr.addr.120.i = phi ptr [ %incdec.ptr.i, %do.body7.i ], [ %ptr.addr.0.lcssa.i, %while.cond4.preheader.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.120.i, i64 1
-  %9 = load i8, ptr %ptr.addr.120.i, align 1
-  %conv.i = zext i8 %9 to i32
+  %14 = load i8, ptr %ptr.addr.120.i, align 1
+  %conv.i = zext i8 %14 to i32
   %mul8.i = mul i32 %conv.i, 374761393
   %add9.i = add i32 %mul8.i, %hash.addr.122.i
-  %10 = tail call i32 @llvm.fshl.i32(i32 %add9.i, i32 %add9.i, i32 11)
-  %mul10.i = mul i32 %10, -1640531535
+  %15 = tail call i32 @llvm.fshl.i32(i32 %add9.i, i32 %add9.i, i32 11)
+  %mul10.i = mul i32 %15, -1640531535
   %dec.i = add nsw i64 %len.addr.121.i, -1
   %cmp5.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp5.not.i, label %XXH32_finalize.exit, label %do.body7.i, !llvm.loop !7
@@ -969,12 +1007,6 @@ declare i32 @llvm.bswap.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

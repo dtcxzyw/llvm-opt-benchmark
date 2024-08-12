@@ -618,7 +618,7 @@ new_byte.exit:                                    ; preds = %201, %199, %195, %1
   %206 = load i32, ptr @proto_lapd, align 4
   %207 = call ptr @p_get_proto_data(ptr noundef %205, ptr noundef %1, i32 noundef %206, i32 noundef 0) #7
   %208 = icmp eq ptr %207, null
-  br i1 %208, label %209, label %320
+  br i1 %208, label %209, label %323
 
 209:                                              ; preds = %._crit_edge
   %210 = call ptr @wmem_file_scope() #7
@@ -705,7 +705,7 @@ new_byte.exit:                                    ; preds = %201, %199, %195, %1
   %254 = getelementptr inbounds i8, ptr %247, i64 12
   %255 = sext i32 %252 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %254, ptr nonnull readonly align 16 %5, i64 %255, i1 false)
-  br label %320
+  br label %323
 
 256:                                              ; preds = %239
   %257 = getelementptr inbounds i8, ptr %.0144, i64 64
@@ -735,7 +735,7 @@ new_byte.exit:                                    ; preds = %201, %199, %195, %1
   %270 = getelementptr inbounds i8, ptr %263, i64 12
   %271 = sext i32 %268 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %270, ptr nonnull readonly align 16 %5, i64 %271, i1 false)
-  br label %320
+  br label %323
 
 272:                                              ; preds = %236
   %273 = call ptr @wmem_file_scope() #7
@@ -806,20 +806,24 @@ copy_address_wmem.exit:                           ; preds = %272, %293
 
 copy_address_wmem.exit189:                        ; preds = %copy_address_wmem.exit, %308
   %314 = getelementptr inbounds i8, ptr %1, i64 284
-  %315 = getelementptr inbounds i8, ptr %284, i64 48
-  %316 = load <2 x i32>, ptr %314, align 4
-  store <2 x i32> %316, ptr %315, align 8
-  %317 = getelementptr inbounds i8, ptr %284, i64 56
-  store ptr %274, ptr %317, align 8
-  %318 = getelementptr inbounds i8, ptr %284, i64 64
-  store ptr null, ptr %318, align 8
-  %319 = load i32, ptr @proto_lapd, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %6, i32 noundef %319, ptr noundef nonnull %284) #7
-  br label %320
+  %315 = load i32, ptr %314, align 4
+  %316 = getelementptr inbounds i8, ptr %284, i64 48
+  store i32 %315, ptr %316, align 8
+  %317 = getelementptr inbounds i8, ptr %1, i64 288
+  %318 = load i32, ptr %317, align 8
+  %319 = getelementptr inbounds i8, ptr %284, i64 52
+  store i32 %318, ptr %319, align 4
+  %320 = getelementptr inbounds i8, ptr %284, i64 56
+  store ptr %274, ptr %320, align 8
+  %321 = getelementptr inbounds i8, ptr %284, i64 64
+  store ptr null, ptr %321, align 8
+  %322 = load i32, ptr @proto_lapd, align 4
+  call void @conversation_add_proto_data(ptr noundef nonnull %6, i32 noundef %322, ptr noundef nonnull %284) #7
+  br label %323
 
-320:                                              ; preds = %246, %262, %copy_address_wmem.exit189, %._crit_edge
-  %321 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  ret i32 %321
+323:                                              ; preds = %246, %262, %copy_address_wmem.exit189, %._crit_edge
+  %324 = call i32 @tvb_captured_length(ptr noundef %0) #7
+  ret i32 %324
 }
 
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

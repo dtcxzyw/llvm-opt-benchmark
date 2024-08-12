@@ -1299,6 +1299,7 @@ entry:
   %1 = inttoptr i64 %0 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !36
   %used_head_buckets = getelementptr inbounds i8, ptr %stats, i64 8
+  %entries = getelementptr inbounds i8, ptr %stats, i64 16
   %chain = getelementptr inbounds i8, ptr %stats, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %used_head_buckets, i8 0, i64 16, i1 false)
   tail call void @qdist_init(ptr noundef nonnull %chain) #7
@@ -1387,10 +1388,12 @@ if.then44:                                        ; preds = %do.end42
   %div = fmul double %conv48, 2.500000e-01
   %div50 = fdiv double %div, %conv46
   tail call void @qdist_inc(ptr noundef nonnull %occupancy, double noundef %div50) #7
-  %10 = load <2 x i64>, ptr %used_head_buckets, align 8
-  %11 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %entries9.1.lcssa, i64 1
-  %12 = add <2 x i64> %10, %11
-  store <2 x i64> %12, ptr %used_head_buckets, align 8
+  %10 = load i64, ptr %used_head_buckets, align 8
+  %inc52 = add i64 %10, 1
+  store i64 %inc52, ptr %used_head_buckets, align 8
+  %11 = load i64, ptr %entries, align 8
+  %add = add i64 %11, %entries9.1.lcssa
+  store i64 %add, ptr %entries, align 8
   br label %for.inc56
 
 if.else:                                          ; preds = %do.end42
@@ -1400,8 +1403,8 @@ if.else:                                          ; preds = %do.end42
 for.inc56:                                        ; preds = %if.then44, %if.else
   %inc57 = add i32 %i.031, 1
   %conv4 = sext i32 %inc57 to i64
-  %13 = load i64, ptr %n_buckets, align 8
-  %cmp6 = icmp ugt i64 %13, %conv4
+  %12 = load i64, ptr %n_buckets, align 8
+  %cmp6 = icmp ugt i64 %12, %conv4
   br i1 %cmp6, label %for.body, label %for.end58, !llvm.loop !41
 
 for.end58:                                        ; preds = %for.inc56, %if.end, %if.then

@@ -21,19 +21,25 @@ define ptr @Java_sun_nio_fs_LinuxWatchService_eventOffsets(ptr noundef %0, ptr n
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, i32 noundef 5) #5
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %13, label %8
+  br i1 %.not, label %16, label %8
 
 8:                                                ; preds = %2
-  store <4 x i32> <i32 0, i32 4, i32 8, i32 12>, ptr %3, align 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 16, ptr %9, align 16
-  %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1688
-  %12 = load ptr, ptr %11, align 8
-  call void %12(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 5, ptr noundef nonnull %3) #5
-  br label %13
+  store i32 0, ptr %3, align 16
+  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 4, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 8, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 12, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 16, ptr %12, align 16
+  %13 = load ptr, ptr %0, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 1688
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 5, ptr noundef nonnull %3) #5
+  br label %16
 
-13:                                               ; preds = %8, %2
+16:                                               ; preds = %8, %2
   ret ptr %7
 }
 
@@ -157,8 +163,8 @@ declare i32 @fcntl64(i32 noundef, i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_fs_LinuxWatchService_socketpair(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = alloca [2 x i32], align 8
-  %5 = alloca [2 x i32], align 8
+  %4 = alloca [2 x i32], align 4
+  %5 = alloca [2 x i32], align 4
   %6 = call i32 @socketpair(i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %4) #5
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %8, label %17
@@ -178,12 +184,16 @@ define void @Java_sun_nio_fs_LinuxWatchService_socketpair(ptr noundef %0, ptr no
   br label %throwUnixException.exit
 
 17:                                               ; preds = %3
-  %18 = load <2 x i32>, ptr %4, align 8
-  store <2 x i32> %18, ptr %5, align 8
-  %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1688
-  %21 = load ptr, ptr %20, align 8
-  call void %21(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %5) #5
+  %18 = load i32, ptr %4, align 4
+  store i32 %18, ptr %5, align 4
+  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %20, ptr %21, align 4
+  %22 = load ptr, ptr %0, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 1688
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %5) #5
   br label %throwUnixException.exit
 
 throwUnixException.exit:                          ; preds = %12, %8, %17

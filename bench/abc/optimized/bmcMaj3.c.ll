@@ -2054,13 +2054,19 @@ define noundef i32 @Maj3_ManTest() local_unnamed_addr #2 {
   %2 = alloca %struct.Vec_Int_t_, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 112, i1 false)
-  store <4 x i32> <i32 1, i32 2, i32 2, i32 2>, ptr %1, align 16
+  store i32 1, ptr %1, align 16
+  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 2, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 2, ptr %6, align 4
   store i32 4, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 4, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %1, ptr %5, align 8
-  %6 = call i32 @Maj3_ManExactSynthesis(i32 noundef 7, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %2)
+  %7 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 4, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %1, ptr %8, align 8
+  %9 = call i32 @Maj3_ManExactSynthesis(i32 noundef 7, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %2)
   ret i32 0
 }
 

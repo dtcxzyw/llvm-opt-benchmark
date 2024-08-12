@@ -1109,11 +1109,17 @@ do.end7:                                          ; preds = %entry
   %call20 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %options_value.coerce) #22
   %add.ptr = getelementptr inbounds i8, ptr %call18, i64 %call20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i8 0, i64 28, i1 false)
+  %0 = load i8, ptr %add.ptr, align 1
+  %tobool.not = icmp ne i8 %0, 0
+  %cond = zext i1 %tobool.not to i32
   %snapshot_mode = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %0 = load <2 x i8>, ptr %add.ptr, align 1
-  %1 = icmp ne <2 x i8> %0, zeroinitializer
-  %2 = zext <2 x i1> %1 to <2 x i32>
-  store <2 x i32> %2, ptr %snapshot_mode, align 8
+  store i32 %cond, ptr %snapshot_mode, align 8
+  %arrayidx21 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %1 = load i8, ptr %arrayidx21, align 1
+  %tobool22.not = icmp ne i8 %1, 0
+  %cond23 = zext i1 %tobool22.not to i32
+  %numerics_mode = getelementptr inbounds i8, ptr %agg.result, i64 20
+  store i32 %cond23, ptr %numerics_mode, align 4
   ret void
 }
 
@@ -1198,14 +1204,20 @@ _ZN4node4heap22GetHeapSnapshotOptionsEN2v85LocalINS1_5ValueEEE.exit: ; preds = %
   %call20.i = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %13) #22, !noalias !13
   %add.ptr.i = getelementptr inbounds i8, ptr %call18.i, i64 %call20.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %options, i8 0, i64 28, i1 false), !alias.scope !13
+  %14 = load i8, ptr %add.ptr.i, align 1, !noalias !13
+  %tobool.not.i = icmp ne i8 %14, 0
+  %cond.i = zext i1 %tobool.not.i to i32
   %snapshot_mode.i = getelementptr inbounds i8, ptr %options, i64 16
-  %14 = load <2 x i8>, ptr %add.ptr.i, align 1, !noalias !13
-  %15 = icmp ne <2 x i8> %14, zeroinitializer
-  %16 = zext <2 x i1> %15 to <2 x i32>
-  store <2 x i32> %16, ptr %snapshot_mode.i, align 8, !alias.scope !13
+  store i32 %cond.i, ptr %snapshot_mode.i, align 8, !alias.scope !13
+  %arrayidx21.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %15 = load i8, ptr %arrayidx21.i, align 1, !noalias !13
+  %tobool22.not.i = icmp ne i8 %15, 0
+  %cond23.i = zext i1 %tobool22.not.i to i32
+  %numerics_mode.i = getelementptr inbounds i8, ptr %options, i64 20
+  store i32 %cond23.i, ptr %numerics_mode.i, align 4, !alias.scope !13
   %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
-  %17 = load ptr, ptr %isolate_.i, align 8
-  %call13 = tail call noundef ptr @_ZN2v87Isolate15GetHeapProfilerEv(ptr noundef nonnull align 1 dereferenceable(1) %17) #22
+  %16 = load ptr, ptr %isolate_.i, align 8
+  %call13 = tail call noundef ptr @_ZN2v87Isolate15GetHeapProfilerEv(ptr noundef nonnull align 1 dereferenceable(1) %16) #22
   %call14 = call noundef ptr @_ZN2v812HeapProfiler16TakeHeapSnapshotERKNS0_19HeapSnapshotOptionsE(ptr noundef nonnull align 1 dereferenceable(1) %call13, ptr noundef nonnull align 8 dereferenceable(32) %options) #22
   store ptr %call14, ptr %snapshot, align 8
   %cmp.i.not = icmp eq ptr %call14, null
@@ -1218,59 +1230,59 @@ do.body21:                                        ; preds = %_ZN4node4heap22GetH
 
 do.end25:                                         ; preds = %_ZN4node4heap22GetHeapSnapshotOptionsEN2v85LocalINS1_5ValueEEE.exit
   call void @_ZN4node4heap24CreateHeapSnapshotStreamEPNS_11EnvironmentEOSt10unique_ptrIKN2v812HeapSnapshotENS_15FunctionDeleterIS6_XadL_ZNS0_18DeleteHeapSnapshotEPS6_EEEEE(ptr nonnull sret(%"class.node::BaseObjectPtrImpl") align 8 %stream, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull align 8 dereferenceable(8) %snapshot)
-  %18 = load ptr, ptr %stream, align 8
-  %cmp.i11.not = icmp eq ptr %18, null
+  %17 = load ptr, ptr %stream, align 8
+  %cmp.i11.not = icmp eq ptr %17, null
   br i1 %cmp.i11.not, label %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EED2Ev.exit, label %if.then27
 
 if.then27:                                        ; preds = %do.end25
-  %19 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %19, i64 24
-  %realm_.i.i = getelementptr inbounds i8, ptr %18, i64 16
-  %20 = load ptr, ptr %realm_.i.i, align 8
-  %env_.i.i.i = getelementptr inbounds i8, ptr %20, i64 176
-  %21 = load ptr, ptr %env_.i.i.i, align 8
-  %isolate_.i.i = getelementptr inbounds i8, ptr %21, i64 88
-  %22 = load ptr, ptr %isolate_.i.i, align 8
-  %persistent_handle_.i = getelementptr inbounds i8, ptr %18, i64 8
-  %23 = load ptr, ptr %persistent_handle_.i, align 8
-  %cmp.i.i.i.i12 = icmp eq ptr %23, null
+  %18 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %18, i64 24
+  %realm_.i.i = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = load ptr, ptr %realm_.i.i, align 8
+  %env_.i.i.i = getelementptr inbounds i8, ptr %19, i64 176
+  %20 = load ptr, ptr %env_.i.i.i, align 8
+  %isolate_.i.i = getelementptr inbounds i8, ptr %20, i64 88
+  %21 = load ptr, ptr %isolate_.i.i, align 8
+  %persistent_handle_.i = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = load ptr, ptr %persistent_handle_.i, align 8
+  %cmp.i.i.i.i12 = icmp eq ptr %22, null
   br i1 %cmp.i.i.i.i12, label %if.then.i48, label %if.end.i.i.i13
 
 if.end.i.i.i13:                                   ; preds = %if.then27
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %23, i64 11
-  %24 = load i8, ptr %add.ptr.i.i.i, align 1
-  %25 = and i8 %24, 3
-  %cmp.i.i.i14 = icmp eq i8 %25, 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %22, i64 11
+  %23 = load i8, ptr %add.ptr.i.i.i, align 1
+  %24 = and i8 %23, 3
+  %cmp.i.i.i14 = icmp eq i8 %24, 2
   br i1 %cmp.i.i.i14, label %_ZNK4node10BaseObject6objectEv.exit, label %if.then.i
 
 _ZNK4node10BaseObject6objectEv.exit:              ; preds = %if.end.i.i.i13
-  %26 = load i64, ptr %23, align 8
-  %call.i.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %22, i64 noundef %26) #22
+  %25 = load i64, ptr %22, align 8
+  %call.i.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %21, i64 noundef %25) #22
   %cmp.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp.i.i, label %if.then.i48, label %if.then.i
 
 if.then.i48:                                      ; preds = %if.then27, %_ZNK4node10BaseObject6objectEv.exit
-  %arrayidx.i98 = getelementptr inbounds i8, ptr %19, i64 8
-  %27 = load ptr, ptr %arrayidx.i98, align 8
-  %28 = ptrtoint ptr %27 to i64
-  %add1.i.i95 = add i64 %28, 616
-  %29 = inttoptr i64 %add1.i.i95 to ptr
+  %arrayidx.i98 = getelementptr inbounds i8, ptr %18, i64 8
+  %26 = load ptr, ptr %arrayidx.i98, align 8
+  %27 = ptrtoint ptr %26 to i64
+  %add1.i.i95 = add i64 %27, 616
+  %28 = inttoptr i64 %add1.i.i95 to ptr
   br label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4node10BaseObject6objectEv.exit, %if.end.i.i.i13, %if.then.i48
-  %storemerge.in = phi ptr [ %29, %if.then.i48 ], [ %call.i.i.i.i, %_ZNK4node10BaseObject6objectEv.exit ], [ %23, %if.end.i.i.i13 ]
+  %storemerge.in = phi ptr [ %28, %if.then.i48 ], [ %call.i.i.i.i, %_ZNK4node10BaseObject6objectEv.exit ], [ %22, %if.end.i.i.i13 ]
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %arrayidx.i, align 8
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #22
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #22
   br label %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EED2Ev.exit
 
 _ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EED2Ev.exit: ; preds = %do.end25, %if.then.i
-  %30 = load ptr, ptr %snapshot, align 8
-  %cmp.not.i16 = icmp eq ptr %30, null
+  %29 = load ptr, ptr %snapshot, align 8
+  %cmp.not.i16 = icmp eq ptr %29, null
   br i1 %cmp.not.i16, label %_ZNSt10unique_ptrIKN2v812HeapSnapshotEN4node15FunctionDeleterIS2_XadL_ZNS3_4heap18DeleteHeapSnapshotEPS2_EEEEED2Ev.exit, label %if.then.i17
 
 if.then.i17:                                      ; preds = %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EED2Ev.exit
-  call void @_ZN2v812HeapSnapshot6DeleteEv(ptr noundef nonnull align 1 dereferenceable(1) %30) #22
+  call void @_ZN2v812HeapSnapshot6DeleteEv(ptr noundef nonnull align 1 dereferenceable(1) %29) #22
   br label %_ZNSt10unique_ptrIKN2v812HeapSnapshotEN4node15FunctionDeleterIS2_XadL_ZNS3_4heap18DeleteHeapSnapshotEPS2_EEEEED2Ev.exit
 
 _ZNSt10unique_ptrIKN2v812HeapSnapshotEN4node15FunctionDeleterIS2_XadL_ZNS3_4heap18DeleteHeapSnapshotEPS2_EEEEED2Ev.exit: ; preds = %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EED2Ev.exit, %if.then.i17

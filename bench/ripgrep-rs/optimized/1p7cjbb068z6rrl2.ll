@@ -90,7 +90,7 @@ common.resume:                                    ; preds = %.body, %11
 .body:                                            ; preds = %28, %16
   %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %29, %28 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$grep_printer..hyperlink..HyperlinkConfig$GT$17h7e045ad75e23a7ceE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #14
-          to label %common.resume unwind label %40
+          to label %common.resume unwind label %43
 
 18:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hf8dcb19d1cf94de9E.exit"
   %19 = extractvalue { i64, ptr } %15, 0
@@ -135,9 +135,11 @@ common.resume:                                    ; preds = %.body, %11
 32:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds i8, ptr %0, i64 99
+  store i8 0, ptr %33, align 1
+  %34 = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.848.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 37
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %33, i8 0, i64 5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %34, i8 0, i64 5, i1 false)
   store i8 1, ptr %.sroa.848.0..sroa_idx, align 1
   %.sroa.949.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 38
   store i8 0, ptr %.sroa.949.0..sroa_idx, align 2
@@ -191,18 +193,22 @@ common.resume:                                    ; preds = %.body, %11
   store i8 11, ptr %.sroa.38.0..sroa_idx, align 8
   %.sroa.38.sroa.4.0..sroa.38.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.38.sroa.4.0..sroa.38.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.38.sroa.4, i64 3, i1 false)
-  %34 = load ptr, ptr %4, align 8, !nonnull !7, !noundef !7
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 96
+  %35 = load ptr, ptr %4, align 8, !nonnull !7, !noundef !7
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  store i8 0, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 97
+  store i8 1, ptr %38, align 1
   store i64 0, ptr %0, align 8
-  store <4 x i8> <i8 0, i8 1, i8 1, i8 0>, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %25, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 92
-  store i8 0, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 94
-  store i8 0, ptr %39, align 2
+  %39 = getelementptr inbounds i8, ptr %0, i64 98
+  store i8 1, ptr %39, align 2
+  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %25, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 92
+  store i8 0, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %0, i64 94
+  store i8 0, ptr %42, align 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.1050.sroa.4)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.1151.sroa.4)
@@ -214,8 +220,8 @@ common.resume:                                    ; preds = %.body, %11
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.38.sroa.4)
   ret void
 
-40:                                               ; preds = %.body
-  %41 = landingpad { ptr, i32 }
+43:                                               ; preds = %.body
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #15
   unreachable

@@ -803,7 +803,7 @@ declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_un
 ; Function Attrs: nounwind uwtable
 define i32 @uv_pipe(ptr nocapture noundef writeonly %fds, i32 noundef %read_flags, i32 noundef %write_flags) local_unnamed_addr #0 {
 entry:
-  %temp = alloca [2 x i32], align 8
+  %temp = alloca [2 x i32], align 4
   %and = and i32 %read_flags, 64
   %tobool.not = icmp eq i32 %and, 0
   %and1 = and i32 %write_flags, 64
@@ -827,16 +827,20 @@ if.end6:                                          ; preds = %entry
   br i1 %tobool8.not, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  %2 = load <2 x i32>, ptr %temp, align 8
-  store <2 x i32> %2, ptr %fds, align 4
+  %2 = load i32, ptr %temp, align 4
+  store i32 %2, ptr %fds, align 4
+  %arrayidx11 = getelementptr inbounds i8, ptr %temp, i64 4
+  %3 = load i32, ptr %arrayidx11, align 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %fds, i64 4
+  store i32 %3, ptr %arrayidx12, align 4
   br label %return
 
 if.end13:                                         ; preds = %if.end6
   br i1 %tobool.not, label %if.end22, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
-  %3 = load i32, ptr %temp, align 8
-  %call18 = call i32 @uv__nonblock_ioctl(i32 noundef %3, i32 noundef 1) #12
+  %4 = load i32, ptr %temp, align 4
+  %call18 = call i32 @uv__nonblock_ioctl(i32 noundef %4, i32 noundef 1) #12
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.end22, label %fail
 
@@ -845,23 +849,27 @@ if.end22:                                         ; preds = %if.then16, %if.end1
 
 if.then25:                                        ; preds = %if.end22
   %arrayidx26 = getelementptr inbounds i8, ptr %temp, i64 4
-  %4 = load i32, ptr %arrayidx26, align 4
-  %call27 = call i32 @uv__nonblock_ioctl(i32 noundef %4, i32 noundef 1) #12
+  %5 = load i32, ptr %arrayidx26, align 4
+  %call27 = call i32 @uv__nonblock_ioctl(i32 noundef %5, i32 noundef 1) #12
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end31, label %fail
 
 if.end31:                                         ; preds = %if.then25, %if.end22
-  %5 = load <2 x i32>, ptr %temp, align 8
-  store <2 x i32> %5, ptr %fds, align 4
+  %6 = load i32, ptr %temp, align 4
+  store i32 %6, ptr %fds, align 4
+  %arrayidx34 = getelementptr inbounds i8, ptr %temp, i64 4
+  %7 = load i32, ptr %arrayidx34, align 4
+  %arrayidx35 = getelementptr inbounds i8, ptr %fds, i64 4
+  store i32 %7, ptr %arrayidx35, align 4
   br label %return
 
 fail:                                             ; preds = %if.then25, %if.then16
   %err.0 = phi i32 [ %call18, %if.then16 ], [ %call27, %if.then25 ]
-  %6 = load i32, ptr %temp, align 8
-  %call37 = call i32 @uv__close(i32 noundef %6) #12
+  %8 = load i32, ptr %temp, align 4
+  %call37 = call i32 @uv__close(i32 noundef %8) #12
   %arrayidx38 = getelementptr inbounds i8, ptr %temp, i64 4
-  %7 = load i32, ptr %arrayidx38, align 4
-  %call39 = call i32 @uv__close(i32 noundef %7) #12
+  %9 = load i32, ptr %arrayidx38, align 4
+  %call39 = call i32 @uv__close(i32 noundef %9) #12
   br label %return
 
 return:                                           ; preds = %fail, %if.end31, %if.then9, %if.then4

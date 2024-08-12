@@ -15,7 +15,13 @@ if.end:                                           ; preds = %entry
   %heap1 = getelementptr inbounds i8, ptr %sha, i64 96
   store ptr %heap, ptr %heap1, align 8
   %digest.i = getelementptr inbounds i8, ptr %sha, i64 76
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %digest.i, align 4
+  store i32 1732584193, ptr %digest.i, align 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %sha, i64 80
+  store i32 -271733879, ptr %arrayidx2.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %sha, i64 84
+  store i32 -1732584194, ptr %arrayidx4.i, align 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %sha, i64 88
+  store i32 271733878, ptr %arrayidx6.i, align 4
   %arrayidx8.i = getelementptr inbounds i8, ptr %sha, i64 92
   store i32 -1009589776, ptr %arrayidx8.i, align 4
   store i32 0, ptr %sha, align 8
@@ -1394,7 +1400,13 @@ for.body9.i60:                                    ; preds = %ByteReverseWords.ex
 
 ByteReverseWords.exit76:                          ; preds = %for.body9.i60, %for.body.i69
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %hash, ptr noundef nonnull align 4 dereferenceable(20) %digest, i64 20, i1 false)
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %digest, align 4
+  store i32 1732584193, ptr %digest, align 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %sha, i64 80
+  store i32 -271733879, ptr %arrayidx2.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %sha, i64 84
+  store i32 -1732584194, ptr %arrayidx4.i, align 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %sha, i64 88
+  store i32 271733878, ptr %arrayidx6.i, align 4
   %arrayidx8.i = getelementptr inbounds i8, ptr %sha, i64 92
   store i32 -1009589776, ptr %arrayidx8.i, align 4
   store i32 0, ptr %sha, align 8
@@ -1420,7 +1432,13 @@ if.end.i:                                         ; preds = %entry
   %heap1.i = getelementptr inbounds i8, ptr %sha, i64 96
   store ptr null, ptr %heap1.i, align 8
   %digest.i.i = getelementptr inbounds i8, ptr %sha, i64 76
-  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %digest.i.i, align 4
+  store i32 1732584193, ptr %digest.i.i, align 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %sha, i64 80
+  store i32 -271733879, ptr %arrayidx2.i.i, align 4
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %sha, i64 84
+  store i32 -1732584194, ptr %arrayidx4.i.i, align 4
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %sha, i64 88
+  store i32 271733878, ptr %arrayidx6.i.i, align 4
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %sha, i64 92
   store i32 -1009589776, ptr %arrayidx8.i.i, align 4
   store i32 0, ptr %sha, align 8

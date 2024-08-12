@@ -1222,10 +1222,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %arrayidx = getelementptr %struct.touch_slot, ptr %touch_slots, i64 %num_slot
-  %0 = insertelement <2 x double> poison, double %x, i64 0
-  %1 = insertelement <2 x double> %0, double %y, i64 1
-  %2 = fptosi <2 x double> %1 to <2 x i32>
-  store <2 x i32> %2, ptr %arrayidx, align 4
+  %conv = fptosi double %x to i32
+  store i32 %conv, ptr %arrayidx, align 4
+  %conv2 = fptosi double %y to i32
+  %y3 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  store i32 %conv2, ptr %y3, align 4
   %cmp4 = icmp eq i32 %type, 0
   br i1 %cmp4, label %if.then6, label %for.body.preheader
 
@@ -1245,8 +1246,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %type. = select i1 %cmp12, i32 %type, i32 1
   %arrayidx16 = getelementptr %struct.touch_slot, ptr %touch_slots, i64 %indvars.iv
   %tracking_id17 = getelementptr inbounds i8, ptr %arrayidx16, i64 8
-  %3 = load i32, ptr %tracking_id17, align 4
-  %cmp18 = icmp eq i32 %3, -1
+  %0 = load i32, ptr %tracking_id17, align 4
+  %cmp18 = icmp eq i32 %0, -1
   br i1 %cmp18, label %for.inc, label %if.end21
 
 if.end21:                                         ; preds = %for.body
@@ -1255,21 +1256,21 @@ if.end21:                                         ; preds = %for.body
 
 if.then24:                                        ; preds = %if.end21
   store i32 -1, ptr %tracking_id17, align 4
-  %4 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @qemu_input_queue_mtt(ptr noundef %con, i32 noundef 2, i32 noundef %4, i32 noundef -1) #18
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @qemu_input_queue_mtt(ptr noundef %con, i32 noundef 2, i32 noundef %1, i32 noundef -1) #18
   br label %for.inc
 
 if.else27:                                        ; preds = %if.end21
-  %5 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @qemu_input_queue_mtt(ptr noundef %con, i32 noundef %type., i32 noundef %5, i32 noundef %3) #18
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @qemu_input_queue_mtt(ptr noundef %con, i32 noundef %type., i32 noundef %2, i32 noundef %0) #18
   tail call void @qemu_input_queue_btn(ptr noundef %con, i32 noundef 9, i1 noundef zeroext true) #18
-  %6 = load i32, ptr %arrayidx16, align 4
-  %7 = load i32, ptr %tracking_id17, align 4
-  tail call void @qemu_input_queue_mtt_abs(ptr noundef %con, i32 noundef 0, i32 noundef %6, i32 noundef 0, i32 noundef %width, i32 noundef %5, i32 noundef %7) #18
+  %3 = load i32, ptr %arrayidx16, align 4
+  %4 = load i32, ptr %tracking_id17, align 4
+  tail call void @qemu_input_queue_mtt_abs(ptr noundef %con, i32 noundef 0, i32 noundef %3, i32 noundef 0, i32 noundef %width, i32 noundef %2, i32 noundef %4) #18
   %y31 = getelementptr inbounds i8, ptr %arrayidx16, i64 4
-  %8 = load i32, ptr %y31, align 4
-  %9 = load i32, ptr %tracking_id17, align 4
-  tail call void @qemu_input_queue_mtt_abs(ptr noundef %con, i32 noundef 1, i32 noundef %8, i32 noundef 0, i32 noundef %height, i32 noundef %5, i32 noundef %9) #18
+  %5 = load i32, ptr %y31, align 4
+  %6 = load i32, ptr %tracking_id17, align 4
+  tail call void @qemu_input_queue_mtt_abs(ptr noundef %con, i32 noundef 1, i32 noundef %5, i32 noundef 0, i32 noundef %height, i32 noundef %2, i32 noundef %6) #18
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then24, %if.else27, %for.body

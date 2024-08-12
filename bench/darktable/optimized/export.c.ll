@@ -3222,7 +3222,7 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture 
   %7 = icmp ne ptr %5, null
   %8 = icmp ne ptr %6, null
   %9 = select i1 %7, i1 %8, i1 false
-  br i1 %9, label %10, label %149
+  br i1 %9, label %10, label %150
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 112
@@ -3259,174 +3259,176 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture 
   %37 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.5) #18
   %38 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.6) #18
   %39 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.10) #18
-  %40 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.11) #18
-  %41 = insertelement <2 x i32> poison, i32 %39, i64 0
-  %42 = insertelement <2 x i32> %41, i32 %40, i64 1
-  %43 = icmp ne <2 x i32> %42, zeroinitializer
-  %44 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.12) #18
-  %45 = icmp ne i32 %44, 0
-  %46 = zext i1 %45 to i32
-  %47 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.15) #18
-  %48 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.16) #18
-  %49 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.17) #18
-  %50 = getelementptr inbounds i8, ptr %4, i64 704
-  %51 = load ptr, ptr %50, align 8, !tbaa !55
-  %52 = icmp eq ptr %51, null
-  %53 = select i1 %52, ptr @.str.52, ptr %51
-  br i1 %31, label %58, label %54
+  %40 = icmp ne i32 %39, 0
+  %41 = zext i1 %40 to i32
+  %42 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.11) #18
+  %43 = icmp ne i32 %42, 0
+  %44 = zext i1 %43 to i32
+  %45 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.12) #18
+  %46 = icmp ne i32 %45, 0
+  %47 = zext i1 %46 to i32
+  %48 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.15) #18
+  %49 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.16) #18
+  %50 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.17) #18
+  %51 = getelementptr inbounds i8, ptr %4, i64 704
+  %52 = load ptr, ptr %51, align 8, !tbaa !55
+  %53 = icmp eq ptr %52, null
+  %54 = select i1 %53, ptr @.str.52, ptr %52
+  br i1 %31, label %59, label %55
 
-54:                                               ; preds = %34
-  %55 = getelementptr inbounds i8, ptr %16, i64 16
-  %56 = tail call i64 @g_strlcpy(ptr noundef nonnull %55, ptr noundef %48, i64 noundef 128) #18
-  %57 = getelementptr inbounds i8, ptr %16, i64 144
-  store i32 %49, ptr %57, align 4, !tbaa !95
-  br label %58
+55:                                               ; preds = %34
+  %56 = getelementptr inbounds i8, ptr %16, i64 16
+  %57 = tail call i64 @g_strlcpy(ptr noundef nonnull %56, ptr noundef %49, i64 noundef 128) #18
+  %58 = getelementptr inbounds i8, ptr %16, i64 144
+  store i32 %50, ptr %58, align 4, !tbaa !95
+  br label %59
 
-58:                                               ; preds = %54, %34
-  %59 = icmp eq i32 %36, 0
-  br i1 %59, label %61, label %60
+59:                                               ; preds = %55, %34
+  %60 = icmp eq i32 %36, 0
+  br i1 %60, label %62, label %61
 
-60:                                               ; preds = %58
-  tail call void @g_free(ptr noundef %47) #18
-  br label %63
+61:                                               ; preds = %59
+  tail call void @g_free(ptr noundef %48) #18
+  br label %64
 
-61:                                               ; preds = %58
-  %62 = icmp eq ptr %47, null
-  br i1 %62, label %63, label %65
+62:                                               ; preds = %59
+  %63 = icmp eq ptr %48, null
+  br i1 %63, label %64, label %66
 
-63:                                               ; preds = %61, %60
-  %64 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.52) #18
-  br label %65
+64:                                               ; preds = %62, %61
+  %65 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.52) #18
+  br label %66
 
-65:                                               ; preds = %63, %61
-  %66 = phi ptr [ %47, %61 ], [ %64, %63 ]
-  %67 = getelementptr inbounds i8, ptr %5, i64 208
-  %68 = getelementptr inbounds i8, ptr %6, i64 200
-  %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #20
-  %70 = trunc i64 %69 to i32
-  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #20
-  %72 = trunc i64 %71 to i32
-  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #20
-  %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #20
-  %75 = add i64 %32, 47
-  %76 = add i64 %75, %30
-  %77 = add i64 %76, %69
-  %78 = add i64 %77, %71
-  %79 = add i64 %78, %73
+66:                                               ; preds = %64, %62
+  %67 = phi ptr [ %48, %62 ], [ %65, %64 ]
+  %68 = getelementptr inbounds i8, ptr %5, i64 208
+  %69 = getelementptr inbounds i8, ptr %6, i64 200
+  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #20
+  %71 = trunc i64 %70 to i32
+  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %69) #20
+  %73 = trunc i64 %72 to i32
+  %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #20
+  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #20
+  %76 = add i64 %32, 47
+  %77 = add i64 %76, %30
+  %78 = add i64 %77, %70
+  %79 = add i64 %78, %72
   %80 = add i64 %79, %74
-  %81 = trunc i64 %80 to i32
-  %82 = add i32 %81, 1
-  store i32 %82, ptr %1, align 4, !tbaa !85
-  %83 = sext i32 %82 to i64
-  %84 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %83) #23
-  store i32 %37, ptr %84, align 1
-  %85 = getelementptr inbounds i8, ptr %84, i64 4
-  store i32 %38, ptr %85, align 1
-  %86 = getelementptr inbounds i8, ptr %84, i64 8
-  %87 = zext <2 x i1> %43 to <2 x i32>
-  store <2 x i32> %87, ptr %86, align 1
-  %88 = getelementptr inbounds i8, ptr %84, i64 16
-  store i32 %46, ptr %88, align 1
-  %89 = getelementptr inbounds i8, ptr %84, i64 20
-  store i32 %35, ptr %89, align 1
-  %90 = getelementptr inbounds i8, ptr %84, i64 24
-  store i32 %36, ptr %90, align 1
-  %91 = getelementptr inbounds i8, ptr %84, i64 28
-  %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #20
-  %93 = add i64 %92, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull align 1 %53, i64 %93, i1 false)
-  %94 = shl i64 %92, 32
-  %95 = add i64 %94, 124554051584
-  %96 = ashr exact i64 %95, 32
-  %97 = getelementptr inbounds i8, ptr %84, i64 %96
-  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #20
-  %99 = add i64 %98, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr align 1 %66, i64 %99, i1 false)
-  %100 = add i64 %99, %96
-  %101 = trunc i64 %100 to i32
-  %102 = shl i64 %100, 32
-  %103 = ashr exact i64 %102, 32
-  %104 = getelementptr inbounds i8, ptr %84, i64 %103
-  %105 = add nsw i32 %70, 1
-  %106 = sext i32 %105 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %104, ptr nonnull align 1 %67, i64 %106, i1 false)
-  %107 = add nsw i32 %105, %101
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %84, i64 %108
-  %110 = add nsw i32 %72, 1
-  %111 = sext i32 %110 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr nonnull align 1 %68, i64 %111, i1 false)
-  %112 = add nsw i32 %107, %110
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i8, ptr %84, i64 %113
-  store i32 %25, ptr %114, align 1
-  %115 = add i32 %112, 4
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i8, ptr %84, i64 %116
-  store i32 %28, ptr %117, align 1
-  %118 = add i32 %112, 8
-  %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i8, ptr %84, i64 %119
-  %121 = trunc i64 %32 to i32
-  store i32 %121, ptr %120, align 1
-  %122 = add i32 %112, 12
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i8, ptr %84, i64 %123
-  %125 = trunc i64 %30 to i32
-  store i32 %125, ptr %124, align 1
-  %126 = add i32 %112, 16
-  br i1 %31, label %131, label %127
+  %81 = add i64 %80, %75
+  %82 = trunc i64 %81 to i32
+  %83 = add i32 %82, 1
+  store i32 %83, ptr %1, align 4, !tbaa !85
+  %84 = sext i32 %83 to i64
+  %85 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %84) #23
+  store i32 %37, ptr %85, align 1
+  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  store i32 %38, ptr %86, align 1
+  %87 = getelementptr inbounds i8, ptr %85, i64 8
+  store i32 %41, ptr %87, align 1
+  %88 = getelementptr inbounds i8, ptr %85, i64 12
+  store i32 %44, ptr %88, align 1
+  %89 = getelementptr inbounds i8, ptr %85, i64 16
+  store i32 %47, ptr %89, align 1
+  %90 = getelementptr inbounds i8, ptr %85, i64 20
+  store i32 %35, ptr %90, align 1
+  %91 = getelementptr inbounds i8, ptr %85, i64 24
+  store i32 %36, ptr %91, align 1
+  %92 = getelementptr inbounds i8, ptr %85, i64 28
+  %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #20
+  %94 = add i64 %93, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr nonnull align 1 %54, i64 %94, i1 false)
+  %95 = shl i64 %93, 32
+  %96 = add i64 %95, 124554051584
+  %97 = ashr exact i64 %96, 32
+  %98 = getelementptr inbounds i8, ptr %85, i64 %97
+  %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #20
+  %100 = add i64 %99, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr align 1 %67, i64 %100, i1 false)
+  %101 = add i64 %100, %97
+  %102 = trunc i64 %101 to i32
+  %103 = shl i64 %101, 32
+  %104 = ashr exact i64 %103, 32
+  %105 = getelementptr inbounds i8, ptr %85, i64 %104
+  %106 = add nsw i32 %71, 1
+  %107 = sext i32 %106 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %105, ptr nonnull align 1 %68, i64 %107, i1 false)
+  %108 = add nsw i32 %106, %102
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds i8, ptr %85, i64 %109
+  %111 = add nsw i32 %73, 1
+  %112 = sext i32 %111 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %110, ptr nonnull align 1 %69, i64 %112, i1 false)
+  %113 = add nsw i32 %108, %111
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i8, ptr %85, i64 %114
+  store i32 %25, ptr %115, align 1
+  %116 = add i32 %113, 4
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds i8, ptr %85, i64 %117
+  store i32 %28, ptr %118, align 1
+  %119 = add i32 %113, 8
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i8, ptr %85, i64 %120
+  %122 = trunc i64 %32 to i32
+  store i32 %122, ptr %121, align 1
+  %123 = add i32 %113, 12
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds i8, ptr %85, i64 %124
+  %126 = trunc i64 %30 to i32
+  store i32 %126, ptr %125, align 1
+  %127 = add i32 %113, 16
+  br i1 %31, label %132, label %128
 
-127:                                              ; preds = %65
-  %128 = sext i32 %126 to i64
-  %129 = getelementptr inbounds i8, ptr %84, i64 %128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull align 4 %16, i64 %13, i1 false)
-  %130 = add i32 %126, %121
-  br label %131
+128:                                              ; preds = %66
+  %129 = sext i32 %127 to i64
+  %130 = getelementptr inbounds i8, ptr %85, i64 %129
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr nonnull align 4 %16, i64 %13, i1 false)
+  %131 = add i32 %127, %122
+  br label %132
 
-131:                                              ; preds = %127, %65
-  %132 = phi i32 [ %130, %127 ], [ %126, %65 ]
-  br i1 %29, label %137, label %133
+132:                                              ; preds = %128, %66
+  %133 = phi i32 [ %131, %128 ], [ %127, %66 ]
+  br i1 %29, label %138, label %134
 
-133:                                              ; preds = %131
-  %134 = sext i32 %132 to i64
-  %135 = getelementptr inbounds i8, ptr %84, i64 %134
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %135, ptr nonnull align 1 %22, i64 %19, i1 false)
-  %136 = add i32 %132, %125
-  br label %137
+134:                                              ; preds = %132
+  %135 = sext i32 %133 to i64
+  %136 = getelementptr inbounds i8, ptr %85, i64 %135
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %136, ptr nonnull align 1 %22, i64 %19, i1 false)
+  %137 = add i32 %133, %126
+  br label %138
 
-137:                                              ; preds = %133, %131
-  %138 = phi i32 [ %136, %133 ], [ %132, %131 ]
-  %139 = icmp eq i32 %138, %82
-  br i1 %139, label %141, label %140, !prof !97
+138:                                              ; preds = %134, %132
+  %139 = phi i32 [ %137, %134 ], [ %133, %132 ]
+  %140 = icmp eq i32 %139, %83
+  br i1 %140, label %142, label %141, !prof !97
 
-140:                                              ; preds = %137
+141:                                              ; preds = %138
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 2071, ptr noundef nonnull @__func__.get_params, ptr noundef nonnull @.str.111) #24
   unreachable
 
-141:                                              ; preds = %137
-  tail call void @g_free(ptr noundef %66) #18
-  tail call void @g_free(ptr noundef %48) #18
-  br i1 %31, label %145, label %142
+142:                                              ; preds = %138
+  tail call void @g_free(ptr noundef %67) #18
+  tail call void @g_free(ptr noundef %49) #18
+  br i1 %31, label %146, label %143
 
-142:                                              ; preds = %141
-  %143 = getelementptr inbounds i8, ptr %5, i64 128
-  %144 = load ptr, ptr %143, align 8, !tbaa !98
-  tail call void %144(ptr noundef nonnull %5, ptr noundef nonnull %16) #18
-  br label %145
+143:                                              ; preds = %142
+  %144 = getelementptr inbounds i8, ptr %5, i64 128
+  %145 = load ptr, ptr %144, align 8, !tbaa !98
+  tail call void %145(ptr noundef nonnull %5, ptr noundef nonnull %16) #18
+  br label %146
 
-145:                                              ; preds = %142, %141
-  br i1 %29, label %149, label %146
+146:                                              ; preds = %143, %142
+  br i1 %29, label %150, label %147
 
-146:                                              ; preds = %145
-  %147 = getelementptr inbounds i8, ptr %6, i64 168
-  %148 = load ptr, ptr %147, align 8, !tbaa !99
-  tail call void %148(ptr noundef nonnull %6, ptr noundef nonnull %22) #18
-  br label %149
+147:                                              ; preds = %146
+  %148 = getelementptr inbounds i8, ptr %6, i64 168
+  %149 = load ptr, ptr %148, align 8, !tbaa !99
+  tail call void %149(ptr noundef nonnull %6, ptr noundef nonnull %22) #18
+  br label %150
 
-149:                                              ; preds = %146, %145, %2
-  %150 = phi ptr [ null, %2 ], [ %84, %146 ], [ %84, %145 ]
-  ret ptr %150
+150:                                              ; preds = %147, %146, %2
+  %151 = phi ptr [ null, %2 ], [ %85, %147 ], [ %85, %146 ]
+  ret ptr %151
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

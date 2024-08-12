@@ -352,11 +352,25 @@ define internal void @_ZN12_GLOBAL__N_114SynthGowinPass11clear_flagsEv(ptr nound
   %6 = getelementptr inbounds i8, ptr %0, i64 248
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.42)
   %8 = getelementptr inbounds i8, ptr %0, i64 280
-  store <8 x i8> <i8 0, i8 0, i8 0, i8 1, i8 0, i8 0, i8 1, i8 0>, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 288
-  store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 289
+  store i8 0, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 283
+  store i8 1, ptr %9, align 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 281
   store i8 0, ptr %10, align 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 284
+  store i8 0, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 282
+  store i8 0, ptr %12, align 2
+  %13 = getelementptr inbounds i8, ptr %0, i64 285
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 286
+  store i8 1, ptr %14, align 2
+  %15 = getelementptr inbounds i8, ptr %0, i64 287
+  store i8 0, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 288
+  store i8 0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 289
+  store i8 0, ptr %17, align 1
   ret void
 }
 

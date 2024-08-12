@@ -640,9 +640,10 @@ define void @Dau_DsdAddToArray(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %.not, label %27, label %.loopexit
 
 27:                                               ; preds = %9
-  %28 = load <2 x i32>, ptr %19, align 4
-  %29 = shufflevector <2 x i32> %28, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %29, ptr %19, align 4
+  %28 = load i32, ptr %11, align 4
+  %29 = load i32, ptr %19, align 4
+  store i32 %29, ptr %11, align 4
+  store i32 %28, ptr %19, align 4
   %30 = add nsw i32 %.024, -1
   %31 = icmp sgt i32 %.024, 1
   br i1 %31, label %9, label %.loopexit, !llvm.loop !12
@@ -1092,9 +1093,10 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   br i1 %.not.i127, label %269, label %Dau_DsdAddToArray.exit
 
 269:                                              ; preds = %.lr.ph.i
-  %270 = load <2 x i32>, ptr %261, align 4
-  %271 = shufflevector <2 x i32> %270, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i32> %271, ptr %261, align 4
+  %270 = load i32, ptr %253, align 4
+  %271 = load i32, ptr %261, align 4
+  store i32 %271, ptr %253, align 4
+  store i32 %270, ptr %261, align 4
   %272 = add nsw i32 %.024.i, -1
   %273 = icmp sgt i32 %.024.i, 1
   br i1 %273, label %.lr.ph.i, label %Dau_DsdAddToArray.exit, !llvm.loop !12

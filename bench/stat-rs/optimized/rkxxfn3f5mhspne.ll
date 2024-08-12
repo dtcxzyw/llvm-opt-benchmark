@@ -66,38 +66,37 @@ define hidden noundef zeroext i1 @"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..Ulp
   %7 = fsub double %5, %6
   %8 = tail call double @llvm.fabs.f64(double %7)
   %9 = fcmp ugt double %8, %2
-  br i1 %9, label %10, label %29
+  br i1 %9, label %10, label %26
 
 10:                                               ; preds = %4
-  %11 = insertelement <2 x double> poison, double %5, i64 0
-  %12 = insertelement <2 x double> %11, double %6, i64 1
-  %13 = fcmp uno <2 x double> %12, zeroinitializer
-  %14 = tail call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 1.000000e+00, double 1.000000e+00>, <2 x double> %12)
-  %15 = select <2 x i1> %13, <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, <2 x double> %14
-  %16 = extractelement <2 x double> %15, i64 0
-  %17 = extractelement <2 x double> %15, i64 1
-  %18 = fcmp une double %16, %17
-  br i1 %18, label %29, label %19
+  %11 = fcmp uno double %5, 0.000000e+00
+  %12 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %5)
+  %.sroa.01.0 = select i1 %11, double 0x7FF8000000000000, double %12
+  %13 = fcmp uno double %6, 0.000000e+00
+  %14 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %6)
+  %.sroa.02.0 = select i1 %13, double 0x7FF8000000000000, double %14
+  %15 = fcmp une double %.sroa.01.0, %.sroa.02.0
+  br i1 %15, label %26, label %16
 
-19:                                               ; preds = %10
-  %20 = bitcast double %5 to i64
-  %21 = bitcast double %6 to i64
-  %.not = icmp ugt i64 %20, %21
-  %22 = zext i32 %3 to i64
-  br i1 %.not, label %23, label %26
+16:                                               ; preds = %10
+  %17 = bitcast double %5 to i64
+  %18 = bitcast double %6 to i64
+  %.not = icmp ugt i64 %17, %18
+  %19 = zext i32 %3 to i64
+  br i1 %.not, label %20, label %23
 
-23:                                               ; preds = %19
-  %24 = sub nuw i64 %20, %21
-  %25 = icmp ule i64 %24, %22
-  br label %29
+20:                                               ; preds = %16
+  %21 = sub nuw i64 %17, %18
+  %22 = icmp ule i64 %21, %19
+  br label %26
 
-26:                                               ; preds = %19
-  %27 = sub nuw i64 %21, %20
-  %28 = icmp ule i64 %27, %22
-  br label %29
+23:                                               ; preds = %16
+  %24 = sub nuw i64 %18, %17
+  %25 = icmp ule i64 %24, %19
+  br label %26
 
-29:                                               ; preds = %10, %4, %23, %26
-  %.sroa.0.0.shrunk = phi i1 [ %28, %26 ], [ %25, %23 ], [ true, %4 ], [ false, %10 ]
+26:                                               ; preds = %10, %4, %20, %23
+  %.sroa.0.0.shrunk = phi i1 [ %25, %23 ], [ %22, %20 ], [ true, %4 ], [ false, %10 ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -374,7 +373,7 @@ define noundef double @"_ZN105_$LT$statrs..distribution..beta..Beta$u20$as$u20$s
 37:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread4"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !38
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #16, !noalias !34
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #15, !noalias !34
   unreachable
 
 _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread4"
@@ -460,7 +459,7 @@ define noundef double @"_ZN105_$LT$statrs..distribution..beta..Beta$u20$as$u20$s
 38:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread4"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !44
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #16, !noalias !41
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #15, !noalias !41
   unreachable
 
 _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread4"
@@ -537,14 +536,14 @@ define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$
   %3 = load double, ptr %0, align 8, !noundef !4
   %4 = tail call double @llvm.fabs.f64(double %3)
   %5 = fcmp oeq double %4, 0x7FF0000000000000
-  br i1 %5, label %38, label %6
+  br i1 %5, label %34, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8, !noundef !4
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp oeq double %9, 0x7FF0000000000000
-  br i1 %10, label %38, label %11
+  br i1 %10, label %34, label %11
 
 11:                                               ; preds = %6
   %12 = fcmp ugt double %3, 0.000000e+00
@@ -562,7 +561,7 @@ define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$
   store i64 %.sroa.7.0.ph.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !51
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   store i64 1, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !51
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.39.llvm.10715550030521876899) #16, !noalias !52
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.39.llvm.10715550030521876899) #15, !noalias !52
   unreachable
 
 _ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit: ; preds = %13
@@ -576,26 +575,22 @@ _ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit: ; preds = %13
   %23 = tail call noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %3)
   %24 = fmul double %22, %23
   %25 = fsub double %21, %24
-  %26 = tail call noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %8)
-  %27 = tail call noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %19)
-  %28 = insertelement <2 x double> poison, double %8, i64 0
-  %29 = insertelement <2 x double> %28, double %19, i64 1
-  %30 = fadd <2 x double> %29, <double -1.000000e+00, double -2.000000e+00>
-  %31 = insertelement <2 x double> poison, double %26, i64 0
-  %32 = insertelement <2 x double> %31, double %27, i64 1
-  %33 = fmul <2 x double> %30, %32
-  %34 = extractelement <2 x double> %33, i64 0
-  %35 = fsub double %25, %34
-  %36 = extractelement <2 x double> %33, i64 1
-  %37 = fadd double %35, %36
-  br label %38
+  %26 = fadd double %8, -1.000000e+00
+  %27 = tail call noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %8)
+  %28 = fmul double %26, %27
+  %29 = fsub double %25, %28
+  %30 = fadd double %19, -2.000000e+00
+  %31 = tail call noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %19)
+  %32 = fmul double %30, %31
+  %33 = fadd double %29, %32
+  br label %34
 
-38:                                               ; preds = %1, %6, %_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit
-  %.sroa.3.0 = phi double [ %37, %_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit ], [ undef, %6 ], [ undef, %1 ]
+34:                                               ; preds = %1, %6, %_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit
+  %.sroa.3.0 = phi double [ %33, %_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit ], [ undef, %6 ], [ undef, %1 ]
   %.sroa.0.0 = phi i64 [ 1, %_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit ], [ 0, %6 ], [ 0, %1 ]
-  %39 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
-  %40 = insertvalue { i64, double } %39, double %.sroa.3.0, 1
-  ret { i64, double } %40
+  %35 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
+  %36 = insertvalue { i64, double } %35, double %.sroa.3.0, 1
+  ret { i64, double } %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -603,42 +598,33 @@ define { i64, double } @"_ZN104_$LT$statrs..distribution..beta..Beta$u20$as$u20$
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = fcmp oeq double %3, 0x7FF0000000000000
-  br i1 %4, label %31, label %5
+  br i1 %4, label %22, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8, !noundef !4
   %8 = tail call double @llvm.fabs.f64(double %7)
   %9 = fcmp oeq double %8, 0x7FF0000000000000
-  br i1 %9, label %31, label %10
+  br i1 %9, label %22, label %10
 
 10:                                               ; preds = %5
-  %11 = insertelement <2 x double> poison, double %7, i64 0
-  %12 = insertelement <2 x double> poison, double %7, i64 0
-  %13 = insertelement <2 x double> poison, double %2, i64 0
-  %14 = insertelement <2 x double> poison, double %2, i64 0
-  %15 = fsub <2 x double> %12, %14
-  %16 = fadd <2 x double> %11, %13
-  %17 = shufflevector <2 x double> %15, <2 x double> %16, <2 x i32> <i32 0, i32 2>
-  %18 = extractelement <2 x double> %16, i64 0
-  %19 = fadd double %18, 1.000000e+00
-  %20 = fmul double %2, %7
-  %21 = fmul <2 x double> %17, <double 2.000000e+00, double poison>
-  %22 = fadd <2 x double> %17, <double poison, double 2.000000e+00>
-  %23 = shufflevector <2 x double> %21, <2 x double> %22, <2 x i32> <i32 0, i32 3>
-  %24 = insertelement <2 x double> poison, double %19, i64 0
-  %25 = insertelement <2 x double> %24, double %20, i64 1
-  %26 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %25)
-  %27 = fmul <2 x double> %23, %26
-  %28 = extractelement <2 x double> %27, i64 0
-  %29 = extractelement <2 x double> %27, i64 1
-  %30 = fdiv double %28, %29
-  br label %31
+  %11 = fsub double %7, %2
+  %12 = fmul double %11, 2.000000e+00
+  %13 = fadd double %2, %7
+  %14 = fadd double %13, 1.000000e+00
+  %15 = tail call double @llvm.sqrt.f64(double %14)
+  %16 = fmul double %12, %15
+  %17 = fadd double %13, 2.000000e+00
+  %18 = fmul double %2, %7
+  %19 = tail call double @llvm.sqrt.f64(double %18)
+  %20 = fmul double %17, %19
+  %21 = fdiv double %16, %20
+  br label %22
 
-31:                                               ; preds = %5, %1, %10
-  %.sroa.01.0 = phi double [ %30, %10 ], [ -2.000000e+00, %1 ], [ 2.000000e+00, %5 ]
-  %32 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.01.0, 1
-  ret { i64, double } %32
+22:                                               ; preds = %5, %1, %10
+  %.sroa.01.0 = phi double [ %21, %10 ], [ -2.000000e+00, %1 ], [ 2.000000e+00, %5 ]
+  %23 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.01.0, 1
+  ret { i64, double } %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1168,7 +1154,7 @@ define noundef double @"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$
 16:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !62
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #16, !noalias !59
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #15, !noalias !59
   unreachable
 
 _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %7
@@ -1207,7 +1193,7 @@ define noundef double @"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$
 15:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !68
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #16, !noalias !65
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.add817559d7beeee5c0788ec3c34287f.12.llvm.10715550030521876899, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.13.llvm.10715550030521876899, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.add817559d7beeee5c0788ec3c34287f.44.llvm.10715550030521876899) #15, !noalias !65
   unreachable
 
 _ZN6statrs8function4beta8beta_reg17hba0ea301559e3806E.exit: ; preds = %7
@@ -1813,23 +1799,20 @@ define noundef double @"_ZN111_$LT$statrs..distribution..chi_squared..ChiSquared
   %3 = load double, ptr %2, align 8, !noundef !4
   %4 = fcmp olt double %3, 1.000000e+00
   %5 = fadd double %3, 0xBFE5555555555555
-  br i1 %4, label %6, label %17
+  br i1 %4, label %6, label %14
 
 6:                                                ; preds = %1
-  %7 = fmul double %3, 7.290000e+02
-  %8 = insertelement <2 x double> poison, double %3, i64 0
-  %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
-  %10 = insertelement <2 x double> <double 8.100000e+01, double poison>, double %7, i64 1
-  %11 = fmul <2 x double> %9, %10
-  %12 = fdiv <2 x double> <double 1.200000e+01, double 8.000000e+00>, %11
-  %13 = extractelement <2 x double> %12, i64 0
-  %14 = fadd double %5, %13
-  %15 = extractelement <2 x double> %12, i64 1
-  %16 = fsub double %14, %15
-  br label %17
+  %7 = fmul double %3, 8.100000e+01
+  %8 = fdiv double 1.200000e+01, %7
+  %9 = fadd double %5, %8
+  %10 = fmul double %3, 7.290000e+02
+  %11 = fmul double %3, %10
+  %12 = fdiv double 8.000000e+00, %11
+  %13 = fsub double %9, %12
+  br label %14
 
-17:                                               ; preds = %1, %6
-  %.sroa.0.0 = phi double [ %16, %6 ], [ %5, %1 ]
+14:                                               ; preds = %1, %6
+  %.sroa.0.0 = phi double [ %13, %6 ], [ %5, %1 ]
   ret double %.sroa.0.0
 }
 
@@ -1987,7 +1970,7 @@ define noundef double @"_ZN109_$LT$statrs..distribution..poisson..Poisson$u20$as
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !177
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !175
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.c1bf2e375591bb6a447bdf89942637bc.4.llvm.11173233603740741911, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.5.llvm.11173233603740741911, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.10.llvm.11173233603740741911) #16, !noalias !172
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.c1bf2e375591bb6a447bdf89942637bc.4.llvm.11173233603740741911, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.5.llvm.11173233603740741911, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.10.llvm.11173233603740741911) #15, !noalias !172
   unreachable
 
 _ZN6statrs8function5gamma8gamma_ur17h0b4d3ff45eccbdceE.exit: ; preds = %2
@@ -2014,7 +1997,7 @@ define noundef double @"_ZN109_$LT$statrs..distribution..poisson..Poisson$u20$as
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !183
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !181
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.c1bf2e375591bb6a447bdf89942637bc.4.llvm.11173233603740741911, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.5.llvm.11173233603740741911, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.14.llvm.11173233603740741911) #16, !noalias !178
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.c1bf2e375591bb6a447bdf89942637bc.4.llvm.11173233603740741911, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.5.llvm.11173233603740741911, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c1bf2e375591bb6a447bdf89942637bc.14.llvm.11173233603740741911) #15, !noalias !178
   unreachable
 
 _ZN6statrs8function5gamma8gamma_lr17hde27b862f6dd8958E.exit: ; preds = %2
@@ -2057,19 +2040,17 @@ define { i64, double } @"_ZN110_$LT$statrs..distribution..poisson..Poisson$u20$a
   %6 = fmul double %2, 1.200000e+01
   %7 = fdiv double 1.000000e+00, %6
   %8 = fsub double %5, %7
-  %9 = fmul double %2, 3.600000e+02
-  %10 = insertelement <2 x double> poison, double %2, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = insertelement <2 x double> <double 2.400000e+01, double poison>, double %9, i64 1
-  %13 = fmul <2 x double> %11, %12
-  %14 = fmul <2 x double> %11, %13
-  %15 = fdiv <2 x double> <double 1.000000e+00, double 1.900000e+01>, %14
-  %16 = extractelement <2 x double> %15, i64 0
-  %17 = fsub double %8, %16
-  %18 = extractelement <2 x double> %15, i64 1
-  %19 = fsub double %17, %18
-  %20 = insertvalue { i64, double } { i64 1, double poison }, double %19, 1
-  ret { i64, double } %20
+  %9 = fmul double %2, 2.400000e+01
+  %10 = fmul double %2, %9
+  %11 = fdiv double 1.000000e+00, %10
+  %12 = fsub double %8, %11
+  %13 = fmul double %2, 3.600000e+02
+  %14 = fmul double %2, %13
+  %15 = fmul double %2, %14
+  %16 = fdiv double 1.900000e+01, %15
+  %17 = fsub double %12, %16
+  %18 = insertvalue { i64, double } { i64 1, double poison }, double %17, 1
+  ret { i64, double } %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2175,8 +2156,8 @@ define void @_ZN6statrs12distribution10triangular10Triangular3new17h846bbab4d5dc
   %or.cond = or i1 %12, %13
   br i1 %or.cond, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread", label %14
 
-"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread": ; preds = %4, %11, %14, %27, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread16"
-  %.sink = phi i64 [ 21, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread16" ], [ 0, %27 ], [ 0, %14 ], [ 0, %11 ], [ 0, %4 ]
+"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread": ; preds = %4, %11, %14, %24, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread16"
+  %.sink = phi i64 [ 21, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread16" ], [ 0, %24 ], [ 0, %14 ], [ 0, %11 ], [ 0, %4 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -2187,25 +2168,24 @@ define void @_ZN6statrs12distribution10triangular10Triangular3new17h846bbab4d5dc
   br i1 %17, label %18, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread"
 
 18:                                               ; preds = %14
-  %19 = insertelement <2 x double> poison, double %1, i64 0
-  %20 = insertelement <2 x double> %19, double %2, i64 1
-  %21 = fcmp uno <2 x double> %20, zeroinitializer
-  %22 = tail call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 1.000000e+00, double 1.000000e+00>, <2 x double> %20)
-  %23 = select <2 x i1> %21, <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, <2 x double> %22
-  %24 = extractelement <2 x double> %23, i64 0
-  %25 = extractelement <2 x double> %23, i64 1
-  %26 = fcmp une double %25, %24
-  br i1 %26, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread16", label %27
+  %19 = fcmp uno double %2, 0.000000e+00
+  %20 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %2)
+  %.sroa.01.0.i = select i1 %19, double 0x7FF8000000000000, double %20
+  %21 = fcmp uno double %1, 0.000000e+00
+  %22 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %1)
+  %.sroa.02.0.i = select i1 %21, double 0x7FF8000000000000, double %22
+  %23 = fcmp une double %.sroa.01.0.i, %.sroa.02.0.i
+  br i1 %23, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread16", label %24
 
-27:                                               ; preds = %18
-  %28 = bitcast double %2 to i64
-  %29 = bitcast double %1 to i64
-  %30 = icmp eq i64 %29, %28
-  br i1 %30, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread16"
+24:                                               ; preds = %18
+  %25 = bitcast double %2 to i64
+  %26 = bitcast double %1 to i64
+  %27 = icmp eq i64 %26, %25
+  br i1 %27, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread16"
 
-"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread16": ; preds = %27, %18
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %1, ptr %31, align 8
+"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit.thread16": ; preds = %24, %18
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %1, ptr %28, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store double %2, ptr %.sroa.47.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -2367,24 +2347,23 @@ define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular
 define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8variance17hdbb8dee692a55a2dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = fmul double %2, %2
-  %5 = load <2 x double>, ptr %3, align 8
-  %6 = fmul <2 x double> %5, %5
-  %7 = extractelement <2 x double> %6, i64 0
-  %8 = fadd double %4, %7
-  %9 = extractelement <2 x double> %6, i64 1
-  %10 = fadd double %8, %9
-  %11 = extractelement <2 x double> %5, i64 0
-  %12 = fmul double %2, %11
-  %13 = fsub double %10, %12
-  %14 = extractelement <2 x double> %5, i64 1
-  %15 = fmul double %2, %14
-  %16 = fsub double %13, %15
-  %17 = fmul double %11, %14
-  %18 = fsub double %16, %17
-  %19 = fdiv double %18, 1.800000e+01
-  %20 = insertvalue { i64, double } { i64 1, double poison }, double %19, 1
-  ret { i64, double } %20
+  %4 = load double, ptr %3, align 8, !noundef !4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load double, ptr %5, align 8, !noundef !4
+  %7 = fmul double %2, %2
+  %8 = fmul double %4, %4
+  %9 = fadd double %7, %8
+  %10 = fmul double %6, %6
+  %11 = fadd double %9, %10
+  %12 = fmul double %2, %4
+  %13 = fsub double %11, %12
+  %14 = fmul double %2, %6
+  %15 = fsub double %13, %14
+  %16 = fmul double %4, %6
+  %17 = fsub double %15, %16
+  %18 = fdiv double %17, 1.800000e+01
+  %19 = insertvalue { i64, double } { i64 1, double poison }, double %18, 1
+  ret { i64, double } %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2404,38 +2383,37 @@ define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular
 define { i64, double } @"_ZN116_$LT$statrs..distribution..triangular..Triangular$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$8skewness17h1537039dec7c85d6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
   %2 = load double, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = fmul double %2, 2.000000e+00
-  %5 = fmul double %2, %2
-  %6 = load <2 x double>, ptr %3, align 8
-  %7 = extractelement <2 x double> %6, i64 0
-  %8 = fadd double %2, %7
-  %9 = extractelement <2 x double> %6, i64 1
-  %10 = fmul double %9, 2.000000e+00
-  %11 = fsub double %8, %10
-  %12 = fmul double %11, 0x3FF6A09E667F3BCD
-  %13 = fsub double %4, %7
-  %14 = fsub double %13, %9
-  %15 = fmul double %14, %12
-  %16 = fmul double %7, 2.000000e+00
-  %17 = fsub double %2, %16
-  %18 = fadd double %9, %17
-  %19 = fmul double %18, %15
-  %20 = fmul <2 x double> %6, %6
-  %21 = extractelement <2 x double> %20, i64 0
-  %22 = fadd double %5, %21
-  %23 = extractelement <2 x double> %20, i64 1
-  %24 = fadd double %22, %23
-  %25 = fmul double %2, %7
-  %26 = fsub double %24, %25
-  %27 = fmul double %2, %9
-  %28 = fsub double %26, %27
-  %29 = fmul double %7, %9
-  %30 = fsub double %28, %29
-  %31 = tail call double @llvm.pow.f64(double %30, double 1.500000e+00)
-  %32 = fmul double %31, 5.000000e+00
-  %33 = fdiv double %19, %32
-  %34 = insertvalue { i64, double } { i64 1, double poison }, double %33, 1
-  ret { i64, double } %34
+  %4 = load double, ptr %3, align 8, !noundef !4
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load double, ptr %5, align 8, !noundef !4
+  %7 = fadd double %2, %4
+  %8 = fmul double %6, 2.000000e+00
+  %9 = fsub double %7, %8
+  %10 = fmul double %9, 0x3FF6A09E667F3BCD
+  %11 = fmul double %2, 2.000000e+00
+  %12 = fsub double %11, %4
+  %13 = fsub double %12, %6
+  %14 = fmul double %13, %10
+  %15 = fmul double %4, 2.000000e+00
+  %16 = fsub double %2, %15
+  %17 = fadd double %6, %16
+  %18 = fmul double %17, %14
+  %19 = fmul double %2, %2
+  %20 = fmul double %4, %4
+  %21 = fadd double %19, %20
+  %22 = fmul double %6, %6
+  %23 = fadd double %21, %22
+  %24 = fmul double %2, %4
+  %25 = fsub double %23, %24
+  %26 = fmul double %2, %6
+  %27 = fsub double %25, %26
+  %28 = fmul double %4, %6
+  %29 = fsub double %27, %28
+  %30 = tail call double @llvm.pow.f64(double %29, double 1.500000e+00)
+  %31 = fmul double %30, 5.000000e+00
+  %32 = fdiv double %18, %31
+  %33 = insertvalue { i64, double } { i64 1, double poison }, double %32, 1
+  ret { i64, double } %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2740,7 +2718,7 @@ _ZN4core3ops5range11RangeBounds8contains17hb4eac75a74a25f7dE.llvm.13986783010576
   store ptr %3, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 1, ptr %11, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26f4206a9fc8a8c6d289e2be3cec11c9.28) #16
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26f4206a9fc8a8c6d289e2be3cec11c9.28) #15
   unreachable
 
 12:                                               ; preds = %2
@@ -3010,12 +2988,6 @@ declare void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.copysign.v2f64(<2 x double>, <2 x double>) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #15
-
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -3031,8 +3003,7 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { noreturn }
+attributes #15 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

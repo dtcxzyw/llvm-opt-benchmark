@@ -4047,15 +4047,20 @@ unreachable:                                      ; preds = %if.then.i29
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uninit_default_nIPN7Imf_3_26HeaderEmEET_S5_T0_(ptr noundef %__first, i64 noundef %__n) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"class.Imath_3_2::Vec2.31", align 8
+  %ref.tmp.i = alloca %"class.Imath_3_2::Vec2.31", align 4
   %cmp.not7 = icmp eq i64 %__n, 0
-  br i1 %cmp.not7, label %for.end, label %for.body
+  br i1 %cmp.not7, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %entry, %for.inc
-  %__cur.09 = phi ptr [ %incdec.ptr, %for.inc ], [ %__first, %entry ]
-  %__n.addr.08 = phi i64 [ %dec, %for.inc ], [ %__n, %entry ]
+for.body.lr.ph:                                   ; preds = %entry
+  %y.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %__cur.09 = phi ptr [ %__first, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %__n.addr.08 = phi i64 [ %__n, %for.body.lr.ph ], [ %dec, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  store <2 x float> zeroinitializer, ptr %ref.tmp.i, align 8
+  store float 0.000000e+00, ptr %ref.tmp.i, align 4
+  store float 0.000000e+00, ptr %y.i.i, align 4
   invoke void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %__cur.09, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
           to label %for.inc unwind label %lpad
 

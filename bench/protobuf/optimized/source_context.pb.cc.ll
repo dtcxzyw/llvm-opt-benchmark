@@ -476,15 +476,17 @@ entry:
 define void @_ZN6google8protobuf13SourceContext12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noalias nocapture noundef %other) local_unnamed_addr #9 align 2 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load i64, ptr %_internal_metadata_.i, align 8
   %_internal_metadata_3 = getelementptr inbounds i8, ptr %other, i64 8
-  %0 = load i64, ptr %_internal_metadata_3, align 8
-  %1 = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = getelementptr inbounds i8, ptr %other, i64 16
-  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %2, align 8
-  %3 = load <2 x i64>, ptr %_internal_metadata_.i, align 8
-  store i64 %0, ptr %_internal_metadata_.i, align 8
-  store <2 x i64> %3, ptr %_internal_metadata_3, align 8
-  store ptr %__tmp.sroa.0.0.copyload.i, ptr %1, align 8
+  %1 = load i64, ptr %_internal_metadata_3, align 8
+  store i64 %1, ptr %_internal_metadata_.i, align 8
+  store i64 %0, ptr %_internal_metadata_3, align 8
+  %2 = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = getelementptr inbounds i8, ptr %other, i64 16
+  %__tmp.sroa.0.0.copyload.i = load ptr, ptr %3, align 8
+  %4 = load i64, ptr %2, align 8
+  store i64 %4, ptr %3, align 8
+  store ptr %__tmp.sroa.0.0.copyload.i, ptr %2, align 8
   ret void
 }
 

@@ -258,9 +258,12 @@ if.end.i.i.i.i11.loopexit:                        ; preds = %if.end13.i.i.i.i.i.
 if.end.i.i.i.i11:                                 ; preds = %if.end.i.i.i.i11.loopexit, %if.end.i.i.i.i.i.i
   %cond.sink.i.i.ph.i.i.i.i = phi ptr [ %add.ptr21.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.le, %if.end.i.i.i.i11.loopexit ]
   store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.i.i.i.i, align 8
-  %14 = load <2 x i32>, ptr %NumEntries.i.i.i.i.i.i.i, align 8
-  %15 = add <2 x i32> %14, <i32 -1, i32 1>
-  store <2 x i32> %15, ptr %NumEntries.i.i.i.i.i.i.i, align 8
+  %14 = load i32, ptr %NumEntries.i.i.i.i.i.i.i, align 8
+  %sub.i.i.i.i.i = add i32 %14, -1
+  store i32 %sub.i.i.i.i.i, ptr %NumEntries.i.i.i.i.i.i.i, align 8
+  %15 = load i32, ptr %NumTombstones.i.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i = add i32 %15, 1
+  store i32 %add.i.i.i.i.i, ptr %NumTombstones.i.i.i.i.i.i.i, align 4
   %.pre.i = load ptr, ptr %_M_finish.i.i.i, align 8
   br label %_ZN4llvh9SetVectorIPN6hermes8FunctionESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEE12pop_back_valEv.exit
 
@@ -3642,6 +3645,7 @@ for.body.lr.ph.i:                                 ; preds = %_ZN12_GLOBAL__N_130
   %NumBuckets.i.i.i.i.i.i39.i = getelementptr inbounds i8, ptr %capturedVariableUsage.i, i64 16
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds i8, ptr %commons.i, i64 16
   %NumEntries.i.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %commons.i, i64 8
+  %NumTombstones.i.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %commons.i, i64 12
   %add.ptr.i.i.i.i.i98.i = getelementptr inbounds i8, ptr %toErase.i, i64 16
   %Size.i.i.i.i.i99.i = getelementptr inbounds i8, ptr %toErase.i, i64 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %toErase.i, i64 12
@@ -3798,9 +3802,11 @@ if.then.i.i.i.i76.i:                              ; preds = %_ZN4llvh12DenseMapB
   %call.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #13
   store ptr %call.i.i.i.i.i.i, ptr %commons.i, align 8
   %NumEntries.i.i.i.i.i.i.i78.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
-  %266 = load <2 x i32>, ptr %NumEntries.i.i.i.i.i.i.i78.i, align 8
-  %267 = load i32, ptr %NumEntries.i.i.i.i.i.i.i78.i, align 8
-  store <2 x i32> %266, ptr %NumEntries.i.i3.i.i.i.i.i.i, align 8
+  %266 = load i32, ptr %NumEntries.i.i.i.i.i.i.i78.i, align 8
+  store i32 %266, ptr %NumEntries.i.i3.i.i.i.i.i.i, align 8
+  %NumTombstones.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 20
+  %267 = load i32, ptr %NumTombstones.i.i.i.i.i.i.i.i, align 4
+  store i32 %267, ptr %NumTombstones.i.i4.i.i.i.i.i.i, align 4
   %268 = load ptr, ptr %second.i.i, align 8
   %269 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
   %conv.i2.i.i.i.i.i = zext i32 %269 to i64
@@ -3813,7 +3819,7 @@ if.else.i.i.i.i.i:                                ; preds = %_ZN4llvh12DenseMapB
   br label %_ZN4llvh8DenseSetIPN6hermes8VariableENS_12DenseMapInfoIS3_EEEC2ERKS6_.exit.i
 
 _ZN4llvh8DenseSetIPN6hermes8VariableENS_12DenseMapInfoIS3_EEEC2ERKS6_.exit.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i76.i
-  %270 = phi i32 [ %267, %if.then.i.i.i.i76.i ], [ 0, %if.else.i.i.i.i.i ]
+  %270 = phi i32 [ %266, %if.then.i.i.i.i76.i ], [ 0, %if.else.i.i.i.i.i ]
   %271 = load ptr, ptr %Users.i.i.i.i.i, align 8, !noalias !54
   %272 = load i32, ptr %Size.i.i.i.i.i.i, align 8, !noalias !54
   %conv.i.i.i.i.i81.i = zext i32 %272 to i64
@@ -4121,9 +4127,12 @@ if.end.i.i210.i.loopexit:                         ; preds = %if.end13.i.i.i.i203
 if.end.i.i210.i:                                  ; preds = %if.end.i.i210.i.loopexit, %if.end.i.i.i.i189.i
   %cond.sink.i.i.ph.i.i.i = phi ptr [ %add.ptr21.i.i.i.i197.i, %if.end.i.i.i.i189.i ], [ %add.ptr.i.i.i.i208.i.le, %if.end.i.i210.i.loopexit ]
   store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.i.i.i, align 8
-  %319 = load <2 x i32>, ptr %NumEntries.i.i3.i.i.i.i.i.i, align 8
-  %320 = add <2 x i32> %319, <i32 -1, i32 1>
-  store <2 x i32> %320, ptr %NumEntries.i.i3.i.i.i.i.i.i, align 8
+  %319 = load i32, ptr %NumEntries.i.i3.i.i.i.i.i.i, align 8
+  %sub.i.i.i212.i = add i32 %319, -1
+  store i32 %sub.i.i.i212.i, ptr %NumEntries.i.i3.i.i.i.i.i.i, align 8
+  %320 = load i32, ptr %NumTombstones.i.i4.i.i.i.i.i.i, align 4
+  %add.i.i.i213.i = add i32 %320, 1
+  store i32 %add.i.i.i213.i, ptr %NumTombstones.i.i4.i.i.i.i.i.i, align 4
   br label %_ZN4llvh6detail12DenseSetImplIPN6hermes8VariableENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5eraseERKS4_.exit.i
 
 _ZN4llvh6detail12DenseSetImplIPN6hermes8VariableENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5eraseERKS4_.exit.i: ; preds = %if.end9.i.i.i.i199.i, %if.end.i.i210.i, %for.body39.i

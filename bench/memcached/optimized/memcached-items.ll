@@ -1624,61 +1624,63 @@ if.end33:                                         ; preds = %if.then32, %land.lh
   %add41 = add i64 %16, %conv37
   store i64 %add41, ptr %arrayidx40, align 8
   tail call void @STATS_LOCK() #18
-  %17 = load <2 x i64>, ptr @stats_state, align 8
-  %18 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %conv37, i64 1
-  %19 = add <2 x i64> %17, %18
-  store <2 x i64> %19, ptr @stats_state, align 8
-  %20 = load i64, ptr @stats, align 8
-  %add45 = add i64 %20, 1
+  %17 = load i64, ptr getelementptr inbounds (i8, ptr @stats_state, i64 8), align 8
+  %add43 = add i64 %17, %conv37
+  store i64 %add43, ptr getelementptr inbounds (i8, ptr @stats_state, i64 8), align 8
+  %18 = load i64, ptr @stats_state, align 8
+  %add44 = add i64 %18, 1
+  store i64 %add44, ptr @stats_state, align 8
+  %19 = load i64, ptr @stats, align 8
+  %add45 = add i64 %19, 1
   store i64 %add45, ptr @stats, align 8
   tail call void @STATS_UNLOCK() #18
-  %21 = load ptr, ptr @stats_sizes_hist, align 8
-  %cmp.i = icmp eq ptr %21, null
+  %20 = load ptr, ptr @stats_sizes_hist, align 8
+  %cmp.i = icmp eq ptr %20, null
   br i1 %cmp.i, label %item_stats_sizes_add.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end33
-  %22 = load i64, ptr @stats_sizes_cas_min, align 8
-  %23 = load i16, ptr %it_flags, align 2
-  %24 = and i16 %23, 2
-  %tobool.not.i = icmp eq i16 %24, 0
+  %21 = load i64, ptr @stats_sizes_cas_min, align 8
+  %22 = load i16, ptr %it_flags, align 2
+  %23 = and i16 %22, 2
+  %tobool.not.i = icmp eq i16 %23, 0
   br i1 %tobool.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %lor.lhs.false.i
-  %25 = load i64, ptr %data, align 8
+  %24 = load i64, ptr %data, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %lor.lhs.false.i
-  %cond.i = phi i64 [ %25, %cond.true.i ], [ 0, %lor.lhs.false.i ]
-  %cmp1.i = icmp ugt i64 %22, %cond.i
+  %cond.i = phi i64 [ %24, %cond.true.i ], [ 0, %lor.lhs.false.i ]
+  %cmp1.i = icmp ugt i64 %21, %cond.i
   br i1 %cmp1.i, label %item_stats_sizes_add.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end.i
-  %26 = load i8, ptr %nkey, align 1
-  %conv3.i = zext i8 %26 to i32
-  %27 = load i32, ptr %nbytes, align 8
-  %conv8.i = zext i16 %23 to i32
+  %25 = load i8, ptr %nkey, align 1
+  %conv3.i = zext i8 %25 to i32
+  %26 = load i32, ptr %nbytes, align 8
+  %conv8.i = zext i16 %22 to i32
   %and9.i = lshr i32 %conv8.i, 6
-  %28 = and i32 %and9.i, 4
+  %27 = and i32 %and9.i, 4
   %and15.i = shl nuw nsw i32 %conv8.i, 2
-  %29 = and i32 %and15.i, 8
-  %add4.i = or disjoint i32 %28, %29
+  %28 = and i32 %and15.i, 8
+  %add4.i = or disjoint i32 %27, %28
   %add6.i = or disjoint i32 %add4.i, 49
   %add12.i = add nuw nsw i32 %add6.i, %conv3.i
-  %add18.i = add i32 %add12.i, %27
+  %add18.i = add i32 %add12.i, %26
   %div.i = sdiv i32 %add18.i, 32
-  %30 = and i32 %add18.i, 31
-  %cmp20.not.i = icmp ne i32 %30, 0
+  %29 = and i32 %add18.i, 31
+  %cmp20.not.i = icmp ne i32 %29, 0
   %inc.i = zext i1 %cmp20.not.i to i32
   %spec.select.i = add nsw i32 %div.i, %inc.i
-  %31 = load i32, ptr @stats_sizes_buckets, align 4
-  %cmp24.i = icmp slt i32 %spec.select.i, %31
+  %30 = load i32, ptr @stats_sizes_buckets, align 4
+  %cmp24.i = icmp slt i32 %spec.select.i, %30
   br i1 %cmp24.i, label %if.then26.i, label %item_stats_sizes_add.exit
 
 if.then26.i:                                      ; preds = %if.end.i
   %idxprom.i = sext i32 %spec.select.i to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %21, i64 %idxprom.i
-  %32 = load i32, ptr %arrayidx.i, align 4
-  %inc27.i = add i32 %32, 1
+  %arrayidx.i = getelementptr inbounds i32, ptr %20, i64 %idxprom.i
+  %31 = load i32, ptr %arrayidx.i, align 4
+  %inc27.i = add i32 %31, 1
   store i32 %inc27.i, ptr %arrayidx.i, align 4
   br label %item_stats_sizes_add.exit
 

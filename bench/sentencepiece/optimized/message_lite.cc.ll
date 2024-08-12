@@ -879,116 +879,120 @@ _ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEE
   %19 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull %3)
   store i32 0, ptr %17, align 4
   %20 = getelementptr inbounds i8, ptr %1, i64 64
-  %21 = load <2 x ptr>, ptr %20, align 8
-  store <2 x ptr> %21, ptr %18, align 8
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 88
-  %24 = load ptr, ptr %23, align 8
-  %25 = call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %19, ptr noundef nonnull %4)
-  %.not = icmp eq ptr %25, null
-  br i1 %.not, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %26
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %18, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 72
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %4, i64 104
+  store ptr %23, ptr %24, align 8
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 88
+  %27 = load ptr, ptr %26, align 8
+  %28 = call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %19, ptr noundef nonnull %4)
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %29
 
-26:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEEEibPPKcDpOT_.exit
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 40
-  %30 = icmp eq ptr %28, %29
-  br i1 %30, label %31, label %39
+29:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEEEibPPKcDpOT_.exit
+  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %4, i64 40
+  %33 = icmp eq ptr %31, %32
+  br i1 %33, label %34, label %42
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %25 to i64
-  %37 = sub i64 %35, %36
-  %38 = trunc i64 %37 to i32
-  br label %49
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = ptrtoint ptr %37 to i64
+  %39 = ptrtoint ptr %28 to i64
+  %40 = sub i64 %38, %39
+  %41 = trunc i64 %40 to i32
+  br label %52
 
-39:                                               ; preds = %26
-  %40 = getelementptr inbounds i8, ptr %4, i64 24
-  %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = ptrtoint ptr %43 to i64
-  %45 = ptrtoint ptr %25 to i64
-  %46 = sub i64 %44, %45
-  %47 = trunc i64 %46 to i32
-  %48 = add nsw i32 %41, %47
-  br label %49
+42:                                               ; preds = %29
+  %43 = getelementptr inbounds i8, ptr %4, i64 24
+  %44 = load i32, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = ptrtoint ptr %46 to i64
+  %48 = ptrtoint ptr %28 to i64
+  %49 = sub i64 %47, %48
+  %50 = trunc i64 %49 to i32
+  %51 = add nsw i32 %44, %50
+  br label %52
 
-49:                                               ; preds = %39, %31
-  %.0.i = phi i32 [ %38, %31 ], [ %48, %39 ]
-  %50 = icmp sgt i32 %.0.i, 0
-  br i1 %50, label %.noexc, label %_ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit
+52:                                               ; preds = %42, %34
+  %.0.i = phi i32 [ %41, %34 ], [ %51, %42 ]
+  %53 = icmp sgt i32 %.0.i, 0
+  br i1 %53, label %.noexc, label %_ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit
 
-.noexc:                                           ; preds = %49
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
-  %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(8) %51, i32 noundef %.0.i)
-  %55 = load i32, ptr %15, align 4
-  %56 = add nsw i32 %55, %.0.i
-  store i32 %56, ptr %15, align 4
+.noexc:                                           ; preds = %52
+  %54 = load ptr, ptr %10, align 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %57 = load ptr, ptr %56, align 8
+  call void %57(ptr noundef nonnull align 8 dereferenceable(8) %54, i32 noundef %.0.i)
+  %58 = load i32, ptr %15, align 4
+  %59 = add nsw i32 %58, %.0.i
+  store i32 %59, ptr %15, align 4
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit
 
-_ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit: ; preds = %.noexc, %49
-  %57 = load i32, ptr %14, align 8
-  %58 = icmp eq i32 %57, 1
-  br i1 %58, label %76, label %59
+_ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit: ; preds = %.noexc, %52
+  %60 = load i32, ptr %14, align 8
+  %61 = icmp eq i32 %60, 1
+  br i1 %61, label %79, label %62
 
-59:                                               ; preds = %_ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit
-  %60 = load ptr, ptr %4, align 8
-  %61 = icmp ult ptr %60, %25
-  br i1 %61, label %62, label %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit.thread15
+62:                                               ; preds = %_ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit
+  %63 = load ptr, ptr %4, align 8
+  %64 = icmp ult ptr %63, %28
+  br i1 %64, label %65, label %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit.thread15
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %27, align 8
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %30, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit
 
-_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit: ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %4, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = ptrtoint ptr %25 to i64
-  %68 = ptrtoint ptr %66 to i64
-  %69 = sub i64 %67, %68
-  %70 = getelementptr inbounds i8, ptr %4, i64 28
-  %71 = load i32, ptr %70, align 4
-  %72 = sext i32 %71 to i64
-  %73 = icmp sgt i64 %69, %72
-  br i1 %73, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit.thread15
+_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit: ; preds = %65
+  %68 = getelementptr inbounds i8, ptr %4, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = ptrtoint ptr %28 to i64
+  %71 = ptrtoint ptr %69 to i64
+  %72 = sub i64 %70, %71
+  %73 = getelementptr inbounds i8, ptr %4, i64 28
+  %74 = load i32, ptr %73, align 4
+  %75 = sext i32 %74 to i64
+  %76 = icmp sgt i64 %72, %75
+  br i1 %76, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit.thread15
 
-_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit.thread15: ; preds = %59, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit
-  %74 = add i32 %57, 1
-  %75 = getelementptr inbounds i8, ptr %1, i64 32
-  store i32 %74, ptr %75, align 8
-  br label %78
+_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit.thread15: ; preds = %62, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit
+  %77 = add i32 %60, 1
+  %78 = getelementptr inbounds i8, ptr %1, i64 32
+  store i32 %77, ptr %78, align 8
+  br label %81
 
-76:                                               ; preds = %_ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit
-  %77 = getelementptr inbounds i8, ptr %1, i64 36
-  store i8 1, ptr %77, align 4
-  br label %78
+79:                                               ; preds = %_ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit
+  %80 = getelementptr inbounds i8, ptr %1, i64 36
+  store i8 1, ptr %80, align 4
+  br label %81
 
-78:                                               ; preds = %76, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit.thread15
-  %79 = and i32 %2, 2
-  %.not.i = icmp eq i32 %79, 0
+81:                                               ; preds = %79, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit.thread15
+  %82 = and i32 %2, 2
+  %.not.i = icmp eq i32 %82, 0
   br i1 %.not.i, label %.noexc11, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit
 
-.noexc11:                                         ; preds = %78
-  %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 48
-  %82 = load ptr, ptr %81, align 8
-  %83 = call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br i1 %83, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %84
+.noexc11:                                         ; preds = %81
+  %83 = load ptr, ptr %0, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 48
+  %85 = load ptr, ptr %84, align 8
+  %86 = call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  br i1 %86, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %87
 
-84:                                               ; preds = %.noexc11
+87:                                               ; preds = %.noexc11
   call void @_ZNK6google8protobuf11MessageLite29LogInitializationErrorMessageEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit
 
-_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit: ; preds = %84, %62, %.noexc11, %78, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit, %_ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEEEibPPKcDpOT_.exit
-  %.0 = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEEEibPPKcDpOT_.exit ], [ false, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit ], [ true, %78 ], [ true, %.noexc11 ], [ false, %84 ], [ false, %62 ]
+_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit: ; preds = %87, %65, %.noexc11, %81, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit, %_ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEEEibPPKcDpOT_.exit
+  %.0 = phi i1 [ false, %_ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEEEibPPKcDpOT_.exit ], [ false, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit ], [ true, %81 ], [ true, %.noexc11 ], [ false, %87 ], [ false, %65 ]
   ret i1 %.0
 }
 

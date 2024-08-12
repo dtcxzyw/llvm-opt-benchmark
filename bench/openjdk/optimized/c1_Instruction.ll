@@ -2958,75 +2958,81 @@ define linkonce_odr hidden void @_ZN10BlockBeginC2Ei(ptr noundef nonnull align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 108
   store i32 %1, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %0, i64 112
-  store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 0>, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 128
-  store i32 -1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 132
-  store i32 0, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 136
-  store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 144
-  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef 0, i1 noundef zeroext true) #13
-  %38 = getelementptr inbounds i8, ptr %0, i64 160
-  %39 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #13
-  store i32 0, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 164
-  store i32 2, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 168
-  store ptr %39, ptr %41, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  %42 = getelementptr inbounds i8, ptr %0, i64 176
-  store i64 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 184
-  %44 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #13
-  store i32 0, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 188
-  store i32 2, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 192
-  store ptr %44, ptr %46, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
-  %47 = getelementptr inbounds i8, ptr %0, i64 200
-  %48 = getelementptr inbounds i8, ptr %0, i64 224
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
-  %49 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 1, i32 noundef 8) #13
-  store i32 0, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 228
-  store i32 1, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr %49, ptr %51, align 8
-  store i64 0, ptr %49, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 240
-  %53 = getelementptr inbounds i8, ptr %0, i64 256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 264
-  store i32 -1, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 284
-  store i32 0, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 288
-  store ptr null, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 296
-  store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 304
-  store ptr null, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 312
-  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %59, i64 noundef 0, i1 noundef zeroext true) #13
-  %60 = getelementptr inbounds i8, ptr %0, i64 328
-  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %60, i64 noundef 0, i1 noundef zeroext true) #13
-  %61 = getelementptr inbounds i8, ptr %0, i64 344
-  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %61, i64 noundef 0, i1 noundef zeroext true) #13
-  %62 = getelementptr inbounds i8, ptr %0, i64 360
+  store i32 -1, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 116
+  store i32 -1, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 120
+  store i32 -1, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 124
+  store i32 0, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  store i32 -1, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 132
+  store i32 0, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %0, i64 136
+  store i32 0, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 144
+  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef 0, i1 noundef zeroext true) #13
+  %41 = getelementptr inbounds i8, ptr %0, i64 160
+  %42 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #13
+  store i32 0, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 164
+  store i32 2, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %0, i64 168
+  store ptr %42, ptr %44, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  %45 = getelementptr inbounds i8, ptr %0, i64 176
+  store i64 0, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 184
+  %47 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #13
+  store i32 0, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 188
+  store i32 2, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %0, i64 192
+  store ptr %47, ptr %49, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
+  %50 = getelementptr inbounds i8, ptr %0, i64 200
+  %51 = getelementptr inbounds i8, ptr %0, i64 224
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
+  %52 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 1, i32 noundef 8) #13
+  store i32 0, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 228
+  store i32 1, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr %52, ptr %54, align 8
+  store i64 0, ptr %52, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 240
+  %56 = getelementptr inbounds i8, ptr %0, i64 256
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
+  store i32 -1, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 264
+  store i32 -1, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 284
+  store i32 0, ptr %58, align 4
+  %59 = getelementptr inbounds i8, ptr %0, i64 288
+  store ptr null, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 296
+  store i8 0, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 304
+  store ptr null, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %62, i64 noundef 0, i1 noundef zeroext true) #13
-  %63 = getelementptr inbounds i8, ptr %0, i64 376
+  %63 = getelementptr inbounds i8, ptr %0, i64 328
   tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %63, i64 noundef 0, i1 noundef zeroext true) #13
-  %64 = getelementptr inbounds i8, ptr %0, i64 392
-  store ptr null, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 400
-  store i32 -1, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 404
-  store i32 -1, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %0, ptr %67, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 344
+  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %64, i64 noundef 0, i1 noundef zeroext true) #13
+  %65 = getelementptr inbounds i8, ptr %0, i64 360
+  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %65, i64 noundef 0, i1 noundef zeroext true) #13
+  %66 = getelementptr inbounds i8, ptr %0, i64 376
+  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %66, i64 noundef 0, i1 noundef zeroext true) #13
+  %67 = getelementptr inbounds i8, ptr %0, i64 392
+  store ptr null, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 400
+  store i32 -1, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 404
+  store i32 -1, ptr %69, align 4
+  %70 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %0, ptr %70, align 8
   ret void
 }
 

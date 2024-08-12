@@ -409,36 +409,32 @@ for.body46:                                       ; preds = %for.body46.preheade
   %call51 = call { double, double } %22(ptr noundef nonnull align 8 dereferenceable(12) %call48, double noundef 1.000000e+00)
   %23 = extractvalue { double, double } %call51, 0
   %24 = extractvalue { double, double } %call51, 1
+  %mul4.i.i = fmul double %24, %24
+  %25 = call double @llvm.fmuladd.f64(double %23, double %23, double %mul4.i.i)
+  %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %25)
+  %tobool.i = fcmp une double %25, 0.000000e+00
+  %div.i = fdiv double %23, %sqrt.i.i
+  %div2.i = fdiv double %24, %sqrt.i.i
+  %retval.sroa.3.0.i = select i1 %tobool.i, double %div2.i, double 1.000000e+00
+  %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
   %call55 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.067)
   %vtable56 = load ptr, ptr %call55, align 8
   %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 48
-  %25 = load ptr, ptr %vfn57, align 8
-  %call58 = call { double, double } %25(ptr noundef nonnull align 8 dereferenceable(12) %call55, double noundef 0.000000e+00)
-  %26 = extractvalue { double, double } %call58, 0
-  %27 = extractvalue { double, double } %call58, 1
-  %28 = insertelement <2 x double> poison, double %24, i64 0
-  %29 = insertelement <2 x double> %28, double %27, i64 1
-  %30 = fmul <2 x double> %29, %29
-  %31 = insertelement <2 x double> poison, double %23, i64 0
-  %32 = insertelement <2 x double> %31, double %26, i64 1
-  %33 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %32, <2 x double> %32, <2 x double> %30)
-  %34 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %33)
-  %35 = extractelement <2 x double> %34, i64 0
-  %div.i = fdiv double %23, %35
-  %36 = fcmp une <2 x double> %33, zeroinitializer
-  %37 = extractelement <2 x i1> %36, i64 0
-  %retval.sroa.0.0.i = select i1 %37, double %div.i, double 0.000000e+00
-  %38 = extractelement <2 x double> %34, i64 1
-  %div.i31 = fdiv double %26, %38
-  %39 = fdiv <2 x double> %29, %34
-  %40 = select <2 x i1> %36, <2 x double> %39, <2 x double> <double 1.000000e+00, double 1.000000e+00>
-  %41 = extractelement <2 x i1> %36, i64 1
-  %retval.sroa.0.0.i34 = select i1 %41, double %div.i31, double 0.000000e+00
-  %shift = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %42 = fmul <2 x double> %40, %shift
-  %mul3.i = extractelement <2 x double> %42, i64 0
-  %43 = call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %retval.sroa.0.0.i34, double %mul3.i)
-  %cmp62 = fcmp olt double %43, 0xBFEFFFFDE7210BE9
+  %26 = load ptr, ptr %vfn57, align 8
+  %call58 = call { double, double } %26(ptr noundef nonnull align 8 dereferenceable(12) %call55, double noundef 0.000000e+00)
+  %27 = extractvalue { double, double } %call58, 0
+  %28 = extractvalue { double, double } %call58, 1
+  %mul4.i.i28 = fmul double %28, %28
+  %29 = call double @llvm.fmuladd.f64(double %27, double %27, double %mul4.i.i28)
+  %sqrt.i.i29 = call noundef double @llvm.sqrt.f64(double %29)
+  %tobool.i30 = fcmp une double %29, 0.000000e+00
+  %div.i31 = fdiv double %27, %sqrt.i.i29
+  %div2.i32 = fdiv double %28, %sqrt.i.i29
+  %retval.sroa.3.0.i33 = select i1 %tobool.i30, double %div2.i32, double 1.000000e+00
+  %retval.sroa.0.0.i34 = select i1 %tobool.i30, double %div.i31, double 0.000000e+00
+  %mul3.i = fmul double %retval.sroa.3.0.i, %retval.sroa.3.0.i33
+  %30 = call noundef double @llvm.fmuladd.f64(double %retval.sroa.0.0.i, double %retval.sroa.0.0.i34, double %mul3.i)
+  %cmp62 = fcmp olt double %30, 0xBFEFFFFDE7210BE9
   br i1 %cmp62, label %if.then63, label %if.end
 
 if.then63:                                        ; preds = %for.body46
@@ -446,8 +442,8 @@ if.then63:                                        ; preds = %for.body46
   %call.i = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %prevEdge.068)
   %vtable.i = load ptr, ptr %call.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
-  %44 = load ptr, ptr %vfn.i, align 8
-  %call1.i = call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(12) %call.i)
+  %31 = load ptr, ptr %vfn.i, align 8
+  %call1.i = call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(12) %call.i)
   switch i32 %call1.i, label %_ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit [
     i32 2, label %sw.bb.i
     i32 3, label %sw.bb5.i
@@ -471,12 +467,12 @@ sw.bb5.i:                                         ; preds = %invoke.cont.i, %if.
 
 common.resume:                                    ; preds = %lpad, %lpad24, %lpad30, %lpad.i48, %lpad.i
   %ref.tmp18.sink = phi ptr [ %ref.tmp18, %lpad ], [ %ref.tmp22, %lpad24 ], [ %ref.tmp28, %lpad30 ], [ %ref.tmp.i37, %lpad.i48 ], [ %ref.tmp.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %19, %lpad ], [ %20, %lpad24 ], [ %21, %lpad30 ], [ %47, %lpad.i48 ], [ %45, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %lpad ], [ %20, %lpad24 ], [ %21, %lpad30 ], [ %34, %lpad.i48 ], [ %32, %lpad.i ]
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %sw.bb.i
-  %45 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -486,8 +482,8 @@ _ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit: ; preds = %if.then63, %sw.
   %call.i38 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.067)
   %vtable.i39 = load ptr, ptr %call.i38, align 8
   %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 24
-  %46 = load ptr, ptr %vfn.i40, align 8
-  %call1.i41 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(12) %call.i38)
+  %33 = load ptr, ptr %vfn.i40, align 8
+  %call1.i41 = call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(12) %call.i38)
   switch i32 %call1.i41, label %_ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit50 [
     i32 2, label %sw.bb.i44
     i32 3, label %sw.bb5.i42
@@ -510,7 +506,7 @@ sw.bb5.i42:                                       ; preds = %invoke.cont.i49, %_
   br label %_ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit50
 
 lpad.i48:                                         ; preds = %sw.bb.i44
-  %47 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -520,14 +516,14 @@ _ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit50: ; preds = %_ZN7msdfgenL1
 
 if.end:                                           ; preds = %_ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit50, %for.body46
   %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.067, i64 8
-  %48 = load ptr, ptr %_M_finish.i3, align 8
-  %cmp.i26.not = icmp eq ptr %incdec.ptr.i, %48
+  %35 = load ptr, ptr %_M_finish.i3, align 8
+  %cmp.i26.not = icmp eq ptr %incdec.ptr.i, %35
   br i1 %cmp.i26.not, label %for.inc68, label %for.body46, !llvm.loop !10
 
 for.inc68:                                        ; preds = %if.end, %if.else, %invoke.cont31
   %incdec.ptr.i51 = getelementptr inbounds i8, ptr %contour.sroa.0.070, i64 24
-  %49 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i51, %49
+  %36 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i51, %36
   br i1 %cmp.i.not, label %for.end70, label %for.body, !llvm.loop !11
 
 for.end70:                                        ; preds = %for.inc68, %entry
@@ -617,26 +613,30 @@ _ZNK7msdfgen5Shape5boundERdS1_S1_S1_.exit:        ; preds = %for.body.i, %entry
   br i1 %cmp, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %_ZNK7msdfgen5Shape5boundERdS1_S1_S1_.exit
-  %4 = load <2 x double>, ptr %agg.result, align 8
-  %5 = insertelement <2 x double> poison, double %border, i64 0
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
-  %7 = fsub <2 x double> %4, %6
-  store <2 x double> %7, ptr %agg.result, align 8
-  %8 = load <2 x double>, ptr %r, align 8
-  %9 = fadd <2 x double> %8, %6
-  store <2 x double> %9, ptr %r, align 8
+  %4 = load double, ptr %agg.result, align 8
+  %sub = fsub double %4, %border
+  store double %sub, ptr %agg.result, align 8
+  %5 = load double, ptr %b, align 8
+  %sub4 = fsub double %5, %border
+  store double %sub4, ptr %b, align 8
+  %6 = load double, ptr %r, align 8
+  %add = fadd double %6, %border
+  store double %add, ptr %r, align 8
+  %7 = load double, ptr %t, align 8
+  %add7 = fadd double %7, %border
+  store double %add7, ptr %t, align 8
   %cmp8 = fcmp ule double %miterLimit, 0.000000e+00
-  %10 = load ptr, ptr %this, align 8
-  %cmp.i.not3.i8 = icmp eq ptr %10, %3
+  %8 = load ptr, ptr %this, align 8
+  %cmp.i.not3.i8 = icmp eq ptr %8, %3
   %or.cond = select i1 %cmp8, i1 true, i1 %cmp.i.not3.i8
   br i1 %or.cond, label %if.end14, label %for.body.i9
 
 for.body.i9:                                      ; preds = %if.then, %for.body.i9
-  %contour.sroa.0.04.i10 = phi ptr [ %incdec.ptr.i.i11, %for.body.i9 ], [ %10, %if.then ]
+  %contour.sroa.0.04.i10 = phi ptr [ %incdec.ptr.i.i11, %for.body.i9 ], [ %8, %if.then ]
   tail call void @_ZNK7msdfgen7Contour11boundMitersERdS1_S1_S1_ddi(ptr noundef nonnull align 8 dereferenceable(24) %contour.sroa.0.04.i10, ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull align 8 dereferenceable(8) %t, double noundef %border, double noundef %miterLimit, i32 noundef %polarity)
   %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %contour.sroa.0.04.i10, i64 24
-  %11 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.not.i12 = icmp eq ptr %incdec.ptr.i.i11, %11
+  %9 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.not.i12 = icmp eq ptr %incdec.ptr.i.i11, %9
   br i1 %cmp.i.not.i12, label %if.end14, label %for.body.i9, !llvm.loop !13
 
 if.end14:                                         ; preds = %for.body.i9, %if.then, %_ZNK7msdfgen5Shape5boundERdS1_S1_S1_.exit
@@ -1491,12 +1491,16 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %3 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !30, !noalias !27
-  store <2 x ptr> %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !27, !noalias !30
+  %3 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !30, !noalias !27
+  store ptr %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !27, !noalias !30
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %4 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
+  store ptr %4, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !30
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !30
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !30, !noalias !27
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
@@ -1514,12 +1518,16 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN7msdf
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i26, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !36, !noalias !33
-  store <2 x ptr> %5, ptr %__cur.07.i.i.i20, align 8, !alias.scope !33, !noalias !36
+  %6 = load ptr, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !36, !noalias !33
+  store ptr %6, ptr %__cur.07.i.i.i20, align 8, !alias.scope !33, !noalias !36
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 8
+  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i23, align 8, !alias.scope !36, !noalias !33
+  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !33, !noalias !36
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 16
-  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25, align 8, !alias.scope !36, !noalias !33
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !33, !noalias !36
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25, align 8, !alias.scope !36, !noalias !33
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !33, !noalias !36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i21, i8 0, i64 24, i1 false), !alias.scope !36, !noalias !33
   %incdec.ptr.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 24
   %incdec.ptr1.i.i.i27 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 24
@@ -1544,10 +1552,10 @@ _ZNSt12_Vector_baseIN7msdfgen7ContourESaIS1_EE13_M_deallocateEPS1_m.exit: ; pred
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN7msdfgen7ContourESaIS1_EE11_M_allocateEm.exit
-  %7 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #19
+  %10 = extractvalue { ptr, i32 } %9, 0
+  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #19
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i36
 
@@ -1556,7 +1564,7 @@ if.end.thread:                                    ; preds = %lpad
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -1570,13 +1578,13 @@ invoke.cont19:                                    ; preds = %if.then.i36, %if.en
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %12
 
 terminate.lpad:                                   ; preds = %lpad17
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #23
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #23
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -1786,12 +1794,16 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN7msd
 _ZNSt12_Vector_baseIN7msdfgen7ContourESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.msdfgen::Contour", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %3, ptr %add.ptr, align 8
+  %3 = load ptr, ptr %__args, align 8
+  store ptr %3, ptr %add.ptr, align 8
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %_M_finish3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %4 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i, align 8
+  store ptr %4, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i
@@ -1801,12 +1813,16 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN7msdfgen7ContourESaIS1_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !42, !noalias !39
-  store <2 x ptr> %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !39, !noalias !42
+  %6 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !42, !noalias !39
+  store ptr %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !39, !noalias !42
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !42, !noalias !39
+  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !42
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
-  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !42, !noalias !39
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !42
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !42, !noalias !39
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !42, !noalias !39
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
@@ -1824,12 +1840,16 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN7msdf
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i19, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %7 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !47, !noalias !44
-  store <2 x ptr> %7, ptr %__cur.07.i.i.i13, align 8, !alias.scope !44, !noalias !47
+  %9 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !47, !noalias !44
+  store ptr %9, ptr %__cur.07.i.i.i13, align 8, !alias.scope !44, !noalias !47
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
+  %10 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i16, align 8, !alias.scope !47, !noalias !44
+  store ptr %10, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i15, align 8, !alias.scope !44, !noalias !47
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !47, !noalias !44
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !44, !noalias !47
+  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !47, !noalias !44
+  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !44, !noalias !47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !47, !noalias !44
   %incdec.ptr.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
   %incdec.ptr1.i.i.i20 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
@@ -1913,12 +1933,16 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN7msd
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN7msdfgen7ContourESaIS1_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %6 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !52, !noalias !49
-  store <2 x ptr> %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !49, !noalias !52
+  %6 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !52, !noalias !49
+  store ptr %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !49, !noalias !52
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !52, !noalias !49
+  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !49, !noalias !52
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !52, !noalias !49
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !49, !noalias !52
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !52, !noalias !49
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !49, !noalias !52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !52, !noalias !49
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
@@ -2205,17 +2229,14 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

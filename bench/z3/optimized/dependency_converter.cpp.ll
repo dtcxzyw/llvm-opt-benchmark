@@ -182,19 +182,22 @@ entry:
   store i32 0, ptr %m_ref_count.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV25unit_dependency_converter, i64 16), ptr %call, align 8
   %m_dep.i = getelementptr inbounds i8, ptr %call, i64 16
-  %0 = load <2 x ptr>, ptr %d, align 8
-  %1 = load ptr, ptr %d, align 8
-  store <2 x ptr> %0, ptr %m_dep.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %d, align 8
+  store ptr %0, ptr %m_dep.i, align 8
+  %m_manager.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %m_manager3.i.i = getelementptr inbounds i8, ptr %d, i64 8
+  %1 = load ptr, ptr %m_manager3.i.i, align 8
+  store ptr %1, ptr %m_manager.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN25unit_dependency_converterC2ER7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES2_E.exit, label %_ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit.i.i.i
 
 _ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit.i.i.i: ; preds = %entry
-  %bf.load.i.i.i.i.i = load i32, ptr %1, align 4
+  %bf.load.i.i.i.i.i = load i32, ptr %0, align 4
   %inc.i.i.i.i.i = add i32 %bf.load.i.i.i.i.i, 1
   %bf.value.i.i.i.i.i = and i32 %inc.i.i.i.i.i, 1073741823
   %bf.clear3.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i, -1073741824
   %bf.set.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i, %bf.clear3.i.i.i.i.i
-  store i32 %bf.set.i.i.i.i.i, ptr %1, align 4
+  store i32 %bf.set.i.i.i.i.i, ptr %0, align 4
   br label %_ZN25unit_dependency_converterC2ER7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES2_E.exit
 
 _ZN25unit_dependency_converterC2ER7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES2_E.exit: ; preds = %entry, %_ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit.i.i.i
@@ -1330,19 +1333,22 @@ entry:
 define linkonce_odr hidden void @_ZN25unit_dependency_converterclEv(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %m_dep = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load <2 x ptr>, ptr %m_dep, align 8
-  %1 = load ptr, ptr %m_dep, align 8
-  store <2 x ptr> %0, ptr %agg.result, align 8
-  %tobool.not.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %m_dep, align 8
+  store ptr %0, ptr %agg.result, align 8
+  %m_manager.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %m_manager3.i = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = load ptr, ptr %m_manager3.i, align 8
+  store ptr %1, ptr %m_manager.i, align 8
+  %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_EC2ERKS5_.exit, label %_ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit.i.i
 
 _ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit.i.i: ; preds = %entry
-  %bf.load.i.i.i.i = load i32, ptr %1, align 4
+  %bf.load.i.i.i.i = load i32, ptr %0, align 4
   %inc.i.i.i.i = add i32 %bf.load.i.i.i.i, 1
   %bf.value.i.i.i.i = and i32 %inc.i.i.i.i, 1073741823
   %bf.clear3.i.i.i.i = and i32 %bf.load.i.i.i.i, -1073741824
   %bf.set.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i, %bf.clear3.i.i.i.i
-  store i32 %bf.set.i.i.i.i, ptr %1, align 4
+  store i32 %bf.set.i.i.i.i, ptr %0, align 4
   br label %_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_EC2ERKS5_.exit
 
 _ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_EC2ERKS5_.exit: ; preds = %entry, %_ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit.i.i

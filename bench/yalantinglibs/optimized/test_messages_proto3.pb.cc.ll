@@ -7945,34 +7945,36 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i7, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i7 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i10 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i10, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i10, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i10, align 8
-  store ptr %14, ptr %retval.i.0.i10, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %corecursive_ = getelementptr inbounds i8, ptr %this, i64 16
   %corecursive_3 = getelementptr inbounds i8, ptr %other, i64 16
   %tmp.0.copyload.i.i = load i64, ptr %corecursive_, align 8
-  %18 = load i64, ptr %corecursive_3, align 1
-  store i64 %18, ptr %corecursive_, align 8
+  %19 = load i64, ptr %corecursive_3, align 1
+  store i64 %19, ptr %corecursive_, align 8
   store i64 %tmp.0.copyload.i.i, ptr %corecursive_3, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 24
   %add.ptr1.i = getelementptr inbounds i8, ptr %other, i64 24
   %tmp.0.copyload.i.i.i = load i32, ptr %add.ptr.i, align 8
-  %19 = load i32, ptr %add.ptr1.i, align 1
-  store i32 %19, ptr %add.ptr.i, align 8
+  %20 = load i32, ptr %add.ptr1.i, align 1
+  store i32 %20, ptr %add.ptr.i, align 8
   store i32 %tmp.0.copyload.i.i.i, ptr %add.ptr1.i, align 1
   ret void
 }
@@ -57352,20 +57354,22 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i97, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i97 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i100 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i100, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i100, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i100, align 8
-  store ptr %14, ptr %retval.i.0.i100, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
@@ -57438,259 +57442,259 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InternalSwapEPS8_(ptr noundef nonnull align 8 dereferenceable(24) %repeated_cord_, ptr noundef nonnull %repeated_cord_23)
   %repeated_field_.i = getelementptr inbounds i8, ptr %this, i64 536
   %repeated_field_2.i = getelementptr inbounds i8, ptr %other, i64 536
-  %18 = load ptr, ptr %repeated_field_.i, align 8
-  %19 = load ptr, ptr %repeated_field_2.i, align 8
-  store ptr %19, ptr %repeated_field_.i, align 8
-  store ptr %18, ptr %repeated_field_2.i, align 8
+  %19 = load ptr, ptr %repeated_field_.i, align 8
+  %20 = load ptr, ptr %repeated_field_2.i, align 8
+  store ptr %20, ptr %repeated_field_.i, align 8
+  store ptr %19, ptr %repeated_field_2.i, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 592
   %impl_3.i = getelementptr inbounds i8, ptr %other, i64 592
   tail call void @_ZN6google8protobuf3MapIiiE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i)
   %state_.i = getelementptr inbounds i8, ptr %other, i64 584
-  %20 = load atomic i32, ptr %state_.i monotonic, align 4
+  %21 = load atomic i32, ptr %state_.i monotonic, align 4
   %state_5.i = getelementptr inbounds i8, ptr %this, i64 584
-  %21 = load atomic i32, ptr %state_5.i monotonic, align 8
-  store atomic i32 %21, ptr %state_.i monotonic, align 4
-  store atomic i32 %20, ptr %state_5.i monotonic, align 8
+  %22 = load atomic i32, ptr %state_5.i monotonic, align 8
+  store atomic i32 %22, ptr %state_.i monotonic, align 4
+  store atomic i32 %21, ptr %state_5.i monotonic, align 8
   %repeated_field_.i104 = getelementptr inbounds i8, ptr %this, i64 632
   %repeated_field_2.i105 = getelementptr inbounds i8, ptr %other, i64 632
-  %22 = load ptr, ptr %repeated_field_.i104, align 8
-  %23 = load ptr, ptr %repeated_field_2.i105, align 8
-  store ptr %23, ptr %repeated_field_.i104, align 8
-  store ptr %22, ptr %repeated_field_2.i105, align 8
+  %23 = load ptr, ptr %repeated_field_.i104, align 8
+  %24 = load ptr, ptr %repeated_field_2.i105, align 8
+  store ptr %24, ptr %repeated_field_.i104, align 8
+  store ptr %23, ptr %repeated_field_2.i105, align 8
   %impl_.i106 = getelementptr inbounds i8, ptr %this, i64 688
   %impl_3.i107 = getelementptr inbounds i8, ptr %other, i64 688
   tail call void @_ZN6google8protobuf3MapIllE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i106, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i107)
   %state_.i108 = getelementptr inbounds i8, ptr %other, i64 680
-  %24 = load atomic i32, ptr %state_.i108 monotonic, align 4
+  %25 = load atomic i32, ptr %state_.i108 monotonic, align 4
   %state_5.i109 = getelementptr inbounds i8, ptr %this, i64 680
-  %25 = load atomic i32, ptr %state_5.i109 monotonic, align 8
-  store atomic i32 %25, ptr %state_.i108 monotonic, align 4
-  store atomic i32 %24, ptr %state_5.i109 monotonic, align 8
+  %26 = load atomic i32, ptr %state_5.i109 monotonic, align 8
+  store atomic i32 %26, ptr %state_.i108 monotonic, align 4
+  store atomic i32 %25, ptr %state_5.i109 monotonic, align 8
   %repeated_field_.i110 = getelementptr inbounds i8, ptr %this, i64 728
   %repeated_field_2.i111 = getelementptr inbounds i8, ptr %other, i64 728
-  %26 = load ptr, ptr %repeated_field_.i110, align 8
-  %27 = load ptr, ptr %repeated_field_2.i111, align 8
-  store ptr %27, ptr %repeated_field_.i110, align 8
-  store ptr %26, ptr %repeated_field_2.i111, align 8
+  %27 = load ptr, ptr %repeated_field_.i110, align 8
+  %28 = load ptr, ptr %repeated_field_2.i111, align 8
+  store ptr %28, ptr %repeated_field_.i110, align 8
+  store ptr %27, ptr %repeated_field_2.i111, align 8
   %impl_.i112 = getelementptr inbounds i8, ptr %this, i64 784
   %impl_3.i113 = getelementptr inbounds i8, ptr %other, i64 784
   tail call void @_ZN6google8protobuf3MapIjjE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i112, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i113)
   %state_.i114 = getelementptr inbounds i8, ptr %other, i64 776
-  %28 = load atomic i32, ptr %state_.i114 monotonic, align 4
+  %29 = load atomic i32, ptr %state_.i114 monotonic, align 4
   %state_5.i115 = getelementptr inbounds i8, ptr %this, i64 776
-  %29 = load atomic i32, ptr %state_5.i115 monotonic, align 8
-  store atomic i32 %29, ptr %state_.i114 monotonic, align 4
-  store atomic i32 %28, ptr %state_5.i115 monotonic, align 8
+  %30 = load atomic i32, ptr %state_5.i115 monotonic, align 8
+  store atomic i32 %30, ptr %state_.i114 monotonic, align 4
+  store atomic i32 %29, ptr %state_5.i115 monotonic, align 8
   %repeated_field_.i116 = getelementptr inbounds i8, ptr %this, i64 824
   %repeated_field_2.i117 = getelementptr inbounds i8, ptr %other, i64 824
-  %30 = load ptr, ptr %repeated_field_.i116, align 8
-  %31 = load ptr, ptr %repeated_field_2.i117, align 8
-  store ptr %31, ptr %repeated_field_.i116, align 8
-  store ptr %30, ptr %repeated_field_2.i117, align 8
+  %31 = load ptr, ptr %repeated_field_.i116, align 8
+  %32 = load ptr, ptr %repeated_field_2.i117, align 8
+  store ptr %32, ptr %repeated_field_.i116, align 8
+  store ptr %31, ptr %repeated_field_2.i117, align 8
   %impl_.i118 = getelementptr inbounds i8, ptr %this, i64 880
   %impl_3.i119 = getelementptr inbounds i8, ptr %other, i64 880
   tail call void @_ZN6google8protobuf3MapImmE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i118, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i119)
   %state_.i120 = getelementptr inbounds i8, ptr %other, i64 872
-  %32 = load atomic i32, ptr %state_.i120 monotonic, align 4
+  %33 = load atomic i32, ptr %state_.i120 monotonic, align 4
   %state_5.i121 = getelementptr inbounds i8, ptr %this, i64 872
-  %33 = load atomic i32, ptr %state_5.i121 monotonic, align 8
-  store atomic i32 %33, ptr %state_.i120 monotonic, align 4
-  store atomic i32 %32, ptr %state_5.i121 monotonic, align 8
+  %34 = load atomic i32, ptr %state_5.i121 monotonic, align 8
+  store atomic i32 %34, ptr %state_.i120 monotonic, align 4
+  store atomic i32 %33, ptr %state_5.i121 monotonic, align 8
   %repeated_field_.i122 = getelementptr inbounds i8, ptr %this, i64 920
   %repeated_field_2.i123 = getelementptr inbounds i8, ptr %other, i64 920
-  %34 = load ptr, ptr %repeated_field_.i122, align 8
-  %35 = load ptr, ptr %repeated_field_2.i123, align 8
-  store ptr %35, ptr %repeated_field_.i122, align 8
-  store ptr %34, ptr %repeated_field_2.i123, align 8
+  %35 = load ptr, ptr %repeated_field_.i122, align 8
+  %36 = load ptr, ptr %repeated_field_2.i123, align 8
+  store ptr %36, ptr %repeated_field_.i122, align 8
+  store ptr %35, ptr %repeated_field_2.i123, align 8
   %impl_.i124 = getelementptr inbounds i8, ptr %this, i64 976
   %impl_3.i125 = getelementptr inbounds i8, ptr %other, i64 976
   tail call void @_ZN6google8protobuf3MapIiiE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i124, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i125)
   %state_.i126 = getelementptr inbounds i8, ptr %other, i64 968
-  %36 = load atomic i32, ptr %state_.i126 monotonic, align 4
+  %37 = load atomic i32, ptr %state_.i126 monotonic, align 4
   %state_5.i127 = getelementptr inbounds i8, ptr %this, i64 968
-  %37 = load atomic i32, ptr %state_5.i127 monotonic, align 8
-  store atomic i32 %37, ptr %state_.i126 monotonic, align 4
-  store atomic i32 %36, ptr %state_5.i127 monotonic, align 8
+  %38 = load atomic i32, ptr %state_5.i127 monotonic, align 8
+  store atomic i32 %38, ptr %state_.i126 monotonic, align 4
+  store atomic i32 %37, ptr %state_5.i127 monotonic, align 8
   %repeated_field_.i128 = getelementptr inbounds i8, ptr %this, i64 1016
   %repeated_field_2.i129 = getelementptr inbounds i8, ptr %other, i64 1016
-  %38 = load ptr, ptr %repeated_field_.i128, align 8
-  %39 = load ptr, ptr %repeated_field_2.i129, align 8
-  store ptr %39, ptr %repeated_field_.i128, align 8
-  store ptr %38, ptr %repeated_field_2.i129, align 8
+  %39 = load ptr, ptr %repeated_field_.i128, align 8
+  %40 = load ptr, ptr %repeated_field_2.i129, align 8
+  store ptr %40, ptr %repeated_field_.i128, align 8
+  store ptr %39, ptr %repeated_field_2.i129, align 8
   %impl_.i130 = getelementptr inbounds i8, ptr %this, i64 1072
   %impl_3.i131 = getelementptr inbounds i8, ptr %other, i64 1072
   tail call void @_ZN6google8protobuf3MapIllE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i130, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i131)
   %state_.i132 = getelementptr inbounds i8, ptr %other, i64 1064
-  %40 = load atomic i32, ptr %state_.i132 monotonic, align 4
+  %41 = load atomic i32, ptr %state_.i132 monotonic, align 4
   %state_5.i133 = getelementptr inbounds i8, ptr %this, i64 1064
-  %41 = load atomic i32, ptr %state_5.i133 monotonic, align 8
-  store atomic i32 %41, ptr %state_.i132 monotonic, align 4
-  store atomic i32 %40, ptr %state_5.i133 monotonic, align 8
+  %42 = load atomic i32, ptr %state_5.i133 monotonic, align 8
+  store atomic i32 %42, ptr %state_.i132 monotonic, align 4
+  store atomic i32 %41, ptr %state_5.i133 monotonic, align 8
   %repeated_field_.i134 = getelementptr inbounds i8, ptr %this, i64 1112
   %repeated_field_2.i135 = getelementptr inbounds i8, ptr %other, i64 1112
-  %42 = load ptr, ptr %repeated_field_.i134, align 8
-  %43 = load ptr, ptr %repeated_field_2.i135, align 8
-  store ptr %43, ptr %repeated_field_.i134, align 8
-  store ptr %42, ptr %repeated_field_2.i135, align 8
+  %43 = load ptr, ptr %repeated_field_.i134, align 8
+  %44 = load ptr, ptr %repeated_field_2.i135, align 8
+  store ptr %44, ptr %repeated_field_.i134, align 8
+  store ptr %43, ptr %repeated_field_2.i135, align 8
   %impl_.i136 = getelementptr inbounds i8, ptr %this, i64 1168
   %impl_3.i137 = getelementptr inbounds i8, ptr %other, i64 1168
   tail call void @_ZN6google8protobuf3MapIjjE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i136, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i137)
   %state_.i138 = getelementptr inbounds i8, ptr %other, i64 1160
-  %44 = load atomic i32, ptr %state_.i138 monotonic, align 4
+  %45 = load atomic i32, ptr %state_.i138 monotonic, align 4
   %state_5.i139 = getelementptr inbounds i8, ptr %this, i64 1160
-  %45 = load atomic i32, ptr %state_5.i139 monotonic, align 8
-  store atomic i32 %45, ptr %state_.i138 monotonic, align 4
-  store atomic i32 %44, ptr %state_5.i139 monotonic, align 8
+  %46 = load atomic i32, ptr %state_5.i139 monotonic, align 8
+  store atomic i32 %46, ptr %state_.i138 monotonic, align 4
+  store atomic i32 %45, ptr %state_5.i139 monotonic, align 8
   %repeated_field_.i140 = getelementptr inbounds i8, ptr %this, i64 1208
   %repeated_field_2.i141 = getelementptr inbounds i8, ptr %other, i64 1208
-  %46 = load ptr, ptr %repeated_field_.i140, align 8
-  %47 = load ptr, ptr %repeated_field_2.i141, align 8
-  store ptr %47, ptr %repeated_field_.i140, align 8
-  store ptr %46, ptr %repeated_field_2.i141, align 8
+  %47 = load ptr, ptr %repeated_field_.i140, align 8
+  %48 = load ptr, ptr %repeated_field_2.i141, align 8
+  store ptr %48, ptr %repeated_field_.i140, align 8
+  store ptr %47, ptr %repeated_field_2.i141, align 8
   %impl_.i142 = getelementptr inbounds i8, ptr %this, i64 1264
   %impl_3.i143 = getelementptr inbounds i8, ptr %other, i64 1264
   tail call void @_ZN6google8protobuf3MapImmE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i142, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i143)
   %state_.i144 = getelementptr inbounds i8, ptr %other, i64 1256
-  %48 = load atomic i32, ptr %state_.i144 monotonic, align 4
+  %49 = load atomic i32, ptr %state_.i144 monotonic, align 4
   %state_5.i145 = getelementptr inbounds i8, ptr %this, i64 1256
-  %49 = load atomic i32, ptr %state_5.i145 monotonic, align 8
-  store atomic i32 %49, ptr %state_.i144 monotonic, align 4
-  store atomic i32 %48, ptr %state_5.i145 monotonic, align 8
+  %50 = load atomic i32, ptr %state_5.i145 monotonic, align 8
+  store atomic i32 %50, ptr %state_.i144 monotonic, align 4
+  store atomic i32 %49, ptr %state_5.i145 monotonic, align 8
   %repeated_field_.i146 = getelementptr inbounds i8, ptr %this, i64 1304
   %repeated_field_2.i147 = getelementptr inbounds i8, ptr %other, i64 1304
-  %50 = load ptr, ptr %repeated_field_.i146, align 8
-  %51 = load ptr, ptr %repeated_field_2.i147, align 8
-  store ptr %51, ptr %repeated_field_.i146, align 8
-  store ptr %50, ptr %repeated_field_2.i147, align 8
+  %51 = load ptr, ptr %repeated_field_.i146, align 8
+  %52 = load ptr, ptr %repeated_field_2.i147, align 8
+  store ptr %52, ptr %repeated_field_.i146, align 8
+  store ptr %51, ptr %repeated_field_2.i147, align 8
   %impl_.i148 = getelementptr inbounds i8, ptr %this, i64 1360
   %impl_3.i149 = getelementptr inbounds i8, ptr %other, i64 1360
   tail call void @_ZN6google8protobuf3MapIiiE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i148, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i149)
   %state_.i150 = getelementptr inbounds i8, ptr %other, i64 1352
-  %52 = load atomic i32, ptr %state_.i150 monotonic, align 4
+  %53 = load atomic i32, ptr %state_.i150 monotonic, align 4
   %state_5.i151 = getelementptr inbounds i8, ptr %this, i64 1352
-  %53 = load atomic i32, ptr %state_5.i151 monotonic, align 8
-  store atomic i32 %53, ptr %state_.i150 monotonic, align 4
-  store atomic i32 %52, ptr %state_5.i151 monotonic, align 8
+  %54 = load atomic i32, ptr %state_5.i151 monotonic, align 8
+  store atomic i32 %54, ptr %state_.i150 monotonic, align 4
+  store atomic i32 %53, ptr %state_5.i151 monotonic, align 8
   %repeated_field_.i152 = getelementptr inbounds i8, ptr %this, i64 1400
   %repeated_field_2.i153 = getelementptr inbounds i8, ptr %other, i64 1400
-  %54 = load ptr, ptr %repeated_field_.i152, align 8
-  %55 = load ptr, ptr %repeated_field_2.i153, align 8
-  store ptr %55, ptr %repeated_field_.i152, align 8
-  store ptr %54, ptr %repeated_field_2.i153, align 8
+  %55 = load ptr, ptr %repeated_field_.i152, align 8
+  %56 = load ptr, ptr %repeated_field_2.i153, align 8
+  store ptr %56, ptr %repeated_field_.i152, align 8
+  store ptr %55, ptr %repeated_field_2.i153, align 8
   %impl_.i154 = getelementptr inbounds i8, ptr %this, i64 1456
   %impl_3.i155 = getelementptr inbounds i8, ptr %other, i64 1456
   tail call void @_ZN6google8protobuf3MapIllE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i154, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i155)
   %state_.i156 = getelementptr inbounds i8, ptr %other, i64 1448
-  %56 = load atomic i32, ptr %state_.i156 monotonic, align 4
+  %57 = load atomic i32, ptr %state_.i156 monotonic, align 4
   %state_5.i157 = getelementptr inbounds i8, ptr %this, i64 1448
-  %57 = load atomic i32, ptr %state_5.i157 monotonic, align 8
-  store atomic i32 %57, ptr %state_.i156 monotonic, align 4
-  store atomic i32 %56, ptr %state_5.i157 monotonic, align 8
+  %58 = load atomic i32, ptr %state_5.i157 monotonic, align 8
+  store atomic i32 %58, ptr %state_.i156 monotonic, align 4
+  store atomic i32 %57, ptr %state_5.i157 monotonic, align 8
   %repeated_field_.i158 = getelementptr inbounds i8, ptr %this, i64 1496
   %repeated_field_2.i159 = getelementptr inbounds i8, ptr %other, i64 1496
-  %58 = load ptr, ptr %repeated_field_.i158, align 8
-  %59 = load ptr, ptr %repeated_field_2.i159, align 8
-  store ptr %59, ptr %repeated_field_.i158, align 8
-  store ptr %58, ptr %repeated_field_2.i159, align 8
+  %59 = load ptr, ptr %repeated_field_.i158, align 8
+  %60 = load ptr, ptr %repeated_field_2.i159, align 8
+  store ptr %60, ptr %repeated_field_.i158, align 8
+  store ptr %59, ptr %repeated_field_2.i159, align 8
   %impl_.i160 = getelementptr inbounds i8, ptr %this, i64 1552
   %impl_3.i161 = getelementptr inbounds i8, ptr %other, i64 1552
   tail call void @_ZN6google8protobuf3MapIifE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i160, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i161)
   %state_.i162 = getelementptr inbounds i8, ptr %other, i64 1544
-  %60 = load atomic i32, ptr %state_.i162 monotonic, align 4
+  %61 = load atomic i32, ptr %state_.i162 monotonic, align 4
   %state_5.i163 = getelementptr inbounds i8, ptr %this, i64 1544
-  %61 = load atomic i32, ptr %state_5.i163 monotonic, align 8
-  store atomic i32 %61, ptr %state_.i162 monotonic, align 4
-  store atomic i32 %60, ptr %state_5.i163 monotonic, align 8
+  %62 = load atomic i32, ptr %state_5.i163 monotonic, align 8
+  store atomic i32 %62, ptr %state_.i162 monotonic, align 4
+  store atomic i32 %61, ptr %state_5.i163 monotonic, align 8
   %repeated_field_.i164 = getelementptr inbounds i8, ptr %this, i64 1592
   %repeated_field_2.i165 = getelementptr inbounds i8, ptr %other, i64 1592
-  %62 = load ptr, ptr %repeated_field_.i164, align 8
-  %63 = load ptr, ptr %repeated_field_2.i165, align 8
-  store ptr %63, ptr %repeated_field_.i164, align 8
-  store ptr %62, ptr %repeated_field_2.i165, align 8
+  %63 = load ptr, ptr %repeated_field_.i164, align 8
+  %64 = load ptr, ptr %repeated_field_2.i165, align 8
+  store ptr %64, ptr %repeated_field_.i164, align 8
+  store ptr %63, ptr %repeated_field_2.i165, align 8
   %impl_.i166 = getelementptr inbounds i8, ptr %this, i64 1648
   %impl_3.i167 = getelementptr inbounds i8, ptr %other, i64 1648
   tail call void @_ZN6google8protobuf3MapIidE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i166, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i167)
   %state_.i168 = getelementptr inbounds i8, ptr %other, i64 1640
-  %64 = load atomic i32, ptr %state_.i168 monotonic, align 4
+  %65 = load atomic i32, ptr %state_.i168 monotonic, align 4
   %state_5.i169 = getelementptr inbounds i8, ptr %this, i64 1640
-  %65 = load atomic i32, ptr %state_5.i169 monotonic, align 8
-  store atomic i32 %65, ptr %state_.i168 monotonic, align 4
-  store atomic i32 %64, ptr %state_5.i169 monotonic, align 8
+  %66 = load atomic i32, ptr %state_5.i169 monotonic, align 8
+  store atomic i32 %66, ptr %state_.i168 monotonic, align 4
+  store atomic i32 %65, ptr %state_5.i169 monotonic, align 8
   %repeated_field_.i170 = getelementptr inbounds i8, ptr %this, i64 1688
   %repeated_field_2.i171 = getelementptr inbounds i8, ptr %other, i64 1688
-  %66 = load ptr, ptr %repeated_field_.i170, align 8
-  %67 = load ptr, ptr %repeated_field_2.i171, align 8
-  store ptr %67, ptr %repeated_field_.i170, align 8
-  store ptr %66, ptr %repeated_field_2.i171, align 8
+  %67 = load ptr, ptr %repeated_field_.i170, align 8
+  %68 = load ptr, ptr %repeated_field_2.i171, align 8
+  store ptr %68, ptr %repeated_field_.i170, align 8
+  store ptr %67, ptr %repeated_field_2.i171, align 8
   %impl_.i172 = getelementptr inbounds i8, ptr %this, i64 1744
   %impl_3.i173 = getelementptr inbounds i8, ptr %other, i64 1744
   tail call void @_ZN6google8protobuf3MapIbbE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i172, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i173)
   %state_.i174 = getelementptr inbounds i8, ptr %other, i64 1736
-  %68 = load atomic i32, ptr %state_.i174 monotonic, align 4
+  %69 = load atomic i32, ptr %state_.i174 monotonic, align 4
   %state_5.i175 = getelementptr inbounds i8, ptr %this, i64 1736
-  %69 = load atomic i32, ptr %state_5.i175 monotonic, align 8
-  store atomic i32 %69, ptr %state_.i174 monotonic, align 4
-  store atomic i32 %68, ptr %state_5.i175 monotonic, align 8
+  %70 = load atomic i32, ptr %state_5.i175 monotonic, align 8
+  store atomic i32 %70, ptr %state_.i174 monotonic, align 4
+  store atomic i32 %69, ptr %state_5.i175 monotonic, align 8
   %repeated_field_.i176 = getelementptr inbounds i8, ptr %this, i64 1784
   %repeated_field_2.i177 = getelementptr inbounds i8, ptr %other, i64 1784
-  %70 = load ptr, ptr %repeated_field_.i176, align 8
-  %71 = load ptr, ptr %repeated_field_2.i177, align 8
-  store ptr %71, ptr %repeated_field_.i176, align 8
-  store ptr %70, ptr %repeated_field_2.i177, align 8
+  %71 = load ptr, ptr %repeated_field_.i176, align 8
+  %72 = load ptr, ptr %repeated_field_2.i177, align 8
+  store ptr %72, ptr %repeated_field_.i176, align 8
+  store ptr %71, ptr %repeated_field_2.i177, align 8
   %impl_.i178 = getelementptr inbounds i8, ptr %this, i64 1840
   %impl_3.i179 = getelementptr inbounds i8, ptr %other, i64 1840
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E4swapERS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i178, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i179)
   %state_.i180 = getelementptr inbounds i8, ptr %other, i64 1832
-  %72 = load atomic i32, ptr %state_.i180 monotonic, align 4
+  %73 = load atomic i32, ptr %state_.i180 monotonic, align 4
   %state_5.i181 = getelementptr inbounds i8, ptr %this, i64 1832
-  %73 = load atomic i32, ptr %state_5.i181 monotonic, align 8
-  store atomic i32 %73, ptr %state_.i180 monotonic, align 4
-  store atomic i32 %72, ptr %state_5.i181 monotonic, align 8
+  %74 = load atomic i32, ptr %state_5.i181 monotonic, align 8
+  store atomic i32 %74, ptr %state_.i180 monotonic, align 4
+  store atomic i32 %73, ptr %state_5.i181 monotonic, align 8
   %repeated_field_.i182 = getelementptr inbounds i8, ptr %this, i64 1880
   %repeated_field_2.i183 = getelementptr inbounds i8, ptr %other, i64 1880
-  %74 = load ptr, ptr %repeated_field_.i182, align 8
-  %75 = load ptr, ptr %repeated_field_2.i183, align 8
-  store ptr %75, ptr %repeated_field_.i182, align 8
-  store ptr %74, ptr %repeated_field_2.i183, align 8
+  %75 = load ptr, ptr %repeated_field_.i182, align 8
+  %76 = load ptr, ptr %repeated_field_2.i183, align 8
+  store ptr %76, ptr %repeated_field_.i182, align 8
+  store ptr %75, ptr %repeated_field_2.i183, align 8
   %impl_.i184 = getelementptr inbounds i8, ptr %this, i64 1936
   %impl_3.i185 = getelementptr inbounds i8, ptr %other, i64 1936
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E4swapERS8_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i184, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i185)
   %state_.i186 = getelementptr inbounds i8, ptr %other, i64 1928
-  %76 = load atomic i32, ptr %state_.i186 monotonic, align 4
+  %77 = load atomic i32, ptr %state_.i186 monotonic, align 4
   %state_5.i187 = getelementptr inbounds i8, ptr %this, i64 1928
-  %77 = load atomic i32, ptr %state_5.i187 monotonic, align 8
-  store atomic i32 %77, ptr %state_.i186 monotonic, align 4
-  store atomic i32 %76, ptr %state_5.i187 monotonic, align 8
+  %78 = load atomic i32, ptr %state_5.i187 monotonic, align 8
+  store atomic i32 %78, ptr %state_.i186 monotonic, align 4
+  store atomic i32 %77, ptr %state_5.i187 monotonic, align 8
   %repeated_field_.i188 = getelementptr inbounds i8, ptr %this, i64 1976
   %repeated_field_2.i189 = getelementptr inbounds i8, ptr %other, i64 1976
-  %78 = load ptr, ptr %repeated_field_.i188, align 8
-  %79 = load ptr, ptr %repeated_field_2.i189, align 8
-  store ptr %79, ptr %repeated_field_.i188, align 8
-  store ptr %78, ptr %repeated_field_2.i189, align 8
+  %79 = load ptr, ptr %repeated_field_.i188, align 8
+  %80 = load ptr, ptr %repeated_field_2.i189, align 8
+  store ptr %80, ptr %repeated_field_.i188, align 8
+  store ptr %79, ptr %repeated_field_2.i189, align 8
   %impl_.i190 = getelementptr inbounds i8, ptr %this, i64 2032
   %impl_3.i191 = getelementptr inbounds i8, ptr %other, i64 2032
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE4swapERSB_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i190, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i191)
   %state_.i192 = getelementptr inbounds i8, ptr %other, i64 2024
-  %80 = load atomic i32, ptr %state_.i192 monotonic, align 4
+  %81 = load atomic i32, ptr %state_.i192 monotonic, align 4
   %state_5.i193 = getelementptr inbounds i8, ptr %this, i64 2024
-  %81 = load atomic i32, ptr %state_5.i193 monotonic, align 8
-  store atomic i32 %81, ptr %state_.i192 monotonic, align 4
-  store atomic i32 %80, ptr %state_5.i193 monotonic, align 8
+  %82 = load atomic i32, ptr %state_5.i193 monotonic, align 8
+  store atomic i32 %82, ptr %state_.i192 monotonic, align 4
+  store atomic i32 %81, ptr %state_5.i193 monotonic, align 8
   %repeated_field_.i194 = getelementptr inbounds i8, ptr %this, i64 2072
   %repeated_field_2.i195 = getelementptr inbounds i8, ptr %other, i64 2072
-  %82 = load ptr, ptr %repeated_field_.i194, align 8
-  %83 = load ptr, ptr %repeated_field_2.i195, align 8
-  store ptr %83, ptr %repeated_field_.i194, align 8
-  store ptr %82, ptr %repeated_field_2.i195, align 8
+  %83 = load ptr, ptr %repeated_field_.i194, align 8
+  %84 = load ptr, ptr %repeated_field_2.i195, align 8
+  store ptr %84, ptr %repeated_field_.i194, align 8
+  store ptr %83, ptr %repeated_field_2.i195, align 8
   %impl_.i196 = getelementptr inbounds i8, ptr %this, i64 2128
   %impl_3.i197 = getelementptr inbounds i8, ptr %other, i64 2128
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE4swapERSB_(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i196, ptr noundef nonnull align 8 dereferenceable(24) %impl_3.i197)
   %state_.i198 = getelementptr inbounds i8, ptr %other, i64 2120
-  %84 = load atomic i32, ptr %state_.i198 monotonic, align 4
+  %85 = load atomic i32, ptr %state_.i198 monotonic, align 4
   %state_5.i199 = getelementptr inbounds i8, ptr %this, i64 2120
-  %85 = load atomic i32, ptr %state_5.i199 monotonic, align 8
-  store atomic i32 %85, ptr %state_.i198 monotonic, align 4
-  store atomic i32 %84, ptr %state_5.i199 monotonic, align 8
+  %86 = load atomic i32, ptr %state_5.i199 monotonic, align 8
+  store atomic i32 %86, ptr %state_.i198 monotonic, align 4
+  store atomic i32 %85, ptr %state_5.i199 monotonic, align 8
   %map_string_nested_enum_ = getelementptr inbounds i8, ptr %this, i64 2152
   %map_string_nested_enum_41 = getelementptr inbounds i8, ptr %other, i64 2152
   tail call void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE4SwapEPNS1_12MapFieldBaseE(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_enum_, ptr noundef nonnull %map_string_nested_enum_41)
@@ -57863,28 +57867,28 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
   store i128 %tmp.0.copyload.i.i.i.i247, ptr %add.ptr29.i.i246, align 1
   %optional_string_ = getelementptr inbounds i8, ptr %this, i64 3288
   %optional_string_87 = getelementptr inbounds i8, ptr %other, i64 3288
-  %86 = load ptr, ptr %optional_string_, align 8
-  %87 = load ptr, ptr %optional_string_87, align 8
-  store ptr %87, ptr %optional_string_, align 8
-  store ptr %86, ptr %optional_string_87, align 8
+  %87 = load ptr, ptr %optional_string_, align 8
+  %88 = load ptr, ptr %optional_string_87, align 8
+  store ptr %88, ptr %optional_string_, align 8
+  store ptr %87, ptr %optional_string_87, align 8
   %optional_bytes_ = getelementptr inbounds i8, ptr %this, i64 3296
   %optional_bytes_89 = getelementptr inbounds i8, ptr %other, i64 3296
-  %88 = load ptr, ptr %optional_bytes_, align 8
-  %89 = load ptr, ptr %optional_bytes_89, align 8
-  store ptr %89, ptr %optional_bytes_, align 8
-  store ptr %88, ptr %optional_bytes_89, align 8
+  %89 = load ptr, ptr %optional_bytes_, align 8
+  %90 = load ptr, ptr %optional_bytes_89, align 8
+  store ptr %90, ptr %optional_bytes_, align 8
+  store ptr %89, ptr %optional_bytes_89, align 8
   %optional_string_piece_ = getelementptr inbounds i8, ptr %this, i64 3304
   %optional_string_piece_92 = getelementptr inbounds i8, ptr %other, i64 3304
-  %90 = load ptr, ptr %optional_string_piece_, align 8
-  %91 = load ptr, ptr %optional_string_piece_92, align 8
-  store ptr %91, ptr %optional_string_piece_, align 8
-  store ptr %90, ptr %optional_string_piece_92, align 8
+  %91 = load ptr, ptr %optional_string_piece_, align 8
+  %92 = load ptr, ptr %optional_string_piece_92, align 8
+  store ptr %92, ptr %optional_string_piece_, align 8
+  store ptr %91, ptr %optional_string_piece_92, align 8
   %optional_cord_95 = getelementptr inbounds i8, ptr %other, i64 3312
   %optional_cord_ = getelementptr inbounds i8, ptr %this, i64 3312
-  %92 = load ptr, ptr %optional_cord_, align 8
-  %93 = load ptr, ptr %optional_cord_95, align 8
-  store ptr %93, ptr %optional_cord_, align 8
-  store ptr %92, ptr %optional_cord_95, align 8
+  %93 = load ptr, ptr %optional_cord_, align 8
+  %94 = load ptr, ptr %optional_cord_95, align 8
+  store ptr %94, ptr %optional_cord_, align 8
+  store ptr %93, ptr %optional_cord_95, align 8
   %optional_nested_message_ = getelementptr inbounds i8, ptr %this, i64 3320
   %optional_nested_message_98 = getelementptr inbounds i8, ptr %other, i64 3320
   %tmp.0.copyload.i.i = load i128, ptr %optional_nested_message_, align 8
@@ -57983,21 +57987,21 @@ _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 3624
   %add.ptr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 3624
   %tmp.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %94 = load i32, ptr %add.ptr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  store i32 %94, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %95 = load i32, ptr %add.ptr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  store i32 %95, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i32 %tmp.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %oneof_field_ = getelementptr inbounds i8, ptr %this, i64 3632
   %oneof_field_99 = getelementptr inbounds i8, ptr %other, i64 3632
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %oneof_field_, align 8
-  %95 = load i64, ptr %oneof_field_99, align 8
-  store i64 %95, ptr %oneof_field_, align 8
+  %96 = load i64, ptr %oneof_field_99, align 8
+  store i64 %96, ptr %oneof_field_, align 8
   store ptr %__tmp.sroa.0.0.copyload.i, ptr %oneof_field_99, align 8
   %_oneof_case_ = getelementptr inbounds i8, ptr %this, i64 3644
   %_oneof_case_100 = getelementptr inbounds i8, ptr %other, i64 3644
-  %96 = load i32, ptr %_oneof_case_, align 4
-  %97 = load i32, ptr %_oneof_case_100, align 4
-  store i32 %97, ptr %_oneof_case_, align 4
-  store i32 %96, ptr %_oneof_case_100, align 4
+  %97 = load i32, ptr %_oneof_case_, align 4
+  %98 = load i32, ptr %_oneof_case_100, align 4
+  store i32 %98, ptr %_oneof_case_, align 4
+  store i32 %97, ptr %_oneof_case_100, align 4
   ret void
 }
 
@@ -59409,29 +59413,31 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i7, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i7 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i10 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i10, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i10, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i10, align 8
-  store ptr %14, ptr %retval.i.0.i10, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
   %c_ = getelementptr inbounds i8, ptr %this, i64 16
   %c_3 = getelementptr inbounds i8, ptr %other, i64 16
-  %18 = load i32, ptr %c_, align 8
-  %19 = load i32, ptr %c_3, align 4
-  store i32 %19, ptr %c_, align 8
-  store i32 %18, ptr %c_3, align 4
+  %19 = load i32, ptr %c_, align 8
+  %20 = load i32, ptr %c_3, align 4
+  store i32 %20, ptr %c_, align 8
+  store i32 %19, ptr %c_3, align 4
   ret void
 }
 
@@ -60245,20 +60251,22 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i6, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i6 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i9 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i9, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i9, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i9, align 8
-  store ptr %14, ptr %retval.i.0.i9, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
@@ -61075,20 +61083,22 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit: ; preds = %if.then.i.i6, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %9, %if.then.i.i6 ], [ %retval.i12.0.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ]
   %retval.i.0.i9 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %13 = load ptr, ptr %retval.i.0.i9, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
+  %14 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
-  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %retval.i.i.0, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %16 = load ptr, ptr %retval.i.i.0, align 8
+  store ptr %16, ptr %retval.i.0.i9, align 8
   %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %17, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %15 = load <2 x ptr>, ptr %retval.i.0.i9, align 8
-  store ptr %14, ptr %retval.i.0.i9, align 8
-  %16 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %retval.i.i.0, align 8
-  store ptr %13, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %13, ptr %retval.i.i.0, align 8
+  store ptr %14, ptr %_M_finish.i2.i.i.i.i, align 8
+  store ptr %15, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata4SwapINS0_15UnknownFieldSetEEEvPS2_.exit: ; preds = %entry, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINS0_15UnknownFieldSetEEEvPT_.exit
@@ -76866,8 +76876,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignEnum>::InnerMap::iterator_base.319", align 8
-  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignEnum>::iterator", align 16
-  %ref.tmp.i.i = alloca %"struct.std::pair.321", align 16
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignEnum>::iterator", align 8
+  %ref.tmp.i.i = alloca %"struct.std::pair.321", align 8
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -76875,24 +76885,27 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !941
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !941
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.321") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !944
-  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !944
-  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !944
+  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !944
+  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !944
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !944
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !944
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !941
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %2, null
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %i.sroa.0.i)
-  store <2 x ptr> %1, ptr %agg.tmp1, align 16
+  store ptr %1, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
+  store ptr %2, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx, align 8
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 16
-  %v_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 8
+  %v_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %v_.i.i.i.i, align 8, !noalias !947
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !947
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !947
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1), !noalias !950
   %5 = load ptr, ptr %elements_.i, align 8, !noalias !947
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignEnum>::InnerMap::iterator_base.319") align 8 %i.sroa.0.i), !noalias !947
@@ -80380,8 +80393,8 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedEnum>::InnerMap::iterator_base.351", align 8
-  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedEnum>::iterator", align 16
-  %ref.tmp.i.i = alloca %"struct.std::pair.352", align 16
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedEnum>::iterator", align 8
+  %ref.tmp.i.i = alloca %"struct.std::pair.352", align 8
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -80389,24 +80402,27 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !1070
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1070
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.352") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !1073
-  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !1073
-  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !1073
+  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !1073
+  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !1073
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !1073
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !1073
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1070
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %2, null
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %i.sroa.0.i)
-  store <2 x ptr> %1, ptr %agg.tmp1, align 16
+  store ptr %1, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
+  store ptr %2, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx, align 8
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 16
-  %v_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 8
+  %v_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %v_.i.i.i.i, align 8, !noalias !1076
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1076
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1076
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1), !noalias !1079
   %5 = load ptr, ptr %elements_.i, align 8, !noalias !1076
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedEnum>::InnerMap::iterator_base.351") align 8 %i.sroa.0.i), !noalias !1076
@@ -83640,8 +83656,8 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 {
 entry:
   %i.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignMessage>::InnerMap::iterator_base.362", align 8
-  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignMessage>::iterator", align 16
-  %ref.tmp.i.i = alloca %"struct.std::pair.363", align 16
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignMessage>::iterator", align 8
+  %ref.tmp.i.i = alloca %"struct.std::pair.363", align 8
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -83649,24 +83665,27 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !1198
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1198
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.363") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !1201
-  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !1201
-  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !1201
+  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !1201
+  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !1201
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !1201
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !1201
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1198
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %2, null
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %i.sroa.0.i)
-  store <2 x ptr> %1, ptr %agg.tmp1, align 16
+  store ptr %1, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
+  store ptr %2, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx, align 8
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 16
-  %v_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 8
+  %v_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %v_.i.i.i.i, align 8, !noalias !1204
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1204
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1204
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1), !noalias !1207
   %5 = load ptr, ptr %elements_.i, align 8, !noalias !1204
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignMessage>::InnerMap::iterator_base.362") align 8 %i.sroa.0.i), !noalias !1204
@@ -87110,8 +87129,8 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 {
 entry:
   %i.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessage>::InnerMap::iterator_base.373", align 8
-  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessage>::iterator", align 16
-  %ref.tmp.i.i = alloca %"struct.std::pair.374", align 16
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessage>::iterator", align 8
+  %ref.tmp.i.i = alloca %"struct.std::pair.374", align 8
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -87119,24 +87138,27 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !1338
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1338
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.374") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !1341
-  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !1341
-  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !1341
+  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !1341
+  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !1341
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !1341
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !1341
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1338
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %2, null
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %i.sroa.0.i)
-  store <2 x ptr> %1, ptr %agg.tmp1, align 16
+  store ptr %1, ptr %agg.tmp1, align 8
+  %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
+  store ptr %2, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx, align 8
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 16
-  %v_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 8
+  %v_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %v_.i.i.i.i, align 8, !noalias !1344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1344
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1344
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1), !noalias !1347
   %5 = load ptr, ptr %elements_.i, align 8, !noalias !1344
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessage>::InnerMap::iterator_base.373") align 8 %i.sroa.0.i), !noalias !1344
@@ -87509,9 +87531,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EE14DeleteMapValueERKNS0_6MapKeyE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(36) %map_key) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i.i = alloca %"struct.std::pair.385", align 16
+  %ref.tmp.i.i.i = alloca %"struct.std::pair.385", align 8
   %ref.tmp2.i.i = alloca %"class.google::protobuf::internal::KeyView", align 8
-  %agg.tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 16
+  %agg.tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   %tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %map_key), !noalias !1373
@@ -87534,19 +87556,22 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  %2 = load <2 x ptr>, ptr %ref.tmp.i.i.i, align 16, !noalias !1379
-  %3 = load ptr, ptr %ref.tmp.i.i.i, align 16, !noalias !1379
+  %2 = load ptr, ptr %ref.tmp.i.i.i, align 8, !noalias !1379
+  %m_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
+  %3 = load ptr, ptr %m_3.i.i.i.i, align 8, !noalias !1379
   %bucket_index_4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
-  %4 = load i64, ptr %bucket_index_4.i.i.i.i, align 16, !noalias !1379
+  %4 = load i64, ptr %bucket_index_4.i.i.i.i, align 8, !noalias !1379
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !1376
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i)
-  %cmp.i.i.i = icmp ne ptr %3, null
+  %cmp.i.i.i = icmp ne ptr %2, null
   br i1 %cmp.i.i.i, label %if.else.i, label %invoke.cont2
 
 if.else.i:                                        ; preds = %.noexc
-  store <2 x ptr> %2, ptr %agg.tmp.i, align 16
+  store ptr %2, ptr %agg.tmp.i, align 8
+  %it.sroa.3.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  store ptr %3, ptr %it.sroa.3.0.agg.tmp.sroa_idx.i, align 8
   %it.sroa.4.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  store i64 %4, ptr %it.sroa.4.0.agg.tmp.sroa_idx.i, align 16
+  store i64 %4, ptr %it.sroa.4.0.agg.tmp.sroa_idx.i, align 8
   invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5eraseENS8_8iteratorE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %agg.tmp.i)
           to label %invoke.cont2 unwind label %lpad
 
@@ -90360,9 +90385,9 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %ref.tmp.i.i = alloca %"struct.std::pair.385", align 16
+  %ref.tmp.i.i = alloca %"struct.std::pair.385", align 8
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
-  %agg.tmp = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 16
+  %agg.tmp = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   %tmp = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -90370,19 +90395,22 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !1474
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1474
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSC_E(ptr nonnull sret(%"struct.std::pair.385") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !1477
-  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !1477
-  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !1477
+  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !1477
+  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !1477
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !1477
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !1477
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1474
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %2, null
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  store ptr %1, ptr %agg.tmp, align 8
+  %it.sroa.3.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store ptr %2, ptr %it.sroa.3.0.agg.tmp.sroa_idx, align 8
   %it.sroa.4.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store i64 %3, ptr %it.sroa.4.0.agg.tmp.sroa_idx, align 16
+  store i64 %3, ptr %it.sroa.4.0.agg.tmp.sroa_idx, align 8
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5eraseENS8_8iteratorE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %agg.tmp)
   br label %return
 
@@ -90729,9 +90757,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EE14DeleteMapValueERKNS0_6MapKeyE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(36) %map_key) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i.i = alloca %"struct.std::pair.385", align 16
+  %ref.tmp.i.i.i = alloca %"struct.std::pair.385", align 8
   %ref.tmp2.i.i = alloca %"class.google::protobuf::internal::KeyView", align 8
-  %agg.tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 16
+  %agg.tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   %tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %map_key), !noalias !1501
@@ -90754,19 +90782,22 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  %2 = load <2 x ptr>, ptr %ref.tmp.i.i.i, align 16, !noalias !1507
-  %3 = load ptr, ptr %ref.tmp.i.i.i, align 16, !noalias !1507
+  %2 = load ptr, ptr %ref.tmp.i.i.i, align 8, !noalias !1507
+  %m_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
+  %3 = load ptr, ptr %m_3.i.i.i.i, align 8, !noalias !1507
   %bucket_index_4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
-  %4 = load i64, ptr %bucket_index_4.i.i.i.i, align 16, !noalias !1507
+  %4 = load i64, ptr %bucket_index_4.i.i.i.i, align 8, !noalias !1507
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !1504
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i)
-  %cmp.i.i.i = icmp ne ptr %3, null
+  %cmp.i.i.i = icmp ne ptr %2, null
   br i1 %cmp.i.i.i, label %if.else.i, label %invoke.cont2
 
 if.else.i:                                        ; preds = %.noexc
-  store <2 x ptr> %2, ptr %agg.tmp.i, align 16
+  store ptr %2, ptr %agg.tmp.i, align 8
+  %it.sroa.3.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  store ptr %3, ptr %it.sroa.3.0.agg.tmp.sroa_idx.i, align 8
   %it.sroa.4.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  store i64 %4, ptr %it.sroa.4.0.agg.tmp.sroa_idx.i, align 16
+  store i64 %4, ptr %it.sroa.4.0.agg.tmp.sroa_idx.i, align 8
   invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5eraseENS8_8iteratorE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %agg.tmp.i)
           to label %invoke.cont2 unwind label %lpad
 

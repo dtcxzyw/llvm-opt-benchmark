@@ -1282,7 +1282,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  store <4 x i8> <i8 4, i8 3, i8 9, i8 4>, ptr %dest, align 1
+  store i8 4, ptr %dest, align 1
+  %arrayidx3 = getelementptr i8, ptr %dest, i64 1
+  store i8 3, ptr %arrayidx3, align 1
+  %arrayidx4 = getelementptr i8, ptr %dest, i64 2
+  store i8 9, ptr %arrayidx4, align 1
+  %arrayidx5 = getelementptr i8, ptr %dest, i64 3
+  store i8 4, ptr %arrayidx5, align 1
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -1595,7 +1601,13 @@ sw.bb34:                                          ; preds = %entry
   br i1 %cmp1.i, label %if.then2.i, label %if.end6.i
 
 if.then2.i:                                       ; preds = %sw.bb34
-  store <4 x i8> <i8 4, i8 3, i8 9, i8 4>, ptr %call1, align 1
+  store i8 4, ptr %call1, align 1
+  %arrayidx3.i = getelementptr i8, ptr %call1, i64 1
+  store i8 3, ptr %arrayidx3.i, align 1
+  %arrayidx4.i = getelementptr i8, ptr %call1, i64 2
+  store i8 9, ptr %arrayidx4.i, align 1
+  %arrayidx5.i = getelementptr i8, ptr %call1, i64 3
+  store i8 4, ptr %arrayidx5.i, align 1
   br label %usb_desc_string.exit
 
 if.end6.i:                                        ; preds = %sw.bb34
@@ -1868,7 +1880,13 @@ sw.bb69:                                          ; preds = %entry
 
 if.then8.i:                                       ; preds = %sw.bb69
   %add.ptr.i = getelementptr i8, ptr %call1, i64 5
-  store <4 x i8> <i8 7, i8 16, i8 2, i8 2>, ptr %add.ptr.i, align 1
+  store i8 7, ptr %add.ptr.i, align 1
+  %bDescriptorType.i.i = getelementptr i8, ptr %call1, i64 6
+  store i8 16, ptr %bDescriptorType.i.i, align 1
+  %u.i.i = getelementptr i8, ptr %call1, i64 7
+  store i8 2, ptr %u.i.i, align 1
+  %u4.i.i = getelementptr i8, ptr %call1, i64 8
+  store i8 2, ptr %u4.i.i, align 1
   %bmAttributes_2.i.i = getelementptr i8, ptr %call1, i64 9
   store i8 0, ptr %bmAttributes_2.i.i, align 1
   %bmAttributes_3.i.i = getelementptr i8, ptr %call1, i64 10

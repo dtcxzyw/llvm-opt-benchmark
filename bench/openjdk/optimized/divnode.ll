@@ -6282,91 +6282,97 @@ define hidden noundef ptr @_ZN11DivModINode5matchEPK8ProjNodePK7Matcher(ptr noun
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
+  %.sink13.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 92
   %.sink13.sroa.gep14 = getelementptr inbounds i8, ptr %4, i64 88
   call void @_ZN7Matcher14divI_proj_maskEv(ptr dead_on_unwind nonnull writable sret(%class.RegMask) align 8 %4) #8
   br label %15
 
 14:                                               ; preds = %3
+  %.sink13.sroa.gep16 = getelementptr inbounds i8, ptr %5, i64 92
   %.sink13.sroa.gep = getelementptr inbounds i8, ptr %5, i64 88
   call void @_ZN7Matcher14modI_proj_maskEv(ptr dead_on_unwind nonnull writable sret(%class.RegMask) align 8 %5) #8
   br label %15
 
 15:                                               ; preds = %14, %13
   %.sink13.sroa.phi = phi ptr [ %.sink13.sroa.gep, %14 ], [ %.sink13.sroa.gep14, %13 ]
+  %.sink13.sroa.phi15 = phi ptr [ %.sink13.sroa.gep16, %14 ], [ %.sink13.sroa.gep17, %13 ]
   %.sink13 = phi ptr [ %5, %14 ], [ %4, %13 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(88) %.sink13, i64 88, i1 false)
-  %16 = load <2 x i32>, ptr %.sink13.sroa.phi, align 8
-  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1808
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 128
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 728
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %.not.i.i.i = icmp ult i64 %31, 168
-  br i1 %.not.i.i.i, label %34, label %32
+  %.sroa.4.0.copyload5 = load i32, ptr %.sink13.sroa.phi, align 8
+  %.sroa.5.0.copyload9 = load i32, ptr %.sink13.sroa.phi15, align 4
+  %16 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 1808
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 128
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 728
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %23, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %28 = ptrtoint ptr %25 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %.not.i.i.i = icmp ult i64 %30, 168
+  br i1 %.not.i.i.i, label %33, label %31
 
-32:                                               ; preds = %15
-  %33 = getelementptr inbounds i8, ptr %28, i64 168
-  store ptr %33, ptr %27, align 8
+31:                                               ; preds = %15
+  %32 = getelementptr inbounds i8, ptr %27, i64 168
+  store ptr %32, ptr %26, align 8
   br label %_ZN4NodenwEm.exit
 
-34:                                               ; preds = %15
-  %35 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, i64 noundef 168, i32 noundef 0) #8
+33:                                               ; preds = %15
+  %34 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 168, i32 noundef 0) #8
   br label %_ZN4NodenwEm.exit
 
-_ZN4NodenwEm.exit:                                ; preds = %32, %34
-  %.0.i.i.i = phi ptr [ %28, %32 ], [ %35, %34 ]
-  %36 = icmp eq ptr %.0.i.i.i, null
-  br i1 %36, label %53, label %37
+_ZN4NodenwEm.exit:                                ; preds = %31, %33
+  %.0.i.i.i = phi ptr [ %27, %31 ], [ %34, %33 ]
+  %35 = icmp eq ptr %.0.i.i.i, null
+  br i1 %35, label %52, label %36
 
-37:                                               ; preds = %_ZN4NodenwEm.exit
-  %38 = load i32, ptr %10, align 4
+36:                                               ; preds = %_ZN4NodenwEm.exit
+  %37 = load i32, ptr %10, align 4
   call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef nonnull %0) #8
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
-  store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
-  store i8 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
-  store i32 8, ptr %41, align 4
-  %.not.i.i = icmp eq i32 %38, 2
-  br i1 %.not.i.i, label %42, label %47
+  %38 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
+  store i32 %37, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
+  store i8 0, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
+  store i32 8, ptr %40, align 4
+  %.not.i.i = icmp eq i32 %37, 2
+  br i1 %.not.i.i, label %41, label %46
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 44
-  %44 = load i32, ptr %43, align 4
-  %45 = and i32 %44, 15
-  %46 = icmp eq i32 %45, 9
-  br i1 %46, label %47, label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %43 = load i32, ptr %42, align 4
+  %44 = and i32 %43, 15
+  %45 = icmp eq i32 %44, 9
+  br i1 %45, label %46, label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
 
-47:                                               ; preds = %42, %37
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 48
-  %49 = load i32, ptr %48, align 8
-  %50 = or i32 %49, 64
-  store i32 %50, ptr %48, align 8
+46:                                               ; preds = %41, %36
+  %47 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 48
+  %48 = load i32, ptr %47, align 8
+  %49 = or i32 %48, 64
+  store i32 %49, ptr %47, align 8
   br label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
 
-_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %42, %47
+_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %41, %46
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i, align 8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %51, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, i64 88, i1 false)
+  %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %50, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, i64 88, i1 false)
   %.sroa.4.0..sroa_idx6 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 152
-  store <2 x i32> %16, ptr %.sroa.4.0..sroa_idx6, align 8
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 160
-  store i32 %9, ptr %52, align 8
-  store i32 520, ptr %41, align 4
-  br label %53
+  store i32 %.sroa.4.0.copyload5, ptr %.sroa.4.0..sroa_idx6, align 8
+  %.sroa.5.0..sroa_idx10 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 156
+  store i32 %.sroa.5.0.copyload9, ptr %.sroa.5.0..sroa_idx10, align 4
+  %51 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 160
+  store i32 %9, ptr %51, align 8
+  store i32 520, ptr %40, align 4
+  br label %52
 
-53:                                               ; preds = %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit, %_ZN4NodenwEm.exit
+52:                                               ; preds = %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit, %_ZN4NodenwEm.exit
   ret ptr %.0.i.i.i
 }
 
@@ -6392,91 +6398,97 @@ define hidden noundef ptr @_ZN11DivModLNode5matchEPK8ProjNodePK7Matcher(ptr noun
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
+  %.sink13.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 92
   %.sink13.sroa.gep14 = getelementptr inbounds i8, ptr %4, i64 88
   call void @_ZN7Matcher14divL_proj_maskEv(ptr dead_on_unwind nonnull writable sret(%class.RegMask) align 8 %4) #8
   br label %15
 
 14:                                               ; preds = %3
+  %.sink13.sroa.gep16 = getelementptr inbounds i8, ptr %5, i64 92
   %.sink13.sroa.gep = getelementptr inbounds i8, ptr %5, i64 88
   call void @_ZN7Matcher14modL_proj_maskEv(ptr dead_on_unwind nonnull writable sret(%class.RegMask) align 8 %5) #8
   br label %15
 
 15:                                               ; preds = %14, %13
   %.sink13.sroa.phi = phi ptr [ %.sink13.sroa.gep, %14 ], [ %.sink13.sroa.gep14, %13 ]
+  %.sink13.sroa.phi15 = phi ptr [ %.sink13.sroa.gep16, %14 ], [ %.sink13.sroa.gep17, %13 ]
   %.sink13 = phi ptr [ %5, %14 ], [ %4, %13 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(88) %.sink13, i64 88, i1 false)
-  %16 = load <2 x i32>, ptr %.sink13.sroa.phi, align 8
-  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1808
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 128
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 728
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %.not.i.i.i = icmp ult i64 %31, 168
-  br i1 %.not.i.i.i, label %34, label %32
+  %.sroa.4.0.copyload5 = load i32, ptr %.sink13.sroa.phi, align 8
+  %.sroa.5.0.copyload9 = load i32, ptr %.sink13.sroa.phi15, align 4
+  %16 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 1808
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 128
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 728
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %23, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %28 = ptrtoint ptr %25 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %.not.i.i.i = icmp ult i64 %30, 168
+  br i1 %.not.i.i.i, label %33, label %31
 
-32:                                               ; preds = %15
-  %33 = getelementptr inbounds i8, ptr %28, i64 168
-  store ptr %33, ptr %27, align 8
+31:                                               ; preds = %15
+  %32 = getelementptr inbounds i8, ptr %27, i64 168
+  store ptr %32, ptr %26, align 8
   br label %_ZN4NodenwEm.exit
 
-34:                                               ; preds = %15
-  %35 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, i64 noundef 168, i32 noundef 0) #8
+33:                                               ; preds = %15
+  %34 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 168, i32 noundef 0) #8
   br label %_ZN4NodenwEm.exit
 
-_ZN4NodenwEm.exit:                                ; preds = %32, %34
-  %.0.i.i.i = phi ptr [ %28, %32 ], [ %35, %34 ]
-  %36 = icmp eq ptr %.0.i.i.i, null
-  br i1 %36, label %53, label %37
+_ZN4NodenwEm.exit:                                ; preds = %31, %33
+  %.0.i.i.i = phi ptr [ %27, %31 ], [ %34, %33 ]
+  %35 = icmp eq ptr %.0.i.i.i, null
+  br i1 %35, label %52, label %36
 
-37:                                               ; preds = %_ZN4NodenwEm.exit
-  %38 = load i32, ptr %10, align 4
+36:                                               ; preds = %_ZN4NodenwEm.exit
+  %37 = load i32, ptr %10, align 4
   call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef nonnull %0) #8
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
-  store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
-  store i8 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
-  store i32 8, ptr %41, align 4
-  %.not.i.i = icmp eq i32 %38, 2
-  br i1 %.not.i.i, label %42, label %47
+  %38 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
+  store i32 %37, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
+  store i8 0, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
+  store i32 8, ptr %40, align 4
+  %.not.i.i = icmp eq i32 %37, 2
+  br i1 %.not.i.i, label %41, label %46
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 44
-  %44 = load i32, ptr %43, align 4
-  %45 = and i32 %44, 15
-  %46 = icmp eq i32 %45, 9
-  br i1 %46, label %47, label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %43 = load i32, ptr %42, align 4
+  %44 = and i32 %43, 15
+  %45 = icmp eq i32 %44, 9
+  br i1 %45, label %46, label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
 
-47:                                               ; preds = %42, %37
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 48
-  %49 = load i32, ptr %48, align 8
-  %50 = or i32 %49, 64
-  store i32 %50, ptr %48, align 8
+46:                                               ; preds = %41, %36
+  %47 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 48
+  %48 = load i32, ptr %47, align 8
+  %49 = or i32 %48, 64
+  store i32 %49, ptr %47, align 8
   br label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
 
-_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %42, %47
+_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %41, %46
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i, align 8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %51, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, i64 88, i1 false)
+  %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %50, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, i64 88, i1 false)
   %.sroa.4.0..sroa_idx6 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 152
-  store <2 x i32> %16, ptr %.sroa.4.0..sroa_idx6, align 8
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 160
-  store i32 %9, ptr %52, align 8
-  store i32 520, ptr %41, align 4
-  br label %53
+  store i32 %.sroa.4.0.copyload5, ptr %.sroa.4.0..sroa_idx6, align 8
+  %.sroa.5.0..sroa_idx10 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 156
+  store i32 %.sroa.5.0.copyload9, ptr %.sroa.5.0..sroa_idx10, align 4
+  %51 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 160
+  store i32 %9, ptr %51, align 8
+  store i32 520, ptr %40, align 4
+  br label %52
 
-53:                                               ; preds = %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit, %_ZN4NodenwEm.exit
+52:                                               ; preds = %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit, %_ZN4NodenwEm.exit
   ret ptr %.0.i.i.i
 }
 
@@ -6787,91 +6799,97 @@ define hidden noundef ptr @_ZN12UDivModINode5matchEPK8ProjNodePK7Matcher(ptr nou
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
+  %.sink13.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 92
   %.sink13.sroa.gep14 = getelementptr inbounds i8, ptr %4, i64 88
   call void @_ZN7Matcher14divI_proj_maskEv(ptr dead_on_unwind nonnull writable sret(%class.RegMask) align 8 %4) #8
   br label %15
 
 14:                                               ; preds = %3
+  %.sink13.sroa.gep16 = getelementptr inbounds i8, ptr %5, i64 92
   %.sink13.sroa.gep = getelementptr inbounds i8, ptr %5, i64 88
   call void @_ZN7Matcher14modI_proj_maskEv(ptr dead_on_unwind nonnull writable sret(%class.RegMask) align 8 %5) #8
   br label %15
 
 15:                                               ; preds = %14, %13
   %.sink13.sroa.phi = phi ptr [ %.sink13.sroa.gep, %14 ], [ %.sink13.sroa.gep14, %13 ]
+  %.sink13.sroa.phi15 = phi ptr [ %.sink13.sroa.gep16, %14 ], [ %.sink13.sroa.gep17, %13 ]
   %.sink13 = phi ptr [ %5, %14 ], [ %4, %13 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(88) %.sink13, i64 88, i1 false)
-  %16 = load <2 x i32>, ptr %.sink13.sroa.phi, align 8
-  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1808
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 128
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 728
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %.not.i.i.i = icmp ult i64 %31, 168
-  br i1 %.not.i.i.i, label %34, label %32
+  %.sroa.4.0.copyload5 = load i32, ptr %.sink13.sroa.phi, align 8
+  %.sroa.5.0.copyload9 = load i32, ptr %.sink13.sroa.phi15, align 4
+  %16 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 1808
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 128
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 728
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %23, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %28 = ptrtoint ptr %25 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %.not.i.i.i = icmp ult i64 %30, 168
+  br i1 %.not.i.i.i, label %33, label %31
 
-32:                                               ; preds = %15
-  %33 = getelementptr inbounds i8, ptr %28, i64 168
-  store ptr %33, ptr %27, align 8
+31:                                               ; preds = %15
+  %32 = getelementptr inbounds i8, ptr %27, i64 168
+  store ptr %32, ptr %26, align 8
   br label %_ZN4NodenwEm.exit
 
-34:                                               ; preds = %15
-  %35 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, i64 noundef 168, i32 noundef 0) #8
+33:                                               ; preds = %15
+  %34 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 168, i32 noundef 0) #8
   br label %_ZN4NodenwEm.exit
 
-_ZN4NodenwEm.exit:                                ; preds = %32, %34
-  %.0.i.i.i = phi ptr [ %28, %32 ], [ %35, %34 ]
-  %36 = icmp eq ptr %.0.i.i.i, null
-  br i1 %36, label %53, label %37
+_ZN4NodenwEm.exit:                                ; preds = %31, %33
+  %.0.i.i.i = phi ptr [ %27, %31 ], [ %34, %33 ]
+  %35 = icmp eq ptr %.0.i.i.i, null
+  br i1 %35, label %52, label %36
 
-37:                                               ; preds = %_ZN4NodenwEm.exit
-  %38 = load i32, ptr %10, align 4
+36:                                               ; preds = %_ZN4NodenwEm.exit
+  %37 = load i32, ptr %10, align 4
   call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef nonnull %0) #8
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
-  store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
-  store i8 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
-  store i32 8, ptr %41, align 4
-  %.not.i.i = icmp eq i32 %38, 2
-  br i1 %.not.i.i, label %42, label %47
+  %38 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
+  store i32 %37, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
+  store i8 0, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
+  store i32 8, ptr %40, align 4
+  %.not.i.i = icmp eq i32 %37, 2
+  br i1 %.not.i.i, label %41, label %46
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 44
-  %44 = load i32, ptr %43, align 4
-  %45 = and i32 %44, 15
-  %46 = icmp eq i32 %45, 9
-  br i1 %46, label %47, label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %43 = load i32, ptr %42, align 4
+  %44 = and i32 %43, 15
+  %45 = icmp eq i32 %44, 9
+  br i1 %45, label %46, label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
 
-47:                                               ; preds = %42, %37
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 48
-  %49 = load i32, ptr %48, align 8
-  %50 = or i32 %49, 64
-  store i32 %50, ptr %48, align 8
+46:                                               ; preds = %41, %36
+  %47 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 48
+  %48 = load i32, ptr %47, align 8
+  %49 = or i32 %48, 64
+  store i32 %49, ptr %47, align 8
   br label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
 
-_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %42, %47
+_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %41, %46
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i, align 8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %51, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, i64 88, i1 false)
+  %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %50, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, i64 88, i1 false)
   %.sroa.4.0..sroa_idx6 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 152
-  store <2 x i32> %16, ptr %.sroa.4.0..sroa_idx6, align 8
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 160
-  store i32 %9, ptr %52, align 8
-  store i32 520, ptr %41, align 4
-  br label %53
+  store i32 %.sroa.4.0.copyload5, ptr %.sroa.4.0..sroa_idx6, align 8
+  %.sroa.5.0..sroa_idx10 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 156
+  store i32 %.sroa.5.0.copyload9, ptr %.sroa.5.0..sroa_idx10, align 4
+  %51 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 160
+  store i32 %9, ptr %51, align 8
+  store i32 520, ptr %40, align 4
+  br label %52
 
-53:                                               ; preds = %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit, %_ZN4NodenwEm.exit
+52:                                               ; preds = %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit, %_ZN4NodenwEm.exit
   ret ptr %.0.i.i.i
 }
 
@@ -6890,91 +6908,97 @@ define hidden noundef ptr @_ZN12UDivModLNode5matchEPK8ProjNodePK7Matcher(ptr nou
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
+  %.sink13.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 92
   %.sink13.sroa.gep14 = getelementptr inbounds i8, ptr %4, i64 88
   call void @_ZN7Matcher14divL_proj_maskEv(ptr dead_on_unwind nonnull writable sret(%class.RegMask) align 8 %4) #8
   br label %15
 
 14:                                               ; preds = %3
+  %.sink13.sroa.gep16 = getelementptr inbounds i8, ptr %5, i64 92
   %.sink13.sroa.gep = getelementptr inbounds i8, ptr %5, i64 88
   call void @_ZN7Matcher14modL_proj_maskEv(ptr dead_on_unwind nonnull writable sret(%class.RegMask) align 8 %5) #8
   br label %15
 
 15:                                               ; preds = %14, %13
   %.sink13.sroa.phi = phi ptr [ %.sink13.sroa.gep, %14 ], [ %.sink13.sroa.gep14, %13 ]
+  %.sink13.sroa.phi15 = phi ptr [ %.sink13.sroa.gep16, %14 ], [ %.sink13.sroa.gep17, %13 ]
   %.sink13 = phi ptr [ %5, %14 ], [ %4, %13 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(88) %.sink13, i64 88, i1 false)
-  %16 = load <2 x i32>, ptr %.sink13.sroa.phi, align 8
-  %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1808
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 128
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 728
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %.not.i.i.i = icmp ult i64 %31, 168
-  br i1 %.not.i.i.i, label %34, label %32
+  %.sroa.4.0.copyload5 = load i32, ptr %.sink13.sroa.phi, align 8
+  %.sroa.5.0.copyload9 = load i32, ptr %.sink13.sroa.phi15, align 4
+  %16 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 1808
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 128
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 728
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %23, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %28 = ptrtoint ptr %25 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %.not.i.i.i = icmp ult i64 %30, 168
+  br i1 %.not.i.i.i, label %33, label %31
 
-32:                                               ; preds = %15
-  %33 = getelementptr inbounds i8, ptr %28, i64 168
-  store ptr %33, ptr %27, align 8
+31:                                               ; preds = %15
+  %32 = getelementptr inbounds i8, ptr %27, i64 168
+  store ptr %32, ptr %26, align 8
   br label %_ZN4NodenwEm.exit
 
-34:                                               ; preds = %15
-  %35 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, i64 noundef 168, i32 noundef 0) #8
+33:                                               ; preds = %15
+  %34 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 168, i32 noundef 0) #8
   br label %_ZN4NodenwEm.exit
 
-_ZN4NodenwEm.exit:                                ; preds = %32, %34
-  %.0.i.i.i = phi ptr [ %28, %32 ], [ %35, %34 ]
-  %36 = icmp eq ptr %.0.i.i.i, null
-  br i1 %36, label %53, label %37
+_ZN4NodenwEm.exit:                                ; preds = %31, %33
+  %.0.i.i.i = phi ptr [ %27, %31 ], [ %34, %33 ]
+  %35 = icmp eq ptr %.0.i.i.i, null
+  br i1 %35, label %52, label %36
 
-37:                                               ; preds = %_ZN4NodenwEm.exit
-  %38 = load i32, ptr %10, align 4
+36:                                               ; preds = %_ZN4NodenwEm.exit
+  %37 = load i32, ptr %10, align 4
   call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef nonnull %0) #8
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
-  store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
-  store i8 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
-  store i32 8, ptr %41, align 4
-  %.not.i.i = icmp eq i32 %38, 2
-  br i1 %.not.i.i, label %42, label %47
+  %38 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
+  store i32 %37, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
+  store i8 0, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
+  store i32 8, ptr %40, align 4
+  %.not.i.i = icmp eq i32 %37, 2
+  br i1 %.not.i.i, label %41, label %46
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 44
-  %44 = load i32, ptr %43, align 4
-  %45 = and i32 %44, 15
-  %46 = icmp eq i32 %45, 9
-  br i1 %46, label %47, label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %43 = load i32, ptr %42, align 4
+  %44 = and i32 %43, 15
+  %45 = icmp eq i32 %44, 9
+  br i1 %45, label %46, label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
 
-47:                                               ; preds = %42, %37
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 48
-  %49 = load i32, ptr %48, align 8
-  %50 = or i32 %49, 64
-  store i32 %50, ptr %48, align 8
+46:                                               ; preds = %41, %36
+  %47 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 48
+  %48 = load i32, ptr %47, align 8
+  %49 = or i32 %48, 64
+  store i32 %49, ptr %47, align 8
   br label %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit
 
-_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %42, %47
+_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %41, %46
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i, align 8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %51, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, i64 88, i1 false)
+  %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %50, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, i64 88, i1 false)
   %.sroa.4.0..sroa_idx6 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 152
-  store <2 x i32> %16, ptr %.sroa.4.0..sroa_idx6, align 8
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 160
-  store i32 %9, ptr %52, align 8
-  store i32 520, ptr %41, align 4
-  br label %53
+  store i32 %.sroa.4.0.copyload5, ptr %.sroa.4.0..sroa_idx6, align 8
+  %.sroa.5.0..sroa_idx10 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 156
+  store i32 %.sroa.5.0.copyload9, ptr %.sroa.5.0..sroa_idx10, align 4
+  %51 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 160
+  store i32 %9, ptr %51, align 8
+  store i32 520, ptr %40, align 4
+  br label %52
 
-53:                                               ; preds = %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit, %_ZN4NodenwEm.exit
+52:                                               ; preds = %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit, %_ZN4NodenwEm.exit
   ret ptr %.0.i.i.i
 }
 

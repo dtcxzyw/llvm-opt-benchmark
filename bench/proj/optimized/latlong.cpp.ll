@@ -345,23 +345,31 @@ define internal { double, double } @_ZL15latlong_forward5PJ_LPP8PJconsts(double 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL18latlong_inverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr nocapture readnone %2) #4 {
-  %4 = load <2 x double>, ptr %1, align 8
-  store <2 x double> %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = load double, ptr %1, align 8
+  store double %4, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   store double %6, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load double, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %9, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL18latlong_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture readnone %2) #4 {
-  %4 = load <2 x double>, ptr %1, align 8
-  store <2 x double> %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = load double, ptr %1, align 8
+  store double %4, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   store double %6, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load double, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %9, ptr %10, align 8
   ret void
 }
 

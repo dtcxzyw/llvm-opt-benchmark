@@ -941,21 +941,23 @@ _ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE8pop_backEv.exit: ; preds = %if
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #0 comdat align 2 {
 entry:
   %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %mFirstSegment, align 8
   %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = load ptr, ptr %mLastSegment, align 8
   %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load i64, ptr %mSegmentCount, align 8
+  %2 = load i64, ptr %mSegmentCount, align 8
   %mFirstSegment4 = getelementptr inbounds i8, ptr %other, i64 8
-  %1 = load ptr, ptr %mFirstSegment4, align 8
+  %3 = load ptr, ptr %mFirstSegment4, align 8
+  store ptr %3, ptr %mFirstSegment, align 8
   %mLastSegment6 = getelementptr inbounds i8, ptr %other, i64 16
+  %4 = load ptr, ptr %mLastSegment6, align 8
+  store ptr %4, ptr %mLastSegment, align 8
   %mSegmentCount8 = getelementptr inbounds i8, ptr %other, i64 24
-  %2 = load <2 x ptr>, ptr %mFirstSegment, align 8
-  store ptr %1, ptr %mFirstSegment, align 8
-  %3 = load ptr, ptr %mLastSegment6, align 8
-  store ptr %3, ptr %mLastSegment, align 8
-  %4 = load i64, ptr %mSegmentCount8, align 8
-  store i64 %4, ptr %mSegmentCount, align 8
-  store <2 x ptr> %2, ptr %mFirstSegment4, align 8
-  store i64 %0, ptr %mSegmentCount8, align 8
+  %5 = load i64, ptr %mSegmentCount8, align 8
+  store i64 %5, ptr %mSegmentCount, align 8
+  store ptr %0, ptr %mFirstSegment4, align 8
+  store ptr %1, ptr %mLastSegment6, align 8
+  store i64 %2, ptr %mSegmentCount8, align 8
   ret void
 }
 
@@ -1634,21 +1636,23 @@ _ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE8pop_backEv.exit: ; preds = %if
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #0 comdat align 2 {
 entry:
   %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %mFirstSegment, align 8
   %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = load ptr, ptr %mLastSegment, align 8
   %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load i64, ptr %mSegmentCount, align 8
+  %2 = load i64, ptr %mSegmentCount, align 8
   %mFirstSegment4 = getelementptr inbounds i8, ptr %other, i64 8
-  %1 = load ptr, ptr %mFirstSegment4, align 8
+  %3 = load ptr, ptr %mFirstSegment4, align 8
+  store ptr %3, ptr %mFirstSegment, align 8
   %mLastSegment6 = getelementptr inbounds i8, ptr %other, i64 16
+  %4 = load ptr, ptr %mLastSegment6, align 8
+  store ptr %4, ptr %mLastSegment, align 8
   %mSegmentCount8 = getelementptr inbounds i8, ptr %other, i64 24
-  %2 = load <2 x ptr>, ptr %mFirstSegment, align 8
-  store ptr %1, ptr %mFirstSegment, align 8
-  %3 = load ptr, ptr %mLastSegment6, align 8
-  store ptr %3, ptr %mLastSegment, align 8
-  %4 = load i64, ptr %mSegmentCount8, align 8
-  store i64 %4, ptr %mSegmentCount, align 8
-  store <2 x ptr> %2, ptr %mFirstSegment4, align 8
-  store i64 %0, ptr %mSegmentCount8, align 8
+  %5 = load i64, ptr %mSegmentCount8, align 8
+  store i64 %5, ptr %mSegmentCount, align 8
+  store ptr %0, ptr %mFirstSegment4, align 8
+  store ptr %1, ptr %mLastSegment6, align 8
+  store i64 %2, ptr %mSegmentCount8, align 8
   ret void
 }
 
@@ -2326,21 +2330,23 @@ _ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE8pop_backEv.exit: ; pred
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #0 comdat align 2 {
 entry:
   %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %mFirstSegment, align 8
   %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = load ptr, ptr %mLastSegment, align 8
   %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load i64, ptr %mSegmentCount, align 8
+  %2 = load i64, ptr %mSegmentCount, align 8
   %mFirstSegment4 = getelementptr inbounds i8, ptr %other, i64 8
-  %1 = load ptr, ptr %mFirstSegment4, align 8
+  %3 = load ptr, ptr %mFirstSegment4, align 8
+  store ptr %3, ptr %mFirstSegment, align 8
   %mLastSegment6 = getelementptr inbounds i8, ptr %other, i64 16
+  %4 = load ptr, ptr %mLastSegment6, align 8
+  store ptr %4, ptr %mLastSegment, align 8
   %mSegmentCount8 = getelementptr inbounds i8, ptr %other, i64 24
-  %2 = load <2 x ptr>, ptr %mFirstSegment, align 8
-  store ptr %1, ptr %mFirstSegment, align 8
-  %3 = load ptr, ptr %mLastSegment6, align 8
-  store ptr %3, ptr %mLastSegment, align 8
-  %4 = load i64, ptr %mSegmentCount8, align 8
-  store i64 %4, ptr %mSegmentCount, align 8
-  store <2 x ptr> %2, ptr %mFirstSegment4, align 8
-  store i64 %0, ptr %mSegmentCount8, align 8
+  %5 = load i64, ptr %mSegmentCount8, align 8
+  store i64 %5, ptr %mSegmentCount, align 8
+  store ptr %0, ptr %mFirstSegment4, align 8
+  store ptr %1, ptr %mLastSegment6, align 8
+  store i64 %2, ptr %mSegmentCount8, align 8
   ret void
 }
 
@@ -3208,21 +3214,23 @@ _ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE8pop_backEv.exit: ; 
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #0 comdat align 2 {
 entry:
   %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %mFirstSegment, align 8
   %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = load ptr, ptr %mLastSegment, align 8
   %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load i64, ptr %mSegmentCount, align 8
+  %2 = load i64, ptr %mSegmentCount, align 8
   %mFirstSegment4 = getelementptr inbounds i8, ptr %other, i64 8
-  %1 = load ptr, ptr %mFirstSegment4, align 8
+  %3 = load ptr, ptr %mFirstSegment4, align 8
+  store ptr %3, ptr %mFirstSegment, align 8
   %mLastSegment6 = getelementptr inbounds i8, ptr %other, i64 16
+  %4 = load ptr, ptr %mLastSegment6, align 8
+  store ptr %4, ptr %mLastSegment, align 8
   %mSegmentCount8 = getelementptr inbounds i8, ptr %other, i64 24
-  %2 = load <2 x ptr>, ptr %mFirstSegment, align 8
-  store ptr %1, ptr %mFirstSegment, align 8
-  %3 = load ptr, ptr %mLastSegment6, align 8
-  store ptr %3, ptr %mLastSegment, align 8
-  %4 = load i64, ptr %mSegmentCount8, align 8
-  store i64 %4, ptr %mSegmentCount, align 8
-  store <2 x ptr> %2, ptr %mFirstSegment4, align 8
-  store i64 %0, ptr %mSegmentCount8, align 8
+  %5 = load i64, ptr %mSegmentCount8, align 8
+  store i64 %5, ptr %mSegmentCount, align 8
+  store ptr %0, ptr %mFirstSegment4, align 8
+  store ptr %1, ptr %mLastSegment6, align 8
+  store i64 %2, ptr %mSegmentCount8, align 8
   ret void
 }
 

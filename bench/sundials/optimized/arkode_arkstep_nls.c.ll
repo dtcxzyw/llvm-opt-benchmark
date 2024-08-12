@@ -587,7 +587,7 @@ define i32 @arkStep_NlsResidual_MassIdent(ptr noundef %0, ptr noundef %1, ptr no
   %7 = alloca [3 x ptr], align 16
   %8 = call i32 @arkStep_AccessStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassIdent, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %57
+  br i1 %.not, label %9, label %58
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %5, align 8
@@ -621,39 +621,41 @@ define i32 @arkStep_NlsResidual_MassIdent(ptr noundef %0, ptr noundef %1, ptr no
   %37 = add nsw i64 %36, 1
   store i64 %37, ptr %35, align 8
   %38 = icmp slt i32 %33, 0
-  br i1 %38, label %57, label %39
+  br i1 %38, label %58, label %39
 
 39:                                               ; preds = %9
   %.not11 = icmp eq i32 %33, 0
-  br i1 %.not11, label %40, label %57
+  br i1 %.not11, label %40, label %58
 
 40:                                               ; preds = %39
+  store double 1.000000e+00, ptr %6, align 16
   store ptr %0, ptr %7, align 16
-  store <2 x double> <double 1.000000e+00, double -1.000000e+00>, ptr %6, align 16
-  %41 = getelementptr inbounds i8, ptr %34, i64 64
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %34, i64 152
-  %45 = load double, ptr %44, align 8
-  %46 = fneg double %45
-  %47 = getelementptr inbounds i8, ptr %6, i64 16
-  store double %46, ptr %47, align 16
-  %48 = getelementptr inbounds i8, ptr %34, i64 48
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %34, i64 96
-  %51 = load i32, ptr %50, align 8
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr %49, i64 %52
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %54, ptr %55, align 16
-  %56 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1) #4
-  %.not12 = icmp eq i32 %56, 0
+  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  store double -1.000000e+00, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %34, i64 64
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %43, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %34, i64 152
+  %46 = load double, ptr %45, align 8
+  %47 = fneg double %46
+  %48 = getelementptr inbounds i8, ptr %6, i64 16
+  store double %47, ptr %48, align 16
+  %49 = getelementptr inbounds i8, ptr %34, i64 48
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %34, i64 96
+  %52 = load i32, ptr %51, align 8
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds ptr, ptr %50, i64 %53
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %55, ptr %56, align 16
+  %57 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1) #4
+  %.not12 = icmp eq i32 %57, 0
   %. = select i1 %.not12, i32 0, i32 -28
-  br label %57
+  br label %58
 
-57:                                               ; preds = %40, %39, %9, %3
+58:                                               ; preds = %40, %39, %9, %3
   %.0 = phi i32 [ %8, %3 ], [ -8, %9 ], [ 9, %39 ], [ %., %40 ]
   ret i32 %.0
 }
@@ -666,7 +668,7 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
   %7 = alloca [3 x ptr], align 16
   %8 = call i32 @arkStep_AccessStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassFixed, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %63
+  br i1 %.not, label %9, label %64
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %5, align 8
@@ -700,11 +702,11 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
   %37 = add nsw i64 %36, 1
   store i64 %37, ptr %35, align 8
   %38 = icmp slt i32 %33, 0
-  br i1 %38, label %63, label %39
+  br i1 %38, label %64, label %39
 
 39:                                               ; preds = %9
   %.not14 = icmp eq i32 %33, 0
-  br i1 %.not14, label %40, label %63
+  br i1 %.not14, label %40, label %64
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds i8, ptr %34, i64 336
@@ -712,36 +714,38 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
   %43 = load ptr, ptr %4, align 8
   %44 = call i32 %42(ptr noundef %43, ptr noundef %0, ptr noundef %1) #4
   %.not15 = icmp eq i32 %44, 0
-  br i1 %.not15, label %45, label %63
+  br i1 %.not15, label %45, label %64
 
 45:                                               ; preds = %40
+  store double 1.000000e+00, ptr %6, align 16
   store ptr %1, ptr %7, align 16
-  store <2 x double> <double 1.000000e+00, double -1.000000e+00>, ptr %6, align 16
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 64
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 152
-  %51 = load double, ptr %50, align 8
-  %52 = fneg double %51
-  %53 = getelementptr inbounds i8, ptr %6, i64 16
-  store double %52, ptr %53, align 16
-  %54 = getelementptr inbounds i8, ptr %46, i64 48
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %46, i64 96
-  %57 = load i32, ptr %56, align 8
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds ptr, ptr %55, i64 %58
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %60, ptr %61, align 16
-  %62 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1) #4
-  %.not16 = icmp eq i32 %62, 0
+  %46 = getelementptr inbounds i8, ptr %6, i64 8
+  store double -1.000000e+00, ptr %46, align 8
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 64
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %49, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %47, i64 152
+  %52 = load double, ptr %51, align 8
+  %53 = fneg double %52
+  %54 = getelementptr inbounds i8, ptr %6, i64 16
+  store double %53, ptr %54, align 16
+  %55 = getelementptr inbounds i8, ptr %47, i64 48
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %47, i64 96
+  %58 = load i32, ptr %57, align 8
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds ptr, ptr %56, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %61, ptr %62, align 16
+  %63 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1) #4
+  %.not16 = icmp eq i32 %63, 0
   %. = select i1 %.not16, i32 0, i32 -28
-  br label %63
+  br label %64
 
-63:                                               ; preds = %45, %40, %39, %9, %3
+64:                                               ; preds = %45, %40, %39, %9, %3
   %.0 = phi i32 [ %8, %3 ], [ -8, %9 ], [ 9, %39 ], [ -18, %40 ], [ %., %45 ]
   ret i32 %.0
 }

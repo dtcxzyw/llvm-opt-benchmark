@@ -44,11 +44,17 @@ define internal void @opal_pointer_array_construct(ptr noundef %0) #0 {
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %13 = getelementptr inbounds i8, ptr %0, i64 80
-  store <4 x i32> <i32 0, i32 0, i32 0, i32 2147483647>, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 8, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 92
+  store i32 2147483647, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 8, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   ret void
 }
 

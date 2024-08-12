@@ -438,94 +438,106 @@ declare i32 @get_func_rettype(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @ValidateRestrictionEstimator(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [4 x i32], align 16
-  store <4 x i32> <i32 2281, i32 26, i32 2281, i32 23>, ptr %2, align 16
-  %3 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %2, i1 noundef zeroext false) #6
-  %4 = call i32 @get_func_rettype(i32 noundef %3) #6
-  %.not = icmp eq i32 %4, 701
-  br i1 %.not, label %10, label %5
+  store i32 2281, ptr %2, align 16
+  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 26, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 2281, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 23, ptr %5, align 4
+  %6 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %2, i1 noundef zeroext false) #6
+  %7 = call i32 @get_func_rettype(i32 noundef %6) #6
+  %.not = icmp eq i32 %7, 701
+  br i1 %.not, label %13, label %8
 
-5:                                                ; preds = %1
-  %6 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %6)
-  %7 = call i32 @errcode(i32 noundef 117833860) #6
-  %8 = call ptr @NameListToString(ptr noundef %0) #6
-  %9 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %8, ptr noundef nonnull @.str.26) #6
+8:                                                ; preds = %1
+  %9 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %9)
+  %10 = call i32 @errcode(i32 noundef 117833860) #6
+  %11 = call ptr @NameListToString(ptr noundef %0) #6
+  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %11, ptr noundef nonnull @.str.26) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @__func__.ValidateRestrictionEstimator) #6
   unreachable
 
-10:                                               ; preds = %1
-  %11 = call i32 @GetUserId() #6
-  %12 = call i32 @object_aclcheck(i32 noundef 1255, i32 noundef %3, i32 noundef %11, i64 noundef 128) #6
-  %.not7 = icmp eq i32 %12, 0
-  br i1 %.not7, label %15, label %13
+13:                                               ; preds = %1
+  %14 = call i32 @GetUserId() #6
+  %15 = call i32 @object_aclcheck(i32 noundef 1255, i32 noundef %6, i32 noundef %14, i64 noundef 128) #6
+  %.not7 = icmp eq i32 %15, 0
+  br i1 %.not7, label %18, label %16
 
-13:                                               ; preds = %10
-  %14 = call ptr @NameListToString(ptr noundef %0) #6
-  call void @aclcheck_error(i32 noundef %12, i32 noundef 19, ptr noundef %14) #6
-  br label %15
+16:                                               ; preds = %13
+  %17 = call ptr @NameListToString(ptr noundef %0) #6
+  call void @aclcheck_error(i32 noundef %15, i32 noundef 19, ptr noundef %17) #6
+  br label %18
 
-15:                                               ; preds = %13, %10
-  ret i32 %3
+18:                                               ; preds = %16, %13
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @ValidateJoinEstimator(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [5 x i32], align 16
-  store <4 x i32> <i32 2281, i32 26, i32 2281, i32 21>, ptr %2, align 16
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 2281, ptr %3, align 16
-  %4 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %2, i1 noundef zeroext true) #6
-  %5 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %2, i1 noundef zeroext true) #6
-  %.not = icmp eq i32 %4, 0
-  %.not17 = icmp eq i32 %5, 0
-  br i1 %.not, label %12, label %6
+  store i32 2281, ptr %2, align 16
+  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 26, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 2281, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 21, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 2281, ptr %6, align 16
+  %7 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %2, i1 noundef zeroext true) #6
+  %8 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %2, i1 noundef zeroext true) #6
+  %.not = icmp eq i32 %7, 0
+  %.not17 = icmp eq i32 %8, 0
+  br i1 %.not, label %15, label %9
 
-6:                                                ; preds = %1
-  br i1 %.not17, label %15, label %7
+9:                                                ; preds = %1
+  br i1 %.not17, label %18, label %10
 
-7:                                                ; preds = %6
-  %8 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %8)
-  %9 = call i32 @errcode(i32 noundef 84439172) #6
-  %10 = call ptr @NameListToString(ptr noundef %0) #6
-  %11 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef %10) #6
+10:                                               ; preds = %9
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %11)
+  %12 = call i32 @errcode(i32 noundef 84439172) #6
+  %13 = call ptr @NameListToString(ptr noundef %0) #6
+  %14 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef %13) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 339, ptr noundef nonnull @__func__.ValidateJoinEstimator) #6
   unreachable
 
-12:                                               ; preds = %1
-  br i1 %.not17, label %13, label %15
+15:                                               ; preds = %1
+  br i1 %.not17, label %16, label %18
 
-13:                                               ; preds = %12
-  %14 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %2, i1 noundef zeroext false) #6
-  br label %15
+16:                                               ; preds = %15
+  %17 = call i32 @LookupFuncName(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %2, i1 noundef zeroext false) #6
+  br label %18
 
-15:                                               ; preds = %12, %13, %6
-  %.0 = phi i32 [ %4, %6 ], [ %5, %12 ], [ %14, %13 ]
-  %16 = call i32 @get_func_rettype(i32 noundef %.0) #6
-  %.not19 = icmp eq i32 %16, 701
-  br i1 %.not19, label %22, label %17
+18:                                               ; preds = %15, %16, %9
+  %.0 = phi i32 [ %7, %9 ], [ %8, %15 ], [ %17, %16 ]
+  %19 = call i32 @get_func_rettype(i32 noundef %.0) #6
+  %.not19 = icmp eq i32 %19, 701
+  br i1 %.not19, label %25, label %20
 
-17:                                               ; preds = %15
-  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %18)
-  %19 = call i32 @errcode(i32 noundef 117833860) #6
-  %20 = call ptr @NameListToString(ptr noundef %0) #6
-  %21 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef %20, ptr noundef nonnull @.str.26) #6
+20:                                               ; preds = %18
+  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %21)
+  %22 = call i32 @errcode(i32 noundef 117833860) #6
+  %23 = call ptr @NameListToString(ptr noundef %0) #6
+  %24 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef %23, ptr noundef nonnull @.str.26) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 354, ptr noundef nonnull @__func__.ValidateJoinEstimator) #6
   unreachable
 
-22:                                               ; preds = %15
-  %23 = call i32 @GetUserId() #6
-  %24 = call i32 @object_aclcheck(i32 noundef 1255, i32 noundef %.0, i32 noundef %23, i64 noundef 128) #6
-  %.not20 = icmp eq i32 %24, 0
-  br i1 %.not20, label %27, label %25
+25:                                               ; preds = %18
+  %26 = call i32 @GetUserId() #6
+  %27 = call i32 @object_aclcheck(i32 noundef 1255, i32 noundef %.0, i32 noundef %26, i64 noundef 128) #6
+  %.not20 = icmp eq i32 %27, 0
+  br i1 %.not20, label %30, label %28
 
-25:                                               ; preds = %22
-  %26 = call ptr @NameListToString(ptr noundef %0) #6
-  call void @aclcheck_error(i32 noundef %24, i32 noundef 19, ptr noundef %26) #6
-  br label %27
+28:                                               ; preds = %25
+  %29 = call ptr @NameListToString(ptr noundef %0) #6
+  call void @aclcheck_error(i32 noundef %27, i32 noundef 19, ptr noundef %29) #6
+  br label %30
 
-27:                                               ; preds = %25, %22
+30:                                               ; preds = %28, %25
   ret i32 %.0
 }
 

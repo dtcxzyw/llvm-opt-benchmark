@@ -315,8 +315,14 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store <4 x i32> <i32 3, i32 26672, i32 1, i32 1>, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, align 16
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 16), align 16
+  store i32 3, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, align 16
+  store i32 26672, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 12), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 16), align 16
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 20), align 4
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 24), align 8
+  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 28), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn) #20
   br label %init.end
 
@@ -413,8 +419,14 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store <4 x i32> <i32 251662474, i32 33554496, i32 350247874, i32 29383618>, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, align 16
-  store <4 x i32> <i32 4243585, i32 83890334, i32 0, i32 0>, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 16), align 16
+  store i32 251662474, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, align 16
+  store i32 33554496, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 4), align 4
+  store i32 350247874, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 8), align 8
+  store i32 29383618, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 12), align 4
+  store i32 4243585, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 16), align 16
+  store i32 83890334, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 20), align 4
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 28), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry) #20
   br label %init.end
 
@@ -3422,7 +3434,10 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store <4 x i32> <i32 3, i32 6295682, i32 29368706, i32 136338128>, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, align 16
+  store i32 3, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, align 16
+  store i32 6295682, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 4), align 4
+  store i32 29368706, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 8), align 8
+  store i32 136338128, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 12), align 4
   store i32 148947841, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 16), align 16
   store i32 138412176, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 20), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn) #20

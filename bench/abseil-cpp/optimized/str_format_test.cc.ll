@@ -57410,12 +57410,14 @@ entry:
 define internal void @_ZN12_GLOBAL__N_145FormatExtensionTest_AbslStringifyExample_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [1 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
-  %p = alloca %"struct.(anonymous namespace)::PointStringify", align 16
+  %p = alloca %"struct.(anonymous namespace)::PointStringify", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.testing::Message", align 8
   %ref.tmp6 = alloca %"class.testing::internal::AssertHelper", align 8
-  store <2 x double> <double 1.000000e+01, double 2.000000e+01>, ptr %p, align 16
+  store double 1.000000e+01, ptr %p, align 8
+  %y.i = getelementptr inbounds i8, ptr %p, i64 8
+  store double 2.000000e+01, ptr %y.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %p, ptr %ref.tmp.i, align 8, !noalias !2238
   %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
@@ -57710,12 +57712,14 @@ entry:
 define internal void @_ZN12_GLOBAL__N_156FormatExtensionTest_AbslStringifyExampleUsingFormat_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [1 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
-  %p = alloca %"struct.(anonymous namespace)::PointStringifyUsingFormat", align 16
+  %p = alloca %"struct.(anonymous namespace)::PointStringifyUsingFormat", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.testing::Message", align 8
   %ref.tmp6 = alloca %"class.testing::internal::AssertHelper", align 8
-  store <2 x double> <double 1.000000e+01, double 2.000000e+01>, ptr %p, align 16
+  store double 1.000000e+01, ptr %p, align 8
+  %y.i = getelementptr inbounds i8, ptr %p, i64 8
+  store double 2.000000e+01, ptr %y.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %p, ptr %ref.tmp.i, align 8, !noalias !2249
   %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8

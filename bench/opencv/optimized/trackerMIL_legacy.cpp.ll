@@ -528,36 +528,42 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
 define void @_ZN2cv6legacy8tracking10TrackerMIL6createERKNS2_6ParamsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(28) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_6legacy8tracking4impl14TrackerMILImplEED2Ev.exit:
   %2 = alloca %"class.std::allocator.8", align 1
-  %3 = alloca %"class.std::shared_ptr.5", align 16
+  %3 = alloca %"class.std::shared_ptr.5", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !4
-  store ptr null, ptr %3, align 16, !alias.scope !7, !noalias !4
+  store ptr null, ptr %3, align 8, !alias.scope !7, !noalias !4
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv6legacy8tracking4impl14TrackerMILImplESaIvEJRKNS6_10TrackerMIL6ParamsEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull %2, ptr noundef nonnull align 4 dereferenceable(28) %1), !noalias !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !4
-  %5 = load <2 x ptr>, ptr %3, align 16, !noalias !4
+  %5 = load ptr, ptr %3, align 8, !noalias !4
+  %6 = load ptr, ptr %4, align 8, !noalias !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  store <2 x ptr> %5, ptr %0, align 8
+  store ptr %5, ptr %0, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv6legacy8tracking10TrackerMIL6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.0") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.8", align 1
-  %3 = alloca %"class.std::shared_ptr.5", align 16
+  %3 = alloca %"class.std::shared_ptr.5", align 8
   %4 = alloca %"struct.cv::legacy::tracking::TrackerMIL::Params", align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, i8 0, i64 28, i1 false)
   call void @_ZN2cv10TrackerMIL6ParamsC2Ev(ptr noundef nonnull align 4 dereferenceable(28) %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !13
-  store ptr null, ptr %3, align 16, !alias.scope !16, !noalias !13
+  store ptr null, ptr %3, align 8, !alias.scope !16, !noalias !13
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv6legacy8tracking4impl14TrackerMILImplESaIvEJRKNS6_10TrackerMIL6ParamsEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull %2, ptr noundef nonnull align 4 dereferenceable(28) %4), !noalias !13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !13
-  %6 = load <2 x ptr>, ptr %3, align 16, !noalias !13
+  %6 = load ptr, ptr %3, align 8, !noalias !13
+  %7 = load ptr, ptr %5, align 8, !noalias !13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !10
-  store <2 x ptr> %6, ptr %0, align 8, !alias.scope !10
+  store ptr %6, ptr %0, align 8, !alias.scope !10
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %8, align 8, !alias.scope !10
   ret void
 }
 
@@ -1143,9 +1149,9 @@ _ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %._crit_edge.i, %.si
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2cv6legacy8tracking4impl14TrackerMILImpl10updateImplERKNS_3MatERNS_5Rect_IdEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.cv::Rect_.28", align 8
+  %4 = alloca %"class.cv::Rect_.28", align 4
   %5 = alloca %"class.cv::_InputArray", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1159,14 +1165,24 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv6legacy8tracking4impl14Trac
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(16) %4)
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  %16 = load <2 x i32>, ptr %4, align 8, !noalias !19
-  %17 = sitofp <2 x i32> %16 to <2 x double>
-  store <2 x double> %17, ptr %2, align 8
+  %15 = load i32, ptr %4, align 4, !noalias !19
+  %16 = sitofp i32 %15 to double
+  %17 = getelementptr inbounds i8, ptr %4, i64 4
+  %18 = load i32, ptr %17, align 4, !noalias !19
+  %19 = sitofp i32 %18 to double
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = load i32, ptr %20, align 4, !noalias !19
+  %22 = sitofp i32 %21 to double
+  %23 = getelementptr inbounds i8, ptr %4, i64 12
+  %24 = load i32, ptr %23, align 4, !noalias !19
+  %25 = sitofp i32 %24 to double
+  store double %16, ptr %2, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  store double %19, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
-  %18 = load <2 x i32>, ptr %15, align 8, !noalias !19
-  %19 = sitofp <2 x i32> %18 to <2 x double>
-  store <2 x double> %19, ptr %.sroa.3.0..sroa_idx, align 8
+  store double %22, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  store double %25, ptr %.sroa.4.0..sroa_idx, align 8
   ret i1 %14
 }
 

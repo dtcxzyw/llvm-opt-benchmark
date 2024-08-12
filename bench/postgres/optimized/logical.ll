@@ -1616,7 +1616,7 @@ define dso_local void @ResetLogicalStreamingState() local_unnamed_addr #4 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UpdateDecodingStats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = alloca %struct.PgStat_StatReplSlotEntry, align 16
+  %2 = alloca %struct.PgStat_StatReplSlotEntry, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 320
@@ -1634,7 +1634,7 @@ define dso_local void @UpdateDecodingStats(ptr nocapture noundef readonly %0) lo
   %13 = getelementptr inbounds i8, ptr %4, i64 360
   %14 = load i64, ptr %13, align 8
   %15 = icmp slt i64 %14, 1
-  br i1 %15, label %48, label %16
+  br i1 %15, label %60, label %16
 
 16:                                               ; preds = %12, %8, %1
   %17 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #10
@@ -1662,26 +1662,42 @@ define dso_local void @UpdateDecodingStats(ptr nocapture noundef readonly %0) lo
 
 35:                                               ; preds = %16, %18
   %36 = getelementptr inbounds i8, ptr %4, i64 304
-  %37 = load <2 x i64>, ptr %36, align 8
-  store <2 x i64> %37, ptr %2, align 16
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
-  %39 = load <2 x i64>, ptr %5, align 8
-  store <2 x i64> %39, ptr %38, align 16
-  %40 = getelementptr inbounds i8, ptr %4, i64 336
-  %41 = getelementptr inbounds i8, ptr %2, i64 32
-  %42 = load <2 x i64>, ptr %40, align 8
-  store <2 x i64> %42, ptr %41, align 16
-  %43 = getelementptr inbounds i8, ptr %4, i64 352
-  %44 = getelementptr inbounds i8, ptr %2, i64 48
-  %45 = load <2 x i64>, ptr %43, align 8
-  store <2 x i64> %45, ptr %44, align 16
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
-  %47 = load ptr, ptr %46, align 8
-  call void @pgstat_report_replslot(ptr noundef %47, ptr noundef nonnull %2) #10
+  %37 = load i64, ptr %36, align 8
+  store i64 %37, ptr %2, align 8
+  %38 = getelementptr inbounds i8, ptr %4, i64 312
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %39, ptr %40, align 8
+  %41 = load i64, ptr %5, align 8
+  %42 = getelementptr inbounds i8, ptr %2, i64 16
+  store i64 %41, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %4, i64 328
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %4, i64 336
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %2, i64 32
+  store i64 %47, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %4, i64 344
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %2, i64 40
+  store i64 %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %4, i64 352
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %2, i64 48
+  store i64 %53, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %4, i64 360
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %2, i64 56
+  store i64 %56, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = load ptr, ptr %58, align 8
+  call void @pgstat_report_replslot(ptr noundef %59, ptr noundef nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, i8 0, i64 64, i1 false)
-  br label %48
+  br label %60
 
-48:                                               ; preds = %12, %35
+60:                                               ; preds = %12, %35
   ret void
 }
 

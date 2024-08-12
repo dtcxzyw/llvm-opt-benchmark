@@ -101,13 +101,18 @@ if.else15:                                        ; preds = %entry
   %m_suspensionRelativeVelocity18 = getelementptr inbounds i8, ptr %this, i64 284
   store float 0.000000e+00, ptr %m_suspensionRelativeVelocity18, align 4
   %m_wheelDirectionWS21 = getelementptr inbounds i8, ptr %this, i64 52
-  %30 = load <2 x float>, ptr %m_wheelDirectionWS21, align 4
-  %31 = fneg <2 x float> %30
+  %30 = load float, ptr %m_wheelDirectionWS21, align 4
+  %fneg.i = fneg float %30
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 56
+  %31 = load float, ptr %arrayidx3.i, align 8
+  %fneg4.i = fneg float %31
   %arrayidx7.i11 = getelementptr inbounds i8, ptr %this, i64 60
   %32 = load float, ptr %arrayidx7.i11, align 4
   %fneg8.i = fneg float %32
+  %retval.sroa.0.0.vec.insert.i12 = insertelement <2 x float> poison, float %fneg.i, i64 0
+  %retval.sroa.0.4.vec.insert.i13 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i12, float %fneg4.i, i64 1
   %retval.sroa.3.12.vec.insert.i14 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i, i64 0
-  store <2 x float> %31, ptr %this, align 8
+  store <2 x float> %retval.sroa.0.4.vec.insert.i13, ptr %this, align 8
   %ref.tmp19.sroa.2.0.m_contactNormalWS25.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i14, ptr %ref.tmp19.sroa.2.0.m_contactNormalWS25.sroa_idx, align 8
   br label %if.end27

@@ -466,12 +466,12 @@ define hidden void @proto_register_xml() local_unnamed_addr #3 {
   %.040.i = phi ptr [ %28, %27 ], [ %25, %0 ]
   %30 = tail call i32 @test_for_directory(ptr noundef %.040.i) #10
   %31 = icmp eq i32 %30, 21
-  br i1 %31, label %32, label %333
+  br i1 %31, label %32, label %344
 
 32:                                               ; preds = %29
   %33 = tail call ptr @g_dir_open(ptr noundef %.040.i, i32 noundef 0, ptr noundef nonnull %15) #10
   %.not45.i = icmp eq ptr %33, null
-  br i1 %.not45.i, label %333, label %34
+  br i1 %.not45.i, label %344, label %34
 
 34:                                               ; preds = %32
   %35 = tail call ptr @g_string_new(ptr noundef nonnull @.str.37) #10
@@ -487,674 +487,695 @@ define hidden void @proto_register_xml() local_unnamed_addr #3 {
   %41 = getelementptr inbounds i8, ptr %3, i64 24
   %42 = getelementptr inbounds i8, ptr %3, i64 28
   %43 = getelementptr inbounds i8, ptr %3, i64 56
-  %44 = getelementptr inbounds i8, ptr %3, i64 72
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 16
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
-  %48 = getelementptr inbounds i8, ptr %2, i64 28
-  %49 = getelementptr inbounds i8, ptr %2, i64 56
-  %50 = getelementptr inbounds i8, ptr %2, i64 72
-  %51 = getelementptr inbounds i8, ptr %6, i64 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 24
-  %54 = getelementptr inbounds i8, ptr %1, i64 28
-  %55 = getelementptr inbounds i8, ptr %1, i64 56
-  %56 = getelementptr inbounds i8, ptr %1, i64 72
-  br label %57
+  %44 = getelementptr inbounds i8, ptr %3, i64 60
+  %45 = getelementptr inbounds i8, ptr %3, i64 64
+  %46 = getelementptr inbounds i8, ptr %3, i64 68
+  %47 = getelementptr inbounds i8, ptr %3, i64 72
+  %48 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = getelementptr inbounds i8, ptr %2, i64 16
+  %50 = getelementptr inbounds i8, ptr %2, i64 24
+  %51 = getelementptr inbounds i8, ptr %2, i64 28
+  %52 = getelementptr inbounds i8, ptr %2, i64 56
+  %53 = getelementptr inbounds i8, ptr %2, i64 60
+  %54 = getelementptr inbounds i8, ptr %2, i64 64
+  %55 = getelementptr inbounds i8, ptr %2, i64 68
+  %56 = getelementptr inbounds i8, ptr %2, i64 72
+  %57 = getelementptr inbounds i8, ptr %6, i64 8
+  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %59 = getelementptr inbounds i8, ptr %1, i64 16
+  %60 = getelementptr inbounds i8, ptr %1, i64 24
+  %61 = getelementptr inbounds i8, ptr %1, i64 28
+  %62 = getelementptr inbounds i8, ptr %1, i64 56
+  %63 = getelementptr inbounds i8, ptr %1, i64 60
+  %64 = getelementptr inbounds i8, ptr %1, i64 64
+  %65 = getelementptr inbounds i8, ptr %1, i64 68
+  %66 = getelementptr inbounds i8, ptr %1, i64 72
+  br label %67
 
-57:                                               ; preds = %.backedge.i, %.lr.ph.i
-  %58 = phi ptr [ %36, %.lr.ph.i ], [ %74, %.backedge.i ]
-  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #9
-  %60 = trunc i64 %59 to i32
-  %61 = icmp ugt i32 %60, 4
-  br i1 %61, label %62, label %.backedge.i
+67:                                               ; preds = %.backedge.i, %.lr.ph.i
+  %68 = phi ptr [ %36, %.lr.ph.i ], [ %84, %.backedge.i ]
+  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #9
+  %70 = trunc i64 %69 to i32
+  %71 = icmp ugt i32 %70, 4
+  br i1 %71, label %72, label %.backedge.i
 
-62:                                               ; preds = %57
-  %63 = add i64 %59, 4294967292
-  %64 = and i64 %63, 4294967295
-  %65 = getelementptr i8, ptr %58, i64 %64
-  %66 = call i32 @g_ascii_strcasecmp(ptr noundef %65, ptr noundef nonnull @.str.66) #10
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %.backedge.i
+72:                                               ; preds = %67
+  %73 = add i64 %69, 4294967292
+  %74 = and i64 %73, 4294967295
+  %75 = getelementptr i8, ptr %68, i64 %74
+  %76 = call i32 @g_ascii_strcasecmp(ptr noundef %75, ptr noundef nonnull @.str.66) #10
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %.backedge.i
 
-68:                                               ; preds = %62
-  %69 = call ptr @g_string_truncate(ptr noundef %35, i64 noundef 0) #10
-  %70 = call ptr @dtd_preparse(ptr noundef %.040.i, ptr noundef nonnull %58, ptr noundef %35) #10
-  %71 = load i64, ptr %37, align 8
-  %.not48.i = icmp eq i64 %71, 0
-  br i1 %.not48.i, label %75, label %72
+78:                                               ; preds = %72
+  %79 = call ptr @g_string_truncate(ptr noundef %35, i64 noundef 0) #10
+  %80 = call ptr @dtd_preparse(ptr noundef %.040.i, ptr noundef nonnull %68, ptr noundef %35) #10
+  %81 = load i64, ptr %37, align 8
+  %.not48.i = icmp eq i64 %81, 0
+  br i1 %.not48.i, label %85, label %82
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %35, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.67, ptr noundef %.040.i, i32 noundef 47, ptr noundef nonnull %58, ptr noundef %73) #10
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %35, align 8
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.67, ptr noundef %.040.i, i32 noundef 47, ptr noundef nonnull %68, ptr noundef %83) #10
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %330, %register_dtd.exit.i, %82, %72, %62, %57
-  %74 = call ptr @g_dir_read_name(ptr noundef nonnull %33) #10
-  %.not46.i = icmp eq ptr %74, null
-  br i1 %.not46.i, label %._crit_edge.i, label %57, !llvm.loop !8
+.backedge.i:                                      ; preds = %341, %register_dtd.exit.i, %92, %82, %72, %67
+  %84 = call ptr @g_dir_read_name(ptr noundef nonnull %33) #10
+  %.not46.i = icmp eq ptr %84, null
+  br i1 %.not46.i, label %._crit_edge.i, label %67, !llvm.loop !8
 
-75:                                               ; preds = %68
-  %76 = call ptr @dtd_parse(ptr noundef %70) #10
-  %77 = call ptr @g_string_free(ptr noundef %70, i32 noundef 1) #10
-  %78 = getelementptr inbounds i8, ptr %76, i64 56
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
-  %81 = load i64, ptr %80, align 8
-  %.not49.i = icmp eq i64 %81, 0
-  br i1 %.not49.i, label %84, label %82
+85:                                               ; preds = %78
+  %86 = call ptr @dtd_parse(ptr noundef %80) #10
+  %87 = call ptr @g_string_free(ptr noundef %80, i32 noundef 1) #10
+  %88 = getelementptr inbounds i8, ptr %86, i64 56
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %91 = load i64, ptr %90, align 8
+  %.not49.i = icmp eq i64 %91, 0
+  br i1 %.not49.i, label %94, label %92
 
-82:                                               ; preds = %75
-  %83 = load ptr, ptr %79, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.68, ptr noundef %.040.i, i32 noundef 47, ptr noundef nonnull %58, ptr noundef %83) #10
-  call fastcc void @destroy_dtd_data(ptr noundef nonnull %76)
+92:                                               ; preds = %85
+  %93 = load ptr, ptr %89, align 8
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.68, ptr noundef %.040.i, i32 noundef 47, ptr noundef nonnull %68, ptr noundef %93) #10
+  call fastcc void @destroy_dtd_data(ptr noundef nonnull %86)
   br label %.backedge.i
 
-84:                                               ; preds = %75
+94:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %85 = call ptr @wmem_epan_scope() #10
-  %86 = call noalias ptr @wmem_map_new(ptr noundef %85, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
-  %87 = call ptr @g_ptr_array_new() #10
-  %88 = getelementptr inbounds i8, ptr %76, i64 40
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
-  %91 = load i32, ptr %90, align 8
-  %.not180.i.i = icmp eq i32 %91, 0
+  %95 = call ptr @wmem_epan_scope() #10
+  %96 = call noalias ptr @wmem_map_new(ptr noundef %95, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
+  %97 = call ptr @g_ptr_array_new() #10
+  %98 = getelementptr inbounds i8, ptr %86, i64 40
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %101 = load i32, ptr %100, align 8
+  %.not180.i.i = icmp eq i32 %101, 0
   br i1 %.not180.i.i, label %.preheader179.i.i, label %.lr.ph.i.i
 
-.preheader179.i.i:                                ; preds = %139, %84
-  %.0.lcssa.i.i = phi ptr [ null, %84 ], [ %.1.i.i, %139 ]
-  %92 = getelementptr inbounds i8, ptr %76, i64 48
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
-  %95 = load i32, ptr %94, align 8
-  %.not161184.i.i = icmp eq i32 %95, 0
+.preheader179.i.i:                                ; preds = %149, %94
+  %.0.lcssa.i.i = phi ptr [ null, %94 ], [ %.1.i.i, %149 ]
+  %102 = getelementptr inbounds i8, ptr %86, i64 48
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 8
+  %105 = load i32, ptr %104, align 8
+  %.not161184.i.i = icmp eq i32 %105, 0
   br i1 %.not161184.i.i, label %._crit_edge.i.i, label %.lr.ph185.i.i
 
-.lr.ph.i.i:                                       ; preds = %84, %139
-  %96 = phi ptr [ %141, %139 ], [ %89, %84 ]
-  %.0181.i.i = phi ptr [ %.1.i.i, %139 ], [ null, %84 ]
-  %97 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %96, i32 noundef 0) #10
-  %98 = call ptr @wmem_epan_scope() #10
-  %99 = call noalias ptr @wmem_alloc(ptr noundef %98, i64 noundef 56) #10
-  %100 = icmp eq ptr %.0181.i.i, null
-  br i1 %100, label %101, label %105
+.lr.ph.i.i:                                       ; preds = %94, %149
+  %106 = phi ptr [ %151, %149 ], [ %99, %94 ]
+  %.0181.i.i = phi ptr [ %.1.i.i, %149 ], [ null, %94 ]
+  %107 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %106, i32 noundef 0) #10
+  %108 = call ptr @wmem_epan_scope() #10
+  %109 = call noalias ptr @wmem_alloc(ptr noundef %108, i64 noundef 56) #10
+  %110 = icmp eq ptr %.0181.i.i, null
+  br i1 %110, label %111, label %115
 
-101:                                              ; preds = %.lr.ph.i.i
-  %102 = call ptr @wmem_epan_scope() #10
-  %103 = load ptr, ptr %97, align 8
-  %104 = call noalias ptr @wmem_strdup(ptr noundef %102, ptr noundef %103) #10
-  br label %105
+111:                                              ; preds = %.lr.ph.i.i
+  %112 = call ptr @wmem_epan_scope() #10
+  %113 = load ptr, ptr %107, align 8
+  %114 = call noalias ptr @wmem_strdup(ptr noundef %112, ptr noundef %113) #10
+  br label %115
 
-105:                                              ; preds = %101, %.lr.ph.i.i
-  %.1.i.i = phi ptr [ %104, %101 ], [ %.0181.i.i, %.lr.ph.i.i ]
-  %106 = call ptr @wmem_epan_scope() #10
-  %107 = load ptr, ptr %97, align 8
-  %108 = call noalias ptr @wmem_strdup(ptr noundef %106, ptr noundef %107) #10
-  store ptr %108, ptr %99, align 8
-  %109 = getelementptr inbounds i8, ptr %97, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %99, i64 48
-  store ptr %110, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %99, i64 16
-  store i32 -1, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %99, i64 20
-  store i32 -1, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %99, i64 24
-  store i32 -1, ptr %114, align 8
-  %115 = call ptr @wmem_epan_scope() #10
-  %116 = call noalias ptr @wmem_map_new(ptr noundef %115, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
-  %117 = getelementptr inbounds i8, ptr %99, i64 32
-  store ptr %116, ptr %117, align 8
-  %118 = call ptr @wmem_epan_scope() #10
-  %119 = call noalias ptr @wmem_map_new(ptr noundef %118, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
-  %120 = getelementptr inbounds i8, ptr %99, i64 40
-  store ptr %119, ptr %120, align 8
-  %121 = load ptr, ptr %99, align 8
-  %122 = call ptr @wmem_map_lookup(ptr noundef %86, ptr noundef %121) #10
-  %.not175.i.i = icmp eq ptr %122, null
-  %123 = load ptr, ptr %99, align 8
-  br i1 %.not175.i.i, label %134, label %124
+115:                                              ; preds = %111, %.lr.ph.i.i
+  %.1.i.i = phi ptr [ %114, %111 ], [ %.0181.i.i, %.lr.ph.i.i ]
+  %116 = call ptr @wmem_epan_scope() #10
+  %117 = load ptr, ptr %107, align 8
+  %118 = call noalias ptr @wmem_strdup(ptr noundef %116, ptr noundef %117) #10
+  store ptr %118, ptr %109, align 8
+  %119 = getelementptr inbounds i8, ptr %107, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %109, i64 48
+  store ptr %120, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %109, i64 16
+  store i32 -1, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %109, i64 20
+  store i32 -1, ptr %123, align 4
+  %124 = getelementptr inbounds i8, ptr %109, i64 24
+  store i32 -1, ptr %124, align 8
+  %125 = call ptr @wmem_epan_scope() #10
+  %126 = call noalias ptr @wmem_map_new(ptr noundef %125, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
+  %127 = getelementptr inbounds i8, ptr %109, i64 32
+  store ptr %126, ptr %127, align 8
+  %128 = call ptr @wmem_epan_scope() #10
+  %129 = call noalias ptr @wmem_map_new(ptr noundef %128, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
+  %130 = getelementptr inbounds i8, ptr %109, i64 40
+  store ptr %129, ptr %130, align 8
+  %131 = load ptr, ptr %109, align 8
+  %132 = call ptr @wmem_map_lookup(ptr noundef %96, ptr noundef %131) #10
+  %.not175.i.i = icmp eq ptr %132, null
+  %133 = load ptr, ptr %109, align 8
+  br i1 %.not175.i.i, label %144, label %134
 
-124:                                              ; preds = %105
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %35, ptr noundef nonnull @.str.70, ptr noundef %123) #10
-  %125 = load ptr, ptr %111, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
-  %127 = load i32, ptr %126, align 8
-  %.not4.i.i.i = icmp eq i32 %127, 0
+134:                                              ; preds = %115
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %35, ptr noundef nonnull @.str.70, ptr noundef %133) #10
+  %135 = load ptr, ptr %121, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %137 = load i32, ptr %136, align 8
+  %.not4.i.i.i = icmp eq i32 %137, 0
   br i1 %.not4.i.i.i, label %free_elements.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %124, %.lr.ph.i.i.i
-  %128 = phi ptr [ %130, %.lr.ph.i.i.i ], [ %125, %124 ]
-  %129 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %128, i32 noundef 0) #10
-  call void @g_free(ptr noundef %129) #10
-  %130 = load ptr, ptr %111, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
-  %132 = load i32, ptr %131, align 8
-  %.not.i.i.i = icmp eq i32 %132, 0
+.lr.ph.i.i.i:                                     ; preds = %134, %.lr.ph.i.i.i
+  %138 = phi ptr [ %140, %.lr.ph.i.i.i ], [ %135, %134 ]
+  %139 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %138, i32 noundef 0) #10
+  call void @g_free(ptr noundef %139) #10
+  %140 = load ptr, ptr %121, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 8
+  %142 = load i32, ptr %141, align 8
+  %.not.i.i.i = icmp eq i32 %142, 0
   br i1 %.not.i.i.i, label %free_elements.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
-free_elements.exit.i.i:                           ; preds = %.lr.ph.i.i.i, %124
-  %.lcssa.i.i.i = phi ptr [ %125, %124 ], [ %130, %.lr.ph.i.i.i ]
-  %133 = call ptr @g_ptr_array_free(ptr noundef nonnull %.lcssa.i.i.i, i32 noundef 1) #10
-  br label %139
+free_elements.exit.i.i:                           ; preds = %.lr.ph.i.i.i, %134
+  %.lcssa.i.i.i = phi ptr [ %135, %134 ], [ %140, %.lr.ph.i.i.i ]
+  %143 = call ptr @g_ptr_array_free(ptr noundef nonnull %.lcssa.i.i.i, i32 noundef 1) #10
+  br label %149
 
-134:                                              ; preds = %105
-  %135 = call ptr @wmem_map_insert(ptr noundef %86, ptr noundef %123, ptr noundef nonnull %99) #10
-  %136 = call ptr @wmem_epan_scope() #10
-  %137 = load ptr, ptr %99, align 8
-  %138 = call noalias ptr @wmem_strdup(ptr noundef %136, ptr noundef %137) #10
-  call void @g_ptr_array_add(ptr noundef %87, ptr noundef %138) #10
-  br label %139
+144:                                              ; preds = %115
+  %145 = call ptr @wmem_map_insert(ptr noundef %96, ptr noundef %133, ptr noundef nonnull %109) #10
+  %146 = call ptr @wmem_epan_scope() #10
+  %147 = load ptr, ptr %109, align 8
+  %148 = call noalias ptr @wmem_strdup(ptr noundef %146, ptr noundef %147) #10
+  call void @g_ptr_array_add(ptr noundef %97, ptr noundef %148) #10
+  br label %149
 
-139:                                              ; preds = %134, %free_elements.exit.i.i
-  %140 = load ptr, ptr %97, align 8
-  call void @g_free(ptr noundef %140) #10
-  call void @g_free(ptr noundef nonnull %97) #10
-  %141 = load ptr, ptr %88, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
-  %143 = load i32, ptr %142, align 8
-  %.not.i.i = icmp eq i32 %143, 0
+149:                                              ; preds = %144, %free_elements.exit.i.i
+  %150 = load ptr, ptr %107, align 8
+  call void @g_free(ptr noundef %150) #10
+  call void @g_free(ptr noundef nonnull %107) #10
+  %151 = load ptr, ptr %98, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 8
+  %153 = load i32, ptr %152, align 8
+  %.not.i.i = icmp eq i32 %153, 0
   br i1 %.not.i.i, label %.preheader179.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 .lr.ph185.i.i:                                    ; preds = %.preheader179.i.i, %.loopexit178.i.i
-  %144 = phi ptr [ %171, %.loopexit178.i.i ], [ %93, %.preheader179.i.i ]
-  %145 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %144, i32 noundef 0) #10
-  %146 = load ptr, ptr %145, align 8
-  %147 = call ptr @wmem_map_lookup(ptr noundef %86, ptr noundef %146) #10
-  %.not173.i.i = icmp eq ptr %147, null
-  br i1 %.not173.i.i, label %165, label %.preheader.i.i
+  %154 = phi ptr [ %181, %.loopexit178.i.i ], [ %103, %.preheader179.i.i ]
+  %155 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %154, i32 noundef 0) #10
+  %156 = load ptr, ptr %155, align 8
+  %157 = call ptr @wmem_map_lookup(ptr noundef %96, ptr noundef %156) #10
+  %.not173.i.i = icmp eq ptr %157, null
+  br i1 %.not173.i.i, label %175, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph185.i.i
-  %148 = getelementptr inbounds i8, ptr %145, i64 8
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
-  %151 = load i32, ptr %150, align 8
-  %.not174182.i.i = icmp eq i32 %151, 0
+  %158 = getelementptr inbounds i8, ptr %155, i64 8
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 8
+  %161 = load i32, ptr %160, align 8
+  %.not174182.i.i = icmp eq i32 %161, 0
   br i1 %.not174182.i.i, label %.loopexit178.i.i, label %.lr.ph183.i.i
 
 .lr.ph183.i.i:                                    ; preds = %.preheader.i.i
-  %152 = getelementptr inbounds i8, ptr %147, i64 32
-  br label %153
+  %162 = getelementptr inbounds i8, ptr %157, i64 32
+  br label %163
 
-153:                                              ; preds = %153, %.lr.ph183.i.i
-  %154 = phi ptr [ %149, %.lr.ph183.i.i ], [ %162, %153 ]
-  %155 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %154, i32 noundef 0) #10
-  %156 = call ptr @wmem_epan_scope() #10
-  %157 = call noalias ptr @wmem_alloc(ptr noundef %156, i64 noundef 4) #10
-  store i32 -1, ptr %157, align 4
-  %158 = load ptr, ptr %152, align 8
-  %159 = call ptr @wmem_epan_scope() #10
-  %160 = call noalias ptr @wmem_strdup(ptr noundef %159, ptr noundef %155) #10
-  %161 = call ptr @wmem_map_insert(ptr noundef %158, ptr noundef %160, ptr noundef nonnull %157) #10
-  call void @g_free(ptr noundef %155) #10
-  %162 = load ptr, ptr %148, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 8
-  %164 = load i32, ptr %163, align 8
-  %.not174.i.i = icmp eq i32 %164, 0
-  br i1 %.not174.i.i, label %.loopexit178.i.i, label %153, !llvm.loop !11
+163:                                              ; preds = %163, %.lr.ph183.i.i
+  %164 = phi ptr [ %159, %.lr.ph183.i.i ], [ %172, %163 ]
+  %165 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %164, i32 noundef 0) #10
+  %166 = call ptr @wmem_epan_scope() #10
+  %167 = call noalias ptr @wmem_alloc(ptr noundef %166, i64 noundef 4) #10
+  store i32 -1, ptr %167, align 4
+  %168 = load ptr, ptr %162, align 8
+  %169 = call ptr @wmem_epan_scope() #10
+  %170 = call noalias ptr @wmem_strdup(ptr noundef %169, ptr noundef %165) #10
+  %171 = call ptr @wmem_map_insert(ptr noundef %168, ptr noundef %170, ptr noundef nonnull %167) #10
+  call void @g_free(ptr noundef %165) #10
+  %172 = load ptr, ptr %158, align 8
+  %173 = getelementptr inbounds i8, ptr %172, i64 8
+  %174 = load i32, ptr %173, align 8
+  %.not174.i.i = icmp eq i32 %174, 0
+  br i1 %.not174.i.i, label %.loopexit178.i.i, label %163, !llvm.loop !11
 
-165:                                              ; preds = %.lr.ph185.i.i
-  %166 = load ptr, ptr %145, align 8
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %35, ptr noundef nonnull @.str.71, ptr noundef %166) #10
+175:                                              ; preds = %.lr.ph185.i.i
+  %176 = load ptr, ptr %155, align 8
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %35, ptr noundef nonnull @.str.71, ptr noundef %176) #10
   br label %.loopexit178.i.i
 
-.loopexit178.i.i:                                 ; preds = %153, %165, %.preheader.i.i
-  %167 = load ptr, ptr %145, align 8
-  call void @g_free(ptr noundef %167) #10
-  %168 = getelementptr inbounds i8, ptr %145, i64 8
-  %169 = load ptr, ptr %168, align 8
-  %170 = call ptr @g_ptr_array_free(ptr noundef %169, i32 noundef 1) #10
-  call void @g_free(ptr noundef nonnull %145) #10
-  %171 = load ptr, ptr %92, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 8
-  %173 = load i32, ptr %172, align 8
-  %.not161.i.i = icmp eq i32 %173, 0
+.loopexit178.i.i:                                 ; preds = %163, %175, %.preheader.i.i
+  %177 = load ptr, ptr %155, align 8
+  call void @g_free(ptr noundef %177) #10
+  %178 = getelementptr inbounds i8, ptr %155, i64 8
+  %179 = load ptr, ptr %178, align 8
+  %180 = call ptr @g_ptr_array_free(ptr noundef %179, i32 noundef 1) #10
+  call void @g_free(ptr noundef nonnull %155) #10
+  %181 = load ptr, ptr %102, align 8
+  %182 = getelementptr inbounds i8, ptr %181, i64 8
+  %183 = load i32, ptr %182, align 8
+  %.not161.i.i = icmp eq i32 %183, 0
   br i1 %.not161.i.i, label %._crit_edge.i.i, label %.lr.ph185.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit178.i.i, %.preheader179.i.i
-  %174 = getelementptr inbounds i8, ptr %76, i64 24
-  %175 = load ptr, ptr %174, align 8
-  %.not162.i.i = icmp eq ptr %175, null
-  br i1 %.not162.i.i, label %181, label %176
+  %184 = getelementptr inbounds i8, ptr %86, i64 24
+  %185 = load ptr, ptr %184, align 8
+  %.not162.i.i = icmp eq ptr %185, null
+  br i1 %.not162.i.i, label %191, label %186
 
-176:                                              ; preds = %._crit_edge.i.i
-  %177 = call ptr @wmem_epan_scope() #10
-  call void @wmem_free(ptr noundef %177, ptr noundef %.0.lcssa.i.i) #10
-  %178 = call ptr @wmem_epan_scope() #10
-  %179 = load ptr, ptr %174, align 8
-  %180 = call noalias ptr @wmem_strdup(ptr noundef %178, ptr noundef %179) #10
-  br label %181
-
-181:                                              ; preds = %176, %._crit_edge.i.i
-  %.2.i.i = phi ptr [ %180, %176 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %182 = call ptr @g_ptr_array_new() #10
-  %183 = load ptr, ptr %76, align 8
-  %.not163.i.i = icmp eq ptr %183, null
-  br i1 %.not163.i.i, label %184, label %189
-
-184:                                              ; preds = %181
-  %185 = load ptr, ptr @hf_arr, align 8
-  %186 = load ptr, ptr @ett_arr, align 8
+186:                                              ; preds = %._crit_edge.i.i
   %187 = call ptr @wmem_epan_scope() #10
-  %188 = call noalias ptr @wmem_strdup(ptr noundef %187, ptr noundef nonnull @.str.35) #10
-  call void @g_ptr_array_add(ptr noundef %182, ptr noundef %188) #10
-  br label %193
+  call void @wmem_free(ptr noundef %187, ptr noundef %.0.lcssa.i.i) #10
+  %188 = call ptr @wmem_epan_scope() #10
+  %189 = load ptr, ptr %184, align 8
+  %190 = call noalias ptr @wmem_strdup(ptr noundef %188, ptr noundef %189) #10
+  br label %191
 
-189:                                              ; preds = %181
-  %190 = call ptr @wmem_epan_scope() #10
-  %191 = call noalias ptr @wmem_array_new(ptr noundef %190, i64 noundef 80) #10
-  %192 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8) #10
-  br label %193
+191:                                              ; preds = %186, %._crit_edge.i.i
+  %.2.i.i = phi ptr [ %190, %186 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %192 = call ptr @g_ptr_array_new() #10
+  %193 = load ptr, ptr %86, align 8
+  %.not163.i.i = icmp eq ptr %193, null
+  br i1 %.not163.i.i, label %194, label %199
 
-193:                                              ; preds = %189, %184
-  %.0159.i.i = phi ptr [ %192, %189 ], [ %186, %184 ]
-  %.0158.i.i = phi ptr [ %191, %189 ], [ %185, %184 ]
-  %194 = call ptr @wmem_epan_scope() #10
-  %195 = call noalias ptr @wmem_alloc(ptr noundef %194, i64 noundef 56) #10
-  %196 = call ptr @wmem_epan_scope() #10
-  %197 = call noalias ptr @wmem_strdup(ptr noundef %196, ptr noundef %.2.i.i) #10
-  store ptr %197, ptr %195, align 8
-  %198 = load ptr, ptr %76, align 8
-  %.not164.i.i = icmp eq ptr %198, null
-  br i1 %.not164.i.i, label %203, label %199
-
-199:                                              ; preds = %193
-  %200 = call ptr @wmem_epan_scope() #10
-  %201 = load ptr, ptr %76, align 8
-  %202 = call noalias ptr @wmem_strdup(ptr noundef %200, ptr noundef %201) #10
+194:                                              ; preds = %191
+  %195 = load ptr, ptr @hf_arr, align 8
+  %196 = load ptr, ptr @ett_arr, align 8
+  %197 = call ptr @wmem_epan_scope() #10
+  %198 = call noalias ptr @wmem_strdup(ptr noundef %197, ptr noundef nonnull @.str.35) #10
+  call void @g_ptr_array_add(ptr noundef %192, ptr noundef %198) #10
   br label %203
 
-203:                                              ; preds = %199, %193
-  %204 = phi ptr [ %202, %199 ], [ %197, %193 ]
-  %205 = getelementptr inbounds i8, ptr %195, i64 8
-  store ptr %204, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %195, i64 16
-  store i32 -1, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %195, i64 20
-  store i32 -1, ptr %207, align 4
-  %208 = getelementptr inbounds i8, ptr %195, i64 24
-  store i32 -1, ptr %208, align 8
-  %209 = call ptr @wmem_epan_scope() #10
-  %210 = call noalias ptr @wmem_map_new(ptr noundef %209, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
-  %211 = getelementptr inbounds i8, ptr %195, i64 40
-  store ptr %210, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %195, i64 48
-  store ptr %87, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %76, i64 32
-  %214 = load i32, ptr %213, align 8
-  %.not165.i.i = icmp eq i32 %214, 0
-  br i1 %.not165.i.i, label %251, label %215
+199:                                              ; preds = %191
+  %200 = call ptr @wmem_epan_scope() #10
+  %201 = call noalias ptr @wmem_array_new(ptr noundef %200, i64 noundef 80) #10
+  %202 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8) #10
+  br label %203
 
-215:                                              ; preds = %203
-  %216 = load ptr, ptr %76, align 8
-  %217 = call fastcc ptr @make_xml_hier(ptr noundef %.2.i.i, ptr noundef nonnull %195, ptr noundef %86, ptr noundef %182, ptr noundef %35, ptr noundef %.0158.i.i, ptr noundef %.0159.i.i, ptr noundef %216)
-  %218 = load ptr, ptr %211, align 8
-  %219 = load ptr, ptr %195, align 8
-  %220 = call ptr @wmem_map_insert(ptr noundef %218, ptr noundef %219, ptr noundef nonnull %195) #10
-  %221 = call ptr @wmem_map_lookup(ptr noundef %86, ptr noundef %.2.i.i) #10
-  %.not167.i.i = icmp eq ptr %221, null
-  br i1 %.not167.i.i, label %229, label %222
+203:                                              ; preds = %199, %194
+  %.0159.i.i = phi ptr [ %202, %199 ], [ %196, %194 ]
+  %.0158.i.i = phi ptr [ %201, %199 ], [ %195, %194 ]
+  %204 = call ptr @wmem_epan_scope() #10
+  %205 = call noalias ptr @wmem_alloc(ptr noundef %204, i64 noundef 56) #10
+  %206 = call ptr @wmem_epan_scope() #10
+  %207 = call noalias ptr @wmem_strdup(ptr noundef %206, ptr noundef %.2.i.i) #10
+  store ptr %207, ptr %205, align 8
+  %208 = load ptr, ptr %86, align 8
+  %.not164.i.i = icmp eq ptr %208, null
+  br i1 %.not164.i.i, label %213, label %209
 
-222:                                              ; preds = %215
-  %223 = load ptr, ptr %76, align 8
-  store ptr %223, ptr %38, align 8
+209:                                              ; preds = %203
+  %210 = call ptr @wmem_epan_scope() #10
+  %211 = load ptr, ptr %86, align 8
+  %212 = call noalias ptr @wmem_strdup(ptr noundef %210, ptr noundef %211) #10
+  br label %213
+
+213:                                              ; preds = %209, %203
+  %214 = phi ptr [ %212, %209 ], [ %207, %203 ]
+  %215 = getelementptr inbounds i8, ptr %205, i64 8
+  store ptr %214, ptr %215, align 8
+  %216 = getelementptr inbounds i8, ptr %205, i64 16
+  store i32 -1, ptr %216, align 8
+  %217 = getelementptr inbounds i8, ptr %205, i64 20
+  store i32 -1, ptr %217, align 4
+  %218 = getelementptr inbounds i8, ptr %205, i64 24
+  store i32 -1, ptr %218, align 8
+  %219 = call ptr @wmem_epan_scope() #10
+  %220 = call noalias ptr @wmem_map_new(ptr noundef %219, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
+  %221 = getelementptr inbounds i8, ptr %205, i64 40
+  store ptr %220, ptr %221, align 8
+  %222 = getelementptr inbounds i8, ptr %205, i64 48
+  store ptr %97, ptr %222, align 8
+  %223 = getelementptr inbounds i8, ptr %86, i64 32
+  %224 = load i32, ptr %223, align 8
+  %.not165.i.i = icmp eq i32 %224, 0
+  br i1 %.not165.i.i, label %261, label %225
+
+225:                                              ; preds = %213
+  %226 = load ptr, ptr %86, align 8
+  %227 = call fastcc ptr @make_xml_hier(ptr noundef %.2.i.i, ptr noundef nonnull %205, ptr noundef %96, ptr noundef %192, ptr noundef %35, ptr noundef %.0158.i.i, ptr noundef %.0159.i.i, ptr noundef %226)
+  %228 = load ptr, ptr %221, align 8
+  %229 = load ptr, ptr %205, align 8
+  %230 = call ptr @wmem_map_insert(ptr noundef %228, ptr noundef %229, ptr noundef nonnull %205) #10
+  %231 = call ptr @wmem_map_lookup(ptr noundef %96, ptr noundef %.2.i.i) #10
+  %.not167.i.i = icmp eq ptr %231, null
+  br i1 %.not167.i.i, label %239, label %232
+
+232:                                              ; preds = %225
+  %233 = load ptr, ptr %86, align 8
+  store ptr %233, ptr %38, align 8
   store ptr %.0158.i.i, ptr %4, align 8
-  %224 = getelementptr inbounds i8, ptr %221, i64 32
-  %225 = load ptr, ptr %224, align 8
-  %226 = call ptr @wmem_epan_scope() #10
-  %227 = call noalias ptr @wmem_map_new(ptr noundef %226, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
-  call void @wmem_map_foreach(ptr noundef %225, ptr noundef nonnull @copy_attrib_item, ptr noundef %227) #10
-  %228 = getelementptr inbounds i8, ptr %195, i64 32
-  store ptr %227, ptr %228, align 8
-  call void @wmem_map_foreach(ptr noundef %227, ptr noundef nonnull @add_xml_attribute_names, ptr noundef nonnull %4) #10
-  br label %233
+  %234 = getelementptr inbounds i8, ptr %231, i64 32
+  %235 = load ptr, ptr %234, align 8
+  %236 = call ptr @wmem_epan_scope() #10
+  %237 = call noalias ptr @wmem_map_new(ptr noundef %236, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
+  call void @wmem_map_foreach(ptr noundef %235, ptr noundef nonnull @copy_attrib_item, ptr noundef %237) #10
+  %238 = getelementptr inbounds i8, ptr %205, i64 32
+  store ptr %237, ptr %238, align 8
+  call void @wmem_map_foreach(ptr noundef %237, ptr noundef nonnull @add_xml_attribute_names, ptr noundef nonnull %4) #10
+  br label %243
 
-229:                                              ; preds = %215
-  %230 = call ptr @wmem_epan_scope() #10
-  %231 = call noalias ptr @wmem_map_new(ptr noundef %230, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
-  %232 = getelementptr inbounds i8, ptr %195, i64 32
-  store ptr %231, ptr %232, align 8
-  br label %233
+239:                                              ; preds = %225
+  %240 = call ptr @wmem_epan_scope() #10
+  %241 = call noalias ptr @wmem_map_new(ptr noundef %240, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
+  %242 = getelementptr inbounds i8, ptr %205, i64 32
+  store ptr %241, ptr %242, align 8
+  br label %243
 
-233:                                              ; preds = %229, %222
-  call void @g_ptr_array_add(ptr noundef %182, ptr noundef %.2.i.i) #10
-  %234 = load ptr, ptr %212, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 8
-  %236 = load i32, ptr %235, align 8
-  %.not168186.i.i = icmp eq i32 %236, 0
+243:                                              ; preds = %239, %232
+  call void @g_ptr_array_add(ptr noundef %192, ptr noundef %.2.i.i) #10
+  %244 = load ptr, ptr %222, align 8
+  %245 = getelementptr inbounds i8, ptr %244, i64 8
+  %246 = load i32, ptr %245, align 8
+  %.not168186.i.i = icmp eq i32 %246, 0
   br i1 %.not168186.i.i, label %.loopexit.i.i, label %.lr.ph188.i.i
 
-.lr.ph188.i.i:                                    ; preds = %233, %247
-  %237 = phi ptr [ %248, %247 ], [ %234, %233 ]
-  %238 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %237, i32 noundef 0) #10
-  %239 = load ptr, ptr %211, align 8
-  %240 = call ptr @wmem_map_lookup(ptr noundef %239, ptr noundef %238) #10
-  %.not172.i.i = icmp eq ptr %240, null
-  br i1 %.not172.i.i, label %241, label %247
+.lr.ph188.i.i:                                    ; preds = %243, %257
+  %247 = phi ptr [ %258, %257 ], [ %244, %243 ]
+  %248 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %247, i32 noundef 0) #10
+  %249 = load ptr, ptr %221, align 8
+  %250 = call ptr @wmem_map_lookup(ptr noundef %249, ptr noundef %248) #10
+  %.not172.i.i = icmp eq ptr %250, null
+  br i1 %.not172.i.i, label %251, label %257
 
-241:                                              ; preds = %.lr.ph188.i.i
-  %242 = load ptr, ptr %76, align 8
-  %243 = call fastcc ptr @make_xml_hier(ptr noundef %238, ptr noundef nonnull %195, ptr noundef %86, ptr noundef %182, ptr noundef %35, ptr noundef %.0158.i.i, ptr noundef %.0159.i.i, ptr noundef %242)
-  %244 = load ptr, ptr %211, align 8
-  %245 = load ptr, ptr %243, align 8
-  %246 = call ptr @wmem_map_insert(ptr noundef %244, ptr noundef %245, ptr noundef nonnull %243) #10
-  br label %247
+251:                                              ; preds = %.lr.ph188.i.i
+  %252 = load ptr, ptr %86, align 8
+  %253 = call fastcc ptr @make_xml_hier(ptr noundef %248, ptr noundef nonnull %205, ptr noundef %96, ptr noundef %192, ptr noundef %35, ptr noundef %.0158.i.i, ptr noundef %.0159.i.i, ptr noundef %252)
+  %254 = load ptr, ptr %221, align 8
+  %255 = load ptr, ptr %253, align 8
+  %256 = call ptr @wmem_map_insert(ptr noundef %254, ptr noundef %255, ptr noundef nonnull %253) #10
+  br label %257
 
-247:                                              ; preds = %241, %.lr.ph188.i.i
-  %248 = load ptr, ptr %212, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 8
-  %250 = load i32, ptr %249, align 8
-  %.not168.i.i = icmp eq i32 %250, 0
+257:                                              ; preds = %251, %.lr.ph188.i.i
+  %258 = load ptr, ptr %222, align 8
+  %259 = getelementptr inbounds i8, ptr %258, i64 8
+  %260 = load i32, ptr %259, align 8
+  %.not168.i.i = icmp eq i32 %260, 0
   br i1 %.not168.i.i, label %.loopexit.i.i, label %.lr.ph188.i.i, !llvm.loop !13
 
-251:                                              ; preds = %203
-  call void @g_ptr_array_add(ptr noundef %182, ptr noundef %.2.i.i) #10
-  %252 = call ptr @wmem_epan_scope() #10
-  %253 = call noalias ptr @wmem_map_new(ptr noundef %252, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
-  %254 = getelementptr inbounds i8, ptr %195, i64 32
-  store ptr %253, ptr %254, align 8
-  %255 = load ptr, ptr %212, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 8
-  %257 = load i32, ptr %256, align 8
-  %.not166189.i.i = icmp eq i32 %257, 0
+261:                                              ; preds = %213
+  call void @g_ptr_array_add(ptr noundef %192, ptr noundef %.2.i.i) #10
+  %262 = call ptr @wmem_epan_scope() #10
+  %263 = call noalias ptr @wmem_map_new(ptr noundef %262, ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
+  %264 = getelementptr inbounds i8, ptr %205, i64 32
+  store ptr %263, ptr %264, align 8
+  %265 = load ptr, ptr %222, align 8
+  %266 = getelementptr inbounds i8, ptr %265, i64 8
+  %267 = load i32, ptr %266, align 8
+  %.not166189.i.i = icmp eq i32 %267, 0
   br i1 %.not166189.i.i, label %.loopexit.i.i, label %.lr.ph191.i.i
 
-.lr.ph191.i.i:                                    ; preds = %251
-  %258 = getelementptr inbounds i8, ptr %182, i64 8
-  br label %259
+.lr.ph191.i.i:                                    ; preds = %261
+  %268 = getelementptr inbounds i8, ptr %192, i64 8
+  br label %269
 
-259:                                              ; preds = %fully_qualified_name.exit.i.i, %.lr.ph191.i.i
-  %260 = phi ptr [ %255, %.lr.ph191.i.i ], [ %290, %fully_qualified_name.exit.i.i ]
-  %261 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %260, i32 noundef 0) #10
-  %262 = call ptr @wmem_map_lookup(ptr noundef %86, ptr noundef %261) #10
-  %263 = call fastcc ptr @duplicate_element(ptr noundef %262)
-  %264 = call ptr @wmem_epan_scope() #10
-  %265 = call noalias ptr @wmem_strbuf_new(ptr noundef %264, ptr noundef %.2.i.i) #10
-  call void @wmem_strbuf_append(ptr noundef %265, ptr noundef nonnull @.str.73) #10
-  %266 = load i32, ptr %258, align 8
-  %267 = icmp ugt i32 %266, 1
-  br i1 %267, label %.lr.ph.i176.i.i, label %fully_qualified_name.exit.i.i
+269:                                              ; preds = %fully_qualified_name.exit.i.i, %.lr.ph191.i.i
+  %270 = phi ptr [ %265, %.lr.ph191.i.i ], [ %300, %fully_qualified_name.exit.i.i ]
+  %271 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %270, i32 noundef 0) #10
+  %272 = call ptr @wmem_map_lookup(ptr noundef %96, ptr noundef %271) #10
+  %273 = call fastcc ptr @duplicate_element(ptr noundef %272)
+  %274 = call ptr @wmem_epan_scope() #10
+  %275 = call noalias ptr @wmem_strbuf_new(ptr noundef %274, ptr noundef %.2.i.i) #10
+  call void @wmem_strbuf_append(ptr noundef %275, ptr noundef nonnull @.str.73) #10
+  %276 = load i32, ptr %268, align 8
+  %277 = icmp ugt i32 %276, 1
+  br i1 %277, label %.lr.ph.i176.i.i, label %fully_qualified_name.exit.i.i
 
-.lr.ph.i176.i.i:                                  ; preds = %259, %.lr.ph.i176.i.i
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i176.i.i ], [ 1, %259 ]
-  %268 = load ptr, ptr %182, align 8
-  %269 = getelementptr ptr, ptr %268, i64 %indvars.iv.i.i.i
-  %270 = load ptr, ptr %269, align 8
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %265, ptr noundef nonnull @.str.74, ptr noundef %270) #10
+.lr.ph.i176.i.i:                                  ; preds = %269, %.lr.ph.i176.i.i
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i176.i.i ], [ 1, %269 ]
+  %278 = load ptr, ptr %192, align 8
+  %279 = getelementptr ptr, ptr %278, i64 %indvars.iv.i.i.i
+  %280 = load ptr, ptr %279, align 8
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %275, ptr noundef nonnull @.str.74, ptr noundef %280) #10
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %271 = load i32, ptr %258, align 8
-  %272 = zext i32 %271 to i64
-  %273 = icmp ult i64 %indvars.iv.next.i.i.i, %272
-  br i1 %273, label %.lr.ph.i176.i.i, label %fully_qualified_name.exit.i.i, !llvm.loop !14
+  %281 = load i32, ptr %268, align 8
+  %282 = zext i32 %281 to i64
+  %283 = icmp ult i64 %indvars.iv.next.i.i.i, %282
+  br i1 %283, label %.lr.ph.i176.i.i, label %fully_qualified_name.exit.i.i, !llvm.loop !14
 
-fully_qualified_name.exit.i.i:                    ; preds = %.lr.ph.i176.i.i, %259
-  call void @wmem_strbuf_append(ptr noundef %265, ptr noundef %261) #10
-  %274 = call ptr @wmem_strbuf_finalize(ptr noundef %265) #10
-  %275 = getelementptr inbounds i8, ptr %263, i64 8
-  store ptr %274, ptr %275, align 8
-  %276 = getelementptr inbounds i8, ptr %263, i64 16
+fully_qualified_name.exit.i.i:                    ; preds = %.lr.ph.i176.i.i, %269
+  call void @wmem_strbuf_append(ptr noundef %275, ptr noundef %271) #10
+  %284 = call ptr @wmem_strbuf_finalize(ptr noundef %275) #10
+  %285 = getelementptr inbounds i8, ptr %273, i64 8
+  store ptr %284, ptr %285, align 8
+  %286 = getelementptr inbounds i8, ptr %273, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
-  store ptr %276, ptr %3, align 8
-  store ptr %261, ptr %39, align 8
-  store ptr %274, ptr %40, align 8
+  store ptr %286, ptr %3, align 8
+  store ptr %271, ptr %39, align 8
+  store ptr %284, ptr %40, align 8
   store i32 26, ptr %41, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %42, i8 0, i64 28, i1 false)
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %43, align 8
-  store ptr null, ptr %44, align 8
+  store i32 -1, ptr %43, align 8
+  store i32 0, ptr %44, align 4
+  store i32 0, ptr %45, align 8
+  store i32 -1, ptr %46, align 4
+  store ptr null, ptr %47, align 8
   call void @wmem_array_append(ptr noundef %.0158.i.i, ptr noundef nonnull %3, i32 noundef 1) #10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
-  %277 = getelementptr inbounds i8, ptr %263, i64 20
-  %278 = load ptr, ptr %275, align 8
+  %287 = getelementptr inbounds i8, ptr %273, i64 20
+  %288 = load ptr, ptr %285, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
-  store ptr %277, ptr %2, align 8
-  store ptr %261, ptr %45, align 8
-  store ptr %278, ptr %46, align 8
-  store i32 26, ptr %47, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %48, i8 0, i64 28, i1 false)
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %49, align 8
-  store ptr null, ptr %50, align 8
+  store ptr %287, ptr %2, align 8
+  store ptr %271, ptr %48, align 8
+  store ptr %288, ptr %49, align 8
+  store i32 26, ptr %50, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %51, i8 0, i64 28, i1 false)
+  store i32 -1, ptr %52, align 8
+  store i32 0, ptr %53, align 4
+  store i32 0, ptr %54, align 8
+  store i32 -1, ptr %55, align 4
+  store ptr null, ptr %56, align 8
   call void @wmem_array_append(ptr noundef %.0158.i.i, ptr noundef nonnull %2, i32 noundef 1) #10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
-  %279 = load ptr, ptr %275, align 8
-  store ptr %279, ptr %51, align 8
+  %289 = load ptr, ptr %285, align 8
+  store ptr %289, ptr %57, align 8
   store ptr %.0158.i.i, ptr %6, align 8
-  %280 = getelementptr inbounds i8, ptr %263, i64 32
-  %281 = load ptr, ptr %280, align 8
-  call void @wmem_map_foreach(ptr noundef %281, ptr noundef nonnull @add_xml_attribute_names, ptr noundef nonnull %6) #10
-  %282 = getelementptr inbounds i8, ptr %263, i64 24
-  store ptr %282, ptr %5, align 8
-  %283 = call ptr @g_array_append_vals(ptr noundef %.0159.i.i, ptr noundef nonnull %5, i32 noundef 1) #10
-  %284 = getelementptr inbounds i8, ptr %263, i64 48
-  %285 = load ptr, ptr %284, align 8
-  %286 = call ptr @g_ptr_array_free(ptr noundef %285, i32 noundef 1) #10
-  %287 = load ptr, ptr %211, align 8
-  %288 = load ptr, ptr %263, align 8
-  %289 = call ptr @wmem_map_insert(ptr noundef %287, ptr noundef %288, ptr noundef nonnull %263) #10
-  %290 = load ptr, ptr %212, align 8
-  %291 = getelementptr inbounds i8, ptr %290, i64 8
-  %292 = load i32, ptr %291, align 8
-  %.not166.i.i = icmp eq i32 %292, 0
-  br i1 %.not166.i.i, label %.loopexit.i.i, label %259, !llvm.loop !15
+  %290 = getelementptr inbounds i8, ptr %273, i64 32
+  %291 = load ptr, ptr %290, align 8
+  call void @wmem_map_foreach(ptr noundef %291, ptr noundef nonnull @add_xml_attribute_names, ptr noundef nonnull %6) #10
+  %292 = getelementptr inbounds i8, ptr %273, i64 24
+  store ptr %292, ptr %5, align 8
+  %293 = call ptr @g_array_append_vals(ptr noundef %.0159.i.i, ptr noundef nonnull %5, i32 noundef 1) #10
+  %294 = getelementptr inbounds i8, ptr %273, i64 48
+  %295 = load ptr, ptr %294, align 8
+  %296 = call ptr @g_ptr_array_free(ptr noundef %295, i32 noundef 1) #10
+  %297 = load ptr, ptr %221, align 8
+  %298 = load ptr, ptr %273, align 8
+  %299 = call ptr @wmem_map_insert(ptr noundef %297, ptr noundef %298, ptr noundef nonnull %273) #10
+  %300 = load ptr, ptr %222, align 8
+  %301 = getelementptr inbounds i8, ptr %300, i64 8
+  %302 = load i32, ptr %301, align 8
+  %.not166.i.i = icmp eq i32 %302, 0
+  br i1 %.not166.i.i, label %.loopexit.i.i, label %269, !llvm.loop !15
 
-.loopexit.i.i:                                    ; preds = %247, %fully_qualified_name.exit.i.i, %251, %233
-  %293 = call ptr @g_ptr_array_free(ptr noundef %87, i32 noundef 1) #10
-  %294 = call ptr @g_ptr_array_free(ptr noundef %182, i32 noundef 1) #10
-  %295 = load ptr, ptr %76, align 8
-  %.not169.i.i = icmp eq ptr %295, null
-  br i1 %.not169.i.i, label %register_dtd.exit.i, label %296
+.loopexit.i.i:                                    ; preds = %257, %fully_qualified_name.exit.i.i, %261, %243
+  %303 = call ptr @g_ptr_array_free(ptr noundef %97, i32 noundef 1) #10
+  %304 = call ptr @g_ptr_array_free(ptr noundef %192, i32 noundef 1) #10
+  %305 = load ptr, ptr %86, align 8
+  %.not169.i.i = icmp eq ptr %305, null
+  br i1 %.not169.i.i, label %register_dtd.exit.i, label %306
 
-296:                                              ; preds = %.loopexit.i.i
-  %297 = getelementptr inbounds i8, ptr %76, i64 16
-  %298 = load ptr, ptr %297, align 8
-  %.not170.i.i = icmp eq ptr %298, null
-  %299 = call ptr @wmem_epan_scope() #10
-  br i1 %.not170.i.i, label %302, label %300
+306:                                              ; preds = %.loopexit.i.i
+  %307 = getelementptr inbounds i8, ptr %86, i64 16
+  %308 = load ptr, ptr %307, align 8
+  %.not170.i.i = icmp eq ptr %308, null
+  %309 = call ptr @wmem_epan_scope() #10
+  br i1 %.not170.i.i, label %312, label %310
 
-300:                                              ; preds = %296
-  %301 = load ptr, ptr %297, align 8
-  br label %302
+310:                                              ; preds = %306
+  %311 = load ptr, ptr %307, align 8
+  br label %312
 
-302:                                              ; preds = %300, %296
-  %.2.sink.i.i = phi ptr [ %301, %300 ], [ %.2.i.i, %296 ]
-  %303 = call noalias ptr @wmem_strdup(ptr noundef %299, ptr noundef %.2.sink.i.i) #10
-  %304 = call ptr @wmem_epan_scope() #10
-  %305 = load ptr, ptr %76, align 8
-  %306 = call noalias ptr @wmem_strdup(ptr noundef %304, ptr noundef %305) #10
-  store ptr %208, ptr %7, align 8
-  %307 = call ptr @g_array_append_vals(ptr noundef %.0159.i.i, ptr noundef nonnull %7, i32 noundef 1) #10
+312:                                              ; preds = %310, %306
+  %.2.sink.i.i = phi ptr [ %311, %310 ], [ %.2.i.i, %306 ]
+  %313 = call noalias ptr @wmem_strdup(ptr noundef %309, ptr noundef %.2.sink.i.i) #10
+  %314 = call ptr @wmem_epan_scope() #10
+  %315 = load ptr, ptr %86, align 8
+  %316 = call noalias ptr @wmem_strdup(ptr noundef %314, ptr noundef %315) #10
+  store ptr %218, ptr %7, align 8
+  %317 = call ptr @g_array_append_vals(ptr noundef %.0159.i.i, ptr noundef nonnull %7, i32 noundef 1) #10
+  %318 = load ptr, ptr %205, align 8
+  %319 = load ptr, ptr %215, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %1)
-  store ptr %207, ptr %1, align 8
-  %308 = load <2 x ptr>, ptr %195, align 8
-  store <2 x ptr> %308, ptr %52, align 8
-  store i32 26, ptr %53, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %54, i8 0, i64 28, i1 false)
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %55, align 8
-  store ptr null, ptr %56, align 8
+  store ptr %217, ptr %1, align 8
+  store ptr %318, ptr %58, align 8
+  store ptr %319, ptr %59, align 8
+  store i32 26, ptr %60, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %61, i8 0, i64 28, i1 false)
+  store i32 -1, ptr %62, align 8
+  store i32 0, ptr %63, align 4
+  store i32 0, ptr %64, align 8
+  store i32 -1, ptr %65, align 4
+  store ptr null, ptr %66, align 8
   call void @wmem_array_append(ptr noundef %.0158.i.i, ptr noundef nonnull %1, i32 noundef 1) #10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %1)
-  %309 = call i32 @proto_register_protocol(ptr noundef %303, ptr noundef %306, ptr noundef %306) #10
-  store i32 %309, ptr %206, align 8
-  %310 = call ptr @wmem_array_get_raw(ptr noundef %.0158.i.i) #10
-  %311 = call i32 @wmem_array_get_count(ptr noundef %.0158.i.i) #10
-  call void @proto_register_field_array(i32 noundef %309, ptr noundef %310, i32 noundef %311) #10
-  %312 = load ptr, ptr %.0159.i.i, align 8
-  %313 = getelementptr inbounds i8, ptr %.0159.i.i, i64 8
-  %314 = load i32, ptr %313, align 8
-  call void @proto_register_subtree_array(ptr noundef %312, i32 noundef %314) #10
-  %315 = getelementptr inbounds i8, ptr %76, i64 8
-  %316 = load ptr, ptr %315, align 8
-  %.not171.i.i = icmp eq ptr %316, null
-  br i1 %.not171.i.i, label %323, label %317
+  %320 = call i32 @proto_register_protocol(ptr noundef %313, ptr noundef %316, ptr noundef %316) #10
+  store i32 %320, ptr %216, align 8
+  %321 = call ptr @wmem_array_get_raw(ptr noundef %.0158.i.i) #10
+  %322 = call i32 @wmem_array_get_count(ptr noundef %.0158.i.i) #10
+  call void @proto_register_field_array(i32 noundef %320, ptr noundef %321, i32 noundef %322) #10
+  %323 = load ptr, ptr %.0159.i.i, align 8
+  %324 = getelementptr inbounds i8, ptr %.0159.i.i, i64 8
+  %325 = load i32, ptr %324, align 8
+  call void @proto_register_subtree_array(ptr noundef %323, i32 noundef %325) #10
+  %326 = getelementptr inbounds i8, ptr %86, i64 8
+  %327 = load ptr, ptr %326, align 8
+  %.not171.i.i = icmp eq ptr %327, null
+  br i1 %.not171.i.i, label %334, label %328
 
-317:                                              ; preds = %302
-  %318 = call ptr @wmem_epan_scope() #10
-  %319 = load ptr, ptr %315, align 8
-  %320 = call noalias ptr @wmem_strdup(ptr noundef %318, ptr noundef %319) #10
-  %321 = load ptr, ptr @media_types, align 8
-  %322 = call ptr @wmem_map_insert(ptr noundef %321, ptr noundef %320, ptr noundef nonnull %195) #10
-  br label %323
+328:                                              ; preds = %312
+  %329 = call ptr @wmem_epan_scope() #10
+  %330 = load ptr, ptr %326, align 8
+  %331 = call noalias ptr @wmem_strdup(ptr noundef %329, ptr noundef %330) #10
+  %332 = load ptr, ptr @media_types, align 8
+  %333 = call ptr @wmem_map_insert(ptr noundef %332, ptr noundef %331, ptr noundef nonnull %205) #10
+  br label %334
 
-323:                                              ; preds = %317, %302
-  %324 = call ptr @g_array_free(ptr noundef nonnull %.0159.i.i, i32 noundef 1) #10
+334:                                              ; preds = %328, %312
+  %335 = call ptr @g_array_free(ptr noundef nonnull %.0159.i.i, i32 noundef 1) #10
   br label %register_dtd.exit.i
 
-register_dtd.exit.i:                              ; preds = %323, %.loopexit.i.i
-  %325 = load ptr, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 40), align 8
-  %326 = load ptr, ptr %195, align 8
-  %327 = call ptr @wmem_map_insert(ptr noundef %325, ptr noundef %326, ptr noundef nonnull %195) #10
-  call void @wmem_map_foreach(ptr noundef %86, ptr noundef nonnull @free_elements, ptr noundef null) #10
-  call fastcc void @destroy_dtd_data(ptr noundef nonnull %76)
-  %328 = call ptr @wmem_epan_scope() #10
-  call void @wmem_free(ptr noundef %328, ptr noundef %.2.i.i) #10
+register_dtd.exit.i:                              ; preds = %334, %.loopexit.i.i
+  %336 = load ptr, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 40), align 8
+  %337 = load ptr, ptr %205, align 8
+  %338 = call ptr @wmem_map_insert(ptr noundef %336, ptr noundef %337, ptr noundef nonnull %205) #10
+  call void @wmem_map_foreach(ptr noundef %96, ptr noundef nonnull @free_elements, ptr noundef null) #10
+  call fastcc void @destroy_dtd_data(ptr noundef nonnull %86)
+  %339 = call ptr @wmem_epan_scope() #10
+  call void @wmem_free(ptr noundef %339, ptr noundef %.2.i.i) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %329 = load i64, ptr %37, align 8
-  %.not50.i = icmp eq i64 %329, 0
-  br i1 %.not50.i, label %.backedge.i, label %330
+  %340 = load i64, ptr %37, align 8
+  %.not50.i = icmp eq i64 %340, 0
+  br i1 %.not50.i, label %.backedge.i, label %341
 
-330:                                              ; preds = %register_dtd.exit.i
-  %331 = load ptr, ptr %35, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.69, ptr noundef %.040.i, i32 noundef 47, ptr noundef nonnull %58, ptr noundef %331) #10
+341:                                              ; preds = %register_dtd.exit.i
+  %342 = load ptr, ptr %35, align 8
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.69, ptr noundef %.040.i, i32 noundef 47, ptr noundef nonnull %68, ptr noundef %342) #10
   br label %.backedge.i
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %34
-  %332 = call ptr @g_string_free(ptr noundef %35, i32 noundef 1) #10
+  %343 = call ptr @g_string_free(ptr noundef %35, i32 noundef 1) #10
   call void @g_dir_close(ptr noundef nonnull %33) #10
-  br label %333
+  br label %344
 
-333:                                              ; preds = %._crit_edge.i, %32, %29
+344:                                              ; preds = %._crit_edge.i, %32, %29
   call void @g_free(ptr noundef %.040.i) #10
-  br label %334
+  br label %345
 
-334:                                              ; preds = %342, %333
-  %indvars.iv.i = phi i64 [ 0, %333 ], [ %indvars.iv.next.i, %342 ]
-  %335 = load ptr, ptr @media_types, align 8
-  %336 = getelementptr [149 x ptr], ptr @default_media_types, i64 0, i64 %indvars.iv.i
-  %337 = load ptr, ptr %336, align 8
-  %338 = call ptr @wmem_map_lookup(ptr noundef %335, ptr noundef %337) #10
-  %.not47.i = icmp eq ptr %338, null
-  br i1 %.not47.i, label %339, label %342
+345:                                              ; preds = %353, %344
+  %indvars.iv.i = phi i64 [ 0, %344 ], [ %indvars.iv.next.i, %353 ]
+  %346 = load ptr, ptr @media_types, align 8
+  %347 = getelementptr [149 x ptr], ptr @default_media_types, i64 0, i64 %indvars.iv.i
+  %348 = load ptr, ptr %347, align 8
+  %349 = call ptr @wmem_map_lookup(ptr noundef %346, ptr noundef %348) #10
+  %.not47.i = icmp eq ptr %349, null
+  br i1 %.not47.i, label %350, label %353
 
-339:                                              ; preds = %334
-  %340 = load ptr, ptr @media_types, align 8
-  %341 = call ptr @wmem_map_insert(ptr noundef %340, ptr noundef %337, ptr noundef nonnull @xml_ns) #10
-  br label %342
+350:                                              ; preds = %345
+  %351 = load ptr, ptr @media_types, align 8
+  %352 = call ptr @wmem_map_insert(ptr noundef %351, ptr noundef %348, ptr noundef nonnull @xml_ns) #10
+  br label %353
 
-342:                                              ; preds = %339, %334
+353:                                              ; preds = %350, %345
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 149
-  br i1 %exitcond.not.i, label %init_xml_names.exit, label %334, !llvm.loop !16
+  br i1 %exitcond.not.i, label %init_xml_names.exit, label %345, !llvm.loop !16
 
-init_xml_names.exit:                              ; preds = %342
-  %343 = load ptr, ptr @xmpli_names, align 8
-  call void @wmem_map_foreach(ptr noundef %343, ptr noundef nonnull @add_xmlpi_namespace, ptr noundef nonnull @.str.1) #10
-  %344 = call ptr @wmem_epan_scope() #10
-  call void @wmem_free(ptr noundef %344, ptr noundef nonnull %15) #10
-  %345 = load ptr, ptr @xml_ns, align 8
-  %346 = call i32 @proto_register_protocol(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %345) #10
-  store i32 %346, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
-  %347 = load ptr, ptr @hf_arr, align 8
-  %348 = call ptr @wmem_array_get_raw(ptr noundef %347) #10
-  %349 = load ptr, ptr @hf_arr, align 8
-  %350 = call i32 @wmem_array_get_count(ptr noundef %349) #10
-  call void @proto_register_field_array(i32 noundef %346, ptr noundef %348, i32 noundef %350) #10
-  %351 = load ptr, ptr @ett_arr, align 8
-  %352 = load ptr, ptr %351, align 8
-  %353 = getelementptr inbounds i8, ptr %351, i64 8
-  %354 = load i32, ptr %353, align 8
-  call void @proto_register_subtree_array(ptr noundef %352, i32 noundef %354) #10
-  %355 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
-  %356 = call ptr @expert_register_protocol(i32 noundef %355) #10
-  call void @expert_register_field_array(ptr noundef %356, ptr noundef nonnull @proto_register_xml.ei, i32 noundef 3) #10
-  %357 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
-  %358 = call ptr @prefs_register_protocol(i32 noundef %357, ptr noundef null) #10
-  call void @prefs_register_obsolete_preference(ptr noundef %358, ptr noundef nonnull @.str.26) #10
-  call void @prefs_register_obsolete_preference(ptr noundef %358, ptr noundef nonnull @.str.27) #10
-  call void @prefs_register_obsolete_preference(ptr noundef %358, ptr noundef nonnull @.str.28) #10
-  call void @prefs_register_bool_preference(ptr noundef %358, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @pref_heuristic_unicode) #10
-  call void @prefs_register_enum_preference(ptr noundef %358, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @pref_default_encoding, ptr noundef nonnull @ws_supported_mibenum_vals_character_sets_ev_array, i32 noundef 0) #10
-  %359 = load ptr, ptr @ett_arr, align 8
-  %360 = call ptr @g_array_free(ptr noundef %359, i32 noundef 1) #10
+init_xml_names.exit:                              ; preds = %353
+  %354 = load ptr, ptr @xmpli_names, align 8
+  call void @wmem_map_foreach(ptr noundef %354, ptr noundef nonnull @add_xmlpi_namespace, ptr noundef nonnull @.str.1) #10
+  %355 = call ptr @wmem_epan_scope() #10
+  call void @wmem_free(ptr noundef %355, ptr noundef nonnull %15) #10
+  %356 = load ptr, ptr @xml_ns, align 8
+  %357 = call i32 @proto_register_protocol(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef %356) #10
+  store i32 %357, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %358 = load ptr, ptr @hf_arr, align 8
+  %359 = call ptr @wmem_array_get_raw(ptr noundef %358) #10
+  %360 = load ptr, ptr @hf_arr, align 8
+  %361 = call i32 @wmem_array_get_count(ptr noundef %360) #10
+  call void @proto_register_field_array(i32 noundef %357, ptr noundef %359, i32 noundef %361) #10
+  %362 = load ptr, ptr @ett_arr, align 8
+  %363 = load ptr, ptr %362, align 8
+  %364 = getelementptr inbounds i8, ptr %362, i64 8
+  %365 = load i32, ptr %364, align 8
+  call void @proto_register_subtree_array(ptr noundef %363, i32 noundef %365) #10
+  %366 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %367 = call ptr @expert_register_protocol(i32 noundef %366) #10
+  call void @expert_register_field_array(ptr noundef %367, ptr noundef nonnull @proto_register_xml.ei, i32 noundef 3) #10
+  %368 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %369 = call ptr @prefs_register_protocol(i32 noundef %368, ptr noundef null) #10
+  call void @prefs_register_obsolete_preference(ptr noundef %369, ptr noundef nonnull @.str.26) #10
+  call void @prefs_register_obsolete_preference(ptr noundef %369, ptr noundef nonnull @.str.27) #10
+  call void @prefs_register_obsolete_preference(ptr noundef %369, ptr noundef nonnull @.str.28) #10
+  call void @prefs_register_bool_preference(ptr noundef %369, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @pref_heuristic_unicode) #10
+  call void @prefs_register_enum_preference(ptr noundef %369, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @pref_default_encoding, ptr noundef nonnull @ws_supported_mibenum_vals_character_sets_ev_array, i32 noundef 0) #10
+  %370 = load ptr, ptr @ett_arr, align 8
+  %371 = call ptr @g_array_free(ptr noundef %370, i32 noundef 1) #10
   call void @register_init_routine(ptr noundef nonnull @xml_init_protocol) #10
   call void @register_cleanup_routine(ptr noundef nonnull @xml_cleanup_protocol) #10
-  %361 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
-  %362 = call ptr @register_dissector(ptr noundef nonnull @.str.35, ptr noundef nonnull @dissect_xml, i32 noundef %361) #10
-  store ptr %362, ptr @xml_handle, align 8
-  %363 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.231, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %364 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.232, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %365 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.233, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %366 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1001, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %363, ptr noundef %365, ptr noundef %363, ptr noundef null) #10
-  %367 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %366, ptr noundef %363, ptr noundef null) #10
-  %368 = call ptr @tvbparse_quoted(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef nonnull @tvbparse_shrink_token_cb, i8 noundef signext 34, i8 noundef signext 92) #10
-  %369 = call ptr @tvbparse_quoted(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef nonnull @tvbparse_shrink_token_cb, i8 noundef signext 39, i8 noundef signext 92) #10
-  %370 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.234, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %371 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull @get_attrib_value, ptr noundef %368, ptr noundef %369, ptr noundef %370, ptr noundef %363, ptr noundef null) #10
-  %372 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.235, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %373 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_attrib, ptr noundef %364, ptr noundef %372, ptr noundef %371, ptr noundef null) #10
-  %374 = call ptr @tvbparse_some(i32 noundef -1, i32 noundef 1, i32 noundef 2147483647, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %373) #10
-  %375 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_open_tag) #10
-  %376 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.237, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_closed_tag) #10
-  %377 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %375, ptr noundef %376, ptr noundef null) #10
-  %378 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.238, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_xmlpi) #10
-  %379 = load i32, ptr @hf_comment, align 4
-  %380 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.239, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %381 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.240, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %382 = call ptr @tvbparse_until(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %381, i32 noundef 0) #10
-  %383 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef %379, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_token, ptr noundef %380, ptr noundef %382, ptr noundef null) #10
-  %384 = load i32, ptr @hf_cdatasection, align 4
-  %385 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.241, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %386 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.242, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %387 = call ptr @tvbparse_until(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %386, i32 noundef 0) #10
-  %388 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef %384, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_token, ptr noundef %385, ptr noundef %387, ptr noundef null) #10
-  %389 = load i32, ptr @hf_xmlpi, align 4
-  %390 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.243, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %391 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %374, ptr noundef %378, ptr noundef null) #10
-  %392 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %378, ptr noundef %391, ptr noundef null) #10
-  %393 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef %389, ptr noundef null, ptr noundef nonnull @before_xmpli, ptr noundef null, ptr noundef %390, ptr noundef %363, ptr noundef %392, ptr noundef null) #10
-  %394 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %395 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.61, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %396 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %397 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_untag, ptr noundef %394, ptr noundef %395, ptr noundef %367, ptr noundef %396, ptr noundef null) #10
-  %398 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %399 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.245, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %400 = call ptr @tvbparse_casestring(i32 noundef -1, ptr noundef nonnull @.str.246, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %401 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.247, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %402 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %363, ptr noundef %401, ptr noundef null) #10
-  %403 = call ptr @tvbparse_casestring(i32 noundef -1, ptr noundef nonnull @.str.248, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %404 = call ptr @tvbparse_casestring(i32 noundef -1, ptr noundef nonnull @.str.249, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %405 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %403, ptr noundef %404, ptr noundef null) #10
-  %406 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %407 = call ptr @tvbparse_until(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %406, i32 noundef 0) #10
-  %408 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef nonnull @pop_stack, ptr noundef %363, ptr noundef %405, ptr noundef %407, ptr noundef null) #10
-  %409 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %402, ptr noundef %408, ptr noundef null) #10
-  %410 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef nonnull @before_dtd_doctype, ptr noundef null, ptr noundef %398, ptr noundef %399, ptr noundef %400, ptr noundef %409, ptr noundef null) #10
-  %411 = load i32, ptr @hf_dtd_tag, align 4
-  %412 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %413 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.245, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %414 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %415 = call ptr @tvbparse_until(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %414, i32 noundef 0) #10
-  %416 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef %411, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_token, ptr noundef %412, ptr noundef %413, ptr noundef %415, ptr noundef null) #10
-  %417 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %418 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %374, ptr noundef %377, ptr noundef null) #10
-  %419 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %418, ptr noundef %377, ptr noundef null) #10
-  %420 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef nonnull @before_tag, ptr noundef null, ptr noundef %417, ptr noundef %367, ptr noundef %419, ptr noundef null) #10
-  %421 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.250, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %422 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %423 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_dtd_close, ptr noundef %421, ptr noundef %422, ptr noundef null) #10
-  %424 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.251, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  store ptr %424, ptr @want_ignore, align 8
-  %425 = call ptr @tvbparse_not_chars(i32 noundef -1000, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_token) #10
-  %426 = call ptr @tvbparse_not_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.251, ptr noundef null, ptr noundef null, ptr noundef nonnull @unrecognized_token) #10
-  %427 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %383, ptr noundef %388, ptr noundef %393, ptr noundef %397, ptr noundef %410, ptr noundef %423, ptr noundef %416, ptr noundef %420, ptr noundef %425, ptr noundef %426, ptr noundef null) #10
-  store ptr %427, ptr @want, align 8
-  %428 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %383, ptr noundef %388, ptr noundef %393, ptr noundef %410, ptr noundef %416, ptr noundef %420, ptr noundef null) #10
-  store ptr %428, ptr @want_heur, align 8
+  %372 = load i32, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 16), align 8
+  %373 = call ptr @register_dissector(ptr noundef nonnull @.str.35, ptr noundef nonnull @dissect_xml, i32 noundef %372) #10
+  store ptr %373, ptr @xml_handle, align 8
+  %374 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.231, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %375 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.232, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %376 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.233, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %377 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1001, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %374, ptr noundef %376, ptr noundef %374, ptr noundef null) #10
+  %378 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %377, ptr noundef %374, ptr noundef null) #10
+  %379 = call ptr @tvbparse_quoted(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef nonnull @tvbparse_shrink_token_cb, i8 noundef signext 34, i8 noundef signext 92) #10
+  %380 = call ptr @tvbparse_quoted(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef nonnull @tvbparse_shrink_token_cb, i8 noundef signext 39, i8 noundef signext 92) #10
+  %381 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.234, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %382 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull @get_attrib_value, ptr noundef %379, ptr noundef %380, ptr noundef %381, ptr noundef %374, ptr noundef null) #10
+  %383 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.235, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %384 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_attrib, ptr noundef %375, ptr noundef %383, ptr noundef %382, ptr noundef null) #10
+  %385 = call ptr @tvbparse_some(i32 noundef -1, i32 noundef 1, i32 noundef 2147483647, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %384) #10
+  %386 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_open_tag) #10
+  %387 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.237, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_closed_tag) #10
+  %388 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %386, ptr noundef %387, ptr noundef null) #10
+  %389 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.238, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_xmlpi) #10
+  %390 = load i32, ptr @hf_comment, align 4
+  %391 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.239, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %392 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.240, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %393 = call ptr @tvbparse_until(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %392, i32 noundef 0) #10
+  %394 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef %390, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_token, ptr noundef %391, ptr noundef %393, ptr noundef null) #10
+  %395 = load i32, ptr @hf_cdatasection, align 4
+  %396 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.241, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %397 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.242, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %398 = call ptr @tvbparse_until(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %397, i32 noundef 0) #10
+  %399 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef %395, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_token, ptr noundef %396, ptr noundef %398, ptr noundef null) #10
+  %400 = load i32, ptr @hf_xmlpi, align 4
+  %401 = call ptr @tvbparse_string(i32 noundef -1, ptr noundef nonnull @.str.243, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %402 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %385, ptr noundef %389, ptr noundef null) #10
+  %403 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %389, ptr noundef %402, ptr noundef null) #10
+  %404 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef %400, ptr noundef null, ptr noundef nonnull @before_xmpli, ptr noundef null, ptr noundef %401, ptr noundef %374, ptr noundef %403, ptr noundef null) #10
+  %405 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %406 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.61, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %407 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %408 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_untag, ptr noundef %405, ptr noundef %406, ptr noundef %378, ptr noundef %407, ptr noundef null) #10
+  %409 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %410 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.245, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %411 = call ptr @tvbparse_casestring(i32 noundef -1, ptr noundef nonnull @.str.246, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %412 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.247, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %413 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %374, ptr noundef %412, ptr noundef null) #10
+  %414 = call ptr @tvbparse_casestring(i32 noundef -1, ptr noundef nonnull @.str.248, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %415 = call ptr @tvbparse_casestring(i32 noundef -1, ptr noundef nonnull @.str.249, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %416 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %414, ptr noundef %415, ptr noundef null) #10
+  %417 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %418 = call ptr @tvbparse_until(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %417, i32 noundef 0) #10
+  %419 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef nonnull @pop_stack, ptr noundef %374, ptr noundef %416, ptr noundef %418, ptr noundef null) #10
+  %420 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %413, ptr noundef %419, ptr noundef null) #10
+  %421 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef nonnull @before_dtd_doctype, ptr noundef null, ptr noundef %409, ptr noundef %410, ptr noundef %411, ptr noundef %420, ptr noundef null) #10
+  %422 = load i32, ptr @hf_dtd_tag, align 4
+  %423 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %424 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.245, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %425 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %426 = call ptr @tvbparse_until(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %425, i32 noundef 0) #10
+  %427 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef %422, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_token, ptr noundef %423, ptr noundef %424, ptr noundef %426, ptr noundef null) #10
+  %428 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %429 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %385, ptr noundef %388, ptr noundef null) #10
+  %430 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %429, ptr noundef %388, ptr noundef null) #10
+  %431 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef nonnull @before_tag, ptr noundef null, ptr noundef %428, ptr noundef %378, ptr noundef %430, ptr noundef null) #10
+  %432 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.250, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %433 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %434 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_dtd_close, ptr noundef %432, ptr noundef %433, ptr noundef null) #10
+  %435 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.251, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  store ptr %435, ptr @want_ignore, align 8
+  %436 = call ptr @tvbparse_not_chars(i32 noundef -1000, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef nonnull @after_token) #10
+  %437 = call ptr @tvbparse_not_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.251, ptr noundef null, ptr noundef null, ptr noundef nonnull @unrecognized_token) #10
+  %438 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %394, ptr noundef %399, ptr noundef %404, ptr noundef %408, ptr noundef %421, ptr noundef %434, ptr noundef %427, ptr noundef %431, ptr noundef %436, ptr noundef %437, ptr noundef null) #10
+  store ptr %438, ptr @want, align 8
+  %439 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %394, ptr noundef %399, ptr noundef %404, ptr noundef %421, ptr noundef %427, ptr noundef %431, ptr noundef null) #10
+  store ptr %439, ptr @want_heur, align 8
   ret void
 }
 
@@ -1699,20 +1720,26 @@ define internal void @add_xmlpi_namespace(ptr nocapture readnone %0, ptr noundef
   %16 = getelementptr inbounds i8, ptr %4, i64 28
   %17 = getelementptr inbounds i8, ptr %4, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %16, i8 0, i64 28, i1 false)
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 72
-  store ptr null, ptr %18, align 8
+  store i32 -1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 60
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %4, i64 64
+  store i32 0, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 68
+  store i32 -1, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %4, i64 72
+  store ptr null, ptr %21, align 8
   call void @wmem_array_append(ptr noundef %11, ptr noundef nonnull %4, i32 noundef 1) #10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  %19 = load ptr, ptr @ett_arr, align 8
-  %20 = call ptr @g_array_append_vals(ptr noundef %19, ptr noundef nonnull %5, i32 noundef 1) #10
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %9, ptr %21, align 8
-  %22 = load ptr, ptr @hf_arr, align 8
-  store ptr %22, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
-  %24 = load ptr, ptr %23, align 8
-  call void @wmem_map_foreach(ptr noundef %24, ptr noundef nonnull @add_xml_attribute_names, ptr noundef nonnull %6) #10
+  %22 = load ptr, ptr @ett_arr, align 8
+  %23 = call ptr @g_array_append_vals(ptr noundef %22, ptr noundef nonnull %5, i32 noundef 1) #10
+  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %9, ptr %24, align 8
+  %25 = load ptr, ptr @hf_arr, align 8
+  store ptr %25, ptr %6, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = load ptr, ptr %26, align 8
+  call void @wmem_map_foreach(ptr noundef %27, ptr noundef nonnull @add_xml_attribute_names, ptr noundef nonnull %6) #10
   ret void
 }
 
@@ -1766,7 +1793,7 @@ define internal fastcc ptr @make_xml_hier(ptr noundef %0, ptr nocapture noundef 
   %13 = load ptr, ptr %1, align 8
   %14 = tail call i32 @g_str_equal(ptr noundef %0, ptr noundef %13) #10
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %84
+  br i1 %.not, label %15, label %90
 
 15:                                               ; preds = %8
   %16 = tail call ptr @wmem_map_lookup(ptr noundef %2, ptr noundef %0) #10
@@ -1788,7 +1815,7 @@ define internal fastcc ptr @make_xml_hier(ptr noundef %0, ptr nocapture noundef 
 
 20:                                               ; preds = %15
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %4, ptr noundef nonnull @.str.72, ptr noundef %0) #10
-  br label %84
+  br label %90
 
 21:                                               ; preds = %.lr.ph.split, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %21 ]
@@ -1804,7 +1831,7 @@ define internal fastcc ptr @make_xml_hier(ptr noundef %0, ptr nocapture noundef 
 
 ._crit_edge:                                      ; preds = %21
   %26 = icmp eq i32 %spec.select, 0
-  br i1 %26, label %._crit_edge.thread, label %84
+  br i1 %26, label %._crit_edge.thread, label %90
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %27 = tail call ptr @wmem_epan_scope() #10
@@ -1846,81 +1873,93 @@ fully_qualified_name.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %46 = getelementptr inbounds i8, ptr %10, i64 28
   %47 = getelementptr inbounds i8, ptr %10, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %46, i8 0, i64 28, i1 false)
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %10, i64 72
-  store ptr null, ptr %48, align 8
+  store i32 -1, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %10, i64 60
+  store i32 0, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %10, i64 64
+  store i32 0, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %10, i64 68
+  store i32 -1, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %10, i64 72
+  store ptr null, ptr %51, align 8
   call void @wmem_array_append(ptr noundef %5, ptr noundef nonnull %10, i32 noundef 1) #10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10)
-  %49 = getelementptr inbounds i8, ptr %38, i64 20
-  %50 = call ptr @wmem_epan_scope() #10
-  %51 = call noalias ptr @wmem_strdup(ptr noundef %50, ptr noundef %0) #10
+  %52 = getelementptr inbounds i8, ptr %38, i64 20
+  %53 = call ptr @wmem_epan_scope() #10
+  %54 = call noalias ptr @wmem_strdup(ptr noundef %53, ptr noundef %0) #10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9)
-  store ptr %49, ptr %9, align 8
-  %52 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %37, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %9, i64 24
-  store i32 26, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %9, i64 28
-  %56 = getelementptr inbounds i8, ptr %9, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %55, i8 0, i64 28, i1 false)
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %9, i64 72
-  store ptr null, ptr %57, align 8
+  store ptr %52, ptr %9, align 8
+  %55 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %54, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %37, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %9, i64 24
+  store i32 26, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %9, i64 28
+  %59 = getelementptr inbounds i8, ptr %9, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %58, i8 0, i64 28, i1 false)
+  store i32 -1, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %9, i64 60
+  store i32 0, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %9, i64 64
+  store i32 0, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %9, i64 68
+  store i32 -1, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %9, i64 72
+  store ptr null, ptr %63, align 8
   call void @wmem_array_append(ptr noundef %5, ptr noundef nonnull %9, i32 noundef 1) #10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9)
-  %58 = getelementptr inbounds i8, ptr %38, i64 24
-  store ptr %58, ptr %11, align 8
-  %59 = call ptr @g_array_append_vals(ptr noundef %6, ptr noundef nonnull %11, i32 noundef 1) #10
-  %60 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %37, ptr %60, align 8
+  %64 = getelementptr inbounds i8, ptr %38, i64 24
+  store ptr %64, ptr %11, align 8
+  %65 = call ptr @g_array_append_vals(ptr noundef %6, ptr noundef nonnull %11, i32 noundef 1) #10
+  %66 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %37, ptr %66, align 8
   store ptr %5, ptr %12, align 8
-  %61 = getelementptr inbounds i8, ptr %38, i64 32
-  %62 = load ptr, ptr %61, align 8
-  call void @wmem_map_foreach(ptr noundef %62, ptr noundef nonnull @add_xml_attribute_names, ptr noundef nonnull %12) #10
-  %63 = getelementptr inbounds i8, ptr %38, i64 48
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  %66 = load i32, ptr %65, align 8
-  %.not6168 = icmp eq i32 %66, 0
+  %67 = getelementptr inbounds i8, ptr %38, i64 32
+  %68 = load ptr, ptr %67, align 8
+  call void @wmem_map_foreach(ptr noundef %68, ptr noundef nonnull @add_xml_attribute_names, ptr noundef nonnull %12) #10
+  %69 = getelementptr inbounds i8, ptr %38, i64 48
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = load i32, ptr %71, align 8
+  %.not6168 = icmp eq i32 %72, 0
   br i1 %.not6168, label %._crit_edge70, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %fully_qualified_name.exit
-  %67 = getelementptr inbounds i8, ptr %38, i64 40
-  br label %68
+  %73 = getelementptr inbounds i8, ptr %38, i64 40
+  br label %74
 
-68:                                               ; preds = %.lr.ph69, %79
-  %69 = phi ptr [ %64, %.lr.ph69 ], [ %80, %79 ]
-  %70 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %69, i32 noundef 0) #10
+74:                                               ; preds = %.lr.ph69, %85
+  %75 = phi ptr [ %70, %.lr.ph69 ], [ %86, %85 ]
+  %76 = call ptr @g_ptr_array_remove_index(ptr noundef nonnull %75, i32 noundef 0) #10
   call void @g_ptr_array_add(ptr noundef nonnull %3, ptr noundef %0) #10
-  %71 = call fastcc ptr @make_xml_hier(ptr noundef %70, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %72 = load i32, ptr %17, align 8
-  %73 = add i32 %72, -1
-  %74 = call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %3, i32 noundef %73) #10
-  %.not62 = icmp eq ptr %71, null
-  br i1 %.not62, label %79, label %75
+  %77 = call fastcc ptr @make_xml_hier(ptr noundef %76, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %78 = load i32, ptr %17, align 8
+  %79 = add i32 %78, -1
+  %80 = call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %3, i32 noundef %79) #10
+  %.not62 = icmp eq ptr %77, null
+  br i1 %.not62, label %85, label %81
 
-75:                                               ; preds = %68
-  %76 = load ptr, ptr %67, align 8
-  %77 = load ptr, ptr %71, align 8
-  %78 = call ptr @wmem_map_insert(ptr noundef %76, ptr noundef %77, ptr noundef nonnull %71) #10
-  br label %79
+81:                                               ; preds = %74
+  %82 = load ptr, ptr %73, align 8
+  %83 = load ptr, ptr %77, align 8
+  %84 = call ptr @wmem_map_insert(ptr noundef %82, ptr noundef %83, ptr noundef nonnull %77) #10
+  br label %85
 
-79:                                               ; preds = %75, %68
-  %80 = load ptr, ptr %63, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
-  %82 = load i32, ptr %81, align 8
-  %.not61 = icmp eq i32 %82, 0
-  br i1 %.not61, label %._crit_edge70, label %68, !llvm.loop !22
+85:                                               ; preds = %81, %74
+  %86 = load ptr, ptr %69, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %88 = load i32, ptr %87, align 8
+  %.not61 = icmp eq i32 %88, 0
+  br i1 %.not61, label %._crit_edge70, label %74, !llvm.loop !22
 
-._crit_edge70:                                    ; preds = %79, %fully_qualified_name.exit
-  %.lcssa = phi ptr [ %64, %fully_qualified_name.exit ], [ %80, %79 ]
-  %83 = call ptr @g_ptr_array_free(ptr noundef nonnull %.lcssa, i32 noundef 1) #10
-  store ptr null, ptr %63, align 8
-  br label %84
+._crit_edge70:                                    ; preds = %85, %fully_qualified_name.exit
+  %.lcssa = phi ptr [ %70, %fully_qualified_name.exit ], [ %86, %85 ]
+  %89 = call ptr @g_ptr_array_free(ptr noundef nonnull %.lcssa, i32 noundef 1) #10
+  store ptr null, ptr %69, align 8
+  br label %90
 
-84:                                               ; preds = %._crit_edge, %8, %._crit_edge70, %20
+90:                                               ; preds = %._crit_edge, %8, %._crit_edge70, %20
   %.0 = phi ptr [ %38, %._crit_edge70 ], [ null, %20 ], [ null, %8 ], [ null, %._crit_edge ]
   ret ptr %.0
 }
@@ -1944,9 +1983,15 @@ define internal void @add_xml_attribute_names(ptr noundef %0, ptr noundef %1, pt
   %13 = getelementptr inbounds i8, ptr %4, i64 28
   %14 = getelementptr inbounds i8, ptr %4, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %13, i8 0, i64 28, i1 false)
-  store <4 x i32> <i32 -1, i32 0, i32 0, i32 -1>, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
-  store ptr null, ptr %15, align 8
+  store i32 -1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %4, i64 60
+  store i32 0, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %4, i64 64
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %4, i64 68
+  store i32 -1, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %4, i64 72
+  store ptr null, ptr %18, align 8
   call void @wmem_array_append(ptr noundef %9, ptr noundef nonnull %4, i32 noundef 1) #10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   ret void
@@ -2213,15 +2258,18 @@ insert_xml_frame.exit:                            ; preds = %75, %76
   store ptr %47, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %58, i64 72
   store ptr null, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %58, i64 104
-  %86 = load <2 x i32>, ptr %51, align 8
-  store <2 x i32> %86, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %58, i64 96
-  store ptr null, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %10, i64 112
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %58, i64 112
-  store ptr %89, ptr %90, align 8
+  %85 = load i32, ptr %51, align 8
+  %86 = getelementptr inbounds i8, ptr %58, i64 104
+  store i32 %85, ptr %86, align 8
+  %87 = load i32, ptr %53, align 4
+  %88 = getelementptr inbounds i8, ptr %58, i64 108
+  store i32 %87, ptr %88, align 4
+  %89 = getelementptr inbounds i8, ptr %58, i64 96
+  store ptr null, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %10, i64 112
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %58, i64 112
+  store ptr %91, ptr %92, align 8
   ret void
 }
 
@@ -2367,7 +2415,7 @@ define internal void @after_token(ptr nocapture noundef readonly %0, ptr nocaptu
   %33 = load i32, ptr %27, align 4
   %34 = tail call ptr @tvb_format_text(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33) #10
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %29, ptr noundef nonnull @.str.252, ptr noundef %34) #10
-  br i1 %.not42, label %35, label %66
+  br i1 %.not42, label %35, label %68
 
 35:                                               ; preds = %20
   %36 = tail call ptr @wmem_packet_scope() #10
@@ -2414,18 +2462,21 @@ insert_xml_frame.exit:                            ; preds = %50, %51
   store ptr %29, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %37, i64 72
   store ptr null, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %37, i64 104
-  %61 = load <2 x i32>, ptr %25, align 8
-  store <2 x i32> %61, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %37, i64 96
-  store ptr null, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %10, i64 112
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %37, i64 112
-  store ptr %64, ptr %65, align 8
-  br label %66
+  %60 = load i32, ptr %25, align 8
+  %61 = getelementptr inbounds i8, ptr %37, i64 104
+  store i32 %60, ptr %61, align 8
+  %62 = load i32, ptr %27, align 4
+  %63 = getelementptr inbounds i8, ptr %37, i64 108
+  store i32 %62, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %37, i64 96
+  store ptr null, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %10, i64 112
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %37, i64 112
+  store ptr %66, ptr %67, align 8
+  br label %68
 
-66:                                               ; preds = %insert_xml_frame.exit, %20
+68:                                               ; preds = %insert_xml_frame.exit, %20
   ret void
 }
 
@@ -2523,15 +2574,18 @@ insert_xml_frame.exit:                            ; preds = %57, %58
   store ptr %36, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %47, i64 72
   store ptr %45, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %47, i64 104
-  %68 = load <2 x i32>, ptr %32, align 8
-  store <2 x i32> %68, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %47, i64 96
-  store ptr %24, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %10, i64 112
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %47, i64 112
-  store ptr %71, ptr %72, align 8
+  %67 = load i32, ptr %32, align 8
+  %68 = getelementptr inbounds i8, ptr %47, i64 104
+  store i32 %67, ptr %68, align 8
+  %69 = load i32, ptr %34, align 4
+  %70 = getelementptr inbounds i8, ptr %47, i64 108
+  store i32 %69, ptr %70, align 4
+  %71 = getelementptr inbounds i8, ptr %47, i64 96
+  store ptr %24, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %10, i64 112
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %47, i64 112
+  store ptr %73, ptr %74, align 8
   tail call void @g_ptr_array_add(ptr noundef nonnull %0, ptr noundef nonnull %47) #10
   ret void
 }
@@ -2682,15 +2736,18 @@ insert_xml_frame.exit:                            ; preds = %57, %58
   %67 = tail call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %66) #10
   %68 = getelementptr inbounds i8, ptr %42, i64 72
   store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %42, i64 104
-  %70 = load <2 x i32>, ptr %36, align 8
-  store <2 x i32> %70, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %42, i64 96
-  store ptr null, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %10, i64 112
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %42, i64 112
-  store ptr %73, ptr %74, align 8
+  %69 = load i32, ptr %36, align 8
+  %70 = getelementptr inbounds i8, ptr %42, i64 104
+  store i32 %69, ptr %70, align 8
+  %71 = load i32, ptr %38, align 4
+  %72 = getelementptr inbounds i8, ptr %42, i64 108
+  store i32 %71, ptr %72, align 4
+  %73 = getelementptr inbounds i8, ptr %42, i64 96
+  store ptr null, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %10, i64 112
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %42, i64 112
+  store ptr %75, ptr %76, align 8
   tail call void @g_ptr_array_add(ptr noundef nonnull %0, ptr noundef nonnull %42) #10
   ret void
 }
@@ -2888,15 +2945,18 @@ insert_xml_frame.exit:                            ; preds = %103, %104
   store ptr %78, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %93, i64 72
   store ptr %91, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %93, i64 104
-  %114 = load <2 x i32>, ptr %74, align 8
-  store <2 x i32> %114, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %93, i64 96
-  store ptr %.068, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %10, i64 112
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %93, i64 112
-  store ptr %117, ptr %118, align 8
+  %113 = load i32, ptr %74, align 8
+  %114 = getelementptr inbounds i8, ptr %93, i64 104
+  store i32 %113, ptr %114, align 8
+  %115 = load i32, ptr %76, align 4
+  %116 = getelementptr inbounds i8, ptr %93, i64 108
+  store i32 %115, ptr %116, align 4
+  %117 = getelementptr inbounds i8, ptr %93, i64 96
+  store ptr %.068, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %10, i64 112
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %93, i64 112
+  store ptr %119, ptr %120, align 8
   tail call void @g_ptr_array_add(ptr noundef nonnull %0, ptr noundef nonnull %93) #10
   ret void
 }

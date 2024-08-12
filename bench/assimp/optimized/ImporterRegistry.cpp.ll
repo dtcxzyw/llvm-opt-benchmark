@@ -3065,7 +3065,13 @@ invoke.cont140:                                   ; preds = %_ZNSt6vectorIPN6Ass
   %readMaterials.i.i = getelementptr inbounds i8, ptr %call138, i64 75
   %useSkeleton.i.i = getelementptr inbounds i8, ptr %call138, i64 81
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %readMaterials.i.i, i8 1, i64 6, i1 false)
-  store <4 x i8> <i8 0, i8 1, i8 1, i8 0>, ptr %useSkeleton.i.i, align 1
+  store i8 0, ptr %useSkeleton.i.i, align 1
+  %preservePivots.i.i = getelementptr inbounds i8, ptr %call138, i64 82
+  store i8 1, ptr %preservePivots.i.i, align 1
+  %optimizeEmptyAnimationCurves.i.i = getelementptr inbounds i8, ptr %call138, i64 83
+  store i8 1, ptr %optimizeEmptyAnimationCurves.i.i, align 1
+  %useLegacyEmbeddedTextureNaming.i.i = getelementptr inbounds i8, ptr %call138, i64 84
+  store i8 0, ptr %useLegacyEmbeddedTextureNaming.i.i, align 1
   %removeEmptyBones.i.i = getelementptr inbounds i8, ptr %call138, i64 85
   store i8 1, ptr %removeEmptyBones.i.i, align 1
   %convertToMeters.i.i = getelementptr inbounds i8, ptr %call138, i64 86

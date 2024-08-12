@@ -3894,9 +3894,13 @@ if.then144:                                       ; preds = %land.lhs.true.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macoffset.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macendoffset.i)
   %sent_tickets.i = getelementptr inbounds i8, ptr %s, i64 5304
-  %77 = load <2 x i64>, ptr %sent_tickets.i, align 8
-  %78 = add <2 x i64> %77, <i64 1, i64 1>
-  store <2 x i64> %78, ptr %sent_tickets.i, align 8
+  %77 = load i64, ptr %sent_tickets.i, align 8
+  %inc.i = add i64 %77, 1
+  store i64 %inc.i, ptr %sent_tickets.i, align 8
+  %next_ticket_nonce.i = getelementptr inbounds i8, ptr %s, i64 5312
+  %78 = load i64, ptr %next_ticket_nonce.i, align 8
+  %inc1.i = add i64 %78, 1
+  store i64 %inc1.i, ptr %next_ticket_nonce.i, align 8
   %extra_tickets_expected.i = getelementptr inbounds i8, ptr %s, i64 2532
   %79 = load i32, ptr %extra_tickets_expected.i, align 4
   %cmp.i75 = icmp sgt i32 %79, 0
@@ -3931,9 +3935,13 @@ if.then166:                                       ; preds = %land.lhs.true154
 
 if.end170:                                        ; preds = %if.then166
   %sent_tickets.i78 = getelementptr inbounds i8, ptr %s, i64 5304
-  %84 = load <2 x i64>, ptr %sent_tickets.i78, align 8
-  %85 = add <2 x i64> %84, <i64 1, i64 1>
-  store <2 x i64> %85, ptr %sent_tickets.i78, align 8
+  %84 = load i64, ptr %sent_tickets.i78, align 8
+  %inc.i79 = add i64 %84, 1
+  store i64 %inc.i79, ptr %sent_tickets.i78, align 8
+  %next_ticket_nonce.i80 = getelementptr inbounds i8, ptr %s, i64 5312
+  %85 = load i64, ptr %next_ticket_nonce.i80, align 8
+  %inc1.i81 = add i64 %85, 1
+  store i64 %inc1.i81, ptr %next_ticket_nonce.i80, align 8
   %extra_tickets_expected.i82 = getelementptr inbounds i8, ptr %s, i64 2532
   %86 = load i32, ptr %extra_tickets_expected.i82, align 4
   %cmp.i83 = icmp sgt i32 %86, 0

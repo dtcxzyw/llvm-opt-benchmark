@@ -136,10 +136,13 @@ define internal void @pgoutput_startup(ptr nocapture noundef %0, ptr nocapture n
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %16 = getelementptr inbounds i8, ptr %6, i64 40
+  store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 41
+  store i8 102, ptr %17, align 1
   %18 = getelementptr inbounds i8, ptr %6, i64 42
+  store i8 0, ptr %18, align 2
   %19 = getelementptr inbounds i8, ptr %6, i64 43
-  store <4 x i8> <i8 0, i8 102, i8 0, i8 0>, ptr %16, align 8
+  store i8 0, ptr %19, align 1
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %._crit_edge.thread.i, label %.lr.ph.i
 

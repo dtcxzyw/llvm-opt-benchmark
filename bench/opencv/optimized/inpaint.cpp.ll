@@ -610,9 +610,9 @@ declare void @_ZN2cv16setMouseCallbackERKNSt7__cxx1112basic_stringIcSt11char_tra
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::_InputOutputArray", align 8
-  %7 = alloca %"class.cv::Scalar_", align 16
+  %7 = alloca %"class.cv::Scalar_", align 8
   %8 = alloca %"class.cv::_InputOutputArray", align 8
-  %9 = alloca %"class.cv::Scalar_", align 16
+  %9 = alloca %"class.cv::Scalar_", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.cv::_InputArray", align 8
@@ -624,10 +624,10 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
 
 15:                                               ; preds = %5
   store i64 -1, ptr @prevPt, align 8
-  br label %39
+  br label %43
 
 16:                                               ; preds = %5
-  switch i32 %0, label %39 [
+  switch i32 %0, label %43 [
     i32 1, label %17
     i32 0, label %18
   ]
@@ -638,7 +638,7 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   %.sroa.043.0.insert.ext = zext i32 %1 to i64
   %.sroa.043.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.043.0.insert.ext
   store i64 %.sroa.043.0.insert.insert, ptr @prevPt, align 8
-  br label %39
+  br label %43
 
 18:                                               ; preds = %16
   %19 = load i32, ptr @prevPt, align 8
@@ -669,58 +669,66 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   store i64 0, ptr %24, align 8
   store i32 50397184, ptr %6, align 8
   store ptr @inpaintMask, ptr %23, align 8
-  store <2 x double> <double 2.550000e+02, double 2.550000e+02>, ptr %7, align 16, !alias.scope !7
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
-  store <2 x double> <double 2.550000e+02, double 2.550000e+02>, ptr %25, align 16, !alias.scope !7
+  store double 2.550000e+02, ptr %7, align 8, !alias.scope !7
+  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  store double 2.550000e+02, ptr %25, align 8, !alias.scope !7
+  %26 = getelementptr inbounds i8, ptr %7, i64 16
+  store double 2.550000e+02, ptr %26, align 8, !alias.scope !7
+  %27 = getelementptr inbounds i8, ptr %7, i64 24
+  store double 2.550000e+02, ptr %27, align 8, !alias.scope !7
   call void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %.sroa.03.0.copyload, i64 %.sroa.0.0.insert.insert22.pre-phi, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 5, i32 noundef 8, i32 noundef 0)
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 16
-  store i64 0, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds i8, ptr %8, i64 16
+  store i64 0, ptr %29, align 8
   store i32 50397184, ptr %8, align 8
-  store ptr @img, ptr %26, align 8
+  store ptr @img, ptr %28, align 8
   %.sroa.01.0.copyload = load i64, ptr @prevPt, align 8
-  store <2 x double> <double 2.550000e+02, double 2.550000e+02>, ptr %9, align 16, !alias.scope !10
-  %28 = getelementptr inbounds i8, ptr %9, i64 16
-  store <2 x double> <double 2.550000e+02, double 2.550000e+02>, ptr %28, align 16, !alias.scope !10
+  store double 2.550000e+02, ptr %9, align 8, !alias.scope !10
+  %30 = getelementptr inbounds i8, ptr %9, i64 8
+  store double 2.550000e+02, ptr %30, align 8, !alias.scope !10
+  %31 = getelementptr inbounds i8, ptr %9, i64 16
+  store double 2.550000e+02, ptr %31, align 8, !alias.scope !10
+  %32 = getelementptr inbounds i8, ptr %9, i64 24
+  store double 2.550000e+02, ptr %32, align 8, !alias.scope !10
   call void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 %.sroa.01.0.copyload, i64 %.sroa.0.0.insert.insert22.pre-phi, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 5, i32 noundef 8, i32 noundef 0)
   store i64 %.sroa.0.0.insert.insert22.pre-phi, ptr @prevPt, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %29 unwind label %34
+          to label %33 unwind label %38
 
-29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %12, i64 16
-  store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %12, i64 20
-  store i32 0, ptr %31, align 4
+33:                                               ; preds = %22
+  %34 = getelementptr inbounds i8, ptr %12, i64 16
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %12, i64 20
+  store i32 0, ptr %35, align 4
   store i32 16842752, ptr %12, align 8
-  %32 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr @img, ptr %32, align 8
+  %36 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @img, ptr %36, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %33 unwind label %36
+          to label %37 unwind label %40
 
-33:                                               ; preds = %29
+37:                                               ; preds = %33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #8
-  br label %39
+  br label %43
 
-34:                                               ; preds = %22
-  %35 = landingpad { ptr, i32 }
+38:                                               ; preds = %22
+  %39 = landingpad { ptr, i32 }
           cleanup
-  br label %38
+  br label %42
 
-36:                                               ; preds = %29
-  %37 = landingpad { ptr, i32 }
+40:                                               ; preds = %33
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #8
-  br label %38
+  br label %42
 
-38:                                               ; preds = %36, %34
-  %.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
+42:                                               ; preds = %40, %38
+  %.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #8
   resume { ptr, i32 } %.pn.pn
 
-39:                                               ; preds = %16, %17, %33, %15
+43:                                               ; preds = %16, %17, %37, %15
   ret void
 }
 

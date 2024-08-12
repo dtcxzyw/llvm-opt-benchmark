@@ -5731,7 +5731,7 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_110ZlibStream4InitERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
 entry:
-  %ref.tmp170 = alloca %"class.std::vector.273", align 16
+  %ref.tmp170 = alloca %"class.std::vector.273", align 8
   %ref.tmp180 = alloca %"class.std::allocator.275", align 1
   %length_.i1000 = getelementptr inbounds i8, ptr %args, i64 16
   %0 = load i32, ptr %length_.i1000, align 8
@@ -6071,15 +6071,18 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.end.i, %if.then.
   %call179 = tail call noundef i64 @_ZN4node6Buffer6LengthEN2v85LocalINS1_5ValueEEE(ptr %retval.i.sroa.0.0) #22
   %add.ptr = getelementptr inbounds i8, ptr %call169, i64 %call179
   call void @_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp170, ptr noundef %call169, ptr noundef %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp180)
-  %76 = load <2 x ptr>, ptr %ref.tmp170, align 16
+  %76 = load ptr, ptr %ref.tmp170, align 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp170, i64 8
+  %77 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp170, i64 16
-  %77 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp170, i8 0, i64 24, i1 false)
+  %78 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp170, i8 0, i64 24, i1 false)
   br label %if.end182
 
 if.end182:                                        ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit224
-  %dictionary.sroa.8.0 = phi ptr [ %77, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit224 ]
-  %78 = phi <2 x ptr> [ %76, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ zeroinitializer, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit224 ]
+  %dictionary.sroa.6.0 = phi ptr [ %77, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit224 ]
+  %dictionary.sroa.8.0 = phi ptr [ %78, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit224 ]
+  %dictionary.sroa.0.0 = phi ptr [ %76, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit224 ]
   %write_result_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 216
   store ptr %call125, ptr %write_result_.i, align 8
   %persistent_handle_.i.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 8
@@ -6211,8 +6214,10 @@ if.end86.sink.split.i:                            ; preds = %if.then84.i, %if.th
 if.end86.i:                                       ; preds = %if.end86.sink.split.i, %if.end78.i
   %dictionary_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 328
   %91 = load ptr, ptr %dictionary_.i, align 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 336
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 344
-  store <2 x ptr> %78, ptr %dictionary_.i, align 8
+  store ptr %dictionary.sroa.0.0, ptr %dictionary_.i, align 8
+  store ptr %dictionary.sroa.6.0, ptr %_M_finish.i.i.i.i.i, align 8
   store ptr %dictionary.sroa.8.0, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %91, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4node12_GLOBAL__N_111ZlibContext4InitEiiiiOSt6vectorIhSaIhEE.exit, label %if.then.i.i.i.i.i.i

@@ -54,7 +54,7 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
           to label %15 unwind label %16
 
 15:                                               ; preds = %14
-  switch i32 %2, label %103 [
+  switch i32 %2, label %91 [
     i32 1, label %.preheader
     i32 2, label %.preheader122
     i32 3, label %.preheader124
@@ -63,13 +63,13 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
 16:                                               ; preds = %14, %13, %12, %4
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %119
+  br label %107
 
-.preheader:                                       ; preds = %15, %45
-  %indvars.iv143 = phi i64 [ %indvars.iv.next144, %45 ], [ 0, %15 ]
-  %.075137 = phi i8 [ %.176, %45 ], [ 0, %15 ]
-  %.077136 = phi i8 [ %.178, %45 ], [ 0, %15 ]
-  %.084135 = phi double [ %.185, %45 ], [ 0.000000e+00, %15 ]
+.preheader:                                       ; preds = %15, %42
+  %indvars.iv143 = phi i64 [ %indvars.iv.next144, %42 ], [ 0, %15 ]
+  %.075137 = phi i8 [ %.176, %42 ], [ 0, %15 ]
+  %.077136 = phi i8 [ %.178, %42 ], [ 0, %15 ]
+  %.084135 = phi double [ %.185, %42 ], [ 0.000000e+00, %15 ]
   %18 = getelementptr inbounds [7 x double], ptr %6, i64 0, i64 %indvars.iv143
   %19 = load double, ptr %18, align 8
   %20 = call double @llvm.fabs.f64(double %19)
@@ -83,185 +83,183 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %26 = fcmp ogt double %20, 1.000000e-05
   %27 = fcmp ogt double %23, 1.000000e-05
   %or.cond = select i1 %26, i1 %27, i1 false
-  br i1 %or.cond, label %28, label %45
+  br i1 %or.cond, label %28, label %42
 
 28:                                               ; preds = %.preheader
-  %29 = insertelement <2 x double> poison, double %22, i64 0
-  %30 = insertelement <2 x double> %29, double %19, i64 1
-  %31 = fcmp ogt <2 x double> %30, zeroinitializer
-  %32 = fcmp olt <2 x double> %30, zeroinitializer
+  %29 = fcmp ogt double %22, 0.000000e+00
+  %30 = fcmp olt double %22, 0.000000e+00
+  %.115 = select i1 %30, double -1.000000e+00, double 0.000000e+00
+  %.097 = select i1 %29, double 1.000000e+00, double %.115
+  %31 = fcmp ogt double %19, 0.000000e+00
+  %32 = fcmp olt double %19, 0.000000e+00
+  %. = select i1 %32, double -1.000000e+00, double 0.000000e+00
+  %.094 = select i1 %31, double 1.000000e+00, double %.
   %33 = call double @log10(double noundef %20) #9
-  %34 = call double @log10(double noundef %23) #9
-  %35 = select <2 x i1> %32, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> zeroinitializer
-  %36 = select <2 x i1> %31, <2 x double> <double 1.000000e+00, double 1.000000e+00>, <2 x double> %35
-  %37 = insertelement <2 x double> poison, double %34, i64 0
-  %38 = insertelement <2 x double> %37, double %33, i64 1
-  %39 = fmul <2 x double> %36, %38
-  %40 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %39
-  %shift = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %41 = fsub <2 x double> %40, %shift
-  %42 = extractelement <2 x double> %41, i64 0
-  %43 = call double @llvm.fabs.f64(double %42)
-  %44 = fadd double %.084135, %43
-  br label %45
+  %34 = fmul double %.094, %33
+  %35 = call double @log10(double noundef %23) #9
+  %36 = fmul double %.097, %35
+  %37 = fdiv double 1.000000e+00, %36
+  %38 = fdiv double 1.000000e+00, %34
+  %39 = fsub double %37, %38
+  %40 = call double @llvm.fabs.f64(double %39)
+  %41 = fadd double %.084135, %40
+  br label %42
 
-45:                                               ; preds = %.preheader, %28
-  %.185 = phi double [ %44, %28 ], [ %.084135, %.preheader ]
+42:                                               ; preds = %.preheader, %28
+  %.185 = phi double [ %41, %28 ], [ %.084135, %.preheader ]
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next144, 7
   br i1 %exitcond145.not, label %.loopexit, label %.preheader, !llvm.loop !4
 
-.preheader122:                                    ; preds = %15, %72
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %72 ], [ 0, %15 ]
-  %.3133 = phi i8 [ %.4, %72 ], [ 0, %15 ]
-  %.380132 = phi i8 [ %.481, %72 ], [ 0, %15 ]
-  %.387131 = phi double [ %.488, %72 ], [ 0.000000e+00, %15 ]
-  %46 = getelementptr inbounds [7 x double], ptr %6, i64 0, i64 %indvars.iv140
+.preheader122:                                    ; preds = %15, %65
+  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %65 ], [ 0, %15 ]
+  %.3133 = phi i8 [ %.4, %65 ], [ 0, %15 ]
+  %.380132 = phi i8 [ %.481, %65 ], [ 0, %15 ]
+  %.387131 = phi double [ %.488, %65 ], [ 0.000000e+00, %15 ]
+  %43 = getelementptr inbounds [7 x double], ptr %6, i64 0, i64 %indvars.iv140
+  %44 = load double, ptr %43, align 8
+  %45 = call double @llvm.fabs.f64(double %44)
+  %46 = getelementptr inbounds [7 x double], ptr %7, i64 0, i64 %indvars.iv140
   %47 = load double, ptr %46, align 8
   %48 = call double @llvm.fabs.f64(double %47)
-  %49 = getelementptr inbounds [7 x double], ptr %7, i64 0, i64 %indvars.iv140
-  %50 = load double, ptr %49, align 8
-  %51 = call double @llvm.fabs.f64(double %50)
-  %52 = fcmp ueq double %47, 0.000000e+00
-  %.481 = select i1 %52, i8 %.380132, i8 1
-  %53 = fcmp ueq double %50, 0.000000e+00
-  %.4 = select i1 %53, i8 %.3133, i8 1
-  %54 = fcmp ogt double %48, 1.000000e-05
-  %55 = fcmp ogt double %51, 1.000000e-05
-  %or.cond118 = select i1 %54, i1 %55, i1 false
-  br i1 %or.cond118, label %56, label %72
+  %49 = fcmp ueq double %44, 0.000000e+00
+  %.481 = select i1 %49, i8 %.380132, i8 1
+  %50 = fcmp ueq double %47, 0.000000e+00
+  %.4 = select i1 %50, i8 %.3133, i8 1
+  %51 = fcmp ogt double %45, 1.000000e-05
+  %52 = fcmp ogt double %48, 1.000000e-05
+  %or.cond118 = select i1 %51, i1 %52, i1 false
+  br i1 %or.cond118, label %53, label %65
 
-56:                                               ; preds = %.preheader122
-  %57 = insertelement <2 x double> poison, double %50, i64 0
-  %58 = insertelement <2 x double> %57, double %47, i64 1
-  %59 = fcmp ogt <2 x double> %58, zeroinitializer
-  %60 = fcmp olt <2 x double> %58, zeroinitializer
-  %61 = call double @log10(double noundef %48) #9
-  %62 = call double @log10(double noundef %51) #9
-  %63 = select <2 x i1> %60, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> zeroinitializer
-  %64 = select <2 x i1> %59, <2 x double> <double 1.000000e+00, double 1.000000e+00>, <2 x double> %63
-  %65 = insertelement <2 x double> poison, double %62, i64 0
-  %66 = insertelement <2 x double> %65, double %61, i64 1
-  %67 = fmul <2 x double> %64, %66
-  %shift150 = shufflevector <2 x double> %67, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %68 = fsub <2 x double> %67, %shift150
-  %69 = extractelement <2 x double> %68, i64 0
-  %70 = call double @llvm.fabs.f64(double %69)
-  %71 = fadd double %.387131, %70
-  br label %72
+53:                                               ; preds = %.preheader122
+  %54 = fcmp ogt double %47, 0.000000e+00
+  %55 = fcmp olt double %47, 0.000000e+00
+  %.117 = select i1 %55, double -1.000000e+00, double 0.000000e+00
+  %.198 = select i1 %54, double 1.000000e+00, double %.117
+  %56 = fcmp ogt double %44, 0.000000e+00
+  %57 = fcmp olt double %44, 0.000000e+00
+  %.116 = select i1 %57, double -1.000000e+00, double 0.000000e+00
+  %.195 = select i1 %56, double 1.000000e+00, double %.116
+  %58 = call double @log10(double noundef %45) #9
+  %59 = call double @log10(double noundef %48) #9
+  %60 = fmul double %.198, %59
+  %61 = fmul double %.195, %58
+  %62 = fsub double %60, %61
+  %63 = call double @llvm.fabs.f64(double %62)
+  %64 = fadd double %.387131, %63
+  br label %65
 
-72:                                               ; preds = %.preheader122, %56
-  %.488 = phi double [ %71, %56 ], [ %.387131, %.preheader122 ]
+65:                                               ; preds = %.preheader122, %53
+  %.488 = phi double [ %64, %53 ], [ %.387131, %.preheader122 ]
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next141, 7
   br i1 %exitcond142.not, label %.loopexit, label %.preheader122, !llvm.loop !6
 
-.preheader124:                                    ; preds = %15, %102
-  %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ 0, %15 ]
-  %.5129 = phi i8 [ %.6, %102 ], [ 0, %15 ]
-  %.582128 = phi i8 [ %.683, %102 ], [ 0, %15 ]
-  %.589127 = phi double [ %.690, %102 ], [ 0.000000e+00, %15 ]
-  %73 = getelementptr inbounds [7 x double], ptr %6, i64 0, i64 %indvars.iv
-  %74 = load double, ptr %73, align 8
-  %75 = call double @llvm.fabs.f64(double %74)
-  %76 = getelementptr inbounds [7 x double], ptr %7, i64 0, i64 %indvars.iv
-  %77 = load double, ptr %76, align 8
-  %78 = call double @llvm.fabs.f64(double %77)
-  %79 = fcmp ueq double %74, 0.000000e+00
-  %.683 = select i1 %79, i8 %.582128, i8 1
-  %80 = fcmp ueq double %77, 0.000000e+00
-  %.6 = select i1 %80, i8 %.5129, i8 1
-  %81 = fcmp ogt double %75, 1.000000e-05
-  %82 = fcmp ogt double %78, 1.000000e-05
-  %or.cond121 = select i1 %81, i1 %82, i1 false
-  br i1 %or.cond121, label %83, label %102
+.preheader124:                                    ; preds = %15, %90
+  %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %15 ]
+  %.5129 = phi i8 [ %.6, %90 ], [ 0, %15 ]
+  %.582128 = phi i8 [ %.683, %90 ], [ 0, %15 ]
+  %.589127 = phi double [ %.690, %90 ], [ 0.000000e+00, %15 ]
+  %66 = getelementptr inbounds [7 x double], ptr %6, i64 0, i64 %indvars.iv
+  %67 = load double, ptr %66, align 8
+  %68 = call double @llvm.fabs.f64(double %67)
+  %69 = getelementptr inbounds [7 x double], ptr %7, i64 0, i64 %indvars.iv
+  %70 = load double, ptr %69, align 8
+  %71 = call double @llvm.fabs.f64(double %70)
+  %72 = fcmp ueq double %67, 0.000000e+00
+  %.683 = select i1 %72, i8 %.582128, i8 1
+  %73 = fcmp ueq double %70, 0.000000e+00
+  %.6 = select i1 %73, i8 %.5129, i8 1
+  %74 = fcmp ogt double %68, 1.000000e-05
+  %75 = fcmp ogt double %71, 1.000000e-05
+  %or.cond121 = select i1 %74, i1 %75, i1 false
+  br i1 %or.cond121, label %76, label %90
 
-83:                                               ; preds = %.preheader124
-  %84 = insertelement <2 x double> poison, double %77, i64 0
-  %85 = insertelement <2 x double> %84, double %74, i64 1
-  %86 = fcmp ogt <2 x double> %85, zeroinitializer
-  %87 = fcmp olt <2 x double> %85, zeroinitializer
-  %88 = call double @log10(double noundef %75) #9
-  %89 = call double @log10(double noundef %78) #9
-  %90 = select <2 x i1> %87, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> zeroinitializer
-  %91 = select <2 x i1> %86, <2 x double> <double 1.000000e+00, double 1.000000e+00>, <2 x double> %90
-  %92 = insertelement <2 x double> poison, double %89, i64 0
-  %93 = insertelement <2 x double> %92, double %88, i64 1
-  %94 = fmul <2 x double> %91, %93
-  %95 = extractelement <2 x double> %94, i64 0
-  %96 = extractelement <2 x double> %94, i64 1
-  %97 = fsub double %96, %95
-  %98 = fdiv double %97, %96
-  %99 = call double @llvm.fabs.f64(double %98)
-  %100 = fcmp olt double %.589127, %99
-  br i1 %100, label %101, label %102
+76:                                               ; preds = %.preheader124
+  %77 = fcmp ogt double %70, 0.000000e+00
+  %78 = fcmp olt double %70, 0.000000e+00
+  %.120 = select i1 %78, double -1.000000e+00, double 0.000000e+00
+  %.299 = select i1 %77, double 1.000000e+00, double %.120
+  %79 = fcmp ogt double %67, 0.000000e+00
+  %80 = fcmp olt double %67, 0.000000e+00
+  %.119 = select i1 %80, double -1.000000e+00, double 0.000000e+00
+  %.296 = select i1 %79, double 1.000000e+00, double %.119
+  %81 = call double @log10(double noundef %68) #9
+  %82 = fmul double %.296, %81
+  %83 = call double @log10(double noundef %71) #9
+  %84 = fmul double %.299, %83
+  %85 = fsub double %82, %84
+  %86 = fdiv double %85, %82
+  %87 = call double @llvm.fabs.f64(double %86)
+  %88 = fcmp olt double %.589127, %87
+  br i1 %88, label %89, label %90
 
-101:                                              ; preds = %83
-  br label %102
+89:                                               ; preds = %76
+  br label %90
 
-102:                                              ; preds = %.preheader124, %101, %83
-  %.690 = phi double [ %99, %101 ], [ %.589127, %83 ], [ %.589127, %.preheader124 ]
+90:                                               ; preds = %.preheader124, %89, %76
+  %.690 = phi double [ %87, %89 ], [ %.589127, %76 ], [ %.589127, %.preheader124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %.loopexit, label %.preheader124, !llvm.loop !7
 
-103:                                              ; preds = %15
+91:                                               ; preds = %15
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %104 unwind label %106
+          to label %92 unwind label %94
 
-104:                                              ; preds = %103
+92:                                               ; preds = %91
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv11matchShapesERKNS_11_InputArrayES2_id, ptr noundef nonnull @.str.1, i32 noundef 161) #10
-          to label %105 unwind label %108
+          to label %93 unwind label %96
 
-105:                                              ; preds = %104
+93:                                               ; preds = %92
   unreachable
 
-106:                                              ; preds = %103
-  %107 = landingpad { ptr, i32 }
+94:                                               ; preds = %91
+  %95 = landingpad { ptr, i32 }
           cleanup
-  br label %110
+  br label %98
 
-108:                                              ; preds = %104
-  %109 = landingpad { ptr, i32 }
+96:                                               ; preds = %92
+  %97 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #9
-  br label %110
+  br label %98
 
-110:                                              ; preds = %108, %106
-  %.pn = phi { ptr, i32 } [ %109, %108 ], [ %107, %106 ]
+98:                                               ; preds = %96, %94
+  %.pn = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #9
-  br label %119
+  br label %107
 
-.loopexit:                                        ; preds = %102, %72, %45
-  %.286 = phi double [ %.185, %45 ], [ %.488, %72 ], [ %.690, %102 ]
-  %.279 = phi i8 [ %.178, %45 ], [ %.481, %72 ], [ %.683, %102 ]
-  %.2 = phi i8 [ %.176, %45 ], [ %.4, %72 ], [ %.6, %102 ]
-  %111 = getelementptr inbounds i8, ptr %5, i64 8
-  %112 = load i32, ptr %111, align 8
-  %.not.i = icmp eq i32 %112, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %113
+.loopexit:                                        ; preds = %90, %65, %42
+  %.286 = phi double [ %.185, %42 ], [ %.488, %65 ], [ %.690, %90 ]
+  %.279 = phi i8 [ %.178, %42 ], [ %.481, %65 ], [ %.683, %90 ]
+  %.2 = phi i8 [ %.176, %42 ], [ %.4, %65 ], [ %.6, %90 ]
+  %99 = getelementptr inbounds i8, ptr %5, i64 8
+  %100 = load i32, ptr %99, align 8
+  %.not.i = icmp eq i32 %100, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %101
 
-113:                                              ; preds = %.loopexit
+101:                                              ; preds = %.loopexit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %5)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %114
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %102
 
-114:                                              ; preds = %113
-  %115 = landingpad { ptr, i32 }
+102:                                              ; preds = %101
+  %103 = landingpad { ptr, i32 }
           catch ptr null
-  %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #11
+  %104 = extractvalue { ptr, i32 } %103, 0
+  call void @__clang_call_terminate(ptr %104) #11
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %113
-  %117 = xor i8 %.2, %.279
-  %118 = and i8 %117, 1
-  %.not = icmp eq i8 %118, 0
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %101
+  %105 = xor i8 %.2, %.279
+  %106 = and i8 %105, 1
+  %.not = icmp eq i8 %106, 0
   %.7 = select i1 %.not, double %.286, double 0x7FEFFFFFFFFFFFFF
   ret double %.7
 
-119:                                              ; preds = %110, %16
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %110 ], [ %17, %16 ]
+107:                                              ; preds = %98, %16
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %98 ], [ %17, %16 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #9
   resume { ptr, i32 } %.pn.pn
 }

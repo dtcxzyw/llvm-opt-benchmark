@@ -7685,7 +7685,11 @@ _ZN3irr4core4rectIiE11constrainToERKS2_.exit:     ; preds = %if.then48.i, %if.en
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp81) #27
   store i64 0, ptr %ref.tmp81, align 8, !tbaa.struct !322
   %LowerRightCorner.i159 = getelementptr inbounds i8, ptr %ref.tmp81, i64 8
-  store <2 x i32> %7, ptr %LowerRightCorner.i159, align 8, !tbaa !54
+  %33 = extractelement <2 x i32> %7, i64 0
+  store i32 %33, ptr %LowerRightCorner.i159, align 8, !tbaa !197
+  %Y.i.i163 = getelementptr inbounds i8, ptr %ref.tmp81, i64 12
+  %34 = extractelement <2 x i32> %7, i64 1
+  store i32 %34, ptr %Y.i.i163, align 4, !tbaa !199
   call void @_Z23draw2DImageFilterScaledPN3irr5video12IVideoDriverEPNS0_8ITextureERKNS_4core4rectIiEES9_PS8_PKNS0_6SColorEb(ptr noundef nonnull %driver, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(16) %desired_rect, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp81, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp81) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %desired_rect) #27

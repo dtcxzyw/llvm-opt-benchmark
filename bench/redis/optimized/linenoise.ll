@@ -1322,7 +1322,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @enableRawMode() unnamed_addr #9 {
 entry:
-  %raw = alloca %struct.termios, align 16
+  %raw = alloca %struct.termios, align 4
   %call = tail call i32 @isatty(i32 noundef 0) #23
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %fatal, label %if.end
@@ -1342,12 +1342,22 @@ if.end4:                                          ; preds = %if.then2, %if.end
   br i1 %cmp, label %fatal, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %raw, ptr noundef nonnull align 4 dereferenceable(60) @orig_termios, i64 60, i1 false)
-  %0 = load <4 x i32>, ptr %raw, align 16
-  %1 = and <4 x i32> %0, <i32 -1331, i32 -2, i32 poison, i32 -32780>
-  %2 = or <4 x i32> %0, <i32 poison, i32 poison, i32 48, i32 poison>
-  %3 = shufflevector <4 x i32> %1, <4 x i32> %2, <4 x i32> <i32 0, i32 1, i32 6, i32 3>
-  store <4 x i32> %3, ptr %raw, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %raw, ptr noundef nonnull align 4 dereferenceable(60) @orig_termios, i64 60, i1 false)
+  %0 = load i32, ptr %raw, align 4
+  %and = and i32 %0, -1331
+  store i32 %and, ptr %raw, align 4
+  %c_oflag = getelementptr inbounds i8, ptr %raw, i64 4
+  %1 = load i32, ptr %c_oflag, align 4
+  %and8 = and i32 %1, -2
+  store i32 %and8, ptr %c_oflag, align 4
+  %c_cflag = getelementptr inbounds i8, ptr %raw, i64 8
+  %2 = load i32, ptr %c_cflag, align 4
+  %or = or i32 %2, 48
+  store i32 %or, ptr %c_cflag, align 4
+  %c_lflag = getelementptr inbounds i8, ptr %raw, i64 12
+  %3 = load i32, ptr %c_lflag, align 4
+  %and9 = and i32 %3, -32780
+  store i32 %and9, ptr %c_lflag, align 4
   %arrayidx = getelementptr inbounds i8, ptr %raw, i64 23
   store i8 1, ptr %arrayidx, align 1
   %arrayidx11 = getelementptr inbounds i8, ptr %raw, i64 22

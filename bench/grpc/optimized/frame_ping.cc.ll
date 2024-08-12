@@ -66,8 +66,14 @@ entry:
   %1 = load ptr, ptr %bytes, align 8
   %bytes2 = getelementptr inbounds i8, ptr %agg.result, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cond, i64 1
+  store i8 0, ptr %cond, align 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %cond, i64 2
+  store i8 0, ptr %incdec.ptr, align 1
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %cond, i64 3
+  store i8 8, ptr %incdec.ptr3, align 1
   %incdec.ptr5 = getelementptr inbounds i8, ptr %cond, i64 4
-  store <4 x i8> <i8 0, i8 0, i8 8, i8 6>, ptr %cond, align 1
+  store i8 6, ptr %incdec.ptr4, align 1
   %tobool6.not = icmp ne i8 %ack, 0
   %conv = zext i1 %tobool6.not to i8
   %incdec.ptr8 = getelementptr inbounds i8, ptr %cond, i64 5

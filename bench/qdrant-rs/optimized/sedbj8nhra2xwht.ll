@@ -94,11 +94,17 @@ define void @_ZN6memory8mmap_ops14open_read_mmap17h9b11731ee8d27ca6E(ptr noalias
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 4
   store i32 438, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.611.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 9
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 10
+  %.sroa.812.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 11
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 12
   %14 = getelementptr inbounds i8, ptr %11, i64 12
   store i16 0, ptr %14, align 4
+  store i8 1, ptr %.sroa.5.0..sroa_idx, align 4
+  store i8 0, ptr %.sroa.611.0..sroa_idx, align 1
+  store i8 1, ptr %.sroa.7.0..sroa_idx, align 2
   store i8 1, ptr %.sroa.9.0..sroa_idx, align 4
-  store <4 x i8> <i8 1, i8 0, i8 1, i8 0>, ptr %.sroa.5.0..sroa_idx, align 4
+  store i8 0, ptr %.sroa.812.0..sroa_idx, align 1
   call void @_ZN3std2fs11OpenOptions5_open17hb8f7674b6534c64eE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %15 = load i32, ptr %12, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i32 %15 to i1

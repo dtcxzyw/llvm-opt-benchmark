@@ -17,19 +17,25 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Dch_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 40, i1 false)
-  store <4 x i32> <i32 8, i32 1000, i32 5000, i32 1>, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 1000, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 100, ptr %8, align 4
+  store i32 8, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 1000, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 5000, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 1, ptr %5, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 1, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 1, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 1000, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 100, ptr %11, align 4
   ret void
 }
 

@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @ems_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
-  %5 = alloca %struct.ems_msg_s, align 16
+  %5 = alloca %struct.ems_msg_s, align 4
   %6 = load ptr, ptr %0, align 8
   %7 = tail call fastcc i32 @peek_relevant_character(ptr noundef %6)
   %8 = icmp slt i32 %7, 0
@@ -30,13 +30,13 @@ define hidden range(i32 -1, 2) i32 @ems_open(ptr nocapture noundef %0, ptr nound
   %10 = load ptr, ptr %0, align 8
   %11 = tail call i32 @file_eof(ptr noundef %10) #4
   %.not21 = icmp eq i32 %11, 0
-  br i1 %.not21, label %12, label %64
+  br i1 %.not21, label %12, label %66
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8
   %14 = tail call i32 @file_error(ptr noundef %13, ptr noundef %2) #4
   store i32 %14, ptr %1, align 4
-  br label %64
+  br label %66
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr @g_ascii_table, align 8
@@ -46,7 +46,7 @@ define hidden range(i32 -1, 2) i32 @ems_open(ptr nocapture noundef %0, ptr nound
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 8
   %.not = icmp eq i16 %21, 0
-  br i1 %.not, label %64, label %22
+  br i1 %.not, label %66, label %22
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %0, align 8
@@ -66,65 +66,69 @@ define hidden range(i32 -1, 2) i32 @ems_open(ptr nocapture noundef %0, ptr nound
   %33 = getelementptr inbounds i8, ptr %5, i64 32
   %34 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %5, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33) #4
   %.not19.i = icmp ne i32 %34, 9
-  %35 = load <4 x i32>, ptr %5, align 16
-  %.fr = freeze <4 x i32> %35
-  %36 = icmp ugt <4 x i32> %.fr, <i32 255, i32 255, i32 12, i32 31>
-  %37 = load i32, ptr %29, align 16
-  %.fr42 = freeze i32 %37
-  %38 = icmp ugt i32 %.fr42, 23
-  %39 = load i32, ptr %30, align 4
-  %.fr40 = freeze i32 %39
-  %40 = icmp ugt i32 %.fr40, 59
-  %41 = load i32, ptr %31, align 8
-  %42 = icmp ugt i32 %41, 59
-  %43 = bitcast <4 x i1> %36 to i4
-  %44 = icmp ne i4 %43, 0
-  %op.rdx = or i1 %44, %38
-  %45 = or i1 %op.rdx, %40
-  %46 = or i1 %.not19.i, %45
-  %op.rdx39 = select i1 %46, i1 true, i1 %42
-  br i1 %op.rdx39, label %parse_ems_line.exit.thread, label %parse_ems_line.exit
+  %35 = load i32, ptr %5, align 4
+  %36 = icmp ugt i32 %35, 255
+  %or.cond = select i1 %.not19.i, i1 true, i1 %36
+  %37 = load i32, ptr %26, align 4
+  %38 = icmp ugt i32 %37, 255
+  %or.cond26 = select i1 %or.cond, i1 true, i1 %38
+  %39 = load i32, ptr %27, align 4
+  %40 = icmp ugt i32 %39, 12
+  %or.cond28 = select i1 %or.cond26, i1 true, i1 %40
+  %41 = load i32, ptr %28, align 4
+  %42 = icmp ugt i32 %41, 31
+  %or.cond30 = select i1 %or.cond28, i1 true, i1 %42
+  %43 = load i32, ptr %29, align 4
+  %44 = icmp ugt i32 %43, 23
+  %or.cond32 = select i1 %or.cond30, i1 true, i1 %44
+  %45 = load i32, ptr %30, align 4
+  %46 = icmp ugt i32 %45, 59
+  %or.cond34 = select i1 %or.cond32, i1 true, i1 %46
+  %47 = load i32, ptr %31, align 4
+  %48 = icmp ugt i32 %47, 59
+  %or.cond36 = select i1 %or.cond34, i1 true, i1 %48
+  br i1 %or.cond36, label %parse_ems_line.exit.thread, label %parse_ems_line.exit
 
 parse_ems_line.exit.thread:                       ; preds = %22, %25
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  br label %64
+  br label %66
 
 parse_ems_line.exit:                              ; preds = %25
-  %47 = load i32, ptr %32, align 4
-  %48 = icmp ugt i32 %47, 255
+  %49 = load i32, ptr %32, align 4
+  %50 = icmp ugt i32 %49, 255
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  br i1 %48, label %64, label %49
+  br i1 %50, label %66, label %51
 
-49:                                               ; preds = %parse_ems_line.exit
-  %50 = load ptr, ptr %0, align 8
-  %51 = call i64 @file_seek(ptr noundef %50, i64 noundef 0, i32 noundef 0, ptr noundef %1) #4
-  %52 = icmp eq i64 %51, -1
-  br i1 %52, label %53, label %56
+51:                                               ; preds = %parse_ems_line.exit
+  %52 = load ptr, ptr %0, align 8
+  %53 = call i64 @file_seek(ptr noundef %52, i64 noundef 0, i32 noundef 0, ptr noundef %1) #4
+  %54 = icmp eq i64 %53, -1
+  br i1 %54, label %55, label %58
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %0, align 8
-  %55 = call i32 @file_error(ptr noundef %54, ptr noundef %2) #4
-  store i32 %55, ptr %1, align 4
-  br label %64
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %0, align 8
+  %57 = call i32 @file_error(ptr noundef %56, ptr noundef %2) #4
+  store i32 %57, ptr %1, align 4
+  br label %66
 
-56:                                               ; preds = %49
-  %57 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 224, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 0, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @ems_read, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @ems_seek_read, ptr %61, align 8
-  %62 = load i32, ptr @ems_file_type_subtype, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %62, ptr %63, align 4
-  br label %64
+58:                                               ; preds = %51
+  %59 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 224, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 0, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @ems_read, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @ems_seek_read, ptr %63, align 8
+  %64 = load i32, ptr @ems_file_type_subtype, align 4
+  %65 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %64, ptr %65, align 4
+  br label %66
 
-64:                                               ; preds = %parse_ems_line.exit.thread, %parse_ems_line.exit, %15, %9, %56, %53, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %53 ], [ 1, %56 ], [ 0, %9 ], [ 0, %15 ], [ 0, %parse_ems_line.exit ], [ 0, %parse_ems_line.exit.thread ]
+66:                                               ; preds = %parse_ems_line.exit.thread, %parse_ems_line.exit, %15, %9, %58, %55, %12
+  %.0 = phi i32 [ -1, %12 ], [ -1, %55 ], [ 1, %58 ], [ 0, %9 ], [ 0, %15 ], [ 0, %parse_ems_line.exit ], [ 0, %parse_ems_line.exit.thread ]
   ret i32 %.0
 }
 
@@ -267,7 +271,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ems_read_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
-  %7 = alloca %struct.ems_msg_s, align 16
+  %7 = alloca %struct.ems_msg_s, align 4
   %8 = alloca [32 x i8], align 16
   %9 = alloca i8, align 1
   %10 = alloca [3 x i8], align 1
@@ -297,151 +301,155 @@ define internal fastcc range(i32 0, 2) i32 @ems_read_message(ptr noundef %0, ptr
   %25 = getelementptr inbounds i8, ptr %7, i64 32
   %26 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull %7, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #4
   %.not19.i = icmp ne i32 %26, 9
-  %27 = load <4 x i32>, ptr %7, align 16
-  %.fr = freeze <4 x i32> %27
-  %28 = icmp ugt <4 x i32> %.fr, <i32 255, i32 255, i32 12, i32 31>
-  %29 = load i32, ptr %21, align 16
-  %.fr60 = freeze i32 %29
-  %30 = icmp ugt i32 %.fr60, 23
-  %31 = load i32, ptr %22, align 4
-  %.fr58 = freeze i32 %31
-  %32 = icmp ugt i32 %.fr58, 59
-  %33 = load i32, ptr %23, align 8
-  %34 = icmp ugt i32 %33, 59
-  %35 = bitcast <4 x i1> %28 to i4
-  %36 = icmp ne i4 %35, 0
-  %op.rdx = or i1 %36, %30
-  %37 = or i1 %op.rdx, %32
-  %38 = or i1 %.not19.i, %37
-  %op.rdx57 = select i1 %38, i1 true, i1 %34
-  br i1 %op.rdx57, label %parse_ems_line.exit.thread, label %parse_ems_line.exit
+  %27 = load i32, ptr %7, align 4
+  %28 = icmp ugt i32 %27, 255
+  %or.cond = select i1 %.not19.i, i1 true, i1 %28
+  %29 = load i32, ptr %18, align 4
+  %30 = icmp ugt i32 %29, 255
+  %or.cond42 = select i1 %or.cond, i1 true, i1 %30
+  %31 = load i32, ptr %19, align 4
+  %32 = icmp ugt i32 %31, 12
+  %or.cond44 = select i1 %or.cond42, i1 true, i1 %32
+  %33 = load i32, ptr %20, align 4
+  %34 = icmp ugt i32 %33, 31
+  %or.cond46 = select i1 %or.cond44, i1 true, i1 %34
+  %35 = load i32, ptr %21, align 4
+  %36 = icmp ugt i32 %35, 23
+  %or.cond48 = select i1 %or.cond46, i1 true, i1 %36
+  %37 = load i32, ptr %22, align 4
+  %38 = icmp ugt i32 %37, 59
+  %or.cond50 = select i1 %or.cond48, i1 true, i1 %38
+  %39 = load i32, ptr %23, align 4
+  %40 = icmp ugt i32 %39, 59
+  %or.cond52 = select i1 %or.cond50, i1 true, i1 %40
+  br i1 %or.cond52, label %parse_ems_line.exit.thread, label %parse_ems_line.exit
 
 parse_ems_line.exit.thread:                       ; preds = %15, %17
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   br label %.loopexit
 
 parse_ems_line.exit:                              ; preds = %17
-  %39 = load i32, ptr %24, align 4
-  %40 = icmp ugt i32 %39, 255
+  %41 = load i32, ptr %24, align 4
+  %42 = icmp ugt i32 %41, 255
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
-  br i1 %40, label %.loopexit, label %41
+  br i1 %42, label %.loopexit, label %43
 
-41:                                               ; preds = %parse_ems_line.exit
+43:                                               ; preds = %parse_ems_line.exit
   call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef 40) #4
-  %42 = load i32, ptr %7, align 16
-  %43 = trunc i32 %42 to i8
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 24
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr i8, ptr %44, i64 %46
-  store i8 %43, ptr %47, align 1
-  %48 = load i32, ptr %18, align 4
-  %49 = trunc i32 %48 to i8
-  %50 = load ptr, ptr %2, align 8
-  %51 = load i64, ptr %45, align 8
-  %52 = getelementptr i8, ptr %50, i64 %51
-  %53 = getelementptr i8, ptr %52, i64 1
-  store i8 %49, ptr %53, align 1
-  %54 = load i32, ptr %19, align 8
-  %55 = trunc i32 %54 to i8
-  %56 = load ptr, ptr %2, align 8
-  %57 = load i64, ptr %45, align 8
-  %58 = getelementptr i8, ptr %56, i64 %57
-  %59 = getelementptr i8, ptr %58, i64 2
-  store i8 %55, ptr %59, align 1
-  %60 = load i32, ptr %20, align 4
-  %61 = trunc i32 %60 to i8
-  %62 = load ptr, ptr %2, align 8
-  %63 = load i64, ptr %45, align 8
-  %64 = getelementptr i8, ptr %62, i64 %63
-  %65 = getelementptr i8, ptr %64, i64 3
-  store i8 %61, ptr %65, align 1
-  %66 = load i32, ptr %21, align 16
-  %67 = trunc i32 %66 to i8
-  %68 = load ptr, ptr %2, align 8
-  %69 = load i64, ptr %45, align 8
-  %70 = getelementptr i8, ptr %68, i64 %69
-  %71 = getelementptr i8, ptr %70, i64 4
-  store i8 %67, ptr %71, align 1
-  %72 = load i32, ptr %22, align 4
-  %73 = trunc i32 %72 to i8
-  %74 = load ptr, ptr %2, align 8
-  %75 = load i64, ptr %45, align 8
-  %76 = getelementptr i8, ptr %74, i64 %75
-  %77 = getelementptr i8, ptr %76, i64 5
-  store i8 %73, ptr %77, align 1
-  %78 = load i32, ptr %23, align 8
-  %79 = trunc i32 %78 to i8
-  %80 = load ptr, ptr %2, align 8
-  %81 = load i64, ptr %45, align 8
-  %82 = getelementptr i8, ptr %80, i64 %81
-  %83 = getelementptr i8, ptr %82, i64 6
-  store i8 %79, ptr %83, align 1
-  %84 = load i32, ptr %24, align 4
-  %85 = trunc i32 %84 to i8
-  %86 = load ptr, ptr %2, align 8
-  %87 = load i64, ptr %45, align 8
-  %88 = getelementptr i8, ptr %86, i64 %87
-  %89 = getelementptr i8, ptr %88, i64 7
-  store i8 %85, ptr %89, align 1
-  %90 = getelementptr inbounds i8, ptr %10, i64 1
-  %91 = getelementptr inbounds i8, ptr %10, i64 2
-  br label %92
+  %44 = load i32, ptr %7, align 4
+  %45 = trunc i32 %44 to i8
+  %46 = load ptr, ptr %2, align 8
+  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr i8, ptr %46, i64 %48
+  store i8 %45, ptr %49, align 1
+  %50 = load i32, ptr %18, align 4
+  %51 = trunc i32 %50 to i8
+  %52 = load ptr, ptr %2, align 8
+  %53 = load i64, ptr %47, align 8
+  %54 = getelementptr i8, ptr %52, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 1
+  store i8 %51, ptr %55, align 1
+  %56 = load i32, ptr %19, align 4
+  %57 = trunc i32 %56 to i8
+  %58 = load ptr, ptr %2, align 8
+  %59 = load i64, ptr %47, align 8
+  %60 = getelementptr i8, ptr %58, i64 %59
+  %61 = getelementptr i8, ptr %60, i64 2
+  store i8 %57, ptr %61, align 1
+  %62 = load i32, ptr %20, align 4
+  %63 = trunc i32 %62 to i8
+  %64 = load ptr, ptr %2, align 8
+  %65 = load i64, ptr %47, align 8
+  %66 = getelementptr i8, ptr %64, i64 %65
+  %67 = getelementptr i8, ptr %66, i64 3
+  store i8 %63, ptr %67, align 1
+  %68 = load i32, ptr %21, align 4
+  %69 = trunc i32 %68 to i8
+  %70 = load ptr, ptr %2, align 8
+  %71 = load i64, ptr %47, align 8
+  %72 = getelementptr i8, ptr %70, i64 %71
+  %73 = getelementptr i8, ptr %72, i64 4
+  store i8 %69, ptr %73, align 1
+  %74 = load i32, ptr %22, align 4
+  %75 = trunc i32 %74 to i8
+  %76 = load ptr, ptr %2, align 8
+  %77 = load i64, ptr %47, align 8
+  %78 = getelementptr i8, ptr %76, i64 %77
+  %79 = getelementptr i8, ptr %78, i64 5
+  store i8 %75, ptr %79, align 1
+  %80 = load i32, ptr %23, align 4
+  %81 = trunc i32 %80 to i8
+  %82 = load ptr, ptr %2, align 8
+  %83 = load i64, ptr %47, align 8
+  %84 = getelementptr i8, ptr %82, i64 %83
+  %85 = getelementptr i8, ptr %84, i64 6
+  store i8 %81, ptr %85, align 1
+  %86 = load i32, ptr %24, align 4
+  %87 = trunc i32 %86 to i8
+  %88 = load ptr, ptr %2, align 8
+  %89 = load i64, ptr %47, align 8
+  %90 = getelementptr i8, ptr %88, i64 %89
+  %91 = getelementptr i8, ptr %90, i64 7
+  store i8 %87, ptr %91, align 1
+  %92 = getelementptr inbounds i8, ptr %10, i64 1
+  %93 = getelementptr inbounds i8, ptr %10, i64 2
+  br label %94
 
-92:                                               ; preds = %41, %100
-  %indvars.iv = phi i64 [ 0, %41 ], [ %indvars.iv.next, %100 ]
-  %93 = shl nuw nsw i64 %indvars.iv, 1
-  %94 = getelementptr [64 x i8], ptr %25, i64 0, i64 %93
-  %95 = load i8, ptr %94, align 2
-  store i8 %95, ptr %10, align 1
-  %96 = or disjoint i64 %93, 1
-  %97 = getelementptr [64 x i8], ptr %25, i64 0, i64 %96
-  %98 = load i8, ptr %97, align 1
-  store i8 %98, ptr %90, align 1
-  store i8 0, ptr %91, align 1
-  %99 = call zeroext i1 @ws_hexstrtou8(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %9) #4
-  br i1 %99, label %100, label %.loopexit
+94:                                               ; preds = %43, %102
+  %indvars.iv = phi i64 [ 0, %43 ], [ %indvars.iv.next, %102 ]
+  %95 = shl nuw nsw i64 %indvars.iv, 1
+  %96 = getelementptr [64 x i8], ptr %25, i64 0, i64 %95
+  %97 = load i8, ptr %96, align 2
+  store i8 %97, ptr %10, align 1
+  %98 = or disjoint i64 %95, 1
+  %99 = getelementptr [64 x i8], ptr %25, i64 0, i64 %98
+  %100 = load i8, ptr %99, align 1
+  store i8 %100, ptr %92, align 1
+  store i8 0, ptr %93, align 1
+  %101 = call zeroext i1 @ws_hexstrtou8(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %9) #4
+  br i1 %101, label %102, label %.loopexit
 
-100:                                              ; preds = %92
-  %101 = load i8, ptr %9, align 1
-  %102 = load ptr, ptr %2, align 8
-  %103 = load i64, ptr %45, align 8
-  %104 = getelementptr i8, ptr %102, i64 %103
-  %105 = getelementptr i8, ptr %104, i64 %indvars.iv
-  %106 = getelementptr i8, ptr %105, i64 8
-  store i8 %101, ptr %106, align 1
+102:                                              ; preds = %94
+  %103 = load i8, ptr %9, align 1
+  %104 = load ptr, ptr %2, align 8
+  %105 = load i64, ptr %47, align 8
+  %106 = getelementptr i8, ptr %104, i64 %105
+  %107 = getelementptr i8, ptr %106, i64 %indvars.iv
+  %108 = getelementptr i8, ptr %107, i64 8
+  store i8 %103, ptr %108, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %107, label %92, !llvm.loop !7
+  br i1 %exitcond.not, label %109, label %94, !llvm.loop !7
 
-107:                                              ; preds = %100
-  %108 = load i64, ptr %45, align 8
-  %109 = add i64 %108, 40
-  store i64 %109, ptr %45, align 8
+109:                                              ; preds = %102
+  %110 = load i64, ptr %47, align 8
+  %111 = add i64 %110, 40
+  store i64 %111, ptr %47, align 8
   store i32 0, ptr %1, align 8
-  %110 = call ptr @wtap_block_create(i32 noundef 5) #4
-  %111 = getelementptr inbounds i8, ptr %1, i64 232
-  store ptr %110, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %1, i64 4
-  store i32 1, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %1, i64 64
-  %114 = getelementptr inbounds i8, ptr %1, i64 68
-  store i32 40, ptr %114, align 4
-  store i32 40, ptr %113, align 8
-  %115 = load i32, ptr %18, align 4
-  %116 = add i32 %115, 2000
-  %117 = load i32, ptr %19, align 8
-  %118 = load i32, ptr %20, align 4
-  %119 = load i32, ptr %21, align 16
-  %120 = load i32, ptr %22, align 4
-  %121 = load i32, ptr %23, align 8
-  %122 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef %116, i32 noundef %117, i32 noundef %118, i32 noundef %119, i32 noundef %120, i32 noundef %121) #4
-  %123 = getelementptr inbounds i8, ptr %1, i64 16
-  %124 = call ptr @iso8601_to_nstime(ptr noundef nonnull %123, ptr noundef nonnull %8, i32 noundef 0) #4
+  %112 = call ptr @wtap_block_create(i32 noundef 5) #4
+  %113 = getelementptr inbounds i8, ptr %1, i64 232
+  store ptr %112, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 1, ptr %114, align 4
+  %115 = getelementptr inbounds i8, ptr %1, i64 64
+  %116 = getelementptr inbounds i8, ptr %1, i64 68
+  store i32 40, ptr %116, align 4
+  store i32 40, ptr %115, align 8
+  %117 = load i32, ptr %18, align 4
+  %118 = add i32 %117, 2000
+  %119 = load i32, ptr %19, align 4
+  %120 = load i32, ptr %20, align 4
+  %121 = load i32, ptr %21, align 4
+  %122 = load i32, ptr %22, align 4
+  %123 = load i32, ptr %23, align 4
+  %124 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef %118, i32 noundef %119, i32 noundef %120, i32 noundef %121, i32 noundef %122, i32 noundef %123) #4
+  %125 = getelementptr inbounds i8, ptr %1, i64 16
+  %126 = call ptr @iso8601_to_nstime(ptr noundef nonnull %125, ptr noundef nonnull %8, i32 noundef 0) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %92, %parse_ems_line.exit.thread, %parse_ems_line.exit, %107, %13
-  %.037 = phi i32 [ 0, %13 ], [ 1, %107 ], [ 0, %parse_ems_line.exit ], [ 0, %parse_ems_line.exit.thread ], [ 0, %92 ]
+.loopexit:                                        ; preds = %94, %parse_ems_line.exit.thread, %parse_ems_line.exit, %109, %13
+  %.037 = phi i32 [ 0, %13 ], [ 1, %109 ], [ 0, %parse_ems_line.exit ], [ 0, %parse_ems_line.exit.thread ], [ 0, %94 ]
   ret i32 %.037
 }
 

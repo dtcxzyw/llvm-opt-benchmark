@@ -115,8 +115,28 @@ if.then9:                                         ; preds = %if.end5
 
 sw.bb:                                            ; preds = %if.then9
   %bulk_cipher_algorithm = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 9, i8 2, i8 4, i8 7, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm, align 2
-  store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
+  store i8 9, ptr %bulk_cipher_algorithm, align 2
+  %cipher_type = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type, align 1
+  %mac_algorithm = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm, align 2
+  %kea = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea, align 1
+  %sig_algo = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo, align 2
+  %hash_size = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size, align 1
+  %pad_size = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size, align 2
+  %static_ecdh = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh, align 1
+  store i16 32, ptr %specs, align 2
+  %block_size = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size, align 2
+  %iv_size = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 12, ptr %iv_size, align 2
+  %aead_mac_size = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size, align 2
   %cmp11.not = icmp eq ptr %opts, null
   br i1 %cmp11.not, label %return, label %if.then13
 
@@ -129,8 +149,28 @@ if.then13:                                        ; preds = %sw.bb
 
 sw.bb15:                                          ; preds = %if.then9
   %bulk_cipher_algorithm16 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 9, i8 2, i8 4, i8 7, i8 3, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm16, align 2
-  store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
+  store i8 9, ptr %bulk_cipher_algorithm16, align 2
+  %cipher_type17 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type17, align 1
+  %mac_algorithm18 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm18, align 2
+  %kea19 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea19, align 1
+  %sig_algo20 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 3, ptr %sig_algo20, align 2
+  %hash_size21 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size21, align 1
+  %pad_size22 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size22, align 2
+  %static_ecdh23 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh23, align 1
+  store i16 32, ptr %specs, align 2
+  %block_size25 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size25, align 2
+  %iv_size26 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 12, ptr %iv_size26, align 2
+  %aead_mac_size27 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size27, align 2
   %cmp28.not = icmp eq ptr %opts, null
   br i1 %cmp28.not, label %return, label %if.then30
 
@@ -143,8 +183,28 @@ if.then30:                                        ; preds = %sw.bb15
 
 sw.bb36:                                          ; preds = %if.then9
   %bulk_cipher_algorithm37 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 9, i8 2, i8 4, i8 2, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm37, align 2
-  store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
+  store i8 9, ptr %bulk_cipher_algorithm37, align 2
+  %cipher_type38 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type38, align 1
+  %mac_algorithm39 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm39, align 2
+  %kea40 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 2, ptr %kea40, align 1
+  %sig_algo41 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo41, align 2
+  %hash_size42 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size42, align 1
+  %pad_size43 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size43, align 2
+  %static_ecdh44 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh44, align 1
+  store i16 32, ptr %specs, align 2
+  %block_size46 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size46, align 2
+  %iv_size47 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 12, ptr %iv_size47, align 2
+  %aead_mac_size48 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size48, align 2
   %cmp49.not = icmp eq ptr %opts, null
   br i1 %cmp49.not, label %return, label %if.then51
 
@@ -157,8 +217,28 @@ if.then51:                                        ; preds = %sw.bb36
 
 sw.bb57:                                          ; preds = %if.then9
   %bulk_cipher_algorithm58 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 9, i8 2, i8 4, i8 7, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm58, align 2
-  store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
+  store i8 9, ptr %bulk_cipher_algorithm58, align 2
+  %cipher_type59 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type59, align 1
+  %mac_algorithm60 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm60, align 2
+  %kea61 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea61, align 1
+  %sig_algo62 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo62, align 2
+  %hash_size63 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size63, align 1
+  %pad_size64 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size64, align 2
+  %static_ecdh65 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh65, align 1
+  store i16 32, ptr %specs, align 2
+  %block_size67 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size67, align 2
+  %iv_size68 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 12, ptr %iv_size68, align 2
+  %aead_mac_size69 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size69, align 2
   %cmp70.not = icmp eq ptr %opts, null
   br i1 %cmp70.not, label %return, label %if.then72
 
@@ -171,8 +251,28 @@ if.then72:                                        ; preds = %sw.bb57
 
 sw.bb78:                                          ; preds = %if.then9
   %bulk_cipher_algorithm79 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 9, i8 2, i8 4, i8 7, i8 3, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm79, align 2
-  store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
+  store i8 9, ptr %bulk_cipher_algorithm79, align 2
+  %cipher_type80 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type80, align 1
+  %mac_algorithm81 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm81, align 2
+  %kea82 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea82, align 1
+  %sig_algo83 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 3, ptr %sig_algo83, align 2
+  %hash_size84 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size84, align 1
+  %pad_size85 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size85, align 2
+  %static_ecdh86 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh86, align 1
+  store i16 32, ptr %specs, align 2
+  %block_size88 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size88, align 2
+  %iv_size89 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 12, ptr %iv_size89, align 2
+  %aead_mac_size90 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size90, align 2
   %cmp91.not = icmp eq ptr %opts, null
   br i1 %cmp91.not, label %return, label %if.then93
 
@@ -185,8 +285,28 @@ if.then93:                                        ; preds = %sw.bb78
 
 sw.bb99:                                          ; preds = %if.then9
   %bulk_cipher_algorithm100 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 9, i8 2, i8 4, i8 2, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm100, align 2
-  store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
+  store i8 9, ptr %bulk_cipher_algorithm100, align 2
+  %cipher_type101 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type101, align 1
+  %mac_algorithm102 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm102, align 2
+  %kea103 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 2, ptr %kea103, align 1
+  %sig_algo104 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo104, align 2
+  %hash_size105 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size105, align 1
+  %pad_size106 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size106, align 2
+  %static_ecdh107 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh107, align 1
+  store i16 32, ptr %specs, align 2
+  %block_size109 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size109, align 2
+  %iv_size110 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 12, ptr %iv_size110, align 2
+  %aead_mac_size111 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size111, align 2
   %cmp112.not = icmp eq ptr %opts, null
   br i1 %cmp112.not, label %return, label %if.then114
 
@@ -215,7 +335,21 @@ if.then126:                                       ; preds = %if.end5
 
 sw.bb128:                                         ; preds = %if.then126
   %bulk_cipher_algorithm129 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 6, i8 1, i8 4, i8 7, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm129, align 2
+  store i8 6, ptr %bulk_cipher_algorithm129, align 2
+  %cipher_type130 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 1, ptr %cipher_type130, align 1
+  %mac_algorithm131 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm131, align 2
+  %kea132 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea132, align 1
+  %sig_algo133 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo133, align 2
+  %hash_size134 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size134, align 1
+  %pad_size135 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size135, align 2
+  %static_ecdh136 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh136, align 1
   store i16 16, ptr %specs, align 2
   %iv_size138 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size138, align 2
@@ -225,7 +359,21 @@ sw.bb128:                                         ; preds = %if.then126
 
 sw.bb140:                                         ; preds = %if.then126
   %bulk_cipher_algorithm141 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 6, i8 1, i8 5, i8 7, i8 1, i8 48, i8 40, i8 0>, ptr %bulk_cipher_algorithm141, align 2
+  store i8 6, ptr %bulk_cipher_algorithm141, align 2
+  %cipher_type142 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 1, ptr %cipher_type142, align 1
+  %mac_algorithm143 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 5, ptr %mac_algorithm143, align 2
+  %kea144 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea144, align 1
+  %sig_algo145 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo145, align 2
+  %hash_size146 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 48, ptr %hash_size146, align 1
+  %pad_size147 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size147, align 2
+  %static_ecdh148 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh148, align 1
   store i16 32, ptr %specs, align 2
   %iv_size150 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size150, align 2
@@ -235,7 +383,21 @@ sw.bb140:                                         ; preds = %if.then126
 
 sw.bb152:                                         ; preds = %if.then126
   %bulk_cipher_algorithm153 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 6, i8 1, i8 2, i8 7, i8 1, i8 20, i8 40, i8 0>, ptr %bulk_cipher_algorithm153, align 2
+  store i8 6, ptr %bulk_cipher_algorithm153, align 2
+  %cipher_type154 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 1, ptr %cipher_type154, align 1
+  %mac_algorithm155 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 2, ptr %mac_algorithm155, align 2
+  %kea156 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea156, align 1
+  %sig_algo157 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo157, align 2
+  %hash_size158 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 20, ptr %hash_size158, align 1
+  %pad_size159 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size159, align 2
+  %static_ecdh160 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh160, align 1
   store i16 16, ptr %specs, align 2
   %block_size162 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size162, align 2
@@ -245,7 +407,21 @@ sw.bb152:                                         ; preds = %if.then126
 
 sw.bb164:                                         ; preds = %if.then126
   %bulk_cipher_algorithm165 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 6, i8 1, i8 2, i8 7, i8 1, i8 20, i8 40, i8 0>, ptr %bulk_cipher_algorithm165, align 2
+  store i8 6, ptr %bulk_cipher_algorithm165, align 2
+  %cipher_type166 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 1, ptr %cipher_type166, align 1
+  %mac_algorithm167 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 2, ptr %mac_algorithm167, align 2
+  %kea168 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea168, align 1
+  %sig_algo169 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo169, align 2
+  %hash_size170 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 20, ptr %hash_size170, align 1
+  %pad_size171 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size171, align 2
+  %static_ecdh172 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh172, align 1
   store i16 32, ptr %specs, align 2
   %block_size174 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size174, align 2
@@ -255,19 +431,73 @@ sw.bb164:                                         ; preds = %if.then126
 
 sw.bb176:                                         ; preds = %if.then126
   %bulk_cipher_algorithm177 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 7, i8 2, i8 4, i8 7, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm177, align 2
-  store <4 x i16> <i16 16, i16 4, i16 16, i16 16>, ptr %specs, align 2
+  store i8 7, ptr %bulk_cipher_algorithm177, align 2
+  %cipher_type178 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type178, align 1
+  %mac_algorithm179 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm179, align 2
+  %kea180 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea180, align 1
+  %sig_algo181 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo181, align 2
+  %hash_size182 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size182, align 1
+  %pad_size183 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size183, align 2
+  %static_ecdh184 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh184, align 1
+  store i16 16, ptr %specs, align 2
+  %block_size186 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size186, align 2
+  %iv_size187 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 4, ptr %iv_size187, align 2
+  %aead_mac_size188 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size188, align 2
   br label %if.end446
 
 sw.bb189:                                         ; preds = %if.then126
   %bulk_cipher_algorithm190 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 7, i8 2, i8 5, i8 7, i8 1, i8 48, i8 40, i8 0>, ptr %bulk_cipher_algorithm190, align 2
-  store <4 x i16> <i16 32, i16 4, i16 16, i16 16>, ptr %specs, align 2
+  store i8 7, ptr %bulk_cipher_algorithm190, align 2
+  %cipher_type191 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type191, align 1
+  %mac_algorithm192 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 5, ptr %mac_algorithm192, align 2
+  %kea193 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea193, align 1
+  %sig_algo194 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo194, align 2
+  %hash_size195 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 48, ptr %hash_size195, align 1
+  %pad_size196 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size196, align 2
+  %static_ecdh197 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh197, align 1
+  store i16 32, ptr %specs, align 2
+  %block_size199 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size199, align 2
+  %iv_size200 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 4, ptr %iv_size200, align 2
+  %aead_mac_size201 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size201, align 2
   br label %if.end446
 
 sw.bb202:                                         ; preds = %if.then126
   %bulk_cipher_algorithm203 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 6, i8 1, i8 4, i8 7, i8 3, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm203, align 2
+  store i8 6, ptr %bulk_cipher_algorithm203, align 2
+  %cipher_type204 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 1, ptr %cipher_type204, align 1
+  %mac_algorithm205 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm205, align 2
+  %kea206 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea206, align 1
+  %sig_algo207 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 3, ptr %sig_algo207, align 2
+  %hash_size208 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size208, align 1
+  %pad_size209 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size209, align 2
+  %static_ecdh210 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh210, align 1
   store i16 16, ptr %specs, align 2
   %iv_size212 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size212, align 2
@@ -277,7 +507,21 @@ sw.bb202:                                         ; preds = %if.then126
 
 sw.bb214:                                         ; preds = %if.then126
   %bulk_cipher_algorithm215 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 6, i8 1, i8 5, i8 7, i8 3, i8 48, i8 40, i8 0>, ptr %bulk_cipher_algorithm215, align 2
+  store i8 6, ptr %bulk_cipher_algorithm215, align 2
+  %cipher_type216 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 1, ptr %cipher_type216, align 1
+  %mac_algorithm217 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 5, ptr %mac_algorithm217, align 2
+  %kea218 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea218, align 1
+  %sig_algo219 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 3, ptr %sig_algo219, align 2
+  %hash_size220 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 48, ptr %hash_size220, align 1
+  %pad_size221 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size221, align 2
+  %static_ecdh222 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh222, align 1
   store i16 32, ptr %specs, align 2
   %iv_size224 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size224, align 2
@@ -287,7 +531,21 @@ sw.bb214:                                         ; preds = %if.then126
 
 sw.bb226:                                         ; preds = %if.then126
   %bulk_cipher_algorithm227 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 6, i8 1, i8 2, i8 7, i8 3, i8 20, i8 40, i8 0>, ptr %bulk_cipher_algorithm227, align 2
+  store i8 6, ptr %bulk_cipher_algorithm227, align 2
+  %cipher_type228 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 1, ptr %cipher_type228, align 1
+  %mac_algorithm229 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 2, ptr %mac_algorithm229, align 2
+  %kea230 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea230, align 1
+  %sig_algo231 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 3, ptr %sig_algo231, align 2
+  %hash_size232 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 20, ptr %hash_size232, align 1
+  %pad_size233 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size233, align 2
+  %static_ecdh234 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh234, align 1
   store i16 16, ptr %specs, align 2
   %block_size236 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size236, align 2
@@ -297,7 +555,21 @@ sw.bb226:                                         ; preds = %if.then126
 
 sw.bb238:                                         ; preds = %if.then126
   %bulk_cipher_algorithm239 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 6, i8 1, i8 2, i8 7, i8 3, i8 20, i8 40, i8 0>, ptr %bulk_cipher_algorithm239, align 2
+  store i8 6, ptr %bulk_cipher_algorithm239, align 2
+  %cipher_type240 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 1, ptr %cipher_type240, align 1
+  %mac_algorithm241 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 2, ptr %mac_algorithm241, align 2
+  %kea242 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea242, align 1
+  %sig_algo243 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 3, ptr %sig_algo243, align 2
+  %hash_size244 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 20, ptr %hash_size244, align 1
+  %pad_size245 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size245, align 2
+  %static_ecdh246 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh246, align 1
   store i16 32, ptr %specs, align 2
   %block_size248 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size248, align 2
@@ -307,14 +579,54 @@ sw.bb238:                                         ; preds = %if.then126
 
 sw.bb250:                                         ; preds = %if.then126
   %bulk_cipher_algorithm251 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 7, i8 2, i8 4, i8 7, i8 3, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm251, align 2
-  store <4 x i16> <i16 16, i16 4, i16 16, i16 16>, ptr %specs, align 2
+  store i8 7, ptr %bulk_cipher_algorithm251, align 2
+  %cipher_type252 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type252, align 1
+  %mac_algorithm253 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm253, align 2
+  %kea254 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea254, align 1
+  %sig_algo255 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 3, ptr %sig_algo255, align 2
+  %hash_size256 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size256, align 1
+  %pad_size257 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size257, align 2
+  %static_ecdh258 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh258, align 1
+  store i16 16, ptr %specs, align 2
+  %block_size260 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size260, align 2
+  %iv_size261 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 4, ptr %iv_size261, align 2
+  %aead_mac_size262 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size262, align 2
   br label %if.end446
 
 sw.bb263:                                         ; preds = %if.then126
   %bulk_cipher_algorithm264 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 7, i8 2, i8 5, i8 7, i8 3, i8 48, i8 40, i8 0>, ptr %bulk_cipher_algorithm264, align 2
-  store <4 x i16> <i16 32, i16 4, i16 16, i16 16>, ptr %specs, align 2
+  store i8 7, ptr %bulk_cipher_algorithm264, align 2
+  %cipher_type265 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type265, align 1
+  %mac_algorithm266 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 5, ptr %mac_algorithm266, align 2
+  %kea267 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 7, ptr %kea267, align 1
+  %sig_algo268 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 3, ptr %sig_algo268, align 2
+  %hash_size269 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 48, ptr %hash_size269, align 1
+  %pad_size270 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size270, align 2
+  %static_ecdh271 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh271, align 1
+  store i16 32, ptr %specs, align 2
+  %block_size273 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size273, align 2
+  %iv_size274 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 4, ptr %iv_size274, align 2
+  %aead_mac_size275 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size275, align 2
   br label %if.end446
 
 if.then284:                                       ; preds = %if.end5
@@ -326,20 +638,80 @@ if.then284:                                       ; preds = %if.end5
 
 sw.bb286:                                         ; preds = %if.then284
   %bulk_cipher_algorithm287 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 7, i8 2, i8 4, i8 0, i8 0, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm287, align 2
-  store <4 x i16> <i16 16, i16 12, i16 16, i16 16>, ptr %specs, align 2
+  store i8 7, ptr %bulk_cipher_algorithm287, align 2
+  %cipher_type288 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type288, align 1
+  %mac_algorithm289 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm289, align 2
+  %kea290 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 0, ptr %kea290, align 1
+  %sig_algo291 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 0, ptr %sig_algo291, align 2
+  %hash_size292 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size292, align 1
+  %pad_size293 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size293, align 2
+  %static_ecdh294 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh294, align 1
+  store i16 16, ptr %specs, align 2
+  %block_size296 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size296, align 2
+  %iv_size297 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 12, ptr %iv_size297, align 2
+  %aead_mac_size298 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size298, align 2
   br label %if.end446
 
 sw.bb299:                                         ; preds = %if.then284
   %bulk_cipher_algorithm300 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 7, i8 2, i8 5, i8 0, i8 0, i8 48, i8 40, i8 0>, ptr %bulk_cipher_algorithm300, align 2
-  store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
+  store i8 7, ptr %bulk_cipher_algorithm300, align 2
+  %cipher_type301 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type301, align 1
+  %mac_algorithm302 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 5, ptr %mac_algorithm302, align 2
+  %kea303 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 0, ptr %kea303, align 1
+  %sig_algo304 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 0, ptr %sig_algo304, align 2
+  %hash_size305 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 48, ptr %hash_size305, align 1
+  %pad_size306 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size306, align 2
+  %static_ecdh307 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh307, align 1
+  store i16 32, ptr %specs, align 2
+  %block_size309 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size309, align 2
+  %iv_size310 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 12, ptr %iv_size310, align 2
+  %aead_mac_size311 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size311, align 2
   br label %if.end446
 
 sw.bb312:                                         ; preds = %if.then284
   %bulk_cipher_algorithm313 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 9, i8 2, i8 4, i8 0, i8 0, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm313, align 2
-  store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
+  store i8 9, ptr %bulk_cipher_algorithm313, align 2
+  %cipher_type314 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type314, align 1
+  %mac_algorithm315 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm315, align 2
+  %kea316 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 0, ptr %kea316, align 1
+  %sig_algo317 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 0, ptr %sig_algo317, align 2
+  %hash_size318 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size318, align 1
+  %pad_size319 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size319, align 2
+  %static_ecdh320 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh320, align 1
+  store i16 32, ptr %specs, align 2
+  %block_size322 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size322, align 2
+  %iv_size323 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 12, ptr %iv_size323, align 2
+  %aead_mac_size324 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size324, align 2
   %cmp325.not = icmp eq ptr %opts, null
   br i1 %cmp325.not, label %return, label %if.then327
 
@@ -362,7 +734,21 @@ if.then366:                                       ; preds = %if.end5
 
 sw.bb368:                                         ; preds = %if.then366
   %bulk_cipher_algorithm369 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 6, i8 1, i8 4, i8 2, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm369, align 2
+  store i8 6, ptr %bulk_cipher_algorithm369, align 2
+  %cipher_type370 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 1, ptr %cipher_type370, align 1
+  %mac_algorithm371 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm371, align 2
+  %kea372 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 2, ptr %kea372, align 1
+  %sig_algo373 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo373, align 2
+  %hash_size374 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size374, align 1
+  %pad_size375 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size375, align 2
+  %static_ecdh376 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh376, align 1
   store i16 16, ptr %specs, align 2
   %block_size378 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size378, align 2
@@ -372,7 +758,21 @@ sw.bb368:                                         ; preds = %if.then366
 
 sw.bb380:                                         ; preds = %if.then366
   %bulk_cipher_algorithm381 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 6, i8 1, i8 4, i8 2, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm381, align 2
+  store i8 6, ptr %bulk_cipher_algorithm381, align 2
+  %cipher_type382 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 1, ptr %cipher_type382, align 1
+  %mac_algorithm383 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm383, align 2
+  %kea384 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 2, ptr %kea384, align 1
+  %sig_algo385 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo385, align 2
+  %hash_size386 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size386, align 1
+  %pad_size387 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size387, align 2
+  %static_ecdh388 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh388, align 1
   store i16 32, ptr %specs, align 2
   %block_size390 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size390, align 2
@@ -382,7 +782,21 @@ sw.bb380:                                         ; preds = %if.then366
 
 sw.bb392:                                         ; preds = %if.then366
   %bulk_cipher_algorithm393 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 6, i8 1, i8 2, i8 2, i8 1, i8 20, i8 40, i8 0>, ptr %bulk_cipher_algorithm393, align 2
+  store i8 6, ptr %bulk_cipher_algorithm393, align 2
+  %cipher_type394 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 1, ptr %cipher_type394, align 1
+  %mac_algorithm395 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 2, ptr %mac_algorithm395, align 2
+  %kea396 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 2, ptr %kea396, align 1
+  %sig_algo397 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo397, align 2
+  %hash_size398 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 20, ptr %hash_size398, align 1
+  %pad_size399 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size399, align 2
+  %static_ecdh400 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh400, align 1
   store i16 16, ptr %specs, align 2
   %block_size402 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size402, align 2
@@ -392,7 +806,21 @@ sw.bb392:                                         ; preds = %if.then366
 
 sw.bb404:                                         ; preds = %if.then366
   %bulk_cipher_algorithm405 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 6, i8 1, i8 2, i8 2, i8 1, i8 20, i8 40, i8 0>, ptr %bulk_cipher_algorithm405, align 2
+  store i8 6, ptr %bulk_cipher_algorithm405, align 2
+  %cipher_type406 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 1, ptr %cipher_type406, align 1
+  %mac_algorithm407 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 2, ptr %mac_algorithm407, align 2
+  %kea408 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 2, ptr %kea408, align 1
+  %sig_algo409 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo409, align 2
+  %hash_size410 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 20, ptr %hash_size410, align 1
+  %pad_size411 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size411, align 2
+  %static_ecdh412 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh412, align 1
   store i16 32, ptr %specs, align 2
   %block_size414 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size414, align 2
@@ -402,14 +830,54 @@ sw.bb404:                                         ; preds = %if.then366
 
 sw.bb416:                                         ; preds = %if.then366
   %bulk_cipher_algorithm417 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 7, i8 2, i8 4, i8 2, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm417, align 2
-  store <4 x i16> <i16 16, i16 4, i16 16, i16 16>, ptr %specs, align 2
+  store i8 7, ptr %bulk_cipher_algorithm417, align 2
+  %cipher_type418 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type418, align 1
+  %mac_algorithm419 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 4, ptr %mac_algorithm419, align 2
+  %kea420 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 2, ptr %kea420, align 1
+  %sig_algo421 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo421, align 2
+  %hash_size422 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 32, ptr %hash_size422, align 1
+  %pad_size423 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size423, align 2
+  %static_ecdh424 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh424, align 1
+  store i16 16, ptr %specs, align 2
+  %block_size426 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size426, align 2
+  %iv_size427 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 4, ptr %iv_size427, align 2
+  %aead_mac_size428 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size428, align 2
   br label %if.end446
 
 sw.bb429:                                         ; preds = %if.then366
   %bulk_cipher_algorithm430 = getelementptr inbounds i8, ptr %specs, i64 8
-  store <8 x i8> <i8 7, i8 2, i8 5, i8 2, i8 1, i8 48, i8 40, i8 0>, ptr %bulk_cipher_algorithm430, align 2
-  store <4 x i16> <i16 32, i16 4, i16 16, i16 16>, ptr %specs, align 2
+  store i8 7, ptr %bulk_cipher_algorithm430, align 2
+  %cipher_type431 = getelementptr inbounds i8, ptr %specs, i64 9
+  store i8 2, ptr %cipher_type431, align 1
+  %mac_algorithm432 = getelementptr inbounds i8, ptr %specs, i64 10
+  store i8 5, ptr %mac_algorithm432, align 2
+  %kea433 = getelementptr inbounds i8, ptr %specs, i64 11
+  store i8 2, ptr %kea433, align 1
+  %sig_algo434 = getelementptr inbounds i8, ptr %specs, i64 12
+  store i8 1, ptr %sig_algo434, align 2
+  %hash_size435 = getelementptr inbounds i8, ptr %specs, i64 13
+  store i8 48, ptr %hash_size435, align 1
+  %pad_size436 = getelementptr inbounds i8, ptr %specs, i64 14
+  store i8 40, ptr %pad_size436, align 2
+  %static_ecdh437 = getelementptr inbounds i8, ptr %specs, i64 15
+  store i8 0, ptr %static_ecdh437, align 1
+  store i16 32, ptr %specs, align 2
+  %block_size439 = getelementptr inbounds i8, ptr %specs, i64 4
+  store i16 16, ptr %block_size439, align 2
+  %iv_size440 = getelementptr inbounds i8, ptr %specs, i64 2
+  store i16 4, ptr %iv_size440, align 2
+  %aead_mac_size441 = getelementptr inbounds i8, ptr %specs, i64 6
+  store i16 16, ptr %aead_mac_size441, align 2
   br label %if.end446
 
 if.end446:                                        ; preds = %if.then284, %if.then327, %sw.bb299, %sw.bb286, %sw.bb263, %sw.bb250, %sw.bb238, %sw.bb226, %sw.bb214, %sw.bb202, %sw.bb189, %sw.bb176, %sw.bb164, %sw.bb152, %sw.bb140, %sw.bb128, %if.then114, %if.then93, %if.then72, %if.then51, %if.then30, %if.then13, %if.end5, %sw.bb368, %sw.bb380, %sw.bb392, %sw.bb404, %sw.bb416, %sw.bb429

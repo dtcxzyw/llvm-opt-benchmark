@@ -2155,9 +2155,12 @@ if.end24:                                         ; preds = %if.end19
   %20 = load i64, ptr %0, align 8
   %add28 = add i64 %20, 1
   store i64 %add28, ptr %0, align 8
-  %21 = load <2 x i32>, ptr %integerAtSigns34, align 4
-  %22 = add nsw <2 x i32> %21, <i32 1, i32 1>
-  store <2 x i32> %22, ptr %integerAtSigns34, align 4
+  %21 = load i32, ptr %integerAtSigns34, align 4
+  %add30 = add nsw i32 %21, 1
+  store i32 %add30, ptr %integerAtSigns34, align 4
+  %22 = load i32, ptr %integerTotal45, align 8
+  %add32 = add nsw i32 %22, 1
+  store i32 %add32, ptr %integerTotal45, align 8
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %_ZN6icu_756number4impl17ParsedPatternInfo11ParserState4peekEv.exit, %_ZN6icu_756number4impl17ParsedPatternInfo11ParserState4peekEv.exit, %_ZN6icu_756number4impl17ParsedPatternInfo11ParserState4peekEv.exit, %_ZN6icu_756number4impl17ParsedPatternInfo11ParserState4peekEv.exit, %_ZN6icu_756number4impl17ParsedPatternInfo11ParserState4peekEv.exit, %_ZN6icu_756number4impl17ParsedPatternInfo11ParserState4peekEv.exit, %_ZN6icu_756number4impl17ParsedPatternInfo11ParserState4peekEv.exit, %_ZN6icu_756number4impl17ParsedPatternInfo11ParserState4peekEv.exit, %_ZN6icu_756number4impl17ParsedPatternInfo11ParserState4peekEv.exit, %_ZN6icu_756number4impl17ParsedPatternInfo11ParserState4peekEv.exit
@@ -2345,9 +2348,12 @@ sw.bb:                                            ; preds = %_ZN6icu_756number4i
   %8 = load i32, ptr %widthExceptAffixes7, align 4
   %add = add nsw i32 %8, 1
   store i32 %add, ptr %widthExceptAffixes7, align 4
-  %9 = load <2 x i32>, ptr %fractionHashSigns5, align 8
-  %10 = add nsw <2 x i32> %9, <i32 1, i32 1>
-  store <2 x i32> %10, ptr %fractionHashSigns5, align 8
+  %9 = load i32, ptr %fractionHashSigns5, align 8
+  %add2 = add nsw i32 %9, 1
+  store i32 %add2, ptr %fractionHashSigns5, align 8
+  %10 = load i32, ptr %fractionTotal10, align 4
+  %add3 = add nsw i32 %10, 1
+  store i32 %add3, ptr %fractionTotal10, align 4
   %inc = add nsw i32 %zeroCounter.042, 1
   br label %sw.epilog
 

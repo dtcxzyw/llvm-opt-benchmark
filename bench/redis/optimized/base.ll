@@ -1133,9 +1133,13 @@ if.end.i31:                                       ; preds = %malloc_mutex_lock.e
   store ptr %12, ptr %next.i, align 8
   store ptr %call3.i, ptr %blocks.i, align 8
   %allocated.i = getelementptr inbounds i8, ptr %base, i64 3928
-  %13 = load <2 x i64>, ptr %allocated.i, align 8
-  %14 = add <2 x i64> %13, <i64 144, i64 4096>
-  store <2 x i64> %14, ptr %allocated.i, align 8
+  %13 = load i64, ptr %allocated.i, align 8
+  %add.i = add i64 %13, 144
+  store i64 %add.i, ptr %allocated.i, align 8
+  %resident.i = getelementptr inbounds i8, ptr %base, i64 3936
+  %14 = load i64, ptr %resident.i, align 8
+  %add6.i = add i64 %14, 4096
+  store i64 %add6.i, ptr %resident.i, align 8
   %15 = load i64, ptr %call3.i, align 8
   %mapped.i = getelementptr inbounds i8, ptr %base, i64 3944
   %16 = load i64, ptr %mapped.i, align 8
